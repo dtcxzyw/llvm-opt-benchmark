@@ -78,7 +78,7 @@ _RINvMNtNtCsapf13pIxsjn_3std4sync9once_lockINtB3_8OnceLockINtNtCs1LoaDTb72WA_4co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB2_7vendors6Vendor8get_user(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB2_7vendors6Vendor8get_user(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [32 x i8], align 8
   %.sroa.6 = alloca [16 x i8], align 8
   %3 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_RNvCsjIaN6dkKMFO_12turborepo_ci6VENDOR, i64 8) acquire, align 8
@@ -105,7 +105,7 @@ _RNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB2_7vendors6Vendor5infer.exit: ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %13 = load i64, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
-  call void @_RINvNtCsapf13pIxsjn_3std3env3varReECs5bX43Qaz88Y_6chrono(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef %13)
+  call void @_RINvNtCsapf13pIxsjn_3std3env3varReECs5bX43Qaz88Y_6chrono(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef %13)
   %14 = load i64, ptr %2, align 8, !range !4, !noundef !5
   %trunc = trunc nuw i64 %14 to i1
   br i1 %trunc, label %20, label %16
@@ -235,7 +235,7 @@ _RINvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_4IterReENtNtNtNtBb_4iter6trait
   %43 = load ptr, ptr %42, align 8, !alias.scope !28, !noalias !31, !nonnull !5, !align !11, !noundef !5
   %44 = getelementptr inbounds i8, ptr %37, i64 -24
   %45 = load i64, ptr %44, align 8, !alias.scope !28, !noalias !31, !noundef !5
-  call void @_ZN3std3env4_var17he3acdd8672f87c77E(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 1 %43, i64 noundef %45), !noalias !25
+  call void @_ZN3std3env4_var17he3acdd8672f87c77E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 1 %43, i64 noundef %45), !noalias !25
   %46 = load i64, ptr %6, align 8, !range !4, !noundef !5
   %trunc = trunc nuw i64 %46 to i1
   br i1 %trunc, label %56, label %48
@@ -401,7 +401,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   %.val4.i = load i64, ptr %101, align 8, !alias.scope !35, !noalias !40, !noundef !5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !46
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1), !noalias !46
-  call void @_ZN3std3env4_var17he3acdd8672f87c77E(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val4.i), !noalias !47
+  call void @_ZN3std3env4_var17he3acdd8672f87c77E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val4.i), !noalias !47
   call void @llvm.experimental.noalias.scope.decl(metadata !50)
   call void @llvm.experimental.noalias.scope.decl(metadata !53)
   %102 = load i64, ptr %1, align 8, !range !4, !alias.scope !53, !noalias !55, !noundef !5
@@ -452,7 +452,7 @@ _RNCNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB4_7vendors6Vendor11infer_inner0B4_.exit.
   %111 = load ptr, ptr %.sroa.042.080, align 8, !alias.scope !64, !noalias !67, !nonnull !5, !align !11, !noundef !5
   %112 = getelementptr inbounds nuw i8, ptr %.sroa.042.080, i64 8
   %113 = load i64, ptr %112, align 8, !alias.scope !64, !noalias !67, !noundef !5
-  call void @_ZN3std3env4_var17he3acdd8672f87c77E(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %111, i64 noundef %113), !noalias !61
+  call void @_ZN3std3env4_var17he3acdd8672f87c77E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %111, i64 noundef %113), !noalias !61
   %114 = load i64, ptr %4, align 8, !range !4, !noundef !5
   %trunc13 = trunc nuw i64 %114 to i1
   %115 = load i64, ptr %13, align 8
@@ -640,19 +640,19 @@ declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, 
 declare void @_ZN4core9panicking16panic_in_cleanup17h1bb225b6f4388944E() unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_RINvNtCsapf13pIxsjn_3std3env3varReECs5bX43Qaz88Y_6chrono(ptr dead_on_unwind noalias nocapture noundef writable sret([32 x i8]) align 8 dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
+declare void @_RINvNtCsapf13pIxsjn_3std3env3varReECs5bX43Qaz88Y_6chrono(ptr dead_on_unwind noalias noundef writable sret([32 x i8]) align 8 captures(none) dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @_RNvXs3_NtNtCs1LoaDTb72WA_4core5slice3cmpShINtB5_14SlicePartialEqhE5equalCs51xJtAd1xJV_10num_traits(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: cold nonlazybind uwtable
 declare void @_RINvMNtNtCsapf13pIxsjn_3std4sync9once_lockINtB3_8OnceLockANtNtCsjIaN6dkKMFO_12turborepo_ci7vendors6Vendorj2d_E10initializeNCINvB2_11get_or_initNCNvBW_11get_vendors0E0zEBY_(ptr noundef nonnull align 8) unnamed_addr #5
@@ -673,7 +673,7 @@ declare void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5al
 declare noundef ptr @_RINvMsi_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_12RawIterRangeTReBV_EE9next_implKb0_ECsjIaN6dkKMFO_12turborepo_ci(ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN3std3env4_var17he3acdd8672f87c77E(ptr dead_on_unwind noalias nocapture noundef writable sret([32 x i8]) align 8 dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
+declare void @_ZN3std3env4_var17he3acdd8672f87c77E(ptr dead_on_unwind noalias noundef writable sret([32 x i8]) align 8 captures(none) dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #6

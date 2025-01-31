@@ -222,7 +222,7 @@ return:                                           ; preds = %if.then2, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_http(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 1)) %done) #0 {
+define hidden i32 @Curl_http(ptr noundef %data, ptr noundef writeonly captures(none) initializes((0, 1)) %done) #0 {
 entry:
   %te = alloca ptr, align 8
   %req = alloca %struct.dynbuf, align 8
@@ -832,7 +832,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_http_getsock_do(ptr noundef %data, ptr nocapture readnone %conn, ptr nocapture noundef writeonly initializes((0, 4)) %socks) #0 {
+define hidden noundef i32 @Curl_http_getsock_do(ptr noundef %data, ptr readnone captures(none) %conn, ptr noundef writeonly captures(none) initializes((0, 4)) %socks) #0 {
 entry:
   %call = tail call i32 @Curl_conn_get_socket(ptr noundef %data, i32 noundef 0) #12
   store i32 %call, ptr %socks, align 4
@@ -840,7 +840,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_http_write_resp(ptr noundef %data, ptr noundef %buf, i64 noundef %blen, i1 noundef zeroext %is_eos, ptr nocapture noundef initializes((0, 1)) %done) #0 {
+define hidden i32 @Curl_http_write_resp(ptr noundef %data, ptr noundef %buf, i64 noundef %blen, i1 noundef zeroext %is_eos, ptr noundef captures(none) initializes((0, 1)) %done) #0 {
 entry:
   %consumed = alloca i64, align 8
   store i8 0, ptr %done, align 1
@@ -881,7 +881,7 @@ declare void @Curl_conncontrol(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @Curl_conn_may_http3(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @Curl_checkProxyheaders(ptr nocapture noundef readonly %data, ptr nocapture noundef readonly %conn, ptr noundef %thisheader, i64 noundef %thislen) local_unnamed_addr #0 {
+define hidden ptr @Curl_checkProxyheaders(ptr noundef readonly captures(none) %data, ptr noundef readonly captures(none) %conn, ptr noundef %thisheader, i64 noundef %thislen) local_unnamed_addr #0 {
 entry:
   %bits = getelementptr inbounds nuw i8, ptr %conn, i64 704
   %bf.load = load i32, ptr %bits, align 8
@@ -1591,7 +1591,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_http_output_auth(ptr noundef %data, ptr nocapture noundef %conn, ptr noundef %request, i32 noundef %httpreq, ptr noundef %path, i1 noundef zeroext %proxytunnel) local_unnamed_addr #0 {
+define hidden i32 @Curl_http_output_auth(ptr noundef %data, ptr noundef captures(none) %conn, ptr noundef %request, i32 noundef %httpreq, ptr noundef %path, i1 noundef zeroext %proxytunnel) local_unnamed_addr #0 {
 entry:
   %authhost1 = getelementptr inbounds nuw i8, ptr %data, i64 3560
   %authproxy3 = getelementptr inbounds nuw i8, ptr %data, i64 3592
@@ -1749,7 +1749,7 @@ return:                                           ; preds = %if.then45, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @output_auth_headers(ptr noundef %data, ptr nocapture noundef readonly %conn, ptr nocapture noundef %authstatus, ptr noundef %request, ptr noundef %path, i1 noundef zeroext %proxy) unnamed_addr #0 {
+define internal fastcc i32 @output_auth_headers(ptr noundef %data, ptr noundef readonly captures(none) %conn, ptr noundef captures(none) %authstatus, ptr noundef %request, ptr noundef %path, i1 noundef zeroext %proxy) unnamed_addr #0 {
 entry:
   %size.i = alloca i64, align 8
   %authorization.i = alloca ptr, align 8
@@ -2323,7 +2323,7 @@ declare zeroext i1 @Curl_auth_is_digest_supported() local_unnamed_addr #1
 declare i32 @Curl_input_digest(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_buffer_send(ptr noundef %in, ptr noundef %data, ptr noundef %http, ptr nocapture noundef %bytes_written, i64 noundef %included_body_bytes, i32 noundef %sockindex) local_unnamed_addr #0 {
+define hidden i32 @Curl_buffer_send(ptr noundef %in, ptr noundef %data, ptr noundef %http, ptr noundef captures(none) %bytes_written, i64 noundef %included_body_bytes, i32 noundef %sockindex) local_unnamed_addr #0 {
 entry:
   %amount = alloca i64, align 8
   %conn1 = getelementptr inbounds nuw i8, ptr %data, i64 32
@@ -2501,7 +2501,7 @@ declare i32 @Curl_get_upload_buffer(ptr noundef) local_unnamed_addr #1
 declare void @Curl_dyn_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @Curl_nwrite(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2510,7 +2510,7 @@ declare void @Curl_debug(ptr noundef, i32 noundef, ptr noundef, i64 noundef) loc
 declare void @Curl_pgrsSetUploadCounter(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i64 @readmoredata(ptr nocapture noundef writeonly %buffer, i64 noundef %size, i64 noundef %nitems, ptr nocapture noundef %userp) #4 {
+define internal i64 @readmoredata(ptr noundef writeonly captures(none) %buffer, i64 noundef %size, i64 noundef %nitems, ptr noundef captures(none) %userp) #4 {
 entry:
   %backup = getelementptr inbounds nuw i8, ptr %userp, i64 16
   %data1 = getelementptr inbounds nuw i8, ptr %userp, i64 48
@@ -2669,7 +2669,7 @@ declare i32 @Curl_conn_get_socket(ptr noundef, i32 noundef) local_unnamed_addr #
 declare void @Curl_dyn_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden zeroext i1 @Curl_use_http_1_1plus(ptr nocapture noundef readonly %data, ptr nocapture noundef readonly %conn) local_unnamed_addr #5 {
+define hidden zeroext i1 @Curl_use_http_1_1plus(ptr noundef readonly captures(none) %data, ptr noundef readonly captures(none) %conn) local_unnamed_addr #5 {
 entry:
   %httpversion = getelementptr inbounds nuw i8, ptr %data, i64 5041
   %0 = load i8, ptr %httpversion, align 1
@@ -2733,7 +2733,7 @@ land.lhs.true:                                    ; preds = %while.body
   br i1 %cmp, label %if.then8, label %do.body
 
 if.then8:                                         ; preds = %land.lhs.true
-  %call10 = tail call i32 @Curl_dyn_add(ptr noundef %b, ptr noundef %2) #12
+  %call10 = tail call i32 @Curl_dyn_add(ptr noundef %b, ptr noundef nonnull %2) #12
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.end13, label %return
 
@@ -2919,7 +2919,7 @@ do.end:                                           ; preds = %while.cond82, %whil
   br i1 %or.cond139, label %hd_name_eq.exit, label %if.else116
 
 hd_name_eq.exit:                                  ; preds = %do.end
-  %call.i = tail call i32 @curl_strnequal(ptr noundef %8, ptr noundef nonnull @.str.15, i64 noundef 5) #12
+  %call.i = tail call i32 @curl_strnequal(ptr noundef nonnull %8, ptr noundef nonnull @.str.15, i64 noundef 5) #12
   %tobool.i.not = icmp eq i32 %call.i, 0
   br i1 %tobool.i.not, label %if.else170, label %for.inc
 
@@ -2933,7 +2933,7 @@ land.lhs.true121:                                 ; preds = %if.else116
   br i1 %cmp.i65, label %hd_name_eq.exit70, label %if.else135
 
 hd_name_eq.exit70:                                ; preds = %land.lhs.true121
-  %call.i68 = tail call i32 @curl_strnequal(ptr noundef %8, ptr noundef nonnull @.str.16, i64 noundef 13) #12
+  %call.i68 = tail call i32 @curl_strnequal(ptr noundef nonnull %8, ptr noundef nonnull @.str.16, i64 noundef 13) #12
   %tobool.i69.not = icmp eq i32 %call.i68, 0
   br i1 %tobool.i69.not, label %hd_name_eq.exit70.if.else125thread-pre-split_crit_edge, label %for.inc
 
@@ -2949,7 +2949,7 @@ if.else125:                                       ; preds = %hd_name_eq.exit70.i
   br i1 %or.cond140, label %hd_name_eq.exit76, label %if.else135
 
 hd_name_eq.exit76:                                ; preds = %if.else125
-  %call.i74 = tail call i32 @curl_strnequal(ptr noundef %8, ptr noundef nonnull @.str.16, i64 noundef 13) #12
+  %call.i74 = tail call i32 @curl_strnequal(ptr noundef nonnull %8, ptr noundef nonnull @.str.16, i64 noundef 13) #12
   %tobool.i75.not = icmp eq i32 %call.i74, 0
   br i1 %tobool.i75.not, label %if.else170, label %for.inc
 
@@ -2962,7 +2962,7 @@ if.else135:                                       ; preds = %land.lhs.true121, %
   br i1 %or.cond141, label %hd_name_eq.exit82, label %if.else145
 
 hd_name_eq.exit82:                                ; preds = %if.else135
-  %call.i80 = tail call i32 @curl_strnequal(ptr noundef %8, ptr noundef nonnull @.str.17, i64 noundef 15) #12
+  %call.i80 = tail call i32 @curl_strnequal(ptr noundef nonnull %8, ptr noundef nonnull @.str.17, i64 noundef 15) #12
   %tobool.i81.not = icmp eq i32 %call.i80, 0
   br i1 %tobool.i81.not, label %if.else170, label %for.inc
 
@@ -2974,7 +2974,7 @@ if.else145:                                       ; preds = %if.else135
   br i1 %or.cond142, label %hd_name_eq.exit88, label %if.else153
 
 hd_name_eq.exit88:                                ; preds = %if.else145
-  %call.i86 = tail call i32 @curl_strnequal(ptr noundef %8, ptr noundef nonnull @.str.18, i64 noundef 11) #12
+  %call.i86 = tail call i32 @curl_strnequal(ptr noundef nonnull %8, ptr noundef nonnull @.str.18, i64 noundef 11) #12
   %tobool.i87.not = icmp eq i32 %call.i86, 0
   br i1 %tobool.i87.not, label %if.else170, label %for.inc
 
@@ -2986,7 +2986,7 @@ if.else153:                                       ; preds = %if.else145
   br i1 %or.cond143, label %hd_name_eq.exit94, label %if.else161
 
 hd_name_eq.exit94:                                ; preds = %if.else153
-  %call.i92 = tail call i32 @curl_strnequal(ptr noundef %8, ptr noundef nonnull @.str.19, i64 noundef 18) #12
+  %call.i92 = tail call i32 @curl_strnequal(ptr noundef nonnull %8, ptr noundef nonnull @.str.19, i64 noundef 18) #12
   %tobool.i93.not = icmp eq i32 %call.i92, 0
   br i1 %tobool.i93.not, label %if.else170, label %for.inc
 
@@ -2997,12 +2997,12 @@ if.else161:                                       ; preds = %if.else153
   ]
 
 hd_name_eq.exit100:                               ; preds = %if.else161
-  %call.i98 = tail call i32 @curl_strnequal(ptr noundef %8, ptr noundef nonnull @.str.20, i64 noundef 14) #12
+  %call.i98 = tail call i32 @curl_strnequal(ptr noundef nonnull %8, ptr noundef nonnull @.str.20, i64 noundef 14) #12
   %tobool.i99.not = icmp eq i32 %call.i98, 0
   br i1 %tobool.i99.not, label %if.else170, label %land.lhs.true167
 
 hd_name_eq.exit106:                               ; preds = %if.else161
-  %call.i104 = tail call i32 @curl_strnequal(ptr noundef %8, ptr noundef nonnull @.str.21, i64 noundef 7) #12
+  %call.i104 = tail call i32 @curl_strnequal(ptr noundef nonnull %8, ptr noundef nonnull @.str.21, i64 noundef 7) #12
   %tobool.i105.not = icmp eq i32 %call.i104, 0
   br i1 %tobool.i105.not, label %if.else170, label %land.lhs.true167
 
@@ -3011,7 +3011,7 @@ land.lhs.true167:                                 ; preds = %hd_name_eq.exit106,
   br i1 %call168, label %if.else170, label %for.inc
 
 if.else170:                                       ; preds = %hd_name_eq.exit, %hd_name_eq.exit76, %hd_name_eq.exit82, %hd_name_eq.exit88, %if.else161, %hd_name_eq.exit100, %hd_name_eq.exit94, %land.lhs.true167, %hd_name_eq.exit106
-  %call171 = tail call i32 @Curl_dynhds_add(ptr noundef %hds, ptr noundef %8, i64 noundef %namelen.0, ptr noundef nonnull %value.0, i64 noundef %valuelen.0) #12
+  %call171 = tail call i32 @Curl_dynhds_add(ptr noundef %hds, ptr noundef nonnull %8, i64 noundef %namelen.0, ptr noundef nonnull %value.0, i64 noundef %valuelen.0) #12
   %tobool172.not = icmp eq i32 %call171, 0
   br i1 %tobool172.not, label %for.inc, label %return
 
@@ -3032,7 +3032,7 @@ return:                                           ; preds = %for.inc182, %if.els
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @Curl_dynhds_add(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -3144,7 +3144,7 @@ if.else69:                                        ; preds = %while.cond47, %whil
 
 if.then74:                                        ; preds = %if.else69
   %12 = load ptr, ptr @Curl_cstrdup, align 8
-  %call76 = tail call ptr %12(ptr noundef %8) #12
+  %call76 = tail call ptr %12(ptr noundef nonnull %8) #12
   %tobool77.not = icmp eq ptr %call76, null
   br i1 %tobool77.not, label %if.then78, label %if.end79
 
@@ -3389,7 +3389,7 @@ declare ptr @Curl_checkheaders(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @Curl_http_method(ptr nocapture noundef readonly %data, ptr nocapture noundef readonly %conn, ptr nocapture noundef writeonly initializes((0, 8)) %method, ptr nocapture noundef writeonly initializes((0, 4)) %reqp) local_unnamed_addr #6 {
+define hidden void @Curl_http_method(ptr noundef readonly captures(none) %data, ptr noundef readonly captures(none) %conn, ptr noundef writeonly captures(none) initializes((0, 8)) %method, ptr noundef writeonly captures(none) initializes((0, 4)) %reqp) local_unnamed_addr #6 {
 entry:
   %httpreq1 = getelementptr inbounds nuw i8, ptr %data, i64 5042
   %0 = load i8, ptr %httpreq1, align 2
@@ -3462,7 +3462,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 28) i32 @Curl_http_host(ptr noundef %data, ptr nocapture noundef readonly %conn) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_http_host(ptr noundef %data, ptr noundef readonly captures(none) %conn) local_unnamed_addr #0 {
 entry:
   %this_is_a_follow = getelementptr inbounds nuw i8, ptr %data, i64 5044
   %bf.load = load i32, ptr %this_is_a_follow, align 4
@@ -3640,15 +3640,15 @@ return:                                           ; preds = %if.end114, %if.then
 declare i32 @curl_strequal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @curl_maprintf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_http_target(ptr nocapture noundef readonly %data, ptr nocapture noundef readonly %conn, ptr noundef %r) local_unnamed_addr #0 {
+define hidden i32 @Curl_http_target(ptr noundef readonly captures(none) %data, ptr noundef readonly captures(none) %conn, ptr noundef %r) local_unnamed_addr #0 {
 entry:
   %url = alloca ptr, align 8
   %up = getelementptr inbounds nuw i8, ptr %data, i64 4632
@@ -3816,12 +3816,12 @@ declare void @curl_url_cleanup(ptr noundef) local_unnamed_addr #1
 declare i32 @curl_url_get(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 declare signext i8 @Curl_raw_toupper(i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_http_body(ptr noundef %data, ptr nocapture noundef readonly %conn, i32 noundef %httpreq, ptr nocapture noundef writeonly %tep) local_unnamed_addr #0 {
+define hidden i32 @Curl_http_body(ptr noundef %data, ptr noundef readonly captures(none) %conn, i32 noundef %httpreq, ptr noundef writeonly captures(none) %tep) local_unnamed_addr #0 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %data, i64 392
   %0 = load ptr, ptr %p, align 8
@@ -3930,7 +3930,7 @@ if.end47:                                         ; preds = %if.end47.loopexit, 
   %16 = load ptr, ptr %headers, align 8
   %call51 = tail call i32 @curl_mime_headers(ptr noundef %15, ptr noundef %16, i32 noundef 0) #12
   %17 = load ptr, ptr %mimepost3264, align 8
-  %call54 = tail call i32 @Curl_mime_prepare_headers(ptr noundef %data, ptr noundef %17, ptr noundef %cthdr.1, ptr noundef null, i32 noundef 1) #12
+  %call54 = tail call i32 @Curl_mime_prepare_headers(ptr noundef nonnull %data, ptr noundef %17, ptr noundef %cthdr.1, ptr noundef null, i32 noundef 1) #12
   %18 = load ptr, ptr %mimepost3264, align 8
   %call57 = tail call i32 @curl_mime_headers(ptr noundef %18, ptr noundef null, i32 noundef 0) #12
   %tobool58.not = icmp eq i32 %call54, 0
@@ -4073,7 +4073,7 @@ declare i32 @Curl_mime_rewind(ptr noundef) local_unnamed_addr #1
 declare i64 @Curl_mime_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_http_bodysend(ptr noundef %data, ptr nocapture noundef readonly %conn, ptr noundef %r, i32 noundef %httpreq) local_unnamed_addr #0 {
+define hidden i32 @Curl_http_bodysend(ptr noundef %data, ptr noundef readonly captures(none) %conn, ptr noundef %r, i32 noundef %httpreq) local_unnamed_addr #0 {
 entry:
   %chunk = alloca [16 x i8], align 16
   %p = getelementptr inbounds nuw i8, ptr %data, i64 392
@@ -4522,7 +4522,7 @@ return:                                           ; preds = %for.body, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @addexpect(ptr noundef %data, ptr nocapture noundef readonly %conn, ptr noundef %r) unnamed_addr #0 {
+define internal fastcc i32 @addexpect(ptr noundef %data, ptr noundef readonly captures(none) %conn, ptr noundef %r) unnamed_addr #0 {
 entry:
   %expect100header = getelementptr inbounds nuw i8, ptr %data, i64 5044
   %bf.load = load i32, ptr %expect100header, align 4
@@ -4621,7 +4621,7 @@ declare void @Curl_setup_transfer(ptr noundef, i32 noundef, i64 noundef, i1 noun
 declare i64 @Curl_mime_read(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_http_cookies(ptr noundef %data, ptr nocapture noundef readonly %conn, ptr noundef %r) local_unnamed_addr #0 {
+define hidden i32 @Curl_http_cookies(ptr noundef %data, ptr noundef readonly captures(none) %conn, ptr noundef %r) local_unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %data, i64 1848
   %0 = load ptr, ptr %arrayidx, align 8
@@ -4735,13 +4735,9 @@ if.end48:                                         ; preds = %if.then43.if.end48_
   %add54 = add i64 %add53, %call52
   %add55 = add i64 %add54, %clen.068
   %cmp = icmp ugt i64 %add55, 8189
-  br i1 %cmp, label %do.body, label %if.end67
+  br i1 %cmp, label %land.lhs.true58, label %if.end67
 
-do.body:                                          ; preds = %if.end48
-  %tobool57.not = icmp eq ptr %data, null
-  br i1 %tobool57.not, label %while.end, label %land.lhs.true58
-
-land.lhs.true58:                                  ; preds = %do.body
+land.lhs.true58:                                  ; preds = %if.end48
   %verbose = getelementptr inbounds nuw i8, ptr %data, i64 2706
   %bf.load60 = load i64, ptr %verbose, align 2
   %14 = and i64 %bf.load60, 536870912
@@ -4749,12 +4745,12 @@ land.lhs.true58:                                  ; preds = %do.body
   br i1 %tobool63.not, label %while.end, label %if.then64
 
 if.then64:                                        ; preds = %land.lhs.true58
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.65, ptr noundef %13) #12
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.65, ptr noundef nonnull %13) #12
   br label %while.end
 
 if.end67:                                         ; preds = %if.end48
   %cond69 = select i1 %tobool42.not, ptr @.str.14, ptr @.str.67
-  %call72 = tail call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef %r, ptr noundef nonnull @.str.66, ptr noundef nonnull %cond69, ptr noundef %13, ptr noundef %12) #12
+  %call72 = tail call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef %r, ptr noundef nonnull @.str.66, ptr noundef nonnull %cond69, ptr noundef nonnull %13, ptr noundef nonnull %12) #12
   %tobool73.not = icmp eq i32 %call72, 0
   br i1 %tobool73.not, label %if.end75, label %while.end
 
@@ -4772,10 +4768,10 @@ if.end80:                                         ; preds = %if.end75, %while.bo
   %tobool39.not = icmp eq ptr %15, null
   br i1 %tobool39.not, label %while.end, label %while.body, !llvm.loop !25
 
-while.end:                                        ; preds = %if.end67, %if.then43, %if.end80, %if.then64, %land.lhs.true58, %do.body
-  %count.165 = phi i32 [ %count.167, %do.body ], [ %count.167, %land.lhs.true58 ], [ %count.167, %if.then64 ], [ %count.2, %if.end80 ], [ 0, %if.then43 ], [ %count.167, %if.end67 ]
-  %linecap.1 = phi i1 [ true, %do.body ], [ true, %land.lhs.true58 ], [ true, %if.then64 ], [ false, %if.end80 ], [ false, %if.then43 ], [ false, %if.end67 ]
-  %result.3 = phi i32 [ 0, %do.body ], [ 0, %land.lhs.true58 ], [ 0, %if.then64 ], [ 0, %if.end80 ], [ %call44, %if.then43 ], [ %call72, %if.end67 ]
+while.end:                                        ; preds = %if.end67, %if.then43, %if.end80, %if.then64, %land.lhs.true58
+  %count.165 = phi i32 [ %count.167, %land.lhs.true58 ], [ %count.167, %if.then64 ], [ %count.2, %if.end80 ], [ 0, %if.then43 ], [ %count.167, %if.end67 ]
+  %linecap.1 = phi i1 [ true, %land.lhs.true58 ], [ true, %if.then64 ], [ false, %if.end80 ], [ false, %if.then43 ], [ false, %if.end67 ]
+  %result.3 = phi i32 [ 0, %land.lhs.true58 ], [ 0, %if.then64 ], [ 0, %if.end80 ], [ %call44, %if.then43 ], [ %call72, %if.end67 ]
   tail call void @Curl_cookie_freelist(ptr noundef nonnull %call34) #12
   br label %if.end81
 
@@ -4937,7 +4933,7 @@ return:                                           ; preds = %if.end53, %if.end62
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 27) i32 @Curl_http_resume(ptr noundef %data, ptr nocapture noundef readonly %conn, i32 noundef %httpreq) local_unnamed_addr #0 {
+define hidden range(i32 0, 27) i32 @Curl_http_resume(ptr noundef %data, ptr noundef readonly captures(none) %conn, i32 noundef %httpreq) local_unnamed_addr #0 {
 entry:
   switch i32 %httpreq, label %return [
     i32 4, label %land.lhs.true
@@ -5055,7 +5051,7 @@ declare void @Curl_set_in_callback(ptr noundef, i1 noundef zeroext) local_unname
 declare i64 @curlx_sotouz(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 34) i32 @Curl_http_firstwrite(ptr noundef %data, ptr noundef %conn, ptr nocapture noundef writeonly initializes((0, 1)) %done) local_unnamed_addr #0 {
+define hidden range(i32 0, 34) i32 @Curl_http_firstwrite(ptr noundef %data, ptr noundef %conn, ptr noundef writeonly captures(none) initializes((0, 1)) %done) local_unnamed_addr #0 {
 entry:
   %req = getelementptr inbounds nuw i8, ptr %data, i64 224
   store i8 0, ptr %done, align 1
@@ -6135,7 +6131,7 @@ return:                                           ; preds = %if.else, %if.end31,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_http_write_resp_hds(ptr noundef %data, ptr noundef %buf, i64 noundef %blen, ptr nocapture noundef initializes((0, 8)) %pconsumed, ptr nocapture noundef writeonly initializes((0, 1)) %done) local_unnamed_addr #0 {
+define hidden i32 @Curl_http_write_resp_hds(ptr noundef %data, ptr noundef %buf, i64 noundef %blen, ptr noundef captures(none) initializes((0, 8)) %pconsumed, ptr noundef writeonly captures(none) initializes((0, 1)) %done) local_unnamed_addr #0 {
 entry:
   store i8 0, ptr %done, align 1
   %header = getelementptr inbounds nuw i8, ptr %data, i64 411
@@ -6280,7 +6276,7 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i, %while.
   %9 = load ptr, ptr %head.017.i.i.i, align 8
   %call.i.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #13
   %call.len.i.i6.i.i = tail call i64 @llvm.umin.i64(i64 %call.i.i.i.i, i64 %call40.i)
-  %call2.i.i7.i.i = tail call i32 @curl_strnequal(ptr noundef %9, ptr noundef %call37.i, i64 noundef %call.len.i.i6.i.i) #12
+  %call2.i.i7.i.i = tail call i32 @curl_strnequal(ptr noundef nonnull %9, ptr noundef %call37.i, i64 noundef %call.len.i.i6.i.i) #12
   %tobool.i.not.i8.i.i = icmp eq i32 %call2.i.i7.i.i, 0
   br i1 %tobool.i.not.i8.i.i, label %while.cond.i.i.i, label %while.end.i.i.i
 
@@ -7085,7 +7081,7 @@ while.body.i.i:                                   ; preds = %if.else737.i, %whil
   %109 = load ptr, ptr %head.017.i.i, align 8
   %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %109) #13
   %call.len.i.i.i = tail call i64 @llvm.umin.i64(i64 %call.i.i.i, i64 %call743.i)
-  %call2.i.i.i = tail call i32 @curl_strnequal(ptr noundef %109, ptr noundef %call740.i, i64 noundef %call.len.i.i.i) #12
+  %call2.i.i.i = tail call i32 @curl_strnequal(ptr noundef nonnull %109, ptr noundef %call740.i, i64 noundef %call.len.i.i.i) #12
   %tobool.i.not.i.i = icmp eq i32 %call2.i.i.i, 0
   br i1 %tobool.i.not.i.i, label %while.cond.i.i, label %while.end.i.i
 
@@ -7365,7 +7361,7 @@ return:                                           ; preds = %if.end22.i, %if.end
 declare i32 @Curl_client_write(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 44) i32 @Curl_http_decode_status(ptr nocapture noundef writeonly %pstatus, ptr nocapture noundef readonly %s, i64 noundef %len) local_unnamed_addr #8 {
+define hidden range(i32 0, 44) i32 @Curl_http_decode_status(ptr noundef writeonly captures(none) %pstatus, ptr noundef readonly captures(none) %s, i64 noundef %len) local_unnamed_addr #8 {
 entry:
   %cmp.not = icmp eq i64 %len, 3
   br i1 %cmp.not, label %for.body, label %out
@@ -7396,7 +7392,7 @@ out:                                              ; preds = %if.end8, %for.body,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 44) i32 @Curl_http_req_make(ptr nocapture noundef writeonly %preq, ptr nocapture noundef readonly %method, i64 noundef %m_len, ptr noundef %scheme, i64 noundef %s_len, ptr noundef %authority, i64 noundef %a_len, ptr noundef %path, i64 noundef %p_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 44) i32 @Curl_http_req_make(ptr noundef writeonly captures(none) %preq, ptr noundef readonly captures(none) %method, i64 noundef %m_len, ptr noundef %scheme, i64 noundef %s_len, ptr noundef %authority, i64 noundef %a_len, ptr noundef %path, i64 noundef %p_len) local_unnamed_addr #0 {
 entry:
   %0 = add i64 %m_len, -24
   %cmp = icmp ult i64 %0, -25
@@ -7515,7 +7511,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_http_req_make2(ptr nocapture noundef writeonly %preq, ptr nocapture noundef readonly %method, i64 noundef %m_len, ptr noundef %url, ptr noundef %scheme_default) local_unnamed_addr #0 {
+define hidden i32 @Curl_http_req_make2(ptr noundef writeonly captures(none) %preq, ptr noundef readonly captures(none) %method, i64 noundef %m_len, ptr noundef %url, ptr noundef %scheme_default) local_unnamed_addr #0 {
 entry:
   %path.i = alloca ptr, align 8
   %query.i = alloca ptr, align 8
@@ -8015,7 +8011,7 @@ declare i64 @Curl_dynhds_count(ptr noundef) local_unnamed_addr #1
 declare ptr @Curl_dynhds_getn(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 28) i32 @Curl_http_resp_make(ptr nocapture noundef writeonly initializes((0, 8)) %presp, i32 noundef %status, ptr noundef %description) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_http_resp_make(ptr noundef writeonly captures(none) initializes((0, 8)) %presp, i32 noundef %status, ptr noundef %description) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @Curl_ccalloc, align 8
   %call = tail call ptr %0(i64 noundef 1, i64 noundef 136) #12
@@ -8098,7 +8094,7 @@ declare i32 @Curl_base64_encode(ptr noundef, i64 noundef, ptr noundef, ptr nound
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @checkprotoprefix(ptr nocapture noundef readonly %data, i32 %conn.712.val.132.val, ptr noundef %s, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @checkprotoprefix(ptr noundef readonly captures(none) %data, i32 %conn.712.val.132.val, ptr noundef %s, i64 noundef %len) unnamed_addr #0 {
 entry:
   %and = and i32 %conn.712.val.132.val, 262144
   %tobool.not = icmp eq i32 %and, 0
@@ -8132,7 +8128,7 @@ while.body.i:                                     ; preds = %if.end, %while.cond
   %0 = load ptr, ptr %head.017.i, align 8
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
   %call.len.i.i6 = tail call i64 @llvm.umin.i64(i64 %call.i.i, i64 %len)
-  %call2.i.i7 = tail call i32 @curl_strnequal(ptr noundef %0, ptr noundef %s, i64 noundef %call.len.i.i6) #12
+  %call2.i.i7 = tail call i32 @curl_strnequal(ptr noundef nonnull %0, ptr noundef %s, i64 noundef %call.len.i.i6) #12
   %tobool.i.not.i8 = icmp eq i32 %call2.i.i7, 0
   br i1 %tobool.i.not.i8, label %while.cond.i, label %while.end.i
 
@@ -8157,19 +8153,19 @@ declare void @Curl_multi_connchanged(ptr noundef) local_unnamed_addr #1
 declare i32 @Curl_done_sending(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

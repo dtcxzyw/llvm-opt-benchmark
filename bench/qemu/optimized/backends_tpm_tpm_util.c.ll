@@ -110,7 +110,7 @@ return:                                           ; preds = %entry, %if.end10
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @release_tpm(ptr noundef %obj, ptr nocapture readnone %name, ptr noundef %opaque) #0 {
+define internal void @release_tpm(ptr noundef %obj, ptr readnone captures(none) %name, ptr noundef %opaque) #0 {
 entry:
   %call = tail call ptr @object_field_prop_ptr(ptr noundef %obj, ptr noundef %opaque) #11
   %0 = load ptr, ptr %call, align 8
@@ -126,7 +126,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @tpm_util_write_fatal_error_response(ptr nocapture noundef writeonly %out, i32 noundef %out_len) local_unnamed_addr #1 {
+define dso_local void @tpm_util_write_fatal_error_response(ptr noundef writeonly captures(none) %out, i32 noundef %out_len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ugt i32 %out_len, 9
   br i1 %cmp, label %if.then, label %if.end
@@ -144,7 +144,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @tpm_util_is_selftest(ptr nocapture noundef readonly %in, i32 noundef %in_len) local_unnamed_addr #2 {
+define dso_local zeroext i1 @tpm_util_is_selftest(ptr noundef readonly captures(none) %in, i32 noundef %in_len) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ugt i32 %in_len, 9
   br i1 %cmp, label %if.then, label %return
@@ -161,7 +161,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @tpm_util_test_tpmdev(i32 noundef %tpm_fd, ptr nocapture noundef writeonly initializes((0, 4)) %tpm_version) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @tpm_util_test_tpmdev(i32 noundef %tpm_fd, ptr noundef writeonly captures(none) initializes((0, 4)) %tpm_version) local_unnamed_addr #0 {
 entry:
   %buf.i6 = alloca [1024 x i8], align 16
   %buf.i = alloca [1024 x i8], align 16
@@ -219,7 +219,7 @@ return:                                           ; preds = %tpm_util_test.exit1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @tpm_util_get_buffer_size(i32 noundef %tpm_fd, i32 noundef %tpm_version, ptr nocapture noundef %buffersize) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @tpm_util_get_buffer_size(i32 noundef %tpm_fd, i32 noundef %tpm_version, ptr noundef captures(none) %buffersize) local_unnamed_addr #0 {
 entry:
   %_now.i.i51 = alloca %struct.timeval, align 8
   %_now.i.i37 = alloca %struct.timeval, align 8
@@ -510,7 +510,7 @@ return:                                           ; preds = %entry, %sw.bb30, %s
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @tpm_util_request(i32 noundef %fd, ptr nocapture noundef nonnull readonly %request, i64 noundef range(i64 10, 23) %requestlen, ptr nocapture noundef nonnull %response, i64 noundef range(i64 18, 1025) %responselen) unnamed_addr #0 {
+define internal fastcc i32 @tpm_util_request(i32 noundef %fd, ptr noundef nonnull readonly captures(none) %request, i64 noundef range(i64 10, 23) %requestlen, ptr noundef nonnull captures(none) %response, i64 noundef range(i64 18, 1025) %responselen) unnamed_addr #0 {
 entry:
   %fds = alloca [1 x %struct._GPollFD], align 4
   store i32 %fd, ptr %fds, align 4
@@ -579,7 +579,7 @@ return:                                           ; preds = %if.end27, %if.end20
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tpm_sized_buffer_reset(ptr nocapture noundef initializes((0, 4)) %tsb) local_unnamed_addr #0 {
+define dso_local void @tpm_sized_buffer_reset(ptr noundef captures(none) initializes((0, 4)) %tsb) local_unnamed_addr #0 {
 entry:
   %buffer = getelementptr inbounds nuw i8, ptr %tsb, i64 8
   %0 = load ptr, ptr %buffer, align 8
@@ -592,7 +592,7 @@ entry:
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tpm_util_show_buffer(ptr nocapture noundef readonly %buffer, i64 noundef %buffer_size, ptr noundef %string) local_unnamed_addr #0 {
+define dso_local void @tpm_util_show_buffer(ptr noundef readonly captures(none) %buffer, i64 noundef %buffer_size, ptr noundef %string) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load i32, ptr @trace_events_enabled_count, align 4
@@ -688,7 +688,7 @@ return:                                           ; preds = %entry, %trace_tpm_u
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare ptr @object_field_prop_ptr(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -712,7 +712,7 @@ declare void @tpm_backend_reset(ptr noundef) local_unnamed_addr #3
 declare i32 @llvm.bswap.i32(i32) #6
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #8
@@ -720,10 +720,10 @@ declare ptr @__errno_location() local_unnamed_addr #8
 declare i32 @g_poll(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #3
 
@@ -736,10 +736,10 @@ declare i32 @llvm.umax.i32(i32, i32) #9
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

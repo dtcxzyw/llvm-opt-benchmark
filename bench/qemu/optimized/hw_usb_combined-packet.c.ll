@@ -170,7 +170,7 @@ declare void @usb_packet_complete_one(ptr noundef, ptr noundef) local_unnamed_ad
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @usb_ep_combine_input_packets(ptr nocapture noundef readonly %ep) local_unnamed_addr #0 {
+define dso_local void @usb_ep_combine_input_packets(ptr noundef readonly captures(none) %ep) local_unnamed_addr #0 {
 entry:
   %dev = getelementptr inbounds nuw i8, ptr %ep, i64 16
   %0 = load ptr, ptr %dev, align 8
@@ -468,7 +468,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare void @qemu_iovec_concat(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

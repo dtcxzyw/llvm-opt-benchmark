@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @InvalidObjectAddress = external local_unnamed_addr constant %struct.ObjectAddress, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @StoreAttrDefault(ptr nocapture noundef readonly %0, i16 noundef signext %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local i32 @StoreAttrDefault(ptr noundef readonly captures(none) %0, i16 noundef signext %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca [4 x i64], align 16
   %7 = alloca %struct.ObjectAddress, align 4
   %8 = alloca %struct.ObjectAddress, align 4
@@ -249,7 +249,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @expression_planner(ptr noundef) local_unnamed_addr #1
 

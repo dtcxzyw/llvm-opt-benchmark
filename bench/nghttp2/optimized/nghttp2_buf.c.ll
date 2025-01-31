@@ -8,14 +8,14 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.nghttp2_vec = type { ptr, i64 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @nghttp2_buf_init(ptr nocapture noundef writeonly initializes((0, 40)) %buf) local_unnamed_addr #0 {
+define hidden void @nghttp2_buf_init(ptr noundef writeonly captures(none) initializes((0, 40)) %buf) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %buf, i8 0, i64 40, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -901, 1) i32 @nghttp2_buf_init2(ptr nocapture noundef initializes((0, 40)) %buf, i64 noundef %initial, ptr noundef %mem) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_buf_init2(ptr noundef captures(none) initializes((0, 40)) %buf, i64 noundef %initial, ptr noundef %mem) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %buf, i8 0, i64 40, i1 false)
   %end.i = getelementptr inbounds nuw i8, ptr %buf, i64 8
@@ -59,7 +59,7 @@ nghttp2_buf_reserve.exit:                         ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -901, 1) i32 @nghttp2_buf_reserve(ptr nocapture noundef %buf, i64 noundef %new_cap, ptr noundef %mem) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_buf_reserve(ptr noundef captures(none) %buf, i64 noundef %new_cap, ptr noundef %mem) local_unnamed_addr #1 {
 entry:
   %end = getelementptr inbounds nuw i8, ptr %buf, i64 8
   %0 = load ptr, ptr %end, align 8
@@ -129,7 +129,7 @@ declare void @nghttp2_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @nghttp2_mem_realloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @nghttp2_buf_reset(ptr nocapture noundef initializes((16, 40)) %buf) local_unnamed_addr #3 {
+define hidden void @nghttp2_buf_reset(ptr noundef captures(none) initializes((16, 40)) %buf) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %buf, align 8
   %mark = getelementptr inbounds nuw i8, ptr %buf, i64 32
@@ -142,7 +142,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @nghttp2_buf_wrap_init(ptr nocapture noundef writeonly initializes((0, 40)) %buf, ptr noundef %begin, i64 noundef %len) local_unnamed_addr #0 {
+define hidden void @nghttp2_buf_wrap_init(ptr noundef writeonly captures(none) initializes((0, 40)) %buf, ptr noundef %begin, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %end = getelementptr inbounds nuw i8, ptr %buf, i64 8
   store ptr %begin, ptr %end, align 8
@@ -166,21 +166,21 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -901, 1) i32 @nghttp2_bufs_init(ptr nocapture noundef %bufs, i64 noundef %chunk_length, i64 noundef %max_chunk, ptr noundef %mem) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_bufs_init(ptr noundef captures(none) %bufs, i64 noundef %chunk_length, i64 noundef %max_chunk, ptr noundef %mem) local_unnamed_addr #1 {
 entry:
   %call.i = tail call range(i32 -901, 1) i32 @nghttp2_bufs_init3(ptr noundef %bufs, i64 noundef %chunk_length, i64 noundef %max_chunk, i64 noundef %max_chunk, i64 noundef 0, ptr noundef %mem)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -901, 1) i32 @nghttp2_bufs_init2(ptr nocapture noundef %bufs, i64 noundef %chunk_length, i64 noundef %max_chunk, i64 noundef %offset, ptr noundef %mem) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_bufs_init2(ptr noundef captures(none) %bufs, i64 noundef %chunk_length, i64 noundef %max_chunk, i64 noundef %offset, ptr noundef %mem) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @nghttp2_bufs_init3(ptr noundef %bufs, i64 noundef %chunk_length, i64 noundef %max_chunk, i64 noundef %max_chunk, i64 noundef %offset, ptr noundef %mem)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -901, 1) i32 @nghttp2_bufs_init3(ptr nocapture noundef %bufs, i64 noundef %chunk_length, i64 noundef %max_chunk, i64 noundef %chunk_keep, i64 noundef %offset, ptr noundef %mem) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_bufs_init3(ptr noundef captures(none) %bufs, i64 noundef %chunk_length, i64 noundef %max_chunk, i64 noundef %chunk_keep, i64 noundef %offset, ptr noundef %mem) local_unnamed_addr #1 {
 entry:
   %0 = add i64 %chunk_keep, -1
   %or.cond = icmp uge i64 %0, %max_chunk
@@ -268,7 +268,7 @@ return:                                           ; preds = %if.then3.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -901, 1) i32 @nghttp2_bufs_realloc(ptr nocapture noundef %bufs, i64 noundef %chunk_length) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_bufs_realloc(ptr noundef captures(none) %bufs, i64 noundef %chunk_length) local_unnamed_addr #1 {
 entry:
   %offset = getelementptr inbounds nuw i8, ptr %bufs, i64 56
   %0 = load i64, ptr %offset, align 8
@@ -403,7 +403,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -901, 1) i32 @nghttp2_bufs_wrap_init(ptr nocapture noundef writeonly %bufs, ptr noundef %begin, i64 noundef %len, ptr noundef %mem) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_bufs_wrap_init(ptr noundef writeonly captures(none) %bufs, ptr noundef %begin, i64 noundef %len, ptr noundef %mem) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @nghttp2_mem_malloc(ptr noundef %mem, i64 noundef 48) #9
   %cmp = icmp eq ptr %call, null
@@ -455,7 +455,7 @@ return:                                           ; preds = %entry, %nghttp2_buf
 declare ptr @nghttp2_mem_malloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -901, 1) i32 @nghttp2_bufs_wrap_init2(ptr nocapture noundef writeonly %bufs, ptr nocapture noundef readonly %vec, i64 noundef %veclen, ptr noundef %mem) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_bufs_wrap_init2(ptr noundef writeonly captures(none) %bufs, ptr noundef readonly captures(none) %vec, i64 noundef %veclen, ptr noundef %mem) local_unnamed_addr #1 {
 entry:
   %head_chain = alloca ptr, align 8
   %cmp = icmp eq i64 %veclen, 0
@@ -566,7 +566,7 @@ if.end3:                                          ; preds = %entry, %if.then1, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @nghttp2_bufs_seek_last_present(ptr nocapture noundef %bufs) local_unnamed_addr #4 {
+define hidden void @nghttp2_bufs_seek_last_present(ptr noundef captures(none) %bufs) local_unnamed_addr #4 {
 entry:
   %cur = getelementptr inbounds nuw i8, ptr %bufs, i64 8
   %ci.06 = load ptr, ptr %cur, align 8
@@ -593,7 +593,7 @@ for.end:                                          ; preds = %if.else, %for.body,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @nghttp2_bufs_len(ptr nocapture noundef readonly %bufs) local_unnamed_addr #5 {
+define hidden i64 @nghttp2_bufs_len(ptr noundef readonly captures(none) %bufs) local_unnamed_addr #5 {
 entry:
   %ci.05 = load ptr, ptr %bufs, align 8
   %tobool.not6 = icmp eq ptr %ci.05, null
@@ -620,7 +620,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -901, 1) i32 @nghttp2_bufs_add(ptr nocapture noundef %bufs, ptr noundef %data, i64 noundef %len) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_bufs_add(ptr noundef captures(none) %bufs, ptr noundef %data, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %cur = getelementptr inbounds nuw i8, ptr %bufs, i64 8
   %tobool.not35 = icmp eq i64 %len, 0
@@ -664,7 +664,7 @@ return.split:                                     ; preds = %if.end10, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -901, 1) i32 @bufs_alloc_chain(ptr nocapture noundef %bufs) unnamed_addr #1 {
+define internal fastcc range(i32 -901, 1) i32 @bufs_alloc_chain(ptr noundef captures(none) %bufs) unnamed_addr #1 {
 entry:
   %cur = getelementptr inbounds nuw i8, ptr %bufs, i64 8
   %0 = load ptr, ptr %cur, align 8
@@ -764,7 +764,7 @@ return:                                           ; preds = %if.then3.i, %if.end
 declare ptr @nghttp2_cpymem(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -901, 1) i32 @nghttp2_bufs_addb(ptr nocapture noundef %bufs, i8 noundef zeroext %b) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_bufs_addb(ptr noundef captures(none) %bufs, i8 noundef zeroext %b) local_unnamed_addr #1 {
 entry:
   %cur.i = getelementptr inbounds nuw i8, ptr %bufs, i64 8
   %0 = load ptr, ptr %cur.i, align 8
@@ -801,7 +801,7 @@ return:                                           ; preds = %bufs_ensure_addb.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -901, 1) i32 @nghttp2_bufs_addb_hold(ptr nocapture noundef %bufs, i8 noundef zeroext %b) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_bufs_addb_hold(ptr noundef captures(none) %bufs, i8 noundef zeroext %b) local_unnamed_addr #1 {
 entry:
   %cur.i = getelementptr inbounds nuw i8, ptr %bufs, i64 8
   %0 = load ptr, ptr %cur.i, align 8
@@ -834,7 +834,7 @@ return:                                           ; preds = %bufs_ensure_addb.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -901, 1) i32 @nghttp2_bufs_orb(ptr nocapture noundef %bufs, i8 noundef zeroext %b) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_bufs_orb(ptr noundef captures(none) %bufs, i8 noundef zeroext %b) local_unnamed_addr #1 {
 entry:
   %cur.i = getelementptr inbounds nuw i8, ptr %bufs, i64 8
   %0 = load ptr, ptr %cur.i, align 8
@@ -873,7 +873,7 @@ return:                                           ; preds = %bufs_ensure_addb.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -901, 1) i32 @nghttp2_bufs_orb_hold(ptr nocapture noundef %bufs, i8 noundef zeroext %b) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_bufs_orb_hold(ptr noundef captures(none) %bufs, i8 noundef zeroext %b) local_unnamed_addr #1 {
 entry:
   %cur.i = getelementptr inbounds nuw i8, ptr %bufs, i64 8
   %0 = load ptr, ptr %cur.i, align 8
@@ -908,7 +908,7 @@ return:                                           ; preds = %bufs_ensure_addb.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @nghttp2_bufs_remove(ptr nocapture noundef readonly %bufs, ptr nocapture noundef writeonly %out) local_unnamed_addr #1 {
+define hidden i64 @nghttp2_bufs_remove(ptr noundef readonly captures(none) %bufs, ptr noundef writeonly captures(none) %out) local_unnamed_addr #1 {
 entry:
   %chain.017 = load ptr, ptr %bufs, align 8
   %tobool.not18 = icmp eq ptr %chain.017, null
@@ -970,7 +970,7 @@ return:                                           ; preds = %entry, %if.end, %fo
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @nghttp2_bufs_remove_copy(ptr nocapture noundef readonly %bufs, ptr noundef %out) local_unnamed_addr #1 {
+define hidden i64 @nghttp2_bufs_remove_copy(ptr noundef readonly captures(none) %bufs, ptr noundef %out) local_unnamed_addr #1 {
 entry:
   %ci.05.i = load ptr, ptr %bufs, align 8
   %tobool.not6.i = icmp eq ptr %ci.05.i, null
@@ -1012,7 +1012,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nghttp2_bufs_reset(ptr nocapture noundef %bufs) local_unnamed_addr #1 {
+define hidden void @nghttp2_bufs_reset(ptr noundef captures(none) %bufs) local_unnamed_addr #1 {
 entry:
   %chunk_keep = getelementptr inbounds nuw i8, ptr %bufs, i64 48
   %0 = load i64, ptr %chunk_keep, align 8
@@ -1081,14 +1081,14 @@ if.end15:                                         ; preds = %for.cond, %for.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -901, 1) i32 @nghttp2_bufs_advance(ptr nocapture noundef %bufs) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_bufs_advance(ptr noundef captures(none) %bufs) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc i32 @bufs_alloc_chain(ptr noundef %bufs)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @nghttp2_bufs_next_present(ptr nocapture noundef readonly %bufs) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @nghttp2_bufs_next_present(ptr noundef readonly captures(none) %bufs) local_unnamed_addr #6 {
 entry:
   %cur = getelementptr inbounds nuw i8, ptr %bufs, i64 8
   %0 = load ptr, ptr %cur, align 8
@@ -1114,7 +1114,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 declare i64 @llvm.umax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7

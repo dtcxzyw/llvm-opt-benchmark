@@ -1132,7 +1132,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %8
 
 614:                                              ; preds = %583
   %615 = load ptr, ptr %585, align 8
-  %616 = call i64 @strtoul(ptr nocapture noundef %615, ptr noundef null, i32 noundef 10) #14
+  %616 = call i64 @strtoul(ptr noundef captures(none) %615, ptr noundef null, i32 noundef 10) #14
   %617 = trunc i64 %616 to i32
   %618 = getelementptr inbounds nuw i8, ptr %9, i64 60
   store i32 %617, ptr %618, align 4
@@ -1141,7 +1141,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %8
   %621 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %620) #16
   %sext = shl i64 %621, 32
   %622 = ashr exact i64 %sext, 32
-  %623 = call i32 @strncasecmp(ptr noundef %620, ptr noundef nonnull @.str.25, i64 noundef %622) #16
+  %623 = call i32 @strncasecmp(ptr noundef nonnull %620, ptr noundef nonnull @.str.25, i64 noundef %622) #16
   %624 = icmp eq i32 %623, 0
   br i1 %624, label %625, label %627
 
@@ -1151,12 +1151,12 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %8
   br label %701
 
 627:                                              ; preds = %614
-  %628 = call i32 @strncasecmp(ptr noundef %620, ptr noundef nonnull @.str.26, i64 noundef %622) #16
+  %628 = call i32 @strncasecmp(ptr noundef nonnull %620, ptr noundef nonnull @.str.26, i64 noundef %622) #16
   %629 = icmp eq i32 %628, 0
   br i1 %629, label %633, label %630
 
 630:                                              ; preds = %627
-  %631 = call i32 @strncasecmp(ptr noundef %620, ptr noundef nonnull @.str.27, i64 noundef %622) #16
+  %631 = call i32 @strncasecmp(ptr noundef nonnull %620, ptr noundef nonnull @.str.27, i64 noundef %622) #16
   %632 = icmp eq i32 %631, 0
   br i1 %632, label %633, label %635
 
@@ -1166,7 +1166,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %8
   br label %701
 
 635:                                              ; preds = %630
-  %636 = call i32 @strncasecmp(ptr noundef %620, ptr noundef nonnull @.str.28, i64 noundef %622) #16
+  %636 = call i32 @strncasecmp(ptr noundef nonnull %620, ptr noundef nonnull @.str.28, i64 noundef %622) #16
   %637 = icmp eq i32 %636, 0
   br i1 %637, label %638, label %640
 
@@ -1176,12 +1176,12 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %8
   br label %701
 
 640:                                              ; preds = %635
-  %641 = call i32 @strncasecmp(ptr noundef %620, ptr noundef nonnull @.str.29, i64 noundef %622) #16
+  %641 = call i32 @strncasecmp(ptr noundef nonnull %620, ptr noundef nonnull @.str.29, i64 noundef %622) #16
   %642 = icmp eq i32 %641, 0
   br i1 %642, label %646, label %643
 
 643:                                              ; preds = %640
-  %644 = call i32 @strncasecmp(ptr noundef %620, ptr noundef nonnull @.str.30, i64 noundef %622) #16
+  %644 = call i32 @strncasecmp(ptr noundef nonnull %620, ptr noundef nonnull @.str.30, i64 noundef %622) #16
   %645 = icmp eq i32 %644, 0
   br i1 %645, label %646, label %648
 
@@ -1191,12 +1191,12 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %8
   br label %701
 
 648:                                              ; preds = %643
-  %649 = call i32 @strncasecmp(ptr noundef %620, ptr noundef nonnull @.str.31, i64 noundef %622) #16
+  %649 = call i32 @strncasecmp(ptr noundef nonnull %620, ptr noundef nonnull @.str.31, i64 noundef %622) #16
   %650 = icmp eq i32 %649, 0
   br i1 %650, label %654, label %651
 
 651:                                              ; preds = %648
-  %652 = call i32 @strncasecmp(ptr noundef %620, ptr noundef nonnull @.str.32, i64 noundef %622) #16
+  %652 = call i32 @strncasecmp(ptr noundef nonnull %620, ptr noundef nonnull @.str.32, i64 noundef %622) #16
   %653 = icmp eq i32 %652, 0
   br i1 %653, label %654, label %656
 
@@ -1206,7 +1206,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %8
   br label %701
 
 656:                                              ; preds = %651
-  %657 = call i32 @strncasecmp(ptr noundef %620, ptr noundef nonnull @.str.33, i64 noundef %622) #16
+  %657 = call i32 @strncasecmp(ptr noundef nonnull %620, ptr noundef nonnull @.str.33, i64 noundef %622) #16
   %658 = icmp eq i32 %657, 0
   br i1 %658, label %659, label %662
 
@@ -1218,7 +1218,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %8
   br label %701
 
 662:                                              ; preds = %656
-  %663 = call i32 @strncasecmp(ptr noundef %620, ptr noundef nonnull @.str.34, i64 noundef %622) #16
+  %663 = call i32 @strncasecmp(ptr noundef nonnull %620, ptr noundef nonnull @.str.34, i64 noundef %622) #16
   %664 = icmp eq i32 %663, 0
   br i1 %664, label %665, label %668
 
@@ -1230,7 +1230,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %8
   br label %701
 
 668:                                              ; preds = %662
-  %669 = call i32 @strncasecmp(ptr noundef %620, ptr noundef nonnull @.str.35, i64 noundef %622) #16
+  %669 = call i32 @strncasecmp(ptr noundef nonnull %620, ptr noundef nonnull @.str.35, i64 noundef %622) #16
   %670 = icmp eq i32 %669, 0
   br i1 %670, label %671, label %674
 
@@ -1243,7 +1243,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %8
 
 674:                                              ; preds = %668
   %675 = load ptr, ptr %6, align 8
-  %676 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.36, i32 noundef 1, ptr noundef %620, ptr noundef %675) #14
+  %676 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.36, i32 noundef 1, ptr noundef nonnull %620, ptr noundef %675) #14
   %677 = load ptr, ptr %6, align 8
   call void @free(ptr noundef %677) #14
   call void @PMIx_Argv_free(ptr noundef nonnull %585) #14
@@ -3265,7 +3265,7 @@ declare i32 @pmix_show_help(ptr noundef, ptr noundef, i32 noundef, ...) local_un
 declare ptr @prte_util_print_jobids(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -3274,7 +3274,7 @@ declare ptr @prte_util_print_name_args(ptr noundef) local_unnamed_addr #1
 declare ptr @prte_job_state_to_str(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare zeroext i1 @prte_get_attribute(ptr noundef, i16 noundef zeroext, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
@@ -3293,7 +3293,7 @@ declare void @PMIx_Proc_free(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @prte_set_attribute(ptr noundef, i16 noundef zeroext, i1 noundef zeroext, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @prte_ras_base_display_cpus(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3309,13 +3309,13 @@ declare i32 @PMIx_Argv_count(ptr noundef) local_unnamed_addr #1
 declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #1
 
@@ -3658,7 +3658,7 @@ pmix_pointer_array_get_item.exit267.us:           ; preds = %pmix_pointer_array_
   br i1 %1, label %.lr.ph340.us, label %175
 
 175:                                              ; preds = %174
-  %176 = call zeroext i1 @prte_rmaps_base_check_avail(ptr noundef nonnull %0, ptr noundef nonnull %172, ptr noundef %.0215352, ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %5) #14
+  %176 = call zeroext i1 @prte_rmaps_base_check_avail(ptr noundef nonnull %0, ptr noundef nonnull %172, ptr noundef nonnull %.0215352, ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %5) #14
   br i1 %176, label %.lr.ph340.us, label %177
 
 177:                                              ; preds = %175
@@ -3684,7 +3684,7 @@ pmix_pointer_array_get_item.exit267.us:           ; preds = %pmix_pointer_array_
 187:                                              ; preds = %.lr.ph340.us, %218
   %.0220338.us = phi i32 [ 0, %.lr.ph340.us ], [ %219, %218 ]
   %188 = load i32, ptr %185, align 8
-  %189 = call ptr @prte_rmaps_base_setup_proc(ptr noundef %0, i32 noundef %188, ptr noundef %.0215352, ptr noundef null, ptr noundef nonnull %5) #14
+  %189 = call ptr @prte_rmaps_base_setup_proc(ptr noundef %0, i32 noundef %188, ptr noundef nonnull %.0215352, ptr noundef null, ptr noundef nonnull %5) #14
   %190 = icmp eq ptr %189, null
   br i1 %190, label %.loopexit302, label %191
 
@@ -3773,7 +3773,7 @@ pmix_pointer_array_get_item.exit267:              ; preds = %pmix_pointer_array_
   br i1 %230, label %.loopexit, label %231
 
 231:                                              ; preds = %pmix_pointer_array_get_item.exit267
-  %232 = call zeroext i1 @prte_rmaps_base_check_avail(ptr noundef nonnull %0, ptr noundef nonnull %229, ptr noundef %.0215352, ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %5) #14
+  %232 = call zeroext i1 @prte_rmaps_base_check_avail(ptr noundef nonnull %0, ptr noundef nonnull %229, ptr noundef nonnull %.0215352, ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %5) #14
   br i1 %232, label %.loopexit, label %233
 
 233:                                              ; preds = %231
@@ -3958,7 +3958,7 @@ pmix_pointer_array_get_item.exit278:              ; preds = %pmix_pointer_array_
   br i1 %1, label %353, label %324
 
 324:                                              ; preds = %pmix_pointer_array_get_item.exit278
-  %325 = call zeroext i1 @prte_rmaps_base_check_avail(ptr noundef nonnull %0, ptr noundef %323, ptr noundef %.1216335, ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %5) #14
+  %325 = call zeroext i1 @prte_rmaps_base_check_avail(ptr noundef nonnull %0, ptr noundef %323, ptr noundef nonnull %.1216335, ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %5) #14
   br i1 %325, label %353, label %326
 
 326:                                              ; preds = %324
@@ -4018,7 +4018,7 @@ pmix_pointer_array_get_item.exit278:              ; preds = %pmix_pointer_array_
 
 356:                                              ; preds = %.lr.ph329, %388
   %.1221327 = phi i32 [ 0, %.lr.ph329 ], [ %389, %388 ]
-  %357 = call ptr @prte_rmaps_base_setup_proc(ptr noundef %0, i32 noundef %355, ptr noundef %.1216335, ptr noundef null, ptr noundef nonnull %5) #14
+  %357 = call ptr @prte_rmaps_base_setup_proc(ptr noundef %0, i32 noundef %355, ptr noundef nonnull %.1216335, ptr noundef null, ptr noundef nonnull %5) #14
   %358 = icmp eq ptr %357, null
   br i1 %358, label %.loopexit302, label %359
 
@@ -4247,7 +4247,7 @@ pmix_obj_run_destructors.exit299:                 ; preds = %.lr.ph.i296, %._cri
 declare void @PMIx_Data_array_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 declare zeroext i1 @PMIx_Nspace_invalid(ptr noundef) local_unnamed_addr #1
 
@@ -4264,7 +4264,7 @@ define void @prte_rmaps_base_display_map(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @prte_rmaps_base_report_bindings(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @prte_rmaps_base_report_bindings(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct.pmix_proc, align 4
@@ -4401,7 +4401,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #9
 declare ptr @__errno_location() local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #12

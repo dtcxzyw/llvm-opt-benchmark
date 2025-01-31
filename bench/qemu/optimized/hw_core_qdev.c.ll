@@ -378,7 +378,7 @@ declare i32 @qbus_walk_children(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare ptr @sysbus_get_default() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @device_listener_add(ptr noundef %dev, ptr nocapture readnone %opaque) #0 {
+define internal noundef i32 @device_listener_add(ptr noundef %dev, ptr readnone captures(none) %opaque) #0 {
 entry:
   %_listener.05 = load ptr, ptr @device_listeners, align 8
   %tobool.not6 = icmp eq ptr %_listener.05, null
@@ -405,7 +405,7 @@ do.end:                                           ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @device_listener_unregister(ptr nocapture noundef %listener) local_unnamed_addr #4 {
+define dso_local void @device_listener_unregister(ptr noundef captures(none) %listener) local_unnamed_addr #4 {
 entry:
   %link = getelementptr inbounds nuw i8, ptr %listener, i64 24
   %0 = load ptr, ptr %link, align 8
@@ -483,7 +483,7 @@ cleanup:                                          ; preds = %cleanup.loopexit, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qdev_set_legacy_instance_id(ptr nocapture noundef %dev, i32 noundef %alias_id, i32 noundef %required_for_version) local_unnamed_addr #0 {
+define dso_local void @qdev_set_legacy_instance_id(ptr noundef captures(none) %dev, i32 noundef %alias_id, i32 noundef %required_for_version) local_unnamed_addr #0 {
 entry:
   %realized = getelementptr inbounds nuw i8, ptr %dev, i64 56
   %0 = load i8, ptr %realized, align 8
@@ -597,7 +597,7 @@ declare i32 @object_child_foreach_recursive(ptr noundef, ptr noundef, ptr nounde
 declare ptr @object_get_root() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qdev_assert_realized_properly_cb(ptr noundef %obj, ptr nocapture readnone %opaque) #0 {
+define internal noundef i32 @qdev_assert_realized_properly_cb(ptr noundef %obj, ptr readnone captures(none) %opaque) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast(ptr noundef %obj, ptr noundef nonnull @.str.10) #14
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
@@ -647,7 +647,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @qdev_get_parent_bus(ptr nocapture noundef readonly %dev) local_unnamed_addr #6 {
+define dso_local ptr @qdev_get_parent_bus(ptr noundef readonly captures(none) %dev) local_unnamed_addr #6 {
 entry:
   %parent_bus = getelementptr inbounds nuw i8, ptr %dev, i64 88
   %0 = load ptr, ptr %parent_bus, align 8
@@ -690,7 +690,7 @@ return:                                           ; preds = %for.body, %for.inc,
 declare ptr @object_resolve_path_component(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qdev_walk_children(ptr noundef %dev, ptr noundef %pre_devfn, ptr noundef %pre_busfn, ptr noundef %post_devfn, ptr noundef %post_busfn, ptr noundef %opaque) local_unnamed_addr #0 {
@@ -739,7 +739,7 @@ return:                                           ; preds = %for.body, %if.then9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qdev_find_recursive(ptr nocapture noundef readonly %bus, ptr nocapture noundef readonly %id) local_unnamed_addr #0 {
+define dso_local ptr @qdev_find_recursive(ptr noundef readonly captures(none) %bus, ptr noundef readonly captures(none) %id) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #14
   %depth.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
@@ -908,7 +908,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qdev_add_unplug_blocker(ptr nocapture noundef %dev, ptr noundef %reason) local_unnamed_addr #0 {
+define dso_local void @qdev_add_unplug_blocker(ptr noundef captures(none) %dev, ptr noundef %reason) local_unnamed_addr #0 {
 entry:
   %unplug_blockers = getelementptr inbounds nuw i8, ptr %dev, i64 144
   %0 = load ptr, ptr %unplug_blockers, align 8
@@ -920,7 +920,7 @@ entry:
 declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qdev_del_unplug_blocker(ptr nocapture noundef %dev, ptr noundef %reason) local_unnamed_addr #0 {
+define dso_local void @qdev_del_unplug_blocker(ptr noundef captures(none) %dev, ptr noundef %reason) local_unnamed_addr #0 {
 entry:
   %unplug_blockers = getelementptr inbounds nuw i8, ptr %dev, i64 144
   %0 = load ptr, ptr %unplug_blockers, align 8
@@ -932,7 +932,7 @@ entry:
 declare ptr @g_slist_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @qdev_unplug_blocked(ptr nocapture noundef readonly %dev, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qdev_unplug_blocked(ptr noundef readonly captures(none) %dev, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %unplug_blockers = getelementptr inbounds nuw i8, ptr %dev, i64 144
   %0 = load ptr, ptr %unplug_blockers, align 8
@@ -954,7 +954,7 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @error_copy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @device_class_set_parent_reset(ptr nocapture noundef %dc, ptr noundef %dev_reset, ptr nocapture noundef writeonly initializes((0, 8)) %parent_reset) local_unnamed_addr #9 {
+define dso_local void @device_class_set_parent_reset(ptr noundef captures(none) %dc, ptr noundef %dev_reset, ptr noundef writeonly captures(none) initializes((0, 8)) %parent_reset) local_unnamed_addr #9 {
 entry:
   %reset = getelementptr inbounds nuw i8, ptr %dc, i64 136
   %0 = load ptr, ptr %reset, align 8
@@ -964,7 +964,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @device_class_set_parent_realize(ptr nocapture noundef %dc, ptr noundef %dev_realize, ptr nocapture noundef writeonly initializes((0, 8)) %parent_realize) local_unnamed_addr #9 {
+define dso_local void @device_class_set_parent_realize(ptr noundef captures(none) %dc, ptr noundef %dev_realize, ptr noundef writeonly captures(none) initializes((0, 8)) %parent_realize) local_unnamed_addr #9 {
 entry:
   %realize = getelementptr inbounds nuw i8, ptr %dc, i64 144
   %0 = load ptr, ptr %realize, align 8
@@ -974,7 +974,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @device_class_set_parent_unrealize(ptr nocapture noundef %dc, ptr noundef %dev_unrealize, ptr nocapture noundef writeonly initializes((0, 8)) %parent_unrealize) local_unnamed_addr #9 {
+define dso_local void @device_class_set_parent_unrealize(ptr noundef captures(none) %dc, ptr noundef %dev_unrealize, ptr noundef writeonly captures(none) initializes((0, 8)) %parent_unrealize) local_unnamed_addr #9 {
 entry:
   %unrealize = getelementptr inbounds nuw i8, ptr %dc, i64 152
   %0 = load ptr, ptr %unrealize, align 8
@@ -1049,14 +1049,14 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 declare ptr @object_get_class(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 declare void @object_property_del(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1250,7 +1250,7 @@ qobject_unref_impl.exit:                          ; preds = %if.end32, %land.lhs
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @device_class_init(ptr noundef %class, ptr nocapture readnone %data) #0 {
+define internal void @device_class_init(ptr noundef %class, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #14
   %call.i12 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.29, i32 noundef 18, ptr noundef nonnull @__func__.VMSTATE_IF_CLASS) #14
@@ -1279,7 +1279,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @device_class_base_init(ptr noundef %class, ptr nocapture readnone %data) #0 {
+define internal void @device_class_base_init(ptr noundef %class, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #14
   %props_ = getelementptr inbounds nuw i8, ptr %call.i, i64 120
@@ -1441,7 +1441,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @device_reset_child_foreach(ptr noundef %obj, ptr nocapture noundef readonly %cb, ptr noundef %opaque, i32 noundef %type) #0 {
+define internal void @device_reset_child_foreach(ptr noundef %obj, ptr noundef readonly captures(none) %cb, ptr noundef %opaque, i32 noundef %type) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
   %child_bus = getelementptr inbounds nuw i8, ptr %call.i, i64 112
@@ -1514,7 +1514,7 @@ entry:
 declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @device_get_realized(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @device_get_realized(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
   %realized = getelementptr inbounds nuw i8, ptr %call.i, i64 56
@@ -1880,7 +1880,7 @@ if.end168:                                        ; preds = %for.inc131, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @device_get_hotpluggable(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @device_get_hotpluggable(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %obj) #14
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #14
@@ -1920,7 +1920,7 @@ land.end:                                         ; preds = %if.then4.i, %if.the
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @device_get_hotplugged(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @device_get_hotplugged(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
   %hotplugged = getelementptr inbounds nuw i8, ptr %call.i, i64 80
@@ -1983,13 +1983,13 @@ declare void @vmstate_unregister(ptr noundef, ptr noundef, ptr noundef) local_un
 declare zeroext i1 @vmstate_check_only_migratable(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

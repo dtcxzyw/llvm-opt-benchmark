@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @IDEA_cbc_encrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i64 noundef %length, ptr noundef %ks, ptr nocapture noundef %iv, i32 noundef %encrypt) local_unnamed_addr #0 {
+define void @IDEA_cbc_encrypt(ptr noundef readonly captures(none) %in, ptr noundef writeonly captures(none) %out, i64 noundef %length, ptr noundef %ks, ptr noundef captures(none) %iv, i32 noundef %encrypt) local_unnamed_addr #0 {
 entry:
   %tin = alloca [2 x i64], align 16
   %tobool.not = icmp eq i32 %encrypt, 0
@@ -550,7 +550,7 @@ if.end407:                                        ; preds = %if.end376, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @IDEA_encrypt(ptr nocapture noundef %d, ptr noundef readonly %key) local_unnamed_addr #1 {
+define void @IDEA_encrypt(ptr noundef captures(none) %d, ptr noundef readonly %key) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %d, align 8
   %shr = lshr i64 %0, 16

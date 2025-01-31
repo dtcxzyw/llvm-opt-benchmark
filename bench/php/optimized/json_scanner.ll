@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @zend_empty_string = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @php_json_scanner_init(ptr nocapture noundef writeonly initializes((0, 8), (16, 24), (76, 84)) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden void @php_json_scanner_init(ptr noundef writeonly captures(none) initializes((0, 8), (16, 24), (76, 84)) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -359,7 +359,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   br i1 %or.cond1623, label %.critedge, label %155
 
 .critedge:                                        ; preds = %136, %148
-  %154 = tail call i64 @strtoll(ptr nocapture noundef nonnull %137, ptr noundef null, i32 noundef 10) #9
+  %154 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %137, ptr noundef null, i32 noundef 10) #9
   store i64 %154, ptr %2, align 8
   store i32 4, ptr %3, align 8
   br label %php_json_scanner_copy_string.exit
@@ -3081,18 +3081,18 @@ php_json_scanner_copy_string.exit:                ; preds = %1111, %1105, %721, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 declare double @zend_strtod(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @php_json_ucs2_to_int(ptr nocapture readonly %.0.val, i32 noundef range(i32 2, 5) %0) unnamed_addr #6 {
+define internal fastcc i32 @php_json_ucs2_to_int(ptr readonly captures(none) %.0.val, i32 noundef range(i32 2, 5) %0) unnamed_addr #6 {
   br label %2
 
 2:                                                ; preds = %php_json_hex_to_int.exit.i, %1
@@ -3140,7 +3140,7 @@ php_json_ucs2_to_int_ex.exit:                     ; preds = %php_json_hex_to_int
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @php_json_ucs2_to_int_ex(ptr nocapture readonly %.0.val, i32 noundef range(i32 2, 5) %0, i32 noundef range(i32 1, 8) %1) unnamed_addr #6 {
+define internal fastcc i32 @php_json_ucs2_to_int_ex(ptr readonly captures(none) %.0.val, i32 noundef range(i32 2, 5) %0, i32 noundef range(i32 1, 8) %1) unnamed_addr #6 {
   %3 = zext nneg i32 %1 to i64
   %4 = sub nsw i64 0, %3
   %5 = getelementptr inbounds i8, ptr %.0.val, i64 %4

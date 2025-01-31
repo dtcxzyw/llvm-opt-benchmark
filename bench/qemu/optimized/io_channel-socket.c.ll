@@ -703,7 +703,7 @@ trace_qio_channel_socket_listen_async.exit:       ; preds = %entry, %land.lhs.tr
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qio_channel_socket_listen_worker(ptr noundef %task, ptr nocapture noundef readonly %opaque) #0 {
+define internal void @qio_channel_socket_listen_worker(ptr noundef %task, ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %err = alloca ptr, align 8
   %call = tail call ptr @qio_task_get_source(ptr noundef %task) #9
@@ -908,7 +908,7 @@ trace_qio_channel_socket_dgram_async.exit:        ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qio_channel_socket_dgram_worker(ptr noundef %task, ptr nocapture noundef readonly %opaque) #0 {
+define internal void @qio_channel_socket_dgram_worker(ptr noundef %task, ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %err = alloca ptr, align 8
   %call = tail call ptr @qio_task_get_source(ptr noundef %task) #9
@@ -1136,7 +1136,7 @@ entry:
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -1148,7 +1148,7 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare i32 @getpeername(i32 noundef, ptr, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare ptr @qio_task_get_source(ptr noundef) local_unnamed_addr #1
 
@@ -1206,7 +1206,7 @@ if.end10:                                         ; preds = %if.end6, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qio_channel_socket_class_init(ptr noundef %klass, ptr nocapture readnone %class_data) #0 {
+define internal void @qio_channel_socket_class_init(ptr noundef %klass, ptr readnone captures(none) %class_data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_CLASS) #9
   %io_writev = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -1239,7 +1239,7 @@ declare void @socket_listen_cleanup(i32 noundef, ptr noundef) local_unnamed_addr
 declare void @error_report_err(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 -2, -9223372036854775808) i64 @qio_channel_socket_writev(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr nocapture noundef readonly %fds, i64 noundef %nfds, i32 noundef %flags, ptr noundef %errp) #0 {
+define internal range(i64 -2, -9223372036854775808) i64 @qio_channel_socket_writev(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef readonly captures(none) %fds, i64 noundef %nfds, i32 noundef %flags, ptr noundef %errp) #0 {
 entry:
   %msg = alloca %struct.msghdr, align 8
   %control = alloca [80 x i8], align 16
@@ -1473,7 +1473,7 @@ return:                                           ; preds = %if.then8, %for.inc2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qio_channel_socket_set_blocking(ptr noundef %ioc, i1 noundef zeroext %enabled, ptr nocapture readnone %errp) #0 {
+define internal noundef i32 @qio_channel_socket_set_blocking(ptr noundef %ioc, i1 noundef zeroext %enabled, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_SOCKET) #9
   %fd = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -1743,7 +1743,7 @@ return:                                           ; preds = %if.end49, %while.co
 declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare i64 @sendmsg(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1772,10 +1772,10 @@ declare void @qio_channel_util_set_aio_fd_handler(i32 noundef, ptr noundef, ptr 
 declare void @qio_channel_wait(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

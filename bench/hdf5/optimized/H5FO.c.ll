@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [17 x i8] c"H5FO_obj_count_t\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5FO_create(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5FO_create(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @H5SL_create(i32 noundef 1, ptr noundef null) #2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -63,7 +63,7 @@ declare ptr @H5SL_create(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @H5FO_opened(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define ptr @H5FO_opened(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -87,7 +87,7 @@ define ptr @H5FO_opened(ptr nocapture noundef readonly %0, i64 noundef %1) local
 declare ptr @H5SL_search(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5FO_insert(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5FO_insert(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5FO_open_obj_t_reg_free_list) #2
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %11
@@ -180,7 +180,7 @@ declare i32 @H5O_delete(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5FO_mark(ptr nocapture noundef readonly %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5FO_mark(ptr noundef readonly captures(none) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -203,7 +203,7 @@ define range(i32 -1, 1) i32 @H5FO_mark(ptr nocapture noundef readonly %0, i64 no
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @H5FO_marked(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define zeroext i1 @H5FO_marked(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -226,7 +226,7 @@ define zeroext i1 @H5FO_marked(ptr nocapture noundef readonly %0, i64 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5FO_dest(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5FO_dest(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1464
@@ -271,7 +271,7 @@ declare i64 @H5SL_count(ptr noundef) local_unnamed_addr #1
 declare i32 @H5SL_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5FO_top_create(ptr nocapture noundef writeonly initializes((40, 48)) %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5FO_top_create(ptr noundef writeonly captures(none) initializes((40, 48)) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @H5SL_create(i32 noundef 1, ptr noundef null) #2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %2, ptr %3, align 8
@@ -290,7 +290,7 @@ define range(i32 -1, 1) i32 @H5FO_top_create(ptr nocapture noundef writeonly ini
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5FO_top_incr(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5FO_top_incr(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -339,7 +339,7 @@ define range(i32 -1, 1) i32 @H5FO_top_incr(ptr nocapture noundef readonly %0, i6
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5FO_top_decr(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5FO_top_decr(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -384,7 +384,7 @@ define range(i32 -1, 1) i32 @H5FO_top_decr(ptr nocapture noundef readonly %0, i6
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @H5FO_top_count(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define i64 @H5FO_top_count(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -404,7 +404,7 @@ define i64 @H5FO_top_count(ptr nocapture noundef readonly %0, i64 noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5FO_top_dest(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5FO_top_dest(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @H5SL_count(ptr noundef %3) #2

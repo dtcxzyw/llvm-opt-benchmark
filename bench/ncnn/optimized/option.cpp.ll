@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4ncnn6OptionC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN4ncnn6OptionC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4ncnn6OptionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 1), (4, 61)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN4ncnn6OptionC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((0, 1), (4, 61)) %0) unnamed_addr #0 align 2 {
   store i8 1, ptr %0, align 8
   %2 = tail call noundef i32 @_ZN4ncnn26get_physical_big_cpu_countEv()
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -54,7 +54,7 @@ declare noundef i32 @_ZN4ncnn26get_physical_big_cpu_countEv() local_unnamed_addr
 declare noundef i32 @_ZN4ncnn36is_current_thread_running_on_a53_a55Ev() local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 attributes #0 = { mustprogress uwtable "approx-func-fp-math"="true" "frame-pointer"="all" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #1 = { "approx-func-fp-math"="true" "frame-pointer"="all" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }

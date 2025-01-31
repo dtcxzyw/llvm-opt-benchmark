@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.a4ace3d538bf6ccd9b54f76f6cf34f21.11 = private unnamed_addr constant <{ ptr, [8 x i8], ptr, [8 x i8] }> <{ ptr @anon.a4ace3d538bf6ccd9b54f76f6cf34f21.9, [8 x i8] c"\09\00\00\00\00\00\00\00", ptr @anon.a4ace3d538bf6ccd9b54f76f6cf34f21.10, [8 x i8] c"\03\00\00\00\00\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN22cranelift_codegen_meta13isa_from_arch17h5622c80582f40225E(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 initializes((0, 9)) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
+define void @_ZN22cranelift_codegen_meta13isa_from_arch17h5622c80582f40225E(ptr writeonly sret({ i64, [2 x i64] }) align 8 captures(none) initializes((0, 9)) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca [1 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -234,7 +234,7 @@ declare hidden void @_ZN4core3fmt9Arguments6new_v117h8f7516983d0c178cE(ptr sret(
 declare hidden void @_ZN5alloc3fmt6format17h8d9274f217220247E(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8, ptr align 8) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nonlazybind uwtable
 declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #0

@@ -57,7 +57,7 @@ define hidden void @graph_segment_list_get(ptr noundef %0, ptr noundef %1) local
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tapall_tcpip_packet(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal noundef i32 @tapall_tcpip_packet(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 68
@@ -294,7 +294,7 @@ copy_address.exit70:                              ; preds = %copy_address.exit69
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -306,7 +306,7 @@ declare i32 @cf_retap_packets(ptr noundef) local_unnamed_addr #1
 declare void @remove_tap_listener(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @graph_segment_list_free(ptr nocapture noundef initializes((16, 24), (48, 56)) %0) local_unnamed_addr #0 {
+define hidden void @graph_segment_list_free(ptr noundef captures(none) initializes((16, 24), (48, 56)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not.i.i = icmp eq i32 %3, 0
@@ -421,7 +421,7 @@ free_address.exit17:                              ; preds = %free_address.exit14
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @compare_headers(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i16 noundef zeroext %6, i16 noundef zeroext %7, i32 noundef %8) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @compare_headers(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i16 noundef zeroext %6, i16 noundef zeroext %7, i32 noundef %8) local_unnamed_addr #4 {
   %10 = load i32, ptr %0, align 8
   %11 = load i32, ptr %4, align 8
   %or.cond41.not = icmp eq i32 %10, %11
@@ -564,7 +564,7 @@ cmp_address.exit28.thread:                        ; preds = %46, %44, %cmp_addre
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @get_num_dsegs(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define hidden i32 @get_num_dsegs(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.014 = load ptr, ptr %2, align 8
   %.not15 = icmp eq ptr %.014, null
@@ -665,7 +665,7 @@ compare_headers.exit:                             ; preds = %14, %22, %cmp_addre
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @get_num_acks(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #6 {
+define hidden i32 @get_num_acks(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.025 = load ptr, ptr %3, align 8
   %.not26 = icmp eq ptr %.025, null
@@ -921,7 +921,7 @@ free_address.exit27:                              ; preds = %free_address.exit, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare zeroext i1 @dfilter_compile_full(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -932,7 +932,7 @@ declare void @df_error_free(ptr noundef) local_unnamed_addr #1
 declare i32 @cf_read_current_record(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tap_tcpip_packet(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal noundef i32 @tap_tcpip_packet(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = load i32, ptr %0, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %.critedge.thread
@@ -1161,7 +1161,7 @@ define hidden noalias noundef ptr @rtt_get_new_unack(double noundef %0, i32 noun
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @rtt_put_unack_on_list(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #10 {
+define hidden void @rtt_put_unack_on_list(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #10 {
   %3 = load ptr, ptr %0, align 8
   br label %4
 
@@ -1182,7 +1182,7 @@ define hidden void @rtt_put_unack_on_list(ptr nocapture noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @rtt_delete_unack_from_list(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @rtt_delete_unack_from_list(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp ne ptr %1, null
   %5 = icmp ne ptr %3, null
@@ -1217,7 +1217,7 @@ define hidden void @rtt_delete_unack_from_list(ptr nocapture noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @rtt_destroy_unack_list(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @rtt_destroy_unack_list(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %.not5 = icmp eq ptr %2, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
@@ -1236,14 +1236,14 @@ define hidden void @rtt_destroy_unack_list(ptr nocapture noundef %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare noalias ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #13

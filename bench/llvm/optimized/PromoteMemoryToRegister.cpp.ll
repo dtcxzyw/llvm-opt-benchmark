@@ -471,7 +471,7 @@ declare noundef zeroext i1 @_ZNK4llvm17GetElementPtrInst17hasAllZeroIndicesEv(pt
 declare noundef zeroext i1 @_ZN4llvm25onlyUsedByLifetimeMarkersEPKNS_5ValueE(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15PromoteMemToRegENS_8ArrayRefIPNS_10AllocaInstEEERNS_13DominatorTreeEPNS_15AssumptionCacheE(ptr nocapture readonly %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(124) %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm15PromoteMemToRegENS_8ArrayRefIPNS_10AllocaInstEEERNS_13DominatorTreeEPNS_15AssumptionCacheE(ptr readonly captures(none) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(124) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %"struct.(anonymous namespace)::PromoteMem2Reg", align 8
   %6 = icmp eq i64 %1, 0
   br i1 %6, label %_ZN12_GLOBAL__N_114PromoteMem2RegD2Ev.exit, label %7
@@ -765,7 +765,7 @@ _ZN12_GLOBAL__N_114PromoteMem2RegD2Ev.exit:       ; preds = %131, %_ZN4llvm11Sma
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_114PromoteMem2Reg3runEv(ptr noundef nonnull align 8 dereferenceable(2377) %0) unnamed_addr #0 align 2 {
@@ -4827,7 +4827,7 @@ _ZN4llvm8DebugLocaSERKS0_.exit.i:                 ; preds = %1963, %_ZN4llvm13Tr
   br i1 %1985, label %1986, label %1987
 
 1986:                                             ; preds = %.lr.ph.i122.i
-  call void @_ZN4llvm31ConvertDebugDeclareToDebugValueEPNS_20DbgVariableIntrinsicEPNS_9StoreInstERNS_9DIBuilderE(ptr noundef nonnull %1973, ptr noundef %spec.select.i.i103.i, ptr noundef nonnull align 8 dereferenceable(416) %1383) #17
+  call void @_ZN4llvm31ConvertDebugDeclareToDebugValueEPNS_20DbgVariableIntrinsicEPNS_9StoreInstERNS_9DIBuilderE(ptr noundef nonnull %1973, ptr noundef nonnull %spec.select.i.i103.i, ptr noundef nonnull align 8 dereferenceable(416) %1383) #17
   br label %1987
 
 1987:                                             ; preds = %1986, %.lr.ph.i122.i
@@ -4855,7 +4855,7 @@ _ZN4llvm8DebugLocaSERKS0_.exit.i:                 ; preds = %1963, %_ZN4llvm13Tr
   br i1 %1999, label %2000, label %2001
 
 2000:                                             ; preds = %.lr.ph.i127.i
-  call void @_ZN4llvm31ConvertDebugDeclareToDebugValueEPNS_17DbgVariableRecordEPNS_9StoreInstERNS_9DIBuilderE(ptr noundef nonnull %1996, ptr noundef %spec.select.i.i103.i, ptr noundef nonnull align 8 dereferenceable(416) %1383) #17
+  call void @_ZN4llvm31ConvertDebugDeclareToDebugValueEPNS_17DbgVariableRecordEPNS_9StoreInstERNS_9DIBuilderE(ptr noundef nonnull %1996, ptr noundef nonnull %spec.select.i.i103.i, ptr noundef nonnull align 8 dereferenceable(416) %1383) #17
   br label %2001
 
 2001:                                             ; preds = %2000, %.lr.ph.i127.i
@@ -6277,7 +6277,7 @@ _ZN12_GLOBAL__N_110AllocaInfoD2Ev.exit:           ; preds = %_ZN4llvm11SmallVect
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare noundef ptr @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE7getRootEv(ptr noundef nonnull align 8 dereferenceable(124)) local_unnamed_addr #2
 
@@ -6295,7 +6295,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i64 noundef) local_unnamed_addr #2
 
@@ -7136,7 +7136,7 @@ _ZN4llvm15SmallVectorImplINS_11SmallVectorIPNS_20DbgVariableIntrinsicELj1EEEE7re
 declare void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
@@ -14768,10 +14768,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjjEPNS_7PHINodeENS_12DenseMapInfoIS3
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14

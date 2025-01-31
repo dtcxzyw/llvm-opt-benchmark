@@ -70,13 +70,13 @@ return:                                           ; preds = %if.end9, %if.end19,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_preview_create(ptr noundef %ctxt, ptr noundef %p, i32 noundef %w, i32 noundef %h, ptr nocapture noundef readonly %d) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_preview_create(ptr noundef %ctxt, ptr noundef %p, i32 noundef %w, i32 noundef %h, ptr noundef readonly captures(none) %d) local_unnamed_addr #0 {
 entry:
   %conv.i = zext i32 %w to i64
   %conv1.i = zext i32 %h to i64

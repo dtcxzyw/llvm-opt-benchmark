@@ -54,13 +54,13 @@ define dso_local range(i32 -1, 33554430) i32 @hex_to_bin(i8 noundef zeroext %0) 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef range(i32 -22, 1) i32 @hex2bin(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @hex2bin(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 align 16 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.thread, label %.lr.ph
 
@@ -129,7 +129,7 @@ define dso_local noundef range(i32 -22, 1) i32 @hex2bin(ptr nocapture noundef wr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef ptr @bin2hex(ptr noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #2 align 16 {
+define dso_local noundef ptr @bin2hex(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 align 16 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -162,7 +162,7 @@ define dso_local noundef ptr @bin2hex(ptr noundef writeonly %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local i32 @hex_dump_to_buffer(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i1 noundef zeroext %6) #3 align 16 {
+define dso_local i32 @hex_dump_to_buffer(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i1 noundef zeroext %6) #3 align 16 {
   %8 = icmp eq i32 %2, 32
   %9 = select i1 %8, i32 32, i32 16
   %10 = zext nneg i32 %9 to i64
@@ -460,7 +460,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr nocapture noundef readonly %0, i64 
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @print_hex_dump(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6, i1 noundef zeroext %7) #5 align 16 {
@@ -530,7 +530,7 @@ define dso_local void @print_hex_dump(ptr noundef %0, ptr noundef %1, i32 nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #7

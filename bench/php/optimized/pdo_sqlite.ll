@@ -477,7 +477,7 @@ define hidden noundef i32 @zm_shutdown_pdo_sqlite(i32 %0, i32 %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zm_info_pdo_sqlite(ptr nocapture readnone %0) #0 {
+define hidden void @zm_info_pdo_sqlite(ptr readnone captures(none) %0) #0 {
   tail call void @php_info_print_table_start() #11
   tail call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #11
   %2 = tail call ptr @sqlite3_libversion() #11
@@ -495,7 +495,7 @@ define hidden void @zim_PdoSqlite_createFunction(ptr noundef %0, ptr noundef %1)
 declare void @pdo_sqlite_create_function_internal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PdoSqlite_loadExtension(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_PdoSqlite_loadExtension(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca [4096 x i8], align 16
@@ -613,7 +613,7 @@ declare i32 @sqlite3_load_extension(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare void @sqlite3_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PdoSqlite_openBlob(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_PdoSqlite_openBlob(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -753,7 +753,7 @@ define hidden void @zim_PdoSqlite_createCollation(ptr noundef %0, ptr noundef %1
 declare void @pdo_sqlite_create_collation_internal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_sqlite_collation_callback(ptr noundef initializes((32, 52), (56, 84)) %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal i32 @php_sqlite_collation_callback(ptr noundef initializes((32, 52), (56, 84)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca [2 x %struct._zval_struct], align 16
   %7 = alloca %struct._zval_struct, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -902,7 +902,7 @@ declare ptr @sqlite3_libversion() local_unnamed_addr #1
 declare void @php_info_print_table_end() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @php_pdosqlite3_stream_write(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal noundef i64 @php_pdosqlite3_stream_write(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -962,7 +962,7 @@ define internal noundef i64 @php_pdosqlite3_stream_write(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @php_pdosqlite3_stream_read(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal i64 @php_pdosqlite3_stream_read(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1007,7 +1007,7 @@ define internal i64 @php_pdosqlite3_stream_read(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_pdosqlite3_stream_close(ptr nocapture noundef readonly %0, i32 %1) #0 {
+define internal noundef i32 @php_pdosqlite3_stream_close(ptr noundef readonly captures(none) %0, i32 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1017,12 +1017,12 @@ define internal noundef i32 @php_pdosqlite3_stream_close(ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @php_pdosqlite3_stream_flush(ptr nocapture readnone %0) #3 {
+define internal noundef i32 @php_pdosqlite3_stream_flush(ptr readnone captures(none) %0) #3 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 1) i32 @php_pdosqlite3_stream_seek(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #4 {
+define internal range(i32 -1, 1) i32 @php_pdosqlite3_stream_seek(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   switch i32 %2, label %57 [
@@ -1145,12 +1145,12 @@ define internal range(i32 -1, 1) i32 @php_pdosqlite3_stream_seek(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @php_pdosqlite3_stream_cast(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2) #3 {
+define internal noundef i32 @php_pdosqlite3_stream_cast(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #3 {
   ret i32 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @php_pdosqlite3_stream_stat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((48, 56)) %1) #5 {
+define internal noundef i32 @php_pdosqlite3_stream_stat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((48, 56)) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1181,26 +1181,26 @@ declare ptr @zend_zval_value_name(ptr noundef) local_unnamed_addr #1
 declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare ptr @zend_register_internal_class_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @zend_declare_typed_class_constant(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef byval(%struct.zend_type) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

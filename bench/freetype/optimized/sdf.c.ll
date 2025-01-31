@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__const.sdf_generate_bounding_box.dist = private unnamed_addr constant %struct.SDF_Signed_Distance_ { i32 2147483647, i32 0, i8 0 }, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @ft_sdf_init(ptr nocapture noundef writeonly initializes((128, 135)) %0) #0 {
+define internal noundef i32 @ft_sdf_init(ptr noundef writeonly captures(none) initializes((128, 135)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 8, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -49,18 +49,18 @@ define internal noundef i32 @ft_sdf_init(ptr nocapture noundef writeonly initial
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @ft_sdf_done(ptr nocapture readnone %0) #1 {
+define internal void @ft_sdf_done(ptr readnone captures(none) %0) #1 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ft_sdf_requester(ptr nocapture readnone %0, ptr noundef %1) #2 {
+define internal ptr @ft_sdf_requester(ptr readnone captures(none) %0, ptr noundef %1) #2 {
   %3 = tail call ptr @ft_service_list_lookup(ptr noundef nonnull @sdf_services, ptr noundef %1) #11
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ft_sdf_render(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #2 {
+define internal i32 @ft_sdf_render(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #2 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.SDF_Raster_Params_, align 8
   store i32 0, ptr %5, align 4
@@ -264,7 +264,7 @@ thread-pre-split.thread:                          ; preds = %31, %33, %thread-pr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 7) i32 @ft_sdf_transform(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #2 {
+define internal range(i32 0, 7) i32 @ft_sdf_transform(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -299,7 +299,7 @@ define internal range(i32 0, 7) i32 @ft_sdf_transform(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ft_sdf_get_cbox(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef initializes((0, 32)) %2) #2 {
+define internal void @ft_sdf_get_cbox(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef initializes((0, 32)) %2) #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %5 = load i32, ptr %4, align 8
@@ -318,7 +318,7 @@ define internal void @ft_sdf_get_cbox(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ft_sdf_set_mode(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2) #2 {
+define internal i32 @ft_sdf_set_mode(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 112
@@ -332,7 +332,7 @@ define internal i32 @ft_sdf_set_mode(ptr nocapture noundef readonly %0, i64 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ft_bsdf_render(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone %3) #2 {
+define internal i32 @ft_bsdf_render(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone %3) #2 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.FT_Bitmap_, align 8
   %7 = alloca %struct.SDF_Raster_Params_, align 8
@@ -490,7 +490,7 @@ thread-pre-split.thread:                          ; preds = %17, %19, %thread-pr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bsdf_raster_new(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #2 {
+define internal i32 @bsdf_raster_new(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #2 {
   %3 = alloca i32, align 4
   %4 = call ptr @ft_mem_alloc(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %3) #11
   %5 = load i32, ptr %3, align 4
@@ -507,12 +507,12 @@ define internal i32 @bsdf_raster_new(ptr noundef %0, ptr nocapture noundef write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @bsdf_raster_reset(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2) #1 {
+define internal void @bsdf_raster_reset(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2) #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @bsdf_raster_set_mode(ptr nocapture readnone %0, i64 %1, ptr nocapture readnone %2) #1 {
+define internal noundef i32 @bsdf_raster_set_mode(ptr readnone captures(none) %0, i64 %1, ptr readnone captures(none) %2) #1 {
   ret i32 0
 }
 
@@ -620,7 +620,7 @@ define internal void @bsdf_raster_done(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sdf_raster_new(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #2 {
+define internal i32 @sdf_raster_new(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #2 {
   %3 = alloca i32, align 4
   %4 = call ptr @ft_mem_alloc(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %3) #11
   %5 = load i32, ptr %3, align 4
@@ -637,12 +637,12 @@ define internal i32 @sdf_raster_new(ptr noundef %0, ptr nocapture noundef writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @sdf_raster_reset(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2) #1 {
+define internal void @sdf_raster_reset(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2) #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @sdf_raster_set_mode(ptr nocapture readnone %0, i64 %1, ptr nocapture readnone %2) #1 {
+define internal noundef i32 @sdf_raster_set_mode(ptr readnone captures(none) %0, i64 %1, ptr readnone captures(none) %2) #1 {
   ret i32 0
 }
 
@@ -767,7 +767,7 @@ define internal void @sdf_raster_done(ptr noundef %0) #2 {
 declare hidden ptr @ft_service_list_lookup(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 13) i32 @sdf_property_set(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i8 zeroext %3) #4 {
+define internal range(i32 0, 13) i32 @sdf_property_set(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i8 zeroext %3) #4 {
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.3) #12
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %12
@@ -826,7 +826,7 @@ define internal range(i32 0, 13) i32 @sdf_property_set(ptr nocapture noundef wri
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 13) i32 @sdf_property_get(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #4 {
+define internal range(i32 0, 13) i32 @sdf_property_get(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #4 {
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.3) #12
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %9
@@ -880,7 +880,7 @@ define internal range(i32 0, 13) i32 @sdf_property_get(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare hidden void @ft_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -893,7 +893,7 @@ declare void @FT_Outline_Translate(ptr noundef, i64 noundef, i64 noundef) local_
 declare void @FT_Outline_Transform(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @FT_Outline_Get_CBox(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -902,14 +902,14 @@ declare void @FT_Bitmap_Init(ptr noundef) local_unnamed_addr #3
 declare void @FT_Bitmap_New(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare hidden ptr @ft_mem_alloc(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 declare hidden ptr @ft_mem_qrealloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 8) i32 @bsdf_init_distance_map(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #8 {
+define internal fastcc range(i32 0, 8) i32 @bsdf_init_distance_map(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1106,7 +1106,7 @@ define internal fastcc range(i32 0, 8) i32 @bsdf_init_distance_map(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 7) i32 @bsdf_approximate_edge(ptr nocapture noundef nonnull readonly %0) unnamed_addr #2 {
+define internal fastcc range(i32 0, 7) i32 @bsdf_approximate_edge(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #2 {
   %2 = alloca %struct.FT_Vector_, align 8
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
@@ -1519,7 +1519,7 @@ bsdf_is_edge.exit.thread46:                       ; preds = %84, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 7) i32 @edt8(ptr nocapture noundef nonnull readonly %0) unnamed_addr #2 {
+define internal fastcc range(i32 0, 7) i32 @edt8(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #2 {
   %2 = alloca %struct.FT_Vector_, align 8
   %3 = alloca %struct.FT_Vector_, align 8
   %4 = alloca %struct.FT_Vector_, align 8
@@ -2048,7 +2048,7 @@ second_pass.exit:                                 ; preds = %._crit_edge40.us48.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 7) i32 @finalize_sdf(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #2 {
+define internal fastcc range(i32 0, 7) i32 @finalize_sdf(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %1, align 8
@@ -3877,7 +3877,7 @@ sdf_generate_bounding_box.exit:                   ; preds = %._crit_edge228.spli
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sdf_shape_done(ptr nocapture noundef nonnull %0) unnamed_addr #2 {
+define internal fastcc void @sdf_shape_done(ptr noundef nonnull captures(none) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %3
@@ -3934,7 +3934,7 @@ declare hidden ptr @ft_mem_qalloc(ptr noundef, i64 noundef, ptr noundef) local_u
 declare i32 @FT_Outline_Decompose(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sdf_move_to(ptr noundef readonly %0, ptr nocapture noundef %1) #2 {
+define internal i32 @sdf_move_to(ptr noundef readonly %0, ptr noundef captures(none) %1) #2 {
   %3 = alloca i32, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %4
@@ -3974,7 +3974,7 @@ sdf_contour_new.exit.thread:                      ; preds = %6, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sdf_line_to(ptr noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal i32 @sdf_line_to(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = alloca i32, align 4
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %0, null
@@ -4035,7 +4035,7 @@ sdf_edge_new.exit.thread:                         ; preds = %18, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sdf_conic_to(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) #2 {
+define internal i32 @sdf_conic_to(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = load ptr, ptr %2, align 8
@@ -4163,7 +4163,7 @@ sdf_line_to.exit:                                 ; preds = %sdf_edge_new.exit.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sdf_cubic_to(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3) #2 {
+define internal i32 @sdf_cubic_to(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3) #2 {
   %5 = alloca i32, align 4
   %6 = icmp ne ptr %1, null
   %7 = icmp ne ptr %0, null
@@ -4218,7 +4218,7 @@ sdf_edge_new.exit.thread:                         ; preds = %13, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @split_sdf_conic(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, ptr noundef nonnull %3) unnamed_addr #2 {
+define internal fastcc i32 @split_sdf_conic(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull %3) unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [5 x %struct.FT_Vector_], align 16
@@ -4339,7 +4339,7 @@ sdf_edge_new.exit29:                              ; preds = %56
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @split_sdf_cubic(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 1, 33) %2, ptr noundef nonnull %3) unnamed_addr #2 {
+define internal fastcc i32 @split_sdf_cubic(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 1, 33) %2, ptr noundef nonnull %3) unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [7 x %struct.FT_Vector_], align 16
@@ -4600,10 +4600,10 @@ declare i32 @llvm.smin.i32(i32, i32) #9
 declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #9

@@ -152,7 +152,7 @@ declare noundef zeroext i1 @_ZN6FileIO11openForReadEPKc(ptr noundef nonnull alig
 declare noundef zeroext i1 @_Z16duReadContourSetR12rcContourSetP8duFileIO(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare void @_ZN6FileIOD1Ev(ptr noundef nonnull align 8 dereferenceable(20)) unnamed_addr #3
@@ -247,17 +247,17 @@ _ZN12Sample_DebugD2Ev.exit:                       ; preds = %7
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN12Sample_Debug14handleSettingsEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define dso_local void @_ZN12Sample_Debug14handleSettingsEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN12Sample_Debug11handleToolsEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define dso_local void @_ZN12Sample_Debug11handleToolsEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN12Sample_Debug15handleDebugModeEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define dso_local void @_ZN12Sample_Debug15handleDebugModeEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret void
 }
 
@@ -341,12 +341,12 @@ declare void @_Z19duDebugDrawContoursP11duDebugDrawRK12rcContourSetf(ptr noundef
 declare void @_Z19duDebugDrawPolyMeshP11duDebugDrawRK10rcPolyMesh(ptr noundef, ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN12Sample_Debug19handleRenderOverlayEPdS0_Pi(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) unnamed_addr #8 align 2 {
+define dso_local void @_ZN12Sample_Debug19handleRenderOverlayEPdS0_Pi(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) unnamed_addr #8 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN12Sample_Debug17handleMeshChangedEP9InputGeom(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(276) initializes((8, 16)) %0, ptr noundef %1) unnamed_addr #9 align 2 {
+define dso_local void @_ZN12Sample_Debug17handleMeshChangedEP9InputGeom(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(276) initializes((8, 16)) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
@@ -421,7 +421,7 @@ define dso_local noundef ptr @_ZN12Sample_Debug12getBoundsMaxEv(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12Sample_Debug11handleClickEPKfS1_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(276) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN12Sample_Debug11handleClickEPKfS1_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(276) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -439,7 +439,7 @@ define dso_local void @_ZN12Sample_Debug11handleClickEPKfS1_b(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12Sample_Debug12handleToggleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(276) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN12Sample_Debug12handleToggleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(276) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -457,7 +457,7 @@ define dso_local void @_ZN12Sample_Debug12handleToggleEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN12Sample_Debug11handleBuildEv(ptr nocapture noundef nonnull align 8 dereferenceable(276) %0) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN12Sample_Debug11handleBuildEv(ptr noundef nonnull align 8 captures(none) dereferenceable(276) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -554,10 +554,10 @@ define linkonce_odr dso_local noundef float @_ZN6Sample13getAgentClimbEv(ptr nou
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

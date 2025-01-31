@@ -95,7 +95,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_sha3_traverse(ptr noundef %module, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @_sha3_traverse(ptr noundef %module, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #4
   %0 = load ptr, ptr %call.i, align 8
@@ -664,7 +664,7 @@ declare void @PyObject_Free(ptr noundef) local_unnamed_addr #1
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_sha3_sha3_224_copy(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_sha3_sha3_224_copy(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %0, align 8
@@ -717,7 +717,7 @@ _sha3_sha3_224_copy_impl.exit:                    ; preds = %entry, %if.end3.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_sha3_sha3_224_digest(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_sha3_sha3_224_digest(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %digest.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
@@ -764,7 +764,7 @@ _sha3_sha3_224_digest_impl.exit:                  ; preds = %if.end.i, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_sha3_sha3_224_hexdigest(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_sha3_sha3_224_hexdigest(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %digest.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
@@ -1003,7 +1003,7 @@ declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #1
 declare zeroext i8 @Hacl_Streaming_Keccak_update(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @SHA3_get_block_size(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @SHA3_get_block_size(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %hash_state = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %hash_state, align 8
@@ -1014,7 +1014,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @SHA3_get_name(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @SHA3_get_name(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -1090,7 +1090,7 @@ return:                                           ; preds = %if.else22, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @SHA3_get_digest_size(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @SHA3_get_digest_size(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %hash_state = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %hash_state, align 8
@@ -1110,7 +1110,7 @@ return:                                           ; preds = %entry, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @SHA3_get_capacity_bits(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @SHA3_get_capacity_bits(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %hash_state = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %hash_state, align 8
@@ -1123,7 +1123,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @SHA3_get_rate_bits(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @SHA3_get_rate_bits(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %hash_state = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %hash_state, align 8
@@ -1135,7 +1135,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @SHA3_get_suffix(ptr nocapture readnone %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @SHA3_get_suffix(ptr readnone captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %suffix = alloca [2 x i8], align 2
   store i16 6, ptr %suffix, align 2
@@ -1158,12 +1158,12 @@ declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr no
 declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @Hacl_Streaming_Keccak_malloc(i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_sha3_shake_128_digest(ptr nocapture noundef readonly %self, ptr noundef %arg) #0 {
+define internal ptr @_sha3_shake_128_digest(ptr noundef readonly captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %length = alloca i64, align 8
   %call = call i32 @_PyLong_UnsignedLong_Converter(ptr noundef %arg, ptr noundef nonnull %length) #4
@@ -1211,7 +1211,7 @@ exit:                                             ; preds = %if.end8.i.i, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_sha3_shake_128_hexdigest(ptr nocapture noundef readonly %self, ptr noundef %arg) #0 {
+define internal ptr @_sha3_shake_128_hexdigest(ptr noundef readonly captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %length = alloca i64, align 8
   %call = call i32 @_PyLong_UnsignedLong_Converter(ptr noundef %arg, ptr noundef nonnull %length) #4
@@ -1269,14 +1269,14 @@ declare zeroext i8 @Hacl_Streaming_Keccak_squeeze(ptr noundef, ptr noundef, i32 
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @SHAKE_get_digest_size(ptr nocapture readnone %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @SHAKE_get_digest_size(ptr readnone captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %call = tail call ptr @PyLong_FromLong(i64 noundef 0) #4
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @SHAKE_get_suffix(ptr nocapture readnone %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @SHAKE_get_suffix(ptr readnone captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %suffix = alloca [2 x i8], align 2
   store i16 31, ptr %suffix, align 2
@@ -1285,10 +1285,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

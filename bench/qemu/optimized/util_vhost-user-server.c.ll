@@ -50,7 +50,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [6 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @vu_message_read, ptr @.str.24, ptr @.str.25, i32 99, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_coroutine_yield, ptr @.str.24, ptr @.str.26, i32 101, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_readv_all_eof, ptr @.str.27, ptr @.str.28, i32 307, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_yield, ptr @.str.24, ptr @.str.28, i32 740, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @vu_client_trip, ptr @.str.24, ptr @.str.25, i32 198, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @aio_poll, ptr @.str.29, ptr @.str.30, i32 470, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vhost_user_server_inc_in_flight(ptr nocapture noundef %server) local_unnamed_addr #0 {
+define dso_local void @vhost_user_server_inc_in_flight(ptr noundef captures(none) %server) local_unnamed_addr #0 {
 entry:
   %wait_idle = getelementptr inbounds nuw i8, ptr %server, i64 45
   %0 = load i8, ptr %wait_idle, align 1
@@ -71,7 +71,7 @@ if.end:                                           ; preds = %entry
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vhost_user_server_dec_in_flight(ptr nocapture noundef %server) local_unnamed_addr #0 {
+define dso_local void @vhost_user_server_dec_in_flight(ptr noundef captures(none) %server) local_unnamed_addr #0 {
 entry:
   %in_flight = getelementptr inbounds nuw i8, ptr %server, i64 40
   %0 = atomicrmw sub ptr %in_flight, i32 1 seq_cst, align 8
@@ -97,7 +97,7 @@ if.end2:                                          ; preds = %if.then, %if.then1,
 declare void @aio_co_wake(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local zeroext i1 @vhost_user_server_has_in_flight(ptr nocapture noundef readonly %server) local_unnamed_addr #3 {
+define dso_local zeroext i1 @vhost_user_server_has_in_flight(ptr noundef readonly captures(none) %server) local_unnamed_addr #3 {
 entry:
   %in_flight = getelementptr inbounds nuw i8, ptr %server, i64 40
   %0 = load atomic i32, ptr %in_flight acquire, align 8
@@ -109,7 +109,7 @@ entry:
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vhost_user_server_stop(ptr nocapture noundef %server) local_unnamed_addr #0 {
+define dso_local void @vhost_user_server_stop(ptr noundef captures(none) %server) local_unnamed_addr #0 {
 entry:
   %restart_listener_bh = getelementptr inbounds nuw i8, ptr %server, i64 8
   %0 = load ptr, ptr %restart_listener_bh, align 8
@@ -326,7 +326,7 @@ if.end21:                                         ; preds = %if.end8, %entry, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @kick_handler(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @kick_handler(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %cb = getelementptr inbounds nuw i8, ptr %opaque, i64 24
@@ -452,7 +452,7 @@ return:                                           ; preds = %if.end15, %if.then2
 declare void @aio_co_schedule(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vhost_user_server_detach_aio_context(ptr nocapture noundef %server) local_unnamed_addr #0 {
+define dso_local void @vhost_user_server_detach_aio_context(ptr noundef captures(none) %server) local_unnamed_addr #0 {
 entry:
   %sioc = getelementptr inbounds nuw i8, ptr %server, i64 1520
   %0 = load ptr, ptr %sioc, align 8
@@ -574,17 +574,17 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @qio_net_listener_set_name(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @qio_net_listener_set_client_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vu_accept(ptr nocapture readnone %listener, ptr noundef %sioc, ptr noundef %opaque) #0 {
+define internal void @vu_accept(ptr readnone captures(none) %listener, ptr noundef %sioc, ptr noundef %opaque) #0 {
 entry:
   %sioc1 = getelementptr inbounds nuw i8, ptr %opaque, i64 1520
   %0 = load ptr, ptr %sioc1, align 8
@@ -656,14 +656,14 @@ declare void @warn_report(ptr noundef, ...) local_unnamed_addr #2
 declare zeroext i1 @vu_init(ptr noundef, i16 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @panic_cb(ptr nocapture readnone %vu_dev, ptr noundef %buf) #0 {
+define internal void @panic_cb(ptr readnone captures(none) %vu_dev, ptr noundef %buf) #0 {
 entry:
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14, ptr noundef %buf) #9
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @vu_message_read(ptr nocapture noundef %vu_dev, i32 %conn_fd, ptr noundef %vmsg) #0 {
+define internal noundef zeroext i1 @vu_message_read(ptr noundef captures(none) %vu_dev, i32 %conn_fd, ptr noundef %vmsg) #0 {
 entry:
   %iov = alloca %struct.iovec, align 8
   %local_err = alloca ptr, align 8

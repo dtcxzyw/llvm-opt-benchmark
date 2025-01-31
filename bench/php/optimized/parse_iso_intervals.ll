@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [27 x i8] c"Undefined period specifier\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @timelib_strtointerval(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
+define hidden void @timelib_strtointerval(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 %1
   %10 = getelementptr inbounds i8, ptr %9, i64 -1
@@ -1040,7 +1040,7 @@ add_error.exit601.i:                              ; preds = %204
   store ptr %534, ptr %8, align 8
   %535 = call fastcc i64 @timelib_get_unsigned_nr(ptr noundef %8, i32 noundef 2)
   store i64 %535, ptr %91, align 8
-  tail call void @_efree(ptr noundef %519) #10
+  tail call void @_efree(ptr noundef nonnull %519) #10
   %.pre = ptrtoint ptr %518 to i64
   br label %scan.exit
 
@@ -1410,7 +1410,7 @@ add_error.exit601.i:                              ; preds = %204
   store ptr %736, ptr %8, align 8
   %737 = call fastcc i64 @timelib_get_unsigned_nr(ptr noundef %8, i32 noundef 9)
   %738 = trunc i64 %737 to i32
-  tail call void @_efree(ptr noundef %735) #10
+  tail call void @_efree(ptr noundef nonnull %735) #10
   br label %scan.exit
 
 scan.exit:                                        ; preds = %.critedge.i, %517, %647, %731
@@ -1497,7 +1497,7 @@ scan.exit:                                        ; preds = %.critedge.i, %517, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare noalias ptr @_emalloc_24() local_unnamed_addr #2
 
@@ -1510,7 +1510,7 @@ declare void @timelib_error_container_dtor(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @timelib_time_ctor() local_unnamed_addr #2
 
@@ -1528,7 +1528,7 @@ declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #6
 declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @timelib_get_unsigned_nr(ptr nocapture noundef nonnull %0, i32 noundef range(i32 2, 13) %1) unnamed_addr #0 {
+define internal fastcc i64 @timelib_get_unsigned_nr(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 2, 13) %1) unnamed_addr #0 {
   %.promoted = load ptr, ptr %0, align 8
   %3 = load i8, ptr %.promoted, align 1
   %4 = add i8 %3, -58
@@ -1618,8 +1618,8 @@ define internal fastcc i64 @timelib_get_unsigned_nr(ptr nocapture noundef nonnul
   %34 = add nsw i64 %33, 1
   %35 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %34) #14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %35, ptr noundef nonnull align 1 dereferenceable(1) %.promoted31.i, i64 %33, i1 false)
-  %36 = tail call i64 @strtoll(ptr nocapture noundef %35, ptr noundef null, i32 noundef 10) #10
-  tail call void @_efree(ptr noundef %35) #10
+  %36 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %35, ptr noundef null, i32 noundef 10) #10
+  tail call void @_efree(ptr noundef nonnull %35) #10
   br label %timelib_get_nr.exit
 
 timelib_get_nr.exit:                              ; preds = %.critedge.i, %.critedge2.i
@@ -1633,7 +1633,7 @@ timelib_get_nr.exit:                              ; preds = %.critedge.i, %.crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @timelib_get_nr(ptr nocapture noundef nonnull %0, i32 noundef range(i32 2, 13) %1) unnamed_addr #0 {
+define internal fastcc i64 @timelib_get_nr(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 2, 13) %1) unnamed_addr #0 {
   %.promoted = load ptr, ptr %0, align 8
   %3 = load i8, ptr %.promoted, align 1
   %4 = add i8 %3, -58
@@ -1678,8 +1678,8 @@ define internal fastcc i64 @timelib_get_nr(ptr nocapture noundef nonnull %0, i32
   %21 = add nsw i64 %20, 1
   %22 = tail call noalias ptr @_ecalloc(i64 noundef 1, i64 noundef %21) #14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 1 dereferenceable(1) %.promoted31, i64 %20, i1 false)
-  %23 = tail call i64 @strtoll(ptr nocapture noundef %22, ptr noundef null, i32 noundef 10) #10
-  tail call void @_efree(ptr noundef %22) #10
+  %23 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %22, ptr noundef null, i32 noundef 10) #10
+  tail call void @_efree(ptr noundef nonnull %22) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %.critedge2
@@ -1691,13 +1691,13 @@ define internal fastcc i64 @timelib_get_nr(ptr nocapture noundef nonnull %0, i32
 declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

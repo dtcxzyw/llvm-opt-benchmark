@@ -54,7 +54,7 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_laskP8PJconsts(ptr n
 declare noundef ptr @_Z6pj_newv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal { double, double } @_ZL14lask_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture readnone %2) #3 {
+define internal { double, double } @_ZL14lask_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr readnone captures(none) %2) #3 {
   %4 = fmul double %0, %0
   %5 = fmul double %1, %1
   %6 = tail call double @llvm.fmuladd.f64(double %4, double -1.430590e-02, double -1.191610e-01)

@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @prte_schizo_prte_module = external global %struct.prte_schizo_base_module_t, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal noundef i32 @component_query(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 {
+define internal noundef i32 @component_query(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #0 {
   store ptr @prte_schizo_prte_module, ptr %0, align 8
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_schizo_prte_component, i64 224), align 8
   store i32 %3, ptr %1, align 4

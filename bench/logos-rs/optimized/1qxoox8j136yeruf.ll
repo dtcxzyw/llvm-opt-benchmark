@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN96_$LT$u8$u20$as$u20$logos_codegen..parser..ignore_flags..ascii_case..MakeAsciiCaseInsensitive$GT$27make_ascii_case_insensitive17h2660f21577631725E"(ptr nocapture writeonly sret([40 x i8]) align 8 %0, i8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN96_$LT$u8$u20$as$u20$logos_codegen..parser..ignore_flags..ascii_case..MakeAsciiCaseInsensitive$GT$27make_ascii_case_insensitive17h2660f21577631725E"(ptr writeonly sret([40 x i8]) align 8 captures(none) %0, i8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [40 x i8], align 8
   %4 = alloca [8 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -82,7 +82,7 @@ define void @"_ZN96_$LT$u8$u20$as$u20$logos_codegen..parser..ignore_flags..ascii
   store ptr %29, ptr %.sroa.212.0..sroa_idx, align 8
   %.sroa.313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 56
   store i64 1, ptr %.sroa.313.0..sroa_idx, align 8
-  call void @_ZN5alloc5slice4hack8into_vec17h9df0653c492c2a7fE(ptr nonnull sret([24 x i8]) align 8 %5, ptr align 8 %20, i64 2)
+  call void @_ZN5alloc5slice4hack8into_vec17h9df0653c492c2a7fE(ptr nonnull sret([24 x i8]) align 8 %5, ptr nonnull align 8 %20, i64 2)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   br label %22
@@ -133,14 +133,14 @@ define void @"_ZN96_$LT$u8$u20$as$u20$logos_codegen..parser..ignore_flags..ascii
   store ptr %46, ptr %.sroa.24.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 56
   store i64 1, ptr %.sroa.3.0..sroa_idx, align 8
-  call void @_ZN5alloc5slice4hack8into_vec17h9df0653c492c2a7fE(ptr nonnull sret([24 x i8]) align 8 %8, ptr align 8 %13, i64 2)
+  call void @_ZN5alloc5slice4hack8into_vec17h9df0653c492c2a7fE(ptr nonnull sret([24 x i8]) align 8 %8, ptr nonnull align 8 %13, i64 2)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   br label %22
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN98_$LT$char$u20$as$u20$logos_codegen..parser..ignore_flags..ascii_case..MakeAsciiCaseInsensitive$GT$27make_ascii_case_insensitive17h03e200070c2b5be9E"(ptr nocapture writeonly sret([40 x i8]) align 8 %0, i32 %1) unnamed_addr #0 {
+define void @"_ZN98_$LT$char$u20$as$u20$logos_codegen..parser..ignore_flags..ascii_case..MakeAsciiCaseInsensitive$GT$27make_ascii_case_insensitive17h03e200070c2b5be9E"(ptr writeonly sret([40 x i8]) align 8 captures(none) %0, i32 %1) unnamed_addr #0 {
   %3 = alloca [4 x i8], align 4
   %4 = alloca [24 x i8], align 8
   %5 = icmp ult i32 %1, 128
@@ -175,7 +175,7 @@ define void @"_ZN98_$LT$char$u20$as$u20$logos_codegen..parser..ignore_flags..asc
 declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden ptr @_ZN5alloc5alloc15exchange_malloc17hb0a9e51216425750E(i64, i64) unnamed_addr #2

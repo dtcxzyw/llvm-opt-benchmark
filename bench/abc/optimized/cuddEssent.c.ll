@@ -890,7 +890,7 @@ declare i32 @st__gen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @st__free_gen(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Cudd_tlcInfoFree(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define void @Cudd_tlcInfoFree(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -916,7 +916,7 @@ define void @Cudd_tlcInfoFree(ptr nocapture noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Cudd_ReadIthClause(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Cudd_ReadIthClause(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #4 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %53, label %8
 
@@ -1218,10 +1218,10 @@ Cudd_tlcInfoFree.exit:                            ; preds = %108, %110
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @cuddCacheLookup1(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1241,7 +1241,7 @@ declare i32 @st__lookup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @computeClauses(ptr nocapture readonly %.0.val, ptr readonly %.8.val, ptr nocapture readonly %.0.val1, ptr readonly %.8.val3, i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @computeClauses(ptr readonly captures(none) %.0.val, ptr readonly %.8.val, ptr readonly captures(none) %.0.val1, ptr readonly %.8.val3, i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr @Tolv, align 8
   %4 = add nsw i32 %1, -1
   %5 = ashr i32 %4, 6
@@ -2417,7 +2417,7 @@ beforep.exit466.thread36:                         ; preds = %566, %562, %beforep
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc noalias noundef ptr @computeClausesWithUniverse(ptr nocapture readonly %.0.val, ptr readonly %.8.val, i32 noundef %0, i16 noundef signext range(i16 0, 2) %1) unnamed_addr #8 {
+define internal fastcc noalias noundef ptr @computeClausesWithUniverse(ptr readonly captures(none) %.0.val, ptr readonly %.8.val, i32 noundef %0, i16 noundef signext range(i16 0, 2) %1) unnamed_addr #8 {
   %3 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread.thread, label %tlcInfoAlloc.exit
@@ -2622,7 +2622,7 @@ Cudd_tlcInfoFree.exit:                            ; preds = %130, %12
 declare i32 @st__add_direct(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10

@@ -371,7 +371,7 @@ entry:
 declare void @NCONF_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @execute_test(ptr nocapture noundef nonnull readonly %fixture) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @execute_test(ptr noundef nonnull readonly captures(none) %fixture) unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @conf, align 8
   %test_section = getelementptr inbounds nuw i8, ptr %fixture, i64 8
@@ -574,7 +574,7 @@ declare void @SSL_TEST_CTX_free(ptr noundef) local_unnamed_addr #2
 declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @extraconf_eq(ptr nocapture noundef readonly %extra, ptr nocapture noundef readonly %extra2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @extraconf_eq(ptr noundef readonly captures(none) %extra, ptr noundef readonly captures(none) %extra2) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %extra, align 8
   %1 = load i32, ptr %extra2, align 8
@@ -661,7 +661,7 @@ declare i32 @test_str_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @serverconf_eq(ptr nocapture noundef readonly %serv, ptr nocapture noundef readonly %serv2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @serverconf_eq(ptr noundef readonly captures(none) %serv, ptr noundef readonly captures(none) %serv2) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %serv, align 8
   %1 = load i32, ptr %serv2, align 8

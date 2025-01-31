@@ -427,10 +427,10 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef zeroext i1 @_ZNK8Settings7getBoolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8Settings3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
@@ -902,7 +902,7 @@ ehcleanup22:                                      ; preds = %lpad5, %lpad, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK10ChatBuffer18getBottomScrollPosEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef i32 @_ZNK10ChatBuffer18getBottomScrollPosEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(113) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_formatted = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -922,7 +922,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK10ChatBuffer14formatChatLineERK8ChatLinejRSt6vectorI17ChatFormattedLineSaIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(168) %line, i32 noundef %cols, ptr noundef nonnull align 8 dereferenceable(24) %destination) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZNK10ChatBuffer14formatChatLineERK8ChatLinejRSt6vectorI17ChatFormattedLineSaIS4_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(168) %line, i32 noundef %cols, ptr noundef nonnull align 8 dereferenceable(24) %destination) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i852 = alloca i64, align 8
   %__dnew.i.i.i798 = alloca i64, align 8
@@ -4207,7 +4207,7 @@ _ZN14EnrichedStringD2Ev.exit11:                   ; preds = %if.then.i.i.i7, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10ChatBuffer5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(113) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10ChatBuffer5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(113) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_unformatted = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_unformatted, align 8, !tbaa !52
@@ -4380,7 +4380,7 @@ _ZNSt6vectorI17ChatFormattedLineSaIS0_EE5clearEv.exit: ; preds = %invoke.cont.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK10ChatBuffer12getLineCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef i32 @_ZNK10ChatBuffer12getLineCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(113) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_unformatted = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -4395,7 +4395,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(168) ptr @_ZNK10ChatBuffer7getLineEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %this, i32 noundef %index) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(168) ptr @_ZNK10ChatBuffer7getLineEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(113) %this, i32 noundef %index) local_unnamed_addr #7 align 2 {
 entry:
   %m_unformatted = getelementptr inbounds nuw i8, ptr %this, i64 8
   %conv = zext i32 %index to i64
@@ -4405,7 +4405,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10ChatBuffer4stepEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %this, float noundef %dtime) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN10ChatBuffer4stepEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(113) %this, float noundef %dtime) local_unnamed_addr #8 align 2 {
 entry:
   %m_unformatted = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_unformatted, align 8, !tbaa !28
@@ -4431,7 +4431,7 @@ for.body:                                         ; preds = %entry, %for.body
 declare void @_Z15sanity_check_fnPKcS0_jS0_(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN10ChatBuffer14scrollAbsoluteEi(ptr nocapture noundef nonnull align 8 dereferenceable(113) initializes((40, 44)) %this, i32 noundef %scroll) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN10ChatBuffer14scrollAbsoluteEi(ptr noundef nonnull align 8 captures(none) dereferenceable(113) initializes((40, 44)) %this, i32 noundef %scroll) local_unnamed_addr #10 align 2 {
 entry:
   %m_formatted.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -4492,7 +4492,7 @@ while.end:                                        ; preds = %while.body, %land.r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK10ChatBuffer7getRowsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef i32 @_ZNK10ChatBuffer7getRowsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(113) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_rows = getelementptr inbounds nuw i8, ptr %this, i64 36
   %0 = load i32, ptr %m_rows, align 4, !tbaa !63
@@ -4848,7 +4848,7 @@ if.end53:                                         ; preds = %if.else50, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN10ChatBuffer12scrollBottomEv(ptr nocapture noundef nonnull align 8 dereferenceable(113) initializes((40, 44)) %this) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN10ChatBuffer12scrollBottomEv(ptr noundef nonnull align 8 captures(none) dereferenceable(113) initializes((40, 44)) %this) local_unnamed_addr #10 align 2 {
 entry:
   %m_formatted.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -4906,7 +4906,7 @@ cleanup:                                          ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN10ChatBuffer6scrollEi(ptr nocapture noundef nonnull align 8 dereferenceable(113) %this, i32 noundef %rows) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN10ChatBuffer6scrollEi(ptr noundef nonnull align 8 captures(none) dereferenceable(113) %this, i32 noundef %rows) local_unnamed_addr #10 align 2 {
 entry:
   %m_scroll = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %m_scroll, align 8, !tbaa !64
@@ -4935,7 +4935,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK10ChatBuffer15getTopScrollPosEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef i32 @_ZNK10ChatBuffer15getTopScrollPosEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(113) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_formatted = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -5237,7 +5237,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4find
 declare void @_ZN14EnrichedStringC1ERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEERKN3irr5video6SColorE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare void @_Z12wide_to_utf8B5cxx11St17basic_string_viewIwSt11char_traitsIwEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, i64, ptr) local_unnamed_addr #0
 
@@ -5268,7 +5268,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ChatPromptC2ERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEj(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %prompt, i32 noundef %history_limit) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10ChatPromptC2ERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEj(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %prompt, i32 noundef %history_limit) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -5444,7 +5444,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local noundef zeroext i1 @_ZN10ChatPrompt12HistoryEntryeqERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %other) local_unnamed_addr #12 align 2 {
+define dso_local noundef zeroext i1 @_ZN10ChatPrompt12HistoryEntryeqERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %other) local_unnamed_addr #12 align 2 {
 entry:
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !46
@@ -5703,7 +5703,7 @@ _ZN10ChatPrompt9clampViewEv.exit:                 ; preds = %if.else.i5, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10ChatPrompt9clampViewEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN10ChatPrompt9clampViewEv(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %this) local_unnamed_addr #13 align 2 {
 entry:
   %m_history_index.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i32, ptr %m_history_index.i, align 8, !tbaa !110
@@ -5754,7 +5754,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ChatPrompt5inputERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %str) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10ChatPrompt5inputERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %str) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i.i.i = alloca i64, align 8
   %m_history_index.i = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -5912,7 +5912,7 @@ _ZN10ChatPrompt9clampViewEv.exit:                 ; preds = %if.else.i10, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ChatPrompt12addToHistoryERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %line) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10ChatPrompt12addToHistoryERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %line) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i220 = alloca i64, align 8
   %__dnew.i.i.i = alloca i64, align 8
@@ -6662,7 +6662,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ChatPrompt5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10ChatPrompt5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i.i.i = alloca i64, align 8
   %m_history_index.i = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -6982,7 +6982,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10ChatPrompt11historyPrevEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN10ChatPrompt11historyPrevEv(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %this) local_unnamed_addr #13 align 2 {
 entry:
   %m_history_index = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i32, ptr %m_history_index, align 8, !tbaa !110
@@ -7036,7 +7036,7 @@ if.end:                                           ; preds = %_ZN10ChatPrompt9cla
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10ChatPrompt11historyNextEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN10ChatPrompt11historyNextEv(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %this) local_unnamed_addr #13 align 2 {
 entry:
   %m_history_index = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i32, ptr %m_history_index, align 8, !tbaa !110
@@ -7775,7 +7775,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10ChatPrompt8reformatEj(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %cols) local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN10ChatPrompt8reformatEj(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %this, i32 noundef %cols) local_unnamed_addr #13 align 2 {
 entry:
   %conv = zext i32 %cols to i64
   %_M_string_length.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -7847,7 +7847,7 @@ if.end16:                                         ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK10ChatPrompt17getVisiblePortionB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string.32") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK10ChatPrompt17getVisiblePortionB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string.32") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -8055,7 +8055,7 @@ cleanup:                                          ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK10ChatPrompt24getVisibleCursorPositionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef i32 @_ZNK10ChatPrompt24getVisibleCursorPositionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_cursor = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load i32, ptr %m_cursor, align 8, !tbaa !115
@@ -9656,7 +9656,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK11ChatBackend13getRecentChatEv(ptr dead_on_unwind noalias nonnull writable sret(%class.EnrichedString) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK11ChatBackend13getRecentChatEv(ptr dead_on_unwind noalias nonnull writable sret(%class.EnrichedString) align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.EnrichedString, align 8
   %ref.tmp5 = alloca %"class.irr::video::SColor", align 4
@@ -10120,7 +10120,7 @@ _ZN10ChatPrompt8reformatEj.exit:                  ; preds = %if.else.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN11ChatBackend15clearRecentChatEv(ptr nocapture noundef nonnull align 8 dereferenceable(360) %this) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN11ChatBackend15clearRecentChatEv(ptr noundef nonnull align 8 captures(none) dereferenceable(360) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_recent_buffer = getelementptr inbounds nuw i8, ptr %this, i64 120
   tail call void @_ZN10ChatBuffer5clearEv(ptr noundef nonnull align 8 dereferenceable(113) %m_recent_buffer)
@@ -10266,7 +10266,7 @@ _ZN10ChatBuffer11deleteByAgeEf.exit:              ; preds = %while.body.i, %land
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN11ChatBackend6scrollEi(ptr nocapture noundef nonnull align 8 dereferenceable(360) %this, i32 noundef %rows) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN11ChatBackend6scrollEi(ptr noundef nonnull align 8 captures(none) dereferenceable(360) %this, i32 noundef %rows) local_unnamed_addr #10 align 2 {
 entry:
   %m_scroll.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %m_scroll.i, align 8, !tbaa !64
@@ -10295,7 +10295,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN11ChatBackend14scrollPageDownEv(ptr nocapture noundef nonnull align 8 dereferenceable(360) %this) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN11ChatBackend14scrollPageDownEv(ptr noundef nonnull align 8 captures(none) dereferenceable(360) %this) local_unnamed_addr #10 align 2 {
 entry:
   %m_rows.i = getelementptr inbounds nuw i8, ptr %this, i64 36
   %0 = load i32, ptr %m_rows.i, align 4, !tbaa !63
@@ -10324,7 +10324,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN11ChatBackend12scrollPageUpEv(ptr nocapture noundef nonnull align 8 dereferenceable(360) %this) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN11ChatBackend12scrollPageUpEv(ptr noundef nonnull align 8 captures(none) dereferenceable(360) %this) local_unnamed_addr #10 align 2 {
 entry:
   %m_rows.i = getelementptr inbounds nuw i8, ptr %this, i64 36
   %0 = load i32, ptr %m_rows.i, align 4, !tbaa !63
@@ -10545,7 +10545,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #18
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 declare void @_ZN14EnrichedString18updateDefaultColorEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #0
 
@@ -12052,7 +12052,7 @@ unreachable:                                      ; preds = %invoke.cont19
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #22
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorI17ChatFormattedLineSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(25) %__args) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -13571,7 +13571,7 @@ declare i32 @llvm.umin.i32(i32, i32) #14
 declare i32 @llvm.umax.i32(i32, i32) #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #25
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #25
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

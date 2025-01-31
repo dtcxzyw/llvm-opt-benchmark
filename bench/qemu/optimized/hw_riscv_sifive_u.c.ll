@@ -319,7 +319,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @sifive_u_machine_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @sifive_u_machine_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_CLASS) #7
   %desc = getelementptr inbounds nuw i8, ptr %call.i, i64 120
@@ -531,13 +531,13 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.body.i
-  %call46.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call27.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp.i, i32 noundef 16) #7
-  %call47.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef %call27.i, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56) #7
+  %call46.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call27.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp.i, i32 noundef 16) #7
+  %call47.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef %call27.i, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56) #7
   call void @g_free(ptr noundef %call27.i) #7
-  %call48.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call1.i, ptr noundef nonnull @.str.57) #7
-  %call49.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, i32 noundef 1000000) #7
-  %call50.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.39, i32 noundef 0) #7
-  %call51.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.40, i32 noundef 1) #7
+  %call48.i = call i32 @qemu_fdt_add_subnode(ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.57) #7
+  %call49.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, i32 noundef 1000000) #7
+  %call50.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.39, i32 noundef 0) #7
+  %call51.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.40, i32 noundef 1) #7
   %smp.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 288
   %7 = load i32, ptr %smp.i, align 8
   %cpu.02.i = add i32 %7, -1
@@ -561,12 +561,12 @@ for.body55.i:                                     ; preds = %if.end77.i, %for.bo
   %11 = trunc nuw nsw i64 %indvars.iv42.i to i32
   %call57.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.59, i32 noundef %11) #7
   %call58.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.60, i32 noundef %11) #7
-  %call59.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call1.i, ptr noundef %call57.i) #7
+  %call59.i = call i32 @qemu_fdt_add_subnode(ptr noundef nonnull %call1.i, ptr noundef %call57.i) #7
   %cmp60.not.i = icmp eq i64 %indvars.iv42.i, 0
   br i1 %cmp60.not.i, label %if.else72.i, label %if.then62.i
 
 if.then62.i:                                      ; preds = %for.body55.i
-  %call66.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef %call57.i, ptr noundef nonnull @.str.61, ptr noundef nonnull %.str.62..str.63.i) #7
+  %call66.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef %call57.i, ptr noundef nonnull @.str.61, ptr noundef nonnull %.str.62..str.63.i) #7
   %12 = load ptr, ptr %harts.i, align 8
   %sub68.i = add nsw i64 %indvars.iv44.i, 4294967294
   %idxprom69.i = and i64 %sub68.i, 4294967295
@@ -580,16 +580,16 @@ if.else72.i:                                      ; preds = %for.body55.i
 if.end77.i:                                       ; preds = %if.else72.i, %if.then62.i
   %.sink.i = phi ptr [ %13, %if.else72.i ], [ %arrayidx70.i, %if.then62.i ]
   %call76.i = call ptr @riscv_isa_string(ptr noundef %.sink.i) #7
-  %call78.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef %call57.i, ptr noundef nonnull @.str.64, ptr noundef %call76.i) #7
-  %call79.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef %call57.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.65) #7
-  %call80.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef %call57.i, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67) #7
-  %call81.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call57.i, ptr noundef nonnull @.str.54, i32 noundef %11) #7
-  %call82.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef %call57.i, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.68) #7
-  %call83.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call1.i, ptr noundef %call58.i) #7
-  %call84.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call58.i, ptr noundef nonnull @.str.45, i32 noundef %phandle.04.i) #7
-  %call85.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef %call58.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.69) #7
-  %call86.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call58.i, ptr noundef nonnull @.str.70, ptr noundef null, i32 noundef 0) #7
-  %call87.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call58.i, ptr noundef nonnull @.str.71, i32 noundef 1) #7
+  %call78.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef %call57.i, ptr noundef nonnull @.str.64, ptr noundef %call76.i) #7
+  %call79.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef %call57.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.65) #7
+  %call80.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef %call57.i, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67) #7
+  %call81.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call57.i, ptr noundef nonnull @.str.54, i32 noundef %11) #7
+  %call82.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef %call57.i, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.68) #7
+  %call83.i = call i32 @qemu_fdt_add_subnode(ptr noundef nonnull %call1.i, ptr noundef %call58.i) #7
+  %call84.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call58.i, ptr noundef nonnull @.str.45, i32 noundef %phandle.04.i) #7
+  %call85.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef %call58.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.69) #7
+  %call86.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call58.i, ptr noundef nonnull @.str.70, ptr noundef null, i32 noundef 0) #7
+  %call87.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call58.i, ptr noundef nonnull @.str.71, i32 noundef 1) #7
   call void @g_free(ptr noundef %call76.i) #7
   call void @g_free(ptr noundef %call58.i) #7
   call void @g_free(ptr noundef %call57.i) #7
@@ -615,7 +615,7 @@ for.end89.i:                                      ; preds = %for.end89.loopexit.
 for.body99.i:                                     ; preds = %for.end89.i, %for.body99.i
   %cpu.18.i = phi i32 [ %inc122.i, %for.body99.i ], [ 0, %for.end89.i ]
   %call100.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.60, i32 noundef %cpu.18.i) #7
-  %call101.i = call i32 @qemu_fdt_get_phandle(ptr noundef %call1.i, ptr noundef %call100.i) #7
+  %call101.i = call i32 @qemu_fdt_get_phandle(ptr noundef nonnull %call1.i, ptr noundef %call100.i) #7
   %16 = call noundef i32 @llvm.bswap.i32(i32 %call101.i)
   %mul103.i = shl i32 %cpu.18.i, 2
   %idxprom104.i = sext i32 %mul103.i to i64
@@ -641,8 +641,8 @@ for.body99.i:                                     ; preds = %for.end89.i, %for.b
 
 for.end123.i:                                     ; preds = %for.body99.i, %for.end89.i
   %call126.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.72, i64 noundef 33554432) #7
-  %call127.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call1.i, ptr noundef %call126.i) #7
-  %call128.i = call i32 @qemu_fdt_setprop_string_array(ptr noundef %call1.i, ptr noundef %call126.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @create_fdt.clint_compat, i32 noundef 2) #7
+  %call127.i = call i32 @qemu_fdt_add_subnode(ptr noundef nonnull %call1.i, ptr noundef %call126.i) #7
+  %call128.i = call i32 @qemu_fdt_setprop_string_array(ptr noundef nonnull %call1.i, ptr noundef %call126.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @create_fdt.clint_compat, i32 noundef 2) #7
   store i32 0, ptr %qdt_tmp130.i, align 16
   %arrayinit.element132.i = getelementptr inbounds nuw i8, ptr %qdt_tmp130.i, i64 4
   store i32 33554432, ptr %arrayinit.element132.i, align 4
@@ -663,15 +663,15 @@ for.body145.i:                                    ; preds = %for.body145.i, %for
   br i1 %exitcond53.not.i, label %for.end153.i, label %for.body145.i, !llvm.loop !9
 
 for.end153.i:                                     ; preds = %for.body145.i
-  %call155.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call126.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp130.i, i32 noundef 16) #7
+  %call155.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call126.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp130.i, i32 noundef 16) #7
   %20 = load i32, ptr %smp.i, align 8
   %mul161.i = shl i32 %20, 4
-  %call163.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call126.i, ptr noundef nonnull @.str.73, ptr noundef %call93.i, i32 noundef %mul161.i) #7
+  %call163.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call126.i, ptr noundef nonnull @.str.73, ptr noundef %call93.i, i32 noundef %mul161.i) #7
   call void @g_free(ptr noundef %call93.i) #7
   call void @g_free(ptr noundef %call126.i) #7
   %call166.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.74, i64 noundef 268894208) #7
-  %call167.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call1.i, ptr noundef %call166.i) #7
-  %call168.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call166.i, ptr noundef nonnull @.str.75, i32 noundef 4096) #7
+  %call167.i = call i32 @qemu_fdt_add_subnode(ptr noundef nonnull %call1.i, ptr noundef %call166.i) #7
+  %call168.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call166.i, ptr noundef nonnull @.str.75, i32 noundef 4096) #7
   store i32 0, ptr %qdt_tmp170.i, align 16
   %arrayinit.element172.i = getelementptr inbounds nuw i8, ptr %qdt_tmp170.i, i64 4
   store i32 268894208, ptr %arrayinit.element172.i, align 4
@@ -692,16 +692,16 @@ for.body186.i:                                    ; preds = %for.body186.i, %for
   br i1 %exitcond57.not.i, label %for.end194.i, label %for.body186.i, !llvm.loop !10
 
 for.end194.i:                                     ; preds = %for.body186.i
-  %call196.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call166.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp170.i, i32 noundef 16) #7
-  %call198.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef %call166.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.76) #7
+  %call196.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call166.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp170.i, i32 noundef 16) #7
+  %call198.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef %call166.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.76) #7
   call void @g_free(ptr noundef %call166.i) #7
   %call202.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.77, i64 noundef 268435456) #7
-  %call203.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call1.i, ptr noundef %call202.i) #7
-  %call204.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call202.i, ptr noundef nonnull @.str.45, i32 noundef %phandle.0.lcssa.i) #7
-  %call205.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call202.i, ptr noundef nonnull @.str.50, i32 noundef 1) #7
+  %call203.i = call i32 @qemu_fdt_add_subnode(ptr noundef nonnull %call1.i, ptr noundef %call202.i) #7
+  %call204.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call202.i, ptr noundef nonnull @.str.45, i32 noundef %phandle.0.lcssa.i) #7
+  %call205.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call202.i, ptr noundef nonnull @.str.50, i32 noundef 1) #7
   store i32 16777216, ptr %qdt_tmp207.i, align 4
   store i32 33554432, ptr %indvars.iv58.i.sroa.gep74, align 4
-  %call225.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call202.i, ptr noundef nonnull @.str.78, ptr noundef nonnull %qdt_tmp207.i, i32 noundef 8) #7
+  %call225.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call202.i, ptr noundef nonnull @.str.78, ptr noundef nonnull %qdt_tmp207.i, i32 noundef 8) #7
   store i32 0, ptr %qdt_tmp228.i, align 16
   %arrayinit.element230.i = getelementptr inbounds nuw i8, ptr %qdt_tmp228.i, i64 4
   store i32 268435456, ptr %arrayinit.element230.i, align 4
@@ -723,8 +723,8 @@ for.body244.i:                                    ; preds = %for.body244.i, %for
 
 for.end252.i:                                     ; preds = %for.body244.i
   %inc199.i = add i32 %phandle.0.lcssa.i, 1
-  %call254.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call202.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp228.i, i32 noundef 16) #7
-  %call256.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef %call202.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.79) #7
+  %call254.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call202.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp228.i, i32 noundef 16) #7
+  %call256.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef %call202.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.79) #7
   call void @g_free(ptr noundef %call202.i) #7
   %inc257.i = add i32 %phandle.0.lcssa.i, 2
   %25 = load i32, ptr %smp.i, align 8
@@ -743,7 +743,7 @@ for.body269.lr.ph.i:                              ; preds = %for.end252.i
 for.body269.i:                                    ; preds = %if.end301.i, %for.body269.lr.ph.i
   %cpu.214.i = phi i32 [ 0, %for.body269.lr.ph.i ], [ %inc303.i, %if.end301.i ]
   %call270.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.60, i32 noundef %cpu.214.i) #7
-  %call272.i = call i32 @qemu_fdt_get_phandle(ptr noundef %call1.i, ptr noundef %call270.i) #7
+  %call272.i = call i32 @qemu_fdt_get_phandle(ptr noundef nonnull %call1.i, ptr noundef %call270.i) #7
   %cmp273.i = icmp eq i32 %cpu.214.i, 0
   %27 = call noundef i32 @llvm.bswap.i32(i32 %call272.i)
   br i1 %cmp273.i, label %if.then275.i, label %if.else280.i
@@ -781,14 +781,14 @@ if.end301.i:                                      ; preds = %if.else280.i, %if.t
 
 for.end304.i:                                     ; preds = %if.end301.i, %for.end252.i
   %call307.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.80, i64 noundef 201326592) #7
-  %call308.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call1.i, ptr noundef %call307.i) #7
-  %call309.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call307.i, ptr noundef nonnull @.str.71, i32 noundef 1) #7
-  %call310.i = call i32 @qemu_fdt_setprop_string_array(ptr noundef %call1.i, ptr noundef %call307.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @create_fdt.plic_compat, i32 noundef 2) #7
-  %call311.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call307.i, ptr noundef nonnull @.str.70, ptr noundef null, i32 noundef 0) #7
+  %call308.i = call i32 @qemu_fdt_add_subnode(ptr noundef nonnull %call1.i, ptr noundef %call307.i) #7
+  %call309.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call307.i, ptr noundef nonnull @.str.71, i32 noundef 1) #7
+  %call310.i = call i32 @qemu_fdt_setprop_string_array(ptr noundef nonnull %call1.i, ptr noundef %call307.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @create_fdt.plic_compat, i32 noundef 2) #7
+  %call311.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call307.i, ptr noundef nonnull @.str.70, ptr noundef null, i32 noundef 0) #7
   %29 = load i32, ptr %smp.i, align 8
   %mul314.i = shl i32 %29, 4
   %mul317.i = add i32 %mul314.i, -8
-  %call319.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call307.i, ptr noundef nonnull @.str.73, ptr noundef %call263.i, i32 noundef %mul317.i) #7
+  %call319.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call307.i, ptr noundef nonnull @.str.73, ptr noundef %call263.i, i32 noundef %mul317.i) #7
   store i32 0, ptr %qdt_tmp321.i, align 16
   %arrayinit.element323.i = getelementptr inbounds nuw i8, ptr %qdt_tmp321.i, i64 4
   store i32 201326592, ptr %arrayinit.element323.i, align 4
@@ -809,23 +809,23 @@ for.body337.i:                                    ; preds = %for.body337.i, %for
   br i1 %exitcond68.not.i, label %for.end345.i, label %for.body337.i, !llvm.loop !13
 
 for.end345.i:                                     ; preds = %for.body337.i
-  %call347.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call307.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp321.i, i32 noundef 16) #7
-  %call349.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call307.i, ptr noundef nonnull @.str.81, i32 noundef 53) #7
-  %call350.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call307.i, ptr noundef nonnull @.str.45, i32 noundef %inc199.i) #7
-  %call351.i = call i32 @qemu_fdt_get_phandle(ptr noundef %call1.i, ptr noundef %call307.i) #7
+  %call347.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call307.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp321.i, i32 noundef 16) #7
+  %call349.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call307.i, ptr noundef nonnull @.str.81, i32 noundef 53) #7
+  %call350.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call307.i, ptr noundef nonnull @.str.45, i32 noundef %inc199.i) #7
+  %call351.i = call i32 @qemu_fdt_get_phandle(ptr noundef nonnull %call1.i, ptr noundef %call307.i) #7
   call void @g_free(ptr noundef %call263.i) #7
   call void @g_free(ptr noundef %call307.i) #7
   %call355.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.82, i64 noundef 268828672) #7
-  %call356.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call1.i, ptr noundef %call355.i) #7
-  %call357.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call355.i, ptr noundef nonnull @.str.45, i32 noundef %inc257.i) #7
+  %call356.i = call i32 @qemu_fdt_add_subnode(ptr noundef nonnull %call1.i, ptr noundef %call355.i) #7
+  %call357.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call355.i, ptr noundef nonnull @.str.45, i32 noundef %inc257.i) #7
   %32 = call noundef i32 @llvm.bswap.i32(i32 %phandle.0.lcssa.i)
   store i32 %32, ptr %qdt_tmp359.i, align 4
   store i32 50331648, ptr %indvars.iv69.i.sroa.gep73, align 4
-  %call377.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call355.i, ptr noundef nonnull @.str.78, ptr noundef nonnull %qdt_tmp359.i, i32 noundef 8) #7
-  %call379.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call355.i, ptr noundef nonnull @.str.71, i32 noundef 2) #7
-  %call380.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call355.i, ptr noundef nonnull @.str.70, ptr noundef null, i32 noundef 0) #7
-  %call381.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call355.i, ptr noundef nonnull @.str.83, i32 noundef 2) #7
-  %call382.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call355.i, ptr noundef nonnull @.str.84, ptr noundef null, i32 noundef 0) #7
+  %call377.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call355.i, ptr noundef nonnull @.str.78, ptr noundef nonnull %qdt_tmp359.i, i32 noundef 8) #7
+  %call379.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call355.i, ptr noundef nonnull @.str.71, i32 noundef 2) #7
+  %call380.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call355.i, ptr noundef nonnull @.str.70, ptr noundef null, i32 noundef 0) #7
+  %call381.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call355.i, ptr noundef nonnull @.str.83, i32 noundef 2) #7
+  %call382.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call355.i, ptr noundef nonnull @.str.84, ptr noundef null, i32 noundef 0) #7
   store i32 0, ptr %qdt_tmp384.i, align 16
   %arrayinit.element386.i = getelementptr inbounds nuw i8, ptr %qdt_tmp384.i, i64 4
   store i32 268828672, ptr %arrayinit.element386.i, align 4
@@ -846,7 +846,7 @@ for.body400.i:                                    ; preds = %for.body400.i, %for
   br i1 %exitcond75.not.i, label %for.end408.i, label %for.body400.i, !llvm.loop !14
 
 for.end408.i:                                     ; preds = %for.body400.i
-  %call410.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call355.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp384.i, i32 noundef 16) #7
+  %call410.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call355.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp384.i, i32 noundef 16) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %qdt_tmp413.i, ptr noundef nonnull align 16 dereferenceable(64) @__const.create_fdt.qdt_tmp, i64 64, i1 false)
   br label %for.body419.i
 
@@ -861,12 +861,12 @@ for.body419.i:                                    ; preds = %for.body419.i, %for
   br i1 %exitcond79.not.i, label %for.end427.i, label %for.body419.i, !llvm.loop !15
 
 for.end427.i:                                     ; preds = %for.body419.i
-  %call429.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call355.i, ptr noundef nonnull @.str.85, ptr noundef nonnull %qdt_tmp413.i, i32 noundef 64) #7
-  %call431.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call355.i, ptr noundef nonnull @.str.86, i32 noundef %call351.i) #7
-  %call432.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef %call355.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.87) #7
+  %call429.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call355.i, ptr noundef nonnull @.str.85, ptr noundef nonnull %qdt_tmp413.i, i32 noundef 64) #7
+  %call431.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call355.i, ptr noundef nonnull @.str.86, i32 noundef %call351.i) #7
+  %call432.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef %call355.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.87) #7
   call void @g_free(ptr noundef %call355.i) #7
   %call433.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.88) #7
-  %call434.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call1.i, ptr noundef %call433.i) #7
+  %call434.i = call i32 @qemu_fdt_add_subnode(ptr noundef nonnull %call1.i, ptr noundef %call433.i) #7
   store i32 %inc257.i, ptr %qdt_tmp436.i, align 4
   %arrayinit.element438.i = getelementptr inbounds nuw i8, ptr %qdt_tmp436.i, i64 4
   store i32 10, ptr %arrayinit.element438.i, align 4
@@ -885,12 +885,12 @@ for.body445.i:                                    ; preds = %for.body445.i, %for
   br i1 %exitcond83.not.i, label %for.end453.i, label %for.body445.i, !llvm.loop !16
 
 for.end453.i:                                     ; preds = %for.body445.i
-  %call455.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call433.i, ptr noundef nonnull @.str.89, ptr noundef nonnull %qdt_tmp436.i, i32 noundef 12) #7
-  %call457.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef %call433.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.90) #7
+  %call455.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call433.i, ptr noundef nonnull @.str.89, ptr noundef nonnull %qdt_tmp436.i, i32 noundef 12) #7
+  %call457.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef %call433.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.90) #7
   call void @g_free(ptr noundef %call433.i) #7
   %call460.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.91, i64 noundef 50331648) #7
-  %call461.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call1.i, ptr noundef %call460.i) #7
-  %call462.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call460.i, ptr noundef nonnull @.str.92, i32 noundef 1) #7
+  %call461.i = call i32 @qemu_fdt_add_subnode(ptr noundef nonnull %call1.i, ptr noundef %call460.i) #7
+  %call462.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call460.i, ptr noundef nonnull @.str.92, i32 noundef 1) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %qdt_tmp464.i, ptr noundef nonnull align 16 dereferenceable(32) @__const.create_fdt.qdt_tmp.93, i64 32, i1 false)
   br label %for.body470.i
 
@@ -905,8 +905,8 @@ for.body470.i:                                    ; preds = %for.body470.i, %for
   br i1 %exitcond87.not.i, label %for.end478.i, label %for.body470.i, !llvm.loop !17
 
 for.end478.i:                                     ; preds = %for.body470.i
-  %call480.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call460.i, ptr noundef nonnull @.str.85, ptr noundef nonnull %qdt_tmp464.i, i32 noundef 32) #7
-  %call482.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call460.i, ptr noundef nonnull @.str.86, i32 noundef %call351.i) #7
+  %call480.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call460.i, ptr noundef nonnull @.str.85, ptr noundef nonnull %qdt_tmp464.i, i32 noundef 32) #7
+  %call482.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call460.i, ptr noundef nonnull @.str.86, i32 noundef %call351.i) #7
   store i32 0, ptr %qdt_tmp484.i, align 16
   %arrayinit.element486.i = getelementptr inbounds nuw i8, ptr %qdt_tmp484.i, i64 4
   store i32 50331648, ptr %arrayinit.element486.i, align 4
@@ -927,11 +927,11 @@ for.body500.i:                                    ; preds = %for.body500.i, %for
   br i1 %exitcond91.not.i, label %for.end508.i, label %for.body500.i, !llvm.loop !18
 
 for.end508.i:                                     ; preds = %for.body500.i
-  %call510.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call460.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp484.i, i32 noundef 16) #7
-  %call512.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef %call460.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.94) #7
+  %call510.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call460.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp484.i, i32 noundef 16) #7
+  %call512.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef %call460.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.94) #7
   call void @g_free(ptr noundef %call460.i) #7
   %call515.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.95, i64 noundef 33619968) #7
-  %call516.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call1.i, ptr noundef %call515.i) #7
+  %call516.i = call i32 @qemu_fdt_add_subnode(ptr noundef nonnull %call1.i, ptr noundef %call515.i) #7
   store i32 0, ptr %qdt_tmp518.i, align 16
   %arrayinit.element520.i = getelementptr inbounds nuw i8, ptr %qdt_tmp518.i, i64 4
   store i32 33619968, ptr %arrayinit.element520.i, align 4
@@ -952,7 +952,7 @@ for.body534.i:                                    ; preds = %for.body534.i, %for
   br i1 %exitcond95.not.i, label %for.end542.i, label %for.body534.i, !llvm.loop !19
 
 for.end542.i:                                     ; preds = %for.body534.i
-  %call544.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call515.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp518.i, i32 noundef 16) #7
+  %call544.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call515.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp518.i, i32 noundef 16) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %qdt_tmp547.i, ptr noundef nonnull align 4 dereferenceable(12) @__const.create_fdt.qdt_tmp.96, i64 12, i1 false)
   br label %for.body553.i
 
@@ -967,24 +967,24 @@ for.body553.i:                                    ; preds = %for.body553.i, %for
   br i1 %exitcond99.not.i, label %for.end561.i, label %for.body553.i, !llvm.loop !20
 
 for.end561.i:                                     ; preds = %for.body553.i
-  %call563.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call515.i, ptr noundef nonnull @.str.85, ptr noundef nonnull %qdt_tmp547.i, i32 noundef 12) #7
-  %call565.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call515.i, ptr noundef nonnull @.str.86, i32 noundef %call351.i) #7
-  %call566.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call515.i, ptr noundef nonnull @.str.97, ptr noundef null, i32 noundef 0) #7
-  %call567.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call515.i, ptr noundef nonnull @.str.98, i32 noundef 2097152) #7
-  %call568.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call515.i, ptr noundef nonnull @.str.99, i32 noundef 1024) #7
-  %call569.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call515.i, ptr noundef nonnull @.str.100, i32 noundef 2) #7
-  %call570.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call515.i, ptr noundef nonnull @.str.101, i32 noundef 64) #7
-  %call571.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef %call515.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.102) #7
+  %call563.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call515.i, ptr noundef nonnull @.str.85, ptr noundef nonnull %qdt_tmp547.i, i32 noundef 12) #7
+  %call565.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call515.i, ptr noundef nonnull @.str.86, i32 noundef %call351.i) #7
+  %call566.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call515.i, ptr noundef nonnull @.str.97, ptr noundef null, i32 noundef 0) #7
+  %call567.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call515.i, ptr noundef nonnull @.str.98, i32 noundef 2097152) #7
+  %call568.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call515.i, ptr noundef nonnull @.str.99, i32 noundef 1024) #7
+  %call569.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call515.i, ptr noundef nonnull @.str.100, i32 noundef 2) #7
+  %call570.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call515.i, ptr noundef nonnull @.str.101, i32 noundef 64) #7
+  %call571.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef %call515.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.102) #7
   call void @g_free(ptr noundef %call515.i) #7
   %call574.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.103, i64 noundef 268763136) #7
-  %call575.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call1.i, ptr noundef %call574.i) #7
-  %call576.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call574.i, ptr noundef nonnull @.str.39, i32 noundef 0) #7
-  %call577.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call574.i, ptr noundef nonnull @.str.40, i32 noundef 1) #7
+  %call575.i = call i32 @qemu_fdt_add_subnode(ptr noundef nonnull %call1.i, ptr noundef %call574.i) #7
+  %call576.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call574.i, ptr noundef nonnull @.str.39, i32 noundef 0) #7
+  %call577.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call574.i, ptr noundef nonnull @.str.40, i32 noundef 1) #7
   store i32 %32, ptr %qdt_tmp579.i, align 4
   store i32 50331648, ptr %indvars.iv100.i.sroa.gep72, align 4
-  %call597.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call574.i, ptr noundef nonnull @.str.78, ptr noundef nonnull %qdt_tmp579.i, i32 noundef 8) #7
-  %call599.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call574.i, ptr noundef nonnull @.str.85, i32 noundef 6) #7
-  %call600.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call574.i, ptr noundef nonnull @.str.86, i32 noundef %call351.i) #7
+  %call597.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call574.i, ptr noundef nonnull @.str.78, ptr noundef nonnull %qdt_tmp579.i, i32 noundef 8) #7
+  %call599.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call574.i, ptr noundef nonnull @.str.85, i32 noundef 6) #7
+  %call600.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call574.i, ptr noundef nonnull @.str.86, i32 noundef %call351.i) #7
   store i32 0, ptr %qdt_tmp602.i, align 16
   %arrayinit.element604.i = getelementptr inbounds nuw i8, ptr %qdt_tmp602.i, i64 4
   store i32 268763136, ptr %arrayinit.element604.i, align 4
@@ -1005,27 +1005,27 @@ for.body618.i:                                    ; preds = %for.body618.i, %for
   br i1 %exitcond106.not.i, label %for.end626.i, label %for.body618.i, !llvm.loop !21
 
 for.end626.i:                                     ; preds = %for.body618.i
-  %call628.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call574.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp602.i, i32 noundef 16) #7
-  %call630.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef %call574.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.104) #7
+  %call628.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call574.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp602.i, i32 noundef 16) #7
+  %call630.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef %call574.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.104) #7
   call void @g_free(ptr noundef %call574.i) #7
   %call633.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.105, i64 noundef 268763136) #7
-  %call634.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call1.i, ptr noundef %call633.i) #7
-  %call635.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call633.i, ptr noundef nonnull @.str.106, ptr noundef null, i32 noundef 0) #7
+  %call634.i = call i32 @qemu_fdt_add_subnode(ptr noundef nonnull %call1.i, ptr noundef %call633.i) #7
+  %call635.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call633.i, ptr noundef nonnull @.str.106, ptr noundef null, i32 noundef 0) #7
   store i64 -2014234929515462656, ptr %qdt_tmp637.i, align 8
-  %call653.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call633.i, ptr noundef nonnull @.str.108, ptr noundef nonnull %qdt_tmp637.i, i32 noundef 8) #7
-  %call655.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call633.i, ptr noundef nonnull @.str.109, i32 noundef 20000000) #7
-  %call656.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call633.i, ptr noundef nonnull @.str.54, i32 noundef 0) #7
-  %call657.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef %call633.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.110) #7
+  %call653.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call633.i, ptr noundef nonnull @.str.108, ptr noundef nonnull %qdt_tmp637.i, i32 noundef 8) #7
+  %call655.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call633.i, ptr noundef nonnull @.str.109, i32 noundef 20000000) #7
+  %call656.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call633.i, ptr noundef nonnull @.str.54, i32 noundef 0) #7
+  %call657.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef %call633.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.110) #7
   call void @g_free(ptr noundef %call633.i) #7
   %call660.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.103, i64 noundef 268697600) #7
-  %call661.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call1.i, ptr noundef %call660.i) #7
-  %call662.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call660.i, ptr noundef nonnull @.str.39, i32 noundef 0) #7
-  %call663.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call660.i, ptr noundef nonnull @.str.40, i32 noundef 1) #7
+  %call661.i = call i32 @qemu_fdt_add_subnode(ptr noundef nonnull %call1.i, ptr noundef %call660.i) #7
+  %call662.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call660.i, ptr noundef nonnull @.str.39, i32 noundef 0) #7
+  %call663.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call660.i, ptr noundef nonnull @.str.40, i32 noundef 1) #7
   store i32 %32, ptr %qdt_tmp665.i, align 4
   store i32 50331648, ptr %indvars.iv110.i.sroa.gep70, align 4
-  %call683.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call660.i, ptr noundef nonnull @.str.78, ptr noundef nonnull %qdt_tmp665.i, i32 noundef 8) #7
-  %call685.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call660.i, ptr noundef nonnull @.str.85, i32 noundef 51) #7
-  %call686.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call660.i, ptr noundef nonnull @.str.86, i32 noundef %call351.i) #7
+  %call683.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call660.i, ptr noundef nonnull @.str.78, ptr noundef nonnull %qdt_tmp665.i, i32 noundef 8) #7
+  %call685.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call660.i, ptr noundef nonnull @.str.85, i32 noundef 51) #7
+  %call686.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call660.i, ptr noundef nonnull @.str.86, i32 noundef %call351.i) #7
   store i32 0, ptr %qdt_tmp688.i, align 16
   %arrayinit.element690.i = getelementptr inbounds nuw i8, ptr %qdt_tmp688.i, i64 4
   store i32 268697600, ptr %arrayinit.element690.i, align 4
@@ -1046,21 +1046,21 @@ for.body704.i:                                    ; preds = %for.body704.i, %for
   br i1 %exitcond116.not.i, label %for.end712.i, label %for.body704.i, !llvm.loop !22
 
 for.end712.i:                                     ; preds = %for.body704.i
-  %call714.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call660.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp688.i, i32 noundef 16) #7
-  %call716.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef %call660.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.104) #7
+  %call714.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call660.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp688.i, i32 noundef 16) #7
+  %call716.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef %call660.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.104) #7
   call void @g_free(ptr noundef %call660.i) #7
   %call719.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.111, i64 noundef 268697600) #7
-  %call720.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call1.i, ptr noundef %call719.i) #7
-  %call721.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call719.i, ptr noundef nonnull @.str.112, i32 noundef 4) #7
-  %call722.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call719.i, ptr noundef nonnull @.str.113, i32 noundef 4) #7
-  %call723.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call719.i, ptr noundef nonnull @.str.114, ptr noundef null, i32 noundef 0) #7
-  %call724.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call719.i, ptr noundef nonnull @.str.109, i32 noundef 50000000) #7
-  %call725.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call719.i, ptr noundef nonnull @.str.54, i32 noundef 0) #7
-  %call726.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef %call719.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.115) #7
+  %call720.i = call i32 @qemu_fdt_add_subnode(ptr noundef nonnull %call1.i, ptr noundef %call719.i) #7
+  %call721.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call719.i, ptr noundef nonnull @.str.112, i32 noundef 4) #7
+  %call722.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call719.i, ptr noundef nonnull @.str.113, i32 noundef 4) #7
+  %call723.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call719.i, ptr noundef nonnull @.str.114, ptr noundef null, i32 noundef 0) #7
+  %call724.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call719.i, ptr noundef nonnull @.str.109, i32 noundef 50000000) #7
+  %call725.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call719.i, ptr noundef nonnull @.str.54, i32 noundef 0) #7
+  %call726.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef %call719.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.115) #7
   call void @g_free(ptr noundef %call719.i) #7
   %call730.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.116, i64 noundef 269025280) #7
-  %call731.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call1.i, ptr noundef %call730.i) #7
-  %call732.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef %call730.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.117) #7
+  %call731.i = call i32 @qemu_fdt_add_subnode(ptr noundef nonnull %call1.i, ptr noundef %call730.i) #7
+  %call732.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef %call730.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.117) #7
   store i32 0, ptr %qdt_tmp734.i, align 16
   %arrayinit.element736.i = getelementptr inbounds nuw i8, ptr %qdt_tmp734.i, i64 4
   store i32 269025280, ptr %arrayinit.element736.i, align 4
@@ -1090,12 +1090,12 @@ for.body760.i:                                    ; preds = %for.body760.i, %for
 
 for.end768.i:                                     ; preds = %for.body760.i
   %inc352.i = add i32 %phandle.0.lcssa.i, 3
-  %call770.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call730.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp734.i, i32 noundef 32) #7
-  %call772.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef %call730.i, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.119) #7
-  %call773.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef %call730.i, ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.121) #7
-  %call774.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call730.i, ptr noundef nonnull @.str.122, i32 noundef %inc352.i) #7
-  %call775.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call730.i, ptr noundef nonnull @.str.86, i32 noundef %call351.i) #7
-  %call776.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call730.i, ptr noundef nonnull @.str.85, i32 noundef 53) #7
+  %call770.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call730.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp734.i, i32 noundef 32) #7
+  %call772.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef %call730.i, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.119) #7
+  %call773.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef %call730.i, ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.121) #7
+  %call774.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call730.i, ptr noundef nonnull @.str.122, i32 noundef %inc352.i) #7
+  %call775.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call730.i, ptr noundef nonnull @.str.86, i32 noundef %call351.i) #7
+  %call776.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call730.i, ptr noundef nonnull @.str.85, i32 noundef 53) #7
   store i32 %phandle.0.lcssa.i, ptr %qdt_tmp778.i, align 16
   %arrayinit.element780.i = getelementptr inbounds nuw i8, ptr %qdt_tmp778.i, i64 4
   store i32 2, ptr %arrayinit.element780.i, align 4
@@ -1116,23 +1116,23 @@ for.body788.i:                                    ; preds = %for.body788.i, %for
   br i1 %exitcond124.not.i, label %for.end796.i, label %for.body788.i, !llvm.loop !24
 
 for.end796.i:                                     ; preds = %for.body788.i
-  %call798.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call730.i, ptr noundef nonnull @.str.78, ptr noundef nonnull %qdt_tmp778.i, i32 noundef 16) #7
-  %call800.i = call i32 @qemu_fdt_setprop_string_array(ptr noundef %call1.i, ptr noundef %call730.i, ptr noundef nonnull @.str.123, ptr noundef nonnull @create_fdt.ethclk_names, i32 noundef 2) #7
+  %call798.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call730.i, ptr noundef nonnull @.str.78, ptr noundef nonnull %qdt_tmp778.i, i32 noundef 16) #7
+  %call800.i = call i32 @qemu_fdt_setprop_string_array(ptr noundef nonnull %call1.i, ptr noundef %call730.i, ptr noundef nonnull @.str.123, ptr noundef nonnull @create_fdt.ethclk_names, i32 noundef 2) #7
   %conf.i = getelementptr inbounds nuw i8, ptr %call, i64 44536
-  %call803.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call730.i, ptr noundef nonnull @.str.124, ptr noundef nonnull %conf.i, i32 noundef 6) #7
-  %call804.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call730.i, ptr noundef nonnull @.str.40, i32 noundef 1) #7
-  %call805.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call730.i, ptr noundef nonnull @.str.39, i32 noundef 0) #7
-  %call806.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call1.i, ptr noundef nonnull @.str.125) #7
-  %call807.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.126, ptr noundef %call730.i) #7
+  %call803.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call730.i, ptr noundef nonnull @.str.124, ptr noundef nonnull %conf.i, i32 noundef 6) #7
+  %call804.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call730.i, ptr noundef nonnull @.str.40, i32 noundef 1) #7
+  %call805.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call730.i, ptr noundef nonnull @.str.39, i32 noundef 0) #7
+  %call806.i = call i32 @qemu_fdt_add_subnode(ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.125) #7
+  %call807.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.126, ptr noundef %call730.i) #7
   call void @g_free(ptr noundef %call730.i) #7
   %call810.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.127, i64 noundef 269025280) #7
-  %call811.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call1.i, ptr noundef %call810.i) #7
-  %call812.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call810.i, ptr noundef nonnull @.str.45, i32 noundef %inc352.i) #7
-  %call813.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call810.i, ptr noundef nonnull @.str.54, i32 noundef 0) #7
+  %call811.i = call i32 @qemu_fdt_add_subnode(ptr noundef nonnull %call1.i, ptr noundef %call810.i) #7
+  %call812.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call810.i, ptr noundef nonnull @.str.45, i32 noundef %inc352.i) #7
+  %call813.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call810.i, ptr noundef nonnull @.str.54, i32 noundef 0) #7
   call void @g_free(ptr noundef %call810.i) #7
   %call816.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.128, i64 noundef 268566528) #7
-  %call817.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call1.i, ptr noundef %call816.i) #7
-  %call818.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef %call816.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.129) #7
+  %call817.i = call i32 @qemu_fdt_add_subnode(ptr noundef nonnull %call1.i, ptr noundef %call816.i) #7
+  %call818.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef %call816.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.129) #7
   store i32 0, ptr %qdt_tmp820.i, align 16
   %arrayinit.element822.i = getelementptr inbounds nuw i8, ptr %qdt_tmp820.i, i64 4
   store i32 268566528, ptr %arrayinit.element822.i, align 4
@@ -1153,8 +1153,8 @@ for.body836.i:                                    ; preds = %for.body836.i, %for
   br i1 %exitcond128.not.i, label %for.end844.i, label %for.body836.i, !llvm.loop !25
 
 for.end844.i:                                     ; preds = %for.body836.i
-  %call846.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call816.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp820.i, i32 noundef 16) #7
-  %call848.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call816.i, ptr noundef nonnull @.str.86, i32 noundef %call351.i) #7
+  %call846.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call816.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp820.i, i32 noundef 16) #7
+  %call848.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call816.i, ptr noundef nonnull @.str.86, i32 noundef %call351.i) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %qdt_tmp850.i, ptr noundef nonnull align 16 dereferenceable(16) @__const.create_fdt.qdt_tmp.130, i64 16, i1 false)
   br label %for.body856.i
 
@@ -1169,15 +1169,15 @@ for.body856.i:                                    ; preds = %for.body856.i, %for
   br i1 %exitcond132.not.i, label %for.end864.i, label %for.body856.i, !llvm.loop !26
 
 for.end864.i:                                     ; preds = %for.body856.i
-  %call866.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call816.i, ptr noundef nonnull @.str.85, ptr noundef nonnull %qdt_tmp850.i, i32 noundef 16) #7
+  %call866.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call816.i, ptr noundef nonnull @.str.85, ptr noundef nonnull %qdt_tmp850.i, i32 noundef 16) #7
   store i32 %32, ptr %qdt_tmp869.i, align 4
   store i32 50331648, ptr %indvars.iv133.i.sroa.gep69, align 4
-  %call887.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call816.i, ptr noundef nonnull @.str.78, ptr noundef nonnull %qdt_tmp869.i, i32 noundef 8) #7
-  %call889.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call816.i, ptr noundef nonnull @.str.131, i32 noundef 0) #7
+  %call887.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call816.i, ptr noundef nonnull @.str.78, ptr noundef nonnull %qdt_tmp869.i, i32 noundef 8) #7
+  %call889.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call816.i, ptr noundef nonnull @.str.131, i32 noundef 0) #7
   call void @g_free(ptr noundef %call816.i) #7
   %call892.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.128, i64 noundef 268570624) #7
-  %call893.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call1.i, ptr noundef %call892.i) #7
-  %call894.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef %call892.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.129) #7
+  %call893.i = call i32 @qemu_fdt_add_subnode(ptr noundef nonnull %call1.i, ptr noundef %call892.i) #7
+  %call894.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef %call892.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.129) #7
   store i32 0, ptr %qdt_tmp896.i, align 16
   %arrayinit.element898.i = getelementptr inbounds nuw i8, ptr %qdt_tmp896.i, i64 4
   store i32 268570624, ptr %arrayinit.element898.i, align 4
@@ -1198,8 +1198,8 @@ for.body912.i:                                    ; preds = %for.body912.i, %for
   br i1 %exitcond139.not.i, label %for.end920.i, label %for.body912.i, !llvm.loop !27
 
 for.end920.i:                                     ; preds = %for.body912.i
-  %call922.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call892.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp896.i, i32 noundef 16) #7
-  %call924.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call892.i, ptr noundef nonnull @.str.86, i32 noundef %call351.i) #7
+  %call922.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call892.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp896.i, i32 noundef 16) #7
+  %call924.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call892.i, ptr noundef nonnull @.str.86, i32 noundef %call351.i) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %qdt_tmp926.i, ptr noundef nonnull align 16 dereferenceable(16) @__const.create_fdt.qdt_tmp.132, i64 16, i1 false)
   br label %for.body932.i
 
@@ -1214,15 +1214,15 @@ for.body932.i:                                    ; preds = %for.body932.i, %for
   br i1 %exitcond143.not.i, label %for.end940.i, label %for.body932.i, !llvm.loop !28
 
 for.end940.i:                                     ; preds = %for.body932.i
-  %call942.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call892.i, ptr noundef nonnull @.str.85, ptr noundef nonnull %qdt_tmp926.i, i32 noundef 16) #7
+  %call942.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call892.i, ptr noundef nonnull @.str.85, ptr noundef nonnull %qdt_tmp926.i, i32 noundef 16) #7
   store i32 %32, ptr %qdt_tmp945.i, align 4
   store i32 50331648, ptr %indvars.iv144.i.sroa.gep68, align 4
-  %call963.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call892.i, ptr noundef nonnull @.str.78, ptr noundef nonnull %qdt_tmp945.i, i32 noundef 8) #7
-  %call965.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call892.i, ptr noundef nonnull @.str.131, i32 noundef 0) #7
+  %call963.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call892.i, ptr noundef nonnull @.str.78, ptr noundef nonnull %qdt_tmp945.i, i32 noundef 8) #7
+  %call965.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call892.i, ptr noundef nonnull @.str.131, i32 noundef 0) #7
   call void @g_free(ptr noundef %call892.i) #7
   %call968.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.133, i64 noundef 268505088) #7
-  %call969.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call1.i, ptr noundef %call968.i) #7
-  %call970.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef %call968.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.134) #7
+  %call969.i = call i32 @qemu_fdt_add_subnode(ptr noundef nonnull %call1.i, ptr noundef %call968.i) #7
+  %call970.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef %call968.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.134) #7
   store i32 0, ptr %qdt_tmp972.i, align 16
   %arrayinit.element974.i = getelementptr inbounds nuw i8, ptr %qdt_tmp972.i, i64 4
   store i32 268505088, ptr %arrayinit.element974.i, align 4
@@ -1243,17 +1243,17 @@ for.body988.i:                                    ; preds = %for.body988.i, %for
   br i1 %exitcond150.not.i, label %for.end996.i, label %for.body988.i, !llvm.loop !29
 
 for.end996.i:                                     ; preds = %for.body988.i
-  %call998.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call968.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp972.i, i32 noundef 16) #7
+  %call998.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call968.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp972.i, i32 noundef 16) #7
   store i32 %32, ptr %qdt_tmp1001.i, align 4
   store i32 50331648, ptr %indvars.iv151.i.sroa.gep67, align 4
-  %call1019.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call968.i, ptr noundef nonnull @.str.78, ptr noundef nonnull %qdt_tmp1001.i, i32 noundef 8) #7
-  %call1021.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call968.i, ptr noundef nonnull @.str.86, i32 noundef %call351.i) #7
-  %call1022.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call968.i, ptr noundef nonnull @.str.85, i32 noundef 5) #7
-  %call1023.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.135, ptr noundef %call968.i) #7
+  %call1019.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call968.i, ptr noundef nonnull @.str.78, ptr noundef nonnull %qdt_tmp1001.i, i32 noundef 8) #7
+  %call1021.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call968.i, ptr noundef nonnull @.str.86, i32 noundef %call351.i) #7
+  %call1022.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call968.i, ptr noundef nonnull @.str.85, i32 noundef 5) #7
+  %call1023.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.135, ptr noundef %call968.i) #7
   call void @g_free(ptr noundef %call968.i) #7
   %call1026.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.133, i64 noundef 268500992) #7
-  %call1027.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call1.i, ptr noundef %call1026.i) #7
-  %call1028.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef %call1026.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.134) #7
+  %call1027.i = call i32 @qemu_fdt_add_subnode(ptr noundef nonnull %call1.i, ptr noundef %call1026.i) #7
+  %call1028.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef %call1026.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.134) #7
   store i32 0, ptr %qdt_tmp1030.i, align 16
   %arrayinit.element1032.i = getelementptr inbounds nuw i8, ptr %qdt_tmp1030.i, i64 4
   store i32 268500992, ptr %arrayinit.element1032.i, align 4
@@ -1274,15 +1274,15 @@ for.body1046.i:                                   ; preds = %for.body1046.i, %fo
   br i1 %exitcond157.not.i, label %for.end1054.i, label %for.body1046.i, !llvm.loop !30
 
 for.end1054.i:                                    ; preds = %for.body1046.i
-  %call1056.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call1026.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp1030.i, i32 noundef 16) #7
+  %call1056.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call1026.i, ptr noundef nonnull @.str.54, ptr noundef nonnull %qdt_tmp1030.i, i32 noundef 16) #7
   store i32 %32, ptr %qdt_tmp1059.i, align 4
   store i32 50331648, ptr %indvars.iv158.i.sroa.gep66, align 4
-  %call1077.i = call i32 @qemu_fdt_setprop(ptr noundef %call1.i, ptr noundef %call1026.i, ptr noundef nonnull @.str.78, ptr noundef nonnull %qdt_tmp1059.i, i32 noundef 8) #7
-  %call1079.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call1026.i, ptr noundef nonnull @.str.86, i32 noundef %call351.i) #7
-  %call1080.i = call i32 @qemu_fdt_setprop_cell(ptr noundef %call1.i, ptr noundef %call1026.i, ptr noundef nonnull @.str.85, i32 noundef 4) #7
-  %call1081.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call1.i, ptr noundef nonnull @.str.136) #7
-  %call1082.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.137, ptr noundef %call1026.i) #7
-  %call1083.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call1.i, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.138, ptr noundef %call1026.i) #7
+  %call1077.i = call i32 @qemu_fdt_setprop(ptr noundef nonnull %call1.i, ptr noundef %call1026.i, ptr noundef nonnull @.str.78, ptr noundef nonnull %qdt_tmp1059.i, i32 noundef 8) #7
+  %call1079.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call1026.i, ptr noundef nonnull @.str.86, i32 noundef %call351.i) #7
+  %call1080.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %call1.i, ptr noundef %call1026.i, ptr noundef nonnull @.str.85, i32 noundef 4) #7
+  %call1081.i = call i32 @qemu_fdt_add_subnode(ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.136) #7
+  %call1082.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.137, ptr noundef %call1026.i) #7
+  %call1083.i = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.138, ptr noundef %call1026.i) #7
   call void @g_free(ptr noundef %call1026.i) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %qdt_tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %qdt_tmp130.i)
@@ -1443,7 +1443,7 @@ cond.end:                                         ; preds = %if.end106, %cond.tr
 declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @sifive_u_machine_get_start_in_flash(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @sifive_u_machine_get_start_in_flash(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 686, ptr noundef nonnull @__func__.sifive_u_machine_get_start_in_flash) #7
   %start_in_flash = getelementptr inbounds nuw i8, ptr %call, i64 98916
@@ -1453,7 +1453,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @sifive_u_machine_set_start_in_flash(ptr noundef %obj, i1 noundef zeroext %value, ptr nocapture readnone %errp) #0 {
+define internal void @sifive_u_machine_set_start_in_flash(ptr noundef %obj, i1 noundef zeroext %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %frombool = zext i1 %value to i8
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 693, ptr noundef nonnull @__func__.sifive_u_machine_set_start_in_flash) #7
@@ -1488,7 +1488,7 @@ declare void @qdev_connect_gpio_out(ptr noundef, i32 noundef, ptr noundef) local
 declare ptr @qemu_allocate_irq(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @sifive_u_machine_reset(ptr nocapture readnone %opaque, i32 %n, i32 noundef %level) #0 {
+define internal void @sifive_u_machine_reset(ptr readnone captures(none) %opaque, i32 %n, i32 noundef %level) #0 {
 entry:
   %tobool.not = icmp eq i32 %level, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -1570,7 +1570,7 @@ declare i32 @qemu_fdt_get_phandle(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @qemu_fdt_setprop_string_array(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #5
@@ -1621,7 +1621,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @sifive_u_soc_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @sifive_u_soc_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #7
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @sifive_u_soc_props) #7
@@ -1911,10 +1911,10 @@ declare zeroext i1 @sysbus_realize_and_unref(ptr noundef, ptr noundef) local_unn
 declare void @sysbus_mmio_map_overlap(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

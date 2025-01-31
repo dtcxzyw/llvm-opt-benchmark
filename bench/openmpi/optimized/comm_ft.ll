@@ -57,7 +57,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [65 x i8] c"%s ompi: comm_ishrink: Determine context id failed with error %d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_comm_failure_ack_internal(ptr nocapture noundef writeonly initializes((352, 361)) %0) local_unnamed_addr #0 {
+define noundef i32 @ompi_comm_failure_ack_internal(ptr noundef writeonly captures(none) initializes((352, 361)) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ompi_group_afp_mutex, i64 16)) #10
   %3 = load ptr, ptr @ompi_group_all_failed_procs, align 8
   %4 = getelementptr i8, ptr %3, i64 16
@@ -73,7 +73,7 @@ define noundef i32 @ompi_comm_failure_ack_internal(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_comm_failure_get_acked_internal(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @ompi_comm_failure_get_acked_internal(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [3 x i32], align 4
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -233,10 +233,10 @@ declare i32 @ompi_group_range_incl(ptr noundef, i32 noundef, ptr noundef, ptr no
 declare i32 @ompi_group_intersection(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_comm_ack_failed_internal(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define i32 @ompi_comm_ack_failed_internal(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -403,7 +403,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 declare i32 @ompi_group_translate_ranks(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_comm_get_failed_internal(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @ompi_comm_get_failed_internal(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -419,7 +419,7 @@ define i32 @ompi_comm_get_failed_internal(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_comm_shrink_internal(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define i32 @ompi_comm_shrink_internal(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -717,12 +717,12 @@ declare zeroext i1 @opal_output_check_verbosity(i32 noundef, i32 noundef) local_
 declare ptr @ompi_pmix_print_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare i32 @ompi_comm_activate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_comm_ishrink_internal(ptr noundef %0, ptr noundef initializes((0, 8)) %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define i32 @ompi_comm_ishrink_internal(ptr noundef %0, ptr noundef initializes((0, 8)) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca [1 x ptr], align 8
   store i32 1, ptr %4, align 4
@@ -1329,7 +1329,7 @@ opal_obj_run_destructors.exit140:                 ; preds = %opal_obj_run_destru
 declare void @ompi_comm_request_start(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @ompi_comm_is_proc_active(ptr nocapture noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 {
+define zeroext i1 @ompi_comm_is_proc_active(ptr noundef readonly captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 {
   switch i32 %1, label %7 [
     i32 -1, label %4
     i32 -2, label %20
@@ -1829,7 +1829,7 @@ opal_obj_run_destructors.exit40:                  ; preds = %opal_obj_run_destru
 declare i32 @ompi_comm_activate_nb(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @ompi_comm_ishrink_check_activate(ptr nocapture noundef readonly %0) #7 {
+define internal i32 @ompi_comm_ishrink_check_activate(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
   ret i32 %3
@@ -1839,7 +1839,7 @@ define internal i32 @ompi_comm_ishrink_check_activate(ptr nocapture noundef read
 declare i32 @llvm.smin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

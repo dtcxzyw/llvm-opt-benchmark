@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [77 x i8] c"Time interval for measuring conserved energy has length 0, time %g to %g ps\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx18EnergyDriftTracker8addPointEdd(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((24, 40)) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN3gmx18EnergyDriftTracker8addPointEdd(ptr noundef nonnull align 8 captures(none) dereferenceable(44) initializes((24, 40)) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load i8, ptr %0, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %9, label %6
@@ -34,7 +34,7 @@ define void @_ZN3gmx18EnergyDriftTracker8addPointEdd(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK3gmx18EnergyDriftTracker11energyDriftEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0) local_unnamed_addr #1 align 2 {
+define noundef double @_ZNK3gmx18EnergyDriftTracker11energyDriftEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load double, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -62,7 +62,7 @@ define noundef double @_ZNK3gmx18EnergyDriftTracker11energyDriftEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3gmx18EnergyDriftTracker17energyDriftStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3gmx18EnergyDriftTracker17energyDriftStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

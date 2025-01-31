@@ -2083,7 +2083,7 @@ define internal fastcc void @sema_trace_asm_arg_list(ptr noundef readonly %0) un
 declare zeroext i1 @expr_is_pure(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sema_trace_const_initializer_liveness(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @sema_trace_const_initializer_liveness(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %.backedge, %1

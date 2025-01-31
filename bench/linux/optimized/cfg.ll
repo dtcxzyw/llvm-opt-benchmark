@@ -194,7 +194,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ieee80211_ob
 @llvm.compiler.used = appending global [63 x ptr] [ptr @__UNIQUE_ID___addressable_ieee80211_channel_switch_disconnect3015, ptr @__UNIQUE_ID___addressable_ieee80211_color_change_finish3044, ptr @__UNIQUE_ID___addressable_ieee80211_csa_finish3014, ptr @__UNIQUE_ID___addressable_ieee80211_nan_func_match3041, ptr @__UNIQUE_ID___addressable_ieee80211_nan_func_terminated3036, ptr @__UNIQUE_ID___addressable_ieee80211_obss_color_collision_notify3045, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2, ptr @trace_drv_abort_pmsr.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2094, ptr @trace_drv_abort_pmsr.__UNIQUE_ID___addressable___SCK__tp_func_drv_abort_pmsr2093, ptr @trace_drv_add_nan_func.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2052, ptr @trace_drv_add_nan_func.__UNIQUE_ID___addressable___SCK__tp_func_drv_add_nan_func2051, ptr @trace_drv_channel_switch_beacon.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2122, ptr @trace_drv_channel_switch_beacon.__UNIQUE_ID___addressable___SCK__tp_func_drv_channel_switch_beacon2121, ptr @trace_drv_config_iface_filter.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1100, ptr @trace_drv_config_iface_filter.__UNIQUE_ID___addressable___SCK__tp_func_drv_config_iface_filter1099, ptr @trace_drv_del_nan_func.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2066, ptr @trace_drv_del_nan_func.__UNIQUE_ID___addressable___SCK__tp_func_drv_del_nan_func2065, ptr @trace_drv_get_antenna.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1618, ptr @trace_drv_get_antenna.__UNIQUE_ID___addressable___SCK__tp_func_drv_get_antenna1617, ptr @trace_drv_get_ftm_responder_stats.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2262, ptr @trace_drv_get_ftm_responder_stats.__UNIQUE_ID___addressable___SCK__tp_func_drv_get_ftm_responder_stats2261, ptr @trace_drv_get_key_seq.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1254, ptr @trace_drv_get_key_seq.__UNIQUE_ID___addressable___SCK__tp_func_drv_get_key_seq1253, ptr @trace_drv_get_survey.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1548, ptr @trace_drv_get_survey.__UNIQUE_ID___addressable___SCK__tp_func_drv_get_survey1547, ptr @trace_drv_get_txpower.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2192, ptr @trace_drv_get_txpower.__UNIQUE_ID___addressable___SCK__tp_func_drv_get_txpower2191, ptr @trace_drv_nan_change_conf.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2038, ptr @trace_drv_nan_change_conf.__UNIQUE_ID___addressable___SCK__tp_func_drv_nan_change_conf2037, ptr @trace_drv_post_channel_switch.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2150, ptr @trace_drv_post_channel_switch.__UNIQUE_ID___addressable___SCK__tp_func_drv_post_channel_switch2149, ptr @trace_drv_pre_channel_switch.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2136, ptr @trace_drv_pre_channel_switch.__UNIQUE_ID___addressable___SCK__tp_func_drv_pre_channel_switch2135, ptr @trace_drv_return_int.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace820, ptr @trace_drv_return_int.__UNIQUE_ID___addressable___SCK__tp_func_drv_return_int819, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace806, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__tp_func_drv_return_void805, ptr @trace_drv_set_antenna.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1604, ptr @trace_drv_set_antenna.__UNIQUE_ID___addressable___SCK__tp_func_drv_set_antenna1603, ptr @trace_drv_set_bitrate_mask.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1716, ptr @trace_drv_set_bitrate_mask.__UNIQUE_ID___addressable___SCK__tp_func_drv_set_bitrate_mask1715, ptr @trace_drv_set_coverage_class.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1296, ptr @trace_drv_set_coverage_class.__UNIQUE_ID___addressable___SCK__tp_func_drv_set_coverage_class1295, ptr @trace_drv_set_frag_threshold.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1268, ptr @trace_drv_set_frag_threshold.__UNIQUE_ID___addressable___SCK__tp_func_drv_set_frag_threshold1267, ptr @trace_drv_set_rekey_data.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1730, ptr @trace_drv_set_rekey_data.__UNIQUE_ID___addressable___SCK__tp_func_drv_set_rekey_data1729, ptr @trace_drv_set_rts_threshold.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1282, ptr @trace_drv_set_rts_threshold.__UNIQUE_ID___addressable___SCK__tp_func_drv_set_rts_threshold1281, ptr @trace_drv_set_wakeup.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace960, ptr @trace_drv_set_wakeup.__UNIQUE_ID___addressable___SCK__tp_func_drv_set_wakeup959, ptr @trace_drv_sta_set_4addr.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2290, ptr @trace_drv_sta_set_4addr.__UNIQUE_ID___addressable___SCK__tp_func_drv_sta_set_4addr2289, ptr @trace_drv_start_ap.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1912, ptr @trace_drv_start_ap.__UNIQUE_ID___addressable___SCK__tp_func_drv_start_ap1911, ptr @trace_drv_start_nan.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2010, ptr @trace_drv_start_nan.__UNIQUE_ID___addressable___SCK__tp_func_drv_start_nan2009, ptr @trace_drv_start_pmsr.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2080, ptr @trace_drv_start_pmsr.__UNIQUE_ID___addressable___SCK__tp_func_drv_start_pmsr2079, ptr @trace_drv_stop_ap.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1926, ptr @trace_drv_stop_ap.__UNIQUE_ID___addressable___SCK__tp_func_drv_stop_ap1925, ptr @trace_drv_stop_nan.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2024, ptr @trace_drv_stop_nan.__UNIQUE_ID___addressable___SCK__tp_func_drv_stop_nan2023], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sta_set_rate_info_tx(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 2), (6, 7)) %2) local_unnamed_addr #0 align 16 {
+define dso_local void @sta_set_rate_info_tx(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 2), (6, 7)) %2) local_unnamed_addr #0 align 16 {
   store i16 0, ptr %2, align 2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %5 = load i16, ptr %4, align 1
@@ -346,13 +346,13 @@ define dso_local void @sta_set_rate_info_tx(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__ieee80211_request_smps_mgd(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @__ieee80211_request_smps_mgd(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4056
   %6 = load i32, ptr %5, align 8
@@ -589,7 +589,7 @@ define dso_local void @ieee80211_channel_switch_disconnect(ptr noundef initializ
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_csa_finalize_work(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @ieee80211_csa_finalize_work(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr i8, ptr %1, i64 -136
   %4 = getelementptr i8, ptr %1, i64 584
   %5 = load ptr, ptr %4, align 8
@@ -938,7 +938,7 @@ define internal fastcc void @ieee80211_csa_finalize(ptr noundef %0) unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ieee80211_channel_switch(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local i32 @ieee80211_channel_switch(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.ieee80211_channel_switch, align 8
   %5 = alloca i64, align 8
   %6 = getelementptr i8, ptr %1, i64 2304
@@ -1140,7 +1140,7 @@ define dso_local i32 @ieee80211_channel_switch(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @ieee80211_mgmt_tx_cookie(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local i64 @ieee80211_mgmt_tx_cookie(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5688
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, 1
@@ -1163,7 +1163,7 @@ define dso_local i64 @ieee80211_mgmt_tx_cookie(ptr nocapture noundef %0) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @ieee80211_attach_ack_skb(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ieee80211_attach_ack_skb(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = tail call ptr @skb_copy(ptr noundef %1, i32 noundef %3) #16
   %6 = icmp eq ptr %5, null
   br i1 %6, label %32, label %7
@@ -1332,7 +1332,7 @@ define dso_local void @ieee80211_nan_func_match(ptr noundef %0, ptr noundef %1, 
 declare dso_local void @cfg80211_nan_match(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @ieee80211_fill_txq_stats(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 16 {
+define dso_local void @ieee80211_fill_txq_stats(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 align 16 {
   %3 = load i32, ptr %0, align 4
   %4 = and i32 %3, 2
   %5 = icmp eq i32 %4, 0
@@ -1472,7 +1472,7 @@ define dso_local void @ieee80211_fill_txq_stats(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_color_change_finalize_work(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @ieee80211_color_change_finalize_work(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr i8, ptr %1, i64 -3376
   %4 = getelementptr i8, ptr %1, i64 1544
   %5 = load i8, ptr %4, align 8, !range !17, !noundef !18
@@ -1610,7 +1610,7 @@ define internal fastcc void @ieee80211_color_change_finalize(ptr noundef initial
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_color_collision_detection_work(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @ieee80211_color_collision_detection_work(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -224
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1248
@@ -1893,14 +1893,14 @@ define internal ptr @ieee80211_add_iface(ptr noundef %0, ptr noundef %1, i8 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ieee80211_del_iface(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal noundef i32 @ieee80211_del_iface(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr i8, ptr %1, i64 -16
   tail call void @ieee80211_if_remove(ptr noundef %3) #16
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_change_iface(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
+define internal i32 @ieee80211_change_iface(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #0 align 16 {
   %5 = getelementptr i8, ptr %1, i64 2304
   %6 = getelementptr i8, ptr %1, i64 3560
   %7 = load ptr, ptr %6, align 8
@@ -1996,7 +1996,7 @@ define internal i32 @ieee80211_change_iface(ptr nocapture readnone %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_add_intf_link(ptr nocapture readnone %0, ptr noundef %1, i32 %2) #0 align 16 {
+define internal i32 @ieee80211_add_intf_link(ptr readnone captures(none) %0, ptr noundef %1, i32 %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 65
   %5 = load i8, ptr %4, align 1, !range !17, !noundef !18
   %6 = icmp eq i8 %5, 0
@@ -2015,7 +2015,7 @@ define internal i32 @ieee80211_add_intf_link(ptr nocapture readnone %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ieee80211_del_intf_link(ptr nocapture readnone %0, ptr noundef %1, i32 %2) #0 align 16 {
+define internal void @ieee80211_del_intf_link(ptr readnone captures(none) %0, ptr noundef %1, i32 %2) #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 -16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 1128
   %6 = load i16, ptr %5, align 8
@@ -2024,7 +2024,7 @@ define internal void @ieee80211_del_intf_link(ptr nocapture readnone %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_add_key(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5, ptr nocapture noundef readonly %6) #0 align 16 {
+define internal i32 @ieee80211_add_key(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef readonly captures(none) %6) #0 align 16 {
   %8 = getelementptr i8, ptr %1, i64 2304
   %9 = icmp slt i32 %2, 0
   br i1 %9, label %10, label %12
@@ -2257,7 +2257,7 @@ define internal i32 @ieee80211_add_key(ptr nocapture readnone %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -2, 1) i32 @ieee80211_get_key(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef readonly %7) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @ieee80211_get_key(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly captures(none) %7) #0 align 16 {
   %9 = alloca [6 x i8], align 1
   %10 = alloca %struct.key_params, align 8
   %11 = alloca %struct.ieee80211_key_seq, align 4
@@ -2649,7 +2649,7 @@ define internal noundef range(i32 -2, 1) i32 @ieee80211_get_key(ptr nocapture re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -2, 1) i32 @ieee80211_del_key(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @ieee80211_del_key(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5) #0 align 16 {
   %7 = getelementptr i8, ptr %1, i64 2304
   %8 = getelementptr i8, ptr %1, i64 5480
   %9 = icmp sgt i32 %2, -1
@@ -2758,7 +2758,7 @@ define internal noundef range(i32 -2, 1) i32 @ieee80211_del_key(ptr nocapture re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_config_default_key(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) #0 align 16 {
+define internal i32 @ieee80211_config_default_key(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) #0 align 16 {
   %7 = icmp slt i32 %2, 0
   br i1 %7, label %8, label %10
 
@@ -2796,7 +2796,7 @@ define internal i32 @ieee80211_config_default_key(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_config_default_mgmt_key(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) #0 align 16 {
+define internal i32 @ieee80211_config_default_mgmt_key(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) #0 align 16 {
   %5 = icmp slt i32 %2, 0
   br i1 %5, label %6, label %11
 
@@ -2837,7 +2837,7 @@ select.unfold2:                                   ; preds = %6, %11
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_config_default_beacon_key(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) #0 align 16 {
+define internal i32 @ieee80211_config_default_beacon_key(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) #0 align 16 {
   %5 = icmp slt i32 %2, 0
   br i1 %5, label %6, label %11
 
@@ -2878,7 +2878,7 @@ select.unfold2:                                   ; preds = %6, %11
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_start_ap(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal i32 @ieee80211_start_ap(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca i64, align 8
   %5 = getelementptr i8, ptr %1, i64 2304
   %6 = getelementptr i8, ptr %1, i64 3560
@@ -3403,7 +3403,7 @@ define internal i32 @ieee80211_start_ap(ptr nocapture readnone %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -67, 1) i32 @ieee80211_change_beacon(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef range(i32 -67, 1) i32 @ieee80211_change_beacon(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca i64, align 8
   %5 = getelementptr i8, ptr %1, i64 2304
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
@@ -3891,7 +3891,7 @@ define internal noundef range(i32 -2, 1) i32 @ieee80211_stop_ap(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_add_station(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
+define internal i32 @ieee80211_add_station(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 align 16 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7, !prof !10
 
@@ -4029,7 +4029,7 @@ define internal i32 @ieee80211_add_station(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_del_station(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal i32 @ieee80211_del_station(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 2304
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %5, null
@@ -4227,7 +4227,7 @@ define internal i32 @ieee80211_change_station(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -2, 1) i32 @ieee80211_get_station(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @ieee80211_get_station(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr i8, ptr %1, i64 2304
   %6 = tail call ptr @sta_info_get_bss(ptr noundef %5, ptr noundef %2) #16
   %7 = icmp eq ptr %6, null
@@ -4243,7 +4243,7 @@ define internal noundef range(i32 -2, 1) i32 @ieee80211_get_station(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -2, 1) i32 @ieee80211_dump_station(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @ieee80211_dump_station(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef %4) #0 align 16 {
   %6 = getelementptr i8, ptr %1, i64 2304
   %7 = tail call ptr @sta_info_get_by_idx(ptr noundef %6, i32 noundef %2) #16
   %8 = icmp eq ptr %7, null
@@ -4261,21 +4261,21 @@ define internal noundef range(i32 -2, 1) i32 @ieee80211_dump_station(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_join_ocb(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal i32 @ieee80211_join_ocb(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 2304
   %5 = tail call i32 @ieee80211_ocb_join(ptr noundef %4, ptr noundef %2) #16
   ret i32 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_leave_ocb(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal i32 @ieee80211_leave_ocb(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr i8, ptr %1, i64 2304
   %4 = tail call i32 @ieee80211_ocb_leave(ptr noundef %3) #16
   ret i32 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_change_bss(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal i32 @ieee80211_change_bss(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 2304
   %5 = load i32, ptr %2, align 8
   %6 = icmp slt i32 %5, 0
@@ -4537,7 +4537,7 @@ select.unfold11:                                  ; preds = %7, %12
 declare dso_local void @ieee80211_inform_bss(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_set_txq_params(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal i32 @ieee80211_set_txq_params(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.ieee80211_tx_queue_params, align 2
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7, !prof !10
@@ -4739,7 +4739,7 @@ define internal i32 @ieee80211_set_monitor_channel(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_scan(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i32 @ieee80211_scan(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -16
@@ -4812,7 +4812,7 @@ define internal i32 @ieee80211_scan(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ieee80211_abort_scan(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @ieee80211_abort_scan(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5, !prof !10
 
@@ -4828,49 +4828,49 @@ define internal void @ieee80211_abort_scan(ptr noundef %0, ptr nocapture readnon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_auth(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal i32 @ieee80211_auth(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 2304
   %5 = tail call i32 @ieee80211_mgd_auth(ptr noundef %4, ptr noundef %2) #16
   ret i32 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_assoc(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal i32 @ieee80211_assoc(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 2304
   %5 = tail call i32 @ieee80211_mgd_assoc(ptr noundef %4, ptr noundef %2) #16
   ret i32 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_deauth(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal i32 @ieee80211_deauth(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 2304
   %5 = tail call i32 @ieee80211_mgd_deauth(ptr noundef %4, ptr noundef %2) #16
   ret i32 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_disassoc(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal i32 @ieee80211_disassoc(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 2304
   %5 = tail call i32 @ieee80211_mgd_disassoc(ptr noundef %4, ptr noundef %2) #16
   ret i32 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_join_ibss(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal i32 @ieee80211_join_ibss(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 2304
   %5 = tail call i32 @ieee80211_ibss_join(ptr noundef %4, ptr noundef %2) #16
   ret i32 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_leave_ibss(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal i32 @ieee80211_leave_ibss(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr i8, ptr %1, i64 2304
   %4 = tail call i32 @ieee80211_ibss_leave(ptr noundef %3) #16
   ret i32 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ieee80211_set_mcast_rate(ptr nocapture readnone %0, ptr noundef initializes((6528, 6552)) %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef i32 @ieee80211_set_mcast_rate(ptr readnone captures(none) %0, ptr noundef initializes((6528, 6552)) %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 2304
   %5 = getelementptr i8, ptr %1, i64 6528
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %5, ptr noundef align 4 dereferenceable(24) %2, i64 24, i1 false)
@@ -5577,7 +5577,7 @@ define internal void @ieee80211_rfkill_poll(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_set_bitrate_mask(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 align 16 {
+define internal i32 @ieee80211_set_bitrate_mask(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 align 16 {
   %6 = getelementptr i8, ptr %1, i64 2304
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 960
   %8 = load ptr, ptr %7, align 8
@@ -5853,7 +5853,7 @@ define internal i32 @ieee80211_set_bitrate_mask(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_dump_survey(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
+define internal i32 @ieee80211_dump_survey(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 960
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -5986,7 +5986,7 @@ declare dso_local i32 @ieee80211_mgmt_tx(ptr noundef, ptr noundef, ptr noundef, 
 declare dso_local i32 @ieee80211_mgmt_tx_cancel_wait(ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -95, 1) i32 @ieee80211_set_power_mgmt(ptr nocapture readnone %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3) #0 align 16 {
+define internal noundef range(i32 -95, 1) i32 @ieee80211_set_power_mgmt(ptr readnone captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3) #0 align 16 {
   %5 = zext i1 %2 to i8
   %6 = getelementptr i8, ptr %1, i64 2304
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 960
@@ -6082,7 +6082,7 @@ define internal noundef range(i32 -95, 1) i32 @ieee80211_set_power_mgmt(ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -95, 1) i32 @ieee80211_set_cqm_rssi_config(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define internal noundef range(i32 -95, 1) i32 @ieee80211_set_cqm_rssi_config(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr i8, ptr %1, i64 2304
   %6 = getelementptr i8, ptr %1, i64 6556
   %7 = load i32, ptr %6, align 4
@@ -6132,7 +6132,7 @@ define internal noundef range(i32 -95, 1) i32 @ieee80211_set_cqm_rssi_config(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -95, 1) i32 @ieee80211_set_cqm_rssi_range_config(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define internal noundef range(i32 -95, 1) i32 @ieee80211_set_cqm_rssi_range_config(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr i8, ptr %1, i64 2304
   %6 = getelementptr i8, ptr %1, i64 7400
   %7 = load i32, ptr %6, align 8
@@ -6171,7 +6171,7 @@ define internal noundef range(i32 -95, 1) i32 @ieee80211_set_cqm_rssi_range_conf
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ieee80211_update_mgmt_frame_registrations(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal void @ieee80211_update_mgmt_frame_registrations(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6, !prof !10
 
@@ -6532,7 +6532,7 @@ define internal i32 @ieee80211_get_antenna(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_sched_scan_start(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal i32 @ieee80211_sched_scan_start(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 3560
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 448
@@ -6553,7 +6553,7 @@ define internal i32 @ieee80211_sched_scan_start(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_sched_scan_stop(ptr noundef %0, ptr nocapture readnone %1, i64 %2) #0 align 16 {
+define internal i32 @ieee80211_sched_scan_stop(ptr noundef %0, ptr readnone captures(none) %1, i64 %2) #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6, !prof !10
 
@@ -6746,7 +6746,7 @@ declare dso_local i32 @ieee80211_tdls_mgmt(ptr noundef, ptr noundef, ptr noundef
 declare dso_local i32 @ieee80211_tdls_oper(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -67, 1) i32 @ieee80211_probe_client(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 align 16 {
+define internal noundef range(i32 -67, 1) i32 @ieee80211_probe_client(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) #0 align 16 {
   %5 = getelementptr i8, ptr %1, i64 2304
   %6 = getelementptr i8, ptr %1, i64 3560
   %7 = load ptr, ptr %6, align 8
@@ -6854,7 +6854,7 @@ define internal noundef range(i32 -67, 1) i32 @ieee80211_probe_client(ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ieee80211_set_noack_map(ptr nocapture readnone %0, ptr noundef initializes((3832, 3834)) %1, i16 noundef zeroext %2) #0 align 16 {
+define internal noundef i32 @ieee80211_set_noack_map(ptr readnone captures(none) %0, ptr noundef initializes((3832, 3834)) %1, i16 noundef zeroext %2) #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 2304
   %5 = getelementptr i8, ptr %1, i64 3832
   store i16 %2, ptr %5, align 8
@@ -6863,7 +6863,7 @@ define internal noundef i32 @ieee80211_set_noack_map(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -67, 1) i32 @ieee80211_cfg_get_channel(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #0 align 16 {
+define internal noundef range(i32 -67, 1) i32 @ieee80211_cfg_get_channel(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #0 align 16 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7, !prof !10
 
@@ -6937,7 +6937,7 @@ define internal noundef range(i32 -67, 1) i32 @ieee80211_cfg_get_channel(ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_start_p2p_device(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal i32 @ieee80211_start_p2p_device(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr i8, ptr %1, i64 -16
   %4 = tail call i32 @ieee80211_check_combinations(ptr noundef %3, ptr noundef null, i32 noundef 0, i8 noundef zeroext 0) #16
   %5 = icmp slt i32 %4, 0
@@ -6953,7 +6953,7 @@ define internal i32 @ieee80211_start_p2p_device(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ieee80211_stop_p2p_device(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal void @ieee80211_stop_p2p_device(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr i8, ptr %1, i64 -16
   tail call void @ieee80211_sdata_stop(ptr noundef %3) #16
   ret void
@@ -6998,7 +6998,7 @@ define internal i32 @ieee80211_start_radar_detection(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ieee80211_end_cac(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @ieee80211_end_cac(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr i8, ptr %1, i64 3560
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4512
@@ -7031,7 +7031,7 @@ define internal void @ieee80211_end_cac(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -12, 1) i32 @ieee80211_set_qos_map(ptr nocapture readnone %0, ptr noundef %1, ptr noundef readonly %2) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @ieee80211_set_qos_map(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly %2) #0 align 16 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %10, label %5
 
@@ -7065,7 +7065,7 @@ define internal noundef range(i32 -12, 1) i32 @ieee80211_set_qos_map(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_set_ap_chanwidth(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
+define internal i32 @ieee80211_set_ap_chanwidth(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
   store i64 0, ptr %5, align 8
@@ -7089,7 +7089,7 @@ define internal i32 @ieee80211_set_ap_chanwidth(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef range(i32 -95, 1) i32 @ieee80211_add_tx_ts(ptr nocapture readnone %0, ptr nocapture noundef %1, i8 noundef zeroext %2, ptr nocapture readnone %3, i8 noundef zeroext %4, i16 noundef zeroext %5) #5 align 16 {
+define internal noundef range(i32 -95, 1) i32 @ieee80211_add_tx_ts(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i8 noundef zeroext %2, ptr readnone captures(none) %3, i8 noundef zeroext %4, i16 noundef zeroext %5) #5 align 16 {
   %7 = zext i8 %4 to i64
   %8 = getelementptr [8 x i32], ptr @ieee802_1d_to_ac, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
@@ -7136,7 +7136,7 @@ define internal noundef range(i32 -95, 1) i32 @ieee80211_add_tx_ts(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -2, 1) i32 @ieee80211_del_tx_ts(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr nocapture readnone %3) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @ieee80211_del_tx_ts(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = getelementptr i8, ptr %1, i64 2304
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8, !prof !10
@@ -7195,7 +7195,7 @@ declare dso_local i32 @ieee80211_tdls_channel_switch(ptr noundef, ptr noundef, p
 declare dso_local void @ieee80211_tdls_cancel_channel_switch(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_start_nan(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal i32 @ieee80211_start_nan(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 -16
   %5 = getelementptr i8, ptr %1, i64 1240
   %6 = tail call i32 @ieee80211_check_combinations(ptr noundef %4, ptr noundef null, i32 noundef 0, i8 noundef zeroext 0) #16
@@ -7348,7 +7348,7 @@ define internal i32 @ieee80211_start_nan(ptr nocapture readnone %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ieee80211_stop_nan(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal void @ieee80211_stop_nan(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr i8, ptr %1, i64 -16
   %4 = getelementptr i8, ptr %1, i64 1240
   %5 = load ptr, ptr %4, align 8
@@ -7477,7 +7477,7 @@ define internal void @ieee80211_stop_nan(ptr nocapture readnone %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_add_nan_func(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal i32 @ieee80211_add_nan_func(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 -16
   %5 = getelementptr i8, ptr %1, i64 4040
   %6 = load i32, ptr %5, align 8
@@ -7666,7 +7666,7 @@ define internal i32 @ieee80211_add_nan_func(ptr nocapture readnone %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ieee80211_del_nan_func(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
+define internal void @ieee80211_del_nan_func(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr i8, ptr %1, i64 -16
   %6 = getelementptr i8, ptr %1, i64 4040
@@ -7852,7 +7852,7 @@ define internal void @ieee80211_del_nan_func(ptr nocapture readnone %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_nan_change_conf(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) #0 align 16 {
+define internal i32 @ieee80211_nan_change_conf(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 align 16 {
   %5 = alloca %struct.cfg80211_nan_conf, align 2
   %6 = getelementptr i8, ptr %1, i64 -16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #16
@@ -8037,7 +8037,7 @@ define internal i32 @ieee80211_nan_change_conf(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @ieee80211_set_multicast_to_unicast(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((4524, 4525)) %1, i1 noundef zeroext %2) #6 align 16 {
+define internal noundef i32 @ieee80211_set_multicast_to_unicast(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((4524, 4525)) %1, i1 noundef zeroext %2) #6 align 16 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr i8, ptr %1, i64 4524
   store i8 %4, ptr %5, align 4
@@ -8045,7 +8045,7 @@ define internal noundef i32 @ieee80211_set_multicast_to_unicast(ptr nocapture re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @ieee80211_get_txq_stats(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef %2) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @ieee80211_get_txq_stats(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6, !prof !10
 
@@ -8533,7 +8533,7 @@ define internal void @ieee80211_abort_pmsr(ptr noundef %0, ptr noundef %1, ptr n
 declare dso_local i32 @ieee80211_probe_mesh_link(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_set_tid_config(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal i32 @ieee80211_set_tid_config(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 2304
   %5 = getelementptr i8, ptr %1, i64 3560
   %6 = load ptr, ptr %5, align 8
@@ -8659,7 +8659,7 @@ define internal i32 @ieee80211_set_tid_config(ptr nocapture readnone %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_reset_tid_config(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) #0 align 16 {
+define internal i32 @ieee80211_reset_tid_config(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) #0 align 16 {
   %5 = getelementptr i8, ptr %1, i64 2304
   %6 = getelementptr i8, ptr %1, i64 3560
   %7 = load ptr, ptr %6, align 8
@@ -8812,7 +8812,7 @@ define internal i32 @ieee80211_set_sar_specs(ptr noundef %0, ptr noundef %1) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -95, 1) i32 @ieee80211_color_change(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef range(i32 -95, 1) i32 @ieee80211_color_change(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.ieee80211_color_change_settings, align 2
   %5 = alloca i64, align 8
   %6 = getelementptr i8, ptr %1, i64 2304
@@ -8958,7 +8958,7 @@ define internal i32 @ieee80211_set_radar_background(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_add_link_station(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal i32 @ieee80211_add_link_station(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6, !prof !10
 
@@ -9016,7 +9016,7 @@ define internal i32 @ieee80211_add_link_station(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_mod_link_station(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal i32 @ieee80211_mod_link_station(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6, !prof !10
 
@@ -9055,7 +9055,7 @@ define internal i32 @ieee80211_mod_link_station(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @ieee80211_del_link_station(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @ieee80211_del_link_station(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 2304
   %5 = load ptr, ptr %2, align 8
   %6 = tail call ptr @sta_info_get_bss(ptr noundef %4, ptr noundef %5) #16
@@ -9086,7 +9086,7 @@ define internal noundef range(i32 -22, 1) i32 @ieee80211_del_link_station(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ieee80211_set_hw_timestamp(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal i32 @ieee80211_set_hw_timestamp(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 3560
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 448
@@ -9170,7 +9170,7 @@ declare dso_local void @ieee80211_wake_vif_queues(ptr noundef, ptr noundef, i32 
 declare dso_local void @cfg80211_ch_switch_notify(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @ieee80211_assign_beacon(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr nocapture noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @ieee80211_assign_beacon(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef captures(none) %5) unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 720
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 456
@@ -9733,7 +9733,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @ieee80211_assign_beacon(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_free_next_beacon(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_free_next_beacon(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -9760,7 +9760,7 @@ define internal fastcc void @ieee80211_free_next_beacon(ptr nocapture noundef %0
 declare dso_local i32 @ieee80211_ibss_finish_csa(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
@@ -9796,7 +9796,7 @@ declare void @llvm.assume(i1 noundef) #12
 declare dso_local i32 @__SCT__tp_func_drv_return_int(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc i32 @drv_pre_channel_switch(ptr noundef %0, ptr noundef %1) unnamed_addr #14 align 16 {
@@ -9951,7 +9951,7 @@ declare dso_local i32 @ieee80211_check_combinations(ptr noundef, ptr noundef, i3
 declare dso_local i32 @ieee80211_link_unreserve_chanctx(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_color_change_abort(ptr nocapture noundef initializes((4920, 4921)) %0) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_color_change_abort(ptr noundef captures(none) initializes((4920, 4921)) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4920
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 3664
@@ -10191,7 +10191,7 @@ declare dso_local i32 @__SCT__tp_func_drv_pre_channel_switch(ptr noundef, ptr no
 declare dso_local i32 @cfg80211_bss_color_notify(ptr noundef, i32 noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @cfg80211_beacon_dup(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc ptr @cfg80211_beacon_dup(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -10576,7 +10576,7 @@ define internal fastcc ptr @cfg80211_beacon_dup(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 4) i32 @cfg80211_get_chandef_type(ptr nocapture noundef readonly %0) unnamed_addr #14 align 16 {
+define internal fastcc range(i32 0, 4) i32 @cfg80211_get_chandef_type(ptr noundef readonly captures(none) %0) unnamed_addr #14 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %12 [
@@ -10708,7 +10708,7 @@ declare dso_local i32 @__SCT__tp_func_drv_return_void(ptr noundef, ptr noundef) 
 declare dso_local i32 @ieee80211_if_add(ptr noundef, ptr noundef, i8 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -95, 1) i32 @ieee80211_set_mon_options(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -95, 1) i32 @ieee80211_set_mon_options(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %1, align 8
@@ -11117,7 +11117,7 @@ declare dso_local i32 @ieee80211_link_use_channel(ptr noundef, ptr noundef, i32 
 declare dso_local void @ieee80211_link_copy_chanctx_to_vlans(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1073741825) i32 @ieee80211_set_fils_discovery(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1073741825) i32 @ieee80211_set_fils_discovery(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 align 16 {
   %4 = load i8, ptr %0, align 8, !range !17, !noundef !18
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %37, label %6
@@ -11180,7 +11180,7 @@ define internal fastcc noundef range(i32 -12, 1073741825) i32 @ieee80211_set_fil
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @ieee80211_set_unsol_bcast_probe_resp(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @ieee80211_set_unsol_bcast_probe_resp(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3) unnamed_addr #0 align 16 {
   %5 = load i8, ptr %0, align 8, !range !17, !noundef !18
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %37, label %7
@@ -11426,7 +11426,7 @@ declare dso_local ptr @sta_info_alloc_with_link(ptr noundef, ptr noundef, i32 no
 declare dso_local ptr @sta_info_alloc(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @sta_apply_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @sta_apply_parameters(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11848,7 +11848,7 @@ define internal fastcc i32 @sta_apply_auth_flags(ptr noundef nonnull %0, i32 nou
 declare dso_local void @ieee80211_sta_set_max_amsdu_subframes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @sta_link_apply_parameters(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @sta_link_apply_parameters(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8

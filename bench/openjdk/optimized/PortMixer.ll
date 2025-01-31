@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.12 = private unnamed_addr constant [22 x i8] c"(Ljava/lang/Object;)V\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_com_sun_media_sound_PortMixer_nOpen(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define i64 @Java_com_sun_media_sound_PortMixer_nOpen(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @PORT_Open(i32 noundef %2) #3
   %5 = ptrtoint ptr %4 to i64
   ret i64 %5
@@ -30,7 +30,7 @@ define i64 @Java_com_sun_media_sound_PortMixer_nOpen(ptr nocapture noundef readn
 declare ptr @PORT_Open(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_media_sound_PortMixer_nClose(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_com_sun_media_sound_PortMixer_nClose(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %6, label %4
 
@@ -46,7 +46,7 @@ define void @Java_com_sun_media_sound_PortMixer_nClose(ptr nocapture noundef rea
 declare void @PORT_Close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_com_sun_media_sound_PortMixer_nGetPortCount(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define i32 @Java_com_sun_media_sound_PortMixer_nGetPortCount(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %7, label %4
 
@@ -63,7 +63,7 @@ define i32 @Java_com_sun_media_sound_PortMixer_nGetPortCount(ptr nocapture nound
 declare i32 @PORT_GetPortCount(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_com_sun_media_sound_PortMixer_nGetPortType(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @Java_com_sun_media_sound_PortMixer_nGetPortType(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %8, label %5
 
@@ -80,7 +80,7 @@ define i32 @Java_com_sun_media_sound_PortMixer_nGetPortType(ptr nocapture nounde
 declare i32 @PORT_GetPortType(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_com_sun_media_sound_PortMixer_nGetPortName(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @Java_com_sun_media_sound_PortMixer_nGetPortName(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [200 x i8], align 16
   store i8 0, ptr %5, align 16
   %.not = icmp eq i64 %2, 0
@@ -102,7 +102,7 @@ define ptr @Java_com_sun_media_sound_PortMixer_nGetPortName(ptr noundef %0, ptr 
 declare i32 @PORT_GetPortName(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_media_sound_PortMixer_nControlSetIntValue(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Java_com_sun_media_sound_PortMixer_nControlSetIntValue(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %7, label %5
 
@@ -118,7 +118,7 @@ define void @Java_com_sun_media_sound_PortMixer_nControlSetIntValue(ptr nocaptur
 declare void @PORT_SetIntValue(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_com_sun_media_sound_PortMixer_nControlGetIntValue(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define i32 @Java_com_sun_media_sound_PortMixer_nControlGetIntValue(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %7, label %4
 
@@ -135,7 +135,7 @@ define i32 @Java_com_sun_media_sound_PortMixer_nControlGetIntValue(ptr nocapture
 declare i32 @PORT_GetIntValue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_media_sound_PortMixer_nControlSetFloatValue(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, float noundef %3) local_unnamed_addr #0 {
+define void @Java_com_sun_media_sound_PortMixer_nControlSetFloatValue(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, float noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %7, label %5
 
@@ -151,7 +151,7 @@ define void @Java_com_sun_media_sound_PortMixer_nControlSetFloatValue(ptr nocapt
 declare void @PORT_SetFloatValue(ptr noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define float @Java_com_sun_media_sound_PortMixer_nControlGetFloatValue(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define float @Java_com_sun_media_sound_PortMixer_nControlGetFloatValue(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %7, label %4
 
@@ -168,7 +168,7 @@ define float @Java_com_sun_media_sound_PortMixer_nControlGetFloatValue(ptr nocap
 declare float @PORT_GetFloatValue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @PORT_NewBooleanControl(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define hidden ptr @PORT_NewBooleanControl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -233,7 +233,7 @@ define hidden ptr @PORT_NewBooleanControl(ptr nocapture noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @PORT_NewCompoundControl(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) #0 {
+define hidden ptr @PORT_NewCompoundControl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -341,7 +341,7 @@ define hidden ptr @PORT_NewCompoundControl(ptr nocapture noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @PORT_NewFloatControl(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr noundef %6) #0 {
+define hidden ptr @PORT_NewFloatControl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr noundef %6) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
@@ -451,7 +451,7 @@ define hidden ptr @PORT_NewFloatControl(ptr nocapture noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @PORT_AddControl(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden noundef i32 @PORT_AddControl(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -471,7 +471,7 @@ define hidden noundef i32 @PORT_AddControl(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_media_sound_PortMixer_nGetControls(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define void @Java_com_sun_media_sound_PortMixer_nGetControls(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.tag_ControlCreatorJNI, align 8
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %28, label %7
@@ -517,7 +517,7 @@ define void @Java_com_sun_media_sound_PortMixer_nGetControls(ptr noundef %0, ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @PORT_GetControls(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 

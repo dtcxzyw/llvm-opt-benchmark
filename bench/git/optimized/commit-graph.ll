@@ -241,7 +241,7 @@ stop_progress.exit:                               ; preds = %if.end, %if.end3.i.
 declare void @die(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @commit_graph_position(ptr nocapture noundef readonly %c) local_unnamed_addr #3 {
+define dso_local i32 @commit_graph_position(ptr noundef readonly captures(none) %c) local_unnamed_addr #3 {
 entry:
   %0 = getelementptr i8, ptr %c, i64 64
   %c.val = load i32, ptr %0, align 8
@@ -271,7 +271,7 @@ cond.end:                                         ; preds = %if.end12.i.i, %entr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i64 1, 0) i64 @commit_graph_generation(ptr nocapture noundef readonly %c) local_unnamed_addr #3 {
+define dso_local range(i64 1, 0) i64 @commit_graph_generation(ptr noundef readonly captures(none) %c) local_unnamed_addr #3 {
 entry:
   %0 = getelementptr i8, ptr %c, i64 64
   %c.val = load i32, ptr %0, align 8
@@ -305,7 +305,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_commit_graph_filename(ptr nocapture noundef readonly %obj_dir) local_unnamed_addr #0 {
+define dso_local ptr @get_commit_graph_filename(ptr noundef readonly captures(none) %obj_dir) local_unnamed_addr #0 {
 entry:
   %path = getelementptr inbounds nuw i8, ptr %obj_dir, i64 56
   %0 = load ptr, ptr %path, align 8
@@ -316,7 +316,7 @@ entry:
 declare ptr @xstrfmt(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_commit_graph_chain_filename(ptr nocapture noundef readonly %odb) local_unnamed_addr #0 {
+define dso_local ptr @get_commit_graph_chain_filename(ptr noundef readonly captures(none) %odb) local_unnamed_addr #0 {
 entry:
   %path = getelementptr inbounds nuw i8, ptr %odb, i64 56
   %0 = load ptr, ptr %path, align 8
@@ -325,7 +325,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @open_commit_graph(ptr noundef %graph_file, ptr nocapture noundef initializes((0, 4)) %fd, ptr nocapture noundef %st) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @open_commit_graph(ptr noundef %graph_file, ptr noundef captures(none) initializes((0, 4)) %fd, ptr noundef captures(none) %st) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @git_open_cloexec(ptr noundef %graph_file, i32 noundef 0) #22
   store i32 %call, ptr %fd, align 4
@@ -350,12 +350,12 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @git_open_cloexec(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @load_commit_graph_one_fd_st(ptr noundef %r, i32 noundef %fd, ptr nocapture noundef readonly %st, ptr noundef %odb) local_unnamed_addr #0 {
+define dso_local noundef ptr @load_commit_graph_one_fd_st(ptr noundef %r, i32 noundef %fd, ptr noundef readonly captures(none) %st, ptr noundef %odb) local_unnamed_addr #0 {
 entry:
   %st_size = getelementptr inbounds nuw i8, ptr %st, i64 48
   %0 = load i64, ptr %st_size, align 8
@@ -442,7 +442,7 @@ declare ptr @xmmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 nound
 declare void @prepare_repo_settings(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @parse_commit_graph(ptr nocapture noundef readonly %s, ptr noundef %graph_map, i64 noundef %graph_size) local_unnamed_addr #0 {
+define dso_local noundef ptr @parse_commit_graph(ptr noundef readonly captures(none) %s, ptr noundef %graph_map, i64 noundef %graph_size) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %graph_map, null
   br i1 %tobool.not, label %return, label %if.end
@@ -742,7 +742,7 @@ declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #5
 declare zeroext i8 @oid_version(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @init_chunkfile(ptr noundef) local_unnamed_addr #1
 
@@ -751,7 +751,7 @@ declare i32 @read_table_of_contents(ptr noundef, ptr noundef, i64 noundef, i64 n
 declare i32 @read_chunk(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @graph_read_oid_fanout(ptr noundef %chunk_start, i64 noundef %chunk_size, ptr nocapture noundef writeonly %data) #0 {
+define internal range(i32 -1, 2) i32 @graph_read_oid_fanout(ptr noundef %chunk_start, i64 noundef %chunk_size, ptr noundef writeonly captures(none) %data) #0 {
 entry:
   %cmp.not = icmp eq i64 %chunk_size, 1024
   br i1 %cmp.not, label %if.end, label %if.then
@@ -810,7 +810,7 @@ return:                                           ; preds = %for.cond, %return.s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @graph_read_oid_lookup(ptr noundef %chunk_start, i64 noundef %chunk_size, ptr nocapture noundef initializes((104, 112)) %data) #0 {
+define internal range(i32 -1, 1) i32 @graph_read_oid_lookup(ptr noundef %chunk_start, i64 noundef %chunk_size, ptr noundef captures(none) initializes((104, 112)) %data) #0 {
 entry:
   %chunk_oid_lookup = getelementptr inbounds nuw i8, ptr %data, i64 104
   store ptr %chunk_start, ptr %chunk_oid_lookup, align 8
@@ -844,7 +844,7 @@ return:                                           ; preds = %entry, %_.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @graph_read_commit_data(ptr noundef %chunk_start, i64 noundef %chunk_size, ptr nocapture noundef %data) #0 {
+define internal range(i32 -1, 1) i32 @graph_read_commit_data(ptr noundef %chunk_start, i64 noundef %chunk_size, ptr noundef captures(none) %data) #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %hash_algo = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -886,7 +886,7 @@ return:                                           ; preds = %if.end, %_.exit
 declare i32 @pair_chunk(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @graph_read_generation_data(ptr noundef %chunk_start, i64 noundef %chunk_size, ptr nocapture noundef %data) #0 {
+define internal range(i32 -1, 1) i32 @graph_read_generation_data(ptr noundef %chunk_start, i64 noundef %chunk_size, ptr noundef captures(none) %data) #0 {
 entry:
   %div2 = lshr i64 %chunk_size, 2
   %num_commits = getelementptr inbounds nuw i8, ptr %data, i64 20
@@ -920,7 +920,7 @@ return:                                           ; preds = %if.end, %_.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @graph_read_bloom_index(ptr noundef %chunk_start, i64 noundef %chunk_size, ptr nocapture noundef %data) #0 {
+define internal range(i32 -1, 1) i32 @graph_read_bloom_index(ptr noundef %chunk_start, i64 noundef %chunk_size, ptr noundef captures(none) %data) #0 {
 entry:
   %div2 = lshr i64 %chunk_size, 2
   %num_commits = getelementptr inbounds nuw i8, ptr %data, i64 20
@@ -954,7 +954,7 @@ return:                                           ; preds = %if.end, %_.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @graph_read_bloom_data(ptr noundef %chunk_start, i64 noundef %chunk_size, ptr nocapture noundef %data) #0 {
+define internal range(i32 -1, 1) i32 @graph_read_bloom_data(ptr noundef %chunk_start, i64 noundef %chunk_size, ptr noundef captures(none) %data) #0 {
 entry:
   %cmp = icmp ult i64 %chunk_size, 12
   br i1 %cmp, label %if.then, label %if.end
@@ -1060,7 +1060,7 @@ declare void @init_bloom_filters() local_unnamed_addr #1
 declare void @free_chunkfile(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @open_commit_graph_chain(ptr noundef %chain_file, ptr nocapture noundef initializes((0, 4)) %fd, ptr nocapture noundef %st) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @open_commit_graph_chain(ptr noundef %chain_file, ptr noundef captures(none) initializes((0, 4)) %fd, ptr noundef captures(none) %st) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @git_open_cloexec(ptr noundef %chain_file, i32 noundef 0) #22
   store i32 %call, ptr %fd, align 4
@@ -1127,7 +1127,7 @@ declare ptr @__errno_location() local_unnamed_addr #7
 declare void @warning(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @load_commit_graph_chain_fd_st(ptr noundef %r, i32 noundef %fd, ptr nocapture noundef readonly %st, ptr nocapture noundef writeonly %incomplete_chain) local_unnamed_addr #0 {
+define dso_local noundef ptr @load_commit_graph_chain_fd_st(ptr noundef %r, i32 noundef %fd, ptr noundef readonly captures(none) %st, ptr noundef writeonly captures(none) %incomplete_chain) local_unnamed_addr #0 {
 entry:
   %st.i = alloca %struct.stat, align 8
   %line = alloca %struct.strbuf, align 8
@@ -1486,7 +1486,7 @@ validate_mixed_generation_chain.exit:             ; preds = %while.body6.i, %ent
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare ptr @xfdopen(i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1534,7 +1534,7 @@ while.end:                                        ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
 
@@ -1763,7 +1763,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @get_bloom_filter_settings(ptr nocapture noundef readonly %r) local_unnamed_addr #9 {
+define dso_local ptr @get_bloom_filter_settings(ptr noundef readonly captures(none) %r) local_unnamed_addr #9 {
 entry:
   %objects = getelementptr inbounds nuw i8, ptr %r, i64 16
   %0 = load ptr, ptr %objects, align 8
@@ -1791,7 +1791,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @close_commit_graph(ptr nocapture noundef %o) local_unnamed_addr #0 {
+define dso_local void @close_commit_graph(ptr noundef captures(none) %o) local_unnamed_addr #0 {
 entry:
   %commit_graph = getelementptr inbounds nuw i8, ptr %o, i64 96
   %0 = load ptr, ptr %commit_graph, align 8
@@ -1861,7 +1861,7 @@ return:                                           ; preds = %entry, %free_commit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @repo_find_commit_pos_in_graph(ptr noundef %r, ptr noundef %c, ptr nocapture noundef writeonly %pos) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @repo_find_commit_pos_in_graph(ptr noundef %r, ptr noundef %c, ptr noundef writeonly captures(none) %pos) local_unnamed_addr #0 {
 entry:
   %lex_index.i.i = alloca i32, align 4
   %call = tail call fastcc i32 @prepare_commit_graph(ptr noundef %r)
@@ -2038,7 +2038,7 @@ declare i32 @has_object(ptr noundef, ptr noundef, i32 noundef) local_unnamed_add
 declare ptr @lookup_commit(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @fill_commit_in_graph(ptr noundef %r, ptr noundef %item, ptr nocapture noundef readonly %g, i32 noundef %pos) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @fill_commit_in_graph(ptr noundef %r, ptr noundef %item, ptr noundef readonly captures(none) %g, i32 noundef %pos) unnamed_addr #0 {
 entry:
   %num_commits_in_base64 = getelementptr inbounds nuw i8, ptr %g, i64 80
   %0 = load i32, ptr %num_commits_in_base64, align 8
@@ -2389,7 +2389,7 @@ if.end:                                           ; preds = %entry, %repo_find_c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fill_commit_graph_info(ptr nocapture noundef %item, ptr nocapture noundef readonly %g, i32 noundef %pos) unnamed_addr #0 {
+define internal fastcc void @fill_commit_graph_info(ptr noundef captures(none) %item, ptr noundef readonly captures(none) %g, i32 noundef %pos) unnamed_addr #0 {
 entry:
   %num_commits_in_base100 = getelementptr inbounds nuw i8, ptr %g, i64 80
   %0 = load i32, ptr %num_commits_in_base100, align 8
@@ -2714,7 +2714,7 @@ if.end70:                                         ; preds = %topo_level_slab_at.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_commit_tree_in_graph(ptr noundef %r, ptr nocapture noundef %c) local_unnamed_addr #0 {
+define dso_local ptr @get_commit_tree_in_graph(ptr noundef %r, ptr noundef captures(none) %c) local_unnamed_addr #0 {
 entry:
   %objects = getelementptr inbounds nuw i8, ptr %r, i64 16
   %0 = load ptr, ptr %objects, align 8
@@ -2725,7 +2725,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_commit_tree_in_graph_one(ptr noundef %r, ptr nocapture noundef readonly %g, ptr nocapture noundef %c) unnamed_addr #0 {
+define internal fastcc ptr @get_commit_tree_in_graph_one(ptr noundef %r, ptr noundef readonly captures(none) %g, ptr noundef captures(none) %c) unnamed_addr #0 {
 entry:
   %oid.i = alloca %struct.object_id, align 4
   %maybe_tree = getelementptr inbounds nuw i8, ptr %c, i64 56
@@ -2856,7 +2856,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @get_generation_from_graph_data(ptr nocapture noundef readonly %c, ptr nocapture readnone %data) #0 {
+define internal i64 @get_generation_from_graph_data(ptr noundef readonly captures(none) %c, ptr readnone captures(none) %data) #0 {
 entry:
   %0 = getelementptr i8, ptr %c, i64 64
   %c.val = load i32, ptr %0, align 8
@@ -2867,7 +2867,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @set_generation_in_graph_data(ptr nocapture noundef readonly %c, i64 noundef %t, ptr nocapture readnone %data) #0 {
+define internal void @set_generation_in_graph_data(ptr noundef readonly captures(none) %c, i64 noundef %t, ptr readnone captures(none) %data) #0 {
 entry:
   %0 = getelementptr i8, ptr %c, i64 64
   %c.val = load i32, ptr %0, align 8
@@ -2878,7 +2878,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @compute_reachable_generation_numbers(ptr nocapture noundef nonnull readonly %info, i32 noundef %generation_version) unnamed_addr #0 {
+define internal fastcc void @compute_reachable_generation_numbers(ptr noundef nonnull readonly captures(none) %info, i32 noundef %generation_version) unnamed_addr #0 {
 entry:
   %list = alloca ptr, align 8
   store ptr null, ptr %list, align 8
@@ -3012,14 +3012,14 @@ for.end41:                                        ; preds = %for.inc40, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare ptr @start_delayed_progress(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare i32 @for_each_ref(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @add_ref_to_set(ptr nocapture readnone %refname, ptr noundef %oid, i32 %flags, ptr nocapture noundef readonly %cb_data) #0 {
+define internal noundef i32 @add_ref_to_set(ptr readnone captures(none) %refname, ptr noundef %oid, i32 %flags, ptr noundef readonly captures(none) %cb_data) #0 {
 entry:
   %peeled = alloca %struct.object_id, align 4
   %call = call i32 @peel_iterated_oid(ptr noundef %oid, ptr noundef nonnull %peeled) #22
@@ -3457,7 +3457,7 @@ strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %if.e
   %arrayidx.i = getelementptr inbounds nuw %struct.string_list_item, ptr %56, i64 %conv331.i
   %57 = load ptr, ptr %arrayidx.i, align 8
   %call.i18.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #26
-  call void @strbuf_add(ptr noundef nonnull %packname.i, ptr noundef %57, i64 noundef %call.i18.i) #22
+  call void @strbuf_add(ptr noundef nonnull %packname.i, ptr noundef nonnull %57, i64 noundef %call.i18.i) #22
   %58 = load ptr, ptr %buf.i.i, align 8
   %59 = load i64, ptr %len.i, align 8
   %call9.i = call ptr @add_packed_git(ptr noundef %58, i64 noundef %59, i32 noundef 1) #22
@@ -5392,7 +5392,7 @@ if.then175.i:                                     ; preds = %if.end172.i
   br i1 %tobool188.not.i, label %if.end204.i, label %if.then189.i
 
 if.then189.i:                                     ; preds = %if.then175.i
-  %call191.i = call i32 @rename(ptr noundef nonnull %351, ptr noundef %354) #22
+  %call191.i = call i32 @rename(ptr noundef nonnull %351, ptr noundef nonnull %354) #22
   %tobool192.not.i = icmp eq i32 %call191.i, 0
   br i1 %tobool192.not.i, label %if.end204.i, label %if.then193.i
 
@@ -5608,7 +5608,7 @@ if.end10.i:                                       ; preds = %if.then7.i, %if.end
   %path12.i = getelementptr inbounds nuw i8, ptr %408, i64 56
   %409 = load ptr, ptr %path12.i, align 8
   %call.i18.i436 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %409) #26
-  call void @strbuf_add(ptr noundef nonnull %path.i425, ptr noundef %409, i64 noundef %call.i18.i436) #22
+  call void @strbuf_add(ptr noundef nonnull %path.i425, ptr noundef nonnull %409, i64 noundef %call.i18.i436) #22
   call void @strbuf_add(ptr noundef nonnull %path.i425, ptr noundef nonnull @.str.104, i64 noundef 19) #22
   %buf.i437 = getelementptr inbounds nuw i8, ptr %path.i425, i64 16
   %410 = load ptr, ptr %buf.i437, align 8
@@ -7302,7 +7302,7 @@ return:                                           ; preds = %stop_progress.exit,
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal void @graph_report(ptr nocapture noundef readonly %fmt, ...) unnamed_addr #11 {
+define internal void @graph_report(ptr noundef readonly captures(none) %fmt, ...) unnamed_addr #11 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   store i32 1, ptr @verify_commit_graph_error, align 4
@@ -7318,7 +7318,7 @@ entry:
 declare ptr @start_progress(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @disable_commit_graph(ptr nocapture noundef writeonly initializes((272, 276)) %r) local_unnamed_addr #12 {
+define dso_local void @disable_commit_graph(ptr noundef writeonly captures(none) initializes((272, 276)) %r) local_unnamed_addr #12 {
 entry:
   %commit_graph_disabled = getelementptr inbounds nuw i8, ptr %r, i64 272
   store i32 1, ptr %commit_graph_disabled, align 8
@@ -7331,12 +7331,12 @@ declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @gettext(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 declare i32 @bsearch_hash(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @insert_parent_or_die(ptr noundef %r, ptr nocapture noundef readonly %g, i32 noundef %pos, ptr noundef %pptr) unnamed_addr #0 {
+define internal fastcc nonnull ptr @insert_parent_or_die(ptr noundef %r, ptr noundef readonly captures(none) %g, i32 noundef %pos, ptr noundef %pptr) unnamed_addr #0 {
 entry:
   %oid = alloca %struct.object_id, align 4
   %num_commits = getelementptr inbounds nuw i8, ptr %g, i64 20
@@ -7681,7 +7681,7 @@ declare ptr @ngettext(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr 
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare i64 @nth_packed_object_offset(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -7696,7 +7696,7 @@ declare void @oid_array_sort(ptr noundef) local_unnamed_addr #1
 declare i32 @commit_list_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i64 @st_add(i64 noundef %a, i64 noundef %b) unnamed_addr #0 {
@@ -7717,7 +7717,7 @@ if.end:                                           ; preds = %entry
 declare ptr @lookup_commit_reference_gently(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @commit_compare(ptr nocapture noundef readonly %_a, ptr nocapture noundef readonly %_b) #14 {
+define internal i32 @commit_compare(ptr noundef readonly captures(none) %_a, ptr noundef readonly captures(none) %_b) #14 {
 entry:
   %0 = load ptr, ptr %_a, align 8
   %1 = load ptr, ptr %_b, align 8
@@ -7750,10 +7750,10 @@ oidcmp.exit:                                      ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 0, 4294967296) i64 @get_topo_level(ptr nocapture noundef readonly %c, ptr nocapture noundef readonly %data) #0 {
+define internal range(i64 0, 4294967296) i64 @get_topo_level(ptr noundef readonly captures(none) %c, ptr noundef readonly captures(none) %data) #0 {
 entry:
   %topo_levels = getelementptr inbounds nuw i8, ptr %data, i64 184
   %0 = load ptr, ptr %topo_levels, align 8
@@ -7831,7 +7831,7 @@ topo_level_slab_at.exit:                          ; preds = %if.end12.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @set_topo_level(ptr nocapture noundef readonly %c, i64 noundef %t, ptr nocapture noundef readonly %data) #0 {
+define internal void @set_topo_level(ptr noundef readonly captures(none) %c, i64 noundef %t, ptr noundef readonly captures(none) %data) #0 {
 entry:
   %topo_levels = getelementptr inbounds nuw i8, ptr %data, i64 184
   %0 = load ptr, ptr %topo_levels, align 8
@@ -7909,7 +7909,7 @@ topo_level_slab_at.exit:                          ; preds = %if.end12.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @set_generation_v2(ptr nocapture noundef readonly %c, i64 noundef %t, ptr nocapture readnone %data) #0 {
+define internal void @set_generation_v2(ptr noundef readonly captures(none) %c, i64 noundef %t, ptr readnone captures(none) %data) #0 {
 entry:
   %0 = getelementptr i8, ptr %c, i64 64
   %c.val = load i32, ptr %0, align 8
@@ -7920,7 +7920,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @commit_pos_cmp(ptr nocapture noundef readonly %va, ptr nocapture noundef readonly %vb) #0 {
+define internal i32 @commit_pos_cmp(ptr noundef readonly captures(none) %va, ptr noundef readonly captures(none) %vb) #0 {
 entry:
   %0 = load ptr, ptr %va, align 8
   %1 = load ptr, ptr %vb, align 8
@@ -8055,7 +8055,7 @@ commit_pos_at.exit38:                             ; preds = %if.end12.i.i21, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @commit_gen_cmp(ptr nocapture noundef readonly %va, ptr nocapture noundef readonly %vb) #0 {
+define internal range(i32 -1, 2) i32 @commit_gen_cmp(ptr noundef readonly captures(none) %va, ptr noundef readonly captures(none) %vb) #0 {
 entry:
   %0 = load ptr, ptr %va, align 8
   %1 = load ptr, ptr %vb, align 8
@@ -8113,7 +8113,7 @@ declare ptr @hashfd(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare void @add_chunk(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @write_graph_chunk_fanout(ptr noundef %f, ptr nocapture noundef %data) #0 {
+define internal noundef i32 @write_graph_chunk_fanout(ptr noundef %f, ptr noundef captures(none) %data) #0 {
 entry:
   %data.addr.i = alloca i32, align 4
   %commits = getelementptr inbounds nuw i8, ptr %data, i64 56
@@ -8177,7 +8177,7 @@ for.end:                                          ; preds = %while.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @write_graph_chunk_oids(ptr noundef %f, ptr nocapture noundef %data) #0 {
+define internal noundef i32 @write_graph_chunk_oids(ptr noundef %f, ptr noundef captures(none) %data) #0 {
 entry:
   %nr = getelementptr inbounds nuw i8, ptr %data, i64 64
   %0 = load i64, ptr %nr, align 8
@@ -8219,7 +8219,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @write_graph_chunk_data(ptr noundef %f, ptr nocapture noundef %data) #0 {
+define internal noundef i32 @write_graph_chunk_data(ptr noundef %f, ptr noundef captures(none) %data) #0 {
 entry:
   %data.addr.i94 = alloca i32, align 4
   %lex_index.i.i58 = alloca i32, align 4
@@ -8629,7 +8629,7 @@ while.end:                                        ; preds = %if.else.i103, %entr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @write_graph_chunk_generation_data(ptr noundef %f, ptr nocapture noundef %data) #0 {
+define internal noundef i32 @write_graph_chunk_generation_data(ptr noundef %f, ptr noundef captures(none) %data) #0 {
 entry:
   %data.addr.i = alloca i32, align 4
   %nr = getelementptr inbounds nuw i8, ptr %data, i64 64
@@ -8685,7 +8685,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @write_graph_chunk_generation_data_overflow(ptr noundef %f, ptr nocapture noundef %data) #0 {
+define internal noundef i32 @write_graph_chunk_generation_data_overflow(ptr noundef %f, ptr noundef captures(none) %data) #0 {
 entry:
   %data.addr.i10 = alloca i32, align 4
   %data.addr.i = alloca i32, align 4
@@ -8748,7 +8748,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @write_graph_chunk_extra_edges(ptr noundef %f, ptr nocapture noundef %data) #0 {
+define internal noundef i32 @write_graph_chunk_extra_edges(ptr noundef %f, ptr noundef captures(none) %data) #0 {
 entry:
   %data.addr.i = alloca i32, align 4
   %lex_index.i.i = alloca i32, align 4
@@ -8925,7 +8925,7 @@ while.end:                                        ; preds = %while.cond.backedge
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @write_graph_chunk_bloom_indexes(ptr noundef %f, ptr nocapture noundef %data) #0 {
+define internal noundef i32 @write_graph_chunk_bloom_indexes(ptr noundef %f, ptr noundef captures(none) %data) #0 {
 entry:
   %data.addr.i = alloca i32, align 4
   %commits = getelementptr inbounds nuw i8, ptr %data, i64 56
@@ -8978,7 +8978,7 @@ while.end:                                        ; preds = %cond.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @write_graph_chunk_bloom_data(ptr noundef %f, ptr nocapture noundef %data) #0 {
+define internal noundef i32 @write_graph_chunk_bloom_data(ptr noundef %f, ptr noundef captures(none) %data) #0 {
 entry:
   %data.addr.i24 = alloca i32, align 4
   %data.addr.i18 = alloca i32, align 4
@@ -9087,7 +9087,7 @@ while.end:                                        ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @write_graph_chunk_base(ptr noundef %f, ptr nocapture noundef readonly %data) #0 {
+define internal range(i32 -1, 1) i32 @write_graph_chunk_base(ptr noundef %f, ptr noundef readonly captures(none) %data) #0 {
 entry:
   %new_base_graph = getelementptr inbounds nuw i8, ptr %data, i64 168
   %0 = load ptr, ptr %new_base_graph, align 8
@@ -9124,15 +9124,15 @@ declare i32 @write_chunkfile(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @finalize_hashfile(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 declare ptr @hash_to_hex(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare i32 @commit_lock_file(ptr noundef) local_unnamed_addr #1
 
@@ -9149,7 +9149,7 @@ declare ptr @get_commit_tree_oid(ptr noundef) local_unnamed_addr #1
 declare i32 @oid_pos(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal nonnull ptr @commit_to_oid(i64 noundef %index, ptr nocapture noundef readonly %table) #16 {
+define internal nonnull ptr @commit_to_oid(i64 noundef %index, ptr noundef readonly captures(none) %table) #16 {
 entry:
   %arrayidx = getelementptr inbounds ptr, ptr %table, i64 %index
   %0 = load ptr, ptr %arrayidx, align 8
@@ -9198,26 +9198,26 @@ declare ptr @fdopen_tempfile(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @get_tempfile_fp(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @utime(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @utime(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 declare ptr @readdir64(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #4
 
 declare ptr @create_object(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -9235,19 +9235,19 @@ declare void @llvm.va_end.p0(ptr) #17
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #19
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #18

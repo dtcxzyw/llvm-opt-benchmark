@@ -36,7 +36,7 @@ $_ZTV25EpsilonGenerationCounters = comdat any
 @_ZN24EpsilonMonitoringSupportC1EP11EpsilonHeap = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN24EpsilonMonitoringSupportC2EP11EpsilonHeap
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24EpsilonMonitoringSupportC2EP11EpsilonHeap(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN24EpsilonMonitoringSupportC2EP11EpsilonHeap(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 5, i32 noundef 0) #7
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
@@ -165,7 +165,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %60, %62
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24EpsilonMonitoringSupport15update_countersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN24EpsilonMonitoringSupport15update_countersEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN13MemoryService18track_memory_usageEv() #7
   %2 = load i8, ptr @UsePerfData, align 1
   %3 = trunc i8 %2 to i1
@@ -257,10 +257,10 @@ declare noundef ptr @_ZN15PerfDataManager10name_spaceEPKcS1_i(ptr noundef, ptr n
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #4
 
 declare noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef, ptr noundef) local_unnamed_addr #1
 

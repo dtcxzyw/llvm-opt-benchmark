@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lib_memoutstream(ptr nocapture noundef writeonly initializes((0, 4), (8, 48)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @lib_memoutstream(ptr noundef writeonly captures(none) initializes((0, 4), (8, 48)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @memoutstream_putc, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -23,7 +23,7 @@ define void @lib_memoutstream(ptr nocapture noundef writeonly initializes((0, 4)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @memoutstream_putc(ptr nocapture noundef %0, i32 noundef %1) #1 {
+define internal void @memoutstream_putc(ptr noundef captures(none) %0, i32 noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = load i32, ptr %0, align 8
@@ -51,7 +51,7 @@ memoutstream_puts.exit:                           ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @memoutstream_puts(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #2 {
+define internal i32 @memoutstream_puts(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8
   %6 = load i32, ptr %0, align 8
@@ -85,7 +85,7 @@ define internal i32 @memoutstream_puts(ptr nocapture noundef %0, ptr nocapture n
 declare i32 @lib_noflush(ptr noundef) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5

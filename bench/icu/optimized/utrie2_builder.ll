@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.NewTrieAndStatus = type { ptr, i32, i8 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @utrie2_open_75(i32 noundef %initialValue, i32 noundef %errorValue, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 {
+define noundef ptr @utrie2_open_75(i32 noundef %initialValue, i32 noundef %errorValue, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -216,10 +216,10 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #1
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @utrie2_set32_75(ptr nocapture noundef readonly %trie, i32 noundef %c, i32 noundef %value, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 {
+define void @utrie2_set32_75(ptr noundef readonly captures(none) %trie, i32 noundef %c, i32 noundef %value, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -273,7 +273,7 @@ return:                                           ; preds = %if.end3.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @utrie2_clone_75(ptr noundef readonly %other, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 {
+define noundef ptr @utrie2_clone_75(ptr noundef readonly %other, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -481,10 +481,10 @@ return:                                           ; preds = %if.end37, %if.then3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define ptr @utrie2_cloneAsThawed_75(ptr noundef %other, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 {
+define ptr @utrie2_cloneAsThawed_75(ptr noundef %other, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #0 {
 entry:
   %context = alloca %struct.NewTrieAndStatus, align 8
   %0 = load i32, ptr %pErrorCode, align 4
@@ -652,7 +652,7 @@ return:                                           ; preds = %for.end, %if.then53
 declare void @utrie2_enum_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL13copyEnumRangePKviij(ptr nocapture noundef %context, i32 noundef %start, i32 noundef %end, i32 noundef %value) #0 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL13copyEnumRangePKviij(ptr noundef captures(none) %context, i32 noundef %start, i32 noundef %end, i32 noundef %value) #0 {
 entry:
   %0 = load ptr, ptr %context, align 8
   %initialValue = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -735,7 +735,7 @@ return:                                           ; preds = %entry, %if.end7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @utrie2_set32ForLeadSurrogateCodeUnit_75(ptr nocapture noundef readonly %trie, i32 noundef %c, i32 noundef %value, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 {
+define void @utrie2_set32ForLeadSurrogateCodeUnit_75(ptr noundef readonly captures(none) %trie, i32 noundef %c, i32 noundef %value, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -792,7 +792,7 @@ return:                                           ; preds = %if.end3.i, %if.then
 declare void @utrie2_close_75(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @utrie2_fromUTrie_75(ptr noundef %trie1, i32 noundef %errorValue, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 {
+define ptr @utrie2_fromUTrie_75(ptr noundef %trie1, i32 noundef %errorValue, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #0 {
 entry:
   %context = alloca %struct.NewTrieAndStatus, align 8
   %0 = load i32, ptr %pErrorCode, align 4
@@ -944,7 +944,7 @@ return:                                           ; preds = %if.end47, %if.then5
 declare void @utrie_enum_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @utrie2_freeze_75(ptr noundef %trie, i32 noundef %valueBits, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 {
+define void @utrie2_freeze_75(ptr noundef %trie, i32 noundef %valueBits, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -2039,7 +2039,7 @@ return:                                           ; preds = %if.then6.i, %_ZL11c
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @utrie2_setRange32_75(ptr nocapture noundef readonly %trie, i32 noundef %start, i32 noundef %end, i32 noundef %value, i8 noundef signext %overwrite, ptr nocapture noundef %pErrorCode) local_unnamed_addr #0 {
+define void @utrie2_setRange32_75(ptr noundef readonly captures(none) %trie, i32 noundef %start, i32 noundef %end, i32 noundef %value, i8 noundef signext %overwrite, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -2458,7 +2458,7 @@ return:                                           ; preds = %while.body.i90, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL12getDataBlockP9UNewTrie2ia(ptr nocapture noundef nonnull %trie, i32 noundef %c, i8 noundef signext range(i8 0, 2) %forLSCP) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL12getDataBlockP9UNewTrie2ia(ptr noundef nonnull captures(none) %trie, i32 noundef %c, i8 noundef signext range(i8 0, 2) %forLSCP) unnamed_addr #0 {
 entry:
   %and.i = and i32 %c, -1024
   %cmp.i = icmp eq i32 %and.i, 55296

@@ -104,18 +104,18 @@ define hidden range(i32 0, 82) i32 @FT_Stream_Open(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #1
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #1
 
 declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @ft_close_stream_by_munmap(ptr nocapture noundef initializes((0, 8)) %0) #0 {
+define internal void @ft_close_stream_by_munmap(ptr noundef captures(none) initializes((0, 8)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -127,19 +127,19 @@ define internal void @ft_close_stream_by_munmap(ptr nocapture noundef initialize
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define internal noalias noundef ptr @ft_alloc(ptr nocapture readnone %0, i64 noundef %1) #5 {
+define internal noalias noundef ptr @ft_alloc(ptr readnone captures(none) %0, i64 noundef %1) #5 {
   %3 = tail call noalias ptr @malloc(i64 noundef %1) #15
   ret ptr %3
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @ft_close_stream_by_free(ptr nocapture noundef initializes((0, 16)) %0) #7 {
+define internal void @ft_close_stream_by_free(ptr noundef captures(none) initializes((0, 16)) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #14
@@ -151,7 +151,7 @@ define internal void @ft_close_stream_by_free(ptr nocapture noundef initializes(
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @ft_free(ptr nocapture readnone %0, ptr nocapture noundef %1) #8 {
+define internal void @ft_free(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #8 {
   tail call void @free(ptr noundef %1) #14
   ret void
 }
@@ -180,7 +180,7 @@ define hidden noalias noundef ptr @FT_New_Memory() local_unnamed_addr #9 {
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noalias noundef ptr @ft_realloc(ptr nocapture readnone %0, i64 %1, i64 noundef %2, ptr nocapture noundef %3) #8 {
+define internal noalias noundef ptr @ft_realloc(ptr readnone captures(none) %0, i64 %1, i64 noundef %2, ptr noundef captures(none) %3) #8 {
   %5 = tail call ptr @realloc(ptr noundef %3, i64 noundef %2) #17
   ret ptr %5
 }
@@ -197,13 +197,13 @@ define hidden void @FT_Done_Memory(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

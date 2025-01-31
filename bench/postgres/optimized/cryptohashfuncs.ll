@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.cryptohash_internal.1 = private unnamed_addr constant [4 x ptr] [ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @md5_text(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @md5_text(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [33 x i8], align 16
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -103,7 +103,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @md5_bytea(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @md5_bytea(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [33 x i8], align 16
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -171,7 +171,7 @@ define dso_local i64 @md5_bytea(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @sha224_bytea(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @sha224_bytea(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -284,7 +284,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @sha256_bytea(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @sha256_bytea(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -295,7 +295,7 @@ define dso_local i64 @sha256_bytea(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @sha384_bytea(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @sha384_bytea(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -306,7 +306,7 @@ define dso_local i64 @sha384_bytea(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @sha512_bytea(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @sha512_bytea(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr

@@ -24,7 +24,7 @@ define void @re_free_registers(ptr noundef %0) local_unnamed_addr #0 {
 declare void @onig_region_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @re_adjust_startpos(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define i32 @re_adjust_startpos(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %7, label %28
 
@@ -127,7 +127,7 @@ define void @re_free_pattern(ptr noundef %0) local_unnamed_addr #0 {
 declare void @onig_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @re_alloc_pattern(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #0 {
+define i32 @re_alloc_pattern(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(456) ptr @malloc(i64 noundef 456) #4
   store ptr %2, ptr %0, align 8
   %3 = icmp eq ptr %2, null

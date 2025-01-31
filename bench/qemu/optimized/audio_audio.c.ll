@@ -220,7 +220,7 @@ if.end3:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: cold nofree nounwind sspstrong uwtable
-define dso_local void @AUD_log(ptr noundef %cap, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #2 {
+define dso_local void @AUD_log(ptr noundef %cap, ptr noundef readonly captures(none) %fmt, ...) local_unnamed_addr #2 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -230,7 +230,7 @@ entry:
 }
 
 ; Function Attrs: cold nofree nounwind sspstrong uwtable
-define dso_local void @AUD_vlog(ptr noundef %cap, ptr nocapture noundef readonly %fmt, ptr noundef %ap) local_unnamed_addr #2 {
+define dso_local void @AUD_vlog(ptr noundef %cap, ptr noundef readonly captures(none) %fmt, ptr noundef %ap) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %cap, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -247,13 +247,13 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local void @audio_pcm_init_info(ptr nocapture noundef writeonly %info, ptr nocapture noundef readonly %as) local_unnamed_addr #1 {
+define dso_local void @audio_pcm_init_info(ptr noundef writeonly captures(none) %info, ptr noundef readonly captures(none) %as) local_unnamed_addr #1 {
 entry:
   %fmt = getelementptr inbounds nuw i8, ptr %as, i64 8
   %0 = load i32, ptr %fmt, align 4
@@ -310,7 +310,7 @@ switch.lookup:                                    ; preds = %entry
 declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local void @audio_pcm_info_clear_buf(ptr nocapture noundef readonly %info, ptr nocapture noundef writeonly %buf, i32 noundef %len) local_unnamed_addr #1 {
+define dso_local void @audio_pcm_info_clear_buf(ptr noundef readonly captures(none) %info, ptr noundef writeonly captures(none) %buf, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq i32 %len, 0
   br i1 %tobool.not, label %if.end33, label %if.end
@@ -404,10 +404,10 @@ if.end33:                                         ; preds = %for.body26, %for.bo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local ptr @audio_get_pdo_out(ptr nocapture noundef readonly %dev) local_unnamed_addr #1 {
+define dso_local ptr @audio_get_pdo_out(ptr noundef readonly captures(none) %dev) local_unnamed_addr #1 {
 entry:
   %driver = getelementptr inbounds nuw i8, ptr %dev, i64 8
   %0 = load i32, ptr %driver, align 8
@@ -1040,7 +1040,7 @@ return:                                           ; preds = %audio_pcm_create_vo
 }
 
 ; Function Attrs: cold nofree nounwind sspstrong uwtable
-define internal fastcc void @audio_print_settings(ptr nocapture noundef readonly %as) unnamed_addr #2 {
+define internal fastcc void @audio_print_settings(ptr noundef readonly captures(none) %as) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %as, align 4
   %nchannels = getelementptr inbounds nuw i8, ptr %as, i64 4
@@ -1104,7 +1104,7 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @audio_pcm_sw_init_out(ptr nocapture noundef %sw, ptr noundef %hw, ptr noundef %name, ptr nocapture noundef readonly %as) unnamed_addr #6 {
+define internal fastcc range(i32 -1, 1) i32 @audio_pcm_sw_init_out(ptr noundef captures(none) %sw, ptr noundef %hw, ptr noundef %name, ptr noundef readonly captures(none) %as) unnamed_addr #6 {
 entry:
   %fmt.i = getelementptr inbounds nuw i8, ptr %as, i64 8
   %0 = load i32, ptr %fmt.i, align 4
@@ -1297,7 +1297,7 @@ if.end29:                                         ; preds = %audio_get_pdo_out.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @AUD_is_active_out(ptr noundef readonly %sw) local_unnamed_addr #8 {
@@ -1316,7 +1316,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @AUD_init_time_stamp_out(ptr noundef readonly %sw, ptr nocapture noundef writeonly %ts) local_unnamed_addr #9 {
+define dso_local void @AUD_init_time_stamp_out(ptr noundef readonly %sw, ptr noundef writeonly captures(none) %ts) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %sw, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1334,7 +1334,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @AUD_get_elapsed_usec_out(ptr noundef readonly %sw, ptr nocapture noundef readonly %ts) local_unnamed_addr #10 {
+define dso_local i64 @AUD_get_elapsed_usec_out(ptr noundef readonly %sw, ptr noundef readonly captures(none) %ts) local_unnamed_addr #10 {
 entry:
   %tobool.not = icmp eq ptr %sw, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1369,7 +1369,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local ptr @audio_get_pdo_in(ptr nocapture noundef readonly %dev) local_unnamed_addr #1 {
+define dso_local ptr @audio_get_pdo_in(ptr noundef readonly captures(none) %dev) local_unnamed_addr #1 {
 entry:
   %driver = getelementptr inbounds nuw i8, ptr %dev, i64 8
   %0 = load i32, ptr %driver, align 8
@@ -1996,7 +1996,7 @@ return:                                           ; preds = %audio_pcm_create_vo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @audio_pcm_sw_init_in(ptr nocapture noundef %sw, ptr noundef %hw, ptr noundef %name, ptr nocapture noundef readonly %as) unnamed_addr #6 {
+define internal fastcc range(i32 -1, 1) i32 @audio_pcm_sw_init_in(ptr noundef captures(none) %sw, ptr noundef %hw, ptr noundef %name, ptr noundef readonly captures(none) %as) unnamed_addr #6 {
 entry:
   %fmt.i = getelementptr inbounds nuw i8, ptr %as, i64 8
   %0 = load i32, ptr %fmt.i, align 4
@@ -2201,7 +2201,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @AUD_init_time_stamp_in(ptr noundef readonly %sw, ptr nocapture noundef writeonly %ts) local_unnamed_addr #9 {
+define dso_local void @AUD_init_time_stamp_in(ptr noundef readonly %sw, ptr noundef writeonly captures(none) %ts) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %sw, null
   br i1 %tobool.not, label %return, label %if.end
@@ -2219,7 +2219,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @AUD_get_elapsed_usec_in(ptr noundef readonly %sw, ptr nocapture noundef readonly %ts) local_unnamed_addr #10 {
+define dso_local i64 @AUD_get_elapsed_usec_in(ptr noundef readonly %sw, ptr noundef readonly captures(none) %ts) local_unnamed_addr #10 {
 entry:
   %tobool.not = icmp eq ptr %sw, null
   br i1 %tobool.not, label %return, label %if.end
@@ -2688,7 +2688,7 @@ return:                                           ; preds = %if.end15.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @AUD_get_buffer_size_out(ptr nocapture noundef readonly %sw) local_unnamed_addr #10 {
+define dso_local i32 @AUD_get_buffer_size_out(ptr noundef readonly captures(none) %sw) local_unnamed_addr #10 {
 entry:
   %hw = getelementptr inbounds nuw i8, ptr %sw, i64 104
   %0 = load ptr, ptr %hw, align 8
@@ -2847,7 +2847,7 @@ if.end45:                                         ; preds = %entry, %for.end43, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @audio_reset_timer(ptr nocapture noundef %s) unnamed_addr #6 {
+define internal fastcc void @audio_reset_timer(ptr noundef captures(none) %s) unnamed_addr #6 {
 entry:
   %_now.i.i10 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -3118,7 +3118,7 @@ if.end39:                                         ; preds = %entry, %if.end37, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @audio_run(ptr nocapture noundef readonly %s, ptr nocapture readnone %msg) local_unnamed_addr #6 {
+define dso_local void @audio_run(ptr noundef readonly captures(none) %s, ptr readnone captures(none) %msg) local_unnamed_addr #6 {
 entry:
   %size.i47.i = alloca i64, align 8
   %captured.i = alloca i64, align 8
@@ -4383,7 +4383,7 @@ while.end:                                        ; preds = %while.body, %while.
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @audio_generic_get_buffer_in(ptr nocapture noundef readonly %hw, ptr nocapture noundef %size) #6 {
+define dso_local ptr @audio_generic_get_buffer_in(ptr noundef readonly captures(none) %hw, ptr noundef captures(none) %size) #6 {
 entry:
   %pos_emul = getelementptr inbounds nuw i8, ptr %hw, i64 104
   %0 = load i64, ptr %pos_emul, align 8
@@ -4420,7 +4420,7 @@ if.end:                                           ; preds = %entry
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @audio_generic_put_buffer_in(ptr nocapture noundef %hw, ptr nocapture readnone %buf, i64 noundef %size) #6 {
+define dso_local void @audio_generic_put_buffer_in(ptr noundef captures(none) %hw, ptr readnone captures(none) %buf, i64 noundef %size) #6 {
 entry:
   %pending_emul = getelementptr inbounds nuw i8, ptr %hw, i64 112
   %0 = load i64, ptr %pending_emul, align 8
@@ -4438,7 +4438,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @audio_generic_buffer_get_free(ptr nocapture noundef readonly %hw) local_unnamed_addr #8 {
+define dso_local i64 @audio_generic_buffer_get_free(ptr noundef readonly captures(none) %hw) local_unnamed_addr #8 {
 entry:
   %buf_emul = getelementptr inbounds nuw i8, ptr %hw, i64 88
   %0 = load ptr, ptr %buf_emul, align 8
@@ -4517,7 +4517,7 @@ while.end:                                        ; preds = %if.end, %while.cond
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @audio_generic_get_buffer_out(ptr nocapture noundef %hw, ptr nocapture noundef writeonly initializes((0, 8)) %size) #6 {
+define dso_local ptr @audio_generic_get_buffer_out(ptr noundef captures(none) %hw, ptr noundef writeonly captures(none) initializes((0, 8)) %size) #6 {
 entry:
   %buf_emul = getelementptr inbounds nuw i8, ptr %hw, i64 88
   %0 = load ptr, ptr %buf_emul, align 8
@@ -4563,7 +4563,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @audio_generic_put_buffer_out(ptr nocapture noundef %hw, ptr noundef readnone %buf, i64 noundef returned %size) #6 {
+define dso_local noundef i64 @audio_generic_put_buffer_out(ptr noundef captures(none) %hw, ptr noundef readnone %buf, i64 noundef returned %size) #6 {
 entry:
   %buf_emul = getelementptr inbounds nuw i8, ptr %hw, i64 88
   %0 = load ptr, ptr %buf_emul, align 8
@@ -4595,7 +4595,7 @@ if.end:                                           ; preds = %land.lhs.true
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @audio_generic_write(ptr noundef %hw, ptr nocapture noundef readonly %buf, i64 noundef %size) local_unnamed_addr #6 {
+define dso_local i64 @audio_generic_write(ptr noundef %hw, ptr noundef readonly captures(none) %buf, i64 noundef %size) local_unnamed_addr #6 {
 entry:
   %dst_size = alloca i64, align 8
   %pcm_ops = getelementptr inbounds nuw i8, ptr %hw, i64 144
@@ -4657,7 +4657,7 @@ while.end:                                        ; preds = %if.end18, %while.bo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @audio_generic_read(ptr noundef %hw, ptr nocapture noundef writeonly %buf, i64 noundef %size) local_unnamed_addr #6 {
+define dso_local i64 @audio_generic_read(ptr noundef %hw, ptr noundef writeonly captures(none) %buf, i64 noundef %size) local_unnamed_addr #6 {
 entry:
   %src_size = alloca i64, align 8
   %pcm_ops = getelementptr inbounds nuw i8, ptr %hw, i64 144
@@ -5320,7 +5320,7 @@ return:                                           ; preds = %audio_get_default_a
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @AUD_remove_card(ptr nocapture noundef %card) local_unnamed_addr #6 {
+define dso_local void @AUD_remove_card(ptr noundef captures(none) %card) local_unnamed_addr #6 {
 entry:
   %entries = getelementptr inbounds nuw i8, ptr %card, i64 16
   %0 = load ptr, ptr %entries, align 8
@@ -5347,7 +5347,7 @@ if.end:                                           ; preds = %entry, %if.then
 declare void @g_free(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @AUD_add_capture(ptr noundef %s, ptr nocapture noundef readonly %as, ptr nocapture noundef readonly %ops, ptr noundef %cb_opaque) local_unnamed_addr #6 {
+define dso_local ptr @AUD_add_capture(ptr noundef %s, ptr noundef readonly captures(none) %as, ptr noundef readonly captures(none) %ops, ptr noundef %cb_opaque) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq ptr %s, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -5674,7 +5674,7 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #13
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @audio_pcm_hw_alloc_resources_out(ptr nocapture noundef %hw) unnamed_addr #6 {
+define internal fastcc void @audio_pcm_hw_alloc_resources_out(ptr noundef captures(none) %hw) unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %hw, align 8
   %dev = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6181,7 +6181,7 @@ if.end19:                                         ; preds = %if.then, %if.then16
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @audio_create_pdos(ptr nocapture noundef %dev) local_unnamed_addr #6 {
+define dso_local void @audio_create_pdos(ptr noundef captures(none) %dev) local_unnamed_addr #6 {
 entry:
   %driver = getelementptr inbounds nuw i8, ptr %dev, i64 8
   %0 = load i32, ptr %driver, align 8
@@ -6379,7 +6379,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @audio_validate_opts(ptr nocapture noundef %dev, ptr noundef %errp) unnamed_addr #6 {
+define internal fastcc void @audio_validate_opts(ptr noundef captures(none) %dev, ptr noundef %errp) unnamed_addr #6 {
 entry:
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
@@ -6463,7 +6463,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local { i64, i64 } @audiodev_to_audsettings(ptr nocapture noundef readonly %pdo) local_unnamed_addr #8 {
+define dso_local { i64, i64 } @audiodev_to_audsettings(ptr noundef readonly captures(none) %pdo) local_unnamed_addr #8 {
 entry:
   %frequency = getelementptr inbounds nuw i8, ptr %pdo, i64 8
   %0 = load i32, ptr %frequency, align 4
@@ -6499,7 +6499,7 @@ switch.lookup:                                    ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @audio_buffer_frames(ptr nocapture noundef readonly %pdo, ptr nocapture noundef readonly %as, i32 noundef %def_usecs) local_unnamed_addr #8 {
+define dso_local i32 @audio_buffer_frames(ptr noundef readonly captures(none) %pdo, ptr noundef readonly captures(none) %as, i32 noundef %def_usecs) local_unnamed_addr #8 {
 entry:
   %has_buffer_length = getelementptr inbounds nuw i8, ptr %pdo, i64 36
   %0 = load i8, ptr %has_buffer_length, align 4
@@ -6524,7 +6524,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @audio_buffer_samples(ptr nocapture noundef readonly %pdo, ptr nocapture noundef readonly %as, i32 noundef %def_usecs) local_unnamed_addr #8 {
+define dso_local i32 @audio_buffer_samples(ptr noundef readonly captures(none) %pdo, ptr noundef readonly captures(none) %as, i32 noundef %def_usecs) local_unnamed_addr #8 {
 entry:
   %nchannels = getelementptr inbounds nuw i8, ptr %as, i64 4
   %0 = load i32, ptr %nchannels, align 4
@@ -6552,7 +6552,7 @@ audio_buffer_frames.exit:                         ; preds = %entry, %cond.true.i
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local i32 @audio_buffer_bytes(ptr nocapture noundef readonly %pdo, ptr nocapture noundef readonly %as, i32 noundef %def_usecs) local_unnamed_addr #1 {
+define dso_local i32 @audio_buffer_bytes(ptr noundef readonly captures(none) %pdo, ptr noundef readonly captures(none) %as, i32 noundef %def_usecs) local_unnamed_addr #1 {
 entry:
   %nchannels.i = getelementptr inbounds nuw i8, ptr %as, i64 4
   %0 = load i32, ptr %nchannels.i, align 4
@@ -6633,12 +6633,12 @@ return:                                           ; preds = %if.end, %for.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #16
 
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @audio_get_id(ptr nocapture noundef readonly %card) local_unnamed_addr #6 {
+define dso_local ptr @audio_get_id(ptr noundef readonly captures(none) %card) local_unnamed_addr #6 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %card, i64 8
   %0 = load ptr, ptr %state, align 8
@@ -6676,7 +6676,7 @@ entry:
 declare ptr @qemu_get_vm_name() local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @audio_rate_start(ptr nocapture noundef writeonly initializes((0, 16)) %rate) local_unnamed_addr #6 {
+define dso_local void @audio_rate_start(ptr noundef writeonly captures(none) initializes((0, 16)) %rate) local_unnamed_addr #6 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rate, i8 0, i64 16, i1 false)
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #25
@@ -6687,7 +6687,7 @@ entry:
 declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 -140737488355328, 140737488289793) i64 @audio_rate_peek_bytes(ptr nocapture noundef %rate, ptr nocapture noundef readonly %info) local_unnamed_addr #6 {
+define dso_local range(i64 -140737488355328, 140737488289793) i64 @audio_rate_peek_bytes(ptr noundef captures(none) %rate, ptr noundef readonly captures(none) %info) local_unnamed_addr #6 {
 entry:
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #25
   %0 = load i64, ptr %rate, align 8
@@ -6726,7 +6726,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @audio_rate_add_bytes(ptr nocapture noundef %rate, i64 noundef %bytes_used) local_unnamed_addr #17 {
+define dso_local void @audio_rate_add_bytes(ptr noundef captures(none) %rate, i64 noundef %bytes_used) local_unnamed_addr #17 {
 entry:
   %bytes_sent = getelementptr inbounds nuw i8, ptr %rate, i64 8
   %0 = load i64, ptr %bytes_sent, align 8
@@ -6736,7 +6736,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @audio_rate_get_bytes(ptr nocapture noundef %rate, ptr nocapture noundef readonly %info, i64 noundef %bytes_avail) local_unnamed_addr #6 {
+define dso_local i64 @audio_rate_get_bytes(ptr noundef captures(none) %rate, ptr noundef readonly captures(none) %info, i64 noundef %bytes_avail) local_unnamed_addr #6 {
 entry:
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #25
   %0 = load i64, ptr %rate, align 8
@@ -6780,7 +6780,7 @@ audio_rate_peek_bytes.exit:                       ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @qmp_query_audiodevs(ptr nocapture noundef readnone %errp) local_unnamed_addr #6 {
+define dso_local noundef ptr @qmp_query_audiodevs(ptr noundef readnone captures(none) %errp) local_unnamed_addr #6 {
 entry:
   %e.06 = load ptr, ptr @audiodevs, align 8
   %tobool.not7 = icmp eq ptr %e.06, null
@@ -7403,12 +7403,12 @@ declare void @timer_mod_anticipate_ns(ptr noundef, i64 noundef) local_unnamed_ad
 declare void @timer_del(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc i64 @audio_pcm_hw_get_live_out(ptr nocapture noundef nonnull readonly %hw, ptr noundef writeonly %nb_live) unnamed_addr #1 {
+define internal fastcc i64 @audio_pcm_hw_get_live_out(ptr noundef nonnull readonly captures(none) %hw, ptr noundef writeonly %nb_live) unnamed_addr #1 {
 entry:
   %sw_head.i = getelementptr inbounds nuw i8, ptr %hw, i64 128
   %sw.09.i = load ptr, ptr %sw_head.i, align 8
@@ -7507,7 +7507,7 @@ declare void @qobject_destroy(ptr noundef) local_unnamed_addr #13
 declare i32 @atexit(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @audio_timer(ptr nocapture noundef %opaque) #6 {
+define internal void @audio_timer(ptr noundef captures(none) %opaque) #6 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #25
@@ -7568,7 +7568,7 @@ if.end:                                           ; preds = %trace_audio_timer_d
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @audio_driver_init(ptr nocapture noundef initializes((16, 24)) %s, ptr noundef %drv, ptr noundef %dev, ptr noundef %errp) unnamed_addr #6 {
+define internal fastcc range(i32 -1, 1) i32 @audio_driver_init(ptr noundef captures(none) initializes((16, 24)) %s, ptr noundef %drv, ptr noundef %dev, ptr noundef %errp) unnamed_addr #6 {
 entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
@@ -7825,7 +7825,7 @@ return:                                           ; preds = %if.then16, %if.else
 declare ptr @qemu_add_vm_change_state_handler(ptr noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @audio_vm_change_state_handler(ptr nocapture noundef initializes((72, 76)) %opaque, i1 noundef zeroext %running, i32 %state) #6 {
+define internal void @audio_vm_change_state_handler(ptr noundef captures(none) initializes((72, 76)) %opaque, i1 noundef zeroext %running, i32 %state) #6 {
 entry:
   %conv = zext i1 %running to i32
   %vm_running = getelementptr inbounds nuw i8, ptr %opaque, i64 72
@@ -7909,13 +7909,13 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #13
 declare i32 @vmstate_register_with_alias_id(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @vmstate_audio_needed(ptr nocapture readnone %opaque) #18 {
+define internal noundef zeroext i1 @vmstate_audio_needed(ptr readnone captures(none) %opaque) #18 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @audio_validate_per_direction_opts(ptr nocapture noundef %pdo, ptr noundef nonnull %errp) unnamed_addr #6 {
+define internal fastcc void @audio_validate_per_direction_opts(ptr noundef captures(none) %pdo, ptr noundef nonnull %errp) unnamed_addr #6 {
 entry:
   %0 = load i8, ptr %pdo, align 4
   %tobool = trunc i8 %0 to i1
@@ -8062,16 +8062,16 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #20
 declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #21
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.uadd.sat.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

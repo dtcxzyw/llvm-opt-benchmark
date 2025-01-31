@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [8 x i8] c"glob://\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @_php_glob_stream_get_path(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define ptr @_php_glob_stream_get_path(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -51,7 +51,7 @@ define ptr @_php_glob_stream_get_path(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @_php_glob_stream_get_pattern(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define ptr @_php_glob_stream_get_pattern(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -88,7 +88,7 @@ define ptr @_php_glob_stream_get_pattern(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @_php_glob_stream_get_count(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define i32 @_php_glob_stream_get_count(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -139,7 +139,7 @@ php_glob_stream_get_result_count.exit:            ; preds = %13, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -1, 258) i64 @php_glob_stream_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #1 {
+define internal range(i64 -1, 258) i64 @php_glob_stream_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq i64 %2, 257
@@ -220,7 +220,7 @@ php_glob_stream_get_result_count.exit.thread:     ; preds = %8
   %49 = sub i64 %48, %45
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store i64 %49, ptr %50, align 8
-  %51 = tail call noalias ptr @_estrndup(ptr noundef %33, i64 noundef %49) #10
+  %51 = tail call noalias ptr @_estrndup(ptr noundef nonnull %33, i64 noundef %49) #10
   store ptr %51, ptr %40, align 8
   %.pre38 = load i64, ptr %29, align 8
   br label %php_glob_stream_path_split.exit
@@ -231,7 +231,7 @@ php_glob_stream_path_split.exit:                  ; preds = %.thread, %43
   store i64 %53, ptr %29, align 8
   %54 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i) #9
   %. = tail call i64 @llvm.umin.i64(i64 %54, i64 255)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %spec.select.i, i64 %., i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %spec.select.i, i64 %., i1 false)
   %55 = getelementptr inbounds nuw [256 x i8], ptr %1, i64 0, i64 %.
   store i8 0, ptr %55, align 1
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 256
@@ -258,7 +258,7 @@ php_glob_stream_path_split.exit:                  ; preds = %.thread, %43
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_glob_stream_close(ptr nocapture noundef readonly %0, i32 %1) #1 {
+define internal noundef i32 @php_glob_stream_close(ptr noundef readonly captures(none) %0, i32 %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -304,7 +304,7 @@ define internal noundef i32 @php_glob_stream_close(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_glob_stream_rewind(ptr nocapture noundef readonly %0, i64 %1, i32 %2, ptr nocapture readnone %3) #1 {
+define internal noundef i32 @php_glob_stream_rewind(ptr noundef readonly captures(none) %0, i64 %1, i32 %2, ptr readnone captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -328,10 +328,10 @@ define internal noundef i32 @php_glob_stream_rewind(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @_efree(ptr noundef) local_unnamed_addr #4
 
@@ -344,7 +344,7 @@ declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare void @globfree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @php_glob_stream_opener(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr nocapture readnone %5) #1 {
+define internal ptr @php_glob_stream_opener(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr readnone captures(none) %5) #1 {
   %7 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.1, i64 noundef 7) #9
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %20
@@ -378,7 +378,7 @@ define internal ptr @php_glob_stream_opener(ptr nocapture readnone %0, ptr nound
   %21 = tail call noalias dereferenceable_or_null(144) ptr @_ecalloc(i64 noundef 144, i64 noundef 1) #12
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %23 = load i32, ptr %22, align 8
-  %24 = tail call i32 @glob(ptr noundef %.096, i32 noundef %23, ptr noundef null, ptr noundef %21) #10
+  %24 = tail call i32 @glob(ptr noundef nonnull %.096, i32 noundef %23, ptr noundef null, ptr noundef %21) #10
   switch i32 %24, label %25 [
     i32 3, label %26
     i32 0, label %26
@@ -449,7 +449,7 @@ define internal ptr @php_glob_stream_opener(ptr nocapture readnone %0, ptr nound
   %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #9
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 112
   store i64 %55, ptr %56, align 8
-  %57 = tail call noalias ptr @_estrndup(ptr noundef %spec.select, i64 noundef %55) #10
+  %57 = tail call noalias ptr @_estrndup(ptr noundef nonnull %spec.select, i64 noundef %55) #10
   %58 = getelementptr inbounds nuw i8, ptr %21, i64 104
   store ptr %57, ptr %58, align 8
   %59 = load i32, ptr %22, align 8
@@ -487,7 +487,7 @@ php_glob_stream_path_split.exit:                  ; preds = %62, %70
   %76 = sub i64 %75, %72
   %77 = getelementptr inbounds nuw i8, ptr %21, i64 96
   store i64 %76, ptr %77, align 8
-  %78 = tail call noalias ptr @_estrndup(ptr noundef %65, i64 noundef %76) #10
+  %78 = tail call noalias ptr @_estrndup(ptr noundef nonnull %65, i64 noundef %76) #10
   store ptr %78, ptr %68, align 8
   br label %93
 
@@ -516,7 +516,7 @@ php_glob_stream_path_split.exit111:               ; preds = %79, %84
   %90 = sub i64 %89, %86
   %91 = getelementptr inbounds nuw i8, ptr %21, i64 96
   store i64 %90, ptr %91, align 8
-  %92 = tail call noalias ptr @_estrndup(ptr noundef %.096, i64 noundef %90) #10
+  %92 = tail call noalias ptr @_estrndup(ptr noundef nonnull %.096, i64 noundef %90) #10
   store ptr %92, ptr %82, align 8
   br label %93
 
@@ -530,7 +530,7 @@ php_glob_stream_path_split.exit111:               ; preds = %79, %84
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0,1)
 declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #6

@@ -124,7 +124,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #3
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_9p_remove_local_test_dir() local_unnamed_addr #0 {
@@ -150,7 +150,7 @@ do.end:                                           ; preds = %entry
 declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i32 @system(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @system(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
@@ -267,12 +267,12 @@ declare ptr @g_string_assign(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @g_regex_unref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @qos_node_create_driver(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias noundef ptr @virtio_9p_device_create(ptr noundef %virtio_dev, ptr noundef %t_alloc, ptr nocapture readnone %addr) #0 {
+define internal noalias noundef ptr @virtio_9p_device_create(ptr noundef %virtio_dev, ptr noundef %t_alloc, ptr readnone captures(none) %addr) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #13
   %v9p = getelementptr inbounds nuw i8, ptr %call, i64 40
@@ -324,7 +324,7 @@ do.end:                                           ; preds = %if.else, %entry
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_9p_device_destructor(ptr nocapture noundef readonly %obj) #0 {
+define internal void @virtio_9p_device_destructor(ptr noundef readonly captures(none) %obj) #0 {
 entry:
   %v9p1 = getelementptr inbounds nuw i8, ptr %obj, i64 40
   %v9p1.val = load ptr, ptr %v9p1, align 8
@@ -365,7 +365,7 @@ virtio_9p_get_driver.exit:                        ; preds = %entry, %if.then3.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_9p_device_start_hw(ptr nocapture noundef initializes((48, 56)) %obj) #0 {
+define internal void @virtio_9p_device_start_hw(ptr noundef captures(none) initializes((48, 56)) %obj) #0 {
 entry:
   %v9p1 = getelementptr inbounds nuw i8, ptr %obj, i64 40
   %0 = load ptr, ptr %v9p1, align 8
@@ -388,7 +388,7 @@ declare void @qvirtqueue_cleanup(ptr noundef, ptr noundef, ptr noundef) local_un
 declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare i64 @qvirtio_get_features(ptr noundef) local_unnamed_addr #2
 

@@ -209,12 +209,12 @@ define i32 @cli_msxml_parse_document(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare void @xmlTextReaderSetErrorHandler(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @msxml_error_handler(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+define internal void @msxml_error_handler(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @xmlTextReaderLocatorLineNumber(ptr noundef %3) #8
   %6 = tail call ptr @xmlTextReaderLocatorBaseURI(ptr noundef %3) #8
   %switch.tableidx = add i32 %2, -1
@@ -239,7 +239,7 @@ declare i32 @xmlTextReaderRead(ptr noundef) local_unnamed_addr #2
 declare i32 @cli_json_timeout_cycle_check(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @msxml_parse_element(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @msxml_parse_element(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca [20 x %struct.attrib_entry], align 16
   %6 = alloca ptr, align 8
   %7 = alloca [1024 x i8], align 16
@@ -354,7 +354,7 @@ define internal fastcc i32 @msxml_parse_element(ptr nocapture noundef nonnull re
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %56
-  %63 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %35, ptr noundef %59, i64 noundef range(i64 -2147483648, 2147483648) %49) #9
+  %63 = tail call i32 @strncasecmp(ptr noundef nonnull readonly %35, ptr noundef nonnull %59, i64 noundef range(i64 -2147483648, 2147483648) %49) #9
   %.not.i = icmp eq i32 %63, 0
   br i1 %.not.i, label %msxml_check_key.exit, label %64
 
@@ -682,7 +682,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 
 188:                                              ; preds = %182
   %189 = load i32, ptr %9, align 4
-  %190 = call i64 @cli_writen(i32 noundef %189, ptr noundef %173, i64 noundef %183) #8
+  %190 = call i64 @cli_writen(i32 noundef %189, ptr noundef nonnull %173, i64 noundef %183) #8
   %.not261 = icmp eq i64 %190, %183
   br i1 %.not261, label %202, label %191
 
@@ -745,7 +745,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 222:                                              ; preds = %219
   store ptr %10, ptr %11, align 8
   %223 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %173) #9
-  %224 = call ptr @cl_base64_decode(ptr noundef %173, i64 noundef %223, ptr noundef null, ptr noundef nonnull %12, i32 noundef 0) #8
+  %224 = call ptr @cl_base64_decode(ptr noundef nonnull %173, i64 noundef %223, ptr noundef null, ptr noundef nonnull %12, i32 noundef 0) #8
   %.not265 = icmp eq ptr %224, null
   br i1 %.not265, label %225, label %229
 
@@ -967,7 +967,7 @@ declare i32 @xmlTextReaderLocatorLineNumber(ptr noundef) local_unnamed_addr #2
 declare ptr @xmlTextReaderLocatorBaseURI(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @xmlTextReaderNext(ptr noundef) local_unnamed_addr #2
 
@@ -1068,7 +1068,7 @@ define internal fastcc range(i32 0, 21) i32 @msxml_parse_value(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @cli_gentempfd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1085,7 +1085,7 @@ declare i32 @cli_magic_scan_desc(i32 noundef, ptr noundef, ptr noundef, ptr noun
 declare i32 @xmlStrcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare ptr @json_object_new_int(i32 noundef) local_unnamed_addr #2
 
@@ -1098,13 +1098,13 @@ declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #2
 declare i32 @json_object_array_add(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

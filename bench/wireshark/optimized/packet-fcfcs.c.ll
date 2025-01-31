@@ -333,13 +333,13 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #1
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fcfcs_hash(ptr nocapture noundef readonly %0) #2 {
+define internal i32 @fcfcs_hash(ptr noundef readonly captures(none) %0) #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @fcfcs_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @fcfcs_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -1283,10 +1283,10 @@ define internal fastcc void @dissect_fcfcs_gpnl(ptr noundef %0, ptr noundef %1, 
   %11 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.022) #4
   %12 = zext i8 %11 to i32
   %13 = load i32, ptr @hf_fcs_platformname_len, align 4
-  %14 = call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %13, ptr noundef %0, i32 noundef %.022, i32 noundef 1, i32 noundef %12) #4
+  %14 = call ptr @proto_tree_add_uint(ptr noundef nonnull %1, i32 noundef %13, ptr noundef %0, i32 noundef %.022, i32 noundef 1, i32 noundef %12) #4
   %15 = load i32, ptr @hf_fcs_platformname, align 4
   %16 = or disjoint i32 %.022, 1
-  %17 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %15, ptr noundef %0, i32 noundef %16, i32 noundef %12, i32 noundef 0) #4
+  %17 = call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %15, ptr noundef %0, i32 noundef %16, i32 noundef %12, i32 noundef 0) #4
   %18 = add i32 %.022, 256
   %19 = add nuw i32 %.01921, 1
   %20 = load i32, ptr %4, align 4
@@ -1502,10 +1502,10 @@ define internal fastcc void @dissect_fcfcs_gcap(ptr noundef %0, ptr noundef %1, 
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.033) #4
   %12 = load i32, ptr @hf_fcs_mgmt_subtype, align 4
   %13 = zext i8 %11 to i32
-  %14 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %12, ptr noundef %0, i32 noundef %.033, i32 noundef 1, i32 noundef %13) #4
+  %14 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %1, i32 noundef %12, ptr noundef %0, i32 noundef %.033, i32 noundef 1, i32 noundef %13) #4
   %15 = load i32, ptr @hf_fcs_vnd_capmask, align 4
   %16 = or disjoint i32 %.033, 1
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %15, ptr noundef %0, i32 noundef %16, i32 noundef 3, i32 noundef 0) #4
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %15, ptr noundef %0, i32 noundef %16, i32 noundef 3, i32 noundef 0) #4
   switch i8 %11, label %22 [
     i8 1, label %.sink.split
     i8 2, label %18
@@ -1518,7 +1518,7 @@ define internal fastcc void @dissect_fcfcs_gcap(ptr noundef %0, ptr noundef %1, 
   %hf_fcs_unsmask.sink = phi ptr [ @hf_fcs_unsmask, %18 ], [ @hf_fcs_fcsmask, %.lr.ph ]
   %19 = load i32, ptr %hf_fcs_unsmask.sink, align 4
   %20 = add i32 %.033, 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %19, ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef 0) #4
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %19, ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef 0) #4
   br label %22
 
 22:                                               ; preds = %.sink.split, %.lr.ph

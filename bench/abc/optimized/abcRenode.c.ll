@@ -169,10 +169,10 @@ Vec_IntFree.exit57:                               ; preds = %Vec_IntFree.exit, %
 declare i32 @Abc_NtkGetChoiceNum(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 2147483647) i32 @Abc_NtkRenodeEvalBdd(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 -2147483648, 2147483647) i32 @Abc_NtkRenodeEvalBdd(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca [32 x i32], align 16
   %4 = getelementptr i8, ptr %1, i64 36
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -330,7 +330,7 @@ If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @Abc_NtkRenodeEvalSop(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal i32 @Abc_NtkRenodeEvalSop(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = load i64, ptr %3, align 4
   %5 = lshr i64 %4, 24
@@ -445,7 +445,7 @@ If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @Abc_NtkRenodeEvalCnf(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal i32 @Abc_NtkRenodeEvalCnf(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = load i64, ptr %3, align 4
   %5 = lshr i64 %4, 24
@@ -1002,7 +1002,7 @@ Kit_TruthNot.exit140:                             ; preds = %select.unfold.i137,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 4096) i32 @Abc_NtkRenodeEvalMv(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 -2147483648, 4096) i32 @Abc_NtkRenodeEvalMv(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = load i64, ptr %3, align 4
   %5 = lshr i64 %4, 24
@@ -1560,7 +1560,7 @@ Kit_TruthNot.exit141:                             ; preds = %select.unfold.i138,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @Abc_NtkRenodeEvalAig(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal i32 @Abc_NtkRenodeEvalAig(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %1, i64 36
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %5 = load i64, ptr %4, align 4
@@ -1721,7 +1721,7 @@ declare void @Extra_ReorderQuit(ptr noundef) local_unnamed_addr #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @Kit_TruthToGraph(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1744,7 +1744,7 @@ declare i32 @Kit_TruthIsop(ptr noundef, i32 noundef, ptr noundef, i32 noundef) l
 declare i32 @Abc_NodeEvalMvCost(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #6

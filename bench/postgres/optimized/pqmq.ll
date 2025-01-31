@@ -46,7 +46,7 @@ define dso_local void @pq_redirect_to_shm_mq(ptr noundef %0, ptr noundef %1) loc
 declare void @on_dsm_detach(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @pq_cleanup_redirect_to_shm_mq(ptr nocapture readnone %0, i64 %1) #2 {
+define internal void @pq_cleanup_redirect_to_shm_mq(ptr readnone captures(none) %0, i64 %1) #2 {
   store ptr null, ptr @pq_mq_handle, align 8
   store i32 0, ptr @whereToSendOutput, align 4
   ret void
@@ -220,7 +220,7 @@ define dso_local void @pq_parse_errornotice(ptr noundef %0, ptr noundef %1) loca
 72:                                               ; preds = %68
   %73 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %73)
-  %74 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, ptr noundef %39) #10
+  %74 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, ptr noundef nonnull %39) #10
   tail call void @errfinish(ptr noundef nonnull @.str.9, i32 noundef 272, ptr noundef nonnull @__func__.pq_parse_errornotice) #10
   unreachable
 
@@ -232,7 +232,7 @@ define dso_local void @pq_parse_errornotice(ptr noundef %0, ptr noundef %1) loca
 77:                                               ; preds = %75
   %78 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %78)
-  %79 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, ptr noundef %39) #10
+  %79 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, ptr noundef nonnull %39) #10
   tail call void @errfinish(ptr noundef nonnull @.str.9, i32 noundef 276, ptr noundef nonnull @__func__.pq_parse_errornotice) #10
   unreachable
 
@@ -362,7 +362,7 @@ define dso_local void @pq_parse_errornotice(ptr noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @pq_getmsgbyte(ptr noundef) local_unnamed_addr #1
 
@@ -371,7 +371,7 @@ declare void @pq_getmsgend(ptr noundef) local_unnamed_addr #1
 declare ptr @pq_getmsgrawstring(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: cold
 declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #5
@@ -381,7 +381,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 
@@ -490,7 +490,7 @@ define internal range(i32 -1, 1) i32 @mq_putmessage(i8 noundef signext %0, ptr n
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal void @mq_putmessage_noblock(i8 signext %0, ptr nocapture readnone %1, i64 %2) #7 {
+define internal void @mq_putmessage_noblock(i8 signext %0, ptr readnone captures(none) %1, i64 %2) #7 {
   %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %4)
   %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12) #10

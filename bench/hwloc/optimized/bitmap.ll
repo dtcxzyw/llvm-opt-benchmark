@@ -53,7 +53,7 @@ define noalias noundef ptr @hwloc_bitmap_alloc() local_unnamed_addr #0 {
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
 define noalias noundef ptr @hwloc_bitmap_alloc_full() local_unnamed_addr #0 {
@@ -175,7 +175,7 @@ hwloc_tma_malloc.exit25:                          ; preds = %7, %14
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define noalias noundef ptr @hwloc_bitmap_dup(ptr noundef readonly %0) local_unnamed_addr #3 {
@@ -224,7 +224,7 @@ hwloc_bitmap_tma_dup.exit:                        ; preds = %1, %2, %11, %12
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define range(i32 -1, 1) i32 @hwloc_bitmap_copy(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_copy(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8
   %4 = zext i32 %3 to i64
   %5 = add nsw i64 %4, -1
@@ -306,7 +306,7 @@ hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %26, %hwloc_flsl_man
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -1, -2147483648) i32 @hwloc_bitmap_snprintf(ptr noalias nocapture noundef writeonly %0, i64 noundef %1, ptr noalias nocapture noundef readonly %2) local_unnamed_addr #6 {
+define range(i32 -1, -2147483648) i32 @hwloc_bitmap_snprintf(ptr noalias noundef writeonly captures(none) %0, i64 noundef %1, ptr noalias noundef readonly captures(none) %2) local_unnamed_addr #6 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %5, label %4
 
@@ -489,10 +489,10 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_snprintf(ptr noalias nocaptu
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -1, -2147483648) i32 @hwloc_bitmap_asprintf(ptr nocapture noundef writeonly %0, ptr noalias nocapture noundef readonly %1) local_unnamed_addr #6 {
+define range(i32 -1, -2147483648) i32 @hwloc_bitmap_asprintf(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = tail call i32 @hwloc_bitmap_snprintf(ptr noundef null, i64 noundef 0, ptr noundef %1)
   %4 = add nsw i32 %3, 1
   %5 = zext nneg i32 %4 to i64
@@ -511,7 +511,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_asprintf(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_bitmap_sscanf(ptr nocapture noundef %0, ptr noalias noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_sscanf(ptr noundef captures(none) %0, ptr noalias noundef %1) local_unnamed_addr #4 {
   %3 = alloca ptr, align 8
   br label %4
 
@@ -762,10 +762,10 @@ hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %55, %hwloc_bitmap_z
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @hwloc_bitmap_fill(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @hwloc_bitmap_fill(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -814,10 +814,10 @@ hwloc_bitmap__fill.exit:                          ; preds = %11, %hwloc_bitmap_r
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #9
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define void @hwloc_bitmap_zero(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @hwloc_bitmap_zero(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -866,7 +866,7 @@ hwloc_bitmap__zero.exit:                          ; preds = %11, %hwloc_bitmap_r
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -1, -2147483648) i32 @hwloc_bitmap_list_snprintf(ptr noalias nocapture noundef writeonly %0, i64 noundef %1, ptr noalias nocapture noundef readonly %2) local_unnamed_addr #6 {
+define range(i32 -1, -2147483648) i32 @hwloc_bitmap_list_snprintf(ptr noalias noundef writeonly captures(none) %0, i64 noundef %1, ptr noalias noundef readonly captures(none) %2) local_unnamed_addr #6 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %5, label %4
 
@@ -1103,7 +1103,7 @@ hwloc_bitmap_next.exit.thread:                    ; preds = %.split33.us.i, %27,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @hwloc_bitmap_next(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #10 {
+define i32 @hwloc_bitmap_next(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = add nsw i32 %1, 1
   %4 = sdiv i32 %3, 64
   %5 = load i32, ptr %0, align 8
@@ -1191,7 +1191,7 @@ define i32 @hwloc_bitmap_next(ptr nocapture noundef readonly %0, i32 noundef %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @hwloc_bitmap_next_unset(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #10 {
+define i32 @hwloc_bitmap_next_unset(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = add nsw i32 %1, 1
   %4 = sdiv i32 %3, 64
   %5 = load i32, ptr %0, align 8
@@ -1284,7 +1284,7 @@ define i32 @hwloc_bitmap_next_unset(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -1, -2147483648) i32 @hwloc_bitmap_list_asprintf(ptr nocapture noundef writeonly %0, ptr noalias nocapture noundef readonly %1) local_unnamed_addr #6 {
+define range(i32 -1, -2147483648) i32 @hwloc_bitmap_list_asprintf(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = tail call i32 @hwloc_bitmap_list_snprintf(ptr noundef null, i64 noundef 0, ptr noundef %1)
   %4 = add nsw i32 %3, 1
   %5 = zext nneg i32 %4 to i64
@@ -1303,7 +1303,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_list_asprintf(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_bitmap_list_sscanf(ptr nocapture noundef %0, ptr noalias noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_list_sscanf(ptr noundef captures(none) %0, ptr noalias noundef %1) local_unnamed_addr #4 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -1557,7 +1557,7 @@ hwloc_bitmap_set_range.exit.thread:               ; preds = %hwloc_bitmap_set.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_bitmap_set_range(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_set_range(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = icmp ult i32 %2, %1
   br i1 %4, label %.loopexit, label %5
 
@@ -1710,7 +1710,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_set_range(ptr nocapture noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_bitmap_set(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_set(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = lshr i32 %1, 6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
@@ -1748,7 +1748,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_set(ptr nocapture noundef %0, i32 noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -1, -2147483648) i32 @hwloc_bitmap_taskset_snprintf(ptr noalias nocapture noundef writeonly %0, i64 noundef %1, ptr noalias nocapture noundef readonly %2) local_unnamed_addr #6 {
+define range(i32 -1, -2147483648) i32 @hwloc_bitmap_taskset_snprintf(ptr noalias noundef writeonly captures(none) %0, i64 noundef %1, ptr noalias noundef readonly captures(none) %2) local_unnamed_addr #6 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %5, label %4
 
@@ -1901,7 +1901,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_taskset_snprintf(ptr noalias
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -1, -2147483648) i32 @hwloc_bitmap_taskset_asprintf(ptr nocapture noundef writeonly %0, ptr noalias nocapture noundef readonly %1) local_unnamed_addr #6 {
+define range(i32 -1, -2147483648) i32 @hwloc_bitmap_taskset_asprintf(ptr noundef writeonly captures(none) %0, ptr noalias noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = tail call i32 @hwloc_bitmap_taskset_snprintf(ptr noundef null, i64 noundef 0, ptr noundef %1)
   %4 = add nsw i32 %3, 1
   %5 = zext nneg i32 %4 to i64
@@ -1920,7 +1920,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_taskset_asprintf(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_bitmap_taskset_sscanf(ptr nocapture noundef %0, ptr noalias nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_taskset_sscanf(ptr noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = alloca [17 x i8], align 16
   %4 = alloca ptr, align 8
   %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 7) #18
@@ -2207,10 +2207,10 @@ hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %80, %hwloc_bitmap_z
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i32 @hwloc_bitmap_from_ulong(ptr nocapture noundef initializes((16, 20)) %0, i64 noundef %1) local_unnamed_addr #3 {
+define noundef i32 @hwloc_bitmap_from_ulong(ptr noundef captures(none) initializes((16, 20)) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -2242,7 +2242,7 @@ hwloc_bitmap_reset_by_ulongs.exit:                ; preds = %6, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_bitmap_from_ith_ulong(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_from_ith_ulong(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = add i32 %1, 1
   %5 = zext i32 %4 to i64
   %6 = add nsw i64 %5, -1
@@ -2333,7 +2333,7 @@ hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %27, %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_bitmap_from_ulongs(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_from_ulongs(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
   %4 = zext i32 %1 to i64
   %5 = add nsw i64 %4, -1
   %.not.i.i.i = icmp eq i64 %5, 0
@@ -2424,7 +2424,7 @@ hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %24, %._crit_edge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @hwloc_bitmap_to_ulong(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define i64 @hwloc_bitmap_to_ulong(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %3, align 8
@@ -2432,7 +2432,7 @@ define i64 @hwloc_bitmap_to_ulong(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @hwloc_bitmap_to_ith_ulong(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #10 {
+define i64 @hwloc_bitmap_to_ith_ulong(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp ult i32 %1, %3
   br i1 %4, label %5, label %11
@@ -2458,7 +2458,7 @@ define i64 @hwloc_bitmap_to_ith_ulong(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @hwloc_bitmap_to_ulongs(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #11 {
+define noundef i32 @hwloc_bitmap_to_ulongs(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #11 {
   %.not10 = icmp eq i32 %1, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -2500,7 +2500,7 @@ define noundef i32 @hwloc_bitmap_to_ulongs(ptr nocapture noundef readonly %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 67108864) i32 @hwloc_bitmap_nr_ulongs(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define range(i32 -1, 67108864) i32 @hwloc_bitmap_nr_ulongs(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -2569,7 +2569,7 @@ hwloc_bitmap_last.exit:                           ; preds = %8, %hwloc_flsl_manu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, -2147483648) i32 @hwloc_bitmap_last(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define range(i32 -1, -2147483648) i32 @hwloc_bitmap_last(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -2637,7 +2637,7 @@ hwloc_flsl_manual.exit:                           ; preds = %11
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_bitmap_only(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_only(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = lshr i32 %1, 6
   %4 = add nuw nsw i32 %3, 1
   %.not.i.i.i = icmp ult i32 %1, 64
@@ -2729,7 +2729,7 @@ hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %22, %hwloc_bitmap__
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_bitmap_allbut(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_allbut(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = lshr i32 %1, 6
   %4 = add nuw nsw i32 %3, 1
   %.not.i.i.i = icmp ult i32 %1, 64
@@ -2822,7 +2822,7 @@ hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %22, %hwloc_bitmap__
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @hwloc_bitmap_realloc_by_ulongs(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 1) i32 @hwloc_bitmap_realloc_by_ulongs(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #4 {
   %3 = load i32, ptr %0, align 8
   %.not = icmp ugt i32 %1, %3
   br i1 %.not, label %4, label %hwloc_bitmap_enlarge_by_ulongs.exit
@@ -2916,7 +2916,7 @@ hwloc_bitmap_enlarge_by_ulongs.exit:              ; preds = %23, %2, %._crit_edg
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_bitmap_set_ith_ulong(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_set_ith_ulong(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = add i32 %1, 1
   %5 = tail call fastcc i32 @hwloc_bitmap_realloc_by_ulongs(ptr noundef %0, i32 noundef %4)
   %6 = icmp slt i32 %5, 0
@@ -2936,7 +2936,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_set_ith_ulong(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_bitmap_clr(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_clr(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = lshr i32 %1, 6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
@@ -2975,7 +2975,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_clr(ptr nocapture noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_bitmap_clr_range(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_clr_range(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = icmp ult i32 %2, %1
   br i1 %4, label %.loopexit, label %5
 
@@ -3131,7 +3131,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_clr_range(ptr nocapture noundef %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @hwloc_bitmap_isset(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @hwloc_bitmap_isset(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = lshr i32 %1, 6
   %4 = load i32, ptr %0, align 8
   %5 = icmp ult i32 %3, %4
@@ -3163,7 +3163,7 @@ define range(i32 0, 2) i32 @hwloc_bitmap_isset(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @hwloc_bitmap_iszero(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @hwloc_bitmap_iszero(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -3198,7 +3198,7 @@ define range(i32 0, 2) i32 @hwloc_bitmap_iszero(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @hwloc_bitmap_isfull(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @hwloc_bitmap_isfull(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -3233,7 +3233,7 @@ define range(i32 0, 2) i32 @hwloc_bitmap_isfull(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @hwloc_bitmap_isequal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @hwloc_bitmap_isequal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = tail call i32 @llvm.umin.i32(i32 %3, i32 %4)
@@ -3337,7 +3337,7 @@ define range(i32 0, 2) i32 @hwloc_bitmap_isequal(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @hwloc_bitmap_intersects(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @hwloc_bitmap_intersects(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = tail call i32 @llvm.umin.i32(i32 %3, i32 %4)
@@ -3450,7 +3450,7 @@ define range(i32 0, 2) i32 @hwloc_bitmap_intersects(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @hwloc_bitmap_isincluded(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @hwloc_bitmap_isincluded(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
   %3 = load i32, ptr %1, align 8
   %4 = load i32, ptr %0, align 8
   %5 = tail call i32 @llvm.umin.i32(i32 %3, i32 %4)
@@ -3563,7 +3563,7 @@ define range(i32 0, 2) i32 @hwloc_bitmap_isincluded(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_bitmap_or(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_or(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
   %4 = load i32, ptr %1, align 8
   %5 = load i32, ptr %2, align 8
   %6 = tail call i32 @llvm.umax.i32(i32 %4, i32 %5)
@@ -3750,7 +3750,7 @@ hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %28, %84
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_bitmap_and(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_and(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
   %4 = load i32, ptr %1, align 8
   %5 = load i32, ptr %2, align 8
   %6 = tail call i32 @llvm.umax.i32(i32 %4, i32 %5)
@@ -3937,7 +3937,7 @@ hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %28, %84
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_bitmap_andnot(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_andnot(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
   %4 = load i32, ptr %1, align 8
   %5 = load i32, ptr %2, align 8
   %6 = tail call i32 @llvm.umax.i32(i32 %4, i32 %5)
@@ -4126,7 +4126,7 @@ hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %28, %85
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_bitmap_xor(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_xor(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
   %4 = load i32, ptr %1, align 8
   %5 = load i32, ptr %2, align 8
   %6 = tail call i32 @llvm.umax.i32(i32 %4, i32 %5)
@@ -4301,7 +4301,7 @@ hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %28, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_bitmap_not(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_not(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = load i32, ptr %1, align 8
   %4 = zext i32 %3 to i64
   %5 = add nsw i64 %4, -1
@@ -4400,7 +4400,7 @@ hwloc_bitmap_reset_by_ulongs.exit.thread:         ; preds = %24, %._crit_edge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @hwloc_bitmap_first(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define i32 @hwloc_bitmap_first(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = load i32, ptr %0, align 8
   %.not18 = icmp eq i32 %2, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
@@ -4448,7 +4448,7 @@ define i32 @hwloc_bitmap_first(ptr nocapture noundef readonly %0) local_unnamed_
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @hwloc_bitmap_first_unset(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define i32 @hwloc_bitmap_first_unset(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = load i32, ptr %0, align 8
   %.not18 = icmp eq i32 %2, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
@@ -4494,7 +4494,7 @@ define i32 @hwloc_bitmap_first_unset(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, -2147483648) i32 @hwloc_bitmap_last_unset(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define range(i32 -1, -2147483648) i32 @hwloc_bitmap_last_unset(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -4563,7 +4563,7 @@ hwloc_flsl_manual.exit:                           ; preds = %11
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_bitmap_singlify(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @hwloc_bitmap_singlify(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8
   %.not30 = icmp eq i32 %2, 0
   br i1 %.not30, label %._crit_edge.thread, label %.lr.ph
@@ -4649,7 +4649,7 @@ hwloc_bitmap_set.exit:                            ; preds = %._crit_edge.thread,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -64, 65) i32 @hwloc_bitmap_compare_first(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
+define range(i32 -64, 65) i32 @hwloc_bitmap_compare_first(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = tail call i32 @llvm.umin.i32(i32 %3, i32 %4)
@@ -4804,7 +4804,7 @@ define range(i32 -64, 65) i32 @hwloc_bitmap_compare_first(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 2) i32 @hwloc_bitmap_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
+define range(i32 -1, 2) i32 @hwloc_bitmap_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = tail call i32 @llvm.umax.i32(i32 %3, i32 %4)
@@ -4915,7 +4915,7 @@ define range(i32 -1, 2) i32 @hwloc_bitmap_compare(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @hwloc_bitmap_weight(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define i32 @hwloc_bitmap_weight(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -4950,7 +4950,7 @@ define i32 @hwloc_bitmap_weight(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 5) i32 @hwloc_bitmap_compare_inclusion(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
+define range(i32 0, 5) i32 @hwloc_bitmap_compare_inclusion(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %. = tail call i32 @llvm.umax.i32(i32 %3, i32 %4)
@@ -5163,7 +5163,7 @@ define range(i32 0, 5) i32 @hwloc_bitmap_compare_inclusion(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #12

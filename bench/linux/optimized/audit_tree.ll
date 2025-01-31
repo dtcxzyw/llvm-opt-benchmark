@@ -146,13 +146,13 @@ define dso_local ptr @audit_tree_lookup(ptr noundef %0) local_unnamed_addr #1 al
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local zeroext i1 @audit_tree_match(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #3 align 16 {
+define dso_local zeroext i1 @audit_tree_match(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -413,7 +413,7 @@ define dso_local void @audit_trim_trees() local_unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #5
@@ -434,7 +434,7 @@ declare dso_local void @path_put(ptr noundef) local_unnamed_addr #5
 declare dso_local i32 @iterate_mounts(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal range(i32 0, 2) i32 @compare_root(ptr nocapture noundef readonly %0, ptr noundef readnone %1) #6 align 16 {
+define internal range(i32 0, 2) i32 @compare_root(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #6 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -558,7 +558,7 @@ define internal fastcc void @trim_marked(ptr noundef %0) unnamed_addr #1 align 1
 declare dso_local void @drop_collected_mounts(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -22, 1) i32 @audit_make_tree(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -22, 1) i32 @audit_make_tree(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = load i8, ptr %1, align 1
   %5 = icmp eq i8 %4, 47
   br i1 %5, label %6, label %32
@@ -610,7 +610,7 @@ define dso_local range(i32 -22, 1) i32 @audit_make_tree(ptr nocapture noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @alloc_tree(ptr nocapture noundef readonly %0) unnamed_addr #1 align 16 {
+define internal fastcc ptr @alloc_tree(ptr noundef readonly captures(none) %0) unnamed_addr #1 align 16 {
   %2 = tail call i64 @strlen(ptr noundef %0) #16
   %3 = add i64 %2, 1
   %4 = tail call noundef i64 @llvm.uadd.sat.i64(i64 %3, i64 96)
@@ -924,7 +924,7 @@ put_tree.exit:                                    ; preds = %106, %108, %80, %82
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -12, 1) i32 @audit_launch_prune() unnamed_addr #1 align 16 {
@@ -958,7 +958,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @audit_launch_prune() unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -28, 1) i32 @tag_mount(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define internal noundef range(i32 -28, 1) i32 @tag_mount(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -2604,16 +2604,16 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local void @kvfree_call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #12
+declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @kthread_create_on_node(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern noreturn nounwind null_pointer_is_valid
-define internal noundef i32 @prune_tree_thread(ptr nocapture readnone %0) #13 align 16 {
+define internal noundef i32 @prune_tree_thread(ptr readnone captures(none) %0) #13 align 16 {
   br label %2
 
 2:                                                ; preds = %.loopexit, %1
@@ -2735,12 +2735,12 @@ declare dso_local ptr @fsnotify_alloc_group(ptr noundef, i32 noundef) local_unna
 declare dso_local void @audit_panic(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @audit_tree_handle_event(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #0 align 16 {
+define internal noundef i32 @audit_tree_handle_event(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #0 align 16 {
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @audit_tree_freeing_mark(ptr noundef %0, ptr nocapture readnone %1) #1 align 16 {
+define internal void @audit_tree_freeing_mark(ptr noundef %0, ptr readnone captures(none) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80

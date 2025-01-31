@@ -68,7 +68,7 @@ define hidden range(i32 0, 2) i32 @VP8InitIoInternal(ptr noundef writeonly %0, i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @VP8New() local_unnamed_addr #3 {
@@ -217,7 +217,7 @@ define hidden void @VP8Clear(ptr noundef %0) local_unnamed_addr #3 {
 declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @VP8SetError(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define hidden noundef i32 @VP8SetError(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = load i32, ptr %0, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %9
@@ -235,7 +235,7 @@ define hidden noundef i32 @VP8SetError(ptr nocapture noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @VP8CheckSignature(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @VP8CheckSignature(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = icmp ugt i64 %1, 2
   br i1 %3, label %4, label %16
 
@@ -664,7 +664,7 @@ declare void @VP8InitBitReader(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare i32 @VP8GetValue(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef nonnull %0, ptr nocapture noundef nonnull initializes((0, 8)) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef nonnull %0, ptr noundef nonnull captures(none) initializes((0, 8)) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #3 {
   %4 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
   store i32 %4, ptr %1, align 4
   %.not = icmp eq i32 %4, 0
@@ -765,7 +765,7 @@ define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ParseFilterHeader(ptr noundef nonnull %0, ptr nocapture noundef nonnull initializes((84, 100)) %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @ParseFilterHeader(ptr noundef nonnull %0, ptr noundef nonnull captures(none) initializes((84, 100)) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %4 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
   store i32 %4, ptr %3, align 4
@@ -1233,7 +1233,7 @@ ParseResiduals.exit:                              ; preds = %146, %152
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @VP8InitScanline(ptr nocapture noundef initializes((2816, 2820), (2904, 2908)) %0) local_unnamed_addr #7 {
+define hidden void @VP8InitScanline(ptr noundef captures(none) initializes((2816, 2820), (2904, 2908)) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2832
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -2
@@ -1460,7 +1460,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #8
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 17) i32 @GetCoeffsAlt(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5) #3 {
+define internal range(i32 -2147483648, 17) i32 @GetCoeffsAlt(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) #3 {
   %7 = icmp slt i32 %4, 16
   br i1 %7, label %.lr.ph, label %.loopexit
 
@@ -1813,7 +1813,7 @@ VP8GetSigned.exit:                                ; preds = %158, %165, %171
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 17) i32 @GetCoeffsFast(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5) #3 {
+define internal range(i32 -2147483648, 17) i32 @GetCoeffsFast(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) #3 {
   %7 = icmp slt i32 %4, 16
   br i1 %7, label %.lr.ph, label %.loopexit
 
@@ -2139,7 +2139,7 @@ VP8GetSigned.exit:                                ; preds = %143, %150, %156
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483640, -2147483648) i32 @GetLargeValue(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
+define internal fastcc range(i32 -2147483640, -2147483648) i32 @GetLargeValue(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32
@@ -2946,10 +2946,10 @@ declare i64 @llvm.umin.i64(i64, i64) #10
 declare i64 @llvm.umax.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

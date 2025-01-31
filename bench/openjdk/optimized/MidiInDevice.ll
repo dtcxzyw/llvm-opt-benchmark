@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [7 x i8] c"([BJ)V\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_com_sun_media_sound_MidiInDevice_nOpen(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define i64 @Java_com_sun_media_sound_MidiInDevice_nOpen(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   %5 = call i32 @MIDI_IN_OpenDevice(i32 noundef %2, ptr noundef nonnull %4) #4
@@ -40,7 +40,7 @@ declare void @ThrowJavaMessageException(ptr noundef, ptr noundef, ptr noundef) l
 declare ptr @MIDI_IN_InternalGetErrorString(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_media_sound_MidiInDevice_nClose(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_com_sun_media_sound_MidiInDevice_nClose(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i32 @MIDI_IN_CloseDevice(ptr noundef %4) #4
   ret void
@@ -49,7 +49,7 @@ define void @Java_com_sun_media_sound_MidiInDevice_nClose(ptr nocapture noundef 
 declare i32 @MIDI_IN_CloseDevice(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_media_sound_MidiInDevice_nStart(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_com_sun_media_sound_MidiInDevice_nStart(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i32 @MIDI_IN_StartDevice(ptr noundef %4) #4
   %.not = icmp eq i32 %5, 0
@@ -67,7 +67,7 @@ define void @Java_com_sun_media_sound_MidiInDevice_nStart(ptr noundef %0, ptr no
 declare i32 @MIDI_IN_StartDevice(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_media_sound_MidiInDevice_nStop(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_com_sun_media_sound_MidiInDevice_nStop(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i32 @MIDI_IN_StopDevice(ptr noundef %4) #4
   ret void
@@ -76,7 +76,7 @@ define void @Java_com_sun_media_sound_MidiInDevice_nStop(ptr nocapture noundef r
 declare i32 @MIDI_IN_StopDevice(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -1, -9223372036854775808) i64 @Java_com_sun_media_sound_MidiInDevice_nGetTimeStamp(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i64 -1, -9223372036854775808) i64 @Java_com_sun_media_sound_MidiInDevice_nGetTimeStamp(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i64 @MIDI_IN_GetTimeStamp(ptr noundef %4) #4
   %spec.store.select = tail call i64 @llvm.smax.i64(i64 %5, i64 -1)
@@ -248,7 +248,7 @@ declare ptr @MIDI_IN_GetMessage(ptr noundef) local_unnamed_addr #1
 declare void @MIDI_IN_ReleaseMessage(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #3

@@ -39,7 +39,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef readonly %10, i32 noundef %11) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef readonly %10, i32 noundef %11) local_unnamed_addr #1 {
   %13 = alloca i32, align 4
   %14 = alloca %struct._GHashTableIter, align 8
   %15 = alloca ptr, align 8
@@ -179,13 +179,13 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
 
 .loopexit34:                                      ; preds = %.preheader33, %86, %81
   %100 = phi i32 [ 0, %81 ], [ 0, %86 ], [ %96, %.preheader33 ]
-  %101 = call i32 (ptr, i32, ...) @xcf_set(ptr noundef %54, i32 noundef 8, i32 noundef %100) #17
-  %102 = call i32 (ptr, i32, ...) @xcf_set(ptr noundef %54, i32 noundef 9, i32 noundef 1) #17
+  %101 = call i32 (ptr, i32, ...) @xcf_set(ptr noundef nonnull %54, i32 noundef 8, i32 noundef %100) #17
+  %102 = call i32 (ptr, i32, ...) @xcf_set(ptr noundef nonnull %54, i32 noundef 9, i32 noundef 1) #17
   %103 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.4, ptr noundef nonnull @darktable_package_string) #17
   %104 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %103) #19
   %105 = add i64 %104, 1
-  %106 = call i32 (ptr, i32, ...) @xcf_set(ptr noundef %54, i32 noundef 2, i32 noundef 21, ptr noundef nonnull @.str.5, i32 noundef 1, i64 noundef %105, ptr noundef %103) #17
-  call void @g_free(ptr noundef %103) #17
+  %106 = call i32 (ptr, i32, ...) @xcf_set(ptr noundef nonnull %54, i32 noundef 2, i32 noundef 21, ptr noundef nonnull @.str.5, i32 noundef 1, i64 noundef %105, ptr noundef nonnull %103) #17
+  call void @g_free(ptr noundef nonnull %103) #17
   %107 = icmp ne ptr %5, null
   %108 = icmp sgt i32 %6, 0
   %109 = and i1 %107, %108
@@ -207,7 +207,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   %117 = getelementptr inbounds nuw i8, ptr %113, i64 6
   %118 = zext nneg i32 %6 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %117, ptr nonnull align 1 %5, i64 %118, i1 false)
-  %119 = call i32 (ptr, i32, ...) @xcf_set(ptr noundef %54, i32 noundef 2, i32 noundef 21, ptr noundef nonnull @.str.8, i32 noundef 1, i32 noundef %111, ptr noundef nonnull %113) #17
+  %119 = call i32 (ptr, i32, ...) @xcf_set(ptr noundef nonnull %54, i32 noundef 2, i32 noundef 21, ptr noundef nonnull @.str.8, i32 noundef 1, i32 noundef %111, ptr noundef nonnull %113) #17
   call void @g_free(ptr noundef nonnull %113) #17
   %120 = call ptr @dt_exif_xmp_read_string(i32 noundef %7) #17
   %121 = icmp eq ptr %120, null
@@ -221,20 +221,20 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
 125:                                              ; preds = %122
   %126 = call noalias ptr (ptr, ...) @g_strjoin(ptr noundef null, ptr noundef nonnull @.str.9, ptr noundef nonnull %120, ptr noundef null) #17
   %127 = add i64 %123, 10
-  %128 = call i32 (ptr, i32, ...) @xcf_set(ptr noundef %54, i32 noundef 2, i32 noundef 21, ptr noundef nonnull @.str.10, i32 noundef 1, i64 noundef %127, ptr noundef %126) #17
+  %128 = call i32 (ptr, i32, ...) @xcf_set(ptr noundef nonnull %54, i32 noundef 2, i32 noundef 21, ptr noundef nonnull @.str.10, i32 noundef 1, i64 noundef %127, ptr noundef %126) #17
   call void @g_free(ptr noundef nonnull %120) #17
   call void @g_free(ptr noundef %126) #17
   br label %129
 
 129:                                              ; preds = %125, %122, %116, %.loopexit34
-  %130 = call i32 @xcf_add_layer(ptr noundef %54) #17
+  %130 = call i32 @xcf_add_layer(ptr noundef nonnull %54) #17
   %131 = load i32, ptr %59, align 4, !tbaa !13
-  %132 = call i32 (ptr, i32, ...) @xcf_set(ptr noundef %54, i32 noundef 0, i32 noundef %131) #17
+  %132 = call i32 (ptr, i32, ...) @xcf_set(ptr noundef nonnull %54, i32 noundef 0, i32 noundef %131) #17
   %133 = load i32, ptr %62, align 4, !tbaa !16
-  %134 = call i32 (ptr, i32, ...) @xcf_set(ptr noundef %54, i32 noundef 1, i32 noundef %133) #17
+  %134 = call i32 (ptr, i32, ...) @xcf_set(ptr noundef nonnull %54, i32 noundef 1, i32 noundef %133) #17
   %135 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.11, i32 noundef 5) #17
-  %136 = call i32 (ptr, i32, ...) @xcf_set(ptr noundef %54, i32 noundef 3, ptr noundef %135) #17
-  %137 = call i32 @xcf_add_data(ptr noundef %54, ptr noundef %2, i32 noundef 4) #17
+  %136 = call i32 (ptr, i32, ...) @xcf_set(ptr noundef nonnull %54, i32 noundef 3, ptr noundef %135) #17
+  %137 = call i32 @xcf_add_data(ptr noundef nonnull %54, ptr noundef %2, i32 noundef 4) #17
   %138 = icmp sgt i32 %100, 0
   br i1 %138, label %139, label %.loopexit32
 
@@ -268,8 +268,8 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   br i1 %154, label %385, label %155
 
 155:                                              ; preds = %.preheader29
-  %156 = call i32 @xcf_add_channel(ptr noundef %54) #17
-  %157 = call i32 (ptr, i32, ...) @xcf_set(ptr noundef %54, i32 noundef 2, i32 noundef 8, i32 noundef 0) #17
+  %156 = call i32 @xcf_add_channel(ptr noundef nonnull %54) #17
+  %157 = call i32 (ptr, i32, ...) @xcf_set(ptr noundef nonnull %54, i32 noundef 2, i32 noundef 8, i32 noundef 0) #17
   %158 = load ptr, ptr %144, align 16, !tbaa !32
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 792
   %160 = load ptr, ptr %159, align 8, !tbaa !33
@@ -287,7 +287,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
 
 169:                                              ; preds = %155, %164
   %.sink = phi ptr [ %168, %164 ], [ %162, %155 ]
-  %170 = call i32 (ptr, i32, ...) @xcf_set(ptr noundef %54, i32 noundef 3, ptr noundef %.sink) #17
+  %170 = call i32 (ptr, i32, ...) @xcf_set(ptr noundef nonnull %54, i32 noundef 3, ptr noundef %.sink) #17
   %171 = load i32, ptr %65, align 4, !tbaa !17
   switch i32 %171, label %.loopexit [
     i32 8, label %172
@@ -568,12 +568,12 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   br i1 %370, label %.loopexit, label %355, !llvm.loop !53
 
 371:                                              ; preds = %169
-  %372 = call i32 @xcf_add_data(ptr noundef %54, ptr noundef nonnull %153, i32 noundef 1) #17
+  %372 = call i32 @xcf_add_data(ptr noundef nonnull %54, ptr noundef nonnull %153, i32 noundef 1) #17
   br label %375
 
 .loopexit:                                        ; preds = %364, %284, %353, %291, %260, %240, %172, %169
   %373 = phi ptr [ null, %169 ], [ %178, %172 ], [ %298, %291 ], [ %178, %240 ], [ %298, %353 ], [ %178, %260 ], [ %178, %284 ], [ %298, %364 ]
-  %374 = call i32 @xcf_add_data(ptr noundef %54, ptr noundef %373, i32 noundef 1) #17
+  %374 = call i32 @xcf_add_data(ptr noundef nonnull %54, ptr noundef %373, i32 noundef 1) #17
   call void @free(ptr noundef %373) #17
   br label %375
 
@@ -621,7 +621,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @dt_colorspaces_get_output_profile(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
@@ -639,7 +639,7 @@ declare ptr @cmsReadTag(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @cmsIsToneCurveLinear(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @xcf_open(ptr noundef) local_unnamed_addr #3
 
@@ -650,7 +650,7 @@ declare i32 @g_hash_table_size(ptr noundef) local_unnamed_addr #3
 declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
@@ -658,7 +658,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #3
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare ptr @dt_exif_xmp_read_string(i32 noundef) local_unnamed_addr #3
 
@@ -685,20 +685,20 @@ declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare float @llvm.round.f32(float) #9
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 declare i32 @xcf_close(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @params_size(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i64 @params_size(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i64 152
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @get_params(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define noalias noundef ptr @get_params(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(152) ptr @calloc(i64 noundef 1, i64 noundef 152) #20
   %3 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.12) #17
-  %4 = tail call i64 @strtol(ptr nocapture noundef nonnull %3, ptr noundef null, i32 noundef 10) #17
+  %4 = tail call i64 @strtol(ptr noundef nonnull captures(none) %3, ptr noundef null, i32 noundef 10) #17
   %5 = trunc i64 %4 to i32
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 148
   store i32 %5, ptr %6, align 4, !tbaa !17
@@ -721,13 +721,13 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare ptr @dt_conf_get_string_const(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @free_params(ptr nocapture noundef readnone %0, ptr nocapture noundef %1) local_unnamed_addr #12 {
+define void @free_params(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #12 {
   tail call void @free(ptr noundef %1) #17
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef range(i32 0, 2) i32 @set_params(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @set_params(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq i32 %2, 152
   br i1 %4, label %5, label %15
 
@@ -752,19 +752,19 @@ define noundef range(i32 0, 2) i32 @set_params(ptr nocapture noundef readonly %0
 declare void @dt_bauhaus_combobox_set(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @flags(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @flags(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @bpp(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define i32 @bpp(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %3 = load i32, ptr %2, align 4, !tbaa !17
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 256, 261) i32 @levels(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define range(i32 256, 261) i32 @levels(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %3 = load i32, ptr %2, align 4, !tbaa !17
   %4 = icmp eq i32 %3, 16
@@ -775,12 +775,12 @@ define range(i32 256, 261) i32 @levels(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @mime(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef nonnull ptr @mime(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret ptr @.str.13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @extension(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef nonnull ptr @extension(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret ptr @.str.14
 }
 
@@ -791,12 +791,12 @@ define ptr @name() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @init(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define void @init(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @cleanup(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define void @cleanup(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret void
 }
 
@@ -811,7 +811,7 @@ define void @gui_init(ptr noundef initializes((344, 360)) %0) local_unnamed_addr
 
 6:                                                ; preds = %1
   %7 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.12) #17
-  %8 = tail call i64 @strtol(ptr nocapture noundef nonnull %7, ptr noundef null, i32 noundef 10) #17
+  %8 = tail call i64 @strtol(ptr noundef nonnull captures(none) %7, ptr noundef null, i32 noundef 10) #17
   %9 = freeze i64 %8
   %10 = trunc i64 %9 to i32
   br label %11
@@ -842,7 +842,7 @@ declare ptr @gtk_box_new(i32 noundef, i32 noundef) local_unnamed_addr #3
 declare ptr @dt_bauhaus_combobox_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @bpp_combobox_changed(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal void @bpp_combobox_changed(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #17
   %4 = icmp eq i32 %3, 2
   %5 = select i1 %4, i32 32, i32 8
@@ -860,7 +860,7 @@ declare ptr @g_type_check_instance_cast(ptr noundef, i64 noundef) local_unnamed_
 declare i64 @gtk_box_get_type() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @gui_cleanup(ptr nocapture noundef readonly %0) local_unnamed_addr #15 {
+define void @gui_cleanup(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8, !tbaa !54
   tail call void @free(ptr noundef %3) #17
@@ -868,7 +868,7 @@ define void @gui_cleanup(ptr nocapture noundef readonly %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_reset(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define void @gui_reset(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8, !tbaa !54
   %4 = load ptr, ptr %3, align 8, !tbaa !57
@@ -877,7 +877,7 @@ define void @gui_reset(ptr nocapture noundef readonly %0) local_unnamed_addr #1 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #16
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #16
 
 declare i32 @dt_bauhaus_combobox_get(ptr noundef) local_unnamed_addr #3
 

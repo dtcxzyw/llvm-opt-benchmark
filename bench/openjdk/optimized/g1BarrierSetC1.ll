@@ -107,7 +107,7 @@ define hidden void @_ZN17G1PostBarrierStub9emit_codeEP13LIR_Assembler(ptr nounde
 declare void @_ZN21G1BarrierSetAssembler21gen_post_barrier_stubEP13LIR_AssemblerP17G1PostBarrierStub(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14G1BarrierSetC111pre_barrierER9LIRAccess7LIR_OprS2_P12CodeEmitInfo(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, i64 %2, i64 %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN14G1BarrierSetC111pre_barrierER9LIRAccess7LIR_OprS2_P12CodeEmitInfo(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1, i64 %2, i64 %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
@@ -735,7 +735,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %38, %43
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14G1BarrierSetC112post_barrierER9LIRAccess7LIR_OprS2_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, i64 %2, i64 %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN14G1BarrierSetC112post_barrierER9LIRAccess7LIR_OprS2_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1, i64 %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
@@ -1478,7 +1478,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %28, %30
 declare void @_ZN12BarrierSetC116load_at_resolvedER9LIRAccess7LIR_Opr(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(80), i64) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14G1BarrierSetC125generate_c1_runtime_stubsEP10BufferBlob(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 24)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN14G1BarrierSetC125generate_c1_runtime_stubsEP10BufferBlob(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((8, 24)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.C1G1PreBarrierCodeGenClosure, align 8
   %4 = alloca %class.C1G1PostBarrierCodeGenClosure, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV28C1G1PreBarrierCodeGenClosure, i64 16), ptr %3, align 8

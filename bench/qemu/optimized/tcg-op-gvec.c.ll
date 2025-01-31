@@ -336,7 +336,7 @@ check_size_align.exit:                            ; preds = %do.body.i, %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_2_ool(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, i32 noundef %maxsz, i32 noundef %data, ptr nocapture noundef readonly %fn) local_unnamed_addr #1 {
+define dso_local void @tcg_gen_gvec_2_ool(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, i32 noundef %maxsz, i32 noundef %data, ptr noundef readonly captures(none) %fn) local_unnamed_addr #1 {
 entry:
   switch i32 %oprsz, label %do.body1.i.i [
     i32 8, label %do.body.i.i
@@ -399,7 +399,7 @@ declare ptr @tcg_temp_ebb_new_ptr() local_unnamed_addr #2
 declare void @tcg_temp_free_ptr(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_2i_ool(i32 noundef %dofs, i32 noundef %aofs, ptr noundef %c, i32 noundef %oprsz, i32 noundef %maxsz, i32 noundef %data, ptr nocapture noundef readonly %fn) local_unnamed_addr #1 {
+define dso_local void @tcg_gen_gvec_2i_ool(i32 noundef %dofs, i32 noundef %aofs, ptr noundef %c, i32 noundef %oprsz, i32 noundef %maxsz, i32 noundef %data, ptr noundef readonly captures(none) %fn) local_unnamed_addr #1 {
 entry:
   switch i32 %oprsz, label %do.body1.i.i [
     i32 8, label %do.body.i.i
@@ -456,7 +456,7 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_3_ool(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %oprsz, i32 noundef %maxsz, i32 noundef %data, ptr nocapture noundef readonly %fn) local_unnamed_addr #1 {
+define dso_local void @tcg_gen_gvec_3_ool(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %oprsz, i32 noundef %maxsz, i32 noundef %data, ptr noundef readonly captures(none) %fn) local_unnamed_addr #1 {
 entry:
   switch i32 %oprsz, label %do.body1.i.i [
     i32 8, label %do.body.i.i
@@ -518,7 +518,7 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_4_ool(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %cofs, i32 noundef %oprsz, i32 noundef %maxsz, i32 noundef %data, ptr nocapture noundef readonly %fn) local_unnamed_addr #1 {
+define dso_local void @tcg_gen_gvec_4_ool(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %cofs, i32 noundef %oprsz, i32 noundef %maxsz, i32 noundef %data, ptr noundef readonly captures(none) %fn) local_unnamed_addr #1 {
 entry:
   switch i32 %oprsz, label %do.body1.i.i [
     i32 8, label %do.body.i.i
@@ -585,7 +585,7 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_5_ool(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %cofs, i32 noundef %xofs, i32 noundef %oprsz, i32 noundef %maxsz, i32 noundef %data, ptr nocapture noundef readonly %fn) local_unnamed_addr #1 {
+define dso_local void @tcg_gen_gvec_5_ool(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %cofs, i32 noundef %xofs, i32 noundef %oprsz, i32 noundef %maxsz, i32 noundef %data, ptr noundef readonly captures(none) %fn) local_unnamed_addr #1 {
 entry:
   switch i32 %oprsz, label %do.body1.i.i [
     i32 8, label %do.body.i.i
@@ -657,7 +657,7 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_2_ptr(i32 noundef %dofs, i32 noundef %aofs, ptr noundef %ptr, i32 noundef %oprsz, i32 noundef %maxsz, i32 noundef %data, ptr nocapture noundef readonly %fn) local_unnamed_addr #1 {
+define dso_local void @tcg_gen_gvec_2_ptr(i32 noundef %dofs, i32 noundef %aofs, ptr noundef %ptr, i32 noundef %oprsz, i32 noundef %maxsz, i32 noundef %data, ptr noundef readonly captures(none) %fn) local_unnamed_addr #1 {
 entry:
   switch i32 %oprsz, label %do.body1.i.i [
     i32 8, label %do.body.i.i
@@ -714,7 +714,7 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_3_ptr(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, ptr noundef %ptr, i32 noundef %oprsz, i32 noundef %maxsz, i32 noundef %data, ptr nocapture noundef readonly %fn) local_unnamed_addr #1 {
+define dso_local void @tcg_gen_gvec_3_ptr(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, ptr noundef %ptr, i32 noundef %oprsz, i32 noundef %maxsz, i32 noundef %data, ptr noundef readonly captures(none) %fn) local_unnamed_addr #1 {
 entry:
   switch i32 %oprsz, label %do.body1.i.i [
     i32 8, label %do.body.i.i
@@ -776,7 +776,7 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_4_ptr(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %cofs, ptr noundef %ptr, i32 noundef %oprsz, i32 noundef %maxsz, i32 noundef %data, ptr nocapture noundef readonly %fn) local_unnamed_addr #1 {
+define dso_local void @tcg_gen_gvec_4_ptr(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %cofs, ptr noundef %ptr, i32 noundef %oprsz, i32 noundef %maxsz, i32 noundef %data, ptr noundef readonly captures(none) %fn) local_unnamed_addr #1 {
 entry:
   switch i32 %oprsz, label %do.body1.i.i [
     i32 8, label %do.body.i.i
@@ -843,7 +843,7 @@ simd_desc.exit:                                   ; preds = %do.body.i.i, %do.bo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_5_ptr(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %cofs, i32 noundef %eofs, ptr noundef %ptr, i32 noundef %oprsz, i32 noundef %maxsz, i32 noundef %data, ptr nocapture noundef readonly %fn) local_unnamed_addr #1 {
+define dso_local void @tcg_gen_gvec_5_ptr(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %cofs, i32 noundef %eofs, ptr noundef %ptr, i32 noundef %oprsz, i32 noundef %maxsz, i32 noundef %data, ptr noundef readonly captures(none) %fn) local_unnamed_addr #1 {
 entry:
   switch i32 %oprsz, label %do.body1.i.i [
     i32 8, label %do.body.i.i
@@ -1036,7 +1036,7 @@ declare void @tcg_gen_deposit_i64(ptr noundef, ptr noundef, ptr noundef, i32 nou
 declare void @tcg_gen_mov_i64(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_2(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, i32 noundef %maxsz, ptr nocapture noundef readonly %g) local_unnamed_addr #1 {
+define dso_local void @tcg_gen_gvec_2(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, i32 noundef %maxsz, ptr noundef readonly captures(none) %g) local_unnamed_addr #1 {
 entry:
   %opt_opc = getelementptr inbounds nuw i8, ptr %g, i64 32
   %or = or i32 %aofs, %dofs
@@ -1422,7 +1422,7 @@ return:                                           ; preds = %land.lhs.true40, %l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_2_vec(i32 noundef range(i32 0, 256) %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, i32 noundef range(i32 8, 33) %tysz, i32 noundef range(i32 3, 6) %type, i1 noundef zeroext %load_dest, ptr nocapture noundef readonly %fni) unnamed_addr #1 {
+define internal fastcc void @expand_2_vec(i32 noundef range(i32 0, 256) %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, i32 noundef range(i32 8, 33) %tysz, i32 noundef range(i32 3, 6) %type, i1 noundef zeroext %load_dest, ptr noundef readonly captures(none) %fni) unnamed_addr #1 {
 entry:
   %cmp10.not = icmp eq i32 %oprsz, 0
   br i1 %cmp10.not, label %for.end, label %for.body.lr.ph
@@ -1474,7 +1474,7 @@ for.end:                                          ; preds = %for.body, %for.body
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_2i(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, i32 noundef %maxsz, i64 noundef %c, ptr nocapture noundef readonly %g) local_unnamed_addr #1 {
+define dso_local void @tcg_gen_gvec_2i(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, i32 noundef %maxsz, i64 noundef %c, ptr noundef readonly captures(none) %g) local_unnamed_addr #1 {
 entry:
   %opt_opc = getelementptr inbounds nuw i8, ptr %g, i64 40
   %or = or i32 %aofs, %dofs
@@ -1743,7 +1743,7 @@ if.end60:                                         ; preds = %if.then45, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_2i_vec(i32 noundef range(i32 0, 256) %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, i32 noundef range(i32 8, 33) %tysz, i32 noundef range(i32 3, 6) %type, i64 noundef %c, i1 noundef zeroext %load_dest, ptr nocapture noundef readonly %fni) unnamed_addr #1 {
+define internal fastcc void @expand_2i_vec(i32 noundef range(i32 0, 256) %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, i32 noundef range(i32 8, 33) %tysz, i32 noundef range(i32 3, 6) %type, i64 noundef %c, i1 noundef zeroext %load_dest, ptr noundef readonly captures(none) %fni) unnamed_addr #1 {
 entry:
   %cmp10.not = icmp eq i32 %oprsz, 0
   br i1 %cmp10.not, label %for.end, label %for.body.lr.ph
@@ -1794,7 +1794,7 @@ for.end:                                          ; preds = %for.body, %for.body
 declare ptr @tcg_constant_i64(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_2s(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, i32 noundef %maxsz, ptr noundef %c, ptr nocapture noundef readonly %g) local_unnamed_addr #1 {
+define dso_local void @tcg_gen_gvec_2s(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, i32 noundef %maxsz, ptr noundef %c, ptr noundef readonly captures(none) %g) local_unnamed_addr #1 {
 entry:
   %or = or i32 %aofs, %dofs
   switch i32 %oprsz, label %do.body1.i [
@@ -2028,7 +2028,7 @@ declare ptr @tcg_temp_new_vec(i32 noundef) local_unnamed_addr #2
 declare void @tcg_gen_dup_i64_vec(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_2s_vec(i32 noundef range(i32 0, 256) %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, i32 noundef range(i32 8, 33) %tysz, i32 noundef range(i32 3, 6) %type, ptr noundef %c, i1 noundef zeroext %scalar_first, ptr nocapture noundef readonly %fni) unnamed_addr #1 {
+define internal fastcc void @expand_2s_vec(i32 noundef range(i32 0, 256) %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, i32 noundef range(i32 8, 33) %tysz, i32 noundef range(i32 3, 6) %type, ptr noundef %c, i1 noundef zeroext %scalar_first, ptr noundef readonly captures(none) %fni) unnamed_addr #1 {
 entry:
   %cmp12.not = icmp eq i32 %oprsz, 0
   br i1 %cmp12.not, label %for.end, label %for.body.lr.ph
@@ -2079,7 +2079,7 @@ declare void @tcg_temp_free_vec(ptr noundef) local_unnamed_addr #2
 declare ptr @tcg_temp_new_i64() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_2s_i64(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, ptr noundef %c, i1 noundef zeroext %scalar_first, ptr nocapture noundef readonly %fni) unnamed_addr #1 {
+define internal fastcc void @expand_2s_i64(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, ptr noundef %c, i1 noundef zeroext %scalar_first, ptr noundef readonly captures(none) %fni) unnamed_addr #1 {
 entry:
   %call = tail call ptr @tcg_temp_new_i64() #7
   %call1 = tail call ptr @tcg_temp_new_i64() #7
@@ -2132,7 +2132,7 @@ declare ptr @tcg_temp_new_i32() local_unnamed_addr #2
 declare void @tcg_gen_extrl_i64_i32(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_2s_i32(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, ptr noundef %c, i1 noundef zeroext %scalar_first, ptr nocapture noundef readonly %fni) unnamed_addr #1 {
+define internal fastcc void @expand_2s_i32(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, ptr noundef %c, i1 noundef zeroext %scalar_first, ptr noundef readonly captures(none) %fni) unnamed_addr #1 {
 entry:
   %call = tail call ptr @tcg_temp_new_i32() #7
   %call1 = tail call ptr @tcg_temp_new_i32() #7
@@ -2181,7 +2181,7 @@ for.end:                                          ; preds = %for.body, %for.body
 declare void @tcg_temp_free_i32(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_3(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %oprsz, i32 noundef %maxsz, ptr nocapture noundef readonly %g) local_unnamed_addr #1 {
+define dso_local void @tcg_gen_gvec_3(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %oprsz, i32 noundef %maxsz, ptr noundef readonly captures(none) %g) local_unnamed_addr #1 {
 entry:
   %opt_opc = getelementptr inbounds nuw i8, ptr %g, i64 32
   %or = or i32 %aofs, %dofs
@@ -2494,7 +2494,7 @@ if.end59:                                         ; preds = %sw.epilog.thread, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_3_vec(i32 noundef range(i32 0, 256) %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %oprsz, i32 noundef range(i32 8, 33) %tysz, i32 noundef range(i32 3, 6) %type, i1 noundef zeroext %load_dest, ptr nocapture noundef readonly %fni) unnamed_addr #1 {
+define internal fastcc void @expand_3_vec(i32 noundef range(i32 0, 256) %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %oprsz, i32 noundef range(i32 8, 33) %tysz, i32 noundef range(i32 3, 6) %type, i1 noundef zeroext %load_dest, ptr noundef readonly captures(none) %fni) unnamed_addr #1 {
 entry:
   %cmp13.not = icmp eq i32 %oprsz, 0
   br i1 %cmp13.not, label %for.end, label %for.body.lr.ph
@@ -2553,7 +2553,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_3i(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %oprsz, i32 noundef %maxsz, i64 noundef %c, ptr nocapture noundef readonly %g) local_unnamed_addr #1 {
+define dso_local void @tcg_gen_gvec_3i(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %oprsz, i32 noundef %maxsz, i64 noundef %c, ptr noundef readonly captures(none) %g) local_unnamed_addr #1 {
 entry:
   %opt_opc = getelementptr inbounds nuw i8, ptr %g, i64 32
   %or = or i32 %aofs, %dofs
@@ -2866,7 +2866,7 @@ if.end61:                                         ; preds = %sw.epilog.thread, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_3i_vec(i32 noundef range(i32 0, 256) %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %oprsz, i32 noundef range(i32 8, 33) %tysz, i32 noundef range(i32 3, 6) %type, i64 noundef %c, i1 noundef zeroext %load_dest, ptr nocapture noundef readonly %fni) unnamed_addr #1 {
+define internal fastcc void @expand_3i_vec(i32 noundef range(i32 0, 256) %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %oprsz, i32 noundef range(i32 8, 33) %tysz, i32 noundef range(i32 3, 6) %type, i64 noundef %c, i1 noundef zeroext %load_dest, ptr noundef readonly captures(none) %fni) unnamed_addr #1 {
 entry:
   %cmp13.not = icmp eq i32 %oprsz, 0
   br i1 %cmp13.not, label %for.end, label %for.body.lr.ph
@@ -2925,7 +2925,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_4(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %cofs, i32 noundef %oprsz, i32 noundef %maxsz, ptr nocapture noundef readonly %g) local_unnamed_addr #1 {
+define dso_local void @tcg_gen_gvec_4(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %cofs, i32 noundef %oprsz, i32 noundef %maxsz, ptr noundef readonly captures(none) %g) local_unnamed_addr #1 {
 entry:
   %opt_opc = getelementptr inbounds nuw i8, ptr %g, i64 32
   %or = or i32 %aofs, %dofs
@@ -3298,7 +3298,7 @@ if.end61:                                         ; preds = %sw.epilog.thread, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_4_vec(i32 noundef range(i32 0, 256) %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %cofs, i32 noundef %oprsz, i32 noundef range(i32 8, 33) %tysz, i32 noundef range(i32 3, 6) %type, i1 noundef zeroext %write_aofs, ptr nocapture noundef readonly %fni) unnamed_addr #1 {
+define internal fastcc void @expand_4_vec(i32 noundef range(i32 0, 256) %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %cofs, i32 noundef %oprsz, i32 noundef range(i32 8, 33) %tysz, i32 noundef range(i32 3, 6) %type, i1 noundef zeroext %write_aofs, ptr noundef readonly captures(none) %fni) unnamed_addr #1 {
 entry:
   %cmp16.not = icmp eq i32 %oprsz, 0
   br i1 %cmp16.not, label %for.end, label %for.body.lr.ph
@@ -3367,7 +3367,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_4i(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %cofs, i32 noundef %oprsz, i32 noundef %maxsz, i64 noundef %c, ptr nocapture noundef readonly %g) local_unnamed_addr #1 {
+define dso_local void @tcg_gen_gvec_4i(i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %cofs, i32 noundef %oprsz, i32 noundef %maxsz, i64 noundef %c, ptr noundef readonly captures(none) %g) local_unnamed_addr #1 {
 entry:
   %opt_opc = getelementptr inbounds nuw i8, ptr %g, i64 32
   %or = or i32 %aofs, %dofs
@@ -3675,7 +3675,7 @@ if.end54:                                         ; preds = %sw.epilog.thread, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_4i_vec(i32 noundef range(i32 0, 256) %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %cofs, i32 noundef %oprsz, i32 noundef range(i32 8, 33) %tysz, i32 noundef range(i32 3, 6) %type, i64 noundef %c, ptr nocapture noundef readonly %fni) unnamed_addr #1 {
+define internal fastcc void @expand_4i_vec(i32 noundef range(i32 0, 256) %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %cofs, i32 noundef %oprsz, i32 noundef range(i32 8, 33) %tysz, i32 noundef range(i32 3, 6) %type, i64 noundef %c, ptr noundef readonly captures(none) %fni) unnamed_addr #1 {
 entry:
   %cmp13.not = icmp eq i32 %oprsz, 0
   br i1 %cmp13.not, label %for.end, label %for.body

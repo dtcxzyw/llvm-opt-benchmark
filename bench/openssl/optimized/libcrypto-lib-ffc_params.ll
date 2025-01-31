@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.24 = private unnamed_addr constant [13 x i8] c"counter: %d\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_ffc_params_init(ptr nocapture noundef writeonly initializes((0, 96)) %params) local_unnamed_addr #0 {
+define void @ossl_ffc_params_init(ptr noundef writeonly captures(none) initializes((0, 96)) %params) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %params, i8 0, i64 96, i1 false)
   %pcounter = getelementptr inbounds nuw i8, ptr %params, i64 48
@@ -43,10 +43,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_ffc_params_cleanup(ptr nocapture noundef initializes((40, 96)) %params) local_unnamed_addr #2 {
+define void @ossl_ffc_params_cleanup(ptr noundef captures(none) initializes((40, 96)) %params) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %params, align 8
   tail call void @BN_free(ptr noundef %0) #5
@@ -77,7 +77,7 @@ declare void @BN_free(ptr noundef) local_unnamed_addr #3
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_ffc_params_set0_pqg(ptr nocapture noundef %d, ptr noundef %p, ptr noundef %q, ptr noundef %g) local_unnamed_addr #2 {
+define void @ossl_ffc_params_set0_pqg(ptr noundef captures(none) %d, ptr noundef %p, ptr noundef %q, ptr noundef %g) local_unnamed_addr #2 {
 entry:
   %cmp.not = icmp eq ptr %p, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -127,7 +127,7 @@ if.end20:                                         ; preds = %if.then17, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_ffc_params_get0_pqg(ptr nocapture noundef readonly %d, ptr noundef writeonly %p, ptr noundef writeonly %q, ptr noundef writeonly %g) local_unnamed_addr #4 {
+define void @ossl_ffc_params_get0_pqg(ptr noundef readonly captures(none) %d, ptr noundef writeonly %p, ptr noundef writeonly %q, ptr noundef writeonly %g) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %p, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -162,7 +162,7 @@ if.end9:                                          ; preds = %if.then7, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_ffc_params_set0_j(ptr nocapture noundef %d, ptr noundef %j) local_unnamed_addr #2 {
+define void @ossl_ffc_params_set0_j(ptr noundef captures(none) %d, ptr noundef %j) local_unnamed_addr #2 {
 entry:
   %j1 = getelementptr inbounds nuw i8, ptr %d, i64 24
   %0 = load ptr, ptr %j1, align 8
@@ -172,7 +172,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ffc_params_set_seed(ptr nocapture noundef %params, ptr noundef %seed, i64 noundef %seedlen) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_ffc_params_set_seed(ptr noundef captures(none) %params, ptr noundef %seed, i64 noundef %seedlen) local_unnamed_addr #2 {
 entry:
   %seed1 = getelementptr inbounds nuw i8, ptr %params, i64 32
   %0 = load ptr, ptr %seed1, align 8
@@ -216,7 +216,7 @@ return:                                           ; preds = %if.end14, %if.else,
 declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_ffc_params_set_gindex(ptr nocapture noundef writeonly initializes((56, 60)) %params, i32 noundef %index) local_unnamed_addr #0 {
+define void @ossl_ffc_params_set_gindex(ptr noundef writeonly captures(none) initializes((56, 60)) %params, i32 noundef %index) local_unnamed_addr #0 {
 entry:
   %gindex = getelementptr inbounds nuw i8, ptr %params, i64 56
   store i32 %index, ptr %gindex, align 8
@@ -224,7 +224,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_ffc_params_set_pcounter(ptr nocapture noundef writeonly initializes((48, 52)) %params, i32 noundef %index) local_unnamed_addr #0 {
+define void @ossl_ffc_params_set_pcounter(ptr noundef writeonly captures(none) initializes((48, 52)) %params, i32 noundef %index) local_unnamed_addr #0 {
 entry:
   %pcounter = getelementptr inbounds nuw i8, ptr %params, i64 48
   store i32 %index, ptr %pcounter, align 8
@@ -232,7 +232,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_ffc_params_set_h(ptr nocapture noundef writeonly initializes((60, 64)) %params, i32 noundef %index) local_unnamed_addr #0 {
+define void @ossl_ffc_params_set_h(ptr noundef writeonly captures(none) initializes((60, 64)) %params, i32 noundef %index) local_unnamed_addr #0 {
 entry:
   %h = getelementptr inbounds nuw i8, ptr %params, i64 60
   store i32 %index, ptr %h, align 4
@@ -240,7 +240,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_ffc_params_set_flags(ptr nocapture noundef writeonly initializes((64, 68)) %params, i32 noundef %flags) local_unnamed_addr #0 {
+define void @ossl_ffc_params_set_flags(ptr noundef writeonly captures(none) initializes((64, 68)) %params, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %flags1 = getelementptr inbounds nuw i8, ptr %params, i64 64
   store i32 %flags, ptr %flags1, align 8
@@ -248,7 +248,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_ffc_params_enable_flags(ptr nocapture noundef %params, i32 noundef %flags, i32 noundef %enable) local_unnamed_addr #4 {
+define void @ossl_ffc_params_enable_flags(ptr noundef captures(none) %params, i32 noundef %flags, i32 noundef %enable) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq i32 %enable, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -273,7 +273,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_ffc_set_digest(ptr nocapture noundef writeonly initializes((72, 88)) %params, ptr noundef %alg, ptr noundef %props) local_unnamed_addr #0 {
+define void @ossl_ffc_set_digest(ptr noundef writeonly captures(none) initializes((72, 88)) %params, ptr noundef %alg, ptr noundef %props) local_unnamed_addr #0 {
 entry:
   %mdname = getelementptr inbounds nuw i8, ptr %params, i64 72
   store ptr %alg, ptr %mdname, align 8
@@ -283,7 +283,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ffc_params_set_validate_params(ptr nocapture noundef %params, ptr noundef %seed, i64 noundef %seedlen, i32 noundef %counter) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_ffc_params_set_validate_params(ptr noundef captures(none) %params, ptr noundef %seed, i64 noundef %seedlen, i32 noundef %counter) local_unnamed_addr #2 {
 entry:
   %seed1.i = getelementptr inbounds nuw i8, ptr %params, i64 32
   %0 = load ptr, ptr %seed1.i, align 8
@@ -330,7 +330,7 @@ return:                                           ; preds = %if.then9.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_ffc_params_get_validate_params(ptr nocapture noundef readonly %params, ptr noundef writeonly %seed, ptr noundef writeonly %seedlen, ptr noundef writeonly %pcounter) local_unnamed_addr #4 {
+define void @ossl_ffc_params_get_validate_params(ptr noundef readonly captures(none) %params, ptr noundef writeonly %seed, ptr noundef writeonly %seedlen, ptr noundef writeonly %pcounter) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %seed, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -366,7 +366,7 @@ if.end9:                                          ; preds = %if.then7, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ffc_params_copy(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_ffc_params_copy(ptr noundef captures(none) %dst, ptr noundef readonly captures(none) %src) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %src, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -533,7 +533,7 @@ return:                                           ; preds = %if.else4.i67, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ffc_params_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %ignore_q) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_ffc_params_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, i32 noundef %ignore_q) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
@@ -572,7 +572,7 @@ land.end:                                         ; preds = %land.rhs, %lor.rhs,
 declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ffc_params_todata(ptr nocapture noundef readonly %ffc, ptr noundef %bld, ptr noundef %params) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_ffc_params_todata(ptr noundef readonly captures(none) %ffc, ptr noundef %bld, ptr noundef %params) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %ffc, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -734,7 +734,7 @@ declare ptr @ossl_ffc_named_group_get_name(ptr noundef) local_unnamed_addr #3
 declare i32 @ossl_param_build_set_utf8_string(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ffc_params_print(ptr noundef %bp, ptr nocapture noundef readonly %ffc, i32 noundef %indent) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_ffc_params_print(ptr noundef %bp, ptr noundef readonly captures(none) %ffc, i32 noundef %indent) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %ffc, align 8
   %call = tail call i32 @ASN1_bn_print(ptr noundef %bp, ptr noundef nonnull @.str.15, ptr noundef %0, ptr noundef null, i32 noundef %indent) #5

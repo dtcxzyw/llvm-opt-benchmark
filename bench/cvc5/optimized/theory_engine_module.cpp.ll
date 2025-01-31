@@ -81,43 +81,43 @@ declare void @_ZN4cvc58internal6theory13OutputChannelC1ERNS0_18StatisticsRegistr
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN4cvc58internal6theory18TheoryEngineModule8presolveEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory18TheoryEngineModule8presolveEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN4cvc58internal6theory18TheoryEngineModule9postsolveENS0_4prop8SatValueE(ptr nocapture nonnull readnone align 8 %this, i32 %result) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory18TheoryEngineModule9postsolveENS0_4prop8SatValueE(ptr nonnull readnone align 8 captures(none) %this, i32 %result) unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN4cvc58internal6theory18TheoryEngineModule5checkENS1_6Theory6EffortE(ptr nocapture nonnull readnone align 8 %this, i32 %effort) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory18TheoryEngineModule5checkENS1_6Theory6EffortE(ptr nonnull readnone align 8 captures(none) %this, i32 %effort) unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN4cvc58internal6theory18TheoryEngineModule9postCheckENS1_6Theory6EffortE(ptr nocapture nonnull readnone align 8 %this, i32 %effort) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory18TheoryEngineModule9postCheckENS1_6Theory6EffortE(ptr nonnull readnone align 8 captures(none) %this, i32 %effort) unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN4cvc58internal6theory18TheoryEngineModule11notifyLemmaENS0_12NodeTemplateILb0EEENS1_11InferenceIdENS1_13LemmaPropertyERKSt6vectorINS3_ILb1EEESaIS8_EESC_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %n, i32 %id, i32 %p, ptr nocapture nonnull readnone align 1 %skAsserts, ptr nocapture nonnull readnone align 1 %sks) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory18TheoryEngineModule11notifyLemmaENS0_12NodeTemplateILb0EEENS1_11InferenceIdENS1_13LemmaPropertyERKSt6vectorINS3_ILb1EEESaIS8_EESC_(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %n, i32 %id, i32 %p, ptr nonnull readnone align 1 captures(none) %skAsserts, ptr nonnull readnone align 1 captures(none) %sks) unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory18TheoryEngineModule19needsCandidateModelEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory18TheoryEngineModule19needsCandidateModelEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN4cvc58internal6theory18TheoryEngineModule20notifyCandidateModelEPNS1_11TheoryModelE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %m) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory18TheoryEngineModule20notifyCandidateModelEPNS1_11TheoryModelE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %m) unnamed_addr #4 align 2 {
 entry:
   ret void
 }

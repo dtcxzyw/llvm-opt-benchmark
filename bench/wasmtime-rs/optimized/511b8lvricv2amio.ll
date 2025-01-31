@@ -142,7 +142,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.56deb51d4300d1bb4711f96d6950176e.139 = private unnamed_addr constant <{ ptr, [8 x i8], ptr, [8 x i8] }> <{ ptr @anon.56deb51d4300d1bb4711f96d6950176e.77, [8 x i8] c"\03\00\00\00\00\00\00\00", ptr @anon.56deb51d4300d1bb4711f96d6950176e.87, [8 x i8] c"\02\00\00\00\00\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN14cranelift_isle7codegen20BodyContext$LT$W$GT$3new17h205f6e7d4b3735b2E"(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, ptr, ptr, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } } }) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN14cranelift_isle7codegen20BodyContext$LT$W$GT$3new17h205f6e7d4b3735b2E"(ptr writeonly sret({ { { { i64, ptr, {} }, i64 } }, ptr, ptr, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } } }) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } }, align 8
   %5 = alloca { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } }, align 8
   %6 = alloca { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, align 8
@@ -199,7 +199,7 @@ define hidden void @"_ZN14cranelift_isle7codegen20BodyContext$LT$W$GT$3new17h205
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN14cranelift_isle7codegen20BodyContext$LT$W$GT$11enter_scope17hbf6fce1fb786a1c6E"(ptr nocapture writeonly sret({ { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }) align 8 initializes((0, 48)) %0, ptr align 8 %1) unnamed_addr #0 {
+define hidden void @"_ZN14cranelift_isle7codegen20BodyContext$LT$W$GT$11enter_scope17hbf6fce1fb786a1c6E"(ptr writeonly sret({ { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }) align 8 captures(none) initializes((0, 48)) %0, ptr align 8 %1) unnamed_addr #0 {
   %.sroa.0 = alloca { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } }, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   call void @"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h926a50d1d6f943a8E"(ptr nonnull sret({ { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } }) align 8 %.sroa.0, ptr nonnull align 8 %3)
@@ -228,7 +228,7 @@ define hidden zeroext i1 @"_ZN14cranelift_isle7codegen20BodyContext$LT$W$GT$11be
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden zeroext i1 @"_ZN14cranelift_isle7codegen20BodyContext$LT$W$GT$9end_block17hcb3ad09c2a4f2013E"(ptr align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden zeroext i1 @"_ZN14cranelift_isle7codegen20BodyContext$LT$W$GT$9end_block17hcb3ad09c2a4f2013E"(ptr align 8 %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca ptr, align 8
   %4 = alloca [1 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -305,7 +305,7 @@ define internal fastcc zeroext i1 @"_ZN14cranelift_isle7codegen20BodyContext$LT$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen23generate_internal_types28_$u7b$$u7b$closure$u7d$$u7d$17h23b9b862c6d29b04E"(ptr nocapture readnone align 1 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define hidden noundef zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen23generate_internal_types28_$u7b$$u7b$closure$u7d$$u7d$17h23b9b862c6d29b04E"(ptr readnone align 1 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !3
   %5 = icmp eq i64 %4, 0
@@ -313,7 +313,7 @@ define hidden noundef zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen23generate
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @_ZN14cranelift_isle7codegen7Codegen10emit_block17h331cdb966078936eE(ptr align 8 %0, ptr align 8 %1, ptr nocapture readonly align 8 %2, i8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @_ZN14cranelift_isle7codegen7Codegen10emit_block17h331cdb966078936eE(ptr align 8 %0, ptr align 8 %1, ptr readonly align 8 captures(none) %2, i8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [0 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %.sroa.0.i354 = alloca { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } }, align 8
@@ -1762,7 +1762,7 @@ default.unreachable575:                           ; preds = %._crit_edge
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen10emit_block28_$u7b$$u7b$closure$u7d$$u7d$17h9f505d334ca0b89cE"(ptr nocapture readnone align 1 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define hidden noundef zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen10emit_block28_$u7b$$u7b$closure$u7d$$u7d$17h9f505d334ca0b89cE"(ptr readnone align 1 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i16, ptr %3, align 8, !range !5, !noundef !3
   %5 = icmp eq i16 %4, 3
@@ -2203,7 +2203,7 @@ default.unreachable116:                           ; preds = %53
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen9emit_expr28_$u7b$$u7b$closure$u7d$$u7d$17h03a58d92bb7f69d5E"(ptr nocapture nonnull readonly align 8 %0, i64 %1, ptr nonnull align 2 %2, i64 %3, ptr nocapture readonly %4) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen9emit_expr28_$u7b$$u7b$closure$u7d$$u7d$17h03a58d92bb7f69d5E"(ptr nonnull readonly align 8 captures(none) %0, i64 %1, ptr nonnull align 2 %2, i64 %3, ptr readonly captures(none) %4) unnamed_addr #2 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca i64, align 8
   %8 = alloca [1 x { ptr, ptr }], align 8
@@ -2562,7 +2562,7 @@ define internal fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen11emit_sou
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen15emit_constraint17hac733481ee9cd77eE(ptr align 8 %0, ptr align 8 %1, i16 %2, ptr nocapture nonnull readonly align 16 %3) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen15emit_constraint17hac733481ee9cd77eE(ptr align 8 %0, ptr align 8 %1, i16 %2, ptr nonnull readonly align 16 captures(none) %3) unnamed_addr #0 {
   %5 = alloca [0 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -2975,7 +2975,7 @@ default.unreachable126:                           ; preds = %._crit_edge
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen8emit_int17h4de549b55dca37c8E(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1, i128 %2, i64 %3) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen8emit_int17h4de549b55dca37c8E(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, i128 %2, i64 %3) unnamed_addr #0 {
   %5 = alloca [4 x i8], align 4
   %6 = alloca [1 x { { i64, [1 x i64] }, { i64, [1 x i64] }, i64, i32, i32, i8, [7 x i8] }], align 8
   %7 = alloca [1 x { ptr, ptr }], align 8
@@ -3086,7 +3086,7 @@ define internal fastcc zeroext i1 @_ZN14cranelift_isle7codegen7Codegen8emit_int1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN14cranelift_isle7codegen7Codegen18generate_trait_sig28_$u7b$$u7b$closure$u7d$$u7d$17h261f6d7c194bdd8eE"(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr nocapture readonly align 8 %1, ptr nocapture readonly align 8 %2) unnamed_addr #2 {
+define hidden void @"_ZN14cranelift_isle7codegen7Codegen18generate_trait_sig28_$u7b$$u7b$closure$u7d$$u7d$17h261f6d7c194bdd8eE"(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr readonly align 8 captures(none) %1, ptr readonly align 8 captures(none) %2) unnamed_addr #2 {
   %4 = load i64, ptr %2, align 8, !noundef !3
   %5 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   tail call void @_ZN14cranelift_isle7codegen7Codegen9type_name17h4f5388863d610e1eE(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr nonnull align 8 %5, i64 %4, i1 zeroext false)
@@ -3094,7 +3094,7 @@ define hidden void @"_ZN14cranelift_isle7codegen7Codegen18generate_trait_sig28_$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN14cranelift_isle7codegen7Codegen18generate_trait_sig28_$u7b$$u7b$closure$u7d$$u7d$17hc4a54281f1125a7dE"(ptr nocapture writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr nocapture readonly align 8 %1, i64 %2, ptr nocapture readonly align 8 %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN14cranelift_isle7codegen7Codegen18generate_trait_sig28_$u7b$$u7b$closure$u7d$$u7d$17hc4a54281f1125a7dE"(ptr writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, i64 %2, ptr readonly align 8 captures(none) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %6 = alloca [2 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -3150,7 +3150,7 @@ define hidden void @"_ZN14cranelift_isle7codegen7Codegen18generate_trait_sig28_$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen10emit_block28_$u7b$$u7b$closure$u7d$$u7d$17h94b273e6fc97dc33E"(ptr nocapture readnone align 1 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define hidden noundef zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen10emit_block28_$u7b$$u7b$closure$u7d$$u7d$17h94b273e6fc97dc33E"(ptr readnone align 1 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i16, ptr %3, align 8, !range !5, !noundef !3
   %5 = icmp eq i16 %4, 2
@@ -3161,7 +3161,7 @@ define hidden noundef zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen10emit_blo
 declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN87_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..default..Default$GT$7default17h26ce2bbd52fee12fE"(ptr sret({ { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } }) align 8) unnamed_addr #0
@@ -3320,10 +3320,10 @@ declare hidden void @_ZN14cranelift_isle7codegen7Codegen9type_name17h4f5388863d6
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

@@ -72,19 +72,19 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK4cvc58internal11TermContext14computeValueOpENS0_12NodeTemplateILb0EEEj(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %t, i32 noundef returned %tval) unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK4cvc58internal11TermContext14computeValueOpENS0_12NodeTemplateILb0EEEj(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %t, i32 noundef returned %tval) unnamed_addr #3 align 2 {
 entry:
   ret i32 %tval
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK4cvc58internal14RtfTermContext12initialValueEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK4cvc58internal14RtfTermContext12initialValueEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK4cvc58internal14RtfTermContext12computeValueENS0_12NodeTemplateILb0EEEjm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %t, i32 noundef %tval, i64 %child) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZNK4cvc58internal14RtfTermContext12computeValueENS0_12NodeTemplateILb0EEEjm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %t, i32 noundef %tval, i64 %child) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %t, align 8
   %d_kind.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -126,7 +126,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal14RtfTermContext21hasNestedTermChildrenENS0_12NodeTemplateILb0EEE(ptr nocapture noundef readonly %t) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal14RtfTermContext21hasNestedTermChildrenENS0_12NodeTemplateILb0EEE(ptr noundef readonly captures(none) %t) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %t, align 8
   %d_kind.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -157,7 +157,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal14RtfTermContext8getFlagsEjRbS2_(i32 noundef %val, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %inQuant, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %inTerm) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN4cvc58internal14RtfTermContext8getFlagsEjRbS2_(i32 noundef %val, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %inQuant, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %inTerm) local_unnamed_addr #5 align 2 {
 entry:
   %0 = trunc i32 %val to i8
   %frombool = and i8 %0, 1
@@ -171,13 +171,13 @@ entry:
 declare noundef i32 @_ZN4cvc58internal6theory14kindToTheoryIdENS0_4kind6Kind_tE(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK4cvc58internal18InQuantTermContext12initialValueEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK4cvc58internal18InQuantTermContext12initialValueEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK4cvc58internal18InQuantTermContext12computeValueENS0_12NodeTemplateILb0EEEjm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %t, i32 noundef %tval, i64 %index) unnamed_addr #6 align 2 {
+define hidden noundef i32 @_ZNK4cvc58internal18InQuantTermContext12computeValueENS0_12NodeTemplateILb0EEEjm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %t, i32 noundef %tval, i64 %index) unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %t, align 8
   %d_kind.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -208,20 +208,20 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal18InQuantTermContext7inQuantEjRb(i32 noundef %val, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %inQuant) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal18InQuantTermContext7inQuantEjRb(i32 noundef %val, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %inQuant) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq i32 %val, 1
   ret i1 %cmp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK4cvc58internal19PolarityTermContext12initialValueEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK4cvc58internal19PolarityTermContext12initialValueEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK4cvc58internal19PolarityTermContext12computeValueENS0_12NodeTemplateILb0EEEjm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %t, i32 noundef %tval, i64 noundef %index) unnamed_addr #6 align 2 {
+define hidden noundef i32 @_ZNK4cvc58internal19PolarityTermContext12computeValueENS0_12NodeTemplateILb0EEEjm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %t, i32 noundef %tval, i64 noundef %index) unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %t, align 8
   %d_kind.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -278,7 +278,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal19PolarityTermContext8getFlagsEjRbS2_(i32 noundef %val, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %hasPol, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %pol) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN4cvc58internal19PolarityTermContext8getFlagsEjRbS2_(i32 noundef %val, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %hasPol, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %pol) local_unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp ne i32 %val, 0
   %frombool = zext i1 %cmp to i8
@@ -290,13 +290,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK4cvc58internal21TheoryLeafTermContext12initialValueEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK4cvc58internal21TheoryLeafTermContext12initialValueEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK4cvc58internal21TheoryLeafTermContext12computeValueENS0_12NodeTemplateILb0EEEjm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef readonly %t, i32 noundef %tval, i64 %index) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZNK4cvc58internal21TheoryLeafTermContext12computeValueENS0_12NodeTemplateILb0EEEjm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, ptr noundef readonly captures(none) %t, i32 noundef %tval, i64 %index) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %0 = load ptr, ptr %t, align 8
@@ -559,10 +559,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

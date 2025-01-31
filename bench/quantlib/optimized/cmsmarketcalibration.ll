@@ -1336,7 +1336,7 @@ $_ZTIN8QuantLib26XabrSwaptionVolatilityCubeINS_24SwaptionVolCubeSabrModelEEE = c
 @_ZN8QuantLib20CmsMarketCalibrationC1ERNS_6HandleINS_27SwaptionVolatilityStructureEEERN5boost10shared_ptrINS_9CmsMarketEEERKNS_6MatrixENS0_15CalibrationTypeE = unnamed_addr alias void (ptr, ptr, ptr, ptr, i32), ptr @_ZN8QuantLib20CmsMarketCalibrationC2ERNS_6HandleINS_27SwaptionVolatilityStructureEEERN5boost10shared_ptrINS_9CmsMarketEEERKNS_6MatrixENS0_15CalibrationTypeE
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -1353,7 +1353,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
 declare void @llvm.trap() #3
@@ -1780,7 +1780,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20CmsMarketCalibrationC2ERNS_6HandleINS_27SwaptionVolatilityStructureEEERN5boost10shared_ptrINS_9CmsMarketEEERKNS_6MatrixENS0_15CalibrationTypeE(ptr noundef nonnull align 8 dereferenceable(148) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volCube, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %cmsMarket, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %weights, i32 noundef %calibrationType) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20CmsMarketCalibrationC2ERNS_6HandleINS_27SwaptionVolatilityStructureEEERN5boost10shared_ptrINS_9CmsMarketEEERKNS_6MatrixENS0_15CalibrationTypeE(ptr noundef nonnull align 8 dereferenceable(148) initializes((0, 32)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %volCube, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %cmsMarket, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %weights, i32 noundef %calibrationType) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2476,7 +2476,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_27SwaptionVolatilityStructureEE4Link
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20CmsMarketCalibration7computeERKN5boost10shared_ptrINS_11EndCriteriaEEERKNS2_INS_18OptimizationMethodEEERKNS_5ArrayEb(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(148) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %endCriteria, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %method, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %guess, i1 noundef zeroext %isMeanReversionFixed) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20CmsMarketCalibration7computeERKN5boost10shared_ptrINS_11EndCriteriaEEERKNS2_INS_18OptimizationMethodEEERKNS_5ArrayEb(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(148) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %endCriteria, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %method, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %guess, i1 noundef zeroext %isMeanReversionFixed) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5043,7 +5043,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20CmsMarketCalibration7computeERKN5boost10shared_ptrINS_11EndCriteriaEEERKNS2_INS_18OptimizationMethodEEERKNS_6MatrixEbd(ptr dead_on_unwind noalias nocapture writable sret(%"class.QuantLib::Matrix") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(148) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %endCriteria, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %method, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %guess, i1 noundef zeroext %isMeanReversionFixed, double noundef %meanReversionGuess) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20CmsMarketCalibration7computeERKN5boost10shared_ptrINS_11EndCriteriaEEERKNS2_INS_18OptimizationMethodEEERKNS_6MatrixEbd(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::Matrix") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(148) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %endCriteria, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %method, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %guess, i1 noundef zeroext %isMeanReversionFixed, double noundef %meanReversionGuess) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6966,7 +6966,7 @@ unreachable:                                      ; preds = %invoke.cont117, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20CmsMarketCalibration17computeParametricERKN5boost10shared_ptrINS_11EndCriteriaEEERKNS2_INS_18OptimizationMethodEEERKNS_6MatrixEbd(ptr dead_on_unwind noalias nocapture writable sret(%"class.QuantLib::Matrix") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(148) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %endCriteria, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %method, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %guess, i1 noundef zeroext %isMeanReversionFixed, double noundef %meanReversionGuess) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20CmsMarketCalibration17computeParametricERKN5boost10shared_ptrINS_11EndCriteriaEEERKNS2_INS_18OptimizationMethodEEERKNS_6MatrixEbd(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::Matrix") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(148) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %endCriteria, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %method, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %guess, i1 noundef zeroext %isMeanReversionFixed, double noundef %meanReversionGuess) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8910,7 +8910,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 declare double @sqrt(double noundef) local_unnamed_addr #11
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117ObjectiveFunctionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_117ObjectiveFunctionD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(76) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_117ObjectiveFunctionE, i64 16), ptr %this, align 8, !tbaa !14
   %weights_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -9011,7 +9011,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost6detail12shared_countD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -9340,7 +9340,7 @@ declare void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef, ptr noundef, p
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #12
@@ -10204,7 +10204,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_118ObjectiveFunction232updateVolatilityCubeAndCmsMarketERKN8QuantLib5ArrayE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_118ObjectiveFunction232updateVolatilityCubeAndCmsMarketERKN8QuantLib5ArrayE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %x) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10673,7 +10673,7 @@ _ZN12_GLOBAL__N_117ObjectiveFunctionD2Ev.exit:    ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_117ObjectiveFunction32updateVolatilityCubeAndCmsMarketERKN8QuantLib5ArrayE(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_117ObjectiveFunction32updateVolatilityCubeAndCmsMarketERKN8QuantLib5ArrayE(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %x) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -17750,7 +17750,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #17
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib31BackwardflatLinearInterpolationD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -25869,7 +25869,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #11
@@ -39669,7 +39669,7 @@ _ZN12_GLOBAL__N_117ObjectiveFunctionD2Ev.exit:    ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_118ObjectiveFunction432updateVolatilityCubeAndCmsMarketERKN8QuantLib5ArrayE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_118ObjectiveFunction432updateVolatilityCubeAndCmsMarketERKN8QuantLib5ArrayE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %x) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -42458,7 +42458,7 @@ _ZN12_GLOBAL__N_117ObjectiveFunctionD2Ev.exit:    ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_118ObjectiveFunction332updateVolatilityCubeAndCmsMarketERKN8QuantLib5ArrayE(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_118ObjectiveFunction332updateVolatilityCubeAndCmsMarketERKN8QuantLib5ArrayE(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %x) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -43032,7 +43032,7 @@ _ZN12_GLOBAL__N_117ObjectiveFunctionD2Ev.exit:    ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_118ObjectiveFunction532updateVolatilityCubeAndCmsMarketERKN8QuantLib5ArrayE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_118ObjectiveFunction532updateVolatilityCubeAndCmsMarketERKN8QuantLib5ArrayE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %x) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i102 = alloca %"class.QuantLib::DayCounter", align 8
   %ref.tmp4.i = alloca %"class.QuantLib::Date", align 8
@@ -43912,7 +43912,7 @@ _ZN12_GLOBAL__N_117ObjectiveFunctionD2Ev.exit:    ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_118ObjectiveFunction632updateVolatilityCubeAndCmsMarketERKN8QuantLib5ArrayE(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_118ObjectiveFunction632updateVolatilityCubeAndCmsMarketERKN8QuantLib5ArrayE(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %x) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i104 = alloca %"class.QuantLib::DayCounter", align 8
   %ref.tmp4.i = alloca %"class.QuantLib::Date", align 8
@@ -44686,7 +44686,7 @@ unreachable:                                      ; preds = %invoke.cont21
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #4
 

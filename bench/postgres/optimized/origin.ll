@@ -211,7 +211,7 @@ declare ptr @systable_getnext(ptr noundef) local_unnamed_addr #1
 declare void @systable_endscan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -370,7 +370,7 @@ declare void @UnlockSharedObject(i32 noundef, i32 noundef, i16 noundef zeroext, 
 declare void @CatalogTupleDelete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @replorigin_by_oid(i16 noundef zeroext %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @replorigin_by_oid(i16 noundef zeroext %0, i1 noundef zeroext %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = zext i16 %0 to i64
   %5 = tail call ptr @SearchSysCache1(i32 noundef 56, i64 noundef %4) #10
   %.not = icmp ne ptr %5, null
@@ -726,7 +726,7 @@ define dso_local void @CheckPointReplicationOrigin() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #5
@@ -736,7 +736,7 @@ declare i32 @errcode_for_file_access() local_unnamed_addr #1
 declare i32 @OpenTransientFile(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #6
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -942,10 +942,10 @@ define dso_local void @StartupReplicationOrigin() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @replorigin_redo(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @replorigin_redo(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -1493,7 +1493,7 @@ define dso_local i64 @replorigin_session_get_progress(i1 noundef zeroext %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 65535) i64 @pg_replication_origin_create(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 65535) i64 @pg_replication_origin_create(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @RecoveryInProgress() #10
   br i1 %2, label %3, label %replorigin_check_prerequisites.exit
 
@@ -1580,7 +1580,7 @@ declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_replication_origin_drop(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_replication_origin_drop(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @RecoveryInProgress() #10
   br i1 %2, label %3, label %replorigin_check_prerequisites.exit
 
@@ -1603,7 +1603,7 @@ replorigin_check_prerequisites.exit:              ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 65536) i64 @pg_replication_origin_oid(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 65536) i64 @pg_replication_origin_oid(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @RecoveryInProgress() #10
   br i1 %2, label %3, label %replorigin_check_prerequisites.exit
 
@@ -1659,7 +1659,7 @@ replorigin_by_name.exit:                          ; preds = %replorigin_check_pr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_replication_origin_session_setup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_replication_origin_session_setup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   tail call fastcc void @replorigin_check_prerequisites(i1 noundef zeroext true, i1 noundef zeroext false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
@@ -1673,7 +1673,7 @@ define dso_local noundef i64 @pg_replication_origin_session_setup(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_replication_origin_session_reset(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_replication_origin_session_reset(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   tail call fastcc void @replorigin_check_prerequisites(i1 noundef zeroext true, i1 noundef zeroext false)
   tail call void @replorigin_session_reset()
   store i16 0, ptr @replorigin_session_origin, align 2
@@ -1683,7 +1683,7 @@ define dso_local noundef i64 @pg_replication_origin_session_reset(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_replication_origin_session_is_setup(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_replication_origin_session_is_setup(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @RecoveryInProgress() #10
   br i1 %2, label %3, label %replorigin_check_prerequisites.exit
 
@@ -1703,7 +1703,7 @@ replorigin_check_prerequisites.exit:              ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_replication_origin_session_progress(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_replication_origin_session_progress(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   tail call fastcc void @replorigin_check_prerequisites(i1 noundef zeroext true, i1 noundef zeroext false)
@@ -1752,7 +1752,7 @@ replorigin_session_get_progress.exit:             ; preds = %10, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_replication_origin_xact_setup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_replication_origin_xact_setup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   tail call fastcc void @replorigin_check_prerequisites(i1 noundef zeroext true, i1 noundef zeroext false)
@@ -1777,7 +1777,7 @@ define dso_local noundef i64 @pg_replication_origin_xact_setup(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_replication_origin_xact_reset(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_replication_origin_xact_reset(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   tail call fastcc void @replorigin_check_prerequisites(i1 noundef zeroext true, i1 noundef zeroext false)
   store i64 0, ptr @replorigin_session_origin_lsn, align 8
   store i64 0, ptr @replorigin_session_origin_timestamp, align 8
@@ -1785,7 +1785,7 @@ define dso_local noundef i64 @pg_replication_origin_xact_reset(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_replication_origin_advance(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_replication_origin_advance(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1808,7 +1808,7 @@ declare void @LockRelationOid(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare void @UnlockRelationOid(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_replication_origin_progress(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_replication_origin_progress(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @max_replication_slots, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %replorigin_check_prerequisites.exit
@@ -2005,10 +2005,10 @@ declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #9

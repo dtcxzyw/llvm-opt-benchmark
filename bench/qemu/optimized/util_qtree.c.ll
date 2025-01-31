@@ -485,7 +485,7 @@ return:                                           ; preds = %do.end, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @q_tree_remove_internal(ptr nocapture noundef nonnull %tree, ptr noundef %key, i32 noundef range(i32 0, 2) %steal) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @q_tree_remove_internal(ptr noundef nonnull captures(none) %tree, ptr noundef %key, i32 noundef range(i32 0, 2) %steal) unnamed_addr #0 {
 entry:
   %path = alloca [40 x ptr], align 16
   %0 = load ptr, ptr %tree, align 8
@@ -1118,7 +1118,7 @@ return:                                           ; preds = %if.else9.i, %if.the
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @q_tree_foreach(ptr noundef readonly %tree, ptr nocapture noundef readonly %func, ptr noundef %user_data) local_unnamed_addr #0 {
+define dso_local void @q_tree_foreach(ptr noundef readonly %tree, ptr noundef readonly captures(none) %func, ptr noundef %user_data) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %tree, null
   br i1 %cmp.not, label %if.else, label %do.end
@@ -1193,7 +1193,7 @@ while.end:                                        ; preds = %q_tree_node_next.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @q_tree_search(ptr noundef readonly %tree, ptr nocapture noundef readonly %search_func, ptr noundef %user_data) local_unnamed_addr #0 {
+define dso_local ptr @q_tree_search(ptr noundef readonly %tree, ptr noundef readonly captures(none) %search_func, ptr noundef %user_data) local_unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp eq ptr %tree, null
   br i1 %cmp.not.i, label %if.else.i, label %do.end.i
@@ -1319,7 +1319,7 @@ return:                                           ; preds = %do.end, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @q_tree_insert_internal(ptr nocapture noundef nonnull %tree, ptr noundef %key, ptr noundef %value, i32 noundef range(i32 0, 2) %replace) unnamed_addr #0 {
+define internal fastcc void @q_tree_insert_internal(ptr noundef nonnull captures(none) %tree, ptr noundef %key, ptr noundef %value, i32 noundef range(i32 0, 2) %replace) unnamed_addr #0 {
 entry:
   %path = alloca [40 x ptr], align 16
   %0 = load ptr, ptr %tree, align 8
@@ -1805,7 +1805,7 @@ if.end26:                                         ; preds = %if.end26.sink.split
 declare i8 @llvm.smax.i8(i8, i8) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.smin.i8(i8, i8) #5

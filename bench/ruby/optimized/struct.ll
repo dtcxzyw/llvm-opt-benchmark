@@ -665,7 +665,7 @@ struct_define_without_accessor.exit:              ; preds = %7, %9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @struct_make_members_list(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc i64 @struct_make_members_list(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = tail call i64 @rb_ident_hash_new() #15
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -989,7 +989,7 @@ rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @rb_struct_initialize_m(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal noundef i64 @rb_struct_initialize_m(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %struct.struct_hash_set_arg, align 8
   %5 = tail call i64 @rb_obj_class(i64 noundef %2) #15
   %6 = and i64 %2, 7
@@ -2927,7 +2927,7 @@ internal_RSTRUCT_GET.exit32:                      ; preds = %58, %60
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_struct_select(i32 noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define internal i64 @rb_struct_select(i32 noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %.not17 = icmp eq i32 %0, 0
   br i1 %.not17, label %rb_check_arity.exit, label %4
 
@@ -3239,7 +3239,7 @@ internal_RSTRUCT_GET.exit:                        ; preds = %58, %63
 declare void @rb_undef_method(i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @rb_data_s_def(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal noundef i64 @rb_data_s_def(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = tail call i64 @rb_ident_hash_new() #15
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3307,7 +3307,7 @@ define internal noundef i64 @rb_data_s_def(i32 noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @rb_data_initialize_m(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal noundef i64 @rb_data_initialize_m(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %struct.struct_hash_set_arg, align 8
   %5 = tail call i64 @rb_obj_class(i64 noundef %2) #15
   %6 = and i64 %2, 7
@@ -3553,7 +3553,7 @@ declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #2
 declare i64 @rb_sym2id(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i64 @rb_fstring_cstr(ptr noundef) local_unnamed_addr #2
 
@@ -4571,10 +4571,10 @@ declare void @llvm.va_start.p0(ptr) #13
 declare void @llvm.va_end.p0(ptr) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

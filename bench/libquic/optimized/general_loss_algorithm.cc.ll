@@ -26,7 +26,7 @@ $_ZTIN3net22LossDetectionInterfaceE = comdat any
 @_ZN3net20GeneralLossAlgorithmC1ENS_17LossDetectionTypeE = dso_local unnamed_addr alias void (ptr, i32), ptr @_ZN3net20GeneralLossAlgorithmC2ENS_17LossDetectionTypeE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net20GeneralLossAlgorithmC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net20GeneralLossAlgorithmC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net20GeneralLossAlgorithmE, i64 16), ptr %this, align 8
   %loss_detection_timeout_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -39,7 +39,7 @@ invoke.cont:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net20GeneralLossAlgorithmC2ENS_17LossDetectionTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, i32 noundef %loss_type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net20GeneralLossAlgorithmC2ENS_17LossDetectionTypeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %this, i32 noundef %loss_type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net20GeneralLossAlgorithmE, i64 16), ptr %this, align 8
   %loss_detection_timeout_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -54,7 +54,7 @@ invoke.cont:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK3net20GeneralLossAlgorithm20GetLossDetectionTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK3net20GeneralLossAlgorithm20GetLossDetectionTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #1 align 2 {
 entry:
   %loss_type_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %loss_type_, align 8
@@ -62,7 +62,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net20GeneralLossAlgorithm20SetLossDetectionTypeENS_17LossDetectionTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((8, 32)) %this, i32 noundef %loss_type) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net20GeneralLossAlgorithm20SetLossDetectionTypeENS_17LossDetectionTypeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((8, 32)) %this, i32 noundef %loss_type) local_unnamed_addr #0 align 2 {
 entry:
   %loss_detection_timeout_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %loss_type_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -76,10 +76,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net20GeneralLossAlgorithm12DetectLossesERKNS_20QuicUnackedPacketMapENS_8QuicTimeERKNS_8RttStatsEmPSt6vectorISt4pairImtESaISA_EE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(120) %unacked_packets, i64 %time.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %rtt_stats, i64 noundef %largest_newly_acked, ptr nocapture noundef %packets_lost) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net20GeneralLossAlgorithm12DetectLossesERKNS_20QuicUnackedPacketMapENS_8QuicTimeERKNS_8RttStatsEmPSt6vectorISt4pairImtESaISA_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(120) %unacked_packets, i64 %time.coerce, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %rtt_stats, i64 noundef %largest_newly_acked, ptr noundef captures(none) %packets_lost) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %loss_detection_timeout_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %loss_detection_timeout_, align 8
@@ -416,7 +416,7 @@ declare noundef i64 @_ZNK3net20QuicUnackedPacketMap15GetLeastUnackedEv(ptr nound
 declare noundef nonnull align 8 dereferenceable(80) ptr @_ZNK3net20QuicUnackedPacketMap19GetTransmissionInfoEm(ptr noundef nonnull align 8 dereferenceable(120), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @_ZNK3net20GeneralLossAlgorithm14GetLossTimeoutEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #1 align 2 {
+define dso_local i64 @_ZNK3net20GeneralLossAlgorithm14GetLossTimeoutEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #1 align 2 {
 entry:
   %loss_detection_timeout_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %retval.sroa.0.0.copyload = load i64, ptr %loss_detection_timeout_, align 8
@@ -424,7 +424,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net20GeneralLossAlgorithm26SpuriousRetransmitDetectedERKNS_20QuicUnackedPacketMapENS_8QuicTimeERKNS_8RttStatsEm(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(120) %unacked_packets, i64 %time.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %rtt_stats, i64 noundef %spurious_retransmission) unnamed_addr #3 align 2 {
+define dso_local void @_ZN3net20GeneralLossAlgorithm26SpuriousRetransmitDetectedERKNS_20QuicUnackedPacketMapENS_8QuicTimeERKNS_8RttStatsEm(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(120) %unacked_packets, i64 %time.coerce, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %rtt_stats, i64 noundef %spurious_retransmission) unnamed_addr #3 align 2 {
 entry:
   %loss_type_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %loss_type_, align 8
@@ -513,7 +513,7 @@ declare i64 @llvm.umin.i64(i64, i64) #9
 declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

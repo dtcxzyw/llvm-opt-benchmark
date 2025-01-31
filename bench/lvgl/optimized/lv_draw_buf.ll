@@ -140,7 +140,7 @@ lv_draw_buf_width_to_stride_ex.exit:              ; preds = %2, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_draw_buf_width_to_stride_ex(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @lv_draw_buf_width_to_stride_ex(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !10
   %.not = icmp eq ptr %5, null
@@ -171,7 +171,7 @@ lv_draw_buf_align_ex.exit:                        ; preds = %2, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_draw_buf_align_ex(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @lv_draw_buf_align_ex(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !9
   %.not = icmp eq ptr %5, null
@@ -240,10 +240,10 @@ define void @lv_draw_buf_invalidate_cache(ptr noundef %0, ptr noundef %1) local_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_buf_flush_cache(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -533,7 +533,7 @@ declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #3
 declare zeroext i8 @lv_color_format_get_bpp(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @lv_draw_buf_copy(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @lv_draw_buf_copy(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load i64, ptr %0, align 8
   %6 = load i64, ptr %2, align 8
   %7 = xor i64 %6, %5
@@ -1040,7 +1040,7 @@ declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #3
 declare void @lv_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_draw_buf_dup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @lv_draw_buf_dup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i64, ptr %0, align 4
   %3 = lshr i64 %2, 32
   %4 = trunc nuw i64 %3 to i32
@@ -1083,7 +1083,7 @@ lv_draw_buf_dup_ex.exit:                          ; preds = %1, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_draw_buf_dup_ex(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define ptr @lv_draw_buf_dup_ex(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i64, ptr %1, align 4
   %4 = lshr i64 %3, 32
   %5 = trunc nuw i64 %4 to i32
@@ -1509,7 +1509,7 @@ switch.lookup:                                    ; preds = %68
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_draw_buf_has_flag(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define zeroext i1 @lv_draw_buf_has_flag(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = load i64, ptr %0, align 8
   %4 = trunc i64 %3 to i32
   %5 = lshr i32 %4, 16
@@ -1762,7 +1762,7 @@ define void @lv_draw_buf_set_palette(ptr noundef readonly %0, i8 noundef zeroext
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_draw_buf_set_flag(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @lv_draw_buf_set_flag(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = load i64, ptr %0, align 8
   %4 = trunc i64 %3 to i32
   %5 = shl i32 %1, 16
@@ -1776,7 +1776,7 @@ define void @lv_draw_buf_set_flag(ptr nocapture noundef %0, i32 noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_draw_buf_clear_flag(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @lv_draw_buf_clear_flag(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = xor i32 %1, -1
   %4 = load i64, ptr %0, align 8
   %5 = trunc i64 %4 to i32
@@ -1790,7 +1790,7 @@ define void @lv_draw_buf_clear_flag(ptr nocapture noundef %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_draw_buf_from_image(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @lv_draw_buf_from_image(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8
   %4 = lshr i64 %3, 32
   %5 = trunc nuw i64 %4 to i32
@@ -1937,7 +1937,7 @@ declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #3
 declare void @lv_area_set(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8

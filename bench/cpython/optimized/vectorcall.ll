@@ -67,7 +67,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.31 = private unnamed_addr constant [18 x i8] c"MethodDescriptor2\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @VectorCallClass_tpcall(ptr nocapture readnone %self, ptr nocapture readnone %args, ptr nocapture readnone %kwargs) #0 {
+define hidden ptr @VectorCallClass_tpcall(ptr readnone captures(none) %self, ptr readnone captures(none) %args, ptr readnone captures(none) %kwargs) #0 {
 entry:
   %call = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str) #5
   ret ptr %call
@@ -76,14 +76,14 @@ entry:
 declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @VectorCallClass_vectorcall(ptr nocapture readnone %callable, ptr nocapture readnone %args, i64 %nargsf, ptr nocapture readnone %kwnames) #0 {
+define hidden ptr @VectorCallClass_vectorcall(ptr readnone captures(none) %callable, ptr readnone captures(none) %args, i64 %nargsf, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %call = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.1) #5
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_testcapi_VectorCallClass_set_vectorcall(ptr nocapture noundef %self, ptr noundef %arg) #0 {
+define internal ptr @_testcapi_VectorCallClass_set_vectorcall(ptr noundef captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %arg, i64 8
   %arg.val = load ptr, ptr %0, align 8
@@ -209,7 +209,7 @@ declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @PyType_GetName(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_testcapi_pyobject_fastcalldict(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_testcapi_pyobject_fastcalldict(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 3
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -295,7 +295,7 @@ exit:                                             ; preds = %if.end7.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_testcapi_pyobject_vectorcall(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_testcapi_pyobject_vectorcall(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 3
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -413,7 +413,7 @@ exit:                                             ; preds = %if.end12.i, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @function_setvectorcall(ptr nocapture readnone %self, ptr noundef %func) #0 {
+define internal noundef ptr @function_setvectorcall(ptr readnone captures(none) %self, ptr noundef %func) #0 {
 entry:
   %0 = getelementptr i8, ptr %func, i64 8
   %func.val = load ptr, ptr %0, align 8
@@ -435,7 +435,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_testcapi_pyvectorcall_call(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_testcapi_pyvectorcall_call(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %0 = and i64 %nargs, -2
   %or.cond = icmp eq i64 %0, 2
@@ -507,7 +507,7 @@ exit:                                             ; preds = %if.end6.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_testcapi_make_vectorcall_class(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_testcapi_make_vectorcall_class(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %spec.i = alloca %struct.PyType_Spec, align 8
   %or.cond = icmp ult i64 %nargs, 2
@@ -569,7 +569,7 @@ exit:                                             ; preds = %lor.lhs.false, %ski
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_testcapi_has_vectorcall_flag(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @_testcapi_has_vectorcall_flag(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %arg, i64 8
   %arg.val = load ptr, ptr %0, align 8
@@ -613,7 +613,7 @@ declare ptr @PyObject_Vectorcall(ptr noundef, ptr noundef, i64 noundef, ptr noun
 declare void @PyFunction_SetVectorcall(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @override_vectorcall(ptr nocapture readnone %callable, ptr nocapture readnone %args, i64 %nargsf, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @override_vectorcall(ptr readnone captures(none) %callable, ptr readnone captures(none) %args, i64 %nargsf, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %call = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.23) #5
   ret ptr %call
@@ -626,7 +626,7 @@ declare ptr @PyType_FromSpecWithBases(ptr noundef, ptr noundef) local_unnamed_ad
 declare ptr @PyBool_FromLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @func_descr_get(ptr noundef %func, ptr noundef %obj, ptr nocapture readnone %type) #0 {
+define internal ptr @func_descr_get(ptr noundef %func, ptr noundef %obj, ptr readnone captures(none) %type) #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   %cmp1 = icmp eq ptr %obj, null
@@ -653,7 +653,7 @@ return:                                           ; preds = %if.end.i.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @MethodDescriptor_new(ptr noundef %type, ptr nocapture readnone %args, ptr nocapture readnone %kw) #0 {
+define internal ptr @MethodDescriptor_new(ptr noundef %type, ptr readnone captures(none) %args, ptr readnone captures(none) %kw) #0 {
 entry:
   %tp_alloc = getelementptr inbounds nuw i8, ptr %type, i64 304
   %0 = load ptr, ptr %tp_alloc, align 8
@@ -666,7 +666,7 @@ entry:
 declare ptr @PyMethod_New(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @MethodDescriptor_vectorcall(ptr nocapture noundef readonly %callable, ptr nocapture readnone %args, i64 %nargsf, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @MethodDescriptor_vectorcall(ptr noundef readonly captures(none) %callable, ptr readnone captures(none) %args, i64 %nargsf, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %vectorcall = getelementptr inbounds nuw i8, ptr %callable, i64 16
   %0 = load ptr, ptr %vectorcall, align 8
@@ -677,7 +677,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @call_return_args(ptr nocapture readnone %self, ptr noundef returned %args, ptr nocapture readnone %kwargs) #3 {
+define internal noundef ptr @call_return_args(ptr readnone captures(none) %self, ptr noundef returned %args, ptr readnone captures(none) %kwargs) #3 {
 entry:
   %0 = load i32, ptr %args, align 8
   %add.i.i = add i32 %0, 1
@@ -693,7 +693,7 @@ _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @nop_descr_get(ptr noundef returned %func, ptr nocapture readnone %obj, ptr nocapture readnone %type) #3 {
+define internal noundef ptr @nop_descr_get(ptr noundef returned %func, ptr readnone captures(none) %obj, ptr readnone captures(none) %type) #3 {
 entry:
   %0 = load i32, ptr %func, align 8
   %add.i.i = add i32 %0, 1
@@ -709,7 +709,7 @@ _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @MethodDescriptor2_new(ptr noundef %type, ptr nocapture readnone %args, ptr nocapture readnone %kw) #0 {
+define internal ptr @MethodDescriptor2_new(ptr noundef %type, ptr readnone captures(none) %args, ptr readnone captures(none) %kw) #0 {
 entry:
   %call = tail call ptr @_PyObject_New(ptr noundef %type) #5
   %vectorcall = getelementptr inbounds nuw i8, ptr %call, i64 16
@@ -722,10 +722,10 @@ entry:
 declare ptr @_PyObject_New(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

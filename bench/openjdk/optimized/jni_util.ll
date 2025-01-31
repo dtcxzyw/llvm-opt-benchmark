@@ -451,7 +451,7 @@ JNU_ThrowOutOfMemoryError.exit:                   ; preds = %75, %74, %69, %68, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
@@ -459,7 +459,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define i64 @JNU_CallMethodByName(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ...) local_unnamed_addr #0 {
@@ -1213,7 +1213,7 @@ define ptr @JNU_ClassString(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @JNU_NewStringPlatform(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1597,7 +1597,7 @@ newStringCp1252.exit:                             ; preds = %128, %143, %148, %.
 182:                                              ; preds = %2
   %183 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
   %184 = trunc i64 %183 to i32
-  %185 = tail call fastcc ptr @newSizedStringJava(ptr noundef %0, ptr noundef %1, i32 noundef %184)
+  %185 = tail call fastcc ptr @newSizedStringJava(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %184)
   br label %newStringUTF8.exit
 
 newStringUTF8.exit:                               ; preds = %177, %172, %54, %newSizedString8859_1.exit.i, %182, %newStringCp1252.exit, %newString646_US.exit, %newString8859_1.exit
@@ -2336,7 +2336,7 @@ define noundef ptr @JNU_GetStringPlatformCharsStrict(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @JNU_ReleaseStringPlatformChars(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef %2) local_unnamed_addr #6 {
+define void @JNU_ReleaseStringPlatformChars(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #6 {
   tail call void @free(ptr noundef %2) #10
   ret void
 }
@@ -3229,7 +3229,7 @@ JNU_ClassString.exit.thread:                      ; preds = %23, %17, %9, %JNU_C
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @getStringBytes(ptr noundef %0, ptr noundef %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #0 {
@@ -3347,10 +3347,10 @@ JNU_ThrowIllegalArgumentException.exit:           ; preds = %52, %57
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9

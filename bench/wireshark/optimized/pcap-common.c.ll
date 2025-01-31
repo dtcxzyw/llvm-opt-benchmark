@@ -1070,7 +1070,7 @@ pcap_read_i2c_linux_pseudoheader.exit:            ; preds = %415
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @pcap_read_post_process(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
@@ -1943,7 +1943,7 @@ define range(i32 0, 2) i32 @wtap_encap_requires_phdr(i32 noundef %0) local_unnam
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden range(i32 8, 6) i32 @pcap_get_phdr_size(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define hidden range(i32 8, 6) i32 @pcap_get_phdr_size(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   switch i32 %0, label %25 [
     i32 13, label %26
     i32 44, label %3
@@ -2031,7 +2031,7 @@ define hidden range(i32 8, 6) i32 @pcap_get_phdr_size(i32 noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @pcap_write_phdr(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @pcap_write_phdr(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca %struct.i2c_linux_file_hdr, align 1
   %6 = alloca [16 x i8], align 16
   %7 = alloca [4 x i8], align 2
@@ -2747,10 +2747,10 @@ declare i32 @wtap_dump_file_write(ptr noundef, ptr noundef, i64 noundef, ptr nou
 declare i16 @llvm.bswap.i16(i16) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7

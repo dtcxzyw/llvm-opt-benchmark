@@ -1175,7 +1175,7 @@ declare i32 @ossl_quic_trace(i32 noundef, i32 noundef, i32 noundef, ptr noundef,
 declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ssl_print_hex(ptr noundef %bio, i32 noundef range(i32 0, 15) %indent, ptr noundef %name, ptr nocapture noundef readonly %msg, i64 noundef %msglen) unnamed_addr #0 {
+define internal fastcc void @ssl_print_hex(ptr noundef %bio, i32 noundef range(i32 0, 15) %indent, ptr noundef %name, ptr noundef readonly captures(none) %msg, i64 noundef %msglen) unnamed_addr #0 {
 entry:
   %call = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef %indent, i32 noundef 80) #3
   %conv = trunc i64 %msglen to i32
@@ -1207,7 +1207,7 @@ declare ptr @SSL_alert_desc_string_long(i32 noundef) local_unnamed_addr #1
 declare i32 @BIO_indent(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_print_client_hello(ptr noundef %bio, ptr nocapture noundef readonly %sc, ptr noundef %msg, i64 noundef %msglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_print_client_hello(ptr noundef %bio, ptr noundef readonly captures(none) %sc, ptr noundef %msg, i64 noundef %msglen) unnamed_addr #0 {
 entry:
   %msg.addr = alloca ptr, align 8
   %msglen.addr = alloca i64, align 8
@@ -1488,7 +1488,7 @@ return:                                           ; preds = %if.end.i40, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dtls_print_hello_vfyrequest(ptr noundef %bio, ptr nocapture noundef readonly %msg, i64 noundef %msglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dtls_print_hello_vfyrequest(ptr noundef %bio, ptr noundef readonly captures(none) %msg, i64 noundef %msglen) unnamed_addr #0 {
 entry:
   %cmp.i = icmp ult i64 %msglen, 2
   br i1 %cmp.i, label %return, label %if.end.i
@@ -1753,7 +1753,7 @@ return:                                           ; preds = %if.end.i14, %land.l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_print_server_keyex(ptr noundef %bio, ptr nocapture noundef readonly %sc, ptr noundef %msg, i64 noundef %msglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_print_server_keyex(ptr noundef %bio, ptr noundef readonly captures(none) %sc, ptr noundef %msg, i64 noundef %msglen) unnamed_addr #0 {
 entry:
   %msg.addr = alloca ptr, align 8
   %msglen.addr = alloca i64, align 8
@@ -2161,7 +2161,7 @@ return:                                           ; preds = %if.end.i144, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_print_client_keyex(ptr noundef %bio, ptr noundef %sc, ptr nocapture noundef readonly %msg, i64 noundef %msglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_print_client_keyex(ptr noundef %bio, ptr noundef %sc, ptr noundef readonly captures(none) %msg, i64 noundef %msglen) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %sc, i64 696
   %sc.val = load ptr, ptr %0, align 8
@@ -2480,7 +2480,7 @@ return:                                           ; preds = %if.end.i80, %sw.bb2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_print_certificates(ptr noundef %bio, ptr nocapture noundef readonly %sc, i32 noundef %server, ptr noundef %msg, i64 noundef %msglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_print_certificates(ptr noundef %bio, ptr noundef readonly captures(none) %sc, i32 noundef %server, ptr noundef %msg, i64 noundef %msglen) unnamed_addr #0 {
 entry:
   %x.i = alloca ptr, align 8
   %q.i = alloca ptr, align 8
@@ -2848,7 +2848,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_print_signature(ptr noundef %bio, ptr nocapture noundef readonly %sc, ptr nocapture noundef nonnull %pmsg, ptr nocapture noundef nonnull %pmsglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_print_signature(ptr noundef %bio, ptr noundef readonly captures(none) %sc, ptr noundef nonnull captures(none) %pmsg, ptr noundef nonnull captures(none) %pmsglen) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %pmsglen, align 8
   %cmp = icmp ult i64 %0, 2
@@ -2956,7 +2956,7 @@ return:                                           ; preds = %ssl_print_hex.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_print_cert_request(ptr noundef %bio, ptr nocapture noundef readonly %sc, ptr noundef %msg, i64 noundef %msglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_print_cert_request(ptr noundef %bio, ptr noundef readonly captures(none) %sc, ptr noundef %msg, i64 noundef %msglen) unnamed_addr #0 {
 entry:
   %msg.addr = alloca ptr, align 8
   %msglen.addr = alloca i64, align 8
@@ -3268,7 +3268,7 @@ return:                                           ; preds = %if.end105, %while.c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_print_ticket(ptr noundef %bio, ptr nocapture noundef readonly %sc, ptr noundef %msg, i64 noundef %msglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_print_ticket(ptr noundef %bio, ptr noundef readonly captures(none) %sc, ptr noundef %msg, i64 noundef %msglen) unnamed_addr #0 {
 entry:
   %msg.addr = alloca ptr, align 8
   %msglen.addr = alloca i64, align 8
@@ -3464,7 +3464,7 @@ return:                                           ; preds = %if.end.i23, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_print_extensions(ptr noundef %bio, i32 noundef range(i32 6, 9) %indent, i32 noundef %server, i8 noundef zeroext range(i8 1, 14) %mt, ptr nocapture noundef nonnull %msgin, ptr nocapture noundef nonnull %msginlen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_print_extensions(ptr noundef %bio, i32 noundef range(i32 6, 9) %indent, i32 noundef %server, i8 noundef zeroext range(i8 1, 14) %mt, ptr noundef nonnull captures(none) %msgin, ptr noundef nonnull captures(none) %msginlen) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %msginlen, align 8
   %1 = load ptr, ptr %msgin, align 8
@@ -4284,7 +4284,7 @@ return:                                           ; preds = %if.end316.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_ssl_trace_list(ptr noundef %bio, i32 noundef range(i32 6, 13) %indent, ptr nocapture noundef readonly %msg, i64 noundef range(i64 0, 65536) %msglen, i64 noundef range(i64 1, 3) %vlen, ptr nocapture noundef readonly %tbl, i64 noundef range(i64 2, 50) %ntbl) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_ssl_trace_list(ptr noundef %bio, i32 noundef range(i32 6, 13) %indent, ptr noundef readonly captures(none) %msg, i64 noundef range(i64 0, 65536) %msglen, i64 noundef range(i64 1, 3) %vlen, ptr noundef readonly captures(none) %tbl, i64 noundef range(i64 2, 50) %ntbl) unnamed_addr #0 {
 entry:
   %rem.lhs.trunc = trunc nuw i64 %msglen to i16
   %rem.rhs.trunc = trunc nuw nsw i64 %vlen to i16
@@ -4381,7 +4381,7 @@ return:                                           ; preds = %do_ssl_trace_str.ex
 declare i32 @BIO_dump_indent(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_print_random(ptr noundef %bio, ptr nocapture noundef nonnull %pmsg, ptr nocapture noundef nonnull %pmsglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_print_random(ptr noundef %bio, ptr noundef nonnull captures(none) %pmsg, ptr noundef nonnull captures(none) %pmsglen) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %pmsglen, align 8
   %cmp = icmp ult i64 %0, 32
@@ -4441,7 +4441,7 @@ return:                                           ; preds = %entry, %ssl_print_h
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_print_hexbuf(ptr noundef %bio, i32 noundef range(i32 6, 9) %indent, ptr noundef %name, i64 noundef range(i64 1, 3) %nlen, ptr nocapture noundef nonnull %pmsg, ptr nocapture noundef nonnull %pmsglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_print_hexbuf(ptr noundef %bio, i32 noundef range(i32 6, 9) %indent, ptr noundef %name, i64 noundef range(i64 1, 3) %nlen, ptr noundef nonnull captures(none) %pmsg, ptr noundef nonnull captures(none) %pmsglen) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pmsg, align 8
   %1 = load i64, ptr %pmsglen, align 8
@@ -4504,7 +4504,7 @@ return:                                           ; preds = %if.end6, %entry, %s
 declare i32 @SSL_version(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_print_raw_public_key(ptr noundef %bio, ptr nocapture noundef readonly %ssl, ptr nocapture noundef nonnull %pmsg, ptr nocapture noundef nonnull %pmsglen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_print_raw_public_key(ptr noundef %bio, ptr noundef readonly captures(none) %ssl, ptr noundef nonnull captures(none) %pmsg, ptr noundef nonnull captures(none) %pmsglen) unnamed_addr #0 {
 entry:
   %msg = alloca ptr, align 8
   %0 = load ptr, ptr %pmsg, align 8
@@ -4585,10 +4585,10 @@ declare void @X509_NAME_free(ptr noundef) local_unnamed_addr #1
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

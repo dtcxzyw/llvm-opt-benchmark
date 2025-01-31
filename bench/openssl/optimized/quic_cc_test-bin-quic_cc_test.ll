@@ -564,12 +564,12 @@ if.end172:                                        ; preds = %if.then171, %err
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal i64 @fake_now(ptr nocapture readnone %arg) #3 {
+define internal i64 @fake_now(ptr readnone captures(none) %arg) #3 {
 entry:
   %retval.sroa.0.0.copyload = load i64, ptr @fake_time.0, align 8
   ret i64 %retval.sroa.0.0.copyload
@@ -586,7 +586,7 @@ declare void @OSSL_PARAM_construct_uint64(ptr sret(%struct.ossl_param_st) align 
 declare i32 @test_uint64_t_ge(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @net_sim_process(ptr nocapture noundef nonnull %s, i64 noundef range(i64 0, 2) %skip_forward) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @net_sim_process(ptr noundef nonnull captures(none) %s, i64 noundef range(i64 0, 2) %skip_forward) unnamed_addr #0 {
 entry:
   %loss_info.i = alloca %struct.ossl_cc_loss_info_st, align 8
   %ack_info.i = alloca %struct.ossl_cc_ack_info_st, align 8
@@ -790,7 +790,7 @@ declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unname
 declare i32 @test_double_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @net_pkt_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #4 {
+define internal range(i32 -1, 2) i32 @net_pkt_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #4 {
 entry:
   %next_time = getelementptr inbounds nuw i8, ptr %a, i64 24
   %next_time1 = getelementptr inbounds nuw i8, ptr %b, i64 24
@@ -809,7 +809,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @ossl_pqueue_push(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare ptr @ossl_pqueue_peek(ptr noundef) local_unnamed_addr #1
 
@@ -838,10 +838,10 @@ declare i32 @llvm.ucmp.i32.i64(i64, i64) #6
 declare i64 @llvm.uadd.sat.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

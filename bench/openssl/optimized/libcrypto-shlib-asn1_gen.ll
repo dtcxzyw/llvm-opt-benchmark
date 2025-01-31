@@ -148,7 +148,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @X509V3_set_nconf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @generate_v3(ptr noundef %str, ptr noundef %cnf, i32 noundef %depth, ptr nocapture noundef nonnull writeonly %perr) unnamed_addr #0 {
+define internal fastcc ptr @generate_v3(ptr noundef %str, ptr noundef %cnf, i32 noundef %depth, ptr noundef nonnull writeonly captures(none) %perr) unnamed_addr #0 {
 entry:
   %vtmp.i = alloca %struct.CONF_VALUE, align 8
   %rdlen.i = alloca i64, align 8
@@ -737,7 +737,7 @@ entry:
 declare i32 @CONF_parse_list(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @mask_cb(ptr noundef %elem, i32 noundef %len, ptr nocapture noundef %arg) #0 {
+define internal range(i32 0, 2) i32 @mask_cb(ptr noundef %elem, i32 noundef %len, ptr noundef captures(none) %arg) #0 {
 entry:
   %cmp = icmp eq ptr %elem, null
   br i1 %cmp, label %return, label %if.end
@@ -854,7 +854,7 @@ return:                                           ; preds = %for.inc.i18, %for.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @asn1_cb(ptr noundef %elem, i32 noundef %len, ptr nocapture noundef %bitstr) #0 {
+define internal range(i32 -1, 2) i32 @asn1_cb(ptr noundef %elem, i32 noundef %len, ptr noundef captures(none) %bitstr) #0 {
 entry:
   %tmp_tag = alloca i32, align 4
   %tmp_class = alloca i32, align 4
@@ -1244,14 +1244,14 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare void @ASN1_put_object(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @d2i_ASN1_TYPE(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_tagging(ptr noundef %vstart, i32 noundef %vlen, ptr nocapture noundef writeonly %ptag, ptr nocapture noundef writeonly %pclass) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_tagging(ptr noundef %vstart, i32 noundef %vlen, ptr noundef writeonly captures(none) %ptag, ptr noundef writeonly captures(none) %pclass) unnamed_addr #0 {
 entry:
   %eptr = alloca ptr, align 8
   %tobool.not = icmp eq ptr %vstart, null
@@ -1336,7 +1336,7 @@ return:                                           ; preds = %if.else24, %sw.bb22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @append_exp(ptr nocapture noundef %arg, i32 noundef %exp_tag, i32 noundef %exp_class, i32 noundef range(i32 0, 2) %exp_constructed, i32 noundef range(i32 0, 2) %exp_pad, i32 noundef range(i32 0, 2) %imp_ok) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @append_exp(ptr noundef captures(none) %arg, i32 noundef %exp_tag, i32 noundef %exp_class, i32 noundef range(i32 0, 2) %exp_constructed, i32 noundef range(i32 0, 2) %exp_pad, i32 noundef range(i32 0, 2) %imp_ok) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %arg, align 8
   %cmp = icmp eq i32 %0, -1
@@ -1399,15 +1399,15 @@ return:                                           ; preds = %if.end15, %if.then2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @OPENSSL_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #1
 
@@ -1501,13 +1501,13 @@ declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #1
 declare i32 @ASN1_BIT_STRING_set_bit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -1995,7 +1995,7 @@ sc_expand.exit:                                   ; preds = %if.then19.i596.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i64 @compress_stream(ptr nocapture noundef writeonly initializes((0, 9)) %buf, i64 noundef %buf_size, ptr nocapture noundef readonly %rose, ptr noundef readonly %stream) local_unnamed_addr #0 {
+define hidden i64 @compress_stream(ptr noundef writeonly captures(none) initializes((0, 9)) %buf, i64 noundef %buf_size, ptr noundef readonly captures(none) %rose, ptr noundef readonly %stream) local_unnamed_addr #0 {
 entry:
   %stateOffsets.i = getelementptr inbounds nuw i8, ptr %rose, i64 284
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %stream, i64 16
@@ -6166,10 +6166,10 @@ sc_size.exit:                                     ; preds = %if.end19.i.i.i, %do
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i64 @sc_som_expand(ptr nocapture noundef readonly %rose, i64 noundef range(i64 1, 0) %currOffset, ptr nocapture noundef %stream, ptr noundef %buf, i64 noundef range(i64 9, 0) %buf_size) unnamed_addr #0 {
+define internal fastcc i64 @sc_som_expand(ptr noundef readonly captures(none) %rose, i64 noundef range(i64 1, 0) %currOffset, ptr noundef captures(none) %stream, ptr noundef %buf, i64 noundef range(i64 9, 0) %buf_size) unnamed_addr #0 {
 entry:
   %somLocation = getelementptr inbounds nuw i8, ptr %rose, i64 352
   %0 = load i32, ptr %somLocation, align 4
@@ -7012,7 +7012,7 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #3
 declare i64 @llvm.ctpop.i64(i64) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i64 @sc_left_compress(ptr nocapture noundef readonly %rose, i64 noundef %currOffset, ptr nocapture noundef readonly %stream, ptr nocapture noundef writeonly %buf) unnamed_addr #0 {
+define internal fastcc i64 @sc_left_compress(ptr noundef readonly captures(none) %rose, i64 noundef %currOffset, ptr noundef readonly captures(none) %stream, ptr noundef writeonly captures(none) %buf) unnamed_addr #0 {
 entry:
   %si_state = alloca [7 x %struct.mmbit_sparse_state], align 16
   %activeLeftIterOffset = getelementptr inbounds nuw i8, ptr %rose, i64 416
@@ -7638,7 +7638,7 @@ return:                                           ; preds = %if.else16.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i64 @sc_som_compress(ptr nocapture noundef readonly %rose, i64 noundef range(i64 1, 0) %currOffset, ptr nocapture noundef readonly %stream, ptr nocapture noundef writeonly %buf, i64 noundef %buf_size) unnamed_addr #0 {
+define internal fastcc i64 @sc_som_compress(ptr noundef readonly captures(none) %rose, i64 noundef range(i64 1, 0) %currOffset, ptr noundef readonly captures(none) %stream, ptr noundef writeonly captures(none) %buf, i64 noundef %buf_size) unnamed_addr #0 {
 entry:
   %somLocation = getelementptr inbounds nuw i8, ptr %rose, i64 352
   %0 = load i32, ptr %somLocation, align 4
@@ -8600,10 +8600,10 @@ return:                                           ; preds = %if.end19.i, %do.bod
 declare i32 @llvm.umin.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }

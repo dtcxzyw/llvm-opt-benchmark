@@ -61,7 +61,7 @@ $_ZTV18LogMessageTemplateILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE = co
 @switch.table._ZN14DumpAllocStats11print_statsEii = private unnamed_addr constant [23 x ptr] [ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14DumpAllocStats11print_statsEii(ptr nocapture noundef nonnull align 4 dereferenceable(436) initializes((96, 112), (280, 296)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14DumpAllocStats11print_statsEii(ptr noundef nonnull align 4 captures(none) dereferenceable(436) initializes((96, 112), (280, 296)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.LogMessageTemplate, align 8
   %5 = load i32, ptr %0, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32

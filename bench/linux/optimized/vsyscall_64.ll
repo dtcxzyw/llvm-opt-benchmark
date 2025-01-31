@@ -120,7 +120,7 @@ module asm ".popsection\09\09\09\09\09"
 declare dso_local i32 @__SCT__tp_func_emulate_vsyscall(ptr noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_emulate_vsyscall(ptr nocapture readnone %0, i32 noundef %1) #1 align 16 {
+define dso_local noundef i32 @__traceiter_emulate_vsyscall(ptr readnone captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_emulate_vsyscall, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -141,15 +141,15 @@ define dso_local noundef i32 @__traceiter_emulate_vsyscall(ptr nocapture readnon
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_emulate_vsyscall(ptr nocapture readnone %0, i32 %1) #2 align 16 {
+define dso_local void @__probestub_emulate_vsyscall(ptr readnone captures(none) %0, i32 %1) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @trace_event_raw_event_emulate_vsyscall(ptr noundef %0, i32 noundef %1) #1 align 16 {
@@ -658,7 +658,7 @@ default.unreachable9:                             ; preds = %192
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @warn_bad_vsyscall(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc void @warn_bad_vsyscall(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #1 align 16 {
   %4 = load i32, ptr @show_unhandled_signals, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %28, label %6
@@ -915,7 +915,7 @@ define dso_local void @map_vsyscall() local_unnamed_addr #9 section ".init.text"
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @trace_event_buffer_reserve(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
@@ -969,7 +969,7 @@ declare ptr @llvm.returnaddress(i32 immarg) #11
 declare ptr @llvm.frameaddress.p0(i32 immarg) #11
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @___ratelimit(ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -987,7 +987,7 @@ declare dso_local i32 @force_sig_fault(i32 noundef, i32 noundef, ptr noundef) lo
 declare dso_local i32 @__secure_computing(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef nonnull ptr @gate_vma_name(ptr nocapture readnone %0) #2 align 16 {
+define internal noundef nonnull ptr @gate_vma_name(ptr readnone captures(none) %0) #2 align 16 {
   ret ptr @.str.18
 }
 

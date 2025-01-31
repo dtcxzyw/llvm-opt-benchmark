@@ -74,7 +74,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.54 = private unnamed_addr constant [43 x i8] c"ssrem inet_ntop() failed with errno %d: %s\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @Curl_sock_assign_addr(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @Curl_sock_assign_addr(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   store i32 %5, ptr %0, align 8
@@ -110,10 +110,10 @@ define dso_local void @Curl_sock_assign_addr(ptr nocapture noundef writeonly ini
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 8) i32 @Curl_socket_open(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef initializes((0, 4)) %4) local_unnamed_addr #2 {
+define dso_local range(i32 0, 8) i32 @Curl_socket_open(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) initializes((0, 4)) %4) local_unnamed_addr #2 {
   %6 = alloca %struct.Curl_sockaddr_ex, align 8
   %.not = icmp eq ptr %2, null
   %spec.select = select i1 %.not, ptr %6, ptr %2
@@ -252,7 +252,7 @@ define internal void @cf_socket_destroy(ptr noundef %0, ptr noundef %1) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 46) i32 @cf_tcp_connect(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3) #2 {
+define internal range(i32 0, 46) i32 @cf_tcp_connect(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(none) %3) #2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [256 x i8], align 16
@@ -667,7 +667,7 @@ socket_close.exit:                                ; preds = %41, %47
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cf_socket_get_host(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) #3 {
+define internal void @cf_socket_get_host(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 80
@@ -757,7 +757,7 @@ define internal void @cf_socket_adjust_pollset(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @cf_socket_data_pending(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 {
+define internal zeroext i1 @cf_socket_data_pending(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 160
@@ -780,7 +780,7 @@ define internal zeroext i1 @cf_socket_data_pending(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @cf_socket_send(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef initializes((0, 4)) %4) #2 {
+define internal i64 @cf_socket_send(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef captures(none) initializes((0, 4)) %4) #2 {
   %6 = alloca [256 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -1059,7 +1059,7 @@ define internal i64 @cf_socket_recv(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cf_socket_cntrl(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr nocapture readnone %4) #2 {
+define internal noundef i32 @cf_socket_cntrl(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr readnone captures(none) %4) #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   switch i32 %2, label %52 [
@@ -1145,7 +1145,7 @@ cf_socket_active.exit:                            ; preds = %._crit_edge.i, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @cf_socket_conn_is_alive(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) #2 {
+define internal noundef zeroext i1 @cf_socket_conn_is_alive(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) #2 {
   %4 = alloca [1 x %struct.pollfd], align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -1278,7 +1278,7 @@ define internal noundef zeroext i1 @cf_socket_conn_is_alive(ptr noundef %0, ptr 
 declare i32 @Curl_cf_def_conn_keep_alive(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cf_socket_query(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #2 {
+define internal i32 @cf_socket_query(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   switch i32 %2, label %39 [
@@ -1361,7 +1361,7 @@ define internal i32 @cf_socket_query(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_cf_tcp_create(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #2 {
+define dso_local i32 @Curl_cf_tcp_create(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %7 = load ptr, ptr @Curl_ccalloc, align 8
@@ -1437,7 +1437,7 @@ define dso_local i32 @Curl_cf_tcp_create(ptr nocapture noundef writeonly initial
 declare i32 @Curl_cf_create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 46) i32 @cf_udp_connect(ptr noundef %0, ptr noundef %1, i1 zeroext %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) #2 {
+define internal range(i32 0, 46) i32 @cf_udp_connect(ptr noundef %0, ptr noundef %1, i1 zeroext %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3) #2 {
   %5 = alloca [256 x i8], align 16
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -1667,7 +1667,7 @@ cf_udp_setup_quic.exit.thread:                    ; preds = %79, %83, %86, %cf_u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_cf_udp_create(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #2 {
+define dso_local i32 @Curl_cf_udp_create(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %7 = load ptr, ptr @Curl_ccalloc, align 8
@@ -1741,7 +1741,7 @@ define dso_local i32 @Curl_cf_udp_create(ptr nocapture noundef writeonly initial
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_cf_unix_create(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #2 {
+define dso_local i32 @Curl_cf_unix_create(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %7 = load ptr, ptr @Curl_ccalloc, align 8
@@ -1815,7 +1815,7 @@ define dso_local i32 @Curl_cf_unix_create(ptr nocapture noundef writeonly initia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 3) i32 @cf_tcp_accept_connect(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i1 zeroext %2, ptr nocapture noundef writeonly %3) #5 {
+define internal range(i32 0, 3) i32 @cf_tcp_accept_connect(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i1 zeroext %2, ptr noundef writeonly captures(none) %3) #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i8, ptr %5, align 4
   %7 = and i8 %6, 1
@@ -1832,7 +1832,7 @@ define internal range(i32 0, 3) i32 @cf_tcp_accept_connect(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_conn_tcp_listen_set(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #2 {
+define dso_local i32 @Curl_conn_tcp_listen_set(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   tail call void @Curl_conn_cf_discard_all(ptr noundef %0, ptr noundef %1, i32 noundef %2) #13
@@ -1973,7 +1973,7 @@ declare { i64, i32 } @Curl_now() local_unnamed_addr #4
 declare void @Curl_trc_cf_infof(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 3) i32 @Curl_conn_tcp_accepted_set(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #2 {
+define dso_local range(i32 0, 3) i32 @Curl_conn_tcp_accepted_set(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 {
   %5 = alloca [256 x i8], align 16
   %6 = alloca %struct.Curl_sockaddr_storage, align 8
   %7 = alloca i32, align 4
@@ -2609,7 +2609,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   br i1 %.not140.i, label %.thread171.i, label %196
 
 196:                                              ; preds = %193
-  %197 = call i64 @strtoul(ptr nocapture noundef nonnull %.0110.i, ptr noundef null, i32 noundef 10) #13
+  %197 = call i64 @strtoul(ptr noundef nonnull captures(none) %.0110.i, ptr noundef null, i32 noundef 10) #13
   %198 = icmp ugt i64 %197, 4294967295
   br i1 %198, label %261, label %199
 
@@ -3076,13 +3076,13 @@ declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 
 declare i32 @curlx_sltosi(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 declare i32 @Curl_if2ip(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
@@ -3102,7 +3102,7 @@ declare i32 @inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr
 declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #10
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare i32 @bind(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
@@ -3131,7 +3131,7 @@ declare i64 @Curl_bufq_read(ptr noundef, ptr noundef, i64 noundef, ptr noundef) 
 declare i64 @Curl_bufq_slurp(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @nw_in_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef initializes((0, 4)) %3) #2 {
+define internal i64 @nw_in_read(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) initializes((0, 4)) %3) #2 {
   %5 = alloca [256 x i8], align 16
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -3221,10 +3221,10 @@ declare i64 @llvm.smin.i64(i64, i64) #11
 declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

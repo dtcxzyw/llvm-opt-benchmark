@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN16G1RegionsOnNodesD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN16G1RegionsOnNodesD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16G1RegionsOnNodesC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN16G1RegionsOnNodesC2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr @_ZN6G1NUMA5_instE, align 8
@@ -46,7 +46,7 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEn
 declare noundef i32 @_ZNK6G1NUMA16num_active_nodesEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16G1RegionsOnNodes5clearEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16G1RegionsOnNodes5clearEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef i32 @_ZNK6G1NUMA16num_active_nodesEv(ptr noundef nonnull align 8 dereferenceable(56) %3) #3
@@ -70,7 +70,7 @@ define hidden void @_ZN16G1RegionsOnNodes5clearEv(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16G1RegionsOnNodesD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN16G1RegionsOnNodesD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %2) #3
   ret void
@@ -79,7 +79,7 @@ define hidden void @_ZN16G1RegionsOnNodesD2Ev(ptr nocapture noundef nonnull read
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN16G1RegionsOnNodes3addEP12G1HeapRegion(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN16G1RegionsOnNodes3addEP12G1HeapRegion(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -103,7 +103,7 @@ define hidden noundef i32 @_ZN16G1RegionsOnNodes3addEP12G1HeapRegion(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden noundef i32 @_ZNK16G1RegionsOnNodes5countEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZNK16G1RegionsOnNodes5countEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = zext i32 %1 to i64
   %5 = getelementptr inbounds nuw i32, ptr %3, i64 %4

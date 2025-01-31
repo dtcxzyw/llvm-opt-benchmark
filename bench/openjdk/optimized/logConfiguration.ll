@@ -541,7 +541,7 @@ _ZN16LogConfiguration13delete_outputEm.exit:      ; preds = %18, %8, %22
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN16LogConfiguration11find_outputEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN16LogConfiguration11find_outputEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN16LogConfiguration10_n_outputsE, align 8
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -571,13 +571,13 @@ define hidden noundef i64 @_ZN16LogConfiguration11find_outputEPKc(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN16LogConfiguration10new_outputEPKcS1_P12outputStream(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr @_ZN13LogFileOutput6PrefixE, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #12
-  %6 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %4, i64 noundef %5) #12
+  %6 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %5) #12
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %14
 
@@ -608,10 +608,10 @@ define hidden noundef ptr @_ZN16LogConfiguration10new_outputEPKcS1_P12outputStre
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @_ZN13LogFileOutputC1EPKc(ptr noundef nonnull align 8 dereferenceable(360), ptr noundef) unnamed_addr #2
 
@@ -796,7 +796,7 @@ _ZN16LogConfiguration13delete_outputEm.exit:      ; preds = %49, %36, %53
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare noundef i32 @_ZNK16LogSelectionList9level_forERK9LogTagSet(ptr noundef nonnull align 8 dereferenceable(15368), ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #2
 
@@ -1163,7 +1163,7 @@ sub_269:                                          ; preds = %sub_168
 declare noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -1361,7 +1361,7 @@ _ZN16LogSelectionListC2Ev.exit:                   ; preds = %14
 85:                                               ; preds = %82, %.thread48.i
   %.1.i = phi ptr [ %83, %82 ], [ %.035.i, %.thread48.i ]
   %.034.i = phi i64 [ %84, %82 ], [ %71, %.thread48.i ]
-  %86 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %53, i64 noundef %52, ptr noundef nonnull @.str.80, i64 noundef %.036.i, ptr noundef %.037.i, i64 noundef %.034.i, ptr noundef nonnull %.1.i) #11
+  %86 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %53, i64 noundef %52, ptr noundef nonnull @.str.80, i64 noundef %.036.i, ptr noundef nonnull %.037.i, i64 noundef %.034.i, ptr noundef nonnull %.1.i) #11
   %87 = load i64, ptr @_ZN16LogConfiguration10_n_outputsE, align 8
   %.not.i43 = icmp eq i64 %87, 0
   br i1 %.not.i43, label %.loopexit, label %.lr.ph.i
@@ -1387,7 +1387,7 @@ _ZN16LogSelectionListC2Ev.exit:                   ; preds = %14
 
 .thread51:                                        ; preds = %.lr.ph.i
   store i64 %.06.i, ptr %8, align 8
-  call void @_Z8FreeHeapPv(ptr noundef %53) #11
+  call void @_Z8FreeHeapPv(ptr noundef nonnull %53) #11
   br label %105
 
 .loopexit:                                        ; preds = %97, %85
@@ -1471,7 +1471,7 @@ declare noundef zeroext i1 @_ZN16LogSelectionList5parseEPKcP12outputStream(ptr n
 declare noundef zeroext i1 @_ZN13LogDecorators5parseEPKcP12outputStream(ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare noundef zeroext i1 @_ZNK16LogSelectionList17verify_selectionsEP12outputStream(ptr noundef nonnull align 8 dereferenceable(15368), ptr noundef) local_unnamed_addr #2
 
@@ -1801,7 +1801,7 @@ declare void @_ZN13LogOutputList16set_output_levelEP9LogOutputN8LogLevel4typeE(p
 declare noundef ptr @_ZNK13LogOutputList4findEPK9LogOutput(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare void @_ZN13LogOutputList5clearEv(ptr noundef nonnull align 8 dereferenceable(52)) local_unnamed_addr #2
 

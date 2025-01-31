@@ -27,7 +27,7 @@ define void @lv_event_push(ptr noundef initializes((40, 48)) %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define void @lv_event_pop(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define void @lv_event_pop(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !19
   store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 200), align 8, !tbaa !3
@@ -161,13 +161,13 @@ cleanup_event_list.exit:                          ; preds = %55, %51, %50, %.cri
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @cleanup_event_list_core(ptr noundef nonnull %0) unnamed_addr #2 {
@@ -472,20 +472,20 @@ cleanup_event_list.exit:                          ; preds = %._crit_edge, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_event_get_current_target(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define ptr @lv_event_get_current_target(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8, !tbaa !36
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_event_get_target(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define ptr @lv_event_get_target(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !37
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, -32768) i32 @lv_event_get_code(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define range(i32 0, -32768) i32 @lv_event_get_code(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !28
   %4 = and i32 %3, -32769
@@ -493,21 +493,21 @@ define range(i32 0, -32768) i32 @lv_event_get_code(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_event_get_param(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define ptr @lv_event_get_param(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !38
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_event_get_user_data(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define ptr @lv_event_get_user_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !30
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_event_stop_bubbling(ptr nocapture noundef %0) local_unnamed_addr #8 {
+define void @lv_event_stop_bubbling(ptr noundef captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = or i8 %3, 4
@@ -516,7 +516,7 @@ define void @lv_event_stop_bubbling(ptr nocapture noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_event_stop_processing(ptr nocapture noundef %0) local_unnamed_addr #8 {
+define void @lv_event_stop_processing(ptr noundef captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = or i8 %3, 2

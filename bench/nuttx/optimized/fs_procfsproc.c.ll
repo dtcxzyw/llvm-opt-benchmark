@@ -75,7 +75,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_groupinfo = internal unnamed_addr constant [3 x ptr] [ptr @g_groupstatus, ptr @g_groupfd, ptr @g_groupenv], align 16
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -21, 1) i32 @proc_open(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 %2, i32 %3) #0 {
+define internal range(i32 -21, 1) i32 @proc_open(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 %2, i32 %3) #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str, i64 noundef 4) #15
@@ -89,7 +89,7 @@ define internal range(i32 -21, 1) i32 @proc_open(ptr nocapture noundef writeonly
   br label %14
 
 11:                                               ; preds = %4
-  %12 = call i64 @strtoul(ptr noundef %1, ptr noundef nonnull %5, i32 noundef 10)
+  %12 = call i64 @strtoul(ptr noundef nonnull %1, ptr noundef nonnull %5, i32 noundef 10)
   %.pr = load ptr, ptr %5, align 8
   %13 = icmp eq ptr %.pr, null
   br i1 %13, label %proc_findnode.exit, label %14
@@ -118,7 +118,7 @@ define internal range(i32 -21, 1) i32 @proc_open(ptr nocapture noundef writeonly
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #15
-  %28 = tail call i32 @strncmp(ptr noundef %26, ptr noundef nonnull readonly %18, i64 noundef %27) #15
+  %28 = tail call i32 @strncmp(ptr noundef nonnull %26, ptr noundef nonnull readonly %18, i64 noundef %27) #15
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %41
 
@@ -173,7 +173,7 @@ proc_findnode.exit:                               ; preds = %37, %41, %43, %spli
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @proc_close(ptr nocapture noundef %0) #1 {
+define internal noundef i32 @proc_close(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3)
@@ -182,7 +182,7 @@ define internal noundef i32 @proc_close(ptr nocapture noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @proc_read(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal i64 @proc_read(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.proc_envinfo_s, align 8
   %5 = alloca i32, align 4
   %6 = alloca [256 x i8], align 16
@@ -651,7 +651,7 @@ proc_groupfd.exit:                                ; preds = %250, %266, %227, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -22, -18) i64 @proc_write(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i64 %2) #0 {
+define internal range(i64 -22, -18) i64 @proc_write(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i64 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -663,7 +663,7 @@ define internal range(i64 -22, -18) i64 @proc_write(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal range(i32 -12, 1) i32 @proc_dup(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
+define internal range(i32 -12, 1) i32 @proc_dup(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noalias dereferenceable_or_null(280) ptr @malloc(i64 noundef 280) #17
@@ -682,7 +682,7 @@ define internal range(i32 -12, 1) i32 @proc_dup(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -20, 1) i32 @proc_opendir(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -20, 1) i32 @proc_opendir(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str, i64 noundef 4) #15
@@ -696,7 +696,7 @@ define internal range(i32 -20, 1) i32 @proc_opendir(ptr noundef %0, ptr nocaptur
   br label %12
 
 9:                                                ; preds = %2
-  %10 = call i64 @strtoul(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 10)
+  %10 = call i64 @strtoul(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 10)
   %.pr = load ptr, ptr %3, align 8
   %11 = icmp eq ptr %.pr, null
   br i1 %11, label %55, label %12
@@ -748,7 +748,7 @@ define internal range(i32 -20, 1) i32 @proc_opendir(ptr noundef %0, ptr nocaptur
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #15
-  %35 = tail call i32 @strncmp(ptr noundef %33, ptr noundef nonnull readonly %29, i64 noundef %34) #15
+  %35 = tail call i32 @strncmp(ptr noundef nonnull %33, ptr noundef nonnull readonly %29, i64 noundef %34) #15
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %48
 
@@ -812,13 +812,13 @@ split.thread:                                     ; preds = %44, %.tail, %24, %s
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @proc_closedir(ptr nocapture noundef %0) #3 {
+define internal noundef i32 @proc_closedir(ptr noundef captures(none) %0) #3 {
   tail call void @free(ptr noundef %0)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 1) i32 @proc_readdir(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -2, 1) i32 @proc_readdir(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %4 = load i16, ptr %3, align 2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -873,14 +873,14 @@ define internal range(i32 -2, 1) i32 @proc_readdir(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @proc_rewinddir(ptr nocapture noundef writeonly initializes((18, 20)) %0) #4 {
+define internal noundef i32 @proc_rewinddir(ptr noundef writeonly captures(none) initializes((18, 20)) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i16 0, ptr %2, align 2
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 1) i32 @proc_stat(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -2, 1) i32 @proc_stat(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str, i64 noundef 4) #15
@@ -894,7 +894,7 @@ define internal range(i32 -2, 1) i32 @proc_stat(ptr noundef %0, ptr nocapture no
   br label %12
 
 10:                                               ; preds = %2
-  %11 = call i64 @strtoul(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 10)
+  %11 = call i64 @strtoul(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 10)
   %.pre = load ptr, ptr %3, align 8
   br label %12
 
@@ -936,7 +936,7 @@ define internal range(i32 -2, 1) i32 @proc_stat(ptr noundef %0, ptr nocapture no
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #15
-  %32 = tail call i32 @strncmp(ptr noundef %30, ptr noundef nonnull readonly %26, i64 noundef %31) #15
+  %32 = tail call i32 @strncmp(ptr noundef nonnull %30, ptr noundef nonnull readonly %26, i64 noundef %31) #15
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %45
 
@@ -986,12 +986,12 @@ proc_findnode.exit:                               ; preds = %45, %proc_findnode.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare i32 @nxsched_gettid() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
 
 declare ptr @nxsched_get_tcb(i32 noundef) local_unnamed_addr #6
 
@@ -999,10 +999,10 @@ declare ptr @nxsched_get_tcb(i32 noundef) local_unnamed_addr #6
 declare noalias ptr @zalloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 declare i32 @procfs_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #6
 
@@ -1011,7 +1011,7 @@ declare i64 @procfs_memcpy(ptr noundef, i64 noundef, ptr noundef, i64 noundef, p
 declare void @nxsched_get_stateinfo(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare i64 @group_argvstr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
@@ -1096,13 +1096,13 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

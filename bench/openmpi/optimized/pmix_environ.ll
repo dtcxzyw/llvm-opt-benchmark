@@ -89,13 +89,13 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @PMIx_Setenv(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_environ_merge_inplace(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define i32 @pmix_environ_merge_inplace(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %.not25 = icmp eq ptr %3, null
   br i1 %.not25, label %._crit_edge, label %.lr.ph
@@ -202,7 +202,7 @@ pmix_getenv.exit.thread:                          ; preds = %.loopexit.i, %13, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @pmix_getenv(ptr nocapture noundef nonnull readonly %0, ptr noundef readonly %1) local_unnamed_addr #5 {
+define ptr @pmix_getenv(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit33, label %.preheader32
 
@@ -287,7 +287,7 @@ define ptr @pmix_getenv(ptr nocapture noundef nonnull readonly %0, ptr noundef r
 declare i32 @PMIx_Argv_append_nosize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -46, 1) i32 @pmix_unsetenv(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -46, 1) i32 @pmix_unsetenv(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, null
@@ -311,7 +311,7 @@ define range(i32 -46, 1) i32 @pmix_unsetenv(ptr noundef nonnull %0, ptr nocaptur
 .lr.ph:                                           ; preds = %11, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %11 ]
   %15 = phi ptr [ %34, %32 ], [ %14, %11 ]
-  %16 = call i32 @strncmp(ptr noundef nonnull %15, ptr noundef %8, i64 noundef %12) #15
+  %16 = call i32 @strncmp(ptr noundef nonnull %15, ptr noundef nonnull %8, i64 noundef %12) #15
   %.not25 = icmp eq i32 %16, 0
   br i1 %.not25, label %17, label %32
 
@@ -369,10 +369,10 @@ define range(i32 -46, 1) i32 @pmix_unsetenv(ptr noundef nonnull %0, ptr nocaptur
 declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
 define noundef nonnull ptr @pmix_tmp_directory() local_unnamed_addr #7 {
@@ -397,7 +397,7 @@ define noundef nonnull ptr @pmix_tmp_directory() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define ptr @pmix_home_directory(i32 noundef %0) local_unnamed_addr #0 {
@@ -431,7 +431,7 @@ declare i32 @geteuid() local_unnamed_addr #6
 declare ptr @getpwuid(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -32, 1) i32 @pmix_util_harvest_envars(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix_util_harvest_envars(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %.not156 = icmp eq ptr %4, null
   br i1 %.not156, label %._crit_edge160, label %.lr.ph159
@@ -625,7 +625,7 @@ pmix_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i.i, %85
 pmix_bfrop_tma_kval_new.exit:                     ; preds = %pmix_obj_new_tma.exit.thread1.i
   store i16 46, ptr %70, align 8
   %96 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  tail call void @PMIx_Envar_load(ptr noundef nonnull %96, ptr noundef %27, ptr noundef nonnull %31, i8 noundef signext 58) #14
+  tail call void @PMIx_Envar_load(ptr noundef nonnull %96, ptr noundef nonnull %27, ptr noundef nonnull %31, i8 noundef signext 58) #14
   %97 = load ptr, ptr %7, align 8
   %98 = getelementptr inbounds nuw i8, ptr %52, i64 128
   store ptr %97, ptr %98, align 8
@@ -747,7 +747,7 @@ pmix_bfrop_tma_kval_new.exit:                     ; preds = %pmix_obj_new_tma.ex
 .lr.ph.i125:                                      ; preds = %150, %.lr.ph.i125
   %156 = phi ptr [ %158, %.lr.ph.i125 ], [ %155, %150 ]
   %.07.i126 = phi ptr [ %157, %.lr.ph.i125 ], [ %154, %150 ]
-  tail call void %156(ptr noundef %.1164) #14
+  tail call void %156(ptr noundef nonnull %.1164) #14
   %157 = getelementptr inbounds nuw i8, ptr %.07.i126, i64 8
   %158 = load ptr, ptr %157, align 8
   %.not.i127 = icmp eq ptr %158, null
@@ -790,7 +790,7 @@ pmix_obj_run_destructors.exit128:                 ; preds = %.lr.ph.i125, %150
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @PMIx_Envar_load(ptr noundef, ptr noundef, ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
@@ -809,7 +809,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #6
 declare ptr @__errno_location() local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #12
@@ -818,7 +818,7 @@ declare void @abort() local_unnamed_addr #12
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

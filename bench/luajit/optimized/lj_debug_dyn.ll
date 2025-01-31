@@ -47,7 +47,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.39 = private unnamed_addr constant [9 x i8] c"[string]\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @lj_debug_frame(ptr noundef readonly %L, i32 noundef %level, ptr nocapture noundef writeonly %size) local_unnamed_addr #0 {
+define hidden ptr @lj_debug_frame(ptr noundef readonly %L, i32 noundef %level, ptr noundef writeonly captures(none) %size) local_unnamed_addr #0 {
 entry:
   %stack = getelementptr inbounds nuw i8, ptr %L, i64 56
   %0 = load i64, ptr %stack, align 8
@@ -135,7 +135,7 @@ return:                                           ; preds = %if.end22, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @lj_debug_line(ptr nocapture noundef readonly %pt, i32 noundef %pc) local_unnamed_addr #1 {
+define hidden i32 @lj_debug_line(ptr noundef readonly captures(none) %pt, i32 noundef %pc) local_unnamed_addr #1 {
 entry:
   %lineinfo1 = getelementptr inbounds nuw i8, ptr %pt, i64 80
   %0 = load i64, ptr %lineinfo1, align 8
@@ -202,7 +202,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @lj_debug_uvname(ptr nocapture noundef readonly %pt, i32 noundef %idx) local_unnamed_addr #2 {
+define hidden ptr @lj_debug_uvname(ptr noundef readonly captures(none) %pt, i32 noundef %idx) local_unnamed_addr #2 {
 entry:
   %uvinfo = getelementptr inbounds nuw i8, ptr %pt, i64 88
   %0 = load i64, ptr %uvinfo, align 8
@@ -237,7 +237,7 @@ return:                                           ; preds = %lor.rhs, %if.end, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @lj_debug_uvnamev(ptr nocapture noundef readonly %o, i32 noundef %idx, ptr nocapture noundef writeonly %tvp, ptr nocapture noundef writeonly %op) local_unnamed_addr #0 {
+define hidden ptr @lj_debug_uvnamev(ptr noundef readonly captures(none) %o, i32 noundef %idx, ptr noundef writeonly captures(none) %tvp, ptr noundef writeonly captures(none) %op) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %o, align 8
   %shr.mask = and i64 %0, -140737488355328
@@ -321,7 +321,7 @@ return:                                           ; preds = %lor.rhs.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @lj_debug_slotname(ptr noundef %pt, ptr noundef %ip, i32 noundef %slot, ptr nocapture noundef writeonly %name) local_unnamed_addr #3 {
+define hidden noundef ptr @lj_debug_slotname(ptr noundef %pt, ptr noundef %ip, i32 noundef %slot, ptr noundef writeonly captures(none) %name) local_unnamed_addr #3 {
 entry:
   %p.i = alloca ptr, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %pt, i64 104
@@ -651,7 +651,7 @@ return:                                           ; preds = %if.then29, %debug_v
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @lj_debug_funcname(ptr nocapture noundef readonly %L, ptr noundef %frame, ptr nocapture noundef writeonly %name) local_unnamed_addr #3 {
+define hidden noundef ptr @lj_debug_funcname(ptr noundef readonly captures(none) %L, ptr noundef %frame, ptr noundef writeonly captures(none) %name) local_unnamed_addr #3 {
 entry:
   %stack = getelementptr inbounds nuw i8, ptr %L, i64 56
   %0 = load i64, ptr %stack, align 8
@@ -747,7 +747,7 @@ return:                                           ; preds = %cond.end, %if.then1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @debug_framepc(ptr nocapture noundef readonly %L, ptr nocapture noundef readonly %fn, ptr noundef readonly %nextframe) unnamed_addr #2 {
+define internal fastcc i32 @debug_framepc(ptr noundef readonly captures(none) %L, ptr noundef readonly captures(none) %fn, ptr noundef readonly %nextframe) unnamed_addr #2 {
 entry:
   %ffid = getelementptr inbounds nuw i8, ptr %fn, i64 10
   %0 = load i8, ptr %ffid, align 2
@@ -936,7 +936,7 @@ return:                                           ; preds = %if.end78, %if.end42
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define hidden void @lj_debug_shortname(ptr noundef %out, ptr nocapture noundef readonly %str, i32 noundef %line) local_unnamed_addr #4 {
+define hidden void @lj_debug_shortname(ptr noundef %out, ptr noundef readonly captures(none) %str, i32 noundef %line) local_unnamed_addr #4 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %str, i64 24
   %0 = load i8, ptr %add.ptr, align 1
@@ -1025,10 +1025,10 @@ if.end54:                                         ; preds = %if.end, %if.end48, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #5
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden void @lj_debug_addloc(ptr noundef %L, ptr noundef %msg, ptr noundef readonly %frame, ptr noundef %nextframe) local_unnamed_addr #3 {
@@ -1422,7 +1422,7 @@ if.end21:                                         ; preds = %if.else, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @debug_localname(ptr nocapture noundef readonly %L, i32 %ar.116.val, ptr nocapture noundef nonnull writeonly %name, i32 noundef %slot1) unnamed_addr #3 {
+define internal fastcc ptr @debug_localname(ptr noundef readonly captures(none) %L, i32 %ar.116.val, ptr noundef nonnull writeonly captures(none) %name, i32 noundef %slot1) unnamed_addr #3 {
 entry:
   %p.i = alloca ptr, align 8
   %and = and i32 %ar.116.val, 65535
@@ -1628,7 +1628,7 @@ return:                                           ; preds = %if.then8, %if.then1
 declare hidden void @lj_state_growstack1(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define ptr @lua_setlocal(ptr nocapture noundef %L, ptr nocapture noundef readonly %ar, i32 noundef %n) local_unnamed_addr #3 {
+define ptr @lua_setlocal(ptr noundef captures(none) %L, ptr noundef readonly captures(none) %ar, i32 noundef %n) local_unnamed_addr #3 {
 entry:
   %name = alloca ptr, align 8
   store ptr null, ptr %name, align 8
@@ -1656,7 +1656,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @lj_debug_getinfo(ptr noundef %L, ptr nocapture noundef readonly %what, ptr noundef %ar, i32 noundef %ext) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @lj_debug_getinfo(ptr noundef %L, ptr noundef readonly captures(none) %what, ptr noundef %ar, i32 noundef %ext) local_unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %what, align 1
   %cmp = icmp eq i8 %0, 62
@@ -2100,14 +2100,14 @@ declare hidden ptr @lj_tab_new(ptr noundef, i32 noundef, i32 noundef) local_unna
 declare hidden ptr @lj_tab_setinth(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @lua_getinfo(ptr noundef %L, ptr nocapture noundef readonly %what, ptr noundef %ar) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @lua_getinfo(ptr noundef %L, ptr noundef readonly captures(none) %what, ptr noundef %ar) local_unnamed_addr #3 {
 entry:
   %call = tail call i32 @lj_debug_getinfo(ptr noundef %L, ptr noundef %what, ptr noundef %ar, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @lua_getstack(ptr noundef readonly %L, i32 noundef %level, ptr nocapture noundef writeonly %ar) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @lua_getstack(ptr noundef readonly %L, i32 noundef %level, ptr noundef writeonly captures(none) %ar) local_unnamed_addr #0 {
 entry:
   %stack.i = getelementptr inbounds nuw i8, ptr %L, i64 56
   %0 = load i64, ptr %stack.i, align 8
@@ -2206,7 +2206,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_debug_dumpstack(ptr noundef readonly %L, ptr noundef %sb, ptr nocapture noundef readonly %fmt, i32 noundef %depth) local_unnamed_addr #3 {
+define hidden void @lj_debug_dumpstack(ptr noundef readonly %L, ptr noundef %sb, ptr noundef readonly captures(none) %fmt, i32 noundef %depth) local_unnamed_addr #3 {
 entry:
   %name = alloca ptr, align 8
   %cmp = icmp sgt i32 %depth, -1
@@ -2666,7 +2666,7 @@ if.end24:                                         ; preds = %if.then17, %lj_buf_
   %69 = load ptr, ptr %name, align 8
   %call25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %69) #12
   %conv26 = trunc i64 %call25 to i32
-  %call27 = tail call ptr @lj_buf_putmem(ptr noundef %sb, ptr noundef %69, i32 noundef %conv26) #11
+  %call27 = tail call ptr @lj_buf_putmem(ptr noundef %sb, ptr noundef nonnull %69, i32 noundef %conv26) #11
   br label %while.cond5.backedge
 
 sw.bb29:                                          ; preds = %if.end78.i, %if.end42.i, %cond.end.i.thread, %if.else24.i, %if.then94.i, %for.end.i, %cond.end.i, %debug_framepc.exit, %if.then17.i, %sw.bb8, %while.cond5, %lj_debug_funcname.exit
@@ -3161,7 +3161,7 @@ if.end88:                                         ; preds = %entry, %if.then83, 
 declare hidden ptr @lj_buf_putmem(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare hidden ptr @lj_strfmt_putint(ptr noundef, i32 noundef) local_unnamed_addr #6
 
@@ -3377,7 +3377,7 @@ if.else:                                          ; preds = %for.body.i.i68
   %conv.i84 = trunc i64 %sub.ptr.div.i83 to i32
   %add.i85 = add nsw i32 %shl.i81, %conv.i84
   store i32 %add.i85, ptr %i_ci1.i, align 4
-  call void @lua_pushlstring(ptr noundef %L, ptr noundef nonnull @.str.25, i64 noundef 5) #11
+  call void @lua_pushlstring(ptr noundef nonnull %L, ptr noundef nonnull @.str.25, i64 noundef 5) #11
   %27 = load i64, ptr %stack.i.i, align 8
   %28 = inttoptr i64 %27 to ptr
   %add.ptr.i.i96 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -3496,11 +3496,11 @@ land.lhs.true:                                    ; preds = %if.end11
   br i1 %tobool18.not, label %if.then19, label %if.else23
 
 if.then19:                                        ; preds = %land.lhs.true
-  %call22 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.27, i32 noundef %conv15) #11
+  %call22 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %L, ptr noundef nonnull @.str.27, i32 noundef %conv15) #11
   br label %if.end25
 
 if.else23:                                        ; preds = %land.lhs.true, %if.end11
-  %call24 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.28, ptr noundef nonnull %short_src) #11
+  %call24 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %L, ptr noundef nonnull @.str.28, ptr noundef nonnull %short_src) #11
   br label %if.end25
 
 if.end25:                                         ; preds = %if.else23, %if.then19
@@ -3509,7 +3509,7 @@ if.end25:                                         ; preds = %if.else23, %if.then
   br i1 %cmp26, label %if.then28, label %if.end31
 
 if.then28:                                        ; preds = %if.end25
-  %call30 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.29, i32 noundef %48) #11
+  %call30 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %L, ptr noundef nonnull @.str.29, i32 noundef %48) #11
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then28, %if.end25
@@ -3520,7 +3520,7 @@ if.end31:                                         ; preds = %if.then28, %if.end2
 
 if.then34:                                        ; preds = %if.end31
   %51 = load ptr, ptr %name, align 8
-  %call35 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.30, ptr noundef %51) #11
+  %call35 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %L, ptr noundef nonnull @.str.30, ptr noundef %51) #11
   br label %if.end54
 
 if.else36:                                        ; preds = %if.end31
@@ -3532,18 +3532,18 @@ if.else36:                                        ; preds = %if.end31
   ]
 
 if.then40:                                        ; preds = %if.else36
-  call void @lua_pushlstring(ptr noundef %L, ptr noundef nonnull @.str.31, i64 noundef 14) #11
+  call void @lua_pushlstring(ptr noundef nonnull %L, ptr noundef nonnull @.str.31, i64 noundef 14) #11
   br label %if.end54
 
 if.then46:                                        ; preds = %if.else36
   %f = getelementptr inbounds nuw i8, ptr %44, i64 40
   %54 = load ptr, ptr %f, align 8
-  %call47 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.32, ptr noundef %54) #11
+  %call47 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %L, ptr noundef nonnull @.str.32, ptr noundef %54) #11
   br label %if.end54
 
 if.else48:                                        ; preds = %if.else36
   %55 = load i32, ptr %linedefined, align 8
-  %call51 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.33, ptr noundef nonnull %short_src, i32 noundef %55) #11
+  %call51 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %L, ptr noundef nonnull @.str.33, ptr noundef nonnull %short_src, i32 noundef %55) #11
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then40, %if.else48, %if.then46, %if.then34
@@ -3585,7 +3585,7 @@ while.end:                                        ; preds = %if.end10, %if.end74
   %sub.ptr.div80 = lshr exact i64 %sub.ptr.sub79, 3
   %conv81 = trunc i64 %sub.ptr.div80 to i32
   %sub82 = sub nsw i32 %conv81, %conv
-  call void @lua_concat(ptr noundef %L, i32 noundef %sub82) #11
+  call void @lua_concat(ptr noundef nonnull %L, i32 noundef %sub82) #11
   ret void
 }
 
@@ -3598,7 +3598,7 @@ declare void @lua_concat(ptr noundef, i32 noundef) local_unnamed_addr #6
 declare hidden i32 @lj_buf_ruleb128(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare hidden ptr @lj_buf_putstr(ptr noundef, ptr noundef) local_unnamed_addr #6
 
@@ -3608,10 +3608,10 @@ declare hidden ptr @lj_buf_more2(ptr noundef, i32 noundef) local_unnamed_addr #6
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9

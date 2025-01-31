@@ -381,7 +381,7 @@ define hidden noundef i64 @_ZNK11MonitorList5countEv(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN11MonitorList15unlink_deflatedEmP13GrowableArrayIP13ObjectMonitorEP33ObjectMonitorDeflationSafepointer(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN11MonitorList15unlink_deflatedEmP13GrowableArrayIP13ObjectMonitorEP33ObjectMonitorDeflationSafepointer(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = load volatile ptr, ptr %0, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   %.not64 = icmp eq ptr %5, null
@@ -521,7 +521,7 @@ _ZN26GrowableArrayWithAllocatorIP13ObjectMonitor13GrowableArrayIS1_EE6appendERKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN33ObjectMonitorDeflationSafepointer19block_for_safepointEPKcS1_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN33ObjectMonitorDeflationSafepointer19block_for_safepointEPKcS1_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1096
   %7 = load volatile i64, ptr %6, align 8
@@ -640,7 +640,7 @@ define hidden ptr @_ZNK11MonitorList8iteratorEv(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden noundef ptr @_ZN11MonitorList8Iterator4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN11MonitorList8Iterator4nextEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %4 = load volatile ptr, ptr %3, align 8
@@ -1083,7 +1083,7 @@ define linkonce_odr hidden noundef ptr @_ZN13ObjectMonitor18try_set_owner_fromEP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ObjectSynchronizer32handle_sync_on_value_based_classE6HandleP10JavaThread(ptr nocapture readonly %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18ObjectSynchronizer32handle_sync_on_value_based_classE6HandleP10JavaThread(ptr readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.frame, align 8
   %4 = alloca %class.stringStream, align 8
   %5 = alloca %class.LogImpl, align 1
@@ -1304,7 +1304,7 @@ declare void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN10JavaThread21print_active_stack_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(1800), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
@@ -1357,7 +1357,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %.preheader, %_ZNK6H
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN18ObjectSynchronizer15enter_fast_implE6HandleP9BasicLockP10JavaThread(ptr nocapture readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN18ObjectSynchronizer15enter_fast_implE6HandleP9BasicLockP10JavaThread(ptr readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i8, ptr @UseCompressedClassPointers, align 1
   %6 = trunc i8 %5 to i1
@@ -1806,7 +1806,7 @@ declare void @_ZN10JavaThread22dec_held_monitor_countElb(ptr noundef nonnull ali
 declare void @_ZN13ObjectMonitor4exitEP10JavaThreadb(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ObjectSynchronizer9jni_enterE6HandleP10JavaThread(ptr nocapture readonly %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18ObjectSynchronizer9jni_enterE6HandleP10JavaThread(ptr readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i8, ptr @UseCompressedClassPointers, align 1
   %5 = trunc i8 %4 to i1
@@ -2157,7 +2157,7 @@ _ZN18ObjectSynchronizer7inflateEP6ThreadP7oopDescNS_12InflateCauseE.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ObjectSynchronizer6notifyE6HandleP10JavaThread(ptr nocapture readonly %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18ObjectSynchronizer6notifyE6HandleP10JavaThread(ptr readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load volatile i64, ptr %3, align 8
   %5 = load i32, ptr @LockingMode, align 4
@@ -2232,7 +2232,7 @@ _ZNK9LockStack8containsEP7oopDesc.exit.thread:    ; preds = %18, %_ZN18ObjectSyn
 declare void @_ZN13ObjectMonitor6notifyEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ObjectSynchronizer9notifyallE6HandleP10JavaThread(ptr nocapture readonly %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18ObjectSynchronizer9notifyallE6HandleP10JavaThread(ptr readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load volatile i64, ptr %3, align 8
   %5 = load i32, ptr @LockingMode, align 4
@@ -4200,7 +4200,7 @@ define linkonce_odr hidden void @_ZN17LogStreamTemplateILN8LogLevel4typeE1ELN6Lo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN18ObjectSynchronizer20deflate_monitor_listEP33ObjectMonitorDeflationSafepointer(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN18ObjectSynchronizer20deflate_monitor_listEP33ObjectMonitorDeflationSafepointer(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = load volatile ptr, ptr @_ZN18ObjectSynchronizer12_in_use_listE, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   %3 = icmp ne ptr %2, null
@@ -4803,7 +4803,7 @@ define linkonce_odr hidden void @_ZN17LogStreamTemplateILN8LogLevel4typeE3ELN6Lo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ObjectSynchronizer15chk_in_use_listEP12outputStreamPi(ptr noundef nonnull %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18ObjectSynchronizer15chk_in_use_listEP12outputStreamPi(ptr noundef nonnull %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18ObjectSynchronizer12_in_use_listE, i64 8), align 8
   %4 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18ObjectSynchronizer12_in_use_listE, i64 16), align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.37, i64 noundef %3, i64 noundef %4) #18
@@ -5089,7 +5089,7 @@ _ZNK13ObjectMonitor7is_busyEv.exit16.i.i:         ; preds = %112, %98
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ObjectSynchronizer16chk_in_use_entryEP13ObjectMonitorP12outputStreamPi(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18ObjectSynchronizer16chk_in_use_entryEP13ObjectMonitorP12outputStreamPi(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load volatile ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, inttoptr (i64 2 to ptr)
@@ -7196,13 +7196,13 @@ declare i32 @llvm.ctpop.i32(i32) #15
 declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #15

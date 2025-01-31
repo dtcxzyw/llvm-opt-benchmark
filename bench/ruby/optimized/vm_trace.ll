@@ -138,7 +138,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ruby_current_vm_ptr = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_hook_list_mark(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @rb_hook_list_mark(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %.04 = load ptr, ptr %0, align 8
   %.not5 = icmp eq ptr %.04, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
@@ -160,7 +160,7 @@ define hidden void @rb_hook_list_mark(ptr nocapture noundef readonly %0) local_u
 declare void @rb_gc_mark(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_hook_list_mark_and_update(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @rb_hook_list_mark_and_update(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %.04 = load ptr, ptr %0, align 8
   %.not5 = icmp eq ptr %.04, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
@@ -796,7 +796,7 @@ define dso_local i32 @rb_remove_event_hook_with_data(ptr noundef %0, i64 noundef
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_ec_clear_current_thread_trace_func(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @rb_ec_clear_current_thread_trace_func(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 48
   %.val = load ptr, ptr %2, align 8
   %3 = tail call fastcc i32 @remove_event_hook(ptr %.val, ptr noundef %.val, ptr noundef null, i64 noundef 36)
@@ -804,7 +804,7 @@ define hidden void @rb_ec_clear_current_thread_trace_func(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_ec_clear_all_trace_func(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @rb_ec_clear_all_trace_func(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 48
   %.val = load ptr, ptr %2, align 8
   %3 = tail call fastcc i32 @remove_event_hook(ptr %.val, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef null, i64 noundef 36)
@@ -1338,7 +1338,7 @@ exec_hooks_postcheck.exit.i:                      ; preds = %244, %.thread.i.i.i
   br i1 %.not18.i, label %exec_hooks_protected.exit, label %246
 
 246:                                              ; preds = %exec_hooks_postcheck.exit.i
-  %247 = call i32 @rb_ec_set_raised(ptr noundef %8) #4
+  %247 = call i32 @rb_ec_set_raised(ptr noundef nonnull %8) #4
   br label %exec_hooks_protected.exit
 
 exec_hooks_protected.exit:                        ; preds = %exec_hooks_postcheck.exit.i, %246
@@ -1401,7 +1401,7 @@ exec_hooks_protected.exit:                        ; preds = %exec_hooks_postchec
 declare void @rb_vm_pop_frame(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_suppress_tracing(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden i64 @rb_suppress_tracing(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
 rb_ec_vm_ptr.exit:
   %2 = alloca i32, align 4
   %3 = alloca i64, align 8
@@ -1599,13 +1599,13 @@ get_trace_arg.exit:                               ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @rb_tracearg_event_flag(ptr nocapture noundef nonnull readonly %0) local_unnamed_addr #5 {
+define dso_local i32 @rb_tracearg_event_flag(ptr noundef nonnull readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load i32, ptr %0, align 8
   ret i32 %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_tracearg_event(ptr nocapture noundef nonnull readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @rb_tracearg_event(ptr noundef nonnull readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   switch i32 %2, label %get_event_id.exit [
     i32 1, label %3
@@ -1799,7 +1799,7 @@ get_event_id.exit:                                ; preds = %.lr.ph.i98.i, %.lr.
 declare i64 @rb_id2sym(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 1, 0) i64 @rb_tracearg_lineno(ptr nocapture noundef nonnull %0) local_unnamed_addr #0 {
+define dso_local range(i64 1, 0) i64 @rb_tracearg_lineno(ptr noundef nonnull captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 36
@@ -1858,7 +1858,7 @@ fill_path_and_lineno.exit:                        ; preds = %.fill_path_and_line
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_tracearg_path(ptr nocapture noundef nonnull %0) local_unnamed_addr #0 {
+define dso_local i64 @rb_tracearg_path(ptr noundef nonnull captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 36
@@ -2229,7 +2229,7 @@ fill_id_and_klass.exit:                           ; preds = %1, %.critedge.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_tracearg_binding(ptr nocapture noundef nonnull readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @rb_tracearg_binding(ptr noundef nonnull readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   switch i32 %2, label %3 [
     i32 32, label %imemo_type_p.exit.thread
@@ -2276,14 +2276,14 @@ declare ptr @rb_vm_get_binding_creatable_next_cfp(ptr noundef, ptr noundef) loca
 declare i64 @rb_vm_make_binding(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @rb_tracearg_self(ptr nocapture noundef nonnull readonly %0) local_unnamed_addr #5 {
+define dso_local i64 @rb_tracearg_self(ptr noundef nonnull readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 37, 36) i64 @rb_tracearg_return_value(ptr nocapture noundef nonnull readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 37, 36) i64 @rb_tracearg_return_value(ptr noundef nonnull readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 592
   %.not = icmp eq i32 %3, 0
@@ -2312,7 +2312,7 @@ define dso_local range(i64 37, 36) i64 @rb_tracearg_return_value(ptr nocapture n
 declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 37, 36) i64 @rb_tracearg_raised_exception(ptr nocapture noundef nonnull readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 37, 36) i64 @rb_tracearg_raised_exception(ptr noundef nonnull readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 16512
   %.not = icmp eq i32 %3, 0
@@ -2338,7 +2338,7 @@ define dso_local range(i64 37, 36) i64 @rb_tracearg_raised_exception(ptr nocaptu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_tracearg_eval_script(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden i64 @rb_tracearg_eval_script(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8
   %4 = load i32, ptr %0, align 8
@@ -2399,7 +2399,7 @@ RARRAY_AREF.exit:                                 ; preds = %20, %22
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_tracearg_instruction_sequence(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden i64 @rb_tracearg_instruction_sequence(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8
   %4 = load i32, ptr %0, align 8
@@ -2465,7 +2465,7 @@ RARRAY_AREF.exit:                                 ; preds = %20, %22
 declare i64 @rb_iseqw_new(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 37, 36) i64 @rb_tracearg_object(ptr nocapture noundef nonnull readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 37, 36) i64 @rb_tracearg_object(ptr noundef nonnull readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 3145728
   %.not = icmp eq i32 %3, 0
@@ -2604,7 +2604,7 @@ rb_add_event_hook2.exit:                          ; preds = %29
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tp_call_trace(i64 noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @tp_call_trace(i64 noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @tp_data_type) #4
@@ -2858,7 +2858,7 @@ rb_hook_list_free.exit:                           ; preds = %31, %61, %.thread.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_hook_list_connect_tracepoint(i64 noundef %0, ptr nocapture noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden void @rb_hook_list_connect_tracepoint(i64 noundef %0, ptr noundef captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @tp_data_type) #4
   %6 = load i32, ptr %5, align 8
   %.not.i = icmp ult i32 %6, 65536
@@ -2908,7 +2908,7 @@ hook_list_connect.exit:                           ; preds = %alloc_event_hook.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @rb_hook_list_remove_tracepoint(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #8 {
+define hidden void @rb_hook_list_remove_tracepoint(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #8 {
   %.01112 = load ptr, ptr %0, align 8
   %.not13 = icmp eq ptr %.01112, null
   br i1 %.not13, label %._crit_edge, label %.lr.ph
@@ -3002,7 +3002,7 @@ define hidden void @Init_builtin_trace_point() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @tracepoint_new_s(ptr nocapture readnone %0, i64 noundef %1, i64 noundef %2) #0 {
+define internal noundef i64 @tracepoint_new_s(ptr readnone captures(none) %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 8192
@@ -3336,7 +3336,7 @@ tracepoint_new.exit:                              ; preds = %99, %108, %rb_racto
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @tracepoint_inspect(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal i64 @tracepoint_inspect(ptr readnone captures(none) %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @tp_data_type) #4
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %5 = load ptr, ptr %4, align 8
@@ -3801,7 +3801,7 @@ rb_tracearg_lineno.exit65:                        ; preds = %rb_tracearg_path.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @tracepoint_stat_s(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i64 @tracepoint_stat_s(ptr noundef readonly captures(none) %0, i64 %1) #0 {
 rb_ec_ractor_hooks.exit:
   %2 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %3 = tail call i64 @rb_hash_new() #4
@@ -3848,14 +3848,14 @@ tracepoint_stat_event_hooks.exit:                 ; preds = %rb_ec_ractor_hooks.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @tracepoint_trace_s(ptr nocapture readnone %0, i64 noundef %1, i64 noundef %2) #0 {
+define internal noundef i64 @tracepoint_trace_s(ptr readnone captures(none) %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = tail call i64 @tracepoint_new_s(ptr poison, i64 noundef %1, i64 noundef %2)
   %5 = tail call i64 @rb_tracepoint_enable(i64 noundef %4)
   ret i64 %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @tracepoint_allow_reentry(ptr nocapture noundef %0, i64 %1) #0 {
+define internal i64 @tracepoint_allow_reentry(ptr noundef captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -3874,7 +3874,7 @@ define internal i64 @tracepoint_allow_reentry(ptr nocapture noundef %0, i64 %1) 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @tracepoint_enable_m(ptr nocapture readnone %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 {
+define internal i64 @tracepoint_enable_m(ptr readnone captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 {
   %6 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @tp_data_type) #4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
@@ -4166,7 +4166,7 @@ rb_tracepoint_enable_for_target.exit:             ; preds = %126
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @tracepoint_disable_m(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal i64 @tracepoint_disable_m(ptr readnone captures(none) %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @tp_data_type) #4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i32, ptr %4, align 4
@@ -4204,7 +4204,7 @@ define internal i64 @tracepoint_disable_m(ptr nocapture readnone %0, i64 noundef
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 21) i64 @tracepoint_enabled_p(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal range(i64 0, 21) i64 @tracepoint_enabled_p(ptr readnone captures(none) %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @tp_data_type) #4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i32, ptr %4, align 4
@@ -4214,7 +4214,7 @@ define internal range(i64 0, 21) i64 @tracepoint_enabled_p(ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @tracepoint_attr_event(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @tracepoint_attr_event(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -4233,7 +4233,7 @@ get_trace_arg.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @tracepoint_attr_lineno(ptr nocapture readnone %0, i64 %1) #0 {
+define internal range(i64 1, 0) i64 @tracepoint_attr_lineno(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -4305,7 +4305,7 @@ rb_tracearg_lineno.exit:                          ; preds = %.fill_path_and_line
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @tracepoint_attr_path(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @tracepoint_attr_path(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -4370,7 +4370,7 @@ rb_tracearg_path.exit:                            ; preds = %get_trace_arg.exit,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @tracepoint_attr_parameters(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @tracepoint_attr_parameters(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -4389,7 +4389,7 @@ get_trace_arg.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @tracepoint_attr_method_id(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @tracepoint_attr_method_id(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -4467,7 +4467,7 @@ rb_tracearg_method_id.exit:                       ; preds = %fill_id_and_klass.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @tracepoint_attr_callee_id(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @tracepoint_attr_callee_id(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -4545,7 +4545,7 @@ rb_tracearg_callee_id.exit:                       ; preds = %fill_id_and_klass.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @tracepoint_attr_defined_class(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @tracepoint_attr_defined_class(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -4614,7 +4614,7 @@ rb_tracearg_defined_class.exit:                   ; preds = %get_trace_arg.exit,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @tracepoint_attr_binding(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @tracepoint_attr_binding(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -4670,7 +4670,7 @@ rb_tracearg_binding.exit:                         ; preds = %get_trace_arg.exit,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @tracepoint_attr_self(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @tracepoint_attr_self(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -4690,7 +4690,7 @@ get_trace_arg.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 37, 36) i64 @tracepoint_attr_return_value(ptr nocapture readnone %0, i64 %1) #0 {
+define internal range(i64 37, 36) i64 @tracepoint_attr_return_value(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -4729,7 +4729,7 @@ rb_tracearg_return_value.exit:                    ; preds = %14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 37, 36) i64 @tracepoint_attr_raised_exception(ptr nocapture readnone %0, i64 %1) #0 {
+define internal range(i64 37, 36) i64 @tracepoint_attr_raised_exception(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -4768,7 +4768,7 @@ rb_tracearg_raised_exception.exit:                ; preds = %14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @tracepoint_attr_eval_script(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @tracepoint_attr_eval_script(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -4839,7 +4839,7 @@ rb_tracearg_eval_script.exit:                     ; preds = %19, %RARRAY_AREF.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @tracepoint_attr_instruction_sequence(ptr nocapture readnone %0, i64 %1) #0 {
+define internal i64 @tracepoint_attr_instruction_sequence(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -5149,7 +5149,7 @@ declare void @rb_nativethread_lock_unlock(ptr noundef) local_unnamed_addr #1
 declare ptr @rb_vm_main_ractor_ec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_vm_postponed_job_queue_init(ptr nocapture noundef writeonly initializes((1184, 1192)) %0) local_unnamed_addr #0 {
+define hidden void @rb_vm_postponed_job_queue_init(ptr noundef writeonly captures(none) initializes((1184, 1192)) %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @ruby_mimmalloc(i64 noundef 520) #4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(516) %2, i8 0, i64 516, i1 false)
@@ -5160,7 +5160,7 @@ define hidden void @rb_vm_postponed_job_queue_init(ptr nocapture noundef writeon
 declare noalias ptr @ruby_mimmalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_vm_postponed_job_atfork() local_unnamed_addr #0 {
@@ -5624,7 +5624,7 @@ ccan_list_pop_.exit.thread:                       ; preds = %ccan_list_pop_.exit
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #15
@@ -5729,7 +5729,7 @@ declare void @llvm.assume(i1 noundef) #18
 declare void @rb_ec_vm_lock_rec_release(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc range(i64 1, 0) i64 @rbimpl_intern_const(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #19 {
+define internal fastcc range(i64 1, 0) i64 @rbimpl_intern_const(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1) unnamed_addr #19 {
   %.pr = load i64, ptr %0, align 8
   %.not4 = icmp eq i64 %.pr, 0
   br i1 %.not4, label %.lr.ph, label %._crit_edge
@@ -5755,7 +5755,7 @@ declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #1
 declare i32 @rb_vm_control_frame_id_and_class(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tp_mark(ptr nocapture noundef readonly %0) #0 {
+define internal void @tp_mark(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   tail call void @rb_gc_mark(i64 noundef %3) #4
@@ -5848,7 +5848,7 @@ declare ptr @rb_iseqw_to_iseq(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_num2uint(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #21
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #21
 
 declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -6046,10 +6046,10 @@ declare i64 @rb_binding_new() local_unnamed_addr #1
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -1681,7 +1681,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @execute_certreq_create_test(ptr nocapture noundef nonnull readonly %fixture) unnamed_addr #0 {
+define internal fastcc i32 @execute_certreq_create_test(ptr noundef nonnull readonly captures(none) %fixture) unnamed_addr #0 {
 entry:
   %expected = getelementptr inbounds nuw i8, ptr %fixture, i64 40
   %0 = load i32, ptr %expected, align 8
@@ -1762,7 +1762,7 @@ declare i32 @ossl_cmp_ctx_set0_newCert(ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @X509_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @execute_certconf_create_test(ptr nocapture noundef nonnull readonly %fixture) unnamed_addr #0 {
+define internal fastcc i32 @execute_certconf_create_test(ptr noundef nonnull readonly captures(none) %fixture) unnamed_addr #0 {
 entry:
   %expected = getelementptr inbounds nuw i8, ptr %fixture, i64 40
   %0 = load i32, ptr %expected, align 8

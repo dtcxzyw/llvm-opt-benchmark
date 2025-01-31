@@ -26,7 +26,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @engine_table_register(ptr nocapture noundef %table, ptr noundef %cleanup, ptr noundef %e, ptr nocapture noundef readonly %nids, i32 noundef %num_nids, i32 noundef %setdefault) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @engine_table_register(ptr noundef captures(none) %table, ptr noundef %cleanup, ptr noundef %e, ptr noundef readonly captures(none) %nids, i32 noundef %num_nids, i32 noundef %setdefault) local_unnamed_addr #2 {
 entry:
   %tmplate = alloca %struct.st_engine_pile, align 8
   %0 = load ptr, ptr @global_engine_lock, align 8
@@ -241,7 +241,7 @@ declare i32 @engine_unlocked_finish(ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @engine_table_unregister(ptr nocapture noundef readonly %table, ptr noundef %e) local_unnamed_addr #2 {
+define void @engine_table_unregister(ptr noundef readonly captures(none) %table, ptr noundef %e) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @global_engine_lock, align 8
   %call = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %0) #5
@@ -267,7 +267,7 @@ return:                                           ; preds = %entry, %if.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @int_unregister_cb(ptr nocapture noundef %pile, ptr noundef %e) #2 {
+define internal void @int_unregister_cb(ptr noundef captures(none) %pile, ptr noundef %e) #2 {
 entry:
   %sk = getelementptr inbounds nuw i8, ptr %pile, i64 8
   %0 = load ptr, ptr %sk, align 8
@@ -305,7 +305,7 @@ if.end:                                           ; preds = %if.then, %while.end
 }
 
 ; Function Attrs: nounwind uwtable
-define void @engine_table_cleanup(ptr nocapture noundef %table) local_unnamed_addr #2 {
+define void @engine_table_cleanup(ptr noundef captures(none) %table) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @global_engine_lock, align 8
   %call = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %0) #5
@@ -361,7 +361,7 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_engine_table_select(ptr nocapture noundef readonly %table, i32 noundef %nid, ptr nocapture noundef readnone %f, i32 noundef %l) local_unnamed_addr #2 {
+define ptr @ossl_engine_table_select(ptr noundef readonly captures(none) %table, i32 noundef %nid, ptr noundef readnone captures(none) %f, i32 noundef %l) local_unnamed_addr #2 {
 entry:
   %tmplate = alloca %struct.st_engine_pile, align 8
   %call = tail call i32 @OPENSSL_init_crypto(i64 noundef 64, ptr noundef null) #5
@@ -511,7 +511,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @int_dall(ptr nocapture noundef readonly %pile, ptr nocapture noundef readonly %dall) #2 {
+define internal void @int_dall(ptr noundef readonly captures(none) %pile, ptr noundef readonly captures(none) %dall) #2 {
 entry:
   %0 = load ptr, ptr %dall, align 8
   %1 = load i32, ptr %pile, align 8
@@ -526,7 +526,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i64 -2147483648, 2147483648) i64 @engine_pile_hash(ptr nocapture noundef readonly %c) #4 {
+define internal range(i64 -2147483648, 2147483648) i64 @engine_pile_hash(ptr noundef readonly captures(none) %c) #4 {
 entry:
   %0 = load i32, ptr %c, align 8
   %conv = sext i32 %0 to i64
@@ -534,7 +534,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @engine_pile_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #4 {
+define internal i32 @engine_pile_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #4 {
 entry:
   %0 = load i32, ptr %a, align 8
   %1 = load i32, ptr %b, align 8

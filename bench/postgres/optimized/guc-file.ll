@@ -1555,7 +1555,7 @@ define dso_local void @GUC_yy_delete_buffer(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @GUC_yyfree(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define dso_local void @GUC_yyfree(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   tail call void @free(ptr noundef %0) #25
   ret void
 }
@@ -1831,15 +1831,15 @@ define dso_local noundef ptr @GUC_yy_scan_buffer(ptr noundef %0, i64 noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @GUC_yy_scan_string(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local nonnull ptr @GUC_yy_scan_string(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
   %3 = trunc i64 %2 to i32
-  %4 = tail call ptr @GUC_yy_scan_bytes(ptr noundef %0, i32 noundef %3)
+  %4 = tail call ptr @GUC_yy_scan_bytes(ptr noundef nonnull %0, i32 noundef %3)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @GUC_yy_scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local nonnull ptr @GUC_yy_scan_bytes(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = add i32 %1, 2
   %4 = sext i32 %3 to i64
   %5 = tail call noalias noundef ptr @malloc(i64 noundef %4) #22
@@ -1931,7 +1931,7 @@ define dso_local nonnull ptr @GUC_yy_scan_bytes(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local i32 @GUC_yyget_lineno() local_unnamed_addr #7 {
@@ -2047,16 +2047,16 @@ GUC_yypop_buffer_state.exit:                      ; preds = %.thread.i, %5
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local noalias noundef ptr @GUC_yyrealloc(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #4 {
+define dso_local noalias noundef ptr @GUC_yyrealloc(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #24
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ProcessConfigFile(i32 noundef %0) local_unnamed_addr #0 {
@@ -2080,7 +2080,7 @@ declare ptr @ProcessConfigFileInternal(i32 noundef, i1 noundef zeroext, i32 noun
 declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @ParseConfigFile(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7) local_unnamed_addr #0 {
+define dso_local zeroext i1 @ParseConfigFile(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7) local_unnamed_addr #0 {
   %9 = tail call i64 @strspn(ptr noundef %0, ptr noundef nonnull @.str.7) #27
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
   %11 = icmp eq i64 %9, %10
@@ -2092,7 +2092,7 @@ define dso_local zeroext i1 @ParseConfigFile(ptr noundef %0, i1 noundef zeroext 
 
 14:                                               ; preds = %12
   %15 = tail call i32 @errcode(i32 noundef 50856066) #25
-  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef %0) #25
+  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %0) #25
   tail call void @errfinish(ptr noundef nonnull @.str.9, i32 noundef 193, ptr noundef nonnull @__func__.ParseConfigFile) #25
   br label %17
 
@@ -2149,7 +2149,7 @@ record_config_file_error.exit:                    ; preds = %32, %33
 
 40:                                               ; preds = %38
   %41 = tail call i32 @errcode(i32 noundef 261) #25
-  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %0) #25
+  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull %0) #25
   tail call void @errfinish(ptr noundef nonnull @.str.9, i32 noundef 210, ptr noundef nonnull @__func__.ParseConfigFile) #25
   br label %43
 
@@ -2197,7 +2197,7 @@ record_config_file_error.exit91:                  ; preds = %58, %59
   br label %123
 
 62:                                               ; preds = %36
-  %63 = tail call ptr @AbsoluteConfigLocation(ptr noundef %0, ptr noundef %2) #25
+  %63 = tail call ptr @AbsoluteConfigLocation(ptr noundef nonnull %0, ptr noundef %2) #25
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %88, label %64
 
@@ -2249,7 +2249,7 @@ record_config_file_error.exit91:                  ; preds = %58, %59
 
 record_config_file_error.exit93:                  ; preds = %84, %85
   store ptr %73, ptr %7, align 8
-  tail call void @pfree(ptr noundef %63) #25
+  tail call void @pfree(ptr noundef nonnull %63) #25
   br label %123
 
 88:                                               ; preds = %64, %62
@@ -2338,7 +2338,7 @@ record_config_file_error.exit95:                  ; preds = %112, %113
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #12
 
@@ -2349,7 +2349,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #12
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @record_config_file_error(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define dso_local void @record_config_file_error(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = tail call ptr @palloc(i64 noundef 48) #25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %7 = tail call ptr @pstrdup(ptr noundef %0) #25
@@ -2396,7 +2396,7 @@ define dso_local void @record_config_file_error(ptr noundef %0, ptr noundef %1, 
 declare ptr @AbsoluteConfigLocation(ptr noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @pfree(ptr noundef) local_unnamed_addr #12
 
@@ -2407,7 +2407,7 @@ declare i32 @errcode_for_file_access() local_unnamed_addr #12
 declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @ParseConfigFp(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define dso_local zeroext i1 @ParseConfigFp(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i8, align 1
@@ -2946,7 +2946,7 @@ declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #13
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @DeescapeQuotedString(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @DeescapeQuotedString(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
   %3 = trunc i64 %2 to i32
   %4 = getelementptr i8, ptr %0, i64 1
@@ -3076,7 +3076,7 @@ define dso_local ptr @DeescapeQuotedString(ptr nocapture noundef readonly %0) lo
 declare i32 @guc_name_compare(ptr noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @ParseConfigDirectory(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @ParseConfigDirectory(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = call ptr @GetConfFilesInDir(ptr noundef %0, ptr noundef %1, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %8) #25
@@ -3210,22 +3210,22 @@ FreeConfigVariable.exit:                          ; preds = %14, %17
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare void @clearerr(ptr nocapture noundef) local_unnamed_addr #14
+declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: noreturn nounwind uwtable
 define internal fastcc void @GUC_flex_fatal(ptr noundef %0) unnamed_addr #1 {
@@ -3242,13 +3242,13 @@ declare void @siglongjmp(ptr noundef, i32 noundef) local_unnamed_addr #18
 declare i32 @llvm.umin.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #20
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Kit_GraphToAigInternal(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define ptr @Kit_GraphToAigInternal(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.val = load i32, ptr %1, align 8
   %.not = icmp eq i32 %.val, 0
   %3 = getelementptr i8, ptr %1, i64 24
@@ -106,7 +106,7 @@ define ptr @Kit_GraphToAigInternal(ptr noundef %0, ptr nocapture noundef readonl
 declare ptr @Aig_And(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Kit_GraphToAig(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define ptr @Kit_GraphToAig(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
@@ -224,7 +224,7 @@ Kit_GraphToAigInternal.exit:                      ; preds = %16, %30, %.critedge
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Kit_TruthToAig(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define ptr @Kit_TruthToAig(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %7, label %12
 
@@ -260,7 +260,7 @@ declare ptr @Kit_TruthToGraph(ptr noundef, i32 noundef, ptr noundef) local_unnam
 declare void @Kit_GraphFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #3

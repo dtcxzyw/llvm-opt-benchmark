@@ -30,7 +30,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mei_irq_writ
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable_mei_irq_compl_handler312, ptr @__UNIQUE_ID___addressable_mei_irq_read_handler314, ptr @__UNIQUE_ID___addressable_mei_irq_write_handler316], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mei_irq_compl_handler(ptr nocapture readnone %0, ptr noundef readonly %1) #0 align 16 {
+define dso_local void @mei_irq_compl_handler(ptr readnone captures(none) %0, ptr noundef readonly %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, %1
   br i1 %4, label %.loopexit, label %.preheader
@@ -59,7 +59,7 @@ define dso_local void @mei_irq_compl_handler(ptr nocapture readnone %0, ptr noun
 declare dso_local void @mei_cl_complete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mei_irq_read_handler(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define dso_local i32 @mei_irq_read_handler(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
@@ -884,7 +884,7 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 declare dso_local i32 @mei_hbm_dispatch(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @mei_irq_write_handler(ptr noundef %0, ptr noundef %1) #0 align 16 {
@@ -1277,7 +1277,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 declare dso_local ptr @mei_cl_alloc_cb(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mei_dma_ring_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

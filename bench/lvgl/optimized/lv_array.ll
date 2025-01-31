@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define void @lv_array_init(ptr nocapture noundef writeonly initializes((0, 21)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @lv_array_init(ptr noundef writeonly captures(none) initializes((0, 21)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -30,7 +30,7 @@ define void @lv_array_init(ptr nocapture noundef writeonly initializes((0, 21)) 
 declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @lv_array_init_from_buf(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define void @lv_array_init_from_buf(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %5
 
@@ -51,7 +51,7 @@ define void @lv_array_init_from_buf(ptr nocapture noundef writeonly %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_array_deinit(ptr nocapture noundef initializes((8, 16)) %0) local_unnamed_addr #0 {
+define void @lv_array_deinit(ptr noundef captures(none) initializes((8, 16)) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !12
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %3
@@ -81,7 +81,7 @@ define void @lv_array_deinit(ptr nocapture noundef initializes((8, 16)) %0) loca
 declare void @lv_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_array_copy(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @lv_array_copy(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !3
   %5 = icmp eq i32 %4, 0
@@ -146,7 +146,7 @@ lv_array_init.exit:                               ; preds = %lv_array_deinit.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_array_is_empty(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define zeroext i1 @lv_array_is_empty(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !3
   %4 = icmp eq i32 %3, 0
@@ -156,7 +156,7 @@ define zeroext i1 @lv_array_is_empty(ptr nocapture noundef readonly %0) local_un
 declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_array_shrink(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @lv_array_shrink(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -200,7 +200,7 @@ lv_array_resize.exit:                             ; preds = %20, %17, %7, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @lv_array_resize(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @lv_array_resize(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i8, ptr %3, align 4, !tbaa !13, !range !14, !noundef !15
   %5 = icmp ne i8 %4, 0
@@ -237,7 +237,7 @@ define noundef zeroext i1 @lv_array_resize(ptr nocapture noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @lv_array_remove(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @lv_array_remove(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !3
   %.not = icmp ult i32 %1, %4
@@ -348,7 +348,7 @@ lv_array_shrink.exit:                             ; preds = %lv_array_shrink.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_array_at(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define ptr @lv_array_at(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !3
   %.not = icmp ult i32 %1, %4
@@ -378,7 +378,7 @@ define ptr @lv_array_at(ptr nocapture noundef readonly %0, i32 noundef %1) local
 declare ptr @lv_memmove(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @lv_array_erase(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @lv_array_erase(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !3
   %spec.select = tail call i32 @llvm.umin.i32(i32 %2, i32 %5)
@@ -492,7 +492,7 @@ lv_array_shrink.exit:                             ; preds = %lv_array_shrink.exi
 declare ptr @lv_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @lv_array_concat(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @lv_array_concat(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !12
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.preheader, label %4
@@ -563,7 +563,7 @@ lv_array_resize.exit:                             ; preds = %13, %lv_array_resiz
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @lv_array_push_back(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @lv_array_push_back(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !12
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.preheader, label %4
@@ -641,7 +641,7 @@ lv_array_resize.exit:                             ; preds = %10, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @lv_array_assign(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @lv_array_assign(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !3
   %.not.i = icmp ult i32 %1, %5
@@ -671,21 +671,21 @@ lv_array_at.exit.thread:                          ; preds = %3, %lv_array_at.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_array_size(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_array_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !3
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_array_capacity(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_array_capacity(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4, !tbaa !10
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_array_is_full(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define zeroext i1 @lv_array_is_full(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -695,14 +695,14 @@ define zeroext i1 @lv_array_is_full(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_array_clear(ptr nocapture noundef writeonly initializes((8, 12)) %0) local_unnamed_addr #5 {
+define void @lv_array_clear(ptr noundef writeonly captures(none) initializes((8, 12)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_array_front(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define ptr @lv_array_front(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !3
   %.not.i.not = icmp eq i32 %3, 0
@@ -722,7 +722,7 @@ lv_array_at.exit:                                 ; preds = %4, %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_array_back(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define ptr @lv_array_back(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !3
   %4 = add i32 %3, -1

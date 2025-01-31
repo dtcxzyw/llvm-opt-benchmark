@@ -47,7 +47,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, double noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, double noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #2 align 2 {
   %4 = tail call double @llvm.fabs.f64(double %1)
   %5 = fcmp oeq double %4, 0x7FF0000000000000
   br i1 %5, label %6, label %19
@@ -93,7 +93,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
   %30 = getelementptr inbounds i8, ptr %28, i64 %29
   %sext.i8 = shl i64 %24, 32
   %31 = ashr exact i64 %sext.i8, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %.sink21, i64 %31, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull align 1 %.sink21, i64 %31, i1 false)
   %32 = load i32, ptr %26, align 8
   %33 = add nsw i32 %32, %25
   store i32 %33, ptr %26, align 8
@@ -105,7 +105,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS0_13StringBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #3 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS0_13StringBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #3 align 2 {
   %6 = alloca [6 x i8], align 1
   %7 = load i8, ptr %1, align 1
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -297,7 +297,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23Doub
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5) local_unnamed_addr #3 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #3 align 2 {
   %7 = icmp slt i32 %3, 1
   br i1 %7, label %8, label %45
 
@@ -508,7 +508,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10Add
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter20ToShortestIeeeNumberEdPNS0_13StringBuilderENS1_8DtoaModeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, double noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter20ToShortestIeeeNumberEdPNS0_13StringBuilderENS1_8DtoaModeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, double noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #4 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
   %7 = alloca [18 x i8], align 16
@@ -560,7 +560,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
   %36 = getelementptr inbounds i8, ptr %34, i64 %35
   %sext.i8.i = shl i64 %30, 32
   %37 = ashr exact i64 %sext.i8.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %36, ptr align 1 %.sink21.i, i64 %37, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %36, ptr nonnull align 1 %.sink21.i, i64 %37, i1 false)
   %38 = load i32, ptr %32, align 8
   %39 = add nsw i32 %38, %31
   store i32 %39, ptr %32, align 8
@@ -619,7 +619,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringCon
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_(double noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly initializes((0, 1)) %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #4 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_(double noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) initializes((0, 1)) %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #4 align 2 {
   %9 = bitcast double %0 to i64
   %.lobit = lshr i64 %9, 63
   %.sink = trunc nuw nsw i64 %.lobit to i8
@@ -688,7 +688,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaM
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter7ToFixedEdiPNS0_13StringBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, double noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter7ToFixedEdiPNS0_13StringBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, double noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #4 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca [161 x i8], align 16
   %7 = alloca i32, align 4
@@ -743,7 +743,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
   %38 = getelementptr inbounds i8, ptr %36, i64 %37
   %sext.i8.i = shl i64 %32, 32
   %39 = ashr exact i64 %sext.i8.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %38, ptr align 1 %.sink21.i, i64 %39, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull align 1 %.sink21.i, i64 %39, i1 false)
   %40 = load i32, ptr %34, align 8
   %41 = add nsw i32 %40, %33
   store i32 %41, ptr %34, align 8
@@ -813,7 +813,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringCon
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13ToExponentialEdiPNS0_13StringBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, double noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13ToExponentialEdiPNS0_13StringBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, double noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #4 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca [122 x i8], align 16
   %7 = alloca i32, align 4
@@ -868,7 +868,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
   %38 = getelementptr inbounds i8, ptr %36, i64 %37
   %sext.i8.i = shl i64 %32, 32
   %39 = ashr exact i64 %sext.i8.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %38, ptr align 1 %.sink21.i, i64 %39, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull align 1 %.sink21.i, i64 %39, i1 false)
   %40 = load i32, ptr %34, align 8
   %41 = add nsw i32 %40, %33
   store i32 %41, ptr %34, align 8
@@ -989,7 +989,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringCon
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter11ToPrecisionEdiPNS0_13StringBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, double noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter11ToPrecisionEdiPNS0_13StringBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, double noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #4 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca [121 x i8], align 16
   %7 = alloca i32, align 4
@@ -1044,7 +1044,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
   %38 = getelementptr inbounds i8, ptr %36, i64 %37
   %sext.i8.i = shl i64 %32, 32
   %39 = ashr exact i64 %sext.i8.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %38, ptr align 1 %.sink21.i, i64 %39, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull align 1 %.sink21.i, i64 %39, i1 false)
   %40 = load i32, ptr %34, align 8
   %41 = add nsw i32 %40, %33
   store i32 %41, ptr %34, align 8
@@ -1230,10 +1230,10 @@ declare void @abort() local_unnamed_addr #6
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion10BignumDtoaEdNS0_14BignumDtoaModeEiNS0_6VectorIcEEPiS4_(double noundef, i32 noundef, i32 noundef, ptr, i32, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #9
@@ -1242,10 +1242,10 @@ declare double @llvm.fabs.f64(double) #9
 declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
-define void @ucnv_getCompleteUnicodeSet_75(ptr nocapture noundef readnone %cnv, ptr nocapture noundef readonly %sa, i32 noundef %which, ptr nocapture noundef readnone %pErrorCode) local_unnamed_addr #0 {
+define void @ucnv_getCompleteUnicodeSet_75(ptr noundef readnone captures(none) %cnv, ptr noundef readonly captures(none) %sa, i32 noundef %which, ptr noundef readnone captures(none) %pErrorCode) local_unnamed_addr #0 {
 entry:
   %addRange = getelementptr inbounds nuw i8, ptr %sa, i64 16
   %0 = load ptr, ptr %addRange, align 8
@@ -14,7 +14,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ucnv_getNonSurrogateUnicodeSet_75(ptr nocapture noundef readnone %cnv, ptr nocapture noundef readonly %sa, i32 noundef %which, ptr nocapture noundef readnone %pErrorCode) local_unnamed_addr #0 {
+define void @ucnv_getNonSurrogateUnicodeSet_75(ptr noundef readnone captures(none) %cnv, ptr noundef readonly captures(none) %sa, i32 noundef %which, ptr noundef readnone captures(none) %pErrorCode) local_unnamed_addr #0 {
 entry:
   %addRange = getelementptr inbounds nuw i8, ptr %sa, i64 16
   %0 = load ptr, ptr %addRange, align 8
@@ -27,7 +27,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ucnv_fromUWriteBytes_75(ptr noundef writeonly %cnv, ptr nocapture noundef readonly %bytes, i32 noundef %length, ptr nocapture noundef %target, ptr noundef readnone %targetLimit, ptr noundef %offsets, i32 noundef %sourceIndex, ptr nocapture noundef writeonly %pErrorCode) local_unnamed_addr #1 {
+define void @ucnv_fromUWriteBytes_75(ptr noundef writeonly %cnv, ptr noundef readonly captures(none) %bytes, i32 noundef %length, ptr noundef captures(none) %target, ptr noundef readnone %targetLimit, ptr noundef %offsets, i32 noundef %sourceIndex, ptr noundef writeonly captures(none) %pErrorCode) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %offsets, null
@@ -129,7 +129,7 @@ if.end25:                                         ; preds = %if.end24, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ucnv_toUWriteUChars_75(ptr noundef writeonly %cnv, ptr nocapture noundef readonly %uchars, i32 noundef %length, ptr nocapture noundef %target, ptr noundef readnone %targetLimit, ptr noundef %offsets, i32 noundef %sourceIndex, ptr nocapture noundef writeonly %pErrorCode) local_unnamed_addr #1 {
+define void @ucnv_toUWriteUChars_75(ptr noundef writeonly %cnv, ptr noundef readonly captures(none) %uchars, i32 noundef %length, ptr noundef captures(none) %target, ptr noundef readnone %targetLimit, ptr noundef %offsets, i32 noundef %sourceIndex, ptr noundef writeonly captures(none) %pErrorCode) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %offsets, null
@@ -231,7 +231,7 @@ if.end25:                                         ; preds = %if.end24, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ucnv_toUWriteCodePoint_75(ptr noundef writeonly %cnv, i32 noundef %c, ptr nocapture noundef %target, ptr noundef readnone %targetLimit, ptr noundef %offsets, i32 noundef %sourceIndex, ptr nocapture noundef writeonly %pErrorCode) local_unnamed_addr #2 {
+define void @ucnv_toUWriteCodePoint_75(ptr noundef writeonly %cnv, i32 noundef %c, ptr noundef captures(none) %target, ptr noundef readnone %targetLimit, ptr noundef %offsets, i32 noundef %sourceIndex, ptr noundef writeonly captures(none) %pErrorCode) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %target, align 8
   %cmp = icmp ult ptr %0, %targetLimit

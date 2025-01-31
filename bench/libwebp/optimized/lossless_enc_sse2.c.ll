@@ -396,7 +396,7 @@ define internal void @CollectColorRedTransforms_SSE2(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @AddVector_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #2 {
+define internal void @AddVector_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #2 {
   %.not68 = icmp slt i32 %3, 16
   br i1 %.not68, label %.preheader, label %.lr.ph.preheader
 
@@ -475,7 +475,7 @@ define internal void @AddVector_SSE2(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @AddVectorEq_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #2 {
+define internal void @AddVectorEq_SSE2(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #2 {
   %.not66 = icmp slt i32 %2, 16
   br i1 %.not66, label %.preheader, label %.lr.ph.preheader
 
@@ -549,7 +549,7 @@ define internal void @AddVectorEq_SSE2(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal float @CombinedShannonEntropy_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal float @CombinedShannonEntropy_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   br label %3
 
 3:                                                ; preds = %2, %._crit_edge
@@ -706,7 +706,7 @@ VP8LFastSLog2.exit94:                             ; preds = %80, %84
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @VectorMismatch_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #3 {
+define internal i32 @VectorMismatch_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #3 {
   %4 = icmp sgt i32 %2, 11
   br i1 %4, label %.preheader, label %27
 
@@ -987,7 +987,7 @@ define internal void @BundleColorMap_SSE2(ptr noundef %0, i32 noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PredictorSub0_SSE2(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #1 {
+define internal void @PredictorSub0_SSE2(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) #1 {
   %.not34 = icmp slt i32 %2, 4
   br i1 %.not34, label %._crit_edge, label %.lr.ph.preheader
 

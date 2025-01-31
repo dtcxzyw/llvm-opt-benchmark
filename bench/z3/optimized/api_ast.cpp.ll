@@ -463,7 +463,7 @@ declare void @_Z20log_Z3_mk_int_symbolP11_Z3_contexti(ptr noundef, i32 noundef) 
 declare void @_ZN3api7context14set_error_codeE13Z3_error_codePKc(ptr noundef nonnull align 8 dereferenceable(3048), i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
@@ -583,7 +583,7 @@ declare void @_Z23log_Z3_mk_string_symbolP11_Z3_contextPKc(ptr noundef, ptr noun
 declare void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @Z3_is_eq_sort(ptr nocapture noundef writeonly initializes((1560, 1564)) %c, ptr noundef readnone %s1, ptr noundef readnone %s2) local_unnamed_addr #7 {
+define noundef zeroext i1 @Z3_is_eq_sort(ptr noundef writeonly captures(none) initializes((1560, 1564)) %c, ptr noundef readnone %s1, ptr noundef readnone %s2) local_unnamed_addr #7 {
 entry:
   %m_error_code.i = getelementptr inbounds nuw i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
@@ -792,7 +792,7 @@ declare void @_Z23log_Z3_mk_type_variableP11_Z3_contextP10_Z3_symbol(ptr noundef
 declare noundef ptr @_ZN11ast_manager11mk_type_varERK6symbol(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @Z3_is_eq_ast(ptr nocapture noundef writeonly initializes((1560, 1564)) %c, ptr noundef readnone %s1, ptr noundef readnone %s2) local_unnamed_addr #7 {
+define noundef zeroext i1 @Z3_is_eq_ast(ptr noundef writeonly captures(none) initializes((1560, 1564)) %c, ptr noundef readnone %s1, ptr noundef readnone %s2) local_unnamed_addr #7 {
 entry:
   %m_error_code.i = getelementptr inbounds nuw i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
@@ -801,7 +801,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @Z3_is_eq_func_decl(ptr nocapture noundef writeonly initializes((1560, 1564)) %c, ptr noundef readnone %s1, ptr noundef readnone %s2) local_unnamed_addr #7 {
+define noundef zeroext i1 @Z3_is_eq_func_decl(ptr noundef writeonly captures(none) initializes((1560, 1564)) %c, ptr noundef readnone %s1, ptr noundef readnone %s2) local_unnamed_addr #7 {
 entry:
   %m_error_code.i = getelementptr inbounds nuw i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
@@ -4224,7 +4224,7 @@ declare void @_Z19log_Z3_mk_bool_sortP11_Z3_context(ptr noundef) local_unnamed_a
 declare noundef ptr @_ZN11ast_manager7mk_sortEiijPK9parameter(ptr noundef nonnull align 8 dereferenceable(976), i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @Z3_app_to_ast(ptr nocapture noundef writeonly initializes((1560, 1564)) %c, ptr noundef readnone returned %a) local_unnamed_addr #7 {
+define noundef ptr @Z3_app_to_ast(ptr noundef writeonly captures(none) initializes((1560, 1564)) %c, ptr noundef readnone returned %a) local_unnamed_addr #7 {
 entry:
   %m_error_code.i = getelementptr inbounds nuw i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
@@ -4232,7 +4232,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @Z3_sort_to_ast(ptr nocapture noundef writeonly initializes((1560, 1564)) %c, ptr noundef readnone returned %s) local_unnamed_addr #7 {
+define noundef ptr @Z3_sort_to_ast(ptr noundef writeonly captures(none) initializes((1560, 1564)) %c, ptr noundef readnone returned %s) local_unnamed_addr #7 {
 entry:
   %m_error_code.i = getelementptr inbounds nuw i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
@@ -4240,7 +4240,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @Z3_func_decl_to_ast(ptr nocapture noundef writeonly initializes((1560, 1564)) %c, ptr noundef readnone returned %f) local_unnamed_addr #7 {
+define noundef ptr @Z3_func_decl_to_ast(ptr noundef writeonly captures(none) initializes((1560, 1564)) %c, ptr noundef readnone returned %f) local_unnamed_addr #7 {
 entry:
   %m_error_code.i = getelementptr inbounds nuw i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
@@ -11753,7 +11753,7 @@ _ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare void @_ZN3api7context11check_sortsEP3ast(ptr noundef nonnull align 8 dereferenceable(3048), ptr noundef) local_unnamed_addr #0
 
@@ -12506,7 +12506,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -13135,10 +13135,10 @@ declare void @llvm.assume(i1 noundef) #17
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

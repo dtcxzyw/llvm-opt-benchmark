@@ -62,7 +62,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.sema_check_asm_arg = private unnamed_addr constant [3 x i64] [i64 255, i64 65535, i64 4294967295], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @sema_analyse_asm(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @sema_analyse_asm(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 32), align 8
   switch i32 %4, label %5 [
     i32 32, label %7
@@ -1192,7 +1192,7 @@ sema_check_asm_arg_reg.exit:                      ; preds = %.sink.split.i, %485
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: noreturn
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #3
@@ -1206,7 +1206,7 @@ declare zeroext i1 @sema_analyse_expr(ptr noundef, ptr noundef) local_unnamed_ad
 declare ptr @type_quoted_error_string(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asm_reg_add_input(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @asm_reg_add_input(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr %1, align 8
@@ -1478,7 +1478,7 @@ declare ptr @calloc_arena(i64 noundef) local_unnamed_addr #1
 declare ptr @sema_resolve_symbol(ptr noundef, ptr noundef, ptr noundef, i64) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @asm_reg_add_output(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @asm_reg_add_output(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48

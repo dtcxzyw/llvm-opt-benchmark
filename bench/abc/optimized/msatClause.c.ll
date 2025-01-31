@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [6 x i8] c"%s%d \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Msat_ClauseCreate(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
+define i32 @Msat_ClauseCreate(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = tail call ptr @Msat_SolverReadAssignsArray(ptr noundef %0) #12
   store ptr null, ptr %3, align 8
   %6 = tail call i32 @Msat_IntVecReadSize(ptr noundef %1) #12
@@ -232,12 +232,12 @@ declare ptr @Msat_MmStepEntryFetch(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @Msat_SolverReadMem(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @Msat_SolverReadDecisionLevelArray(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Msat_ClauseWriteActivity(ptr nocapture noundef %0, float noundef %1) local_unnamed_addr #3 {
+define void @Msat_ClauseWriteActivity(ptr noundef captures(none) %0, float noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -397,7 +397,7 @@ define void @Msat_ClauseRemoveWatch(ptr noundef %0, ptr noundef readnone %1) loc
 declare void @Msat_MmStepEntryRecycle(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Msat_ClauseReadLearned(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Msat_ClauseReadLearned(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 1
@@ -405,7 +405,7 @@ define range(i32 0, 2) i32 @Msat_ClauseReadLearned(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 16384) i32 @Msat_ClauseReadSize(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 16384) i32 @Msat_ClauseReadSize(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = lshr i32 %3, 3
@@ -420,7 +420,7 @@ define nonnull ptr @Msat_ClauseReadLits(ptr noundef readnone %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Msat_ClauseReadMark(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Msat_ClauseReadMark(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = lshr i32 %3, 1
@@ -429,13 +429,13 @@ define range(i32 0, 2) i32 @Msat_ClauseReadMark(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Msat_ClauseReadNum(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define i32 @Msat_ClauseReadNum(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Msat_ClauseReadTypeA(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Msat_ClauseReadTypeA(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = lshr i32 %3, 2
@@ -444,7 +444,7 @@ define range(i32 0, 2) i32 @Msat_ClauseReadTypeA(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Msat_ClauseSetMark(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define void @Msat_ClauseSetMark(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = shl i32 %1, 1
@@ -456,13 +456,13 @@ define void @Msat_ClauseSetMark(ptr nocapture noundef %0, i32 noundef %1) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Msat_ClauseSetNum(ptr nocapture noundef writeonly initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @Msat_ClauseSetNum(ptr noundef writeonly captures(none) initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #6 {
   store i32 %1, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Msat_ClauseSetTypeA(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define void @Msat_ClauseSetTypeA(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = shl i32 %1, 2
@@ -490,7 +490,7 @@ define range(i32 0, 2) i32 @Msat_ClauseIsLocked(ptr noundef %0, ptr noundef read
 declare ptr @Msat_SolverReadReasonArray(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define float @Msat_ClauseReadActivity(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define float @Msat_ClauseReadActivity(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -503,7 +503,7 @@ define float @Msat_ClauseReadActivity(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @Msat_ClausePropagate(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @Msat_ClausePropagate(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #7 {
   %5 = xor i32 %1, 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 4
@@ -581,7 +581,7 @@ define range(i32 0, 2) i32 @Msat_ClausePropagate(ptr nocapture noundef %0, i32 n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @Msat_ClauseSimplify(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @Msat_ClauseSimplify(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 131064
@@ -769,10 +769,10 @@ define void @Msat_ClausePrint(ptr noundef readonly %0) local_unnamed_addr #8 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Msat_ClauseWriteDimacs(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #8 {
+define void @Msat_ClauseWriteDimacs(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 131064
@@ -817,7 +817,7 @@ define void @Msat_ClauseWriteDimacs(ptr nocapture noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Msat_ClausePrintSymbols(ptr noundef readonly %0) local_unnamed_addr #8 {
@@ -866,7 +866,7 @@ define void @Msat_ClausePrintSymbols(ptr noundef readonly %0) local_unnamed_addr
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11

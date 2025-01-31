@@ -272,7 +272,7 @@ ompi_osc_rdma_frag_complete.exit:                 ; preds = %.preheader69, %121,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -18, 1) i32 @ompi_osc_rdma_frag_alloc(ptr noundef %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -18, 1) i32 @ompi_osc_rdma_frag_alloc(ptr noundef %0, i64 noundef %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %.sroa.22.i.i.i.i = alloca i64, align 8
@@ -638,13 +638,13 @@ _ompi_osc_rdma_register.exit:                     ; preds = %156, %opal_thread_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @ompi_osc_get_data_complete(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((0, 1)) %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal void @ompi_osc_get_data_complete(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 1)) %4, ptr readnone captures(none) %5, i32 %6) #1 {
   store i8 1, ptr %4, align 1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_osc_rdma_put_contig(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) #0 {
+define i32 @ompi_osc_rdma_put_contig(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
   %10 = alloca ptr, align 8
@@ -978,7 +978,7 @@ _ompi_osc_rdma_register.exit:                     ; preds = %ompi_osc_rdma_btl_p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ompi_osc_rdma_put_complete_flush(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) #0 {
+define internal void @ompi_osc_rdma_put_complete_flush(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) #0 {
   %8 = ptrtoint ptr %4 to i64
   %9 = and i64 %8, 1
   %.not = icmp eq i64 %9, 0
@@ -1067,7 +1067,7 @@ ompi_osc_rdma_frag_complete.exit:                 ; preds = %40, %opal_thread_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ompi_osc_rdma_put_complete(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) #0 {
+define internal void @ompi_osc_rdma_put_complete(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) #0 {
   %8 = ptrtoint ptr %4 to i64
   %9 = and i64 %8, 1
   %.not = icmp eq i64 %9, 0
@@ -1180,7 +1180,7 @@ ompi_osc_rdma_sync_rdma_dec.exit:                 ; preds = %ompi_osc_rdma_use_b
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_osc_rdma_put(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+define i32 @ompi_osc_rdma_put(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 272
   %11 = load ptr, ptr %10, align 8
@@ -1473,7 +1473,7 @@ ompi_osc_rdma_copy_local.exit:                    ; preds = %73, %70, %osc_rdma_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_osc_rdma_rput(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #0 {
+define i32 @ompi_osc_rdma_rput(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef readonly captures(none) %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 272
   %12 = load ptr, ptr %11, align 8
@@ -1571,10 +1571,10 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %21, %2
 declare i32 @opal_pointer_array_set_item(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_osc_rdma_get(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+define i32 @ompi_osc_rdma_get(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 272
   %11 = load ptr, ptr %10, align 8
@@ -1716,7 +1716,7 @@ ompi_osc_rdma_copy_local.exit:                    ; preds = %73, %70, %osc_rdma_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_osc_rdma_rget(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #0 {
+define i32 @ompi_osc_rdma_rget(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef readonly captures(none) %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 272
   %12 = load ptr, ptr %11, align 8
@@ -1822,7 +1822,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 declare i32 @opal_progress() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -2026,7 +2026,7 @@ declare i32 @opal_hash_table_get_value_uint32(ptr noundef, i32 noundef, ptr noun
 declare ptr @ompi_osc_rdma_peer_lookup(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ompi_osc_rdma_master(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i32 noundef range(i32 1, 0) %7, ptr noundef %8, ptr noundef %9, i64 noundef %10, ptr nocapture noundef readonly %11, i1 noundef zeroext %12) unnamed_addr #0 {
+define internal fastcc i32 @ompi_osc_rdma_master(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i32 noundef range(i32 1, 0) %7, ptr noundef %8, ptr noundef %9, i64 noundef %10, ptr noundef readonly captures(none) %11, i1 noundef zeroext %12) unnamed_addr #0 {
   %14 = alloca [64 x %struct.iovec], align 16
   %15 = alloca [64 x %struct.iovec], align 16
   %16 = alloca %struct.opal_convertor_t, align 8
@@ -3188,7 +3188,7 @@ ompi_osc_rdma_request_deref.exit:                 ; preds = %61, %opal_thread_fe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ompi_osc_rdma_get_complete(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) #0 {
+define internal void @ompi_osc_rdma_get_complete(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 264
@@ -3341,16 +3341,16 @@ declare void @abort() local_unnamed_addr #7
 declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

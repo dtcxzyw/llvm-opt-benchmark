@@ -56,7 +56,7 @@ declare i32 @g_once_init_enter(ptr noundef) local_unnamed_addr #1
 declare void @g_once_init_leave(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @dbus_refresh(ptr nocapture noundef readonly %dcl) #0 {
+define internal void @dbus_refresh(ptr noundef readonly captures(none) %dcl) #0 {
 entry:
   %con = getelementptr inbounds nuw i8, ptr %dcl, i64 24
   %0 = load ptr, ptr %con, align 8
@@ -65,7 +65,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @dbus_gfx_update(ptr nocapture noundef readonly %dcl, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) #0 {
+define internal void @dbus_gfx_update(ptr noundef readonly captures(none) %dcl, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %ds = getelementptr i8, ptr %dcl, i64 48
@@ -211,7 +211,7 @@ return:                                           ; preds = %if.end28, %if.then9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @dbus_gfx_switch(ptr nocapture noundef writeonly initializes((48, 60)) %dcl, ptr noundef %new_surface) #2 {
+define internal void @dbus_gfx_switch(ptr noundef writeonly captures(none) initializes((48, 60)) %dcl, ptr noundef %new_surface) #2 {
 entry:
   %ds = getelementptr i8, ptr %dcl, i64 48
   store ptr %new_surface, ptr %ds, align 8
@@ -221,7 +221,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @dbus_mouse_set(ptr nocapture noundef readonly %dcl, i32 noundef %x, i32 noundef %y, i32 noundef %on) #0 {
+define internal void @dbus_mouse_set(ptr noundef readonly captures(none) %dcl, i32 noundef %x, i32 noundef %y, i32 noundef %on) #0 {
 entry:
   %proxy = getelementptr i8, ptr %dcl, i64 -32
   %0 = load ptr, ptr %proxy, align 8
@@ -230,7 +230,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @dbus_cursor_define(ptr nocapture noundef readonly %dcl, ptr noundef %c) #0 {
+define internal void @dbus_cursor_define(ptr noundef readonly captures(none) %dcl, ptr noundef %c) #0 {
 entry:
   %call = tail call ptr @g_variant_type_checked_(ptr noundef nonnull @.str.8) #7
   %data = getelementptr inbounds nuw i8, ptr %c, i64 16
@@ -259,7 +259,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local nonnull ptr @dbus_display_listener_get_bus_name(ptr nocapture noundef readonly %ddl) local_unnamed_addr #3 {
+define dso_local nonnull ptr @dbus_display_listener_get_bus_name(ptr noundef readonly captures(none) %ddl) local_unnamed_addr #3 {
 entry:
   %bus_name = getelementptr inbounds nuw i8, ptr %ddl, i64 24
   %0 = load ptr, ptr %bus_name, align 8
@@ -269,7 +269,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @dbus_display_listener_get_console(ptr nocapture noundef readonly %ddl) local_unnamed_addr #3 {
+define dso_local ptr @dbus_display_listener_get_console(ptr noundef readonly captures(none) %ddl) local_unnamed_addr #3 {
 entry:
   %console = getelementptr inbounds nuw i8, ptr %ddl, i64 32
   %0 = load ptr, ptr %console, align 8
@@ -527,7 +527,7 @@ declare ptr @pixman_image_ref(ptr noundef) local_unnamed_addr #1
 declare void @qemu_dbus_display1_listener_call_scanout(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -560,10 +560,10 @@ declare void @qemu_dbus_display1_listener_call_cursor_define(ptr noundef, i32 no
 declare void @g_error_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

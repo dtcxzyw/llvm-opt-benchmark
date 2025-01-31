@@ -76,7 +76,7 @@ list_length.exit:                                 ; preds = %2, %7
   %27 = add i32 %26, %10
   store i32 %27, ptr %25, align 4
   %28 = load ptr, ptr %15, align 8
-  %29 = tail call ptr @lappend(ptr noundef %28, ptr noundef %21) #8
+  %29 = tail call ptr @lappend(ptr noundef %28, ptr noundef nonnull %21) #8
   store ptr %29, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr %13, align 4
@@ -218,7 +218,7 @@ list_length.exit67:                               ; preds = %list_length.exit65,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_rtes_to_flat_rtable(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @add_rtes_to_flat_rtable(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca %struct.flatten_rtes_walker_context, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -485,7 +485,7 @@ define internal fastcc void @add_rtes_to_flat_rtable(ptr nocapture noundef reado
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2128,7 +2128,7 @@ set_param_references.exit:                        ; preds = %.lr.ph619, %.lr.ph6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @trivial_subqueryscan(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @trivial_subqueryscan(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %5 [
@@ -2276,7 +2276,7 @@ list_length.exit49.thread.thread:                 ; preds = %list_length.exit.th
 declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @find_minmax_agg_replacement_param(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @find_minmax_agg_replacement_param(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2350,7 +2350,7 @@ list_length.exit.thread:                          ; preds = %37, %11, %5, %2, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @record_plan_function_dependency(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @record_plan_function_dependency(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ugt i32 %1, 11999
   br i1 %3, label %4, label %17
 
@@ -2380,7 +2380,7 @@ define dso_local void @record_plan_function_dependency(ptr nocapture noundef rea
 declare i32 @GetSysCacheHashValue(i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @record_plan_type_dependency(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @record_plan_type_dependency(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ugt i32 %1, 11999
   br i1 %3, label %4, label %17
 
@@ -2408,7 +2408,7 @@ define dso_local void @record_plan_type_dependency(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @extract_query_dependencies(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) local_unnamed_addr #0 {
+define dso_local void @extract_query_dependencies(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.PlannerGlobal, align 8
   %6 = alloca %struct.PlannerInfo, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5, i8 0, i64 136, i1 false)
@@ -2433,7 +2433,7 @@ define dso_local void @extract_query_dependencies(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @extract_query_dependencies_walker(ptr noundef %0, ptr noundef %1) #0 {
@@ -2576,7 +2576,7 @@ declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare zeroext i1 @query_tree_walker_impl(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fix_expr_common(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @fix_expr_common(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 4
   switch i32 %3, label %record_plan_function_dependency.exit [
     i32 9, label %4
@@ -2901,7 +2901,7 @@ record_plan_function_dependency.exit:             ; preds = %142, %93, %89, %76,
 declare zeroext i1 @expression_tree_walker_impl(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_rte_to_flat_rtable(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @add_rte_to_flat_rtable(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = tail call ptr @palloc(i64 noundef 216) #8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %4, ptr noundef nonnull align 8 dereferenceable(216) %2, i64 208, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2918,7 +2918,7 @@ define internal fastcc void @add_rte_to_flat_rtable(ptr noundef %0, ptr noundef 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call ptr @lappend(ptr noundef %12, ptr noundef %4) #8
+  %13 = tail call ptr @lappend(ptr noundef %12, ptr noundef nonnull %4) #8
   store ptr %13, ptr %11, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %15 = load i32, ptr %14, align 4
@@ -3620,7 +3620,7 @@ fix_scan_expr.exit27:                             ; preds = %91, %93
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_foreignscan_references(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_foreignscan_references(ptr noundef %0, ptr noundef nonnull captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.fix_scan_expr_context, align 8
   %5 = alloca %struct.fix_scan_expr_context, align 8
   %6 = alloca %struct.fix_scan_expr_context, align 8
@@ -4140,7 +4140,7 @@ offset_relid_set.exit96:                          ; preds = %.lr.ph.i94, %offset
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_customscan_references(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_customscan_references(ptr noundef %0, ptr noundef nonnull captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.fix_scan_expr_context, align 8
   %5 = alloca %struct.fix_scan_expr_context, align 8
   %6 = alloca %struct.fix_scan_expr_context, align 8
@@ -4580,7 +4580,7 @@ offset_relid_set.exit:                            ; preds = %.lr.ph.i79, %._crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_upper_references(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_upper_references(ptr noundef %0, ptr noundef nonnull captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.fix_upper_expr_context, align 8
   %5 = alloca %struct.fix_upper_expr_context, align 8
   %6 = alloca %struct.fix_upper_expr_context, align 8
@@ -4834,7 +4834,7 @@ search_indexed_tlist_for_sortgroupref.exit:       ; preds = %93
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_hash_references(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_hash_references(ptr noundef %0, ptr noundef nonnull captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.fix_upper_expr_context, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = load ptr, ptr %5, align 8
@@ -4956,7 +4956,7 @@ build_tlist_index.exit:                           ; preds = %45, %list_length.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_dummy_tlist_references(ptr nocapture noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @set_dummy_tlist_references(ptr noundef nonnull captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -5913,7 +5913,7 @@ define internal zeroext i1 @fix_scan_expr_walker(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @fix_param_node(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc ptr @fix_param_node(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 3
@@ -6244,7 +6244,7 @@ fix_alternative_subplan.exit:                     ; preds = %.lr.ph12.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @search_indexed_tlist_for_var(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @search_indexed_tlist_for_var(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6346,7 +6346,7 @@ define internal fastcc noundef ptr @search_indexed_tlist_for_var(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @search_indexed_tlist_for_phv(ptr nocapture noundef nonnull readonly %0, ptr readonly %.0.val, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @search_indexed_tlist_for_phv(ptr noundef nonnull readonly captures(none) %0, ptr readonly %.0.val, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %.not = icmp eq ptr %.0.val, null
   br i1 %.not, label %.thread, label %.lr.ph
 
@@ -6793,10 +6793,10 @@ declare void @set_sa_opfuncid(ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

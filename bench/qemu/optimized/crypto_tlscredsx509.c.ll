@@ -162,7 +162,7 @@ qcrypto_tls_creds_x509_unload.exit:               ; preds = %if.end.i, %if.then4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qcrypto_tls_creds_x509_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @qcrypto_tls_creds_x509_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.7, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #9
   %call.i5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS_CLASS) #9
@@ -258,7 +258,7 @@ entry:
 declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @qcrypto_tls_creds_x509_prop_get_loaded(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @qcrypto_tls_creds_x509_prop_get_loaded(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS_X509) #9
   %data = getelementptr inbounds nuw i8, ptr %call.i, i64 80
@@ -268,7 +268,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @qcrypto_tls_creds_x509_prop_get_sanity(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @qcrypto_tls_creds_x509_prop_get_sanity(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS_X509) #9
   %sanityCheck = getelementptr inbounds nuw i8, ptr %call.i, i64 88
@@ -278,7 +278,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qcrypto_tls_creds_x509_prop_set_sanity(ptr noundef %obj, i1 noundef zeroext %value, ptr nocapture readnone %errp) #0 {
+define internal void @qcrypto_tls_creds_x509_prop_set_sanity(ptr noundef %obj, i1 noundef zeroext %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS_X509) #9
@@ -290,7 +290,7 @@ entry:
 declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @qcrypto_tls_creds_x509_prop_get_passwordid(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @qcrypto_tls_creds_x509_prop_get_passwordid(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS_X509) #9
   %passwordid = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -300,7 +300,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qcrypto_tls_creds_x509_prop_set_passwordid(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
+define internal void @qcrypto_tls_creds_x509_prop_set_passwordid(ptr noundef %obj, ptr noundef %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS_X509) #9
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #9
@@ -674,7 +674,7 @@ for.body.i:                                       ; preds = %if.end21.i, %for.co
   %i.092.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %if.end21.i ]
   %arrayidx.i = getelementptr [16 x ptr], ptr %cacerts.i, i64 0, i64 %i.092.i
   %35 = load ptr, ptr %arrayidx.i, align 8
-  %call24.i = call fastcc i32 @qcrypto_tls_creds_check_cert(ptr noundef %creds, ptr noundef %35, ptr noundef %10, i1 noundef zeroext %cmp39, i1 noundef zeroext true, ptr noundef %errp)
+  %call24.i = call fastcc i32 @qcrypto_tls_creds_check_cert(ptr noundef nonnull %creds, ptr noundef %35, ptr noundef %10, i1 noundef zeroext %cmp39, i1 noundef zeroext true, ptr noundef %errp)
   %cmp25.i = icmp slt i32 %call24.i, 0
   br i1 %cmp25.i, label %cleanup.i, label %for.cond.i
 
@@ -902,17 +902,17 @@ declare i32 @qcrypto_tls_creds_get_dh_params_file(ptr noundef, ptr noundef, ptr 
 declare void @gnutls_certificate_set_dh_params(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #3
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 -1, 1) i32 @qcrypto_tls_creds_check_cert(ptr noundef %creds, ptr noundef %cert, ptr noundef %certFile, i1 noundef zeroext %isServer, i1 noundef zeroext %isCA, ptr noundef %errp) unnamed_addr #0 {
@@ -1319,7 +1319,7 @@ declare i32 @g_file_get_contents(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare void @g_error_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @gnutls_x509_crt_import(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1353,10 +1353,10 @@ declare i32 @gnutls_x509_crt_list_verify(ptr noundef, i32 noundef, ptr noundef, 
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

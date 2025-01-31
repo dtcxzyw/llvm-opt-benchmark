@@ -36,7 +36,7 @@ entry:
   %refcnt.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i64 1, ptr %refcnt.i.i, align 8
   store i32 3, ptr %call.i, align 8
-  %call3.i = tail call noalias ptr @g_strndup(ptr noundef %str, i64 noundef %call) #8
+  %call3.i = tail call noalias ptr @g_strndup(ptr noundef nonnull %str, i64 noundef %call) #8
   %string.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %call3.i, ptr %string.i, align 8
   ret ptr %call.i
@@ -74,7 +74,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #2
 declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef ptr @qstring_from_gstring(ptr noundef %gstr) local_unnamed_addr #0 {
@@ -92,7 +92,7 @@ entry:
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @qstring_get_str(ptr nocapture noundef readonly %qstring) local_unnamed_addr #5 {
+define dso_local ptr @qstring_get_str(ptr noundef readonly captures(none) %qstring) local_unnamed_addr #5 {
 entry:
   %string = getelementptr inbounds nuw i8, ptr %qstring, i64 16
   %0 = load ptr, ptr %string, align 8
@@ -140,7 +140,7 @@ qobject_type.exit.i6:                             ; preds = %qobject_type.exit.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qstring_destroy_obj(ptr noundef %obj) local_unnamed_addr #0 {

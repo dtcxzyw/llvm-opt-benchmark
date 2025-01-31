@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_op_ddt_map = external local_unnamed_addr global [52 x i32], align 16
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_coll_basic_reduce_scatter_intra(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef readnone %6) local_unnamed_addr #0 {
+define i32 @mca_coll_basic_reduce_scatter_intra(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = getelementptr i8, ptr %5, i64 220
   %.val = load i32, ptr %9, align 4
@@ -341,7 +341,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   %163 = mul nsw i64 %35, %162
   %164 = getelementptr inbounds i8, ptr %58, i64 %163
   %165 = zext nneg i32 %.1 to i64
-  %166 = call i32 %158(ptr noundef nonnull %164, i64 noundef %165, ptr noundef %3, i32 noundef %126, i32 noundef -22, ptr noundef %5, ptr noundef nonnull %8) #6
+  %166 = call i32 %158(ptr noundef nonnull %164, i64 noundef %165, ptr noundef nonnull %3, i32 noundef %126, i32 noundef -22, ptr noundef %5, ptr noundef nonnull %8) #6
   %.not322 = icmp eq i32 %166, 0
   br i1 %.not322, label %.loopexit.thread, label %167
 
@@ -368,7 +368,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   %176 = mul nsw i64 %35, %175
   %177 = getelementptr inbounds i8, ptr %62, i64 %176
   %178 = zext nneg i32 %.1252436 to i64
-  %179 = call i32 %171(ptr noundef %177, i64 noundef %178, ptr noundef %3, i32 noundef %126, i32 noundef -22, i32 noundef 4, ptr noundef %5) #6
+  %179 = call i32 %171(ptr noundef %177, i64 noundef %178, ptr noundef nonnull %3, i32 noundef %126, i32 noundef -22, i32 noundef 4, ptr noundef %5) #6
   %.not323 = icmp eq i32 %179, 0
   br i1 %.not323, label %181, label %180
 
@@ -400,7 +400,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   %192 = getelementptr inbounds i8, ptr %58, i64 %191
   %193 = getelementptr inbounds i8, ptr %62, i64 %191
   %194 = zext nneg i32 %.1437 to i64
-  call fastcc void @ompi_op_reduce(ptr noundef %4, ptr noundef nonnull %192, ptr noundef %193, i64 noundef %194, ptr noundef %3)
+  call fastcc void @ompi_op_reduce(ptr noundef %4, ptr noundef nonnull %192, ptr noundef %193, i64 noundef %194, ptr noundef nonnull %3)
   br label %195
 
 195:                                              ; preds = %186, %181
@@ -422,7 +422,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   %204 = sext i32 %203 to i64
   %205 = mul nsw i64 %35, %204
   %206 = getelementptr inbounds i8, ptr %62, i64 %205
-  %207 = call i32 @ompi_datatype_sndrcv(ptr noundef %206, i32 noundef %200, ptr noundef %3, ptr noundef %1, i32 noundef %200, ptr noundef %3) #6
+  %207 = call i32 @ompi_datatype_sndrcv(ptr noundef %206, i32 noundef %200, ptr noundef nonnull %3, ptr noundef %1, i32 noundef %200, ptr noundef nonnull %3) #6
   %.not319 = icmp eq i32 %207, 0
   br i1 %.not319, label %209, label %208
 
@@ -455,7 +455,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   %216 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 72), align 8
   %217 = sext i32 %214 to i64
   %218 = or disjoint i32 %.val, 1
-  %219 = call i32 %216(ptr noundef %1, i64 noundef %217, ptr noundef %3, i32 noundef %218, i32 noundef -22, ptr noundef %5, ptr noundef null) #6
+  %219 = call i32 %216(ptr noundef %1, i64 noundef %217, ptr noundef nonnull %3, i32 noundef %218, i32 noundef -22, ptr noundef %5, ptr noundef null) #6
   br label %260
 
 220:                                              ; preds = %.thread340
@@ -474,7 +474,7 @@ opal_datatype_span.exit:                          ; preds = %32, %40
   %230 = mul nsw i64 %35, %229
   %231 = getelementptr inbounds i8, ptr %62, i64 %230
   %232 = sext i32 %224 to i64
-  %233 = call i32 %226(ptr noundef %231, i64 noundef %232, ptr noundef %3, i32 noundef %221, i32 noundef -22, i32 noundef 4, ptr noundef %5) #6
+  %233 = call i32 %226(ptr noundef %231, i64 noundef %232, ptr noundef nonnull %3, i32 noundef %221, i32 noundef -22, i32 noundef 4, ptr noundef %5) #6
   br label %260
 
 234:                                              ; preds = %opal_datatype_span.exit
@@ -556,12 +556,12 @@ opal_datatype_span.exit:                          ; preds = %32, %40
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @ompi_datatype_sndrcv(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @ompi_op_reduce(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -672,7 +672,7 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_coll_basic_reduce_scatter_inter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr nocapture noundef readnone %6) local_unnamed_addr #0 {
+define i32 @mca_coll_basic_reduce_scatter_inter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = getelementptr i8, ptr %5, i64 220
   %.val = load i32, ptr %9, align 4

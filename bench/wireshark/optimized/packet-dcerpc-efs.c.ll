@@ -603,7 +603,7 @@ define internal i32 @efs_dissect_element_EFS_HASH_BLOB_pbData__(ptr noundef %0, 
 declare i32 @PIDL_dissect_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_pUserSid_(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture readnone %5) #0 {
+define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_pUserSid_(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = getelementptr i8, ptr %4, i64 28
   %.val = load i32, ptr %7, align 4
   %.not.i = icmp eq i32 %.val, 0
@@ -669,7 +669,7 @@ define internal i32 @efs_dissect_element_EFS_CERTIFICATE_BLOB_pbData__(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_pUserSid_(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture readnone %5) #0 {
+define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_pUserSid_(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = getelementptr i8, ptr %4, i64 28
   %.val = load i32, ptr %7, align 4
   %.not.i = icmp eq i32 %.val, 0
@@ -1082,7 +1082,7 @@ define internal i32 @efs_dissect_EfsRpcSetFileEncryptionKey_response(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @efs_dissect_EfsRpcNotSupported_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @efs_dissect_EfsRpcNotSupported_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.74, ptr %7, align 8
   ret i32 %1
@@ -1111,7 +1111,7 @@ define internal i32 @efs_dissect_EfsRpcNotSupported_response(ptr noundef %0, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @efs_dissect_EfsRpcFileKeyInfo_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @efs_dissect_EfsRpcFileKeyInfo_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.75, ptr %7, align 8
   ret i32 %1
@@ -1140,7 +1140,7 @@ define internal i32 @efs_dissect_EfsRpcFileKeyInfo_response(ptr noundef %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @efs_dissect_EfsRpcDuplicateEncryptionInfoFile_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @efs_dissect_EfsRpcDuplicateEncryptionInfoFile_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.76, ptr %7, align 8
   ret i32 %1
@@ -1244,10 +1244,10 @@ define internal i32 @efs_dissect_element_EfsRpcSetFileEncryptionKey_pEncryptionC
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

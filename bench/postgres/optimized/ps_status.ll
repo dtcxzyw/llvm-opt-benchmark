@@ -202,7 +202,7 @@ define dso_local noundef ptr @save_ps_display_args(i32 noundef %0, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
@@ -213,7 +213,7 @@ declare void @write_stderr(ptr noundef, ...) local_unnamed_addr #3
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @init_ps_display(ptr noundef %0) local_unnamed_addr #0 {
@@ -280,9 +280,7 @@ define dso_local void @init_ps_display(ptr noundef %0) local_unnamed_addr #0 {
   %30 = and i8 %29, 1
   %31 = load i8, ptr @IsUnderPostmaster, align 1
   %32 = trunc i8 %31 to i1
-  %.not.i.i.i = icmp ne ptr %27, null
-  %or.cond.i.i = and i1 %.not.i.i.i, %32
-  br i1 %or.cond.i.i, label %33, label %set_ps_display.exit
+  br i1 %32, label %33, label %set_ps_display.exit
 
 33:                                               ; preds = %26
   store i64 0, ptr @ps_buffer_nosuffix_len, align 8
@@ -367,7 +365,7 @@ declare ptr @GetBackendTypeDesc(i32 noundef) local_unnamed_addr #3
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @set_ps_display_suffix(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define dso_local void @set_ps_display_suffix(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i8, ptr @update_process_title, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %update_ps_display_precheck.exit.thread
@@ -414,7 +412,7 @@ define dso_local void @set_ps_display_suffix(ptr nocapture noundef readonly %0) 
   %24 = getelementptr i8, ptr %7, i64 %16
   %reass.sub10 = sub i64 %18, %14
   %25 = add i64 %reass.sub10, -2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %0, i64 %25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr nonnull align 1 %0, i64 %25, i1 false)
   %26 = getelementptr i8, ptr %7, i64 %18
   %27 = getelementptr i8, ptr %26, i64 -1
   store i8 0, ptr %27, align 1
@@ -425,7 +423,7 @@ define dso_local void @set_ps_display_suffix(ptr nocapture noundef readonly %0) 
   store i8 32, ptr %29, align 1
   %30 = getelementptr i8, ptr %7, i64 %16
   %31 = add i64 %15, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 1 %0, i64 %31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr nonnull align 1 %0, i64 %31, i1 false)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %28, %22
@@ -486,7 +484,7 @@ update_ps_display_precheck.exit.thread:           ; preds = %4, %1, %flush_ps_di
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define dso_local void @set_ps_display_remove_suffix() local_unnamed_addr #8 {
@@ -562,7 +560,7 @@ update_ps_display_precheck.exit.thread:           ; preds = %3, %0, %update_ps_d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @set_ps_display_with_len(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #9 {
+define dso_local void @set_ps_display_with_len(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #9 {
   %3 = load i8, ptr @update_process_title, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %update_ps_display_precheck.exit.thread
@@ -653,7 +651,7 @@ update_ps_display_precheck.exit.thread:           ; preds = %5, %2, %flush_ps_di
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local ptr @get_ps_display(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #10 {
+define dso_local ptr @get_ps_display(ptr noundef writeonly captures(none) initializes((0, 4)) %0) local_unnamed_addr #10 {
   %2 = load ptr, ptr @ps_buffer, align 8
   %.not = icmp eq ptr %2, null
   %3 = load i64, ptr @ps_buffer_cur_len, align 8
@@ -668,7 +666,7 @@ define dso_local ptr @get_ps_display(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12

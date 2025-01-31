@@ -115,10 +115,10 @@ return:                                           ; preds = %entry, %cond.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint13initWithBytesENS0_16MutableBigIntRefEN4llvh8ArrayRefIhEE(ptr nocapture %dst.coerce0, ptr nocapture %dst.coerce1, ptr nocapture readonly %data.coerce0, i64 %data.coerce1) local_unnamed_addr #2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint13initWithBytesENS0_16MutableBigIntRefEN4llvh8ArrayRefIhEE(ptr captures(none) %dst.coerce0, ptr captures(none) %dst.coerce1, ptr readonly captures(none) %data.coerce0, i64 %data.coerce1) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %dst.coerce1, align 4
   %mul = shl i32 %0, 3
@@ -190,10 +190,10 @@ return:                                           ; preds = %cond.end.i.i, %if.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE(ptr nocapture readonly %src.coerce0, i32 %src.coerce1) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE(ptr readonly captures(none) %src.coerce0, i32 %src.coerce1) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i32 %src.coerce1, 0
   br i1 %cmp.not, label %land.end, label %land.rhs
@@ -226,7 +226,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint10fromDoubleENS0_16MutableBigIntRefEd(ptr nocapture %dst.coerce0, ptr nocapture %dst.coerce1, double noundef %src) local_unnamed_addr #5 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint10fromDoubleENS0_16MutableBigIntRefEd(ptr captures(none) %dst.coerce0, ptr captures(none) %dst.coerce1, double noundef %src) local_unnamed_addr #5 {
 entry:
   %tmp = alloca %"class.llvh::APInt", align 8
   call void @_ZN4llvh8APIntOps18RoundDoubleToAPIntEdj(ptr nonnull sret(%"class.llvh::APInt") align 8 %tmp, double noundef %src, i32 noundef 1088) #18
@@ -360,7 +360,7 @@ _ZN4llvh5APIntD2Ev.exit:                          ; preds = %_ZN6hermes6bigint13
 declare void @_ZN4llvh8APIntOps18RoundDoubleToAPIntEdj(ptr sret(%"class.llvh::APInt") align 8, double noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint8toDoubleERdNS0_18ImmutableBigIntRefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %dst, ptr %src.coerce0, i32 %src.coerce1) local_unnamed_addr #5 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint8toDoubleERdNS0_18ImmutableBigIntRefE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %dst, ptr %src.coerce0, i32 %src.coerce1) local_unnamed_addr #5 {
 entry:
   %tmpStorage = alloca %"class.hermes::bigint::TmpStorage", align 8
   %cmp = icmp eq i32 %src.coerce1, 0
@@ -603,14 +603,14 @@ return:                                           ; preds = %if.then.i.i.i, %cle
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes6bigint36getStringIntegerLiteralDigitsAndSignEN4llvh8ArrayRefIcEERhRNS0_10ParsedSignEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::optional") align 8 initializes((32, 33)) %agg.result, ptr %src.coerce0, i64 %src.coerce1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %radix, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %sign, ptr noundef %outError) local_unnamed_addr #5 {
+define hidden void @_ZN6hermes6bigint36getStringIntegerLiteralDigitsAndSignEN4llvh8ArrayRefIcEERhRNS0_10ParsedSignEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::optional") align 8 initializes((32, 33)) %agg.result, ptr %src.coerce0, i64 %src.coerce1, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %radix, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %sign, ptr noundef %outError) local_unnamed_addr #5 {
 entry:
   tail call fastcc void @_ZN6hermes6bigint12_GLOBAL__N_113getDigitsWithINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEES6_EESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET0_RhRNS0_10ParsedSignEPSE_(ptr noalias align 8 %agg.result, ptr %src.coerce0, i64 %src.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %radix, ptr noundef nonnull align 4 dereferenceable(4) %sign, ptr noundef %outError)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6bigint12_GLOBAL__N_113getDigitsWithINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEES6_EESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET0_RhRNS0_10ParsedSignEPSE_(ptr noalias align 8 initializes((32, 33)) %agg.result, ptr %src.coerce0, i64 %src.coerce1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %radix, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %sign, ptr noundef %outError) unnamed_addr #5 {
+define internal fastcc void @_ZN6hermes6bigint12_GLOBAL__N_113getDigitsWithINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIcEEEES6_EESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET0_RhRNS0_10ParsedSignEPSE_(ptr noalias align 8 initializes((32, 33)) %agg.result, ptr %src.coerce0, i64 %src.coerce1, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %radix, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %sign, ptr noundef %outError) unnamed_addr #5 {
 entry:
   %src.coerce048 = ptrtoint ptr %src.coerce0 to i64
   %bigintDigits = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1180,14 +1180,14 @@ nrvo.skipdtor:                                    ; preds = %if.then.i40.i, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes6bigint36getStringIntegerLiteralDigitsAndSignEN4llvh8ArrayRefIDsEERhRNS0_10ParsedSignEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::optional") align 8 initializes((32, 33)) %agg.result, ptr %src.coerce0, i64 %src.coerce1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %radix, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %sign, ptr noundef %outError) local_unnamed_addr #5 {
+define hidden void @_ZN6hermes6bigint36getStringIntegerLiteralDigitsAndSignEN4llvh8ArrayRefIDsEERhRNS0_10ParsedSignEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::optional") align 8 initializes((32, 33)) %agg.result, ptr %src.coerce0, i64 %src.coerce1, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %radix, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %sign, ptr noundef %outError) local_unnamed_addr #5 {
 entry:
   tail call fastcc void @_ZN6hermes6bigint12_GLOBAL__N_113getDigitsWithINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEES6_EESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET0_RhRNS0_10ParsedSignEPSE_(ptr noalias align 8 %agg.result, ptr %src.coerce0, i64 %src.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %radix, ptr noundef nonnull align 4 dereferenceable(4) %sign, ptr noundef %outError)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6bigint12_GLOBAL__N_113getDigitsWithINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEES6_EESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET0_RhRNS0_10ParsedSignEPSE_(ptr noalias align 8 initializes((32, 33)) %agg.result, ptr readonly %src.coerce0, i64 %src.coerce1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %radix, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %sign, ptr noundef %outError) unnamed_addr #5 {
+define internal fastcc void @_ZN6hermes6bigint12_GLOBAL__N_113getDigitsWithINS1_26StringIntegerLiteralParserIN4llvh8ArrayRefIDsEEEES6_EESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET0_RhRNS0_10ParsedSignEPSE_(ptr noalias align 8 initializes((32, 33)) %agg.result, ptr readonly %src.coerce0, i64 %src.coerce1, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %radix, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %sign, ptr noundef %outError) unnamed_addr #5 {
 entry:
   %bigintDigits = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #18
@@ -1695,7 +1695,7 @@ nrvo.skipdtor:                                    ; preds = %if.then.i35.i, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes6bigint21getNumericValueDigitsEN4llvh9StringRefERhPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::optional") align 8 initializes((32, 33)) %agg.result, ptr %src.coerce0, i64 %src.coerce1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %radix, ptr noundef %outError) local_unnamed_addr #5 {
+define hidden void @_ZN6hermes6bigint21getNumericValueDigitsEN4llvh9StringRefERhPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::optional") align 8 initializes((32, 33)) %agg.result, ptr %src.coerce0, i64 %src.coerce1, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %radix, ptr noundef %outError) local_unnamed_addr #5 {
 entry:
   %sign = alloca i32, align 4
   call fastcc void @_ZN6hermes6bigint12_GLOBAL__N_113getDigitsWithINS1_18NumericValueParserEN4llvh9StringRefEEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET0_RhRNS0_10ParsedSignEPSC_(ptr noalias align 8 %agg.result, ptr %src.coerce0, i64 %src.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %radix, ptr noundef nonnull align 4 dereferenceable(4) %sign, ptr noundef %outError)
@@ -1703,7 +1703,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6bigint12_GLOBAL__N_113getDigitsWithINS1_18NumericValueParserEN4llvh9StringRefEEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET0_RhRNS0_10ParsedSignEPSC_(ptr noalias align 8 initializes((32, 33)) %agg.result, ptr readonly %src.coerce0, i64 %src.coerce1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %radix, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %sign, ptr noundef %outError) unnamed_addr #5 {
+define internal fastcc void @_ZN6hermes6bigint12_GLOBAL__N_113getDigitsWithINS1_18NumericValueParserEN4llvh9StringRefEEESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET0_RhRNS0_10ParsedSignEPSC_(ptr noalias align 8 initializes((32, 33)) %agg.result, ptr readonly %src.coerce0, i64 %src.coerce1, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %radix, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %sign, ptr noundef %outError) unnamed_addr #5 {
 entry:
   %bigintDigits = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %bigintDigits) #18
@@ -2271,7 +2271,7 @@ nrvo.skipdtor:                                    ; preds = %if.then.i71.i, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes6bigint12ParsedBigInt36parsedBigIntFromStringIntegerLiteralEN4llvh8ArrayRefIcEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%"class.std::optional.7") align 8 initializes((24, 25)) %agg.result, ptr %input.coerce0, i64 %input.coerce1, ptr noundef %outError) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN6hermes6bigint12ParsedBigInt36parsedBigIntFromStringIntegerLiteralEN4llvh8ArrayRefIcEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias writeonly sret(%"class.std::optional.7") align 8 captures(none) initializes((24, 25)) %agg.result, ptr %input.coerce0, i64 %input.coerce1, ptr noundef %outError) local_unnamed_addr #5 align 2 {
 entry:
   %radix.i = alloca i8, align 1
   %sign.i = alloca i32, align 4
@@ -2460,7 +2460,7 @@ _ZNSt8optionalISt6vectorIhSaIhEEED2Ev.exit:       ; preds = %_ZN6hermes6bigint12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes6bigint12ParsedBigInt36parsedBigIntFromStringIntegerLiteralEN4llvh8ArrayRefIDsEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%"class.std::optional.7") align 8 initializes((24, 25)) %agg.result, ptr %input.coerce0, i64 %input.coerce1, ptr noundef %outError) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN6hermes6bigint12ParsedBigInt36parsedBigIntFromStringIntegerLiteralEN4llvh8ArrayRefIDsEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias writeonly sret(%"class.std::optional.7") align 8 captures(none) initializes((24, 25)) %agg.result, ptr %input.coerce0, i64 %input.coerce1, ptr noundef %outError) local_unnamed_addr #5 align 2 {
 entry:
   %radix.i = alloca i8, align 1
   %sign.i = alloca i32, align 4
@@ -2649,7 +2649,7 @@ _ZNSt8optionalISt6vectorIhSaIhEEED2Ev.exit:       ; preds = %_ZN6hermes6bigint12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes6bigint12ParsedBigInt28parsedBigIntFromNumericValueEN4llvh9StringRefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%"class.std::optional.7") align 8 initializes((24, 25)) %agg.result, ptr %input.coerce0, i64 %input.coerce1, ptr noundef %outError) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN6hermes6bigint12ParsedBigInt28parsedBigIntFromNumericValueEN4llvh9StringRefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias writeonly sret(%"class.std::optional.7") align 8 captures(none) initializes((24, 25)) %agg.result, ptr %input.coerce0, i64 %input.coerce1, ptr noundef %outError) local_unnamed_addr #5 align 2 {
 entry:
   %radix.i = alloca i8, align 1
   %sign.i = alloca i32, align 4
@@ -3240,7 +3240,7 @@ declare ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr nou
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 3) i32 @_ZN6hermes6bigint8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvh8ArrayRefIhEEh(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr nocapture readonly %bytes.coerce0, i64 %bytes.coerce1, i8 noundef zeroext %radix) local_unnamed_addr #5 {
+define hidden noundef range(i32 0, 3) i32 @_ZN6hermes6bigint8toStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvh8ArrayRefIhEEh(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr readonly captures(none) %bytes.coerce0, i64 %bytes.coerce1, i8 noundef zeroext %radix) local_unnamed_addr #5 {
 entry:
   %tmp = alloca %"class.hermes::bigint::TmpStorage", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3442,7 +3442,7 @@ return:                                           ; preds = %_ZN6hermes6bigint10
 declare noundef i32 @_ZN4llvh5APInt9tcCompareEPKmS2_j(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN6hermes6bigint31isSingleDigitTruncationLosslessENS0_18ImmutableBigIntRefEb(ptr nocapture readonly %src.coerce0, i32 %src.coerce1, i1 noundef zeroext %signedTruncation) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_ZN6hermes6bigint31isSingleDigitTruncationLosslessENS0_18ImmutableBigIntRefEb(ptr readonly captures(none) %src.coerce0, i32 %src.coerce1, i1 noundef zeroext %signedTruncation) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %src.coerce1, 0
   br i1 %cmp, label %return, label %if.end
@@ -3477,7 +3477,7 @@ return:                                           ; preds = %land.lhs.true, %lan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef range(i32 0, 3) i32 @_ZN6hermes6bigint17asUintNResultSizeEmNS0_18ImmutableBigIntRefERj(i64 noundef %n, ptr nocapture readonly %src.coerce0, i32 %src.coerce1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %resultSize) local_unnamed_addr #8 {
+define hidden noundef range(i32 0, 3) i32 @_ZN6hermes6bigint17asUintNResultSizeEmNS0_18ImmutableBigIntRefERj(i64 noundef %n, ptr readonly captures(none) %src.coerce0, i32 %src.coerce1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %resultSize) local_unnamed_addr #8 {
 entry:
   %mul = shl i32 %src.coerce1, 6
   %conv = zext i32 %mul to i64
@@ -3515,7 +3515,7 @@ return:                                           ; preds = %if.end, %if.end4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 0, 67108864) i32 @_ZN6hermes6bigint16asIntNResultSizeEmNS0_18ImmutableBigIntRefE(i64 noundef %n, ptr nocapture readnone %src.coerce0, i32 %src.coerce1) local_unnamed_addr #4 {
+define hidden noundef range(i32 0, 67108864) i32 @_ZN6hermes6bigint16asIntNResultSizeEmNS0_18ImmutableBigIntRefE(i64 noundef %n, ptr readnone captures(none) %src.coerce0, i32 %src.coerce1) local_unnamed_addr #4 {
 entry:
   %sub1.i.i = add i64 %n, 63
   %div1.i = lshr i64 %sub1.i.i, 6
@@ -3527,7 +3527,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef range(i32 0, 3) i32 @_ZN6hermes6bigint7asUintNENS0_16MutableBigIntRefEmNS0_18ImmutableBigIntRefE(ptr nocapture %dst.coerce0, ptr nocapture %dst.coerce1, i64 noundef %n, ptr nocapture readonly %src.coerce0, i32 %src.coerce1) local_unnamed_addr #2 {
+define hidden noundef range(i32 0, 3) i32 @_ZN6hermes6bigint7asUintNENS0_16MutableBigIntRefEmNS0_18ImmutableBigIntRefE(ptr captures(none) %dst.coerce0, ptr captures(none) %dst.coerce1, i64 noundef %n, ptr readonly captures(none) %src.coerce0, i32 %src.coerce1) local_unnamed_addr #2 {
 entry:
   %mul.i = shl i32 %src.coerce1, 6
   %conv.i = zext i32 %mul.i to i64
@@ -3565,7 +3565,7 @@ return:                                           ; preds = %if.end.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN6hermes6bigint12_GLOBAL__N_112bigintAsImplENS0_16MutableBigIntRefEjmNS0_18ImmutableBigIntRefENS1_8BigIntAsE(ptr nocapture %dst.coerce0, ptr nocapture %dst.coerce1, i32 noundef %numDigits, i64 noundef %n, ptr nocapture readonly %src.coerce0, i32 %src.coerce1, i32 noundef range(i32 0, 2) %operation) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN6hermes6bigint12_GLOBAL__N_112bigintAsImplENS0_16MutableBigIntRefEjmNS0_18ImmutableBigIntRefENS1_8BigIntAsE(ptr captures(none) %dst.coerce0, ptr captures(none) %dst.coerce1, i32 noundef %numDigits, i64 noundef %n, ptr readonly captures(none) %src.coerce0, i32 %src.coerce1, i32 noundef range(i32 0, 2) %operation) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %dst.coerce1, align 4
   %cmp = icmp ult i32 %0, %numDigits
@@ -3792,7 +3792,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint6asIntNENS0_16MutableBigIntRefEmNS0_18ImmutableBigIntRefE(ptr nocapture %dst.coerce0, ptr nocapture %dst.coerce1, i64 noundef %n, ptr nocapture readonly %src.coerce0, i32 %src.coerce1) local_unnamed_addr #2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint6asIntNENS0_16MutableBigIntRefEmNS0_18ImmutableBigIntRefE(ptr captures(none) %dst.coerce0, ptr captures(none) %dst.coerce1, i64 noundef %n, ptr readonly captures(none) %src.coerce0, i32 %src.coerce1) local_unnamed_addr #2 {
 entry:
   %sub1.i.i.i = add i64 %n, 63
   %div1.i.i = lshr i64 %sub1.i.i.i, 6
@@ -3805,7 +3805,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN6hermes6bigint20unaryMinusResultSizeENS0_18ImmutableBigIntRefE(ptr nocapture readonly %src.coerce0, i32 %src.coerce1) local_unnamed_addr #0 {
+define hidden noundef i32 @_ZN6hermes6bigint20unaryMinusResultSizeENS0_18ImmutableBigIntRefE(ptr readonly captures(none) %src.coerce0, i32 %src.coerce1) local_unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp eq i32 %src.coerce1, 0
   br i1 %cmp.not.i, label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit, label %land.rhs.i
@@ -3826,7 +3826,7 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint10unaryMinusENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE(ptr %dst.coerce0, ptr nocapture %dst.coerce1, ptr nocapture readonly %src.coerce0, i32 %src.coerce1) local_unnamed_addr #5 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint10unaryMinusENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE(ptr %dst.coerce0, ptr captures(none) %dst.coerce1, ptr readonly captures(none) %src.coerce0, i32 %src.coerce1) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %dst.coerce1, align 4
   %cmp.i = icmp ult i32 %0, %src.coerce1
@@ -3914,14 +3914,14 @@ return:                                           ; preds = %entry, %_ZN6hermes6
 declare void @_ZN4llvh5APInt8tcNegateEPmj(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 1, 0) i32 @_ZN6hermes6bigint18unaryNotResultSizeENS0_18ImmutableBigIntRefE(ptr nocapture readnone %src.coerce0, i32 %src.coerce1) local_unnamed_addr #4 {
+define hidden noundef range(i32 1, 0) i32 @_ZN6hermes6bigint18unaryNotResultSizeENS0_18ImmutableBigIntRefE(ptr readnone captures(none) %src.coerce0, i32 %src.coerce1) local_unnamed_addr #4 {
 entry:
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %src.coerce1, i32 1)
   ret i32 %.sroa.speculated
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint8unaryNotENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE(ptr %lhs.coerce0, ptr nocapture %lhs.coerce1, ptr nocapture readonly %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint8unaryNotENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE(ptr %lhs.coerce0, ptr captures(none) %lhs.coerce1, ptr readonly captures(none) %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %lhs.coerce1, align 4
   %cmp.i = icmp ult i32 %0, %rhs.coerce1
@@ -4009,14 +4009,14 @@ return:                                           ; preds = %entry, %_ZN6hermes6
 declare void @_ZN4llvh5APInt12tcComplementEPmj(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN6hermes6bigint20bitwiseANDResultSizeENS0_18ImmutableBigIntRefES1_(ptr nocapture readnone %lhs.coerce0, i32 %lhs.coerce1, ptr nocapture readnone %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #4 {
+define hidden noundef i32 @_ZN6hermes6bigint20bitwiseANDResultSizeENS0_18ImmutableBigIntRefES1_(ptr readnone captures(none) %lhs.coerce0, i32 %lhs.coerce1, ptr readnone captures(none) %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #4 {
 entry:
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %lhs.coerce1, i32 %rhs.coerce1)
   ret i32 %.sroa.speculated
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint10bitwiseANDENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %dst.coerce0, ptr nocapture %dst.coerce1, ptr %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint10bitwiseANDENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %dst.coerce0, ptr captures(none) %dst.coerce1, ptr %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp ugt i32 %lhs.coerce1, %rhs.coerce1
   %lhs.coerce1.rhs.coerce1 = tail call i32 @llvm.umax.i32(i32 %lhs.coerce1, i32 %rhs.coerce1)
@@ -4120,20 +4120,20 @@ _ZN6hermes6bigint12_GLOBAL__N_117additiveOperationEPFmPmPKmmjEPFmS2_mjEPFvRNS0_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN6hermes6bigint12_GLOBAL__N_125noopAdditiveOpPostProcessERNS0_16MutableBigIntRefE(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 {
+define internal void @_ZN6hermes6bigint12_GLOBAL__N_125noopAdditiveOpPostProcessERNS0_16MutableBigIntRefE(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN6hermes6bigint19bitwiseORResultSizeENS0_18ImmutableBigIntRefES1_(ptr nocapture readnone %lhs.coerce0, i32 %lhs.coerce1, ptr nocapture readnone %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #4 {
+define hidden noundef i32 @_ZN6hermes6bigint19bitwiseORResultSizeENS0_18ImmutableBigIntRefES1_(ptr readnone captures(none) %lhs.coerce0, i32 %lhs.coerce1, ptr readnone captures(none) %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #4 {
 entry:
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %lhs.coerce1, i32 %rhs.coerce1)
   ret i32 %.sroa.speculated
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint9bitwiseORENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %dst.coerce0, ptr nocapture %dst.coerce1, ptr %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint9bitwiseORENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %dst.coerce0, ptr captures(none) %dst.coerce1, ptr %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp ugt i32 %lhs.coerce1, %rhs.coerce1
   %lhs.coerce1.rhs.coerce1 = tail call i32 @llvm.umax.i32(i32 %lhs.coerce1, i32 %rhs.coerce1)
@@ -4237,14 +4237,14 @@ _ZN6hermes6bigint12_GLOBAL__N_117additiveOperationEPFmPmPKmmjEPFmS2_mjEPFvRNS0_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN6hermes6bigint20bitwiseXORResultSizeENS0_18ImmutableBigIntRefES1_(ptr nocapture readnone %lhs.coerce0, i32 %lhs.coerce1, ptr nocapture readnone %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #4 {
+define hidden noundef i32 @_ZN6hermes6bigint20bitwiseXORResultSizeENS0_18ImmutableBigIntRefES1_(ptr readnone captures(none) %lhs.coerce0, i32 %lhs.coerce1, ptr readnone captures(none) %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #4 {
 entry:
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %lhs.coerce1, i32 %rhs.coerce1)
   ret i32 %.sroa.speculated
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint10bitwiseXORENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %dst.coerce0, ptr nocapture %dst.coerce1, ptr %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint10bitwiseXORENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %dst.coerce0, ptr captures(none) %dst.coerce1, ptr %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp ugt i32 %lhs.coerce1, %rhs.coerce1
   %lhs.coerce1.rhs.coerce1 = tail call i32 @llvm.umax.i32(i32 %lhs.coerce1, i32 %rhs.coerce1)
@@ -4348,7 +4348,7 @@ _ZN6hermes6bigint12_GLOBAL__N_117additiveOperationEPFmPmPKmmjEPFmS2_mjEPFvRNS0_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN6hermes6bigint13addResultSizeENS0_18ImmutableBigIntRefES1_(ptr nocapture readnone %lhs.coerce0, i32 %lhs.coerce1, ptr nocapture readnone %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #4 {
+define hidden noundef i32 @_ZN6hermes6bigint13addResultSizeENS0_18ImmutableBigIntRefES1_(ptr readnone captures(none) %lhs.coerce0, i32 %lhs.coerce1, ptr readnone captures(none) %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #4 {
 entry:
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %lhs.coerce1, i32 %rhs.coerce1)
   %add = add i32 %.sroa.speculated, 1
@@ -4356,7 +4356,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint3addENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %dst.coerce0, ptr nocapture %dst.coerce1, ptr %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint3addENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %dst.coerce0, ptr captures(none) %dst.coerce1, ptr %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp ugt i32 %lhs.coerce1, %rhs.coerce1
   %lhs.coerce1.rhs.coerce1 = tail call i32 @llvm.umax.i32(i32 %lhs.coerce1, i32 %rhs.coerce1)
@@ -4483,7 +4483,7 @@ declare noundef i64 @_ZN4llvh5APInt5tcAddEPmPKmmj(ptr noundef, ptr noundef, i64 
 declare noundef i64 @_ZN4llvh5APInt9tcAddPartEPmmj(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN6hermes6bigint19addSignedResultSizeENS0_18ImmutableBigIntRefEl(ptr nocapture readnone %lhs.coerce0, i32 %lhs.coerce1, i64 noundef %sImm) local_unnamed_addr #4 {
+define hidden noundef i32 @_ZN6hermes6bigint19addSignedResultSizeENS0_18ImmutableBigIntRefEl(ptr readnone captures(none) %lhs.coerce0, i32 %lhs.coerce1, i64 noundef %sImm) local_unnamed_addr #4 {
 entry:
   %sImm.addr = alloca i64, align 8
   store i64 %sImm, ptr %sImm.addr, align 8
@@ -4525,7 +4525,7 @@ _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint9addSignedENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefEl(ptr %dst.coerce0, ptr nocapture %dst.coerce1, ptr %lhs.coerce0, i32 %lhs.coerce1, i64 noundef %sImm) local_unnamed_addr #5 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint9addSignedENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefEl(ptr %dst.coerce0, ptr captures(none) %dst.coerce1, ptr %lhs.coerce0, i32 %lhs.coerce1, i64 noundef %sImm) local_unnamed_addr #5 {
 entry:
   %sImm.addr = alloca i64, align 8
   store i64 %sImm, ptr %sImm.addr, align 8
@@ -4566,7 +4566,7 @@ _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN6hermes6bigint18subtractResultSizeENS0_18ImmutableBigIntRefES1_(ptr nocapture readnone %lhs.coerce0, i32 %lhs.coerce1, ptr nocapture readnone %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #4 {
+define hidden noundef i32 @_ZN6hermes6bigint18subtractResultSizeENS0_18ImmutableBigIntRefES1_(ptr readnone captures(none) %lhs.coerce0, i32 %lhs.coerce1, ptr readnone captures(none) %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #4 {
 entry:
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %lhs.coerce1, i32 %rhs.coerce1)
   %add = add i32 %.sroa.speculated, 1
@@ -4707,7 +4707,7 @@ _ZN6hermes6bigint12_GLOBAL__N_117additiveOperationEPFmPmPKmmjEPFmS2_mjEPFvRNS0_1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6hermes6bigint12_GLOBAL__N_127negateAdditiveOpPostProcessERNS0_16MutableBigIntRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dst) unnamed_addr #5 {
+define internal void @_ZN6hermes6bigint12_GLOBAL__N_127negateAdditiveOpPostProcessERNS0_16MutableBigIntRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dst) unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %dst, align 8
   %numDigits = getelementptr inbounds nuw i8, ptr %dst, i64 8
@@ -4722,7 +4722,7 @@ declare noundef i64 @_ZN4llvh5APInt10tcSubtractEPmPKmmj(ptr noundef, ptr noundef
 declare noundef i64 @_ZN4llvh5APInt14tcSubtractPartEPmmj(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN6hermes6bigint24subtractSignedResultSizeENS0_18ImmutableBigIntRefEl(ptr nocapture readnone %lhs.coerce0, i32 %lhs.coerce1, i64 noundef %sImm) local_unnamed_addr #4 {
+define hidden noundef i32 @_ZN6hermes6bigint24subtractSignedResultSizeENS0_18ImmutableBigIntRefEl(ptr readnone captures(none) %lhs.coerce0, i32 %lhs.coerce1, i64 noundef %sImm) local_unnamed_addr #4 {
 entry:
   %sImm.addr = alloca i64, align 8
   store i64 %sImm, ptr %sImm.addr, align 8
@@ -4805,7 +4805,7 @@ _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN6hermes6bigint18multiplyResultSizeENS0_18ImmutableBigIntRefES1_(ptr nocapture readnone %lhs.coerce0, i32 %lhs.coerce1, ptr nocapture readnone %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #4 {
+define hidden noundef i32 @_ZN6hermes6bigint18multiplyResultSizeENS0_18ImmutableBigIntRefES1_(ptr readnone captures(none) %lhs.coerce0, i32 %lhs.coerce1, ptr readnone captures(none) %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #4 {
 entry:
   %tobool = icmp ne i32 %lhs.coerce1, 0
   %tobool2 = icmp ne i32 %rhs.coerce1, 0
@@ -4817,7 +4817,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint8multiplyENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %dst.coerce0, ptr nocapture %dst.coerce1, ptr %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint8multiplyENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %dst.coerce0, ptr captures(none) %dst.coerce1, ptr %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
 entry:
   %tmpStorage = alloca %"class.hermes::bigint::TmpStorage", align 8
   %cmp.not.i = icmp eq i32 %lhs.coerce1, 0
@@ -5142,7 +5142,7 @@ _ZN6hermes6bigint10TmpStorageD2Ev.exit:           ; preds = %cleanup, %if.then.i
 declare void @_ZN4llvh5APInt14tcFullMultiplyEPmPKmS3_jj(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN6hermes6bigint16divideResultSizeENS0_18ImmutableBigIntRefES1_(ptr nocapture readnone %lhs.coerce0, i32 %lhs.coerce1, ptr nocapture readnone %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #4 {
+define hidden noundef i32 @_ZN6hermes6bigint16divideResultSizeENS0_18ImmutableBigIntRefES1_(ptr readnone captures(none) %lhs.coerce0, i32 %lhs.coerce1, ptr readnone captures(none) %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #4 {
 entry:
   %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %lhs.coerce1, i32 %rhs.coerce1)
   %add.i = add i32 %.sroa.speculated.i, 1
@@ -5150,7 +5150,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 4) i32 @_ZN6hermes6bigint6divideENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %dst.coerce0, ptr nocapture %dst.coerce1, ptr nocapture readonly %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
+define hidden noundef range(i32 0, 4) i32 @_ZN6hermes6bigint6divideENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %dst.coerce0, ptr captures(none) %dst.coerce1, ptr readonly captures(none) %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
 entry:
   %numRemDigits = alloca i32, align 4
   %call = call fastcc noundef i32 @_ZN6hermes6bigint12_GLOBAL__N_17div_rem7computeENS0_16MutableBigIntRefES3_NS0_18ImmutableBigIntRefES4_(ptr %dst.coerce0, ptr %dst.coerce1, ptr null, ptr nonnull %numRemDigits, ptr %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1)
@@ -5158,7 +5158,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZN6hermes6bigint12_GLOBAL__N_17div_rem7computeENS0_16MutableBigIntRefES3_NS0_18ImmutableBigIntRefES4_(ptr %quoc.coerce0, ptr nocapture %quoc.coerce1, ptr %rem.coerce0, ptr nocapture initializes((0, 4)) %rem.coerce1, ptr nocapture readonly %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.0.val, i32 %rhs.8.val) unnamed_addr #5 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZN6hermes6bigint12_GLOBAL__N_17div_rem7computeENS0_16MutableBigIntRefES3_NS0_18ImmutableBigIntRefES4_(ptr %quoc.coerce0, ptr captures(none) %quoc.coerce1, ptr %rem.coerce0, ptr captures(none) initializes((0, 4)) %rem.coerce1, ptr readonly captures(none) %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.0.val, i32 %rhs.8.val) unnamed_addr #5 {
 entry:
   %rhs.addr.i = alloca i64, align 8
   %tmpStorage = alloca %"class.hermes::bigint::TmpStorage", align 8
@@ -5540,7 +5540,7 @@ return:                                           ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN6hermes6bigint19remainderResultSizeENS0_18ImmutableBigIntRefES1_(ptr nocapture readnone %lhs.coerce0, i32 %lhs.coerce1, ptr nocapture readnone %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #4 {
+define hidden noundef i32 @_ZN6hermes6bigint19remainderResultSizeENS0_18ImmutableBigIntRefES1_(ptr readnone captures(none) %lhs.coerce0, i32 %lhs.coerce1, ptr readnone captures(none) %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #4 {
 entry:
   %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %lhs.coerce1, i32 %rhs.coerce1)
   %add.i = add i32 %.sroa.speculated.i, 1
@@ -5548,7 +5548,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 4) i32 @_ZN6hermes6bigint9remainderENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %dst.coerce0, ptr nocapture initializes((0, 4)) %dst.coerce1, ptr nocapture readonly %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
+define hidden noundef range(i32 0, 4) i32 @_ZN6hermes6bigint9remainderENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %dst.coerce0, ptr captures(none) initializes((0, 4)) %dst.coerce1, ptr readonly captures(none) %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
 entry:
   %numQuocDigits = alloca i32, align 4
   store i32 0, ptr %numQuocDigits, align 4
@@ -6247,7 +6247,7 @@ return:                                           ; preds = %if.end.i, %if.then5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE(ptr nocapture %dst.coerce0, ptr nocapture %dst.coerce1, ptr nocapture readonly %src.coerce0, i32 %src.coerce1) unnamed_addr #2 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE(ptr captures(none) %dst.coerce0, ptr captures(none) %dst.coerce1, ptr readonly captures(none) %src.coerce0, i32 %src.coerce1) unnamed_addr #2 {
 entry:
   %mul = shl i32 %src.coerce1, 3
   %conv = zext i32 %mul to i64
@@ -6319,7 +6319,7 @@ _ZN6hermes6bigint13initWithBytesENS0_16MutableBigIntRefEN4llvh8ArrayRefIhEE.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 3) i32 @_ZN6hermes6bigint12_GLOBAL__N_120exponentiateSlowPathENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefEj(ptr %dst.coerce0, ptr %dst.coerce1, ptr nocapture readonly %lhs.coerce0, i32 %lhs.coerce1, i32 noundef range(i32 0, 65536) %exponent) unnamed_addr #5 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZN6hermes6bigint12_GLOBAL__N_120exponentiateSlowPathENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefEj(ptr %dst.coerce0, ptr %dst.coerce1, ptr readonly captures(none) %lhs.coerce0, i32 %lhs.coerce1, i32 noundef range(i32 0, 65536) %exponent) unnamed_addr #5 {
 entry:
   %rhs.addr.i = alloca i64, align 8
   %dst = alloca %"struct.hermes::bigint::MutableBigIntRef", align 8
@@ -6767,7 +6767,7 @@ _ZN6hermes6bigint10TmpStorageD2Ev.exit:           ; preds = %cleanup, %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes6bigint19leftShiftResultSizeENS0_18ImmutableBigIntRefES1_(ptr nocapture readnone %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
+define hidden noundef i32 @_ZN6hermes6bigint19leftShiftResultSizeENS0_18ImmutableBigIntRefES1_(ptr readnone captures(none) %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
 entry:
   %ref.tmp = alloca %"class.std::tuple.39", align 4
   call fastcc void @_ZN6hermes6bigint12_GLOBAL__N_121getShiftAmountAndSignENS0_18ImmutableBigIntRefE(ptr noalias align 4 %ref.tmp, ptr %rhs.coerce0, i32 %rhs.coerce1)
@@ -6784,7 +6784,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes6bigint12_GLOBAL__N_121getShiftAmountAndSignENS0_18ImmutableBigIntRefE(ptr noalias nocapture nonnull writeonly align 4 %agg.result, ptr %shiftAmnt.coerce0, i32 %shiftAmnt.coerce1) unnamed_addr #5 {
+define internal fastcc void @_ZN6hermes6bigint12_GLOBAL__N_121getShiftAmountAndSignENS0_18ImmutableBigIntRefE(ptr noalias nonnull writeonly align 4 captures(none) %agg.result, ptr %shiftAmnt.coerce0, i32 %shiftAmnt.coerce1) unnamed_addr #5 {
 entry:
   %rhs.addr.i7 = alloca i64, align 8
   %rhs.addr.i = alloca i64, align 8
@@ -7047,7 +7047,7 @@ return:                                           ; preds = %_ZN6hermes6bigint7c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes6bigint26signedRightShiftResultSizeENS0_18ImmutableBigIntRefES1_(ptr nocapture readnone %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
+define hidden noundef i32 @_ZN6hermes6bigint26signedRightShiftResultSizeENS0_18ImmutableBigIntRefES1_(ptr readnone captures(none) %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
 entry:
   %ref.tmp = alloca %"class.std::tuple.39", align 4
   call fastcc void @_ZN6hermes6bigint12_GLOBAL__N_121getShiftAmountAndSignENS0_18ImmutableBigIntRefE(ptr noalias align 4 %ref.tmp, ptr %rhs.coerce0, i32 %rhs.coerce1)
@@ -7064,7 +7064,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint9leftShiftENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %dst.coerce0, ptr nocapture %dst.coerce1, ptr nocapture readonly %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint9leftShiftENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %dst.coerce0, ptr captures(none) %dst.coerce1, ptr readonly captures(none) %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::tuple.39", align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
@@ -7166,7 +7166,7 @@ _ZN6hermes6bigint12_GLOBAL__N_19shiftImplENS1_9ShiftOpIsENS0_16MutableBigIntRefE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint16signedRightShiftENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %dst.coerce0, ptr nocapture %dst.coerce1, ptr nocapture readonly %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes6bigint16signedRightShiftENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %dst.coerce0, ptr captures(none) %dst.coerce1, ptr readonly captures(none) %lhs.coerce0, i32 %lhs.coerce1, ptr %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #5 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::tuple.39", align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
@@ -7268,7 +7268,7 @@ _ZN6hermes6bigint12_GLOBAL__N_19shiftImplENS1_9ShiftOpIsENS0_16MutableBigIntRefE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6hermes6bigint19UniquingBigIntTable12getEntryListEv(ptr noalias nocapture writeonly sret(%"class.std::vector.44") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #5 align 2 {
+define hidden void @_ZNK6hermes6bigint19UniquingBigIntTable12getEntryListEv(ptr noalias writeonly sret(%"class.std::vector.44") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this) local_unnamed_addr #5 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -7477,7 +7477,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNSt15_Deque_itera
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6hermes6bigint19UniquingBigIntTable15getDigitsBufferEv(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #5 align 2 {
+define hidden void @_ZNK6hermes6bigint19UniquingBigIntTable15getDigitsBufferEv(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this) local_unnamed_addr #5 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -7578,7 +7578,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
 declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
@@ -7587,7 +7587,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 declare noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntppEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #6
 
@@ -7863,10 +7863,10 @@ if.end79:                                         ; preds = %if.then.i.i.i.i.i48
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16

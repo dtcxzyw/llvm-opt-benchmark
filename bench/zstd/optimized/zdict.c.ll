@@ -72,7 +72,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ZDICT_getDictID(ptr nocapture noundef readonly %dictBuffer, i64 noundef %dictSize) local_unnamed_addr #2 {
+define i32 @ZDICT_getDictID(ptr noundef readonly captures(none) %dictBuffer, i64 noundef %dictSize) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ult i64 %dictSize, 8
   br i1 %cmp, label %return, label %if.end
@@ -135,10 +135,10 @@ declare void @ZSTD_reset_compressedBlockState(ptr noundef) local_unnamed_addr #4
 declare i64 @ZSTD_loadCEntropy(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZDICT_finalizeDictionary(ptr nocapture noundef writeonly %dictBuffer, i64 noundef %dictBufferCapacity, ptr noundef %customDictContent, i64 noundef %dictContentSize, ptr noundef %samplesBuffer, ptr nocapture noundef readonly %samplesSizes, i32 noundef %nbSamples, ptr nocapture noundef readonly byval(%struct.ZDICT_params_t) align 8 %params) local_unnamed_addr #1 {
+define i64 @ZDICT_finalizeDictionary(ptr noundef writeonly captures(none) %dictBuffer, i64 noundef %dictBufferCapacity, ptr noundef %customDictContent, i64 noundef %dictContentSize, ptr noundef %samplesBuffer, ptr noundef readonly captures(none) %samplesSizes, i32 noundef %nbSamples, ptr noundef readonly byval(%struct.ZDICT_params_t) align 8 captures(none) %params) local_unnamed_addr #1 {
 entry:
   %header = alloca [256 x i8], align 16
   %0 = load i32, ptr %params, align 8
@@ -153,7 +153,7 @@ entry:
 
 if.end9:                                          ; preds = %entry
   store i32 -332356553, ptr %header, align 16
-  %call10 = tail call i64 @ZSTD_XXH64(ptr nocapture noundef %customDictContent, i64 noundef %dictContentSize, i64 noundef 0) #18
+  %call10 = tail call i64 @ZSTD_XXH64(ptr noundef captures(none) %customDictContent, i64 noundef %dictContentSize, i64 noundef 0) #18
   %rem = urem i64 %call10, 2147450880
   %2 = trunc nuw nsw i64 %rem to i32
   %conv11 = add nuw nsw i32 %2, 32768
@@ -218,16 +218,16 @@ return:                                           ; preds = %do.body56, %do.end3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @ZSTD_XXH64(ptr nocapture noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
+declare i64 @ZSTD_XXH64(ptr noundef captures(none), i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZDICT_analyzeEntropy(ptr noundef %dstBuffer, i64 noundef %maxDstSize, i32 noundef %compressionLevel, ptr noundef %srcBuffer, ptr nocapture noundef readonly %fileSizes, i32 noundef %nbFiles, ptr noundef %dictBuffer, i64 noundef %dictBufferSize, i32 noundef %notificationLevel) unnamed_addr #1 {
+define internal fastcc i64 @ZDICT_analyzeEntropy(ptr noundef %dstBuffer, i64 noundef %maxDstSize, i32 noundef %compressionLevel, ptr noundef %srcBuffer, ptr noundef readonly captures(none) %fileSizes, i32 noundef %nbFiles, ptr noundef %dictBuffer, i64 noundef %dictBufferSize, i32 noundef %notificationLevel) unnamed_addr #1 {
 entry:
   %countLit = alloca [256 x i32], align 16
   %hufTable = alloca [257 x i64], align 16
@@ -830,16 +830,16 @@ _cleanup:                                         ; preds = %ZDICT_totalSampleSi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZDICT_trainFromBuffer_legacy(ptr noundef %dictBuffer, i64 noundef %dictBufferCapacity, ptr nocapture noundef readonly %samplesBuffer, ptr nocapture noundef readonly %samplesSizes, i32 noundef %nbSamples, ptr nocapture noundef readonly byval(%struct.ZDICT_legacy_params_t) align 8 %params) local_unnamed_addr #1 {
+define i64 @ZDICT_trainFromBuffer_legacy(ptr noundef %dictBuffer, i64 noundef %dictBufferCapacity, ptr noundef readonly captures(none) %samplesBuffer, ptr noundef readonly captures(none) %samplesSizes, i32 noundef %nbSamples, ptr noundef readonly byval(%struct.ZDICT_legacy_params_t) align 8 captures(none) %params) local_unnamed_addr #1 {
 entry:
   %lengthList.i.i.i = alloca [64 x i32], align 16
   %cumulLength.i.i.i = alloca [64 x i32], align 16
@@ -2041,7 +2041,7 @@ entry:
 declare i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZDICT_addEntropyTablesFromBuffer(ptr noundef %dictBuffer, i64 noundef %dictContentSize, i64 noundef %dictBufferCapacity, ptr noundef %samplesBuffer, ptr nocapture noundef readonly %samplesSizes, i32 noundef %nbSamples) local_unnamed_addr #1 {
+define i64 @ZDICT_addEntropyTablesFromBuffer(ptr noundef %dictBuffer, i64 noundef %dictContentSize, i64 noundef %dictBufferCapacity, ptr noundef %samplesBuffer, ptr noundef readonly captures(none) %samplesSizes, i32 noundef %nbSamples) local_unnamed_addr #1 {
 entry:
   %params = alloca %struct.ZDICT_params_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %params, i8 0, i64 12, i1 false)
@@ -2050,7 +2050,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZDICT_addEntropyTablesFromBuffer_advanced(ptr noundef %dictBuffer, i64 noundef %dictContentSize, i64 noundef %dictBufferCapacity, ptr noundef %samplesBuffer, ptr nocapture noundef readonly %samplesSizes, i32 noundef %nbSamples, ptr nocapture noundef readonly byval(%struct.ZDICT_params_t) align 8 %params) unnamed_addr #1 {
+define internal fastcc i64 @ZDICT_addEntropyTablesFromBuffer_advanced(ptr noundef %dictBuffer, i64 noundef %dictContentSize, i64 noundef %dictBufferCapacity, ptr noundef %samplesBuffer, ptr noundef readonly captures(none) %samplesSizes, i32 noundef %nbSamples, ptr noundef readonly byval(%struct.ZDICT_params_t) align 8 captures(none) %params) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %params, align 8
   %cmp = icmp eq i32 %0, 0
@@ -2084,7 +2084,7 @@ do.end16:                                         ; preds = %entry, %do.body5
 if.end22:                                         ; preds = %do.end16
   %add = add nuw i64 %call19, 8
   store i32 -332356553, ptr %dictBuffer, align 1
-  %call26 = tail call i64 @ZSTD_XXH64(ptr nocapture noundef nonnull %add.ptr18, i64 noundef %dictContentSize, i64 noundef 0) #18
+  %call26 = tail call i64 @ZSTD_XXH64(ptr noundef nonnull captures(none) %add.ptr18, i64 noundef %dictContentSize, i64 noundef 0) #18
   %rem = urem i64 %call26, 2147450880
   %7 = trunc nuw nsw i64 %rem to i32
   %conv = add nuw nsw i32 %7, 32768
@@ -2152,7 +2152,7 @@ declare i64 @clock() local_unnamed_addr #11
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @ZDICT_tryMerge(ptr nocapture noundef nonnull %table, i64 %elt.coerce0, i32 %elt.coerce1, i32 noundef %eltNbToSkip, ptr nocapture noundef nonnull readonly %buffer) unnamed_addr #12 {
+define internal fastcc i32 @ZDICT_tryMerge(ptr noundef nonnull captures(none) %table, i64 %elt.coerce0, i32 %elt.coerce1, i32 noundef %eltNbToSkip, ptr noundef nonnull readonly captures(none) %buffer) unnamed_addr #12 {
 entry:
   %elt.sroa.0.sroa.0.0.extract.trunc = trunc i64 %elt.coerce0 to i32
   %elt.sroa.0.sroa.14.0.extract.shift = lshr i64 %elt.coerce0, 32
@@ -2379,7 +2379,7 @@ return:                                           ; preds = %for.inc200, %entry,
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #14
@@ -2391,16 +2391,16 @@ declare i32 @llvm.umin.i32(i32, i32) #14
 declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14

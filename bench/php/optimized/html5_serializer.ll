@@ -61,7 +61,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.54 = private unnamed_addr constant [3 x i8] c"</\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @dom_html5_serialize(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_html5_serialize(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, -1
@@ -163,17 +163,17 @@ dom_is_html_ns.exit.thread.i.i:                   ; preds = %dom_is_html_ns.exit
   ]
 
 dom_local_name_compare_ex.exit.i.i:               ; preds = %dom_is_html_ns.exit.thread.i.i
-  %48 = tail call i32 @zend_binary_strcmp(ptr noundef %46, i64 noundef 5, ptr noundef nonnull @.str.21, i64 noundef 5) #4
+  %48 = tail call i32 @zend_binary_strcmp(ptr noundef nonnull %46, i64 noundef 5, ptr noundef nonnull @.str.21, i64 noundef 5) #4
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %63, label %dom_local_name_compare_ex.exit28.thread.i.i
 
 dom_local_name_compare_ex.exit23.i.i:             ; preds = %dom_is_html_ns.exit.thread.i.i
-  %50 = tail call i32 @zend_binary_strcmp(ptr noundef %46, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #4
+  %50 = tail call i32 @zend_binary_strcmp(ptr noundef nonnull %46, i64 noundef 6, ptr noundef nonnull @.str.22, i64 noundef 6) #4
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %63, label %dom_local_name_compare_ex.exit25.i.i
 
 dom_local_name_compare_ex.exit24.i.i:             ; preds = %dom_is_html_ns.exit.thread.i.i
-  %52 = tail call i32 @zend_binary_strcmp(ptr noundef %46, i64 noundef 3, ptr noundef nonnull @.str.23, i64 noundef 3) #4
+  %52 = tail call i32 @zend_binary_strcmp(ptr noundef nonnull %46, i64 noundef 3, ptr noundef nonnull @.str.23, i64 noundef 3) #4
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %63, label %dom_local_name_compare_ex.exit28.thread.i.i
 
@@ -184,17 +184,17 @@ dom_local_name_compare_ex.exit25.i.i:             ; preds = %dom_local_name_comp
   br i1 %56, label %63, label %dom_local_name_compare_ex.exit28.thread.i.i
 
 dom_local_name_compare_ex.exit26.i.i:             ; preds = %dom_is_html_ns.exit.thread.i.i
-  %57 = tail call i32 @zend_binary_strcmp(ptr noundef %46, i64 noundef 7, ptr noundef nonnull @.str.25, i64 noundef 7) #4
+  %57 = tail call i32 @zend_binary_strcmp(ptr noundef nonnull %46, i64 noundef 7, ptr noundef nonnull @.str.25, i64 noundef 7) #4
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %63, label %dom_local_name_compare_ex.exit28.thread.i.i
 
 dom_local_name_compare_ex.exit27.i.i:             ; preds = %dom_is_html_ns.exit.thread.i.i
-  %59 = tail call i32 @zend_binary_strcmp(ptr noundef %46, i64 noundef 8, ptr noundef nonnull @.str.26, i64 noundef 8) #4
+  %59 = tail call i32 @zend_binary_strcmp(ptr noundef nonnull %46, i64 noundef 8, ptr noundef nonnull @.str.26, i64 noundef 8) #4
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %63, label %dom_local_name_compare_ex.exit28.thread.i.i
 
 dom_local_name_compare_ex.exit28.i.i:             ; preds = %dom_is_html_ns.exit.thread.i.i
-  %61 = tail call i32 @zend_binary_strcmp(ptr noundef %46, i64 noundef 9, ptr noundef nonnull @.str.27, i64 noundef 9) #4
+  %61 = tail call i32 @zend_binary_strcmp(ptr noundef nonnull %46, i64 noundef 9, ptr noundef nonnull @.str.27, i64 noundef 9) #4
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %63, label %dom_local_name_compare_ex.exit28.thread.i.i
 
@@ -631,7 +631,7 @@ dom_html5_serialize_node.exit:                    ; preds = %dom_html5_serialize
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @dom_html5_serializes_as_void(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @dom_html5_serializes_as_void(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 72
   %.val = load ptr, ptr %2, align 8
   %3 = icmp eq ptr %.val, null
@@ -659,7 +659,7 @@ dom_is_html_ns.exit.thread:                       ; preds = %1, %dom_is_html_ns.
   ]
 
 dom_local_name_compare_ex.exit:                   ; preds = %dom_is_html_ns.exit.thread
-  %11 = tail call i32 @zend_binary_strcmp(ptr noundef %9, i64 noundef 4, ptr noundef nonnull @.str, i64 noundef 4) #4
+  %11 = tail call i32 @zend_binary_strcmp(ptr noundef nonnull %9, i64 noundef 4, ptr noundef nonnull @.str, i64 noundef 4) #4
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %61, label %dom_local_name_compare_ex.exit38
 
@@ -670,17 +670,17 @@ dom_local_name_compare_ex.exit38:                 ; preds = %dom_local_name_comp
   br i1 %15, label %61, label %dom_local_name_compare_ex.exit45
 
 dom_local_name_compare_ex.exit39:                 ; preds = %dom_is_html_ns.exit.thread
-  %16 = tail call i32 @zend_binary_strcmp(ptr noundef %9, i64 noundef 2, ptr noundef nonnull @.str.2, i64 noundef 2) #4
+  %16 = tail call i32 @zend_binary_strcmp(ptr noundef nonnull %9, i64 noundef 2, ptr noundef nonnull @.str.2, i64 noundef 2) #4
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %61, label %dom_local_name_compare_ex.exit42
 
 dom_local_name_compare_ex.exit40:                 ; preds = %dom_is_html_ns.exit.thread
-  %18 = tail call i32 @zend_binary_strcmp(ptr noundef %9, i64 noundef 3, ptr noundef nonnull @.str.3, i64 noundef 3) #4
+  %18 = tail call i32 @zend_binary_strcmp(ptr noundef nonnull %9, i64 noundef 3, ptr noundef nonnull @.str.3, i64 noundef 3) #4
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %61, label %dom_local_name_compare_ex.exit43
 
 dom_local_name_compare_ex.exit41:                 ; preds = %dom_is_html_ns.exit.thread
-  %20 = tail call i32 @zend_binary_strcmp(ptr noundef %9, i64 noundef 5, ptr noundef nonnull @.str.4, i64 noundef 5) #4
+  %20 = tail call i32 @zend_binary_strcmp(ptr noundef nonnull %9, i64 noundef 5, ptr noundef nonnull @.str.4, i64 noundef 5) #4
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %61, label %dom_local_name_compare_ex.exit44
 
@@ -771,15 +771,15 @@ dom_local_name_compare_ex.exit54.thread:          ; preds = %dom_local_name_comp
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @zend_binary_strcmp(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dom_html5_escape_string(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc i32 @dom_html5_escape_string(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = select i1 %2, ptr @.str.28, ptr @.str.29
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -932,10 +932,10 @@ define internal fastcc i32 @dom_html5_escape_string(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dom_html5_serialize_element_tag_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc i32 @dom_html5_serialize_element_tag_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null

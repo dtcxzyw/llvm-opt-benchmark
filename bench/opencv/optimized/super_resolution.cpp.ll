@@ -352,7 +352,7 @@ declare void @_ZN2cv8superres11FrameSourceD2Ev(ptr noundef nonnull align 8 deref
 declare void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv8superres15SuperResolution8setInputERKNS_3PtrINS0_11FrameSourceEEE(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((16, 17), (24, 32), (40, 41)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv8superres15SuperResolution8setInputERKNS_3PtrINS0_11FrameSourceEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(41) initializes((16, 17), (24, 32), (40, 41)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %3, align 8
@@ -578,7 +578,7 @@ define void @_ZThn8_N2cv8superres15SuperResolution9nextFrameERKNS_12_OutputArray
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv8superres15SuperResolution5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((16, 17), (40, 41)) %0) unnamed_addr #0 align 2 {
+define void @_ZN2cv8superres15SuperResolution5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(41) initializes((16, 17), (40, 41)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -593,7 +593,7 @@ define void @_ZN2cv8superres15SuperResolution5resetEv(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N2cv8superres15SuperResolution5resetEv(ptr nocapture noundef initializes((8, 9), (32, 33)) %0) unnamed_addr #4 align 2 {
+define void @_ZThn8_N2cv8superres15SuperResolution5resetEv(ptr noundef captures(none) initializes((8, 9), (32, 33)) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -608,7 +608,7 @@ define void @_ZThn8_N2cv8superres15SuperResolution5resetEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN2cv8superres15SuperResolution14collectGarbageEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define void @_ZN2cv8superres15SuperResolution14collectGarbageEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
   ret void
 }
 
@@ -838,7 +838,7 @@ declare void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull al
 declare void @llvm.trap() #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

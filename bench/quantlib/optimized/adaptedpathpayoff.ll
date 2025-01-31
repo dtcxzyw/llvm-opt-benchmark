@@ -77,7 +77,7 @@ $_ZTIN8QuantLib10PathPayoffE = comdat any
 @_ZN8QuantLib17AdaptedPathPayoff13ValuationDataC1ERKNS_6MatrixERKSt6vectorINS_6HandleINS_18YieldTermStructureEEESaIS8_EERNS_5ArrayESE_RS5_ISD_SaISD_EE = unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, ptr), ptr @_ZN8QuantLib17AdaptedPathPayoff13ValuationDataC2ERKNS_6MatrixERKSt6vectorINS_6HandleINS_18YieldTermStructureEEESaIS8_EERNS_5ArrayESE_RS5_ISD_SaISD_EE
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -94,7 +94,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
 declare void @llvm.trap() #3
@@ -402,7 +402,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #10 align 2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib17AdaptedPathPayoff13ValuationDataC2ERKNS_6MatrixERKSt6vectorINS_6HandleINS_18YieldTermStructureEEESaIS8_EERNS_5ArrayESE_RS5_ISD_SaISD_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %this, ptr noundef nonnull align 8 dereferenceable(24) %path, ptr noundef nonnull align 8 dereferenceable(24) %forwardTermStructures, ptr noundef nonnull align 8 dereferenceable(16) %payments, ptr noundef nonnull align 8 dereferenceable(16) %exercises, ptr noundef nonnull align 8 dereferenceable(24) %states) unnamed_addr #11 align 2 {
+define void @_ZN8QuantLib17AdaptedPathPayoff13ValuationDataC2ERKNS_6MatrixERKSt6vectorINS_6HandleINS_18YieldTermStructureEEESaIS8_EERNS_5ArrayESE_RS5_ISD_SaISD_EE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 48)) %this, ptr noundef nonnull align 8 dereferenceable(24) %path, ptr noundef nonnull align 8 dereferenceable(24) %forwardTermStructures, ptr noundef nonnull align 8 dereferenceable(16) %payments, ptr noundef nonnull align 8 dereferenceable(16) %exercises, ptr noundef nonnull align 8 dereferenceable(24) %states) unnamed_addr #11 align 2 {
 entry:
   store ptr %path, ptr %this, align 8, !tbaa !18
   %forwardTermStructures_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -419,7 +419,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK8QuantLib17AdaptedPathPayoff13ValuationData13numberOfTimesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #12 align 2 {
+define noundef i64 @_ZNK8QuantLib17AdaptedPathPayoff13ValuationData13numberOfTimesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #12 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !21
   %columns_.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -428,7 +428,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK8QuantLib17AdaptedPathPayoff13ValuationData14numberOfAssetsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #12 align 2 {
+define noundef i64 @_ZNK8QuantLib17AdaptedPathPayoff13ValuationData14numberOfAssetsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #12 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !21
   %rows_.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -437,7 +437,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef double @_ZN8QuantLib17AdaptedPathPayoff13ValuationData13getAssetValueEmm(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %time, i64 noundef %asset) local_unnamed_addr #13 align 2 {
+define noundef double @_ZN8QuantLib17AdaptedPathPayoff13ValuationData13getAssetValueEmm(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, i64 noundef %time, i64 noundef %asset) local_unnamed_addr #13 align 2 {
 entry:
   %maximumTimeRead_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %maximumTimeRead_, align 8, !tbaa !15
@@ -455,7 +455,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 1 ptr @_ZN8QuantLib17AdaptedPathPayoff13ValuationData21getYieldTermStructureEm(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %time) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 1 ptr @_ZN8QuantLib17AdaptedPathPayoff13ValuationData21getYieldTermStructureEm(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, i64 noundef %time) local_unnamed_addr #13 align 2 {
 entry:
   %maximumTimeRead_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %maximumTimeRead_, align 8, !tbaa !15
@@ -469,7 +469,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17AdaptedPathPayoff13ValuationData14setPayoffValueEmd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i64 noundef %time, double noundef %value) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17AdaptedPathPayoff13ValuationData14setPayoffValueEmd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i64 noundef %time, double noundef %value) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -651,7 +651,7 @@ unreachable:                                      ; preds = %invoke.cont13
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17AdaptedPathPayoff13ValuationData15setExerciseDataEmdRNS_5ArrayE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i64 noundef %time, double noundef %exercise, ptr nocapture noundef nonnull align 8 dereferenceable(16) %state) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17AdaptedPathPayoff13ValuationData15setExerciseDataEmdRNS_5ArrayE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i64 noundef %time, double noundef %exercise, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %state) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -899,7 +899,7 @@ entry:
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: nounwind
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #16
@@ -908,7 +908,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #7
 

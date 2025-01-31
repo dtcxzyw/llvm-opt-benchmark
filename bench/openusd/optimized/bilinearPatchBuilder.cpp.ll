@@ -21,7 +21,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far20BilinearPatchBuilderD0Ev(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far20BilinearPatchBuilder18patchTypeFromBasisENS1_12PatchBuilder9BasisTypeE(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far20BilinearPatchBuilder18patchTypeFromBasisENS1_12PatchBuilder9BasisTypeE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [5 x i32], ptr @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_123patchTypeFromBasisArrayE, i64 0, i64 %3
   %5 = load i32, ptr %4, align 4
@@ -29,12 +29,12 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far20BilinearPatchBuilder18patchType
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far20BilinearPatchBuilder18convertToPatchTypeERKNS1_11SourcePatchENS1_15PatchDescriptor4TypeERNS1_12SparseMatrixIfEE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 4 %1, i32 %2, ptr nocapture nonnull readnone align 1 %3) unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far20BilinearPatchBuilder18convertToPatchTypeERKNS1_11SourcePatchENS1_15PatchDescriptor4TypeERNS1_12SparseMatrixIfEE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, i32 %2, ptr nonnull readnone align 1 captures(none) %3) unnamed_addr #1 align 2 {
   ret i32 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far20BilinearPatchBuilder18convertToPatchTypeERKNS1_11SourcePatchENS1_15PatchDescriptor4TypeERNS1_12SparseMatrixIdEE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 4 %1, i32 %2, ptr nocapture nonnull readnone align 1 %3) unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far20BilinearPatchBuilder18convertToPatchTypeERKNS1_11SourcePatchENS1_15PatchDescriptor4TypeERNS1_12SparseMatrixIdEE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, i32 %2, ptr nonnull readnone align 1 captures(none) %3) unnamed_addr #1 align 2 {
   ret i32 -1
 }
 

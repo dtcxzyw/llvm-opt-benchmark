@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [18 x i8] c"Allocation failed\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef readnone %FirstEl, i64 noundef %MinCapacity, i64 noundef %TSize) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef readnone %FirstEl, i64 noundef %MinCapacity, i64 noundef %TSize) local_unnamed_addr #0 align 2 {
 entry:
   %Capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %Capacity.i, align 4
@@ -75,13 +75,13 @@ if.end18:                                         ; preds = %if.then.i13, %if.el
 declare void @_ZN4llvh22report_bad_alloc_errorEPKcb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #5

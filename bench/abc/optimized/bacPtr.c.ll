@@ -44,7 +44,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [30 x i8] c"ABC framework is not started.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Bac_PtrFreeNtk(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Bac_PtrFreeNtk(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 8
@@ -303,7 +303,7 @@ Vec_PtrMemory.exit:                               ; preds = %1, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Bac_PtrMemoryArrayArray(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @Bac_PtrMemoryArrayArray(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr i8, ptr %0, i64 4
   %.val8 = load i32, ptr %2, align 4
   %3 = icmp sgt i32 %.val8, 0
@@ -516,7 +516,7 @@ Vec_PtrMemory.exit:                               ; preds = %1, %2
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Bac_PtrDumpSignalsBlif(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 {
+define void @Bac_PtrDumpSignalsBlif(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr i8, ptr %1, i64 4
   %.val67 = load i32, ptr %4, align 4
   %5 = icmp sgt i32 %.val67, 0
@@ -543,10 +543,10 @@ define void @Bac_PtrDumpSignalsBlif(ptr nocapture noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Bac_PtrDumpBoxBlif(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define void @Bac_PtrDumpBoxBlif(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 7, i64 1, ptr %0)
   %4 = getelementptr i8, ptr %1, i64 8
   %.val14 = load ptr, ptr %4, align 8
@@ -578,7 +578,7 @@ define void @Bac_PtrDumpBoxBlif(ptr nocapture noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Bac_PtrDumpBoxesBlif(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define void @Bac_PtrDumpBoxesBlif(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val67 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val67, 0
@@ -631,7 +631,7 @@ Bac_PtrDumpBoxBlif.exit:                          ; preds = %.lr.ph.i, %6
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Bac_PtrDumpModuleBlif(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define void @Bac_PtrDumpModuleBlif(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.val16 = load ptr, ptr %3, align 8
   %4 = load ptr, ptr %.val16, align 8
@@ -699,7 +699,7 @@ Bac_PtrDumpSignalsBlif.exit23:                    ; preds = %24, %Bac_PtrDumpSig
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Bac_PtrDumpBlif(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @Bac_PtrDumpBlif(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.8)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
@@ -740,18 +740,18 @@ define void @Bac_PtrDumpBlif(ptr noundef %0, ptr nocapture noundef readonly %1) 
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare ptr @Extra_TimeStamp(...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Bac_PtrDumpSignalsVerilog(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 {
+define void @Bac_PtrDumpSignalsVerilog(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr i8, ptr %1, i64 4
   %.val1011 = load i32, ptr %4, align 4
   %5 = icmp sgt i32 %.val1011, 0
@@ -796,7 +796,7 @@ define void @Bac_PtrDumpSignalsVerilog(ptr nocapture noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Bac_PtrDumpBoxVerilog(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define void @Bac_PtrDumpBoxVerilog(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.val18 = load ptr, ptr %3, align 8
   %4 = load ptr, ptr %.val18, align 8
@@ -836,7 +836,7 @@ define void @Bac_PtrDumpBoxVerilog(ptr nocapture noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Bac_PtrDumpBoxesVerilog(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define void @Bac_PtrDumpBoxesVerilog(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val67 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val67, 0
@@ -863,7 +863,7 @@ define void @Bac_PtrDumpBoxesVerilog(ptr nocapture noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Bac_PtrDumpModuleVerilog(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define void @Bac_PtrDumpModuleVerilog(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.val22 = load ptr, ptr %3, align 8
   %4 = load ptr, ptr %.val22, align 8
@@ -1022,7 +1022,7 @@ Bac_PtrDumpBoxesVerilog.exit:                     ; preds = %68, %Bac_PtrDumpSig
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Bac_PtrDumpVerilog(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @Bac_PtrDumpVerilog(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.8)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
@@ -1063,7 +1063,7 @@ define void @Bac_PtrDumpVerilog(ptr noundef %0, ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Bac_ManCollectGateNameOne(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define void @Bac_ManCollectGateNameOne(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call ptr @Mio_LibraryReadGateByTruth(ptr noundef %0, i64 noundef %2) #14
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %6
@@ -1208,11 +1208,11 @@ Bac_ManCollectGateNameOne.exit47:                 ; preds = %Bac_ManCollectGateN
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Bac_PtrUpdateBox(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @Bac_PtrUpdateBox(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr (...) @Abc_FrameReadLibGen() #14
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val77 = load ptr, ptr %4, align 8
-  %5 = load ptr, ptr %.val77, align 8
+  %.val76 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %.val76, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(8) @.str.25) #16
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %25, label %7
@@ -1260,7 +1260,7 @@ define void @Bac_PtrUpdateBox(ptr nocapture noundef readonly %0, ptr nocapture n
 23:                                               ; preds = %21
   %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(6) @.str.34) #16
   %.not60 = icmp eq i32 %24, 0
-  br i1 %.not60, label %25, label %67
+  br i1 %.not60, label %25, label %65
 
 25:                                               ; preds = %23, %21, %19, %17, %15, %13, %11, %9, %7, %2
   %.sink = phi i64 [ 8, %2 ], [ 16, %7 ], [ 24, %9 ], [ 32, %11 ], [ 40, %13 ], [ 48, %15 ], [ 56, %17 ], [ 64, %19 ], [ 72, %21 ], [ 80, %23 ]
@@ -1268,120 +1268,113 @@ define void @Bac_PtrUpdateBox(ptr nocapture noundef readonly %0, ptr nocapture n
   %.val75 = load ptr, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.val75, i64 %.sink
   %.0 = load ptr, ptr %27, align 8
-  %.not61 = icmp eq ptr %5, null
-  br i1 %.not61, label %29, label %28
+  tail call void @free(ptr noundef %5) #14
+  %.not.i = icmp eq ptr %.0, null
+  br i1 %.not.i, label %Abc_UtilStrsav.exit, label %28
 
 28:                                               ; preds = %25
-  tail call void @free(ptr noundef nonnull %5) #14
-  br label %29
-
-29:                                               ; preds = %25, %28
-  %.not.i = icmp eq ptr %.0, null
-  br i1 %.not.i, label %Abc_UtilStrsav.exit, label %30
-
-30:                                               ; preds = %29
-  %31 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0) #16
-  %32 = add i64 %31, 1
-  %33 = tail call noalias ptr @malloc(i64 noundef %32) #15
-  %34 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull readonly dereferenceable(1) %.0) #14
+  %29 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.0) #16
+  %30 = add i64 %29, 1
+  %31 = tail call noalias ptr @malloc(i64 noundef %30) #15
+  %32 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull readonly dereferenceable(1) %.0) #14
   br label %Abc_UtilStrsav.exit
 
-Abc_UtilStrsav.exit:                              ; preds = %29, %30
-  %35 = phi ptr [ %33, %30 ], [ null, %29 ]
-  %.val81 = load ptr, ptr %4, align 8
-  store ptr %35, ptr %.val81, align 8
-  %.val66 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %.val66, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %.not62 = icmp eq ptr %37, null
-  br i1 %.not62, label %39, label %38
-
-38:                                               ; preds = %Abc_UtilStrsav.exit
-  tail call void @free(ptr noundef nonnull %37) #14
-  %.val80.pre = load ptr, ptr %4, align 8
-  br label %39
-
-39:                                               ; preds = %Abc_UtilStrsav.exit, %38
-  %.val80 = phi ptr [ %.val66, %Abc_UtilStrsav.exit ], [ %.val80.pre, %38 ]
-  %40 = getelementptr inbounds nuw i8, ptr %.val80, i64 8
-  store ptr null, ptr %40, align 8
-  %41 = tail call ptr @Mio_LibraryReadGateByName(ptr noundef %3, ptr noundef %.0, ptr noundef null) #14
-  %42 = tail call ptr @Mio_GateReadPins(ptr noundef %41) #14
-  %.not6386 = icmp eq ptr %42, null
-  br i1 %.not6386, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %39, %Abc_UtilStrsav.exit83
-  %indvars.iv = phi i64 [ %indvars.iv.next, %Abc_UtilStrsav.exit83 ], [ 1, %39 ]
-  %.04788 = phi ptr [ %56, %Abc_UtilStrsav.exit83 ], [ %42, %39 ]
-  %43 = shl nuw nsw i64 %indvars.iv, 1
+Abc_UtilStrsav.exit:                              ; preds = %25, %28
+  %33 = phi ptr [ %31, %28 ], [ null, %25 ]
+  %.val80 = load ptr, ptr %4, align 8
+  store ptr %33, ptr %.val80, align 8
   %.val65 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds nuw ptr, ptr %.val65, i64 %43
-  %45 = load ptr, ptr %44, align 8
-  %.not64 = icmp eq ptr %45, null
-  br i1 %.not64, label %47, label %46
+  %34 = getelementptr inbounds nuw i8, ptr %.val65, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %.not61 = icmp eq ptr %35, null
+  br i1 %.not61, label %37, label %36
 
-46:                                               ; preds = %.lr.ph
-  tail call void @free(ptr noundef nonnull %45) #14
-  br label %47
+36:                                               ; preds = %Abc_UtilStrsav.exit
+  tail call void @free(ptr noundef nonnull %35) #14
+  %.val79.pre = load ptr, ptr %4, align 8
+  br label %37
 
-47:                                               ; preds = %.lr.ph, %46
-  %48 = tail call ptr @Mio_PinReadName(ptr noundef nonnull %.04788) #14
+37:                                               ; preds = %Abc_UtilStrsav.exit, %36
+  %.val79 = phi ptr [ %.val65, %Abc_UtilStrsav.exit ], [ %.val79.pre, %36 ]
+  %38 = getelementptr inbounds nuw i8, ptr %.val79, i64 8
+  store ptr null, ptr %38, align 8
+  %39 = tail call ptr @Mio_LibraryReadGateByName(ptr noundef %3, ptr noundef %.0, ptr noundef null) #14
+  %40 = tail call ptr @Mio_GateReadPins(ptr noundef %39) #14
+  %.not6285 = icmp eq ptr %40, null
+  br i1 %.not6285, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %37, %Abc_UtilStrsav.exit82
+  %indvars.iv = phi i64 [ %indvars.iv.next, %Abc_UtilStrsav.exit82 ], [ 1, %37 ]
+  %.04787 = phi ptr [ %54, %Abc_UtilStrsav.exit82 ], [ %40, %37 ]
+  %41 = shl nuw nsw i64 %indvars.iv, 1
+  %.val64 = load ptr, ptr %4, align 8
+  %42 = getelementptr inbounds nuw ptr, ptr %.val64, i64 %41
+  %43 = load ptr, ptr %42, align 8
+  %.not63 = icmp eq ptr %43, null
+  br i1 %.not63, label %45, label %44
+
+44:                                               ; preds = %.lr.ph
+  tail call void @free(ptr noundef nonnull %43) #14
+  br label %45
+
+45:                                               ; preds = %.lr.ph, %44
+  %46 = tail call ptr @Mio_PinReadName(ptr noundef nonnull %.04787) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not.i82 = icmp eq ptr %48, null
-  br i1 %.not.i82, label %Abc_UtilStrsav.exit83, label %49
+  %.not.i81 = icmp eq ptr %46, null
+  br i1 %.not.i81, label %Abc_UtilStrsav.exit82, label %47
 
-49:                                               ; preds = %47
-  %50 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %48) #16
-  %51 = add i64 %50, 1
-  %52 = tail call noalias ptr @malloc(i64 noundef %51) #15
-  %53 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull readonly dereferenceable(1) %48) #14
-  br label %Abc_UtilStrsav.exit83
+47:                                               ; preds = %45
+  %48 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %46) #16
+  %49 = add i64 %48, 1
+  %50 = tail call noalias ptr @malloc(i64 noundef %49) #15
+  %51 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull readonly dereferenceable(1) %46) #14
+  br label %Abc_UtilStrsav.exit82
 
-Abc_UtilStrsav.exit83:                            ; preds = %47, %49
-  %54 = phi ptr [ %52, %49 ], [ null, %47 ]
-  %.val79 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds nuw ptr, ptr %.val79, i64 %43
-  store ptr %54, ptr %55, align 8
-  %56 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.04788) #14
-  %.not63 = icmp eq ptr %56, null
-  br i1 %.not63, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !17
+Abc_UtilStrsav.exit82:                            ; preds = %45, %47
+  %52 = phi ptr [ %50, %47 ], [ null, %45 ]
+  %.val78 = load ptr, ptr %4, align 8
+  %53 = getelementptr inbounds nuw ptr, ptr %.val78, i64 %41
+  store ptr %52, ptr %53, align 8
+  %54 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.04787) #14
+  %.not62 = icmp eq ptr %54, null
+  br i1 %.not62, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !17
 
-._crit_edge.loopexit:                             ; preds = %Abc_UtilStrsav.exit83
-  %57 = shl nuw i64 %indvars.iv.next, 1
-  %58 = and i64 %57, 4294967294
+._crit_edge.loopexit:                             ; preds = %Abc_UtilStrsav.exit82
+  %55 = shl nuw i64 %indvars.iv.next, 1
+  %56 = and i64 %55, 4294967294
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %39
-  %.048.lcssa = phi i64 [ 2, %39 ], [ %58, %._crit_edge.loopexit ]
-  %59 = tail call ptr @Mio_GateReadOutName(ptr noundef %41) #14
-  %.not.i84 = icmp eq ptr %59, null
-  br i1 %.not.i84, label %Abc_UtilStrsav.exit85, label %60
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %37
+  %.048.lcssa = phi i64 [ 2, %37 ], [ %56, %._crit_edge.loopexit ]
+  %57 = tail call ptr @Mio_GateReadOutName(ptr noundef %39) #14
+  %.not.i83 = icmp eq ptr %57, null
+  br i1 %.not.i83, label %Abc_UtilStrsav.exit84, label %58
 
-60:                                               ; preds = %._crit_edge
-  %61 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %59) #16
-  %62 = add i64 %61, 1
-  %63 = tail call noalias ptr @malloc(i64 noundef %62) #15
-  %64 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull readonly dereferenceable(1) %59) #14
-  br label %Abc_UtilStrsav.exit85
+58:                                               ; preds = %._crit_edge
+  %59 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %57) #16
+  %60 = add i64 %59, 1
+  %61 = tail call noalias ptr @malloc(i64 noundef %60) #15
+  %62 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull readonly dereferenceable(1) %57) #14
+  br label %Abc_UtilStrsav.exit84
 
-Abc_UtilStrsav.exit85:                            ; preds = %._crit_edge, %60
-  %65 = phi ptr [ %63, %60 ], [ null, %._crit_edge ]
-  %.val78 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds nuw ptr, ptr %.val78, i64 %.048.lcssa
-  store ptr %65, ptr %66, align 8
-  br label %67
+Abc_UtilStrsav.exit84:                            ; preds = %._crit_edge, %58
+  %63 = phi ptr [ %61, %58 ], [ null, %._crit_edge ]
+  %.val77 = load ptr, ptr %4, align 8
+  %64 = getelementptr inbounds nuw ptr, ptr %.val77, i64 %.048.lcssa
+  store ptr %63, ptr %64, align 8
+  br label %65
 
-67:                                               ; preds = %23, %Abc_UtilStrsav.exit85
+65:                                               ; preds = %23, %Abc_UtilStrsav.exit84
   ret void
 }
 
 declare ptr @Abc_FrameReadLibGen(...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @Mio_LibraryReadGateByName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
@@ -1394,7 +1387,7 @@ declare ptr @Mio_PinReadNext(ptr noundef) local_unnamed_addr #5
 declare ptr @Mio_GateReadOutName(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Bac_PtrTransformSigs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @Bac_PtrTransformSigs(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 4
   %.val9 = load i32, ptr %2, align 4
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
@@ -1511,7 +1504,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Bac_PtrTransformBox(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Bac_PtrTransformBox(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 4
   %.val13 = load i32, ptr %3, align 4
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
@@ -1636,7 +1629,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Bac_PtrTransformBoxes(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Bac_PtrTransformBoxes(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 4
   %.val10 = load i32, ptr %3, align 4
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
@@ -1742,7 +1735,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Bac_PtrTransformNtk(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Bac_PtrTransformNtk(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val18 = load ptr, ptr %3, align 8
   %4 = load ptr, ptr %.val18, align 8
@@ -2058,7 +2051,7 @@ Vec_PtrPush.exit48:                               ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Bac_PtrTransformTest(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @Bac_PtrTransformTest(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   tail call void @Bac_PtrDumpBlif(ptr noundef nonnull @.str.35, ptr noundef %0)
   %2 = tail call ptr (...) @Abc_FrameGetGlobalFrame() #14
   %3 = icmp eq ptr %2, null
@@ -2334,22 +2327,22 @@ declare double @llvm.fmuladd.f64(double, double, double) #8
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #10
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13

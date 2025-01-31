@@ -634,7 +634,7 @@ return:                                           ; preds = %if.then204, %if.the
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare i32 @u_strlen_75(ptr noundef) local_unnamed_addr #2
 
@@ -699,7 +699,7 @@ return:                                           ; preds = %if.else26, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef i32 @_ZL13calculateSizePKDsiij(ptr nocapture noundef readonly %source, i32 noundef %sourceLength, i32 noundef %options) unnamed_addr #5 {
+define internal fastcc noundef i32 @_ZL13calculateSizePKDsiij(ptr noundef readonly captures(none) %source, i32 noundef %sourceLength, i32 noundef %options) unnamed_addr #5 {
 entry:
   %0 = and i32 %options, 65547
   %or.cond38 = icmp eq i32 %0, 8
@@ -839,10 +839,10 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #2
 declare ptr @u_memcpy_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL11countSpacesPDsijPiS0_(ptr nocapture noundef nonnull readonly %dest, i32 noundef %size, ptr nocapture noundef nonnull writeonly %spacesCountl, ptr nocapture noundef nonnull writeonly %spacesCountr) unnamed_addr #7 {
+define internal fastcc void @_ZL11countSpacesPDsijPiS0_(ptr noundef nonnull readonly captures(none) %dest, i32 noundef %size, ptr noundef nonnull writeonly captures(none) %spacesCountl, ptr noundef nonnull writeonly captures(none) %spacesCountr) unnamed_addr #7 {
 entry:
   %0 = load i16, ptr %dest, align 2
   %cmp10 = icmp eq i16 %0, 32
@@ -892,7 +892,7 @@ if.end:                                           ; preds = %while.body9, %while
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL12shapeUnicodePDsiijP10UErrorCodei15uShapeVariables(ptr noundef nonnull %dest, i32 noundef %sourceLength, i32 noundef %options, ptr nocapture noundef nonnull %pErrorCode, i32 noundef range(i32 0, 3) %tashkeelFlag, ptr nocapture noundef readonly byval(%struct.uShapeVariables) align 8 %shapeVars) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL12shapeUnicodePDsiijP10UErrorCodei15uShapeVariables(ptr noundef nonnull %dest, i32 noundef %sourceLength, i32 noundef %options, ptr noundef nonnull captures(none) %pErrorCode, i32 noundef range(i32 0, 3) %tashkeelFlag, ptr noundef readonly byval(%struct.uShapeVariables) align 8 captures(none) %shapeVars) unnamed_addr #0 {
 entry:
   %and = and i32 %options, 32768
   %cmp = icmp eq i32 %and, 0
@@ -1811,7 +1811,7 @@ if.end284:                                        ; preds = %_ZL7getLinkDs.exit,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @_ZL25handleTashkeelWithTatweelPDsiijP10UErrorCode(ptr nocapture noundef nonnull %dest, i32 noundef returned %sourceLength) unnamed_addr #7 {
+define internal fastcc noundef i32 @_ZL25handleTashkeelWithTatweelPDsiijP10UErrorCode(ptr noundef nonnull captures(none) %dest, i32 noundef returned %sourceLength) unnamed_addr #7 {
 entry:
   %cmp15 = icmp sgt i32 %sourceLength, 0
   br i1 %cmp15, label %for.body.preheader, label %for.end
@@ -1881,7 +1881,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL14deShapeUnicodePDsiijP10UErrorCode15uShapeVariables(ptr noundef nonnull %dest, i32 noundef %sourceLength, i32 noundef %options, ptr nocapture noundef nonnull %pErrorCode, ptr nocapture noundef readonly byval(%struct.uShapeVariables) align 8 %shapeVars) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL14deShapeUnicodePDsiijP10UErrorCode15uShapeVariables(ptr noundef nonnull %dest, i32 noundef %sourceLength, i32 noundef %options, ptr noundef nonnull captures(none) %pErrorCode, ptr noundef readonly byval(%struct.uShapeVariables) align 8 captures(none) %shapeVars) unnamed_addr #0 {
 entry:
   %and = and i32 %options, 58720256
   %cmp = icmp eq i32 %and, 16777216
@@ -2204,7 +2204,7 @@ if.end80:                                         ; preds = %entry, %if.then78, 
 declare i32 @uprv_min_75(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL31_shapeToArabicDigitsWithContextPDsiDsaa(ptr nocapture noundef %s, i32 noundef %length, i16 noundef zeroext range(i16 0, 1777) %digitBase, i8 noundef signext range(i8 0, 2) %isLogical, i8 noundef signext range(i8 0, 2) %lastStrongWasAL) unnamed_addr #0 {
+define internal fastcc void @_ZL31_shapeToArabicDigitsWithContextPDsiDsaa(ptr noundef captures(none) %s, i32 noundef %length, i16 noundef zeroext range(i16 0, 1777) %digitBase, i8 noundef signext range(i8 0, 2) %isLogical, i8 noundef signext range(i8 0, 2) %lastStrongWasAL) unnamed_addr #0 {
 entry:
   %sub = add nsw i16 %digitBase, -48
   %tobool.not = icmp eq i8 %isLogical, 0
@@ -2310,7 +2310,7 @@ if.end41:                                         ; preds = %for.inc, %sw.epilog
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL18expandCompositCharPDsiijP10UErrorCodei15uShapeVariables(ptr noundef nonnull %dest, i32 noundef %sourceLength, i32 noundef %destSize, i32 noundef %options, ptr nocapture noundef nonnull %pErrorCode, i32 noundef range(i32 0, 2) %shapingMode, ptr nocapture noundef readonly byval(%struct.uShapeVariables) align 8 %shapeVars) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL18expandCompositCharPDsiijP10UErrorCodei15uShapeVariables(ptr noundef nonnull %dest, i32 noundef %sourceLength, i32 noundef %destSize, i32 noundef %options, ptr noundef nonnull captures(none) %pErrorCode, i32 noundef range(i32 0, 2) %shapingMode, ptr noundef readonly byval(%struct.uShapeVariables) align 8 captures(none) %shapeVars) unnamed_addr #0 {
 entry:
   %cmp.not = icmp ne i32 %shapingMode, 0
   %and = and i32 %options, 65539
@@ -3030,7 +3030,7 @@ return:                                           ; preds = %if.end60, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL23expandCompositCharAtEndPDsiiP10UErrorCode(ptr noundef nonnull %dest, i32 noundef %sourceLength, ptr nocapture noundef nonnull writeonly %pErrorCode) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL23expandCompositCharAtEndPDsiiP10UErrorCode(ptr noundef nonnull %dest, i32 noundef %sourceLength, ptr noundef nonnull writeonly captures(none) %pErrorCode) unnamed_addr #0 {
 entry:
   %add = shl i32 %sourceLength, 1
   %mul = add i32 %add, 2
@@ -3173,7 +3173,7 @@ return:                                           ; preds = %if.end60, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL25expandCompositCharAtBeginPDsiiP10UErrorCode(ptr noundef nonnull %dest, i32 noundef %sourceLength, ptr nocapture noundef nonnull writeonly %pErrorCode) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL25expandCompositCharAtBeginPDsiiP10UErrorCode(ptr noundef nonnull %dest, i32 noundef %sourceLength, ptr noundef nonnull writeonly captures(none) %pErrorCode) unnamed_addr #0 {
 entry:
   %add = shl i32 %sourceLength, 1
   %mul = add i32 %add, 2

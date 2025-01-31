@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @H5_crc_table = internal unnamed_addr global [256 x i32] zeroinitializer, align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @H5_checksum_fletcher32(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define i32 @H5_checksum_fletcher32(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %.not43 = icmp ult i64 %1, 2
   br i1 %.not43, label %._crit_edge, label %.lr.ph.preheader
 
@@ -90,7 +90,7 @@ define i32 @H5_checksum_fletcher32(ptr nocapture noundef readonly %0, i64 nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define i32 @H5_checksum_crc(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 {
+define i32 @H5_checksum_crc(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
   %.b8.i = load i1, ptr @H5_crc_table_computed, align 1
   br i1 %.b8.i, label %11, label %.preheader.i.i
 
@@ -152,7 +152,7 @@ H5__checksum_crc_update.exit:                     ; preds = %H5__checksum_crc_up
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @H5_checksum_lookup3(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @H5_checksum_lookup3(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = trunc i64 %1 to i32
   %5 = add i32 %4, -559038737
   %6 = add i32 %5, %2
@@ -415,13 +415,13 @@ default.unreachable:                              ; preds = %._crit_edge
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @H5_checksum_metadata(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @H5_checksum_metadata(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @H5_checksum_lookup3(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @H5_hash_string(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @H5_hash_string(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1
   %.not6 = icmp eq i8 %2, 0
   br i1 %.not6, label %._crit_edge, label %.lr.ph

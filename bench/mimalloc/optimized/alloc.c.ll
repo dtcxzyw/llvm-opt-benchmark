@@ -984,7 +984,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_page_malloc(ptr noundef %heap, ptr nocapture noundef %page, i64 noundef %size, i1 noundef zeroext %zero) local_unnamed_addr #0 {
+define hidden ptr @_mi_page_malloc(ptr noundef %heap, ptr noundef captures(none) %page, i64 noundef %size, i1 noundef zeroext %zero) local_unnamed_addr #0 {
 entry:
   %free = getelementptr inbounds nuw i8, ptr %page, i64 16
   %0 = load ptr, ptr %free, align 8
@@ -1420,7 +1420,7 @@ mi_heap_zalloc.exit:                              ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_mi_padding_shrink(ptr nocapture noundef readnone %page, ptr nocapture noundef readnone %block, i64 noundef %min_size) local_unnamed_addr #4 {
+define hidden void @_mi_padding_shrink(ptr noundef readnone captures(none) %page, ptr noundef readnone captures(none) %block, i64 noundef %min_size) local_unnamed_addr #4 {
 entry:
   ret void
 }
@@ -2648,7 +2648,7 @@ return:                                           ; preds = %mi_heap_malloc.exit
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @mi_strdup(ptr noundef readonly %s) local_unnamed_addr #0 {
@@ -2818,7 +2818,7 @@ mi_heap_strndup.exit:                             ; preds = %entry, %mi_heap_mal
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @mi_heap_realpath(ptr noundef %heap, ptr nocapture noundef readonly %fname, ptr noundef %resolved_name) local_unnamed_addr #0 {
+define noalias ptr @mi_heap_realpath(ptr noundef %heap, ptr noundef readonly captures(none) %fname, ptr noundef %resolved_name) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %resolved_name, null
   br i1 %cmp.not, label %if.else, label %if.then
@@ -2882,10 +2882,10 @@ return:                                           ; preds = %if.else, %mi_heap_s
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @realpath(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
+declare noundef ptr @realpath(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @mi_realpath(ptr nocapture noundef readonly %fname, ptr noundef %resolved_name) local_unnamed_addr #0 {
+define noalias ptr @mi_realpath(ptr noundef readonly captures(none) %fname, ptr noundef %resolved_name) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %1 = load ptr, ptr %0, align 8
@@ -3388,10 +3388,10 @@ declare void @_mi_segment_huge_page_reset(ptr noundef, ptr noundef, ptr noundef)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare void @_mi_error_message(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
@@ -3405,10 +3405,10 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #12
 declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind allocsize(0,1) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

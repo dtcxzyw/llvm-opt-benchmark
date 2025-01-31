@@ -24,13 +24,13 @@ target triple = "x86_64-pc-linux-gnu"
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN3gmx25IKeyValueTreeErrorHandlerD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define void @_ZN3gmx25IKeyValueTreeErrorHandlerD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.trap() #10
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3gmx25IKeyValueTreeErrorHandlerD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define void @_ZN3gmx25IKeyValueTreeErrorHandlerD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret void
 }
 
@@ -60,7 +60,7 @@ define noundef nonnull ptr @_ZN3gmx31defaultKeyValueTreeErrorHandlerEv() local_u
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN3gmx12_GLOBAL__N_131DefaultKeyValueTreeErrorHandlerD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define internal void @_ZN3gmx12_GLOBAL__N_131DefaultKeyValueTreeErrorHandlerD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret void
 }
 
@@ -68,7 +68,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_131DefaultKeyValueTreeErrorHandlerD2Ev
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_131DefaultKeyValueTreeErrorHandler7onErrorEPNS_14UserInputErrorERKNS_16KeyValueTreePathE(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_131DefaultKeyValueTreeErrorHandler7onErrorEPNS_14UserInputErrorERKNS_16KeyValueTreePathE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNK3gmx16KeyValueTreePath8toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %2)

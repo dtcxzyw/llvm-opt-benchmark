@@ -248,7 +248,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23GUIEditBoxWithScrollBarC2EPKwbPN3irr3gui15IGUIEnvironmentEPNS3_11IGUIElementEiRKNS2_4core4rectIiEEP20ISimpleTextureSourcebb(ptr noundef nonnull align 8 dereferenceable(512) %this, ptr noundef %vtt, ptr noundef readonly %text, i1 noundef zeroext %border, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rectangle, ptr noundef %tsrc, i1 noundef zeroext %writable, i1 noundef zeroext %has_vscrollbar) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23GUIEditBoxWithScrollBarC2EPKwbPN3irr3gui15IGUIEnvironmentEPNS3_11IGUIElementEiRKNS2_4core4rectIiEEP20ISimpleTextureSourcebb(ptr noundef nonnull align 8 dereferenceable(512) %this, ptr noundef %vtt, ptr noundef readonly %text, i1 noundef zeroext %border, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %rectangle, ptr noundef %tsrc, i1 noundef zeroext %writable, i1 noundef zeroext %has_vscrollbar) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %text64 = ptrtoint ptr %text to i64
   %first.i = alloca ptr, align 8
@@ -689,12 +689,12 @@ invoke.cont38:                                    ; preds = %invoke.cont34
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23GUIEditBoxWithScrollBar16createVScrollBarEv(ptr nocapture noundef nonnull align 8 dereferenceable(512) initializes((480, 484)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23GUIEditBoxWithScrollBar16createVScrollBarEv(ptr noundef nonnull align 8 captures(none) dereferenceable(512) initializes((480, 484)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp37 = alloca i32, align 4
   %ref.tmp39 = alloca i32, align 4
@@ -882,7 +882,7 @@ if.end32:                                         ; preds = %if.then5, %if.end, 
 declare void @_ZN10GUIEditBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(496), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23GUIEditBoxWithScrollBarC1EPKwbPN3irr3gui15IGUIEnvironmentEPNS3_11IGUIElementEiRKNS2_4core4rectIiEEP20ISimpleTextureSourcebb(ptr noundef nonnull align 8 dereferenceable(512) initializes((512, 532)) %this, ptr noundef readonly %text, i1 noundef zeroext %border, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rectangle, ptr noundef %tsrc, i1 noundef zeroext %writable, i1 noundef zeroext %has_vscrollbar) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23GUIEditBoxWithScrollBarC1EPKwbPN3irr3gui15IGUIEnvironmentEPNS3_11IGUIElementEiRKNS2_4core4rectIiEEP20ISimpleTextureSourcebb(ptr noundef nonnull align 8 dereferenceable(512) initializes((512, 532)) %this, ptr noundef readonly %text, i1 noundef zeroext %border, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %rectangle, ptr noundef %tsrc, i1 noundef zeroext %writable, i1 noundef zeroext %has_vscrollbar) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %text64 = ptrtoint ptr %text to i64
   %first.i = alloca ptr, align 8
@@ -1304,7 +1304,7 @@ invoke.cont36:                                    ; preds = %invoke.cont32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN23GUIEditBoxWithScrollBar17setDrawBackgroundEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(512) initializes((496, 497)) %this, i1 noundef zeroext %draw) unnamed_addr #5 align 2 {
+define dso_local void @_ZN23GUIEditBoxWithScrollBar17setDrawBackgroundEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(512) initializes((496, 497)) %this, i1 noundef zeroext %draw) unnamed_addr #5 align 2 {
 entry:
   %frombool = zext i1 %draw to i8
   %m_background = getelementptr inbounds nuw i8, ptr %this, i64 496
@@ -1432,7 +1432,7 @@ if.end:                                           ; preds = %_ZN23GUIEditBoxWith
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3irr3gui11IGUIElement22updateAbsolutePositionEv(ptr noundef nonnull align 8 dereferenceable(308) %this) unnamed_addr #3 comdat align 2 {
@@ -1460,7 +1460,7 @@ for.body:                                         ; preds = %entry, %for.body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN23GUIEditBoxWithScrollBar4drawEv(ptr noundef nonnull align 8 dereferenceable(512) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -4851,7 +4851,7 @@ declare void @_ZN12GUIScrollBar12setSmallStepERKi(ptr noundef nonnull align 8 de
 declare void @_ZN12GUIScrollBar12setLargeStepERKi(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN23GUIEditBoxWithScrollBar18setBackgroundColorERKN3irr5video6SColorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(512) initializes((497, 498), (500, 504)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %bg_color) unnamed_addr #9 align 2 {
+define dso_local void @_ZN23GUIEditBoxWithScrollBar18setBackgroundColorERKN3irr5video6SColorE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(512) initializes((497, 498), (500, 504)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %bg_color) unnamed_addr #9 align 2 {
 entry:
   %m_bg_color = getelementptr inbounds nuw i8, ptr %this, i64 500
   %0 = load i32, ptr %bg_color, align 4, !tbaa !51
@@ -4862,37 +4862,37 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK23GUIEditBoxWithScrollBar23isDrawBackgroundEnabledEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZNK23GUIEditBoxWithScrollBar23isDrawBackgroundEnabledEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK23GUIEditBoxWithScrollBar19isDrawBorderEnabledEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZNK23GUIEditBoxWithScrollBar19isDrawBorderEnabledEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN23GUIEditBoxWithScrollBar13setCursorCharEw(ptr nocapture nonnull readnone align 8 %this, i32 signext %cursorChar) unnamed_addr #10 align 2 {
+define dso_local void @_ZN23GUIEditBoxWithScrollBar13setCursorCharEw(ptr nonnull readnone align 8 captures(none) %this, i32 signext %cursorChar) unnamed_addr #10 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef signext i32 @_ZNK23GUIEditBoxWithScrollBar13getCursorCharEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define dso_local noundef signext i32 @_ZNK23GUIEditBoxWithScrollBar13getCursorCharEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 {
 entry:
   ret i32 124
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN23GUIEditBoxWithScrollBar18setCursorBlinkTimeEj(ptr nocapture nonnull readnone align 8 %this, i32 %timeMs) unnamed_addr #10 align 2 {
+define dso_local void @_ZN23GUIEditBoxWithScrollBar18setCursorBlinkTimeEj(ptr nonnull readnone align 8 captures(none) %this, i32 %timeMs) unnamed_addr #10 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNK23GUIEditBoxWithScrollBar18getCursorBlinkTimeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define dso_local noundef i32 @_ZNK23GUIEditBoxWithScrollBar18getCursorBlinkTimeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 {
 entry:
   ret i32 500
 }
@@ -7096,7 +7096,7 @@ declare void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull al
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #19
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #19
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #0
 
@@ -7108,7 +7108,7 @@ declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_assignERK
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #19
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #19
 
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i32 noundef signext) local_unnamed_addr #0
 
@@ -7211,11 +7211,11 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.threa
   %11 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !65
   %cmp3.i.i.i.i.i.i = icmp ult i64 %11, 4
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
-  br label %invoke.cont21
+  br label %if.then.i71
 
 if.then.i.i.i.i.i:                                ; preds = %if.then
   tail call void @_ZdlPv(ptr noundef %10) #26
-  br label %invoke.cont21
+  br label %if.then.i71
 
 if.else:                                          ; preds = %invoke.cont10
   %12 = landingpad { ptr, i32 }
@@ -7223,7 +7223,7 @@ if.else:                                          ; preds = %invoke.cont10
   %13 = extractvalue { ptr, i32 } %12, 0
   %14 = tail call ptr @__cxa_begin_catch(ptr %13) #25
   %cmp.not3.i.i.i58 = icmp eq ptr %call5.i.i.i, %incdec.ptr
-  br i1 %cmp.not3.i.i.i58, label %invoke.cont21, label %for.body.i.i.i59
+  br i1 %cmp.not3.i.i.i58, label %if.then.i71, label %for.body.i.i.i59
 
 for.body.i.i.i59:                                 ; preds = %if.else, %_ZSt8_DestroyIN3irr4core6stringIwEEEvPT_.exit.i.i.i63
   %__first.addr.04.i.i.i60 = phi ptr [ %incdec.ptr.i.i.i64, %_ZSt8_DestroyIN3irr4core6stringIwEEEvPT_.exit.i.i.i63 ], [ %call5.i.i.i, %if.else ]
@@ -7246,15 +7246,15 @@ if.then.i.i.i.i.i.i.i62:                          ; preds = %for.body.i.i.i59
 _ZSt8_DestroyIN3irr4core6stringIwEEEvPT_.exit.i.i.i63: ; preds = %if.then.i.i.i.i.i.i.i62, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i66
   %incdec.ptr.i.i.i64 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i60, i64 32
   %cmp.not.i.i.i65 = icmp eq ptr %__first.addr.04.i.i.i60, %call.i.i.i.i53
-  br i1 %cmp.not.i.i.i65, label %invoke.cont21, label %for.body.i.i.i59, !llvm.loop !110
+  br i1 %cmp.not.i.i.i65, label %if.then.i71, label %for.body.i.i.i59, !llvm.loop !110
 
-lpad19:                                           ; preds = %invoke.cont21
+lpad19:                                           ; preds = %if.then.i71
   %18 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont22 unwind label %terminate.lpad
 
-invoke.cont21:                                    ; preds = %_ZSt8_DestroyIN3irr4core6stringIwEEEvPT_.exit.i.i.i63, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i.i.i, %if.then.i.i.i.i.i, %if.else
+if.then.i71:                                      ; preds = %_ZSt8_DestroyIN3irr4core6stringIwEEEvPT_.exit.i.i.i63, %if.else, %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i) #26
   invoke void @__cxa_rethrow() #29
           to label %unreachable unwind label %lpad19
@@ -7269,7 +7269,7 @@ terminate.lpad:                                   ; preds = %lpad19
   tail call void @__clang_call_terminate(ptr %20) #30
   unreachable
 
-unreachable:                                      ; preds = %invoke.cont21
+unreachable:                                      ; preds = %if.then.i71
   unreachable
 }
 
@@ -7585,7 +7585,7 @@ unreachable:                                      ; preds = %invoke.cont21
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_appendEPKwm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
@@ -7603,7 +7603,7 @@ entry:
 declare void @llvm.assume(i1 noundef) #22
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #23
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #23
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #18

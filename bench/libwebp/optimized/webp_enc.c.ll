@@ -12,7 +12,7 @@ define noundef i32 @WebPGetEncoderVersion() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @WebPEncodingSetError(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define hidden noundef i32 @WebPEncodingSetError(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -301,7 +301,7 @@ declare i32 @WebPValidateConfig(ptr noundef) local_unnamed_addr #3
 declare i32 @WebPValidatePicture(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @WebPPictureSharpARGBToYUVA(ptr noundef) local_unnamed_addr #3
 
@@ -615,7 +615,7 @@ declare i32 @VP8EncFinishAlpha(ptr noundef) local_unnamed_addr #3
 declare i32 @VP8EncWrite(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @StoreStats(ptr nocapture noundef nonnull readonly %0) unnamed_addr #6 {
+define internal fastcc void @StoreStats(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 128

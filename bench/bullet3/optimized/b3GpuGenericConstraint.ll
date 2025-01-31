@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.0 = type { [4 x float] }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN22b3GpuGenericConstraint8getInfo1EPjPK15b3RigidBodyData(ptr nocapture noundef nonnull readonly align 16 dereferenceable(80) %this, ptr nocapture noundef writeonly %info, ptr nocapture noundef readnone %bodies) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN22b3GpuGenericConstraint8getInfo1EPjPK15b3RigidBodyData(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %this, ptr noundef writeonly captures(none) %info, ptr noundef readnone captures(none) %bodies) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %this, align 16
   %cond = icmp eq i32 %0, 3
@@ -28,7 +28,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_Z19getInfo2Point2PointP22b3GpuGenericConstraintP20b3GpuConstraintInfo2PK15b3RigidBodyData(ptr nocapture noundef readonly %constraint, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %bodies) local_unnamed_addr #1 {
+define dso_local void @_Z19getInfo2Point2PointP22b3GpuGenericConstraintP20b3GpuConstraintInfo2PK15b3RigidBodyData(ptr noundef readonly captures(none) %constraint, ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %bodies) local_unnamed_addr #1 {
 entry:
   %trA = alloca %class.b3Transform, align 16
   %trB = alloca %class.b3Transform, align 16
@@ -303,7 +303,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN22b3GpuGenericConstraint8getInfo2EP20b3GpuConstraintInfo2PK15b3RigidBodyData(ptr nocapture noundef nonnull readonly align 16 dereferenceable(80) %this, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %bodies) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN22b3GpuGenericConstraint8getInfo2EP20b3GpuConstraintInfo2PK15b3RigidBodyData(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %this, ptr noundef readonly captures(none) %info, ptr noundef readonly captures(none) %bodies) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i32, ptr %this, align 16
   %cond = icmp eq i32 %0, 3
@@ -318,7 +318,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #4

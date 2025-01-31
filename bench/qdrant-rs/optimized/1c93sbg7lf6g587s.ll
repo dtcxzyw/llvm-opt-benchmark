@@ -134,7 +134,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17hb0d0a80b565
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden zeroext i1 @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$17is_ascii_hexdigit17hf6892ed559904177E"(ptr nocapture readonly align 4 %0) unnamed_addr #1 {
+define hidden zeroext i1 @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$17is_ascii_hexdigit17hf6892ed559904177E"(ptr readonly align 4 captures(none) %0) unnamed_addr #1 {
   %2 = load i32, ptr %0, align 4, !range !3, !noundef !4
   %3 = add nsw i32 %2, -48
   %.0 = icmp ult i32 %3, 10

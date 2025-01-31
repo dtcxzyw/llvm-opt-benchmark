@@ -178,7 +178,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare ptr @NewBandMat(i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @NewLintArray(i64 noundef) local_unnamed_addr #1
 
@@ -191,7 +191,7 @@ declare void @DestroyArray(ptr noundef) local_unnamed_addr #1
 declare double @SUNRsqrt(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @IDABBDPrecFree(ptr nocapture noundef readonly %0) #0 {
+define internal void @IDABBDPrecFree(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1632
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -223,7 +223,7 @@ define internal void @IDABBDPrecFree(ptr nocapture noundef readonly %0) #0 {
 declare i32 @IDASpilsSetPreconditioner(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @IDABBDPrecSetup(double noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, double noundef %4, ptr nocapture noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #0 {
+define internal range(i32 -1, 2) i32 @IDABBDPrecSetup(double noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, double noundef %4, ptr noundef captures(none) %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #0 {
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -602,7 +602,7 @@ IBBDDQJac.exit:                                   ; preds = %._crit_edge.i, %33,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @IDABBDPrecSolve(double %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr noundef %4, ptr noundef %5, double %6, double %7, ptr nocapture noundef readonly %8, ptr nocapture readnone %9) #0 {
+define internal noundef i32 @IDABBDPrecSolve(double %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef %4, ptr noundef %5, double %6, double %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9) #0 {
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %4, ptr noundef %5) #7
   %11 = tail call ptr @N_VGetArrayPointer(ptr noundef %5) #7
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 64
@@ -677,7 +677,7 @@ define range(i32 -5, 1) i32 @IDABBDPrecReInit(ptr noundef %0, i64 noundef %1, i6
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 1) i32 @IDABBDPrecGetWorkSpace(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @IDABBDPrecGetWorkSpace(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -720,7 +720,7 @@ define range(i32 -5, 1) i32 @IDABBDPrecGetWorkSpace(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 1) i32 @IDABBDPrecGetNumGfnEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @IDABBDPrecGetNumGfnEvals(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -932,7 +932,7 @@ define internal i32 @IDAAgcomm(i64 noundef %0, double noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @IDABBDPrecFreeB(ptr nocapture noundef %0) #4 {
+define internal void @IDABBDPrecFreeB(ptr noundef captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #7

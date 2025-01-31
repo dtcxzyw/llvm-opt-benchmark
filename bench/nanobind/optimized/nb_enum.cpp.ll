@@ -139,7 +139,7 @@ declare i32 @PyIndex_Check(ptr noundef) local_unnamed_addr #1
 declare ptr @PyObject_RichCompare(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN8nanobind6detail13nb_enum_binopEP7_objectS2_PFS2_S2_S2_E(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define hidden noundef ptr @_ZN8nanobind6detail13nb_enum_binopEP7_objectS2_PFS2_S2_S2_E(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @PyNumber_Check(ptr noundef %0)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
@@ -1304,12 +1304,12 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %7, %3, %1
 declare ptr @PyNumber_Absolute(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN8nanobind6detail13nb_enum_clearEP7_object(ptr nocapture readnone %0) #2 {
+define hidden noundef i32 @_ZN8nanobind6detail13nb_enum_clearEP7_object(ptr readnone captures(none) %0) #2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN8nanobind6detail16nb_enum_traverseEP7_objectPFiS2_PvES3_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define hidden noundef i32 @_ZN8nanobind6detail16nb_enum_traverseEP7_objectPFiS2_PvES3_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -1394,7 +1394,7 @@ _ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit: ; preds = %1, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8nanobind6detail15nb_enum_prepareEPKNS0_14type_init_dataERP11PyType_Slotm(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN8nanobind6detail15nb_enum_prepareEPKNS0_14type_init_dataERP11PyType_Slotm(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = icmp ult i64 %2, 23
   br i1 %4, label %5, label %6
 
@@ -1735,12 +1735,12 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare hidden noundef ptr @_ZN8nanobind6detail12strdup_checkEPKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN8nanobind6detailL11nb_enum_newEP11_typeobjectP7_objectS4_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readnone %2) #0 {
+define internal noundef ptr @_ZN8nanobind6detailL11nb_enum_newEP11_typeobjectP7_objectS4_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %36
 
@@ -1817,7 +1817,7 @@ define internal noundef ptr @_ZN8nanobind6detailL11nb_enum_newEP11_typeobjectP7_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noalias noundef ptr @_ZN8nanobind6detailL12nb_enum_initEP7_objectS2_S2_(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 {
+define internal noalias noundef ptr @_ZN8nanobind6detailL12nb_enum_initEP7_objectS2_S2_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 {
   ret ptr null
 }
 
@@ -1848,7 +1848,7 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %10, %3, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8nanobind6detail11nb_enum_putEP7_objectPKcPKvS4_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN8nanobind6detail11nb_enum_putEP7_objectPKcPKvS4_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN8nanobind6detail18nb_type_supplementEP7_object(ptr noundef %0) #11
   %6 = invoke ptr @PyUnicode_InternFromString(ptr noundef %1)
           to label %7 unwind label %118
@@ -2196,7 +2196,7 @@ declare ptr @PyLong_FromLongLong(i64 noundef) local_unnamed_addr #1
 declare ptr @PyLong_FromUnsignedLongLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN8nanobind6detailL15nb_enum_get_docEP7_objectPv(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal noundef ptr @_ZN8nanobind6detailL15nb_enum_get_docEP7_objectPv(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call fastcc noundef ptr @_ZN8nanobind6detailL14nb_enum_lookupEP7_object(ptr noundef %0)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %4
@@ -2215,7 +2215,7 @@ define internal noundef ptr @_ZN8nanobind6detailL15nb_enum_get_docEP7_objectPv(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN8nanobind6detailL16nb_enum_get_nameEP7_objectPv(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal noundef ptr @_ZN8nanobind6detailL16nb_enum_get_nameEP7_objectPv(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call fastcc noundef ptr @_ZN8nanobind6detailL14nb_enum_lookupEP7_object(ptr noundef %0)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %4
@@ -2234,7 +2234,7 @@ define internal noundef ptr @_ZN8nanobind6detailL16nb_enum_get_nameEP7_objectPv(
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN8nanobind6detailL17nb_enum_get_valueEP7_objectPv(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal noundef ptr @_ZN8nanobind6detailL17nb_enum_get_valueEP7_objectPv(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN8nanobind6detail18nb_type_supplementEP7_object(ptr noundef %4) #11

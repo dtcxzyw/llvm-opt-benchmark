@@ -41,7 +41,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.20 = private unnamed_addr constant [56 x i8] c"[drm] *ERROR* GT%u: Failed to pin pages for gsc memory\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_gsc_irq_handler(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_gsc_irq_handler(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = zext i32 %1 to i64
   %4 = and i64 %3, 32768
   %5 = icmp eq i64 %4, 0
@@ -65,7 +65,7 @@ define dso_local void @intel_gsc_irq_handler(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @gsc_irq_handler(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @gsc_irq_handler(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 7168
   %5 = load ptr, ptr %4, align 8
@@ -673,12 +673,12 @@ declare dso_local void @handle_simple_irq(ptr noundef) #2
 declare dso_local i32 @irq_set_chip_data(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @gsc_irq_mask(ptr nocapture readnone %0) #3 align 16 {
+define internal void @gsc_irq_mask(ptr readnone captures(none) %0) #3 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @gsc_irq_unmask(ptr nocapture readnone %0) #3 align 16 {
+define internal void @gsc_irq_unmask(ptr readnone captures(none) %0) #3 align 16 {
   ret void
 }
 

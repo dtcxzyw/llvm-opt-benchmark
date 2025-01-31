@@ -141,14 +141,14 @@ define hidden void @_ZN25XServiceabilityMemoryPoolC2Emm(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN25XServiceabilityMemoryPool13used_in_bytesEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN25XServiceabilityMemoryPool13used_in_bytesEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
   %3 = tail call noundef i64 @_ZNK5XHeap4usedEv(ptr noundef nonnull align 64 dereferenceable(4088) %2) #8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN25XServiceabilityMemoryPool16get_memory_usageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(201) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN25XServiceabilityMemoryPool16get_memory_usageEv(ptr dead_on_unwind noalias writable writeonly sret(%class.MemoryUsage) align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(201) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
   %4 = tail call noundef i64 @_ZNK5XHeap8capacityEv(ptr noundef nonnull align 64 dereferenceable(4088) %3) #8
   %5 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
@@ -204,7 +204,7 @@ define hidden void @_ZN15XServiceabilityC2Emm(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15XServiceability10initializeEv(ptr nocapture noundef nonnull align 8 dereferenceable(616) initializes((608, 616)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15XServiceability10initializeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(616) initializes((608, 616)) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 104, i8 noundef zeroext 5, i32 noundef 0) #8
   %3 = load i64, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -242,7 +242,7 @@ define hidden noundef nonnull ptr @_ZN15XServiceability20pause_memory_managerEv(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN15XServiceability8countersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN15XServiceability8countersEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(616) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -480,7 +480,7 @@ declare void @_ZN13JvmtiGCMarkerD1Ev(ptr noundef nonnull align 1 dereferenceable
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #1
 

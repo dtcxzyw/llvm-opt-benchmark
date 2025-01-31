@@ -23,7 +23,7 @@ module asm ".previous"
 @_ZN12AudioRoutingC1Eb23audio_routing_channel_t = unnamed_addr alias void (ptr, i1, i32), ptr @_ZN12AudioRoutingC2Eb23audio_routing_channel_t
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12AudioRoutingC2Eb23audio_routing_channel_t(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 1), (4, 8)) %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN12AudioRoutingC2Eb23audio_routing_channel_t(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) initializes((0, 1), (4, 8)) %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %0, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -32,7 +32,7 @@ define void @_ZN12AudioRoutingC2Eb23audio_routing_channel_t(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull ptr @_ZN12AudioRouting26formatAudioRoutingToStringEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZN12AudioRouting26formatAudioRoutingToStringEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
   %2 = load i8, ptr %0, align 4
   %3 = trunc i8 %2 to i1
   br i1 %3, label %9, label %4
@@ -56,7 +56,7 @@ switch.lookup:                                    ; preds = %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZN12AudioRouting14getNextChannelEb(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
+define i64 @_ZN12AudioRouting14getNextChannelEb(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.AudioRouting, align 8
   %4 = load i8, ptr %0, align 4
   %5 = trunc i8 %4 to i1
@@ -111,7 +111,7 @@ define i64 @_ZN12AudioRouting14getNextChannelEb(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZN12AudioRouting7convertEb(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
+define i64 @_ZN12AudioRouting7convertEb(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.AudioRouting, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -128,7 +128,7 @@ define i64 @_ZN12AudioRouting7convertEb(ptr nocapture noundef nonnull readonly a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12AudioRouting17mergeAudioRoutingES_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 1)) %0, i64 %1) local_unnamed_addr #0 align 2 {
+define void @_ZN12AudioRouting17mergeAudioRoutingES_(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) initializes((0, 1)) %0, i64 %1) local_unnamed_addr #0 align 2 {
   %3 = icmp ult i64 %1, 4294967296
   br i1 %3, label %6, label %4
 

@@ -713,15 +713,15 @@ _dump_node_state.exit:                            ; preds = %115, %156
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare ptr @init_buf(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @packmem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -754,12 +754,12 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
 
 declare i32 @fsync_and_close(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare i32 @link(ptr noundef, ptr noundef) local_unnamed_addr #5
@@ -2440,7 +2440,7 @@ declare ptr @hostlist_ranged_string_xmalloc(ptr noundef) local_unnamed_addr #2
 declare void @hostlist_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @list_compare_config(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define dso_local i32 @list_compare_config(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 120
@@ -5773,7 +5773,7 @@ declare i32 @hostlist_count(ptr noundef) local_unnamed_addr #2
 declare ptr @hostlist_shift(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @slurm_reset_alias(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -5836,7 +5836,7 @@ declare zeroext i1 @extra_constraints_enabled() local_unnamed_addr #2
 declare i32 @serialize_g_string_to_data(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @data_free(ptr noundef) local_unnamed_addr #2
 
@@ -5933,7 +5933,7 @@ declare void @bit_set(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @trigger_node_up(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @make_node_avail(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @make_node_avail(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 8650752
@@ -5961,7 +5961,7 @@ declare void @trigger_node_draining(ptr noundef) local_unnamed_addr #2
 declare void @trigger_node_drained(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_make_node_unavail(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @_make_node_unavail(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, -1025
@@ -6744,7 +6744,7 @@ define dso_local void @restore_node_features(i32 noundef %0) local_unnamed_addr 
   store ptr null, ptr %4, align 8
   %56 = load ptr, ptr %49, align 8
   %57 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %56) #17
-  %58 = call i32 @serialize_g_string_to_data(ptr noundef nonnull %4, ptr noundef %56, i64 noundef %57, ptr noundef nonnull @.str.30) #16
+  %58 = call i32 @serialize_g_string_to_data(ptr noundef nonnull %4, ptr noundef nonnull %56, i64 noundef %57, ptr noundef nonnull @.str.30) #16
   %.not37 = icmp eq i32 %58, 0
   br i1 %.not37, label %66, label %59
 
@@ -6842,7 +6842,7 @@ declare i32 @gres_node_reconfig(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare void @gres_node_state_log(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_dup_config(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @_dup_config(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @create_config_record() #16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
@@ -6934,7 +6934,7 @@ declare void @update_feature_list(ptr noundef, ptr noundef, ptr noundef) local_u
 declare i32 @node_features_g_node_update(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_update_node_features_post(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @_update_node_features_post(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull captures(none) %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = icmp eq i32 %5, 0
   br i1 %9, label %10, label %14
@@ -7088,7 +7088,7 @@ define dso_local ptr @filter_out_changeable_features(ptr noundef %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #12
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #12
 
 declare zeroext i1 @node_features_g_changeable_feature(ptr noundef) local_unnamed_addr #2
 
@@ -7162,7 +7162,7 @@ define dso_local range(i32 0, 2019) i32 @drain_nodes(ptr noundef %0, ptr noundef
 declare void @validate_all_reservations(i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 3) i32 @update_node_record_acct_gather_data(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @update_node_record_acct_gather_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @find_node_record(ptr noundef %3) #16
@@ -7182,7 +7182,7 @@ define dso_local range(i32 0, 3) i32 @update_node_record_acct_gather_data(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 23) i32 @validate_node_specs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 23) i32 @validate_node_specs(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -7237,7 +7237,7 @@ define dso_local range(i32 -1, 23) i32 @validate_node_specs(ptr nocapture nounde
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 21
-  %41 = tail call double @strtod(ptr nocapture noundef nonnull %40, ptr noundef null) #16
+  %41 = tail call double @strtod(ptr noundef nonnull captures(none) %40, ptr noundef null) #16
   store double %41, ptr @validate_node_specs.conf_node_reg_mem_percent, align 8
   %42 = tail call ptr @__errno_location() #18
   %43 = load i32, ptr %42, align 4
@@ -8760,12 +8760,12 @@ waiting_for_node_power_down.exit:                 ; preds = %71, %74, %91, %88, 
 declare ptr @xstrcasestr(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #12
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #12
 
 declare i32 @bit_test(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @waiting_for_node_boot(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @waiting_for_node_boot(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 1064960
@@ -8797,7 +8797,7 @@ define dso_local noundef zeroext i1 @waiting_for_node_boot(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @waiting_for_node_power_down(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @waiting_for_node_power_down(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 262144
@@ -8842,7 +8842,7 @@ declare i32 @gres_node_config_validate(ptr noundef, ptr noundef, ptr noundef, pt
 declare i32 @slurm_select_cr_type() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_split_node_config(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_split_node_config(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -8992,7 +8992,7 @@ define dso_local void @set_node_reason(ptr noundef %0, ptr noundef %1, i64 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_sync_bitmaps(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_sync_bitmaps(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %12
 
@@ -9072,7 +9072,7 @@ declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noun
 declare void @slurm_get_ip_str(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2019) i32 @validate_nodes_via_front_end(ptr nocapture noundef %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2019) i32 @validate_nodes_via_front_end(ptr noundef captures(none) %0, i16 noundef zeroext %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -11046,7 +11046,7 @@ define dso_local void @make_node_comp(ptr noundef %0, ptr noundef %1, i1 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @node_mgr_reset_node_stats(ptr nocapture noundef initializes((80, 84)) %0) local_unnamed_addr #13 {
+define dso_local void @node_mgr_reset_node_stats(ptr noundef captures(none) initializes((80, 84)) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -12338,7 +12338,7 @@ declare ptr @config_record_from_conf_node(ptr noundef, i32 noundef) local_unname
 declare i32 @expand_nodeline_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_build_node_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr noundef %7) #0 {
+define internal i32 @_build_node_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i32 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   store ptr null, ptr %9, align 8
   %10 = call i32 @add_node_record(ptr noundef %0, ptr noundef %7, ptr noundef nonnull %9) #16
@@ -12521,7 +12521,7 @@ declare void @s_p_hashtbl_destroy(ptr noundef) local_unnamed_addr #2
 declare i32 @clusteracct_storage_g_cluster_tres(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2003) i32 @create_dynamic_reg_node(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2003) i32 @create_dynamic_reg_node(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.sockaddr_storage, align 8
   %4 = alloca ptr, align 8
@@ -12640,7 +12640,7 @@ define dso_local range(i32 -1, 2003) i32 @create_dynamic_reg_node(ptr nocapture 
   br i1 %.not63, label %78, label %73
 
 73:                                               ; preds = %70
-  %74 = call i64 @strtol(ptr nocapture noundef nonnull %72, ptr noundef null, i32 noundef 10) #16
+  %74 = call i64 @strtol(ptr noundef nonnull captures(none) %72, ptr noundef null, i32 noundef 10) #16
   %75 = trunc i64 %74 to i16
   %76 = load ptr, ptr %2, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 336
@@ -12803,10 +12803,10 @@ _queue_consolidate_config_list.exit:              ; preds = %128
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #12
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2048) i32 @delete_nodes(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2048) i32 @delete_nodes(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1104), align 8
   %5 = tail call ptr @xstrstr(ptr noundef %4, ptr noundef nonnull @.str.134) #16
@@ -13126,7 +13126,7 @@ declare void @delete_node_record(ptr noundef) local_unnamed_addr #2
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_foreach_build_part_bitmap(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @_foreach_build_part_bitmap(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call i32 @build_part_bitmap(ptr noundef %0) #16
   ret i32 0
 }
@@ -13139,10 +13139,10 @@ declare i32 @build_part_bitmap(ptr noundef) local_unnamed_addr #2
 declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #14

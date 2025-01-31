@@ -106,7 +106,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev24GetLut1DGPUShaderProgramERSt10shared_ptrINS_16GpuShaderCreatorEERS0_IKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lutData) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev24GetLut1DGPUShaderProgramERSt10shared_ptrINS_16GpuShaderCreatorEERS0_IKNS_11Lut1DOpDataEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %shaderCreator, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lutData) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %resName = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4056,9 +4056,9 @@ invoke.cont904:                                   ; preds = %invoke.cont899
   %vfn907 = getelementptr inbounds nuw i8, ptr %vtable906, i64 144
   %236 = load ptr, ptr %vfn907, align 8
   invoke void %236(ptr noundef nonnull align 8 dereferenceable(16) %235, ptr noundef %call905)
-          to label %invoke.cont909 unwind label %lpad908
+          to label %_ZNSt6vectorIfSaIfEED2Ev.exit unwind label %lpad908
 
-invoke.cont909:                                   ; preds = %invoke.cont904
+_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %invoke.cont904
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp903) #12
   %m_ossLine.i311 = getelementptr inbounds nuw i8, ptr %ss419, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i311) #12
@@ -4066,14 +4066,7 @@ invoke.cont909:                                   ; preds = %invoke.cont904
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i312) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #12
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %resName) #12
-  %tobool.not.i.i.i = icmp eq ptr %values.sroa.0.1, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i313
-
-if.then.i.i.i313:                                 ; preds = %invoke.cont909
   call void @_ZdlPv(ptr noundef nonnull %values.sroa.0.1) #15
-  br label %_ZNSt6vectorIfSaIfEED2Ev.exit
-
-_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %invoke.cont909, %if.then.i.i.i313
   ret void
 
 lpad898:                                          ; preds = %invoke.cont897
@@ -4224,7 +4217,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #5
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8

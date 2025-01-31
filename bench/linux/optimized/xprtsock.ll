@@ -237,7 +237,7 @@ declare dso_local i32 @proc_dointvec_minmax(ptr noundef, i32 noundef, ptr nounde
 declare dso_local i32 @proc_dointvec_jiffies(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @xs_setup_local(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal ptr @xs_setup_local(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -395,13 +395,13 @@ xs_setup_xprt.exit.thread:                        ; preds = %xs_setup_xprt.exit.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @xs_stream_data_receive_workfn(ptr noundef %0) #0 align 16 {
@@ -1411,7 +1411,7 @@ define internal void @xs_error_handle(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @xs_dummy_setup_socket(ptr nocapture readnone %0) #4 align 16 {
+define internal void @xs_dummy_setup_socket(ptr readnone captures(none) %0) #4 align 16 {
   ret void
 }
 
@@ -1520,7 +1520,7 @@ declare dso_local void @xprt_alloc_slot(ptr noundef, ptr noundef) #1
 declare dso_local void @xprt_free_slot(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @xs_local_rpcbind(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @xs_local_rpcbind(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1032
@@ -1531,7 +1531,7 @@ define internal void @xs_local_rpcbind(ptr nocapture noundef readonly %0) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @xs_local_set_port(ptr nocapture readnone %0, i16 zeroext %1) #4 align 16 {
+define internal void @xs_local_set_port(ptr readnone captures(none) %0, i16 zeroext %1) #4 align 16 {
   ret void
 }
 
@@ -1741,7 +1741,7 @@ declare dso_local i32 @rpc_malloc(ptr noundef) #1
 declare dso_local void @rpc_free(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @xs_stream_prepare_request(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal i32 @xs_stream_prepare_request(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = tail call i32 @rpc_task_gfp_mask() #12
   %4 = tail call i32 @xdr_alloc_bvec(ptr noundef %1, i32 noundef %3) #12
   ret i32 %4
@@ -1991,12 +1991,12 @@ define internal void @xs_local_print_stats(ptr noundef %0, ptr noundef %1) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @xs_enable_swap(ptr nocapture readnone %0) #4 align 16 {
+define internal noundef i32 @xs_enable_swap(ptr readnone captures(none) %0) #4 align 16 {
   ret i32 -22
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @xs_disable_swap(ptr nocapture readnone %0) #4 align 16 {
+define internal void @xs_disable_swap(ptr readnone captures(none) %0) #4 align 16 {
   ret void
 }
 
@@ -2193,7 +2193,7 @@ define internal void @xs_udp_write_space(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @xs_local_state_change(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @xs_local_state_change(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2221,7 +2221,7 @@ define internal void @xs_local_state_change(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @xs_error_report(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @xs_error_report(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2330,7 +2330,7 @@ declare dso_local i32 @xdr_alloc_bvec(ptr noundef, i32 noundef) local_unnamed_ad
 declare dso_local i32 @rpc_task_gfp_mask() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @ktime_get() local_unnamed_addr #1
@@ -2707,7 +2707,7 @@ declare dso_local i32 @__SCT__tp_func_xs_stream_read_data(ptr noundef, ptr nound
 declare dso_local zeroext i1 @xprt_write_space(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @xs_format_common_peer_ports(ptr nocapture noundef initializes((1400, 1408), (1424, 1432)) %0) unnamed_addr #0 align 16 {
+define internal fastcc void @xs_format_common_peer_ports(ptr noundef captures(none) initializes((1400, 1408), (1424, 1432)) %0) unnamed_addr #0 align 16 {
   %2 = alloca [128 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #12
@@ -2764,7 +2764,7 @@ declare dso_local noalias ptr @kstrdup(ptr noundef, i32 noundef) local_unnamed_a
 declare dso_local i64 @rpc_ntop(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #10
@@ -2773,7 +2773,7 @@ declare i16 @llvm.bswap.i16(i16) #10
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @xs_setup_udp(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal ptr @xs_setup_udp(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3313,7 +3313,7 @@ define internal void @xs_udp_setup_socket(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @xs_udp_set_buffer_size(ptr nocapture noundef initializes((1912, 1928)) %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
+define internal void @xs_udp_set_buffer_size(ptr noundef captures(none) initializes((1912, 1928)) %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1920
   %5 = icmp eq i64 %1, 0
   %6 = add i64 %1, 1024
@@ -3382,7 +3382,7 @@ declare dso_local void @xprt_release_xprt_cong(ptr noundef, ptr noundef) #1
 declare dso_local void @rpcb_getport_async(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @xs_set_port(ptr nocapture noundef %0, i16 noundef zeroext %1) #0 align 16 {
+define internal void @xs_set_port(ptr noundef captures(none) %0, i16 noundef zeroext %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i16, ptr %3, align 2
   switch i16 %4, label %8 [
@@ -3442,7 +3442,7 @@ define internal void @xs_connect(ptr noundef %0, ptr noundef %1) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @xs_sock_srcaddr(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #0 align 16 {
+define internal i32 @xs_sock_srcaddr(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #0 align 16 {
   %4 = alloca %union.anon.54, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 128, i1 false), !annotation !11
@@ -3649,7 +3649,7 @@ define internal void @xs_udp_timer(ptr noundef %0, ptr noundef %1) #0 align 16 {
 declare dso_local void @xprt_release_rqst_cong(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @xs_udp_print_stats(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal void @xs_udp_print_stats(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1896
   %4 = load i16, ptr %3, align 8
   %5 = zext i16 %4 to i32
@@ -3718,7 +3718,7 @@ declare dso_local i32 @csum_partial_copy_to_xdr(ptr noundef, ptr noundef) local_
 declare dso_local i32 @skb_copy_bits(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @xs_create_sock(ptr %.1376.val, ptr nocapture noundef %0, i32 noundef range(i32 0, 65536) %1, i32 noundef range(i32 1, 3) %2, i32 noundef range(i32 6, 18) %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
+define internal fastcc ptr @xs_create_sock(ptr %.1376.val, ptr noundef captures(none) %0, i32 noundef range(i32 0, 65536) %1, i32 noundef range(i32 1, 3) %2, i32 noundef range(i32 6, 18) %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.__kernel_sockaddr_storage, align 8
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
@@ -3923,7 +3923,7 @@ declare dso_local i32 @kernel_bind(ptr noundef, ptr noundef, i32 noundef) local_
 declare dso_local i32 @__get_random_u32_below(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @xs_setup_tcp(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal ptr @xs_setup_tcp(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4826,7 +4826,7 @@ define internal void @xs_tcp_print_stats(ptr noundef %0, ptr noundef %1) #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @xs_tcp_set_socket_timeouts(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @xs_tcp_set_socket_timeouts(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -5167,7 +5167,7 @@ define internal void @xs_tcp_write_space(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @__SCT__tp_func_rpc_socket_state_change(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @xs_setup_tcp_tls(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal ptr @xs_setup_tcp_tls(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5964,7 +5964,7 @@ declare dso_local void @__init_swait_queue_head(ptr noundef, ptr noundef, ptr no
 declare dso_local i32 @__SCT__tp_func_rpc_tls_not_started(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @xs_setup_bc_tcp(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal ptr @xs_setup_bc_tcp(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -6118,7 +6118,7 @@ xs_setup_xprt.exit.thread:                        ; preds = %xs_setup_xprt.exit.
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @bc_malloc(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @bc_malloc(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 264
@@ -6169,7 +6169,7 @@ define internal noundef range(i32 -22, 1) i32 @bc_malloc(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @bc_free(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @bc_free(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 256

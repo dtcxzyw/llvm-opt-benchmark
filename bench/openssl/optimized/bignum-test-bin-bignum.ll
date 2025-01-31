@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [26 x i8] c"assertion failed: success\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @FuzzerInitialize(ptr nocapture noundef readnone %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @FuzzerInitialize(ptr noundef readnone captures(none) %argc, ptr noundef readnone captures(none) %argv) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @OPENSSL_init_crypto(i64 noundef 2, ptr noundef null) #5
   tail call void @ERR_clear_error() #5

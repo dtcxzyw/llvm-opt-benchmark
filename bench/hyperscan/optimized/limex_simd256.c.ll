@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @simd_onebit_masks = external local_unnamed_addr constant [0 x i8], align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef signext i8 @nfaExecLimEx256_queueCompressState(ptr noundef %n, ptr nocapture noundef readonly %q, i64 noundef %loc) local_unnamed_addr #0 {
+define hidden noundef signext i8 @nfaExecLimEx256_queueCompressState(ptr noundef %n, ptr noundef readonly captures(none) %q, i64 noundef %loc) local_unnamed_addr #0 {
 entry:
   %a_src.i103 = alloca %struct.m256, align 32
   %reachmask.i = alloca %struct.m256, align 32
@@ -428,7 +428,7 @@ nfaExecLimEx256_Expand_Repeats.exit:              ; preds = %for.inc.i, %if.end.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @nfaExecLimEx256_queueInitState(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %q) local_unnamed_addr #1 {
+define hidden noundef signext i8 @nfaExecLimEx256_queueInitState(ptr noundef readonly captures(none) %n, ptr noundef readonly captures(none) %q) local_unnamed_addr #1 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %q, i64 16
   %0 = load ptr, ptr %state, align 8
@@ -455,10 +455,10 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden signext range(i8 0, 2) i8 @nfaExecLimEx256_initCompressedState(ptr noundef %n, i64 noundef %offset, ptr noundef %state, i8 noundef zeroext %key) local_unnamed_addr #0 {
@@ -614,7 +614,7 @@ return:                                           ; preds = %for.body, %moNfaCom
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecLimEx256_Q(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 2) i8 @nfaExecLimEx256_Q(ptr noundef %n, ptr noundef captures(none) %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
   %chunks.i.i.i = alloca [4 x i64], align 16
   %mask_chunks.i.i.i = alloca [4 x i64], align 16
@@ -3349,7 +3349,7 @@ return:                                           ; preds = %if.end4, %if.end101
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext range(i8 0, 3) i8 @nfaExecLimEx256_Q2(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 3) i8 @nfaExecLimEx256_Q2(ptr noundef %n, ptr noundef captures(none) %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
   %chunks.i.i = alloca [4 x i64], align 16
   %mask_chunks.i.i = alloca [4 x i64], align 16
@@ -3933,7 +3933,7 @@ return:                                           ; preds = %if.end4, %if.end157
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx256_Stream_First(ptr noundef %limex, ptr noundef %input, i64 noundef %length, ptr noundef nonnull %ctx, i64 noundef %offset, ptr nocapture noundef nonnull writeonly %final_loc) unnamed_addr #0 {
+define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx256_Stream_First(ptr noundef %limex, ptr noundef %input, i64 noundef %length, ptr noundef nonnull %ctx, i64 noundef %offset, ptr noundef nonnull writeonly captures(none) %final_loc) unnamed_addr #0 {
 entry:
   %chunks.i2072 = alloca [4 x i64], align 16
   %emask_chunks.i2073 = alloca [4 x i64], align 16
@@ -5953,7 +5953,7 @@ nfaExecLimEx256_Stream.exit:                      ; preds = %if.then158.i, %nfaE
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext range(i8 0, 3) i8 @nfaExecLimEx256_QR(ptr noundef %n, ptr nocapture noundef %q, i32 noundef %report) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 3) i8 @nfaExecLimEx256_QR(ptr noundef %n, ptr noundef captures(none) %q, i32 noundef %report) local_unnamed_addr #0 {
 entry:
   %chunks.i = alloca [4 x i64], align 16
   %mask_chunks.i = alloca [4 x i64], align 16
@@ -6555,7 +6555,7 @@ return:                                           ; preds = %if.then.i529, %do.b
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nfaExecLimEx256_Stream_Silent(ptr noundef %limex, ptr noundef %input, i64 noundef %length, ptr nocapture noundef nonnull %ctx, i64 noundef %offset) unnamed_addr #0 {
+define internal fastcc void @nfaExecLimEx256_Stream_Silent(ptr noundef %limex, ptr noundef %input, i64 noundef %length, ptr noundef nonnull captures(none) %ctx, i64 noundef %offset) unnamed_addr #0 {
 entry:
   %chunks.i2072 = alloca [4 x i64], align 16
   %emask_chunks.i2073 = alloca [4 x i64], align 16
@@ -8475,7 +8475,7 @@ for.end.i:                                        ; preds = %if.end142.i, %with_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecLimEx256_testEOD(ptr noundef %n, ptr noundef %state, ptr noundef %streamState, i64 noundef %offset, ptr nocapture noundef readonly %callback, ptr noundef %context) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 2) i8 @nfaExecLimEx256_testEOD(ptr noundef %n, ptr noundef %state, ptr noundef %streamState, i64 noundef %offset, ptr noundef readonly captures(none) %callback, ptr noundef %context) local_unnamed_addr #0 {
 entry:
   %chunks.i.i = alloca [4 x i64], align 16
   %mask_chunks.i.i = alloca [4 x i64], align 16
@@ -8738,7 +8738,7 @@ moNfaTestEod256.exit:                             ; preds = %moNfaTestEod256.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef signext i8 @nfaExecLimEx256_reportCurrent(ptr noundef %n, ptr nocapture noundef readonly %q) local_unnamed_addr #0 {
+define hidden noundef signext i8 @nfaExecLimEx256_reportCurrent(ptr noundef %n, ptr noundef readonly captures(none) %q) local_unnamed_addr #0 {
 entry:
   %chunks.i.i = alloca [4 x i64], align 16
   %mask_chunks.i.i = alloca [4 x i64], align 16
@@ -8874,7 +8874,7 @@ moNfaReportCurrent256.exit:                       ; preds = %moProcessAcceptsNoS
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef signext i8 @nfaExecLimEx256_B_Reverse(ptr noundef %n, i64 noundef %offset, ptr nocapture noundef readonly %buf, i64 noundef %buflen, ptr nocapture noundef readonly %hbuf, i64 noundef %hlen, ptr noundef %cb, ptr noundef %context) local_unnamed_addr #0 {
+define hidden noundef signext i8 @nfaExecLimEx256_B_Reverse(ptr noundef %n, i64 noundef %offset, ptr noundef readonly captures(none) %buf, i64 noundef %buflen, ptr noundef readonly captures(none) %hbuf, i64 noundef %hlen, ptr noundef %cb, ptr noundef %context) local_unnamed_addr #0 {
 entry:
   %chunks.i.i = alloca [4 x i64], align 16
   %mask_chunks.i.i = alloca [4 x i64], align 16
@@ -9152,7 +9152,7 @@ if.end20:                                         ; preds = %moProcessAcceptsNoS
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nfaExecLimEx256_Rev_Stream(ptr noundef %limex, ptr nocapture noundef readonly %input, i64 noundef range(i64 1, 0) %length, ptr nocapture noundef nonnull %ctx, i64 noundef %offset) unnamed_addr #0 {
+define internal fastcc void @nfaExecLimEx256_Rev_Stream(ptr noundef %limex, ptr noundef readonly captures(none) %input, i64 noundef range(i64 1, 0) %length, ptr noundef nonnull captures(none) %ctx, i64 noundef %offset) unnamed_addr #0 {
 entry:
   %chunks.i.i = alloca [4 x i64], align 16
   %mask_chunks.i.i = alloca [4 x i64], align 16
@@ -9772,7 +9772,7 @@ return:                                           ; preds = %for.body.i.i, %for.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecLimEx256_inAccept(ptr noundef %nfa, i32 noundef %report, ptr nocapture noundef readonly %q) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 2) i8 @nfaExecLimEx256_inAccept(ptr noundef %nfa, i32 noundef %report, ptr noundef readonly captures(none) %q) local_unnamed_addr #0 {
 entry:
   %chunks.i = alloca [4 x i64], align 16
   %mask_chunks.i = alloca [4 x i64], align 16
@@ -10031,7 +10031,7 @@ limexInAccept256.exit:                            ; preds = %while.end.i, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecLimEx256_inAnyAccept(ptr noundef %nfa, ptr nocapture noundef readonly %q) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 2) i8 @nfaExecLimEx256_inAnyAccept(ptr noundef %nfa, ptr noundef readonly captures(none) %q) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %nfa, i64 64
   %state = getelementptr inbounds nuw i8, ptr %q, i64 16
@@ -10215,7 +10215,7 @@ limexInAnyAccept256.exit:                         ; preds = %entry, %lazyTug256.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @nfaExecLimEx256_zombie_status(ptr noundef %nfa, ptr nocapture noundef readonly %q, i64 noundef %loc) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @nfaExecLimEx256_zombie_status(ptr noundef %nfa, ptr noundef readonly captures(none) %q, i64 noundef %loc) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %nfa, i64 64
   %state1 = getelementptr inbounds nuw i8, ptr %q, i64 16
@@ -10443,10 +10443,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #8
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #1 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="corei7" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }

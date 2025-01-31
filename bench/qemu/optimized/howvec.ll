@@ -144,7 +144,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.120 = private unnamed_addr constant [15 x i8] c"un-categorised\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %id, ptr nocapture noundef readonly %info, i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %id, ptr noundef readonly captures(none) %info, i32 noundef %argc, ptr noundef readonly captures(none) %argv) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %info, align 8
   br label %lor.lhs.false
@@ -273,7 +273,7 @@ return:                                           ; preds = %glib_auto_cleanup_G
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @g_strsplit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -282,7 +282,7 @@ declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare zeroext i1 @qemu_plugin_bool_parse(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare void @qemu_plugin_register_vcpu_tb_trans_cb(i64 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -406,7 +406,7 @@ for.end:                                          ; preds = %for.inc, %entry
 declare void @qemu_plugin_register_atexit_cb(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @plugin_exit(i64 %id, ptr nocapture readnone %p) #0 {
+define internal void @plugin_exit(i64 %id, ptr readnone captures(none) %p) #0 {
 entry:
   %call = tail call ptr @g_string_new(ptr noundef nonnull @.str.114) #10
   %0 = load i32, ptr @class_table_sz, align 4
@@ -551,7 +551,7 @@ declare void @qemu_plugin_register_vcpu_insn_exec_inline(ptr noundef, i32 nounde
 declare void @qemu_plugin_register_vcpu_insn_exec_cb(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @vcpu_insn_exec_before(i32 %cpu_index, ptr nocapture noundef %udata) #5 {
+define internal void @vcpu_insn_exec_before(i32 %cpu_index, ptr noundef captures(none) %udata) #5 {
 entry:
   %0 = load i64, ptr %udata, align 8
   %inc = add i64 %0, 1
@@ -586,7 +586,7 @@ declare ptr @g_hash_table_get_values(ptr noundef) local_unnamed_addr #2
 declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @cmp_exec_count(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #8 {
+define internal range(i32 -1, 2) i32 @cmp_exec_count(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #8 {
 entry:
   %count = getelementptr inbounds nuw i8, ptr %a, i64 16
   %0 = load i64, ptr %count, align 8

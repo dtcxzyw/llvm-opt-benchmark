@@ -271,7 +271,7 @@ define void @_ZN6google8protobuf8internal23SerializeMessageNoTableEPKNS0_11Messa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal23SerializeMessageNoTableEPKNS0_11MessageLiteEPNS1_11ArrayOutputE(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal23SerializeMessageNoTableEPKNS0_11MessageLiteEPNS1_11ArrayOutputE(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.google::protobuf::io::ArrayOutputStream", align 8
   %4 = alloca %"class.google::protobuf::io::CodedOutputStream", align 8
   %5 = load ptr, ptr %1, align 8
@@ -5872,7 +5872,7 @@ _ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17Coded
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal24SerializeMessageDispatchERKNS0_11MessageLiteEPKNS1_13FieldMetadataEiiPNS1_11ArrayOutputE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #4 {
+define void @_ZN6google8protobuf8internal24SerializeMessageDispatchERKNS0_11MessageLiteEPKNS1_13FieldMetadataEiiPNS1_11ArrayOutputE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
@@ -11653,7 +11653,7 @@ define noundef i32 @_ZN6google8protobuf8internal13FieldMetadata13CalculateTypeEi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi9EEEbPKv(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi9EEEbPKv(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   %3 = ptrtoint ptr %2 to i64
   %4 = and i64 %3, -2
@@ -11667,7 +11667,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi9EEEbPKv(ptr no
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi12EEEbPKv(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi12EEEbPKv(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   %3 = ptrtoint ptr %2 to i64
   %4 = and i64 %3, -2
@@ -11678,14 +11678,14 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi12EEEbPKv(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi10EEEbPKv(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi10EEEbPKv(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi11EEEbPKv(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi11EEEbPKv(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   ret i1 %3
@@ -19830,7 +19830,7 @@ define void @_ZN6google8protobuf8internal19ExtensionSerializerEPKhjjjPNS0_2io17C
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal26UnknownFieldSerializerLiteEPKhjjjPNS0_2io17CodedOutputStreamE(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal26UnknownFieldSerializerLiteEPKhjjjPNS0_2io17CodedOutputStreamE(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = zext i32 %1 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
   %8 = load ptr, ptr %7, align 8
@@ -20015,7 +20015,7 @@ _ZN6google8protobuf5Arena3OwnINS0_11MessageLiteEEEvPT_.exit: ; preds = %7, %6, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal11InitSCCImplEPNS1_11SCCInfoBaseE(ptr nocapture noundef %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal11InitSCCImplEPNS1_11SCCInfoBaseE(ptr noundef captures(none) %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %3 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
   %4 = load atomic i8, ptr @_ZGVZN6google8protobuf8internal11InitSCCImplEPNS1_11SCCInfoBaseEE6runner acquire, align 8
@@ -20116,10 +20116,10 @@ _ZN6google8protobuf8internal12WrappedMutex4LockEv.exit: ; preds = %_ZN6google8pr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8internal12_GLOBAL__N_111InitSCC_DFSEPNS1_11SCCInfoBaseE(ptr nocapture noundef %0) unnamed_addr #4 {
+define internal fastcc void @_ZN6google8protobuf8internal12_GLOBAL__N_111InitSCC_DFSEPNS1_11SCCInfoBaseE(ptr noundef captures(none) %0) unnamed_addr #4 {
   %2 = load atomic i32, ptr %0 monotonic, align 4
   %.not = icmp eq i32 %2, -1
   br i1 %.not, label %3, label %31
@@ -20680,10 +20680,10 @@ define internal void @_GLOBAL__sub_I_generated_message_util.cc() #10 section ".t
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @executor_globals = external local_unnamed_addr global %struct._zend_executor_globals, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @php_dom_get_nodelist_length(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden i32 @php_dom_get_nodelist_length(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
@@ -222,7 +222,7 @@ declare ptr @xmlDocGetRootElement(ptr noundef) local_unnamed_addr #1
 declare ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_nodelist_length_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) local_unnamed_addr #0 {
+define hidden noundef i32 @dom_nodelist_length_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @php_dom_get_nodelist_length(ptr noundef %0)
   %4 = sext i32 %3 to i64
   store i64 %4, ptr %1, align 8
@@ -232,7 +232,7 @@ define hidden noundef i32 @dom_nodelist_length_read(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMNodeList_count(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMNodeList_count(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0

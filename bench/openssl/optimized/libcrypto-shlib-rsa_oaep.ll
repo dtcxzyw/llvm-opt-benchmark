@@ -8,14 +8,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.RSA_padding_check_PKCS1_OAEP_mgf1 = private unnamed_addr constant [34 x i8] c"RSA_padding_check_PKCS1_OAEP_mgf1\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @RSA_padding_add_PKCS1_OAEP(ptr noundef %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen, ptr noundef %param, i32 noundef %plen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @RSA_padding_add_PKCS1_OAEP(ptr noundef %to, i32 noundef %tlen, ptr noundef readonly captures(none) %from, i32 noundef %flen, ptr noundef %param, i32 noundef %plen) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_rsa_padding_add_PKCS1_OAEP_mgf1_ex(ptr noundef null, ptr noundef %to, i32 noundef %tlen, ptr noundef %from, i32 noundef %flen, ptr noundef %param, i32 noundef %plen, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_rsa_padding_add_PKCS1_OAEP_mgf1_ex(ptr noundef %libctx, ptr noundef %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen, ptr noundef %param, i32 noundef %plen, ptr noundef %md, ptr noundef %mgf1md) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsa_padding_add_PKCS1_OAEP_mgf1_ex(ptr noundef %libctx, ptr noundef %to, i32 noundef %tlen, ptr noundef readonly captures(none) %from, i32 noundef %flen, ptr noundef %param, i32 noundef %plen, ptr noundef %md, ptr noundef %mgf1md) local_unnamed_addr #0 {
 entry:
   %seedmask = alloca [64 x i8], align 16
   %sub = add nsw i32 %tlen, -1
@@ -180,10 +180,10 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i32 @EVP_Digest(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @RAND_bytes_ex(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -281,21 +281,21 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @RSA_padding_add_PKCS1_OAEP_mgf1(ptr noundef %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen, ptr noundef %param, i32 noundef %plen, ptr noundef %md, ptr noundef %mgf1md) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @RSA_padding_add_PKCS1_OAEP_mgf1(ptr noundef %to, i32 noundef %tlen, ptr noundef readonly captures(none) %from, i32 noundef %flen, ptr noundef %param, i32 noundef %plen, ptr noundef %md, ptr noundef %mgf1md) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_rsa_padding_add_PKCS1_OAEP_mgf1_ex(ptr noundef null, ptr noundef %to, i32 noundef %tlen, ptr noundef %from, i32 noundef %flen, ptr noundef %param, i32 noundef %plen, ptr noundef %md, ptr noundef %mgf1md)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @RSA_padding_check_PKCS1_OAEP(ptr nocapture noundef %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen, i32 noundef %num, ptr noundef %param, i32 noundef %plen) local_unnamed_addr #0 {
+define i32 @RSA_padding_check_PKCS1_OAEP(ptr noundef captures(none) %to, i32 noundef %tlen, ptr noundef readonly captures(none) %from, i32 noundef %flen, i32 noundef %num, ptr noundef %param, i32 noundef %plen) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef %to, i32 noundef %tlen, ptr noundef %from, i32 noundef %flen, i32 noundef %num, ptr noundef %param, i32 noundef %plen, ptr noundef null, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr nocapture noundef %to, i32 noundef %tlen, ptr nocapture noundef readonly %from, i32 noundef %flen, i32 noundef %num, ptr noundef %param, i32 noundef %plen, ptr noundef %md, ptr noundef %mgf1md) local_unnamed_addr #0 {
+define i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef captures(none) %to, i32 noundef %tlen, ptr noundef readonly captures(none) %from, i32 noundef %flen, i32 noundef %num, ptr noundef %param, i32 noundef %plen, ptr noundef %md, ptr noundef %mgf1md) local_unnamed_addr #0 {
 entry:
   %seed = alloca [64 x i8], align 16
   %phash = alloca [64 x i8], align 16

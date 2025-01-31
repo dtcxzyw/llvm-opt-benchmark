@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN13RenderingCoreD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN13RenderingCoreD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN13RenderingCoreC2EPN3irr14IrrlichtDeviceEP6ClientP3HudP14ShadowRendererP14RenderPipelineNS0_4core8vector2dIfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %this, ptr noundef %_device, ptr noundef %_client, ptr noundef %_hud, ptr noundef %_shadow_renderer, ptr noundef %_pipeline, <2 x float> %_virtual_size_scale.coerce) unnamed_addr #0 align 2 {
+define dso_local void @_ZN13RenderingCoreC2EPN3irr14IrrlichtDeviceEP6ClientP3HudP14ShadowRendererP14RenderPipelineNS0_4core8vector2dIfEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((0, 64)) %this, ptr noundef %_device, ptr noundef %_client, ptr noundef %_hud, ptr noundef %_shadow_renderer, ptr noundef %_pipeline, <2 x float> %_virtual_size_scale.coerce) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13RenderingCore, i64 16), ptr %this, align 8, !tbaa !4
   %device = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -39,7 +39,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN13RenderingCoreD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN13RenderingCoreD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13RenderingCore, i64 16), ptr %this, align 8, !tbaa !4
   %pipeline = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -108,7 +108,7 @@ _ZN13RenderingCoreD2Ev.exit:                      ; preds = %delete.notnull3.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13RenderingCore4drawEN3irr5video6SColorEbbb(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((56, 64)) %this, i32 %_skycolor.coerce, i1 noundef zeroext %_show_hud, i1 noundef zeroext %_draw_wield_tool, i1 noundef zeroext %_draw_crosshair) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN13RenderingCore4drawEN3irr5video6SColorEbbb(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((56, 64)) %this, i32 %_skycolor.coerce, i1 noundef zeroext %_show_hud, i1 noundef zeroext %_draw_wield_tool, i1 noundef zeroext %_draw_crosshair) local_unnamed_addr #4 align 2 {
 entry:
   %context = alloca %struct.PipelineContext, align 16
   %frombool = zext i1 %_show_hud to i8
@@ -180,13 +180,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @_ZNK13RenderingCore14getVirtualSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #6 align 2 {
+define dso_local i64 @_ZNK13RenderingCore14getVirtualSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) local_unnamed_addr #6 align 2 {
 entry:
   %virtual_size = getelementptr inbounds nuw i8, ptr %this, i64 56
   %retval.sroa.0.0.copyload = load i64, ptr %virtual_size, align 8, !tbaa.struct !28

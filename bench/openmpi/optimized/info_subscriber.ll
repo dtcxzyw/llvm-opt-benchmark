@@ -292,7 +292,7 @@ opal_obj_run_destructors.exit41:                  ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @opal_callback_list_item_destruct(ptr nocapture noundef %0) #0 {
+define internal void @opal_callback_list_item_destruct(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -397,7 +397,7 @@ define noundef i32 @opal_infosubscribe_testregister(ptr noundef %0) local_unname
   %9 = getelementptr inbounds nuw [5 x ptr], ptr @testing_keys, i64 0, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #10
-  %12 = call i32 @opal_hash_table_get_value_ptr(ptr noundef nonnull %6, ptr noundef %10, i64 noundef %11, ptr noundef nonnull %2) #9
+  %12 = call i32 @opal_hash_table_get_value_ptr(ptr noundef nonnull %6, ptr noundef nonnull %10, i64 noundef %11, ptr noundef nonnull %2) #9
   %13 = load ptr, ptr %2, align 8
   %.not43 = icmp eq ptr %13, null
   br i1 %.not43, label %.thread, label %14
@@ -558,10 +558,10 @@ define noundef i32 @opal_infosubscribe_testregister(ptr noundef %0) local_unname
 declare i32 @opal_hash_table_get_value_ptr(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @opal_infosubscribe_subscribe(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -571,7 +571,7 @@ define i32 @opal_infosubscribe_subscribe(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr null, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
-  %10 = call i32 @opal_hash_table_get_value_ptr(ptr noundef nonnull %8, ptr noundef %1, i64 noundef %9, ptr noundef nonnull %5) #9
+  %10 = call i32 @opal_hash_table_get_value_ptr(ptr noundef nonnull %8, ptr noundef nonnull %1, i64 noundef %9, ptr noundef nonnull %5) #9
   %11 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %12, label %28
@@ -613,7 +613,7 @@ define i32 @opal_infosubscribe_subscribe(ptr noundef %0, ptr noundef %1, ptr nou
 opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %18, %19
   store ptr %14, ptr %5, align 8
   %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
-  %27 = call i32 @opal_hash_table_set_value_ptr(ptr noundef nonnull %8, ptr noundef %1, i64 noundef %26, ptr noundef %14) #9
+  %27 = call i32 @opal_hash_table_set_value_ptr(ptr noundef nonnull %8, ptr noundef nonnull %1, i64 noundef %26, ptr noundef %14) #9
   br label %28
 
 28:                                               ; preds = %opal_obj_new.exit, %4
@@ -718,7 +718,7 @@ opal_obj_new.exit52:                              ; preds = %.lr.ph.i.i49, %65, 
 73:                                               ; preds = %opal_obj_new.exit52, %opal_obj_new.exit45
   %74 = phi ptr [ %61, %opal_obj_new.exit52 ], [ %57, %opal_obj_new.exit45 ]
   store i32 0, ptr %7, align 4
-  %75 = call i32 @opal_info_get(ptr noundef %74, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
+  %75 = call i32 @opal_info_get(ptr noundef %74, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
   %76 = load i32, ptr %7, align 4
   %.not36 = icmp eq i32 %76, 0
   br i1 %.not36, label %77, label %.opal_thread_add_fetch_32.exit_crit_edge
@@ -748,17 +748,17 @@ opal_obj_new.exit52:                              ; preds = %.lr.ph.i.i49, %65, 
 opal_thread_add_fetch_32.exit:                    ; preds = %.opal_thread_add_fetch_32.exit_crit_edge, %83, %81
   %87 = phi ptr [ %.pre, %.opal_thread_add_fetch_32.exit_crit_edge ], [ %29, %83 ], [ %29, %81 ]
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 25
-  %89 = call ptr %3(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %88) #9
+  %89 = call ptr %3(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %88) #9
   %.not37 = icmp eq ptr %89, null
   %90 = load ptr, ptr %56, align 8
   br i1 %.not37, label %93, label %91
 
 91:                                               ; preds = %opal_thread_add_fetch_32.exit
-  %92 = call i32 @opal_info_set(ptr noundef %90, ptr noundef %1, ptr noundef nonnull %89) #9
+  %92 = call i32 @opal_info_set(ptr noundef %90, ptr noundef nonnull %1, ptr noundef nonnull %89) #9
   br label %95
 
 93:                                               ; preds = %opal_thread_add_fetch_32.exit
-  %94 = call i32 @opal_info_delete(ptr noundef %90, ptr noundef %1) #9
+  %94 = call i32 @opal_info_delete(ptr noundef %90, ptr noundef nonnull %1) #9
   br label %95
 
 95:                                               ; preds = %91, %93
@@ -1087,12 +1087,12 @@ opal_obj_run_destructors.exit60:                  ; preds = %.lr.ph.i57, %108
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare i32 @opal_info_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @opal_hash_table_set_value_ptr(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1110,13 +1110,13 @@ declare i32 @opal_hash_table_init(ptr noundef, i64 noundef) local_unnamed_addr #
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

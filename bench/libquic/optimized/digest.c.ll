@@ -8,14 +8,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [126 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/digest/digest.c\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @EVP_MD_type(ptr nocapture noundef readonly %md) local_unnamed_addr #0 {
+define hidden i32 @EVP_MD_type(ptr noundef readonly captures(none) %md) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %md, align 8
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @EVP_MD_flags(ptr nocapture noundef readonly %md) local_unnamed_addr #0 {
+define hidden i32 @EVP_MD_flags(ptr noundef readonly captures(none) %md) local_unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %md, i64 8
   %0 = load i32, ptr %flags, align 8
@@ -23,7 +23,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, 4294967296) i64 @EVP_MD_size(ptr nocapture noundef readonly %md) local_unnamed_addr #0 {
+define hidden range(i64 0, 4294967296) i64 @EVP_MD_size(ptr noundef readonly captures(none) %md) local_unnamed_addr #0 {
 entry:
   %md_size = getelementptr inbounds nuw i8, ptr %md, i64 4
   %0 = load i32, ptr %md_size, align 4
@@ -32,7 +32,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, 4294967296) i64 @EVP_MD_block_size(ptr nocapture noundef readonly %md) local_unnamed_addr #0 {
+define hidden range(i64 0, 4294967296) i64 @EVP_MD_block_size(ptr noundef readonly captures(none) %md) local_unnamed_addr #0 {
 entry:
   %block_size = getelementptr inbounds nuw i8, ptr %md, i64 40
   %0 = load i32, ptr %block_size, align 8
@@ -41,14 +41,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @EVP_MD_CTX_init(ptr nocapture noundef writeonly initializes((0, 32)) %ctx) local_unnamed_addr #1 {
+define hidden void @EVP_MD_CTX_init(ptr noundef writeonly captures(none) initializes((0, 32)) %ctx) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ctx, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define hidden noalias noundef ptr @EVP_MD_CTX_create() local_unnamed_addr #3 {
@@ -61,7 +61,7 @@ entry:
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @EVP_MD_CTX_cleanup(ptr nocapture noundef %ctx) local_unnamed_addr #5 {
+define hidden noundef i32 @EVP_MD_CTX_cleanup(ptr noundef captures(none) %ctx) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -107,7 +107,7 @@ if.end12:                                         ; preds = %if.then10, %if.end
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define hidden void @EVP_MD_CTX_destroy(ptr noundef %ctx) local_unnamed_addr #5 {
@@ -161,7 +161,7 @@ return:                                           ; preds = %entry, %EVP_MD_CTX_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EVP_MD_CTX_copy_ex(ptr nocapture noundef %out, ptr noundef readonly %in) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @EVP_MD_CTX_copy_ex(ptr noundef captures(none) %out, ptr noundef readonly %in) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %in, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -336,18 +336,18 @@ return:                                           ; preds = %if.end31, %if.then3
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EVP_MD_CTX_copy(ptr nocapture noundef initializes((0, 32)) %out, ptr noundef %in) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @EVP_MD_CTX_copy(ptr noundef captures(none) initializes((0, 32)) %out, ptr noundef %in) local_unnamed_addr #5 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %out, i8 0, i64 32, i1 false)
-  %call = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef %out, ptr noundef %in)
+  %call = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %out, ptr noundef %in)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EVP_DigestInit_ex(ptr noundef %ctx, ptr noundef %type, ptr nocapture noundef readnone %engine) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @EVP_DigestInit_ex(ptr noundef %ctx, ptr noundef %type, ptr noundef readnone captures(none) %engine) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %cmp.not = icmp eq ptr %0, %type
@@ -541,7 +541,7 @@ EVP_MD_CTX_cleanup.exit:                          ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EVP_Digest(ptr noundef %data, i64 noundef %count, ptr noundef %out_md, ptr noundef writeonly %out_size, ptr noundef %type, ptr nocapture noundef readnone %impl) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @EVP_Digest(ptr noundef %data, i64 noundef %count, ptr noundef %out_md, ptr noundef writeonly %out_size, ptr noundef %type, ptr noundef readnone captures(none) %impl) local_unnamed_addr #5 {
 entry:
   %ctx = alloca %struct.env_md_ctx_st, align 8
   %0 = getelementptr inbounds nuw i8, ptr %ctx, i64 8
@@ -688,7 +688,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @EVP_add_digest(ptr nocapture noundef readnone %digest) local_unnamed_addr #10 {
+define hidden noundef i32 @EVP_add_digest(ptr noundef readnone captures(none) %digest) local_unnamed_addr #10 {
 entry:
   ret i32 1
 }

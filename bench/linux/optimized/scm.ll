@@ -34,7 +34,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_scm_fp_dup: 
 @llvm.compiler.used = appending global [7 x ptr] [ptr @__UNIQUE_ID___addressable___scm_destroy735, ptr @__UNIQUE_ID___addressable___scm_send737, ptr @__UNIQUE_ID___addressable_put_cmsg740, ptr @__UNIQUE_ID___addressable_put_cmsg_scm_timestamping64741, ptr @__UNIQUE_ID___addressable_put_cmsg_scm_timestamping742, ptr @__UNIQUE_ID___addressable_scm_detach_fds747, ptr @__UNIQUE_ID___addressable_scm_fp_dup748], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__scm_destroy(ptr nocapture noundef %0) #0 align 16 {
+define dso_local void @__scm_destroy(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -72,7 +72,7 @@ define dso_local void @__scm_destroy(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @fput(ptr noundef) local_unnamed_addr #2
@@ -84,10 +84,10 @@ declare dso_local void @free_uid(ptr noundef) local_unnamed_addr #2
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -22, 1) i32 @__scm_send(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @__scm_send(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load volatile ptr, ptr %4, align 32
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -445,10 +445,10 @@ define dso_local range(i32 -22, 1) i32 @__scm_send(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @pid_vnr(ptr noundef) local_unnamed_addr #2
@@ -646,7 +646,7 @@ define dso_local i32 @put_cmsg(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
 declare dso_local i32 @put_cmsg_compat(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @put_cmsg_scm_timestamping64(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local void @put_cmsg_scm_timestamping64(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca %struct.scm_timestamping64, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false), !annotation !26
@@ -673,7 +673,7 @@ define dso_local void @put_cmsg_scm_timestamping64(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @put_cmsg_scm_timestamping(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local void @put_cmsg_scm_timestamping(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca %struct.scm_timestamping, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false), !annotation !26

@@ -108,7 +108,7 @@ define internal void @corosync_totemnet_shutdown() #0 {
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_corosynec_totemnet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_corosynec_totemnet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load ptr, ptr @corosync_totemnet_private_keys_list, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.loopexit, label %6
@@ -233,7 +233,7 @@ define internal fastcc i32 @dissect_corosynec_totemnet_with_decryption(ptr nound
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #6
   %28 = add i64 %27, 4
   %29 = and i64 %28, 252
-  %30 = call i64 @g_strlcpy(ptr noundef nonnull %10, ptr noundef %4, i64 noundef %29) #5
+  %30 = call i64 @g_strlcpy(ptr noundef nonnull %10, ptr noundef nonnull %4, i64 noundef %29) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   %31 = call i32 @sober128_start(ptr noundef nonnull %7) #5
   %32 = call i32 @sober128_add_entropy(ptr noundef nonnull %10, i64 noundef %29, ptr noundef nonnull %7) #5
@@ -258,7 +258,7 @@ define internal fastcc i32 @dissect_corosynec_totemnet_with_decryption(ptr nound
   %44 = add nsw i32 %14, -36
   %45 = zext nneg i32 %44 to i64
   %46 = call i64 @sober128_read(ptr noundef %43, i64 noundef %45, ptr noundef nonnull %8) #5
-  %47 = call ptr @tvb_new_real_data(ptr noundef %20, i32 noundef %14, i32 noundef %14) #5
+  %47 = call ptr @tvb_new_real_data(ptr noundef nonnull %20, i32 noundef %14, i32 noundef %14) #5
   call void @tvb_set_child_real_data_tvbuff(ptr noundef %0, ptr noundef %47) #5
   call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %47, ptr noundef nonnull @.str.20) #5
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -287,7 +287,7 @@ define internal fastcc i32 @dissect_corosynec_totemnet_with_decryption(ptr nound
   %63 = add i32 %61, -1
   %64 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %62, ptr noundef %47, i32 noundef %63, i32 noundef 1, i32 noundef 0) #5
   %65 = load i32, ptr @hf_corosync_totemnet_security_crypto_key, align 4
-  %66 = call ptr @proto_tree_add_string(ptr noundef %55, i32 noundef %65, ptr noundef %47, i32 noundef 0, i32 noundef 0, ptr noundef %4) #5
+  %66 = call ptr @proto_tree_add_string(ptr noundef %55, i32 noundef %65, ptr noundef %47, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4) #5
   %.not.i.i = icmp eq ptr %66, null
   br i1 %.not.i.i, label %dissect_corosync_totemnet_security_header.exit, label %67
 
@@ -323,10 +323,10 @@ declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 declare ptr @tvb_memdup(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -357,7 +357,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #4
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

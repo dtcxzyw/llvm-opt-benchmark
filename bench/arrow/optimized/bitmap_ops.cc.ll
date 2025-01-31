@@ -176,7 +176,7 @@ for.end68:                                        ; preds = %for.body61, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN5arrow8internal15CountAndSetBitsEPKhlS2_ll(ptr noundef %left_bitmap, i64 noundef %left_offset, ptr noundef %right_bitmap, i64 noundef %right_offset, i64 noundef %length) local_unnamed_addr #2 {
@@ -246,7 +246,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrow8internal19ReverseBlockOffsetsEPKhlllPh(ptr nocapture noundef readonly %data, i64 noundef %offset, i64 noundef %length, i64 noundef %dest_offset, ptr nocapture noundef %dest) local_unnamed_addr #4 {
+define void @_ZN5arrow8internal19ReverseBlockOffsetsEPKhlllPh(ptr noundef readonly captures(none) %data, i64 noundef %offset, i64 noundef %length, i64 noundef %dest_offset, ptr noundef captures(none) %dest) local_unnamed_addr #4 {
 entry:
   %div = sdiv i64 %offset, 8
   %rem = srem i64 %offset, 8
@@ -1125,7 +1125,7 @@ if.end45:                                         ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrow8internal13ReverseBitmapEPKhllPhl(ptr nocapture noundef readonly %data, i64 noundef %offset, i64 noundef %length, ptr nocapture noundef %dest, i64 noundef %dest_offset) local_unnamed_addr #4 {
+define void @_ZN5arrow8internal13ReverseBitmapEPKhllPhl(ptr noundef readonly captures(none) %data, i64 noundef %offset, i64 noundef %length, ptr noundef captures(none) %dest, i64 noundef %dest_offset) local_unnamed_addr #4 {
 entry:
   %div.i = sdiv i64 %offset, 8
   %rem.i = srem i64 %offset, 8
@@ -1406,7 +1406,7 @@ cleanup:                                          ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal13ReverseBitmapEPNS_10MemoryPoolEPKhll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr nocapture noundef readonly %data, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal13ReverseBitmapEPNS_10MemoryPoolEPKhll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr noundef readonly captures(none) %data, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.arrow::Result", align 8
   call void @_ZN5arrow19AllocateEmptyBitmapElPNS_10MemoryPoolE(ptr nonnull sret(%"class.arrow::Result") align 8 %ref.tmp, i64 noundef %length, ptr noundef %pool)
@@ -1932,7 +1932,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6ResultISt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5arrow8internal12BitmapEqualsEPKhlS2_ll(ptr nocapture noundef readonly %left, i64 noundef %left_offset, ptr nocapture noundef readonly %right, i64 noundef %right_offset, i64 noundef %length) local_unnamed_addr #7 {
+define noundef zeroext i1 @_ZN5arrow8internal12BitmapEqualsEPKhlS2_ll(ptr noundef readonly captures(none) %left, i64 noundef %left_offset, ptr noundef readonly captures(none) %right, i64 noundef %right_offset, i64 noundef %length) local_unnamed_addr #7 {
 entry:
   %0 = or i64 %right_offset, %left_offset
   %1 = and i64 %0, 7
@@ -2304,7 +2304,7 @@ return:                                           ; preds = %entry, %if.else11, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN5arrow8internal20OptionalBitmapEqualsERKSt10shared_ptrINS_6BufferEElS5_ll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %left, i64 noundef %left_offset, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %right, i64 noundef %right_offset, i64 noundef %length) local_unnamed_addr #8 {
+define noundef zeroext i1 @_ZN5arrow8internal20OptionalBitmapEqualsERKSt10shared_ptrINS_6BufferEElS5_ll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %left, i64 noundef %left_offset, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %right, i64 noundef %right_offset, i64 noundef %length) local_unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr %left, align 8
   %cmp.i.not = icmp eq ptr %0, null
@@ -2370,7 +2370,7 @@ _ZN5arrow8internal20OptionalBitmapEqualsEPKhlS2_ll.exit: ; preds = %cond.end8, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal9BitmapAndEPNS_10MemoryPoolEPKhlS4_lll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr nocapture noundef readonly %left, i64 noundef %left_offset, ptr nocapture noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal9BitmapAndEPNS_10MemoryPoolEPKhlS4_lll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr noundef readonly captures(none) %left, i64 noundef %left_offset, ptr noundef readonly captures(none) %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Result", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
@@ -2416,14 +2416,14 @@ _ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_andEENS_6ResultISt10shared_ptrI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrow8internal9BitmapAndEPKhlS2_lllPh(ptr nocapture noundef readonly %left, i64 noundef %left_offset, ptr nocapture noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr nocapture noundef %out) local_unnamed_addr #4 {
+define void @_ZN5arrow8internal9BitmapAndEPKhlS2_lllPh(ptr noundef readonly captures(none) %left, i64 noundef %left_offset, ptr noundef readonly captures(none) %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef captures(none) %out) local_unnamed_addr #4 {
 entry:
   tail call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_andEEvPKhlS5_lllPh(ptr noundef %left, i64 noundef %left_offset, ptr noundef %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %out)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_andEEvPKhlS5_lllPh(ptr nocapture noundef readonly %left, i64 noundef %left_offset, ptr nocapture noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr nocapture noundef %dest) unnamed_addr #4 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_andEEvPKhlS5_lllPh(ptr noundef readonly captures(none) %left, i64 noundef %left_offset, ptr noundef readonly captures(none) %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef captures(none) %dest) unnamed_addr #4 {
 entry:
   %rem = srem i64 %out_offset, 8
   %div.i43.i = sdiv i64 %out_offset, 8
@@ -2930,7 +2930,7 @@ if.end:                                           ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal8BitmapOrEPNS_10MemoryPoolEPKhlS4_lll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr nocapture noundef readonly %left, i64 noundef %left_offset, ptr nocapture noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal8BitmapOrEPNS_10MemoryPoolEPKhlS4_lll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr noundef readonly captures(none) %left, i64 noundef %left_offset, ptr noundef readonly captures(none) %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Result", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
@@ -2976,14 +2976,14 @@ _ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt6bit_orEENS_6ResultISt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrow8internal8BitmapOrEPKhlS2_lllPh(ptr nocapture noundef readonly %left, i64 noundef %left_offset, ptr nocapture noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr nocapture noundef %out) local_unnamed_addr #4 {
+define void @_ZN5arrow8internal8BitmapOrEPKhlS2_lllPh(ptr noundef readonly captures(none) %left, i64 noundef %left_offset, ptr noundef readonly captures(none) %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef captures(none) %out) local_unnamed_addr #4 {
 entry:
   tail call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt6bit_orEEvPKhlS5_lllPh(ptr noundef %left, i64 noundef %left_offset, ptr noundef %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %out)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt6bit_orEEvPKhlS5_lllPh(ptr nocapture noundef readonly %left, i64 noundef %left_offset, ptr nocapture noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr nocapture noundef %dest) unnamed_addr #4 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt6bit_orEEvPKhlS5_lllPh(ptr noundef readonly captures(none) %left, i64 noundef %left_offset, ptr noundef readonly captures(none) %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef captures(none) %dest) unnamed_addr #4 {
 entry:
   %rem = srem i64 %out_offset, 8
   %div.i43.i = sdiv i64 %out_offset, 8
@@ -3490,7 +3490,7 @@ if.end:                                           ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal9BitmapXorEPNS_10MemoryPoolEPKhlS4_lll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr nocapture noundef readonly %left, i64 noundef %left_offset, ptr nocapture noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal9BitmapXorEPNS_10MemoryPoolEPKhlS4_lll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr noundef readonly captures(none) %left, i64 noundef %left_offset, ptr noundef readonly captures(none) %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Result", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
@@ -3536,14 +3536,14 @@ _ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_xorEENS_6ResultISt10shared_ptrI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrow8internal9BitmapXorEPKhlS2_lllPh(ptr nocapture noundef readonly %left, i64 noundef %left_offset, ptr nocapture noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr nocapture noundef %out) local_unnamed_addr #4 {
+define void @_ZN5arrow8internal9BitmapXorEPKhlS2_lllPh(ptr noundef readonly captures(none) %left, i64 noundef %left_offset, ptr noundef readonly captures(none) %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef captures(none) %out) local_unnamed_addr #4 {
 entry:
   tail call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_xorEEvPKhlS5_lllPh(ptr noundef %left, i64 noundef %left_offset, ptr noundef %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %out)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_xorEEvPKhlS5_lllPh(ptr nocapture noundef readonly %left, i64 noundef %left_offset, ptr nocapture noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr nocapture noundef %dest) unnamed_addr #4 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_xorEEvPKhlS5_lllPh(ptr noundef readonly captures(none) %left, i64 noundef %left_offset, ptr noundef readonly captures(none) %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef captures(none) %dest) unnamed_addr #4 {
 entry:
   %rem = srem i64 %out_offset, 8
   %div.i43.i = sdiv i64 %out_offset, 8
@@ -4050,7 +4050,7 @@ if.end:                                           ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal12BitmapAndNotEPNS_10MemoryPoolEPKhlS4_lll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr nocapture noundef readonly %left, i64 noundef %left_offset, ptr nocapture noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal12BitmapAndNotEPNS_10MemoryPoolEPKhlS4_lll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr noundef readonly captures(none) %left, i64 noundef %left_offset, ptr noundef readonly captures(none) %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Result", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
@@ -4096,14 +4096,14 @@ _ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_8AndNotOpEEENS_6ResultISt10shared_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrow8internal12BitmapAndNotEPKhlS2_lllPh(ptr nocapture noundef readonly %left, i64 noundef %left_offset, ptr nocapture noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr nocapture noundef %out) local_unnamed_addr #4 {
+define void @_ZN5arrow8internal12BitmapAndNotEPKhlS2_lllPh(ptr noundef readonly captures(none) %left, i64 noundef %left_offset, ptr noundef readonly captures(none) %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef captures(none) %out) local_unnamed_addr #4 {
 entry:
   tail call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_8AndNotOpEEEvPKhlS5_lllPh(ptr noundef %left, i64 noundef %left_offset, ptr noundef %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %out)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_8AndNotOpEEEvPKhlS5_lllPh(ptr nocapture noundef readonly %left, i64 noundef %left_offset, ptr nocapture noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr nocapture noundef %dest) unnamed_addr #4 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_8AndNotOpEEEvPKhlS5_lllPh(ptr noundef readonly captures(none) %left, i64 noundef %left_offset, ptr noundef readonly captures(none) %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef captures(none) %dest) unnamed_addr #4 {
 entry:
   %rem = srem i64 %out_offset, 8
   %div.i43.i = sdiv i64 %out_offset, 8
@@ -4614,7 +4614,7 @@ if.end:                                           ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal11BitmapOrNotEPNS_10MemoryPoolEPKhlS4_lll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr nocapture noundef readonly %left, i64 noundef %left_offset, ptr nocapture noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal11BitmapOrNotEPNS_10MemoryPoolEPKhlS4_lll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr noundef readonly captures(none) %left, i64 noundef %left_offset, ptr noundef readonly captures(none) %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Result", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
@@ -4660,14 +4660,14 @@ _ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_7OrNotOpEEENS_6ResultISt10shared_p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrow8internal11BitmapOrNotEPKhlS2_lllPh(ptr nocapture noundef readonly %left, i64 noundef %left_offset, ptr nocapture noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr nocapture noundef %out) local_unnamed_addr #4 {
+define void @_ZN5arrow8internal11BitmapOrNotEPKhlS2_lllPh(ptr noundef readonly captures(none) %left, i64 noundef %left_offset, ptr noundef readonly captures(none) %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef captures(none) %out) local_unnamed_addr #4 {
 entry:
   tail call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_7OrNotOpEEEvPKhlS5_lllPh(ptr noundef %left, i64 noundef %left_offset, ptr noundef %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %out)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_7OrNotOpEEEvPKhlS5_lllPh(ptr nocapture noundef readonly %left, i64 noundef %left_offset, ptr nocapture noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr nocapture noundef %dest) unnamed_addr #4 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_7OrNotOpEEEvPKhlS5_lllPh(ptr noundef readonly captures(none) %left, i64 noundef %left_offset, ptr noundef readonly captures(none) %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef captures(none) %dest) unnamed_addr #4 {
 entry:
   %rem = srem i64 %out_offset, 8
   %div.i43.i = sdiv i64 %out_offset, 8
@@ -5310,7 +5310,7 @@ return:                                           ; preds = %entry, %if.end71, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
@@ -5458,7 +5458,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare i8 @llvm.bitreverse.i8(i8) #16
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #16
@@ -5473,10 +5473,10 @@ declare i64 @llvm.fshr.i64(i64, i64, i64) #16
 declare i64 @llvm.smax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

@@ -147,7 +147,7 @@ declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr nound
 declare void @_ZN14AbstractICache16invalidate_rangeEPhi(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10NativeCall15replace_mt_safeEPhS0_(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10NativeCall15replace_mt_safeEPhS0_(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, 7
   %5 = icmp eq i64 %4, 0
@@ -278,7 +278,7 @@ define hidden void @_ZN17NativeMovConstReg5printEv(ptr noundef nonnull align 1 d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 0, 12) i32 @_ZNK15NativeMovRegMem17instruction_startEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 0, 12) i32 @_ZNK15NativeMovRegMem17instruction_startEv(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #3 align 2 {
   %2 = load i8, ptr %0, align 1
   switch i8 %2, label %5 [
     i8 -59, label %55
@@ -396,7 +396,7 @@ define hidden noundef range(i32 0, 12) i32 @_ZNK15NativeMovRegMem17instruction_s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 2, 15) i32 @_ZNK15NativeMovRegMem12patch_offsetEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 2, 15) i32 @_ZNK15NativeMovRegMem12patch_offsetEv(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #3 align 2 {
   %2 = load i8, ptr %0, align 1
   switch i8 %2, label %3 [
     i8 -59, label %_ZNK15NativeMovRegMem19instruction_addressEv.exit
@@ -631,7 +631,7 @@ _ZNK15NativeMovRegMem19instruction_addressEv.exit: ; preds = %1, %_ZNK15NativeMo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15NativeMovRegMem6verifyEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15NativeMovRegMem6verifyEv(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i8, ptr %0, align 1
   switch i8 %2, label %5 [
     i8 -59, label %_ZNK15NativeMovRegMem19instruction_addressEv.exit
@@ -904,7 +904,7 @@ _ZNK15NativeMovRegMem19instruction_addressEv.exit: ; preds = %1, %4, %5, %53
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17NativeLoadAddress6verifyEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17NativeLoadAddress6verifyEv(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i8, ptr %0, align 1
   switch i8 %2, label %5 [
     i8 -59, label %_ZNK15NativeMovRegMem19instruction_addressEv.exit
@@ -1164,7 +1164,7 @@ _ZNK15NativeMovRegMem19instruction_addressEv.exit: ; preds = %1, %4, %5, %53
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10NativeJump6verifyEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10NativeJump6verifyEv(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %2, -23
   br i1 %.not, label %17, label %3
@@ -1231,7 +1231,7 @@ define hidden void @_ZN10NativeJump6insertEPhS0_(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10NativeJump30check_verified_entry_alignmentEPhS0_(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10NativeJump30check_verified_entry_alignmentEPhS0_(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, 7
   %5 = icmp eq i64 %4, 0
@@ -1248,7 +1248,7 @@ define hidden void @_ZN10NativeJump30check_verified_entry_alignmentEPhS0_(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10NativeJump20patch_verified_entryEPhS0_S0_(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10NativeJump20patch_verified_entryEPhS0_S0_(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = ptrtoint ptr %2 to i64
   %5 = ptrtoint ptr %1 to i64
   %reass.sub = sub i64 %4, %5
@@ -1283,7 +1283,7 @@ define hidden void @_ZN24NativeIllegalInstruction6insertEPh(ptr noundef initiali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN17NativeGeneralJump6verifyEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN17NativeGeneralJump6verifyEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
@@ -1313,7 +1313,7 @@ define hidden void @_ZN17NativeGeneralJump20insert_unconditionalEPhS0_(ptr nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17NativeGeneralJump15replace_mt_safeEPhS0_(ptr noundef initializes((0, 4)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17NativeGeneralJump15replace_mt_safeEPhS0_(ptr noundef initializes((0, 4)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   store i32 -18088213, ptr %0, align 4
   tail call void @_ZN14AbstractICache15invalidate_wordEPh(ptr noundef nonnull %0) #7
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1390,7 +1390,7 @@ define hidden void @_ZN22NativeDeoptInstruction6insertEPhb(ptr noundef initializ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef zeroext i1 @_ZN17NativePostCallNop5patchEii(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN17NativePostCallNop5patchEii(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
   %.not = icmp ult i32 %1, 256
   %.not11 = icmp ult i32 %2, 16777216
   %or.cond = and i1 %.not, %.not11
@@ -1408,7 +1408,7 @@ define hidden noundef zeroext i1 @_ZN17NativePostCallNop5patchEii(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN22NativeDeoptInstruction6verifyEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN22NativeDeoptInstruction6verifyEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 

@@ -9,7 +9,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_time64_to_tm
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_time64_to_tm303], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @time64_to_tm(i64 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 20), (24, 40)) %2) #0 align 16 {
+define dso_local void @time64_to_tm(i64 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 20), (24, 40)) %2) #0 align 16 {
   %4 = srem i64 %0, 86400
   %5 = sdiv i64 %0, 86400
   %6 = sext i32 %1 to i64

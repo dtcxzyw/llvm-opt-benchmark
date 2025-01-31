@@ -195,7 +195,7 @@ declare zeroext i1 @SlruScanDirectory(ptr noundef, ptr noundef, ptr noundef) loc
 declare zeroext i1 @SlruScanDirCbDeleteAll(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_notify(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_notify(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -462,7 +462,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
@@ -471,7 +471,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #5
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
 declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -596,7 +596,7 @@ define dso_local void @Async_Listen(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @queue_listen(i32 noundef range(i32 0, 3) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @queue_listen(i32 noundef range(i32 0, 3) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call i32 @GetCurrentTransactionNestLevel() #16
   %4 = load ptr, ptr @CurTransactionContext, align 8
   %5 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -1536,7 +1536,7 @@ define dso_local void @AtCommit_Notify() local_unnamed_addr #0 {
   %64 = trunc nuw nsw i64 %indvars.iv.i to i32
   %65 = tail call ptr @list_delete_nth_cell(ptr noundef nonnull %53, i32 noundef %64) #16
   store ptr %65, ptr @listenChannels, align 8
-  tail call void @pfree(ptr noundef %61) #16
+  tail call void @pfree(ptr noundef nonnull %61) #16
   br label %Exec_ListenCommit.exit
 
 66:                                               ; preds = %59
@@ -1906,7 +1906,7 @@ define internal fastcc void @asyncQueueAdvanceTail() unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_notification_queue_usage(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_notification_queue_usage(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   tail call fastcc void @asyncQueueAdvanceTail()
   %2 = load ptr, ptr @MainLWLockArray, align 8
   %3 = getelementptr i8, ptr %2, i64 3456
@@ -2389,7 +2389,7 @@ declare void @pq_sendstring(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @pq_endmessage(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @check_notify_buffers(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @check_notify_buffers(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call zeroext i1 @check_slru_buffers(ptr noundef nonnull @.str.19, ptr noundef %0) #16
   ret i1 %4
 }
@@ -2497,7 +2497,7 @@ asyncQueueUnregister.exit:                        ; preds = %Exec_UnlistenAllCom
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @asyncQueueReadAllNotifications() unnamed_addr #0 {
@@ -2785,7 +2785,7 @@ declare zeroext i1 @XidInMVCCSnapshot(i32 noundef, ptr noundef) local_unnamed_ad
 declare zeroext i1 @TransactionIdDidCommit(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 
@@ -2823,7 +2823,7 @@ declare i32 @llvm.bswap.i32(i32) #9
 declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @notification_hash(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i32 @notification_hash(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i16, ptr %3, align 2
@@ -2838,7 +2838,7 @@ define internal i32 @notification_hash(ptr nocapture noundef readonly %0, i64 %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @notification_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2) #10 {
+define internal range(i32 0, 2) i32 @notification_match(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2) #10 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = load i16, ptr %4, align 2
@@ -2881,16 +2881,16 @@ declare i32 @hash_bytes(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15

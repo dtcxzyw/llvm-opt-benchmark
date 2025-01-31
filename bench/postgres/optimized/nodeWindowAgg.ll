@@ -2826,7 +2826,7 @@ declare ptr @ExecInitExpr(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @fmgr_info(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecEndWindowAgg(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ExecEndWindowAgg(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   tail call fastcc void @release_partition(ptr noundef %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %3 = load i32, ptr %2, align 4
@@ -2880,7 +2880,7 @@ define dso_local void @ExecEndWindowAgg(ptr nocapture noundef %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @release_partition(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @release_partition(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -2974,7 +2974,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecReScanWindowAgg(ptr nocapture noundef initializes((352, 356), (578, 579)) %0) local_unnamed_addr #0 {
+define dso_local void @ExecReScanWindowAgg(ptr noundef captures(none) initializes((352, 356), (578, 579)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -3132,12 +3132,12 @@ define dso_local void @ExecReScanWindowAgg(ptr nocapture noundef initializes((35
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @ExecReScan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @WinGetPartitionLocalMemory(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @WinGetPartitionLocalMemory(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -3160,7 +3160,7 @@ define dso_local ptr @WinGetPartitionLocalMemory(ptr nocapture noundef %0, i64 n
 declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @WinGetCurrentPosition(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local i64 @WinGetCurrentPosition(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 304
@@ -3169,7 +3169,7 @@ define dso_local i64 @WinGetCurrentPosition(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @WinGetPartitionRowCount(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @WinGetPartitionRowCount(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call fastcc void @spool_tuples(ptr noundef %3, i64 noundef -1)
@@ -3180,7 +3180,7 @@ define dso_local i64 @WinGetPartitionRowCount(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spool_tuples(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @spool_tuples(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -3341,7 +3341,7 @@ ExecQualAndReset.exit:                            ; preds = %49
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @WinSetMarkPosition(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local void @WinSetMarkPosition(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = icmp slt i64 %1, %4
@@ -3399,7 +3399,7 @@ declare void @tuplestore_select_read_pointer(ptr noundef, i32 noundef) local_unn
 declare zeroext i1 @tuplestore_skiptuples(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @WinRowsArePeers(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @WinRowsArePeers(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -3496,7 +3496,7 @@ are_peers.exit:                                   ; preds = %26, %ExecQualAndRes
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @window_gettupleslot(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @window_gettupleslot(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load volatile i32, ptr @InterruptPending, align 4
@@ -3643,7 +3643,7 @@ define internal fastcc noundef zeroext i1 @window_gettupleslot(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @WinGetFuncArgInPartition(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
+define dso_local i64 @WinGetFuncArgInPartition(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
@@ -3735,7 +3735,7 @@ define dso_local i64 @WinGetFuncArgInPartition(ptr nocapture noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @WinGetFuncArgInFrame(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
+define dso_local i64 @WinGetFuncArgInFrame(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
@@ -4555,7 +4555,7 @@ are_peers.exit151.thread:                         ; preds = %277, %are_peers.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @update_grouptailpos(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @update_grouptailpos(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 583
   %4 = load i8, ptr %3, align 1
@@ -5406,7 +5406,7 @@ are_peers.exit.thread:                            ; preds = %24, %are_peers.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @WinGetFuncArgCurrent(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local i64 @WinGetFuncArgCurrent(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
@@ -5439,7 +5439,7 @@ declare i32 @exprType(ptr noundef) local_unnamed_addr #1
 declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @begin_partition(ptr nocapture noundef initializes((296, 328), (496, 536), (579, 580), (581, 584)) %0) unnamed_addr #0 {
+define internal fastcc void @begin_partition(ptr noundef captures(none) initializes((296, 328), (496, 536), (579, 580), (581, 584)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -5776,10 +5776,10 @@ declare void @slot_getsomeattrs_int(ptr noundef, i32 noundef) local_unnamed_addr
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7

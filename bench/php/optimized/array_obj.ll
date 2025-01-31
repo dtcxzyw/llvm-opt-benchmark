@@ -90,7 +90,7 @@ define hidden ptr @lexbor_array_obj_destroy(ptr noundef %0, i1 noundef zeroext %
 declare ptr @lexbor_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_array_obj_expand(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden ptr @lexbor_array_obj_expand(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = xor i64 %1, -1
@@ -122,7 +122,7 @@ define hidden ptr @lexbor_array_obj_expand(ptr nocapture noundef %0, i64 noundef
 declare ptr @lexbor_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_array_obj_push(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden ptr @lexbor_array_obj_push(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -173,10 +173,10 @@ lexbor_array_obj_expand.exit.thread:              ; preds = %8, %6, %17
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_array_obj_push_wo_cls(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden ptr @lexbor_array_obj_push_wo_cls(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -226,7 +226,7 @@ lexbor_array_obj_expand.exit.thread:              ; preds = %8, %6, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_array_obj_push_n(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden ptr @lexbor_array_obj_push_n(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, %1
@@ -279,7 +279,7 @@ lexbor_array_obj_expand.exit.thread:              ; preds = %12, %9, %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden ptr @lexbor_array_obj_pop(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define hidden ptr @lexbor_array_obj_pop(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
@@ -301,7 +301,7 @@ define hidden ptr @lexbor_array_obj_pop(ptr nocapture noundef %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @lexbor_array_obj_delete(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 {
+define hidden void @lexbor_array_obj_delete(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp uge i64 %1, %5
@@ -340,16 +340,16 @@ define hidden void @lexbor_array_obj_delete(ptr nocapture noundef %0, i64 nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @lexbor_array_obj_erase_noi(ptr nocapture noundef writeonly initializes((0, 32)) %0) local_unnamed_addr #2 {
+define hidden void @lexbor_array_obj_erase_noi(ptr noundef writeonly captures(none) initializes((0, 32)) %0) local_unnamed_addr #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @lexbor_array_obj_get_noi(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
+define hidden ptr @lexbor_array_obj_get_noi(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %.not.i = icmp ult i64 %1, %4
@@ -369,28 +369,28 @@ lexbor_array_obj_get.exit:                        ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @lexbor_array_obj_length_noi(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define hidden i64 @lexbor_array_obj_length_noi(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr i8, ptr %0, i64 16
   %.val = load i64, ptr %2, align 8
   ret i64 %.val
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @lexbor_array_obj_size_noi(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define hidden i64 @lexbor_array_obj_size_noi(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load i64, ptr %2, align 8
   ret i64 %.val
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @lexbor_array_obj_struct_size_noi(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define hidden i64 @lexbor_array_obj_struct_size_noi(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr i8, ptr %0, i64 24
   %.val = load i64, ptr %2, align 8
   ret i64 %.val
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @lexbor_array_obj_last_noi(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define hidden ptr @lexbor_array_obj_last_noi(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0

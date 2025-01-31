@@ -79,7 +79,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.34 = private unnamed_addr constant [35 x i8] c"failed to init vhost_net for queue\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @vhost_vdpa_get_vhost_net(ptr nocapture noundef readonly %nc) local_unnamed_addr #0 {
+define dso_local ptr @vhost_vdpa_get_vhost_net(ptr noundef readonly captures(none) %nc) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %nc, align 8
   %1 = load i32, ptr %0, align 8
@@ -100,7 +100,7 @@ if.end:                                           ; preds = %entry
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @net_init_vhost_vdpa(ptr nocapture noundef readonly %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local i32 @net_init_vhost_vdpa(ptr noundef readonly captures(none) %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %features = alloca i64, align 8
   %iova_range = alloca %struct.vhost_vdpa_iova_range, align 8
@@ -331,7 +331,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #4
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @net_vhost_vdpa_init(ptr noundef %peer, ptr noundef %name, i32 noundef range(i32 0, -1) %vdpa_device_fd, i32 noundef %queue_pair_index, i32 noundef range(i32 1, 3) %nvqs, i1 noundef zeroext %is_datapath, i1 noundef zeroext %svq, ptr nocapture noundef readonly byval(%struct.vhost_vdpa_iova_range) align 8 %iova_range, i64 noundef %features, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef ptr @net_vhost_vdpa_init(ptr noundef %peer, ptr noundef %name, i32 noundef range(i32 0, -1) %vdpa_device_fd, i32 noundef %queue_pair_index, i32 noundef range(i32 1, 3) %nvqs, i1 noundef zeroext %is_datapath, i1 noundef zeroext %svq, ptr noundef readonly byval(%struct.vhost_vdpa_iova_range) align 8 captures(none) %iova_range, i64 noundef %features, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %device_id.i.i = alloca i32, align 4
   %options.i = alloca %struct.VhostNetOptions, align 8
@@ -469,7 +469,7 @@ vhost_vdpa_get_vring_group.exit.i:                ; preds = %for.body.i
   %call2.i.i = tail call ptr @__errno_location() #14
   %6 = load i32, ptr %call2.i.i, align 4
   %sub.i.i = sub i32 0, %6
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %spec.select.i, ptr noundef nonnull @.str.1, i32 noundef 446, ptr noundef nonnull @__func__.vhost_vdpa_get_vring_group, i32 noundef %6, ptr noundef nonnull @.str.22, i32 noundef %i.038.i) #13
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %spec.select.i, ptr noundef nonnull @.str.1, i32 noundef 446, ptr noundef nonnull @__func__.vhost_vdpa_get_vring_group, i32 noundef %6, ptr noundef nonnull @.str.22, i32 noundef %i.038.i) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %state.i.i)
   %cmp65.i = icmp slt i32 %sub.i.i, 0
   br i1 %cmp65.i, label %out.i, label %if.end75.i
@@ -636,7 +636,7 @@ declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #4
 declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare zeroext i1 @vhost_svq_valid_features(i64 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -650,7 +650,7 @@ declare void @qemu_set_info_str(ptr noundef, ptr noundef, ...) local_unnamed_add
 declare ptr @mmap64(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @vhost_vdpa_receive(ptr nocapture readnone %nc, ptr nocapture readnone %buf, i64 noundef returned %size) #7 {
+define internal noundef i64 @vhost_vdpa_receive(ptr readnone captures(none) %nc, ptr readnone captures(none) %buf, i64 noundef returned %size) #7 {
 entry:
   ret i64 %size
 }
@@ -828,7 +828,7 @@ if.end15:                                         ; preds = %if.then10, %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vhost_vdpa_cleanup(ptr nocapture noundef %nc) #0 {
+define internal void @vhost_vdpa_cleanup(ptr noundef captures(none) %nc) #0 {
 entry:
   %peer = getelementptr inbounds nuw i8, ptr %nc, i64 32
   %0 = load ptr, ptr %peer, align 8
@@ -881,7 +881,7 @@ if.end19:                                         ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @vhost_vdpa_has_ufo(ptr nocapture noundef readonly %nc) #0 {
+define internal zeroext i1 @vhost_vdpa_has_ufo(ptr noundef readonly captures(none) %nc) #0 {
 entry:
   %0 = load ptr, ptr %nc, align 8
   %1 = load i32, ptr %0, align 8
@@ -902,7 +902,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @vhost_vdpa_has_vnet_hdr(ptr nocapture noundef readonly %nc) #0 {
+define internal noundef zeroext i1 @vhost_vdpa_has_vnet_hdr(ptr noundef readonly captures(none) %nc) #0 {
 entry:
   %0 = load ptr, ptr %nc, align 8
   %1 = load i32, ptr %0, align 8
@@ -918,13 +918,13 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @vhost_vdpa_set_steering_ebpf(ptr nocapture readnone %nc, i32 %prog_fd) #7 {
+define internal noundef zeroext i1 @vhost_vdpa_set_steering_ebpf(ptr readnone captures(none) %nc, i32 %prog_fd) #7 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @vhost_vdpa_check_peer_type(ptr nocapture readnone %nc, ptr noundef %oc, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @vhost_vdpa_check_peer_type(ptr readnone captures(none) %nc, ptr noundef %oc, ptr noundef %errp) #0 {
 entry:
   %call = tail call ptr @object_class_get_name(ptr noundef %oc) #13
   %call1 = tail call i32 @g_str_has_prefix(ptr noundef %call, ptr noundef nonnull @.str.17) #13
@@ -946,7 +946,7 @@ declare ptr @migrate_get_current() local_unnamed_addr #2
 declare void @migration_add_notifier(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vdpa_net_migration_state_notifier(ptr nocapture noundef readonly %notifier, ptr noundef %data) #0 {
+define internal void @vdpa_net_migration_state_notifier(ptr noundef readonly captures(none) %notifier, ptr noundef %data) #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %notifier, i64 -295664
   %call = tail call zeroext i1 @migration_in_setup(ptr noundef %data) #13
@@ -969,7 +969,7 @@ declare ptr @vhost_iova_tree_new(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare zeroext i1 @migration_in_setup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vhost_vdpa_net_log_global_enable(ptr nocapture noundef readonly %s, i1 noundef zeroext %enable) unnamed_addr #0 {
+define internal fastcc void @vhost_vdpa_net_log_global_enable(ptr noundef readonly captures(none) %s, i1 noundef zeroext %enable) unnamed_addr #0 {
 entry:
   %shadow_vqs_enabled = getelementptr inbounds nuw i8, ptr %s, i64 624
   %0 = load i8, ptr %shadow_vqs_enabled, align 16
@@ -2041,7 +2041,7 @@ return:                                           ; preds = %if.end16, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare i32 @vhost_iova_tree_map_alloc(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2054,7 +2054,7 @@ declare ptr @vhost_iova_tree_find_iova(ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @vhost_vdpa_dma_unmap(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @vhost_vdpa_net_load_vlan(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %n, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @vhost_vdpa_net_load_vlan(ptr noundef readonly captures(none) %s, ptr noundef readonly captures(none) %n, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor) unnamed_addr #0 {
 entry:
   %vid.addr.i = alloca i16, align 2
   %data.i = alloca %struct.iovec, align 8
@@ -2138,7 +2138,7 @@ return:                                           ; preds = %for.inc19, %return.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -5, 1) i64 @vhost_vdpa_net_svq_flush(ptr nocapture noundef readonly %s, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i64 -5, 1) i64 @vhost_vdpa_net_svq_flush(ptr noundef readonly captures(none) %s, i64 noundef %len) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 640
   %s.val = load ptr, ptr %0, align 16
@@ -2177,7 +2177,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -2147483648, 1) i64 @vhost_vdpa_net_load_cmd(ptr nocapture noundef readonly %s, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext range(i8 0, 6) %class, i8 noundef zeroext range(i8 0, 6) %cmd, ptr noundef nonnull %data_sg, i64 noundef range(i64 1, 5) %data_num) unnamed_addr #0 {
+define internal fastcc range(i64 -2147483648, 1) i64 @vhost_vdpa_net_load_cmd(ptr noundef readonly captures(none) %s, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext range(i8 0, 6) %class, i8 noundef zeroext range(i8 0, 6) %cmd, ptr noundef nonnull %data_sg, i64 noundef range(i64 1, 5) %data_num) unnamed_addr #0 {
 entry:
   %out_cursor.addr = alloca ptr, align 8
   %in_cursor.addr = alloca ptr, align 8
@@ -2351,7 +2351,7 @@ declare i64 @vhost_svq_poll(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare i32 @getpagesize() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_vdpa_net_handle_ctrl_avail(ptr noundef %svq, ptr noundef %elem, ptr nocapture noundef readonly %opaque) #0 {
+define internal i32 @vhost_vdpa_net_handle_ctrl_avail(ptr noundef %svq, ptr noundef %elem, ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %mac_data.i = alloca %struct.virtio_net_ctrl_mac, align 4
   %on.i = alloca i8, align 1
@@ -2725,10 +2725,10 @@ declare ptr @vhost_net_init(ptr noundef) local_unnamed_addr #2
 declare i64 @llvm.smin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

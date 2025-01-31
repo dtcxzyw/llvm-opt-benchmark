@@ -125,7 +125,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hvc_instantiate(i32 noundef %0, i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @hvc_get_by_index(i32 noundef %0) unnamed_addr #1 align 16 {
@@ -200,7 +200,7 @@ define internal fastcc ptr @hvc_get_by_index(i32 noundef %0) unnamed_addr #1 ali
 declare dso_local void @tty_port_put(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @hvc_kick() #1 align 16 {
@@ -510,7 +510,7 @@ define dso_local void @__hvc_resize(ptr noundef initializes((416, 424)) %0, i64 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @hvc_alloc(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #1 align 16 {
@@ -826,7 +826,7 @@ declare dso_local void @tty_kref_put(ptr noundef) local_unnamed_addr #3
 declare dso_local void @register_console(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hvc_console_print(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #1 align 16 {
+define internal void @hvc_console_print(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #1 align 16 {
   %4 = alloca [16 x i8], align 64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 74
@@ -951,7 +951,7 @@ define internal void @hvc_console_print(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal ptr @hvc_console_device(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
+define internal ptr @hvc_console_device(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %4 = load i16, ptr %3, align 2
   %5 = sext i16 %4 to i64
@@ -972,7 +972,7 @@ define internal ptr @hvc_console_device(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal range(i32 -19, 1) i32 @hvc_console_setup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #6 align 16 {
+define internal range(i32 -19, 1) i32 @hvc_console_setup(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %4 = load i16, ptr %3, align 2
   %5 = icmp ugt i16 %4, 15
@@ -992,10 +992,10 @@ define internal range(i32 -19, 1) i32 @hvc_console_setup(ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #3
@@ -1075,7 +1075,7 @@ declare dso_local ptr @__tty_alloc_driver(i32 noundef, ptr noundef, i64 noundef)
 declare dso_local ptr @kthread_create_on_node(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @khvcd(ptr nocapture readnone %0) #1 align 16 {
+define internal noundef i32 @khvcd(ptr readnone captures(none) %0) #1 align 16 {
   %2 = tail call zeroext i1 @set_freezable() #12
   br label %3
 
@@ -1205,7 +1205,7 @@ define internal i32 @hvc_install(ptr noundef %0, ptr noundef %1) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @hvc_open(ptr noundef %0, ptr nocapture readnone %1) #1 align 16 {
+define internal i32 @hvc_open(ptr noundef %0, ptr readnone captures(none) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
@@ -1355,7 +1355,7 @@ define internal void @hvc_close(ptr noundef %0, ptr noundef %1) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hvc_cleanup(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal void @hvc_cleanup(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8
   tail call void @tty_port_put(ptr noundef %3) #12
@@ -1363,7 +1363,7 @@ define internal void @hvc_cleanup(ptr nocapture noundef readonly %0) #1 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @hvc_write(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #1 align 16 {
+define internal i64 @hvc_write(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1512,7 +1512,7 @@ define internal i64 @hvc_write(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @hvc_write_room(ptr nocapture noundef readonly %0) #6 align 16 {
+define internal i32 @hvc_write_room(ptr noundef readonly captures(none) %0) #6 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1532,7 +1532,7 @@ define internal i32 @hvc_write_room(ptr nocapture noundef readonly %0) #6 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @hvc_chars_in_buffer(ptr nocapture noundef readonly %0) #6 align 16 {
+define internal i32 @hvc_chars_in_buffer(ptr noundef readonly captures(none) %0) #6 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1549,7 +1549,7 @@ define internal i32 @hvc_chars_in_buffer(ptr nocapture noundef readonly %0) #6 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hvc_unthrottle(ptr nocapture readnone %0) #1 align 16 {
+define internal void @hvc_unthrottle(ptr readnone captures(none) %0) #1 align 16 {
   store i1 true, ptr @hvc_kicked, align 4
   %2 = load ptr, ptr @hvc_task, align 8
   %3 = tail call i32 @wake_up_process(ptr noundef %2) #12
@@ -1557,7 +1557,7 @@ define internal void @hvc_unthrottle(ptr nocapture readnone %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hvc_hangup(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal void @hvc_hangup(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1601,7 +1601,7 @@ define internal void @hvc_hangup(ptr nocapture noundef readonly %0) #1 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @hvc_tiocmget(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal i32 @hvc_tiocmget(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1625,7 +1625,7 @@ define internal i32 @hvc_tiocmget(ptr nocapture noundef readonly %0) #1 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @hvc_tiocmset(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
+define internal i32 @hvc_tiocmset(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

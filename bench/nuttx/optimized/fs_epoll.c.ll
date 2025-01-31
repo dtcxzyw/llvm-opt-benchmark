@@ -115,7 +115,7 @@ define void @epoll_close(i32 noundef %0) local_unnamed_addr #0 {
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @epoll_ctl(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @epoll_ctl(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = call i32 @fs_getfilep(i32 noundef %0, ptr noundef nonnull %5) #9
@@ -659,7 +659,7 @@ declare i32 @nxmutex_lock(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @zalloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @epoll_default_cb(ptr nocapture noundef readonly %0) #0 {
+define internal void @epoll_default_cb(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -697,7 +697,7 @@ declare i32 @nxmutex_unlock(ptr noundef) local_unnamed_addr #1
 declare ptr @__errno() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @epoll_pwait(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define i32 @epoll_pwait(i32 noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.sigset_s, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -896,7 +896,7 @@ declare i32 @nxsem_tickwait(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @nxsem_wait(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @epoll_teardown(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @epoll_teardown(ptr noundef nonnull %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call i32 @nxmutex_lock(ptr noundef nonnull %4) #9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -996,7 +996,7 @@ define internal fastcc i32 @epoll_teardown(ptr noundef nonnull %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @epoll_wait(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @epoll_wait(i32 noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = call i32 @fs_getfilep(i32 noundef %0, ptr noundef nonnull %5) #9
@@ -1195,10 +1195,10 @@ declare i32 @file_allocate(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i
 declare i32 @nxmutex_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @epoll_do_open(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @epoll_do_open(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1219,7 +1219,7 @@ define internal i32 @epoll_do_open(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @epoll_do_close(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @epoll_do_close(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1284,7 +1284,7 @@ define internal i32 @epoll_do_close(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @epoll_do_poll(ptr nocapture readnone %0, ptr nocapture readnone %1, i1 zeroext %2) #4 {
+define internal noundef i32 @epoll_do_poll(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i1 zeroext %2) #4 {
   ret i32 0
 }
 
@@ -1298,13 +1298,13 @@ declare i32 @nxsem_post(ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

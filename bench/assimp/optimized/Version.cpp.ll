@@ -77,7 +77,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7aiSceneC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1168) initializes((0, 4), (8, 20), (24, 36), (40, 52), (56, 68), (72, 84), (88, 100), (104, 125), (1148, 1168)) %this) unnamed_addr #1 align 2 {
+define void @_ZN7aiSceneC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1168) initializes((0, 4), (8, 20), (24, 36), (40, 52), (56, 68), (72, 84), (88, 100), (104, 125), (1148, 1168)) %this) unnamed_addr #1 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %mRootNode = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -125,7 +125,7 @@ entry:
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7aiSceneD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7aiSceneD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mRootNode = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mRootNode, align 8
@@ -1412,7 +1412,7 @@ _ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4h
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10aiMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 {
@@ -1532,10 +1532,10 @@ if.end:                                           ; preds = %delete.end50, %dele
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

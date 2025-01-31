@@ -160,7 +160,7 @@ $_ZN5folly13to_ascii_withILm10ENS_17to_ascii_alphabetILb0EEELm20EEEmRAT1__cm = c
 @.str.142 = private unnamed_addr constant [7 x i8] c"EXFULL\00", align 1
 
 ; Function Attrs: cold mustprogress noreturn nounwind optsize uwtable
-define void @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr nocapture noundef readonly %arg, ...) local_unnamed_addr #0 {
+define void @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef readonly captures(none) %arg, ...) local_unnamed_addr #0 {
 entry:
   %msg = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %msg) #13
@@ -170,13 +170,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #2
 
 ; Function Attrs: cold mustprogress noreturn nounwind optsize uwtable
-define internal fastcc void @_ZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNS0_15safe_assert_argEiP13__va_list_tag(ptr nocapture noundef readonly %arg_, i32 noundef %error, ptr nocapture noundef nonnull %msg) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNS0_15safe_assert_argEiP13__va_list_tag(ptr noundef readonly captures(none) %arg_, i32 noundef %error, ptr noundef nonnull captures(none) %msg) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %buf = alloca [20 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buf) #13
@@ -382,7 +382,7 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal fastcc void @_ZN5folly6detail12_GLOBAL__N_111writeStderrEPKc(ptr nocapture noundef readonly %s) unnamed_addr #3 {
+define internal fastcc void @_ZN5folly6detail12_GLOBAL__N_111writeStderrEPKc(ptr noundef readonly captures(none) %s) unnamed_addr #3 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #16
   br label %do.body.i.i
@@ -432,7 +432,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal fastcc void @_ZN5folly6detail12_GLOBAL__N_111writeStderrEPKcm(ptr nocapture noundef nonnull readonly %s, i64 noundef %len) unnamed_addr #3 {
+define internal fastcc void @_ZN5folly6detail12_GLOBAL__N_111writeStderrEPKcm(ptr noundef nonnull readonly captures(none) %s, i64 noundef %len) unnamed_addr #3 {
 entry:
   br label %do.body.i
 
@@ -548,10 +548,10 @@ _ZN5folly15fileutil_detail9wrapNoIntIPFiiEJiEEElT_DpT0_.exit: ; preds = %land.rh
 declare void @abort() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #10
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #11
@@ -708,7 +708,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEvPcmm.
 declare i32 @fsync(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: cold mustprogress noreturn nounwind optsize uwtable
-define void @_ZN5folly6detail21safe_assert_terminateILb1EEEvPKNS0_15safe_assert_argEz(ptr nocapture noundef readonly %arg, ...) local_unnamed_addr #0 {
+define void @_ZN5folly6detail21safe_assert_terminateILb1EEEvPKNS0_15safe_assert_argEz(ptr noundef readonly captures(none) %arg, ...) local_unnamed_addr #0 {
 entry:
   %msg = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %msg) #13

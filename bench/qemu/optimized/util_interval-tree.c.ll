@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree norecurse nounwind sspstrong uwtable
-define dso_local void @interval_tree_insert(ptr noundef %node, ptr nocapture noundef %root) local_unnamed_addr #0 {
+define dso_local void @interval_tree_insert(ptr noundef %node, ptr noundef captures(none) %root) local_unnamed_addr #0 {
 entry:
   %start1 = getelementptr inbounds nuw i8, ptr %node, i64 24
   %0 = load i64, ptr %start1, align 8
@@ -407,7 +407,7 @@ rb_insert_augmented_cached.exit:                  ; preds = %if.end.i.i, %if.the
 }
 
 ; Function Attrs: nofree norecurse nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @interval_tree_remove(ptr noundef readonly %node, ptr nocapture noundef %root) local_unnamed_addr #1 {
+define dso_local void @interval_tree_remove(ptr noundef readonly %node, ptr noundef captures(none) %root) local_unnamed_addr #1 {
 entry:
   %rb_leftmost.i = getelementptr inbounds nuw i8, ptr %root, i64 8
   %0 = load ptr, ptr %rb_leftmost.i, align 8
@@ -1452,7 +1452,7 @@ return:                                           ; preds = %if.end31, %do.end27
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #3

@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lv_color16a_t = type { i8, i8 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_draw_sw_transform(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readnone %7, i32 noundef %8, ptr noundef %9) local_unnamed_addr #0 {
+define void @lv_draw_sw_transform(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef readnone captures(none) %7, i32 noundef %8, ptr noundef %9) local_unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 68
   %12 = load i32, ptr %11, align 4, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 72
@@ -1160,7 +1160,7 @@ declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #1
 declare zeroext i8 @lv_color_format_get_size(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @transform_rgb888(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 -2147483520, -2147483648) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef %9, i1 noundef zeroext %10, i32 noundef range(i32 3, 5) %11) unnamed_addr #0 {
+define internal fastcc void @transform_rgb888(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 -2147483520, -2147483648) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef captures(none) %9, i1 noundef zeroext %10, i32 noundef range(i32 3, 5) %11) unnamed_addr #0 {
   %13 = icmp sgt i32 %8, 0
   br i1 %13, label %.lr.ph, label %._crit_edge
 
@@ -1351,7 +1351,7 @@ define internal fastcc void @transform_rgb888(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @transform_rgb565a8(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 -2147483520, -2147483648) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef %9, ptr nocapture noundef writeonly %10, i1 noundef zeroext %11, i1 noundef zeroext %12) unnamed_addr #0 {
+define internal fastcc void @transform_rgb565a8(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 -2147483520, -2147483648) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef captures(none) %9, ptr noundef writeonly captures(none) %10, i1 noundef zeroext %11, i1 noundef zeroext %12) unnamed_addr #0 {
   %14 = mul nsw i32 %3, %2
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %0, i64 %15

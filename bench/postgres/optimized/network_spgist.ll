@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @inet_spg_config(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @inet_spg_config(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -22,7 +22,7 @@ define dso_local noundef i64 @inet_spg_config(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @inet_spg_choose(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local noundef i64 @inet_spg_choose(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -234,7 +234,7 @@ declare i32 @bitncommon(ptr noundef, ptr noundef, i32 noundef) local_unnamed_add
 declare ptr @cidr_set_masklen_internal(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @inet_spg_picksplit(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local noundef i64 @inet_spg_picksplit(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -428,7 +428,7 @@ inet_spg_node_number.exit:                        ; preds = %93, %106
 declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @inet_spg_inner_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local noundef i64 @inet_spg_inner_consistent(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -587,7 +587,7 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 16) i32 @inet_spg_consistent_bitmap(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 16) i32 @inet_spg_consistent_bitmap(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #1 {
   %. = select i1 %3, i32 1, i32 15
   %5 = load i8, ptr %0, align 1
   %6 = and i8 %5, 1
@@ -993,7 +993,7 @@ select.unfold285:                                 ; preds = %178, %174, %176, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @inet_spg_leaf_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local range(i64 0, 2) i64 @inet_spg_leaf_consistent(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr

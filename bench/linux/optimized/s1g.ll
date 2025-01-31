@@ -38,7 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [7 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2, ptr @trace_drv_add_twt_setup.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2316, ptr @trace_drv_add_twt_setup.__UNIQUE_ID___addressable___SCK__tp_func_drv_add_twt_setup2315, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace804, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__tp_func_drv_return_void803, ptr @trace_drv_twt_teardown_request.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2330, ptr @trace_drv_twt_teardown_request.__UNIQUE_ID___addressable___SCK__tp_func_drv_twt_teardown_request2329], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @ieee80211_s1g_sta_rate_init(ptr nocapture noundef initializes((1796, 1800)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @ieee80211_s1g_sta_rate_init(ptr noundef captures(none) initializes((1796, 1800)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2385
   %3 = load i16, ptr %2, align 1
   %4 = or i16 %3, 8192
@@ -49,7 +49,7 @@ define dso_local void @ieee80211_s1g_sta_rate_init(ptr nocapture noundef initial
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local zeroext i1 @ieee80211_s1g_is_twt_setup(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local zeroext i1 @ieee80211_s1g_is_twt_setup(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %4 = load i16, ptr %3, align 2
@@ -75,7 +75,7 @@ define dso_local zeroext i1 @ieee80211_s1g_is_twt_setup(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_s1g_rx_twt_action(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
+define dso_local void @ieee80211_s1g_rx_twt_action(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 10
@@ -312,7 +312,7 @@ define dso_local void @ieee80211_s1g_rx_twt_action(ptr noundef %0, ptr nocapture
 declare dso_local ptr @sta_info_get_bss(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_s1g_status_twt_action(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
+define dso_local void @ieee80211_s1g_status_twt_action(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -407,7 +407,7 @@ declare void @llvm.assume(i1 noundef) #6
 declare dso_local i32 @__SCT__tp_func_drv_return_void(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @__netdev_alloc_skb(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
@@ -416,7 +416,7 @@ declare dso_local ptr @__netdev_alloc_skb(ptr noundef, i32 noundef, i32 noundef)
 declare dso_local ptr @skb_put(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @ieee80211_tx_skb_tid(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3

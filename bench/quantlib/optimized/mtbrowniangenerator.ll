@@ -135,7 +135,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare void @_ZN8QuantLib25MersenneTwisterUniformRngC1Em(ptr noundef nonnull align 8 dereferenceable(5000), i64 noundef) unnamed_addr #2
 
@@ -426,10 +426,10 @@ unreachable:                                      ; preds = %invoke.cont26
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib19MTBrownianGenerator8nextStepERSt6vectorIdSaIdEE(ptr nocapture noundef nonnull align 8 dereferenceable(5112) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %output) unnamed_addr #0 align 2 {
+define noundef double @_ZN8QuantLib19MTBrownianGenerator8nextStepERSt6vectorIdSaIdEE(ptr noundef nonnull align 8 captures(none) dereferenceable(5112) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %output) unnamed_addr #0 align 2 {
 entry:
   %sequence_.i = getelementptr inbounds nuw i8, ptr %this, i64 5040
   %lastStep_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -517,7 +517,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EE
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZN8QuantLib19MTBrownianGenerator8nextPathEv(ptr noundef nonnull align 8 dereferenceable(5112) initializes((5064, 5072)) %this) unnamed_addr #0 align 2 {
@@ -588,7 +588,7 @@ _ZNK8QuantLib23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEE12nextSeq
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK8QuantLib19MTBrownianGenerator15numberOfFactorsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(5112) %this) unnamed_addr #4 align 2 {
+define noundef i64 @_ZNK8QuantLib19MTBrownianGenerator15numberOfFactorsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(5112) %this) unnamed_addr #4 align 2 {
 entry:
   %factors_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %factors_, align 8, !tbaa !6
@@ -596,7 +596,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK8QuantLib19MTBrownianGenerator13numberOfStepsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(5112) %this) unnamed_addr #4 align 2 {
+define noundef i64 @_ZNK8QuantLib19MTBrownianGenerator13numberOfStepsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(5112) %this) unnamed_addr #4 align 2 {
 entry:
   %steps_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %steps_, align 8, !tbaa !25
@@ -604,7 +604,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib26MTBrownianGeneratorFactoryC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, i64 noundef %seed) unnamed_addr #5 align 2 {
+define void @_ZN8QuantLib26MTBrownianGeneratorFactoryC2Em(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, i64 noundef %seed) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib26MTBrownianGeneratorFactoryE, i64 16), ptr %this, align 8, !tbaa !3
   %seed_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -613,7 +613,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib26MTBrownianGeneratorFactory6createEmm(ptr dead_on_unwind noalias writable sret(%"class.boost::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %factors, i64 noundef %steps) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib26MTBrownianGeneratorFactory6createEmm(ptr dead_on_unwind noalias writable sret(%"class.boost::shared_ptr") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %factors, i64 noundef %steps) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(5112) ptr @_Znwm(i64 noundef 5112) #21
   %seed_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -910,7 +910,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #12
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: noreturn
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #14
@@ -1042,7 +1042,7 @@ entry:
 declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

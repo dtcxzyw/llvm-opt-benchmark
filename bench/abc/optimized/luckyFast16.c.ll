@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @SFmask = internal unnamed_addr constant [5 x [4 x i64]] [[4 x i64] [i64 -8608480567731124088, i64 4919131752989213764, i64 2459565876494606882, i64 1229782938247303441], [4 x i64] [i64 -4557430888798830400, i64 3472328296227680304, i64 868082074056920076, i64 217020518514230019], [4 x i64] [i64 -1152657617789587456, i64 1080880403494997760, i64 67555025218437360, i64 4222189076152335], [4 x i64] [i64 -72057589759737856, i64 71776119077928960, i64 280375465148160, i64 1095216660735], [4 x i64] [i64 -281474976710656, i64 281470681743360, i64 4294901760, i64 65535]], align 16
 
 ; Function Attrs: nounwind uwtable
-define void @swapAndFlip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define void @swapAndFlip(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   tail call void @swap_ij(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #9
   %7 = sext i32 %2 to i64
   %8 = getelementptr inbounds i8, ptr %4, i64 %7
@@ -56,7 +56,7 @@ declare void @swap_ij(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_
 declare void @Kit_TruthChangePhase_64bit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @luckyCheck(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @luckyCheck(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp sgt i32 %2, 0
   br i1 %6, label %.preheader.preheader, label %._crit_edge
 
@@ -157,7 +157,7 @@ declare void @Kit_TruthNot_64bit(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @Kit_TruthWordNum_64bit(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @updataInfo(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define void @updataInfo(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr %4, align 4
   %7 = sub nsw i32 %0, %1
   %8 = tail call i32 @llvm.abs.i32(i32 %7, i1 true)
@@ -234,7 +234,7 @@ define range(i32 0, 17) i32 @firstShiftWithOneBit(i64 noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @arrangeQuoters_superFast_lessThen5(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr nocapture noundef %9) local_unnamed_addr #0 {
+define void @arrangeQuoters_superFast_lessThen5(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef captures(none) %9) local_unnamed_addr #0 {
   %11 = icmp sgt i32 %1, -1
   br i1 %11, label %.lr.ph, label %._crit_edge
 
@@ -305,7 +305,7 @@ define void @arrangeQuoters_superFast_lessThen5(ptr nocapture noundef %0, i32 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 0, 4) i32 @minTemp0_fast(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #4 {
+define range(i32 0, 4) i32 @minTemp0_fast(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #4 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -412,7 +412,7 @@ firstShiftWithOneBit.exit:                        ; preds = %24, %34, %42, %48, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 1, 3) i32 @minTemp1_fast(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #4 {
+define range(i32 1, 3) i32 @minTemp1_fast(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #4 {
   %5 = shl nuw i32 1, %1
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %6
@@ -524,7 +524,7 @@ firstShiftWithOneBit.exit:                        ; preds = %28, %38, %46, %52, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @minTemp2_fast(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @minTemp2_fast(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #4 {
   %7 = sext i32 %1 to i64
   %8 = sext i32 %2 to i64
   %9 = getelementptr inbounds [5 x [4 x i64]], ptr @SFmask, i64 0, i64 %7, i64 %8
@@ -637,7 +637,7 @@ firstShiftWithOneBit.exit:                        ; preds = %31, %41, %49, %55, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @minTemp3_fast(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @minTemp3_fast(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #4 {
   %.not46 = icmp slt i32 %2, %3
   br i1 %.not46, label %._crit_edge, label %.lr.ph
 
@@ -754,7 +754,7 @@ firstShiftWithOneBit.exit:                        ; preds = %29, %39, %47, %53, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @minimalSwapAndFlipIVar_superFast_lessThen5(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define void @minimalSwapAndFlipIVar_superFast_lessThen5(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -1330,7 +1330,7 @@ arrangeQuoters_superFast_lessThen5.exit90:        ; preds = %406, %371
 }
 
 ; Function Attrs: nounwind uwtable
-define void @minimalSwapAndFlipIVar_superFast_lessThen5_noEBFC(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define void @minimalSwapAndFlipIVar_superFast_lessThen5_noEBFC(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = call i32 @minTemp1_fast(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %6)
   %8 = icmp eq i32 %7, 2
@@ -1393,7 +1393,7 @@ arrangeQuoters_superFast_lessThen5.exit:          ; preds = %32, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define void @arrangeQuoters_superFast_iVar5(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr nocapture noundef %8) local_unnamed_addr #0 {
+define void @arrangeQuoters_superFast_iVar5(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef captures(none) %8) local_unnamed_addr #0 {
   %10 = sext i32 %2 to i64
   %11 = icmp eq i32 %3, 0
   %12 = icmp eq i32 %4, 1
@@ -1460,10 +1460,10 @@ define void @arrangeQuoters_superFast_iVar5(ptr nocapture noundef %0, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 0, 4) i32 @minTemp0_fast_iVar5(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define range(i32 0, 4) i32 @minTemp0_fast_iVar5(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1511,7 +1511,7 @@ define range(i32 0, 4) i32 @minTemp0_fast_iVar5(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 1, 3) i32 @minTemp1_fast_iVar5(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define range(i32 1, 3) i32 @minTemp1_fast_iVar5(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1559,7 +1559,7 @@ define range(i32 1, 3) i32 @minTemp1_fast_iVar5(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @minTemp2_fast_iVar5(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @minTemp2_fast_iVar5(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #4 {
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1610,7 +1610,7 @@ define range(i32 0, 2) i32 @minTemp2_fast_iVar5(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @minTemp3_fast_iVar5(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @minTemp3_fast_iVar5(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #4 {
   %.not21.not = icmp sgt i32 %1, %2
   br i1 %.not21.not, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1661,7 +1661,7 @@ define range(i32 0, 2) i32 @minTemp3_fast_iVar5(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @minimalSwapAndFlipIVar_superFast_iVar5(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define void @minimalSwapAndFlipIVar_superFast_iVar5(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [2 x i32], align 4
   %6 = alloca [2048 x i32], align 16
   %7 = icmp sgt i32 %1, 0
@@ -2232,7 +2232,7 @@ arrangeQuoters_superFast_iVar5.exit:              ; preds = %arrangeQuoters_supe
 }
 
 ; Function Attrs: nounwind uwtable
-define void @minimalSwapAndFlipIVar_superFast_iVar5_noEBFC(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define void @minimalSwapAndFlipIVar_superFast_iVar5_noEBFC(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [2048 x i32], align 16
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.lr.ph.preheader.i, label %minTemp1_fast_iVar5.exit.thread
@@ -2312,7 +2312,7 @@ minTemp1_fast_iVar5.exit.thread:                  ; preds = %.lr.ph.i, %16, %4, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @arrangeQuoters_superFast_moreThen5(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr nocapture noundef %9) local_unnamed_addr #0 {
+define void @arrangeQuoters_superFast_moreThen5(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef captures(none) %9) local_unnamed_addr #0 {
   %11 = sext i32 %2 to i64
   %12 = icmp eq i32 %3, 0
   %13 = icmp eq i32 %4, 1
@@ -2386,7 +2386,7 @@ define void @arrangeQuoters_superFast_moreThen5(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 0, 4) i32 @minTemp0_fast_moreThen5(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #4 {
+define range(i32 0, 4) i32 @minTemp0_fast_moreThen5(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #4 {
   %5 = add nsw i32 %1, -6
   %.neg27 = shl i32 -3, %5
   %.neg = shl i32 -4, %5
@@ -2449,7 +2449,7 @@ define range(i32 0, 4) i32 @minTemp0_fast_moreThen5(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 1, 3) i32 @minTemp1_fast_moreThen5(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #4 {
+define range(i32 1, 3) i32 @minTemp1_fast_moreThen5(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #4 {
   %5 = add nsw i32 %1, -6
   %6 = shl nuw i32 1, %5
   %.neg = shl i32 -4, %5
@@ -2513,7 +2513,7 @@ define range(i32 1, 3) i32 @minTemp1_fast_moreThen5(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @minTemp2_fast_moreThen5(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @minTemp2_fast_moreThen5(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #4 {
   %7 = add nsw i32 %1, -6
   %.neg = shl i32 -4, %7
   %8 = icmp slt i32 %4, 1
@@ -2578,7 +2578,7 @@ define range(i32 0, 2) i32 @minTemp2_fast_moreThen5(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @minTemp3_fast_moreThen5(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @minTemp3_fast_moreThen5(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #4 {
   %8 = add nsw i32 %1, -6
   %.neg = shl i32 -4, %8
   %.not34.not = icmp sle i32 %2, %3
@@ -2643,7 +2643,7 @@ define range(i32 0, 2) i32 @minTemp3_fast_moreThen5(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define void @minimalSwapAndFlipIVar_superFast_moreThen5(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define void @minimalSwapAndFlipIVar_superFast_moreThen5(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca [2 x i32], align 4
   %7 = alloca [1024 x i64], align 16
   %8 = add nsw i32 %1, -6
@@ -3324,7 +3324,7 @@ arrangeQuoters_superFast_moreThen5.exit:          ; preds = %arrangeQuoters_supe
 }
 
 ; Function Attrs: nounwind uwtable
-define void @minimalSwapAndFlipIVar_superFast_moreThen5_noEBFC(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define void @minimalSwapAndFlipIVar_superFast_moreThen5_noEBFC(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca [1024 x i64], align 16
   %7 = add nsw i32 %1, -6
   %8 = shl nuw i32 1, %7
@@ -3425,7 +3425,7 @@ minTemp1_fast_moreThen5.exit.thread:              ; preds = %._crit_edge.us.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @minimalInitialFlip_fast_16Vars(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define void @minimalInitialFlip_fast_16Vars(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %1) #9
   %5 = sext i32 %4 to i64
   %6 = getelementptr i64, ptr %0, i64 %5
@@ -3447,7 +3447,7 @@ define void @minimalInitialFlip_fast_16Vars(ptr noundef %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @minimalSwapAndFlipIVar_superFast_all(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @minimalSwapAndFlipIVar_superFast_all(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca [1024 x i64], align 16
   %8 = load i32, ptr %3, align 4
   %9 = sext i32 %2 to i64
@@ -3521,7 +3521,7 @@ define range(i32 0, 2) i32 @minimalSwapAndFlipIVar_superFast_all(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @minimalSwapAndFlipIVar_superFast_all_noEBFC(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @minimalSwapAndFlipIVar_superFast_all_noEBFC(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca [2048 x i32], align 16
   %8 = alloca i32, align 4
   %9 = alloca [1024 x i64], align 16
@@ -3729,7 +3729,7 @@ minimalSwapAndFlipIVar_superFast_iVar5_noEBFC.exit: ; preds = %.lr.ph.i.i45, %73
 }
 
 ; Function Attrs: nounwind uwtable
-define void @luckyCanonicizerS_F_first_16Vars1(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define void @luckyCanonicizerS_F_first_16Vars1(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   %7 = load i32, ptr %5, align 4
   %8 = add nsw i32 %1, 1
   %9 = shl nuw i32 1, %8
@@ -3752,7 +3752,7 @@ define void @luckyCanonicizerS_F_first_16Vars1(ptr nocapture noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define void @luckyCanonicizerS_F_first_16Vars11(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define void @luckyCanonicizerS_F_first_16Vars11(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca [1024 x i64], align 16
   %8 = alloca [16 x i8], align 16
   %9 = alloca i32, align 4
@@ -3779,12 +3779,12 @@ define void @luckyCanonicizerS_F_first_16Vars11(ptr noundef %0, i32 noundef %1, 
   br i1 %.not.i, label %.preheader.i, label %.preheader15.i
 
 .preheader15.i:                                   ; preds = %13, %.preheader15.i
-  %22 = call i32 @minimalSwapAndFlipIVar_superFast_all(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef nonnull %5)
+  %22 = call i32 @minimalSwapAndFlipIVar_superFast_all(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %.not14.i = icmp eq i32 %22, 0
   br i1 %.not14.i, label %luckyCanonicizerS_F_first_16Vars1.exit, label %.preheader15.i, !llvm.loop !30
 
 .preheader.i:                                     ; preds = %13, %.preheader.i
-  %23 = call i32 @minimalSwapAndFlipIVar_superFast_all_noEBFC(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef nonnull %5)
+  %23 = call i32 @minimalSwapAndFlipIVar_superFast_all_noEBFC(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %.not13.i = icmp eq i32 %23, 0
   br i1 %.not13.i, label %luckyCanonicizerS_F_first_16Vars1.exit, label %.preheader.i, !llvm.loop !31
 
@@ -3839,7 +3839,7 @@ luckyCanonicizerS_F_first_16Vars1.exit39:         ; preds = %.preheader15.i35, %
 declare i32 @memCompare(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @luckyCanonicizer_final_fast_16Vars(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef initializes((0, 4)) %5) local_unnamed_addr #0 {
+define void @luckyCanonicizer_final_fast_16Vars(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = tail call i32 @Kit_TruthSemiCanonicize_Yasha1(ptr noundef %0, i32 noundef %1, ptr noundef %4, ptr noundef %3) #9
   store i32 %7, ptr %5, align 4
   %8 = add nsw i32 %1, 1
@@ -3881,7 +3881,7 @@ define void @bitReverceOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @luckyCanonicizer_final_fast_16Vars1(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef initializes((0, 4)) %5) local_unnamed_addr #0 {
+define void @luckyCanonicizer_final_fast_16Vars1(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = tail call i32 @Kit_TruthSemiCanonicize_Yasha1(ptr noundef %0, i32 noundef %1, ptr noundef %4, ptr noundef %3) #9
   store i32 %7, ptr %5, align 4
   tail call void @luckyCanonicizerS_F_first_16Vars11(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5)
@@ -4000,7 +4000,7 @@ luckyCanonicizer_final_fast_16Vars1.exit:         ; preds = %.lr.ph.i.i
 declare i64 @luckyCanonicizer_final_fast_6Vars1(i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
@@ -4009,10 +4009,10 @@ declare i32 @llvm.smax.i32(i32, i32) #7
 declare i32 @llvm.ucmp.i32.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

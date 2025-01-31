@@ -13,7 +13,7 @@ $_ZTWN9grpc_core20PerCpuShardingHelper6state_E = comdat any
 @_ZTHN9grpc_core20PerCpuShardingHelper6state_E = alias void (), ptr @__tls_init
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 0, 4294967296) i64 @_ZN9grpc_core13PerCpuOptions6ShardsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
+define noundef range(i64 0, 4294967296) i64 @_ZN9grpc_core13PerCpuOptions6ShardsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call i32 @gpr_cpu_num_cores()
   %conv = zext i32 %call to i64
@@ -28,7 +28,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN9grpc_core13PerCpuOptions17ShardsForCpuCountEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %cpu_count) local_unnamed_addr #1 align 2 {
+define noundef i64 @_ZN9grpc_core13PerCpuOptions17ShardsForCpuCountEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %cpu_count) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %div = udiv i64 %cpu_count, %0

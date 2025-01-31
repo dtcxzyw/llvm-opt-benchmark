@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.CMS_EncryptedData_set1_key = private unnamed_addr constant [27 x i8] c"CMS_EncryptedData_set1_key\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_cms_EncryptedContent_init_bio(ptr nocapture noundef %ec, ptr noundef %cms_ctx) local_unnamed_addr #0 {
+define ptr @ossl_cms_EncryptedContent_init_bio(ptr noundef captures(none) %ec, ptr noundef %cms_ctx) local_unnamed_addr #0 {
 entry:
   %ctx = alloca ptr, align 8
   %aparams = alloca %struct.evp_cipher_aead_asn1_params, align 4
@@ -385,7 +385,7 @@ declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 nound
 declare ptr @ASN1_TYPE_new() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @EVP_CIPHER_CTX_get_tag_length(ptr noundef) local_unnamed_addr #1
 
@@ -398,7 +398,7 @@ declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #1
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cms_EncryptedContent_init(ptr nocapture noundef writeonly initializes((24, 32)) %ec, ptr noundef %cipher, ptr noundef readonly %key, i64 noundef %keylen, ptr nocapture noundef readnone %cms_ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_EncryptedContent_init(ptr noundef writeonly captures(none) initializes((24, 32)) %ec, ptr noundef %cipher, ptr noundef readonly %key, i64 noundef %keylen, ptr noundef readnone captures(none) %cms_ctx) local_unnamed_addr #0 {
 entry:
   %cipher1 = getelementptr inbounds nuw i8, ptr %ec, i64 24
   store ptr %cipher, ptr %cipher1, align 8

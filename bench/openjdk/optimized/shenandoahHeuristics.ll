@@ -65,7 +65,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN20ShenandoahHeuristicsD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN20ShenandoahHeuristicsD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 -1, 2) i32 @_ZN20ShenandoahHeuristics18compare_by_garbageENS_10RegionDataES0_(ptr nocapture readnone %0, i64 %1, ptr nocapture readnone %2, i64 %3) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -1, 2) i32 @_ZN20ShenandoahHeuristics18compare_by_garbageENS_10RegionDataES0_(ptr readnone captures(none) %0, i64 %1, ptr readnone captures(none) %2, i64 %3) local_unnamed_addr #0 align 2 {
   %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %3, i64 %1)
   ret i32 %.0
 }
@@ -105,7 +105,7 @@ declare void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ShenandoahHeuristicsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(193) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN20ShenandoahHeuristicsD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(193) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV20ShenandoahHeuristics, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -116,7 +116,7 @@ define hidden void @_ZN20ShenandoahHeuristicsD2Ev(ptr nocapture noundef nonnull 
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define hidden void @_ZN20ShenandoahHeuristicsD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN20ShenandoahHeuristicsD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   tail call void @llvm.trap() #15
   unreachable
 }
@@ -371,7 +371,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ShenandoahHeuristics18record_cycle_startEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(193) initializes((24, 32)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN20ShenandoahHeuristics18record_cycle_startEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(193) initializes((24, 32)) %0) unnamed_addr #1 align 2 {
   %2 = tail call noundef double @_ZN2os11elapsedTimeEv() #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %2, ptr %3, align 8
@@ -379,7 +379,7 @@ define hidden void @_ZN20ShenandoahHeuristics18record_cycle_startEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ShenandoahHeuristics16record_cycle_endEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(193) initializes((32, 40)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN20ShenandoahHeuristics16record_cycle_endEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(193) initializes((32, 40)) %0) unnamed_addr #1 align 2 {
   %2 = tail call noundef double @_ZN2os11elapsedTimeEv() #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %2, ptr %3, align 8
@@ -446,7 +446,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0
 declare noundef ptr @_ZN7GCCause9to_stringENS_5CauseE(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN20ShenandoahHeuristics23should_degenerate_cycleEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN20ShenandoahHeuristics23should_degenerate_cycleEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1632
   %4 = load ptr, ptr %3, align 8
@@ -459,7 +459,7 @@ define hidden noundef zeroext i1 @_ZN20ShenandoahHeuristics23should_degenerate_c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN20ShenandoahHeuristics14adjust_penaltyEl(ptr nocapture noundef nonnull align 8 dereferenceable(193) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN20ShenandoahHeuristics14adjust_penaltyEl(ptr noundef nonnull align 8 captures(none) dereferenceable(193) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = add nsw i64 %4, %1
@@ -470,7 +470,7 @@ define hidden void @_ZN20ShenandoahHeuristics14adjust_penaltyEl(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ShenandoahHeuristics25record_success_concurrentEv(ptr nocapture noundef nonnull align 8 dereferenceable(193) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN20ShenandoahHeuristics25record_success_concurrentEv(ptr noundef nonnull align 8 captures(none) dereferenceable(193) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef double @_ZN2os11elapsedTimeEv() #14
@@ -495,7 +495,7 @@ define hidden void @_ZN20ShenandoahHeuristics25record_success_concurrentEv(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef double @_ZNK20ShenandoahHeuristics18time_since_last_gcEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(193) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef double @_ZNK20ShenandoahHeuristics18time_since_last_gcEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(193) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call noundef double @_ZN2os11elapsedTimeEv() #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load double, ptr %3, align 8
@@ -504,7 +504,7 @@ define hidden noundef double @_ZNK20ShenandoahHeuristics18time_since_last_gcEv(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN20ShenandoahHeuristics26record_success_degeneratedEv(ptr nocapture noundef nonnull align 8 dereferenceable(193) %0) unnamed_addr #6 align 2 {
+define hidden void @_ZN20ShenandoahHeuristics26record_success_degeneratedEv(ptr noundef nonnull align 8 captures(none) dereferenceable(193) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = tail call i64 @llvm.smax.i64(i64 %3, i64 -10)
@@ -515,7 +515,7 @@ define hidden void @_ZN20ShenandoahHeuristics26record_success_degeneratedEv(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN20ShenandoahHeuristics19record_success_fullEv(ptr nocapture noundef nonnull align 8 dereferenceable(193) %0) unnamed_addr #6 align 2 {
+define hidden void @_ZN20ShenandoahHeuristics19record_success_fullEv(ptr noundef nonnull align 8 captures(none) dereferenceable(193) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = tail call i64 @llvm.smax.i64(i64 %3, i64 -20)
@@ -526,19 +526,19 @@ define hidden void @_ZN20ShenandoahHeuristics19record_success_fullEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN20ShenandoahHeuristics28record_allocation_failure_gcEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN20ShenandoahHeuristics28record_allocation_failure_gcEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN20ShenandoahHeuristics19record_requested_gcEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(193) initializes((40, 48)) %0) unnamed_addr #7 align 2 {
+define hidden void @_ZN20ShenandoahHeuristics19record_requested_gcEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(193) initializes((40, 48)) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN20ShenandoahHeuristics18can_unload_classesEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZN20ShenandoahHeuristics18can_unload_classesEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   %2 = load i8, ptr @ClassUnloading, align 1
   %3 = trunc i8 %2 to i1
   ret i1 %3
@@ -570,7 +570,7 @@ define hidden noundef zeroext i1 @_ZN20ShenandoahHeuristics21should_unload_class
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN20ShenandoahHeuristics10initializeEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN20ShenandoahHeuristics10initializeEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
@@ -706,7 +706,7 @@ declare i32 @llvm.ucmp.i32.i64(i64, i64) #11
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

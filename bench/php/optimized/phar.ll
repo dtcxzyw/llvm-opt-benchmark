@@ -279,7 +279,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.199 = private unnamed_addr constant [4 x i8] c"spl\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @phar_ini_modify_handler(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define hidden range(i32 -1, 1) i32 @phar_ini_modify_handler(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca i8, align 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -353,7 +353,7 @@ declare zeroext i1 @zend_ini_parse_bool(ptr noundef) local_unnamed_addr #1
 declare void @zend_hash_apply_with_argument(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @phar_set_writeable_bit(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal noundef i32 @phar_set_writeable_bit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 324
   %5 = load i16, ptr %4, align 4
@@ -377,7 +377,7 @@ define internal noundef i32 @phar_set_writeable_bit(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phar_ini_cache_list(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define hidden noundef i32 @phar_ini_cache_list(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca [2 x i8], align 1
   %9 = alloca ptr, align 8
@@ -725,14 +725,14 @@ phar_metadata_tracker_free.exit:                  ; preds = %74, %78
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @_efree(ptr noundef) local_unnamed_addr #1
 
 declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @phar_metadata_tracker_free(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @phar_metadata_tracker_free(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -884,7 +884,7 @@ define hidden range(i32 0, 2) i32 @phar_archive_delref(ptr noundef %0) local_unn
 declare i32 @zend_hash_str_del(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @destroy_phar_manifest_entry_int(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @destroy_phar_manifest_entry_int(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
@@ -1039,7 +1039,7 @@ phar_metadata_tracker_free.exit:                  ; preds = %32, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @destroy_phar_manifest_entry(ptr nocapture noundef readonly %0) #0 {
+define hidden void @destroy_phar_manifest_entry(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @destroy_phar_manifest_entry_int(ptr noundef %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 154
@@ -1859,7 +1859,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   br label %311
 
 311:                                              ; preds = %309, %308
-  %312 = call i32 @_php_stream_free(ptr noundef %56, i32 noundef 3) #23
+  %312 = call i32 @_php_stream_free(ptr noundef nonnull %56, i32 noundef 3) #23
   br i1 %.not687, label %.loopexit, label %313
 
 313:                                              ; preds = %311
@@ -1908,7 +1908,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   br label %340
 
 340:                                              ; preds = %338, %337
-  %341 = call i32 @_php_stream_free(ptr noundef %56, i32 noundef 3) #23
+  %341 = call i32 @_php_stream_free(ptr noundef nonnull %56, i32 noundef 3) #23
   %342 = load i32, ptr %328, align 8
   %343 = and i32 %342, 4096
   %.not796 = icmp eq i32 %343, 0
@@ -1986,7 +1986,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   br label %380
 
 380:                                              ; preds = %378, %377
-  %381 = call i32 @_php_stream_free(ptr noundef %56, i32 noundef 3) #23
+  %381 = call i32 @_php_stream_free(ptr noundef nonnull %56, i32 noundef 3) #23
   br i1 %.not687, label %.sink.split984, label %.thread848.sink.split
 
 382:                                              ; preds = %368
@@ -2008,7 +2008,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   br label %392
 
 392:                                              ; preds = %390, %389
-  %393 = call i32 @_php_stream_free(ptr noundef %56, i32 noundef 3) #23
+  %393 = call i32 @_php_stream_free(ptr noundef nonnull %56, i32 noundef 3) #23
   br i1 %.not687, label %.sink.split984, label %.thread848.sink.split
 
 394:                                              ; preds = %382
@@ -2116,7 +2116,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   store i32 %.0619.lcssa, ptr %445, align 2
   %446 = getelementptr inbounds nuw i8, ptr %7, i64 14
   store i32 %427, ptr %446, align 2
-  %447 = call i64 @_php_stream_write(ptr noundef %56, ptr noundef nonnull %7, i64 noundef 18) #23
+  %447 = call i64 @_php_stream_write(ptr noundef nonnull %56, ptr noundef nonnull %7, i64 noundef 18) #23
   %.not720 = icmp eq i64 %447, 18
   br i1 %.not720, label %448, label %454
 
@@ -2125,7 +2125,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   %450 = zext i32 %449 to i64
   %451 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %452 = load ptr, ptr %451, align 8
-  %453 = call i64 @_php_stream_write(ptr noundef %56, ptr noundef %452, i64 noundef %450) #23
+  %453 = call i64 @_php_stream_write(ptr noundef nonnull %56, ptr noundef %452, i64 noundef %450) #23
   %.not721 = icmp eq i64 %453, %450
   br i1 %.not721, label %462, label %454
 
@@ -2137,7 +2137,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   br label %457
 
 457:                                              ; preds = %455, %454
-  %458 = call i32 @_php_stream_free(ptr noundef %56, i32 noundef 3) #23
+  %458 = call i32 @_php_stream_free(ptr noundef nonnull %56, i32 noundef 3) #23
   store i32 %422, ptr %421, align 8
   br i1 %.not687, label %828, label %459
 
@@ -2161,7 +2161,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
 468:                                              ; preds = %462, %464
   %469 = phi i32 [ %467, %464 ], [ 0, %462 ]
   store i32 %469, ptr %7, align 16
-  %470 = call i64 @_php_stream_write(ptr noundef %56, ptr noundef nonnull %7, i64 noundef 4) #23
+  %470 = call i64 @_php_stream_write(ptr noundef nonnull %56, ptr noundef nonnull %7, i64 noundef 4) #23
   %.not723 = icmp eq i64 %470, 4
   br i1 %.not723, label %471, label %479
 
@@ -2178,7 +2178,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
 
 476:                                              ; preds = %473
   %477 = getelementptr inbounds nuw i8, ptr %472, i64 24
-  %478 = call i64 @_php_stream_write(ptr noundef %56, ptr noundef nonnull %477, i64 noundef %475) #23
+  %478 = call i64 @_php_stream_write(ptr noundef nonnull %56, ptr noundef nonnull %477, i64 noundef %475) #23
   %.not726 = icmp eq i64 %475, %478
   br i1 %.not726, label %501, label %479
 
@@ -2221,7 +2221,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   br label %496
 
 496:                                              ; preds = %494, %492
-  %497 = call i32 @_php_stream_free(ptr noundef %56, i32 noundef 3) #23
+  %497 = call i32 @_php_stream_free(ptr noundef nonnull %56, i32 noundef 3) #23
   store i32 %422, ptr %421, align 8
   br i1 %.not687, label %828, label %498
 
@@ -2263,7 +2263,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
 .thread839:                                       ; preds = %471, %511, %501
   %512 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %512, align 8
-  %513 = call i64 @_php_stream_tell(ptr noundef %56) #23
+  %513 = call i64 @_php_stream_tell(ptr noundef nonnull %56) #23
   %514 = load ptr, ptr %217, align 8
   %515 = load i32, ptr %219, align 8
   %516 = zext i32 %515 to i64
@@ -2306,7 +2306,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   %539 = zext nneg i16 %538 to i32
   %storemerge = add i32 %536, %539
   store i32 %storemerge, ptr %8, align 16
-  %540 = call i64 @_php_stream_write(ptr noundef %56, ptr noundef nonnull %8, i64 noundef 4) #23
+  %540 = call i64 @_php_stream_write(ptr noundef nonnull %56, ptr noundef nonnull %8, i64 noundef 4) #23
   %.not764 = icmp eq i64 %540, 4
   br i1 %.not764, label %541, label %553
 
@@ -2316,7 +2316,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   %544 = zext i32 %543 to i64
   %545 = getelementptr inbounds nuw i8, ptr %530, i64 56
   %546 = load ptr, ptr %545, align 8
-  %547 = call i64 @_php_stream_write(ptr noundef %56, ptr noundef %546, i64 noundef %544) #23
+  %547 = call i64 @_php_stream_write(ptr noundef nonnull %56, ptr noundef %546, i64 noundef %544) #23
   %.not765 = icmp eq i64 %547, %544
   br i1 %.not765, label %548, label %553
 
@@ -2327,7 +2327,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   br i1 %.not766, label %568, label %551
 
 551:                                              ; preds = %548
-  %552 = call i64 @_php_stream_write(ptr noundef %56, ptr noundef nonnull @.str.15, i64 noundef 1) #23
+  %552 = call i64 @_php_stream_write(ptr noundef nonnull %56, ptr noundef nonnull @.str.15, i64 noundef 1) #23
   %.not767 = icmp eq i64 %552, 1
   br i1 %.not767, label %568, label %553
 
@@ -2339,7 +2339,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   br label %556
 
 556:                                              ; preds = %554, %553
-  %557 = call i32 @_php_stream_free(ptr noundef %56, i32 noundef 3) #23
+  %557 = call i32 @_php_stream_free(ptr noundef nonnull %56, i32 noundef 3) #23
   br i1 %.not687, label %828, label %558
 
 558:                                              ; preds = %556
@@ -2381,7 +2381,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
 
 580:                                              ; preds = %568
   store i32 0, ptr %524, align 4
-  %581 = call i64 @_php_stream_write(ptr noundef %56, ptr noundef nonnull %8, i64 noundef 24) #23
+  %581 = call i64 @_php_stream_write(ptr noundef nonnull %56, ptr noundef nonnull %8, i64 noundef 24) #23
   %.not769 = icmp eq i64 %581, 24
   br i1 %.not769, label %600, label %590
 
@@ -2390,14 +2390,14 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   %583 = load i64, ptr %582, align 8
   %584 = trunc i64 %583 to i32
   store i32 %584, ptr %524, align 4
-  %585 = call i64 @_php_stream_write(ptr noundef %56, ptr noundef nonnull %8, i64 noundef 24) #23
+  %585 = call i64 @_php_stream_write(ptr noundef nonnull %56, ptr noundef nonnull %8, i64 noundef 24) #23
   %.not769842 = icmp eq i64 %585, 24
   br i1 %.not769842, label %586, label %590
 
 586:                                              ; preds = %.thread841
   %587 = load i64, ptr %582, align 8
   %588 = getelementptr inbounds nuw i8, ptr %579, i64 24
-  %589 = call i64 @_php_stream_write(ptr noundef %56, ptr noundef nonnull %588, i64 noundef %587) #23
+  %589 = call i64 @_php_stream_write(ptr noundef nonnull %56, ptr noundef nonnull %588, i64 noundef %587) #23
   %.not770 = icmp eq i64 %587, %589
   br i1 %.not770, label %600, label %590
 
@@ -2410,7 +2410,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   br label %594
 
 594:                                              ; preds = %592, %590
-  %595 = call i32 @_php_stream_free(ptr noundef %56, i32 noundef 3) #23
+  %595 = call i32 @_php_stream_free(ptr noundef nonnull %56, i32 noundef 3) #23
   br i1 %.not687, label %828, label %596
 
 596:                                              ; preds = %594
@@ -2431,7 +2431,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   ]
 
 602:                                              ; preds = %._crit_edge927, %._crit_edge927
-  %603 = call i64 @_php_stream_write(ptr noundef %56, ptr noundef nonnull %7, i64 noundef 1) #23
+  %603 = call i64 @_php_stream_write(ptr noundef nonnull %56, ptr noundef nonnull %7, i64 noundef 1) #23
   %.not734 = icmp eq i64 %603, 1
   br i1 %.not734, label %611, label %604
 
@@ -2443,7 +2443,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   br label %607
 
 607:                                              ; preds = %605, %604
-  %608 = call i32 @_php_stream_free(ptr noundef %56, i32 noundef 3) #23
+  %608 = call i32 @_php_stream_free(ptr noundef nonnull %56, i32 noundef 3) #23
   br i1 %.not687, label %828, label %609
 
 609:                                              ; preds = %607
@@ -2451,7 +2451,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   br label %828
 
 611:                                              ; preds = %._crit_edge927, %602
-  %612 = call i64 @_php_stream_tell(ptr noundef %56) #23
+  %612 = call i64 @_php_stream_tell(ptr noundef nonnull %56) #23
   %613 = load ptr, ptr %217, align 8
   %614 = load i32, ptr %219, align 8
   %615 = zext i32 %614 to i64
@@ -2509,7 +2509,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   br label %642
 
 642:                                              ; preds = %640, %639
-  %643 = call i32 @_php_stream_free(ptr noundef %56, i32 noundef 3) #23
+  %643 = call i32 @_php_stream_free(ptr noundef nonnull %56, i32 noundef 3) #23
   br i1 %.not687, label %828, label %644
 
 644:                                              ; preds = %642
@@ -2531,7 +2531,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   br label %653
 
 653:                                              ; preds = %651, %650
-  %654 = call i32 @_php_stream_free(ptr noundef %56, i32 noundef 3) #23
+  %654 = call i32 @_php_stream_free(ptr noundef nonnull %56, i32 noundef 3) #23
   br i1 %.not687, label %828, label %655
 
 655:                                              ; preds = %653
@@ -2551,7 +2551,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   %664 = load i32, ptr %663, align 8
   %665 = zext i32 %664 to i64
   %666 = add nsw i64 %.2627929, %665
-  %667 = call i32 @_php_stream_copy_to_stream_ex(ptr noundef nonnull %.0632847, ptr noundef %56, i64 noundef %665, ptr noundef nonnull %9) #23
+  %667 = call i32 @_php_stream_copy_to_stream_ex(ptr noundef nonnull %.0632847, ptr noundef nonnull %56, i64 noundef %665, ptr noundef nonnull %9) #23
   %668 = icmp eq i32 %667, -1
   br i1 %668, label %669, label %679
 
@@ -2563,7 +2563,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   br label %672
 
 672:                                              ; preds = %670, %669
-  %673 = call i32 @_php_stream_free(ptr noundef %56, i32 noundef 3) #23
+  %673 = call i32 @_php_stream_free(ptr noundef nonnull %56, i32 noundef 3) #23
   br i1 %.not687, label %828, label %674
 
 674:                                              ; preds = %672
@@ -2641,7 +2641,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   br label %706
 
 706:                                              ; preds = %._crit_edge933, %704
-  %707 = call i32 @_php_stream_seek(ptr noundef %56, i64 noundef 0, i32 noundef 0) #23
+  %707 = call i32 @_php_stream_seek(ptr noundef nonnull %56, i64 noundef 0, i32 noundef 0) #23
   %708 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %709 = load ptr, ptr %708, align 8
   %.not738 = icmp eq ptr %709, null
@@ -2654,7 +2654,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
 
 711:                                              ; preds = %706, %710
   store ptr null, ptr %16, align 8
-  %712 = call i32 @phar_create_signature(ptr noundef nonnull %0, ptr noundef %56, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef %4) #23
+  %712 = call i32 @phar_create_signature(ptr noundef nonnull %0, ptr noundef nonnull %56, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef %4) #23
   %713 = icmp eq i32 %712, -1
   br i1 %713, label %714, label %726
 
@@ -2684,13 +2684,13 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   br label %724
 
 724:                                              ; preds = %722, %721
-  %725 = call i32 @_php_stream_free(ptr noundef %56, i32 noundef 3) #23
+  %725 = call i32 @_php_stream_free(ptr noundef nonnull %56, i32 noundef 3) #23
   br label %.loopexit
 
 726:                                              ; preds = %711
   %727 = load ptr, ptr %16, align 8
   %728 = load i64, ptr %17, align 8
-  %729 = call i64 @_php_stream_write(ptr noundef %56, ptr noundef %727, i64 noundef %728) #23
+  %729 = call i64 @_php_stream_write(ptr noundef nonnull %56, ptr noundef %727, i64 noundef %728) #23
   %730 = load ptr, ptr %16, align 8
   call void @_efree(ptr noundef %730) #23
   %731 = getelementptr inbounds nuw i8, ptr %0, i64 276
@@ -2703,15 +2703,15 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   %734 = load i64, ptr %17, align 8
   %735 = trunc i64 %734 to i32
   store i32 %735, ptr %15, align 4
-  %736 = call i64 @_php_stream_write(ptr noundef %56, ptr noundef nonnull %15, i64 noundef 4) #23
+  %736 = call i64 @_php_stream_write(ptr noundef nonnull %56, ptr noundef nonnull %15, i64 noundef 4) #23
   %.pre956 = load i32, ptr %731, align 4
   br label %737
 
 737:                                              ; preds = %726, %733
   %738 = phi i32 [ %732, %726 ], [ %.pre956, %733 ]
   store i32 %738, ptr %15, align 4
-  %739 = call i64 @_php_stream_write(ptr noundef %56, ptr noundef nonnull %15, i64 noundef 4) #23
-  %740 = call i64 @_php_stream_write(ptr noundef %56, ptr noundef nonnull @.str.50, i64 noundef 4) #23
+  %739 = call i64 @_php_stream_write(ptr noundef nonnull %56, ptr noundef nonnull %15, i64 noundef 4) #23
+  %740 = call i64 @_php_stream_write(ptr noundef nonnull %56, ptr noundef nonnull @.str.50, i64 noundef 4) #23
   %741 = load ptr, ptr %47, align 8
   %742 = icmp ne ptr %741, null
   %or.cond9 = select i1 %742, i1 %.0644.lcssa, i1 false
@@ -2756,7 +2756,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   %761 = load i16, ptr %19, align 4
   %762 = and i16 %761, -9
   store i16 %762, ptr %19, align 4
-  %763 = call i32 @_php_stream_seek(ptr noundef %56, i64 noundef 0, i32 noundef 0) #23
+  %763 = call i32 @_php_stream_seek(ptr noundef nonnull %56, i64 noundef 0, i32 noundef 0) #23
   %764 = load i16, ptr %19, align 4
   %765 = and i16 %764, 16
   %.not742 = icmp eq i16 %765, 0
@@ -2819,7 +2819,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   %794 = getelementptr inbounds nuw i8, ptr %793, i64 40
   call void @_php_stream_filter_append(ptr noundef nonnull %794, ptr noundef nonnull %786) #23
   %795 = load ptr, ptr %47, align 8
-  %796 = call i32 @_php_stream_copy_to_stream_ex(ptr noundef %56, ptr noundef %795, i64 noundef -1, ptr noundef null) #23
+  %796 = call i32 @_php_stream_copy_to_stream_ex(ptr noundef nonnull %56, ptr noundef %795, i64 noundef -1, ptr noundef null) #23
   %797 = call i32 @_php_stream_filter_flush(ptr noundef nonnull %786, i32 noundef 1) #23
   %798 = call ptr @php_stream_filter_remove(ptr noundef nonnull %786, i32 noundef 1) #23
   %799 = load ptr, ptr %47, align 8
@@ -2842,7 +2842,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   %810 = getelementptr inbounds nuw i8, ptr %809, i64 40
   call void @_php_stream_filter_append(ptr noundef nonnull %810, ptr noundef %808) #23
   %811 = load ptr, ptr %47, align 8
-  %812 = call i32 @_php_stream_copy_to_stream_ex(ptr noundef %56, ptr noundef %811, i64 noundef -1, ptr noundef null) #23
+  %812 = call i32 @_php_stream_copy_to_stream_ex(ptr noundef nonnull %56, ptr noundef %811, i64 noundef -1, ptr noundef null) #23
   %813 = call i32 @_php_stream_filter_flush(ptr noundef %808, i32 noundef 1) #23
   %814 = call ptr @php_stream_filter_remove(ptr noundef %808, i32 noundef 1) #23
   %815 = load ptr, ptr %47, align 8
@@ -2851,8 +2851,8 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   br label %820
 
 817:                                              ; preds = %801
-  %818 = call i32 @_php_stream_copy_to_stream_ex(ptr noundef %56, ptr noundef nonnull %769, i64 noundef -1, ptr noundef null) #23
-  %819 = call i32 @_php_stream_free(ptr noundef %56, i32 noundef 3) #23
+  %818 = call i32 @_php_stream_copy_to_stream_ex(ptr noundef nonnull %56, ptr noundef nonnull %769, i64 noundef -1, ptr noundef null) #23
+  %819 = call i32 @_php_stream_free(ptr noundef nonnull %56, i32 noundef 3) #23
   %.pre957 = load ptr, ptr %47, align 8
   br label %820
 
@@ -2883,7 +2883,7 @@ define hidden i32 @phar_flush(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
 
 .sink.split984:                                   ; preds = %828, %380, %392, %.thread848.sink.split, %366, %365
   %.sink = phi ptr [ %56, %365 ], [ %56, %366 ], [ %.0636.lcssa, %828 ], [ %.2638838, %380 ], [ %.2638838, %392 ], [ %.2638838, %.thread848.sink.split ]
-  %833 = call i32 @_php_stream_free(ptr noundef %.sink, i32 noundef 3) #23
+  %833 = call i32 @_php_stream_free(ptr noundef nonnull %.sink, i32 noundef 3) #23
   br label %834
 
 834:                                              ; preds = %.sink.split984, %828
@@ -3047,7 +3047,7 @@ define hidden range(i32 -1, 1) i32 @phar_open_parsed_phar(ptr noundef %0, i64 no
 declare i32 @phar_get_archive(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare i64 @zend_spprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -3088,7 +3088,7 @@ define hidden void @phar_metadata_tracker_try_ensure_has_serialized_data(ptr nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
@@ -3100,7 +3100,7 @@ declare void @php_var_serialize(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @php_var_serialize_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @phar_metadata_tracker_unserialize_or_copy(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phar_metadata_tracker_unserialize_or_copy(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %6
 
@@ -3170,7 +3170,7 @@ declare void @php_unserialize_with_options(ptr noundef, ptr noundef, i64 noundef
 declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden zeroext i1 @phar_metadata_tracker_has_data(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define hidden zeroext i1 @phar_metadata_tracker_has_data(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = icmp eq i8 %4, 0
@@ -3301,7 +3301,7 @@ phar_metadata_tracker_free.exit:                  ; preds = %22, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @phar_metadata_tracker_clone(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @phar_metadata_tracker_clone(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %3 = load i8, ptr %2, align 1
   %.not = icmp eq i8 %3, 0
@@ -3357,7 +3357,7 @@ define hidden void @phar_metadata_tracker_clone(ptr nocapture noundef %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @phar_parse_metadata_lazy(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden void @phar_parse_metadata_lazy(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._zval_struct, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3661,7 +3661,7 @@ define hidden i32 @phar_open_or_create_filename(ptr noundef %0, i64 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @phar_detect_phar_fname_ext(ptr noundef %0, i64 noundef %1, ptr nocapture noundef initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phar_detect_phar_fname_ext(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   store i64 0, ptr %3, align 8
   %8 = icmp ult i64 %1, 2
@@ -6171,11 +6171,11 @@ phar_strnstr.exit:                                ; preds = %172
   br i1 %.not1081.i, label %880, label %878
 
 878:                                              ; preds = %877
-  %879 = call noalias ptr @zend_strndup(ptr noundef %843, i64 noundef %2) #23
+  %879 = call noalias ptr @zend_strndup(ptr noundef nonnull %843, i64 noundef %2) #23
   br label %882
 
 880:                                              ; preds = %877
-  %881 = call noalias ptr @_estrndup(ptr noundef %843, i64 noundef %2) #23
+  %881 = call noalias ptr @_estrndup(ptr noundef nonnull %843, i64 noundef %2) #23
   br label %882
 
 882:                                              ; preds = %880, %878, %875, %873
@@ -6480,7 +6480,7 @@ declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 declare ptr @expand_filepath(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #4
@@ -6588,7 +6588,7 @@ define hidden i32 @phar_open_from_filename(ptr noundef %0, i64 noundef %1, ptr n
   %12 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.13) #24
   %.not = icmp eq ptr %12, null
   %spec.select = zext i1 %.not to i32
-  %13 = tail call i32 @phar_open_parsed_phar(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %.not, i32 noundef %4, ptr noundef %5, ptr noundef %6)
+  %13 = tail call i32 @phar_open_parsed_phar(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %.not, i32 noundef %4, ptr noundef %5, ptr noundef %6)
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %56, label %15
 
@@ -6601,12 +6601,12 @@ define hidden i32 @phar_open_from_filename(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %.not55, label %18, label %56
 
 18:                                               ; preds = %15, %16
-  %19 = tail call i32 @php_check_open_basedir(ptr noundef %0) #23
+  %19 = tail call i32 @php_check_open_basedir(ptr noundef nonnull %0) #23
   %.not56 = icmp eq i32 %19, 0
   br i1 %.not56, label %20, label %56
 
 20:                                               ; preds = %18
-  %21 = call ptr @_php_stream_open_wrapper_ex(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef 18, ptr noundef nonnull %8, ptr noundef null) #23
+  %21 = call ptr @_php_stream_open_wrapper_ex(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, i32 noundef 18, ptr noundef nonnull %8, ptr noundef null) #23
   %.not57 = icmp eq ptr %21, null
   br i1 %.not57, label %22, label %38
 
@@ -6617,7 +6617,7 @@ define hidden i32 @phar_open_from_filename(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %or.cond, label %25, label %27
 
 25:                                               ; preds = %22
-  %26 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %6, i64 noundef 0, ptr noundef nonnull @.str.14, ptr noundef %0) #23
+  %26 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %6, i64 noundef 0, ptr noundef nonnull @.str.14, ptr noundef nonnull %0) #23
   br label %27
 
 27:                                               ; preds = %25, %22
@@ -6655,7 +6655,7 @@ define hidden i32 @phar_open_from_filename(ptr noundef %0, i64 noundef %1, ptr n
 44:                                               ; preds = %40, %38
   %.049 = phi i64 [ %43, %40 ], [ %1, %38 ]
   %.048 = phi ptr [ %41, %40 ], [ %0, %38 ]
-  %45 = call fastcc i32 @phar_open_from_fp(ptr noundef %21, ptr noundef %.048, i64 noundef %.049, ptr noundef %2, i64 noundef %3, ptr noundef %5, i32 noundef %spec.select, ptr noundef %6)
+  %45 = call fastcc i32 @phar_open_from_fp(ptr noundef %21, ptr noundef nonnull %.048, i64 noundef %.049, ptr noundef %2, i64 noundef %3, ptr noundef %5, i32 noundef %spec.select, ptr noundef %6)
   %46 = load ptr, ptr %8, align 8
   %.not61 = icmp eq ptr %46, null
   br i1 %.not61, label %56, label %47
@@ -6688,7 +6688,7 @@ define hidden i32 @phar_open_from_filename(ptr noundef %0, i64 noundef %1, ptr n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @phar_check_str(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
@@ -6772,7 +6772,7 @@ define internal fastcc range(i32 -1, 1) i32 @phar_check_str(ptr noundef %0, ptr 
   ]
 
 .sink.split:                                      ; preds = %34, %31, %20, %20, %20
-  %37 = tail call fastcc i32 @phar_analyze_path(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %4)
+  %37 = tail call fastcc i32 @phar_analyze_path(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, i32 noundef %4)
   br label %38
 
 38:                                               ; preds = %.sink.split, %28, %28, %28, %31, %31, %31, %34, %34, %34, %8, %11, %15, %20, %5
@@ -6784,7 +6784,7 @@ define internal fastcc range(i32 -1, 1) i32 @phar_check_str(ptr noundef %0, ptr 
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @phar_fix_filepath(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @phar_fix_filepath(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i64, ptr %1, align 8
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 416), align 8
   %6 = icmp ne i32 %5, 0
@@ -7069,13 +7069,13 @@ declare noalias ptr @_emalloc_160() local_unnamed_addr #1
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: allocsize(1)
 declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @phar_split_fname(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phar_split_fname(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
@@ -7083,13 +7083,13 @@ define hidden range(i32 -1, 1) i32 @phar_split_fname(ptr noundef %0, i64 noundef
   br i1 %.not, label %12, label %39
 
 12:                                               ; preds = %8
-  %13 = tail call i32 @strncasecmp(ptr noundef %0, ptr noundef nonnull @.str.16, i64 noundef 7) #24
+  %13 = tail call i32 @strncasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.16, i64 noundef 7) #24
   %.not31 = icmp eq i32 %13, 0
   %14 = add i64 %1, -7
   %.029 = select i1 %.not31, i64 %14, i64 %1
   %.028.idx = select i1 %.not31, i64 7, i64 0
   %.028 = getelementptr inbounds nuw i8, ptr %0, i64 %.028.idx
-  %15 = call i32 @phar_detect_phar_fname_ext(ptr noundef %.028, i64 noundef %.029, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %6, i32 noundef %7, i32 noundef 0)
+  %15 = call i32 @phar_detect_phar_fname_ext(ptr noundef nonnull %.028, i64 noundef %.029, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %6, i32 noundef %7, i32 noundef 0)
   %16 = icmp eq i32 %15, -1
   %.pre = load i64, ptr %10, align 8
   br i1 %16, label %17, label %21
@@ -7115,7 +7115,7 @@ define hidden range(i32 -1, 1) i32 @phar_split_fname(ptr noundef %0, i64 noundef
   %26 = sub i64 %24, %25
   %27 = add i64 %26, %22
   store i64 %27, ptr %3, align 8
-  %28 = tail call noalias ptr @_estrndup(ptr noundef %.028, i64 noundef %27) #23
+  %28 = tail call noalias ptr @_estrndup(ptr noundef nonnull %.028, i64 noundef %27) #23
   store ptr %28, ptr %2, align 8
   %29 = getelementptr inbounds i8, ptr %23, i64 %22
   %30 = load i8, ptr %29, align 1
@@ -7147,7 +7147,7 @@ define hidden range(i32 -1, 1) i32 @phar_split_fname(ptr noundef %0, i64 noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @phar_open_executed_filename(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -7276,7 +7276,7 @@ declare ptr @zend_get_executed_filename_ex() local_unnamed_addr #1
 declare ptr @zend_get_constant_str(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @phar_postprocess_file(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phar_postprocess_file(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct._phar_zip_file_header, align 1
   %7 = alloca %struct._phar_zip_file_datadesc, align 1
@@ -7676,7 +7676,7 @@ declare i64 @_php_stream_tell(ptr noundef) local_unnamed_addr #1
 declare void @zend_hash_apply(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @phar_flush_clean_deleted_apply(ptr nocapture noundef readonly %0) #13 {
+define internal range(i32 0, 2) i32 @phar_flush_clean_deleted_apply(ptr noundef readonly captures(none) %0) #13 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %4 = load i32, ptr %3, align 8
@@ -9176,7 +9176,7 @@ define hidden void @zm_globals_ctor_phar(ptr noundef initializes((0, 536)) %0) #
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @mime_type_dtor(ptr nocapture noundef readonly %0) #15 {
+define internal void @mime_type_dtor(ptr noundef readonly captures(none) %0) #15 {
   %2 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %2) #23
   ret void
@@ -9520,7 +9520,7 @@ declare void @phar_intercept_functions_shutdown() local_unnamed_addr #1
 declare void @zend_unregister_ini_entries_ex(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @destroy_phar_data(ptr nocapture noundef readonly %0) #0 {
+define internal void @destroy_phar_data(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 224), align 8
   %.not = icmp eq i32 %3, 0
@@ -9712,7 +9712,7 @@ declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #1
 declare void @zend_init_rsrc_list() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #16
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #16
 
 declare void @zend_hash_graceful_reverse_destroy(ptr noundef) local_unnamed_addr #1
 
@@ -9743,7 +9743,7 @@ declare noalias ptr @__zend_calloc(i64 noundef, i64 noundef) local_unnamed_addr 
 declare noalias ptr @zend_strndup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @phar_set_inode(ptr nocapture noundef nonnull initializes((152, 154)) %0) unnamed_addr #0 {
+define internal fastcc void @phar_set_inode(ptr noundef nonnull captures(none) initializes((152, 154)) %0) unnamed_addr #0 {
   %2 = alloca [4096 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
@@ -9895,23 +9895,23 @@ define internal fastcc range(i32 -1, 1) i32 @phar_analyze_path(ptr noundef %0, p
   br i1 %.not61, label %36, label %.thread
 
 36:                                               ; preds = %34
-  %37 = call i32 @_php_stream_stat_path(ptr noundef %10, i32 noundef 0, ptr noundef nonnull %5, ptr noundef null) #23
+  %37 = call i32 @_php_stream_stat_path(ptr noundef nonnull %10, i32 noundef 0, ptr noundef nonnull %5, ptr noundef null) #23
   %.not62 = icmp eq i32 %37, 0
   br i1 %.not62, label %57, label %39
 
 .thread:                                          ; preds = %34
   store i8 0, ptr %35, align 1
-  %38 = call i32 @_php_stream_stat_path(ptr noundef %10, i32 noundef 0, ptr noundef nonnull %5, ptr noundef null) #23
+  %38 = call i32 @_php_stream_stat_path(ptr noundef nonnull %10, i32 noundef 0, ptr noundef nonnull %5, ptr noundef null) #23
   %.not6271 = icmp eq i32 %38, 0
   br i1 %.not6271, label %57, label %.thread72
 
 39:                                               ; preds = %36
-  %40 = call ptr @expand_filepath(ptr noundef %10, ptr noundef null) #23
+  %40 = call ptr @expand_filepath(ptr noundef nonnull %10, ptr noundef null) #23
   %.not64 = icmp eq ptr %40, null
   br i1 %.not64, label %41, label %42
 
 41:                                               ; preds = %39
-  call void @_efree(ptr noundef %10) #23
+  call void @_efree(ptr noundef nonnull %10) #23
   br label %62
 
 42:                                               ; preds = %39
@@ -9938,11 +9938,11 @@ define internal fastcc range(i32 -1, 1) i32 @phar_analyze_path(ptr noundef %0, p
 
 50:                                               ; preds = %46
   call void @_efree(ptr noundef nonnull %40) #23
-  call void @_efree(ptr noundef %10) #23
+  call void @_efree(ptr noundef nonnull %10) #23
   br label %62
 
 51:                                               ; preds = %48
-  call void @_efree(ptr noundef %10) #23
+  call void @_efree(ptr noundef nonnull %10) #23
   br label %62
 
 52:                                               ; preds = %48
@@ -9953,15 +9953,15 @@ define internal fastcc range(i32 -1, 1) i32 @phar_analyze_path(ptr noundef %0, p
   br i1 %.not68, label %.thread72, label %56
 
 56:                                               ; preds = %52
-  call void @_efree(ptr noundef %10) #23
+  call void @_efree(ptr noundef nonnull %10) #23
   br label %62
 
 .thread72:                                        ; preds = %.thread, %52
-  call void @_efree(ptr noundef %10) #23
+  call void @_efree(ptr noundef nonnull %10) #23
   br label %62
 
 57:                                               ; preds = %.thread, %36
-  call void @_efree(ptr noundef %10) #23
+  call void @_efree(ptr noundef nonnull %10) #23
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %59 = load i32, ptr %58, align 8
   %60 = lshr i32 %59, 14
@@ -9985,7 +9985,7 @@ declare void @zend_ini_boolean_displayer_cb(ptr noundef, i32 noundef) #1
 declare void @zend_stream_init_filename_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @phar_zend_stream_reader(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal i64 @phar_zend_stream_reader(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 324
   %5 = load i16, ptr %4, align 4
   %6 = and i16 %5, 256
@@ -10012,7 +10012,7 @@ phar_get_pharfp.exit:                             ; preds = %7, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @phar_zend_stream_fsizer(ptr nocapture noundef readonly %0) #7 {
+define internal i64 @phar_zend_stream_fsizer(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, 32
@@ -10028,7 +10028,7 @@ declare void @_zend_bailout(ptr noundef, i32 noundef) local_unnamed_addr #19
 declare ptr @phar_find_in_include_path(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @phar_tmpclose_apply(ptr nocapture noundef readonly %0) #0 {
+define internal noundef i32 @phar_tmpclose_apply(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %4 = load i32, ptr %3, align 8
@@ -10057,7 +10057,7 @@ define internal noundef i32 @phar_tmpclose_apply(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @phar_unalias_apply(ptr nocapture noundef readonly %0, ptr noundef readnone %1) #7 {
+define internal range(i32 0, 2) i32 @phar_unalias_apply(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, %1
   %5 = zext i1 %4 to i32
@@ -10065,13 +10065,13 @@ define internal range(i32 0, 2) i32 @phar_unalias_apply(ptr nocapture noundef re
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #22

@@ -669,7 +669,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_check_move_u
 declare dso_local i32 @__SCT__tp_func_mm_vmscan_kswapd_sleep(ptr noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_mm_vmscan_kswapd_sleep(ptr nocapture readnone %0, i32 noundef %1) #1 align 16 {
+define dso_local noundef i32 @__traceiter_mm_vmscan_kswapd_sleep(ptr readnone captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_mm_vmscan_kswapd_sleep, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -690,21 +690,21 @@ define dso_local noundef i32 @__traceiter_mm_vmscan_kswapd_sleep(ptr nocapture r
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_mm_vmscan_kswapd_sleep(ptr nocapture readnone %0, i32 %1) #2 align 16 {
+define dso_local void @__probestub_mm_vmscan_kswapd_sleep(ptr readnone captures(none) %0, i32 %1) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__SCT__tp_func_mm_vmscan_kswapd_wake(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_mm_vmscan_kswapd_wake(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_mm_vmscan_kswapd_wake(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_mm_vmscan_kswapd_wake, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -725,7 +725,7 @@ define dso_local noundef i32 @__traceiter_mm_vmscan_kswapd_wake(ptr nocapture re
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_mm_vmscan_kswapd_wake(ptr nocapture readnone %0, i32 %1, i32 %2, i32 %3) #2 align 16 {
+define dso_local void @__probestub_mm_vmscan_kswapd_wake(ptr readnone captures(none) %0, i32 %1, i32 %2, i32 %3) #2 align 16 {
   ret void
 }
 
@@ -733,7 +733,7 @@ define dso_local void @__probestub_mm_vmscan_kswapd_wake(ptr nocapture readnone 
 declare dso_local i32 @__SCT__tp_func_mm_vmscan_wakeup_kswapd(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_mm_vmscan_wakeup_kswapd(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #1 align 16 {
+define dso_local noundef i32 @__traceiter_mm_vmscan_wakeup_kswapd(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #1 align 16 {
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_mm_vmscan_wakeup_kswapd, i64 72), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
@@ -754,7 +754,7 @@ define dso_local noundef i32 @__traceiter_mm_vmscan_wakeup_kswapd(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_mm_vmscan_wakeup_kswapd(ptr nocapture readnone %0, i32 %1, i32 %2, i32 %3, i32 %4) #2 align 16 {
+define dso_local void @__probestub_mm_vmscan_wakeup_kswapd(ptr readnone captures(none) %0, i32 %1, i32 %2, i32 %3, i32 %4) #2 align 16 {
   ret void
 }
 
@@ -762,7 +762,7 @@ define dso_local void @__probestub_mm_vmscan_wakeup_kswapd(ptr nocapture readnon
 declare dso_local i32 @__SCT__tp_func_mm_vmscan_direct_reclaim_begin(ptr noundef, i32 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_mm_vmscan_direct_reclaim_begin(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_mm_vmscan_direct_reclaim_begin(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_mm_vmscan_direct_reclaim_begin, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -783,7 +783,7 @@ define dso_local noundef i32 @__traceiter_mm_vmscan_direct_reclaim_begin(ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_mm_vmscan_direct_reclaim_begin(ptr nocapture readnone %0, i32 %1, i32 %2) #2 align 16 {
+define dso_local void @__probestub_mm_vmscan_direct_reclaim_begin(ptr readnone captures(none) %0, i32 %1, i32 %2) #2 align 16 {
   ret void
 }
 
@@ -791,7 +791,7 @@ define dso_local void @__probestub_mm_vmscan_direct_reclaim_begin(ptr nocapture 
 declare dso_local i32 @__SCT__tp_func_mm_vmscan_direct_reclaim_end(ptr noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_mm_vmscan_direct_reclaim_end(ptr nocapture readnone %0, i64 noundef %1) #1 align 16 {
+define dso_local noundef i32 @__traceiter_mm_vmscan_direct_reclaim_end(ptr readnone captures(none) %0, i64 noundef %1) #1 align 16 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_mm_vmscan_direct_reclaim_end, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -812,7 +812,7 @@ define dso_local noundef i32 @__traceiter_mm_vmscan_direct_reclaim_end(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_mm_vmscan_direct_reclaim_end(ptr nocapture readnone %0, i64 %1) #2 align 16 {
+define dso_local void @__probestub_mm_vmscan_direct_reclaim_end(ptr readnone captures(none) %0, i64 %1) #2 align 16 {
   ret void
 }
 
@@ -820,7 +820,7 @@ define dso_local void @__probestub_mm_vmscan_direct_reclaim_end(ptr nocapture re
 declare dso_local i32 @__SCT__tp_func_mm_shrink_slab_start(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_mm_shrink_slab_start(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7) #1 align 16 {
+define dso_local noundef i32 @__traceiter_mm_shrink_slab_start(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7) #1 align 16 {
   %9 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_mm_shrink_slab_start, i64 72), align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %.preheader
@@ -841,7 +841,7 @@ define dso_local noundef i32 @__traceiter_mm_shrink_slab_start(ptr nocapture rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_mm_shrink_slab_start(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 %3, i64 %4, i64 %5, i64 %6, i32 %7) #2 align 16 {
+define dso_local void @__probestub_mm_shrink_slab_start(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 %3, i64 %4, i64 %5, i64 %6, i32 %7) #2 align 16 {
   ret void
 }
 
@@ -849,7 +849,7 @@ define dso_local void @__probestub_mm_shrink_slab_start(ptr nocapture readnone %
 declare dso_local i32 @__SCT__tp_func_mm_shrink_slab_end(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_mm_shrink_slab_end(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) #1 align 16 {
+define dso_local noundef i32 @__traceiter_mm_shrink_slab_end(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) #1 align 16 {
   %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_mm_shrink_slab_end, i64 72), align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %.preheader
@@ -870,7 +870,7 @@ define dso_local noundef i32 @__traceiter_mm_shrink_slab_end(ptr nocapture readn
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_mm_shrink_slab_end(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3, i64 %4, i64 %5, i64 %6) #2 align 16 {
+define dso_local void @__probestub_mm_shrink_slab_end(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3, i64 %4, i64 %5, i64 %6) #2 align 16 {
   ret void
 }
 
@@ -878,7 +878,7 @@ define dso_local void @__probestub_mm_shrink_slab_end(ptr nocapture readnone %0,
 declare dso_local i32 @__SCT__tp_func_mm_vmscan_lru_isolate(ptr noundef, i32 noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_mm_vmscan_lru_isolate(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7) #1 align 16 {
+define dso_local noundef i32 @__traceiter_mm_vmscan_lru_isolate(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7) #1 align 16 {
   %9 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_mm_vmscan_lru_isolate, i64 72), align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %.preheader
@@ -899,7 +899,7 @@ define dso_local noundef i32 @__traceiter_mm_vmscan_lru_isolate(ptr nocapture re
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_mm_vmscan_lru_isolate(ptr nocapture readnone %0, i32 %1, i32 %2, i64 %3, i64 %4, i64 %5, i64 %6, i32 %7) #2 align 16 {
+define dso_local void @__probestub_mm_vmscan_lru_isolate(ptr readnone captures(none) %0, i32 %1, i32 %2, i64 %3, i64 %4, i64 %5, i64 %6, i32 %7) #2 align 16 {
   ret void
 }
 
@@ -907,7 +907,7 @@ define dso_local void @__probestub_mm_vmscan_lru_isolate(ptr nocapture readnone 
 declare dso_local i32 @__SCT__tp_func_mm_vmscan_write_folio(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_mm_vmscan_write_folio(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef i32 @__traceiter_mm_vmscan_write_folio(ptr readnone captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_mm_vmscan_write_folio, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -928,7 +928,7 @@ define dso_local noundef i32 @__traceiter_mm_vmscan_write_folio(ptr nocapture re
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_mm_vmscan_write_folio(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
+define dso_local void @__probestub_mm_vmscan_write_folio(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   ret void
 }
 
@@ -936,7 +936,7 @@ define dso_local void @__probestub_mm_vmscan_write_folio(ptr nocapture readnone 
 declare dso_local i32 @__SCT__tp_func_mm_vmscan_lru_shrink_inactive(ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_mm_vmscan_lru_shrink_inactive(ptr nocapture readnone %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) #1 align 16 {
+define dso_local noundef i32 @__traceiter_mm_vmscan_lru_shrink_inactive(ptr readnone captures(none) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) #1 align 16 {
   %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_mm_vmscan_lru_shrink_inactive, i64 72), align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %.preheader
@@ -957,7 +957,7 @@ define dso_local noundef i32 @__traceiter_mm_vmscan_lru_shrink_inactive(ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_mm_vmscan_lru_shrink_inactive(ptr nocapture readnone %0, i32 %1, i64 %2, i64 %3, ptr nocapture readnone %4, i32 %5, i32 %6) #2 align 16 {
+define dso_local void @__probestub_mm_vmscan_lru_shrink_inactive(ptr readnone captures(none) %0, i32 %1, i64 %2, i64 %3, ptr readnone captures(none) %4, i32 %5, i32 %6) #2 align 16 {
   ret void
 }
 
@@ -965,7 +965,7 @@ define dso_local void @__probestub_mm_vmscan_lru_shrink_inactive(ptr nocapture r
 declare dso_local i32 @__SCT__tp_func_mm_vmscan_lru_shrink_active(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_mm_vmscan_lru_shrink_active(ptr nocapture readnone %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) #1 align 16 {
+define dso_local noundef i32 @__traceiter_mm_vmscan_lru_shrink_active(ptr readnone captures(none) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) #1 align 16 {
   %9 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_mm_vmscan_lru_shrink_active, i64 72), align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %.preheader
@@ -986,7 +986,7 @@ define dso_local noundef i32 @__traceiter_mm_vmscan_lru_shrink_active(ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_mm_vmscan_lru_shrink_active(ptr nocapture readnone %0, i32 %1, i64 %2, i64 %3, i64 %4, i64 %5, i32 %6, i32 %7) #2 align 16 {
+define dso_local void @__probestub_mm_vmscan_lru_shrink_active(ptr readnone captures(none) %0, i32 %1, i64 %2, i64 %3, i64 %4, i64 %5, i32 %6, i32 %7) #2 align 16 {
   ret void
 }
 
@@ -994,7 +994,7 @@ define dso_local void @__probestub_mm_vmscan_lru_shrink_active(ptr nocapture rea
 declare dso_local i32 @__SCT__tp_func_mm_vmscan_node_reclaim_begin(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_mm_vmscan_node_reclaim_begin(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_mm_vmscan_node_reclaim_begin(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_mm_vmscan_node_reclaim_begin, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -1015,7 +1015,7 @@ define dso_local noundef i32 @__traceiter_mm_vmscan_node_reclaim_begin(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_mm_vmscan_node_reclaim_begin(ptr nocapture readnone %0, i32 %1, i32 %2, i32 %3) #2 align 16 {
+define dso_local void @__probestub_mm_vmscan_node_reclaim_begin(ptr readnone captures(none) %0, i32 %1, i32 %2, i32 %3) #2 align 16 {
   ret void
 }
 
@@ -1023,7 +1023,7 @@ define dso_local void @__probestub_mm_vmscan_node_reclaim_begin(ptr nocapture re
 declare dso_local i32 @__SCT__tp_func_mm_vmscan_node_reclaim_end(ptr noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_mm_vmscan_node_reclaim_end(ptr nocapture readnone %0, i64 noundef %1) #1 align 16 {
+define dso_local noundef i32 @__traceiter_mm_vmscan_node_reclaim_end(ptr readnone captures(none) %0, i64 noundef %1) #1 align 16 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_mm_vmscan_node_reclaim_end, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -1044,7 +1044,7 @@ define dso_local noundef i32 @__traceiter_mm_vmscan_node_reclaim_end(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_mm_vmscan_node_reclaim_end(ptr nocapture readnone %0, i64 %1) #2 align 16 {
+define dso_local void @__probestub_mm_vmscan_node_reclaim_end(ptr readnone captures(none) %0, i64 %1) #2 align 16 {
   ret void
 }
 
@@ -1052,7 +1052,7 @@ define dso_local void @__probestub_mm_vmscan_node_reclaim_end(ptr nocapture read
 declare dso_local i32 @__SCT__tp_func_mm_vmscan_throttled(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_mm_vmscan_throttled(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #1 align 16 {
+define dso_local noundef i32 @__traceiter_mm_vmscan_throttled(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #1 align 16 {
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_mm_vmscan_throttled, i64 72), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
@@ -1073,7 +1073,7 @@ define dso_local noundef i32 @__traceiter_mm_vmscan_throttled(ptr nocapture read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_mm_vmscan_throttled(ptr nocapture readnone %0, i32 %1, i32 %2, i32 %3, i32 %4) #2 align 16 {
+define dso_local void @__probestub_mm_vmscan_throttled(ptr readnone captures(none) %0, i32 %1, i32 %2, i32 %3, i32 %4) #2 align 16 {
   ret void
 }
 
@@ -1557,7 +1557,7 @@ define internal void @perf_trace_mm_vmscan_direct_reclaim_end_template(ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_mm_shrink_slab_start(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7) #1 align 16 {
+define internal void @trace_event_raw_event_mm_shrink_slab_start(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7) #1 align 16 {
   %9 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #14
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1615,7 +1615,7 @@ define internal void @trace_event_raw_event_mm_shrink_slab_start(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_mm_shrink_slab_start(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7) #1 align 16 {
+define internal void @perf_trace_mm_shrink_slab_start(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7) #1 align 16 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
@@ -2029,7 +2029,7 @@ define internal void @perf_trace_mm_vmscan_write_folio(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_mm_vmscan_lru_shrink_inactive(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6) #1 align 16 {
+define internal void @trace_event_raw_event_mm_vmscan_lru_shrink_inactive(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6) #1 align 16 {
   %8 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #14
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2112,7 +2112,7 @@ define internal void @trace_event_raw_event_mm_vmscan_lru_shrink_inactive(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_mm_vmscan_lru_shrink_inactive(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6) #1 align 16 {
+define internal void @perf_trace_mm_vmscan_lru_shrink_inactive(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6) #1 align 16 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
@@ -2994,7 +2994,7 @@ define dso_local void @reclaim_throttle(ptr noundef %0, i32 noundef %1) local_un
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @autoremove_wake_function(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #0
@@ -3294,7 +3294,7 @@ define dso_local void @folio_putback_lru(ptr noundef %0) local_unnamed_addr #1 a
 declare dso_local void @folio_add_lru(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @reclaim_clean_pages_from_list(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local i32 @reclaim_clean_pages_from_list(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   %3 = alloca %struct.scan_control, align 8
   %4 = alloca %struct.reclaim_stat, align 4
   %5 = alloca %struct.list_head, align 8
@@ -3427,7 +3427,7 @@ define dso_local i32 @reclaim_clean_pages_from_list(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @shrink_folio_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef initializes((0, 44)) %3, i1 noundef zeroext %4) unnamed_addr #1 align 16 {
+define internal fastcc i32 @shrink_folio_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) initializes((0, 44)) %3, i1 noundef zeroext %4) unnamed_addr #1 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.nodemask_t, align 8
   %8 = alloca %struct.migration_target_control, align 8
@@ -5105,7 +5105,7 @@ define dso_local i64 @try_to_free_pages(ptr noundef %0, i32 noundef %1, i32 noun
 129:                                              ; preds = %.lr.ph16
   %130 = call i64 @schedule_timeout(i64 noundef %126) #14
   %131 = call i64 @prepare_to_wait_event(ptr noundef nonnull %123, ptr noundef nonnull %5, i32 noundef 1) #14
-  %132 = call fastcc zeroext i1 @allow_direct_reclaim(ptr noundef %.us-phi14)
+  %132 = call fastcc zeroext i1 @allow_direct_reclaim(ptr noundef nonnull %.us-phi14)
   %133 = icmp eq i64 %130, 0
   %134 = select i1 %132, i1 %133, i1 false
   %135 = select i1 %134, i64 1, i64 %130
@@ -5144,7 +5144,7 @@ define dso_local i64 @try_to_free_pages(ptr noundef %0, i32 noundef %1, i32 noun
   %147 = load ptr, ptr %107, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 13152
   %149 = call i64 @prepare_to_wait_event(ptr noundef nonnull %148, ptr noundef nonnull %6, i32 noundef 258) #14
-  %150 = call fastcc zeroext i1 @allow_direct_reclaim(ptr noundef %.us-phi14)
+  %150 = call fastcc zeroext i1 @allow_direct_reclaim(ptr noundef nonnull %.us-phi14)
   br i1 %150, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %146, %139
@@ -7451,7 +7451,7 @@ node_pagecache_reclaimable.exit2:                 ; preds = %152, %157, %160
 declare dso_local i64 @node_page_state_pages(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @check_move_unevictable_folios(ptr nocapture noundef readonly %0) #1 align 16 {
+define dso_local void @check_move_unevictable_folios(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = load i8, ptr %0, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %.thread9, label %4
@@ -8233,7 +8233,7 @@ declare void @llvm.write_register.i64(metadata, i64) #10
 declare dso_local ptr @folio_mapping(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @workingset_eviction(ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -9554,7 +9554,7 @@ declare dso_local void @blk_start_plug(ptr noundef) local_unnamed_addr #0
 declare dso_local void @blk_finish_plug(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @shrink_active_list(i64 noundef range(i64 1, 33) %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc void @shrink_active_list(i64 noundef range(i64 1, 33) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #1 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca %struct.list_head, align 8
@@ -9819,7 +9819,7 @@ folio_putback_lru.exit:                           ; preds = %50, %45, %86, %81
 declare dso_local void @lru_add_drain() local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @isolate_lru_folios(i64 noundef range(i64 1, 33) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #1 align 16 {
+define internal fastcc i64 @isolate_lru_folios(i64 noundef range(i64 1, 33) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #1 align 16 {
   %7 = alloca [4 x i64], align 16
   %8 = alloca [4 x i64], align 16
   %9 = alloca %struct.list_head, align 8

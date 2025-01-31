@@ -55,7 +55,7 @@ define noundef range(i32 0, 2) i32 @_Z14tMPI_Is_masterv() local_unnamed_addr #0 
 declare noundef ptr @_Z23tMPI_Thread_getspecific17tMPI_Thread_key_t(ptr noundef byval(%struct.tMPI_Thread_key_t) align 8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_Z18tMPI_Get_comm_selfv() local_unnamed_addr #0 {
@@ -66,7 +66,7 @@ define noundef ptr @_Z18tMPI_Get_comm_selfv() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 27) i32 @_Z10tMPI_Get_NPiPPPcPKcS_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #0 {
+define noundef range(i32 0, 27) i32 @_Z10tMPI_Get_NPiPPPcPKcS_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store i32 0, ptr %3, align 4
   %.not = icmp eq ptr %2, null
@@ -147,10 +147,10 @@ define noundef range(i32 0, 27) i32 @_Z10tMPI_Get_NPiPPPcPKcS_(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 declare noundef i32 @_Z25tMPI_Thread_get_hw_numberv() local_unnamed_addr #1
 
@@ -532,7 +532,7 @@ define noundef i32 @_Z12tMPI_Init_fnii22tMPI_Affinity_strategyPFvPKvES1_(i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define noundef i32 @_Z16tMPI_InitializedPi(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #5 {
+define noundef i32 @_Z16tMPI_InitializedPi(ptr noundef writeonly captures(none) initializes((0, 4)) %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr @TMPI_COMM_WORLD, align 8
   %3 = icmp ne ptr %2, null
   %.b = load i1, ptr @_ZL14tmpi_finalized, align 4
@@ -747,7 +747,7 @@ define internal fastcc void @_ZL19tMPI_Thread_destroyP11tmpi_thread(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare noundef i32 @_Z22tMPI_Thread_key_delete17tMPI_Thread_key_t(ptr noundef byval(%struct.tMPI_Thread_key_t) align 8) local_unnamed_addr #1
 
@@ -799,7 +799,7 @@ define internal fastcc void @_ZL19tMPI_Global_destroyP11tmpi_global(ptr noundef 
 declare void @_Z16tMPI_Thread_exitPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define noundef i32 @_Z14tMPI_FinalizedPi(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #5 {
+define noundef i32 @_Z14tMPI_FinalizedPi(ptr noundef writeonly captures(none) initializes((0, 4)) %0) local_unnamed_addr #5 {
   %.b = load i1, ptr @_ZL14tmpi_finalized, align 4
   %2 = zext i1 %.b to i32
   store i32 %2, ptr %0, align 4
@@ -856,10 +856,10 @@ _Z14tMPI_Is_masterv.exit.thread:                  ; preds = %_Z14tMPI_Is_masterv
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #8
@@ -868,7 +868,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #8
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z23tMPI_Get_processor_namePcPi(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define noundef i32 @_Z23tMPI_Get_processor_namePcPi(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call noundef ptr @_Z23tMPI_Thread_getspecific17tMPI_Thread_key_t(ptr noundef nonnull byval(%struct.tMPI_Thread_key_t) align 8 @id_key)
   %4 = load ptr, ptr @threads, align 8
   %5 = ptrtoint ptr %3 to i64
@@ -939,7 +939,7 @@ define noundef i32 @_Z23tMPI_Get_processor_namePcPi(ptr nocapture noundef %0, pt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef double @_Z10tMPI_Wtimev() local_unnamed_addr #10 {
@@ -963,7 +963,7 @@ define noundef double @_Z10tMPI_Wtimev() local_unnamed_addr #10 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #11
@@ -974,7 +974,7 @@ define noundef double @_Z10tMPI_Wtickv() local_unnamed_addr #12 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z14tMPI_Get_countP12tmpi_status_P14tmpi_datatype_Pi(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define noundef i32 @_Z14tMPI_Get_countP12tmpi_status_P14tmpi_datatype_Pi(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %7
 
@@ -1006,7 +1006,7 @@ declare noundef ptr @_Z16tMPI_Group_allocv() local_unnamed_addr #1
 declare noundef i32 @_Z22tMPI_Thread_key_createP17tMPI_Thread_key_tPFvPvE(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #13
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 declare noundef ptr @_Z16tMPI_Thread_selfv() local_unnamed_addr #1
 
@@ -1173,13 +1173,13 @@ declare i32 @llvm.smax.i32(i32, i32) #14
 declare i32 @llvm.umax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14

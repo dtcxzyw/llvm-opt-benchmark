@@ -384,7 +384,7 @@ define hidden void @_ZN2cv11TiffDecoderC2Ev(ptr noundef nonnull align 8 derefere
 declare void @_ZN2cv16BaseImageDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(272)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv11TiffDecoder5closeEv(ptr nocapture noundef nonnull align 8 dereferenceable(304) initializes((272, 280)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv11TiffDecoder5closeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(304) initializes((272, 280)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -733,12 +733,12 @@ define hidden void @_ZN2cv11TiffDecoderD0Ev(ptr noundef nonnull align 8 derefere
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZNK2cv11TiffDecoder15signatureLengthEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define hidden noundef i64 @_ZNK2cv11TiffDecoder15signatureLengthEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret i64 4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK2cv11TiffDecoder14checkSignatureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK2cv11TiffDecoder14checkSignatureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 {
   %3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #20
   %4 = icmp ugt i64 %3, 3
   br i1 %4, label %5, label %17
@@ -779,7 +779,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 1, 5) i32 @_ZNK2cv11TiffDecoder23normalizeChannelsNumberEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(304) %0, i32 noundef returned %1) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 1, 5) i32 @_ZNK2cv11TiffDecoder23normalizeChannelsNumberEi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(304) %0, i32 noundef returned %1) local_unnamed_addr #3 align 2 {
   %3 = add i32 %1, -1
   %or.cond = icmp ult i32 %3, 4
   br i1 %or.cond, label %5, label %4
@@ -796,7 +796,7 @@ define hidden noundef range(i32 1, 5) i32 @_ZNK2cv11TiffDecoder23normalizeChanne
 declare void @_ZN2cv6detail17check_failed_autoEiRKNS0_12CheckContextE(i32 noundef, ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv11TiffDecoder10newDecoderEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.6") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv11TiffDecoder10newDecoderEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::Ptr.6") align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i8, ptr @_ZGVZN2cvL22cv_tiffSetErrorHandlerEvE1v acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %_ZN2cvL22cv_tiffSetErrorHandlerEv.exit, !prof !4
@@ -1902,7 +1902,7 @@ define hidden noundef zeroext i1 @_ZN2cv11TiffDecoder8nextPageEv(ptr noundef non
 declare i32 @TIFFReadDirectory(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2cv11TiffDecoder8readDataERNS_3MatE(ptr nocapture noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN2cv11TiffDecoder8readDataERNS_3MatE(ptr noundef nonnull align 8 captures(none) dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::_InputArray", align 8
   %4 = alloca %"class.cv::_OutputArray", align 8
   %5 = alloca %"class.cv::_InputArray", align 8
@@ -3688,7 +3688,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit762:         ; preds = %.noexc, %_ZN2cv10Au
   br i1 %724, label %830, label %908
 
 830:                                              ; preds = %829
-  %831 = invoke i32 @TIFFReadScanline(ptr noundef %156, ptr noundef nonnull %750, i32 noundef %.06031019, i16 noundef zeroext 0)
+  %831 = invoke i32 @TIFFReadScanline(ptr noundef nonnull %156, ptr noundef nonnull %750, i32 noundef %.06031019, i16 noundef zeroext 0)
           to label %832 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 832:                                              ; preds = %830
@@ -3867,7 +3867,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit762:         ; preds = %.noexc, %_ZN2cv10Au
   br i1 %.not627, label %909, label %949
 
 909:                                              ; preds = %908
-  %910 = invoke i32 @TIFFReadRGBAStrip(ptr noundef %156, i32 noundef %.06031019, ptr noundef nonnull %750)
+  %910 = invoke i32 @TIFFReadRGBAStrip(ptr noundef nonnull %156, i32 noundef %.06031019, ptr noundef nonnull %750)
           to label %911 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 911:                                              ; preds = %909
@@ -3972,7 +3972,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit762:         ; preds = %.noexc, %_ZN2cv10Au
   br label %.loopexit947
 
 949:                                              ; preds = %908
-  %950 = invoke i32 @TIFFReadRGBATile(ptr noundef %156, i32 noundef %.05991015, i32 noundef %.06031019, ptr noundef nonnull %750)
+  %950 = invoke i32 @TIFFReadRGBATile(ptr noundef nonnull %156, i32 noundef %.05991015, i32 noundef %.06031019, ptr noundef nonnull %750)
           to label %951 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 951:                                              ; preds = %949
@@ -4389,7 +4389,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit762:         ; preds = %.noexc, %_ZN2cv10Au
   br i1 %724, label %1127, label %1167
 
 1127:                                             ; preds = %1126
-  %1128 = invoke i32 @TIFFReadScanline(ptr noundef %156, ptr noundef nonnull %750, i32 noundef %.06031019, i16 noundef zeroext 0)
+  %1128 = invoke i32 @TIFFReadScanline(ptr noundef nonnull %156, ptr noundef nonnull %750, i32 noundef %.06031019, i16 noundef zeroext 0)
           to label %1129 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1129:                                             ; preds = %1127
@@ -4497,7 +4497,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit762:         ; preds = %.noexc, %_ZN2cv10Au
   br i1 %.not627, label %1168, label %1208
 
 1168:                                             ; preds = %1167
-  %1169 = invoke i64 @TIFFReadEncodedStrip(ptr noundef %156, i32 noundef %.16021013, ptr noundef nonnull %750, i64 noundef %737)
+  %1169 = invoke i64 @TIFFReadEncodedStrip(ptr noundef nonnull %156, i32 noundef %.16021013, ptr noundef nonnull %750, i64 noundef %737)
           to label %1170 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1170:                                             ; preds = %1168
@@ -4603,7 +4603,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit762:         ; preds = %.noexc, %_ZN2cv10Au
   br label %.loopexit947
 
 1208:                                             ; preds = %1167
-  %1209 = invoke i64 @TIFFReadEncodedTile(ptr noundef %156, i32 noundef %.16021013, ptr noundef nonnull %750, i64 noundef %737)
+  %1209 = invoke i64 @TIFFReadEncodedTile(ptr noundef nonnull %156, i32 noundef %.16021013, ptr noundef nonnull %750, i64 noundef %737)
           to label %1210 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1210:                                             ; preds = %1208
@@ -5369,7 +5369,7 @@ _ZN2cvL13_unpack14To16EPKhS1_PtS2_m.exit:         ; preds = %.loopexit.i862, %._
   br i1 %.not627, label %1515, label %1555
 
 1515:                                             ; preds = %1514
-  %1516 = invoke i64 @TIFFReadEncodedStrip(ptr noundef %156, i32 noundef %.16021013, ptr noundef nonnull %750, i64 noundef %737)
+  %1516 = invoke i64 @TIFFReadEncodedStrip(ptr noundef nonnull %156, i32 noundef %.16021013, ptr noundef nonnull %750, i64 noundef %737)
           to label %1517 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1517:                                             ; preds = %1515
@@ -5475,7 +5475,7 @@ _ZN2cvL13_unpack14To16EPKhS1_PtS2_m.exit:         ; preds = %.loopexit.i862, %._
   br label %.loopexit947
 
 1555:                                             ; preds = %1514
-  %1556 = invoke i64 @TIFFReadEncodedTile(ptr noundef %156, i32 noundef %.16021013, ptr noundef nonnull %750, i64 noundef %737)
+  %1556 = invoke i64 @TIFFReadEncodedTile(ptr noundef nonnull %156, i32 noundef %.16021013, ptr noundef nonnull %750, i64 noundef %737)
           to label %1557 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1557:                                             ; preds = %1555
@@ -6244,7 +6244,7 @@ declare i32 @TIFFReadRGBAStrip(ptr noundef, i32 noundef, ptr noundef) local_unna
 declare i32 @TIFFReadRGBATile(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare void @_ZN2cv24icvCvt_Gray2BGR_8u_C1C3REPKhiPhiNS_5Size_IiEE(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i64) local_unnamed_addr #0
 
@@ -6848,7 +6848,7 @@ define hidden void @_ZN2cv11TiffEncoderD0Ev(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv11TiffEncoder10newEncoderEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.14") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv11TiffEncoder10newEncoderEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::Ptr.14") align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i8, ptr @_ZGVZN2cvL22cv_tiffSetErrorHandlerEvE1v acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %_ZN2cvL22cv_tiffSetErrorHandlerEv.exit, !prof !4
@@ -6923,13 +6923,13 @@ _ZN2cv3PtrINS_11TiffEncoderEED2Ev.exit:           ; preds = %.noexc.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK2cv11TiffEncoder17isFormatSupportedEi(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK2cv11TiffEncoder17isFormatSupportedEi(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #8 align 2 {
   %spec.select = icmp ult i32 %1, 7
   ret i1 %spec.select
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv11TiffEncoder8writeTagERNS_12WLByteStreamENS_7TiffTagENS_13TiffFieldTypeEii(ptr nocapture noundef nonnull readnone align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv11TiffEncoder8writeTagERNS_12WLByteStreamENS_7TiffTagENS_13TiffFieldTypeEii(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 align 2 {
   tail call void @_ZN2cv12WLByteStream7putWordEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %2)
   tail call void @_ZN2cv12WLByteStream7putWordEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %3)
   tail call void @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %4)
@@ -6942,7 +6942,7 @@ declare void @_ZN2cv12WLByteStream7putWordEi(ptr noundef nonnull align 8 derefer
 declare void @_ZN2cv12WLByteStream8putDWordEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2cv11TiffEncoder12writeLibTiffERKSt6vectorINS_3MatESaIS2_EERKS1_IiSaIiEE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN2cv11TiffEncoder12writeLibTiffERKSt6vectorINS_3MatESaIS2_EERKS1_IiSaIiEE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::TiffEncoderBufHelper", align 8
   %5 = alloca %"struct.cv::Ptr", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9619,7 +9619,7 @@ _ZN2cv3PtrIvED2Ev.exit:                           ; preds = %_ZNSt16_Sp_counted_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2cv11TiffEncoder18write_32FC3_SGILOGERKNS_3MatEPv(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN2cv11TiffEncoder18write_32FC3_SGILOGERKNS_3MatEPv(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.cv::Mat", align 8
@@ -10723,13 +10723,13 @@ declare void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96)) un
 declare i64 @TIFFWriteEncodedStrip(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2cv11TiffEncoder10writemultiERKSt6vectorINS_3MatESaIS2_EERKS1_IiSaIiEE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN2cv11TiffEncoder10writemultiERKSt6vectorINS_3MatESaIS2_EERKS1_IiSaIiEE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #3 align 2 {
   %4 = tail call noundef zeroext i1 @_ZN2cv11TiffEncoder12writeLibTiffERKSt6vectorINS_3MatESaIS2_EERKS1_IiSaIiEE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2cv11TiffEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN2cv11TiffEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.27", align 8
   %5 = load i32, ptr %1, align 8
   %6 = and i32 %5, 7
@@ -10857,7 +10857,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 declare ptr @TIFFSetErrorHandler(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL19cv_tiffErrorHandlerEPKcS1_P13__va_list_tag(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #3 {
+define internal void @_ZN2cvL19cv_tiffErrorHandlerEPKcS1_P13__va_list_tag(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 {
   %4 = tail call noundef i32 @_ZN2cv5utils7logging11getLogLevelEv()
   %5 = icmp slt i32 %4, 5
   br i1 %5, label %19, label %6
@@ -10891,15 +10891,15 @@ declare ptr @TIFFSetWarningHandler(ptr noundef) local_unnamed_addr #0
 declare noundef i32 @_ZN2cv5utils7logging11getLogLevelEv() local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #12
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #12
 
 declare void @TIFFClose(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 declare void @_ZN2cv3MatC1ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 4 dereferenceable(16)) unnamed_addr #0
 
@@ -11109,7 +11109,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 declare noundef zeroext i1 @_ZNK2cv11_InputArray5emptyEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
@@ -11186,7 +11186,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt12__shared_ptrIvLN9__gnu_cxx12_Lock_policyE2EE5resetI4tiffPFvPvEEENSt9enable_ifIXsr21__sp_is_constructibleIvT_EE5valueEvE4typeEPS9_T0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -11567,10 +11567,10 @@ define internal void @_GLOBAL__sub_I_grfmt_tiff.cpp() #15 section ".text.startup
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #18
@@ -11582,10 +11582,10 @@ declare i64 @llvm.smin.i64(i64, i64) #18
 declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #18

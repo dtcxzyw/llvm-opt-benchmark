@@ -175,7 +175,7 @@ declare noundef zeroext i1 @_ZN7rocksdb23TryParseTimeRangeStringERKNSt7__cxx1112
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 0, -4294967294) i64 @_ZNK7rocksdb17OffpeakTimeOption18GetOffpeakTimeInfoERKl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %current_time) local_unnamed_addr #3 align 2 {
+define range(i64 0, -4294967294) i64 @_ZNK7rocksdb17OffpeakTimeOption18GetOffpeakTimeInfoERKl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %current_time) local_unnamed_addr #3 align 2 {
 entry:
   %daily_offpeak_start_time_utc = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %daily_offpeak_start_time_utc, align 8

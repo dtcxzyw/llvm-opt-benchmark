@@ -50,7 +50,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.chr_closed_bh = private unnamed_addr constant [27 x i8] c"void chr_closed_bh(void *)\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @vhost_user_get_vhost_net(ptr nocapture noundef readonly %nc) local_unnamed_addr #0 {
+define dso_local ptr @vhost_user_get_vhost_net(ptr noundef readonly captures(none) %nc) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %nc, align 8
   %1 = load i32, ptr %0, align 8
@@ -71,7 +71,7 @@ if.end:                                           ; preds = %entry
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @vhost_user_get_acked_features(ptr nocapture noundef readonly %nc) local_unnamed_addr #0 {
+define dso_local i64 @vhost_user_get_acked_features(ptr noundef readonly captures(none) %nc) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %nc, align 8
   %1 = load i32, ptr %0, align 8
@@ -89,7 +89,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vhost_user_save_acked_features(ptr nocapture noundef %nc) local_unnamed_addr #0 {
+define dso_local void @vhost_user_save_acked_features(ptr noundef captures(none) %nc) local_unnamed_addr #0 {
 entry:
   %vhost_net = getelementptr inbounds nuw i8, ptr %nc, i64 440
   %0 = load ptr, ptr %vhost_net, align 8
@@ -113,7 +113,7 @@ if.end5:                                          ; preds = %if.then, %if.then4,
 declare i64 @vhost_net_get_acked_features(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @net_init_vhost_user(ptr nocapture noundef readonly %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @net_init_vhost_user(ptr noundef readonly captures(none) %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %err.i = alloca ptr, align 8
   %type = getelementptr inbounds nuw i8, ptr %netdev, i64 8
@@ -521,7 +521,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 declare void @qemu_del_net_client(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @vhost_user_receive(ptr nocapture noundef readonly %nc, ptr nocapture noundef readonly %buf, i64 noundef returned %size) #0 {
+define internal noundef i64 @vhost_user_receive(ptr noundef readonly captures(none) %nc, ptr noundef readonly captures(none) %buf, i64 noundef returned %size) #0 {
 entry:
   %mac_addr = alloca [6 x i8], align 1
   %cmp = icmp eq i64 %size, 60
@@ -603,7 +603,7 @@ if.end17:                                         ; preds = %if.end10, %if.then1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @vhost_user_has_ufo(ptr nocapture noundef readonly %nc) #0 {
+define internal noundef zeroext i1 @vhost_user_has_ufo(ptr noundef readonly captures(none) %nc) #0 {
 entry:
   %0 = load ptr, ptr %nc, align 8
   %1 = load i32, ptr %0, align 8
@@ -619,7 +619,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @vhost_user_has_vnet_hdr(ptr nocapture noundef readonly %nc) #0 {
+define internal noundef zeroext i1 @vhost_user_has_vnet_hdr(ptr noundef readonly captures(none) %nc) #0 {
 entry:
   %0 = load ptr, ptr %nc, align 8
   %1 = load i32, ptr %0, align 8
@@ -635,13 +635,13 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @vhost_user_set_vnet_endianness(ptr nocapture readnone %nc, i1 zeroext %enable) #4 {
+define internal noundef i32 @vhost_user_set_vnet_endianness(ptr readnone captures(none) %nc, i1 zeroext %enable) #4 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @vhost_user_check_peer_type(ptr nocapture readnone %nc, ptr noundef %oc, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @vhost_user_check_peer_type(ptr readnone captures(none) %nc, ptr noundef %oc, ptr noundef %errp) #0 {
 entry:
   %call = tail call ptr @object_class_get_name(ptr noundef %oc) #10
   %call1 = tail call i32 @g_str_has_prefix(ptr noundef %call, ptr noundef nonnull @.str.13) #10
@@ -657,12 +657,12 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @vhost_net_notify_migration_done(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @vhost_net_cleanup(ptr noundef) local_unnamed_addr #2
 
@@ -685,7 +685,7 @@ declare void @qemu_chr_fe_disconnect(ptr noundef) local_unnamed_addr #2
 declare i32 @qemu_chr_fe_add_watch(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @net_vhost_user_watch(ptr nocapture readnone %do_not_use, i32 %cond, ptr noundef %opaque) #0 {
+define internal noundef i32 @net_vhost_user_watch(ptr readnone captures(none) %do_not_use, i32 %cond, ptr noundef %opaque) #0 {
 entry:
   %chr = getelementptr inbounds nuw i8, ptr %opaque, i64 376
   tail call void @qemu_chr_fe_disconnect(ptr noundef nonnull %chr) #10
@@ -763,7 +763,7 @@ if.end5:                                          ; preds = %if.then4, %for.end
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
@@ -776,13 +776,13 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #2
 declare i64 @vhost_net_get_max_queues(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

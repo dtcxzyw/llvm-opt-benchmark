@@ -146,7 +146,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -202,7 +202,7 @@ _ZNSt12_Vector_baseIN10open_spiel5twixt14LinkDescriptorESaIS2_EED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt13unordered_mapI4LinkSt3setIS0_St4lessIS0_ESaIS0_EEN10open_spiel5twixt16LinkHashFunctionESt8equal_toIS0_ESaISt4pairIKS0_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2172,7 +2172,7 @@ _ZNSt12_Vector_baseISt6vectorIN10open_spiel5twixt4CellESaIS3_EESaIS5_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel5twixt5Board20InitializeBlockerMapE8PositioniRKNS0_14LinkDescriptorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i64 %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3) local_unnamed_addr #6 align 2 {
+define void @_ZN10open_spiel5twixt5Board20InitializeBlockerMapE8PositioniRKNS0_14LinkDescriptorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i64 %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3) local_unnamed_addr #6 align 2 {
   %5 = alloca %struct.Link, align 8
   %6 = alloca %struct.Link, align 8
   %7 = alloca %struct.Link, align 8
@@ -2305,7 +2305,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i64 %1) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i64 %1) local_unnamed_addr #7 align 2 {
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.5.0.extract.shift = lshr i64 %1, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
@@ -2341,7 +2341,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Pos
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10open_spiel5twixt5Board12UpdateResultEi8Position(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1, i64 %2) local_unnamed_addr #8 align 2 {
+define void @_ZN10open_spiel5twixt5Board12UpdateResultEi8Position(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, i32 noundef %1, i64 %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %sext.i = shl i64 %2, 32
   %5 = ashr exact i64 %sext.i, 32
@@ -2385,7 +2385,7 @@ define void @_ZN10open_spiel5twixt5Board12UpdateResultEi8Position(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel5twixt5Board19InitializeNeighborsE8PositionRNS0_4CellEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i64 %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(80) %2, i1 noundef zeroext %3) local_unnamed_addr #6 align 2 {
+define void @_ZN10open_spiel5twixt5Board19InitializeNeighborsE8PositionRNS0_4CellEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i64 %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(80) %2, i1 noundef zeroext %3) local_unnamed_addr #6 align 2 {
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.3.0.extract.shift = lshr i64 %1, 32
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
@@ -2498,7 +2498,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK10open_spiel5twixt5Board18PositionIsOnBorderEi8Position(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, i64 %2) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZNK10open_spiel5twixt5Board18PositionIsOnBorderEi8Position(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i32 noundef %1, i64 %2) local_unnamed_addr #7 align 2 {
   %.sroa.0.0.extract.trunc = trunc i64 %2 to i32
   %.sroa.6.0.extract.shift = lshr i64 %2, 32
   %.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.6.0.extract.shift to i32
@@ -2567,7 +2567,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5twixt5Board18PositionIsOnBorderEi8Po
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel5twixt5Board8ToStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel5twixt5Board8ToStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.29", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.29", align 1
@@ -2983,7 +2983,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel5twixt5Board17AppendColorStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel5twixt5Board17AppendColorStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.29", align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -3061,7 +3061,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel5twixt5Board15AppendBeforeRowERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8Position(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel5twixt5Board15AppendBeforeRowERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8Position(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.29", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3570,7 +3570,7 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %49, %59
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel5twixt5Board12AppendPegRowERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8Position(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel5twixt5Board12AppendPegRowERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8Position(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.29", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3766,7 +3766,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel5twixt5Board14AppendAfterRowERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8Position(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel5twixt5Board14AppendAfterRowERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8Position(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.29", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4135,7 +4135,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit113: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel5twixt5Board14AppendLinkCharERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8PositionNS0_7CompassES7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel5twixt5Board14AppendLinkCharERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8PositionNS0_7CompassES7_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.29", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4319,7 +4319,7 @@ _ZNK10open_spiel5twixt5Board18PositionIsOffBoardE8Position.exit.thread: ; preds 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel5twixt5Board13AppendPegCharERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8Position(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel5twixt5Board13AppendPegCharERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8Position(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.29", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5459,7 +5459,7 @@ _ZN10open_spiel5twixt5Board12UpdateResultEi8Position.exit: ; preds = %288, %.sin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @_ZNK10open_spiel5twixt5Board16ActionToPositionEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
+define i64 @_ZNK10open_spiel5twixt5Board16ActionToPositionEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = trunc i64 %1 to i32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8
@@ -5473,7 +5473,7 @@ define i64 @_ZNK10open_spiel5twixt5Board16ActionToPositionEl(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10open_spiel5twixt5Board17RemoveLegalActionEi8Position(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1, i64 %2) local_unnamed_addr #9 align 2 {
+define void @_ZN10open_spiel5twixt5Board17RemoveLegalActionEi8Position(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, i32 noundef %1, i64 %2) local_unnamed_addr #9 align 2 {
   %.sroa.0.0.extract.trunc.i = trunc i64 %2 to i32
   %.sroa.2.0.extract.shift.i = lshr i64 %2, 32
   %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
@@ -5615,7 +5615,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElET_S7_S7_RKT0_.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel5twixt5Board14SetPegAndLinksEi8Position(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, i64 %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel5twixt5Board14SetPegAndLinksEi8Position(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i32 noundef %1, i64 %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Rb_tree<open_spiel::twixt::Cell *, open_spiel::twixt::Cell *, std::_Identity<open_spiel::twixt::Cell *>, std::less<open_spiel::twixt::Cell *>>::_Alloc_node", align 8
   %5 = alloca %struct.Link, align 8
   %6 = alloca %"class.std::set.32", align 8
@@ -5952,7 +5952,7 @@ _ZNSt3setIPN10open_spiel5twixt4CellESt4lessIS3_ESaIS3_EED2Ev.exit70: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel5twixt5Board17ExploreLocalGraphEiRNS0_4CellENS0_6BorderESt3setIPS2_St4lessIS6_ESaIS6_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(80) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel5twixt5Board17ExploreLocalGraphEiRNS0_4CellENS0_6BorderESt3setIPS2_St4lessIS6_ESaIS6_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(80) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.std::_Rb_tree<open_spiel::twixt::Cell *, open_spiel::twixt::Cell *, std::_Identity<open_spiel::twixt::Cell *>, std::less<open_spiel::twixt::Cell *>>::_Alloc_node", align 8
   %7 = alloca %"class.std::set.32", align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -6177,7 +6177,7 @@ _ZNSt8_Rb_treeIPN10open_spiel5twixt4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @_ZNK10open_spiel5twixt5Board17GetTensorPositionE8Positionb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i64 %1, i1 noundef zeroext %2) local_unnamed_addr #7 align 2 {
+define i64 @_ZNK10open_spiel5twixt5Board17GetTensorPositionE8Positionb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i64 %1, i1 noundef zeroext %2) local_unnamed_addr #7 align 2 {
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.3.0.extract.shift = lshr i64 %1, 32
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
@@ -6198,7 +6198,7 @@ define i64 @_ZNK10open_spiel5twixt5Board17GetTensorPositionE8Positionb(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK10open_spiel5twixt5Board16PositionToActionE8Position(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i64 %1) local_unnamed_addr #7 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK10open_spiel5twixt5Board16PositionToActionE8Position(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i64 %1) local_unnamed_addr #7 align 2 {
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.2.0.extract.shift = lshr i64 %1, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
@@ -6211,7 +6211,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK10open_spiel5twixt5Bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK10open_spiel5twixt5Board14StringToActionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef nonnull %1) local_unnamed_addr #6 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK10open_spiel5twixt5Board14StringToActionENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef nonnull %1) local_unnamed_addr #6 align 2 {
   %3 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 1)
   %4 = load i8, ptr %3, align 1
   %5 = sext i8 %4 to i32
@@ -6518,7 +6518,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt8_DestroyIPSt6vectorIN10open_spiel5twixt4CellESaIS3_EEEvT_S7_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 comdat personality ptr @__gxx_personality_v0 {
@@ -8514,10 +8514,10 @@ declare i64 @llvm.umax.i64(i64, i64) #18
 declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

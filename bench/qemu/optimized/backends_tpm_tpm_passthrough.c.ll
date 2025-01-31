@@ -115,7 +115,7 @@ if.end8:                                          ; preds = %if.then5, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tpm_passthrough_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @tpm_passthrough_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 25, ptr noundef nonnull @__func__.TPM_BACKEND_CLASS) #11
   %type = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -195,7 +195,7 @@ declare i32 @qemu_close(i32 noundef) local_unnamed_addr #1
 declare void @qapi_free_TPMPassthroughOptions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #3
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 
@@ -292,7 +292,7 @@ if.end6.i.i:                                      ; preds = %if.end22.i
   br i1 %tobool8.not.i.i, label %if.then9.i.i, label %if.end11.i.i
 
 if.then9.i.i:                                     ; preds = %if.end6.i.i
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.18, ptr noundef %8) #11
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.18, ptr noundef nonnull %8) #11
   br label %10
 
 if.end11.i.i:                                     ; preds = %if.end6.i.i
@@ -418,13 +418,13 @@ trace_tpm_passthrough_reset.exit:                 ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @tpm_passthrough_get_tpm_established_flag(ptr nocapture readnone %tb) #6 {
+define internal noundef zeroext i1 @tpm_passthrough_get_tpm_established_flag(ptr readnone captures(none) %tb) #6 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @tpm_passthrough_reset_tpm_established_flag(ptr nocapture readnone %tb, i8 zeroext %locty) #6 {
+define internal noundef i32 @tpm_passthrough_reset_tpm_established_flag(ptr readnone captures(none) %tb, i8 zeroext %locty) #6 {
 entry:
   ret i32 0
 }
@@ -652,10 +652,10 @@ declare i32 @tpm_util_test_tpmdev(i32 noundef, ptr noundef) local_unnamed_addr #
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -676,16 +676,16 @@ declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, p
 declare void @tpm_util_write_fatal_error_response(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

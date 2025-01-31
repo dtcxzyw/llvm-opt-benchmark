@@ -51,26 +51,26 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN9QIODeviceD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZNK21AudioSilenceGenerator4sizeEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define noundef i64 @_ZNK21AudioSilenceGenerator4sizeEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   ret i64 9223372036854775807
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK21AudioSilenceGenerator3posEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #4 align 2 {
+define noundef i64 @_ZNK21AudioSilenceGenerator3posEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN21AudioSilenceGenerator4seekEx(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((16, 24)) %0, i64 noundef %1) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN21AudioSilenceGenerator4seekEx(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((16, 24)) %0, i64 noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %3, align 8
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN21AudioSilenceGenerator8readDataEPcx(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef writeonly %1, i64 noundef returned %2) unnamed_addr #6 align 2 {
+define noundef i64 @_ZN21AudioSilenceGenerator8readDataEPcx(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef writeonly captures(none) %1, i64 noundef returned %2) unnamed_addr #6 align 2 {
   tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 0, i64 %2, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
@@ -80,10 +80,10 @@ define noundef i64 @_ZN21AudioSilenceGenerator8readDataEPcx(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN21AudioSilenceGenerator9writeDataEPKcx(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, i64 noundef returned %2) unnamed_addr #3 align 2 {
+define noundef i64 @_ZN21AudioSilenceGenerator9writeDataEPKcx(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, i64 noundef returned %2) unnamed_addr #3 align 2 {
   ret i64 %2
 }
 

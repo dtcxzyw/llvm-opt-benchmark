@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @Curl_crealloc = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Curl_dyn_init(ptr nocapture noundef writeonly initializes((0, 32)) %s, i64 noundef %toobig) local_unnamed_addr #0 {
+define hidden void @Curl_dyn_init(ptr noundef writeonly captures(none) initializes((0, 32)) %s, i64 noundef %toobig) local_unnamed_addr #0 {
 entry:
   %toobig3 = getelementptr inbounds nuw i8, ptr %s, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %s, i8 0, i64 24, i1 false)
@@ -18,7 +18,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_dyn_free(ptr nocapture noundef initializes((8, 24)) %s) local_unnamed_addr #1 {
+define hidden void @Curl_dyn_free(ptr noundef captures(none) initializes((8, 24)) %s) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @Curl_cfree, align 8
   %1 = load ptr, ptr %s, align 8
@@ -28,7 +28,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @Curl_dyn_reset(ptr nocapture noundef %s) local_unnamed_addr #2 {
+define hidden void @Curl_dyn_reset(ptr noundef captures(none) %s) local_unnamed_addr #2 {
 entry:
   %leng = getelementptr inbounds nuw i8, ptr %s, i64 8
   %0 = load i64, ptr %leng, align 8
@@ -46,7 +46,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 44) i32 @Curl_dyn_tail(ptr nocapture noundef %s, i64 noundef %trail) local_unnamed_addr #3 {
+define hidden range(i32 0, 44) i32 @Curl_dyn_tail(ptr noundef captures(none) %s, i64 noundef %trail) local_unnamed_addr #3 {
 entry:
   %leng = getelementptr inbounds nuw i8, ptr %s, i64 8
   %0 = load i64, ptr %leng, align 8
@@ -91,10 +91,10 @@ return:                                           ; preds = %Curl_dyn_reset.exit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 101) i32 @Curl_dyn_addn(ptr nocapture noundef %s, ptr nocapture noundef readonly %mem, i64 noundef %len) local_unnamed_addr #1 {
+define hidden range(i32 0, 101) i32 @Curl_dyn_addn(ptr noundef captures(none) %s, ptr noundef readonly captures(none) %mem, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %leng.i = getelementptr inbounds nuw i8, ptr %s, i64 8
   %0 = load i64, ptr %leng.i, align 8
@@ -184,7 +184,7 @@ dyn_nappend.exit:                                 ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 101) i32 @Curl_dyn_add(ptr nocapture noundef %s, ptr nocapture noundef readonly %str) local_unnamed_addr #1 {
+define hidden range(i32 0, 101) i32 @Curl_dyn_add(ptr noundef captures(none) %s, ptr noundef readonly captures(none) %str) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #12
   %leng.i = getelementptr inbounds nuw i8, ptr %s, i64 8
@@ -258,7 +258,7 @@ if.end41.i:                                       ; preds = %if.end38.i, %if.end
 
 if.then43.i:                                      ; preds = %if.end41.i
   %arrayidx.i = getelementptr inbounds i8, ptr %.pre34.i, i64 %0
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i, ptr readonly align 1 %str, i64 %call, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i, ptr nonnull readonly align 1 %str, i64 %call, i1 false)
   %.pre.i = load ptr, ptr %s, align 8
   br label %if.end45.i
 
@@ -275,7 +275,7 @@ dyn_nappend.exit:                                 ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 101) i32 @Curl_dyn_vaddf(ptr noundef %s, ptr noundef %fmt, ptr noundef %ap) local_unnamed_addr #1 {
@@ -305,21 +305,21 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @Curl_dyn_ptr(ptr nocapture noundef readonly %s) local_unnamed_addr #7 {
+define hidden ptr @Curl_dyn_ptr(ptr noundef readonly captures(none) %s) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %s, align 8
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @Curl_dyn_uptr(ptr nocapture noundef readonly %s) local_unnamed_addr #7 {
+define hidden ptr @Curl_dyn_uptr(ptr noundef readonly captures(none) %s) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %s, align 8
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @Curl_dyn_len(ptr nocapture noundef readonly %s) local_unnamed_addr #7 {
+define hidden i64 @Curl_dyn_len(ptr noundef readonly captures(none) %s) local_unnamed_addr #7 {
 entry:
   %leng = getelementptr inbounds nuw i8, ptr %s, i64 8
   %0 = load i64, ptr %leng, align 8
@@ -327,7 +327,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 44) i32 @Curl_dyn_setlen(ptr nocapture noundef %s, i64 noundef %set) local_unnamed_addr #2 {
+define hidden range(i32 0, 44) i32 @Curl_dyn_setlen(ptr noundef captures(none) %s, i64 noundef %set) local_unnamed_addr #2 {
 entry:
   %leng = getelementptr inbounds nuw i8, ptr %s, i64 8
   %0 = load i64, ptr %leng, align 8
@@ -347,7 +347,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #8
@@ -356,7 +356,7 @@ declare void @llvm.va_start.p0(ptr) #8
 declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10

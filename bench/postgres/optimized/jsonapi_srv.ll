@@ -67,7 +67,7 @@ define dso_local zeroext i1 @IsValidJsonNumber(ptr noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 13) i32 @json_lex_number(ptr nocapture noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 13) i32 @json_lex_number(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -334,7 +334,7 @@ define dso_local noundef ptr @makeJsonLexContextCstringLen(ptr noundef %0, ptr n
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @makeStringInfo() local_unnamed_addr #2
 
@@ -373,7 +373,7 @@ define dso_local void @freeJsonLexContext(ptr noundef %0) local_unnamed_addr #1 
 declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pg_parse_json(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define dso_local i32 @pg_parse_json(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = tail call i32 @json_lex(ptr noundef %0)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %lex_expect.exit
@@ -1067,7 +1067,7 @@ json_lex_string.exit.thread:                      ; preds = %64, %.backedge.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_object(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc i32 @parse_object(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1117,7 +1117,7 @@ define internal fastcc i32 @parse_object(ptr noundef %0, ptr nocapture noundef r
   br i1 %.not44, label %22, label %.critedge.thread
 
 22:                                               ; preds = %20
-  %23 = tail call fastcc i32 @parse_object_field(ptr noundef nonnull %0, ptr noundef %1)
+  %23 = tail call fastcc i32 @parse_object_field(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %.lr.ph, label %.critedge.thread, !llvm.loop !17
 
@@ -1166,7 +1166,7 @@ lex_expect.exit:                                  ; preds = %.lr.ph, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_array(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc i32 @parse_array(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1228,7 +1228,7 @@ lex_expect.exit:                                  ; preds = %10
   br i1 %.not41, label %29, label %.critedge.thread
 
 29:                                               ; preds = %27
-  %30 = tail call fastcc i32 @parse_array_element(ptr noundef nonnull %0, ptr noundef %1)
+  %30 = tail call fastcc i32 @parse_array_element(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %.lr.ph, label %.critedge.thread, !llvm.loop !18
 
@@ -1268,7 +1268,7 @@ lex_expect.exit50:                                ; preds = %.lr.ph, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_scalar(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc i32 @parse_scalar(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 40
@@ -1348,7 +1348,7 @@ report_parse_error.exit:                          ; preds = %9, %40, %42, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @json_count_array_elements(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define dso_local i32 @json_count_array_elements(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca %struct.JsonLexContext, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %0, i64 64, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -1471,10 +1471,10 @@ lex_expect.exit.thread:                           ; preds = %33, %31, %21, %37, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_array_element(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc i32 @parse_array_element(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -1533,7 +1533,7 @@ define internal fastcc i32 @parse_array_element(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @json_errdetail(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define dso_local ptr @json_errdetail(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   switch i32 %0, label %167 [
     i32 18, label %166
     i32 1, label %3
@@ -1813,7 +1813,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 declare void @check_stack_depth() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_object_field(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc i32 @parse_object_field(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -1941,7 +1941,7 @@ declare void @appendBinaryStringInfo(ptr noundef, ptr noundef, i32 noundef) loca
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #8
@@ -1950,10 +1950,10 @@ declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #8
 declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

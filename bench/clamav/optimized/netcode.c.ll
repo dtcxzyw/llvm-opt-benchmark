@@ -213,7 +213,7 @@ define dso_local i32 @nc_sendmsg(i32 noundef %0, i32 noundef %1) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i64 @sendmsg(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -367,10 +367,10 @@ declare i64 @recv(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unna
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nc_connect_entry(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i32 @nc_connect_entry(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timeval, align 8
   %3 = alloca [256 x i8], align 16
   %4 = alloca %struct.fd_set, align 8
@@ -537,7 +537,7 @@ nc_connect.exit:                                  ; preds = %45, %75, %81
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @nc_ping_entry(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @nc_ping_entry(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @nc_connect_entry(ptr noundef %0)
   %3 = icmp sgt i32 %2, -1
   br i1 %3, label %4, label %16
@@ -576,13 +576,13 @@ define dso_local void @nc_ping_entry(ptr nocapture noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @nc_connect_rand(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @nc_connect_rand(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call ptr @cpool_get_rand(ptr noundef %0) #13
   %.not = icmp eq ptr %5, null
@@ -648,7 +648,7 @@ declare ptr @cpool_get_rand(ptr noundef) local_unnamed_addr #1
 declare i32 @cli_gentempfd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @islocalnet_name(ptr noundef %0) local_unnamed_addr #0 {
@@ -737,7 +737,7 @@ islocalnet.exit:                                  ; preds = %51, %44, %9, %1, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @resolve(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @resolve(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.addrinfo, align 8
   %5 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
@@ -839,7 +839,7 @@ define internal fastcc range(i32 0, 2) i32 @resolve(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @islocalnet_sock(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define dso_local range(i32 0, 2) i32 @islocalnet_sock(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = alloca [4 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr @lnet, align 8
@@ -1039,7 +1039,7 @@ define dso_local range(i32 0, 2) i32 @localnets_init(ptr noundef %0) local_unnam
 
 12:                                               ; preds = %10, %.preheader
   %.0 = phi ptr [ %11, %10 ], [ null, %.preheader ]
-  %13 = tail call i32 @strcasecmp(ptr noundef %8, ptr noundef nonnull @.str.19) #16
+  %13 = tail call i32 @strcasecmp(ptr noundef nonnull %8, ptr noundef nonnull @.str.19) #16
   %.not20 = icmp eq i32 %13, 0
   %spec.store.select = select i1 %.not20, ptr null, ptr %8
   %14 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #15
@@ -1190,7 +1190,7 @@ declare ptr @optget(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -1208,13 +1208,13 @@ declare i32 @getaddrinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) loc
 declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

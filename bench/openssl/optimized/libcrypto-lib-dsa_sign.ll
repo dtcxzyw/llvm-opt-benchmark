@@ -156,7 +156,7 @@ declare ptr @BN_new() local_unnamed_addr #1
 declare i64 @ossl_decode_der_dsa_sig(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @i2d_DSA_SIG(ptr nocapture noundef readonly %sig, ptr noundef %ppout) local_unnamed_addr #0 {
+define i32 @i2d_DSA_SIG(ptr noundef readonly captures(none) %sig, ptr noundef %ppout) local_unnamed_addr #0 {
 entry:
   %encoded_len = alloca i64, align 8
   %pkt = alloca %struct.wpacket_st, align 8
@@ -267,7 +267,7 @@ declare i32 @WPACKET_finish(ptr noundef) local_unnamed_addr #1
 declare void @WPACKET_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @DSA_size(ptr nocapture noundef readonly %dsa) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @DSA_size(ptr noundef readonly captures(none) %dsa) local_unnamed_addr #0 {
 entry:
   %encoded_len.i = alloca i64, align 8
   %pkt.i = alloca %struct.wpacket_st, align 8
@@ -321,7 +321,7 @@ if.end5:                                          ; preds = %i2d_DSA_SIG.exit, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @DSA_SIG_get0(ptr nocapture noundef readonly %sig, ptr noundef writeonly %pr, ptr noundef writeonly %ps) local_unnamed_addr #2 {
+define void @DSA_SIG_get0(ptr noundef readonly captures(none) %sig, ptr noundef writeonly %pr, ptr noundef writeonly %ps) local_unnamed_addr #2 {
 entry:
   %cmp.not = icmp eq ptr %pr, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -346,7 +346,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @DSA_SIG_set0(ptr nocapture noundef %sig, ptr noundef %r, ptr noundef %s) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @DSA_SIG_set0(ptr noundef captures(none) %sig, ptr noundef %r, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %r, null
   %cmp1 = icmp eq ptr %s, null
@@ -369,7 +369,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_dsa_sign_int(i32 %type, ptr noundef %dgst, i32 noundef %dlen, ptr noundef %sig, ptr nocapture noundef writeonly initializes((0, 4)) %siglen, ptr noundef %dsa, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_dsa_sign_int(i32 %type, ptr noundef %dgst, i32 noundef %dlen, ptr noundef %sig, ptr noundef writeonly captures(none) initializes((0, 4)) %siglen, ptr noundef %dsa, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %sig.addr = alloca ptr, align 8
   store ptr %sig, ptr %sig.addr, align 8
@@ -429,7 +429,7 @@ declare ptr @DSA_get_default_method() local_unnamed_addr #1
 declare ptr @ossl_dsa_do_sign_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @DSA_sign(i32 noundef %type, ptr noundef %dgst, i32 noundef %dlen, ptr noundef %sig, ptr nocapture noundef writeonly initializes((0, 4)) %siglen, ptr noundef %dsa) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @DSA_sign(i32 noundef %type, ptr noundef %dgst, i32 noundef %dlen, ptr noundef %sig, ptr noundef writeonly captures(none) initializes((0, 4)) %siglen, ptr noundef %dsa) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_dsa_sign_int(i32 poison, ptr noundef %dgst, i32 noundef %dlen, ptr noundef %sig, ptr noundef %siglen, ptr noundef %dsa, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
   ret i32 %call
@@ -504,13 +504,13 @@ declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 nound
 declare i32 @llvm.smax.i32(i32, i32) #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #4
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

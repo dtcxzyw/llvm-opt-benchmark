@@ -983,7 +983,7 @@ return:                                           ; preds = %for.body.lr.ph, %if
 declare ptr @_PyObject_GC_NewVar(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @PyStructSequence_SetItem(ptr nocapture noundef writeonly %op, i64 noundef %index, ptr noundef %value) local_unnamed_addr #2 {
+define dso_local void @PyStructSequence_SetItem(ptr noundef writeonly captures(none) %op, i64 noundef %index, ptr noundef %value) local_unnamed_addr #2 {
 entry:
   %ob_item = getelementptr inbounds nuw i8, ptr %op, i64 24
   %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %index
@@ -992,7 +992,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @PyStructSequence_GetItem(ptr nocapture noundef readonly %op, i64 noundef %index) local_unnamed_addr #3 {
+define dso_local ptr @PyStructSequence_GetItem(ptr noundef readonly captures(none) %op, i64 noundef %index) local_unnamed_addr #3 {
 entry:
   %ob_item = getelementptr inbounds nuw i8, ptr %op, i64 24
   %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %index
@@ -1001,7 +1001,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @_PyStructSequence_InitBuiltinWithFlags(ptr noundef %interp, ptr noundef %type, ptr nocapture noundef readonly %desc, i64 noundef %tp_flags) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyStructSequence_InitBuiltinWithFlags(ptr noundef %interp, ptr noundef %type, ptr noundef readonly captures(none) %desc, i64 noundef %tp_flags) local_unnamed_addr #0 {
 entry:
   %fields.i = getelementptr inbounds nuw i8, ptr %desc, i64 16
   %0 = load ptr, ptr %fields.i, align 8
@@ -1165,7 +1165,7 @@ declare i32 @_PyStaticType_InitBuiltin(ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @initialize_structseq_dict(ptr nocapture noundef readonly %desc, ptr noundef %dict, i64 noundef %n_members, i64 noundef %n_unnamed_members) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @initialize_structseq_dict(ptr noundef readonly captures(none) %desc, ptr noundef %dict, i64 noundef %n_members, i64 noundef %n_unnamed_members) unnamed_addr #0 {
 entry:
   %keys = alloca ptr, align 8
   %n_in_sequence = getelementptr inbounds nuw i8, ptr %desc, i64 24
@@ -1391,7 +1391,7 @@ declare ptr @_PyType_GetDict(ptr noundef) local_unnamed_addr #1
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @PyStructSequence_InitType2(ptr noundef %type, ptr nocapture noundef readonly %desc) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyStructSequence_InitType2(ptr noundef %type, ptr noundef readonly captures(none) %desc) local_unnamed_addr #0 {
 entry:
   %type.val = load i64, ptr %type, align 8
   %cmp.not = icmp eq i64 %type.val, 0
@@ -1566,7 +1566,7 @@ return:                                           ; preds = %Py_INCREF.exit.i, %
 declare void @_PyErr_BadInternalCall(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PyStructSequence_InitType(ptr noundef %type, ptr nocapture noundef readonly %desc) local_unnamed_addr #0 {
+define dso_local void @PyStructSequence_InitType(ptr noundef %type, ptr noundef readonly captures(none) %desc) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @PyStructSequence_InitType2(ptr noundef %type, ptr noundef %desc)
   ret void
@@ -1605,7 +1605,7 @@ declare i32 @_PyType_HasSubclasses(ptr noundef) local_unnamed_addr #1
 declare void @_PyStaticType_Dealloc(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_PyStructSequence_NewType(ptr nocapture noundef readonly %desc, i64 noundef %tp_flags) local_unnamed_addr #0 {
+define dso_local ptr @_PyStructSequence_NewType(ptr noundef readonly captures(none) %desc, i64 noundef %tp_flags) local_unnamed_addr #0 {
 entry:
   %slots = alloca [8 x %struct.PyType_Slot], align 16
   %spec = alloca %struct.PyType_Spec, align 8
@@ -1864,7 +1864,7 @@ if.end:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @structseq_repr(ptr nocapture noundef readonly %obj) #0 {
+define internal ptr @structseq_repr(ptr noundef readonly captures(none) %obj) #0 {
 entry:
   %writer = alloca %struct._PyUnicodeWriter, align 8
   %0 = getelementptr i8, ptr %obj, i64 8
@@ -1872,7 +1872,7 @@ entry:
   %tp_name = getelementptr inbounds nuw i8, ptr %obj.val, i64 24
   %1 = load ptr, ptr %tp_name, align 8
   %call2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
-  %call3 = tail call ptr @PyUnicode_DecodeUTF8(ptr noundef %1, i64 noundef %call2, ptr noundef null) #8
+  %call3 = tail call ptr @PyUnicode_DecodeUTF8(ptr noundef nonnull %1, i64 noundef %call2, ptr noundef null) #8
   %cmp = icmp eq ptr %call3, null
   br i1 %cmp, label %return, label %if.end
 
@@ -2546,7 +2546,7 @@ exit:                                             ; preds = %cond.end15, %struct
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @structseq_traverse(ptr nocapture noundef readonly %obj, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @structseq_traverse(ptr noundef readonly captures(none) %obj, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
@@ -2618,7 +2618,7 @@ return:                                           ; preds = %if.then14, %for.inc
 declare ptr @PyType_FromSpecWithBases(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyStructSequence_NewType(ptr nocapture noundef readonly %desc) local_unnamed_addr #0 {
+define dso_local ptr @PyStructSequence_NewType(ptr noundef readonly captures(none) %desc) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @_PyStructSequence_NewType(ptr noundef %desc, i64 noundef 0)
   ret ptr %call
@@ -2653,7 +2653,7 @@ declare void @PyObject_GC_Del(ptr noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_DecodeUTF8(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @_PyUnicodeWriter_Init(ptr noundef) local_unnamed_addr #1
 
@@ -2670,7 +2670,7 @@ declare ptr @_PyUnicodeWriter_Finish(ptr noundef) local_unnamed_addr #1
 declare void @_PyUnicodeWriter_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @structseq_reduce(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @structseq_reduce(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val26 = load ptr, ptr %0, align 8
@@ -2832,7 +2832,7 @@ return:                                           ; preds = %if.end7, %if.then1.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @structseq_replace(ptr nocapture noundef readonly %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal ptr @structseq_replace(ptr noundef readonly captures(none) %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %ob = alloca ptr, align 8
   %cmp = icmp eq ptr %args, null
@@ -3065,13 +3065,13 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #5
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -16,7 +16,7 @@ $_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32C
 $_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E4_EEjjjS5_S7_S9_SC_SF_SG_T0_ = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef range(i32 0, -31) i32 @_ZN5arrow7compute10KeyCompare19AndByteVectors_avx2EjPhPKh(i32 noundef %num_elements, ptr nocapture noundef %bytevector_A, ptr nocapture noundef readonly %bytevector_B) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, -31) i32 @_ZN5arrow7compute10KeyCompare19AndByteVectors_avx2EjPhPKh(i32 noundef %num_elements, ptr noundef captures(none) %bytevector_A, ptr noundef readonly captures(none) %bytevector_B) local_unnamed_addr #0 align 2 {
 entry:
   %cmp9.not = icmp ult i32 %num_elements, 32
   br i1 %cmp9.not, label %for.end, label %for.body.preheader
@@ -1573,7 +1573,7 @@ return:                                           ; preds = %if.else22, %_ZN5arr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN5arrow7compute10KeyCompare32CompareVarBinaryColumnToRow_avx2EbbjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh(i1 noundef zeroext %use_selection, i1 noundef zeroext %is_first_varbinary_col, i32 noundef %id_varlen_col, i32 noundef %num_rows_to_compare, ptr nocapture noundef readonly %sel_left_maybe_null, ptr nocapture noundef readonly %left_to_right_map, ptr nocapture noundef readnone %ctx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %col, ptr nocapture noundef nonnull readonly align 8 dereferenceable(209) %rows, ptr nocapture noundef writeonly %match_bytevector) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN5arrow7compute10KeyCompare32CompareVarBinaryColumnToRow_avx2EbbjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh(i1 noundef zeroext %use_selection, i1 noundef zeroext %is_first_varbinary_col, i32 noundef %id_varlen_col, i32 noundef %num_rows_to_compare, ptr noundef readonly captures(none) %sel_left_maybe_null, ptr noundef readonly captures(none) %left_to_right_map, ptr noundef readnone captures(none) %ctx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %col, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(209) %rows, ptr noundef writeonly captures(none) %match_bytevector) local_unnamed_addr #3 align 2 {
 entry:
   %length_.i = getelementptr inbounds nuw i8, ptr %col, i64 56
   %0 = load i64, ptr %length_.i, align 8
@@ -2631,10 +2631,10 @@ declare i64 @llvm.smin.i64(i64, i64) #7
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7

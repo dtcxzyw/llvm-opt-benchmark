@@ -31,7 +31,7 @@ define internal ptr @fat_fh_to_parent(ptr noundef %0, ptr noundef %1, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @fat_get_parent(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal ptr @fat_get_parent(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = alloca %struct.fat_slot_info, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -303,7 +303,7 @@ define internal ptr @fat_get_parent(ptr nocapture noundef readonly %0) #1 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef range(i32 113, 256) i32 @fat_encode_fh_nostale(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr noundef readonly %3) #2 align 16 {
+define internal noundef range(i32 113, 256) i32 @fat_encode_fh_nostale(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly %3) #2 align 16 {
   %5 = load i32, ptr %2, align 4
   %6 = icmp eq ptr %3, null
   br i1 %6, label %9, label %7
@@ -360,7 +360,7 @@ define internal noundef range(i32 113, 256) i32 @fat_encode_fh_nostale(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @fat_fh_to_dentry_nostale(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define internal ptr @fat_fh_to_dentry_nostale(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   switch i32 %3, label %21 [
     i32 113, label %5
     i32 114, label %7
@@ -394,7 +394,7 @@ define internal ptr @fat_fh_to_dentry_nostale(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @fat_fh_to_parent_nostale(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define internal ptr @fat_fh_to_parent_nostale(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = icmp ult i32 %2, 5
   br i1 %5, label %23, label %6
 
@@ -534,7 +534,7 @@ define internal fastcc ptr @__fat_nfs_get_inode(ptr noundef %0, i64 noundef %1, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @iput(ptr noundef) local_unnamed_addr #0
@@ -546,7 +546,7 @@ declare dso_local void @_fat_msg(ptr noundef, ptr noundef, ptr noundef, ...) loc
 declare dso_local ptr @fat_build_inode(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @fat_iget(ptr noundef, i64 noundef) local_unnamed_addr #0
@@ -579,7 +579,7 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #0 sectio
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #0 section ".spinlock.text"
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @new_inode(ptr noundef) local_unnamed_addr #0

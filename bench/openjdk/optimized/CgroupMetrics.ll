@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.sysinfo = type { i64, [3 x i64], i64, i64, i64, i64, i64, i64, i16, i16, i64, i64, i32, [0 x i8] }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @Java_jdk_internal_platform_CgroupMetrics_isUseContainerSupport(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define zeroext i8 @Java_jdk_internal_platform_CgroupMetrics_isUseContainerSupport(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call zeroext i8 @JVM_IsUseContainerSupport() #3
   ret i8 %3
 }
@@ -14,7 +14,7 @@ define zeroext i8 @Java_jdk_internal_platform_CgroupMetrics_isUseContainerSuppor
 declare zeroext i8 @JVM_IsUseContainerSupport() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @Java_jdk_internal_platform_CgroupMetrics_isContainerized0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define zeroext i8 @Java_jdk_internal_platform_CgroupMetrics_isContainerized0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call zeroext i8 @JVM_IsContainerized() #3
   ret i8 %3
 }
@@ -22,7 +22,7 @@ define zeroext i8 @Java_jdk_internal_platform_CgroupMetrics_isContainerized0(ptr
 declare zeroext i8 @JVM_IsContainerized() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_jdk_internal_platform_CgroupMetrics_getTotalMemorySize0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_jdk_internal_platform_CgroupMetrics_getTotalMemorySize0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @sysconf(i32 noundef 85) #3
   %4 = tail call i64 @sysconf(i32 noundef 30) #3
   %5 = mul nsw i64 %4, %3
@@ -33,7 +33,7 @@ define i64 @Java_jdk_internal_platform_CgroupMetrics_getTotalMemorySize0(ptr noc
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_jdk_internal_platform_CgroupMetrics_getTotalSwapSize0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_jdk_internal_platform_CgroupMetrics_getTotalSwapSize0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.sysinfo, align 8
   %4 = call i32 @sysinfo(ptr noundef nonnull %3) #3
   %5 = icmp slt i32 %4, 0

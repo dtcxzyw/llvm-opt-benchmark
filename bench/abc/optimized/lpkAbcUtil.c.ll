@@ -21,7 +21,7 @@ define noalias noundef ptr @Lpk_FunAlloc(i32 noundef %0) local_unnamed_addr #0 {
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @Lpk_FunFree(ptr noundef %0) local_unnamed_addr #3 {
@@ -37,10 +37,10 @@ define void @Lpk_FunFree(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Lpk_FunCreate(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 {
+define noundef ptr @Lpk_FunCreate(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 {
 Kit_TruthCopy.exit.preheader:
   %6 = getelementptr i8, ptr %1, i64 4
   %.val = load i32, ptr %6, align 4
@@ -181,7 +181,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 declare i32 @Kit_TruthSupport(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Lpk_FunDup(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #5 {
+define noundef ptr @Lpk_FunDup(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #5 {
 Kit_TruthCopy.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
@@ -298,7 +298,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Lpk_FunSuppMinimize(ptr noundef %0) local_unnamed_addr #5 {
@@ -458,7 +458,7 @@ declare void @Kit_TruthCofactor0New(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare void @Kit_TruthCofactor1New(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 1, -2147483648) i32 @Lpk_SuppDelay(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
+define range(i32 1, -2147483648) i32 @Lpk_SuppDelay(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   br label %3
 
 3:                                                ; preds = %2, %11
@@ -488,7 +488,7 @@ define range(i32 1, -2147483648) i32 @Lpk_SuppDelay(i32 noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define i32 @Lpk_SuppToVars(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #9 {
+define i32 @Lpk_SuppToVars(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #9 {
   br label %3
 
 3:                                                ; preds = %2, %11
@@ -518,7 +518,7 @@ define i32 @Lpk_SuppToVars(i32 noundef %0, ptr nocapture noundef writeonly %1) l
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11

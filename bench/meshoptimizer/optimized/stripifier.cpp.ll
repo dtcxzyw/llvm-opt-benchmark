@@ -17,7 +17,7 @@ $_ZN17meshopt_Allocator8StorageTIvE8allocateE = comdat any
 @_ZN17meshopt_Allocator8StorageTIvE8allocateE = linkonce_odr dso_local local_unnamed_addr global ptr @_Znwm, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @meshopt_stripify(ptr nocapture noundef writeonly %destination, ptr nocapture noundef readonly %indices, i64 noundef %index_count, i64 noundef %vertex_count, i32 noundef %restart_index) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local i64 @meshopt_stripify(ptr noundef writeonly captures(none) %destination, ptr noundef readonly captures(none) %indices, i64 noundef %index_count, i64 noundef %vertex_count, i32 noundef %restart_index) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %allocator = alloca %class.meshopt_Allocator, align 8
   %buffer = alloca [8 x [3 x i32]], align 16
@@ -618,12 +618,12 @@ _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %for.cond.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -665,7 +665,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local i64 @meshopt_unstripify(ptr nocapture noundef writeonly %destination, ptr nocapture noundef readonly %indices, i64 noundef %index_count, i32 noundef %restart_index) local_unnamed_addr #5 {
+define dso_local i64 @meshopt_unstripify(ptr noundef writeonly captures(none) %destination, ptr noundef readonly captures(none) %indices, i64 noundef %index_count, i32 noundef %restart_index) local_unnamed_addr #5 {
 entry:
   %cmp30.not = icmp eq i64 %index_count, 0
   br i1 %cmp30.not, label %for.end, label %for.body.lr.ph

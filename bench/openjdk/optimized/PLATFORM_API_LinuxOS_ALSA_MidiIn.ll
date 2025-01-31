@@ -75,12 +75,12 @@ define hidden i32 @MIDI_IN_CloseDevice(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @closeMidiDevice(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @MIDI_IN_StartDevice(ptr nocapture noundef readnone %0) local_unnamed_addr #2 {
+define hidden noundef i32 @MIDI_IN_StartDevice(ptr noundef readnone captures(none) %0) local_unnamed_addr #2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @MIDI_IN_StopDevice(ptr nocapture noundef readnone %0) local_unnamed_addr #2 {
+define hidden noundef i32 @MIDI_IN_StopDevice(ptr noundef readnone captures(none) %0) local_unnamed_addr #2 {
   ret i32 0
 }
 
@@ -349,13 +349,13 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @MIDI_IN_ReleaseMessage(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #7 {
+define hidden void @MIDI_IN_ReleaseMessage(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %3
 

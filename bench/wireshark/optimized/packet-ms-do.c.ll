@@ -167,7 +167,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_do(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_do(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -424,7 +424,7 @@ declare i32 @tvb_get_guint32(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @dissect_do_empty_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal noundef zeroext i1 @dissect_do_empty_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef captures(none) %5) unnamed_addr #0 {
   %.not = icmp eq i32 %3, 1
   br i1 %.not, label %13, label %7
 
@@ -450,7 +450,7 @@ define internal noundef zeroext i1 @dissect_do_empty_message(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @dissect_do_have(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal noundef zeroext i1 @dissect_do_have(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef captures(none) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   store i32 -1, ptr %7, align 4
   %.not = icmp eq i32 %3, 5
@@ -485,7 +485,7 @@ define internal noundef zeroext i1 @dissect_do_have(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @dissect_do_bitfield(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal noundef zeroext i1 @dissect_do_bitfield(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef captures(none) %5) unnamed_addr #0 {
   %7 = add i32 %3, -1
   %8 = load i32, ptr @hf_do_bitfield, align 4
   %9 = load i32, ptr %5, align 4
@@ -555,7 +555,7 @@ define internal noundef zeroext i1 @dissect_do_bitfield(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @dissect_do_request_cancel(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal noundef zeroext i1 @dissect_do_request_cancel(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef captures(none) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -606,7 +606,7 @@ define internal noundef zeroext i1 @dissect_do_request_cancel(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @dissect_do_piece(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal noundef zeroext i1 @dissect_do_piece(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef captures(none) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   store i32 0, ptr %7, align 4
@@ -674,7 +674,7 @@ proto_item_set_generated.exit:                    ; preds = %16, %33, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @dissect_do_heap_spraying(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal noundef zeroext i1 @dissect_do_heap_spraying(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef captures(none) %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_do_heap_spraying, align 4
   %8 = load i32, ptr %5, align 4
   %9 = add i32 %3, -1
@@ -691,7 +691,7 @@ define internal noundef zeroext i1 @dissect_do_heap_spraying(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @dissect_do_unkown_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal noundef zeroext i1 @dissect_do_unkown_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef captures(none) %5) unnamed_addr #0 {
   %7 = load i32, ptr %5, align 4
   %8 = add i32 %3, -1
   %9 = zext i8 %4 to i32

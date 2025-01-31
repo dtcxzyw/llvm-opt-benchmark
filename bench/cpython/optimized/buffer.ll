@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._tokenizer_mode = type { i32, i32, i32, i8, i32, i32, ptr, ptr, i32, i64, i64, i64, i64, ptr, i32 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_PyLexer_remember_fstring_buffers(ptr nocapture noundef %tok) local_unnamed_addr #0 {
+define hidden void @_PyLexer_remember_fstring_buffers(ptr noundef captures(none) %tok) local_unnamed_addr #0 {
 entry:
   %tok_mode_stack_index = getelementptr inbounds nuw i8, ptr %tok, i64 17256
   %0 = load i32, ptr %tok_mode_stack_index, align 8
@@ -44,7 +44,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_PyLexer_restore_fstring_buffers(ptr nocapture noundef %tok) local_unnamed_addr #0 {
+define hidden void @_PyLexer_restore_fstring_buffers(ptr noundef captures(none) %tok) local_unnamed_addr #0 {
 entry:
   %tok_mode_stack_index = getelementptr inbounds nuw i8, ptr %tok, i64 17256
   %0 = load i32, ptr %tok_mode_stack_index, align 8
@@ -79,7 +79,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_PyLexer_tok_reserve_buf(ptr nocapture noundef %tok, i64 noundef %size) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @_PyLexer_tok_reserve_buf(ptr noundef captures(none) %tok, i64 noundef %size) local_unnamed_addr #1 {
 entry:
   %cur1 = getelementptr inbounds nuw i8, ptr %tok, i64 8
   %0 = load ptr, ptr %cur1, align 8

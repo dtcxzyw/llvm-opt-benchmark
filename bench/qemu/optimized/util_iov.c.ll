@@ -39,7 +39,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.16 = private unnamed_addr constant [15 x i8] c"total == bytes\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @iov_from_buf_full(ptr nocapture noundef readonly %iov, i32 noundef %iov_cnt, i64 noundef %offset, ptr nocapture noundef readonly %buf, i64 noundef %bytes) local_unnamed_addr #0 {
+define dso_local i64 @iov_from_buf_full(ptr noundef readonly captures(none) %iov, i32 noundef %iov_cnt, i64 noundef %offset, ptr noundef readonly captures(none) %buf, i64 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %0 = or i64 %offset, %bytes
   %or.cond25 = icmp ne i64 %0, 0
@@ -102,13 +102,13 @@ if.end18:                                         ; preds = %for.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: noreturn nounwind
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @iov_to_buf_full(ptr nocapture noundef readonly %iov, i32 noundef %iov_cnt, i64 noundef %offset, ptr nocapture noundef writeonly %buf, i64 noundef %bytes) local_unnamed_addr #0 {
+define dso_local i64 @iov_to_buf_full(ptr noundef readonly captures(none) %iov, i32 noundef %iov_cnt, i64 noundef %offset, ptr noundef writeonly captures(none) %buf, i64 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %0 = or i64 %offset, %bytes
   %or.cond25 = icmp ne i64 %0, 0
@@ -171,7 +171,7 @@ if.end18:                                         ; preds = %for.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @iov_memset(ptr nocapture noundef readonly %iov, i32 noundef %iov_cnt, i64 noundef %offset, i32 noundef %fillc, i64 noundef %bytes) local_unnamed_addr #0 {
+define dso_local i64 @iov_memset(ptr noundef readonly captures(none) %iov, i32 noundef %iov_cnt, i64 noundef %offset, i32 noundef %fillc, i64 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %0 = or i64 %offset, %bytes
   %or.cond24 = icmp ne i64 %0, 0
@@ -234,10 +234,10 @@ if.end17:                                         ; preds = %for.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local i64 @iov_size(ptr nocapture noundef readonly %iov, i32 noundef %iov_cnt) local_unnamed_addr #4 {
+define dso_local i64 @iov_size(ptr noundef readonly captures(none) %iov, i32 noundef %iov_cnt) local_unnamed_addr #4 {
 entry:
   %cmp4.not = icmp eq i32 %iov_cnt, 0
   br i1 %cmp4.not, label %for.end, label %for.body.preheader
@@ -262,7 +262,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @iov_send_recv(i32 noundef %sockfd, ptr nocapture noundef readonly %_iov, i32 noundef %iov_cnt, i64 noundef %offset, i64 noundef %bytes, i1 noundef zeroext %do_send) local_unnamed_addr #0 {
+define dso_local i64 @iov_send_recv(i32 noundef %sockfd, ptr noundef readonly captures(none) %_iov, i32 noundef %iov_cnt, i64 noundef %offset, i64 noundef %bytes, i1 noundef zeroext %do_send) local_unnamed_addr #0 {
 entry:
   %msg.i73 = alloca %struct.msghdr, align 8
   %msg.i = alloca %struct.msghdr, align 8
@@ -571,7 +571,7 @@ return:                                           ; preds = %if.end89, %entry, %
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @iov_copy(ptr nocapture noundef writeonly %dst_iov, i32 noundef %dst_iov_cnt, ptr nocapture noundef readonly %iov, i32 noundef %iov_cnt, i64 noundef %offset, i64 noundef %bytes) local_unnamed_addr #0 {
+define dso_local i32 @iov_copy(ptr noundef writeonly captures(none) %dst_iov, i32 noundef %dst_iov_cnt, ptr noundef readonly captures(none) %iov, i32 noundef %iov_cnt, i64 noundef %offset, i64 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %cmp28 = icmp ne i32 %iov_cnt, 0
   %cmp129 = icmp ne i32 %dst_iov_cnt, 0
@@ -648,7 +648,7 @@ declare ptr @__errno_location() local_unnamed_addr #6
 declare void @g_free(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @iov_hexdump(ptr nocapture noundef readonly %iov, i32 noundef %iov_cnt, ptr noundef %fp, ptr noundef %prefix, i64 noundef %limit) local_unnamed_addr #0 {
+define dso_local void @iov_hexdump(ptr noundef readonly captures(none) %iov, i32 noundef %iov_cnt, ptr noundef %fp, ptr noundef %prefix, i64 noundef %limit) local_unnamed_addr #0 {
 entry:
   %cmp16.not = icmp eq i32 %iov_cnt, 0
   br i1 %cmp16.not, label %for.end, label %for.body
@@ -715,7 +715,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #8
 declare void @qemu_hexdump(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_iovec_init(ptr nocapture noundef writeonly initializes((0, 12), (16, 20), (32, 40)) %qiov, i32 noundef %alloc_hint) local_unnamed_addr #0 {
+define dso_local void @qemu_iovec_init(ptr noundef writeonly captures(none) initializes((0, 12), (16, 20), (32, 40)) %qiov, i32 noundef %alloc_hint) local_unnamed_addr #0 {
 entry:
   %conv = sext i32 %alloc_hint to i64
   %call = tail call noalias ptr @g_malloc_n(i64 noundef %conv, i64 noundef 16) #18
@@ -733,7 +733,7 @@ entry:
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @qemu_iovec_init_external(ptr nocapture noundef writeonly initializes((0, 12), (16, 20), (32, 40)) %qiov, ptr noundef %iov, i32 noundef %niov) local_unnamed_addr #9 {
+define dso_local void @qemu_iovec_init_external(ptr noundef writeonly captures(none) initializes((0, 12), (16, 20), (32, 40)) %qiov, ptr noundef %iov, i32 noundef %niov) local_unnamed_addr #9 {
 entry:
   store ptr %iov, ptr %qiov, align 8
   %niov2 = getelementptr inbounds nuw i8, ptr %qiov, i64 8
@@ -765,7 +765,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_iovec_add(ptr nocapture noundef %qiov, ptr noundef %base, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local void @qemu_iovec_add(ptr noundef captures(none) %qiov, ptr noundef %base, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %qiov, i64 16
   %1 = load i32, ptr %0, align 8
@@ -817,7 +817,7 @@ if.end8:                                          ; preds = %if.then3, %if.end
 declare ptr @g_realloc_n(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @qemu_iovec_concat_iov(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src_iov, i32 noundef %src_cnt, i64 noundef %soffset, i64 noundef %sbytes) local_unnamed_addr #0 {
+define dso_local i64 @qemu_iovec_concat_iov(ptr noundef captures(none) %dst, ptr noundef readonly captures(none) %src_iov, i32 noundef %src_cnt, i64 noundef %soffset, i64 noundef %sbytes) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i64 %sbytes, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -931,7 +931,7 @@ return:                                           ; preds = %for.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_iovec_concat(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src, i64 noundef %soffset, i64 noundef %sbytes) local_unnamed_addr #0 {
+define dso_local void @qemu_iovec_concat(ptr noundef captures(none) %dst, ptr noundef readonly captures(none) %src, i64 noundef %soffset, i64 noundef %sbytes) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %src, align 8
   %niov = getelementptr inbounds nuw i8, ptr %src, i64 8
@@ -941,7 +941,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_iovec_slice(ptr nocapture noundef readonly %qiov, i64 noundef %offset, i64 noundef %len, ptr nocapture noundef writeonly %head, ptr nocapture noundef writeonly %tail, ptr nocapture noundef writeonly %niov) local_unnamed_addr #0 {
+define dso_local ptr @qemu_iovec_slice(ptr noundef readonly captures(none) %qiov, i64 noundef %offset, i64 noundef %len, ptr noundef writeonly captures(none) %head, ptr noundef writeonly captures(none) %tail, ptr noundef writeonly captures(none) %niov) local_unnamed_addr #0 {
 entry:
   %add = add i64 %len, %offset
   %size = getelementptr inbounds nuw i8, ptr %qiov, i64 32
@@ -1028,7 +1028,7 @@ if.end11:                                         ; preds = %iov_skip_offset.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_iovec_subvec_niov(ptr nocapture noundef readonly %qiov, i64 noundef %offset, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local i32 @qemu_iovec_subvec_niov(ptr noundef readonly captures(none) %qiov, i64 noundef %offset, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %add.i = add i64 %len, %offset
   %size.i = getelementptr inbounds nuw i8, ptr %qiov, i64 32
@@ -1095,7 +1095,7 @@ qemu_iovec_slice.exit:                            ; preds = %while.body.i21.i, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @qemu_iovec_is_zero(ptr nocapture noundef readonly %qiov, i64 noundef %offset, i64 noundef %bytes) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qemu_iovec_is_zero(ptr noundef readonly captures(none) %qiov, i64 noundef %offset, i64 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %add = add i64 %bytes, %offset
   %size = getelementptr inbounds nuw i8, ptr %qiov, i64 32
@@ -1157,7 +1157,7 @@ return:                                           ; preds = %while.body, %iov_sk
 declare zeroext i1 @buffer_is_zero(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_iovec_init_slice(ptr noundef %qiov, ptr nocapture noundef readonly %source, i64 noundef %offset, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local void @qemu_iovec_init_slice(ptr noundef %qiov, ptr noundef readonly captures(none) %source, i64 noundef %offset, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %size = getelementptr inbounds nuw i8, ptr %source, i64 32
   %0 = load i64, ptr %size, align 8
@@ -1273,7 +1273,7 @@ if.end10:                                         ; preds = %if.else8, %if.then7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_iovec_destroy(ptr nocapture noundef initializes((8, 16), (20, 40)) %qiov) local_unnamed_addr #0 {
+define dso_local void @qemu_iovec_destroy(ptr noundef captures(none) initializes((8, 16), (20, 40)) %qiov) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %qiov, i64 16
   %1 = load i32, ptr %0, align 8
@@ -1291,7 +1291,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_iovec_reset(ptr nocapture noundef %qiov) local_unnamed_addr #0 {
+define dso_local void @qemu_iovec_reset(ptr noundef captures(none) %qiov) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %qiov, i64 16
   %1 = load i32, ptr %0, align 8
@@ -1311,7 +1311,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @qemu_iovec_to_buf(ptr nocapture noundef readonly %qiov, i64 noundef %offset, ptr nocapture noundef writeonly %buf, i64 noundef %bytes) local_unnamed_addr #0 {
+define dso_local i64 @qemu_iovec_to_buf(ptr noundef readonly captures(none) %qiov, i64 noundef %offset, ptr noundef writeonly captures(none) %buf, i64 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %qiov, align 8
   %niov = getelementptr inbounds nuw i8, ptr %qiov, i64 8
@@ -1377,7 +1377,7 @@ iov_to_buf.exit:                                  ; preds = %for.end.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @qemu_iovec_from_buf(ptr nocapture noundef readonly %qiov, i64 noundef %offset, ptr nocapture noundef readonly %buf, i64 noundef %bytes) local_unnamed_addr #0 {
+define dso_local i64 @qemu_iovec_from_buf(ptr noundef readonly captures(none) %qiov, i64 noundef %offset, ptr noundef readonly captures(none) %buf, i64 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %qiov, align 8
   %niov = getelementptr inbounds nuw i8, ptr %qiov, i64 8
@@ -1443,7 +1443,7 @@ iov_from_buf.exit:                                ; preds = %for.end.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @qemu_iovec_memset(ptr nocapture noundef readonly %qiov, i64 noundef %offset, i32 noundef %fillc, i64 noundef %bytes) local_unnamed_addr #0 {
+define dso_local i64 @qemu_iovec_memset(ptr noundef readonly captures(none) %qiov, i64 noundef %offset, i32 noundef %fillc, i64 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %qiov, align 8
   %niov = getelementptr inbounds nuw i8, ptr %qiov, i64 8
@@ -1509,7 +1509,7 @@ iov_memset.exit:                                  ; preds = %for.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @qemu_iovec_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
+define dso_local i64 @qemu_iovec_compare(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #0 {
 entry:
   %niov = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %niov, align 8
@@ -1595,7 +1595,7 @@ return:                                           ; preds = %while.end, %for.con
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_iovec_clone(ptr nocapture noundef %dest, ptr nocapture noundef readonly %src, ptr noundef %buf) local_unnamed_addr #0 {
+define dso_local void @qemu_iovec_clone(ptr noundef captures(none) %dest, ptr noundef readonly captures(none) %src, ptr noundef %buf) local_unnamed_addr #0 {
 entry:
   %niov = getelementptr inbounds nuw i8, ptr %src, i64 8
   %0 = load i32, ptr %niov, align 8
@@ -1744,10 +1744,10 @@ for.end55:                                        ; preds = %qemu_iovec_add.exit
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @sortelem_cmp_src_base(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #11 {
+define internal range(i32 -1, 2) i32 @sortelem_cmp_src_base(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #11 {
 entry:
   %src_iov = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load ptr, ptr %src_iov, align 8
@@ -1763,7 +1763,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @sortelem_cmp_src_index(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #12 {
+define internal i32 @sortelem_cmp_src_index(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #12 {
 entry:
   %0 = load i32, ptr %a, align 8
   %1 = load i32, ptr %b, align 8
@@ -1772,7 +1772,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @iov_discard_undo(ptr nocapture noundef readonly %undo) local_unnamed_addr #13 {
+define dso_local void @iov_discard_undo(ptr noundef readonly captures(none) %undo) local_unnamed_addr #13 {
 entry:
   %0 = load ptr, ptr %undo, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1788,7 +1788,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @iov_discard_front_undoable(ptr nocapture noundef %iov, ptr nocapture noundef %iov_cnt, i64 noundef %bytes, ptr noundef writeonly %undo) local_unnamed_addr #14 {
+define dso_local i64 @iov_discard_front_undoable(ptr noundef captures(none) %iov, ptr noundef captures(none) %iov_cnt, i64 noundef %bytes, ptr noundef writeonly %undo) local_unnamed_addr #14 {
 entry:
   %tobool.not = icmp eq ptr %undo, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1851,7 +1851,7 @@ for.end:                                          ; preds = %if.end8, %if.end, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @iov_discard_front(ptr nocapture noundef %iov, ptr nocapture noundef %iov_cnt, i64 noundef %bytes) local_unnamed_addr #14 {
+define dso_local i64 @iov_discard_front(ptr noundef captures(none) %iov, ptr noundef captures(none) %iov_cnt, i64 noundef %bytes) local_unnamed_addr #14 {
 entry:
   %0 = load ptr, ptr %iov, align 8
   %.pr.i = load i32, ptr %iov_cnt, align 4
@@ -1895,7 +1895,7 @@ iov_discard_front_undoable.exit:                  ; preds = %if.end8.i, %entry, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local i64 @iov_discard_back_undoable(ptr noundef %iov, ptr nocapture noundef %iov_cnt, i64 noundef %bytes, ptr noundef writeonly %undo) local_unnamed_addr #9 {
+define dso_local i64 @iov_discard_back_undoable(ptr noundef %iov, ptr noundef captures(none) %iov_cnt, i64 noundef %bytes, ptr noundef writeonly %undo) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %undo, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1958,7 +1958,7 @@ return:                                           ; preds = %if.end12, %if.end9,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local i64 @iov_discard_back(ptr nocapture noundef %iov, ptr nocapture noundef %iov_cnt, i64 noundef %bytes) local_unnamed_addr #9 {
+define dso_local i64 @iov_discard_back(ptr noundef captures(none) %iov, ptr noundef captures(none) %iov_cnt, i64 noundef %bytes) local_unnamed_addr #9 {
 entry:
   %0 = load i32, ptr %iov_cnt, align 4
   %cmp.i = icmp eq i32 %0, 0
@@ -2002,7 +2002,7 @@ iov_discard_back_undoable.exit:                   ; preds = %if.end12.i, %entry,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_iovec_discard_back(ptr nocapture noundef %qiov, i64 noundef %bytes) local_unnamed_addr #0 {
+define dso_local void @qemu_iovec_discard_back(ptr noundef captures(none) %qiov, i64 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %niov1 = getelementptr inbounds nuw i8, ptr %qiov, i64 8
   %0 = load i32, ptr %niov1, align 8
@@ -2080,10 +2080,10 @@ declare i64 @llvm.umin.i64(i64, i64) #15
 declare i64 @llvm.usub.sat.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

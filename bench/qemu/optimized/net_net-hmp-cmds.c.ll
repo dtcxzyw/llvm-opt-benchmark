@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [5 x i8] c"help\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @hmp_info_network(ptr noundef %mon, ptr nocapture noundef readnone %qdict) local_unnamed_addr #0 {
+define dso_local void @hmp_info_network(ptr noundef %mon, ptr noundef readnone captures(none) %qdict) local_unnamed_addr #0 {
 entry:
   tail call void @net_hub_info(ptr noundef %mon) #4
   %nc.015 = load ptr, ptr @net_clients, align 8
@@ -95,7 +95,7 @@ declare void @qmp_set_link(ptr noundef, i1 noundef zeroext, ptr noundef) local_u
 declare zeroext i1 @hmp_handle_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @hmp_announce_self(ptr nocapture noundef readnone %mon, ptr noundef %qdict) local_unnamed_addr #0 {
+define dso_local void @hmp_announce_self(ptr noundef readnone captures(none) %mon, ptr noundef %qdict) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qdict_get_try_str(ptr noundef %qdict, ptr noundef nonnull @.str.3) #4
   %call1 = tail call ptr @qdict_get_try_str(ptr noundef %qdict, ptr noundef nonnull @.str.4) #4
@@ -231,7 +231,7 @@ if.end:                                           ; preds = %entry
 for.body:                                         ; preds = %if.end, %for.body
   %i.05 = phi i32 [ 0, %if.end ], [ %inc, %for.body ]
   %call3 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @NetClientDriver_lookup, i32 noundef %i.05) #4
-  tail call void @readline_add_completion_of(ptr noundef %rs, ptr noundef %str, ptr noundef %call3) #4
+  tail call void @readline_add_completion_of(ptr noundef %rs, ptr noundef nonnull %str, ptr noundef %call3) #4
   %inc = add nuw nsw i32 %i.05, 1
   %exitcond.not = icmp eq i32 %inc, 14
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
@@ -241,7 +241,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @readline_set_completion_index(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -277,14 +277,14 @@ for.body:                                         ; preds = %for.body.preheader,
   %1 = load ptr, ptr %arrayidx, align 8
   %name = getelementptr inbounds nuw i8, ptr %1, i64 56
   %2 = load ptr, ptr %name, align 8
-  call void @readline_add_completion_of(ptr noundef %rs, ptr noundef %str, ptr noundef %2) #4
+  call void @readline_add_completion_of(ptr noundef %rs, ptr noundef nonnull %str, ptr noundef %2) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end10, label %for.body, !llvm.loop !8
 
 if.then9:                                         ; preds = %entry
-  tail call void @readline_add_completion_of(ptr noundef %rs, ptr noundef %str, ptr noundef nonnull @.str.7) #4
-  tail call void @readline_add_completion_of(ptr noundef %rs, ptr noundef %str, ptr noundef nonnull @.str.8) #4
+  tail call void @readline_add_completion_of(ptr noundef %rs, ptr noundef nonnull %str, ptr noundef nonnull @.str.7) #4
+  tail call void @readline_add_completion_of(ptr noundef %rs, ptr noundef nonnull %str, ptr noundef nonnull @.str.8) #4
   br label %if.end10
 
 if.end10:                                         ; preds = %for.body, %if.then, %entry, %if.then9
@@ -325,7 +325,7 @@ for.body:                                         ; preds = %for.body.preheader,
 if.then6:                                         ; preds = %for.body
   %name = getelementptr inbounds nuw i8, ptr %1, i64 56
   %3 = load ptr, ptr %name, align 8
-  call void @readline_add_completion_of(ptr noundef %rs, ptr noundef %str, ptr noundef %3) #4
+  call void @readline_add_completion_of(ptr noundef %rs, ptr noundef nonnull %str, ptr noundef %3) #4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then6
@@ -338,7 +338,7 @@ for.end:                                          ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #3

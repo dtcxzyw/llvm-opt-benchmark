@@ -132,7 +132,7 @@ define dso_local i32 @power_supply_add_hwmon_sysfs(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @devres_open_group(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -141,7 +141,7 @@ declare dso_local ptr @devres_open_group(ptr noundef, ptr noundef, i32 noundef) 
 declare dso_local ptr @devm_bitmap_zalloc(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
 declare dso_local ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -172,7 +172,7 @@ define dso_local void @power_supply_remove_hwmon_sysfs(ptr noundef %0) local_unn
 declare dso_local noalias ptr @devm_kmalloc(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext range(i16 0, 421) i16 @power_supply_hwmon_is_visible(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define internal zeroext range(i16 0, 421) i16 @power_supply_hwmon_is_visible(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = icmp eq i32 %1, 1
   %6 = icmp eq i32 %2, 21
   %7 = and i1 %5, %6
@@ -388,7 +388,7 @@ power_supply_hwmon_to_property.exit6:             ; preds = %52, %55, %47, %43, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @power_supply_hwmon_read(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) #0 align 16 {
+define internal i32 @power_supply_hwmon_read(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) #0 align 16 {
   %6 = alloca %union.power_supply_propval, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load ptr, ptr %7, align 8
@@ -507,7 +507,7 @@ power_supply_hwmon_to_property.exit:              ; preds = %19, %22, %14, %10, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @power_supply_hwmon_read_string(ptr nocapture readnone %0, i32 noundef %1, i32 %2, i32 noundef %3, ptr nocapture noundef writeonly %4) #5 align 16 {
+define internal noundef i32 @power_supply_hwmon_read_string(ptr readnone captures(none) %0, i32 noundef %1, i32 %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) #5 align 16 {
   %6 = icmp eq i32 %1, 1
   br i1 %6, label %7, label %11
 
@@ -523,7 +523,7 @@ define internal noundef i32 @power_supply_hwmon_read_string(ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @power_supply_hwmon_write(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) #0 align 16 {
+define internal i32 @power_supply_hwmon_write(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = alloca %union.power_supply_propval, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load ptr, ptr %7, align 8

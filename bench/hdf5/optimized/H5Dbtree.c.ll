@@ -96,7 +96,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.36 = private unnamed_addr constant [3 x i8] c"}\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5D__btree_idx_init(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5D__btree_idx_init(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -121,7 +121,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_init(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5D__btree_idx_create(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -1, 1) i32 @H5D__btree_idx_create(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca %struct.H5D_chunk_common_ud_t, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -148,17 +148,17 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_create(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @H5D__btree_idx_open(ptr nocapture readnone %0) #1 {
+define internal noundef i32 @H5D__btree_idx_open(ptr readnone captures(none) %0) #1 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @H5D__btree_idx_close(ptr nocapture readnone %0) #1 {
+define internal noundef i32 @H5D__btree_idx_close(ptr readnone captures(none) %0) #1 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5D__btree_idx_is_open(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) #2 {
+define internal noundef i32 @H5D__btree_idx_is_open(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -170,7 +170,7 @@ define internal noundef i32 @H5D__btree_idx_is_open(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @H5D__btree_idx_is_space_alloc(ptr nocapture noundef readonly %0) #3 {
+define internal zeroext i1 @H5D__btree_idx_is_space_alloc(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = icmp ne i64 %3, -1
@@ -178,7 +178,7 @@ define internal zeroext i1 @H5D__btree_idx_is_space_alloc(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5D__btree_idx_insert(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 -1, 1) i32 @H5D__btree_idx_insert(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -200,7 +200,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_insert(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5D__btree_idx_get_addr(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @H5D__btree_idx_get_addr(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i8, align 1
   store i8 0, ptr %3, align 1
   %4 = load ptr, ptr %0, align 8
@@ -224,12 +224,12 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_get_addr(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @H5D__btree_idx_load_metadata(ptr nocapture readnone %0) #1 {
+define internal noundef i32 @H5D__btree_idx_load_metadata(ptr readnone captures(none) %0) #1 {
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5D__btree_idx_iterate(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal i32 @H5D__btree_idx_iterate(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.H5D_btree_it_ud_t, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %5, align 8
@@ -262,7 +262,7 @@ define internal i32 @H5D__btree_idx_iterate(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5D__btree_idx_remove(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @H5D__btree_idx_remove(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -284,7 +284,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_remove(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5D__btree_idx_delete(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -1, 1) i32 @H5D__btree_idx_delete(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca %struct.H5O_storage_chunk_t, align 8
   %3 = alloca %struct.H5D_chunk_common_ud_t, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -358,7 +358,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_delete(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5D__btree_idx_copy_setup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @H5D__btree_idx_copy_setup(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca %struct.H5D_chunk_common_ud_t, align 8
   %4 = alloca i64, align 8
   store i64 -1, ptr %4, align 8
@@ -429,7 +429,7 @@ H5D__btree_idx_create.exit:                       ; preds = %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5D__btree_idx_copy_shutdown(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @H5D__btree_idx_copy_shutdown(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @H5UC_decr(ptr noundef %4) #15
@@ -456,7 +456,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_copy_shutdown(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5D__btree_idx_size(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -1, 1) i32 @H5D__btree_idx_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct.H5D_chunk_common_ud_t, align 8
   %4 = alloca %struct.H5B_info_t, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -492,7 +492,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_size(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5D__btree_idx_reset(ptr nocapture noundef writeonly initializes((32, 40)) %0, i1 noundef zeroext %1) #4 {
+define internal noundef i32 @H5D__btree_idx_reset(ptr noundef writeonly captures(none) initializes((32, 40)) %0, i1 noundef zeroext %1) #4 {
   br i1 %1, label %3, label %5
 
 3:                                                ; preds = %2
@@ -507,7 +507,7 @@ define internal noundef i32 @H5D__btree_idx_reset(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @H5D__btree_idx_dump(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #5 {
+define internal noundef i32 @H5D__btree_idx_dump(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.16, i64 noundef %4) #15
@@ -515,7 +515,7 @@ define internal noundef i32 @H5D__btree_idx_dump(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5D__btree_idx_dest(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -1, 1) i32 @H5D__btree_idx_dest(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -546,7 +546,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_dest(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5D_btree_debug(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5D_btree_debug(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca %struct.H5D_btree_dbg_t, align 8
   %9 = alloca %struct.H5O_storage_chunk_t, align 8
   %10 = alloca %struct.H5O_layout_chunk_t, align 8
@@ -612,10 +612,10 @@ define range(i32 -1, 1) i32 @H5D_btree_debug(ptr noundef %0, i64 noundef %1, ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5D__btree_shared_create(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5D__btree_shared_create(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = shl i32 %5, 3
@@ -679,7 +679,7 @@ declare i32 @H5B_find(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr no
 declare i32 @H5B_iterate(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5D__btree_idx_iterate_cb(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture readnone %3, ptr nocapture noundef readonly %4) #0 {
+define internal i32 @H5D__btree_idx_iterate_cb(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr readnone captures(none) %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.H5D_chunk_rec_t, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %6, ptr noundef nonnull align 8 dereferenceable(272) %1, i64 272, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 272
@@ -703,7 +703,7 @@ define internal i32 @H5D__btree_idx_iterate_cb(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare i32 @H5B_remove(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #7
 
@@ -714,7 +714,7 @@ declare void @H5AC_tag(i64 noundef, ptr noundef) local_unnamed_addr #7
 declare i32 @H5B_get_info(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 declare ptr @H5B_shared_new(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
@@ -748,7 +748,7 @@ declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #7
 declare i32 @H5B_shared_free(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal ptr @H5D__btree_get_shared(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #10 {
+define internal ptr @H5D__btree_get_shared(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #10 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -757,7 +757,7 @@ define internal ptr @H5D__btree_get_shared(ptr nocapture readnone %0, ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5D__btree_new_node(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((264, 272)) %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #11 {
+define internal noundef i32 @H5D__btree_new_node(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((264, 272)) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) #11 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %5, align 8
@@ -835,7 +835,7 @@ define internal noundef i32 @H5D__btree_new_node(ptr nocapture readnone %0, i32 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @H5D__btree_cmp2(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) #12 {
+define internal range(i32 -1, 2) i32 @H5D__btree_cmp2(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #12 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
@@ -880,7 +880,7 @@ H5VM_vector_cmp_u.exit:                           ; preds = %.lr.ph.i, %16, %18,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @H5D__btree_cmp3(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) #12 {
+define internal range(i32 -1, 2) i32 @H5D__btree_cmp3(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #12 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
@@ -982,7 +982,7 @@ H5VM_vector_cmp_u.exit30:                         ; preds = %33, %.lr.ph.i24, %H
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5D__btree_found(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4) #11 {
+define internal noundef i32 @H5D__btree_found(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4) #11 {
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
@@ -1031,7 +1031,7 @@ define internal noundef i32 @H5D__btree_found(ptr nocapture readnone %0, i64 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 4) i32 @H5D__btree_insert(ptr nocapture readnone %0, i64 %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef readonly %5, ptr noundef readonly %6, ptr nocapture readnone %7, ptr nocapture noundef writeonly %8) #0 {
+define internal range(i32 -1, 4) i32 @H5D__btree_insert(ptr readnone captures(none) %0, i64 %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly %6, ptr readnone captures(none) %7, ptr noundef writeonly captures(none) %8) #0 {
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8
@@ -1261,7 +1261,7 @@ H5D__chunk_disjoint.exit:                         ; preds = %.lr.ph.i44
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 6) i32 @H5D__btree_remove(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture noundef writeonly %6) #0 {
+define internal range(i32 -1, 6) i32 @H5D__btree_remove(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, ptr noundef writeonly captures(none) %6) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
@@ -1286,7 +1286,7 @@ define internal range(i32 -1, 6) i32 @H5D__btree_remove(ptr noundef %0, i64 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5D__btree_decode_key(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #0 {
+define internal range(i32 -1, 1) i32 @H5D__btree_decode_key(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1414,7 +1414,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_decode_key(ptr nocapture nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5D__btree_encode_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef i32 @H5D__btree_encode_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readonly captures(none) %2) #11 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 264
@@ -1501,7 +1501,7 @@ define internal noundef i32 @H5D__btree_encode_key(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @H5D__btree_debug_key(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) #5 {
+define internal noundef i32 @H5D__btree_debug_key(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) #5 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 264
   %7 = load i32, ptr %6, align 8
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.27, i32 noundef %1, ptr noundef nonnull @.str.28, i32 noundef %2, ptr noundef nonnull @.str.29, i32 noundef %7) #15
@@ -1541,13 +1541,13 @@ define internal noundef i32 @H5D__btree_debug_key(ptr nocapture noundef %0, i32 
 declare i32 @H5MF_xfree(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

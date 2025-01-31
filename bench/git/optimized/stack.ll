@@ -31,7 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.remove_maybe_stale_table.table_path = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @reftable_new_stack(ptr nocapture noundef writeonly initializes((0, 8)) %dest, ptr noundef %dir, ptr nocapture noundef byval(%struct.reftable_write_options) align 8 %config) local_unnamed_addr #0 {
+define dso_local i32 @reftable_new_stack(ptr noundef writeonly captures(none) initializes((0, 8)) %dest, ptr noundef %dir, ptr noundef byval(%struct.reftable_write_options) align 8 captures(none) %config) local_unnamed_addr #0 {
 strbuf_setlen.exit:
   %list_file_name = alloca %struct.strbuf, align 8
   %call = tail call ptr @reftable_calloc(i64 noundef 96) #14
@@ -45,11 +45,11 @@ strbuf_setlen.exit:
   %len2.i = getelementptr inbounds nuw i8, ptr %list_file_name, i64 8
   store i64 0, ptr %len2.i, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %dir) #15
-  call void @strbuf_add(ptr noundef nonnull %list_file_name, ptr noundef %dir, i64 noundef %call.i) #14
+  call void @strbuf_add(ptr noundef nonnull %list_file_name, ptr noundef nonnull %dir, i64 noundef %call.i) #14
   call void @strbuf_add(ptr noundef nonnull %list_file_name, ptr noundef nonnull @.str, i64 noundef 12) #14
   %call2 = call ptr @strbuf_detach(ptr noundef nonnull %list_file_name, ptr noundef null) #14
   store ptr %call2, ptr %call, align 8
-  %call3 = call ptr @xstrdup(ptr noundef %dir) #14
+  %call3 = call ptr @xstrdup(ptr noundef nonnull %dir) #14
   %reftable_dir = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %call3, ptr %reftable_dir, align 8
   %config4 = getelementptr inbounds nuw i8, ptr %call, i64 20
@@ -73,14 +73,14 @@ if.end8:                                          ; preds = %if.else, %if.then7
 declare ptr @reftable_calloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @reftable_stack_reload_maybe_reuse(ptr nocapture noundef %st, i32 noundef range(i32 0, 2) %reuse_open) unnamed_addr #0 {
+define internal fastcc i32 @reftable_stack_reload_maybe_reuse(ptr noundef captures(none) %st, i32 noundef range(i32 0, 2) %reuse_open) unnamed_addr #0 {
 entry:
   %new_merged.i = alloca ptr, align 8
   %table_path.i = alloca %struct.strbuf, align 8
@@ -248,7 +248,7 @@ if.then4.i.i.i:                                   ; preds = %if.then23.i
 stack_filename.exit.i:                            ; preds = %if.then4.i.i.i, %if.then23.i
   %17 = load ptr, ptr %reftable_dir.i.i, align 8
   %call.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #15
-  call void @strbuf_add(ptr noundef nonnull %table_path.i, ptr noundef %17, i64 noundef %call.i.i.i) #14
+  call void @strbuf_add(ptr noundef nonnull %table_path.i, ptr noundef nonnull %17, i64 noundef %call.i.i.i) #14
   call void @strbuf_add(ptr noundef nonnull %table_path.i, ptr noundef nonnull @.str.6, i64 noundef 1) #14
   %call.i5.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #15
   call void @strbuf_add(ptr noundef nonnull %table_path.i, ptr noundef nonnull %13, i64 noundef %call.i5.i.i) #14
@@ -344,10 +344,10 @@ if.then4.i.i64.i:                                 ; preds = %if.then65.i
 stack_filename.exit68.i:                          ; preds = %if.then4.i.i64.i, %if.then65.i
   %30 = load ptr, ptr %reftable_dir.i.i, align 8
   %call.i.i66.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #15
-  call void @strbuf_add(ptr noundef nonnull %table_path.i, ptr noundef %30, i64 noundef %call.i.i66.i) #14
+  call void @strbuf_add(ptr noundef nonnull %table_path.i, ptr noundef nonnull %30, i64 noundef %call.i.i66.i) #14
   call void @strbuf_add(ptr noundef nonnull %table_path.i, ptr noundef nonnull @.str.6, i64 noundef 1) #14
   %call.i5.i67.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call69.i) #15
-  call void @strbuf_add(ptr noundef nonnull %table_path.i, ptr noundef %call69.i, i64 noundef %call.i5.i67.i) #14
+  call void @strbuf_add(ptr noundef nonnull %table_path.i, ptr noundef nonnull %call69.i, i64 noundef %call.i5.i67.i) #14
   %31 = load ptr, ptr %arrayidx63.i, align 8
   call void @reader_close(ptr noundef %31) #14
   %32 = load ptr, ptr %arrayidx63.i, align 8
@@ -544,10 +544,10 @@ if.then4.i.i:                                     ; preds = %if.then14
 stack_filename.exit:                              ; preds = %if.then14, %if.then4.i.i
   %13 = load ptr, ptr %reftable_dir.i, align 8
   %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #15
-  call void @strbuf_add(ptr noundef nonnull %filename, ptr noundef %13, i64 noundef %call.i.i) #14
+  call void @strbuf_add(ptr noundef nonnull %filename, ptr noundef nonnull %13, i64 noundef %call.i.i) #14
   call void @strbuf_add(ptr noundef nonnull %filename, ptr noundef nonnull @.str.6, i64 noundef 1) #14
   %call.i5.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call10) #15
-  call void @strbuf_add(ptr noundef nonnull %filename, ptr noundef %call10, i64 noundef %call.i5.i) #14
+  call void @strbuf_add(ptr noundef nonnull %filename, ptr noundef nonnull %call10, i64 noundef %call.i5.i) #14
   br label %if.end15
 
 if.end15:                                         ; preds = %while.body.i, %stack_filename.exit, %strbuf_setlen.exit
@@ -593,7 +593,7 @@ do.body29:                                        ; preds = %if.end4, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, -2147483648) i32 @read_lines(ptr nocapture noundef readonly %filename, ptr noundef %namesp) local_unnamed_addr #0 {
+define dso_local range(i32 -2, -2147483648) i32 @read_lines(ptr noundef readonly captures(none) %filename, ptr noundef %namesp) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 (ptr, i32, ...) @open64(ptr noundef %filename, i32 noundef 0) #14
   %cmp = icmp slt i32 %call, 0
@@ -648,7 +648,7 @@ return:                                           ; preds = %if.then, %fd_read_l
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #3
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #4
@@ -656,7 +656,7 @@ declare ptr @__errno_location() local_unnamed_addr #4
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @reftable_stack_merged_table(ptr nocapture noundef readonly %st) local_unnamed_addr #5 {
+define dso_local ptr @reftable_stack_merged_table(ptr noundef readonly captures(none) %st) local_unnamed_addr #5 {
 entry:
   %merged = getelementptr inbounds nuw i8, ptr %st, i64 64
   %0 = load ptr, ptr %merged, align 8
@@ -666,12 +666,12 @@ entry:
 declare void @reftable_merged_table_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @reader_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @stack_filename(ptr noundef nonnull initializes((8, 16)) %dest, ptr nocapture noundef readonly %st, ptr noundef %name) unnamed_addr #0 {
+define internal fastcc void @stack_filename(ptr noundef nonnull initializes((8, 16)) %dest, ptr noundef readonly captures(none) %st, ptr noundef %name) unnamed_addr #0 {
 entry:
   %len2.i = getelementptr inbounds nuw i8, ptr %dest, i64 8
   store i64 0, ptr %len2.i, align 8
@@ -688,17 +688,17 @@ strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
   %reftable_dir = getelementptr inbounds nuw i8, ptr %st, i64 8
   %1 = load ptr, ptr %reftable_dir, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
-  tail call void @strbuf_add(ptr noundef nonnull %dest, ptr noundef %1, i64 noundef %call.i) #14
+  tail call void @strbuf_add(ptr noundef nonnull %dest, ptr noundef nonnull %1, i64 noundef %call.i) #14
   tail call void @strbuf_add(ptr noundef nonnull %dest, ptr noundef nonnull @.str.6, i64 noundef 1) #14
   %call.i5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #15
-  tail call void @strbuf_add(ptr noundef nonnull %dest, ptr noundef %name, i64 noundef %call.i5) #14
+  tail call void @strbuf_add(ptr noundef nonnull %dest, ptr noundef nonnull %name, i64 noundef %call.i5) #14
   ret void
 }
 
 declare void @reftable_reader_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
 
@@ -707,7 +707,7 @@ declare void @reftable_free(ptr noundef) local_unnamed_addr #1
 declare void @free_names(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @reftable_stack_reload(ptr nocapture noundef %st) local_unnamed_addr #0 {
+define dso_local i32 @reftable_stack_reload(ptr noundef captures(none) %st) local_unnamed_addr #0 {
 entry:
   %names.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %names.i)
@@ -784,7 +784,7 @@ return:                                           ; preds = %stack_uptodate.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483648, 1) i32 @reftable_stack_add(ptr noundef %st, ptr nocapture noundef readonly %write, ptr noundef %arg) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @reftable_stack_add(ptr noundef %st, ptr noundef readonly captures(none) %write, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %add.i = alloca %struct.reftable_addition, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %add.i)
@@ -880,10 +880,10 @@ stack_filename.exit:                              ; preds = %for.body, %if.then4
   %reftable_dir.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %reftable_dir.i, align 8
   %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #15
-  call void @strbuf_add(ptr noundef nonnull %nm, ptr noundef %5, i64 noundef %call.i.i) #14
+  call void @strbuf_add(ptr noundef nonnull %nm, ptr noundef nonnull %5, i64 noundef %call.i.i) #14
   call void @strbuf_add(ptr noundef nonnull %nm, ptr noundef nonnull @.str.6, i64 noundef 1) #14
   %call.i5.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #15
-  call void @strbuf_add(ptr noundef nonnull %nm, ptr noundef %3, i64 noundef %call.i5.i) #14
+  call void @strbuf_add(ptr noundef nonnull %nm, ptr noundef nonnull %3, i64 noundef %call.i5.i) #14
   %6 = load ptr, ptr %buf.i.i, align 8
   %call = call i32 @unlink(ptr noundef %6) #14
   %7 = load ptr, ptr %new_tables, align 8
@@ -954,7 +954,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %8 = load ptr, ptr %arrayidx, align 8
   %9 = load ptr, ptr %8, align 8
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #15
-  call void @strbuf_add(ptr noundef nonnull %table_list, ptr noundef %9, i64 noundef %call.i) #14
+  call void @strbuf_add(ptr noundef nonnull %table_list, ptr noundef nonnull %9, i64 noundef %call.i) #14
   call void @strbuf_add(ptr noundef nonnull %table_list, ptr noundef nonnull @.str.1, i64 noundef 1) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load ptr, ptr %stack, align 8
@@ -971,7 +971,7 @@ for.body8:                                        ; preds = %for.body8.lr.ph, %f
   %arrayidx10 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv41
   %14 = load ptr, ptr %arrayidx10, align 8
   %call.i29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #15
-  call void @strbuf_add(ptr noundef nonnull %table_list, ptr noundef %14, i64 noundef %call.i29) #14
+  call void @strbuf_add(ptr noundef nonnull %table_list, ptr noundef nonnull %14, i64 noundef %call.i29) #14
   call void @strbuf_add(ptr noundef nonnull %table_list, ptr noundef nonnull @.str.1, i64 noundef 1) #14
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %15 = load i32, ptr %new_tables_len, align 8
@@ -1129,7 +1129,7 @@ return:                                           ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -5, 2) i32 @reftable_stack_new_addition(ptr nocapture noundef initializes((0, 8)) %dest, ptr noundef %st) local_unnamed_addr #0 {
+define dso_local range(i32 -5, 2) i32 @reftable_stack_new_addition(ptr noundef captures(none) initializes((0, 8)) %dest, ptr noundef %st) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @reftable_calloc(i64 noundef 40) #14
   store ptr %call, ptr %dest, align 8
@@ -1150,7 +1150,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -5, 2) i32 @reftable_stack_init_addition(ptr noundef initializes((0, 16)) %add, ptr noundef %st) unnamed_addr #0 {
@@ -1294,7 +1294,7 @@ if.end26:                                         ; preds = %if.then25, %done
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @reftable_addition_add(ptr nocapture noundef %add, ptr nocapture noundef readonly %write_table, ptr noundef %arg) local_unnamed_addr #0 {
+define dso_local i32 @reftable_addition_add(ptr noundef captures(none) %add, ptr noundef readonly captures(none) %write_table, ptr noundef %arg) local_unnamed_addr #0 {
 strbuf_setlen.exit:
   %src.i = alloca %struct.reftable_block_source, align 8
   %rd.i = alloca ptr, align 8
@@ -1347,10 +1347,10 @@ stack_filename.exit:                              ; preds = %format_name.exit, %
   %reftable_dir.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %reftable_dir.i, align 8
   %call.i.i33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #15
-  call void @strbuf_add(ptr noundef nonnull %temp_tab_file_name, ptr noundef %5, i64 noundef %call.i.i33) #14
+  call void @strbuf_add(ptr noundef nonnull %temp_tab_file_name, ptr noundef nonnull %5, i64 noundef %call.i.i33) #14
   call void @strbuf_add(ptr noundef nonnull %temp_tab_file_name, ptr noundef nonnull @.str.6, i64 noundef 1) #14
   %call.i5.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #15
-  call void @strbuf_add(ptr noundef nonnull %temp_tab_file_name, ptr noundef %3, i64 noundef %call.i5.i) #14
+  call void @strbuf_add(ptr noundef nonnull %temp_tab_file_name, ptr noundef nonnull %3, i64 noundef %call.i5.i) #14
   call void @strbuf_add(ptr noundef nonnull %temp_tab_file_name, ptr noundef nonnull @.str.2, i64 noundef 12) #14
   %6 = load ptr, ptr %buf.i.i30, align 8
   %call = call i32 @mkstemp64(ptr noundef %6) #14
@@ -1639,12 +1639,12 @@ strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
 declare i32 @mkstemp64(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #7
+declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #7
 
 declare ptr @reftable_new_writer(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @reftable_fd_write(ptr nocapture noundef readonly %arg, ptr noundef %data, i64 noundef %sz) #0 {
+define internal i64 @reftable_fd_write(ptr noundef readonly captures(none) %arg, ptr noundef %data, i64 noundef %sz) #0 {
 entry:
   %0 = load i32, ptr %arg, align 4
   %call = tail call i64 @write_in_full(i32 noundef %0, ptr noundef %data, i64 noundef %sz) #14
@@ -1654,14 +1654,14 @@ entry:
 declare i32 @reftable_writer_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 declare ptr @reftable_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare void @reftable_writer_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @reftable_stack_next_update_index(ptr nocapture noundef readonly %st) local_unnamed_addr #0 {
+define dso_local i64 @reftable_stack_next_update_index(ptr noundef readonly captures(none) %st) local_unnamed_addr #0 {
 entry:
   %merged = getelementptr inbounds nuw i8, ptr %st, i64 64
   %0 = load ptr, ptr %merged, align 8
@@ -1743,7 +1743,7 @@ strbuf_setlen.exit:                               ; preds = %lor.lhs.false
   %buf.i = getelementptr inbounds nuw i8, ptr %lock_file_name, i64 16
   %.pre = load ptr, ptr %st, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre) #15
-  call void @strbuf_add(ptr noundef nonnull %lock_file_name, ptr noundef %.pre, i64 noundef %call.i) #14
+  call void @strbuf_add(ptr noundef nonnull %lock_file_name, ptr noundef nonnull %.pre, i64 noundef %call.i) #14
   call void @strbuf_add(ptr noundef nonnull %lock_file_name, ptr noundef nonnull @.str.9, i64 noundef 5) #14
   %1 = load ptr, ptr %buf.i, align 8
   %call9 = call i32 (ptr, i32, ...) @open64(ptr noundef %1, i32 noundef 193, i32 noundef 438) #14
@@ -1857,10 +1857,10 @@ if.then4.i.i:                                     ; preds = %for.body
 stack_filename.exit:                              ; preds = %for.body, %if.then4.i.i
   %18 = load ptr, ptr %reftable_dir.i, align 8
   %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #15
-  call void @strbuf_add(ptr noundef nonnull %subtab_file_name, ptr noundef %18, i64 noundef %call.i.i) #14
+  call void @strbuf_add(ptr noundef nonnull %subtab_file_name, ptr noundef nonnull %18, i64 noundef %call.i.i) #14
   call void @strbuf_add(ptr noundef nonnull %subtab_file_name, ptr noundef nonnull @.str.6, i64 noundef 1) #14
   %call.i5.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call27) #15
-  call void @strbuf_add(ptr noundef nonnull %subtab_file_name, ptr noundef %call27, i64 noundef %call.i5.i) #14
+  call void @strbuf_add(ptr noundef nonnull %subtab_file_name, ptr noundef nonnull %call27, i64 noundef %call.i5.i) #14
   store i64 0, ptr %len2.i77, align 8
   %19 = load ptr, ptr %buf.i78, align 8
   %cmp3.not.i79 = icmp eq ptr %19, @strbuf_slopbuf
@@ -1987,7 +1987,7 @@ for.body117:                                      ; preds = %for.body117.prehead
   %40 = load ptr, ptr %arrayidx120, align 8
   %41 = load ptr, ptr %40, align 8
   %call.i84 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #15
-  call void @strbuf_add(ptr noundef nonnull %ref_list_contents, ptr noundef %41, i64 noundef %call.i84) #14
+  call void @strbuf_add(ptr noundef nonnull %ref_list_contents, ptr noundef nonnull %41, i64 noundef %call.i84) #14
   call void @strbuf_add(ptr noundef nonnull %ref_list_contents, ptr noundef nonnull @.str.1, i64 noundef 1) #14
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count124
@@ -2017,7 +2017,7 @@ for.body132:                                      ; preds = %if.end126, %for.bod
   %45 = load ptr, ptr %arrayidx135, align 8
   %46 = load ptr, ptr %45, align 8
   %call.i87 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #15
-  call void @strbuf_add(ptr noundef nonnull %ref_list_contents, ptr noundef %46, i64 noundef %call.i87) #14
+  call void @strbuf_add(ptr noundef nonnull %ref_list_contents, ptr noundef nonnull %46, i64 noundef %call.i87) #14
   call void @strbuf_add(ptr noundef nonnull %ref_list_contents, ptr noundef nonnull @.str.1, i64 noundef 1) #14
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %47 = load ptr, ptr %merged.i, align 8
@@ -2160,7 +2160,7 @@ return:                                           ; preds = %entry, %for.body.pr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sizes_to_segments(ptr nocapture noundef writeonly %seglen, ptr nocapture noundef readonly %sizes, i32 noundef %n) local_unnamed_addr #0 {
+define dso_local ptr @sizes_to_segments(ptr noundef writeonly captures(none) %seglen, ptr noundef readonly captures(none) %sizes, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %conv = sext i32 %n to i64
   %mul = mul nsw i64 %conv, 24
@@ -2255,7 +2255,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @suggest_compaction_segment(ptr noalias nocapture sret(%struct.segment) align 8 %agg.result, ptr nocapture noundef readonly %sizes, i32 noundef %n) local_unnamed_addr #0 {
+define dso_local void @suggest_compaction_segment(ptr noalias sret(%struct.segment) align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %sizes, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %conv.i = sext i32 %n to i64
   %mul.i = mul nsw i64 %conv.i, 24
@@ -2445,7 +2445,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @reftable_stack_read_ref(ptr nocapture noundef readonly %st, ptr noundef %refname, ptr noundef %ref) local_unnamed_addr #0 {
+define dso_local i32 @reftable_stack_read_ref(ptr noundef readonly captures(none) %st, ptr noundef %refname, ptr noundef %ref) local_unnamed_addr #0 {
 entry:
   %tab = alloca %struct.reftable_table, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tab, i8 0, i64 16, i1 false)
@@ -2461,7 +2461,7 @@ declare void @reftable_table_from_merged_table(ptr noundef, ptr noundef) local_u
 declare i32 @reftable_table_read_ref(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @reftable_stack_read_log(ptr nocapture noundef readonly %st, ptr noundef %refname, ptr noundef %log) local_unnamed_addr #0 {
+define dso_local i32 @reftable_stack_read_log(ptr noundef readonly captures(none) %st, ptr noundef %refname, ptr noundef %log) local_unnamed_addr #0 {
 entry:
   %it = alloca %struct.reftable_iterator, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it, i8 0, i64 16, i1 false)
@@ -2503,7 +2503,7 @@ declare i32 @reftable_merged_table_seek_log(ptr noundef, ptr noundef, ptr nounde
 declare i32 @reftable_iterator_next_log(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 declare i32 @reftable_log_record_is_deletion(ptr noundef) local_unnamed_addr #1
 
@@ -2519,7 +2519,7 @@ entry:
   %table_path.i.i = alloca %struct.strbuf, align 8
   %call.i = tail call ptr @reftable_calloc(i64 noundef 40) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call.i, i8 0, i64 40, i1 false)
-  %call1.i = tail call fastcc i32 @reftable_stack_init_addition(ptr noundef %call.i, ptr noundef %st)
+  %call1.i = tail call fastcc i32 @reftable_stack_init_addition(ptr noundef nonnull %call.i, ptr noundef %st)
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %if.end, label %reftable_stack_new_addition.exit
 
@@ -2594,7 +2594,7 @@ if.end18.i:                                       ; preds = %land.rhs.i
   store i64 0, ptr %len2.i.i.i.i, align 8
   %5 = load ptr, ptr %reftable_dir.i, align 8
   %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #15
-  call void @strbuf_add(ptr noundef nonnull %table_path.i.i, ptr noundef %5, i64 noundef %call.i.i.i.i) #14
+  call void @strbuf_add(ptr noundef nonnull %table_path.i.i, ptr noundef nonnull %5, i64 noundef %call.i.i.i.i) #14
   call void @strbuf_add(ptr noundef nonnull %table_path.i.i, ptr noundef nonnull @.str.6, i64 noundef 1) #14
   %call.i5.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name.i) #15
   call void @strbuf_add(ptr noundef nonnull %table_path.i.i, ptr noundef nonnull %d_name.i, i64 noundef %call.i5.i.i.i) #14
@@ -2693,7 +2693,7 @@ declare i32 @reftable_table_print(ptr noundef) local_unnamed_addr #1
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare i64 @lseek64(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #11
@@ -2705,7 +2705,7 @@ declare i64 @read_in_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_a
 declare void @parse_names(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @names_equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2737,7 +2737,7 @@ declare ptr @create_tempfile_mode(ptr noundef, i32 noundef) local_unnamed_addr #
 declare i32 @git_rand() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare void @strbuf_addbuf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2789,10 +2789,10 @@ stack_filename.exit:                              ; preds = %format_name.exit, %
   %reftable_dir.i = getelementptr inbounds nuw i8, ptr %st, i64 8
   %6 = load ptr, ptr %reftable_dir.i, align 8
   %call.i.i21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #15
-  call void @strbuf_add(ptr noundef nonnull %temp_tab, ptr noundef %6, i64 noundef %call.i.i21) #14
+  call void @strbuf_add(ptr noundef nonnull %temp_tab, ptr noundef nonnull %6, i64 noundef %call.i.i21) #14
   call void @strbuf_add(ptr noundef nonnull %temp_tab, ptr noundef nonnull @.str.6, i64 noundef 1) #14
   %call.i5.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #15
-  call void @strbuf_add(ptr noundef nonnull %temp_tab, ptr noundef %4, i64 noundef %call.i5.i) #14
+  call void @strbuf_add(ptr noundef nonnull %temp_tab, ptr noundef nonnull %4, i64 noundef %call.i5.i) #14
   call void @strbuf_add(ptr noundef nonnull %temp_tab, ptr noundef nonnull @.str.2, i64 noundef 12) #14
   %7 = load ptr, ptr %buf.i.i18, align 8
   %call6 = call i32 @mkstemp64(ptr noundef %7) #14
@@ -3177,21 +3177,21 @@ declare i32 @validate_ref_record_addition(ptr, ptr, ptr noundef, i64 noundef) lo
 declare i64 @reftable_merged_table_max_update_index(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 declare ptr @readdir64(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #13

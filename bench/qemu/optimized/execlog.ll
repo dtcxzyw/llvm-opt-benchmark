@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.12 = private unnamed_addr constant [5 x i8] c"%u, \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %id, ptr nocapture noundef readonly %info, i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %id, ptr noundef readonly captures(none) %info, i32 noundef %argc, ptr noundef readonly captures(none) %argv) local_unnamed_addr #0 {
 entry:
   %v.i = alloca i64, align 8
   %system_emulation = getelementptr inbounds nuw i8, ptr %info, i64 16
@@ -140,7 +140,7 @@ declare ptr @g_strsplit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_add
 declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare void @qemu_plugin_register_vcpu_tb_trans_cb(i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -266,7 +266,7 @@ for.end48:                                        ; preds = %for.inc46, %entry
 declare void @qemu_plugin_register_atexit_cb(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @plugin_exit(i64 %id, ptr nocapture readnone %p) #0 {
+define internal void @plugin_exit(i64 %id, ptr readnone captures(none) %p) #0 {
 entry:
   %0 = load ptr, ptr @last_exec, align 8
   %len4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -332,7 +332,7 @@ declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #1
 declare void @qemu_plugin_register_vcpu_mem_cb(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @vcpu_mem(i32 noundef %cpu_index, i32 noundef %info, i64 noundef %vaddr, ptr nocapture readnone %udata) #0 {
+define internal void @vcpu_mem(i32 noundef %cpu_index, i32 noundef %info, i64 noundef %vaddr, ptr readnone captures(none) %udata) #0 {
 entry:
   tail call void @g_rw_lock_reader_lock(ptr noundef nonnull @expand_array_lock) #5
   %0 = load ptr, ptr @last_exec, align 8
@@ -463,10 +463,10 @@ declare ptr @g_string_new(ptr noundef) local_unnamed_addr #1
 declare void @g_rw_lock_writer_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

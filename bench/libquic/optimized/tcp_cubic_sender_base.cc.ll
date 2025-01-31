@@ -37,7 +37,7 @@ $_ZTIN3net22SendAlgorithmInterfaceE = comdat any
 @_ZN3net18TcpCubicSenderBaseD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net18TcpCubicSenderBaseD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net18TcpCubicSenderBaseC2EPKNS_9QuicClockEPKNS_8RttStatsEbPNS_19QuicConnectionStatsE(ptr noundef nonnull align 8 dereferenceable(141) initializes((0, 8)) %this, ptr nocapture noundef readnone %clock, ptr noundef %rtt_stats, i1 noundef zeroext %reno, ptr noundef %stats) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net18TcpCubicSenderBaseC2EPKNS_9QuicClockEPKNS_8RttStatsEbPNS_19QuicConnectionStatsE(ptr noundef nonnull align 8 dereferenceable(141) initializes((0, 8)) %this, ptr noundef readnone captures(none) %clock, ptr noundef %rtt_stats, i1 noundef zeroext %reno, ptr noundef %stats) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net18TcpCubicSenderBaseE, i64 16), ptr %this, align 8
   %hybrid_slow_start_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -65,13 +65,13 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN3net9PrrSenderC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN3net18TcpCubicSenderBaseD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define dso_local void @_ZN3net18TcpCubicSenderBaseD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN3net18TcpCubicSenderBaseD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN3net18TcpCubicSenderBaseD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.trap() #17
   unreachable
@@ -427,7 +427,7 @@ declare noundef zeroext i1 @_ZN3net15ContainsQuicTagERKSt6vectorIjSaIjEEj(ptr no
 declare void @_ZNK3net10QuicConfig25ReceivedConnectionOptionsEv(ptr sret(%"class.std::vector") align 8, ptr noundef nonnull align 8 dereferenceable(600)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net18TcpCubicSenderBase21ResumeConnectionStateERKNS_23CachedNetworkParametersEb(ptr noundef nonnull align 8 dereferenceable(141) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %cached_network_params, i1 noundef zeroext %max_bandwidth_resumption) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net18TcpCubicSenderBase21ResumeConnectionStateERKNS_23CachedNetworkParametersEb(ptr noundef nonnull align 8 dereferenceable(141) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %cached_network_params, i1 noundef zeroext %max_bandwidth_resumption) unnamed_addr #0 align 2 {
 entry:
   %max_bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds nuw i8, ptr %cached_network_params, i64 44
   %0 = load i32, ptr %max_bandwidth_estimate_bytes_per_second_.i, align 4
@@ -450,10 +450,10 @@ entry:
 declare i64 @_ZN3net13QuicBandwidth18FromBytesPerSecondEl(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net18TcpCubicSenderBase25SetNumEmulatedConnectionsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(141) initializes((108, 112)) %this, i32 noundef %num_connections) unnamed_addr #6 align 2 {
+define dso_local void @_ZN3net18TcpCubicSenderBase25SetNumEmulatedConnectionsEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(141) initializes((108, 112)) %this, i32 noundef %num_connections) unnamed_addr #6 align 2 {
 entry:
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %num_connections, i32 1)
   %num_connections_ = getelementptr inbounds nuw i8, ptr %this, i64 108
@@ -462,7 +462,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZNK3net18TcpCubicSenderBase8RenoBetaEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(141) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef float @_ZNK3net18TcpCubicSenderBase8RenoBetaEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(141) %this) local_unnamed_addr #7 align 2 {
 entry:
   %num_connections_ = getelementptr inbounds nuw i8, ptr %this, i64 108
   %0 = load i32, ptr %num_connections_, align 4
@@ -475,7 +475,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net18TcpCubicSenderBase17OnCongestionEventEbmRKSt6vectorISt4pairImtESaIS3_EES7_(ptr noundef nonnull align 8 dereferenceable(141) %this, i1 noundef zeroext %rtt_updated, i64 noundef %bytes_in_flight, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %acked_packets, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %lost_packets) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net18TcpCubicSenderBase17OnCongestionEventEbmRKSt6vectorISt4pairImtESaIS3_EES7_(ptr noundef nonnull align 8 dereferenceable(141) %this, i1 noundef zeroext %rtt_updated, i64 noundef %bytes_in_flight, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %acked_packets, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %lost_packets) unnamed_addr #0 align 2 {
 entry:
   br i1 %rtt_updated, label %land.lhs.true, label %if.end
 
@@ -888,7 +888,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i64 @_ZN3net13QuicBandwidth4ZeroEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { i64, i64 } @_ZNK3net18TcpCubicSenderBase19RetransmissionDelayEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(141) %this) unnamed_addr #8 align 2 {
+define dso_local { i64, i64 } @_ZNK3net18TcpCubicSenderBase19RetransmissionDelayEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(141) %this) unnamed_addr #8 align 2 {
 entry:
   %rtt_stats_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %rtt_stats_, align 8
@@ -954,7 +954,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net18TcpCubicSenderBase10InRecoveryEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(141) %this) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net18TcpCubicSenderBase10InRecoveryEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(141) %this) unnamed_addr #7 align 2 {
 entry:
   %largest_acked_packet_number_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load i64, ptr %largest_acked_packet_number_, align 8
@@ -1004,7 +1004,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3net18TcpCubicSenderBase13GetDebugStateB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK3net18TcpCubicSenderBase13GetDebugStateB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.10", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
@@ -1047,7 +1047,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN3net18TcpCubicSenderBase20OnApplicationLimitedEm(ptr nocapture nonnull readnone align 8 %this, i64 %bytes_in_flight) unnamed_addr #2 align 2 {
+define dso_local void @_ZN3net18TcpCubicSenderBase20OnApplicationLimitedEm(ptr nonnull readnone align 8 captures(none) %this, i64 %bytes_in_flight) unnamed_addr #2 align 2 {
 entry:
   ret void
 }
@@ -1171,13 +1171,13 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16

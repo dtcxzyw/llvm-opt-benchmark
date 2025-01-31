@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [24 x i8] c"ClamScanQueue: stopped\0A\00", align 1
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local noalias noundef nonnull ptr @onas_scan_queue_th(ptr nocapture noundef readonly %0) #0 {
+define dso_local noalias noundef nonnull ptr @onas_scan_queue_th(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca [13 x i8], align 1
   %3 = alloca %struct.__sigset_t, align 8
   %4 = alloca %struct.__pthread_unwind_buf_t, align 16
@@ -123,7 +123,7 @@ onas_consume_event.exit:                          ; preds = %.lr.ph.i, %29
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind
 declare i32 @prctl(i32 noundef, ...) local_unnamed_addr #2
@@ -273,7 +273,7 @@ declare i32 @thpool_add_work(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare ptr @onas_scan_worker(ptr noundef) #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @thpool_wait(ptr noundef) local_unnamed_addr #3
 

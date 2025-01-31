@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [6 x i8] c"UNDEF\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @evp_keymgmt_util_try_import(ptr noundef %params, ptr nocapture noundef %arg) #0 {
+define range(i32 0, 2) i32 @evp_keymgmt_util_try_import(ptr noundef %params, ptr noundef captures(none) %arg) #0 {
 entry:
   %keydata = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %0 = load ptr, ptr %keydata, align 8
@@ -114,7 +114,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @EVP_PKEY_set_type_by_keymgmt(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @evp_keymgmt_util_cache_keyinfo(ptr nocapture noundef %pk) local_unnamed_addr #0 {
+define void @evp_keymgmt_util_cache_keyinfo(ptr noundef captures(none) %pk) local_unnamed_addr #0 {
 entry:
   %bits = alloca i32, align 4
   %security_bits = alloca i32, align 4
@@ -235,7 +235,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @evp_keymgmt_export(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @evp_keymgmt_util_export_to_provider(ptr nocapture noundef %pk, ptr noundef %keymgmt, i32 noundef %selection) local_unnamed_addr #0 {
+define ptr @evp_keymgmt_util_export_to_provider(ptr noundef captures(none) %pk, ptr noundef %keymgmt, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
   %import_data = alloca %struct.evp_keymgmt_util_try_import_data_st, align 8
   %cmp = icmp eq ptr %keymgmt, null
@@ -416,7 +416,7 @@ return:                                           ; preds = %if.end3, %land.lhs.
 declare i32 @CRYPTO_THREAD_read_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @evp_keymgmt_util_find_operation_cache(ptr nocapture noundef readonly %pk, ptr noundef readnone %keymgmt, i32 noundef %selection) local_unnamed_addr #0 {
+define noundef ptr @evp_keymgmt_util_find_operation_cache(ptr noundef readonly captures(none) %pk, ptr noundef readnone %keymgmt, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
   %operation_cache = getelementptr inbounds nuw i8, ptr %pk, i64 120
   %0 = load ptr, ptr %operation_cache, align 8
@@ -471,7 +471,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @evp_keymgmt_util_cache_keydata(ptr nocapture noundef %pk, ptr noundef %keymgmt, ptr noundef %keydata, i32 noundef %selection) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @evp_keymgmt_util_cache_keydata(ptr noundef captures(none) %pk, ptr noundef %keymgmt, ptr noundef %keydata, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %keydata, null
   br i1 %cmp.not, label %return, label %if.then
@@ -547,7 +547,7 @@ declare void @EVP_KEYMGMT_free(ptr noundef) local_unnamed_addr #1
 declare void @OSSL_PARAM_construct_int(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @OSSL_PARAM_construct_end(ptr sret(%struct.ossl_param_st) align 8) local_unnamed_addr #1
 
@@ -598,7 +598,7 @@ if.end:                                           ; preds = %evp_keymgmt_util_as
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @evp_keymgmt_util_has(ptr nocapture noundef readonly %pk, i32 noundef %selection) local_unnamed_addr #0 {
+define i32 @evp_keymgmt_util_has(ptr noundef readonly captures(none) %pk, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
   %keymgmt = getelementptr inbounds nuw i8, ptr %pk, i64 96
   %0 = load ptr, ptr %keymgmt, align 8
@@ -942,7 +942,7 @@ return:                                           ; preds = %if.else15, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @OSSL_PARAM_construct_utf8_string(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 

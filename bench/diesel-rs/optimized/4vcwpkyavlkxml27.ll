@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.42149bed2bef2d9869e56fc8a260eeb9.4 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.42149bed2bef2d9869e56fc8a260eeb9.3, [16 x i8] c"p\00\00\00\00\00\00\00\B0\00\00\00\11\00\00\00" }>, align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @_ZN5serde2de9MapAccess10next_entry17h85474c78146c47f1E(ptr nocapture writeonly sret({ i64, [11 x i64] }) align 8 initializes((0, 9)) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN5serde2de9MapAccess10next_entry17h85474c78146c47f1E(ptr writeonly sret({ i64, [11 x i64] }) align 8 captures(none) initializes((0, 9)) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [11 x i64] }, align 8
   %4 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -59,19 +59,19 @@ _ZN5serde2de9MapAccess15next_entry_seed17h2d5f0fb344119ddbE.exit: ; preds = %11,
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @_ZN5serde2de9MapAccess10next_value17h880584df13b7ba91E(ptr sret({ i64, [11 x i64] }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN5serde2de9MapAccess10next_value17h880584df13b7ba91E(ptr sret({ i64, [11 x i64] }) align 8 %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   tail call void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h1efc27b8d5701991E"(ptr sret({ i64, [11 x i64] }) align 8 %0, ptr align 8 %1)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @_ZN5serde2de9MapAccess10next_value17h9fbdb79fe1fac6c9E(ptr sret({ i64, [11 x i64] }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #0 {
+define void @_ZN5serde2de9MapAccess10next_value17h9fbdb79fe1fac6c9E(ptr sret({ i64, [11 x i64] }) align 8 %0, ptr align 8 captures(none) %1) unnamed_addr #0 {
   tail call void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17hb09b73c86f374139E"(ptr sret({ i64, [11 x i64] }) align 8 %0, ptr align 8 %1)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @_ZN5serde2de9MapAccess15next_entry_seed17h2d5f0fb344119ddbE(ptr nocapture writeonly sret({ i64, [11 x i64] }) align 8 initializes((0, 9)) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN5serde2de9MapAccess15next_entry_seed17h2d5f0fb344119ddbE(ptr writeonly sret({ i64, [11 x i64] }) align 8 captures(none) initializes((0, 9)) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [11 x i64] }, align 8
   %4 = alloca { i64, [11 x i64] }, align 8
   call void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17hd9bbdeca0f0a8179E"(ptr nonnull sret({ i64, [11 x i64] }) align 8 %4, ptr align 8 %1)
@@ -116,13 +116,13 @@ define void @_ZN5serde2de9MapAccess15next_entry_seed17h2d5f0fb344119ddbE(ptr noc
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @_ZN5serde2de9MapAccess8next_key17h85b1933ec0e11067E(ptr nocapture writeonly sret({ i64, [11 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @_ZN5serde2de9MapAccess8next_key17h85b1933ec0e11067E(ptr writeonly sret({ i64, [11 x i64] }) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   tail call void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17h5dded5480d60aac4E"(ptr sret({ i64, [11 x i64] }) align 8 %0, ptr align 8 %1)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17h5dded5480d60aac4E"(ptr nocapture writeonly sret({ i64, [11 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17h5dded5480d60aac4E"(ptr writeonly sret({ i64, [11 x i64] }) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { { { { i64, ptr }, i64 } } }, { i64, [2 x i64] }, { { i64, [2 x i64] }, { i64, [2 x i64] } }, { { i64, [2 x i64] }, { i64, [2 x i64] } } }, { i64, [21 x i64] } }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = alloca { { { { i64, ptr }, i64 } } }, align 8
@@ -227,7 +227,7 @@ define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17hd9bbdeca0f0a8179E"(ptr nocapture writeonly sret({ i64, [11 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17hd9bbdeca0f0a8179E"(ptr writeonly sret({ i64, [11 x i64] }) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { { { { i64, ptr }, i64 } } }, { i64, [2 x i64] }, { { i64, [2 x i64] }, { i64, [2 x i64] } }, { { i64, [2 x i64] }, { i64, [2 x i64] } } }, { i64, [21 x i64] } }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = alloca { { { { i64, ptr }, i64 } } }, align 8
@@ -332,7 +332,7 @@ define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..d
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed28_$u7b$$u7b$closure$u7d$$u7d$17h22cc4af1dce96bceE"(ptr nocapture writeonly sret({ { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed28_$u7b$$u7b$closure$u7d$$u7d$17h22cc4af1dce96bceE"(ptr writeonly sret({ { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   invoke void @_ZN9toml_edit2de5Error4span17h9a608c81567204c0E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, ptr align 8 %2)
@@ -374,7 +374,7 @@ define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..d
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed28_$u7b$$u7b$closure$u7d$$u7d$17h3ca14076846e0655E"(ptr nocapture writeonly sret({ { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed28_$u7b$$u7b$closure$u7d$$u7d$17h3ca14076846e0655E"(ptr writeonly sret({ { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   invoke void @_ZN9toml_edit2de5Error4span17h9a608c81567204c0E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, ptr align 8 %2)
@@ -416,7 +416,7 @@ define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h1efc27b8d5701991E"(ptr sret({ i64, [11 x i64] }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17h1efc27b8d5701991E"(ptr sret({ i64, [11 x i64] }) align 8 %0, ptr align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = alloca { { i64, [2 x i64] }, ptr }, align 8
   %5 = alloca { { i64, [21 x i64] }, i8, [7 x i8] }, align 8
@@ -503,7 +503,7 @@ define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17hb09b73c86f374139E"(ptr sret({ i64, [11 x i64] }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed17hb09b73c86f374139E"(ptr sret({ i64, [11 x i64] }) align 8 %0, ptr align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = alloca { { i64, [2 x i64] }, ptr }, align 8
   %5 = alloca { { i64, [21 x i64] }, i8, [7 x i8] }, align 8
@@ -598,7 +598,7 @@ define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..d
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed28_$u7b$$u7b$closure$u7d$$u7d$17h6ff55abcfbfbdf14E"(ptr nocapture writeonly sret({ { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed28_$u7b$$u7b$closure$u7d$$u7d$17h6ff55abcfbfbdf14E"(ptr writeonly sret({ { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { i64, ptr }, i64 }, align 8
   %5 = alloca { { { i64, ptr }, i64 } }, align 8
   %6 = alloca { i64, [2 x i64] }, align 8
@@ -650,7 +650,7 @@ define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..d
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed28_$u7b$$u7b$closure$u7d$$u7d$17h9432e22f4136baf9E"(ptr nocapture writeonly sret({ { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$serde..de..MapAccess$GT$15next_value_seed28_$u7b$$u7b$closure$u7d$$u7d$17h9432e22f4136baf9E"(ptr writeonly sret({ { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { i64, ptr }, i64 }, align 8
   %5 = alloca { { { i64, ptr }, i64 } }, align 8
   %6 = alloca { i64, [2 x i64] }, align 8
@@ -737,7 +737,7 @@ define void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u20$serde
 declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN101_$LT$indexmap..map..iter..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45b2b8f1087048b9E"(ptr sret({ [3 x i64], i64, [39 x i64] }) align 8, ptr align 8) unnamed_addr #1
@@ -836,13 +836,13 @@ declare void @_ZN5serde2de7Visitor9visit_map17h199171009fff53b0E(ptr sret({ i64,
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

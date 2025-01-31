@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 declare ptr @PROXY_CERT_INFO_EXTENSION_it() #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @i2r_pci(ptr nocapture readnone %method, ptr nocapture noundef readonly %pci, ptr noundef %out, i32 noundef %indent) #1 {
+define internal noundef i32 @i2r_pci(ptr readnone captures(none) %method, ptr noundef readonly captures(none) %pci, ptr noundef %out, i32 noundef %indent) #1 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str, i32 noundef %indent, ptr noundef nonnull @.str.1) #4
   %0 = load ptr, ptr %pci, align 8
@@ -73,7 +73,7 @@ if.end19:                                         ; preds = %if.then12, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @r2i_pci(ptr nocapture readnone %method, ptr noundef %ctx, ptr noundef %value) #1 {
+define internal ptr @r2i_pci(ptr readnone captures(none) %method, ptr noundef %ctx, ptr noundef %value) #1 {
 entry:
   %language = alloca ptr, align 8
   %pathlen = alloca ptr, align 8
@@ -267,7 +267,7 @@ declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #0
 declare ptr @X509V3_get_section(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @process_pci_value(ptr noundef %val, ptr nocapture noundef nonnull %language, ptr noundef nonnull %pathlen, ptr nocapture noundef nonnull %policy) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @process_pci_value(ptr noundef %val, ptr noundef nonnull captures(none) %language, ptr noundef nonnull %pathlen, ptr noundef nonnull captures(none) %policy) unnamed_addr #1 {
 entry:
   %val_len = alloca i64, align 8
   %buf = alloca [2048 x i8], align 16
@@ -669,7 +669,7 @@ declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @X509V3_conf_free(ptr noundef) #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @OBJ_txt2obj(ptr noundef, i32 noundef) local_unnamed_addr #0
 
@@ -678,14 +678,14 @@ declare i32 @X509V3_get_value_int(ptr noundef, ptr noundef) local_unnamed_addr #
 declare ptr @ASN1_OCTET_STRING_new() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare ptr @OPENSSL_hexstr2buf(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
@@ -698,7 +698,7 @@ declare i32 @BIO_test_flags(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare void @BIO_free_all(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

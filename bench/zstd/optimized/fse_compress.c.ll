@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @BIT_mask = internal unnamed_addr constant [32 x i32] [i32 0, i32 1, i32 3, i32 7, i32 15, i32 31, i32 63, i32 127, i32 255, i32 511, i32 1023, i32 2047, i32 4095, i32 8191, i32 16383, i32 32767, i32 65535, i32 131071, i32 262143, i32 524287, i32 1048575, i32 2097151, i32 4194303, i32 8388607, i32 16777215, i32 33554431, i32 67108863, i32 134217727, i32 268435455, i32 536870911, i32 1073741823, i32 2147483647], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr nocapture noundef writeonly %ct, ptr nocapture noundef readonly %normalizedCounter, i32 noundef %maxSymbolValue, i32 noundef %tableLog, ptr nocapture noundef %workSpace, i64 noundef %wkspSize) local_unnamed_addr #0 {
+define range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr noundef writeonly captures(none) %ct, ptr noundef readonly captures(none) %normalizedCounter, i32 noundef %maxSymbolValue, i32 noundef %tableLog, ptr noundef captures(none) %workSpace, i64 noundef %wkspSize) local_unnamed_addr #0 {
 entry:
   %shl = shl nuw i32 1, %tableLog
   %sub = add i32 %shl, -1
@@ -311,7 +311,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define i64 @FSE_writeNCount(ptr noundef %buffer, i64 noundef %bufferSize, ptr nocapture noundef readonly %normalizedCounter, i32 noundef %maxSymbolValue, i32 noundef %tableLog) local_unnamed_addr #2 {
+define i64 @FSE_writeNCount(ptr noundef %buffer, i64 noundef %bufferSize, ptr noundef readonly captures(none) %normalizedCounter, i32 noundef %maxSymbolValue, i32 noundef %tableLog) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ugt i32 %tableLog, 12
   br i1 %cmp, label %return, label %if.end
@@ -340,7 +340,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %header, i64 noundef %headerBufferSize, ptr nocapture noundef readonly %normalizedCounter, i32 noundef %maxSymbolValue, i32 noundef range(i32 5, 13) %tableLog, i32 noundef range(i32 0, 2) %writeIsSafe) unnamed_addr #2 {
+define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %header, i64 noundef %headerBufferSize, ptr noundef readonly captures(none) %normalizedCounter, i32 noundef %maxSymbolValue, i32 noundef range(i32 5, 13) %tableLog, i32 noundef range(i32 0, 2) %writeIsSafe) unnamed_addr #2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %header, i64 %headerBufferSize
   %add = add i32 %maxSymbolValue, 1
@@ -644,7 +644,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i64 -44, 13) i64 @FSE_normalizeCount(ptr nocapture noundef %normalizedCounter, i32 noundef %tableLog, ptr nocapture noundef readonly %count, i64 noundef %total, i32 noundef %maxSymbolValue, i32 noundef %useLowProbCount) local_unnamed_addr #3 {
+define range(i64 -44, 13) i64 @FSE_normalizeCount(ptr noundef captures(none) %normalizedCounter, i32 noundef %tableLog, ptr noundef readonly captures(none) %count, i64 noundef %total, i32 noundef %maxSymbolValue, i32 noundef %useLowProbCount) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq i32 %tableLog, 0
   %spec.store.select = select i1 %cmp, i32 11, i32 %tableLog
@@ -994,7 +994,7 @@ return:                                           ; preds = %for.body, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i64 @FSE_buildCTable_rle(ptr nocapture noundef writeonly initializes((0, 8)) %ct, i8 noundef zeroext %symbolValue) local_unnamed_addr #4 {
+define noundef i64 @FSE_buildCTable_rle(ptr noundef writeonly captures(none) initializes((0, 8)) %ct, i8 noundef zeroext %symbolValue) local_unnamed_addr #4 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %ct, i64 4
   %add.ptr1 = getelementptr inbounds nuw i8, ptr %ct, i64 8
@@ -1014,7 +1014,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define i64 @FSE_compress_usingCTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %src, i64 noundef %srcSize, ptr nocapture noundef readonly %ct) local_unnamed_addr #2 {
+define i64 @FSE_compress_usingCTable(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %src, i64 noundef %srcSize, ptr noundef readonly captures(none) %ct) local_unnamed_addr #2 {
 entry:
   %shr = lshr i64 %srcSize, 7
   %add = add i64 %srcSize, 12
@@ -1026,7 +1026,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %dst, i64 noundef %dstSize, ptr noundef readonly %src, i64 noundef %srcSize, ptr nocapture noundef readonly %ct, i32 noundef range(i32 0, 2) %fast) unnamed_addr #2 {
+define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %dst, i64 noundef %dstSize, ptr noundef readonly %src, i64 noundef %srcSize, ptr noundef readonly captures(none) %ct, i32 noundef range(i32 0, 2) %fast) unnamed_addr #2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %src, i64 %srcSize
   %cmp = icmp ult i64 %srcSize, 3

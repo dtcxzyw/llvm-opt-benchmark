@@ -92,7 +92,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net21TcpCubicSenderPackets38SetCongestionWindowFromBandwidthAndRttENS_13QuicBandwidthENS_8QuicTime5DeltaE(ptr nocapture noundef nonnull align 8 dereferenceable(304) initializes((248, 256)) %this, i64 %bandwidth.coerce, i64 %rtt.coerce0, i64 %rtt.coerce1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net21TcpCubicSenderPackets38SetCongestionWindowFromBandwidthAndRttENS_13QuicBandwidthENS_8QuicTime5DeltaE(ptr noundef nonnull align 8 captures(none) dereferenceable(304) initializes((248, 256)) %this, i64 %bandwidth.coerce, i64 %rtt.coerce0, i64 %rtt.coerce1) unnamed_addr #0 align 2 {
 entry:
   %bandwidth = alloca %"class.net::QuicBandwidth", align 8
   store i64 %bandwidth.coerce, ptr %bandwidth, align 8
@@ -126,7 +126,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare noundef i64 @_ZNK3net13QuicBandwidth16ToBytesPerPeriodENS_8QuicTime5DeltaE(ptr noundef nonnull align 8 dereferenceable(8), i64, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net21TcpCubicSenderPackets28SetCongestionWindowInPacketsEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(304) initializes((248, 256)) %this, i64 noundef %congestion_window) unnamed_addr #5 align 2 {
+define dso_local void @_ZN3net21TcpCubicSenderPackets28SetCongestionWindowInPacketsEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(304) initializes((248, 256)) %this, i64 noundef %congestion_window) unnamed_addr #5 align 2 {
 entry:
   %congestion_window_ = getelementptr inbounds nuw i8, ptr %this, i64 248
   store i64 %congestion_window, ptr %congestion_window_, align 8
@@ -134,7 +134,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net21TcpCubicSenderPackets31SetMinCongestionWindowInPacketsEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(304) initializes((256, 264)) %this, i64 noundef %congestion_window) unnamed_addr #5 align 2 {
+define dso_local void @_ZN3net21TcpCubicSenderPackets31SetMinCongestionWindowInPacketsEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(304) initializes((256, 264)) %this, i64 noundef %congestion_window) unnamed_addr #5 align 2 {
 entry:
   %min_congestion_window_ = getelementptr inbounds nuw i8, ptr %this, i64 256
   store i64 %congestion_window, ptr %min_congestion_window_, align 8
@@ -157,7 +157,7 @@ declare void @_ZN3net18TcpCubicSenderBase25SetNumEmulatedConnectionsEi(ptr nound
 declare void @_ZN3net5Cubic17SetNumConnectionsEi(ptr noundef nonnull align 8 dereferenceable(96), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3net21TcpCubicSenderPackets13ExitSlowstartEv(ptr nocapture noundef nonnull align 8 dereferenceable(304) initializes((264, 272)) %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZN3net21TcpCubicSenderPackets13ExitSlowstartEv(ptr noundef nonnull align 8 captures(none) dereferenceable(304) initializes((264, 272)) %this) unnamed_addr #6 align 2 {
 entry:
   %congestion_window_ = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load i64, ptr %congestion_window_, align 8
@@ -366,7 +366,7 @@ declare noundef float @_ZNK3net18TcpCubicSenderBase8RenoBetaEv(ptr noundef nonnu
 declare noundef i64 @_ZN3net5Cubic31CongestionWindowAfterPacketLossEm(ptr noundef nonnull align 8 dereferenceable(96), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK3net21TcpCubicSenderPackets19GetCongestionWindowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this) unnamed_addr #7 align 2 {
+define dso_local noundef i64 @_ZNK3net21TcpCubicSenderPackets19GetCongestionWindowEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %this) unnamed_addr #7 align 2 {
 entry:
   %congestion_window_ = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load i64, ptr %congestion_window_, align 8
@@ -375,7 +375,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK3net21TcpCubicSenderPackets21GetSlowStartThresholdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this) unnamed_addr #7 align 2 {
+define dso_local noundef i64 @_ZNK3net21TcpCubicSenderPackets21GetSlowStartThresholdEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %this) unnamed_addr #7 align 2 {
 entry:
   %slowstart_threshold_ = getelementptr inbounds nuw i8, ptr %this, i64 264
   %0 = load i64, ptr %slowstart_threshold_, align 8
@@ -541,7 +541,7 @@ entry:
 declare void @_ZN3net18TcpCubicSenderBase21OnConnectionMigrationEv(ptr noundef nonnull align 8 dereferenceable(141)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 0, 3) i32 @_ZNK3net21TcpCubicSenderPackets24GetCongestionControlTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %this) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZNK3net21TcpCubicSenderPackets24GetCongestionControlTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %this) unnamed_addr #7 align 2 {
 entry:
   %reno_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load i8, ptr %reno_, align 8

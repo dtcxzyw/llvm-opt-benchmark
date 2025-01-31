@@ -71,7 +71,7 @@ declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @CRYPTO_THREAD_lock_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @ossl_crngt_get_entropy(ptr nocapture noundef readonly %drbg, ptr nocapture noundef writeonly %pout, i32 noundef %entropy, i64 noundef %min_len, i64 noundef %max_len, i32 noundef %prediction_resistance) local_unnamed_addr #0 {
+define i64 @ossl_crngt_get_entropy(ptr noundef readonly captures(none) %drbg, ptr noundef writeonly captures(none) %pout, i32 noundef %entropy, i64 noundef %min_len, i64 noundef %max_len, i32 noundef %prediction_resistance) local_unnamed_addr #0 {
 entry:
   %p.i35 = alloca ptr, align 8
   %p.i = alloca ptr, align 8
@@ -136,7 +136,7 @@ if.then12:                                        ; preds = %if.then8.i, %if.the
 
 if.end14:                                         ; preds = %if.then.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %buf, ptr noundef nonnull align 1 dereferenceable(16) %.pre.i, i64 16, i1 false)
-  call void @ossl_prov_cleanup_entropy(ptr noundef %3, ptr noundef %.pre.i, i64 noundef 16) #6
+  call void @ossl_prov_cleanup_entropy(ptr noundef %3, ptr noundef nonnull %.pre.i, i64 noundef 16) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   store i32 1, ptr %preloaded, align 8
   br label %if.end16
@@ -217,7 +217,7 @@ crngt_get_entropy.exit46.thread:                  ; preds = %for.body, %if.then8
 
 if.end56:                                         ; preds = %if.then.i38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %cond49, ptr noundef nonnull align 1 dereferenceable(16) %.pre.i41, i64 16, i1 false)
-  call void @ossl_prov_cleanup_entropy(ptr noundef %9, ptr noundef %.pre.i41, i64 noundef 16) #6
+  call void @ossl_prov_cleanup_entropy(ptr noundef %9, ptr noundef nonnull %.pre.i41, i64 noundef 16) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i35)
   %cmp57 = icmp ult i64 %t.071, 16
   br i1 %cmp57, label %if.then59, label %if.end61
@@ -295,7 +295,7 @@ declare ptr @OSSL_SELF_TEST_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @OSSL_SELF_TEST_onbegin(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @OSSL_SELF_TEST_oncorrupt_byte(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -308,7 +308,7 @@ declare void @CRYPTO_secure_clear_free(ptr noundef, i64 noundef, ptr noundef, i3
 declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_crngt_cleanup_entropy(ptr nocapture noundef readnone %drbg, ptr noundef %out, i64 noundef %outlen) local_unnamed_addr #0 {
+define void @ossl_crngt_cleanup_entropy(ptr noundef readnone captures(none) %drbg, ptr noundef %out, i64 noundef %outlen) local_unnamed_addr #0 {
 entry:
   tail call void @CRYPTO_secure_clear_free(ptr noundef %out, i64 noundef %outlen, ptr noundef nonnull @.str, i32 noundef 191) #6
   ret void
@@ -323,13 +323,13 @@ declare void @ossl_prov_cleanup_entropy(ptr noundef, ptr noundef, i64 noundef) l
 declare void @ossl_set_error_state(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #3
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #5

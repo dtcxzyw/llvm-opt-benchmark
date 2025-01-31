@@ -470,7 +470,7 @@ declare void @timer_mod_ns(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @timer_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_timer(ptr noundef %f, ptr noundef %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_timer(ptr noundef %f, ptr noundef %pv, i64 %size, ptr readnone captures(none) %field) #0 {
 entry:
   %call.i = tail call i64 @qemu_get_be64(ptr noundef %f) #18
   %cmp.not.i = icmp eq i64 %call.i, -1
@@ -489,7 +489,7 @@ timer_get.exit:                                   ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @put_timer(ptr noundef %f, ptr noundef %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @put_timer(ptr noundef %f, ptr noundef %pv, i64 %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
 entry:
   %call.i = tail call i64 @timer_expire_time_ns(ptr noundef %pv) #18
   tail call void @qemu_put_be64(ptr noundef %f, i64 noundef %call.i) #18
@@ -561,7 +561,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @object_class_get_list(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -570,7 +570,7 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 declare ptr @object_class_get_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @dump_vmstate_vmsd(ptr noundef %out_file, ptr nocapture noundef readonly %vmsd, i32 noundef %indent, i1 noundef zeroext %is_subsection) unnamed_addr #0 {
+define internal fastcc void @dump_vmstate_vmsd(ptr noundef %out_file, ptr noundef readonly captures(none) %vmsd, i32 noundef %indent, i1 noundef zeroext %is_subsection) unnamed_addr #0 {
 entry:
   br i1 %is_subsection, label %if.then, label %if.else
 
@@ -744,7 +744,7 @@ if.end42:                                         ; preds = %while.end40, %if.en
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @g_slist_free(ptr noundef) local_unnamed_addr #1
 
@@ -1124,14 +1124,14 @@ for.end:                                          ; preds = %for.inc, %if.end5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 -1, 1) i32 @vmstate_replace_hack_for_ppc(ptr noundef %obj, i32 noundef %instance_id, ptr noundef %vmsd, ptr noundef %opaque) local_unnamed_addr #0 {
@@ -1458,12 +1458,12 @@ return:                                           ; preds = %if.end52, %if.then1
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vmstate_check(ptr nocapture noundef readonly %vmsd) unnamed_addr #0 {
+define internal fastcc void @vmstate_check(ptr noundef readonly captures(none) %vmsd) unnamed_addr #0 {
 entry:
   %fields = getelementptr inbounds nuw i8, ptr %vmsd, i64 72
   %0 = load ptr, ptr %fields, align 8
@@ -1524,7 +1524,7 @@ while.body13:                                     ; preds = %land.rhs
   %9 = load ptr, ptr %vmsd, align 8
   %10 = load ptr, ptr %8, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #21
-  %call17 = tail call i32 @strncmp(ptr noundef %9, ptr noundef %10, i64 noundef %call) #21
+  %call17 = tail call i32 @strncmp(ptr noundef nonnull %9, ptr noundef %10, i64 noundef %call) #21
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %if.end20, label %if.else
 
@@ -1543,7 +1543,7 @@ while.end22:                                      ; preds = %land.rhs, %if.end20
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vmstate_unregister(ptr nocapture noundef readnone %obj, ptr noundef readnone %vmsd, ptr noundef readnone %opaque) local_unnamed_addr #0 {
+define dso_local void @vmstate_unregister(ptr noundef readnone captures(none) %obj, ptr noundef readnone %vmsd, ptr noundef readnone %opaque) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @savevm_state, align 8
   %tobool.not7 = icmp eq ptr %0, null
@@ -1967,7 +1967,7 @@ declare i64 @ram_pagesize_summary() local_unnamed_addr #1
 declare i64 @qemu_target_page_size() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_savevm_send_postcopy_ram_discard(ptr noundef %f, ptr noundef %name, i16 noundef zeroext %len, ptr nocapture noundef readonly %start_list, ptr nocapture noundef readonly %length_list) local_unnamed_addr #0 {
+define dso_local void @qemu_savevm_send_postcopy_ram_discard(ptr noundef %f, ptr noundef %name, i16 noundef zeroext %len, ptr noundef readonly captures(none) %start_list, ptr noundef readonly captures(none) %length_list) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #21
@@ -1997,12 +1997,12 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %len to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.82, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %name, i32 noundef %conv11.i.i) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.82, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef nonnull %name, i32 noundef %conv11.i.i) #18
   br label %trace_qemu_savevm_send_postcopy_ram_discard.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext i16 %len to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, ptr noundef %name, i32 noundef %conv12.i.i) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, ptr noundef nonnull %name, i32 noundef %conv12.i.i) #18
   br label %trace_qemu_savevm_send_postcopy_ram_discard.exit
 
 trace_qemu_savevm_send_postcopy_ram_discard.exit: ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2025,7 +2025,7 @@ if.end:                                           ; preds = %trace_qemu_savevm_s
   %arrayidx7 = getelementptr i8, ptr %call4, i64 1
   store i8 %conv6, ptr %arrayidx7, align 1
   %add.ptr = getelementptr i8, ptr %call4, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %name, i64 %call, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 1 %name, i64 %call, i1 false)
   %6 = trunc nuw i64 %call to i16
   %inc = add nuw nsw i16 %6, 3
   %7 = getelementptr i8, ptr %call4, i64 %call
@@ -2063,13 +2063,13 @@ for.end:                                          ; preds = %for.body, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_savevm_send_postcopy_listen(ptr noundef %f) local_unnamed_addr #0 {
@@ -2240,7 +2240,7 @@ trace_savevm_send_recv_bitmap.exit:               ; preds = %entry, %land.lhs.tr
   %conv = trunc i64 %call to i8
   store i8 %conv, ptr %buf, align 16
   %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %block_name, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 1 %block_name, i64 %call, i1 false)
   %6 = trunc i64 %call to i16
   %conv1 = add i16 %6, 1
   call fastcc void @qemu_savevm_command_send(ptr noundef %f, i32 noundef 10, i16 noundef zeroext %conv1, ptr noundef nonnull %buf)
@@ -2283,7 +2283,7 @@ return:                                           ; preds = %for.inc, %entry, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_savevm_non_migratable_list(ptr nocapture noundef %reasons) local_unnamed_addr #0 {
+define dso_local void @qemu_savevm_non_migratable_list(ptr noundef captures(none) %reasons) local_unnamed_addr #0 {
 entry:
   %se.08 = load ptr, ptr @savevm_state, align 8
   %tobool.not9 = icmp eq ptr %se.08, null
@@ -6955,7 +6955,7 @@ declare ptr @memory_region_name(ptr noundef) local_unnamed_addr #1
 declare void @qemu_ram_set_migratable(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vmstate_unregister_ram(ptr nocapture noundef readonly %mr, ptr nocapture noundef readnone %dev) local_unnamed_addr #0 {
+define dso_local void @vmstate_unregister_ram(ptr noundef readonly captures(none) %mr, ptr noundef readnone captures(none) %dev) local_unnamed_addr #0 {
 entry:
   %ram_block = getelementptr inbounds nuw i8, ptr %mr, i64 56
   %0 = load ptr, ptr %ram_block, align 8
@@ -7095,10 +7095,10 @@ declare void @exit(i32 noundef) local_unnamed_addr #10
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -7113,7 +7113,7 @@ declare i32 @llvm.bswap.i32(i32) #12
 declare i64 @llvm.bswap.i64(i64) #12
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @configuration_pre_load(ptr nocapture noundef writeonly initializes((88, 92)) %opaque) #0 {
+define internal noundef i32 @configuration_pre_load(ptr noundef writeonly captures(none) initializes((88, 92)) %opaque) #0 {
 entry:
   %call = tail call i32 @qemu_target_page_bits_min() #18
   %target_page_bits = getelementptr inbounds nuw i8, ptr %opaque, i64 88
@@ -7122,7 +7122,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @configuration_post_load(ptr nocapture noundef %opaque, i32 %version_id) #0 {
+define internal range(i32 -22, 1) i32 @configuration_post_load(ptr noundef captures(none) %opaque, i32 %version_id) #0 {
 entry:
   %0 = load ptr, ptr @current_machine, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %0) #18
@@ -7250,7 +7250,7 @@ out:                                              ; preds = %configuration_valid
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @configuration_pre_save(ptr nocapture noundef initializes((76, 92)) %opaque) #0 {
+define internal noundef i32 @configuration_pre_save(ptr noundef captures(none) initializes((76, 92)) %opaque) #0 {
 entry:
   %0 = load ptr, ptr @current_machine, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %0) #18
@@ -7333,7 +7333,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @configuration_post_save(ptr nocapture noundef initializes((92, 96)) %opaque) #0 {
+define internal noundef i32 @configuration_post_save(ptr noundef captures(none) initializes((92, 96)) %opaque) #0 {
 entry:
   %capabilities = getelementptr inbounds nuw i8, ptr %opaque, i64 96
   %0 = load ptr, ptr %capabilities, align 8
@@ -7359,7 +7359,7 @@ declare noalias ptr @g_try_malloc0(i64 noundef) local_unnamed_addr #7
 declare ptr @g_realloc_n(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @vmstate_target_page_bits_needed(ptr nocapture readnone %opaque) #0 {
+define internal zeroext i1 @vmstate_target_page_bits_needed(ptr readnone captures(none) %opaque) #0 {
 entry:
   %call = tail call i32 @qemu_target_page_bits() #18
   %call1 = tail call i32 @qemu_target_page_bits_min() #18
@@ -7368,7 +7368,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @vmstate_capabilites_needed(ptr nocapture readnone %opaque) #0 {
+define internal zeroext i1 @vmstate_capabilites_needed(ptr readnone captures(none) %opaque) #0 {
 entry:
   %call.i = tail call ptr @migrate_get_current() #18
   %arrayidx.i = getelementptr i8, ptr %call.i, i64 1096
@@ -7399,7 +7399,7 @@ get_validatable_capabilities_count.exit:          ; preds = %for.inc.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @get_capability(ptr noundef %f, ptr nocapture noundef writeonly %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal range(i32 -22, 1) i32 @get_capability(ptr noundef %f, ptr noundef writeonly captures(none) %pv, i64 %size, ptr readnone captures(none) %field) #0 {
 entry:
   %capability_str = alloca [256 x i8], align 16
   %call = tail call i32 @qemu_get_byte(ptr noundef %f) #18
@@ -7436,7 +7436,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @put_capability(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @put_capability(ptr noundef %f, ptr noundef readonly captures(none) %pv, i64 %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
 entry:
   %0 = load i32, ptr %pv, align 4
   %call = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationCapability_lookup, i32 noundef %0) #18
@@ -7451,7 +7451,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %conv = trunc nuw nsw i64 %call1 to i32
   tail call void @qemu_put_byte(ptr noundef %f, i32 noundef %conv) #18
-  tail call void @qemu_put_buffer(ptr noundef %f, ptr noundef %call, i64 noundef %call1) #18
+  tail call void @qemu_put_buffer(ptr noundef %f, ptr noundef nonnull %call, i64 noundef %call1) #18
   ret i32 0
 }
 
@@ -7487,7 +7487,7 @@ return:                                           ; preds = %if.end, %if.then4, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @vmstate_uuid_needed(ptr nocapture readnone %opaque) #0 {
+define internal zeroext i1 @vmstate_uuid_needed(ptr readnone captures(none) %opaque) #0 {
 entry:
   %0 = load i8, ptr @qemu_uuid_set, align 1
   %tobool = trunc i8 %0 to i1
@@ -7521,7 +7521,7 @@ declare ptr @qdev_get_machine() local_unnamed_addr #1
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i64 @qemu_get_counted_string(ptr noundef, ptr noundef) #1
 
@@ -7680,7 +7680,7 @@ declare i32 @postcopy_ram_incoming_cleanup(ptr noundef) local_unnamed_addr #1
 declare void @postcopy_thread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias noundef ptr @postcopy_ram_listen_thread(ptr nocapture readnone %opaque) #0 {
+define internal noalias noundef ptr @postcopy_ram_listen_thread(ptr readnone captures(none) %opaque) #0 {
 entry:
   %_now.i.i19 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -8153,7 +8153,7 @@ declare void @qemu_sem_wait(ptr noundef) local_unnamed_addr #1
 declare void @g_tree_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @postcopy_sync_page_req(ptr noundef %key, ptr nocapture readnone %value, ptr noundef %data) #0 {
+define internal noundef i32 @postcopy_sync_page_req(ptr noundef %key, ptr readnone captures(none) %value, ptr noundef %data) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %rb_offset = alloca i64, align 8
@@ -8432,16 +8432,16 @@ delete_snapshot.exit:                             ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

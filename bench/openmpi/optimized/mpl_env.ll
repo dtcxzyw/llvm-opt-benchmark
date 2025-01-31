@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [4 x i8] c"off\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -1, 1) i32 @MPL_env2range(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @MPL_env2range(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @getenv(ptr noundef %0) #9
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %48, label %.preheader50
@@ -123,16 +123,16 @@ define range(i32 -1, 1) i32 @MPL_env2range(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -1, 2) i32 @MPL_env2int(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @MPL_env2int(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @getenv(ptr noundef %0) #9
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %39, label %.preheader
@@ -226,7 +226,7 @@ define range(i32 -1, 2) i32 @MPL_env2int(ptr noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define range(i32 -1, 2) i32 @MPL_env2bool(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @MPL_env2bool(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @getenv(ptr noundef %0) #9
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.tail38.thread, label %4
@@ -356,10 +356,10 @@ sub_039:                                          ; preds = %48
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @MPL_env2str(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @MPL_env2str(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
   %3 = tail call ptr @getenv(ptr noundef %0) #9
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -383,7 +383,7 @@ define i32 @MPL_putenv(ptr noundef %0) local_unnamed_addr #6 {
 declare i32 @putenv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -1, 2) i32 @MPL_env2double(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @MPL_env2double(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = tail call ptr @getenv(ptr noundef %0) #9
@@ -408,7 +408,7 @@ define range(i32 -1, 2) i32 @MPL_env2double(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #8
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #8
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

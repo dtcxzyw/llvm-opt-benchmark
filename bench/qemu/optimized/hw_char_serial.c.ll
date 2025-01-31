@@ -128,7 +128,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_serial_register_types, ptr null }]
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @serial_pre_load(ptr nocapture noundef writeonly initializes((176, 180), (360, 364)) %opaque) #0 {
+define internal noundef i32 @serial_pre_load(ptr noundef writeonly captures(none) initializes((176, 180), (360, 364)) %opaque) #0 {
 entry:
   %thr_ipending = getelementptr inbounds nuw i8, ptr %opaque, i64 176
   store i32 -1, ptr %thr_ipending, align 16
@@ -276,7 +276,7 @@ return:                                           ; preds = %serial_write_fcr.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @serial_pre_save(ptr nocapture noundef initializes((173, 174)) %opaque) #2 {
+define internal noundef i32 @serial_pre_save(ptr noundef captures(none) initializes((173, 174)) %opaque) #2 {
 entry:
   %fcr = getelementptr inbounds nuw i8, ptr %opaque, i64 172
   %0 = load i8, ptr %fcr, align 4
@@ -1118,7 +1118,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare i32 @qemu_chr_fe_add_watch(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @serial_watch_cb(ptr nocapture readnone %do_not_use, i32 %cond, ptr noundef initializes((260, 264)) %opaque) #1 {
+define internal noundef i32 @serial_watch_cb(ptr readnone captures(none) %do_not_use, i32 %cond, ptr noundef initializes((260, 264)) %opaque) #1 {
 entry:
   %watch_tag = getelementptr inbounds nuw i8, ptr %opaque, i64 260
   store i32 0, ptr %watch_tag, align 4
@@ -1291,7 +1291,7 @@ declare zeroext i1 @fifo8_is_empty(ptr noundef) local_unnamed_addr #3
 declare zeroext i8 @fifo8_pop(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @serial_update_irq(ptr nocapture noundef %s) unnamed_addr #1 {
+define internal fastcc void @serial_update_irq(ptr noundef captures(none) %s) unnamed_addr #1 {
 entry:
   %ier = getelementptr inbounds nuw i8, ptr %s, i64 165
   %0 = load i8, ptr %ier, align 1
@@ -1398,7 +1398,7 @@ if.end61:                                         ; preds = %land.lhs.true41, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @serial_receive1(ptr noundef %opaque, ptr nocapture noundef readonly %buf, i32 noundef %size) #1 {
+define internal void @serial_receive1(ptr noundef %opaque, ptr noundef readonly captures(none) %buf, i32 noundef %size) #1 {
 entry:
   %wakeup = getelementptr inbounds nuw i8, ptr %opaque, i64 264
   %0 = load i8, ptr %wakeup, align 8
@@ -1507,7 +1507,7 @@ declare zeroext i1 @fifo8_is_full(ptr noundef) local_unnamed_addr #3
 declare void @fifo8_push(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @serial_thr_ipending_needed(ptr nocapture noundef readonly %opaque) #6 {
+define internal zeroext i1 @serial_thr_ipending_needed(ptr noundef readonly captures(none) %opaque) #6 {
 entry:
   %ier = getelementptr inbounds nuw i8, ptr %opaque, i64 165
   %0 = load i8, ptr %ier, align 1
@@ -1532,7 +1532,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @serial_tsr_needed(ptr nocapture noundef readonly %opaque) #6 {
+define internal zeroext i1 @serial_tsr_needed(ptr noundef readonly captures(none) %opaque) #6 {
 entry:
   %tsr_retry = getelementptr inbounds nuw i8, ptr %opaque, i64 256
   %0 = load i32, ptr %tsr_retry, align 16
@@ -1559,7 +1559,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @serial_fifo_timeout_timer_needed(ptr nocapture noundef readonly %opaque) #1 {
+define internal zeroext i1 @serial_fifo_timeout_timer_needed(ptr noundef readonly captures(none) %opaque) #1 {
 entry:
   %fifo_timeout_timer = getelementptr inbounds nuw i8, ptr %opaque, i64 336
   %0 = load ptr, ptr %fifo_timeout_timer, align 16
@@ -1570,7 +1570,7 @@ entry:
 declare zeroext i1 @timer_pending(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @serial_timeout_ipending_needed(ptr nocapture noundef readonly %opaque) #6 {
+define internal zeroext i1 @serial_timeout_ipending_needed(ptr noundef readonly captures(none) %opaque) #6 {
 entry:
   %timeout_ipending = getelementptr inbounds nuw i8, ptr %opaque, i64 344
   %0 = load i32, ptr %timeout_ipending, align 8
@@ -1579,7 +1579,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @serial_poll_needed(ptr nocapture noundef readonly %opaque) #6 {
+define internal zeroext i1 @serial_poll_needed(ptr noundef readonly captures(none) %opaque) #6 {
 entry:
   %poll_msl = getelementptr inbounds nuw i8, ptr %opaque, i64 360
   %0 = load i32, ptr %poll_msl, align 8
@@ -1590,7 +1590,7 @@ entry:
 declare i32 @qemu_chr_fe_ioctl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #3
 
@@ -1675,7 +1675,7 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @serial_class_init(ptr noundef %klass, ptr nocapture readnone %data) #1 {
+define internal void @serial_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #1 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
   %user_creatable = getelementptr inbounds nuw i8, ptr %call.i, i64 128
@@ -1689,7 +1689,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @serial_realize(ptr noundef %dev, ptr nocapture readnone %errp) #1 {
+define internal void @serial_realize(ptr noundef %dev, ptr readnone captures(none) %errp) #1 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.58, i32 noundef 99, ptr noundef nonnull @__func__.SERIAL) #10
   %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #13
@@ -1752,7 +1752,7 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @fifo_timeout_int(ptr nocapture noundef %opaque) #1 {
+define internal void @fifo_timeout_int(ptr noundef captures(none) %opaque) #1 {
 entry:
   %num = getelementptr inbounds nuw i8, ptr %opaque, i64 296
   %0 = load i32, ptr %num, align 8
@@ -1841,7 +1841,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @qemu_chr_fe_set_handlers(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 256) i32 @serial_can_receive1(ptr nocapture noundef readonly %opaque) #6 {
+define internal range(i32 0, 256) i32 @serial_can_receive1(ptr noundef readonly captures(none) %opaque) #6 {
 entry:
   %fcr.i = getelementptr inbounds nuw i8, ptr %opaque, i64 172
   %0 = load i8, ptr %fcr.i, align 4
@@ -2011,7 +2011,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @serial_mm_class_init(ptr noundef %oc, ptr nocapture readnone %data) #1 {
+define internal void @serial_mm_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #1 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @serial_mm_properties) #10
@@ -2094,10 +2094,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

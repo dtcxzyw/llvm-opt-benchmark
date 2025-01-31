@@ -161,14 +161,14 @@ _ZN3irr5video23COpenGLCoreCacheHandlerINS0_18COpenGL3DriverBaseENS0_18COpenGLCor
 declare void @_ZN3irr5video24COpenGL3MaterialRendererC2EPNS0_18COpenGL3DriverBaseEPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr noundef nonnull align 8 dereferenceable(76), ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @_ZN3irr5video24COpenGL3MaterialRenderer4initERiPKcS4_b(ptr noundef nonnull align 8 dereferenceable(76), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 declare noundef ptr @_ZNK3irr5video18COpenGL3DriverBase15getCacheHandlerEv(ptr noundef nonnull align 8 dereferenceable(2920)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr5video18COpenGL3Renderer2DC1EPKcS3_PNS0_18COpenGL3DriverBaseEb(ptr noundef nonnull align 8 dereferenceable(88) initializes((88, 108)) %this, ptr noundef %vertexShaderProgram, ptr noundef %pixelShaderProgram, ptr noundef %driver, i1 noundef zeroext %withTexture) unnamed_addr #0 align 2 {
@@ -334,7 +334,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video18COpenGL3Renderer2D13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(178) %material, ptr noundef nonnull align 8 dereferenceable(178) %lastMaterial, i1 noundef zeroext %resetAllRenderstates, ptr nocapture readnone %services) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video18COpenGL3Renderer2D13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(178) %material, ptr noundef nonnull align 8 dereferenceable(178) %lastMaterial, i1 noundef zeroext %resetAllRenderstates, ptr readnone captures(none) %services) unnamed_addr #0 align 2 {
 entry:
   %Thickness = alloca float, align 4
   %TextureUsage = alloca i32, align 4
@@ -398,7 +398,7 @@ if.end:                                           ; preds = %if.then, %_ZN3irr5v
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN3irr5video18COpenGL3Renderer2D8OnRenderEPNS0_25IMaterialRendererServicesENS0_13E_VERTEX_TYPEE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %service, i32 %vtxtype) unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN3irr5video18COpenGL3Renderer2D8OnRenderEPNS0_25IMaterialRendererServicesENS0_13E_VERTEX_TYPEE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %service, i32 %vtxtype) unnamed_addr #6 align 2 {
 entry:
   ret i1 true
 }

@@ -502,7 +502,7 @@ declare dso_local ptr @lookup_fdget_rcu(i32 noundef) local_unnamed_addr #1
 declare dso_local void @__f_setown(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc noundef range(i32 -17, 1) i32 @attach_dn(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 134217728, 1073741824) %5) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -17, 1) i32 @attach_dn(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 134217728, 1073741824) %5) unnamed_addr #3 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
@@ -611,7 +611,7 @@ declare dso_local ptr @fsnotify_alloc_group(ptr noundef, i32 noundef) local_unna
 declare dso_local void @panic(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @dnotify_handle_event(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef readnone %3, ptr nocapture readnone %4, i32 %5) #0 align 16 {
+define internal noundef i32 @dnotify_handle_event(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef readnone %3, ptr readnone captures(none) %4, i32 %5) #0 align 16 {
   %7 = and i32 %1, -134217729
   %8 = icmp eq ptr %3, null
   %9 = and i32 %1, 1073741824

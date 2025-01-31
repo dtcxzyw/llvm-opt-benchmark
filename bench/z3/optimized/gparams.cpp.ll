@@ -821,7 +821,7 @@ unreachable:                                      ; preds = %invoke.cont26
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7gparams3setERK6symbolPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name, ptr noundef %value) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7gparams3setERK6symbolPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %name, ptr noundef %value) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr @_ZN7gparams5g_impE, align 8
   %1 = load ptr, ptr %name, align 8
@@ -1089,7 +1089,7 @@ unreachable:                                      ; preds = %invoke.cont40
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7gparams9get_valueB5cxx11ERK6symbol(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7gparams9get_valueB5cxx11ERK6symbol(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %name) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr @_ZN7gparams5g_impE, align 8
   %1 = load ptr, ptr %name, align 8
@@ -1194,7 +1194,7 @@ _ZN17lazy_param_descrsC2EPFP12param_descrsvE.exit: ; preds = %if.else
   %call.i.i3 = call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i, i64 noundef %add.i)
   %call3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %module_name) #19
   %add4.i = add i64 %call3.i, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i3, ptr align 1 %module_name, i64 %add4.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i3, ptr nonnull align 1 %module_name, i64 %add4.i, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store ptr %call.i.i3, ptr %ref.tmp.i, align 8
   %m_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
@@ -1228,7 +1228,7 @@ if.then.i:                                        ; preds = %entry
   %call.i.i1.i = call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i.i, i64 noundef %add.i.i)
   %call3.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %module_name) #19
   %add4.i.i = add i64 %call3.i.i, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i1.i, ptr align 1 %module_name, i64 %add4.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i1.i, ptr nonnull align 1 %module_name, i64 %add4.i.i, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   store ptr %call.i.i1.i, ptr %ref.tmp.i.i, align 8
   %m_value.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
@@ -2433,7 +2433,7 @@ entry:
 declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7gparams3impC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2946,7 +2946,7 @@ invoke.cont74:                                    ; preds = %invoke.cont72
           to label %invoke.cont76 unwind label %lpad
 
 invoke.cont76:                                    ; preds = %invoke.cont74
-  %call79 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call77, ptr noundef %value)
+  %call79 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call77, ptr noundef nonnull %value)
           to label %invoke.cont78 unwind label %lpad
 
 invoke.cont78:                                    ; preds = %invoke.cont76
@@ -3016,7 +3016,7 @@ if.then:                                          ; preds = %entry
   br label %if.end95
 
 if.then5:                                         ; preds = %entry
-  %call6 = tail call i64 @strtol(ptr nocapture noundef %value, ptr noundef null, i32 noundef 10) #17
+  %call6 = tail call i64 @strtol(ptr noundef captures(none) %value, ptr noundef null, i32 noundef 10) #17
   %conv = trunc i64 %call6 to i32
   tail call void @_ZN10params_ref8set_uintEPKcj(ptr noundef nonnull align 8 dereferenceable(8) %call3, ptr noundef %call, i32 noundef %conv)
   br label %if.end95
@@ -3051,7 +3051,7 @@ if.else22:                                        ; preds = %if.else18
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.else22
-  %call25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call23, ptr noundef %value)
+  %call25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call23, ptr noundef nonnull %value)
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %invoke.cont
@@ -3125,7 +3125,7 @@ if.then54:                                        ; preds = %entry
   %call.i.i = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i, i64 noundef %add.i)
   %call3.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #19
   %add4.i = add i64 %call3.i, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr align 1 %value, i64 %add4.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr nonnull align 1 %value, i64 %add4.i, i1 false)
   tail call void @_ZN10params_ref7set_strEPKcS1_(ptr noundef nonnull align 8 dereferenceable(8) %call3, ptr noundef %call, ptr noundef %call.i.i)
   br label %if.end95
 
@@ -3342,7 +3342,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -3387,7 +3387,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare noundef i32 @_ZNK12param_descrs8get_kindEPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @_Z24gparams_register_modulesv() local_unnamed_addr #0
 
@@ -3430,7 +3430,7 @@ if.then4:                                         ; preds = %if.else
   %call.i.i3 = call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %m_region.i, i64 noundef %add.i)
   %call3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call8) #19
   %add4.i = add i64 %call3.i, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i3, ptr align 1 %call8, i64 %add4.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i3, ptr nonnull align 1 %call8, i64 %add4.i, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store ptr %call.i.i3, ptr %ref.tmp.i, align 8
   %m_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
@@ -3714,12 +3714,12 @@ unreachable:                                      ; preds = %invoke.cont96, %inv
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #12
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #12
 
 declare void @_ZN10params_ref8set_uintEPKcj(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #12
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @_ZN10params_ref10set_doubleEPKcd(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, double noundef) local_unnamed_addr #0
 
@@ -3740,7 +3740,7 @@ entry:
   %0 = load ptr, ptr %e, align 8
   %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
   %conv.i.i.i = trunc i64 %call.i.i.i to i32
-  %call2.i.i.i = tail call noundef i32 @_Z11string_hashPKcjj(ptr noundef %0, i32 noundef %conv.i.i.i, i32 noundef 17)
+  %call2.i.i.i = tail call noundef i32 @_Z11string_hashPKcjj(ptr noundef nonnull %0, i32 noundef %conv.i.i.i, i32 noundef 17)
   %m_capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %m_capacity, align 8
   %sub = add i32 %1, -1
@@ -3847,7 +3847,7 @@ if.end:                                           ; preds = %if.then, %entry
   %3 = load ptr, ptr %e, align 8
   %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #19
   %conv.i.i.i = trunc i64 %call.i.i.i to i32
-  %call2.i.i.i = tail call noundef i32 @_Z11string_hashPKcjj(ptr noundef %3, i32 noundef %conv.i.i.i, i32 noundef 17)
+  %call2.i.i.i = tail call noundef i32 @_Z11string_hashPKcjj(ptr noundef nonnull %3, i32 noundef %conv.i.i.i, i32 noundef 17)
   %4 = load i32, ptr %m_capacity, align 8
   %sub = add i32 %4, -1
   %and = and i32 %sub, %call2.i.i.i
@@ -4106,7 +4106,7 @@ declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, pt
 declare void @exit(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 declare void @_ZNK12param_descrs7displayERSojbb(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #0
 
@@ -4202,7 +4202,7 @@ entry:
   %0 = load ptr, ptr %e, align 8
   %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
   %conv.i.i.i = trunc i64 %call.i.i.i to i32
-  %call2.i.i.i = tail call noundef i32 @_Z11string_hashPKcjj(ptr noundef %0, i32 noundef %conv.i.i.i, i32 noundef 17)
+  %call2.i.i.i = tail call noundef i32 @_Z11string_hashPKcjj(ptr noundef nonnull %0, i32 noundef %conv.i.i.i, i32 noundef 17)
   %m_capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %m_capacity, align 8
   %sub = add i32 %1, -1
@@ -4518,7 +4518,7 @@ if.end:                                           ; preds = %if.then, %entry
   %3 = load ptr, ptr %e, align 8
   %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #19
   %conv.i.i.i = trunc i64 %call.i.i.i to i32
-  %call2.i.i.i = tail call noundef i32 @_Z11string_hashPKcjj(ptr noundef %3, i32 noundef %conv.i.i.i, i32 noundef 17)
+  %call2.i.i.i = tail call noundef i32 @_Z11string_hashPKcjj(ptr noundef nonnull %3, i32 noundef %conv.i.i.i, i32 noundef 17)
   %4 = load i32, ptr %m_capacity, align 8
   %sub = add i32 %4, -1
   %and = and i32 %sub, %call2.i.i.i
@@ -4777,7 +4777,7 @@ entry:
   %0 = load ptr, ptr %e, align 8
   %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
   %conv.i.i.i = trunc i64 %call.i.i.i to i32
-  %call2.i.i.i = tail call noundef i32 @_Z11string_hashPKcjj(ptr noundef %0, i32 noundef %conv.i.i.i, i32 noundef 17)
+  %call2.i.i.i = tail call noundef i32 @_Z11string_hashPKcjj(ptr noundef nonnull %0, i32 noundef %conv.i.i.i, i32 noundef 17)
   %m_capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %m_capacity, align 8
   %sub = add i32 %1, -1
@@ -4882,7 +4882,7 @@ if.end:                                           ; preds = %if.then, %entry
   %3 = load ptr, ptr %e, align 8
   %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #19
   %conv.i.i.i = trunc i64 %call.i.i.i to i32
-  %call2.i.i.i = tail call noundef i32 @_Z11string_hashPKcjj(ptr noundef %3, i32 noundef %conv.i.i.i, i32 noundef 17)
+  %call2.i.i.i = tail call noundef i32 @_Z11string_hashPKcjj(ptr noundef nonnull %3, i32 noundef %conv.i.i.i, i32 noundef 17)
   %4 = load i32, ptr %m_capacity, align 8
   %sub = add i32 %4, -1
   %and = and i32 %sub, %call2.i.i.i
@@ -5412,10 +5412,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

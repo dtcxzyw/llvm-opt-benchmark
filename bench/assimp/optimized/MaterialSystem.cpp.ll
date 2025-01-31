@@ -131,7 +131,7 @@ $_ZTV17DeadlyImportError = comdat any
 @_ZN10aiMaterialD1Ev = unnamed_addr alias void (ptr), ptr @_ZN10aiMaterialD2Ev
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -1, 1) i32 @aiGetMaterialProperty(ptr nocapture noundef readonly %pMat, ptr nocapture noundef readonly %pKey, i32 noundef %type, i32 noundef %index, ptr nocapture noundef writeonly %pPropOut) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @aiGetMaterialProperty(ptr noundef readonly captures(none) %pMat, ptr noundef readonly captures(none) %pKey, i32 noundef %type, i32 noundef %index, ptr noundef writeonly captures(none) %pPropOut) local_unnamed_addr #0 {
 entry:
   %mNumProperties = getelementptr inbounds nuw i8, ptr %pMat, i64 8
   %0 = load i32, ptr %mNumProperties, align 8
@@ -255,10 +255,10 @@ return:                                           ; preds = %for.inc, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @aiGetMaterialFloatArray(ptr nocapture noundef readonly %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef %pOut, ptr noundef %pMax) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @aiGetMaterialFloatArray(ptr noundef readonly captures(none) %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef %pOut, ptr noundef %pMax) local_unnamed_addr #2 {
 entry:
   %pKey.addr = alloca ptr, align 8
   %prop = alloca ptr, align 8
@@ -733,7 +733,7 @@ lpad6:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @aiGetMaterialIntegerArray(ptr nocapture noundef readonly %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr nocapture noundef writeonly %pOut, ptr noundef %pMax) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @aiGetMaterialIntegerArray(ptr noundef readonly captures(none) %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef writeonly captures(none) %pOut, ptr noundef %pMax) local_unnamed_addr #2 {
 entry:
   %in.addr.i = alloca ptr, align 8
   %pKey.addr = alloca ptr, align 8
@@ -1007,7 +1007,7 @@ lpad6:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @aiGetMaterialColor(ptr nocapture noundef readonly %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef %pOut) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @aiGetMaterialColor(ptr noundef readonly captures(none) %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef %pOut) local_unnamed_addr #2 {
 entry:
   %iMax = alloca i32, align 4
   store i32 4, ptr %iMax, align 4
@@ -1026,7 +1026,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @aiGetMaterialUVTransform(ptr nocapture noundef readonly %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef %pOut) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @aiGetMaterialUVTransform(ptr noundef readonly captures(none) %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef %pOut) local_unnamed_addr #2 {
 entry:
   %iMax = alloca i32, align 4
   store i32 5, ptr %iMax, align 4
@@ -1035,7 +1035,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @aiGetMaterialString(ptr nocapture noundef readonly %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr nocapture noundef writeonly %pOut) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @aiGetMaterialString(ptr noundef readonly captures(none) %pMat, ptr noundef %pKey, i32 noundef %type, i32 noundef %index, ptr noundef writeonly captures(none) %pOut) local_unnamed_addr #2 {
 entry:
   %pKey.addr = alloca ptr, align 8
   %prop = alloca ptr, align 8
@@ -1075,7 +1075,7 @@ return:                                           ; preds = %entry, %if.then1, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6Assimp6Logger5errorIJRA18_KcRPS2_RA29_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 1 dereferenceable(18) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 1 dereferenceable(29) %args3) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1123,7 +1123,7 @@ lpad6:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @aiGetMaterialTextureCount(ptr nocapture noundef readonly %pMat, i32 noundef %type) local_unnamed_addr #5 {
+define i32 @aiGetMaterialTextureCount(ptr noundef readonly captures(none) %pMat, i32 noundef %type) local_unnamed_addr #5 {
 entry:
   %mNumProperties = getelementptr inbounds nuw i8, ptr %pMat, i64 8
   %0 = load i32, ptr %mNumProperties, align 8
@@ -1174,7 +1174,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 1) i32 @aiGetMaterialTexture(ptr nocapture noundef readonly %mat, i32 noundef %type, i32 noundef %index, ptr nocapture noundef writeonly %path, ptr noundef writeonly %_mapping, ptr noundef writeonly %uvindex, ptr noundef %blend, ptr noundef writeonly %op, ptr noundef writeonly %mapmode, ptr noundef writeonly %flags) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @aiGetMaterialTexture(ptr noundef readonly captures(none) %mat, i32 noundef %type, i32 noundef %index, ptr noundef writeonly captures(none) %path, ptr noundef writeonly %_mapping, ptr noundef writeonly %uvindex, ptr noundef %blend, ptr noundef writeonly %op, ptr noundef writeonly %mapmode, ptr noundef writeonly %flags) local_unnamed_addr #2 {
 entry:
   %pKey.addr.i = alloca ptr, align 8
   %prop.i = alloca ptr, align 8
@@ -1276,7 +1276,7 @@ return:                                           ; preds = %aiGetMaterialString
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10aiMaterialC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #2 align 2 {
+define void @_ZN10aiMaterialC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   %mNumProperties = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1292,7 +1292,7 @@ entry:
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN10aiMaterialD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10aiMaterialD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mNumProperties.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %mNumProperties.i, align 8
@@ -1345,7 +1345,7 @@ delete.end:                                       ; preds = %delete.notnull, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN10aiMaterial5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN10aiMaterial5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #7 align 2 {
 entry:
   %mNumProperties = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %mNumProperties, align 8
@@ -1396,7 +1396,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10aiMaterial7GetNameEv(ptr noalias nocapture writeonly sret(%struct.aiString) align 4 initializes((0, 5)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #2 align 2 {
+define void @_ZNK10aiMaterial7GetNameEv(ptr noalias writeonly sret(%struct.aiString) align 4 captures(none) initializes((0, 5)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #2 align 2 {
 entry:
   %pKey.addr.i.i = alloca ptr, align 8
   store i32 0, ptr %agg.result, align 4
@@ -1475,7 +1475,7 @@ _ZNK10aiMaterial3GetEPKcjjR8aiString.exit:        ; preds = %for.inc.i, %entry, 
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 -1, 1) i32 @_ZN10aiMaterial14RemovePropertyEPKcjj(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %pKey, i32 noundef %type, i32 noundef %index) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN10aiMaterial14RemovePropertyEPKcjj(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(none) %pKey, i32 noundef %type, i32 noundef %index) local_unnamed_addr #7 align 2 {
 entry:
   %mNumProperties = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %mNumProperties, align 8
@@ -1555,7 +1555,7 @@ return:                                           ; preds = %for.inc21, %for.bod
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -3, 1) i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %pInput, i32 noundef %pSizeInBytes, ptr nocapture noundef readonly %pKey, i32 noundef %type, i32 noundef %index, i32 noundef %pType) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -3, 1) i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(none) %pInput, i32 noundef %pSizeInBytes, ptr noundef readonly captures(none) %pKey, i32 noundef %type, i32 noundef %index, i32 noundef %pType) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pcNew = alloca %"class.std::unique_ptr", align 8
   %cmp = icmp eq i32 %pSizeInBytes, 0
@@ -1752,10 +1752,10 @@ return:                                           ; preds = %_ZNKSt14default_del
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #9
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 declare void @__cxa_end_catch() local_unnamed_addr
 
@@ -1786,7 +1786,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -3, 1) i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %pInput, ptr nocapture noundef readonly %pKey, i32 noundef %type, i32 noundef %index) local_unnamed_addr #2 align 2 {
+define noundef range(i32 -3, 1) i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(none) %pInput, ptr noundef readonly captures(none) %pKey, i32 noundef %type, i32 noundef %index) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i32, ptr %pInput, align 4
   %add2 = add i32 %0, 5
@@ -1795,7 +1795,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6Assimp19ComputeMaterialHashEPK10aiMaterialb(ptr nocapture noundef readonly %mat, i1 noundef zeroext %includeMatName) local_unnamed_addr #7 {
+define hidden noundef i32 @_ZN6Assimp19ComputeMaterialHashEPK10aiMaterialb(ptr noundef readonly captures(none) %mat, i1 noundef zeroext %includeMatName) local_unnamed_addr #7 {
 entry:
   %mNumProperties = getelementptr inbounds nuw i8, ptr %mat, i64 8
   %0 = load i32, ptr %mNumProperties, align 8
@@ -2013,7 +2013,7 @@ return:                                           ; preds = %entry, %sw.epilog
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10aiMaterial16CopyPropertyListEPS_PKS_(ptr nocapture noundef %pcDest, ptr nocapture noundef readonly %pcSrc) local_unnamed_addr #2 align 2 {
+define void @_ZN10aiMaterial16CopyPropertyListEPS_PKS_(ptr noundef captures(none) %pcDest, ptr noundef readonly captures(none) %pcSrc) local_unnamed_addr #2 align 2 {
 entry:
   %mNumProperties = getelementptr inbounds nuw i8, ptr %pcDest, i64 8
   %0 = load i32, ptr %mNumProperties, align 8
@@ -2221,7 +2221,7 @@ for.end78:                                        ; preds = %_ZN8aiStringaSERKS_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6Assimp6Logger4warnIJRA24_KcRPS2_RA47_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 1 dereferenceable(24) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 1 dereferenceable(47) %args3) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2656,7 +2656,7 @@ unreachable:                                      ; preds = %invoke.cont5
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #10
@@ -3435,10 +3435,10 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #14
 declare i8 @llvm.abs.i8(i8, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #15
@@ -3447,7 +3447,7 @@ declare i32 @llvm.umin.i32(i32, i32) #15
 declare i32 @llvm.umax.i32(i32, i32) #15
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 attributes #0 = { mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

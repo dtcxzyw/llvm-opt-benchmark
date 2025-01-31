@@ -186,7 +186,7 @@ Abc_NtkLatchIsSelfFeed_rec.exit:                  ; preds = %41, %26, %tailrecur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Abc_NtkCountSelfFeedLatches(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Abc_NtkCountSelfFeedLatches(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -647,7 +647,7 @@ define ptr @Abc_NtkAddLatch(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
 declare i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Abc_NtkCollectLatchValues(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define noalias noundef ptr @Abc_NtkCollectLatchValues(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 128
   %.val11 = load i32, ptr %2, align 8
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #12
@@ -773,7 +773,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
-define noalias noundef ptr @Abc_NtkCollectLatchValuesStr(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define noalias noundef ptr @Abc_NtkCollectLatchValuesStr(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr i8, ptr %0, i64 128
   %.val23 = load i32, ptr %2, align 8
   %3 = add nsw i32 %.val23, 1
@@ -839,7 +839,7 @@ switch.lookup:                                    ; preds = %16
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Abc_NtkInsertLatchValues(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #5 {
+define void @Abc_NtkInsertLatchValues(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
@@ -924,7 +924,7 @@ declare ptr @Abc_ObjName(ptr noundef) local_unnamed_addr #2
 declare void @Abc_ObjAddFanin(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkNodeConvertToMux(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define void @Abc_NtkNodeConvertToMux(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   tail call void @Abc_ObjAddFanin(ptr noundef %4, ptr noundef %1) #11
   tail call void @Abc_ObjAddFanin(ptr noundef %4, ptr noundef %2) #11
   tail call void @Abc_ObjAddFanin(ptr noundef %4, ptr noundef %3) #11
@@ -1156,10 +1156,10 @@ declare void @Nm_ManDeleteIdName(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @Abc_ObjTransferFanout(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Abc_NtkConverLatchNamesIntoNumbers(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define noalias noundef ptr @Abc_NtkConverLatchNamesIntoNumbers(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1962,7 +1962,7 @@ declare ptr @Abc_SopCreateAnd(ptr noundef, i32 noundef, ptr noundef) local_unnam
 declare i32 @Abc_NtkCheck(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkRetimeWithClassesAig(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, i32 noundef %3) local_unnamed_addr #1 {
+define ptr @Abc_NtkRetimeWithClassesAig(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = tail call ptr @Gia_ManFromAigSimple(ptr noundef %0) #11
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 440
   store ptr %1, ptr %6, align 8
@@ -1986,7 +1986,7 @@ declare ptr @Gia_ManToAig(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkRetimeWithClassesNtk(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, i32 noundef %3) local_unnamed_addr #1 {
+define ptr @Abc_NtkRetimeWithClassesNtk(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = tail call ptr @Abc_NtkStrash(ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #11
   %6 = tail call ptr @Abc_NtkToDar(ptr noundef %5, i32 noundef 0, i32 noundef 1) #11
   %7 = tail call ptr @Gia_ManFromAigSimple(ptr noundef %6) #11
@@ -2022,7 +2022,7 @@ declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #2
 declare void @Aig_ManStop(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkTransformBack(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define void @Abc_NtkTransformBack(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = getelementptr i8, ptr %0, i64 48
   %.val7175 = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %.val7175, i64 4
@@ -2831,7 +2831,7 @@ declare void @Abc_NtkOrderCisCos(ptr noundef) local_unnamed_addr #2
 declare i32 @Abc_NtkCleanup(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2147483647) i32 @Abc_NtkVerifyCex(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define range(i32 -2147483648, 2147483647) i32 @Abc_NtkVerifyCex(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   tail call void @Abc_NtkCleanMarkC(ptr noundef %0) #11
   %3 = tail call ptr @Abc_AigConst1(ptr noundef %0) #11
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -3175,18 +3175,18 @@ define range(i32 -2147483648, 2147483647) i32 @Abc_NtkVerifyCex(ptr noundef %0, 
 declare void @Abc_NtkCleanMarkC(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 declare ptr @Abc_NtkCreateObj(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10

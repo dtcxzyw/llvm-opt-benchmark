@@ -798,7 +798,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #1
 declare double @pow(double noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @VP8MakeLuma16Preds(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @VP8MakeLuma16Preds(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %6, label %3
@@ -830,7 +830,7 @@ define hidden void @VP8MakeLuma16Preds(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @VP8MakeChroma8Preds(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @VP8MakeChroma8Preds(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %6, label %3
@@ -1153,7 +1153,7 @@ IsFlat_C.exit.thread.i:                           ; preds = %113, %IsFlat_C.exit
   %162 = add nsw i64 %161, %156
   store i64 %162, ptr %18, align 8, !alias.scope !19, !noalias !16
   %163 = load i32, ptr %79, align 8, !alias.scope !19, !noalias !16
-  call void @VP8SetIntra16Mode(ptr noundef %0, i32 noundef %163) #11
+  call void @VP8SetIntra16Mode(ptr noundef nonnull %0, i32 noundef %163) #11
   %164 = load i32, ptr %17, align 8, !alias.scope !19, !noalias !16
   %165 = and i32 %164, 16842751
   %166 = icmp eq i32 %165, 16777216
@@ -1412,7 +1412,7 @@ IsFlat_C.exit.i35:                                ; preds = %.preheader.i.prehea
   br i1 %or.cond.i, label %319, label %332
 
 319:                                              ; preds = %IsFlat_C.exit.i35
-  %320 = call i32 @VP8GetCostLuma4(ptr noundef %0, ptr noundef nonnull %10) #11, !noalias !34
+  %320 = call i32 @VP8GetCostLuma4(ptr noundef nonnull %0, ptr noundef nonnull %10) #11, !noalias !34
   %321 = sext i32 %320 to i64
   %322 = add nsw i64 %.sroa.12.0.i, %321
   %323 = add nsw i64 %322, %305
@@ -2300,7 +2300,7 @@ declare void @VP8SetSkip(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @VP8FilterStrengthFromDelta(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ReconstructIntra16(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i32 noundef range(i32 -2147483648, 256) %3) unnamed_addr #0 {
@@ -2452,7 +2452,7 @@ declare void @VP8SetIntra16Mode(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare void @VP8IteratorNzToBytes(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef range(i32 0, 4) %4, ptr noalias nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef range(i32 0, 4) %4, ptr noalias noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #5 {
   %8 = alloca [16 x [2 x %struct.Node]], align 16
   %9 = alloca [2 x [2 x %struct.ScoreState]], align 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 3620
@@ -2781,7 +2781,7 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias noc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @VP8IteratorStartI4(ptr noundef) local_unnamed_addr #3
 
@@ -2792,7 +2792,7 @@ declare i32 @VP8IteratorRotateI4(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @VP8SetIntra4Mode(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, -65535) i32 @ReconstructUV(ptr noalias nocapture noundef readonly %0, ptr noalias noundef %1, ptr noalias noundef %2, i32 noundef range(i32 -2147483648, 4) %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, -65535) i32 @ReconstructUV(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef %1, ptr noalias noundef %2, i32 noundef range(i32 -2147483648, 4) %3) unnamed_addr #0 {
   %5 = alloca [8 x [16 x i16]], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
@@ -3076,7 +3076,7 @@ declare void @VP8SetIntraUVMode(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @llvm.smin.i32(i32, i32) #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.abs.i16(i16, i1 immarg) #7
@@ -3091,10 +3091,10 @@ declare i32 @llvm.umin.i32(i32, i32) #7
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #7

@@ -10,7 +10,7 @@ define dso_local void @_ZN4llvm3sys11MemoryFenceEv() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_ZN4llvm3sys14CompareAndSwapEPVjjj(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define dso_local noundef i32 @_ZN4llvm3sys14CompareAndSwapEPVjjj(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = cmpxchg ptr %0, i32 %2, i32 %1 seq_cst seq_cst, align 4
   %5 = extractvalue { i32, i1 } %4, 0
   ret i32 %5

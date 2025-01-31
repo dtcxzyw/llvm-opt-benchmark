@@ -141,19 +141,19 @@ return:                                           ; preds = %if.end4.i, %if.end.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @dummy_new(ptr nocapture readnone %parent, ptr nocapture readnone %ptr, ptr nocapture readnone %ad, i32 %idx, i64 %argl, ptr nocapture readnone %argp) #2 {
+define internal void @dummy_new(ptr readnone captures(none) %parent, ptr readnone captures(none) %ptr, ptr readnone captures(none) %ad, i32 %idx, i64 %argl, ptr readnone captures(none) %argp) #2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dummy_dup(ptr nocapture readnone %to, ptr nocapture readnone %from, ptr nocapture readnone %from_d, i32 %idx, i64 %argl, ptr nocapture readnone %argp) #2 {
+define internal noundef i32 @dummy_dup(ptr readnone captures(none) %to, ptr readnone captures(none) %from, ptr readnone captures(none) %from_d, i32 %idx, i64 %argl, ptr readnone captures(none) %argp) #2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @dummy_free(ptr nocapture readnone %parent, ptr nocapture readnone %ptr, ptr nocapture readnone %ad, i32 %idx, i64 %argl, ptr nocapture readnone %argp) #2 {
+define internal void @dummy_free(ptr readnone captures(none) %parent, ptr readnone captures(none) %ptr, ptr readnone captures(none) %ad, i32 %idx, i64 %argl, ptr readnone captures(none) %argp) #2 {
 entry:
   ret void
 }
@@ -434,7 +434,7 @@ return:                                           ; preds = %if.end4.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @CRYPTO_get_ex_data(ptr nocapture noundef readonly %ad, i32 noundef %idx) local_unnamed_addr #0 {
+define ptr @CRYPTO_get_ex_data(ptr noundef readonly captures(none) %ad, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
   %sk = getelementptr inbounds nuw i8, ptr %ad, i64 8
   %0 = load ptr, ptr %sk, align 8
@@ -655,7 +655,7 @@ return:                                           ; preds = %if.end4.i, %if.end.
 declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CRYPTO_set_ex_data(ptr nocapture noundef %ad, i32 noundef %idx, ptr noundef %val) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CRYPTO_set_ex_data(ptr noundef captures(none) %ad, i32 noundef %idx, ptr noundef %val) local_unnamed_addr #0 {
 entry:
   %sk = getelementptr inbounds nuw i8, ptr %ad, i64 8
   %0 = load ptr, ptr %sk, align 8
@@ -850,10 +850,10 @@ err:                                              ; preds = %if.end4.i, %if.end.
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @ex_callback_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #4 {
+define internal range(i32 -1, 2) i32 @ex_callback_compare(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #4 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
@@ -978,7 +978,7 @@ declare ptr @OPENSSL_sk_set(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_crypto_ex_data_get_ossl_lib_ctx(ptr nocapture noundef readonly %ad) local_unnamed_addr #5 {
+define ptr @ossl_crypto_ex_data_get_ossl_lib_ctx(ptr noundef readonly captures(none) %ad) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %ad, align 8
   ret ptr %0
@@ -997,7 +997,7 @@ declare i32 @llvm.smax.i32(i32, i32) #6
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

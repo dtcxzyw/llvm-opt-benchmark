@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN6PcDescC1Eiii = hidden unnamed_addr alias void (ptr, i32, i32, i32), ptr @_ZN6PcDescC2Eiii
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6PcDescC2Eiii(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN6PcDescC2Eiii(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %5, align 4
@@ -20,7 +20,7 @@ define hidden void @_ZN6PcDescC2Eiii(ptr nocapture noundef nonnull writeonly ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK6PcDesc7real_pcEPK7nmethod(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %0, ptr noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK6PcDesc7real_pcEPK7nmethod(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, ptr noundef readonly %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = sext i32 %4 to i64
@@ -32,12 +32,12 @@ define hidden noundef ptr @_ZNK6PcDesc7real_pcEPK7nmethod(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN6PcDesc8print_onEP12outputStreamP7nmethod(ptr nocapture noundef nonnull readnone align 4 dereferenceable(16) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6PcDesc8print_onEP12outputStreamP7nmethod(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(16) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN6PcDesc6verifyEP7nmethod(ptr nocapture noundef nonnull readnone align 4 dereferenceable(16) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN6PcDesc6verifyEP7nmethod(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(16) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 align 2 {
   ret i1 true
 }
 

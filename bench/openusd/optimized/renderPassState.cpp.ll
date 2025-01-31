@@ -185,7 +185,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassStateC2Ev(ptr no
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__17CameraUtilFramingC1Ev(ptr noundef nonnull align 4 dereferenceable(36)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassStateD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(381) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassStateD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(381) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__17HdRenderPassStateE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8
@@ -282,19 +282,19 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassStateD0Ev(ptr no
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState7PrepareERKSt10shared_ptrINS_18HdResourceRegistryEE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #4 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState7PrepareERKSt10shared_ptrINS_18HdResourceRegistryEE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState9SetCameraEPKNS_8HdCameraE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState9SetCameraEPKNS_8HdCameraE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState23SetOverrideWindowPolicyERKSt8optionalINS_29CameraUtilConformWindowPolicyEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((68, 76)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #6 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState23SetOverrideWindowPolicyERKSt8optionalINS_29CameraUtilConformWindowPolicyEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((68, 76)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %4 = load i64, ptr %1, align 4
   store i64 %4, ptr %3, align 4
@@ -302,10 +302,10 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState23SetOverri
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState11SetViewportERKNS_7GfVec4dE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((16, 68)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState11SetViewportERKNS_7GfVec4dE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((16, 68)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::CameraUtilFraming", align 4
   %4 = load double, ptr %1, align 8
   %5 = fptrunc double %4 to float
@@ -333,14 +333,14 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState11SetViewpo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState10SetFramingERKNS_17CameraUtilFramingE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((32, 68)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %1) local_unnamed_addr #6 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState10SetFramingERKNS_17CameraUtilFramingE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((32, 68)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(36) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 4 dereferenceable(36) %1, i64 36, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState20GetWorldToViewMatrixEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(381) %1) unnamed_addr #0 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState20GetWorldToViewMatrixEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(381) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -362,7 +362,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState20GetWorld
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d10GetInverseEPdd(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8, ptr noundef nonnull align 8 dereferenceable(128), ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState15GetWindowPolicyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(381) %0) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState15GetWindowPolicyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(381) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -578,14 +578,14 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState21GetImage
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d8SetScaleERKNS_7GfVec3dE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 declare noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12SetTranslateERKNS_7GfVec3dE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState13GetClipPlanesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(381) %0) unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState13GetClipPlanesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(381) %0) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -651,77 +651,77 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #11
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState16SetOverrideColorERKNS_7GfVec4fE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((76, 92)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) local_unnamed_addr #6 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState16SetOverrideColorERKNS_7GfVec4fE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((76, 92)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState17SetWireframeColorERKNS_7GfVec4fE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((92, 108)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) local_unnamed_addr #6 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState17SetWireframeColorERKNS_7GfVec4fE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((92, 108)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState12SetMaskColorERKNS_7GfVec4fE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((132, 148)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) local_unnamed_addr #6 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState12SetMaskColorERKNS_7GfVec4fE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((132, 148)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 132
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState17SetIndicatorColorERKNS_7GfVec4fE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((148, 164)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) local_unnamed_addr #6 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState17SetIndicatorColorERKNS_7GfVec4fE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((148, 164)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 148
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState13SetPointColorERKNS_7GfVec4fE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((108, 124)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) local_unnamed_addr #6 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState13SetPointColorERKNS_7GfVec4fE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((108, 124)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState12SetPointSizeEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((124, 128)) %0, float noundef %1) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState12SetPointSizeEf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((124, 128)) %0, float noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store float %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState20SetPointSelectedSizeEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((164, 168)) %0, float noundef %1) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState20SetPointSelectedSizeEf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((164, 168)) %0, float noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store float %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState12SetCullStyleENS_11HdCullStyleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((212, 216)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState12SetCullStyleENS_11HdCullStyleE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((212, 216)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 212
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState17SetAlphaThresholdEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((168, 172)) %0, float noundef %1) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState17SetAlphaThresholdEf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((168, 172)) %0, float noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store float %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState12SetTessLevelEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((172, 176)) %0, float noundef %1) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState12SetTessLevelEf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((172, 176)) %0, float noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store float %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState15SetDrawingRangeERKNS_7GfVec2fE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((176, 184)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #6 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState15SetDrawingRangeERKNS_7GfVec2fE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((176, 184)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load i64, ptr %1, align 4
   store i64 %4, ptr %3, align 8
@@ -729,7 +729,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState15SetDrawin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState18SetLightingEnabledEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((128, 129)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState18SetLightingEnabledEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((128, 129)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 %3, ptr %4, align 8
@@ -737,7 +737,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState18SetLighti
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState18SetClippingEnabledEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((129, 130)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState18SetClippingEnabledEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((129, 130)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 129
   store i8 %3, ptr %4, align 1
@@ -981,7 +981,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState20SetUseAovMultiSampleEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((368, 369)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState20SetUseAovMultiSampleEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((368, 369)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store i8 %3, ptr %4, align 8
@@ -989,7 +989,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState20SetUseAov
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState20GetUseAovMultiSampleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(381) %0) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState20GetUseAovMultiSampleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(381) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -997,7 +997,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState22SetDepthBiasUseDefaultEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((184, 185)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState22SetDepthBiasUseDefaultEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((184, 185)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i8 %3, ptr %4, align 8
@@ -1005,7 +1005,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState22SetDepthB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState19SetDepthBiasEnabledEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((185, 186)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState19SetDepthBiasEnabledEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((185, 186)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 185
   store i8 %3, ptr %4, align 1
@@ -1013,7 +1013,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState19SetDepthB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState12SetDepthBiasEff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((188, 196)) %0, float noundef %1, float noundef %2) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState12SetDepthBiasEff(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((188, 196)) %0, float noundef %1, float noundef %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 188
   store float %1, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -1022,14 +1022,14 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState12SetDepthB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState12SetDepthFuncENS_17HdCompareFunctionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((196, 200)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState12SetDepthFuncENS_17HdCompareFunctionE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((196, 200)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 196
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState18SetEnableDepthMaskEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((200, 201)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState18SetEnableDepthMaskEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((200, 201)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i8 %3, ptr %4, align 8
@@ -1037,7 +1037,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState18SetEnable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState18GetEnableDepthMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(381) %0) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState18GetEnableDepthMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(381) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -1045,7 +1045,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState18SetEnableDepthTestEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((201, 202)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState18SetEnableDepthTestEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((201, 202)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 201
   store i8 %3, ptr %4, align 1
@@ -1053,7 +1053,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState18SetEnable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState18GetEnableDepthTestEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(381) %0) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState18GetEnableDepthTestEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(381) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 201
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -1061,7 +1061,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState19SetEnableDepthClampEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((202, 203)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState19SetEnableDepthClampEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((202, 203)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 202
   store i8 %3, ptr %4, align 2
@@ -1069,7 +1069,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState19SetEnable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState19GetEnableDepthClampEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(381) %0) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState19GetEnableDepthClampEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(381) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 202
   %3 = load i8, ptr %2, align 2
   %4 = trunc i8 %3 to i1
@@ -1077,7 +1077,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState13SetDepthRangeERKNS_7GfVec2fE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((204, 212)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #6 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState13SetDepthRangeERKNS_7GfVec2fE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((204, 212)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %4 = load i64, ptr %1, align 4
   store i64 %4, ptr %3, align 4
@@ -1091,7 +1091,7 @@ define noundef nonnull align 4 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState10SetStencilENS_17HdCompareFunctionEiiNS_11HdStencilOpES2_S2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((216, 240)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState10SetStencilENS_17HdCompareFunctionEiiNS_11HdStencilOpES2_S2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((216, 240)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #5 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 220
@@ -1108,7 +1108,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState10SetStenci
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState17SetStencilEnabledEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((240, 241)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState17SetStencilEnabledEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((240, 241)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i8 %3, ptr %4, align 8
@@ -1116,7 +1116,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState17SetStenci
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState17GetStencilEnabledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(381) %0) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState17GetStencilEnabledEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(381) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -1124,14 +1124,14 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState12SetLineWidthEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((244, 248)) %0, float noundef %1) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState12SetLineWidthEf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((244, 248)) %0, float noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 244
   store float %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState8SetBlendENS_9HdBlendOpENS_13HdBlendFactorES2_S1_S2_S2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((248, 272)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState8SetBlendENS_9HdBlendOpENS_13HdBlendFactorES2_S1_S2_S2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((248, 272)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #5 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i32 %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 252
@@ -1148,14 +1148,14 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState8SetBlendEN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState21SetBlendConstantColorERKNS_7GfVec4fE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((272, 288)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) local_unnamed_addr #6 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState21SetBlendConstantColorERKNS_7GfVec4fE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((272, 288)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState15SetBlendEnabledEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((288, 289)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState15SetBlendEnabledEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((288, 289)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i8 %3, ptr %4, align 8
@@ -1163,7 +1163,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState15SetBlendE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState25SetAlphaToCoverageEnabledEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((289, 290)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState25SetAlphaToCoverageEnabledEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((289, 290)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 289
   store i8 %3, ptr %4, align 1
@@ -1171,7 +1171,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState25SetAlphaT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState22SetColorMaskUseDefaultEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((290, 291)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState22SetColorMaskUseDefaultEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((290, 291)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 290
   store i8 %3, ptr %4, align 2
@@ -1179,7 +1179,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState22SetColorM
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState35SetConservativeRasterizationEnabledEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((369, 370)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState35SetConservativeRasterizationEnabledEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((369, 370)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 369
   store i8 %3, ptr %4, align 1
@@ -1187,7 +1187,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState35SetConser
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState27SetVolumeRenderingConstantsEff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((372, 380)) %0, float noundef %1, float noundef %2) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState27SetVolumeRenderingConstantsEff(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((372, 380)) %0, float noundef %1, float noundef %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 372
   store float %1, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 376
@@ -1313,7 +1313,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState21SetMultiSampleEnabledEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(381) initializes((380, 381)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17HdRenderPassState21SetMultiSampleEnabledEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(381) initializes((380, 381)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 380
   store i8 %3, ptr %4, align 4
@@ -3116,13 +3116,13 @@ _ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKN32pxrInternal_v0_2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

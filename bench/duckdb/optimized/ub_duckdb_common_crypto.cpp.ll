@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6duckdb10MD5ContextC1Ev = unnamed_addr alias void (ptr), ptr @_ZN6duckdb10MD5ContextC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb10MD5ContextC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(88) initializes((0, 24)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb10MD5ContextC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(88) initializes((0, 24)) %this) unnamed_addr #0 align 2 {
 entry:
   store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %this, align 4, !tbaa !3
   %bits = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -21,7 +21,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb10MD5Context9MD5UpdateEPKhm(ptr nocapture noundef nonnull align 4 dereferenceable(88) %this, ptr nocapture noundef readonly %input, i64 noundef %len) local_unnamed_addr #1 align 2 {
+define void @_ZN6duckdb10MD5Context9MD5UpdateEPKhm(ptr noundef nonnull align 4 captures(none) dereferenceable(88) %this, ptr noundef readonly captures(none) %input, i64 noundef %len) local_unnamed_addr #1 align 2 {
 entry:
   %bits = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %bits, align 4, !tbaa !3
@@ -95,13 +95,13 @@ cleanup41:                                        ; preds = %while.end, %cleanup
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN6duckdbL12MD5TransformEPjPKj(ptr nocapture noundef nonnull %buf, ptr nocapture noundef nonnull readonly %in) unnamed_addr #4 {
+define internal fastcc void @_ZN6duckdbL12MD5TransformEPjPKj(ptr noundef nonnull captures(none) %buf, ptr noundef nonnull readonly captures(none) %in) unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %buf, align 4, !tbaa !3
   %arrayidx1 = getelementptr inbounds nuw i8, ptr %buf, i64 4
@@ -647,10 +647,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb10MD5Context6FinishEPh(ptr nocapture noundef nonnull align 4 dereferenceable(88) %this, ptr nocapture noundef writeonly initializes((0, 16)) %out_digest) local_unnamed_addr #4 align 2 {
+define void @_ZN6duckdb10MD5Context6FinishEPh(ptr noundef nonnull align 4 captures(none) dereferenceable(88) %this, ptr noundef writeonly captures(none) initializes((0, 16)) %out_digest) local_unnamed_addr #4 align 2 {
 entry:
   %bits = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %bits, align 4, !tbaa !3
@@ -688,10 +688,10 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb10MD5Context9FinishHexEPc(ptr nocapture noundef nonnull align 4 dereferenceable(88) %this, ptr noundef %out_digest) local_unnamed_addr #6 align 2 {
+define void @_ZN6duckdb10MD5Context9FinishHexEPc(ptr noundef nonnull align 4 captures(none) dereferenceable(88) %this, ptr noundef %out_digest) local_unnamed_addr #6 align 2 {
 entry:
   %digest = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %digest) #11
@@ -735,7 +735,7 @@ _ZN6duckdb10MD5Context6FinishEPh.exit:            ; preds = %if.else.i, %if.then
 declare void @_ZN14duckdb_mbedtls14MbedTlsWrapper8ToBase16EPcS1_m(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb10MD5Context9FinishHexB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull align 4 dereferenceable(88) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb10MD5Context9FinishHexB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 4 captures(none) dereferenceable(88) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %digest.i = alloca [16 x i8], align 16
@@ -798,7 +798,7 @@ _ZN6duckdb10MD5Context9FinishHexEPc.exit:         ; preds = %if.else.i.i, %if.th
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb10MD5Context3AddEPKc(ptr nocapture noundef nonnull align 4 dereferenceable(88) %this, ptr nocapture noundef readonly %data) local_unnamed_addr #8 align 2 {
+define void @_ZN6duckdb10MD5Context3AddEPKc(ptr noundef nonnull align 4 captures(none) dereferenceable(88) %this, ptr noundef readonly captures(none) %data) local_unnamed_addr #8 align 2 {
 entry:
   %call2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %data) #12
   %bits.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -831,7 +831,7 @@ if.then12.i:                                      ; preds = %entry
   br i1 %cmp14.not.i, label %cleanup.thread.i, label %if.end16.i
 
 cleanup.thread.i:                                 ; preds = %if.then12.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %data, i64 %call2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 1 %data, i64 %call2, i1 false)
   br label %_ZN6duckdb10MD5Context9MD5UpdateEPKhm.exit
 
 if.end16.i:                                       ; preds = %if.then12.i
@@ -873,7 +873,7 @@ _ZN6duckdb10MD5Context9MD5UpdateEPKhm.exit:       ; preds = %while.end.i, %clean
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #7
 

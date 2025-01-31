@@ -185,7 +185,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [65 x i8] c"Hard limit on the number of nodes (2^29) is reached. Quitting...\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Abc_WriteFullAdder(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Abc_WriteFullAdder(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @fwrite(ptr nonnull @.str, i64 10, i64 1, ptr %0)
   %3 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 16, i64 1, ptr %0)
   %4 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 16, i64 1, ptr %0)
@@ -209,10 +209,10 @@ define void @Abc_WriteFullAdder(ptr nocapture noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Abc_WriteAdder(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Abc_WriteAdder(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ult i32 %1, 2
   br i1 %3, label %Abc_Base10Log.exit, label %.lr.ph.preheader.i
 
@@ -301,7 +301,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_GenAdder(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @Abc_GenAdder(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.34)
   %4 = tail call ptr (...) @Extra_TimeStamp() #15
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.35, i32 noundef %1, ptr noundef %4) #15
@@ -311,15 +311,15 @@ define void @Abc_GenAdder(ptr nocapture noundef readonly %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 declare ptr @Extra_TimeStamp(...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Abc_WriteMulti(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Abc_WriteMulti(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ult i32 %1, 2
   br i1 %3, label %Abc_Base10Log.exit, label %.lr.ph.preheader.i
 
@@ -489,7 +489,7 @@ Abc_Base10Log.exit119:                            ; preds = %.lr.ph.i114, %Abc_B
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_GenMulti(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @Abc_GenMulti(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.34)
   %4 = tail call ptr (...) @Extra_TimeStamp() #15
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.46, i32 noundef %1, ptr noundef %4) #15
@@ -499,7 +499,7 @@ define void @Abc_GenMulti(ptr nocapture noundef readonly %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Abc_WriteComp(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Abc_WriteComp(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @fwrite(ptr nonnull @.str.47, i64 12, i64 1, ptr %0)
   %3 = tail call i64 @fwrite(ptr nonnull @.str.48, i64 12, i64 1, ptr %0)
   %4 = tail call i64 @fwrite(ptr nonnull @.str.49, i64 13, i64 1, ptr %0)
@@ -514,7 +514,7 @@ define void @Abc_WriteComp(ptr nocapture noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Abc_WriteLayer(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Abc_WriteLayer(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.54, i32 noundef %2) #15
   %5 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 7, i64 1, ptr %0)
   %6 = icmp sgt i32 %1, 0
@@ -586,7 +586,7 @@ define void @Abc_WriteLayer(ptr nocapture noundef %0, i32 noundef %1, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_GenSorter(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @Abc_GenSorter(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.34)
   %4 = tail call ptr (...) @Extra_TimeStamp() #15
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.61, i32 noundef %1, ptr noundef %4) #15
@@ -750,7 +750,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %._crit_e
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Abc_WriteCell(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Abc_WriteCell(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 12, i64 1, ptr %0)
   %3 = tail call i64 @fwrite(ptr nonnull @.str.71, i64 28, i64 1, ptr %0)
   %4 = tail call i64 @fwrite(ptr nonnull @.str.72, i64 15, i64 1, ptr %0)
@@ -774,7 +774,7 @@ define void @Abc_WriteCell(ptr nocapture noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_GenMesh(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @Abc_GenMesh(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.34)
   %4 = tail call ptr (...) @Extra_TimeStamp() #15
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.79, i32 noundef %1, i32 noundef %1, ptr noundef %4) #15
@@ -911,7 +911,7 @@ define void @Abc_GenMesh(ptr nocapture noundef readonly %0, i32 noundef %1) loca
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Abc_WriteKLut(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Abc_WriteKLut(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = shl nuw i32 1, %1
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.98, i32 noundef %1) #15
@@ -994,7 +994,7 @@ define void @Abc_WriteKLut(ptr nocapture noundef %0, i32 noundef %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_GenFpga(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define void @Abc_GenFpga(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = shl nuw i32 1, %1
   %6 = add nsw i32 %3, %2
   %7 = add nsw i32 %6, -1
@@ -1291,7 +1291,7 @@ define void @Abc_GenFpga(ptr nocapture noundef readonly %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_GenOneHot(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @Abc_GenOneHot(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.34)
   %4 = tail call ptr (...) @Extra_TimeStamp() #15
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.129, i32 noundef %1, ptr noundef %4) #15
@@ -1391,7 +1391,7 @@ Abc_Base10Log.exit55:                             ; preds = %.lr.ph.i50, %._crit
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_GenOneHotIntervals(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #2 {
+define void @Abc_GenOneHotIntervals(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 {
   %5 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.34)
   %6 = tail call ptr (...) @Extra_TimeStamp() #15
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.135, i32 noundef %1, i32 noundef %2, ptr noundef %6) #15
@@ -1580,7 +1580,7 @@ Abc_Base10Log.exit101:                            ; preds = %.lr.ph.i96, %._crit
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_GenRandom(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @Abc_GenRandom(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp slt i32 %1, 6
   %4 = add nsw i32 %1, -5
   %5 = shl nuw i32 1, %4
@@ -1734,10 +1734,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare i32 @Aig_ManRandom(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_GenFsmCond(ptr nocapture noundef initializes((4, 8)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define void @Abc_GenFsmCond(ptr noundef captures(none) initializes((4, 8)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %4, align 4
   %5 = icmp sgt i32 %1, 0
@@ -2312,7 +2312,7 @@ Vec_StrFree.exit:                                 ; preds = %Vec_WrdFree.exit, %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Abc_AdderTree(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Abc_AdderTree(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ult i32 %2, 2
   br i1 %4, label %Abc_Base10Log.exit, label %.lr.ph.preheader.i
 
@@ -2469,7 +2469,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_GenAdderTree(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define void @Abc_GenAdderTree(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.34)
   %5 = tail call ptr (...) @Extra_TimeStamp() #15
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.174, i32 noundef %1, i32 noundef %2, ptr noundef %5) #15
@@ -2528,7 +2528,7 @@ define noundef ptr @Abc_GenSignedBoothPPTest(i32 noundef %0, i32 noundef %1) loc
 declare ptr @Gia_ManStart(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendCi(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendCi(ptr noundef captures(none) %0) unnamed_addr #2 {
   %2 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %3 = load i64, ptr %2, align 4
   %4 = or i64 %3, 2684354559
@@ -3705,7 +3705,7 @@ define ptr @Abc_GenSignedBoothMini(i32 noundef %0, i32 noundef %1) local_unnamed
 declare ptr @Gia_ManToMiniAig(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_WriteBoothPartialProducts(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @Abc_WriteBoothPartialProducts(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = tail call ptr @Abc_GenSignedBooth(i32 noundef %1, i32 noundef %1)
   %4 = tail call ptr @Gia_ManToMiniAig(ptr noundef %3) #15
   tail call void @Gia_ManStop(ptr noundef %3) #15
@@ -3854,7 +3854,7 @@ Mini_AigStop.exit:                                ; preds = %._crit_edge, %57
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_WriteBooth(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @Abc_WriteBooth(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp ult i32 %1, 2
   br i1 %3, label %Abc_Base10Log.exit, label %.lr.ph.preheader.i
 
@@ -4014,7 +4014,7 @@ Abc_Base10Log.exit98:                             ; preds = %.lr.ph.i93, %Abc_Ba
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_GenBooth(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @Abc_GenBooth(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.34)
   %4 = tail call ptr (...) @Extra_TimeStamp() #15
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.181, i32 noundef %1, ptr noundef %4) #15
@@ -4024,7 +4024,7 @@ define void @Abc_GenBooth(ptr nocapture noundef readonly %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_GenGraph(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @Abc_GenGraph(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca [10 x [10 x i8]], align 16
   %4 = alloca [100 x [2 x i8]], align 16
   %5 = add nsw i32 %1, -1
@@ -4336,16 +4336,16 @@ Abc_Base10Log.exit117:                            ; preds = %.lr.ph.i112, %._cri
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @Vec_WrdSortCompare1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
+define internal range(i32 -1, 2) i32 @Vec_WrdSortCompare1(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #10 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
   %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %3, i64 %4)
@@ -4353,7 +4353,7 @@ define internal range(i32 -1, 2) i32 @Vec_WrdSortCompare1(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @Gia_ManAppendObj(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -4519,7 +4519,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #11
@@ -4527,19 +4527,19 @@ declare void @exit(i32 noundef) local_unnamed_addr #11
 declare void @Gia_ObjAddFanout(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #14

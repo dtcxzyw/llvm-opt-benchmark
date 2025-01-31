@@ -84,7 +84,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @i2r_certpol(ptr nocapture readnone %method, ptr noundef %pol, ptr noundef %out, i32 noundef %indent) #1 {
+define internal noundef i32 @i2r_certpol(ptr readnone captures(none) %method, ptr noundef %pol, ptr noundef %out, i32 noundef %indent) #1 {
 entry:
   %call112 = tail call i32 @OPENSSL_sk_num(ptr noundef %pol) #4
   %cmp13 = icmp sgt i32 %call112, 0
@@ -130,7 +130,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @r2i_certpol(ptr nocapture readnone %method, ptr noundef %ctx, ptr noundef %value) #1 {
+define internal ptr @r2i_certpol(ptr readnone captures(none) %method, ptr noundef %ctx, ptr noundef %value) #1 {
 entry:
   %call = tail call ptr @X509V3_parse_list(ptr noundef %value) #4
   %call2 = tail call i32 @OPENSSL_sk_num(ptr noundef %call) #4
@@ -262,7 +262,7 @@ if.end14.i:                                       ; preds = %if.then8.i
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %call16.i = tail call i32 @ossl_v3_name_cmp(ptr noundef %6, ptr noundef nonnull @.str.31) #4
+  %call16.i = tail call i32 @ossl_v3_name_cmp(ptr noundef nonnull %6, ptr noundef nonnull @.str.31) #4
   %tobool.not.i = icmp eq i32 %call16.i, 0
   br i1 %tobool.not.i, label %if.then17.i, label %if.else50.i
 
@@ -329,7 +329,7 @@ if.end41.i:                                       ; preds = %if.end37.i
   %13 = load ptr, ptr %value43.i, align 8
   %call45.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #5
   %conv.i = trunc i64 %call45.i to i32
-  %call46.i = tail call i32 @ASN1_STRING_set(ptr noundef nonnull %call38.i, ptr noundef %13, i32 noundef %conv.i) #4
+  %call46.i = tail call i32 @ASN1_STRING_set(ptr noundef nonnull %call38.i, ptr noundef nonnull %13, i32 noundef %conv.i) #4
   %tobool47.not.i = icmp eq i32 %call46.i, 0
   br i1 %tobool47.not.i, label %if.then48.i, label %for.inc.i
 
@@ -520,7 +520,7 @@ if.end22.i.i:                                     ; preds = %displaytext_str2tag
   %value.0.i.i = getelementptr inbounds nuw i8, ptr %23, i64 %cmp23.not.i.i
   %call26.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value.0.i.i) #5
   %conv.i.i = trunc i64 %call26.i.i to i32
-  %call28.i.i = tail call i32 @ASN1_STRING_set(ptr noundef nonnull %call19.i.i, ptr noundef %value.0.i.i, i32 noundef %conv.i.i) #4
+  %call28.i.i = tail call i32 @ASN1_STRING_set(ptr noundef nonnull %call19.i.i, ptr noundef nonnull %value.0.i.i, i32 noundef %conv.i.i) #4
   %tobool.not.i.i = icmp eq i32 %call28.i.i, 0
   br i1 %tobool.not.i.i, label %if.then29.i.i, label %for.inc.i.i
 
@@ -564,7 +564,7 @@ if.end46.i.i:                                     ; preds = %if.end42.i.i, %if.t
   %35 = load ptr, ptr %value14.i.i, align 8
   %call56.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #5
   %conv57.i.i = trunc i64 %call56.i.i to i32
-  %call58.i.i = tail call i32 @ASN1_STRING_set(ptr noundef %34, ptr noundef %35, i32 noundef %conv57.i.i) #4
+  %call58.i.i = tail call i32 @ASN1_STRING_set(ptr noundef %34, ptr noundef nonnull %35, i32 noundef %conv57.i.i) #4
   %tobool59.not.i.i = icmp eq i32 %call58.i.i, 0
   br i1 %tobool59.not.i.i, label %if.then60.i.i, label %for.inc.i.i
 
@@ -1005,7 +1005,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @X509_POLICY_NODE_print(ptr noundef %out, ptr nocapture noundef readonly %node, i32 noundef %indent) local_unnamed_addr #1 {
+define void @X509_POLICY_NODE_print(ptr noundef %out, ptr noundef readonly captures(none) %node, i32 noundef %indent) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %node, align 8
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.5, i32 noundef %indent, ptr noundef nonnull @.str.6) #4
@@ -1214,7 +1214,7 @@ declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @X509V3_get_section(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1241,12 +1241,12 @@ declare ptr @ASN1_IA5STRING_new() local_unnamed_addr #2
 declare i32 @ASN1_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @ASN1_STRING_type_new(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3

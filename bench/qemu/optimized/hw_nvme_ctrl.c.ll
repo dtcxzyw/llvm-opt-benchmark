@@ -828,7 +828,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [4 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @bdrv_block_status, ptr @.str.523, ptr @.str.524, i32 135, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_block_status, ptr @.str.525, ptr @.str.524, i32 135, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_flush, ptr @.str.523, ptr @.str.526, i32 215, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_flush, ptr @.str.525, ptr @.str.526, i32 215, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext range(i16 0, 16404) i16 @nvme_map_dptr(ptr noundef %n, ptr noundef %sg, i64 noundef %len, ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
+define dso_local zeroext range(i16 0, 16404) i16 @nvme_map_dptr(ptr noundef %n, ptr noundef %sg, i64 noundef %len, ptr noundef readonly captures(none) %cmd) local_unnamed_addr #0 {
 entry:
   %_now.i.i93.i = alloca %struct.timeval, align 8
   %_now.i.i79.i = alloca %struct.timeval, align 8
@@ -1579,7 +1579,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext range(i16 0, 5) i16 @nvme_tx_interleaved(ptr noundef %n, ptr nocapture noundef readonly %sg, ptr noundef %ptr, i32 noundef %len, i32 noundef %bytes, i32 noundef %skip_bytes, i64 noundef %offset, i32 noundef %dir) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 5) i16 @nvme_tx_interleaved(ptr noundef %n, ptr noundef readonly captures(none) %sg, ptr noundef %ptr, i32 noundef %len, i32 noundef %bytes, i32 noundef %skip_bytes, i64 noundef %offset, i32 noundef %dir) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %sg, align 8
   %and = and i32 %0, 2
@@ -2397,7 +2397,7 @@ declare ptr @blk_name(ptr noundef) local_unnamed_addr #1
 declare void @block_acct_failed(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @nvme_aio_err(ptr nocapture noundef %req, i32 noundef range(i32 1, 0) %ret) unnamed_addr #0 {
+define internal fastcc void @nvme_aio_err(ptr noundef captures(none) %req, i32 noundef range(i32 1, 0) %ret) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %local_err = alloca ptr, align 8
@@ -2484,7 +2484,7 @@ return:                                           ; preds = %trace_pci_nvme_err_
 declare void @block_acct_done(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @nvme_enqueue_req_completion(ptr nocapture noundef %cq, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc void @nvme_enqueue_req_completion(ptr noundef captures(none) %cq, ptr noundef %req) unnamed_addr #0 {
 entry:
   %_now.i.i36 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -2647,7 +2647,7 @@ if.end27:                                         ; preds = %if.else22, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @nvme_attach_ns(ptr nocapture noundef %n, ptr noundef %ns) local_unnamed_addr #0 {
+define dso_local void @nvme_attach_ns(ptr noundef captures(none) %n, ptr noundef %ns) local_unnamed_addr #0 {
 entry:
   %nsid1 = getelementptr inbounds nuw i8, ptr %ns, i64 8660
   %0 = load i32, ptr %nsid1, align 4
@@ -2706,7 +2706,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext range(i16 0, 16403) i16 @nvme_map_addr(ptr nocapture noundef readonly %n, ptr noundef %sg, i64 noundef %addr, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 16403) i16 @nvme_map_addr(ptr noundef readonly captures(none) %n, ptr noundef %sg, i64 noundef %addr, i64 noundef %len) unnamed_addr #0 {
 entry:
   %_now.i.i40 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -3119,7 +3119,7 @@ _nocheck__trace_pci_nvme_err_invalid_prplist_ent.exit: ; preds = %entry, %land.l
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -3132,7 +3132,7 @@ declare void @qemu_sglist_init(ptr noundef, ptr noundef, i32 noundef, ptr nounde
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext range(i16 0, 5) i16 @nvme_map_addr_cmb(ptr nocapture noundef readonly %n, ptr noundef %iov, i64 noundef %addr, i64 noundef range(i64 1, 0) %len) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 5) i16 @nvme_map_addr_cmb(ptr noundef readonly captures(none) %n, ptr noundef %iov, i64 noundef %addr, i64 noundef range(i64 1, 0) %len) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -3220,7 +3220,7 @@ return:                                           ; preds = %trace_pci_nvme_map_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext range(i16 0, 5) i16 @nvme_map_addr_pmr(ptr nocapture noundef readonly %n, ptr noundef %iov, i64 noundef %addr, i64 noundef range(i64 1, 0) %len) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 5) i16 @nvme_map_addr_pmr(ptr noundef readonly captures(none) %n, ptr noundef %iov, i64 noundef %addr, i64 noundef range(i64 1, 0) %len) unnamed_addr #0 {
 entry:
   %cmse.i = getelementptr inbounds nuw i8, ptr %n, i64 7832
   %0 = load i8, ptr %cmse.i, align 8
@@ -3280,12 +3280,12 @@ declare ptr @memory_region_get_ram_ptr(ptr noundef) local_unnamed_addr #1
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @address_space_rw(ptr noundef, i64 noundef, i32, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext range(i16 0, 16403) i16 @nvme_map_sgl_data(ptr nocapture noundef readonly %n, ptr noundef %sg, ptr nocapture noundef nonnull readonly %segment, i64 noundef range(i64 -1, 257) %nsgld, ptr nocapture noundef nonnull %len) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 16403) i16 @nvme_map_sgl_data(ptr noundef readonly captures(none) %n, ptr noundef %sg, ptr noundef nonnull readonly captures(none) %segment, i64 noundef range(i64 -1, 257) %nsgld, ptr noundef nonnull captures(none) %len) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %cmp1.not = icmp eq i64 %nsgld, 0
@@ -3405,7 +3405,7 @@ declare void @qemu_sglist_destroy(ptr noundef) local_unnamed_addr #1
 declare void @qemu_iovec_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #7
@@ -3415,7 +3415,7 @@ declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, p
 declare void @error_report_err(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext range(i16 0, 448) i16 @nvme_zrm_finish(ptr nocapture noundef %ns, ptr noundef %zone) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 448) i16 @nvme_zrm_finish(ptr noundef captures(none) %ns, ptr noundef %zone) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %zone, i64 1
   %zone.val = load i8, ptr %0, align 1
@@ -3634,7 +3634,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @nvme_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @nvme_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #19
   %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #19
@@ -3667,7 +3667,7 @@ declare void @device_add_bootindex_property(ptr noundef, ptr noundef, ptr nounde
 declare ptr @object_property_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @nvme_get_smart_warning(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @nvme_get_smart_warning(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i8, align 1
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.1, i32 noundef 8421, ptr noundef nonnull @__func__.nvme_get_smart_warning) #19
@@ -3679,7 +3679,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @nvme_set_smart_warning(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @nvme_set_smart_warning(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i8, align 1
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.1, i32 noundef 8430, ptr noundef nonnull @__func__.nvme_set_smart_warning) #19
@@ -3764,7 +3764,7 @@ declare zeroext i1 @visit_type_uint8(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @nvme_enqueue_event(ptr nocapture noundef %n, i8 noundef zeroext range(i8 0, 3) %event_type, i8 noundef zeroext range(i8 0, 3) %event_info, i8 noundef zeroext range(i8 1, 5) %log_page) unnamed_addr #0 {
+define internal fastcc void @nvme_enqueue_event(ptr noundef captures(none) %n, i8 noundef zeroext range(i8 0, 3) %event_type, i8 noundef zeroext range(i8 0, 3) %event_info, i8 noundef zeroext range(i8 1, 5) %log_page) unnamed_addr #0 {
 entry:
   %_now.i.i15 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -3880,7 +3880,7 @@ return:                                           ; preds = %if.end, %trace_pci_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @nvme_process_aers(ptr nocapture noundef %opaque) unnamed_addr #0 {
+define internal fastcc void @nvme_process_aers(ptr noundef captures(none) %opaque) unnamed_addr #0 {
 entry:
   %_now.i.i63 = alloca %struct.timeval, align 8
   %_now.i.i49 = alloca %struct.timeval, align 8
@@ -8997,7 +8997,7 @@ if.end68:                                         ; preds = %if.end62
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @nvme_set_timestamp(ptr nocapture noundef writeonly initializes((7448, 7464)) %n, i64 noundef %ts) unnamed_addr #0 {
+define internal fastcc void @nvme_set_timestamp(ptr noundef writeonly captures(none) initializes((7448, 7464)) %n, i64 noundef %ts) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -9044,7 +9044,7 @@ trace_pci_nvme_setfeat_timestamp.exit:            ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @nvme_select_iocs(ptr nocapture noundef readonly %n) unnamed_addr #10 {
+define internal fastcc void @nvme_select_iocs(ptr noundef readonly captures(none) %n) unnamed_addr #10 {
 entry:
   %namespaces.i = getelementptr inbounds nuw i8, ptr %n, i64 16744
   %0 = getelementptr i8, ptr %n, i64 3172
@@ -9673,7 +9673,7 @@ trace_pci_nvme_update_cq_head.exit:               ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @nvme_irq_deassert(ptr noundef %n, ptr nocapture noundef readonly %cq) unnamed_addr #0 {
+define internal fastcc void @nvme_irq_deassert(ptr noundef %n, ptr noundef readonly captures(none) %cq) unnamed_addr #0 {
 entry:
   %irq_enabled = getelementptr inbounds nuw i8, ptr %cq, i64 12
   %0 = load i16, ptr %irq_enabled, align 4
@@ -14528,7 +14528,7 @@ return:                                           ; preds = %trace_pci_nvme_dsm.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext range(i16 1, 0) i16 @nvme_verify(ptr nocapture noundef readonly %n, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 1, 0) i16 @nvme_verify(ptr noundef readonly captures(none) %n, ptr noundef %req) unnamed_addr #0 {
 nvme_nsid.exit:
   %err.i = alloca ptr, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -16381,7 +16381,7 @@ for.body.i:                                       ; preds = %nvme_h2c.exit.i, %f
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %nvme_h2c.exit.i ]
   %arrayidx.i = getelementptr i16, ptr %call21.i, i64 %indvars.iv.i
   %7 = load i16, ptr %arrayidx.i, align 2
-  %call31.i = tail call fastcc zeroext i1 @nvme_update_ruh(ptr noundef %n, ptr noundef %1, i16 noundef zeroext %7)
+  %call31.i = tail call fastcc zeroext i1 @nvme_update_ruh(ptr noundef nonnull %n, ptr noundef %1, i16 noundef zeroext %7)
   br i1 %call31.i, label %for.cond.i, label %nvme_io_mgmt_send_ruh_update.exit
 
 nvme_io_mgmt_send_ruh_update.exit:                ; preds = %for.cond.i, %for.body.i, %sw.bb4, %lor.lhs.false.i, %if.end.i, %if.end19.i, %nvme_h2c.exit.i
@@ -16589,7 +16589,7 @@ return:                                           ; preds = %trace_pci_nvme_flus
 declare void @qemu_aio_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @nvme_flush_cancel(ptr nocapture noundef initializes((56, 60)) %acb) #0 {
+define internal void @nvme_flush_cancel(ptr noundef captures(none) initializes((56, 60)) %acb) #0 {
 entry:
   %ret = getelementptr inbounds nuw i8, ptr %acb, i64 56
   store i32 -125, ptr %ret, align 8
@@ -17307,7 +17307,7 @@ _nocheck__trace_pci_nvme_err_zasl.exit:           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext range(i16 0, 445) i16 @nvme_check_zone_write(ptr nocapture noundef readonly %ns, ptr nocapture noundef readonly %zone, i64 noundef %slba, i32 noundef %nlb) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 445) i16 @nvme_check_zone_write(ptr noundef readonly captures(none) %ns, ptr noundef readonly captures(none) %zone, i64 noundef %slba, i32 noundef %nlb) unnamed_addr #0 {
 entry:
   %_now.i.i36 = alloca %struct.timeval, align 8
   %_now.i.i22 = alloca %struct.timeval, align 8
@@ -17976,7 +17976,7 @@ declare ptr @blk_aio_pwrite_zeroes(ptr noundef, i64 noundef, i64 noundef, i32 no
 declare void @block_acct_invalid(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext range(i16 0, 16831) i16 @nvme_zrm_open_flags(ptr nocapture noundef readonly %n, ptr nocapture noundef %ns, ptr noundef %zone, i32 noundef range(i32 0, 3) %flags) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 16831) i16 @nvme_zrm_open_flags(ptr noundef readonly captures(none) %n, ptr noundef captures(none) %ns, ptr noundef %zone, i32 noundef range(i32 0, 3) %flags) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %zone, i64 1
   %zone.val = load i8, ptr %0, align 1
@@ -18325,7 +18325,7 @@ return:                                           ; preds = %entry, %sw.bb19, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext range(i16 0, 16831) i16 @nvme_zns_check_resources(ptr nocapture noundef readonly %ns, i32 noundef range(i32 0, 2) %act, i32 noundef range(i32 0, 2) %opn, i32 noundef range(i32 0, 2) %zrwa) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 16831) i16 @nvme_zns_check_resources(ptr noundef readonly captures(none) %ns, i32 noundef range(i32 0, 2) %act, i32 noundef range(i32 0, 2) %opn, i32 noundef range(i32 0, 2) %zrwa) unnamed_addr #0 {
 entry:
   %_now.i.i10 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -18441,7 +18441,7 @@ return:                                           ; preds = %if.end16, %trace_pc
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext range(i16 0, 448) i16 @nvme_zrm_close(ptr nocapture noundef %ns, ptr noundef %zone) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 448) i16 @nvme_zrm_close(ptr noundef captures(none) %ns, ptr noundef %zone) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %zone, i64 1
   %zone.val = load i8, ptr %0, align 1
@@ -18585,7 +18585,7 @@ return:                                           ; preds = %entry, %nvme_assign
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @nvme_update_ruh(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %ns, i16 noundef zeroext %pid) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @nvme_update_ruh(ptr noundef readonly captures(none) %n, ptr noundef readonly captures(none) %ns, i16 noundef zeroext %pid) unnamed_addr #0 {
 entry:
   %endgrp1 = getelementptr inbounds nuw i8, ptr %ns, i64 8776
   %0 = load ptr, ptr %endgrp1, align 8
@@ -18727,7 +18727,7 @@ return:                                           ; preds = %entry, %nvme_parse_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 0, 844424930131968) i64 @nvme_get_timestamp(ptr nocapture noundef readonly %n) unnamed_addr #0 {
+define internal fastcc range(i64 0, 844424930131968) i64 @nvme_get_timestamp(ptr noundef readonly captures(none) %n) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #19
@@ -18780,7 +18780,7 @@ trace_pci_nvme_getfeat_timestamp.exit:            ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @nvme_sg_split(ptr nocapture noundef nonnull readonly %sg, ptr nocapture noundef readonly %ns, ptr noundef %data, ptr noundef %mdata) unnamed_addr #0 {
+define internal fastcc void @nvme_sg_split(ptr noundef nonnull readonly captures(none) %sg, ptr noundef readonly captures(none) %ns, ptr noundef %data, ptr noundef %mdata) unnamed_addr #0 {
 entry:
   %lbasz = getelementptr inbounds nuw i8, ptr %ns, i64 8472
   %0 = load i64, ptr %lbasz, align 8
@@ -18982,7 +18982,7 @@ declare ptr @dma_blk_read(ptr noundef, ptr noundef, i64 noundef, i32 noundef, pt
 declare ptr @blk_aio_preadv(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext range(i16 0, 444) i16 @nvme_check_zone_state_for_read(ptr nocapture noundef readonly %zone) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 444) i16 @nvme_check_zone_state_for_read(ptr noundef readonly captures(none) %zone) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = getelementptr i8, ptr %zone, i64 1
@@ -19047,7 +19047,7 @@ return:                                           ; preds = %entry, %entry, %ent
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @nvme_block_status_all(ptr nocapture noundef readonly %ns, i64 noundef %slba, i32 noundef %nlb, i32 noundef range(i32 1, 3) %flags) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @nvme_block_status_all(ptr noundef readonly captures(none) %ns, i64 noundef %slba, i32 noundef %nlb, i32 noundef range(i32 1, 3) %flags) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %pnum = alloca i64, align 8
@@ -19813,7 +19813,7 @@ return:                                           ; preds = %done, %if.end23
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @nvme_dsm_cancel(ptr nocapture noundef initializes((56, 60), (76, 80)) %aiocb) #0 {
+define internal void @nvme_dsm_cancel(ptr noundef captures(none) initializes((56, 60), (76, 80)) %aiocb) #0 {
 entry:
   %nr = getelementptr inbounds nuw i8, ptr %aiocb, i64 72
   %0 = load i32, ptr %nr, align 8
@@ -20144,7 +20144,7 @@ out:                                              ; preds = %if.end, %if.end30, 
 declare zeroext i16 @nvme_dif_mangle_mdata(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc zeroext range(i16 0, 16772) i16 @nvme_check_copy_mcl(ptr nocapture noundef readonly %ns, ptr nocapture noundef readonly %iocb, i16 noundef zeroext range(i16 1, 257) %nr) unnamed_addr #12 {
+define internal fastcc zeroext range(i16 0, 16772) i16 @nvme_check_copy_mcl(ptr noundef readonly captures(none) %ns, ptr noundef readonly captures(none) %iocb, i16 noundef zeroext range(i16 1, 257) %nr) unnamed_addr #12 {
 entry:
   %ranges = getelementptr inbounds nuw i8, ptr %iocb, i64 64
   %0 = load ptr, ptr %ranges, align 8
@@ -20537,7 +20537,7 @@ return:                                           ; preds = %nvme_copy_done.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @nvme_copy_cancel(ptr nocapture noundef initializes((56, 60)) %aiocb) #0 {
+define internal void @nvme_copy_cancel(ptr noundef captures(none) initializes((56, 60)) %aiocb) #0 {
 entry:
   %ret = getelementptr inbounds nuw i8, ptr %aiocb, i64 56
   store i32 -125, ptr %ret, align 8
@@ -21153,7 +21153,7 @@ out:                                              ; preds = %if.else, %if.end11,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext range(i16 0, 16513) i16 @nvme_get_mgmt_zone_slba_idx(ptr nocapture noundef readonly %ns, ptr nocapture noundef readonly %c, ptr nocapture noundef nonnull writeonly %slba, ptr nocapture noundef nonnull writeonly %zone_idx) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 16513) i16 @nvme_get_mgmt_zone_slba_idx(ptr noundef readonly captures(none) %ns, ptr noundef readonly captures(none) %c, ptr noundef nonnull writeonly captures(none) %slba, ptr noundef nonnull writeonly captures(none) %zone_idx) unnamed_addr #0 {
 entry:
   %_now.i.i12 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -21291,7 +21291,7 @@ return:                                           ; preds = %nvme_zone_idx.exit,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @nvme_do_zone_op(ptr noundef %ns, ptr noundef %zone, i32 noundef range(i32 0, 5) %proc_mask, ptr nocapture noundef readonly %op_hndlr, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc zeroext i16 @nvme_do_zone_op(ptr noundef %ns, ptr noundef %zone, i32 noundef range(i32 0, 5) %proc_mask, ptr noundef readonly captures(none) %op_hndlr, ptr noundef %req) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %proc_mask, 0
   br i1 %tobool.not, label %if.then, label %if.else
@@ -21531,7 +21531,7 @@ out:                                              ; preds = %nvme_bulk_proc_zone
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext range(i16 0, 16831) i16 @nvme_open_zone(ptr nocapture noundef %ns, ptr noundef %zone, i32 %state, ptr nocapture noundef readonly %req) #0 {
+define internal zeroext range(i16 0, 16831) i16 @nvme_open_zone(ptr noundef captures(none) %ns, ptr noundef %zone, i32 %state, ptr noundef readonly captures(none) %req) #0 {
 entry:
   %zsflags = getelementptr inbounds nuw i8, ptr %req, i64 109
   %0 = load i8, ptr %zsflags, align 1
@@ -21906,7 +21906,7 @@ return:                                           ; preds = %done, %trace_pci_nv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal zeroext range(i16 0, 448) i16 @nvme_offline_zone(ptr nocapture noundef writeonly %ns, ptr nocapture noundef %zone, i32 noundef %state, ptr nocapture readnone %req) #14 {
+define internal zeroext range(i16 0, 448) i16 @nvme_offline_zone(ptr noundef writeonly captures(none) %ns, ptr noundef captures(none) %zone, i32 noundef %state, ptr readnone captures(none) %req) #14 {
 entry:
   switch i32 %state, label %sw.default [
     i32 13, label %sw.bb
@@ -22055,7 +22055,7 @@ _nocheck__trace_pci_nvme_err_zd_extension_map_error.exit: ; preds = %entry, %lan
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext range(i16 0, 16831) i16 @nvme_set_zd_ext(ptr nocapture noundef %ns, ptr noundef %zone) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 16831) i16 @nvme_set_zd_ext(ptr noundef captures(none) %ns, ptr noundef %zone) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %zone, i64 1
   %zone.val = load i8, ptr %0, align 1
@@ -22240,7 +22240,7 @@ _nocheck__trace_pci_nvme_zd_extension_set.exit:   ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @nvme_zone_reset_cancel(ptr nocapture noundef initializes((56, 60), (64, 68)) %aiocb) #0 {
+define internal void @nvme_zone_reset_cancel(ptr noundef captures(none) initializes((56, 60), (64, 68)) %aiocb) #0 {
 entry:
   %req1 = getelementptr inbounds nuw i8, ptr %aiocb, i64 48
   %0 = load ptr, ptr %req1, align 8
@@ -24748,7 +24748,7 @@ nvme_c2h.exit:                                    ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext range(i16 0, 16426) i16 @nvme_get_feature_fdp_events(ptr noundef %n, ptr nocapture noundef readonly %ns, ptr noundef %req, ptr nocapture noundef nonnull writeonly %result) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 16426) i16 @nvme_get_feature_fdp_events(ptr noundef %n, ptr noundef readonly captures(none) %ns, ptr noundef %req, ptr noundef nonnull writeonly captures(none) %result) unnamed_addr #0 {
 entry:
   %cdw112 = getelementptr inbounds nuw i8, ptr %req, i64 100
   %0 = load i32, ptr %cdw112, align 1
@@ -25088,7 +25088,7 @@ return:                                           ; preds = %done, %if.end25
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @nvme_format_cancel(ptr nocapture noundef initializes((56, 60)) %aiocb) #0 {
+define internal void @nvme_format_cancel(ptr noundef captures(none) initializes((56, 60)) %aiocb) #0 {
 entry:
   %ret = getelementptr inbounds nuw i8, ptr %aiocb, i64 56
   store i32 -125, ptr %ret, align 8
@@ -25259,7 +25259,7 @@ declare void @pcie_sriov_pf_disable_vfs(ptr noundef) local_unnamed_addr #1
 declare i32 @msix_present(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @nvme_cmb_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal i64 @nvme_cmb_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %buf = getelementptr inbounds nuw i8, ptr %opaque, i64 7792
   %0 = load ptr, ptr %buf, align 16
@@ -25300,7 +25300,7 @@ ldn_le_p.exit:                                    ; preds = %sw.bb.i, %sw.bb1.i,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @nvme_cmb_write(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
+define internal void @nvme_cmb_write(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
 entry:
   %buf = getelementptr inbounds nuw i8, ptr %opaque, i64 7792
   %0 = load ptr, ptr %buf, align 16
@@ -25344,7 +25344,7 @@ declare void @pcie_sriov_pf_init(ptr noundef, i16 noundef zeroext, ptr noundef, 
 declare void @pcie_sriov_pf_init_vf_bar(ptr noundef, i32 noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -25376,7 +25376,7 @@ declare i64 @llvm.ctpop.i64(i64) #15
 declare i64 @llvm.uadd.sat.i64(i64, i64) #15
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #15
@@ -25388,10 +25388,10 @@ declare i8 @llvm.umin.i8(i8, i8) #15
 declare i16 @llvm.umin.i16(i16, i16) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #18

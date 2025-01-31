@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [117 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/ssl/d1_srtp.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @SSL_CTX_set_srtp_profiles(ptr nocapture noundef writeonly %ctx, ptr noundef %profiles) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SSL_CTX_set_srtp_profiles(ptr noundef writeonly captures(none) %ctx, ptr noundef %profiles) local_unnamed_addr #0 {
 entry:
   %srtp_profiles = getelementptr inbounds nuw i8, ptr %ctx, i64 568
   %call = tail call fastcc i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull %srtp_profiles)
@@ -21,7 +21,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_ctx_make_profiles(ptr noundef %profiles_string, ptr nocapture noundef writeonly %out) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_ctx_make_profiles(ptr noundef %profiles_string, ptr noundef writeonly captures(none) %out) unnamed_addr #0 {
 entry:
   %call = tail call ptr @sk_new_null() #5
   %cmp = icmp eq ptr %call, null
@@ -59,7 +59,7 @@ while.body.i:                                     ; preds = %if.end.i, %cond.end
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %while.body.i
-  %call3.i = tail call i32 @strncmp(ptr noundef nonnull %0, ptr noundef readonly %ptr.0, i64 noundef %cond) #6
+  %call3.i = tail call i32 @strncmp(ptr noundef nonnull %0, ptr noundef nonnull readonly %ptr.0, i64 noundef %cond) #6
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.then5, label %if.end.i
 
@@ -88,7 +88,7 @@ return:                                           ; preds = %do.end, %if.else, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @SSL_set_srtp_profiles(ptr nocapture noundef writeonly %ssl, ptr noundef %profiles) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SSL_set_srtp_profiles(ptr noundef writeonly captures(none) %ssl, ptr noundef %profiles) local_unnamed_addr #0 {
 entry:
   %srtp_profiles = getelementptr inbounds nuw i8, ptr %ssl, i64 328
   %call = tail call fastcc i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull %srtp_profiles)
@@ -120,7 +120,7 @@ return:                                           ; preds = %if.end4, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @SSL_get_selected_srtp_profile(ptr nocapture noundef readonly %ssl) local_unnamed_addr #2 {
+define hidden ptr @SSL_get_selected_srtp_profile(ptr noundef readonly captures(none) %ssl) local_unnamed_addr #2 {
 entry:
   %srtp_profile = getelementptr inbounds nuw i8, ptr %ssl, i64 336
   %0 = load ptr, ptr %srtp_profile, align 8
@@ -128,7 +128,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @SSL_CTX_set_tlsext_use_srtp(ptr nocapture noundef writeonly %ctx, ptr noundef %profiles) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SSL_CTX_set_tlsext_use_srtp(ptr noundef writeonly captures(none) %ctx, ptr noundef %profiles) local_unnamed_addr #0 {
 entry:
   %srtp_profiles.i = getelementptr inbounds nuw i8, ptr %ctx, i64 568
   %call.i = tail call fastcc range(i32 0, 2) i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull %srtp_profiles.i)
@@ -137,7 +137,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @SSL_set_tlsext_use_srtp(ptr nocapture noundef writeonly %ssl, ptr noundef %profiles) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SSL_set_tlsext_use_srtp(ptr noundef writeonly captures(none) %ssl, ptr noundef %profiles) local_unnamed_addr #0 {
 entry:
   %srtp_profiles.i = getelementptr inbounds nuw i8, ptr %ssl, i64 328
   %call.i = tail call fastcc range(i32 0, 2) i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull %srtp_profiles.i)
@@ -153,12 +153,12 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

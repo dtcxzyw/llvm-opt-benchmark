@@ -107,7 +107,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.9 = private unnamed_addr constant [81 x i8] c"--------------------------------------------------------------------------------\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cluster_account_by_user(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @cluster_account_by_user(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -565,7 +565,7 @@ _cluster_account_by_user_tres_report.exit:        ; preds = %198, %92
   %.1.lcssa = phi ptr [ null, %_set_usage_column_width.exit ], [ %.2, %._crit_edge ]
   call void @list_iterator_destroy(ptr noundef %66) #10
   call void @list_iterator_destroy(ptr noundef %65) #10
-  call void @slurmdb_destroy_assoc_cond(ptr noundef %15) #10
+  call void @slurmdb_destroy_assoc_cond(ptr noundef nonnull %15) #10
   call void @list_destroy(ptr noundef nonnull %26) #10
   br label %203
 
@@ -603,7 +603,7 @@ declare void @destroy_print_field(ptr noundef) #1
 declare void @slurmdb_init_cluster_cond(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_assoc_cond(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_set_assoc_cond(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = load i32, ptr @all_clusters_flag, align 4
@@ -1396,7 +1396,7 @@ define internal fastcc void @_merge_cluster_reps(ptr noundef nonnull %0) unnamed
 declare void @slurm_make_time_str(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare void @print_fields_header(ptr noundef) local_unnamed_addr #1
 
@@ -1419,7 +1419,7 @@ declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 declare void @slurmdb_destroy_assoc_cond(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cluster_user_by_account(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @cluster_user_by_account(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1842,7 +1842,7 @@ _cluster_user_by_account_tres_report.exit:        ; preds = %176, %83
 declare ptr @slurmdb_report_cluster_user_by_account(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cluster_user_by_wckey(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @cluster_user_by_wckey(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2263,7 +2263,7 @@ _cluster_user_by_wckey_tres_report.exit:          ; preds = %176, %83
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_wckey_cond(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_set_wckey_cond(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = load i32, ptr @all_clusters_flag, align 4
@@ -2550,7 +2550,7 @@ declare ptr @slurmdb_report_cluster_user_by_wckey(ptr noundef, ptr noundef) loca
 declare void @slurmdb_destroy_wckey_cond(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cluster_utilization(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @cluster_utilization(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -3439,7 +3439,7 @@ declare i32 @slurmdb_find_cluster_accting_tres_in_list(ptr noundef, ptr noundef)
 declare void @sreport_set_usage_col_width(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cluster_wckey_by_user(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @cluster_wckey_by_user(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -3848,7 +3848,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @parse_option_end(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -3859,7 +3859,7 @@ declare i64 @parse_time(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i64 @sanity_check_endtime(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3868,7 +3868,7 @@ declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 declare i32 @slurmdb_report_set_start_end_time(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @print_fields_str(ptr noundef, ptr noundef, i32 noundef) #1
 
@@ -3895,10 +3895,10 @@ declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @slurmdb_tree_name_get(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @getpwnam(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noundef ptr @getpwnam(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 declare ptr @sreport_get_time_str(i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -3915,13 +3915,13 @@ declare i32 @get_log_level() local_unnamed_addr #1
 declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr, i32) local_unnamed_addr #8
@@ -3930,10 +3930,10 @@ declare ptr @strchr(ptr, i32) local_unnamed_addr #8
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7

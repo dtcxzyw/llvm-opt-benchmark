@@ -211,7 +211,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %42
 .lr.ph.i48:                                       ; preds = %70, %.lr.ph.i48
   %76 = phi ptr [ %78, %.lr.ph.i48 ], [ %75, %70 ]
   %.07.i49 = phi ptr [ %77, %.lr.ph.i48 ], [ %74, %70 ]
-  call void %76(ptr noundef %2) #9
+  call void %76(ptr noundef nonnull %2) #9
   %77 = getelementptr inbounds nuw i8, ptr %.07.i49, i64 8
   %78 = load ptr, ptr %77, align 8
   %.not.i50 = icmp eq ptr %78, null
@@ -249,7 +249,7 @@ declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @pmix_pfexec_register(i32 %0) #0 {
@@ -639,7 +639,7 @@ pmix_obj_run_destructors.exit54:                  ; preds = %.lr.ph.i51, %55
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @fccon(ptr nocapture noundef writeonly initializes((248, 304)) %0) #3 {
+define internal void @fccon(ptr noundef writeonly captures(none) initializes((248, 304)) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
   ret void
@@ -652,7 +652,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #4
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #7
@@ -663,7 +663,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 declare i32 @pmix_mca_base_var_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #1
 

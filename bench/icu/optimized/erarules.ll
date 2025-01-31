@@ -25,7 +25,7 @@ $__clang_call_terminate = comdat any
 @_ZN6icu_758EraRulesD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_758EraRulesD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758EraRulesC2ERNS_11LocalMemoryIiEEi(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 12)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %eraStartDates, i32 noundef %numEras) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758EraRulesC2ERNS_11LocalMemoryIiEEi(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 12)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %eraStartDates, i32 noundef %numEras) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %this, align 8
   %numEras2 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -58,7 +58,7 @@ lpad:                                             ; preds = %_ZN6icu_7511LocalMe
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758EraRules14initCurrentEraEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_758EraRules14initCurrentEraEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ec = alloca i32, align 4
   %rawOffset = alloca i32, align 4
@@ -156,7 +156,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_758EraRulesD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758EraRulesD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   invoke void @uprv_free_75(ptr noundef %0)
@@ -582,7 +582,7 @@ declare i32 @ures_getSize_75(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare signext i8 @ures_hasNext_75(ptr noundef) local_unnamed_addr #2
 
@@ -591,13 +591,13 @@ declare ptr @ures_getNextResource_75(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @ures_getKey_75(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @ures_getIntVector_75(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -634,7 +634,7 @@ declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #7
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6icu_758EraRules12getStartDateEiRA3_iR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %eraIdx, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %fields, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #8 align 2 {
+define void @_ZNK6icu_758EraRules12getStartDateEiRA3_iR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %eraIdx, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) %fields, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -675,7 +675,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -32768, -2147483648) i32 @_ZNK6icu_758EraRules12getStartYearEiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %eraIdx, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #8 align 2 {
+define noundef range(i32 -32768, -2147483648) i32 @_ZNK6icu_758EraRules12getStartYearEiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %eraIdx, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -709,7 +709,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_758EraRules11getEraIndexEiiiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %year, i32 noundef %month, i32 noundef %day, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK6icu_758EraRules11getEraIndexEiiiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %year, i32 noundef %month, i32 noundef %day, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1

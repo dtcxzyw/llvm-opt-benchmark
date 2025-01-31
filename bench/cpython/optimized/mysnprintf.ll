@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef i32 @PyOS_snprintf(ptr nocapture noundef %str, i64 noundef %size, ptr nocapture noundef readonly %format, ...) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyOS_snprintf(ptr noundef captures(none) %str, i64 noundef %size, ptr noundef readonly captures(none) %format, ...) local_unnamed_addr #0 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)
@@ -32,7 +32,7 @@ PyOS_vsnprintf.exit:                              ; preds = %Done.i, %if.then2.i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef i32 @PyOS_vsnprintf(ptr nocapture noundef %str, i64 noundef %size, ptr nocapture noundef readonly %format, ptr noundef %va) local_unnamed_addr #0 {
+define dso_local noundef i32 @PyOS_vsnprintf(ptr noundef captures(none) %str, i64 noundef %size, ptr noundef readonly captures(none) %format, ptr noundef %va) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %size, 2147483646
   br i1 %cmp, label %if.then2, label %Done
@@ -55,7 +55,7 @@ if.end3:                                          ; preds = %if.then2, %Done
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #2

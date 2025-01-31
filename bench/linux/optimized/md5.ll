@@ -47,7 +47,7 @@ define internal i32 @md5_mod_init() #0 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @md5_init(ptr nocapture noundef writeonly initializes((8, 24), (88, 96)) %0) #2 align 16 {
+define internal noundef i32 @md5_init(ptr noundef writeonly captures(none) initializes((8, 24), (88, 96)) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1732584193, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 12
@@ -62,7 +62,7 @@ define internal noundef i32 @md5_init(ptr nocapture noundef writeonly initialize
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal noundef i32 @md5_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #3 align 16 {
+define internal noundef i32 @md5_update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #3 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
@@ -115,7 +115,7 @@ define internal noundef i32 @md5_update(ptr nocapture noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @md5_final(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #4 align 16 {
+define internal noundef i32 @md5_final(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8
@@ -158,24 +158,24 @@ define internal noundef i32 @md5_final(ptr nocapture noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @md5_export(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 88)) %1) #4 align 16 {
+define internal noundef i32 @md5_export(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 88)) %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(88) %3, i64 88, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @md5_import(ptr nocapture noundef writeonly initializes((8, 96)) %0, ptr nocapture noundef readonly %1) #4 align 16 {
+define internal noundef i32 @md5_import(ptr noundef writeonly captures(none) initializes((8, 96)) %0, ptr noundef readonly captures(none) %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef align 1 dereferenceable(88) %1, i64 88, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal fastcc void @md5_transform(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 16 {
+define internal fastcc void @md5_transform(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 align 16 {
   %3 = load i32, ptr %0, align 4
   %4 = getelementptr i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -720,7 +720,7 @@ define internal fastcc void @md5_transform(ptr nocapture noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @crypto_register_shash(ptr noundef) local_unnamed_addr #1

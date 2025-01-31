@@ -779,7 +779,7 @@ do.end19:                                         ; preds = %do.body6.i, %do.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evconnlistener_set_error_cb(ptr nocapture noundef initializes((24, 32)) %lev, ptr noundef %errorcb) local_unnamed_addr #0 {
+define dso_local void @evconnlistener_set_error_cb(ptr noundef captures(none) initializes((24, 32)) %lev, ptr noundef %errorcb) local_unnamed_addr #0 {
 entry:
   %lock = getelementptr inbounds nuw i8, ptr %lev, i64 8
   %0 = load ptr, ptr %lock, align 8
@@ -879,7 +879,7 @@ declare i32 @evutil_accept4_(i32 noundef, ptr noundef, ptr noundef, i32 noundef)
 declare void @event_sock_warn(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

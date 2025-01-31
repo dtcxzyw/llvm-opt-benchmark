@@ -315,7 +315,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK4cvc58internal8decision11JustifyInfo7getNodeEv(ptr noalias nocapture writeonly sret(%"struct.std::pair") align 8 initializes((0, 12)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this) local_unnamed_addr #5 align 2 {
+define hidden void @_ZNK4cvc58internal8decision11JustifyInfo7getNodeEv(ptr noalias writeonly sret(%"struct.std::pair") align 8 captures(none) initializes((0, 12)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this) local_unnamed_addr #5 align 2 {
 entry:
   %d_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %d_data.i1 = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -380,7 +380,7 @@ _ZN4cvc57context3CDOImEaSERKm.exit:               ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal8decision11JustifyInfo3setENS0_12NodeTemplateILb0EEENS0_4prop8SatValueE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture noundef readonly %n, i32 noundef %desiredVal) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal8decision11JustifyInfo3setENS0_12NodeTemplateILb0EEENS0_4prop8SatValueE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef readonly captures(none) %n, i32 noundef %desiredVal) local_unnamed_addr #3 align 2 {
 entry:
   %d_pScope.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_pScope.i.i.i, align 8
@@ -517,7 +517,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 declare noundef ptr @_ZN4cvc57context20ContextMemoryManager7newDataEm(ptr noundef nonnull align 8 dereferenceable(200), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @__cxa_pure_virtual() unnamed_addr
 

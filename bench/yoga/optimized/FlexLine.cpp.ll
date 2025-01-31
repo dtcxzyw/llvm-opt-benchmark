@@ -20,7 +20,7 @@ $_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0
 @.str.2 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook4yoga17calculateFlexLineEPNS0_4NodeENS0_9DirectionEfffmm(ptr noalias nocapture writeonly sret(%"struct.facebook::yoga::FlexLine") align 8 %agg.result, ptr noundef %node, i8 noundef zeroext %ownerDirection, float noundef %mainAxisownerSize, float noundef %availableInnerWidth, float noundef %availableInnerMainDim, i64 noundef %startOfLineIndex, i64 noundef %lineCount) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook4yoga17calculateFlexLineEPNS0_4NodeENS0_9DirectionEfffmm(ptr noalias writeonly sret(%"struct.facebook::yoga::FlexLine") align 8 captures(none) %agg.result, ptr noundef %node, i8 noundef zeroext %ownerDirection, float noundef %mainAxisownerSize, float noundef %availableInnerWidth, float noundef %availableInnerMainDim, i64 noundef %startOfLineIndex, i64 noundef %lineCount) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %children_.i = getelementptr inbounds nuw i8, ptr %node, i64 592
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %node, i64 600
@@ -580,7 +580,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #3
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6

@@ -25,7 +25,7 @@ $_ZTI36btDiscreteCollisionDetectorInterface = comdat any
 @_ZN16btBoxBoxDetectorC1EPK10btBoxShapeS2_ = dso_local unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN16btBoxBoxDetectorC2EPK10btBoxShapeS2_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN16btBoxBoxDetectorC2EPK10btBoxShapeS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef %box1, ptr noundef %box2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN16btBoxBoxDetectorC2EPK10btBoxShapeS2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, ptr noundef %box1, ptr noundef %box2) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16btBoxBoxDetector, i64 16), ptr %this, align 8
   %m_box1 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -36,7 +36,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z20dLineClosestApproachRK9btVector3S1_S1_S1_PfS2_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pa, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %ua, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pb, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %ub, ptr nocapture noundef writeonly initializes((0, 4)) %alpha, ptr nocapture noundef writeonly initializes((0, 4)) %beta) local_unnamed_addr #1 {
+define dso_local void @_Z20dLineClosestApproachRK9btVector3S1_S1_S1_PfS2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %pa, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %ua, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %pb, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %ub, ptr noundef writeonly captures(none) initializes((0, 4)) %alpha, ptr noundef writeonly captures(none) initializes((0, 4)) %beta) local_unnamed_addr #1 {
 entry:
   %0 = load float, ptr %ua, align 4
   %1 = load float, ptr %ub, align 4
@@ -96,7 +96,7 @@ if.end:                                           ; preds = %entry, %if.else
 declare float @llvm.fmuladd.f32(float, float, float) #2
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define dso_local void @_Z11cullPoints2iPfiiPi(i32 noundef %n, ptr nocapture noundef readonly %p, i32 noundef %m, i32 noundef %i0, ptr nocapture noundef writeonly %iret) local_unnamed_addr #3 {
+define dso_local void @_Z11cullPoints2iPfiiPi(i32 noundef %n, ptr noundef readonly captures(none) %p, i32 noundef %m, i32 noundef %i0, ptr noundef writeonly captures(none) %iret) local_unnamed_addr #3 {
 entry:
   %A = alloca [8 x float], align 16
   %avail = alloca [8 x i32], align 16
@@ -315,7 +315,7 @@ for.end152:                                       ; preds = %for.body116, %for.c
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteCollisionDetectorInterface6ResultE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %p1, ptr noundef readonly %R1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %side1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %p2, ptr noundef readonly %R2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %side2, ptr nocapture noundef nonnull align 4 dereferenceable(16) %normal, ptr nocapture noundef writeonly %depth, ptr nocapture noundef writeonly %return_code, i32 noundef %maxc, ptr nocapture readnone %0, i32 %1, ptr noundef nonnull align 8 dereferenceable(8) %output) local_unnamed_addr #4 {
+define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12dContactGeomiRN36btDiscreteCollisionDetectorInterface6ResultE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %p1, ptr noundef readonly %R1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %side1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %p2, ptr noundef readonly %R2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %side2, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %normal, ptr noundef writeonly captures(none) %depth, ptr noundef writeonly captures(none) %return_code, i32 noundef %maxc, ptr readnone captures(none) %0, i32 %1, ptr noundef nonnull align 8 dereferenceable(8) %output) local_unnamed_addr #4 {
 entry:
   %A = alloca [3 x float], align 4
   %B = alloca [3 x float], align 4
@@ -1787,10 +1787,10 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL18intersectRectQuad2PfS_S_(ptr nocapture noundef nonnull readonly %h, ptr nocapture noundef nonnull readonly %p, ptr noundef nonnull %ret) unnamed_addr #6 {
+define internal fastcc noundef i32 @_ZL18intersectRectQuad2PfS_S_(ptr noundef nonnull readonly captures(none) %h, ptr noundef nonnull readonly captures(none) %p, ptr noundef nonnull %ret) unnamed_addr #6 {
 entry:
   %buffer = alloca [16 x float], align 16
   br label %for.cond1.preheader
@@ -1923,7 +1923,7 @@ if.end89:                                         ; preds = %if.then85, %done
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16btBoxBoxDetector16getClosestPointsERKN36btDiscreteCollisionDetectorInterface17ClosestPointInputERNS0_6ResultEP12btIDebugDrawb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(132) %input, ptr noundef nonnull align 8 dereferenceable(8) %output, ptr nocapture readnone %0, i1 zeroext %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN16btBoxBoxDetector16getClosestPointsERKN36btDiscreteCollisionDetectorInterface17ClosestPointInputERNS0_6ResultEP12btIDebugDrawb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(132) %input, ptr noundef nonnull align 8 dereferenceable(8) %output, ptr readnone captures(none) %0, i1 zeroext %1) unnamed_addr #4 align 2 {
 entry:
   %R1 = alloca [12 x float], align 16
   %R2 = alloca [12 x float], align 16

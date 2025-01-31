@@ -2316,7 +2316,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread51: ; preds = %
   %.sroa.344.057.us = phi i64 [ %51, %50 ], [ %.sroa.2.0.copyload.i, %.lr.ph ]
   store ptr %.sroa.0.0.copyload.i, ptr %8, align 8
   store i64 %.sroa.344.057.us, ptr %49, align 8
-  invoke fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__11UsdInherits20GetAllDirectInheritsEvENK3$_0clERKNS_10PcpNodeRefE"(ptr nonnull %5, ptr %0, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  invoke fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__11UsdInherits20GetAllDirectInheritsEvENK3$_0clERKNS_10PcpNodeRefE"(ptr nonnull %5, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %50 unwind label %.loopexit.split-lp.loopexit.split.us
 
 50:                                               ; preds = %.lr.ph.split.us
@@ -2332,7 +2332,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread51: ; preds = %
   %.sroa.344.057 = phi i64 [ %53, %52 ], [ %.sroa.2.0.copyload.i, %.lr.ph ]
   store ptr %.sroa.0.0.copyload.i, ptr %8, align 8
   store i64 %.sroa.344.057, ptr %49, align 8
-  invoke fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__11UsdInherits20GetAllDirectInheritsEvENK3$_0clERKNS_10PcpNodeRefE"(ptr nonnull %5, ptr %0, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  invoke fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__11UsdInherits20GetAllDirectInheritsEvENK3$_0clERKNS_10PcpNodeRefE"(ptr nonnull %5, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %52 unwind label %.loopexit.split-lp.loopexit.split
 
 52:                                               ; preds = %.lr.ph.split
@@ -2391,7 +2391,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread51: ; preds = %
   %.sroa.3.059.us = phi i64 [ %62, %61 ], [ %.sroa.2.0.copyload.i24, %.lr.ph61 ]
   store ptr %.sroa.0.0.copyload.i22, ptr %10, align 8
   store i64 %.sroa.3.059.us, ptr %60, align 8
-  invoke fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__11UsdInherits20GetAllDirectInheritsEvENK3$_0clERKNS_10PcpNodeRefE"(ptr nonnull %5, ptr %0, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  invoke fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__11UsdInherits20GetAllDirectInheritsEvENK3$_0clERKNS_10PcpNodeRefE"(ptr nonnull %5, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %61 unwind label %.loopexit.split.us
 
 61:                                               ; preds = %.lr.ph61.split.us
@@ -2407,7 +2407,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread51: ; preds = %
   %.sroa.3.059 = phi i64 [ %64, %63 ], [ %.sroa.2.0.copyload.i24, %.lr.ph61 ]
   store ptr %.sroa.0.0.copyload.i22, ptr %10, align 8
   store i64 %.sroa.3.059, ptr %60, align 8
-  invoke fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__11UsdInherits20GetAllDirectInheritsEvENK3$_0clERKNS_10PcpNodeRefE"(ptr nonnull %5, ptr %0, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  invoke fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__11UsdInherits20GetAllDirectInheritsEvENK3$_0clERKNS_10PcpNodeRefE"(ptr nonnull %5, ptr nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %63 unwind label %.loopexit.split
 
 63:                                               ; preds = %.lr.ph61.split
@@ -3176,7 +3176,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_SaIS1_ENSt8__de
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -6928,10 +6928,10 @@ declare i64 @llvm.bswap.i64(i64) #11
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11

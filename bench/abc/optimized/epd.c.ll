@@ -25,7 +25,7 @@ define noalias noundef ptr @EpdAlloc() local_unnamed_addr #0 {
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @EpdCmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @EpdCmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = load double, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = fcmp une double %3, %4
@@ -59,10 +59,10 @@ define void @EpdFree(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define void @EpdGetString(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #5 {
+define void @EpdGetString(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = alloca %struct.EpDoubleStruct, align 8
   %4 = alloca %struct.EpDoubleStruct, align 8
   %5 = load double, ptr %0, align 8
@@ -186,7 +186,7 @@ define range(i32 0, 2) i32 @IsNanDouble(double noundef %0) local_unnamed_addr #6
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef range(i32 -1, 2) i32 @IsInfDouble(double noundef %0) local_unnamed_addr #6 {
@@ -200,7 +200,7 @@ define noundef range(i32 -1, 2) i32 @IsInfDouble(double noundef %0) local_unname
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @EpdGetValueAndDecimalExponent(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 {
+define void @EpdGetValueAndDecimalExponent(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 {
   %4 = alloca %struct.EpDoubleStruct, align 8
   %5 = alloca %struct.EpDoubleStruct, align 8
   %6 = load i64, ptr %0, align 8
@@ -268,7 +268,7 @@ define void @EpdGetValueAndDecimalExponent(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EpdConvert(double noundef %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) local_unnamed_addr #8 {
+define void @EpdConvert(double noundef %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1) local_unnamed_addr #8 {
   store double %0, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %3, align 8
@@ -300,7 +300,7 @@ EpdNormalize.exit:                                ; preds = %2, %6, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EpdNormalize(ptr nocapture noundef %0) local_unnamed_addr #9 {
+define void @EpdNormalize(ptr noundef captures(none) %0) local_unnamed_addr #9 {
   %2 = load i64, ptr %0, align 8
   %3 = and i64 %2, 9221120237041090559
   %or.cond7.i = icmp ne i64 %3, 9218868437227405312
@@ -337,7 +337,7 @@ define void @EpdNormalize(ptr nocapture noundef %0) local_unnamed_addr #9 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EpdMultiply(ptr nocapture noundef %0, double noundef %1) local_unnamed_addr #9 {
+define void @EpdMultiply(ptr noundef captures(none) %0, double noundef %1) local_unnamed_addr #9 {
   %3 = load i64, ptr %0, align 8
   %or.cond10.i.i.not = icmp eq i64 %3, -2251799813685248
   %4 = bitcast i64 %3 to double
@@ -410,7 +410,7 @@ EpdConvert.exit25:                                ; preds = %16, %19, %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @EpdIsNan(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @EpdIsNan(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8
   %or.cond10.i = icmp eq i64 %2, -2251799813685248
   %.0.i = zext i1 %or.cond10.i to i32
@@ -418,7 +418,7 @@ define range(i32 0, 2) i32 @EpdIsNan(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EpdMakeNan(ptr nocapture noundef writeonly initializes((0, 12)) %0) local_unnamed_addr #8 {
+define void @EpdMakeNan(ptr noundef writeonly captures(none) initializes((0, 12)) %0) local_unnamed_addr #8 {
   store i64 -2251799813685248, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
@@ -426,7 +426,7 @@ define void @EpdMakeNan(ptr nocapture noundef writeonly initializes((0, 12)) %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @EpdIsInf(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @EpdIsInf(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load double, ptr %0, align 8
   %3 = bitcast double %2 to i64
   %4 = tail call double @llvm.fabs.f64(double %2)
@@ -438,7 +438,7 @@ define range(i32 -1, 2) i32 @EpdIsInf(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EpdMakeInf(ptr nocapture noundef writeonly initializes((0, 12)) %0, i32 noundef %1) local_unnamed_addr #8 {
+define void @EpdMakeInf(ptr noundef writeonly captures(none) initializes((0, 12)) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = and i32 %1, 1
   %4 = zext nneg i32 %3 to i64
   %5 = shl nuw i64 %4, 63
@@ -450,7 +450,7 @@ define void @EpdMakeInf(ptr nocapture noundef writeonly initializes((0, 12)) %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EpdMultiply2(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
+define void @EpdMultiply2(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = load i64, ptr %0, align 8
   %or.cond10.i.i.not = icmp eq i64 %3, -2251799813685248
   %4 = bitcast i64 %3 to double
@@ -502,7 +502,7 @@ define void @EpdMultiply2(ptr nocapture noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @EpdMultiply2Decimal(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define void @EpdMultiply2Decimal(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = load i64, ptr %0, align 8
   %or.cond10.i.i.not = icmp eq i64 %3, -2251799813685248
   %4 = bitcast i64 %3 to double
@@ -554,7 +554,7 @@ define void @EpdMultiply2Decimal(ptr nocapture noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @EpdNormalizeDecimal(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define void @EpdNormalizeDecimal(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = alloca [24 x i8], align 16
   %3 = alloca i32, align 4
   %4 = load double, ptr %0, align 8
@@ -596,7 +596,7 @@ define void @EpdNormalizeDecimal(ptr nocapture noundef %0) local_unnamed_addr #5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EpdMultiply3(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #9 {
+define void @EpdMultiply3(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #9 {
   %4 = load i64, ptr %0, align 8
   %or.cond10.i.i.not = icmp eq i64 %4, -2251799813685248
   %5 = bitcast i64 %4 to double
@@ -649,7 +649,7 @@ define void @EpdMultiply3(ptr nocapture noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @EpdMultiply3Decimal(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #5 {
+define void @EpdMultiply3Decimal(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #5 {
   %4 = load i64, ptr %0, align 8
   %or.cond10.i.i.not = icmp eq i64 %4, -2251799813685248
   %5 = bitcast i64 %4 to double
@@ -702,7 +702,7 @@ define void @EpdMultiply3Decimal(ptr nocapture noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EpdDivide(ptr nocapture noundef %0, double noundef %1) local_unnamed_addr #9 {
+define void @EpdDivide(ptr noundef captures(none) %0, double noundef %1) local_unnamed_addr #9 {
   %3 = load i64, ptr %0, align 8
   %or.cond10.i.i.not = icmp eq i64 %3, -2251799813685248
   %4 = bitcast i64 %3 to double
@@ -819,7 +819,7 @@ EpdConvert.exit46:                                ; preds = %37, %40, %45
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EpdMakeZero(ptr nocapture noundef writeonly initializes((0, 12)) %0, i32 noundef %1) local_unnamed_addr #8 {
+define void @EpdMakeZero(ptr noundef writeonly captures(none) initializes((0, 12)) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = and i32 %1, 1
   %4 = zext nneg i32 %3 to i64
   %5 = shl nuw i64 %4, 63
@@ -830,7 +830,7 @@ define void @EpdMakeZero(ptr nocapture noundef writeonly initializes((0, 12)) %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EpdDivide2(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
+define void @EpdDivide2(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = load i64, ptr %0, align 8
   %or.cond10.i.i.not = icmp eq i64 %3, -2251799813685248
   %4 = bitcast i64 %3 to double
@@ -910,7 +910,7 @@ define void @EpdDivide2(ptr nocapture noundef %0, ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EpdDivide3(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 12)) %2) local_unnamed_addr #9 {
+define void @EpdDivide3(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 12)) %2) local_unnamed_addr #9 {
   %4 = load i64, ptr %0, align 8
   %or.cond10.i.i.not = icmp eq i64 %4, -2251799813685248
   %5 = bitcast i64 %4 to double
@@ -992,7 +992,7 @@ define void @EpdDivide3(ptr nocapture noundef readonly %0, ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define void @EpdAdd(ptr nocapture noundef %0, double noundef %1) local_unnamed_addr #10 {
+define void @EpdAdd(ptr noundef captures(none) %0, double noundef %1) local_unnamed_addr #10 {
   %3 = load i64, ptr %0, align 8
   %or.cond10.i.i.not = icmp eq i64 %3, -2251799813685248
   %4 = bitcast i64 %3 to double
@@ -1137,7 +1137,7 @@ EpdConvert.exit61:                                ; preds = %34, %35, %40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EpdCopy(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) local_unnamed_addr #9 {
+define void @EpdCopy(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1) local_unnamed_addr #9 {
   %3 = load double, ptr %0, align 8
   store double %3, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1151,7 +1151,7 @@ define void @EpdCopy(ptr nocapture noundef readonly %0, ptr nocapture noundef wr
 declare double @pow(double noundef, double noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define void @EpdAdd2(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
+define void @EpdAdd2(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
   %3 = load i64, ptr %0, align 8
   %or.cond10.i.i.not = icmp eq i64 %3, -2251799813685248
   %4 = bitcast i64 %3 to double
@@ -1259,7 +1259,7 @@ define void @EpdAdd2(ptr nocapture noundef %0, ptr nocapture noundef readonly %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define void @EpdAdd3(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 12)) %2) local_unnamed_addr #10 {
+define void @EpdAdd3(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 12)) %2) local_unnamed_addr #10 {
   %4 = load i64, ptr %0, align 8
   %or.cond10.i.i.not = icmp eq i64 %4, -2251799813685248
   %5 = bitcast i64 %4 to double
@@ -1380,7 +1380,7 @@ define void @EpdAdd3(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define void @EpdSubtract(ptr nocapture noundef %0, double noundef %1) local_unnamed_addr #10 {
+define void @EpdSubtract(ptr noundef captures(none) %0, double noundef %1) local_unnamed_addr #10 {
   %3 = load i64, ptr %0, align 8
   %or.cond10.i.i.not = icmp eq i64 %3, -2251799813685248
   %4 = bitcast i64 %3 to double
@@ -1529,7 +1529,7 @@ EpdConvert.exit60:                                ; preds = %35, %36, %41
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define void @EpdSubtract2(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
+define void @EpdSubtract2(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
   %3 = load i64, ptr %0, align 8
   %or.cond10.i.i.not = icmp eq i64 %3, -2251799813685248
   %4 = bitcast i64 %3 to double
@@ -1641,7 +1641,7 @@ define void @EpdSubtract2(ptr nocapture noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define void @EpdSubtract3(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #10 {
+define void @EpdSubtract3(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #10 {
   %4 = load i64, ptr %0, align 8
   %or.cond10.i.i.not = icmp eq i64 %4, -2251799813685248
   %5 = bitcast i64 %4 to double
@@ -1758,7 +1758,7 @@ define void @EpdSubtract3(ptr nocapture noundef readonly %0, ptr nocapture nound
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @EpdPow2(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
+define void @EpdPow2(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 {
   %3 = alloca %struct.EpDoubleStruct, align 8
   %4 = alloca %struct.EpDoubleStruct, align 8
   %5 = icmp slt i32 %0, 1024
@@ -1868,7 +1868,7 @@ EpdConvert.exit:                                  ; preds = %19, %24, %30, %46, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @EpdPow2Decimal(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #5 {
+define void @EpdPow2Decimal(i32 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #5 {
   %3 = alloca [24 x i8], align 16
   %4 = alloca i32, align 4
   %5 = alloca [24 x i8], align 16
@@ -2021,7 +2021,7 @@ define i32 @EpdGetExponentDecimal(double noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @EpdIsNanOrInf(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @EpdIsNanOrInf(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8
   %3 = and i64 %2, 9221120237041090559
   %or.cond7.i = icmp eq i64 %3, 9218868437227405312
@@ -2033,7 +2033,7 @@ define range(i32 0, 2) i32 @EpdIsNanOrInf(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @EpdIsZero(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @EpdIsZero(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load double, ptr %0, align 8
   %3 = fcmp oeq double %2, 0.000000e+00
   %. = zext i1 %3 to i32
@@ -2041,13 +2041,13 @@ define range(i32 0, 2) i32 @EpdIsZero(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr, i32) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nofree willreturn
 declare double @ldexp(double, i32) local_unnamed_addr #14
@@ -2056,10 +2056,10 @@ declare double @ldexp(double, i32) local_unnamed_addr #14
 declare double @llvm.fabs.f64(double) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #17

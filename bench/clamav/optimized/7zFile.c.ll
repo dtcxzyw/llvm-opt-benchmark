@@ -7,13 +7,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [3 x i8] c"rb\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @File_Construct(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #0 {
+define void @File_Construct(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @InFile_Open(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define i32 @InFile_Open(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = tail call noalias ptr @fopen(ptr noundef readonly %1, ptr noundef nonnull @.str.1)
   store ptr %3, ptr %0, align 8
   %.not3.i = icmp eq ptr %3, null
@@ -30,7 +30,7 @@ File_Open.exit:                                   ; preds = %2, %4
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @OutFile_Open(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define i32 @OutFile_Open(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = tail call noalias ptr @fopen(ptr noundef readonly %1, ptr noundef nonnull @.str)
   store ptr %3, ptr %0, align 8
   %.not3.i = icmp eq ptr %3, null
@@ -47,7 +47,7 @@ File_Open.exit:                                   ; preds = %2, %4
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @File_Close(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define noundef i32 @File_Close(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %3
@@ -67,10 +67,10 @@ define noundef i32 @File_Close(ptr nocapture noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @File_Read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define noundef i32 @File_Read(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
   %4 = load i64, ptr %2, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %13, label %6
@@ -93,13 +93,13 @@ define noundef i32 @File_Read(ptr nocapture noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @File_Write(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define noundef i32 @File_Write(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
   %4 = load i64, ptr %2, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %13, label %6
@@ -122,10 +122,10 @@ define noundef i32 @File_Write(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @File_Seek(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define noundef i32 @File_Seek(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %switch = icmp ult i32 %2, 3
   br i1 %switch, label %4, label %10
 
@@ -144,19 +144,19 @@ define noundef i32 @File_Seek(ptr nocapture noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @FileSeqInStream_CreateVTable(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #0 {
+define void @FileSeqInStream_CreateVTable(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #0 {
   store ptr @FileSeqInStream_Read, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 0, 9) i32 @FileSeqInStream_Read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #1 {
+define internal range(i32 0, 9) i32 @FileSeqInStream_Read(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %2, align 8
   %6 = icmp eq i64 %5, 0
@@ -184,7 +184,7 @@ File_Read.exit.thread:                            ; preds = %7, %3, %File_Read.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @FileInStream_CreateVTable(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #0 {
+define void @FileInStream_CreateVTable(ptr noundef writeonly captures(none) initializes((0, 16)) %0) local_unnamed_addr #0 {
   store ptr @FileInStream_Read, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @FileInStream_Seek, ptr %2, align 8
@@ -192,7 +192,7 @@ define void @FileInStream_CreateVTable(ptr nocapture noundef writeonly initializ
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 0, 9) i32 @FileInStream_Read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #1 {
+define internal range(i32 0, 9) i32 @FileInStream_Read(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %2, align 8
   %6 = icmp eq i64 %5, 0
@@ -220,7 +220,7 @@ File_Read.exit.thread:                            ; preds = %7, %3, %File_Read.e
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @FileInStream_Seek(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #1 {
+define internal noundef i32 @FileInStream_Seek(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #1 {
   %switch.i = icmp ult i32 %2, 3
   br i1 %switch.i, label %4, label %File_Seek.exit
 
@@ -240,13 +240,13 @@ File_Seek.exit:                                   ; preds = %3, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @FileOutStream_CreateVTable(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #0 {
+define void @FileOutStream_CreateVTable(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #0 {
   store ptr @FileOutStream_Write, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @FileOutStream_Write(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #1 {
+define internal noundef i64 @FileOutStream_Write(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %File_Write.exit, label %6
@@ -268,7 +268,7 @@ File_Write.exit:                                  ; preds = %3, %6, %10
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #4

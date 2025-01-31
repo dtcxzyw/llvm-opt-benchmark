@@ -178,7 +178,7 @@ return:                                           ; preds = %entry, %if.end22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @kdf_argon2_reset(ptr nocapture noundef initializes((0, 16), (28, 32), (44, 48), (60, 64), (76, 100), (104, 128)) %vctx) #0 {
+define internal void @kdf_argon2_reset(ptr noundef captures(none) initializes((0, 16), (28, 32), (44, 48), (60, 64), (76, 100), (104, 128)) %vctx) #0 {
 entry:
   %type1 = getelementptr inbounds nuw i8, ptr %vctx, i64 100
   %0 = load i32, ptr %type1, align 4
@@ -465,7 +465,7 @@ return:                                           ; preds = %if.end89, %if.end76
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @kdf_argon2_settable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %p_ctx) #1 {
+define internal noundef nonnull ptr @kdf_argon2_settable_ctx_params(ptr readnone captures(none) %ctx, ptr readnone captures(none) %p_ctx) #1 {
 entry:
   ret ptr @kdf_argon2_settable_ctx_params.known_settable_ctx_params
 }
@@ -909,13 +909,13 @@ return:                                           ; preds = %if.then2.i99, %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @kdf_argon2_gettable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %p_ctx) #1 {
+define internal noundef nonnull ptr @kdf_argon2_gettable_ctx_params(ptr readnone captures(none) %ctx, ptr readnone captures(none) %p_ctx) #1 {
 entry:
   ret ptr @kdf_argon2_gettable_ctx_params.known_gettable_ctx_params
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @kdf_argon2_get_ctx_params(ptr nocapture readnone %vctx, ptr noundef %params) #0 {
+define internal i32 @kdf_argon2_get_ctx_params(ptr readnone captures(none) %vctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.5) #9
   %cmp.not = icmp eq ptr %call, null
@@ -1029,7 +1029,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1046,7 +1046,7 @@ declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @OSSL_PARAM_locate(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kdf_argon2_ctx_set_out_length(ptr nocapture noundef writeonly %ctx, i32 noundef %outlen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @kdf_argon2_ctx_set_out_length(ptr noundef writeonly captures(none) %ctx, i32 noundef %outlen) unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %outlen, 4
   br i1 %cmp, label %if.then, label %if.end
@@ -1930,7 +1930,7 @@ return:                                           ; preds = %if.end, %entry, %fa
 declare void @OSSL_PARAM_construct_size_t(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @OSSL_PARAM_construct_end(ptr sret(%struct.ossl_param_st) align 8) local_unnamed_addr #2
 
@@ -2240,7 +2240,7 @@ for.end:                                          ; preds = %index_alpha.exit, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @fill_block(ptr nocapture noundef readonly %prev, ptr nocapture noundef readonly %ref, ptr nocapture noundef %next, i32 noundef range(i32 0, 2) %with_xor) unnamed_addr #6 {
+define internal fastcc void @fill_block(ptr noundef readonly captures(none) %prev, ptr noundef readonly captures(none) %ref, ptr noundef captures(none) %next, i32 noundef range(i32 0, 2) %with_xor) unnamed_addr #6 {
 entry:
   %blockR = alloca %struct.BLOCK, align 8
   %tmp = alloca %struct.BLOCK, align 8
@@ -2928,7 +2928,7 @@ declare i32 @ossl_crypto_thread_clean(ptr noundef) local_unnamed_addr #2
 declare ptr @ossl_crypto_thread_start(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @fill_segment_thr(ptr nocapture noundef readonly %thread_data) #5 {
+define internal noundef i32 @fill_segment_thr(ptr noundef readonly captures(none) %thread_data) #5 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %thread_data, i64 16
   %0 = load ptr, ptr %ctx, align 8
@@ -2948,7 +2948,7 @@ declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @OSSL_PARAM_get_uint32(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kdf_argon2_ctx_set_lanes(ptr nocapture noundef writeonly %ctx, i32 noundef %lanes) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @kdf_argon2_ctx_set_lanes(ptr noundef writeonly captures(none) %ctx, i32 noundef %lanes) unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i32 %lanes, 16777215
   br i1 %cmp, label %if.then, label %if.end
@@ -2980,7 +2980,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kdf_argon2_ctx_set_m_cost(ptr nocapture noundef writeonly %ctx, i32 noundef %m_cost) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @kdf_argon2_ctx_set_m_cost(ptr noundef writeonly captures(none) %ctx, i32 noundef %m_cost) unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %m_cost, 8
   br i1 %cmp, label %if.then, label %if.end
@@ -3002,7 +3002,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kdf_argon2_ctx_set_version(ptr nocapture noundef writeonly %ctx, i32 noundef %version) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @kdf_argon2_ctx_set_version(ptr noundef writeonly captures(none) %ctx, i32 noundef %version) unnamed_addr #0 {
 entry:
   switch i32 %version, label %sw.default [
     i32 16, label %sw.bb
@@ -3026,7 +3026,7 @@ return:                                           ; preds = %sw.default, %sw.bb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @set_property_query(ptr nocapture noundef %ctx, ptr noundef %propq) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @set_property_query(ptr noundef captures(none) %ctx, ptr noundef %propq) unnamed_addr #0 {
 entry:
   %propq1 = getelementptr inbounds nuw i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %propq1, align 8
@@ -3067,10 +3067,10 @@ declare i32 @OSSL_PARAM_set_size_t(ptr noundef, i64 noundef) local_unnamed_addr 
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #7

@@ -2823,10 +2823,10 @@ ir_remove_merge_input.exit:                       ; preds = %..loopexit143_crit_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @ir_build_dominators_tree(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define hidden noundef i32 @ir_build_dominators_tree(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = or i32 %3, 33554432
@@ -2999,7 +2999,7 @@ define hidden noundef i32 @ir_build_dominators_tree(ptr nocapture noundef %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ir_find_loops(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden noundef i32 @ir_find_loops(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -3508,10 +3508,10 @@ ir_dominates.exit:                                ; preds = %.lr.ph.i, %133
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ir_schedule_blocks(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden noundef i32 @ir_schedule_blocks(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, 64
@@ -4087,7 +4087,7 @@ define hidden noundef i32 @ir_schedule_blocks(ptr nocapture noundef %0) local_un
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @ir_skip_empty_target_blocks(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define hidden i32 @ir_skip_empty_target_blocks(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = zext i32 %1 to i64
@@ -4122,7 +4122,7 @@ define hidden i32 @ir_skip_empty_target_blocks(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @ir_skip_empty_next_blocks(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define hidden i32 @ir_skip_empty_next_blocks(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load i32, ptr %3, align 4
   %5 = icmp ugt i32 %1, %4
@@ -4153,7 +4153,7 @@ define hidden i32 @ir_skip_empty_next_blocks(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @ir_get_true_false_blocks(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #8 {
+define hidden void @ir_get_true_false_blocks(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #8 {
   store i32 0, ptr %2, align 4
   store i32 0, ptr %3, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -4322,7 +4322,7 @@ ir_skip_empty_next_blocks.exit:                   ; preds = %108, %102, %98, %94
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ir_try_split_if_cmp(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @ir_try_split_if_cmp(ptr noundef %0, ptr noundef nonnull captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
@@ -4766,7 +4766,7 @@ declare void @ir_use_list_remove_all(ptr noundef, i32 noundef, i32 noundef) loca
 declare zeroext i1 @ir_use_list_add(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc zeroext i1 @ir_cmp_is_true(i32 noundef range(i32 0, 256) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #9 {
+define internal fastcc zeroext i1 @ir_cmp_is_true(i32 noundef range(i32 0, 256) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #9 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %5 = load i8, ptr %4, align 1
   %6 = icmp ult i8 %5, 12

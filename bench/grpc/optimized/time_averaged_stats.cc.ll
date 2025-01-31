@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN9grpc_core17TimeAveragedStatsC1Eddd = unnamed_addr alias void (ptr, double, double, double), ptr @_ZN9grpc_core17TimeAveragedStatsC2Eddd
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9grpc_core17TimeAveragedStatsC2Eddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %this, double noundef %init_avg, double noundef %regress_weight, double noundef %persistence_factor) unnamed_addr #0 align 2 {
+define void @_ZN9grpc_core17TimeAveragedStatsC2Eddd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((0, 56)) %this, double noundef %init_avg, double noundef %regress_weight, double noundef %persistence_factor) unnamed_addr #0 align 2 {
 entry:
   store double %init_avg, ptr %this, align 8
   %regress_weight_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -21,7 +21,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core17TimeAveragedStats9AddSampleEd(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, double noundef %value) local_unnamed_addr #1 align 2 {
+define void @_ZN9grpc_core17TimeAveragedStats9AddSampleEd(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, double noundef %value) local_unnamed_addr #1 align 2 {
 entry:
   %batch_total_value_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load double, ptr %batch_total_value_, align 8
@@ -35,7 +35,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef double @_ZN9grpc_core17TimeAveragedStats13UpdateAverageEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #1 align 2 {
+define noundef double @_ZN9grpc_core17TimeAveragedStats13UpdateAverageEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #1 align 2 {
 entry:
   %batch_total_value_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load double, ptr %batch_total_value_, align 8
@@ -82,7 +82,7 @@ if.end9:                                          ; preds = %if.then5, %entry
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

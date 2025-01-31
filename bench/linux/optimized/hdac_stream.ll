@@ -87,7 +87,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_hdac_str
 @llvm.compiler.used = appending global [30 x ptr] [ptr @__UNIQUE_ID___addressable_snd_hdac_get_stream442, ptr @__UNIQUE_ID___addressable_snd_hdac_get_stream_stripe_ctl430, ptr @__UNIQUE_ID___addressable_snd_hdac_stop_streams434, ptr @__UNIQUE_ID___addressable_snd_hdac_stop_streams_and_chip435, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_assign439, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_cleanup438, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_drsm_enable455, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_get_spbmaxfifo454, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_init431, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_release441, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_release_locked440, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_reset436, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_set_dpibr457, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_set_lpib458, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_set_params448, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_set_spib453, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_setup437, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_setup_periods447, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_spbcap_enable452, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_start432, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_stop433, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_sync451, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_sync_trigger450, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_timecounter_init449, ptr @__UNIQUE_ID___addressable_snd_hdac_stream_wait_drsm456, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2, ptr @trace_snd_hdac_stream_start.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace407, ptr @trace_snd_hdac_stream_start.__UNIQUE_ID___addressable___SCK__tp_func_snd_hdac_stream_start406, ptr @trace_snd_hdac_stream_stop.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace421, ptr @trace_snd_hdac_stream_stop.__UNIQUE_ID___addressable___SCK__tp_func_snd_hdac_stream_stop420], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 4) i32 @snd_hdac_get_stream_stripe_ctl(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local range(i32 0, 4) i32 @snd_hdac_get_stream_stripe_ctl(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -501,7 +501,7 @@ define dso_local void @snd_hdac_stop_streams_and_chip(ptr noundef %0) #0 align 1
 declare dso_local void @snd_hdac_bus_stop_chip(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @snd_hdac_stream_reset(ptr nocapture noundef %0) #0 align 16 {
+define dso_local void @snd_hdac_stream_reset(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %3) #10, !srcloc !20
@@ -628,7 +628,7 @@ declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #2
 declare dso_local void @__udelay(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_hdac_stream_setup(ptr nocapture noundef %0, i1 noundef zeroext %1) #0 align 16 {
+define dso_local noundef i32 @snd_hdac_stream_setup(ptr noundef captures(none) %0, i1 noundef zeroext %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
@@ -828,7 +828,7 @@ define dso_local noundef i32 @snd_hdac_stream_setup(ptr nocapture noundef %0, i1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @snd_hdac_stream_cleanup(ptr nocapture noundef initializes((76, 84), (160, 164)) %0) #0 align 16 {
+define dso_local void @snd_hdac_stream_cleanup(ptr noundef captures(none) initializes((76, 84), (160, 164)) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 24
@@ -946,7 +946,7 @@ define dso_local ptr @snd_hdac_stream_assign(ptr noundef %0, ptr noundef %1) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @snd_hdac_stream_release_locked(ptr nocapture noundef initializes((144, 152)) %0) #3 align 16 {
+define dso_local void @snd_hdac_stream_release_locked(ptr noundef captures(none) initializes((144, 152)) %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, -4
@@ -957,7 +957,7 @@ define dso_local void @snd_hdac_stream_release_locked(ptr nocapture noundef init
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @snd_hdac_stream_release(ptr nocapture noundef initializes((144, 152)) %0) #0 align 16 {
+define dso_local void @snd_hdac_stream_release(ptr noundef captures(none) initializes((144, 152)) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1192
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull %3) #10
@@ -1007,7 +1007,7 @@ define dso_local ptr @snd_hdac_get_stream(ptr noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(ptr nocapture noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_setup_periods(ptr noundef captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
@@ -1375,7 +1375,7 @@ declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_set_params(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_set_params(ptr noundef captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -1474,7 +1474,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_set_params(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @snd_hdac_stream_timecounter_init(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local void @snd_hdac_stream_timecounter_init(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
@@ -1554,7 +1554,7 @@ define dso_local void @snd_hdac_stream_timecounter_init(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @snd_hdac_stream_sync_trigger(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local void @snd_hdac_stream_sync_trigger(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = icmp eq i32 %3, 0
   %7 = select i1 %6, i32 56, i32 %3
@@ -1574,7 +1574,7 @@ define dso_local void @snd_hdac_stream_sync_trigger(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @snd_hdac_stream_sync(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i32 noundef %2) #0 align 16 {
+define dso_local void @snd_hdac_stream_sync(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i32 noundef %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1160
   br i1 %1, label %.split8.us, label %.split8
@@ -1707,7 +1707,7 @@ define dso_local void @snd_hdac_stream_sync(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @snd_hdac_stream_spbcap_enable(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i32 noundef %2) #0 align 16 {
+define dso_local void @snd_hdac_stream_spbcap_enable(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1744,7 +1744,7 @@ define dso_local void @snd_hdac_stream_spbcap_enable(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_set_spib(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_set_spib(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1767,7 +1767,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_set_spib(ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_hdac_stream_get_spbmaxfifo(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local i32 @snd_hdac_stream_get_spbmaxfifo(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1790,7 +1790,7 @@ define dso_local i32 @snd_hdac_stream_get_spbmaxfifo(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @snd_hdac_stream_drsm_enable(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i32 noundef %2) #0 align 16 {
+define dso_local void @snd_hdac_stream_drsm_enable(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1827,7 +1827,7 @@ define dso_local void @snd_hdac_stream_drsm_enable(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -110, 1) i32 @snd_hdac_stream_wait_drsm(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local range(i32 -110, 1) i32 @snd_hdac_stream_wait_drsm(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 165
   %4 = load i8, ptr %3, align 1
@@ -1877,7 +1877,7 @@ define dso_local range(i32 -110, 1) i32 @snd_hdac_stream_wait_drsm(ptr nocapture
 declare dso_local i64 @ktime_get() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_set_dpibr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_set_dpibr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1900,7 +1900,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hdac_stream_set_dpibr(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_hdac_stream_set_lpib(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef i32 @snd_hdac_stream_set_lpib(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
@@ -1936,7 +1936,7 @@ declare dso_local i64 @snd_sgbuf_get_addr(ptr noundef, i64 noundef) local_unname
 declare dso_local i32 @snd_sgbuf_get_chunk_size(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 0, 4294967296) i64 @azx_cc_read(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i64 0, 4294967296) i64 @azx_cc_read(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -240
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32

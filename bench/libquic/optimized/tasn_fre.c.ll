@@ -222,12 +222,12 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %tt.096.pn = phi ptr [ %add.ptr77, %for.body.preheader ], [ %tt.096, %for.inc ]
   %tt.096 = getelementptr inbounds i8, ptr %tt.096.pn, i64 -40
-  %call83 = call ptr @asn1_do_adb(ptr noundef %pval, ptr noundef nonnull %tt.096, i32 noundef 0) #4
+  %call83 = call ptr @asn1_do_adb(ptr noundef nonnull %pval, ptr noundef nonnull %tt.096, i32 noundef 0) #4
   %tobool84.not = icmp eq ptr %call83, null
   br i1 %tobool84.not, label %for.inc, label %if.end86
 
 if.end86:                                         ; preds = %for.body
-  %call87 = call ptr @asn1_get_field_ptr(ptr noundef %pval, ptr noundef nonnull %call83) #4
+  %call87 = call ptr @asn1_get_field_ptr(ptr noundef nonnull %pval, ptr noundef nonnull %call83) #4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %vtmp.i73)
   %18 = load i64, ptr %call83, align 8
   %and.i74 = and i64 %18, 6
@@ -282,7 +282,7 @@ for.end:                                          ; preds = %for.inc, %if.end74
   br i1 %tobool67.not, label %if.end91, label %if.then89
 
 if.then89:                                        ; preds = %for.end
-  %call90 = call i32 %asn1_cb.0(i32 noundef 3, ptr noundef %pval, ptr noundef nonnull %it, ptr noundef null) #4
+  %call90 = call i32 %asn1_cb.0(i32 noundef 3, ptr noundef nonnull %pval, ptr noundef nonnull %it, ptr noundef null) #4
   br label %if.end91
 
 if.end91:                                         ; preds = %if.then89, %for.end
@@ -307,7 +307,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ASN1_template_free(ptr noundef %pval, ptr nocapture noundef readonly %tt) local_unnamed_addr #0 {
+define hidden void @ASN1_template_free(ptr noundef %pval, ptr noundef readonly captures(none) %tt) local_unnamed_addr #0 {
 entry:
   %vtmp = alloca ptr, align 8
   %0 = load i64, ptr %tt, align 8
@@ -466,7 +466,7 @@ return:                                           ; preds = %if.then29, %if.else
 declare void @ASN1_OBJECT_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #1
 
@@ -481,10 +481,10 @@ declare void @asn1_enc_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @asn1_do_adb(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

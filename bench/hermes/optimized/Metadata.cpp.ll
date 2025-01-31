@@ -41,10 +41,10 @@ $_ZNSt8_Rb_treeIhSt4pairIKhPKcESt10_Select1stIS4_ESt4lessIhESaIS4_EE29_M_get_ins
 @_ZN6hermes2vm8Metadata7BuilderC1EPKv = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN6hermes2vm8Metadata7BuilderC2EPKv
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #0
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #0
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define hidden void @_ZN6hermes2vm8MetadataC2EONS1_7BuilderE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 17), (24, 96)) %this, ptr noundef nonnull readonly align 8 dereferenceable(224) %mb) unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes2vm8MetadataC2EONS1_7BuilderE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((0, 17), (24, 96)) %this, ptr noundef nonnull readonly align 8 dereferenceable(224) %mb) unnamed_addr #1 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %this, i8 0, i64 17, i1 false)
   %names = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -194,7 +194,7 @@ for.end85:                                        ; preds = %for.end85.loopexit,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN6hermes2vm8Metadata7BuilderC2EPKv(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8), (16, 20), (24, 32)) %this, ptr noundef %base) unnamed_addr #3 align 2 {
@@ -254,7 +254,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i8 @_ZN6hermes2vm8Metadata7Builder9getOffsetEPKv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr noundef %fieldLocation) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i8 @_ZN6hermes2vm8Metadata7Builder9getOffsetEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this, ptr noundef %fieldLocation) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %fieldLocation to i64
@@ -479,7 +479,7 @@ if.end:                                           ; preds = %if.then.i.i, %clean
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6hermes2vm8Metadata7Builder8addArrayEPKcNS1_9ArrayData9ArrayTypeEPKvPKSt6atomicIjEm(ptr nocapture noundef nonnull align 8 dereferenceable(224) initializes((200, 205)) %this, ptr nocapture noundef readnone %name, i8 noundef zeroext %type, ptr noundef %startLocation, ptr noundef %lengthLocation, i64 noundef %stride) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN6hermes2vm8Metadata7Builder8addArrayEPKcNS1_9ArrayData9ArrayTypeEPKvPKSt6atomicIjEm(ptr noundef nonnull align 8 captures(none) dereferenceable(224) initializes((200, 205)) %this, ptr noundef readnone captures(none) %name, i8 noundef zeroext %type, ptr noundef %startLocation, ptr noundef %lengthLocation, i64 noundef %stride) local_unnamed_addr #6 align 2 {
 entry:
   %conv = trunc i64 %stride to i32
   %0 = load ptr, ptr %this, align 8
@@ -507,14 +507,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define hidden void @_ZN6hermes2vm8Metadata7Builder5buildEv(ptr noalias nocapture nonnull writeonly sret(%"struct.hermes::vm::Metadata") align 8 initializes((0, 17), (24, 96)) %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %this) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes2vm8Metadata7Builder5buildEv(ptr noalias nonnull writeonly sret(%"struct.hermes::vm::Metadata") align 8 captures(none) initializes((0, 17), (24, 96)) %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %this) local_unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6hermes2vm8MetadataC2EONS1_7BuilderE(ptr noundef nonnull align 8 dereferenceable(96) %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %this)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZN6hermes2vmlsERN4llvh11raw_ostreamERKNS0_8MetadataE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %meta) local_unnamed_addr #5 {
+define hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZN6hermes2vmlsERN4llvh11raw_ostreamERKNS0_8MetadataE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %meta) local_unnamed_addr #5 {
 entry:
   %OutBufEnd.i5.i = getelementptr inbounds nuw i8, ptr %os, i64 16
   %0 = load ptr, ptr %OutBufEnd.i5.i, align 8
@@ -1135,7 +1135,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit80:               ; preds = %if.then.i.i78, %if.
 declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36), ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36), i8 noundef zeroext) local_unnamed_addr #7
 
@@ -1388,10 +1388,10 @@ __cxx_global_var_init.exit:                       ; preds = %arrayinit.body.i
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #1 = { mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

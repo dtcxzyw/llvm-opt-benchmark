@@ -66,7 +66,7 @@ wasm_classify_argument_type.exit:                 ; preds = %17, %19
 declare ptr @calloc_arena(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr @type_void, align 8
   br label %.backedge
 
@@ -200,7 +200,7 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @c_abi_func_create_wasm(ptr nocapture noundef initializes((56, 64), (72, 88)) %0) local_unnamed_addr #0 {
+define dso_local void @c_abi_func_create_wasm(ptr noundef captures(none) initializes((56, 64), (72, 88)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = tail call fastcc ptr @type_lowering(ptr noundef %3)

@@ -79,7 +79,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.31 = private unnamed_addr constant [40 x i8] c"Could not call the sapi_header_callback\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @sapi_startup(ptr nocapture noundef initializes((256, 264)) %0) local_unnamed_addr #0 {
+define void @sapi_startup(ptr noundef captures(none) initializes((256, 264)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr null, ptr %2, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) @sapi_module, ptr noundef nonnull align 8 dereferenceable(280) %0, i64 280, i1 false)
@@ -90,7 +90,7 @@ define void @sapi_startup(ptr nocapture noundef initializes((256, 264)) %0) loca
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define void @sapi_shutdown() local_unnamed_addr #0 {
@@ -99,7 +99,7 @@ define void @sapi_shutdown() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @sapi_free_header(ptr nocapture noundef readonly %0) #0 {
+define void @sapi_free_header(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @_efree(ptr noundef %2) #18
   ret void
@@ -108,7 +108,7 @@ define void @sapi_free_header(ptr nocapture noundef readonly %0) #0 {
 declare void @_efree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_header_register_callback(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_header_register_callback(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zend_fcall_info, align 8
   %4 = alloca %struct._zend_fcall_info_cache, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -200,7 +200,7 @@ define void @sapi_read_post_data() local_unnamed_addr #0 {
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 64), align 8
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %3 = and i64 %2, 4294967295
-  %4 = tail call noalias ptr @_estrndup(ptr noundef %1, i64 noundef %3) #18
+  %4 = tail call noalias ptr @_estrndup(ptr noundef nonnull %1, i64 noundef %3) #18
   %.not50 = icmp eq i64 %3, 0
   br i1 %.not50, label %._crit_edge, label %.lr.ph
 
@@ -304,7 +304,7 @@ define void @sapi_read_post_data() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -498,7 +498,7 @@ define noalias ptr @sapi_get_default_content_type() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @get_default_content_type(i32 noundef range(i32 0, 15) %0, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %1) unnamed_addr #0 {
+define internal fastcc noalias ptr @get_default_content_type(i32 noundef range(i32 0, 15) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %1) unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 400), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
@@ -571,7 +571,7 @@ define internal fastcc noalias ptr @get_default_content_type(i32 noundef range(i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @sapi_get_default_content_type_header(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #0 {
+define void @sapi_get_default_content_type_header(ptr noundef writeonly captures(none) initializes((0, 16)) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = call fastcc ptr @get_default_content_type(i32 noundef 14, ptr noundef %2)
   store ptr %3, ptr %0, align 8
@@ -584,7 +584,7 @@ define void @sapi_get_default_content_type_header(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @sapi_apply_default_charset(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define i64 @sapi_apply_default_charset(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 408), align 8
   %.not = icmp eq ptr %3, null
   %4 = select i1 %.not, ptr @.str.6, ptr %3
@@ -632,10 +632,10 @@ define i64 @sapi_apply_default_charset(ptr nocapture noundef %0, i64 noundef %1)
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 declare noalias ptr @_emalloc_32() local_unnamed_addr #2
 
@@ -710,7 +710,7 @@ define void @sapi_activate_headers_only() local_unnamed_addr #0 {
 declare void @zend_llist_init(ptr noundef, i64 noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @sapi_activate() local_unnamed_addr #0 {
@@ -801,7 +801,7 @@ define void @sapi_activate() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define void @sapi_deactivate_module() local_unnamed_addr #0 {
@@ -1164,7 +1164,7 @@ define range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr noundef %1) loca
   br i1 %.not231, label %67, label %65
 
 65:                                               ; preds = %63
-  tail call void @_efree(ptr noundef %31) #18
+  tail call void @_efree(ptr noundef nonnull %31) #18
   %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 80), align 8
   tail call void (i32, ptr, ...) %66(i32 noundef 2, ptr noundef nonnull @.str.14) #18
   br label %sapi_update_response_code.exit
@@ -1203,7 +1203,7 @@ define range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr noundef %1) loca
   br i1 %83, label %84, label %100
 
 84:                                               ; preds = %79
-  %85 = call i32 @strncasecmp(ptr noundef nonnull %80, ptr noundef readonly %31, i64 noundef %.0185266) #19
+  %85 = call i32 @strncasecmp(ptr noundef nonnull %80, ptr noundef nonnull readonly %31, i64 noundef %.0185266) #19
   %.not27.i = icmp eq i32 %85, 0
   br i1 %.not27.i, label %86, label %100
 
@@ -1249,7 +1249,7 @@ define range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr noundef %1) loca
   br i1 %.not.i234, label %sapi_remove_header.exit, label %.lr.ph.i
 
 sapi_remove_header.exit:                          ; preds = %100, %72
-  call void @_efree(ptr noundef %31) #18
+  call void @_efree(ptr noundef nonnull %31) #18
   br label %sapi_update_response_code.exit
 
 .lr.ph:                                           ; preds = %.preheader, %108
@@ -1338,7 +1338,7 @@ sapi_update_response_code.exit236:                ; preds = %117
 
 128:                                              ; preds = %125
   store i8 0, ptr %127, align 1
-  %129 = tail call i32 @strcasecmp(ptr noundef %31, ptr noundef nonnull @.str.18) #19
+  %129 = tail call i32 @strcasecmp(ptr noundef nonnull %31, ptr noundef nonnull @.str.18) #19
   %.not218 = icmp eq i32 %129, 0
   br i1 %.not218, label %130, label %159
 
@@ -1399,7 +1399,7 @@ sapi_update_response_code.exit236:                ; preds = %117
   store ptr %150, ptr %3, align 8
   %156 = and i64 %152, 4294967295
   store i64 %156, ptr %126, align 8
-  tail call void @_efree(ptr noundef %31) #18
+  tail call void @_efree(ptr noundef nonnull %31) #18
   br label %157
 
 157:                                              ; preds = %._crit_edge263, %148
@@ -1409,7 +1409,7 @@ sapi_update_response_code.exit236:                ; preds = %117
   br label %sapi_update_response_code.exit238
 
 159:                                              ; preds = %128
-  %160 = tail call i32 @strcasecmp(ptr noundef %31, ptr noundef nonnull @.str.19) #19
+  %160 = tail call i32 @strcasecmp(ptr noundef nonnull %31, ptr noundef nonnull @.str.19) #19
   %.not221 = icmp eq i32 %160, 0
   br i1 %.not221, label %161, label %177
 
@@ -1446,7 +1446,7 @@ sapi_update_response_code.exit236:                ; preds = %117
   br label %sapi_update_response_code.exit238
 
 177:                                              ; preds = %159
-  %178 = tail call i32 @strcasecmp(ptr noundef %31, ptr noundef nonnull @.str.22) #19
+  %178 = tail call i32 @strcasecmp(ptr noundef nonnull %31, ptr noundef nonnull @.str.22) #19
   %.not223 = icmp eq i32 %178, 0
   br i1 %.not223, label %179, label %204
 
@@ -1529,7 +1529,7 @@ sapi_update_response_code.exit242:                ; preds = %201, %203
   br label %sapi_update_response_code.exit238
 
 204:                                              ; preds = %177
-  %205 = tail call i32 @strcasecmp(ptr noundef %31, ptr noundef nonnull @.str.24) #19
+  %205 = tail call i32 @strcasecmp(ptr noundef nonnull %31, ptr noundef nonnull @.str.24) #19
   %.not229 = icmp ne i32 %205, 0
   %206 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 216), align 8
   %207 = icmp eq i32 %206, 401
@@ -1602,10 +1602,10 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #9
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define internal fastcc i32 @sapi_extract_response_code(ptr nocapture noundef readonly %0) unnamed_addr #10 {
+define internal fastcc i32 @sapi_extract_response_code(ptr noundef readonly captures(none) %0) unnamed_addr #10 {
   br label %2
 
 2:                                                ; preds = %10, %1
@@ -1637,7 +1637,7 @@ define internal fastcc i32 @sapi_extract_response_code(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #2
 
@@ -1691,7 +1691,7 @@ define internal fastcc void @sapi_header_add_op(i32 noundef range(i32 3, 2) %0, 
   br i1 %26, label %27, label %43
 
 27:                                               ; preds = %22
-  %28 = tail call i32 @strncasecmp(ptr noundef nonnull %23, ptr noundef readonly %14, i64 noundef %15) #19
+  %28 = tail call i32 @strncasecmp(ptr noundef nonnull %23, ptr noundef nonnull readonly %14, i64 noundef %15) #19
   %.not27.i = icmp eq i32 %28, 0
   br i1 %.not27.i, label %29, label %43
 
@@ -1980,7 +1980,7 @@ declare i32 @ap_php_slprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_u
 declare void @zend_llist_apply_with_argument(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @sapi_register_post_entries(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @sapi_register_post_entries(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %.not5 = icmp eq ptr %2, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
@@ -2003,14 +2003,14 @@ define range(i32 -1, 1) i32 @sapi_register_post_entries(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @sapi_register_post_entry(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @sapi_register_post_entry(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 436), align 4
   %4 = trunc i8 %3 to i1
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %.not = icmp ne ptr %5, null
   %or.cond.not = select i1 %4, i1 %.not, i1 false
-  br i1 %or.cond.not, label %41, label %6
+  br i1 %or.cond.not, label %39, label %6
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %0, align 8
@@ -2036,7 +2036,7 @@ define range(i32 -1, 1) i32 @sapi_register_post_entry(ptr nocapture noundef read
   store i32 13, ptr %19, align 8
   %20 = call ptr @zend_hash_add(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 448), ptr noundef nonnull %13, ptr noundef nonnull %2) #18
   %.not117 = icmp eq ptr %20, null
-  br i1 %.not117, label %32, label %21
+  br i1 %.not117, label %30, label %21
 
 21:                                               ; preds = %6
   %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 452), align 4
@@ -2056,37 +2056,35 @@ define range(i32 -1, 1) i32 @sapi_register_post_entry(ptr nocapture noundef read
   %29 = phi ptr [ %25, %24 ], [ %27, %26 ]
   store ptr %29, ptr %20, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %29, ptr noundef nonnull align 1 dereferenceable(32) %0, i64 32, i1 false)
-  %30 = icmp eq ptr %29, null
-  %31 = sext i1 %30 to i32
-  br label %32
+  br label %30
 
-32:                                               ; preds = %6, %28
-  %.0 = phi i32 [ %31, %28 ], [ -1, %6 ]
-  %33 = load i32, ptr %14, align 4
-  %34 = and i32 %33, 64
-  %.not120 = icmp eq i32 %34, 0
-  br i1 %.not120, label %35, label %41
+30:                                               ; preds = %6, %28
+  %.0 = phi i32 [ 0, %28 ], [ -1, %6 ]
+  %31 = load i32, ptr %14, align 4
+  %32 = and i32 %31, 64
+  %.not120 = icmp eq i32 %32, 0
+  br i1 %.not120, label %33, label %39
 
-35:                                               ; preds = %32
-  %36 = load i32, ptr %13, align 4
-  %37 = icmp ne i32 %36, 0
-  call void @llvm.assume(i1 %37)
-  %38 = add i32 %36, -1
-  store i32 %38, ptr %13, align 4
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %41
+33:                                               ; preds = %30
+  %34 = load i32, ptr %13, align 4
+  %35 = icmp ne i32 %34, 0
+  call void @llvm.assume(i1 %35)
+  %36 = add i32 %34, -1
+  store i32 %36, ptr %13, align 4
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %39
 
-40:                                               ; preds = %35
+38:                                               ; preds = %33
   call void @free(ptr noundef nonnull %13) #18
-  br label %41
+  br label %39
 
-41:                                               ; preds = %32, %40, %35, %1
-  %.0114 = phi i32 [ -1, %1 ], [ %.0, %35 ], [ %.0, %40 ], [ %.0, %32 ]
+39:                                               ; preds = %30, %38, %33, %1
+  %.0114 = phi i32 [ -1, %1 ], [ %.0, %33 ], [ %.0, %38 ], [ %.0, %30 ]
   ret i32 %.0114
 }
 
 ; Function Attrs: nounwind uwtable
-define void @sapi_unregister_post_entry(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @sapi_unregister_post_entry(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 436), align 4
   %3 = trunc i8 %2 to i1
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
@@ -2206,7 +2204,7 @@ define ptr @sapi_get_stat() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define ptr @sapi_getenv(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -2353,7 +2351,7 @@ define double @sapi_get_request_time() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare i64 @time(ptr noundef) local_unnamed_addr #13
@@ -2373,7 +2371,7 @@ define void @sapi_terminate_process() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @sapi_add_request_header(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define void @sapi_add_request_header(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp ugt i32 %1, 5
   br i1 %6, label %7, label %57
 
@@ -2518,7 +2516,7 @@ declare void @add_assoc_stringl_ex(ptr noundef, ptr noundef, i64 noundef, ptr no
 declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @_type_dtor(ptr nocapture noundef readonly %0) #14 {
+define internal void @_type_dtor(ptr noundef readonly captures(none) %0) #14 {
   %2 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %2) #18
   ret void
@@ -2527,14 +2525,14 @@ define internal void @_type_dtor(ptr nocapture noundef readonly %0) #14 {
 declare i32 @php_setup_sapi_content_types() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #15
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #15
 
 declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #2
 
 declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #6
@@ -2548,13 +2546,13 @@ declare i32 @zend_call_function(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @zend_hash_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

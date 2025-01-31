@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.netpatterns_payload_t = type { i32, i32, i32, i32 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_tree_node(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef initializes((0, 4)) %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_tree_node(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) initializes((0, 4)) %4) local_unnamed_addr #0 {
   %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %0)
   store i32 %spec.select, ptr %4, align 8
   %6 = icmp sgt i32 %0, 1
@@ -1020,10 +1020,10 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_netpatterns_cleanup_recursive_knomial_allgather_tree_node(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @ompi_netpatterns_cleanup_recursive_knomial_allgather_tree_node(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #9
@@ -1106,7 +1106,7 @@ define void @ompi_netpatterns_cleanup_recursive_knomial_allgather_tree_node(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_tree_node(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_tree_node(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %0, 2
   %6 = icmp slt i32 %2, 2
   %or.cond = or i1 %5, %6
@@ -1357,7 +1357,7 @@ ompi_netpatterns_cleanup_recursive_knomial_tree_node.exit: ; preds = %._crit_edg
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_netpatterns_cleanup_recursive_knomial_tree_node(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @ompi_netpatterns_cleanup_recursive_knomial_tree_node(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -1409,7 +1409,7 @@ define void @ompi_netpatterns_cleanup_recursive_knomial_tree_node(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_doubling_n_tree_node(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_doubling_n_tree_node(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp sgt i32 %2, %0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -1642,7 +1642,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_doubling_n_tree_no
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @ompi_netpatterns_cleanup_recursive_doubling_tree_node(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define void @ompi_netpatterns_cleanup_recursive_doubling_tree_node(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1667,7 +1667,7 @@ define void @ompi_netpatterns_cleanup_recursive_doubling_tree_node(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_doubling_tree_node(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_doubling_tree_node(i32 noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @ompi_netpatterns_setup_recursive_doubling_n_tree_node(i32 noundef %0, i32 noundef %1, i32 noundef 2, ptr noundef %2)
   ret i32 %4
 }
@@ -1676,7 +1676,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_doubling_tree_node
 declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #5

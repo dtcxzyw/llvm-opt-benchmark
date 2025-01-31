@@ -139,7 +139,7 @@ $_ZTI29WriteOutConstraintIndicesLoop = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK20btBatchedConstraints8validateEP20btAlignedObjectArrayI18btSolverConstraintERKS0_I12btSolverBodyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr nocapture noundef readonly %constraints, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %bodies) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK20btBatchedConstraints8validateEP20btAlignedObjectArrayI18btSolverConstraintERKS0_I12btSolverBodyE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this, ptr noundef readonly captures(none) %constraints, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %bodies) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bodyBatchId = alloca %class.btAlignedObjectArray, align 8
   %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %bodyBatchId, i64 24
@@ -477,7 +477,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20btBatchedConstraints5setupEP20btAlignedObjectArrayI18btSolverConstraintERKS0_I12btSolverBodyENS_14BatchingMethodEiiPS0_IcE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %constraints, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %bodies, i32 noundef %batchingMethod, i32 noundef %minBatchSize, i32 noundef %maxBatchSize, ptr nocapture noundef %scratchMemory) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN20btBatchedConstraints5setupEP20btAlignedObjectArrayI18btSolverConstraintERKS0_I12btSolverBodyENS_14BatchingMethodEiiPS0_IcE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %constraints, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %bodies, i32 noundef %batchingMethod, i32 noundef %minBatchSize, i32 noundef %maxBatchSize, ptr noundef captures(none) %scratchMemory) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__profile.i63 = alloca %class.CProfileSample, align 1
   %pos0.i.i.i = alloca %class.btVector3, align 8
@@ -3167,7 +3167,7 @@ if.end6:                                          ; preds = %_ZL25setupSpatialGr
 declare void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @_Z13btParallelForiiiRK18btIParallelForBody(i32 noundef, i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
 
@@ -3771,10 +3771,10 @@ declare void @_ZSt9terminatev() local_unnamed_addr #9
 declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10

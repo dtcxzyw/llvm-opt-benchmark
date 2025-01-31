@@ -126,28 +126,28 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.dad0e75df92840e57918e2f8bf1337b7.129 = private unnamed_addr constant <{ [9 x i8] }> <{ [9 x i8] c"GraalPy 3" }>, align 1
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h96155bc24db1314bE"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h96155bc24db1314bE"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call zeroext i1 @"_ZN72_$LT$pyo3_build_config..impl_..BuildFlag$u20$as$u20$core..fmt..Debug$GT$3fmt17h8a0b59921be55044E"(ptr align 8 %3, ptr align 8 %1)
   ret i1 %4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h22474bc73bcc6c43E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h22474bc73bcc6c43E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call zeroext i1 @"_ZN78_$LT$pyo3_build_config..impl_..PythonVersion$u20$as$u20$core..fmt..Display$GT$3fmt17hdf102beba5d9c3bdE"(ptr align 1 %3, ptr align 8 %1)
   ret i1 %4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h3f43f2de0a9db4d0E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h3f43f2de0a9db4d0E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call zeroext i1 @"_ZN74_$LT$pyo3_build_config..impl_..BuildFlag$u20$as$u20$core..fmt..Display$GT$3fmt17h775c8071dc1f6828E"(ptr align 8 %3, ptr align 8 %1)
   ret i1 %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h1836cf416292db68E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h1836cf416292db68E"(ptr writeonly sret([24 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [64 x i8], align 8
   %4 = alloca [24 x i8], align 8
   store i64 0, ptr %4, align 8
@@ -197,7 +197,7 @@ define void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h183
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h1c4d7f8864063a80E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h1c4d7f8864063a80E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = load ptr, ptr %0, align 8
@@ -266,7 +266,7 @@ define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..functi
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h3e6e5e458210c742E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h3e6e5e458210c742E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = load ptr, ptr %0, align 8
@@ -335,7 +335,7 @@ define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..functi
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf82d70b45f939cdfE"(ptr sret([24 x i8]) align 8 initializes((0, 8)) %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 {
+define void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf82d70b45f939cdfE"(ptr sret([24 x i8]) align 8 initializes((0, 8)) %0, ptr readonly align 8 captures(none) %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = load ptr, ptr %1, align 8
@@ -383,7 +383,7 @@ define range(i64 0, 768614336404564651) i64 @"_ZN4core3ptr9const_ptr33_$LT$impl$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hd0191c0788bf3b94E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hd0191c0788bf3b94E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i64, ptr %3, align 8
   %5 = xor i64 %4, -9223372036854775808
@@ -412,7 +412,7 @@ define zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN17pyo3_build_config5impl_13cargo_env_var28_$u7b$$u7b$closure$u7d$$u7d$17hcd1b8b5d6440c278E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN17pyo3_build_config5impl_13cargo_env_var28_$u7b$$u7b$closure$u7d$$u7d$17hcd1b8b5d6440c278E"(ptr writeonly sret([24 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = invoke { ptr, i64 } @"_ZN105_$LT$std..ffi..os_str..OsString$u20$as$u20$core..ops..index..Index$LT$core..ops..range..RangeFull$GT$$GT$5index17h7541bfdb4f3df999E"(ptr align 8 %1, ptr nonnull align 8 @anon.dad0e75df92840e57918e2f8bf1337b7.9)
@@ -466,7 +466,7 @@ define hidden void @"_ZN17pyo3_build_config5impl_13cargo_env_var28_$u7b$$u7b$clo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17pyo3_build_config5impl_17InterpreterConfig9from_path17hecf7394f227e7289E(ptr nocapture writeonly sret([160 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN17pyo3_build_config5impl_17InterpreterConfig9from_path17hecf7394f227e7289E(ptr writeonly sret([160 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [40 x i8], align 8
   %4 = alloca [48 x i8], align 8
   %5 = alloca [16 x i8], align 8
@@ -533,7 +533,7 @@ define void @"_ZN17pyo3_build_config5impl_17InterpreterConfig9from_path28_$u7b$$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN17pyo3_build_config5impl_17InterpreterConfig18from_cargo_dep_env28_$u7b$$u7b$closure$u7d$$u7d$17he5e8669ae591c75dE"(ptr nocapture writeonly sret([160 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN17pyo3_build_config5impl_17InterpreterConfig18from_cargo_dep_env28_$u7b$$u7b$closure$u7d$$u7d$17he5e8669ae591c75dE"(ptr writeonly sret([160 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -585,7 +585,7 @@ define hidden void @"_ZN17pyo3_build_config5impl_17InterpreterConfig18from_cargo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1af91b0622706E(ptr nocapture writeonly sret([160 x i8]) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1af91b0622706E(ptr writeonly sret([160 x i8]) align 8 captures(none) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [48 x i8], align 8
   %.sroa.3395 = alloca [40 x i8], align 8
   %5 = alloca [40 x i8], align 8
@@ -1893,7 +1893,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd7212f1d581a1E(ptr nocapture writeonly sret([160 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd7212f1d581a1E(ptr writeonly sret([160 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [48 x i8], align 8
   %.sroa.3395 = alloca [40 x i8], align 8
   %4 = alloca [40 x i8], align 8
@@ -3201,7 +3201,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02580bdb8d5f2eE(ptr nocapture writeonly sret([160 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02580bdb8d5f2eE(ptr writeonly sret([160 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [48 x i8], align 8
   %.sroa.3395 = alloca [40 x i8], align 8
   %4 = alloca [40 x i8], align 8
@@ -4509,7 +4509,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader28_$u7b$$u7b$closure$u7d$$u7d$17h2b5282fc6cd62e13E"(ptr sret([24 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader28_$u7b$$u7b$closure$u7d$$u7d$17h2b5282fc6cd62e13E"(ptr sret([24 x i8]) align 8 %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [40 x i8], align 8
   %5 = alloca [40 x i8], align 8
@@ -4639,7 +4639,7 @@ common.resume:                                    ; preds = %50, %51, %39, %16
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader28_$u7b$$u7b$closure$u7d$$u7d$17h3376a9d90a8dd5b8E"(ptr sret([24 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader28_$u7b$$u7b$closure$u7d$$u7d$17h3376a9d90a8dd5b8E"(ptr sret([24 x i8]) align 8 %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [40 x i8], align 8
   %5 = alloca [40 x i8], align 8
@@ -4769,7 +4769,7 @@ common.resume:                                    ; preds = %50, %51, %39, %16
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader28_$u7b$$u7b$closure$u7d$$u7d$17hb413ca0fe2d4fc83E"(ptr sret([24 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader28_$u7b$$u7b$closure$u7d$$u7d$17hb413ca0fe2d4fc83E"(ptr sret([24 x i8]) align 8 %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [40 x i8], align 8
   %5 = alloca [40 x i8], align 8
@@ -4986,7 +4986,7 @@ define void @"_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader28_$u7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17pyo3_build_config5impl_17InterpreterConfig9to_writer17h16266f3fa2a2592bE(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 8 %1, ptr align 4 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN17pyo3_build_config5impl_17InterpreterConfig9to_writer17h16266f3fa2a2592bE(ptr writeonly sret([40 x i8]) align 8 captures(none) %0, ptr align 8 %1, ptr align 4 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [40 x i8], align 8
   %5 = alloca [40 x i8], align 8
   %6 = alloca [40 x i8], align 8
@@ -5328,7 +5328,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig9to_writer17h16266f3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17pyo3_build_config5impl_17InterpreterConfig9to_writer17h2d3a12df9e3c4de4E(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN17pyo3_build_config5impl_17InterpreterConfig9to_writer17h2d3a12df9e3c4de4E(ptr writeonly sret([40 x i8]) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [40 x i8], align 8
   %5 = alloca [40 x i8], align 8
   %6 = alloca [40 x i8], align 8
@@ -5701,7 +5701,7 @@ define hidden zeroext i1 @"_ZN17pyo3_build_config5impl_7is_abi328_$u7b$$u7b$clos
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden zeroext i1 @"_ZN17pyo3_build_config5impl_16get_abi3_version28_$u7b$$u7b$closure$u7d$$u7d$17he2dc22ff682b0cf5E"(ptr nocapture readnone align 1 %0, ptr align 1 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden zeroext i1 @"_ZN17pyo3_build_config5impl_16get_abi3_version28_$u7b$$u7b$closure$u7d$$u7d$17he2dc22ff682b0cf5E"(ptr readnone align 1 captures(none) %0, ptr align 1 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 8
   %4 = alloca [48 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -5757,7 +5757,7 @@ define hidden zeroext i1 @"_ZN17pyo3_build_config5impl_16get_abi3_version28_$u7b
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN17pyo3_build_config5impl_18CrossCompileConfig14lib_dir_string28_$u7b$$u7b$closure$u7d$$u7d$17hb2c62db99e488dc5E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define hidden void @"_ZN17pyo3_build_config5impl_18CrossCompileConfig14lib_dir_string28_$u7b$$u7b$closure$u7d$$u7d$17hb2c62db99e488dc5E"(ptr writeonly sret([24 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = tail call { ptr, i64 } @"_ZN105_$LT$std..ffi..os_str..OsString$u20$as$u20$core..ops..index..Index$LT$core..ops..range..RangeFull$GT$$GT$5index17h7541bfdb4f3df999E"(ptr align 8 %1, ptr nonnull align 8 @anon.dad0e75df92840e57918e2f8bf1337b7.9)
@@ -5783,7 +5783,7 @@ define hidden void @"_ZN17pyo3_build_config5impl_18CrossCompileConfig14lib_dir_s
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN17pyo3_build_config5impl_19CrossCompileEnvVars13parse_version28_$u7b$$u7b$closure$u7d$$u7d$17hcb63facf219ebbddE"(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 10)) %0, ptr align 8 %1) unnamed_addr #1 {
+define hidden void @"_ZN17pyo3_build_config5impl_19CrossCompileEnvVars13parse_version28_$u7b$$u7b$closure$u7d$$u7d$17hcb63facf219ebbddE"(ptr writeonly sret([40 x i8]) align 8 captures(none) initializes((0, 10)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca [40 x i8], align 8
   %4 = alloca [40 x i8], align 8
   %5 = alloca [40 x i8], align 8
@@ -5835,7 +5835,7 @@ define hidden void @"_ZN17pyo3_build_config5impl_19CrossCompileEnvVars13parse_ve
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN17pyo3_build_config5impl_19CrossCompileEnvVars20parse_implementation28_$u7b$$u7b$closure$u7d$$u7d$17h7e2c8cf9b974a7d1E"(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 9)) %0, ptr align 8 %1) unnamed_addr #1 {
+define hidden void @"_ZN17pyo3_build_config5impl_19CrossCompileEnvVars20parse_implementation28_$u7b$$u7b$closure$u7d$$u7d$17h7e2c8cf9b974a7d1E"(ptr writeonly sret([40 x i8]) align 8 captures(none) initializes((0, 9)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca [40 x i8], align 8
   %4 = alloca [40 x i8], align 8
   %5 = alloca [40 x i8], align 8
@@ -5883,7 +5883,7 @@ define hidden void @"_ZN17pyo3_build_config5impl_19CrossCompileEnvVars20parse_im
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden zeroext i1 @"_ZN17pyo3_build_config5impl_10BuildFlags18from_sysconfigdata28_$u7b$$u7b$closure$u7d$$u7d$17hbc5136ce604748dcE"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden zeroext i1 @"_ZN17pyo3_build_config5impl_10BuildFlags18from_sysconfigdata28_$u7b$$u7b$closure$u7d$$u7d$17hbc5136ce604748dcE"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [64 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -5985,7 +5985,7 @@ define hidden zeroext i1 @"_ZN17pyo3_build_config5impl_10BuildFlags18from_syscon
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN17pyo3_build_config5impl_19parse_script_output28_$u7b$$u7b$closure$u7d$$u7d$17h99ca539f774bf651E"(ptr nocapture writeonly sret([48 x i8]) align 8 %0, ptr nocapture readnone align 1 %1, ptr align 1 %2, i64 %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN17pyo3_build_config5impl_19parse_script_output28_$u7b$$u7b$closure$u7d$$u7d$17h99ca539f774bf651E"(ptr writeonly sret([48 x i8]) align 8 captures(none) %0, ptr readnone align 1 captures(none) %1, ptr align 1 %2, i64 %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [48 x i8], align 8
@@ -6137,7 +6137,7 @@ define { ptr, i64 } @_ZN17pyo3_build_config5impl_13Sysconfigdata9get_value17he52
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17pyo3_build_config5impl_19parse_sysconfigdata17h19ee9c41e9bd866aE(ptr nocapture writeonly sret([48 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN17pyo3_build_config5impl_19parse_sysconfigdata17h19ee9c41e9bd866aE(ptr writeonly sret([48 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [40 x i8], align 8
   %4 = alloca [48 x i8], align 8
   %5 = alloca [40 x i8], align 8
@@ -6393,7 +6393,7 @@ define hidden zeroext i1 @"_ZN17pyo3_build_config5impl_22find_all_sysconfigdata2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h302295dbb6df46ecE(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h302295dbb6df46ecE(ptr noalias nonnull writeonly align 8 captures(none) %0, ptr nonnull align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = alloca [40 x i8], align 8
   %6 = alloca [24 x i8], align 8
@@ -6938,7 +6938,7 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h3022
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN17pyo3_build_config5impl_14search_lib_dir17h9f792e7d73183e7bE(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN17pyo3_build_config5impl_14search_lib_dir17h9f792e7d73183e7bE(ptr writeonly sret([40 x i8]) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = alloca [40 x i8], align 8
   %6 = alloca [24 x i8], align 8
@@ -7528,7 +7528,7 @@ define hidden void @"_ZN17pyo3_build_config5impl_14search_lib_dir28_$u7b$$u7b$cl
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden zeroext i1 @"_ZN17pyo3_build_config5impl_14search_lib_dir28_$u7b$$u7b$closure$u7d$$u7d$17h27c70fd08a3a2fa1E"(ptr nocapture readonly align 8 %0) unnamed_addr #4 {
+define hidden zeroext i1 @"_ZN17pyo3_build_config5impl_14search_lib_dir28_$u7b$$u7b$closure$u7d$$u7d$17h27c70fd08a3a2fa1E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 61440
@@ -7537,7 +7537,7 @@ define hidden zeroext i1 @"_ZN17pyo3_build_config5impl_14search_lib_dir28_$u7b$$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden zeroext i1 @"_ZN17pyo3_build_config5impl_14search_lib_dir28_$u7b$$u7b$closure$u7d$$u7d$17h9a5e3ec15f6cf459E"(ptr nocapture readonly align 8 %0) unnamed_addr #4 {
+define hidden zeroext i1 @"_ZN17pyo3_build_config5impl_14search_lib_dir28_$u7b$$u7b$closure$u7d$$u7d$17h9a5e3ec15f6cf459E"(ptr readonly align 8 captures(none) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 61440
@@ -7546,7 +7546,7 @@ define hidden zeroext i1 @"_ZN17pyo3_build_config5impl_14search_lib_dir28_$u7b$$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17pyo3_build_config5impl_27run_python_script_with_envs17h550c5712f7b651afE(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 1 %1, i64 %2, ptr align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN17pyo3_build_config5impl_27run_python_script_with_envs17h550c5712f7b651afE(ptr writeonly sret([40 x i8]) align 8 captures(none) %0, ptr align 1 %1, i64 %2, ptr align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [28 x i8], align 4
   %7 = alloca [40 x i8], align 8
   %8 = alloca [40 x i8], align 8
@@ -7903,7 +7903,7 @@ define void @"_ZN17pyo3_build_config5impl_27run_python_script_with_envs28_$u7b$$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden zeroext i1 @"_ZN17pyo3_build_config5impl_16find_interpreter28_$u7b$$u7b$closure$u7d$$u7d$17hedfe637bf5dcae8dE"(ptr nocapture readnone align 1 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden zeroext i1 @"_ZN17pyo3_build_config5impl_16find_interpreter28_$u7b$$u7b$closure$u7d$$u7d$17hedfe637bf5dcae8dE"(ptr readnone align 1 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [56 x i8], align 8
   %4 = alloca [208 x i8], align 8
   %5 = alloca [56 x i8], align 8
@@ -8040,7 +8040,7 @@ declare zeroext i1 @"_ZN74_$LT$pyo3_build_config..impl_..BuildFlag$u20$as$u20$co
 declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr align 8) unnamed_addr #0
@@ -8514,10 +8514,10 @@ declare void @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..hash..Hash$GT$4h
 declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10

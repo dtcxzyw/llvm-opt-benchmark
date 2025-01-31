@@ -1255,7 +1255,7 @@ return:                                           ; preds = %if.end, %if.then
 declare hidden i32 @lj_ir_tonum(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 14, 20) i32 @lj_opt_narrow_forl(ptr nocapture noundef readonly %J, ptr nocapture noundef readonly %tv) local_unnamed_addr #4 {
+define hidden range(i32 14, 20) i32 @lj_opt_narrow_forl(ptr noundef readonly captures(none) %J, ptr noundef readonly captures(none) %tv) local_unnamed_addr #4 {
 entry:
   %0 = getelementptr i8, ptr %J, i64 168
   %J.val = load i32, ptr %0, align 8

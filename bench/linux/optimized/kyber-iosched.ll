@@ -216,7 +216,7 @@ module asm ".previous\09\09\09\09\09"
 declare dso_local i32 @__SCT__tp_func_kyber_latency(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_kyber_latency(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #1 align 16 {
+define dso_local noundef i32 @__traceiter_kyber_latency(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #1 align 16 {
   %9 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_kyber_latency, i64 72), align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %.preheader
@@ -237,21 +237,21 @@ define dso_local noundef i32 @__traceiter_kyber_latency(ptr nocapture readnone %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_kyber_latency(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 %4, i32 %5, i32 %6, i32 %7) #2 align 16 {
+define dso_local void @__probestub_kyber_latency(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, i32 %4, i32 %5, i32 %6, i32 %7) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__SCT__tp_func_kyber_adjust(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_kyber_adjust(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_kyber_adjust(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_kyber_adjust, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -272,7 +272,7 @@ define dso_local noundef i32 @__traceiter_kyber_adjust(ptr nocapture readnone %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_kyber_adjust(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2, i32 %3) #2 align 16 {
+define dso_local void @__probestub_kyber_adjust(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, i32 %3) #2 align 16 {
   ret void
 }
 
@@ -280,7 +280,7 @@ define dso_local void @__probestub_kyber_adjust(ptr nocapture readnone %0, i32 %
 declare dso_local i32 @__SCT__tp_func_kyber_throttled(ptr noundef, i32 noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_kyber_throttled(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_kyber_throttled(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_kyber_throttled, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -301,7 +301,7 @@ define dso_local noundef i32 @__traceiter_kyber_throttled(ptr nocapture readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_kyber_throttled(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2) #2 align 16 {
+define dso_local void @__probestub_kyber_throttled(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #2 align 16 {
   ret void
 }
 
@@ -639,7 +639,7 @@ define internal i32 @kyber_init() #4 section ".init.text" align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @trace_event_buffer_reserve(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
@@ -885,7 +885,7 @@ define internal i32 @kyber_init_sched(ptr noundef %0, ptr noundef %1) #1 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @kyber_exit_sched(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal void @kyber_exit_sched(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 288
@@ -1080,7 +1080,7 @@ define internal noundef range(i32 -12, 1) i32 @kyber_init_hctx(ptr noundef %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @kyber_exit_hctx(ptr nocapture noundef readonly %0, i32 %1) #1 align 16 {
+define internal void @kyber_exit_hctx(ptr noundef readonly captures(none) %0, i32 %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
@@ -1110,7 +1110,7 @@ define internal void @kyber_exit_hctx(ptr nocapture noundef readonly %0, i32 %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @kyber_depth_updated(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal void @kyber_depth_updated(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1131,7 +1131,7 @@ define internal void @kyber_depth_updated(ptr nocapture noundef readonly %0) #1 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @kyber_bio_merge(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
+define internal zeroext i1 @kyber_bio_merge(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
   %4 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #18, !srcloc !26
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -1193,7 +1193,7 @@ define internal zeroext i1 @kyber_bio_merge(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @kyber_limit_depth(i32 noundef %0, ptr nocapture noundef %1) #7 align 16 {
+define internal void @kyber_limit_depth(i32 noundef %0, ptr noundef captures(none) %1) #7 align 16 {
   %3 = and i32 %0, 255
   %4 = icmp eq i32 %3, 0
   %5 = and i32 %0, 395264
@@ -1218,14 +1218,14 @@ define internal void @kyber_limit_depth(i32 noundef %0, ptr nocapture noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @kyber_prepare_request(ptr nocapture noundef writeonly initializes((192, 200)) %0) #8 align 16 {
+define internal void @kyber_prepare_request(ptr noundef writeonly captures(none) initializes((192, 200)) %0) #8 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr inttoptr (i64 -1 to ptr), ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @kyber_finish_request(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal void @kyber_finish_request(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1273,7 +1273,7 @@ define internal void @kyber_finish_request(ptr nocapture noundef readonly %0) #1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @kyber_insert_requests(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) #1 align 16 {
+define internal void @kyber_insert_requests(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) #1 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, %1
   br i1 %5, label %.loopexit, label %6
@@ -1420,7 +1420,7 @@ define internal void @kyber_insert_requests(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @kyber_dispatch_request(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal ptr @kyber_dispatch_request(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1472,7 +1472,7 @@ define internal ptr @kyber_dispatch_request(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @kyber_has_work(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal zeroext i1 @kyber_has_work(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1520,7 +1520,7 @@ define internal zeroext i1 @kyber_has_work(ptr nocapture noundef readonly %0) #1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @kyber_completed_request(ptr nocapture noundef readonly %0, i64 noundef %1) #1 align 16 {
+define internal void @kyber_completed_request(ptr noundef readonly captures(none) %0, i64 noundef %1) #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -1846,7 +1846,7 @@ declare dso_local noalias ptr @kmalloc_node_trace(ptr noundef, i32 noundef, i32 
 declare dso_local noalias ptr @__kmalloc_node(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @calculate_percentile(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 90, 100) %3) unnamed_addr #1 align 16 {
+define internal fastcc i32 @calculate_percentile(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 90, 100) %3) unnamed_addr #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %6 = zext nneg i32 %1 to i64
   %7 = zext nneg i32 %2 to i64
@@ -1999,7 +1999,7 @@ declare dso_local void @blk_stat_disable_accounting(ptr noundef) local_unnamed_a
 declare dso_local i32 @sbitmap_init_node(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @kyber_domain_wake(ptr noundef %0, i32 %1, i32 %2, ptr nocapture readnone %3) #1 align 16 {
+define internal noundef i32 @kyber_domain_wake(ptr noundef %0, i32 %1, i32 %2, ptr readnone captures(none) %3) #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load volatile ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %0, i64 -8
@@ -2404,7 +2404,7 @@ declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #0 
 declare dso_local i32 @timer_reduce(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @kyber_read_lat_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #14 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @kyber_read_lat_show(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #14 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 560
@@ -2415,7 +2415,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @kyber_read_lat_s
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @kyber_read_lat_store(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #1 align 16 {
+define internal i64 @kyber_read_lat_store(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #1 align 16 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -2442,7 +2442,7 @@ define internal i64 @kyber_read_lat_store(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @kyber_write_lat_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #14 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @kyber_write_lat_show(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #14 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 568
@@ -2453,7 +2453,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @kyber_write_lat_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @kyber_write_lat_store(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #1 align 16 {
+define internal i64 @kyber_write_lat_store(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #1 align 16 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -2480,13 +2480,13 @@ define internal i64 @kyber_write_lat_store(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #15
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #15
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @kstrtoull(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @kyber_read_tokens_show(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define internal noundef i32 @kyber_read_tokens_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2497,7 +2497,7 @@ define internal noundef i32 @kyber_read_tokens_show(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @kyber_write_tokens_show(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define internal noundef i32 @kyber_write_tokens_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2508,7 +2508,7 @@ define internal noundef i32 @kyber_write_tokens_show(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @kyber_discard_tokens_show(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define internal noundef i32 @kyber_discard_tokens_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2519,7 +2519,7 @@ define internal noundef i32 @kyber_discard_tokens_show(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @kyber_other_tokens_show(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define internal noundef i32 @kyber_other_tokens_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2530,7 +2530,7 @@ define internal noundef i32 @kyber_other_tokens_show(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @kyber_async_depth_show(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define internal noundef i32 @kyber_async_depth_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2548,7 +2548,7 @@ declare dso_local void @sbitmap_queue_show(ptr noundef, ptr noundef) local_unnam
 declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @kyber_read_waiting_show(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define internal noundef i32 @kyber_read_waiting_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 248
@@ -2571,7 +2571,7 @@ define internal noundef i32 @kyber_read_waiting_show(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @kyber_write_waiting_show(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define internal noundef i32 @kyber_write_waiting_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr i8, ptr %4, i64 296
@@ -2594,7 +2594,7 @@ define internal noundef i32 @kyber_write_waiting_show(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @kyber_discard_waiting_show(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define internal noundef i32 @kyber_discard_waiting_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr i8, ptr %4, i64 344
@@ -2617,7 +2617,7 @@ define internal noundef i32 @kyber_discard_waiting_show(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @kyber_other_waiting_show(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define internal noundef i32 @kyber_other_waiting_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr i8, ptr %4, i64 392
@@ -2640,7 +2640,7 @@ define internal noundef i32 @kyber_other_waiting_show(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @kyber_cur_domain_show(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define internal noundef i32 @kyber_cur_domain_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -2653,7 +2653,7 @@ define internal noundef i32 @kyber_cur_domain_show(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @kyber_batching_show(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define internal noundef i32 @kyber_batching_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 76
@@ -2663,7 +2663,7 @@ define internal noundef i32 @kyber_batching_show(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @kyber_read_rqs_start(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal ptr @kyber_read_rqs_start(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
@@ -2676,7 +2676,7 @@ define internal ptr @kyber_read_rqs_start(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @kyber_read_rqs_stop(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
+define internal void @kyber_read_rqs_stop(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
@@ -2686,7 +2686,7 @@ define internal void @kyber_read_rqs_stop(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @kyber_read_rqs_next(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
+define internal ptr @kyber_read_rqs_next(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 176
@@ -2706,7 +2706,7 @@ declare dso_local ptr @seq_list_start(ptr noundef, i64 noundef) local_unnamed_ad
 declare dso_local ptr @seq_list_next(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @kyber_write_rqs_start(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal ptr @kyber_write_rqs_start(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
@@ -2719,7 +2719,7 @@ define internal ptr @kyber_write_rqs_start(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @kyber_write_rqs_stop(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
+define internal void @kyber_write_rqs_stop(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
@@ -2729,7 +2729,7 @@ define internal void @kyber_write_rqs_stop(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @kyber_write_rqs_next(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
+define internal ptr @kyber_write_rqs_next(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 176
@@ -2740,7 +2740,7 @@ define internal ptr @kyber_write_rqs_next(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @kyber_discard_rqs_start(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal ptr @kyber_discard_rqs_start(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
@@ -2753,7 +2753,7 @@ define internal ptr @kyber_discard_rqs_start(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @kyber_discard_rqs_stop(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
+define internal void @kyber_discard_rqs_stop(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
@@ -2763,7 +2763,7 @@ define internal void @kyber_discard_rqs_stop(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @kyber_discard_rqs_next(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
+define internal ptr @kyber_discard_rqs_next(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 176
@@ -2774,7 +2774,7 @@ define internal ptr @kyber_discard_rqs_next(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @kyber_other_rqs_start(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal ptr @kyber_other_rqs_start(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
@@ -2787,7 +2787,7 @@ define internal ptr @kyber_other_rqs_start(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @kyber_other_rqs_stop(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
+define internal void @kyber_other_rqs_stop(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
@@ -2797,7 +2797,7 @@ define internal void @kyber_other_rqs_stop(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @kyber_other_rqs_next(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
+define internal ptr @kyber_other_rqs_next(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 176
@@ -2820,7 +2820,7 @@ declare i32 @llvm.umax.i32(i32, i32) #16
 declare i32 @llvm.umin.i32(i32, i32) #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
 attributes #0 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }

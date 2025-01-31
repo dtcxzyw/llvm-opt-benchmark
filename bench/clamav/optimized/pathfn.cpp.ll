@@ -99,7 +99,7 @@ define noundef ptr @_Z11PointToNamePKw(ptr noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %0) local_unnamed_addr #2 {
@@ -512,7 +512,7 @@ define noundef zeroext i1 @_Z10IsWildcardPKw(ptr noundef readonly %0) local_unna
 declare ptr @wcspbrk(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z13IsDriveLetterPKw(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define noundef zeroext i1 @_Z13IsDriveLetterPKw(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4
   %3 = tail call noundef signext i32 @_Z9etoupperww(i32 noundef signext %2)
   ret i1 false
@@ -521,14 +521,14 @@ define noundef zeroext i1 @_Z13IsDriveLetterPKw(ptr nocapture noundef readonly %
 declare noundef signext i32 @_Z9etoupperww(i32 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z11GetPathDiskPKw(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define noundef i32 @_Z11GetPathDiskPKw(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4
   %3 = tail call noundef signext i32 @_Z9etoupperww(i32 noundef signext %2)
   ret i32 -1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z11AddEndSlashPwm(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #7 {
+define void @_Z11AddEndSlashPwm(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = tail call i64 @wcslen(ptr noundef %0) #18
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %13, label %4
@@ -667,7 +667,7 @@ _Z11PointToNamePKw.exit14:                        ; preds = %.preheader, %32
 declare ptr @wcsncpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define void @_Z18RemoveNameFromPathPw(ptr nocapture noundef %0) local_unnamed_addr #10 {
+define void @_Z18RemoveNameFromPathPw(ptr noundef captures(none) %0) local_unnamed_addr #10 {
   %2 = tail call i64 @wcslen(ptr noundef readonly %0) #18
   %3 = and i64 %2, 4294967295
   br label %4
@@ -736,7 +736,7 @@ define noundef zeroext i1 @_Z15EnumConfigPathsjPwmb(i32 noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #11
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
@@ -1206,7 +1206,7 @@ define noundef zeroext i1 @_Z12IsNameUsablePKw(ptr noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define void @_Z14MakeNameUsablePwb(ptr nocapture noundef %0, i1 noundef zeroext %1) local_unnamed_addr #12 {
+define void @_Z14MakeNameUsablePwb(ptr noundef captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #12 {
   %3 = load i32, ptr %0, align 4
   %.not18 = icmp eq i32 %3, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
@@ -1269,7 +1269,7 @@ define void @_Z14MakeNameUsablePwb(ptr nocapture noundef %0, i1 noundef zeroext 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z14UnixSlashToDosPKcPcm(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #13 {
+define void @_Z14UnixSlashToDosPKcPcm(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #13 {
   %4 = add i64 %2, -1
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %.critedge, label %.lr.ph
@@ -1302,7 +1302,7 @@ define void @_Z14UnixSlashToDosPKcPcm(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z14DosSlashToUnixPKcPcm(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #13 {
+define void @_Z14DosSlashToUnixPKcPcm(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #13 {
   %4 = add i64 %2, -1
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %.critedge, label %.lr.ph
@@ -1335,7 +1335,7 @@ define void @_Z14DosSlashToUnixPKcPcm(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z14UnixSlashToDosPKwPwm(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #13 {
+define void @_Z14UnixSlashToDosPKwPwm(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #13 {
   %4 = add i64 %2, -1
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %.critedge, label %.lr.ph
@@ -1368,7 +1368,7 @@ define void @_Z14UnixSlashToDosPKwPwm(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z14DosSlashToUnixPKwPwm(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #13 {
+define void @_Z14DosSlashToUnixPKwPwm(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #13 {
   %4 = add i64 %2, -1
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %.critedge, label %.lr.ph
@@ -1467,7 +1467,7 @@ _Z11AddEndSlashPwm.exit:                          ; preds = %25, %22, %18, %15, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z10IsFullPathPKw(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
+define noundef zeroext i1 @_Z10IsFullPathPKw(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = load i32, ptr %0, align 4
   %3 = icmp eq i32 %2, 47
   ret i1 %3
@@ -1477,7 +1477,7 @@ define noundef zeroext i1 @_Z10IsFullPathPKw(ptr nocapture noundef readonly %0) 
 declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z14IsFullRootPathPKw(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
+define noundef zeroext i1 @_Z14IsFullRootPathPKw(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = load i32, ptr %0, align 4
   %3 = icmp eq i32 %2, 47
   ret i1 %3
@@ -1883,7 +1883,7 @@ define void @_Z19GenerateArchiveNamePwmPKwb(ptr noundef %0, i64 noundef %1, ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10GenArcNamePwmPKwjRb(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3) unnamed_addr #3 {
+define internal fastcc void @_ZL10GenArcNamePwmPKwjRb(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 {
   %5 = alloca [128 x i32], align 16
   %6 = alloca %class.RarTime, align 8
   %7 = alloca %struct.RarLocalTime, align 4
@@ -2465,13 +2465,13 @@ declare void @_ZN7RarTime8GetLocalEP12RarLocalTime(ptr noundef nonnull align 8 d
 declare noundef zeroext i1 @_Z10IsLeapYeari(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #15
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare noundef ptr @_Z12GetMonthNamei(i32 noundef) local_unnamed_addr #4
 

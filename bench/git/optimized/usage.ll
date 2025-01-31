@@ -80,7 +80,7 @@ entry:
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local void @usagef(ptr nocapture noundef readonly %err, ...) local_unnamed_addr #3 {
+define dso_local void @usagef(ptr noundef readonly captures(none) %err, ...) local_unnamed_addr #3 {
 entry:
   %params = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %params)
@@ -525,7 +525,7 @@ _.exit:                                           ; preds = %entry, %if.end3.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vreportf(ptr noundef %prefix, ptr nocapture noundef readonly %err, ptr noundef %params) unnamed_addr #6 {
+define internal fastcc void @vreportf(ptr noundef %prefix, ptr noundef readonly captures(none) %err, ptr noundef %params) unnamed_addr #6 {
 entry:
   %msg = alloca [4096 x i8], align 16
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %prefix) #21
@@ -534,12 +534,12 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @stderr, align 8
-  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef %prefix) #18
+  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %prefix) #18
   tail call void @abort() #19
   unreachable
 
 if.end:                                           ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %msg, ptr align 1 %prefix, i64 %call, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %msg, ptr nonnull align 1 %prefix, i64 %call, i1 false)
   %add.ptr4.ptr = getelementptr inbounds nuw i8, ptr %msg, i64 %call
   %gepdiff = sub nuw nsw i64 4096, %call
   %call5 = call i32 @vsnprintf(ptr noundef nonnull %add.ptr4.ptr, i64 noundef %gepdiff, ptr noundef %err, ptr noundef %params) #17
@@ -617,22 +617,22 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #8
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i64 @write_in_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
@@ -698,7 +698,7 @@ return:                                           ; preds = %if.else, %entry, %i
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @usage_builtin(ptr nocapture noundef readonly %err, ptr noundef %params) unnamed_addr #3 {
+define internal fastcc void @usage_builtin(ptr noundef readonly captures(none) %err, ptr noundef %params) unnamed_addr #3 {
 entry:
   %call = tail call fastcc ptr @_(ptr noundef nonnull @.str.10)
   tail call fastcc void @vreportf(ptr noundef %call, ptr noundef %err, ptr noundef %params)
@@ -717,7 +717,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #11
 declare ptr @__errno_location() local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #13
@@ -729,13 +729,13 @@ declare void @llvm.va_end.p0(ptr) #13
 declare void @llvm.va_copy.p0(ptr, ptr) #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

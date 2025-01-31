@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @urshift(ptr nocapture noundef %plow, ptr nocapture noundef %phigh, i32 noundef %shift) local_unnamed_addr #0 {
+define dso_local void @urshift(ptr noundef captures(none) %plow, ptr noundef captures(none) %phigh, i32 noundef %shift) local_unnamed_addr #0 {
 entry:
   %and = and i32 %shift, 127
   %cmp = icmp eq i32 %and, 0
@@ -39,7 +39,7 @@ if.end9:                                          ; preds = %if.end9.sink.split,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @ulshift(ptr nocapture noundef %plow, ptr nocapture noundef %phigh, i32 noundef %shift, ptr nocapture noundef writeonly %overflow) local_unnamed_addr #0 {
+define dso_local void @ulshift(ptr noundef captures(none) %plow, ptr noundef captures(none) %phigh, i32 noundef %shift, ptr noundef writeonly captures(none) %overflow) local_unnamed_addr #0 {
 entry:
   %and = and i32 %shift, 127
   %cmp = icmp eq i32 %and, 0
@@ -103,7 +103,7 @@ if.end15:                                         ; preds = %if.end15.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local { i64, i64 } @divu256(ptr nocapture noundef %plow, ptr nocapture noundef %phigh, i64 noundef %divisor.coerce0, i64 noundef %divisor.coerce1) local_unnamed_addr #0 {
+define dso_local { i64, i64 } @divu256(ptr noundef captures(none) %plow, ptr noundef captures(none) %phigh, i64 noundef %divisor.coerce0, i64 noundef %divisor.coerce1) local_unnamed_addr #0 {
 entry:
   %dhi = alloca i128, align 16
   %rem = alloca i128, align 16
@@ -272,7 +272,7 @@ return:                                           ; preds = %if.end83, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal fastcc { i64, i64 } @udiv256_qrnnd(ptr nocapture noundef nonnull writeonly initializes((0, 16)) %r, i64 noundef %n1.coerce0, i64 noundef %n1.coerce1, i64 noundef %n0.coerce0, i64 noundef %n0.coerce1, i128 noundef %d) unnamed_addr #1 {
+define internal fastcc { i64, i64 } @udiv256_qrnnd(ptr noundef nonnull writeonly captures(none) initializes((0, 16)) %r, i64 noundef %n1.coerce0, i64 noundef %n1.coerce1, i64 noundef %n0.coerce0, i64 noundef %n0.coerce1, i128 noundef %d) unnamed_addr #1 {
 entry:
   %coerce.sroa.2.0.extract.shift = lshr i128 %d, 64
   %coerce.sroa.2.0.extract.trunc = trunc nuw i128 %coerce.sroa.2.0.extract.shift to i64
@@ -407,7 +407,7 @@ if.end126:                                        ; preds = %if.then95, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local { i64, i64 } @divs256(ptr nocapture noundef %plow, ptr nocapture noundef %phigh, i64 noundef %divisor.coerce0, i64 noundef %divisor.coerce1) local_unnamed_addr #0 {
+define dso_local { i64, i64 } @divs256(ptr noundef captures(none) %plow, ptr noundef captures(none) %phigh, i64 noundef %divisor.coerce0, i64 noundef %divisor.coerce1) local_unnamed_addr #0 {
 entry:
   %unsig_hi = alloca i128, align 16
   %unsig_lo = alloca i128, align 16

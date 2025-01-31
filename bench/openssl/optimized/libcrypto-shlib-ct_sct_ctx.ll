@@ -75,7 +75,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SCT_CTX_set1_cert(ptr nocapture noundef %sctx, ptr noundef %cert, ptr noundef %presigner) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SCT_CTX_set1_cert(ptr noundef captures(none) %sctx, ptr noundef %cert, ptr noundef %presigner) local_unnamed_addr #0 {
 entry:
   %certder = alloca ptr, align 8
   %preder = alloca ptr, align 8
@@ -268,7 +268,7 @@ declare i32 @i2d_re_X509_tbs(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @X509_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SCT_CTX_set1_issuer(ptr nocapture noundef %sctx, ptr noundef %issuer) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SCT_CTX_set1_issuer(ptr noundef captures(none) %sctx, ptr noundef %issuer) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509_get_X509_PUBKEY(ptr noundef %issuer) #3
   %ihash.i = getelementptr inbounds nuw i8, ptr %sctx, i64 24
@@ -282,7 +282,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SCT_CTX_set1_issuer_pubkey(ptr nocapture noundef %sctx, ptr noundef %pubkey) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SCT_CTX_set1_issuer_pubkey(ptr noundef captures(none) %sctx, ptr noundef %pubkey) local_unnamed_addr #0 {
 entry:
   %ihash = getelementptr inbounds nuw i8, ptr %sctx, i64 24
   %ihashlen = getelementptr inbounds nuw i8, ptr %sctx, i64 32
@@ -297,7 +297,7 @@ entry:
 declare ptr @X509_get_X509_PUBKEY(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ct_public_key_hash(ptr %sctx.80.val, ptr %sctx.88.val, ptr noundef %pkey, ptr nocapture noundef %hash, ptr nocapture noundef %hash_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ct_public_key_hash(ptr %sctx.80.val, ptr %sctx.88.val, ptr noundef %pkey, ptr noundef captures(none) %hash, ptr noundef captures(none) %hash_len) unnamed_addr #0 {
 entry:
   %der = alloca ptr, align 8
   %md_len = alloca i32, align 4
@@ -356,7 +356,7 @@ err:                                              ; preds = %if.end15, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SCT_CTX_set1_pubkey(ptr nocapture noundef %sctx, ptr noundef %pubkey) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SCT_CTX_set1_pubkey(ptr noundef captures(none) %sctx, ptr noundef %pubkey) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509_PUBKEY_get(ptr noundef %pubkey) #3
   %cmp = icmp eq ptr %call, null
@@ -391,7 +391,7 @@ return:                                           ; preds = %entry, %if.end3, %i
 declare ptr @X509_PUBKEY_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SCT_CTX_set_time(ptr nocapture noundef writeonly initializes((72, 80)) %sctx, i64 noundef %time_in_ms) local_unnamed_addr #2 {
+define void @SCT_CTX_set_time(ptr noundef writeonly captures(none) initializes((72, 80)) %sctx, i64 noundef %time_in_ms) local_unnamed_addr #2 {
 entry:
   %epoch_time_in_ms = getelementptr inbounds nuw i8, ptr %sctx, i64 72
   store i64 %time_in_ms, ptr %epoch_time_in_ms, align 8

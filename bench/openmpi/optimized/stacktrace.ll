@@ -193,7 +193,7 @@ define internal fastcc void @set_stacktrace_filename() unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #2
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #3
@@ -202,7 +202,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #3
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @prte_backtrace_print(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -288,16 +288,16 @@ define noundef ptr @prte_stackframe_output_string() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #8
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -43, 1) i32 @prte_util_register_stackhandlers() local_unnamed_addr #0 {
@@ -496,22 +496,22 @@ thread-pre-split:                                 ; preds = %62
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
-define internal void @show_stackframe(i32 noundef %0, ptr noundef readonly %1, ptr nocapture readnone %2) #0 {
+define internal void @show_stackframe(i32 noundef %0, ptr noundef readonly %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = load i32, ptr @prte_stacktrace_output_fileno, align 4
   %6 = icmp slt i32 %5, 0
@@ -741,7 +741,7 @@ switch.lookup103:                                 ; preds = %60
   %103 = tail call i32 @getpid() #14
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %105 = load ptr, ptr %104, align 8
-  %106 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %99, i64 noundef %101, ptr noundef nonnull @.str.61, ptr noundef %102, i32 noundef %103, ptr noundef %105) #14
+  %106 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %99, i64 noundef %101, ptr noundef nonnull @.str.61, ptr noundef %102, i32 noundef %103, ptr noundef %105) #14
   %107 = sub nsw i32 %97, %106
   br label %136
 
@@ -755,7 +755,7 @@ switch.lookup103:                                 ; preds = %60
   %115 = load i32, ptr %114, align 4
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %117 = load i32, ptr %116, align 8
-  %118 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %99, i64 noundef %109, ptr noundef nonnull @.str.62, ptr noundef %110, i32 noundef %111, i32 noundef %113, i32 noundef %115, i32 noundef %117) #14
+  %118 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %99, i64 noundef %109, ptr noundef nonnull @.str.62, ptr noundef %110, i32 noundef %111, i32 noundef %113, i32 noundef %115, i32 noundef %117) #14
   %119 = sub nsw i32 %97, %118
   br label %136
 
@@ -767,7 +767,7 @@ switch.lookup103:                                 ; preds = %60
   %125 = load i64, ptr %124, align 8
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %127 = load i32, ptr %126, align 8
-  %128 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %99, i64 noundef %121, ptr noundef nonnull @.str.63, ptr noundef %122, i32 noundef %123, i64 noundef %125, i32 noundef %127) #14
+  %128 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %99, i64 noundef %121, ptr noundef nonnull @.str.63, ptr noundef %122, i32 noundef %123, i64 noundef %125, i32 noundef %127) #14
   %129 = sub nsw i32 %97, %128
   br label %136
 
@@ -851,7 +851,7 @@ switch.lookup103:                                 ; preds = %60
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #13
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #13
 
 declare i32 @pmix_show_help(ptr noundef, ptr noundef, i32 noundef, ...) local_unnamed_addr #1
 
@@ -859,7 +859,7 @@ declare i32 @pmix_show_help(ptr noundef, ptr noundef, i32 noundef, ...) local_un
 declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare i32 @getpid() local_unnamed_addr #3
@@ -871,7 +871,7 @@ declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @raise(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #2
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare ptr @strsignal(i32 noundef) local_unnamed_addr #3

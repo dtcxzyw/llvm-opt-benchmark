@@ -2394,7 +2394,7 @@ declare void @_ZN8QToolBar18setToolButtonStyleEN2Qt15ToolButtonStyleE(ptr nounde
 declare void @_ZNK7QWidget7actionsEv(ptr dead_on_unwind writable sret(%class.QList.52) align 8, ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @_ZNK7QAction4dataEv(ptr dead_on_unwind writable sret(%class.QVariant) align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
@@ -2403,7 +2403,7 @@ declare ptr @g_list_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @_ZNK7QAction4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7QObject12findChildrenIP8QToolBarEE5QListIT_ERK7QString6QFlagsIN2Qt15FindChildOptionEE(ptr dead_on_unwind noalias writable sret(%class.QList.56) align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2447,7 +2447,7 @@ _ZN17QArrayDataPointerIP8QToolBarED2Ev.exit:      ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow23updatePreferenceActionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN19WiresharkMainWindow23updatePreferenceActionsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1512
@@ -8012,18 +8012,18 @@ _ZN10QByteArrayD2Ev.exit107:                      ; preds = %_ZN10QByteArrayD2Ev
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN19WiresharkMainWindow12startCaptureEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(520) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow12startCaptureEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5QListI7QStringED2Ev.exit:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN19WiresharkMainWindow12startCaptureE5QListI7QStringE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(520) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #8 align 2 {
+define void @_ZN19WiresharkMainWindow12startCaptureE5QListI7QStringE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #8 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8088,12 +8088,12 @@ define void @_ZN19WiresharkMainWindow24popLiveCaptureInProgressEv(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN19WiresharkMainWindow11stopCaptureEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(520) %0) local_unnamed_addr #8 align 2 {
+define void @_ZN19WiresharkMainWindow11stopCaptureEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0) local_unnamed_addr #8 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow16mainStackChangedEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN19WiresharkMainWindow16mainStackChangedEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2120
@@ -8830,7 +8830,7 @@ _ZN7QStringD2Ev.exit16:                           ; preds = %_ZN7QStringD2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow17commentToMenuTextE7QStringi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow17commentToMenuTextE7QStringi(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
@@ -10555,12 +10555,12 @@ declare void @_ZN8QVariantC1Ei(ptr noundef nonnull align 8 dereferenceable(32), 
 declare noundef zeroext i1 @_ZNK7QWidget8hasFocusEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN19WiresharkMainWindow25interfaceSelectionChangedEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(520) %0) local_unnamed_addr #8 align 2 {
+define void @_ZN19WiresharkMainWindow25interfaceSelectionChangedEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0) local_unnamed_addr #8 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN19WiresharkMainWindow26captureFilterSyntaxChangedEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(520) initializes((489, 490)) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
+define void @_ZN19WiresharkMainWindow26captureFilterSyntaxChangedEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(520) initializes((489, 490)) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 489
   store i8 %3, ptr %4, align 1
@@ -10568,7 +10568,7 @@ define void @_ZN19WiresharkMainWindow26captureFilterSyntaxChangedEb(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow21startInterfaceCaptureEb7QString(ptr noundef nonnull align 8 dereferenceable(520) initializes((489, 490)) %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow21startInterfaceCaptureEb7QString(ptr noundef nonnull align 8 dereferenceable(520) initializes((489, 490)) %0, i1 noundef zeroext %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
@@ -11092,7 +11092,7 @@ declare void @_ZN13MainStatusBar12expertUpdateEv(ptr noundef nonnull align 8 der
 declare void @proto_free_deregistered_fields() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow18checkDisplayFilterEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN19WiresharkMainWindow18checkDisplayFilterEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef zeroext i1 @_ZN18DisplayFilterCombo18checkDisplayFilterEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
@@ -11182,12 +11182,12 @@ declare void @_ZN10PacketList13fieldsChangedEP13_capture_file(ptr noundef nonnul
 declare void @_ZN19WiresharkMainWindow12reloadFieldsEv(ptr noundef nonnull align 8 dereferenceable(520)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN19WiresharkMainWindow16reloadLuaPluginsEv(ptr nocapture nonnull readnone align 8 %0) #8 align 2 {
+define void @_ZN19WiresharkMainWindow16reloadLuaPluginsEv(ptr nonnull readnone align 8 captures(none) %0) #8 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow18showAccordionFrameEP14AccordionFrameb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow18showAccordionFrameEP14AccordionFrameb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.anon.471, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -11488,7 +11488,7 @@ define void @_ZN19WiresharkMainWindow16setPreviousFocusEv(ptr noundef nonnull al
 declare void @_ZN17ColumnEditorFrame10editColumnEi(ptr noundef nonnull align 8 dereferenceable(120), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow20showPreferenceEditorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN19WiresharkMainWindow20showPreferenceEditorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2096
@@ -12520,7 +12520,7 @@ declare void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind writable 
 declare void @g_list_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow18setFeaturesEnabledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow18setFeaturesEnabledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %5 = load ptr, ptr %4, align 8
@@ -12593,7 +12593,7 @@ declare void @_ZN10QStatusBar12clearMessageEv(ptr noundef nonnull align 8 derefe
 declare void @_ZN10QStatusBar11showMessageERK7QStringi(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow45on_actionNewDisplayFilterExpression_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow45on_actionNewDisplayFilterExpression_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %4 = load ptr, ptr %3, align 8
@@ -12648,7 +12648,7 @@ _ZN7QStringD2Ev.exit5:                            ; preds = %15, %_ZN17QArrayDat
 declare void @_ZN21FilterExpressionFrame13addExpressionE7QString(ptr noundef nonnull align 8 dereferenceable(68), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow16onFilterSelectedE7QStringb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow16onFilterSelectedE7QStringb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
@@ -12778,7 +12778,7 @@ _ZN7QStringD2Ev.exit5:                            ; preds = %11, %_ZN17QArrayDat
 declare void @_ZN10PrefsModel12typeToStringEi(ptr dead_on_unwind writable sret(%class.QString) align 8, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow12onFilterEditEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN19WiresharkMainWindow12onFilterEditEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2104
@@ -12977,7 +12977,7 @@ _ZN7QStringD2Ev.exit19:                           ; preds = %_ZN7QStringD2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow22openTapParameterDialogE7QStringS0_Pv(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow22openTapParameterDialogE7QStringS0_Pv(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %"class.QMetaObject::Connection", align 8
@@ -17352,7 +17352,7 @@ define void @_ZN19WiresharkMainWindow25discardAllSecretsFinishedEi(ptr noundef n
 declare i32 @wtap_file_discard_decryption_secrets(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow25editConfigurationProfilesEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(520) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow25editConfigurationProfilesEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #24
   invoke void @_ZN13ProfileDialogC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef null)
           to label %3 unwind label %4
@@ -17373,7 +17373,7 @@ define void @_ZN19WiresharkMainWindow25editConfigurationProfilesEv(ptr nocapture
 declare void @_ZN13ProfileDialogC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow21showPreferencesDialogE7QString(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow21showPreferencesDialogE7QString(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.QMetaObject::Connection", align 8
   %4 = alloca %class.QString, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #24
@@ -18647,7 +18647,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @_ZNK7QString7compareERKS_N2Qt15CaseSensitivityE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow18setTimestampFormatEP7QAction(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow18setTimestampFormatEP7QAction(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QVariant, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %14, label %4
@@ -18692,7 +18692,7 @@ declare void @_ZN10PacketList12resetColumnsEv(ptr noundef nonnull align 8 derefe
 declare void @_ZN10PacketList16resizeAllColumnsEb(ptr noundef nonnull align 8 dereferenceable(464), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow21setTimestampPrecisionEP7QAction(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow21setTimestampPrecisionEP7QAction(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QVariant, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %14, label %4
@@ -18733,7 +18733,7 @@ _ZNK8QVariant5valueI12ts_precisionEET_v.exit:     ; preds = %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow40setTimeDisplaySecondsWithHoursAndMinutesEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN19WiresharkMainWindow40setTimeDisplaySecondsWithHoursAndMinutesEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %. = zext i1 %1 to i32
   store i32 %., ptr getelementptr inbounds nuw (i8, ptr @recent, i64 48), align 8
   tail call void @timestamp_set_seconds_type(i32 noundef %.)
@@ -18812,7 +18812,7 @@ declare void @_ZNK17QAbstractItemView12currentIndexEv(ptr dead_on_unwind writabl
 declare void @_ZN18AddressEditorFrame13editAddressesER11CaptureFilei(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(48), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow17setNameResolutionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN19WiresharkMainWindow17setNameResolutionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1472
@@ -18850,7 +18850,7 @@ define void @_ZN19WiresharkMainWindow17setNameResolutionEv(ptr nocapture noundef
 declare void @_ZN15MainApplication13emitAppSignalENS_9AppSignalE(ptr noundef nonnull align 8 dereferenceable(216), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow8zoomTextEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(520) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN19WiresharkMainWindow8zoomTextEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @mainApp, align 8
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 52), align 4
   tail call void @_ZN15MainApplication12zoomTextFontEi(ptr noundef nonnull align 8 dereferenceable(216) %2, i32 noundef %3)
@@ -20526,12 +20526,12 @@ define void @_ZN19WiresharkMainWindow25connectCaptureMenuActionsEv(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN19WiresharkMainWindow24showCaptureOptionsDialogEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(520) %0) local_unnamed_addr #8 align 2 {
+define void @_ZN19WiresharkMainWindow24showCaptureOptionsDialogEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0) local_unnamed_addr #8 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN19WiresharkMainWindow21startCaptureTriggeredEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(520) %0) local_unnamed_addr #8 align 2 {
+define void @_ZN19WiresharkMainWindow21startCaptureTriggeredEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0) local_unnamed_addr #8 align 2 {
   ret void
 }
 
@@ -22698,7 +22698,7 @@ _ZN7QStringD2Ev.exit19:                           ; preds = %_ZN7QStringD2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow25statCommandWlanStatisticsEPKcPv(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow25statCommandWlanStatisticsEPKcPv(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.QMetaObject::Connection", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -22721,7 +22721,7 @@ define void @_ZN19WiresharkMainWindow25statCommandWlanStatisticsEPKcPv(ptr nound
 declare void @_ZN20WlanStatisticsDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(280), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow21statCommandExpertInfoEPKcPv(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow21statCommandExpertInfoEPKcPv(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %"class.QMetaObject::Connection", align 8
   %6 = alloca %"class.QMetaObject::Connection", align 8
@@ -23936,7 +23936,7 @@ declare void @_ZN15TCPStreamDialogC1EP7QWidgetP13_capture_file15tcp_graph_type_(
 declare noundef i32 @_ZNK7QDialog6resultEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow30statCommandMulticastStatisticsEPKcPv(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow30statCommandMulticastStatisticsEPKcPv(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.QMetaObject::Connection", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -23979,7 +23979,7 @@ define void @_ZN19WiresharkMainWindow24openStatisticsTreeDialogEPKc(ptr noundef 
 declare void @_ZN15StatsTreeDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow18statCommandIOGraphEPKcPv(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow18statCommandIOGraphEPKcPv(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = alloca %"class.QMetaObject::Connection", align 8
@@ -25178,7 +25178,7 @@ define noundef ptr @_ZN19WiresharkMainWindow30openTelephonyRtpAnalysisDialogEv(p
 declare noundef ptr @_ZN17RtpAnalysisDialog21openRtpAnalysisDialogER7QWidgetR11CaptureFileP7QObject(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow27statCommandLteMacStatisticsEPKcPv(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow27statCommandLteMacStatisticsEPKcPv(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.QMetaObject::Connection", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(336) ptr @_Znwm(i64 noundef 336) #24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -25201,7 +25201,7 @@ define void @_ZN19WiresharkMainWindow27statCommandLteMacStatisticsEPKcPv(ptr nou
 declare void @_ZN22LteMacStatisticsDialogC1ER7QWidgetR11CaptureFilePKc(ptr noundef nonnull align 8 dereferenceable(329), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow27statCommandLteRlcStatisticsEPKcPv(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef %1, ptr nocapture readnone %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow27statCommandLteRlcStatisticsEPKcPv(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef %1, ptr readnone captures(none) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.QMetaObject::Connection", align 8
   %5 = alloca %"class.QMetaObject::Connection", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(304) ptr @_Znwm(i64 noundef 304) #24
@@ -25843,7 +25843,7 @@ define void @_ZN19WiresharkMainWindow22connectHelpMenuActionsEv(ptr noundef nonn
 declare noundef ptr @_ZN12QApplication11focusWidgetEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN19WiresharkMainWindow18resetPreviousFocusEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(520) initializes((352, 360)) %0) local_unnamed_addr #12 align 2 {
+define void @_ZN19WiresharkMainWindow18resetPreviousFocusEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(520) initializes((352, 360)) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store ptr null, ptr %2, align 8
   ret void
@@ -27198,7 +27198,7 @@ _ZN7QStringD2Ev.exit39:                           ; preds = %105, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow32rtpPlayerDialogReplaceRtpStreamsE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow32rtpPlayerDialogReplaceRtpStreamsE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList.312, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -27268,7 +27268,7 @@ _ZN5QListIP13_rtpstream_idED2Ev.exit6:            ; preds = %22, %_ZN17QArrayDat
 declare void @_ZN15RtpPlayerDialog17replaceRtpStreamsE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(448), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow28rtpPlayerDialogAddRtpStreamsE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow28rtpPlayerDialogAddRtpStreamsE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList.312, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -27336,7 +27336,7 @@ _ZN5QListIP13_rtpstream_idED2Ev.exit6:            ; preds = %22, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow31rtpPlayerDialogRemoveRtpStreamsE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow31rtpPlayerDialogRemoveRtpStreamsE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList.312, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -27406,7 +27406,7 @@ _ZN5QListIP13_rtpstream_idED2Ev.exit6:            ; preds = %22, %_ZN17QArrayDat
 declare void @_ZN15RtpPlayerDialog16removeRtpStreamsE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(448), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow34rtpAnalysisDialogReplaceRtpStreamsE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow34rtpAnalysisDialogReplaceRtpStreamsE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList.312, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -27476,7 +27476,7 @@ _ZN5QListIP13_rtpstream_idED2Ev.exit6:            ; preds = %22, %_ZN17QArrayDat
 declare void @_ZN17RtpAnalysisDialog17replaceRtpStreamsE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(328), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow30rtpAnalysisDialogAddRtpStreamsE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow30rtpAnalysisDialogAddRtpStreamsE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList.312, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -27544,7 +27544,7 @@ _ZN5QListIP13_rtpstream_idED2Ev.exit6:            ; preds = %22, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow33rtpAnalysisDialogRemoveRtpStreamsE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow33rtpAnalysisDialogRemoveRtpStreamsE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList.312, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -27614,7 +27614,7 @@ _ZN5QListIP13_rtpstream_idED2Ev.exit6:            ; preds = %22, %_ZN17QArrayDat
 declare void @_ZN17RtpAnalysisDialog16removeRtpStreamsE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(328), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow32rtpStreamsDialogSelectRtpStreamsE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow32rtpStreamsDialogSelectRtpStreamsE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList.312, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -27684,7 +27684,7 @@ _ZN5QListIP13_rtpstream_idED2Ev.exit6:            ; preds = %22, %_ZN17QArrayDat
 declare void @_ZN15RtpStreamDialog15selectRtpStreamE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(360), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow34rtpStreamsDialogDeselectRtpStreamsE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow34rtpStreamsDialogDeselectRtpStreamsE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList.312, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -27766,7 +27766,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare void @_ZN19PacketRangeGroupBoxD1Ev(ptr noundef nonnull align 8 dereferenceable(60)) unnamed_addr #2
@@ -28757,7 +28757,7 @@ _ZN17QArrayDataPointerI7QStringED2Ev.exit:        ; preds = %_ZN9QtPrivate16QGen
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN17QArrayDataPointerI7QStringE12allocateGrowERKS1_xN10QArrayData14GrowthPositionE(ptr dead_on_unwind noalias writable sret(%struct.QArrayDataPointer.34) align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 comdat align 2 {
@@ -29047,86 +29047,78 @@ define linkonce_odr noundef i32 @_ZN18QMetaTypeIdQObjectIP8QToolBarLi8EE14qt_met
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.speculated.i = tail call i64 @llvm.smax.i64(i64 %6, i64 0)
   invoke void @_ZN10QByteArray11reallocDataExN10QArrayData16AllocationOptionE(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %.sroa.speculated.i, i32 noundef 1)
-          to label %.noexc unwind label %27
+          to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %3
   %.pre.i = load ptr, ptr %1, align 8
   %.not.i1.i = icmp eq ptr %.pre.i, null
-  br i1 %.not.i1.i, label %_ZN10QByteArray7reserveEx.exit, label %_ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i
+  br i1 %.not.i1.i, label %_Z7qstrlenPKc.exit.i, label %_ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i
 
 _ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i: ; preds = %.noexc
   %8 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp eq i64 %9, 0
-  br i1 %.not.i, label %_ZN10QByteArray7reserveEx.exit, label %10
+  br i1 %.not.i, label %_Z7qstrlenPKc.exit.i, label %10
 
 10:                                               ; preds = %_ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i
   %11 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
-  br label %_ZN10QByteArray7reserveEx.exit
-
-_ZN10QByteArray7reserveEx.exit:                   ; preds = %10, %_ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i, %.noexc
-  %.not.i.i9 = icmp eq ptr %4, null
-  br i1 %.not.i.i9, label %_Z7qstrlenPKc.exit.i, label %14
-
-14:                                               ; preds = %_ZN10QByteArray7reserveEx.exit
-  %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #23
   br label %_Z7qstrlenPKc.exit.i
 
-_Z7qstrlenPKc.exit.i:                             ; preds = %14, %_ZN10QByteArray7reserveEx.exit
-  %16 = phi i64 [ %15, %14 ], [ 0, %_ZN10QByteArray7reserveEx.exit ]
-  %17 = load i64, ptr %7, align 8
-  %18 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN10QByteArray6insertEx14QByteArrayView(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %17, i64 %16, ptr %4)
-          to label %_ZN10QByteArray6appendEPKc.exit unwind label %27
+_Z7qstrlenPKc.exit.i:                             ; preds = %10, %_ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i, %.noexc
+  %14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #23
+  %15 = load i64, ptr %7, align 8
+  %16 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN10QByteArray6insertEx14QByteArrayView(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %15, i64 %14, ptr nonnull %4)
+          to label %_ZN10QByteArray6appendEPKc.exit unwind label %25
 
 _ZN10QByteArray6appendEPKc.exit:                  ; preds = %_Z7qstrlenPKc.exit.i
-  %19 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN10QByteArray6appendEc(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 noundef signext 42)
-          to label %20 unwind label %27
+  %17 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN10QByteArray6appendEc(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 noundef signext 42)
+          to label %18 unwind label %25
 
-20:                                               ; preds = %_ZN10QByteArray6appendEPKc.exit
-  %21 = invoke noundef i32 @_Z27qRegisterNormalizedMetaTypeIP8QToolBarEiRK10QByteArray(ptr noundef nonnull align 8 dereferenceable(24) %1)
-          to label %22 unwind label %27
+18:                                               ; preds = %_ZN10QByteArray6appendEPKc.exit
+  %19 = invoke noundef i32 @_Z27qRegisterNormalizedMetaTypeIP8QToolBarEiRK10QByteArray(ptr noundef nonnull align 8 dereferenceable(24) %1)
+          to label %20 unwind label %25
 
-22:                                               ; preds = %20
-  store atomic i32 %21, ptr @_ZZN18QMetaTypeIdQObjectIP8QToolBarLi8EE14qt_metatype_idEvE11metatype_id release, align 4
-  %23 = load ptr, ptr %1, align 8
-  %.not.i.i.i = icmp eq ptr %23, null
+20:                                               ; preds = %18
+  store atomic i32 %19, ptr @_ZZN18QMetaTypeIdQObjectIP8QToolBarLi8EE14qt_metatype_idEvE11metatype_id release, align 4
+  %21 = load ptr, ptr %1, align 8
+  %.not.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i, label %_ZN10QByteArrayD2Ev.exit, label %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i
 
-_ZN17QArrayDataPointerIcE5derefEv.exit.i.i:       ; preds = %22
-  %24 = atomicrmw sub ptr %23, i32 1 seq_cst, align 4
-  %.not.i.i11 = icmp eq i32 %24, 1
-  br i1 %.not.i.i11, label %25, label %_ZN10QByteArrayD2Ev.exit
+_ZN17QArrayDataPointerIcE5derefEv.exit.i.i:       ; preds = %20
+  %22 = atomicrmw sub ptr %21, i32 1 seq_cst, align 4
+  %.not.i.i11 = icmp eq i32 %22, 1
+  br i1 %.not.i.i11, label %23, label %_ZN10QByteArrayD2Ev.exit
 
-25:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i
-  %26 = load ptr, ptr %1, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %26, i64 noundef 1, i64 noundef 8) #21
+23:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i
+  %24 = load ptr, ptr %1, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %24, i64 noundef 1, i64 noundef 8) #21
   br label %_ZN10QByteArrayD2Ev.exit
 
-27:                                               ; preds = %_Z7qstrlenPKc.exit.i, %3, %20, %_ZN10QByteArray6appendEPKc.exit
-  %28 = landingpad { ptr, i32 }
+25:                                               ; preds = %_Z7qstrlenPKc.exit.i, %3, %18, %_ZN10QByteArray6appendEPKc.exit
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %29 = load ptr, ptr %1, align 8
-  %.not.i.i.i12 = icmp eq ptr %29, null
+  %27 = load ptr, ptr %1, align 8
+  %.not.i.i.i12 = icmp eq ptr %27, null
   br i1 %.not.i.i.i12, label %_ZN10QByteArrayD2Ev.exit15, label %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13
 
-_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13:     ; preds = %27
-  %30 = atomicrmw sub ptr %29, i32 1 seq_cst, align 4
-  %.not.i.i14 = icmp eq i32 %30, 1
-  br i1 %.not.i.i14, label %31, label %_ZN10QByteArrayD2Ev.exit15
+_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13:     ; preds = %25
+  %28 = atomicrmw sub ptr %27, i32 1 seq_cst, align 4
+  %.not.i.i14 = icmp eq i32 %28, 1
+  br i1 %.not.i.i14, label %29, label %_ZN10QByteArrayD2Ev.exit15
 
-31:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13
-  %32 = load ptr, ptr %1, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %32, i64 noundef 1, i64 noundef 8) #21
+29:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13
+  %30 = load ptr, ptr %1, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %30, i64 noundef 1, i64 noundef 8) #21
   br label %_ZN10QByteArrayD2Ev.exit15
 
-_ZN10QByteArrayD2Ev.exit15:                       ; preds = %27, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13, %31
-  resume { ptr, i32 } %28
+_ZN10QByteArrayD2Ev.exit15:                       ; preds = %25, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13, %29
+  resume { ptr, i32 } %26
 
-_ZN10QByteArrayD2Ev.exit:                         ; preds = %25, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i, %22, %0
-  %.0 = phi i32 [ %2, %0 ], [ %21, %22 ], [ %21, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i ], [ %21, %25 ]
+_ZN10QByteArrayD2Ev.exit:                         ; preds = %23, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i, %20, %0
+  %.0 = phi i32 [ %2, %0 ], [ %19, %20 ], [ %19, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i ], [ %19, %23 ]
   ret i32 %.0
 }
 
@@ -31636,7 +31628,7 @@ _ZN5QListIP14AccordionFrameE5eraseENS2_14const_iteratorES3_.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow21addStatsPluginsToMenuEvE3$_0Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow21addStatsPluginsToMenuEvE3$_0Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QByteArray, align 8
   %7 = alloca %class.QString, align 8
   %8 = alloca %class.QVariant, align 8
@@ -31793,7 +31785,7 @@ _ZN7QStringD2Ev.exit20.i.i.i:                     ; preds = %45, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE3$_0Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE3$_0Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
   switch i32 %0, label %33 [
@@ -31894,7 +31886,7 @@ _ZN7QStringD2Ev.exit13.i.i.i:                     ; preds = %31, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE3$_1Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE3$_1Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -31921,7 +31913,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN19WiresharkMainWindow16mergeCaptureFileEv(ptr noundef nonnull align 8 dereferenceable(520)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE3$_2Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE3$_2Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -31948,7 +31940,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN19WiresharkMainWindow17importCaptureFileEv(ptr noundef nonnull align 8 dereferenceable(520)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE3$_3Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE3$_3Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
   switch i32 %0, label %46 [
@@ -32081,7 +32073,7 @@ _ZN7QStringD2Ev.exit16.i.i.i:                     ; preds = %44, %_ZN17QArrayDat
 declare void @_ZN10MainWindow11showWelcomeEv(ptr noundef nonnull align 8 dereferenceable(272)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE3$_4Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE3$_4Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %17 [
     i32 0, label %6
     i32 1, label %9
@@ -32113,7 +32105,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare noundef zeroext i1 @_ZN19WiresharkMainWindow15saveCaptureFileEP13_capture_fileb(ptr noundef nonnull align 8 dereferenceable(520), ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE3$_5Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE3$_5Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %17 [
     i32 0, label %6
     i32 1, label %9
@@ -32145,7 +32137,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare noundef zeroext i1 @_ZN19WiresharkMainWindow17saveAsCaptureFileEP13_capture_filebb(ptr noundef nonnull align 8 dereferenceable(520), ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE3$_6Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE3$_6Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %12 [
     i32 0, label %6
     i32 1, label %9
@@ -32172,7 +32164,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE3$_7Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE3$_7Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
   %8 = alloca %class.QString, align 8
@@ -32335,7 +32327,7 @@ _ZN7QStringD2Ev.exit25.i.i.i:                     ; preds = %50, %_ZN17QArrayDat
 declare ptr @fileset_get_next() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE3$_8Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE3$_8Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
   %8 = alloca %class.QString, align 8
@@ -32498,7 +32490,7 @@ _ZN7QStringD2Ev.exit25.i.i.i:                     ; preds = %50, %_ZN17QArrayDat
 declare ptr @fileset_get_previous() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE3$_9Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE3$_9Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -32525,7 +32517,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN19WiresharkMainWindow21exportSelectedPacketsEv(ptr noundef nonnull align 8 dereferenceable(520)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE4$_10Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE4$_10Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -32552,7 +32544,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN19WiresharkMainWindow17exportDissectionsE13export_type_e(ptr noundef nonnull align 8 dereferenceable(520), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE4$_11Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE4$_11Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -32577,7 +32569,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE4$_12Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE4$_12Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -32602,7 +32594,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE4$_13Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE4$_13Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -32627,7 +32619,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE4$_14Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE4$_14Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -32652,7 +32644,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE4$_15Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE4$_15Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -32677,7 +32669,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE4$_16Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE4$_16Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -32702,7 +32694,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE4$_17Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE4$_17Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -32727,7 +32719,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE4$_18Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE4$_18Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -32752,7 +32744,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE4$_19Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE4$_19Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -32777,7 +32769,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE4$_20Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectFileMenuActionsEvE4$_20Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -32974,7 +32966,7 @@ _ZN7QStringD2Ev.exit20:                           ; preds = %78, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE3$_0Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE3$_0Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -32999,7 +32991,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE3$_1Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE3$_1Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -33024,7 +33016,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE3$_2Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE3$_2Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -33049,7 +33041,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE3$_3Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE3$_3Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -33074,7 +33066,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE3$_4Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE3$_4Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -33099,7 +33091,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE3$_5Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE3$_5Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -33124,7 +33116,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE3$_6Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE3$_6Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -33149,7 +33141,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE3$_7Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE3$_7Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -33174,7 +33166,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE3$_8Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE3$_8Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -33199,7 +33191,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE3$_9Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE3$_9Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -33224,7 +33216,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_10Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_10Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %13 [
     i32 0, label %6
     i32 1, label %9
@@ -33255,7 +33247,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN11SearchFrame8findNextEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_11Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_11Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %13 [
     i32 0, label %6
     i32 1, label %9
@@ -33286,7 +33278,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN11SearchFrame12findPreviousEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_12Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_12Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %13 [
     i32 0, label %6
     i32 1, label %9
@@ -33318,7 +33310,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN10PacketList9markFrameEv(ptr noundef nonnull align 8 dereferenceable(464)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_13Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_13Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %13 [
     i32 0, label %6
     i32 1, label %9
@@ -33350,7 +33342,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN10PacketList22markAllDisplayedFramesEb(ptr noundef nonnull align 8 dereferenceable(464), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_14Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_14Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %13 [
     i32 0, label %6
     i32 1, label %9
@@ -33380,7 +33372,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_15Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_15Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_15Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" [
     i32 0, label %6
     i32 1, label %9
@@ -33419,7 +33411,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare i32 @cf_find_packet_marked(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_16Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_16Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_16Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" [
     i32 0, label %6
     i32 1, label %9
@@ -33456,7 +33448,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_17Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_17Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %13 [
     i32 0, label %6
     i32 1, label %9
@@ -33488,7 +33480,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN10PacketList11ignoreFrameEv(ptr noundef nonnull align 8 dereferenceable(464)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_18Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_18Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %13 [
     i32 0, label %6
     i32 1, label %9
@@ -33520,7 +33512,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN10PacketList24ignoreAllDisplayedFramesEb(ptr noundef nonnull align 8 dereferenceable(464), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_19Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_19Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %13 [
     i32 0, label %6
     i32 1, label %9
@@ -33550,7 +33542,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_20Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_20Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %13 [
     i32 0, label %6
     i32 1, label %9
@@ -33580,7 +33572,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN10PacketList16setTimeReferenceEv(ptr noundef nonnull align 8 dereferenceable(464)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_21Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_21Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %13 [
     i32 0, label %6
     i32 1, label %9
@@ -33610,7 +33602,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN10PacketList22unsetAllTimeReferencesEv(ptr noundef nonnull align 8 dereferenceable(464)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_22Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_22Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_22Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" [
     i32 0, label %6
     i32 1, label %9
@@ -33649,7 +33641,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare i32 @cf_find_packet_time_reference(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_23Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_23Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_23Li0EE4callINS_4ListIJEEEvEEvRS2_PvPS8_.exit" [
     i32 0, label %6
     i32 1, label %9
@@ -33686,7 +33678,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_24Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_24Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -33711,7 +33703,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_25Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_25Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -33736,7 +33728,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_26Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_26Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -33761,7 +33753,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_27Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_27Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -33786,7 +33778,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_28Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_28Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %13 [
     i32 0, label %6
     i32 1, label %9
@@ -33822,7 +33814,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_29Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectEditMenuActionsEvE4$_29Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QString, align 8
   switch i32 %0, label %26 [
     i32 0, label %7
@@ -34329,7 +34321,7 @@ _ZN9QtPrivate7FunctorISt5_BindIFM19WiresharkMainWindowFvP19PacketCommentDialogij
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE3$_0Li1ENS_4ListIJbEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE3$_0Li1ENS_4ListIJbEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow22connectViewMenuActionsEvE3$_0Li1EE4callINS_4ListIJbEEEvEEvRS2_PvPS8_.exit" [
     i32 0, label %6
     i32 1, label %9
@@ -34383,7 +34375,7 @@ declare noundef zeroext i1 @_ZNK7QWidget11isMaximizedEv(ptr noundef nonnull alig
 declare void @_ZN7QWidget13showMaximizedEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE3$_1Li1ENS_4ListIJbEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE3$_1Li1ENS_4ListIJbEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %"_ZN9QtPrivate7FunctorIZN19WiresharkMainWindow22connectViewMenuActionsEvE3$_1Li1EE4callINS_4ListIJbEEEvEEvRS2_PvPS8_.exit" [
     i32 0, label %6
     i32 1, label %9
@@ -34423,7 +34415,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE3$_2Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE3$_2Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -34448,7 +34440,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE3$_3Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE3$_3Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %31 [
     i32 0, label %6
     i32 1, label %9
@@ -34503,7 +34495,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE3$_4Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE3$_4Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %31 [
     i32 0, label %6
     i32 1, label %9
@@ -34558,7 +34550,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE3$_5Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE3$_5Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %31 [
     i32 0, label %6
     i32 1, label %9
@@ -34613,7 +34605,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE3$_6Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE3$_6Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %13 [
     i32 0, label %6
     i32 1, label %9
@@ -34640,7 +34632,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE3$_7Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE3$_7Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %13 [
     i32 0, label %6
     i32 1, label %9
@@ -34667,7 +34659,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE3$_8Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE3$_8Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -34755,7 +34747,7 @@ _ZN9QtPrivate15FunctionPointerIM9ProtoTreeFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE3$_9Li1ENS_4ListIJbEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE3$_9Li1ENS_4ListIJbEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -34788,7 +34780,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE4$_10Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE4$_10Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -34813,7 +34805,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE4$_11Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE4$_11Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   %6 = alloca ptr, align 8
   switch i32 %0, label %19 [
     i32 0, label %7
@@ -34859,7 +34851,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare i32 @color_filters_reset_tmp(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE4$_12Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE4$_12Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -34884,7 +34876,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE4$_13Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE4$_13Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %13 [
     i32 0, label %6
     i32 1, label %9
@@ -34918,7 +34910,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN10MainWindow23applyRecentPaneGeometryEv(ptr noundef nonnull align 8 dereferenceable(272)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE4$_14Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE4$_14Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   %6 = alloca %class.QModelIndex, align 8
   switch i32 %0, label %35 [
     i32 0, label %7
@@ -34993,7 +34985,7 @@ declare void @recent_set_column_width(i32 noundef, i32 noundef) local_unnamed_ad
 declare noundef i32 @_ZNK9QTreeView11columnWidthEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE4$_15Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE4$_15Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %14 [
     i32 0, label %6
     i32 1, label %9
@@ -35031,7 +35023,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN28ConversationHashTablesDialogC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE4$_16Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE4$_16Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %14 [
     i32 0, label %6
     i32 1, label %9
@@ -35069,7 +35061,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN21DissectorTablesDialogC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE4$_17Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE4$_17Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %14 [
     i32 0, label %6
     i32 1, label %9
@@ -35107,7 +35099,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN24SupportedProtocolsDialogC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE4$_18Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE4$_18Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -35132,7 +35124,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE4$_19Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE4$_19Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -35157,7 +35149,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE4$_20Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE4$_20Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -35182,7 +35174,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE4$_21Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectViewMenuActionsEvE4$_21Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -35354,86 +35346,78 @@ define linkonce_odr noundef i32 @_ZN18QMetaTypeIdQObjectIP7QWidgetLi8EE14qt_meta
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.speculated.i = tail call i64 @llvm.smax.i64(i64 %6, i64 0)
   invoke void @_ZN10QByteArray11reallocDataExN10QArrayData16AllocationOptionE(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %.sroa.speculated.i, i32 noundef 1)
-          to label %.noexc unwind label %27
+          to label %.noexc unwind label %25
 
 .noexc:                                           ; preds = %3
   %.pre.i = load ptr, ptr %1, align 8
   %.not.i1.i = icmp eq ptr %.pre.i, null
-  br i1 %.not.i1.i, label %_ZN10QByteArray7reserveEx.exit, label %_ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i
+  br i1 %.not.i1.i, label %_Z7qstrlenPKc.exit.i, label %_ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i
 
 _ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i: ; preds = %.noexc
   %8 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp eq i64 %9, 0
-  br i1 %.not.i, label %_ZN10QByteArray7reserveEx.exit, label %10
+  br i1 %.not.i, label %_Z7qstrlenPKc.exit.i, label %10
 
 10:                                               ; preds = %_ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i
   %11 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 4
-  br label %_ZN10QByteArray7reserveEx.exit
-
-_ZN10QByteArray7reserveEx.exit:                   ; preds = %10, %_ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i, %.noexc
-  %.not.i.i9 = icmp eq ptr %4, null
-  br i1 %.not.i.i9, label %_Z7qstrlenPKc.exit.i, label %14
-
-14:                                               ; preds = %_ZN10QByteArray7reserveEx.exit
-  %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #23
   br label %_Z7qstrlenPKc.exit.i
 
-_Z7qstrlenPKc.exit.i:                             ; preds = %14, %_ZN10QByteArray7reserveEx.exit
-  %16 = phi i64 [ %15, %14 ], [ 0, %_ZN10QByteArray7reserveEx.exit ]
-  %17 = load i64, ptr %7, align 8
-  %18 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN10QByteArray6insertEx14QByteArrayView(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %17, i64 %16, ptr %4)
-          to label %_ZN10QByteArray6appendEPKc.exit unwind label %27
+_Z7qstrlenPKc.exit.i:                             ; preds = %10, %_ZNK17QArrayDataPointerIcE22constAllocatedCapacityEv.exit.i, %.noexc
+  %14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #23
+  %15 = load i64, ptr %7, align 8
+  %16 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN10QByteArray6insertEx14QByteArrayView(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %15, i64 %14, ptr nonnull %4)
+          to label %_ZN10QByteArray6appendEPKc.exit unwind label %25
 
 _ZN10QByteArray6appendEPKc.exit:                  ; preds = %_Z7qstrlenPKc.exit.i
-  %19 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN10QByteArray6appendEc(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 noundef signext 42)
-          to label %20 unwind label %27
+  %17 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN10QByteArray6appendEc(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 noundef signext 42)
+          to label %18 unwind label %25
 
-20:                                               ; preds = %_ZN10QByteArray6appendEPKc.exit
-  %21 = invoke noundef i32 @_Z27qRegisterNormalizedMetaTypeIP7QWidgetEiRK10QByteArray(ptr noundef nonnull align 8 dereferenceable(24) %1)
-          to label %22 unwind label %27
+18:                                               ; preds = %_ZN10QByteArray6appendEPKc.exit
+  %19 = invoke noundef i32 @_Z27qRegisterNormalizedMetaTypeIP7QWidgetEiRK10QByteArray(ptr noundef nonnull align 8 dereferenceable(24) %1)
+          to label %20 unwind label %25
 
-22:                                               ; preds = %20
-  store atomic i32 %21, ptr @_ZZN18QMetaTypeIdQObjectIP7QWidgetLi8EE14qt_metatype_idEvE11metatype_id release, align 4
-  %23 = load ptr, ptr %1, align 8
-  %.not.i.i.i = icmp eq ptr %23, null
+20:                                               ; preds = %18
+  store atomic i32 %19, ptr @_ZZN18QMetaTypeIdQObjectIP7QWidgetLi8EE14qt_metatype_idEvE11metatype_id release, align 4
+  %21 = load ptr, ptr %1, align 8
+  %.not.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i, label %_ZN10QByteArrayD2Ev.exit, label %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i
 
-_ZN17QArrayDataPointerIcE5derefEv.exit.i.i:       ; preds = %22
-  %24 = atomicrmw sub ptr %23, i32 1 seq_cst, align 4
-  %.not.i.i11 = icmp eq i32 %24, 1
-  br i1 %.not.i.i11, label %25, label %_ZN10QByteArrayD2Ev.exit
+_ZN17QArrayDataPointerIcE5derefEv.exit.i.i:       ; preds = %20
+  %22 = atomicrmw sub ptr %21, i32 1 seq_cst, align 4
+  %.not.i.i11 = icmp eq i32 %22, 1
+  br i1 %.not.i.i11, label %23, label %_ZN10QByteArrayD2Ev.exit
 
-25:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i
-  %26 = load ptr, ptr %1, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %26, i64 noundef 1, i64 noundef 8) #21
+23:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i
+  %24 = load ptr, ptr %1, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %24, i64 noundef 1, i64 noundef 8) #21
   br label %_ZN10QByteArrayD2Ev.exit
 
-27:                                               ; preds = %_Z7qstrlenPKc.exit.i, %3, %20, %_ZN10QByteArray6appendEPKc.exit
-  %28 = landingpad { ptr, i32 }
+25:                                               ; preds = %_Z7qstrlenPKc.exit.i, %3, %18, %_ZN10QByteArray6appendEPKc.exit
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %29 = load ptr, ptr %1, align 8
-  %.not.i.i.i12 = icmp eq ptr %29, null
+  %27 = load ptr, ptr %1, align 8
+  %.not.i.i.i12 = icmp eq ptr %27, null
   br i1 %.not.i.i.i12, label %_ZN10QByteArrayD2Ev.exit15, label %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13
 
-_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13:     ; preds = %27
-  %30 = atomicrmw sub ptr %29, i32 1 seq_cst, align 4
-  %.not.i.i14 = icmp eq i32 %30, 1
-  br i1 %.not.i.i14, label %31, label %_ZN10QByteArrayD2Ev.exit15
+_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13:     ; preds = %25
+  %28 = atomicrmw sub ptr %27, i32 1 seq_cst, align 4
+  %.not.i.i14 = icmp eq i32 %28, 1
+  br i1 %.not.i.i14, label %29, label %_ZN10QByteArrayD2Ev.exit15
 
-31:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13
-  %32 = load ptr, ptr %1, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %32, i64 noundef 1, i64 noundef 8) #21
+29:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13
+  %30 = load ptr, ptr %1, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %30, i64 noundef 1, i64 noundef 8) #21
   br label %_ZN10QByteArrayD2Ev.exit15
 
-_ZN10QByteArrayD2Ev.exit15:                       ; preds = %27, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13, %31
-  resume { ptr, i32 } %28
+_ZN10QByteArrayD2Ev.exit15:                       ; preds = %25, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i13, %29
+  resume { ptr, i32 } %26
 
-_ZN10QByteArrayD2Ev.exit:                         ; preds = %25, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i, %22, %0
-  %.0 = phi i32 [ %2, %0 ], [ %21, %22 ], [ %21, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i ], [ %21, %25 ]
+_ZN10QByteArrayD2Ev.exit:                         ; preds = %23, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i, %20, %0
+  %.0 = phi i32 [ %2, %0 ], [ %19, %20 ], [ %19, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i ], [ %19, %23 ]
   ret i32 %.0
 }
 
@@ -36659,7 +36643,7 @@ _ZN9QtPrivate15FunctionPointerIM7QWidgetFbvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow20connectGoMenuActionsEvE3$_0Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow20connectGoMenuActionsEvE3$_0Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   %6 = alloca %"class.QMetaObject::Connection", align 8
   %7 = alloca %class.QModelIndex, align 8
   switch i32 %0, label %48 [
@@ -36750,7 +36734,7 @@ _ZN19WiresharkMainWindow16setPreviousFocusEv.exit.i.i.i: ; preds = %29, %26
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow20connectGoMenuActionsEvE3$_1Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow20connectGoMenuActionsEvE3$_1Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i8, align 1
   %7 = alloca %class.QVariant, align 8
   switch i32 %0, label %25 [
@@ -36812,7 +36796,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN10PacketList10goToPacketEii(ptr noundef nonnull align 8 dereferenceable(464), i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow20connectGoMenuActionsEvE3$_2Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow20connectGoMenuActionsEvE3$_2Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -36837,7 +36821,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow20connectGoMenuActionsEvE3$_3Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow20connectGoMenuActionsEvE3$_3Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -36862,7 +36846,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow20connectGoMenuActionsEvE3$_4Li1ENS_4ListIJbEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #3 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow20connectGoMenuActionsEvE3$_4Li1ENS_4ListIJbEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #3 align 2 {
   switch i32 %0, label %13 [
     i32 0, label %6
     i32 1, label %9
@@ -36890,7 +36874,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow20connectGoMenuActionsEvE3$_5Li1ENS_4ListIJbEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow20connectGoMenuActionsEvE3$_5Li1ENS_4ListIJbEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %14 [
     i32 0, label %6
     i32 1, label %9
@@ -36923,7 +36907,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN10PacketList21setVerticalAutoScrollEb(ptr noundef nonnull align 8 dereferenceable(464), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow25connectCaptureMenuActionsEvE3$_0Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #3 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow25connectCaptureMenuActionsEvE3$_0Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #3 align 2 {
   %cond = icmp ne i32 %0, 0
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %cond, %6
@@ -36938,7 +36922,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow25connectCaptureMenuActionsEvE3$_1Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #3 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow25connectCaptureMenuActionsEvE3$_1Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #3 align 2 {
   %cond = icmp ne i32 %0, 0
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %cond, %6
@@ -36953,7 +36937,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow25connectCaptureMenuActionsEvE3$_2Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow25connectCaptureMenuActionsEvE3$_2Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QString, align 8
   switch i32 %0, label %28 [
     i32 0, label %7
@@ -37037,7 +37021,7 @@ _ZN7QStringD2Ev.exit11.i.i.i:                     ; preds = %26, %_ZN17QArrayDat
 declare void @_ZN12FilterDialogC1EP7QWidgetNS_10FilterTypeE7QString(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow25connectAnalyzeMenuActionsEvE3$_0Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow25connectAnalyzeMenuActionsEvE3$_0Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QString, align 8
   switch i32 %0, label %28 [
     i32 0, label %7
@@ -37119,7 +37103,7 @@ _ZN7QStringD2Ev.exit11.i.i.i:                     ; preds = %26, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow25connectAnalyzeMenuActionsEvE3$_1Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow25connectAnalyzeMenuActionsEvE3$_1Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QString, align 8
   switch i32 %0, label %28 [
     i32 0, label %7
@@ -37201,7 +37185,7 @@ _ZN7QStringD2Ev.exit11.i.i.i:                     ; preds = %26, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow25connectAnalyzeMenuActionsEvE3$_2Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow25connectAnalyzeMenuActionsEvE3$_2Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca { i64, i64 }, align 8
   %7 = alloca { i64, i64 }, align 8
   %8 = alloca %"class.QMetaObject::Connection", align 8
@@ -37337,7 +37321,7 @@ _ZN9QtPrivate15FunctionPointerIM14SyntaxLineEditFvRK7QStringEE4callINS_4ListIJS4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow25connectAnalyzeMenuActionsEvE3$_3Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow25connectAnalyzeMenuActionsEvE3$_3Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.QMetaObject::Connection", align 8
   switch i32 %0, label %16 [
     i32 0, label %7
@@ -37383,7 +37367,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN22EnabledProtocolsDialogC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow25connectAnalyzeMenuActionsEvE3$_4Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow25connectAnalyzeMenuActionsEvE3$_4Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QVariant, align 8
   %7 = alloca %"class.QMetaObject::Connection", align 8
   switch i32 %0, label %32 [
@@ -37470,7 +37454,7 @@ declare noundef zeroext i1 @_ZNK8QVariant6toBoolEv(ptr noundef nonnull align 8 d
 declare void @_ZN14DecodeAsDialogC1EP7QWidgetP13_capture_fileb(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef, ptr noundef, i1 noundef zeroext) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow25connectAnalyzeMenuActionsEvE3$_5Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow25connectAnalyzeMenuActionsEvE3$_5Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %16 [
     i32 0, label %6
     i32 1, label %9
@@ -37513,7 +37497,7 @@ declare void @_ZN21ShowPacketBytesDialogC1ER7QWidgetR11CaptureFile(ptr noundef n
 declare void @_ZN21ShowPacketBytesDialog9addCodecsERK4QMapI7QStringP10QTextCodecE(ptr noundef nonnull align 8 dereferenceable(264), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow25connectAnalyzeMenuActionsEvE3$_6Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow25connectAnalyzeMenuActionsEvE3$_6Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -37538,7 +37522,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE3$_0Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE3$_0Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.QMetaObject::Connection", align 8
   switch i32 %0, label %16 [
     i32 0, label %7
@@ -37582,7 +37566,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN27CaptureFilePropertiesDialogC1ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE3$_1Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE3$_1Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.QMetaObject::Connection", align 8
   switch i32 %0, label %16 [
     i32 0, label %7
@@ -37626,7 +37610,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN23ProtocolHierarchyDialogC1ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE3$_2Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE3$_2Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -37663,7 +37647,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE3$_3Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE3$_3Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -37688,7 +37672,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE3$_4Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE3$_4Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -37727,7 +37711,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN14SequenceDialogC1ER7QWidgetR11CaptureFileP12SequenceInfo(ptr noundef nonnull align 8 dereferenceable(297), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE3$_5Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE3$_5Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -37764,7 +37748,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE3$_6Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE3$_6Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -37801,7 +37785,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE3$_7Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE3$_7Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -37838,7 +37822,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE3$_8Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE3$_8Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -37875,7 +37859,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE3$_9Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE3$_9Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -37912,7 +37896,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_10Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_10Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -37949,7 +37933,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_11Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_11Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.QMetaObject::Connection", align 8
   switch i32 %0, label %16 [
     i32 0, label %7
@@ -37991,7 +37975,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_12Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_12Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -38028,7 +38012,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_13Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_13Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -38065,7 +38049,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_14Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_14Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -38102,7 +38086,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_15Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_15Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -38139,7 +38123,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_16Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_16Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -38176,7 +38160,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_17Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_17Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -38213,7 +38197,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_18Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_18Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -38250,7 +38234,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_19Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_19Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -38287,7 +38271,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_20Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_20Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -38324,7 +38308,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_21Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_21Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -38361,7 +38345,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_22Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_22Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -38398,7 +38382,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_23Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_23Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.QMetaObject::Connection", align 8
   switch i32 %0, label %21 [
     i32 0, label %7
@@ -38449,7 +38433,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN15LBMStreamDialogC1EP7QWidgetP13_capture_file(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_24Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_24Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.QMetaObject::Connection", align 8
   %7 = alloca %"class.QMetaObject::Connection", align 8
   switch i32 %0, label %24 [
@@ -38507,7 +38491,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN23LBMLBTRMTransportDialogC1EP7QWidgetP13_capture_file(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_25Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_25Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.QMetaObject::Connection", align 8
   %7 = alloca %"class.QMetaObject::Connection", align 8
   switch i32 %0, label %24 [
@@ -38565,7 +38549,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN23LBMLBTRUTransportDialogC1EP7QWidgetP13_capture_file(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_26Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_26Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -38590,7 +38574,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_27Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_27Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -38615,7 +38599,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_28Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_28Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -38640,7 +38624,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_29Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_29Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -38665,7 +38649,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_30Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_30Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -38690,7 +38674,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_31Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_31Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -38727,7 +38711,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_32Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_32Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -38764,7 +38748,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_33Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_33Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -38801,7 +38785,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_34Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_34Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -38838,7 +38822,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_35Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_35Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -38875,7 +38859,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_36Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_36Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -38912,7 +38896,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_37Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_37Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -38949,7 +38933,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_38Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_38Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -38986,7 +38970,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_39Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_39Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -39023,7 +39007,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_40Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_40Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -39060,7 +39044,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_41Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_41Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -39097,7 +39081,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_42Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_42Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -39134,7 +39118,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_43Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow28connectStatisticsMenuActionsEvE4$_43Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -39171,7 +39155,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE3$_0Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE3$_0Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -39202,7 +39186,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare noundef ptr @_ZN15VoipCallsDialog23openVoipCallsDialogVoipER7QWidgetR11CaptureFileP7QObject(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE3$_1Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE3$_1Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca { i64, i64 }, align 8
   %7 = alloca %"class.QMetaObject::Connection", align 8
   switch i32 %0, label %20 [
@@ -39260,7 +39244,7 @@ declare void @_ZN18Iax2AnalysisDialogC1ER7QWidgetR11CaptureFile(ptr noundef nonn
 declare void @_ZN18Iax2AnalysisDialog10goToPacketEi(ptr noundef nonnull align 8 dereferenceable(10440), i32 noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZZN19WiresharkMainWindow27connectTelephonyMenuActionsEvENK3$_1clEvEUliE_Li1ENS_4ListIJiEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZZN19WiresharkMainWindow27connectTelephonyMenuActionsEvENK3$_1clEvEUliE_Li1ENS_4ListIJiEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %13 [
     i32 0, label %6
     i32 1, label %9
@@ -39290,7 +39274,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZZN19WiresharkMainWindo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE3$_2Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE3$_2Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -39327,7 +39311,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE3$_3Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE3$_3Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -39366,7 +39350,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN19GsmMapSummaryDialogC1ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE3$_4Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE3$_4Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.QMetaObject::Connection", align 8
   switch i32 %0, label %16 [
     i32 0, label %7
@@ -39408,7 +39392,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE3$_5Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE3$_5Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.QMetaObject::Connection", align 8
   switch i32 %0, label %18 [
     i32 0, label %7
@@ -39452,7 +39436,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE3$_6Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE3$_6Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -39477,7 +39461,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE3$_7Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE3$_7Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -39516,7 +39500,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN17Mtp3SummaryDialogC1ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE3$_8Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE3$_8Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -39616,7 +39600,7 @@ _ZN9QtPrivate15FunctionPointerIM19WiresharkMainWindowFP15RtpStreamDialogvEE4call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE3$_9Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE3$_9Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -39653,7 +39637,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE4$_10Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE4$_10Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -39690,7 +39674,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE4$_11Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE4$_11Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -39727,7 +39711,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE4$_12Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE4$_12Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -39764,7 +39748,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE4$_13Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE4$_13Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -39801,7 +39785,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE4$_14Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE4$_14Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -39838,7 +39822,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE4$_15Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow27connectTelephonyMenuActionsEvE4$_15Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -39869,7 +39853,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare noundef ptr @_ZN15VoipCallsDialog22openVoipCallsDialogSipER7QWidgetR11CaptureFileP7QObject(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow26connectWirelessMenuActionsEvE3$_0Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow26connectWirelessMenuActionsEvE3$_0Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.QMetaObject::Connection", align 8
   %7 = alloca %"class.QMetaObject::Connection", align 8
   switch i32 %0, label %19 [
@@ -39920,7 +39904,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN34BluetoothAttServerAttributesDialogC1ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(208), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow26connectWirelessMenuActionsEvE3$_1Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow26connectWirelessMenuActionsEvE3$_1Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.QMetaObject::Connection", align 8
   %7 = alloca %"class.QMetaObject::Connection", align 8
   switch i32 %0, label %20 [
@@ -39972,7 +39956,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN22BluetoothDevicesDialogC1ER7QWidgetR11CaptureFileP10PacketList(ptr noundef nonnull align 8 dereferenceable(216), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow26connectWirelessMenuActionsEvE3$_2Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow26connectWirelessMenuActionsEvE3$_2Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.QMetaObject::Connection", align 8
   %7 = alloca %"class.QMetaObject::Connection", align 8
   switch i32 %0, label %19 [
@@ -40023,7 +40007,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN25BluetoothHciSummaryDialogC1ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(320), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow26connectWirelessMenuActionsEvE3$_3Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow26connectWirelessMenuActionsEvE3$_3Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.QMetaObject::Connection", align 8
   switch i32 %0, label %16 [
     i32 0, label %7
@@ -40065,7 +40049,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow23connectToolsMenuActionsEvE3$_0Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow23connectToolsMenuActionsEvE3$_0Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -40104,7 +40088,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN19FirewallRulesDialogC1ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(292), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow23connectToolsMenuActionsEvE3$_1Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow23connectToolsMenuActionsEvE3$_1Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %17 [
     i32 0, label %6
     i32 1, label %9
@@ -40145,7 +40129,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN17CredentialsDialogC1ER7QWidgetR11CaptureFileP10PacketList(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow23connectToolsMenuActionsEvE3$_2Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow23connectToolsMenuActionsEvE3$_2Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %15 [
     i32 0, label %6
     i32 1, label %9
@@ -40184,7 +40168,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN11ManufDialogC1ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE3$_0Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE3$_0Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %0, label %18 [
     i32 0, label %6
     i32 1, label %9
@@ -40235,7 +40219,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN11AboutDialogC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE3$_1Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE3$_1Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -40261,7 +40245,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 declare void @_ZN15MainApplication15helpTopicActionE14topic_action_e(ptr noundef nonnull align 8 dereferenceable(216), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE3$_2Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE3$_2Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -40285,7 +40269,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE3$_3Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE3$_3Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -40309,7 +40293,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE3$_4Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE3$_4Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -40333,7 +40317,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE3$_5Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE3$_5Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -40357,7 +40341,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE3$_6Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE3$_6Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -40381,7 +40365,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE3$_7Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE3$_7Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -40405,7 +40389,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE3$_8Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE3$_8Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -40429,7 +40413,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE3$_9Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE3$_9Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -40453,7 +40437,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE4$_10Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE4$_10Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -40477,7 +40461,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE4$_11Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE4$_11Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -40501,7 +40485,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE4$_12Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE4$_12Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -40525,7 +40509,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE4$_13Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE4$_13Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -40549,7 +40533,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE4$_14Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE4$_14Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -40573,7 +40557,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE4$_15Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE4$_15Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -40597,7 +40581,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE4$_16Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE4$_16Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -40621,7 +40605,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE4$_17Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE4$_17Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -40645,7 +40629,7 @@ define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE4$_18Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN19WiresharkMainWindow22connectHelpMenuActionsEvE4$_18Li0ENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %11 [
     i32 0, label %6
     i32 1, label %9
@@ -40796,10 +40780,10 @@ _ZNK8QVariant7Private3getIPvEERKT_v.exit:         ; preds = %23, %20, %_ZNK8QVar
 declare i64 @llvm.smax.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20

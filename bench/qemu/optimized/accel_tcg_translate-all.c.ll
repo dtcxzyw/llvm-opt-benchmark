@@ -223,7 +223,7 @@ declare zeroext i1 @in_code_gen_buffer(ptr noundef) local_unnamed_addr #2
 declare ptr @tcg_tb_lookup(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @cpu_unwind_state_data(ptr nocapture noundef readnone %cpu, i64 noundef %host_pc, ptr nocapture noundef %data) local_unnamed_addr #0 {
+define dso_local zeroext i1 @cpu_unwind_state_data(ptr noundef readnone captures(none) %cpu, i64 noundef %host_pc, ptr noundef captures(none) %data) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr @tcg_splitwx_diff, align 8
   %sub = sub i64 %host_pc, %0
@@ -1014,7 +1014,7 @@ declare zeroext i1 @qemu_log_in_addr_range(i64 noundef) local_unnamed_addr #2
 declare ptr @qemu_log_trylock() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare void @disas(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -1068,7 +1068,7 @@ declare void @cpu_get_tb_cpu_state(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare void @tb_invalidate_phys_range(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @cpu_interrupt(ptr nocapture noundef %cpu, i32 noundef %mask) local_unnamed_addr #0 {
+define dso_local void @cpu_interrupt(ptr noundef captures(none) %cpu, i32 noundef %mask) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qemu_mutex_iothread_locked() #13
   br i1 %call, label %do.end, label %if.else
@@ -1090,7 +1090,7 @@ do.end:                                           ; preds = %entry
 declare zeroext i1 @qemu_mutex_iothread_locked() local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @tcg_flush_jmp_cache(ptr nocapture noundef readonly %cpu) local_unnamed_addr #6 {
+define dso_local void @tcg_flush_jmp_cache(ptr noundef readonly captures(none) %cpu) local_unnamed_addr #6 {
 entry:
   %tb_jmp_cache = getelementptr inbounds nuw i8, ptr %cpu, i64 544
   %0 = load ptr, ptr %tb_jmp_cache, align 16
@@ -1114,12 +1114,12 @@ for.end:                                          ; preds = %while.end, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @page_protect(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #2
 
@@ -1136,16 +1136,16 @@ declare i32 @tcg_gen_code(ptr noundef, ptr noundef, i64 noundef) local_unnamed_a
 declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

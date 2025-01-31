@@ -336,7 +336,7 @@ ExecSerializePlan.exit:                           ; preds = %69, %._crit_edge.i,
   call void @shm_toc_insert(ptr noundef %205, i64 noundef -2305843009213693944, ptr noundef %203) #9
   %206 = load ptr, ptr %191, align 8
   %207 = call ptr @shm_toc_allocate(ptr noundef %206, i64 noundef %105) #9
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %207, ptr align 1 %82, i64 %105, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %207, ptr nonnull align 1 %82, i64 %105, i1 false)
   %208 = load ptr, ptr %191, align 8
   call void @shm_toc_insert(ptr noundef %208, i64 noundef -2305843009213693950, ptr noundef %207) #9
   %209 = load ptr, ptr %191, align 8
@@ -494,7 +494,7 @@ declare ptr @CreateParallelContext(ptr noundef, ptr noundef, i32 noundef) local_
 declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i64 @EstimateParamListSpace(ptr noundef) local_unnamed_addr #1
 
@@ -672,12 +672,12 @@ declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @SerializeParamList(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ExecParallelSetupTupleQueues(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc ptr @ExecParallelSetupTupleQueues(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -746,12 +746,12 @@ define internal fastcc ptr @ExecParallelSetupTupleQueues(ptr nocapture noundef r
 declare void @InstrInit(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @dsa_create_in_place(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @SerializeParamExecParams(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i64 @SerializeParamExecParams(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i16, align 2
   %5 = alloca i8, align 1
   %6 = alloca ptr, align 8
@@ -1073,7 +1073,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecParallelCreateReaders(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ExecParallelCreateReaders(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -1123,7 +1123,7 @@ declare void @shm_mq_set_handle(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @CreateTupleQueueReader(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecParallelReinitialize(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @ExecParallelReinitialize(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
@@ -1357,7 +1357,7 @@ define internal zeroext i1 @ExecParallelReInitializeDSM(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecParallelFinish(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ExecParallelFinish(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -2265,10 +2265,10 @@ declare void @InstrEndLoop(ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #8

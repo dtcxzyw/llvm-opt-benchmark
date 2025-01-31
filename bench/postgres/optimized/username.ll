@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [8 x i8] c"%s: %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_user_name(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #0 {
+define dso_local ptr @get_user_name(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @geteuid() #5
   store ptr null, ptr %0, align 8
   %3 = tail call ptr @__errno_location() #6

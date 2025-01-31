@@ -133,7 +133,7 @@ define noundef ptr @get_dirname(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @test_for_directory(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @test_for_directory(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.stat, align 8
   %3 = call i32 @stat(ptr noundef %0, ptr noundef nonnull %2) #20
   %4 = icmp slt i32 %3, 0
@@ -158,13 +158,13 @@ define i32 @test_for_directory(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @test_for_fifo(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @test_for_fifo(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.stat, align 8
   %3 = call i32 @stat(ptr noundef %0, ptr noundef nonnull %2) #20
   %4 = icmp slt i32 %3, 0
@@ -436,7 +436,7 @@ get_current_executable_path.exit:                 ; preds = %12, %15, %18, %20, 
   %94 = ptrtoint ptr %.062 to i64
   %95 = sub i64 %93, %94
   %96 = trunc i64 %95 to i32
-  %97 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.14, i32 noundef %96, ptr noundef %.062) #20
+  %97 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.14, i32 noundef %96, ptr noundef nonnull %.062) #20
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
   %.not.i = icmp eq ptr %97, null
   br i1 %.not.i, label %file_exists.exit.thread, label %98
@@ -479,9 +479,9 @@ file_exists.exit.thread:                          ; preds = %92, %100
 
 112:                                              ; preds = %108
   store i8 0, ptr %107, align 1
-  %113 = tail call noalias ptr @g_strdup(ptr noundef %.062) #20
+  %113 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.062) #20
   store ptr %113, ptr @progfile_dir, align 8
-  tail call void @g_free(ptr noundef %.062) #20
+  tail call void @g_free(ptr noundef nonnull %.062) #20
   br label %trim_progfile_dir.exit
 
 trim_progfile_dir.exit:                           ; preds = %106, %108, %112
@@ -494,8 +494,8 @@ trim_progfile_dir.exit:                           ; preds = %106, %108, %112
   br i1 %.not77, label %124, label %120
 
 118:                                              ; preds = %.loopexit
-  %119 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.15, ptr noundef %.062) #20
-  tail call void @g_free(ptr noundef %.062) #20
+  %119 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.15, ptr noundef nonnull %.062) #20
+  tail call void @g_free(ptr noundef nonnull %.062) #20
   br label %126
 
 120:                                              ; preds = %trim_progfile_dir.exit
@@ -547,18 +547,18 @@ declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #9
 declare void @g_free(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare i64 @g_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #4
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
 define noundef zeroext i1 @file_exists(ptr noundef readonly %0) local_unnamed_addr #3 {
@@ -1142,7 +1142,7 @@ define internal fastcc ptr @get_persconffile_dir_no_profile() unnamed_addr #7 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @create_profiles_dir(ptr nocapture noundef writeonly %0) local_unnamed_addr #7 {
+define range(i32 -1, 1) i32 @create_profiles_dir(ptr noundef writeonly captures(none) %0) local_unnamed_addr #7 {
   %2 = alloca %struct.stat, align 8
   %3 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
@@ -1206,7 +1206,7 @@ create_persconffile_profile.exit.thread:          ; preds = %10, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @create_persconffile_profile(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #7 {
+define i32 @create_persconffile_profile(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #7 {
   %3 = alloca %struct.stat, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.split, label %6
@@ -1261,7 +1261,7 @@ define i32 @create_persconffile_profile(ptr noundef %0, ptr nocapture noundef wr
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #4
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @get_profile_dir(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #7 {
@@ -1373,7 +1373,7 @@ test_for_directory.exit:                          ; preds = %9, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @delete_persconffile_profile(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #7 {
+define noundef i32 @delete_persconffile_profile(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #7 {
   %3 = alloca %struct.stat, align 8
   %4 = alloca %struct.stat, align 8
   %5 = alloca %struct.stat, align 8
@@ -1437,7 +1437,7 @@ reset_default_profile.exit:                       ; preds = %25, %8, %24
   br label %delete_directory.exit
 
 28:                                               ; preds = %2
-  %29 = tail call fastcc ptr @get_persconffile_dir(ptr noundef %0)
+  %29 = tail call fastcc ptr @get_persconffile_dir(ptr noundef nonnull %0)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   %30 = call i32 @stat(ptr noundef readonly %29, ptr noundef nonnull %4) #20
   %31 = icmp slt i32 %30, 0
@@ -1532,7 +1532,7 @@ delete_directory.exit:                            ; preds = %test_for_directory.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @rename_persconffile_profile(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #7 {
+define noundef i32 @rename_persconffile_profile(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #7 {
   %5 = tail call fastcc ptr @get_persconffile_dir(ptr noundef %0)
   %6 = tail call fastcc ptr @get_persconffile_dir(ptr noundef %1)
   %7 = tail call i32 @rename(ptr noundef %5, ptr noundef %6) #20
@@ -1554,7 +1554,7 @@ define noundef i32 @rename_persconffile_profile(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 declare i32 @g_mkdir_with_parents(ptr noundef, i32 noundef) local_unnamed_addr #8
 
@@ -1565,14 +1565,14 @@ define ptr @allowed_profile_filenames() local_unnamed_addr #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @create_persconffile_dir(ptr nocapture noundef writeonly %0) local_unnamed_addr #7 {
+define i32 @create_persconffile_dir(ptr noundef writeonly captures(none) %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr @persconfprofile, align 8
   %3 = tail call i32 @create_persconffile_profile(ptr noundef %2, ptr noundef %0)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @copy_persconffile_profile(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #7 {
+define range(i32 -1, 1) i32 @copy_persconffile_profile(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #7 {
   %7 = alloca %struct.stat, align 8
   %8 = alloca %struct.stat, align 8
   %9 = alloca %struct._GHashTableIter, align 8
@@ -1996,7 +1996,7 @@ define noundef nonnull ptr @file_open_error_message(i32 noundef %0, i1 noundef z
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
 define noundef nonnull ptr @file_write_error_message(i32 noundef %0) local_unnamed_addr #3 {
@@ -2081,16 +2081,16 @@ define noundef zeroext i1 @config_file_exists_with_entries(ptr noundef readonly 
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc_unlocked(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @getc_unlocked(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define zeroext i1 @files_identical(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define zeroext i1 @files_identical(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = alloca %struct.stat, align 8
   %4 = alloca %struct.stat, align 8
   %5 = call i32 @stat(ptr noundef %0, ptr noundef nonnull %3) #20
@@ -2120,7 +2120,7 @@ define zeroext i1 @files_identical(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define zeroext i1 @file_needs_reopen(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define zeroext i1 @file_needs_reopen(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = alloca %struct.stat, align 8
   %4 = alloca %struct.stat, align 8
   %5 = call i32 @fstat(i32 noundef %0, ptr noundef nonnull %3) #20
@@ -2160,10 +2160,10 @@ define zeroext i1 @file_needs_reopen(i32 noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @write_file_binary_mode(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #7 {
+define noundef zeroext i1 @write_file_binary_mode(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #7 {
   %4 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 577, i32 noundef 420) #20
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %6, label %.preheader
@@ -2217,19 +2217,19 @@ define noundef zeroext i1 @write_file_binary_mode(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #14
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #14
 
 declare void @report_open_failure(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #8
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #14
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #14
 
 declare void @report_write_failure(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 declare i32 @close(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #14
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
 declare void @report_read_failure(ptr noundef, i32 noundef) local_unnamed_addr #8
 
@@ -2346,13 +2346,13 @@ define void @free_progdirs() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @uname(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @uname(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @readlink(ptr nocapture noundef readonly, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #8
 
@@ -2375,18 +2375,18 @@ declare ptr @g_hash_table_get_keys(ptr noundef) local_unnamed_addr #8
 declare ptr @g_list_first(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @remove(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @remove(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 declare void @g_list_free(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #18

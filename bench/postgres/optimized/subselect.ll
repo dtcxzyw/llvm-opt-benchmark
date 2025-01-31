@@ -358,7 +358,7 @@ declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #1
 declare void @cost_subplan(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @convert_ANY_sublink_to_join(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @convert_ANY_sublink_to_join(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.convert_testexpr_context, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -494,7 +494,7 @@ declare ptr @addRangeTableEntryForSubquery(ptr noundef, ptr noundef, ptr noundef
 declare ptr @makeAlias(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @convert_EXISTS_sublink_to_join(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @convert_EXISTS_sublink_to_join(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -814,7 +814,7 @@ define dso_local ptr @SS_process_sublinks(ptr noundef %0, ptr noundef %1, i1 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @process_sublinks_mutator(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal ptr @process_sublinks_mutator(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca %struct.process_sublinks_context, align 8
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %3, align 8
@@ -1327,7 +1327,7 @@ simplify_EXISTS_query.exit:                       ; preds = %92, %96, %99, %103,
   %286 = tail call i32 @exprType(ptr noundef %283) #10
   %287 = tail call i32 @exprTypmod(ptr noundef %283) #10
   %288 = tail call i32 @exprCollation(ptr noundef %283) #10
-  %289 = tail call ptr @generate_new_exec_param(ptr noundef %13, i32 noundef %286, i32 noundef %287, i32 noundef %288) #10
+  %289 = tail call ptr @generate_new_exec_param(ptr noundef nonnull %13, i32 noundef %286, i32 noundef %287, i32 noundef %288) #10
   %290 = add i16 %.0123.i, 1
   %291 = tail call ptr @makeTargetEntry(ptr noundef %283, i16 noundef signext %.0123.i, ptr noundef null, i1 noundef zeroext false) #10
   %292 = tail call ptr @lappend(ptr noundef %.0119.i, ptr noundef %291) #10
@@ -1344,7 +1344,7 @@ simplify_EXISTS_query.exit:                       ; preds = %92, %96, %99, %103,
   store ptr %.0119.i, ptr %300, align 8
   %301 = tail call ptr @make_ands_explicit(ptr noundef %.0120.i) #10
   %302 = load ptr, ptr %80, align 8
-  %303 = tail call ptr @subquery_planner(ptr noundef %302, ptr noundef nonnull %93, ptr noundef %13, i1 noundef zeroext false, double noundef 0.000000e+00) #10
+  %303 = tail call ptr @subquery_planner(ptr noundef %302, ptr noundef nonnull %93, ptr noundef nonnull %13, i1 noundef zeroext false, double noundef 0.000000e+00) #10
   %304 = load ptr, ptr %83, align 8
   store ptr null, ptr %83, align 8
   %305 = tail call ptr @fetch_upper_rel(ptr noundef %303, i32 noundef 7, ptr noundef null) #10
@@ -1541,7 +1541,7 @@ make_subplan.exit:                                ; preds = %189, %192, %.lr.ph.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SS_identify_outer_params(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @SS_identify_outer_params(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
@@ -1672,7 +1672,7 @@ define dso_local void @SS_identify_outer_params(ptr nocapture noundef %0) local_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @SS_charge_for_initplans(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
+define dso_local void @SS_charge_for_initplans(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1835,7 +1835,7 @@ SS_compute_initplan_cost.exit.thread:             ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @SS_compute_initplan_cost(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define dso_local void @SS_compute_initplan_cost(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1880,7 +1880,7 @@ define dso_local void @SS_compute_initplan_cost(ptr noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @SS_attach_initplans(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((80, 88)) %1) local_unnamed_addr #5 {
+define dso_local void @SS_attach_initplans(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((80, 88)) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -2715,7 +2715,7 @@ define dso_local ptr @SS_make_initplan_output_param(ptr noundef %0, i32 noundef 
 declare ptr @generate_new_exec_param(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SS_make_initplan_from_plan(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define dso_local void @SS_make_initplan_from_plan(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -2992,7 +2992,7 @@ define internal zeroext i1 @inline_cte_walker(ptr noundef %0, ptr noundef %1) #0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @makeVarFromTargetEntry(i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3569,7 +3569,7 @@ declare i32 @get_promoted_array_type(i32 noundef) local_unnamed_addr #1
 declare ptr @format_type_be(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @generate_subquery_params(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc ptr @generate_subquery_params(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -3763,7 +3763,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i64 @get_hash_memory_limit() local_unnamed_addr #1
 
@@ -4056,13 +4056,13 @@ declare ptr @bms_join(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

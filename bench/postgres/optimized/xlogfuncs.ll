@@ -73,7 +73,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.pg_get_wal_replay_pause_state = private unnamed_addr constant [3 x ptr] [ptr @.str.26, ptr @.str.27, ptr @.str.28], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_backup_start(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_backup_start(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -228,7 +228,7 @@ define dso_local i64 @pg_backup_stop(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @get_call_result_type(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -249,7 +249,7 @@ declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
 declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_switch_wal(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_switch_wal(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @RecoveryInProgress() #9
   br i1 %2, label %3, label %8
 
@@ -272,7 +272,7 @@ declare zeroext i1 @RecoveryInProgress() local_unnamed_addr #1
 declare i64 @RequestXLogSwitch(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_log_standby_snapshot(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_log_standby_snapshot(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @RecoveryInProgress() #9
   br i1 %2, label %3, label %8
 
@@ -306,7 +306,7 @@ define dso_local i64 @pg_log_standby_snapshot(ptr nocapture noundef readnone %0)
 declare i64 @LogStandbySnapshot() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_create_restore_point(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_create_restore_point(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -352,17 +352,17 @@ define dso_local i64 @pg_create_restore_point(ptr nocapture noundef readonly %0)
   unreachable
 
 28:                                               ; preds = %20
-  %29 = tail call i64 @XLogRestorePoint(ptr noundef %21) #9
+  %29 = tail call i64 @XLogRestorePoint(ptr noundef nonnull %21) #9
   ret i64 %29
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i64 @XLogRestorePoint(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_current_wal_lsn(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_current_wal_lsn(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @RecoveryInProgress() #9
   br i1 %2, label %3, label %8
 
@@ -383,7 +383,7 @@ define dso_local i64 @pg_current_wal_lsn(ptr nocapture noundef readnone %0) loca
 declare i64 @GetXLogWriteRecPtr() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_current_wal_insert_lsn(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_current_wal_insert_lsn(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @RecoveryInProgress() #9
   br i1 %2, label %3, label %8
 
@@ -404,7 +404,7 @@ define dso_local i64 @pg_current_wal_insert_lsn(ptr nocapture noundef readnone %
 declare i64 @GetXLogInsertRecPtr() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_current_wal_flush_lsn(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_current_wal_flush_lsn(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @RecoveryInProgress() #9
   br i1 %2, label %3, label %8
 
@@ -425,7 +425,7 @@ define dso_local i64 @pg_current_wal_flush_lsn(ptr nocapture noundef readnone %0
 declare i64 @GetFlushRecPtr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_last_wal_receive_lsn(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_last_wal_receive_lsn(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @GetWalRcvFlushRecPtr(ptr noundef null, ptr noundef null) #9
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %4, label %6
@@ -442,7 +442,7 @@ define dso_local i64 @pg_last_wal_receive_lsn(ptr nocapture noundef writeonly %0
 declare i64 @GetWalRcvFlushRecPtr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_last_wal_replay_lsn(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_last_wal_replay_lsn(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @GetXLogReplayRecPtr(ptr noundef null) #9
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %4, label %6
@@ -459,7 +459,7 @@ define dso_local i64 @pg_last_wal_replay_lsn(ptr nocapture noundef writeonly %0)
 declare i64 @GetXLogReplayRecPtr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_walfile_name_offset(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_walfile_name_offset(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [64 x i8], align 16
   %3 = alloca [2 x i64], align 16
   %4 = alloca [2 x i8], align 1
@@ -523,7 +523,7 @@ declare ptr @BlessTupleDesc(ptr noundef) local_unnamed_addr #1
 declare i32 @GetWALInsertionTimeLine() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_walfile_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_walfile_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [64 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -659,7 +659,7 @@ declare i64 @DirectFunctionCall3Coll(ptr noundef, i32 noundef, i64 noundef, i64 
 declare i64 @numeric_in(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_wal_replay_pause(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_wal_replay_pause(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @RecoveryInProgress() #9
   br i1 %2, label %8, label %3
 
@@ -698,7 +698,7 @@ declare void @SetRecoveryPause(i1 noundef zeroext) local_unnamed_addr #1
 declare void @WakeupRecovery() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_wal_replay_resume(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_wal_replay_resume(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @RecoveryInProgress() #9
   br i1 %2, label %8, label %3
 
@@ -730,7 +730,7 @@ define dso_local noundef i64 @pg_wal_replay_resume(ptr nocapture noundef readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_is_wal_replay_paused(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_is_wal_replay_paused(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @RecoveryInProgress() #9
   br i1 %2, label %8, label %3
 
@@ -753,7 +753,7 @@ define dso_local range(i64 0, 2) i64 @pg_is_wal_replay_paused(ptr nocapture noun
 declare i32 @GetRecoveryPauseState() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_get_wal_replay_pause_state(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_get_wal_replay_pause_state(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @RecoveryInProgress() #9
   br i1 %2, label %8, label %3
 
@@ -785,7 +785,7 @@ switch.lookup:                                    ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_last_xact_replay_timestamp(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_last_xact_replay_timestamp(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @GetLatestXTime() #9
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %4, label %6
@@ -802,14 +802,14 @@ define dso_local i64 @pg_last_xact_replay_timestamp(ptr nocapture noundef writeo
 declare i64 @GetLatestXTime() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_is_in_recovery(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_is_in_recovery(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @RecoveryInProgress() #9
   %3 = zext i1 %2 to i64
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_wal_lsn_diff(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_wal_lsn_diff(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
@@ -823,7 +823,7 @@ declare i64 @DirectFunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 
 declare i64 @pg_lsn_mi(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_promote(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_promote(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %.not19 = icmp eq i64 %3, 0
@@ -966,7 +966,7 @@ declare i32 @FreeFile(ptr noundef) local_unnamed_addr #1
 declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 declare void @ResetLatch(ptr noundef) local_unnamed_addr #1
 
@@ -983,19 +983,19 @@ declare i32 @errmsg_plural(ptr noundef, ptr noundef, i64 noundef, ...) local_unn
 declare i64 @HeapTupleHeaderGetDatum(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

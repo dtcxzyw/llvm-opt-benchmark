@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [101 x i8] c"%02hhx%02hhx%02hhx%02hhx-%02hhx%02hhx-%02hhx%02hhx-%02hhx%02hhx-%02hhx%02hhx%02hhx%02hhx%02hhx%02hhx\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_uuid_generate(ptr nocapture noundef %uuid) local_unnamed_addr #0 {
+define dso_local void @qemu_uuid_generate(ptr noundef captures(none) %uuid) local_unnamed_addr #0 {
 entry:
   %tmp = alloca [4 x i32], align 16
   br label %for.body
@@ -43,10 +43,10 @@ for.end:                                          ; preds = %for.body
 declare i32 @g_random_int() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @qemu_uuid_is_null(ptr nocapture noundef readonly %uu) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @qemu_uuid_is_null(ptr noundef readonly captures(none) %uu) local_unnamed_addr #3 {
 entry:
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %uu, ptr noundef nonnull dereferenceable(16) @qemu_uuid_is_null.null_uuid, i64 16)
   %cmp.i = icmp eq i32 %bcmp.i, 0
@@ -55,7 +55,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @qemu_uuid_is_equal(ptr nocapture noundef readonly %lhv, ptr nocapture noundef readonly %rhv) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @qemu_uuid_is_equal(ptr noundef readonly captures(none) %lhv, ptr noundef readonly captures(none) %rhv) local_unnamed_addr #4 {
 entry:
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %lhv, ptr noundef nonnull dereferenceable(16) %rhv, i64 16)
   %cmp = icmp eq i32 %bcmp, 0
@@ -64,7 +64,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local void @qemu_uuid_unparse(ptr nocapture noundef readonly %uuid, ptr nocapture noundef writeonly %out) local_unnamed_addr #5 {
+define dso_local void @qemu_uuid_unparse(ptr noundef readonly captures(none) %uuid, ptr noundef writeonly captures(none) %out) local_unnamed_addr #5 {
 entry:
   %0 = load i8, ptr %uuid, align 1
   %conv = zext i8 %0 to i32
@@ -118,10 +118,10 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias ptr @qemu_uuid_unparse_strdup(ptr nocapture noundef readonly %uuid) local_unnamed_addr #0 {
+define dso_local noalias ptr @qemu_uuid_unparse_strdup(ptr noundef readonly captures(none) %uuid) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %uuid, align 1
   %conv = zext i8 %0 to i32
@@ -177,7 +177,7 @@ entry:
 declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @qemu_uuid_parse(ptr nocapture noundef readonly %str, ptr noundef %uuid) local_unnamed_addr #5 {
+define dso_local range(i32 -1, 1) i32 @qemu_uuid_parse(ptr noundef readonly captures(none) %str, ptr noundef %uuid) local_unnamed_addr #5 {
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %str) #13
   %cmp24.not.i = icmp eq i64 %call.i, 0
@@ -258,7 +258,7 @@ return:                                           ; preds = %switch.early.test.i
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
 define dso_local { i64, i64 } @qemu_uuid_bswap(i64 %uuid.coerce0, i64 %uuid.coerce1) local_unnamed_addr #7 {
@@ -284,7 +284,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local i32 @qemu_uuid_hash(ptr nocapture noundef readonly %uuid) local_unnamed_addr #8 {
+define dso_local i32 @qemu_uuid_hash(ptr noundef readonly captures(none) %uuid) local_unnamed_addr #8 {
 entry:
   br label %for.body
 
@@ -305,7 +305,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #10
@@ -314,7 +314,7 @@ declare i32 @llvm.bswap.i32(i32) #10
 declare i16 @llvm.bswap.i16(i16) #10
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

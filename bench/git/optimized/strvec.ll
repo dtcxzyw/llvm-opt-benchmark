@@ -15,17 +15,17 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @strvec_init(ptr nocapture noundef writeonly initializes((0, 24)) %array) local_unnamed_addr #0 {
+define dso_local void @strvec_init(ptr noundef writeonly captures(none) initializes((0, 24)) %array) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %array, ptr noundef nonnull align 8 dereferenceable(24) @__const.strvec_init.blank, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @strvec_push(ptr nocapture noundef %array, ptr noundef %value) local_unnamed_addr #2 {
+define dso_local ptr @strvec_push(ptr noundef captures(none) %array, ptr noundef %value) local_unnamed_addr #2 {
 entry:
   %call = tail call ptr @xstrdup(ptr noundef %value) #9
   %0 = load ptr, ptr %array, align 8
@@ -88,7 +88,7 @@ strvec_push_nodup.exit:                           ; preds = %do.body.i, %st_mult
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @strvec_pushf(ptr nocapture noundef %array, ptr noundef %fmt, ...) local_unnamed_addr #2 {
+define dso_local ptr @strvec_pushf(ptr noundef captures(none) %array, ptr noundef %fmt, ...) local_unnamed_addr #2 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %v = alloca %struct.strbuf, align 8
@@ -159,7 +159,7 @@ declare void @strbuf_vaddf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @strvec_pushl(ptr nocapture noundef %array, ...) local_unnamed_addr #2 {
+define dso_local void @strvec_pushl(ptr noundef captures(none) %array, ...) local_unnamed_addr #2 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -251,7 +251,7 @@ while.end:                                        ; preds = %vaarg.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @strvec_pushv(ptr nocapture noundef %array, ptr nocapture noundef readonly %items) local_unnamed_addr #2 {
+define dso_local void @strvec_pushv(ptr noundef captures(none) %array, ptr noundef readonly captures(none) %items) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %items, align 8
   %tobool.not3 = icmp eq ptr %0, null
@@ -323,7 +323,7 @@ for.end:                                          ; preds = %strvec_push.exit, %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @strvec_pop(ptr nocapture noundef %array) local_unnamed_addr #4 {
+define dso_local void @strvec_pop(ptr noundef captures(none) %array) local_unnamed_addr #4 {
 entry:
   %nr = getelementptr inbounds nuw i8, ptr %array, i64 8
   %0 = load i64, ptr %nr, align 8
@@ -351,10 +351,10 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @strvec_split(ptr nocapture noundef %array, ptr noundef %to_split) local_unnamed_addr #2 {
+define dso_local void @strvec_split(ptr noundef captures(none) %array, ptr noundef %to_split) local_unnamed_addr #2 {
 entry:
   br label %while.cond
 
@@ -476,7 +476,7 @@ for.end:                                          ; preds = %for.cond.loopexit, 
 declare ptr @xstrndup(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @strvec_clear(ptr nocapture noundef %array) local_unnamed_addr #2 {
+define dso_local void @strvec_clear(ptr noundef captures(none) %array) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %array, align 8
   %cmp.not = icmp eq ptr %0, @empty_strvec
@@ -514,7 +514,7 @@ if.end:                                           ; preds = %for.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @strvec_detach(ptr nocapture noundef %array) local_unnamed_addr #2 {
+define dso_local ptr @strvec_detach(ptr noundef captures(none) %array) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %array, align 8
   %cmp = icmp eq ptr %0, @empty_strvec

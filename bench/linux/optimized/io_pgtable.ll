@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [54 x i8] c"\014AMD-Vi: AMD-Vi: IOMMU pte changed since we read it\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @amd_iommu_domain_set_pgtable(ptr nocapture noundef writeonly initializes((392, 396), (400, 408)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @amd_iommu_domain_set_pgtable(ptr noundef writeonly captures(none) initializes((392, 396), (400, 408)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, -4096
   %6 = inttoptr i64 %5 to ptr
@@ -42,13 +42,13 @@ define dso_local void @amd_iommu_domain_set_pgtable(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal nonnull ptr @v1_alloc_pgtable(ptr noundef writeonly initializes((8, 24), (32, 40), (224, 256)) %0, ptr nocapture readnone %1) #0 align 16 {
+define internal nonnull ptr @v1_alloc_pgtable(ptr noundef writeonly initializes((8, 24), (32, 40), (224, 256)) %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -549755817984, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -626,7 +626,7 @@ default.unreachable:                              ; preds = %264
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @iommu_v1_unmap_pages(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture readnone %4) #2 align 16 {
+define internal i64 @iommu_v1_unmap_pages(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr readnone captures(none) %4) #2 align 16 {
   %6 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %2) #12, !srcloc !14
   %7 = shl i64 %3, %6
   %8 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2), !range !34
@@ -762,7 +762,7 @@ fetch_pte.exit.thread:                            ; preds = %15, %81, %fetch_pte
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define internal range(i64 0, -9223372036854775808) i64 @iommu_v1_iova_to_phys(ptr nocapture noundef readonly %0, i64 noundef %1) #3 align 16 {
+define internal range(i64 0, -9223372036854775808) i64 @iommu_v1_iova_to_phys(ptr noundef readonly captures(none) %0, i64 noundef %1) #3 align 16 {
   %3 = getelementptr i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp slt i32 %4, 6
@@ -879,7 +879,7 @@ fetch_pte.exit.thread:                            ; preds = %33, %.preheader.i, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @iommu_v1_read_and_clear_dirty(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4) #2 align 16 {
+define internal noundef i32 @iommu_v1_read_and_clear_dirty(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4) #2 align 16 {
   %6 = add i64 %1, -1
   %7 = add i64 %6, %2
   %8 = and i64 %3, 1
@@ -1065,22 +1065,22 @@ fetch_pte.exit:                                   ; preds = %.loopexit2.i, %59
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @v1_tlb_flush_all(ptr nocapture readnone %0) #4 align 16 {
+define internal void @v1_tlb_flush_all(ptr readnone captures(none) %0) #4 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @v1_tlb_flush_walk(i64 %0, i64 %1, i64 %2, ptr nocapture readnone %3) #4 align 16 {
+define internal void @v1_tlb_flush_walk(i64 %0, i64 %1, i64 %2, ptr readnone captures(none) %3) #4 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @v1_tlb_add_page(ptr nocapture readnone %0, i64 %1, i64 %2, ptr nocapture readnone %3) #4 align 16 {
+define internal void @v1_tlb_add_page(ptr readnone captures(none) %0, i64 %1, i64 %2, ptr readnone captures(none) %3) #4 align 16 {
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #6 section ".spinlock.text"

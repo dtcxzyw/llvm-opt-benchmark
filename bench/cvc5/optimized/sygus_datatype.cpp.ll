@@ -174,7 +174,7 @@ entry:
 declare void @_ZNK4cvc58internal5DType7getNameB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(448)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal13SygusDatatype14addConstructorENS0_12NodeTemplateILb1EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS0_8TypeNodeESaISD_EEi(ptr noundef nonnull align 8 dereferenceable(472) %this, ptr nocapture noundef readonly %op, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(24) %argTypes, i32 noundef %weight) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal13SygusDatatype14addConstructorENS0_12NodeTemplateILb1EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS0_8TypeNodeESaISD_EEi(ptr noundef nonnull align 8 dereferenceable(472) %this, ptr noundef readonly captures(none) %op, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(24) %argTypes, i32 noundef %weight) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::SygusDatatypeConstructor", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp, i8 0, i64 72, i1 false)
@@ -357,7 +357,7 @@ lpad:                                             ; preds = %if.else.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal24SygusDatatypeConstructorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1353,7 +1353,7 @@ declare void @_ZN4cvc58internal11NodeManager10operatorOfENS0_4kind6Kind_tE(ptr s
 declare void @_ZN4cvc58internal4kind12kindToStringB5cxx11ENS1_6Kind_tE(ptr sret(%"class.std::__cxx11::basic_string") align 8, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i64 -128102389400760775, 128102389400760776) i64 @_ZNK4cvc58internal13SygusDatatype18getNumConstructorsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef range(i64 -128102389400760775, 128102389400760776) i64 @_ZNK4cvc58internal13SygusDatatype18getNumConstructorsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %this) local_unnamed_addr #6 align 2 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -1366,7 +1366,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(68) ptr @_ZNK4cvc58internal13SygusDatatype14getConstructorEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %this, i32 noundef %i) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(68) ptr @_ZNK4cvc58internal13SygusDatatype14getConstructorEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %this, i32 noundef %i) local_unnamed_addr #6 align 2 {
 entry:
   %conv = zext i32 %i to i64
   %0 = load ptr, ptr %this, align 8
@@ -1375,7 +1375,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal13SygusDatatype18initializeDatatypeENS0_8TypeNodeENS0_12NodeTemplateILb1EEEbb(ptr noundef nonnull align 8 dereferenceable(472) %this, ptr nocapture noundef readonly %sygusType, ptr nocapture noundef readonly %sygusVars, i1 noundef zeroext %allowConst, i1 noundef zeroext %allowAll) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal13SygusDatatype18initializeDatatypeENS0_8TypeNodeENS0_12NodeTemplateILb1EEEbb(ptr noundef nonnull align 8 dereferenceable(472) %this, ptr noundef readonly captures(none) %sygusType, ptr noundef readonly captures(none) %sygusVars, i1 noundef zeroext %allowConst, i1 noundef zeroext %allowAll) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::TypeNode", align 8
   %agg.tmp3 = alloca %"class.cvc5::internal::NodeTemplate", align 8

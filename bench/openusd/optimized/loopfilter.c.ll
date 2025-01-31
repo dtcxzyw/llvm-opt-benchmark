@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_lpf_horizontal_4_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define hidden void @aom_lpf_horizontal_4_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = mul nsw i32 %1, -2
   %7 = sext i32 %6 to i64
   %8 = sub nsw i32 0, %1
@@ -111,7 +111,7 @@ define hidden void @aom_lpf_horizontal_4_c(ptr nocapture noundef %0, i32 noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_lpf_horizontal_4_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+define hidden void @aom_lpf_horizontal_4_dual_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
   tail call void @aom_lpf_horizontal_4_c(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @aom_lpf_horizontal_4_c(ptr noundef nonnull %9, i32 noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7)
@@ -119,7 +119,7 @@ define hidden void @aom_lpf_horizontal_4_dual_c(ptr nocapture noundef %0, i32 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_lpf_vertical_4_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define hidden void @aom_lpf_vertical_4_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
 .lver.check:
   %5 = sext i32 %1 to i64
   %ident.check.not = icmp eq i32 %1, 1
@@ -298,7 +298,7 @@ define hidden void @aom_lpf_vertical_4_c(ptr nocapture noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_lpf_vertical_4_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+define hidden void @aom_lpf_vertical_4_dual_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
   tail call void @aom_lpf_vertical_4_c(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %9 = shl nsw i32 %1, 2
   %10 = sext i32 %9 to i64
@@ -308,7 +308,7 @@ define hidden void @aom_lpf_vertical_4_dual_c(ptr nocapture noundef %0, i32 noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_lpf_horizontal_6_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define hidden void @aom_lpf_horizontal_6_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = mul nsw i32 %1, -3
   %7 = sext i32 %6 to i64
   %8 = mul nsw i32 %1, -2
@@ -398,7 +398,7 @@ define hidden void @aom_lpf_horizontal_6_c(ptr nocapture noundef %0, i32 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @filter6(i8 noundef signext %0, i8 noundef zeroext %1, i8 noundef signext %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef readonly %8) unnamed_addr #1 {
+define internal fastcc void @filter6(i8 noundef signext %0, i8 noundef zeroext %1, i8 noundef signext %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef readonly captures(none) %8) unnamed_addr #1 {
   %10 = icmp ne i8 %2, 0
   %11 = icmp ne i8 %0, 0
   %or.cond = and i1 %11, %10
@@ -516,7 +516,7 @@ define internal fastcc void @filter6(i8 noundef signext %0, i8 noundef zeroext %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_lpf_horizontal_6_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+define hidden void @aom_lpf_horizontal_6_dual_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
   tail call void @aom_lpf_horizontal_6_c(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @aom_lpf_horizontal_6_c(ptr noundef nonnull %9, i32 noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7)
@@ -524,7 +524,7 @@ define hidden void @aom_lpf_horizontal_6_dual_c(ptr nocapture noundef %0, i32 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_lpf_horizontal_8_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define hidden void @aom_lpf_horizontal_8_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = mul nsw i32 %1, -4
   %7 = sext i32 %6 to i64
   %8 = mul nsw i32 %1, -3
@@ -640,7 +640,7 @@ define hidden void @aom_lpf_horizontal_8_c(ptr nocapture noundef %0, i32 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @filter8(i8 noundef signext %0, i8 noundef zeroext %1, i8 noundef signext %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9, ptr nocapture noundef readonly %10) unnamed_addr #1 {
+define internal fastcc void @filter8(i8 noundef signext %0, i8 noundef zeroext %1, i8 noundef signext %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef captures(none) %9, ptr noundef readonly captures(none) %10) unnamed_addr #1 {
   %12 = icmp ne i8 %2, 0
   %13 = icmp ne i8 %0, 0
   %or.cond = and i1 %13, %12
@@ -785,7 +785,7 @@ define internal fastcc void @filter8(i8 noundef signext %0, i8 noundef zeroext %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_lpf_horizontal_8_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+define hidden void @aom_lpf_horizontal_8_dual_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
   tail call void @aom_lpf_horizontal_8_c(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @aom_lpf_horizontal_8_c(ptr noundef nonnull %9, i32 noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7)
@@ -793,7 +793,7 @@ define hidden void @aom_lpf_horizontal_8_dual_c(ptr nocapture noundef %0, i32 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_lpf_vertical_6_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define hidden void @aom_lpf_vertical_6_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = sext i32 %1 to i64
   br label %7
 
@@ -867,7 +867,7 @@ define hidden void @aom_lpf_vertical_6_c(ptr nocapture noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_lpf_vertical_6_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+define hidden void @aom_lpf_vertical_6_dual_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
   tail call void @aom_lpf_vertical_6_c(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %9 = shl nsw i32 %1, 2
   %10 = sext i32 %9 to i64
@@ -877,7 +877,7 @@ define hidden void @aom_lpf_vertical_6_dual_c(ptr nocapture noundef %0, i32 noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_lpf_vertical_8_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define hidden void @aom_lpf_vertical_8_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = sext i32 %1 to i64
   br label %7
 
@@ -971,7 +971,7 @@ define hidden void @aom_lpf_vertical_8_c(ptr nocapture noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_lpf_vertical_8_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+define hidden void @aom_lpf_vertical_8_dual_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
   tail call void @aom_lpf_vertical_8_c(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %9 = shl nsw i32 %1, 2
   %10 = sext i32 %9 to i64
@@ -981,13 +981,13 @@ define hidden void @aom_lpf_vertical_8_dual_c(ptr nocapture noundef %0, i32 noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_lpf_horizontal_14_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define hidden void @aom_lpf_horizontal_14_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   tail call fastcc void @mb_lpf_horizontal_edge_w(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @mb_lpf_horizontal_edge_w(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @mb_lpf_horizontal_edge_w(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = mul nsw i32 %1, -7
   %7 = sext i32 %6 to i64
   %8 = mul nsw i32 %1, -6
@@ -1158,7 +1158,7 @@ define internal fastcc void @mb_lpf_horizontal_edge_w(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_lpf_horizontal_14_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+define hidden void @aom_lpf_horizontal_14_dual_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
   tail call fastcc void @mb_lpf_horizontal_edge_w(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call fastcc void @mb_lpf_horizontal_edge_w(ptr noundef nonnull %9, i32 noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7)
@@ -1166,13 +1166,13 @@ define hidden void @aom_lpf_horizontal_14_dual_c(ptr nocapture noundef %0, i32 n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_lpf_vertical_14_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define hidden void @aom_lpf_vertical_14_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   tail call fastcc void @mb_lpf_vertical_edge_w(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @mb_lpf_vertical_edge_w(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @mb_lpf_vertical_edge_w(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = sext i32 %1 to i64
   br label %7
 
@@ -1303,7 +1303,7 @@ define internal fastcc void @mb_lpf_vertical_edge_w(ptr nocapture noundef %0, i3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_lpf_vertical_14_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+define hidden void @aom_lpf_vertical_14_dual_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
   tail call fastcc void @mb_lpf_vertical_edge_w(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %9 = shl nsw i32 %1, 2
   %10 = sext i32 %9 to i64
@@ -1313,7 +1313,7 @@ define hidden void @aom_lpf_vertical_14_dual_c(ptr nocapture noundef %0, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_lpf_horizontal_4_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden void @aom_highbd_lpf_horizontal_4_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = mul nsw i32 %1, -2
   %8 = sext i32 %7 to i64
   %9 = sub nsw i32 0, %1
@@ -1381,7 +1381,7 @@ define hidden void @aom_highbd_lpf_horizontal_4_c(ptr nocapture noundef %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @highbd_filter4(i8 noundef signext %0, i8 noundef zeroext %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc void @highbd_filter4(i8 noundef signext %0, i8 noundef zeroext %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i32 noundef %6) unnamed_addr #1 {
   %8 = add nsw i32 %6, -8
   %9 = load i16, ptr %2, align 2
   %10 = shl i32 128, %8
@@ -1571,7 +1571,7 @@ signed_char_clamp_high.exit69:                    ; preds = %signed_char_clamp_h
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_lpf_horizontal_4_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, i32 noundef %8) local_unnamed_addr #0 {
+define hidden void @aom_highbd_lpf_horizontal_4_dual_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = mul nsw i32 %1, -2
   %11 = sext i32 %10 to i64
   %12 = sub nsw i32 0, %1
@@ -1693,7 +1693,7 @@ aom_highbd_lpf_horizontal_4_c.exit16:             ; preds = %63
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_lpf_vertical_4_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden void @aom_highbd_lpf_vertical_4_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = add nsw i32 %5, -8
   %8 = sext i32 %1 to i64
   br label %9
@@ -1751,7 +1751,7 @@ define hidden void @aom_highbd_lpf_vertical_4_c(ptr nocapture noundef %0, i32 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_lpf_vertical_4_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, i32 noundef %8) local_unnamed_addr #0 {
+define hidden void @aom_highbd_lpf_vertical_4_dual_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = add nsw i32 %8, -8
   %11 = sext i32 %1 to i64
   br label %12
@@ -1863,7 +1863,7 @@ aom_highbd_lpf_vertical_4_c.exit17:               ; preds = %55
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_lpf_horizontal_8_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden void @aom_highbd_lpf_horizontal_8_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = mul nsw i32 %1, -4
   %8 = sext i32 %7 to i64
   %9 = mul nsw i32 %1, -3
@@ -1993,7 +1993,7 @@ define hidden void @aom_highbd_lpf_horizontal_8_c(ptr nocapture noundef %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @highbd_filter8(i8 noundef signext %0, i8 noundef zeroext %1, i8 noundef signext %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9, ptr nocapture noundef readonly %10, i32 noundef %11) unnamed_addr #1 {
+define internal fastcc void @highbd_filter8(i8 noundef signext %0, i8 noundef zeroext %1, i8 noundef signext %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef captures(none) %9, ptr noundef readonly captures(none) %10, i32 noundef %11) unnamed_addr #1 {
   %13 = icmp ne i8 %2, 0
   %14 = icmp ne i8 %0, 0
   %or.cond = and i1 %14, %13
@@ -2084,7 +2084,7 @@ define internal fastcc void @highbd_filter8(i8 noundef signext %0, i8 noundef ze
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_lpf_horizontal_6_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden void @aom_highbd_lpf_horizontal_6_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = mul nsw i32 %1, -3
   %8 = sext i32 %7 to i64
   %9 = mul nsw i32 %1, -2
@@ -2234,7 +2234,7 @@ highbd_filter6.exit:                              ; preds = %86, %123
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_lpf_horizontal_6_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, i32 noundef %8) local_unnamed_addr #0 {
+define hidden void @aom_highbd_lpf_horizontal_6_dual_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, i32 noundef %8) local_unnamed_addr #0 {
   tail call void @aom_highbd_lpf_horizontal_6_c(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %8)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @aom_highbd_lpf_horizontal_6_c(ptr noundef nonnull %10, i32 noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8)
@@ -2242,7 +2242,7 @@ define hidden void @aom_highbd_lpf_horizontal_6_dual_c(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_lpf_horizontal_8_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, i32 noundef %8) local_unnamed_addr #0 {
+define hidden void @aom_highbd_lpf_horizontal_8_dual_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, i32 noundef %8) local_unnamed_addr #0 {
   tail call void @aom_highbd_lpf_horizontal_8_c(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %8)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @aom_highbd_lpf_horizontal_8_c(ptr noundef nonnull %10, i32 noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8)
@@ -2250,7 +2250,7 @@ define hidden void @aom_highbd_lpf_horizontal_8_dual_c(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_lpf_vertical_6_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden void @aom_highbd_lpf_vertical_6_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = add nsw i32 %5, -8
   %sext.i37 = shl i32 65536, %7
   %8 = ashr exact i32 %sext.i37, 16
@@ -2379,7 +2379,7 @@ highbd_filter6.exit:                              ; preds = %71, %102
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_lpf_vertical_6_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, i32 noundef %8) local_unnamed_addr #0 {
+define hidden void @aom_highbd_lpf_vertical_6_dual_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, i32 noundef %8) local_unnamed_addr #0 {
   tail call void @aom_highbd_lpf_vertical_6_c(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %8)
   %10 = shl nsw i32 %1, 2
   %11 = sext i32 %10 to i64
@@ -2389,7 +2389,7 @@ define hidden void @aom_highbd_lpf_vertical_6_dual_c(ptr nocapture noundef %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_lpf_vertical_8_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden void @aom_highbd_lpf_vertical_8_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = add nsw i32 %5, -8
   %sext.i45 = shl i32 65536, %7
   %8 = ashr exact i32 %sext.i45, 16
@@ -2497,7 +2497,7 @@ define hidden void @aom_highbd_lpf_vertical_8_c(ptr nocapture noundef %0, i32 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_lpf_vertical_8_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, i32 noundef %8) local_unnamed_addr #0 {
+define hidden void @aom_highbd_lpf_vertical_8_dual_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, i32 noundef %8) local_unnamed_addr #0 {
   tail call void @aom_highbd_lpf_vertical_8_c(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %8)
   %10 = shl nsw i32 %1, 2
   %11 = sext i32 %10 to i64
@@ -2507,13 +2507,13 @@ define hidden void @aom_highbd_lpf_vertical_8_dual_c(ptr nocapture noundef %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_lpf_horizontal_14_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden void @aom_highbd_lpf_horizontal_14_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
   tail call fastcc void @highbd_mb_lpf_horizontal_edge_w(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @highbd_mb_lpf_horizontal_edge_w(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @highbd_mb_lpf_horizontal_edge_w(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = mul nsw i32 %1, -4
   %8 = sext i32 %7 to i64
   %9 = mul nsw i32 %1, -3
@@ -2703,7 +2703,7 @@ define internal fastcc void @highbd_mb_lpf_horizontal_edge_w(ptr nocapture nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_lpf_horizontal_14_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, i32 noundef %8) local_unnamed_addr #0 {
+define hidden void @aom_highbd_lpf_horizontal_14_dual_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, i32 noundef %8) local_unnamed_addr #0 {
   tail call fastcc void @highbd_mb_lpf_horizontal_edge_w(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %8)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call fastcc void @highbd_mb_lpf_horizontal_edge_w(ptr noundef nonnull %10, i32 noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8)
@@ -2711,13 +2711,13 @@ define hidden void @aom_highbd_lpf_horizontal_14_dual_c(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_lpf_vertical_14_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden void @aom_highbd_lpf_vertical_14_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
   tail call fastcc void @highbd_mb_lpf_vertical_edge_w(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @highbd_mb_lpf_vertical_edge_w(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @highbd_mb_lpf_vertical_edge_w(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = add nsw i32 %5, -8
   %sext.i61 = shl i32 65536, %7
   %8 = ashr exact i32 %sext.i61, 16
@@ -2867,7 +2867,7 @@ define internal fastcc void @highbd_mb_lpf_vertical_edge_w(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @aom_highbd_lpf_vertical_14_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, i32 noundef %8) local_unnamed_addr #0 {
+define hidden void @aom_highbd_lpf_vertical_14_dual_c(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, i32 noundef %8) local_unnamed_addr #0 {
   tail call fastcc void @highbd_mb_lpf_vertical_edge_w(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %8)
   %10 = shl nsw i32 %1, 2
   %11 = sext i32 %10 to i64
@@ -2880,7 +2880,7 @@ define hidden void @aom_highbd_lpf_vertical_14_dual_c(ptr nocapture noundef %0, 
 declare i32 @llvm.abs.i32(i32, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @filter14(i8 noundef signext %0, i8 noundef zeroext %1, i8 noundef signext %2, i8 noundef signext %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9, ptr nocapture noundef %10, ptr nocapture noundef %11, ptr nocapture noundef %12, ptr nocapture noundef %13, ptr nocapture noundef %14, ptr nocapture noundef %15, ptr nocapture noundef %16, ptr nocapture noundef readonly %17) unnamed_addr #1 {
+define internal fastcc void @filter14(i8 noundef signext %0, i8 noundef zeroext %1, i8 noundef signext %2, i8 noundef signext %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef captures(none) %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11, ptr noundef captures(none) %12, ptr noundef captures(none) %13, ptr noundef captures(none) %14, ptr noundef captures(none) %15, ptr noundef captures(none) %16, ptr noundef readonly captures(none) %17) unnamed_addr #1 {
   %19 = icmp ne i8 %3, 0
   %20 = icmp ne i8 %2, 0
   %or.cond = and i1 %20, %19
@@ -3106,7 +3106,7 @@ define internal fastcc void @filter14(i8 noundef signext %0, i8 noundef zeroext 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @highbd_filter14(i8 noundef signext %0, i8 noundef zeroext %1, i8 noundef signext %2, i8 noundef signext %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9, ptr nocapture noundef %10, ptr nocapture noundef %11, ptr nocapture noundef %12, ptr nocapture noundef %13, ptr nocapture noundef %14, ptr nocapture noundef %15, ptr nocapture noundef %16, ptr nocapture noundef readonly %17, i32 noundef %18) unnamed_addr #1 {
+define internal fastcc void @highbd_filter14(i8 noundef signext %0, i8 noundef zeroext %1, i8 noundef signext %2, i8 noundef signext %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef captures(none) %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11, ptr noundef captures(none) %12, ptr noundef captures(none) %13, ptr noundef captures(none) %14, ptr noundef captures(none) %15, ptr noundef captures(none) %16, ptr noundef readonly captures(none) %17, i32 noundef %18) unnamed_addr #1 {
   %20 = icmp ne i8 %3, 0
   %21 = icmp ne i8 %2, 0
   %or.cond = and i1 %21, %20

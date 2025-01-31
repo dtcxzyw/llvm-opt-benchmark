@@ -195,7 +195,7 @@ return:                                           ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK9grpc_core7Timeout11RatioVersusES0_(ptr nocapture noundef nonnull readonly align 2 dereferenceable(3) %this, i32 %other.coerce) local_unnamed_addr #4 align 2 {
+define noundef double @_ZNK9grpc_core7Timeout11RatioVersusES0_(ptr noundef nonnull readonly align 2 captures(none) dereferenceable(3) %this, i32 %other.coerce) local_unnamed_addr #4 align 2 {
 entry:
   %other.sroa.2.0.extract.shift = lshr i32 %other.coerce, 16
   %other.sroa.2.0.extract.trunc = trunc i32 %other.sroa.2.0.extract.shift to i8
@@ -344,7 +344,7 @@ return:                                           ; preds = %if.end, %if.then, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i64 0, 393210000001) i64 @_ZNK9grpc_core7Timeout10AsDurationEv(ptr nocapture noundef nonnull readonly align 2 dereferenceable(3) %this) local_unnamed_addr #4 align 2 {
+define range(i64 0, 393210000001) i64 @_ZNK9grpc_core7Timeout10AsDurationEv(ptr noundef nonnull readonly align 2 captures(none) dereferenceable(3) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i16, ptr %this, align 2
   %conv = zext i16 %0 to i64
@@ -416,7 +416,7 @@ return:                                           ; preds = %sw.bb30, %sw.bb26, 
 declare void @gpr_unreachable_code(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core7Timeout6EncodeEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::Slice") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 2 dereferenceable(3) %this) local_unnamed_addr #4 align 2 {
+define void @_ZNK9grpc_core7Timeout6EncodeEv(ptr noalias writeonly sret(%"class.grpc_core::Slice") align 8 captures(none) initializes((0, 32)) %agg.result, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(3) %this) local_unnamed_addr #4 align 2 {
 entry:
   %ref.tmp.i = alloca %struct.grpc_slice, align 8
   %buf = alloca [10 x i8], align 1
@@ -917,7 +917,7 @@ return:                                           ; preds = %for.inc, %if.then, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -938,10 +938,10 @@ declare i64 @llvm.smin.i64(i64, i64) #9
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [38 x i8] c"Error: The last clause was not saved.\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define ptr @Sto_ManMemoryFetch(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @Sto_ManMemoryFetch(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -56,7 +56,7 @@ define ptr @Sto_ManMemoryFetch(ptr nocapture noundef %0, i32 noundef %1) local_u
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Sto_ManMemoryStop(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @Sto_ManMemoryStop(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -85,10 +85,10 @@ define void @Sto_ManMemoryStop(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Sto_ManMemoryReport(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define i32 @Sto_ManMemoryReport(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -128,7 +128,7 @@ define noalias noundef ptr @Sto_ManAlloc() local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define void @Sto_ManFree(ptr noundef %0) local_unnamed_addr #2 {
@@ -168,7 +168,7 @@ Sto_ManMemoryStop.exit.thread:                    ; preds = %1, %Sto_ManMemorySt
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @Sto_ManAddClause(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @Sto_ManAddClause(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %4 = icmp ult ptr %1, %2
   br i1 %4, label %5, label %31
 
@@ -333,13 +333,13 @@ Sto_ManMemoryFetch.exit:                          ; preds = %44, %._crit_edge.i
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Sto_ManMarkRoots(ptr nocapture noundef initializes((4, 8)) %0) local_unnamed_addr #10 {
+define void @Sto_ManMarkRoots(ptr noundef captures(none) initializes((4, 8)) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -365,7 +365,7 @@ define void @Sto_ManMarkRoots(ptr nocapture noundef initializes((4, 8)) %0) loca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Sto_ManMarkClausesA(ptr nocapture noundef initializes((12, 16)) %0) local_unnamed_addr #10 {
+define void @Sto_ManMarkClausesA(ptr noundef captures(none) initializes((12, 16)) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -391,7 +391,7 @@ define void @Sto_ManMarkClausesA(ptr nocapture noundef initializes((12, 16)) %0)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -1073741824, 1073741824) i32 @Sto_ManChangeLastClause(ptr nocapture noundef %0) local_unnamed_addr #10 {
+define range(i32 -1073741824, 1073741824) i32 @Sto_ManChangeLastClause(ptr noundef captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %3
 
@@ -418,7 +418,7 @@ define range(i32 -1073741824, 1073741824) i32 @Sto_ManChangeLastClause(ptr nocap
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Sto_ManDumpClauses(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #7 {
+define void @Sto_ManDumpClauses(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.2)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
@@ -487,16 +487,16 @@ define void @Sto_ManDumpClauses(ptr nocapture noundef readonly %0, ptr noundef %
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @Sto_ManLoadNumber(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @Sto_ManLoadNumber(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #7 {
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.backedge, %2
@@ -555,7 +555,7 @@ define range(i32 0, 2) i32 @Sto_ManLoadNumber(ptr nocapture noundef %0, ptr noca
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fgetc(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Sto_ManLoadClauses(ptr noundef %0) local_unnamed_addr #2 {
@@ -786,19 +786,19 @@ Sto_ManFree.exit:                                 ; preds = %Sto_ManFree.exit.si
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13

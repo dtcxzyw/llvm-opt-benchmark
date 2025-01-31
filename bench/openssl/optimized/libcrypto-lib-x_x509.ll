@@ -203,7 +203,7 @@ entry:
 declare ptr @CRYPTO_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @d2i_X509_AUX(ptr noundef %a, ptr nocapture noundef %pp, i64 noundef %length) local_unnamed_addr #1 {
+define ptr @d2i_X509_AUX(ptr noundef %a, ptr noundef captures(none) %pp, i64 noundef %length) local_unnamed_addr #1 {
 entry:
   %q = alloca ptr, align 8
   %0 = load ptr, ptr %pp, align 8
@@ -418,7 +418,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_get_signature_nid(ptr nocapture noundef readonly %x) local_unnamed_addr #1 {
+define i32 @X509_get_signature_nid(ptr noundef readonly captures(none) %x) local_unnamed_addr #1 {
 entry:
   %sig_alg = getelementptr inbounds nuw i8, ptr %x, i64 136
   %0 = load ptr, ptr %sig_alg, align 8
@@ -429,7 +429,7 @@ entry:
 declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @X509_set0_distinguishing_id(ptr nocapture noundef %x, ptr noundef %d_id) local_unnamed_addr #1 {
+define void @X509_set0_distinguishing_id(ptr noundef captures(none) %x, ptr noundef %d_id) local_unnamed_addr #1 {
 entry:
   %distinguishing_id = getelementptr inbounds nuw i8, ptr %x, i64 360
   %0 = load ptr, ptr %distinguishing_id, align 8
@@ -441,7 +441,7 @@ entry:
 declare void @ASN1_OCTET_STRING_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @X509_get0_distinguishing_id(ptr nocapture noundef readonly %x) local_unnamed_addr #4 {
+define ptr @X509_get0_distinguishing_id(ptr noundef readonly captures(none) %x) local_unnamed_addr #4 {
 entry:
   %distinguishing_id = getelementptr inbounds nuw i8, ptr %x, i64 360
   %0 = load ptr, ptr %distinguishing_id, align 8
@@ -463,7 +463,7 @@ declare ptr @ASN1_BIT_STRING_it() #2
 declare ptr @X509_EXTENSION_it() #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @x509_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture noundef %exarg) #1 {
+define internal range(i32 0, 2) i32 @x509_cb(i32 noundef %operation, ptr noundef readonly captures(none) %pval, ptr readnone captures(none) %it, ptr noundef captures(none) %exarg) #1 {
 entry:
   %0 = load ptr, ptr %pval, align 8
   switch i32 %operation, label %sw.epilog [
@@ -635,7 +635,7 @@ declare i32 @CRYPTO_new_ex_data(i32 noundef, ptr noundef, ptr noundef) local_unn
 declare i32 @i2d_X509_CERT_AUX(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -32,13 +32,13 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_topo_base_comm_select(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @mca_topo_base_comm_select(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @_mca_topo_base_select(ptr noundef %0, ptr noundef null, ptr noundef %1, ptr noundef %2, i32 noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_mca_topo_base_select(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @_mca_topo_base_select(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.opal_list_t, align 8
   %8 = tail call i32 @mca_topo_base_lazy_init() #6
@@ -484,7 +484,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i87, %opal_o
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_topo_base_group_select(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @mca_topo_base_group_select(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @_mca_topo_base_select(ptr noundef null, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
   ret i32 %5
 }
@@ -498,7 +498,7 @@ declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @ompi_comm_print_cid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @fill_null_pointers(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #2 {
+define internal fastcc void @fill_null_pointers(i32 noundef %0, ptr noundef captures(none) %1) unnamed_addr #2 {
   switch i32 %0, label %93 [
     i32 256, label %3
     i32 512, label %43
@@ -692,7 +692,7 @@ define internal fastcc void @fill_null_pointers(i32 noundef %0, ptr nocapture no
 declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @mca_topo_base_cart_coords(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 

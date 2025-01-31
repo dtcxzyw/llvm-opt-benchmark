@@ -141,7 +141,7 @@ if.end7:                                          ; preds = %if.then4, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i64 0, 4294967296) i64 @_ZN6hermes2vm11testhelpers11DummyObject15_mallocSizeImplEPNS0_6GCCellE(ptr nocapture noundef readonly %cell) #1 align 2 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZN6hermes2vm11testhelpers11DummyObject15_mallocSizeImplEPNS0_6GCCellE(ptr noundef readonly captures(none) %cell) #1 align 2 {
 entry:
   %extraBytes = getelementptr inbounds nuw i8, ptr %cell, i64 84
   %0 = load i32, ptr %extraBytes, align 4
@@ -391,7 +391,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN6hermes2vm11testhelpers11DummyObject7classofEPKNS0_6GCCellE(ptr nocapture noundef readonly %cell) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes2vm11testhelpers11DummyObject7classofEPKNS0_6GCCellE(ptr noundef readonly captures(none) %cell) local_unnamed_addr #1 align 2 {
 entry:
   %bf.load.i.i = load i32, ptr %cell, align 4
   %bf.lshr.i.i.mask = and i32 %bf.load.i.i, -16777216
@@ -530,7 +530,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #4
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 declare noundef ptr @_ZN6hermes2vm6GCBase13allocWeakSlotENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(741), i32) local_unnamed_addr #2
 
@@ -545,10 +545,10 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #7
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #9

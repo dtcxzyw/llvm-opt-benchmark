@@ -36,7 +36,7 @@ $_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE
 @switch.table._ZN13ConstantTable26calculate_offsets_and_sizeEv = private unnamed_addr constant [12 x i32] [i32 4, i32 8, i32 poison, i32 poison, i32 4, i32 8, i32 8, i32 poison, i32 8, i32 8, i32 poison, i32 8], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %1) local_unnamed_addr #0 align 2 {
   %3 = load i8, ptr %0, align 8
   %4 = load i8, ptr %1, align 8
   %.not = icmp eq i8 %3, %4
@@ -262,13 +262,13 @@ define hidden noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: noreturn
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 -1, 2) i32 @_ZN13ConstantTable16qsort_comparatorEPNS_8ConstantES1_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 align 2 {
+define hidden noundef range(i32 -1, 2) i32 @_ZN13ConstantTable16qsort_comparatorEPNS_8ConstantES1_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load float, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -281,7 +281,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN13ConstantTable16qsort_comparator
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ConstantTable26calculate_offsets_and_sizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13ConstantTable26calculate_offsets_and_sizeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -389,7 +389,7 @@ _ZL13constant_sizePN13ConstantTable8ConstantE.exit: ; preds = %switch.lookup, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK13ConstantTable4emitEP17C2_MacroAssembler(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK13ConstantTable4emitEP17C2_MacroAssembler(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.RelocationHolder, align 8
   %4 = alloca %class.RelocationHolder, align 8
   %5 = load i32, ptr %0, align 8
@@ -891,7 +891,7 @@ define linkonce_odr hidden noundef ptr @_ZN17AbstractAssembler14array_constantE9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, -1) i32 @_ZNK13ConstantTable11find_offsetERNS_8ConstantE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -1) i32 @_ZNK13ConstantTable11find_offsetERNS_8ConstantE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph.i, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread
@@ -944,7 +944,7 @@ _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit: ; preds = %
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ConstantTable3addERNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13ConstantTable3addERNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -1031,7 +1031,7 @@ _ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ConstantTable3addEP16MachConstantNode9BasicType6jvalue(ptr dead_on_unwind noalias nocapture writable sret(%"class.ConstantTable::Constant") align 8 initializes((0, 2), (4, 25)) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr nocapture noundef readonly %2, i8 noundef zeroext %3, i64 %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13ConstantTable3addEP16MachConstantNode9BasicType6jvalue(ptr dead_on_unwind noalias writable sret(%"class.ConstantTable::Constant") align 8 captures(none) initializes((0, 2), (4, 25)) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef readonly captures(none) %2, i8 noundef zeroext %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1808
@@ -1154,7 +1154,7 @@ _ZN13ConstantTable3addERNS_8ConstantE.exit:       ; preds = %53, %_ZN26GrowableA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ConstantTable3addEP8Metadata(ptr dead_on_unwind noalias nocapture writable sret(%"class.ConstantTable::Constant") align 8 initializes((0, 2), (4, 25)) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13ConstantTable3addEP8Metadata(ptr dead_on_unwind noalias writable sret(%"class.ConstantTable::Constant") align 8 captures(none) initializes((0, 2), (4, 25)) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   store i8 17, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %4, align 1
@@ -1248,7 +1248,7 @@ _ZN13ConstantTable3addERNS_8ConstantE.exit:       ; preds = %27, %_ZN26GrowableA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ConstantTable3addEP16MachConstantNode9BasicTypeP13GrowableArrayI6jvalueEi(ptr dead_on_unwind noalias nonnull writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr nocapture readnone %2, i8 noundef zeroext %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13ConstantTable3addEP16MachConstantNode9BasicTypeP13GrowableArrayI6jvalueEi(ptr dead_on_unwind noalias nonnull writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr readnone captures(none) %2, i8 noundef zeroext %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
   tail call void @_ZN13ConstantTable8ConstantC2E9BasicTypeP13GrowableArrayI6jvalueEib(ptr noundef nonnull align 8 dereferenceable(25) %0, i8 noundef zeroext %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext true)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i8, ptr %7, align 8
@@ -1424,7 +1424,7 @@ _ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ConstantTable3addEP16MachConstantNode9BasicTypeP13GrowableArrayI6jvalueE(ptr dead_on_unwind noalias writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr nocapture noundef readnone %2, i8 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13ConstantTable3addEP16MachConstantNode9BasicTypeP13GrowableArrayI6jvalueE(ptr dead_on_unwind noalias writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef readnone captures(none) %2, i8 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = load i32, ptr %4, align 4
   %7 = zext i8 %3 to i64
   %8 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %7
@@ -1435,7 +1435,7 @@ define hidden void @_ZN13ConstantTable3addEP16MachConstantNode9BasicTypeP13Growa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ConstantTable3addEP16MachConstantNodeP8MachOper(ptr dead_on_unwind noalias nocapture writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13ConstantTable3addEP16MachConstantNodeP8MachOper(ptr dead_on_unwind noalias writable sret(%"class.ConstantTable::Constant") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 216
   %7 = load ptr, ptr %6, align 8
@@ -1530,7 +1530,7 @@ define hidden void @_ZN13ConstantTable3addEP16MachConstantNodeP8MachOper(ptr dea
 declare noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ConstantTable14add_jump_tableEP16MachConstantNode(ptr dead_on_unwind noalias nocapture writable sret(%"class.ConstantTable::Constant") align 8 initializes((0, 2), (4, 25)) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13ConstantTable14add_jump_tableEP16MachConstantNode(ptr dead_on_unwind noalias writable sret(%"class.ConstantTable::Constant") align 8 captures(none) initializes((0, 2), (4, 25)) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
 _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i:
   %3 = ptrtoint ptr %2 to i64
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1585,7 +1585,7 @@ _ZN13ConstantTable3addERNS_8ConstantE.exit:       ; preds = %_ZNK17GrowableArray
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK13ConstantTable15fill_jump_tableEP17C2_MacroAssemblerP16MachConstantNode13GrowableArrayIP5LabelE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK13ConstantTable15fill_jump_tableEP17C2_MacroAssemblerP16MachConstantNode13GrowableArrayIP5LabelE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -1679,7 +1679,7 @@ declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFail
 declare noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
@@ -1788,7 +1788,7 @@ declare void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef) local
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {

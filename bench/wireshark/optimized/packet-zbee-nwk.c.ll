@@ -1985,7 +1985,7 @@ define internal i32 @dissect_zbip_beacon(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_ie(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal i32 @dissect_zbee_ie(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store i32 0, ptr %6, align 4
@@ -2099,7 +2099,7 @@ define internal i32 @dissect_zbee_ie(ptr noundef %0, ptr noundef %1, ptr noundef
 declare i32 @address_type_dissector_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @zbee_nwk_address_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 {
+define internal i32 @zbee_nwk_address_to_str(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.val = load i8, ptr %5, align 1
@@ -2134,7 +2134,7 @@ define internal i32 @zbee_nwk_address_to_str(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @zbee_nwk_address_str_len(ptr nocapture readnone %0) #3 {
+define internal noundef i32 @zbee_nwk_address_str_len(ptr readnone captures(none) %0) #3 {
   ret i32 10
 }
 
@@ -2150,7 +2150,7 @@ declare i32 @register_tap(ptr noundef) local_unnamed_addr #2
 declare void @register_conversation_table(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @zbee_nwk_conversation_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 noundef %4) #1 {
+define internal noundef i32 @zbee_nwk_conversation_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 160
@@ -2166,7 +2166,7 @@ define internal noundef i32 @zbee_nwk_conversation_packet(ptr noundef initialize
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @zbee_nwk_endpoint_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 noundef %4) #1 {
+define internal noundef i32 @zbee_nwk_endpoint_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 160
@@ -2186,7 +2186,7 @@ define internal noundef i32 @zbee_nwk_endpoint_packet(ptr noundef initializes((2
 declare void @register_conversation_filter(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @zbee_nwk_filter_valid(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 {
+define internal i32 @zbee_nwk_filter_valid(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @proto_is_frame_protocol(ptr noundef %4, ptr noundef nonnull @.str.228) #8
@@ -2194,7 +2194,7 @@ define internal i32 @zbee_nwk_filter_valid(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @zbee_nwk_build_filter(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal noalias ptr @zbee_nwk_build_filter(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -2360,7 +2360,7 @@ declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -2457,12 +2457,12 @@ declare ptr @proto_tree_add_item_ret_int(ptr noundef, i32 noundef, ptr noundef, 
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare void @add_conversation_table_data(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @zbee_nwk_conv_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #6 {
+define internal noundef nonnull ptr @zbee_nwk_conv_get_filter_type(ptr noundef readonly captures(none) %0, i32 noundef %1) #6 {
   switch i32 %1, label %18 [
     i32 0, label %3
     i32 1, label %8
@@ -2501,7 +2501,7 @@ define internal noundef nonnull ptr @zbee_nwk_conv_get_filter_type(ptr nocapture
 declare void @add_endpoint_table_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @zbee_nwk_endpoint_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #6 {
+define internal noundef nonnull ptr @zbee_nwk_endpoint_get_filter_type(ptr noundef readonly captures(none) %0, i32 noundef %1) #6 {
   %3 = icmp eq i32 %1, 2
   br i1 %3, label %4, label %9
 
@@ -2563,10 +2563,10 @@ declare void @g_slist_free_full(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

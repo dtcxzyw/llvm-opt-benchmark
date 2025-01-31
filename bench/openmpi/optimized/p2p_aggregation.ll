@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_mpi_byte = external global %struct.ompi_predefined_datatype_t, align 1
 
 ; Function Attrs: nounwind uwtable
-define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr noundef initializes((0, 4)) %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
+define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr noundef initializes((0, 4)) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca %struct.ompi_status_public_t, align 8
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -813,7 +813,7 @@ declare void @ADIOI_Free_fn(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare i32 @PMPI_Barrier(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr noundef initializes((0, 4)) %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
+define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr noundef initializes((0, 4)) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca %struct.ompi_status_public_t, align 8
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -1477,7 +1477,7 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
 declare i64 @llvm.smin.i64(i64, i64) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -173,7 +173,7 @@ _ZN29btSphereBoxCollisionAlgorithmD2Ev.exit:      ; preds = %entry, %if.then.i, 
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN29btSphereBoxCollisionAlgorithm16processCollisionEPK24btCollisionObjectWrapperS2_RK16btDispatcherInfoP16btManifoldResult(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this, ptr nocapture noundef readonly %body0Wrap, ptr nocapture noundef readonly %body1Wrap, ptr nocapture nonnull readnone align 8 %dispatchInfo, ptr noundef %resultOut) unnamed_addr #0 align 2 {
+define dso_local void @_ZN29btSphereBoxCollisionAlgorithm16processCollisionEPK24btCollisionObjectWrapperS2_RK16btDispatcherInfoP16btManifoldResult(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %this, ptr noundef readonly captures(none) %body0Wrap, ptr noundef readonly captures(none) %body1Wrap, ptr nonnull readnone align 8 captures(none) %dispatchInfo, ptr noundef %resultOut) unnamed_addr #0 align 2 {
 entry:
   %pOnBox = alloca %class.btVector3, align 4
   %normalOnSurfaceB = alloca %class.btVector3, align 4
@@ -260,12 +260,12 @@ if.end25:                                         ; preds = %if.end.i, %if.then2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare noundef float @_ZNK20btPersistentManifold27getContactBreakingThresholdEv(ptr noundef nonnull align 8 dereferenceable(880)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN29btSphereBoxCollisionAlgorithm17getSphereDistanceEPK24btCollisionObjectWrapperR9btVector3S4_RfRKS3_ff(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %boxObjWrap, ptr nocapture noundef nonnull align 4 dereferenceable(16) %pointOnBox, ptr nocapture noundef nonnull align 4 dereferenceable(16) initializes((0, 16)) %normal, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %penetrationDepth, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %sphereCenter, float noundef %fRadius, float noundef %maxContactDistance) local_unnamed_addr #8 align 2 {
+define dso_local noundef zeroext i1 @_ZN29btSphereBoxCollisionAlgorithm17getSphereDistanceEPK24btCollisionObjectWrapperR9btVector3S4_RfRKS3_ff(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %boxObjWrap, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %pointOnBox, ptr noundef nonnull align 4 captures(none) dereferenceable(16) initializes((0, 16)) %normal, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %penetrationDepth, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %sphereCenter, float noundef %fRadius, float noundef %maxContactDistance) local_unnamed_addr #8 align 2 {
 entry:
   %m_shape.i = getelementptr inbounds nuw i8, ptr %boxObjWrap, i64 8
   %0 = load ptr, ptr %m_shape.i, align 8
@@ -571,13 +571,13 @@ return:                                           ; preds = %entry, %if.end39
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef float @_ZN29btSphereBoxCollisionAlgorithm21calculateTimeOfImpactEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %col0, ptr nocapture readnone %col1, ptr nocapture nonnull readnone align 8 %dispatchInfo, ptr nocapture readnone %resultOut) unnamed_addr #9 align 2 {
+define dso_local noundef float @_ZN29btSphereBoxCollisionAlgorithm21calculateTimeOfImpactEP17btCollisionObjectS1_RK16btDispatcherInfoP16btManifoldResult(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %col0, ptr readnone captures(none) %col1, ptr nonnull readnone align 8 captures(none) %dispatchInfo, ptr readnone captures(none) %resultOut) unnamed_addr #9 align 2 {
 entry:
   ret float 1.000000e+00
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef float @_ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationERK9btVector3S2_RS0_S3_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(33) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %boxHalfExtent, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %sphereRelPos, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 4)) %closestPoint, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %normal) local_unnamed_addr #10 align 2 {
+define dso_local noundef float @_ZN29btSphereBoxCollisionAlgorithm20getSpherePenetrationERK9btVector3S2_RS0_S3_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(33) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %boxHalfExtent, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %sphereRelPos, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 4)) %closestPoint, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %normal) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load float, ptr %boxHalfExtent, align 4
   %1 = load float, ptr %sphereRelPos, align 4

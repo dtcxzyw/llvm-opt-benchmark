@@ -62,7 +62,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.28 = private unnamed_addr constant [10 x i8] c"IntelCore\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 23) i32 @get_procs(ptr nocapture noundef writeonly initializes((0, 2)) %0) local_unnamed_addr #0 {
+define range(i32 0, 23) i32 @get_procs(ptr noundef writeonly captures(none) initializes((0, 2)) %0) local_unnamed_addr #0 {
   store i16 1, ptr %0, align 2
   %2 = tail call i64 @sysconf(i32 noundef 84) #11
   %3 = trunc i64 %2 to i32
@@ -327,7 +327,7 @@ _remove_ecores.exit:                              ; preds = %53, %56, %.loopexit
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @get_log_level() local_unnamed_addr #2
 
@@ -346,7 +346,7 @@ declare i32 @hwloc_topology_set_flags(ptr noundef, i64 noundef) local_unnamed_ad
 declare i32 @hwloc_topology_set_type_filter(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @xcpuinfo_hwloc_topo_get(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr noundef writeonly %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @xcpuinfo_hwloc_topo_get(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca [3 x i32], align 4
   %11 = alloca [3 x i32], align 4
@@ -986,7 +986,7 @@ declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noun
 declare ptr @hwloc_get_obj_by_depth(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @_core_child_count(ptr nocapture noundef readonly %0) unnamed_addr #6 {
+define internal fastcc i32 @_core_child_count(ptr noundef readonly captures(none) %0) unnamed_addr #6 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 2
   br i1 %3, label %.loopexit, label %.preheader
@@ -1085,7 +1085,7 @@ define noundef i32 @xcpuinfo_fini() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @xcpuinfo_abs_to_mac(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @xcpuinfo_abs_to_mac(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @xcpuinfo_abs_to_mac.total_cores, align 4
@@ -1233,7 +1233,7 @@ declare i32 @bit_unfmt(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @bit_fmt(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @xcpuinfo_mac_to_abs(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @xcpuinfo_mac_to_abs(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1462,7 +1462,7 @@ thread-pre-split.thread:                          ; preds = %32, %thread-pre-spl
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @xcpuinfo_abs_to_map(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef initializes((0, 2)) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @xcpuinfo_abs_to_map(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef captures(none) initializes((0, 2)) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i16, ptr @block_map_size, align 2
   store i16 %5, ptr %2, align 2
@@ -1620,13 +1620,13 @@ declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
 declare ptr @__ctype_b_loc() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #10

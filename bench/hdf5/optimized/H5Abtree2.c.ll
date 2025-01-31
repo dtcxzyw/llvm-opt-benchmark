@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [28 x i8] c"%*s%-*s {%016lx, %02x, %u}\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5A__dense_btree2_name_store(ptr nocapture noundef writeonly initializes((0, 9), (12, 20)) %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @H5A__dense_btree2_name_store(ptr noundef writeonly captures(none) initializes((0, 9), (12, 20)) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %0, align 8
@@ -47,7 +47,7 @@ define internal noundef i32 @H5A__dense_btree2_name_store(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5A__dense_btree2_name_compare(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #1 {
+define internal range(i32 -1, 1) i32 @H5A__dense_btree2_name_compare(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #1 {
   %4 = alloca %struct.H5A_fh_ud_cmp_t, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
@@ -115,7 +115,7 @@ define internal range(i32 -1, 1) i32 @H5A__dense_btree2_name_compare(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5A__dense_btree2_name_encode(ptr nocapture noundef writeonly initializes((0, 17)) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @H5A__dense_btree2_name_encode(ptr noundef writeonly captures(none) initializes((0, 17)) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %0, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -166,7 +166,7 @@ define internal noundef i32 @H5A__dense_btree2_name_encode(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5A__dense_btree2_name_decode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 9), (12, 20)) %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @H5A__dense_btree2_name_decode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 9), (12, 20)) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i64, ptr %0, align 1
   store i64 %4, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -223,7 +223,7 @@ define internal noundef i32 @H5A__dense_btree2_name_decode(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @H5A__dense_btree2_name_debug(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #2 {
+define internal noundef i32 @H5A__dense_btree2_name_debug(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #2 {
   %6 = load i64, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i8, ptr %7, align 8
@@ -237,7 +237,7 @@ define internal noundef i32 @H5A__dense_btree2_name_debug(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5A__dense_btree2_corder_store(ptr nocapture noundef writeonly initializes((0, 9), (12, 16)) %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @H5A__dense_btree2_corder_store(ptr noundef writeonly captures(none) initializes((0, 9), (12, 16)) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %0, align 8
@@ -253,7 +253,7 @@ define internal noundef i32 @H5A__dense_btree2_corder_store(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5A__dense_btree2_corder_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
+define internal noundef i32 @H5A__dense_btree2_corder_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -264,7 +264,7 @@ define internal noundef i32 @H5A__dense_btree2_corder_compare(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5A__dense_btree2_corder_encode(ptr nocapture noundef writeonly initializes((0, 13)) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @H5A__dense_btree2_corder_encode(ptr noundef writeonly captures(none) initializes((0, 13)) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %0, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -295,7 +295,7 @@ define internal noundef i32 @H5A__dense_btree2_corder_encode(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5A__dense_btree2_corder_decode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 9), (12, 16)) %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @H5A__dense_btree2_corder_decode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 9), (12, 16)) %1, ptr readnone captures(none) %2) #0 {
   %4 = load i64, ptr %0, align 1
   store i64 %4, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -329,7 +329,7 @@ define internal noundef i32 @H5A__dense_btree2_corder_decode(ptr nocapture nound
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @H5A__dense_btree2_corder_debug(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #2 {
+define internal noundef i32 @H5A__dense_btree2_corder_debug(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #2 {
   %6 = load i64, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i8, ptr %7, align 8
@@ -343,7 +343,7 @@ define internal noundef i32 @H5A__dense_btree2_corder_debug(ptr nocapture nounde
 declare i32 @H5HF_op(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5A__dense_fh_name_cmp(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2) #1 {
+define internal range(i32 -1, 1) i32 @H5A__dense_fh_name_cmp(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2) #1 {
   %4 = alloca i8, align 1
   store i8 0, ptr %4, align 1
   %5 = load ptr, ptr %2, align 8
@@ -432,14 +432,14 @@ declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef
 declare ptr @H5O_msg_decode(ptr noundef, ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @H5SM_reconstitute(ptr noundef, ptr noundef, i32 noundef, i64) local_unnamed_addr #3
 
 declare ptr @H5O_msg_free(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i32(i32, i32) #6

@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.set_queue_vector = private unnamed_addr constant [17 x i8] c"set_queue_vector\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @qvirtio_pci_init_virtio_1(ptr nocapture noundef %dev) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qvirtio_pci_init_virtio_1(ptr noundef captures(none) %dev) local_unnamed_addr #0 {
 entry:
   %pdev.i = getelementptr inbounds nuw i8, ptr %dev, i64 72
   %0 = load ptr, ptr %pdev.i, align 8
@@ -237,7 +237,7 @@ declare zeroext i8 @qpci_find_capability(ptr noundef, i8 noundef zeroext, i8 nou
 declare zeroext i8 @qpci_config_readb(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i8 @config_readb(ptr nocapture noundef readonly %d, i64 noundef %addr) #0 {
+define internal zeroext i8 @config_readb(ptr noundef readonly captures(none) %d, i64 noundef %addr) #0 {
 entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
@@ -254,7 +254,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i16 @config_readw(ptr nocapture noundef readonly %d, i64 noundef %addr) #0 {
+define internal zeroext i16 @config_readw(ptr noundef readonly captures(none) %d, i64 noundef %addr) #0 {
 entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
@@ -271,7 +271,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @config_readl(ptr nocapture noundef readonly %d, i64 noundef %addr) #0 {
+define internal i32 @config_readl(ptr noundef readonly captures(none) %d, i64 noundef %addr) #0 {
 entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
@@ -288,7 +288,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @config_readq(ptr nocapture noundef readonly %d, i64 noundef %addr) #0 {
+define internal i64 @config_readq(ptr noundef readonly captures(none) %d, i64 noundef %addr) #0 {
 entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
@@ -305,7 +305,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @get_features(ptr nocapture noundef readonly %d) #0 {
+define internal i64 @get_features(ptr noundef readonly captures(none) %d) #0 {
 entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
@@ -345,7 +345,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_features(ptr nocapture noundef readonly %d, i64 noundef %features) #0 {
+define internal void @set_features(ptr noundef readonly captures(none) %d, i64 noundef %features) #0 {
 entry:
   %and = and i64 %features, 4294967296
   %cmp.not = icmp eq i64 %and, 0
@@ -395,7 +395,7 @@ do.end:                                           ; preds = %if.else, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @get_guest_features(ptr nocapture noundef readonly %d) #0 {
+define internal i64 @get_guest_features(ptr noundef readonly captures(none) %d) #0 {
 entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
@@ -437,7 +437,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i8 @get_status(ptr nocapture noundef readonly %d) #0 {
+define internal zeroext i8 @get_status(ptr noundef readonly captures(none) %d) #0 {
 entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
@@ -454,7 +454,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_status(ptr nocapture noundef readonly %d, i8 noundef zeroext %status) #0 {
+define internal void @set_status(ptr noundef readonly captures(none) %d, i8 noundef zeroext %status) #0 {
 entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
@@ -471,7 +471,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @get_queue_isr_status(ptr nocapture noundef readonly %d, ptr nocapture noundef readonly %vq) #0 {
+define internal zeroext i1 @get_queue_isr_status(ptr noundef readonly captures(none) %d, ptr noundef readonly captures(none) %vq) #0 {
 entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
@@ -531,7 +531,7 @@ return:                                           ; preds = %if.then15.i, %if.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @wait_config_isr_status(ptr nocapture noundef readonly %d, i64 noundef %timeout_us) #0 {
+define internal void @wait_config_isr_status(ptr noundef readonly captures(none) %d, i64 noundef %timeout_us) #0 {
 entry:
   %call = tail call i64 @g_get_monotonic_time() #3
   %call24 = tail call i64 @g_get_monotonic_time() #3
@@ -615,7 +615,7 @@ do.end5:                                          ; preds = %if.then5.i.i, %if.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @queue_select(ptr nocapture noundef readonly %d, i16 noundef zeroext %index) #0 {
+define internal void @queue_select(ptr noundef readonly captures(none) %d, i16 noundef zeroext %index) #0 {
 entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
@@ -632,7 +632,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i16 @get_queue_size(ptr nocapture noundef readonly %d) #0 {
+define internal zeroext i16 @get_queue_size(ptr noundef readonly captures(none) %d) #0 {
 entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
@@ -649,7 +649,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_queue_address(ptr nocapture noundef readonly %d, ptr nocapture noundef readonly %vq) #0 {
+define internal void @set_queue_address(ptr noundef readonly captures(none) %d, ptr noundef readonly captures(none) %vq) #0 {
 entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
@@ -756,7 +756,7 @@ entry:
 declare void @qvirtio_pci_virtqueue_cleanup_common(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtqueue_kick(ptr nocapture noundef readonly %d, ptr nocapture noundef readonly %vq) #0 {
+define internal void @virtqueue_kick(ptr noundef readonly captures(none) %d, ptr noundef readonly captures(none) %vq) #0 {
 entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
@@ -804,7 +804,7 @@ declare void @qpci_io_writew(ptr noundef, i64, i8, i64 noundef, i16 noundef zero
 declare ptr @qvirtio_pci_virtqueue_setup_common(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_config_vector(ptr nocapture noundef readonly %d, i16 noundef zeroext %entry1) #0 {
+define internal void @set_config_vector(ptr noundef readonly captures(none) %d, i16 noundef zeroext %entry1) #0 {
 entry:
   %pdev = getelementptr inbounds nuw i8, ptr %d, i64 72
   %0 = load ptr, ptr %pdev, align 8
@@ -836,7 +836,7 @@ do.end:                                           ; preds = %if.else, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_queue_vector(ptr nocapture noundef readonly %d, i16 noundef zeroext %vq_idx, i16 noundef zeroext %entry1) #0 {
+define internal void @set_queue_vector(ptr noundef readonly captures(none) %d, i16 noundef zeroext %vq_idx, i16 noundef zeroext %entry1) #0 {
 entry:
   %pdev.i = getelementptr i8, ptr %d, i64 72
   %0 = load ptr, ptr %pdev.i, align 8

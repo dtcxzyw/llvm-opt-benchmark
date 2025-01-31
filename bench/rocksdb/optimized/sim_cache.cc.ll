@@ -191,7 +191,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11NewSimCacheESt10shared_ptrINS_5CacheEEmi(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef readonly %cache, i64 noundef %sim_capacity, i32 noundef %num_shard_bits) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11NewSimCacheESt10shared_ptrINS_5CacheEEmi(ptr noalias writeonly sret(%"class.std::shared_ptr") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %cache, i64 noundef %sim_capacity, i32 noundef %num_shard_bits) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %co = alloca %"struct.rocksdb::LRUCacheOptions", align 8
   %agg.tmp = alloca %"class.std::shared_ptr.0", align 8
@@ -422,7 +422,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11NewSimCacheESt10shared_ptrINS_5CacheEES2_i(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef readonly %sim_cache, ptr nocapture noundef readonly %cache, i32 noundef %num_shard_bits) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11NewSimCacheESt10shared_ptrINS_5CacheEES2_i(ptr noalias writeonly sret(%"class.std::shared_ptr") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %sim_cache, ptr noundef readonly captures(none) %cache, i32 noundef %num_shard_bits) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i.i.i.i.i = alloca %"class.std::shared_ptr.0", align 8
   %agg.tmp3.i.i.i.i.i.i.i = alloca %"class.std::shared_ptr.0", align 8
@@ -1019,7 +1019,7 @@ declare void @_ZNK7rocksdb15LRUCacheOptions15MakeSharedCacheEv(ptr sret(%"class.
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_112SimCacheImplESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb12_GLOBAL__N_112SimCacheImplESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret void
 }
@@ -1212,7 +1212,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZNK7rocksdb12_GLOBAL__N_112SimCacheImpl4NameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define internal noundef nonnull ptr @_ZNK7rocksdb12_GLOBAL__N_112SimCacheImpl4NameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret ptr @.str.2
 }
@@ -1570,7 +1570,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl3RefEPNS_5Cache6HandleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, ptr noundef %handle) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl3RefEPNS_5Cache6HandleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, ptr noundef %handle) unnamed_addr #2 align 2 {
 entry:
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %target_, align 8
@@ -1582,7 +1582,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl7ReleaseEPNS_5Cache6HandleEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, ptr noundef %handle, i1 noundef zeroext %erase_if_last_ref) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl7ReleaseEPNS_5Cache6HandleEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, ptr noundef %handle, i1 noundef zeroext %erase_if_last_ref) unnamed_addr #2 align 2 {
 entry:
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %target_, align 8
@@ -1594,7 +1594,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl5ValueEPNS_5Cache6HandleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, ptr noundef %handle) unnamed_addr #2 align 2 {
+define internal noundef ptr @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl5ValueEPNS_5Cache6HandleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, ptr noundef %handle) unnamed_addr #2 align 2 {
 entry:
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %target_, align 8
@@ -1606,7 +1606,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl5EraseERKNS_5SliceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(16) %key) unnamed_addr #2 align 2 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl5EraseERKNS_5SliceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(16) %key) unnamed_addr #2 align 2 {
 entry:
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %target_, align 8
@@ -1624,7 +1624,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl5NewIdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) unnamed_addr #2 align 2 {
+define internal noundef i64 @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl5NewIdEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this) unnamed_addr #2 align 2 {
 entry:
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %target_, align 8
@@ -1636,7 +1636,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl11SetCapacityEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, i64 noundef %capacity) unnamed_addr #2 align 2 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl11SetCapacityEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, i64 noundef %capacity) unnamed_addr #2 align 2 {
 entry:
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %target_, align 8
@@ -1648,7 +1648,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl22SetStrictCapacityLimitEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, i1 noundef zeroext %strict_capacity_limit) unnamed_addr #2 align 2 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl22SetStrictCapacityLimitEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, i1 noundef zeroext %strict_capacity_limit) unnamed_addr #2 align 2 {
 entry:
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %target_, align 8
@@ -1660,7 +1660,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK7rocksdb12_GLOBAL__N_112SimCacheImpl22HasStrictCapacityLimitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZNK7rocksdb12_GLOBAL__N_112SimCacheImpl22HasStrictCapacityLimitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this) unnamed_addr #2 align 2 {
 entry:
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %target_, align 8
@@ -1672,7 +1672,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZNK7rocksdb12_GLOBAL__N_112SimCacheImpl11GetCapacityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) unnamed_addr #2 align 2 {
+define internal noundef i64 @_ZNK7rocksdb12_GLOBAL__N_112SimCacheImpl11GetCapacityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this) unnamed_addr #2 align 2 {
 entry:
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %target_, align 8
@@ -1684,7 +1684,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZNK7rocksdb12_GLOBAL__N_112SimCacheImpl8GetUsageEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) unnamed_addr #2 align 2 {
+define internal noundef i64 @_ZNK7rocksdb12_GLOBAL__N_112SimCacheImpl8GetUsageEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this) unnamed_addr #2 align 2 {
 entry:
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %target_, align 8
@@ -1720,7 +1720,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZNK7rocksdb12_GLOBAL__N_112SimCacheImpl8GetUsageEPNS_5Cache6HandleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, ptr noundef %handle) unnamed_addr #2 align 2 {
+define internal noundef i64 @_ZNK7rocksdb12_GLOBAL__N_112SimCacheImpl8GetUsageEPNS_5Cache6HandleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, ptr noundef %handle) unnamed_addr #2 align 2 {
 entry:
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %target_, align 8
@@ -1732,7 +1732,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZNK7rocksdb12_GLOBAL__N_112SimCacheImpl14GetPinnedUsageEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) unnamed_addr #2 align 2 {
+define internal noundef i64 @_ZNK7rocksdb12_GLOBAL__N_112SimCacheImpl14GetPinnedUsageEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this) unnamed_addr #2 align 2 {
 entry:
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %target_, align 8
@@ -1744,7 +1744,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZNK7rocksdb12_GLOBAL__N_112SimCacheImpl9GetChargeEPNS_5Cache6HandleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, ptr noundef %handle) unnamed_addr #2 align 2 {
+define internal noundef i64 @_ZNK7rocksdb12_GLOBAL__N_112SimCacheImpl9GetChargeEPNS_5Cache6HandleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, ptr noundef %handle) unnamed_addr #2 align 2 {
 entry:
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %target_, align 8
@@ -1756,7 +1756,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZNK7rocksdb12_GLOBAL__N_112SimCacheImpl18GetCacheItemHelperEPNS_5Cache6HandleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, ptr noundef %handle) unnamed_addr #2 align 2 {
+define internal noundef ptr @_ZNK7rocksdb12_GLOBAL__N_112SimCacheImpl18GetCacheItemHelperEPNS_5Cache6HandleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, ptr noundef %handle) unnamed_addr #2 align 2 {
 entry:
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %target_, align 8
@@ -1794,7 +1794,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl10DisownDataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) unnamed_addr #2 align 2 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl10DisownDataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this) unnamed_addr #2 align 2 {
 entry:
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %target_, align 8
@@ -1812,7 +1812,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl17ApplyToAllEntriesERKSt8functionIFvRKNS_5SliceEPvmPKNS_5Cache15CacheItemHelperEEERKNS7_24ApplyToAllEntriesOptionsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, ptr noundef nonnull align 1 %callback, ptr noundef nonnull align 8 dereferenceable(8) %opts) unnamed_addr #2 align 2 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl17ApplyToAllEntriesERKSt8functionIFvRKNS_5SliceEPvmPKNS_5Cache15CacheItemHelperEEERKNS7_24ApplyToAllEntriesOptionsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, ptr noundef nonnull align 1 %callback, ptr noundef nonnull align 8 dereferenceable(8) %opts) unnamed_addr #2 align 2 {
 entry:
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %target_, align 8
@@ -1824,7 +1824,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl17EraseUnRefEntriesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) unnamed_addr #2 align 2 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl17EraseUnRefEntriesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this) unnamed_addr #2 align 2 {
 entry:
   %target_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %target_, align 8
@@ -1842,7 +1842,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK7rocksdb12_GLOBAL__N_112SimCacheImpl19GetPrintableOptionsB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK7rocksdb12_GLOBAL__N_112SimCacheImpl19GetPrintableOptionsB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1991,7 +1991,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZNK7rocksdb12_GLOBAL__N_112SimCacheImpl14GetSimCapacityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) unnamed_addr #2 align 2 {
+define internal noundef i64 @_ZNK7rocksdb12_GLOBAL__N_112SimCacheImpl14GetSimCapacityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this) unnamed_addr #2 align 2 {
 entry:
   %key_only_cache_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %key_only_cache_, align 8
@@ -2003,7 +2003,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZNK7rocksdb12_GLOBAL__N_112SimCacheImpl11GetSimUsageEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) unnamed_addr #2 align 2 {
+define internal noundef i64 @_ZNK7rocksdb12_GLOBAL__N_112SimCacheImpl11GetSimUsageEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this) unnamed_addr #2 align 2 {
 entry:
   %key_only_cache_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %key_only_cache_, align 8
@@ -2015,7 +2015,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl14SetSimCapacityEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, i64 noundef %capacity) unnamed_addr #2 align 2 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl14SetSimCapacityEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, i64 noundef %capacity) unnamed_addr #2 align 2 {
 entry:
   %key_only_cache_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %key_only_cache_, align 8
@@ -2027,7 +2027,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i64 @_ZNK7rocksdb12_GLOBAL__N_112SimCacheImpl16get_miss_counterEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) unnamed_addr #10 align 2 {
+define internal noundef i64 @_ZNK7rocksdb12_GLOBAL__N_112SimCacheImpl16get_miss_counterEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this) unnamed_addr #10 align 2 {
 entry:
   %miss_times_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load atomic i64, ptr %miss_times_ monotonic, align 8
@@ -2035,7 +2035,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i64 @_ZNK7rocksdb12_GLOBAL__N_112SimCacheImpl15get_hit_counterEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) unnamed_addr #10 align 2 {
+define internal noundef i64 @_ZNK7rocksdb12_GLOBAL__N_112SimCacheImpl15get_hit_counterEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this) unnamed_addr #10 align 2 {
 entry:
   %hit_times_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load atomic i64, ptr %hit_times_ monotonic, align 8
@@ -2043,7 +2043,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl13reset_counterEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #2 align 2 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl13reset_counterEv(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %this) unnamed_addr #2 align 2 {
 entry:
   %miss_times_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   store atomic i64 0, ptr %miss_times_ monotonic, align 8
@@ -2901,7 +2901,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #12
@@ -3854,10 +3854,10 @@ entry:
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { nofree nounwind }

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden void @DES_ede3_cfb64_encrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i64 noundef %length, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3, ptr nocapture noundef %ivec, ptr nocapture noundef %num, i32 noundef %enc) local_unnamed_addr #0 {
+define hidden void @DES_ede3_cfb64_encrypt(ptr noundef readonly captures(none) %in, ptr noundef writeonly captures(none) %out, i64 noundef %length, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3, ptr noundef captures(none) %ivec, ptr noundef captures(none) %num, i32 noundef %enc) local_unnamed_addr #0 {
 entry:
   %ti = alloca [2 x i32], align 4
   %0 = load i32, ptr %num, align 4
@@ -161,7 +161,7 @@ if.end160:                                        ; preds = %if.end, %if.end146,
 declare void @DES_encrypt3(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @DES_ede3_cfb_encrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i32 noundef %numbits, i64 noundef %length, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3, ptr nocapture noundef %ivec, i32 noundef %enc) local_unnamed_addr #0 {
+define hidden void @DES_ede3_cfb_encrypt(ptr noundef readonly captures(none) %in, ptr noundef writeonly captures(none) %out, i32 noundef %numbits, i64 noundef %length, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3, ptr noundef captures(none) %ivec, i32 noundef %enc) local_unnamed_addr #0 {
 entry:
   %ti = alloca [2 x i32], align 4
   %ovec = alloca [16 x i8], align 16
@@ -837,7 +837,7 @@ return:                                           ; preds = %entry, %if.end474
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

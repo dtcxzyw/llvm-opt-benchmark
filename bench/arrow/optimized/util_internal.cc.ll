@@ -66,7 +66,7 @@ $_ZTVSt18bad_variant_access = comdat any
 @.str.2 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute8internal12GetExecValueERKNS_5DatumE(ptr noalias sret(%"struct.arrow::compute::ExecValue") align 8 initializes((0, 136)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %value) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute8internal12GetExecValueERKNS_5DatumE(ptr noalias sret(%"struct.arrow::compute::ExecValue") align 8 initializes((0, 136)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %value) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %null_count.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %agg.result, i8 0, i64 16, i1 false)
@@ -146,7 +146,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZNSt6vectorIN5arro
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN5arrow7compute8internal12GetTrueCountERKNS_9ArraySpanE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %mask) local_unnamed_addr #0 {
+define noundef i64 @_ZN5arrow7compute8internal12GetTrueCountERKNS_9ArraySpanE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %mask) local_unnamed_addr #0 {
 entry:
   %buffers = getelementptr inbounds nuw i8, ptr %mask, i64 32
   %0 = load ptr, ptr %buffers, align 8
@@ -833,7 +833,7 @@ declare void @_ZN5arrow7compute14ScalarFunction9AddKernelESt6vectorINS0_9InputTy
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow4nullEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_114NullToNullExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture readnone %ctx, ptr nocapture nonnull readnone align 8 %batch, ptr nocapture readnone %out) #3 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_114NullToNullExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) initializes((0, 8)) %agg.result, ptr readnone captures(none) %ctx, ptr nonnull readnone align 8 captures(none) %batch, ptr readnone captures(none) %out) #3 {
 entry:
   store ptr null, ptr %agg.result, align 8, !alias.scope !7
   ret void
@@ -1051,7 +1051,7 @@ _ZNSt12_Vector_baseIN5arrow7compute9InputTypeESaIS2_EED2Ev.exit: ; preds = %invo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @_ZN5arrow9ArraySpan10SetMembersERKNS_9ArrayDataE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #2
 
@@ -1387,10 +1387,10 @@ _ZNSt10shared_ptrIN5arrow7compute11TypeMatcherEEaSERKS3_.exit: ; preds = %_ZNSt1
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }

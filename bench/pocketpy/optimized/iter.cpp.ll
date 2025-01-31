@@ -121,7 +121,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy9RangeIter9_registerEPNS_2VMEPNS_8PyObjectES4_(ptr noundef nonnull %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 align 2 {
+define void @_ZN4pkpy9RangeIter9_registerEPNS_2VMEPNS_8PyObjectES4_(ptr noundef nonnull %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.01.0.copyload = load i16, ptr %4, align 8
   tail call void @_ZN4pkpy2VM12bind__iter__ENS_4TypeEPFPNS_8PyObjectEPS0_S3_E(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %.sroa.01.0.copyload, ptr noundef nonnull @"_ZZN4pkpy9RangeIter9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_08__invokeES2_S4_")
@@ -133,12 +133,12 @@ define void @_ZN4pkpy9RangeIter9_registerEPNS_2VMEPNS_8PyObjectES4_(ptr noundef 
 declare void @_ZN4pkpy2VM12bind__iter__ENS_4TypeEPFPNS_8PyObjectEPS0_S3_E(ptr noundef nonnull align 8 dereferenceable(264913), i16, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @_ZN4pkpy2VM12bind__next__ENS_4TypeEPFjPS0_PNS_8PyObjectEE(ptr noundef nonnull align 8 dereferenceable(264913), i16, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy9ArrayIter9_registerEPNS_2VMEPNS_8PyObjectES4_(ptr noundef nonnull %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 align 2 {
+define void @_ZN4pkpy9ArrayIter9_registerEPNS_2VMEPNS_8PyObjectES4_(ptr noundef nonnull %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.01.0.copyload = load i16, ptr %4, align 8
   tail call void @_ZN4pkpy2VM12bind__iter__ENS_4TypeEPFPNS_8PyObjectEPS0_S3_E(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %.sroa.01.0.copyload, ptr noundef nonnull @"_ZZN4pkpy9ArrayIter9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_08__invokeES2_S4_")
@@ -148,7 +148,7 @@ define void @_ZN4pkpy9ArrayIter9_registerEPNS_2VMEPNS_8PyObjectES4_(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy10StringIter9_registerEPNS_2VMEPNS_8PyObjectES4_(ptr noundef nonnull %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 align 2 {
+define void @_ZN4pkpy10StringIter9_registerEPNS_2VMEPNS_8PyObjectES4_(ptr noundef nonnull %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.01.0.copyload = load i16, ptr %4, align 8
   tail call void @_ZN4pkpy2VM12bind__iter__ENS_4TypeEPFPNS_8PyObjectEPS0_S3_E(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %.sroa.01.0.copyload, ptr noundef nonnull @"_ZZN4pkpy10StringIter9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_08__invokeES2_S4_")
@@ -158,7 +158,7 @@ define void @_ZN4pkpy10StringIter9_registerEPNS_2VMEPNS_8PyObjectES4_(ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN4pkpy9Generator4nextEPNS_2VME(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN4pkpy9Generator4nextEPNS_2VME(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 2
@@ -349,7 +349,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 declare void @_ZN4pkpy2VM11__pop_frameEv(ptr noundef nonnull align 8 dereferenceable(264913)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy9Generator9_registerEPNS_2VMEPNS_8PyObjectES4_(ptr noundef nonnull %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 align 2 {
+define void @_ZN4pkpy9Generator9_registerEPNS_2VMEPNS_8PyObjectES4_(ptr noundef nonnull %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.01.0.copyload = load i16, ptr %4, align 8
   tail call void @_ZN4pkpy2VM12bind__iter__ENS_4TypeEPFPNS_8PyObjectEPS0_S3_E(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %.sroa.01.0.copyload, ptr noundef nonnull @"_ZZN4pkpy9Generator9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_08__invokeES2_S4_")
@@ -359,7 +359,7 @@ define void @_ZN4pkpy9Generator9_registerEPNS_2VMEPNS_8PyObjectES4_(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy13DictItemsIter9_registerEPNS_2VMEPNS_8PyObjectES4_(ptr noundef nonnull %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 align 2 {
+define void @_ZN4pkpy13DictItemsIter9_registerEPNS_2VMEPNS_8PyObjectES4_(ptr noundef nonnull %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.01.0.copyload = load i16, ptr %4, align 8
   tail call void @_ZN4pkpy2VM12bind__iter__ENS_4TypeEPFPNS_8PyObjectEPS0_S3_E(ptr noundef nonnull align 8 dereferenceable(264913) %0, i16 %.sroa.01.0.copyload, ptr noundef nonnull @"_ZZN4pkpy13DictItemsIter9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_08__invokeES2_S4_")
@@ -369,7 +369,7 @@ define void @_ZN4pkpy13DictItemsIter9_registerEPNS_2VMEPNS_8PyObjectES4_(ptr nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN4pkpy2VM14__py_generatorEONS_5FrameENS_8ArgsViewE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264913) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr %2, ptr %3) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZN4pkpy2VM14__py_generatorEONS_5FrameENS_8ArgsViewE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264913) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr %2, ptr %3) local_unnamed_addr #3 align 2 {
   %5 = alloca %"struct.pkpy::ArgsView", align 8
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -383,12 +383,12 @@ define noundef ptr @_ZN4pkpy2VM14__py_generatorEONS_5FrameENS_8ArgsViewE(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZZN4pkpy9RangeIter9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_08__invokeES2_S4_"(ptr nocapture readnone %0, ptr noundef readnone returned %1) #7 align 2 {
+define internal noundef ptr @"_ZZN4pkpy9RangeIter9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_08__invokeES2_S4_"(ptr readnone captures(none) %0, ptr noundef readnone returned %1) #7 align 2 {
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 2) i32 @"_ZZN4pkpy9RangeIter9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_18__invokeES2_S4_"(ptr noundef %0, ptr nocapture noundef %1) #3 align 2 {
+define internal noundef range(i32 0, 2) i32 @"_ZZN4pkpy9RangeIter9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_18__invokeES2_S4_"(ptr noundef %0, ptr noundef captures(none) %1) #3 align 2 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load i64, ptr %4, align 8
@@ -563,15 +563,15 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZZN4pkpy9ArrayIter9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_08__invokeES2_S4_"(ptr nocapture readnone %0, ptr noundef readnone returned %1) #7 align 2 {
+define internal noundef ptr @"_ZZN4pkpy9ArrayIter9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_08__invokeES2_S4_"(ptr readnone captures(none) %0, ptr noundef readnone returned %1) #7 align 2 {
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 2) i32 @"_ZZN4pkpy9ArrayIter9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_18__invokeES2_S4_"(ptr noundef nonnull %0, ptr nocapture noundef %1) #3 align 2 {
+define internal noundef range(i32 0, 2) i32 @"_ZZN4pkpy9ArrayIter9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_18__invokeES2_S4_"(ptr noundef nonnull %0, ptr noundef captures(none) %1) #3 align 2 {
   %3 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_9ArrayIterEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -750,7 +750,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -816,7 +816,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -858,12 +858,12 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZZN4pkpy10StringIter9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_08__invokeES2_S4_"(ptr nocapture readnone %0, ptr noundef readnone returned %1) #7 align 2 {
+define internal noundef ptr @"_ZZN4pkpy10StringIter9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_08__invokeES2_S4_"(ptr readnone captures(none) %0, ptr noundef readnone returned %1) #7 align 2 {
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 2) i32 @"_ZZN4pkpy10StringIter9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_18__invokeES2_S4_"(ptr noundef nonnull %0, ptr nocapture noundef %1) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 2) i32 @"_ZZN4pkpy10StringIter9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_18__invokeES2_S4_"(ptr noundef nonnull %0, ptr noundef captures(none) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pkpy::Str", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %4 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_10StringIterEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
@@ -1140,12 +1140,12 @@ define linkonce_odr void @_ZN4pkpy3Py_INS_3StrEED0Ev(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZZN4pkpy9Generator9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_08__invokeES2_S4_"(ptr nocapture readnone %0, ptr noundef readnone returned %1) #7 align 2 {
+define internal noundef ptr @"_ZZN4pkpy9Generator9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_08__invokeES2_S4_"(ptr readnone captures(none) %0, ptr noundef readnone returned %1) #7 align 2 {
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 2) i32 @"_ZZN4pkpy9Generator9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_18__invokeES2_S4_"(ptr noundef nonnull %0, ptr nocapture noundef %1) #3 align 2 {
+define internal noundef range(i32 0, 2) i32 @"_ZZN4pkpy9Generator9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_18__invokeES2_S4_"(ptr noundef nonnull %0, ptr noundef captures(none) %1) #3 align 2 {
   %3 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_9GeneratorEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = tail call noundef ptr @_ZN4pkpy9Generator4nextEPNS_2VME(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull %0)
@@ -1270,12 +1270,12 @@ _ZNSt8_Rb_treeIKSt10type_indexSt4pairIS1_N4pkpy4TypeEESt10_Select1stIS5_ESt4less
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZZN4pkpy13DictItemsIter9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_08__invokeES2_S4_"(ptr nocapture readnone %0, ptr noundef readnone returned %1) #7 align 2 {
+define internal noundef ptr @"_ZZN4pkpy13DictItemsIter9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_08__invokeES2_S4_"(ptr readnone captures(none) %0, ptr noundef readnone returned %1) #7 align 2 {
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 3) i32 @"_ZZN4pkpy13DictItemsIter9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_18__invokeES2_S4_"(ptr noundef nonnull %0, ptr nocapture noundef %1) #3 align 2 {
+define internal noundef range(i32 0, 3) i32 @"_ZZN4pkpy13DictItemsIter9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_18__invokeES2_S4_"(ptr noundef nonnull %0, ptr noundef captures(none) %1) #3 align 2 {
   %3 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_13DictItemsIterEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 8
@@ -1748,10 +1748,10 @@ declare i64 @llvm.umin.i64(i64, i64) #15
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

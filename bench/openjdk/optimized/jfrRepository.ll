@@ -52,7 +52,7 @@ define hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZN13JfrRepositor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13JfrRepositoryC2ER10JfrPostBox(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(21) %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN13JfrRepositoryC2ER10JfrPostBox(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(21) %1) unnamed_addr #1 align 2 {
   store ptr null, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -60,7 +60,7 @@ define hidden void @_ZN13JfrRepositoryC2ER10JfrPostBox(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN13JfrRepository10initializeEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN13JfrRepository10initializeEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
   %2 = tail call noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef 88) #8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4
@@ -81,7 +81,7 @@ declare noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef) local_unnamed_addr #3
 declare void @_ZN14JfrChunkWriterC1Ev(ptr noundef nonnull align 8 dereferenceable(88)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13JfrRepositoryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN13JfrRepositoryD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) unnamed_addr #2 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %3
@@ -111,7 +111,7 @@ define hidden void @_ZN13JfrRepositoryD2Ev(ptr nocapture noundef nonnull align 8
 declare void @_ZN11JfrCHeapObj4freeEPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare void @_ZN14JfrChunkWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(88)) unnamed_addr #3
@@ -175,7 +175,7 @@ _ZN13JfrRepositoryD2Ev.exit:                      ; preds = %8, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13JfrRepository11on_vm_errorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN13JfrRepository11on_vm_errorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4
@@ -201,7 +201,7 @@ define hidden void @_ZN13JfrRepository18on_vm_error_reportEP12outputStream(ptr n
 declare void @_ZN16JfrEmergencyDump18on_vm_error_reportEP12outputStreamPKc(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN13JfrRepository8set_pathEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN13JfrRepository8set_pathEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
@@ -222,7 +222,7 @@ define hidden noundef zeroext i1 @_ZN13JfrRepository8set_pathEPKc(ptr nocapture 
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %7
-  %13 = tail call ptr @strncpy(ptr noundef nonnull %10, ptr noundef %1, i64 noundef %9) #8
+  %13 = tail call ptr @strncpy(ptr noundef nonnull %10, ptr noundef nonnull %1, i64 noundef %9) #8
   br label %14
 
 14:                                               ; preds = %7, %12
@@ -230,7 +230,7 @@ define hidden noundef zeroext i1 @_ZN13JfrRepository8set_pathEPKc(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #6
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13JfrRepository24notify_on_new_chunk_pathEv() local_unnamed_addr #2 align 2 {
@@ -253,7 +253,7 @@ declare noundef zeroext i1 @_ZN3Jfr12is_recordingEv() local_unnamed_addr #4
 declare void @_ZN10JfrPostBox4postE7JFR_Msg(ptr noundef nonnull align 8 dereferenceable(21), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13JfrRepository14set_chunk_pathEPKc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN13JfrRepository14set_chunk_pathEPKc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr @_ZL12_chunkwriter, align 8
   tail call void @_ZN14JfrChunkWriter8set_pathEPKc(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef %1) #8
   ret void
@@ -408,7 +408,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %28, %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN13JfrRepository10open_chunkEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN13JfrRepository10open_chunkEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
   br i1 %1, label %3, label %7
 
 3:                                                ; preds = %2
@@ -429,7 +429,7 @@ declare noundef ptr @_ZN16JfrEmergencyDump10chunk_pathEPKc(ptr noundef) local_un
 declare noundef zeroext i1 @_ZN14JfrChunkWriter4openEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN13JfrRepository11close_chunkEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef i64 @_ZN13JfrRepository11close_chunkEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr @_ZL12_chunkwriter, align 8
   %3 = tail call noundef i64 @_ZN14JfrChunkWriter5closeEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #8
   ret i64 %3
@@ -438,7 +438,7 @@ define hidden noundef i64 @_ZN13JfrRepository11close_chunkEv(ptr nocapture nound
 declare noundef i64 @_ZN14JfrChunkWriter5closeEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13JfrRepository5flushEP10JavaThread(ptr nocapture noundef readnone %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN13JfrRepository5flushEP10JavaThread(ptr noundef readnone captures(none) %0) local_unnamed_addr #2 align 2 {
   %2 = tail call noundef zeroext i1 @_ZN3Jfr12is_recordingEv() #8
   br i1 %2, label %3, label %11
 
@@ -461,7 +461,7 @@ define hidden void @_ZN13JfrRepository5flushEP10JavaThread(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN13JfrRepository11flush_chunkEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef i64 @_ZN13JfrRepository11flush_chunkEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr @_ZL12_chunkwriter, align 8
   %3 = tail call noundef i64 @_ZN14JfrChunkWriter11flush_chunkEb(ptr noundef nonnull align 8 dereferenceable(88) %2, i1 noundef zeroext true) #8
   ret i64 %3

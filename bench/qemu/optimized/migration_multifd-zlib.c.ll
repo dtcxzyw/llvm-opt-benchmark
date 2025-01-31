@@ -49,7 +49,7 @@ entry:
 declare void @multifd_register_ops(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @zlib_send_setup(ptr nocapture noundef %p, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @zlib_send_setup(ptr noundef captures(none) %p, ptr noundef %errp) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(136) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 136) #7
   %zalloc = getelementptr inbounds nuw i8, ptr %call, i64 64
@@ -108,7 +108,7 @@ return:                                           ; preds = %err_free_z, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @zlib_send_cleanup(ptr nocapture noundef %p, ptr nocapture readnone %errp) #0 {
+define internal void @zlib_send_cleanup(ptr noundef captures(none) %p, ptr readnone captures(none) %errp) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %p, i64 424
   %0 = load ptr, ptr %data, align 8
@@ -128,7 +128,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @zlib_send_prepare(ptr nocapture noundef %p, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @zlib_send_prepare(ptr noundef captures(none) %p, ptr noundef %errp) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %p, i64 424
   %0 = load ptr, ptr %data, align 8
@@ -252,7 +252,7 @@ return:                                           ; preds = %for.end, %if.then23
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @zlib_recv_setup(ptr nocapture noundef initializes((296, 304)) %p, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @zlib_recv_setup(ptr noundef captures(none) initializes((296, 304)) %p, ptr noundef %errp) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(136) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 136) #7
   %data = getelementptr inbounds nuw i8, ptr %p, i64 296
@@ -294,7 +294,7 @@ return:                                           ; preds = %if.end, %if.then7, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @zlib_recv_cleanup(ptr nocapture noundef %p) #0 {
+define internal void @zlib_recv_cleanup(ptr noundef captures(none) %p) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %p, i64 296
   %0 = load ptr, ptr %data, align 8
@@ -310,7 +310,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @zlib_recv_pages(ptr nocapture noundef readonly %p, ptr noundef %errp) #0 {
+define internal i32 @zlib_recv_pages(ptr noundef readonly captures(none) %p, ptr noundef %errp) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %p, i64 296
   %0 = load ptr, ptr %data, align 8
@@ -458,7 +458,7 @@ declare i32 @deflateEnd(ptr noundef) local_unnamed_addr #1
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @deflate(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -471,7 +471,7 @@ declare i32 @qio_channel_read_all(ptr noundef, ptr noundef, i64 noundef, ptr nou
 declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

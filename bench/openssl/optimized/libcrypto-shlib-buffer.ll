@@ -76,7 +76,7 @@ declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 nound
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @BUF_MEM_grow(ptr nocapture noundef %str, i64 noundef %len) local_unnamed_addr #0 {
+define noundef i64 @BUF_MEM_grow(ptr noundef captures(none) %str, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %str, align 8
   %cmp.not = icmp ult i64 %0, %len
@@ -174,7 +174,7 @@ return:                                           ; preds = %if.else21, %if.end1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @ERR_new() local_unnamed_addr #1
 
@@ -185,7 +185,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @BUF_MEM_grow_clean(ptr nocapture noundef %str, i64 noundef %len) local_unnamed_addr #0 {
+define noundef i64 @BUF_MEM_grow_clean(ptr noundef captures(none) %str, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %str, align 8
   %cmp.not = icmp ult i64 %0, %len
@@ -290,7 +290,7 @@ return:                                           ; preds = %if.else26, %if.end2
 declare ptr @CRYPTO_clear_realloc(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @BUF_reverse(ptr nocapture noundef %out, ptr noundef readonly %in, i64 noundef %size) local_unnamed_addr #3 {
+define void @BUF_reverse(ptr noundef captures(none) %out, ptr noundef readonly %in, i64 noundef %size) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %in, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -345,7 +345,7 @@ if.end:                                           ; preds = %for.body, %for.body
 declare noalias ptr @CRYPTO_secure_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

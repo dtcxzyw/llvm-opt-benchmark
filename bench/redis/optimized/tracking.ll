@@ -166,7 +166,7 @@ declare void @zfree(ptr noundef) local_unnamed_addr #1
 declare void @raxStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @checkPrefixCollisionsOrReply(ptr noundef %c, ptr nocapture noundef readonly %prefixes, i64 noundef %numprefix) local_unnamed_addr #0 {
+define dso_local i32 @checkPrefixCollisionsOrReply(ptr noundef %c, ptr noundef readonly captures(none) %prefixes, i64 noundef %numprefix) local_unnamed_addr #0 {
 entry:
   %ri = alloca %struct.raxIterator, align 8
   %cmp77.not = icmp eq i64 %numprefix, 0
@@ -461,7 +461,7 @@ declare i32 @raxInsert(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr n
 declare i32 @raxTryInsert(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @enableTracking(ptr noundef initializes((648, 656)) %c, i64 noundef %redirect_to, i64 noundef %options, ptr nocapture noundef readonly %prefix, i64 noundef %numprefix) local_unnamed_addr #0 {
+define dso_local void @enableTracking(ptr noundef initializes((648, 656)) %c, i64 noundef %redirect_to, i64 noundef %options, ptr noundef readonly captures(none) %prefix, i64 noundef %numprefix) local_unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
@@ -576,7 +576,7 @@ if.end19:                                         ; preds = %sdslen.exit, %if.en
 declare ptr @createStringObject(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @trackingRememberKeys(ptr noundef %tracking, ptr nocapture noundef readonly %executing) local_unnamed_addr #0 {
+define dso_local void @trackingRememberKeys(ptr noundef %tracking, ptr noundef readonly captures(none) %executing) local_unnamed_addr #0 {
 entry:
   %result = alloca %struct.getKeysResult, align 8
   %result22 = alloca ptr, align 8
@@ -761,7 +761,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @getKeysFromCommand(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1149,7 +1149,7 @@ while.end:                                        ; preds = %while.cond.backedge
   store i64 %sub, ptr @TrackingTableTotalItems, align 8
   call void @raxFree(ptr noundef %9) #8
   %23 = load ptr, ptr @TrackingTable, align 8
-  %call42 = call i32 @raxRemove(ptr noundef %23, ptr noundef %1, i64 noundef %retval.0.i, ptr noundef null) #8
+  %call42 = call i32 @raxRemove(ptr noundef %23, ptr noundef nonnull %1, i64 noundef %retval.0.i, ptr noundef null) #8
   br label %return
 
 return:                                           ; preds = %if.end5, %entry, %while.end
@@ -1880,7 +1880,7 @@ return:                                           ; preds = %entry, %if.end
 declare i64 @llvm.umin.i64(i64, i64) #6
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

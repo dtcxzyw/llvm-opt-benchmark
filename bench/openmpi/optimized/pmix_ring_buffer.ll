@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pmix_ring_buffer_t_class = local_unnamed_addr global %struct.pmix_class_t { ptr @.str, ptr @pmix_object_t_class, ptr @pmix_ring_buffer_construct, ptr @pmix_ring_buffer_destruct, i32 0, i32 0, ptr null, ptr null, i64 144 }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @pmix_ring_buffer_construct(ptr nocapture noundef writeonly initializes((120, 132), (136, 144)) %0) #0 {
+define internal void @pmix_ring_buffer_construct(ptr noundef writeonly captures(none) initializes((120, 132), (136, 144)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 124
@@ -23,7 +23,7 @@ define internal void @pmix_ring_buffer_construct(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @pmix_ring_buffer_destruct(ptr nocapture noundef initializes((128, 132)) %0) #1 {
+define internal void @pmix_ring_buffer_destruct(ptr noundef captures(none) initializes((128, 132)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -68,7 +68,7 @@ define range(i32 -29, 1) i32 @pmix_ring_buffer_init(ptr noundef writeonly %0, i3
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @pmix_ring_buffer_push(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define ptr @pmix_ring_buffer_push(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -115,7 +115,7 @@ define ptr @pmix_ring_buffer_push(ptr nocapture noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @pmix_ring_buffer_pop(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define ptr @pmix_ring_buffer_pop(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, -1
@@ -148,7 +148,7 @@ define ptr @pmix_ring_buffer_pop(ptr nocapture noundef %0) local_unnamed_addr #4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @pmix_ring_buffer_poke(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define ptr @pmix_ring_buffer_poke(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
   %.not = icmp sgt i32 %4, %1
@@ -204,7 +204,7 @@ define ptr @pmix_ring_buffer_poke(ptr nocapture noundef readonly %0, i32 noundef
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

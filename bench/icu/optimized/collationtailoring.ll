@@ -262,7 +262,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7518CollationTailoring15ensureOwnedDataER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7518CollationTailoring15ensureOwnedDataER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(400) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -319,7 +319,7 @@ return:                                           ; preds = %if.then2, %entry, %
 declare noundef ptr @_ZN6icu_7518Normalizer2Factory10getNFCImplER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7518CollationTailoring15makeBaseVersionEPKhPh(ptr nocapture noundef readonly %ucaVersion, ptr nocapture noundef writeonly initializes((0, 4)) %version) local_unnamed_addr #6 align 2 {
+define void @_ZN6icu_7518CollationTailoring15makeBaseVersionEPKhPh(ptr noundef readonly captures(none) %ucaVersion, ptr noundef writeonly captures(none) initializes((0, 4)) %version) local_unnamed_addr #6 align 2 {
 entry:
   store i8 9, ptr %version, align 1
   %0 = load i8, ptr %ucaVersion, align 1
@@ -340,7 +340,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7518CollationTailoring10setVersionEPKhS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(400) initializes((328, 332)) %this, ptr nocapture noundef readonly %baseVersion, ptr nocapture noundef readonly %rulesVersion) local_unnamed_addr #6 align 2 {
+define void @_ZN6icu_7518CollationTailoring10setVersionEPKhS2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(400) initializes((328, 332)) %this, ptr noundef readonly captures(none) %baseVersion, ptr noundef readonly captures(none) %rulesVersion) local_unnamed_addr #6 align 2 {
 entry:
   %version = getelementptr inbounds nuw i8, ptr %this, i64 328
   store i8 9, ptr %version, align 8
@@ -376,7 +376,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 4084) i32 @_ZNK6icu_7518CollationTailoring13getUCAVersionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %this) local_unnamed_addr #7 align 2 {
+define noundef range(i32 0, 4084) i32 @_ZNK6icu_7518CollationTailoring13getUCAVersionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %this) local_unnamed_addr #7 align 2 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 329
   %0 = load i8, ptr %arrayidx, align 1
@@ -437,7 +437,7 @@ declare void @_ZNK6icu_7512SharedObject9removeRefEv(ptr noundef nonnull align 8 
 declare i8 @llvm.fshl.i8(i8, i8, i8) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

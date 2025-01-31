@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6icu_7521CaseMapTransliteratorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7521CaseMapTransliteratorD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, -2147483648) i32 @utrans_rep_caseContextIterator_75(ptr nocapture noundef %context, i8 noundef signext %dir) #0 {
+define range(i32 -1, -2147483648) i32 @utrans_rep_caseContextIterator_75(ptr noundef captures(none) %context, i8 noundef signext %dir) #0 {
 entry:
   %0 = load ptr, ptr %context, align 8
   %cmp = icmp slt i8 %dir, 0
@@ -158,7 +158,7 @@ entry:
 declare void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84)) unnamed_addr #4
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7521CaseMapTransliteratorD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define void @_ZN6icu_7521CaseMapTransliteratorD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @llvm.trap() #9
   unreachable
@@ -182,7 +182,7 @@ entry:
 declare void @_ZN6icu_7514TransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 8 dereferenceable(84)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7521CaseMapTransliterator19handleTransliterateERNS_11ReplaceableER14UTransPositiona(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(8) %text, ptr nocapture noundef nonnull align 4 dereferenceable(16) %offsets, i8 noundef signext %isIncremental) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7521CaseMapTransliterator19handleTransliterateERNS_11ReplaceableER14UTransPositiona(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(8) %text, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %offsets, i8 noundef signext %isIncremental) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %csc = alloca %struct.UCaseContext, align 8
   %tmp = alloca %"class.icu_75::UnicodeString", align 8
@@ -350,7 +350,7 @@ ehcleanup:                                        ; preds = %lpad20, %lpad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare i32 @__gxx_personality_v0(...)
 

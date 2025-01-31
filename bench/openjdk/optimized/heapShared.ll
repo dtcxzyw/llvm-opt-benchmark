@@ -849,7 +849,7 @@ _ZL25is_subgraph_root_class_ofP25ArchivableStaticFieldInfoP13InstanceKlass.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = ptrtoint ptr %2 to i64
   %4 = trunc i64 %3 to i32
@@ -1596,8 +1596,8 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %46, %49, %56, %76
 
 82:                                               ; preds = %_ZN7oopDesc4sizeEv.exit
   %83 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not43 = icmp eq ptr %83, null
-  br i1 %.not43, label %_ZN10HeapShared17has_been_archivedEP7oopDesc.exit, label %84
+  %.not40 = icmp eq ptr %83, null
+  br i1 %.not40, label %_ZN10HeapShared17has_been_archivedEP7oopDesc.exit, label %84
 
 84:                                               ; preds = %82
   %85 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -1881,14 +1881,14 @@ _ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescN10Heap
   %257 = getelementptr inbounds nuw i8, ptr %255, i64 20
   %258 = load i32, ptr %257, align 4
   %.not.i11 = icmp ult i32 %256, %258
-  br i1 %.not.i11, label %259, label %_ZN27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS2_8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE10maybe_growEib.exit.thread
+  br i1 %.not.i11, label %259, label %_ZN27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS2_8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE10maybe_growEib.exit
 
 259:                                              ; preds = %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_S4_LS6_2ELS7_13EXadL_ZNS3_8oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE15put_when_absentESA_RKS4_.exit
   %260 = getelementptr inbounds nuw i8, ptr %255, i64 16
   %261 = load i32, ptr %260, align 8
   %262 = sdiv i32 %261, %256
   %263 = icmp sgt i32 %262, 8
-  br i1 %263, label %264, label %_ZN27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS2_8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE10maybe_growEib.exit.thread
+  br i1 %263, label %264, label %_ZN27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS2_8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE10maybe_growEib.exit
 
 264:                                              ; preds = %259
   %265 = shl nsw i32 %261, 1
@@ -1917,7 +1917,7 @@ _ZNK27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyOb
   call void @llvm.memset.p0.i64(ptr align 8 %275, i8 0, i64 %274, i1 false)
   %276 = load i32, ptr %255, align 8
   %.not28.i.i = icmp eq i32 %276, 0
-  br i1 %.not28.i.i, label %_ZN27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS2_8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE10maybe_growEib.exit, label %.lr.ph26.i.i
+  br i1 %.not28.i.i, label %_ZN27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS2_8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE6resizeEj.exit.i, label %.lr.ph26.i.i
 
 .lr.ph26.i.i:                                     ; preds = %_ZNK27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS2_8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE16calculate_resizeEb.exit.i, %._crit_edge.i.i
   %277 = phi i32 [ %286, %._crit_edge.i.i ], [ %276, %_ZNK27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS2_8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE16calculate_resizeEb.exit.i ]
@@ -1950,21 +1950,20 @@ _ZNK27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyOb
   %288 = zext i32 %286 to i64
   %289 = getelementptr inbounds nuw ptr, ptr %272, i64 %288
   %290 = icmp ult ptr %287, %289
-  br i1 %290, label %.lr.ph26.i.i, label %_ZN27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS2_8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE10maybe_growEib.exit, !llvm.loop !19
+  br i1 %290, label %.lr.ph26.i.i, label %_ZN27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS2_8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE6resizeEj.exit.i, !llvm.loop !19
 
-_ZN27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS2_8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE10maybe_growEib.exit: ; preds = %._crit_edge.i.i, %_ZNK27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS2_8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE16calculate_resizeEb.exit.i
+_ZN27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS2_8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE6resizeEj.exit.i: ; preds = %._crit_edge.i.i, %_ZNK27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS2_8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE16calculate_resizeEb.exit.i
   call void @_Z8FreeHeapPv(ptr noundef %272) #20
   store ptr %275, ptr %271, align 8
   store i32 %270, ptr %255, align 8
-  %.not.i.i13 = icmp eq ptr %0, null
-  br i1 %.not.i.i13, label %_ZN10HeapShared20mark_native_pointersEP7oopDesc.exit, label %_ZN27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS2_8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE10maybe_growEib.exit.thread
+  br label %_ZN27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS2_8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE10maybe_growEib.exit
 
-_ZN27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS2_8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE10maybe_growEib.exit.thread: ; preds = %259, %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_S4_LS6_2ELS7_13EXadL_ZNS3_8oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE15put_when_absentESA_RKS4_.exit, %_ZN27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS2_8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE10maybe_growEib.exit
+_ZN27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS2_8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE10maybe_growEib.exit: ; preds = %_ZN27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS2_8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE6resizeEj.exit.i, %259, %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_S4_LS6_2ELS7_13EXadL_ZNS3_8oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE15put_when_absentESA_RKS4_.exit
   %291 = load i8, ptr @UseCompressedClassPointers, align 1
   %292 = trunc i8 %291 to i1
   br i1 %292, label %293, label %303
 
-293:                                              ; preds = %_ZN27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS2_8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE10maybe_growEib.exit.thread
+293:                                              ; preds = %_ZN27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS2_8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE10maybe_growEib.exit
   %294 = load i32, ptr %28, align 8
   %295 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %296 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
@@ -1976,7 +1975,7 @@ _ZN27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj
   %302 = inttoptr i64 %301 to ptr
   br label %_ZN15java_lang_Class11is_instanceEP7oopDesc.exit.i
 
-303:                                              ; preds = %_ZN27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS2_8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE10maybe_growEib.exit.thread
+303:                                              ; preds = %_ZN27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS2_8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE10maybe_growEib.exit
   %304 = load ptr, ptr %28, align 8
   br label %_ZN15java_lang_Class11is_instanceEP7oopDesc.exit.i
 
@@ -1993,8 +1992,7 @@ _ZN15java_lang_Class11is_instanceEP7oopDesc.exit.i: ; preds = %303, %293
   call void @_ZN17ArchiveHeapWriter19mark_native_pointerEP7oopDesci(ptr noundef nonnull %0, i32 noundef %309) #20
   br label %_ZN10HeapShared20mark_native_pointersEP7oopDesc.exit
 
-_ZN10HeapShared20mark_native_pointersEP7oopDesc.exit: ; preds = %_ZN27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS2_8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE10maybe_growEib.exit, %_ZN15java_lang_Class11is_instanceEP7oopDesc.exit.i, %307
-  %.not.i.i1341 = phi i1 [ true, %_ZN27ResizeableResourceHashtableIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZNS2_8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SC_EEE10maybe_growEib.exit ], [ false, %_ZN15java_lang_Class11is_instanceEP7oopDesc.exit.i ], [ false, %307 ]
+_ZN10HeapShared20mark_native_pointersEP7oopDesc.exit: ; preds = %_ZN15java_lang_Class11is_instanceEP7oopDesc.exit.i, %307
   %310 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %310, null
   br i1 %.not, label %_ZN12ResourceMarkD2Ev.exit, label %311
@@ -2013,8 +2011,8 @@ _ZN10HeapShared20mark_native_pointersEP7oopDesc.exit: ; preds = %_ZN27Resizeable
   %322 = getelementptr inbounds nuw i8, ptr %315, i64 8
   %323 = load i64, ptr %322, align 8
   %324 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not42 = icmp eq ptr %324, null
-  br i1 %.not42, label %341, label %325
+  %.not39 = icmp eq ptr %324, null
+  br i1 %.not39, label %341, label %325
 
 325:                                              ; preds = %311
   %326 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -2064,68 +2062,65 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %328, %338
   store ptr %321, ptr %320, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %346, %344, %_ZN10HeapShared20mark_native_pointersEP7oopDesc.exit
-  br i1 %.not.i.i1341, label %_ZN10HeapShared17has_been_archivedEP7oopDesc.exit, label %347
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %_ZN10HeapShared20mark_native_pointersEP7oopDesc.exit, %344, %346
+  %347 = load i8, ptr @UseCompressedClassPointers, align 1
+  %348 = trunc i8 %347 to i1
+  br i1 %348, label %349, label %359
 
-347:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit
-  %348 = load i8, ptr @UseCompressedClassPointers, align 1
-  %349 = trunc i8 %348 to i1
-  br i1 %349, label %350, label %360
-
-350:                                              ; preds = %347
-  %351 = load i32, ptr %28, align 8
-  %352 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %353 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %354 = ptrtoint ptr %352 to i64
-  %355 = zext i32 %351 to i64
-  %356 = zext nneg i32 %353 to i64
-  %357 = shl i64 %355, %356
-  %358 = add i64 %357, %354
-  %359 = inttoptr i64 %358 to ptr
+349:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit
+  %350 = load i32, ptr %28, align 8
+  %351 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %352 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %353 = ptrtoint ptr %351 to i64
+  %354 = zext i32 %350 to i64
+  %355 = zext nneg i32 %352 to i64
+  %356 = shl i64 %354, %355
+  %357 = add i64 %356, %353
+  %358 = inttoptr i64 %357 to ptr
   br label %_ZN16java_lang_Module11is_instanceEP7oopDesc.exit
 
-360:                                              ; preds = %347
-  %361 = load ptr, ptr %28, align 8
+359:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit
+  %360 = load ptr, ptr %28, align 8
   br label %_ZN16java_lang_Module11is_instanceEP7oopDesc.exit
 
-_ZN16java_lang_Module11is_instanceEP7oopDesc.exit: ; preds = %350, %360
-  %.0.i.i19 = phi ptr [ %359, %350 ], [ %361, %360 ]
-  %362 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 328), align 8
-  %363 = icmp eq ptr %.0.i.i19, %362
-  br i1 %363, label %364, label %_ZN10HeapShared17has_been_archivedEP7oopDesc.exit
+_ZN16java_lang_Module11is_instanceEP7oopDesc.exit: ; preds = %349, %359
+  %.0.i.i19 = phi ptr [ %358, %349 ], [ %360, %359 ]
+  %361 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 328), align 8
+  %362 = icmp eq ptr %.0.i.i19, %361
+  br i1 %362, label %363, label %_ZN10HeapShared17has_been_archivedEP7oopDesc.exit
 
-364:                                              ; preds = %_ZN16java_lang_Module11is_instanceEP7oopDesc.exit
-  %365 = call noundef zeroext i1 @_ZN7Modules25check_archived_module_oopEP7oopDesc(ptr noundef nonnull %0) #20
-  br i1 %365, label %366, label %_ZN10HeapShared17has_been_archivedEP7oopDesc.exit
+363:                                              ; preds = %_ZN16java_lang_Module11is_instanceEP7oopDesc.exit
+  %364 = call noundef zeroext i1 @_ZN7Modules25check_archived_module_oopEP7oopDesc(ptr noundef nonnull %0) #20
+  br i1 %364, label %365, label %_ZN10HeapShared17has_been_archivedEP7oopDesc.exit
 
-366:                                              ; preds = %364
+365:                                              ; preds = %363
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %0, ptr %2, align 8
-  %367 = load ptr, ptr @_ZN10HeapShared14_pending_rootsE, align 8
-  %368 = icmp eq ptr %367, null
-  br i1 %368, label %369, label %_ZN10HeapShared11append_rootEP7oopDesc.exit
+  %366 = load ptr, ptr @_ZN10HeapShared14_pending_rootsE, align 8
+  %367 = icmp eq ptr %366, null
+  br i1 %367, label %368, label %_ZN10HeapShared11append_rootEP7oopDesc.exit
 
-369:                                              ; preds = %366
-  %370 = call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 16, i8 noundef zeroext 13) #20
-  %371 = call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 500, i32 noundef 8, i8 noundef zeroext 13) #20
-  store i32 0, ptr %370, align 4
-  %372 = getelementptr inbounds nuw i8, ptr %370, i64 4
-  store i32 500, ptr %372, align 4
-  %373 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  store ptr %371, ptr %373, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4000) %371, i8 0, i64 4000, i1 false)
-  store ptr %370, ptr @_ZN10HeapShared14_pending_rootsE, align 8
+368:                                              ; preds = %365
+  %369 = call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 16, i8 noundef zeroext 13) #20
+  %370 = call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 500, i32 noundef 8, i8 noundef zeroext 13) #20
+  store i32 0, ptr %369, align 4
+  %371 = getelementptr inbounds nuw i8, ptr %369, i64 4
+  store i32 500, ptr %371, align 4
+  %372 = getelementptr inbounds nuw i8, ptr %369, i64 8
+  store ptr %370, ptr %372, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4000) %370, i8 0, i64 4000, i1 false)
+  store ptr %369, ptr @_ZN10HeapShared14_pending_rootsE, align 8
   br label %_ZN10HeapShared11append_rootEP7oopDesc.exit
 
-_ZN10HeapShared11append_rootEP7oopDesc.exit:      ; preds = %366, %369
-  %374 = phi ptr [ %370, %369 ], [ %367, %366 ]
-  %375 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIP7oopDesc18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %374, ptr noundef nonnull align 8 dereferenceable(8) %2)
+_ZN10HeapShared11append_rootEP7oopDesc.exit:      ; preds = %365, %368
+  %373 = phi ptr [ %369, %368 ], [ %366, %365 ]
+  %374 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIP7oopDesc18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %373, ptr noundef nonnull align 8 dereferenceable(8) %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @_ZN7Modules30update_oops_in_archived_moduleEP7oopDesci(ptr noundef nonnull %0, i32 noundef %375) #20
+  call void @_ZN7Modules30update_oops_in_archived_moduleEP7oopDesci(ptr noundef nonnull %0, i32 noundef %374) #20
   br label %_ZN10HeapShared17has_been_archivedEP7oopDesc.exit
 
-_ZN10HeapShared17has_been_archivedEP7oopDesc.exit: ; preds = %19, %_ZN12ResourceMarkD2Ev.exit, %_ZN16java_lang_Module11is_instanceEP7oopDesc.exit, %364, %_ZN10HeapShared11append_rootEP7oopDesc.exit, %_ZN7oopDesc4sizeEv.exit5, %82
-  %.0 = phi i1 [ false, %82 ], [ false, %_ZN7oopDesc4sizeEv.exit5 ], [ true, %_ZN10HeapShared11append_rootEP7oopDesc.exit ], [ true, %364 ], [ true, %_ZN16java_lang_Module11is_instanceEP7oopDesc.exit ], [ true, %_ZN12ResourceMarkD2Ev.exit ], [ true, %19 ]
+_ZN10HeapShared17has_been_archivedEP7oopDesc.exit: ; preds = %19, %_ZN16java_lang_Module11is_instanceEP7oopDesc.exit, %363, %_ZN10HeapShared11append_rootEP7oopDesc.exit, %_ZN7oopDesc4sizeEv.exit5, %82
+  %.0 = phi i1 [ false, %82 ], [ false, %_ZN7oopDesc4sizeEv.exit5 ], [ true, %_ZN10HeapShared11append_rootEP7oopDesc.exit ], [ true, %363 ], [ true, %_ZN16java_lang_Module11is_instanceEP7oopDesc.exit ], [ true, %19 ]
   ret i1 %.0
 }
 
@@ -2170,7 +2165,7 @@ define hidden void @_ZN10HeapShared16count_allocationEm(i64 noundef %0) local_un
 declare void @_ZN17ArchiveHeapWriter14add_source_objEP7oopDesc(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10HeapShared20make_cached_oop_infoEP7oopDesc(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.HeapShared::CachedOopInfo") align 8 initializes((0, 18)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN10HeapShared20make_cached_oop_infoEP7oopDesc(ptr dead_on_unwind noalias writable writeonly sret(%"class.HeapShared::CachedOopInfo") align 8 captures(none) initializes((0, 18)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.PointsToOopsChecker, align 8
   %4 = load ptr, ptr @_ZN24WalkOopAndArchiveClosure8_currentE, align 8
   %5 = icmp eq ptr %4, null
@@ -2524,7 +2519,7 @@ declare noundef ptr @_ZN8Universe9vm_globalEv() local_unnamed_addr #3
 declare noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef, i8 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10HeapShared19scratch_java_mirrorE9BasicType(i8 noundef zeroext %0) local_unnamed_addr #2 align 2 {
@@ -3591,7 +3586,7 @@ _ZN10HeapShared11append_rootEP7oopDesc.exit:      ; preds = %1, %7
 declare void @_ZN17ArchiveHeapWriter19mark_native_pointerEP7oopDesci(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN10HeapShared16get_pointer_infoEP7oopDescRbS2_(ptr noundef %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN10HeapShared16get_pointer_infoEP7oopDescRbS2_(ptr noundef %0, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %1, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %2) local_unnamed_addr #9 align 2 {
   %4 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = trunc i64 %5 to i32
@@ -4304,7 +4299,7 @@ _ZN10HeapShared25delete_seen_objects_tableEv.exit: ; preds = %_ZN10HeapShared23i
 declare void @_ZN8Universe27archive_exception_instancesEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10HeapShared24archive_object_subgraphsEP25ArchivableStaticFieldInfob(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN10HeapShared24archive_object_subgraphsEP25ArchivableStaticFieldInfob(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
   store i32 0, ptr @_ZN10HeapShared30_num_total_subgraph_recordingsE, align 4
   store i32 0, ptr @_ZN10HeapShared22_num_total_walked_objsE, align 4
   store i32 0, ptr @_ZN10HeapShared24_num_total_archived_objsE, align 4
@@ -4466,7 +4461,7 @@ _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj137EP5Klass17Klass
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17KlassSubGraphInfo24add_subgraph_entry_fieldEiP7oopDesc(ptr nocapture noundef nonnull align 8 dereferenceable(26) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN17KlassSubGraphInfo24add_subgraph_entry_fieldEiP7oopDesc(ptr noundef nonnull align 8 captures(none) dereferenceable(26) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -4581,7 +4576,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit5: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17KlassSubGraphInfo25add_subgraph_object_klassEP5Klass(ptr nocapture noundef nonnull align 8 dereferenceable(26) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN17KlassSubGraphInfo25add_subgraph_object_klassEP5Klass(ptr noundef nonnull align 8 captures(none) dereferenceable(26) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
   %4 = tail call noundef ptr @_ZNK14ArchiveBuilder17get_buffered_addrEPh(ptr noundef nonnull align 8 dereferenceable(1080) %3, ptr noundef %1) #20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4954,7 +4949,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE14ELS1_52ELS1_0ELS1_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN31ArchivedKlassSubGraphInfoRecord4initEP17KlassSubGraphInfo(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 10), (16, 32)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN31ArchivedKlassSubGraphInfoRecord4initEP17KlassSubGraphInfo(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 10), (16, 32)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5360,7 +5355,7 @@ define hidden void @_ZN10HeapShared15resolve_classesEP10JavaThread(ptr noundef %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10HeapShared29resolve_classes_for_subgraphsEP10JavaThreadP25ArchivableStaticFieldInfo(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN10HeapShared29resolve_classes_for_subgraphsEP10JavaThreadP25ArchivableStaticFieldInfo(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %1, align 8
   %.not8 = icmp eq ptr %3, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -6100,7 +6095,7 @@ define hidden void @_ZN10HeapShared33initialize_from_archived_subgraphEP10JavaTh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10HeapShared24init_archived_fields_forEP5KlassPK31ArchivedKlassSubGraphInfoRecord(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN10HeapShared24init_archived_fields_forEP5KlassPK31ArchivedKlassSubGraphInfoRecord(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   tail call fastcc void @_ZL15verify_the_heapP5KlassPKc(ptr noundef %0, ptr noundef nonnull @.str.58)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
@@ -7032,7 +7027,7 @@ _ZN10HeapShared25delete_seen_objects_tableEv.exit: ; preds = %47, %_ZN27Resizeab
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10HeapShared26init_subgraph_entry_fieldsEP25ArchivableStaticFieldInfoP10JavaThread(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN10HeapShared26init_subgraph_entry_fieldsEP25ArchivableStaticFieldInfoP10JavaThread(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.stringStream, align 8
   %4 = alloca %class.stringStream, align 8
   %5 = alloca %class.stringStream, align 8
@@ -7083,7 +7078,7 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %18, %24, %28
   %30 = load ptr, ptr %29, align 8
   %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #22
   %32 = trunc i64 %31 to i32
-  %33 = call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef %30, i32 noundef %32) #20
+  %33 = call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef nonnull %30, i32 noundef %32) #20
   %.not.i42 = icmp eq ptr %33, null
   br i1 %.not.i42, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit43, label %34
 
@@ -10369,7 +10364,7 @@ declare void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef) local
 declare noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare noundef ptr @_ZN16SystemDictionary15resolve_or_nullEP6Symbol6HandleS2_P10JavaThread(ptr noundef, ptr, ptr, ptr noundef) local_unnamed_addr #3
 
@@ -16075,10 +16070,10 @@ declare i32 @llvm.umin.i32(i32, i32) #17
 declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #19

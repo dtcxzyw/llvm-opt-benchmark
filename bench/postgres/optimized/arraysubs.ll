@@ -18,12 +18,12 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.array_subscript_check_subscripts = private unnamed_addr constant [33 x i8] c"array_subscript_check_subscripts\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @array_subscript_handler(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @array_subscript_handler(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i64 ptrtoint (ptr @array_subscript_handler.sbsroutines to i64)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @array_subscript_transform(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3, i1 zeroext %4) #1 {
+define internal void @array_subscript_transform(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3, i1 zeroext %4) #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
@@ -189,7 +189,7 @@ list_length.exit.thread:                          ; preds = %._crit_edge.thread,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @array_exec_setup(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) #1 {
+define internal void @array_exec_setup(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -250,7 +250,7 @@ define internal void @array_exec_setup(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @raw_array_subscript_handler(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @raw_array_subscript_handler(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i64 ptrtoint (ptr @raw_array_subscript_handler.sbsroutines to i64)
 }
 
@@ -286,7 +286,7 @@ declare signext i16 @get_typlen(i32 noundef) local_unnamed_addr #2
 declare void @get_typlenbyvalalign(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @array_subscript_check_subscripts(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 {
+define internal noundef zeroext i1 @array_subscript_check_subscripts(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -420,7 +420,7 @@ define internal noundef zeroext i1 @array_subscript_check_subscripts(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @array_subscript_fetch_slice(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 {
+define internal void @array_subscript_fetch_slice(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -454,7 +454,7 @@ define internal void @array_subscript_fetch_slice(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @array_subscript_assign_slice(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 {
+define internal void @array_subscript_assign_slice(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -529,7 +529,7 @@ define internal void @array_subscript_assign_slice(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @array_subscript_fetch_old_slice(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 {
+define internal void @array_subscript_fetch_old_slice(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -577,7 +577,7 @@ define internal void @array_subscript_fetch_old_slice(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @array_subscript_fetch(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 {
+define internal void @array_subscript_fetch(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -608,7 +608,7 @@ define internal void @array_subscript_fetch(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @array_subscript_assign(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 {
+define internal void @array_subscript_assign(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -678,7 +678,7 @@ define internal void @array_subscript_assign(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @array_subscript_fetch_old(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 {
+define internal void @array_subscript_fetch_old(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -737,7 +737,7 @@ declare i64 @array_set_element(i64 noundef, i32 noundef, ptr noundef, i64 nounde
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

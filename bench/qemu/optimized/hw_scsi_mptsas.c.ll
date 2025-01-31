@@ -208,7 +208,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @mptsas_update_interrupt(ptr noundef %s) unnamed_addr #0 {
@@ -422,7 +422,7 @@ declare void @msi_notify(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @pci_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
@@ -433,7 +433,7 @@ declare i32 @address_space_rw(ptr noundef, i64 noundef, i32, ptr noundef, i64 no
 declare ptr @type_register(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @mptsas1068_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @mptsas1068_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #12
   %call.i13 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #12
@@ -988,11 +988,11 @@ if.then8.i.i64.i.i:                               ; preds = %if.then.i.i61.i.i
   %call10.i.i66.i.i = call i32 @qemu_get_thread_id() #12
   %48 = load i64, ptr %_now.i.i54.i.i, align 8
   %49 = load i64, ptr %tv_usec.i.i67.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %call10.i.i66.i.i, i64 noundef %48, i64 noundef %49, ptr noundef %opaque, i32 noundef %43, i64 noundef range(i64 0, 4294967296) %conv16.i.i, i64 noundef range(i64 0, 4294967295) %41) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %call10.i.i66.i.i, i64 noundef %48, i64 noundef %49, ptr noundef nonnull %opaque, i32 noundef %43, i64 noundef range(i64 0, 4294967296) %conv16.i.i, i64 noundef range(i64 0, 4294967295) %41) #12
   br label %trace_mptsas_sgl_overflow.exit.i.i
 
 if.else.i.i63.i.i:                                ; preds = %if.then.i.i61.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, ptr noundef %opaque, i32 noundef %43, i64 noundef range(i64 0, 4294967296) %conv16.i.i, i64 noundef range(i64 0, 4294967295) %41) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, ptr noundef nonnull %opaque, i32 noundef %43, i64 noundef range(i64 0, 4294967296) %conv16.i.i, i64 noundef range(i64 0, 4294967295) %41) #12
   br label %trace_mptsas_sgl_overflow.exit.i.i
 
 trace_mptsas_sgl_overflow.exit.i.i:               ; preds = %if.else.i.i63.i.i, %if.then8.i.i64.i.i, %land.lhs.true5.i.i58.i.i, %if.then18.i.i
@@ -1082,11 +1082,11 @@ if.then8.i.i78.i.i:                               ; preds = %if.then.i.i75.i.i
   %call10.i.i80.i.i = call i32 @qemu_get_thread_id() #12
   %65 = load i64, ptr %_now.i.i68.i.i, align 8
   %66 = load i64, ptr %tv_usec.i.i81.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i80.i.i, i64 noundef %65, i64 noundef %66, ptr noundef %opaque, i32 noundef %60, i64 noundef %52, i64 noundef range(i64 0, 4294967296) %conv33.i.i) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i80.i.i, i64 noundef %65, i64 noundef %66, ptr noundef nonnull %opaque, i32 noundef %60, i64 noundef %52, i64 noundef range(i64 0, 4294967296) %conv33.i.i) #12
   br label %trace_mptsas_scsi_overflow.exit.i.i
 
 if.else.i.i77.i.i:                                ; preds = %if.then.i.i75.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, ptr noundef %opaque, i32 noundef %60, i64 noundef %52, i64 noundef range(i64 0, 4294967296) %conv33.i.i) #12
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, ptr noundef nonnull %opaque, i32 noundef %60, i64 noundef %52, i64 noundef range(i64 0, 4294967296) %conv33.i.i) #12
   br label %trace_mptsas_scsi_overflow.exit.i.i
 
 trace_mptsas_scsi_overflow.exit.i.i:              ; preds = %if.else.i.i77.i.i, %if.then8.i.i78.i.i, %land.lhs.true5.i.i72.i.i, %overrun.i.i
@@ -2666,7 +2666,7 @@ declare void @mptsas_process_config(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @mptsas_fix_scsi_task_mgmt_endianness(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: allocsize(1)
 declare ptr @g_memdup(ptr noundef, i32 noundef) local_unnamed_addr #7
@@ -2675,7 +2675,7 @@ declare ptr @g_memdup(ptr noundef, i32 noundef) local_unnamed_addr #7
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @mptsas_cancel_notify(ptr noundef %notifier, ptr nocapture readnone %data) #0 {
+define internal void @mptsas_cancel_notify(ptr noundef %notifier, ptr readnone captures(none) %data) #0 {
 entry:
   %reply = getelementptr inbounds nuw i8, ptr %notifier, i64 32
   %0 = load ptr, ptr %reply, align 8
@@ -3065,7 +3065,7 @@ mptsas_free_request.exit:                         ; preds = %if.end64, %if.then.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @mptsas_request_cancelled(ptr nocapture noundef readonly %sreq) #0 {
+define internal void @mptsas_request_cancelled(ptr noundef readonly captures(none) %sreq) #0 {
 entry:
   %reply = alloca %struct.MPIMsgSCSIIOReply, align 1
   %hba_private = getelementptr inbounds nuw i8, ptr %sreq, i64 40
@@ -3129,7 +3129,7 @@ mptsas_free_request.exit:                         ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal nonnull ptr @mptsas_get_sg_list(ptr nocapture noundef readonly %sreq) #9 {
+define internal nonnull ptr @mptsas_get_sg_list(ptr noundef readonly captures(none) %sreq) #9 {
 entry:
   %hba_private = getelementptr inbounds nuw i8, ptr %sreq, i64 40
   %0 = load ptr, ptr %hba_private, align 8
@@ -3138,7 +3138,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @mptsas_save_request(ptr noundef %f, ptr nocapture noundef readonly %sreq) #0 {
+define internal void @mptsas_save_request(ptr noundef %f, ptr noundef readonly captures(none) %sreq) #0 {
 entry:
   %hba_private = getelementptr inbounds nuw i8, ptr %sreq, i64 40
   %0 = load ptr, ptr %hba_private, align 8
@@ -3234,7 +3234,7 @@ declare void @qemu_bh_delete(ptr noundef) local_unnamed_addr #2
 declare void @msi_uninit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 -22, 1) i32 @mptsas_post_load(ptr nocapture noundef readonly %opaque, i32 %version_id) #9 {
+define internal range(i32 -22, 1) i32 @mptsas_post_load(ptr noundef readonly captures(none) %opaque, i32 %version_id) #9 {
 entry:
   %doorbell_idx = getelementptr inbounds nuw i8, ptr %opaque, i64 4484
   %0 = load i32, ptr %doorbell_idx, align 4
@@ -3307,10 +3307,10 @@ return:                                           ; preds = %lor.lhs.false36, %e
 declare i32 @llvm.umin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

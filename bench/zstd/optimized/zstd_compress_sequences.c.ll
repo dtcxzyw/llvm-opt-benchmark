@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @BIT_mask = internal unnamed_addr constant [32 x i32] [i32 0, i32 1, i32 3, i32 7, i32 15, i32 31, i32 63, i32 127, i32 255, i32 511, i32 1023, i32 2047, i32 4095, i32 8191, i32 16383, i32 32767, i32 65535, i32 131071, i32 262143, i32 524287, i32 1048575, i32 2097151, i32 4194303, i32 8388607, i32 16777215, i32 33554431, i32 67108863, i32 134217727, i32 268435455, i32 536870911, i32 1073741823, i32 2147483647], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i64 -1, 72057594037927936) i64 @ZSTD_fseBitCost(ptr nocapture noundef readonly %ctable, ptr nocapture noundef readonly %count, i32 noundef %max) local_unnamed_addr #0 {
+define range(i64 -1, 72057594037927936) i64 @ZSTD_fseBitCost(ptr noundef readonly captures(none) %ctable, ptr noundef readonly captures(none) %count, i32 noundef %max) local_unnamed_addr #0 {
 entry:
   %ct.val.i = load i16, ptr %ctable, align 1
   %conv.i = zext i16 %ct.val.i to i32
@@ -83,7 +83,7 @@ return:                                           ; preds = %if.end5, %entry, %f
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i64 0, 72057594037927936) i64 @ZSTD_crossEntropyCost(ptr nocapture noundef readonly %norm, i32 noundef %accuracyLog, ptr nocapture noundef readonly %count, i32 noundef %max) local_unnamed_addr #0 {
+define range(i64 0, 72057594037927936) i64 @ZSTD_crossEntropyCost(ptr noundef readonly captures(none) %norm, i32 noundef %accuracyLog, ptr noundef readonly captures(none) %count, i32 noundef %max) local_unnamed_addr #0 {
 entry:
   %sub = sub i32 8, %accuracyLog
   %0 = add i32 %max, 1
@@ -118,7 +118,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @ZSTD_selectEncodingType(ptr nocapture noundef %repeatMode, ptr noundef %count, i32 noundef %max, i64 noundef %mostFrequent, i64 noundef %nbSeq, i32 noundef %FSELog, ptr nocapture noundef readonly %prevCTable, ptr nocapture noundef readonly %defaultNorm, i32 noundef %defaultNormLog, i32 noundef %isDefaultAllowed, i32 noundef %strategy) local_unnamed_addr #1 {
+define range(i32 0, 4) i32 @ZSTD_selectEncodingType(ptr noundef captures(none) %repeatMode, ptr noundef %count, i32 noundef %max, i64 noundef %mostFrequent, i64 noundef %nbSeq, i32 noundef %FSELog, ptr noundef readonly captures(none) %prevCTable, ptr noundef readonly captures(none) %defaultNorm, i32 noundef %defaultNormLog, i32 noundef %isDefaultAllowed, i32 noundef %strategy) local_unnamed_addr #1 {
 entry:
   %wksp.i = alloca [512 x i8], align 16
   %norm.i = alloca [53 x i16], align 16
@@ -344,7 +344,7 @@ return:                                           ; preds = %if.end55, %if.then9
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_buildCTable(ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %nextCTable, i32 noundef %FSELog, i32 noundef %type, ptr noundef %count, i32 noundef %max, ptr nocapture noundef readonly %codeTable, i64 noundef %nbSeq, ptr noundef %defaultNorm, i32 noundef %defaultNormLog, i32 noundef %defaultMax, ptr nocapture noundef readonly %prevCTable, i64 noundef %prevCTableSize, ptr noundef %entropyWorkspace, i64 noundef %entropyWorkspaceSize) local_unnamed_addr #1 {
+define i64 @ZSTD_buildCTable(ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %nextCTable, i32 noundef %FSELog, i32 noundef %type, ptr noundef %count, i32 noundef %max, ptr noundef readonly captures(none) %codeTable, i64 noundef %nbSeq, ptr noundef %defaultNorm, i32 noundef %defaultNormLog, i32 noundef %defaultMax, ptr noundef readonly captures(none) %prevCTable, i64 noundef %prevCTableSize, ptr noundef %entropyWorkspace, i64 noundef %entropyWorkspaceSize) local_unnamed_addr #1 {
 entry:
   switch i32 %type, label %sw.epilog [
     i32 1, label %do.body1
@@ -423,7 +423,7 @@ sw.epilog:                                        ; preds = %entry, %do.body91, 
 declare i64 @FSE_buildCTable_rle(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i64 @FSE_buildCTable_wksp(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -434,7 +434,7 @@ declare i64 @FSE_normalizeCount(ptr noundef, i32 noundef, ptr noundef, i64 nound
 declare i64 @FSE_writeNCount(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %dst, i64 noundef %dstCapacity, ptr nocapture noundef readonly %CTable_MatchLength, ptr nocapture noundef readonly %mlCodeTable, ptr nocapture noundef readonly %CTable_OffsetBits, ptr nocapture noundef readonly %ofCodeTable, ptr nocapture noundef readonly %CTable_LitLength, ptr nocapture noundef readonly %llCodeTable, ptr nocapture noundef readonly %sequences, i64 noundef %nbSeq, i32 noundef %longOffsets, i32 noundef %bmi2) local_unnamed_addr #4 {
+define range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef readonly captures(none) %CTable_MatchLength, ptr noundef readonly captures(none) %mlCodeTable, ptr noundef readonly captures(none) %CTable_OffsetBits, ptr noundef readonly captures(none) %ofCodeTable, ptr noundef readonly captures(none) %CTable_LitLength, ptr noundef readonly captures(none) %llCodeTable, ptr noundef readonly captures(none) %sequences, i64 noundef %nbSeq, i32 noundef %longOffsets, i32 noundef %bmi2) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq i32 %bmi2, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -978,7 +978,7 @@ return:                                           ; preds = %BIT_closeCStream.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i64 1, 0) i64 @ZSTD_encodeSequences_bmi2(ptr noundef %dst, i64 noundef %dstCapacity, ptr nocapture noundef readonly %CTable_MatchLength, ptr nocapture noundef readonly %mlCodeTable, ptr nocapture noundef readonly %CTable_OffsetBits, ptr nocapture noundef readonly %ofCodeTable, ptr nocapture noundef readonly %CTable_LitLength, ptr nocapture noundef readonly %llCodeTable, ptr nocapture noundef readonly %sequences, i64 noundef %nbSeq, i32 noundef %longOffsets) unnamed_addr #5 {
+define internal fastcc range(i64 1, 0) i64 @ZSTD_encodeSequences_bmi2(ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef readonly captures(none) %CTable_MatchLength, ptr noundef readonly captures(none) %mlCodeTable, ptr noundef readonly captures(none) %CTable_OffsetBits, ptr noundef readonly captures(none) %ofCodeTable, ptr noundef readonly captures(none) %CTable_LitLength, ptr noundef readonly captures(none) %llCodeTable, ptr noundef readonly captures(none) %sequences, i64 noundef %nbSeq, i32 noundef %longOffsets) unnamed_addr #5 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %dst, i64 %dstCapacity
   %add.ptr4.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -8
@@ -1517,10 +1517,10 @@ ZSTD_encodeSequences_body.exit:                   ; preds = %BIT_closeCStream.ex
 declare i32 @llvm.umax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

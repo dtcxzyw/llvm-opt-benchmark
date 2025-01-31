@@ -181,7 +181,7 @@ declare void @grpc_channel_credentials_release(ptr noundef) local_unnamed_addr #
 declare ptr @grpc_completion_queue_create_for_next(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL13thread_workerPv(ptr nocapture readnone %0) #5 {
+define internal void @_ZL13thread_workerPv(ptr readnone captures(none) %0) #5 {
 entry:
   br label %while.body
 
@@ -310,7 +310,7 @@ declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_
 declare void @_Z38alts_handshaker_client_handle_responseP22alts_handshaker_clientb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare i32 @__gxx_personality_v0(...)
 

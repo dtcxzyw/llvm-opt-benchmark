@@ -67,7 +67,7 @@ define dso_local range(i32 -30, 1) i32 @archive_write_add_filter_program(ptr nou
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %28, align 8
   %29 = tail call ptr @archive_strncat(ptr noundef nonnull %22, ptr noundef nonnull @archive_write_add_filter_program.prefix, i64 noundef 9) #11
-  %30 = tail call ptr @archive_strcat(ptr noundef nonnull %22, ptr noundef %1) #11
+  %30 = tail call ptr @archive_strcat(ptr noundef nonnull %22, ptr noundef nonnull %1) #11
   %31 = load ptr, ptr %22, align 8
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr %31, ptr %32, align 8
@@ -131,10 +131,10 @@ declare i32 @__archive_check_magic(ptr noundef, i32 noundef, i32 noundef, ptr no
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local noalias noundef ptr @__archive_write_program_allocate(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local noalias noundef ptr @__archive_write_program_allocate(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #12
   %3 = icmp eq ptr %2, null
   br i1 %3, label %9, label %4
@@ -156,14 +156,14 @@ define dso_local noalias noundef ptr @__archive_write_program_allocate(ptr nocap
 declare ptr @archive_string_ensure(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @archive_strncat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare ptr @archive_strcat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @archive_compressor_program_open(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -30, 1) i32 @archive_compressor_program_open(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -209,7 +209,7 @@ __archive_write_program_open.exit:                ; preds = %15, %18, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @archive_compressor_program_write(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal range(i32 -30, 1) i32 @archive_compressor_program_write(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -218,7 +218,7 @@ define internal range(i32 -30, 1) i32 @archive_compressor_program_write(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @archive_compressor_program_close(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -30, 1) i32 @archive_compressor_program_close(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -227,7 +227,7 @@ define internal range(i32 -30, 1) i32 @archive_compressor_program_close(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_compressor_program_free(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @archive_compressor_program_free(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -284,10 +284,10 @@ define dso_local noundef i32 @__archive_write_program_free(ptr noundef %0) local
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -30, 1) i32 @__archive_write_program_open(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @__archive_write_program_open(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -333,7 +333,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 declare i32 @__archive_create_child(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -30, 1) i32 @__archive_write_program_write(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @__archive_write_program_write(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %1, align 8
   %6 = icmp eq i32 %5, 0
   %.not41 = icmp eq i64 %3, 0
@@ -472,7 +472,7 @@ child_write.exit.thread:                          ; preds = %13, %.critedge46.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -30, 1) i32 @__archive_write_program_close(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @__archive_write_program_close(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %4, 0
@@ -596,7 +596,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #10
@@ -608,7 +608,7 @@ declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 declare void @archive_string_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
 
 declare void @__archive_check_child(i32 noundef, i32 noundef) local_unnamed_addr #1
 

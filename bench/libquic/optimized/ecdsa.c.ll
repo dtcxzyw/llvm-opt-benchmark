@@ -35,7 +35,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ECDSA_sign_ex(i32 %type, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %sig, ptr nocapture noundef writeonly initializes((0, 4)) %sig_len, ptr noundef %kinv, ptr noundef %r, ptr noundef %eckey) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ECDSA_sign_ex(i32 %type, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %sig, ptr noundef writeonly captures(none) initializes((0, 4)) %sig_len, ptr noundef %kinv, ptr noundef %r, ptr noundef %eckey) local_unnamed_addr #0 {
 entry:
   %cbb = alloca %struct.cbb_st, align 8
   %len = alloca i64, align 8
@@ -320,7 +320,7 @@ return:                                           ; preds = %err, %if.then6, %if
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @ECDSA_SIG_free(ptr noundef) local_unnamed_addr #1
 
@@ -467,7 +467,7 @@ digest_to_bn.exit.split.us.split:                 ; preds = %digest_to_bn.exit.s
   br i1 %tobool32.not.us.us, label %if.then33, label %if.end34.us
 
 for.cond.us:                                      ; preds = %if.end53.us
-  %call31.us = call fastcc i32 @ecdsa_sign_setup(ptr noundef %eckey, ptr noundef nonnull %call12, ptr noundef nonnull %kinv, ptr noundef nonnull %call7, ptr noundef %digest, i64 noundef %digest_len)
+  %call31.us = call fastcc i32 @ecdsa_sign_setup(ptr noundef nonnull %eckey, ptr noundef nonnull %call12, ptr noundef nonnull %kinv, ptr noundef nonnull %call7, ptr noundef %digest, i64 noundef %digest_len)
   %tobool32.not.us = icmp eq i32 %call31.us, 0
   br i1 %tobool32.not.us, label %if.then33, label %if.end34.us
 
@@ -678,14 +678,14 @@ declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 declare void @EC_POINT_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ECDSA_sign_setup(ptr noundef %eckey, ptr noundef %ctx, ptr nocapture noundef %kinv, ptr nocapture noundef %rp) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ECDSA_sign_setup(ptr noundef %eckey, ptr noundef %ctx, ptr noundef captures(none) %kinv, ptr noundef captures(none) %rp) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @ecdsa_sign_setup(ptr noundef %eckey, ptr noundef %ctx, ptr noundef %kinv, ptr noundef %rp, ptr noundef null, i64 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %eckey, ptr noundef %ctx_in, ptr nocapture noundef %kinvp, ptr nocapture noundef %rp, ptr noundef %digest, i64 noundef %digest_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %eckey, ptr noundef %ctx_in, ptr noundef captures(none) %kinvp, ptr noundef captures(none) %rp, ptr noundef %digest, i64 noundef %digest_len) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %eckey, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -977,7 +977,7 @@ declare void @BN_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @BN_mod_exp_mont_consttime(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #3
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZL17currentBufferSize = internal unnamed_addr global i32 512, align 4
 
 ; Function Attrs: mustprogress uwtable
-define i32 @parseFlagsFile(ptr noundef %fileName, ptr nocapture noundef readonly %flagBuffer, i32 noundef %flagBufferSize, ptr noundef readonly %flagNames, i32 noundef %numOfFlags, ptr nocapture noundef %status) local_unnamed_addr #0 {
+define i32 @parseFlagsFile(ptr noundef %fileName, ptr noundef readonly captures(none) %flagBuffer, i32 noundef %flagBufferSize, ptr noundef readonly %flagNames, i32 noundef %numOfFlags, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @T_FileStream_open(ptr noundef %fileName, ptr noundef nonnull @.str)
   %cmp = icmp eq ptr %call, null
@@ -276,17 +276,17 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #1
 declare ptr @T_FileStream_readLine(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @T_FileStream_rewind(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #4
 
 declare void @T_FileStream_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

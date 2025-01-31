@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @url_safe_char_mask = internal unnamed_addr constant [4 x i32] [i32 0, i32 67067904, i32 -2013265922, i32 1207959550], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @rhash_byte_to_hex(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @rhash_byte_to_hex(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq i32 %3, 0
   %5 = select i1 %.not, i8 87, i8 55
   %.not2124 = icmp eq i64 %2, 0
@@ -44,7 +44,7 @@ define dso_local void @rhash_byte_to_hex(ptr nocapture noundef writeonly %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @rhash_byte_to_base32(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @rhash_byte_to_base32(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
   %6 = icmp sgt i64 %2, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -120,7 +120,7 @@ define dso_local void @rhash_byte_to_base32(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @rhash_byte_to_base64(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @rhash_byte_to_base64(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   %5 = icmp sgt i64 %2, 0
   br i1 %5, label %.lr.ph, label %._crit_edge.thread
@@ -561,7 +561,7 @@ rhash_byte_to_base64.exit45:                      ; preds = %112, %._crit_edge.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local i64 @rhash_urlencode(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local i64 @rhash_urlencode(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %21
 
@@ -727,7 +727,7 @@ define dso_local i32 @rhash_sprintI64(ptr noundef writeonly %0, i64 noundef %1) 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #2

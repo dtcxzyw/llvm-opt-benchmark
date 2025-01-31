@@ -1748,14 +1748,14 @@ define internal void @__cxx_global_var_init.51() #0 section ".text.startup" comd
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau15isWithinCommentERKNS_12SourceModuleENS_8PositionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %0, i64 %1) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN4Luau15isWithinCommentERKNS_12SourceModuleENS_8PositionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(240) %0, i64 %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = tail call fastcc noundef zeroext i1 @_ZN4LuauL15isWithinCommentERKSt6vectorINS_7CommentESaIS1_EENS_8PositionE(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 %1)
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4LuauL15isWithinCommentERKSt6vectorINS_7CommentESaIS1_EENS_8PositionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 %1) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZN4LuauL15isWithinCommentERKSt6vectorINS_7CommentESaIS1_EENS_8PositionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 %1) unnamed_addr #1 {
   %3 = alloca %"struct.Luau::Position", align 8
   %4 = alloca %"struct.Luau::Comment", align 8
   %5 = alloca %"struct.Luau::Position", align 8
@@ -1896,10 +1896,10 @@ _ZN4LuauL8containsENS_8PositionENS_7CommentE.exit11: ; preds = %46, %52, %57, %6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau15isWithinCommentERKNS_11ParseResultENS_8PositionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, i64 %1) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN4Luau15isWithinCommentERKNS_11ParseResultENS_8PositionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, i64 %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = tail call fastcc noundef zeroext i1 @_ZN4LuauL15isWithinCommentERKSt6vectorINS_7CommentESaIS1_EENS_8PositionE(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 %1)
   ret i1 %4
@@ -2518,7 +2518,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau6Module20clonePublicInterfaceENS_7NotNullINS_12BuiltinTypesEEERNS_21InternalErrorReporterE(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau6Module20clonePublicInterfaceENS_7NotNullINS_12BuiltinTypesEEERNS_21InternalErrorReporterE(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::CloneState", align 8
   %5 = alloca %"class.std::shared_ptr.142", align 8
   %.sroa.7 = alloca [7 x i8], align 1
@@ -2944,10 +2944,10 @@ _ZN4Luau10CloneStateD2Ev.exit:                    ; preds = %_ZNSt10_HashtableIP
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local void @_ZNK4Luau6Module14getModuleScopeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.142") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(952) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4Luau6Module14getModuleScopeEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::shared_ptr.142") align 8 captures(none) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(952) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3971,7 +3971,7 @@ _ZNSt13unordered_mapIPKN4Luau4TypeES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4Luau6Module14hasModuleScopeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(952) %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4Luau6Module14hasModuleScopeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(952) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -7514,7 +7514,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau4TypeEESaISB_EEC2ERKSD_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8721,10 +8721,10 @@ _ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKNSt7__cxx1112basic_
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15

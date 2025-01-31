@@ -2359,7 +2359,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2262 = private unnamed_addr constant [16 x i8] c"; charset=UTF-8\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_apache_request_headers(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_apache_request_headers(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2393,7 +2393,7 @@ declare void @llvm.assume(i1 noundef) #2
 declare ptr @zend_array_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_apache_response_headers(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zif_apache_response_headers(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2423,7 +2423,7 @@ declare ptr @_zend_new_array_0() local_unnamed_addr #1
 declare void @zend_llist_apply_with_argument(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @add_response_header(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @add_response_header(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
@@ -2883,7 +2883,7 @@ php_cli_server_client_send_through.exit:          ; preds = %108, %.loopexit.sin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i64 @sapi_cli_server_read_post(ptr nocapture noundef writeonly %0, i64 noundef %1) #3 {
+define internal i64 @sapi_cli_server_read_post(ptr noundef writeonly captures(none) %0, i64 noundef %1) #3 {
   %3 = load ptr, ptr @sapi_globals, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 304
   %5 = load ptr, ptr %4, align 8
@@ -3269,583 +3269,568 @@ sapi_cli_server_register_known_var_str.exit128:   ; preds = %154, %167
   call void @_efree(ptr noundef nonnull %159) #29
   br label %178
 
-178:                                              ; preds = %172, %177, %sapi_cli_server_register_known_var_str.exit128
+178:                                              ; preds = %sapi_cli_server_register_known_var_str.exit128, %177, %172
   %179 = load ptr, ptr %22, align 8
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 536
   %181 = load ptr, ptr %180, align 8
   %182 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %181) #30
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  %.not.i129 = icmp eq ptr %181, null
-  br i1 %.not.i129, label %sapi_cli_server_register_known_var_char.exit132, label %183
+  %183 = icmp ugt i64 %182, 1
+  br i1 %183, label %184, label %193
 
-183:                                              ; preds = %178
-  %184 = icmp ugt i64 %182, 1
-  br i1 %184, label %185, label %194
-
-185:                                              ; preds = %183
-  %186 = and i64 %182, -8
-  %187 = add i64 %186, 32
-  %188 = call noalias ptr @_emalloc(i64 noundef %187) #31
-  store i32 1, ptr %188, align 4
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 4
-  store i32 22, ptr %189, align 4
-  %190 = getelementptr inbounds nuw i8, ptr %188, i64 8
-  store i64 0, ptr %190, align 8
-  %191 = getelementptr inbounds nuw i8, ptr %188, i64 16
-  store i64 %182, ptr %191, align 8
-  %192 = getelementptr inbounds nuw i8, ptr %188, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %192, ptr nonnull readonly align 1 %181, i64 %182, i1 false)
-  %193 = getelementptr inbounds [1 x i8], ptr %192, i64 0, i64 %182
-  store i8 0, ptr %193, align 1
-  br label %203
-
-194:                                              ; preds = %183
-  %195 = icmp eq i64 %182, 0
-  br i1 %195, label %196, label %198
-
-196:                                              ; preds = %194
-  %197 = load ptr, ptr @zend_empty_string, align 8
-  br label %203
-
-198:                                              ; preds = %194
-  %199 = load i8, ptr %181, align 1
-  %200 = zext i8 %199 to i64
-  %201 = getelementptr inbounds nuw [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %200
-  %202 = load ptr, ptr %201, align 8
-  br label %203
-
-203:                                              ; preds = %198, %196, %185
-  %.0.i130 = phi ptr [ %188, %185 ], [ %197, %196 ], [ %202, %198 ]
-  store ptr %.0.i130, ptr %13, align 8
-  %204 = getelementptr inbounds nuw i8, ptr %.0.i130, i64 4
-  %205 = load i32, ptr %204, align 4
-  %206 = and i32 %205, 64
-  %.not73.i131 = icmp eq i32 %206, 0
-  %207 = select i1 %.not73.i131, i32 262, i32 6
-  %208 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i32 %207, ptr %208, align 8
-  call void @php_register_known_variable(ptr noundef nonnull @.str.85, i64 noundef 11, ptr noundef nonnull %13, ptr noundef %0) #29
-  %.pre = load ptr, ptr %22, align 8
+184:                                              ; preds = %178
+  %185 = and i64 %182, -8
+  %186 = add i64 %185, 32
+  %187 = call noalias ptr @_emalloc(i64 noundef %186) #31
+  store i32 1, ptr %187, align 4
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 4
+  store i32 22, ptr %188, align 4
+  %189 = getelementptr inbounds nuw i8, ptr %187, i64 8
+  store i64 0, ptr %189, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %187, i64 16
+  store i64 %182, ptr %190, align 8
+  %191 = getelementptr inbounds nuw i8, ptr %187, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %191, ptr nonnull readonly align 1 %181, i64 %182, i1 false)
+  %192 = getelementptr inbounds [1 x i8], ptr %191, i64 0, i64 %182
+  store i8 0, ptr %192, align 1
   br label %sapi_cli_server_register_known_var_char.exit132
 
-sapi_cli_server_register_known_var_char.exit132:  ; preds = %178, %203
-  %209 = phi ptr [ %179, %178 ], [ %.pre, %203 ]
+193:                                              ; preds = %178
+  %194 = icmp eq i64 %182, 0
+  br i1 %194, label %195, label %197
+
+195:                                              ; preds = %193
+  %196 = load ptr, ptr @zend_empty_string, align 8
+  br label %sapi_cli_server_register_known_var_char.exit132
+
+197:                                              ; preds = %193
+  %198 = load i8, ptr %181, align 1
+  %199 = zext i8 %198 to i64
+  %200 = getelementptr inbounds nuw [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %199
+  %201 = load ptr, ptr %200, align 8
+  br label %sapi_cli_server_register_known_var_char.exit132
+
+sapi_cli_server_register_known_var_char.exit132:  ; preds = %184, %195, %197
+  %.0.i130 = phi ptr [ %187, %184 ], [ %196, %195 ], [ %201, %197 ]
+  store ptr %.0.i130, ptr %13, align 8
+  %202 = getelementptr inbounds nuw i8, ptr %.0.i130, i64 4
+  %203 = load i32, ptr %202, align 4
+  %204 = and i32 %203, 64
+  %.not73.i131 = icmp eq i32 %204, 0
+  %205 = select i1 %.not73.i131, i32 262, i32 6
+  %206 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i32 %205, ptr %206, align 8
+  call void @php_register_known_variable(ptr noundef nonnull @.str.85, i64 noundef 11, ptr noundef nonnull %13, ptr noundef %0) #29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  %210 = getelementptr inbounds nuw i8, ptr %209, i64 544
-  %211 = load i32, ptr %210, align 8
-  %212 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.86, i32 noundef %211) #29
+  %207 = load ptr, ptr %22, align 8
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 544
+  %209 = load i32, ptr %208, align 8
+  %210 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.86, i32 noundef %209) #29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  %.not.i133 = icmp eq ptr %212, null
-  br i1 %.not.i133, label %sapi_cli_server_register_known_var_str.exit136, label %213
+  %.not.i133 = icmp eq ptr %210, null
+  br i1 %.not.i133, label %sapi_cli_server_register_known_var_str.exit136, label %211
 
-213:                                              ; preds = %sapi_cli_server_register_known_var_char.exit132
-  store ptr %212, ptr %12, align 8
-  %214 = getelementptr inbounds nuw i8, ptr %212, i64 4
-  %215 = load i32, ptr %214, align 4
-  %216 = and i32 %215, 64
-  %.not12.i134 = icmp eq i32 %216, 0
-  br i1 %.not12.i134, label %217, label %220
+211:                                              ; preds = %sapi_cli_server_register_known_var_char.exit132
+  store ptr %210, ptr %12, align 8
+  %212 = getelementptr inbounds nuw i8, ptr %210, i64 4
+  %213 = load i32, ptr %212, align 4
+  %214 = and i32 %213, 64
+  %.not12.i134 = icmp eq i32 %214, 0
+  br i1 %.not12.i134, label %215, label %218
 
-217:                                              ; preds = %213
-  %218 = load i32, ptr %212, align 4
-  %219 = add i32 %218, 1
-  store i32 %219, ptr %212, align 4
-  br label %220
+215:                                              ; preds = %211
+  %216 = load i32, ptr %210, align 4
+  %217 = add i32 %216, 1
+  store i32 %217, ptr %210, align 4
+  br label %218
 
-220:                                              ; preds = %217, %213
-  %.sink.i135 = phi i32 [ 262, %217 ], [ 6, %213 ]
-  %221 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 %.sink.i135, ptr %221, align 8
+218:                                              ; preds = %215, %211
+  %.sink.i135 = phi i32 [ 262, %215 ], [ 6, %211 ]
+  %219 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i32 %.sink.i135, ptr %219, align 8
   call void @php_register_known_variable(ptr noundef nonnull @.str.87, i64 noundef 11, ptr noundef nonnull %12, ptr noundef %0) #29
   br label %sapi_cli_server_register_known_var_str.exit136
 
-sapi_cli_server_register_known_var_str.exit136:   ; preds = %sapi_cli_server_register_known_var_char.exit132, %220
+sapi_cli_server_register_known_var_str.exit136:   ; preds = %sapi_cli_server_register_known_var_char.exit132, %218
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  %222 = getelementptr inbounds nuw i8, ptr %212, i64 4
-  %223 = load i32, ptr %222, align 4
-  %224 = and i32 %223, 64
-  %.not105 = icmp eq i32 %224, 0
-  br i1 %.not105, label %225, label %231
+  %220 = getelementptr inbounds nuw i8, ptr %210, i64 4
+  %221 = load i32, ptr %220, align 4
+  %222 = and i32 %221, 64
+  %.not105 = icmp eq i32 %222, 0
+  br i1 %.not105, label %223, label %229
 
-225:                                              ; preds = %sapi_cli_server_register_known_var_str.exit136
-  %226 = load i32, ptr %212, align 4
-  %227 = icmp ne i32 %226, 0
-  call void @llvm.assume(i1 %227)
-  %228 = add i32 %226, -1
-  store i32 %228, ptr %212, align 4
-  %229 = icmp eq i32 %228, 0
-  br i1 %229, label %230, label %231
+223:                                              ; preds = %sapi_cli_server_register_known_var_str.exit136
+  %224 = load i32, ptr %210, align 4
+  %225 = icmp ne i32 %224, 0
+  call void @llvm.assume(i1 %225)
+  %226 = add i32 %224, -1
+  store i32 %226, ptr %210, align 4
+  %227 = icmp eq i32 %226, 0
+  br i1 %227, label %228, label %229
 
-230:                                              ; preds = %225
-  call void @_efree(ptr noundef nonnull %212) #29
-  br label %231
+228:                                              ; preds = %223
+  call void @_efree(ptr noundef nonnull %210) #29
+  br label %229
 
-231:                                              ; preds = %225, %230, %sapi_cli_server_register_known_var_str.exit136
-  %232 = getelementptr inbounds nuw i8, ptr %22, i64 120
-  %233 = load ptr, ptr %232, align 8
+229:                                              ; preds = %223, %228, %sapi_cli_server_register_known_var_str.exit136
+  %230 = getelementptr inbounds nuw i8, ptr %22, i64 120
+  %231 = load ptr, ptr %230, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  %.not.i137 = icmp eq ptr %233, null
-  br i1 %.not.i137, label %sapi_cli_server_register_known_var_str.exit140, label %234
+  %.not.i137 = icmp eq ptr %231, null
+  br i1 %.not.i137, label %241, label %232
 
-234:                                              ; preds = %231
-  store ptr %233, ptr %11, align 8
-  %235 = getelementptr inbounds nuw i8, ptr %233, i64 4
-  %236 = load i32, ptr %235, align 4
-  %237 = and i32 %236, 64
-  %.not12.i138 = icmp eq i32 %237, 0
-  br i1 %.not12.i138, label %238, label %241
+232:                                              ; preds = %229
+  store ptr %231, ptr %11, align 8
+  %233 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  %234 = load i32, ptr %233, align 4
+  %235 = and i32 %234, 64
+  %.not12.i138 = icmp eq i32 %235, 0
+  br i1 %.not12.i138, label %236, label %239
 
-238:                                              ; preds = %234
-  %239 = load i32, ptr %233, align 4
-  %240 = add i32 %239, 1
-  store i32 %240, ptr %233, align 4
+236:                                              ; preds = %232
+  %237 = load i32, ptr %231, align 4
+  %238 = add i32 %237, 1
+  store i32 %238, ptr %231, align 4
+  br label %239
+
+239:                                              ; preds = %236, %232
+  %.sink.i139 = phi i32 [ 262, %236 ], [ 6, %232 ]
+  %240 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i32 %.sink.i139, ptr %240, align 8
+  call void @php_register_known_variable(ptr noundef nonnull @.str.88, i64 noundef 11, ptr noundef nonnull %11, ptr noundef %0) #29
   br label %241
 
-241:                                              ; preds = %238, %234
-  %.sink.i139 = phi i32 [ 262, %238 ], [ 6, %234 ]
-  %242 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 %.sink.i139, ptr %242, align 8
-  call void @php_register_known_variable(ptr noundef nonnull @.str.88, i64 noundef 11, ptr noundef nonnull %11, ptr noundef %0) #29
-  br label %sapi_cli_server_register_known_var_str.exit140
-
-sapi_cli_server_register_known_var_str.exit140:   ; preds = %231, %241
+241:                                              ; preds = %239, %229
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  %243 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 8), align 8
-  %244 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %243) #30
+  %242 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 8), align 8
+  %243 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %242) #30
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  %.not.i141 = icmp eq ptr %243, null
-  br i1 %.not.i141, label %sapi_cli_server_register_known_var_char.exit144, label %245
+  %244 = icmp ugt i64 %243, 1
+  br i1 %244, label %245, label %254
 
-245:                                              ; preds = %sapi_cli_server_register_known_var_str.exit140
-  %246 = icmp ugt i64 %244, 1
-  br i1 %246, label %247, label %256
-
-247:                                              ; preds = %245
-  %248 = and i64 %244, -8
-  %249 = add i64 %248, 32
-  %250 = call noalias ptr @_emalloc(i64 noundef %249) #31
-  store i32 1, ptr %250, align 4
-  %251 = getelementptr inbounds nuw i8, ptr %250, i64 4
-  store i32 22, ptr %251, align 4
-  %252 = getelementptr inbounds nuw i8, ptr %250, i64 8
-  store i64 0, ptr %252, align 8
-  %253 = getelementptr inbounds nuw i8, ptr %250, i64 16
-  store i64 %244, ptr %253, align 8
-  %254 = getelementptr inbounds nuw i8, ptr %250, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %254, ptr nonnull readonly align 1 %243, i64 %244, i1 false)
-  %255 = getelementptr inbounds [1 x i8], ptr %254, i64 0, i64 %244
-  store i8 0, ptr %255, align 1
-  br label %265
-
-256:                                              ; preds = %245
-  %257 = icmp eq i64 %244, 0
-  br i1 %257, label %258, label %260
-
-258:                                              ; preds = %256
-  %259 = load ptr, ptr @zend_empty_string, align 8
-  br label %265
-
-260:                                              ; preds = %256
-  %261 = load i8, ptr %243, align 1
-  %262 = zext i8 %261 to i64
-  %263 = getelementptr inbounds nuw [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %262
-  %264 = load ptr, ptr %263, align 8
-  br label %265
-
-265:                                              ; preds = %260, %258, %247
-  %.0.i142 = phi ptr [ %250, %247 ], [ %259, %258 ], [ %264, %260 ]
-  store ptr %.0.i142, ptr %10, align 8
-  %266 = getelementptr inbounds nuw i8, ptr %.0.i142, i64 4
-  %267 = load i32, ptr %266, align 4
-  %268 = and i32 %267, 64
-  %.not73.i143 = icmp eq i32 %268, 0
-  %269 = select i1 %.not73.i143, i32 262, i32 6
-  %270 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 %269, ptr %270, align 8
-  call void @php_register_known_variable(ptr noundef nonnull @.str.89, i64 noundef 14, ptr noundef nonnull %10, ptr noundef %0) #29
+245:                                              ; preds = %241
+  %246 = and i64 %243, -8
+  %247 = add i64 %246, 32
+  %248 = call noalias ptr @_emalloc(i64 noundef %247) #31
+  store i32 1, ptr %248, align 4
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 4
+  store i32 22, ptr %249, align 4
+  %250 = getelementptr inbounds nuw i8, ptr %248, i64 8
+  store i64 0, ptr %250, align 8
+  %251 = getelementptr inbounds nuw i8, ptr %248, i64 16
+  store i64 %243, ptr %251, align 8
+  %252 = getelementptr inbounds nuw i8, ptr %248, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %252, ptr nonnull readonly align 1 %242, i64 %243, i1 false)
+  %253 = getelementptr inbounds [1 x i8], ptr %252, i64 0, i64 %243
+  store i8 0, ptr %253, align 1
   br label %sapi_cli_server_register_known_var_char.exit144
 
-sapi_cli_server_register_known_var_char.exit144:  ; preds = %sapi_cli_server_register_known_var_str.exit140, %265
+254:                                              ; preds = %241
+  %255 = icmp eq i64 %243, 0
+  br i1 %255, label %256, label %258
+
+256:                                              ; preds = %254
+  %257 = load ptr, ptr @zend_empty_string, align 8
+  br label %sapi_cli_server_register_known_var_char.exit144
+
+258:                                              ; preds = %254
+  %259 = load i8, ptr %242, align 1
+  %260 = zext i8 %259 to i64
+  %261 = getelementptr inbounds nuw [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %260
+  %262 = load ptr, ptr %261, align 8
+  br label %sapi_cli_server_register_known_var_char.exit144
+
+sapi_cli_server_register_known_var_char.exit144:  ; preds = %245, %256, %258
+  %.0.i142 = phi ptr [ %248, %245 ], [ %257, %256 ], [ %262, %258 ]
+  store ptr %.0.i142, ptr %10, align 8
+  %263 = getelementptr inbounds nuw i8, ptr %.0.i142, i64 4
+  %264 = load i32, ptr %263, align 4
+  %265 = and i32 %264, 64
+  %.not73.i143 = icmp eq i32 %265, 0
+  %266 = select i1 %.not73.i143, i32 262, i32 6
+  %267 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i32 %266, ptr %267, align 8
+  call void @php_register_known_variable(ptr noundef nonnull @.str.89, i64 noundef 14, ptr noundef nonnull %10, ptr noundef %0) #29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %271 = getelementptr inbounds nuw i8, ptr %22, i64 128
-  %272 = load ptr, ptr %271, align 8
-  %273 = getelementptr inbounds nuw i8, ptr %22, i64 136
-  %274 = load i64, ptr %273, align 8
+  %268 = getelementptr inbounds nuw i8, ptr %22, i64 128
+  %269 = load ptr, ptr %268, align 8
+  %270 = getelementptr inbounds nuw i8, ptr %22, i64 136
+  %271 = load i64, ptr %270, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  %.not.i145 = icmp eq ptr %272, null
-  br i1 %.not.i145, label %sapi_cli_server_register_known_var_char.exit148, label %275
+  %.not.i145 = icmp eq ptr %269, null
+  br i1 %.not.i145, label %sapi_cli_server_register_known_var_char.exit148, label %272
 
-275:                                              ; preds = %sapi_cli_server_register_known_var_char.exit144
-  %276 = icmp ugt i64 %274, 1
-  br i1 %276, label %277, label %286
+272:                                              ; preds = %sapi_cli_server_register_known_var_char.exit144
+  %273 = icmp ugt i64 %271, 1
+  br i1 %273, label %274, label %283
 
-277:                                              ; preds = %275
-  %278 = and i64 %274, -8
-  %279 = add i64 %278, 32
-  %280 = call noalias ptr @_emalloc(i64 noundef %279) #31
-  store i32 1, ptr %280, align 4
-  %281 = getelementptr inbounds nuw i8, ptr %280, i64 4
-  store i32 22, ptr %281, align 4
-  %282 = getelementptr inbounds nuw i8, ptr %280, i64 8
-  store i64 0, ptr %282, align 8
-  %283 = getelementptr inbounds nuw i8, ptr %280, i64 16
-  store i64 %274, ptr %283, align 8
-  %284 = getelementptr inbounds nuw i8, ptr %280, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %284, ptr nonnull readonly align 1 %272, i64 %274, i1 false)
-  %285 = getelementptr inbounds [1 x i8], ptr %284, i64 0, i64 %274
-  store i8 0, ptr %285, align 1
-  br label %295
+274:                                              ; preds = %272
+  %275 = and i64 %271, -8
+  %276 = add i64 %275, 32
+  %277 = call noalias ptr @_emalloc(i64 noundef %276) #31
+  store i32 1, ptr %277, align 4
+  %278 = getelementptr inbounds nuw i8, ptr %277, i64 4
+  store i32 22, ptr %278, align 4
+  %279 = getelementptr inbounds nuw i8, ptr %277, i64 8
+  store i64 0, ptr %279, align 8
+  %280 = getelementptr inbounds nuw i8, ptr %277, i64 16
+  store i64 %271, ptr %280, align 8
+  %281 = getelementptr inbounds nuw i8, ptr %277, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %281, ptr nonnull readonly align 1 %269, i64 %271, i1 false)
+  %282 = getelementptr inbounds [1 x i8], ptr %281, i64 0, i64 %271
+  store i8 0, ptr %282, align 1
+  br label %292
 
-286:                                              ; preds = %275
-  %287 = icmp eq i64 %274, 0
-  br i1 %287, label %288, label %290
+283:                                              ; preds = %272
+  %284 = icmp eq i64 %271, 0
+  br i1 %284, label %285, label %287
 
-288:                                              ; preds = %286
-  %289 = load ptr, ptr @zend_empty_string, align 8
-  br label %295
+285:                                              ; preds = %283
+  %286 = load ptr, ptr @zend_empty_string, align 8
+  br label %292
 
-290:                                              ; preds = %286
-  %291 = load i8, ptr %272, align 1
-  %292 = zext i8 %291 to i64
-  %293 = getelementptr inbounds nuw [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %292
-  %294 = load ptr, ptr %293, align 8
-  br label %295
+287:                                              ; preds = %283
+  %288 = load i8, ptr %269, align 1
+  %289 = zext i8 %288 to i64
+  %290 = getelementptr inbounds nuw [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %289
+  %291 = load ptr, ptr %290, align 8
+  br label %292
 
-295:                                              ; preds = %290, %288, %277
-  %.0.i146 = phi ptr [ %280, %277 ], [ %289, %288 ], [ %294, %290 ]
+292:                                              ; preds = %287, %285, %274
+  %.0.i146 = phi ptr [ %277, %274 ], [ %286, %285 ], [ %291, %287 ]
   store ptr %.0.i146, ptr %9, align 8
-  %296 = getelementptr inbounds nuw i8, ptr %.0.i146, i64 4
-  %297 = load i32, ptr %296, align 4
-  %298 = and i32 %297, 64
-  %.not73.i147 = icmp eq i32 %298, 0
-  %299 = select i1 %.not73.i147, i32 262, i32 6
-  %300 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %299, ptr %300, align 8
+  %293 = getelementptr inbounds nuw i8, ptr %.0.i146, i64 4
+  %294 = load i32, ptr %293, align 4
+  %295 = and i32 %294, 64
+  %.not73.i147 = icmp eq i32 %295, 0
+  %296 = select i1 %.not73.i147, i32 262, i32 6
+  %297 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i32 %296, ptr %297, align 8
   call void @php_register_known_variable(ptr noundef nonnull @.str.90, i64 noundef 11, ptr noundef nonnull %9, ptr noundef %0) #29
   br label %sapi_cli_server_register_known_var_char.exit148
 
-sapi_cli_server_register_known_var_char.exit148:  ; preds = %sapi_cli_server_register_known_var_char.exit144, %295
+sapi_cli_server_register_known_var_char.exit148:  ; preds = %sapi_cli_server_register_known_var_char.exit144, %292
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  %301 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 40), align 8
-  %.not106 = icmp eq ptr %301, null
-  br i1 %.not106, label %328, label %302
+  %298 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 40), align 8
+  %.not106 = icmp eq ptr %298, null
+  br i1 %.not106, label %325, label %299
 
-302:                                              ; preds = %sapi_cli_server_register_known_var_char.exit148
-  %303 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %301) #30
+299:                                              ; preds = %sapi_cli_server_register_known_var_char.exit148
+  %300 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %298) #30
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %304 = icmp ugt i64 %303, 1
-  br i1 %304, label %305, label %314
+  %301 = icmp ugt i64 %300, 1
+  br i1 %301, label %302, label %311
 
-305:                                              ; preds = %302
-  %306 = and i64 %303, -8
-  %307 = add i64 %306, 32
-  %308 = call noalias ptr @_emalloc(i64 noundef %307) #31
-  store i32 1, ptr %308, align 4
-  %309 = getelementptr inbounds nuw i8, ptr %308, i64 4
-  store i32 22, ptr %309, align 4
-  %310 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  store i64 0, ptr %310, align 8
-  %311 = getelementptr inbounds nuw i8, ptr %308, i64 16
-  store i64 %303, ptr %311, align 8
-  %312 = getelementptr inbounds nuw i8, ptr %308, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %312, ptr nonnull readonly align 1 %301, i64 %303, i1 false)
-  %313 = getelementptr inbounds [1 x i8], ptr %312, i64 0, i64 %303
-  store i8 0, ptr %313, align 1
+302:                                              ; preds = %299
+  %303 = and i64 %300, -8
+  %304 = add i64 %303, 32
+  %305 = call noalias ptr @_emalloc(i64 noundef %304) #31
+  store i32 1, ptr %305, align 4
+  %306 = getelementptr inbounds nuw i8, ptr %305, i64 4
+  store i32 22, ptr %306, align 4
+  %307 = getelementptr inbounds nuw i8, ptr %305, i64 8
+  store i64 0, ptr %307, align 8
+  %308 = getelementptr inbounds nuw i8, ptr %305, i64 16
+  store i64 %300, ptr %308, align 8
+  %309 = getelementptr inbounds nuw i8, ptr %305, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %309, ptr nonnull readonly align 1 %298, i64 %300, i1 false)
+  %310 = getelementptr inbounds [1 x i8], ptr %309, i64 0, i64 %300
+  store i8 0, ptr %310, align 1
   br label %sapi_cli_server_register_known_var_char.exit152
 
-314:                                              ; preds = %302
-  %315 = icmp eq i64 %303, 0
-  br i1 %315, label %316, label %318
+311:                                              ; preds = %299
+  %312 = icmp eq i64 %300, 0
+  br i1 %312, label %313, label %315
 
-316:                                              ; preds = %314
-  %317 = load ptr, ptr @zend_empty_string, align 8
+313:                                              ; preds = %311
+  %314 = load ptr, ptr @zend_empty_string, align 8
   br label %sapi_cli_server_register_known_var_char.exit152
 
-318:                                              ; preds = %314
-  %319 = load i8, ptr %301, align 1
-  %320 = zext i8 %319 to i64
-  %321 = getelementptr inbounds nuw [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %320
-  %322 = load ptr, ptr %321, align 8
+315:                                              ; preds = %311
+  %316 = load i8, ptr %298, align 1
+  %317 = zext i8 %316 to i64
+  %318 = getelementptr inbounds nuw [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %317
+  %319 = load ptr, ptr %318, align 8
   br label %sapi_cli_server_register_known_var_char.exit152
 
-sapi_cli_server_register_known_var_char.exit152:  ; preds = %305, %316, %318
-  %.0.i150 = phi ptr [ %308, %305 ], [ %317, %316 ], [ %322, %318 ]
+sapi_cli_server_register_known_var_char.exit152:  ; preds = %302, %313, %315
+  %.0.i150 = phi ptr [ %305, %302 ], [ %314, %313 ], [ %319, %315 ]
   store ptr %.0.i150, ptr %8, align 8
-  %323 = getelementptr inbounds nuw i8, ptr %.0.i150, i64 4
-  %324 = load i32, ptr %323, align 4
-  %325 = and i32 %324, 64
-  %.not73.i151 = icmp eq i32 %325, 0
-  %326 = select i1 %.not73.i151, i32 262, i32 6
-  %327 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %326, ptr %327, align 8
+  %320 = getelementptr inbounds nuw i8, ptr %.0.i150, i64 4
+  %321 = load i32, ptr %320, align 4
+  %322 = and i32 %321, 64
+  %.not73.i151 = icmp eq i32 %322, 0
+  %323 = select i1 %.not73.i151, i32 262, i32 6
+  %324 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 %323, ptr %324, align 8
   call void @php_register_known_variable(ptr noundef nonnull @.str.91, i64 noundef 15, ptr noundef nonnull %8, ptr noundef %0) #29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br label %359
+  br label %356
 
-328:                                              ; preds = %sapi_cli_server_register_known_var_char.exit148
-  %329 = load ptr, ptr %22, align 8
-  %330 = getelementptr inbounds nuw i8, ptr %329, i64 568
-  %331 = load ptr, ptr %330, align 8
-  %.not107 = icmp eq ptr %331, null
-  br i1 %.not107, label %359, label %332
+325:                                              ; preds = %sapi_cli_server_register_known_var_char.exit148
+  %326 = load ptr, ptr %22, align 8
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 568
+  %328 = load ptr, ptr %327, align 8
+  %.not107 = icmp eq ptr %328, null
+  br i1 %.not107, label %356, label %329
 
-332:                                              ; preds = %328
-  %333 = getelementptr inbounds nuw i8, ptr %329, i64 576
-  %334 = load i64, ptr %333, align 8
+329:                                              ; preds = %325
+  %330 = getelementptr inbounds nuw i8, ptr %326, i64 576
+  %331 = load i64, ptr %330, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %335 = icmp ugt i64 %334, 1
-  br i1 %335, label %336, label %345
+  %332 = icmp ugt i64 %331, 1
+  br i1 %332, label %333, label %342
 
-336:                                              ; preds = %332
-  %337 = and i64 %334, -8
-  %338 = add i64 %337, 32
-  %339 = call noalias ptr @_emalloc(i64 noundef %338) #31
-  store i32 1, ptr %339, align 4
-  %340 = getelementptr inbounds nuw i8, ptr %339, i64 4
-  store i32 22, ptr %340, align 4
-  %341 = getelementptr inbounds nuw i8, ptr %339, i64 8
-  store i64 0, ptr %341, align 8
-  %342 = getelementptr inbounds nuw i8, ptr %339, i64 16
-  store i64 %334, ptr %342, align 8
-  %343 = getelementptr inbounds nuw i8, ptr %339, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %343, ptr nonnull readonly align 1 %331, i64 %334, i1 false)
-  %344 = getelementptr inbounds [1 x i8], ptr %343, i64 0, i64 %334
-  store i8 0, ptr %344, align 1
+333:                                              ; preds = %329
+  %334 = and i64 %331, -8
+  %335 = add i64 %334, 32
+  %336 = call noalias ptr @_emalloc(i64 noundef %335) #31
+  store i32 1, ptr %336, align 4
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 4
+  store i32 22, ptr %337, align 4
+  %338 = getelementptr inbounds nuw i8, ptr %336, i64 8
+  store i64 0, ptr %338, align 8
+  %339 = getelementptr inbounds nuw i8, ptr %336, i64 16
+  store i64 %331, ptr %339, align 8
+  %340 = getelementptr inbounds nuw i8, ptr %336, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %340, ptr nonnull readonly align 1 %328, i64 %331, i1 false)
+  %341 = getelementptr inbounds [1 x i8], ptr %340, i64 0, i64 %331
+  store i8 0, ptr %341, align 1
   br label %sapi_cli_server_register_known_var_char.exit156
 
-345:                                              ; preds = %332
-  %346 = icmp eq i64 %334, 0
-  br i1 %346, label %347, label %349
+342:                                              ; preds = %329
+  %343 = icmp eq i64 %331, 0
+  br i1 %343, label %344, label %346
 
-347:                                              ; preds = %345
-  %348 = load ptr, ptr @zend_empty_string, align 8
+344:                                              ; preds = %342
+  %345 = load ptr, ptr @zend_empty_string, align 8
   br label %sapi_cli_server_register_known_var_char.exit156
 
-349:                                              ; preds = %345
-  %350 = load i8, ptr %331, align 1
-  %351 = zext i8 %350 to i64
-  %352 = getelementptr inbounds nuw [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %351
-  %353 = load ptr, ptr %352, align 8
+346:                                              ; preds = %342
+  %347 = load i8, ptr %328, align 1
+  %348 = zext i8 %347 to i64
+  %349 = getelementptr inbounds nuw [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %348
+  %350 = load ptr, ptr %349, align 8
   br label %sapi_cli_server_register_known_var_char.exit156
 
-sapi_cli_server_register_known_var_char.exit156:  ; preds = %336, %347, %349
-  %.0.i154 = phi ptr [ %339, %336 ], [ %348, %347 ], [ %353, %349 ]
+sapi_cli_server_register_known_var_char.exit156:  ; preds = %333, %344, %346
+  %.0.i154 = phi ptr [ %336, %333 ], [ %345, %344 ], [ %350, %346 ]
   store ptr %.0.i154, ptr %7, align 8
-  %354 = getelementptr inbounds nuw i8, ptr %.0.i154, i64 4
-  %355 = load i32, ptr %354, align 4
-  %356 = and i32 %355, 64
-  %.not73.i155 = icmp eq i32 %356, 0
-  %357 = select i1 %.not73.i155, i32 262, i32 6
-  %358 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %357, ptr %358, align 8
+  %351 = getelementptr inbounds nuw i8, ptr %.0.i154, i64 4
+  %352 = load i32, ptr %351, align 4
+  %353 = and i32 %352, 64
+  %.not73.i155 = icmp eq i32 %353, 0
+  %354 = select i1 %.not73.i155, i32 262, i32 6
+  %355 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 %354, ptr %355, align 8
   call void @php_register_known_variable(ptr noundef nonnull @.str.91, i64 noundef 15, ptr noundef nonnull %7, ptr noundef %0) #29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br label %359
+  br label %356
 
-359:                                              ; preds = %328, %sapi_cli_server_register_known_var_char.exit156, %sapi_cli_server_register_known_var_char.exit152
-  %360 = getelementptr inbounds nuw i8, ptr %22, i64 160
-  %361 = load ptr, ptr %360, align 8
-  %.not108 = icmp eq ptr %361, null
-  br i1 %.not108, label %389, label %362
+356:                                              ; preds = %325, %sapi_cli_server_register_known_var_char.exit156, %sapi_cli_server_register_known_var_char.exit152
+  %357 = getelementptr inbounds nuw i8, ptr %22, i64 160
+  %358 = load ptr, ptr %357, align 8
+  %.not108 = icmp eq ptr %358, null
+  br i1 %.not108, label %386, label %359
 
-362:                                              ; preds = %359
-  %363 = getelementptr inbounds nuw i8, ptr %22, i64 168
-  %364 = load i64, ptr %363, align 8
+359:                                              ; preds = %356
+  %360 = getelementptr inbounds nuw i8, ptr %22, i64 168
+  %361 = load i64, ptr %360, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %365 = icmp ugt i64 %364, 1
-  br i1 %365, label %366, label %375
+  %362 = icmp ugt i64 %361, 1
+  br i1 %362, label %363, label %372
 
-366:                                              ; preds = %362
-  %367 = and i64 %364, -8
-  %368 = add i64 %367, 32
-  %369 = call noalias ptr @_emalloc(i64 noundef %368) #31
-  store i32 1, ptr %369, align 4
-  %370 = getelementptr inbounds nuw i8, ptr %369, i64 4
-  store i32 22, ptr %370, align 4
-  %371 = getelementptr inbounds nuw i8, ptr %369, i64 8
-  store i64 0, ptr %371, align 8
-  %372 = getelementptr inbounds nuw i8, ptr %369, i64 16
-  store i64 %364, ptr %372, align 8
-  %373 = getelementptr inbounds nuw i8, ptr %369, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %373, ptr nonnull readonly align 1 %361, i64 %364, i1 false)
-  %374 = getelementptr inbounds [1 x i8], ptr %373, i64 0, i64 %364
-  store i8 0, ptr %374, align 1
+363:                                              ; preds = %359
+  %364 = and i64 %361, -8
+  %365 = add i64 %364, 32
+  %366 = call noalias ptr @_emalloc(i64 noundef %365) #31
+  store i32 1, ptr %366, align 4
+  %367 = getelementptr inbounds nuw i8, ptr %366, i64 4
+  store i32 22, ptr %367, align 4
+  %368 = getelementptr inbounds nuw i8, ptr %366, i64 8
+  store i64 0, ptr %368, align 8
+  %369 = getelementptr inbounds nuw i8, ptr %366, i64 16
+  store i64 %361, ptr %369, align 8
+  %370 = getelementptr inbounds nuw i8, ptr %366, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %370, ptr nonnull readonly align 1 %358, i64 %361, i1 false)
+  %371 = getelementptr inbounds [1 x i8], ptr %370, i64 0, i64 %361
+  store i8 0, ptr %371, align 1
   br label %sapi_cli_server_register_known_var_char.exit160
 
-375:                                              ; preds = %362
-  %376 = icmp eq i64 %364, 0
-  br i1 %376, label %377, label %379
+372:                                              ; preds = %359
+  %373 = icmp eq i64 %361, 0
+  br i1 %373, label %374, label %376
 
-377:                                              ; preds = %375
-  %378 = load ptr, ptr @zend_empty_string, align 8
+374:                                              ; preds = %372
+  %375 = load ptr, ptr @zend_empty_string, align 8
   br label %sapi_cli_server_register_known_var_char.exit160
 
-379:                                              ; preds = %375
-  %380 = load i8, ptr %361, align 1
-  %381 = zext i8 %380 to i64
-  %382 = getelementptr inbounds nuw [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %381
-  %383 = load ptr, ptr %382, align 8
+376:                                              ; preds = %372
+  %377 = load i8, ptr %358, align 1
+  %378 = zext i8 %377 to i64
+  %379 = getelementptr inbounds nuw [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %378
+  %380 = load ptr, ptr %379, align 8
   br label %sapi_cli_server_register_known_var_char.exit160
 
-sapi_cli_server_register_known_var_char.exit160:  ; preds = %366, %377, %379
-  %.0.i158 = phi ptr [ %369, %366 ], [ %378, %377 ], [ %383, %379 ]
+sapi_cli_server_register_known_var_char.exit160:  ; preds = %363, %374, %376
+  %.0.i158 = phi ptr [ %366, %363 ], [ %375, %374 ], [ %380, %376 ]
   store ptr %.0.i158, ptr %6, align 8
-  %384 = getelementptr inbounds nuw i8, ptr %.0.i158, i64 4
-  %385 = load i32, ptr %384, align 4
-  %386 = and i32 %385, 64
-  %.not73.i159 = icmp eq i32 %386, 0
-  %387 = select i1 %.not73.i159, i32 262, i32 6
-  %388 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %387, ptr %388, align 8
+  %381 = getelementptr inbounds nuw i8, ptr %.0.i158, i64 4
+  %382 = load i32, ptr %381, align 4
+  %383 = and i32 %382, 64
+  %.not73.i159 = icmp eq i32 %383, 0
+  %384 = select i1 %.not73.i159, i32 262, i32 6
+  %385 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 %384, ptr %385, align 8
   call void @php_register_known_variable(ptr noundef nonnull @.str.92, i64 noundef 9, ptr noundef nonnull %6, ptr noundef %0) #29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %389
+  br label %386
 
-389:                                              ; preds = %sapi_cli_server_register_known_var_char.exit160, %359
-  %390 = getelementptr inbounds nuw i8, ptr %22, i64 168
-  %391 = load i64, ptr %390, align 8
-  %.not109 = icmp eq i64 %391, 0
-  %392 = load ptr, ptr %271, align 8
-  br i1 %.not109, label %414, label %393
+386:                                              ; preds = %sapi_cli_server_register_known_var_char.exit160, %356
+  %387 = getelementptr inbounds nuw i8, ptr %22, i64 168
+  %388 = load i64, ptr %387, align 8
+  %.not109 = icmp eq i64 %388, 0
+  %389 = load ptr, ptr %268, align 8
+  br i1 %.not109, label %411, label %390
 
-393:                                              ; preds = %389
-  %394 = load ptr, ptr %360, align 8
-  %395 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.93, ptr noundef %392, ptr noundef %394) #29
+390:                                              ; preds = %386
+  %391 = load ptr, ptr %357, align 8
+  %392 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.93, ptr noundef %389, ptr noundef %391) #29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %.not.i161 = icmp eq ptr %395, null
-  br i1 %.not.i161, label %sapi_cli_server_register_known_var_str.exit164, label %396
+  %.not.i161 = icmp eq ptr %392, null
+  br i1 %.not.i161, label %sapi_cli_server_register_known_var_str.exit164, label %393
 
-396:                                              ; preds = %393
-  store ptr %395, ptr %5, align 8
-  %397 = getelementptr inbounds nuw i8, ptr %395, i64 4
-  %398 = load i32, ptr %397, align 4
-  %399 = and i32 %398, 64
-  %.not12.i162 = icmp eq i32 %399, 0
-  br i1 %.not12.i162, label %400, label %403
+393:                                              ; preds = %390
+  store ptr %392, ptr %5, align 8
+  %394 = getelementptr inbounds nuw i8, ptr %392, i64 4
+  %395 = load i32, ptr %394, align 4
+  %396 = and i32 %395, 64
+  %.not12.i162 = icmp eq i32 %396, 0
+  br i1 %.not12.i162, label %397, label %400
 
-400:                                              ; preds = %396
-  %401 = load i32, ptr %395, align 4
-  %402 = add i32 %401, 1
-  store i32 %402, ptr %395, align 4
-  br label %403
+397:                                              ; preds = %393
+  %398 = load i32, ptr %392, align 4
+  %399 = add i32 %398, 1
+  store i32 %399, ptr %392, align 4
+  br label %400
 
-403:                                              ; preds = %400, %396
-  %.sink.i163 = phi i32 [ 262, %400 ], [ 6, %396 ]
-  %404 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %.sink.i163, ptr %404, align 8
+400:                                              ; preds = %397, %393
+  %.sink.i163 = phi i32 [ 262, %397 ], [ 6, %393 ]
+  %401 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 %.sink.i163, ptr %401, align 8
   call void @php_register_known_variable(ptr noundef nonnull @.str.94, i64 noundef 8, ptr noundef nonnull %5, ptr noundef %0) #29
   br label %sapi_cli_server_register_known_var_str.exit164
 
-sapi_cli_server_register_known_var_str.exit164:   ; preds = %393, %403
+sapi_cli_server_register_known_var_str.exit164:   ; preds = %390, %400
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %405 = getelementptr inbounds nuw i8, ptr %395, i64 4
-  %406 = load i32, ptr %405, align 4
-  %407 = and i32 %406, 64
-  %.not110 = icmp eq i32 %407, 0
-  br i1 %.not110, label %408, label %442
+  %402 = getelementptr inbounds nuw i8, ptr %392, i64 4
+  %403 = load i32, ptr %402, align 4
+  %404 = and i32 %403, 64
+  %.not110 = icmp eq i32 %404, 0
+  br i1 %.not110, label %405, label %439
 
-408:                                              ; preds = %sapi_cli_server_register_known_var_str.exit164
-  %409 = load i32, ptr %395, align 4
-  %410 = icmp ne i32 %409, 0
-  call void @llvm.assume(i1 %410)
-  %411 = add i32 %409, -1
-  store i32 %411, ptr %395, align 4
-  %412 = icmp eq i32 %411, 0
-  br i1 %412, label %413, label %442
+405:                                              ; preds = %sapi_cli_server_register_known_var_str.exit164
+  %406 = load i32, ptr %392, align 4
+  %407 = icmp ne i32 %406, 0
+  call void @llvm.assume(i1 %407)
+  %408 = add i32 %406, -1
+  store i32 %408, ptr %392, align 4
+  %409 = icmp eq i32 %408, 0
+  br i1 %409, label %410, label %439
 
-413:                                              ; preds = %408
-  call void @_efree(ptr noundef nonnull %395) #29
-  br label %442
+410:                                              ; preds = %405
+  call void @_efree(ptr noundef nonnull %392) #29
+  br label %439
 
-414:                                              ; preds = %389
-  %415 = load i64, ptr %273, align 8
+411:                                              ; preds = %386
+  %412 = load i64, ptr %270, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %.not.i165 = icmp eq ptr %392, null
-  br i1 %.not.i165, label %sapi_cli_server_register_known_var_char.exit168, label %416
+  %.not.i165 = icmp eq ptr %389, null
+  br i1 %.not.i165, label %sapi_cli_server_register_known_var_char.exit168, label %413
 
-416:                                              ; preds = %414
-  %417 = icmp ugt i64 %415, 1
-  br i1 %417, label %418, label %427
+413:                                              ; preds = %411
+  %414 = icmp ugt i64 %412, 1
+  br i1 %414, label %415, label %424
 
-418:                                              ; preds = %416
-  %419 = and i64 %415, -8
-  %420 = add i64 %419, 32
-  %421 = call noalias ptr @_emalloc(i64 noundef %420) #31
-  store i32 1, ptr %421, align 4
-  %422 = getelementptr inbounds nuw i8, ptr %421, i64 4
-  store i32 22, ptr %422, align 4
-  %423 = getelementptr inbounds nuw i8, ptr %421, i64 8
-  store i64 0, ptr %423, align 8
-  %424 = getelementptr inbounds nuw i8, ptr %421, i64 16
-  store i64 %415, ptr %424, align 8
-  %425 = getelementptr inbounds nuw i8, ptr %421, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %425, ptr nonnull readonly align 1 %392, i64 %415, i1 false)
-  %426 = getelementptr inbounds [1 x i8], ptr %425, i64 0, i64 %415
-  store i8 0, ptr %426, align 1
-  br label %436
+415:                                              ; preds = %413
+  %416 = and i64 %412, -8
+  %417 = add i64 %416, 32
+  %418 = call noalias ptr @_emalloc(i64 noundef %417) #31
+  store i32 1, ptr %418, align 4
+  %419 = getelementptr inbounds nuw i8, ptr %418, i64 4
+  store i32 22, ptr %419, align 4
+  %420 = getelementptr inbounds nuw i8, ptr %418, i64 8
+  store i64 0, ptr %420, align 8
+  %421 = getelementptr inbounds nuw i8, ptr %418, i64 16
+  store i64 %412, ptr %421, align 8
+  %422 = getelementptr inbounds nuw i8, ptr %418, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %422, ptr nonnull readonly align 1 %389, i64 %412, i1 false)
+  %423 = getelementptr inbounds [1 x i8], ptr %422, i64 0, i64 %412
+  store i8 0, ptr %423, align 1
+  br label %433
 
-427:                                              ; preds = %416
-  %428 = icmp eq i64 %415, 0
-  br i1 %428, label %429, label %431
+424:                                              ; preds = %413
+  %425 = icmp eq i64 %412, 0
+  br i1 %425, label %426, label %428
 
-429:                                              ; preds = %427
-  %430 = load ptr, ptr @zend_empty_string, align 8
-  br label %436
+426:                                              ; preds = %424
+  %427 = load ptr, ptr @zend_empty_string, align 8
+  br label %433
 
-431:                                              ; preds = %427
-  %432 = load i8, ptr %392, align 1
-  %433 = zext i8 %432 to i64
-  %434 = getelementptr inbounds nuw [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %433
-  %435 = load ptr, ptr %434, align 8
-  br label %436
+428:                                              ; preds = %424
+  %429 = load i8, ptr %389, align 1
+  %430 = zext i8 %429 to i64
+  %431 = getelementptr inbounds nuw [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %430
+  %432 = load ptr, ptr %431, align 8
+  br label %433
 
-436:                                              ; preds = %431, %429, %418
-  %.0.i166 = phi ptr [ %421, %418 ], [ %430, %429 ], [ %435, %431 ]
+433:                                              ; preds = %428, %426, %415
+  %.0.i166 = phi ptr [ %418, %415 ], [ %427, %426 ], [ %432, %428 ]
   store ptr %.0.i166, ptr %4, align 8
-  %437 = getelementptr inbounds nuw i8, ptr %.0.i166, i64 4
-  %438 = load i32, ptr %437, align 4
-  %439 = and i32 %438, 64
-  %.not73.i167 = icmp eq i32 %439, 0
-  %440 = select i1 %.not73.i167, i32 262, i32 6
-  %441 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %440, ptr %441, align 8
+  %434 = getelementptr inbounds nuw i8, ptr %.0.i166, i64 4
+  %435 = load i32, ptr %434, align 4
+  %436 = and i32 %435, 64
+  %.not73.i167 = icmp eq i32 %436, 0
+  %437 = select i1 %.not73.i167, i32 262, i32 6
+  %438 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %437, ptr %438, align 8
   call void @php_register_known_variable(ptr noundef nonnull @.str.94, i64 noundef 8, ptr noundef nonnull %4, ptr noundef %0) #29
   br label %sapi_cli_server_register_known_var_char.exit168
 
-sapi_cli_server_register_known_var_char.exit168:  ; preds = %414, %436
+sapi_cli_server_register_known_var_char.exit168:  ; preds = %411, %433
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %442
+  br label %439
 
-442:                                              ; preds = %sapi_cli_server_register_known_var_str.exit164, %413, %408, %sapi_cli_server_register_known_var_char.exit168
-  %443 = getelementptr inbounds nuw i8, ptr %22, i64 176
-  %444 = load ptr, ptr %443, align 8
-  %.not111 = icmp eq ptr %444, null
-  br i1 %.not111, label %452, label %445
+439:                                              ; preds = %sapi_cli_server_register_known_var_str.exit164, %410, %405, %sapi_cli_server_register_known_var_char.exit168
+  %440 = getelementptr inbounds nuw i8, ptr %22, i64 176
+  %441 = load ptr, ptr %440, align 8
+  %.not111 = icmp eq ptr %441, null
+  br i1 %.not111, label %449, label %442
 
-445:                                              ; preds = %442
+442:                                              ; preds = %439
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr %444, ptr %2, align 8
-  %446 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 232), align 8
-  %447 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %444) #30
-  %448 = call i32 %446(i32 noundef 5, ptr noundef nonnull @.str.95, ptr noundef nonnull %2, i64 noundef %447, ptr noundef nonnull %3) #29
-  %.not.i169 = icmp eq i32 %448, 0
-  br i1 %.not.i169, label %sapi_cli_server_register_variable.exit, label %449
+  store ptr %441, ptr %2, align 8
+  %443 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 232), align 8
+  %444 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %441) #30
+  %445 = call i32 %443(i32 noundef 5, ptr noundef nonnull @.str.95, ptr noundef nonnull %2, i64 noundef %444, ptr noundef nonnull %3) #29
+  %.not.i169 = icmp eq i32 %445, 0
+  br i1 %.not.i169, label %sapi_cli_server_register_variable.exit, label %446
 
-449:                                              ; preds = %445
-  %450 = load ptr, ptr %2, align 8
-  %451 = load i64, ptr %3, align 8
-  call void @php_register_variable_safe(ptr noundef nonnull @.str.95, ptr noundef %450, i64 noundef %451, ptr noundef %0) #29
+446:                                              ; preds = %442
+  %447 = load ptr, ptr %2, align 8
+  %448 = load i64, ptr %3, align 8
+  call void @php_register_variable_safe(ptr noundef nonnull @.str.95, ptr noundef %447, i64 noundef %448, ptr noundef %0) #29
   br label %sapi_cli_server_register_variable.exit
 
-sapi_cli_server_register_variable.exit:           ; preds = %445, %449
+sapi_cli_server_register_variable.exit:           ; preds = %442, %446
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %452
+  br label %449
 
-452:                                              ; preds = %sapi_cli_server_register_variable.exit, %442
-  %453 = getelementptr inbounds nuw i8, ptr %22, i64 192
-  call void (ptr, ptr, i32, ...) @zend_hash_apply_with_arguments(ptr noundef nonnull %453, ptr noundef nonnull @sapi_cli_server_register_entry_cb, i32 noundef 1, ptr noundef %0) #29
+449:                                              ; preds = %sapi_cli_server_register_variable.exit, %439
+  %450 = getelementptr inbounds nuw i8, ptr %22, i64 192
+  call void (ptr, ptr, i32, ...) @zend_hash_apply_with_arguments(ptr noundef nonnull %450, ptr noundef nonnull @sapi_cli_server_register_entry_cb, i32 noundef 1, ptr noundef %0) #29
   ret void
 }
 
@@ -4471,7 +4456,7 @@ php_cli_server_ctor.exit.thread:                  ; preds = %235, %237, %.thread
   %242 = select i1 %.not29, ptr @.str.15, ptr @.str.14
   %243 = select i1 %.not29, ptr @.str.15, ptr @.str.16
   %244 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 544), align 8
-  call void (i32, ptr, ...) @php_cli_server_logf(i32 noundef 1, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, ptr noundef nonnull %242, ptr noundef %240, ptr noundef nonnull %243, i32 noundef %244)
+  call void (i32, ptr, ...) @php_cli_server_logf(i32 noundef 1, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, ptr noundef nonnull %242, ptr noundef nonnull %240, ptr noundef nonnull %243, i32 noundef %244)
   %245 = call ptr @signal(i32 noundef 2, ptr noundef nonnull @php_cli_server_sigint_handler) #29
   %246 = call ptr @signal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #29
   call void @zend_signal_init() #29
@@ -4694,13 +4679,13 @@ php_cli_server_dtor.exit:                         ; preds = %305, %310, %._crit_
 declare i32 @php_getopt(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare ptr @tsrm_realpath(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4752,7 +4737,7 @@ declare void @zend_signal_init() local_unnamed_addr #1
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare void @add_assoc_stringl_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -5268,7 +5253,7 @@ get_status_string.exit:                           ; preds = %213, %222
   %239 = getelementptr inbounds nuw i8, ptr %237, i64 16
   %240 = load i64, ptr %239, align 8
   %241 = getelementptr inbounds i8, ptr %238, i64 %240
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %241, ptr align 1 %.0.i, i64 %225, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %241, ptr nonnull align 1 %.0.i, i64 %225, i1 false)
   %242 = load ptr, ptr %0, align 8
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 16
   store i64 %.1311, ptr %243, align 8
@@ -5653,7 +5638,7 @@ declare ptr @zend_llist_get_first_ex(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @zend_llist_get_next_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @smart_str_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -5662,7 +5647,7 @@ declare void @smart_str_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @status_comp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
+define internal range(i32 -1, 2) i32 @status_comp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %3, i32 %4)
@@ -5670,20 +5655,20 @@ define internal range(i32 -1, 2) i32 @status_comp(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @php_format_date(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -5691,14 +5676,14 @@ declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #15
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #15
 
 declare ptr @zend_strpprintf(i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare void @zend_hash_apply_with_arguments(ptr noundef, ptr noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sapi_cli_server_register_entry_cb(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @sapi_cli_server_register_entry_cb(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
@@ -5784,14 +5769,14 @@ define internal noundef i32 @sapi_cli_server_register_entry_cb(ptr nocapture nou
   store ptr %55, ptr %7, align 8
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 232), align 8
   %57 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #30
-  %58 = call i32 %56(i32 noundef 5, ptr noundef %31, ptr noundef nonnull %7, i64 noundef %57, ptr noundef nonnull %8) #29
+  %58 = call i32 %56(i32 noundef 5, ptr noundef nonnull %31, ptr noundef nonnull %7, i64 noundef %57, ptr noundef nonnull %8) #29
   %.not.i = icmp eq i32 %58, 0
   br i1 %.not.i, label %sapi_cli_server_register_variable.exit, label %59
 
 59:                                               ; preds = %53
   %60 = load ptr, ptr %7, align 8
   %61 = load i64, ptr %8, align 8
-  call void @php_register_variable_safe(ptr noundef %31, ptr noundef %60, i64 noundef %61, ptr noundef %24) #29
+  call void @php_register_variable_safe(ptr noundef nonnull %31, ptr noundef %60, i64 noundef %61, ptr noundef %24) #29
   br label %sapi_cli_server_register_variable.exit
 
 sapi_cli_server_register_variable.exit:           ; preds = %53, %59
@@ -5821,7 +5806,7 @@ sapi_cli_server_register_variable.exit:           ; preds = %53, %59
 sapi_cli_server_register_variable.exit28:         ; preds = %62, %69
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @_efree(ptr noundef %31) #29
+  call void @_efree(ptr noundef nonnull %31) #29
   %72 = load ptr, ptr %9, align 8
   call void @_efree(ptr noundef %72) #29
   br label %73
@@ -5845,7 +5830,7 @@ declare i32 @toupper(i32 noundef) local_unnamed_addr #13
 declare i64 @zend_spprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @sapi_cli_server_log_write(i32 noundef range(i32 1, 4) %0, ptr noundef %1) unnamed_addr #0 {
@@ -5929,7 +5914,7 @@ declare i32 @php_set_sock_blocking(i32 noundef, i32 noundef) local_unnamed_addr 
 declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @php_cli_server_client_dtor_wrapper(ptr nocapture noundef readonly %0) #0 {
+define internal void @php_cli_server_client_dtor_wrapper(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -6167,7 +6152,7 @@ declare noalias ptr @zend_strndup(ptr noundef, i64 noundef) local_unnamed_addr #
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #16
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #16
 
 declare i32 @php_network_getaddresses(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -6197,10 +6182,10 @@ declare void @php_network_freeaddresses(ptr noundef) local_unnamed_addr #1
 declare ptr @php_socket_error_str(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #17
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @atoll(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @atoll(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: allocsize(0,1)
 declare noalias ptr @__zend_calloc(i64 noundef, i64 noundef) local_unnamed_addr #18
@@ -6970,7 +6955,7 @@ php_cli_server_buffer_append.exit.i.i:            ; preds = %352
   %..i.i.i = select i1 %.not12.i.i.i, ptr %220, ptr %355
   store ptr %347, ptr %..i.i.i, align 8
   store ptr %.0.i.i.i, ptr %354, align 8
-  call fastcc void @php_cli_server_log_response(ptr noundef %1, i32 noundef 200, ptr noundef null)
+  call fastcc void @php_cli_server_log_response(ptr noundef nonnull %1, i32 noundef 200, ptr noundef null)
   %356 = load i32, ptr %82, align 8
   %357 = icmp slt i32 %356, 1024
   br i1 %357, label %358, label %368
@@ -7063,7 +7048,7 @@ php_cli_server_dispatch.exit:                     ; preds = %401, %397, %383, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @php_cli_server_send_event(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @php_cli_server_send_event(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 480
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -7329,7 +7314,7 @@ declare ptr @php_socket_strerror(i64 noundef, ptr noundef, i64 noundef) local_un
 declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @php_cli_server_do_event_for_each_fd_callback(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @php_cli_server_do_event_for_each_fd_callback(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca i32, align 4
@@ -7548,7 +7533,7 @@ declare void @php_network_populate_name_from_sockaddr(ptr noundef, i32 noundef, 
 declare void @php_http_parser_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @cli_header_value_dtor(ptr nocapture noundef readonly %0) #20 {
+define internal void @cli_header_value_dtor(ptr noundef readonly captures(none) %0) #20 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = load i32, ptr %3, align 4
@@ -7578,7 +7563,7 @@ declare ptr @zend_hash_index_update(ptr noundef, i64 noundef, ptr noundef) local
 declare ptr @zend_hash_index_find(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @php_cli_server_send_error_page(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 400, 502) %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @php_cli_server_send_error_page(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef range(i32 400, 502) %2) unnamed_addr #0 {
   %4 = alloca %struct._http_response_status_code_pair, align 8
   %5 = alloca [32 x i8], align 16
   %6 = alloca %struct.smart_str, align 8
@@ -7664,7 +7649,7 @@ get_template_string.exit:                         ; preds = %25, %22
   store ptr %47, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 32
   store i64 %42, ptr %49, align 8
-  %50 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %47, i64 noundef %42, ptr noundef nonnull @php_cli_server_send_error_page.prologue_template, i32 noundef %2, ptr noundef %.0.i) #29
+  %50 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %47, i64 noundef %42, ptr noundef nonnull @php_cli_server_send_error_page.prologue_template, i32 noundef %2, ptr noundef nonnull %.0.i) #29
   %51 = load ptr, ptr %48, align 8
   %52 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #30
   store i64 %52, ptr %49, align 8
@@ -7730,7 +7715,7 @@ get_template_string.exit:                         ; preds = %25, %22
   %82 = getelementptr inbounds nuw i8, ptr %77, i64 32
   store i64 %75, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %84 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %80, i64 noundef %75, ptr noundef %.0.i501, ptr noundef %.0.i, ptr noundef nonnull %83) #29
+  %84 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %80, i64 noundef %75, ptr noundef nonnull %.0.i501, ptr noundef nonnull %.0.i, ptr noundef nonnull %83) #29
   %85 = load ptr, ptr %81, align 8
   %86 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #30
   store i64 %86, ptr %82, align 8
@@ -8004,7 +7989,7 @@ php_cli_server_buffer_size.exit:                  ; preds = %php_cli_server_chun
   %.1404 = phi i64 [ %.0403, %193 ], [ %191, %188 ]
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 24
   %198 = getelementptr inbounds i8, ptr %197, i64 %195
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %198, ptr align 1 %185, i64 %186, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %198, ptr nonnull align 1 %185, i64 %186, i1 false)
   %199 = load ptr, ptr %6, align 8
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 16
   store i64 %.1404, ptr %200, align 8
@@ -8057,7 +8042,7 @@ php_cli_server_buffer_size.exit:                  ; preds = %php_cli_server_chun
   %.1410 = phi i64 [ %.0409, %219 ], [ %217, %214 ]
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 24
   %224 = getelementptr inbounds i8, ptr %223, i64 %221
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %224, ptr align 1 %211, i64 %212, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %224, ptr nonnull align 1 %211, i64 %212, i1 false)
   %225 = load ptr, ptr %6, align 8
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 16
   store i64 %.1410, ptr %226, align 8
@@ -8110,7 +8095,7 @@ php_cli_server_buffer_size.exit:                  ; preds = %php_cli_server_chun
   %.1414 = phi i64 [ %.0413, %245 ], [ %243, %240 ]
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 24
   %250 = getelementptr inbounds i8, ptr %249, i64 %247
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %250, ptr align 1 %237, i64 %238, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %250, ptr nonnull align 1 %237, i64 %238, i1 false)
   %251 = load ptr, ptr %6, align 8
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 16
   store i64 %.1414, ptr %252, align 8
@@ -8294,12 +8279,12 @@ php_cli_server_poller_add.exit:                   ; preds = %302, %306
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @php_cli_server_client_read_request_on_message_begin(ptr nocapture readnone %0) #21 {
+define internal noundef i32 @php_cli_server_client_read_request_on_message_begin(ptr readnone captures(none) %0) #21 {
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @php_cli_server_client_read_request_on_path(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal range(i32 0, 2) i32 @php_cli_server_client_read_request_on_path(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
@@ -8561,7 +8546,7 @@ normalize_vpath.exit:                             ; preds = %8, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_cli_server_client_read_request_on_query_string(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal noundef i32 @php_cli_server_client_read_request_on_query_string(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 176
@@ -8604,7 +8589,7 @@ define internal noundef i32 @php_cli_server_client_read_request_on_query_string(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_cli_server_client_read_request_on_url(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal noundef i32 @php_cli_server_client_read_request_on_url(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 112
@@ -8725,12 +8710,12 @@ cli_concat_persistent_zstr_with_char.exit:        ; preds = %43, %52, %65
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @php_cli_server_client_read_request_on_fragment(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2) #21 {
+define internal noundef i32 @php_cli_server_client_read_request_on_fragment(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2) #21 {
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_cli_server_client_read_request_on_header_field(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal noundef i32 @php_cli_server_client_read_request_on_header_field(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 96
@@ -8844,7 +8829,7 @@ cli_concat_persistent_zstr_with_char.exit:        ; preds = %32, %41, %54
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_cli_server_client_read_request_on_header_value(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal noundef i32 @php_cli_server_client_read_request_on_header_value(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 96
@@ -8953,7 +8938,7 @@ cli_concat_persistent_zstr_with_char.exit:        ; preds = %31, %40, %53
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_cli_server_client_read_request_on_headers_complete(ptr nocapture noundef readonly %0) #0 {
+define internal noundef i32 @php_cli_server_client_read_request_on_headers_complete(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
@@ -8979,7 +8964,7 @@ define internal noundef i32 @php_cli_server_client_read_request_on_headers_compl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_cli_server_client_read_request_on_body(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal noundef i32 @php_cli_server_client_read_request_on_body(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 304
@@ -9018,7 +9003,7 @@ define internal noundef i32 @php_cli_server_client_read_request_on_body(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_cli_server_client_read_request_on_message_complete(ptr nocapture noundef readonly %0) #0 {
+define internal noundef i32 @php_cli_server_client_read_request_on_message_complete(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca %struct.stat, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -9350,7 +9335,7 @@ declare i32 @ap_php_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_u
 declare ptr @php_http_method_str(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_cli_server_log_response(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @php_cli_server_log_response(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -9498,7 +9483,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #6
 declare i32 @isatty(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @php_cli_server_dispatch_router(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc zeroext i1 @php_cli_server_dispatch_router(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca %struct._zend_file_handle, align 8
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %4 = alloca %struct._zval_struct, align 8
@@ -9553,7 +9538,7 @@ define internal fastcc zeroext i1 @php_cli_server_dispatch_router(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @php_cli_server_dispatch_script(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @php_cli_server_dispatch_script(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct._zend_file_handle, align 8
   %4 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -9596,7 +9581,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_cli_server_dispatch_script(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @sapi_cli_server_discard_headers(ptr nocapture readnone %0) #21 {
+define internal noundef i32 @sapi_cli_server_discard_headers(ptr readnone captures(none) %0) #21 {
   ret i32 1
 }
 
@@ -9623,7 +9608,7 @@ declare i32 @chdir(ptr noundef) local_unnamed_addr #6
 declare zeroext i1 @php_execute_script(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #24
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #24
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @get_mime_type(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
@@ -9664,12 +9649,12 @@ define internal fastcc noundef ptr @get_mime_type(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 declare ptr @zend_str_tolower_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #24
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #24
 
 declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -9680,13 +9665,13 @@ declare void @llvm.va_start.p0(ptr) #25
 declare void @llvm.va_end.p0(ptr) #25
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #26
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.scmp.i32.i32(i32, i32) #28

@@ -315,12 +315,12 @@ return:                                           ; preds = %if.end13, %_ZNKSt4l
 declare noundef zeroext i1 @_ZNK8Settings7getBoolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN3irr4core6stringIcEEPNS0_5video6IImageESt4lessIS3_ESaISt4pairIKS3_S6_EEEixERSA_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -537,7 +537,7 @@ if.end27:                                         ; preds = %_ZN15RenderingEngin
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef ptr @_Z22guiScalingResizeCachedPN3irr5video12IVideoDriverEPNS0_8ITextureERKNS_4core4rectIiEES9_(ptr noundef %driver, ptr noundef %src, ptr noundef nonnull align 4 dereferenceable(16) %srcrect, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %destrect) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_Z22guiScalingResizeCachedPN3irr5video12IVideoDriverEPNS0_8ITextureERKNS_4core4rectIiEES9_(ptr noundef %driver, ptr noundef %src, ptr noundef nonnull align 4 dereferenceable(16) %srcrect, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %destrect) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i341 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -1664,10 +1664,10 @@ cleanup.cont:                                     ; preds = %cond.end, %if.end, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z17draw2DImage9SlicePN3irr5video12IVideoDriverEPNS0_8ITextureERKNS_4core4rectIiEES9_S9_PS8_PKNS0_6SColorE(ptr noundef %driver, ptr noundef %texture, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %destrect, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %srcrect, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %middlerect, ptr noundef %cliprect, ptr noundef %colors) local_unnamed_addr #4 {
+define dso_local void @_Z17draw2DImage9SlicePN3irr5video12IVideoDriverEPNS0_8ITextureERKNS_4core4rectIiEES9_S9_PS8_PKNS0_6SColorE(ptr noundef %driver, ptr noundef %texture, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %destrect, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %srcrect, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %middlerect, ptr noundef %cliprect, ptr noundef %colors) local_unnamed_addr #4 {
 entry:
   %mysrcrect.i = alloca %"class.irr::core::rect", align 4
   %src = alloca %"class.irr::core::rect", align 4
@@ -1957,7 +1957,7 @@ declare void @_Z15sanity_check_fnPKcS0_jS0_(ptr noundef, ptr noundef, i32 nounde
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
@@ -1971,7 +1971,7 @@ declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #11
 declare void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIN3irr4core6stringIcEESt4pairIKS3_PNS0_5video6IImageEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESK_IJEEEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 1 dereferenceable(1) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 1 dereferenceable(1) %__args3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {

@@ -78,7 +78,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @qapi_dummy_qapi_visit_crypto_c = dso_local local_unnamed_addr global i8 0, align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_QCryptoTLSCredsEndpoint(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_QCryptoTLSCredsEndpoint(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -92,7 +92,7 @@ entry:
 declare zeroext i1 @visit_type_enum(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_QCryptoSecretFormat(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_QCryptoSecretFormat(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -104,7 +104,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_QCryptoHashAlgorithm(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_QCryptoHashAlgorithm(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -116,7 +116,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_QCryptoCipherAlgorithm(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_QCryptoCipherAlgorithm(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -128,7 +128,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_QCryptoCipherMode(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_QCryptoCipherMode(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -140,7 +140,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_QCryptoIVGenAlgorithm(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_QCryptoIVGenAlgorithm(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -152,7 +152,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_QCryptoBlockFormat(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_QCryptoBlockFormat(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -164,7 +164,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_QCryptoBlockOptionsBase_members(ptr noundef %v, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_QCryptoBlockOptionsBase_members(ptr noundef %v, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
@@ -849,7 +849,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_QCryptoBlockCreateOptions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_QCryptoBlockInfoBase_members(ptr noundef %v, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_QCryptoBlockInfoBase_members(ptr noundef %v, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
@@ -1322,7 +1322,7 @@ return:                                           ; preds = %out_obj.thread19, %
 declare void @qapi_free_QCryptoBlockInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_QCryptoBlockLUKSKeyslotState(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_QCryptoBlockLUKSKeyslotState(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -2306,7 +2306,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_TlsCredsX509Properties(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_QCryptoAkCipherAlgorithm(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_QCryptoAkCipherAlgorithm(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -2318,7 +2318,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_QCryptoAkCipherKeyType(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_QCryptoAkCipherKeyType(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -2330,7 +2330,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_QCryptoRSAPaddingAlgorithm(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_QCryptoRSAPaddingAlgorithm(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -2342,7 +2342,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_QCryptoAkCipherOptionsRSA_members(ptr noundef %v, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_QCryptoAkCipherOptionsRSA_members(ptr noundef %v, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i4 = alloca i32, align 4
   %value.i = alloca i32, align 4
@@ -2444,7 +2444,7 @@ return:                                           ; preds = %out_obj.thread17, %
 declare void @qapi_free_QCryptoAkCipherOptionsRSA(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_QCryptoAkCipherOptions_base_members(ptr noundef %v, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_q_obj_QCryptoAkCipherOptions_base_members(ptr noundef %v, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
@@ -2458,7 +2458,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_QCryptoAkCipherOptions_members(ptr noundef %v, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_QCryptoAkCipherOptions_members(ptr noundef %v, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i4.i = alloca i32, align 4
   %value.i.i5 = alloca i32, align 4
@@ -2600,10 +2600,10 @@ return:                                           ; preds = %out_obj.thread17, %
 declare void @qapi_free_QCryptoAkCipherOptions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

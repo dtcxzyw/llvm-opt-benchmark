@@ -171,13 +171,13 @@ sw.bb18:                                          ; preds = %while.cond
 
 sw.bb20:                                          ; preds = %while.cond
   %call21 = call ptr @opt_arg() #3
-  %call22 = call i64 @strtol(ptr nocapture noundef %call21, ptr noundef null, i32 noundef 0) #3
+  %call22 = call i64 @strtol(ptr noundef captures(none) %call21, ptr noundef null, i32 noundef 0) #3
   %conv = trunc i64 %call22 to i32
   br label %while.cond.backedge
 
 sw.bb23:                                          ; preds = %while.cond
   %call24 = call ptr @opt_arg() #3
-  %call25 = call i64 @strtol(ptr nocapture noundef %call24, ptr noundef null, i32 noundef 0) #3
+  %call25 = call i64 @strtol(ptr noundef captures(none) %call24, ptr noundef null, i32 noundef 0) #3
   %conv26 = trunc i64 %call25 to i32
   br label %while.cond.backedge
 
@@ -186,7 +186,7 @@ sw.bb27:                                          ; preds = %while.cond
 
 sw.bb28:                                          ; preds = %while.cond
   %call29 = call ptr @opt_arg() #3
-  %call30 = call i64 @strtol(ptr nocapture noundef %call29, ptr noundef null, i32 noundef 0) #3
+  %call30 = call i64 @strtol(ptr noundef captures(none) %call29, ptr noundef null, i32 noundef 0) #3
   %conv31 = trunc i64 %call30 to i32
   br label %while.cond.backedge
 
@@ -402,7 +402,7 @@ for.body:                                         ; preds = %if.then151, %for.in
   %tmplen.0128 = phi i64 [ %tmplen.1, %for.inc195 ], [ %19, %if.then151 ]
   %i.0127 = phi i32 [ %inc196, %for.inc195 ], [ 0, %if.then151 ]
   %call158 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call1, i32 noundef %i.0127) #3
-  %call159 = call i64 @strtol(ptr nocapture noundef %call158, ptr noundef null, i32 noundef 0) #3
+  %call159 = call i64 @strtol(ptr noundef captures(none) %call158, ptr noundef null, i32 noundef 0) #3
   %conv160 = trunc i64 %call159 to i32
   %cmp161 = icmp slt i32 %conv160, 1
   br i1 %cmp161, label %if.then167, label %lor.lhs.false163
@@ -605,7 +605,7 @@ declare i32 @opt_format(ptr noundef, i64 noundef, ptr noundef) local_unnamed_add
 declare ptr @opt_arg() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #2
 
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 

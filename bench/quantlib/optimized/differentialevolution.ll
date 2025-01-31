@@ -1330,7 +1330,7 @@ unreachable:                                      ; preds = %invoke.cont160, %in
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK8QuantLib10Constraint10upperBoundERKNS_5ArrayE(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %params) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1567,7 +1567,7 @@ unreachable:                                      ; preds = %invoke.cont33
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #0 align 2
@@ -1972,7 +1972,7 @@ _ZNSt12_Vector_baseIN8QuantLib21DifferentialEvolution9CandidateESaIS2_EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib21DifferentialEvolution21fillInitialPopulationERSt6vectorINS0_9CandidateESaIS2_EERKNS_7ProblemE(ptr noundef nonnull align 8 dereferenceable(5200) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %population, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %p) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib21DifferentialEvolution21fillInitialPopulationERSt6vectorINS0_9CandidateESaIS2_EERKNS_7ProblemE(ptr noundef nonnull align 8 dereferenceable(5200) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %population, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %p) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %population, align 8, !tbaa !23
   %n_.i.i = getelementptr inbounds nuw i8, ptr %p, i64 24
@@ -2277,7 +2277,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN8QuantLib21DifferentialEvo
 declare noundef zeroext i1 @_ZNK8QuantLib11EndCriteria18checkMaxIterationsEmRNS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib21DifferentialEvolution23calculateNextGenerationERSt6vectorINS0_9CandidateESaIS2_EERNS_7ProblemE(ptr noundef nonnull align 8 dereferenceable(5200) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %population, ptr nocapture noundef nonnull align 8 dereferenceable(56) %p) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib21DifferentialEvolution23calculateNextGenerationERSt6vectorINS0_9CandidateESaIS2_EERNS_7ProblemE(ptr noundef nonnull align 8 dereferenceable(5200) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %population, ptr noundef nonnull align 8 captures(none) dereferenceable(56) %p) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mirrorPopulation = alloca %"class.std::vector.6", align 8
   %oldPopulation = alloca %"class.std::vector.6", align 8
@@ -9121,7 +9121,7 @@ if.end:                                           ; preds = %_ZNK8QuantLib25Mers
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib21DifferentialEvolution11rotateArrayENS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(5200) %this, ptr nocapture noundef %a) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib21DifferentialEvolution11rotateArrayENS_5ArrayE(ptr dead_on_unwind noalias writable writeonly sret(%"class.QuantLib::Array") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(5200) %this, ptr noundef captures(none) %a) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %a, align 8, !tbaa !23
   %n_.i = getelementptr inbounds nuw i8, ptr %a, i64 8
@@ -9194,7 +9194,7 @@ _ZN8QuantLib12_GLOBAL__N_19randomizeIPdEEvT_S3_RKNS_25MersenneTwisterUniformRngE
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib21DifferentialEvolution9crossoverERKSt6vectorINS0_9CandidateESaIS2_EERS4_S6_S6_RNS_7ProblemE(ptr noundef nonnull align 8 dereferenceable(5200) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %oldPopulation, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %population, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %mutantPopulation, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %mirrorPopulation, ptr nocapture noundef nonnull align 8 dereferenceable(56) %p) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib21DifferentialEvolution9crossoverERKSt6vectorINS0_9CandidateESaIS2_EERS4_S6_S6_RNS_7ProblemE(ptr noundef nonnull align 8 dereferenceable(5200) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %oldPopulation, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %population, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %mutantPopulation, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %mirrorPopulation, ptr noundef nonnull align 8 captures(none) dereferenceable(56) %p) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mutationProbabilities = alloca %"class.QuantLib::Array", align 8
   %crossoverMask = alloca %"class.std::vector", align 8
@@ -10019,7 +10019,7 @@ if.end:                                           ; preds = %_ZNK8QuantLib25Mers
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib21DifferentialEvolution24getMutationProbabilitiesERKSt6vectorINS0_9CandidateESaIS2_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(5200) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %population) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib21DifferentialEvolution24getMutationProbabilitiesERKSt6vectorINS0_9CandidateESaIS2_EE(ptr dead_on_unwind noalias writable writeonly sret(%"class.QuantLib::Array") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(5200) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %population) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp60 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10347,7 +10347,7 @@ unreachable:                                      ; preds = %invoke.cont72
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib21DifferentialEvolution16getCrossoverMaskERSt6vectorINS_5ArrayESaIS2_EES5_RKS2_(ptr noundef nonnull align 8 dereferenceable(5200) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %crossoverMask, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %invCrossoverMask, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %mutationProbabilities) local_unnamed_addr #0 align 2 {
+define void @_ZNK8QuantLib21DifferentialEvolution16getCrossoverMaskERSt6vectorINS_5ArrayESaIS2_EES5_RKS2_(ptr noundef nonnull align 8 dereferenceable(5200) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %crossoverMask, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %invCrossoverMask, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %mutationProbabilities) local_unnamed_addr #0 align 2 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %crossoverMask, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !134
@@ -10901,7 +10901,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #13
 declare void @_ZNK8QuantLib25MersenneTwisterUniformRng5twistEv(ptr noundef nonnull align 8 dereferenceable(5000)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #15
@@ -10913,12 +10913,12 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -11237,7 +11237,7 @@ unreachable:                                      ; preds = %invoke.cont2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8QuantLib21DifferentialEvolution9CandidateESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_112sort_by_costEEEEvT_T0_SG_T1_T2_(ptr nocapture %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef nonnull %__value) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8QuantLib21DifferentialEvolution9CandidateESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_112sort_by_costEEEEvT_T0_SG_T1_T2_(ptr captures(none) %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr noundef nonnull captures(none) %__value) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -11752,7 +11752,7 @@ declare void @llvm.assume(i1 noundef) #18
 declare double @llvm.fabs.f64(double) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #19

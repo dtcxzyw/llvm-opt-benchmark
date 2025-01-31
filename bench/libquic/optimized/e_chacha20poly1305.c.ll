@@ -23,7 +23,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aead_chacha20_poly1305_init(ptr nocapture noundef writeonly %ctx, ptr nocapture noundef readonly %key, i64 noundef %key_len, i64 noundef %tag_len) #1 {
+define internal range(i32 0, 2) i32 @aead_chacha20_poly1305_init(ptr noundef writeonly captures(none) %ctx, ptr noundef readonly captures(none) %key, i64 noundef %key_len, i64 noundef %tag_len) #1 {
 entry:
   %cmp = icmp eq i64 %tag_len, 0
   %spec.store.select = select i1 %cmp, i64 16, i64 %tag_len
@@ -58,7 +58,7 @@ return:                                           ; preds = %if.end6, %if.end3, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @aead_chacha20_poly1305_cleanup(ptr nocapture noundef readonly %ctx) #1 {
+define internal void @aead_chacha20_poly1305_cleanup(ptr noundef readonly captures(none) %ctx) #1 {
 entry:
   %aead_state = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %aead_state, align 8
@@ -68,7 +68,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aead_chacha20_poly1305_seal(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #1 {
+define internal range(i32 0, 2) i32 @aead_chacha20_poly1305_seal(ptr noundef readonly captures(none) %ctx, ptr noundef %out, ptr noundef writeonly captures(none) %out_len, i64 noundef %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #1 {
 entry:
   %cmp.not = icmp eq i64 %nonce_len, 12
   br i1 %cmp.not, label %if.end, label %if.then
@@ -89,7 +89,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aead_chacha20_poly1305_open(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #1 {
+define internal range(i32 0, 2) i32 @aead_chacha20_poly1305_open(ptr noundef readonly captures(none) %ctx, ptr noundef %out, ptr noundef writeonly captures(none) %out_len, i64 %max_out_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #1 {
 entry:
   %cmp.not = icmp eq i64 %nonce_len, 12
   br i1 %cmp.not, label %if.end, label %if.then
@@ -115,15 +115,15 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @seal_impl(ptr nocapture noundef readonly %poly1305_update, ptr %ctx.8.val, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr noundef %nonce, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @seal_impl(ptr noundef readonly captures(none) %poly1305_update, ptr %ctx.8.val, ptr noundef %out, ptr noundef writeonly captures(none) %out_len, i64 noundef %max_out_len, ptr noundef %nonce, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) unnamed_addr #1 {
 entry:
   %poly1305_key.i = alloca [32 x i8], align 16
   %ctx.i = alloca [512 x i8], align 16
@@ -240,7 +240,7 @@ poly1305_update_length.exit20:                    ; preds = %for.body.i12
 declare void @CRYPTO_chacha_20(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @CRYPTO_poly1305_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -249,7 +249,7 @@ declare void @CRYPTO_poly1305_finish(ptr noundef, ptr noundef) local_unnamed_add
 declare void @CRYPTO_poly1305_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @open_impl(ptr nocapture noundef readonly %poly1305_update, ptr %ctx.8.val, ptr noundef %out, ptr nocapture noundef writeonly %out_len, ptr noundef %nonce, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @open_impl(ptr noundef readonly captures(none) %poly1305_update, ptr %ctx.8.val, ptr noundef %out, ptr noundef writeonly captures(none) %out_len, ptr noundef %nonce, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) unnamed_addr #1 {
 entry:
   %poly1305_key.i = alloca [32 x i8], align 16
   %ctx.i = alloca [512 x i8], align 16
@@ -307,7 +307,7 @@ return:                                           ; preds = %if.end14, %if.then1
 declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aead_chacha20_poly1305_old_seal(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out_len, ptr nocapture noundef readonly %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #1 {
+define internal range(i32 0, 2) i32 @aead_chacha20_poly1305_old_seal(ptr noundef readonly captures(none) %ctx, ptr noundef %out, ptr noundef writeonly captures(none) %out_len, i64 noundef %max_out_len, ptr noundef readonly captures(none) %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #1 {
 entry:
   %nonce_96 = alloca [12 x i8], align 4
   %cmp.not = icmp eq i64 %nonce_len, 8
@@ -333,7 +333,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aead_chacha20_poly1305_old_open(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 %max_out_len, ptr nocapture noundef readonly %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #1 {
+define internal range(i32 0, 2) i32 @aead_chacha20_poly1305_old_open(ptr noundef readonly captures(none) %ctx, ptr noundef %out, ptr noundef writeonly captures(none) %out_len, i64 %max_out_len, ptr noundef readonly captures(none) %nonce, i64 noundef %nonce_len, ptr noundef %in, i64 noundef %in_len, ptr noundef %ad, i64 noundef %ad_len) #1 {
 entry:
   %nonce_96 = alloca [12 x i8], align 4
   %cmp.not = icmp eq i64 %nonce_len, 8
@@ -403,10 +403,10 @@ poly1305_update_length.exit15:                    ; preds = %for.body.i7
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

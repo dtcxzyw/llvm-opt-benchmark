@@ -98,10 +98,10 @@ define dso_local ptr @alloc_cpu_rmap(i32 noundef %0, i32 noundef %1) #0 align 16
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 2) i32 @cpu_rmap_put(ptr noundef %0) #0 align 16 {
@@ -128,7 +128,7 @@ define dso_local noundef range(i32 0, 2) i32 @cpu_rmap_put(ptr noundef %0) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local i32 @cpu_rmap_add(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define dso_local i32 @cpu_rmap_add(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i16, ptr %3, align 4
   %5 = icmp eq i16 %4, 0
@@ -169,7 +169,7 @@ define dso_local i32 @cpu_rmap_add(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @cpu_rmap_update(ptr nocapture noundef %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define dso_local noundef i32 @cpu_rmap_update(ptr noundef captures(none) %0, i16 noundef zeroext %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca [1 x %struct.cpumask], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   store i64 0, ptr %4, align 8
@@ -473,7 +473,7 @@ define dso_local void @free_irq_cpu_rmap(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @irq_set_affinity_notifier(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @irq_cpu_rmap_remove(ptr nocapture readnone %0, i32 noundef %1) #0 align 16 {
+define dso_local i32 @irq_cpu_rmap_remove(ptr readnone captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = tail call i32 @irq_set_affinity_notifier(i32 noundef %1, ptr noundef null) #8
   ret i32 %3
 }
@@ -586,7 +586,7 @@ define dso_local i32 @irq_cpu_rmap_add(ptr noundef %0, i32 noundef %1) #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @irq_cpu_rmap_notify(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @irq_cpu_rmap_notify(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64

@@ -115,7 +115,7 @@ $_ZTVN13CleanCallback28PointsIntoHRDetectionClosureE = comdat any
 @_ZN13G1CodeRootSetD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN13G1CodeRootSetD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i64 0, 4294967296) i64 @_ZNK22G1CodeRootSetHashTable15HashTableLookUp8get_hashEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZNK22G1CodeRootSetHashTable15HashTableLookUp8get_hashEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = ptrtoint ptr %2 to i64
   %4 = lshr i64 %3, 32
@@ -137,7 +137,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @_ZNK22G1CodeRootSetHashTable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN22G1CodeRootSetHashTable15HashTableLookUp6equalsEPP7nmethod(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN22G1CodeRootSetHashTable15HashTableLookUp6equalsEPP7nmethod(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %3, %4
@@ -145,7 +145,7 @@ define hidden noundef zeroext i1 @_ZN22G1CodeRootSetHashTable15HashTableLookUp6e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef range(i64 0, 4294967296) i64 @_ZN28G1CodeRootSetHashTableConfig8get_hashERKP7nmethodPb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZN28G1CodeRootSetHashTableConfig8get_hashERKP7nmethodPb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) local_unnamed_addr #1 align 2 {
   store i8 0, ptr %1, align 1
   %3 = load ptr, ptr %0, align 8
   %4 = ptrtoint ptr %3 to i64
@@ -168,7 +168,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @_ZN28G1CodeRootSetHashTableC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden noundef i64 @_ZNK13G1CodeRootSet6lengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef i64 @_ZNK13G1CodeRootSet6lengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %4 = load volatile i64, ptr %3, align 8
@@ -176,7 +176,7 @@ define hidden noundef i64 @_ZNK13G1CodeRootSet6lengthEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13G1CodeRootSet3addEP7nmethod(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN13G1CodeRootSet3addEP7nmethod(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %struct.NOP, align 1
   %4 = alloca ptr, align 8
   %5 = alloca %"class.G1CodeRootSetHashTable::HashTableLookUp", align 8
@@ -229,14 +229,14 @@ _ZN22G1CodeRootSetHashTable6insertEP7nmethod.exit: ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN13G1CodeRootSet8containsEP7nmethod(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN13G1CodeRootSet8containsEP7nmethod(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call noundef zeroext i1 @_ZN22G1CodeRootSetHashTable8containsEP7nmethod(ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef %1)
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13G1CodeRootSetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN13G1CodeRootSetC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   %2 = alloca %class.anon.25, align 1
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 168, i8 noundef zeroext 5, i32 noundef 0) #13
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -297,7 +297,7 @@ _ZN22G1CodeRootSetHashTableC2Ev.exit:             ; preds = %1, %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13G1CodeRootSetD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN13G1CodeRootSetD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %6, label %4
@@ -313,7 +313,7 @@ define hidden void @_ZN13G1CodeRootSetD2Ev(ptr nocapture noundef nonnull readonl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN13G1CodeRootSet6removeEP7nmethod(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN13G1CodeRootSet6removeEP7nmethod(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %struct.anon.22, align 1
   %4 = alloca %"class.G1CodeRootSetHashTable::HashTableLookUp", align 8
   %5 = load ptr, ptr %0, align 8
@@ -338,7 +338,7 @@ _ZN22G1CodeRootSetHashTable6removeEP7nmethod.exit: ; preds = %2, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13G1CodeRootSet11bulk_removeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN13G1CodeRootSet11bulk_removeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %class.anon, align 1
   %3 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
@@ -452,7 +452,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE3getIN22G1Co
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13G1CodeRootSet5clearEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN13G1CodeRootSet5clearEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %class.anon.25, align 1
   %3 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
@@ -462,7 +462,7 @@ define hidden void @_ZN13G1CodeRootSet5clearEv(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i64 296, 289) i64 @_ZN13G1CodeRootSet8mem_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i64 296, 289) i64 @_ZN13G1CodeRootSet8mem_sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
@@ -503,7 +503,7 @@ _ZN22G1CodeRootSetHashTable8mem_sizeEv.exit:      ; preds = %_ZN13GlobalCounter2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13G1CodeRootSet19reset_table_scannerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN13G1CodeRootSet19reset_table_scannerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -540,7 +540,7 @@ _ZN22G1CodeRootSetHashTable19reset_table_scannerEv.exit: ; preds = %1, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK13G1CodeRootSet11nmethods_doEP14NMethodClosure(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK13G1CodeRootSet11nmethods_doEP14NMethodClosure(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.anon.28, align 8
   %5 = load ptr, ptr %0, align 8
@@ -565,7 +565,7 @@ _ZN22G1CodeRootSetHashTable20iterate_at_safepointEP14NMethodClosure.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13G1CodeRootSet5cleanEP12G1HeapRegion(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN13G1CodeRootSet5cleanEP12G1HeapRegion(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %class.CleanCallback, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN13CleanCallback28PointsIntoHRDetectionClosureE, i64 16), ptr %4, align 8
@@ -1346,7 +1346,7 @@ declare noundef zeroext i1 @_ZN5Mutex8try_lockEv(ptr noundef nonnull align 8 der
 declare void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE12unzip_bucketEP6ThreadPNS2_13InternalTableES6_mm(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #3 comdat align 2 {
@@ -3563,13 +3563,13 @@ declare i64 @llvm.ctpop.i64(i64) #10
 declare i64 @llvm.umax.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

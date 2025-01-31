@@ -888,7 +888,7 @@ first_token.exit.thread:                          ; preds = %.preheader.i, %97, 
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define range(i32 0, 7) i32 @MPL_str_get_int_arg(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
+define range(i32 0, 7) i32 @MPL_str_get_int_arg(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 {
   %4 = alloca [12 x i8], align 1
   %5 = call i32 @MPL_str_get_string_arg(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 12)
   %6 = icmp eq i32 %5, 0
@@ -904,10 +904,10 @@ define range(i32 0, 7) i32 @MPL_str_get_int_arg(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -1, 1) i32 @MPL_str_add_string(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @MPL_str_add_string(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i32, ptr %1, align 4
   %6 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 36) #9
@@ -1057,7 +1057,7 @@ quoted_printf.exit:                               ; preds = %15, %20, %11, %13, 
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 -2, 1) i32 @MPL_str_get_string(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1292,7 +1292,7 @@ token_copy.exit:                                  ; preds = %.preheader.i, %43, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 6) i32 @MPL_str_add_string_arg(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 6) i32 @MPL_str_add_string_arg(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %90, label %6
 
@@ -1522,7 +1522,7 @@ quoted_printf.exit78:                             ; preds = %60, %55, %67, %64, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 6) i32 @MPL_str_add_int_arg(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 6) i32 @MPL_str_add_int_arg(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca [12 x i8], align 1
   %6 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 12, ptr noundef nonnull @.str.5, i32 noundef %3) #8
   %7 = call i32 @MPL_str_add_string_arg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
@@ -1530,7 +1530,7 @@ define range(i32 0, 6) i32 @MPL_str_add_int_arg(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 7) i32 @MPL_str_add_binary_arg(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #2 {
+define range(i32 0, 7) i32 @MPL_str_add_binary_arg(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = icmp eq ptr %1, null
   br i1 %6, label %85, label %7
 
@@ -1727,13 +1727,13 @@ encode_buffer.exit:                               ; preds = %52, %._crit_edge.lo
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

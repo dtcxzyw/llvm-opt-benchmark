@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @secure_zero_memory.memset_v = internal constant ptr @memset, align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @blake2s_init_param(ptr nocapture noundef initializes((0, 136)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @blake2s_init_param(ptr noundef captures(none) initializes((0, 136)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3, i8 0, i64 104, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
@@ -38,7 +38,7 @@ define dso_local noundef i32 @blake2s_init_param(ptr nocapture noundef initializ
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 -1, 1) i32 @blake2s_init(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @blake2s_init(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.blake2s_param__], align 16
   %4 = add i64 %1, -33
   %or.cond = icmp ult i64 %4, -32
@@ -84,10 +84,10 @@ blake2s_init_param.exit:                          ; preds = %12
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @blake2s_init_key(ptr nocapture noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @blake2s_init_key(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = alloca [1 x %struct.blake2s_param__], align 16
   %6 = alloca [64 x i8], align 16
   %7 = add i64 %1, -33
@@ -198,10 +198,10 @@ blake2s_update.exit:                              ; preds = %.lr.ph.i, %blake2s_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @blake2s_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef i32 @blake2s_update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %37, label %4
 
@@ -267,7 +267,7 @@ define dso_local noundef i32 @blake2s_update(ptr nocapture noundef %0, ptr nocap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @blake2s_compress(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @blake2s_compress(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
 .preheader.preheader:
   %2 = alloca [16 x i32], align 16
   %.sroa.0.0.copyload = load i32, ptr %1, align 1
@@ -1588,7 +1588,7 @@ define internal fastcc void @blake2s_compress(ptr nocapture noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @blake2s_final(ptr nocapture noundef %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @blake2s_final(ptr noundef captures(none) %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [32 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %5 = icmp eq ptr %1, null
@@ -1895,10 +1895,10 @@ declare ptr @memset(ptr noundef writeonly, i32 noundef, i64 noundef) #4
 declare i32 @llvm.fshl.i32(i32, i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

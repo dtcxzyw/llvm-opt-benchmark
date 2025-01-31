@@ -41,7 +41,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [68 x i8] c"Session callback must have a return value of type bool, %s returned\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @ps_open_user(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define hidden range(i32 -1, 1) i32 @ps_open_user(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca [2 x %struct._zval_struct], align 16
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca [1 x %struct.__jmp_buf_tag], align 16
@@ -57,7 +57,7 @@ define hidden range(i32 -1, 1) i32 @ps_open_user(ptr nocapture readnone %0, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %7, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr align 1 %1, i64 %7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr nonnull align 1 %1, i64 %7, i1 false)
   %15 = getelementptr inbounds [1 x i8], ptr %14, i64 0, i64 %7
   store i8 0, ptr %15, align 1
   store ptr %10, ptr %4, align 16
@@ -76,7 +76,7 @@ define hidden range(i32 -1, 1) i32 @ps_open_user(ptr nocapture readnone %0, ptr 
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 %18, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr align 1 %2, i64 %18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr nonnull align 1 %2, i64 %18, i1 false)
   %26 = getelementptr inbounds [1 x i8], ptr %25, i64 0, i64 %18
   store i8 0, ptr %26, align 1
   store ptr %21, ptr %17, align 16
@@ -141,7 +141,7 @@ ps_call_handler.exit:                             ; preds = %.lr.ph.i, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @ps_close_user(ptr nocapture readnone %0) #0 {
+define hidden range(i32 -1, 1) i32 @ps_close_user(ptr readnone captures(none) %0) #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 344), align 8
@@ -204,7 +204,7 @@ define hidden range(i32 -1, 1) i32 @ps_close_user(ptr nocapture readnone %0) #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @ps_read_user(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 %3) #0 {
+define hidden range(i32 -1, 1) i32 @ps_read_user(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 %3) #0 {
   %5 = alloca [1 x %struct._zval_struct], align 16
   %6 = alloca %struct._zval_struct, align 8
   store ptr %1, ptr %5, align 16
@@ -294,7 +294,7 @@ ps_call_handler.exit:                             ; preds = %20, %22, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @ps_write_user(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i64 %3) #0 {
+define hidden range(i32 -1, 1) i32 @ps_write_user(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) #0 {
   %5 = alloca [2 x %struct._zval_struct], align 16
   %6 = alloca %struct._zval_struct, align 8
   store ptr %1, ptr %5, align 16
@@ -384,7 +384,7 @@ ps_call_handler.exit:                             ; preds = %.lr.ph.i, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @ps_delete_user(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define hidden range(i32 -1, 1) i32 @ps_delete_user(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca [1 x %struct._zval_struct], align 16
   %4 = alloca %struct._zval_struct, align 8
   store ptr %1, ptr %3, align 16
@@ -449,7 +449,7 @@ ps_call_handler.exit:                             ; preds = %.lr.ph.i, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @ps_gc_user(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #0 {
+define hidden i64 @ps_gc_user(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #0 {
   %4 = alloca [1 x %struct._zval_struct], align 16
   %5 = alloca %struct._zval_struct, align 8
   store i64 %1, ptr %4, align 16
@@ -672,7 +672,7 @@ ps_call_handler.exit:                             ; preds = %.lr.ph.i, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @ps_update_timestamp_user(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i64 %3) #0 {
+define hidden range(i32 -1, 1) i32 @ps_update_timestamp_user(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i64 %3) #0 {
   %5 = alloca [2 x %struct._zval_struct], align 16
   %6 = alloca %struct._zval_struct, align 8
   store ptr %1, ptr %5, align 16
@@ -804,7 +804,7 @@ ps_call_handler.exit:                             ; preds = %.lr.ph.i, %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind returns_twice
 declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -874,7 +874,7 @@ declare ptr @php_session_create_id(ptr noundef) local_unnamed_addr #3
 declare i32 @php_session_validate_sid(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #5

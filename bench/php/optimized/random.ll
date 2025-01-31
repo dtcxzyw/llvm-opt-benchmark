@@ -164,7 +164,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.64 = private unnamed_addr constant [11 x i8] c"random_int\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @php_random_range32(ptr nocapture readonly %0, ptr %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @php_random_range32(ptr readonly captures(none) %0, ptr %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %5
 
@@ -258,7 +258,7 @@ define i32 @php_random_range32(ptr nocapture readonly %0, ptr %1, i32 noundef %2
 declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @php_random_range64(ptr nocapture readonly %0, ptr %1, i64 noundef %2) local_unnamed_addr #0 {
+define i64 @php_random_range64(ptr readonly captures(none) %0, ptr %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %5
 
@@ -346,7 +346,7 @@ define i64 @php_random_range64(ptr nocapture readonly %0, ptr %1, i64 noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @php_random_status_alloc(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define noalias ptr @php_random_status_alloc(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %9, label %4
@@ -374,14 +374,14 @@ declare noalias ptr @__zend_calloc(i64 noundef, i64 noundef) local_unnamed_addr 
 declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @php_random_status_copy(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef returned writeonly %2) local_unnamed_addr #3 {
+define noundef ptr @php_random_status_copy(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef returned writeonly %2) local_unnamed_addr #3 {
   %4 = load i64, ptr %0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %1, i64 %4, i1 false)
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define void @php_random_status_free(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
@@ -400,7 +400,7 @@ define void @php_random_status_free(ptr noundef %0, i1 noundef zeroext %1) local
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @_efree(ptr noundef) local_unnamed_addr #1
 
@@ -487,7 +487,7 @@ define ptr @php_random_engine_common_clone_object(ptr noundef %0) #0 {
 declare void @zend_objects_clone_members(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @php_random_range(ptr nocapture readonly %0, ptr %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define i64 @php_random_range(ptr readonly captures(none) %0, ptr %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = sub i64 %3, %2
   %6 = icmp ugt i64 %5, 4294967295
   br i1 %6, label %7, label %50
@@ -701,7 +701,7 @@ define ptr @php_random_default_status() local_unnamed_addr #0 {
 declare void @php_random_mt19937_seed_default(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @php_random_bin2hex_le(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @php_random_bin2hex_le(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias ptr @_safe_emalloc(i64 noundef %1, i64 noundef 2, i64 noundef 32) #13
   store i32 1, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -750,7 +750,7 @@ define noalias noundef ptr @php_random_bin2hex_le(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @php_random_hex2bin_le(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #7 {
+define noundef zeroext i1 @php_random_hex2bin_le(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = lshr i64 %4, 1
@@ -999,7 +999,7 @@ php_mt_rand.exit:                                 ; preds = %0, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_lcg_value(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_lcg_value(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1038,7 +1038,7 @@ php_combined_lcg.exit:                            ; preds = %6, %10
 declare void @zend_wrong_parameters_none_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_mt_srand(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zif_mt_srand(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   store i64 0, ptr %3, align 8
@@ -1163,7 +1163,7 @@ declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, 
 declare void @zend_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_mt_rand(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_mt_rand(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1332,7 +1332,7 @@ php_mt_rand_common.exit:                          ; preds = %php_mt_rand_range.e
 declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_mt_getrandmax(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_mt_getrandmax(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1353,7 +1353,7 @@ define hidden void @zif_mt_getrandmax(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_rand(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_rand(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1575,7 +1575,7 @@ php_mt_rand_common.exit119:                       ; preds = %php_mt_rand_range.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_random_bytes(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_random_bytes(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -1686,7 +1686,7 @@ define hidden void @zif_random_bytes(ptr noundef %0, ptr nocapture noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_random_int(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_random_int(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -2261,7 +2261,7 @@ define hidden noundef i32 @zm_activate_random(i32 %0, i32 %1) #9 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zm_globals_ctor_random(ptr nocapture noundef writeonly initializes((0, 9), (16, 25), (28, 32)) %0) #0 {
+define internal void @zm_globals_ctor_random(ptr noundef writeonly captures(none) initializes((0, 9), (16, 25), (28, 32)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 -1, ptr %2, align 4
   %3 = load i64, ptr @php_random_algo_combinedlcg, align 8
@@ -2295,7 +2295,7 @@ php_random_status_alloc.exit6:                    ; preds = %php_random_status_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zm_globals_dtor_random(ptr nocapture noundef %0) #0 {
+define internal void @zm_globals_dtor_random(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, -1
@@ -2321,7 +2321,7 @@ define internal void @zm_globals_dtor_random(ptr nocapture noundef %0) #0 {
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare noalias ptr @_safe_emalloc(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2395,10 +2395,10 @@ declare void @zend_register_long_constant(ptr noundef, i64 noundef, i64 noundef,
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

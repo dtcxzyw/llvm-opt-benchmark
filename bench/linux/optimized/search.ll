@@ -39,7 +39,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_pci_dev_pres
 @llvm.compiler.used = appending global [9 x ptr] [ptr @__UNIQUE_ID___addressable_pci_dev_present360, ptr @__UNIQUE_ID___addressable_pci_find_bus352, ptr @__UNIQUE_ID___addressable_pci_find_next_bus353, ptr @__UNIQUE_ID___addressable_pci_get_base_class359, ptr @__UNIQUE_ID___addressable_pci_get_class358, ptr @__UNIQUE_ID___addressable_pci_get_device357, ptr @__UNIQUE_ID___addressable_pci_get_domain_bus_and_slot355, ptr @__UNIQUE_ID___addressable_pci_get_slot354, ptr @__UNIQUE_ID___addressable_pci_get_subsys356], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pci_for_each_dma_alias(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @pci_for_each_dma_alias(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = tail call ptr @pci_real_dma_dev(ptr noundef %0) #6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -211,13 +211,13 @@ select.unfold:                                    ; preds = %83, %74, %69, %117,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @pci_real_dma_dev(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @pci_find_bus(i32 noundef %0, i32 noundef %1) #0 align 16 {
@@ -450,7 +450,7 @@ define dso_local ptr @pci_get_subsys(i32 noundef %0, i32 noundef %1, i32 noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @pci_get_class(i32 noundef %0, ptr noundef %1) #0 align 16 {
@@ -554,7 +554,7 @@ declare dso_local i64 @_find_next_bit(ptr noundef, i64 noundef, i64 noundef) loc
 declare dso_local ptr @bus_find_device(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal noundef range(i32 0, 2) i32 @match_pci_dev_by_id(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #5 align 16 {
+define internal noundef range(i32 0, 2) i32 @match_pci_dev_by_id(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #5 align 16 {
   %3 = load i32, ptr %1, align 8
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %10, label %5

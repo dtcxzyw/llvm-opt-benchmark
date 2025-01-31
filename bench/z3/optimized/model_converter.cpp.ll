@@ -252,7 +252,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN15model_converter11display_addERSoR19smt2_pp_environmentR11ast_managerP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(56) %env, ptr nocapture nonnull readnone align 8 %m, ptr noundef %f, ptr noundef %e) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN15model_converter11display_addERSoR19smt2_pp_environmentR11ast_managerP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(56) %env, ptr nonnull readnone align 8 captures(none) %m, ptr noundef %f, ptr noundef %e) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.params_ref, align 8
   %tobool.not = icmp eq ptr %e, null
@@ -310,7 +310,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK15model_converter11display_addERSoR11ast_managerP9func_declP4expr(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %f, ptr noundef %e) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK15model_converter11display_addERSoR11ast_managerP9func_declP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %f, ptr noundef %e) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dbgenv = alloca %class.smt2_pp_environment_dbg, align 8
   call void @_ZN23smt2_pp_environment_dbgC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(640) %dbgenv, ptr noundef nonnull align 8 dereferenceable(976) %m)
@@ -559,7 +559,7 @@ _ZN19smt2_pp_environmentD2Ev.exit:                ; preds = %_ZN3mapI6symbolS0_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK15model_converter11display_delERSoP9func_decl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %f) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK15model_converter11display_delERSoP9func_decl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %f) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.params_ref, align 8
   %m_env = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -640,7 +640,7 @@ if.end:                                           ; preds = %_ZlsRSo6symbol.exit
 declare noundef nonnull align 8 dereferenceable(8) ptr @_Z11ast_smt2_ppRSoRK6symbolbR19smt2_pp_environmentRK10params_ref(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15model_converter7set_envEP11ast_pp_util(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((16, 24)) %this, ptr noundef %visitor) unnamed_addr #6 align 2 {
+define hidden void @_ZN15model_converter7set_envEP11ast_pp_util(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(25) initializes((16, 24)) %this, ptr noundef %visitor) unnamed_addr #6 align 2 {
 entry:
   %tobool.not = icmp eq ptr %visitor, null
   %m_env.i = getelementptr inbounds nuw i8, ptr %visitor, i64 32
@@ -734,7 +734,7 @@ declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_ad
 declare void @_ZN5modelC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(976)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN15model_converter11display_addERSoR19smt2_pp_environmentR5model(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(56) %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %mdl) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN15model_converter11display_addERSoR19smt2_pp_environmentR5model(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(56) %env, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %mdl) local_unnamed_addr #3 align 2 {
 entry:
   %m_const_decls.i = getelementptr inbounds nuw i8, ptr %mdl, i64 80
   %0 = load ptr, ptr %m_const_decls.i, align 8
@@ -1030,7 +1030,7 @@ return:                                           ; preds = %entry, %_ZN8model2m
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z32model_and_labels2model_converterP5modelRK10labels_vec(ptr noundef %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %r) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_Z32model_and_labels2model_converterP5modelRK10labels_vec(ptr noundef %m, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %r) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %m, null
   br i1 %tobool.not, label %return, label %invoke.cont.i
@@ -1151,7 +1151,7 @@ if.end:                                           ; preds = %_ZN3refI5modelEaSEP
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z5applyR3refI15model_converterERS_I5modelE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %mc, ptr noundef nonnull align 8 dereferenceable(8) %m) local_unnamed_addr #3 {
+define hidden void @_Z5applyR3refI15model_converterERS_I5modelE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %mc, ptr noundef nonnull align 8 dereferenceable(8) %m) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %mc, align 8
   %cmp.i.not = icmp eq ptr %0, null
@@ -2522,7 +2522,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -2606,10 +2606,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #16

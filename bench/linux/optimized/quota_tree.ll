@@ -73,7 +73,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_qtree_get_ne
 @llvm.compiler.used = appending global [10 x ptr] [ptr @__UNIQUE_ID___addressable_qtree_delete_dquot313, ptr @__UNIQUE_ID___addressable_qtree_entry_unused311, ptr @__UNIQUE_ID___addressable_qtree_get_next_id316, ptr @__UNIQUE_ID___addressable_qtree_read_dquot314, ptr @__UNIQUE_ID___addressable_qtree_release_dquot315, ptr @__UNIQUE_ID___addressable_qtree_write_dquot312, ptr @__UNIQUE_ID_author307, ptr @__UNIQUE_ID_description308, ptr @__UNIQUE_ID_file309, ptr @__UNIQUE_ID_license310], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local noundef range(i32 0, 2) i32 @qtree_entry_unused(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @qtree_entry_unused(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -98,13 +98,13 @@ define dso_local noundef range(i32 0, 2) i32 @qtree_entry_unused(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @qtree_write_dquot(ptr nocapture noundef %0, ptr noundef %1) #2 align 16 {
+define dso_local i32 @qtree_write_dquot(ptr noundef captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %5 = load i32, ptr %4, align 4
@@ -200,7 +200,7 @@ declare dso_local void @__quota_error(ptr noundef, ptr noundef, ptr noundef, ...
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @qtree_delete_dquot(ptr nocapture noundef %0, ptr nocapture noundef %1) #2 align 16 {
+define dso_local i32 @qtree_delete_dquot(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #2 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
   store i32 1, ptr %3, align 4
@@ -220,7 +220,7 @@ define dso_local i32 @qtree_delete_dquot(ptr nocapture noundef %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @remove_tree(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) unnamed_addr #2 align 16 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
@@ -721,7 +721,7 @@ put_free_dqblk.exit:                              ; preds = %303, %306
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @qtree_read_dquot(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define dso_local i32 @qtree_read_dquot(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %5 = load i32, ptr %4, align 4
@@ -862,10 +862,10 @@ define dso_local i32 @qtree_read_dquot(ptr nocapture noundef readonly %0, ptr no
 declare dso_local i32 @from_kqid(ptr noundef, i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @qtree_release_dquot(ptr nocapture noundef %0, ptr noundef %1) #2 align 16 {
+define dso_local i32 @qtree_release_dquot(ptr noundef captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %5 = load volatile i64, ptr %4, align 8
@@ -905,7 +905,7 @@ define dso_local i32 @qtree_release_dquot(ptr nocapture noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @qtree_get_next_id(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #2 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @qtree_get_next_id(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #2 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
   %4 = load i64, ptr %1, align 4
@@ -942,7 +942,7 @@ define dso_local range(i32 -2147483648, 1) i32 @qtree_get_next_id(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @find_next_id(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc i32 @find_next_id(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3) unnamed_addr #2 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
@@ -1093,7 +1093,7 @@ select.unfold:                                    ; preds = %80, %68
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @do_insert_tree(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) unnamed_addr #2 align 16 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
@@ -1561,7 +1561,7 @@ define internal fastcc i32 @do_insert_tree(ptr nocapture noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @get_free_dqblk(ptr nocapture noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc i32 @get_free_dqblk(ptr noundef captures(none) %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
@@ -1705,7 +1705,7 @@ check_dquot_block_header.exit.thread:             ; preds = %.thread6.i, %.threa
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @put_free_dqblk(ptr nocapture noundef %0, ptr noundef nonnull initializes((0, 10)) %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @put_free_dqblk(ptr noundef captures(none) %0, ptr noundef nonnull initializes((0, 10)) %1, i32 noundef %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   store i32 %5, ptr %1, align 4
@@ -1759,7 +1759,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @put_free_dqblk(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -117, 1) i32 @check_dquot_block_header(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -117, 1) i32 @check_dquot_block_header(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #2 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
@@ -1813,7 +1813,7 @@ define internal fastcc noundef range(i32 -117, 1) i32 @check_dquot_block_header(
 declare dso_local void @mark_info_dirty(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @remove_free_dqentry(ptr nocapture noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @remove_free_dqentry(ptr noundef captures(none) %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
@@ -1998,7 +1998,7 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #3 sect
 declare dso_local void @percpu_counter_add_batch(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @find_tree_dqentry(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc i64 @find_tree_dqentry(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3) unnamed_addr #2 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64

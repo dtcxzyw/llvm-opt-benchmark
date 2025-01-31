@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lv_color32_t = type { i8, i8, i8, i8 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_draw_sw_blend_color_to_al88(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @lv_draw_sw_blend_color_to_al88(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.lv_color_mix_alpha_cache_t, align 2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !3
@@ -631,12 +631,12 @@ lv_color_16a_16a_mix.exit214.us:                  ; preds = %261, %255, %253, %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare zeroext i8 @lv_color_luminance(i24) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_sw_blend_image_to_al88(ptr noundef readonly %0) local_unnamed_addr #0 {
@@ -4664,7 +4664,7 @@ i1_image_blend.exit:                              ; preds = %._crit_edge.us.i204
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rgb888_image_blend(ptr nocapture noundef readonly %0, i8 noundef zeroext range(i8 3, 5) %1) unnamed_addr #0 {
+define internal fastcc void @rgb888_image_blend(ptr noundef readonly captures(none) %0, i8 noundef zeroext range(i8 3, 5) %1) unnamed_addr #0 {
   %3 = alloca %struct.lv_color_mix_alpha_cache_t, align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !37

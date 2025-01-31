@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @addToGP.outline_funcs = internal constant %struct.FT_Outline_Funcs_ { ptr @moveTo, ptr @lineTo, ptr @conicTo, ptr @cubicTo, i32 0, i64 0 }, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_font_FreetypeFontScaler_initIDs(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_font_FreetypeFontScaler_initIDs(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 264
@@ -44,7 +44,7 @@ define void @Java_sun_font_FreetypeFontScaler_initIDs(ptr noundef %0, ptr nocapt
 declare i64 @JNU_CallStaticMethodByName(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @Java_sun_font_FreetypeFontScaler_initNativeScaler(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #0 {
+define noundef i64 @Java_sun_font_FreetypeFontScaler_initNativeScaler(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca %struct.FT_Open_Args_, align 8
   %10 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #20
@@ -251,7 +251,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare i32 @FT_Init_FreeType(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
@@ -259,7 +259,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare i32 @FT_New_Memory_Face(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ReadTTFontFileFunc(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) #0 {
+define internal i64 @ReadTTFontFileFunc(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
@@ -450,7 +450,7 @@ define internal i64 @ReadTTFontFileFunc(ptr nocapture noundef readonly %0, i64 n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @FT_Open_Face(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -830,7 +830,7 @@ define ptr @Java_sun_font_FreetypeFontScaler_getFontMetricsNative(ptr noundef %0
 declare i32 @isNullScalerContext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @setupFTContext(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((0, 8), (32, 40)) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @setupFTContext(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) initializes((0, 8), (32, 40)) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.FT_Matrix_, align 8
   store ptr %0, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -1358,7 +1358,7 @@ define noundef i64 @Java_sun_font_FreetypeFontScaler_getGlyphImageNative(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_font_FreetypeFontScaler_disposeNativeScaler(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_font_FreetypeFontScaler_disposeNativeScaler(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %3 to ptr
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -1484,7 +1484,7 @@ invalidateJavaScaler.exit:                        ; preds = %28, %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @Java_sun_font_FreetypeFontScaler_getMissingGlyphCodeNative(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #7 {
+define noundef i32 @Java_sun_font_FreetypeFontScaler_getMissingGlyphCodeNative(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #7 {
   ret i32 0
 }
 
@@ -1524,7 +1524,7 @@ define i32 @Java_sun_font_FreetypeFontScaler_getGlyphCodeNative(ptr noundef %0, 
 declare i32 @FT_Get_Char_Index(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_font_FreetypeFontScaler_getGlyphOutlineNative(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, float noundef %6, float noundef %7) local_unnamed_addr #0 {
+define ptr @Java_sun_font_FreetypeFontScaler_getGlyphOutlineNative(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, float noundef %6, float noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.GPData, align 8
   %10 = inttoptr i64 %3 to ptr
   %11 = inttoptr i64 %4 to ptr
@@ -1667,7 +1667,7 @@ getGlyphGeneralPath.exit:                         ; preds = %78, %80
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_font_FreetypeFontScaler_getGlyphOutlineBoundsNative(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define ptr @Java_sun_font_FreetypeFontScaler_getGlyphOutlineBoundsNative(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.FT_BBox_, align 8
   %8 = inttoptr i64 %3 to ptr
   %9 = inttoptr i64 %4 to ptr
@@ -1843,7 +1843,7 @@ define internal fastcc noundef ptr @getFTOutline(ptr noundef %0, ptr noundef %1,
 declare i32 @FT_Outline_Get_BBox(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_font_FreetypeFontScaler_getGlyphVectorOutlineNative(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef %6, float noundef %7, float noundef %8) local_unnamed_addr #0 {
+define ptr @Java_sun_font_FreetypeFontScaler_getGlyphVectorOutlineNative(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef %6, float noundef %7, float noundef %8) local_unnamed_addr #0 {
   %10 = alloca %struct.GPData, align 8
   %11 = inttoptr i64 %3 to ptr
   %12 = inttoptr i64 %4 to ptr
@@ -2002,7 +2002,7 @@ addToGP.exit:                                     ; preds = %61, %57, %35, %38, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc range(i32 0, 2) i32 @allocateSpaceForGP(ptr nocapture noundef nonnull %0, i32 noundef range(i32 -32768, 32768) %1, i32 noundef range(i32 -32768, 32768) %2) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @allocateSpaceForGP(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 -32768, 32768) %1, i32 noundef range(i32 -32768, 32768) %2) unnamed_addr #8 {
   %4 = add nsw i32 %2, %1
   %5 = shl nsw i32 %4, 1
   %6 = shl nsw i32 %2, 3
@@ -2109,7 +2109,7 @@ define internal fastcc range(i32 0, 2) i32 @allocateSpaceForGP(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i64 0, 65536) i64 @Java_sun_font_FreetypeFontScaler_getUnitsPerEMNative(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #9 {
+define range(i64 0, 65536) i64 @Java_sun_font_FreetypeFontScaler_getUnitsPerEMNative(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #9 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %11, label %4
 
@@ -2128,7 +2128,7 @@ define range(i64 0, 65536) i64 @Java_sun_font_FreetypeFontScaler_getUnitsPerEMNa
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_font_FreetypeFontScaler_getGlyphPointNative(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define ptr @Java_sun_font_FreetypeFontScaler_getGlyphPointNative(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = inttoptr i64 %3 to ptr
   %9 = inttoptr i64 %4 to ptr
   %10 = icmp sgt i32 %5, 65533
@@ -2207,10 +2207,10 @@ getFTOutline.exit.thread:                         ; preds = %17, %15, %7, %11, %
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #12
@@ -2222,7 +2222,7 @@ declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #12
 declare i32 @dlclose(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #6
@@ -2341,7 +2341,7 @@ declare void @FT_Outline_Get_CBox(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @FT_Render_Glyph(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @CopyBW2Grey8(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, i32 noundef range(i32 0, 65536) %3, i32 noundef range(i32 0, 65536) %4, i32 noundef range(i32 0, 65536) %5) unnamed_addr #14 {
+define internal fastcc void @CopyBW2Grey8(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, i32 noundef range(i32 0, 65536) %4, i32 noundef range(i32 0, 65536) %5) unnamed_addr #14 {
   %7 = lshr i32 %4, 3
   %8 = and i32 %4, 7
   %9 = add nsw i32 %5, -1
@@ -2496,7 +2496,7 @@ define internal fastcc void @CopyBW2Grey8(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @CopyGrey4ToGrey8(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, i32 noundef range(i32 0, 65536) %3, i32 noundef range(i32 0, 65536) %4, i32 noundef range(i32 0, 65536) %5) unnamed_addr #14 {
+define internal fastcc void @CopyGrey4ToGrey8(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, i32 noundef range(i32 0, 65536) %4, i32 noundef range(i32 0, 65536) %5) unnamed_addr #14 {
   %.not26 = icmp eq i32 %5, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph29
 
@@ -2545,7 +2545,7 @@ define internal fastcc void @CopyGrey4ToGrey8(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @CopyFTSubpixelVToSubpixel(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, i32 noundef range(i32 0, 196606) %3, i32 noundef range(i32 0, 65536) %4, i32 noundef range(i32 0, 65536) %5) unnamed_addr #14 {
+define internal fastcc void @CopyFTSubpixelVToSubpixel(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) %2, i32 noundef range(i32 0, 196606) %3, i32 noundef range(i32 0, 65536) %4, i32 noundef range(i32 0, 65536) %5) unnamed_addr #14 {
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %._crit_edge32, label %.preheader.lr.ph
 
@@ -2603,10 +2603,10 @@ declare i32 @FT_Done_Face(ptr noundef) local_unnamed_addr #1
 declare void @FT_Outline_Translate(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #15
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @moveTo(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #16 {
+define internal noundef i32 @moveTo(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2659,7 +2659,7 @@ define internal noundef i32 @moveTo(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @lineTo(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #16 {
+define internal noundef i32 @lineTo(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #16 {
   %3 = load i64, ptr %0, align 8
   %4 = sitofp i64 %3 to float
   %5 = fmul float %4, 1.562500e-02
@@ -2695,7 +2695,7 @@ define internal noundef i32 @lineTo(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @conicTo(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #16 {
+define internal noundef i32 @conicTo(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) #16 {
   %4 = load i64, ptr %0, align 8
   %5 = sitofp i64 %4 to float
   %6 = fmul float %5, 1.562500e-02
@@ -2752,7 +2752,7 @@ define internal noundef i32 @conicTo(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @cubicTo(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) #16 {
+define internal noundef i32 @cubicTo(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) #16 {
   %5 = load i64, ptr %0, align 8
   %6 = sitofp i64 %5 to float
   %7 = fmul float %6, 1.562500e-02
@@ -2838,10 +2838,10 @@ declare i64 @llvm.umin.i64(i64, i64) #17
 declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #17

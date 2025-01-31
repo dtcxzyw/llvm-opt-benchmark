@@ -211,7 +211,7 @@ declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @XLogRecGetBlockData(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @desc_recompress_leaf(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @desc_recompress_leaf(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = load i16, ptr %1, align 2
   %4 = zext i16 %3 to i32
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.18, i32 noundef %4) #3

@@ -149,7 +149,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_
 @switch.table._ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.2 = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm598084ES1_EELNS_11BarrierTypeE2ELm598084EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm598084ES1_EELNS_11BarrierTypeE2ELm598084EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm598084ES1_EELNS_11BarrierTypeE2ELm598084EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm598084ES1_EELNS_11BarrierTypeE2ELm598084EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm598084ES1_EELNS_11BarrierTypeE2ELm598084EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm598084ES1_EELNS_11BarrierTypeE2ELm598084EE18oop_access_barrierEPv], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10JfrTraceId6assignEPK5Klass(ptr nocapture noundef %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10JfrTraceId6assignEPK5Klass(ptr noundef captures(none) %0) local_unnamed_addr #0 align 2 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -354,7 +354,7 @@ _ZN10JfrTraceId24tag_as_jdk_jfr_event_subEPK5Klass.exit: ; preds = %101, %61, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10JfrTraceId6assignEPK11ModuleEntry(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10JfrTraceId6assignEPK11ModuleEntry(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 align 2 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -372,7 +372,7 @@ _ZL14next_module_idv.exit:                        ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10JfrTraceId6assignEPK12PackageEntry(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10JfrTraceId6assignEPK12PackageEntry(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 align 2 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -390,7 +390,7 @@ _ZL15next_package_idv.exit:                       ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10JfrTraceId6assignEPK15ClassLoaderData(ptr nocapture noundef %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10JfrTraceId6assignEPK15ClassLoaderData(ptr noundef captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -592,7 +592,7 @@ _ZN10JfrTraceId4loadEP7_jclassb.exit:             ; preds = %17, %_ZL14load_prim
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN10JfrTraceId6removeEPK5Klass(ptr nocapture noundef %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN10JfrTraceId6removeEPK5Klass(ptr noundef captures(none) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 112
@@ -601,14 +601,14 @@ define hidden void @_ZN10JfrTraceId6removeEPK5Klass(ptr nocapture noundef %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10JfrTraceId6removeEPK6Method(ptr nocapture noundef writeonly initializes((54, 56)) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN10JfrTraceId6removeEPK6Method(ptr noundef writeonly captures(none) initializes((54, 56)) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 54
   store i16 0, ptr %2, align 2
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10JfrTraceId7restoreEPK5Klass(ptr nocapture noundef %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10JfrTraceId7restoreEPK5Klass(ptr noundef captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 32

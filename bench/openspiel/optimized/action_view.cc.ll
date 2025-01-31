@@ -316,7 +316,7 @@ _ZNSt12_Vector_baseISt6vectorIlSaIlEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel10ActionViewC2EiSt6vectorIS1_IlSaIlEESaIS3_EE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 4), (8, 32)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel10ActionViewC2EiSt6vectorIS1_IlSaIlEESaIS3_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 4), (8, 32)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store i32 %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -379,7 +379,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EEC2ERKS3_.exit:     ; preds = %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel10ActionViewC2ERKNS_5StateE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 4), (8, 32)) %0, ptr noundef nonnull align 8 dereferenceable(60) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel10ActionViewC2ERKNS_5StateE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 4), (8, 32)) %0, ptr noundef nonnull align 8 dereferenceable(60) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector", align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -500,7 +500,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIPSt6v
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @_ZNK10open_spiel10ActionView18flat_joint_actionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #5 align 2 {
+define i32 @_ZNK10open_spiel10ActionView18flat_joint_actionsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -532,7 +532,7 @@ define i32 @_ZNK10open_spiel10ActionView18flat_joint_actionsEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @_ZNK10open_spiel16FlatJointActions5beginEv(ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %0) local_unnamed_addr #3 align 2 {
+define i32 @_ZNK10open_spiel16FlatJointActions5beginEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %"class.open_spiel::FlatJointActionsIterator", align 4
   call void @_ZN10open_spiel24FlatJointActionsIteratorC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef 0)
   %3 = load i32, ptr %2, align 4
@@ -540,7 +540,7 @@ define i32 @_ZNK10open_spiel16FlatJointActions5beginEv(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @_ZNK10open_spiel16FlatJointActions3endEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #3 align 2 {
+define i32 @_ZNK10open_spiel16FlatJointActions3endEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %"class.open_spiel::FlatJointActionsIterator", align 4
   %3 = load i32, ptr %0, align 4
   call void @_ZN10open_spiel24FlatJointActionsIteratorC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef %3)
@@ -557,34 +557,34 @@ define noundef nonnull align 4 dereferenceable(4) ptr @_ZN10open_spiel24FlatJoin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK10open_spiel24FlatJointActionsIteratoreqES0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, i32 %1) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZNK10open_spiel24FlatJointActionsIteratoreqES0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i32 %1) local_unnamed_addr #7 align 2 {
   %3 = load i32, ptr %0, align 4
   %4 = icmp eq i32 %3, %1
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK10open_spiel24FlatJointActionsIteratorneES0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, i32 %1) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZNK10open_spiel24FlatJointActionsIteratorneES0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i32 %1) local_unnamed_addr #7 align 2 {
   %3 = load i32, ptr %0, align 4
   %4 = icmp ne i32 %3, %1
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK10open_spiel24FlatJointActionsIteratordeEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #7 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK10open_spiel24FlatJointActionsIteratordeEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #7 align 2 {
   %2 = load i32, ptr %0, align 4
   %3 = sext i32 %2 to i64
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10open_spiel24FlatJointActionsIteratorC2Ei(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #8 align 2 {
+define void @_ZN10open_spiel24FlatJointActionsIteratorC2Ei(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #8 align 2 {
   store i32 %1, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define { i64, i64 } @_ZNK10open_spiel10ActionView12fixed_actionEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define { i64, i64 } @_ZNK10open_spiel10ActionView12fixed_actionEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -767,7 +767,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel12FixedActions5beginEv(ptr dead_on_unwind noalias writable sret(%"class.open_spiel::FixedActionsIterator") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) local_unnamed_addr #3 align 2 {
+define void @_ZNK10open_spiel12FixedActions5beginEv(ptr dead_on_unwind noalias writable sret(%"class.open_spiel::FixedActionsIterator") align 4 %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #3 align 2 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -780,7 +780,7 @@ define void @_ZNK10open_spiel12FixedActions5beginEv(ptr dead_on_unwind noalias w
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel12FixedActions3endEv(ptr dead_on_unwind noalias writable sret(%"class.open_spiel::FixedActionsIterator") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) local_unnamed_addr #3 align 2 {
+define void @_ZNK10open_spiel12FixedActions3endEv(ptr dead_on_unwind noalias writable sret(%"class.open_spiel::FixedActionsIterator") align 4 %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #3 align 2 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -904,7 +904,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK10open_spiel20FixedActionsIteratordeEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %0) local_unnamed_addr #7 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK10open_spiel20FixedActionsIteratordeEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr %0, align 4
@@ -923,7 +923,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK10open_spiel20FixedAc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK10open_spiel20FixedActionsIteratoreqERKS0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %1) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZNK10open_spiel20FixedActionsIteratoreqERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -975,7 +975,7 @@ define noundef zeroext i1 @_ZNK10open_spiel20FixedActionsIteratoreqERKS0_(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK10open_spiel20FixedActionsIteratorneERKS0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %1) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZNK10open_spiel20FixedActionsIteratorneERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -1027,7 +1027,7 @@ _ZNK10open_spiel20FixedActionsIteratoreqERKS0_.exit: ; preds = %2, %8, %14, %18,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10open_spiel20FixedActionsIteratorC2Eiiiiii(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(24) initializes((0, 24)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #8 align 2 {
+define void @_ZN10open_spiel20FixedActionsIteratorC2Eiiiiii(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(24) initializes((0, 24)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #8 align 2 {
   store i32 %1, ptr %0, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %8, align 4
@@ -1100,7 +1100,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKSt6vectorIlSaIlEEPS2_ET0_T_S7_S6_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
@@ -1209,7 +1209,7 @@ _ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKSt6vectorIlSaIlEES2_IS4_SaIS4_EEEEPS4_ET0_T_SC_SB_(ptr %0, ptr %1, ptr noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {

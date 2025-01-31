@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @lsm_idlist = external dso_local local_unnamed_addr global [0 x ptr], align 8
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local range(i64 0, 106) i64 @lsm_name_to_attr(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 0, 106) i64 @lsm_name_to_attr(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(8) @.str) #6
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %20, label %4
@@ -50,10 +50,10 @@ define dso_local range(i64 0, 106) i64 @lsm_name_to_attr(ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_lsm_set_self_attr(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_lsm_set_self_attr(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -71,7 +71,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_lsm_set_self_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_lsm_set_self_attr(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_lsm_set_self_attr(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -91,7 +91,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_lsm_set_self
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_lsm_get_self_attr(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_lsm_get_self_attr(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -110,7 +110,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_lsm_get_self_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_lsm_get_self_attr(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_lsm_get_self_attr(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -131,7 +131,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_lsm_get_self
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -22, 4294967296) i64 @__x64_sys_lsm_list_modules(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i64 -22, 4294967296) i64 @__x64_sys_lsm_list_modules(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -214,7 +214,7 @@ define dso_local range(i64 -22, 4294967296) i64 @__x64_sys_lsm_list_modules(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -22, 4294967296) i64 @__ia32_sys_lsm_list_modules(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i64 -22, 4294967296) i64 @__ia32_sys_lsm_list_modules(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295

@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.fetch_att = private unnamed_addr constant [10 x i8] c"fetch_att\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @getmissingattr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #0 {
+define dso_local i64 @getmissingattr(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.HASHCTL, align 8
   %5 = alloca %struct.missing_cache_key, align 8
   %6 = alloca i8, align 1
@@ -178,7 +178,7 @@ declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) loc
 declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @heap_compute_data_size(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local i64 @heap_compute_data_size(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -386,10 +386,10 @@ declare i64 @EOH_get_flat_size(ptr noundef) local_unnamed_addr #1
 declare ptr @DatumGetEOHP(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_fill_tuple(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef %3, i64 %4, ptr nocapture noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define dso_local void @heap_fill_tuple(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef %3, i64 %4, ptr noundef captures(none) %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -481,7 +481,7 @@ define dso_local void @heap_fill_tuple(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fill_val(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef %4, i64 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @fill_val(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef captures(none) %4, i64 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %25, label %9
@@ -748,7 +748,7 @@ store_att_byval.exit:                             ; preds = %47, %49, %51, %53
   %147 = inttoptr i64 %5 to ptr
   %148 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %147) #12
   %149 = add i64 %148, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr align 1 %147, i64 %149, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr nonnull align 1 %147, i64 %149, i1 false)
   br label %168
 
 150:                                              ; preds = %60
@@ -796,7 +796,7 @@ store_att_byval.exit:                             ; preds = %47, %49, %51, %53
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @heap_attisnull(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @heap_attisnull(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 18
@@ -872,7 +872,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @nocachegetattr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 23
@@ -1409,7 +1409,7 @@ fetch_att.exit:                                   ; preds = %261, %255, %252, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @heap_getsysattr(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) local_unnamed_addr #0 {
+define dso_local i64 @heap_getsysattr(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3) local_unnamed_addr #0 {
   store i8 0, ptr %3, align 1
   switch i32 %1, label %29 [
     i32 -1, label %5
@@ -1508,10 +1508,10 @@ define dso_local noundef ptr @heap_copytuple(ptr noundef readonly %0) local_unna
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_copytuple_with_tuple(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #0 {
+define dso_local void @heap_copytuple_with_tuple(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((16, 24)) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -1552,7 +1552,7 @@ define dso_local void @heap_copytuple_with_tuple(ptr noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @minimal_expand_tuple(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @minimal_expand_tuple(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call fastcc void @expand_tuple(ptr noundef null, ptr noundef nonnull %3, ptr noundef %0, ptr noundef %1)
   %4 = load ptr, ptr %3, align 8
@@ -1560,7 +1560,7 @@ define dso_local ptr @minimal_expand_tuple(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @expand_tuple(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @expand_tuple(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -2038,7 +2038,7 @@ fill_val.exit:                                    ; preds = %231, %233
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @heap_expand_tuple(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @heap_expand_tuple(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call fastcc void @expand_tuple(ptr noundef nonnull %3, ptr noundef null, ptr noundef %0, ptr noundef %1)
   %4 = load ptr, ptr %3, align 8
@@ -2046,7 +2046,7 @@ define dso_local ptr @heap_expand_tuple(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @heap_copy_tuple_as_datum(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i64 @heap_copy_tuple_as_datum(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -2089,7 +2089,7 @@ define dso_local i64 @heap_copy_tuple_as_datum(ptr nocapture noundef readonly %0
 declare i64 @toast_flatten_tuple_to_datum(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @heap_form_tuple(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @heap_form_tuple(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %5 = icmp sgt i32 %4, 1664
   br i1 %5, label %7, label %.preheader
@@ -2190,7 +2190,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @heap_modify_tuple(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define dso_local noundef ptr @heap_modify_tuple(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr %1, align 8
   %7 = sext i32 %6 to i64
   %8 = shl nsw i64 %7, 3
@@ -2250,7 +2250,7 @@ define dso_local noundef ptr @heap_modify_tuple(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_deform_tuple(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local void @heap_deform_tuple(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 20
@@ -2581,7 +2581,7 @@ fetch_att.exit:                                   ; preds = %103, %106, %109, %1
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @heap_modify_tuple_by_cols(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
+define dso_local noundef ptr @heap_modify_tuple_by_cols(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = load i32, ptr %1, align 8
   %8 = sext i32 %7 to i64
   %9 = shl nsw i64 %8, 3
@@ -2655,7 +2655,7 @@ define dso_local void @heap_freetuple(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @heap_form_minimal_tuple(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @heap_form_minimal_tuple(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %5 = icmp sgt i32 %4, 1664
   br i1 %5, label %7, label %.preheader
@@ -2729,7 +2729,7 @@ define dso_local void @heap_free_minimal_tuple(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @heap_copy_minimal_tuple(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @heap_copy_minimal_tuple(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4
   %3 = zext i32 %2 to i64
   %4 = tail call ptr @palloc(i64 noundef %3) #11
@@ -2740,7 +2740,7 @@ define dso_local ptr @heap_copy_minimal_tuple(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @heap_tuple_from_minimal_tuple(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @heap_tuple_from_minimal_tuple(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4
   %3 = add i32 %2, 8
   %4 = zext i32 %3 to i64
@@ -2767,10 +2767,10 @@ define dso_local noundef ptr @heap_tuple_from_minimal_tuple(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @minimal_tuple_from_heap_tuple(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @minimal_tuple_from_heap_tuple(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = add i32 %2, -8
   %4 = zext i32 %3 to i64
@@ -2784,7 +2784,7 @@ define dso_local noundef ptr @minimal_tuple_from_heap_tuple(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i64 0, 1073741824) i64 @varsize_any(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define dso_local range(i64 0, 1073741824) i64 @varsize_any(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i32
   %4 = icmp eq i8 %2, 1
@@ -2827,7 +2827,7 @@ define dso_local range(i64 0, 1073741824) i64 @varsize_any(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @missing_hash(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i32 @missing_hash(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
@@ -2837,7 +2837,7 @@ define internal i32 @missing_hash(ptr nocapture noundef readonly %0, i64 %1) #0 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @missing_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2) #7 {
+define internal i32 @missing_match(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2) #7 {
   %4 = load i32, ptr %0, align 8
   %5 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %4, %5
@@ -2869,7 +2869,7 @@ declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) loc
 declare i32 @hash_bytes(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare void @EOH_flatten_into(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2880,10 +2880,10 @@ declare void @llvm.assume(i1 noundef) #8
 declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

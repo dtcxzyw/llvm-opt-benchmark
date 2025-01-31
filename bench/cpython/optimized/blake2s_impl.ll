@@ -68,7 +68,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.33 = private unnamed_addr constant [31 x i8] c"maximum key length is %d bytes\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @PyBlake2_blake2s_init_param(ptr nocapture noundef initializes((0, 182)) %S, ptr nocapture noundef readonly %P) local_unnamed_addr #0 {
+define hidden noundef i32 @PyBlake2_blake2s_init_param(ptr noundef captures(none) initializes((0, 182)) %S, ptr noundef readonly captures(none) %P) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %S, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(150) %0, i8 0, i64 150, i1 false)
@@ -95,7 +95,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 -1, 1) i32 @PyBlake2_blake2s_init(ptr nocapture noundef %S, i64 noundef %outlen) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @PyBlake2_blake2s_init(ptr noundef captures(none) %S, i64 noundef %outlen) local_unnamed_addr #0 {
 entry:
   %P = alloca [1 x %struct.__blake2s_param], align 16
   %0 = add i64 %outlen, -33
@@ -141,10 +141,10 @@ return:                                           ; preds = %entry, %PyBlake2_bl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @PyBlake2_blake2s_init_key(ptr nocapture noundef %S, i64 noundef %outlen, ptr noundef readonly %key, i64 noundef %keylen) local_unnamed_addr #2 {
+define hidden range(i32 -1, 1) i32 @PyBlake2_blake2s_init_key(ptr noundef captures(none) %S, i64 noundef %outlen, ptr noundef readonly %key, i64 noundef %keylen) local_unnamed_addr #2 {
 entry:
   %P = alloca [1 x %struct.__blake2s_param], align 16
   %block = alloca [64 x i8], align 16
@@ -258,10 +258,10 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @PyBlake2_blake2s_update(ptr nocapture noundef %S, ptr nocapture noundef readonly %in, i64 noundef %inlen) local_unnamed_addr #0 {
+define hidden noundef i32 @PyBlake2_blake2s_update(ptr noundef captures(none) %S, ptr noundef readonly captures(none) %in, i64 noundef %inlen) local_unnamed_addr #0 {
 entry:
   %cmp.not27 = icmp eq i64 %inlen, 0
   br i1 %cmp.not27, label %while.end, label %while.body.lr.ph
@@ -322,7 +322,7 @@ while.end:                                        ; preds = %if.end, %if.end.thr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @PyBlake2_blake2s_compress(ptr nocapture noundef %S, ptr nocapture noundef readonly %block) unnamed_addr #0 {
+define internal fastcc void @PyBlake2_blake2s_compress(ptr noundef captures(none) %S, ptr noundef readonly captures(none) %block) unnamed_addr #0 {
 entry:
   %v = alloca [16 x i32], align 16
   %m.sroa.0.0.copyload = load i32, ptr %block, align 1
@@ -1643,7 +1643,7 @@ for.end3578:                                      ; preds = %for.body3566
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 -1, 1) i32 @PyBlake2_blake2s_final(ptr nocapture noundef %S, ptr nocapture noundef writeonly %out, i64 noundef %outlen) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @PyBlake2_blake2s_final(ptr noundef captures(none) %S, ptr noundef writeonly captures(none) %out, i64 noundef %outlen) local_unnamed_addr #0 {
 entry:
   %buffer = alloca [32 x i8], align 16
   %outlen1 = getelementptr inbounds nuw i8, ptr %S, i64 180
@@ -1748,7 +1748,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @PyBlake2_blake2s(ptr noundef writeonly %out, ptr noundef readonly %in, ptr noundef %key, i64 noundef %outlen, i64 noundef %inlen, i64 noundef %keylen) local_unnamed_addr #2 {
@@ -2588,7 +2588,7 @@ declare void @PyObject_Free(ptr noundef) local_unnamed_addr #5
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_blake2_blake2s_copy(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #2 {
+define internal ptr @_blake2_blake2s_copy(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #2 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %0, align 8
@@ -2644,7 +2644,7 @@ _blake2_blake2s_copy_impl.exit:                   ; preds = %entry, %if.end3.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_blake2_blake2s_digest(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #2 {
+define internal ptr @_blake2_blake2s_digest(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #2 {
 entry:
   %digest.i = alloca [32 x i8], align 16
   %state_cpy.i = alloca %struct.__blake2s_state, align 1
@@ -2696,7 +2696,7 @@ _blake2_blake2s_digest_impl.exit:                 ; preds = %if.end.i, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_blake2_blake2s_hexdigest(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #2 {
+define internal ptr @_blake2_blake2s_hexdigest(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #2 {
 entry:
   %digest.i = alloca [32 x i8], align 16
   %state_cpy.i = alloca %struct.__blake2s_state, align 1
@@ -2990,21 +2990,21 @@ declare ptr @PyEval_SaveThread() local_unnamed_addr #5
 declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @py_blake2s_get_name(ptr nocapture readnone %self, ptr nocapture readnone %closure) #2 {
+define internal ptr @py_blake2s_get_name(ptr readnone captures(none) %self, ptr readnone captures(none) %closure) #2 {
 entry:
   %call = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.11) #8
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @py_blake2s_get_block_size(ptr nocapture readnone %self, ptr nocapture readnone %closure) #2 {
+define internal ptr @py_blake2s_get_block_size(ptr readnone captures(none) %self, ptr readnone captures(none) %closure) #2 {
 entry:
   %call = tail call ptr @PyLong_FromLong(i64 noundef 64) #8
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @py_blake2s_get_digest_size(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #2 {
+define internal ptr @py_blake2s_get_digest_size(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #2 {
 entry:
   %param = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i8, ptr %param, align 8
@@ -3035,10 +3035,10 @@ declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 declare i32 @llvm.fshl.i32(i32, i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

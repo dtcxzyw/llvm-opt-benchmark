@@ -79,7 +79,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @BN_init(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @EC_GROUP_new_curve_GFp(ptr noundef %p, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #1 {
@@ -890,7 +890,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @ec_group_get_mont_data(ptr nocapture noundef readonly %group) local_unnamed_addr #4 {
+define hidden ptr @ec_group_get_mont_data(ptr noundef readonly captures(none) %group) local_unnamed_addr #4 {
 entry:
   %mont_data = getelementptr inbounds nuw i8, ptr %group, i64 72
   %0 = load ptr, ptr %mont_data, align 8
@@ -950,7 +950,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @EC_GROUP_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef readnone %ignored) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @EC_GROUP_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, ptr noundef readnone captures(none) %ignored) local_unnamed_addr #4 {
 entry:
   %curve_name = getelementptr inbounds nuw i8, ptr %a, i64 64
   %0 = load i32, ptr %curve_name, align 8
@@ -974,7 +974,7 @@ lor.end:                                          ; preds = %lor.rhs, %lor.lhs.f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @EC_GROUP_get0_generator(ptr nocapture noundef readonly %group) local_unnamed_addr #4 {
+define hidden ptr @EC_GROUP_get0_generator(ptr noundef readonly captures(none) %group) local_unnamed_addr #4 {
 entry:
   %generator = getelementptr inbounds nuw i8, ptr %group, i64 8
   %0 = load ptr, ptr %generator, align 8
@@ -989,7 +989,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EC_GROUP_get_order(ptr noundef %group, ptr noundef %order, ptr nocapture noundef readnone %ctx) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @EC_GROUP_get_order(ptr noundef %group, ptr noundef %order, ptr noundef readnone captures(none) %ctx) local_unnamed_addr #1 {
 entry:
   %order.i = getelementptr inbounds nuw i8, ptr %group, i64 16
   %call1 = tail call ptr @BN_copy(ptr noundef %order, ptr noundef nonnull %order.i) #11
@@ -999,7 +999,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EC_GROUP_get_cofactor(ptr noundef %group, ptr noundef %cofactor, ptr nocapture noundef readnone %ctx) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @EC_GROUP_get_cofactor(ptr noundef %group, ptr noundef %cofactor, ptr noundef readnone captures(none) %ctx) local_unnamed_addr #1 {
 entry:
   %cofactor1 = getelementptr inbounds nuw i8, ptr %group, i64 40
   %call = tail call ptr @BN_copy(ptr noundef %cofactor, ptr noundef nonnull %cofactor1) #11
@@ -1029,7 +1029,7 @@ entry:
 declare i32 @ec_GFp_simple_group_get_curve(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @EC_GROUP_get_curve_name(ptr nocapture noundef readonly %group) local_unnamed_addr #4 {
+define hidden i32 @EC_GROUP_get_curve_name(ptr noundef readonly captures(none) %group) local_unnamed_addr #4 {
 entry:
   %curve_name = getelementptr inbounds nuw i8, ptr %group, i64 64
   %0 = load i32, ptr %curve_name, align 8
@@ -1465,25 +1465,25 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @ec_GFp_simple_set_Jprojective_coordinates_GFp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @EC_GROUP_set_asn1_flag(ptr nocapture noundef readnone %group, i32 noundef %flag) local_unnamed_addr #5 {
+define hidden void @EC_GROUP_set_asn1_flag(ptr noundef readnone captures(none) %group, i32 noundef %flag) local_unnamed_addr #5 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noalias noundef ptr @EC_GROUP_method_of(ptr nocapture noundef readnone %group) local_unnamed_addr #5 {
+define hidden noalias noundef ptr @EC_GROUP_method_of(ptr noundef readnone captures(none) %group) local_unnamed_addr #5 {
 entry:
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @EC_METHOD_get_field_type(ptr nocapture noundef readnone %meth) local_unnamed_addr #5 {
+define hidden noundef i32 @EC_METHOD_get_field_type(ptr noundef readnone captures(none) %meth) local_unnamed_addr #5 {
 entry:
   ret i32 406
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @EC_GROUP_set_point_conversion_form(ptr nocapture noundef readnone %group, i32 noundef %form) local_unnamed_addr #6 {
+define hidden void @EC_GROUP_set_point_conversion_form(ptr noundef readnone captures(none) %group, i32 noundef %form) local_unnamed_addr #6 {
 entry:
   %cmp.not = icmp eq i32 %form, 4
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1500,7 +1500,7 @@ if.end:                                           ; preds = %entry
 declare void @abort() local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef range(i64 0, 4294967296) i64 @EC_get_builtin_curves(ptr nocapture noundef writeonly %out_curves, i64 noundef %max_num_curves) local_unnamed_addr #8 {
+define hidden noundef range(i64 0, 4294967296) i64 @EC_get_builtin_curves(ptr noundef writeonly captures(none) %out_curves, i64 noundef %max_num_curves) local_unnamed_addr #8 {
 entry:
   %cmp211.not = icmp eq i64 %max_num_curves, 0
   br i1 %cmp211.not, label %for.end19, label %for.body.preheader

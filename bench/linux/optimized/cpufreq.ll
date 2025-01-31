@@ -311,10 +311,10 @@ define dso_local noundef zeroext i1 @cpufreq_supports_freq_invariance() local_un
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define dso_local zeroext i1 @has_target_index() local_unnamed_addr #2 align 16 {
@@ -419,7 +419,7 @@ declare dso_local i64 @get_cpu_idle_time_us(i32 noundef, ptr noundef) local_unna
 declare dso_local i64 @get_cpu_iowait_time_us(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: write, inaccessiblemem: none)
-define dso_local void @cpufreq_generic_init(ptr nocapture noundef writeonly initializes((0, 8), (48, 52), (336, 344)) %0, ptr noundef %1, i32 noundef %2) #5 align 16 {
+define dso_local void @cpufreq_generic_init(ptr noundef writeonly captures(none) initializes((0, 8), (48, 52), (336, 344)) %0, ptr noundef %1, i32 noundef %2) #5 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -775,7 +775,7 @@ define dso_local void @cpufreq_freq_transition_begin(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @init_wait_entry(ptr noundef, i32 noundef) local_unnamed_addr #4
@@ -988,7 +988,7 @@ define dso_local void @cpufreq_freq_transition_end(ptr noundef %0, ptr noundef %
 declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cpufreq_enable_fast_switch(ptr nocapture noundef %0) #0 align 16 {
+define dso_local void @cpufreq_enable_fast_switch(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %3 = load i8, ptr %2, align 8, !range !20, !noundef !21
   %4 = icmp eq i8 %3, 0
@@ -1045,7 +1045,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #4
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cpufreq_disable_fast_switch(ptr nocapture noundef %0) #0 align 16 {
+define dso_local void @cpufreq_disable_fast_switch(ptr noundef captures(none) %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @cpufreq_fast_switch_lock) #21
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 505
   %3 = load i8, ptr %2, align 1, !range !20, !noundef !21
@@ -1620,7 +1620,7 @@ define internal fastcc i32 @__resolve_freq(ptr noundef %0, i32 noundef %1, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local range(i32 1, 0) i32 @cpufreq_policy_transition_delay_us(ptr nocapture noundef readonly %0) #8 align 16 {
+define dso_local range(i32 1, 0) i32 @cpufreq_policy_transition_delay_us(ptr noundef readonly captures(none) %0) #8 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 508
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -1650,7 +1650,7 @@ define weak dso_local i32 @arch_freq_get_on_cpu(i32 noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -2147483648, 2147487738) i64 @cpufreq_show_cpus(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147487738) i64 @cpufreq_show_cpus(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   br label %3
 
 3:                                                ; preds = %17, %2
@@ -1695,7 +1695,7 @@ define dso_local range(i64 -2147483648, 2147487738) i64 @cpufreq_show_cpus(ptr n
 declare dso_local i32 @scnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @refresh_frequency_limits(ptr noundef %0) #0 align 16 {
@@ -3214,7 +3214,7 @@ define dso_local void @cpufreq_unregister_governor(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @cpufreq_get_policy(ptr noundef writeonly %0, i32 noundef %1) #0 align 16 {
@@ -3273,7 +3273,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cpufreq_get_policy(ptr noundef w
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @cpufreq_update_policy(i32 noundef %0) #0 align 16 {
@@ -3881,7 +3881,7 @@ declare void @llvm.write_register.i64(metadata, i64) #16
 declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read)
-declare dso_local i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #17
+declare dso_local i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @freq_qos_read_value(ptr noundef, i32 noundef) local_unnamed_addr #4
@@ -3983,7 +3983,7 @@ declare dso_local i32 @freq_qos_update_request(ptr noundef, i32 noundef) local_u
 declare dso_local i32 @sysfs_create_file_ns(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @show_boost(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #18 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_boost(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #18 align 16 {
   %4 = load ptr, ptr @cpufreq_driver, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %6 = load i8, ptr %5, align 8, !range !20, !noundef !21
@@ -3994,7 +3994,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_boost(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @store_boost(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i64 noundef %3) #0 align 16 {
+define internal noundef i64 @store_boost(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #0 align 16 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #21
   store i32 0, ptr %5, align 4, !annotation !22
@@ -4024,10 +4024,10 @@ define internal noundef i64 @store_boost(ptr nocapture readnone %0, ptr nocaptur
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare dso_local noundef i32 @sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @cpufreq_add_dev(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal i32 @cpufreq_add_dev(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
@@ -4077,7 +4077,7 @@ define internal i32 @cpufreq_add_dev(ptr noundef %0, ptr nocapture readnone %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @cpufreq_remove_dev(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @cpufreq_remove_dev(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
@@ -5039,7 +5039,7 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 declare dso_local void @freq_constraints_init(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @cpufreq_notifier_min(ptr noundef %0, i64 %1, ptr nocapture readnone %2) #0 align 16 {
+define internal noundef i32 @cpufreq_notifier_min(ptr noundef %0, i64 %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -480
   %5 = load ptr, ptr @system_wq, align 8
   %6 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %5, ptr noundef %4) #21
@@ -5047,7 +5047,7 @@ define internal noundef i32 @cpufreq_notifier_min(ptr noundef %0, i64 %1, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @cpufreq_notifier_max(ptr noundef %0, i64 %1, ptr nocapture readnone %2) #0 align 16 {
+define internal noundef i32 @cpufreq_notifier_max(ptr noundef %0, i64 %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -504
   %5 = load ptr, ptr @system_wq, align 8
   %6 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %5, ptr noundef %4) #21
@@ -5102,7 +5102,7 @@ define internal void @cpufreq_sysfs_release(ptr noundef %0) #0 align 16 {
 declare dso_local void @complete(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal i64 @show(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -368
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -5132,7 +5132,7 @@ define internal i64 @show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @store(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define internal i64 @store(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = getelementptr i8, ptr %0, i64 -368
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -5162,7 +5162,7 @@ define internal i64 @store(ptr noundef %0, ptr nocapture noundef readonly %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @show_cpuinfo_min_freq(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #18 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_cpuinfo_min_freq(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #18 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.44, i32 noundef %4) #21
@@ -5171,7 +5171,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_cpuinfo_min
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @show_cpuinfo_max_freq(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #18 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_cpuinfo_max_freq(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #18 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.44, i32 noundef %4) #21
@@ -5180,7 +5180,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_cpuinfo_max
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @show_cpuinfo_transition_latency(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #18 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_cpuinfo_transition_latency(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #18 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.44, i32 noundef %4) #21
@@ -5189,7 +5189,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_cpuinfo_tra
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @show_scaling_min_freq(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #18 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_scaling_min_freq(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #18 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %4 = load i32, ptr %3, align 4
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.44, i32 noundef %4) #21
@@ -5198,7 +5198,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_scaling_min
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @store_scaling_min_freq(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
+define internal i64 @store_scaling_min_freq(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
   store i64 0, ptr %4, align 8, !annotation !22
@@ -5231,7 +5231,7 @@ define internal i64 @store_scaling_min_freq(ptr nocapture noundef readonly %0, p
 declare dso_local i32 @kstrtoull(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @show_scaling_max_freq(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #18 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_scaling_max_freq(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #18 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.44, i32 noundef %4) #21
@@ -5240,7 +5240,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_scaling_max
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @store_scaling_max_freq(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
+define internal i64 @store_scaling_max_freq(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
   store i64 0, ptr %4, align 8, !annotation !22
@@ -5270,7 +5270,7 @@ define internal i64 @store_scaling_max_freq(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147487738) i64 @show_affected_cpus(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147487738) i64 @show_affected_cpus(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   br label %3
 
 3:                                                ; preds = %17, %2
@@ -5312,7 +5312,7 @@ define internal range(i64 -2147483648, 2147487738) i64 @show_affected_cpus(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147487738) i64 @show_related_cpus(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147487738) i64 @show_related_cpus(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %4
 
@@ -5355,7 +5355,7 @@ define internal range(i64 -2147483648, 2147487738) i64 @show_related_cpus(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @show_scaling_governor(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_scaling_governor(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %7 [
@@ -5388,7 +5388,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_scaling_governor(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @store_scaling_governor(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
+define internal i64 @store_scaling_governor(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 align 16 {
   %4 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !22
@@ -5506,7 +5506,7 @@ define internal i64 @store_scaling_governor(ptr noundef %0, ptr nocapture nounde
 declare dso_local i32 @__request_module(i1 noundef zeroext, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @show_scaling_driver(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_scaling_driver(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr @cpufreq_driver, align 8
   %4 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %1, i64 noundef 17, ptr noundef nonnull @.str.54, ptr noundef %3) #21
   %5 = sext i32 %4 to i64
@@ -5514,7 +5514,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_scaling_driver(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 9223372034707292161, 2147487726) i64 @show_scaling_available_governors(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 9223372034707292161, 2147487726) i64 @show_scaling_available_governors(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr @cpufreq_driver, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
@@ -5591,7 +5591,7 @@ define internal i64 @show_scaling_setspeed(ptr noundef %0, ptr noundef %1) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @store_scaling_setspeed(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
+define internal noundef i64 @store_scaling_setspeed(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #21
   store i32 0, ptr %4, align 4
@@ -5632,7 +5632,7 @@ declare dso_local void @wait_for_completion(ptr noundef) local_unnamed_addr #4
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @show_cpuinfo_cur_freq(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_cpuinfo_cur_freq(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = load i64, ptr %0, align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %.thread, label %5, !prof !12
@@ -5657,7 +5657,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_cpuinfo_cur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @show_scaling_cur_freq(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_scaling_cur_freq(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = tail call i32 @arch_freq_get_on_cpu(i32 noundef %4)
@@ -5695,7 +5695,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_scaling_cur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @show_bios_limit(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_bios_limit(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #21
   store i32 0, ptr %3, align 4, !annotation !22
@@ -5716,7 +5716,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_bios_limit(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @show_local_boost(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @show_local_boost(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 513
   %4 = load i8, ptr %3, align 1, !range !20, !noundef !21
   %5 = zext nneg i8 %4 to i32

@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i64 0, 281474976710656) i64 @_ZN17ThreadHeapSampler11next_randomEm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, 281474976710656) i64 @_ZN17ThreadHeapSampler11next_randomEm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = mul i64 %1, 25214903917
   %4 = add i64 %3, 11
   %5 = and i64 %4, 281474976710655
@@ -18,7 +18,7 @@ define hidden noundef range(i64 0, 281474976710656) i64 @_ZN17ThreadHeapSampler1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef double @_ZN17ThreadHeapSampler9fast_log2ERKd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef double @_ZN17ThreadHeapSampler9fast_log2ERKd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
   %2 = load i64, ptr %0, align 8
   %3 = lshr i64 %2, 42
   %4 = and i64 %3, 1023
@@ -34,7 +34,7 @@ define hidden noundef double @_ZN17ThreadHeapSampler9fast_log2ERKd(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ThreadHeapSampler26pick_next_geometric_sampleEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN17ThreadHeapSampler26pick_next_geometric_sampleEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) local_unnamed_addr #2 align 2 {
   %2 = load i64, ptr @_ZN17ThreadHeapSampler4_rndE, align 8
   %3 = mul i64 %2, 25214903917
   %4 = add i64 %3, 11
@@ -78,7 +78,7 @@ define hidden noundef i32 @_ZN17ThreadHeapSampler21get_sampling_intervalEv() loc
 declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ThreadHeapSampler16pick_next_sampleEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN17ThreadHeapSampler16pick_next_sampleEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load volatile i32, ptr @_ZN17ThreadHeapSampler18_sampling_intervalE, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !6
   %4 = icmp eq i32 %3, 0
@@ -122,7 +122,7 @@ define hidden void @_ZN17ThreadHeapSampler16pick_next_sampleEm(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ThreadHeapSampler18check_for_samplingEP7oopDescmm(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN17ThreadHeapSampler18check_for_samplingEP7oopDescmm(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 align 2 {
   %5 = add i64 %3, %2
   %6 = load i64, ptr %0, align 8
   %7 = icmp ult i64 %5, %6

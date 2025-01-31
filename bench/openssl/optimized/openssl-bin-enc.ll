@@ -1213,7 +1213,7 @@ end:                                              ; preds = %sw.bb142, %sw.bb136
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @opt_set_unknown_name(ptr noundef) local_unnamed_addr #2
 
@@ -1228,7 +1228,7 @@ declare void @opt_help(ptr noundef) local_unnamed_addr #2
 declare void @OBJ_NAME_do_all_sorted(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @show_ciphers(ptr nocapture noundef readonly %name, ptr nocapture noundef %arg) #0 {
+define internal void @show_ciphers(ptr noundef readonly captures(none) %name, ptr noundef captures(none) %arg) #0 {
 entry:
   %call = tail call ptr @__ctype_b_loc() #12
   %0 = load ptr, ptr %call, align 8
@@ -1288,7 +1288,7 @@ declare ptr @opt_arg() local_unnamed_addr #2
 declare ptr @setup_engine_methods(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @opt_long(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1347,7 +1347,7 @@ declare ptr @BIO_f_base64() local_unnamed_addr #2
 declare void @BIO_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @set_hex(ptr nocapture noundef nonnull readonly %in, ptr nocapture noundef nonnull %out, i32 noundef %size) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @set_hex(ptr noundef nonnull readonly captures(none) %in, ptr noundef nonnull captures(none) %out, i32 noundef %size) unnamed_addr #0 {
 entry:
   %mul = shl nsw i32 %size, 1
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %in) #10
@@ -1443,7 +1443,7 @@ declare i32 @EVP_CIPHER_get_iv_length(ptr noundef) local_unnamed_addr #2
 declare i32 @PKCS5_PBKDF2_HMAC(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @EVP_BytesToKey(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1464,7 +1464,7 @@ declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #2
 declare i32 @EVP_CIPHER_CTX_set_padding(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare i64 @BIO_number_read(ptr noundef) local_unnamed_addr #2
 
@@ -1488,7 +1488,7 @@ declare ptr @EVP_get_cipherbyname(ptr noundef) local_unnamed_addr #2
 declare i64 @EVP_CIPHER_get_flags(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @OPENSSL_hexchar2int(i8 noundef zeroext) local_unnamed_addr #2
 
@@ -1499,7 +1499,7 @@ declare i32 @llvm.umax.i32(i32, i32) #7
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #9

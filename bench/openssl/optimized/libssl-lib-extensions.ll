@@ -44,7 +44,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_validate_all_contexts(ptr nocapture noundef readonly %s, i32 noundef %thisctx, ptr nocapture noundef readonly %exts) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tls_validate_all_contexts(ptr noundef readonly captures(none) %s, i32 noundef %thisctx, ptr noundef readonly captures(none) %exts) local_unnamed_addr #1 {
 entry:
   %offset = alloca i64, align 8
   %and = and i32 %thisctx, 128
@@ -135,7 +135,7 @@ return:                                           ; preds = %if.else11, %for.inc
 declare ptr @custom_ext_find(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @extension_is_relevant(ptr nocapture noundef readonly %s, i32 noundef %extctx, i32 noundef %thisctx) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @extension_is_relevant(ptr noundef readonly captures(none) %s, i32 noundef %extctx, i32 noundef %thisctx) local_unnamed_addr #3 {
 entry:
   %and = and i32 %thisctx, 2048
   %cmp.not = icmp ne i32 %and, 0
@@ -214,7 +214,7 @@ return:                                           ; preds = %lor.lhs.false43, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_collect_extensions(ptr noundef %s, ptr nocapture noundef readonly %packet, i32 noundef %context, ptr nocapture noundef writeonly initializes((0, 8)) %res, ptr noundef writeonly %len, i32 noundef %init) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tls_collect_extensions(ptr noundef %s, ptr noundef readonly captures(none) %packet, i32 noundef %context, ptr noundef writeonly captures(none) initializes((0, 8)) %res, ptr noundef writeonly %len, i32 noundef %init) local_unnamed_addr #1 {
 entry:
   %offset.i = alloca i64, align 8
   %extensions.sroa.0.0.copyload = load ptr, ptr %packet, align 8
@@ -813,7 +813,7 @@ return:                                           ; preds = %for.body, %for.inc1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @should_add_extension(ptr nocapture noundef readonly %s, i32 noundef %extctx, i32 noundef %thisctx, i32 noundef %max_version) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @should_add_extension(ptr noundef readonly captures(none) %s, i32 noundef %extctx, i32 noundef %thisctx, i32 noundef %max_version) local_unnamed_addr #3 {
 entry:
   %and = and i32 %thisctx, %extctx
   %cmp = icmp eq i32 %and, 0
@@ -1510,7 +1510,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @init_server_name(ptr nocapture noundef %s, i32 %context) #1 {
+define internal noundef i32 @init_server_name(ptr noundef captures(none) %s, i32 %context) #1 {
 entry:
   %server = getelementptr inbounds nuw i8, ptr %s, i64 112
   %0 = load i32, ptr %server, align 8
@@ -1844,7 +1844,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @init_srp(ptr nocapture noundef %s, i32 %context) #1 {
+define internal noundef i32 @init_srp(ptr noundef captures(none) %s, i32 %context) #1 {
 entry:
   %login = getelementptr inbounds nuw i8, ptr %s, i64 2896
   %0 = load ptr, ptr %login, align 8
@@ -1858,7 +1858,7 @@ declare i32 @tls_parse_ctos_srp(ptr noundef, ptr noundef, i32 noundef, ptr nound
 declare i32 @tls_construct_ctos_srp(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @init_ec_point_formats(ptr nocapture noundef initializes((2552, 2560)) %s, i32 %context) #1 {
+define internal noundef i32 @init_ec_point_formats(ptr noundef captures(none) initializes((2552, 2560)) %s, i32 %context) #1 {
 entry:
   %peer_ecpointformats = getelementptr inbounds nuw i8, ptr %s, i64 2560
   %0 = load ptr, ptr %peer_ecpointformats, align 8
@@ -1957,7 +1957,7 @@ declare i32 @tls_construct_stoc_supported_groups(ptr noundef, ptr noundef, i32 n
 declare i32 @tls_construct_ctos_supported_groups(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @init_session_ticket(ptr nocapture noundef %s, i32 %context) #4 {
+define internal noundef i32 @init_session_ticket(ptr noundef captures(none) %s, i32 %context) #4 {
 entry:
   %server = getelementptr inbounds nuw i8, ptr %s, i64 112
   %0 = load i32, ptr %server, align 8
@@ -1982,7 +1982,7 @@ declare i32 @tls_construct_stoc_session_ticket(ptr noundef, ptr noundef, i32 nou
 declare i32 @tls_construct_ctos_session_ticket(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @init_status_request(ptr nocapture noundef %s, i32 %context) #1 {
+define internal noundef i32 @init_status_request(ptr noundef captures(none) %s, i32 %context) #1 {
 entry:
   %server = getelementptr inbounds nuw i8, ptr %s, i64 112
   %0 = load i32, ptr %server, align 8
@@ -2014,7 +2014,7 @@ declare i32 @tls_construct_stoc_status_request(ptr noundef, ptr noundef, i32 nou
 declare i32 @tls_construct_ctos_status_request(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @init_npn(ptr nocapture noundef writeonly initializes((1084, 1088)) %s, i32 %context) #5 {
+define internal noundef i32 @init_npn(ptr noundef writeonly captures(none) initializes((1084, 1088)) %s, i32 %context) #5 {
 entry:
   %npn_seen = getelementptr inbounds nuw i8, ptr %s, i64 1084
   store i32 0, ptr %npn_seen, align 4
@@ -2030,7 +2030,7 @@ declare i32 @tls_construct_stoc_next_proto_neg(ptr noundef, ptr noundef, i32 nou
 declare i32 @tls_construct_ctos_npn(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @init_alpn(ptr nocapture noundef initializes((1096, 1104)) %s, i32 %context) #1 {
+define internal noundef i32 @init_alpn(ptr noundef captures(none) initializes((1096, 1104)) %s, i32 %context) #1 {
 entry:
   %alpn_selected = getelementptr inbounds nuw i8, ptr %s, i64 1088
   %0 = load ptr, ptr %alpn_selected, align 8
@@ -2114,7 +2114,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @init_srtp(ptr nocapture noundef %s, i32 %context) #4 {
+define internal noundef i32 @init_srtp(ptr noundef captures(none) %s, i32 %context) #4 {
 entry:
   %server = getelementptr inbounds nuw i8, ptr %s, i64 112
   %0 = load i32, ptr %server, align 8
@@ -2139,7 +2139,7 @@ declare i32 @tls_construct_stoc_use_srtp(ptr noundef, ptr noundef, i32 noundef, 
 declare i32 @tls_construct_ctos_use_srtp(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @init_etm(ptr nocapture noundef writeonly initializes((2676, 2680)) %s, i32 %context) #5 {
+define internal noundef i32 @init_etm(ptr noundef writeonly captures(none) initializes((2676, 2680)) %s, i32 %context) #5 {
 entry:
   %use_etm = getelementptr inbounds nuw i8, ptr %s, i64 2676
   store i32 0, ptr %use_etm, align 4
@@ -2159,7 +2159,7 @@ declare i32 @tls_parse_stoc_sct(ptr noundef, ptr noundef, i32 noundef, ptr nound
 declare i32 @tls_construct_ctos_sct(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @init_ems(ptr nocapture noundef %s, i32 %context) #4 {
+define internal noundef i32 @init_ems(ptr noundef captures(none) %s, i32 %context) #4 {
 entry:
   %s3 = getelementptr inbounds nuw i8, ptr %s, i64 280
   %0 = load i64, ptr %s3, align 8
@@ -2230,7 +2230,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @init_sig_algs_cert(ptr nocapture noundef initializes((896, 904)) %s, i32 %context) #1 {
+define internal noundef i32 @init_sig_algs_cert(ptr noundef captures(none) initializes((896, 904)) %s, i32 %context) #1 {
 entry:
   %peer_cert_sigalgs = getelementptr inbounds nuw i8, ptr %s, i64 880
   %0 = load ptr, ptr %peer_cert_sigalgs, align 8
@@ -2244,7 +2244,7 @@ entry:
 declare i32 @tls_parse_ctos_sig_algs_cert(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @init_post_handshake_auth(ptr nocapture noundef writeonly initializes((2824, 2828)) %s, i32 %context) #5 {
+define internal noundef i32 @init_post_handshake_auth(ptr noundef writeonly captures(none) initializes((2824, 2828)) %s, i32 %context) #5 {
 entry:
   %post_handshake_auth = getelementptr inbounds nuw i8, ptr %s, i64 2824
   store i32 0, ptr %post_handshake_auth, align 8
@@ -2256,7 +2256,7 @@ declare i32 @tls_parse_ctos_post_handshake_auth(ptr noundef, ptr noundef, i32 no
 declare i32 @tls_construct_ctos_post_handshake_auth(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @init_client_cert_type(ptr nocapture noundef %sc, i32 %context) #4 {
+define internal noundef i32 @init_client_cert_type(ptr noundef captures(none) %sc, i32 %context) #4 {
 entry:
   %server = getelementptr inbounds nuw i8, ptr %sc, i64 112
   %0 = load i32, ptr %server, align 8
@@ -2283,7 +2283,7 @@ declare i32 @tls_construct_stoc_client_cert_type(ptr noundef, ptr noundef, i32 n
 declare i32 @tls_construct_ctos_client_cert_type(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @init_server_cert_type(ptr nocapture noundef %sc, i32 %context) #4 {
+define internal noundef i32 @init_server_cert_type(ptr noundef captures(none) %sc, i32 %context) #4 {
 entry:
   %server = getelementptr inbounds nuw i8, ptr %sc, i64 112
   %0 = load i32, ptr %server, align 8
@@ -2310,7 +2310,7 @@ declare i32 @tls_construct_stoc_server_cert_type(ptr noundef, ptr noundef, i32 n
 declare i32 @tls_construct_ctos_server_cert_type(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @init_sig_algs(ptr nocapture noundef initializes((888, 896)) %s, i32 %context) #1 {
+define internal noundef i32 @init_sig_algs(ptr noundef captures(none) initializes((888, 896)) %s, i32 %context) #1 {
 entry:
   %peer_sigalgs = getelementptr inbounds nuw i8, ptr %s, i64 872
   %0 = load ptr, ptr %peer_sigalgs, align 8
@@ -2373,7 +2373,7 @@ declare i32 @tls_construct_stoc_supported_versions(ptr noundef, ptr noundef, i32
 declare i32 @tls_construct_ctos_supported_versions(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @init_psk_kex_modes(ptr nocapture noundef writeonly initializes((2672, 2676)) %s, i32 %context) #5 {
+define internal noundef i32 @init_psk_kex_modes(ptr noundef writeonly captures(none) initializes((2672, 2676)) %s, i32 %context) #5 {
 entry:
   %psk_kex_mode = getelementptr inbounds nuw i8, ptr %s, i64 2672
   store i32 0, ptr %psk_kex_mode, align 8
@@ -2641,7 +2641,7 @@ declare i32 @tls_construct_ctos_cookie(ptr noundef, ptr noundef, i32 noundef, pt
 declare i32 @tls_construct_stoc_cryptopro_bug(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @tls_init_compress_certificate(ptr nocapture noundef writeonly initializes((2716, 2732)) %sc, i32 %context) #5 {
+define internal noundef i32 @tls_init_compress_certificate(ptr noundef writeonly captures(none) initializes((2716, 2732)) %sc, i32 %context) #5 {
 entry:
   %compress_certificate_from_peer = getelementptr inbounds nuw i8, ptr %sc, i64 2716
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %compress_certificate_from_peer, i8 0, i64 16, i1 false)
@@ -2649,13 +2649,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @tls_parse_compress_certificate(ptr nocapture readnone %sc, ptr nocapture readnone %pkt, i32 %context, ptr nocapture readnone %x, i64 %chainidx) #0 {
+define internal noundef i32 @tls_parse_compress_certificate(ptr readnone captures(none) %sc, ptr readnone captures(none) %pkt, i32 %context, ptr readnone captures(none) %x, i64 %chainidx) #0 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @tls_construct_compress_certificate(ptr nocapture readnone %sc, ptr nocapture readnone %pkt, i32 %context, ptr nocapture readnone %x, i64 %chainidx) #0 {
+define internal noundef i32 @tls_construct_compress_certificate(ptr readnone captures(none) %sc, ptr readnone captures(none) %pkt, i32 %context, ptr readnone captures(none) %x, i64 %chainidx) #0 {
 entry:
   ret i32 2
 }
@@ -2760,7 +2760,7 @@ return:                                           ; preds = %if.else, %if.then2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @init_certificate_authorities(ptr nocapture noundef %s, i32 %context) #1 {
+define internal noundef i32 @init_certificate_authorities(ptr noundef captures(none) %s, i32 %context) #1 {
 entry:
   %peer_ca_names = getelementptr inbounds nuw i8, ptr %s, i64 736
   %0 = load ptr, ptr %peer_ca_names, align 8
@@ -2770,7 +2770,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @tls_parse_certificate_authorities(ptr noundef %s, ptr noundef %pkt, i32 %context, ptr nocapture readnone %x, i64 %chainidx) #1 {
+define internal range(i32 0, 2) i32 @tls_parse_certificate_authorities(ptr noundef %s, ptr noundef %pkt, i32 %context, ptr readnone captures(none) %x, i64 %chainidx) #1 {
 entry:
   %call = tail call i32 @parse_ca_names(ptr noundef %s, ptr noundef %pkt) #8
   %tobool.not = icmp eq i32 %call, 0
@@ -2794,7 +2794,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @tls_construct_certificate_authorities(ptr noundef %s, ptr noundef %pkt, i32 %context, ptr nocapture readnone %x, i64 %chainidx) #1 {
+define internal range(i32 0, 3) i32 @tls_construct_certificate_authorities(ptr noundef %s, ptr noundef %pkt, i32 %context, ptr readnone captures(none) %x, i64 %chainidx) #1 {
 entry:
   %call = tail call ptr @get_ca_names(ptr noundef %s) #8
   %cmp = icmp eq ptr %call, null
@@ -2907,7 +2907,7 @@ declare i32 @tls_valid_group(ptr noundef, i16 noundef zeroext, i32 noundef, i32 
 declare i32 @tls13_generate_handshake_secret(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @tls13_change_cipher_state(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -2926,10 +2926,10 @@ declare i32 @WPACKET_put_bytes__(ptr noundef, i64 noundef, i64 noundef) local_un
 declare i32 @construct_ca_names(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -278,7 +278,7 @@ _ZN11StatSampler11sample_dataEP12PerfDataList.exit: ; preds = %.lr.ph.i, %12, %3
 declare void @_ZN12PeriodicTask9disenrollEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StatSampler11sample_dataEP12PerfDataList(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11StatSampler11sample_dataEP12PerfDataList(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
@@ -359,7 +359,7 @@ _ZN11StatSampler11sample_dataEP12PerfDataList.exit: ; preds = %.lr.ph.i, %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN11StatSampler22assert_system_propertyEPKcS1_P10JavaThread(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11StatSampler22assert_system_propertyEPKcS1_P10JavaThread(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #3 align 2 {
   ret void
 }
 

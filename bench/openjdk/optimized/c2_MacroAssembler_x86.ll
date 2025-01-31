@@ -278,7 +278,7 @@ declare void @_ZN17AbstractAssembler29generate_stack_overflow_checkEi(ptr nounde
 declare void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40), i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40), i32, i32) local_unnamed_addr #1
 
@@ -296,7 +296,7 @@ declare void @_ZN14MacroAssembler6addptrE8Registeri(ptr noundef nonnull align 8 
 declare noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17C2_MacroAssembler9fast_lockE8RegisterS0_S0_S0_S0_S0_S0_P8Metadata(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7, ptr nocapture noundef readnone %8) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17C2_MacroAssembler9fast_lockE8RegisterS0_S0_S0_S0_S0_S0_P8Metadata(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 align 2 {
   %10 = alloca %class.Address, align 8
   %11 = alloca %class.Label, align 8
   %12 = alloca %class.Label, align 8
@@ -9140,7 +9140,7 @@ declare void @_ZN14MacroAssembler8vpcmpeqbE11XMMRegisterS0_S0_i(ptr noundef nonn
 declare void @_ZN14MacroAssembler7pcmpeqbE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40), i32, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 1, 5) i32 @_ZN17C2_MacroAssembler22arrays_hashcode_elsizeE9BasicType(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 1, 5) i32 @_ZN17C2_MacroAssembler22arrays_hashcode_elsizeE9BasicType(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %switch.tableidx = add i8 %1, -4
   %3 = icmp ult i8 %switch.tableidx, 7
   br i1 %3, label %switch.hole_check, label %4
@@ -18162,13 +18162,13 @@ declare i32 @llvm.smax.i32(i32, i32) #7
 declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #7

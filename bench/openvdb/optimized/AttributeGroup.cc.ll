@@ -92,7 +92,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_06points11GroupHandleC2ERKNS1_19TypedAttributeArrayIhNS1_10GroupCodecEEERKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %this, ptr noundef nonnull align 8 dereferenceable(40) %array, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %offset) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_06points11GroupHandleC2ERKNS1_19TypedAttributeArrayIhNS1_10GroupCodecEEERKh(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) initializes((0, 9)) %this, ptr noundef nonnull align 8 dereferenceable(40) %array, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %offset) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %array, ptr %this, align 8
   %mBitMask = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -161,7 +161,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE8loadDataEv.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_06points11GroupHandleC2ERKNS1_19TypedAttributeArrayIhNS1_10GroupCodecEEERKhNS2_7BitMaskE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %this, ptr noundef nonnull align 8 dereferenceable(40) %array, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %bitMask) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_06points11GroupHandleC2ERKNS1_19TypedAttributeArrayIhNS1_10GroupCodecEEERKhNS2_7BitMaskE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) initializes((0, 9)) %this, ptr noundef nonnull align 8 dereferenceable(40) %array, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %bitMask) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %array, ptr %this, align 8
   %mBitMask = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -227,7 +227,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE8loadDataEv.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK7openvdb5v11_06points11GroupHandle3getEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this, i32 noundef %n) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK7openvdb5v11_06points11GroupHandle3getEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this, i32 noundef %n) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef zeroext i8 @_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE3getEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %n)
@@ -389,7 +389,7 @@ unreachable:                                      ; preds = %try.cont
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK7openvdb5v11_06points11GroupHandle9getUnsafeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this, i32 noundef %n) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK7openvdb5v11_06points11GroupHandle9getUnsafeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this, i32 noundef %n) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mData.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -409,7 +409,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_06points16GroupWriteHandleC2ERNS1_19TypedAttributeArrayIhNS1_10GroupCodecEEERKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %this, ptr noundef nonnull align 8 dereferenceable(40) %array, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %offset) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_06points16GroupWriteHandleC2ERNS1_19TypedAttributeArrayIhNS1_10GroupCodecEEERKh(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) initializes((0, 9)) %this, ptr noundef nonnull align 8 dereferenceable(40) %array, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %offset) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %array, ptr %this, align 8
   %mBitMask.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -478,7 +478,7 @@ _ZN7openvdb5v11_06points11GroupHandleC2ERKNS1_19TypedAttributeArrayIhNS1_10Group
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_06points16GroupWriteHandle3setEjb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this, i32 noundef %n, i1 noundef zeroext %on) local_unnamed_addr #3 align 2 {
+define void @_ZN7openvdb5v11_06points16GroupWriteHandle3setEjb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this, i32 noundef %n, i1 noundef zeroext %on) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i7 = alloca i8, align 1
   %ref.tmp.i = alloca i8, align 1
@@ -511,7 +511,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7openvdb5v11_06points16GroupWriteHandle9setUnsafeEjb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this, i32 noundef %n, i1 noundef zeroext %on) local_unnamed_addr #5 align 2 {
+define void @_ZN7openvdb5v11_06points16GroupWriteHandle9setUnsafeEjb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this, i32 noundef %n, i1 noundef zeroext %on) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mData.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -534,7 +534,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7openvdb5v11_06points16GroupWriteHandle8collapseEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this, i1 noundef zeroext %on) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7openvdb5v11_06points16GroupWriteHandle8collapseEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this, i1 noundef zeroext %on) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp17 = alloca i8, align 1
   %ref.tmp25 = alloca i8, align 1
@@ -1040,7 +1040,7 @@ unreachable:                                      ; preds = %try.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7openvdb5v11_06points16GroupWriteHandle7compactEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN7openvdb5v11_06points16GroupWriteHandle7compactEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef zeroext i1 @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE7compactEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
@@ -1330,7 +1330,7 @@ invoke.cont:
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %__lhs, i64 noundef %call.i)
+  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %__lhs, i64 noundef %call.i)
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %invoke.cont4
@@ -1389,7 +1389,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
@@ -1640,10 +1640,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -46,7 +46,7 @@ define hidden noundef nonnull ptr @SplashGetInstance() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define void @SplashSetFileJarName(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
@@ -76,7 +76,7 @@ SplashGetInstance.exit:                           ; preds = %.SplashGetInstance.
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @SplashConvertStringAlloc(ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -250,7 +250,7 @@ define hidden void @SplashDone(ptr noundef initializes((10628, 10632)) %0) local
 declare void @SplashDonePlatform(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @SplashIsStillLooping(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @SplashIsStillLooping(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 10628
   %3 = load i32, ptr %2, align 4
   %4 = icmp slt i32 %3, 0
@@ -362,7 +362,7 @@ declare i32 @convertRect2(ptr noundef, ptr noundef, i32 noundef, ptr noundef) lo
 declare i32 @convertRect(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @SplashNextFrame(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define hidden void @SplashNextFrame(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 10628
   %3 = load i32, ptr %2, align 4
   %4 = icmp slt i32 %3, 0
@@ -429,7 +429,7 @@ SplashIsStillLooping.exit.thread:                 ; preds = %thread-pre-split, %
 declare i32 @SplashTime(...) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @BitmapToYXBandedRectangles(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #7 {
+define hidden i32 @BitmapToYXBandedRectangles(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph136, label %._crit_edge
@@ -981,7 +981,7 @@ getRGBA.exit100:                                  ; preds = %202, %206
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SplashLoadFile(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @SplashLoadFile(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = alloca %struct.SplashStream, align 8
   %3 = tail call noalias ptr @fopen64(ptr noundef readonly %0, ptr noundef nonnull @.str)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -1006,7 +1006,7 @@ define range(i32 0, 2) i32 @SplashLoadFile(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 0, 2) i32 @SplashStreamInitFile(ptr nocapture noundef writeonly initializes((0, 32)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @SplashStreamInitFile(ptr noundef writeonly captures(none) initializes((0, 32)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %3 = tail call noalias ptr @fopen64(ptr noundef %1, ptr noundef nonnull @.str)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %3, ptr %4, align 8
@@ -1150,7 +1150,7 @@ define range(i32 0, 2) i32 @SplashLoadMemory(ptr noundef %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @SplashStreamInitMemory(ptr nocapture noundef writeonly initializes((0, 40)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #9 {
+define hidden noundef i32 @SplashStreamInitMemory(ptr noundef writeonly captures(none) initializes((0, 40)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %4, align 8
   %5 = sext i32 %2 to i64
@@ -1184,10 +1184,10 @@ define hidden void @SplashStart(ptr noundef %0) local_unnamed_addr #2 {
 declare void @SplashCreateThread(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @readFile(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #8 {
+define internal noundef i32 @readFile(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %2 to i64
@@ -1197,7 +1197,7 @@ define internal noundef i32 @readFile(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @peekFile(ptr nocapture noundef readonly %0) #8 {
+define internal noundef i32 @peekFile(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @fgetc(ptr noundef %3)
@@ -1213,7 +1213,7 @@ define internal noundef i32 @peekFile(ptr nocapture noundef readonly %0) #8 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @closeFile(ptr nocapture noundef readonly %0) #8 {
+define internal void @closeFile(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @fclose(ptr noundef %3)
@@ -1221,7 +1221,7 @@ define internal void @closeFile(ptr nocapture noundef readonly %0) #8 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @readMem(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #11 {
+define internal i32 @readMem(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #11 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1247,7 +1247,7 @@ define internal i32 @readMem(ptr nocapture noundef %0, ptr nocapture noundef wri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 256) i32 @peekMem(ptr nocapture noundef readonly %0) #12 {
+define internal range(i32 -1, 256) i32 @peekMem(ptr noundef readonly captures(none) %0) #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1266,12 +1266,12 @@ define internal range(i32 -1, 256) i32 @peekMem(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @closeMem(ptr nocapture readnone %0) #13 {
+define internal void @closeMem(ptr readnone captures(none) %0) #13 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define i32 @SplashGetScaledImgNameMaxPstfixLen(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
+define i32 @SplashGetScaledImgNameMaxPstfixLen(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
   %3 = trunc i64 %2 to i32
   %4 = add i32 %3, 8
@@ -1279,10 +1279,10 @@ define i32 @SplashGetScaledImgNameMaxPstfixLen(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @GetScaledImageName(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, i64 noundef %3) local_unnamed_addr #2 {
+define hidden zeroext range(i8 0, 2) i8 @GetScaledImageName(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = alloca [1024 x i8], align 16
   %6 = alloca [1024 x i8], align 16
   %7 = load float, ptr %2, align 4
@@ -1336,17 +1336,17 @@ define hidden zeroext range(i8 0, 2) i8 @GetScaledImageName(ptr nocapture nounde
 
 39:                                               ; preds = %36
   store float 1.000000e+00, ptr %2, align 4
-  tail call void @free(ptr noundef %11) #21
+  tail call void @free(ptr noundef nonnull %11) #21
   tail call void @free(ptr noundef %.098) #21
   tail call void @free(ptr noundef %10) #21
   br label %99
 
 40:                                               ; preds = %36
-  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %10, i64 noundef %31, ptr noundef nonnull @.str.5, ptr noundef %11, ptr noundef nonnull %5) #21
+  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %10, i64 noundef %31, ptr noundef nonnull @.str.5, ptr noundef nonnull %11, ptr noundef nonnull %5) #21
   br i1 %17, label %44, label %42
 
 42:                                               ; preds = %40
-  %43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.098, i64 noundef %.096, ptr noundef nonnull @.str.5, ptr noundef %11, ptr noundef nonnull %6) #21
+  %43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.098, i64 noundef %.096, ptr noundef nonnull @.str.5, ptr noundef nonnull %11, ptr noundef nonnull %6) #21
   br label %44
 
 44:                                               ; preds = %42, %40
@@ -1367,7 +1367,7 @@ define hidden zeroext range(i8 0, 2) i8 @GetScaledImageName(ptr nocapture nounde
 
 53:                                               ; preds = %46, %44
   store float 1.000000e+00, ptr %2, align 4
-  call void @free(ptr noundef %11) #21
+  call void @free(ptr noundef nonnull %11) #21
   call void @free(ptr noundef %.098) #21
   call void @free(ptr noundef %10) #21
   br label %99
@@ -1401,17 +1401,17 @@ define hidden zeroext range(i8 0, 2) i8 @GetScaledImageName(ptr nocapture nounde
 
 72:                                               ; preds = %69
   store float 1.000000e+00, ptr %2, align 4
-  tail call void @free(ptr noundef %11) #21
+  tail call void @free(ptr noundef nonnull %11) #21
   tail call void @free(ptr noundef %.098) #21
   tail call void @free(ptr noundef %10) #21
   br label %99
 
 73:                                               ; preds = %69
-  %74 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %10, i64 noundef %64, ptr noundef nonnull @.str.6, i32 noundef %58, ptr noundef %11, ptr noundef nonnull %5, ptr noundef nonnull %12) #21
+  %74 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %10, i64 noundef %64, ptr noundef nonnull @.str.6, i32 noundef %58, ptr noundef nonnull %11, ptr noundef nonnull %5, ptr noundef nonnull %12) #21
   br i1 %17, label %77, label %75
 
 75:                                               ; preds = %73
-  %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.098, i64 noundef %.197, ptr noundef nonnull @.str.6, i32 noundef %58, ptr noundef %11, ptr noundef nonnull %6, ptr noundef nonnull %12) #21
+  %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.098, i64 noundef %.197, ptr noundef nonnull @.str.6, i32 noundef %58, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %12) #21
   br label %77
 
 77:                                               ; preds = %75, %73
@@ -1432,7 +1432,7 @@ define hidden zeroext range(i8 0, 2) i8 @GetScaledImageName(ptr nocapture nounde
 
 86:                                               ; preds = %79, %77
   store float 1.000000e+00, ptr %2, align 4
-  call void @free(ptr noundef %11) #21
+  call void @free(ptr noundef nonnull %11) #21
   call void @free(ptr noundef %.098) #21
   call void @free(ptr noundef %10) #21
   br label %99
@@ -1477,16 +1477,16 @@ define hidden zeroext range(i8 0, 2) i8 @GetScaledImageName(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #16
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @cleanUp(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #17 {
+define hidden void @cleanUp(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #17 {
   store float 1.000000e+00, ptr %3, align 4
   tail call void @free(ptr noundef %0) #21
   tail call void @free(ptr noundef %1) #21
@@ -1495,10 +1495,10 @@ define hidden void @cleanUp(ptr nocapture noundef %0, ptr nocapture noundef %1, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #18
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #18
 
 declare void @SplashReconfigure(ptr noundef) local_unnamed_addr #4
 
@@ -1509,16 +1509,16 @@ declare i32 @SplashDecodePngStream(ptr noundef, ptr noundef) #4
 declare i32 @SplashDecodeJpegStream(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fgetc(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @ungetc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @ungetc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #19
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #20

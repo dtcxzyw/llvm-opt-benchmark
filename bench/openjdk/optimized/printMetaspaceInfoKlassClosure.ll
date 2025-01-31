@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN9metaspace30PrintMetaspaceInfoKlassClosureC1EP12outputStreamb = hidden unnamed_addr alias void (ptr, ptr, i1), ptr @_ZN9metaspace30PrintMetaspaceInfoKlassClosureC2EP12outputStreamb
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN9metaspace30PrintMetaspaceInfoKlassClosureC2EP12outputStreamb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, i1 zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN9metaspace30PrintMetaspaceInfoKlassClosureC2EP12outputStreamb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, i1 zeroext %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVN9metaspace30PrintMetaspaceInfoKlassClosureE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -22,7 +22,7 @@ define hidden void @_ZN9metaspace30PrintMetaspaceInfoKlassClosureC2EP12outputStr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9metaspace30PrintMetaspaceInfoKlassClosure8do_klassEP5Klass(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN9metaspace30PrintMetaspaceInfoKlassClosure8do_klassEP5Klass(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, 1

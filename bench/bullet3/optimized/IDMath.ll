@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN24btInverseDynamicsBullet37setZeroERNS_4vec3E(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 12)) %v) local_unnamed_addr #0 {
+define dso_local void @_ZN24btInverseDynamicsBullet37setZeroERNS_4vec3E(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 12)) %v) local_unnamed_addr #0 {
 entry:
   store float 0.000000e+00, ptr %v, align 4
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %v, i64 4
@@ -38,7 +38,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN24btInverseDynamicsBullet37setZeroERNS_4vecxE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %v) local_unnamed_addr #1 {
+define dso_local void @_ZN24btInverseDynamicsBullet37setZeroERNS_4vecxE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %v) local_unnamed_addr #1 {
 entry:
   %m_size.i.i.i = getelementptr inbounds nuw i8, ptr %v, i64 4
   %0 = load i32, ptr %m_size.i.i.i, align 4
@@ -65,7 +65,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN24btInverseDynamicsBullet37setZeroERNS_5mat33E(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) initializes((0, 12), (16, 28), (32, 44)) %m) local_unnamed_addr #0 {
+define dso_local void @_ZN24btInverseDynamicsBullet37setZeroERNS_5mat33E(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(48) initializes((0, 12), (16, 28), (32, 44)) %m) local_unnamed_addr #0 {
 entry:
   store float 0.000000e+00, ptr %m, align 4
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %m, i64 4
@@ -88,7 +88,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN24btInverseDynamicsBullet34skewERNS_4vec3EPNS_5mat33E(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %v, ptr nocapture noundef writeonly initializes((0, 12), (16, 28), (32, 44)) %result) local_unnamed_addr #2 {
+define dso_local void @_ZN24btInverseDynamicsBullet34skewERNS_4vec3EPNS_5mat33E(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %v, ptr noundef writeonly captures(none) initializes((0, 12), (16, 28), (32, 44)) %result) local_unnamed_addr #2 {
 entry:
   store float 0.000000e+00, ptr %result, align 4
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %v, i64 8
@@ -122,7 +122,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef float @_ZN24btInverseDynamicsBullet36maxAbsERKNS_4vecxE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %v) local_unnamed_addr #3 {
+define dso_local noundef float @_ZN24btInverseDynamicsBullet36maxAbsERKNS_4vecxE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %v) local_unnamed_addr #3 {
 entry:
   %m_size.i.i.i = getelementptr inbounds nuw i8, ptr %v, i64 4
   %0 = load i32, ptr %m_size.i.i.i, align 4
@@ -153,7 +153,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZN24btInverseDynamicsBullet36maxAbsERKNS_4vec3E(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %v) local_unnamed_addr #4 {
+define dso_local noundef float @_ZN24btInverseDynamicsBullet36maxAbsERKNS_4vec3E(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %v) local_unnamed_addr #4 {
 entry:
   br label %for.body
 
@@ -174,7 +174,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef float @_ZN24btInverseDynamicsBullet311maxAbsMat3xERKNS_5mat3xE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %m) local_unnamed_addr #3 {
+define dso_local noundef float @_ZN24btInverseDynamicsBullet311maxAbsMat3xERKNS_5mat3xE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %m) local_unnamed_addr #3 {
 entry:
   %m_cols.i = getelementptr inbounds nuw i8, ptr %m, i64 4
   %0 = load i32, ptr %m_cols.i, align 4
@@ -217,7 +217,7 @@ for.end9:                                         ; preds = %for.inc7, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24btInverseDynamicsBullet33mulERKNS_5mat33ERKNS_5mat3xEPS3_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %b, ptr nocapture noundef %result) local_unnamed_addr #5 {
+define dso_local void @_ZN24btInverseDynamicsBullet33mulERKNS_5mat33ERKNS_5mat3xEPS3_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %b, ptr noundef captures(none) %result) local_unnamed_addr #5 {
 entry:
   %m_cols.i = getelementptr inbounds nuw i8, ptr %b, i64 4
   %0 = load i32, ptr %m_cols.i, align 4
@@ -330,7 +330,7 @@ declare void @abort() local_unnamed_addr #7
 declare float @llvm.fmuladd.f32(float, float, float) #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24btInverseDynamicsBullet33addERKNS_5mat3xES2_PS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %b, ptr nocapture noundef %result) local_unnamed_addr #5 {
+define dso_local void @_ZN24btInverseDynamicsBullet33addERKNS_5mat3xES2_PS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %b, ptr noundef captures(none) %result) local_unnamed_addr #5 {
 entry:
   %m_cols.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load i32, ptr %m_cols.i, align 4
@@ -405,7 +405,7 @@ for.end13:                                        ; preds = %for.inc11, %for.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24btInverseDynamicsBullet33subERKNS_5mat3xES2_PS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %b, ptr nocapture noundef %result) local_unnamed_addr #5 {
+define dso_local void @_ZN24btInverseDynamicsBullet33subERKNS_5mat3xES2_PS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %b, ptr noundef captures(none) %result) local_unnamed_addr #5 {
 entry:
   %m_cols.i = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load i32, ptr %m_cols.i, align 4
@@ -480,7 +480,7 @@ for.end13:                                        ; preds = %for.inc11, %for.con
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local void @_ZN24btInverseDynamicsBullet310transformXERKf(ptr noalias nocapture writeonly sret(%"class.btInverseDynamicsBullet3::mat33") align 4 initializes((0, 12), (16, 28), (32, 44)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %alpha) local_unnamed_addr #9 {
+define dso_local void @_ZN24btInverseDynamicsBullet310transformXERKf(ptr noalias writeonly sret(%"class.btInverseDynamicsBullet3::mat33") align 4 captures(none) initializes((0, 12), (16, 28), (32, 44)) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %alpha) local_unnamed_addr #9 {
 entry:
   %0 = load float, ptr %alpha, align 4
   %call.i = tail call noundef float @cosf(float noundef %0) #13
@@ -508,7 +508,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local void @_ZN24btInverseDynamicsBullet310transformYERKf(ptr noalias nocapture writeonly sret(%"class.btInverseDynamicsBullet3::mat33") align 4 initializes((0, 12), (16, 28), (32, 44)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %beta) local_unnamed_addr #9 {
+define dso_local void @_ZN24btInverseDynamicsBullet310transformYERKf(ptr noalias writeonly sret(%"class.btInverseDynamicsBullet3::mat33") align 4 captures(none) initializes((0, 12), (16, 28), (32, 44)) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %beta) local_unnamed_addr #9 {
 entry:
   %0 = load float, ptr %beta, align 4
   %call.i = tail call noundef float @cosf(float noundef %0) #13
@@ -536,7 +536,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local void @_ZN24btInverseDynamicsBullet310transformZERKf(ptr noalias nocapture writeonly sret(%"class.btInverseDynamicsBullet3::mat33") align 4 initializes((0, 12), (16, 28), (32, 44)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %gamma) local_unnamed_addr #9 {
+define dso_local void @_ZN24btInverseDynamicsBullet310transformZERKf(ptr noalias writeonly sret(%"class.btInverseDynamicsBullet3::mat33") align 4 captures(none) initializes((0, 12), (16, 28), (32, 44)) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %gamma) local_unnamed_addr #9 {
 entry:
   %0 = load float, ptr %gamma, align 4
   %call.i = tail call noundef float @cosf(float noundef %0) #13
@@ -564,7 +564,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN24btInverseDynamicsBullet313tildeOperatorERKNS_4vec3E(ptr noalias nocapture writeonly sret(%"class.btInverseDynamicsBullet3::mat33") align 4 initializes((0, 12), (16, 28), (32, 44)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %v) local_unnamed_addr #2 {
+define dso_local void @_ZN24btInverseDynamicsBullet313tildeOperatorERKNS_4vec3E(ptr noalias writeonly sret(%"class.btInverseDynamicsBullet3::mat33") align 4 captures(none) initializes((0, 12), (16, 28), (32, 44)) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %v) local_unnamed_addr #2 {
 entry:
   store float 0.000000e+00, ptr %agg.result, align 4
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %v, i64 8
@@ -595,7 +595,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local void @_ZN24btInverseDynamicsBullet315getVecMatFromDHEffffPNS_4vec3EPNS_5mat33E(float noundef %theta, float noundef %d, float noundef %a, float noundef %alpha, ptr nocapture noundef writeonly initializes((0, 12)) %r, ptr nocapture noundef writeonly initializes((0, 12), (16, 28), (32, 44)) %T) local_unnamed_addr #10 {
+define dso_local void @_ZN24btInverseDynamicsBullet315getVecMatFromDHEffffPNS_4vec3EPNS_5mat33E(float noundef %theta, float noundef %d, float noundef %a, float noundef %alpha, ptr noundef writeonly captures(none) initializes((0, 12)) %r, ptr noundef writeonly captures(none) initializes((0, 12), (16, 28), (32, 44)) %T) local_unnamed_addr #10 {
 entry:
   %call.i = tail call noundef float @sinf(float noundef %alpha) #13
   %call.i24 = tail call noundef float @cosf(float noundef %alpha) #13
@@ -635,7 +635,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local void @_ZN24btInverseDynamicsBullet324bodyTParentFromAxisAngleERKNS_4vec3ERKfPNS_5mat33E(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %axis, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %angle, ptr nocapture noundef writeonly initializes((0, 12), (16, 28), (32, 44)) %T) local_unnamed_addr #9 {
+define dso_local void @_ZN24btInverseDynamicsBullet324bodyTParentFromAxisAngleERKNS_4vec3ERKfPNS_5mat33E(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %axis, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %angle, ptr noundef writeonly captures(none) initializes((0, 12), (16, 28), (32, 44)) %T) local_unnamed_addr #9 {
 entry:
   %0 = load float, ptr %angle, align 4
   %call.i = tail call noundef float @cosf(float noundef %0) #13
@@ -711,7 +711,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN24btInverseDynamicsBullet318isPositiveDefiniteERKNS_5mat33E(ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %m) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_ZN24btInverseDynamicsBullet318isPositiveDefiniteERKNS_5mat33E(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %m) local_unnamed_addr #4 {
 entry:
   %0 = load float, ptr %m, align 4
   %cmp = fcmp ugt float %0, 0.000000e+00
@@ -762,7 +762,7 @@ return:                                           ; preds = %if.end8, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN24btInverseDynamicsBullet322isPositiveSemiDefiniteERKNS_5mat33E(ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %m) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_ZN24btInverseDynamicsBullet322isPositiveSemiDefiniteERKNS_5mat33E(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %m) local_unnamed_addr #4 {
 entry:
   %0 = load float, ptr %m, align 4
   %cmp = fcmp olt float %0, 0.000000e+00
@@ -813,7 +813,7 @@ return:                                           ; preds = %if.end8, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN24btInverseDynamicsBullet327isPositiveSemiDefiniteFuzzyERKNS_5mat33E(ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %m) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_ZN24btInverseDynamicsBullet327isPositiveSemiDefiniteFuzzyERKNS_5mat33E(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %m) local_unnamed_addr #4 {
 entry:
   %0 = load float, ptr %m, align 4
   %cmp = fcmp olt float %0, 0xBEA4000000000000
@@ -864,7 +864,7 @@ return:                                           ; preds = %if.end8, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZN24btInverseDynamicsBullet311determinantERKNS_5mat33E(ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %m) local_unnamed_addr #4 {
+define dso_local noundef float @_ZN24btInverseDynamicsBullet311determinantERKNS_5mat33E(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %m) local_unnamed_addr #4 {
 entry:
   %0 = load float, ptr %m, align 4
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %m, i64 16
@@ -902,7 +902,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN24btInverseDynamicsBullet320isValidInertiaMatrixERKNS_5mat33Eib(ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %I, i32 noundef %index, i1 noundef zeroext %has_fixed_joint) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @_ZN24btInverseDynamicsBullet320isValidInertiaMatrixERKNS_5mat33Eib(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %I, i32 noundef %index, i1 noundef zeroext %has_fixed_joint) local_unnamed_addr #5 {
 entry:
   %0 = load float, ptr %I, align 4
   %cmp.i = fcmp olt float %0, 0xBEA4000000000000
@@ -1119,7 +1119,7 @@ return:                                           ; preds = %if.end140, %do.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN24btInverseDynamicsBullet322isValidTransformMatrixERKNS_5mat33E(ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %m) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @_ZN24btInverseDynamicsBullet322isValidTransformMatrixERKNS_5mat33E(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %m) local_unnamed_addr #5 {
 entry:
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %m, i64 16
   %arrayidx.i.i92 = getelementptr inbounds nuw i8, ptr %m, i64 32
@@ -1355,7 +1355,7 @@ return:                                           ; preds = %if.end135, %do.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN24btInverseDynamicsBullet312isUnitVectorERKNS_4vec3E(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %vector) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_ZN24btInverseDynamicsBullet312isUnitVectorERKNS_4vec3E(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %vector) local_unnamed_addr #4 {
 entry:
   %0 = load float, ptr %vector, align 4
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %vector, i64 4
@@ -1372,7 +1372,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZN24btInverseDynamicsBullet313rpyFromMatrixERKNS_5mat33E(ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %rot) local_unnamed_addr #9 {
+define dso_local { <2 x float>, <2 x float> } @_ZN24btInverseDynamicsBullet313rpyFromMatrixERKNS_5mat33E(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %rot) local_unnamed_addr #9 {
 entry:
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %rot, i64 16
   %0 = load float, ptr %arrayidx.i.i, align 4

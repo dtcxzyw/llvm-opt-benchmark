@@ -97,10 +97,10 @@ define dso_local i64 @ntp_get_next_leap() local_unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -1, 2) i32 @second_overflow(i64 noundef %0) local_unnamed_addr #3 align 16 {
@@ -300,7 +300,7 @@ define dso_local void @ntp_notify_cmos_timer() local_unnamed_addr #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr nocapture noundef initializes((56, 88), (96, 116), (120, 164)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr noundef captures(none) initializes((56, 88), (96, 116), (120, 164)) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #3 align 16 {
   %5 = load i32, ptr %0, align 8
   %6 = and i32 %5, 32768
   %7 = icmp eq i32 %6, 0
@@ -829,7 +829,7 @@ define dso_local void @ntp_init() local_unnamed_addr #5 section ".init.text" ali
 declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @sync_hw_clock(ptr nocapture readnone %0) #3 align 16 {
+define internal void @sync_hw_clock(ptr readnone captures(none) %0) #3 align 16 {
   %2 = alloca %struct.rtc_time, align 4
   %3 = alloca %struct.timespec64, align 8
   %4 = alloca %struct.timespec64, align 8
@@ -955,7 +955,7 @@ define internal void @sync_hw_clock(ptr nocapture readnone %0) #3 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @ktime_get_real_ts64(ptr noundef) local_unnamed_addr #6
@@ -991,7 +991,7 @@ declare dso_local i32 @kstrtoll(ptr noundef, i32 noundef, ptr noundef) local_unn
 declare dso_local void @hrtimer_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @sync_timer_callback(ptr nocapture readnone %0) #3 align 16 {
+define internal noundef i32 @sync_timer_callback(ptr readnone captures(none) %0) #3 align 16 {
   %2 = load ptr, ptr @system_freezable_power_efficient_wq, align 8
   %3 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %2, ptr noundef nonnull @sync_work) #10
   ret i32 0

@@ -211,7 +211,7 @@ define range(i32 -1, -2147483648) i32 @connect_host(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare i32 @getaddrinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -236,7 +236,7 @@ declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr 
 declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i64 @encoded_size(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define i64 @encoded_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load i8, ptr %0, align 1
   %.not8 = icmp eq i8 %2, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -271,7 +271,7 @@ define i64 @encoded_size(ptr nocapture noundef readonly %0) local_unnamed_addr #
 declare ptr @__ctype_b_loc() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @encode_data(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @encode_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1
   %.not8.i = icmp eq i8 %2, 0
   br i1 %.not8.i, label %encoded_size.exit.thread, label %.lr.ph.i
@@ -352,10 +352,10 @@ encoded_size.exit.thread:                         ; preds = %33, %.preheader, %1
 declare ptr @cli_max_calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @submit_post(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define void @submit_post(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca [21 x i8], align 16
   %8 = alloca %struct.fd_set, align 8
   %9 = alloca %struct.timeval, align 8
@@ -421,11 +421,11 @@ define void @submit_post(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %40 = phi ptr [ %37, %.thread ], [ %35, %27 ]
   %.096118 = phi ptr [ null, %.thread ], [ %26, %27 ]
   %.097117 = phi i64 [ %36, %.thread ], [ %34, %27 ]
-  %41 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %40, i64 noundef %.097117, ptr noundef nonnull @.str.5, ptr noundef %2, ptr noundef %3) #9
+  %41 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %40, i64 noundef %.097117, ptr noundef nonnull @.str.5, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
   %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #11
   %43 = getelementptr inbounds i8, ptr %40, i64 %42
   %44 = sub i64 %.097117, %42
-  %45 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %43, i64 noundef %44, ptr noundef nonnull @.str.6, ptr noundef %0) #9
+  %45 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %43, i64 noundef %44, ptr noundef nonnull @.str.6, ptr noundef nonnull %0) #9
   %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #11
   %47 = getelementptr inbounds i8, ptr %40, i64 %46
   %48 = sub i64 %.097117, %46
@@ -460,7 +460,7 @@ define void @submit_post(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   br label %70
 
 70:                                               ; preds = %53, %51
-  %71 = call i32 @connect_host(ptr noundef %0, ptr noundef %1, i32 noundef %5, i32 noundef 1)
+  %71 = call i32 @connect_host(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %5, i32 noundef 1)
   %72 = icmp slt i32 %71, 0
   br i1 %72, label %73, label %74
 
@@ -469,7 +469,7 @@ define void @submit_post(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   br label %.thread120
 
 74:                                               ; preds = %70
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12, ptr noundef %0, ptr noundef %1) #9
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %0, ptr noundef %1) #9
   %75 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #11
   %76 = call i64 @send(i32 noundef %71, ptr noundef nonnull %40, i64 noundef %75, i32 noundef 0) #9
   %77 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #11
@@ -548,16 +548,16 @@ define void @submit_post(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #2
 
@@ -566,7 +566,7 @@ declare i64 @send(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unna
 declare i64 @recv(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

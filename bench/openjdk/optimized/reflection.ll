@@ -356,13 +356,13 @@ define hidden noundef zeroext i8 @_ZN10Reflection19unbox_for_primitiveEP7oopDesc
 declare noundef zeroext i8 @_ZN23java_lang_boxing_object9get_valueEP7oopDescP6jvalue(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef zeroext i8 @_ZN10Reflection24unbox_for_regular_objectEP7oopDescP6jvalue(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i8 @_ZN10Reflection24unbox_for_regular_objectEP7oopDescP6jvalue(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #2 align 2 {
   store ptr %0, ptr %1, align 8
   ret i8 12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10Reflection5widenEP6jvalue9BasicTypeS2_P10JavaThread(ptr nocapture noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10Reflection5widenEP6jvalue9BasicTypeS2_P10JavaThread(ptr noundef captures(none) %0, i8 noundef zeroext %1, i8 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   switch i8 %2, label %67 [
     i8 7, label %48
     i8 6, label %32
@@ -533,7 +533,7 @@ define hidden void @_ZN10Reflection5widenEP6jvalue9BasicTypeS2_P10JavaThread(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext range(i8 4, 100) i8 @_ZN10Reflection9array_getEP6jvalueP12arrayOopDesciP10JavaThread(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext range(i8 4, 100) i8 @_ZN10Reflection9array_getEP6jvalueP12arrayOopDesciP10JavaThread(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = icmp sgt i32 %2, -1
   br i1 %5, label %_ZNK12arrayOopDesc16is_within_boundsEi.exit, label %_ZNK12arrayOopDesc16is_within_boundsEi.exit.thread
 
@@ -702,7 +702,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %_ZNK7oopDesc11is_ob
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10Reflection9array_setEP6jvalueP12arrayOopDesci9BasicTypeP10JavaThread(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10Reflection9array_setEP6jvalueP12arrayOopDesci9BasicTypeP10JavaThread(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = icmp sgt i32 %2, -1
   br i1 %6, label %_ZNK12arrayOopDesc16is_within_boundsEi.exit, label %_ZNK12arrayOopDesc16is_within_boundsEi.exit.thread
 
@@ -1487,7 +1487,7 @@ define hidden noundef ptr @_ZN10Reflection23verify_class_access_msgEPK5KlassPK13
   %42 = add i64 %39, %41
   %43 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %42, i32 noundef 0) #13
   %44 = add i64 %42, -1
-  %45 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %43, i64 noundef %44, ptr noundef nonnull @.str.8, ptr noundef %18, ptr noundef %17, ptr noundef %29, ptr noundef %28, ptr noundef %17, ptr noundef %28) #13
+  %45 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %43, i64 noundef %44, ptr noundef nonnull @.str.8, ptr noundef nonnull %18, ptr noundef nonnull %17, ptr noundef nonnull %29, ptr noundef nonnull %28, ptr noundef nonnull %17, ptr noundef nonnull %28) #13
   br label %121
 
 46:                                               ; preds = %30
@@ -1530,7 +1530,7 @@ _ZN7oopDesc13identity_hashEv.exit:                ; preds = %53, %56, %.thread.i
   %67 = add i64 %66, 16
   %68 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %67, i32 noundef 0) #13
   %69 = add i64 %66, 15
-  %70 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %68, i64 noundef %69, ptr noundef nonnull @.str.9, ptr noundef %18, ptr noundef %17, ptr noundef %29, i64 noundef %.0.i, ptr noundef %17, i64 noundef %.0.i) #13
+  %70 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %68, i64 noundef %69, ptr noundef nonnull @.str.9, ptr noundef nonnull %18, ptr noundef nonnull %17, ptr noundef nonnull %29, i64 noundef %.0.i, ptr noundef nonnull %17, i64 noundef %.0.i) #13
   br label %121
 
 71:                                               ; preds = %27
@@ -1558,7 +1558,7 @@ _ZN7oopDesc13identity_hashEv.exit:                ; preds = %53, %56, %.thread.i
   %88 = add i64 %87, %reass.mul
   %89 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %88, i32 noundef 0) #13
   %90 = add i64 %88, -1
-  %91 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %89, i64 noundef %90, ptr noundef nonnull @.str.10, ptr noundef %18, ptr noundef %17, ptr noundef %29, ptr noundef %28, ptr noundef %28, ptr noundef %77, ptr noundef %17) #13
+  %91 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %89, i64 noundef %90, ptr noundef nonnull @.str.10, ptr noundef nonnull %18, ptr noundef nonnull %17, ptr noundef nonnull %29, ptr noundef nonnull %28, ptr noundef nonnull %28, ptr noundef nonnull %77, ptr noundef nonnull %17) #13
   br label %121
 
 92:                                               ; preds = %71
@@ -1603,7 +1603,7 @@ _ZN7oopDesc13identity_hashEv.exit82:              ; preds = %99, %102, %.thread.
   %115 = add i64 %114, 16
   %116 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %115, i32 noundef 0) #13
   %117 = add i64 %114, 15
-  %118 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %116, i64 noundef %117, ptr noundef nonnull @.str.11, ptr noundef %18, i64 noundef %.0.i80, ptr noundef %29, ptr noundef %28, ptr noundef %28, ptr noundef %77, i64 noundef %.0.i80) #13
+  %118 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %116, i64 noundef %117, ptr noundef nonnull @.str.11, ptr noundef nonnull %18, i64 noundef %.0.i80, ptr noundef nonnull %29, ptr noundef nonnull %28, ptr noundef nonnull %28, ptr noundef nonnull %77, i64 noundef %.0.i80) #13
   br label %121
 
 119:                                              ; preds = %27
@@ -1622,7 +1622,7 @@ declare noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dere
 declare noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2076,7 +2076,7 @@ _ZN16ResourceMarkImplD2Ev.exit:                   ; preds = %10, %15
 declare void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10Reflection10new_methodERK12methodHandlebP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i1 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN10Reflection10new_methodERK12methodHandlebP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i1 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.ArgumentCount, align 8
   %5 = alloca ptr, align 8
   %6 = load ptr, ptr %0, align 8
@@ -2411,7 +2411,7 @@ _ZNK6HandleclEv.exit65:                           ; preds = %176, %_ZNK6Handlecl
 declare void @_ZN13ArgumentCountC1EP6Symbol(ptr noundef nonnull align 8 dereferenceable(28), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL19get_parameter_typesRK12methodHandleiPP7oopDescP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL19get_parameter_typesRK12methodHandleiPP7oopDescP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %class.ResolvingSignatureStream, align 8
   %6 = icmp eq i32 %1, 0
   br i1 %6, label %7, label %9
@@ -2688,7 +2688,7 @@ declare void @_ZN24java_lang_reflect_Method25set_parameter_annotationsEP7oopDesc
 declare void @_ZN24java_lang_reflect_Method22set_annotation_defaultEP7oopDescS1_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10Reflection15new_constructorERK12methodHandleP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN10Reflection15new_constructorERK12methodHandleP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.ArgumentCount, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3584,7 +3584,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL6invokeP13InstanceKlassRK12methodHandle6Handleb14objArrayHandle9BasicTypeS5_bP10JavaThread(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr %2, ptr nocapture readonly %3, i8 noundef zeroext %4, i64 %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL6invokeP13InstanceKlassRK12methodHandle6Handleb14objArrayHandle9BasicTypeS5_bP10JavaThread(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr %2, ptr readonly captures(none) %3, i8 noundef zeroext %4, i64 %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %class.methodHandle, align 8
   %9 = alloca %class.methodHandle, align 8
   %10 = alloca %class.JavaCallArguments, align 8
@@ -4442,7 +4442,7 @@ _ZN12ResourceMarkD2Ev.exit120:                    ; preds = %489, %491
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
 declare void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
@@ -8198,7 +8198,7 @@ declare void @_ZN24ResolvingSignatureStreamC1EP6SymbolP5Klassb(ptr noundef nonnu
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN12methodHandleaSERKS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL22resolve_interface_callP13InstanceKlassRK12methodHandleP5Klass6HandleP10JavaThread(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 16)) %0, ptr noundef %1, ptr nocapture readonly %.0.val.8.val, ptr noundef %2, ptr %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL22resolve_interface_callP13InstanceKlassRK12methodHandleP5Klass6HandleP10JavaThread(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 16)) %0, ptr noundef %1, ptr readonly captures(none) %.0.val.8.val, ptr noundef %2, ptr %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %class.CallInfo, align 8
   %7 = alloca %class.LinkInfo, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -8310,7 +8310,7 @@ declare void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN9JavaCalls4callEP9JavaValueRK12methodHandleP17JavaCallArgumentsP10JavaThread(ptr noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL6narrowP6jvalue9BasicTypeP10JavaThread(ptr nocapture noundef %0, i8 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL6narrowP6jvalue9BasicTypeP10JavaThread(ptr noundef captures(none) %0, i8 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   switch i8 %1, label %17 [
     i8 4, label %4
     i8 8, label %8
@@ -8367,13 +8367,13 @@ declare i32 @llvm.ctpop.i32(i32) #10
 declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

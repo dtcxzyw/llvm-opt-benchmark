@@ -134,7 +134,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9HistogramC1Ev = unnamed_addr alias void (ptr), ptr @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9HistogramC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrapping6ParamsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) initializes((0, 20)) %0) unnamed_addr #0 align 2 {
+define void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrapping6ParamsC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(20) initializes((0, 20)) %0) unnamed_addr #0 align 2 {
   store i32 800, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 600, ptr %2, align 4
@@ -148,7 +148,7 @@ define void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrapping6ParamsC2Ev(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplC2ERKNS0_24HistogramPhaseUnwrapping6ParamsE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 28), (32, 56)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplC2ERKNS0_24HistogramPhaseUnwrapping6ParamsE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 28), (32, 56)) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -202,12 +202,12 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelESaIS3_E
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplC1ERKNS0_24HistogramPhaseUnwrapping6ParamsE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplC1ERKNS0_24HistogramPhaseUnwrapping6ParamsE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
   store ptr getelementptr inbounds nuw inrange(-80, 80) (i8, ptr @_ZTVN2cv16phase_unwrapping29HistogramPhaseUnwrapping_ImplE, i64 80), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -243,12 +243,12 @@ declare void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8
 declare void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelC2Ev(ptr nocapture nonnull readnone align 4 %0) unnamed_addr #5 align 2 {
+define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelC2Ev(ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #5 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelC2Efibfi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(29) initializes((0, 9), (12, 29)) %0, float noundef %1, i32 noundef %2, i1 noundef zeroext %3, float noundef %4, i32 noundef %5) unnamed_addr #0 align 2 {
+define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelC2Efibfi(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(29) initializes((0, 9), (12, 29)) %0, float noundef %1, i32 noundef %2, i1 noundef zeroext %3, float noundef %4, i32 noundef %5) unnamed_addr #0 align 2 {
   %7 = zext i1 %3 to i8
   store float %1, ptr %0, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -269,20 +269,20 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5PixelC2Efib
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel13getPhaseValueEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(29) %0) local_unnamed_addr #6 align 2 {
+define noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel13getPhaseValueEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(29) %0) local_unnamed_addr #6 align 2 {
   %2 = load float, ptr %0, align 4
   ret float %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel8getIndexEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(29) %0) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel8getIndexEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(29) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel11getValidityEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(29) %0) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel11getValidityEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(29) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
@@ -290,35 +290,35 @@ define noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Im
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21getInverseReliabilityEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(29) %0) local_unnamed_addr #6 align 2 {
+define noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21getInverseReliabilityEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(29) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load float, ptr %2, align 4
   ret float %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12getIncrementEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(29) %0) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12getIncrementEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(29) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21getNbrOfPixelsInGroupEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(29) %0) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21getNbrOfPixelsInGroupEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(29) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10getGroupIdEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(29) %0) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10getGroupIdEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(29) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19getSinglePixelGroupEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(29) %0) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19getSinglePixelGroupEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(29) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
@@ -326,14 +326,14 @@ define noundef zeroext i1 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Im
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12setIncrementEi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(29) initializes((16, 20)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel12setIncrementEi(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(29) initializes((16, 20)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel15changeIncrementEi(ptr nocapture noundef nonnull align 4 dereferenceable(29) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel15changeIncrementEi(ptr noundef nonnull align 4 captures(none) dereferenceable(29) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = add nsw i32 %4, %1
@@ -342,21 +342,21 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel15chan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21setNbrOfPixelsInGroupEi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(29) initializes((20, 24)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel21setNbrOfPixelsInGroupEi(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(29) initializes((20, 24)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10setGroupIdEi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(29) initializes((24, 28)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel10setGroupIdEi(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(29) initializes((24, 28)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19setSinglePixelGroupEb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(29) initializes((28, 29)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19setSinglePixelGroupEb(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(29) initializes((28, 29)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 %3, ptr %4, align 4
@@ -364,12 +364,12 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl5Pixel19setS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeC2Ev(ptr nocapture nonnull readnone align 4 %0) unnamed_addr #5 align 2 {
+define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeC2Ev(ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #5 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeC2Eiii(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeC2Eiii(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %5, align 4
@@ -379,34 +379,34 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeC2Eiii(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4Edge11getPixOneIdEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4Edge11getPixOneIdEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0) local_unnamed_addr #6 align 2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4Edge11getPixTwoIdEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4Edge11getPixTwoIdEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4Edge12getIncrementEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4Edge12getIncrementEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((8, 32)) %0) unnamed_addr #0 align 2 {
+define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((8, 32)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinC2Eff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, float noundef %1, float noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBinC2Eff(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, float noundef %1, float noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store float %1, ptr %0, align 8
@@ -416,7 +416,7 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramB
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBin7addEdgeENS1_4EdgeE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, i64 %1, i32 %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBin7addEdgeENS1_4EdgeE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, i64 %1, i32 %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -495,7 +495,7 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBin8getEdgesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.5") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBin8getEdgesEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.5") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -548,7 +548,7 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9HistogramC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
+define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9HistogramC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
@@ -919,7 +919,7 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBin
 declare float @llvm.fmuladd.f32(float, float, float) #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram12addEdgeInBinENS1_4EdgeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i64 %1, i32 %2, i32 noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram12addEdgeInBinENS1_4EdgeEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 %1, i32 %2, i32 noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = sext i32 %3 to i64
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::HistogramBin", ptr %6, i64 %5
@@ -1001,35 +1001,35 @@ _ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12HistogramBin7addEdgeENS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram9getThreshEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 {
+define noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram9getThreshEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load float, ptr %2, align 8
   ret float %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram13getSmallWidthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 {
+define noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram13getSmallWidthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load float, ptr %2, align 4
   ret float %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram13getLargeWidthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 {
+define noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram13getLargeWidthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load float, ptr %2, align 8
   ret float %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram12getNbrOfBinsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram12getNbrOfBinsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram15getEdgesFromBinEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.5") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, i32 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram15getEdgesFromBinEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.5") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, i32 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = sext i32 %2 to i64
   %5 = load ptr, ptr %1, align 8
@@ -1079,7 +1079,7 @@ _ZNSt6vectorIN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4EdgeESaIS3_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl14unwrapPhaseMapERKNS_11_InputArrayERKNS_12_OutputArrayES4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl14unwrapPhaseMapERKNS_11_InputArrayERKNS_12_OutputArrayES4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::Mat", align 8
   %6 = alloca %"class.cv::Scalar_", align 8
   %7 = alloca %"class.cv::_OutputArray", align 8
@@ -1216,7 +1216,7 @@ declare void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 
 declare void @_ZN2cv6detail20check_failed_MatTypeEiiRKNS0_12CheckContextE(i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl24computePixelsReliabilityERKNS_11_InputArrayES4_(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl24computePixelsReliabilityERKNS_11_InputArrayES4_(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Pixel", align 4
   %5 = alloca %"class.cv::Mat", align 8
   %6 = alloca %"class.cv::Rect_", align 4
@@ -1946,7 +1946,7 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl41computeEdg
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl15unwrapHistogramEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl15unwrapHistogramEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -2365,7 +2365,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %73, %72
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12addIncrementERKNS_12_OutputArrayE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12addIncrementERKNS_12_OutputArrayE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.cv::Scalar_", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -2451,7 +2451,7 @@ declare void @_ZN2cv4meanERKNS_11_InputArrayES2_(ptr dead_on_unwind writable sre
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4wrapEff(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0, float noundef %1, float noundef %2) local_unnamed_addr #5 align 2 {
+define noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4wrapEff(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0, float noundef %1, float noundef %2) local_unnamed_addr #5 align 2 {
   %4 = fsub float %1, %2
   %5 = fcmp ogt float %4, 0x400921FB60000000
   br i1 %5, label %6, label %8
@@ -2474,7 +2474,7 @@ define noundef float @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl4wr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl17createAndSortEdgeEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl17createAndSortEdgeEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::phase_unwrapping::HistogramPhaseUnwrapping_Impl::Edge", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = sext i32 %2 to i64
@@ -2692,7 +2692,7 @@ _ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl9Histogram12addEdgeInBinE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -1, 2) i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl7findIncEff(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0, float noundef %1, float noundef %2) local_unnamed_addr #5 align 2 {
+define noundef range(i32 -1, 2) i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl7findIncEff(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0, float noundef %1, float noundef %2) local_unnamed_addr #5 align 2 {
   %4 = fsub float %2, %1
   %5 = fcmp ogt float %4, 0x400921FB60000000
   %6 = fcmp olt float %4, 0xC00921FB60000000
@@ -2704,7 +2704,7 @@ define noundef range(i32 -1, 2) i32 @_ZN2cv16phase_unwrapping29HistogramPhaseUnw
 declare noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl24getInverseReliabilityMapERKNS_12_OutputArrayE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 {
+define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl24getInverseReliabilityMapERKNS_12_OutputArrayE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
@@ -2766,7 +2766,7 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl24getInverse
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrapping6createERKNS1_6ParamsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv16phase_unwrapping24HistogramPhaseUnwrapping6createERKNS1_6ParamsE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::Ptr") align 8 captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #24, !noalias !64
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %4, align 8, !noalias !64
@@ -3264,13 +3264,13 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.ceil.f32(float) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17

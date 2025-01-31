@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @setvbuf(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @setvbuf(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %or.cond3 = icmp ugt i32 %2, 2
   br i1 %or.cond3, label %46, label %5
 
@@ -124,16 +124,16 @@ define range(i32 -1, 1) i32 @setvbuf(ptr nocapture noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nofree nounwind
-declare void @flockfile(ptr nocapture noundef) local_unnamed_addr #1
+declare void @flockfile(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare void @funlockfile(ptr nocapture noundef) local_unnamed_addr #1
+declare void @funlockfile(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @__errno() local_unnamed_addr #4
 

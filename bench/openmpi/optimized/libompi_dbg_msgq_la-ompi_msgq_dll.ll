@@ -88,7 +88,7 @@ define noundef nonnull ptr @mqs_version_string() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare i32 @ompi_get_lib_version(ptr noundef, i32 noundef) local_unnamed_addr #4
 
@@ -123,7 +123,7 @@ define range(i32 0, 104) i32 @mqs_setup_image(ptr noundef %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define i32 @mqs_image_has_queues(ptr noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #2 {
@@ -275,7 +275,7 @@ define range(i32 0, 104) i32 @mqs_setup_process(ptr noundef %0, ptr noundef %1) 
 declare i64 @ompi_fetch_int(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 146) i32 @mqs_process_has_queues(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #2 {
+define range(i32 0, 146) i32 @mqs_process_has_queues(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr @mqs_basic_entrypoints, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -946,7 +946,7 @@ define range(i32 0, 3) i32 @mqs_setup_communicator_iterator(ptr noundef %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 102) i32 @mqs_get_communicator(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define range(i32 0, 102) i32 @mqs_get_communicator(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr @mqs_basic_entrypoints, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -969,10 +969,10 @@ define range(i32 0, 102) i32 @mqs_get_communicator(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 102) i32 @mqs_get_comm_group(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define range(i32 0, 102) i32 @mqs_get_comm_group(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr @mqs_basic_entrypoints, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -1074,7 +1074,7 @@ define range(i32 0, 103) i32 @mqs_setup_operation_iterator(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @opal_free_list_t_init_parser(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((0, 112)) %2, i64 noundef %3) unnamed_addr #2 {
+define internal fastcc void @opal_free_list_t_init_parser(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) initializes((0, 112)) %2, i64 noundef %3) unnamed_addr #2 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -1232,7 +1232,7 @@ define internal fastcc void @opal_free_list_t_init_parser(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 103) i32 @mqs_next_operation(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 103) i32 @mqs_next_operation(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr @mqs_basic_entrypoints, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -1254,7 +1254,7 @@ define range(i32 0, 103) i32 @mqs_next_operation(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @fetch_request(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #2 {
+define internal fastcc range(i32 0, 3) i32 @fetch_request(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) unnamed_addr #2 {
   %4 = alloca [64 x i8], align 16
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1808,13 +1808,13 @@ switch.lookup:                                    ; preds = %1
 declare i64 @ompi_fetch_pointer(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @compare_comms(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal i32 @compare_comms(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1834,10 +1834,10 @@ declare i64 @ompi_fetch_bool(ptr noundef, i64 noundef, ptr noundef) local_unname
 declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

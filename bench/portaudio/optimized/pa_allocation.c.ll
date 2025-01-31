@@ -81,7 +81,7 @@ define void @PaUtil_DestroyAllocationGroup(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -154,7 +154,7 @@ define ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PaUtil_GroupFreeMemory(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @PaUtil_GroupFreeMemory(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = icmp eq ptr %1, null
   br i1 %4, label %17, label %.preheader
@@ -203,7 +203,7 @@ define void @PaUtil_GroupFreeMemory(ptr nocapture noundef %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PaUtil_FreeAllAllocations(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @PaUtil_FreeAllAllocations(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.01214 = load ptr, ptr %2, align 8
   %.not15 = icmp eq ptr %.01214, null

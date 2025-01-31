@@ -31,7 +31,7 @@ define hidden void @register_tap_listener_icmpv6stat() local_unnamed_addr #0 {
 declare void @register_stat_tap_ui(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @icmpv6stat_init(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @icmpv6stat_init(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.1) #13
   %4 = tail call noalias dereferenceable_or_null(56) ptr @g_try_malloc(i64 noundef 56) #14
   %5 = icmp eq ptr %4, null
@@ -71,7 +71,7 @@ define internal void @icmpv6stat_init(ptr noundef %0, ptr nocapture readnone %1)
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @g_try_malloc(i64 noundef) local_unnamed_addr #3
@@ -82,14 +82,14 @@ declare void @cmdarg_err(ptr noundef, ...) local_unnamed_addr #1
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @icmpv6stat_reset(ptr nocapture noundef initializes((0, 8), (16, 56)) %0) #0 {
+define internal void @icmpv6stat_reset(ptr noundef captures(none) initializes((0, 8), (16, 56)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @g_slist_free(ptr noundef %3) #12
@@ -100,7 +100,7 @@ define internal void @icmpv6stat_reset(ptr nocapture noundef initializes((0, 8),
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @icmpv6stat_packet(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @icmpv6stat_packet(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, i32 %4) #0 {
   %6 = icmp eq ptr %3, null
   br i1 %6, label %45, label %7
 
@@ -177,7 +177,7 @@ define internal range(i32 0, 2) i32 @icmpv6stat_packet(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @icmpv6stat_draw(ptr nocapture noundef %0) #0 {
+define internal void @icmpv6stat_draw(ptr noundef captures(none) %0) #0 {
   %putchar = tail call i32 @putchar(i32 10)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
   %puts18 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
@@ -312,12 +312,12 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #6
 declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare ptr @g_slist_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @compare_doubles(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define internal range(i32 -1, 2) i32 @compare_doubles(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
   %3 = load double, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = fcmp olt double %3, %4
@@ -339,7 +339,7 @@ declare double @sqrt(double noundef) local_unnamed_addr #10
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

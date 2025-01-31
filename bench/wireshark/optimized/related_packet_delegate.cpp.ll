@@ -98,7 +98,7 @@ _ZN21RelatedPacketDelegate5clearEv.exit:
 declare void @_ZN19QStyledItemDelegateC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN21RelatedPacketDelegate5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN21RelatedPacketDelegate5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -1502,7 +1502,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit:              ; preds = %1, %_ZN17QArrayData
 declare void @_ZN15QGuiApplication7paletteEv(ptr dead_on_unwind writable sret(%class.QPalette) align 8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind
 declare void @_ZN8QPaletteD1Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #4
@@ -1542,7 +1542,7 @@ declare void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 
 declare void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK21RelatedPacketDelegate9drawArrowEP8QPainter6QPointS2_i(ptr nocapture noundef nonnull readnone align 8 dereferenceable(36) %0, ptr noundef nonnull %1, i64 %2, i64 %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define void @_ZNK21RelatedPacketDelegate9drawArrowEP8QPainter6QPointS2_i(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(36) %0, ptr noundef nonnull %1, i64 %2, i64 %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.QLine, align 4
   %7 = alloca [3 x %class.QPoint], align 16
   %.sroa.015.0.extract.trunc = trunc i64 %2 to i32
@@ -1582,7 +1582,7 @@ define void @_ZNK21RelatedPacketDelegate9drawArrowEP8QPainter6QPointS2_i(ptr noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK21RelatedPacketDelegate13drawCheckMarkEP8QPainter5QRect(ptr nocapture noundef nonnull readnone align 8 dereferenceable(36) %0, ptr noundef nonnull %1, i64 %2, i64 %3) local_unnamed_addr #0 align 2 {
+define void @_ZNK21RelatedPacketDelegate13drawCheckMarkEP8QPainter5QRect(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(36) %0, ptr noundef nonnull %1, i64 %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [3 x %class.QPoint], align 16
   %.sroa.0.0.extract.trunc = trunc i64 %2 to i32
   %.sroa.4.0.extract.shift = lshr i64 %2, 32
@@ -1618,7 +1618,7 @@ define void @_ZNK21RelatedPacketDelegate13drawCheckMarkEP8QPainter5QRect(ptr noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK21RelatedPacketDelegate12drawChevronsEP8QPainter6QPointS2_i(ptr nocapture noundef nonnull readnone align 8 dereferenceable(36) %0, ptr noundef nonnull %1, i64 %2, i64 %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define void @_ZNK21RelatedPacketDelegate12drawChevronsEP8QPainter6QPointS2_i(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(36) %0, ptr noundef nonnull %1, i64 %2, i64 %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca [3 x %class.QPoint], align 16
   %7 = alloca [3 x %class.QPoint], align 16
   %.sroa.025.0.extract.trunc = trunc i64 %2 to i32
@@ -2369,7 +2369,7 @@ _ZN5QHashIi16ft_framenum_typeED2Ev.exit:          ; preds = %40, %54, %_ZN9QtPri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN21RelatedPacketDelegate15setConversationEP12conversation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
+define void @_ZN21RelatedPacketDelegate15setConversationEP12conversation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(36) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
@@ -2449,7 +2449,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #8
 declare noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE12findOrInsertERKi(ptr dead_on_unwind noalias writable sret(%"struct.QHashPrivate::Data<QHashPrivate::Node<int, ft_framenum_type>>::InsertionResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3378,10 +3378,10 @@ _ZN12QHashPrivate4SpanINS_4NodeIi16ft_framenum_typeEEED2Ev.exit: ; preds = %.pre
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13

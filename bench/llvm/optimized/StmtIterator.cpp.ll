@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN5clang16StmtIteratorBaseC1EPKNS_17VariableArrayTypeE = unnamed_addr alias void (ptr, ptr), ptr @_ZN5clang16StmtIteratorBaseC2EPKNS_17VariableArrayTypeE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang16StmtIteratorBase6NextVAEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang16StmtIteratorBase6NextVAEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, -4
@@ -121,7 +121,7 @@ _ZN5clang16StmtIteratorBase8NextDeclEb.exit:      ; preds = %.lr.ph.i7, %_ZN5cla
 declare noundef zeroext i1 @_ZNK5clang7VarDecl7hasInitEv(ptr noundef nonnull align 8 dereferenceable(100)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang16StmtIteratorBase8NextDeclEb(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang16StmtIteratorBase8NextDeclEb(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %.pre = load ptr, ptr %0, align 8
   br i1 %1, label %3, label %5
 
@@ -161,7 +161,7 @@ define dso_local void @_ZN5clang16StmtIteratorBase8NextDeclEb(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang16StmtIteratorBase10HandleDeclEPNS_4DeclE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang16StmtIteratorBase10HandleDeclEPNS_4DeclE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 127
@@ -308,7 +308,7 @@ _ZL6FindVAPKN5clang4TypeE.exit41.thread:          ; preds = %52, %37, %67, %65, 
 declare noundef ptr @_ZN5clang7VarDecl7getInitEv(ptr noundef nonnull align 8 dereferenceable(100)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang16StmtIteratorBaseC2EPPNS_4DeclES3_(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang16StmtIteratorBaseC2EPPNS_4DeclES3_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 2, ptr %4, align 8
@@ -340,7 +340,7 @@ _ZN5clang16StmtIteratorBase8NextDeclEb.exit:      ; preds = %.lr.ph.i, %._crit_e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang16StmtIteratorBaseC2EPKNS_17VariableArrayTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang16StmtIteratorBaseC2EPKNS_17VariableArrayTypeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   store ptr null, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = ptrtoint ptr %1 to i64
@@ -350,7 +350,7 @@ define dso_local void @_ZN5clang16StmtIteratorBaseC2EPKNS_17VariableArrayTypeE(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16StmtIteratorBase11GetDeclExprEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16StmtIteratorBase11GetDeclExprEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, -4

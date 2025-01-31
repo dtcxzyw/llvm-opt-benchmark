@@ -42,7 +42,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.32 = private unnamed_addr constant [11 x i8] c"%9.2f sec\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Ssw_RarSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 96)) %0) local_unnamed_addr #0 {
+define void @Ssw_RarSetDefaultParams(ptr noundef writeonly captures(none) initializes((0, 96)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %2, i8 0, i64 48, i1 false)
   store i32 20, ptr %0, align 8
@@ -56,7 +56,7 @@ define void @Ssw_RarSetDefaultParams(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define void @Ssw_RarManPrepareRandom(i32 noundef %0) local_unnamed_addr #2 {
@@ -78,7 +78,7 @@ define void @Ssw_RarManPrepareRandom(i32 noundef %0) local_unnamed_addr #2 {
 declare i32 @Aig_ManRandom(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Ssw_RarManAssingRandomPis(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @Ssw_RarManAssingRandomPis(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 108
@@ -147,7 +147,7 @@ define void @Ssw_RarManAssingRandomPis(ptr nocapture noundef readonly %0) local_
 declare i64 @Aig_ManRandom64(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Ssw_RarDeriveCex(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4) local_unnamed_addr #2 {
+define noundef ptr @Ssw_RarDeriveCex(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4) local_unnamed_addr #2 {
 Vec_IntAlloc.exit.i:
   %5 = load ptr, ptr %0, align 8
   %6 = load i32, ptr %5, align 8
@@ -388,7 +388,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #21
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #19
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #19
   call void @free(ptr noundef %9) #19
   br label %16
 
@@ -405,7 +405,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @transpose32(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @transpose32(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   br label %.preheader
 
 .preheader:                                       ; preds = %1, %19
@@ -449,7 +449,7 @@ define void @transpose32(ptr nocapture noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @transpose64(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @transpose64(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   br label %.preheader
 
 .preheader:                                       ; preds = %1, %20
@@ -495,7 +495,7 @@ define void @transpose64(ptr nocapture noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @transpose64Simple(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 512)) %1) local_unnamed_addr #4 {
+define void @transpose64Simple(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 512)) %1) local_unnamed_addr #4 {
 .preheader.preheader:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %1, i8 0, i64 512, i1 false)
   br label %.preheader
@@ -754,7 +754,7 @@ Abc_Clock.exit22:                                 ; preds = %75, %78
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Ssw_RarTranspose(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define void @Ssw_RarTranspose(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = alloca [64 x i64], align 16
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -913,7 +913,7 @@ transpose64.exit:                                 ; preds = %62, %transpose64.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ssw_RarManInitialize(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #2 {
+define void @Ssw_RarManInitialize(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 48
@@ -1164,7 +1164,7 @@ Ssw_RarManAssingRandomPis.exit:                   ; preds = %._crit_edge.i, %._c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Ssw_RarManPoIsConst0(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Ssw_RarManPoIsConst0(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr i8, ptr %1, i64 36
   %.val = load i32, ptr %3, align 4
   %.val9 = load ptr, ptr %0, align 8
@@ -1200,7 +1200,7 @@ define range(i32 0, 2) i32 @Ssw_RarManPoIsConst0(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Ssw_RarManObjIsConst(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define range(i32 0, 2) i32 @Ssw_RarManObjIsConst(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = getelementptr i8, ptr %1, i64 36
   %.val = load i32, ptr %3, align 4
   %.val11 = load ptr, ptr %0, align 8
@@ -1240,7 +1240,7 @@ define range(i32 0, 2) i32 @Ssw_RarManObjIsConst(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Ssw_RarManObjsAreEqual(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #6 {
+define range(i32 0, 2) i32 @Ssw_RarManObjsAreEqual(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #6 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %5 = load i32, ptr %4, align 4
   %.val17 = load ptr, ptr %0, align 8
@@ -1291,7 +1291,7 @@ define range(i32 0, 2) i32 @Ssw_RarManObjsAreEqual(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Ssw_RarManObjHashWord(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define i32 @Ssw_RarManObjHashWord(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
   %.val = load ptr, ptr %0, align 8
@@ -1331,7 +1331,7 @@ define i32 @Ssw_RarManObjHashWord(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Ssw_RarManObjWhichOne(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define i32 @Ssw_RarManObjWhichOne(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr i8, ptr %1, i64 36
   %.val = load i32, ptr %3, align 4
   %.val19 = load ptr, ptr %0, align 8
@@ -1393,7 +1393,7 @@ define i32 @Ssw_RarManObjWhichOne(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @Ssw_RarManCheckNonConstOutputs(ptr nocapture noundef initializes((96, 104)) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 3) i32 @Ssw_RarManCheckNonConstOutputs(ptr noundef captures(none) initializes((96, 104)) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 -1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 100
@@ -1655,7 +1655,7 @@ Ssw_RarManPoIsConst0.exit.thread:                 ; preds = %38, %31, %86, %Abc_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ssw_RarManSimulate(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define void @Ssw_RarManSimulate(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   tail call void @Ssw_RarManInitialize(ptr noundef %0, ptr noundef %1)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -2503,7 +2503,7 @@ declare i32 @Ssw_ClassesRefineConst1Group(ptr noundef, ptr noundef, i32 noundef)
 declare i32 @Ssw_ClassesRefineGroup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Ssw_RarCheckTrivial(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Ssw_RarCheckTrivial(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 112
   %.val29 = load i32, ptr %3, align 8
   %4 = icmp sgt i32 %.val29, 0
@@ -2601,7 +2601,7 @@ define range(i32 0, 2) i32 @Ssw_RarCheckTrivial(ptr nocapture noundef %0, i32 no
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @Ssw_RarSimulate(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
@@ -3442,7 +3442,7 @@ define internal fastcc noalias noundef ptr @Ssw_RarManStart(ptr noundef %0, ptr 
 declare void @Aig_ManStop(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Ssw_RarTransferPatterns(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #2 {
+define internal fastcc void @Ssw_RarTransferPatterns(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #2 {
   tail call void @Ssw_RarTranspose(ptr noundef %0)
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -3793,7 +3793,7 @@ Vec_IntPush.exit79:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Ssw_RarManStop(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc void @Ssw_RarManStop(ptr noundef captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -4115,7 +4115,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 declare void @srand(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare i32 @rand() local_unnamed_addr #9
@@ -4854,13 +4854,13 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %361 = or i32 %.1125212, %.0120
   %362 = icmp eq i32 %361, 0
   %363 = zext i1 %362 to i32
-  call void @Ssw_RarManSimulate(ptr noundef %61, ptr noundef %360, i32 noundef 1, i32 noundef %363)
+  call void @Ssw_RarManSimulate(ptr noundef nonnull %61, ptr noundef %360, i32 noundef 1, i32 noundef %363)
   %364 = load i32, ptr %41, align 8
   %.not140 = icmp eq i32 %364, 0
   br i1 %.not140, label %408, label %365
 
 365:                                              ; preds = %359
-  %366 = call i32 @Ssw_RarManCheckNonConstOutputs(ptr noundef %61, i32 noundef -1, i64 noundef 0)
+  %366 = call i32 @Ssw_RarManCheckNonConstOutputs(ptr noundef nonnull %61, i32 noundef -1, i64 noundef 0)
   %.not141 = icmp eq i32 %366, 0
   br i1 %.not141, label %408, label %367
 
@@ -5078,7 +5078,7 @@ Vec_IntFill.exit:                                 ; preds = %462, %Vec_IntGrow.e
 
 469:                                              ; preds = %435, %._crit_edge215
   %470 = load ptr, ptr %335, align 8
-  call fastcc void @Ssw_RarTransferPatterns(ptr noundef %61, ptr noundef %470)
+  call fastcc void @Ssw_RarTransferPatterns(ptr noundef nonnull %61, ptr noundef %470)
   br label %471
 
 471:                                              ; preds = %469, %Vec_IntFill.exit
@@ -5159,7 +5159,7 @@ Abc_Clock.exit185:                                ; preds = %488, %495
   br label %505
 
 505:                                              ; preds = %Abc_Clock.exit185, %480, %.loopexit
-  call fastcc void @Ssw_RarManStop(ptr noundef %61)
+  call fastcc void @Ssw_RarManStop(ptr noundef nonnull %61)
   br label %506
 
 506:                                              ; preds = %43, %32, %505
@@ -5239,16 +5239,16 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #10
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
@@ -5267,10 +5267,10 @@ declare void @llvm.va_end.p0(ptr) #15
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #18

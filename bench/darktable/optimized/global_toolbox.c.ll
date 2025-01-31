@@ -88,7 +88,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define ptr @name(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #10
   ret ptr %2
 }
@@ -97,22 +97,22 @@ define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
 declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @views(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @views(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 -536870913
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @container(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @container(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @expandable(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @expandable(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @position(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 1001
 }
 
@@ -467,7 +467,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #4
@@ -497,7 +497,7 @@ declare i64 @gtk_toggle_button_get_type() local_unnamed_addr #6
 declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_lib_filter_grouping_button_clicked(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal void @_lib_filter_grouping_button_clicked(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call i64 @gtk_toggle_button_get_type() #12
   %4 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %3) #10
   %5 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %4) #10
@@ -531,7 +531,7 @@ declare void @gtk_widget_set_size_request(ptr noundef, i32 noundef, i32 noundef)
 declare void @g_object_set(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_overlays_show_popup(ptr noundef %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_overlays_show_popup(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -838,7 +838,7 @@ define internal void @_overlays_show_popup(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_main_icons_register_size(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 {
+define internal void @_main_icons_register_size(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #1 {
   %4 = alloca %struct._GtkBorder, align 2
   %5 = alloca %struct._GtkBorder, align 2
   %6 = alloca %struct._GtkBorder, align 2
@@ -921,7 +921,7 @@ declare ptr @gtk_radio_button_new_with_label_from_widget(ptr noundef, ptr nounde
 declare i64 @gtk_radio_button_get_type() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal void @_overlays_toggle_button(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_overlays_toggle_button(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 200
@@ -1016,7 +1016,7 @@ define internal void @_overlays_toggle_button(ptr nocapture readnone %0, ptr noc
 declare ptr @gtk_spin_button_new_with_range(double noundef, double noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_overlays_timeout_changed(ptr noundef %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_overlays_timeout_changed(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = tail call i64 @gtk_spin_button_get_type() #12
@@ -1061,7 +1061,7 @@ declare ptr @gtk_check_button_new_with_label(ptr noundef) local_unnamed_addr #5
 declare void @gtk_widget_set_name(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_overlays_toggle_culling_button(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_overlays_toggle_culling_button(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 200
@@ -1190,7 +1190,7 @@ define internal void @_lib_keymap_button_clicked(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef range(i32 0, 2) i32 @_lib_keymap_button_press_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_lib_keymap_button_press_release(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #1 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load i32, ptr %5, align 8, !tbaa !94
@@ -1249,16 +1249,16 @@ declare void @dtgtk_cairo_paint_preferences(ptr noundef, i32 noundef, i32 nounde
 declare void @gtk_box_pack_end(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_lib_preferences_button_clicked(ptr nocapture readnone %0, ptr nocapture readnone %1) #1 {
+define internal void @_lib_preferences_button_clicked(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #1 {
   tail call void (...) @dt_gui_preferences_show() #10
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define void @gui_cleanup(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define void @gui_cleanup(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   tail call void @g_free(ptr noundef %3) #10
@@ -1367,7 +1367,7 @@ declare void @dt_control_forbid_change_cursor(...) local_unnamed_addr #5
 declare void @gdk_event_handler_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_main_do_event_help(ptr noundef %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_main_do_event_help(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = load i32, ptr %0, align 8, !tbaa !100
   switch i32 %3, label %27 [
     i32 4, label %4
@@ -1738,7 +1738,7 @@ declare ptr @gtk_bin_get_child(ptr noundef) local_unnamed_addr #5
 declare i64 @gtk_bin_get_type() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare ptr @gtk_widget_get_name(ptr noundef) local_unnamed_addr #5
 
@@ -1853,7 +1853,7 @@ declare void @gtk_window_move(ptr noundef, i32 noundef, i32 noundef) local_unnam
 declare void @gtk_window_resize(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_resize_shortcuts_dialog(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #1 {
+define internal noundef i32 @_resize_shortcuts_dialog(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #1 {
   %4 = tail call i64 @gtk_window_get_type() #12
   %5 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %4) #10
   tail call void @gtk_window_get_position(ptr noundef %5, ptr noundef nonnull @_shortcuts_dialog_posize, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_shortcuts_dialog_posize, i64 4)) #10

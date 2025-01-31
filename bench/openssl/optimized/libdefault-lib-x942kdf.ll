@@ -425,7 +425,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @x942kdf_settable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @x942kdf_settable_ctx_params(ptr readnone captures(none) %ctx, ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @x942kdf_settable_ctx_params.known_settable_ctx_params
 }
@@ -678,7 +678,7 @@ return:                                           ; preds = %if.end62, %if.end77
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @x942kdf_gettable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @x942kdf_gettable_ctx_params(ptr readnone captures(none) %ctx, ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @x942kdf_gettable_ctx_params.known_gettable_ctx_params
 }
@@ -733,7 +733,7 @@ declare void @ossl_prov_digest_reset(ptr noundef) local_unnamed_addr #2
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @ERR_new() local_unnamed_addr #2
 
@@ -744,7 +744,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare ptr @ossl_prov_digest_md(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @x942_encode_otherinfo(i64 noundef %keylen, ptr noundef %cek_oid, i64 noundef %cek_oid_len, ptr noundef %acvp, i64 noundef %acvp_len, ptr noundef %partyu, i64 noundef %partyu_len, ptr noundef %partyv, i64 noundef %partyv_len, ptr noundef %supp_pub, i64 noundef %supp_pub_len, ptr noundef %supp_priv, i64 noundef %supp_priv_len, ptr nocapture noundef nonnull writeonly %der, ptr nocapture noundef nonnull writeonly %der_len, ptr nocapture noundef nonnull writeonly %out_ctr) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @x942_encode_otherinfo(i64 noundef %keylen, ptr noundef %cek_oid, i64 noundef %cek_oid_len, ptr noundef %acvp, i64 noundef %acvp_len, ptr noundef %partyu, i64 noundef %partyu_len, ptr noundef %partyv, i64 noundef %partyv_len, ptr noundef %supp_pub, i64 noundef %supp_pub_len, ptr noundef %supp_priv, i64 noundef %supp_priv_len, ptr noundef nonnull writeonly captures(none) %der, ptr noundef nonnull writeonly captures(none) %der_len, ptr noundef nonnull writeonly captures(none) %out_ctr) unnamed_addr #0 {
 entry:
   %pcounter = alloca ptr, align 8
   %der_buflen = alloca i64, align 8
@@ -817,7 +817,7 @@ return:                                           ; preds = %entry, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @x942kdf_hash_kdm(ptr noundef nonnull %kdf_md, ptr noundef %z, i64 noundef %z_len, ptr noundef %other, i64 noundef %other_len, ptr nocapture noundef writeonly %ctr, ptr noundef %derived_key, i64 noundef %derived_key_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @x942kdf_hash_kdm(ptr noundef nonnull %kdf_md, ptr noundef %z, i64 noundef %z_len, ptr noundef %other, i64 noundef %other_len, ptr noundef writeonly captures(none) %ctr, ptr noundef %derived_key, i64 noundef %derived_key_len) unnamed_addr #0 {
 entry:
   %mac = alloca [64 x i8], align 16
   %cmp = icmp ugt i64 %z_len, 1073741824
@@ -869,12 +869,12 @@ lor.lhs.false35:                                  ; preds = %for.cond.preheader,
   %out.039 = phi ptr [ %add.ptr, %for.inc ], [ %derived_key, %for.cond.preheader ]
   %len.038 = phi i64 [ %sub, %for.inc ], [ %derived_key_len, %for.cond.preheader ]
   %counter.037 = phi i64 [ %inc, %for.inc ], [ 1, %for.cond.preheader ]
-  %call36 = tail call i32 @EVP_DigestUpdate(ptr noundef %call9, ptr noundef %z, i64 noundef %z_len) #6
+  %call36 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %call9, ptr noundef %z, i64 noundef %z_len) #6
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %end, label %lor.lhs.false38
 
 lor.lhs.false38:                                  ; preds = %lor.lhs.false35
-  %call39 = tail call i32 @EVP_DigestUpdate(ptr noundef %call9, ptr noundef %other, i64 noundef %other_len) #6
+  %call39 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %call9, ptr noundef %other, i64 noundef %other_len) #6
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %end, label %if.end42
 
@@ -883,7 +883,7 @@ if.end42:                                         ; preds = %lor.lhs.false38
   br i1 %cmp43.not, label %if.else, label %if.then45
 
 if.then45:                                        ; preds = %if.end42
-  %call46 = tail call i32 @EVP_DigestFinal_ex(ptr noundef %call9, ptr noundef %out.039, ptr noundef null) #6
+  %call46 = tail call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call9, ptr noundef %out.039, ptr noundef null) #6
   %tobool47.not = icmp eq i32 %call46, 0
   br i1 %tobool47.not, label %end, label %if.end49
 
@@ -893,7 +893,7 @@ if.end49:                                         ; preds = %if.then45
   br i1 %cmp50, label %end, label %for.inc
 
 if.else:                                          ; preds = %if.end42
-  %call54 = call i32 @EVP_DigestFinal_ex(ptr noundef %call9, ptr noundef nonnull %mac, ptr noundef null) #6
+  %call54 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call9, ptr noundef nonnull %mac, ptr noundef null) #6
   %tobool55.not = icmp eq i32 %call54, 0
   br i1 %tobool55.not, label %end, label %if.end57
 
@@ -915,7 +915,7 @@ for.inc:                                          ; preds = %if.end49
   store i8 %conv28, ptr %arrayidx29, align 1
   %conv31 = trunc i64 %inc to i8
   store i8 %conv31, ptr %arrayidx32, align 1
-  %call33 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef %call9, ptr noundef %call10) #6
+  %call33 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %call9, ptr noundef nonnull %call10) #6
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %end, label %lor.lhs.false35
 
@@ -1087,7 +1087,7 @@ declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #2
 
@@ -1102,7 +1102,7 @@ declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @find_alg_id(ptr noundef %libctx, ptr noundef %algname, ptr noundef %propq, ptr nocapture noundef nonnull writeonly %id) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @find_alg_id(ptr noundef %libctx, ptr noundef %algname, ptr noundef %propq, ptr noundef nonnull writeonly captures(none) %id) unnamed_addr #0 {
 entry:
   %call = tail call ptr @EVP_CIPHER_fetch(ptr noundef %libctx, ptr noundef %algname, ptr noundef %propq) #6
   %cmp.not = icmp eq ptr %call, null

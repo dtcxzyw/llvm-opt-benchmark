@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Intercomm_create_from_groups_f08 = weak alias void (ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32), ptr @ompi_intercomm_create_from_groups_f
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_intercomm_create_from_groups_f(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef writeonly %7, ptr noundef writeonly %8, i32 noundef %9) #0 {
+define void @ompi_intercomm_create_from_groups_f(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef writeonly %8, i32 noundef %9) #0 {
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %13 = load i32, ptr %0, align 4
@@ -166,7 +166,7 @@ declare i32 @PMPI_Intercomm_create_from_groups(ptr noundef, i32 noundef, ptr nou
 declare i32 @PMPI_Comm_c2f(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #3

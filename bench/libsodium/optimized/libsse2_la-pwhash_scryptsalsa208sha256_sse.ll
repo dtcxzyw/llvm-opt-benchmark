@@ -267,7 +267,7 @@ declare ptr @_sodium_escrypt_alloc_region(ptr noundef, i64 noundef) local_unname
 declare void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define internal fastcc void @blockmix_salsa8(ptr nocapture noundef readonly %Bin, ptr nocapture noundef writeonly initializes((0, 64)) %Bout, i64 noundef range(i64 1, 4294967296) %r) unnamed_addr #3 {
+define internal fastcc void @blockmix_salsa8(ptr noundef readonly captures(none) %Bin, ptr noundef writeonly captures(none) initializes((0, 64)) %Bout, i64 noundef range(i64 1, 4294967296) %r) unnamed_addr #3 {
 entry:
   %.idx1006 = shl nuw nsw i64 %r, 7
   %0 = getelementptr i8, ptr %Bin, i64 %.idx1006
@@ -1065,7 +1065,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define internal fastcc i32 @blockmix_salsa8_xor(ptr nocapture noundef readonly %Bin1, ptr nocapture noundef readonly %Bin2, ptr nocapture noundef writeonly initializes((0, 64)) %Bout, i64 noundef range(i64 1, 4294967296) %r) unnamed_addr #3 {
+define internal fastcc i32 @blockmix_salsa8_xor(ptr noundef readonly captures(none) %Bin1, ptr noundef readonly captures(none) %Bin2, ptr noundef writeonly captures(none) initializes((0, 64)) %Bout, i64 noundef range(i64 1, 4294967296) %r) unnamed_addr #3 {
 entry:
   %mul = shl nuw nsw i64 %r, 3
   %sub = add nsw i64 %mul, -4

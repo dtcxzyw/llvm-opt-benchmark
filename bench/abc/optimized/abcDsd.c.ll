@@ -68,7 +68,7 @@ define ptr @Abc_NtkDsdGlobal(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32
 declare ptr @Abc_NtkBuildGlobalBdds(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare i32 @Cudd_ReadKeys(ptr noundef) local_unnamed_addr #1
 
@@ -444,14 +444,14 @@ Vec_PtrFree.exit64:                               ; preds = %112, %114
 
 Abc_NtkDsdConstruct.exit:                         ; preds = %177, %150
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @Abc_NtkFinalize(ptr noundef %0, ptr noundef %116) #10
+  call void @Abc_NtkFinalize(ptr noundef nonnull %0, ptr noundef %116) #10
   %181 = call i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef %116, i32 noundef 0) #10
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %192, label %182
 
 182:                                              ; preds = %Abc_NtkDsdConstruct.exit
-  %183 = call ptr @Abc_NtkCollectCioNames(ptr noundef %0, i32 noundef 0) #10
-  %184 = call ptr @Abc_NtkCollectCioNames(ptr noundef %0, i32 noundef 1) #10
+  %183 = call ptr @Abc_NtkCollectCioNames(ptr noundef nonnull %0, i32 noundef 0) #10
+  %184 = call ptr @Abc_NtkCollectCioNames(ptr noundef nonnull %0, i32 noundef 1) #10
   %.not51 = icmp eq i32 %1, 0
   %185 = load ptr, ptr @stdout, align 8
   br i1 %.not51, label %187, label %186
@@ -1101,7 +1101,7 @@ Vec_PtrFree.exit:                                 ; preds = %._crit_edge, %271
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @Abc_NtkMinimumBase(ptr noundef) local_unnamed_addr #1
 
@@ -1110,7 +1110,7 @@ declare ptr @Dsd_ManagerStart(ptr noundef, i32 noundef, i32 noundef) local_unnam
 declare void @Dsd_ManagerStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Extra_bddComputeSum(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @Extra_bddComputeSum(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -1221,10 +1221,10 @@ declare double @Cudd_CountMinterm(ptr noundef, ptr noundef, i32 noundef) local_u
 declare ptr @Cudd_bddPickArbitraryMinterms(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkSparsifyInternal(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2) local_unnamed_addr #0 {
+define ptr @Abc_NtkSparsifyInternal(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2) local_unnamed_addr #0 {
   %4 = tail call ptr @Abc_NtkAlloc(i32 noundef 2, i32 noundef 2, i32 noundef 1) #10
   %5 = getelementptr i8, ptr %0, i64 56
   %.val97110 = load ptr, ptr %5, align 8
@@ -1488,7 +1488,7 @@ declare void @Cudd_Srandom(i64 noundef) local_unnamed_addr #1
 declare i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkSparsify(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @Abc_NtkSparsify(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @Abc_NtkSparsifyInternal(ptr noundef %0, i32 noundef %1, i32 poison)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %9, label %6
@@ -1528,7 +1528,7 @@ declare void @Dsd_TreePrint2(ptr noundef, ptr noundef, ptr noundef, ptr noundef,
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 declare ptr @Abc_AigConst1(ptr noundef) local_unnamed_addr #1
 
@@ -1716,16 +1716,16 @@ declare ptr @Cudd_bddIte(ptr noundef, ptr noundef, ptr noundef, ptr noundef) loc
 declare i32 @Cudd_SupportSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8

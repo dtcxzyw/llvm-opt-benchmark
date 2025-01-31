@@ -53,19 +53,19 @@ $_ZTI25btTaskSchedulerSequential = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN11btSpinMutex4lockEv(ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN11btSpinMutex4lockEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN11btSpinMutex6unlockEv(ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN11btSpinMutex6unlockEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZN11btSpinMutex7tryLockEv(ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN11btSpinMutex7tryLockEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #0 align 2 {
 entry:
   ret i1 true
 }
@@ -121,7 +121,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN16btITaskSchedulerC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(21) initializes((0, 21)) %this, ptr noundef %name) unnamed_addr #3 align 2 {
+define dso_local void @_ZN16btITaskSchedulerC2EPKc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(21) initializes((0, 21)) %this, ptr noundef %name) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16btITaskScheduler, i64 16), ptr %this, align 8
   %m_name = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -134,7 +134,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN16btITaskScheduler8activateEv(ptr nocapture noundef nonnull align 8 dereferenceable(21) %this) unnamed_addr #4 align 2 {
+define dso_local void @_ZN16btITaskScheduler8activateEv(ptr noundef nonnull align 8 captures(none) dereferenceable(21) %this) unnamed_addr #4 align 2 {
 entry:
   %m_isActive = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i8, ptr %m_isActive, align 4
@@ -153,7 +153,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN16btITaskScheduler10deactivateEv(ptr nocapture noundef nonnull align 8 dereferenceable(21) %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZN16btITaskScheduler10deactivateEv(ptr noundef nonnull align 8 captures(none) dereferenceable(21) %this) unnamed_addr #5 align 2 {
 entry:
   %m_isActive = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i8, ptr %m_isActive, align 4

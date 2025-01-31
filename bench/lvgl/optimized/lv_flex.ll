@@ -31,7 +31,7 @@ define void @lv_flex_init() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @flex_update(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal void @flex_update(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = alloca %struct.flex_t, align 4
   %4 = alloca %struct.track_t, align 8
   %5 = alloca %struct.track_t, align 8
@@ -501,7 +501,7 @@ declare void @lv_obj_mark_layout_as_dirty(ptr noundef) local_unnamed_addr #2
 declare ptr @lv_obj_get_parent(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @lv_obj_get_content_width(ptr noundef) local_unnamed_addr #2
 
@@ -512,7 +512,7 @@ declare i32 @lv_obj_get_scroll_y(ptr noundef) local_unnamed_addr #2
 declare i32 @lv_obj_get_scroll_x(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, -2147483648) i32 @find_track_end(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef range(i32 0, 65535) %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull initializes((0, 28)) %5) unnamed_addr #1 {
+define internal fastcc range(i32 -2, -2147483648) i32 @find_track_end(ptr noundef %0, ptr noundef nonnull captures(none) %1, i32 noundef range(i32 0, 65535) %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull captures(none) initializes((0, 28)) %5) unnamed_addr #1 {
   %7 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 1) #7
   %8 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 2) #7
   %9 = ptrtoint ptr %8 to i64
@@ -754,10 +754,10 @@ get_next_item.exit:                               ; preds = %114
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @children_repos(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 0, 65535) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef nonnull readonly %8) unnamed_addr #1 {
+define internal fastcc void @children_repos(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 0, 65535) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull readonly captures(none) %8) unnamed_addr #1 {
 .critedge260:
   %9 = alloca %struct.lv_area_t, align 4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -1431,7 +1431,7 @@ declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #2
 declare void @lv_obj_move_children_by(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6

@@ -253,14 +253,14 @@ define dso_local i32 @i915_ttm_buddy_man_reserve(ptr noundef %0, i64 noundef %1,
 declare dso_local i32 @drm_buddy_alloc_blocks(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i64 @i915_ttm_buddy_man_visible_size(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local i64 @i915_ttm_buddy_man_visible_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i915_ttm_buddy_man_avail(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 align 16 {
+define dso_local void @i915_ttm_buddy_man_avail(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   tail call void @mutex_lock(ptr noundef nonnull %4) #7
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -278,7 +278,7 @@ define dso_local void @i915_ttm_buddy_man_avail(ptr noundef %0, ptr nocapture no
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @i915_ttm_buddy_man_alloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 align 16 {
+define internal i32 @i915_ttm_buddy_man_alloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %7 = load i32, ptr %6, align 4
@@ -498,7 +498,7 @@ define internal void @i915_ttm_buddy_man_free(ptr noundef %0, ptr noundef %1) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal zeroext i1 @i915_ttm_buddy_man_intersects(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, i64 %3) #4 align 16 {
+define internal zeroext i1 @i915_ttm_buddy_man_intersects(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, i64 %3) #4 align 16 {
   %5 = load i32, ptr %2, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %20
@@ -564,7 +564,7 @@ define internal zeroext i1 @i915_ttm_buddy_man_intersects(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal zeroext i1 @i915_ttm_buddy_man_compatible(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, i64 %3) #4 align 16 {
+define internal zeroext i1 @i915_ttm_buddy_man_compatible(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, i64 %3) #4 align 16 {
   %5 = load i32, ptr %2, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %24

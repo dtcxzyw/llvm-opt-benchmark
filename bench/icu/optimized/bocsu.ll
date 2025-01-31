@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_writeIdenticalLevelRun_75(i32 noundef %prev, ptr nocapture noundef readonly %s, i32 noundef %length, ptr noundef nonnull align 8 dereferenceable(8) %sink) local_unnamed_addr #0 {
+define i32 @u_writeIdenticalLevelRun_75(i32 noundef %prev, ptr noundef readonly captures(none) %s, i32 noundef %length, ptr noundef nonnull align 8 dereferenceable(8) %sink) local_unnamed_addr #0 {
 entry:
   %scratch = alloca [64 x i8], align 16
   %capacity = alloca i32, align 4

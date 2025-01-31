@@ -64,7 +64,7 @@ $_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defau
 @_ZN4base8internal10JSONParser13StringBuilderD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4base8internal10JSONParser13StringBuilderD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base8internal10JSONParserC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) initializes((0, 4), (8, 60)) %this, i32 noundef %options) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base8internal10JSONParserC2Ei(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(60) initializes((0, 4), (8, 60)) %this, i32 noundef %options) unnamed_addr #0 align 2 {
 entry:
   store i32 %options, ptr %this, align 8
   %start_pos_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -73,7 +73,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4base8internal10JSONParserD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4base8internal10JSONParserD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
@@ -441,7 +441,7 @@ declare noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11
 declare noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4base8internal10JSONParser10NextNCharsEi(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %n) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4base8internal10JSONParser10NextNCharsEi(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this, i32 noundef %n) local_unnamed_addr #6 align 2 {
 entry:
   %index_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %index_, align 8
@@ -464,7 +464,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 0, 13) i32 @_ZN4base8internal10JSONParser12GetNextTokenEv(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 0, 13) i32 @_ZN4base8internal10JSONParser12GetNextTokenEv(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4base8internal10JSONParser24EatWhitespaceAndCommentsEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
   %pos_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -540,7 +540,7 @@ return:                                           ; preds = %if.end, %entry, %sw
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull ptr @_ZN4base8internal10JSONParser8NextCharEv(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #6 align 2 {
+define dso_local noundef nonnull ptr @_ZN4base8internal10JSONParser8NextCharEv(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #6 align 2 {
 entry:
   %index_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %index_, align 8
@@ -554,7 +554,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4base8internal10JSONParser11ReportErrorENS_10JSONReader14JsonParseErrorEi(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((48, 60)) %this, i32 noundef %code, i32 noundef %column_adjust) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4base8internal10JSONParser11ReportErrorENS_10JSONReader14JsonParseErrorEi(ptr noundef nonnull align 8 captures(none) dereferenceable(60) initializes((48, 60)) %this, i32 noundef %code, i32 noundef %column_adjust) local_unnamed_addr #6 align 2 {
 entry:
   %error_code_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i32 %code, ptr %error_code_, align 8
@@ -576,7 +576,7 @@ entry:
 declare void @_ZNK4base5Value14CreateDeepCopyEv(ptr sret(%"class.std::unique_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK4base8internal10JSONParser10error_codeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this) local_unnamed_addr #8 align 2 {
+define dso_local noundef i32 @_ZNK4base8internal10JSONParser10error_codeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #8 align 2 {
 entry:
   %error_code_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load i32, ptr %error_code_, align 8
@@ -584,7 +584,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4base8internal10JSONParser15GetErrorMessageB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4base8internal10JSONParser15GetErrorMessageB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %error_line_ = getelementptr inbounds nuw i8, ptr %this, i64 52
@@ -641,7 +641,7 @@ return:                                           ; preds = %if.end, %if.then
 declare void @_ZN4base10JSONReader17ErrorCodeToStringB5cxx11ENS0_14JsonParseErrorE(ptr sret(%"class.std::__cxx11::basic_string") align 8, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK4base8internal10JSONParser10error_lineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this) local_unnamed_addr #8 align 2 {
+define dso_local noundef i32 @_ZNK4base8internal10JSONParser10error_lineEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #8 align 2 {
 entry:
   %error_line_ = getelementptr inbounds nuw i8, ptr %this, i64 52
   %0 = load i32, ptr %error_line_, align 4
@@ -649,7 +649,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK4base8internal10JSONParser12error_columnEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this) local_unnamed_addr #8 align 2 {
+define dso_local noundef i32 @_ZNK4base8internal10JSONParser12error_columnEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #8 align 2 {
 entry:
   %error_column_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i32, ptr %error_column_, align 8
@@ -657,14 +657,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base8internal10JSONParser13StringBuilderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base8internal10JSONParser13StringBuilderC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base8internal10JSONParser13StringBuilderC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef %pos) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base8internal10JSONParser13StringBuilderC2EPKc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, ptr noundef %pos) unnamed_addr #0 align 2 {
 entry:
   store ptr %pos, ptr %this, align 8
   %length_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -673,7 +673,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4base8internal10JSONParser13StringBuilder4SwapEPS2_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef %other) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4base8internal10JSONParser13StringBuilder4SwapEPS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef captures(none) %other) local_unnamed_addr #6 align 2 {
 entry:
   %string_ = getelementptr inbounds nuw i8, ptr %other, i64 16
   %string_2 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -695,7 +695,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base8internal10JSONParser13StringBuilderD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4base8internal10JSONParser13StringBuilderD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #4 align 2 {
 entry:
   %string_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %string_, align 8
@@ -715,7 +715,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base8internal10JSONParser13StringBuilder6AppendERKc(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %c) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base8internal10JSONParser13StringBuilder6AppendERKc(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %c) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 if.end13:
   %string_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %string_, align 8
@@ -741,7 +741,7 @@ if.end17:                                         ; preds = %if.else16, %if.then
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base8internal10JSONParser13StringBuilder12AppendStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %str) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4base8internal10JSONParser13StringBuilder12AppendStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %str) local_unnamed_addr #2 align 2 {
 entry:
   %string_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %string_, align 8
@@ -752,7 +752,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base8internal10JSONParser13StringBuilder7ConvertEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base8internal10JSONParser13StringBuilder7ConvertEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %string_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -797,7 +797,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base8internal10JSONParser13StringBuilder16CanBeStringPieceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #8 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base8internal10JSONParser13StringBuilder16CanBeStringPieceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #8 align 2 {
 entry:
   %string_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %string_, align 8
@@ -806,7 +806,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, i64 } @_ZN4base8internal10JSONParser13StringBuilder13AsStringPieceB5cxx11Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #2 align 2 {
+define dso_local { ptr, i64 } @_ZN4base8internal10JSONParser13StringBuilder13AsStringPieceB5cxx11Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #2 align 2 {
 entry:
   %retval = alloca %"class.base::BasicStringPiece", align 8
   %string_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -839,7 +839,7 @@ declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_tra
 declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4base8internal10JSONParser13StringBuilder8AsStringB5cxx11Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4base8internal10JSONParser13StringBuilder8AsStringB5cxx11Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %string_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -877,7 +877,7 @@ if.end:                                           ; preds = %_ZN4base8internal10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4base8internal10JSONParser24EatWhitespaceAndCommentsEv(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN4base8internal10JSONParser24EatWhitespaceAndCommentsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #7 align 2 {
 entry:
   %pos_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %end_pos_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1006,7 +1006,7 @@ while.end:                                        ; preds = %sw.epilog, %while.b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4base8internal10JSONParser10EatCommentEv(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base8internal10JSONParser10EatCommentEv(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #7 align 2 {
 entry:
   %pos_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pos_, align 8
@@ -1136,7 +1136,7 @@ return:                                           ; preds = %sw.default, %sw.bb5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base8internal10JSONParser17ConsumeDictionaryEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base8internal10JSONParser17ConsumeDictionaryEv(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
   %key = alloca %"class.base::internal::JSONParser::StringBuilder", align 8
@@ -1527,7 +1527,7 @@ return:                                           ; preds = %cleanup65, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base8internal10JSONParser11ConsumeListEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base8internal10JSONParser11ConsumeListEv(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %item = alloca %"class.std::unique_ptr", align 8
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
@@ -1793,7 +1793,7 @@ return:                                           ; preds = %cleanup41, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base8internal10JSONParser13ConsumeStringEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base8internal10JSONParser13ConsumeStringEv(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp.i = alloca %"class.std::allocator", align 1
@@ -1935,7 +1935,7 @@ _ZN4base8internal10JSONParser13StringBuilderD2Ev.exit: ; preds = %cleanup.thread
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base8internal10JSONParser13ConsumeNumberEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base8internal10JSONParser13ConsumeNumberEv(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %num_string = alloca %"class.base::BasicStringPiece", align 8
   %num_int = alloca i32, align 4
@@ -2241,7 +2241,7 @@ return:                                           ; preds = %land.rhs, %if.end59
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base8internal10JSONParser14ConsumeLiteralEv(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base8internal10JSONParser14ConsumeLiteralEv(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pos_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pos_, align 8
@@ -2420,7 +2420,7 @@ return:                                           ; preds = %sw.default, %if.end
 declare void @_ZN4base15DictionaryValueC1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base8internal10JSONParser16ConsumeStringRawEPNS1_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr nocapture noundef %out) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4base8internal10JSONParser16ConsumeStringRawEPNS1_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef captures(none) %out) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %string = alloca %"class.base::internal::JSONParser::StringBuilder", align 8
@@ -2918,7 +2918,7 @@ declare void @_ZN4base9ListValue6AppendESt10unique_ptrINS_5ValueESt14default_del
 declare noundef i32 @_ZN8base_icu21utf8_nextCharSafeBodyEPKhPiiia(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base8internal10JSONParser10DecodeUTF8ERKiPNS1_13StringBuilderE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %point, ptr nocapture noundef %dest) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base8internal10JSONParser10DecodeUTF8ERKiPNS1_13StringBuilderE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %point, ptr noundef captures(none) %dest) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %utf8_units = alloca [4 x i8], align 4
@@ -3077,7 +3077,7 @@ declare noundef zeroext i1 @_ZN4base14HexStringToIntERKNS_16BasicStringPieceINSt
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base8internal10JSONParser11DecodeUTF16EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %dest_string) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base8internal10JSONParser11DecodeUTF16EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this, ptr noundef %dest_string) local_unnamed_addr #2 align 2 {
 entry:
   %code_unit16_high = alloca i32, align 4
   %ref.tmp = alloca %"class.base::BasicStringPiece", align 8
@@ -3331,12 +3331,12 @@ return:                                           ; preds = %lor.rhs.i48, %lor.r
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4base8internal10JSONParser7ReadIntEb(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i1 noundef zeroext %allow_leading_zeros) local_unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base8internal10JSONParser7ReadIntEb(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %this, i1 noundef zeroext %allow_leading_zeros) local_unnamed_addr #7 align 2 {
 entry:
   %pos_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %pos_, align 8
@@ -3388,7 +3388,7 @@ declare noundef zeroext i1 @_ZN4base11StringToIntERKNS_16BasicStringPieceINSt7__
 declare noundef zeroext i1 @_ZN4base14StringToDoubleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPd(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4base8internal10JSONParser15StringsAreEqualEPKcS3_m(ptr nocapture noundef readonly %one, ptr nocapture noundef readonly %two, i64 noundef %len) local_unnamed_addr #12 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base8internal10JSONParser15StringsAreEqualEPKcS3_m(ptr noundef readonly captures(none) %one, ptr noundef readonly captures(none) %two, i64 noundef %len) local_unnamed_addr #12 align 2 {
 entry:
   %call = tail call i32 @strncmp(ptr noundef %one, ptr noundef %two, i64 noundef %len) #19
   %cmp = icmp eq i32 %call, 0
@@ -3398,7 +3398,7 @@ entry:
 declare void @_ZN4base5Value15CreateNullValueEv(ptr sret(%"class.std::unique_ptr") align 8) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 declare void @_ZN4base12StringPrintfB5cxx11EPKcz(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) local_unnamed_addr #3
 
@@ -3892,7 +3892,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK4base8internal12_GLOBAL__N_115JSONStringValue11GetAsStringEPNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %out_value) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZNK4base8internal12_GLOBAL__N_115JSONStringValue11GetAsStringEPNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef %out_value) unnamed_addr #2 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string.82", align 8
   %string_piece_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -4019,10 +4019,10 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #14
 declare double @llvm.fabs.f64(double) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

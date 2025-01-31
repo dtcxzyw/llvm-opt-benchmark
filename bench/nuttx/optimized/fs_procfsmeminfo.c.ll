@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [75 x i8] c"usage: <used/free>\0Aused: dump all allocated node\0Afree: dump all free node\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -12, 1) i32 @meminfo_open(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, i32 %2, i32 %3) #0 {
+define internal range(i32 -12, 1) i32 @meminfo_open(ptr noundef writeonly captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #0 {
   %5 = tail call noalias dereferenceable_or_null(272) ptr @zalloc(i64 noundef 272) #12
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
@@ -39,7 +39,7 @@ define internal range(i32 -12, 1) i32 @meminfo_open(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @meminfo_close(ptr nocapture noundef %0) #1 {
+define internal noundef i32 @meminfo_close(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3)
@@ -48,7 +48,7 @@ define internal noundef i32 @meminfo_close(ptr nocapture noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @meminfo_read(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal i64 @meminfo_read(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.mallinfo, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -129,7 +129,7 @@ define internal i64 @meminfo_read(ptr nocapture noundef %0, ptr noundef %1, i64 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal range(i32 -12, 1) i32 @meminfo_dup(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
+define internal range(i32 -12, 1) i32 @meminfo_dup(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noalias dereferenceable_or_null(272) ptr @malloc(i64 noundef 272) #14
@@ -148,7 +148,7 @@ define internal range(i32 -12, 1) i32 @meminfo_dup(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @meminfo_stat(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 88)) %1) #3 {
+define internal noundef i32 @meminfo_stat(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 88)) %1) #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1, i8 0, i64 88, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 33060, ptr %3, align 8
@@ -156,7 +156,7 @@ define internal noundef i32 @meminfo_stat(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @memdump_read(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal i64 @memdump_read(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
@@ -175,7 +175,7 @@ define internal i64 @memdump_read(ptr nocapture noundef %0, ptr noundef %1, i64 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @memdump_write(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 noundef returned %2) #0 {
+define internal noundef i64 @memdump_write(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef returned %2) #0 {
   %4 = alloca %struct.malltask, align 4
   store i32 -3, ptr %4, align 4
   %5 = load i8, ptr %1, align 1
@@ -268,7 +268,7 @@ define void @procfs_unregister_meminfo(ptr noundef readonly %0) local_unnamed_ad
 declare noalias ptr @zalloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @procfs_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #8
 
@@ -277,7 +277,7 @@ declare i64 @procfs_memcpy(ptr noundef, i64 noundef, ptr noundef, i64 noundef, p
 declare void @mm_mallinfo(ptr dead_on_unwind writable sret(%struct.mallinfo) align 4, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare void @mm_memdump(ptr noundef, ptr noundef) local_unnamed_addr #8
 
@@ -285,7 +285,7 @@ declare void @mm_memdump(ptr noundef, ptr noundef) local_unnamed_addr #8
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

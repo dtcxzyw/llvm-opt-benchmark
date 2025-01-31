@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_request_functions = external local_unnamed_addr global %struct.ompi_request_fns_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_bcast_intra_generic(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_bcast_intra_generic(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca [2 x ptr], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, ptr noundef nonnull align 16 dereferenceable(16) @__const.ompi_coll_base_bcast_intra_generic.recv_reqs, i64 16, i1 false)
   %10 = getelementptr i8, ptr %4, i64 220
@@ -147,7 +147,7 @@ define i32 @ompi_coll_base_bcast_intra_generic(ptr noundef %0, i32 noundef %1, p
   %73 = load i32, ptr %60, align 4
   %74 = zext nneg i32 %70 to i64
   %75 = getelementptr inbounds nuw [2 x ptr], ptr %9, i64 0, i64 %74
-  %76 = call i32 %71(ptr noundef %72, i64 noundef %19, ptr noundef %2, i32 noundef %73, i32 noundef -17, ptr noundef %4, ptr noundef nonnull %75) #4
+  %76 = call i32 %71(ptr noundef %72, i64 noundef %19, ptr noundef nonnull %2, i32 noundef %73, i32 noundef -17, ptr noundef nonnull %4, ptr noundef nonnull %75) #4
   %.not198 = icmp eq i32 %76, 0
   br i1 %.not198, label %77, label %.loopexit222
 
@@ -181,7 +181,7 @@ define i32 @ompi_coll_base_bcast_intra_generic(ptr noundef %0, i32 noundef %1, p
   %89 = getelementptr inbounds nuw [0 x i32], ptr %65, i64 0, i64 %indvars.iv
   %90 = load i32, ptr %89, align 4
   %91 = getelementptr inbounds nuw ptr, ptr %.0, i64 %indvars.iv
-  %92 = call i32 %88(ptr noundef %.1147260, i64 noundef %19, ptr noundef %2, i32 noundef %90, i32 noundef -17, i32 noundef 4, ptr noundef %4, ptr noundef %91) #4
+  %92 = call i32 %88(ptr noundef %.1147260, i64 noundef %19, ptr noundef nonnull %2, i32 noundef %90, i32 noundef -17, i32 noundef 4, ptr noundef nonnull %4, ptr noundef %91) #4
   %.not201 = icmp eq i32 %92, 0
   br i1 %.not201, label %84, label %.loopexit222
 
@@ -235,7 +235,7 @@ define i32 @ompi_coll_base_bcast_intra_generic(ptr noundef %0, i32 noundef %1, p
   %113 = getelementptr inbounds nuw [0 x i32], ptr %106, i64 0, i64 %indvars.iv310
   %114 = load i32, ptr %113, align 4
   %115 = getelementptr inbounds nuw ptr, ptr %.0, i64 %indvars.iv310
-  %116 = call i32 %112(ptr noundef %.1147.lcssa, i64 noundef %105, ptr noundef %2, i32 noundef %114, i32 noundef -17, i32 noundef 4, ptr noundef %4, ptr noundef %115) #4
+  %116 = call i32 %112(ptr noundef %.1147.lcssa, i64 noundef %105, ptr noundef nonnull %2, i32 noundef %114, i32 noundef -17, i32 noundef 4, ptr noundef nonnull %4, ptr noundef %115) #4
   %.not197 = icmp eq i32 %116, 0
   br i1 %.not197, label %107, label %.loopexit222
 
@@ -268,7 +268,7 @@ define i32 @ompi_coll_base_bcast_intra_generic(ptr noundef %0, i32 noundef %1, p
   %127 = load i32, ptr %60, align 4
   %128 = zext nneg i32 %124 to i64
   %129 = getelementptr inbounds nuw [2 x ptr], ptr %9, i64 0, i64 %128
-  %130 = call i32 %126(ptr noundef %125, i64 noundef %19, ptr noundef %2, i32 noundef %127, i32 noundef -17, ptr noundef %4, ptr noundef nonnull %129) #4
+  %130 = call i32 %126(ptr noundef %125, i64 noundef %19, ptr noundef nonnull %2, i32 noundef %127, i32 noundef -17, ptr noundef nonnull %4, ptr noundef nonnull %129) #4
   %.not192 = icmp eq i32 %130, 0
   br i1 %.not192, label %131, label %.loopexit222
 
@@ -452,12 +452,12 @@ ompi_coll_base_free_reqs.exit217:                 ; preds = %52, %192, %.prehead
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare ptr @ompi_coll_base_comm_get_reqs(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_bcast_intra_bintree(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_bcast_intra_bintree(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 584
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -519,7 +519,7 @@ declare i32 @ompi_coll_base_topo_destroy_tree(ptr noundef) local_unnamed_addr #2
 declare ptr @ompi_coll_base_topo_build_tree(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_bcast_intra_pipeline(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_bcast_intra_pipeline(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 584
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
@@ -579,7 +579,7 @@ define i32 @ompi_coll_base_bcast_intra_pipeline(ptr noundef %0, i32 noundef %1, 
 declare ptr @ompi_coll_base_topo_build_chain(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_bcast_intra_chain(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_bcast_intra_chain(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 584
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 112
@@ -645,7 +645,7 @@ define i32 @ompi_coll_base_bcast_intra_chain(ptr noundef %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_bcast_intra_binomial(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_bcast_intra_binomial(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 584
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
@@ -705,7 +705,7 @@ define i32 @ompi_coll_base_bcast_intra_binomial(ptr noundef %0, i32 noundef %1, 
 declare ptr @ompi_coll_base_topo_build_bmtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_bcast_intra_split_bintree(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_bcast_intra_split_bintree(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca [2 x i32], align 4
   %9 = alloca [2 x i32], align 4
   %10 = alloca [2 x i32], align 4
@@ -1055,7 +1055,7 @@ ompi_coll_base_bcast_intra_chain.exit:            ; preds = %89, %92, %96
   %199 = getelementptr inbounds i8, ptr %190, i64 %186
   %200 = sext i32 %197 to i64
   %201 = load i32, ptr %177, align 4
-  %202 = call i32 %198(ptr noundef %199, i64 noundef %200, ptr noundef %2, i32 noundef %201, i32 noundef -17, ptr noundef %4, ptr noundef nonnull %15) #4
+  %202 = call i32 %198(ptr noundef %199, i64 noundef %200, ptr noundef nonnull %2, i32 noundef %201, i32 noundef -17, ptr noundef nonnull %4, ptr noundef nonnull %15) #4
   %.not223 = icmp eq i32 %202, 0
   br i1 %.not223, label %203, label %.loopexit246
 
@@ -1078,7 +1078,7 @@ ompi_coll_base_bcast_intra_chain.exit:            ; preds = %89, %92, %96
   %212 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 96), align 8
   %213 = getelementptr inbounds nuw [0 x i32], ptr %187, i64 0, i64 %indvars.iv
   %214 = load i32, ptr %213, align 4
-  %215 = call i32 %212(ptr noundef %190, i64 noundef %176, ptr noundef %2, i32 noundef %214, i32 noundef -17, i32 noundef 4, ptr noundef %4) #4
+  %215 = call i32 %212(ptr noundef %190, i64 noundef %176, ptr noundef nonnull %2, i32 noundef %214, i32 noundef -17, i32 noundef 4, ptr noundef nonnull %4) #4
   %.not224 = icmp eq i32 %215, 0
   br i1 %.not224, label %208, label %.loopexit246
 
@@ -1120,7 +1120,7 @@ ompi_coll_base_bcast_intra_chain.exit:            ; preds = %89, %92, %96
   %232 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 96), align 8
   %233 = getelementptr inbounds nuw [0 x i32], ptr %226, i64 0, i64 %indvars.iv308
   %234 = load i32, ptr %233, align 4
-  %235 = call i32 %232(ptr noundef %220, i64 noundef %225, ptr noundef %2, i32 noundef %234, i32 noundef -17, i32 noundef 4, ptr noundef %4) #4
+  %235 = call i32 %232(ptr noundef %220, i64 noundef %225, ptr noundef nonnull %2, i32 noundef %234, i32 noundef -17, i32 noundef 4, ptr noundef nonnull %4) #4
   %.not222 = icmp eq i32 %235, 0
   br i1 %.not222, label %227, label %.loopexit246
 
@@ -1295,7 +1295,7 @@ define internal fastcc i32 @ompi_coll_base_sendrecv(ptr noundef %0, i64 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_bcast_intra_basic_linear(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_bcast_intra_basic_linear(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = getelementptr i8, ptr %4, i64 248
   %.val57 = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %.val57, i64 16
@@ -1436,7 +1436,7 @@ ompi_coll_base_free_reqs.exit:                    ; preds = %62, %.preheader, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_bcast_intra_knomial(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_bcast_intra_knomial(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 584
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
@@ -1564,7 +1564,7 @@ thread-pre-split.thread:                          ; preds = %17, %thread-pre-spl
 declare ptr @ompi_coll_base_topo_build_kmtree(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_bcast_intra_scatter_allgather(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_bcast_intra_scatter_allgather(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.ompi_status_public_t, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %10 = load i64, ptr %9, align 8
@@ -1836,7 +1836,7 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %102, %104
 declare i32 @ompi_rounddown(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_bcast_intra_scatter_allgather_ring(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_bcast_intra_scatter_allgather_ring(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.ompi_status_public_t, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %10 = load i64, ptr %9, align 8

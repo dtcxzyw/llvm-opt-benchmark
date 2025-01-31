@@ -218,7 +218,7 @@ lor.lhs.false102:                                 ; preds = %if.then99
 lor.lhs.false105:                                 ; preds = %lor.lhs.false102
   %18 = load ptr, ptr %tlsext_hostname, align 8
   %call108 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #7
-  %call109 = call i32 @CBB_add_bytes(ptr noundef nonnull %child2, ptr noundef %18, i64 noundef %call108) #6
+  %call109 = call i32 @CBB_add_bytes(ptr noundef nonnull %child2, ptr noundef nonnull %18, i64 noundef %call108) #6
   %tobool110.not = icmp eq i32 %call109, 0
   br i1 %tobool110.not, label %err.sink.split, label %if.end113
 
@@ -241,7 +241,7 @@ lor.lhs.false118:                                 ; preds = %if.then115
 lor.lhs.false121:                                 ; preds = %lor.lhs.false118
   %20 = load ptr, ptr %psk_identity, align 8
   %call124 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #7
-  %call125 = call i32 @CBB_add_bytes(ptr noundef nonnull %child2, ptr noundef %20, i64 noundef %call124) #6
+  %call125 = call i32 @CBB_add_bytes(ptr noundef nonnull %child2, ptr noundef nonnull %20, i64 noundef %call124) #6
   %tobool126.not = icmp eq i32 %call125, 0
   br i1 %tobool126.not, label %err.sink.split, label %if.end129
 
@@ -533,12 +533,12 @@ return:                                           ; preds = %entry, %if.end5, %i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SSL_SESSION_from_bytes(ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
@@ -949,7 +949,7 @@ declare i64 @CBS_len(ptr noundef) local_unnamed_addr #2
 declare void @SSL_SESSION_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_SSL_SESSION(ptr noundef %a, ptr nocapture noundef %pp, i64 noundef %length) local_unnamed_addr #0 {
+define hidden ptr @d2i_SSL_SESSION(ptr noundef %a, ptr noundef captures(none) %pp, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %cbs = alloca %struct.cbs_st, align 8
   %cmp = icmp slt i64 %length, 0
@@ -1037,7 +1037,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @CBB_add_u8(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
@@ -1064,7 +1064,7 @@ declare i32 @CBS_get_u16(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @SSL_get_cipher_by_value(i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @SSL_SESSION_parse_long(ptr noundef nonnull %cbs, ptr nocapture noundef nonnull writeonly %out, i32 noundef range(i32 161, 166) %tag, i64 noundef %default_value) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @SSL_SESSION_parse_long(ptr noundef nonnull %cbs, ptr noundef nonnull writeonly captures(none) %out, i32 noundef range(i32 161, 166) %tag, i64 noundef %default_value) unnamed_addr #0 {
 entry:
   %value = alloca i64, align 8
   %call = call i32 @CBS_get_optional_asn1_uint64(ptr noundef nonnull %cbs, ptr noundef nonnull %value, i32 noundef %tag, i64 noundef %default_value) #6
@@ -1129,7 +1129,7 @@ return:                                           ; preds = %if.end, %if.end6, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @SSL_SESSION_parse_bounded_octet_string(ptr noundef nonnull %cbs, ptr nocapture noundef nonnull writeonly %out, ptr nocapture noundef nonnull writeonly %out_len, i32 noundef range(i32 32, 65) %max_out, i32 noundef range(i32 164, 175) %tag) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @SSL_SESSION_parse_bounded_octet_string(ptr noundef nonnull %cbs, ptr noundef nonnull writeonly captures(none) %out, ptr noundef nonnull writeonly captures(none) %out_len, i32 noundef range(i32 32, 65) %max_out, i32 noundef range(i32 164, 175) %tag) unnamed_addr #0 {
 entry:
   %value = alloca %struct.cbs_st, align 8
   %call = call i32 @CBS_get_optional_asn1_octet_string(ptr noundef nonnull %cbs, ptr noundef nonnull %value, ptr noundef null, i32 noundef %tag) #6
@@ -1208,7 +1208,7 @@ return:                                           ; preds = %if.else, %if.end6, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @SSL_SESSION_parse_u32(ptr noundef nonnull %cbs, ptr nocapture noundef nonnull writeonly %out, i32 noundef range(i32 169, 179) %tag) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @SSL_SESSION_parse_u32(ptr noundef nonnull %cbs, ptr noundef nonnull writeonly captures(none) %out, i32 noundef range(i32 169, 179) %tag) unnamed_addr #0 {
 entry:
   %value = alloca i64, align 8
   %call = call i32 @CBS_get_optional_asn1_uint64(ptr noundef nonnull %cbs, ptr noundef nonnull %value, i32 noundef %tag, i64 noundef 0) #6

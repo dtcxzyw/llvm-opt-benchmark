@@ -225,10 +225,10 @@ define dso_local noundef zeroext i1 @__refrigerator(i1 noundef zeroext %0) #0 al
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
@@ -405,7 +405,7 @@ define dso_local void @__thaw_task(ptr noundef %0) local_unnamed_addr #0 align 1
 declare dso_local i32 @task_call_func(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define internal noundef range(i32 0, 2) i32 @__restore_freezer_state(ptr noundef %0, ptr nocapture readnone %1) #4 align 16 {
+define internal noundef range(i32 0, 2) i32 @__restore_freezer_state(ptr noundef %0, ptr readnone captures(none) %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -479,7 +479,7 @@ define dso_local noundef zeroext i1 @set_freezable() #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 32769) i32 @__set_task_frozen(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef range(i32 0, 32769) i32 @__set_task_frozen(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load volatile i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104

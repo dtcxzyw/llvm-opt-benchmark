@@ -112,7 +112,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define noundef i64 @_Z16fast_rv32i_ecallP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_Z16fast_rv32i_ecallP11processor_t6insn_tm(ptr noundef readonly captures(none) %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %5 = load i64, ptr %4, align 8
   switch i64 %5, label %20 [
@@ -193,7 +193,7 @@ define linkonce_odr void @_ZN18trap_machine_ecallD2Ev(ptr noundef nonnull align 
 declare void @abort() local_unnamed_addr #6
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define noundef i64 @_Z16fast_rv64i_ecallP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_Z16fast_rv64i_ecallP11processor_t6insn_tm(ptr noundef readonly captures(none) %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %5 = load i64, ptr %4, align 8
   switch i64 %5, label %20 [
@@ -244,7 +244,7 @@ define noundef i64 @_Z16fast_rv64i_ecallP11processor_t6insn_tm(ptr nocapture nou
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define noundef i64 @_Z18logged_rv32i_ecallP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_Z18logged_rv32i_ecallP11processor_t6insn_tm(ptr noundef readonly captures(none) %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %5 = load i64, ptr %4, align 8
   switch i64 %5, label %20 [
@@ -295,7 +295,7 @@ define noundef i64 @_Z18logged_rv32i_ecallP11processor_t6insn_tm(ptr nocapture n
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define noundef i64 @_Z18logged_rv64i_ecallP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_Z18logged_rv64i_ecallP11processor_t6insn_tm(ptr noundef readonly captures(none) %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %5 = load i64, ptr %4, align 8
   switch i64 %5, label %20 [
@@ -346,7 +346,7 @@ define noundef i64 @_Z18logged_rv64i_ecallP11processor_t6insn_tm(ptr nocapture n
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define noundef i64 @_Z16fast_rv32e_ecallP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_Z16fast_rv32e_ecallP11processor_t6insn_tm(ptr noundef readonly captures(none) %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %5 = load i64, ptr %4, align 8
   switch i64 %5, label %20 [
@@ -397,7 +397,7 @@ define noundef i64 @_Z16fast_rv32e_ecallP11processor_t6insn_tm(ptr nocapture nou
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define noundef i64 @_Z16fast_rv64e_ecallP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_Z16fast_rv64e_ecallP11processor_t6insn_tm(ptr noundef readonly captures(none) %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %5 = load i64, ptr %4, align 8
   switch i64 %5, label %20 [
@@ -448,7 +448,7 @@ define noundef i64 @_Z16fast_rv64e_ecallP11processor_t6insn_tm(ptr nocapture nou
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define noundef i64 @_Z18logged_rv32e_ecallP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_Z18logged_rv32e_ecallP11processor_t6insn_tm(ptr noundef readonly captures(none) %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %5 = load i64, ptr %4, align 8
   switch i64 %5, label %20 [
@@ -499,7 +499,7 @@ define noundef i64 @_Z18logged_rv32e_ecallP11processor_t6insn_tm(ptr nocapture n
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define noundef i64 @_Z18logged_rv64e_ecallP11processor_t6insn_tm(ptr nocapture noundef readonly %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_Z18logged_rv64e_ecallP11processor_t6insn_tm(ptr noundef readonly captures(none) %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %5 = load i64, ptr %4, align 8
   switch i64 %5, label %20 [
@@ -612,7 +612,7 @@ define linkonce_odr void @_ZN15trap_user_ecallD0Ev(ptr noundef nonnull align 8 d
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: noreturn
 declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #8
@@ -624,7 +624,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1

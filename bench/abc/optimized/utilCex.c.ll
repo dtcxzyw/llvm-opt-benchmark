@@ -43,7 +43,7 @@ define noalias noundef ptr @Abc_CexAlloc(i32 noundef %0, i32 noundef %1, i32 nou
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @Abc_CexAllocFull(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -284,7 +284,7 @@ define noundef ptr @Abc_CexDup(ptr noundef readonly %0, i32 noundef %1) local_un
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
-define noalias noundef ptr @Abc_CexDeriveFromCombModel(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define noalias noundef ptr @Abc_CexDeriveFromCombModel(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = add nsw i32 %2, %1
   %6 = ashr i32 %5, 5
   %7 = and i32 %5, 31
@@ -339,7 +339,7 @@ define noalias noundef ptr @Abc_CexDeriveFromCombModel(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Abc_CexMerge(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define noalias noundef ptr @Abc_CexMerge(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = icmp slt i32 %2, 0
   br i1 %5, label %6, label %7
 
@@ -625,7 +625,7 @@ define noalias noundef ptr @Abc_CexMerge(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Abc_CexPrintStats(ptr noundef %0) local_unnamed_addr #4 {
@@ -943,7 +943,7 @@ define void @Abc_CexPrint(ptr noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Abc_CexFreeP(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define void @Abc_CexFreeP(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8
   %magicptr = ptrtoint ptr %2 to i64
   switch i64 %magicptr, label %3 [
@@ -964,7 +964,7 @@ define void @Abc_CexFreeP(ptr nocapture noundef %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @Abc_CexFree(ptr noundef %0) local_unnamed_addr #8 {
@@ -1077,7 +1077,7 @@ Abc_CexDup.exit:                                  ; preds = %54, %4, %8
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
-define noalias noundef ptr @Abc_CexTransformTempor(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define noalias noundef ptr @Abc_CexTransformTempor(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = sdiv i32 %6, %1
@@ -1228,7 +1228,7 @@ define noalias noundef ptr @Abc_CexTransformTempor(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
-define noalias noundef ptr @Abc_CexTransformUndc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define noalias noundef ptr @Abc_CexTransformUndc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %4 = trunc i64 %3 to i32
   %5 = icmp sgt i32 %4, 0
@@ -1408,10 +1408,10 @@ define noalias noundef ptr @Abc_CexTransformUndc(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
-define noalias noundef ptr @Abc_CexPermute(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define noalias noundef ptr @Abc_CexPermute(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1494,7 +1494,7 @@ define noalias noundef ptr @Abc_CexPermute(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Abc_CexPermuteTwo(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #10 {
+define noalias noundef ptr @Abc_CexPermuteTwo(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = add i32 %5, -1
@@ -1631,7 +1631,7 @@ Vec_IntFree.exit:                                 ; preds = %Abc_CexPermute.exit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @Abc_CexCountOnes(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define i32 @Abc_CexCountOnes(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 4
   %4 = ashr i32 %3, 5
@@ -1664,7 +1664,7 @@ define i32 @Abc_CexCountOnes(ptr nocapture noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #12

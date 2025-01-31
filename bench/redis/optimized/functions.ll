@@ -135,7 +135,7 @@ declare i32 @dictSdsKeyCaseCompare(ptr noundef, ptr noundef, ptr noundef) #0
 declare void @dictSdsDestructor(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal void @engineStatsDispose(ptr nocapture readnone %d, ptr noundef %obj) #1 {
+define internal void @engineStatsDispose(ptr readnone captures(none) %d, ptr noundef %obj) #1 {
 entry:
   tail call void @zfree(ptr noundef %obj) #11
   ret void
@@ -146,7 +146,7 @@ declare i64 @dictSdsHash(ptr noundef) #0
 declare i32 @dictSdsKeyCompare(ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal void @engineFunctionDispose(ptr nocapture readnone %d, ptr noundef %obj) #1 {
+define internal void @engineFunctionDispose(ptr readnone captures(none) %d, ptr noundef %obj) #1 {
 entry:
   %tobool.not = icmp eq ptr %obj, null
   br i1 %tobool.not, label %return, label %if.end
@@ -184,7 +184,7 @@ return:                                           ; preds = %entry, %if.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @engineLibraryDispose(ptr nocapture readnone %d, ptr noundef %obj) #1 {
+define internal void @engineLibraryDispose(ptr readnone captures(none) %d, ptr noundef %obj) #1 {
 entry:
   %tobool.not.i = icmp eq ptr %obj, null
   br i1 %tobool.not.i, label %engineLibraryFree.exit, label %if.end.i
@@ -206,7 +206,7 @@ engineLibraryFree.exit:                           ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @functionsLibCtxClear(ptr nocapture noundef readonly %lib_ctx) local_unnamed_addr #1 {
+define dso_local void @functionsLibCtxClear(ptr noundef readonly captures(none) %lib_ctx) local_unnamed_addr #1 {
 entry:
   %functions = getelementptr inbounds nuw i8, ptr %lib_ctx, i64 8
   %0 = load ptr, ptr %functions, align 8
@@ -360,7 +360,7 @@ declare noalias ptr @zcalloc(i64 noundef) local_unnamed_addr #3
 declare i32 @dictAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @functionLibCreateFunction(ptr noundef %name, ptr noundef %function, ptr noundef %li, ptr noundef %desc, i64 noundef %f_flags, ptr nocapture noundef writeonly %err) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @functionLibCreateFunction(ptr noundef %name, ptr noundef %function, ptr noundef %li, ptr noundef %desc, i64 noundef %f_flags, ptr noundef writeonly captures(none) %err) local_unnamed_addr #1 {
 entry:
   %arrayidx.i.i = getelementptr inbounds i8, ptr %name, i64 -1
   %0 = load i8, ptr %arrayidx.i.i, align 1
@@ -516,7 +516,7 @@ declare ptr @sdsnew(ptr noundef) local_unnamed_addr #0
 declare ptr @dictFetchValue(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
@@ -1338,7 +1338,7 @@ if.end87:                                         ; preds = %if.then86, %while.e
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -1397,7 +1397,7 @@ return:                                           ; preds = %engineLibraryFree.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @libraryUnlink(ptr nocapture noundef %lib_ctx, ptr noundef nonnull %li) unnamed_addr #1 {
+define internal fastcc void @libraryUnlink(ptr noundef captures(none) %lib_ctx, ptr noundef nonnull %li) unnamed_addr #1 {
 entry:
   %functions = getelementptr inbounds nuw i8, ptr %li, i64 8
   %0 = load ptr, ptr %functions, align 8
@@ -1547,7 +1547,7 @@ entry:
 declare void @scriptKill(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @fcallGetCommandFlags(ptr nocapture noundef initializes((232, 240)) %c, i64 noundef %cmd_flags) local_unnamed_addr #1 {
+define dso_local i64 @fcallGetCommandFlags(ptr noundef captures(none) initializes((232, 240)) %c, i64 noundef %cmd_flags) local_unnamed_addr #1 {
 entry:
   %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
@@ -2010,7 +2010,7 @@ declare i32 @rdbLoadType(ptr noundef) local_unnamed_addr #0
 declare i32 @rdbFunctionLoad(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @libraryJoin(ptr nocapture noundef %functions_lib_ctx_dst, ptr nocapture noundef readonly %functions_lib_ctx_src, i32 noundef range(i32 0, 2) %replace, ptr nocapture noundef nonnull writeonly %err) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @libraryJoin(ptr noundef captures(none) %functions_lib_ctx_dst, ptr noundef readonly captures(none) %functions_lib_ctx_src, i32 noundef range(i32 0, 2) %replace, ptr noundef nonnull writeonly captures(none) %err) unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %functions_lib_ctx_src, align 8
   %call = tail call ptr @dictGetIterator(ptr noundef %0) #11
@@ -2250,7 +2250,7 @@ entry:
 declare void @addReplyHelp(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @functionExtractLibMetaData(ptr noundef %payload, ptr nocapture noundef writeonly %md, ptr nocapture noundef writeonly %err) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @functionExtractLibMetaData(ptr noundef %payload, ptr noundef writeonly captures(none) %md, ptr noundef writeonly captures(none) %err) local_unnamed_addr #1 {
 entry:
   %numparts = alloca i32, align 4
   %0 = load i8, ptr %payload, align 1
@@ -2439,10 +2439,10 @@ declare ptr @sdsdup(ptr noundef) local_unnamed_addr #0
 declare void @sdsrange(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @functionFreeLibMetaData(ptr nocapture noundef readonly %md) local_unnamed_addr #1 {
+define dso_local void @functionFreeLibMetaData(ptr noundef readonly captures(none) %md) local_unnamed_addr #1 {
 entry:
   %code = getelementptr inbounds nuw i8, ptr %md, i64 16
   %0 = load ptr, ptr %code, align 8
@@ -2477,7 +2477,7 @@ if.end9:                                          ; preds = %if.then7, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @functionsCreateWithLibraryCtx(ptr noundef %code, i32 noundef %replace, ptr noundef %err, ptr nocapture noundef %lib_ctx, i64 noundef %timeout) local_unnamed_addr #1 {
+define dso_local ptr @functionsCreateWithLibraryCtx(ptr noundef %code, i32 noundef %replace, ptr noundef %err, ptr noundef captures(none) %lib_ctx, i64 noundef %timeout) local_unnamed_addr #1 {
 entry:
   %md = alloca %struct.functionsLibMataData, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %md, i8 0, i64 24, i1 false)
@@ -2766,10 +2766,10 @@ return:                                           ; preds = %if.then7.i, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @libraryLink(ptr nocapture noundef %lib_ctx, ptr noundef %li) unnamed_addr #1 {
+define internal fastcc void @libraryLink(ptr noundef captures(none) %lib_ctx, ptr noundef %li) unnamed_addr #1 {
 entry:
   %functions = getelementptr inbounds nuw i8, ptr %li, i64 8
   %0 = load ptr, ptr %functions, align 8
@@ -3046,7 +3046,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @functionsLibCtxfunctionsLen(ptr nocapture noundef readonly %functions_ctx) local_unnamed_addr #10 {
+define dso_local i64 @functionsLibCtxfunctionsLen(ptr noundef readonly captures(none) %functions_ctx) local_unnamed_addr #10 {
 entry:
   %functions = getelementptr inbounds nuw i8, ptr %functions_ctx, i64 8
   %0 = load ptr, ptr %functions, align 8

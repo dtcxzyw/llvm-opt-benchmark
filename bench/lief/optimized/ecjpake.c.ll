@@ -153,7 +153,7 @@ declare i32 @mbedtls_ecp_group_load(ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @mbedtls_mpi_read_binary(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 -20352, 1) i32 @mbedtls_ecjpake_set_point_format(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden range(i32 -20352, 1) i32 @mbedtls_ecjpake_set_point_format(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %switch = icmp ult i32 %1, 2
   br i1 %switch, label %3, label %5
 
@@ -168,7 +168,7 @@ define hidden range(i32 -20352, 1) i32 @mbedtls_ecjpake_set_point_format(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 -20352, 1) i32 @mbedtls_ecjpake_check(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define hidden range(i32 -20352, 1) i32 @mbedtls_ecjpake_check(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %12, label %4
@@ -232,7 +232,7 @@ ecjpake_kkpp_read.exit:                           ; preds = %3, %19, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ecjpake_write_round_one(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_ecjpake_write_round_one(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca ptr, align 8
@@ -416,7 +416,7 @@ ecjpake_ecp_add3.exit:                            ; preds = %12
 declare i32 @mbedtls_ecp_tls_read_group(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ecjpake_kkp_read(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr noundef nonnull %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @ecjpake_kkp_read(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef nonnull %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca %struct.mbedtls_ecp_point, align 8
   %10 = alloca %struct.mbedtls_ecp_point, align 8
   %11 = alloca %struct.mbedtls_mpi, align 8
@@ -521,7 +521,7 @@ ecjpake_zkp_read.exit:                            ; preds = %22, %49
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ecjpake_write_round_two(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_ecjpake_write_round_two(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.mbedtls_mpi, align 8
   %8 = alloca %struct.mbedtls_ecp_point, align 8
   %9 = alloca %struct.mbedtls_ecp_point, align 8
@@ -681,7 +681,7 @@ declare i32 @mbedtls_ecp_tls_write_group(ptr noundef, ptr noundef, ptr noundef, 
 declare i32 @mbedtls_ecp_tls_write_point(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ecjpake_zkp_write(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef nonnull %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) unnamed_addr #0 {
+define internal fastcc i32 @ecjpake_zkp_write(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6, ptr noundef nonnull captures(none) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) unnamed_addr #0 {
   %12 = alloca %struct.mbedtls_ecp_point, align 8
   %13 = alloca %struct.mbedtls_mpi, align 8
   %14 = alloca %struct.mbedtls_mpi, align 8
@@ -779,7 +779,7 @@ define internal fastcc i32 @ecjpake_zkp_write(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ecjpake_derive_secret(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_ecjpake_derive_secret(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.mbedtls_ecp_point, align 8
   %8 = alloca %struct.mbedtls_mpi, align 8
   %9 = alloca %struct.mbedtls_mpi, align 8
@@ -1139,10 +1139,10 @@ mbedtls_ecjpake_read_round_one.exit.thread:       ; preds = %42, %55
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @ecjpake_lgc(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #5 {
+define internal noundef i32 @ecjpake_lgc(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #5 {
   %.not9 = icmp eq i64 %2, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph.preheader
 
@@ -1200,7 +1200,7 @@ define internal fastcc i32 @ecjpake_test_load(ptr noundef nonnull %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @mbedtls_ecp_gen_keypair_base(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1209,7 +1209,7 @@ declare i32 @mbedtls_ecp_tls_read_point(ptr noundef, ptr noundef, ptr noundef, i
 declare i32 @mbedtls_ecp_is_zero(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ecjpake_hash(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr nocapture noundef readonly %6, ptr noundef nonnull %7) unnamed_addr #0 {
+define internal fastcc i32 @ecjpake_hash(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef readonly captures(none) %6, ptr noundef nonnull %7) unnamed_addr #0 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
@@ -1358,7 +1358,7 @@ ecjpake_write_len_point.exit50.thread:            ; preds = %43, %61
   br i1 %or.cond, label %112, label %99
 
 99:                                               ; preds = %83
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %94, ptr align 1 %6, i64 %15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %94, ptr nonnull align 1 %6, i64 %15, i1 false)
   %100 = getelementptr inbounds i8, ptr %94, i64 %15
   %101 = ptrtoint ptr %100 to i64
   %102 = ptrtoint ptr %12 to i64
@@ -1387,10 +1387,10 @@ ecjpake_write_len_point.exit50.thread:            ; preds = %43, %61
 declare i32 @mbedtls_ecp_point_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare i32 @mbedtls_mpi_mod_mpi(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1407,7 +1407,7 @@ declare i32 @mbedtls_mpi_sub_mpi(ptr noundef, ptr noundef, ptr noundef) local_un
 declare i64 @mbedtls_mpi_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define internal noundef i32 @self_test_rng(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #9 {
+define internal noundef i32 @self_test_rng(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #9 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %10, label %.lr.ph.preheader
 
@@ -1436,10 +1436,10 @@ define internal noundef i32 @self_test_rng(ptr nocapture readnone %0, ptr nocapt
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #10
@@ -1448,10 +1448,10 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #10
 declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

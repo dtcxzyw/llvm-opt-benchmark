@@ -2622,7 +2622,7 @@ define internal void @__cxx_global_var_init.9() #4 section ".text.startup" comda
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix16LocalStoreConfig3docB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix16LocalStoreConfig3docB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.11, ptr noundef nonnull align 1 dereferenceable(1) %3)
@@ -2640,7 +2640,7 @@ define void @_ZN3nix16LocalStoreConfig3docB5cxx11Ev(ptr dead_on_unwind noalias w
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n88_N3nix16LocalStoreConfig3docB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZTv0_n88_N3nix16LocalStoreConfig3docB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr readonly captures(none) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #35, !noalias !4
@@ -3665,7 +3665,7 @@ define linkonce_odr void @_ZN3nix3fmtIJiEEENSt7__cxx1112basic_stringIcSt11char_t
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10LocalStoreC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10LocalStoreC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.boost::io::detail::put_holder", align 8
   %5 = alloca %"class.boost::basic_format", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7577,11 +7577,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
   br label %27
 
 23:                                               ; preds = %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr align 1 %2, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr nonnull align 1 %2, i64 %4, i1 false)
   br label %27
 
 24:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %6, i64 noundef 0, ptr noundef %2, i64 noundef %4)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %6, i64 noundef 0, ptr noundef nonnull %2, i64 noundef %4)
           to label %27 unwind label %25
 
 25:                                               ; preds = %24, %9
@@ -7760,7 +7760,7 @@ define void @_ZN3nix10LocalStore17makeStoreWritableEv(ptr noundef nonnull align 
 declare void @_ZN3nix13createSymlinkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #8
+declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix8SysErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(380) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -7806,20 +7806,20 @@ declare i32 @getuid() local_unnamed_addr #3
 declare ptr @getgrnam(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chown(ptr nocapture noundef readonly, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare noundef i32 @chown(ptr noundef readonly captures(none), i32 noundef, i32 noundef) local_unnamed_addr #8
 
 declare void @_ZN3nix5lstatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%struct.stat) align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare void @_ZN3nix5dirOfB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, i64, ptr) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #10
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #10
 
 declare void @_ZN3nix11AutoCloseFDC1Ei(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) unnamed_addr #2
 
@@ -8668,7 +8668,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix10LocalStore13upgradeStore7Ev(ptr nocapture noundef nonnull readnone align 8 dereferenceable(504) %0) local_unnamed_addr #11 align 2 {
+define void @_ZN3nix10LocalStore13upgradeStore7Ev(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(504) %0) local_unnamed_addr #11 align 2 {
   ret void
 }
 
@@ -14790,7 +14790,7 @@ _ZN3nix19OptionalPathSettingD2Ev.exit:            ; preds = %_ZNSt8optionalINSt7
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN3nix10LocalStoreC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIKS6_S6_EEE(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %4) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10LocalStoreC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIKS6_S6_EEE(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %4) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   tail call void @_ZN3nix10LocalStoreC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef %1, ptr nonnull align 8 poison)
@@ -14910,7 +14910,7 @@ _ZN3nix5ErrorD2Ev.exit:                           ; preds = %1, %_ZNSt22_Optiona
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3nix10LocalStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10LocalStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::shared_future", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15455,7 +15455,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN3nix10LocalStoreC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIKS6_S6_EEE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef nonnull align 8 dereferenceable(48) %3) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10LocalStoreC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIKS6_S6_EEE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef nonnull align 8 dereferenceable(48) %3) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   tail call void @_ZN3nix10LocalStoreC1ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(48) %3)
@@ -15656,7 +15656,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #14
 declare noundef zeroext i1 @_ZNK3nix11AutoCloseFDcvbEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 declare void @_ZN3nix15ignoreExceptionENS_9VerbosityE(i32 noundef) local_unnamed_addr #2
 
@@ -15881,7 +15881,7 @@ define void @_ZTv0_n40_N3nix10LocalStoreD0Ev(ptr noundef %0) unnamed_addr #15 al
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10LocalStore6getUriB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10LocalStore6getUriB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.78, ptr noundef nonnull align 1 dereferenceable(1) %3)
@@ -15899,7 +15899,7 @@ define void @_ZN3nix10LocalStore6getUriB5cxx11Ev(ptr dead_on_unwind noalias writ
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix10LocalStore6getUriB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZTv0_n48_N3nix10LocalStore6getUriB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr readonly captures(none) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #35, !noalias !83
@@ -15919,7 +15919,7 @@ _ZN3nix10LocalStore6getUriB5cxx11Ev.exit:         ; preds = %2
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #8
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3nix8SysErrorC2IJA45_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEDpRKT_(ptr noundef nonnull align 8 dereferenceable(380) %0, ptr noundef nonnull align 1 dereferenceable(45) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #5 comdat align 2 {
@@ -16056,11 +16056,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   br label %48
 
 46:                                               ; preds = %42
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr align 1 %1, i64 %6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr nonnull align 1 %1, i64 %6, i1 false)
   br label %48
 
 47:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %36, i64 noundef 0, ptr noundef %1, i64 noundef %6)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %36, i64 noundef 0, ptr noundef nonnull %1, i64 noundef %6)
           to label %48 unwind label %71
 
 48:                                               ; preds = %46, %44, %41, %47
@@ -16208,11 +16208,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
 
 23:                                               ; preds = %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr align 1 %2, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr nonnull align 1 %2, i64 %4, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
 
 24:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %6, i64 noundef 0, ptr noundef %2, i64 noundef %4)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %6, i64 noundef 0, ptr noundef nonnull %2, i64 noundef %4)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %18, %21, %23, %24
@@ -16253,7 +16253,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %30
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @statvfs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @statvfs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3nix8SysErrorC2IJA45_cEEEDpRKT_(ptr noundef nonnull align 8 dereferenceable(380) %0, ptr noundef nonnull align 1 dereferenceable(45) %1) unnamed_addr #5 comdat align 2 {
@@ -17325,7 +17325,7 @@ define void @_ZTv0_n216_N3nix10LocalStore17registerDrvOutputERKNS_11RealisationE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10LocalStore21cacheDrvOutputMappingERNS0_5StateEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9StorePathE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, i64 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10LocalStore21cacheDrvOutputMappingERNS0_5StateEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9StorePathE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, i64 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.nix::SQLiteStmt::Use", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca i64, align 8
@@ -19472,7 +19472,7 @@ define void @_ZTv0_n96_N3nix10LocalStore21queryPathInfoUncachedERKNS_9StorePathE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10LocalStore21queryPathInfoInternalERNS0_5StateERKNS_9StorePathE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.212") align 8 %0, ptr noundef nonnull align 8 dereferenceable(504) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10LocalStore21queryPathInfoInternalERNS0_5StateERKNS_9StorePathE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::shared_ptr.212") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(504) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<nix::StorePath, nix::StorePath, std::_Identity<nix::StorePath>, std::less<nix::StorePath>>::_Alloc_node", align 8
   %6 = alloca %"class.nix::SQLiteStmt::Use", align 8
   %7 = alloca %"class.nix::SQLiteStmt::Use", align 8
@@ -20325,7 +20325,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 declare void @_ZN3nix14ContentAddress8parseOptESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"class.std::optional.163") align 8, i64, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10LocalStore14updatePathInfoERNS0_5StateERKNS_13ValidPathInfoE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(384) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10LocalStore14updatePathInfoERNS0_5StateERKNS_13ValidPathInfoE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(384) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.nix::SQLiteStmt::Use", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -20532,7 +20532,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN3nix10LocalStore16queryValidPathIdERNS0_5StateERKNS_9StorePathE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN3nix10LocalStore16queryValidPathIdERNS0_5StateERKNS_9StorePathE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.nix::SQLiteStmt::Use", align 8
   %5 = alloca %"class.nix::SQLiteStmt::Use", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -20709,7 +20709,7 @@ _ZN3nix5ErrorD2Ev.exit:                           ; preds = %1, %_ZNSt22_Optiona
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3nix10LocalStore12isValidPath_ERNS0_5StateERKNS_9StorePathE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN3nix10LocalStore12isValidPath_ERNS0_5StateERKNS_9StorePathE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.nix::SQLiteStmt::Use", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -21187,7 +21187,7 @@ define void @_ZTv0_n72_N3nix10LocalStore18queryAllValidPathsEv(ptr dead_on_unwin
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10LocalStore14queryReferrersERNS0_5StateERKNS_9StorePathERSt3setIS3_St4lessIS3_ESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(48) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10LocalStore14queryReferrersERNS0_5StateERKNS_9StorePathERSt3setIS3_St4lessIS3_ESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(48) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<nix::StorePath, nix::StorePath, std::_Identity<nix::StorePath>, std::less<nix::StorePath>>::_Alloc_node", align 8
   %6 = alloca %"class.nix::SQLiteStmt::Use", align 8
   %7 = alloca %"class.nix::SQLiteStmt::Use", align 8
@@ -22418,7 +22418,7 @@ define void @_ZTv0_n152_N3nix10LocalStore21queryPathFromHashPartERKNSt7__cxx1112
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10LocalStore23querySubstitutablePathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.std::set.155") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(504) %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10LocalStore23querySubstitutablePathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.std::set.155") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(504) %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Rb_tree<nix::StorePath, nix::StorePath, std::_Identity<nix::StorePath>, std::less<nix::StorePath>>::_Alloc_node", align 8
   %5 = alloca %"struct.std::_Rb_tree<nix::StorePath, nix::StorePath, std::_Identity<nix::StorePath>, std::less<nix::StorePath>>::_Alloc_node", align 8
   %6 = alloca %"struct.std::_Rb_tree<nix::StorePath, nix::StorePath, std::_Identity<nix::StorePath>, std::less<nix::StorePath>>::_Alloc_node", align 8
@@ -22947,7 +22947,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit49: ; preds = %_ZNSt7__cx
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 declare void @_ZN3nix22getDefaultSubstitutersB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::list.232") align 8) local_unnamed_addr #2
 
@@ -23043,7 +23043,7 @@ _ZNSt7__cxx1110_List_baseIN3nix3refINS1_5StoreEEESaIS4_EED2Ev.exit: ; preds = %_
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n160_N3nix10LocalStore23querySubstitutablePathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.std::set.155") align 8 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #4 align 2 {
+define void @_ZTv0_n160_N3nix10LocalStore23querySubstitutablePathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.std::set.155") align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #4 align 2 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -160
   %6 = load i64, ptr %5, align 8
@@ -23763,7 +23763,7 @@ _ZNSt8_Rb_treeIN3nix9StorePathESt4pairIKS1_NS0_13ValidPathInfoEESt10_Select1stIS
 declare void @sync() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10LocalStore14invalidatePathERNS0_5StateERKNS_9StorePathE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10LocalStore14invalidatePathERNS0_5StateERKNS_9StorePathE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.boost::io::detail::put_holder", align 8
   %5 = alloca %"class.boost::basic_format", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25940,7 +25940,7 @@ define void @_ZTv0_n176_N3nix10LocalStore10addToStoreERKNS_13ValidPathInfoERNS_6
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10LocalStore18addToStoreFromDumpERNS_6SourceESt17basic_string_viewIcSt11char_traitsIcEENS_23FileSerialisationMethodENS_20ContentAddressMethodENS_13HashAlgorithmERKSt3setINS_9StorePathESt4lessISB_ESaISB_EENS_10RepairFlagE(ptr dead_on_unwind noalias writable sret(%"class.nix::StorePath") align 8 %0, ptr noundef nonnull align 8 dereferenceable(504) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 %3, ptr %4, i8 noundef zeroext %5, i16 %6, i8 noundef signext %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %8, i1 noundef zeroext %9) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10LocalStore18addToStoreFromDumpERNS_6SourceESt17basic_string_viewIcSt11char_traitsIcEENS_23FileSerialisationMethodENS_20ContentAddressMethodENS_13HashAlgorithmERKSt3setINS_9StorePathESt4lessISB_ESaISB_EENS_10RepairFlagE(ptr dead_on_unwind noalias writable sret(%"class.nix::StorePath") align 8 %0, ptr noundef nonnull align 8 dereferenceable(504) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 %3, ptr %4, i8 noundef zeroext %5, i16 %6, i8 noundef signext %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %8, i1 noundef zeroext %9) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"struct.std::_Rb_tree<nix::StorePath, nix::StorePath, std::_Identity<nix::StorePath>, std::less<nix::StorePath>>::_Alloc_node", align 8
   %13 = alloca %"class.std::allocator", align 1
@@ -27055,7 +27055,7 @@ _ZNSt10unique_ptrIN3nix8HashSinkESt14default_deleteIS1_EED2Ev.exit134: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #18
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind
 declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
@@ -27641,7 +27641,7 @@ _ZN3nix14SourceAccessorD2Ev.exit:                 ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n208_N3nix10LocalStore18addToStoreFromDumpERNS_6SourceESt17basic_string_viewIcSt11char_traitsIcEENS_23FileSerialisationMethodENS_20ContentAddressMethodENS_13HashAlgorithmERKSt3setINS_9StorePathESt4lessISB_ESaISB_EENS_10RepairFlagE(ptr dead_on_unwind noalias writable sret(%"class.nix::StorePath") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 %3, ptr %4, i8 noundef zeroext %5, i16 %6, i8 noundef signext %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %8, i1 noundef zeroext %9) unnamed_addr #4 align 2 {
+define void @_ZTv0_n208_N3nix10LocalStore18addToStoreFromDumpERNS_6SourceESt17basic_string_viewIcSt11char_traitsIcEENS_23FileSerialisationMethodENS_20ContentAddressMethodENS_13HashAlgorithmERKSt3setINS_9StorePathESt4lessISB_ESaISB_EENS_10RepairFlagE(ptr dead_on_unwind noalias writable sret(%"class.nix::StorePath") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 %3, ptr %4, i8 noundef zeroext %5, i16 %6, i8 noundef signext %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %8, i1 noundef zeroext %9) unnamed_addr #4 align 2 {
   %11 = load ptr, ptr %1, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -208
   %13 = load i64, ptr %12, align 8
@@ -30385,7 +30385,7 @@ _ZNSt12_Vector_baseIN3nix8DirEntryESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP
 }
 
 ; Function Attrs: uwtable
-define void @_ZN3nix10LocalStore10verifyPathERKNS_9StorePathERKSt3setIS1_St4lessIS1_ESaIS1_EERS8_SB_NS_10RepairFlagERb(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, i1 noundef zeroext %5, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %6) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10LocalStore10verifyPathERKNS_9StorePathERKSt3setIS1_St4lessIS1_ESaIS1_EERS8_SB_NS_10RepairFlagERb(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, i1 noundef zeroext %5, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %6) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.std::_Rb_tree<nix::StorePath, nix::StorePath, std::_Identity<nix::StorePath>, std::less<nix::StorePath>>::_Alloc_node", align 8
   %9 = alloca %"struct.boost::io::detail::put_holder", align 8
   %10 = alloca %"class.boost::basic_format", align 8
@@ -31471,22 +31471,22 @@ define noundef zeroext i1 @_ZTv0_n288_N3nix10LocalStore11verifyStoreEbNS_10Repai
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN3nix10LocalStore11getProtocolEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #11 align 2 {
+define noundef i32 @_ZN3nix10LocalStore11getProtocolEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 {
   ret i32 293
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZTv0_n344_N3nix10LocalStore11getProtocolEv(ptr nocapture readonly %0) unnamed_addr #11 align 2 {
+define noundef i32 @_ZTv0_n344_N3nix10LocalStore11getProtocolEv(ptr readonly captures(none) %0) unnamed_addr #11 align 2 {
   ret i32 293
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i16 @_ZN3nix10LocalStore15isTrustedClientEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i16 @_ZN3nix10LocalStore15isTrustedClientEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   ret i16 257
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i16 @_ZTv0_n352_N3nix10LocalStore15isTrustedClientEv(ptr nocapture readonly %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i16 @_ZTv0_n352_N3nix10LocalStore15isTrustedClientEv(ptr readonly captures(none) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   ret i16 257
 }
 
@@ -31778,7 +31778,7 @@ define void @_ZTv0_n312_N3nix10LocalStore13addSignaturesERKNS_9StorePathERKSt3se
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10LocalStore15signRealisationERNS_11RealisationE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(240) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10LocalStore15signRealisationERNS_11RealisationE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(240) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.nix::Setting.124", align 8
   %4 = alloca %"struct.nix::SecretKey", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -32188,7 +32188,7 @@ _ZN3nix9SecretKeyD2Ev.exit:                       ; preds = %_ZNKSt7__cxx1112bas
 declare void @_ZN3nix13ValidPathInfo4signERKNS_5StoreERKNS_6SignerE(ptr noundef nonnull align 8 dereferenceable(384), ptr noundef nonnull align 8 dereferenceable(264), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10LocalStore21queryRealisationCore_ERNS0_5StateERKNS_9DrvOutputE(ptr dead_on_unwind noalias writable sret(%"class.std::optional.368") align 8 %0, ptr noundef nonnull align 8 dereferenceable(504) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(112) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10LocalStore21queryRealisationCore_ERNS0_5StateERKNS_9DrvOutputE(ptr dead_on_unwind noalias writable sret(%"class.std::optional.368") align 8 %0, ptr noundef nonnull align 8 dereferenceable(504) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(112) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %6 = alloca %"class.nix::SQLiteStmt::Use", align 8
   %7 = alloca %"class.nix::SQLiteStmt::Use", align 8
@@ -32601,7 +32601,7 @@ _ZN3nix9DrvOutputD2Ev.exit:                       ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10LocalStore17queryRealisation_ERNS0_5StateERKNS_9DrvOutputE(ptr dead_on_unwind noalias writable sret(%"class.std::optional.380") align 8 %0, ptr noundef nonnull align 8 dereferenceable(504) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(112) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10LocalStore17queryRealisation_ERNS0_5StateERKNS_9DrvOutputE(ptr dead_on_unwind noalias writable sret(%"class.std::optional.380") align 8 %0, ptr noundef nonnull align 8 dereferenceable(504) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(112) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<nix::DrvOutput, std::pair<const nix::DrvOutput, nix::StorePath>, std::_Select1st<std::pair<const nix::DrvOutput, nix::StorePath>>, std::less<nix::DrvOutput>>::_Alloc_node", align 8
   %6 = alloca %"class.std::optional.368", align 8
   %7 = alloca %"struct.std::pair.374", align 8
@@ -33922,7 +33922,7 @@ define void @_ZTv0_n104_N3nix10LocalStore24queryRealisationUncachedERKNS_9DrvOut
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10LocalStore11addBuildLogERKNS_9StorePathESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i64 %2, ptr %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10LocalStore11addBuildLogERKNS_9StorePathESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i64 %2, ptr %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.boost::io::detail::put_holder", align 8
   %6 = alloca %"struct.boost::io::detail::put_holder", align 8
   %7 = alloca %"class.boost::basic_format", align 8
@@ -34393,7 +34393,7 @@ declare void @_ZN3nix8compressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 declare void @_ZN3nix10renameFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix10LocalStore11addBuildLogERKNS_9StorePathESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i64 %2, ptr %3) unnamed_addr #4 align 2 {
+define void @_ZTv0_n48_N3nix10LocalStore11addBuildLogERKNS_9StorePathESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i64 %2, ptr %3) unnamed_addr #4 align 2 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 -48
   %7 = load i64, ptr %6, align 8
@@ -34403,7 +34403,7 @@ define void @_ZTv0_n48_N3nix10LocalStore11addBuildLogERKNS_9StorePathESt17basic_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10LocalStore10getVersionB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::optional.23") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #5 align 2 {
+define void @_ZN3nix10LocalStore10getVersionB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::optional.23") align 8 %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #5 align 2 {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) @_ZN3nix10nixVersionB5cxx11E)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 1, ptr %3, align 8
@@ -34411,7 +34411,7 @@ define void @_ZN3nix10LocalStore10getVersionB5cxx11Ev(ptr dead_on_unwind noalias
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n376_N3nix10LocalStore10getVersionB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::optional.23") align 8 %0, ptr nocapture readonly %1) unnamed_addr #4 align 2 {
+define void @_ZTv0_n376_N3nix10LocalStore10getVersionB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::optional.23") align 8 %0, ptr readonly captures(none) %1) unnamed_addr #4 align 2 {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) @_ZN3nix10nixVersionB5cxx11E)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 1, ptr %3, align 8, !alias.scope !310
@@ -35402,7 +35402,7 @@ declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #20
 declare void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #21
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #20
@@ -39458,7 +39458,7 @@ _ZSt8_DestroyIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEEEvT_S9_.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -44081,7 +44081,7 @@ define linkonce_odr noundef ptr @_ZN5boost6detail18sp_counted_impl_pdIPNS_2io18b
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #21
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #21
 
 declare noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264), i8 noundef signext) local_unnamed_addr #2
 
@@ -44271,7 +44271,7 @@ _ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #21
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3nix7HintFmtC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -59990,7 +59990,7 @@ _ZN3nix9StorePathD2Ev.exit:                       ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt3setIN3nix9StorePathESt4lessIS2_ESaIS2_EERKS2_EZZNS1_10LocalStore18registerValidPathsERKSt3mapIS2_NS1_13ValidPathInfoES4_SaISt4pairIS7_SC_EEEENK3$_0clEvEUlS8_E_E9_M_invokeERKSt9_Any_dataS8_"(ptr dead_on_unwind noalias writable sret(%"class.std::set.155") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFSt3setIN3nix9StorePathESt4lessIS2_ESaIS2_EERKS2_EZZNS1_10LocalStore18registerValidPathsERKSt3mapIS2_NS1_13ValidPathInfoES4_SaISt4pairIS7_SC_EEEENK3$_0clEvEUlS8_E_E9_M_invokeERKSt9_Any_dataS8_"(ptr dead_on_unwind noalias writable sret(%"class.std::set.155") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Rb_tree<nix::StorePath, nix::StorePath, std::_Identity<nix::StorePath>, std::less<nix::StorePath>>::_Alloc_node", align 8
   %.val = load ptr, ptr %1, align 8
   %.val2 = load ptr, ptr %2, align 8
@@ -60133,7 +60133,7 @@ _ZNSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_S_mini
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt3setIN3nix9StorePathESt4lessIS2_ESaIS2_EERKS2_EZZNS1_10LocalStore18registerValidPathsERKSt3mapIS2_NS1_13ValidPathInfoES4_SaISt4pairIS7_SC_EEEENK3$_0clEvEUlS8_E_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #27 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt3setIN3nix9StorePathESt4lessIS2_ESaIS2_EERKS2_EZZNS1_10LocalStore18registerValidPathsERKSt3mapIS2_NS1_13ValidPathInfoES4_SaISt4pairIS7_SC_EEEENK3$_0clEvEUlS8_E_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #27 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN3nix10LocalStore18registerValidPathsERKSt3mapINS1_9StorePathENS1_13ValidPathInfoESt4lessIS4_ESaISt4pairIKS4_S5_EEEENK3$_0clEvEUlRS9_E_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -60158,7 +60158,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt3setIN3nix9Stor
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFN3nix5ErrorERKNS0_9StorePathES4_EZZNS0_10LocalStore18registerValidPathsERKSt3mapIS2_NS0_13ValidPathInfoESt4lessIS2_ESaISt4pairIS3_S8_EEEENK3$_0clEvEUlS4_S4_E_E9_M_invokeERKSt9_Any_dataS4_S4_"(ptr dead_on_unwind noalias writable sret(%"class.nix::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFN3nix5ErrorERKNS0_9StorePathES4_EZZNS0_10LocalStore18registerValidPathsERKSt3mapIS2_NS0_13ValidPathInfoESt4lessIS2_ESaISt4pairIS3_S8_EEEENK3$_0clEvEUlS4_S4_E_E9_M_invokeERKSt9_Any_dataS4_S4_"(ptr dead_on_unwind noalias writable sret(%"class.nix::Error") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -60402,7 +60402,7 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN3nix5ErrorERKNS0_9StorePathES4_EZZNS0_10LocalStore18registerValidPathsERKSt3mapIS2_NS0_13ValidPathInfoESt4lessIS2_ESaISt4pairIS3_S8_EEEENK3$_0clEvEUlS4_S4_E_E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #27 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN3nix5ErrorERKNS0_9StorePathES4_EZZNS0_10LocalStore18registerValidPathsERKSt3mapIS2_NS0_13ValidPathInfoESt4lessIS2_ESaISt4pairIS3_S8_EEEENK3$_0clEvEUlS4_S4_E_E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #27 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN3nix10LocalStore18registerValidPathsERKSt3mapINS1_9StorePathENS1_13ValidPathInfoESt4lessIS4_ESaISt4pairIKS4_S5_EEEENK3$_0clEvEUlRS9_SG_E_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -60506,7 +60506,7 @@ _ZN3nix10BuildErrorD2Ev.exit:                     ; preds = %1, %_ZNSt22_Optiona
 declare void @_ZN3nix9parseDumpERNS_20FileSystemObjectSinkERNS_6SourceE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #28
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #28
 
 declare void @_ZN3nix10AutoDeleteC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(34), ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext) unnamed_addr #2
 
@@ -63219,10 +63219,10 @@ declare { i32, i1 } @llvm.umul.with.overflow.i32(i32, i32) #31
 declare void @llvm.experimental.noalias.scope.decl(metadata) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #33
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #33
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #31
@@ -63231,7 +63231,7 @@ declare i64 @llvm.smax.i64(i64, i64) #31
 declare i64 @llvm.smin.i64(i64, i64) #31
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #34
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #31

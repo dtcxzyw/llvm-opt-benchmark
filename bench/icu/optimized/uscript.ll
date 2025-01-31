@@ -257,7 +257,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -494,7 +494,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 4) i32 @uscript_getCode_75(ptr noundef %nameOrAbbrOrLocale, ptr noundef writeonly %fillIn, i32 noundef %capacity, ptr nocapture noundef %err) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 4) i32 @uscript_getCode_75(ptr noundef %nameOrAbbrOrLocale, ptr noundef writeonly %fillIn, i32 noundef %capacity, ptr noundef captures(none) %err) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %internalErrorCode = alloca i32, align 4
   %likely = alloca %"class.icu_75::CharString", align 8
@@ -677,12 +677,12 @@ return:                                           ; preds = %if.end2.i, %if.then
 declare noundef ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @u_getPropertyValueEnum_75(i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL18getCodesFromLocalePKcP11UScriptCodeiP10UErrorCode(ptr noundef %locale, ptr nocapture noundef writeonly %scripts, i32 noundef %capacity, ptr nocapture noundef %err) unnamed_addr #1 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL18getCodesFromLocalePKcP11UScriptCodeiP10UErrorCode(ptr noundef %locale, ptr noundef writeonly captures(none) %scripts, i32 noundef %capacity, ptr noundef captures(none) %err) unnamed_addr #1 {
 entry:
   %internalErrorCode = alloca i32, align 4
   %lang = alloca [8 x i8], align 8
@@ -848,7 +848,7 @@ declare i32 @uloc_getScript_75(ptr noundef, ptr noundef, i32 noundef, ptr nounde
 declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

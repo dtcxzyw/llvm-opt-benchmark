@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.cfl_store_block.3 = private unnamed_addr constant [8 x i64] [i64 6, i64 8, i64 0, i64 10, i64 0, i64 0, i64 0, i64 12], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @cfl_init(ptr nocapture noundef writeonly initializes((0, 4108), (4244, 4260)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @cfl_init(ptr noundef writeonly captures(none) initializes((0, 4108), (4244, 4260)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4096) %0, i8 0, i64 4096, i1 false)
   %4 = load i32, ptr %3, align 8
@@ -46,10 +46,10 @@ define hidden void @cfl_init(ptr nocapture noundef writeonly initializes((0, 410
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @cfl_store_dc_pred(ptr nocapture noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #2 {
+define hidden void @cfl_store_dc_pred(ptr noundef captures(none) %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr i8, ptr %0, i64 7960
   %.val = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %.val, i64 192
@@ -83,10 +83,10 @@ define hidden void @cfl_store_dc_pred(ptr nocapture noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @cfl_load_dc_pred(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4) local_unnamed_addr #4 {
+define hidden void @cfl_load_dc_pred(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4) local_unnamed_addr #4 {
   %6 = zext i8 %3 to i64
   %7 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_wide, i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
@@ -140,7 +140,7 @@ cfl_load_dc_pred_hbd.exit:                        ; preds = %23, %28
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subtract_average_4x4_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
+define hidden void @cfl_subtract_average_4x4_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #5 {
   br label %.preheader34.i
 
 .preheader34.i:                                   ; preds = %8, %2
@@ -200,7 +200,7 @@ subtract_average_c.exit:                          ; preds = %19
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subtract_average_4x8_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
+define hidden void @cfl_subtract_average_4x8_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #5 {
   br label %.preheader34.i
 
 .preheader34.i:                                   ; preds = %8, %2
@@ -260,7 +260,7 @@ subtract_average_c.exit:                          ; preds = %19
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subtract_average_4x16_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
+define hidden void @cfl_subtract_average_4x16_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #5 {
   br label %.preheader34.i
 
 .preheader34.i:                                   ; preds = %8, %2
@@ -320,7 +320,7 @@ subtract_average_c.exit:                          ; preds = %19
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subtract_average_8x4_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
+define hidden void @cfl_subtract_average_8x4_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #5 {
   br label %.preheader34.i
 
 .preheader34.i:                                   ; preds = %8, %2
@@ -380,7 +380,7 @@ subtract_average_c.exit:                          ; preds = %19
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subtract_average_8x8_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
+define hidden void @cfl_subtract_average_8x8_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #5 {
   br label %.preheader34.i
 
 .preheader34.i:                                   ; preds = %8, %2
@@ -440,7 +440,7 @@ subtract_average_c.exit:                          ; preds = %19
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subtract_average_8x16_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
+define hidden void @cfl_subtract_average_8x16_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #5 {
   br label %.preheader34.i
 
 .preheader34.i:                                   ; preds = %8, %2
@@ -500,7 +500,7 @@ subtract_average_c.exit:                          ; preds = %19
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subtract_average_8x32_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
+define hidden void @cfl_subtract_average_8x32_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #5 {
   br label %.preheader34.i
 
 .preheader34.i:                                   ; preds = %8, %2
@@ -560,7 +560,7 @@ subtract_average_c.exit:                          ; preds = %19
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subtract_average_16x4_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
+define hidden void @cfl_subtract_average_16x4_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #5 {
   br label %.preheader34.i
 
 .preheader34.i:                                   ; preds = %8, %2
@@ -620,7 +620,7 @@ subtract_average_c.exit:                          ; preds = %19
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subtract_average_16x8_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
+define hidden void @cfl_subtract_average_16x8_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #5 {
   br label %.preheader34.i
 
 .preheader34.i:                                   ; preds = %8, %2
@@ -680,7 +680,7 @@ subtract_average_c.exit:                          ; preds = %19
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subtract_average_16x16_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
+define hidden void @cfl_subtract_average_16x16_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #5 {
   br label %.preheader34.i
 
 .preheader34.i:                                   ; preds = %8, %2
@@ -740,7 +740,7 @@ subtract_average_c.exit:                          ; preds = %19
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subtract_average_16x32_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
+define hidden void @cfl_subtract_average_16x32_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #5 {
   br label %.preheader34.i
 
 .preheader34.i:                                   ; preds = %8, %2
@@ -800,7 +800,7 @@ subtract_average_c.exit:                          ; preds = %19
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subtract_average_32x8_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
+define hidden void @cfl_subtract_average_32x8_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #5 {
   br label %.preheader34.i
 
 .preheader34.i:                                   ; preds = %8, %2
@@ -860,7 +860,7 @@ subtract_average_c.exit:                          ; preds = %19
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subtract_average_32x16_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
+define hidden void @cfl_subtract_average_32x16_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #5 {
   br label %.preheader34.i
 
 .preheader34.i:                                   ; preds = %8, %2
@@ -920,7 +920,7 @@ subtract_average_c.exit:                          ; preds = %19
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subtract_average_32x32_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
+define hidden void @cfl_subtract_average_32x32_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #5 {
   br label %.preheader34.i
 
 .preheader34.i:                                   ; preds = %8, %2
@@ -989,7 +989,7 @@ define hidden ptr @cfl_get_subtract_average_fn_c(i8 noundef zeroext %0) local_un
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_lbd_4x4_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
+define hidden void @cfl_predict_lbd_4x4_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
   br label %.preheader.i
 
@@ -1045,7 +1045,7 @@ cfl_predict_lbd_c.exit:                           ; preds = %27
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_lbd_4x8_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
+define hidden void @cfl_predict_lbd_4x8_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
   br label %.preheader.i
 
@@ -1101,7 +1101,7 @@ cfl_predict_lbd_c.exit:                           ; preds = %27
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_lbd_4x16_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
+define hidden void @cfl_predict_lbd_4x16_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
   br label %.preheader.i
 
@@ -1157,7 +1157,7 @@ cfl_predict_lbd_c.exit:                           ; preds = %27
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_lbd_8x4_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
+define hidden void @cfl_predict_lbd_8x4_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
   br label %.preheader.i
 
@@ -1213,7 +1213,7 @@ cfl_predict_lbd_c.exit:                           ; preds = %27
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_lbd_8x8_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
+define hidden void @cfl_predict_lbd_8x8_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
   br label %.preheader.i
 
@@ -1269,7 +1269,7 @@ cfl_predict_lbd_c.exit:                           ; preds = %27
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_lbd_8x16_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
+define hidden void @cfl_predict_lbd_8x16_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
   br label %.preheader.i
 
@@ -1325,7 +1325,7 @@ cfl_predict_lbd_c.exit:                           ; preds = %27
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_lbd_8x32_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
+define hidden void @cfl_predict_lbd_8x32_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
   br label %.preheader.i
 
@@ -1381,7 +1381,7 @@ cfl_predict_lbd_c.exit:                           ; preds = %27
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_lbd_16x4_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
+define hidden void @cfl_predict_lbd_16x4_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
   br label %.preheader.i
 
@@ -1437,7 +1437,7 @@ cfl_predict_lbd_c.exit:                           ; preds = %27
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_lbd_16x8_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
+define hidden void @cfl_predict_lbd_16x8_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
   br label %.preheader.i
 
@@ -1493,7 +1493,7 @@ cfl_predict_lbd_c.exit:                           ; preds = %27
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_lbd_16x16_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
+define hidden void @cfl_predict_lbd_16x16_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
   br label %.preheader.i
 
@@ -1549,7 +1549,7 @@ cfl_predict_lbd_c.exit:                           ; preds = %27
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_lbd_16x32_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
+define hidden void @cfl_predict_lbd_16x32_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
   br label %.preheader.i
 
@@ -1605,7 +1605,7 @@ cfl_predict_lbd_c.exit:                           ; preds = %27
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_lbd_32x8_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
+define hidden void @cfl_predict_lbd_32x8_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
   br label %.preheader.i
 
@@ -1661,7 +1661,7 @@ cfl_predict_lbd_c.exit:                           ; preds = %27
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_lbd_32x16_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
+define hidden void @cfl_predict_lbd_32x16_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
   br label %.preheader.i
 
@@ -1717,7 +1717,7 @@ cfl_predict_lbd_c.exit:                           ; preds = %27
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_lbd_32x32_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
+define hidden void @cfl_predict_lbd_32x32_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
   br label %.preheader.i
 
@@ -1782,7 +1782,7 @@ define hidden ptr @cfl_get_predict_lbd_fn_c(i8 noundef zeroext %0) local_unnamed
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_hbd_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #5 {
+define hidden void @cfl_predict_hbd_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #5 {
   %8 = icmp sgt i32 %6, 0
   br i1 %8, label %.preheader.lr.ph, label %._crit_edge33
 
@@ -1947,85 +1947,85 @@ get_scaled_luma_q0.exit.us35:                     ; preds = %68, %65
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_hbd_4x4_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
+define hidden void @cfl_predict_hbd_4x4_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
   tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 4, i32 noundef 4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_hbd_4x8_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
+define hidden void @cfl_predict_hbd_4x8_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
   tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 4, i32 noundef 8)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_hbd_4x16_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
+define hidden void @cfl_predict_hbd_4x16_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
   tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 4, i32 noundef 16)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_hbd_8x4_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
+define hidden void @cfl_predict_hbd_8x4_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
   tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 8, i32 noundef 4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_hbd_8x8_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
+define hidden void @cfl_predict_hbd_8x8_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
   tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 8, i32 noundef 8)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_hbd_8x16_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
+define hidden void @cfl_predict_hbd_8x16_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
   tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 8, i32 noundef 16)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_hbd_8x32_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
+define hidden void @cfl_predict_hbd_8x32_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
   tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 8, i32 noundef 32)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_hbd_16x4_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
+define hidden void @cfl_predict_hbd_16x4_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
   tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 16, i32 noundef 4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_hbd_16x8_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
+define hidden void @cfl_predict_hbd_16x8_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
   tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 16, i32 noundef 8)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_hbd_16x16_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
+define hidden void @cfl_predict_hbd_16x16_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
   tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 16, i32 noundef 16)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_hbd_16x32_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
+define hidden void @cfl_predict_hbd_16x32_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
   tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 16, i32 noundef 32)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_hbd_32x8_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
+define hidden void @cfl_predict_hbd_32x8_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
   tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 32, i32 noundef 8)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_hbd_32x16_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
+define hidden void @cfl_predict_hbd_32x16_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
   tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 32, i32 noundef 16)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_predict_hbd_32x32_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
+define hidden void @cfl_predict_hbd_32x32_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #5 {
   tail call void @cfl_predict_hbd_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 32, i32 noundef 32)
   ret void
 }
@@ -2225,7 +2225,7 @@ cfl_idx_to_alpha.exit:                            ; preds = %69, %72
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_420_4x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_420_4x4_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -2272,7 +2272,7 @@ cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %27
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_420_8x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_420_8x8_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -2322,7 +2322,7 @@ cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_420_16x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_420_16x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -2372,7 +2372,7 @@ cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_420_32x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_420_32x32_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -2422,7 +2422,7 @@ cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_420_4x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_420_4x8_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -2471,7 +2471,7 @@ cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_420_8x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_420_8x4_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -2519,7 +2519,7 @@ cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %27
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_420_8x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_420_8x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -2569,7 +2569,7 @@ cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_420_16x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_420_16x8_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -2619,7 +2619,7 @@ cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_420_16x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_420_16x32_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -2669,7 +2669,7 @@ cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_420_32x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_420_32x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -2719,7 +2719,7 @@ cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_420_4x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_420_4x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -2768,7 +2768,7 @@ cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_420_16x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_420_16x4_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -2816,7 +2816,7 @@ cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %27
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_420_8x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_420_8x32_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -2866,7 +2866,7 @@ cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_420_32x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_420_32x8_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -2924,7 +2924,7 @@ define hidden ptr @cfl_get_luma_subsampling_420_lbd_c(i8 noundef zeroext %0) loc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_422_4x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_422_4x4_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -2962,7 +2962,7 @@ cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_422_8x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_422_8x8_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3001,7 +3001,7 @@ cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_422_16x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_422_16x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3040,7 +3040,7 @@ cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_422_32x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_422_32x32_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3079,7 +3079,7 @@ cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_422_4x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_422_4x8_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3117,7 +3117,7 @@ cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_422_8x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_422_8x4_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3156,7 +3156,7 @@ cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_422_8x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_422_8x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3195,7 +3195,7 @@ cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_422_16x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_422_16x8_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3234,7 +3234,7 @@ cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_422_16x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_422_16x32_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3273,7 +3273,7 @@ cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_422_32x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_422_32x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3312,7 +3312,7 @@ cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_422_4x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_422_4x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3350,7 +3350,7 @@ cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_422_16x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_422_16x4_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3389,7 +3389,7 @@ cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_422_8x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_422_8x32_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3428,7 +3428,7 @@ cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_422_32x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_422_32x8_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3475,7 +3475,7 @@ define hidden ptr @cfl_get_luma_subsampling_422_lbd_c(i8 noundef zeroext %0) loc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_444_4x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_444_4x4_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3509,7 +3509,7 @@ cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_444_8x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_444_8x8_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3543,7 +3543,7 @@ cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_444_16x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_444_16x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3577,7 +3577,7 @@ cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_444_32x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_444_32x32_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3611,7 +3611,7 @@ cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_444_4x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_444_4x8_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3645,7 +3645,7 @@ cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_444_8x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_444_8x4_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3679,7 +3679,7 @@ cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_444_8x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_444_8x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3713,7 +3713,7 @@ cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_444_16x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_444_16x8_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3747,7 +3747,7 @@ cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_444_16x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_444_16x32_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3781,7 +3781,7 @@ cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_444_32x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_444_32x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3815,7 +3815,7 @@ cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_444_4x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_444_4x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3849,7 +3849,7 @@ cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_444_16x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_444_16x4_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3883,7 +3883,7 @@ cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_444_8x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_444_8x32_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3917,7 +3917,7 @@ cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_444_32x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_lbd_444_32x8_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -3959,7 +3959,7 @@ define hidden ptr @cfl_get_luma_subsampling_444_lbd_c(i8 noundef zeroext %0) loc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_420_4x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_420_4x4_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -4002,7 +4002,7 @@ cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_420_8x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_420_8x8_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -4048,7 +4048,7 @@ cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_420_16x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_420_16x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -4094,7 +4094,7 @@ cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_420_32x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_420_32x32_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -4140,7 +4140,7 @@ cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_420_4x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_420_4x8_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -4185,7 +4185,7 @@ cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_420_8x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_420_8x4_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -4229,7 +4229,7 @@ cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_420_8x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_420_8x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -4275,7 +4275,7 @@ cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_420_16x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_420_16x8_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -4321,7 +4321,7 @@ cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_420_16x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_420_16x32_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -4367,7 +4367,7 @@ cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_420_32x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_420_32x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -4413,7 +4413,7 @@ cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_420_4x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_420_4x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -4458,7 +4458,7 @@ cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_420_16x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_420_16x4_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -4502,7 +4502,7 @@ cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_420_8x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_420_8x32_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -4548,7 +4548,7 @@ cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_420_32x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_420_32x8_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
@@ -4602,7 +4602,7 @@ define hidden ptr @cfl_get_luma_subsampling_420_hbd_c(i8 noundef zeroext %0) loc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_422_4x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_422_4x4_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -4635,7 +4635,7 @@ cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %.preheader.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_422_8x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_422_8x8_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -4672,7 +4672,7 @@ cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_422_16x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_422_16x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -4709,7 +4709,7 @@ cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_422_32x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_422_32x32_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -4746,7 +4746,7 @@ cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_422_4x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_422_4x8_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -4779,7 +4779,7 @@ cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %.preheader.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_422_8x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_422_8x4_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -4816,7 +4816,7 @@ cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_422_8x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_422_8x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -4853,7 +4853,7 @@ cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_422_16x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_422_16x8_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -4890,7 +4890,7 @@ cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_422_16x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_422_16x32_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -4927,7 +4927,7 @@ cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_422_32x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_422_32x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -4964,7 +4964,7 @@ cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_422_4x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_422_4x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -4997,7 +4997,7 @@ cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %.preheader.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_422_16x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_422_16x4_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -5034,7 +5034,7 @@ cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_422_8x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_422_8x32_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -5071,7 +5071,7 @@ cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_422_32x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_422_32x8_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -5116,7 +5116,7 @@ define hidden ptr @cfl_get_luma_subsampling_422_hbd_c(i8 noundef zeroext %0) loc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_444_4x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_444_4x4_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -5149,7 +5149,7 @@ cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_444_8x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_444_8x8_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -5182,7 +5182,7 @@ cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_444_16x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_444_16x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -5215,7 +5215,7 @@ cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_444_32x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_444_32x32_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -5248,7 +5248,7 @@ cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_444_4x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_444_4x8_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -5281,7 +5281,7 @@ cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_444_8x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_444_8x4_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -5314,7 +5314,7 @@ cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_444_8x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_444_8x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -5347,7 +5347,7 @@ cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_444_16x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_444_16x8_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -5380,7 +5380,7 @@ cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_444_16x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_444_16x32_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -5413,7 +5413,7 @@ cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_444_32x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_444_32x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -5446,7 +5446,7 @@ cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_444_4x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_444_4x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -5479,7 +5479,7 @@ cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_444_16x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_444_16x4_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -5512,7 +5512,7 @@ cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_444_8x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_444_8x32_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
@@ -5545,7 +5545,7 @@ cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_444_32x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
+define hidden void @cfl_subsample_hbd_444_32x8_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 

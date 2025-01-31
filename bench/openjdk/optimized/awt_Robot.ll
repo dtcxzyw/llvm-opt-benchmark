@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [19 x i8] c"libXcomposite.so.1\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XRobotPeer_setup(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XRobotPeer_setup(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -251,7 +251,7 @@ declare void @JNU_ThrowByName(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare void @awt_output_flush(...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XRobotPeer_getRGBPixelsImpl(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i8 noundef zeroext %8) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XRobotPeer_getRGBPixelsImpl(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i8 noundef zeroext %8) local_unnamed_addr #0 {
   %10 = alloca [25 x i8], align 16
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -669,7 +669,7 @@ define internal fastcc ptr @getWindowImage(ptr noundef %0, i64 noundef %1, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XRobotPeer_keyPressImpl(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XRobotPeer_keyPressImpl(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1824
   %6 = load ptr, ptr %5, align 8
@@ -772,7 +772,7 @@ declare i64 @awt_getX11KeySym(i32 noundef) local_unnamed_addr #2
 declare i32 @XSync(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XRobotPeer_keyReleaseImpl(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XRobotPeer_keyReleaseImpl(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1824
   %6 = load ptr, ptr %5, align 8
@@ -867,7 +867,7 @@ define void @Java_sun_awt_X11_XRobotPeer_keyReleaseImpl(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XRobotPeer_mouseMoveImpl(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XRobotPeer_mouseMoveImpl(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1824
   %8 = load ptr, ptr %7, align 8
@@ -970,7 +970,7 @@ define void @Java_sun_awt_X11_XRobotPeer_mouseMoveImpl(ptr noundef %0, ptr nocap
 declare i32 @XWarpPointer(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mouseAction(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden void @mouseAction(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1824
   %7 = load ptr, ptr %6, align 8
@@ -1155,19 +1155,19 @@ define hidden void @mouseAction(ptr noundef %0, ptr nocapture readnone %1, i32 n
 declare i32 @XTestFakeButtonEvent(ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XRobotPeer_mousePressImpl(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XRobotPeer_mousePressImpl(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @mouseAction(ptr noundef %0, ptr poison, i32 noundef %2, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XRobotPeer_mouseReleaseImpl(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XRobotPeer_mouseReleaseImpl(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @mouseAction(ptr noundef %0, ptr poison, i32 noundef %2, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XRobotPeer_mouseWheelImpl(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XRobotPeer_mouseWheelImpl(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %2, 0
   %5 = select i1 %4, i32 4, i32 5
   %6 = load ptr, ptr %0, align 8
@@ -1280,7 +1280,7 @@ define void @Java_sun_awt_X11_XRobotPeer_mouseWheelImpl(ptr noundef %0, ptr noca
 declare i32 @llvm.abs.i32(i32, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XRobotPeer_loadNativeLibraries(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XRobotPeer_loadNativeLibraries(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @xCompositeHandle, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %.thread.i
@@ -1336,7 +1336,7 @@ declare i32 @XTestQueryExtension(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare i32 @XTestGrabControl(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare i64 @XInternAtom(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1363,10 +1363,10 @@ declare i32 @dlclose(ptr noundef) local_unnamed_addr #5
 declare i32 @llvm.smax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6

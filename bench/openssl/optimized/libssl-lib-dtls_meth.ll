@@ -828,10 +828,10 @@ return:                                           ; preds = %if.then146, %if.the
 declare i32 @tls_setup_read_buffer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dtls_prepare_record_header(ptr noundef %rl, ptr noundef %thispkt, ptr nocapture noundef readonly %templ, i8 noundef zeroext %rectype, ptr noundef initializes((0, 8)) %recdata) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dtls_prepare_record_header(ptr noundef %rl, ptr noundef %thispkt, ptr noundef readonly captures(none) %templ, i8 noundef zeroext %rectype, ptr noundef initializes((0, 8)) %recdata) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %recdata, align 8
   %buflen = getelementptr inbounds nuw i8, ptr %templ, i64 16
@@ -941,7 +941,7 @@ declare i32 @tls_post_encryption_processing_default(ptr noundef, i64 noundef, pt
 declare i32 @tls_increment_sequence_ctr(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dtls_new_record_layer(ptr noundef %libctx, ptr noundef %propq, i32 noundef %vers, i32 noundef %role, i32 noundef %direction, i32 noundef %level, i16 noundef zeroext %epoch, ptr nocapture readnone %secret, i64 %secretlen, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %mackey, i64 noundef %mackeylen, ptr noundef %ciph, i64 noundef %taglen, i32 noundef %mactype, ptr noundef %md, ptr noundef %comp, ptr nocapture readnone %kdfdigest, ptr noundef %prev, ptr noundef %transport, ptr noundef %next, ptr noundef %local, ptr noundef %peer, ptr noundef %settings, ptr noundef %options, ptr noundef %fns, ptr noundef %cbarg, ptr nocapture readnone %rlarg, ptr noundef %retrl) #0 {
+define internal i32 @dtls_new_record_layer(ptr noundef %libctx, ptr noundef %propq, i32 noundef %vers, i32 noundef %role, i32 noundef %direction, i32 noundef %level, i16 noundef zeroext %epoch, ptr readnone captures(none) %secret, i64 %secretlen, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %mackey, i64 noundef %mackeylen, ptr noundef %ciph, i64 noundef %taglen, i32 noundef %mactype, ptr noundef %md, ptr noundef %comp, ptr readnone captures(none) %kdfdigest, ptr noundef %prev, ptr noundef %transport, ptr noundef %next, ptr noundef %local, ptr noundef %peer, ptr noundef %settings, ptr noundef %options, ptr noundef %fns, ptr noundef %cbarg, ptr readnone captures(none) %rlarg, ptr noundef %retrl) #0 {
 entry:
   %call = tail call i32 @tls_int_new_record_layer(ptr noundef %libctx, ptr noundef %propq, i32 noundef %vers, i32 noundef %role, i32 noundef %direction, i32 noundef %level, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %mackey, i64 noundef %mackeylen, ptr noundef %ciph, i64 noundef %taglen, i32 noundef %mactype, ptr noundef %md, ptr noundef %comp, ptr noundef %prev, ptr noundef %transport, ptr noundef %next, ptr noundef %local, ptr noundef %peer, ptr noundef %settings, ptr noundef %options, ptr noundef %fns, ptr noundef %cbarg, ptr noundef %retrl) #7
   %cmp.not = icmp eq i32 %call, 1
@@ -1166,7 +1166,7 @@ declare void @tls_set_first_handshake(ptr noundef, i32 noundef) #1
 declare void @tls_set_max_pipelines(ptr noundef, i64 noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @dtls_set_in_init(ptr nocapture noundef writeonly initializes((4368, 4372)) %rl, i32 noundef %in_init) #3 {
+define internal void @dtls_set_in_init(ptr noundef writeonly captures(none) initializes((4368, 4372)) %rl, i32 noundef %in_init) #3 {
 entry:
   %in_init1 = getelementptr inbounds nuw i8, ptr %rl, i64 4368
   store i32 %in_init, ptr %in_init1, align 8
@@ -1182,7 +1182,7 @@ declare ptr @tls_get_compression(ptr noundef) #1
 declare void @tls_set_max_frag_len(ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @dtls_get_max_record_overhead(ptr nocapture noundef readonly %rl) #0 {
+define internal i64 @dtls_get_max_record_overhead(ptr noundef readonly captures(none) %rl) #0 {
 entry:
   %enc_ctx = getelementptr inbounds nuw i8, ptr %rl, i64 4128
   %0 = load ptr, ptr %enc_ctx, align 8
@@ -1234,7 +1234,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare ptr @pitem_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @pqueue_insert(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1274,10 +1274,10 @@ declare i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef) local_unnamed_addr #1
 declare i64 @llvm.smax.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -209,12 +209,12 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 93:                                               ; preds = %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
   store ptr @ompi_mpi_group_null, ptr %5, align 8
   %94 = load ptr, ptr %4, align 8
-  %95 = call i32 @ompi_comm_nextcid(ptr noundef %94, ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i32 noundef 64) #5
+  %95 = call i32 @ompi_comm_nextcid(ptr noundef %94, ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i32 noundef 64) #5
   %.not51 = icmp eq i32 %95, 0
   br i1 %.not51, label %96, label %.thread
 
 96:                                               ; preds = %93
-  %97 = call i32 @ompi_comm_activate(ptr noundef nonnull %4, ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i32 noundef 64) #5
+  %97 = call i32 @ompi_comm_activate(ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i32 noundef 64) #5
   %.not52 = icmp eq i32 %97, 0
   br i1 %.not52, label %156, label %.thread
 
@@ -343,7 +343,7 @@ opal_pointer_array_get_item.exit.i75:             ; preds = %146, %140
 
 ompi_errcode_get_mpi_code.exit79:                 ; preds = %130, %122, %.preheader.i68, %152
   %.0.i69 = phi i32 [ %.08290, %122 ], [ %154, %152 ], [ 14, %.preheader.i68 ], [ 14, %130 ]
-  %155 = call i32 @ompi_errhandler_invoke(ptr noundef %124, ptr noundef %0, i32 noundef %126, i32 noundef %.0.i69, ptr noundef nonnull @FUNC_NAME) #5
+  %155 = call i32 @ompi_errhandler_invoke(ptr noundef %124, ptr noundef nonnull %0, i32 noundef %126, i32 noundef %.0.i69, ptr noundef nonnull @FUNC_NAME) #5
   br label %158
 
 156:                                              ; preds = %96
@@ -365,7 +365,7 @@ declare i32 @ompi_group_union(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @ompi_comm_set(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @ompi_comm_nextcid(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 

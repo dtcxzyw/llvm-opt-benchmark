@@ -48,7 +48,7 @@ $_ZN6hermes10CodeMotionD0Ev = comdat any
 @.str = private unnamed_addr constant [11 x i8] c"CodeMotion\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes10CodeMotion13runOnFunctionEPNS_8FunctionE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %F) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes10CodeMotion13runOnFunctionEPNS_8FunctionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %F) unnamed_addr #0 align 2 {
 entry:
   %PO = alloca %"class.hermes::PostOrderAnalysis", align 8
   %dominance = alloca %"class.hermes::DominanceInfo", align 8
@@ -58,13 +58,13 @@ entry:
   %0 = load ptr, ptr %Order.i, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %PO, i64 16
   %1 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i.not83 = icmp eq ptr %0, %1
-  br i1 %cmp.i.not83, label %for.end, label %for.body
+  %cmp.i.not84 = icmp eq ptr %0, %1
+  br i1 %cmp.i.not84, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %changed.085 = phi i1 [ %changed.1, %for.inc ], [ false, %entry ]
-  %__begin1.sroa.0.084 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %entry ]
-  %2 = load ptr, ptr %__begin1.sroa.0.084, align 8
+  %changed.086 = phi i1 [ %changed.1, %for.inc ], [ false, %entry ]
+  %__begin1.sroa.0.085 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %entry ]
+  %2 = load ptr, ptr %__begin1.sroa.0.085, align 8
   %call6 = call noundef ptr @_ZN6hermes10BasicBlock13getTerminatorEv(ptr noundef nonnull align 8 dereferenceable(80) %2) #5
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call6, i64 16
   %3 = load i8, ptr %add.ptr.i.i.i.i.i.i, align 8
@@ -230,16 +230,16 @@ while.body.preheader.i:                           ; preds = %_ZN6hermes10pred_co
   %Next.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 64
   %Next.i.i.i.i.i52.i = getelementptr inbounds nuw i8, ptr %7, i64 64
   %28 = load ptr, ptr %Next.i.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i53110.i = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %29 = load i8, ptr %add.ptr.i.i.i.i.i53110.i, align 8
+  %add.ptr.i.i.i.i.i53111.i = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %29 = load i8, ptr %add.ptr.i.i.i.i.i53111.i, align 8
   %30 = add i8 %29, -75
   %31 = icmp ult i8 %30, 15
   br i1 %31, label %_ZL8hoistCBIPN6hermes14CondBranchInstE.exit, label %lor.lhs.false17.i
 
 lor.lhs.false17.i:                                ; preds = %while.body.preheader.i, %if.end30.i
-  %add.ptr.i.i.i.i.i53112.i = phi ptr [ %add.ptr.i.i.i.i.i53.i, %if.end30.i ], [ %add.ptr.i.i.i.i.i53110.i, %while.body.preheader.i ]
+  %add.ptr.i.i.i.i.i53113.i = phi ptr [ %add.ptr.i.i.i.i.i53.i, %if.end30.i ], [ %add.ptr.i.i.i.i.i53111.i, %while.body.preheader.i ]
   %32 = phi ptr [ %53, %if.end30.i ], [ %28, %while.body.preheader.i ]
-  %changed.0111.i = phi i1 [ true, %if.end30.i ], [ false, %while.body.preheader.i ]
+  %changed.0112.i = phi i1 [ true, %if.end30.i ], [ false, %while.body.preheader.i ]
   %33 = load ptr, ptr %Next.i.i.i.i.i52.i, align 8
   %add.ptr.i.i.i.i.i54.i = getelementptr inbounds nuw i8, ptr %33, i64 16
   %34 = load i8, ptr %add.ptr.i.i.i.i.i54.i, align 8
@@ -255,7 +255,7 @@ while.cond.i.i:                                   ; preds = %lor.lhs.false17.i, 
 
 while.body.i.i:                                   ; preds = %while.cond.i.i
   %call2.i.i = call noundef zeroext i1 @_ZNK6hermes11Instruction13isIdenticalToEPKS0_(ptr noundef nonnull align 8 dereferenceable(132) %32, ptr noundef nonnull %copy.addr.0.i.i) #5
-  br i1 %call2.i.i, label %_ZL21findIdenticalInWindowPN6hermes11InstructionES1_j.exit.i, label %if.end4.i.i
+  br i1 %call2.i.i, label %if.end30.i, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %while.body.i.i
   %call.i.i.i = call noundef i32 @_ZN6hermes11Instruction20getDerivedSideEffectEv(ptr noundef nonnull align 8 dereferenceable(132) %32) #5
@@ -282,18 +282,14 @@ if.end8.i.i:                                      ; preds = %land.lhs.true.i.i, 
   %41 = icmp ult i8 %40, 15
   br i1 %41, label %if.else.i, label %while.cond.i.i, !llvm.loop !7
 
-_ZL21findIdenticalInWindowPN6hermes11InstructionES1_j.exit.i: ; preds = %while.body.i.i
-  %tobool22.not.i = icmp eq ptr %copy.addr.0.i.i, null
-  br i1 %tobool22.not.i, label %if.else.i, label %if.end30.i
-
-if.else.i:                                        ; preds = %if.end8.i.i, %land.lhs.true.i.i, %while.cond.i.i, %_ZL21findIdenticalInWindowPN6hermes11InstructionES1_j.exit.i
+if.else.i:                                        ; preds = %if.end8.i.i, %land.lhs.true.i.i, %while.cond.i.i
   %42 = load i8, ptr %add.ptr.i.i.i.i.i54.i, align 8
   %43 = add i8 %42, -75
   %44 = icmp ult i8 %43, 15
   br i1 %44, label %_ZL8hoistCBIPN6hermes14CondBranchInstE.exit, label %lor.lhs.false.i56.i
 
 lor.lhs.false.i56.i:                              ; preds = %if.else.i
-  %45 = load i8, ptr %add.ptr.i.i.i.i.i53112.i, align 8
+  %45 = load i8, ptr %add.ptr.i.i.i.i.i53113.i, align 8
   %46 = add i8 %45, -75
   %47 = icmp ult i8 %46, 15
   br i1 %47, label %_ZL8hoistCBIPN6hermes14CondBranchInstE.exit, label %while.cond.i58.i
@@ -306,7 +302,7 @@ while.cond.i58.i:                                 ; preds = %lor.lhs.false.i56.i
 
 while.body.i62.i:                                 ; preds = %while.cond.i58.i
   %call2.i63.i = call noundef zeroext i1 @_ZNK6hermes11Instruction13isIdenticalToEPKS0_(ptr noundef nonnull align 8 dereferenceable(132) %33, ptr noundef nonnull %copy.addr.0.i59.i) #5
-  br i1 %call2.i63.i, label %_ZL21findIdenticalInWindowPN6hermes11InstructionES1_j.exit79.i, label %if.end4.i64.i
+  br i1 %call2.i63.i, label %if.end30.i, label %if.end4.i64.i
 
 if.end4.i64.i:                                    ; preds = %while.body.i62.i
   %call.i.i65.i = call noundef i32 @_ZN6hermes11Instruction20getDerivedSideEffectEv(ptr noundef nonnull align 8 dereferenceable(132) %33) #5
@@ -333,13 +329,9 @@ if.end8.i71.i:                                    ; preds = %land.lhs.true.i67.i
   %52 = icmp ult i8 %51, 15
   br i1 %52, label %_ZL8hoistCBIPN6hermes14CondBranchInstE.exit, label %while.cond.i58.i, !llvm.loop !7
 
-_ZL21findIdenticalInWindowPN6hermes11InstructionES1_j.exit79.i: ; preds = %while.body.i62.i
-  %tobool25.not.i = icmp eq ptr %copy.addr.0.i59.i, null
-  br i1 %tobool25.not.i, label %_ZL8hoistCBIPN6hermes14CondBranchInstE.exit, label %if.end30.i
-
-if.end30.i:                                       ; preds = %_ZL21findIdenticalInWindowPN6hermes11InstructionES1_j.exit79.i, %_ZL21findIdenticalInWindowPN6hermes11InstructionES1_j.exit.i
-  %LHS.0.in.sroa.speculated.i = phi ptr [ %32, %_ZL21findIdenticalInWindowPN6hermes11InstructionES1_j.exit.i ], [ %33, %_ZL21findIdenticalInWindowPN6hermes11InstructionES1_j.exit79.i ]
-  %RHS.0.i = phi ptr [ %copy.addr.0.i.i, %_ZL21findIdenticalInWindowPN6hermes11InstructionES1_j.exit.i ], [ %copy.addr.0.i59.i, %_ZL21findIdenticalInWindowPN6hermes11InstructionES1_j.exit79.i ]
+if.end30.i:                                       ; preds = %while.body.i.i, %while.body.i62.i
+  %LHS.0.in.sroa.speculated.i = phi ptr [ %33, %while.body.i62.i ], [ %32, %while.body.i.i ]
+  %RHS.0.i = phi ptr [ %copy.addr.0.i59.i, %while.body.i62.i ], [ %copy.addr.0.i.i, %while.body.i.i ]
   call void @_ZN6hermes11Instruction10moveBeforeEPS0_(ptr noundef nonnull align 8 dereferenceable(132) %LHS.0.in.sroa.speculated.i, ptr noundef nonnull %call6) #5
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %RHS.0.i, i64 16
   %add.ptr33.i = getelementptr inbounds nuw i8, ptr %LHS.0.in.sroa.speculated.i, i64 16
@@ -352,14 +344,14 @@ if.end30.i:                                       ; preds = %_ZL21findIdenticalI
   %56 = icmp ult i8 %55, 15
   br i1 %56, label %_ZL8hoistCBIPN6hermes14CondBranchInstE.exit, label %lor.lhs.false17.i, !llvm.loop !8
 
-_ZL8hoistCBIPN6hermes14CondBranchInstE.exit:      ; preds = %while.body.i.i.i.i.i, %while.body.i.i.i.i48.i, %lor.lhs.false17.i, %if.else.i, %lor.lhs.false.i56.i, %_ZL21findIdenticalInWindowPN6hermes11InstructionES1_j.exit79.i, %if.end30.i, %while.cond.i58.i, %land.lhs.true.i67.i, %if.end8.i71.i, %if.then, %if.end.i, %_ZN6hermes10pred_beginEPKNS_10BasicBlockE.exit.i.i, %_ZN6hermes10pred_countEPKNS_10BasicBlockE.exit.i, %_ZN6hermes10pred_beginEPKNS_10BasicBlockE.exit.i26.i, %_ZN6hermes10pred_countEPKNS_10BasicBlockE.exit51.i, %while.body.preheader.i
-  %retval.0.i = phi i1 [ false, %if.then ], [ false, %_ZN6hermes10pred_countEPKNS_10BasicBlockE.exit51.i ], [ false, %_ZN6hermes10pred_countEPKNS_10BasicBlockE.exit.i ], [ false, %if.end.i ], [ false, %_ZN6hermes10pred_beginEPKNS_10BasicBlockE.exit.i.i ], [ false, %_ZN6hermes10pred_beginEPKNS_10BasicBlockE.exit.i26.i ], [ false, %while.body.preheader.i ], [ %changed.0111.i, %if.end8.i71.i ], [ %changed.0111.i, %land.lhs.true.i67.i ], [ %changed.0111.i, %while.cond.i58.i ], [ %changed.0111.i, %if.else.i ], [ %changed.0111.i, %lor.lhs.false.i56.i ], [ %changed.0111.i, %_ZL21findIdenticalInWindowPN6hermes11InstructionES1_j.exit79.i ], [ true, %if.end30.i ], [ %changed.0111.i, %lor.lhs.false17.i ], [ false, %while.body.i.i.i.i48.i ], [ false, %while.body.i.i.i.i.i ]
-  %57 = or i1 %changed.085, %retval.0.i
+_ZL8hoistCBIPN6hermes14CondBranchInstE.exit:      ; preds = %while.body.i.i.i.i.i, %while.body.i.i.i.i48.i, %lor.lhs.false17.i, %if.else.i, %lor.lhs.false.i56.i, %if.end30.i, %while.cond.i58.i, %land.lhs.true.i67.i, %if.end8.i71.i, %if.then, %if.end.i, %_ZN6hermes10pred_beginEPKNS_10BasicBlockE.exit.i.i, %_ZN6hermes10pred_countEPKNS_10BasicBlockE.exit.i, %_ZN6hermes10pred_beginEPKNS_10BasicBlockE.exit.i26.i, %_ZN6hermes10pred_countEPKNS_10BasicBlockE.exit51.i, %while.body.preheader.i
+  %retval.0.i = phi i1 [ false, %if.then ], [ false, %_ZN6hermes10pred_countEPKNS_10BasicBlockE.exit51.i ], [ false, %_ZN6hermes10pred_countEPKNS_10BasicBlockE.exit.i ], [ false, %if.end.i ], [ false, %_ZN6hermes10pred_beginEPKNS_10BasicBlockE.exit.i.i ], [ false, %_ZN6hermes10pred_beginEPKNS_10BasicBlockE.exit.i26.i ], [ false, %while.body.preheader.i ], [ %changed.0112.i, %if.end8.i71.i ], [ %changed.0112.i, %land.lhs.true.i67.i ], [ %changed.0112.i, %while.cond.i58.i ], [ %changed.0112.i, %if.else.i ], [ %changed.0112.i, %lor.lhs.false.i56.i ], [ true, %if.end30.i ], [ %changed.0112.i, %lor.lhs.false17.i ], [ false, %while.body.i.i.i.i48.i ], [ false, %while.body.i.i.i.i.i ]
+  %57 = or i1 %changed.086, %retval.0.i
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %_ZL8hoistCBIPN6hermes14CondBranchInstE.exit
-  %changed.1 = phi i1 [ %57, %_ZL8hoistCBIPN6hermes14CondBranchInstE.exit ], [ %changed.085, %for.body ]
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.084, i64 8
+  %changed.1 = phi i1 [ %57, %_ZL8hoistCBIPN6hermes14CondBranchInstE.exit ], [ %changed.086, %for.body ]
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.085, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -369,8 +361,8 @@ for.end:                                          ; preds = %for.inc, %entry
   call void @_ZN6hermes12LoopAnalysisC1EPNS_8FunctionERKNS_13DominanceInfoE(ptr noundef nonnull align 8 dereferenceable(528) %loops, ptr noundef %F, ptr noundef nonnull align 8 dereferenceable(72) %dominance) #5
   %58 = load ptr, ptr %Order.i, align 8
   %59 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i16.not86 = icmp eq ptr %58, %59
-  br i1 %cmp.i16.not86, label %for.end41, label %for.body22.lr.ph
+  %cmp.i16.not87 = icmp eq ptr %58, %59
+  br i1 %cmp.i16.not87, label %for.end41, label %for.body22.lr.ph
 
 for.body22.lr.ph:                                 ; preds = %for.end
   %storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %loops, i64 8
@@ -378,9 +370,9 @@ for.body22.lr.ph:                                 ; preds = %for.end
   br label %for.body22
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %_ZL25hoistInstructionsFromLoopPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit
-  %changed.288 = phi i1 [ %changed.0.lcssa, %for.body22.lr.ph ], [ %or3611, %_ZL25hoistInstructionsFromLoopPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit ]
-  %__begin114.sroa.0.087 = phi ptr [ %58, %for.body22.lr.ph ], [ %incdec.ptr.i37, %_ZL25hoistInstructionsFromLoopPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit ]
-  %60 = load ptr, ptr %__begin114.sroa.0.087, align 8
+  %changed.289 = phi i1 [ %changed.0.lcssa, %for.body22.lr.ph ], [ %or3611, %_ZL25hoistInstructionsFromLoopPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit ]
+  %__begin114.sroa.0.088 = phi ptr [ %58, %for.body22.lr.ph ], [ %incdec.ptr.i37, %_ZL25hoistInstructionsFromLoopPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit ]
+  %60 = load ptr, ptr %__begin114.sroa.0.088, align 8
   %bf.load.i.i.i.i.i.i = load i32, ptr %loops, align 8
   %bf.clear.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i, 1
   %tobool.not.i.i.i.i.i.i17 = icmp eq i32 %bf.clear.i.i.i.i.i.i, 0
@@ -640,8 +632,8 @@ if.end15.i:                                       ; preds = %land.lhs.true.i.i36
 _ZL25hoistInstructionsFromLoopPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit: ; preds = %if.end15.i, %_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit, %if.end.i28
   %retval.0.i34 = phi i1 [ false, %_ZL23sinkInstructionsInBlockPN6hermes10BasicBlockERKNS_13DominanceInfoERKNS_12LoopAnalysisE.exit ], [ false, %if.end.i28 ], [ %changed.1.i32, %if.end15.i ]
   %88 = or i1 %changed.0.lcssa.i, %retval.0.i34
-  %or3611 = or i1 %changed.288, %88
-  %incdec.ptr.i37 = getelementptr inbounds nuw i8, ptr %__begin114.sroa.0.087, i64 8
+  %or3611 = or i1 %changed.289, %88
+  %incdec.ptr.i37 = getelementptr inbounds nuw i8, ptr %__begin114.sroa.0.088, i64 8
   %cmp.i16.not = icmp eq ptr %incdec.ptr.i37, %59
   br i1 %cmp.i16.not, label %for.end41, label %for.body22
 
@@ -760,7 +752,7 @@ declare void @_ZN6hermes13DominanceInfoC1EPNS_8FunctionE(ptr noundef nonnull ali
 declare void @_ZN6hermes12LoopAnalysisC1EPNS_8FunctionERKNS_13DominanceInfoE(ptr noundef nonnull align 8 dereferenceable(528), ptr noundef, ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes16createCodeMotionEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #0 {
+define hidden void @_ZN6hermes16createCodeMotionEv(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %agg.result) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN6hermes10CodeMotionESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #7, !noalias !15
   %kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
@@ -815,7 +807,7 @@ declare noundef zeroext i1 @_ZNK6hermes13DominanceInfo17properlyDominatesEPKNS_1
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4

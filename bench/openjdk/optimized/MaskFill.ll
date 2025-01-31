@@ -1523,7 +1523,7 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_loops_MaskFill_DrawAAPgram(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, double noundef %10, double noundef %11, double noundef %12) local_unnamed_addr #0 {
@@ -3389,10 +3389,10 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @storeEdge(ptr nocapture noundef nonnull writeonly initializes((0, 32), (48, 81)) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i8 noundef zeroext range(i8 0, 2) %8) unnamed_addr #6 {
+define internal fastcc zeroext range(i8 0, 2) i8 @storeEdge(ptr noundef nonnull writeonly captures(none) initializes((0, 32), (48, 81)) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i8 noundef zeroext range(i8 0, 2) %8) unnamed_addr #6 {
   %10 = fadd double %1, %3
   %11 = fadd double %2, %4
   store double %1, ptr %0, align 8

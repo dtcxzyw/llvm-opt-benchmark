@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [32 x i8] c"cannot deregister in-use memory\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @mca_rcache_base_mem_cb(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define void @mca_rcache_base_mem_cb(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = load i32, ptr @opal_initialized, align 4
   %6 = icmp eq i32 %5, 0
   %or.cond.not22 = select i1 %3, i1 %6, i1 false
@@ -83,7 +83,7 @@ define void @mca_rcache_base_mem_cb(ptr noundef %0, i64 noundef %1, ptr nocaptur
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
 declare i32 @getpid() local_unnamed_addr #2
@@ -124,7 +124,7 @@ define internal fastcc void @opal_best_effort_write(i64 noundef range(i64 -21474
 declare void @_exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #6

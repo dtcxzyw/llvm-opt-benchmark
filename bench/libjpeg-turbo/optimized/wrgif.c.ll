@@ -131,7 +131,7 @@ define dso_local noundef ptr @j12init_write_gif(ptr noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @start_output_gif(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal void @start_output_gif(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -154,7 +154,7 @@ define internal void @start_output_gif(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @finish_output_gif(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal void @finish_output_gif(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load i32, ptr %3, align 8
   %.not.i = icmp eq i32 %4, 0
@@ -290,14 +290,14 @@ compress_term.exit:                               ; preds = %.thread.i, %43, %65
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @calc_buffer_dimensions_gif(ptr nocapture readnone %0, ptr nocapture readnone %1) #1 {
+define internal void @calc_buffer_dimensions_gif(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #1 {
   ret void
 }
 
 declare void @jpeg_calc_output_dimensions(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @put_LZW_pixel_rows(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 %2) #0 {
+define internal void @put_LZW_pixel_rows(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load i32, ptr %4, align 8
   %.not76 = icmp eq i32 %5, 0
@@ -471,7 +471,7 @@ define internal void @put_LZW_pixel_rows(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @put_raw_pixel_rows(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 %2) #0 {
+define internal void @put_raw_pixel_rows(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load i32, ptr %4, align 8
   %.not15 = icmp eq i32 %5, 0
@@ -520,7 +520,7 @@ define internal void @put_raw_pixel_rows(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_header(ptr nocapture noundef %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @emit_header(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 296
@@ -779,10 +779,10 @@ compress_init.exit:                               ; preds = %._crit_edge, %177
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @output(ptr nocapture noundef %0, i16 noundef signext %1) unnamed_addr #0 {
+define internal fastcc void @output(ptr noundef captures(none) %0, i16 noundef signext %1) unnamed_addr #0 {
   %3 = sext i16 %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load i32, ptr %4, align 8
@@ -885,16 +885,16 @@ flush_packet.exit:                                ; preds = %29, %37
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #6

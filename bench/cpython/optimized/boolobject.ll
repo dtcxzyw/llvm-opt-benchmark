@@ -909,7 +909,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bool_new(ptr nocapture readnone %type, ptr noundef %args, ptr noundef %kwds) #2 {
+define internal ptr @bool_new(ptr readnone captures(none) %type, ptr noundef %args, ptr noundef %kwds) #2 {
 entry:
   %x = alloca ptr, align 8
   store ptr @_Py_FalseStruct, ptr %x, align 8
@@ -943,7 +943,7 @@ return:                                           ; preds = %if.end4, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @bool_vectorcall(ptr nocapture readnone %type, ptr nocapture noundef readonly %args, i64 noundef %nargsf, ptr noundef %kwnames) #2 {
+define internal noundef ptr @bool_vectorcall(ptr readnone captures(none) %type, ptr noundef readonly captures(none) %args, i64 noundef %nargsf, ptr noundef %kwnames) #2 {
 entry:
   %cmp = icmp eq ptr %kwnames, null
   br i1 %cmp, label %if.end, label %lor.lhs.false

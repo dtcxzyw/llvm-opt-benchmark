@@ -64,7 +64,7 @@ define dso_local void @ReconnectToServer(ptr noundef %0, ptr noundef %1) local_u
 declare ptr @pg_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ConnectDatabase(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local void @ConnectDatabase(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca [8 x ptr], align 16
   %5 = alloca [8 x ptr], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 440
@@ -494,7 +494,7 @@ declare ptr @PQerrorMessage(ptr noundef) local_unnamed_addr #1
 declare void @PQclear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ExecuteSqlQueryForSingleRow(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @ExecuteSqlQueryForSingleRow(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @PQexec(ptr noundef %4, ptr noundef %1) #8
@@ -522,7 +522,7 @@ ExecuteSqlQuery.exit:                             ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @PQconnectionUsedPassword(ptr noundef) local_unnamed_addr #1
 
@@ -531,7 +531,7 @@ declare ptr @PQpass(ptr noundef) local_unnamed_addr #1
 declare ptr @PQsetNoticeProcessor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @notice_processor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @notice_processor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %1) #8
   ret void
 }
@@ -582,14 +582,14 @@ declare i32 @PQtransactionStatus(ptr noundef) local_unnamed_addr #1
 declare i32 @PQcancel(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @GetConnection(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local ptr @GetConnection(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecuteSqlStatement(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @ExecuteSqlStatement(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @PQexec(ptr noundef %4, ptr noundef %1) #8
@@ -621,7 +621,7 @@ define internal fastcc void @die_on_query_failure(ptr %.440.val, ptr noundef %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ExecuteSqlQuery(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @ExecuteSqlQuery(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @PQexec(ptr noundef %5, ptr noundef %1) #8
@@ -881,7 +881,7 @@ declare i32 @PQputCopyData(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @EndDBCopyMode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {

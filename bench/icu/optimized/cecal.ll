@@ -67,7 +67,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7510CECalendarD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define void @_ZN6icu_7510CECalendarD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.trap() #9
   unreachable
@@ -157,7 +157,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK6icu_7510CECalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE(ptr nocapture nonnull readnone align 8 %this, i32 noundef %field, i32 noundef %limitType) unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK6icu_7510CECalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %field, i32 noundef %limitType) unnamed_addr #6 align 2 {
 entry:
   %idxprom = zext i32 %field to i64
   %idxprom2 = zext i32 %limitType to i64
@@ -167,7 +167,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_ZNK6icu_7510CECalendar18haveDefaultCenturyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define noundef signext i8 @_ZNK6icu_7510CECalendar18haveDefaultCenturyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret i8 1
 }
@@ -175,7 +175,7 @@ entry:
 declare noundef i32 @_ZN6icu_759ClockMath11floorDivideEii(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7510CECalendar6jdToCEEiiRiS1_S1_(i32 noundef %julianDay, i32 noundef %jdEpochOffset, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %year, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %month, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %day) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_7510CECalendar6jdToCEEiiRiS1_S1_(i32 noundef %julianDay, i32 noundef %jdEpochOffset, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %year, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %month, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %day) local_unnamed_addr #0 align 2 {
 entry:
   %r4 = alloca i32, align 4
   %sub = sub nsw i32 %julianDay, %jdEpochOffset
@@ -241,7 +241,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  tail call void @_ZN6icu_758Calendar20setTemporalMonthCodeEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %code, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  tail call void @_ZN6icu_758Calendar20setTemporalMonthCodeEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull %code, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
 
 return:                                           ; preds = %entry, %if.end4, %if.then3
@@ -249,7 +249,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, i32 noundef) local_unnamed_addr #1
 

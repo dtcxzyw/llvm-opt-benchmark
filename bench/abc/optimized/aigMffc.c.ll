@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Aig_NodeDeref_rec(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @Aig_NodeDeref_rec(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca float, align 4
   %6 = alloca float, align 4
   store float 0.000000e+00, ptr %5, align 4
@@ -161,7 +161,7 @@ define i32 @Aig_NodeDeref_rec(ptr nocapture noundef readonly %0, i32 noundef %1,
 declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Aig_NodeRef_rec(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @Aig_NodeRef_rec(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val = load i64, ptr %3, align 8
   %4 = and i64 %.val, 7
@@ -253,7 +253,7 @@ define i32 @Aig_NodeRef_rec(ptr nocapture noundef readonly %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Aig_NodeRefLabel_rec(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @Aig_NodeRefLabel_rec(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %1, i64 24
   %.val = load i64, ptr %4, align 8
   %5 = and i64 %.val, 7
@@ -349,7 +349,7 @@ define i32 @Aig_NodeRefLabel_rec(ptr noundef %0, ptr nocapture noundef %1, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Aig_NodeMffcSupp_rec(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #2 {
+define void @Aig_NodeMffcSupp_rec(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #2 {
   %7 = getelementptr i8, ptr %0, i64 312
   %.val3342 = load i32, ptr %7, align 8
   %8 = getelementptr i8, ptr %1, i64 32
@@ -592,7 +592,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 declare void @Aig_ManIncrementTravId(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Aig_NodeMffcLabel(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
+define i32 @Aig_NodeMffcLabel(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %5 = load ptr, ptr %4, align 8
@@ -612,7 +612,7 @@ define i32 @Aig_NodeMffcLabel(ptr noundef %0, ptr nocapture noundef %1, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Aig_NodeMffcLabelCut(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 {
+define i32 @Aig_NodeMffcLabelCut(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #9
   %4 = getelementptr i8, ptr %2, i64 4
   %.val21 = load i32, ptr %4, align 4
@@ -675,7 +675,7 @@ define i32 @Aig_NodeMffcLabelCut(ptr noundef %0, ptr nocapture noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Aig_NodeMffcExtendCut(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Aig_NodeMffcExtendCut(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr i8, ptr %2, i64 4
   %.val42 = load i32, ptr %5, align 4
   %6 = icmp sgt i32 %.val42, 0
@@ -767,7 +767,7 @@ define range(i32 0, 2) i32 @Aig_NodeMffcExtendCut(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5

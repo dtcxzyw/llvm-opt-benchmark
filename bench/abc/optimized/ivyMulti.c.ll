@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Ivy_MultiPlus.pEvals = internal unnamed_addr global [128 x %struct.Ivy_Eva_t_] zeroinitializer, align 16
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Ivy_MultiPlus(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Ivy_MultiPlus(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   %7 = getelementptr i8, ptr %1, i64 4
   %.val = load i32, ptr %7, align 4
   %8 = icmp sgt i32 %.val, 32
@@ -636,7 +636,7 @@ Ivy_MultiCover.exit:                              ; preds = %208, %Vec_PtrPush.e
 declare ptr @Ivy_TableLookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3

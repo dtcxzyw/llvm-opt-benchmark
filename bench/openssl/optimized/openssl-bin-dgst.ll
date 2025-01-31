@@ -879,7 +879,7 @@ declare void @opt_help(ptr noundef) local_unnamed_addr #1
 declare void @OBJ_NAME_do_all_sorted(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @show_digests(ptr nocapture noundef readonly %name, ptr nocapture noundef %arg) #0 {
+define internal void @show_digests(ptr noundef readonly captures(none) %name, ptr noundef captures(none) %arg) #0 {
 entry:
   %name1 = getelementptr inbounds nuw i8, ptr %name, i64 8
   %0 = load ptr, ptr %name1, align 8
@@ -951,7 +951,7 @@ declare i32 @opt_format(ptr noundef, i64 noundef, ptr noundef) local_unnamed_add
 declare ptr @setup_engine_methods(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #1
 
@@ -1008,7 +1008,7 @@ declare ptr @EVP_sha256() local_unnamed_addr #1
 declare ptr @EVP_PKEY_new_raw_private_key(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1331,7 +1331,7 @@ if.end140:                                        ; preds = %if.else66, %if.then
 declare ptr @EVP_PKEY_get0_type_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #1
 
@@ -1360,14 +1360,14 @@ declare i32 @BIO_gets(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr 
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @newline_escape_filename(ptr noundef %file, ptr nocapture noundef nonnull writeonly %backslash) unnamed_addr #0 {
+define internal fastcc ptr @newline_escape_filename(ptr noundef %file, ptr noundef nonnull writeonly captures(none) %backslash) unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %file) #7
   %cmp20.not = icmp eq i64 %call, 0
   br i1 %cmp20.not, label %for.end.thread, label %for.body
 
 for.end.thread:                                   ; preds = %entry
-  %call531 = tail call ptr @app_malloc(i64 noundef 1, ptr noundef %file) #6
+  %call531 = tail call ptr @app_malloc(i64 noundef 1, ptr noundef nonnull %file) #6
   br label %while.end
 
 for.body:                                         ; preds = %entry, %for.body
@@ -1428,7 +1428,7 @@ while.end:                                        ; preds = %if.end19, %for.end.
 declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #5

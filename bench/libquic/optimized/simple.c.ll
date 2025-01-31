@@ -402,7 +402,7 @@ return:                                           ; preds = %lor.lhs.false5, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ec_GFp_simple_point_set_to_infinity(ptr nocapture noundef readnone %group, ptr noundef %point) local_unnamed_addr #0 {
+define hidden noundef i32 @ec_GFp_simple_point_set_to_infinity(ptr noundef readnone captures(none) %group, ptr noundef %point) local_unnamed_addr #0 {
 entry:
   %Z = getelementptr inbounds nuw i8, ptr %point, i64 56
   tail call void @BN_zero(ptr noundef nonnull %Z) #5
@@ -1232,7 +1232,7 @@ return:                                           ; preds = %if.then4, %err, %if
 declare i32 @BN_mod_lshift_quick(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ec_GFp_simple_invert(ptr noundef %group, ptr noundef %point, ptr nocapture noundef readnone %ctx) local_unnamed_addr #0 {
+define hidden i32 @ec_GFp_simple_invert(ptr noundef %group, ptr noundef %point, ptr noundef readnone captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @EC_POINT_is_at_infinity(ptr noundef %group, ptr noundef %point) #5
   %tobool.not = icmp eq i32 %call, 0
@@ -1257,7 +1257,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare i32 @BN_usub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ec_GFp_simple_is_at_infinity(ptr nocapture noundef readnone %group, ptr noundef %point) local_unnamed_addr #0 {
+define hidden i32 @ec_GFp_simple_is_at_infinity(ptr noundef readnone captures(none) %group, ptr noundef %point) local_unnamed_addr #0 {
 entry:
   %Z = getelementptr inbounds nuw i8, ptr %point, i64 56
   %call = tail call i32 @BN_is_zero(ptr noundef nonnull %Z) #5
@@ -1652,7 +1652,7 @@ declare i32 @EC_POINT_get_affine_coordinates_GFp(ptr noundef, ptr noundef, ptr n
 declare i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef %group, i64 noundef %num, ptr nocapture noundef readonly %points, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef %group, i64 noundef %num, ptr noundef readonly captures(none) %points, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %num, 0
   br i1 %cmp, label %return, label %if.end
@@ -1951,7 +1951,7 @@ declare ptr @BN_new() local_unnamed_addr #1
 declare ptr @BN_mod_inverse(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ec_GFp_simple_field_mul(ptr noundef %group, ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {

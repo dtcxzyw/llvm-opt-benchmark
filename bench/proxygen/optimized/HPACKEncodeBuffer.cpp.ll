@@ -142,7 +142,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen17HPACKEncodeBuffer11addHeadroomEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(132) %this, i32 noundef %headroom) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen17HPACKEncodeBuffer11addHeadroomEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(132) %this, i32 noundef %headroom) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
   %buf = alloca %"class.std::unique_ptr", align 8
@@ -280,7 +280,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen17HPACKEncodeBuffer6appendEh(ptr nocapture noundef nonnull align 8 dereferenceable(132) %this, i8 noundef zeroext %byte) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen17HPACKEncodeBuffer6appendEh(ptr noundef nonnull align 8 captures(none) dereferenceable(132) %this, i8 noundef zeroext %byte) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %byte.addr = alloca i8, align 1
   store i8 %byte, ptr %byte.addr, align 1
@@ -355,14 +355,14 @@ _ZN5folly2io6detail8WritableINS0_13QueueAppenderEE4pushEPKhm.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN8proxygen17HPACKEncodeBuffer13encodeIntegerEm(ptr nocapture noundef nonnull align 8 dereferenceable(132) %this, i64 noundef %value) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN8proxygen17HPACKEncodeBuffer13encodeIntegerEm(ptr noundef nonnull align 8 captures(none) dereferenceable(132) %this, i64 noundef %value) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN8proxygen17HPACKEncodeBuffer13encodeIntegerEmhh(ptr noundef nonnull align 8 dereferenceable(132) %this, i64 noundef %value, i8 noundef zeroext 0, i8 noundef zeroext 8)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN8proxygen17HPACKEncodeBuffer13encodeIntegerEmhh(ptr nocapture noundef nonnull align 8 dereferenceable(132) %this, i64 noundef %value, i8 noundef zeroext %instruction, i8 noundef zeroext %nbit) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN8proxygen17HPACKEncodeBuffer13encodeIntegerEmhh(ptr noundef nonnull align 8 captures(none) dereferenceable(132) %this, i64 noundef %value, i8 noundef zeroext %instruction, i8 noundef zeroext %nbit) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %byte.addr.i89 = alloca i8, align 1
   %byte.addr.i54 = alloca i8, align 1
@@ -711,7 +711,7 @@ return:                                           ; preds = %_ZN8proxygen17HPACK
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN8proxygen17HPACKEncodeBuffer13encodeIntegerEmRKNS_5HPACK11InstructionE(ptr nocapture noundef nonnull align 8 dereferenceable(132) %this, i64 noundef %value, ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %instruction) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN8proxygen17HPACKEncodeBuffer13encodeIntegerEmRKNS_5HPACK11InstructionE(ptr noundef nonnull align 8 captures(none) dereferenceable(132) %this, i64 noundef %value, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(2) %instruction) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i8, ptr %instruction, align 1
   %prefixLength = getelementptr inbounds nuw i8, ptr %instruction, i64 1
@@ -771,7 +771,7 @@ lpad:                                             ; preds = %init
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
@@ -906,7 +906,7 @@ return:                                           ; preds = %_ZN5folly2io6detail
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen17HPACKEncodeBuffer5toBinB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(132) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen17HPACKEncodeBuffer5toBinB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(132) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bufQueuePtr_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %bufQueuePtr_, align 8
@@ -946,7 +946,7 @@ _ZNK5folly10IOBufQueue5frontEv.exit:              ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 declare void @_ZN8proxygen12IOBufPrinter10printChainB5cxx11EPKN5folly5IOBufENS0_6FormatEb(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, i8 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #0
 
@@ -967,7 +967,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9
@@ -976,10 +976,10 @@ declare i32 @llvm.umax.i32(i32, i32) #9
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

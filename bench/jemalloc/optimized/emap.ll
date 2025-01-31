@@ -30,7 +30,7 @@ entry:
 declare zeroext i1 @rtree_new(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @emap_update_edata_state(ptr noundef %tsdn, ptr noundef %emap, ptr nocapture noundef %edata, i32 noundef %state) local_unnamed_addr #0 {
+define hidden void @emap_update_edata_state(ptr noundef %tsdn, ptr noundef %emap, ptr noundef captures(none) %edata, i32 noundef %state) local_unnamed_addr #0 {
 entry:
   %rtree_ctx_fallback = alloca %struct.rtree_ctx_s, align 8
   %cmp.i147 = icmp eq ptr %tsdn, null
@@ -253,14 +253,14 @@ rtree_leaf_elm_state_update.exit:                 ; preds = %monotonic.i310.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @emap_try_acquire_edata_neighbor(ptr noundef %tsdn, ptr noundef %emap, ptr nocapture noundef readonly %edata, i32 noundef %pai, i32 noundef %expected_state, i1 noundef zeroext %forward) local_unnamed_addr #0 {
+define hidden ptr @emap_try_acquire_edata_neighbor(ptr noundef %tsdn, ptr noundef %emap, ptr noundef readonly captures(none) %edata, i32 noundef %pai, i32 noundef %expected_state, i1 noundef zeroext %forward) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @emap_try_acquire_edata_neighbor_impl(ptr noundef %tsdn, ptr noundef %emap, ptr noundef %edata, i32 noundef %pai, i32 noundef %expected_state, i1 noundef zeroext %forward, i1 noundef zeroext false)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @emap_try_acquire_edata_neighbor_impl(ptr noundef %tsdn, ptr noundef %emap, ptr nocapture noundef readonly %edata, i32 noundef %pai, i32 noundef %expected_state, i1 noundef zeroext %forward, i1 noundef zeroext %expanding) unnamed_addr #0 {
+define internal fastcc ptr @emap_try_acquire_edata_neighbor_impl(ptr noundef %tsdn, ptr noundef %emap, ptr noundef readonly captures(none) %edata, i32 noundef %pai, i32 noundef %expected_state, i1 noundef zeroext %forward, i1 noundef zeroext %expanding) unnamed_addr #0 {
 entry:
   %rtree_ctx_fallback = alloca %struct.rtree_ctx_s, align 8
   %cmp.i44 = icmp eq ptr %tsdn, null
@@ -465,14 +465,14 @@ return:                                           ; preds = %if.else37.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @emap_try_acquire_edata_neighbor_expand(ptr noundef %tsdn, ptr noundef %emap, ptr nocapture noundef readonly %edata, i32 noundef %pai, i32 noundef %expected_state) local_unnamed_addr #0 {
+define hidden ptr @emap_try_acquire_edata_neighbor_expand(ptr noundef %tsdn, ptr noundef %emap, ptr noundef readonly captures(none) %edata, i32 noundef %pai, i32 noundef %expected_state) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @emap_try_acquire_edata_neighbor_impl(ptr noundef %tsdn, ptr noundef %emap, ptr noundef %edata, i32 noundef %pai, i32 noundef %expected_state, i1 noundef zeroext true, i1 noundef zeroext true)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @emap_release_edata(ptr noundef %tsdn, ptr noundef %emap, ptr nocapture noundef %edata, i32 noundef %new_state) local_unnamed_addr #0 {
+define hidden void @emap_release_edata(ptr noundef %tsdn, ptr noundef %emap, ptr noundef captures(none) %edata, i32 noundef %new_state) local_unnamed_addr #0 {
 entry:
   tail call void @emap_update_edata_state(ptr noundef %tsdn, ptr noundef %emap, ptr noundef %edata, i32 noundef %new_state)
   ret void
@@ -537,7 +537,7 @@ return:                                           ; preds = %release.i.i50.i, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef %tsdn, ptr noundef %emap, ptr noundef nonnull %rtree_ctx, ptr nocapture noundef readonly %edata, i1 noundef zeroext %dependent, i1 noundef zeroext %init_missing, ptr nocapture noundef writeonly %r_elm_a, ptr nocapture noundef writeonly %r_elm_b) unnamed_addr #0 {
+define internal fastcc zeroext i1 @emap_rtree_leaf_elms_lookup(ptr noundef %tsdn, ptr noundef %emap, ptr noundef nonnull %rtree_ctx, ptr noundef readonly captures(none) %edata, i1 noundef zeroext %dependent, i1 noundef zeroext %init_missing, ptr noundef writeonly captures(none) %r_elm_a, ptr noundef writeonly captures(none) %r_elm_b) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %edata, i64 8
   %edata.val = load ptr, ptr %0, align 8
@@ -867,7 +867,7 @@ rtree_write_range_impl.exit:                      ; preds = %release.i.i, %tsdn_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @emap_deregister_boundary(ptr noundef %tsdn, ptr noundef %emap, ptr nocapture noundef readonly %edata) local_unnamed_addr #0 {
+define hidden void @emap_deregister_boundary(ptr noundef %tsdn, ptr noundef %emap, ptr noundef readonly captures(none) %edata) local_unnamed_addr #0 {
 entry:
   %rtree_ctx_fallback = alloca %struct.rtree_ctx_s, align 8
   %elm_a = alloca ptr, align 8
@@ -903,7 +903,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %tsdn_rtree_ctx.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @emap_deregister_interior(ptr noundef %tsdn, ptr noundef %emap, ptr nocapture noundef readonly %edata) local_unnamed_addr #0 {
+define hidden void @emap_deregister_interior(ptr noundef %tsdn, ptr noundef %emap, ptr noundef readonly captures(none) %edata) local_unnamed_addr #0 {
 entry:
   %rtree_ctx_fallback = alloca %struct.rtree_ctx_s, align 8
   %cmp.i = icmp eq ptr %tsdn, null
@@ -1281,7 +1281,7 @@ if.end23:                                         ; preds = %rtree_leaf_elm_look
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @emap_split_prepare(ptr noundef %tsdn, ptr noundef %emap, ptr nocapture noundef %prepare, ptr nocapture noundef readonly %edata, i64 noundef %size_a, ptr nocapture noundef readonly %trail, i64 noundef %size_b) local_unnamed_addr #0 {
+define hidden zeroext i1 @emap_split_prepare(ptr noundef %tsdn, ptr noundef %emap, ptr noundef captures(none) %prepare, ptr noundef readonly captures(none) %edata, i64 noundef %size_a, ptr noundef readonly captures(none) %trail, i64 noundef %size_b) local_unnamed_addr #0 {
 entry:
   %rtree_ctx_fallback = alloca %struct.rtree_ctx_s, align 8
   %lead = alloca %struct.edata_s, align 8
@@ -1337,10 +1337,10 @@ return:                                           ; preds = %lor.lhs.false10, %t
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @emap_split_commit(ptr nocapture noundef readnone %tsdn, ptr nocapture noundef readnone %emap, ptr nocapture noundef readonly %prepare, ptr noundef %lead, i64 noundef %size_a, ptr noundef %trail, i64 noundef %size_b) local_unnamed_addr #3 {
+define hidden void @emap_split_commit(ptr noundef readnone captures(none) %tsdn, ptr noundef readnone captures(none) %emap, ptr noundef readonly captures(none) %prepare, ptr noundef %lead, i64 noundef %size_a, ptr noundef %trail, i64 noundef %size_b) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %prepare, align 8
   %lead_elm_b = getelementptr inbounds nuw i8, ptr %prepare, i64 8
@@ -1407,7 +1407,7 @@ emap_rtree_write_acquired.exit18:                 ; preds = %cond.end14.i9, %rel
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @emap_merge_prepare(ptr noundef %tsdn, ptr noundef %emap, ptr nocapture noundef writeonly %prepare, ptr nocapture noundef readonly %lead, ptr nocapture noundef readonly %trail) local_unnamed_addr #0 {
+define hidden void @emap_merge_prepare(ptr noundef %tsdn, ptr noundef %emap, ptr noundef writeonly captures(none) %prepare, ptr noundef readonly captures(none) %lead, ptr noundef readonly captures(none) %trail) local_unnamed_addr #0 {
 entry:
   %rtree_ctx_fallback = alloca %struct.rtree_ctx_s, align 8
   %cmp.i = icmp eq ptr %tsdn, null
@@ -1433,7 +1433,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @emap_merge_commit(ptr nocapture noundef readnone %tsdn, ptr nocapture noundef readnone %emap, ptr nocapture noundef readonly %prepare, ptr noundef %lead, ptr nocapture noundef readnone %trail) local_unnamed_addr #3 {
+define hidden void @emap_merge_commit(ptr noundef readnone captures(none) %tsdn, ptr noundef readnone captures(none) %emap, ptr noundef readonly captures(none) %prepare, ptr noundef %lead, ptr noundef readnone captures(none) %trail) local_unnamed_addr #3 {
 entry:
   %lead_elm_b = getelementptr inbounds nuw i8, ptr %prepare, i64 8
   %0 = load ptr, ptr %lead_elm_b, align 8
@@ -1491,7 +1491,7 @@ emap_rtree_write_acquired.exit:                   ; preds = %cond.end14.i, %rele
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @emap_do_assert_mapped(ptr noundef %tsdn, ptr noundef %emap, ptr nocapture noundef readonly %edata) local_unnamed_addr #0 {
+define hidden void @emap_do_assert_mapped(ptr noundef %tsdn, ptr noundef %emap, ptr noundef readonly captures(none) %edata) local_unnamed_addr #0 {
 entry:
   %rtree_ctx_fallback = alloca %struct.rtree_ctx_s, align 8
   %contents = alloca %struct.rtree_contents_s, align 8
@@ -1526,7 +1526,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %if.end.i.split, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rtree_read(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %tsdn, ptr noundef %rtree, ptr noundef nonnull %rtree_ctx, i64 noundef %key) unnamed_addr #0 {
+define internal fastcc void @rtree_read(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef %tsdn, ptr noundef %rtree, ptr noundef nonnull %rtree_ctx, i64 noundef %key) unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %key, 30
   %and.i = and i64 %shr.i, 15
@@ -1631,7 +1631,7 @@ monotonic.i.i:                                    ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @emap_do_assert_not_mapped(ptr noundef %tsdn, ptr noundef %emap, ptr nocapture noundef readonly %edata) local_unnamed_addr #0 {
+define hidden void @emap_do_assert_not_mapped(ptr noundef %tsdn, ptr noundef %emap, ptr noundef readonly captures(none) %edata) local_unnamed_addr #0 {
 entry:
   %rtree_ctx_fallback.i14 = alloca %struct.rtree_ctx_s, align 8
   %contents.i16 = alloca %struct.rtree_contents_s, align 8
@@ -1690,7 +1690,7 @@ declare void @rtree_ctx_data_init(ptr noundef) local_unnamed_addr #1
 declare ptr @rtree_leaf_elm_lookup_hard(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rtree_read_independent(ptr noundef %tsdn, ptr noundef %rtree, ptr noundef nonnull %rtree_ctx, i64 noundef %key, ptr nocapture noundef nonnull writeonly %r_contents) unnamed_addr #0 {
+define internal fastcc void @rtree_read_independent(ptr noundef %tsdn, ptr noundef %rtree, ptr noundef nonnull %rtree_ctx, i64 noundef %key, ptr noundef nonnull writeonly captures(none) %r_contents) unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %key, 30
   %and.i = and i64 %shr.i, 15

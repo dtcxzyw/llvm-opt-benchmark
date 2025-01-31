@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @the_repository = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @init_reflog_walk(ptr nocapture noundef writeonly initializes((0, 8)) %info) local_unnamed_addr #0 {
+define dso_local void @init_reflog_walk(ptr noundef writeonly captures(none) initializes((0, 8)) %info) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 72) #11
   store ptr %call, ptr %info, align 8
@@ -71,19 +71,19 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @string_list_clear_func(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @complete_reflogs_clear(ptr noundef %util, ptr nocapture readnone %str) #0 {
+define internal void @complete_reflogs_clear(ptr noundef %util, ptr readnone captures(none) %str) #0 {
 entry:
   tail call fastcc void @free_complete_reflog(ptr noundef %util)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @add_reflog_for_walk(ptr noundef %info, ptr nocapture noundef readonly %commit, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @add_reflog_for_walk(ptr noundef %info, ptr noundef readonly captures(none) %commit, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %ep = alloca ptr, align 8
   %b = alloca ptr, align 8
@@ -94,11 +94,11 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, ptr noundef %name) #13
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str, ptr noundef nonnull %name) #13
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call ptr @xstrdup(ptr noundef %name) #11
+  %call1 = tail call ptr @xstrdup(ptr noundef nonnull %name) #11
   %tobool2.not = icmp eq ptr %call, null
   br i1 %tobool2.not, label %if.end16, label %land.lhs.true
 
@@ -329,7 +329,7 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #4
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
 declare i64 @approxidate_careful(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -389,7 +389,7 @@ if.end19:                                         ; preds = %entry, %if.end18, %
 declare i32 @dwim_log(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @free_complete_reflog(ptr noundef %array) unnamed_addr #0 {
@@ -444,7 +444,7 @@ declare ptr @string_list_insert(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @get_reflog_selector(ptr noundef %sb, ptr nocapture noundef readonly %reflog_info, ptr noundef %dmode, i32 noundef %force_date, i32 noundef %shorten) local_unnamed_addr #0 {
+define dso_local void @get_reflog_selector(ptr noundef %sb, ptr noundef readonly captures(none) %reflog_info, ptr noundef %dmode, i32 noundef %force_date, i32 noundef %shorten) local_unnamed_addr #0 {
 entry:
   %last_commit_reflog = getelementptr inbounds nuw i8, ptr %reflog_info, i64 64
   %0 = load ptr, ptr %last_commit_reflog, align 8
@@ -506,7 +506,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
   %13 = load i32, ptr %tz, align 8
   %call19 = tail call ptr @show_date(i64 noundef %12, i32 noundef %13, ptr noundef %dmode) #11
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call19) #12
-  tail call void @strbuf_add(ptr noundef %sb, ptr noundef %call19, i64 noundef %call.i) #11
+  tail call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %call19, i64 noundef %call.i) #11
   br label %if.end24
 
 if.else20:                                        ; preds = %lor.lhs.false
@@ -565,7 +565,7 @@ declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @show_date(i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @get_reflog_message(ptr noundef %sb, ptr nocapture noundef readonly %reflog_info) local_unnamed_addr #0 {
+define dso_local void @get_reflog_message(ptr noundef %sb, ptr noundef readonly captures(none) %reflog_info) local_unnamed_addr #0 {
 entry:
   %last_commit_reflog = getelementptr inbounds nuw i8, ptr %reflog_info, i64 64
   %0 = load ptr, ptr %last_commit_reflog, align 8
@@ -584,7 +584,7 @@ if.end:                                           ; preds = %entry
   %6 = load ptr, ptr %message, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #12
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %call, i64 1)
-  tail call void @strbuf_add(ptr noundef %sb, ptr noundef %6, i64 noundef %spec.select) #11
+  tail call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %6, i64 noundef %spec.select) #11
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -594,7 +594,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @get_reflog_ident(ptr nocapture noundef readonly %reflog_info) local_unnamed_addr #6 {
+define dso_local ptr @get_reflog_ident(ptr noundef readonly captures(none) %reflog_info) local_unnamed_addr #6 {
 entry:
   %last_commit_reflog = getelementptr inbounds nuw i8, ptr %reflog_info, i64 64
   %0 = load ptr, ptr %last_commit_reflog, align 8
@@ -619,7 +619,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @get_reflog_timestamp(ptr nocapture noundef readonly %reflog_info) local_unnamed_addr #6 {
+define dso_local i64 @get_reflog_timestamp(ptr noundef readonly captures(none) %reflog_info) local_unnamed_addr #6 {
 entry:
   %last_commit_reflog = getelementptr inbounds nuw i8, ptr %reflog_info, i64 64
   %0 = load ptr, ptr %last_commit_reflog, align 8
@@ -694,10 +694,10 @@ if.end8:                                          ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
 
@@ -720,7 +720,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @next_reflog_entry(ptr nocapture noundef %walk) local_unnamed_addr #0 {
+define dso_local ptr @next_reflog_entry(ptr noundef captures(none) %walk) local_unnamed_addr #0 {
 entry:
   %nr = getelementptr inbounds nuw i8, ptr %walk, i64 8
   %0 = load i64, ptr %nr, align 8
@@ -821,7 +821,7 @@ return:                                           ; preds = %entry, %for.end, %i
 declare i32 @for_each_reflog_ent(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @read_one_reflog(ptr nocapture noundef readonly %ooid, ptr nocapture noundef readonly %noid, ptr noundef %email, i64 noundef %timestamp, i32 noundef %tz, ptr noundef %message, ptr nocapture noundef %cb_data) #0 {
+define internal noundef i32 @read_one_reflog(ptr noundef readonly captures(none) %ooid, ptr noundef readonly captures(none) %noid, ptr noundef %email, i64 noundef %timestamp, i32 noundef %tz, ptr noundef %message, ptr noundef captures(none) %cb_data) #0 {
 entry:
   %nr = getelementptr inbounds nuw i8, ptr %cb_data, i64 24
   %0 = load i32, ptr %nr, align 8

@@ -73,14 +73,14 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN4nori4Warp21squareToUniformSquareERKNS_6TPointIfLi2EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.nori::TPoint") align 4 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4nori4Warp21squareToUniformSquareERKNS_6TPointIfLi2EEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.nori::TPoint") align 4 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
   %3 = load i64, ptr %1, align 4
   store i64 %3, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef float @_ZN4nori4Warp24squareToUniformSquarePdfERKNS_6TPointIfLi2EEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef float @_ZN4nori4Warp24squareToUniformSquarePdfERKNS_6TPointIfLi2EEE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIffLNS2_14ComparisonNameE2EEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIfEENS_5ArrayIfLi2ELi1ELi0ELi2ELi1EEEEEKNS_12ArrayWrapperIKNS_6MatrixIfLi2ELi1ELi0ELi2ELi1EEEEEEEE3allEv.exit.thread:
   %1 = load float, ptr %0, align 4
   %2 = fcmp ult float %1, 0.000000e+00
@@ -98,7 +98,7 @@ _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIffLNS2_14Com
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_ZN4nori4Warp12squareToTentERKNS_6TPointIfLi2EEE(ptr dead_on_unwind noalias nocapture readnone sret(%"struct.nori::TPoint") align 4 %0, ptr nocapture noundef nonnull readnone align 4 dereferenceable(8) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4nori4Warp12squareToTentERKNS_6TPointIfLi2EEE(ptr dead_on_unwind noalias readnone sret(%"struct.nori::TPoint") align 4 captures(none) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call ptr @__cxa_allocate_exception(i64 16) #12
   invoke void @_ZN4nori13NoriExceptionC2IJEEEPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str)
           to label %4 unwind label %5
@@ -171,7 +171,7 @@ define linkonce_odr hidden void @_ZN4nori13NoriExceptionD2Ev(ptr noundef nonnull
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden noundef float @_ZN4nori4Warp15squareToTentPdfERKNS_6TPointIfLi2EEE(ptr nocapture noundef nonnull readnone align 4 dereferenceable(8) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef float @_ZN4nori4Warp15squareToTentPdfERKNS_6TPointIfLi2EEE(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(8) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 16) #12
   invoke void @_ZN4nori13NoriExceptionC2IJEEEPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.1)
           to label %3 unwind label %4
@@ -188,7 +188,7 @@ define hidden noundef float @_ZN4nori4Warp15squareToTentPdfERKNS_6TPointIfLi2EEE
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_ZN4nori4Warp19squareToUniformDiskERKNS_6TPointIfLi2EEE(ptr dead_on_unwind noalias nocapture readnone sret(%"struct.nori::TPoint") align 4 %0, ptr nocapture noundef nonnull readnone align 4 dereferenceable(8) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4nori4Warp19squareToUniformDiskERKNS_6TPointIfLi2EEE(ptr dead_on_unwind noalias readnone sret(%"struct.nori::TPoint") align 4 captures(none) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call ptr @__cxa_allocate_exception(i64 16) #12
   invoke void @_ZN4nori13NoriExceptionC2IJEEEPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.2)
           to label %4 unwind label %5
@@ -205,7 +205,7 @@ define hidden void @_ZN4nori4Warp19squareToUniformDiskERKNS_6TPointIfLi2EEE(ptr 
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden noundef float @_ZN4nori4Warp22squareToUniformDiskPdfERKNS_6TPointIfLi2EEE(ptr nocapture noundef nonnull readnone align 4 dereferenceable(8) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef float @_ZN4nori4Warp22squareToUniformDiskPdfERKNS_6TPointIfLi2EEE(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(8) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 16) #12
   invoke void @_ZN4nori13NoriExceptionC2IJEEEPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.3)
           to label %3 unwind label %4
@@ -222,7 +222,7 @@ define hidden noundef float @_ZN4nori4Warp22squareToUniformDiskPdfERKNS_6TPointI
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_ZN4nori4Warp21squareToUniformSphereERKNS_6TPointIfLi2EEE(ptr dead_on_unwind noalias nocapture readnone sret(%"struct.nori::TVector") align 4 %0, ptr nocapture noundef nonnull readnone align 4 dereferenceable(8) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4nori4Warp21squareToUniformSphereERKNS_6TPointIfLi2EEE(ptr dead_on_unwind noalias readnone sret(%"struct.nori::TVector") align 4 captures(none) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call ptr @__cxa_allocate_exception(i64 16) #12
   invoke void @_ZN4nori13NoriExceptionC2IJEEEPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.4)
           to label %4 unwind label %5
@@ -239,7 +239,7 @@ define hidden void @_ZN4nori4Warp21squareToUniformSphereERKNS_6TPointIfLi2EEE(pt
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden noundef float @_ZN4nori4Warp24squareToUniformSpherePdfERKNS_7TVectorIfLi3EEE(ptr nocapture noundef nonnull readnone align 4 dereferenceable(12) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef float @_ZN4nori4Warp24squareToUniformSpherePdfERKNS_7TVectorIfLi3EEE(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(12) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 16) #12
   invoke void @_ZN4nori13NoriExceptionC2IJEEEPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.5)
           to label %3 unwind label %4
@@ -256,7 +256,7 @@ define hidden noundef float @_ZN4nori4Warp24squareToUniformSpherePdfERKNS_7TVect
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_ZN4nori4Warp25squareToUniformHemisphereERKNS_6TPointIfLi2EEE(ptr dead_on_unwind noalias nocapture readnone sret(%"struct.nori::TVector") align 4 %0, ptr nocapture noundef nonnull readnone align 4 dereferenceable(8) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4nori4Warp25squareToUniformHemisphereERKNS_6TPointIfLi2EEE(ptr dead_on_unwind noalias readnone sret(%"struct.nori::TVector") align 4 captures(none) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call ptr @__cxa_allocate_exception(i64 16) #12
   invoke void @_ZN4nori13NoriExceptionC2IJEEEPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.6)
           to label %4 unwind label %5
@@ -273,7 +273,7 @@ define hidden void @_ZN4nori4Warp25squareToUniformHemisphereERKNS_6TPointIfLi2EE
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden noundef float @_ZN4nori4Warp28squareToUniformHemispherePdfERKNS_7TVectorIfLi3EEE(ptr nocapture noundef nonnull readnone align 4 dereferenceable(12) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef float @_ZN4nori4Warp28squareToUniformHemispherePdfERKNS_7TVectorIfLi3EEE(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(12) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 16) #12
   invoke void @_ZN4nori13NoriExceptionC2IJEEEPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.7)
           to label %3 unwind label %4
@@ -290,7 +290,7 @@ define hidden noundef float @_ZN4nori4Warp28squareToUniformHemispherePdfERKNS_7T
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_ZN4nori4Warp24squareToCosineHemisphereERKNS_6TPointIfLi2EEE(ptr dead_on_unwind noalias nocapture readnone sret(%"struct.nori::TVector") align 4 %0, ptr nocapture noundef nonnull readnone align 4 dereferenceable(8) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4nori4Warp24squareToCosineHemisphereERKNS_6TPointIfLi2EEE(ptr dead_on_unwind noalias readnone sret(%"struct.nori::TVector") align 4 captures(none) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call ptr @__cxa_allocate_exception(i64 16) #12
   invoke void @_ZN4nori13NoriExceptionC2IJEEEPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.8)
           to label %4 unwind label %5
@@ -307,7 +307,7 @@ define hidden void @_ZN4nori4Warp24squareToCosineHemisphereERKNS_6TPointIfLi2EEE
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden noundef float @_ZN4nori4Warp27squareToCosineHemispherePdfERKNS_7TVectorIfLi3EEE(ptr nocapture noundef nonnull readnone align 4 dereferenceable(12) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef float @_ZN4nori4Warp27squareToCosineHemispherePdfERKNS_7TVectorIfLi3EEE(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(12) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 16) #12
   invoke void @_ZN4nori13NoriExceptionC2IJEEEPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.9)
           to label %3 unwind label %4
@@ -324,7 +324,7 @@ define hidden noundef float @_ZN4nori4Warp27squareToCosineHemispherePdfERKNS_7TV
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_ZN4nori4Warp16squareToBeckmannERKNS_6TPointIfLi2EEEf(ptr dead_on_unwind noalias nocapture readnone sret(%"struct.nori::TVector") align 4 %0, ptr nocapture noundef nonnull readnone align 4 dereferenceable(8) %1, float noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4nori4Warp16squareToBeckmannERKNS_6TPointIfLi2EEEf(ptr dead_on_unwind noalias readnone sret(%"struct.nori::TVector") align 4 captures(none) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(8) %1, float noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call ptr @__cxa_allocate_exception(i64 16) #12
   invoke void @_ZN4nori13NoriExceptionC2IJEEEPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.10)
           to label %5 unwind label %6
@@ -341,7 +341,7 @@ define hidden void @_ZN4nori4Warp16squareToBeckmannERKNS_6TPointIfLi2EEEf(ptr de
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden noundef float @_ZN4nori4Warp19squareToBeckmannPdfERKNS_7TVectorIfLi3EEEf(ptr nocapture noundef nonnull readnone align 4 dereferenceable(12) %0, float noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef float @_ZN4nori4Warp19squareToBeckmannPdfERKNS_7TVectorIfLi3EEEf(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(12) %0, float noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call ptr @__cxa_allocate_exception(i64 16) #12
   invoke void @_ZN4nori13NoriExceptionC2IJEEEPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.11)
           to label %4 unwind label %5
@@ -1167,10 +1167,10 @@ define internal void @_GLOBAL__sub_I_warp.cpp() #10 section ".text.startup" {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

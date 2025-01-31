@@ -360,7 +360,7 @@ _numa_set_preferred.exit:                         ; preds = %43, %41, %44
 declare i32 @numa_available() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @get_memset(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -406,7 +406,7 @@ declare i32 @slurm_setaffinity(i32 noundef, i64 noundef, ptr noundef) local_unna
 declare void @task_slurm_chkaffinity(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @task_p_post_term(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noundef i32 @task_p_post_term(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @slurm_get_log_level() #5
   %4 = icmp sgt i32 %3, 4
   br i1 %4, label %5, label %9
@@ -423,7 +423,7 @@ define noundef i32 @task_p_post_term(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @task_p_post_step(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
+define noundef i32 @task_p_post_step(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
   ret i32 0
 }
 
@@ -449,10 +449,10 @@ declare void @numa_set_preferred(i32 noundef) local_unnamed_addr #1
 declare void @numa_set_membind(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

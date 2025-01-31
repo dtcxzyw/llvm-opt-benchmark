@@ -10,7 +10,7 @@ $_ZNSt6vectorIDsSaIDsEE17_M_default_appendEm = comdat any
 @_ZN6hermes11UTF16StreamC1EN4llvh8ArrayRefIhEE = hidden unnamed_addr alias void (ptr, ptr, i64), ptr @_ZN6hermes11UTF16StreamC2EN4llvh8ArrayRefIhEE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes11UTF16StreamC2EN4llvh8ArrayRefIhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %this, ptr %utf8.coerce0, i64 %utf8.coerce1) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes11UTF16StreamC2EN4llvh8ArrayRefIhEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((0, 64)) %this, ptr %utf8.coerce0, i64 %utf8.coerce1) unnamed_addr #0 align 2 {
 entry:
   %utf8Begin_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %utf8.coerce0, ptr %utf8Begin_, align 8
@@ -36,7 +36,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6hermes11UTF16Stream12beginCaptureEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((32, 40)) %this) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes11UTF16Stream12beginCaptureEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((32, 40)) %this) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %beginCapture_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -45,7 +45,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden { ptr, i64 } @_ZN6hermes11UTF16Stream10endCaptureEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #1 align 2 {
+define hidden { ptr, i64 } @_ZN6hermes11UTF16Stream10endCaptureEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) local_unnamed_addr #1 align 2 {
 entry:
   %beginCapture_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %beginCapture_, align 8
@@ -61,7 +61,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6hermes11UTF16Stream13cancelCaptureEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((32, 40)) %this) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6hermes11UTF16Stream13cancelCaptureEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((32, 40)) %this) local_unnamed_addr #2 align 2 {
 entry:
   %beginCapture_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %beginCapture_, align 8
@@ -450,7 +450,7 @@ if.end41:                                         ; preds = %_ZSt27__uninitializ
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
@@ -459,7 +459,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10

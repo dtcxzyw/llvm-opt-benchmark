@@ -115,7 +115,7 @@ define internal range(i32 -2147483648, 1) i32 @acpi_processor_driver_init() #0 s
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_processor_notifier(ptr nocapture readnone %0, i64 noundef %1, ptr noundef %2) #2 align 16 {
+define internal noundef i32 @acpi_processor_notifier(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef %2) #2 align 16 {
   switch i64 %1, label %6 [
     i64 0, label %4
     i64 1, label %5
@@ -151,7 +151,7 @@ declare dso_local void @acpi_thermal_cpufreq_exit(ptr noundef) local_unnamed_add
 declare dso_local void @__cpuhp_remove_state(i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @acpi_processor_start(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal i32 @acpi_processor_start(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %3 = load ptr, ptr %2, align 8
   %4 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %3) #4
@@ -172,7 +172,7 @@ define internal i32 @acpi_processor_start(ptr nocapture noundef readonly %0) #2 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_processor_stop(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef i32 @acpi_processor_stop(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %3 = load ptr, ptr %2, align 8
   %4 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %3) #4

@@ -371,7 +371,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_register_vfio_pci_dev_type, ptr null }]
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vfio_vga_write(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
+define dso_local void @vfio_vga_write(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %buf = alloca %union.anon.2, align 8
@@ -473,7 +473,7 @@ declare i64 @pwrite64(i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 -1, 4294967296) i64 @vfio_vga_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define dso_local range(i64 -1, 4294967296) i64 @vfio_vga_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %buf = alloca %union.anon.3, align 8
@@ -679,7 +679,7 @@ return:                                           ; preds = %trace_vfio_pci_read
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @pci_default_read_config(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1524,7 +1524,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @vfio_display_migration_needed(ptr nocapture noundef readonly %opaque) #5 {
+define internal zeroext i1 @vfio_display_migration_needed(ptr noundef readonly captures(none) %opaque) #5 {
 entry:
   %ramfb_migrate = getelementptr inbounds nuw i8, ptr %opaque, i64 3556
   %0 = load i32, ptr %ramfb_migrate, align 4
@@ -1682,7 +1682,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
@@ -1926,7 +1926,7 @@ return:                                           ; preds = %entry, %trace_vfio_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vfio_commit_kvm_msi_virq_batch(ptr nocapture noundef %vdev) unnamed_addr #0 {
+define internal fastcc void @vfio_commit_kvm_msi_virq_batch(ptr noundef captures(none) %vdev) unnamed_addr #0 {
 entry:
   %defer_kvm_irq_routing = getelementptr inbounds nuw i8, ptr %vdev, i64 3560
   %0 = load i8, ptr %defer_kvm_irq_routing, align 8
@@ -2148,7 +2148,7 @@ return:                                           ; preds = %if.then, %for.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vfio_msi_disable_common(ptr nocapture noundef %vdev) unnamed_addr #0 {
+define internal fastcc void @vfio_msi_disable_common(ptr noundef captures(none) %vdev) unnamed_addr #0 {
 entry:
   %nr_vectors = getelementptr inbounds nuw i8, ptr %vdev, i64 2880
   %0 = load i32, ptr %nr_vectors, align 16
@@ -2900,7 +2900,7 @@ declare void @msix_unset_vector_notifiers(ptr noundef) local_unnamed_addr #2
 declare void @msix_vector_unuse(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare i32 @getpagesize() local_unnamed_addr #4
@@ -3024,7 +3024,7 @@ vfio_bars_finalize.exit:                          ; preds = %for.end.i, %for.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_pci_dev_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @vfio_pci_dev_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #23
   %call.i8 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.68, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #23
@@ -3865,7 +3865,7 @@ for.body.preheader:                               ; preds = %if.then200, %if.end
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %i.0217 = phi i32 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  call void @vfio_bar_quirk_setup(ptr noundef %call.i, i32 noundef %i.0217) #23
+  call void @vfio_bar_quirk_setup(ptr noundef nonnull %call.i, i32 noundef %i.0217) #23
   %inc = add nuw nsw i32 %i.0217, 1
   %exitcond.not = icmp eq i32 %inc, 6
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
@@ -4971,10 +4971,10 @@ declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare ptr @strerror(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
 declare void @vfio_quirk_reset(ptr noundef) local_unnamed_addr #2
 
@@ -4983,17 +4983,17 @@ declare void @error_append_hint(ptr noundef, ptr noundef, ...) local_unnamed_add
 declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @error_prepend(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 declare noalias ptr @g_path_get_basename(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @realpath(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
+declare noundef ptr @realpath(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #15
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #15
 
 declare i32 @qemu_uuid_is_null(ptr noundef) local_unnamed_addr #2
 
@@ -5303,7 +5303,7 @@ return:                                           ; preds = %if.end27, %if.then,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vfio_bars_prepare(ptr nocapture noundef %vdev) unnamed_addr #0 {
+define internal fastcc void @vfio_bars_prepare(ptr noundef captures(none) %vdev) unnamed_addr #0 {
 entry:
   %pci_bar.i = alloca i32, align 4
   %bars.i = getelementptr inbounds nuw i8, ptr %vdev, i64 2888
@@ -6300,7 +6300,7 @@ if.end7:                                          ; preds = %entry, %if.then6, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_irqchip_change(ptr noundef %notify, ptr nocapture readnone %data) #0 {
+define internal void @vfio_irqchip_change(ptr noundef %notify, ptr readnone captures(none) %data) #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %notify, i64 -3576
   %route = getelementptr i8, ptr %notify, i64 -788
@@ -6506,7 +6506,7 @@ if.end5:                                          ; preds = %if.then4, %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @vfio_pci_compute_needs_reset(ptr nocapture noundef %vbasedev) #16 {
+define internal void @vfio_pci_compute_needs_reset(ptr noundef captures(none) %vbasedev) #16 {
 entry:
   %reset_works = getelementptr inbounds nuw i8, ptr %vbasedev, i64 96
   %0 = load i8, ptr %reset_works, align 8
@@ -7099,7 +7099,7 @@ trace_vfio_rom_read.exit:                         ; preds = %sw.epilog, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @vfio_rom_write(ptr nocapture readnone %opaque, i64 %addr, i64 %data, i32 %size) #17 {
+define internal void @vfio_rom_write(ptr readnone captures(none) %opaque, i64 %addr, i64 %data, i32 %size) #17 {
 entry:
   ret void
 }
@@ -7732,7 +7732,7 @@ if.then72.i:                                      ; preds = %if.end67.i
   br label %if.end74.i
 
 if.end74.i:                                       ; preds = %if.then72.i, %if.end67.i
-  %call77.i = tail call i32 @pci_add_capability(ptr noundef %vdev, i8 noundef zeroext 16, i8 noundef zeroext %pos, i8 noundef zeroext %13, ptr noundef %errp) #23
+  %call77.i = tail call i32 @pci_add_capability(ptr noundef nonnull %vdev, i8 noundef zeroext 16, i8 noundef zeroext %pos, i8 noundef zeroext %13, ptr noundef %errp) #23
   %cmp78.i = icmp slt i32 %call77.i, 0
   br i1 %cmp78.i, label %if.then44, label %if.end81.i
 
@@ -7983,7 +7983,7 @@ declare i64 @pci_device_route_intx_to_irq(ptr noundef, i32 noundef) local_unname
 declare zeroext i1 @pci_intx_route_changed(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vfio_intx_update(ptr noundef initializes((2788, 2792)) %vdev, ptr nocapture noundef readonly %route) unnamed_addr #0 {
+define internal fastcc void @vfio_intx_update(ptr noundef initializes((2788, 2792)) %vdev, ptr noundef readonly captures(none) %route) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %vbasedev = getelementptr inbounds nuw i8, ptr %vdev, i64 2608
@@ -8107,7 +8107,7 @@ declare void @vfio_vga_quirk_exit(ptr noundef) local_unnamed_addr #2
 declare void @vfio_migration_exit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_pci_nohotplug_dev_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @vfio_pci_nohotplug_dev_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #23
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @vfio_pci_dev_nohotplug_properties) #23
@@ -8123,7 +8123,7 @@ declare i64 @llvm.umin.i64(i64, i64) #19
 declare i32 @llvm.umin.i32(i32, i32) #19
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19
@@ -8132,10 +8132,10 @@ declare i64 @llvm.umax.i64(i64, i64) #19
 declare i8 @llvm.umin.i8(i8, i8) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #19

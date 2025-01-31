@@ -5552,7 +5552,7 @@ declare void @prefs_register_static_text_preference(ptr noundef, ptr noundef, pt
 declare ptr @register_decode_as_next_proto(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @bthci_cmd_vendor_prompt(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 10)) %1) #2 {
+define internal void @bthci_cmd_vendor_prompt(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 10)) %1) #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %1, ptr noundef nonnull align 1 dereferenceable(10) @.str.2559, i64 10, i1 false)
   ret void
 }
@@ -5628,7 +5628,7 @@ define internal ptr @bluetooth_eir_ad_manufacturer_company_id_value(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bluetooth_eir_ad_manufacturer_company_id_prompt(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 {
+define internal void @bluetooth_eir_ad_manufacturer_company_id_prompt(ptr noundef %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @proto_btcommon, align 4
@@ -5677,7 +5677,7 @@ define internal ptr @bluetooth_eir_ad_tds_organization_id_value(ptr noundef %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bluetooth_eir_ad_tds_organization_id_prompt(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 {
+define internal void @bluetooth_eir_ad_tds_organization_id_prompt(ptr noundef %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @proto_btcommon, align 4
@@ -5720,7 +5720,7 @@ define internal i32 @dissect_btcommon_eir(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_btcommon_cod(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal noundef i32 @dissect_btcommon_cod(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = load i32, ptr @hf_btcommon_cod_class_of_device, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 3, i32 noundef -2147483648) #7
   %7 = load i32, ptr @ett_cod, align 4
@@ -5940,7 +5940,7 @@ define internal noundef i32 @dissect_btcommon_cod(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_btcommon_le_channel_map(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef writeonly %3) #1 {
+define internal noundef i32 @dissect_btcommon_le_channel_map(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef writeonly %3) #1 {
   %5 = load i32, ptr @hf_btcommon_le_channel_map_0, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #7
   %7 = load i32, ptr @hf_btcommon_le_channel_map_1, align 4
@@ -6077,7 +6077,7 @@ declare ptr @try_val_to_str_ext(i32 noundef, ptr noundef) local_unnamed_addr #0
 declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #0
 
@@ -9326,7 +9326,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare signext i16 @tvb_get_letohis(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
@@ -10564,10 +10564,10 @@ declare ptr @proto_tree_get_root(ptr noundef) local_unnamed_addr #0
 declare i32 @tvb_get_guint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

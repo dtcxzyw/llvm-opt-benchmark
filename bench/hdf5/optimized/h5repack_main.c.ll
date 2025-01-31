@@ -488,7 +488,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 87:                                               ; preds = %54
   %88 = load ptr, ptr @H5_optarg, align 8
-  %89 = call i64 @strtoull(ptr nocapture noundef %88, ptr noundef null, i32 noundef 0) #15
+  %89 = call i64 @strtoull(ptr noundef captures(none) %88, ptr noundef null, i32 noundef 0) #15
   store i64 %89, ptr %52, align 8
   %90 = trunc i64 %89 to i32
   %91 = icmp slt i32 %90, 1
@@ -714,7 +714,7 @@ read_info.exit.i:                                 ; preds = %.loopexit.i.i, %.th
   br i1 %168, label %169, label %173
 
 169:                                              ; preds = %165
-  %170 = call i32 @atoi(ptr noundef %166) #16
+  %170 = call i32 @atoi(ptr noundef nonnull %166) #16
   br label %171
 
 171:                                              ; preds = %171, %169
@@ -800,7 +800,7 @@ read_info.exit.i:                                 ; preds = %.loopexit.i.i, %.th
 
 198:                                              ; preds = %54
   %199 = load ptr, ptr @H5_optarg, align 8
-  %200 = call i64 @strtoull(ptr nocapture noundef %199, ptr noundef null, i32 noundef 0) #15
+  %200 = call i64 @strtoull(ptr noundef captures(none) %199, ptr noundef null, i32 noundef 0) #15
   store i64 %200, ptr %34, align 8
   %201 = icmp eq i64 %200, 0
   br i1 %201, label %202, label %.loopexit.i
@@ -845,7 +845,7 @@ read_info.exit.i:                                 ; preds = %.loopexit.i.i, %.th
   br label %.loopexit.i
 
 213:                                              ; preds = %211
-  call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.21, ptr noundef %205) #15
+  call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.21, ptr noundef nonnull %205) #15
   br label %parse_command_line.exit.thread
 
 214:                                              ; preds = %204
@@ -870,7 +870,7 @@ read_info.exit.i:                                 ; preds = %.loopexit.i.i, %.th
 
 223:                                              ; preds = %54
   %224 = load ptr, ptr @H5_optarg, align 8
-  %225 = call i64 @strtoll(ptr nocapture noundef %224, ptr noundef null, i32 noundef 0) #15
+  %225 = call i64 @strtoll(ptr noundef captures(none) %224, ptr noundef null, i32 noundef 0) #15
   %226 = icmp eq i64 %225, 0
   %spec.store.select146.i = select i1 %226, i64 -1, i64 %225
   store i64 %spec.store.select146.i, ptr %30, align 8
@@ -894,7 +894,7 @@ set_sort_by.exit.thread.i:                        ; preds = %230, %227
 
 232:                                              ; preds = %230
   store i32 -1, ptr @sort_by, align 4
-  call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.22, ptr noundef %228) #15
+  call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.22, ptr noundef nonnull %228) #15
   br label %parse_command_line.exit.thread
 
 233:                                              ; preds = %54
@@ -915,7 +915,7 @@ set_sort_order.exit.thread.i:                     ; preds = %236, %233
 
 238:                                              ; preds = %236
   store i32 -1, ptr @sort_order, align 4
-  call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.23, ptr noundef %234) #15
+  call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.23, ptr noundef nonnull %234) #15
   br label %parse_command_line.exit.thread
 
 239:                                              ; preds = %54
@@ -1083,7 +1083,7 @@ set_sort_order.exit.thread.i:                     ; preds = %236, %233
 300:                                              ; preds = %298
   %301 = tail call ptr @__errno_location() #17
   store i32 0, ptr %301, align 4
-  %302 = call i64 @strtoull(ptr nocapture noundef nonnull %274, ptr noundef null, i32 noundef 10) #15
+  %302 = call i64 @strtoull(ptr noundef nonnull captures(none) %274, ptr noundef null, i32 noundef 10) #15
   store i64 %302, ptr getelementptr inbounds nuw (i8, ptr @onion_fa_in_g, i64 24), align 8
   %303 = load i32, ptr %301, align 4
   %304 = icmp eq i32 %303, 34
@@ -1274,7 +1274,7 @@ parse_command_line.exit:                          ; preds = %327, %340
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare void @h5tools_init() local_unnamed_addr #2
 
@@ -2554,7 +2554,7 @@ declare ptr @h5tools_getprogname() local_unnamed_addr #2
 declare void @print_version(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @h5repack_addfilter(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2563,22 +2563,22 @@ declare void @error_msg(ptr noundef, ...) local_unnamed_addr #2
 declare i32 @h5repack_addlayout(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @atol(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @atol(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #8
@@ -2589,44 +2589,44 @@ declare void @exit(i32 noundef) local_unnamed_addr #9
 declare i64 @h5tools_get_fapl(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @h5tools_close() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

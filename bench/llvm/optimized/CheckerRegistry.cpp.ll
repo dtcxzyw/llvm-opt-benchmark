@@ -846,7 +846,7 @@ $_ZN4llvm9StringMapImNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairIN
 @_ZN5clang4ento15CheckerRegistryC1ERNS0_19CheckerRegistryDataEN4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNS_17DiagnosticsEngineERNS_15AnalyzerOptionsENS5_ISt8functionIFvRS1_EEEE = unnamed_addr alias void (ptr, ptr, ptr, i64, ptr, ptr, ptr), ptr @_ZN5clang4ento15CheckerRegistryC2ERNS0_19CheckerRegistryDataEN4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNS_17DiagnosticsEngineERNS_15AnalyzerOptionsENS5_ISt8functionIFvRS1_EEEE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento15CheckerRegistryC2ERNS0_19CheckerRegistryDataEN4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNS_17DiagnosticsEngineERNS_15AnalyzerOptionsENS5_ISt8functionIFvRS1_EEEE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(1304) %4, ptr noundef nonnull align 8 dereferenceable(488) %5, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.0") align 8 %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento15CheckerRegistryC2ERNS0_19CheckerRegistryDataEN4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNS_17DiagnosticsEngineERNS_15AnalyzerOptionsENS5_ISt8functionIFvRS1_EEEE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(1304) %4, ptr noundef nonnull align 8 dereferenceable(488) %5, ptr noundef readonly byval(%"class.llvm::ArrayRef.0") align 8 captures(none) %6) unnamed_addr #0 align 2 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca %"class.llvm::StringRef", align 8
@@ -7511,7 +7511,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit514:         ; preds = %_ZN5clang17Diagnost
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento15CheckerRegistry10addPackageEN4llvm9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento15CheckerRegistry10addPackageEN4llvm9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.clang::ento::PackageInfo", align 8
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -7536,7 +7536,7 @@ _ZN5clang4ento11PackageInfoD2Ev.exit:             ; preds = %3, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento15CheckerRegistry10addCheckerEPFvRNS0_14CheckerManagerEEPFbRKS2_EN4llvm9StringRefESB_SB_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, ptr %3, i64 %4, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %6, i1 noundef zeroext %7) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento15CheckerRegistry10addCheckerEPFvRNS0_14CheckerManagerEEPFbRKS2_EN4llvm9StringRefESB_SB_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, ptr %3, i64 %4, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %6, i1 noundef zeroext %7) local_unnamed_addr #0 align 2 {
   %9 = alloca i8, align 1
   %10 = alloca i8, align 1
   %11 = alloca %"class.llvm::StringRef", align 8
@@ -8417,7 +8417,7 @@ declare { ptr, i64 } @_ZN4llvm3sys4path8filenameENS_9StringRefENS1_5StyleE(ptr, 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento15CheckerRegistry16addPackageOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %7, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %8, i1 noundef zeroext %9) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento15CheckerRegistry16addPackageOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %5, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %6, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %7, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %8, i1 noundef zeroext %9) local_unnamed_addr #0 align 2 {
   %11 = alloca %"class.llvm::StringRef", align 8
   %12 = alloca %"struct.clang::ento::CmdLineOption", align 8
   store ptr %3, ptr %11, align 8
@@ -8449,7 +8449,7 @@ define dso_local void @_ZN5clang4ento15CheckerRegistry16addPackageOptionEN4llvm9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr %3, i64 %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9StringRefES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr %1, i64 %2, ptr %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca %"class.llvm::StringRef", align 8
   store ptr %1, ptr %6, align 8
@@ -8465,7 +8465,7 @@ define dso_local void @_ZN5clang4ento15CheckerRegistry13addDependencyEN4llvm9Str
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento15CheckerRegistry17addWeakDependencyEN4llvm9StringRefES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr %3, i64 %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento15CheckerRegistry17addWeakDependencyEN4llvm9StringRefES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr %1, i64 %2, ptr %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca %"class.llvm::StringRef", align 8
   store ptr %1, ptr %6, align 8
@@ -8481,7 +8481,7 @@ define dso_local void @_ZN5clang4ento15CheckerRegistry17addWeakDependencyEN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %7, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %8, i1 noundef zeroext %9) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9StringRefES3_S3_S3_S3_S3_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %5, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %6, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %7, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %8, i1 noundef zeroext %9) local_unnamed_addr #0 align 2 {
   %11 = alloca %"class.llvm::StringRef", align 8
   %12 = alloca %"struct.clang::ento::CmdLineOption", align 8
   store ptr %3, ptr %11, align 8
@@ -8513,7 +8513,7 @@ define dso_local void @_ZN5clang4ento15CheckerRegistry16addCheckerOptionEN4llvm9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento15CheckerRegistry31resolveCheckerAndPackageOptionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento15CheckerRegistry31resolveCheckerAndPackageOptionsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %4 = load ptr, ptr %3, align 8
@@ -8584,7 +8584,7 @@ define dso_local void @_ZN5clang4ento15CheckerRegistry31resolveCheckerAndPackage
 declare { ptr, ptr } @_ZN5clang4ento19CheckerRegistryData31getMutableCheckersForCmdLineArgEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(168), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang4ento15CheckerRegistry22validateCheckerOptionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK5clang4ento15CheckerRegistry22validateCheckerOptionsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca i8, align 1
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = alloca %"struct.clang::ento::CheckerInfo", align 8
@@ -8885,7 +8885,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINSt7__cxx1112basic_stringIcSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento15CheckerRegistry18initializeRegistryERKNS0_14CheckerManagerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(1552) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento15CheckerRegistry18initializeRegistryERKNS0_14CheckerManagerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(1552) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SetVector", align 8
   %4 = alloca %"class.llvm::SetVector", align 8
   %5 = alloca ptr, align 8
@@ -9522,7 +9522,7 @@ define internal fastcc noundef zeroext i1 @"_ZL25collectStrongDependenciesIZN5cl
 15:                                               ; preds = %"_ZZN5clang4ento15CheckerRegistry18initializeRegistryERKNS0_14CheckerManagerEENK3$_0clEPKNS0_11CheckerInfoE.exit"
   %16 = load ptr, ptr %4, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 88
-  %18 = call fastcc noundef zeroext i1 @"_ZL25collectStrongDependenciesIZN5clang4ento15CheckerRegistry18initializeRegistryERKNS1_14CheckerManagerEE3$_0EbRKN4llvm11SmallVectorIPKNS1_11CheckerInfoELj0EEES5_RNS7_9SetVectorISB_SC_NS7_8DenseSetISB_NS7_12DenseMapInfoISB_vEEEELj0EEET_"(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr %2)
+  %18 = call fastcc noundef zeroext i1 @"_ZL25collectStrongDependenciesIZN5clang4ento15CheckerRegistry18initializeRegistryERKNS1_14CheckerManagerEE3$_0EbRKN4llvm11SmallVectorIPKNS1_11CheckerInfoELj0EEES5_RNS7_9SetVectorISB_SC_NS7_8DenseSetISB_NS7_12DenseMapInfoISB_vEEEELj0EEET_"(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr nonnull %2)
   br i1 %18, label %19, label %"_ZZN5clang4ento15CheckerRegistry18initializeRegistryERKNS0_14CheckerManagerEENK3$_0clEPKNS0_11CheckerInfoE.exit.thread"
 
 19:                                               ; preds = %15
@@ -9537,7 +9537,7 @@ define internal fastcc noundef zeroext i1 @"_ZL25collectStrongDependenciesIZN5cl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIPKN5clang4ento11CheckerInfoENS_11SmallVectorIS5_Lj0EEENS_8DenseSetIS5_NS_12DenseMapInfoIS5_vEEEELj0EE6insertERKS5_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat align 2 {
@@ -9624,7 +9624,7 @@ _ZN4llvm6detail12DenseSetImplIPKN5clang4ento11CheckerInfoENS_8DenseMapIS6_NS0_13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZL23collectWeakDependenciesIZN5clang4ento15CheckerRegistry18initializeRegistryERKNS1_14CheckerManagerEE3$_1EvRKN4llvm11SmallVectorIPKNS1_11CheckerInfoELj0EEES5_RNS7_9SetVectorISB_SC_NS7_8DenseSetISB_NS7_12DenseMapInfoISB_vEEEELj0EEET_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr nocapture readonly %2) unnamed_addr #0 {
+define internal fastcc void @"_ZL23collectWeakDependenciesIZN5clang4ento15CheckerRegistry18initializeRegistryERKNS1_14CheckerManagerEE3$_1EvRKN4llvm11SmallVectorIPKNS1_11CheckerInfoELj0EEES5_RNS7_9SetVectorISB_SC_NS7_8DenseSetISB_NS7_12DenseMapInfoISB_vEEEELj0EEET_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
@@ -9891,7 +9891,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(120) ptr @_ZNSt6vect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang4ento15CheckerRegistry17initializeManagerERNS0_14CheckerManagerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(1552) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK5clang4ento15CheckerRegistry17initializeManagerERNS0_14CheckerManagerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(1552) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -10253,7 +10253,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %99, %105, %93, %_ZN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
@@ -10323,10 +10323,10 @@ _ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit: ; preds = %_ZN4ll
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
@@ -10570,7 +10570,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5clang4ento11CheckerInfoEEclINS_17__norm
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZSt9__find_ifIPN5clang4ento11PackageInfoEN9__gnu_cxx5__ops16_Iter_equals_valIKS2_EEET_S9_S9_T0_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1, ptr %2) local_unnamed_addr #0 comdat {
@@ -11546,7 +11546,7 @@ declare void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -13972,7 +13972,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento11CheckerInfoENS_6detail13Dens
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZL25collectStrongDependenciesIZN5clang4ento15CheckerRegistry18initializeRegistryERKNS1_14CheckerManagerEE3$_1EbRKN4llvm11SmallVectorIPKNS1_11CheckerInfoELj0EEES5_RNS7_9SetVectorISB_SC_NS7_8DenseSetISB_NS7_12DenseMapInfoISB_vEEEELj0EEET_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr nocapture readonly %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @"_ZL25collectStrongDependenciesIZN5clang4ento15CheckerRegistry18initializeRegistryERKNS1_14CheckerManagerEE3$_1EbRKN4llvm11SmallVectorIPKNS1_11CheckerInfoELj0EEES5_RNS7_9SetVectorISB_SC_NS7_8DenseSetISB_NS7_12DenseMapInfoISB_vEEEELj0EEET_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
@@ -14093,7 +14093,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefES2_ELb1EE28reserveForPar
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17insertAndValidateN4llvm9StringRefERKN5clang4ento13CmdLineOptionERNS1_15AnalyzerOptionsERNS1_17DiagnosticsEngineE(ptr %0, i64 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %2, ptr noundef nonnull align 8 dereferenceable(488) %3, ptr noundef nonnull align 8 dereferenceable(1304) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL17insertAndValidateN4llvm9StringRefERKN5clang4ento13CmdLineOptionERNS1_15AnalyzerOptionsERNS1_17DiagnosticsEngineE(ptr %0, i64 %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %2, ptr noundef nonnull align 8 dereferenceable(488) %3, ptr noundef nonnull align 8 dereferenceable(1304) %4) unnamed_addr #0 {
 _ZN4llvmplERKNS_5TwineES2_.exit:
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca i64, align 8
@@ -15363,13 +15363,13 @@ _ZN4llvm17StringMapIteratorImEC2EPPNS_18StringMapEntryBaseEb.exit: ; preds = %.p
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13

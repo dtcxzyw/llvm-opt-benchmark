@@ -71,7 +71,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ecdsa_sign(ptr noundef %vctx, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, i64 noundef %sigsize, ptr noundef %tbs, i64 noundef %tbslen) #0 {
+define internal range(i32 0, 2) i32 @ecdsa_sign(ptr noundef %vctx, ptr noundef %sig, ptr noundef writeonly captures(none) %siglen, i64 noundef %sigsize, ptr noundef %tbs, i64 noundef %tbslen) #0 {
 entry:
   %sltmp = alloca i32, align 4
   %ec = getelementptr inbounds nuw i8, ptr %vctx, i64 16
@@ -151,7 +151,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ecdsa_verify(ptr nocapture noundef readonly %vctx, ptr noundef %sig, i64 noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) #0 {
+define internal i32 @ecdsa_verify(ptr noundef readonly captures(none) %vctx, ptr noundef %sig, i64 noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #7
   %tobool.not = icmp eq i32 %call, 0
@@ -207,7 +207,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ecdsa_digest_sign_final(ptr noundef %vctx, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, i64 noundef %sigsize) #0 {
+define internal range(i32 0, 2) i32 @ecdsa_digest_sign_final(ptr noundef %vctx, ptr noundef %sig, ptr noundef writeonly captures(none) %siglen, i64 noundef %sigsize) #0 {
 entry:
   %digest = alloca [64 x i8], align 16
   %dlen = alloca i32, align 4
@@ -343,7 +343,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ecdsa_dupctx(ptr nocapture noundef readonly %vctx) #0 {
+define internal ptr @ecdsa_dupctx(ptr noundef readonly captures(none) %vctx) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #7
   %tobool.not = icmp eq i32 %call, 0
@@ -538,7 +538,7 @@ return:                                           ; preds = %land.lhs.true24, %c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @ecdsa_gettable_ctx_params(ptr nocapture readnone %vctx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @ecdsa_gettable_ctx_params(ptr readnone captures(none) %vctx, ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @known_gettable_ctx_params
 }
@@ -637,7 +637,7 @@ return:                                           ; preds = %land.lhs.true38, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef nonnull ptr @ecdsa_settable_ctx_params(ptr noundef readonly %vctx, ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @ecdsa_settable_ctx_params(ptr noundef readonly %vctx, ptr readnone captures(none) %provctx) #2 {
 entry:
   %cmp.not = icmp eq ptr %vctx, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -658,7 +658,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ecdsa_get_ctx_md_params(ptr nocapture noundef readonly %vctx, ptr noundef %params) #0 {
+define internal i32 @ecdsa_get_ctx_md_params(ptr noundef readonly captures(none) %vctx, ptr noundef %params) #0 {
 entry:
   %mdctx = getelementptr inbounds nuw i8, ptr %vctx, i64 376
   %0 = load ptr, ptr %mdctx, align 8
@@ -675,7 +675,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ecdsa_gettable_ctx_md_params(ptr nocapture noundef readonly %vctx) #0 {
+define internal ptr @ecdsa_gettable_ctx_md_params(ptr noundef readonly captures(none) %vctx) #0 {
 entry:
   %md = getelementptr inbounds nuw i8, ptr %vctx, i64 368
   %0 = load ptr, ptr %md, align 8
@@ -692,7 +692,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ecdsa_set_ctx_md_params(ptr nocapture noundef readonly %vctx, ptr noundef %params) #0 {
+define internal i32 @ecdsa_set_ctx_md_params(ptr noundef readonly captures(none) %vctx, ptr noundef %params) #0 {
 entry:
   %mdctx = getelementptr inbounds nuw i8, ptr %vctx, i64 376
   %0 = load ptr, ptr %mdctx, align 8
@@ -709,7 +709,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ecdsa_settable_ctx_md_params(ptr nocapture noundef readonly %vctx) #0 {
+define internal ptr @ecdsa_settable_ctx_md_params(ptr noundef readonly captures(none) %vctx) #0 {
 entry:
   %md = getelementptr inbounds nuw i8, ptr %vctx, i64 368
   %0 = load ptr, ptr %md, align 8
@@ -1010,7 +1010,7 @@ declare i32 @EVP_DigestInit_ex2(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1043,7 +1043,7 @@ declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @BN_clear_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @EVP_MD_up_ref(ptr noundef) local_unnamed_addr #3
 
@@ -1064,7 +1064,7 @@ declare i32 @OSSL_PARAM_set_uint(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @OSSL_PARAM_get_utf8_string(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 

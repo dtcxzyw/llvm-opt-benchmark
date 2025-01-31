@@ -378,7 +378,7 @@ _ZN2pb6solver11internalizeEP4exprbb.exit:         ; preds = %if.then.i, %if.then
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define hidden i32 @_ZN2pb6solver17convert_at_most_kEP3appRK8rationalbb(ptr noundef nonnull align 8 dereferenceable(1049) %this, ptr noundef %t, ptr noundef nonnull align 8 dereferenceable(32) %k, i1 noundef zeroext %root, i1 noundef zeroext %sign) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -1816,7 +1816,7 @@ invoke.cont58:                                    ; preds = %if.then.i.i.i, %lan
   %vtable61 = load ptr, ptr %28, align 8
   %vfn62 = getelementptr inbounds nuw i8, ptr %vtable61, i64 64
   %29 = load ptr, ptr %vfn62, align 8
-  invoke void %29(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef %t, i32 %shl.i)
+  invoke void %29(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull %t, i32 %shl.i)
           to label %invoke.cont63 unwind label %lpad3.loopexit.split-lp
 
 invoke.cont63:                                    ; preds = %invoke.cont58
@@ -1896,7 +1896,7 @@ invoke.cont134:                                   ; preds = %invoke.cont130
   %vtable139 = load ptr, ptr %37, align 8
   %vfn140 = getelementptr inbounds nuw i8, ptr %vtable139, i64 64
   %38 = load ptr, ptr %vfn140, align 8
-  invoke void %38(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef %t, i32 %shl.i33)
+  invoke void %38(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull %t, i32 %shl.i33)
           to label %invoke.cont141 unwind label %lpad3.loopexit.split-lp
 
 invoke.cont141:                                   ; preds = %invoke.cont134
@@ -1972,7 +1972,7 @@ terminate.lpad:                                   ; preds = %.noexc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2pb6solver14check_unsignedERK8rational(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(32) %c) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2pb6solver14check_unsignedERK8rational(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(32) %c) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
@@ -2092,7 +2092,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2pb6solver16convert_to_wlitsEP3appRK7svectorIN3sat7literalEjERS3_ISt4pairIjS5_EjE(ptr noundef nonnull align 8 dereferenceable(1049) %this, ptr nocapture noundef readonly %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %lits, ptr noundef nonnull align 8 dereferenceable(8) %wlits) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2pb6solver16convert_to_wlitsEP3appRK7svectorIN3sat7literalEjERS3_ISt4pairIjS5_EjE(ptr noundef nonnull align 8 dereferenceable(1049) %this, ptr noundef readonly captures(none) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %lits, ptr noundef nonnull align 8 dereferenceable(8) %wlits) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %class.rational, align 8
   %m_pb = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -2200,7 +2200,7 @@ for.end:                                          ; preds = %_ZNK6vectorIN3sat7l
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2pb6solver15convert_pb_argsEP3appR7svectorIN3sat7literalEjE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1049) %this, ptr noundef readonly %t, ptr noundef nonnull align 8 dereferenceable(8) %lits) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2pb6solver15convert_pb_argsEP3appR7svectorIN3sat7literalEjE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1049) %this, ptr noundef readonly %t, ptr noundef nonnull align 8 dereferenceable(8) %lits) local_unnamed_addr #3 align 2 {
 entry:
   %m_num_args.i = getelementptr inbounds nuw i8, ptr %t, i64 24
   %0 = load i32, ptr %m_num_args.i, align 8
@@ -3961,7 +3961,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -4489,10 +4489,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

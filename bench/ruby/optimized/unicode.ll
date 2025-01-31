@@ -659,7 +659,7 @@ target triple = "x86_64-pc-linux-gnu"
 @onigenc_unicode_CaseUnfold_13_hash.asso_values = internal unnamed_addr constant [128 x i8] c"\07\04////\01\01\02//////////\01/////////////////////////////\0B/////\0A/\02////////\01//\01///\09////////////////////////////\01//\02//\01///////////////////", align 16
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @onigenc_unicode_is_code_ctype(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define dso_local i32 @onigenc_unicode_is_code_ctype(i32 noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp ult i32 %1, 15
   %5 = icmp ult i32 %0, 256
   %or.cond = and i1 %5, %4
@@ -693,7 +693,7 @@ define dso_local i32 @onigenc_unicode_is_code_ctype(i32 noundef %0, i32 noundef 
 declare i32 @onig_is_in_code_range(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local range(i32 -6, 1) i32 @onigenc_unicode_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define dso_local range(i32 -6, 1) i32 @onigenc_unicode_ctype_code_range(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = icmp sgt i32 %0, 644
   br i1 %3, label %8, label %4
 
@@ -710,7 +710,7 @@ define dso_local range(i32 -6, 1) i32 @onigenc_unicode_ctype_code_range(i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local range(i32 -6, 1) i32 @onigenc_utf16_32_get_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #2 {
+define dso_local range(i32 -6, 1) i32 @onigenc_utf16_32_get_ctype_code_range(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
   store i32 0, ptr %1, align 4
   %5 = icmp sgt i32 %0, 644
   br i1 %5, label %onigenc_unicode_ctype_code_range.exit, label %6
@@ -937,7 +937,7 @@ uniname2ctype.exit.thread:                        ; preds = %14, %12, %3, %._cri
 declare i32 @onigenc_mbclen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @onigenc_unicode_mbc_case_fold(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local i32 @onigenc_unicode_mbc_case_fold(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
@@ -1066,7 +1066,7 @@ onigenc_unicode_CaseFold_11_lookup.exit:          ; preds = %52, %19, %25, %47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @onigenc_unicode_apply_all_case_fold(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define dso_local i32 @onigenc_unicode_apply_all_case_fold(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   br label %6
 
@@ -1256,7 +1256,7 @@ define dso_local i32 @onigenc_unicode_apply_all_case_fold(i32 noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define dso_local i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca [3 x [4 x i32]], align 16
   %7 = alloca [3 x i32], align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2299,7 +2299,7 @@ onigenc_unicode_CaseUnfold_13_lookup.exit318:     ; preds = %code3_equal.exit.i3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @onigenc_unicode_case_map(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local i32 @onigenc_unicode_case_map(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = load i32, ptr %0, align 4
   %8 = getelementptr i8, ptr %4, i64 -12
   %9 = shl i32 %7, 3
@@ -2695,13 +2695,13 @@ onigenc_unicode_CaseUnfold_11_lookup.exit.thread: ; preds = %onigenc_unicode_Cas
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

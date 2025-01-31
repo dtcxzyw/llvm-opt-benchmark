@@ -99,7 +99,7 @@ finish_spin_delay.exit:                           ; preds = %29, %34, %.sink.spl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @perform_spin_delay(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @perform_spin_delay(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   tail call void asm sideeffect " rep; nop\09\09\09\0A", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
   %2 = load i32, ptr %0, align 8
   %3 = add i32 %2, 1
@@ -162,7 +162,7 @@ define dso_local void @perform_spin_delay(ptr nocapture noundef %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define dso_local void @finish_spin_delay(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local void @finish_spin_delay(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0

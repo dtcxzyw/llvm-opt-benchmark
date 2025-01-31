@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @WebPAlphaReplace = hidden local_unnamed_addr global ptr null, align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @WebPMultARGBRow_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+define hidden void @WebPMultARGBRow_C(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -130,7 +130,7 @@ GetScale.exit:                                    ; preds = %36
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @WebPMultRow_C(ptr noalias nocapture noundef %0, ptr noalias nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #0 {
+define hidden void @WebPMultRow_C(ptr noalias noundef captures(none) %0, ptr noalias noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -317,7 +317,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #2
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @ApplyAlphaMultiply_16b_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+define internal void @ApplyAlphaMultiply_16b_C(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.preheader.lr.ph.i, label %ApplyAlphaMultiply4444_C.exit
 
@@ -388,7 +388,7 @@ ApplyAlphaMultiply4444_C.exit:                    ; preds = %._crit_edge.us.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @PackRGB_C(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef readonly %1, ptr noalias nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noalias nocapture noundef writeonly %5) #0 {
+define internal void @PackRGB_C(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noalias noundef writeonly captures(none) %5) #0 {
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
@@ -426,7 +426,7 @@ define internal void @PackRGB_C(ptr noalias nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @ApplyAlphaMultiply_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @ApplyAlphaMultiply_C(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph35, label %._crit_edge36
 
@@ -501,7 +501,7 @@ define internal void @ApplyAlphaMultiply_C(ptr nocapture noundef %0, i32 noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @DispatchAlpha_C(ptr noalias nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias nocapture noundef writeonly %4, i32 noundef %5) #0 {
+define internal range(i32 0, 2) i32 @DispatchAlpha_C(ptr noalias noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias noundef writeonly captures(none) %4, i32 noundef %5) #0 {
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.preheader.lr.ph, label %._crit_edge27
 
@@ -554,7 +554,7 @@ define internal range(i32 0, 2) i32 @DispatchAlpha_C(ptr noalias nocapture nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @DispatchAlphaToGreen_C(ptr noalias nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias nocapture noundef writeonly %4, i32 noundef %5) #0 {
+define internal void @DispatchAlphaToGreen_C(ptr noalias noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias noundef writeonly captures(none) %4, i32 noundef %5) #0 {
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.preheader.lr.ph, label %._crit_edge20
 
@@ -598,7 +598,7 @@ define internal void @DispatchAlphaToGreen_C(ptr noalias nocapture noundef reado
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @ExtractAlpha_C(ptr noalias nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias nocapture noundef writeonly %4, i32 noundef %5) #0 {
+define internal range(i32 0, 2) i32 @ExtractAlpha_C(ptr noalias noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias noundef writeonly captures(none) %4, i32 noundef %5) #0 {
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.preheader.lr.ph, label %._crit_edge27
 
@@ -650,7 +650,7 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_C(ptr noalias nocapture nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @ExtractGreen_C(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture noundef writeonly %1, i32 noundef %2) #0 {
+define internal void @ExtractGreen_C(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i32 noundef %2) #0 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -675,7 +675,7 @@ define internal void @ExtractGreen_C(ptr noalias nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @HasAlpha8b_C(ptr nocapture noundef readonly %0, i32 noundef %1) #3 {
+define internal range(i32 0, 2) i32 @HasAlpha8b_C(ptr noundef readonly captures(none) %0, i32 noundef %1) #3 {
   br label %3
 
 3:                                                ; preds = %5, %2
@@ -697,7 +697,7 @@ define internal range(i32 0, 2) i32 @HasAlpha8b_C(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @HasAlpha32b_C(ptr nocapture noundef readonly %0, i32 noundef %1) #3 {
+define internal range(i32 0, 2) i32 @HasAlpha32b_C(ptr noundef readonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
 
@@ -721,7 +721,7 @@ define internal range(i32 0, 2) i32 @HasAlpha32b_C(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @AlphaReplace_C(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+define internal void @AlphaReplace_C(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 

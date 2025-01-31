@@ -17,7 +17,7 @@ source_filename = "bench/openjdk/original/main.ll"
 @.str.13 = private unnamed_addr constant [8 x i8] c"openjdk\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local i32 @main(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   tail call void @JLI_InitArgProcessing(i8 noundef zeroext 1, i8 noundef zeroext 1) #3
   %3 = add nsw i32 %0, 1
   %4 = sext i32 %3 to i64
@@ -112,7 +112,7 @@ declare void @JLI_InitArgProcessing(i8 noundef zeroext, i8 noundef zeroext) loca
 declare zeroext i8 @JLI_AddArgsFromEnvVar(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @JLI_ReportMessage(ptr noundef, ...) local_unnamed_addr #1
 

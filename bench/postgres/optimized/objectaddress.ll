@@ -301,7 +301,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.getRelationIdentity = private unnamed_addr constant [20 x i8] c"getRelationIdentity\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @get_object_address(i32 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @get_object_address(i32 noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %struct.ObjectAddress, align 8
   %.sroa.062.i = alloca ptr, align 16
   %.sroa.464.i = alloca ptr, align 8
@@ -1162,7 +1162,7 @@ get_object_address_opf_member.exit:               ; preds = %304, %318, %.sink.s
   %380 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %380)
   %381 = tail call i32 @errcode(i32 noundef 67137668) #9
-  %382 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.184, ptr noundef %.val272.val.val, ptr noundef %.val272.val273.val) #9
+  %382 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.184, ptr noundef nonnull %.val272.val.val, ptr noundef %.val272.val273.val) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1864, ptr noundef nonnull @__func__.get_object_address_usermapping) #9
   unreachable
 
@@ -1209,7 +1209,7 @@ get_object_address_opf_member.exit:               ; preds = %304, %318, %.sink.s
   %405 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %405)
   %406 = tail call i32 @errcode(i32 noundef 67137668) #9
-  %407 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.184, ptr noundef %.val272.val.val, ptr noundef %.val272.val273.val) #9
+  %407 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.184, ptr noundef nonnull %.val272.val.val, ptr noundef %.val272.val273.val) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1890, ptr noundef nonnull @__func__.get_object_address_usermapping) #9
   unreachable
 
@@ -1667,7 +1667,7 @@ declare void @LockSharedObject(i32 noundef, i32 noundef, i16 noundef zeroext, i3
 declare void @LockDatabaseObject(i32 noundef, i32 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @get_object_address_rv(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @get_object_address_rv(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %7
 
@@ -1754,7 +1754,7 @@ define dso_local i64 @pg_get_object_address(ptr noundef %0) local_unnamed_addr #
   %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %34)
   %35 = tail call i32 @errcode(i32 noundef 50856066) #9
-  %36 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef %18) #9
+  %36 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull %18) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2655, ptr noundef nonnull @__func__.read_objtype_from_string) #9
   unreachable
 
@@ -1768,7 +1768,7 @@ read_objtype_from_string.exit:                    ; preds = %28
   %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %41)
   %42 = tail call i32 @errcode(i32 noundef 50856066) #9
-  %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %18) #9
+  %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %18) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2167, ptr noundef nonnull @__func__.pg_get_object_address) #9
   unreachable
 
@@ -2256,7 +2256,7 @@ define dso_local i32 @read_objtype_from_string(ptr noundef %0) local_unnamed_add
   %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %12)
   %13 = tail call i32 @errcode(i32 noundef 50856066) #9
-  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef %0) #9
+  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull %0) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2655, ptr noundef nonnull @__func__.read_objtype_from_string) #9
   unreachable
 }
@@ -2324,7 +2324,7 @@ declare i32 @get_call_result_type(ptr noundef, ptr noundef, ptr noundef) local_u
 declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @check_object_ownership(i32 noundef %0, i32 noundef %1, i64 %2, i32 %3, ptr noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
+define dso_local void @check_object_ownership(i32 noundef %0, i32 noundef %1, i64 %2, i32 %3, ptr noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %.sroa.042.0.extract.trunc = trunc i64 %2 to i32
   %.sroa.6.0.extract.shift = lshr i64 %2, 32
   %.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.6.0.extract.shift to i32
@@ -2611,7 +2611,7 @@ declare zeroext i1 @is_admin_of_role(i32 noundef, i32 noundef) local_unnamed_add
 declare ptr @GetUserNameFromId(i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_object_namespace(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i32 @get_object_namespace(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4
   %3 = load ptr, ptr @get_object_property_data.prop_last, align 8
   %.not.i = icmp eq ptr %3, null
@@ -2690,7 +2690,7 @@ get_object_property_data.exit:                    ; preds = %4, %14
 declare i64 @SysCacheGetAttrNotNull(i32 noundef, ptr noundef, i16 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @get_object_class_descr(i32 noundef %0) local_unnamed_addr #0 {
@@ -5057,7 +5057,7 @@ declare ptr @get_extension_name(i32 noundef) local_unnamed_addr #1
 declare ptr @get_publication_name(i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @getPublicationSchemaInfo(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @getPublicationSchemaInfo(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
@@ -5136,7 +5136,7 @@ define dso_local ptr @getObjectDescriptionOids(i32 noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_describe_object(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_describe_object(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ObjectAddress, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -8101,7 +8101,7 @@ declare i32 @get_opclass_oid(i32 noundef, ptr noundef, i1 noundef zeroext) local
 declare i32 @get_opfamily_oid(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @SearchSysCache4(i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -8135,10 +8135,10 @@ declare i64 @nocachegetattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

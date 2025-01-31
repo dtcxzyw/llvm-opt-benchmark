@@ -505,7 +505,7 @@ timelib_posix_str_dtor.exit64:                    ; preds = %144, %147
 declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @read_offset(ptr nocapture noundef nonnull %0) unnamed_addr #3 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @read_offset(ptr noundef nonnull captures(none) %0) unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i8, ptr %2, align 1
   switch i8 %3, label %read_sign.exit [
@@ -714,7 +714,7 @@ read_number.exit57:                               ; preds = %read_number.exit57.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @read_transition_spec(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @read_transition_spec(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i8, ptr %2, align 1
   %4 = icmp eq i8 %3, 77
@@ -1025,7 +1025,7 @@ define hidden i64 @timelib_ts_at_start_of_year(i64 noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @timelib_get_transitions_for_year(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #3 {
+define hidden void @timelib_get_transitions_for_year(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
   %4 = add nsw i64 %1, -1
   %5 = sdiv i64 %4, 4
   %.neg.i.i = sdiv i64 %4, -100
@@ -1118,7 +1118,7 @@ define hidden void @timelib_get_transitions_for_year(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i64 @calc_transition(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #5 {
+define internal fastcc i64 @calc_transition(ptr noundef readonly captures(none) %0, i64 noundef %1) unnamed_addr #5 {
   %3 = and i64 %1, 3
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %10
@@ -1260,7 +1260,7 @@ define internal fastcc i64 @calc_transition(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @timelib_fetch_posix_timezone_offset(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define hidden ptr @timelib_fetch_posix_timezone_offset(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct._timelib_time, align 8
   %5 = alloca %struct._timelib_posix_transitions, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 104, i1 false)
@@ -1351,7 +1351,7 @@ define hidden ptr @timelib_fetch_posix_timezone_offset(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @timelib_unixtime2gmt(ptr noundef, i64 noundef) local_unnamed_addr #1
 

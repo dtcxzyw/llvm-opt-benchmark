@@ -42,7 +42,7 @@ $_ZN7rocksdb30StatusOnlyTraceExecutionResultD0Ev = comdat any
 @_ZN7rocksdb28IteratorTraceExecutionResultD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7rocksdb28IteratorTraceExecutionResultD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb17TraceRecordResultC2ENS_9TraceTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %this, i8 noundef signext %trace_type) unnamed_addr #0 align 2 {
+define void @_ZN7rocksdb17TraceRecordResultC2ENS_9TraceTypeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) initializes((0, 9)) %this, i8 noundef signext %trace_type) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb17TraceRecordResultE, i64 16), ptr %this, align 8
   %trace_type_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -51,7 +51,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i8 @_ZNK7rocksdb17TraceRecordResult12GetTraceTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this) unnamed_addr #1 align 2 {
+define noundef signext i8 @_ZNK7rocksdb17TraceRecordResult12GetTraceTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %this) unnamed_addr #1 align 2 {
 entry:
   %trace_type_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %trace_type_, align 8
@@ -59,7 +59,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb20TraceExecutionResultC2EmmNS_9TraceTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 9), (16, 32)) %this, i64 noundef %start_timestamp, i64 noundef %end_timestamp, i8 noundef signext %trace_type) unnamed_addr #0 align 2 {
+define void @_ZN7rocksdb20TraceExecutionResultC2EmmNS_9TraceTypeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 9), (16, 32)) %this, i64 noundef %start_timestamp, i64 noundef %end_timestamp, i8 noundef signext %trace_type) unnamed_addr #0 align 2 {
 entry:
   %trace_type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 %trace_type, ptr %trace_type_.i, align 8
@@ -72,7 +72,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK7rocksdb20TraceExecutionResult17GetStartTimestampEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #1 align 2 {
+define noundef i64 @_ZNK7rocksdb20TraceExecutionResult17GetStartTimestampEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #1 align 2 {
 entry:
   %ts_start_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %ts_start_, align 8
@@ -80,7 +80,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK7rocksdb20TraceExecutionResult15GetEndTimestampEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #1 align 2 {
+define noundef i64 @_ZNK7rocksdb20TraceExecutionResult15GetEndTimestampEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #1 align 2 {
 entry:
   %ts_end_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %ts_end_, align 8
@@ -388,7 +388,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7rocksdb31MultiValuesTraceExecutionResultC2ESt6vectorINS_6StatusESaIS2_EES1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEmmNS_9TraceTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 9), (16, 80)) %this, ptr nocapture noundef %multi_status, ptr nocapture noundef %values, i64 noundef %start_timestamp, i64 noundef %end_timestamp, i8 noundef signext %trace_type) unnamed_addr #8 align 2 {
+define void @_ZN7rocksdb31MultiValuesTraceExecutionResultC2ESt6vectorINS_6StatusESaIS2_EES1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEmmNS_9TraceTypeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((0, 9), (16, 80)) %this, ptr noundef captures(none) %multi_status, ptr noundef captures(none) %values, i64 noundef %start_timestamp, i64 noundef %end_timestamp, i8 noundef signext %trace_type) unnamed_addr #8 align 2 {
 entry:
   %trace_type_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 %trace_type, ptr %trace_type_.i.i, align 8
@@ -425,7 +425,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb31MultiValuesTraceExecutionResultD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb31MultiValuesTraceExecutionResultD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb31MultiValuesTraceExecutionResultE, i64 16), ptr %this, align 8
   %multi_status_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -879,7 +879,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK7rocksdb28IteratorTraceExecutionResult8GetValidEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK7rocksdb28IteratorTraceExecutionResult8GetValidEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %this) unnamed_addr #1 align 2 {
 entry:
   %valid_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i8, ptr %valid_, align 8
@@ -895,7 +895,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { ptr, i64 } @_ZNK7rocksdb28IteratorTraceExecutionResult6GetKeyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) unnamed_addr #1 align 2 {
+define { ptr, i64 } @_ZNK7rocksdb28IteratorTraceExecutionResult6GetKeyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %this) unnamed_addr #1 align 2 {
 entry:
   %key_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %retval.sroa.0.0.copyload = load ptr, ptr %key_, align 8
@@ -907,7 +907,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { ptr, i64 } @_ZNK7rocksdb28IteratorTraceExecutionResult8GetValueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) unnamed_addr #1 align 2 {
+define { ptr, i64 } @_ZNK7rocksdb28IteratorTraceExecutionResult8GetValueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %this) unnamed_addr #1 align 2 {
 entry:
   %value_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %retval.sroa.0.0.copyload = load ptr, ptr %value_, align 8
@@ -993,7 +993,7 @@ _ZN7rocksdb30StatusOnlyTraceExecutionResultD2Ev.exit: ; preds = %entry, %_ZNKSt1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7

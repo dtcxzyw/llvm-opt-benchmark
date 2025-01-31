@@ -1043,10 +1043,10 @@ declare i32 @st__ptrcmp(ptr noundef, ptr noundef) #1
 declare i32 @st__ptrhash(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define void @cuddPrintNode(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
+define void @cuddPrintNode(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, -2
   %5 = inttoptr i64 %4 to ptr
@@ -1074,7 +1074,7 @@ declare ptr @st__init_gen(ptr noundef) local_unnamed_addr #1
 declare i32 @st__gen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @debugFindParent(ptr nocapture noundef readonly %0, ptr noundef readonly %1) unnamed_addr #3 {
+define internal fastcc void @debugFindParent(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 608
@@ -1551,7 +1551,7 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
 define range(i32 0, 2) i32 @cuddHeapProfile(ptr noundef %0) local_unnamed_addr #3 {
@@ -1658,7 +1658,7 @@ define range(i32 0, 2) i32 @cuddHeapProfile(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @cuddPrintVarGroups(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define void @cuddPrintVarGroups(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %.not = icmp eq i32 %2, 0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i32, ptr %5, align 4
@@ -1764,7 +1764,7 @@ define void @cuddPrintVarGroups(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #4

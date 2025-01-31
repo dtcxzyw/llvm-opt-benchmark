@@ -86,7 +86,7 @@ define noalias noundef ptr @Fra_ClassesStart(ptr noundef %0) local_unnamed_addr 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @Fra_SmlNodeHash(ptr noundef, i32 noundef) #3
 
@@ -95,7 +95,7 @@ declare i32 @Fra_SmlNodeIsConst(ptr noundef) #3
 declare i32 @Fra_SmlNodesAreEqual(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Fra_ClassesStop(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @Fra_ClassesStop(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -243,10 +243,10 @@ Vec_IntFree.exit:                                 ; preds = %47, %50
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Fra_ClassesCopyReprs(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #6 {
+define void @Fra_ClassesCopyReprs(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %3, i64 32
   %.val30 = load ptr, ptr %4, align 8
@@ -364,13 +364,13 @@ define void @Fra_ClassesCopyReprs(ptr nocapture noundef readonly %0, ptr noundef
 declare void @Aig_ManReprStart(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @Fra_ClassCount(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define i32 @Fra_ClassCount(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -387,7 +387,7 @@ define i32 @Fra_ClassCount(ptr nocapture noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Fra_ClassesCountLits(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define i32 @Fra_ClassesCountLits(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -434,7 +434,7 @@ Fra_ClassCount.exit:                              ; preds = %13
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Fra_ClassesCountPairs(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define i32 @Fra_ClassesCountPairs(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -479,7 +479,7 @@ Fra_ClassCount.exit:                              ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Fra_PrintClass(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define void @Fra_PrintClass(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1)
   %4 = load ptr, ptr %1, align 8
   %.not1011 = icmp eq ptr %4, null
@@ -512,7 +512,7 @@ define void @Fra_PrintClass(ptr nocapture noundef readonly %0, ptr nocapture nou
 declare i32 @Aig_SupportSize(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Fra_ClassesPrint(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @Fra_ClassesPrint(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
@@ -681,7 +681,7 @@ Fra_PrintClass.exit:                              ; preds = %.lr.ph.i47, %Fra_Cl
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Fra_ClassesPrepare(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define void @Fra_ClassesPrepare(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr i8, ptr %4, i64 32
   %.val159 = load ptr, ptr %5, align 8
@@ -1208,7 +1208,7 @@ Vec_PtrPush.exit187:                              ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fra_ClassesRefine(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define i32 @Fra_ClassesRefine(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1316,7 +1316,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Fra_RefineClassOne(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #6 {
+define ptr @Fra_RefineClassOne(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %cond89 = icmp eq ptr %4, null
@@ -1690,7 +1690,7 @@ Vec_PtrPush.exit87:                               ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fra_RefineClassLastIter(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #6 {
+define i32 @Fra_RefineClassLastIter(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val = load i32, ptr %3, align 4
   %4 = getelementptr i8, ptr %1, i64 8
@@ -1802,7 +1802,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @Fra_ClassesRefine1(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define range(i32 -2147483647, -2147483648) i32 @Fra_ClassesRefine1(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 4
@@ -2107,7 +2107,7 @@ Vec_PtrPush.exit75:                               ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Fra_ClassesTest(ptr nocapture noundef initializes((40, 48)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define void @Fra_ClassesTest(ptr noundef captures(none) initializes((40, 48)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #17
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %4, ptr %5, align 8
@@ -2221,7 +2221,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Fra_ClassesLatchCorr(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define void @Fra_ClassesLatchCorr(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -2367,7 +2367,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Fra_ClassesPostprocess(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define void @Fra_ClassesPostprocess(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call ptr @Fra_SmlSimulateComb(ptr noundef %2, i32 noundef 32, i32 noundef 0) #18
   %4 = load ptr, ptr %0, align 8
@@ -2638,7 +2638,7 @@ declare i32 @Fra_SmlNodeNotEquWeight(ptr noundef, i32 noundef, i32 noundef) loca
 declare void @Fra_SmlStop(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Fra_ClassesSelectRepr(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define void @Fra_ClassesSelectRepr(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -2769,7 +2769,7 @@ define void @Fra_ClassesSelectRepr(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Fra_ClassesDeriveAig(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define ptr @Fra_ClassesDeriveAig(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = add nsw i32 %1, 1
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr i8, ptr %4, i64 32
@@ -3270,20 +3270,20 @@ declare ptr @Aig_And(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @Aig_ManCleanup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #12
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare ptr @Aig_Exor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 declare ptr @Aig_ObjCreateCo(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #14
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #14

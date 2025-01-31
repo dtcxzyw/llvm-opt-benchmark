@@ -2165,7 +2165,7 @@ return:                                           ; preds = %if.end185.i, %if.en
 declare ptr @PyModule_Create2(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @PyModule_AddType(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3015,7 +3015,7 @@ declare ptr @PyTuple_GetItem(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @iso_calendar_date_reduce(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @iso_calendar_date_reduce(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %ob_item = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %ob_item, align 8
@@ -3030,7 +3030,7 @@ entry:
 declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @iso_calendar_date_year(ptr noundef %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @iso_calendar_date_year(ptr noundef %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %call = tail call ptr @PyTuple_GetItem(ptr noundef %self, i64 noundef 0) #15
   %cmp = icmp eq ptr %call, null
@@ -3051,7 +3051,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @iso_calendar_date_week(ptr noundef %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @iso_calendar_date_week(ptr noundef %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %call = tail call ptr @PyTuple_GetItem(ptr noundef %self, i64 noundef 1) #15
   %cmp = icmp eq ptr %call, null
@@ -3072,7 +3072,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @iso_calendar_date_weekday(ptr noundef %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @iso_calendar_date_weekday(ptr noundef %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %call = tail call ptr @PyTuple_GetItem(ptr noundef %self, i64 noundef 2) #15
   %cmp = icmp eq ptr %call, null
@@ -3105,7 +3105,7 @@ declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #1
 declare ptr @PyType_GenericNew(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @tzinfo_tzname(ptr nocapture readnone %self, ptr nocapture readnone %dt) #0 {
+define internal noalias noundef ptr @tzinfo_tzname(ptr readnone captures(none) %self, ptr readnone captures(none) %dt) #0 {
 entry:
   %0 = load ptr, ptr @PyExc_NotImplementedError, align 8
   %call.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %0, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.21) #15
@@ -3113,7 +3113,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @tzinfo_utcoffset(ptr nocapture readnone %self, ptr nocapture readnone %dt) #0 {
+define internal noalias noundef ptr @tzinfo_utcoffset(ptr readnone captures(none) %self, ptr readnone captures(none) %dt) #0 {
 entry:
   %0 = load ptr, ptr @PyExc_NotImplementedError, align 8
   %call.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %0, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.23) #15
@@ -3121,7 +3121,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @tzinfo_dst(ptr nocapture readnone %self, ptr nocapture readnone %dt) #0 {
+define internal noalias noundef ptr @tzinfo_dst(ptr readnone captures(none) %self, ptr readnone captures(none) %dt) #0 {
 entry:
   %0 = load ptr, ptr @PyExc_NotImplementedError, align 8
   %call.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %0, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.25) #15
@@ -3425,7 +3425,7 @@ return:                                           ; preds = %if.then1.i.i77, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tzinfo_reduce(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @tzinfo_reduce(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %getinitargs = alloca ptr, align 8
   %call = call i32 @PyObject_GetOptionalAttr(ptr noundef %self, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 29280), ptr noundef nonnull %getinitargs) #15
@@ -3501,7 +3501,7 @@ declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @datetime_utcoffset(ptr noundef %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @datetime_utcoffset(ptr noundef %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %hastzinfo = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i8, ptr %hastzinfo, align 8
@@ -3520,7 +3520,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @datetime_dst(ptr noundef %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @datetime_dst(ptr noundef %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %hastzinfo = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i8, ptr %hastzinfo, align 8
@@ -3539,7 +3539,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @delta_subtract(ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) #0 {
+define internal ptr @delta_subtract(ptr noundef readonly captures(none) %left, ptr noundef readonly captures(none) %right) #0 {
 entry:
   %0 = getelementptr i8, ptr %left, i64 8
   %left.val = load ptr, ptr %0, align 8
@@ -3657,7 +3657,7 @@ if.end13:                                         ; preds = %check_delta_day_ran
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @add_datetime_timedelta(ptr nocapture noundef readonly %date, ptr nocapture noundef readonly %delta, i32 noundef range(i32 -1, 2) %factor) unnamed_addr #0 {
+define internal fastcc ptr @add_datetime_timedelta(ptr noundef readonly captures(none) %date, ptr noundef readonly captures(none) %delta, i32 noundef range(i32 -1, 2) %factor) unnamed_addr #0 {
 entry:
   %year = alloca i32, align 4
   %month = alloca i32, align 4
@@ -3824,7 +3824,7 @@ return:                                           ; preds = %if.else.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @delta_bool(ptr nocapture noundef readonly %self) #3 {
+define internal range(i32 0, 2) i32 @delta_bool(ptr noundef readonly captures(none) %self) #3 {
 entry:
   %days = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i32, ptr %days, align 8
@@ -3948,7 +3948,7 @@ return:                                           ; preds = %land.lhs.true, %lan
 declare ptr @PyObject_CallMethod(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @normalize_date(ptr nocapture noundef nonnull %year, ptr nocapture noundef nonnull %month, ptr nocapture noundef nonnull %day) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @normalize_date(ptr noundef nonnull captures(none) %year, ptr noundef nonnull captures(none) %month, ptr noundef nonnull captures(none) %day) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %year, align 4
   %1 = load i32, ptr %month, align 4
@@ -4111,7 +4111,7 @@ normalize_y_m_d.exit:                             ; preds = %if.else22.i, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @ord_to_ymd(i32 noundef %ordinal, ptr nocapture noundef nonnull initializes((0, 4)) %year, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %month, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %day) unnamed_addr #4 {
+define internal fastcc void @ord_to_ymd(i32 noundef %ordinal, ptr noundef nonnull captures(none) initializes((0, 4)) %year, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %month, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %day) unnamed_addr #4 {
 entry:
   %dec = add i32 %ordinal, -1
   %div = sdiv i32 %dec, 146097
@@ -4319,7 +4319,7 @@ return:                                           ; preds = %if.end5, %if.then3,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @timezone_hash(ptr nocapture noundef readonly %self) #0 {
+define internal i64 @timezone_hash(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %offset = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %offset, align 8
@@ -4557,7 +4557,7 @@ return:                                           ; preds = %check_delta_day_ran
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @timezone_richcompare(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %other, i32 noundef %op) #0 {
+define internal nonnull ptr @timezone_richcompare(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %other, i32 noundef %op) #0 {
 entry:
   %0 = add i32 %op, -4
   %or.cond = icmp ult i32 %0, -2
@@ -4632,7 +4632,7 @@ return:                                           ; preds = %sw.bb1.i.i, %sw.bb.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @timezone_new(ptr nocapture readnone %type, ptr noundef %args, ptr noundef %kw) #0 {
+define internal ptr @timezone_new(ptr readnone captures(none) %type, ptr noundef %args, ptr noundef %kw) #0 {
 entry:
   %offset = alloca ptr, align 8
   %name = alloca ptr, align 8
@@ -4742,7 +4742,7 @@ return:                                           ; preds = %_Py_XNewRef.exit.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @delta_hash(ptr nocapture noundef %self) #0 {
+define internal i64 @delta_hash(ptr noundef captures(none) %self) #0 {
 entry:
   %hashcode = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i64, ptr %hashcode, align 8
@@ -4788,7 +4788,7 @@ declare i64 @PyObject_Hash(ptr noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @delta_negative(ptr nocapture noundef readonly %self) #0 {
+define internal ptr @delta_negative(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %days = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i32, ptr %days, align 8
@@ -4867,7 +4867,7 @@ new_delta_ex.exit:                                ; preds = %check_delta_day_ran
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @delta_richcompare(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %other, i32 noundef %op) #0 {
+define internal nonnull ptr @delta_richcompare(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %other, i32 noundef %op) #0 {
 entry:
   %0 = getelementptr i8, ptr %other, i64 8
   %other.val = load ptr, ptr %0, align 8
@@ -4989,7 +4989,7 @@ return:                                           ; preds = %_timezone_check_arg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @timezone_utcoffset(ptr nocapture noundef readonly %self, ptr noundef readonly %dt) #0 {
+define internal noundef ptr @timezone_utcoffset(ptr noundef readonly captures(none) %self, ptr noundef readonly %dt) #0 {
 entry:
   %cmp.i = icmp eq ptr %dt, @_Py_NoneStruct
   br i1 %cmp.i, label %if.end, label %lor.lhs.false.i
@@ -5031,7 +5031,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @timezone_dst(ptr nocapture readnone %self, ptr noundef readonly %dt) #0 {
+define internal noundef ptr @timezone_dst(ptr readnone captures(none) %self, ptr noundef readonly %dt) #0 {
 entry:
   %cmp.i = icmp eq ptr %dt, @_Py_NoneStruct
   br i1 %cmp.i, label %_timezone_check_argument.exit.thread, label %lor.lhs.false.i
@@ -5061,7 +5061,7 @@ _timezone_check_argument.exit.thread:             ; preds = %lor.lhs.false.i, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @timezone_fromutc(ptr noundef readonly %self, ptr nocapture noundef readonly %dt) #0 {
+define internal ptr @timezone_fromutc(ptr noundef readonly %self, ptr noundef readonly captures(none) %dt) #0 {
 entry:
   %0 = getelementptr i8, ptr %dt, i64 8
   %dt.val = load ptr, ptr %0, align 8
@@ -5107,7 +5107,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @timezone_getinitargs(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @timezone_getinitargs(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %name = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %name, align 8
@@ -5234,7 +5234,7 @@ return:                                           ; preds = %_Py_XNewRef.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @date_repr(ptr nocapture noundef readonly %self) #0 {
+define internal ptr @date_repr(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -5289,7 +5289,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @date_richcompare(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %other, i32 noundef %op) #0 {
+define internal nonnull ptr @date_richcompare(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %other, i32 noundef %op) #0 {
 entry:
   %0 = getelementptr i8, ptr %other, i64 8
   %other.val = load ptr, ptr %0, align 8
@@ -5564,7 +5564,7 @@ return:                                           ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @date_add(ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) #0 {
+define internal ptr @date_add(ptr noundef readonly captures(none) %left, ptr noundef readonly captures(none) %right) #0 {
 entry:
   %0 = getelementptr i8, ptr %left, i64 8
   %left.val10 = load ptr, ptr %0, align 8
@@ -5631,7 +5631,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @date_subtract(ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) #0 {
+define internal ptr @date_subtract(ptr noundef readonly captures(none) %left, ptr noundef readonly captures(none) %right) #0 {
 entry:
   %0 = getelementptr i8, ptr %left, i64 8
   %left.val16 = load ptr, ptr %0, align 8
@@ -5833,7 +5833,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @add_date_timedelta(ptr nocapture noundef readonly %date, i32 %delta.24.val, i32 noundef range(i32 0, 2) %negate) unnamed_addr #0 {
+define internal fastcc ptr @add_date_timedelta(ptr noundef readonly captures(none) %date, i32 %delta.24.val, i32 noundef range(i32 0, 2) %negate) unnamed_addr #0 {
 entry:
   %year = alloca i32, align 4
   %month = alloca i32, align 4
@@ -5905,7 +5905,7 @@ declare i64 @_Py_HashBytes(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @PyObject_VectorcallMethod(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @datetime_date_fromtimestamp(ptr noundef %type, ptr noundef %timestamp) #0 {
@@ -6182,7 +6182,7 @@ return:                                           ; preds = %if.else4.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @date_today(ptr noundef %cls, ptr nocapture readnone %dummy) #0 {
+define internal ptr @date_today(ptr noundef %cls, ptr readnone captures(none) %dummy) #0 {
 entry:
   %args.i = alloca [2 x ptr], align 16
   %call.i = tail call ptr @_PyImport_GetModuleAttrString(ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.101) #15
@@ -6238,7 +6238,7 @@ return:                                           ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @date_ctime(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @date_ctime(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %data.i = getelementptr inbounds nuw i8, ptr %self, i64 25
   %0 = load i8, ptr %data.i, align 1
@@ -6382,7 +6382,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @date_timetuple(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @date_timetuple(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %self, i64 25
   %0 = load i8, ptr %data, align 1
@@ -6403,7 +6403,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @date_isocalendar(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @date_isocalendar(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %self, i64 25
   %0 = load i8, ptr %data, align 1
@@ -6565,7 +6565,7 @@ iso_calendar_date_new_impl.exit:                  ; preds = %if.end22, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @date_isoformat(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @date_isoformat(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %self, i64 25
   %0 = load i8, ptr %data, align 1
@@ -6586,7 +6586,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @date_isoweekday(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @date_isoweekday(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %self, i64 25
   %0 = load i8, ptr %data, align 1
@@ -6652,7 +6652,7 @@ weekday.exit:                                     ; preds = %entry, %is_leap.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @date_toordinal(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @date_toordinal(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %self, i64 25
   %0 = load i8, ptr %data, align 1
@@ -6715,7 +6715,7 @@ ymd_to_ord.exit:                                  ; preds = %entry, %is_leap.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @date_weekday(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @date_weekday(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %self, i64 25
   %0 = load i8, ptr %data, align 1
@@ -6780,7 +6780,7 @@ weekday.exit:                                     ; preds = %entry, %is_leap.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @date_replace(ptr nocapture noundef readonly %self, ptr noundef %args, ptr noundef %kw) #0 {
+define internal ptr @date_replace(ptr noundef readonly captures(none) %self, ptr noundef %args, ptr noundef %kw) #0 {
 entry:
   %year = alloca i32, align 4
   %month = alloca i32, align 4
@@ -6839,7 +6839,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @date_reduce(ptr noundef %self, ptr nocapture readnone %arg) #0 {
+define internal ptr @date_reduce(ptr noundef %self, ptr readnone captures(none) %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -6907,7 +6907,7 @@ declare i32 @PyArg_ParseTuple(ptr noundef, ptr noundef, ...) local_unnamed_addr 
 declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -6, 1) i32 @parse_isoformat_date(ptr noundef nonnull %dtstr, i64 noundef %len, ptr nocapture noundef nonnull %year, ptr nocapture noundef nonnull %month, ptr nocapture noundef nonnull %day) unnamed_addr #6 {
+define internal fastcc range(i32 -6, 1) i32 @parse_isoformat_date(ptr noundef nonnull %dtstr, i64 noundef %len, ptr noundef nonnull captures(none) %year, ptr noundef nonnull captures(none) %month, ptr noundef nonnull captures(none) %day) unnamed_addr #6 {
 entry:
   br label %for.body.i
 
@@ -7134,7 +7134,7 @@ declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #1
 declare ptr @_PyImport_GetModuleAttrString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @wrap_strftime(ptr nocapture noundef readonly %object, ptr noundef %format, ptr noundef nonnull %timetuple, ptr noundef %tzinfoarg) unnamed_addr #0 {
+define internal fastcc ptr @wrap_strftime(ptr noundef readonly captures(none) %object, ptr noundef %format, ptr noundef nonnull %timetuple, ptr noundef %tzinfoarg) unnamed_addr #0 {
 entry:
   %flen = alloca i64, align 8
   %newfmt = alloca ptr, align 8
@@ -7518,7 +7518,7 @@ declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_a
 declare ptr @PyBytes_AsString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @make_somezreplacement(ptr nocapture noundef readonly %object, ptr noundef %sep, ptr noundef %tzinfoarg) unnamed_addr #0 {
+define internal fastcc ptr @make_somezreplacement(ptr noundef readonly captures(none) %object, ptr noundef %sep, ptr noundef %tzinfoarg) unnamed_addr #0 {
 entry:
   %buf = alloca [100 x i8], align 16
   %0 = getelementptr i8, ptr %object, i64 8
@@ -7582,7 +7582,7 @@ return:                                           ; preds = %if.end, %if.end6, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @make_Zreplacement(ptr nocapture noundef readonly %object, ptr noundef %tzinfoarg) unnamed_addr #0 {
+define internal fastcc ptr @make_Zreplacement(ptr noundef readonly captures(none) %object, ptr noundef %tzinfoarg) unnamed_addr #0 {
 entry:
   %args.i.i = alloca [2 x ptr], align 16
   %0 = getelementptr i8, ptr %object, i64 8
@@ -7770,7 +7770,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @make_freplacement(ptr nocapture noundef readonly %object) unnamed_addr #0 {
+define internal fastcc ptr @make_freplacement(ptr noundef readonly captures(none) %object) unnamed_addr #0 {
 entry:
   %freplacement = alloca [64 x i8], align 16
   %0 = getelementptr i8, ptr %object, i64 8
@@ -8016,14 +8016,14 @@ return:                                           ; preds = %do.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @PyOS_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare ptr @PyUnicode_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare i64 @PyUnicode_GetLength(ptr noundef) local_unnamed_addr #1
 
@@ -8132,7 +8132,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @date_year(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @date_year(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %self, i64 25
   %0 = load i8, ptr %data, align 1
@@ -8147,7 +8147,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @date_month(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @date_month(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %self, i64 27
   %0 = load i8, ptr %arrayidx, align 1
@@ -8157,7 +8157,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @date_day(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @date_day(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %self, i64 28
   %0 = load i8, ptr %arrayidx, align 1
@@ -8208,7 +8208,7 @@ if.end:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @datetime_repr(ptr nocapture noundef readonly %self) #0 {
+define internal ptr @datetime_repr(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -9500,7 +9500,7 @@ return:                                           ; preds = %if.end48, %if.then5
 declare ptr @PyUnicode_Substring(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @datetime_add(ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) #0 {
+define internal ptr @datetime_add(ptr noundef readonly captures(none) %left, ptr noundef readonly captures(none) %right) #0 {
 entry:
   %0 = getelementptr i8, ptr %left, i64 8
   %left.val6 = load ptr, ptr %0, align 8
@@ -10091,7 +10091,7 @@ return:                                           ; preds = %check_delta_day_ran
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @pep495_eq_exception(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %other, ptr noundef readonly %offset_self, ptr noundef readonly %offset_other) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @pep495_eq_exception(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %other, ptr noundef readonly %offset_self, ptr noundef readonly %offset_other) unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @get_flip_fold_offset(ptr noundef %self)
   %cmp = icmp eq ptr %call, null
@@ -10199,7 +10199,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_flip_fold_offset(ptr nocapture noundef readonly %dt) unnamed_addr #0 {
+define internal fastcc ptr @get_flip_fold_offset(ptr noundef readonly captures(none) %dt) unnamed_addr #0 {
 entry:
   %data.i = getelementptr inbounds nuw i8, ptr %dt, i64 25
   %0 = load i8, ptr %data.i, align 1
@@ -10405,7 +10405,7 @@ exit:                                             ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @datetime_utcnow(ptr noundef %cls, ptr nocapture readnone %dummy) #0 {
+define internal ptr @datetime_utcnow(ptr noundef %cls, ptr readnone captures(none) %dummy) #0 {
 entry:
   %tm.i = alloca %struct.tm, align 8
   %secs.i = alloca i64, align 8
@@ -10879,7 +10879,7 @@ if.end.i.i.i:                                     ; preds = %if.then11.i
 
 if.end13.i:                                       ; preds = %if.end5.us30.i, %if.end5.i
   %.us-phi36.i = phi i64 [ %11, %if.end5.i ], [ %8, %if.end5.us30.i ]
-  %call14.i = tail call ptr @_PyUnicode_Copy(ptr noundef %dtstr) #15
+  %call14.i = tail call ptr @_PyUnicode_Copy(ptr noundef nonnull %dtstr) #15
   %cmp15.i = icmp eq ptr %call14.i, null
   br i1 %cmp15.i, label %error, label %if.end17.i
 
@@ -11109,12 +11109,12 @@ if.then1.i:                                       ; preds = %if.end.i
 
 error.thread63:                                   ; preds = %if.end31, %if.then7, %_find_isoformat_datetime_separator.exit
   %42 = load ptr, ptr @PyExc_ValueError, align 8
-  %call4266 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %42, ptr noundef nonnull @.str.94, ptr noundef %dtstr) #15
+  %call4266 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %42, ptr noundef nonnull @.str.94, ptr noundef nonnull %dtstr) #15
   br label %if.then.i
 
 error:                                            ; preds = %if.end, %if.end13.i, %if.then20.i, %if.then1.i.i, %if.end.i.i
   %43 = load ptr, ptr @PyExc_ValueError, align 8
-  %call42 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %43, ptr noundef nonnull @.str.94, ptr noundef %dtstr) #15
+  %call42 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %43, ptr noundef nonnull @.str.94, ptr noundef nonnull %dtstr) #15
   br label %return
 
 if.then.i:                                        ; preds = %if.then7, %if.end35, %error.thread63
@@ -11139,7 +11139,7 @@ return:                                           ; preds = %if.then1.i.i46, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @datetime_getdate(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @datetime_getdate(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %self, i64 25
   %0 = load i8, ptr %data, align 1
@@ -11160,7 +11160,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @datetime_gettime(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @datetime_gettime(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %self, i64 29
   %0 = load i8, ptr %arrayidx, align 1
@@ -11241,7 +11241,7 @@ new_time_ex2.exit:                                ; preds = %check_time_args.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @datetime_gettimetz(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @datetime_gettimetz(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %self, i64 29
   %0 = load i8, ptr %arrayidx, align 1
@@ -11285,7 +11285,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @datetime_ctime(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @datetime_ctime(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %self, i64 29
   %0 = load i8, ptr %arrayidx, align 1
@@ -11364,7 +11364,7 @@ format_ctime.exit:                                ; preds = %entry, %is_leap.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @datetime_timetuple(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @datetime_timetuple(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %hastzinfo = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i8, ptr %hastzinfo, align 8
@@ -11456,7 +11456,7 @@ return:                                           ; preds = %if.then, %if.end11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @datetime_timestamp(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @datetime_timestamp(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %hastzinfo = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i8, ptr %hastzinfo, align 8
@@ -11574,7 +11574,7 @@ return:                                           ; preds = %if.end30, %delta_to
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @datetime_utctimetuple(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @datetime_utctimetuple(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %hastzinfo = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i8, ptr %hastzinfo, align 8
@@ -11841,7 +11841,7 @@ return:                                           ; preds = %if.else37, %lor.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @datetime_tzname(ptr noundef %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @datetime_tzname(ptr noundef %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %args.i.i = alloca [2 x ptr], align 16
   %hastzinfo = getelementptr inbounds nuw i8, ptr %self, i64 24
@@ -11902,7 +11902,7 @@ call_tzname.exit:                                 ; preds = %entry, %cond.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @datetime_replace(ptr nocapture noundef readonly %self, ptr noundef %args, ptr noundef %kw) #0 {
+define internal ptr @datetime_replace(ptr noundef readonly captures(none) %self, ptr noundef %args, ptr noundef %kw) #0 {
 entry:
   %y = alloca i32, align 4
   %m = alloca i32, align 4
@@ -12266,7 +12266,7 @@ Py_DECREF.exit153:                                ; preds = %if.then28, %if.then
   br label %return
 
 if.end33:                                         ; preds = %if.else25, %PyObject_TypeCheck.exit
-  %call34 = call fastcc ptr @add_datetime_timedelta(ptr noundef %self, ptr noundef nonnull %call.i77, i32 noundef -1)
+  %call34 = call fastcc ptr @add_datetime_timedelta(ptr noundef nonnull %self, ptr noundef nonnull %call.i77, i32 noundef -1)
   %36 = load i64, ptr %call.i77, align 8
   %37 = and i64 %36, 2147483648
   %cmp.i201.not = icmp eq i64 %37, 0
@@ -12554,7 +12554,7 @@ return:                                           ; preds = %entry, %datetime_ge
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @datetime_reduce(ptr noundef %self, ptr nocapture readnone %arg) #0 {
+define internal ptr @datetime_reduce(ptr noundef %self, ptr readnone captures(none) %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -12859,7 +12859,7 @@ declare ptr @PyImport_ImportModule(ptr noundef) local_unnamed_addr #1
 declare ptr @PyObject_CallMethodObjArgs(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -5, 2) i32 @parse_isoformat_time(ptr noundef %dtstr, i64 noundef %dtlen, ptr noundef nonnull %hour, ptr noundef nonnull %minute, ptr noundef nonnull %second, ptr nocapture noundef nonnull %microsecond, ptr nocapture noundef nonnull writeonly %tzoffset, ptr nocapture noundef nonnull %tzmicrosecond) unnamed_addr #8 {
+define internal fastcc range(i32 -5, 2) i32 @parse_isoformat_time(ptr noundef %dtstr, i64 noundef %dtlen, ptr noundef nonnull %hour, ptr noundef nonnull %minute, ptr noundef nonnull %second, ptr noundef nonnull captures(none) %microsecond, ptr noundef nonnull writeonly captures(none) %tzoffset, ptr noundef nonnull captures(none) %tzmicrosecond) unnamed_addr #8 {
 entry:
   %tzhour = alloca i32, align 4
   %tzminute = alloca i32, align 4
@@ -13102,7 +13102,7 @@ declare ptr @_PyUnicode_Copy(ptr noundef) local_unnamed_addr #1
 declare i32 @PyUnicode_WriteChar(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -4, 2) i32 @parse_hh_mm_ss_ff(ptr noundef %tstr, ptr noundef %tstr_end, ptr noundef nonnull initializes((0, 4)) %hour, ptr noundef nonnull initializes((0, 4)) %minute, ptr noundef nonnull initializes((0, 4)) %second, ptr nocapture noundef nonnull initializes((0, 4)) %microsecond) unnamed_addr #8 {
+define internal fastcc range(i32 -4, 2) i32 @parse_hh_mm_ss_ff(ptr noundef %tstr, ptr noundef %tstr_end, ptr noundef nonnull initializes((0, 4)) %hour, ptr noundef nonnull initializes((0, 4)) %minute, ptr noundef nonnull initializes((0, 4)) %second, ptr noundef nonnull captures(none) initializes((0, 4)) %microsecond) unnamed_addr #8 {
 entry:
   %vals = alloca [3 x ptr], align 16
   store i32 0, ptr %microsecond, align 4
@@ -13256,7 +13256,7 @@ return:                                           ; preds = %if.else28, %parse_d
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @delta_total_seconds(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @delta_total_seconds(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call fastcc ptr @delta_to_microseconds(ptr noundef %self)
   %cmp = icmp eq ptr %call, null
@@ -13422,7 +13422,7 @@ return:                                           ; preds = %if.end27, %cond.tru
 declare ptr @PyFloat_FromDouble(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @delta_to_microseconds(ptr nocapture noundef readonly %self) unnamed_addr #0 {
+define internal fastcc ptr @delta_to_microseconds(ptr noundef readonly captures(none) %self) unnamed_addr #0 {
 entry:
   %days = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i32, ptr %days, align 8
@@ -13596,7 +13596,7 @@ declare ptr @PyNumber_Multiply(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PyNumber_Add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @PyUnicode_AppendAndDel(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -13904,7 +13904,7 @@ return:                                           ; preds = %if.end2.i, %if.end.
 declare ptr @PyUnicode_DecodeLocale(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @divide_timedelta_timedelta(ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) unnamed_addr #0 {
+define internal fastcc ptr @divide_timedelta_timedelta(ptr noundef readonly captures(none) %left, ptr noundef readonly captures(none) %right) unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @delta_to_microseconds(ptr noundef %left)
   %cmp = icmp eq ptr %call, null
@@ -13972,7 +13972,7 @@ declare i64 @_PyLong_AsTime_t(ptr noundef) local_unnamed_addr #1
 declare ptr @PyNumber_FloorDivide(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @datetime_hour(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @datetime_hour(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %self, i64 29
   %0 = load i8, ptr %arrayidx, align 1
@@ -13982,7 +13982,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @datetime_minute(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @datetime_minute(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %self, i64 30
   %0 = load i8, ptr %arrayidx, align 1
@@ -13992,7 +13992,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @datetime_second(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @datetime_second(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %self, i64 31
   %0 = load i8, ptr %arrayidx, align 1
@@ -14002,7 +14002,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @datetime_microsecond(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @datetime_microsecond(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %self, i64 32
   %0 = load i8, ptr %arrayidx, align 1
@@ -14022,7 +14022,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @datetime_tzinfo(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #9 {
+define internal noundef ptr @datetime_tzinfo(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %unused) #9 {
 entry:
   %hastzinfo = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i8, ptr %hastzinfo, align 8
@@ -14050,7 +14050,7 @@ _Py_NewRef.exit:                                  ; preds = %cond.end, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @datetime_fold(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @datetime_fold(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %fold = getelementptr inbounds nuw i8, ptr %self, i64 35
   %0 = load i8, ptr %fold, align 1
@@ -14064,7 +14064,7 @@ declare ptr @PyObject_Malloc(i64 noundef) local_unnamed_addr #1
 declare void @_Py_NewReference(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @datetime_from_pickle(ptr noundef %type, ptr nocapture noundef readonly %state, ptr noundef %tzinfo) unnamed_addr #0 {
+define internal fastcc ptr @datetime_from_pickle(ptr noundef %type, ptr noundef readonly captures(none) %state, ptr noundef %tzinfo) unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %tzinfo, @_Py_NoneStruct
   %conv1 = zext i1 %cmp to i8
@@ -14189,7 +14189,7 @@ if.end:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_repr(ptr nocapture noundef readonly %self) #0 {
+define internal ptr @time_repr(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -14641,7 +14641,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_richcompare(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %other, i32 noundef %op) #0 {
+define internal ptr @time_richcompare(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %other, i32 noundef %op) #0 {
 entry:
   %0 = getelementptr i8, ptr %other, i64 8
   %other.val = load ptr, ptr %0, align 8
@@ -15296,7 +15296,7 @@ return:                                           ; preds = %if.end47, %if.then5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_utcoffset(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @time_utcoffset(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %hastzinfo = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i8, ptr %hastzinfo, align 8
@@ -15315,7 +15315,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_isoformat(ptr nocapture noundef readonly %self, ptr noundef %args, ptr noundef %kw) #0 {
+define internal ptr @time_isoformat(ptr noundef readonly captures(none) %self, ptr noundef %args, ptr noundef %kw) #0 {
 entry:
   %buf = alloca [100 x i8], align 16
   %timespec = alloca ptr, align 8
@@ -15443,7 +15443,7 @@ return:                                           ; preds = %if.else37, %lor.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_strftime(ptr nocapture noundef readonly %self, ptr noundef %args, ptr noundef %kw) #0 {
+define internal ptr @time_strftime(ptr noundef readonly captures(none) %self, ptr noundef %args, ptr noundef %kw) #0 {
 entry:
   %format = alloca ptr, align 8
   %call = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %args, ptr noundef %kw, ptr noundef nonnull @.str.123, ptr noundef nonnull @time_strftime.keywords, ptr noundef nonnull %format) #15
@@ -15488,7 +15488,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_tzname(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @time_tzname(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %args.i.i = alloca [2 x ptr], align 16
   %hastzinfo = getelementptr inbounds nuw i8, ptr %self, i64 24
@@ -15549,7 +15549,7 @@ call_tzname.exit:                                 ; preds = %entry, %cond.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_dst(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @time_dst(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %hastzinfo = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i8, ptr %hastzinfo, align 8
@@ -15568,7 +15568,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_replace(ptr nocapture noundef readonly %self, ptr noundef %args, ptr noundef %kw) #0 {
+define internal ptr @time_replace(ptr noundef readonly captures(none) %self, ptr noundef %args, ptr noundef %kw) #0 {
 entry:
   %hh = alloca i32, align 4
   %mm = alloca i32, align 4
@@ -15863,7 +15863,7 @@ return:                                           ; preds = %entry, %time_getsta
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_reduce(ptr noundef %self, ptr nocapture readnone %arg) #0 {
+define internal ptr @time_reduce(ptr noundef %self, ptr readnone captures(none) %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -15916,7 +15916,7 @@ time_getstate.exit:                               ; preds = %entry, %if.end13.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_hour(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @time_hour(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %self, i64 25
   %0 = load i8, ptr %data, align 1
@@ -15926,7 +15926,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_minute(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @time_minute(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %self, i64 26
   %0 = load i8, ptr %arrayidx, align 1
@@ -15936,7 +15936,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @py_time_second(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @py_time_second(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %self, i64 27
   %0 = load i8, ptr %arrayidx, align 1
@@ -15946,7 +15946,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_microsecond(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @time_microsecond(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %self, i64 28
   %0 = load i8, ptr %arrayidx, align 1
@@ -15966,7 +15966,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @time_tzinfo(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #9 {
+define internal noundef ptr @time_tzinfo(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %unused) #9 {
 entry:
   %hastzinfo = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i8, ptr %hastzinfo, align 8
@@ -15994,7 +15994,7 @@ _Py_NewRef.exit:                                  ; preds = %cond.end, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @time_fold(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @time_fold(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %fold = getelementptr inbounds nuw i8, ptr %self, i64 31
   %0 = load i8, ptr %fold, align 1
@@ -16004,7 +16004,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @time_from_pickle(ptr noundef %type, ptr nocapture noundef readonly %state, ptr noundef %tzinfo) unnamed_addr #0 {
+define internal fastcc ptr @time_from_pickle(ptr noundef %type, ptr noundef readonly captures(none) %state, ptr noundef %tzinfo) unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %tzinfo, @_Py_NoneStruct
   %conv1 = zext i1 %cmp to i8
@@ -16088,7 +16088,7 @@ return:                                           ; preds = %if.end, %if.else, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @delta_repr(ptr nocapture noundef readonly %self) #0 {
+define internal ptr @delta_repr(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %call = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.124) #15
   %cmp = icmp eq ptr %call, null
@@ -16235,7 +16235,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @delta_str(ptr nocapture noundef readonly %self) #0 {
+define internal ptr @delta_str(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %microseconds = getelementptr inbounds nuw i8, ptr %self, i64 32
   %0 = load i32, ptr %microseconds, align 8
@@ -16671,7 +16671,7 @@ Done:                                             ; preds = %Done.sink.split, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @delta_add(ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) #0 {
+define internal ptr @delta_add(ptr noundef readonly captures(none) %left, ptr noundef readonly captures(none) %right) #0 {
 entry:
   %0 = getelementptr i8, ptr %left, i64 8
   %left.val = load ptr, ptr %0, align 8
@@ -16951,7 +16951,7 @@ if.end26:                                         ; preds = %Py_DECREF.exit14.i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @delta_remainder(ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) #0 {
+define internal ptr @delta_remainder(ptr noundef readonly captures(none) %left, ptr noundef readonly captures(none) %right) #0 {
 entry:
   %0 = getelementptr i8, ptr %left, i64 8
   %left.val = load ptr, ptr %0, align 8
@@ -17058,7 +17058,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @delta_divmod(ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) #0 {
+define internal ptr @delta_divmod(ptr noundef readonly captures(none) %left, ptr noundef readonly captures(none) %right) #0 {
 entry:
   %0 = getelementptr i8, ptr %left, i64 8
   %left.val = load ptr, ptr %0, align 8
@@ -17202,7 +17202,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @delta_positive(ptr nocapture noundef readonly %self) #0 {
+define internal ptr @delta_positive(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %days = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i32, ptr %days, align 8
@@ -17242,7 +17242,7 @@ new_delta_ex.exit:                                ; preds = %check_delta_day_ran
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @delta_abs(ptr nocapture noundef readonly %self) #0 {
+define internal ptr @delta_abs(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %days = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i32, ptr %days, align 8
@@ -17353,7 +17353,7 @@ if.end:                                           ; preds = %if.then5.i.i13, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @delta_divide(ptr nocapture noundef readonly %left, ptr noundef %right) #0 {
+define internal ptr @delta_divide(ptr noundef readonly captures(none) %left, ptr noundef %right) #0 {
 entry:
   %0 = getelementptr i8, ptr %left, i64 8
   %left.val = load ptr, ptr %0, align 8
@@ -17451,7 +17451,7 @@ if.end13:                                         ; preds = %Py_DECREF.exit14.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @delta_truedivide(ptr nocapture noundef readonly %left, ptr noundef %right) #0 {
+define internal ptr @delta_truedivide(ptr noundef readonly captures(none) %left, ptr noundef %right) #0 {
 entry:
   %0 = getelementptr i8, ptr %left, i64 8
   %left.val = load ptr, ptr %0, align 8
@@ -17650,7 +17650,7 @@ if.end19:                                         ; preds = %Py_DECREF.exit14.i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @multiply_truedivide_timedelta_float(ptr nocapture noundef readonly %delta, ptr noundef %floatobj, i32 noundef range(i32 0, 2) %op) unnamed_addr #0 {
+define internal fastcc ptr @multiply_truedivide_timedelta_float(ptr noundef readonly captures(none) %delta, ptr noundef %floatobj, i32 noundef range(i32 0, 2) %op) unnamed_addr #0 {
 entry:
   %self.addr.i.i = alloca ptr, align 8
   %call = tail call fastcc ptr @delta_to_microseconds(ptr noundef %delta)
@@ -18129,7 +18129,7 @@ declare ptr @_PyLong_DivmodNear(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PyNumber_Remainder(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @delta_reduce(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @delta_reduce(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -18145,7 +18145,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @accum(ptr noundef %tag, ptr noundef nonnull %sofar, ptr noundef nonnull %num, ptr noundef %factor, ptr nocapture noundef nonnull %leftover) unnamed_addr #0 {
+define internal fastcc ptr @accum(ptr noundef %tag, ptr noundef nonnull %sofar, ptr noundef nonnull %num, ptr noundef %factor, ptr noundef nonnull captures(none) %leftover) unnamed_addr #0 {
 entry:
   %intpart = alloca double, align 8
   %0 = getelementptr i8, ptr %num, i64 8
@@ -18343,7 +18343,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #10
 declare double @PyFloat_AsDouble(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @modf(double noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare double @modf(double noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 declare ptr @PyLong_FromDouble(double noundef) local_unnamed_addr #1
 
@@ -18395,13 +18395,13 @@ declare i64 @llvm.smax.i64(i64, i64) #12
 declare i64 @llvm.smin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

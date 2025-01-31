@@ -74,7 +74,7 @@ declare ptr @BufFileCreateTemp(i1 noundef zeroext) local_unnamed_addr #1
 declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @gistGetNodeBuffer(ptr nocapture noundef %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @gistGetNodeBuffer(ptr noundef captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
   store i32 %2, ptr %5, align 4
@@ -156,7 +156,7 @@ declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @lcons(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @gistUnloadNodeBuffers(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @gistUnloadNodeBuffers(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -241,7 +241,7 @@ gistUnloadNodeBuffer.exit:                        ; preds = %10, %WriteTempFileB
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @gistPushItupToNodeBuffer(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @gistPushItupToNodeBuffer(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %4, ptr @CurrentMemoryContext, align 8
@@ -424,7 +424,7 @@ WriteTempFileBlock.exit:                          ; preds = %gistBuffersGetFreeB
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gistLoadNodeBuffer(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @gistLoadNodeBuffer(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -545,7 +545,7 @@ gistAddLoadedBuffer.exit:                         ; preds = %gistBuffersReleaseB
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @gistPopItupFromNodeBuffer(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @gistPopItupFromNodeBuffer(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
@@ -659,7 +659,7 @@ gistBuffersReleaseBlock.exit:                     ; preds = %._crit_edge.i, %47
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @gistFreeBuildBuffers(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @gistFreeBuildBuffers(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @BufFileClose(ptr noundef %3) #5
@@ -669,7 +669,7 @@ define dso_local void @gistFreeBuildBuffers(ptr nocapture noundef readonly %0) l
 declare void @BufFileClose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @gistRelocateBuildBuffersOnSplit(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #0 {
+define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #0 {
   %7 = alloca i8, align 1
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -932,7 +932,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr nocapture noundef %0,
 declare i32 @BufferGetBlockNumber(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @gistDeCompressAtt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 

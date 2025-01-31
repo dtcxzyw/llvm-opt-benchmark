@@ -215,7 +215,7 @@ define dso_local ptr @netfs_create_write_request(ptr noundef %0, i8 noundef sign
 declare dso_local ptr @netfs_alloc_subrequest(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @iov_iter_advance(ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -902,7 +902,7 @@ define dso_local range(i32 -32768, 32768) i32 @netfs_begin_write(ptr noundef %0,
 declare dso_local void @netfs_get_request(ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @netfs_begin_writethrough(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local ptr @netfs_begin_writethrough(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %5 = load ptr, ptr %4, align 8
@@ -1036,7 +1036,7 @@ define dso_local range(i32 -32768, 32768) i32 @netfs_advance_writethrough(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -32768, 32768) i32 @netfs_end_writethrough(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -32768, 32768) i32 @netfs_end_writethrough(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184

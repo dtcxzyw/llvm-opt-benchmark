@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [12 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_unlock, ptr @.str.8, ptr @.str.9, i32 152, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_encrypt, ptr @.str.8, ptr @.str.10, i32 508, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_decompress, ptr @.str.8, ptr @.str.10, i32 405, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @thread_pool_submit_co, ptr @.str.8, ptr @.str.11, i32 38, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_compress, ptr @.str.8, ptr @.str.10, i32 368, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_process, ptr @.str.8, ptr @.str.10, i32 42, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_queue_wait_impl, ptr @.str.8, ptr @.str.12, i32 119, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_do_compress, ptr @.str.8, ptr @.str.10, i32 339, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_encdec, ptr @.str.8, ptr @.str.10, i32 457, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_co_decrypt, ptr @.str.8, ptr @.str.10, i32 522, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_queue_next, ptr @.str.8, ptr @.str.12, i32 128, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_lock, ptr @.str.8, ptr @.str.9, i32 146, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @qcow2_co_compress(ptr nocapture noundef readonly %bs, ptr noundef %dest, i64 noundef %dest_size, ptr noundef %src, i64 noundef %src_size) #0 {
+define dso_local i64 @qcow2_co_compress(ptr noundef readonly captures(none) %bs, ptr noundef %dest, i64 noundef %dest_size, ptr noundef %src, i64 noundef %src_size) #0 {
 entry:
   %arg.i4 = alloca %struct.Qcow2CompressData, align 8
   %arg.i = alloca %struct.Qcow2CompressData, align 8
@@ -177,7 +177,7 @@ return:                                           ; preds = %entry, %out
 declare void @abort() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @qcow2_co_do_compress(ptr nocapture noundef readonly %bs, ptr noundef %dest, i64 noundef %dest_size, ptr noundef %src, i64 noundef %src_size, ptr noundef %func) #0 {
+define internal i64 @qcow2_co_do_compress(ptr noundef readonly captures(none) %bs, ptr noundef %dest, i64 noundef %dest_size, ptr noundef %src, i64 noundef %src_size, ptr noundef %func) #0 {
 entry:
   %arg = alloca %struct.Qcow2CompressData, align 8
   store ptr %dest, ptr %arg, align 8
@@ -197,7 +197,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @qcow2_co_decompress(ptr nocapture noundef readonly %bs, ptr noundef %dest, i64 noundef %dest_size, ptr noundef %src, i64 noundef %src_size) #0 {
+define dso_local i64 @qcow2_co_decompress(ptr noundef readonly captures(none) %bs, ptr noundef %dest, i64 noundef %dest_size, ptr noundef %src, i64 noundef %src_size) #0 {
 entry:
   %arg.i4 = alloca %struct.Qcow2CompressData, align 8
   %arg.i = alloca %struct.Qcow2CompressData, align 8
@@ -362,14 +362,14 @@ return:                                           ; preds = %while.end.thread, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_co_encrypt(ptr nocapture noundef readonly %bs, i64 noundef %host_offset, i64 noundef %guest_offset, ptr noundef %buf, i64 noundef %len) #0 {
+define dso_local i32 @qcow2_co_encrypt(ptr noundef readonly captures(none) %bs, i64 noundef %host_offset, i64 noundef %guest_offset, ptr noundef %buf, i64 noundef %len) #0 {
 entry:
   %call = tail call i32 @qcow2_co_encdec(ptr noundef %bs, i64 noundef %host_offset, i64 noundef %guest_offset, ptr noundef %buf, i64 noundef %len, ptr noundef nonnull @qcrypto_block_encrypt)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_co_encdec(ptr nocapture noundef readonly %bs, i64 noundef %host_offset, i64 noundef %guest_offset, ptr noundef %buf, i64 noundef %len, ptr noundef %func) #0 {
+define internal i32 @qcow2_co_encdec(ptr noundef readonly captures(none) %bs, i64 noundef %host_offset, i64 noundef %guest_offset, ptr noundef %buf, i64 noundef %len, ptr noundef %func) #0 {
 entry:
   %arg = alloca %struct.Qcow2EncDecData, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -440,7 +440,7 @@ cond.end24:                                       ; preds = %if.end19, %cond.fal
 declare i32 @qcrypto_block_encrypt(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_co_decrypt(ptr nocapture noundef readonly %bs, i64 noundef %host_offset, i64 noundef %guest_offset, ptr noundef %buf, i64 noundef %len) #0 {
+define dso_local i32 @qcow2_co_decrypt(ptr noundef readonly captures(none) %bs, i64 noundef %host_offset, i64 noundef %guest_offset, ptr noundef %buf, i64 noundef %len) #0 {
 entry:
   %call = tail call i32 @qcow2_co_encdec(ptr noundef %bs, i64 noundef %host_offset, i64 noundef %guest_offset, ptr noundef %buf, i64 noundef %len, ptr noundef nonnull @qcrypto_block_decrypt)
   ret i32 %call
@@ -449,7 +449,7 @@ entry:
 declare i32 @qcrypto_block_decrypt(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @deflateInit2_(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -467,7 +467,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare i64 @ZSTD_freeCCtx(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_co_process(ptr nocapture noundef readonly %bs, ptr noundef %func, ptr noundef %arg) #0 {
+define internal i32 @qcow2_co_process(ptr noundef readonly captures(none) %bs, ptr noundef %func, ptr noundef %arg) #0 {
 entry:
   %.compoundliteral = alloca %struct.QemuLockable, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -511,7 +511,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qcow2_compress_pool_func(ptr nocapture noundef initializes((32, 40)) %opaque) #0 {
+define internal noundef i32 @qcow2_compress_pool_func(ptr noundef captures(none) initializes((32, 40)) %opaque) #0 {
 entry:
   %func = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %0 = load ptr, ptr %func, align 8
@@ -555,7 +555,7 @@ declare i64 @ZSTD_freeDCtx(ptr noundef) local_unnamed_addr #2
 declare i64 @qcrypto_block_get_sector_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcow2_encdec_pool_func(ptr nocapture noundef readonly %opaque) #0 {
+define internal i32 @qcow2_encdec_pool_func(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %func = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %func, align 8
@@ -571,10 +571,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -873,7 +873,7 @@ order_cmp.exit:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @builtins_bind(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define i32 @builtins_bind(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [2 x %struct.bytecoded_builtin], align 16
   %4 = alloca %struct.block, align 8
   %5 = tail call ptr @locfile_init(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull @jq_builtins, i32 noundef 11047) #14
@@ -1122,7 +1122,7 @@ declare { ptr, ptr } @gen_op_var_fresh(i32 noundef, ptr noundef) local_unnamed_a
 declare { ptr, ptr } @gen_op_bound(i32 noundef, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_acos(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_acos(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -1153,7 +1153,7 @@ define internal { i64, ptr } @f_acos(ptr nocapture readnone %0, i64 %1, ptr %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_acosh(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_acosh(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -1184,7 +1184,7 @@ define internal { i64, ptr } @f_acosh(ptr nocapture readnone %0, i64 %1, ptr %2)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_asin(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_asin(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -1215,7 +1215,7 @@ define internal { i64, ptr } @f_asin(ptr nocapture readnone %0, i64 %1, ptr %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_asinh(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_asinh(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -1246,7 +1246,7 @@ define internal { i64, ptr } @f_asinh(ptr nocapture readnone %0, i64 %1, ptr %2)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_atan(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_atan(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -1277,7 +1277,7 @@ define internal { i64, ptr } @f_atan(ptr nocapture readnone %0, i64 %1, ptr %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_atan2(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_atan2(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
   tail call void @jv_free(i64 %1, ptr %2) #14
@@ -1334,7 +1334,7 @@ define internal { i64, ptr } @f_atan2(ptr nocapture readnone %0, i64 %1, ptr %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_atanh(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_atanh(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -1365,7 +1365,7 @@ define internal { i64, ptr } @f_atanh(ptr nocapture readnone %0, i64 %1, ptr %2)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_cbrt(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_cbrt(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -1396,7 +1396,7 @@ define internal { i64, ptr } @f_cbrt(ptr nocapture readnone %0, i64 %1, ptr %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_cos(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_cos(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -1427,7 +1427,7 @@ define internal { i64, ptr } @f_cos(ptr nocapture readnone %0, i64 %1, ptr %2) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_cosh(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_cosh(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -1458,7 +1458,7 @@ define internal { i64, ptr } @f_cosh(ptr nocapture readnone %0, i64 %1, ptr %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_exp(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_exp(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -1489,7 +1489,7 @@ define internal { i64, ptr } @f_exp(ptr nocapture readnone %0, i64 %1, ptr %2) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_exp2(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_exp2(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -1520,7 +1520,7 @@ define internal { i64, ptr } @f_exp2(ptr nocapture readnone %0, i64 %1, ptr %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_floor(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_floor(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -1551,7 +1551,7 @@ define internal { i64, ptr } @f_floor(ptr nocapture readnone %0, i64 %1, ptr %2)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_hypot(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_hypot(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
   tail call void @jv_free(i64 %1, ptr %2) #14
@@ -1608,7 +1608,7 @@ define internal { i64, ptr } @f_hypot(ptr nocapture readnone %0, i64 %1, ptr %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_j0(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_j0(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -1639,7 +1639,7 @@ define internal { i64, ptr } @f_j0(ptr nocapture readnone %0, i64 %1, ptr %2) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_j1(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_j1(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -1670,7 +1670,7 @@ define internal { i64, ptr } @f_j1(ptr nocapture readnone %0, i64 %1, ptr %2) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_log(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_log(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -1701,7 +1701,7 @@ define internal { i64, ptr } @f_log(ptr nocapture readnone %0, i64 %1, ptr %2) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_log10(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_log10(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -1732,7 +1732,7 @@ define internal { i64, ptr } @f_log10(ptr nocapture readnone %0, i64 %1, ptr %2)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_log2(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_log2(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -1763,7 +1763,7 @@ define internal { i64, ptr } @f_log2(ptr nocapture readnone %0, i64 %1, ptr %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_pow(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_pow(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
   tail call void @jv_free(i64 %1, ptr %2) #14
@@ -1820,7 +1820,7 @@ define internal { i64, ptr } @f_pow(ptr nocapture readnone %0, i64 %1, ptr %2, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_remainder(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_remainder(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
   tail call void @jv_free(i64 %1, ptr %2) #14
@@ -1877,7 +1877,7 @@ define internal { i64, ptr } @f_remainder(ptr nocapture readnone %0, i64 %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_sin(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_sin(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -1908,7 +1908,7 @@ define internal { i64, ptr } @f_sin(ptr nocapture readnone %0, i64 %1, ptr %2) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_sinh(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_sinh(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -1939,7 +1939,7 @@ define internal { i64, ptr } @f_sinh(ptr nocapture readnone %0, i64 %1, ptr %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_sqrt(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_sqrt(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -1970,7 +1970,7 @@ define internal { i64, ptr } @f_sqrt(ptr nocapture readnone %0, i64 %1, ptr %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_tan(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_tan(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -2001,7 +2001,7 @@ define internal { i64, ptr } @f_tan(ptr nocapture readnone %0, i64 %1, ptr %2) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_tanh(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_tanh(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -2032,7 +2032,7 @@ define internal { i64, ptr } @f_tanh(ptr nocapture readnone %0, i64 %1, ptr %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_tgamma(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_tgamma(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -2063,7 +2063,7 @@ define internal { i64, ptr } @f_tgamma(ptr nocapture readnone %0, i64 %1, ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_y0(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_y0(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -2094,7 +2094,7 @@ define internal { i64, ptr } @f_y0(ptr nocapture readnone %0, i64 %1, ptr %2) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_y1(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_y1(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -2125,7 +2125,7 @@ define internal { i64, ptr } @f_y1(ptr nocapture readnone %0, i64 %1, ptr %2) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_jn(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_jn(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
   tail call void @jv_free(i64 %1, ptr %2) #14
@@ -2183,7 +2183,7 @@ define internal { i64, ptr } @f_jn(ptr nocapture readnone %0, i64 %1, ptr %2, i6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_yn(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_yn(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
   tail call void @jv_free(i64 %1, ptr %2) #14
@@ -2241,7 +2241,7 @@ define internal { i64, ptr } @f_yn(ptr nocapture readnone %0, i64 %1, ptr %2, i6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_ceil(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_ceil(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -2272,7 +2272,7 @@ define internal { i64, ptr } @f_ceil(ptr nocapture readnone %0, i64 %1, ptr %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_copysign(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_copysign(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
   tail call void @jv_free(i64 %1, ptr %2) #14
@@ -2329,7 +2329,7 @@ define internal { i64, ptr } @f_copysign(ptr nocapture readnone %0, i64 %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_drem(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_drem(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
   tail call void @jv_free(i64 %1, ptr %2) #14
@@ -2386,7 +2386,7 @@ define internal { i64, ptr } @f_drem(ptr nocapture readnone %0, i64 %1, ptr %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_erf(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_erf(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -2417,7 +2417,7 @@ define internal { i64, ptr } @f_erf(ptr nocapture readnone %0, i64 %1, ptr %2) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_erfc(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_erfc(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -2448,7 +2448,7 @@ define internal { i64, ptr } @f_erfc(ptr nocapture readnone %0, i64 %1, ptr %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_exp10(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_exp10(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -2479,7 +2479,7 @@ define internal { i64, ptr } @f_exp10(ptr nocapture readnone %0, i64 %1, ptr %2)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_expm1(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_expm1(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -2510,7 +2510,7 @@ define internal { i64, ptr } @f_expm1(ptr nocapture readnone %0, i64 %1, ptr %2)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_fabs(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_fabs(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -2541,7 +2541,7 @@ define internal { i64, ptr } @f_fabs(ptr nocapture readnone %0, i64 %1, ptr %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_fdim(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_fdim(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
   tail call void @jv_free(i64 %1, ptr %2) #14
@@ -2598,7 +2598,7 @@ define internal { i64, ptr } @f_fdim(ptr nocapture readnone %0, i64 %1, ptr %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_fma(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5, ptr nocapture noundef readonly byval(%struct.jv) align 8 %6) #0 {
+define internal { i64, ptr } @f_fma(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %6) #0 {
   %8 = alloca [15 x i8], align 1
   %9 = alloca [15 x i8], align 1
   %10 = alloca [15 x i8], align 1
@@ -2688,7 +2688,7 @@ define internal { i64, ptr } @f_fma(ptr nocapture readnone %0, i64 %1, ptr %2, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_fmax(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_fmax(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
   tail call void @jv_free(i64 %1, ptr %2) #14
@@ -2745,7 +2745,7 @@ define internal { i64, ptr } @f_fmax(ptr nocapture readnone %0, i64 %1, ptr %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_fmin(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_fmin(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
   tail call void @jv_free(i64 %1, ptr %2) #14
@@ -2802,7 +2802,7 @@ define internal { i64, ptr } @f_fmin(ptr nocapture readnone %0, i64 %1, ptr %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_fmod(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_fmod(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
   tail call void @jv_free(i64 %1, ptr %2) #14
@@ -2859,7 +2859,7 @@ define internal { i64, ptr } @f_fmod(ptr nocapture readnone %0, i64 %1, ptr %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_gamma(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_gamma(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -2890,7 +2890,7 @@ define internal { i64, ptr } @f_gamma(ptr nocapture readnone %0, i64 %1, ptr %2)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_lgamma(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_lgamma(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -2921,7 +2921,7 @@ define internal { i64, ptr } @f_lgamma(ptr nocapture readnone %0, i64 %1, ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_log1p(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_log1p(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -2952,7 +2952,7 @@ define internal { i64, ptr } @f_log1p(ptr nocapture readnone %0, i64 %1, ptr %2)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_logb(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_logb(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -2983,7 +2983,7 @@ define internal { i64, ptr } @f_logb(ptr nocapture readnone %0, i64 %1, ptr %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_nearbyint(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_nearbyint(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -3014,7 +3014,7 @@ define internal { i64, ptr } @f_nearbyint(ptr nocapture readnone %0, i64 %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_nextafter(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_nextafter(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
   tail call void @jv_free(i64 %1, ptr %2) #14
@@ -3071,7 +3071,7 @@ define internal { i64, ptr } @f_nextafter(ptr nocapture readnone %0, i64 %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_nexttoward(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_nexttoward(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
   tail call void @jv_free(i64 %1, ptr %2) #14
@@ -3129,7 +3129,7 @@ define internal { i64, ptr } @f_nexttoward(ptr nocapture readnone %0, i64 %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_pow10(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_pow10(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.148) #14
   %5 = extractvalue { i64, ptr } %4, 0
   %6 = extractvalue { i64, ptr } %4, 1
@@ -3139,7 +3139,7 @@ define internal { i64, ptr } @f_pow10(ptr nocapture readnone %0, i64 %1, ptr %2)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_rint(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_rint(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -3170,7 +3170,7 @@ define internal { i64, ptr } @f_rint(ptr nocapture readnone %0, i64 %1, ptr %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_round(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_round(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -3201,7 +3201,7 @@ define internal { i64, ptr } @f_round(ptr nocapture readnone %0, i64 %1, ptr %2)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_scalb(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_scalb(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
   tail call void @jv_free(i64 %1, ptr %2) #14
@@ -3258,7 +3258,7 @@ define internal { i64, ptr } @f_scalb(ptr nocapture readnone %0, i64 %1, ptr %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_scalbln(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_scalbln(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
   tail call void @jv_free(i64 %1, ptr %2) #14
@@ -3316,7 +3316,7 @@ define internal { i64, ptr } @f_scalbln(ptr nocapture readnone %0, i64 %1, ptr %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_significand(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_significand(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -3347,7 +3347,7 @@ define internal { i64, ptr } @f_significand(ptr nocapture readnone %0, i64 %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_trunc(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_trunc(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -3378,7 +3378,7 @@ define internal { i64, ptr } @f_trunc(ptr nocapture readnone %0, i64 %1, ptr %2)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_ldexp(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_ldexp(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
   tail call void @jv_free(i64 %1, ptr %2) #14
@@ -3436,7 +3436,7 @@ define internal { i64, ptr } @f_ldexp(ptr nocapture readnone %0, i64 %1, ptr %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_modf(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_modf(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = alloca double, align 8
   %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
@@ -3481,7 +3481,7 @@ define internal { i64, ptr } @f_modf(ptr nocapture readnone %0, i64 %1, ptr %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_frexp(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_frexp(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = alloca i32, align 4
   %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
@@ -3527,7 +3527,7 @@ define internal { i64, ptr } @f_frexp(ptr nocapture readnone %0, i64 %1, ptr %2)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_lgamma_r(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_lgamma_r(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = alloca i32, align 4
   %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
@@ -3573,7 +3573,7 @@ define internal { i64, ptr } @f_lgamma_r(ptr nocapture readnone %0, i64 %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_negate(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_negate(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 4
@@ -3604,7 +3604,7 @@ define internal { i64, ptr } @f_negate(ptr nocapture readnone %0, i64 %1, ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_plus(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_plus(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   tail call void @jv_free(i64 %1, ptr %2) #14
   %7 = load i64, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3614,7 +3614,7 @@ define internal { i64, ptr } @f_plus(ptr nocapture readnone %0, i64 %1, ptr %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_minus(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_minus(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   tail call void @jv_free(i64 %1, ptr %2) #14
   %7 = load i64, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3624,7 +3624,7 @@ define internal { i64, ptr } @f_minus(ptr nocapture readnone %0, i64 %1, ptr %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_multiply(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_multiply(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   tail call void @jv_free(i64 %1, ptr %2) #14
   %7 = load i64, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3634,7 +3634,7 @@ define internal { i64, ptr } @f_multiply(ptr nocapture readnone %0, i64 %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_divide(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_divide(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   tail call void @jv_free(i64 %1, ptr %2) #14
   %7 = load i64, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3644,7 +3644,7 @@ define internal { i64, ptr } @f_divide(ptr nocapture readnone %0, i64 %1, ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_mod(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_mod(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   tail call void @jv_free(i64 %1, ptr %2) #14
   %7 = load i64, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3654,7 +3654,7 @@ define internal { i64, ptr } @f_mod(ptr nocapture readnone %0, i64 %1, ptr %2, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_equal(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_equal(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   tail call void @jv_free(i64 %1, ptr %2) #14
   %7 = load i64, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3665,7 +3665,7 @@ define internal { i64, ptr } @f_equal(ptr nocapture readnone %0, i64 %1, ptr %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_notequal(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_notequal(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   tail call void @jv_free(i64 %1, ptr %2) #14
   %7 = load i64, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3678,7 +3678,7 @@ define internal { i64, ptr } @f_notequal(ptr nocapture readnone %0, i64 %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_less(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_less(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   tail call void @jv_free(i64 %1, ptr %2) #14
   %7 = load i64, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3690,7 +3690,7 @@ define internal { i64, ptr } @f_less(ptr nocapture readnone %0, i64 %1, ptr %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_lesseq(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_lesseq(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   tail call void @jv_free(i64 %1, ptr %2) #14
   %7 = load i64, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3703,7 +3703,7 @@ define internal { i64, ptr } @f_lesseq(ptr nocapture readnone %0, i64 %1, ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_greater(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_greater(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   tail call void @jv_free(i64 %1, ptr %2) #14
   %7 = load i64, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3716,7 +3716,7 @@ define internal { i64, ptr } @f_greater(ptr nocapture readnone %0, i64 %1, ptr %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_greatereq(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_greatereq(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   tail call void @jv_free(i64 %1, ptr %2) #14
   %7 = load i64, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3729,13 +3729,13 @@ define internal { i64, ptr } @f_greatereq(ptr nocapture readnone %0, i64 %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_dump(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_dump(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = tail call { i64, ptr } @jv_dump_string(i64 %1, ptr %2, i32 noundef 0) #14
   ret { i64, ptr } %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_json_parse(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_json_parse(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 5
@@ -3769,7 +3769,7 @@ define internal { i64, ptr } @f_json_parse(ptr nocapture readnone %0, i64 %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_tonumber(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_tonumber(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = alloca [15 x i8], align 1
   %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
@@ -3829,7 +3829,7 @@ define internal { i64, ptr } @f_tonumber(ptr nocapture readnone %0, i64 %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_tostring(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_tostring(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %5 = icmp eq i32 %4, 5
   br i1 %5, label %6, label %9
@@ -3849,7 +3849,7 @@ define internal { i64, ptr } @f_tostring(ptr nocapture readnone %0, i64 %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_keys(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_keys(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %6 = icmp eq i32 %5, 7
@@ -3882,7 +3882,7 @@ define internal { i64, ptr } @f_keys(ptr nocapture readnone %0, i64 %1, ptr %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_keys_unsorted(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_keys_unsorted(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %6 = icmp eq i32 %5, 7
@@ -3915,7 +3915,7 @@ define internal { i64, ptr } @f_keys_unsorted(ptr nocapture readnone %0, i64 %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_startswith(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
+define internal { i64, ptr } @f_startswith(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
   %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %6, 5
   br i1 %.not, label %7, label %9
@@ -3974,7 +3974,7 @@ define internal { i64, ptr } @f_startswith(ptr nocapture readnone %0, i64 %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_endswith(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
+define internal { i64, ptr } @f_endswith(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
   %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %6, 5
   br i1 %.not, label %7, label %9
@@ -4036,7 +4036,7 @@ define internal { i64, ptr } @f_endswith(ptr nocapture readnone %0, i64 %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_string_split(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
+define internal { i64, ptr } @f_string_split(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
   %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %6, 5
   br i1 %.not, label %7, label %9
@@ -4065,7 +4065,7 @@ define internal { i64, ptr } @f_string_split(ptr nocapture readnone %0, i64 %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_string_explode(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_string_explode(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %4, 5
   br i1 %.not, label %10, label %5
@@ -4088,7 +4088,7 @@ define internal { i64, ptr } @f_string_explode(ptr nocapture readnone %0, i64 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_string_implode(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_string_implode(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 6
@@ -4170,13 +4170,13 @@ define internal { i64, ptr } @f_string_implode(ptr nocapture readnone %0, i64 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_string_indexes(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
+define internal { i64, ptr } @f_string_indexes(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
   %6 = tail call { i64, ptr } @jv_string_indexes(i64 %1, ptr %2, i64 %3, ptr %4) #14
   ret { i64, ptr } %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_setpath(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) #0 {
+define internal { i64, ptr } @f_setpath(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = load i64, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -4204,19 +4204,19 @@ define internal { i64, ptr } @f_getpath(ptr noundef %0, i64 %1, ptr %2, i64 %3, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_delpaths(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
+define internal { i64, ptr } @f_delpaths(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
   %6 = tail call { i64, ptr } @jv_delpaths(i64 %1, ptr %2, i64 %3, ptr %4) #14
   ret { i64, ptr } %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_has(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
+define internal { i64, ptr } @f_has(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
   %6 = tail call { i64, ptr } @jv_has(i64 %1, ptr %2, i64 %3, ptr %4) #14
   ret { i64, ptr } %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_contains(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
+define internal { i64, ptr } @f_contains(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
   %6 = alloca [15 x i8], align 1
   %7 = alloca [15 x i8], align 1
   %8 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
@@ -4252,7 +4252,7 @@ define internal { i64, ptr } @f_contains(ptr nocapture readnone %0, i64 %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_length(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_length(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %6 = icmp eq i32 %5, 6
@@ -4326,7 +4326,7 @@ define internal { i64, ptr } @f_length(ptr nocapture readnone %0, i64 %1, ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_utf8bytelength(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_utf8bytelength(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 5
@@ -4356,7 +4356,7 @@ define internal { i64, ptr } @f_utf8bytelength(ptr nocapture readnone %0, i64 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_type(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_type(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %5 = tail call ptr @jv_kind_name(i32 noundef %4) #14
   %6 = tail call { i64, ptr } @jv_string(ptr noundef %5) #14
@@ -4365,7 +4365,7 @@ define internal { i64, ptr } @f_type(ptr nocapture readnone %0, i64 %1, ptr %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_isinfinite(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_isinfinite(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %4, 4
   br i1 %.not, label %7, label %5
@@ -4396,7 +4396,7 @@ define internal { i64, ptr } @f_isinfinite(ptr nocapture readnone %0, i64 %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_isnan(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_isnan(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %4, 4
   br i1 %.not, label %7, label %5
@@ -4426,7 +4426,7 @@ define internal { i64, ptr } @f_isnan(ptr nocapture readnone %0, i64 %1, ptr %2)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_isnormal(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_isnormal(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %4, 4
   br i1 %.not, label %7, label %5
@@ -4456,21 +4456,21 @@ define internal { i64, ptr } @f_isnormal(ptr nocapture readnone %0, i64 %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_infinite(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_infinite(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   tail call void @jv_free(i64 %1, ptr %2) #14
   %4 = tail call { i64, ptr } @jv_number(double noundef 0x7FF0000000000000) #14
   ret { i64, ptr } %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_nan(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_nan(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   tail call void @jv_free(i64 %1, ptr %2) #14
   %4 = tail call { i64, ptr } @jv_number(double noundef 0x7FF8000000000000) #14
   ret { i64, ptr } %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_sort(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_sort(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %6 = icmp eq i32 %5, 6
@@ -4501,7 +4501,7 @@ define internal { i64, ptr } @f_sort(ptr nocapture readnone %0, i64 %1, ptr %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_sort_by_impl(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
+define internal { i64, ptr } @f_sort_by_impl(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
   %6 = alloca [15 x i8], align 1
   %7 = alloca [15 x i8], align 1
   %8 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
@@ -4552,7 +4552,7 @@ define internal { i64, ptr } @f_sort_by_impl(ptr nocapture readnone %0, i64 %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_group_by_impl(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
+define internal { i64, ptr } @f_group_by_impl(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
   %6 = alloca [15 x i8], align 1
   %7 = alloca [15 x i8], align 1
   %8 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
@@ -4603,7 +4603,7 @@ define internal { i64, ptr } @f_group_by_impl(ptr nocapture readnone %0, i64 %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_min(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_min(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #14
   %5 = extractvalue { i64, ptr } %4, 0
   %6 = extractvalue { i64, ptr } %4, 1
@@ -4612,7 +4612,7 @@ define internal { i64, ptr } @f_min(ptr nocapture readnone %0, i64 %1, ptr %2) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_max(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_max(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #14
   %5 = extractvalue { i64, ptr } %4, 0
   %6 = extractvalue { i64, ptr } %4, 1
@@ -4621,25 +4621,25 @@ define internal { i64, ptr } @f_max(ptr nocapture readnone %0, i64 %1, ptr %2) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_min_by_impl(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
+define internal { i64, ptr } @f_min_by_impl(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
   %6 = tail call fastcc { i64, ptr } @minmax_by(i64 %1, ptr %2, i64 %3, ptr %4, i32 noundef 1)
   ret { i64, ptr } %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_max_by_impl(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
+define internal { i64, ptr } @f_max_by_impl(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
   %6 = tail call fastcc { i64, ptr } @minmax_by(i64 %1, ptr %2, i64 %3, ptr %4, i32 noundef 0)
   ret { i64, ptr } %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_error(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_error(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %1, ptr %2) #14
   ret { i64, ptr } %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_format(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
+define internal { i64, ptr } @f_format(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
   %6 = alloca [15 x i8], align 1
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
@@ -5306,7 +5306,7 @@ f_tostring.exit:                                  ; preds = %33, %30, %322, %.cr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_env(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_env(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   tail call void @jv_free(i64 %1, ptr %2) #14
   %4 = tail call { i64, ptr } @jv_object() #14
   %5 = load ptr, ptr @environ, align 8
@@ -5446,7 +5446,7 @@ define internal { i64, ptr } @f_get_jq_origin(ptr noundef %0, i64 %1, ptr %2) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_match(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5, ptr nocapture noundef readonly byval(%struct.jv) align 8 %6) #0 {
+define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %6) #0 {
   %8 = alloca [15 x i8], align 1
   %9 = alloca [15 x i8], align 1
   %10 = alloca [15 x i8], align 1
@@ -6326,7 +6326,7 @@ define internal { i64, ptr } @f_stderr(ptr noundef %0, i64 %1, ptr %2) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_strptime(ptr nocapture readnone %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
+define internal { i64, ptr } @f_strptime(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
   %6 = alloca %struct.tm, align 8
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %7, 5
@@ -6494,7 +6494,7 @@ set_tm_yday.exit:                                 ; preds = %77, %79
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_strftime(ptr nocapture noundef readnone %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
+define internal { i64, ptr } @f_strftime(ptr noundef readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
   %6 = alloca %struct.tm, align 8
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = icmp eq i32 %7, 4
@@ -6560,7 +6560,7 @@ define internal { i64, ptr } @f_strftime(ptr nocapture noundef readnone %0, i64 
   %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #17
   %39 = add i64 %38, 100
   %40 = alloca i8, i64 %39, align 16
-  %41 = call i64 @strftime(ptr noundef nonnull %40, i64 noundef %39, ptr noundef %37, ptr noundef nonnull %6) #14
+  %41 = call i64 @strftime(ptr noundef nonnull %40, i64 noundef %39, ptr noundef nonnull %37, ptr noundef nonnull %6) #14
   call void @jv_free(i64 %3, ptr %4) #14
   %42 = add i64 %41, -1
   %or.cond.not = icmp ult i64 %42, %39
@@ -6583,7 +6583,7 @@ define internal { i64, ptr } @f_strftime(ptr nocapture noundef readnone %0, i64 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_strflocaltime(ptr nocapture noundef readnone %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
+define internal { i64, ptr } @f_strflocaltime(ptr noundef readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
   %6 = alloca %struct.tm, align 8
   %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %8 = icmp eq i32 %7, 4
@@ -6643,7 +6643,7 @@ define internal { i64, ptr } @f_strflocaltime(ptr nocapture noundef readnone %0,
   %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #17
   %37 = add i64 %36, 100
   %38 = alloca i8, i64 %37, align 16
-  %39 = call i64 @strftime(ptr noundef nonnull %38, i64 noundef %37, ptr noundef %35, ptr noundef nonnull %6) #14
+  %39 = call i64 @strftime(ptr noundef nonnull %38, i64 noundef %37, ptr noundef nonnull %35, ptr noundef nonnull %6) #14
   call void @jv_free(i64 %3, ptr %4) #14
   %40 = add i64 %39, -1
   %or.cond.not = icmp ult i64 %40, %37
@@ -6666,7 +6666,7 @@ define internal { i64, ptr } @f_strflocaltime(ptr nocapture noundef readnone %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_mktime(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_mktime(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca %struct.tm, align 8
   %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
   %.not = icmp eq i32 %5, 6
@@ -6740,7 +6740,7 @@ define internal { i64, ptr } @f_mktime(ptr nocapture readnone %0, i64 %1, ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_gmtime(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_gmtime(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca %struct.tm, align 8
   %5 = alloca i64, align 8
   %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
@@ -6798,7 +6798,7 @@ define internal { i64, ptr } @f_gmtime(ptr nocapture readnone %0, i64 %1, ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_localtime(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_localtime(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca %struct.tm, align 8
   %5 = alloca i64, align 8
   %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
@@ -6856,7 +6856,7 @@ define internal { i64, ptr } @f_localtime(ptr nocapture readnone %0, i64 %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @f_now(ptr nocapture readnone %0, i64 %1, ptr %2) #0 {
+define internal { i64, ptr } @f_now(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca %struct.timeval, align 8
   tail call void @jv_free(i64 %1, ptr %2) #14
   %5 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
@@ -7101,10 +7101,10 @@ declare double @llvm.trunc.f64(double) #2
 declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @modf(double noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare double @modf(double noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare double @lgamma_r(double noundef, ptr noundef) local_unnamed_addr #5
@@ -7335,7 +7335,7 @@ define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare { i64, ptr } @jv_string_append_str(i64, ptr, ptr noundef) local_unnamed_addr #1
 
@@ -7419,19 +7419,19 @@ define internal fastcc { i64, ptr } @escape_string(i64 %0, ptr %1, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare { i64, ptr } @jv_array_set(i64, ptr, i32 noundef, i64, ptr) local_unnamed_addr #1
 
 declare ptr @jv_mem_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 declare { i64, ptr } @jv_string_sized(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @jvp_utf8_next(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -7465,7 +7465,7 @@ declare i32 @jvp_utf8_decode_length(i8 noundef signext) local_unnamed_addr #1
 declare i32 @onig_foreach_name(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @f_match_name_iter(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture noundef %5) #0 {
+define internal noundef i32 @f_match_name_iter(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef captures(none) %5) #0 {
   %.sroa.019.0.copyload = load i64, ptr %5, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
@@ -7554,7 +7554,7 @@ declare ptr @strptime(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr 
 declare ptr @__ctype_b_loc() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, ptr } @tm2jv(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc { i64, ptr } @tm2jv(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = tail call { i64, ptr } @jv_array() #14
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
@@ -7635,7 +7635,7 @@ define internal fastcc { i64, ptr } @tm2jv(ptr nocapture noundef nonnull readonl
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @jv2tm(i64 %0, ptr %1, ptr nocapture noundef nonnull initializes((0, 56)) %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @jv2tm(i64 %0, ptr %1, ptr noundef nonnull captures(none) initializes((0, 56)) %2) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
   %4 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
   %5 = extractvalue { i64, ptr } %4, 0
@@ -7820,7 +7820,7 @@ declare ptr @gmtime_r(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare ptr @localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare i64 @time(ptr noundef) local_unnamed_addr #5
@@ -7832,13 +7832,13 @@ declare { i64, ptr } @jq_util_input_get_current_line(ptr noundef) local_unnamed_
 declare { i64, ptr } @block_list_funcs(ptr, ptr, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

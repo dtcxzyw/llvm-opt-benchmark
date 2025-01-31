@@ -121,10 +121,10 @@ define internal void @v2_free_pgtable(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @amd_iommu_domain_set_gcr3(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
@@ -375,7 +375,7 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v2_map_pages(ptr noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @iommu_v2_unmap_pages(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture readnone %4) #0 align 16 {
+define internal i64 @iommu_v2_unmap_pages(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr readnone captures(none) %4) #0 align 16 {
   %6 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %2) #7, !srcloc !6
   %7 = shl i64 %3, %6
   %8 = icmp eq i64 %2, 0
@@ -479,7 +479,7 @@ define internal i64 @iommu_v2_unmap_pages(ptr nocapture noundef readonly %0, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal range(i64 0, 4503599627370496) i64 @iommu_v2_iova_to_phys(ptr nocapture noundef readonly %0, i64 noundef %1) #3 align 16 {
+define internal range(i64 0, 4503599627370496) i64 @iommu_v2_iova_to_phys(ptr noundef readonly captures(none) %0, i64 noundef %1) #3 align 16 {
   %3 = load i32, ptr @amd_iommu_gpt_level, align 4
   %4 = add i32 %3, -1
   %5 = getelementptr i8, ptr %0, i64 48
@@ -627,17 +627,17 @@ define internal fastcc void @free_pgtable(ptr noundef %0, i32 noundef %1) unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @v2_tlb_flush_all(ptr nocapture readnone %0) #6 align 16 {
+define internal void @v2_tlb_flush_all(ptr readnone captures(none) %0) #6 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @v2_tlb_flush_walk(i64 %0, i64 %1, i64 %2, ptr nocapture readnone %3) #6 align 16 {
+define internal void @v2_tlb_flush_walk(i64 %0, i64 %1, i64 %2, ptr readnone captures(none) %3) #6 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @v2_tlb_add_page(ptr nocapture readnone %0, i64 %1, i64 %2, ptr nocapture readnone %3) #6 align 16 {
+define internal void @v2_tlb_add_page(ptr readnone captures(none) %0, i64 %1, i64 %2, ptr readnone captures(none) %3) #6 align 16 {
   ret void
 }
 

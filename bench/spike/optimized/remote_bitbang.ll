@@ -35,7 +35,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16remote_bitbang_tC2EtP10jtag_dtm_t(ptr nocapture noundef nonnull align 8 dereferenceable(131104) initializes((0, 16), (131088, 131104)) %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define void @_ZN16remote_bitbang_tC2EtP10jtag_dtm_t(ptr noundef nonnull align 8 captures(none) dereferenceable(131104) initializes((0, 16), (131088, 131104)) %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.sockaddr_in, align 4
   %6 = alloca i32, align 4
@@ -150,7 +150,7 @@ define void @_ZN16remote_bitbang_tC2EtP10jtag_dtm_t(ptr nocapture noundef nonnul
 declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #1
@@ -167,7 +167,7 @@ declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #0
 declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #5
@@ -182,16 +182,16 @@ declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @getsockname(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16remote_bitbang_t6acceptEv(ptr nocapture noundef nonnull align 8 dereferenceable(131104) initializes((12, 16)) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN16remote_bitbang_t6acceptEv(ptr noundef nonnull align 8 captures(none) dereferenceable(131104) initializes((12, 16)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = tail call i32 @accept(i32 noundef %3, ptr noundef null, ptr noundef null)
@@ -225,7 +225,7 @@ define void @_ZN16remote_bitbang_t6acceptEv(ptr nocapture noundef nonnull align 
 declare i32 @accept(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16remote_bitbang_t4tickEv(ptr nocapture noundef nonnull align 8 dereferenceable(131104) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN16remote_bitbang_t4tickEv(ptr noundef nonnull align 8 captures(none) dereferenceable(131104) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
@@ -266,7 +266,7 @@ _ZN16remote_bitbang_t6acceptEv.exit:              ; preds = %20, %11, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr nocapture noundef nonnull align 8 dereferenceable(131104) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(131104) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %4 = load i32, ptr %3, align 4
@@ -485,10 +485,10 @@ declare void @_ZN10jtag_dtm_t5resetEv(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZN10jtag_dtm_t8set_pinsEbbb(ptr noundef nonnull align 8 dereferenceable(72), i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 declare i32 @close(i32 noundef) local_unnamed_addr #0
 
@@ -500,7 +500,7 @@ define internal void @_GLOBAL__sub_I_remote_bitbang.cc() #9 section ".text.start
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

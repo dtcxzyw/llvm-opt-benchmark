@@ -102,7 +102,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @LLVMFuzzerInitialize(ptr nocapture noundef readnone %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #1 {
+define hidden noundef i32 @LLVMFuzzerInitialize(ptr noundef readnone captures(none) %argc, ptr noundef readonly captures(none) %argv) local_unnamed_addr #1 {
 entry:
   %config = alloca %struct.PyConfig, align 8
   %status = alloca %struct.PyStatus, align 8
@@ -144,7 +144,7 @@ declare void @PyConfig_InitPythonConfig(ptr noundef) local_unnamed_addr #2
 declare void @PyConfig_SetBytesString(ptr sret(%struct.PyStatus) align 8, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @PyStatus_Exception(ptr noundef byval(%struct.PyStatus) align 8) local_unnamed_addr #2
 

@@ -155,7 +155,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv3MatEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv3MatEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca [4 x double], align 16
   %5 = alloca %"class.cv::Mat", align 8
   %6 = alloca %"class.cv::Mat", align 8
@@ -375,7 +375,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %81
 
 100:                                              ; preds = %.lr.ph, %181
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %181 ]
-  %101 = call ptr @PyTuple_GetItem(ptr noundef %0, i64 noundef %indvars.iv)
+  %101 = call ptr @PyTuple_GetItem(ptr noundef nonnull %0, i64 noundef %indvars.iv)
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr i8, ptr %103, i64 168
@@ -1078,7 +1078,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_Z17
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #0
 
@@ -1178,7 +1178,7 @@ declare noundef i32 @_Z7failmsgPKcz(ptr noundef, ...) local_unnamed_addr #0
 declare void @_ZN2cv3Mat7releaseEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16getArrayTypeNameB5cxx11P16tagPyArrayObject(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16getArrayTypeNameB5cxx11P16tagPyArrayObject(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.PySafeObject, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr i8, ptr %1, i64 56
@@ -1267,7 +1267,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare ptr @PyObject_GetAttrString(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL16pyopencv_to_safeIbEbP7_objectRT_RK7ArgInfo(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL16pyopencv_to_safeIbEbP7_objectRT_RK7ArgInfo(ptr noundef nonnull %0, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = invoke noundef zeroext i1 @_Z11pyopencv_toIbEbP7_objectRT_RK7ArgInfo(ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(12) %2)
@@ -1615,7 +1615,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #8
 declare void @_Z18pyRaiseCVExceptionRKN2cv9ExceptionE(ptr noundef nonnull align 8 dereferenceable(148)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toIbEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toIbEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i8, align 1
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %0, @_Py_NoneStruct
@@ -1697,7 +1697,7 @@ _Z6isBoolP7_object.exit.thread:                   ; preds = %21, %7, %_ZL19_PyOb
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromIbEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromIbEP7_objectRKT_(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #3 {
   %2 = load i8, ptr %0, align 1
   %3 = and i8 %2, 1
   %4 = zext nneg i8 %3 to i64
@@ -1708,7 +1708,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIbEP7_objectRKT_(ptr nocapture nound
 declare ptr @PyBool_FromLong(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toIPvEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toIPvEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %0, @_Py_NoneStruct
   %or.cond = or i1 %4, %5
@@ -1744,7 +1744,7 @@ declare ptr @PyLong_AsVoidPtr(ptr noundef) local_unnamed_addr #0
 declare ptr @PyErr_Occurred() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromRPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromRPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call ptr @PyLong_FromVoidPtr(ptr noundef %2)
   ret ptr %3
@@ -1753,7 +1753,7 @@ define hidden noundef ptr @_Z13pyopencv_fromRPv(ptr nocapture noundef nonnull re
 declare ptr @PyLong_FromVoidPtr(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv7Scalar_IdEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv7Scalar_IdEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %0, @_Py_NoneStruct
   %or.cond = or i1 %4, %5
@@ -1781,13 +1781,13 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv7Scalar_IdEEEbP7_objectRT_
 
 16:                                               ; preds = %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
   %17 = add nuw nsw i64 %.02645, 1
-  %18 = tail call i64 @PySequence_Size(ptr noundef %0)
+  %18 = tail call i64 @PySequence_Size(ptr noundef nonnull %0)
   %19 = icmp slt i64 %17, %18
   br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %.preheader, %16
   %.02645 = phi i64 [ %17, %16 ], [ 0, %.preheader ]
-  %20 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02645)
+  %20 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02645)
   %21 = getelementptr i8, ptr %20, i64 8
   %.val34 = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %.val34, @PyFloat_Type
@@ -1921,7 +1921,7 @@ _ZL11_Py_XDECREFP7_object.exit:                   ; preds = %1, %0, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromIN2cv7Scalar_IdEEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromIN2cv7Scalar_IdEEEP7_objectRKT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #3 {
   %2 = load double, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
@@ -1936,7 +1936,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv7Scalar_IdEEEP7_objectRKT_(ptr 
 declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toImEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toImEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = icmp eq ptr %0, null
@@ -2140,7 +2140,7 @@ _ZN12_GLOBAL__N_116parseNumpyScalarImEEbP7_objectRT_.exit: ; preds = %_ZN12_GLOB
 declare i64 @PyLong_AsSize_t(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromImEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromImEP7_objectRKT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8
   %3 = tail call ptr @PyLong_FromSize_t(i64 noundef %2)
   ret ptr %3
@@ -2149,7 +2149,7 @@ define hidden noundef ptr @_Z13pyopencv_fromImEP7_objectRKT_(ptr nocapture nound
 declare ptr @PyLong_FromSize_t(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toIiEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toIiEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %0, @_Py_NoneStruct
   %or.cond = or i1 %4, %5
@@ -2237,7 +2237,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_Py
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromIiEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromIiEP7_objectRKT_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4
   %3 = sext i32 %2 to i64
   %4 = tail call ptr @PyLong_FromLong(i64 noundef %3)
@@ -2247,7 +2247,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIiEP7_objectRKT_(ptr nocapture nound
 declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toIlEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toIlEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %0, @_Py_NoneStruct
   %or.cond = or i1 %4, %5
@@ -2330,7 +2330,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %22, %_ZL
 declare i64 @PyLong_AsLongLong(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromIlEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromIlEP7_objectRKT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8
   %3 = tail call ptr @PyLong_FromLongLong(i64 noundef %2)
   ret ptr %3
@@ -2339,7 +2339,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIlEP7_objectRKT_(ptr nocapture nound
 declare ptr @PyLong_FromLongLong(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toIhEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toIhEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %0, @_Py_NoneStruct
   %or.cond = or i1 %4, %5
@@ -2366,7 +2366,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIhEbP7_objectRT_RK7ArgInfo(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromIhEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromIhEP7_objectRKT_(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #3 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i64
   %4 = tail call ptr @PyLong_FromLong(i64 noundef %3)
@@ -2374,7 +2374,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIhEP7_objectRKT_(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toIcEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toIcEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %0, @_Py_NoneStruct
   %or.cond = or i1 %4, %5
@@ -2463,7 +2463,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_Py
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toIdEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toIdEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %0, @_Py_NoneStruct
   %or.cond = or i1 %4, %5
@@ -2676,7 +2676,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_Py
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromIdEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromIdEP7_objectRKT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 {
   %2 = load double, ptr %0, align 8
   %3 = tail call ptr @PyFloat_FromDouble(double noundef %2)
   ret ptr %3
@@ -2685,7 +2685,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIdEP7_objectRKT_(ptr nocapture nound
 declare ptr @PyFloat_FromDouble(double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toIfEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toIfEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %0, @_Py_NoneStruct
   %or.cond = or i1 %4, %5
@@ -2897,7 +2897,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit.thread: ; preds = %_ZL19_Py
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromIfEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromIfEP7_objectRKT_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #3 {
   %2 = load float, ptr %0, align 4
   %3 = fpext float %2 to double
   %4 = tail call ptr @PyFloat_FromDouble(double noundef %3)
@@ -2905,7 +2905,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIfEP7_objectRKT_(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %0, @_Py_NoneStruct
@@ -3070,7 +3070,7 @@ declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #0
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5Size_IiEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5Size_IiEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %"class.(anonymous namespace)::RefWrapper"], align 16
   store ptr %1, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3081,7 +3081,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5Size_IiEEEbP7_objectRT_RK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %0, @_Py_NoneStruct
   %or.cond = or i1 %4, %5
@@ -3110,7 +3110,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm2
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
   %.not37.not = phi i1 [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ true, %11 ]
   %.02229 = phi i64 [ 1, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
-  %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
+  %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02229)
   %17 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::RefWrapper"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIiEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val27, ptr noundef nonnull align 8 dereferenceable(12) %2)
@@ -3162,7 +3162,7 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Size_IiEEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Size_IiEEEP7_objectRKT_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -3171,7 +3171,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Size_IiEEEP7_objectRKT_(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5Size_IfEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5Size_IfEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %"class.(anonymous namespace)::RefWrapper.0"], align 16
   store ptr %1, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3182,7 +3182,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5Size_IfEEEbP7_objectRT_RK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %0, @_Py_NoneStruct
   %or.cond = or i1 %4, %5
@@ -3211,7 +3211,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
   %.not37.not = phi i1 [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ true, %11 ]
   %.02229 = phi i64 [ 1, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
-  %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
+  %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02229)
   %17 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::RefWrapper.0"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIfEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val27, ptr noundef nonnull align 8 dereferenceable(12) %2)
@@ -3263,7 +3263,7 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Size_IfEEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Size_IfEEEP7_objectRKT_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 {
   %2 = load float, ptr %0, align 4
   %3 = fpext float %2 to double
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3274,7 +3274,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Size_IfEEEP7_objectRKT_(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5Rect_IiEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5Rect_IiEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [4 x %"class.(anonymous namespace)::RefWrapper"], align 16
   store ptr %1, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3291,7 +3291,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5Rect_IiEEEbP7_objectRT_RK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm4EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm4EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %0, @_Py_NoneStruct
   %or.cond = or i1 %4, %5
@@ -3319,7 +3319,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm4
 
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
   %.02229 = phi i64 [ %33, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
-  %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
+  %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02229)
   %17 = getelementptr inbounds nuw [4 x %"class.(anonymous namespace)::RefWrapper"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIiEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val27, ptr noundef nonnull align 8 dereferenceable(12) %2)
@@ -3373,7 +3373,7 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Rect_IiEEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Rect_IiEEEP7_objectRKT_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -3386,7 +3386,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Rect_IiEEEP7_objectRKT_(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5Rect_IfEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5Rect_IfEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [4 x %"class.(anonymous namespace)::RefWrapper.0"], align 16
   store ptr %1, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3403,7 +3403,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5Rect_IfEEEbP7_objectRT_RK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm4EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm4EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %0, @_Py_NoneStruct
   %or.cond = or i1 %4, %5
@@ -3431,7 +3431,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm4
 
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
   %.02229 = phi i64 [ %33, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
-  %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
+  %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02229)
   %17 = getelementptr inbounds nuw [4 x %"class.(anonymous namespace)::RefWrapper.0"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIfEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val27, ptr noundef nonnull align 8 dereferenceable(12) %2)
@@ -3485,7 +3485,7 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Rect_IfEEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Rect_IfEEEP7_objectRKT_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 {
   %2 = load float, ptr %0, align 4
   %3 = fpext float %2 to double
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3502,7 +3502,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Rect_IfEEEP7_objectRKT_(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5Rect_IdEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5Rect_IdEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [4 x %"class.(anonymous namespace)::RefWrapper.3"], align 16
   store ptr %1, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3519,7 +3519,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5Rect_IdEEEbP7_objectRT_RK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm4EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm4EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %0, @_Py_NoneStruct
   %or.cond = or i1 %4, %5
@@ -3547,7 +3547,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm4
 
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
   %.02229 = phi i64 [ %33, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
-  %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
+  %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02229)
   %17 = getelementptr inbounds nuw [4 x %"class.(anonymous namespace)::RefWrapper.3"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIdEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(8) %.val27, ptr noundef nonnull align 8 dereferenceable(12) %2)
@@ -3601,7 +3601,7 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Rect_IdEEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Rect_IdEEEP7_objectRKT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #3 {
   %2 = load double, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
@@ -3614,7 +3614,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv5Rect_IdEEEP7_objectRKT_(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv11RotatedRectEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(20) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv11RotatedRectEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(20) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca [2 x %"class.(anonymous namespace)::RefWrapper.0"], align 16
   %5 = alloca [2 x %"class.(anonymous namespace)::RefWrapper.0"], align 16
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3871,7 +3871,7 @@ _ZN12_GLOBAL__N_111SafeSeqItemC2EP7_objectm.exit59: ; preds = %82
 declare void @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv6Point_IfEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv6Point_IfEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %"class.(anonymous namespace)::RefWrapper.0"], align 16
   store ptr %1, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3882,7 +3882,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv6Point_IfEEEbP7_objectRT_R
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromIN2cv11RotatedRectEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromIN2cv11RotatedRectEEP7_objectRKT_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %0) local_unnamed_addr #3 {
   %2 = load float, ptr %0, align 4
   %3 = fpext float %2 to double
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3902,7 +3902,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv11RotatedRectEEP7_objectRKT_(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5RangeEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5RangeEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %"class.(anonymous namespace)::RefWrapper"], align 16
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %0, @_Py_NoneStruct
@@ -3934,10 +3934,10 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv5RangeEEbP7_objectRT_RK7Ar
 declare i64 @PyObject_Size(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromIN2cv5RangeEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromIN2cv5RangeEEP7_objectRKT_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -3946,7 +3946,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv5RangeEEP7_objectRKT_(ptr nocap
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv6Point_IiEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv6Point_IiEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %"class.(anonymous namespace)::RefWrapper"], align 16
   store ptr %1, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3957,7 +3957,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv6Point_IiEEEbP7_objectRT_R
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromIN2cv6Point_IiEEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromIN2cv6Point_IiEEEP7_objectRKT_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -3966,7 +3966,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv6Point_IiEEEP7_objectRKT_(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromIN2cv6Point_IfEEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromIN2cv6Point_IfEEEP7_objectRKT_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 {
   %2 = load float, ptr %0, align 4
   %3 = fpext float %2 to double
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3977,7 +3977,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv6Point_IfEEEP7_objectRKT_(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv6Point_IdEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv6Point_IdEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %"class.(anonymous namespace)::RefWrapper.3"], align 16
   store ptr %1, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3988,7 +3988,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv6Point_IdEEEbP7_objectRT_R
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm2EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %0, @_Py_NoneStruct
   %or.cond = or i1 %4, %5
@@ -4017,7 +4017,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm2
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
   %.not37.not = phi i1 [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ true, %11 ]
   %.02229 = phi i64 [ 1, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
-  %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
+  %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02229)
   %17 = getelementptr inbounds nuw [2 x %"class.(anonymous namespace)::RefWrapper.3"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIdEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(8) %.val27, ptr noundef nonnull align 8 dereferenceable(12) %2)
@@ -4069,7 +4069,7 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromIN2cv6Point_IdEEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromIN2cv6Point_IdEEEP7_objectRKT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 {
   %2 = load double, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
@@ -4078,7 +4078,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv6Point_IdEEEP7_objectRKT_(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv7Point3_IiEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv7Point3_IiEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [3 x %"class.(anonymous namespace)::RefWrapper"], align 16
   store ptr %1, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4092,7 +4092,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv7Point3_IiEEEbP7_objectRT_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm3EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm3EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %0, @_Py_NoneStruct
   %or.cond = or i1 %4, %5
@@ -4120,7 +4120,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm3
 
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
   %.02229 = phi i64 [ %33, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
-  %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
+  %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02229)
   %17 = getelementptr inbounds nuw [3 x %"class.(anonymous namespace)::RefWrapper"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIiEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val27, ptr noundef nonnull align 8 dereferenceable(12) %2)
@@ -4174,7 +4174,7 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromIN2cv7Point3_IiEEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromIN2cv7Point3_IiEEEP7_objectRKT_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -4185,7 +4185,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv7Point3_IiEEEP7_objectRKT_(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv7Point3_IfEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv7Point3_IfEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [3 x %"class.(anonymous namespace)::RefWrapper.0"], align 16
   store ptr %1, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4199,7 +4199,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv7Point3_IfEEEbP7_objectRT_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm3EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm3EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %0, @_Py_NoneStruct
   %or.cond = or i1 %4, %5
@@ -4227,7 +4227,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm3
 
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
   %.02229 = phi i64 [ %33, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
-  %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
+  %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02229)
   %17 = getelementptr inbounds nuw [3 x %"class.(anonymous namespace)::RefWrapper.0"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIfEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val27, ptr noundef nonnull align 8 dereferenceable(12) %2)
@@ -4281,7 +4281,7 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromIN2cv7Point3_IfEEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromIN2cv7Point3_IfEEEP7_objectRKT_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0) local_unnamed_addr #3 {
   %2 = load float, ptr %0, align 4
   %3 = fpext float %2 to double
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -4295,7 +4295,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv7Point3_IfEEEP7_objectRKT_(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv7Point3_IdEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv7Point3_IdEEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [3 x %"class.(anonymous namespace)::RefWrapper.3"], align 16
   store ptr %1, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4309,7 +4309,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv7Point3_IdEEEbP7_objectRT_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm3EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm3EEEbP7_objectRAT0__NS_10RefWrapperIT_EERK7ArgInfo(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %0, @_Py_NoneStruct
   %or.cond = or i1 %4, %5
@@ -4337,7 +4337,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm3
 
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit
   %.02229 = phi i64 [ %33, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit ], [ 0, %11 ]
-  %16 = tail call ptr @PySequence_GetItem(ptr noundef %0, i64 noundef %.02229)
+  %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02229)
   %17 = getelementptr inbounds nuw [3 x %"class.(anonymous namespace)::RefWrapper.3"], ptr %1, i64 0, i64 %.02229
   %.val27 = load ptr, ptr %17, align 8
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIdEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(8) %.val27, ptr noundef nonnull align 8 dereferenceable(12) %2)
@@ -4391,7 +4391,7 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit:          ; preds = %25, %26, %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromIN2cv7Point3_IdEEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromIN2cv7Point3_IdEEEP7_objectRKT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #3 {
   %2 = load double, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
@@ -4402,7 +4402,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv7Point3_IdEEEP7_objectRKT_(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIdLi4EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIdLi4EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [4 x %"class.(anonymous namespace)::RefWrapper.3"], align 16
   store ptr %1, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4419,7 +4419,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIdLi4EEER7Arg
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIdLi4EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIdLi4EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #3 {
   %2 = load double, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
@@ -4432,7 +4432,7 @@ define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIdLi4EEE(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIfLi4EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIfLi4EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [4 x %"class.(anonymous namespace)::RefWrapper.0"], align 16
   store ptr %1, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4449,7 +4449,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIfLi4EEER7Arg
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIfLi4EEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIfLi4EEE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 {
   %2 = load float, ptr %0, align 4
   %3 = fpext float %2 to double
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -4466,7 +4466,7 @@ define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIfLi4EEE(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIiLi4EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIiLi4EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [4 x %"class.(anonymous namespace)::RefWrapper"], align 16
   store ptr %1, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4483,7 +4483,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIiLi4EEER7Arg
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIiLi4EEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIiLi4EEE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -4496,7 +4496,7 @@ define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIiLi4EEE(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIdLi3EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIdLi3EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [3 x %"class.(anonymous namespace)::RefWrapper.3"], align 16
   store ptr %1, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4510,7 +4510,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIdLi3EEER7Arg
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIdLi3EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIdLi3EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #3 {
   %2 = load double, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
@@ -4521,7 +4521,7 @@ define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIdLi3EEE(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIfLi3EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIfLi3EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [3 x %"class.(anonymous namespace)::RefWrapper.0"], align 16
   store ptr %1, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4535,7 +4535,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIfLi3EEER7Arg
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIfLi3EEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIfLi3EEE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0) local_unnamed_addr #3 {
   %2 = load float, ptr %0, align 4
   %3 = fpext float %2 to double
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -4549,7 +4549,7 @@ define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIfLi3EEE(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIiLi3EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIiLi3EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [3 x %"class.(anonymous namespace)::RefWrapper"], align 16
   store ptr %1, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4563,7 +4563,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIiLi3EEER7Arg
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIiLi3EEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIiLi3EEE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -4574,7 +4574,7 @@ define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIiLi3EEE(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIdLi2EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIdLi2EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %"class.(anonymous namespace)::RefWrapper.3"], align 16
   store ptr %1, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4585,7 +4585,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIdLi2EEER7Arg
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIdLi2EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIdLi2EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 {
   %2 = load double, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
@@ -4594,7 +4594,7 @@ define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIdLi2EEE(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIfLi2EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIfLi2EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %"class.(anonymous namespace)::RefWrapper.0"], align 16
   store ptr %1, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4605,7 +4605,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIfLi2EEER7Arg
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIfLi2EEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIfLi2EEE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 {
   %2 = load float, ptr %0, align 4
   %3 = fpext float %2 to double
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -4616,7 +4616,7 @@ define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIfLi2EEE(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIiLi2EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIiLi2EEER7ArgInfo(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 {
   %4 = alloca [2 x %"class.(anonymous namespace)::RefWrapper"], align 16
   store ptr %1, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4627,7 +4627,7 @@ define hidden noundef zeroext i1 @_Z11pyopencv_toP7_objectRN2cv3VecIiLi2EEER7Arg
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIiLi2EEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIiLi2EEE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -4636,7 +4636,7 @@ define hidden noundef ptr @_Z13pyopencv_fromRKN2cv3VecIiLi2EEE(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv12TermCriteriaEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_Z11pyopencv_toIN2cv12TermCriteriaEEbP7_objectRT_RK7ArgInfo(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %class.ArgInfo, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4834,7 +4834,7 @@ _ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit59:        ; preds = %69, %70, %73
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromIN2cv12TermCriteriaEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromIN2cv12TermCriteriaEEP7_objectRKT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -4845,7 +4845,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv12TermCriteriaEEP7_objectRKT_(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromIN2cv7MomentsEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromIN2cv7MomentsEEP7_objectRKT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0) local_unnamed_addr #3 {
   %2 = load double, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
@@ -4898,7 +4898,7 @@ define hidden noundef ptr @_Z13pyopencv_fromIN2cv7MomentsEEP7_objectRKT_(ptr noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13pyopencv_fromISt4pairIidEEP7_objectRKT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13pyopencv_fromISt4pairIidEEP7_objectRKT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
@@ -5054,10 +5054,10 @@ define internal void @_GLOBAL__sub_I_cv2_convert.cpp() #10 section ".text.startu
 declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11

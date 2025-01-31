@@ -42,7 +42,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN10XPageTableC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN10XPageTableC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10XPageTableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN10XPageTableC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @XAddressOffsetMax, align 8
   %3 = lshr i64 %2, 21
   store i64 %3, ptr %0, align 8
@@ -68,7 +68,7 @@ _ZN11XGranuleMapIP5XPageEC2Em.exit:               ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10XPageTable6insertEP5XPage(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10XPageTable6insertEP5XPage(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -99,7 +99,7 @@ _ZN11XGranuleMapIP5XPageE3putEmmS1_.exit:         ; preds = %12, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN10XPageTable6removeEP5XPage(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN10XPageTable6removeEP5XPage(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16

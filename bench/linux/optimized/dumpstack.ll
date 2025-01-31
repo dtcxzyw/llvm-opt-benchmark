@@ -51,7 +51,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [5 x ptr] [ptr @_kbl_addr___die, ptr @_kbl_addr___die_body, ptr @_kbl_addr___die_header, ptr @_kbl_addr_oops_begin, ptr @_kbl_addr_oops_end], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree noprofile norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef zeroext i1 @in_task_stack(ptr noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 section ".noinstr.text" align 16 {
+define dso_local noundef zeroext i1 @in_task_stack(ptr noundef readnone %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 section ".noinstr.text" align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 32
   %6 = getelementptr i8, ptr %5, i64 16384
@@ -75,13 +75,13 @@ define dso_local noundef zeroext i1 @in_task_stack(ptr noundef readnone %0, ptr 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @in_entry_stack(ptr noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 section ".noinstr.text" align 16 {
+define dso_local noundef zeroext i1 @in_entry_stack(ptr noundef readnone %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 section ".noinstr.text" align 16 {
   %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !5
   %4 = tail call ptr @get_cpu_entry_area(i32 noundef %3) #14
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4096
@@ -167,7 +167,7 @@ define dso_local void @show_opcodes(ptr noundef readonly %0, ptr noundef %1) loc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
@@ -669,7 +669,7 @@ declare dso_local void @panic(ptr noundef, ...) local_unnamed_addr #8
 declare dso_local void @rewind_stack_and_make_dead(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @__die_header(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #6 align 16 {
+define internal void @__die_header(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #6 align 16 {
   %4 = load i32, ptr @die_counter, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %7
@@ -846,7 +846,7 @@ declare dso_local i32 @get_stack_info(ptr noundef, ptr noundef, ptr noundef, ptr
 declare dso_local ptr @stack_type_name(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @show_regs_if_on_stack(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #3 align 16 {
+define internal fastcc void @show_regs_if_on_stack(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #3 align 16 {
   br i1 %2, label %22, label %5
 
 5:                                                ; preds = %4
@@ -935,7 +935,7 @@ declare void @llvm.assume(i1 noundef) #11
 declare dso_local void @queued_spin_lock_slowpath(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @print_modules() local_unnamed_addr #7

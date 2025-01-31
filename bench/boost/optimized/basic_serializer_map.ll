@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 $_ZNSt8_Rb_treeIPKN5boost7archive6detail16basic_serializerES5_St9_IdentityIS5_ENS2_20basic_serializer_map25type_info_pointer_compareESaIS5_EE16_M_insert_uniqueIRKS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_ = comdat any
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK5boost7archive6detail20basic_serializer_map25type_info_pointer_compareclEPKNS1_16basic_serializerES6_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK5boost7archive6detail20basic_serializer_map25type_info_pointer_compareclEPKNS1_16basic_serializerES6_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %1, align 8, !tbaa !3
   %5 = load ptr, ptr %2, align 8, !tbaa !3
   %6 = tail call noundef zeroext i1 @_ZNK5boost13serialization18extended_type_infoltERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)

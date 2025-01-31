@@ -263,7 +263,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -736,7 +736,7 @@ if.end75.i.i:                                     ; preds = %invoke.cont71.i.i
   %16 = load ptr, ptr %region87.i.i, align 8
   %call89.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #15
   %conv90.i.i = trunc i64 %call89.i.i to i32
-  invoke fastcc void @_ZL29createTagStringWithAlternatesPKciS0_iS0_iS0_iS0_RN6icu_758ByteSinkEP10UErrorCode(ptr noundef %spec.store.select.i.i, i32 noundef %conv82.i.i, ptr noundef %15, i32 noundef %conv86.i.i, ptr noundef %16, i32 noundef %conv90.i.i, ptr noundef %arrayidx22.i.i.le, i32 noundef %conv31.i.i, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull %status)
+  invoke fastcc void @_ZL29createTagStringWithAlternatesPKciS0_iS0_iS0_iS0_RN6icu_758ByteSinkEP10UErrorCode(ptr noundef nonnull %spec.store.select.i.i, i32 noundef %conv82.i.i, ptr noundef nonnull %15, i32 noundef %conv86.i.i, ptr noundef nonnull %16, i32 noundef %conv90.i.i, ptr noundef %arrayidx22.i.i.le, i32 noundef %conv31.i.i, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull %status)
           to label %invoke.cont92.i.i unwind label %lpad91.i.i
 
 invoke.cont92.i.i:                                ; preds = %if.end75.i.i
@@ -1356,7 +1356,7 @@ declare i32 @uloc_getScript_75(ptr noundef, ptr noundef, i32 noundef, ptr nounde
 declare i32 @uloc_getLanguage_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @u_getPropertyValueEnum_75(i32 noundef, ptr noundef) local_unnamed_addr #6
 
@@ -1473,7 +1473,7 @@ return:                                           ; preds = %entry, %if.end35
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZN12_GLOBAL__N_116GetRegionFromKeyEPKcS1_Pc(ptr noundef %localeID, ptr noundef %key, ptr nocapture noundef nonnull writeonly %buf) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZN12_GLOBAL__N_116GetRegionFromKeyEPKcS1_Pc(ptr noundef %localeID, ptr noundef %key, ptr noundef nonnull writeonly captures(none) %buf) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca i32, align 4
   %rg = alloca %"class.icu_75::CharString", align 8
@@ -1557,10 +1557,10 @@ ehcleanup:                                        ; preds = %lpad1, %lpad
 declare i32 @uloc_getCountry_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL14parseTagStringPKcPcPiS1_S2_S1_S2_P10UErrorCode(ptr noundef nonnull %localeID, ptr noundef nonnull %lang, ptr nocapture noundef nonnull %langLength, ptr noundef nonnull %script, ptr nocapture noundef nonnull %scriptLength, ptr noundef nonnull %region, ptr nocapture noundef nonnull %regionLength, ptr noundef %err) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL14parseTagStringPKcPcPiS1_S2_S1_S2_P10UErrorCode(ptr noundef nonnull %localeID, ptr noundef nonnull %lang, ptr noundef nonnull captures(none) %langLength, ptr noundef nonnull %script, ptr noundef nonnull captures(none) %scriptLength, ptr noundef nonnull %region, ptr noundef nonnull captures(none) %regionLength, ptr noundef %err) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %position = alloca ptr, align 8
   %ref.tmp = alloca %"class.icu_75::CharString", align 8
@@ -1690,7 +1690,7 @@ eh.resume:                                        ; preds = %lpad44, %lpad25, %l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare noundef ptr @_ZN6icu_7513LikelySubtags12getSingletonER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
@@ -1699,10 +1699,10 @@ declare void @_ZN6icu_756Locale14createFromNameEPKc(ptr sret(%"class.icu_75::Loc
 declare void @_ZNK6icu_7513LikelySubtags20makeMaximizedLsrFromERKNS_6LocaleEbR10UErrorCode(ptr sret(%"struct.icu_75::LSR") align 8, ptr noundef nonnull align 8 dereferenceable(352), ptr noundef nonnull align 8 dereferenceable(217), i1 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL29createTagStringWithAlternatesPKciS0_iS0_iS0_iS0_RN6icu_758ByteSinkEP10UErrorCode(ptr nocapture noundef readonly %lang, i32 noundef %langLength, ptr nocapture noundef readonly %script, i32 noundef %scriptLength, ptr nocapture noundef readonly %region, i32 noundef %regionLength, ptr noundef nonnull %trailing, i32 noundef %trailingLength, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr nocapture noundef %err) unnamed_addr #1 {
+define internal fastcc void @_ZL29createTagStringWithAlternatesPKciS0_iS0_iS0_iS0_RN6icu_758ByteSinkEP10UErrorCode(ptr noundef readonly captures(none) %lang, i32 noundef %langLength, ptr noundef readonly captures(none) %script, i32 noundef %scriptLength, ptr noundef readonly captures(none) %region, i32 noundef %regionLength, ptr noundef nonnull %trailing, i32 noundef %trailingLength, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef captures(none) %err) unnamed_addr #1 {
 entry:
   %tagBuffer = alloca [157 x i8], align 16
   %0 = load i32, ptr %err, align 4
@@ -1855,10 +1855,10 @@ declare signext i8 @uprv_toupper_75(i8 noundef signext) local_unnamed_addr #6
 declare i32 @llvm.smin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -789,7 +789,7 @@ declare dso_local i32 @csum_partial(ptr noundef, i32 noundef, i32 noundef) local
 declare dso_local ptr @gro_find_receive_by_type(i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal fastcc zeroext i1 @__skb_gro_checksum_validate_needed(ptr nocapture noundef readonly %0) unnamed_addr #4 align 16 {
+define internal fastcc zeroext i1 @__skb_gro_checksum_validate_needed(ptr noundef readonly captures(none) %0) unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 96
@@ -869,7 +869,7 @@ define internal fastcc zeroext i16 @__skb_gro_checksum_validate_complete(ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal fastcc void @skb_gro_incr_csum_unnecessary(ptr nocapture noundef %0) unnamed_addr #6 align 16 {
+define internal fastcc void @skb_gro_incr_csum_unnecessary(ptr noundef captures(none) %0) unnamed_addr #6 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 70
   %3 = load i16, ptr %2, align 2
   %4 = and i16 %3, 56

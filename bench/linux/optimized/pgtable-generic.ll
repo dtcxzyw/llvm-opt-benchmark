@@ -122,7 +122,7 @@ define dso_local void @pmd_clear_bad(ptr noundef %0) local_unnamed_addr #0 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @ptep_clear_flush(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
+define dso_local i64 @ptep_clear_flush(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 0, ptr elementtype(i64) %2) #6, !srcloc !6
@@ -152,10 +152,10 @@ define dso_local i64 @ptep_clear_flush(ptr nocapture noundef readonly %0, i64 no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @__pte_offset_map(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 align 16 {
@@ -210,7 +210,7 @@ define dso_local ptr @__pte_offset_map(ptr noundef %0, i64 noundef %1, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @pte_offset_map_nolock(ptr nocapture noundef readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 align 16 {
+define dso_local ptr @pte_offset_map_nolock(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #2 align 16 {
   %5 = alloca i64, align 8
   tail call void @__rcu_read_lock() #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -263,7 +263,7 @@ define dso_local ptr @pte_offset_map_nolock(ptr nocapture noundef readnone %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__pte_offset_map_lock(ptr nocapture noundef readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 align 16 {
+define dso_local ptr @__pte_offset_map_lock(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #2 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = lshr i64 %2, 12

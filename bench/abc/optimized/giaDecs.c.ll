@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [42 x i8] c"Internal error: Onset and Offset overlap.\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -2147483648, 2147483647) i32 @Gia_ResubVarNum(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483647) i32 @Gia_ResubVarNum(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 4
   %.val = load i32, ptr %2, align 4
   %3 = icmp eq i32 %.val, 1
@@ -148,7 +148,7 @@ Gia_ResubVarNum.exit:                             ; preds = %15, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Gia_ManDeriveTruths(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #2 {
+define noalias noundef ptr @Gia_ManDeriveTruths(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = alloca [2 x ptr], align 16
   %8 = getelementptr i8, ptr %4, i64 4
   %.val75 = load i32, ptr %8, align 4
@@ -526,10 +526,10 @@ Vec_WrdFree.exit117:                              ; preds = %Vec_WrdFree.exit, %
 declare void @Extra_BitMatrixTransposeP(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1073741824, 1073741824) i32 @Gia_ManCountResub(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define range(i32 -1073741824, 1073741824) i32 @Gia_ManCountResub(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp slt i32 %1, 7
   %5 = add nsw i32 %1, -6
   %6 = shl nuw i32 1, %5
@@ -802,7 +802,7 @@ Vec_WrdStart.exit:                                ; preds = %1, %10
 declare ptr @Gia_ManResubOne(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Gia_ManDeriveResub(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define ptr @Gia_ManDeriveResub(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp slt i32 %1, 7
   %4 = add nsw i32 %1, -6
   %5 = shl nuw i32 1, %4
@@ -963,7 +963,7 @@ Vec_WrdFree.exit:                                 ; preds = %Vec_PtrFree.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Gia_ManCountBidec(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define i32 @Gia_ManCountBidec(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp slt i32 %1, 7
   %5 = add nsw i32 %1, -6
   %6 = shl nuw i32 1, %5
@@ -1020,7 +1020,7 @@ Abc_TtSharp.exit:                                 ; preds = %.lr.ph.i18, %Abc_Tt
 declare i32 @Bdc_ManBidecNodeNum(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Gia_ManDeriveBidec(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define ptr @Gia_ManDeriveBidec(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp slt i32 %1, 7
   %4 = add nsw i32 %1, -6
   %5 = shl nuw i32 1, %4
@@ -1077,7 +1077,7 @@ Abc_TtSharp.exit:                                 ; preds = %.lr.ph.i17, %Abc_Tt
 declare ptr @Bdc_ManBidecResub(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Gia_ManCountIsop(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define i32 @Gia_ManCountIsop(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp slt i32 %1, 7
   %5 = add nsw i32 %1, -6
   %6 = shl nuw i32 1, %5
@@ -1093,7 +1093,7 @@ define i32 @Gia_ManCountIsop(ptr nocapture noundef readonly %0, i32 noundef %1, 
 declare i32 @Kit_IsopNodeNum(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Gia_ManDeriveIsop(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define ptr @Gia_ManDeriveIsop(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp slt i32 %1, 7
   %4 = add nsw i32 %1, -6
   %5 = shl nuw i32 1, %4
@@ -1109,7 +1109,7 @@ define ptr @Gia_ManDeriveIsop(ptr nocapture noundef readonly %0, i32 noundef %1)
 declare ptr @Kit_IsopResub(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2147483647) i32 @Gia_ManCountBdd(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2) local_unnamed_addr #2 {
+define range(i32 -2147483648, 2147483647) i32 @Gia_ManCountBdd(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2) local_unnamed_addr #2 {
   %4 = icmp slt i32 %1, 7
   %5 = add nsw i32 %1, -6
   %6 = shl nuw i32 1, %5
@@ -1202,7 +1202,7 @@ declare ptr @Gia_TryPermOptNew(ptr noundef, i32 noundef, i32 noundef, i32 nounde
 declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Gia_ManDeriveBdd(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define ptr @Gia_ManDeriveBdd(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp slt i32 %1, 7
   %4 = add nsw i32 %1, -6
   %5 = shl nuw i32 1, %4
@@ -1281,7 +1281,7 @@ Abc_TtSharp.exit:                                 ; preds = %.lr.ph.i36, %Abc_Tt
 declare ptr @Gia_ManToGates(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Gia_ManEvalSolutionOne(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
+define i32 @Gia_ManEvalSolutionOne(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
   %8 = tail call ptr @Gia_ManDeriveTruths(ptr poison, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   %9 = getelementptr i8, ptr %8, i64 4
   %.val55 = load i32, ptr %9, align 4
@@ -1535,7 +1535,7 @@ Vec_WrdFree.exit:                                 ; preds = %123, %124
 declare void @Extra_PrintHex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Gia_ManDeriveSolutionOne(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
+define ptr @Gia_ManDeriveSolutionOne(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
   %8 = tail call ptr @Gia_ManDeriveTruths(ptr poison, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   %9 = getelementptr i8, ptr %4, i64 4
   %.val = load i32, ptr %9, align 4
@@ -1676,19 +1676,19 @@ Vec_WrdFree.exit:                                 ; preds = %Gia_ResubToTruth6.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #10

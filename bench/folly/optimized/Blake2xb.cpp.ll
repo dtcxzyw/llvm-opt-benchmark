@@ -36,7 +36,7 @@ $_ZN5folly6crypto8Blake2xb20kUnknownOutputLengthE = comdat any
 @_ZN5folly6crypto8Blake2xbD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5folly6crypto8Blake2xbD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6crypto8Blake2xbC2Ev(ptr nocapture noundef nonnull writeonly align 64 dereferenceable(451) initializes((0, 451)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6crypto8Blake2xbC2Ev(ptr noundef nonnull writeonly align 64 captures(none) dereferenceable(451) initializes((0, 451)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(451) %this, i8 0, i64 451, i1 false)
   %0 = load atomic i8, ptr @_ZGVZN5folly6crypto8Blake2xbC1EvE16sodiumInitResult acquire, align 8
@@ -93,7 +93,7 @@ eh.resume:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
@@ -103,7 +103,7 @@ declare i32 @sodium_init() local_unnamed_addr #3
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #4
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nofree nounwind
 declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
@@ -124,13 +124,13 @@ declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN5folly6crypto8Blake2xbD2Ev(ptr nocapture nonnull readnone align 64 %this) unnamed_addr #7 align 2 {
+define void @_ZN5folly6crypto8Blake2xbD2Ev(ptr nonnull readnone align 64 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6crypto8Blake2xb4initEmNS_5RangeIPKhEES5_S5_(ptr noundef nonnull align 64 dereferenceable(451) %this, i64 noundef %outputLength, ptr %key.coerce0, ptr %key.coerce1, ptr %salt.coerce0, ptr %salt.coerce1, ptr nocapture noundef readonly byval(%"class.folly::Range") align 8 %personalization) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6crypto8Blake2xb4initEmNS_5RangeIPKhEES5_S5_(ptr noundef nonnull align 64 dereferenceable(451) %this, i64 noundef %outputLength, ptr %key.coerce0, ptr %key.coerce1, ptr %salt.coerce0, ptr %salt.coerce1, ptr noundef readonly byval(%"class.folly::Range") align 8 captures(none) %personalization) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq i64 %outputLength, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -259,10 +259,10 @@ eh.resume:                                        ; preds = %lpad33, %lpad20, %l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly6crypto12_GLOBAL__N_119initStateFromParamsEP32crypto_generichash_blake2b_stateRKNS0_6detail13Blake2xbParamENS_5RangeIPKhEE(ptr noundef nonnull initializes((0, 368)) %_state, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %param, ptr %key.coerce0, ptr %key.coerce1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly6crypto12_GLOBAL__N_119initStateFromParamsEP32crypto_generichash_blake2b_stateRKNS0_6detail13Blake2xbParamENS_5RangeIPKhEE(ptr noundef nonnull initializes((0, 368)) %_state, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %param, ptr %key.coerce0, ptr %key.coerce1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %block = alloca %"struct.std::array.0", align 1
   %0 = load i64, ptr %param, align 8, !tbaa !28
@@ -347,10 +347,10 @@ if.end25:                                         ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare i32 @crypto_generichash_blake2b_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 

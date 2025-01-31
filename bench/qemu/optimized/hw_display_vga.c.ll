@@ -113,7 +113,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.vbe_ioport_read_data = private unnamed_addr constant [3 x i32] [i32 16000, i32 12000, i32 32], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @vga_ioport_invalid(ptr nocapture noundef readonly %s, i32 noundef %addr) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @vga_ioport_invalid(ptr noundef readonly captures(none) %s, i32 noundef %addr) local_unnamed_addr #0 {
 entry:
   %msr = getelementptr inbounds nuw i8, ptr %s, i64 1645
   %0 = load i8, ptr %msr, align 1
@@ -929,10 +929,10 @@ if.end30:                                         ; preds = %entry, %if.end23, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @vbe_update_vgaregs(ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc void @vbe_update_vgaregs(ptr noundef captures(none) %s) unnamed_addr #3 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 2594
   %s.val = load i16, ptr %0, align 2
@@ -1027,7 +1027,7 @@ return:                                           ; preds = %entry, %if.end69
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 65536) i32 @vbe_ioport_read_data(ptr nocapture noundef readonly %opaque, i32 %addr) #1 {
+define dso_local range(i32 0, 65536) i32 @vbe_ioport_read_data(ptr noundef readonly captures(none) %opaque, i32 %addr) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %vbe_index = getelementptr inbounds nuw i8, ptr %opaque, i64 2584
@@ -1119,7 +1119,7 @@ trace_vga_vbe_read.exit:                          ; preds = %if.end27, %land.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @vbe_ioport_write_index(ptr nocapture noundef writeonly initializes((2584, 2586)) %opaque, i32 %addr, i32 noundef %val) #4 {
+define dso_local void @vbe_ioport_write_index(ptr noundef writeonly captures(none) initializes((2584, 2586)) %opaque, i32 %addr, i32 noundef %val) #4 {
 entry:
   %conv = trunc i32 %val to i16
   %vbe_index = getelementptr inbounds nuw i8, ptr %opaque, i64 2584
@@ -1368,7 +1368,7 @@ if.end73:                                         ; preds = %if.end69.i, %sw.bb2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @vbe_fixup_regs(ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc void @vbe_fixup_regs(ptr noundef captures(none) %s) unnamed_addr #3 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 2594
   %s.val = load i16, ptr %0, align 2
@@ -1505,10 +1505,10 @@ return:                                           ; preds = %entry, %if.end111
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 256) i32 @vga_mem_readb(ptr nocapture noundef %s, i64 noundef %addr) local_unnamed_addr #1 {
+define dso_local range(i32 0, 256) i32 @vga_mem_readb(ptr noundef captures(none) %s, i64 noundef %addr) local_unnamed_addr #1 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1112
   %0 = load i8, ptr %arrayidx, align 2
@@ -1957,7 +1957,7 @@ if.end178:                                        ; preds = %if.end166, %if.end6
 declare void @memory_region_set_dirty(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @vga_invalidate_scanlines(ptr nocapture noundef %s, i32 noundef %y1, i32 noundef %y2) local_unnamed_addr #8 {
+define dso_local void @vga_invalidate_scanlines(ptr noundef captures(none) %s, i32 noundef %y1, i32 noundef %y2) local_unnamed_addr #8 {
 entry:
   %cmp = icmp sgt i32 %y1, 2047
   br i1 %cmp, label %for.end, label %if.end
@@ -2072,7 +2072,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 256) i64 @vga_mem_read(ptr nocapture noundef %opaque, i64 noundef %addr, i32 %size) #1 {
+define internal range(i64 0, 256) i64 @vga_mem_read(ptr noundef captures(none) %opaque, i64 noundef %addr, i32 %size) #1 {
 entry:
   %call = tail call i32 @vga_mem_readb(ptr noundef %opaque, i64 noundef %addr)
   %conv = zext nneg i32 %call to i64
@@ -2397,7 +2397,7 @@ declare void @xen_register_framebuffer(ptr noundef) local_unnamed_addr #7
 declare ptr @memory_region_get_ram_ptr(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @vga_get_bpp(ptr nocapture noundef readonly %s) #0 {
+define internal range(i32 0, 65536) i32 @vga_get_bpp(ptr noundef readonly captures(none) %s) #0 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 2594
   %s.val = load i16, ptr %0, align 2
@@ -2417,7 +2417,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @vga_get_offsets(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly initializes((0, 4)) %pline_offset, ptr nocapture noundef writeonly initializes((0, 4)) %pstart_addr, ptr nocapture noundef writeonly initializes((0, 4)) %pline_compare) #3 {
+define internal void @vga_get_offsets(ptr noundef readonly captures(none) %s, ptr noundef writeonly captures(none) initializes((0, 4)) %pline_offset, ptr noundef writeonly captures(none) initializes((0, 4)) %pstart_addr, ptr noundef writeonly captures(none) initializes((0, 4)) %pline_compare) #3 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 2594
   %s.val = load i16, ptr %0, align 2
@@ -2473,7 +2473,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @vga_get_resolution(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly initializes((0, 4)) %pwidth, ptr nocapture noundef writeonly initializes((0, 4)) %pheight) #3 {
+define internal void @vga_get_resolution(ptr noundef readonly captures(none) %s, ptr noundef writeonly captures(none) initializes((0, 4)) %pwidth, ptr noundef writeonly captures(none) initializes((0, 4)) %pheight) #3 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 2594
   %s.val = load i16, ptr %0, align 2
@@ -2520,7 +2520,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i8 @vga_dumb_retrace(ptr nocapture noundef readonly %s) #0 {
+define internal zeroext i8 @vga_dumb_retrace(ptr noundef readonly captures(none) %s) #0 {
 entry:
   %st01 = getelementptr inbounds nuw i8, ptr %s, i64 1648
   %0 = load i8, ptr %st01, align 16
@@ -2529,13 +2529,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @vga_dumb_update_retrace_info(ptr nocapture readnone %s) #9 {
+define internal void @vga_dumb_update_retrace_info(ptr readnone captures(none) %s) #9 {
 entry:
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i8 @vga_precise_retrace(ptr nocapture noundef readonly %s) #1 {
+define internal zeroext i8 @vga_precise_retrace(ptr noundef readonly captures(none) %s) #1 {
 entry:
   %st01 = getelementptr inbounds nuw i8, ptr %s, i64 1648
   %0 = load i8, ptr %st01, align 16
@@ -2596,7 +2596,7 @@ return:                                           ; preds = %land.lhs.true15, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @vga_precise_update_retrace_info(ptr nocapture noundef %s) #3 {
+define internal void @vga_precise_update_retrace_info(ptr noundef captures(none) %s) #3 {
 entry:
   %cr = getelementptr inbounds nuw i8, ptr %s, i64 1389
   %0 = load i8, ptr %cr, align 1
@@ -2704,7 +2704,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare zeroext i1 @target_words_bigendian() local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @vga_init_io(ptr noundef %s, ptr noundef %obj, ptr nocapture noundef writeonly initializes((0, 8)) %vga_ports, ptr nocapture noundef writeonly initializes((0, 8)) %vbe_ports) local_unnamed_addr #1 {
+define dso_local noundef ptr @vga_init_io(ptr noundef %s, ptr noundef %obj, ptr noundef writeonly captures(none) initializes((0, 8)) %vga_ports, ptr noundef writeonly captures(none) initializes((0, 8)) %vbe_ports) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @qdev_get_machine() #17
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #17
@@ -2840,7 +2840,7 @@ declare void @portio_list_set_flush_coalesced(ptr noundef) local_unnamed_addr #7
 declare void @portio_list_add(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #7
 
@@ -2855,7 +2855,7 @@ declare void @memory_region_init_alias(ptr noundef, ptr noundef, ptr noundef, pt
 declare ptr @memory_region_owner(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @vga_endian_state_needed(ptr nocapture noundef readonly %opaque) #0 {
+define internal zeroext i1 @vga_endian_state_needed(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %default_endian_fb = getelementptr inbounds nuw i8, ptr %opaque, i64 2731
   %0 = load i8, ptr %default_endian_fb, align 1
@@ -2873,7 +2873,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #12
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @vga_invalidate_display(ptr nocapture noundef writeonly initializes((2672, 2680)) %opaque) #4 {
+define internal void @vga_invalidate_display(ptr noundef writeonly captures(none) initializes((2672, 2680)) %opaque) #4 {
 entry:
   %last_width = getelementptr inbounds nuw i8, ptr %opaque, i64 2672
   store i32 -1, ptr %last_width, align 16
@@ -4828,7 +4828,7 @@ if.end15:                                         ; preds = %for.end.i111, %lor.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vga_update_text(ptr noundef %opaque, ptr nocapture noundef %chardata) #1 {
+define internal void @vga_update_text(ptr noundef %opaque, ptr noundef captures(none) %chardata) #1 {
 entry:
   %start_addr.i = alloca i32, align 4
   %line_offset.i = alloca i32, align 4
@@ -5363,7 +5363,7 @@ declare void @qemu_console_resize(ptr noundef, i32 noundef, i32 noundef) local_u
 declare void @dpy_text_resize(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @update_palette16(ptr nocapture noundef %s) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @update_palette16(ptr noundef captures(none) %s) unnamed_addr #8 {
 entry:
   %last_palette = getelementptr inbounds nuw i8, ptr %s, i64 3016
   %ar = getelementptr inbounds nuw i8, ptr %s, i64 1363
@@ -5526,7 +5526,7 @@ declare zeroext i1 @memory_region_snapshot_get_dirty(ptr noundef, ptr noundef, i
 declare void @g_free(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
+define internal void @vga_draw_line2(ptr noundef readonly captures(none) %vga, ptr noundef writeonly captures(none) %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %last_palette = getelementptr inbounds nuw i8, ptr %vga, i64 3016
   %arrayidx = getelementptr i8, ptr %vga, i64 1381
@@ -5644,7 +5644,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line2d2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
+define internal void @vga_draw_line2d2(ptr noundef readonly captures(none) %vga, ptr noundef writeonly captures(none) %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %last_palette = getelementptr inbounds nuw i8, ptr %vga, i64 3016
   %arrayidx = getelementptr i8, ptr %vga, i64 1381
@@ -5778,7 +5778,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line4(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
+define internal void @vga_draw_line4(ptr noundef readonly captures(none) %vga, ptr noundef writeonly captures(none) %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %last_palette = getelementptr inbounds nuw i8, ptr %vga, i64 3016
   %arrayidx = getelementptr i8, ptr %vga, i64 1381
@@ -5896,7 +5896,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line4d2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
+define internal void @vga_draw_line4d2(ptr noundef readonly captures(none) %vga, ptr noundef writeonly captures(none) %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %last_palette = getelementptr inbounds nuw i8, ptr %vga, i64 3016
   %arrayidx = getelementptr i8, ptr %vga, i64 1381
@@ -6030,7 +6030,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line8d2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
+define internal void @vga_draw_line8d2(ptr noundef readonly captures(none) %vga, ptr noundef writeonly captures(none) %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %last_palette = getelementptr inbounds nuw i8, ptr %vga, i64 3016
   %shr = ashr i32 %width, 3
@@ -6111,7 +6111,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line8(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
+define internal void @vga_draw_line8(ptr noundef readonly captures(none) %vga, ptr noundef writeonly captures(none) %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %last_palette = getelementptr inbounds nuw i8, ptr %vga, i64 3016
   %shr = ashr i32 %width, 3
@@ -6232,7 +6232,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line15_le(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
+define internal void @vga_draw_line15_le(ptr noundef readonly captures(none) %vga, ptr noundef writeonly captures(none) %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
   %1 = getelementptr i8, ptr %vga, i64 300
@@ -6270,7 +6270,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line16_le(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
+define internal void @vga_draw_line16_le(ptr noundef readonly captures(none) %vga, ptr noundef writeonly captures(none) %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
   %1 = getelementptr i8, ptr %vga, i64 300
@@ -6308,7 +6308,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line24_le(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
+define internal void @vga_draw_line24_le(ptr noundef readonly captures(none) %vga, ptr noundef writeonly captures(none) %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
   %1 = getelementptr i8, ptr %vga, i64 300
@@ -6353,7 +6353,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line32_le(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
+define internal void @vga_draw_line32_le(ptr noundef readonly captures(none) %vga, ptr noundef writeonly captures(none) %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
   %1 = getelementptr i8, ptr %vga, i64 300
@@ -6398,7 +6398,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line15_be(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
+define internal void @vga_draw_line15_be(ptr noundef readonly captures(none) %vga, ptr noundef writeonly captures(none) %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
   %1 = getelementptr i8, ptr %vga, i64 300
@@ -6437,7 +6437,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line16_be(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
+define internal void @vga_draw_line16_be(ptr noundef readonly captures(none) %vga, ptr noundef writeonly captures(none) %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
   %1 = getelementptr i8, ptr %vga, i64 300
@@ -6476,7 +6476,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line24_be(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
+define internal void @vga_draw_line24_be(ptr noundef readonly captures(none) %vga, ptr noundef writeonly captures(none) %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
   %1 = getelementptr i8, ptr %vga, i64 300
@@ -6521,7 +6521,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @vga_draw_line32_be(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
+define internal void @vga_draw_line32_be(ptr noundef readonly captures(none) %vga, ptr noundef writeonly captures(none) %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
   %0 = getelementptr i8, ptr %vga, i64 8
   %1 = getelementptr i8, ptr %vga, i64 300
@@ -6572,17 +6572,17 @@ declare i16 @llvm.bswap.i16(i16) #12
 declare void @dpy_gfx_update_full(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 declare void @dpy_text_cursor(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 declare void @dpy_text_update(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @vbe_ioport_read_index(ptr nocapture noundef readonly %opaque, i32 %addr) #0 {
+define internal range(i32 0, 65536) i32 @vbe_ioport_read_index(ptr noundef readonly captures(none) %opaque, i32 %addr) #0 {
 entry:
   %vbe_index = getelementptr inbounds nuw i8, ptr %opaque, i64 2584
   %0 = load i16, ptr %vbe_index, align 8
@@ -6594,10 +6594,10 @@ entry:
 declare i32 @llvm.smin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #15

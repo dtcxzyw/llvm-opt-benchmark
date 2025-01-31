@@ -57,7 +57,7 @@ define noundef zeroext i1 @arc4_init(ptr noundef %0, ptr noundef readonly %1, i3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @arc4_apply(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @arc4_apply(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %5 = load i8, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1025

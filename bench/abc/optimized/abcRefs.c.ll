@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [3 x i8] c" )\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NodeMffcSize(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Abc_NodeMffcSize(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 28
   %.val = load i32, ptr %2, align 4
   %3 = icmp eq i32 %.val, 0
@@ -25,7 +25,7 @@ define i32 @Abc_NodeMffcSize(ptr nocapture noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Abc_NodeRefDeref(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc i32 @Abc_NodeRefDeref(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   br label %tailrecurse89
 
 tailrecurse89:                                    ; preds = %81, %3
@@ -202,7 +202,7 @@ tailrecurse:                                      ; preds = %tailrecurse89, %67
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Abc_NodeMffcSizeStop(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i32 @Abc_NodeMffcSizeStop(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 28
   %.val = load i32, ptr %2, align 4
   %3 = icmp eq i32 %.val, 0
@@ -219,7 +219,7 @@ define i32 @Abc_NodeMffcSizeStop(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @Abc_NodeRefDerefStop(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
+define internal fastcc i32 @Abc_NodeRefDerefStop(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
   br label %tailrecurse79
 
 tailrecurse79:                                    ; preds = %52, %2
@@ -341,7 +341,7 @@ tailrecurse:                                      ; preds = %34, %tailrecurse79
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NodeMffcLabelAig(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Abc_NodeMffcLabelAig(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 28
   %.val = load i32, ptr %2, align 4
   %3 = icmp eq i32 %.val, 0
@@ -358,7 +358,7 @@ define i32 @Abc_NodeMffcLabelAig(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Abc_NodeDeref_rec(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i32 @Abc_NodeDeref_rec(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 20
   %.val12 = load i32, ptr %2, align 4
   %3 = and i32 %.val12, 15
@@ -417,7 +417,7 @@ define i32 @Abc_NodeDeref_rec(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Abc_NodeRef_rec(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i32 @Abc_NodeRef_rec(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 20
   %.val12 = load i32, ptr %2, align 4
   %3 = and i32 %.val12, 15
@@ -891,12 +891,12 @@ Vec_PtrFree.exit19:                               ; preds = %Vec_PtrFree.exit, %
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @Abc_ObjName(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NodeMffcInside(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @Abc_NodeMffcInside(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %1, i64 4
   %.val1821 = load i32, ptr %4, align 4
   %5 = icmp sgt i32 %.val1821, 0
@@ -1295,7 +1295,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %2, %Vec_IntFill.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr noundef captures(none) %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -1390,16 +1390,16 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.si
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

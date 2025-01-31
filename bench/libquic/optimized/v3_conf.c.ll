@@ -90,13 +90,13 @@ if.then:                                          ; preds = %while.cond.i11
 
 if.end:                                           ; preds = %land.lhs.true4.i, %if.else.i, %v3_check_critical.exit
   %call3 = tail call i32 @OBJ_sn2nid(ptr noundef %name) #10
-  %call4 = tail call fastcc ptr @do_ext_nconf(ptr noundef %conf, ptr noundef %ctx, i32 noundef %call3, i32 noundef %retval.0.i, ptr noundef %value.addr.0)
+  %call4 = tail call fastcc ptr @do_ext_nconf(ptr noundef %conf, ptr noundef %ctx, i32 noundef %call3, i32 noundef %retval.0.i, ptr noundef nonnull %value.addr.0)
   %tobool5.not = icmp eq ptr %call4, null
   br i1 %tobool5.not, label %if.then6, label %return
 
 if.then6:                                         ; preds = %if.end
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 110, ptr noundef nonnull @.str, i32 noundef 98) #10
-  tail call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.1, ptr noundef %name, ptr noundef nonnull @.str.2, ptr noundef %value.addr.0) #10
+  tail call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.1, ptr noundef %name, ptr noundef nonnull @.str.2, ptr noundef nonnull %value.addr.0) #10
   br label %return
 
 return:                                           ; preds = %if.end, %if.then6, %if.then
@@ -408,7 +408,7 @@ if.then:                                          ; preds = %while.cond.i9
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true4.i, %if.else.i, %v3_check_critical.exit
-  %call4 = tail call fastcc ptr @do_ext_nconf(ptr noundef %conf, ptr noundef %ctx, i32 noundef %ext_nid, i32 noundef %retval.0.i, ptr noundef %value.addr.0)
+  %call4 = tail call fastcc ptr @do_ext_nconf(ptr noundef %conf, ptr noundef %ctx, i32 noundef %ext_nid, i32 noundef %retval.0.i, ptr noundef nonnull %value.addr.0)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -441,7 +441,7 @@ return:                                           ; preds = %if.end, %if.then
 declare ptr @X509V3_EXT_get_nid(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @do_ext_i2d(ptr nocapture noundef nonnull readonly %method, i32 noundef %ext_nid, i32 noundef %crit, ptr noundef %ext_struc) unnamed_addr #0 {
+define internal fastcc ptr @do_ext_i2d(ptr noundef nonnull readonly captures(none) %method, i32 noundef %ext_nid, i32 noundef %crit, ptr noundef %ext_struc) unnamed_addr #0 {
 entry:
   %ext_der = alloca ptr, align 8
   %p = alloca ptr, align 8
@@ -631,7 +631,7 @@ declare i32 @X509_REQ_add_extensions(ptr noundef, ptr noundef) local_unnamed_add
 declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509V3_get_string(ptr nocapture noundef readonly %ctx, ptr noundef %name, ptr noundef %section) local_unnamed_addr #0 {
+define hidden ptr @X509V3_get_string(ptr noundef readonly captures(none) %ctx, ptr noundef %name, ptr noundef %section) local_unnamed_addr #0 {
 entry:
   %db = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %db, align 8
@@ -663,7 +663,7 @@ return:                                           ; preds = %if.then8, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509V3_get_section(ptr nocapture noundef readonly %ctx, ptr noundef %section) local_unnamed_addr #0 {
+define hidden ptr @X509V3_get_section(ptr noundef readonly captures(none) %ctx, ptr noundef %section) local_unnamed_addr #0 {
 entry:
   %db = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %db, align 8
@@ -696,7 +696,7 @@ return:                                           ; preds = %if.then8, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @X509V3_string_free(ptr nocapture noundef readonly %ctx, ptr noundef %str) local_unnamed_addr #0 {
+define hidden void @X509V3_string_free(ptr noundef readonly captures(none) %ctx, ptr noundef %str) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %str, null
   br i1 %tobool.not, label %if.end5, label %if.end
@@ -720,7 +720,7 @@ if.end5:                                          ; preds = %entry, %if.then2, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @X509V3_section_free(ptr nocapture noundef readonly %ctx, ptr noundef %section) local_unnamed_addr #0 {
+define hidden void @X509V3_section_free(ptr noundef readonly captures(none) %ctx, ptr noundef %section) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %section, null
   br i1 %tobool.not, label %if.end5, label %if.end
@@ -744,7 +744,7 @@ if.end5:                                          ; preds = %entry, %if.then2, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @X509V3_set_nconf(ptr nocapture noundef writeonly initializes((40, 56)) %ctx, ptr noundef %conf) local_unnamed_addr #2 {
+define hidden void @X509V3_set_nconf(ptr noundef writeonly captures(none) initializes((40, 56)) %ctx, ptr noundef %conf) local_unnamed_addr #2 {
 entry:
   %db_meth = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   store ptr @nconf_method, ptr %db_meth, align 8
@@ -754,7 +754,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @X509V3_set_ctx(ptr nocapture noundef writeonly initializes((0, 4), (8, 40)) %ctx, ptr noundef %issuer, ptr noundef %subj, ptr noundef %req, ptr noundef %crl, i32 noundef %flags) local_unnamed_addr #2 {
+define hidden void @X509V3_set_ctx(ptr noundef writeonly captures(none) initializes((0, 4), (8, 40)) %ctx, ptr noundef %issuer, ptr noundef %subj, ptr noundef %req, ptr noundef %crl, i32 noundef %flags) local_unnamed_addr #2 {
 entry:
   %issuer_cert = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store ptr %issuer, ptr %issuer_cert, align 8
@@ -786,10 +786,10 @@ declare ptr @X509_EXTENSION_create_by_NID(ptr noundef, i32 noundef, i32 noundef,
 declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #5
@@ -803,7 +803,7 @@ declare ptr @X509_EXTENSION_create_by_OBJ(ptr noundef, ptr noundef, i32 noundef,
 declare void @ASN1_OBJECT_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @ASN1_generate_v3(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -828,10 +828,10 @@ entry:
 declare ptr @NCONF_get_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

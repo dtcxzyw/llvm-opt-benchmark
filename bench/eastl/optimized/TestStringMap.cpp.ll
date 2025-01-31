@@ -192,7 +192,7 @@ for.body:                                         ; preds = %for.cond
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %for.body
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i2, ptr align 1 %3, i64 %add.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i2, ptr nonnull align 1 %3, i64 %add.i, i1 false)
   %second = getelementptr inbounds nuw i8, ptr %i.sroa.0.0, i64 40
   %4 = load i32, ptr %second, align 4
   store ptr %call.i.i2, ptr %ref.tmp, align 8
@@ -222,7 +222,7 @@ entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #10
   %add = add i64 %call, 1
   %call.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr align 1 %str, i64 %add, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr nonnull align 1 %str, i64 %add, i1 false)
   ret ptr %call.i
 }
 
@@ -475,7 +475,7 @@ if.end:                                           ; preds = %_ZN5eastl19rb_base_
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
   %add.i = add i64 %call.i, 1
   %call.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr align 1 %key, i64 %add.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr nonnull align 1 %key, i64 %add.i, i1 false)
   %13 = load i32, ptr %value, align 4
   store ptr %call.i.i, ptr %ref.tmp3, align 8
   %14 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 8
@@ -722,7 +722,7 @@ if.end:                                           ; preds = %_ZN5eastl19rb_base_
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
   %add.i = add i64 %call.i, 1
   %call.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr align 1 %key, i64 %add.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr nonnull align 1 %key, i64 %add.i, i1 false)
   store ptr %call.i.i, ptr %ref.tmp4, align 8
   %second.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 8
   store i32 0, ptr %second.i, align 8
@@ -737,10 +737,10 @@ return:                                           ; preds = %while.body.i.i14.i,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl10string_mapI7Align32NS_8str_lessIPKcEENS_9allocatorEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(41) %this, ptr noundef nonnull align 1 dereferenceable(1) %allocator) unnamed_addr #0 comdat($_ZN5eastl10string_mapI7Align32NS_8str_lessIPKcEENS_9allocatorEEC5ERKS6_) align 2 {
@@ -790,7 +790,7 @@ for.body:                                         ; preds = %for.cond
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %for.body
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i2, ptr align 1 %2, i64 %add.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i2, ptr nonnull align 1 %2, i64 %add.i, i1 false)
   %second = getelementptr inbounds nuw i8, ptr %i.sroa.0.0, i64 64
   store ptr %call.i.i2, ptr %ref.tmp, align 32, !alias.scope !33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %second.i.i, ptr noundef nonnull align 32 dereferenceable(32) %second, i64 32, i1 false)
@@ -817,7 +817,7 @@ entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #10
   %add = add i64 %call, 1
   %call.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr align 1 %str, i64 %add, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr nonnull align 1 %str, i64 %add, i1 false)
   ret ptr %call.i
 }
 
@@ -1058,7 +1058,7 @@ if.end:                                           ; preds = %_ZN5eastl19rb_base_
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
   %add.i = add i64 %call.i, 1
   %call.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr align 1 %key, i64 %add.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr nonnull align 1 %key, i64 %add.i, i1 false)
   store ptr %call.i.i, ptr %ref.tmp3, align 32, !alias.scope !47
   %second.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %second.i.i, ptr noundef nonnull align 32 dereferenceable(32) %value, i64 32, i1 false)
@@ -1304,7 +1304,7 @@ if.end:                                           ; preds = %_ZN5eastl19rb_base_
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
   %add.i = add i64 %call.i, 1
   %call.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr align 1 %key, i64 %add.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr nonnull align 1 %key, i64 %add.i, i1 false)
   store ptr %call.i.i, ptr %ref.tmp4, align 32
   %second.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 32
   store i32 0, ptr %second.i, align 32
@@ -3676,10 +3676,10 @@ declare noundef i64 @_ZN5eastl19RBTreeGetBlackCountEPKNS_16rbtree_node_baseES2_(
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

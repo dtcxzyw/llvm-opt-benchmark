@@ -158,7 +158,7 @@ define dso_local void @ilk_update_display_irq(ptr noundef %0, i32 noundef %1, i3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
@@ -167,7 +167,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @intel_irqs_enabled(ptr noundef) local_unnamed_addr #2
@@ -459,7 +459,7 @@ define dso_local void @ibx_disable_display_interrupt(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, -65535) i32 @i915_pipestat_enable_mask(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, -65535) i32 @i915_pipestat_enable_mask(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8040
   %4 = sext i32 %1 to i64
   %5 = getelementptr [4 x i32], ptr %3, i64 0, i64 %4
@@ -880,7 +880,7 @@ define dso_local void @i9xx_pipestat_irq_reset(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i9xx_pipestat_irq_ack(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @i9xx_pipestat_irq_ack(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7932
   tail call void @_raw_spin_lock(ptr noundef nonnull %4) #8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 7936
@@ -962,7 +962,7 @@ define dso_local void @i9xx_pipestat_irq_ack(ptr noundef %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i8xx_pipestat_irq_handler(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local void @i8xx_pipestat_irq_handler(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2638
   br label %5
 
@@ -1126,7 +1126,7 @@ define internal fastcc void @i9xx_pipe_crc_irq_handler(ptr noundef %0, i32 nound
 declare dso_local void @intel_cpu_fifo_underrun_irq_handler(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i915_pipestat_irq_handler(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local void @i915_pipestat_irq_handler(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2638
   br label %5
 
@@ -1205,7 +1205,7 @@ define dso_local void @i915_pipestat_irq_handler(ptr noundef %0, i32 noundef %1,
 declare dso_local void @intel_opregion_asle_intr(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i965_pipestat_irq_handler(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local void @i965_pipestat_irq_handler(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2638
   br label %5
 
@@ -1294,7 +1294,7 @@ define dso_local void @i965_pipestat_irq_handler(ptr noundef %0, i32 noundef %1,
 declare dso_local void @intel_gmbus_irq_handler(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @valleyview_pipestat_irq_handler(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @valleyview_pipestat_irq_handler(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2638
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 360
   br label %5
@@ -2301,7 +2301,7 @@ declare dso_local zeroext i1 @intel_encoder_can_psr(ptr noundef) local_unnamed_a
 declare dso_local void @intel_psr_irq_handler(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local range(i32 -2147483648, -2141192191) i32 @gen8_de_pipe_underrun_mask(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 -2147483648, -2141192191) i32 @gen8_de_pipe_underrun_mask(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   %3 = load i16, ptr %2, align 8
   %4 = icmp ugt i16 %3, 12
@@ -3124,7 +3124,7 @@ declare dso_local void @spt_irq_handler(ptr noundef, i32 noundef) local_unnamed_
 declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @gen11_gu_misc_irq_ack(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @gen11_gu_misc_irq_ack(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = and i32 %1, 536870912
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %12, label %5
@@ -3176,7 +3176,7 @@ define dso_local void @gen11_display_irq_handler(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @i8xx_enable_vblank(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @i8xx_enable_vblank(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %4 = load i32, ptr %3, align 8
@@ -3191,7 +3191,7 @@ define dso_local noundef i32 @i8xx_enable_vblank(ptr nocapture noundef readonly 
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @i915gm_enable_vblank(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @i915gm_enable_vblank(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 9376
   %4 = load i8, ptr %3, align 8
@@ -3219,7 +3219,7 @@ define dso_local noundef i32 @i915gm_enable_vblank(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @i965_enable_vblank(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @i965_enable_vblank(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %4 = load i32, ptr %3, align 8
@@ -3319,7 +3319,7 @@ define dso_local noundef i32 @bdw_enable_vblank(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i8xx_disable_vblank(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @i8xx_disable_vblank(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %4 = load i32, ptr %3, align 8
@@ -3331,7 +3331,7 @@ define dso_local void @i8xx_disable_vblank(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i915gm_disable_vblank(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @i915gm_disable_vblank(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %4 = load i32, ptr %3, align 8
@@ -3358,7 +3358,7 @@ define dso_local void @i915gm_disable_vblank(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i965_disable_vblank(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @i965_disable_vblank(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %4 = load i32, ptr %3, align 8
@@ -3370,7 +3370,7 @@ define dso_local void @i965_disable_vblank(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ilk_disable_vblank(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @ilk_disable_vblank(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %4 = load i32, ptr %3, align 8
@@ -3390,7 +3390,7 @@ define dso_local void @ilk_disable_vblank(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bdw_disable_vblank(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @bdw_disable_vblank(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1654
   %4 = load i8, ptr %3, align 2

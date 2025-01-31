@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN13BalanceRegionD1Ev = unnamed_addr alias void (ptr), ptr @_ZN13BalanceRegionD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13BalanceRegionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13BalanceRegionC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %2 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #10
           to label %_ZNSt10unique_ptrIN13BalanceRegion4ImplESt14default_deleteIS1_EED2Ev.exit unwind label %_ZNSt10unique_ptrIN13BalanceRegion4ImplESt14default_deleteIS1_EED2Ev.exit4
@@ -36,7 +36,7 @@ _ZNSt10unique_ptrIN13BalanceRegion4ImplESt14default_deleteIS1_EED2Ev.exit4: ; pr
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
@@ -45,7 +45,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13BalanceRegionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 align 2 {
+define void @_ZN13BalanceRegionD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) unnamed_addr #4 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN13BalanceRegion4ImplESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN13BalanceRegion4ImplEEclEPS1_.exit.i
@@ -60,7 +60,7 @@ _ZNSt10unique_ptrIN13BalanceRegion4ImplESt14default_deleteIS1_EED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK22DDBalanceRegionHandler17openRegionCpuImplE26DdAllowBalanceRegionReopen(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZNK22DDBalanceRegionHandler17openRegionCpuImplE26DdAllowBalanceRegionReopen(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 320
@@ -94,7 +94,7 @@ define void @_ZNK22DDBalanceRegionHandler17openRegionCpuImplE26DdAllowBalanceReg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK22DDBalanceRegionHandler17openRegionGpuImplEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #5 align 2 {
+define void @_ZNK22DDBalanceRegionHandler17openRegionGpuImplEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 320
@@ -107,7 +107,7 @@ define void @_ZNK22DDBalanceRegionHandler17openRegionGpuImplEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_Z24ddReopenBalanceRegionCpuPK12gmx_domdec_t(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define void @_Z24ddReopenBalanceRegionCpuPK12gmx_domdec_t(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr i8, ptr %0, i64 320
   %.val = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %.val, i64 2120
@@ -139,7 +139,7 @@ define void @_Z24ddReopenBalanceRegionCpuPK12gmx_domdec_t(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK22DDBalanceRegionHandler18closeRegionCpuImplEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define void @_ZNK22DDBalanceRegionHandler18closeRegionCpuImplEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 320
@@ -192,7 +192,7 @@ define void @_ZNK22DDBalanceRegionHandler18closeRegionCpuImplEv(ptr nocapture no
 declare void @_Z13dd_cycles_addPK12gmx_domdec_tfi(ptr noundef, float noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK22DDBalanceRegionHandler18closeRegionGpuImplEf27DdBalanceRegionWaitedForGpu(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, float noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZNK22DDBalanceRegionHandler18closeRegionGpuImplEf27DdBalanceRegionWaitedForGpu(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, float noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 320
@@ -238,7 +238,7 @@ define void @_ZNK22DDBalanceRegionHandler18closeRegionGpuImplEf27DdBalanceRegion
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z19dd_force_flop_startP12gmx_domdec_tP6t_nrnb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @_Z19dd_force_flop_startP12gmx_domdec_tP6t_nrnb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -260,7 +260,7 @@ define void @_Z19dd_force_flop_startP12gmx_domdec_tP6t_nrnb(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef double @_ZL16force_flop_countPK6t_nrnb(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc noundef double @_ZL16force_flop_countPK6t_nrnb(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %1, %8
@@ -338,7 +338,7 @@ define internal fastcc noundef double @_ZL16force_flop_countPK6t_nrnb(ptr nocapt
 declare noundef ptr @_Z8nrnb_stri(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 declare noundef i32 @_Z9cost_nrnbi(i32 noundef) local_unnamed_addr #6
 
@@ -346,7 +346,7 @@ declare noundef i32 @_Z9cost_nrnbi(i32 noundef) local_unnamed_addr #6
 declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z18dd_force_flop_stopP12gmx_domdec_tP6t_nrnb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @_Z18dd_force_flop_stopP12gmx_domdec_tP6t_nrnb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -373,7 +373,7 @@ define void @_Z18dd_force_flop_stopP12gmx_domdec_tP6t_nrnb(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_Z21clear_dd_cycle_countsP12gmx_domdec_t(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define void @_Z21clear_dd_cycle_countsP12gmx_domdec_t(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   br label %3
 

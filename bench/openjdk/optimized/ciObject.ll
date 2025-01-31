@@ -198,7 +198,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN8ciObjectC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN8ciObjectC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8ciObjectC2EP7oopDesc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 12), (16, 40)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN8ciObjectC2EP7oopDesc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 12), (16, 40)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTV8ciObject, i64 16), ptr %0, align 8
@@ -264,10 +264,10 @@ declare noundef ptr @_ZN10JNIHandles10make_localEP7oopDesc(ptr noundef) local_un
 declare noundef ptr @_ZN10JNIHandles11make_globalE6HandleN17AllocFailStrategy13AllocFailEnumE(ptr, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8ciObjectC2E6Handle(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 12), (16, 40)) %0, ptr %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN8ciObjectC2E6Handle(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 12), (16, 40)) %0, ptr %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTV8ciObject, i64 16), ptr %0, align 8
@@ -304,7 +304,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %7, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN8ciObjectC2EP7ciKlass(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 12), (16, 40)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN8ciObjectC2EP7ciKlass(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 12), (16, 40)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTV8ciObject, i64 16), ptr %0, align 8
@@ -318,7 +318,7 @@ define hidden void @_ZN8ciObjectC2EP7ciKlass(ptr nocapture noundef nonnull write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN8ciObjectC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 12), (16, 40)) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN8ciObjectC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 12), (16, 40)) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTV8ciObject, i64 16), ptr %0, align 8
@@ -328,7 +328,7 @@ define hidden void @_ZN8ciObjectC2Ev(ptr nocapture noundef nonnull writeonly ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK8ciObject7get_oopEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK8ciObject7get_oopEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
@@ -360,7 +360,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %6, %10, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8ciObject5klassEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN8ciObject5klassEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -615,14 +615,14 @@ define hidden noundef i32 @_ZN8ciObject4hashEv(ptr noundef nonnull align 8 deref
 declare noundef i32 @_ZN12ciBaseObject5identEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN8ciObject17constant_encodingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN8ciObject17constant_encodingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden { i8, i64 } @_ZN8ciObject26check_constant_value_cacheEi9BasicType(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #7 align 2 {
+define hidden { i8, i64 } @_ZN8ciObject26check_constant_value_cacheEi9BasicType(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #7 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -667,7 +667,7 @@ define hidden { i8, i64 } @_ZN8ciObject26check_constant_value_cacheEi9BasicType(
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8ciObject27add_to_constant_value_cacheEi10ciConstant(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i8 %2, i64 %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8ciObject27add_to_constant_value_cacheEi10ciConstant(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i8 %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -2686,7 +2686,7 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
 declare i32 @llvm.ctpop.i32(i32) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -93,7 +93,7 @@ $_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj7919E15MemStatTabl
 @_ZN30CompilationMemoryStatisticMarkD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN30CompilationMemoryStatisticMarkD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN16ArenaStatCounterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) initializes((0, 50), (56, 76)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN16ArenaStatCounterC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(76) initializes((0, 50), (56, 76)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(50) %0, i8 0, i64 50, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
@@ -101,7 +101,7 @@ define hidden void @_ZN16ArenaStatCounterC2Ev(ptr nocapture noundef nonnull writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK16ArenaStatCounter16peak_since_startEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZNK16ArenaStatCounter16peak_since_startEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -111,7 +111,7 @@ define hidden noundef i64 @_ZNK16ArenaStatCounter16peak_since_startEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN16ArenaStatCounter5startEm(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((8, 24), (40, 49)) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN16ArenaStatCounter5startEm(ptr noundef nonnull align 8 captures(none) dereferenceable(76) initializes((8, 24), (40, 49)) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load i64, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %3, ptr %4, align 8
@@ -125,7 +125,7 @@ define hidden void @_ZN16ArenaStatCounter5startEm(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN16ArenaStatCounter3endEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) initializes((40, 49)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16ArenaStatCounter3endEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(76) initializes((40, 49)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -134,7 +134,7 @@ define hidden void @_ZN16ArenaStatCounter3endEv(ptr nocapture noundef nonnull wr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16ArenaStatCounter20update_c2_node_countEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN16ArenaStatCounter20update_c2_node_countEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(76) %0) local_unnamed_addr #3 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1824
@@ -182,7 +182,7 @@ define hidden void @_ZN16ArenaStatCounter20update_c2_node_countEv(ptr nocapture 
 declare noundef ptr @_ZNK11CompileTask8compilerEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN16ArenaStatCounter7accountEli(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN16ArenaStatCounter7accountEli(ptr noundef nonnull align 8 captures(none) dereferenceable(76) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = load i64, ptr %0, align 8
   %5 = add i64 %4, %1
   store i64 %5, ptr %0, align 8
@@ -288,7 +288,7 @@ _ZN16ArenaStatCounter20update_c2_node_countEv.exit: ; preds = %15, %26, %29, %35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK16ArenaStatCounter8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %0, ptr noundef nonnull %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK16ArenaStatCounter8print_onEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %0, ptr noundef nonnull %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -530,7 +530,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %94, %96
 declare noundef zeroext i1 @_ZNK12DirectiveSet20should_print_memstatEv(ptr noundef nonnull align 8 dereferenceable(280)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull ptr @_ZN26CompilationMemoryStatistic23failure_reason_memlimitEv() local_unnamed_addr #7 align 2 {
@@ -637,19 +637,19 @@ define linkonce_odr hidden noundef ptr @_ZNK14FullMethodName11as_C_stringEPcm(pt
   %17 = load ptr, ptr %0, align 8
   %18 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %17) #14
   %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #15
-  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef %18, i64 noundef %19) #14
+  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull %18, i64 noundef %19) #14
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.23, i64 noundef 2) #14
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %21) #14
   %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #15
-  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef %22, i64 noundef %23) #14
+  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull %22, i64 noundef %23) #14
   call void @_ZN12outputStream3putEc(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 noundef signext 40) #14
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %25) #14
   %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #15
-  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef %26, i64 noundef %27) #14
+  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull %26, i64 noundef %27) #14
   call void @_ZN12outputStream3putEc(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 noundef signext 41) #14
   %28 = load ptr, ptr %10, align 8
   %.not.i.i.i.i = icmp eq ptr %28, null
@@ -679,7 +679,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %30, %32
 declare void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN26CompilationMemoryStatistic15on_arena_changeElPK5Arena(i64 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN26CompilationMemoryStatistic15on_arena_changeElPK5Arena(i64 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca [1024 x i8], align 16
   %4 = alloca %class.FullMethodName, align 8
   %5 = alloca [1024 x i8], align 16
@@ -856,7 +856,7 @@ _ZL28inform_compilation_about_oom12CompilerType.exit: ; preds = %86, %94, %.sink
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare noundef zeroext i1 @_ZNK12DirectiveSet25should_crash_at_mem_limitEv(ptr noundef nonnull align 8 dereferenceable(280)) local_unnamed_addr #4
 
@@ -1143,7 +1143,7 @@ _ZN9QuickSort10find_pivotIP12MemStatEntryPFlPKS1_S4_EEEmPT_mT0_.exit._crit_edge:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZL20diff_entries_by_sizePK12MemStatEntryS1_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZL20diff_entries_by_sizePK12MemStatEntryS1_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1358,7 +1358,7 @@ _Z17compilertype2name12CompilerType.exit:         ; preds = %70, %78
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN30CompilationMemoryStatisticMarkC2EPK12DirectiveSet(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %0, ptr noundef nonnull %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN30CompilationMemoryStatisticMarkC2EPK12DirectiveSet(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %0, ptr noundef nonnull %1) unnamed_addr #3 align 2 {
   %3 = tail call noundef zeroext i1 @_ZNK12DirectiveSet22should_collect_memstatEv(ptr noundef nonnull align 8 dereferenceable(280) %1) #14
   %4 = zext i1 %3 to i8
   store i8 %4, ptr %0, align 1
@@ -1388,7 +1388,7 @@ define hidden void @_ZN30CompilationMemoryStatisticMarkC2EPK12DirectiveSet(ptr n
 declare noundef zeroext i1 @_ZNK12DirectiveSet22should_collect_memstatEv(ptr noundef nonnull align 8 dereferenceable(280)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN30CompilationMemoryStatisticMarkD2Ev(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN30CompilationMemoryStatisticMarkD2Ev(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #3 align 2 {
   %2 = load i8, ptr %0, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %5
@@ -1729,7 +1729,7 @@ declare void @_ZN5Chunk9next_chopEPS_(ptr noundef) local_unnamed_addr #4
 declare void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704), ptr noundef) local_unnamed_addr #4
 

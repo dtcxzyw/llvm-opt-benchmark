@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [3 x i8] c" }\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i64 @Extra_TruthCanonNPN3(i64 noundef %0, i32 noundef %1, ptr nocapture noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
+define i64 @Extra_TruthCanonNPN3(i64 noundef %0, i32 noundef %1, ptr noundef captures(none) initializes((4, 8)) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @Extra_Factorial(i32 noundef %1) #11
   %5 = tail call ptr @Extra_GreyCodeSchedule(i32 noundef %1) #11
   %6 = tail call ptr @Extra_PermSchedule(i32 noundef %1) #11
@@ -233,7 +233,7 @@ declare ptr @Extra_GreyCodeSchedule(i32 noundef) local_unnamed_addr #1
 declare ptr @Extra_PermSchedule(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @Acec_MultFuncTest6() local_unnamed_addr #0 {
@@ -303,10 +303,10 @@ Vec_WrdFree.exit:                                 ; preds = %.critedge, %.crited
 declare void @Extra_PrintHex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Extra_TruthCanonNPN2(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define i32 @Extra_TruthCanonNPN2(i32 noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @Extra_TruthCanonNPN2.pPerms, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.sink.split, label %6
@@ -587,7 +587,7 @@ declare i32 @Extra_TruthPolarize(i32 noundef, i32 noundef, i32 noundef) local_un
 declare i32 @Extra_TruthPermute(i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntPushUnique(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntPushUnique(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -814,7 +814,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %.crited
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Acec_MultCollectInputs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define noalias noundef ptr @Acec_MultCollectInputs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4
@@ -918,7 +918,7 @@ Vec_IntSelectSortCost.exit:                       ; preds = %._crit_edge.i, %3, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Acec_MultDetectInputs1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define noalias noundef ptr @Acec_MultDetectInputs1(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4
@@ -1574,7 +1574,7 @@ Vec_IntFree.exit176:                              ; preds = %Vec_IntFree.exit174
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntAppend(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntAppend(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val7 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val7, 0
@@ -1664,7 +1664,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Acec_MultDetectInputs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define noalias noundef ptr @Acec_MultDetectInputs(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1876,7 +1876,7 @@ Vec_IntStart.exit135:                             ; preds = %Vec_IntAlloc.exit.t
   %.val110 = load ptr, ptr %95, align 8
   %99 = getelementptr inbounds nuw i32, ptr %.val110, i64 %indvars.iv171
   %100 = load i32, ptr %99, align 4
-  %101 = call i64 @Gia_ObjComputeTruth6Cis(ptr noundef %0, i32 noundef %100, ptr noundef nonnull %9, ptr noundef nonnull %14) #11
+  %101 = call i64 @Gia_ObjComputeTruth6Cis(ptr noundef nonnull %0, i32 noundef %100, ptr noundef nonnull %9, ptr noundef nonnull %14) #11
   store i64 %101, ptr %4, align 8
   %.val104 = load i32, ptr %10, align 4
   %102 = icmp sgt i32 %.val104, -1
@@ -2242,7 +2242,7 @@ Vec_WrdFree.exit:                                 ; preds = %Vec_IntFree.exit, %
 declare void @Gia_ManCleanMark0(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @Abc_Tt6MinBase(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #4 {
+define internal fastcc i32 @Abc_Tt6MinBase(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #4 {
   %4 = load i64, ptr %0, align 8
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -2577,7 +2577,7 @@ Vec_WrdStart.exit:                                ; preds = %1, %14
 
 47:                                               ; preds = %41
   %48 = trunc nuw nsw i64 %indvars.iv49 to i32
-  tail call void @Acec_MultFindPPs_rec(ptr noundef %0, i32 noundef %48, ptr noundef nonnull %3)
+  tail call void @Acec_MultFindPPs_rec(ptr noundef nonnull %0, i32 noundef %48, ptr noundef nonnull %3)
   %49 = add nsw i32 %.047, 1
   br label %.critedge
 
@@ -2711,19 +2711,19 @@ Vec_IntFree.exit:                                 ; preds = %1, %5
 declare void @Gia_ManShow(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9

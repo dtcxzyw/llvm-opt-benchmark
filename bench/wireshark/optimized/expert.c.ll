@@ -150,7 +150,7 @@ define hidden void @expert_packet_init() local_unnamed_addr #0 {
 declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_expert_entries_field_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_expert_entries_field_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #12
   %8 = load ptr, ptr %0, align 8
@@ -160,7 +160,7 @@ define internal void @uat_expert_entries_field_set_cb(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_expert_entries_field_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_expert_entries_field_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -187,7 +187,7 @@ define internal void @uat_expert_entries_field_tostr_cb(ptr nocapture noundef re
 declare zeroext i1 @uat_fld_chk_enum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_expert_entries_severity_set_cb(ptr nocapture noundef writeonly initializes((8, 12)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_expert_entries_severity_set_cb(ptr noundef writeonly captures(none) initializes((8, 12)) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #12
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -229,7 +229,7 @@ define internal void @uat_expert_entries_severity_set_cb(ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_expert_entries_severity_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_expert_entries_severity_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
@@ -291,7 +291,7 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @uat_expert_copy_cb(ptr noundef returned writeonly initializes((0, 12)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @uat_expert_copy_cb(ptr noundef returned writeonly initializes((0, 12)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #12
   store ptr %5, ptr %0, align 8
@@ -303,7 +303,7 @@ define internal noundef ptr @uat_expert_copy_cb(ptr noundef returned writeonly i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @uat_expert_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define internal noundef zeroext i1 @uat_expert_update_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %expert_registrar_get_byname.exit.thread, label %expert_registrar_get_byname.exit
@@ -330,7 +330,7 @@ expert_registrar_get_byname.exit.thread:          ; preds = %expert_registrar_ge
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_expert_free_cb(ptr nocapture noundef readonly %0) #0 {
+define internal void @uat_expert_free_cb(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #12
   ret void
@@ -600,7 +600,7 @@ define hidden void @expert_free_deregistered_expertinfos() local_unnamed_addr #0
 declare void @g_ptr_array_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @free_deregistered_expertinfo(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #5 {
+define internal void @free_deregistered_expertinfo(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #5 {
   %3 = load ptr, ptr @gpa_expertinfo.2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
@@ -611,7 +611,7 @@ define internal void @free_deregistered_expertinfo(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define void @expert_register_field_array(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @expert_register_field_array(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %.loopexit
 
@@ -745,10 +745,10 @@ expert_register_field_init.exit:                  ; preds = %31, %.sink.split.i
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define ptr @expert_get_summary(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @expert_get_summary(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4
   %3 = load i32, ptr @gpa_expertinfo.0, align 8
   %4 = icmp uge i32 %2, %3
@@ -794,13 +794,13 @@ declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 nound
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define ptr @expert_add_info(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define ptr @expert_add_info(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call ptr (ptr, ptr, ptr, ...) @expert_add_info_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @expert_add_info_internal(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ...) unnamed_addr #0 {
+define internal ptr @expert_add_info_internal(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ...) unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = load i32, ptr %2, align 4
   %6 = load i32, ptr @gpa_expertinfo.0, align 8
@@ -851,7 +851,7 @@ define internal ptr @expert_add_info_internal(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @expert_add_info_format(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ...) local_unnamed_addr #0 {
+define ptr @expert_add_info_format(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ...) local_unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr @gpa_expertinfo.0, align 8
@@ -1217,13 +1217,13 @@ proto_item_set_generated.exit92:                  ; preds = %proto_item_set_gene
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @proto_tree_add_expert(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define noundef ptr @proto_tree_add_expert(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ...) @proto_tree_add_expert_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5)
   ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @proto_tree_add_expert_internal(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ...) unnamed_addr #0 {
+define internal noundef ptr @proto_tree_add_expert_internal(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ...) unnamed_addr #0 {
   %7 = alloca [1 x %struct.__va_list_tag], align 16
   %8 = load i32, ptr %2, align 4
   %9 = load i32, ptr @gpa_expertinfo.0, align 8
@@ -1288,7 +1288,7 @@ define internal noundef ptr @proto_tree_add_expert_internal(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ...) local_unnamed_addr #0 {
+define noundef ptr @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ...) local_unnamed_addr #0 {
   %8 = alloca [1 x %struct.__va_list_tag], align 16
   %9 = load i32, ptr %2, align 4
   %10 = load i32, ptr @gpa_expertinfo.0, align 8
@@ -1362,7 +1362,7 @@ declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -1382,7 +1382,7 @@ declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #6
 
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 

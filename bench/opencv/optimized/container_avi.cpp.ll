@@ -417,7 +417,7 @@ define hidden noundef i64 @_ZN2cv16VideoInputStream5tellgEv(ptr noundef nonnull 
 declare { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN2cv16VideoInputStreamcvbEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(560) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN2cv16VideoInputStreamcvbEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(560) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -803,7 +803,7 @@ _ZNSt11_Deque_baseISt4pairImjESaIS1_EED2Ev.exit:  ; preds = %1, %_ZNSt11_Deque_b
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv16AVIReadContainer10initStreamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv16AVIReadContainer10initStreamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(137) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(576) ptr @_Znwm(i64 noundef 576) #26, !noalias !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %4, align 8, !noalias !9
@@ -990,7 +990,7 @@ _ZN2cv3PtrINS_16VideoInputStreamEED2Ev.exit:      ; preds = %64, %76, %_ZNSt16_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv16AVIReadContainer10initStreamENS_3PtrINS_16VideoInputStreamEEE(ptr nocapture noundef nonnull align 8 dereferenceable(137) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv16AVIReadContainer10initStreamENS_3PtrINS_16VideoInputStreamEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(137) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1106,7 +1106,7 @@ _ZN2cv3PtrINS_16VideoInputStreamEEaSERKS2_.exit:  ; preds = %2, %_ZNSt16_Sp_coun
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv16AVIReadContainer5closeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN2cv16AVIReadContainer5closeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call noundef zeroext i1 @_ZNKSt14basic_ifstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(560) %2)
   br i1 %3, label %4, label %_ZN2cv16VideoInputStream5closeEv.exit
@@ -1122,7 +1122,7 @@ _ZN2cv16VideoInputStream5closeEv.exit:            ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN2cv16AVIReadContainer10parseIndexEjRSt5dequeISt4pairImjESaIS3_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(80) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN2cv16AVIReadContainer10parseIndexEjRSt5dequeISt4pairImjESaIS3_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(80) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.cv::AviIndex", align 4
   %5 = alloca %"struct.std::pair", align 8
   %6 = load ptr, ptr %0, align 8
@@ -1220,10 +1220,10 @@ _ZNSt5dequeISt4pairImjESaIS1_EE9push_backEOS1_.exit: ; preds = %53, %50, %54, %_
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN2cv16AVIReadContainer9parseStrlEcNS_6CodecsE(ptr nocapture noundef nonnull align 8 dereferenceable(137) %0, i8 noundef signext %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN2cv16AVIReadContainer9parseStrlEcNS_6CodecsE(ptr noundef nonnull align 8 captures(none) dereferenceable(137) %0, i8 noundef signext %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.cv::RiffChunk", align 4
   %5 = alloca %"struct.cv::AviStreamHeader", align 4
   %6 = load ptr, ptr %0, align 8
@@ -1342,7 +1342,7 @@ _ZN2cv16VideoInputStream4readEPcj.exit:           ; preds = %2, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv16AVIReadContainer8skipJunkERNS_9RiffChunkE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %0, ptr noundef nonnull align 1 dereferenceable(8) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv16AVIReadContainer8skipJunkERNS_9RiffChunkE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %0, ptr noundef nonnull align 1 dereferenceable(8) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 1
   %.b = load i1, ptr @_ZN2cvL7JUNK_CCE, align 4
   %4 = select i1 %.b, i32 1263424842, i32 0
@@ -1376,7 +1376,7 @@ _ZN2cvrsERNS_16VideoInputStreamERNS_9RiffChunkE.exit: ; preds = %17, %6, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv16AVIReadContainer8skipJunkERNS_8RiffListE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %0, ptr noundef nonnull align 1 dereferenceable(12) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv16AVIReadContainer8skipJunkERNS_8RiffListE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %0, ptr noundef nonnull align 1 dereferenceable(12) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 1
   %.b = load i1, ptr @_ZN2cvL7JUNK_CCE, align 4
   %4 = select i1 %.b, i32 1263424842, i32 0
@@ -1429,7 +1429,7 @@ _ZN2cv16VideoInputStream4readEPcj.exit:           ; preds = %2, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN2cv16AVIReadContainer13parseHdrlListENS_6CodecsE(ptr nocapture noundef nonnull align 8 dereferenceable(137) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN2cv16AVIReadContainer13parseHdrlListENS_6CodecsE(ptr noundef nonnull align 8 captures(none) dereferenceable(137) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.cv::RiffChunk", align 4
   %4 = alloca %"struct.cv::AviMainHeader", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1626,7 +1626,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(p
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv16AVIReadContainer10printErrorERNS_8RiffListEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv16AVIReadContainer10printErrorERNS_8RiffListEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1731,7 +1731,7 @@ _ZN2cv14fourccToStringB5cxx11Ej.exit10:           ; preds = %43
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv16AVIReadContainer10printErrorERNS_9RiffChunkEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(8) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv16AVIReadContainer10printErrorERNS_9RiffChunkEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(8) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1784,7 +1784,7 @@ _ZN2cv14fourccToStringB5cxx11Ej.exit:             ; preds = %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN2cv16AVIReadContainer21parseAviWithFrameListERSt5dequeISt4pairImjESaIS3_EENS_6CodecsE(ptr nocapture noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN2cv16AVIReadContainer21parseAviWithFrameListERSt5dequeISt4pairImjESaIS3_EENS_6CodecsE(ptr noundef nonnull align 8 captures(none) dereferenceable(137) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.cv::RiffList", align 4
   %5 = alloca %"struct.cv::RiffList", align 4
   %6 = alloca %"struct.cv::RiffChunk", align 4
@@ -2033,7 +2033,7 @@ _ZN2cv16AVIReadContainer8skipJunkERNS_8RiffListE.exit._crit_edge: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv16AVIReadContainer9readFrameESt15_Deque_iteratorISt4pairImjERS3_PS3_E(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv16AVIReadContainer9readFrameESt15_Deque_iteratorISt4pairImjERS3_PS3_E(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.cv::RiffChunk", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -2274,7 +2274,7 @@ _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN2cv16AVIReadContainer9parseRiffERSt5dequeISt4pairImjESaIS3_EE(ptr nocapture noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN2cv16AVIReadContainer9parseRiffERSt5dequeISt4pairImjESaIS3_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(137) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.cv::RiffList", align 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 520
@@ -2614,7 +2614,7 @@ declare void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv(ptr noundef non
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZNK2cv9BitStream6getPosEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(569) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i64 @_ZNK2cv9BitStream6getPosEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(569) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 552
@@ -2852,7 +2852,7 @@ _ZN2cv9BitStream10writeBlockEv.exit32:            ; preds = %56, %62
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv9BitStream8putShortEi(ptr noundef nonnull align 8 dereferenceable(569) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
@@ -3558,7 +3558,7 @@ _ZNSt10shared_ptrIN2cv9BitStreamEED2Ev.exit:      ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv17AVIWriteContainerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv17AVIWriteContainerD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 552
   %4 = load ptr, ptr %3, align 8
@@ -3770,7 +3770,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN2cv17AVIWriteContainer13initContainerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdNS_5Size_IiEEb(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((16, 40)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, double noundef %2, i64 %3, i1 noundef zeroext %4) local_unnamed_addr #11 align 2 {
+define noundef zeroext i1 @_ZN2cv17AVIWriteContainer13initContainerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdNS_5Size_IiEEb(ptr noundef nonnull align 8 captures(none) dereferenceable(136) initializes((16, 40)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, double noundef %2, i64 %3, i1 noundef zeroext %4) local_unnamed_addr #11 align 2 {
   %.sroa.0.0.extract.trunc = trunc i64 %3 to i32
   %.sroa.2.0.extract.shift = lshr i64 %3, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
@@ -3827,7 +3827,7 @@ _ZN2cv9BitStream4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv17AVIWriteContainer13startWriteAVIEi(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv17AVIWriteContainer13startWriteAVIEi(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %0, i32 noundef %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %.b = load i1, ptr @_ZN2cvL7RIFF_CCE, align 4
@@ -4826,7 +4826,7 @@ _ZN2cv9BitStream6putIntEj.exit68:                 ; preds = %_ZN2cv9BitStream6pu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv17AVIWriteContainer15startWriteChunkEj(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv17AVIWriteContainer15startWriteChunkEj(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5071,7 +5071,7 @@ _ZN2cv9BitStream6putIntEj.exit10:                 ; preds = %_ZNSt6vectorImSaImE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv17AVIWriteContainer17writeStreamHeaderENS_6CodecsE(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv17AVIWriteContainer17writeStreamHeaderENS_6CodecsE(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7077,7 +7077,7 @@ _ZN2cv9BitStream6putIntEj.exit153:                ; preds = %_ZNK2cv9BitStream6g
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv17AVIWriteContainer13endWriteChunkEv(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv17AVIWriteContainer13endWriteChunkEv(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7241,7 +7241,7 @@ _ZN2cv13safe_int_castIjmEET_T0_PKc.exit:          ; preds = %54
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 1650728960, 1668300800) i32 @_ZN2cv17AVIWriteContainer11getAVIIndexEiNS_10StreamTypeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(136) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 align 2 {
+define noundef range(i32 1650728960, 1668300800) i32 @_ZN2cv17AVIWriteContainer11getAVIIndexEiNS_10StreamTypeE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(136) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 align 2 {
   %switch.tableidx = add i32 %2, -1
   %4 = icmp ult i32 %switch.tableidx, 3
   br i1 %4, label %switch.lookup, label %6
@@ -7267,7 +7267,7 @@ switch.lookup:                                    ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv17AVIWriteContainer10writeIndexEiNS_10StreamTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define void @_ZN2cv17AVIWriteContainer10writeIndexEiNS_10StreamTypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %.b = load i1, ptr @_ZN2cvL7IDX1_CCE, align 4
   %4 = select i1 %.b, i32 829973609, i32 0
   tail call void @_ZN2cv17AVIWriteContainer15startWriteChunkEj(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %4)
@@ -7522,7 +7522,7 @@ _ZN2cv9BitStream6putIntEj.exit18:                 ; preds = %_ZN2cv9BitStream6pu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv17AVIWriteContainer14finishWriteAVIEv(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv17AVIWriteContainer14finishWriteAVIEv(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -7595,14 +7595,14 @@ _ZN2cv13safe_int_castIjmEET_T0_PKc.exit:          ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK2cv17AVIWriteContainer14isOpenedStreamEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK2cv17AVIWriteContainer14isOpenedStreamEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call noundef zeroext i1 @_ZNKSt14basic_ofstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(569) %2)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK2cv17AVIWriteContainer12getStreamPosEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK2cv17AVIWriteContainer12getStreamPosEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = load ptr, ptr %0, align 8
@@ -7656,7 +7656,7 @@ _ZNK2cv9BitStream6getPosEv.exit:                  ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv17AVIWriteContainer15jputStreamShortEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN2cv17AVIWriteContainer15jputStreamShortEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = lshr i32 %1, 8
   %5 = trunc i32 %4 to i8
@@ -7703,14 +7703,14 @@ _ZN2cv9BitStream9jputShortEi.exit:                ; preds = %2, %_ZN2cv9BitStrea
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv17AVIWriteContainer14putStreamBytesEPKhi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define void @_ZN2cv17AVIWriteContainer14putStreamBytesEPKhi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = load ptr, ptr %0, align 8
   tail call void @_ZN2cv9BitStream8putBytesEPKhi(ptr noundef nonnull align 8 dereferenceable(569) %4, ptr noundef %1, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv17AVIWriteContainer13putStreamByteEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN2cv17AVIWriteContainer13putStreamByteEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = trunc i32 %1 to i8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 552
@@ -7752,7 +7752,7 @@ _ZN2cv9BitStream7putByteEi.exit:                  ; preds = %2, %_ZN2cv9BitStrea
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv17AVIWriteContainer10jputStreamEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN2cv17AVIWriteContainer10jputStreamEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 552
   %5 = load ptr, ptr %4, align 8
@@ -7848,7 +7848,7 @@ _ZN2cv9BitStream4jputEj.exit:                     ; preds = %35, %_ZN2cv9BitStre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv17AVIWriteContainer12jflushStreamEji(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define void @_ZN2cv17AVIWriteContainer12jflushStreamEji(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 552
   %6 = load ptr, ptr %5, align 8
@@ -8064,7 +8064,7 @@ declare i32 @llvm.x86.sse2.cvtsd2si(<2 x double>) #15
 declare noundef zeroext i1 @_ZNKSt14basic_ofstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(248)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv16VideoInputStreamESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(576) %0) unnamed_addr #5 comdat align 2 {
@@ -8148,7 +8148,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #17
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeISt4pairImjESaIS1_EE16_M_push_back_auxIJS1_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8345,7 +8345,7 @@ _ZSt4copyIPPSt4pairImjES3_ET0_T_S5_S4_.exit:      ; preds = %32, %31, %28, %27, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
@@ -8489,13 +8489,13 @@ define internal void @_GLOBAL__sub_I_container_avi.cpp() #18 section ".text.star
 declare void @llvm.assume(i1 noundef) #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21

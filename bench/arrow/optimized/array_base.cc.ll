@@ -2844,7 +2844,7 @@ $_ZTVN5arrow5ArrayE = comdat any
 @_ZN5arrow9NullArrayC1El = unnamed_addr alias void (ptr, i64), ptr @_ZN5arrow9NullArrayC2El
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK5arrow5Array10null_countEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 {
+define noundef i64 @_ZNK5arrow5Array10null_countEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #0 align 2 {
 entry:
   %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_, align 8
@@ -2855,7 +2855,7 @@ entry:
 declare noundef i64 @_ZNK5arrow9ArrayData12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK5arrow5Array23ComputeLogicalNullCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 {
+define noundef i64 @_ZNK5arrow5Array23ComputeLogicalNullCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #0 align 2 {
 entry:
   %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_, align 8
@@ -3637,7 +3637,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #1
 
@@ -3647,7 +3647,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(pt
 declare noundef zeroext i1 @_ZN5arrow11ArrayEqualsERKNS_5ArrayES2_RKNS_12EqualOptionsE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK5arrow5Array6EqualsERKSt10shared_ptrIS0_ERKNS_12EqualOptionsE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %arr, ptr noundef nonnull align 8 dereferenceable(24) %opts) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK5arrow5Array6EqualsERKSt10shared_ptrIS0_ERKNS_12EqualOptionsE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %arr, ptr noundef nonnull align 8 dereferenceable(24) %opts) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %arr, align 8
   %cmp.i.not = icmp eq ptr %0, null
@@ -3672,7 +3672,7 @@ entry:
 declare noundef zeroext i1 @_ZN5arrow17ArrayApproxEqualsERKNS_5ArrayES2_RKNS_12EqualOptionsE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK5arrow5Array12ApproxEqualsERKSt10shared_ptrIS0_ERKNS_12EqualOptionsE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %arr, ptr noundef nonnull align 8 dereferenceable(24) %opts) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK5arrow5Array12ApproxEqualsERKSt10shared_ptrIS0_ERKNS_12EqualOptionsE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %arr, ptr noundef nonnull align 8 dereferenceable(24) %opts) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %arr, align 8
   %cmp.i.not = icmp eq ptr %0, null
@@ -3697,7 +3697,7 @@ entry:
 declare noundef zeroext i1 @_ZN5arrow16ArrayRangeEqualsERKNS_5ArrayES2_lllRKNS_12EqualOptionsE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK5arrow5Array11RangeEqualsERKSt10shared_ptrIS0_ElllRKNS_12EqualOptionsE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %other, i64 noundef %start_idx, i64 noundef %end_idx, i64 noundef %other_start_idx, ptr noundef nonnull align 8 dereferenceable(24) %opts) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK5arrow5Array11RangeEqualsERKSt10shared_ptrIS0_ElllRKNS_12EqualOptionsE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %other, i64 noundef %start_idx, i64 noundef %end_idx, i64 noundef %other_start_idx, ptr noundef nonnull align 8 dereferenceable(24) %opts) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %other, align 8
   %cmp.i.not = icmp eq ptr %0, null
@@ -3720,7 +3720,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK5arrow5Array11RangeEqualsElllRKSt10shared_ptrIS0_ERKNS_12EqualOptionsE(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %start_idx, i64 noundef %end_idx, i64 noundef %other_start_idx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %other, ptr noundef nonnull align 8 dereferenceable(24) %opts) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK5arrow5Array11RangeEqualsElllRKSt10shared_ptrIS0_ERKNS_12EqualOptionsE(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %start_idx, i64 noundef %end_idx, i64 noundef %other_start_idx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %other, ptr noundef nonnull align 8 dereferenceable(24) %opts) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %other, align 8
   %cmp.i.not = icmp eq ptr %0, null
@@ -3736,7 +3736,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5arrow5Array5SliceEll(ptr noalias sret(%"class.std::shared_ptr.16") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5arrow5Array5SliceEll(ptr noalias sret(%"class.std::shared_ptr.16") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.5", align 8
   %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3914,7 +3914,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5arrow5Array5SliceEl(ptr noalias sret(%"class.std::shared_ptr.16") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef %offset) local_unnamed_addr #0 align 2 {
+define void @_ZNK5arrow5Array5SliceEl(ptr noalias sret(%"class.std::shared_ptr.16") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i64 noundef %offset) local_unnamed_addr #0 align 2 {
 entry:
   %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_, align 8
@@ -3926,7 +3926,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5arrow5Array9SliceSafeEll(ptr noalias sret(%"class.arrow::Result.19") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5arrow5Array9SliceSafeEll(ptr noalias sret(%"class.arrow::Result.19") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.arrow::Result.23", align 8
   %sliced_data = alloca %"class.std::shared_ptr.5", align 8
@@ -4443,7 +4443,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6ResultISt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5arrow5Array9SliceSafeEl(ptr noalias sret(%"class.arrow::Result.19") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef %offset) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5arrow5Array9SliceSafeEl(ptr noalias sret(%"class.arrow::Result.19") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i64 noundef %offset) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %cmp = icmp slt i64 %offset, 0
@@ -11914,7 +11914,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad4.i, %lp
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt12__shared_ptrIN5arrow10NullScalarELN9__gnu_cxx12_Lock_policyE2EEC2ISaIvEJEEESt20_Sp_alloc_shared_tagIT_EDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr %__tag.coerce) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -12549,7 +12549,7 @@ _ZN5arrow6ScalarD2Ev.exit:                        ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIbEENS_6StatusEOT_(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 1 dereferenceable(1) %arg) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -95568,10 +95568,10 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

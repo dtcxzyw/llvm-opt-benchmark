@@ -2506,7 +2506,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1408 = private unnamed_addr constant [13 x i8] c"Unknown (%d)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @camelsrt_call_matching(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define hidden void @camelsrt_call_matching(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.camelsrt_call_info_key_t, align 4
   %6 = alloca %struct.nstime_t, align 8
   %7 = alloca %struct.camelsrt_call_info_key_t, align 4
@@ -2751,7 +2751,7 @@ camelsrt_close_call_matching.exit77:              ; preds = %80, %85, %94
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @camelsrt_begin_call_matching(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((18, 19)) %1) unnamed_addr #0 {
+define internal fastcc void @camelsrt_begin_call_matching(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((18, 19)) %1) unnamed_addr #0 {
   %3 = alloca %struct.camelsrt_call_info_key_t, align 4
   %4 = getelementptr i8, ptr %1, i64 18
   store i8 1, ptr %4, align 1
@@ -2800,7 +2800,7 @@ define internal fastcc void @camelsrt_begin_call_matching(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @camelsrt_request_call_matching(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef range(i32 2, 10) %4) unnamed_addr #0 {
+define internal fastcc void @camelsrt_request_call_matching(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef range(i32 2, 10) %4) unnamed_addr #0 {
   %6 = alloca %struct.camelsrt_call_info_key_t, align 4
   %7 = load i32, ptr %3, align 8
   store i32 %7, ptr %6, align 4
@@ -3041,7 +3041,7 @@ proto_item_set_generated.exit:                    ; preds = %83, %123, %120, %11
 declare void @tcapsrt_close(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @camelsrt_report_call_matching(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef range(i32 2, 10) %4) unnamed_addr #0 {
+define internal fastcc void @camelsrt_report_call_matching(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef range(i32 2, 10) %4) unnamed_addr #0 {
   %6 = alloca %struct.camelsrt_call_info_key_t, align 4
   %7 = alloca %struct.nstime_t, align 8
   %8 = load i32, ptr %3, align 8
@@ -3332,7 +3332,7 @@ define hidden noundef ptr @camelsrt_razinfo() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_reg_handoff_camel() #0 {
@@ -3414,7 +3414,7 @@ declare void @register_ber_oid_dissector_handle(ptr noundef, ptr noundef, i32 no
 declare void @register_ber_oid_dissector(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_CAP_GPRS_ReferenceNumber_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_CAP_GPRS_ReferenceNumber_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #8
   %6 = load i32, ptr @hf_camel_CAP_GPRS_ReferenceNumber_PDU, align 4
@@ -3424,7 +3424,7 @@ define internal i32 @dissect_CAP_GPRS_ReferenceNumber_PDU(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_CAP_U_ABORT_REASON_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_CAP_U_ABORT_REASON_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #8
   %6 = load i32, ptr @hf_camel_CAP_U_ABORT_REASON_PDU, align 4
@@ -3435,7 +3435,7 @@ define internal i32 @dissect_CAP_U_ABORT_REASON_PDU(ptr noundef %0, ptr noundef 
 declare void @range_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @range_delete_callback(i32 noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @range_delete_callback(i32 noundef %0, ptr readnone captures(none) %1) #0 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %5, label %3
 
@@ -3455,7 +3455,7 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #1
 declare ptr @range_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @range_add_callback(i32 noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @range_add_callback(i32 noundef %0, ptr readnone captures(none) %1) #0 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %5, label %3
 
@@ -3577,7 +3577,7 @@ define internal void @camel_stat_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @camel_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @camel_stat_packet(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %8 = load ptr, ptr %7, align 8
@@ -3630,7 +3630,7 @@ define internal void @camel_stat_reset(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @camel_stat_free_table_item(ptr nocapture readnone %0, i32 %1, i32 noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @camel_stat_free_table_item(ptr readnone captures(none) %0, i32 %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %8
 
@@ -3722,13 +3722,13 @@ declare noalias ptr @wmem_map_new_autoreset(ptr noundef, ptr noundef, ptr nounde
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @camelsrt_call_hash(ptr nocapture noundef readonly %0) #4 {
+define internal i32 @camelsrt_call_hash(ptr noundef readonly captures(none) %0) #4 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @camelsrt_call_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 0, 2) i32 @camelsrt_call_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -3741,7 +3741,7 @@ declare i32 @register_tap(ptr noundef) local_unnamed_addr #1
 declare void @register_srt_table(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @camelstat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
+define internal noundef i32 @camelstat_packet(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %8
@@ -3790,7 +3790,7 @@ define internal noundef i32 @camelstat_packet(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @camelstat_init(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @camelstat_init(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call ptr @init_srt_table(ptr noundef nonnull @.str.1407, ptr noundef null, ptr noundef %1, i32 noundef 10, ptr noundef null, ptr noundef null, ptr noundef null) #8
   br label %4
 
@@ -3812,7 +3812,7 @@ declare void @register_stat_tap_table_ui(ptr noundef) local_unnamed_addr #1
 declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @camelsrt_tcap_matching(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define internal void @camelsrt_tcap_matching(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = alloca %struct.camelsrt_call_info_key_t, align 4
   %6 = alloca %struct.nstime_t, align 8
   %7 = load i32, ptr @camelsrt_global_current, align 4
@@ -3883,7 +3883,7 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4108,7 +4108,7 @@ define internal i32 @dissect_camel_Code(i1 zeroext %0, ptr noundef %1, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_camel_T_argument(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
+define internal i32 @dissect_camel_T_argument(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 %5) #0 {
   %7 = alloca %struct._asn1_ctx_t, align 8
   %8 = alloca %struct._asn1_ctx_t, align 8
   %9 = alloca ptr, align 8
@@ -5267,7 +5267,7 @@ define internal i32 @dissect_camel_ExtensionField(i1 noundef zeroext %0, ptr nou
 declare i32 @dissect_inap_CriticalityType(i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_camel_T_value(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
+define internal i32 @dissect_camel_T_value(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 %5) #0 {
   %7 = load ptr, ptr @camel_obj_id, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %12, label %8
@@ -5656,7 +5656,7 @@ define internal i32 @dissect_camel_INTEGER_0_255(i1 noundef zeroext %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_camel_DateAndTime(i1 zeroext %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal noundef i32 @dissect_camel_DateAndTime(i1 zeroext %0, ptr noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca [20 x i8], align 16
   %8 = alloca [20 x i8], align 16
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 7
@@ -6517,7 +6517,7 @@ define internal i32 @dissect_camel_TimeAndTimezone(i1 noundef zeroext %0, ptr no
   br label %79
 
 62:                                               ; preds = %57
-  %63 = call i64 @g_strlcpy(ptr noundef nonnull %9, ptr noundef %54, i64 noundef 5) #8
+  %63 = call i64 @g_strlcpy(ptr noundef nonnull %9, ptr noundef nonnull %54, i64 noundef 5) #8
   %64 = load ptr, ptr %8, align 8
   %65 = getelementptr i8, ptr %64, i64 4
   %66 = call i64 @g_strlcpy(ptr noundef nonnull %10, ptr noundef %65, i64 noundef 3) #8
@@ -6583,7 +6583,7 @@ declare ptr @proto_tree_add_item_ret_display_string(ptr noundef, i32 noundef, pt
 declare ptr @proto_tree_add_int_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
@@ -7335,7 +7335,7 @@ define internal i32 @dissect_camel_T_result(i1 noundef zeroext %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_camel_ResultArgument(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
+define internal i32 @dissect_camel_ResultArgument(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 %5) #0 {
   %7 = alloca %struct._asn1_ctx_t, align 8
   %8 = alloca %struct._asn1_ctx_t, align 8
   %9 = load i32, ptr @opcode, align 4
@@ -7374,7 +7374,7 @@ dissect_returnResultData.exit:                    ; preds = %12, %16, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_camel_T_parameter(i1 zeroext %0, ptr noundef %1, i32 noundef returned %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_camel_T_parameter(i1 zeroext %0, ptr noundef %1, i32 noundef returned %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 %5) #0 {
   %7 = alloca %struct._asn1_ctx_t, align 8
   %8 = alloca %struct._asn1_ctx_t, align 8
   %9 = alloca %struct._asn1_ctx_t, align 8
@@ -7476,10 +7476,10 @@ declare ptr @val_to_str_wmem(ptr noundef, i32 noundef, ptr noundef, ptr noundef)
 declare void @init_srt_table_row(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

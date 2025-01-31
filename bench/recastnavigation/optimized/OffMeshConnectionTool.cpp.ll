@@ -20,7 +20,7 @@ $_ZN21OffMeshConnectionTool4typeEv = comdat any
 @_ZN21OffMeshConnectionToolD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN21OffMeshConnectionToolD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN21OffMeshConnectionToolC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(31) initializes((0, 16), (28, 31)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN21OffMeshConnectionToolC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(31) initializes((0, 16), (28, 31)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21OffMeshConnectionTool, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
@@ -83,7 +83,7 @@ _ZN21OffMeshConnectionToolD2Ev.exit:              ; preds = %1, %4
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN21OffMeshConnectionTool4initEP6Sample(ptr nocapture noundef nonnull align 8 dereferenceable(31) %0, ptr noundef %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN21OffMeshConnectionTool4initEP6Sample(ptr noundef nonnull align 8 captures(none) dereferenceable(31) %0, ptr noundef %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, %1
@@ -104,14 +104,14 @@ define dso_local void @_ZN21OffMeshConnectionTool4initEP6Sample(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN21OffMeshConnectionTool5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(31) initializes((28, 29)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN21OffMeshConnectionTool5resetEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(31) initializes((28, 29)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 0, ptr %2, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21OffMeshConnectionTool10handleMenuEv(ptr nocapture noundef nonnull align 8 dereferenceable(31) %0) unnamed_addr #5 align 2 {
+define dso_local void @_ZN21OffMeshConnectionTool10handleMenuEv(ptr noundef nonnull align 8 captures(none) dereferenceable(31) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 29
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -144,7 +144,7 @@ define dso_local void @_ZN21OffMeshConnectionTool10handleMenuEv(ptr nocapture no
 declare noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21OffMeshConnectionTool11handleClickEPKfS1_b(ptr noundef nonnull align 8 dereferenceable(31) %0, ptr nocapture readnone %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN21OffMeshConnectionTool11handleClickEPKfS1_b(ptr noundef nonnull align 8 dereferenceable(31) %0, ptr readnone captures(none) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #5 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -269,22 +269,22 @@ declare void @_ZN9InputGeom23deleteOffMeshConnectionEi(ptr noundef nonnull align
 declare void @_ZN9InputGeom20addOffMeshConnectionEPKfS1_fhht(ptr noundef nonnull align 8 dereferenceable(50312), ptr noundef, ptr noundef, float noundef, i8 noundef zeroext, i8 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN21OffMeshConnectionTool12handleToggleEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define dso_local void @_ZN21OffMeshConnectionTool12handleToggleEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN21OffMeshConnectionTool10handleStepEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define dso_local void @_ZN21OffMeshConnectionTool10handleStepEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN21OffMeshConnectionTool12handleUpdateEf(ptr nocapture nonnull readnone align 8 %0, float %1) unnamed_addr #8 align 2 {
+define dso_local void @_ZN21OffMeshConnectionTool12handleUpdateEf(ptr nonnull readnone align 8 captures(none) %0, float %1) unnamed_addr #8 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21OffMeshConnectionTool12handleRenderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(31) %0) unnamed_addr #5 align 2 {
+define dso_local void @_ZN21OffMeshConnectionTool12handleRenderEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(31) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 192
@@ -330,7 +330,7 @@ declare void @_Z16duDebugDrawCrossP11duDebugDrawffffjf(ptr noundef, float nounde
 declare void @_ZN9InputGeom22drawOffMeshConnectionsEP11duDebugDrawb(ptr noundef nonnull align 8 dereferenceable(50312), ptr noundef, i1 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21OffMeshConnectionTool19handleRenderOverlayEPdS0_Pi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(31) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN21OffMeshConnectionTool19handleRenderOverlayEPdS0_Pi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(31) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #5 align 2 {
   %5 = alloca double, align 8
   %6 = alloca double, align 8
   %7 = alloca double, align 8

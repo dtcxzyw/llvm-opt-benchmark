@@ -131,7 +131,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2147483647, -2147483648) i32 @utrace_vformat_75(ptr noundef %outBuf, i32 noundef %capacity, i32 noundef %indent, ptr nocapture noundef readonly %fmt, ptr nocapture noundef %args) local_unnamed_addr #2 {
+define range(i32 -2147483647, -2147483648) i32 @utrace_vformat_75(ptr noundef %outBuf, i32 noundef %capacity, i32 noundef %indent, ptr noundef readonly captures(none) %fmt, ptr noundef captures(none) %args) local_unnamed_addr #2 {
 entry:
   %val.addr.i303 = alloca ptr, align 8
   %val.addr.i = alloca ptr, align 8
@@ -1811,7 +1811,7 @@ _ZL10outputCharcPcPiii.exit687:                   ; preds = %if.end20.i667, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL13outputUStringPKDsiPcPiii(ptr noundef readonly %s, i32 noundef %len, ptr nocapture noundef %outBuf, ptr nocapture noundef nonnull %outIx, i32 noundef %capacity, i32 noundef %indent) unnamed_addr #3 {
+define internal fastcc void @_ZL13outputUStringPKDsiPcPiii(ptr noundef readonly %s, i32 noundef %len, ptr noundef captures(none) %outBuf, ptr noundef nonnull captures(none) %outIx, i32 noundef %capacity, i32 noundef %indent) unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %s, null
   %invariant.gep.i = getelementptr i8, ptr %outBuf, i64 -1
@@ -2047,7 +2047,7 @@ for.end:                                          ; preds = %for.cond, %_ZL10out
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @utrace_format_75(ptr noundef %outBuf, i32 noundef %capacity, i32 noundef %indent, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #4 {
+define range(i32 -2147483647, -2147483648) i32 @utrace_format_75(ptr noundef %outBuf, i32 noundef %capacity, i32 noundef %indent, ptr noundef readonly captures(none) %fmt, ...) local_unnamed_addr #4 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)
@@ -2067,7 +2067,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @utrace_getFunctions_75(ptr nocapture noundef writeonly initializes((0, 8)) %context, ptr nocapture noundef writeonly initializes((0, 8)) %e, ptr nocapture noundef writeonly initializes((0, 8)) %x, ptr nocapture noundef writeonly initializes((0, 8)) %d) local_unnamed_addr #6 {
+define void @utrace_getFunctions_75(ptr noundef writeonly captures(none) initializes((0, 8)) %context, ptr noundef writeonly captures(none) initializes((0, 8)) %e, ptr noundef writeonly captures(none) initializes((0, 8)) %x, ptr noundef writeonly captures(none) initializes((0, 8)) %d) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @_ZL15pTraceEntryFunc, align 8
   store ptr %0, ptr %e, align 8
@@ -2172,10 +2172,10 @@ declare i32 @llvm.smax.i32(i32, i32) #10
 declare i32 @llvm.smin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -806,7 +806,7 @@ emit_byte.exit85:                                 ; preds = %301, %297, %289, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @encode_mcu_DC_first(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @encode_mcu_DC_first(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -922,7 +922,7 @@ define internal noundef i32 @encode_mcu_DC_first(ptr noundef %0, ptr nocapture n
   %.07794 = phi i32 [ %70, %.lr.ph ], [ %66, %67 ]
   %.28193 = phi ptr [ %72, %.lr.ph ], [ %69, %67 ]
   %70 = lshr i32 %.07794, 1
-  tail call fastcc void @arith_encode(ptr noundef %0, ptr noundef nonnull %.28193, i32 noundef 1)
+  tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef nonnull %.28193, i32 noundef 1)
   %71 = shl i32 %.195, 1
   %72 = getelementptr inbounds nuw i8, ptr %.28193, i64 1
   %.not88 = icmp ult i32 %.07794, 4
@@ -931,7 +931,7 @@ define internal noundef i32 @encode_mcu_DC_first(ptr noundef %0, ptr nocapture n
 .loopexit91:                                      ; preds = %.lr.ph, %67, %63
   %.180 = phi ptr [ %65, %63 ], [ %69, %67 ], [ %72, %.lr.ph ]
   %.0 = phi i32 [ 0, %63 ], [ 1, %67 ], [ %71, %.lr.ph ]
-  tail call fastcc void @arith_encode(ptr noundef %0, ptr noundef nonnull %.180, i32 noundef 0)
+  tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef nonnull %.180, i32 noundef 0)
   %73 = getelementptr inbounds [16 x i8], ptr %31, i64 0, i64 %47
   %74 = load i8, ptr %73, align 1
   %75 = zext nneg i8 %74 to i64
@@ -972,7 +972,7 @@ define internal noundef i32 @encode_mcu_DC_first(ptr noundef %0, ptr nocapture n
   %94 = and i32 %93, %66
   %.not90 = icmp ne i32 %94, 0
   %95 = zext i1 %.not90 to i32
-  tail call fastcc void @arith_encode(ptr noundef %0, ptr noundef nonnull %92, i32 noundef %95)
+  tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef nonnull %92, i32 noundef %95)
   %.not89 = icmp ult i32 %93, 2
   br i1 %.not89, label %.loopexit, label %.lr.ph99, !llvm.loop !12
 
@@ -988,7 +988,7 @@ define internal noundef i32 @encode_mcu_DC_first(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @encode_mcu_AC_first(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @encode_mcu_AC_first(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -1169,7 +1169,7 @@ define internal noundef i32 @encode_mcu_AC_first(ptr noundef %0, ptr nocapture n
   %.083.in125 = phi i32 [ %.083, %.lr.ph128 ], [ %87, %89 ]
   %.290124 = phi ptr [ %97, %.lr.ph128 ], [ %94, %89 ]
   %.083 = lshr i32 %.083.in125, 1
-  tail call fastcc void @arith_encode(ptr noundef %0, ptr noundef nonnull %.290124, i32 noundef 1)
+  tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef nonnull %.290124, i32 noundef 1)
   %96 = shl i32 %.1126, 1
   %97 = getelementptr inbounds nuw i8, ptr %.290124, i64 1
   %.not110 = icmp ult i32 %.083.in125, 8
@@ -1180,7 +1180,7 @@ define internal noundef i32 @encode_mcu_AC_first(ptr noundef %0, ptr nocapture n
   br label %._crit_edge135
 
 .loopexit:                                        ; preds = %.lr.ph128
-  tail call fastcc void @arith_encode(ptr noundef %0, ptr noundef nonnull %97, i32 noundef 0)
+  tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef nonnull %97, i32 noundef 0)
   %98 = getelementptr inbounds nuw i8, ptr %.290124, i64 15
   %.not111131 = icmp eq i32 %96, 0
   br i1 %.not111131, label %._crit_edge135, label %.lr.ph134.preheader
@@ -1196,7 +1196,7 @@ define internal noundef i32 @encode_mcu_AC_first(ptr noundef %0, ptr nocapture n
   %101 = and i32 %100, %87
   %.not112 = icmp ne i32 %101, 0
   %102 = zext i1 %.not112 to i32
-  tail call fastcc void @arith_encode(ptr noundef %0, ptr noundef nonnull %99, i32 noundef %102)
+  tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef nonnull %99, i32 noundef %102)
   %.not111 = icmp ult i32 %100, 2
   br i1 %.not111, label %._crit_edge135, label %.lr.ph134, !llvm.loop !16
 
@@ -1232,7 +1232,7 @@ define internal noundef i32 @encode_mcu_AC_first(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @encode_mcu_DC_refine(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @encode_mcu_DC_refine(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -1292,7 +1292,7 @@ define internal noundef i32 @encode_mcu_DC_refine(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @encode_mcu_AC_refine(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @encode_mcu_AC_refine(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -1542,7 +1542,7 @@ define internal noundef i32 @encode_mcu_AC_refine(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @encode_mcu(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @encode_mcu(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -1658,7 +1658,7 @@ define internal noundef i32 @encode_mcu(ptr noundef %0, ptr nocapture noundef re
   %.0136176 = phi i32 [ %70, %.lr.ph ], [ %66, %67 ]
   %.2145175 = phi ptr [ %72, %.lr.ph ], [ %69, %67 ]
   %70 = lshr i32 %.0136176, 1
-  tail call fastcc void @arith_encode(ptr noundef %0, ptr noundef nonnull %.2145175, i32 noundef 1)
+  tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef nonnull %.2145175, i32 noundef 1)
   %71 = shl i32 %.1177, 1
   %72 = getelementptr inbounds nuw i8, ptr %.2145175, i64 1
   %.not160 = icmp ult i32 %.0136176, 4
@@ -1667,7 +1667,7 @@ define internal noundef i32 @encode_mcu(ptr noundef %0, ptr nocapture noundef re
 .loopexit172:                                     ; preds = %.lr.ph, %67, %63
   %.1144 = phi ptr [ %65, %63 ], [ %69, %67 ], [ %72, %.lr.ph ]
   %.0 = phi i32 [ 0, %63 ], [ 1, %67 ], [ %71, %.lr.ph ]
-  tail call fastcc void @arith_encode(ptr noundef %0, ptr noundef nonnull %.1144, i32 noundef 0)
+  tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef nonnull %.1144, i32 noundef 0)
   %73 = getelementptr inbounds [16 x i8], ptr %30, i64 0, i64 %45
   %74 = load i8, ptr %73, align 1
   %75 = zext nneg i8 %74 to i64
@@ -1708,7 +1708,7 @@ define internal noundef i32 @encode_mcu(ptr noundef %0, ptr nocapture noundef re
   %94 = and i32 %93, %66
   %.not162 = icmp ne i32 %94, 0
   %95 = zext i1 %.not162 to i32
-  tail call fastcc void @arith_encode(ptr noundef %0, ptr noundef nonnull %92, i32 noundef %95)
+  tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef nonnull %92, i32 noundef %95)
   %.not161 = icmp ult i32 %93, 2
   br i1 %.not161, label %.loopexit171, label %.lr.ph181, !llvm.loop !23
 
@@ -1886,7 +1886,7 @@ define internal noundef i32 @encode_mcu(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @emit_restart(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
@@ -2040,7 +2040,7 @@ emit_byte.exit29:                                 ; preds = %emit_byte.exit, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @arith_encode(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc void @arith_encode(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr %1, align 1

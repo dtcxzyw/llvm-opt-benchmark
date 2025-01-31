@@ -31,7 +31,7 @@ define noundef i32 @mca_sharedfp_individual_component_init_query(i1 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @mca_sharedfp_individual_component_file_query(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #1 {
+define noundef ptr @mca_sharedfp_individual_component_file_query(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store i32 0, ptr %1, align 4
@@ -166,20 +166,20 @@ declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 declare i32 @opal_info_get(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @mca_sharedfp_individual_component_file_unquery(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @mca_sharedfp_individual_component_file_unquery(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @mca_sharedfp_individual_module_init(ptr nocapture readnone %0) #0 {
+define noundef i32 @mca_sharedfp_individual_module_init(ptr readnone captures(none) %0) #0 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @mca_sharedfp_individual_module_finalize(ptr nocapture readnone %0) #0 {
+define noundef i32 @mca_sharedfp_individual_module_finalize(ptr readnone captures(none) %0) #0 {
   ret i32 0
 }
 

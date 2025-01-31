@@ -79,7 +79,7 @@ define dso_local i32 @intel_dp_hdcp_init(ptr noundef %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @is_hdcp_supported(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -91,7 +91,7 @@ declare dso_local i32 @intel_hdcp_init(ptr noundef, ptr noundef, ptr noundef) lo
 declare dso_local zeroext i1 @intel_dp_is_edp(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @intel_dp_hdcp_write_an_aksv(ptr noundef %0, ptr noundef %1) #0 align 16 {
@@ -210,7 +210,7 @@ define internal i32 @intel_dp_hdcp_read_bstatus(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_dp_hdcp_repeater_present(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal i32 @intel_dp_hdcp_repeater_present(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #7
   store i8 0, ptr %3, align 1, !annotation !5
@@ -284,7 +284,7 @@ define internal i32 @intel_dp_hdcp_read_ri_prime(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_dp_hdcp_read_ksv_ready(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal i32 @intel_dp_hdcp_read_ksv_ready(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = alloca i8, align 1
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #7
@@ -410,12 +410,12 @@ define internal i32 @intel_dp_hdcp_read_v_prime_part(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @intel_dp_hdcp_toggle_signalling(ptr nocapture readnone %0, i32 %1, i1 zeroext %2) #3 align 16 {
+define internal noundef i32 @intel_dp_hdcp_toggle_signalling(ptr readnone captures(none) %0, i32 %1, i1 zeroext %2) #3 align 16 {
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_dp_mst_hdcp_stream_encryption(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 align 16 {
+define internal i32 @intel_dp_mst_hdcp_stream_encryption(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
@@ -574,7 +574,7 @@ transcoder_name.exit:                             ; preds = %65, %67, %68, %69
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @intel_dp_hdcp_check_link(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal zeroext i1 @intel_dp_hdcp_check_link(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = alloca i8, align 1
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #7
@@ -611,7 +611,7 @@ define internal zeroext i1 @intel_dp_hdcp_check_link(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_dp_hdcp_capable(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal i32 @intel_dp_hdcp_capable(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #7
   store i8 0, ptr %3, align 1, !annotation !5
@@ -654,7 +654,7 @@ define internal i32 @intel_dp_hdcp_capable(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 4, 3) i32 @intel_dp_hdcp2_capable(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) #0 align 16 {
+define internal range(i32 4, 3) i32 @intel_dp_hdcp2_capable(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) #0 align 16 {
   %3 = alloca [3 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3) #7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1976
@@ -720,7 +720,7 @@ define internal range(i32 4, 3) i32 @intel_dp_hdcp2_capable(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_dp_hdcp2_write_msg(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
+define internal i32 @intel_dp_hdcp2_write_msg(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = load i8, ptr %1, align 1
   br label %8
 
@@ -1274,7 +1274,7 @@ select.unfold37:                                  ; preds = %164
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 1) i32 @intel_dp_hdcp2_config_stream_type(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i8 noundef zeroext %2) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @intel_dp_hdcp2_config_stream_type(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i8 noundef zeroext %2) #0 align 16 {
   %4 = alloca %struct.hdcp2_dp_errata_stream_type, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #7
   br i1 %1, label %36, label %5
@@ -1346,7 +1346,7 @@ define internal range(i32 -2147483648, 1) i32 @intel_dp_hdcp2_config_stream_type
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_dp_mst_hdcp2_stream_encryption(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 align 16 {
+define internal i32 @intel_dp_mst_hdcp2_stream_encryption(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) #0 align 16 {
   %3 = alloca [4 x i32], align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %5 = load ptr, ptr %4, align 8
@@ -1550,7 +1550,7 @@ define internal i32 @intel_dp_mst_hdcp2_stream_encryption(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_dp_mst_hdcp2_check_link(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal i32 @intel_dp_mst_hdcp2_check_link(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2669
   %5 = load i8, ptr %4, align 1, !range !11, !noundef !12
@@ -1645,7 +1645,7 @@ intel_dp_hdcp2_check_link.exit:                   ; preds = %38
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @drm_dp_dpcd_write(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
@@ -1702,7 +1702,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_dp_hdcp2_check_link(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal i32 @intel_dp_hdcp2_check_link(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #7
   %4 = load ptr, ptr %1, align 8

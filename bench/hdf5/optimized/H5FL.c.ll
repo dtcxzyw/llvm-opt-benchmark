@@ -302,7 +302,7 @@ H5FL__fac_gc.exit:                                ; preds = %H5FL__fac_gc_list.e
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @H5FL_reg_free(ptr nocapture noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 {
+define noalias noundef ptr @H5FL_reg_free(ptr noundef captures(none) %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %1, align 8
@@ -509,10 +509,10 @@ define noalias ptr @H5FL_reg_calloc(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @H5FL_blk_free_block_avail(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @H5FL_blk_free_block_avail(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -789,7 +789,7 @@ define noalias ptr @H5FL_blk_calloc(ptr noundef %0, i64 noundef %1) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @H5FL_blk_free(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @H5FL_blk_free(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -936,7 +936,7 @@ H5FL__blk_gc.exit:                                ; preds = %.lr.ph.i, %62, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @H5FL__blk_gc_list(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @H5FL__blk_gc_list(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not41 = icmp eq ptr %3, null
@@ -1078,10 +1078,10 @@ define ptr @H5FL_blk_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @H5FL_arr_free(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @H5FL_arr_free(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %76, label %3
 
@@ -1515,7 +1515,7 @@ define ptr @H5FL_arr_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @H5FL_seq_free(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @H5FL_seq_free(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @H5FL_blk_free(ptr noundef %0, ptr noundef %1)
   ret ptr null
 }
@@ -1659,7 +1659,7 @@ define ptr @H5FL_fac_init(i64 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @H5FL_fac_free(ptr nocapture noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 {
+define noalias noundef ptr @H5FL_fac_free(ptr noundef captures(none) %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %1, align 8
@@ -1751,7 +1751,7 @@ H5FL__fac_gc.exit:                                ; preds = %H5FL__fac_gc_list.e
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @H5FL_fac_malloc(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define noalias ptr @H5FL_fac_malloc(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1807,7 +1807,7 @@ define noalias ptr @H5FL_fac_malloc(ptr nocapture noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @H5FL_fac_calloc(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define noalias ptr @H5FL_fac_calloc(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @H5FL_fac_malloc(ptr noundef %0)
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %8
@@ -2104,7 +2104,7 @@ define noundef i32 @H5FL_get_free_list_sizes(ptr noundef writeonly %0, ptr nound
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #1
 

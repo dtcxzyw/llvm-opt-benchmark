@@ -634,7 +634,7 @@ declare ptr @ExecInitExtraTupleSlot(ptr noundef, ptr noundef, ptr noundef) local
 declare ptr @execTuplesMatchPrepare(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecEndLimit(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExecEndLimit(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   tail call void @ExecEndNode(ptr noundef %3) #6
@@ -644,7 +644,7 @@ define dso_local void @ExecEndLimit(ptr nocapture noundef readonly %0) local_unn
 declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecReScanLimit(ptr nocapture noundef initializes((224, 232)) %0) local_unnamed_addr #0 {
+define dso_local void @ExecReScanLimit(ptr noundef captures(none) initializes((224, 232)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   tail call fastcc void @recompute_limits(ptr noundef %0)
@@ -662,7 +662,7 @@ define dso_local void @ExecReScanLimit(ptr nocapture noundef initializes((224, 2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @recompute_limits(ptr nocapture noundef initializes((224, 232)) %0) unnamed_addr #0 {
+define internal fastcc void @recompute_limits(ptr noundef captures(none) initializes((224, 232)) %0) unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
@@ -809,13 +809,13 @@ declare void @ExecSetTupleBound(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

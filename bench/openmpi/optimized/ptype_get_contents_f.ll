@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Type_get_contents_f08 = weak alias void (ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr), ptr @ompi_type_get_contents_f
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_type_get_contents_f(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr noundef writeonly %7) #0 {
+define void @ompi_type_get_contents_f(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly %7) #0 {
   %9 = load i32, ptr %0, align 4
   %10 = tail call ptr @PMPI_Type_f2c(i32 noundef %9) #4
   %11 = load i32, ptr %3, align 4
@@ -139,7 +139,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare i32 @ompi_errhandler_invoke(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @PMPI_Type_get_contents(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 

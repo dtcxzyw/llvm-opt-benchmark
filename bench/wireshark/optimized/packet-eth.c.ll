@@ -265,7 +265,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.162 = private unnamed_addr constant [34 x i8] c"eth.addr eq %s and eth.addr eq %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @get_eth_conversation_data(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define ptr @get_eth_conversation_data(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %16, label %4
 
@@ -644,21 +644,21 @@ declare void @prefs_register_static_text_preference(ptr noundef, ptr noundef, pt
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_eth_withoutfcs(ptr noundef %0, ptr noundef initializes((112, 160), (208, 256)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_eth_withoutfcs(ptr noundef %0, ptr noundef initializes((112, 160), (208, 256)) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call fastcc ptr @dissect_eth_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_eth_withfcs(ptr noundef %0, ptr noundef initializes((112, 160), (208, 256)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_eth_withfcs(ptr noundef %0, ptr noundef initializes((112, 160), (208, 256)) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call fastcc ptr @dissect_eth_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 4)
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_eth_maybefcs(ptr noundef %0, ptr noundef initializes((112, 160), (208, 256)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_eth_maybefcs(ptr noundef %0, ptr noundef initializes((112, 160), (208, 256)) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @eth_fcs, align 4
   %6 = tail call fastcc ptr @dissect_eth_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5)
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
@@ -670,7 +670,7 @@ declare i32 @register_tap(ptr noundef) local_unnamed_addr #1
 declare void @register_conversation_table(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @eth_conversation_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #0 {
+define internal noundef i32 @eth_conversation_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -687,7 +687,7 @@ define internal noundef i32 @eth_conversation_packet(ptr noundef initializes((24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @eth_endpoint_packet(ptr noundef initializes((24, 28)) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #0 {
+define internal noundef i32 @eth_endpoint_packet(ptr noundef initializes((24, 28)) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -706,7 +706,7 @@ define internal noundef i32 @eth_endpoint_packet(ptr noundef initializes((24, 28
 declare void @register_conversation_filter(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @eth_filter_valid(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #3 {
+define internal range(i32 0, 2) i32 @eth_filter_valid(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 1
@@ -715,7 +715,7 @@ define internal range(i32 0, 2) i32 @eth_filter_valid(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @eth_build_filter(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal noalias ptr @eth_build_filter(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1695,7 +1695,7 @@ declare ptr @except_pop() local_unnamed_addr #1
 declare void @add_conversation_table_data_with_conv_id(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef nonnull ptr @eth_conv_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #3 {
+define internal noundef nonnull ptr @eth_conv_get_filter_type(ptr noundef readonly captures(none) %0, i32 noundef %1) #3 {
   switch i32 %1, label %15 [
     i32 0, label %3
     i32 1, label %7
@@ -1731,7 +1731,7 @@ define internal noundef nonnull ptr @eth_conv_get_filter_type(ptr nocapture noun
 declare void @add_endpoint_table_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef nonnull ptr @eth_endpoint_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #3 {
+define internal noundef nonnull ptr @eth_endpoint_get_filter_type(ptr noundef readonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp eq i32 %1, 2
   br i1 %3, label %4, label %8
 
@@ -1758,7 +1758,7 @@ declare i32 @call_capture_dissector(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare i32 @try_capture_dissector(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7

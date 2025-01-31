@@ -981,7 +981,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE0EE11_
 @_ZN16JVMCIKlassHandleC1EP6ThreadP5Klass = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN16JVMCIKlassHandleC2EP6ThreadP5Klass
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16JVMCIKlassHandleC2EP6ThreadP5Klass(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN16JVMCIKlassHandleC2EP6ThreadP5Klass(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1074,7 +1074,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit:  ; preds = %15, %17
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN16JVMCIKlassHandleaSEP5Klass(ptr noundef nonnull returned align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
@@ -1131,7 +1131,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %3, %_ZN10HandleArea
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN19JavaArgumentUnboxer8next_argE9BasicType(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN19JavaArgumentUnboxer8next_argE9BasicType(ptr noundef nonnull align 8 captures(none) dereferenceable(44) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1485,7 +1485,7 @@ _ZN14JVMCITraceMarkC2EPKc.exit:                   ; preds = %_ZN20ThreadInVMfrom
   %63 = extractvalue { ptr, i8 } %58, 1
   %64 = call noundef ptr @_ZN8JVMCIEnv14as_utf8_stringE11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr nonnull %59, i8 %63) #16
   %65 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %64) #17
-  %66 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %64, i64 noundef %65, i1 noundef zeroext true, i1 noundef zeroext true) #16
+  %66 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %64, i64 noundef %65, i1 noundef zeroext true, i1 noundef zeroext true) #16
   %67 = icmp eq ptr %66, null
   br i1 %67, label %136, label %68
 
@@ -1729,7 +1729,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z15c2v_getBytecodeP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 {
+define hidden noundef ptr @_Z15c2v_getBytecodeP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -2296,7 +2296,7 @@ declare void @_ZN8JVMCIEnv15copy_bytes_fromEPa19JVMCIPrimitiveArrayii(ptr nounde
 declare void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 65536) i32 @_Z27c2v_getExceptionTableLengthP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 {
+define hidden noundef range(i32 0, 65536) i32 @_Z27c2v_getExceptionTableLengthP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -2461,7 +2461,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_Z26c2v_getExceptionTableStartP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 {
+define hidden noundef i64 @_Z26c2v_getExceptionTableStartP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -2636,7 +2636,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z24c2v_asResolvedJavaMethodP7JNIEnv_P8_jobjectS2_(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden noundef ptr @_Z24c2v_asResolvedJavaMethodP7JNIEnv_P8_jobjectS2_(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
@@ -2952,7 +2952,7 @@ declare noundef ptr @_ZN13InstanceKlass17method_with_idnumEi(ptr noundef nonnull
 declare { ptr, i8 } @_ZN8JVMCIEnv16get_jvmci_methodERK12methodHandlePS_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z25c2v_getResolvedJavaMethodP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 {
+define hidden noundef ptr @_Z25c2v_getResolvedJavaMethodP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -3332,7 +3332,7 @@ declare noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 der
 declare noundef ptr @_ZN8JVMCIEnv10klass_nameE11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64), ptr, i8) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z19c2v_getConstantPoolP7JNIEnv_P8_jobjectS2_lh(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, i8 noundef zeroext %4) #0 {
+define hidden noundef ptr @_Z19c2v_getConstantPoolP7JNIEnv_P8_jobjectS2_lh(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, i8 noundef zeroext %4) #0 {
   %6 = alloca %class.FormatBuffer, align 8
   %7 = alloca %class.CompilerThreadCanCallJava, align 8
   %8 = alloca %class.JVMCIEnv, align 8
@@ -3574,7 +3574,7 @@ declare { ptr, i8 } @_ZN8JVMCIEnv23get_jvmci_constant_poolERK18constantPoolHandl
 declare void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z24c2v_getResolvedJavaType0P7JNIEnv_P8_jobjectS2_lh(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3, i8 noundef zeroext %4) #0 {
+define hidden noundef ptr @_Z24c2v_getResolvedJavaType0P7JNIEnv_P8_jobjectS2_lh(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3, i8 noundef zeroext %4) #0 {
   %6 = alloca %class.FormatBuffer, align 8
   %7 = alloca %class.CompilerThreadCanCallJava, align 8
   %8 = alloca %class.JVMCIEnv, align 8
@@ -4096,7 +4096,7 @@ declare noundef ptr @_ZN8JVMCIEnv12asMethodDataE11JVMCIObject(ptr noundef nonnul
 declare { ptr, i8 } @_ZN8JVMCIEnv14get_jvmci_typeERK16JVMCIKlassHandlePS_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z28c2v_findUniqueConcreteMethodP7JNIEnv_P8_jobjectS2_lS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, ptr nocapture readnone %4, i64 noundef %5) #0 {
+define hidden noundef ptr @_Z28c2v_findUniqueConcreteMethodP7JNIEnv_P8_jobjectS2_lS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr readnone captures(none) %4, i64 noundef %5) #0 {
   %7 = alloca %class.FormatBuffer, align 8
   %8 = alloca %class.CompilerThreadCanCallJava, align 8
   %9 = alloca %class.JVMCIEnv, align 8
@@ -4418,7 +4418,7 @@ declare noundef ptr @_ZN12Dependencies27find_unique_concrete_methodEP13InstanceK
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN12methodHandleaSERKS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z18c2v_getImplementorP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 {
+define hidden noundef ptr @_Z18c2v_getImplementorP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -4660,7 +4660,7 @@ declare void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr nound
 declare noundef ptr @_ZNK13InstanceKlass11implementorEv(ptr noundef nonnull align 8 dereferenceable(464)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext range(i8 0, 2) i8 @_Z38c2v_methodIsIgnoredBySecurityStackWalkP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 {
+define hidden noundef zeroext range(i8 0, 2) i8 @_Z38c2v_methodIsIgnoredBySecurityStackWalkP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -4825,7 +4825,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare noundef zeroext i1 @_ZNK6Method33is_ignored_by_security_stack_walkEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext range(i8 0, 2) i8 @_Z16c2v_isCompilableP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 {
+define hidden noundef zeroext range(i8 0, 2) i8 @_Z16c2v_isCompilableP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -5002,7 +5002,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare noundef zeroext i1 @_ZNK6Method17is_not_compilableEi(ptr noundef nonnull align 8 dereferenceable(88), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext range(i8 0, 2) i8 @_Z27c2v_hasNeverInlineDirectiveP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 {
+define hidden noundef zeroext range(i8 0, 2) i8 @_Z27c2v_hasNeverInlineDirectiveP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -5227,7 +5227,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare noundef zeroext i1 @_ZN14CompilerOracle17should_not_inlineERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext range(i8 0, 2) i8 @_Z22c2v_shouldInlineMethodP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 {
+define hidden noundef zeroext range(i8 0, 2) i8 @_Z22c2v_shouldInlineMethodP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -5447,7 +5447,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare noundef zeroext i1 @_ZN14CompilerOracle13should_inlineERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z14c2v_lookupTypeP7JNIEnv_P8_jobjectP8_jstringS2_lih(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i64 noundef %4, i32 noundef %5, i8 noundef zeroext %6) #0 {
+define hidden noundef ptr @_Z14c2v_lookupTypeP7JNIEnv_P8_jobjectP8_jstringS2_lih(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i64 noundef %4, i32 noundef %5, i8 noundef zeroext %6) #0 {
   %8 = alloca %class.FormatBuffer, align 8
   %9 = alloca %class.CompilerThreadCanCallJava, align 8
   %10 = alloca %class.JVMCIEnv, align 8
@@ -5544,7 +5544,7 @@ _ZN14JVMCITraceMarkC2EPKc.exit:                   ; preds = %_ZN20ThreadInVMfrom
   %63 = call noundef ptr @_ZN8JVMCIEnv14as_utf8_stringE11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr %61, i8 %62) #16
   %64 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #17
   %65 = trunc i64 %64 to i32
-  %66 = call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef %63, i32 noundef %65) #16
+  %66 = call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef nonnull %63, i32 noundef %65) #16
   %.not.i = icmp eq ptr %66, null
   br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit, label %67
 
@@ -5565,7 +5565,7 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %_ZN14JVMCITraceMark
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit
-  call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %12, ptr noundef nonnull @.str.37, ptr noundef %63)
+  call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %12, ptr noundef nonnull @.str.37, ptr noundef nonnull %63)
   %76 = load ptr, ptr %12, align 8
   call void @_ZN8JVMCIEnv19throw_InternalErrorEPKc(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef %76) #16
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit112
@@ -6131,7 +6131,7 @@ declare void @_ZN15SignatureStreamC1EPK6Symbolb(ptr noundef nonnull align 8 dere
 declare void @_ZN15SignatureStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z16c2v_getArrayTypeP7JNIEnv_P8_jobjecttS2_l(ptr noundef %0, ptr nocapture readnone %1, i16 noundef zeroext %2, ptr nocapture readnone %3, i64 noundef %4) #0 {
+define hidden noundef ptr @_Z16c2v_getArrayTypeP7JNIEnv_P8_jobjecttS2_l(ptr noundef %0, ptr readnone captures(none) %1, i16 noundef zeroext %2, ptr readnone captures(none) %3, i64 noundef %4) #0 {
   %6 = alloca %class.FormatBuffer, align 8
   %7 = alloca %class.CompilerThreadCanCallJava, align 8
   %8 = alloca %class.JVMCIEnv, align 8
@@ -6436,7 +6436,7 @@ declare noundef zeroext i8 @_ZN8JVMCIEnv19typeCharToBasicTypeEtPS_(ptr noundef n
 declare noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z15c2v_lookupClassP7JNIEnv_P8_jobjectP7_jclass(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden noundef ptr @_Z15c2v_lookupClassP7JNIEnv_P8_jobjectP7_jclass(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
@@ -6707,7 +6707,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z16c2v_lookupJClassP7JNIEnv_P8_jobjectl(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define hidden noundef ptr @_Z16c2v_lookupJClassP7JNIEnv_P8_jobjectl(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.CompilerThreadCanCallJava, align 8
   %6 = alloca %class.JVMCIEnv, align 8
@@ -7009,7 +7009,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare noundef i32 @_ZN10JNIHandles11handle_typeEP10JavaThreadP8_jobject(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z27c2v_getUncachedStringInPoolP7JNIEnv_P8_jobjectS2_li(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, i32 noundef %4) #0 {
+define hidden noundef ptr @_Z27c2v_getUncachedStringInPoolP7JNIEnv_P8_jobjectS2_li(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, i32 noundef %4) #0 {
   %6 = alloca %class.FormatBuffer, align 8
   %7 = alloca %class.CompilerThreadCanCallJava, align 8
   %8 = alloca %class.JVMCIEnv, align 8
@@ -7249,7 +7249,7 @@ declare noundef ptr @_ZN12ConstantPool18uncached_string_atEiP10JavaThread(ptr no
 declare { ptr, i8 } @_ZN8JVMCIEnv19get_object_constantEP7oopDescbb(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z24c2v_lookupConstantInPoolP7JNIEnv_P8_jobjectS2_lib(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, i32 noundef %4, i1 noundef zeroext %5) #0 {
+define hidden noundef ptr @_Z24c2v_lookupConstantInPoolP7JNIEnv_P8_jobjectS2_lib(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, i32 noundef %4, i1 noundef zeroext %5) #0 {
   %7 = alloca %class.constantPoolHandle, align 8
   %8 = alloca %class.constantPoolHandle, align 8
   %9 = alloca %class.FormatBuffer, align 8
@@ -7679,7 +7679,7 @@ declare noundef zeroext i8 @_ZN23java_lang_boxing_object9get_valueEP7oopDescP6jv
 declare { ptr, i8 } @_ZN8JVMCIEnv30call_JavaConstant_forPrimitiveEtlPS_(ptr noundef nonnull align 8 dereferenceable(64), i16 noundef zeroext, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z26c2v_resolveBootstrapMethodP7JNIEnv_P8_jobjectS2_li(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, i32 noundef %4) #0 {
+define hidden noundef ptr @_Z26c2v_resolveBootstrapMethodP7JNIEnv_P8_jobjectS2_li(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, i32 noundef %4) #0 {
   %6 = alloca %class.FormatBuffer, align 8
   %7 = alloca %class.CompilerThreadCanCallJava, align 8
   %8 = alloca %class.JVMCIEnv, align 8
@@ -8393,7 +8393,7 @@ declare { ptr, i8 } @_ZN8JVMCIEnv12new_intArrayEiPS_(ptr noundef nonnull align 8
 declare void @_ZN8JVMCIEnv10put_int_atE19JVMCIPrimitiveArrayii(ptr noundef nonnull align 8 dereferenceable(64), ptr, i8, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 65536) i32 @_Z28c2v_bootstrapArgumentIndexAtP7JNIEnv_P8_jobjectS2_lii(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define hidden noundef range(i32 0, 65536) i32 @_Z28c2v_bootstrapArgumentIndexAtP7JNIEnv_P8_jobjectS2_lii(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = alloca %class.FormatBuffer, align 8
   %8 = alloca %class.CompilerThreadCanCallJava, align 8
   %9 = alloca %class.JVMCIEnv, align 8
@@ -8623,7 +8623,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 65536) i32 @_Z35c2v_lookupNameAndTypeRefIndexInPoolP7JNIEnv_P8_jobjectS2_lii(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define hidden noundef range(i32 0, 65536) i32 @_Z35c2v_lookupNameAndTypeRefIndexInPoolP7JNIEnv_P8_jobjectS2_lii(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = alloca %class.FormatBuffer, align 8
   %8 = alloca %class.CompilerThreadCanCallJava, align 8
   %9 = alloca %class.JVMCIEnv, align 8
@@ -8831,7 +8831,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare noundef zeroext i16 @_ZN12ConstantPool26name_and_type_ref_index_atEiN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(68), i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z20c2v_lookupNameInPoolP7JNIEnv_P8_jobjectS2_lii(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define hidden noundef ptr @_Z20c2v_lookupNameInPoolP7JNIEnv_P8_jobjectS2_lii(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = alloca %class.FormatBuffer, align 8
   %8 = alloca %class.CompilerThreadCanCallJava, align 8
   %9 = alloca %class.JVMCIEnv, align 8
@@ -9050,7 +9050,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z25c2v_lookupSignatureInPoolP7JNIEnv_P8_jobjectS2_lii(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define hidden noundef ptr @_Z25c2v_lookupSignatureInPoolP7JNIEnv_P8_jobjectS2_lii(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = alloca %class.FormatBuffer, align 8
   %8 = alloca %class.CompilerThreadCanCallJava, align 8
   %9 = alloca %class.JVMCIEnv, align 8
@@ -9269,7 +9269,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 65536) i32 @_Z29c2v_lookupKlassRefIndexInPoolP7JNIEnv_P8_jobjectS2_lii(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define hidden noundef range(i32 0, 65536) i32 @_Z29c2v_lookupKlassRefIndexInPoolP7JNIEnv_P8_jobjectS2_lii(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = alloca %class.FormatBuffer, align 8
   %8 = alloca %class.CompilerThreadCanCallJava, align 8
   %9 = alloca %class.JVMCIEnv, align 8
@@ -9477,7 +9477,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare noundef zeroext i16 @_ZN12ConstantPool18klass_ref_index_atEiN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(68), i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z21c2v_resolveTypeInPoolP7JNIEnv_P8_jobjectS2_li(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, i32 noundef %4) #0 {
+define hidden noundef ptr @_Z21c2v_resolveTypeInPoolP7JNIEnv_P8_jobjectS2_li(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, i32 noundef %4) #0 {
   %6 = alloca %class.constantPoolHandle, align 8
   %7 = alloca %class.FormatBuffer, align 8
   %8 = alloca %class.CompilerThreadCanCallJava, align 8
@@ -9814,7 +9814,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare void @_ZN13InstanceKlass10link_classEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(464), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z21c2v_lookupKlassInPoolP7JNIEnv_P8_jobjectS2_li(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, i32 noundef %4) #0 {
+define hidden noundef ptr @_Z21c2v_lookupKlassInPoolP7JNIEnv_P8_jobjectS2_li(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, i32 noundef %4) #0 {
   %6 = alloca %class.FormatBuffer, align 8
   %7 = alloca %class.CompilerThreadCanCallJava, align 8
   %8 = alloca %class.JVMCIEnv, align 8
@@ -10204,7 +10204,7 @@ declare noundef ptr @_ZN12JVMCIRuntime18get_klass_by_indexERK18constantPoolHandl
 declare noundef ptr @_ZNK12ConstantPool13klass_name_atEi(ptr noundef nonnull align 8 dereferenceable(68), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z24c2v_lookupAppendixInPoolP7JNIEnv_P8_jobjectS2_lii(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define hidden noundef ptr @_Z24c2v_lookupAppendixInPoolP7JNIEnv_P8_jobjectS2_lii(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = alloca %class.FormatBuffer, align 8
   %8 = alloca %class.CompilerThreadCanCallJava, align 8
   %9 = alloca %class.JVMCIEnv, align 8
@@ -10413,7 +10413,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare noundef ptr @_ZN12ConstantPool21appendix_at_if_loadedERK18constantPoolHandleiN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z22c2v_lookupMethodInPoolP7JNIEnv_P8_jobjectS2_liaS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, i32 noundef %4, i8 noundef signext %5, ptr nocapture readnone %6, i64 noundef %7) #0 {
+define hidden noundef ptr @_Z22c2v_lookupMethodInPoolP7JNIEnv_P8_jobjectS2_liaS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, i32 noundef %4, i8 noundef signext %5, ptr readnone captures(none) %6, i64 noundef %7) #0 {
   %9 = alloca %class.FormatBuffer, align 8
   %10 = alloca %class.CompilerThreadCanCallJava, align 8
   %11 = alloca %class.JVMCIEnv, align 8
@@ -10728,7 +10728,7 @@ declare noundef ptr @_ZN12JVMCIRuntime19get_method_by_indexERK18constantPoolHand
 declare void @_ZN3Jfr13on_resolutionEPK6MethodS2_P10JavaThread(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z22c2v_resolveFieldInPoolP7JNIEnv_P8_jobjectS2_liS2_laP10_jintArray(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i64 noundef %6, i8 noundef signext %7, ptr noundef %8) #0 {
+define hidden noundef ptr @_Z22c2v_resolveFieldInPoolP7JNIEnv_P8_jobjectS2_liS2_laP10_jintArray(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i64 noundef %6, i8 noundef signext %7, ptr noundef %8) #0 {
   %10 = alloca %class.FormatBuffer, align 8
   %11 = alloca %class.CompilerThreadCanCallJava, align 8
   %12 = alloca %class.JVMCIEnv, align 8
@@ -11129,7 +11129,7 @@ declare void @_ZN12LinkResolver13resolve_fieldER15fieldDescriptorRK8LinkInfoN9By
 declare noundef i32 @_ZN8JVMCIEnv10get_lengthE10JVMCIArray(ptr noundef nonnull align 8 dereferenceable(64), ptr, i8) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_Z36c2v_getVtableIndexForInterfaceMethodP7JNIEnv_P8_jobjectS2_lS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, ptr nocapture readnone %4, i64 noundef %5) #0 {
+define hidden noundef i32 @_Z36c2v_getVtableIndexForInterfaceMethodP7JNIEnv_P8_jobjectS2_lS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr readnone captures(none) %4, i64 noundef %5) #0 {
   %7 = alloca %class.FormatBuffer, align 8
   %8 = alloca %class.CompilerThreadCanCallJava, align 8
   %9 = alloca %class.JVMCIEnv, align 8
@@ -11433,7 +11433,7 @@ declare noundef ptr @_ZNK6Method24name_and_sig_as_C_stringEv(ptr noundef nonnull
 declare noundef i32 @_ZN12LinkResolver32vtable_index_of_interface_methodEP5KlassRK12methodHandle(ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z17c2v_resolveMethodP7JNIEnv_P8_jobjectS2_lS2_lS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, ptr nocapture readnone %4, i64 noundef %5, ptr nocapture readnone %6, i64 noundef %7) #0 {
+define hidden noundef ptr @_Z17c2v_resolveMethodP7JNIEnv_P8_jobjectS2_lS2_lS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr readnone captures(none) %4, i64 noundef %5, ptr readnone captures(none) %6, i64 noundef %7) #0 {
   %9 = alloca %class.FormatBuffer, align 8
   %10 = alloca %class.CompilerThreadCanCallJava, align 8
   %11 = alloca %class.JVMCIEnv, align 8
@@ -11790,7 +11790,7 @@ declare noundef ptr @_ZN12LinkResolver30resolve_interface_call_or_nullEP5KlassRK
 declare noundef ptr @_ZN12LinkResolver28resolve_virtual_call_or_nullEP5KlassRK8LinkInfo(ptr noundef, ptr noundef nonnull align 8 dereferenceable(51)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext range(i8 0, 2) i8 @_Z26c2v_hasFinalizableSubclassP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 {
+define hidden noundef zeroext range(i8 0, 2) i8 @_Z26c2v_hasFinalizableSubclassP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -11966,7 +11966,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare noundef ptr @_ZN12Dependencies25find_finalizable_subclassEP13InstanceKlass(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z23c2v_getClassInitializerP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 {
+define hidden noundef ptr @_Z23c2v_getClassInitializerP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -12188,7 +12188,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare noundef ptr @_ZNK13InstanceKlass17class_initializerEv(ptr noundef nonnull align 8 dereferenceable(464)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_Z26c2v_getMaxCallTargetOffsetP7JNIEnv_P8_jobjectl(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define hidden noundef i64 @_Z26c2v_getMaxCallTargetOffsetP7JNIEnv_P8_jobjectl(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.CompilerThreadCanCallJava, align 8
   %6 = alloca %class.JVMCIEnv, align 8
@@ -12370,7 +12370,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z31c2v_setNotInlinableOrCompilableP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 {
+define hidden void @_Z31c2v_setNotInlinableOrCompilableP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -12607,7 +12607,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 3) i32 @_Z23c2v_getInstallCodeFlagsP7JNIEnv_P8_jobject(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden noundef range(i32 0, 3) i32 @_Z23c2v_getInstallCodeFlagsP7JNIEnv_P8_jobject(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.FormatBuffer, align 8
   %4 = alloca %class.CompilerThreadCanCallJava, align 8
   %5 = alloca %class.JVMCIEnv, align 8
@@ -12774,7 +12774,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_Z16c2v_installCode0P7JNIEnv_P8_jobjectllbS2_P13_jobjectArrayS2_lP11_jbyteArray(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef %9) #0 {
+define hidden noundef i32 @_Z16c2v_installCode0P7JNIEnv_P8_jobjectllbS2_P13_jobjectArrayS2_lP11_jbyteArray(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef %9) #0 {
   %11 = alloca %class.FormatBuffer, align 8
   %12 = alloca %class.CompilerThreadCanCallJava, align 8
   %13 = alloca %class.JVMCIEnv, align 8
@@ -13020,7 +13020,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
   %137 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %138 = load ptr, ptr %137, align 8
   %139 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %138) #17
-  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %136, ptr noundef %138, i64 noundef %139) #16
+  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %136, ptr noundef nonnull %138, i64 noundef %139) #16
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %136) #16
   call void @_ZN9ttyLocker11release_ttyEl(i64 noundef %135) #16
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %20) #16
@@ -13181,7 +13181,7 @@ declare void @_ZN9TraceTimeD1Ev(ptr noundef nonnull align 8 dereferenceable(56))
 declare void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z30c2v_resetCompilationStatisticsP7JNIEnv_P8_jobject(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @_Z30c2v_resetCompilationStatisticsP7JNIEnv_P8_jobject(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.FormatBuffer, align 8
   %4 = alloca %class.CompilerThreadCanCallJava, align 8
   %5 = alloca %class.JVMCIEnv, align 8
@@ -13354,7 +13354,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z23c2v_disassembleCodeBlobP7JNIEnv_P8_jobjectS2_(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden noundef ptr @_Z23c2v_disassembleCodeBlobP7JNIEnv_P8_jobjectS2_(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.CompilerThreadCanCallJava, align 8
   %6 = alloca %class.JVMCIEnv, align 8
@@ -13574,7 +13574,7 @@ declare void @_ZN12Disassembler6decodeEP8CodeBlobP12outputStream(ptr noundef, pt
 declare noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z24c2v_getStackTraceElementP7JNIEnv_P8_jobjectS2_li(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, i32 noundef %4) #0 {
+define hidden noundef ptr @_Z24c2v_getStackTraceElementP7JNIEnv_P8_jobjectS2_li(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, i32 noundef %4) #0 {
   %6 = alloca %class.FormatBuffer, align 8
   %7 = alloca %class.CompilerThreadCanCallJava, align 8
   %8 = alloca %class.JVMCIEnv, align 8
@@ -13788,7 +13788,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare { ptr, i8 } @_ZN8JVMCIEnv21new_StackTraceElementERK12methodHandleiPS_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z25c2v_executeHotSpotNmethodP7JNIEnv_P8_jobjectS2_S2_(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3) #0 {
+define hidden noundef ptr @_Z25c2v_executeHotSpotNmethodP7JNIEnv_P8_jobjectS2_S2_(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.FormatBuffer, align 8
   %7 = alloca %class.CompilerThreadCanCallJava, align 8
@@ -14354,7 +14354,7 @@ declare void @_ZN9JavaCalls4callEP9JavaValueRK12methodHandleP17JavaCallArguments
 declare noundef ptr @_ZN10JNIHandles10make_localEP10JavaThreadP7oopDescN17AllocFailStrategy13AllocFailEnumE(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z22c2v_getLineNumberTableP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 {
+define hidden noundef ptr @_Z22c2v_getLineNumberTableP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -14581,7 +14581,7 @@ declare { ptr, i8 } @_ZN8JVMCIEnv13new_longArrayEiPS_(ptr noundef nonnull align 
 declare void @_ZN8JVMCIEnv11put_long_atE19JVMCIPrimitiveArrayil(ptr noundef nonnull align 8 dereferenceable(64), ptr, i8, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_Z30c2v_getLocalVariableTableStartP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 {
+define hidden noundef i64 @_Z30c2v_getLocalVariableTableStartP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -14757,7 +14757,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 65536) i32 @_Z31c2v_getLocalVariableTableLengthP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 {
+define hidden noundef range(i32 0, 65536) i32 @_Z31c2v_getLocalVariableTableLengthP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -14922,7 +14922,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z13c2v_reprofileP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 {
+define hidden void @_Z13c2v_reprofileP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -15181,7 +15181,7 @@ declare noundef zeroext i1 @_ZN7nmethod16make_not_entrantEv(ptr noundef nonnull 
 declare void @_ZN10MethodData10initializeEv(ptr noundef nonnull align 8 dereferenceable(312)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z28c2v_invalidateHotSpotNmethodP7JNIEnv_P8_jobjectS2_h(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
+define hidden void @_Z28c2v_invalidateHotSpotNmethodP7JNIEnv_P8_jobjectS2_h(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -15346,7 +15346,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z19c2v_collectCountersP7JNIEnv_P8_jobject(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden noundef ptr @_Z19c2v_collectCountersP7JNIEnv_P8_jobject(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.FormatBuffer, align 8
   %4 = alloca %class.CompilerThreadCanCallJava, align 8
   %5 = alloca %class.JVMCIEnv, align 8
@@ -15537,7 +15537,7 @@ declare void @_ZN10JavaThread16collect_countersEPli(ptr noundef, i32 noundef) lo
 declare void @_ZN8JVMCIEnv15copy_longs_fromEPl19JVMCIPrimitiveArrayii(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr, i8, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_Z19c2v_getCountersSizeP7JNIEnv_P8_jobject(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden noundef i32 @_Z19c2v_getCountersSizeP7JNIEnv_P8_jobject(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.FormatBuffer, align 8
   %4 = alloca %class.CompilerThreadCanCallJava, align 8
   %5 = alloca %class.JVMCIEnv, align 8
@@ -15701,7 +15701,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext range(i8 0, 2) i8 @_Z19c2v_setCountersSizeP7JNIEnv_P8_jobjecti(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define hidden noundef zeroext range(i8 0, 2) i8 @_Z19c2v_setCountersSizeP7JNIEnv_P8_jobjecti(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.CompilerThreadCanCallJava, align 8
   %6 = alloca %class.JVMCIEnv, align 8
@@ -15865,7 +15865,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare noundef zeroext i1 @_ZN10JavaThread25resize_all_jvmci_countersEi(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_Z21c2v_allocateCompileIdP7JNIEnv_P8_jobjectS2_li(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, i32 noundef %4) #0 {
+define hidden noundef i32 @_Z21c2v_allocateCompileIdP7JNIEnv_P8_jobjectS2_li(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, i32 noundef %4) #0 {
   %6 = alloca %class.FormatBuffer, align 8
   %7 = alloca %class.CompilerThreadCanCallJava, align 8
   %8 = alloca %class.JVMCIEnv, align 8
@@ -16103,7 +16103,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare noundef i32 @_ZN13CompileBroker26assign_compile_id_unlockedEP6ThreadRK12methodHandlei(ptr noundef, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext range(i8 0, 2) i8 @_Z12c2v_isMatureP7JNIEnv_P8_jobjectl(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define hidden noundef zeroext range(i8 0, 2) i8 @_Z12c2v_isMatureP7JNIEnv_P8_jobjectl(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.CompilerThreadCanCallJava, align 8
   %6 = alloca %class.JVMCIEnv, align 8
@@ -16276,7 +16276,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare noundef zeroext i1 @_ZNK10MethodData9is_matureEv(ptr noundef nonnull align 8 dereferenceable(312)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext range(i8 0, 2) i8 @_Z25c2v_hasCompiledCodeForOSRP7JNIEnv_P8_jobjectS2_lii(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define hidden noundef zeroext range(i8 0, 2) i8 @_Z25c2v_hasCompiledCodeForOSRP7JNIEnv_P8_jobjectS2_lii(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = alloca %class.FormatBuffer, align 8
   %8 = alloca %class.CompilerThreadCanCallJava, align 8
   %9 = alloca %class.JVMCIEnv, align 8
@@ -16446,7 +16446,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z13c2v_getSymbolP7JNIEnv_P8_jobjectl(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define hidden noundef ptr @_Z13c2v_getSymbolP7JNIEnv_P8_jobjectl(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.CompilerThreadCanCallJava, align 8
   %6 = alloca %class.JVMCIEnv, align 8
@@ -16615,7 +16615,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z20c2v_getSignatureNameP7JNIEnv_P8_jobjectl(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define hidden noundef ptr @_Z20c2v_getSignatureNameP7JNIEnv_P8_jobjectl(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.CompilerThreadCanCallJava, align 8
   %6 = alloca %class.JVMCIEnv, align 8
@@ -18690,7 +18690,7 @@ _ZNK5frame6senderEP11RegisterMap.exit:            ; preds = %_ZNK11RegisterMap7i
 declare void @_ZN24KeepStackGCProcessedMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 65536) i32 @_Z28c2v_decodeIndyIndexToCPIndexP7JNIEnv_P8_jobjectS2_lih(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, i32 noundef %4, i8 noundef zeroext %5) #0 {
+define hidden noundef range(i32 0, 65536) i32 @_Z28c2v_decodeIndyIndexToCPIndexP7JNIEnv_P8_jobjectS2_lih(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, i32 noundef %4, i8 noundef zeroext %5) #0 {
   %7 = alloca %class.FormatBuffer, align 8
   %8 = alloca %class.CompilerThreadCanCallJava, align 8
   %9 = alloca %class.JVMCIEnv, align 8
@@ -18940,7 +18940,7 @@ declare void @_ZN12LinkResolver14resolve_invokeER8CallInfo6HandleRK18constantPoo
 declare noundef ptr @_ZN17ConstantPoolCache16set_dynamic_callERK8CallInfoi(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 65536) i32 @_Z29c2v_decodeFieldIndexToCPIndexP7JNIEnv_P8_jobjectS2_li(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, i32 noundef %4) #0 {
+define hidden noundef range(i32 0, 65536) i32 @_Z29c2v_decodeFieldIndexToCPIndexP7JNIEnv_P8_jobjectS2_li(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, i32 noundef %4) #0 {
   %6 = alloca %class.FormatBuffer, align 8
   %7 = alloca %class.CompilerThreadCanCallJava, align 8
   %8 = alloca %class.JVMCIEnv, align 8
@@ -19176,7 +19176,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare void @_ZN8JVMCIEnv27throw_IllegalStateExceptionEPKc(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 65536) i32 @_Z30c2v_decodeMethodIndexToCPIndexP7JNIEnv_P8_jobjectS2_li(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, i32 noundef %4) #0 {
+define hidden noundef range(i32 0, 65536) i32 @_Z30c2v_decodeMethodIndexToCPIndexP7JNIEnv_P8_jobjectS2_li(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, i32 noundef %4) #0 {
   %6 = alloca %class.FormatBuffer, align 8
   %7 = alloca %class.CompilerThreadCanCallJava, align 8
   %8 = alloca %class.JVMCIEnv, align 8
@@ -19410,7 +19410,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z29c2v_resolveInvokeHandleInPoolP7JNIEnv_P8_jobjectS2_li(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, i32 noundef %4) #0 {
+define hidden void @_Z29c2v_resolveInvokeHandleInPoolP7JNIEnv_P8_jobjectS2_li(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, i32 noundef %4) #0 {
   %6 = alloca %class.FormatBuffer, align 8
   %7 = alloca %class.CompilerThreadCanCallJava, align 8
   %8 = alloca %class.JVMCIEnv, align 8
@@ -19660,7 +19660,7 @@ declare noundef ptr @_ZN12ConstantPool12klass_ref_atEiN9Bytecodes4CodeEP10JavaTh
 declare noundef ptr @_ZN17ConstantPoolCache17set_method_handleEiRK8CallInfo(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 187) i32 @_Z32c2v_isResolvedInvokeHandleInPoolP7JNIEnv_P8_jobjectS2_lii(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define hidden noundef range(i32 -1, 187) i32 @_Z32c2v_isResolvedInvokeHandleInPoolP7JNIEnv_P8_jobjectS2_lii(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = alloca %class.FormatBuffer, align 8
   %8 = alloca %class.CompilerThreadCanCallJava, align 8
   %9 = alloca %class.JVMCIEnv, align 8
@@ -20078,7 +20078,7 @@ declare void @_ZN12methodHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceab
 declare noundef ptr @_ZN12LinkResolver39linktime_resolve_virtual_method_or_nullERK8LinkInfo(ptr noundef nonnull align 8 dereferenceable(51)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z34c2v_getSignaturePolymorphicHoldersP7JNIEnv_P8_jobject(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden noundef ptr @_Z34c2v_getSignaturePolymorphicHoldersP7JNIEnv_P8_jobject(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.FormatBuffer, align 8
   %4 = alloca %class.CompilerThreadCanCallJava, align 8
   %5 = alloca %class.JVMCIEnv, align 8
@@ -20270,7 +20270,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare { ptr, i8 } @_ZN8JVMCIEnv16new_String_arrayEiPS_(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext range(i8 0, 2) i8 @_Z28c2v_shouldDebugNonSafepointsP7JNIEnv_P8_jobject(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden noundef zeroext range(i8 0, 2) i8 @_Z28c2v_shouldDebugNonSafepointsP7JNIEnv_P8_jobject(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.FormatBuffer, align 8
   %4 = alloca %class.CompilerThreadCanCallJava, align 8
   %5 = alloca %class.JVMCIEnv, align 8
@@ -20447,7 +20447,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z29c2v_materializeVirtualObjectsP7JNIEnv_P8_jobjectS2_b(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i1 noundef zeroext %3) #0 {
+define hidden void @_Z29c2v_materializeVirtualObjectsP7JNIEnv_P8_jobjectS2_b(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i1 noundef zeroext %3) #0 {
   %5 = alloca %class.frame, align 8
   %6 = alloca %class.frame, align 8
   %7 = alloca %class.FormatBuffer, align 8
@@ -21260,7 +21260,7 @@ declare { ptr, i8 } @_ZN8JVMCIEnv37get_HotSpotStackFrameReference_localsE11JVMCI
 declare { ptr, i8 } @_ZN12HotSpotJVMCI4wrapEP7oopDesc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z20c2v_writeDebugOutputP7JNIEnv_P8_jobjectlib(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 noundef %2, i32 noundef %3, i1 noundef zeroext %4) #0 {
+define hidden void @_Z20c2v_writeDebugOutputP7JNIEnv_P8_jobjectlib(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 noundef %2, i32 noundef %3, i1 noundef zeroext %4) #0 {
   %6 = alloca i64, align 8
   store i64 %2, ptr %6, align 8
   %7 = icmp slt i32 %3, 9
@@ -21299,7 +21299,7 @@ define hidden void @_Z20c2v_writeDebugOutputP7JNIEnv_P8_jobjectlib(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z20c2v_flushDebugOutputP7JNIEnv_P8_jobject(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define hidden void @_Z20c2v_flushDebugOutputP7JNIEnv_P8_jobject(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = load ptr, ptr @tty, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -21308,7 +21308,7 @@ define hidden void @_Z20c2v_flushDebugOutputP7JNIEnv_P8_jobject(ptr nocapture re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -2147483640, -2147483648) i32 @_Z29c2v_methodDataProfileDataSizeP7JNIEnv_P8_jobjectli(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2, i32 noundef %3) #0 {
+define hidden noundef range(i32 -2147483640, -2147483648) i32 @_Z29c2v_methodDataProfileDataSizeP7JNIEnv_P8_jobjectli(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, i32 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -21492,7 +21492,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare noundef ptr @_ZNK10MethodData7data_atEi(ptr noundef nonnull align 8 dereferenceable(312), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 2) i32 @_Z27c2v_methodDataExceptionSeenP7JNIEnv_P8_jobjectli(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2, i32 noundef %3) #0 {
+define hidden noundef range(i32 -1, 2) i32 @_Z27c2v_methodDataExceptionSeenP7JNIEnv_P8_jobjectli(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, i32 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -21704,7 +21704,7 @@ declare noundef ptr @_ZN10DataLayout7data_inEv(ptr noundef nonnull align 8 deref
 declare noundef ptr @_ZN10MethodData10next_extraEP10DataLayout(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z17c2v_getInterfacesP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 {
+define hidden noundef ptr @_Z17c2v_getInterfacesP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -21980,7 +21980,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare { ptr, i8 } @_ZN8JVMCIEnv39new_HotSpotResolvedObjectTypeImpl_arrayEiPS_(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z20c2v_getComponentTypeP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 {
+define hidden noundef ptr @_Z20c2v_getComponentTypeP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -22250,7 +22250,7 @@ declare noundef zeroext i8 @_ZN15java_lang_Class14primitive_typeEP7oopDesc(ptr n
 declare { ptr, i8 } @_ZN8JVMCIEnv24get_jvmci_primitive_typeE9BasicType(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z21c2v_ensureInitializedP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 {
+define hidden void @_Z21c2v_ensureInitializedP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -22432,7 +22432,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z16c2v_ensureLinkedP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 {
+define hidden void @_Z16c2v_ensureLinkedP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -22613,7 +22613,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_Z24c2v_interpreterFrameSizeP7JNIEnv_P8_jobjectS2_(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden noundef i32 @_Z24c2v_interpreterFrameSizeP7JNIEnv_P8_jobjectS2_(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.CompilerThreadCanCallJava, align 8
   %6 = alloca %class.JVMCIEnv, align 8
@@ -22865,7 +22865,7 @@ declare { ptr, i8 } @_ZN8JVMCIEnv27get_BytecodePosition_callerE11JVMCIObject(ptr
 declare noundef i32 @_ZN14Deoptimization17last_frame_adjustEii(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z21c2v_compileToBytecodeP7JNIEnv_P8_jobjectS2_(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden void @_Z21c2v_compileToBytecodeP7JNIEnv_P8_jobjectS2_(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.CompilerThreadCanCallJava, align 8
   %6 = alloca %class.JVMCIEnv, align 8
@@ -23145,7 +23145,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare void @_ZN9JavaCalls12call_specialEP9JavaValue6HandleP5KlassP6SymbolS6_P10JavaThread(ptr noundef, ptr, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_Z23c2v_getIdentityHashCodeP7JNIEnv_P8_jobjectS2_(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden noundef i32 @_Z23c2v_getIdentityHashCodeP7JNIEnv_P8_jobjectS2_(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.CompilerThreadCanCallJava, align 8
   %6 = alloca %class.JVMCIEnv, align 8
@@ -23348,7 +23348,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext range(i8 0, 2) i8 @_Z20c2v_isInternedStringP7JNIEnv_P8_jobjectS2_(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden noundef zeroext range(i8 0, 2) i8 @_Z20c2v_isInternedStringP7JNIEnv_P8_jobjectS2_(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.CompilerThreadCanCallJava, align 8
   %6 = alloca %class.JVMCIEnv, align 8
@@ -23572,7 +23572,7 @@ declare noundef ptr @_ZN16java_lang_String17as_unicode_stringEP7oopDescRiP10Java
 declare noundef ptr @_ZN11StringTable6lookupEPKti(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z18c2v_unboxPrimitiveP7JNIEnv_P8_jobjectS2_(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden noundef ptr @_Z18c2v_unboxPrimitiveP7JNIEnv_P8_jobjectS2_(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.CompilerThreadCanCallJava, align 8
   %6 = alloca %class.JVMCIEnv, align 8
@@ -23782,7 +23782,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare noundef zeroext i8 @_ZN23java_lang_boxing_object10basic_typeEP7oopDesc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z16c2v_boxPrimitiveP7JNIEnv_P8_jobjectS2_(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden noundef ptr @_Z16c2v_boxPrimitiveP7JNIEnv_P8_jobjectS2_(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.CompilerThreadCanCallJava, align 8
   %6 = alloca %class.JVMCIEnv, align 8
@@ -24114,7 +24114,7 @@ declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) loc
 declare void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z27c2v_getDeclaredConstructorsP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 {
+define hidden noundef ptr @_Z27c2v_getDeclaredConstructorsP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -24481,7 +24481,7 @@ declare { ptr, i8 } @_ZN8JVMCIEnv28new_ResolvedJavaMethod_arrayEiPS_(ptr noundef
 declare noundef zeroext i1 @_ZNK6Method14is_initializerEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z22c2v_getDeclaredMethodsP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 {
+define hidden noundef ptr @_Z22c2v_getDeclaredMethodsP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -24846,7 +24846,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z25c2v_getDeclaredFieldsInfoP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 {
+define hidden noundef ptr @_Z25c2v_getDeclaredFieldsInfoP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -25067,7 +25067,7 @@ declare { ptr, i8 } @_ZN8JVMCIEnv19new_FieldInfo_arrayEiPS_(ptr noundef nonnull 
 declare { ptr, i8 } @_ZN8JVMCIEnv13new_FieldInfoEP9FieldInfoPS_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z24c2v_readStaticFieldValueP7JNIEnv_P8_jobjectS2_llt(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, i64 noundef %4, i16 noundef zeroext %5) #0 {
+define hidden noundef ptr @_Z24c2v_readStaticFieldValueP7JNIEnv_P8_jobjectS2_llt(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, i64 noundef %4, i16 noundef zeroext %5) #0 {
   %7 = alloca %class.FormatBuffer, align 8
   %8 = alloca %class.CompilerThreadCanCallJava, align 8
   %9 = alloca %class.JVMCIEnv, align 8
@@ -25269,7 +25269,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL16read_field_value6HandleltbP6ThreadP8JVMCIEnv(ptr nocapture readonly %0, i64 noundef %1, i16 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL16read_field_value6HandleltbP6ThreadP8JVMCIEnv(ptr readonly captures(none) %0, i64 noundef %1, i16 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %class.fieldDescriptor, align 8
   %7 = alloca %class.FormatBuffer, align 8
   %8 = alloca %class.FormatBuffer, align 8
@@ -25892,7 +25892,7 @@ _ZNK7oopDesc5klassEv.exit126:                     ; preds = %317, %327
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z18c2v_readFieldValueP7JNIEnv_P8_jobjectS2_S2_llt(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i64 noundef %4, i64 noundef %5, i16 noundef zeroext %6) #0 {
+define hidden noundef ptr @_Z18c2v_readFieldValueP7JNIEnv_P8_jobjectS2_S2_llt(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i64 noundef %4, i64 noundef %5, i16 noundef zeroext %6) #0 {
   %8 = alloca %class.FormatBuffer, align 8
   %9 = alloca %class.CompilerThreadCanCallJava, align 8
   %10 = alloca %class.JVMCIEnv, align 8
@@ -26164,7 +26164,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext range(i8 0, 2) i8 @_Z14c2v_isInstanceP7JNIEnv_P8_jobjectS2_lS2_(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, ptr noundef %4) #0 {
+define hidden noundef zeroext range(i8 0, 2) i8 @_Z14c2v_isInstanceP7JNIEnv_P8_jobjectS2_lS2_(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef %4) #0 {
   %6 = alloca %class.FormatBuffer, align 8
   %7 = alloca %class.CompilerThreadCanCallJava, align 8
   %8 = alloca %class.JVMCIEnv, align 8
@@ -26387,7 +26387,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext range(i8 0, 2) i8 @_Z20c2v_isAssignableFromP7JNIEnv_P8_jobjectS2_lS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, ptr nocapture readnone %4, i64 noundef %5) #0 {
+define hidden noundef zeroext range(i8 0, 2) i8 @_Z20c2v_isAssignableFromP7JNIEnv_P8_jobjectS2_lS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr readnone captures(none) %4, i64 noundef %5) #0 {
   %7 = alloca %class.FormatBuffer, align 8
   %8 = alloca %class.CompilerThreadCanCallJava, align 8
   %9 = alloca %class.JVMCIEnv, align 8
@@ -26578,7 +26578,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext range(i8 0, 2) i8 @_Z26c2v_isTrustedForIntrinsicsP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 {
+define hidden noundef zeroext range(i8 0, 2) i8 @_Z26c2v_isTrustedForIntrinsicsP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -26775,7 +26775,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare noundef zeroext i1 @_ZNK15ClassLoaderData29is_platform_class_loader_dataEv(ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z14c2v_asJavaTypeP7JNIEnv_P8_jobjectS2_(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden noundef ptr @_Z14c2v_asJavaTypeP7JNIEnv_P8_jobjectS2_(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.CompilerThreadCanCallJava, align 8
   %6 = alloca %class.JVMCIEnv, align 8
@@ -27063,7 +27063,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z12c2v_asStringP7JNIEnv_P8_jobjectS2_(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden noundef ptr @_Z12c2v_asStringP7JNIEnv_P8_jobjectS2_(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.CompilerThreadCanCallJava, align 8
   %6 = alloca %class.JVMCIEnv, align 8
@@ -27261,7 +27261,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDesc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext range(i8 0, 2) i8 @_Z10c2v_equalsP7JNIEnv_P8_jobjectS2_lS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr noundef readnone %2, i64 noundef %3, ptr noundef readnone %4, i64 noundef %5) #0 {
+define hidden noundef zeroext range(i8 0, 2) i8 @_Z10c2v_equalsP7JNIEnv_P8_jobjectS2_lS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readnone %2, i64 noundef %3, ptr noundef readnone %4, i64 noundef %5) #0 {
   %7 = alloca %class.FormatBuffer, align 8
   %8 = alloca %class.CompilerThreadCanCallJava, align 8
   %9 = alloca %class.JVMCIEnv, align 8
@@ -27441,7 +27441,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare noundef ptr @_ZN8JVMCIEnv18resolve_oop_handleEl(ptr noundef nonnull align 8 dereferenceable(64), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z17c2v_getJavaMirrorP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 {
+define hidden noundef ptr @_Z17c2v_getJavaMirrorP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -27656,7 +27656,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_Z18c2v_getArrayLengthP7JNIEnv_P8_jobjectS2_(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden noundef i32 @_Z18c2v_getArrayLengthP7JNIEnv_P8_jobjectS2_(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.CompilerThreadCanCallJava, align 8
   %6 = alloca %class.JVMCIEnv, align 8
@@ -27870,7 +27870,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z20c2v_readArrayElementP7JNIEnv_P8_jobjectS2_i(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 {
+define hidden noundef ptr @_Z20c2v_readArrayElementP7JNIEnv_P8_jobjectS2_i(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -28231,7 +28231,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 25) i32 @_Z19c2v_arrayBaseOffsetP7JNIEnv_P8_jobjectt(ptr noundef %0, ptr nocapture readnone %1, i16 noundef zeroext %2) #0 {
+define hidden noundef range(i32 0, 25) i32 @_Z19c2v_arrayBaseOffsetP7JNIEnv_P8_jobjectt(ptr noundef %0, ptr readnone captures(none) %1, i16 noundef zeroext %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.CompilerThreadCanCallJava, align 8
   %6 = alloca %class.JVMCIEnv, align 8
@@ -28422,7 +28422,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_Z19c2v_arrayIndexScaleP7JNIEnv_P8_jobjectt(ptr noundef %0, ptr nocapture readnone %1, i16 noundef zeroext %2) #0 {
+define hidden noundef i32 @_Z19c2v_arrayIndexScaleP7JNIEnv_P8_jobjectt(ptr noundef %0, ptr readnone captures(none) %1, i16 noundef zeroext %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.CompilerThreadCanCallJava, align 8
   %6 = alloca %class.JVMCIEnv, align 8
@@ -28595,7 +28595,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z18c2v_clearOopHandleP7JNIEnv_P8_jobjectl(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define hidden void @_Z18c2v_clearOopHandleP7JNIEnv_P8_jobjectl(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.CompilerThreadCanCallJava, align 8
   %6 = alloca %class.JVMCIEnv, align 8
@@ -28768,7 +28768,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z28c2v_releaseClearedOopHandlesP7JNIEnv_P8_jobject(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @_Z28c2v_releaseClearedOopHandlesP7JNIEnv_P8_jobject(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.FormatBuffer, align 8
   %4 = alloca %class.CompilerThreadCanCallJava, align 8
   %5 = alloca %class.JVMCIEnv, align 8
@@ -28945,7 +28945,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare noundef i32 @_ZN12JVMCIRuntime27release_cleared_oop_handlesEv(ptr noundef nonnull align 8 dereferenceable(93)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z25c2v_registerNativeMethodsP7JNIEnv_P8_jobjectP7_jclass(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden noundef ptr @_Z25c2v_registerNativeMethodsP7JNIEnv_P8_jobjectP7_jclass(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
@@ -29487,7 +29487,7 @@ declare noundef ptr @_ZN10oopFactory13new_longArrayEiP10JavaThread(i32 noundef, 
 declare void @_ZN12JVMCIRuntime16init_JavaVM_infoEP11_jlongArrayP8JVMCIEnv(ptr noundef nonnull align 8 dereferenceable(93), ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext range(i8 0, 2) i8 @_Z27c2v_isCurrentThreadAttachedP7JNIEnv_P8_jobject(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden noundef zeroext range(i8 0, 2) i8 @_Z27c2v_isCurrentThreadAttachedP7JNIEnv_P8_jobject(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.CompilerThreadCanCallJava, align 8
   %4 = alloca %class.JVMCIEnv, align 8
   %5 = alloca ptr, align 8
@@ -29684,7 +29684,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare noundef i32 @_ZN12JVMCIRuntime6GetEnvEP10JavaThreadPPvi(ptr noundef nonnull align 8 dereferenceable(93), ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_Z24c2v_getCurrentJavaThreadP7JNIEnv_P8_jobject(ptr nocapture readnone %0, ptr nocapture readnone %1) #5 {
+define hidden noundef i64 @_Z24c2v_getCurrentJavaThreadP7JNIEnv_P8_jobject(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #5 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
@@ -29692,7 +29692,7 @@ define hidden noundef i64 @_Z24c2v_getCurrentJavaThreadP7JNIEnv_P8_jobject(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext range(i8 0, 2) i8 @_Z23c2v_attachCurrentThreadP7JNIEnv_P8_jobjectP11_jbyteArrayhP11_jlongArray(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef %4) #0 {
+define hidden noundef zeroext range(i8 0, 2) i8 @_Z23c2v_attachCurrentThreadP7JNIEnv_P8_jobjectP11_jbyteArrayhP11_jlongArray(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %class.FormatBuffer, align 8
   %8 = alloca ptr, align 8
@@ -30212,7 +30212,7 @@ declare noundef i32 @_ZN12JVMCIRuntime19AttachCurrentThreadEP10JavaThreadPPvS2_(
 declare void @_ZN5JVMCI6event1EPKcz(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i8 @_Z23c2v_detachCurrentThreadP7JNIEnv_P8_jobjecth(ptr noundef %0, ptr nocapture readnone %1, i8 noundef zeroext %2) #0 {
+define hidden noundef zeroext i8 @_Z23c2v_detachCurrentThreadP7JNIEnv_P8_jobjecth(ptr noundef %0, ptr readnone captures(none) %1, i8 noundef zeroext %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.CompilerThreadCanCallJava, align 8
   %6 = alloca %class.JVMCIEnv, align 8
@@ -30704,7 +30704,7 @@ declare noundef i32 @_ZN12JVMCIRuntime19DetachCurrentThreadEP10JavaThread(ptr no
 declare noundef zeroext i1 @_ZN12JVMCIRuntime13detach_threadEP10JavaThreadPKcb(ptr noundef nonnull align 8 dereferenceable(93), ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_Z13c2v_translateP7JNIEnv_P8_jobjectS2_h(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
+define hidden noundef i64 @_Z13c2v_translateP7JNIEnv_P8_jobjectS2_h(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -31305,7 +31305,7 @@ declare noundef zeroext i8 @_ZN8JVMCIEnv26transfer_pending_exceptionEP10JavaThre
 declare { ptr, i8 } @_ZN8JVMCIEnv11make_globalE11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64), ptr, i8) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z10c2v_unhandP7JNIEnv_P8_jobjectl(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define hidden noundef ptr @_Z10c2v_unhandP7JNIEnv_P8_jobjectl(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.CompilerThreadCanCallJava, align 8
   %6 = alloca %class.JVMCIEnv, align 8
@@ -31496,7 +31496,7 @@ declare { ptr, i8 } @_ZN8JVMCIEnv10make_localE11JVMCIObject(ptr noundef nonnull 
 declare void @_ZN8JVMCIEnv14destroy_globalE11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64), ptr, i8) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z24c2v_updateHotSpotNmethodP7JNIEnv_P8_jobjectS2_(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden void @_Z24c2v_updateHotSpotNmethodP7JNIEnv_P8_jobjectS2_(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.CompilerThreadCanCallJava, align 8
   %6 = alloca %class.JVMCIEnv, align 8
@@ -31664,7 +31664,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z11c2v_getCodeP7JNIEnv_P8_jobjectS2_(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden noundef ptr @_Z11c2v_getCodeP7JNIEnv_P8_jobjectS2_(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.CompilerThreadCanCallJava, align 8
   %6 = alloca %class.JVMCIEnv, align 8
@@ -31856,7 +31856,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z26c2v_asReflectionExecutableP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 {
+define hidden noundef ptr @_Z26c2v_asReflectionExecutableP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.FormatBuffer, align 8
   %7 = alloca %class.CompilerThreadCanCallJava, align 8
@@ -32122,7 +32122,7 @@ declare noundef ptr @_ZN10Reflection15new_constructorERK12methodHandleP10JavaThr
 declare noundef ptr @_ZN10Reflection10new_methodERK12methodHandlebP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z21c2v_asReflectionFieldP7JNIEnv_P8_jobjectS2_li(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, i32 noundef %4) #0 {
+define hidden noundef ptr @_Z21c2v_asReflectionFieldP7JNIEnv_P8_jobjectS2_li(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, i32 noundef %4) #0 {
   %6 = alloca %class.FormatBuffer, align 8
   %7 = alloca %class.FormatBuffer, align 8
   %8 = alloca %class.CompilerThreadCanCallJava, align 8
@@ -32449,7 +32449,7 @@ _ZNK13InstanceKlass18total_fields_countEv.exit:   ; preds = %.lr.ph.i.i.i2.i.i, 
 declare noundef ptr @_ZN10Reflection9new_fieldEP15fieldDescriptorP10JavaThread(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z33c2v_getEncodedClassAnnotationDataP7JNIEnv_P8_jobjectS2_lS2_il(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, ptr nocapture readnone %4, i32 noundef %5, i64 noundef %6) #0 {
+define hidden noundef ptr @_Z33c2v_getEncodedClassAnnotationDataP7JNIEnv_P8_jobjectS2_lS2_il(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr readnone captures(none) %4, i32 noundef %5, i64 noundef %6) #0 {
   %8 = alloca %class.FormatBuffer, align 8
   %9 = alloca %class.CompilerThreadCanCallJava, align 8
   %10 = alloca %class.JVMCIEnv, align 8
@@ -32625,7 +32625,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL27get_encoded_annotation_dataP13InstanceKlassP5ArrayIhEbilP10JavaThreadP8JVMCIEnv(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3, i64 noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL27get_encoded_annotation_dataP13InstanceKlassP5ArrayIhEbilP10JavaThreadP8JVMCIEnv(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3, i64 noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = alloca %class.JavaValue, align 8
   %10 = alloca %class.JavaCallArguments, align 8
@@ -32966,7 +32966,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %._crit_edge, %_ZNK5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z38c2v_getEncodedExecutableAnnotationDataP7JNIEnv_P8_jobjectS2_lS2_il(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, ptr nocapture readnone %4, i32 noundef %5, i64 noundef %6) #0 {
+define hidden noundef ptr @_Z38c2v_getEncodedExecutableAnnotationDataP7JNIEnv_P8_jobjectS2_lS2_il(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr readnone captures(none) %4, i32 noundef %5, i64 noundef %6) #0 {
   %8 = alloca %class.FormatBuffer, align 8
   %9 = alloca %class.CompilerThreadCanCallJava, align 8
   %10 = alloca %class.JVMCIEnv, align 8
@@ -33193,7 +33193,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z33c2v_getEncodedFieldAnnotationDataP7JNIEnv_P8_jobjectS2_liS2_il(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 noundef %6, i64 noundef %7) #0 {
+define hidden noundef ptr @_Z33c2v_getEncodedFieldAnnotationDataP7JNIEnv_P8_jobjectS2_liS2_il(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 noundef %6, i64 noundef %7) #0 {
   %9 = alloca %class.FormatBuffer, align 8
   %10 = alloca %class.CompilerThreadCanCallJava, align 8
   %11 = alloca %class.JVMCIEnv, align 8
@@ -33369,7 +33369,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare noundef ptr @_ZNK15fieldDescriptor11annotationsEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z25c2v_getFailedSpeculationsP7JNIEnv_P8_jobjectlP13_jobjectArray(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2, ptr noundef %3) #0 {
+define hidden noundef ptr @_Z25c2v_getFailedSpeculationsP7JNIEnv_P8_jobjectlP13_jobjectArray(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -33616,7 +33616,7 @@ declare { ptr, i8 } @_ZN8JVMCIEnv20new_byte_array_arrayEiPS_(ptr noundef nonnull
 declare { ptr, i8 } @_ZN8JVMCIEnv13get_object_atE16JVMCIObjectArrayi(ptr noundef nonnull align 8 dereferenceable(64), ptr, i8, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_Z32c2v_getFailedSpeculationsAddressP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3) #0 {
+define hidden noundef i64 @_Z32c2v_getFailedSpeculationsAddressP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -33852,7 +33852,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z29c2v_releaseFailedSpeculationsP7JNIEnv_P8_jobjectl(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define hidden void @_Z29c2v_releaseFailedSpeculationsP7JNIEnv_P8_jobjectl(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.CompilerThreadCanCallJava, align 8
   %6 = alloca %class.JVMCIEnv, align 8
@@ -34015,7 +34015,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare void @_ZN17FailedSpeculation24free_failed_speculationsEPPS_(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext range(i8 0, 2) i8 @_Z24c2v_addFailedSpeculationP7JNIEnv_P8_jobjectlP11_jbyteArray(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2, ptr noundef %3) #0 {
+define hidden noundef zeroext range(i8 0, 2) i8 @_Z24c2v_addFailedSpeculationP7JNIEnv_P8_jobjectlP11_jbyteArray(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
   %7 = alloca %class.JVMCIEnv, align 8
@@ -34188,7 +34188,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare noundef zeroext i1 @_ZN17FailedSpeculation22add_failed_speculationEP7nmethodPPS_Phi(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z18c2v_callSystemExitP7JNIEnv_P8_jobjecti(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define hidden void @_Z18c2v_callSystemExitP7JNIEnv_P8_jobjecti(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.CompilerThreadCanCallJava, align 8
   %6 = alloca %class.JVMCIEnv, align 8
@@ -34402,7 +34402,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare void @_Z29vm_exit_during_initializationv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_Z12c2v_ticksNowP7JNIEnv_P8_jobject(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden noundef i64 @_Z12c2v_ticksNowP7JNIEnv_P8_jobject(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %class.FormatBuffer, align 8
   %4 = alloca %class.CompilerThreadCanCallJava, align 8
   %5 = alloca %class.JVMCIEnv, align 8
@@ -34568,7 +34568,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_Z25c2v_registerCompilerPhaseP7JNIEnv_P8_jobjectP8_jstring(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden noundef i32 @_Z25c2v_registerCompilerPhaseP7JNIEnv_P8_jobjectP8_jstring(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.CompilerThreadCanCallJava, align 8
   %6 = alloca %class.JVMCIEnv, align 8
@@ -34735,7 +34735,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare noundef i32 @_ZN13CompilerEvent10PhaseEvent12get_phase_idEPKcbbb(ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z28c2v_notifyCompilerPhaseEventP7JNIEnv_P8_jobjectliii(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define hidden void @_Z28c2v_notifyCompilerPhaseEventP7JNIEnv_P8_jobjectliii(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = alloca %class.TimeInstant, align 8
   %8 = alloca %class.FormatBuffer, align 8
   %9 = alloca %class.CompilerThreadCanCallJava, align 8
@@ -34917,7 +34917,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z31c2v_notifyCompilerInliningEventP7JNIEnv_P8_jobjectiS2_lS2_lhP8_jstringi(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr nocapture readnone %3, i64 noundef %4, ptr nocapture readnone %5, i64 noundef %6, i8 noundef zeroext %7, ptr noundef %8, i32 noundef %9) #0 {
+define hidden void @_Z31c2v_notifyCompilerInliningEventP7JNIEnv_P8_jobjectiS2_lS2_lhP8_jstringi(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr readnone captures(none) %3, i64 noundef %4, ptr readnone captures(none) %5, i64 noundef %6, i8 noundef zeroext %7, ptr noundef %8, i32 noundef %9) #0 {
   %11 = alloca %class.FormatBuffer, align 8
   %12 = alloca %class.CompilerThreadCanCallJava, align 8
   %13 = alloca %class.JVMCIEnv, align 8
@@ -35102,7 +35102,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare void @_ZN13CompilerEvent11InlineEvent4postER21EventCompilerInliningiP6MethodS4_bPKci(ptr noundef nonnull align 8 dereferenceable(76), i32 noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z24c2v_setThreadLocalObjectP7JNIEnv_P8_jobjectiS2_(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #0 {
+define hidden void @_Z24c2v_setThreadLocalObjectP7JNIEnv_P8_jobjectiS2_(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.FormatBuffer, align 8
   %7 = alloca %class.CompilerThreadCanCallJava, align 8
@@ -35327,7 +35327,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_Z24c2v_getThreadLocalObjectP7JNIEnv_P8_jobjecti(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define hidden noundef ptr @_Z24c2v_getThreadLocalObjectP7JNIEnv_P8_jobjecti(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
@@ -35528,7 +35528,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare noundef ptr @_ZN10JNIHandles10make_localEP7oopDesc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z22c2v_setThreadLocalLongP7JNIEnv_P8_jobjectil(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, i64 noundef %3) #0 {
+define hidden void @_Z22c2v_setThreadLocalLongP7JNIEnv_P8_jobjectil(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, i64 noundef %3) #0 {
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.FormatBuffer, align 8
   %7 = alloca %class.CompilerThreadCanCallJava, align 8
@@ -35731,7 +35731,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_Z22c2v_getThreadLocalLongP7JNIEnv_P8_jobjecti(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define hidden noundef i64 @_Z22c2v_getThreadLocalLongP7JNIEnv_P8_jobjecti(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   %4 = alloca %class.FormatBuffer, align 8
   %5 = alloca %class.FormatBuffer, align 8
   %6 = alloca %class.CompilerThreadCanCallJava, align 8
@@ -35936,7 +35936,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z15c2v_getOopMapAtP7JNIEnv_P8_jobjectS2_liP11_jlongArray(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef %3, i32 noundef %4, ptr noundef %5) #0 {
+define hidden void @_Z15c2v_getOopMapAtP7JNIEnv_P8_jobjectS2_liP11_jlongArray(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, i32 noundef %4, ptr noundef %5) #0 {
   %7 = alloca %class.FormatBuffer, align 8
   %8 = alloca %class.CompilerThreadCanCallJava, align 8
   %9 = alloca %class.JVMCIEnv, align 8
@@ -37414,7 +37414,7 @@ declare void @_ZN10HandleMark17chop_later_chunksEv(ptr noundef nonnull align 8 d
 declare void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
@@ -43057,13 +43057,13 @@ declare i32 @llvm.smin.i32(i32, i32) #11
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15

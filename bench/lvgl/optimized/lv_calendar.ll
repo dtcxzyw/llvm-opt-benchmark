@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [3 x i8] c"Sa\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_calendar_constructor(ptr nocapture readnone %0, ptr noundef initializes((72, 96)) %1) #0 {
+define internal void @lv_calendar_constructor(ptr readnone captures(none) %0, ptr noundef initializes((72, 96)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i16 2024, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 74
@@ -121,7 +121,7 @@ declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_add
 declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_calendar_set_day_names(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @lv_calendar_set_day_names(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %4
 
@@ -143,7 +143,7 @@ define void @lv_calendar_set_day_names(ptr noundef %0, ptr nocapture noundef rea
 declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_calendar_set_today_date(ptr nocapture noundef initializes((72, 76)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @lv_calendar_set_today_date(ptr noundef captures(none) initializes((72, 76)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = trunc i32 %1 to i16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i16 %5, ptr %6, align 8, !tbaa !3
@@ -158,7 +158,7 @@ define void @lv_calendar_set_today_date(ptr nocapture noundef initializes((72, 7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @highlight_update(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @highlight_update(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   tail call void @lv_buttonmatrix_clear_button_ctrl_all(ptr noundef %3, i32 noundef 49152) #5
@@ -268,7 +268,7 @@ define internal fastcc void @highlight_update(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_calendar_set_highlighted_dates(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @lv_calendar_set_highlighted_dates(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %4
 
@@ -548,7 +548,7 @@ declare ptr @lv_obj_get_child(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @lv_obj_send_event(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_calendar_get_btnmatrix(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_calendar_get_btnmatrix(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   ret ptr %3
@@ -567,21 +567,21 @@ define nonnull ptr @lv_calendar_get_showed_date(ptr noundef readnone %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_calendar_get_highlighted_dates(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_calendar_get_highlighted_dates(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !26
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @lv_calendar_get_highlighted_dates_num(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i64 @lv_calendar_get_highlighted_dates_num(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i64, ptr %2, align 8, !tbaa !27
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @lv_calendar_get_pressed_date(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @lv_calendar_get_pressed_date(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !24
   %5 = tail call i32 @lv_buttonmatrix_get_selected_button(ptr noundef %4) #5
@@ -774,7 +774,7 @@ declare zeroext i1 @lv_buttonmatrix_has_button_ctrl(ptr noundef, i32 noundef, i3
 declare i24 @lv_theme_get_color_primary(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

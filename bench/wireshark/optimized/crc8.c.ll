@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @crc8_precompiled_3b = internal unnamed_addr constant [256 x i8] c"\00;vM\EC\D7\9A\A1\E3\D8\95\AE\0F4yB\FD\C6\8B\B0\11*g\\\1E%hS\F2\C9\84\BF\C1\FA\B7\8C-\16[`\22\19To\CE\F5\B8\83<\07Jq\D0\EB\A6\9D\DF\E4\A9\923\08E~\B9\82\CF\F4Un#\18Za,\17\B6\8D\C0\FBD\7F2\09\A8\93\DE\E5\A7\9C\D1\EAKp=\06xC\0E5\94\AF\E2\D9\9B\A0\ED\D6wL\01:\85\BE\F3\C8iR\1F$f]\10+\8A\B1\FC\C7Ir?\04\A5\9E\D3\E8\AA\91\DC\E7F}0\0B\B4\8F\C2\F9Xc.\15Wl!\1A\BB\80\CD\F6\88\B3\FE\C5d_\12)kP\1D&\87\BC\F1\CAuN\038\99\A2\EF\D4\96\AD\E0\DBzA\0C7\F0\CB\86\BD\1C'jQ\13(e^\FF\C4\89\B2\0D6{@\E1\DA\97\AC\EE\D5\98\A3\029tO1\0AG|\DD\E6\AB\90\D2\E9\A4\9F>\05Hs\CC\F7\BA\81 \1BVm/\14Yb\C3\F8\B5\8E", align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i8 @crc8_0x2F(ptr nocapture noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define zeroext i8 @crc8_0x2F(ptr noundef readonly captures(none) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %.not1.i = icmp eq i32 %1, 0
   br i1 %.not1.i, label %crc8_precompiled.exit, label %.lr.ph.i
 
@@ -32,7 +32,7 @@ crc8_precompiled.exit:                            ; preds = %.lr.ph.i, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i8 @crc8_0x37(ptr nocapture noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define zeroext i8 @crc8_0x37(ptr noundef readonly captures(none) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %.not6 = icmp eq i32 %1, 0
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -56,7 +56,7 @@ define zeroext i8 @crc8_0x37(ptr nocapture noundef readonly %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i8 @crc8_0x3B(ptr nocapture noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define zeroext i8 @crc8_0x3B(ptr noundef readonly captures(none) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %.not6 = icmp eq i32 %1, 0
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 

@@ -196,7 +196,7 @@ define hidden noundef i64 @_ZN20PSAdaptiveSizePolicy28calculate_free_based_on_li
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK20PSAdaptiveSizePolicy33calculated_old_free_size_in_bytesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK20PSAdaptiveSizePolicy33calculated_old_free_size_in_bytesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = uitofp i64 %3 to float
@@ -252,7 +252,7 @@ define hidden noundef i64 @_ZNK20PSAdaptiveSizePolicy33calculated_old_free_size_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20PSAdaptiveSizePolicy22major_collection_beginEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(312) initializes((272, 280)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20PSAdaptiveSizePolicy22major_collection_beginEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(312) initializes((272, 280)) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN18AdaptiveSizePolicy12_major_timerE) #7
   %2 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN18AdaptiveSizePolicy12_major_timerE) #7
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -267,7 +267,7 @@ declare void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceab
 declare noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20PSAdaptiveSizePolicy32update_minor_pause_old_estimatorEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %0, double noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN20PSAdaptiveSizePolicy32update_minor_pause_old_estimatorEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %0, double noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = uitofp i64 %4 to double
@@ -281,7 +281,7 @@ define hidden void @_ZN20PSAdaptiveSizePolicy32update_minor_pause_old_estimatorE
 declare void @_ZN20LinearLeastSquareFit6updateEdd(ptr noundef nonnull align 8 dereferenceable(88), double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20PSAdaptiveSizePolicy20major_collection_endEmN7GCCause5CauseE(ptr nocapture noundef nonnull align 8 dereferenceable(312) initializes((288, 296)) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20PSAdaptiveSizePolicy20major_collection_endEmN7GCCause5CauseE(ptr noundef nonnull align 8 captures(none) dereferenceable(312) initializes((288, 296)) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   tail call void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN18AdaptiveSizePolicy12_major_timerE) #7
   switch i32 %2, label %52 [
     i32 23, label %4
@@ -1000,7 +1000,7 @@ _ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm.exit.thread: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20PSAdaptiveSizePolicy26adjust_eden_for_pause_timeEPm(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20PSAdaptiveSizePolicy26adjust_eden_for_pause_timeEPm(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -1051,7 +1051,7 @@ _ZN20PSAdaptiveSizePolicy32adjust_eden_for_minor_pause_timeEPm.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20PSAdaptiveSizePolicy32adjust_eden_for_minor_pause_timeEPm(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20PSAdaptiveSizePolicy32adjust_eden_for_minor_pause_timeEPm(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 @_ZN20LinearLeastSquareFit23decrement_will_decreaseEv(ptr noundef nonnull align 8 dereferenceable(88) %4) #7
@@ -1075,7 +1075,7 @@ define hidden void @_ZN20PSAdaptiveSizePolicy32adjust_eden_for_minor_pause_timeE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20PSAdaptiveSizePolicy26adjust_eden_for_throughputEbPm(ptr noundef nonnull align 8 dereferenceable(312) %0, i1 noundef zeroext %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20PSAdaptiveSizePolicy26adjust_eden_for_throughputEbPm(ptr noundef nonnull align 8 dereferenceable(312) %0, i1 noundef zeroext %1, ptr noundef captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1297,7 +1297,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -1351,7 +1351,7 @@ define hidden void @_ZN20PSAdaptiveSizePolicy27adjust_promo_for_pause_timeEPm(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20PSAdaptiveSizePolicy27adjust_promo_for_throughputEbPm(ptr noundef nonnull align 8 dereferenceable(312) %0, i1 noundef zeroext %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20PSAdaptiveSizePolicy27adjust_promo_for_throughputEbPm(ptr noundef nonnull align 8 dereferenceable(312) %0, i1 noundef zeroext %1, ptr noundef captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1573,7 +1573,7 @@ define hidden noundef i64 @_ZN20PSAdaptiveSizePolicy26adjust_promo_for_footprint
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN20PSAdaptiveSizePolicy25decay_supplemental_growthEb(ptr nocapture noundef nonnull align 8 dereferenceable(312) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN20PSAdaptiveSizePolicy25decay_supplemental_growthEb(ptr noundef nonnull align 8 captures(none) dereferenceable(312) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 {
   br i1 %1, label %3, label %16
 
 3:                                                ; preds = %2
@@ -1679,7 +1679,7 @@ define hidden noundef i64 @_ZN20PSAdaptiveSizePolicy41eden_increment_with_supple
 declare noundef i64 @_ZN18AdaptiveSizePolicy15promo_decrementEm(ptr noundef nonnull align 8 dereferenceable(232), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN20PSAdaptiveSizePolicy10scale_downEmdd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(312) %0, i64 noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #2 align 2 {
+define hidden noundef i64 @_ZN20PSAdaptiveSizePolicy10scale_downEmdd(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(312) %0, i64 noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #2 align 2 {
   %5 = fcmp ogt double %3, 0.000000e+00
   %6 = fdiv double %2, %3
   %7 = uitofp i64 %1 to double
@@ -1696,7 +1696,7 @@ declare noundef i64 @_ZN18AdaptiveSizePolicy14eden_incrementEmj(ptr noundef nonn
 declare noundef i64 @_ZN18AdaptiveSizePolicy15promo_incrementEmj(ptr noundef nonnull align 8 dereferenceable(232), i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN20PSAdaptiveSizePolicy41compute_survivor_space_size_and_thresholdEbjm(ptr nocapture noundef nonnull align 8 dereferenceable(312) %0, i1 noundef zeroext %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN20PSAdaptiveSizePolicy41compute_survivor_space_size_and_thresholdEbjm(ptr noundef nonnull align 8 captures(none) dereferenceable(312) %0, i1 noundef zeroext %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = load i8, ptr @UsePSAdaptiveSurvivorSizePolicy, align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %111
@@ -1885,7 +1885,7 @@ define hidden noundef i32 @_ZN20PSAdaptiveSizePolicy41compute_survivor_space_siz
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20PSAdaptiveSizePolicy15update_averagesEbmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %0, i1 noundef zeroext %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20PSAdaptiveSizePolicy15update_averagesEbmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %0, i1 noundef zeroext %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = select i1 %1, i64 %3, i64 0
   %.sink10 = add i64 %2, %5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112

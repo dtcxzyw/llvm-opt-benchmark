@@ -4079,7 +4079,7 @@ define linkonce_odr hidden void @_ZN4llvm4json7OStream9attributeENS_9StringRefER
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper27createPointerRepresentationB5cxx11EPKv(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper27createPointerRepresentationB5cxx11EPKv(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca [17 x i8], align 16
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6188,7 +6188,7 @@ _ZNK5clang8QualType5splitEv.exit:                 ; preds = %31, %33
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @_ZNK5clang10Qualifiers11getAsStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
@@ -7683,17 +7683,17 @@ _ZNK5clang18CXXCtorInitializer12getAnyMemberEv.exit: ; preds = %12, %15
 declare noundef ptr @_ZNK5clang18CXXCtorInitializer12getBaseClassEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper5VisitEPKNS_13OpenACCClauseE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1312) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper5VisitEPKNS_13OpenACCClauseE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1312) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper5VisitEPKNS_9OMPClauseE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1312) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper5VisitEPKNS_9OMPClauseE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1312) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper5VisitERKNS_9BlockDecl7CaptureE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper5VisitERKNS_9BlockDecl7CaptureE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Value", align 8
@@ -7788,7 +7788,7 @@ _ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit6: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper5VisitERKNS_20GenericSelectionExpr13AssociationTyILb1EEE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper5VisitERKNS_20GenericSelectionExpr13AssociationTyILb1EEE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -8136,7 +8136,7 @@ _ZNK5clang16ConceptReference11getBeginLocEv.exit.i.i.i: ; preds = %24, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper17writeIncludeStackENS_11PresumedLocEb(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly byval(%"class.clang::PresumedLoc") align 8 %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper17writeIncludeStackENS_11PresumedLocEb(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly byval(%"class.clang::PresumedLoc") align 8 captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::PresumedLoc", align 8
   %5 = alloca %"class.llvm::json::Value", align 8
   %6 = load ptr, ptr %1, align 8
@@ -8722,7 +8722,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %17, %18
 declare void @_ZNK5clang15DeclarationName11getAsStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper14createCastPathEPKNS_8CastExprE(ptr dead_on_unwind noalias writable sret(%"class.llvm::json::Array") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper14createCastPathEPKNS_8CastExprE(ptr dead_on_unwind noalias writable sret(%"class.llvm::json::Array") align 8 initializes((0, 24)) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.llvm::json::Object", align 8
   %6 = alloca [1 x %"struct.llvm::json::Object::KV"], align 8
@@ -8950,7 +8950,7 @@ _ZN4llvm4json5Array9push_backEONS0_5ValueE.exit:  ; preds = %92, %95
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper29createCXXRecordDefinitionDataEPKNS_13CXXRecordDeclE(ptr dead_on_unwind noalias writable sret(%"class.llvm::json::Object") align 8 initializes((0, 20)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper29createCXXRecordDefinitionDataEPKNS_13CXXRecordDeclE(ptr dead_on_unwind noalias writable sret(%"class.llvm::json::Object") align 8 initializes((0, 20)) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::ObjectKey", align 8
   %6 = alloca %"class.llvm::json::Value", align 8
@@ -12002,7 +12002,7 @@ _ZNK5clang13CXXRecordDecl38defaultedDefaultConstructorIsConstexprEv.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper21createAccessSpecifierB5cxx11ENS_15AccessSpecifierE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper21createAccessSpecifierB5cxx11ENS_15AccessSpecifierE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
   switch i32 %2, label %8 [
@@ -12050,7 +12050,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper22createCXXBaseSpecifierERKNS_16CXXBaseSpecifierE(ptr dead_on_unwind noalias writable sret(%"class.llvm::json::Object") align 8 initializes((0, 20)) %0, ptr noundef nonnull align 8 dereferenceable(1312) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper22createCXXBaseSpecifierERKNS_16CXXBaseSpecifierE(ptr dead_on_unwind noalias writable sret(%"class.llvm::json::Object") align 8 initializes((0, 20)) %0, ptr noundef nonnull align 8 dereferenceable(1312) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Object", align 8
   %6 = alloca %"class.llvm::json::ObjectKey", align 8
@@ -12239,7 +12239,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit19:               ; preds = %67, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper14VisitAliasAttrEPKNS_9AliasAttrE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper14VisitAliasAttrEPKNS_9AliasAttrE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -12256,7 +12256,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper14VisitAliasAttrEPKNS_9AliasAttr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper16VisitCleanupAttrEPKNS_11CleanupAttrE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper16VisitCleanupAttrEPKNS_11CleanupAttrE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Object", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -12297,7 +12297,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper16VisitCleanupAttrEPKNS_11Cleanu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper19VisitDeprecatedAttrEPKNS_14DeprecatedAttrE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper19VisitDeprecatedAttrEPKNS_14DeprecatedAttrE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -12340,7 +12340,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper19VisitDeprecatedAttrEPKNS_14Dep
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper20VisitUnavailableAttrEPKNS_15UnavailableAttrE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper20VisitUnavailableAttrEPKNS_15UnavailableAttrE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %5 = load i32, ptr %4, align 4
@@ -12364,7 +12364,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper20VisitUnavailableAttrEPKNS_15Un
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper16VisitSectionAttrEPKNS_11SectionAttrE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper16VisitSectionAttrEPKNS_11SectionAttrE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -12381,7 +12381,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper16VisitSectionAttrEPKNS_11Sectio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper19VisitVisibilityAttrEPKNS_14VisibilityAttrE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper19VisitVisibilityAttrEPKNS_14VisibilityAttrE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %5 = load i32, ptr %4, align 4
@@ -12407,7 +12407,7 @@ _ZN4llvm4json5ValueC2EPKc.exit:                   ; preds = %2, %7
 declare noundef ptr @_ZN5clang14VisibilityAttr26ConvertVisibilityTypeToStrENS0_14VisibilityTypeE(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper17VisitTLSModelAttrEPKNS_12TLSModelAttrE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper17VisitTLSModelAttrEPKNS_12TLSModelAttrE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -12596,7 +12596,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper14VisitUsingTypeEPKNS_9UsingType
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper17VisitFunctionTypeEPKNS_12FunctionTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper17VisitFunctionTypeEPKNS_12FunctionTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Value", align 8
@@ -13325,7 +13325,7 @@ _ZNK5clang17FunctionProtoType18getFunctionEffectsEv.exit: ; preds = %90, %_ZNK5c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper24VisitRValueReferenceTypeEPKNS_13ReferenceTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper24VisitRValueReferenceTypeEPKNS_13ReferenceTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i24, ptr %4, align 16
@@ -13351,7 +13351,7 @@ _ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper14VisitArrayTypeEPKNS_9ArrayTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper14VisitArrayTypeEPKNS_9ArrayTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13418,7 +13418,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper14VisitArrayTypeEPKNS_9ArrayType
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper22VisitConstantArrayTypeEPKNS_17ConstantArrayTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper22VisitConstantArrayTypeEPKNS_17ConstantArrayTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 16
@@ -13468,7 +13468,7 @@ _ZNK5clang17ConstantArrayType11getSExtSizeEv.exit: ; preds = %13, %20, %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper32VisitDependentSizedExtVectorTypeEPKNS_27DependentSizedExtVectorTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper32VisitDependentSizedExtVectorTypeEPKNS_27DependentSizedExtVectorTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   tail call void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr nonnull @.str.546, i64 7) #20
   tail call void @_ZN4llvm4json7OStream11objectBeginEv(ptr noundef nonnull align 8 dereferenceable(176) %3) #20
@@ -13481,7 +13481,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper32VisitDependentSizedExtVectorTy
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper15VisitVectorTypeEPKNS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper15VisitVectorTypeEPKNS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Value", align 8
@@ -13571,7 +13571,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper15VisitVectorTypeEPKNS_10VectorT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper24VisitUnresolvedUsingTypeEPKNS_19UnresolvedUsingTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper24VisitUnresolvedUsingTypeEPKNS_19UnresolvedUsingTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Object", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -13612,7 +13612,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper24VisitUnresolvedUsingTypeEPKNS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper23VisitUnaryTransformTypeEPKNS_18UnaryTransformTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper23VisitUnaryTransformTypeEPKNS_18UnaryTransformTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Value", align 8
@@ -13816,7 +13816,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper12VisitTagTypeEPKNS_7TagTypeE(pt
 declare noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper25VisitTemplateTypeParmTypeEPKNS_20TemplateTypeParmTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper25VisitTemplateTypeParmTypeEPKNS_20TemplateTypeParmTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Value", align 8
@@ -13898,7 +13898,7 @@ _ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper30VisitSubstTemplateTypeParmTypeEPKNS_25SubstTemplateTypeParmTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper30VisitSubstTemplateTypeParmTypeEPKNS_25SubstTemplateTypeParmTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -13937,7 +13937,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper30VisitSubstTemplateTypeParmType
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper34VisitSubstTemplateTypeParmPackTypeEPKNS_29SubstTemplateTypeParmPackTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper34VisitSubstTemplateTypeParmPackTypeEPKNS_29SubstTemplateTypeParmPackTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -13955,7 +13955,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper34VisitSubstTemplateTypeParmPack
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper13VisitAutoTypeEPKNS_8AutoTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper13VisitAutoTypeEPKNS_8AutoTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Value", align 8
@@ -14016,7 +14016,7 @@ default.unreachable:                              ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper31VisitTemplateSpecializationTypeEPKNS_26TemplateSpecializationTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper31VisitTemplateSpecializationTypeEPKNS_26TemplateSpecializationTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
@@ -14161,7 +14161,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper22VisitObjCInterfaceTypeEPKNS_17
 declare noundef ptr @_ZNK5clang17ObjCInterfaceType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper22VisitPackExpansionTypeEPKNS_17PackExpansionTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper22VisitPackExpansionTypeEPKNS_17PackExpansionTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
@@ -14186,7 +14186,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper22VisitPackExpansionTypeEPKNS_17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper19VisitElaboratedTypeEPKNS_14ElaboratedTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper19VisitElaboratedTypeEPKNS_14ElaboratedTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.llvm::raw_string_ostream", align 8
   %5 = alloca %"class.llvm::json::Value", align 8
@@ -14281,7 +14281,7 @@ _ZNK5clang14ElaboratedType15getOwnedTagDeclEv.exit.thread: ; preds = %19, %25, %
 declare void @_ZNK5clang19NestedNameSpecifier5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyEb(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper23VisitMacroQualifiedTypeEPKNS_18MacroQualifiedTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper23VisitMacroQualifiedTypeEPKNS_18MacroQualifiedTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -14300,7 +14300,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper23VisitMacroQualifiedTypeEPKNS_1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper22VisitMemberPointerTypeEPKNS_17MemberPointerTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper22VisitMemberPointerTypeEPKNS_17MemberPointerTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -14986,7 +14986,7 @@ declare noundef nonnull align 8 dereferenceable(23096) ptr @_ZNK5clang4Decl13get
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper18VisitUsingEnumDeclEPKNS_13UsingEnumDeclE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper18VisitUsingEnumDeclEPKNS_13UsingEnumDeclE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Object", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -15032,7 +15032,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper18VisitUsingEnumDeclEPKNS_13Usin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper20VisitUsingShadowDeclEPKNS_15UsingShadowDeclE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper20VisitUsingShadowDeclEPKNS_15UsingShadowDeclE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Object", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -16583,7 +16583,7 @@ _ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit.i.i: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper20VisitLinkageSpecDeclEPKNS_15LinkageSpecDeclE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper20VisitLinkageSpecDeclEPKNS_15LinkageSpecDeclE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -16632,7 +16632,7 @@ _ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper19VisitAccessSpecDeclEPKNS_14AccessSpecDeclE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper19VisitAccessSpecDeclEPKNS_14AccessSpecDeclE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -16651,7 +16651,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper19VisitAccessSpecDeclEPKNS_14Acc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper15VisitFriendDeclEPKNS_10FriendDeclE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper15VisitFriendDeclEPKNS_10FriendDeclE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Object", align 8
@@ -18318,7 +18318,7 @@ _ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit37: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper25VisitObjCPropertyImplDeclEPKNS_20ObjCPropertyImplDeclE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper25VisitObjCPropertyImplDeclEPKNS_20ObjCPropertyImplDeclE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Object", align 8
@@ -18406,7 +18406,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper25VisitObjCPropertyImplDeclEPKNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper14VisitBlockDeclEPKNS_9BlockDeclE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper14VisitBlockDeclEPKNS_9BlockDeclE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -18484,7 +18484,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper19VisitObjCEncodeExprEPKNS_14ObjCEncodeExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper19VisitObjCEncodeExprEPKNS_14ObjCEncodeExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Object", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -18803,7 +18803,7 @@ declare void @_ZNK5clang8Selector5printERN4llvm11raw_ostreamE(ptr noundef nonnul
 declare i64 @_ZNK5clang15ObjCMessageExpr17getCallReturnTypeERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(23096)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper18VisitObjCBoxedExprEPKNS_13ObjCBoxedExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper18VisitObjCBoxedExprEPKNS_13ObjCBoxedExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.llvm::raw_string_ostream", align 8
   %5 = alloca %"class.clang::Selector", align 8
@@ -18849,7 +18849,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper18VisitObjCBoxedExprEPKNS_13ObjC
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper21VisitObjCSelectorExprEPKNS_16ObjCSelectorExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper21VisitObjCSelectorExprEPKNS_16ObjCSelectorExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.llvm::raw_string_ostream", align 8
   %5 = alloca %"class.clang::Selector", align 8
@@ -18886,7 +18886,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper21VisitObjCSelectorExprEPKNS_16O
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper21VisitObjCProtocolExprEPKNS_16ObjCProtocolExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper21VisitObjCProtocolExprEPKNS_16ObjCProtocolExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Object", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -18927,7 +18927,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper21VisitObjCProtocolExprEPKNS_16O
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper24VisitObjCPropertyRefExprEPKNS_19ObjCPropertyRefExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper24VisitObjCPropertyRefExprEPKNS_19ObjCPropertyRefExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Value", align 8
@@ -19142,7 +19142,7 @@ _ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit20: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper25VisitObjCSubscriptRefExprEPKNS_20ObjCSubscriptRefExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper25VisitObjCSubscriptRefExprEPKNS_20ObjCSubscriptRefExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Object", align 8
@@ -19290,7 +19290,7 @@ _ZNK5clang20ObjCSubscriptRefExpr23isArraySubscriptRefExprEv.exit: ; preds = %22,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper20VisitObjCIvarRefExprEPKNS_15ObjCIvarRefExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper20VisitObjCIvarRefExprEPKNS_15ObjCIvarRefExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Object", align 8
@@ -19362,7 +19362,7 @@ _ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper24VisitObjCBoolLiteralExprEPKNS_19ObjCBoolLiteralExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper24VisitObjCBoolLiteralExprEPKNS_19ObjCBoolLiteralExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -19379,7 +19379,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper24VisitObjCBoolLiteralExprEPKNS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper16VisitDeclRefExprEPKNS_11DeclRefExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper16VisitDeclRefExprEPKNS_11DeclRefExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Object", align 8
@@ -19528,7 +19528,7 @@ _ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper29VisitSYCLUniqueStableNameExprEPKNS_24SYCLUniqueStableNameExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper29VisitSYCLUniqueStableNameExprEPKNS_24SYCLUniqueStableNameExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Object", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -19570,7 +19570,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper29VisitSYCLUniqueStableNameExprE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper19VisitPredefinedExprEPKNS_14PredefinedExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper19VisitPredefinedExprEPKNS_14PredefinedExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %5 = load i32, ptr %1, align 8
@@ -19590,7 +19590,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper19VisitPredefinedExprEPKNS_14Pre
 declare { ptr, i64 } @_ZN5clang14PredefinedExpr16getIdentKindNameENS_19PredefinedIdentKindE(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper18VisitUnaryOperatorEPKNS_13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper18VisitUnaryOperatorEPKNS_13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Value", align 8
@@ -19639,7 +19639,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper18VisitUnaryOperatorEPKNS_13Unar
 declare { ptr, i64 } @_ZN5clang13UnaryOperator12getOpcodeStrENS_17UnaryOperatorKindE(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper19VisitBinaryOperatorEPKNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper19VisitBinaryOperatorEPKNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %5 = load i32, ptr %1, align 8
@@ -19659,7 +19659,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper19VisitBinaryOperatorEPKNS_14Bin
 declare { ptr, i64 } @_ZN5clang14BinaryOperator12getOpcodeStrENS_18BinaryOperatorKindE(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Object", align 8
@@ -19749,7 +19749,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper27VisitCompoundAssignOperatorEPK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper15VisitMemberExprEPKNS_10MemberExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper15VisitMemberExprEPKNS_10MemberExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -19861,7 +19861,7 @@ default.unreachable:                              ; preds = %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper15VisitCXXNewExprEPKNS_10CXXNewExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper15VisitCXXNewExprEPKNS_10CXXNewExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Value", align 8
@@ -20045,7 +20045,7 @@ _ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit14: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper18VisitCXXDeleteExprEPKNS_13CXXDeleteExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper18VisitCXXDeleteExprEPKNS_13CXXDeleteExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Value", align 8
@@ -20155,7 +20155,7 @@ _ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit8: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper16VisitCXXThisExprEPKNS_11CXXThisExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper16VisitCXXThisExprEPKNS_11CXXThisExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = load i32, ptr %1, align 8
   %5 = and i32 %4, 262144
@@ -20332,7 +20332,7 @@ _ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper13VisitCallExprEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper13VisitCallExprEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = load i32, ptr %1, align 8
   %5 = and i32 %4, 524288
@@ -20357,7 +20357,7 @@ _ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper29VisitUnaryExprOrTypeTraitExprEPKNS_24UnaryExprOrTypeTraitExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper29VisitUnaryExprOrTypeTraitExprEPKNS_24UnaryExprOrTypeTraitExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Object", align 8
@@ -20431,7 +20431,7 @@ _ZN4llvm4json5ValueC2EPKc.exit:                   ; preds = %2, %12
 declare noundef ptr @_ZN5clang16getTraitSpellingENS_20UnaryExprOrTypeTraitE(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper19VisitSizeOfPackExprEPKNS_14SizeOfPackExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper19VisitSizeOfPackExprEPKNS_14SizeOfPackExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN5clang14JSONNodeDumper14VisitNamedDeclEPKNS_9NamedDeclE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef %4)
@@ -20536,7 +20536,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper25VisitUnresolvedLookupExprEPKNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper18VisitAddrLabelExprEPKNS_13AddrLabelExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper18VisitAddrLabelExprEPKNS_13AddrLabelExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -20703,7 +20703,7 @@ _ZN5clang7APValueD2Ev.exit:                       ; preds = %9, %6, %2
 declare void @_ZNK5clang12ConstantExpr16getAPValueResultEv(ptr dead_on_unwind writable sret(%"class.clang::APValue") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper17VisitInitListExprEPKNS_12InitListExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper17VisitInitListExprEPKNS_12InitListExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Object", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -20756,7 +20756,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper17VisitInitListExprEPKNS_12InitL
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper25VisitGenericSelectionExprEPKNS_20GenericSelectionExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper25VisitGenericSelectionExprEPKNS_20GenericSelectionExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
@@ -20782,7 +20782,7 @@ _ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper31VisitCXXUnresolvedConstructExprEPKNS_26CXXUnresolvedConstructExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper31VisitCXXUnresolvedConstructExprEPKNS_26CXXUnresolvedConstructExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Object", align 8
@@ -20856,7 +20856,7 @@ _ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper21VisitCXXConstructExprEPKNS_16CXXConstructExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper21VisitCXXConstructExprEPKNS_16CXXConstructExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Value", align 8
@@ -21265,7 +21265,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit21.i.i:           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper25VisitCXXBindTemporaryExprEPKNS_20CXXBindTemporaryExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper25VisitCXXBindTemporaryExprEPKNS_20CXXBindTemporaryExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.llvm::json::Value", align 8
@@ -21323,7 +21323,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper25VisitCXXBindTemporaryExprEPKNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper29VisitMaterializeTemporaryExprEPKNS_24MaterializeTemporaryExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper29VisitMaterializeTemporaryExprEPKNS_24MaterializeTemporaryExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Object", align 8
@@ -21464,7 +21464,7 @@ _ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper22VisitCXXDefaultArgExprEPKNS_17CXXDefaultArgExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper22VisitCXXDefaultArgExprEPKNS_17CXXDefaultArgExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = load i32, ptr %1, align 8
   %5 = and i32 %4, 262144
@@ -21489,7 +21489,7 @@ _ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper23VisitCXXDefaultInitExprEPKNS_18CXXDefaultInitExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper23VisitCXXDefaultInitExprEPKNS_18CXXDefaultInitExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = load i32, ptr %1, align 8
   %5 = and i32 %4, 262144
@@ -21650,7 +21650,7 @@ _ZNK5clang27CXXDependentScopeMemberExpr18getNumTemplateArgsEv.exit.thread: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper17VisitRequiresExprEPKNS_12RequiresExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper17VisitRequiresExprEPKNS_12RequiresExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %5 = load i16, ptr %4, align 1
@@ -21678,7 +21678,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper17VisitRequiresExprEPKNS_12Requi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper19VisitIntegerLiteralEPKNS_14IntegerLiteralE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper19VisitIntegerLiteralEPKNS_14IntegerLiteralE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.llvm::SmallString", align 8
@@ -21780,7 +21780,7 @@ declare void @_ZNK4llvm5APInt8toStringERNS_15SmallVectorImplIcEEjbbbb(ptr nounde
 declare noundef zeroext i1 @_ZNK5clang4Type19isSignedIntegerTypeEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper21VisitCharacterLiteralEPKNS_16CharacterLiteralE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper21VisitCharacterLiteralEPKNS_16CharacterLiteralE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -21927,7 +21927,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper18VisitStringLiteralEPKNS_13Stri
 declare void @_ZNK5clang13StringLiteral12outputStringERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper23VisitCXXBoolLiteralExprEPKNS_18CXXBoolLiteralExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper23VisitCXXBoolLiteralExprEPKNS_18CXXBoolLiteralExprE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %5 = load i32, ptr %1, align 8
@@ -21945,7 +21945,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper23VisitCXXBoolLiteralExprEPKNS_1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper11VisitIfStmtEPKNS_6IfStmtE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper11VisitIfStmtEPKNS_6IfStmtE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Value", align 8
@@ -22075,7 +22075,7 @@ _ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit11: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper15VisitSwitchStmtEPKNS_10SwitchStmtE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper15VisitSwitchStmtEPKNS_10SwitchStmtE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = load i16, ptr %1, align 8
@@ -22121,7 +22121,7 @@ _ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit3: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper13VisitCaseStmtEPKNS_8CaseStmtE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper13VisitCaseStmtEPKNS_8CaseStmtE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = load i16, ptr %1, align 8
   %5 = and i16 %4, 256
@@ -22200,7 +22200,7 @@ _ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit: ; preds 
 declare noundef ptr @_ZNK5clang9LabelStmt7getNameEv(ptr noundef nonnull align 8 dereferenceable(25)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper13VisitGotoStmtEPKNS_8GotoStmtE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper13VisitGotoStmtEPKNS_8GotoStmtE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -22217,7 +22217,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper13VisitGotoStmtEPKNS_8GotoStmtE(
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper14VisitWhileStmtEPKNS_9WhileStmtE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper14VisitWhileStmtEPKNS_9WhileStmtE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = load i16, ptr %1, align 8
   %5 = and i16 %4, 256
@@ -22242,7 +22242,7 @@ _ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper20VisitObjCAtCatchStmtEPKNS_15ObjCAtCatchStmtE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper20VisitObjCAtCatchStmtEPKNS_15ObjCAtCatchStmtE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -22267,7 +22267,7 @@ _ZN5clang14JSONNodeDumper19attributeOnlyIfTrueEN4llvm9StringRefEb.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper25VisitNullTemplateArgumentERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper25VisitNullTemplateArgumentERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   store i16 1, ptr %3, align 8
@@ -22281,7 +22281,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper25VisitNullTemplateArgumentERKNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper25VisitTypeTemplateArgumentERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper25VisitTypeTemplateArgumentERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Object", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -22322,7 +22322,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper25VisitTypeTemplateArgumentERKNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper32VisitDeclarationTemplateArgumentERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper32VisitDeclarationTemplateArgumentERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Object", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -22363,7 +22363,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper32VisitDeclarationTemplateArgume
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper28VisitNullPtrTemplateArgumentERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper28VisitNullPtrTemplateArgumentERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   store i16 1, ptr %3, align 8
@@ -22377,7 +22377,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper28VisitNullPtrTemplateArgumentER
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper29VisitIntegralTemplateArgumentERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper29VisitIntegralTemplateArgumentERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1048
@@ -22457,17 +22457,17 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %_ZNK4llvm5APInt12ge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper29VisitTemplateTemplateArgumentERKNS_16TemplateArgumentE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1312) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper29VisitTemplateTemplateArgumentERKNS_16TemplateArgumentE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1312) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper38VisitTemplateExpansionTemplateArgumentERKNS_16TemplateArgumentE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1312) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper38VisitTemplateExpansionTemplateArgumentERKNS_16TemplateArgumentE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1312) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper31VisitExpressionTemplateArgumentERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper31VisitExpressionTemplateArgumentERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   store i16 1, ptr %3, align 8
@@ -22481,7 +22481,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper31VisitExpressionTemplateArgumen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper25VisitPackTemplateArgumentERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper25VisitPackTemplateArgumentERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   store i16 1, ptr %3, align 8
@@ -22495,7 +22495,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper25VisitPackTemplateArgumentERKNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i64 } @_ZNK5clang14JSONNodeDumper21getCommentCommandNameEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1312) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, i64 } @_ZNK5clang14JSONNodeDumper21getCommentCommandNameEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1312) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1264
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -22535,7 +22535,7 @@ declare noundef ptr @_ZNK5clang8comments13CommandTraits14getCommandInfoEj(ptr no
 declare noundef ptr @_ZN5clang8comments13CommandTraits21getBuiltinCommandInfoEj(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper16visitTextCommentEPKNS_8comments11TextCommentEPKNS1_11FullCommentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper16visitTextCommentEPKNS_8comments11TextCommentEPKNS1_11FullCommentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -22551,7 +22551,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper16visitTextCommentEPKNS_8comment
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper25visitInlineCommandCommentEPKNS_8comments20InlineCommandCommentEPKNS1_11FullCommentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper25visitInlineCommandCommentEPKNS_8comments20InlineCommandCommentEPKNS1_11FullCommentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Value", align 8
   %6 = alloca %"class.llvm::json::Value", align 8
@@ -22750,7 +22750,7 @@ _ZN4llvm4json5ArrayD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN4ll
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper24visitHTMLStartTagCommentEPKNS_8comments19HTMLStartTagCommentEPKNS1_11FullCommentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper24visitHTMLStartTagCommentEPKNS_8comments19HTMLStartTagCommentEPKNS1_11FullCommentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Value", align 8
   %6 = alloca %"class.llvm::json::Value", align 8
@@ -22963,7 +22963,7 @@ _ZN4llvm4json5ArrayD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN4ll
 declare void @_ZN4llvm4json5ValueC1ESt16initializer_listIS1_E(ptr noundef nonnull align 8 dereferenceable(40), ptr, i64) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper22visitHTMLEndTagCommentEPKNS_8comments17HTMLEndTagCommentEPKNS1_11FullCommentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper22visitHTMLEndTagCommentEPKNS_8comments17HTMLEndTagCommentEPKNS1_11FullCommentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -22979,7 +22979,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper22visitHTMLEndTagCommentEPKNS_8c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper24visitBlockCommandCommentEPKNS_8comments19BlockCommandCommentEPKNS1_11FullCommentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper24visitBlockCommandCommentEPKNS_8comments19BlockCommandCommentEPKNS1_11FullCommentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Array", align 8
   %6 = alloca %"class.llvm::json::Value", align 8
@@ -23430,7 +23430,7 @@ _ZN4llvm4json5ArrayD2Ev.exit:                     ; preds = %58, %_ZSt8_DestroyI
 declare { ptr, i64 } @_ZNK5clang8comments20TParamCommandComment12getParamNameEPKNS0_11FullCommentE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper25visitVerbatimBlockCommentEPKNS_8comments20VerbatimBlockCommentEPKNS1_11FullCommentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper25visitVerbatimBlockCommentEPKNS_8comments20VerbatimBlockCommentEPKNS1_11FullCommentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = alloca %"class.llvm::json::Value", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -23485,7 +23485,7 @@ _ZNK5clang14JSONNodeDumper21getCommentCommandNameEj.exit: ; preds = %12, %15, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper29visitVerbatimBlockLineCommentEPKNS_8comments24VerbatimBlockLineCommentEPKNS1_11FullCommentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper29visitVerbatimBlockLineCommentEPKNS_8comments24VerbatimBlockLineCommentEPKNS1_11FullCommentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -23501,7 +23501,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper29visitVerbatimBlockLineCommentE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper24visitVerbatimLineCommentEPKNS_8comments19VerbatimLineCommentEPKNS1_11FullCommentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper24visitVerbatimLineCommentEPKNS_8comments19VerbatimLineCommentEPKNS1_11FullCommentE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -23517,7 +23517,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper24visitVerbatimLineCommentEPKNS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper15createFPOptionsENS_17FPOptionsOverrideE(ptr dead_on_unwind noalias writable sret(%"class.llvm::json::Object") align 8 initializes((0, 20)) %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper15createFPOptionsENS_17FPOptionsOverrideE(ptr dead_on_unwind noalias writable sret(%"class.llvm::json::Object") align 8 initializes((0, 20)) %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -24400,7 +24400,7 @@ _ZN4llvm4json9ObjectKeyD2Ev.exit135:              ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14JSONNodeDumper17VisitCompoundStmtEPKNS_12CompoundStmtE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14JSONNodeDumper17VisitCompoundStmtEPKNS_12CompoundStmtE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Object", align 8
   %5 = load i16, ptr %1, align 8
@@ -24456,7 +24456,7 @@ define dso_local void @_ZN5clang14JSONNodeDumper17VisitCompoundStmtEPKNS_12Compo
 declare void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr, i64, ptr noundef) local_unnamed_addr #2
 
@@ -24636,7 +24636,7 @@ define linkonce_odr hidden void @_ZN4llvm4json9ObjectKeyC2ENSt7__cxx1112basic_st
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
@@ -27021,7 +27021,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK5clang14APFloatStorage8getValueERKN4llvm12fltSemanticsE(ptr dead_on_unwind noalias writable sret(%"class.llvm::APFloat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 1 %2) local_unnamed_addr #0 comdat align 2 {
@@ -28916,7 +28916,7 @@ _ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit: ; preds = %12, 
 declare void @llvm.assume(i1 noundef) #15
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17
@@ -28928,10 +28928,10 @@ declare i32 @llvm.umin.i32(i32, i32) #17
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #17

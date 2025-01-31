@@ -164,7 +164,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.22 = private unnamed_addr constant [8 x i8] c"Passed.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = icmp sgt i32 %0, 1
@@ -583,12 +583,12 @@ overflowTest.exit:                                ; preds = %138, %.sink.split.i
 
 184:                                              ; preds = %357, %183
   %.0107163.i = phi i32 [ 0, %183 ], [ %358, %357 ]
-  %185 = call i32 @tj3Set(ptr noundef %146, i32 noundef 4, i32 noundef %.0107163.i) #20
+  %185 = call i32 @tj3Set(ptr noundef nonnull %146, i32 noundef 4, i32 noundef %.0107163.i) #20
   %186 = icmp eq i32 %185, -1
   br i1 %186, label %187, label %.preheader.i63
 
 187:                                              ; preds = %184
-  %188 = call ptr @tj3GetErrorStr(ptr noundef %146) #20
+  %188 = call ptr @tj3GetErrorStr(ptr noundef nonnull %146) #20
   %189 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %188)
   store i1 true, ptr @exitStatus, align 4
   br label %bufSizeTest.exit
@@ -730,12 +730,12 @@ setVal.exit.i:                                    ; preds = %240, %237, %234, %2
   %246 = load ptr, ptr %3, align 8
   %.b127.i = load i1, ptr @yuvAlign, align 4
   %247 = select i1 %.b127.i, i32 1, i32 4
-  %248 = call i32 @tj3EncodeYUV8(ptr noundef %146, ptr noundef nonnull %203, i32 noundef %.0162.i, i32 noundef 0, i32 noundef %.0110159.i, i32 noundef 3, ptr noundef %246, i32 noundef %247) #20
+  %248 = call i32 @tj3EncodeYUV8(ptr noundef nonnull %146, ptr noundef nonnull %203, i32 noundef %.0162.i, i32 noundef 0, i32 noundef %.0110159.i, i32 noundef 3, ptr noundef %246, i32 noundef %247) #20
   %249 = icmp eq i32 %248, -1
   br i1 %249, label %250, label %272
 
 250:                                              ; preds = %245
-  %251 = call ptr @tj3GetErrorStr(ptr noundef %146) #20
+  %251 = call ptr @tj3GetErrorStr(ptr noundef nonnull %146) #20
   %252 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %251)
   store i1 true, ptr @exitStatus, align 4
   br label %bufSizeTest.exit
@@ -747,34 +747,34 @@ setVal.exit.i:                                    ; preds = %240, %237, %234, %2
   ]
 
 254:                                              ; preds = %253
-  %255 = call i32 @tj3Compress8(ptr noundef %146, ptr noundef nonnull %203, i32 noundef %.0162.i, i32 noundef 0, i32 noundef %.0110159.i, i32 noundef 3, ptr noundef nonnull %3, ptr noundef nonnull %4) #20
+  %255 = call i32 @tj3Compress8(ptr noundef nonnull %146, ptr noundef nonnull %203, i32 noundef %.0162.i, i32 noundef 0, i32 noundef %.0110159.i, i32 noundef 3, ptr noundef nonnull %3, ptr noundef nonnull %4) #20
   %256 = icmp eq i32 %255, -1
   br i1 %256, label %257, label %272
 
 257:                                              ; preds = %254
-  %258 = call ptr @tj3GetErrorStr(ptr noundef %146) #20
+  %258 = call ptr @tj3GetErrorStr(ptr noundef nonnull %146) #20
   %259 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %258)
   store i1 true, ptr @exitStatus, align 4
   br label %bufSizeTest.exit
 
 260:                                              ; preds = %253
-  %261 = call i32 @tj3Compress12(ptr noundef %146, ptr noundef nonnull %203, i32 noundef %.0162.i, i32 noundef 0, i32 noundef %.0110159.i, i32 noundef 3, ptr noundef nonnull %3, ptr noundef nonnull %4) #20
+  %261 = call i32 @tj3Compress12(ptr noundef nonnull %146, ptr noundef nonnull %203, i32 noundef %.0162.i, i32 noundef 0, i32 noundef %.0110159.i, i32 noundef 3, ptr noundef nonnull %3, ptr noundef nonnull %4) #20
   %262 = icmp eq i32 %261, -1
   br i1 %262, label %263, label %272
 
 263:                                              ; preds = %260
-  %264 = call ptr @tj3GetErrorStr(ptr noundef %146) #20
+  %264 = call ptr @tj3GetErrorStr(ptr noundef nonnull %146) #20
   %265 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %264)
   store i1 true, ptr @exitStatus, align 4
   br label %bufSizeTest.exit
 
 266:                                              ; preds = %253
-  %267 = call i32 @tj3Compress16(ptr noundef %146, ptr noundef nonnull %203, i32 noundef %.0162.i, i32 noundef 0, i32 noundef %.0110159.i, i32 noundef 3, ptr noundef nonnull %3, ptr noundef nonnull %4) #20
+  %267 = call i32 @tj3Compress16(ptr noundef nonnull %146, ptr noundef nonnull %203, i32 noundef %.0162.i, i32 noundef 0, i32 noundef %.0110159.i, i32 noundef 3, ptr noundef nonnull %3, ptr noundef nonnull %4) #20
   %268 = icmp eq i32 %267, -1
   br i1 %268, label %269, label %272
 
 269:                                              ; preds = %266
-  %270 = call ptr @tj3GetErrorStr(ptr noundef %146) #20
+  %270 = call ptr @tj3GetErrorStr(ptr noundef nonnull %146) #20
   %271 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %270)
   store i1 true, ptr @exitStatus, align 4
   br label %bufSizeTest.exit
@@ -910,12 +910,12 @@ setVal.exit138.i:                                 ; preds = %317, %314, %311, %3
   %323 = load ptr, ptr %3, align 8
   %.b125.i = load i1, ptr @yuvAlign, align 4
   %324 = select i1 %.b125.i, i32 1, i32 4
-  %325 = call i32 @tj3EncodeYUV8(ptr noundef %146, ptr noundef nonnull %280, i32 noundef %.0110159.i, i32 noundef 0, i32 noundef %.0162.i, i32 noundef 3, ptr noundef %323, i32 noundef %324) #20
+  %325 = call i32 @tj3EncodeYUV8(ptr noundef nonnull %146, ptr noundef nonnull %280, i32 noundef %.0110159.i, i32 noundef 0, i32 noundef %.0162.i, i32 noundef 3, ptr noundef %323, i32 noundef %324) #20
   %326 = icmp eq i32 %325, -1
   br i1 %326, label %327, label %349
 
 327:                                              ; preds = %322
-  %328 = call ptr @tj3GetErrorStr(ptr noundef %146) #20
+  %328 = call ptr @tj3GetErrorStr(ptr noundef nonnull %146) #20
   %329 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %328)
   store i1 true, ptr @exitStatus, align 4
   br label %bufSizeTest.exit
@@ -927,34 +927,34 @@ setVal.exit138.i:                                 ; preds = %317, %314, %311, %3
   ]
 
 331:                                              ; preds = %330
-  %332 = call i32 @tj3Compress8(ptr noundef %146, ptr noundef nonnull %280, i32 noundef %.0110159.i, i32 noundef 0, i32 noundef %.0162.i, i32 noundef 3, ptr noundef nonnull %3, ptr noundef nonnull %4) #20
+  %332 = call i32 @tj3Compress8(ptr noundef nonnull %146, ptr noundef nonnull %280, i32 noundef %.0110159.i, i32 noundef 0, i32 noundef %.0162.i, i32 noundef 3, ptr noundef nonnull %3, ptr noundef nonnull %4) #20
   %333 = icmp eq i32 %332, -1
   br i1 %333, label %334, label %349
 
 334:                                              ; preds = %331
-  %335 = call ptr @tj3GetErrorStr(ptr noundef %146) #20
+  %335 = call ptr @tj3GetErrorStr(ptr noundef nonnull %146) #20
   %336 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %335)
   store i1 true, ptr @exitStatus, align 4
   br label %bufSizeTest.exit
 
 337:                                              ; preds = %330
-  %338 = call i32 @tj3Compress12(ptr noundef %146, ptr noundef nonnull %280, i32 noundef %.0110159.i, i32 noundef 0, i32 noundef %.0162.i, i32 noundef 3, ptr noundef nonnull %3, ptr noundef nonnull %4) #20
+  %338 = call i32 @tj3Compress12(ptr noundef nonnull %146, ptr noundef nonnull %280, i32 noundef %.0110159.i, i32 noundef 0, i32 noundef %.0162.i, i32 noundef 3, ptr noundef nonnull %3, ptr noundef nonnull %4) #20
   %339 = icmp eq i32 %338, -1
   br i1 %339, label %340, label %349
 
 340:                                              ; preds = %337
-  %341 = call ptr @tj3GetErrorStr(ptr noundef %146) #20
+  %341 = call ptr @tj3GetErrorStr(ptr noundef nonnull %146) #20
   %342 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %341)
   store i1 true, ptr @exitStatus, align 4
   br label %bufSizeTest.exit
 
 343:                                              ; preds = %330
-  %344 = call i32 @tj3Compress16(ptr noundef %146, ptr noundef nonnull %280, i32 noundef %.0110159.i, i32 noundef 0, i32 noundef %.0162.i, i32 noundef 3, ptr noundef nonnull %3, ptr noundef nonnull %4) #20
+  %344 = call i32 @tj3Compress16(ptr noundef nonnull %146, ptr noundef nonnull %280, i32 noundef %.0110159.i, i32 noundef 0, i32 noundef %.0162.i, i32 noundef 3, ptr noundef nonnull %3, ptr noundef nonnull %4) #20
   %345 = icmp eq i32 %344, -1
   br i1 %345, label %346, label %349
 
 346:                                              ; preds = %343
-  %347 = call ptr @tj3GetErrorStr(ptr noundef %146) #20
+  %347 = call ptr @tj3GetErrorStr(ptr noundef nonnull %146) #20
   %348 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %347)
   store i1 true, ptr @exitStatus, align 4
   br label %bufSizeTest.exit
@@ -1028,10 +1028,10 @@ bmpTest.exit:                                     ; preds = %87, %82, %77, %70, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @usage(ptr noundef %0) unnamed_addr #2 {
@@ -1051,10 +1051,10 @@ define internal fastcc void @usage(ptr noundef %0) unnamed_addr #2 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @doTest(i32 noundef range(i32 35, 49) %0, i32 noundef range(i32 35, 49) %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 1, 6) %3, i32 noundef range(i32 0, 7) %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @doTest(i32 noundef range(i32 35, 49) %0, i32 noundef range(i32 35, 49) %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 1, 6) %3, i32 noundef range(i32 0, 7) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [1024 x i8], align 16
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
@@ -1206,12 +1206,12 @@ switch.early.test:                                ; preds = %57
 74:                                               ; preds = %.preheader, %372
   %75 = phi i1 [ true, %.preheader ], [ false, %372 ]
   %.087 = phi i32 [ 0, %.preheader ], [ 1, %372 ]
-  %76 = call i32 @tj3Set(ptr noundef %17, i32 noundef 1, i32 noundef %.087) #20
+  %76 = call i32 @tj3Set(ptr noundef nonnull %17, i32 noundef 1, i32 noundef %.087) #20
   %77 = icmp eq i32 %76, -1
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %74
-  %79 = call ptr @tj3GetErrorStr(ptr noundef %17) #20
+  %79 = call ptr @tj3GetErrorStr(ptr noundef nonnull %17) #20
   %80 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %79)
   store i1 true, ptr @exitStatus, align 4
   br label %375
@@ -2326,34 +2326,34 @@ initBitmap.exit:                                  ; preds = %169
   ]
 
 180:                                              ; preds = %initBitmap.exit
-  %181 = call i32 @tj3SaveImage8(ptr noundef %19, ptr noundef nonnull %6, ptr noundef nonnull %48, i32 noundef 35, i32 noundef %18, i32 noundef 39, i32 noundef %179) #20
+  %181 = call i32 @tj3SaveImage8(ptr noundef nonnull %19, ptr noundef nonnull %6, ptr noundef nonnull %48, i32 noundef 35, i32 noundef %18, i32 noundef 39, i32 noundef %179) #20
   %182 = icmp eq i32 %181, -1
   br i1 %182, label %183, label %198
 
 183:                                              ; preds = %180
-  %184 = call ptr @tj3GetErrorStr(ptr noundef %19) #20
+  %184 = call ptr @tj3GetErrorStr(ptr noundef nonnull %19) #20
   %185 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %184)
   store i1 true, ptr @exitStatus, align 4
   br label %341
 
 186:                                              ; preds = %initBitmap.exit
-  %187 = call i32 @tj3SaveImage12(ptr noundef %19, ptr noundef nonnull %6, ptr noundef nonnull %48, i32 noundef 35, i32 noundef %18, i32 noundef 39, i32 noundef %179) #20
+  %187 = call i32 @tj3SaveImage12(ptr noundef nonnull %19, ptr noundef nonnull %6, ptr noundef nonnull %48, i32 noundef 35, i32 noundef %18, i32 noundef 39, i32 noundef %179) #20
   %188 = icmp eq i32 %187, -1
   br i1 %188, label %189, label %198
 
 189:                                              ; preds = %186
-  %190 = call ptr @tj3GetErrorStr(ptr noundef %19) #20
+  %190 = call ptr @tj3GetErrorStr(ptr noundef nonnull %19) #20
   %191 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %190)
   store i1 true, ptr @exitStatus, align 4
   br label %341
 
 192:                                              ; preds = %initBitmap.exit
-  %193 = call i32 @tj3SaveImage16(ptr noundef %19, ptr noundef nonnull %6, ptr noundef nonnull %48, i32 noundef 35, i32 noundef %18, i32 noundef 39, i32 noundef %179) #20
+  %193 = call i32 @tj3SaveImage16(ptr noundef nonnull %19, ptr noundef nonnull %6, ptr noundef nonnull %48, i32 noundef 35, i32 noundef %18, i32 noundef 39, i32 noundef %179) #20
   %194 = icmp eq i32 %193, -1
   br i1 %194, label %195, label %198
 
 195:                                              ; preds = %192
-  %196 = call ptr @tj3GetErrorStr(ptr noundef %19) #20
+  %196 = call ptr @tj3GetErrorStr(ptr noundef nonnull %19) #20
   %197 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %196)
   store i1 true, ptr @exitStatus, align 4
   br label %341
@@ -2386,34 +2386,34 @@ initBitmap.exit:                                  ; preds = %169
   ]
 
 208:                                              ; preds = %206
-  %209 = call ptr @tj3LoadImage8(ptr noundef %19, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %5) #20
+  %209 = call ptr @tj3LoadImage8(ptr noundef nonnull %19, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %5) #20
   %210 = icmp eq ptr %209, null
   br i1 %210, label %211, label %226
 
 211:                                              ; preds = %208
-  %212 = call ptr @tj3GetErrorStr(ptr noundef %19) #20
+  %212 = call ptr @tj3GetErrorStr(ptr noundef nonnull %19) #20
   %213 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %212)
   store i1 true, ptr @exitStatus, align 4
   br label %341
 
 214:                                              ; preds = %206
-  %215 = call ptr @tj3LoadImage12(ptr noundef %19, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %5) #20
+  %215 = call ptr @tj3LoadImage12(ptr noundef nonnull %19, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %5) #20
   %216 = icmp eq ptr %215, null
   br i1 %216, label %217, label %226
 
 217:                                              ; preds = %214
-  %218 = call ptr @tj3GetErrorStr(ptr noundef %19) #20
+  %218 = call ptr @tj3GetErrorStr(ptr noundef nonnull %19) #20
   %219 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %218)
   store i1 true, ptr @exitStatus, align 4
   br label %341
 
 220:                                              ; preds = %206
-  %221 = call ptr @tj3LoadImage16(ptr noundef %19, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %5) #20
+  %221 = call ptr @tj3LoadImage16(ptr noundef nonnull %19, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %5) #20
   %222 = icmp eq ptr %221, null
   br i1 %222, label %223, label %226
 
 223:                                              ; preds = %220
-  %224 = call ptr @tj3GetErrorStr(ptr noundef %19) #20
+  %224 = call ptr @tj3GetErrorStr(ptr noundef nonnull %19) #20
   %225 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %224)
   store i1 true, ptr @exitStatus, align 4
   br label %341
@@ -2455,34 +2455,34 @@ initBitmap.exit:                                  ; preds = %169
   ]
 
 240:                                              ; preds = %238
-  %241 = call ptr @tj3LoadImage8(ptr noundef %19, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %5) #20
+  %241 = call ptr @tj3LoadImage8(ptr noundef nonnull %19, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %5) #20
   %242 = icmp eq ptr %241, null
   br i1 %242, label %243, label %258
 
 243:                                              ; preds = %240
-  %244 = call ptr @tj3GetErrorStr(ptr noundef %19) #20
+  %244 = call ptr @tj3GetErrorStr(ptr noundef nonnull %19) #20
   %245 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %244)
   store i1 true, ptr @exitStatus, align 4
   br label %341
 
 246:                                              ; preds = %238
-  %247 = call ptr @tj3LoadImage12(ptr noundef %19, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %5) #20
+  %247 = call ptr @tj3LoadImage12(ptr noundef nonnull %19, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %5) #20
   %248 = icmp eq ptr %247, null
   br i1 %248, label %249, label %258
 
 249:                                              ; preds = %246
-  %250 = call ptr @tj3GetErrorStr(ptr noundef %19) #20
+  %250 = call ptr @tj3GetErrorStr(ptr noundef nonnull %19) #20
   %251 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %250)
   store i1 true, ptr @exitStatus, align 4
   br label %341
 
 252:                                              ; preds = %238
-  %253 = call ptr @tj3LoadImage16(ptr noundef %19, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %5) #20
+  %253 = call ptr @tj3LoadImage16(ptr noundef nonnull %19, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %5) #20
   %254 = icmp eq ptr %253, null
   br i1 %254, label %255, label %258
 
 255:                                              ; preds = %252
-  %256 = call ptr @tj3GetErrorStr(ptr noundef %19) #20
+  %256 = call ptr @tj3GetErrorStr(ptr noundef nonnull %19) #20
   %257 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %256)
   store i1 true, ptr @exitStatus, align 4
   br label %341
@@ -2514,34 +2514,34 @@ initBitmap.exit:                                  ; preds = %169
   ]
 
 271:                                              ; preds = %269
-  %272 = call ptr @tj3LoadImage8(ptr noundef %19, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %5) #20
+  %272 = call ptr @tj3LoadImage8(ptr noundef nonnull %19, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %5) #20
   %273 = icmp eq ptr %272, null
   br i1 %273, label %274, label %289
 
 274:                                              ; preds = %271
-  %275 = call ptr @tj3GetErrorStr(ptr noundef %19) #20
+  %275 = call ptr @tj3GetErrorStr(ptr noundef nonnull %19) #20
   %276 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %275)
   store i1 true, ptr @exitStatus, align 4
   br label %341
 
 277:                                              ; preds = %269
-  %278 = call ptr @tj3LoadImage12(ptr noundef %19, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %5) #20
+  %278 = call ptr @tj3LoadImage12(ptr noundef nonnull %19, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %5) #20
   %279 = icmp eq ptr %278, null
   br i1 %279, label %280, label %289
 
 280:                                              ; preds = %277
-  %281 = call ptr @tj3GetErrorStr(ptr noundef %19) #20
+  %281 = call ptr @tj3GetErrorStr(ptr noundef nonnull %19) #20
   %282 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %281)
   store i1 true, ptr @exitStatus, align 4
   br label %341
 
 283:                                              ; preds = %269
-  %284 = call ptr @tj3LoadImage16(ptr noundef %19, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %5) #20
+  %284 = call ptr @tj3LoadImage16(ptr noundef nonnull %19, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %5) #20
   %285 = icmp eq ptr %284, null
   br i1 %285, label %286, label %289
 
 286:                                              ; preds = %283
-  %287 = call ptr @tj3GetErrorStr(ptr noundef %19) #20
+  %287 = call ptr @tj3GetErrorStr(ptr noundef nonnull %19) #20
   %288 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %287)
   store i1 true, ptr @exitStatus, align 4
   br label %341
@@ -2576,34 +2576,34 @@ initBitmap.exit:                                  ; preds = %169
   ]
 
 303:                                              ; preds = %300
-  %304 = call ptr @tj3LoadImage8(ptr noundef %19, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10) #20
+  %304 = call ptr @tj3LoadImage8(ptr noundef nonnull %19, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10) #20
   %305 = icmp eq ptr %304, null
   br i1 %305, label %306, label %321
 
 306:                                              ; preds = %303
-  %307 = call ptr @tj3GetErrorStr(ptr noundef %19) #20
+  %307 = call ptr @tj3GetErrorStr(ptr noundef nonnull %19) #20
   %308 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %307)
   store i1 true, ptr @exitStatus, align 4
   br label %341
 
 309:                                              ; preds = %300
-  %310 = call ptr @tj3LoadImage12(ptr noundef %19, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10) #20
+  %310 = call ptr @tj3LoadImage12(ptr noundef nonnull %19, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10) #20
   %311 = icmp eq ptr %310, null
   br i1 %311, label %312, label %321
 
 312:                                              ; preds = %309
-  %313 = call ptr @tj3GetErrorStr(ptr noundef %19) #20
+  %313 = call ptr @tj3GetErrorStr(ptr noundef nonnull %19) #20
   %314 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %313)
   store i1 true, ptr @exitStatus, align 4
   br label %341
 
 315:                                              ; preds = %300
-  %316 = call ptr @tj3LoadImage16(ptr noundef %19, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10) #20
+  %316 = call ptr @tj3LoadImage16(ptr noundef nonnull %19, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10) #20
   %317 = icmp eq ptr %316, null
   br i1 %317, label %318, label %321
 
 318:                                              ; preds = %315
-  %319 = call ptr @tj3GetErrorStr(ptr noundef %19) #20
+  %319 = call ptr @tj3GetErrorStr(ptr noundef nonnull %19) #20
   %320 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %319)
   store i1 true, ptr @exitStatus, align 4
   br label %341
@@ -2665,7 +2665,7 @@ declare i32 @tj3Set(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 declare ptr @tj3Alloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare i32 @getpid() local_unnamed_addr #6
@@ -2687,7 +2687,7 @@ declare ptr @tj3LoadImage12(ptr noundef, ptr noundef, ptr noundef, i32 noundef, 
 declare ptr @tj3LoadImage16(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @cmpBitmap(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @cmpBitmap(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #7 {
   %6 = sext i32 %2 to i64
   %7 = getelementptr inbounds [12 x i32], ptr @tjRedOffset, i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
@@ -3097,7 +3097,7 @@ getVal.exit155:                                   ; preds = %194, %198, %202
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 declare void @tj3Destroy(ptr noundef) local_unnamed_addr #5
 
@@ -3125,7 +3125,7 @@ declare i64 @tjPlaneSizeYUV(i32 noundef, i32 noundef, i32 noundef, i32 noundef, 
 declare i32 @tj3YUVPlaneWidth(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare i32 @tj3YUVPlaneHeight(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
@@ -3251,12 +3251,12 @@ declare i32 @tj3Get(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare i32 @tj3EncodeYUV8(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @checkBufYUV(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 %4) unnamed_addr #12 {
+define internal fastcc range(i32 0, 2) i32 @checkBufYUV(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 %4) unnamed_addr #12 {
   %.sroa.0.0.extract.trunc = trunc i64 %4 to i32
   %.sroa.4.0.extract.shift = lshr i64 %4, 32
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
@@ -3719,13 +3719,13 @@ declare i32 @tj3Compress12(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i
 declare i32 @tj3Compress16(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #6
@@ -3734,7 +3734,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #6
 declare ptr @__errno_location() local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_decompTest(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 35, 49) %3, i32 noundef range(i32 35, 49) %4, i32 noundef %5, i32 noundef range(i32 0, 7) %6, i64 %7) unnamed_addr #0 {
@@ -4828,7 +4828,7 @@ declare i32 @tj3Decompress16(ptr noundef, ptr noundef, i64 noundef, ptr noundef,
 declare i64 @random() local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #15
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #15
@@ -4840,10 +4840,10 @@ declare i32 @llvm.smax.i32(i32, i32) #16
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

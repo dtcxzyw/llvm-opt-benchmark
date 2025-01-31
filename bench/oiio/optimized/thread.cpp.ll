@@ -967,7 +967,7 @@ ehcleanup8:                                       ; preds = %ehcleanup, %lpad
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_011thread_pool6resizeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %nthreads) local_unnamed_addr #4 align 2 {
+define void @_ZN18OpenImageIO_v2_6_011thread_pool6resizeEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %nthreads) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN18OpenImageIO_v2_6_011thread_pool4Impl6resizeEi(ptr noundef nonnull align 8 dereferenceable(265) %0, i32 noundef %nthreads)
@@ -992,7 +992,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN18OpenImageIO_v2_6_011thread_poolD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_011thread_poolD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -1009,7 +1009,7 @@ _ZNSt10unique_ptrIN18OpenImageIO_v2_6_011thread_pool4ImplESt14default_deleteIS2_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK18OpenImageIO_v2_6_011thread_pool4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #7 align 2 {
+define noundef i32 @_ZNK18OpenImageIO_v2_6_011thread_pool4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_size.i = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -1479,7 +1479,7 @@ if.end70:                                         ; preds = %_ZNSt10shared_ptrIS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK18OpenImageIO_v2_6_011thread_pool4idleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK18OpenImageIO_v2_6_011thread_pool4idleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %nWaiting.i = getelementptr inbounds nuw i8, ptr %0, i64 140
@@ -1488,7 +1488,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK18OpenImageIO_v2_6_011thread_pool13jobs_in_queueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK18OpenImageIO_v2_6_011thread_pool13jobs_in_queueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mutex.i.i = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1570,7 +1570,7 @@ _ZNK18OpenImageIO_v2_6_011thread_pool4Impl13jobs_in_queueEv.exit: ; preds = %do.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011thread_pool12run_one_taskENSt6thread2idE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 %id.coerce) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011thread_pool12run_one_taskENSt6thread2idE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 %id.coerce) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call3 = tail call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011thread_pool4Impl12run_one_taskENSt6thread2idE(ptr noundef nonnull align 8 dereferenceable(265) %0, i64 %id.coerce)
@@ -1728,10 +1728,10 @@ if.end:                                           ; preds = %_ZN18OpenImageIO_v2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_011thread_pool21push_queue_and_notifyEPSt8functionIFviEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %f) local_unnamed_addr #4 align 2 {
+define void @_ZN18OpenImageIO_v2_6_011thread_pool21push_queue_and_notifyEPSt8functionIFviEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef %f) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN18OpenImageIO_v2_6_011thread_pool4Impl21push_queue_and_notifyEPSt8functionIFviEE(ptr noundef nonnull align 8 dereferenceable(265) %0, ptr noundef %f)
@@ -1833,7 +1833,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZN18OpenImageIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_011thread_pool22this_thread_is_in_poolEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_011thread_pool22this_thread_is_in_poolEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i = tail call i64 @pthread_self() #32
   %0 = load ptr, ptr %this, align 8
@@ -1842,7 +1842,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_011thread_pool15register_workerENSt6thread2idE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 %id.coerce) local_unnamed_addr #4 align 2 {
+define void @_ZN18OpenImageIO_v2_6_011thread_pool15register_workerENSt6thread2idE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 %id.coerce) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN18OpenImageIO_v2_6_011thread_pool4Impl15register_workerENSt6thread2idE(ptr noundef nonnull align 8 dereferenceable(265) %0, i64 %id.coerce)
@@ -1967,7 +1967,7 @@ lpad:                                             ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_011thread_pool17deregister_workerENSt6thread2idE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 %id.coerce) local_unnamed_addr #4 align 2 {
+define void @_ZN18OpenImageIO_v2_6_011thread_pool17deregister_workerENSt6thread2idE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 %id.coerce) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN18OpenImageIO_v2_6_011thread_pool4Impl17deregister_workerENSt6thread2idE(ptr noundef nonnull align 8 dereferenceable(265) %0, i64 %id.coerce)
@@ -2092,7 +2092,7 @@ lpad:                                             ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_011thread_pool9is_workerENSt6thread2idE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 %id.coerce) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_011thread_pool9is_workerENSt6thread2idE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 %id.coerce) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call3 = tail call noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_011thread_pool4Impl9is_workerENSt6thread2idE(ptr noundef nonnull align 8 dereferenceable(265) %0, i64 %id.coerce)
@@ -2216,7 +2216,7 @@ lpad:                                             ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011thread_pool9is_workerENSt6thread2idE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 %id.coerce) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011thread_pool9is_workerENSt6thread2idE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 %id.coerce) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call3 = tail call noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_011thread_pool4Impl9is_workerENSt6thread2idE(ptr noundef nonnull align 8 dereferenceable(265) %0, i64 %id.coerce)
@@ -2224,7 +2224,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_011thread_pool9very_busyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_011thread_pool9very_busyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mutex.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -2402,7 +2402,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_08task_set13wait_for_taskEmb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 noundef %taskindex, i1 noundef zeroext %block) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_08task_set13wait_for_taskEmb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i64 noundef %taskindex, i1 noundef zeroext %block) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %wait_time = alloca %"class.std::chrono::duration", align 8
   %m_futures = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2499,7 +2499,7 @@ return:                                           ; preds = %while.body.backedge
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %__rel) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2574,7 +2574,7 @@ _ZNSt13__future_base13_State_baseV28wait_forIlSt5ratioILl1ELl1000EEEESt13future_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_08task_set4waitEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i1 noundef zeroext %block) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_08task_set4waitEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i1 noundef zeroext %block) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_submitter_thread = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2715,7 +2715,7 @@ if.end40:                                         ; preds = %while.body.backedge
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_06paropt7resolveEv(ptr nocapture noundef nonnull align 8 dereferenceable(25) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_06paropt7resolveEv(ptr noundef nonnull align 8 captures(none) dereferenceable(25) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_pool = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_pool, align 8
@@ -2762,7 +2762,7 @@ if.end13:                                         ; preds = %if.then11, %land.lh
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_023parallel_for_chunked_idElllOSt8functionIFvillEENS_6paroptE(i64 noundef %begin, i64 noundef %end, i64 noundef %chunksize, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr nocapture noundef byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18OpenImageIO_v2_6_023parallel_for_chunked_idElllOSt8functionIFvillEENS_6paroptE(i64 noundef %begin, i64 noundef %end, i64 noundef %chunksize, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr noundef byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 captures(none) %opt) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i = alloca i32, align 4
   %__args.addr2.i = alloca i64, align 8
@@ -3743,7 +3743,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS_6paroptE(i64 noundef %begin, i64 noundef %end, i64 noundef %chunksize, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS_6paroptE(i64 noundef %begin, i64 noundef %end, i64 noundef %chunksize, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 captures(none) %opt) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::function", align 8
   %0 = ptrtoint ptr %task to i64
@@ -3799,7 +3799,7 @@ _ZNSt8functionIFvillEED2Ev.exit7:                 ; preds = %lpad, %if.then.i.i4
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvillEENS_16parallel_optionsE(i64 noundef %begin, i64 noundef %end, i64 noundef %chunksize, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr nocapture noundef readonly %opt) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvillEENS_16parallel_optionsE(i64 noundef %begin, i64 noundef %end, i64 noundef %chunksize, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr noundef readonly captures(none) %opt) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %0 = load i32, ptr %opt, align 8
@@ -3829,7 +3829,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_012parallel_forEiiNS_13function_viewIFviEEENS_6paroptE(i32 noundef %begin, i32 noundef %end, ptr %task.coerce0, i64 %task.coerce1, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt) local_unnamed_addr #4 {
+define void @_ZN18OpenImageIO_v2_6_012parallel_forEiiNS_13function_viewIFviEEENS_6paroptE(i32 noundef %begin, i32 noundef %end, ptr %task.coerce0, i64 %task.coerce1, ptr noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 captures(none) %opt) local_unnamed_addr #4 {
 entry:
   tail call void @_ZN18OpenImageIO_v2_6_017parallel_for_implIiEEvT_S1_NS_13function_viewIFvS1_EEENS_6paroptE(i32 noundef %begin, i32 noundef %end, ptr %task.coerce0, i64 %task.coerce1, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt)
   ret void
@@ -4086,7 +4086,7 @@ eh.resume:                                        ; preds = %if.then.i.i17, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_012parallel_forEjjNS_13function_viewIFvjEEENS_6paroptE(i32 noundef %begin, i32 noundef %end, ptr %task.coerce0, i64 %task.coerce1, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt) local_unnamed_addr #4 {
+define void @_ZN18OpenImageIO_v2_6_012parallel_forEjjNS_13function_viewIFvjEEENS_6paroptE(i32 noundef %begin, i32 noundef %end, ptr %task.coerce0, i64 %task.coerce1, ptr noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 captures(none) %opt) local_unnamed_addr #4 {
 entry:
   tail call void @_ZN18OpenImageIO_v2_6_017parallel_for_implIjEEvT_S1_NS_13function_viewIFvS1_EEENS_6paroptE(i32 noundef %begin, i32 noundef %end, ptr %task.coerce0, i64 %task.coerce1, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt)
   ret void
@@ -4343,7 +4343,7 @@ eh.resume:                                        ; preds = %if.then.i.i17, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_012parallel_forEllNS_13function_viewIFvlEEENS_6paroptE(i64 noundef %begin, i64 noundef %end, ptr %task.coerce0, i64 %task.coerce1, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt) local_unnamed_addr #4 {
+define void @_ZN18OpenImageIO_v2_6_012parallel_forEllNS_13function_viewIFvlEEENS_6paroptE(i64 noundef %begin, i64 noundef %end, ptr %task.coerce0, i64 %task.coerce1, ptr noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 captures(none) %opt) local_unnamed_addr #4 {
 entry:
   tail call void @_ZN18OpenImageIO_v2_6_017parallel_for_implIlEEvT_S1_NS_13function_viewIFvS1_EEENS_6paroptE(i64 noundef %begin, i64 noundef %end, ptr %task.coerce0, i64 %task.coerce1, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt)
   ret void
@@ -4598,7 +4598,7 @@ eh.resume:                                        ; preds = %if.then.i.i17, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_012parallel_forEmmNS_13function_viewIFvmEEENS_6paroptE(i64 noundef %begin, i64 noundef %end, ptr %task.coerce0, i64 %task.coerce1, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt) local_unnamed_addr #4 {
+define void @_ZN18OpenImageIO_v2_6_012parallel_forEmmNS_13function_viewIFvmEEENS_6paroptE(i64 noundef %begin, i64 noundef %end, ptr %task.coerce0, i64 %task.coerce1, ptr noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 captures(none) %opt) local_unnamed_addr #4 {
 entry:
   tail call void @_ZN18OpenImageIO_v2_6_017parallel_for_implImEEvT_S1_NS_13function_viewIFvS1_EEENS_6paroptE(i64 noundef %begin, i64 noundef %end, ptr %task.coerce0, i64 %task.coerce1, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt)
   ret void
@@ -4853,7 +4853,7 @@ eh.resume:                                        ; preds = %if.then.i.i17, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_018parallel_for_rangeEiiOSt8functionIFviiEENS_6paroptE(i32 noundef %begin, i32 noundef %end, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt) local_unnamed_addr #4 {
+define void @_ZN18OpenImageIO_v2_6_018parallel_for_rangeEiiOSt8functionIFviiEENS_6paroptE(i32 noundef %begin, i32 noundef %end, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 captures(none) %opt) local_unnamed_addr #4 {
 entry:
   tail call void @_ZN18OpenImageIO_v2_6_023parallel_for_range_implIiEEvT_S1_OSt8functionIFvS1_S1_EENS_6paroptE(i32 noundef %begin, i32 noundef %end, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt)
   ret void
@@ -4990,7 +4990,7 @@ _ZNSt8functionIFvllEED2Ev.exit14:                 ; preds = %lpad.body, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_018parallel_for_rangeEjjOSt8functionIFvjjEENS_6paroptE(i32 noundef %begin, i32 noundef %end, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt) local_unnamed_addr #4 {
+define void @_ZN18OpenImageIO_v2_6_018parallel_for_rangeEjjOSt8functionIFvjjEENS_6paroptE(i32 noundef %begin, i32 noundef %end, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 captures(none) %opt) local_unnamed_addr #4 {
 entry:
   tail call void @_ZN18OpenImageIO_v2_6_023parallel_for_range_implIjEEvT_S1_OSt8functionIFvS1_S1_EENS_6paroptE(i32 noundef %begin, i32 noundef %end, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt)
   ret void
@@ -5127,7 +5127,7 @@ _ZNSt8functionIFvllEED2Ev.exit14:                 ; preds = %lpad.body, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_018parallel_for_rangeEllOSt8functionIFvllEENS_6paroptE(i64 noundef %begin, i64 noundef %end, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt) local_unnamed_addr #4 {
+define void @_ZN18OpenImageIO_v2_6_018parallel_for_rangeEllOSt8functionIFvllEENS_6paroptE(i64 noundef %begin, i64 noundef %end, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 captures(none) %opt) local_unnamed_addr #4 {
 entry:
   tail call void @_ZN18OpenImageIO_v2_6_023parallel_for_range_implIlEEvT_S1_OSt8functionIFvS1_S1_EENS_6paroptE(i64 noundef %begin, i64 noundef %end, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt)
   ret void
@@ -5262,7 +5262,7 @@ _ZNSt8functionIFvllEED2Ev.exit14:                 ; preds = %lpad.body, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_018parallel_for_rangeEmmOSt8functionIFvmmEENS_6paroptE(i64 noundef %begin, i64 noundef %end, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt) local_unnamed_addr #4 {
+define void @_ZN18OpenImageIO_v2_6_018parallel_for_rangeEmmOSt8functionIFvmmEENS_6paroptE(i64 noundef %begin, i64 noundef %end, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 captures(none) %opt) local_unnamed_addr #4 {
 entry:
   tail call void @_ZN18OpenImageIO_v2_6_023parallel_for_range_implImEEvT_S1_OSt8functionIFvS1_S1_EENS_6paroptE(i64 noundef %begin, i64 noundef %end, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt)
   ret void
@@ -5397,7 +5397,7 @@ _ZNSt8functionIFvllEED2Ev.exit14:                 ; preds = %lpad.body, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_012parallel_forEllOSt8functionIFvilEENS_6paroptE(i64 noundef %begin, i64 noundef %end, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_012parallel_forEllOSt8functionIFvilEENS_6paroptE(i64 noundef %begin, i64 noundef %end, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 captures(none) %opt) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::function", align 8
   %0 = ptrtoint ptr %task to i64
@@ -5453,7 +5453,7 @@ _ZNSt8functionIFvillEED2Ev.exit7:                 ; preds = %lpad, %if.then.i.i4
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_026parallel_for_chunked_2D_idEllllllOSt8functionIFvillllEENS_6paroptE(i64 noundef %xbegin, i64 noundef %xend, i64 noundef %xchunksize, i64 noundef %ybegin, i64 noundef %yend, i64 noundef %ychunksize, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr nocapture noundef byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18OpenImageIO_v2_6_026parallel_for_chunked_2D_idEllllllOSt8functionIFvillllEENS_6paroptE(i64 noundef %xbegin, i64 noundef %xend, i64 noundef %xchunksize, i64 noundef %ybegin, i64 noundef %yend, i64 noundef %ychunksize, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr noundef byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 captures(none) %opt) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i = alloca i32, align 4
   %__args.addr2.i = alloca i64, align 8
@@ -6359,7 +6359,7 @@ ehcleanup:                                        ; preds = %lpad8, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_023parallel_for_chunked_2DEllllllOSt8functionIFvillllEENS_16parallel_optionsE(i64 noundef %xbegin, i64 noundef %xend, i64 noundef %xchunksize, i64 noundef %ybegin, i64 noundef %yend, i64 noundef %ychunksize, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr nocapture noundef readonly %opt) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18OpenImageIO_v2_6_023parallel_for_chunked_2DEllllllOSt8functionIFvillllEENS_16parallel_optionsE(i64 noundef %xbegin, i64 noundef %xend, i64 noundef %xchunksize, i64 noundef %ybegin, i64 noundef %yend, i64 noundef %ychunksize, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr noundef readonly captures(none) %opt) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::paropt", align 8
   %0 = load i32, ptr %opt, align 8
@@ -6389,14 +6389,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_023parallel_for_chunked_2DEllllllOSt8functionIFvillllEENS_6paroptE(i64 noundef %xbegin, i64 noundef %xend, i64 noundef %xchunksize, i64 noundef %ybegin, i64 noundef %yend, i64 noundef %ychunksize, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt) local_unnamed_addr #4 {
+define void @_ZN18OpenImageIO_v2_6_023parallel_for_chunked_2DEllllllOSt8functionIFvillllEENS_6paroptE(i64 noundef %xbegin, i64 noundef %xend, i64 noundef %xchunksize, i64 noundef %ybegin, i64 noundef %yend, i64 noundef %ychunksize, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 captures(none) %opt) local_unnamed_addr #4 {
 entry:
   tail call void @_ZN18OpenImageIO_v2_6_026parallel_for_chunked_2D_idEllllllOSt8functionIFvillllEENS_6paroptE(i64 noundef %xbegin, i64 noundef %xend, i64 noundef %xchunksize, i64 noundef %ybegin, i64 noundef %yend, i64 noundef %ychunksize, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr noundef nonnull byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_023parallel_for_chunked_2DEllllllOSt8functionIFvllllEENS_6paroptE(i64 noundef %xbegin, i64 noundef %xend, i64 noundef %xchunksize, i64 noundef %ybegin, i64 noundef %yend, i64 noundef %ychunksize, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_023parallel_for_chunked_2DEllllllOSt8functionIFvllllEENS_6paroptE(i64 noundef %xbegin, i64 noundef %xend, i64 noundef %xchunksize, i64 noundef %ybegin, i64 noundef %yend, i64 noundef %ychunksize, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 captures(none) %opt) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::function.44", align 8
   %0 = ptrtoint ptr %task to i64
@@ -6452,7 +6452,7 @@ _ZNSt8functionIFvillllEED2Ev.exit7:               ; preds = %lpad, %if.then.i.i4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_015parallel_for_2DEllllOSt8functionIFvllEENS_6paroptE(i64 noundef %xbegin, i64 noundef %xend, i64 noundef %ybegin, i64 noundef %yend, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 %opt) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_015parallel_for_2DEllllOSt8functionIFvllEENS_6paroptE(i64 noundef %xbegin, i64 noundef %xend, i64 noundef %ybegin, i64 noundef %yend, ptr noundef nonnull align 8 dereferenceable(32) %task, ptr noundef readonly byval(%"class.OpenImageIO_v2_6_0::paropt") align 8 captures(none) %opt) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::function.44", align 8
   %0 = ptrtoint ptr %task to i64
@@ -7681,7 +7681,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZZN18OpenImageIO_v2_6_011thread_pool4Impl10set_threadEiENUlvE_D2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8768,7 +8768,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost9container3dtl9flat_treeINS1_4pairINSt6thread2idEiEENS1_9select1stIS5_EESt4lessIS5_ENS0_13new_allocatorIS6_EEE13insert_uniqueENS0_12vec_iteratorIPS6_Lb1EEEOS6_(ptr noalias sret(%"class.boost::container::vec_iterator.101") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %hint, ptr noundef nonnull align 8 dereferenceable(12) %val) local_unnamed_addr #4 comdat align 2 {
@@ -12037,7 +12037,7 @@ sw.epilog:                                        ; preds = %_ZZN18OpenImageIO_v
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS1_6paroptEE3$_0E9_M_invokeERKSt9_Any_dataOiOlSD_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture nonnull readonly align 4 %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args3) #4 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS1_6paroptEE3$_0E9_M_invokeERKSt9_Any_dataOiOlSD_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr nonnull readonly align 4 captures(none) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args3) #4 align 2 {
 entry:
   %__args.addr.i.i.i.i = alloca i64, align 8
   %__args.addr2.i.i.i.i = alloca i64, align 8
@@ -12067,7 +12067,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS1_6paroptEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_020parallel_for_chunkedElllOSt8functionIFvllEENS1_6paroptEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -15535,7 +15535,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_012parallel_forEllOSt8functionIFvilEENS1_6paroptEE3$_0E9_M_invokeERKSt9_Any_dataOiOlSD_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args3) #4 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_012parallel_forEllOSt8functionIFvilEENS1_6paroptEE3$_0E9_M_invokeERKSt9_Any_dataOiOlSD_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args3) #4 align 2 {
 entry:
   %__args.addr.i.i.i.i = alloca i32, align 4
   %__args.addr2.i.i.i.i = alloca i64, align 8
@@ -15576,7 +15576,7 @@ _ZNKSt8functionIFvilEEclEil.exit.i.i.i:           ; preds = %for.body.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_012parallel_forEllOSt8functionIFvilEENS1_6paroptEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvillEZN18OpenImageIO_v2_6_012parallel_forEllOSt8functionIFvilEENS1_6paroptEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -16776,7 +16776,7 @@ sw.epilog:                                        ; preds = %_ZZN18OpenImageIO_v
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvillllEZN18OpenImageIO_v2_6_023parallel_for_chunked_2DEllllllOSt8functionIFvllllEENS1_6paroptEE3$_0E9_M_invokeERKSt9_Any_dataOiOlSD_SD_SD_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture nonnull readonly align 4 %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args7) #4 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvillllEZN18OpenImageIO_v2_6_023parallel_for_chunked_2DEllllllOSt8functionIFvllllEENS1_6paroptEE3$_0E9_M_invokeERKSt9_Any_dataOiOlSD_SD_SD_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr nonnull readonly align 4 captures(none) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args7) #4 align 2 {
 entry:
   %__args.addr.i.i.i.i = alloca i64, align 8
   %__args.addr2.i.i.i.i = alloca i64, align 8
@@ -16816,7 +16816,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvillllEZN18OpenImageIO_v2_6_023parallel_for_chunked_2DEllllllOSt8functionIFvllllEENS1_6paroptEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvillllEZN18OpenImageIO_v2_6_023parallel_for_chunked_2DEllllllOSt8functionIFvllllEENS1_6paroptEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -16842,7 +16842,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvillllEZN18OpenImageIO_v2_6_015parallel_for_2DEllllOSt8functionIFvllEENS1_6paroptEE3$_0E9_M_invokeERKSt9_Any_dataOiOlSD_SD_SD_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture nonnull readonly align 4 %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args7) #4 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvillllEZN18OpenImageIO_v2_6_015parallel_for_2DEllllOSt8functionIFvllEENS1_6paroptEE3$_0E9_M_invokeERKSt9_Any_dataOiOlSD_SD_SD_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr nonnull readonly align 4 captures(none) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args7) #4 align 2 {
 entry:
   %__args.addr.i.i.i.i = alloca i64, align 8
   %__args.addr2.i.i.i.i = alloca i64, align 8
@@ -16895,7 +16895,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body4.us.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvillllEZN18OpenImageIO_v2_6_015parallel_for_2DEllllOSt8functionIFvllEENS1_6paroptEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvillllEZN18OpenImageIO_v2_6_015parallel_for_2DEllllOSt8functionIFvllEENS1_6paroptEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -16938,10 +16938,10 @@ declare void @llvm.assume(i1 noundef) #24
 declare i64 @llvm.umax.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #25

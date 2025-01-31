@@ -325,13 +325,13 @@ BufFileFlush.exit:                                ; preds = %1, %5
 declare void @FileClose(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @BufFileRead(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local i64 @BufFileRead(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i64 @BufFileReadCommon(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext false, i1 noundef zeroext false)
   ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @BufFileReadCommon(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc i64 @BufFileReadCommon(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.iovec, align 8
   %8 = alloca %struct.timespec, align 8
@@ -529,19 +529,19 @@ BufFileLoadBuffer.exit._crit_edge:                ; preds = %70, %76, %BufFileLo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @BufFileReadExact(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @BufFileReadExact(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i64 @BufFileReadCommon(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext true, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @BufFileReadMaybeEOF(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local i64 @BufFileReadMaybeEOF(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i64 @BufFileReadCommon(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext true, i1 noundef zeroext %3)
   ret i64 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @BufFileWrite(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @BufFileWrite(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not31 = icmp eq i64 %2, 0
   br i1 %.not31, label %._crit_edge, label %.lr.ph
 
@@ -827,7 +827,7 @@ extendBufFile.exit:                               ; preds = %30, %34
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @BufFileSeek(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -1013,7 +1013,7 @@ declare i64 @FileSize(i32 noundef) local_unnamed_addr #1
 declare ptr @FilePathName(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @BufFileTell(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #4 {
+define dso_local void @BufFileTell(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8
   store i32 %5, ptr %1, align 4
@@ -1038,7 +1038,7 @@ define dso_local range(i32 -1, 1) i32 @BufFileSeekBlock(ptr noundef %0, i64 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2305843009213693952, -6917529028714823680) i64 @BufFileSize(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2305843009213693952, -6917529028714823680) i64 @BufFileSize(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %0, align 8
@@ -1077,7 +1077,7 @@ define dso_local range(i64 -2305843009213693952, -6917529028714823680) i64 @BufF
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -281474976710656, 281474976579585) i64 @BufFileAppend(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i64 -281474976710656, 281474976579585) i64 @BufFileAppend(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = add i32 %4, %3
@@ -1135,7 +1135,7 @@ define dso_local range(i64 -281474976710656, 281474976579585) i64 @BufFileAppend
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @BufFileTruncateFileSet(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @BufFileTruncateFileSet(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = load i32, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1300,13 +1300,13 @@ declare i64 @FileWriteV(i32 noundef, ptr noundef, i32 noundef, i64 noundef, i32 
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #9

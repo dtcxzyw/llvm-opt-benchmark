@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @bufferevent_ops_pair = dso_local constant %struct.bufferevent_ops { ptr @.str, i64 0, ptr @be_pair_enable, ptr @be_pair_disable, ptr @be_pair_unlink, ptr @be_pair_destruct, ptr @bufferevent_generic_adj_timeouts_, ptr @be_pair_flush, ptr null }, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @bufferevent_pair_new(ptr noundef %base, i32 noundef %options, ptr nocapture noundef writeonly %pair) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_pair_new(ptr noundef %base, i32 noundef %options, ptr noundef writeonly captures(none) %pair) local_unnamed_addr #0 {
 entry:
   %or = or i32 %options, 4
   %call.i = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 536) #3
@@ -348,7 +348,7 @@ if.end6:                                          ; preds = %if.then4, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @be_pair_unlink(ptr nocapture noundef %bev) #2 {
+define internal void @be_pair_unlink(ptr noundef captures(none) %bev) #2 {
 entry:
   %be_ops.i = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %0 = load ptr, ptr %be_ops.i, align 8
@@ -372,7 +372,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @be_pair_destruct(ptr nocapture noundef %bev) #2 {
+define internal void @be_pair_destruct(ptr noundef captures(none) %bev) #2 {
 entry:
   %be_ops.i = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %0 = load ptr, ptr %be_ops.i, align 8
@@ -497,7 +497,7 @@ declare void @event_mm_free_(ptr noundef) local_unnamed_addr #1
 declare ptr @evbuffer_add_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @be_pair_outbuf_cb(ptr nocapture readnone %outbuf, ptr nocapture noundef readonly %info, ptr noundef %arg) #0 {
+define internal void @be_pair_outbuf_cb(ptr readnone captures(none) %outbuf, ptr noundef readonly captures(none) %info, ptr noundef %arg) #0 {
 entry:
   %partner1 = getelementptr inbounds nuw i8, ptr %arg, i64 520
   %0 = load ptr, ptr %partner1, align 8

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z13SHA1TransformPjS_PKhb(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define void @_Z13SHA1TransformPjS_PKhb(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   br i1 %3, label %6, label %5
 
 5:                                                ; preds = %4
@@ -1060,10 +1060,10 @@ define void @_Z13SHA1TransformPjS_PKhb(ptr nocapture noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z9sha1_initP12sha1_context(ptr nocapture noundef writeonly initializes((0, 20), (24, 32)) %0) local_unnamed_addr #2 {
+define void @_Z9sha1_initP12sha1_context(ptr noundef writeonly captures(none) initializes((0, 20), (24, 32)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %2, align 8
   store i32 1732584193, ptr %0, align 8
@@ -1079,7 +1079,7 @@ define void @_Z9sha1_initP12sha1_context(ptr nocapture noundef writeonly initial
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z12sha1_processP12sha1_contextPKhm(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define void @_Z12sha1_processP12sha1_contextPKhm(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [16 x i32], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
@@ -1103,7 +1103,7 @@ define void @_Z12sha1_processP12sha1_contextPKhm(ptr nocapture noundef %0, ptr n
 .lr.ph:                                           ; preds = %11, %.lr.ph
   %.02426 = phi i64 [ %18, %.lr.ph ], [ %14, %11 ]
   %17 = getelementptr inbounds i8, ptr %1, i64 %.02426
-  call void @_Z13SHA1TransformPjS_PKhb(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %17, i1 noundef zeroext false)
+  call void @_Z13SHA1TransformPjS_PKhb(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %17, i1 noundef zeroext false)
   %18 = add i64 %.02426, 64
   %19 = add i64 %.02426, 127
   %20 = icmp ult i64 %19, %2
@@ -1128,7 +1128,7 @@ define void @_Z12sha1_processP12sha1_contextPKhm(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z18sha1_process_rar29P12sha1_contextPKhm(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define void @_Z18sha1_process_rar29P12sha1_contextPKhm(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [16 x i32], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
@@ -1152,7 +1152,7 @@ define void @_Z18sha1_process_rar29P12sha1_contextPKhm(ptr nocapture noundef %0,
 .lr.ph:                                           ; preds = %11, %.lr.ph
   %.03134 = phi i64 [ %17, %.lr.ph ], [ %14, %11 ]
   %scevgep = getelementptr i8, ptr %1, i64 %.03134
-  call void @_Z13SHA1TransformPjS_PKhb(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %scevgep, i1 noundef zeroext false)
+  call void @_Z13SHA1TransformPjS_PKhb(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %scevgep, i1 noundef zeroext false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %scevgep, ptr noundef nonnull align 16 dereferenceable(64) %4, i64 64, i1 false)
   %17 = add i64 %.03134, 64
   %18 = add i64 %.03134, 127
@@ -1178,7 +1178,7 @@ define void @_Z18sha1_process_rar29P12sha1_contextPKhm(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z9sha1_doneP12sha1_contextPj(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
+define void @_Z9sha1_doneP12sha1_contextPj(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 {
   %3 = alloca [16 x i32], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
@@ -1261,7 +1261,7 @@ define void @_Z9sha1_doneP12sha1_contextPj(ptr nocapture noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #5

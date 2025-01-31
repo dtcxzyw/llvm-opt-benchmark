@@ -57,7 +57,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.45 = private unnamed_addr constant [7 x i8] c";mode=\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tftp_setup_connection(ptr nocapture noundef %data, ptr nocapture noundef initializes((1166, 1167)) %conn) #0 {
+define internal noundef i32 @tftp_setup_connection(ptr noundef captures(none) %data, ptr noundef captures(none) initializes((1166, 1167)) %conn) #0 {
 entry:
   %transport = getelementptr inbounds nuw i8, ptr %conn, i64 1166
   store i8 4, ptr %transport, align 2
@@ -104,7 +104,7 @@ if.end12:                                         ; preds = %sw.bb, %sw.default,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tftp_do(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 1)) %done) #0 {
+define internal i32 @tftp_do(ptr noundef %data, ptr noundef writeonly captures(none) initializes((0, 1)) %done) #0 {
 entry:
   %conn1 = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
@@ -183,7 +183,7 @@ return:                                           ; preds = %if.end, %if.then4, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 28) i32 @tftp_connect(ptr noundef %data, ptr nocapture noundef writeonly %done) #0 {
+define internal range(i32 0, 28) i32 @tftp_connect(ptr noundef %data, ptr noundef writeonly captures(none) %done) #0 {
 entry:
   %buffer = alloca [256 x i8], align 16
   %conn1 = getelementptr inbounds nuw i8, ptr %data, i64 32
@@ -292,7 +292,7 @@ return:                                           ; preds = %if.then26, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tftp_multi_statemach(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 1)) %done) #0 {
+define internal i32 @tftp_multi_statemach(ptr noundef %data, ptr noundef writeonly captures(none) initializes((0, 1)) %done) #0 {
 entry:
   %fromaddr.i = alloca %struct.Curl_sockaddr_storage, align 8
   %fromlen.i = alloca i32, align 4
@@ -481,8 +481,8 @@ sw.bb37.i:                                        ; preds = %if.else.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr42.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %cmp4959.i = icmp ult i64 %sub.ptr.sub.i.i, %conv45.i
-  %cmp49.i = and i1 %tobool.not.i.i, %cmp4959.i
+  %cmp4958.i = icmp ult i64 %sub.ptr.sub.i.i, %conv45.i
+  %cmp49.i = and i1 %tobool.not.i.i, %cmp4958.i
   br i1 %cmp49.i, label %land.lhs.true53.i, label %sw.epilog.i
 
 land.lhs.true53.i:                                ; preds = %sw.bb37.i
@@ -536,20 +536,20 @@ if.end.i.i.i:                                     ; preds = %while.body.i.i
   %add.i.i.i = add i64 %cond.i.i.i.i, 2
   %inc2.i.i.i = add i64 %add.i.i.i, %cond.i21.i.i.i
   %cmp3.i.i.i = icmp ugt i64 %inc2.i.i.i, %sub.ptr.sub.i54.i
-  br i1 %cmp3.i.i.i, label %if.then.i.i, label %do.body.i.i
+  br i1 %cmp3.i.i.i, label %if.then.i.i, label %tftp_option_get.exit.i.i
 
-if.then.i.i:                                      ; preds = %if.end.i.i.i, %while.body.i.i
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %26, ptr noundef nonnull @.str.32) #14
-  br label %tftp_receive_packet.exit.thread
-
-do.body.i.i:                                      ; preds = %if.end.i.i.i
+tftp_option_get.exit.i.i:                         ; preds = %if.end.i.i.i
   %call6.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %tmp.052.i.i) #13
   %29 = getelementptr i8, ptr %tmp.052.i.i, i64 %call6.i.i.i
   %arrayidx.i.i.i = getelementptr i8, ptr %29, i64 1
   %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %tmp.052.i.i, i64 %inc2.i.i.i
   br i1 %tobool4.not.i.i, label %do.end.i.i, label %land.lhs.true.i.i
 
-land.lhs.true.i.i:                                ; preds = %do.body.i.i
+if.then.i.i:                                      ; preds = %if.end.i.i.i, %while.body.i.i
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %26, ptr noundef nonnull @.str.32) #14
+  br label %tftp_receive_packet.exit.thread
+
+land.lhs.true.i.i:                                ; preds = %tftp_option_get.exit.i.i
   %bf.load.i.i = load i64, ptr %verbose.i.i, align 2
   %30 = and i64 %bf.load.i.i, 536870912
   %tobool5.not.i.i = icmp eq i64 %30, 0
@@ -559,13 +559,13 @@ if.then6.i.i:                                     ; preds = %land.lhs.true.i.i
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %26, ptr noundef nonnull @.str.33, ptr noundef nonnull %tmp.052.i.i, ptr noundef %arrayidx.i.i.i) #14
   br label %do.end.i.i
 
-do.end.i.i:                                       ; preds = %if.then6.i.i, %land.lhs.true.i.i, %do.body.i.i
+do.end.i.i:                                       ; preds = %if.then6.i.i, %land.lhs.true.i.i, %tftp_option_get.exit.i.i
   %call8.i.i = call i32 @curl_strnequal(ptr noundef nonnull %tmp.052.i.i, ptr noundef nonnull @.str.16, i64 noundef 7) #14
   %tobool9.not.i.i = icmp eq i32 %call8.i.i, 0
   br i1 %tobool9.not.i.i, label %if.else44.i.i, label %if.then10.i.i
 
 if.then10.i.i:                                    ; preds = %do.end.i.i
-  %call12.i.i = call i64 @strtol(ptr nocapture noundef %arrayidx.i.i.i, ptr noundef null, i32 noundef 10) #14
+  %call12.i.i = call i64 @strtol(ptr noundef captures(none) %arrayidx.i.i.i, ptr noundef null, i32 noundef 10) #14
   %tobool13.not.i.i = icmp eq i64 %call12.i.i, 0
   br i1 %tobool13.not.i.i, label %if.then14.i.i, label %if.end15.i.i
 
@@ -591,8 +591,8 @@ if.then19.i.i:                                    ; preds = %if.else.i.i
 
 if.else20.i.i:                                    ; preds = %if.else.i.i
   %31 = load i32, ptr %requested_blksize.i.i, align 8
-  %conv.i56.i = sext i32 %31 to i64
-  %cmp21.i.i = icmp sgt i64 %call12.i.i, %conv.i56.i
+  %conv.i55.i = sext i32 %31 to i64
+  %cmp21.i.i = icmp sgt i64 %call12.i.i, %conv.i55.i
   br i1 %cmp21.i.i, label %if.then23.i.i, label %if.end26.i.i
 
 if.then23.i.i:                                    ; preds = %if.else20.i.i
@@ -620,7 +620,7 @@ if.else44.i.i:                                    ; preds = %do.end.i.i
   br i1 %tobool46.not.i.i, label %if.end73.i.i, label %if.then47.i.i
 
 if.then47.i.i:                                    ; preds = %if.else44.i.i
-  %call48.i.i = call i64 @strtol(ptr nocapture noundef %arrayidx.i.i.i, ptr noundef null, i32 noundef 10) #14
+  %call48.i.i = call i64 @strtol(ptr noundef captures(none) %arrayidx.i.i.i, ptr noundef null, i32 noundef 10) #14
   br i1 %tobool4.not.i.i, label %do.end61.i.i, label %land.lhs.true51.i.i
 
 land.lhs.true51.i.i:                              ; preds = %if.then47.i.i
@@ -700,7 +700,7 @@ return:                                           ; preds = %tftp_receive_packet
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tftp_doing(ptr noundef %data, ptr nocapture noundef initializes((0, 1)) %dophase_done) #0 {
+define internal i32 @tftp_doing(ptr noundef %data, ptr noundef captures(none) initializes((0, 1)) %dophase_done) #0 {
 entry:
   %call = tail call i32 @tftp_multi_statemach(ptr noundef %data, ptr noundef %dophase_done)
   %0 = load i8, ptr %dophase_done, align 1
@@ -727,7 +727,7 @@ if.end10:                                         ; preds = %if.then2, %if.else6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @tftp_getsock(ptr nocapture readnone %data, ptr nocapture noundef readonly %conn, ptr nocapture noundef writeonly initializes((0, 4)) %socks) #1 {
+define internal noundef i32 @tftp_getsock(ptr readnone captures(none) %data, ptr noundef readonly captures(none) %conn, ptr noundef writeonly captures(none) initializes((0, 4)) %socks) #1 {
 entry:
   %sock = getelementptr inbounds nuw i8, ptr %conn, i64 392
   %0 = load i32, ptr %sock, align 8
@@ -736,7 +736,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tftp_disconnect(ptr nocapture readnone %data, ptr nocapture noundef readonly %conn, i1 zeroext %dead_connection) #0 {
+define internal noundef i32 @tftp_disconnect(ptr readnone captures(none) %data, ptr noundef readonly captures(none) %conn, i1 zeroext %dead_connection) #0 {
 entry:
   %proto = getelementptr inbounds nuw i8, ptr %conn, i64 856
   %0 = load ptr, ptr %proto, align 8
@@ -1016,7 +1016,7 @@ if.then34.i:                                      ; preds = %if.end28.i
 if.end35.i:                                       ; preds = %if.end28.i
   %17 = load ptr, ptr %spacket22.i, align 8
   %add.ptr38.i = getelementptr inbounds nuw i8, ptr %17, i64 2
-  %call41.i = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %add.ptr38.i, i64 noundef %conv.i, ptr noundef nonnull @.str.11, ptr noundef %13, i32 noundef 0, ptr noundef nonnull %spec.select.i, i32 noundef 0) #14
+  %call41.i = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %add.ptr38.i, i64 noundef %conv.i, ptr noundef nonnull @.str.11, ptr noundef nonnull %13, i32 noundef 0, ptr noundef nonnull %spec.select.i, i32 noundef 0) #14
   %18 = load ptr, ptr %filename.i, align 8
   %call42.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #13
   %add.i = select i1 %tobool.not.i, i64 9, i64 12
@@ -1873,15 +1873,15 @@ declare void @Curl_pgrsSetUploadSize(ptr noundef, i64 noundef) local_unnamed_add
 declare i32 @Curl_urldecode(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 72) i32 @tftp_option_add(i32 %state.316.val, ptr nocapture noundef nonnull %csize, ptr noundef %buf, ptr nocapture noundef readonly %option) unnamed_addr #8 {
+define internal fastcc range(i32 0, 72) i32 @tftp_option_add(i32 %state.316.val, ptr noundef nonnull captures(none) %csize, ptr noundef %buf, ptr noundef readonly captures(none) %option) unnamed_addr #8 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %option) #13
   %0 = load i64, ptr %csize, align 8
@@ -1914,7 +1914,7 @@ declare void @Curl_pgrsSetUploadCounter(ptr noundef, i64 noundef) local_unnamed_
 declare i64 @recvfrom(i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare i32 @Curl_client_write(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -1926,7 +1926,7 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #10
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
 
 declare void @Curl_pgrsSetDownloadSize(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -1935,7 +1935,7 @@ declare i32 @Curl_speedcheck(ptr noundef, i64, i32) local_unnamed_addr #2
 declare { i64, i32 } @Curl_now() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 declare signext i8 @Curl_raw_toupper(i8 noundef signext) local_unnamed_addr #2
 
@@ -1946,10 +1946,10 @@ declare i32 @llvm.smax.i32(i32, i32) #11
 declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -154,12 +154,12 @@ declare void @_ZN5XStatC1Ev(ptr noundef nonnull align 8 dereferenceable(1056)) u
 declare void @_ZN15XRuntimeWorkersC1Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK14XCollectedHeap4kindEv(ptr nocapture nonnull readnone align 64 %0) unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK14XCollectedHeap4kindEv(ptr nonnull readnone align 64 captures(none) %0) unnamed_addr #3 align 2 {
   ret i32 5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK14XCollectedHeap4nameEv(ptr nocapture nonnull readnone align 64 %0) unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZNK14XCollectedHeap4nameEv(ptr nonnull readnone align 64 captures(none) %0) unnamed_addr #3 align 2 {
   ret ptr @.str
 }
 
@@ -230,7 +230,7 @@ define hidden noundef i64 @_ZNK14XCollectedHeap6unusedEv(ptr noundef nonnull ali
 declare noundef i64 @_ZNK5XHeap6unusedEv(ptr noundef nonnull align 64 dereferenceable(4088)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK14XCollectedHeap16is_maximal_no_gcEv(ptr nocapture nonnull readnone align 64 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK14XCollectedHeap16is_maximal_no_gcEv(ptr nonnull readnone align 64 captures(none) %0) unnamed_addr #4 align 2 {
   %2 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.4, i32 noundef 116) #11
@@ -276,7 +276,7 @@ define hidden noundef zeroext i1 @_ZNK14XCollectedHeap17requires_barriersEP17sta
 declare noundef zeroext i1 @_ZNK5XHeap13is_allocatingEm(ptr noundef nonnull align 64 dereferenceable(4088), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14XCollectedHeap17allocate_new_tlabEmmPm(ptr noundef nonnull align 64 dereferenceable(4432) %0, i64 %1, i64 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN14XCollectedHeap17allocate_new_tlabEmmPm(ptr noundef nonnull align 64 dereferenceable(4432) %0, i64 %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #1 align 2 {
   %5 = load i32, ptr @MinObjAlignment, align 4
   %6 = add nsw i32 %5, -1
   %7 = sext i32 %6 to i64
@@ -312,7 +312,7 @@ _ZN5XHeap10alloc_tlabEm.exit:                     ; preds = %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14XCollectedHeap14array_allocateEP5KlassmibP10JavaThread(ptr nocapture nonnull readnone align 64 %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN14XCollectedHeap14array_allocateEP5KlassmibP10JavaThread(ptr nonnull readnone align 64 captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #1 align 2 {
   %7 = alloca %class.XObjArrayAllocator, align 8
   call void @_ZN18XObjArrayAllocatorC1EP5KlassmibP6Thread(ptr noundef nonnull align 8 dereferenceable(37) %7, ptr noundef %1, i64 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5) #10
   %8 = call noundef ptr @_ZNK12MemAllocator8allocateEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #10
@@ -324,7 +324,7 @@ declare void @_ZN18XObjArrayAllocatorC1EP5KlassmibP6Thread(ptr noundef nonnull a
 declare noundef ptr @_ZNK12MemAllocator8allocateEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14XCollectedHeap12mem_allocateEmPb(ptr noundef nonnull align 64 dereferenceable(4432) %0, i64 noundef %1, ptr nocapture readnone %2) unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN14XCollectedHeap12mem_allocateEmPb(ptr noundef nonnull align 64 dereferenceable(4432) %0, i64 noundef %1, ptr readnone captures(none) %2) unnamed_addr #1 align 2 {
   %4 = load i32, ptr @MinObjAlignment, align 4
   %5 = add nsw i32 %4, -1
   %6 = sext i32 %5 to i64
@@ -375,7 +375,7 @@ declare noundef ptr @_ZN20ClassLoaderMetaspace19expand_and_allocateEmN9Metaspace
 declare noundef ptr @_ZN27MetaspaceCriticalAllocation8allocateEP15ClassLoaderDatamN9Metaspace12MetadataTypeE(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14XCollectedHeap7collectEN7GCCause5CauseE(ptr nocapture noundef nonnull readonly align 64 dereferenceable(4432) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN14XCollectedHeap7collectEN7GCCause5CauseE(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(4432) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   %3 = alloca %class.XDriverRequest, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4288
   %5 = load ptr, ptr %4, align 64
@@ -389,7 +389,7 @@ declare void @_ZN7XDriver7collectERK14XDriverRequest(ptr noundef nonnull align 8
 declare void @_ZN14XDriverRequestC1EN7GCCause5CauseE(ptr noundef nonnull align 4 dereferenceable(8), i32 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14XCollectedHeap20collect_as_vm_threadEN7GCCause5CauseE(ptr nocapture nonnull readnone align 64 %0, i32 noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN14XCollectedHeap20collect_as_vm_threadEN7GCCause5CauseE(ptr nonnull readnone align 64 captures(none) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   %3 = and i32 %1, -2
   %or.cond = icmp eq i32 %3, 6
   br i1 %or.cond, label %6, label %4
@@ -408,7 +408,7 @@ define hidden void @_ZN14XCollectedHeap20collect_as_vm_threadEN7GCCause5CauseE(p
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZN14XCollectedHeap18do_full_collectionEb(ptr nocapture nonnull readnone align 64 %0, i1 zeroext %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN14XCollectedHeap18do_full_collectionEb(ptr nonnull readnone align 64 captures(none) %0, i1 zeroext %1) unnamed_addr #4 align 2 {
   %3 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %3, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.4, i32 noundef 200) #11
@@ -416,7 +416,7 @@ define hidden void @_ZN14XCollectedHeap18do_full_collectionEb(ptr nocapture nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK14XCollectedHeap13tlab_capacityEP6Thread(ptr noundef nonnull align 64 dereferenceable(4432) %0, ptr nocapture readnone %1) unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZNK14XCollectedHeap13tlab_capacityEP6Thread(ptr noundef nonnull align 64 dereferenceable(4432) %0, ptr readnone captures(none) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = tail call noundef i64 @_ZNK5XHeap13tlab_capacityEv(ptr noundef nonnull align 64 dereferenceable(4088) %3) #10
   ret i64 %4
@@ -425,7 +425,7 @@ define hidden noundef i64 @_ZNK14XCollectedHeap13tlab_capacityEP6Thread(ptr noun
 declare noundef i64 @_ZNK5XHeap13tlab_capacityEv(ptr noundef nonnull align 64 dereferenceable(4088)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK14XCollectedHeap9tlab_usedEP6Thread(ptr noundef nonnull align 64 dereferenceable(4432) %0, ptr nocapture readnone %1) unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZNK14XCollectedHeap9tlab_usedEP6Thread(ptr noundef nonnull align 64 dereferenceable(4432) %0, ptr readnone captures(none) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = tail call noundef i64 @_ZNK5XHeap9tlab_usedEv(ptr noundef nonnull align 64 dereferenceable(4088) %3) #10
   ret i64 %4
@@ -443,7 +443,7 @@ define hidden noundef i64 @_ZNK14XCollectedHeap13max_tlab_sizeEv(ptr noundef non
 declare noundef i64 @_ZNK5XHeap13max_tlab_sizeEv(ptr noundef nonnull align 64 dereferenceable(4088)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK14XCollectedHeap21unsafe_max_tlab_allocEP6Thread(ptr noundef nonnull align 64 dereferenceable(4432) %0, ptr nocapture readnone %1) unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZNK14XCollectedHeap21unsafe_max_tlab_allocEP6Thread(ptr noundef nonnull align 64 dereferenceable(4432) %0, ptr readnone captures(none) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = tail call noundef i64 @_ZNK5XHeap21unsafe_max_tlab_allocEv(ptr noundef nonnull align 64 dereferenceable(4088) %3) #10
   ret i64 %4
@@ -515,7 +515,7 @@ declare noundef ptr @_ZN5XHeap35serviceability_cycle_memory_managerEv(ptr nounde
 declare noundef ptr @_ZN5XHeap35serviceability_pause_memory_managerEv(ptr noundef nonnull align 64 dereferenceable(4088)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14XCollectedHeap12memory_poolsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GrowableArray.23) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 64 dereferenceable(4432) %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN14XCollectedHeap12memory_poolsEv(ptr dead_on_unwind noalias writable writeonly sret(%class.GrowableArray.23) align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 64 dereferenceable(4432) %1) unnamed_addr #1 align 2 {
 _ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit:
   %2 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 1, i32 noundef 8) #10
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -560,7 +560,7 @@ define hidden void @_ZN14XCollectedHeap10keep_aliveEP7oopDesc(ptr noundef nonnul
 declare void @_ZN5XHeap10keep_aliveEP7oopDesc(ptr noundef nonnull align 64 dereferenceable(4088), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14XCollectedHeap16register_nmethodEP7nmethod(ptr nocapture nonnull readnone align 64 %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN14XCollectedHeap16register_nmethodEP7nmethod(ptr nonnull readnone align 64 captures(none) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   tail call void @_ZN8XNMethod16register_nmethodEP7nmethod(ptr noundef %1) #10
   ret void
 }
@@ -568,7 +568,7 @@ define hidden void @_ZN14XCollectedHeap16register_nmethodEP7nmethod(ptr nocaptur
 declare void @_ZN8XNMethod16register_nmethodEP7nmethod(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14XCollectedHeap18unregister_nmethodEP7nmethod(ptr nocapture nonnull readnone align 64 %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN14XCollectedHeap18unregister_nmethodEP7nmethod(ptr nonnull readnone align 64 captures(none) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   tail call void @_ZN8XNMethod18unregister_nmethodEP7nmethod(ptr noundef %1) #10
   ret void
 }
@@ -576,7 +576,7 @@ define hidden void @_ZN14XCollectedHeap18unregister_nmethodEP7nmethod(ptr nocapt
 declare void @_ZN8XNMethod18unregister_nmethodEP7nmethod(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN14XCollectedHeap14verify_nmethodEP7nmethod(ptr nocapture nonnull readnone align 64 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN14XCollectedHeap14verify_nmethodEP7nmethod(ptr nonnull readnone align 64 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
@@ -618,7 +618,7 @@ declare void @_ZNK5XHeap10threads_doEP13ThreadClosure(ptr noundef nonnull align 
 declare void @_ZNK15XRuntimeWorkers10threads_doEP13ThreadClosure(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14XCollectedHeap25create_heap_space_summaryEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.VirtualSpaceSummary) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 64 dereferenceable(4432) %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN14XCollectedHeap25create_heap_space_summaryEv(ptr dead_on_unwind noalias writable writeonly sret(%class.VirtualSpaceSummary) align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 64 dereferenceable(4432) %1) unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %1, align 64
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -638,7 +638,7 @@ define hidden void @_ZN14XCollectedHeap25create_heap_space_summaryEv(ptr dead_on
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14XCollectedHeap27safepoint_synchronize_beginEv(ptr nocapture nonnull readnone align 64 %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN14XCollectedHeap27safepoint_synchronize_beginEv(ptr nonnull readnone align 64 captures(none) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN17StackWatermarkSet27safepoint_synchronize_beginEv() #10
   tail call void @_ZN20SuspendibleThreadSet11synchronizeEv() #10
   ret void
@@ -649,7 +649,7 @@ declare void @_ZN17StackWatermarkSet27safepoint_synchronize_beginEv() local_unna
 declare void @_ZN20SuspendibleThreadSet11synchronizeEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14XCollectedHeap25safepoint_synchronize_endEv(ptr nocapture nonnull readnone align 64 %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN14XCollectedHeap25safepoint_synchronize_endEv(ptr nonnull readnone align 64 captures(none) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN20SuspendibleThreadSet13desynchronizeEv() #10
   ret void
 }
@@ -657,7 +657,7 @@ define hidden void @_ZN14XCollectedHeap25safepoint_synchronize_endEv(ptr nocaptu
 declare void @_ZN20SuspendibleThreadSet13desynchronizeEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14XCollectedHeap10pin_objectEP10JavaThreadP7oopDesc(ptr nocapture nonnull readnone align 64 %0, ptr noundef %1, ptr nocapture readnone %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN14XCollectedHeap10pin_objectEP10JavaThreadP7oopDesc(ptr nonnull readnone align 64 captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1308
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
@@ -682,7 +682,7 @@ _ZN8GCLocker13lock_criticalEP10JavaThread.exit:   ; preds = %10, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14XCollectedHeap12unpin_objectEP10JavaThreadP7oopDesc(ptr nocapture nonnull readnone align 64 %0, ptr noundef %1, ptr nocapture readnone %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN14XCollectedHeap12unpin_objectEP10JavaThreadP7oopDesc(ptr nonnull readnone align 64 captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1308
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 1
@@ -707,7 +707,7 @@ _ZN8GCLocker15unlock_criticalEP10JavaThread.exit: ; preds = %10, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN14XCollectedHeap18prepare_for_verifyEv(ptr nocapture nonnull readnone align 64 %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN14XCollectedHeap18prepare_for_verifyEv(ptr nonnull readnone align 64 captures(none) %0) unnamed_addr #3 align 2 {
   ret void
 }
 
@@ -807,7 +807,7 @@ define hidden void @_ZNK14XCollectedHeap17print_extended_onEP12outputStream(ptr 
 declare void @_ZNK5XHeap17print_extended_onEP12outputStream(ptr noundef nonnull align 64 dereferenceable(4088), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK14XCollectedHeap18print_tracing_infoEv(ptr nocapture nonnull readnone align 64 %0) unnamed_addr #3 align 2 {
+define hidden void @_ZNK14XCollectedHeap18print_tracing_infoEv(ptr nonnull readnone align 64 captures(none) %0) unnamed_addr #3 align 2 {
   ret void
 }
 
@@ -859,7 +859,7 @@ _ZNK5XHeap6is_oopEm.exit:                         ; preds = %2, %9, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK14XCollectedHeap34supports_concurrent_gc_breakpointsEv(ptr nocapture nonnull readnone align 64 %0) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK14XCollectedHeap34supports_concurrent_gc_breakpointsEv(ptr nonnull readnone align 64 captures(none) %0) unnamed_addr #3 align 2 {
   ret i1 true
 }
 
@@ -1121,7 +1121,7 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
 declare i32 @llvm.ctpop.i32(i32) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @X_nonov = internal unnamed_addr global double 0.000000e+00, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @fdp_xLayout(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @fdp_xLayout(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str) #10
   %4 = load i8, ptr @Verbose, align 1
   %.not = icmp eq i8 %4, 0
@@ -77,7 +77,7 @@ define void @fdp_xLayout(ptr noundef %0, ptr nocapture noundef readonly %1) loca
 
 27:                                               ; preds = %25
   %28 = load ptr, ptr @stderr, align 8
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.3, i32 noundef %.020, ptr noundef %.0) #13
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.3, i32 noundef %.020, ptr noundef nonnull %.0) #13
   br label %30
 
 30:                                               ; preds = %27, %25
@@ -818,7 +818,7 @@ x_layout.exit:                                    ; preds = %adjust.exit.thread.
   br i1 %.not27, label %x_layout.exit.thread, label %491
 
 491:                                              ; preds = %x_layout.exit, %30
-  %492 = tail call i32 @removeOverlapAs(ptr noundef %0, ptr noundef %.0) #10
+  %492 = tail call i32 @removeOverlapAs(ptr noundef %0, ptr noundef nonnull %.0) #10
   br label %x_layout.exit.thread
 
 x_layout.exit.thread:                             ; preds = %._crit_edge.i36.i, %._crit_edge86.i.i, %41, %cntOverlaps.exit.i, %x_layout.exit, %491
@@ -828,13 +828,13 @@ x_layout.exit.thread:                             ; preds = %._crit_edge.i36.i, 
 declare ptr @agget(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @removeOverlapAs(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -868,7 +868,7 @@ declare i32 @rand() local_unnamed_addr #7
 declare double @hypot(double noundef, double noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9

@@ -89,7 +89,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_init_cgroup_netprio765], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef nonnull ptr @cgrp_css_alloc(ptr nocapture readnone %0) #0 align 16 {
+define internal noundef nonnull ptr @cgrp_css_alloc(ptr readnone captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(200) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 200) #10
   %4 = icmp eq ptr %3, null
@@ -98,7 +98,7 @@ define internal noundef nonnull ptr @cgrp_css_alloc(ptr nocapture readnone %0) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -28, 1) i32 @cgrp_css_online(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef range(i32 -28, 1) i32 @cgrp_css_online(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -208,10 +208,10 @@ define internal noundef i32 @init_cgroup_netprio() #1 section ".init.text" align
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
@@ -325,7 +325,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @netprio_set_prio(i32 %.80.
 declare dso_local void @rtnl_unlock() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kvfree_call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #5
@@ -371,7 +371,7 @@ declare dso_local ptr @sock_from_file(ptr noundef) local_unnamed_addr #5
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #5 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i64 -2147483648, 2147483648) i64 @read_prioidx(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #7 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @read_prioidx(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
@@ -379,7 +379,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @read_prioidx(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @read_priomap(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef i32 @read_priomap(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   tail call void @__rcu_read_lock() #11
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @init_net, i64 144), align 16
   %4 = icmp eq ptr %3, getelementptr inbounds nuw (i8, ptr @init_net, i64 144)
@@ -427,7 +427,7 @@ define internal noundef i32 @read_priomap(ptr noundef %0, ptr nocapture readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @write_priomap(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 %3) #0 align 16 {
+define internal noundef i64 @write_priomap(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 %3) #0 align 16 {
   %5 = alloca [17 x i8], align 16
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %5) #11
@@ -479,10 +479,10 @@ declare dso_local ptr @of_css(ptr noundef) local_unnamed_addr #5
 declare dso_local void @__rcu_read_unlock() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare dso_local noundef i32 @sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @dev_get_by_name(ptr noundef, ptr noundef) local_unnamed_addr #5
@@ -491,7 +491,7 @@ declare dso_local ptr @dev_get_by_name(ptr noundef, ptr noundef) local_unnamed_a
 declare dso_local i32 @register_netdevice_notifier(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @netprio_device_event(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef i32 @netprio_device_event(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = icmp eq i64 %1, 6
   br i1 %4, label %5, label %11
 

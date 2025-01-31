@@ -684,7 +684,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.alter_table_type_to_string = private unnamed_addr constant [66 x ptr] [ptr @.str.154, ptr @.str.154, ptr @.str.155, ptr @.str.155, ptr @.str.156, ptr @.str.157, ptr null, ptr @.str.158, ptr @.str.159, ptr @.str.160, ptr @.str.161, ptr @.str.162, ptr @.str.163, ptr @.str.164, ptr @.str.165, ptr null, ptr null, ptr @.str.166, ptr @.str.166, ptr @.str.166, ptr @.str.167, ptr @.str.168, ptr @.str.166, ptr @.str.169, ptr null, ptr @.str.170, ptr @.str.171, ptr @.str.172, ptr @.str.173, ptr @.str.174, ptr @.str.176, ptr @.str.177, ptr @.str.178, ptr @.str.175, ptr @.str.179, ptr @.str.180, ptr @.str.181, ptr null, ptr @.str.182, ptr @.str.183, ptr @.str.184, ptr @.str.185, ptr @.str.186, ptr @.str.187, ptr @.str.188, ptr @.str.189, ptr @.str.190, ptr @.str.191, ptr @.str.192, ptr @.str.193, ptr @.str.194, ptr @.str.195, ptr @.str.196, ptr @.str.197, ptr @.str.198, ptr @.str.199, ptr @.str.200, ptr @.str.201, ptr @.str.202, ptr @.str.203, ptr @.str.204, ptr @.str.205, ptr @.str.206, ptr @.str.207, ptr @.str.161, ptr @.str.208], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @DefineRelation(ptr nocapture noundef %0, i8 noundef signext %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @DefineRelation(ptr noundef captures(none) %0, i8 noundef signext %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [16 x i8], align 16
   %7 = alloca ptr, align 8
   %8 = alloca %struct.ObjectAddress, align 4
@@ -1841,7 +1841,7 @@ findAttrByName.exit.thread.i:                     ; preds = %382, %findAttrByNam
   %618 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %618)
   %619 = call i32 @errcode(i32 noundef 290948) #13
-  %620 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.127, ptr noundef %574) #13
+  %620 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.127, ptr noundef nonnull %574) #13
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 3159, ptr noundef nonnull @__func__.MergeCheckConstraint) #13
   unreachable
 
@@ -1904,7 +1904,7 @@ MergeCheckConstraint.exit.i:                      ; preds = %._crit_edge.i.i, %6
 ._crit_edge720.i:                                 ; preds = %.lr.ph728.i, %.lr.ph719.i, %.loopexit.i
   %.4296.lcssa.i = phi ptr [ %.1293.lcssa987.i, %.loopexit.i ], [ %.1293.lcssa987.i, %.lr.ph719.i ], [ %645, %.lr.ph728.i ]
   call void @free_attrmap(ptr noundef %311) #13
-  call void @table_close(ptr noundef %229, i32 noundef 0) #13
+  call void @table_close(ptr noundef nonnull %229, i32 noundef 0) #13
   %indvars.iv.next961.i = add nuw nsw i64 %indvars.iv960.i604, 1
   %649 = load i32, ptr %221, align 4
   %650 = sext i32 %649 to i64
@@ -1985,14 +1985,14 @@ findAttrByName.exit395.i:                         ; preds = %666
   br i1 %678, label %680, label %686
 
 680:                                              ; preds = %679
-  %681 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.128, ptr noundef %660) #13
+  %681 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.128, ptr noundef nonnull %660) #13
   br label %.sink.split.i.i
 
 682:                                              ; preds = %676
   br i1 %678, label %683, label %686
 
 683:                                              ; preds = %682
-  %684 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.129, ptr noundef %660) #13
+  %684 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.129, ptr noundef nonnull %660) #13
   %685 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.130) #13
   br label %.sink.split.i.i
 
@@ -2028,7 +2028,7 @@ findAttrByName.exit395.i:                         ; preds = %666
   %701 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %701)
   %702 = call i32 @errcode(i32 noundef 67141764) #13
-  %703 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.131, ptr noundef %660) #13
+  %703 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.131, ptr noundef nonnull %660) #13
   %704 = load i32, ptr %10, align 4
   %705 = load i32, ptr %12, align 4
   %706 = call ptr @format_type_with_typemod(i32 noundef %704, i32 noundef %705) #13
@@ -2050,7 +2050,7 @@ findAttrByName.exit395.i:                         ; preds = %666
   %716 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %716)
   %717 = call i32 @errcode(i32 noundef 17432708) #13
-  %718 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.132, ptr noundef %660) #13
+  %718 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.132, ptr noundef nonnull %660) #13
   %719 = call ptr @get_collation_name(i32 noundef %712) #13
   %720 = call ptr @get_collation_name(i32 noundef %714) #13
   %721 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.117, ptr noundef %719, ptr noundef %720) #13
@@ -2084,7 +2084,7 @@ findAttrByName.exit395.i:                         ; preds = %666
   %735 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %735)
   %736 = call i32 @errcode(i32 noundef 67141764) #13
-  %737 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.133, ptr noundef %660) #13
+  %737 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.133, ptr noundef nonnull %660) #13
   %738 = load i8, ptr %726, align 1
   %739 = call fastcc ptr @storage_name(i8 noundef signext %738)
   %740 = load i8, ptr %734, align 1
@@ -2119,7 +2119,7 @@ findAttrByName.exit395.i:                         ; preds = %666
   %755 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %755)
   %756 = call i32 @errcode(i32 noundef 67141764) #13
-  %757 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.119, ptr noundef %660) #13
+  %757 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.119, ptr noundef nonnull %660) #13
   %758 = load ptr, ptr %744, align 8
   %759 = load ptr, ptr %754, align 8
   %760 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.115, ptr noundef %758, ptr noundef %759) #13
@@ -3628,7 +3628,7 @@ declare ptr @generateClonedIndexStmt(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare { i64, i32 } @DefineIndex(i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @list_free(ptr noundef) local_unnamed_addr #3
 
@@ -4653,7 +4653,7 @@ CloneFkReferencing.exit:                          ; preds = %CloneFkReferenced.e
 declare ptr @AddRelationNotNullConstraints(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @set_attnotnull(ptr noundef %0, ptr nocapture noundef readonly %1, i16 noundef signext %2, i1 noundef zeroext %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc zeroext i1 @set_attnotnull(ptr noundef %0, ptr noundef readonly captures(none) %1, i16 noundef signext %2, i1 noundef zeroext %3, i32 noundef %4) unnamed_addr #0 {
   tail call void @check_stack_depth() #13
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %7 = load i32, ptr %6, align 8
@@ -4954,7 +4954,7 @@ define internal fastcc signext i8 @GetAttributeStorage(i32 noundef %0, ptr nound
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RemoveRelations(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @RemoveRelations(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ObjectAddress, align 4
   %3 = alloca %struct.DropRelationCallbackState, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -5222,7 +5222,7 @@ declare ptr @makeRangeVarFromNameList(ptr noundef) local_unnamed_addr #3
 declare void @AcceptInvalidationMessages() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @RangeVarCallbackForDropRelation(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) #0 {
+define internal void @RangeVarCallbackForDropRelation(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %1, %2
@@ -5456,7 +5456,7 @@ declare void @performMultipleDeletions(ptr noundef, i32 noundef, i32 noundef) lo
 declare void @free_object_addresses(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecuteTruncate(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExecuteTruncate(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -5750,7 +5750,7 @@ CheckTableNotInUse.exit:                          ; preds = %97, %97, %100
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @RangeVarCallbackForTruncate(ptr nocapture readnone %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3) #0 {
+define internal void @RangeVarCallbackForTruncate(ptr readnone captures(none) %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %30, label %5
 
@@ -6557,7 +6557,7 @@ declare i32 @GetCurrentSubTransactionId() local_unnamed_addr #3
 declare i32 @GetForeignServerIdByRelId(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -6659,7 +6659,7 @@ declare void @CacheInvalidateRelcacheByTuple(ptr noundef) local_unnamed_addr #3
 declare void @heap_freetuple(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @CheckRelationTableSpaceMove(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @CheckRelationTableSpaceMove(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 92
@@ -6739,7 +6739,7 @@ define dso_local noundef zeroext i1 @CheckRelationTableSpaceMove(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SetRelationTableSpace(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @SetRelationTableSpace(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i32, ptr %4, align 8
   %6 = tail call ptr @table_open(i32 noundef 1259, i32 noundef 3) #13
@@ -6804,7 +6804,7 @@ define dso_local void @SetRelationTableSpace(ptr nocapture noundef readonly %0, 
 declare void @changeDependencyOnTablespace(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @renameatt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @renameatt(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -6863,7 +6863,7 @@ define dso_local { i64, i32 } @renameatt(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @RangeVarCallbackForRenameAttribute(ptr nocapture readnone %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3) #0 {
+define internal void @RangeVarCallbackForRenameAttribute(ptr readnone captures(none) %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3) #0 {
   %5 = zext i32 %1 to i64
   %6 = tail call ptr @SearchSysCache1(i32 noundef 55, i64 noundef %5) #13
   %.not = icmp eq ptr %6, null
@@ -7069,7 +7069,7 @@ define internal fastcc signext range(i16 1, -32768) i16 @renameatt_internal(i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @RenameConstraint(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @RenameConstraint(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 13
@@ -7425,7 +7425,7 @@ define dso_local { i64, i32 } @RenameRelation(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @RangeVarCallbackForAlterRelation(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @RangeVarCallbackForAlterRelation(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = zext i32 %1 to i64
   %6 = tail call ptr @SearchSysCache1(i32 noundef 55, i64 noundef %5) #13
   %.not = icmp eq ptr %6, null
@@ -7821,7 +7821,7 @@ define dso_local void @ResetRelRewrite(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @CheckTableNotInUse(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @CheckTableNotInUse(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -8855,7 +8855,7 @@ declare ptr @systable_getnext(ptr noundef) local_unnamed_addr #3
 declare void @systable_endscan(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @check_of_type(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @check_of_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 22
@@ -10487,7 +10487,7 @@ define dso_local void @AtEOSubXact_on_commit_actions(i1 noundef zeroext %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RangeVarCallbackOwnsTable(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define dso_local void @RangeVarCallbackOwnsTable(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %21, label %5
 
@@ -10529,7 +10529,7 @@ define dso_local void @RangeVarCallbackOwnsTable(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RangeVarCallbackOwnsRelation(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define dso_local void @RangeVarCallbackOwnsRelation(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %37, label %5
 
@@ -10595,7 +10595,7 @@ define dso_local void @RangeVarCallbackOwnsRelation(ptr nocapture noundef readon
 declare zeroext i1 @IsSystemClass(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @PartConstraintImpliedByRelConstraint(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @PartConstraintImpliedByRelConstraint(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -10670,7 +10670,7 @@ define dso_local zeroext i1 @PartConstraintImpliedByRelConstraint(ptr nocapture 
 declare ptr @makeVar(i32 noundef, i16 noundef signext, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @ConstraintImpliedByRelConstraint(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @ConstraintImpliedByRelConstraint(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @list_copy(ptr noundef %2) #13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
@@ -10733,7 +10733,7 @@ declare void @RunObjectTruncateHook(i32 noundef) local_unnamed_addr #3
 declare i32 @pg_class_aclcheck(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @make_attrmap(i32 noundef) local_unnamed_addr #3
 
@@ -10925,7 +10925,7 @@ define internal fastcc ptr @find_typed_table_dependencies(i32 noundef %0, ptr no
 declare ptr @SearchSysCacheCopyAttName(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @check_for_column_name_collision(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @check_for_column_name_collision(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
@@ -10995,7 +10995,7 @@ declare i32 @get_relation_constraint_oid(i32 noundef, ptr noundef, i1 noundef ze
 declare void @CacheInvalidateRelcache(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ATPrepCmd(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @ATPrepCmd(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %9 = load i32, ptr %8, align 8
   %10 = load ptr, ptr %0, align 8
@@ -13275,7 +13275,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   br i1 %990, label %991, label %993
 
 991:                                              ; preds = %989
-  %992 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.361, ptr noundef %975, ptr noundef nonnull %985) #13
+  %992 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.361, ptr noundef nonnull %975, ptr noundef nonnull %985) #13
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 9487, ptr noundef nonnull @__func__.ATExecAddIndexConstraint) #13
   br label %993
 
@@ -16563,7 +16563,7 @@ list_length.exit130.i.i:                          ; preds = %2723, %2722
   br label %2722, !llvm.loop !58
 
 .critedge.i.i94:                                  ; preds = %list_length.exit130.i.i
-  %2766 = call ptr @generateClonedIndexStmt(ptr noundef null, ptr noundef %2708, ptr noundef %2717, ptr noundef nonnull %40) #13
+  %2766 = call ptr @generateClonedIndexStmt(ptr noundef null, ptr noundef nonnull %2708, ptr noundef %2717, ptr noundef nonnull %40) #13
   %2767 = getelementptr inbounds nuw i8, ptr %2766, i64 106
   %2768 = load i8, ptr %2767, align 2
   %2769 = trunc i8 %2768 to i1
@@ -16588,7 +16588,7 @@ list_length.exit130.i.i:                          ; preds = %2723, %2722
   %2779 = load i16, ptr %2778, align 2
   %2780 = call ptr @get_attname(i32 noundef %2777, i16 noundef signext %2779, i1 noundef zeroext false) #13
   %2781 = call signext i16 @get_attnum(i32 noundef %2776, ptr noundef %2780) #13
-  %2782 = call fastcc zeroext i1 @set_attnotnull(ptr noundef nonnull %0, ptr noundef %2480, i16 noundef signext %2781, i1 noundef zeroext true, i32 noundef 8)
+  %2782 = call fastcc zeroext i1 @set_attnotnull(ptr noundef nonnull %0, ptr noundef nonnull %2480, i16 noundef signext %2781, i1 noundef zeroext true, i32 noundef 8)
   %indvars.iv.next181.i.i = add nuw nsw i64 %indvars.iv180.i.i, 1
   %2783 = load i32, ptr %2771, align 8
   %2784 = sext i32 %2783 to i64
@@ -16638,8 +16638,8 @@ AttachPartitionEnsureIndexes.exit.i:              ; preds = %list_length.exit132
   store ptr %2635, ptr @CurrentMemoryContext, align 8
   call void @MemoryContextDelete(ptr noundef %2634) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40)
-  call fastcc void @CloneRowTriggersToPartition(ptr noundef nonnull %143, ptr noundef %2480)
-  call fastcc void @CloneForeignKeyConstraints(ptr noundef nonnull %0, ptr noundef nonnull %143, ptr noundef %2480)
+  call fastcc void @CloneRowTriggersToPartition(ptr noundef nonnull %143, ptr noundef nonnull %2480)
+  call fastcc void @CloneForeignKeyConstraints(ptr noundef nonnull %0, ptr noundef nonnull %143, ptr noundef nonnull %2480)
   %2803 = load ptr, ptr %2630, align 8
   %2804 = call ptr @get_qual_from_partbound(ptr noundef nonnull %143, ptr noundef %2803) #13
   %2805 = call ptr @RelationGetPartitionQual(ptr noundef nonnull %143) #13
@@ -16651,8 +16651,8 @@ AttachPartitionEnsureIndexes.exit.i:              ; preds = %list_length.exit132
   %2808 = call ptr @eval_const_expressions(ptr noundef null, ptr noundef nonnull %2806) #13
   %2809 = call ptr @make_ands_explicit(ptr noundef %2808) #13
   %2810 = call ptr @list_make1_impl(i32 noundef 1, ptr %2809) #13
-  %2811 = call ptr @map_partition_varattnos(ptr noundef %2810, i32 noundef 1, ptr noundef %2480, ptr noundef nonnull %143) #13
-  call fastcc void @QueuePartitionConstraintValidation(ptr noundef nonnull %0, ptr noundef %2480, ptr noundef %2811, i1 noundef zeroext false)
+  %2811 = call ptr @map_partition_varattnos(ptr noundef %2810, i32 noundef 1, ptr noundef nonnull %2480, ptr noundef nonnull %143) #13
+  call fastcc void @QueuePartitionConstraintValidation(ptr noundef nonnull %0, ptr noundef nonnull %2480, ptr noundef %2811, i1 noundef zeroext false)
   br label %2812
 
 2812:                                             ; preds = %2807, %AttachPartitionEnsureIndexes.exit.i
@@ -16698,7 +16698,7 @@ AttachPartitionEnsureIndexes.exit.i:              ; preds = %list_length.exit132
   br i1 %2832, label %.lr.ph143.i, label %ATExecAttachPartition.exit
 
 ATExecAttachPartition.exit:                       ; preds = %.lr.ph143.i, %2817, %.preheader.i, %.lr.ph140.i
-  call void @table_close(ptr noundef %2480, i32 noundef 0) #13
+  call void @table_close(ptr noundef nonnull %2480, i32 noundef 0) #13
   %.sroa.2107.0.insert.ext.i = zext i32 %2818 to i64
   %.sroa.2107.0.insert.shift.i = shl nuw i64 %.sroa.2107.0.insert.ext.i, 32
   %.sroa.0106.0.insert.insert.i = or disjoint i64 %.sroa.2107.0.insert.shift.i, 1259
@@ -18082,7 +18082,7 @@ define internal fastcc void @ATSimplePermissions(i32 noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ATPrepAddColumn(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @ATPrepAddColumn(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 76
@@ -18152,7 +18152,7 @@ ATTypedTableRecursion.exit:                       ; preds = %.lr.ph17, %21, %.lr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ATSimpleRecursion(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @ATSimpleRecursion(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
   br i1 %3, label %7, label %.thread
 
 7:                                                ; preds = %6
@@ -18206,7 +18206,7 @@ define internal fastcc void @ATSimpleRecursion(ptr nocapture noundef nonnull %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ATPrepDropExpression(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @ATPrepDropExpression(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4) unnamed_addr #0 {
   br i1 %2, label %14, label %6
 
 6:                                                ; preds = %5
@@ -18273,7 +18273,7 @@ define internal fastcc void @ATPrepDropExpression(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ATPrepDropColumn(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @ATPrepDropColumn(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 76
@@ -18341,7 +18341,7 @@ ATTypedTableRecursion.exit:                       ; preds = %.lr.ph14, %20, %.lr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ATCheckPartitionsNotInUse(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @ATCheckPartitionsNotInUse(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 115
@@ -18386,7 +18386,7 @@ define internal fastcc void @ATCheckPartitionsNotInUse(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ATParseTransformCmd(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef range(i32 -2147483648, 12) %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc ptr @ATParseTransformCmd(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef range(i32 -2147483648, 12) %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = zext i1 %4 to i8
@@ -18564,7 +18564,7 @@ define internal fastcc ptr @ATParseTransformCmd(ptr nocapture noundef nonnull %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ATPrepAlterColumnType(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @ATPrepAlterColumnType(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i8, align 1
@@ -18851,7 +18851,7 @@ thread-pre-split:                                 ; preds = %ATColumnChangeRequi
   %165 = load ptr, ptr %23, align 8
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 72
   %167 = load i32, ptr %166, align 4
-  call void @find_composite_type_dependencies(i32 noundef %167, ptr noundef %2, ptr noundef null)
+  call void @find_composite_type_dependencies(i32 noundef %167, ptr noundef nonnull %2, ptr noundef null)
   br label %168
 
 168:                                              ; preds = %162, %162, %162, %162, %162, %164
@@ -19243,7 +19243,7 @@ define internal fastcc noundef zeroext i1 @ATPrepChangePersistence(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ATPrepSetTableSpace(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @ATPrepSetTableSpace(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @get_tablespace_oid(ptr noundef %1, i1 noundef zeroext false) #13
   %.not = icmp eq i32 %3, 0
   %4 = load i32, ptr @MyDatabaseTableSpace, align 4
@@ -19281,7 +19281,7 @@ define internal fastcc void @ATPrepSetTableSpace(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ATPrepAddInherit(ptr nocapture readonly %.56.val) unnamed_addr #0 {
+define internal fastcc void @ATPrepAddInherit(ptr readonly captures(none) %.56.val) unnamed_addr #0 {
   %1 = getelementptr inbounds nuw i8, ptr %.56.val, i64 76
   %2 = load i32, ptr %1, align 4
   %.not = icmp eq i32 %2, 0
@@ -19354,7 +19354,7 @@ declare ptr @transformAlterTableStmt(i32 noundef, ptr noundef, ptr noundef, ptr 
 declare void @ProcessUtilityForAlterTable(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ATPrepAddPrimaryKey(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @ATPrepAddPrimaryKey(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
@@ -19550,7 +19550,7 @@ declare i32 @errtableconstraint(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @AlterTableCreateToastTable(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i32 } @ATExecAddColumn(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, i32 noundef range(i32 -2147483648, 12) %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc { i64, i32 } @ATExecAddColumn(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, i32 noundef range(i32 -2147483648, 12) %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca %struct.ObjectAddress, align 4
   %11 = alloca %struct.ObjectAddress, align 4
   %12 = alloca %struct.ObjectAddress, align 4
@@ -20167,7 +20167,7 @@ ATGetQueueEntry.exit:                             ; preds = %318, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i32 } @ATExecAddIdentity(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc { i64, i32 } @ATExecAddIdentity(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 115
@@ -20350,7 +20350,7 @@ define internal fastcc { i64, i32 } @ATExecAddIdentity(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i32 } @ATExecSetIdentity(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc { i64, i32 } @ATExecSetIdentity(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 115
@@ -20574,7 +20574,7 @@ define internal fastcc { i64, i32 } @ATExecSetIdentity(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i32 } @ATExecDropIdentity(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc { i64, i32 } @ATExecDropIdentity(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca %struct.ObjectAddress, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
@@ -21038,7 +21038,7 @@ define internal fastcc { i64, i32 } @ATExecSetNotNull(ptr noundef nonnull %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i32 } @ATExecSetOptions(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc { i64, i32 } @ATExecSetOptions(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca [26 x i64], align 16
   %7 = alloca [26 x i8], align 16
@@ -21421,7 +21421,7 @@ define internal fastcc { i64, i32 } @ATExecDropColumn(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i32 } @ATExecAddConstraint(ptr noundef nonnull %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc { i64, i32 } @ATExecAddConstraint(ptr noundef nonnull %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca [32 x i16], align 16
   %9 = alloca [32 x i16], align 16
   %10 = alloca [32 x i32], align 16
@@ -22636,7 +22636,7 @@ declare { i64, i32 } @AlterDomainAddConstraint(ptr noundef, ptr noundef, ptr nou
 declare { i64, i32 } @CommentObject(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i32 } @ATExecValidateConstraint(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc { i64, i32 } @ATExecValidateConstraint(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca [3 x %struct.ScanKeyData], align 16
   %8 = tail call ptr @table_open(i32 noundef 2606, i32 noundef 3) #13
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -23035,7 +23035,7 @@ declare void @performDeletion(ptr noundef, i32 noundef, i32 noundef) local_unnam
 declare ptr @findNotNullConstraint(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dropconstraint_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @dropconstraint_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef nonnull captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.ObjectAddress, align 4
   %9 = alloca i8, align 1
   %10 = alloca [3 x %struct.ScanKeyData], align 16
@@ -23832,7 +23832,7 @@ declare ptr @ChooseConstraintName(ptr noundef, ptr noundef, ptr noundef, i32 nou
 declare void @RelationClearMissing(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @RememberAllDependentForRebuilding(ptr nocapture noundef %0, i32 noundef range(i32 7, 26) %1, ptr nocapture noundef readonly %2, i16 noundef signext %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @RememberAllDependentForRebuilding(ptr noundef captures(none) %0, i32 noundef range(i32 7, 26) %1, ptr noundef readonly captures(none) %2, i16 noundef signext %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [3 x %struct.ScanKeyData], align 16
   %7 = alloca %struct.ObjectAddress, align 4
   %8 = tail call ptr @table_open(i32 noundef 2608, i32 noundef 3) #13
@@ -24129,7 +24129,7 @@ declare i32 @getObjectClass(ptr noundef) local_unnamed_addr #3
 declare ptr @getObjectDescription(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @RememberConstraintForRebuilding(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @RememberConstraintForRebuilding(i32 noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %4 = load ptr, ptr %3, align 8
   %5 = tail call zeroext i1 @list_member_oid(ptr noundef %4, i32 noundef %0) #13
@@ -24221,7 +24221,7 @@ declare void @RelationPreserveStorage(i64, i32, i1 noundef zeroext) local_unname
 declare { i64, i32 } @CreateStatistics(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i32 } @ATAddCheckNNConstraint(ptr noundef nonnull %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc { i64, i32 } @ATAddCheckNNConstraint(ptr noundef nonnull %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %7) unnamed_addr #0 {
   %.sroa.068.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
   %.sroa.068.sroa.3.0.extract.shift = lshr i64 %.sroa.068.0.copyload, 32
   %.sroa.068.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.068.sroa.3.0.extract.shift to i32
@@ -24458,12 +24458,12 @@ ATGetQueueEntry.exit:                             ; preds = %98, %._crit_edge.i
 declare zeroext i1 @ConstraintNameIsUsed(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @table_openrv(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 33) i32 @transformColumnNameList(i32 noundef %0, ptr noundef readonly %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 33) i32 @transformColumnNameList(i32 noundef %0, ptr noundef readonly %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -24604,7 +24604,7 @@ declare i32 @getBaseType(i32 noundef) local_unnamed_addr #3
 declare zeroext i1 @can_coerce_type(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i32 } @addFkRecurseReferenced(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %11, ptr noundef nonnull %12, i32 noundef %13, i32 noundef %14) unnamed_addr #0 {
+define internal fastcc { i64, i32 } @addFkRecurseReferenced(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %11, ptr noundef nonnull %12, i32 noundef %13, i32 noundef %14) unnamed_addr #0 {
   %16 = alloca [128 x i8], align 16
   %17 = alloca %struct.ObjectAddress, align 8
   %18 = alloca i32, align 4
@@ -24833,7 +24833,7 @@ ChooseForeignKeyConstraintNameAddition.exit:      ; preds = %47, %61, %37, %.lr.
 150:                                              ; preds = %.loopexit
   %151 = load i32, ptr %18, align 4
   %152 = load i32, ptr %19, align 4
-  %153 = call fastcc { i64, i32 } @addFkRecurseReferenced(ptr noundef %0, ptr noundef %1, ptr noundef %128, i32 noundef %143, i32 noundef %103, i32 noundef %5, ptr noundef %.096, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, i32 noundef %11, ptr noundef %12, i32 noundef %151, i32 noundef %152)
+  %153 = call fastcc { i64, i32 } @addFkRecurseReferenced(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %128, i32 noundef %143, i32 noundef %103, i32 noundef %5, ptr noundef %.096, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, i32 noundef %11, ptr noundef %12, i32 noundef %151, i32 noundef %152)
   call void @table_close(ptr noundef %128, i32 noundef 0) #13
   br i1 %.not104, label %155, label %154
 
@@ -24858,7 +24858,7 @@ ChooseForeignKeyConstraintNameAddition.exit:      ; preds = %47, %61, %37, %.lr.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @addFkRecurseReferencing(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %7, ptr nocapture noundef nonnull readonly %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %12, ptr noundef nonnull %13, i1 noundef zeroext %14, i32 noundef %15, i32 noundef %16, i32 noundef %17) unnamed_addr #0 {
+define internal fastcc void @addFkRecurseReferencing(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %7, ptr noundef nonnull readonly captures(none) %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %12, ptr noundef nonnull %13, i1 noundef zeroext %14, i32 noundef %15, i32 noundef %16, i32 noundef %17) unnamed_addr #0 {
   %19 = alloca [128 x i8], align 16
   %20 = alloca [32 x i16], align 16
   %21 = alloca %struct.ObjectAddress, align 4
@@ -25277,7 +25277,7 @@ declare i32 @find_coercion_pathway(i32 noundef, i32 noundef, i32 noundef, ptr no
 declare i32 @CreateConstraintEntry(ptr noundef, i32 noundef, i8 noundef signext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i8 noundef signext, i8 noundef signext, ptr noundef, i32 noundef, i8 noundef signext, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @createForeignKeyActionTriggers(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly %7, ptr noundef writeonly %8) unnamed_addr #0 {
+define internal fastcc void @createForeignKeyActionTriggers(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly %7, ptr noundef writeonly %8) unnamed_addr #0 {
   %10 = tail call noundef ptr @palloc0(i64 noundef 88) #13
   store i32 165, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -25496,7 +25496,7 @@ declare ptr @get_constraint_name(i32 noundef) local_unnamed_addr #3
 declare ptr @RelationGetFKeyList(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @tryAttachPartitionForeignKey(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef nonnull readonly %5, ptr nocapture noundef nonnull readonly %6, i32 noundef %7, i32 noundef %8, ptr noundef %9) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @tryAttachPartitionForeignKey(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef nonnull readonly captures(none) %5, ptr noundef nonnull readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr noundef %9) unnamed_addr #0 {
   %11 = alloca %struct.ScanKeyData, align 8
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
@@ -25744,7 +25744,7 @@ define internal fastcc noundef zeroext i1 @tryAttachPartitionForeignKey(ptr noca
 declare void @ConstraintSetParentConstraint(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @GetForeignKeyCheckTriggers(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull initializes((0, 4)) %4, ptr nocapture noundef nonnull initializes((0, 4)) %5) unnamed_addr #0 {
+define internal fastcc void @GetForeignKeyCheckTriggers(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull captures(none) initializes((0, 4)) %4, ptr noundef nonnull captures(none) initializes((0, 4)) %5) unnamed_addr #0 {
   %7 = alloca %struct.ScanKeyData, align 8
   store i32 0, ptr %5, align 4
   store i32 0, ptr %4, align 4
@@ -25862,7 +25862,7 @@ declare void @index_check_primary_key(ptr noundef, ptr noundef, i1 noundef zeroe
 declare { i64, i32 } @index_constraint_create(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef signext, i16 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @ATExecAlterConstrRecurse(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr nocapture noundef nonnull %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ATExecAlterConstrRecurse(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull captures(none) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.ScanKeyData, align 8
   %9 = alloca %struct.ScanKeyData, align 8
   tail call void @check_stack_depth() #13
@@ -26093,7 +26093,7 @@ declare void @EnableDisableRule(ptr noundef, ptr noundef, i8 noundef signext) lo
 declare ptr @FindTriggerIncompatibleWithInheritance(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @CreateInheritance(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @CreateInheritance(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %struct.ObjectAddress, align 4
   %5 = alloca %struct.ObjectAddress, align 4
   %6 = alloca %struct.ScanKeyData, align 8
@@ -26754,7 +26754,7 @@ declare i32 @bms_next_member(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare void @AdjustNotNullInheritance(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @RemoveInheritance(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @RemoveInheritance(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca [3 x %struct.ScanKeyData], align 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -27138,7 +27138,7 @@ define internal fastcc void @drop_parent_dependency(i32 noundef %0, i32 noundef 
 declare ptr @lookup_rowtype_tupdesc(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 declare void @DecrTupleDescRefCount(ptr noundef) local_unnamed_addr #3
 
@@ -27245,7 +27245,7 @@ define internal fastcc void @relation_mark_replica_identity(ptr noundef %0, i8 n
   br label %57
 
 57:                                               ; preds = %53, %56
-  tail call void @CacheInvalidateRelcache(ptr noundef %0) #13
+  tail call void @CacheInvalidateRelcache(ptr noundef nonnull %0) #13
   br label %.critedge
 
 .critedge:                                        ; preds = %51, %52, %57
@@ -27278,7 +27278,7 @@ declare ptr @make_ands_explicit(ptr noundef) local_unnamed_addr #3
 declare ptr @map_partition_varattnos(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @QueuePartitionConstraintValidation(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @QueuePartitionConstraintValidation(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = zext i1 %3 to i8
   %6 = tail call zeroext i1 @PartConstraintImpliedByRelConstraint(ptr noundef %1, ptr noundef %2)
   br i1 %6, label %7, label %21
@@ -27406,7 +27406,7 @@ ATGetQueueEntry.exit:                             ; preds = %36, %._crit_edge.i
   %68 = getelementptr i32, ptr %67, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4
   %70 = tail call ptr @table_open(i32 noundef %69, i32 noundef 8) #13
-  %71 = tail call ptr @map_partition_varattnos(ptr noundef %2, i32 noundef 1, ptr noundef %70, ptr noundef %1) #13
+  %71 = tail call ptr @map_partition_varattnos(ptr noundef %2, i32 noundef 1, ptr noundef %70, ptr noundef nonnull %1) #13
   tail call fastcc void @QueuePartitionConstraintValidation(ptr noundef %0, ptr noundef %70, ptr noundef %71, i1 noundef zeroext %3)
   tail call void @table_close(ptr noundef %70, i32 noundef 0) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -27432,7 +27432,7 @@ declare void @IndexSetParentIndex(ptr noundef, i32 noundef) local_unnamed_addr #
 declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @RangeVarCallbackForAttachIndex(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) #0 {
+define internal void @RangeVarCallbackForAttachIndex(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 4
   %7 = trunc i8 %6 to i1
@@ -27505,7 +27505,7 @@ define internal void @RangeVarCallbackForAttachIndex(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @validatePartitionedIndex(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @validatePartitionedIndex(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.ScanKeyData, align 8
   %4 = tail call ptr @table_open(i32 noundef 2611, i32 noundef 1) #13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -28136,7 +28136,7 @@ declare void @WaitForOlderSnapshots(i32 noundef, i1 noundef zeroext) local_unnam
 declare i32 @get_typ_typrelid(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ATPostAlterTypeParse(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @ATPostAlterTypeParse(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull captures(none) %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = tail call ptr @raw_parser(ptr noundef %3, i32 noundef 0) #13
@@ -28638,7 +28638,7 @@ declare ptr @transformStatsStmt(i32 noundef, ptr noundef, ptr noundef) local_unn
 declare ptr @GetComment(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @RebuildConstraintComment(ptr nocapture noundef %0, i32 noundef range(i32 4, 6) %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @RebuildConstraintComment(ptr noundef captures(none) %0, i32 noundef range(i32 4, 6) %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = tail call ptr @GetComment(i32 noundef %2, i32 noundef 2606, i32 noundef 0) #13
   %8 = icmp eq ptr %7, null
   br i1 %8, label %43, label %9
@@ -28711,7 +28711,7 @@ declare void @EventTriggerTableRewrite(ptr noundef, i32 noundef, i32 noundef) lo
 declare i32 @make_new_heap(i32 noundef, i32 noundef, i32 noundef, i8 noundef signext, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ATRewriteTable(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @ATRewriteTable(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %5 = tail call ptr @table_open(i32 noundef %4, i32 noundef 0) #13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -29798,10 +29798,10 @@ declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12

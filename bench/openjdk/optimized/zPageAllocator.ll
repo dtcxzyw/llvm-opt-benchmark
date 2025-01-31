@@ -194,7 +194,7 @@ declare void @_Z21ZStatUnitOpsPerSecond15LogTargetHandleRK12ZStatSamplerRK19ZSta
 declare void @_ZN18ZStatCriticalPhaseC1EPKcb(ptr noundef nonnull align 8 dereferenceable(121), ptr noundef, i1 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16ZSafePageRecycleC2EP14ZPageAllocator(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN16ZSafePageRecycleC2EP14ZPageAllocator(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 5, i32 noundef 0) #13
@@ -207,7 +207,7 @@ define hidden void @_ZN16ZSafePageRecycleC2EP14ZPageAllocator(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16ZSafePageRecycle8activateEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN16ZSafePageRecycle8activateEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -234,7 +234,7 @@ _ZN15ZActivatedArrayI5ZPageE8activateEv.exit:     ; preds = %_ZN7ZLockerI5ZLockE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16ZSafePageRecycle10deactivateEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN16ZSafePageRecycle10deactivateEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -544,7 +544,7 @@ define hidden void @_ZN14ZPageAllocatorC2Emmmm(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @_ZN10ZPageCacheC1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #0
 
@@ -577,7 +577,7 @@ declare void @_ZNK22ZPhysicalMemoryManager18warn_commit_limitsEm(ptr noundef non
 declare void @_ZN22ZPhysicalMemoryManager19try_enable_uncommitEmm(ptr noundef nonnull align 8 dereferenceable(160), i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK14ZPageAllocator14is_initializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(609) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK14ZPageAllocator14is_initializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(609) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -854,21 +854,21 @@ _ZN7ZLockerI5ZLockED2Ev.exit:                     ; preds = %.lr.ph.i, %42, %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK14ZPageAllocator16initial_capacityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(609) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef i64 @_ZNK14ZPageAllocator16initial_capacityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(609) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK14ZPageAllocator12min_capacityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(609) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef i64 @_ZNK14ZPageAllocator12min_capacityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(609) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK14ZPageAllocator12max_capacityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(609) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef i64 @_ZNK14ZPageAllocator12max_capacityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(609) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load i64, ptr %2, align 8
   ret i64 %3
@@ -921,7 +921,7 @@ define hidden noundef range(i64 0, -9223372036854775808) i64 @_ZNK14ZPageAllocat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14ZPageAllocator5statsEP11ZGeneration(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.ZPageAllocatorStats) align 8 initializes((0, 96)) %0, ptr noundef nonnull align 8 dereferenceable(609) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK14ZPageAllocator5statsEP11ZGeneration(ptr dead_on_unwind noalias writable writeonly sret(%class.ZPageAllocatorStats) align 8 captures(none) initializes((0, 96)) %0, ptr noundef nonnull align 8 dereferenceable(609) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
 _ZN7ZLockerI5ZLockED2Ev.exit:
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #13
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 392
@@ -1192,7 +1192,7 @@ define hidden void @_ZNK14ZPageAllocator8map_pageEPK5ZPage(ptr noundef nonnull a
 declare void @_ZNK22ZPhysicalMemoryManager3mapE7zoffsetRK15ZPhysicalMemory(ptr noundef nonnull align 8 dereferenceable(160), i64 noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14ZPageAllocator10unmap_pageEPK5ZPage(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK14ZPageAllocator10unmap_pageEPK5ZPage(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
@@ -1742,7 +1742,7 @@ _ZN7ZLockerI5ZLockED2Ev.exit.thread:              ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14ZPageAllocator17alloc_page_createEP15ZPageAllocation(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr nocapture noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN14ZPageAllocator17alloc_page_createEP15ZPageAllocation(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.ZVirtualMemory, align 8
   %4 = alloca %class.ZPhysicalMemory, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1916,7 +1916,7 @@ declare void @_ZN22ZPhysicalMemoryManager5allocER15ZPhysicalMemorym(ptr noundef 
 declare void @_ZN5ZPageC1E9ZPageTypeRK14ZVirtualMemoryRK15ZPhysicalMemory(ptr noundef nonnull align 8 dereferenceable(192), i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK14ZPageAllocator17should_defragmentEPK5ZPage(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK14ZPageAllocator17should_defragmentEPK5ZPage(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = load i8, ptr %1, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %15
@@ -1942,7 +1942,7 @@ define hidden noundef zeroext i1 @_ZNK14ZPageAllocator17should_defragmentEPK5ZPa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK14ZPageAllocator18is_alloc_satisfiedEP15ZPageAllocation(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK14ZPageAllocator18is_alloc_satisfiedEP15ZPageAllocation(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 1
@@ -1997,7 +1997,7 @@ _ZNK14ZPageAllocator17should_defragmentEPK5ZPage.exit.thread: ; preds = %21, %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14ZPageAllocator19alloc_page_finalizeEP15ZPageAllocation(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr nocapture noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN14ZPageAllocator19alloc_page_finalizeEP15ZPageAllocation(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %4, 1
@@ -2136,7 +2136,7 @@ _ZN5ZListI5ZPageE12remove_firstEv.exit:           ; preds = %33, %_ZNK14ZPageAll
 declare noundef ptr @_ZN5ZPage15split_committedEv(ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ZPageAllocator23free_pages_alloc_failedEP15ZPageAllocation(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr nocapture noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14ZPageAllocator23free_pages_alloc_failedEP15ZPageAllocation(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.GCLogPreciousHandle, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -2603,7 +2603,7 @@ define hidden void @_ZN14ZPageAllocator12recycle_pageEP5ZPage(ptr noundef nonnul
 declare void @_ZN10ZPageCache9free_pageEP5ZPage(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ZPageAllocator10free_pagesEPK18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EE(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14ZPageAllocator10free_pagesEPK18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EE(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit, label %.lr.ph
@@ -2938,7 +2938,7 @@ _ZN26SuspendibleThreadSetJoinerD2Ev.exit20:       ; preds = %2, %_ZN26Suspendibl
 declare noundef i64 @_ZN10ZPageCache18flush_for_uncommitEmP5ZListI5ZPageEPm(ptr noundef nonnull align 8 dereferenceable(64), i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14ZPageAllocator19enable_safe_destroyEv(ptr nocapture noundef nonnull align 8 dereferenceable(609) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK14ZPageAllocator19enable_safe_destroyEv(ptr noundef nonnull align 8 captures(none) dereferenceable(609) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -3084,7 +3084,7 @@ _ZN15ZActivatedArrayI5ZPageE20deactivate_and_applyIPFvPS0_EEEvT_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14ZPageAllocator19enable_safe_recycleEv(ptr nocapture noundef nonnull align 8 dereferenceable(609) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK14ZPageAllocator19enable_safe_recycleEv(ptr noundef nonnull align 8 captures(none) dereferenceable(609) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -3111,7 +3111,7 @@ _ZN16ZSafePageRecycle8activateEv.exit:            ; preds = %_ZN7ZLockerI5ZLockE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14ZPageAllocator20disable_safe_recycleEv(ptr nocapture noundef nonnull align 8 dereferenceable(609) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK14ZPageAllocator20disable_safe_recycleEv(ptr noundef nonnull align 8 captures(none) dereferenceable(609) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   tail call void @_ZN16ZSafePageRecycle10deactivateEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
   ret void
@@ -3172,7 +3172,7 @@ _ZN7ZLockerI5ZLockED2Ev.exit:                     ; preds = %13, %18, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ZPageAllocator20notify_out_of_memoryEv(ptr nocapture noundef nonnull align 8 dereferenceable(609) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14ZPageAllocator20notify_out_of_memoryEv(ptr noundef nonnull align 8 captures(none) dereferenceable(609) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %4 = load i64, ptr %3, align 8
@@ -3228,7 +3228,7 @@ select.unfold:                                    ; preds = %.lr.ph
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14ZPageAllocator10restart_gcEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(609) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK14ZPageAllocator10restart_gcEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(609) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.ZDriverRequest, align 4
   %3 = alloca %class.ZDriverRequest, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 496
@@ -3346,7 +3346,7 @@ _ZN7ZLockerI5ZLockED2Ev.exit:                     ; preds = %select.unfold.i, %.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14ZPageAllocator10threads_doEP13ThreadClosure(ptr nocapture noundef nonnull readonly align 8 dereferenceable(609) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK14ZPageAllocator10threads_doEP13ThreadClosure(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(609) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -5289,10 +5289,10 @@ declare i64 @llvm.umax.i64(i64, i64) #11
 declare i32 @llvm.ctpop.i32(i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

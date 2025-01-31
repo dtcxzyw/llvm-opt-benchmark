@@ -129,7 +129,7 @@ define i32 @get_num_procs() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #2
@@ -147,7 +147,7 @@ declare void @__sched_cpufree(ptr noundef) local_unnamed_addr #2
 declare i32 @__sched_cpucount(i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define i32 @goto_get_num_procs() local_unnamed_addr #3 {
@@ -521,7 +521,7 @@ define internal ptr @alloc_mmap(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write) uwtable
-define internal noundef nonnull ptr @alloc_malloc(ptr nocapture readnone %0) #5 {
+define internal noundef nonnull ptr @alloc_malloc(ptr readnone captures(none) %0) #5 {
   %2 = tail call noalias dereferenceable_or_null(134221824) ptr @malloc(i64 noundef 134221824) #18
   %3 = icmp eq ptr %2, null
   %4 = select i1 %3, ptr inttoptr (i64 -1 to ptr), ptr %2
@@ -569,13 +569,13 @@ declare void @blas_set_parameter() local_unnamed_addr #4
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define void @blas_memory_free(ptr noundef %0) local_unnamed_addr #0 {
@@ -678,13 +678,13 @@ define noalias noundef ptr @blas_memory_alloc_nolock(i32 noundef %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @blas_memory_free_nolock(ptr nocapture noundef %0) local_unnamed_addr #9 {
+define void @blas_memory_free_nolock(ptr noundef captures(none) %0) local_unnamed_addr #9 {
   tail call void @free(ptr noundef %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define void @blas_shutdown() local_unnamed_addr #0 {
@@ -855,7 +855,7 @@ define void @gotoblas_quit() #0 {
 declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @alloc_mmap_free(ptr nocapture noundef readonly %0) #0 {
+define internal void @alloc_mmap_free(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !26
   %3 = icmp eq ptr %2, null
   br i1 %3, label %12, label %4
@@ -884,13 +884,13 @@ declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare ptr @__errno_location() local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @alloc_malloc_free(ptr nocapture noundef readonly %0) #12 {
+define internal void @alloc_malloc_free(ptr noundef readonly captures(none) %0) #12 {
   %2 = load ptr, ptr %0, align 8, !tbaa !26
   tail call void @free(ptr noundef %2) #15
   ret void
@@ -900,10 +900,10 @@ define internal void @alloc_malloc_free(ptr nocapture noundef readonly %0) #12 {
 declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #14
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13

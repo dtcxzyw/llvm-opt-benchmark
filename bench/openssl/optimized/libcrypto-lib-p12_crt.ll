@@ -510,7 +510,7 @@ entry:
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PKCS12_add_safe_ex(ptr nocapture noundef %psafes, ptr noundef %bags, i32 noundef %nid_safe, i32 noundef %iter, ptr noundef %pass, ptr noundef %ctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS12_add_safe_ex(ptr noundef captures(none) %psafes, ptr noundef %bags, i32 noundef %nid_safe, i32 noundef %iter, ptr noundef %pass, ptr noundef %ctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %psafes, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -649,7 +649,7 @@ declare i32 @PKCS12_add_friendlyname_utf8(ptr noundef, ptr noundef, i32 noundef)
 declare i32 @PKCS12_add_localkeyid(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PKCS12_add_safe(ptr nocapture noundef %psafes, ptr noundef %bags, i32 noundef %nid_safe, i32 noundef %iter, ptr noundef %pass) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS12_add_safe(ptr noundef captures(none) %psafes, ptr noundef %bags, i32 noundef %nid_safe, i32 noundef %iter, ptr noundef %pass) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @PKCS12_add_safe_ex(ptr noundef %psafes, ptr noundef %bags, i32 noundef %nid_safe, i32 noundef %iter, ptr noundef %pass, ptr noundef null, ptr noundef null)
   ret i32 %call
@@ -812,10 +812,10 @@ declare ptr @PKCS12_SAFEBAG_create_cert(ptr noundef) local_unnamed_addr #1
 declare ptr @OPENSSL_sk_delete_ptr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

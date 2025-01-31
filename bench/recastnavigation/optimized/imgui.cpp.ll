@@ -74,7 +74,7 @@ define dso_local noundef i32 @_Z23imguiGetRenderQueueSizev() local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_Z20imguiBeginScrollAreaPKciiiiPi(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_Z20imguiBeginScrollAreaPKciiiiPi(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #4 {
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 60), align 4
   %8 = add i32 %7, 1
   store i32 %8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 60), align 4
@@ -187,7 +187,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %_Z6inRectiiiib.exit
   %70 = zext i32 %66 to i64
   %71 = getelementptr inbounds nuw [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %70
   %72 = zext i32 %65 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr readonly align 1 %0, i64 %72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr nonnull readonly align 1 %0, i64 %72, i1 false)
   store i32 %67, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL13addGfxCmdTextiiiPKcj.exit
 
@@ -518,7 +518,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit68:           ; preds = %_ZL20addGfxCmdRound
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_Z11imguiButtonPKcb(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_Z11imguiButtonPKcb(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #4 {
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 64), align 4
   %4 = add i32 %3, 1
   store i32 %4, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 64), align 4
@@ -736,7 +736,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split: ; preds = %93, %73
   %112 = zext i32 %.sink30 to i64
   %113 = getelementptr inbounds nuw [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %112
   %114 = zext i32 %.sink28 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %113, ptr readonly align 1 %0, i64 %114, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %113, ptr nonnull readonly align 1 %0, i64 %114, i1 false)
   store i32 %.sink, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split
 
@@ -752,7 +752,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %_ZL13addGfxCmdTexti
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_Z9imguiItemPKcb(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_Z9imguiItemPKcb(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #4 {
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 64), align 4
   %4 = add i32 %3, 1
   store i32 %4, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 64), align 4
@@ -966,7 +966,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split: ; preds = %93, %73
   %112 = zext i32 %.sink29 to i64
   %113 = getelementptr inbounds nuw [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %112
   %114 = zext i32 %.sink27 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %113, ptr readonly align 1 %0, i64 %114, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %113, ptr nonnull readonly align 1 %0, i64 %114, i1 false)
   store i32 %.sink, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split
 
@@ -982,7 +982,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %_ZL13addGfxCmdTexti
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #4 {
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 64), align 4
   %5 = add i32 %4, 1
   store i32 %5, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 64), align 4
@@ -1268,7 +1268,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split: ; preds = %129, %110
   %147 = zext i32 %.sink42 to i64
   %148 = getelementptr inbounds nuw [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %147
   %149 = zext i32 %.sink40 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %148, ptr readonly align 1 %0, i64 %149, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %148, ptr nonnull readonly align 1 %0, i64 %149, i1 false)
   store i32 %.sink, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split
 
@@ -1284,7 +1284,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %_ZL13addGfxCmdTexti
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_Z13imguiCollapsePKcS0_bb(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_Z13imguiCollapsePKcS0_bb(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #4 {
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 64), align 4
   %6 = add i32 %5, 1
   store i32 %6, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 64), align 4
@@ -1498,7 +1498,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split: ; preds = %90, %71
   %108 = zext i32 %.sink60 to i64
   %109 = getelementptr inbounds nuw [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %108
   %110 = zext i32 %.sink58 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %109, ptr readonly align 1 %0, i64 %110, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %109, ptr nonnull readonly align 1 %0, i64 %110, i1 false)
   store i32 %.sink, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split
 
@@ -1564,7 +1564,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit36:                 ; preds = %_ZL9allocTextPKc.ex
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_Z10imguiLabelPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local void @_Z10imguiLabelPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 44), align 4
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 48), align 4
   %4 = add nsw i32 %3, -20
@@ -1604,7 +1604,7 @@ define dso_local void @_Z10imguiLabelPKc(ptr nocapture noundef readonly %0) loca
   %26 = zext i32 %22 to i64
   %27 = getelementptr inbounds nuw [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %26
   %28 = zext i32 %21 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr readonly align 1 %0, i64 %28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %0, i64 %28, i1 false)
   store i32 %23, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL9allocTextPKc.exit.i
 
@@ -1619,7 +1619,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %1, %_ZL9allocTextPK
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_Z10imguiValuePKc(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local void @_Z10imguiValuePKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 44), align 4
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 48), align 4
   %4 = add nsw i32 %3, -20
@@ -1662,7 +1662,7 @@ define dso_local void @_Z10imguiValuePKc(ptr nocapture noundef readonly %0) loca
   %29 = zext i32 %25 to i64
   %30 = getelementptr inbounds nuw [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %29
   %31 = zext i32 %24 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr readonly align 1 %0, i64 %31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull readonly align 1 %0, i64 %31, i1 false)
   store i32 %26, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL9allocTextPKc.exit.i
 
@@ -1677,7 +1677,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %1, %_ZL9allocTextPK
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef zeroext i1 @_Z11imguiSliderPKcPffffb(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, float noundef %2, float noundef %3, float noundef %4, i1 noundef zeroext %5) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @_Z11imguiSliderPKcPffffb(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, float noundef %2, float noundef %3, float noundef %4, i1 noundef zeroext %5) local_unnamed_addr #6 {
   %7 = alloca [16 x i8], align 16
   %8 = alloca [128 x i8], align 16
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL7g_state, i64 64), align 4
@@ -1977,7 +1977,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit70:           ; preds = %_ZL20addGfxCmdRound
   %164 = zext i32 %160 to i64
   %165 = getelementptr inbounds nuw [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %164
   %166 = zext i32 %159 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr readonly align 1 %0, i64 %166, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %165, ptr nonnull readonly align 1 %0, i64 %166, i1 false)
   store i32 %161, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL13addGfxCmdTextiiiPKcj.exit
 
@@ -2054,7 +2054,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %145, %163
   %211 = zext i32 %207 to i64
   %212 = getelementptr inbounds nuw [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %211
   %213 = zext i32 %206 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %212, ptr readonly align 1 %0, i64 %213, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %212, ptr nonnull readonly align 1 %0, i64 %213, i1 false)
   store i32 %208, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL13addGfxCmdTextiiiPKcj.exit77
 
@@ -2129,7 +2129,7 @@ declare float @log10f(float noundef) local_unnamed_addr #8
 declare float @llvm.ceil.f32(float) #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_Z11imguiIndentv() local_unnamed_addr #0 {
@@ -2209,7 +2209,7 @@ _ZL13addGfxCmdRectffffj.exit:                     ; preds = %0, %7
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_Z13imguiDrawTextiiiPKcj(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #4 {
+define dso_local void @_Z13imguiDrawTextiiiPKcj(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = load i32, ptr @_ZL17g_gfxCmdQueueSize, align 4
   %7 = icmp ugt i32 %6, 4999
   br i1 %7, label %_ZL13addGfxCmdTextiiiPKcj.exit, label %8
@@ -2245,7 +2245,7 @@ define dso_local void @_Z13imguiDrawTextiiiPKcj(i32 noundef %0, i32 noundef %1, 
   %27 = zext i32 %23 to i64
   %28 = getelementptr inbounds nuw [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %27
   %29 = zext i32 %22 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr readonly align 1 %3, i64 %29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr nonnull readonly align 1 %3, i64 %29, i1 false)
   store i32 %24, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL9allocTextPKc.exit.i
 
@@ -2384,13 +2384,13 @@ _ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %6, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13

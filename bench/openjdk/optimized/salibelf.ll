@@ -57,7 +57,7 @@ read_elf_header.exit:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @read_program_header_table(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden noundef ptr @read_program_header_table(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load i16, ptr %3, align 8
   %5 = zext i16 %4 to i64
@@ -96,10 +96,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @print_debug(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @read_section_header_table(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden noundef ptr @read_section_header_table(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %4 = load i16, ptr %3, align 4
   %5 = zext i16 %4 to i64
@@ -133,7 +133,7 @@ define hidden noundef ptr @read_section_header_table(i32 noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @read_section_data(i32 noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define hidden noundef ptr @read_section_data(i32 noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 8
@@ -176,7 +176,7 @@ define hidden noundef ptr @read_section_data(i32 noundef %0, ptr nocapture nound
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @find_base_address(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden i64 @find_base_address(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load i16, ptr %3, align 8
   %5 = zext i16 %4 to i64
@@ -242,7 +242,7 @@ read_program_header_table.exit._crit_edge:        ; preds = %read_program_header
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @find_section_by_name(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden noundef ptr @find_section_by_name(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 62
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i64
@@ -332,10 +332,10 @@ read_section_data.exit:                           ; preds = %28, %32, %39, %.sin
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7

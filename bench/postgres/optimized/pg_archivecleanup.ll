@@ -304,7 +304,7 @@ TrimExtension.exit.i:                             ; preds = %97, %89, %83, %Init
   ]
 
 IsXLogFileName.exit.i:                            ; preds = %TrimExtension.exit.i
-  %103 = tail call i64 @strspn(ptr noundef readonly %101, ptr noundef nonnull @.str.37) #13
+  %103 = tail call i64 @strspn(ptr noundef nonnull readonly %101, ptr noundef nonnull @.str.37) #13
   %104 = icmp eq i64 %103, 24
   br i1 %104, label %105, label %IsBackupHistoryFileName.exit.thread.i
 
@@ -313,7 +313,7 @@ IsXLogFileName.exit.i:                            ; preds = %TrimExtension.exit.
   br label %SetWALFileNameForCleanup.exit
 
 107:                                              ; preds = %TrimExtension.exit.i
-  %108 = tail call i64 @strspn(ptr noundef readonly %101, ptr noundef nonnull @.str.37) #13
+  %108 = tail call i64 @strspn(ptr noundef nonnull readonly %101, ptr noundef nonnull @.str.37) #13
   %109 = icmp eq i64 %108, 24
   br i1 %109, label %IsPartialXLogFileName.exit.i, label %.thread4.i
 
@@ -327,7 +327,7 @@ IsPartialXLogFileName.exit.i:                     ; preds = %107
   store i32 1, ptr %3, align 4
   store i32 0, ptr %4, align 4
   store i32 0, ptr %5, align 4
-  %114 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %101, ptr noundef nonnull @.str.34, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
+  %114 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %101, ptr noundef nonnull @.str.34, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
   %115 = icmp eq i32 %114, 3
   br i1 %115, label %116, label %IsBackupHistoryFileName.exit.thread.i
 
@@ -343,7 +343,7 @@ IsPartialXLogFileName.exit.i:                     ; preds = %107
   br i1 %122, label %.thread4.i, label %IsBackupHistoryFileName.exit.thread.i
 
 .thread4.i:                                       ; preds = %121, %IsPartialXLogFileName.exit.i, %107
-  %123 = tail call i64 @strspn(ptr noundef readonly %101, ptr noundef nonnull @.str.37) #13
+  %123 = tail call i64 @strspn(ptr noundef nonnull readonly %101, ptr noundef nonnull @.str.37) #13
   %124 = icmp eq i64 %123, 24
   br i1 %124, label %IsBackupHistoryFileName.exit.i, label %IsBackupHistoryFileName.exit.thread.i
 
@@ -359,7 +359,7 @@ IsBackupHistoryFileName.exit.i:                   ; preds = %.thread4.i
   store i32 0, ptr %7, align 4
   store i32 0, ptr %8, align 4
   store i32 0, ptr %9, align 4
-  %130 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %101, ptr noundef nonnull @.str.35, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #12
+  %130 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %101, ptr noundef nonnull @.str.35, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #12
   %131 = icmp eq i32 %130, 4
   br i1 %131, label %132, label %IsBackupHistoryFileName.exit.thread.i
 
@@ -407,7 +407,7 @@ declare void @set_pglocale_pgservice(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @get_progname(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @usage() unnamed_addr #3 {
@@ -434,7 +434,7 @@ define internal fastcc void @usage() unnamed_addr #3 {
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare i32 @getopt_long(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
@@ -635,24 +635,24 @@ IsBackupHistoryFileName.exit:                     ; preds = %.thread9
 declare i32 @pg_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #8
@@ -663,19 +663,19 @@ declare ptr @readdir(ptr noundef) local_unnamed_addr #1
 declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

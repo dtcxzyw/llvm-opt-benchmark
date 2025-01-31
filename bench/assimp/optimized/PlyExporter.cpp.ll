@@ -107,19 +107,19 @@ $_ZTV17DeadlyExportError = comdat any
 @_ZN6Assimp11PlyExporterD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6Assimp11PlyExporterD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN6Assimp7type_ofIfEEPKcRT_(ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %0) local_unnamed_addr #0 {
+define hidden noundef nonnull ptr @_ZN6Assimp7type_ofIfEEPKcRT_(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #0 {
 entry:
   ret ptr @.str
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN6Assimp7type_ofIdEEPKcRT_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0) local_unnamed_addr #0 {
+define hidden noundef nonnull ptr @_ZN6Assimp7type_ofIdEEPKcRT_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 {
 entry:
   ret ptr @.str.1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp14ExportScenePlyEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef %pFile, ptr noundef %pIOSystem, ptr nocapture noundef readonly %pScene, ptr nocapture noundef readnone %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp14ExportScenePlyEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef %pFile, ptr noundef %pIOSystem, ptr noundef readonly captures(none) %pScene, ptr noundef readnone captures(none) %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %exporter = alloca %"class.Assimp::PlyExporter", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -398,7 +398,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare { i64, i64 } @_ZNSo5tellpEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp20ExportScenePlyBinaryEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef %pFile, ptr noundef %pIOSystem, ptr nocapture noundef readonly %pScene, ptr nocapture noundef readnone %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp20ExportScenePlyBinaryEPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef %pFile, ptr noundef %pIOSystem, ptr noundef readonly captures(none) %pScene, ptr noundef readnone captures(none) %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %exporter = alloca %"class.Assimp::PlyExporter", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -529,7 +529,7 @@ unreachable:                                      ; preds = %invoke.cont9
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11PlyExporterC2EPKcPK7aiSceneb(ptr noundef nonnull align 8 dereferenceable(440) %this, ptr noundef %_filename, ptr nocapture noundef readonly %pScene, i1 noundef zeroext %binary) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11PlyExporterC2EPKcPK7aiSceneb(ptr noundef nonnull align 8 dereferenceable(440) %this, ptr noundef %_filename, ptr noundef readonly captures(none) %pScene, i1 noundef zeroext %binary) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %numIndices.i.i = alloca i8, align 1
   %index.i.i = alloca i32, align 4
@@ -1639,7 +1639,7 @@ declare i32 @aiGetVersionMinor() local_unnamed_addr #2
 declare i32 @aiGetVersionRevision() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11PlyExporter20WriteMeshVertsBinaryEPK6aiMeshj(ptr noundef nonnull align 8 dereferenceable(440) %this, ptr nocapture noundef readonly %m, i32 noundef %components) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6Assimp11PlyExporter20WriteMeshVertsBinaryEPK6aiMeshj(ptr noundef nonnull align 8 dereferenceable(440) %this, ptr noundef readonly captures(none) %m, i32 noundef %components) local_unnamed_addr #1 align 2 {
 entry:
   %defaultNormal = alloca %class.aiVector3t, align 4
   %defaultUV = alloca %class.aiVector2t, align 4
@@ -1789,7 +1789,7 @@ for.end84:                                        ; preds = %for.inc82, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11PlyExporter14WriteMeshVertsEPK6aiMeshj(ptr noundef nonnull align 8 dereferenceable(440) %this, ptr nocapture noundef readonly %m, i32 noundef %components) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6Assimp11PlyExporter14WriteMeshVertsEPK6aiMeshj(ptr noundef nonnull align 8 dereferenceable(440) %this, ptr noundef readonly captures(none) %m, i32 noundef %components) local_unnamed_addr #1 align 2 {
 entry:
   %mNumVertices = getelementptr inbounds nuw i8, ptr %m, i64 4
   %0 = load i32, ptr %mNumVertices, align 4
@@ -2033,7 +2033,7 @@ for.end176:                                       ; preds = %if.end171, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11PlyExporter22WriteMeshIndicesBinaryEPK6aiMeshj(ptr noundef nonnull align 8 dereferenceable(440) %this, ptr nocapture noundef readonly %m, i32 noundef %offset) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6Assimp11PlyExporter22WriteMeshIndicesBinaryEPK6aiMeshj(ptr noundef nonnull align 8 dereferenceable(440) %this, ptr noundef readonly captures(none) %m, i32 noundef %offset) local_unnamed_addr #1 align 2 {
 entry:
   %numIndices.i = alloca i8, align 1
   %index.i = alloca i32, align 4
@@ -2092,7 +2092,7 @@ _ZN6Assimp30WriteMeshIndicesBinary_GenericIhiEEvPK6aiMeshjRNSt7__cxx1119basic_os
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11PlyExporter16WriteMeshIndicesEPK6aiMeshj(ptr noundef nonnull align 8 dereferenceable(440) %this, ptr nocapture noundef readonly %m, i32 noundef %offset) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6Assimp11PlyExporter16WriteMeshIndicesEPK6aiMeshj(ptr noundef nonnull align 8 dereferenceable(440) %this, ptr noundef readonly captures(none) %m, i32 noundef %offset) local_unnamed_addr #1 align 2 {
 entry:
   %mNumFaces = getelementptr inbounds nuw i8, ptr %m, i64 8
   %0 = load i32, ptr %mNumFaces, align 8
@@ -2252,7 +2252,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
@@ -2355,10 +2355,10 @@ declare noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 de
 declare void @_ZN15DeadlyErrorBaseC2EN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

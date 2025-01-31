@@ -833,7 +833,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.frame_add_verdict = private unnamed_addr constant [3 x ptr] [ptr @.str.103, ptr @.str.604, ptr @.str.605], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @register_frame_end_routine(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @register_frame_end_routine(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @g_slist_append(ptr noundef %4, ptr noundef %1) #5
@@ -3123,7 +3123,7 @@ declare void @proto_set_cant_toggle(i32 noundef) local_unnamed_addr #1
 declare void @register_seq_analysis(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @frame_seq_analysis_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @frame_seq_analysis_packet(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, i32 %4) #0 {
   %6 = tail call ptr @sequence_analysis_create_sai_with_addresses(ptr noundef %1, ptr noundef %0) #5
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %23, label %7
@@ -3202,7 +3202,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @wtap_block_foreach_option(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @frame_add_comment(ptr nocapture readnone %0, i32 noundef %1, i32 %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4) #0 {
+define internal noundef i32 @frame_add_comment(ptr readnone captures(none) %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4) #0 {
   %6 = icmp eq i32 %1, 1
   br i1 %6, label %7, label %proto_item_set_hidden.exit50
 
@@ -3218,7 +3218,7 @@ define internal noundef i32 @frame_add_comment(ptr nocapture readnone %0, i32 no
   %14 = load i32, ptr @hf_comments_text, align 4
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %13, i32 noundef %14, ptr noundef %16, i32 noundef 0, i32 noundef 0, ptr noundef %8, ptr noundef nonnull @.str.594, ptr noundef %8) #5
+  %17 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %13, i32 noundef %14, ptr noundef %16, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8, ptr noundef nonnull @.str.594, ptr noundef nonnull %8) #5
   br label %proto_item_set_hidden.exit
 
 18:                                               ; preds = %7
@@ -3228,7 +3228,7 @@ define internal noundef i32 @frame_add_comment(ptr nocapture readnone %0, i32 no
   %21 = load i32, ptr @hf_comments_text, align 4
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %20, i32 noundef %21, ptr noundef %23, i32 noundef 0, i32 noundef 0, ptr noundef %8, ptr noundef nonnull @.str.595, ptr noundef %8) #5
+  %24 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %20, i32 noundef %21, ptr noundef %23, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %8, ptr noundef nonnull @.str.595, ptr noundef nonnull %8) #5
   %25 = load i32, ptr @ett_comments, align 4
   %26 = tail call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef %25) #5
   %27 = load i32, ptr @max_comment_lines, align 4
@@ -3241,7 +3241,7 @@ define internal noundef i32 @frame_add_comment(ptr nocapture readnone %0, i32 no
   %.04355 = phi ptr [ %37, %39 ], [ %9, %18 ]
   %28 = load i32, ptr @hf_comments_text, align 4
   %29 = load ptr, ptr %22, align 8
-  %30 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %26, i32 noundef %28, ptr noundef %29, i32 noundef 0, i32 noundef 0, ptr noundef %.04256, ptr noundef nonnull @.str.594, ptr noundef %.04256) #5
+  %30 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %26, i32 noundef %28, ptr noundef %29, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %.04256, ptr noundef nonnull @.str.594, ptr noundef nonnull %.04256) #5
   %31 = icmp eq ptr %.04355, null
   br i1 %31, label %.thread, label %32
 
@@ -3380,7 +3380,7 @@ declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noun
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @frame_add_hash(ptr nocapture readnone %0, i32 noundef %1, i32 %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4) #0 {
+define internal noundef i32 @frame_add_hash(ptr readnone captures(none) %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4) #0 {
   %6 = icmp eq i32 %1, 3
   br i1 %6, label %7, label %27
 
@@ -3432,7 +3432,7 @@ declare i32 @wtap_block_get_uint64_option_value(ptr noundef, i32 noundef, ptr no
 declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @frame_add_verdict(ptr nocapture readnone %0, i32 noundef %1, i32 %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4) #0 {
+define internal noundef i32 @frame_add_verdict(ptr readnone captures(none) %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4) #0 {
   %6 = icmp eq i32 %1, 7
   br i1 %6, label %7, label %44
 
@@ -3588,7 +3588,7 @@ declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unna
 declare void @g_slist_free_full(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @call_frame_end_routine(ptr nocapture noundef readonly %0) #0 {
+define internal void @call_frame_end_routine(ptr noundef readonly captures(none) %0) #0 {
   tail call void %0() #5
   ret void
 }

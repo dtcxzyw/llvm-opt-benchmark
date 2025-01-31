@@ -433,8 +433,8 @@ wait_for_slot_activity.exit:                      ; preds = %wait_for_slot_activ
   %88 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(1) %87) #20
   %89 = load ptr, ptr @PrimarySlotName, align 8
   %90 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(1) %89) #20
-  call void @pfree(ptr noundef %82) #15
-  call void @pfree(ptr noundef %84) #15
+  call void @pfree(ptr noundef nonnull %82) #15
+  call void @pfree(ptr noundef nonnull %84) #15
   %91 = load i8, ptr @sync_replication_slots, align 1
   %92 = xor i8 %91, %85
   %93 = and i8 %92, 1
@@ -663,7 +663,7 @@ define dso_local void @SlotSyncShmemInit() local_unnamed_addr #0 {
 declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SyncReplicationSlots(ptr noundef %0) local_unnamed_addr #0 {
@@ -1798,10 +1798,10 @@ declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
 declare void @ProcessConfigFile(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare ptr @quote_literal_cstr(ptr noundef) local_unnamed_addr #2
 
@@ -1862,7 +1862,7 @@ declare void @ReplicationSlotSave() local_unnamed_addr #2
 declare void @ReplicationSlotRelease() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @update_and_persist_local_synced_slot(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @update_and_persist_local_synced_slot(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr @MyReplicationSlot, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
@@ -1934,7 +1934,7 @@ define internal fastcc noundef zeroext i1 @update_and_persist_local_synced_slot(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.nameData, align 1
   %4 = load ptr, ptr @MyReplicationSlot, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2076,10 +2076,10 @@ declare void @llvm.assume(i1 noundef) #12
 declare i64 @llvm.smin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

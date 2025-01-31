@@ -192,7 +192,7 @@ declare ptr @qdev_get_gpio_in(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @riscv_imsic_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @riscv_imsic_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @riscv_imsic_properties) #6
@@ -332,7 +332,7 @@ declare void @riscv_cpu_set_geilen(ptr noundef, i64 noundef) local_unnamed_addr 
 declare void @riscv_cpu_set_aia_ireg_rmw_fn(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @riscv_imsic_rmw(ptr nocapture noundef readonly %arg, i64 noundef %reg, ptr noundef %val, i64 noundef %new_val, i64 noundef %wr_mask) #0 {
+define internal range(i32 -22, 1) i32 @riscv_imsic_rmw(ptr noundef readonly captures(none) %arg, i64 noundef %reg, ptr noundef %val, i64 noundef %new_val, i64 noundef %wr_mask) #0 {
 entry:
   %0 = trunc i64 %reg to i32
   %1 = lshr i32 %0, 16
@@ -549,7 +549,7 @@ return:                                           ; preds = %if.then46, %do.body
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @riscv_imsic_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal noundef i64 @riscv_imsic_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %and = and i64 %addr, 3
   %cmp.not = icmp eq i64 %and, 0
@@ -578,7 +578,7 @@ return:                                           ; preds = %if.then7, %do.body,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @riscv_imsic_write(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i64 noundef %value, i32 %size) #0 {
+define internal void @riscv_imsic_write(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i64 noundef %value, i32 %size) #0 {
 entry:
   %and = and i64 %addr, 3
   %cmp.not = icmp eq i64 %and, 0
@@ -693,7 +693,7 @@ declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 declare void @qemu_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @riscv_imsic_eidelivery_rmw(ptr nocapture noundef readonly %imsic, i32 noundef range(i32 0, 64) %page, ptr noundef writeonly %val, i64 noundef %new_val, i64 noundef %wr_mask) unnamed_addr #0 {
+define internal fastcc void @riscv_imsic_eidelivery_rmw(ptr noundef readonly captures(none) %imsic, i32 noundef range(i32 0, 64) %page, ptr noundef writeonly %val, i64 noundef %new_val, i64 noundef %wr_mask) unnamed_addr #0 {
 entry:
   %eidelivery = getelementptr inbounds nuw i8, ptr %imsic, i64 1112
   %0 = load ptr, ptr %eidelivery, align 8
@@ -773,7 +773,7 @@ riscv_imsic_update.exit:                          ; preds = %for.body.i.i, %for.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @riscv_imsic_eithreshold_rmw(ptr nocapture noundef readonly %imsic, i32 noundef range(i32 0, 64) %page, ptr noundef writeonly %val, i64 noundef %new_val, i64 noundef %wr_mask) unnamed_addr #0 {
+define internal fastcc void @riscv_imsic_eithreshold_rmw(ptr noundef readonly captures(none) %imsic, i32 noundef range(i32 0, 64) %page, ptr noundef writeonly %val, i64 noundef %new_val, i64 noundef %wr_mask) unnamed_addr #0 {
 entry:
   %eithreshold = getelementptr inbounds nuw i8, ptr %imsic, i64 1120
   %0 = load ptr, ptr %eithreshold, align 16
@@ -853,7 +853,7 @@ riscv_imsic_update.exit:                          ; preds = %for.body.i.i, %for.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @riscv_imsic_topei_rmw(ptr nocapture noundef readonly %imsic, i32 noundef range(i32 0, 64) %page, ptr noundef writeonly %val, i64 noundef %wr_mask) unnamed_addr #0 {
+define internal fastcc void @riscv_imsic_topei_rmw(ptr noundef readonly captures(none) %imsic, i32 noundef range(i32 0, 64) %page, ptr noundef writeonly %val, i64 noundef %wr_mask) unnamed_addr #0 {
 entry:
   %num_irqs.i = getelementptr inbounds nuw i8, ptr %imsic, i64 1148
   %0 = load i32, ptr %num_irqs.i, align 4
@@ -988,7 +988,7 @@ if.end7:                                          ; preds = %riscv_imsic_update.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -22, 1) i32 @riscv_imsic_eix_rmw(ptr nocapture noundef readonly %imsic, i32 noundef range(i32 0, 256) %xlen, i32 noundef range(i32 0, 64) %page, i32 noundef range(i32 -192, 65408) %num, i1 noundef zeroext %pend, ptr noundef writeonly %val, i64 noundef %new_val, i64 noundef %wr_mask) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @riscv_imsic_eix_rmw(ptr noundef readonly captures(none) %imsic, i32 noundef range(i32 0, 256) %xlen, i32 noundef range(i32 0, 64) %page, i32 noundef range(i32 -192, 65408) %num, i1 noundef zeroext %pend, ptr noundef writeonly %val, i64 noundef %new_val, i64 noundef %wr_mask) unnamed_addr #0 {
 entry:
   %cond = select i1 %pend, i32 1, i32 2
   %cmp.not = icmp eq i32 %xlen, 32

@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [11 x i8] c" ,.;:-_)]}\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_spangroup_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_spangroup_constructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   tail call void @lv_ll_init(ptr noundef nonnull %3, i32 noundef 48) #8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -55,7 +55,7 @@ define internal void @lv_spangroup_constructor(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_spangroup_destructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_spangroup_destructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = tail call ptr @lv_ll_get_head(ptr noundef nonnull %3) #8
   %.not14 = icmp eq ptr %4, null
@@ -93,7 +93,7 @@ define internal void @lv_spangroup_destructor(ptr nocapture readnone %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_spangroup_event(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_spangroup_event(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %union.lv_style_value_t, align 8
   %4 = alloca %union.lv_style_value_t, align 8
   %5 = alloca %union.lv_style_value_t, align 8
@@ -287,7 +287,7 @@ span_text_check.exit264.i.i:                      ; preds = %._crit_edge.i.i
   br i1 %.not.i265.i.i, label %111, label %109
 
 109:                                              ; preds = %107
-  %110 = call ptr @lv_obj_get_style_prop(ptr noundef %26, i32 noundef 0, i8 noundef zeroext 90) #8
+  %110 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %26, i32 noundef 0, i8 noundef zeroext 90) #8
   br label %lv_span_get_style_text_font.exit.i.i
 
 111:                                              ; preds = %107
@@ -304,7 +304,7 @@ lv_span_get_style_text_font.exit.i.i:             ; preds = %111, %109
   br i1 %.not.i267.i.i, label %117, label %114
 
 114:                                              ; preds = %lv_span_get_style_text_font.exit.i.i
-  %115 = call ptr @lv_obj_get_style_prop(ptr noundef %26, i32 noundef 0, i8 noundef zeroext 91) #8
+  %115 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %26, i32 noundef 0, i8 noundef zeroext 91) #8
   %116 = ptrtoint ptr %115 to i64
   %.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %116 to i32
   br label %lv_span_get_style_text_letter_space.exit.i.i
@@ -599,7 +599,7 @@ lv_snippet_push.exit.i.i:                         ; preds = %202, %197
   br i1 %.not.i293.i.i, label %242, label %240
 
 240:                                              ; preds = %237
-  %241 = call ptr @lv_obj_get_style_prop(ptr noundef %26, i32 noundef 0, i8 noundef zeroext 90) #8
+  %241 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %26, i32 noundef 0, i8 noundef zeroext 90) #8
   br label %lv_span_get_style_text_font.exit295.i.i
 
 242:                                              ; preds = %237
@@ -660,7 +660,7 @@ lv_span_get_style_text_font.exit295.i.i:          ; preds = %242, %240
   br i1 %276, label %.loopexit.i.i, label %277
 
 277:                                              ; preds = %274
-  %278 = call ptr @lv_obj_get_style_prop(ptr noundef %26, i32 noundef 0, i8 noundef zeroext 94) #8
+  %278 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %26, i32 noundef 0, i8 noundef zeroext 94) #8
   %279 = ptrtoint ptr %278 to i64
   %.sroa.0.0.extract.trunc.i296.i.i = trunc i64 %279 to i32
   %280 = icmp eq i32 %.sroa.0.0.extract.trunc.i296.i.i, 2
@@ -735,7 +735,7 @@ lv_span_get_style_text_font.exit295.i.i:          ; preds = %242, %240
   br label %lv_span_get_style_text_color.exit.i.i
 
 314:                                              ; preds = %297
-  %315 = call ptr @lv_obj_get_style_prop(ptr noundef %26, i32 noundef 0, i8 noundef zeroext 88) #8
+  %315 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %26, i32 noundef 0, i8 noundef zeroext 88) #8
   %316 = ptrtoint ptr %315 to i64
   %.sroa.0.0.extract.trunc.i.i298.i.i = trunc i64 %316 to i24
   br label %lv_span_get_style_text_color.exit.i.i
@@ -752,7 +752,7 @@ lv_span_get_style_text_color.exit.i.i:            ; preds = %314, %._crit_edge.i
   br i1 %.not.i299.i.i, label %324, label %320
 
 320:                                              ; preds = %lv_span_get_style_text_color.exit.i.i
-  %321 = call ptr @lv_obj_get_style_prop(ptr noundef %26, i32 noundef 0, i8 noundef zeroext 89) #8
+  %321 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %26, i32 noundef 0, i8 noundef zeroext 89) #8
   %322 = ptrtoint ptr %321 to i64
   %323 = trunc i64 %322 to i8
   br label %lv_span_get_style_text_opa.exit.i.i
@@ -774,7 +774,7 @@ lv_span_get_style_text_opa.exit.i.i:              ; preds = %324, %320
   br i1 %.not.i301.i.i, label %332, label %330
 
 330:                                              ; preds = %lv_span_get_style_text_opa.exit.i.i
-  %331 = call ptr @lv_obj_get_style_prop(ptr noundef %26, i32 noundef 0, i8 noundef zeroext 90) #8
+  %331 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %26, i32 noundef 0, i8 noundef zeroext 90) #8
   br label %lv_span_get_style_text_font.exit303.i.i
 
 332:                                              ; preds = %lv_span_get_style_text_opa.exit.i.i
@@ -793,7 +793,7 @@ lv_span_get_style_text_font.exit303.i.i:          ; preds = %332, %330
   br i1 %.not.i304.i.i, label %340, label %337
 
 337:                                              ; preds = %lv_span_get_style_text_font.exit303.i.i
-  %338 = call ptr @lv_obj_get_style_prop(ptr noundef %26, i32 noundef 0, i8 noundef zeroext 103) #8
+  %338 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %26, i32 noundef 0, i8 noundef zeroext 103) #8
   %339 = ptrtoint ptr %338 to i64
   %.sroa.0.0.extract.trunc.i.i305.i.i = trunc i64 %339 to i32
   br label %lv_span_get_style_text_blend_mode.exit.i.i
@@ -937,7 +937,7 @@ lv_span_get_style_text_blend_mode.exit.i.i:       ; preds = %340, %337
   br i1 %.not.i307.i.i, label %412, label %409
 
 409:                                              ; preds = %.thread349.i.i
-  %410 = call ptr @lv_obj_get_style_prop(ptr noundef %26, i32 noundef 0, i8 noundef zeroext 93) #8
+  %410 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %26, i32 noundef 0, i8 noundef zeroext 93) #8
   %411 = ptrtoint ptr %410 to i64
   %.sroa.0.0.extract.trunc.i.i308.i.i = trunc i64 %411 to i32
   br label %lv_span_get_style_text_decor.exit.i.i
@@ -1212,12 +1212,12 @@ define void @lv_span_stack_init() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_span_stack_deinit() local_unnamed_addr #0 {
@@ -1623,7 +1623,7 @@ define nonnull ptr @lv_span_get_style(ptr noundef readnone %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_span_get_text(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define ptr @lv_span_get_text(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !tbaa !16
   ret ptr %2
 }
@@ -1703,7 +1703,7 @@ define i32 @lv_spangroup_get_align(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @lv_spangroup_get_overflow(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @lv_spangroup_get_overflow(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i8, ptr %2, align 8
   %4 = lshr i8 %3, 2
@@ -1713,14 +1713,14 @@ define range(i32 0, 2) i32 @lv_spangroup_get_overflow(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_spangroup_get_indent(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define i32 @lv_spangroup_get_indent(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i32, ptr %2, align 4, !tbaa !3
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 4) i32 @lv_spangroup_get_mode(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 4) i32 @lv_spangroup_get_mode(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 3
@@ -1729,7 +1729,7 @@ define range(i32 0, 4) i32 @lv_spangroup_get_mode(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_spangroup_get_max_lines(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define i32 @lv_spangroup_get_max_lines(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8, !tbaa !13
   ret i32 %3
@@ -2333,7 +2333,7 @@ declare void @lv_point_set(ptr noundef, i32 noundef, i32 noundef) local_unnamed_
 declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define void @lv_spangroup_get_span_coords(ptr dead_on_unwind noalias writable sret(%struct._lv_span_coords_t) align 4 %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
@@ -2395,7 +2395,7 @@ define void @lv_spangroup_get_span_coords(ptr dead_on_unwind noalias writable sr
 declare i32 @lv_obj_get_content_width(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @make_span_coords(ptr dead_on_unwind noalias writable align 4 initializes((0, 48)) %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i64 %4, i32 noundef %5) unnamed_addr #0 {

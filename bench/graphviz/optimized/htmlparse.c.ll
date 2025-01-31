@@ -1045,10 +1045,10 @@ setCell.exit248:                                  ; preds = %gv_alloc.exit.i246,
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @htmllex() local_unnamed_addr #4
 
@@ -1255,7 +1255,7 @@ gv_strdup.exit:                                   ; preds = %gv_alloc.exit24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pushFont(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @pushFont(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca %struct.textfont_t, align 8
   %3 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 89) 16) #18
   %4 = icmp eq ptr %3, null
@@ -1353,7 +1353,7 @@ declare void @htmlerror(ptr noundef) local_unnamed_addr #4
 declare ptr @dtopen(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @parseHTML(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @parseHTML(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.agxbuf, align 8
   %5 = alloca %struct.sfont_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
@@ -1411,7 +1411,7 @@ agxbfree.exit:                                    ; preds = %21, %28
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @initHTMLlexer(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -1457,7 +1457,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #8 {
@@ -1474,7 +1474,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #10
 declare void @free_html_label(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @free_citem(ptr nocapture noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @free_citem(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -1507,13 +1507,13 @@ cleanCell.exit:                                   ; preds = %2, %8, %13
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @free_item(ptr nocapture noundef %0, ptr nocapture readnone %1) #11 {
+define internal void @free_item(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #11 {
   tail call void @free(ptr noundef %0) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @free_fitem(ptr nocapture noundef %0, ptr nocapture readnone %1) #12 {
+define internal void @free_fitem(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @free(ptr noundef %4) #17
@@ -1522,7 +1522,7 @@ define internal void @free_fitem(ptr nocapture noundef %0, ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @free_fspan(ptr nocapture noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @free_fspan(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
@@ -1561,7 +1561,7 @@ declare void @free_html_data(ptr noundef) local_unnamed_addr #4
 declare i32 @dtsize(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbputc(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @agxbputc(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 31
   %.val.i = load i8, ptr %2, align 1
   %.not.i = icmp eq i8 %.val.i, -1
@@ -1673,18 +1673,18 @@ gv_calloc.exit.i:                                 ; preds = %.thread
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strndup(ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #13
+declare noalias ptr @strndup(ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #14
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
 declare ptr @dtflatten(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #13
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal void @free_ritem(ptr nocapture noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @free_ritem(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @dtclose(ptr noundef %4) #17

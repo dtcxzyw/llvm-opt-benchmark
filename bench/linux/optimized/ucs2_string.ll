@@ -24,7 +24,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ucs2_as_utf8
 @llvm.compiler.used = appending global [9 x ptr] [ptr @__UNIQUE_ID___addressable_ucs2_as_utf8311, ptr @__UNIQUE_ID___addressable_ucs2_strlen304, ptr @__UNIQUE_ID___addressable_ucs2_strncmp309, ptr @__UNIQUE_ID___addressable_ucs2_strnlen303, ptr @__UNIQUE_ID___addressable_ucs2_strscpy308, ptr @__UNIQUE_ID___addressable_ucs2_strsize305, ptr @__UNIQUE_ID___addressable_ucs2_utf8size310, ptr @__UNIQUE_ID_file312, ptr @__UNIQUE_ID_license313], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local i64 @ucs2_strnlen(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
+define dso_local i64 @ucs2_strnlen(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 align 16 {
   %3 = load i16, ptr %0, align 2
   %4 = icmp ne i16 %3, 0
   %5 = icmp ne i64 %1, 0
@@ -48,7 +48,7 @@ define dso_local i64 @ucs2_strnlen(ptr nocapture noundef readonly %0, i64 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local i64 @ucs2_strlen(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local i64 @ucs2_strlen(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load i16, ptr %0, align 2
   %3 = icmp eq i16 %2, 0
   br i1 %3, label %.loopexit, label %.preheader
@@ -70,7 +70,7 @@ define dso_local i64 @ucs2_strlen(ptr nocapture noundef readonly %0) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local range(i64 2, 1) i64 @ucs2_strsize(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
+define dso_local range(i64 2, 1) i64 @ucs2_strsize(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 align 16 {
   %3 = lshr i64 %1, 1
   %4 = load i16, ptr %0, align 2
   %5 = icmp ne i16 %4, 0
@@ -99,7 +99,7 @@ define dso_local range(i64 2, 1) i64 @ucs2_strsize(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @ucs2_strscpy(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #1 align 16 {
+define dso_local i64 @ucs2_strscpy(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 align 16 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.loopexit, label %5
 
@@ -139,7 +139,7 @@ define dso_local i64 @ucs2_strscpy(ptr nocapture noundef writeonly %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local noundef range(i32 -1, 2) i32 @ucs2_strncmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -1, 2) i32 @ucs2_strncmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 align 16 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -171,7 +171,7 @@ define dso_local noundef range(i32 -1, 2) i32 @ucs2_strncmp(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local i64 @ucs2_utf8size(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local i64 @ucs2_utf8size(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load i16, ptr %0, align 2
   %3 = icmp eq i16 %2, 0
   br i1 %3, label %.loopexit, label %.preheader
@@ -197,7 +197,7 @@ define dso_local i64 @ucs2_utf8size(ptr nocapture noundef readonly %0) #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local i64 @ucs2_as_utf8(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #2 align 16 {
+define dso_local i64 @ucs2_as_utf8(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 align 16 {
   %4 = load i16, ptr %1, align 2
   %5 = icmp ne i16 %4, 0
   %6 = icmp ne i64 %2, 0

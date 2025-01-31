@@ -14,7 +14,7 @@ $_ZN4llvm3pdb16NativeLineNumberD0Ev = comdat any
 @_ZN4llvm3pdb16NativeLineNumberC1ERKNS0_13NativeSessionENS_8codeview8LineInfoEjjjjjj = unnamed_addr alias void (ptr, ptr, i32, i32, i32, i32, i32, i32, i32), ptr @_ZN4llvm3pdb16NativeLineNumberC2ERKNS0_13NativeSessionENS_8codeview8LineInfoEjjjjjj
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb16NativeLineNumberC2ERKNS0_13NativeSessionENS_8codeview8LineInfoEjjjjjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((0, 44)) %0, ptr noundef nonnull align 8 dereferenceable(584) %1, i32 %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb16NativeLineNumberC2ERKNS0_13NativeSessionENS_8codeview8LineInfoEjjjjjj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(44) initializes((0, 44)) %0, ptr noundef nonnull align 8 dereferenceable(584) %1, i32 %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN4llvm3pdb16NativeLineNumberE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %10, align 8
@@ -36,7 +36,7 @@ define dso_local void @_ZN4llvm3pdb16NativeLineNumberC2ERKNS0_13NativeSessionENS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 0, 16777216) i32 @_ZNK4llvm3pdb16NativeLineNumber13getLineNumberEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0) unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 0, 16777216) i32 @_ZNK4llvm3pdb16NativeLineNumber13getLineNumberEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 16777215
@@ -44,7 +44,7 @@ define dso_local noundef range(i32 0, 16777216) i32 @_ZNK4llvm3pdb16NativeLineNu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 0, 16777343) i32 @_ZNK4llvm3pdb16NativeLineNumber16getLineNumberEndEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0) unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 0, 16777343) i32 @_ZNK4llvm3pdb16NativeLineNumber16getLineNumberEndEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 16777215
@@ -55,33 +55,33 @@ define dso_local noundef range(i32 0, 16777343) i32 @_ZNK4llvm3pdb16NativeLineNu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK4llvm3pdb16NativeLineNumber15getColumnNumberEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0) unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK4llvm3pdb16NativeLineNumber15getColumnNumberEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNK4llvm3pdb16NativeLineNumber18getColumnNumberEndEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
+define dso_local noundef i32 @_ZNK4llvm3pdb16NativeLineNumber18getColumnNumberEndEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK4llvm3pdb16NativeLineNumber17getAddressSectionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0) unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK4llvm3pdb16NativeLineNumber17getAddressSectionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK4llvm3pdb16NativeLineNumber16getAddressOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0) unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK4llvm3pdb16NativeLineNumber16getAddressOffsetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK4llvm3pdb16NativeLineNumber25getRelativeVirtualAddressEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0) unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZNK4llvm3pdb16NativeLineNumber25getRelativeVirtualAddressEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -95,7 +95,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb16NativeLineNumber25getRelativeVirtua
 declare noundef i32 @_ZNK4llvm3pdb13NativeSession20getRVAFromSectOffsetEjj(ptr noundef nonnull align 8 dereferenceable(584), i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK4llvm3pdb16NativeLineNumber17getVirtualAddressEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0) unnamed_addr #3 align 2 {
+define dso_local noundef i64 @_ZNK4llvm3pdb16NativeLineNumber17getVirtualAddressEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -109,28 +109,28 @@ define dso_local noundef i64 @_ZNK4llvm3pdb16NativeLineNumber17getVirtualAddress
 declare noundef i64 @_ZNK4llvm3pdb13NativeSession19getVAFromSectOffsetEjj(ptr noundef nonnull align 8 dereferenceable(584), i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK4llvm3pdb16NativeLineNumber9getLengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0) unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK4llvm3pdb16NativeLineNumber9getLengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK4llvm3pdb16NativeLineNumber15getSourceFileIdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0) unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK4llvm3pdb16NativeLineNumber15getSourceFileIdEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK4llvm3pdb16NativeLineNumber14getCompilandIdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0) unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK4llvm3pdb16NativeLineNumber14getCompilandIdEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3pdb16NativeLineNumber11isStatementEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0) unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3pdb16NativeLineNumber11isStatementEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp slt i32 %3, 0

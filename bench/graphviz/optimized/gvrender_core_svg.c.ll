@@ -650,7 +650,7 @@ define internal void @svg_end_anchor(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @svg_textspan(ptr noundef %0, double %1, double %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @svg_textspan(ptr noundef %0, double %1, double %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.47) #11
@@ -1073,15 +1073,15 @@ define internal void @svg_bezier(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 
 .lr.ph.i:                                         ; preds = %23, %.lr.ph.i
   %.011.i = phi i64 [ %33, %.lr.ph.i ], [ 0, %23 ]
-  %25 = call i64 @gvwrite(ptr noundef %0, ptr noundef nonnull %5, i64 noundef 1) #11
+  %25 = call i64 @gvwrite(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 1) #11
   %26 = getelementptr inbounds %struct.pointf_s, ptr %1, i64 %.011.i
   %27 = load double, ptr %26, align 8
-  call void @gvprintdouble(ptr noundef %0, double noundef %27) #11
-  %28 = call i32 @gvputc(ptr noundef %0, i32 noundef 44) #11
+  call void @gvprintdouble(ptr noundef nonnull %0, double noundef %27) #11
+  %28 = call i32 @gvputc(ptr noundef nonnull %0, i32 noundef 44) #11
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %30 = load double, ptr %29, align 8
   %31 = fneg double %30
-  call void @gvprintdouble(ptr noundef %0, double noundef %31) #11
+  call void @gvprintdouble(ptr noundef nonnull %0, double noundef %31) #11
   %32 = icmp eq i64 %.011.i, 0
   %..i = select i1 %32, i8 67, i8 32
   store i8 %..i, ptr %5, align 1
@@ -1091,12 +1091,12 @@ define internal void @svg_bezier(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 
 svg_bzptarray.exit:                               ; preds = %.lr.ph.i, %23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  %34 = call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.87) #11
+  %34 = call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.87) #11
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @svg_polyline(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal void @svg_polyline(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.124) #11
   tail call fastcc void @svg_grstyle(ptr noundef %0, i32 noundef 0, i32 noundef 0)
   %5 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.119) #11
@@ -1188,15 +1188,15 @@ declare void @gvprintdouble(ptr noundef, double noundef) local_unnamed_addr #1
 declare ptr @strdup_and_subst_obj(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @xml_escape(ptr noundef, i32, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #5
@@ -1443,7 +1443,7 @@ define internal fastcc void @svg_grstyle(ptr noundef %0, i32 noundef %1, i32 nou
 declare void @get_gradient_points(ptr noundef, ptr noundef, i64 noundef, double noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @svg_print_stop(ptr noundef %0, double noundef %1, ptr nocapture noundef readonly byval(%struct.color_s) align 8 %2) unnamed_addr #0 {
+define internal fastcc void @svg_print_stop(ptr noundef %0, double noundef %1, ptr noundef readonly byval(%struct.color_s) align 8 captures(none) %2) unnamed_addr #0 {
   %4 = tail call double @llvm.fabs.f64(double %1)
   %5 = fcmp olt double %4, 5.000000e-04
   br i1 %5, label %6, label %8
@@ -1488,7 +1488,7 @@ define internal fastcc void @svg_print_stop(ptr noundef %0, double noundef %1, p
   br label %svg_print_gradient_color.exit
 
 23:                                               ; preds = %19
-  %24 = tail call i32 @gvputs(ptr noundef %0, ptr noundef %.sroa.0.0.copyload) #11
+  %24 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull %.sroa.0.0.copyload) #11
   br label %svg_print_gradient_color.exit
 
 25:                                               ; preds = %15
@@ -1546,7 +1546,7 @@ svg_print_gradient_color.exit:                    ; preds = %21, %23, %25
 declare double @llvm.fabs.f64(double) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @cos(double noundef) local_unnamed_addr #8
@@ -1558,7 +1558,7 @@ declare double @llvm.round.f64(double) #6
 declare double @sin(double noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @svg_print_paint(ptr noundef %0, ptr nocapture noundef readonly byval(%struct.color_s) align 8 %1) unnamed_addr #0 {
+define internal fastcc void @svg_print_paint(ptr noundef %0, ptr noundef readonly byval(%struct.color_s) align 8 captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %27 [
@@ -1577,7 +1577,7 @@ define internal fastcc void @svg_print_paint(ptr noundef %0, ptr nocapture nound
   br label %30
 
 10:                                               ; preds = %5
-  %11 = tail call i32 @gvputs(ptr noundef %0, ptr noundef %6) #11
+  %11 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull %6) #11
   br label %30
 
 12:                                               ; preds = %2
@@ -1615,13 +1615,13 @@ define internal fastcc void @svg_print_paint(ptr noundef %0, ptr nocapture nound
 declare i64 @gvwrite(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

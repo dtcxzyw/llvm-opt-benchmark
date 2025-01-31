@@ -130,7 +130,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @multi_2x_serial_pci_class_initfn(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @multi_2x_serial_pci_class_initfn(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #3
   %call.i9 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #3
@@ -363,7 +363,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare void @qemu_free_irqs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @multi_4x_serial_pci_class_initfn(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @multi_4x_serial_pci_class_initfn(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #3
   %call.i9 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #3

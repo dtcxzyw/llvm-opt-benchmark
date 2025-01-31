@@ -22,7 +22,7 @@ define hidden ptr @lxb_html_token_destroy(ptr noundef %0, ptr noundef %1) local_
 declare ptr @lexbor_dobject_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lxb_html_token_attr_append(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden ptr @lxb_html_token_attr_append(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @lxb_html_token_attr_create(ptr noundef %1) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %15, label %5
@@ -57,7 +57,7 @@ define hidden ptr @lxb_html_token_attr_append(ptr nocapture noundef %0, ptr noun
 declare ptr @lxb_html_token_attr_create(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @lxb_html_token_attr_remove(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define hidden void @lxb_html_token_attr_remove(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %1
@@ -110,7 +110,7 @@ define hidden void @lxb_html_token_attr_remove(ptr nocapture noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lxb_html_token_attr_delete(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @lxb_html_token_attr_delete(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %1
@@ -164,7 +164,7 @@ lxb_html_token_attr_remove.exit:                  ; preds = %._crit_edge.i, %21
 declare ptr @lxb_html_token_attr_destroy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @lxb_html_token_make_text(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @lxb_html_token_make_text(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -195,10 +195,10 @@ define hidden range(i32 0, 3) i32 @lxb_html_token_make_text(ptr nocapture nounde
 declare ptr @lexbor_str_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @lxb_html_token_make_text_drop_null(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @lxb_html_token_make_text_drop_null(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -254,7 +254,7 @@ define hidden range(i32 0, 3) i32 @lxb_html_token_make_text_drop_null(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @lxb_html_token_make_text_replace_null(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @lxb_html_token_make_text_replace_null(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -317,7 +317,7 @@ define hidden range(i32 0, 3) i32 @lxb_html_token_make_text_replace_null(ptr noc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_html_token_data_skip_ws_begin(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define hidden noundef i32 @lxb_html_token_data_skip_ws_begin(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
@@ -367,7 +367,7 @@ define hidden noundef i32 @lxb_html_token_data_skip_ws_begin(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_html_token_data_skip_one_newline_begin(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define hidden noundef i32 @lxb_html_token_data_skip_one_newline_begin(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -393,7 +393,7 @@ define hidden noundef i32 @lxb_html_token_data_skip_one_newline_begin(ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_html_token_data_split_ws_begin(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 96)) %1) local_unnamed_addr #4 {
+define hidden noundef i32 @lxb_html_token_data_split_ws_begin(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 96)) %1) local_unnamed_addr #4 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %0, i64 96, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -462,10 +462,10 @@ lxb_html_token_data_skip_ws_begin.exit:           ; preds = %14, %2, %12
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @lxb_html_token_doctype_parse(ptr nocapture noundef readonly %0, ptr noundef initializes((104, 112)) %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @lxb_html_token_doctype_parse(ptr noundef readonly captures(none) %0, ptr noundef initializes((104, 112)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 184
@@ -588,7 +588,7 @@ define hidden range(i32 0, 3) i32 @lxb_html_token_doctype_parse(ptr nocapture no
 declare ptr @lexbor_str_append(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lxb_html_token_find_attr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define hidden ptr @lxb_html_token_find_attr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -627,7 +627,7 @@ define hidden ptr @lxb_html_token_find_attr(ptr nocapture noundef readonly %0, p
 declare ptr @lxb_dom_attr_data_by_local_name(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @lxb_html_token_clean_noi(ptr nocapture noundef writeonly initializes((0, 96)) %0) local_unnamed_addr #7 {
+define hidden void @lxb_html_token_clean_noi(ptr noundef writeonly captures(none) initializes((0, 96)) %0) local_unnamed_addr #7 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
   ret void
 }

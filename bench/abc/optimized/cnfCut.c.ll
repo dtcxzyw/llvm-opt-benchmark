@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Cnf_CutCompose.pFanins = internal unnamed_addr global [32 x i32] zeroinitializer, align 16
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Cnf_CutAlloc(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef ptr @Cnf_CutAlloc(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %1, 6
   %4 = add nsw i32 %1, -5
   %5 = shl nuw i32 1, %4
@@ -32,7 +32,7 @@ define noundef ptr @Cnf_CutAlloc(ptr nocapture noundef readonly %0, i32 noundef 
 declare ptr @Aig_MmFlexEntryFetch(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Cnf_CutFree(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @Cnf_CutFree(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -77,7 +77,7 @@ Vec_IntFree.exit7:                                ; preds = %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Cnf_CutCreate(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noundef ptr @Cnf_CutCreate(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = lshr i64 %4, 56
@@ -158,10 +158,10 @@ Dar_ObjBestCut.exit:                              ; preds = %.lr.ph.i, %11, %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Cnf_CutPrint(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define void @Cnf_CutPrint(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %putchar = tail call i32 @putchar(i32 123)
   %2 = load i8, ptr %0, align 8
   %3 = icmp sgt i8 %2, 0
@@ -188,10 +188,10 @@ define void @Cnf_CutPrint(ptr nocapture noundef readonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Cnf_CutDeref(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define void @Cnf_CutDeref(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i8, ptr %1, align 8
   %5 = icmp sgt i8 %4, 0
@@ -235,7 +235,7 @@ Aig_ManObj.exit:                                  ; preds = %.lr.ph
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Cnf_CutRef(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define void @Cnf_CutRef(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i8, ptr %1, align 8
   %5 = icmp sgt i8 %4, 0
@@ -279,7 +279,7 @@ Aig_ManObj.exit:                                  ; preds = %.lr.ph
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Cnf_CutUpdateRefs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #6 {
+define void @Cnf_CutUpdateRefs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #6 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i8, ptr %1, align 8
   %7 = icmp sgt i8 %6, 0
@@ -401,7 +401,7 @@ Cnf_CutRef.exit:                                  ; preds = %.lr.ph.i15, %Aig_Ma
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Cnf_CutRemoveIthVar(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define void @Cnf_CutRemoveIthVar(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = load i8, ptr %0, align 8
   %5 = add i8 %4, -1
   store i8 %5, ptr %0, align 8
@@ -431,7 +431,7 @@ define void @Cnf_CutRemoveIthVar(ptr nocapture noundef %0, i32 noundef %1, i32 n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Cnf_CutInsertIthVar(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define void @Cnf_CutInsertIthVar(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = load i8, ptr %0, align 8
   %5 = sext i8 %4 to i32
   %6 = icmp slt i32 %1, %5
@@ -469,7 +469,7 @@ define void @Cnf_CutInsertIthVar(ptr nocapture noundef %0, i32 noundef %1, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Cnf_CutCompose(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define noundef ptr @Cnf_CutCompose(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1146,7 +1146,7 @@ declare void @Kit_TruthStretch(ptr noundef, ptr noundef, i32 noundef, i32 nounde
 declare i32 @Kit_TruthIsop(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
@@ -1155,7 +1155,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

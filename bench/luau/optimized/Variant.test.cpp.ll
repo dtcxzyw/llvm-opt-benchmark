@@ -269,7 +269,7 @@ $_ZN4Luau7VariantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE8MoveOnly
 declare noundef i32 @_ZN7doctest6detail12setTestSuiteERKNS0_9TestSuiteE(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare noundef nonnull align 8 dereferenceable(40) ptr @_ZN7doctest6detail9TestSuitemlEPKc(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #0
 
@@ -8347,7 +8347,7 @@ define linkonce_odr dso_local void @_ZN7doctest6detail14Expression_lhsIRNSt7__cx
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZL20DOCTEST_ANON_FUNC_13vE3$_0KNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %1) #2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitVIZL20DOCTEST_ANON_FUNC_13vE3$_0KNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull %1) #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -8368,7 +8368,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZL20DOCTEST_ANON_FUNC_13vE3$_0KNSt7__c
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZL20DOCTEST_ANON_FUNC_13vE3$_0KiEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) #2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitVIZL20DOCTEST_ANON_FUNC_13vE3$_0KiEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(none) %1) #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %.val = load i32, ptr %1, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -8534,7 +8534,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_str
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZL20DOCTEST_ANON_FUNC_13vE3$_1KNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %1) #2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitVIZL20DOCTEST_ANON_FUNC_13vE3$_1KNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull %1) #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -8555,7 +8555,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZL20DOCTEST_ANON_FUNC_13vE3$_1KNSt7__c
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitVIZL20DOCTEST_ANON_FUNC_13vE3$_1KiEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) #2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4LuauL8fnVisitVIZL20DOCTEST_ANON_FUNC_13vE3$_1KiEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(none) %1) #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %.val = load i32, ptr %1, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -8577,7 +8577,7 @@ define internal void @"_ZN4LuauL8fnVisitVIZL20DOCTEST_ANON_FUNC_13vE3$_1KiEEvRT_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitRI15ToStringVisitorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKS7_EEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 1 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %2) #2 {
+define internal void @_ZN4LuauL8fnVisitRI15ToStringVisitorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKS7_EEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %2) #2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %5 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %4) #14
@@ -8586,7 +8586,7 @@ define internal void @_ZN4LuauL8fnVisitRI15ToStringVisitorNSt7__cxx1112basic_str
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4LuauL8fnVisitRI15ToStringVisitorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKiEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 1 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @_ZN4LuauL8fnVisitRI15ToStringVisitorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKiEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = load i32, ptr %2, align 4
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i32 noundef %5) #14
@@ -8599,13 +8599,13 @@ define internal void @_ZN4LuauL8fnVisitRI15ToStringVisitorNSt7__cxx1112basic_str
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitVI16IncrementVisitorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture nonnull readnone align 1 %0, ptr noundef nonnull %1) #2 {
+define internal void @_ZN4LuauL8fnVisitVI16IncrementVisitorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull %1) #2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.67)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN4LuauL8fnVisitVI16IncrementVisitoriEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nocapture nonnull readnone align 1 %0, ptr nocapture noundef %1) #8 {
+define internal void @_ZN4LuauL8fnVisitVI16IncrementVisitoriEEvRT_PNSt11conditionalIXsr3stdE10is_const_vIT0_EEKvvE4typeE(ptr nonnull readnone align 1 captures(none) %0, ptr noundef captures(none) %1) #8 {
   %3 = load i32, ptr %1, align 4
   %4 = add nsw i32 %3, 1
   store i32 %4, ptr %1, align 4
@@ -8615,7 +8615,7 @@ define internal void @_ZN4LuauL8fnVisitVI16IncrementVisitoriEEvRT_PNSt11conditio
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL8fnVisitRI15ToStringVisitorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 1 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %2) #2 {
+define internal void @_ZN4LuauL8fnVisitRI15ToStringVisitorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %2) #2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %5 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %4) #14
@@ -8624,7 +8624,7 @@ define internal void @_ZN4LuauL8fnVisitRI15ToStringVisitorNSt7__cxx1112basic_str
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4LuauL8fnVisitRI15ToStringVisitorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nocapture nonnull readnone align 1 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @_ZN4LuauL8fnVisitRI15ToStringVisitorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = load i32, ptr %2, align 4
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i32 noundef %5) #14
@@ -8886,7 +8886,7 @@ _ZN7doctest8toStringIA3_cTnNS_6detail5types9enable_ifIXntsr6detail5types7is_enum
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitRIZL20DOCTEST_ANON_FUNC_13vE3$_2NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture nonnull readnone align 1 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %2) #2 {
+define internal void @"_ZN4LuauL8fnVisitRIZL20DOCTEST_ANON_FUNC_13vE3$_2NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %2) #2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.67), !noalias !200
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
@@ -8896,7 +8896,7 @@ define internal void @"_ZN4LuauL8fnVisitRIZL20DOCTEST_ANON_FUNC_13vE3$_2NSt7__cx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4LuauL8fnVisitRIZL20DOCTEST_ANON_FUNC_13vE3$_2NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture nonnull readnone align 1 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef %2) #4 {
+define internal void @"_ZN4LuauL8fnVisitRIZL20DOCTEST_ANON_FUNC_13vE3$_2NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef captures(none) %2) #4 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = load i32, ptr %2, align 4, !noalias !203
   %6 = add nsw i32 %5, 1
@@ -8908,7 +8908,7 @@ define internal void @"_ZN4LuauL8fnVisitRIZL20DOCTEST_ANON_FUNC_13vE3$_2NSt7__cx
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitRIZL20DOCTEST_ANON_FUNC_13vE3$_3NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture nonnull readnone align 1 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %2) #2 {
+define internal void @"_ZN4LuauL8fnVisitRIZL20DOCTEST_ANON_FUNC_13vE3$_3NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %2) #2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.67), !noalias !206
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
@@ -8918,7 +8918,7 @@ define internal void @"_ZN4LuauL8fnVisitRIZL20DOCTEST_ANON_FUNC_13vE3$_3NSt7__cx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4LuauL8fnVisitRIZL20DOCTEST_ANON_FUNC_13vE3$_3NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture nonnull readnone align 1 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef %2) #4 {
+define internal void @"_ZN4LuauL8fnVisitRIZL20DOCTEST_ANON_FUNC_13vE3$_3NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef captures(none) %2) #4 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = load i32, ptr %2, align 4, !noalias !209
   %6 = add nsw i32 %5, 1
@@ -9665,13 +9665,13 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

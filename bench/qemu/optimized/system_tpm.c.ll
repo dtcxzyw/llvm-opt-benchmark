@@ -56,7 +56,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tpm_cleanup() local_unnamed_addr #2 {
@@ -121,7 +121,7 @@ declare i32 @qemu_opts_foreach(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare ptr @qemu_find_opts(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 2) i32 @tpm_init_tpmdev(ptr nocapture readnone %dummy, ptr noundef %opts, ptr nocapture readnone %errp) #2 {
+define internal range(i32 0, 2) i32 @tpm_init_tpmdev(ptr readnone captures(none) %dummy, ptr noundef %opts, ptr readnone captures(none) %errp) #2 {
 entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
@@ -232,7 +232,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call ptr @qemu_opts_parse_noisily(ptr noundef %opts_list, ptr noundef %optstr, i1 noundef zeroext true) #7
+  %call1 = tail call ptr @qemu_opts_parse_noisily(ptr noundef %opts_list, ptr noundef nonnull %optstr, i1 noundef zeroext true) #7
   %tobool2.not = icmp eq ptr %call1, null
   %. = sext i1 %tobool2.not to i32
   br label %return
@@ -299,7 +299,7 @@ if.end10:                                         ; preds = %if.then8, %for.end
 declare ptr @qemu_opts_parse_noisily(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qmp_query_tpm(ptr nocapture noundef readnone %errp) local_unnamed_addr #2 {
+define dso_local ptr @qmp_query_tpm(ptr noundef readnone captures(none) %errp) local_unnamed_addr #2 {
 entry:
   %head = alloca ptr, align 8
   store ptr null, ptr %head, align 8
@@ -347,7 +347,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #4
 declare ptr @tpm_backend_query_tpm(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qmp_query_tpm_types(ptr nocapture noundef readnone %errp) local_unnamed_addr #2 {
+define dso_local ptr @qmp_query_tpm_types(ptr noundef readnone captures(none) %errp) local_unnamed_addr #2 {
 entry:
   %head = alloca ptr, align 8
   store ptr null, ptr %head, align 8
@@ -388,7 +388,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qmp_query_tpm_models(ptr nocapture noundef readnone %errp) local_unnamed_addr #2 {
+define dso_local ptr @qmp_query_tpm_models(ptr noundef readnone captures(none) %errp) local_unnamed_addr #2 {
 entry:
   %head = alloca ptr, align 8
   store ptr null, ptr %head, align 8
@@ -456,7 +456,7 @@ declare ptr @object_class_dynamic_cast(ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

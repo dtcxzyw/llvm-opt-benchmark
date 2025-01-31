@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.entry = type { i64, i64, i64, ptr, ptr, i8 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @xdl_do_patience_diff(ptr nocapture noundef readonly %xpp, ptr noundef %env) local_unnamed_addr #0 {
+define dso_local i32 @xdl_do_patience_diff(ptr noundef readonly captures(none) %xpp, ptr noundef %env) local_unnamed_addr #0 {
 entry:
   %nrec = getelementptr inbounds nuw i8, ptr %env, i64 56
   %0 = load i64, ptr %nrec, align 8
@@ -20,7 +20,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @patience_diff(ptr nocapture noundef readonly %xpp, ptr noundef %env, i32 noundef %line1, i32 noundef %count1, i32 noundef %line2, i32 noundef %count2) unnamed_addr #0 {
+define internal fastcc i32 @patience_diff(ptr noundef readonly captures(none) %xpp, ptr noundef %env, i32 noundef %line1, i32 noundef %count1, i32 noundef %line2, i32 noundef %count2) unnamed_addr #0 {
 entry:
   %xpp.i48 = alloca %struct.s_xpparam, align 8
   %tobool.not = icmp eq i32 %count1, 0
@@ -180,7 +180,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
   %arrayidx.i.i61 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i.i
   %21 = load ptr, ptr %arrayidx.i.i61, align 8
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #7
-  %call5.i.i = tail call i32 @strncmp(ptr noundef readonly %18, ptr noundef %21, i64 noundef %call.i.i) #7
+  %call5.i.i = tail call i32 @strncmp(ptr noundef readonly %18, ptr noundef nonnull %21, i64 noundef %call.i.i) #7
   %tobool.not.i.i62 = icmp eq i32 %call5.i.i, 0
   br i1 %tobool.not.i.i62, label %is_anchor.exit.i, label %for.cond.i.i
 
@@ -634,28 +634,28 @@ return:                                           ; preds = %while.body7, %while
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #3
 
 declare i32 @xdl_fall_back_diff(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

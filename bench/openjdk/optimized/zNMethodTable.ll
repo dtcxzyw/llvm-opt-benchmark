@@ -109,7 +109,7 @@ define hidden noundef i64 @_ZN13ZNMethodTable10next_indexEmm(i64 noundef %0, i64
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN13ZNMethodTable14register_entryEP18ZNMethodTableEntrymP7nmethod(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN13ZNMethodTable14register_entryEP18ZNMethodTableEntrymP7nmethod(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 {
   %4 = ptrtoint ptr %2 to i64
   %5 = add i64 %1, 4294967295
   %6 = lshr i64 %4, 3
@@ -163,7 +163,7 @@ define hidden noundef zeroext i1 @_ZN13ZNMethodTable14register_entryEP18ZNMethod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN13ZNMethodTable16unregister_entryEP18ZNMethodTableEntrymP7nmethod(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN13ZNMethodTable16unregister_entryEP18ZNMethodTableEntrymP7nmethod(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 {
   %4 = add i64 %1, 4294967295
   %5 = ptrtoint ptr %2 to i64
   %6 = lshr i64 %5, 3
@@ -862,7 +862,7 @@ declare void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull alig
 declare void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #0
 
@@ -995,10 +995,10 @@ define internal void @_GLOBAL__sub_I_zNMethodTable.cpp() #6 section ".text.start
 declare i32 @llvm.ctpop.i32(i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

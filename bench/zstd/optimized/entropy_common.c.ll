@@ -48,7 +48,7 @@ entry:
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define i64 @FSE_readNCount_bmi2(ptr nocapture noundef writeonly %normalizedCounter, ptr nocapture noundef %maxSVPtr, ptr nocapture noundef writeonly %tableLogPtr, ptr noundef %headerBuffer, i64 noundef %hbSize, i32 noundef %bmi2) local_unnamed_addr #2 {
+define i64 @FSE_readNCount_bmi2(ptr noundef writeonly captures(none) %normalizedCounter, ptr noundef captures(none) %maxSVPtr, ptr noundef writeonly captures(none) %tableLogPtr, ptr noundef %headerBuffer, i64 noundef %hbSize, i32 noundef %bmi2) local_unnamed_addr #2 {
 entry:
   %buffer.i.i = alloca [8 x i8], align 8
   %tobool.not = icmp eq i32 %bmi2, 0
@@ -317,7 +317,7 @@ return:                                           ; preds = %FSE_readNCount_body
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i64 @FSE_readNCount_body_bmi2(ptr nocapture noundef writeonly %normalizedCounter, ptr nocapture noundef %maxSVPtr, ptr nocapture noundef writeonly %tableLogPtr, ptr noundef %headerBuffer, i64 noundef %hbSize) unnamed_addr #3 {
+define internal fastcc i64 @FSE_readNCount_body_bmi2(ptr noundef writeonly captures(none) %normalizedCounter, ptr noundef captures(none) %maxSVPtr, ptr noundef writeonly captures(none) %tableLogPtr, ptr noundef %headerBuffer, i64 noundef %hbSize) unnamed_addr #3 {
 entry:
   %buffer.i = alloca [8 x i8], align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %headerBuffer, i64 %hbSize
@@ -571,14 +571,14 @@ FSE_readNCount_body.exit:                         ; preds = %if.end171.i, %if.en
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define i64 @FSE_readNCount(ptr nocapture noundef writeonly %normalizedCounter, ptr nocapture noundef %maxSVPtr, ptr nocapture noundef writeonly %tableLogPtr, ptr noundef %headerBuffer, i64 noundef %hbSize) local_unnamed_addr #2 {
+define i64 @FSE_readNCount(ptr noundef writeonly captures(none) %normalizedCounter, ptr noundef captures(none) %maxSVPtr, ptr noundef writeonly captures(none) %tableLogPtr, ptr noundef %headerBuffer, i64 noundef %hbSize) local_unnamed_addr #2 {
 entry:
   %call = tail call i64 @FSE_readNCount_bmi2(ptr noundef %normalizedCounter, ptr noundef %maxSVPtr, ptr noundef %tableLogPtr, ptr noundef %headerBuffer, i64 noundef %hbSize, i32 noundef 0)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 1, 0) i64 @HUF_readStats(ptr noundef %huffWeight, i64 noundef %hwSize, ptr nocapture noundef %rankStats, ptr nocapture noundef writeonly %nbSymbolsPtr, ptr nocapture noundef writeonly %tableLogPtr, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define range(i64 1, 0) i64 @HUF_readStats(ptr noundef %huffWeight, i64 noundef %hwSize, ptr noundef captures(none) %rankStats, ptr noundef writeonly captures(none) %nbSymbolsPtr, ptr noundef writeonly captures(none) %tableLogPtr, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %wksp = alloca [219 x i32], align 16
   %call = call i64 @HUF_readStats_wksp(ptr noundef %huffWeight, i64 noundef %hwSize, ptr noundef %rankStats, ptr noundef %nbSymbolsPtr, ptr noundef %tableLogPtr, ptr noundef %src, i64 noundef %srcSize, ptr noundef nonnull %wksp, i64 noundef 876, i32 noundef 0)
@@ -586,7 +586,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 1, 0) i64 @HUF_readStats_wksp(ptr noundef %huffWeight, i64 noundef %hwSize, ptr nocapture noundef %rankStats, ptr nocapture noundef writeonly %nbSymbolsPtr, ptr nocapture noundef writeonly %tableLogPtr, ptr noundef %src, i64 noundef %srcSize, ptr noundef %workSpace, i64 noundef %wkspSize, i32 noundef %flags) local_unnamed_addr #1 {
+define range(i64 1, 0) i64 @HUF_readStats_wksp(ptr noundef %huffWeight, i64 noundef %hwSize, ptr noundef captures(none) %rankStats, ptr noundef writeonly captures(none) %nbSymbolsPtr, ptr noundef writeonly captures(none) %tableLogPtr, ptr noundef %src, i64 noundef %srcSize, ptr noundef %workSpace, i64 noundef %wkspSize, i32 noundef %flags) local_unnamed_addr #1 {
 entry:
   %and = and i32 %flags, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -738,7 +738,7 @@ return:                                           ; preds = %for.body47.i.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 1, 0) i64 @HUF_readStats_body_bmi2(ptr noundef %huffWeight, i64 noundef %hwSize, ptr nocapture noundef %rankStats, ptr nocapture noundef writeonly %nbSymbolsPtr, ptr nocapture noundef writeonly %tableLogPtr, ptr noundef %src, i64 noundef %srcSize, ptr noundef %workSpace, i64 noundef %wkspSize) unnamed_addr #4 {
+define internal fastcc range(i64 1, 0) i64 @HUF_readStats_body_bmi2(ptr noundef %huffWeight, i64 noundef %hwSize, ptr noundef captures(none) %rankStats, ptr noundef writeonly captures(none) %nbSymbolsPtr, ptr noundef writeonly captures(none) %tableLogPtr, ptr noundef %src, i64 noundef %srcSize, ptr noundef %workSpace, i64 noundef %wkspSize) unnamed_addr #4 {
 entry:
   %tobool.i.not = icmp eq i64 %srcSize, 0
   br i1 %tobool.i.not, label %HUF_readStats_body.exit, label %if.end.i
@@ -888,10 +888,10 @@ HUF_readStats_body.exit:                          ; preds = %for.body47.i, %if.e
 declare ptr @ERR_getErrorString(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #8
@@ -902,10 +902,10 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8
 declare i64 @FSE_decompress_wksp_bmi2(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

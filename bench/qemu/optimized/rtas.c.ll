@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [21 x i8] c"ibm,write-pci-config\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qrtas_get_time_of_day(ptr noundef %qts, ptr noundef %alloc, ptr nocapture noundef writeonly %tm, ptr nocapture noundef writeonly %ns) local_unnamed_addr #0 {
+define dso_local i32 @qrtas_get_time_of_day(ptr noundef %qts, ptr noundef %alloc, ptr noundef writeonly captures(none) %tm, ptr noundef writeonly captures(none) %ns) local_unnamed_addr #0 {
 entry:
   %ret = alloca [8 x i32], align 16
   %call.i = tail call i64 @guest_alloc(ptr noundef %alloc, i64 noundef 0) #3
@@ -74,7 +74,7 @@ return:                                           ; preds = %qrtas_call.exit, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @qrtas_call(ptr noundef %qts, ptr noundef %alloc, ptr noundef %name, i32 noundef range(i32 0, 6) %nargs, ptr nocapture noundef readonly %args, i32 noundef range(i32 1, 9) %nret, ptr nocapture noundef nonnull writeonly %ret) unnamed_addr #0 {
+define internal fastcc i64 @qrtas_call(ptr noundef %qts, ptr noundef %alloc, ptr noundef %name, i32 noundef range(i32 0, 6) %nargs, ptr noundef readonly captures(none) %args, i32 noundef range(i32 1, 9) %nret, ptr noundef nonnull writeonly captures(none) %ret) unnamed_addr #0 {
 entry:
   %0 = shl nuw nsw i32 %nargs, 2
   %mul = zext nneg i32 %0 to i64
@@ -123,7 +123,7 @@ qrtas_copy_ret.exit:                              ; preds = %for.body.i15
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qrtas_ibm_read_pci_config(ptr noundef %qts, ptr noundef %alloc, i64 noundef %buid, i32 noundef %addr, i32 noundef %size) local_unnamed_addr #0 {

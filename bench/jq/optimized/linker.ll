@@ -533,7 +533,7 @@ define internal fastcc { i64, ptr } @validate_relpath(i64 %0, ptr %1) unnamed_ad
   br i1 %.not, label %.preheader, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.19, ptr noundef %3) #11
+  %6 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.19, ptr noundef nonnull %3) #11
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %9 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %7, ptr %8) #11
@@ -585,7 +585,7 @@ sub_1:                                            ; preds = %sub_0
 36:                                               ; preds = %.tail
   tail call void @jv_free(i64 %27, ptr %28) #11
   tail call void @jv_free(i64 %17, ptr %18) #11
-  %37 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.22, ptr noundef %3) #11
+  %37 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.22, ptr noundef nonnull %3) #11
   %38 = extractvalue { i64, ptr } %37, 0
   %39 = extractvalue { i64, ptr } %37, 1
   %40 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %38, ptr %39) #11
@@ -646,7 +646,7 @@ declare { i64, ptr } @jq_get_jq_origin(ptr noundef) local_unnamed_addr #1
 declare { i64, ptr } @jv_null() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare { i64, ptr } @jv_load_file(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -681,7 +681,7 @@ declare void @block_free(ptr, ptr) local_unnamed_addr #1
 declare void @jv_free(i64, ptr) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @load_program(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define i32 @load_program(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.block, align 8
   %5 = alloca %struct.lib_loading_state, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -866,7 +866,7 @@ define i32 @load_program(ptr noundef %0, ptr noundef %1, ptr nocapture noundef w
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @jq_parse(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -875,7 +875,7 @@ declare i32 @block_has_main(ptr, ptr) local_unnamed_addr #1
 declare void @jq_report_error(ptr noundef, i64, ptr) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare { ptr, ptr } @gen_import_meta(ptr, ptr, ptr, ptr) local_unnamed_addr #1
 
@@ -888,7 +888,7 @@ declare { i64, ptr } @jv_true() local_unnamed_addr #1
 declare { ptr, ptr } @block_join(ptr, ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @process_dependencies(ptr noundef %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
+define internal fastcc i32 @process_dependencies(ptr noundef %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef nonnull %5, ptr noundef nonnull captures(none) %6) unnamed_addr #0 {
   %8 = alloca %struct.block, align 8
   %9 = alloca %struct.block, align 8
   %10 = tail call { i64, ptr } @block_take_imports(ptr noundef nonnull %5) #11
@@ -1174,7 +1174,7 @@ declare { i64, ptr } @jq_get_prog_origin(ptr noundef) local_unnamed_addr #1
 declare { ptr, ptr } @gen_noop(...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @block_is_const(ptr, ptr) local_unnamed_addr #1
 
@@ -1189,12 +1189,12 @@ declare { i64, ptr } @jv_array_get(i64, ptr, i32 noundef) local_unnamed_addr #1
 declare i32 @jv_array_length(i64, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare { i64, ptr } @jq_realpath(i64, ptr) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #8
@@ -1206,7 +1206,7 @@ declare { i64, ptr } @jv_array() local_unnamed_addr #1
 declare { i64, ptr } @expand_path(i64, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 declare { i64, ptr } @jv_invalid() local_unnamed_addr #1
 
@@ -1225,7 +1225,7 @@ declare i32 @jv_equal(i64, ptr, i64, ptr) local_unnamed_addr #1
 declare { i64, ptr } @jv_object_get(i64, ptr, i64, ptr) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @load_library(ptr noundef %0, i64 %1, ptr %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5, ptr noundef %6, ptr nocapture noundef nonnull writeonly initializes((0, 16)) %7, ptr nocapture noundef nonnull %8) unnamed_addr #0 {
+define internal fastcc i32 @load_library(ptr noundef %0, i64 %1, ptr %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5, ptr noundef %6, ptr noundef nonnull writeonly captures(none) initializes((0, 16)) %7, ptr noundef nonnull captures(none) %8) unnamed_addr #0 {
   %10 = alloca %struct.block, align 8
   %11 = icmp eq i32 %3, 0
   %12 = icmp ne i32 %4, 0
@@ -1374,7 +1374,7 @@ declare i32 @jv_invalid_has_msg(i64, ptr) local_unnamed_addr #1
 declare { ptr, ptr } @gen_const_global(i64, ptr, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare ptr @dirname(ptr noundef) local_unnamed_addr #10

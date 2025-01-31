@@ -23,7 +23,7 @@ $_ZNK18VM_SerialGCCollect4typeEv = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN29VM_SerialCollectForAllocation4doitEv(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((48, 56)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN29VM_SerialCollectForAllocation4doitEv(ptr noundef nonnull align 8 captures(none) dereferenceable(57) initializes((48, 56)) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_ZN10SerialHeap4heapEv() #2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
@@ -66,7 +66,7 @@ declare noundef ptr @_ZN10SerialHeap4heapEv() local_unnamed_addr #1
 declare noundef ptr @_ZN10SerialHeap25satisfy_failed_allocationEmb(ptr noundef nonnull align 8 dereferenceable(192), i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18VM_SerialGCCollect4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN18VM_SerialGCCollect4doitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_ZN10SerialHeap4heapEv() #2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4

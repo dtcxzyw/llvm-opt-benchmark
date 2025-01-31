@@ -92,7 +92,7 @@ define dso_local noundef ptr @tuplestore_begin_heap(i1 noundef zeroext %0, i1 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @copytup_heap(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal noundef ptr @copytup_heap(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call ptr @minimal_tuple_from_heap_tuple(ptr noundef %1) #9
   %4 = tail call i64 @GetMemoryChunkSpace(ptr noundef %3) #9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -103,7 +103,7 @@ define internal noundef ptr @copytup_heap(ptr nocapture noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @writetup_heap(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal void @writetup_heap(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr i8, ptr %1, i64 10
   %5 = load i32, ptr %1, align 4
@@ -137,7 +137,7 @@ define internal void @writetup_heap(ptr nocapture noundef %0, ptr noundef %1) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @readtup_heap(ptr nocapture noundef %0, i32 noundef %1) #0 {
+define internal noundef ptr @readtup_heap(ptr noundef captures(none) %0, i32 noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = add i32 %1, -4
   %5 = zext i32 %4 to i64
@@ -170,7 +170,7 @@ define internal noundef ptr @readtup_heap(ptr nocapture noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @tuplestore_set_eflags(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @tuplestore_set_eflags(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %7
@@ -227,7 +227,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @tuplestore_alloc_read_pointer(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @tuplestore_alloc_read_pointer(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %7
@@ -302,10 +302,10 @@ define dso_local i32 @tuplestore_alloc_read_pointer(ptr nocapture noundef %0, i3
 declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @tuplestore_clear(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @tuplestore_clear(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -456,7 +456,7 @@ define dso_local void @tuplestore_end(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @tuplestore_select_read_pointer(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @tuplestore_select_read_pointer(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %1, %4
@@ -556,14 +556,14 @@ declare i32 @errcode_for_file_access() local_unnamed_addr #2
 declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @tuplestore_tuple_count(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local i64 @tuplestore_tuple_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @tuplestore_ateof(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local zeroext i1 @tuplestore_ateof(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -1084,7 +1084,7 @@ define dso_local noundef zeroext i1 @tuplestore_gettupleslot(ptr noundef %0, i1 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroext %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1479,7 +1479,7 @@ define dso_local noundef zeroext i1 @tuplestore_skiptuples(ptr noundef %0, i64 n
 declare void @ProcessInterrupts() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @tuplestore_rescan(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @tuplestore_rescan(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -1538,7 +1538,7 @@ define dso_local void @tuplestore_rescan(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @tuplestore_copy_read_pointer(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @tuplestore_copy_read_pointer(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %2 to i64
@@ -1669,7 +1669,7 @@ define dso_local void @tuplestore_copy_read_pointer(ptr nocapture noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @tuplestore_trim(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @tuplestore_trim(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 4
@@ -1831,10 +1831,10 @@ define dso_local void @tuplestore_trim(ptr nocapture noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @tuplestore_in_memory(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local zeroext i1 @tuplestore_in_memory(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 0
   ret i1 %3
@@ -1864,10 +1864,10 @@ declare void @BufFileReadExact(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8

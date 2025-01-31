@@ -569,14 +569,14 @@ declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef,
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_slsk_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @get_slsk_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %2) #4
   %6 = add i32 %5, 4
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_slsk_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_slsk_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -932,20 +932,20 @@ proto_item_set_generated.exit2388:                ; preds = %proto_item_set_gene
 .lr.ph2619:                                       ; preds = %174, %._crit_edge2613
   %179 = phi i32 [ %183, %._crit_edge2613 ], [ 0, %174 ]
   %.021842617 = phi i32 [ %.12185.lcssa, %._crit_edge2613 ], [ 4, %174 ]
-  %180 = call fastcc i32 @check_slsk_format(ptr noundef %136, i32 noundef %.021842617, ptr noundef nonnull @.str.212)
+  %180 = call fastcc i32 @check_slsk_format(ptr noundef nonnull %136, i32 noundef %.021842617, ptr noundef nonnull @.str.212)
   %.not2369 = icmp eq i32 %180, 0
   br i1 %.not2369, label %.loopexit, label %181
 
 181:                                              ; preds = %.lr.ph2619
   %182 = load i32, ptr @ett_slsk_directory, align 4
   %183 = add nuw nsw i32 %179, 1
-  %184 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %146, ptr noundef %136, i32 noundef %.021842617, i32 noundef 1, i32 noundef %182, ptr noundef nonnull %5, ptr noundef nonnull @.str.213, i32 noundef %183) #4
+  %184 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %146, ptr noundef nonnull %136, i32 noundef %.021842617, i32 noundef 1, i32 noundef %182, ptr noundef nonnull %5, ptr noundef nonnull @.str.213, i32 noundef %183) #4
   %185 = load i32, ptr @hf_slsk_directory_name, align 4
-  %186 = call ptr @proto_tree_add_item_ret_length(ptr noundef %184, i32 noundef %185, ptr noundef %136, i32 noundef %.021842617, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %10) #4
+  %186 = call ptr @proto_tree_add_item_ret_length(ptr noundef %184, i32 noundef %185, ptr noundef nonnull %136, i32 noundef %.021842617, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %10) #4
   %187 = load i32, ptr %10, align 4
   %188 = add i32 %187, %.021842617
   %189 = load i32, ptr @hf_slsk_num_files, align 4
-  %190 = call ptr @proto_tree_add_item_ret_int(ptr noundef %184, i32 noundef %189, ptr noundef %136, i32 noundef %188, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %11) #4
+  %190 = call ptr @proto_tree_add_item_ret_int(ptr noundef %184, i32 noundef %189, ptr noundef nonnull %136, i32 noundef %188, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %11) #4
   %191 = add i32 %188, 4
   %192 = load i32, ptr %11, align 4
   %193 = icmp sgt i32 %192, 0
@@ -954,33 +954,33 @@ proto_item_set_generated.exit2388:                ; preds = %proto_item_set_gene
 .lr.ph2612:                                       ; preds = %181, %._crit_edge2605
   %.121852610 = phi i32 [ %.22186.lcssa, %._crit_edge2605 ], [ %191, %181 ]
   %.021922609 = phi i32 [ %197, %._crit_edge2605 ], [ 0, %181 ]
-  %194 = call fastcc i32 @check_slsk_format(ptr noundef %136, i32 noundef %.121852610, ptr noundef nonnull @.str.214)
+  %194 = call fastcc i32 @check_slsk_format(ptr noundef nonnull %136, i32 noundef %.121852610, ptr noundef nonnull @.str.214)
   %.not2370 = icmp eq i32 %194, 0
   br i1 %.not2370, label %._crit_edge2613, label %195
 
 195:                                              ; preds = %.lr.ph2612
   %196 = load i32, ptr @ett_slsk_file, align 4
   %197 = add nuw nsw i32 %.021922609, 1
-  %198 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %184, ptr noundef %136, i32 noundef %.121852610, i32 noundef 1, i32 noundef %196, ptr noundef nonnull %6, ptr noundef nonnull @.str.215, i32 noundef %197) #4
+  %198 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %184, ptr noundef nonnull %136, i32 noundef %.121852610, i32 noundef 1, i32 noundef %196, ptr noundef nonnull %6, ptr noundef nonnull @.str.215, i32 noundef %197) #4
   %199 = load i32, ptr @hf_slsk_file_code, align 4
-  %200 = call ptr @proto_tree_add_item(ptr noundef %198, i32 noundef %199, ptr noundef %136, i32 noundef %.121852610, i32 noundef 1, i32 noundef 0) #4
+  %200 = call ptr @proto_tree_add_item(ptr noundef %198, i32 noundef %199, ptr noundef nonnull %136, i32 noundef %.121852610, i32 noundef 1, i32 noundef 0) #4
   %201 = add i32 %.121852610, 1
   %202 = load i32, ptr @hf_slsk_filename, align 4
-  %203 = call ptr @proto_tree_add_item_ret_length(ptr noundef %198, i32 noundef %202, ptr noundef %136, i32 noundef %201, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %10) #4
+  %203 = call ptr @proto_tree_add_item_ret_length(ptr noundef %198, i32 noundef %202, ptr noundef nonnull %136, i32 noundef %201, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %10) #4
   %204 = load i32, ptr %10, align 4
   %205 = add i32 %204, %201
   %206 = load i32, ptr @hf_slsk_file_size1, align 4
-  %207 = call ptr @proto_tree_add_item(ptr noundef %198, i32 noundef %206, ptr noundef %136, i32 noundef %205, i32 noundef 4, i32 noundef -2147483648) #4
+  %207 = call ptr @proto_tree_add_item(ptr noundef %198, i32 noundef %206, ptr noundef nonnull %136, i32 noundef %205, i32 noundef 4, i32 noundef -2147483648) #4
   %208 = add i32 %205, 4
   %209 = load i32, ptr @hf_slsk_file_size2, align 4
-  %210 = call ptr @proto_tree_add_item(ptr noundef %198, i32 noundef %209, ptr noundef %136, i32 noundef %208, i32 noundef 4, i32 noundef -2147483648) #4
+  %210 = call ptr @proto_tree_add_item(ptr noundef %198, i32 noundef %209, ptr noundef nonnull %136, i32 noundef %208, i32 noundef 4, i32 noundef -2147483648) #4
   %211 = add i32 %205, 8
   %212 = load i32, ptr @hf_slsk_filename_ext, align 4
-  %213 = call ptr @proto_tree_add_item_ret_length(ptr noundef %198, i32 noundef %212, ptr noundef %136, i32 noundef %211, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %10) #4
+  %213 = call ptr @proto_tree_add_item_ret_length(ptr noundef %198, i32 noundef %212, ptr noundef nonnull %136, i32 noundef %211, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %10) #4
   %214 = load i32, ptr %10, align 4
   %215 = add i32 %214, %211
   %216 = load i32, ptr @hf_slsk_file_num_attributes, align 4
-  %217 = call ptr @proto_tree_add_item_ret_int(ptr noundef %198, i32 noundef %216, ptr noundef %136, i32 noundef %215, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %12) #4
+  %217 = call ptr @proto_tree_add_item_ret_int(ptr noundef %198, i32 noundef %216, ptr noundef nonnull %136, i32 noundef %215, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %12) #4
   %.221862599 = add i32 %215, 4
   %218 = load i32, ptr %12, align 4
   %219 = icmp sgt i32 %218, 0
@@ -990,19 +990,19 @@ proto_item_set_generated.exit2388:                ; preds = %proto_item_set_gene
   %.221862602 = phi i32 [ %.22186, %221 ], [ %.221862599, %195 ]
   %.22186.in2601 = phi i32 [ %227, %221 ], [ %215, %195 ]
   %.021952600 = phi i32 [ %223, %221 ], [ 0, %195 ]
-  %220 = call fastcc i32 @check_slsk_format(ptr noundef %136, i32 noundef %.221862602, ptr noundef nonnull @.str.216)
+  %220 = call fastcc i32 @check_slsk_format(ptr noundef nonnull %136, i32 noundef %.221862602, ptr noundef nonnull @.str.216)
   %.not2371 = icmp eq i32 %220, 0
   br i1 %.not2371, label %._crit_edge2605, label %221
 
 221:                                              ; preds = %.lr.ph2604
   %222 = load i32, ptr @ett_slsk_file_attribute, align 4
   %223 = add nuw nsw i32 %.021952600, 1
-  %224 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %198, ptr noundef %136, i32 noundef %.221862602, i32 noundef 8, i32 noundef %222, ptr noundef null, ptr noundef nonnull @.str.217, i32 noundef %223) #4
+  %224 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %198, ptr noundef nonnull %136, i32 noundef %.221862602, i32 noundef 8, i32 noundef %222, ptr noundef null, ptr noundef nonnull @.str.217, i32 noundef %223) #4
   %225 = load i32, ptr @hf_slsk_file_attribute_type, align 4
-  %226 = call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %225, ptr noundef %136, i32 noundef %.221862602, i32 noundef 4, i32 noundef -2147483648) #4
+  %226 = call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %225, ptr noundef nonnull %136, i32 noundef %.221862602, i32 noundef 4, i32 noundef -2147483648) #4
   %227 = add i32 %.22186.in2601, 8
   %228 = load i32, ptr @hf_slsk_file_attribute_value, align 4
-  %229 = call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %228, ptr noundef %136, i32 noundef %227, i32 noundef 4, i32 noundef -2147483648) #4
+  %229 = call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %228, ptr noundef nonnull %136, i32 noundef %227, i32 noundef 4, i32 noundef -2147483648) #4
   %.22186 = add i32 %.22186.in2601, 12
   %230 = load i32, ptr %12, align 4
   %231 = icmp slt i32 %223, %230
@@ -1228,33 +1228,33 @@ proto_item_set_generated.exit2406:                ; preds = %proto_item_set_gene
 .lr.ph2594:                                       ; preds = %338, %._crit_edge2588
   %350 = phi i32 [ %354, %._crit_edge2588 ], [ 0, %338 ]
   %.321872592 = phi i32 [ %.42188.lcssa, %._crit_edge2588 ], [ %347, %338 ]
-  %351 = call fastcc i32 @check_slsk_format(ptr noundef %291, i32 noundef %.321872592, ptr noundef nonnull @.str.214)
+  %351 = call fastcc i32 @check_slsk_format(ptr noundef nonnull %291, i32 noundef %.321872592, ptr noundef nonnull @.str.214)
   %.not2360 = icmp eq i32 %351, 0
   br i1 %.not2360, label %._crit_edge2595, label %352
 
 352:                                              ; preds = %.lr.ph2594
   %353 = load i32, ptr @ett_slsk_file, align 4
   %354 = add nuw nsw i32 %350, 1
-  %355 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %310, ptr noundef %291, i32 noundef %.321872592, i32 noundef 1, i32 noundef %353, ptr noundef nonnull %6, ptr noundef nonnull @.str.215, i32 noundef %354) #4
+  %355 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %310, ptr noundef nonnull %291, i32 noundef %.321872592, i32 noundef 1, i32 noundef %353, ptr noundef nonnull %6, ptr noundef nonnull @.str.215, i32 noundef %354) #4
   %356 = load i32, ptr @hf_slsk_file_code, align 4
-  %357 = call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %356, ptr noundef %291, i32 noundef %.321872592, i32 noundef 1, i32 noundef 0) #4
+  %357 = call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %356, ptr noundef nonnull %291, i32 noundef %.321872592, i32 noundef 1, i32 noundef 0) #4
   %358 = add i32 %.321872592, 1
   %359 = load i32, ptr @hf_slsk_filename, align 4
-  %360 = call ptr @proto_tree_add_item_ret_length(ptr noundef %355, i32 noundef %359, ptr noundef %291, i32 noundef %358, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %10) #4
+  %360 = call ptr @proto_tree_add_item_ret_length(ptr noundef %355, i32 noundef %359, ptr noundef nonnull %291, i32 noundef %358, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %10) #4
   %361 = load i32, ptr %10, align 4
   %362 = add i32 %361, %358
   %363 = load i32, ptr @hf_slsk_file_size1, align 4
-  %364 = call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %363, ptr noundef %291, i32 noundef %362, i32 noundef 4, i32 noundef -2147483648) #4
+  %364 = call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %363, ptr noundef nonnull %291, i32 noundef %362, i32 noundef 4, i32 noundef -2147483648) #4
   %365 = add i32 %362, 4
   %366 = load i32, ptr @hf_slsk_file_size2, align 4
-  %367 = call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %366, ptr noundef %291, i32 noundef %365, i32 noundef 4, i32 noundef -2147483648) #4
+  %367 = call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %366, ptr noundef nonnull %291, i32 noundef %365, i32 noundef 4, i32 noundef -2147483648) #4
   %368 = add i32 %362, 8
   %369 = load i32, ptr @hf_slsk_filename_ext, align 4
-  %370 = call ptr @proto_tree_add_item_ret_length(ptr noundef %355, i32 noundef %369, ptr noundef %291, i32 noundef %368, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %10) #4
+  %370 = call ptr @proto_tree_add_item_ret_length(ptr noundef %355, i32 noundef %369, ptr noundef nonnull %291, i32 noundef %368, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %10) #4
   %371 = load i32, ptr %10, align 4
   %372 = add i32 %371, %368
   %373 = load i32, ptr @hf_slsk_file_num_attributes, align 4
-  %374 = call ptr @proto_tree_add_item_ret_int(ptr noundef %355, i32 noundef %373, ptr noundef %291, i32 noundef %372, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %11) #4
+  %374 = call ptr @proto_tree_add_item_ret_int(ptr noundef %355, i32 noundef %373, ptr noundef nonnull %291, i32 noundef %372, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %11) #4
   %.421882582 = add i32 %372, 4
   %375 = load i32, ptr %11, align 4
   %376 = icmp sgt i32 %375, 0
@@ -1264,19 +1264,19 @@ proto_item_set_generated.exit2406:                ; preds = %proto_item_set_gene
   %.421882585 = phi i32 [ %.42188, %378 ], [ %.421882582, %352 ]
   %.42188.in2584 = phi i32 [ %384, %378 ], [ %372, %352 ]
   %.121932583 = phi i32 [ %380, %378 ], [ 0, %352 ]
-  %377 = call fastcc i32 @check_slsk_format(ptr noundef %291, i32 noundef %.421882585, ptr noundef nonnull @.str.216)
+  %377 = call fastcc i32 @check_slsk_format(ptr noundef nonnull %291, i32 noundef %.421882585, ptr noundef nonnull @.str.216)
   %.not2361 = icmp eq i32 %377, 0
   br i1 %.not2361, label %._crit_edge2588, label %378
 
 378:                                              ; preds = %.lr.ph2587
   %379 = load i32, ptr @ett_slsk_file_attribute, align 4
   %380 = add nuw nsw i32 %.121932583, 1
-  %381 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %355, ptr noundef %291, i32 noundef %.421882585, i32 noundef 8, i32 noundef %379, ptr noundef null, ptr noundef nonnull @.str.217, i32 noundef %380) #4
+  %381 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %355, ptr noundef nonnull %291, i32 noundef %.421882585, i32 noundef 8, i32 noundef %379, ptr noundef null, ptr noundef nonnull @.str.217, i32 noundef %380) #4
   %382 = load i32, ptr @hf_slsk_file_attribute_type, align 4
-  %383 = call ptr @proto_tree_add_item(ptr noundef %381, i32 noundef %382, ptr noundef %291, i32 noundef %.421882585, i32 noundef 4, i32 noundef -2147483648) #4
+  %383 = call ptr @proto_tree_add_item(ptr noundef %381, i32 noundef %382, ptr noundef nonnull %291, i32 noundef %.421882585, i32 noundef 4, i32 noundef -2147483648) #4
   %384 = add i32 %.42188.in2584, 8
   %385 = load i32, ptr @hf_slsk_file_attribute_value, align 4
-  %386 = call ptr @proto_tree_add_item(ptr noundef %381, i32 noundef %385, ptr noundef %291, i32 noundef %384, i32 noundef 4, i32 noundef -2147483648) #4
+  %386 = call ptr @proto_tree_add_item(ptr noundef %381, i32 noundef %385, ptr noundef nonnull %291, i32 noundef %384, i32 noundef 4, i32 noundef -2147483648) #4
   %.42188 = add i32 %.42188.in2584, 12
   %387 = load i32, ptr %11, align 4
   %388 = icmp slt i32 %380, %387
@@ -1295,13 +1295,13 @@ proto_item_set_generated.exit2406:                ; preds = %proto_item_set_gene
 ._crit_edge2595:                                  ; preds = %._crit_edge2588, %.lr.ph2594, %338
   %.32187.lcssa = phi i32 [ %347, %338 ], [ %.321872592, %.lr.ph2594 ], [ %.42188.lcssa, %._crit_edge2588 ]
   %393 = load i32, ptr @hf_slsk_free_upload_slots, align 4
-  %394 = call ptr @proto_tree_add_item(ptr noundef %310, i32 noundef %393, ptr noundef %291, i32 noundef %.32187.lcssa, i32 noundef 1, i32 noundef -2147483648) #4
+  %394 = call ptr @proto_tree_add_item(ptr noundef %310, i32 noundef %393, ptr noundef nonnull %291, i32 noundef %.32187.lcssa, i32 noundef 1, i32 noundef -2147483648) #4
   %395 = add i32 %.32187.lcssa, 1
   %396 = load i32, ptr @hf_slsk_upload_speed, align 4
-  %397 = call ptr @proto_tree_add_item(ptr noundef %310, i32 noundef %396, ptr noundef %291, i32 noundef %395, i32 noundef 4, i32 noundef -2147483648) #4
+  %397 = call ptr @proto_tree_add_item(ptr noundef %310, i32 noundef %396, ptr noundef nonnull %291, i32 noundef %395, i32 noundef 4, i32 noundef -2147483648) #4
   %398 = add i32 %.32187.lcssa, 5
   %399 = load i32, ptr @hf_slsk_in_queue, align 4
-  %400 = call ptr @proto_tree_add_item(ptr noundef %310, i32 noundef %399, ptr noundef %291, i32 noundef %398, i32 noundef 4, i32 noundef -2147483648) #4
+  %400 = call ptr @proto_tree_add_item(ptr noundef %310, i32 noundef %399, ptr noundef nonnull %291, i32 noundef %398, i32 noundef 4, i32 noundef -2147483648) #4
   br label %.loopexit
 
 401:                                              ; preds = %284
@@ -2056,20 +2056,20 @@ proto_item_set_generated.exit2421:                ; preds = %proto_item_set_gene
 .lr.ph2559:                                       ; preds = %.lr.ph2559.preheader, %._crit_edge2553
   %892 = phi i32 [ %896, %._crit_edge2553 ], [ 0, %.lr.ph2559.preheader ]
   %.521892557 = phi i32 [ %.62190.lcssa, %._crit_edge2553 ], [ %891, %.lr.ph2559.preheader ]
-  %893 = call fastcc i32 @check_slsk_format(ptr noundef %842, i32 noundef %.521892557, ptr noundef nonnull @.str.212)
+  %893 = call fastcc i32 @check_slsk_format(ptr noundef nonnull %842, i32 noundef %.521892557, ptr noundef nonnull @.str.212)
   %.not2320 = icmp eq i32 %893, 0
   br i1 %.not2320, label %.loopexit, label %894
 
 894:                                              ; preds = %.lr.ph2559
   %895 = load i32, ptr @ett_slsk_directory, align 4
   %896 = add nuw nsw i32 %892, 1
-  %897 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %852, ptr noundef %842, i32 noundef %.521892557, i32 noundef 1, i32 noundef %895, ptr noundef nonnull %5, ptr noundef nonnull @.str.213, i32 noundef %896) #4
+  %897 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %852, ptr noundef nonnull %842, i32 noundef %.521892557, i32 noundef 1, i32 noundef %895, ptr noundef nonnull %5, ptr noundef nonnull @.str.213, i32 noundef %896) #4
   %898 = load i32, ptr @hf_slsk_directory_name, align 4
-  %899 = call ptr @proto_tree_add_item_ret_length(ptr noundef %897, i32 noundef %898, ptr noundef %842, i32 noundef %.521892557, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %10) #4
+  %899 = call ptr @proto_tree_add_item_ret_length(ptr noundef %897, i32 noundef %898, ptr noundef nonnull %842, i32 noundef %.521892557, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %10) #4
   %900 = load i32, ptr %10, align 4
   %901 = add i32 %900, %.521892557
   %902 = load i32, ptr @hf_slsk_num_files, align 4
-  %903 = call ptr @proto_tree_add_item_ret_int(ptr noundef %897, i32 noundef %902, ptr noundef %842, i32 noundef %901, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %11) #4
+  %903 = call ptr @proto_tree_add_item_ret_int(ptr noundef %897, i32 noundef %902, ptr noundef nonnull %842, i32 noundef %901, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %11) #4
   %904 = add i32 %901, 4
   %905 = load i32, ptr %11, align 4
   %906 = icmp sgt i32 %905, 0
@@ -2078,33 +2078,33 @@ proto_item_set_generated.exit2421:                ; preds = %proto_item_set_gene
 .lr.ph2552:                                       ; preds = %894, %._crit_edge2545
   %.621902550 = phi i32 [ %.72191.lcssa, %._crit_edge2545 ], [ %904, %894 ]
   %.221942549 = phi i32 [ %910, %._crit_edge2545 ], [ 0, %894 ]
-  %907 = call fastcc i32 @check_slsk_format(ptr noundef %842, i32 noundef %.621902550, ptr noundef nonnull @.str.214)
+  %907 = call fastcc i32 @check_slsk_format(ptr noundef nonnull %842, i32 noundef %.621902550, ptr noundef nonnull @.str.214)
   %.not2321 = icmp eq i32 %907, 0
   br i1 %.not2321, label %._crit_edge2553, label %908
 
 908:                                              ; preds = %.lr.ph2552
   %909 = load i32, ptr @ett_slsk_file, align 4
   %910 = add nuw nsw i32 %.221942549, 1
-  %911 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %897, ptr noundef %842, i32 noundef %.621902550, i32 noundef 1, i32 noundef %909, ptr noundef nonnull %6, ptr noundef nonnull @.str.215, i32 noundef %910) #4
+  %911 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %897, ptr noundef nonnull %842, i32 noundef %.621902550, i32 noundef 1, i32 noundef %909, ptr noundef nonnull %6, ptr noundef nonnull @.str.215, i32 noundef %910) #4
   %912 = load i32, ptr @hf_slsk_file_code, align 4
-  %913 = call ptr @proto_tree_add_item(ptr noundef %911, i32 noundef %912, ptr noundef %842, i32 noundef %.621902550, i32 noundef 1, i32 noundef 0) #4
+  %913 = call ptr @proto_tree_add_item(ptr noundef %911, i32 noundef %912, ptr noundef nonnull %842, i32 noundef %.621902550, i32 noundef 1, i32 noundef 0) #4
   %914 = add i32 %.621902550, 1
   %915 = load i32, ptr @hf_slsk_filename, align 4
-  %916 = call ptr @proto_tree_add_item_ret_length(ptr noundef %911, i32 noundef %915, ptr noundef %842, i32 noundef %914, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %10) #4
+  %916 = call ptr @proto_tree_add_item_ret_length(ptr noundef %911, i32 noundef %915, ptr noundef nonnull %842, i32 noundef %914, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %10) #4
   %917 = load i32, ptr %10, align 4
   %918 = add i32 %917, %914
   %919 = load i32, ptr @hf_slsk_file_size1, align 4
-  %920 = call ptr @proto_tree_add_item(ptr noundef %911, i32 noundef %919, ptr noundef %842, i32 noundef %918, i32 noundef 4, i32 noundef -2147483648) #4
+  %920 = call ptr @proto_tree_add_item(ptr noundef %911, i32 noundef %919, ptr noundef nonnull %842, i32 noundef %918, i32 noundef 4, i32 noundef -2147483648) #4
   %921 = add i32 %918, 4
   %922 = load i32, ptr @hf_slsk_file_size2, align 4
-  %923 = call ptr @proto_tree_add_item(ptr noundef %911, i32 noundef %922, ptr noundef %842, i32 noundef %921, i32 noundef 4, i32 noundef -2147483648) #4
+  %923 = call ptr @proto_tree_add_item(ptr noundef %911, i32 noundef %922, ptr noundef nonnull %842, i32 noundef %921, i32 noundef 4, i32 noundef -2147483648) #4
   %924 = add i32 %918, 8
   %925 = load i32, ptr @hf_slsk_filename_ext, align 4
-  %926 = call ptr @proto_tree_add_item_ret_length(ptr noundef %911, i32 noundef %925, ptr noundef %842, i32 noundef %924, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %10) #4
+  %926 = call ptr @proto_tree_add_item_ret_length(ptr noundef %911, i32 noundef %925, ptr noundef nonnull %842, i32 noundef %924, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %10) #4
   %927 = load i32, ptr %10, align 4
   %928 = add i32 %927, %924
   %929 = load i32, ptr @hf_slsk_file_num_attributes, align 4
-  %930 = call ptr @proto_tree_add_item_ret_int(ptr noundef %911, i32 noundef %929, ptr noundef %842, i32 noundef %928, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %12) #4
+  %930 = call ptr @proto_tree_add_item_ret_int(ptr noundef %911, i32 noundef %929, ptr noundef nonnull %842, i32 noundef %928, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %12) #4
   %.721912539 = add i32 %928, 4
   %931 = load i32, ptr %12, align 4
   %932 = icmp sgt i32 %931, 0
@@ -2114,19 +2114,19 @@ proto_item_set_generated.exit2421:                ; preds = %proto_item_set_gene
   %.721912542 = phi i32 [ %.72191, %934 ], [ %.721912539, %908 ]
   %.72191.in2541 = phi i32 [ %940, %934 ], [ %928, %908 ]
   %.121962540 = phi i32 [ %936, %934 ], [ 0, %908 ]
-  %933 = call fastcc i32 @check_slsk_format(ptr noundef %842, i32 noundef %.721912542, ptr noundef nonnull @.str.216)
+  %933 = call fastcc i32 @check_slsk_format(ptr noundef nonnull %842, i32 noundef %.721912542, ptr noundef nonnull @.str.216)
   %.not2322 = icmp eq i32 %933, 0
   br i1 %.not2322, label %._crit_edge2545, label %934
 
 934:                                              ; preds = %.lr.ph2544
   %935 = load i32, ptr @ett_slsk_file_attribute, align 4
   %936 = add nuw nsw i32 %.121962540, 1
-  %937 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %911, ptr noundef %842, i32 noundef %.721912542, i32 noundef 8, i32 noundef %935, ptr noundef null, ptr noundef nonnull @.str.217, i32 noundef %936) #4
+  %937 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %911, ptr noundef nonnull %842, i32 noundef %.721912542, i32 noundef 8, i32 noundef %935, ptr noundef null, ptr noundef nonnull @.str.217, i32 noundef %936) #4
   %938 = load i32, ptr @hf_slsk_file_attribute_type, align 4
-  %939 = call ptr @proto_tree_add_item(ptr noundef %937, i32 noundef %938, ptr noundef %842, i32 noundef %.721912542, i32 noundef 4, i32 noundef -2147483648) #4
+  %939 = call ptr @proto_tree_add_item(ptr noundef %937, i32 noundef %938, ptr noundef nonnull %842, i32 noundef %.721912542, i32 noundef 4, i32 noundef -2147483648) #4
   %940 = add i32 %.72191.in2541, 8
   %941 = load i32, ptr @hf_slsk_file_attribute_value, align 4
-  %942 = call ptr @proto_tree_add_item(ptr noundef %937, i32 noundef %941, ptr noundef %842, i32 noundef %940, i32 noundef 4, i32 noundef -2147483648) #4
+  %942 = call ptr @proto_tree_add_item(ptr noundef %937, i32 noundef %941, ptr noundef nonnull %842, i32 noundef %940, i32 noundef 4, i32 noundef -2147483648) #4
   %.72191 = add i32 %.72191.in2541, 12
   %943 = load i32, ptr %12, align 4
   %944 = icmp slt i32 %936, %943
@@ -3690,7 +3690,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_slsk_format(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_slsk_format(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %.pre = load i8, ptr %2, align 1
   br label %tailrecurse
 
@@ -3785,7 +3785,7 @@ declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare ptr @proto_tree_add_string_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef nonnull ptr @connection_type(ptr nocapture noundef readonly %0) unnamed_addr #2 {
+define internal fastcc noundef nonnull ptr @connection_type(ptr noundef readonly captures(none) %0) unnamed_addr #2 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #5
   %.not = icmp eq i64 %2, 1
   br i1 %.not, label %3, label %8
@@ -3817,7 +3817,7 @@ declare ptr @format_text(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

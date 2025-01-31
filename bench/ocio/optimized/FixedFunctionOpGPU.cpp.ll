@@ -258,7 +258,7 @@ $_ZN19OpenColorIO_v2_4dev23Add_GamutComp_13_ShaderIPFvRNS_13GpuShaderTextEPKcS4_
 @.str.235 = private unnamed_addr constant [31 x i8] c".rgb = ach - cdist * abs(ach);\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev21Add_hue_weight_shaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss, float noundef %width) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev21Add_hue_weight_shaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss, float noundef %width) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %pxl = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -1666,7 +1666,7 @@ declare void @_ZNK19OpenColorIO_v2_4dev13GpuShaderText11float4ConstB5cxx11Edddd(
 declare void @_ZNK19OpenColorIO_v2_4dev13GpuShaderText4lerpERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev24Add_RedMod_03_Fwd_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev24Add_RedMod_03_Fwd_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %pxl = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -2250,7 +2250,7 @@ eh.resume:                                        ; preds = %ehcleanup199, %lpad
 declare void @_ZNK19OpenColorIO_v2_4dev13GpuShaderText10float3DeclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev24Add_RedMod_03_Inv_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev24Add_RedMod_03_Inv_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %pxl = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -3020,7 +3020,7 @@ declare void @_ZN19OpenColorIO_v2_4dev13GpuShaderText6indentEv(ptr noundef nonnu
 declare void @_ZN19OpenColorIO_v2_4dev13GpuShaderText6dedentEv(ptr noundef nonnull align 8 dereferenceable(764)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev24Add_RedMod_10_Fwd_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev24Add_RedMod_10_Fwd_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %pxl = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -3326,7 +3326,7 @@ eh.resume:                                        ; preds = %ehcleanup103, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev24Add_RedMod_10_Inv_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev24Add_RedMod_10_Inv_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp1 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
@@ -3719,7 +3719,7 @@ eh.resume:                                        ; preds = %ehcleanup128, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev22Add_Glow_03_Fwd_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEff(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss, float noundef %glowGain, float noundef %glowMid) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev22Add_Glow_03_Fwd_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEff(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss, float noundef %glowGain, float noundef %glowMid) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %pxl = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -4778,7 +4778,7 @@ eh.resume:                                        ; preds = %ehcleanup359, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev22Add_Glow_03_Inv_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEff(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss, float noundef %glowGain, float noundef %glowMid) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev22Add_Glow_03_Inv_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEff(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss, float noundef %glowGain, float noundef %glowMid) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %pxl = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -6636,7 +6636,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev26Add_Surround_10_Fwd_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss, float noundef %gamma) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev26Add_Surround_10_Fwd_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss, float noundef %gamma) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %pxl = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -6854,7 +6854,7 @@ eh.resume:                                        ; preds = %ehcleanup69, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev19Add_Surround_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss, float noundef %gamma) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev19Add_Surround_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss, float noundef %gamma) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %pxl = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -7076,7 +7076,7 @@ eh.resume:                                        ; preds = %ehcleanup71, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev14Add_RGB_TO_HSVERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev14Add_RGB_TO_HSVERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %pxl = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -7788,7 +7788,7 @@ eh.resume:                                        ; preds = %ehcleanup244, %lpad
 declare void @_ZNK19OpenColorIO_v2_4dev13GpuShaderText11float3ConstERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(764), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev14Add_HSV_TO_RGBERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev14Add_HSV_TO_RGBERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %pxl = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -8648,7 +8648,7 @@ eh.resume:                                        ; preds = %ehcleanup280, %lpad
 declare void @_ZNK19OpenColorIO_v2_4dev13GpuShaderText12floatKeywordB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(764)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev14Add_XYZ_TO_xyYERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev14Add_XYZ_TO_xyYERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %pxl = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -8849,7 +8849,7 @@ eh.resume:                                        ; preds = %ehcleanup65, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev14Add_xyY_TO_XYZERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev14Add_xyY_TO_XYZERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %pxl = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -9098,7 +9098,7 @@ eh.resume:                                        ; preds = %ehcleanup81, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev14Add_XYZ_TO_uvYERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev14Add_XYZ_TO_uvYERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %pxl = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -9299,7 +9299,7 @@ eh.resume:                                        ; preds = %ehcleanup65, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev14Add_uvY_TO_XYZERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev14Add_uvY_TO_XYZERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %pxl = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -9548,7 +9548,7 @@ eh.resume:                                        ; preds = %ehcleanup81, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev14Add_XYZ_TO_LUVERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev14Add_XYZ_TO_LUVERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %pxl = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -10247,7 +10247,7 @@ eh.resume:                                        ; preds = %ehcleanup219, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev14Add_LUV_TO_XYZERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev14Add_LUV_TO_XYZERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %pxl = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -10853,7 +10853,7 @@ eh.resume:                                        ; preds = %ehcleanup190, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev32GetFixedFunctionGPUShaderProgramERSt10shared_ptrINS_16GpuShaderCreatorEERS0_IKNS_19FixedFunctionOpDataEE(ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %func) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev32GetFixedFunctionGPUShaderProgramERSt10shared_ptrINS_16GpuShaderCreatorEERS0_IKNS_19FixedFunctionOpDataEE(ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %func) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ss = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText", align 8
   %ref.tmp = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8

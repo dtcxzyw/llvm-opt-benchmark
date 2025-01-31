@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [6 x i8] c"state\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @test_rng_new(ptr noundef %provctx, ptr nocapture readnone %parent, ptr nocapture readnone %parent_dispatch) #0 {
+define internal noalias ptr @test_rng_new(ptr noundef %provctx, ptr readnone captures(none) %parent, ptr readnone captures(none) %parent_dispatch) #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 88, ptr noundef nonnull @.str, i32 noundef 58) #8
   %cmp = icmp eq ptr %call, null
@@ -61,7 +61,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @test_rng_instantiate(ptr noundef %vtest, i32 noundef %strength, i32 %prediction_resistance, ptr nocapture readnone %pstr, i64 %pstr_len, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @test_rng_instantiate(ptr noundef %vtest, i32 noundef %strength, i32 %prediction_resistance, ptr readnone captures(none) %pstr, i64 %pstr_len, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @test_rng_set_ctx_params(ptr noundef %vtest, ptr noundef %params)
   %tobool.not = icmp eq i32 %call, 0
@@ -88,7 +88,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @test_rng_uninstantiate(ptr nocapture noundef writeonly initializes((12, 16), (56, 64)) %vtest) #1 {
+define internal noundef i32 @test_rng_uninstantiate(ptr noundef writeonly captures(none) initializes((12, 16), (56, 64)) %vtest) #1 {
 entry:
   %entropy_pos = getelementptr inbounds nuw i8, ptr %vtest, i64 56
   store i64 0, ptr %entropy_pos, align 8
@@ -98,7 +98,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @test_rng_generate(ptr nocapture noundef %vtest, ptr nocapture noundef writeonly %out, i64 noundef %outlen, i32 noundef %strength, i32 %prediction_resistance, ptr nocapture readnone %adin, i64 %adin_len) #2 {
+define internal range(i32 0, 2) i32 @test_rng_generate(ptr noundef captures(none) %vtest, ptr noundef writeonly captures(none) %out, i64 noundef %outlen, i32 noundef %strength, i32 %prediction_resistance, ptr readnone captures(none) %adin, i64 %adin_len) #2 {
 entry:
   %strength1 = getelementptr inbounds nuw i8, ptr %vtest, i64 16
   %0 = load i32, ptr %strength1, align 8
@@ -161,13 +161,13 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @test_rng_reseed(ptr nocapture readnone %vtest, i32 %prediction_resistance, ptr nocapture readnone %ent, i64 %ent_len, ptr nocapture readnone %adin, i64 %adin_len) #3 {
+define internal noundef i32 @test_rng_reseed(ptr readnone captures(none) %vtest, i32 %prediction_resistance, ptr readnone captures(none) %ent, i64 %ent_len, ptr readnone captures(none) %adin, i64 %adin_len) #3 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i64 @test_rng_nonce(ptr nocapture noundef %vtest, ptr noundef writeonly %out, i32 noundef %strength, i64 noundef %min_noncelen, i64 %max_noncelen) #2 {
+define internal i64 @test_rng_nonce(ptr noundef captures(none) %vtest, ptr noundef writeonly %out, i32 noundef %strength, i64 noundef %min_noncelen, i64 %max_noncelen) #2 {
 entry:
   %strength1 = getelementptr inbounds nuw i8, ptr %vtest, i64 16
   %0 = load i32, ptr %strength1, align 8
@@ -302,7 +302,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @test_rng_settable_ctx_params(ptr nocapture readnone %vtest, ptr nocapture readnone %provctx) #3 {
+define internal noundef nonnull ptr @test_rng_settable_ctx_params(ptr readnone captures(none) %vtest, ptr readnone captures(none) %provctx) #3 {
 entry:
   ret ptr @test_rng_settable_ctx_params.known_settable_ctx_params
 }
@@ -404,13 +404,13 @@ return:                                           ; preds = %land.lhs.true32, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @test_rng_gettable_ctx_params(ptr nocapture readnone %vtest, ptr nocapture readnone %provctx) #3 {
+define internal noundef nonnull ptr @test_rng_gettable_ctx_params(ptr readnone captures(none) %vtest, ptr readnone captures(none) %provctx) #3 {
 entry:
   ret ptr @test_rng_gettable_ctx_params.known_gettable_ctx_params
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @test_rng_get_ctx_params(ptr nocapture noundef readonly %vtest, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @test_rng_get_ctx_params(ptr noundef readonly captures(none) %vtest, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.6) #8
   %cmp.not = icmp eq ptr %call, null
@@ -468,13 +468,13 @@ return:                                           ; preds = %land.lhs.true18, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @test_rng_verify_zeroization(ptr nocapture readnone %vtest) #3 {
+define internal noundef i32 @test_rng_verify_zeroization(ptr readnone captures(none) %vtest) #3 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i64 @test_rng_get_seed(ptr nocapture noundef readonly %vtest, ptr nocapture noundef writeonly initializes((0, 8)) %pout, i32 %entropy, i64 %min_len, i64 noundef %max_len, i32 %prediction_resistance, ptr nocapture readnone %adin, i64 %adin_len) #4 {
+define internal i64 @test_rng_get_seed(ptr noundef readonly captures(none) %vtest, ptr noundef writeonly captures(none) initializes((0, 8)) %pout, i32 %entropy, i64 %min_len, i64 noundef %max_len, i32 %prediction_resistance, ptr readnone captures(none) %adin, i64 %adin_len) #4 {
 entry:
   %entropy1 = getelementptr inbounds nuw i8, ptr %vtest, i64 32
   %0 = load ptr, ptr %entropy1, align 8
@@ -492,7 +492,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare ptr @CRYPTO_THREAD_lock_new() local_unnamed_addr #5
 

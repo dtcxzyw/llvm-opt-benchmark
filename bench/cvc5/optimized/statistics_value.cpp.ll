@@ -153,13 +153,13 @@ sw.default.i.i:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN4cvc58internal18StatisticBaseValueD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define hidden void @_ZN4cvc58internal18StatisticBaseValueD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define hidden void @_ZN4cvc58internal18StatisticBaseValueD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN4cvc58internal18StatisticBaseValueD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @llvm.trap() #17
   unreachable
@@ -264,7 +264,7 @@ _ZNSt8__detail9__variant13_Variant_baseIJldNSt7__cxx1112basic_stringIcSt11char_t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK4cvc58internal21StatisticAverageValue9getViewerB5cxx11Ev(ptr noalias nocapture writeonly sret(%"class.std::variant") align 8 initializes((0, 8), (48, 49)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal21StatisticAverageValue9getViewerB5cxx11Ev(ptr noalias writeonly sret(%"class.std::variant") align 8 captures(none) initializes((0, 8), (48, 49)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_sum.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load double, ptr %d_sum.i, align 8
@@ -279,7 +279,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef double @_ZNK4cvc58internal21StatisticAverageValue3getEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef double @_ZNK4cvc58internal21StatisticAverageValue3getEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_sum = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load double, ptr %d_sum, align 8
@@ -291,7 +291,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal21StatisticAverageValue9isDefaultEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal21StatisticAverageValue9isDefaultEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #6 align 2 {
 entry:
   %d_count = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %d_count, align 8
@@ -300,7 +300,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal21StatisticAverageValue9printSafeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %fd) unnamed_addr #0 align 2 {
+define hidden void @_ZNK4cvc58internal21StatisticAverageValue9printSafeEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i32 noundef %fd) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca double, align 8
   %d_sum.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -317,7 +317,7 @@ entry:
 declare void @_ZN4cvc58internal10safe_printIdEEviRKT_(i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal19StatisticTimerValue9getViewerB5cxx11Ev(ptr noalias sret(%"class.std::variant") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal19StatisticTimerValue9getViewerB5cxx11Ev(ptr noalias sret(%"class.std::variant") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -504,7 +504,7 @@ eh.resume:                                        ; preds = %lpad1, %lpad.body
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i64 -9223372036854, 9223372036855) i64 @_ZNK4cvc58internal19StatisticTimerValue3getEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i64 -9223372036854, 9223372036855) i64 @_ZNK4cvc58internal19StatisticTimerValue3getEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %this) local_unnamed_addr #4 align 2 {
 entry:
   %d_duration = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %d_duration, align 8
@@ -531,7 +531,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal19StatisticTimerValue9isDefaultEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this) unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal19StatisticTimerValue9isDefaultEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %this) unnamed_addr #6 align 2 {
 entry:
   %d_running = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i8, ptr %d_running, align 8
@@ -545,7 +545,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal19StatisticTimerValue9printSafeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this, i32 noundef %fd) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal19StatisticTimerValue9printSafeEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %this, i32 noundef %fd) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca i64, align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8

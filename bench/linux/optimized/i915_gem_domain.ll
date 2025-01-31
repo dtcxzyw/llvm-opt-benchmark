@@ -504,7 +504,7 @@ declare dso_local void @i915_gem_object_set_cache_coherency(ptr noundef, i32 nou
 declare dso_local i32 @i915_gem_object_unbind(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -95, 1) i32 @i915_gem_get_caching_ioctl(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @i915_gem_get_caching_ioctl(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7168
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 28
@@ -566,7 +566,7 @@ define dso_local noundef range(i32 -95, 1) i32 @i915_gem_get_caching_ioctl(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i915_gem_set_caching_ioctl(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local i32 @i915_gem_set_caching_ioctl(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7168
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 28
@@ -1025,7 +1025,7 @@ define dso_local i32 @i915_gem_object_set_to_cpu_domain(ptr noundef %0, i1 nound
 declare dso_local zeroext i1 @i915_gem_clflush_object(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i915_gem_set_domain_ioctl(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local i32 @i915_gem_set_domain_ioctl(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1235,7 +1235,7 @@ define dso_local i32 @i915_gem_set_domain_ioctl(ptr nocapture noundef readonly %
 declare dso_local i32 @i915_gem_object_userptr_validate(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i915_gem_object_prepare_read(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #1 align 16 {
+define dso_local i32 @i915_gem_object_prepare_read(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #1 align 16 {
   store i32 0, ptr %1, align 4
   %3 = tail call zeroext i1 @i915_gem_object_has_struct_page(ptr noundef %0) #6
   br i1 %3, label %4, label %.thread7
@@ -1333,7 +1333,7 @@ define dso_local i32 @i915_gem_object_prepare_read(ptr noundef %0, ptr nocapture
 declare dso_local zeroext i1 @i915_gem_object_has_struct_page(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i915_gem_object_prepare_write(ptr noundef %0, ptr nocapture noundef initializes((0, 4)) %1) local_unnamed_addr #1 align 16 {
+define dso_local i32 @i915_gem_object_prepare_write(ptr noundef %0, ptr noundef captures(none) initializes((0, 4)) %1) local_unnamed_addr #1 align 16 {
   store i32 0, ptr %1, align 4
   %3 = tail call zeroext i1 @i915_gem_object_has_struct_page(ptr noundef %0) #6
   br i1 %3, label %4, label %84

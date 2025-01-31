@@ -655,7 +655,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @internal_exr_undo_b44(ptr noundef %decode, ptr nocapture noundef readonly %compressed_data, i64 noundef %comp_buf_size, ptr nocapture noundef writeonly %uncompressed_data, i64 noundef %uncompressed_size) local_unnamed_addr #0 {
+define hidden i32 @internal_exr_undo_b44(ptr noundef %decode, ptr noundef readonly captures(none) %compressed_data, i64 noundef %comp_buf_size, ptr noundef writeonly captures(none) %uncompressed_data, i64 noundef %uncompressed_size) local_unnamed_addr #0 {
 entry:
   %scratch_buffer_1 = getelementptr inbounds nuw i8, ptr %decode, i64 160
   %scratch_alloc_size_1 = getelementptr inbounds nuw i8, ptr %decode, i64 168
@@ -718,7 +718,7 @@ return:                                           ; preds = %compute_scratch_buf
 declare i32 @internal_decode_alloc_buffer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @uncompress_b44_impl(ptr nocapture noundef readonly %decode, ptr nocapture noundef readonly %compressed_data, i64 noundef %comp_buf_size, ptr nocapture noundef writeonly %uncompressed_data, i64 noundef %uncomp_buf_size) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @uncompress_b44_impl(ptr noundef readonly captures(none) %decode, ptr noundef readonly captures(none) %compressed_data, i64 noundef %comp_buf_size, ptr noundef writeonly captures(none) %uncompressed_data, i64 noundef %uncomp_buf_size) unnamed_addr #2 {
 entry:
   %s = alloca [16 x i16], align 16
   %scratch_buffer_1 = getelementptr inbounds nuw i8, ptr %decode, i64 160
@@ -1251,7 +1251,7 @@ return:                                           ; preds = %if.then11, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @internal_exr_undo_b44a(ptr noundef %decode, ptr nocapture noundef readonly %compressed_data, i64 noundef %comp_buf_size, ptr nocapture noundef writeonly %uncompressed_data, i64 noundef %uncompressed_size) local_unnamed_addr #0 {
+define hidden i32 @internal_exr_undo_b44a(ptr noundef %decode, ptr noundef readonly captures(none) %compressed_data, i64 noundef %comp_buf_size, ptr noundef writeonly captures(none) %uncompressed_data, i64 noundef %uncompressed_size) local_unnamed_addr #0 {
 entry:
   %scratch_buffer_1 = getelementptr inbounds nuw i8, ptr %decode, i64 160
   %scratch_alloc_size_1 = getelementptr inbounds nuw i8, ptr %decode, i64 168
@@ -1314,7 +1314,7 @@ return:                                           ; preds = %compute_scratch_buf
 declare i32 @internal_encode_alloc_buffer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4
@@ -1326,10 +1326,10 @@ declare i32 @llvm.smax.i32(i32, i32) #4
 declare i16 @llvm.umax.i16(i16, i16) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #4

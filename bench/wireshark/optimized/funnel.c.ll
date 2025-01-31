@@ -226,7 +226,7 @@ funnel_clear_packet_menu.exit:                    ; preds = %42, %funnel_insert_
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @funnel_register_all_menus(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @funnel_register_all_menus(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %.08 = load ptr, ptr @registered_menus, align 8
   %.not9 = icmp eq ptr %.08, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -254,7 +254,7 @@ define void @funnel_register_all_menus(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @funnel_reload_menus(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @funnel_reload_menus(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %.017 = load ptr, ptr @removed_menus, align 8
   %.not18 = icmp eq ptr %.017, null
   br i1 %.not18, label %.preheader, label %.lr.ph
@@ -373,7 +373,7 @@ funnel_insert_packet_menu.exit:                   ; preds = %15, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define void @funnel_register_all_packet_menus(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @funnel_register_all_packet_menus(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %.08 = load ptr, ptr @registered_packet_menus, align 8
   %.not9 = icmp eq ptr %.08, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -526,7 +526,7 @@ define void @funnel_register_console_menu(ptr noundef %0, ptr noundef %1, ptr no
 declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @funnel_register_all_console_menus(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @funnel_register_all_console_menus(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %.09 = load ptr, ptr @registered_console_menus, align 8
   %.not10 = icmp eq ptr %.09, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph

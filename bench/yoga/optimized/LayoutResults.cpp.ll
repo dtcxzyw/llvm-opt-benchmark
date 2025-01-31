@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 $_ZNK8facebook4yoga17CachedMeasurementeqES1_ = comdat any
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK8facebook4yoga13LayoutResultseqES1_(ptr noundef nonnull align 4 dereferenceable(320) %this, ptr nocapture noundef readonly byval(%"struct.facebook::yoga::LayoutResults") align 8 %layout) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK8facebook4yoga13LayoutResultseqES1_(ptr noundef nonnull align 4 dereferenceable(320) %this, ptr noundef readonly byval(%"struct.facebook::yoga::LayoutResults") align 8 captures(none) %layout) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp = alloca %"struct.facebook::yoga::CachedMeasurement", align 8
   %position_ = getelementptr inbounds nuw i8, ptr %this, i64 256
@@ -440,7 +440,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #2

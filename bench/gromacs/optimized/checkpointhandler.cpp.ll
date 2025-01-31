@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN3gmx17CheckpointHandlerC1ENS_6compat8not_nullIPNS_16SimulationSignalEEEbbbbf = unnamed_addr alias void (ptr, ptr, i1, i1, i1, i1, float), ptr @_ZN3gmx17CheckpointHandlerC2ENS_6compat8not_nullIPNS_16SimulationSignalEEEbbbbf
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx17CheckpointHandlerC2ENS_6compat8not_nullIPNS_16SimulationSignalEEEbbbbf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 9), (12, 24)) %0, ptr %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, float noundef %6) unnamed_addr #0 align 2 {
+define void @_ZN3gmx17CheckpointHandlerC2ENS_6compat8not_nullIPNS_16SimulationSignalEEEbbbbf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 9), (12, 24)) %0, ptr %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, float noundef %6) unnamed_addr #0 align 2 {
   %8 = zext i1 %3 to i8
   %9 = zext i1 %5 to i8
   store ptr %1, ptr %0, align 8
@@ -40,7 +40,7 @@ define void @_ZN3gmx17CheckpointHandlerC2ENS_6compat8not_nullIPNS_16SimulationSi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3gmx17CheckpointHandler13setSignalImplEP23gmx_walltime_accounting(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define void @_ZNK3gmx17CheckpointHandler13setSignalImplEP23gmx_walltime_accounting(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = tail call noundef double @_Z40walltime_accounting_get_time_since_startP23gmx_walltime_accounting(ptr noundef %1)
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -80,7 +80,7 @@ define void @_ZNK3gmx17CheckpointHandler13setSignalImplEP23gmx_walltime_accounti
 declare noundef double @_Z40walltime_accounting_get_time_since_startP23gmx_walltime_accounting(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3gmx17CheckpointHandler33decideIfCheckpointingThisStepImplEbbb(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 9)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 {
+define void @_ZN3gmx17CheckpointHandler33decideIfCheckpointingThisStepImplEbbb(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((8, 9)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %7 = load i8, ptr %6, align 1

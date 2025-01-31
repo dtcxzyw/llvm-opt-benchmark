@@ -59,7 +59,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.49 = private unnamed_addr constant [84 x i8] c"You must specify a reason when DOWNING or DRAINING a frontend node\0ARequest aborted\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @scontrol_create_node(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local i32 @scontrol_create_node(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.slurm_update_node_msg, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -118,7 +118,7 @@ declare i32 @slurm_get_errno() local_unnamed_addr #1
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.slurm_update_node_msg, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -163,7 +163,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
   %31 = trunc i64 %30 to i32
   %32 = call i32 @llvm.smax.i32(i32 %28, i32 5)
   %33 = zext nneg i32 %32 to i64
-  %34 = call i32 @xstrncasecmp(ptr noundef %22, ptr noundef nonnull @.str.5, i64 noundef %33) #6
+  %34 = call i32 @xstrncasecmp(ptr noundef nonnull %22, ptr noundef nonnull @.str.5, i64 noundef %33) #6
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %40, label %42
 
@@ -180,7 +180,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
   br label %239
 
 42:                                               ; preds = %24
-  %43 = call i32 @xstrncasecmp(ptr noundef %22, ptr noundef nonnull @.str.6, i64 noundef %33) #6
+  %43 = call i32 @xstrncasecmp(ptr noundef nonnull %22, ptr noundef nonnull @.str.6, i64 noundef %33) #6
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %47
 
@@ -192,7 +192,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 47:                                               ; preds = %42
   %48 = call i32 @llvm.smax.i32(i32 %28, i32 1)
   %49 = zext nneg i32 %48 to i64
-  %50 = call i32 @xstrncasecmp(ptr noundef %22, ptr noundef nonnull @.str.7, i64 noundef %49) #6
+  %50 = call i32 @xstrncasecmp(ptr noundef nonnull %22, ptr noundef nonnull @.str.7, i64 noundef %49) #6
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %53
 
@@ -203,7 +203,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 53:                                               ; preds = %47
   %54 = call i32 @llvm.smax.i32(i32 %28, i32 3)
   %55 = zext nneg i32 %54 to i64
-  %56 = call i32 @xstrncasecmp(ptr noundef %22, ptr noundef nonnull @.str.8, i64 noundef %55) #6
+  %56 = call i32 @xstrncasecmp(ptr noundef nonnull %22, ptr noundef nonnull @.str.8, i64 noundef %55) #6
   %.not184 = icmp eq i32 %56, 0
   br i1 %.not184, label %57, label %59
 
@@ -215,7 +215,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 59:                                               ; preds = %53
   %60 = call i32 @llvm.smax.i32(i32 %28, i32 7)
   %61 = zext nneg i32 %60 to i64
-  %62 = call i32 @xstrncasecmp(ptr noundef %22, ptr noundef nonnull @.str.9, i64 noundef %61) #6
+  %62 = call i32 @xstrncasecmp(ptr noundef nonnull %22, ptr noundef nonnull @.str.9, i64 noundef %61) #6
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %72
 
@@ -236,7 +236,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
   br label %239
 
 72:                                               ; preds = %59
-  %73 = call i32 @xstrncasecmp(ptr noundef %22, ptr noundef nonnull @.str.11, i64 noundef %49) #6
+  %73 = call i32 @xstrncasecmp(ptr noundef nonnull %22, ptr noundef nonnull @.str.11, i64 noundef %49) #6
   %.not185 = icmp eq i32 %73, 0
   br i1 %.not185, label %74, label %76
 
@@ -246,12 +246,12 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
   br label %239
 
 76:                                               ; preds = %72
-  %77 = call i32 @xstrncasecmp(ptr noundef %22, ptr noundef nonnull @.str.12, i64 noundef %49) #6
+  %77 = call i32 @xstrncasecmp(ptr noundef nonnull %22, ptr noundef nonnull @.str.12, i64 noundef %49) #6
   %.not186 = icmp eq i32 %77, 0
   br i1 %.not186, label %80, label %78
 
 78:                                               ; preds = %76
-  %79 = call i32 @xstrncasecmp(ptr noundef %22, ptr noundef nonnull @.str.13, i64 noundef %55) #6
+  %79 = call i32 @xstrncasecmp(ptr noundef nonnull %22, ptr noundef nonnull @.str.13, i64 noundef %55) #6
   %.not187 = icmp eq i32 %79, 0
   br i1 %.not187, label %80, label %82
 
@@ -261,7 +261,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
   br label %239
 
 82:                                               ; preds = %78
-  %83 = call i32 @xstrncasecmp(ptr noundef %22, ptr noundef nonnull @.str.14, i64 noundef %49) #6
+  %83 = call i32 @xstrncasecmp(ptr noundef nonnull %22, ptr noundef nonnull @.str.14, i64 noundef %49) #6
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %85, label %87
 
@@ -273,7 +273,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 87:                                               ; preds = %82
   %88 = call i32 @llvm.smax.i32(i32 %28, i32 9)
   %89 = zext nneg i32 %88 to i64
-  %90 = call i32 @xstrncasecmp(ptr noundef %22, ptr noundef nonnull @.str.15, i64 noundef %89) #6
+  %90 = call i32 @xstrncasecmp(ptr noundef nonnull %22, ptr noundef nonnull @.str.15, i64 noundef %89) #6
   %.not188 = icmp eq i32 %90, 0
   br i1 %.not188, label %91, label %93
 
@@ -283,7 +283,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
   br label %239
 
 93:                                               ; preds = %87
-  %94 = call i32 @xstrncasecmp(ptr noundef %22, ptr noundef nonnull @.str.16, i64 noundef %89) #6
+  %94 = call i32 @xstrncasecmp(ptr noundef nonnull %22, ptr noundef nonnull @.str.16, i64 noundef %89) #6
   %.not189 = icmp eq i32 %94, 0
   br i1 %.not189, label %95, label %97
 
@@ -293,7 +293,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
   br label %239
 
 97:                                               ; preds = %93
-  %98 = call i32 @xstrncasecmp(ptr noundef %22, ptr noundef nonnull @.str.17, i64 noundef %49) #6
+  %98 = call i32 @xstrncasecmp(ptr noundef nonnull %22, ptr noundef nonnull @.str.17, i64 noundef %49) #6
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %100, label %108
 
@@ -316,7 +316,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 108:                                              ; preds = %97
   %109 = call i32 @llvm.smax.i32(i32 %28, i32 2)
   %110 = zext nneg i32 %109 to i64
-  %111 = call i32 @xstrncasecmp(ptr noundef %22, ptr noundef nonnull @.str.19, i64 noundef %110) #6
+  %111 = call i32 @xstrncasecmp(ptr noundef nonnull %22, ptr noundef nonnull @.str.19, i64 noundef %110) #6
   %.not190 = icmp eq i32 %111, 0
   br i1 %.not190, label %112, label %114
 
@@ -326,7 +326,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
   br label %239
 
 114:                                              ; preds = %108
-  %115 = call i32 @xstrncasecmp(ptr noundef %22, ptr noundef nonnull @.str.20, i64 noundef %49) #6
+  %115 = call i32 @xstrncasecmp(ptr noundef nonnull %22, ptr noundef nonnull @.str.20, i64 noundef %49) #6
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %117, label %135
 
@@ -362,7 +362,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
   br label %239
 
 135:                                              ; preds = %114
-  %136 = call i32 @xstrncasecmp(ptr noundef %22, ptr noundef nonnull @.str.21, i64 noundef %49) #6
+  %136 = call i32 @xstrncasecmp(ptr noundef nonnull %22, ptr noundef nonnull @.str.21, i64 noundef %49) #6
   %.not191 = icmp eq i32 %136, 0
   br i1 %.not191, label %137, label %148
 
@@ -392,7 +392,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
   br label %239
 
 148:                                              ; preds = %135
-  %149 = call i32 @xstrncasecmp(ptr noundef %22, ptr noundef nonnull @.str.24, i64 noundef %49) #6
+  %149 = call i32 @xstrncasecmp(ptr noundef nonnull %22, ptr noundef nonnull @.str.24, i64 noundef %49) #6
   %150 = icmp eq i32 %149, 0
   br i1 %150, label %151, label %232
 
@@ -646,7 +646,7 @@ switch.early.test:                                ; preds = %252
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 
@@ -663,12 +663,12 @@ declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @node_state_string(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare i32 @slurm_update_node(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @scontrol_update_front_end(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local i32 @scontrol_update_front_end(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.slurm_update_front_end_msg, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -701,7 +701,7 @@ define dso_local i32 @scontrol_update_front_end(i32 noundef %0, ptr nocapture no
   %19 = trunc i64 %18 to i32
   %20 = call i32 @llvm.smax.i32(i32 %16, i32 1)
   %21 = zext nneg i32 %20 to i64
-  %22 = call i32 @xstrncasecmp(ptr noundef %10, ptr noundef nonnull @.str.46, i64 noundef %21) #6
+  %22 = call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.46, i64 noundef %21) #6
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %28, label %29
 
@@ -717,7 +717,7 @@ define dso_local i32 @scontrol_update_front_end(i32 noundef %0, ptr nocapture no
   br label %82
 
 29:                                               ; preds = %12
-  %30 = call i32 @xstrncasecmp(ptr noundef %10, ptr noundef nonnull @.str.20, i64 noundef %21) #6
+  %30 = call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.20, i64 noundef %21) #6
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %50
 
@@ -753,7 +753,7 @@ define dso_local i32 @scontrol_update_front_end(i32 noundef %0, ptr nocapture no
   br label %82
 
 50:                                               ; preds = %29
-  %51 = call i32 @xstrncasecmp(ptr noundef %10, ptr noundef nonnull @.str.24, i64 noundef %21) #6
+  %51 = call i32 @xstrncasecmp(ptr noundef nonnull %10, ptr noundef nonnull @.str.24, i64 noundef %21) #6
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %75
 
@@ -878,13 +878,13 @@ declare void @slurm_init_update_front_end_msg(ptr noundef) local_unnamed_addr #1
 declare i32 @slurm_update_front_end(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

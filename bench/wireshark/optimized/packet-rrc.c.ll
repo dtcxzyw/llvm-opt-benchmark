@@ -47545,7 +47545,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare i32 @dissect_per_sequence(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_HandoverToUTRANCommand_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_HandoverToUTRANCommand_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -47597,7 +47597,7 @@ dissect_rrc_HandoverToUTRANCommand.exit:          ; preds = %proto_item_set_hidd
 declare void @asn1_ctx_init(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_InterRATHandoverInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_InterRATHandoverInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -47647,7 +47647,7 @@ dissect_rrc_InterRATHandoverInfo.exit:            ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_MeasurementReport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_MeasurementReport_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -47733,7 +47733,7 @@ proto_item_set_hidden.exit:                       ; preds = %5, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_MasterInformationBlock_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_MasterInformationBlock_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -47788,7 +47788,7 @@ dissect_rrc_MasterInformationBlock.exit:          ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType1_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType1_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -47843,7 +47843,7 @@ dissect_rrc_SysInfoType1.exit:                    ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType2_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType2_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -47898,7 +47898,7 @@ dissect_rrc_SysInfoType2.exit:                    ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType3_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType3_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -47953,7 +47953,7 @@ dissect_rrc_SysInfoType3.exit:                    ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType4_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType4_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -48008,7 +48008,7 @@ dissect_rrc_SysInfoType4.exit:                    ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType5_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType5_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -48063,7 +48063,7 @@ dissect_rrc_SysInfoType5.exit:                    ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType6_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType6_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -48118,7 +48118,7 @@ dissect_rrc_SysInfoType6.exit:                    ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType7_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType7_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -48173,7 +48173,7 @@ dissect_rrc_SysInfoType7.exit:                    ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType11_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType11_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -48228,7 +48228,7 @@ dissect_rrc_SysInfoType11.exit:                   ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType12_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType12_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -48283,7 +48283,7 @@ dissect_rrc_SysInfoType12.exit:                   ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType13_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType13_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -48338,7 +48338,7 @@ dissect_rrc_SysInfoType13.exit:                   ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType13_1_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType13_1_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -48374,7 +48374,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType13_2_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType13_2_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -48410,7 +48410,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType13_3_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType13_3_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -48446,7 +48446,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType13_4_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType13_4_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -48482,7 +48482,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType14_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType14_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -48537,7 +48537,7 @@ dissect_rrc_SysInfoType14.exit:                   ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType15_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType15_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -48592,7 +48592,7 @@ dissect_rrc_SysInfoType15.exit:                   ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType15_1_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType15_1_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -48628,7 +48628,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType15_2_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType15_2_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -48664,7 +48664,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType15_3_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType15_3_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -48700,7 +48700,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType15_4_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType15_4_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -48736,7 +48736,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType16_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType16_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -48791,7 +48791,7 @@ dissect_rrc_SysInfoType16.exit:                   ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType17_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType17_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -48846,7 +48846,7 @@ dissect_rrc_SysInfoType17.exit:                   ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType18_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType18_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -48901,7 +48901,7 @@ dissect_rrc_SysInfoType18.exit:                   ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType19_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoType19_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -48956,7 +48956,7 @@ dissect_rrc_SysInfoType19.exit:                   ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoTypeSB1_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoTypeSB1_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -49011,7 +49011,7 @@ dissect_rrc_SysInfoTypeSB1.exit:                  ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoTypeSB2_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_SysInfoTypeSB2_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -49066,7 +49066,7 @@ dissect_rrc_SysInfoTypeSB2.exit:                  ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_ToTargetRNC_Container_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_ToTargetRNC_Container_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -49097,7 +49097,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_TargetRNC_ToSourceRNC_Container_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 -268435456, 268435456) i32 @dissect_rrc_TargetRNC_ToSourceRNC_Container_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -49299,7 +49299,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_rrc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_rrc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   store ptr %2, ptr @top_tree, align 8
   %5 = tail call ptr @wmem_file_scope() #6
   %6 = load i32, ptr @proto_rrc, align 4
@@ -49341,7 +49341,7 @@ switch.lookup:                                    ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_DL_DCCH_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_DL_DCCH_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -49372,7 +49372,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UL_DCCH_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UL_DCCH_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -49403,7 +49403,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_DL_CCCH_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_DL_CCCH_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -49434,7 +49434,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UL_CCCH_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UL_CCCH_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -49465,7 +49465,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_PCCH_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_PCCH_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -49496,7 +49496,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_DL_SHCCH_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_DL_SHCCH_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -49527,7 +49527,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UL_SHCCH_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UL_SHCCH_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -49558,7 +49558,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_BCCH_FACH_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_BCCH_FACH_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -49589,7 +49589,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_BCCH_BCH_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_BCCH_BCH_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -49620,7 +49620,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_BCCH_BCH2_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_BCCH_BCH2_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -49651,7 +49651,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MCCH_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MCCH_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -49682,7 +49682,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_MSCH_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_MSCH_Message_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -49713,7 +49713,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SystemInformation_BCH_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SystemInformation_BCH_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -49749,7 +49749,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SystemInformation2_BCH_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SystemInformation2_BCH_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -49780,7 +49780,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_System_Information_Container_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_System_Information_Container_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -49811,7 +49811,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UE_RadioAccessCapabilityInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UE_RadioAccessCapabilityInfo_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -49842,7 +49842,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType5bis_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType5bis_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -49920,7 +49920,7 @@ dissect_rrc_SysInfoType5bis.exit:                 ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType8_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType8_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -49970,7 +49970,7 @@ dissect_rrc_SysInfoType8.exit:                    ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType9_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType9_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -50020,7 +50020,7 @@ dissect_rrc_SysInfoType9.exit:                    ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType10_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType10_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -50070,7 +50070,7 @@ dissect_rrc_SysInfoType10.exit:                   ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType11bis_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType11bis_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -50125,7 +50125,7 @@ dissect_rrc_SysInfoType11bis.exit:                ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType11ter_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType11ter_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -50180,7 +50180,7 @@ dissect_rrc_SysInfoType11ter.exit:                ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType15bis_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType15bis_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -50235,7 +50235,7 @@ dissect_rrc_SysInfoType15bis.exit:                ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType15_1bis_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType15_1bis_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -50271,7 +50271,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType15_1ter_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType15_1ter_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -50307,7 +50307,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType15_2bis_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType15_2bis_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -50343,7 +50343,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType15_2ter_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType15_2ter_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -50379,7 +50379,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType15_3bis_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType15_3bis_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -50415,7 +50415,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType15_5_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType15_5_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -50451,7 +50451,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType15_6_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType15_6_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -50487,7 +50487,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType15_7_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType15_7_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -50523,7 +50523,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType15_8_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType15_8_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -50559,7 +50559,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType20_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType20_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -50614,7 +50614,7 @@ dissect_rrc_SysInfoType20.exit:                   ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType21_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType21_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -50669,7 +50669,7 @@ dissect_rrc_SysInfoType21.exit:                   ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType22_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType22_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -50724,7 +50724,7 @@ dissect_rrc_SysInfoType22.exit:                   ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType23_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType23_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -50779,7 +50779,7 @@ dissect_rrc_SysInfoType23.exit:                   ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType24_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType24_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -50834,7 +50834,7 @@ dissect_rrc_SysInfoType24.exit:                   ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType25_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoType25_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -50889,7 +50889,7 @@ dissect_rrc_SysInfoType25.exit:                   ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoTypeSB3_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SysInfoTypeSB3_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -51122,7 +51122,7 @@ define internal i32 @dissect_rrc_START_Value(ptr noundef %0, i32 noundef %1, ptr
   %17 = icmp eq ptr %12, null
   %18 = icmp eq ptr %16, null
   %or.cond = select i1 %17, i1 true, i1 %18
-  br i1 %or.cond, label %90, label %19
+  br i1 %or.cond, label %89, label %19
 
 19:                                               ; preds = %5
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -51143,7 +51143,7 @@ private_data_get_cn_domain.exit:                  ; preds = %19, %23
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 20
   %30 = load i32, ptr %29, align 4
   %cond = icmp eq i32 %30, 2
-  br i1 %cond, label %31, label %80
+  br i1 %cond, label %31, label %79
 
 31:                                               ; preds = %private_data_get_cn_domain.exit
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 696
@@ -51190,7 +51190,7 @@ get_or_create_cipher_info.exit:                   ; preds = %31, %48
   %.021.i = phi ptr [ %43, %48 ], [ %40, %31 ]
   %58 = load ptr, ptr %20, align 8
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %60, label %65
+  br i1 %59, label %60, label %private_data_set_ciphering_info.exit
 
 60:                                               ; preds = %get_or_create_cipher_info.exit
   %61 = load ptr, ptr %9, align 8
@@ -51198,51 +51198,51 @@ get_or_create_cipher_info.exit:                   ; preds = %31, %48
   %63 = load ptr, ptr %62, align 8
   %64 = call noalias ptr @wmem_alloc0(ptr noundef %63, i64 noundef 80) #6
   store ptr %64, ptr %20, align 8
-  br label %65
+  br label %private_data_set_ciphering_info.exit
 
-65:                                               ; preds = %60, %get_or_create_cipher_info.exit
-  %66 = phi ptr [ %64, %60 ], [ %58, %get_or_create_cipher_info.exit ]
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 56
-  store ptr %.021.i, ptr %67, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %.021.i, i64 256
-  %69 = load ptr, ptr %68, align 8
-  %.not27 = icmp eq ptr %69, null
-  br i1 %.not27, label %80, label %70
+private_data_set_ciphering_info.exit:             ; preds = %get_or_create_cipher_info.exit, %60
+  %65 = phi ptr [ %64, %60 ], [ %58, %get_or_create_cipher_info.exit ]
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 56
+  store ptr %.021.i, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %.021.i, i64 256
+  %68 = load ptr, ptr %67, align 8
+  %.not27 = icmp eq ptr %68, null
+  br i1 %.not27, label %79, label %69
 
-70:                                               ; preds = %65
-  %71 = call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #7
-  %72 = load ptr, ptr %6, align 8
-  %73 = call i32 @tvb_get_bits32(ptr noundef %72, i32 noundef 0, i32 noundef 20, i32 noundef 0) #6
-  store i32 %73, ptr %71, align 4
-  %74 = load ptr, ptr %68, align 8
-  %75 = load ptr, ptr %9, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 20
-  %77 = load i32, ptr %76, align 4
-  %78 = zext i32 %77 to i64
-  %79 = inttoptr i64 %78 to ptr
-  call void @g_tree_insert(ptr noundef %74, ptr noundef %79, ptr noundef nonnull %71) #6
-  br label %80
+69:                                               ; preds = %private_data_set_ciphering_info.exit
+  %70 = call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #7
+  %71 = load ptr, ptr %6, align 8
+  %72 = call i32 @tvb_get_bits32(ptr noundef %71, i32 noundef 0, i32 noundef 20, i32 noundef 0) #6
+  store i32 %72, ptr %70, align 4
+  %73 = load ptr, ptr %67, align 8
+  %74 = load ptr, ptr %9, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 20
+  %76 = load i32, ptr %75, align 4
+  %77 = zext i32 %76 to i64
+  %78 = inttoptr i64 %77 to ptr
+  call void @g_tree_insert(ptr noundef %73, ptr noundef %78, ptr noundef nonnull %70) #6
+  br label %79
 
-80:                                               ; preds = %private_data_get_cn_domain.exit, %65, %70
-  %81 = load ptr, ptr %20, align 8
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %83, label %private_data_set_cn_domain.exit
+79:                                               ; preds = %private_data_get_cn_domain.exit, %private_data_set_ciphering_info.exit, %69
+  %80 = load ptr, ptr %20, align 8
+  %81 = icmp eq ptr %80, null
+  br i1 %81, label %82, label %private_data_set_cn_domain.exit
 
-83:                                               ; preds = %80
-  %84 = load ptr, ptr %9, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 408
-  %86 = load ptr, ptr %85, align 8
-  %87 = call noalias ptr @wmem_alloc0(ptr noundef %86, i64 noundef 80) #6
-  store ptr %87, ptr %20, align 8
+82:                                               ; preds = %79
+  %83 = load ptr, ptr %9, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 408
+  %85 = load ptr, ptr %84, align 8
+  %86 = call noalias ptr @wmem_alloc0(ptr noundef %85, i64 noundef 80) #6
+  store ptr %86, ptr %20, align 8
   br label %private_data_set_cn_domain.exit
 
-private_data_set_cn_domain.exit:                  ; preds = %80, %83
-  %88 = phi ptr [ %87, %83 ], [ %81, %80 ]
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 20
-  store i32 0, ptr %89, align 4
-  br label %90
+private_data_set_cn_domain.exit:                  ; preds = %79, %82
+  %87 = phi ptr [ %86, %82 ], [ %80, %79 ]
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 20
+  store i32 0, ptr %88, align 4
+  br label %89
 
-90:                                               ; preds = %5, %private_data_set_cn_domain.exit
+89:                                               ; preds = %5, %private_data_set_cn_domain.exit
   ret i32 %7
 }
 
@@ -51267,7 +51267,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare ptr @g_tree_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 -1, 2) i32 @rrc_key_cmp(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #3 {
+define internal range(i32 -1, 2) i32 @rrc_key_cmp(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #3 {
   %4 = ptrtoint ptr %1 to i64
   %5 = trunc i64 %4 to i32
   %6 = ptrtoint ptr %0 to i64
@@ -51429,7 +51429,7 @@ define internal i32 @dissect_rrc_UESpecificBehaviourInformation1interRAT(ptr nou
 declare i32 @dissect_per_bit_string_containing_pdu_new(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_InterRATHandoverInfo_r3_add_ext_IEs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_InterRATHandoverInfo_r3_add_ext_IEs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -79294,7 +79294,7 @@ define internal i32 @dissect_rrc_UESpecificBehaviourInformation1idle(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SRNC_RelocationInfo_v3h0ext_IEs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SRNC_RelocationInfo_v3h0ext_IEs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -79676,7 +79676,7 @@ define internal i32 @dissect_rrc_IntraFreqReportingCriteria_r6_ext(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UE_CapabilityContainer_IEs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UE_CapabilityContainer_IEs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -81487,7 +81487,7 @@ define internal i32 @dissect_rrc_T_qoEMeasurementCollectionForMTSIServices(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_RRCConnectionSetupComplete_r3_add_ext_IEs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RRCConnectionSetupComplete_r3_add_ext_IEs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -81608,7 +81608,7 @@ define internal i32 @dissect_rrc_T_nonCriticalExtensions_162(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_UECapabilityInformation_r3_add_ext_IEs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_UECapabilityInformation_r3_add_ext_IEs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -83210,7 +83210,7 @@ define internal i32 @dissect_rrc_InterRATCellInfoList_r6(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SRNC_RelocationInfo_r6_add_ext_IEs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SRNC_RelocationInfo_r6_add_ext_IEs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -84055,7 +84055,7 @@ define internal i32 @dissect_rrc_GANSS_SAT_Info_Almanac_Kp(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_SRNC_RelocationInfo_r7_add_ext_IEs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_SRNC_RelocationInfo_r7_add_ext_IEs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -89870,7 +89870,7 @@ define internal i32 @dissect_rrc_T_diversityPattern(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_RadioBearerSetup_r7_add_ext_IEs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_RadioBearerSetup_r7_add_ext_IEs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -95594,7 +95594,7 @@ declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
@@ -98347,7 +98347,7 @@ define internal i32 @dissect_rrc_WaitTime(ptr noundef %0, i32 noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_CellUpdateConfirm_r7_add_ext_IEs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_CellUpdateConfirm_r7_add_ext_IEs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -104090,7 +104090,7 @@ define internal i32 @dissect_rrc_T_v590NonCriticalExtensions_05(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_InitialDirectTransfer_r3_add_ext_IEs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_InitialDirectTransfer_r3_add_ext_IEs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -108122,7 +108122,7 @@ define internal i32 @dissect_rrc_T_v590NonCriticalExtensions_02(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_CellUpdate_r3_add_ext_IEs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_CellUpdate_r3_add_ext_IEs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -108836,7 +108836,7 @@ define internal i32 @dissect_rrc_T_v770NonCriticalExtensions_32(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -268435456, 268435456) i32 @dissect_URAUpdate_r3_add_ext_IEs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -268435456, 268435456) i32 @dissect_URAUpdate_r3_add_ext_IEs_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_rrc, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6

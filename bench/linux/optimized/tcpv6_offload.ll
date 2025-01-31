@@ -298,7 +298,7 @@ define internal ptr @tcp6_gso_segment(ptr noundef %0, i64 noundef %1) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @__tcp_v6_send_check(ptr nocapture noundef initializes((136, 140)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc void @__tcp_v6_send_check(ptr noundef captures(none) initializes((136, 140)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 178

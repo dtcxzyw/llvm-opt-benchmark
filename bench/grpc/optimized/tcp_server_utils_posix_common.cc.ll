@@ -94,7 +94,7 @@ entry:
 declare void @_Z21grpc_timer_init_unsetP10grpc_timer(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL23listener_retry_timer_cbPvN4absl12lts_202308026StatusE(ptr nocapture noundef %arg, ptr nocapture noundef readonly %err) #3 {
+define internal void @_ZL23listener_retry_timer_cbPvN4absl12lts_202308026StatusE(ptr noundef captures(none) %arg, ptr noundef readonly captures(none) %err) #3 {
 entry:
   %0 = load i64, ptr %err, align 8
   %cmp.i = icmp eq i64 %0, 0
@@ -118,7 +118,7 @@ if.end4:                                          ; preds = %entry, %if.then2, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z24grpc_tcp_server_add_addrP15grpc_tcp_serverPK21grpc_resolved_addressjjP19grpc_dualstack_modePP17grpc_tcp_listener(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %s, ptr noundef %addr, i32 noundef %port_index, i32 noundef %fd_index, ptr noundef %dsmode, ptr nocapture noundef writeonly %listener) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z24grpc_tcp_server_add_addrP15grpc_tcp_serverPK21grpc_resolved_addressjjP19grpc_dualstack_modePP17grpc_tcp_listener(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %s, ptr noundef %addr, i32 noundef %port_index, i32 noundef %fd_index, ptr noundef %dsmode, ptr noundef writeonly captures(none) %listener) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %fd = alloca i32, align 4
   %off = alloca i32, align 4
@@ -242,7 +242,7 @@ declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 
 declare noundef i32 @_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20add_socket_to_serverP15grpc_tcp_serveriPK21grpc_resolved_addressjjPP17grpc_tcp_listener(ptr noalias align 8 %agg.result, ptr noundef %s, i32 noundef %fd, ptr noundef %addr, i32 noundef %port_index, i32 noundef %fd_index, ptr nocapture noundef writeonly initializes((0, 8)) %listener) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20add_socket_to_serverP15grpc_tcp_serveriPK21grpc_resolved_addressjjPP17grpc_tcp_listener(ptr noalias align 8 %agg.result, ptr noundef %s, i32 noundef %fd, ptr noundef %addr, i32 noundef %port_index, i32 noundef %fd_index, ptr noundef writeonly captures(none) initializes((0, 8)) %listener) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %port = alloca i32, align 4
   %err = alloca %"class.absl::lts_20230802::Status", align 8
@@ -573,7 +573,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z30grpc_tcp_server_prepare_socketP15grpc_tcp_serveriPK21grpc_resolved_addressbPi(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %s, i32 noundef %fd, ptr noundef %addr, i1 noundef zeroext %so_reuseport, ptr nocapture noundef writeonly %port) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z30grpc_tcp_server_prepare_socketP15grpc_tcp_serveriPK21grpc_resolved_addressbPi(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %s, i32 noundef %fd, ptr noundef %addr, i1 noundef zeroext %so_reuseport, ptr noundef writeonly captures(none) %port) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %sockname_temp = alloca %struct.grpc_resolved_address, align 4
   %err = alloca %"class.absl::lts_20230802::Status", align 8
@@ -1556,7 +1556,7 @@ cleanup.action4:                                  ; preds = %lpad.body.thread5, 
 declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1624,7 +1624,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare void @_Z25grpc_fd_set_pre_allocatedP7grpc_fd(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare void @gpr_mu_unlock(ptr noundef) local_unnamed_addr #0
 
@@ -1836,16 +1836,16 @@ if.end18:                                         ; preds = %if.end14.thread, %i
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #13
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #14
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_tcp_server_utils_posix_common.cc() #15 section ".text.startup" {

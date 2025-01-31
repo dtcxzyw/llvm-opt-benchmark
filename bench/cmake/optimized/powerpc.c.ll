@@ -18,7 +18,7 @@ define dso_local i32 @lzma_simple_powerpc_decoder_init(ptr noundef %0, ptr nound
 declare i32 @lzma_simple_coder_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal range(i64 -3, -4) i64 @powerpc_code(ptr nocapture readnone %0, i32 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef %3, i64 noundef %4) #2 {
+define internal range(i64 -3, -4) i64 @powerpc_code(ptr readnone captures(none) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef captures(none) %3, i64 noundef %4) #2 {
   %.not38 = icmp ult i64 %4, 4
   br i1 %.not38, label %._crit_edge, label %.lr.ph
 

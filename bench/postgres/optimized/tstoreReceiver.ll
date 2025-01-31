@@ -28,7 +28,7 @@ define dso_local noundef ptr @CreateTuplestoreDestReceiver() local_unnamed_addr 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @tstoreReceiveSlot_notoast(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef zeroext i1 @tstoreReceiveSlot_notoast(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   tail call void @tuplestore_puttupleslot(ptr noundef %4, ptr noundef %0) #4
@@ -36,7 +36,7 @@ define internal noundef zeroext i1 @tstoreReceiveSlot_notoast(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tstoreStartupReceiver(ptr nocapture noundef %0, i32 %1, ptr noundef %2) #0 {
+define internal void @tstoreStartupReceiver(ptr noundef captures(none) %0, i32 %1, ptr noundef %2) #0 {
   %4 = load i32, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i8, ptr %5, align 8
@@ -146,7 +146,7 @@ define internal void @tstoreStartupReceiver(ptr nocapture noundef %0, i32 %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tstoreShutdownReceiver(ptr nocapture noundef %0) #0 {
+define internal void @tstoreShutdownReceiver(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -201,7 +201,7 @@ define internal void @tstoreDestroyReceiver(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @SetTuplestoreDestReceiverParams(ptr nocapture noundef writeonly initializes((40, 57), (64, 80)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #2 {
+define dso_local void @SetTuplestoreDestReceiverParams(ptr noundef writeonly captures(none) initializes((40, 57), (64, 80)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #2 {
   %7 = zext i1 %3 to i8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %8, align 8
@@ -221,7 +221,7 @@ declare void @tuplestore_puttupleslot(ptr noundef, ptr noundef) local_unnamed_ad
 declare ptr @convert_tuples_by_position(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @tstoreReceiveSlot_detoast(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef zeroext i1 @tstoreReceiveSlot_detoast(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
@@ -339,7 +339,7 @@ slot_getallattrs.exit:                            ; preds = %2, %10
 declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @tstoreReceiveSlot_tupmap(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef zeroext i1 @tstoreReceiveSlot_tupmap(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -371,7 +371,7 @@ declare void @free_conversion_map(ptr noundef) local_unnamed_addr #1
 declare void @ExecDropSingleTupleTableSlot(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

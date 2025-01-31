@@ -139,7 +139,7 @@ $_ZTIN8QuantLib31MarketModelPathwiseMultiProductE = comdat any
 @_ZN8QuantLib33CallSpecifiedPathwiseMultiProductC1ERKNS_5CloneINS_31MarketModelPathwiseMultiProductEEERKNS1_INS_16ExerciseStrategyINS_10CurveStateEEEEES3_ = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN8QuantLib33CallSpecifiedPathwiseMultiProductC2ERKNS_5CloneINS_31MarketModelPathwiseMultiProductEEERKNS1_INS_16ExerciseStrategyINS_10CurveStateEEEEES3_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib33CallSpecifiedPathwiseMultiProductC2ERKNS_5CloneINS_31MarketModelPathwiseMultiProductEEERKNS1_INS_16ExerciseStrategyINS_10CurveStateEEEEES3_(ptr noundef nonnull align 8 dereferenceable(281) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %underlying, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %strategy, ptr nocapture noundef %rebate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib33CallSpecifiedPathwiseMultiProductC2ERKNS_5CloneINS_31MarketModelPathwiseMultiProductEEERKNS1_INS_16ExerciseStrategyINS_10CurveStateEEEEES3_(ptr noundef nonnull align 8 dereferenceable(281) initializes((0, 16)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %underlying, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %strategy, ptr noundef captures(none) %rebate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i114 = alloca %"class.std::unique_ptr", align 8
   %ref.tmp.i50 = alloca %"class.std::unique_ptr.3", align 8
@@ -2271,7 +2271,7 @@ unreachable:                                      ; preds = %invoke.cont126, %in
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN8QuantLib20EvolutionDescriptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2724,7 +2724,7 @@ _ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
@@ -2813,7 +2813,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit26:                  ; preds = %_ZNSt6vectorIdSaIdE
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @_ZN8QuantLib20EvolutionDescriptionC1ERKSt6vectorIdSaIdEES5_RKS1_ISt4pairImmESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #3
 
@@ -3407,7 +3407,7 @@ _ZNSt12_Vector_baseISt8valarrayIbESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8QuantLib33CallSpecifiedPathwiseMultiProduct15alreadyDeflatedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(281) %this) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK8QuantLib33CallSpecifiedPathwiseMultiProduct15alreadyDeflatedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(281) %this) unnamed_addr #0 align 2 {
 entry:
   %underlying_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %underlying_, align 8, !tbaa !6
@@ -3419,7 +3419,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib33CallSpecifiedPathwiseMultiProduct19suggestedNumerairesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.16") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(281) %this) unnamed_addr #0 align 2 {
+define void @_ZNK8QuantLib33CallSpecifiedPathwiseMultiProduct19suggestedNumerairesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.16") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(281) %this) unnamed_addr #0 align 2 {
 entry:
   %underlying_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %underlying_, align 8, !tbaa !6
@@ -3438,7 +3438,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib33CallSpecifiedPathwiseMultiProduct21possibleCashFlowTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(281) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib33CallSpecifiedPathwiseMultiProduct21possibleCashFlowTimesEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(281) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cashFlowTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -3483,7 +3483,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.threa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK8QuantLib33CallSpecifiedPathwiseMultiProduct16numberOfProductsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(281) %this) unnamed_addr #0 align 2 {
+define noundef i64 @_ZNK8QuantLib33CallSpecifiedPathwiseMultiProduct16numberOfProductsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(281) %this) unnamed_addr #0 align 2 {
 entry:
   %underlying_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %underlying_, align 8, !tbaa !6
@@ -3495,7 +3495,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK8QuantLib33CallSpecifiedPathwiseMultiProduct37maxNumberOfCashFlowsPerProductPerStepEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(281) %this) unnamed_addr #0 align 2 {
+define noundef i64 @_ZNK8QuantLib33CallSpecifiedPathwiseMultiProduct37maxNumberOfCashFlowsPerProductPerStepEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(281) %this) unnamed_addr #0 align 2 {
 entry:
   %underlying_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %underlying_, align 8, !tbaa !6
@@ -3514,7 +3514,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib33CallSpecifiedPathwiseMultiProduct5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(281) initializes((216, 217), (272, 280)) %this) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib33CallSpecifiedPathwiseMultiProduct5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(281) initializes((216, 217), (272, 280)) %this) unnamed_addr #0 align 2 {
 entry:
   %underlying_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %underlying_, align 8, !tbaa !6
@@ -3731,7 +3731,7 @@ lor.end:                                          ; preds = %if.then70, %lor.rhs
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib33CallSpecifiedPathwiseMultiProduct5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(281) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib33CallSpecifiedPathwiseMultiProduct5cloneEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(281) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #23
   invoke void @_ZN8QuantLib33CallSpecifiedPathwiseMultiProductC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(281) %call, ptr noundef nonnull align 8 dereferenceable(281) %this)
@@ -4555,7 +4555,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib33CallSpecifiedPathwiseMultiProduct17enableCallabilityEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(281) initializes((280, 281)) %this) local_unnamed_addr #11 align 2 {
+define void @_ZN8QuantLib33CallSpecifiedPathwiseMultiProduct17enableCallabilityEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(281) initializes((280, 281)) %this) local_unnamed_addr #11 align 2 {
 entry:
   %callable_ = getelementptr inbounds nuw i8, ptr %this, i64 280
   store i8 1, ptr %callable_, align 8, !tbaa !11
@@ -4563,7 +4563,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib33CallSpecifiedPathwiseMultiProduct18disableCallabilityEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(281) initializes((280, 281)) %this) local_unnamed_addr #11 align 2 {
+define void @_ZN8QuantLib33CallSpecifiedPathwiseMultiProduct18disableCallabilityEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(281) initializes((280, 281)) %this) local_unnamed_addr #11 align 2 {
 entry:
   %callable_ = getelementptr inbounds nuw i8, ptr %this, i64 280
   store i8 0, ptr %callable_, align 8, !tbaa !11
@@ -4849,7 +4849,7 @@ entry:
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
@@ -4868,7 +4868,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nounwind
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #16
@@ -5283,7 +5283,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPN8QuantLib31MarketModelPathwiseMultiProduct
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #3
 

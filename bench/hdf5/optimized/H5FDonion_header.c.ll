@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [18 x i8] c"checksum mismatch\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5FD__onion_ingest_header(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5FD__onion_ingest_header(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i64 @H5FD_get_eof(ptr noundef %1, i32 noundef 3) #4
   %5 = add i64 %2, 40
   %6 = icmp ult i64 %4, %5
@@ -117,7 +117,7 @@ declare i32 @H5FD_set_eoa(ptr noundef, i32 noundef, i64 noundef) local_unnamed_a
 declare i32 @H5FD_read(ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 41) i64 @H5FD__onion_header_decode(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i64 0, 41) i64 @H5FD__onion_header_decode(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.10, i64 noundef 4) #6
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %8, label %4
@@ -205,7 +205,7 @@ declare i32 @H5_checksum_fletcher32(ptr noundef, i64 noundef) local_unnamed_addr
 declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5FD__onion_write_header(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5FD__onion_write_header(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #5
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %9
@@ -338,7 +338,7 @@ H5FD__onion_header_encode.exit:                   ; preds = %56
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @H5FD__onion_header_encode(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 12)) %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define noundef i64 @H5FD__onion_header_encode(ptr noundef readonly captures(none) %0, ptr noundef initializes((0, 12)) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   store i32 1212434511, ptr %1, align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i8, ptr %0, align 8
@@ -462,7 +462,7 @@ define noundef i64 @H5FD__onion_header_encode(ptr nocapture noundef readonly %0,
 declare i32 @H5FD_write(ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

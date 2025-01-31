@@ -742,7 +742,7 @@ entry:
   %idx.ext = sext i32 %em to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr) #13
-  %call3 = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef %add.ptr, i64 noundef %call) #12
+  %call3 = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull %add.ptr, i64 noundef %call) #12
   ret ptr %call3
 }
 
@@ -772,13 +772,13 @@ entry:
   %conv = trunc i64 %sub1 to i32
   %add.ptr2 = getelementptr inbounds nuw i8, ptr %info, i64 44
   store i32 %conv, ptr %add.ptr2, align 4
-  tail call void @__register_frame(ptr noundef %info) #12
+  tail call void @__register_frame(ptr noundef nonnull %info) #12
   %add.ptr4 = getelementptr inbounds nuw i8, ptr %info, i64 60
   ret ptr %add.ptr4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 2, 8) i32 @err_unwind_jit(i32 noundef %version, i32 noundef %actions, i64 noundef %uexclass, ptr nocapture noundef readonly %uex, ptr noundef %ctx) #0 {
+define internal range(i32 2, 8) i32 @err_unwind_jit(i32 noundef %version, i32 noundef %actions, i64 noundef %uexclass, ptr noundef readonly captures(none) %uex, ptr noundef %ctx) #0 {
 entry:
   %exitno = alloca i32, align 4
   %cmp.not = icmp eq i32 %version, 1
@@ -821,12 +821,12 @@ return:                                           ; preds = %if.end3, %if.then6,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @__register_frame(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_err_deregister_mcode(ptr nocapture noundef readnone %base, i64 noundef %sz, ptr noundef %info) local_unnamed_addr #0 {
+define hidden void @lj_err_deregister_mcode(ptr noundef readnone captures(none) %base, i64 noundef %sz, ptr noundef %info) local_unnamed_addr #0 {
 entry:
   tail call void @__deregister_frame(ptr noundef %info) #12
   ret void
@@ -876,7 +876,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #4
 declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: noreturn nounwind uwtable
 define hidden void @lj_err_mem(ptr noundef %L) local_unnamed_addr #3 {
@@ -1357,7 +1357,7 @@ if.end21:                                         ; preds = %if.then, %entry
 declare hidden ptr @lj_debug_slotname(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden void @lj_err_comp(ptr noundef %L, ptr nocapture noundef readonly %o1, ptr nocapture noundef readonly %o2) local_unnamed_addr #3 {
+define hidden void @lj_err_comp(ptr noundef %L, ptr noundef readonly captures(none) %o1, ptr noundef readonly captures(none) %o2) local_unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %o1, align 8
   %shr = ashr i64 %0, 47
@@ -1698,7 +1698,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @lua_atpanic(ptr nocapture noundef readonly %L, ptr noundef %panicf) local_unnamed_addr #7 {
+define dso_local ptr @lua_atpanic(ptr noundef readonly captures(none) %L, ptr noundef %panicf) local_unnamed_addr #7 {
 entry:
   %glref = getelementptr inbounds nuw i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
@@ -1791,7 +1791,7 @@ declare hidden i64 @lj_trace_unwind(ptr noundef, i64 noundef, ptr noundef) local
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare i32 @_Unwind_RaiseException(ptr noundef) local_unnamed_addr #1
 

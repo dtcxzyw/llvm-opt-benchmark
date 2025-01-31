@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_mpi_long_long_int = external global %struct.ompi_predefined_datatype_t, align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ADIOI_Calc_aggregator(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3, i64 noundef %4, ptr nocapture noundef readnone %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
+define i32 @ADIOI_Calc_aggregator(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3, i64 noundef %4, ptr noundef readnone captures(none) %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
   %8 = sub i64 %1, %2
   %9 = add nsw i64 %8, %4
   %10 = sdiv i64 %9, %4
@@ -79,12 +79,12 @@ define i32 @ADIOI_Calc_aggregator(ptr nocapture noundef readonly %0, i64 noundef
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare i32 @PMPI_Abort(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @ADIOI_Calc_file_domains(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6, i32 noundef %7, ptr nocapture noundef writeonly %8, i32 noundef %9) local_unnamed_addr #0 {
+define void @ADIOI_Calc_file_domains(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef captures(none) %5, ptr noundef writeonly captures(none) %6, i32 noundef %7, ptr noundef writeonly captures(none) %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = load i64, ptr %0, align 8
   %12 = load i64, ptr %1, align 8
   %13 = icmp sgt i32 %2, 1
@@ -260,7 +260,7 @@ define void @ADIOI_Calc_file_domains(ptr nocapture noundef readonly %0, ptr noca
 declare ptr @ADIOI_Malloc_fn(i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @ADIOI_Calc_my_req(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4, ptr nocapture noundef readnone %5, ptr nocapture noundef readonly %6, i64 noundef %7, i32 noundef %8, ptr nocapture noundef writeonly %9, ptr nocapture noundef writeonly initializes((0, 8)) %10, ptr nocapture noundef writeonly %11, ptr nocapture noundef writeonly %12) local_unnamed_addr #0 {
+define void @ADIOI_Calc_my_req(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i64 noundef %4, ptr noundef readnone captures(none) %5, ptr noundef readonly captures(none) %6, i64 noundef %7, i32 noundef %8, ptr noundef writeonly captures(none) %9, ptr noundef writeonly captures(none) initializes((0, 8)) %10, ptr noundef writeonly captures(none) %11, ptr noundef writeonly captures(none) %12) local_unnamed_addr #0 {
   %14 = sext i32 %8 to i64
   %15 = tail call ptr @ADIOI_Calloc_fn(i64 noundef %14, i64 noundef 4, i32 noundef 269, ptr noundef nonnull @.str.1) #6
   store ptr %15, ptr %10, align 8
@@ -692,7 +692,7 @@ ADIOI_Calc_aggregator.exit180:                    ; preds = %199, %.loopexit.i17
 declare ptr @ADIOI_Calloc_fn(i64 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @ADIOI_Calc_others_req(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly initializes((0, 8)) %7) local_unnamed_addr #0 {
+define void @ADIOI_Calc_others_req(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) initializes((0, 8)) %7) local_unnamed_addr #0 {
   %9 = sext i32 %4 to i64
   %10 = shl nsw i64 %9, 2
   %11 = tail call ptr @ADIOI_Malloc_fn(i64 noundef %10, i32 noundef 449, ptr noundef nonnull @.str.1) #6
@@ -876,7 +876,7 @@ declare i32 @PMPI_Isend(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 
 declare i32 @PMPI_Waitall(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @ADIOI_Icalc_others_req(ptr nocapture noundef initializes((24, 28)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define void @ADIOI_Icalc_others_req(ptr noundef captures(none) initializes((24, 28)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -905,7 +905,7 @@ define void @ADIOI_Icalc_others_req(ptr nocapture noundef initializes((24, 28)) 
 declare i32 @MPI_Ialltoall(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @ADIOI_Icalc_others_req_main(ptr nocapture noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @ADIOI_Icalc_others_req_main(ptr noundef captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1125,7 +1125,7 @@ declare i64 @llvm.smax.i64(i64, i64) #3
 declare i64 @llvm.smin.i64(i64, i64) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

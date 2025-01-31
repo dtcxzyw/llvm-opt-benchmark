@@ -209,7 +209,7 @@ $_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderI
 @switch.table._ZN21ReferenceTypeConstant9serializeER19JfrCheckpointWriter = private unnamed_addr constant [5 x ptr] [ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.57], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN26JfrCheckpointThreadClosure9do_threadEP6Thread(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN26JfrCheckpointThreadClosure9do_threadEP6Thread(ptr noundef nonnull align 8 captures(none) dereferenceable(52) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.JfrCheckpointFlush, align 8
   %4 = alloca %class.JfrCheckpointFlush, align 8
   %5 = alloca %class.JfrCheckpointFlush, align 8
@@ -777,7 +777,7 @@ declare noundef i64 @_ZN11JfrThreadId5os_idEPK6Thread(ptr noundef) local_unnamed
 declare noundef i64 @_ZN14JfrThreadGroup15thread_group_idEPK10JavaThreadP6Thread(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20JfrThreadConstantSet9serializeER19JfrCheckpointWriter(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN20JfrThreadConstantSet9serializeER19JfrCheckpointWriter(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.JfrCheckpointFlush, align 8
   %4 = alloca %class.JfrCheckpointThreadClosure, align 8
   %5 = alloca %class.JfrThreadIterator, align 8
@@ -920,7 +920,7 @@ _ZN26JfrCheckpointThreadClosureD2Ev.exit:         ; preds = %64, %65
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22JfrThreadGroupConstant9serializeER19JfrCheckpointWriter(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN22JfrThreadGroupConstant9serializeER19JfrCheckpointWriter(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
   tail call void @_ZN14JfrThreadGroup9serializeER19JfrCheckpointWriter(ptr noundef nonnull align 8 dereferenceable(73) %1) #8
   ret void
 }
@@ -928,7 +928,7 @@ define hidden void @_ZN22JfrThreadGroupConstant9serializeER19JfrCheckpointWriter
 declare void @_ZN14JfrThreadGroup9serializeER19JfrCheckpointWriter(ptr noundef nonnull align 8 dereferenceable(73)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23FlagValueOriginConstant9serializeER19JfrCheckpointWriter(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN23FlagValueOriginConstant9serializeER19JfrCheckpointWriter(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
   tail call void @_ZN19JfrCheckpointWriter11write_countEj(ptr noundef nonnull align 8 dereferenceable(73) %1, i32 noundef 9) #8
   br label %switch.lookup
 
@@ -949,12 +949,12 @@ switch.lookup:                                    ; preds = %2, %switch.lookup
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @_ZN19JfrCheckpointWriter11write_countEj(ptr noundef nonnull align 8 dereferenceable(73), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27MonitorInflateCauseConstant9serializeER19JfrCheckpointWriter(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN27MonitorInflateCauseConstant9serializeER19JfrCheckpointWriter(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
   tail call void @_ZN19JfrCheckpointWriter11write_countEj(ptr noundef nonnull align 8 dereferenceable(73) %1, i32 noundef 7) #8
   br label %3
 
@@ -975,7 +975,7 @@ define hidden void @_ZN27MonitorInflateCauseConstant9serializeER19JfrCheckpointW
 declare noundef ptr @_ZN18ObjectSynchronizer18inflate_cause_nameENS_12InflateCauseE(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15GCCauseConstant9serializeER19JfrCheckpointWriter(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN15GCCauseConstant9serializeER19JfrCheckpointWriter(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
   tail call void @_ZN19JfrCheckpointWriter11write_countEj(ptr noundef nonnull align 8 dereferenceable(73) %1, i32 noundef 34) #8
   br label %3
 
@@ -996,7 +996,7 @@ define hidden void @_ZN15GCCauseConstant9serializeER19JfrCheckpointWriter(ptr no
 declare noundef ptr @_ZN7GCCause9to_stringENS_5CauseE(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14GCNameConstant9serializeER19JfrCheckpointWriter(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN14GCNameConstant9serializeER19JfrCheckpointWriter(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
   tail call void @_ZN19JfrCheckpointWriter11write_countEj(ptr noundef nonnull align 8 dereferenceable(73) %1, i32 noundef 12) #8
   br label %switch.lookup
 
@@ -1017,7 +1017,7 @@ switch.lookup:                                    ; preds = %2, %switch.lookup
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14GCWhenConstant9serializeER19JfrCheckpointWriter(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN14GCWhenConstant9serializeER19JfrCheckpointWriter(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
 _ZN6GCWhen9to_stringENS_4TypeE.exit:
   tail call void @_ZN19JfrCheckpointWriter11write_countEj(ptr noundef nonnull align 8 dereferenceable(73) %1, i32 noundef 2) #8
   tail call void @_ZN19JfrCheckpointWriter9write_keyEm(ptr noundef nonnull align 8 dereferenceable(73) %1, i64 noundef 0) #8
@@ -1028,7 +1028,7 @@ _ZN6GCWhen9to_stringENS_4TypeE.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN26GCThresholdUpdaterConstant9serializeER19JfrCheckpointWriter(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN26GCThresholdUpdaterConstant9serializeER19JfrCheckpointWriter(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
 .critedge:
   tail call void @_ZN19JfrCheckpointWriter11write_countEj(ptr noundef nonnull align 8 dereferenceable(73) %1, i32 noundef 2) #8
   tail call void @_ZN19JfrCheckpointWriter9write_keyEm(ptr noundef nonnull align 8 dereferenceable(73) %1, i64 noundef 0) #8
@@ -1039,7 +1039,7 @@ define hidden void @_ZN26GCThresholdUpdaterConstant9serializeER19JfrCheckpointWr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20MetadataTypeConstant9serializeER19JfrCheckpointWriter(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN20MetadataTypeConstant9serializeER19JfrCheckpointWriter(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
 .critedge:
   tail call void @_ZN19JfrCheckpointWriter11write_countEj(ptr noundef nonnull align 8 dereferenceable(73) %1, i32 noundef 2) #8
   tail call void @_ZN19JfrCheckpointWriter9write_keyEm(ptr noundef nonnull align 8 dereferenceable(73) %1, i64 noundef 0) #8
@@ -1054,7 +1054,7 @@ define hidden void @_ZN20MetadataTypeConstant9serializeER19JfrCheckpointWriter(p
 declare noundef ptr @_ZN9Metaspace18metadata_type_nameENS_12MetadataTypeE(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27MetaspaceObjectTypeConstant9serializeER19JfrCheckpointWriter(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN27MetaspaceObjectTypeConstant9serializeER19JfrCheckpointWriter(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
   tail call void @_ZN19JfrCheckpointWriter11write_countEj(ptr noundef nonnull align 8 dereferenceable(73) %1, i32 noundef 16) #8
   br label %switch.lookup
 
@@ -1075,7 +1075,7 @@ switch.lookup:                                    ; preds = %2, %switch.lookup
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21ReferenceTypeConstant9serializeER19JfrCheckpointWriter(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN21ReferenceTypeConstant9serializeER19JfrCheckpointWriter(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
   tail call void @_ZN19JfrCheckpointWriter11write_countEj(ptr noundef nonnull align 8 dereferenceable(73) %1, i32 noundef 5) #8
   br label %switch.lookup
 
@@ -1096,7 +1096,7 @@ switch.lookup:                                    ; preds = %2, %switch.lookup
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21NarrowOopModeConstant9serializeER19JfrCheckpointWriter(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN21NarrowOopModeConstant9serializeER19JfrCheckpointWriter(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
   tail call void @_ZN19JfrCheckpointWriter11write_countEj(ptr noundef nonnull align 8 dereferenceable(73) %1, i32 noundef 4) #8
   br label %3
 
@@ -1117,7 +1117,7 @@ define hidden void @_ZN21NarrowOopModeConstant9serializeER19JfrCheckpointWriter(
 declare noundef ptr @_ZN14CompressedOops14mode_to_stringENS_4ModeE(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20CodeBlobTypeConstant9serializeER19JfrCheckpointWriter(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN20CodeBlobTypeConstant9serializeER19JfrCheckpointWriter(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
   tail call void @_ZN19JfrCheckpointWriter11write_countEj(ptr noundef nonnull align 8 dereferenceable(73) %1, i32 noundef 4) #8
   br label %3
 
@@ -1146,7 +1146,7 @@ _ZN9CodeCache18get_code_heap_nameE12CodeBlobType.exit: ; preds = %3, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23VMOperationTypeConstant9serializeER19JfrCheckpointWriter(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN23VMOperationTypeConstant9serializeER19JfrCheckpointWriter(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
   tail call void @_ZN19JfrCheckpointWriter11write_countEj(ptr noundef nonnull align 8 dereferenceable(73) %1, i32 noundef 80) #8
   br label %3
 
@@ -1165,7 +1165,7 @@ define hidden void @_ZN23VMOperationTypeConstant9serializeER19JfrCheckpointWrite
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ThreadStateConstant9serializeER19JfrCheckpointWriter(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN19ThreadStateConstant9serializeER19JfrCheckpointWriter(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
   tail call void @_ZN14JfrThreadState9serializeER19JfrCheckpointWriter(ptr noundef nonnull align 8 dereferenceable(73) %1) #8
   ret void
 }
@@ -1173,7 +1173,7 @@ define hidden void @_ZN19ThreadStateConstant9serializeER19JfrCheckpointWriter(pt
 declare void @_ZN14JfrThreadState9serializeER19JfrCheckpointWriter(ptr noundef nonnull align 8 dereferenceable(73)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17JfrThreadConstant10write_nameER19JfrCheckpointWriter(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17JfrThreadConstant10write_nameER19JfrCheckpointWriter(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.JfrCheckpointFlush, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
@@ -1255,7 +1255,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17JfrThreadConstant13write_os_nameER19JfrCheckpointWriterb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(73) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17JfrThreadConstant13write_os_nameER19JfrCheckpointWriterb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(73) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JfrCheckpointFlush, align 8
   %5 = alloca %class.JfrCheckpointFlush, align 8
   br i1 %2, label %6, label %37
@@ -1918,7 +1918,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 declare void @_ZN14JfrThreadGroup9serializeEP19JfrCheckpointWriterm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16BytecodeConstant9serializeER19JfrCheckpointWriter(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN16BytecodeConstant9serializeER19JfrCheckpointWriter(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
   tail call void @_ZN19JfrCheckpointWriter11write_countEj(ptr noundef nonnull align 8 dereferenceable(73) %1, i32 noundef 239) #8
   br label %3
 
@@ -1937,7 +1937,7 @@ define hidden void @_ZN16BytecodeConstant9serializeER19JfrCheckpointWriter(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20CompilerTypeConstant9serializeER19JfrCheckpointWriter(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN20CompilerTypeConstant9serializeER19JfrCheckpointWriter(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
   tail call void @_ZN19JfrCheckpointWriter11write_countEj(ptr noundef nonnull align 8 dereferenceable(73) %1, i32 noundef 4) #8
   br label %_Z17compilertype2name12CompilerType.exit
 
@@ -1956,7 +1956,7 @@ _Z17compilertype2name12CompilerType.exit:         ; preds = %2, %_Z17compilertyp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15NMTTypeConstant9serializeER19JfrCheckpointWriter(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN15NMTTypeConstant9serializeER19JfrCheckpointWriter(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) unnamed_addr #0 align 2 {
   tail call void @_ZN19JfrCheckpointWriter11write_countEj(ptr noundef nonnull align 8 dereferenceable(73) %1, i32 noundef 28) #8
   br label %3
 
@@ -2508,7 +2508,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIiEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
@@ -2680,10 +2680,10 @@ declare noundef zeroext i1 @_ZNK31JfrNonJavaThreadIteratorAdapter8has_nextEv(ptr
 declare noundef ptr @_ZN31JfrNonJavaThreadIteratorAdapter4nextEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

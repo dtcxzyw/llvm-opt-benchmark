@@ -170,7 +170,7 @@ define dso_local ptr @copy_ipcs(i64 noundef %0, ptr noundef %1, ptr noundef %2) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @free_ipcs(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local void @free_ipcs(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @down_write(ptr noundef nonnull %4) #4
   %5 = load i32, ptr %1, align 8
@@ -309,7 +309,7 @@ define internal void @ipcns_put(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -1, 1) i32 @ipcns_install(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -1, 1) i32 @ipcns_install(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %1, i64 -1080
@@ -376,7 +376,7 @@ define internal noundef range(i32 -1, 1) i32 @ipcns_install(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal ptr @ipcns_owner(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal ptr @ipcns_owner(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -443,7 +443,7 @@ declare dso_local zeroext i1 @llist_add_batch(ptr noundef, ptr noundef, ptr noun
 declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @free_ipc(ptr nocapture readnone %0) #0 align 16 {
+define internal void @free_ipc(ptr readnone captures(none) %0) #0 align 16 {
   %2 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @free_ipc_list, ptr null, ptr nonnull elementtype(ptr) @free_ipc_list) #4, !srcloc !12
   %3 = getelementptr i8, ptr %2, i64 -1072
   %4 = icmp eq ptr %3, inttoptr (i64 -1072 to ptr)

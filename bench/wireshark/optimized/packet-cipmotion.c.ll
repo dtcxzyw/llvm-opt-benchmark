@@ -1053,7 +1053,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.729 = private unnamed_addr constant [33 x i8] c"Set Axis Attribute List Response\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_node_control(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_node_control(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @hf_cip_node_control, align 4
   %8 = load i32, ptr @ett_node_control, align 4
   %9 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @dissect_node_control.bits, i32 noundef -2147483648) #4
@@ -1061,7 +1061,7 @@ define internal noundef i32 @dissect_node_control(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_node_status(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_node_status(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @hf_cip_node_status, align 4
   %8 = load i32, ptr @ett_node_status, align 4
   %9 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @dissect_node_status.bits, i32 noundef -2147483648) #4
@@ -1069,7 +1069,7 @@ define internal noundef i32 @dissect_node_status(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_time_data_set(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_time_data_set(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @hf_cip_time_data_set, align 4
   %8 = load i32, ptr @ett_time_data_set, align 4
   %9 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @dissect_time_data_set.bits, i32 noundef -2147483648) #4
@@ -1077,7 +1077,7 @@ define internal noundef i32 @dissect_time_data_set(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_connection_configuration_bits(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_connection_configuration_bits(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @hf_connection_configuration_bits, align 4
   %8 = load i32, ptr @ett_connection_configuration_bits, align 4
   %9 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @dissect_connection_configuration_bits.bits, i32 noundef -2147483648) #4
@@ -1085,7 +1085,7 @@ define internal noundef i32 @dissect_connection_configuration_bits(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_feedback_mode(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_feedback_mode(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @hf_cip_feedback, align 4
   %8 = load i32, ptr @ett_feedback_mode, align 4
   %9 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @dissect_feedback_mode.bits, i32 noundef -2147483648) #4
@@ -1093,7 +1093,7 @@ define internal noundef i32 @dissect_feedback_mode(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_event_checking_control(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_event_checking_control(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @hf_cip_event_checking, align 4
   %8 = load i32, ptr @ett_event_check_ctrl, align 4
   %9 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @dissect_event_checking_control.bits, i32 noundef -2147483648) #4
@@ -1101,7 +1101,7 @@ define internal noundef i32 @dissect_event_checking_control(ptr nocapture readno
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_event_checking_status(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_event_checking_status(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @hf_cip_event_status, align 4
   %8 = load i32, ptr @ett_event_check_sts, align 4
   %9 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @dissect_event_checking_status.bits, i32 noundef -2147483648) #4
@@ -1109,7 +1109,7 @@ define internal noundef i32 @dissect_event_checking_status(ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_control_status(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_control_status(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @hf_cip_control_status, align 4
   %8 = load i32, ptr @ett_control_status, align 4
   %9 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @dissect_control_status.bits, i32 noundef -2147483648) #4
@@ -1117,7 +1117,7 @@ define internal noundef i32 @dissect_control_status(ptr nocapture readnone %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_actual_data_set_bits(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_actual_data_set_bits(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @hf_cip_act_data_set, align 4
   %8 = load i32, ptr @ett_actual_data_set, align 4
   %9 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @dissect_actual_data_set_bits.bits, i32 noundef -2147483648) #4
@@ -1125,7 +1125,7 @@ define internal noundef i32 @dissect_actual_data_set_bits(ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_command_data_set_bits(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_command_data_set_bits(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @hf_cip_cmd_data_set, align 4
   %8 = load i32, ptr @ett_command_data_set, align 4
   %9 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @dissect_command_data_set_bits.bits, i32 noundef -2147483648) #4
@@ -1133,7 +1133,7 @@ define internal noundef i32 @dissect_command_data_set_bits(ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_command_control(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_command_control(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @hf_cip_command_control, align 4
   %8 = load i32, ptr @ett_command_control, align 4
   %9 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @dissect_command_control.bits, i32 noundef -2147483648) #4
@@ -1141,7 +1141,7 @@ define internal noundef i32 @dissect_command_control(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_status_data_set_bits(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_status_data_set_bits(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @hf_cip_sts_data_set, align 4
   %8 = load i32, ptr @ett_status_data_set, align 4
   %9 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @dissect_status_data_set_bits.bits, i32 noundef -2147483648) #4
@@ -1149,7 +1149,7 @@ define internal noundef i32 @dissect_status_data_set_bits(ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_axis_status(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_axis_status(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @hf_cip_axis_status, align 4
   %8 = load i32, ptr @ett_axis_status_set, align 4
   %9 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @dissect_axis_status.bits, i32 noundef -2147483648) #4
@@ -1157,7 +1157,7 @@ define internal noundef i32 @dissect_axis_status(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_axis_status2(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_axis_status2(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @hf_cip_axis_status2, align 4
   %8 = load i32, ptr @ett_axis_status_set, align 4
   %9 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @dissect_axis_status2.bits, i32 noundef -2147483648) #4
@@ -1165,7 +1165,7 @@ define internal noundef i32 @dissect_axis_status2(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_motion_configuration_block(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr nocapture noundef readnone %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_motion_configuration_block(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef readnone captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @ett_configuration_block, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %4, i32 noundef 0, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.20) #4
@@ -2545,7 +2545,7 @@ dissect_devce_service.exit:                       ; preds = %644, %dissect_get_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_cipmotion3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_cipmotion3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.cip_conn_info, align 8
   %6 = alloca %struct.cip_io_data_input, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %5, i8 0, i64 240, i1 false)
@@ -2700,13 +2700,13 @@ declare i32 @dissect_cip_set_attribute_list_rsp(ptr noundef, ptr noundef, ptr no
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

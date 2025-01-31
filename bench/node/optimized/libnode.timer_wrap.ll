@@ -257,7 +257,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @uv_unref(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node15TimerWrapHandle4StopEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node15TimerWrapHandle4StopEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
   %timer_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %timer_, align 8
@@ -371,7 +371,7 @@ _ZN4node15TimerWrapHandle5CloseEv.exit:           ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node15TimerWrapHandle3RefEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node15TimerWrapHandle3RefEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
   %timer_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %timer_, align 8
@@ -393,7 +393,7 @@ if.end:                                           ; preds = %if.end.i, %if.then,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node15TimerWrapHandle5UnrefEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node15TimerWrapHandle5UnrefEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
   %timer_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %timer_, align 8
@@ -415,7 +415,7 @@ if.end:                                           ; preds = %if.end.i, %if.then,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node15TimerWrapHandle6UpdateEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %interval, i64 noundef %repeat) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node15TimerWrapHandle6UpdateEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %interval, i64 noundef %repeat) local_unnamed_addr #3 align 2 {
 entry:
   %timer_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %timer_, align 8
@@ -437,7 +437,7 @@ if.end:                                           ; preds = %if.end.i, %if.then,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node15TimerWrapHandle10MemoryInfoEPNS_13MemoryTrackerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %tracker) unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4node15TimerWrapHandle10MemoryInfoEPNS_13MemoryTrackerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %tracker) unnamed_addr #3 align 2 {
 entry:
   %timer_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %timer_, align 8
@@ -1638,7 +1638,7 @@ _ZNSt10_HashtableIPKN4node14MemoryRetainerESt4pairIKS3_PNS0_18MemoryRetainerNode
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args) local_unnamed_addr #3 comdat align 2 {
@@ -1838,7 +1838,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 declare void @uv_close(ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -1873,10 +1873,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12

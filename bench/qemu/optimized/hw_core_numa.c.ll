@@ -109,7 +109,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @parse_numa_hmat_lb(ptr nocapture noundef %numa_state, ptr nocapture noundef readonly %node, ptr noundef %errp) local_unnamed_addr #1 {
+define dso_local void @parse_numa_hmat_lb(ptr noundef captures(none) %numa_state, ptr noundef readonly captures(none) %node, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %lb_data = alloca %struct.HMAT_LB_Data, align 8
   %nodes = getelementptr inbounds nuw i8, ptr %numa_state, i64 8
@@ -457,7 +457,7 @@ return:                                           ; preds = %if.end233, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
@@ -472,7 +472,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare ptr @g_array_append_vals(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @parse_numa_hmat_cache(ptr nocapture noundef readonly %ms, ptr nocapture noundef readonly %node, ptr noundef %errp) local_unnamed_addr #1 {
+define dso_local void @parse_numa_hmat_cache(ptr noundef readonly captures(none) %ms, ptr noundef readonly captures(none) %node, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %numa_state = getelementptr inbounds nuw i8, ptr %ms, i64 336
   %0 = load ptr, ptr %numa_state, align 8
@@ -612,7 +612,7 @@ return:                                           ; preds = %if.end147, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @set_numa_options(ptr noundef %ms, ptr noundef %object, ptr noundef %errp) local_unnamed_addr #1 {
@@ -776,7 +776,7 @@ sw.epilog:                                        ; preds = %if.end33.i, %if.the
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parse_numa_node(ptr noundef %ms, ptr nocapture noundef readonly %node, ptr noundef %errp) unnamed_addr #1 {
+define internal fastcc void @parse_numa_node(ptr noundef %ms, ptr noundef readonly captures(none) %node, ptr noundef %errp) unnamed_addr #1 {
 entry:
   %err = alloca ptr, align 8
   %props = alloca %struct.CpuInstanceProperties, align 8
@@ -1442,7 +1442,7 @@ return:                                           ; preds = %if.end14, %entry, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @numa_cpu_pre_plug(ptr nocapture noundef readonly %slot, ptr noundef %dev, ptr noundef %errp) local_unnamed_addr #1 {
+define dso_local void @numa_cpu_pre_plug(ptr noundef readonly captures(none) %slot, ptr noundef %dev, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @object_property_get_int(ptr noundef %dev, ptr noundef nonnull @.str.36, ptr noundef nonnull @error_abort) #13
   %0 = and i64 %call, 4294967295
@@ -1482,7 +1482,7 @@ declare i64 @object_property_get_int(ptr noundef, ptr noundef, ptr noundef) loca
 declare zeroext i1 @object_property_set_int(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @query_numa_node_mem(ptr nocapture noundef %node_mem, ptr nocapture noundef readonly %ms) local_unnamed_addr #1 {
+define dso_local void @query_numa_node_mem(ptr noundef captures(none) %node_mem, ptr noundef readonly captures(none) %ms) local_unnamed_addr #1 {
 entry:
   %numa_state = getelementptr inbounds nuw i8, ptr %ms, i64 336
   %0 = load ptr, ptr %numa_state, align 8

@@ -386,21 +386,21 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare i32 @i2d_PUBKEY(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @d2i_SSL_SESSION(ptr noundef %a, ptr nocapture noundef %pp, i64 noundef %length) local_unnamed_addr #0 {
+define ptr @d2i_SSL_SESSION(ptr noundef %a, ptr noundef captures(none) %pp, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @d2i_SSL_SESSION_ex(ptr noundef %a, ptr noundef %pp, i64 noundef %length, ptr noundef null, ptr noundef null)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @d2i_SSL_SESSION_ex(ptr noundef %a, ptr nocapture noundef %pp, i64 noundef %length, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define ptr @d2i_SSL_SESSION_ex(ptr noundef %a, ptr noundef captures(none) %pp, i64 noundef %length, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %data86 = alloca ptr, align 8
@@ -830,7 +830,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare ptr @ssl3_get_cipher_by_id(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i64 @ossl_time_now() local_unnamed_addr #2
 
@@ -843,7 +843,7 @@ declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
 declare ptr @d2i_PUBKEY_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_session_strndup(ptr nocapture noundef nonnull %pdst, ptr noundef readonly %src) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_session_strndup(ptr noundef nonnull captures(none) %pdst, ptr noundef readonly %src) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pdst, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 231) #5
@@ -872,7 +872,7 @@ declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @SSL_SESSION_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @ASN1_item_i2d(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 

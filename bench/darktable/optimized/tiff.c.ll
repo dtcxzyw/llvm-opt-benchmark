@@ -52,7 +52,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef readonly %10, i32 noundef %11) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef readonly %10, i32 noundef %11) local_unnamed_addr #1 {
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i16, align 2
@@ -420,11 +420,11 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
 247:                                              ; preds = %245, %.loopexit187, %92
   %.0..0..0..0.4 = load volatile i16, ptr %15, align 2, !tbaa !33
   %248 = zext i16 %.0..0..0..0.4 to i32
-  %249 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %53, i32 noundef 277, i32 noundef %248) #16
+  %249 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef nonnull %53, i32 noundef 277, i32 noundef %248) #16
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %251 = load i32, ptr %250, align 4, !tbaa !30
   %252 = and i32 %251, 65535
-  %253 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %53, i32 noundef 258, i32 noundef %252) #16
+  %253 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef nonnull %53, i32 noundef 258, i32 noundef %252) #16
   %254 = load i32, ptr %250, align 4, !tbaa !30
   switch i32 %254, label %261 [
     i32 32, label %260
@@ -443,27 +443,27 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
 
 261:                                              ; preds = %260, %255, %247
   %262 = phi i32 [ 3, %260 ], [ 1, %255 ], [ 1, %247 ]
-  %263 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %53, i32 noundef 339, i32 noundef %262) #16
+  %263 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef nonnull %53, i32 noundef 339, i32 noundef %262) #16
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %265 = load i32, ptr %264, align 8, !tbaa !36
-  %266 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %53, i32 noundef 256, i32 noundef %265) #16
+  %266 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef nonnull %53, i32 noundef 256, i32 noundef %265) #16
   %267 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %268 = load i32, ptr %267, align 4, !tbaa !35
-  %269 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %53, i32 noundef 257, i32 noundef %268) #16
+  %269 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef nonnull %53, i32 noundef 257, i32 noundef %268) #16
   %.0..0..0..0.5 = load volatile i16, ptr %15, align 2, !tbaa !33
   %270 = icmp eq i16 %.0..0..0..0.5, 3
   %271 = select i1 %270, i32 2, i32 1
-  %272 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %53, i32 noundef 262, i32 noundef %271) #16
-  %273 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %53, i32 noundef 284, i32 noundef 1) #16
-  %274 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %53, i32 noundef 274, i32 noundef 1) #16
-  %275 = call i32 @TIFFDefaultStripSize(ptr noundef %53, i32 noundef 0) #16
-  %276 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %53, i32 noundef 278, i32 noundef %275) #16
+  %272 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef nonnull %53, i32 noundef 262, i32 noundef %271) #16
+  %273 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef nonnull %53, i32 noundef 284, i32 noundef 1) #16
+  %274 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef nonnull %53, i32 noundef 274, i32 noundef 1) #16
+  %275 = call i32 @TIFFDefaultStripSize(ptr noundef nonnull %53, i32 noundef 0) #16
+  %276 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef nonnull %53, i32 noundef 278, i32 noundef %275) #16
   %277 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.3) #16
   %278 = sitofp i32 %277 to float
   %279 = fpext float %278 to double
-  %280 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %53, i32 noundef 282, double noundef %279) #16
-  %281 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %53, i32 noundef 283, double noundef %279) #16
-  %282 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef %53, i32 noundef 296, i32 noundef 2) #16
+  %280 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef nonnull %53, i32 noundef 282, double noundef %279) #16
+  %281 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef nonnull %53, i32 noundef 283, double noundef %279) #16
+  %282 = call i32 (ptr, i32, ...) @TIFFSetField(ptr noundef nonnull %53, i32 noundef 296, i32 noundef 2) #16
   %283 = load i32, ptr %264, align 8, !tbaa !36
   %.0..0..0..0.6 = load volatile i16, ptr %15, align 2, !tbaa !33
   %284 = zext i16 %.0..0..0..0.6 to i32
@@ -537,7 +537,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
 
 .loopexit167:                                     ; preds = %.preheader166, %.loopexit168, %.preheader169
   %326 = trunc i64 %301 to i32
-  %327 = call i32 @TIFFWriteScanline(ptr noundef %53, ptr noundef nonnull %290, i32 noundef %326, i16 noundef zeroext 0) #16
+  %327 = call i32 @TIFFWriteScanline(ptr noundef nonnull %53, ptr noundef nonnull %290, i32 noundef %326, i16 noundef zeroext 0) #16
   %328 = icmp eq i32 %327, -1
   br i1 %328, label %.loopexit164, label %296
 
@@ -658,7 +658,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
 
 399:                                              ; preds = %.loopexit183, %384, %.preheader184
   %400 = trunc i64 %367 to i32
-  %401 = call i32 @TIFFWriteScanline(ptr noundef %53, ptr noundef nonnull %290, i32 noundef %400, i16 noundef zeroext 0) #16
+  %401 = call i32 @TIFFWriteScanline(ptr noundef nonnull %53, ptr noundef nonnull %290, i32 noundef %400, i16 noundef zeroext 0) #16
   %402 = icmp eq i32 %401, -1
   br i1 %402, label %.loopexit164, label %362
 
@@ -763,7 +763,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
 
 .loopexit173:                                     ; preds = %.preheader172, %.loopexit174, %.preheader175
   %463 = trunc i64 %438 to i32
-  %464 = call i32 @TIFFWriteScanline(ptr noundef %53, ptr noundef nonnull %290, i32 noundef %463, i16 noundef zeroext 0) #16
+  %464 = call i32 @TIFFWriteScanline(ptr noundef nonnull %53, ptr noundef nonnull %290, i32 noundef %463, i16 noundef zeroext 0) #16
   %465 = icmp eq i32 %464, -1
   br i1 %465, label %.loopexit164, label %433
 
@@ -861,7 +861,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
 
 .loopexit161:                                     ; preds = %.preheader160, %.loopexit162, %.preheader163
   %524 = trunc i64 %500 to i32
-  %525 = call i32 @TIFFWriteScanline(ptr noundef %53, ptr noundef nonnull %290, i32 noundef %524, i16 noundef zeroext 0) #16
+  %525 = call i32 @TIFFWriteScanline(ptr noundef nonnull %53, ptr noundef nonnull %290, i32 noundef %524, i16 noundef zeroext 0) #16
   %526 = icmp eq i32 %525, -1
   br i1 %526, label %.loopexit164, label %495
 
@@ -902,7 +902,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   br i1 %548, label %.loopexit162, label %527
 
 .loopexit165:                                     ; preds = %362, %433, %296, %495, %492, %432, %361, %293
-  call void @TIFFClose(ptr noundef %53) #16
+  call void @TIFFClose(ptr noundef nonnull %53) #16
   %549 = icmp eq ptr %5, null
   br i1 %549, label %557, label %550
 
@@ -1661,7 +1661,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @dt_colorspaces_get_output_profile(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1673,7 +1673,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare i32 @g_hash_table_size(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @TIFFOpen(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1695,7 +1695,7 @@ declare i32 @TIFFDefaultStripSize(ptr noundef, i32 noundef) local_unnamed_addr #
 declare i32 @dt_conf_get_int(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare i32 @TIFFWriteScanline(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #3
 
@@ -1708,7 +1708,7 @@ declare void @g_hash_table_iter_init(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @g_hash_table_iter_next(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @dt_dev_get_raster_mask(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1720,12 +1720,12 @@ declare float @llvm.round.f32(float) #6
 declare i32 @TIFFWriteDirectory(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @params_size(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i64 @params_size(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i64 168
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @legacy_params(ptr nocapture noundef readnone %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #9 {
+define noundef ptr @legacy_params(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #9 {
   switch i32 %3, label %73 [
     i32 1, label %7
     i32 2, label %24
@@ -1841,7 +1841,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @get_params(ptr nocapture noundef readnone %0) local_unnamed_addr #9 {
+define noalias noundef ptr @get_params(ptr noundef readnone captures(none) %0) local_unnamed_addr #9 {
   %2 = tail call noalias dereferenceable_or_null(176) ptr @calloc(i64 noundef 1, i64 noundef 176) #18
   %3 = icmp eq ptr %2, null
   br i1 %3, label %15, label %4
@@ -1871,13 +1871,13 @@ define noalias noundef ptr @get_params(ptr nocapture noundef readnone %0) local_
 declare i32 @dt_conf_get_bool(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @free_params(ptr nocapture noundef readnone %0, ptr nocapture noundef %1) local_unnamed_addr #11 {
+define void @free_params(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #11 {
   tail call void @free(ptr noundef %1) #16
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 {
+define noundef range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8, !tbaa !69
@@ -1930,7 +1930,7 @@ declare void @dt_bauhaus_combobox_set(ptr noundef, i32 noundef) local_unnamed_ad
 declare void @dt_bauhaus_slider_set(ptr noundef, float noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @bpp(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define noundef i32 @bpp(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %3 = load i32, ptr %2, align 4, !tbaa !30
   switch i32 %3, label %8 [
@@ -1953,7 +1953,7 @@ define noundef i32 @bpp(ptr nocapture noundef readonly %0) local_unnamed_addr #1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 256, 261) i32 @levels(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define noundef range(i32 256, 261) i32 @levels(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %3 = load i32, ptr %2, align 4, !tbaa !30
   switch i32 %3, label %8 [
@@ -1976,12 +1976,12 @@ define noundef range(i32 256, 261) i32 @levels(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @mime(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef nonnull ptr @mime(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret ptr @.str.10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @extension(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef nonnull ptr @extension(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret ptr @.str.11
 }
 
@@ -1992,12 +1992,12 @@ define ptr @name() local_unnamed_addr #9 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @init(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define void @init(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @cleanup(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define void @cleanup(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret void
 }
 
@@ -2103,7 +2103,7 @@ declare ptr @gtk_box_new(i32 noundef, i32 noundef) local_unnamed_addr #3
 declare ptr @dt_bauhaus_combobox_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @bpp_combobox_changed(ptr noundef %0, ptr nocapture noundef readonly %1) #9 {
+define internal void @bpp_combobox_changed(ptr noundef %0, ptr noundef readonly captures(none) %1) #9 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #16
   %4 = icmp eq i32 %3, 1
   %5 = icmp eq i32 %3, 2
@@ -2125,7 +2125,7 @@ declare ptr @g_type_check_instance_cast(ptr noundef, i64 noundef) local_unnamed_
 declare i64 @gtk_box_get_type() local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal void @pixelformat_combobox_changed(ptr noundef %0, ptr nocapture readnone %1) #9 {
+define internal void @pixelformat_combobox_changed(ptr noundef %0, ptr readnone captures(none) %1) #9 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #16
   tail call void @dt_conf_set_bool(ptr noundef nonnull @.str.6, i32 noundef %3) #16
   ret void
@@ -2140,7 +2140,7 @@ declare void @gtk_widget_set_visible(ptr noundef, i32 noundef) local_unnamed_add
 declare void @gtk_widget_set_no_show_all(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_combobox_changed(ptr noundef %0, ptr nocapture noundef readonly %1) #9 {
+define internal void @compress_combobox_changed(ptr noundef %0, ptr noundef readonly captures(none) %1) #9 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #16
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.7, i32 noundef %3) #16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2163,7 +2163,7 @@ declare i64 @gtk_widget_get_type() local_unnamed_addr #13
 declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_level_changed(ptr noundef %0, ptr nocapture readnone %1) #9 {
+define internal void @compress_level_changed(ptr noundef %0, ptr readnone captures(none) %1) #9 {
   %3 = tail call reassoc nsz arcp contract afn float @dt_bauhaus_slider_get(ptr noundef %0) #16
   %4 = fptosi float %3 to i32
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.8, i32 noundef %4) #16
@@ -2171,14 +2171,14 @@ define internal void @compress_level_changed(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @shortfile_combobox_changed(ptr noundef %0, ptr nocapture readnone %1) #9 {
+define internal void @shortfile_combobox_changed(ptr noundef %0, ptr readnone captures(none) %1) #9 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #16
   tail call void @dt_conf_set_bool(ptr noundef nonnull @.str.9, i32 noundef %3) #16
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @gui_cleanup(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
+define void @gui_cleanup(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8, !tbaa !72
   tail call void @free(ptr noundef %3) #16
@@ -2186,7 +2186,7 @@ define void @gui_cleanup(ptr nocapture noundef readonly %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_reset(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define void @gui_reset(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8, !tbaa !72
   %4 = tail call i32 @dt_confgen_get_int(ptr noundef nonnull @.str.5, i32 noundef 0) #16
@@ -2218,7 +2218,7 @@ define void @gui_reset(ptr nocapture noundef readonly %0) local_unnamed_addr #9 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @flags(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @flags(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 5
 }
 

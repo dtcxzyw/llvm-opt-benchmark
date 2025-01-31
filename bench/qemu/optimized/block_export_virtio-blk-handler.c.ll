@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [9 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @blk_co_pdiscard, ptr @.str.4, ptr @.str.5, i32 212, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_pwritev, ptr @.str.4, ptr @.str.5, i32 168, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @virtio_blk_discard_write_zeroes, ptr @.str.4, ptr @.str.6, i32 53, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_flush, ptr @.str.4, ptr @.str.5, i32 216, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_preadv, ptr @.str.4, ptr @.str.5, i32 147, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_pwrite_zeroes, ptr @.str.4, ptr @.str.5, i32 190, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @virtio_blk_process_req, ptr @.str.4, ptr @.str.6, i32 132, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_get_geometry, ptr @.str.4, ptr @.str.5, i32 83, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @virtio_blk_sect_range_ok, ptr @.str.4, ptr @.str.6, i32 26, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @virtio_blk_process_req(ptr nocapture noundef readonly %handler, ptr noundef %in_iov, ptr noundef %out_iov, i32 noundef %in_num, i32 noundef %out_num) #0 {
+define dso_local i32 @virtio_blk_process_req(ptr noundef readonly captures(none) %handler, ptr noundef %in_iov, ptr noundef %out_iov, i32 noundef %in_num, i32 noundef %out_num) #0 {
 entry:
   %total_sectors.i = alloca i64, align 8
   %out_iov.addr = alloca ptr, align 8
@@ -291,10 +291,10 @@ declare i32 @blk_co_preadv(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i
 declare i32 @blk_co_flush(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 3) i32 @virtio_blk_discard_write_zeroes(ptr nocapture noundef readonly %handler, ptr noundef %iov, i32 noundef %iovcnt, i32 noundef %type) #0 {
+define internal range(i32 0, 3) i32 @virtio_blk_discard_write_zeroes(ptr noundef readonly captures(none) %handler, ptr noundef %iov, i32 noundef %iovcnt, i32 noundef %type) #0 {
 entry:
   %total_sectors.i = alloca i64, align 8
   %desc = alloca %struct.virtio_blk_discard_write_zeroes, align 8
@@ -398,7 +398,7 @@ return:                                           ; preds = %virtio_blk_sect_ran
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i64 @iov_to_buf_full(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -414,10 +414,10 @@ declare i32 @blk_co_pdiscard(ptr noundef, i64 noundef, i64 noundef) #1
 declare i64 @llvm.umin.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -166,7 +166,7 @@ define void @jv_parser_free(ptr noundef initializes((64, 68)) %0) local_unnamed_
 declare void @jv_mem_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @jv_parser_remaining(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @jv_parser_remaining(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %10, label %4
@@ -185,7 +185,7 @@ define i32 @jv_parser_remaining(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @jv_parser_set_buf(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define void @jv_parser_set_buf(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = icmp sgt i32 %2, 0
   br i1 %6, label %.lr.ph, label %.critedge
@@ -1217,7 +1217,7 @@ declare { i64, ptr } @jv_invalid_with_msg(i64, ptr) local_unnamed_addr #1
 declare { i64, ptr } @jv_string(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parser_reset(ptr nocapture noundef initializes((64, 68)) %0) unnamed_addr #0 {
+define internal fastcc void @parser_reset(ptr noundef captures(none) initializes((64, 68)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 2
@@ -1295,7 +1295,7 @@ define internal fastcc void @parser_reset(ptr nocapture noundef initializes((64,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @stream_check_done(ptr nocapture noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @stream_check_done(ptr noundef captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -1394,12 +1394,12 @@ define internal fastcc range(i32 0, 2) i32 @stream_check_done(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @jv_free(i64, ptr) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal { i64, ptr } @make_error(ptr nocapture noundef readonly %0, ptr noundef %1, ...) unnamed_addr #0 {
+define internal { i64, ptr } @make_error(ptr noundef readonly captures(none) %0, ptr noundef %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call { i64, ptr } @jv_string_vfmt(ptr noundef %1, ptr noundef nonnull %3) #8
@@ -1439,7 +1439,7 @@ define internal { i64, ptr } @make_error(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @check_literal(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @check_literal(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -1810,18 +1810,18 @@ define { i64, ptr } @jv_parse_sized(ptr noundef %0, i32 noundef %1) local_unname
 define { i64, ptr } @jv_parse(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
   %3 = trunc i64 %2 to i32
-  %4 = tail call { i64, ptr } @jv_parse_sized_custom_flags(ptr noundef %0, i32 noundef %3, i32 noundef 0)
+  %4 = tail call { i64, ptr } @jv_parse_sized_custom_flags(ptr noundef nonnull %0, i32 noundef %3, i32 noundef 0)
   ret { i64, ptr } %4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define { i64, ptr } @jv_parse_custom_flags(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
   %4 = trunc i64 %3 to i32
-  %5 = tail call { i64, ptr } @jv_parse_sized_custom_flags(ptr noundef %0, i32 noundef %4, i32 noundef %1)
+  %5 = tail call { i64, ptr } @jv_parse_sized_custom_flags(ptr noundef nonnull %0, i32 noundef %4, i32 noundef %1)
   ret { i64, ptr } %5
 }
 
@@ -1834,7 +1834,7 @@ declare i32 @jv_array_length(i64, ptr) local_unnamed_addr #1
 declare { i64, ptr } @jv_array_slice(i64, ptr, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_check_done(ptr nocapture noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_check_done(ptr noundef captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -2986,7 +2986,7 @@ declare { i64, ptr } @jv_true() local_unnamed_addr #1
 declare { i64, ptr } @jv_object() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @push(ptr nocapture noundef %0, i64 %1, ptr %2) unnamed_addr #0 {
+define internal fastcc void @push(ptr noundef captures(none) %0, i64 %1, ptr %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -3046,7 +3046,7 @@ declare void @llvm.va_start.p0(ptr) #6
 declare void @llvm.va_end.p0(ptr) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

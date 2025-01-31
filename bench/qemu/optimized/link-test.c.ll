@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.main = private unnamed_addr constant [29 x i8] c"int main(int, const char **)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @main(i32 noundef %argc, ptr noundef readnone captures(none) %argv) local_unnamed_addr #0 {
 entry:
   %dev = alloca %struct.VuDev, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1464) %dev, i8 0, i64 1464, i1 false)
@@ -34,26 +34,26 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare zeroext i1 @vu_init(ptr noundef, i16 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal void @panic(ptr nocapture readnone %dev, ptr nocapture readnone %err) #3 {
+define internal void @panic(ptr readnone captures(none) %dev, ptr readnone captures(none) %err) #3 {
 entry:
   tail call void @abort() #7
   unreachable
 }
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal void @set_watch(ptr nocapture readnone %dev, i32 %fd, i32 %condition, ptr nocapture readnone %cb, ptr nocapture readnone %data) #3 {
+define internal void @set_watch(ptr readnone captures(none) %dev, i32 %fd, i32 %condition, ptr readnone captures(none) %cb, ptr readnone captures(none) %data) #3 {
 entry:
   tail call void @abort() #7
   unreachable
 }
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal void @remove_watch(ptr nocapture readnone %dev, i32 %fd) #3 {
+define internal void @remove_watch(ptr readnone captures(none) %dev, i32 %fd) #3 {
 entry:
   tail call void @abort() #7
   unreachable

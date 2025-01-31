@@ -109,7 +109,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.73 = private unnamed_addr constant [12 x i8] c"DRb address\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @get_rbm_integer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define hidden void @get_rbm_integer(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call signext i8 @tvb_get_gint8(ptr noundef %0, i32 noundef %1) #4
   %6 = sext i8 %5 to i32
   %7 = icmp eq i8 %5, 0
@@ -213,7 +213,7 @@ declare signext i8 @tvb_get_gint8(ptr noundef, i32 noundef) local_unnamed_addr #
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_rbm_inline(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define hidden void @dissect_rbm_inline(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = load i32, ptr %3, align 4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %7) #4
   %9 = load i32, ptr %3, align 4
@@ -248,7 +248,7 @@ dissect_rbm_header.exit:                          ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rbm_object(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_rbm_object(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -652,7 +652,7 @@ rbm_set_info.exit121:                             ; preds = %172, %173
   br i1 %.not.i131, label %dissect_rbm_rubyobject.exit, label %.lr.ph132
 
 .lr.ph132:                                        ; preds = %rbm_set_info.exit121, %.lr.ph132
-  tail call fastcc void @dissect_rbm_object(ptr noundef %0, ptr noundef %1, ptr noundef %168, ptr noundef nonnull %3, ptr noundef null, ptr noundef null)
+  tail call fastcc void @dissect_rbm_object(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %168, ptr noundef nonnull %3, ptr noundef null, ptr noundef null)
   %177 = load i32, ptr %3, align 4
   %178 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %177) #4
   %.not.i = icmp eq i32 %178, 0
@@ -795,7 +795,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_rbm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_rbm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -834,7 +834,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rbm_integer(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc void @dissect_rbm_integer(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   store i32 0, ptr %6, align 4
@@ -881,7 +881,7 @@ rbm_set_info.exit:                                ; preds = %11, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rbm_hash(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc void @dissect_rbm_hash(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
@@ -979,7 +979,7 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 declare ptr @proto_tree_add_int_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rbm_string_data_trailer(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %7) unnamed_addr #0 {
+define internal fastcc void @dissect_rbm_string_data_trailer(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   store i32 0, ptr %9, align 4
@@ -1043,10 +1043,10 @@ declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

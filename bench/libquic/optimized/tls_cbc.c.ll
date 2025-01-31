@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.env_md_ctx_st = type { ptr, ptr, ptr, ptr }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 -1, 2) i32 @EVP_tls_cbc_remove_padding(ptr nocapture noundef writeonly %out_len, ptr nocapture noundef readonly %in, i32 noundef %in_len, i32 noundef %block_size, i32 noundef %mac_size) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @EVP_tls_cbc_remove_padding(ptr noundef writeonly captures(none) %out_len, ptr noundef readonly captures(none) %in, i32 noundef %in_len, i32 noundef %block_size, i32 noundef %mac_size) local_unnamed_addr #0 {
 entry:
   %add = add i32 %mac_size, 1
   %cmp = icmp ugt i32 %add, %in_len
@@ -71,7 +71,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @EVP_tls_cbc_copy_mac(ptr nocapture noundef writeonly %out, i32 noundef %md_size, ptr nocapture noundef readonly %in, i32 noundef %in_len, i32 noundef %orig_len) local_unnamed_addr #1 {
+define hidden void @EVP_tls_cbc_copy_mac(ptr noundef writeonly captures(none) %out, i32 noundef %md_size, ptr noundef readonly captures(none) %in, i32 noundef %in_len, i32 noundef %orig_len) local_unnamed_addr #1 {
 entry:
   %rotated_mac_buf = alloca [128 x i8], align 16
   %sub = sub i32 %in_len, %md_size
@@ -210,7 +210,7 @@ for.end69:                                        ; preds = %for.body56, %for.co
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @EVP_tls_cbc_record_digest_supported(ptr noundef %md) local_unnamed_addr #3 {
@@ -233,7 +233,7 @@ return:                                           ; preds = %entry, %entry, %ent
 declare i32 @EVP_MD_type(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %md, ptr noundef %md_out, ptr nocapture noundef writeonly %md_out_size, ptr nocapture noundef readonly %header, ptr noundef %data, i64 noundef %data_plus_mac_size, i64 noundef %data_plus_mac_plus_padding_size, ptr nocapture noundef readonly %mac_secret, i32 noundef %mac_secret_length) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %md, ptr noundef %md_out, ptr noundef writeonly captures(none) %md_out_size, ptr noundef readonly captures(none) %header, ptr noundef %data, i64 noundef %data_plus_mac_size, i64 noundef %data_plus_mac_plus_padding_size, ptr noundef readonly captures(none) %mac_secret, i32 noundef %mac_secret_length) local_unnamed_addr #3 {
 entry:
   %md_state = alloca %union.anon, align 8
   %length_bytes = alloca [16 x i8], align 16
@@ -510,7 +510,7 @@ return:                                           ; preds = %for.end181, %if.the
 declare i32 @SHA1_Init(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @tls1_sha1_final_raw(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly initializes((0, 20)) %md_out) unnamed_addr #5 {
+define internal void @tls1_sha1_final_raw(ptr noundef readonly captures(none) %ctx, ptr noundef writeonly captures(none) initializes((0, 20)) %md_out) unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %ctx, align 4
   %shr = lshr i32 %0, 24
@@ -618,7 +618,7 @@ declare void @SHA1_Transform(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @SHA256_Init(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @tls1_sha256_final_raw(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %md_out) unnamed_addr #0 {
+define internal void @tls1_sha256_final_raw(ptr noundef readonly captures(none) %ctx, ptr noundef writeonly captures(none) %md_out) unnamed_addr #0 {
 entry:
   br label %for.body
 
@@ -658,7 +658,7 @@ declare void @SHA256_Transform(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @SHA384_Init(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @tls1_sha512_final_raw(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %md_out) unnamed_addr #0 {
+define internal void @tls1_sha512_final_raw(ptr noundef readonly captures(none) %ctx, ptr noundef writeonly captures(none) %md_out) unnamed_addr #0 {
 entry:
   br label %for.body
 
@@ -716,7 +716,7 @@ for.end:                                          ; preds = %for.body
 declare void @SHA512_Transform(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @EVP_MD_CTX_init(ptr noundef) local_unnamed_addr #4
 

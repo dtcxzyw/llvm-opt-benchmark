@@ -1092,7 +1092,7 @@ return:                                           ; preds = %validate_watcher_id
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_Py_set_localsplus_info(i32 noundef %offset, ptr noundef %name, i8 noundef zeroext %kind, ptr nocapture noundef writeonly %names, ptr nocapture noundef writeonly %kinds) local_unnamed_addr #2 {
+define hidden void @_Py_set_localsplus_info(i32 noundef %offset, ptr noundef %name, i8 noundef zeroext %kind, ptr noundef writeonly captures(none) %names, ptr noundef writeonly captures(none) %kinds) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %name, align 8
   %add.i.i = add i32 %0, 1
@@ -1115,7 +1115,7 @@ _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @_PyCode_Validate(ptr nocapture noundef readonly %con) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyCode_Validate(ptr noundef readonly captures(none) %con) local_unnamed_addr #0 {
 entry:
   %nlocals = alloca i32, align 4
   %argcount = getelementptr inbounds nuw i8, ptr %con, i64 88
@@ -1359,7 +1359,7 @@ return:                                           ; preds = %if.end96, %if.then1
 declare void @_PyErr_BadInternalCall(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @get_localsplus_counts(i64 %names.16.val, ptr nocapture noundef readonly %kinds, ptr nocapture noundef nonnull writeonly %pnlocals, ptr noundef writeonly %pncellvars, ptr noundef writeonly %pnfreevars) unnamed_addr #3 {
+define internal fastcc void @get_localsplus_counts(i64 %names.16.val, ptr noundef readonly captures(none) %kinds, ptr noundef nonnull writeonly captures(none) %pnlocals, ptr noundef writeonly %pncellvars, ptr noundef writeonly %pnfreevars) unnamed_addr #3 {
 entry:
   %cmp2 = icmp sgt i64 %names.16.val, 0
   br i1 %cmp2, label %for.body.lr.ph, label %if.then25
@@ -1437,7 +1437,7 @@ if.end34:                                         ; preds = %if.then33, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyCode_New(ptr nocapture noundef %con) local_unnamed_addr #0 {
+define hidden ptr @_PyCode_New(ptr noundef captures(none) %con) local_unnamed_addr #0 {
 entry:
   %res.i = alloca ptr, align 8
   %names = getelementptr inbounds nuw i8, ptr %con, i64 64
@@ -2105,7 +2105,7 @@ return:                                           ; preds = %if.then1.i.i57, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @intern_string_constants(ptr nocapture noundef %tuple, ptr noundef writeonly %modified) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @intern_string_constants(ptr noundef captures(none) %tuple, ptr noundef writeonly %modified) unnamed_addr #0 {
 entry:
   %v = alloca ptr, align 8
   %tmp_modified = alloca i32, align 4
@@ -2968,7 +2968,7 @@ declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_DecodeFSDefault(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @PyCode_Addr2Line(ptr nocapture noundef readonly %co, i32 noundef %addrq) local_unnamed_addr #4 {
+define dso_local i32 @PyCode_Addr2Line(ptr noundef readonly captures(none) %co, i32 noundef %addrq) local_unnamed_addr #4 {
 entry:
   %bounds = alloca %struct._line_offsets, align 8
   %cmp = icmp slt i32 %addrq, 0
@@ -3008,7 +3008,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_PyCode_InitAddressRange(ptr nocapture noundef readonly %co, ptr nocapture noundef writeonly initializes((0, 12), (16, 20), (24, 40)) %bounds) local_unnamed_addr #5 {
+define hidden noundef i32 @_PyCode_InitAddressRange(ptr noundef readonly captures(none) %co, ptr noundef writeonly captures(none) initializes((0, 12), (16, 20), (24, 40)) %bounds) local_unnamed_addr #5 {
 entry:
   %co_linetable = getelementptr inbounds nuw i8, ptr %co, i64 136
   %0 = load ptr, ptr %co_linetable, align 8
@@ -3033,7 +3033,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @_PyCode_CheckLineNumber(i32 noundef %lasti, ptr nocapture noundef %bounds) local_unnamed_addr #6 {
+define dso_local i32 @_PyCode_CheckLineNumber(i32 noundef %lasti, ptr noundef captures(none) %bounds) local_unnamed_addr #6 {
 entry:
   %ar_end = getelementptr inbounds nuw i8, ptr %bounds, i64 4
   %ar_end.promoted = load i32, ptr %ar_end, align 4
@@ -3261,7 +3261,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_PyLineTable_InitAddressRange(ptr noundef %linetable, i64 noundef %length, i32 noundef %firstlineno, ptr nocapture noundef writeonly initializes((0, 12), (16, 20), (24, 40)) %range) local_unnamed_addr #7 {
+define hidden void @_PyLineTable_InitAddressRange(ptr noundef %linetable, i64 noundef %length, i32 noundef %firstlineno, ptr noundef writeonly captures(none) initializes((0, 12), (16, 20), (24, 40)) %range) local_unnamed_addr #7 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %range, i64 16
   %lo_next = getelementptr inbounds nuw i8, ptr %range, i64 24
@@ -3279,7 +3279,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @_PyLineTable_NextAddressRange(ptr nocapture noundef %range) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @_PyLineTable_NextAddressRange(ptr noundef captures(none) %range) local_unnamed_addr #6 {
 entry:
   %0 = getelementptr i8, ptr %range, i64 24
   %range.val = load ptr, ptr %0, align 8
@@ -3379,7 +3379,7 @@ return:                                           ; preds = %land.rhs.i, %do.bod
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @_PyLineTable_PreviousAddressRange(ptr nocapture noundef %range) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @_PyLineTable_PreviousAddressRange(ptr noundef captures(none) %range) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %range, align 8
   %cmp = icmp slt i32 %0, 1
@@ -3484,7 +3484,7 @@ return:                                           ; preds = %entry, %retreat.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @PyCode_Addr2Location(ptr nocapture noundef readonly %co, i32 noundef %addrq, ptr nocapture noundef writeonly %start_line, ptr nocapture noundef writeonly %start_column, ptr nocapture noundef writeonly %end_line, ptr nocapture noundef writeonly %end_column) local_unnamed_addr #6 {
+define dso_local noundef i32 @PyCode_Addr2Location(ptr noundef readonly captures(none) %co, i32 noundef %addrq, ptr noundef writeonly captures(none) %start_line, ptr noundef writeonly captures(none) %start_column, ptr noundef writeonly captures(none) %end_line, ptr noundef writeonly captures(none) %end_column) local_unnamed_addr #6 {
 entry:
   %bounds = alloca %struct._line_offsets, align 8
   %cmp = icmp slt i32 %addrq, 0
@@ -3601,7 +3601,7 @@ return:                                           ; preds = %get_line_delta.exit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @advance_with_locations(ptr nocapture noundef initializes((0, 4)) %bounds, ptr nocapture noundef writeonly %endline, ptr nocapture noundef writeonly %column, ptr nocapture noundef writeonly %endcolumn) unnamed_addr #6 {
+define internal fastcc void @advance_with_locations(ptr noundef captures(none) initializes((0, 4)) %bounds, ptr noundef writeonly captures(none) %endline, ptr noundef writeonly captures(none) %column, ptr noundef writeonly captures(none) %endcolumn) unnamed_addr #6 {
 entry:
   %lo_next.i = getelementptr inbounds nuw i8, ptr %bounds, i64 24
   %0 = load ptr, ptr %lo_next.i, align 8
@@ -3889,7 +3889,7 @@ Py_DECREF.exit:                                   ; preds = %entry, %if.then1.i,
 declare ptr @PyObject_SelfIter(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lineiter_next(ptr nocapture noundef %li) #0 {
+define internal ptr @lineiter_next(ptr noundef captures(none) %li) #0 {
 entry:
   %line = alloca i32, align 4
   %li_line = getelementptr inbounds nuw i8, ptr %li, i64 24
@@ -4253,7 +4253,7 @@ return:                                           ; preds = %if.then, %if.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @PyUnstable_Code_GetExtra(ptr nocapture noundef readonly %code, i64 noundef %index, ptr nocapture noundef writeonly %extra) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyUnstable_Code_GetExtra(ptr noundef readonly captures(none) %code, i64 noundef %index, ptr noundef writeonly captures(none) %extra) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %code, i64 8
   %code.val = load ptr, ptr %0, align 8
@@ -4294,7 +4294,7 @@ return:                                           ; preds = %if.end6, %if.then5,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @PyUnstable_Code_SetExtra(ptr nocapture noundef %code, i64 noundef %index, ptr noundef %extra) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyUnstable_Code_SetExtra(ptr noundef captures(none) %code, i64 noundef %index, ptr noundef %extra) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -4391,7 +4391,7 @@ return:                                           ; preds = %cond.end, %if.end32
 declare ptr @PyMem_Realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyCode_GetVarnames(ptr nocapture noundef %co) local_unnamed_addr #0 {
+define hidden ptr @_PyCode_GetVarnames(ptr noundef captures(none) %co) local_unnamed_addr #0 {
 entry:
   %_co_cached.i = getelementptr inbounds nuw i8, ptr %co, i64 160
   %0 = load ptr, ptr %_co_cached.i, align 8
@@ -4521,14 +4521,14 @@ return:                                           ; preds = %_Py_NewRef.exit8.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyCode_GetVarnames(ptr nocapture noundef %code) local_unnamed_addr #0 {
+define dso_local ptr @PyCode_GetVarnames(ptr noundef captures(none) %code) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @_PyCode_GetVarnames(ptr noundef %code)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyCode_GetCellvars(ptr nocapture noundef %co) local_unnamed_addr #0 {
+define hidden ptr @_PyCode_GetCellvars(ptr noundef captures(none) %co) local_unnamed_addr #0 {
 entry:
   %_co_cached.i = getelementptr inbounds nuw i8, ptr %co, i64 160
   %0 = load ptr, ptr %_co_cached.i, align 8
@@ -4658,14 +4658,14 @@ return:                                           ; preds = %_Py_NewRef.exit8.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyCode_GetCellvars(ptr nocapture noundef %code) local_unnamed_addr #0 {
+define dso_local ptr @PyCode_GetCellvars(ptr noundef captures(none) %code) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @_PyCode_GetCellvars(ptr noundef %code)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyCode_GetFreevars(ptr nocapture noundef %co) local_unnamed_addr #0 {
+define hidden ptr @_PyCode_GetFreevars(ptr noundef captures(none) %co) local_unnamed_addr #0 {
 entry:
   %_co_cached.i = getelementptr inbounds nuw i8, ptr %co, i64 160
   %0 = load ptr, ptr %_co_cached.i, align 8
@@ -4794,7 +4794,7 @@ return:                                           ; preds = %_Py_NewRef.exit8.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyCode_GetFreevars(ptr nocapture noundef %code) local_unnamed_addr #0 {
+define dso_local ptr @PyCode_GetFreevars(ptr noundef captures(none) %code) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @_PyCode_GetFreevars(ptr noundef %code)
   ret ptr %call
@@ -6024,7 +6024,7 @@ return:                                           ; preds = %if.end.i.i, %done, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @code_new(ptr noundef readonly %type, ptr nocapture noundef readonly %args, ptr noundef %kwargs) #0 {
+define internal ptr @code_new(ptr noundef readonly %type, ptr noundef readonly captures(none) %args, ptr noundef %kwargs) #0 {
 entry:
   %cmp = icmp eq ptr %type, @PyCode_Type
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
@@ -6622,7 +6622,7 @@ declare ptr @PyTuple_Pack(i64 noundef, ...) local_unnamed_addr #1
 declare { double, double } @PyComplex_AsCComplex(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare i32 @_PySet_NextEntry(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -7059,7 +7059,7 @@ declare void @PyErr_FormatUnraisable(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_source_offset_converter(ptr nocapture noundef readonly %value) #0 {
+define internal ptr @_source_offset_converter(ptr noundef readonly captures(none) %value) #0 {
 entry:
   %0 = load i32, ptr %value, align 4
   %cmp = icmp eq i32 %0, -1
@@ -7080,7 +7080,7 @@ declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_localsplus_names(ptr nocapture noundef readonly %co, i8 noundef zeroext range(i8 32, -127) %kind, i32 noundef %num) unnamed_addr #0 {
+define internal fastcc ptr @get_localsplus_names(ptr noundef readonly captures(none) %co, i8 noundef zeroext range(i8 32, -127) %kind, i32 noundef %num) unnamed_addr #0 {
 entry:
   %conv = sext i32 %num to i64
   %call = tail call ptr @PyTuple_New(i64 noundef %conv) #13
@@ -7154,7 +7154,7 @@ declare i64 @PyObject_Hash(ptr noundef) local_unnamed_addr #1
 declare i32 @PyObject_RichCompareBool(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @code_sizeof(ptr nocapture noundef readonly %co, ptr nocapture readnone %_unused_args) #0 {
+define internal ptr @code_sizeof(ptr noundef readonly captures(none) %co, ptr readnone captures(none) %_unused_args) #0 {
 entry:
   %0 = getelementptr i8, ptr %co, i64 8
   %co.val = load ptr, ptr %0, align 8
@@ -7187,7 +7187,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @code_linesiterator(ptr noundef %code, ptr nocapture readnone %_unused_args) #0 {
+define internal ptr @code_linesiterator(ptr noundef %code, ptr readnone captures(none) %_unused_args) #0 {
 entry:
   %call.i = tail call ptr @PyType_GenericAlloc(ptr noundef nonnull @_PyLineIterator, i64 noundef 0) #13
   %cmp.i = icmp eq ptr %call.i, null
@@ -7233,7 +7233,7 @@ new_linesiterator.exit:                           ; preds = %entry, %_Py_NewRef.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @code_positionsiterator(ptr noundef %code, ptr nocapture readnone %_unused_args) #0 {
+define internal ptr @code_positionsiterator(ptr noundef %code, ptr readnone captures(none) %_unused_args) #0 {
 entry:
   %call = tail call ptr @PyType_GenericAlloc(ptr noundef nonnull @_PyPositionsIterator, i64 noundef 0) #13
   %cmp = icmp eq ptr %call, null
@@ -8001,7 +8001,7 @@ exit:                                             ; preds = %if.then1.i.i58.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @code__varname_from_oparg(ptr nocapture noundef readonly %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @code__varname_from_oparg(ptr noundef readonly captures(none) %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -8085,7 +8085,7 @@ declare i32 @PySys_Audit(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @PyTuple_GetItem(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @code_getlnotab(ptr nocapture noundef readonly %code, ptr nocapture readnone %closure) #0 {
+define internal ptr @code_getlnotab(ptr noundef readonly captures(none) %code, ptr readnone captures(none) %closure) #0 {
 entry:
   %bytes.i = alloca ptr, align 8
   %0 = load ptr, ptr @PyExc_DeprecationWarning, align 8
@@ -8400,7 +8400,7 @@ return:                                           ; preds = %entry, %decode_line
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @code_getcodeadaptive(ptr noundef %code, ptr nocapture readnone %closure) #0 {
+define internal ptr @code_getcodeadaptive(ptr noundef %code, ptr readnone captures(none) %closure) #0 {
 entry:
   %co_code_adaptive = getelementptr inbounds nuw i8, ptr %code, i64 200
   %0 = getelementptr i8, ptr %code, i64 16
@@ -8411,28 +8411,28 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @code_getvarnames(ptr nocapture noundef %code, ptr nocapture readnone %closure) #0 {
+define internal ptr @code_getvarnames(ptr noundef captures(none) %code, ptr readnone captures(none) %closure) #0 {
 entry:
   %call = tail call ptr @_PyCode_GetVarnames(ptr noundef %code)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @code_getcellvars(ptr nocapture noundef %code, ptr nocapture readnone %closure) #0 {
+define internal ptr @code_getcellvars(ptr noundef captures(none) %code, ptr readnone captures(none) %closure) #0 {
 entry:
   %call = tail call ptr @_PyCode_GetCellvars(ptr noundef %code)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @code_getfreevars(ptr nocapture noundef %code, ptr nocapture readnone %closure) #0 {
+define internal ptr @code_getfreevars(ptr noundef captures(none) %code, ptr readnone captures(none) %closure) #0 {
 entry:
   %call = tail call ptr @_PyCode_GetFreevars(ptr noundef %code)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @code_getcode(ptr noundef %code, ptr nocapture readnone %closure) #0 {
+define internal ptr @code_getcode(ptr noundef %code, ptr readnone captures(none) %closure) #0 {
 entry:
   %call = tail call ptr @_PyCode_GetCode(ptr noundef %code)
   ret ptr %call
@@ -8445,7 +8445,7 @@ declare i32 @_PyArg_NoKeywords(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @code_new_impl(i32 noundef %argcount, i32 noundef %posonlyargcount, i32 noundef %kwonlyargcount, i32 noundef %nlocals, i32 noundef %stacksize, i32 noundef %flags, ptr noundef %code, ptr noundef %consts, ptr nocapture noundef readonly %names, ptr nocapture noundef readonly %varnames, ptr noundef %filename, ptr noundef %name, ptr noundef %qualname, i32 noundef %firstlineno, ptr noundef %linetable, ptr noundef %exceptiontable, ptr noundef readonly %freevars, ptr noundef readonly %cellvars) unnamed_addr #0 {
+define internal fastcc ptr @code_new_impl(i32 noundef %argcount, i32 noundef %posonlyargcount, i32 noundef %kwonlyargcount, i32 noundef %nlocals, i32 noundef %stacksize, i32 noundef %flags, ptr noundef %code, ptr noundef %consts, ptr noundef readonly captures(none) %names, ptr noundef readonly captures(none) %varnames, ptr noundef %filename, ptr noundef %name, ptr noundef %qualname, i32 noundef %firstlineno, ptr noundef %linetable, ptr noundef %exceptiontable, ptr noundef readonly %freevars, ptr noundef readonly %cellvars) unnamed_addr #0 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, ptr noundef %code, ptr noundef %filename, ptr noundef %name, i32 noundef %argcount, i32 noundef %posonlyargcount, i32 noundef %kwonlyargcount, i32 noundef %nlocals, i32 noundef %stacksize, i32 noundef %flags) #13
   %cmp = icmp slt i32 %call, 0
@@ -8619,7 +8619,7 @@ Py_XDECREF.exit47:                                ; preds = %entry, %if.then2, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @validate_and_copy_tuple(ptr nocapture noundef readonly %tup) unnamed_addr #0 {
+define internal fastcc ptr @validate_and_copy_tuple(ptr noundef readonly captures(none) %tup) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %tup, i64 16
   %tup.val = load i64, ptr %0, align 8
@@ -8717,13 +8717,13 @@ declare ptr @_PyUnicode_Copy(ptr noundef) local_unnamed_addr #1
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12

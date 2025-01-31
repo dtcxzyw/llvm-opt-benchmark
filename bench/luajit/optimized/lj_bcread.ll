@@ -786,7 +786,7 @@ if.then29.i:                                      ; preds = %if.end26.i
   %chunkarg.i = getelementptr inbounds nuw i8, ptr %ls, i64 128
   %20 = load ptr, ptr %chunkarg.i, align 8
   %call32.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #11
-  %call33.i = tail call ptr @lj_str_new(ptr noundef %19, ptr noundef %20, i64 noundef %call32.i) #9
+  %call33.i = tail call ptr @lj_str_new(ptr noundef %19, ptr noundef nonnull %20, i64 noundef %call32.i) #9
   br label %bcread_header.exit
 
 if.else.i:                                        ; preds = %if.end26.i
@@ -1012,7 +1012,7 @@ declare hidden void @lj_state_growstack1(ptr noundef) local_unnamed_addr #1
 declare hidden i32 @lj_buf_ruleb128(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #3
@@ -1029,7 +1029,7 @@ declare hidden ptr @lj_tab_set(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare i32 @luaopen_ffi(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare hidden ptr @lj_strfmt_pushf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -1259,7 +1259,7 @@ do.end:                                           ; preds = %do.cond, %if.end40
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: noreturn
 declare hidden void @lj_err_mem(ptr noundef) local_unnamed_addr #5
@@ -1273,13 +1273,13 @@ declare i16 @llvm.bswap.i16(i16) #6
 declare i32 @llvm.umax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -500,7 +500,7 @@ if.end42:                                         ; preds = %if.end39.thread, %i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #4
@@ -508,7 +508,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #4
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @query_option_descs(ptr nocapture noundef readonly %desc) unnamed_addr #0 {
+define internal fastcc noundef ptr @query_option_descs(ptr noundef readonly captures(none) %desc) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %desc, align 8
   %cmp.not20 = icmp eq ptr %0, null
@@ -667,7 +667,7 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_config_do_parse(ptr noundef %group, ptr noundef %qdict, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define dso_local void @qemu_config_do_parse(ptr noundef %group, ptr noundef %qdict, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   tail call void @qemu_load_module_for_opts(ptr noundef %group) #13
   %0 = load ptr, ptr %opaque, align 8
@@ -715,14 +715,14 @@ return:                                           ; preds = %find_list.exit, %if
 declare ptr @qemu_opts_from_qdict(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_config_parse(ptr nocapture noundef %fp, ptr noundef %lists, ptr noundef %fname, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local i32 @qemu_config_parse(ptr noundef captures(none) %fp, ptr noundef %lists, ptr noundef %fname, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @qemu_config_foreach(ptr noundef %fp, ptr noundef nonnull @qemu_config_do_parse, ptr noundef %lists, ptr noundef %fname, ptr noundef %errp)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @qemu_config_foreach(ptr nocapture noundef %fp, ptr nocapture noundef readonly %cb, ptr noundef %opaque, ptr noundef %fname, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc i32 @qemu_config_foreach(ptr noundef captures(none) %fp, ptr noundef readonly captures(none) %cb, ptr noundef %opaque, ptr noundef %fname, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   %line = alloca [1024 x i8], align 16
@@ -928,7 +928,7 @@ qobject_unref_impl.exit39:                        ; preds = %out_no_loc, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_read_config_file(ptr noundef %filename, ptr nocapture noundef readonly %cb, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local i32 @qemu_read_config_file(ptr noundef %filename, ptr noundef readonly captures(none) %cb, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @fopen64(ptr noundef %filename, ptr noundef nonnull @.str.7)
   %cmp = icmp eq ptr %call, null
@@ -953,7 +953,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 declare void @error_setg_file_open_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -961,10 +961,10 @@ declare void @error_setg_file_open_internal(ptr noundef, ptr noundef, i32 nounde
 declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @qemu_config_parse_qdict(ptr noundef %options, ptr nocapture noundef readonly %lists, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qemu_config_parse_qdict(ptr noundef %options, ptr noundef readonly captures(none) %lists, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %subqdict.i = alloca ptr, align 8
   %list.i = alloca ptr, align 8
@@ -1160,22 +1160,22 @@ declare void @g_slist_free(ptr noundef) local_unnamed_addr #1
 declare ptr @loc_push_none(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare ptr @qdict_new() local_unnamed_addr #1
 
 declare void @qdict_put_str(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #9
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 declare void @loc_set_file(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare ptr @loc_pop(ptr noundef) local_unnamed_addr #1
 
@@ -1206,13 +1206,13 @@ declare void @qdict_unref(ptr noundef) local_unnamed_addr #1
 declare void @qlist_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

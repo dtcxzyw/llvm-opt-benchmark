@@ -19,7 +19,7 @@ define hidden double @getNativeScaleFactor() local_unnamed_addr #0 {
   br i1 %.not.i, label %getScale.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call double @strtod(ptr nocapture noundef nonnull %4, ptr noundef null) #3
+  %6 = tail call double @strtod(ptr noundef nonnull captures(none) %4, ptr noundef null) #3
   %7 = fcmp olt double %6, 1.000000e+00
   br i1 %7, label %getScale.exit, label %8
 
@@ -47,7 +47,7 @@ getScale.exit:                                    ; preds = %3, %5, %8
   br i1 %.not.i2, label %getScale.exit4, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call double @strtod(ptr nocapture noundef nonnull %16, ptr noundef null) #3
+  %18 = tail call double @strtod(ptr noundef nonnull captures(none) %16, ptr noundef null) #3
   %19 = fcmp olt double %18, 1.000000e+00
   br i1 %19, label %getScale.exit4, label %20
 
@@ -62,10 +62,10 @@ getScale.exit4:                                   ; preds = %20, %17, %15, %13
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #2
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #2
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

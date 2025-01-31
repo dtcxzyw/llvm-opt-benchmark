@@ -47,13 +47,13 @@ $_ZTIN4pstd3pmr17NewDeleteResourceE = comdat any
 @_ZN4pstd3pmr15memory_resourceD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4pstd3pmr15memory_resourceD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4pstd3pmr15memory_resourceD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pstd3pmr15memory_resourceD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN4pstd3pmr15memory_resourceD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4pstd3pmr15memory_resourceD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @llvm.trap() #15
   unreachable
@@ -123,7 +123,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4pstd3pmr25monotonic_buffer_resource11do_allocateEmm(ptr nocapture noundef nonnull align 64 dereferenceable(48) %this, i64 noundef %bytes, i64 noundef %align) unnamed_addr #9 align 2 {
+define dso_local noundef ptr @_ZN4pstd3pmr25monotonic_buffer_resource11do_allocateEmm(ptr noundef nonnull align 64 captures(none) dereferenceable(48) %this, i64 noundef %bytes, i64 noundef %align) unnamed_addr #9 align 2 {
 entry:
   %block_size = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %block_size, align 16
@@ -396,7 +396,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 declare i32 @posix_memalign(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPvSt11align_val_t(ptr noundef, i64 noundef) local_unnamed_addr #10

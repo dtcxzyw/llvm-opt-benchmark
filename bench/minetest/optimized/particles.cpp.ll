@@ -501,7 +501,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { <2 x float>, float } @_ZNK18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EE11interpolateEfRKS5_(ptr noundef nonnull align 8 dereferenceable(20) %this, float noundef %fac, ptr noundef nonnull align 8 dereferenceable(20) %against) unnamed_addr #4 comdat align 2 {
@@ -536,10 +536,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZNK18ParticleParamTypes15RangedParameterINS_15VectorParameterIN3irr4core8vector3dIfEELm3EEEE10pickWithinEv(ptr dead_on_unwind noalias writable sret(%"struct.ParticleParamTypes::VectorParameter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(52) %this) local_unnamed_addr #4 comdat align 2 {
@@ -2105,7 +2105,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local <2 x float> @_ZN18ParticleParamTypes18pickParameterValueEPfN3irr4core8vector2dIfEES4_(ptr nocapture noundef readonly %f, <2 x float> %a.coerce, <2 x float> %b.coerce) local_unnamed_addr #9 {
+define dso_local <2 x float> @_ZN18ParticleParamTypes18pickParameterValueEPfN3irr4core8vector2dIfEES4_(ptr noundef readonly captures(none) %f, <2 x float> %a.coerce, <2 x float> %b.coerce) local_unnamed_addr #9 {
 entry:
   %0 = load <2 x float>, ptr %f, align 4, !tbaa !8
   %1 = fsub nsz <2 x float> %b.coerce, %a.coerce
@@ -2114,7 +2114,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { <2 x float>, float } @_ZN18ParticleParamTypes18pickParameterValueEPfN3irr4core8vector3dIfEES4_(ptr nocapture noundef readonly %f, <2 x float> %a.coerce0, float %a.coerce1, <2 x float> %b.coerce0, float %b.coerce1) local_unnamed_addr #9 {
+define dso_local { <2 x float>, float } @_ZN18ParticleParamTypes18pickParameterValueEPfN3irr4core8vector3dIfEES4_(ptr noundef readonly captures(none) %f, <2 x float> %a.coerce0, float %a.coerce1, <2 x float> %b.coerce0, float %b.coerce1) local_unnamed_addr #9 {
 entry:
   %0 = load <2 x float>, ptr %f, align 4, !tbaa !8
   %1 = fsub nsz <2 x float> %b.coerce0, %a.coerce0
@@ -2181,7 +2181,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRh(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %v) local_unnamed_addr #7 {
+define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRh(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %v) local_unnamed_addr #7 {
 entry:
   %buf.i = alloca [1 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i) #25
@@ -2207,7 +2207,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i8 @_ZN18ParticleParamTypes18pickParameterValueEPfhh(ptr nocapture noundef readonly %f, i8 noundef zeroext %a, i8 noundef zeroext %b) local_unnamed_addr #12 {
+define dso_local noundef zeroext i8 @_ZN18ParticleParamTypes18pickParameterValueEPfhh(ptr noundef readonly captures(none) %f, i8 noundef zeroext %a, i8 noundef zeroext %b) local_unnamed_addr #12 {
 entry:
   %0 = load float, ptr %f, align 4, !tbaa !8
   %conv.i = zext i8 %a to i32
@@ -2232,7 +2232,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRa(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %v) local_unnamed_addr #7 {
+define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRa(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %v) local_unnamed_addr #7 {
 entry:
   %buf.i = alloca [1 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i) #25
@@ -2258,7 +2258,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef signext i8 @_ZN18ParticleParamTypes18pickParameterValueEPfaa(ptr nocapture noundef readonly %f, i8 noundef signext %a, i8 noundef signext %b) local_unnamed_addr #12 {
+define dso_local noundef signext i8 @_ZN18ParticleParamTypes18pickParameterValueEPfaa(ptr noundef readonly captures(none) %f, i8 noundef signext %a, i8 noundef signext %b) local_unnamed_addr #12 {
 entry:
   %0 = load float, ptr %f, align 4, !tbaa !8
   %conv.i = sext i8 %a to i32
@@ -2284,7 +2284,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRt(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %v) local_unnamed_addr #7 {
+define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRt(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(2) initializes((0, 2)) %v) local_unnamed_addr #7 {
 entry:
   %buf.i = alloca [2 x i8], align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i) #25
@@ -2311,7 +2311,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i16 @_ZN18ParticleParamTypes18pickParameterValueEPftt(ptr nocapture noundef readonly %f, i16 noundef zeroext %a, i16 noundef zeroext %b) local_unnamed_addr #12 {
+define dso_local noundef zeroext i16 @_ZN18ParticleParamTypes18pickParameterValueEPftt(ptr noundef readonly captures(none) %f, i16 noundef zeroext %a, i16 noundef zeroext %b) local_unnamed_addr #12 {
 entry:
   %0 = load float, ptr %f, align 4, !tbaa !8
   %conv.i = zext i16 %a to i32
@@ -2337,7 +2337,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRs(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %v) local_unnamed_addr #7 {
+define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRs(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(2) initializes((0, 2)) %v) local_unnamed_addr #7 {
 entry:
   %buf.i = alloca [2 x i8], align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %buf.i) #25
@@ -2364,7 +2364,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef signext i16 @_ZN18ParticleParamTypes18pickParameterValueEPfss(ptr nocapture noundef readonly %f, i16 noundef signext %a, i16 noundef signext %b) local_unnamed_addr #12 {
+define dso_local noundef signext i16 @_ZN18ParticleParamTypes18pickParameterValueEPfss(ptr noundef readonly captures(none) %f, i16 noundef signext %a, i16 noundef signext %b) local_unnamed_addr #12 {
 entry:
   %0 = load float, ptr %f, align 4, !tbaa !8
   %conv.i = sext i16 %a to i32
@@ -2390,7 +2390,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRj(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %v) local_unnamed_addr #7 {
+define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRj(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %v) local_unnamed_addr #7 {
 entry:
   %buf.i = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i) #25
@@ -2415,7 +2415,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZN18ParticleParamTypes18pickParameterValueEPfjj(ptr nocapture noundef readonly %f, i32 noundef %a, i32 noundef %b) local_unnamed_addr #12 {
+define dso_local noundef i32 @_ZN18ParticleParamTypes18pickParameterValueEPfjj(ptr noundef readonly captures(none) %f, i32 noundef %a, i32 noundef %b) local_unnamed_addr #12 {
 entry:
   %0 = load float, ptr %f, align 4, !tbaa !8
   %conv.i = uitofp i32 %a to float
@@ -2439,7 +2439,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRi(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %v) local_unnamed_addr #7 {
+define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRi(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %v) local_unnamed_addr #7 {
 entry:
   %buf.i = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i) #25
@@ -2464,7 +2464,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZN18ParticleParamTypes18pickParameterValueEPfii(ptr nocapture noundef readonly %f, i32 noundef %a, i32 noundef %b) local_unnamed_addr #12 {
+define dso_local noundef i32 @_ZN18ParticleParamTypes18pickParameterValueEPfii(ptr noundef readonly captures(none) %f, i32 noundef %a, i32 noundef %b) local_unnamed_addr #12 {
 entry:
   %0 = load float, ptr %f, align 4, !tbaa !8
   %conv.i = sitofp i32 %a to float
@@ -2487,7 +2487,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRf(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %v) local_unnamed_addr #7 {
+define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRf(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %v) local_unnamed_addr #7 {
 entry:
   %buf.i = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buf.i) #25
@@ -2508,7 +2508,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZN18ParticleParamTypes18pickParameterValueEPfff(ptr nocapture noundef readonly %f, float noundef %a, float noundef %b) local_unnamed_addr #12 {
+define dso_local noundef float @_ZN18ParticleParamTypes18pickParameterValueEPfff(ptr noundef readonly captures(none) %f, float noundef %a, float noundef %b) local_unnamed_addr #12 {
 entry:
   %0 = load float, ptr %f, align 4, !tbaa !8
   %sub.i = fsub nsz float %b, %a
@@ -2532,7 +2532,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRN3irr4core8vector2dIfEE(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %v) local_unnamed_addr #4 {
+define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRN3irr4core8vector2dIfEE(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %v) local_unnamed_addr #4 {
 entry:
   %buf.i = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i) #25
@@ -2566,7 +2566,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRN3irr4core8vector3dIfEE(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %v) local_unnamed_addr #4 {
+define dso_local void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRN3irr4core8vector3dIfEE(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %v) local_unnamed_addr #4 {
 entry:
   %buf.i = alloca [12 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i) #25
@@ -3724,7 +3724,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
@@ -3809,7 +3809,7 @@ _ZN13BaseExceptionD2Ev.exit:                      ; preds = %if.then.i.i.i, %_ZN
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) local_unnamed_addr #0
 

@@ -267,7 +267,7 @@ return:                                           ; preds = %if.end, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @run_script(i32 noundef %script_idx, ptr nocapture noundef readonly %script) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @run_script(i32 noundef %script_idx, ptr noundef readonly captures(none) %script) unnamed_addr #0 {
 entry:
   %frame_type.i61 = alloca i64, align 8
   %frame_type.i = alloca i64, align 8
@@ -1417,7 +1417,7 @@ declare i32 @ossl_quic_txfc_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_quic_rxfc_init(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @fake_now(ptr nocapture readnone %arg) #0 {
+define internal i64 @fake_now(ptr readnone captures(none) %arg) #0 {
 entry:
   %call = tail call i64 @ossl_time_now() #8
   ret i64 %call
@@ -1540,7 +1540,7 @@ for.end18:                                        ; preds = %for.body14
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @BIO_new_bio_dgram_pair(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1557,7 +1557,7 @@ declare ptr @ossl_ackm_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef, p
 declare i32 @ossl_quic_stream_map_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @ossl_quic_tx_packetiser_new(ptr noundef) local_unnamed_addr #1
 
@@ -1574,7 +1574,7 @@ declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32
 declare i32 @test_uint_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @ossl_quic_conn_id_eq(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @ossl_quic_conn_id_eq(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %a, align 1
   %1 = load i8, ptr %b, align 1
@@ -1626,7 +1626,7 @@ declare void @ossl_quic_demux_free(ptr noundef) local_unnamed_addr #1
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @schedule_handshake_done(ptr nocapture noundef readonly %h) #0 {
+define internal noundef i32 @schedule_handshake_done(ptr noundef readonly captures(none) %h) #0 {
 entry:
   %0 = load ptr, ptr %h, align 8
   tail call void @ossl_quic_tx_packetiser_schedule_handshake_done(ptr noundef %0) #8
@@ -1636,7 +1636,7 @@ entry:
 declare void @ossl_quic_tx_packetiser_schedule_handshake_done(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @schedule_ack_eliciting_app(ptr nocapture noundef readonly %h) #0 {
+define internal noundef i32 @schedule_ack_eliciting_app(ptr noundef readonly captures(none) %h) #0 {
 entry:
   %0 = load ptr, ptr %h, align 8
   tail call void @ossl_quic_tx_packetiser_schedule_ack_eliciting(ptr noundef %0, i32 noundef 2) #8
@@ -1678,7 +1678,7 @@ declare i32 @ossl_quic_rxfc_on_rx_stream_frame(ptr noundef, i64 noundef, i32 nou
 declare i32 @ossl_quic_rxfc_on_retire(ptr noundef, i64 noundef, i64) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @schedule_cfq_new_conn_id(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @schedule_cfq_new_conn_id(ptr noundef readonly captures(none) %h) #0 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %l = alloca i64, align 8
@@ -1796,7 +1796,7 @@ declare i32 @WPACKET_get_total_written(ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @ossl_quic_cfq_add_frame(ptr noundef, i32 noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @free_buf_mem(ptr nocapture readnone %buf, i64 %buf_len, ptr noundef %arg) #0 {
+define internal void @free_buf_mem(ptr readnone captures(none) %buf, i64 %buf_len, ptr noundef %arg) #0 {
 entry:
   tail call void @BUF_MEM_free(ptr noundef %arg) #8
   ret void
@@ -1805,7 +1805,7 @@ entry:
 declare void @BUF_MEM_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @schedule_cfq_new_token(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @schedule_cfq_new_token(ptr noundef readonly captures(none) %h) #0 {
 entry:
   %wpkt = alloca %struct.wpacket_st, align 8
   %l = alloca i64, align 8
@@ -1865,7 +1865,7 @@ if.end29:                                         ; preds = %if.then28, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @check_cfq_new_token(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @check_cfq_new_token(ptr noundef readonly captures(none) %h) #0 {
 entry:
   %frame = getelementptr inbounds nuw i8, ptr %h, i64 1080
   %0 = load ptr, ptr %frame, align 8
@@ -1880,7 +1880,7 @@ entry:
 declare i32 @ossl_quic_wire_encode_frame_new_token(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @schedule_ack(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @schedule_ack(ptr noundef readonly captures(none) %h) #0 {
 entry:
   %rx_pkt = alloca %struct.ossl_ackm_rx_pkt_st, align 8
   %0 = getelementptr inbounds nuw i8, ptr %rx_pkt, i64 8
@@ -1920,7 +1920,7 @@ return:                                           ; preds = %for.cond, %for.body
 declare i32 @ossl_ackm_on_rx_packet(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @check_stream_9(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @check_stream_9(ptr noundef readonly captures(none) %h) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %h, i64 1104
   %0 = load ptr, ptr %data, align 8
@@ -1933,7 +1933,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @check_stream_10a(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @check_stream_10a(ptr noundef readonly captures(none) %h) #0 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %h, i64 1096
   %0 = load i64, ptr %len, align 8
@@ -1969,7 +1969,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @check_stream_10b(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @check_stream_10b(ptr noundef readonly captures(none) %h) #0 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %h, i64 1096
   %0 = load i64, ptr %len, align 8
@@ -2005,7 +2005,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @check_stream_10c(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @check_stream_10c(ptr noundef readonly captures(none) %h) #0 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %h, i64 1096
   %0 = load i64, ptr %len, align 8
@@ -2036,7 +2036,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @check_stream_10d(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @check_stream_10d(ptr noundef readonly captures(none) %h) #0 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %h, i64 1096
   %0 = load i64, ptr %len, align 8
@@ -2071,7 +2071,7 @@ declare i32 @test_uint64_t_ge(ptr noundef, i32 noundef, ptr noundef, ptr noundef
 declare i32 @test_uint64_t_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @check_stream_12(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @check_stream_12(ptr noundef readonly captures(none) %h) #0 {
 entry:
   %frame = getelementptr inbounds nuw i8, ptr %h, i64 1080
   %0 = load i64, ptr %frame, align 8
@@ -2093,7 +2093,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @check_stream_13(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @check_stream_13(ptr noundef readonly captures(none) %h) #0 {
 entry:
   %frame = getelementptr inbounds nuw i8, ptr %h, i64 1080
   %0 = load i64, ptr %frame, align 8
@@ -2122,7 +2122,7 @@ return:                                           ; preds = %lor.lhs.false4, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @gen_conn_close(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @gen_conn_close(ptr noundef readonly captures(none) %h) #0 {
 entry:
   %f = alloca %struct.ossl_quic_frame_conn_close_st, align 8
   store i64 0, ptr %f, align 8
@@ -2145,7 +2145,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @check_14(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @check_14(ptr noundef readonly captures(none) %h) #0 {
 entry:
   %frame = getelementptr inbounds nuw i8, ptr %h, i64 1080
   %bf.load = load i8, ptr %frame, align 8
@@ -2187,7 +2187,7 @@ return:                                           ; preds = %lor.lhs.false8, %en
 declare i32 @ossl_quic_tx_packetiser_schedule_conn_close(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gen_probe_initial(ptr nocapture noundef readonly %h) #0 {
+define internal noundef i32 @gen_probe_initial(ptr noundef readonly captures(none) %h) #0 {
 entry:
   %ackm = getelementptr inbounds nuw i8, ptr %h, i64 192
   %0 = load ptr, ptr %ackm, align 8
@@ -2201,7 +2201,7 @@ entry:
 declare ptr @ossl_ackm_get0_probe_request(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gen_probe_handshake(ptr nocapture noundef readonly %h) #0 {
+define internal noundef i32 @gen_probe_handshake(ptr noundef readonly captures(none) %h) #0 {
 entry:
   %ackm = getelementptr inbounds nuw i8, ptr %h, i64 192
   %0 = load ptr, ptr %ackm, align 8
@@ -2214,7 +2214,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gen_probe_1rtt(ptr nocapture noundef readonly %h) #0 {
+define internal noundef i32 @gen_probe_1rtt(ptr noundef readonly captures(none) %h) #0 {
 entry:
   %ackm = getelementptr inbounds nuw i8, ptr %h, i64 192
   %0 = load ptr, ptr %ackm, align 8
@@ -2227,7 +2227,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @try_big_token(ptr nocapture noundef readonly %h) #0 {
+define internal range(i32 0, 2) i32 @try_big_token(ptr noundef readonly captures(none) %h) #0 {
 entry:
   %0 = load ptr, ptr %h, align 8
   %call = tail call i32 @ossl_quic_tx_packetiser_set_initial_token(ptr noundef %0, ptr noundef nonnull @big_token, i64 noundef 1950, ptr noundef null, ptr noundef null) #8
@@ -2263,7 +2263,7 @@ return:                                           ; preds = %for.cond, %if.end5,
 declare i32 @ossl_quic_tx_packetiser_set_initial_token(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @check_is_handshake(ptr nocapture noundef readonly %h) #5 {
+define internal range(i32 0, 2) i32 @check_is_handshake(ptr noundef readonly captures(none) %h) #5 {
 entry:
   %qrx_pkt = getelementptr inbounds nuw i8, ptr %h, i64 1048
   %0 = load ptr, ptr %qrx_pkt, align 8
@@ -2276,7 +2276,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @check_is_initial(ptr nocapture noundef readonly %h) #5 {
+define internal range(i32 0, 2) i32 @check_is_initial(ptr noundef readonly captures(none) %h) #5 {
 entry:
   %qrx_pkt = getelementptr inbounds nuw i8, ptr %h, i64 1048
   %0 = load ptr, ptr %qrx_pkt, align 8
@@ -2289,13 +2289,13 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

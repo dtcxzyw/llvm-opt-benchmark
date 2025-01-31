@@ -40,7 +40,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 @_ZN20ShenandoahMarkBitMapC1E9MemRegionS0_ = hidden unnamed_addr alias void (ptr, ptr, i64, ptr, i64), ptr @_ZN20ShenandoahMarkBitMapC2E9MemRegionS0_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN20ShenandoahMarkBitMapC2E9MemRegionS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 4), (8, 40)) %0, ptr %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN20ShenandoahMarkBitMapC2E9MemRegionS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 4), (8, 40)) %0, ptr %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = load i32, ptr @LogMinObjAlignment, align 4
   store i32 %6, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -78,7 +78,7 @@ define hidden noundef range(i64 -1073741824, 1073741824) i64 @_ZN20ShenandoahMar
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP12HeapWordImplS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP12HeapWordImplS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 {
   %4 = load i32, ptr @LogMinObjAlignment, align 4
   %5 = shl i32 8, %4
   %6 = ptrtoint ptr %1 to i64
@@ -163,7 +163,7 @@ _ZNK20ShenandoahMarkBitMap19get_next_one_offsetEmm.exit: ; preds = %28, %38, %51
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN20ShenandoahMarkBitMap23clear_range_within_wordEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN20ShenandoahMarkBitMap23clear_range_within_wordEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %.not = icmp eq i64 %1, %2
   br i1 %.not, label %15, label %4
 
@@ -190,7 +190,7 @@ define hidden void @_ZN20ShenandoahMarkBitMap23clear_range_within_wordEmm(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN20ShenandoahMarkBitMap11clear_rangeEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN20ShenandoahMarkBitMap11clear_rangeEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = add i64 %1, 63
   %5 = lshr i64 %4, 6
   %6 = lshr i64 %2, 6
@@ -293,7 +293,7 @@ define hidden noundef zeroext i1 @_ZN20ShenandoahMarkBitMap23is_small_range_of_w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN20ShenandoahMarkBitMap17clear_large_rangeEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN20ShenandoahMarkBitMap17clear_large_rangeEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = add i64 %1, 63
   %5 = lshr i64 %4, 6
   %6 = lshr i64 %2, 6
@@ -348,7 +348,7 @@ _ZN20ShenandoahMarkBitMap23clear_range_within_wordEmm.exit18: ; preds = %26, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ShenandoahMarkBitMap17clear_range_largeE9MemRegion(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr %1, i64 %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN20ShenandoahMarkBitMap17clear_range_largeE9MemRegion(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr %1, i64 %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.MemRegion, align 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -520,7 +520,7 @@ define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_162E
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #2
 

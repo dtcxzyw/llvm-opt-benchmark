@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @stmt_slots = internal global [3 x %struct.PyType_Slot] [%struct.PyType_Slot { i32 52, ptr @stmt_dealloc }, %struct.PyType_Slot { i32 71, ptr @stmt_traverse }, %struct.PyType_Slot zeroinitializer], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @pysqlite_statement_create(ptr nocapture noundef readonly %connection, ptr noundef %sql) local_unnamed_addr #0 {
+define hidden ptr @pysqlite_statement_create(ptr noundef readonly captures(none) %connection, ptr noundef %sql) local_unnamed_addr #0 {
 entry:
   %size = alloca i64, align 8
   %stmt = alloca ptr, align 8
@@ -141,7 +141,7 @@ declare i32 @sqlite3_limit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @PyEval_SaveThread() local_unnamed_addr #1
 
@@ -308,7 +308,7 @@ Py_DECREF.exit:                                   ; preds = %if.end, %if.then1.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @stmt_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @stmt_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8

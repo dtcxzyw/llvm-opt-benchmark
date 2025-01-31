@@ -106,7 +106,7 @@ declare void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef, ptr noundef) 
 declare void @_ZN14PSVirtualSpace10initializeE13ReservedSpace(ptr noundef nonnull align 8 dereferenceable(49), ptr noundef byval(%class.ReservedSpace) align 8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16ObjectStartArray18set_covered_regionE9MemRegion(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture readnone %1, i64 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16ObjectStartArray18set_covered_regionE9MemRegion(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr readnone captures(none) %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = load i32, ptr @_ZN9CardTable19_card_size_in_wordsE, align 4
   %5 = zext i32 %4 to i64
   %6 = udiv i64 %2, %5
@@ -156,7 +156,7 @@ declare void @_Z23report_vm_out_of_memoryPKcim11VMErrorTypeS0_z(ptr noundef, i32
 declare noundef zeroext i1 @_ZN14PSVirtualSpace9shrink_byEm(ptr noundef nonnull align 8 dereferenceable(49), i64 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16ObjectStartArray21update_for_block_workEPP12HeapWordImplS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN16ObjectStartArray21update_for_block_workEPP12HeapWordImplS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
   %4 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
   %5 = ptrtoint ptr %1 to i64
   %6 = add i32 %4, -1
@@ -218,7 +218,7 @@ define hidden void @_ZN16ObjectStartArray21update_for_block_workEPP12HeapWordImp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK16ObjectStartArray16verify_for_blockEPP12HeapWordImplS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #4 align 2 {
+define hidden void @_ZNK16ObjectStartArray16verify_for_blockEPP12HeapWordImplS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #4 align 2 {
   ret void
 }
 
@@ -316,15 +316,15 @@ declare void @_ZN20VirtualMemoryTracker24set_reserved_region_typeEPh8MEMFLAGS(pt
 declare void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

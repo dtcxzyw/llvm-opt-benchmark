@@ -380,7 +380,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext range(i8 0, 16) i8 @pcie_cap_get_type(ptr nocapture noundef readonly %dev) local_unnamed_addr #0 {
+define dso_local zeroext range(i8 0, 16) i8 @pcie_cap_get_type(ptr noundef readonly captures(none) %dev) local_unnamed_addr #0 {
 entry:
   %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %0 = load i8, ptr %exp, align 8
@@ -404,7 +404,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext range(i8 0, 16) i8 @pcie_cap_get_version(ptr nocapture noundef readonly %dev) local_unnamed_addr #0 {
+define dso_local zeroext range(i8 0, 16) i8 @pcie_cap_get_version(ptr noundef readonly captures(none) %dev) local_unnamed_addr #0 {
 entry:
   %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %0 = load i8, ptr %exp, align 8
@@ -428,7 +428,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pcie_cap_flags_set_vector(ptr nocapture noundef readonly %dev, i8 noundef zeroext %vector) local_unnamed_addr #0 {
+define dso_local void @pcie_cap_flags_set_vector(ptr noundef readonly captures(none) %dev, i8 noundef zeroext %vector) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i8 %vector, 32
   br i1 %cmp, label %if.end, label %if.else
@@ -455,7 +455,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext range(i8 0, 32) i8 @pcie_cap_flags_get_vector(ptr nocapture noundef readonly %dev) local_unnamed_addr #3 {
+define dso_local zeroext range(i8 0, 32) i8 @pcie_cap_flags_get_vector(ptr noundef readonly captures(none) %dev) local_unnamed_addr #3 {
 entry:
   %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
@@ -472,7 +472,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @pcie_cap_deverr_init(ptr nocapture noundef readonly %dev) local_unnamed_addr #4 {
+define dso_local void @pcie_cap_deverr_init(ptr noundef readonly captures(none) %dev) local_unnamed_addr #4 {
 entry:
   %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %0 = load i8, ptr %exp, align 8
@@ -502,7 +502,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @pcie_cap_deverr_reset(ptr nocapture noundef readonly %dev) local_unnamed_addr #4 {
+define dso_local void @pcie_cap_deverr_reset(ptr noundef readonly captures(none) %dev) local_unnamed_addr #4 {
 entry:
   %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
@@ -518,7 +518,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @pcie_cap_lnkctl_init(ptr nocapture noundef readonly %dev) local_unnamed_addr #4 {
+define dso_local void @pcie_cap_lnkctl_init(ptr noundef readonly captures(none) %dev) local_unnamed_addr #4 {
 entry:
   %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %0 = load i8, ptr %exp, align 8
@@ -534,7 +534,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @pcie_cap_lnkctl_reset(ptr nocapture noundef readonly %dev) local_unnamed_addr #4 {
+define dso_local void @pcie_cap_lnkctl_reset(ptr noundef readonly captures(none) %dev) local_unnamed_addr #4 {
 entry:
   %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
@@ -550,7 +550,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @pcie_cap_slot_enable_power(ptr nocapture noundef readonly %dev) local_unnamed_addr #4 {
+define dso_local void @pcie_cap_slot_enable_power(ptr noundef readonly captures(none) %dev) local_unnamed_addr #4 {
 entry:
   %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
@@ -576,7 +576,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pcie_cap_slot_pre_plug_cb(ptr noundef %hotplug_dev, ptr nocapture noundef readonly %dev, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @pcie_cap_slot_pre_plug_cb(ptr noundef %hotplug_dev, ptr noundef readonly captures(none) %dev, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hotplug_dev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #10
   %config = getelementptr inbounds nuw i8, ptr %call.i, i64 168
@@ -627,7 +627,7 @@ return:                                           ; preds = %if.then.i, %if.end,
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pcie_cap_slot_plug_cb(ptr noundef %hotplug_dev, ptr noundef %dev, ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local void @pcie_cap_slot_plug_cb(ptr noundef %hotplug_dev, ptr noundef %dev, ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %power.i31 = alloca i8, align 1
   %power.i = alloca i8, align 1
@@ -771,7 +771,7 @@ if.end33:                                         ; preds = %entry, %pcie_cap_sl
 declare ptr @pci_get_function_0(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pcie_cap_slot_unplug_cb(ptr nocapture noundef readnone %hotplug_dev, ptr noundef %dev, ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local void @pcie_cap_slot_unplug_cb(ptr noundef readnone captures(none) %hotplug_dev, ptr noundef %dev, ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   tail call void @qdev_unrealize(ptr noundef %dev) #10
   ret void
@@ -942,7 +942,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pcie_unplug_device(ptr nocapture readnone %bus, ptr noundef %dev, ptr nocapture readnone %opaque) #0 {
+define internal void @pcie_unplug_device(ptr readnone captures(none) %bus, ptr noundef %dev, ptr readnone captures(none) %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
   %call1 = tail call ptr @qdev_get_hotplug_handler(ptr noundef %call.i) #10
@@ -1071,7 +1071,7 @@ pcie_cap_slot_event.exit:                         ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pcie_cap_slot_init(ptr noundef %dev, ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
+define dso_local void @pcie_cap_slot_init(ptr noundef %dev, ptr noundef readonly captures(none) %s) local_unnamed_addr #0 {
 entry:
   %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %0 = load i8, ptr %exp, align 8
@@ -1311,7 +1311,7 @@ if.end28:                                         ; preds = %if.then11, %do.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @pcie_cap_slot_get(ptr nocapture noundef readonly %dev, ptr nocapture noundef writeonly initializes((0, 2)) %slt_ctl, ptr nocapture noundef writeonly initializes((0, 2)) %slt_sta) local_unnamed_addr #5 {
+define dso_local void @pcie_cap_slot_get(ptr noundef readonly captures(none) %dev, ptr noundef writeonly captures(none) initializes((0, 2)) %slt_ctl, ptr noundef writeonly captures(none) initializes((0, 2)) %slt_sta) local_unnamed_addr #5 {
 entry:
   %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %0 = load i8, ptr %exp, align 8
@@ -1571,7 +1571,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @pcie_cap_root_init(ptr nocapture noundef readonly %dev) local_unnamed_addr #6 {
+define dso_local void @pcie_cap_root_init(ptr noundef readonly captures(none) %dev) local_unnamed_addr #6 {
 entry:
   %wmask = getelementptr inbounds nuw i8, ptr %dev, i64 184
   %0 = load ptr, ptr %wmask, align 8
@@ -1585,7 +1585,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @pcie_cap_root_reset(ptr nocapture noundef readonly %dev) local_unnamed_addr #6 {
+define dso_local void @pcie_cap_root_reset(ptr noundef readonly captures(none) %dev) local_unnamed_addr #6 {
 entry:
   %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
@@ -1599,7 +1599,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @pcie_cap_flr_init(ptr nocapture noundef readonly %dev) local_unnamed_addr #4 {
+define dso_local void @pcie_cap_flr_init(ptr noundef readonly captures(none) %dev) local_unnamed_addr #4 {
 entry:
   %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
@@ -1651,7 +1651,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @pci_device_reset(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @pcie_cap_arifwd_init(ptr nocapture noundef readonly %dev) local_unnamed_addr #4 {
+define dso_local void @pcie_cap_arifwd_init(ptr noundef readonly captures(none) %dev) local_unnamed_addr #4 {
 entry:
   %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %0 = load i8, ptr %exp, align 8
@@ -1674,7 +1674,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @pcie_cap_arifwd_reset(ptr nocapture noundef readonly %dev) local_unnamed_addr #4 {
+define dso_local void @pcie_cap_arifwd_reset(ptr noundef readonly captures(none) %dev) local_unnamed_addr #4 {
 entry:
   %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
@@ -1690,7 +1690,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @pcie_cap_is_arifwd_enabled(ptr nocapture noundef readonly %dev) local_unnamed_addr #3 {
+define dso_local zeroext i1 @pcie_cap_is_arifwd_enabled(ptr noundef readonly captures(none) %dev) local_unnamed_addr #3 {
 entry:
   %0 = getelementptr i8, ptr %dev, i64 1260
   %dev.val = load i32, ptr %0, align 4
@@ -1721,7 +1721,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext range(i16 0, 4089) i16 @pcie_find_capability(ptr nocapture noundef readonly %dev, i16 noundef zeroext %cap_id) local_unnamed_addr #0 {
+define dso_local zeroext range(i16 0, 4089) i16 @pcie_find_capability(ptr noundef readonly captures(none) %dev, i16 noundef zeroext %cap_id) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %dev, i64 168
   %dev.val = load ptr, ptr %0, align 8
@@ -1768,7 +1768,7 @@ pcie_find_capability_list.exit:                   ; preds = %if.end10.i, %for.in
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pcie_add_capability(ptr nocapture noundef readonly %dev, i16 noundef zeroext %cap_id, i8 noundef zeroext %cap_ver, i16 noundef zeroext %offset, i16 noundef zeroext %size) local_unnamed_addr #0 {
+define dso_local void @pcie_add_capability(ptr noundef readonly captures(none) %dev, i16 noundef zeroext %cap_id, i8 noundef zeroext %cap_ver, i16 noundef zeroext %offset, i16 noundef zeroext %size) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i16 %offset, 255
   br i1 %cmp, label %if.end, label %if.else
@@ -1901,7 +1901,7 @@ if.end42:                                         ; preds = %pcie_ext_cap_set_ne
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pcie_sync_bridge_lnk(ptr noundef %bridge_dev) local_unnamed_addr #0 {
@@ -1982,7 +1982,7 @@ if.end60:                                         ; preds = %if.else50, %entry, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pcie_ari_init(ptr nocapture noundef readonly %dev, i16 noundef zeroext %offset) local_unnamed_addr #0 {
+define dso_local void @pcie_ari_init(ptr noundef readonly captures(none) %dev, i16 noundef zeroext %offset) local_unnamed_addr #0 {
 entry:
   %cap_present = getelementptr inbounds nuw i8, ptr %dev, i64 1260
   %0 = load i32, ptr %cap_present, align 4
@@ -1999,7 +1999,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pcie_dev_ser_num_init(ptr nocapture noundef readonly %dev, i16 noundef zeroext %offset, i64 noundef %ser_num) local_unnamed_addr #0 {
+define dso_local void @pcie_dev_ser_num_init(ptr noundef readonly captures(none) %dev, i16 noundef zeroext %offset, i64 noundef %ser_num) local_unnamed_addr #0 {
 entry:
   tail call void @pcie_add_capability(ptr noundef %dev, i16 noundef zeroext 3, i8 noundef zeroext 1, i16 noundef zeroext %offset, i16 noundef zeroext 12)
   %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
@@ -2012,7 +2012,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pcie_ats_init(ptr nocapture noundef %dev, i16 noundef zeroext %offset, i1 noundef zeroext %aligned) local_unnamed_addr #0 {
+define dso_local void @pcie_ats_init(ptr noundef captures(none) %dev, i16 noundef zeroext %offset, i1 noundef zeroext %aligned) local_unnamed_addr #0 {
 entry:
   tail call void @pcie_add_capability(ptr noundef %dev, i16 noundef zeroext 15, i8 noundef zeroext 1, i16 noundef zeroext %offset, i16 noundef zeroext 8)
   %ats_cap = getelementptr inbounds nuw i8, ptr %dev, i64 2192
@@ -2050,7 +2050,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pcie_acs_init(ptr nocapture noundef %dev, i16 noundef zeroext %offset) local_unnamed_addr #0 {
+define dso_local void @pcie_acs_init(ptr noundef captures(none) %dev, i16 noundef zeroext %offset) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %dev, i64 1260
   %d.val.i = load i32, ptr %0, align 4
@@ -2111,7 +2111,7 @@ if.end:                                           ; preds = %pci_is_express_down
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @pcie_acs_reset(ptr nocapture noundef readonly %dev) local_unnamed_addr #6 {
+define dso_local void @pcie_acs_reset(ptr noundef readonly captures(none) %dev) local_unnamed_addr #6 {
 entry:
   %acs_cap = getelementptr inbounds nuw i8, ptr %dev, i64 2194
   %0 = load i16, ptr %acs_cap, align 2
@@ -2144,7 +2144,7 @@ declare void @pci_for_each_device(ptr noundef, i32 noundef, ptr noundef, ptr nou
 declare i32 @pci_bus_num(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pcie_set_power_device(ptr nocapture readnone %bus, ptr noundef %dev, ptr nocapture noundef readonly %opaque) #0 {
+define internal void @pcie_set_power_device(ptr readnone captures(none) %bus, ptr noundef %dev, ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %0 = load i8, ptr %opaque, align 1
   %tobool = trunc i8 %0 to i1
@@ -2177,10 +2177,10 @@ declare void @msi_notify(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @pci_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

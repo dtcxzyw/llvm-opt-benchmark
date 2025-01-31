@@ -38,7 +38,7 @@ define hidden void @_ZN16ElfFuncDescTableD2Ev(ptr noundef nonnull align 8 derefe
 declare void @_ZN10ElfSectionD1Ev(ptr noundef nonnull align 8 dereferenceable(76)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16ElfFuncDescTable6lookupEm(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN16ElfFuncDescTable6lookupEm(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.MarkedFileReader, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 92

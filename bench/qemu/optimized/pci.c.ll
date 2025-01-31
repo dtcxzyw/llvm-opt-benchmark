@@ -38,7 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.19 = private unnamed_addr constant [4 x i8] c"dev\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_device_foreach(ptr noundef %bus, i32 noundef %vendor_id, i32 noundef %device_id, ptr nocapture noundef readonly %func, ptr noundef %data) local_unnamed_addr #0 {
+define dso_local void @qpci_device_foreach(ptr noundef %bus, i32 noundef %vendor_id, i32 noundef %device_id, ptr noundef readonly captures(none) %func, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %config_readw.i.i = getelementptr inbounds nuw i8, ptr %bus, i64 88
   %cmp4.not = icmp eq i32 %vendor_id, -1
@@ -249,7 +249,7 @@ return:                                           ; preds = %qpci_device_set.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @qpci_config_readw(ptr nocapture noundef readonly %dev, i8 noundef zeroext %offset) local_unnamed_addr #0 {
+define dso_local zeroext i16 @qpci_config_readw(ptr noundef readonly captures(none) %dev, i8 noundef zeroext %offset) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
   %config_readw = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -263,7 +263,7 @@ entry:
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @qpci_has_buggy_msi(ptr nocapture noundef readonly %dev) local_unnamed_addr #2 {
+define dso_local zeroext i1 @qpci_has_buggy_msi(ptr noundef readonly captures(none) %dev) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %dev, align 8
   %has_buggy_msi = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -273,7 +273,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @qpci_check_buggy_msi(ptr nocapture noundef readonly %dev) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qpci_check_buggy_msi(ptr noundef readonly captures(none) %dev) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
   %has_buggy_msi.i = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -295,7 +295,7 @@ declare void @g_test_skip(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_device_init(ptr noundef %dev, ptr noundef %bus, ptr nocapture noundef readonly %addr) local_unnamed_addr #0 {
+define dso_local void @qpci_device_init(ptr noundef %dev, ptr noundef %bus, ptr noundef readonly captures(none) %addr) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %dev, null
   br i1 %tobool.not.i, label %if.else.i, label %qpci_device_set.exit
@@ -358,7 +358,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @qpci_secondary_buses_rec(ptr noundef %qbus, i32 noundef range(i32 0, 8161) %bus, ptr nocapture noundef nonnull %pci_bus) unnamed_addr #0 {
+define internal fastcc void @qpci_secondary_buses_rec(ptr noundef %qbus, i32 noundef range(i32 0, 8161) %bus, ptr noundef nonnull captures(none) %pci_bus) unnamed_addr #0 {
 entry:
   %config_readw.i.i = getelementptr inbounds nuw i8, ptr %qbus, i64 88
   br label %for.body
@@ -648,7 +648,7 @@ for.end93:                                        ; preds = %for.inc91
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_device_enable(ptr nocapture noundef readonly %dev) local_unnamed_addr #0 {
+define dso_local void @qpci_device_enable(ptr noundef readonly captures(none) %dev) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
   %config_readw.i = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -699,7 +699,7 @@ do.end35:                                         ; preds = %if.else31, %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_config_writew(ptr nocapture noundef readonly %dev, i8 noundef zeroext %offset, i16 noundef zeroext %value) local_unnamed_addr #0 {
+define dso_local void @qpci_config_writew(ptr noundef readonly captures(none) %dev, i8 noundef zeroext %offset, i16 noundef zeroext %value) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
   %config_writew = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -713,7 +713,7 @@ entry:
 declare void @g_assertion_message_cmpnum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, x86_fp80 noundef, ptr noundef, x86_fp80 noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i8 @qpci_find_capability(ptr nocapture noundef readonly %dev, i8 noundef zeroext %id, i8 noundef zeroext %start_addr) local_unnamed_addr #0 {
+define dso_local noundef zeroext i8 @qpci_find_capability(ptr noundef readonly captures(none) %dev, i8 noundef zeroext %id, i8 noundef zeroext %start_addr) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i8 %start_addr, 0
   %add = add i8 %start_addr, 1
@@ -753,7 +753,7 @@ do.end:                                           ; preds = %do.body, %do.cond
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i8 @qpci_config_readb(ptr nocapture noundef readonly %dev, i8 noundef zeroext %offset) local_unnamed_addr #0 {
+define dso_local zeroext i8 @qpci_config_readb(ptr noundef readonly captures(none) %dev, i8 noundef zeroext %offset) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
   %config_readb = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -765,7 +765,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_msix_enable(ptr nocapture noundef %dev) local_unnamed_addr #0 {
+define dso_local void @qpci_msix_enable(ptr noundef captures(none) %dev) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
   %config_readb.i10.i = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -870,7 +870,7 @@ if.end38:                                         ; preds = %if.else35, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qpci_config_readl(ptr nocapture noundef readonly %dev, i8 noundef zeroext %offset) local_unnamed_addr #0 {
+define dso_local i32 @qpci_config_readl(ptr noundef readonly captures(none) %dev, i8 noundef zeroext %offset) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
   %config_readl = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -882,7 +882,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i8 } @qpci_iomap(ptr nocapture noundef readonly %dev, i32 noundef %barno, ptr noundef writeonly %sizeptr) local_unnamed_addr #0 {
+define dso_local { i64, i8 } @qpci_iomap(ptr noundef readonly captures(none) %dev, i32 noundef %barno, ptr noundef writeonly %sizeptr) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
   %or.cond = icmp ult i32 %barno, 6
@@ -1008,10 +1008,10 @@ if.end84:                                         ; preds = %do.end77, %do.end47
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_msix_disable(ptr nocapture noundef %dev) local_unnamed_addr #0 {
+define dso_local void @qpci_msix_disable(ptr noundef captures(none) %dev) local_unnamed_addr #0 {
 entry:
   %msix_enabled = getelementptr inbounds nuw i8, ptr %dev, i64 12
   %0 = load i8, ptr %msix_enabled, align 4
@@ -1080,13 +1080,13 @@ do.end8:                                          ; preds = %if.else4, %qpci_fin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local void @qpci_iounmap(ptr nocapture noundef readnone %dev, i64 %bar.coerce0, i8 %bar.coerce1) local_unnamed_addr #6 {
+define dso_local void @qpci_iounmap(ptr noundef readnone captures(none) %dev, i64 %bar.coerce0, i8 %bar.coerce1) local_unnamed_addr #6 {
 entry:
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qpci_msix_pending(ptr nocapture noundef readonly %dev, i16 noundef zeroext %entry1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @qpci_msix_pending(ptr noundef readonly captures(none) %dev, i16 noundef zeroext %entry1) local_unnamed_addr #0 {
 entry:
   %value.addr.i = alloca i32, align 4
   %val.i = alloca i32, align 4
@@ -1172,7 +1172,7 @@ qpci_io_writel.exit:                              ; preds = %if.then.i13, %if.el
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qpci_io_readl(ptr nocapture noundef readonly %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off) local_unnamed_addr #0 {
+define dso_local i32 @qpci_io_readl(ptr noundef readonly captures(none) %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off) local_unnamed_addr #0 {
 entry:
   %val = alloca i32, align 4
   %0 = load ptr, ptr %dev, align 8
@@ -1200,7 +1200,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_io_writel(ptr nocapture noundef readonly %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off, i32 noundef %value) local_unnamed_addr #0 {
+define dso_local void @qpci_io_writel(ptr noundef readonly captures(none) %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off, i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %value.addr = alloca i32, align 4
   %0 = load ptr, ptr %dev, align 8
@@ -1229,7 +1229,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qpci_msix_masked(ptr nocapture noundef readonly %dev, i16 noundef zeroext %entry1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @qpci_msix_masked(ptr noundef readonly captures(none) %dev, i16 noundef zeroext %entry1) local_unnamed_addr #0 {
 entry:
   %val.i = alloca i32, align 4
   %msix_table_off = getelementptr inbounds nuw i8, ptr %dev, i64 48
@@ -1334,7 +1334,7 @@ return:                                           ; preds = %do.end11, %qpci_io_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext range(i16 1, 2049) i16 @qpci_msix_table_size(ptr nocapture noundef readonly %dev) local_unnamed_addr #0 {
+define dso_local zeroext range(i16 1, 2049) i16 @qpci_msix_table_size(ptr noundef readonly captures(none) %dev) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
   %config_readb.i10.i = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1386,7 +1386,7 @@ do.end:                                           ; preds = %if.else, %qpci_find
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_config_writeb(ptr nocapture noundef readonly %dev, i8 noundef zeroext %offset, i8 noundef zeroext %value) local_unnamed_addr #0 {
+define dso_local void @qpci_config_writeb(ptr noundef readonly captures(none) %dev, i8 noundef zeroext %offset, i8 noundef zeroext %value) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
   %config_writeb = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1398,7 +1398,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_config_writel(ptr nocapture noundef readonly %dev, i8 noundef zeroext %offset, i32 noundef %value) local_unnamed_addr #0 {
+define dso_local void @qpci_config_writel(ptr noundef readonly captures(none) %dev, i8 noundef zeroext %offset, i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
   %config_writel = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -1410,7 +1410,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i8 @qpci_io_readb(ptr nocapture noundef readonly %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off) local_unnamed_addr #0 {
+define dso_local zeroext i8 @qpci_io_readb(ptr noundef readonly captures(none) %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off) local_unnamed_addr #0 {
 entry:
   %val = alloca i8, align 1
   %0 = load ptr, ptr %dev, align 8
@@ -1439,7 +1439,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @qpci_io_readw(ptr nocapture noundef readonly %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off) local_unnamed_addr #0 {
+define dso_local zeroext i16 @qpci_io_readw(ptr noundef readonly captures(none) %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off) local_unnamed_addr #0 {
 entry:
   %val = alloca i16, align 2
   %0 = load ptr, ptr %dev, align 8
@@ -1467,7 +1467,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @qpci_io_readq(ptr nocapture noundef readonly %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off) local_unnamed_addr #0 {
+define dso_local i64 @qpci_io_readq(ptr noundef readonly captures(none) %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off) local_unnamed_addr #0 {
 entry:
   %val = alloca i64, align 8
   %0 = load ptr, ptr %dev, align 8
@@ -1495,7 +1495,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_io_writeb(ptr nocapture noundef readonly %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off, i8 noundef zeroext %value) local_unnamed_addr #0 {
+define dso_local void @qpci_io_writeb(ptr noundef readonly captures(none) %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off, i8 noundef zeroext %value) local_unnamed_addr #0 {
 entry:
   %value.addr = alloca i8, align 1
   store i8 %value, ptr %value.addr, align 1
@@ -1522,7 +1522,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_io_writew(ptr nocapture noundef readonly %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off, i16 noundef zeroext %value) local_unnamed_addr #0 {
+define dso_local void @qpci_io_writew(ptr noundef readonly captures(none) %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off, i16 noundef zeroext %value) local_unnamed_addr #0 {
 entry:
   %value.addr = alloca i16, align 2
   %0 = load ptr, ptr %dev, align 8
@@ -1551,7 +1551,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_io_writeq(ptr nocapture noundef readonly %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off, i64 noundef %value) local_unnamed_addr #0 {
+define dso_local void @qpci_io_writeq(ptr noundef readonly captures(none) %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off, i64 noundef %value) local_unnamed_addr #0 {
 entry:
   %value.addr = alloca i64, align 8
   %0 = load ptr, ptr %dev, align 8
@@ -1580,7 +1580,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_memread(ptr nocapture noundef readonly %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local void @qpci_memread(ptr noundef readonly captures(none) %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %tobool = trunc i8 %token.coerce1 to i1
   br i1 %tobool, label %if.else, label %do.end
@@ -1600,7 +1600,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qpci_memwrite(ptr nocapture noundef readonly %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local void @qpci_memwrite(ptr noundef readonly captures(none) %dev, i64 %token.coerce0, i8 %token.coerce1, i64 noundef %off, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %tobool = trunc i8 %token.coerce1 to i1
   br i1 %tobool, label %if.else, label %do.end
@@ -1620,7 +1620,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local { i64, i8 } @qpci_legacy_iomap(ptr nocapture noundef readnone %dev, i16 noundef zeroext %addr) local_unnamed_addr #6 {
+define dso_local { i64, i8 } @qpci_legacy_iomap(ptr noundef readnone captures(none) %dev, i16 noundef zeroext %addr) local_unnamed_addr #6 {
 entry:
   %conv = zext i16 %addr to i64
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %conv, 0
@@ -1657,13 +1657,13 @@ do.end6:                                          ; preds = %do.body1
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -102,7 +102,7 @@ return:                                           ; preds = %if.end3, %if.then6,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @siv_einit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr nocapture readnone %iv, i64 %ivlen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @siv_einit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr readnone captures(none) %iv, i64 %ivlen, ptr noundef %params) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -146,7 +146,7 @@ siv_init.exit:                                    ; preds = %entry, %if.then5.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @siv_dinit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr nocapture readnone %iv, i64 %ivlen, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @siv_dinit(ptr noundef %vctx, ptr noundef %key, i64 noundef %keylen, ptr readnone captures(none) %iv, i64 %ivlen, ptr noundef %params) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #3
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -353,7 +353,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @aes_siv_gettable_ctx_params(ptr nocapture readnone %cctx, ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @aes_siv_gettable_ctx_params(ptr readnone captures(none) %cctx, ptr readnone captures(none) %provctx) #2 {
 entry:
   ret ptr @aes_siv_known_gettable_ctx_params
 }
@@ -461,7 +461,7 @@ return:                                           ; preds = %if.end26, %if.then2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @aes_siv_settable_ctx_params(ptr nocapture readnone %cctx, ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @aes_siv_settable_ctx_params(ptr readnone captures(none) %cctx, ptr readnone captures(none) %provctx) #2 {
 entry:
   ret ptr @aes_siv_known_settable_ctx_params
 }

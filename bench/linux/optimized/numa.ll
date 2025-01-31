@@ -154,10 +154,10 @@ define dso_local range(i32 -32768, 32768) i32 @numa_cpu_node(i32 noundef %0) loc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: write, inaccessiblemem: none)
 define dso_local void @numa_set_node(i32 noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
@@ -233,7 +233,7 @@ define dso_local void @setup_node_to_cpumask_map() local_unnamed_addr #0 section
 declare dso_local void @setup_nr_node_ids() local_unnamed_addr #4 section ".init.text"
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(argmem: readwrite)
-define dso_local void @numa_remove_memblk_from(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #5 section ".init.text" align 16 {
+define dso_local void @numa_remove_memblk_from(i32 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #5 section ".init.text" align 16 {
   %3 = load i32, ptr %1, align 8
   %4 = add i32 %3, -1
   store i32 %4, ptr %1, align 8
@@ -251,7 +251,7 @@ define dso_local void @numa_remove_memblk_from(i32 noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local noundef range(i32 -22, 1) i32 @numa_add_memblk(i32 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 section ".init.text" align 16 {
@@ -260,7 +260,7 @@ define dso_local noundef range(i32 -22, 1) i32 @numa_add_memblk(i32 noundef %0, 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -22, 1) i32 @numa_add_memblk_to(i32 noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @numa_add_memblk_to(i32 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 section ".init.text" align 16 {
   %5 = icmp eq i64 %1, %2
   br i1 %5, label %29, label %6
 
@@ -308,7 +308,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @numa_add_memblk_to(i32 nou
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef range(i32 -22, 1) i32 @numa_cleanup_meminfo(ptr nocapture noundef %0) local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @numa_cleanup_meminfo(ptr noundef captures(none) %0) local_unnamed_addr #0 section ".init.text" align 16 {
   %2 = load i64, ptr @max_pfn, align 8
   %3 = shl i64 %2, 12
   %4 = load i32, ptr %0, align 8
@@ -826,7 +826,7 @@ define dso_local void @x86_numa_init() local_unnamed_addr #0 section ".init.text
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc range(i32 -2147483648, 1) i32 @numa_init(ptr nocapture noundef readonly %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @numa_init(ptr noundef readonly captures(none) %0) unnamed_addr #0 section ".init.text" align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(65536) @__apicid_to_node, i8 -1, i64 65536, i1 false)
   store i64 0, ptr @numa_nodes_parsed, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) @node_states, i8 0, i64 16, i1 false)
@@ -1207,16 +1207,16 @@ define dso_local void @numa_remove_cpu(i32 noundef %0) local_unnamed_addr #9 ali
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @disable_srat() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @memblock_phys_alloc_range(i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #7

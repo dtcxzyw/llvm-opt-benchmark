@@ -210,7 +210,7 @@ define hidden noalias noundef ptr @dfvm_insn_new(i32 noundef %0) local_unnamed_a
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dfvm_insn_replace_no_op(ptr nocapture noundef initializes((4, 8)) %0) local_unnamed_addr #2 {
+define hidden void @dfvm_insn_replace_no_op(ptr noundef captures(none) initializes((4, 8)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -596,7 +596,7 @@ define hidden noalias noundef ptr @dfvm_value_new_guint(i32 noundef %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @dfvm_dump_str(ptr noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #2 {
+define hidden ptr @dfvm_dump_str(ptr noundef %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext %2) local_unnamed_addr #2 {
   %4 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %0, ptr noundef null) #11
   %5 = and i16 %2, 1
   %.not = icmp eq i16 %5, 0
@@ -1310,7 +1310,7 @@ declare void @wmem_strbuf_append_printf(ptr noundef, ptr noundef, ...) local_unn
 declare ptr @wmem_strbuf_finalize(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dfvm_dump(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #2 {
+define hidden void @dfvm_dump(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext %2) local_unnamed_addr #2 {
   %4 = tail call ptr @dfvm_dump_str(ptr noundef null, ptr noundef %1, i16 noundef zeroext %2)
   %5 = tail call i32 @fputs(ptr noundef %4, ptr noundef %0)
   %6 = tail call i32 @fputc(i32 noundef 10, ptr noundef %0)
@@ -1319,15 +1319,15 @@ define hidden void @dfvm_dump(ptr nocapture noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @dfvm_get_raw_fvalue(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden noundef ptr @dfvm_get_raw_fvalue(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1367,7 +1367,7 @@ declare ptr @fvalue_new(i32 noundef) local_unnamed_addr #4
 declare void @fvalue_set_byte_array(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @dfvm_apply_full(ptr nocapture noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
+define hidden zeroext i1 @dfvm_apply_full(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4526,7 +4526,7 @@ stack_pop.exit:                                   ; preds = %25, %1484, %1485, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @read_tree(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %.0.val, ptr readonly %.8.val, i32 %.8.val1, ptr noundef readonly %2) unnamed_addr #2 {
+define internal fastcc zeroext i1 @read_tree(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 %.0.val, ptr readonly %.8.val, i32 %.8.val1, ptr noundef readonly %2) unnamed_addr #2 {
   %4 = icmp eq i32 %.0.val, 3
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %5
@@ -4678,7 +4678,7 @@ read_tree_finfos.exit:                            ; preds = %.lr.ph.split, %66, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @read_reference(ptr nocapture noundef readonly %0, i32 %.0.val, ptr %.8.val, i32 %.8.val1, ptr noundef readonly %1) unnamed_addr #2 {
+define internal fastcc zeroext i1 @read_reference(ptr noundef readonly captures(none) %0, i32 %.0.val, ptr %.8.val, i32 %.8.val1, ptr noundef readonly %1) unnamed_addr #2 {
   %3 = icmp eq i32 %.0.val, 3
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4
@@ -4864,7 +4864,7 @@ declare zeroext i1 @fvalue_is_zero(ptr noundef) local_unnamed_addr #4
 declare zeroext i1 @fvalue_contains(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @all_in(ptr nocapture noundef readonly %0, i32 %.8.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @all_in(ptr noundef readonly captures(none) %0, i32 %.8.val) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = zext i32 %.8.val to i64
@@ -4979,7 +4979,7 @@ test_in_internal.exit:                            ; preds = %.lr.ph8.i, %.lr.ph1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @any_in(ptr nocapture noundef readonly %0, i32 %.8.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @any_in(ptr noundef readonly captures(none) %0, i32 %.8.val) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = zext i32 %.8.val to i64
@@ -5112,7 +5112,7 @@ declare ptr @g_ptr_array_new() local_unnamed_addr #4
 declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @dfvm_apply(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define hidden zeroext i1 @dfvm_apply(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call zeroext i1 @dfvm_apply_full(ptr noundef %0, ptr noundef %1, ptr noundef null)
   ret i1 %3
 }
@@ -5310,7 +5310,7 @@ declare ptr @g_slist_delete_link(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare ptr @proto_get_finfo_ptr_array(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @filter_finfo_fvalues(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly %2, i1 noundef zeroext %3) unnamed_addr #2 {
+define internal fastcc i64 @filter_finfo_fvalues(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #2 {
   tail call void @g_ptr_array_sort(ptr noundef nonnull %1, ptr noundef nonnull @compare_finfo_layer) #11
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
@@ -5496,7 +5496,7 @@ drange_contains_layer.exit.thread:                ; preds = %47, %46, %44, %22, 
 declare void @g_ptr_array_sort(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @compare_finfo_layer(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal i32 @compare_finfo_layer(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 60
@@ -5559,16 +5559,16 @@ declare ptr @fvalue_unary_minus(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @df_cell_clear(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

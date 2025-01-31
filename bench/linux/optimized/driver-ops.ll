@@ -1764,7 +1764,7 @@ define dso_local void @drv_sta_rc_update(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drv_conf_tx(ptr noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local i32 @drv_conf_tx(ptr noundef %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = load ptr, ptr %1, align 8
   %6 = tail call i32 @__SCT__might_resched() #6
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 1256

@@ -105,19 +105,19 @@ define range(i32 0, 2) i32 @jq_set_colors(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #3
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @jv_dumpf(i64 %0, ptr %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
@@ -175,7 +175,7 @@ define internal fastcc void @jv_dump_term(ptr noundef %0, i64 %1, ptr %2, i32 no
   %38 = load i64, ptr %6, align 8
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = tail call { i64, ptr } @jv_string_append_buf(i64 %38, ptr %40, ptr noundef %34, i32 noundef %37) #11
+  %41 = tail call { i64, ptr } @jv_string_append_buf(i64 %38, ptr %40, ptr noundef nonnull %34, i32 noundef %37) #11
   %42 = extractvalue { i64, ptr } %41, 0
   %43 = extractvalue { i64, ptr } %41, 1
   store i64 %42, ptr %6, align 8
@@ -190,7 +190,7 @@ put_str.exit:                                     ; preds = %36, %26, %23
 put_str.exit.thread:                              ; preds = %28
   %sext.i = shl i64 %35, 32
   %45 = ashr exact i64 %sext.i, 32
-  %46 = tail call i64 @fwrite(ptr noundef %34, i64 noundef 1, i64 noundef %45, ptr noundef %5)
+  %46 = tail call i64 @fwrite(ptr noundef nonnull %34, i64 noundef 1, i64 noundef %45, ptr noundef %5)
   %47 = icmp sgt i32 %4, 256
   br i1 %47, label %.thread, label %57
 
@@ -922,7 +922,7 @@ put_str.exit403.thread:                           ; preds = %313
   %345 = phi ptr [ %326, %.thread470.thread487 ], [ %339, %.thread470._crit_edge ]
   %.not347460473489 = phi i1 [ true, %.thread470.thread487 ], [ false, %.thread470._crit_edge ]
   %346 = trunc i64 %344 to i32
-  %347 = call { i64, ptr } @jv_string_append_buf(i64 %343, ptr %342, ptr noundef %345, i32 noundef %346) #11
+  %347 = call { i64, ptr } @jv_string_append_buf(i64 %343, ptr %342, ptr noundef nonnull %345, i32 noundef %346) #11
   %348 = extractvalue { i64, ptr } %347, 0
   %349 = extractvalue { i64, ptr } %347, 1
   store i64 %348, ptr %6, align 8
@@ -935,7 +935,7 @@ put_str.exit403.thread:                           ; preds = %313
   %.not347460473486 = phi i1 [ true, %.thread470.thread ], [ false, %.thread470 ]
   %sext.i408 = shl i64 %351, 32
   %353 = ashr exact i64 %sext.i408, 32
-  %354 = call i64 @fwrite(ptr noundef %352, i64 noundef 1, i64 noundef %353, ptr noundef %5)
+  %354 = call i64 @fwrite(ptr noundef nonnull %352, i64 noundef 1, i64 noundef %353, ptr noundef %5)
   br label %put_str.exit409
 
 put_str.exit409:                                  ; preds = %341, %350
@@ -1162,7 +1162,7 @@ define void @jv_show(i64 %0, ptr %1, i32 noundef %2) local_unnamed_addr #4 {
 declare { i64, ptr } @jv_copy(i64, ptr) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define { i64, ptr } @jv_dump_string(i64 %0, ptr %1, i32 noundef %2) local_unnamed_addr #4 {
@@ -1201,7 +1201,7 @@ define noundef ptr @jv_dump_string_trunc(i64 %0, ptr %1, ptr noundef returned %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %11 = call ptr @jv_string_value(i64 %.fca.0.load.i, ptr %.fca.1.load.i) #11
   %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #10
-  %13 = call ptr @strncpy(ptr noundef %2, ptr noundef %11, i64 noundef %3) #11
+  %13 = call ptr @strncpy(ptr noundef %2, ptr noundef nonnull %11, i64 noundef %3) #11
   %14 = add i64 %3, -1
   %15 = getelementptr inbounds i8, ptr %2, i64 %14
   store i8 0, ptr %15, align 1
@@ -1234,7 +1234,7 @@ declare i32 @jv_get_refcnt(i64, ptr) local_unnamed_addr #5
 declare i32 @jv_get_kind(i64, ptr) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @put_str(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #4 {
+define internal fastcc void @put_str(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #4 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %13, label %5
@@ -1244,7 +1244,7 @@ define internal fastcc void @put_str(ptr noundef %0, ptr nocapture noundef %1, p
   %7 = load i64, ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call { i64, ptr } @jv_string_append_buf(i64 %7, ptr %9, ptr noundef %0, i32 noundef %6) #11
+  %10 = tail call { i64, ptr } @jv_string_append_buf(i64 %7, ptr %9, ptr noundef nonnull %0, i32 noundef %6) #11
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   store i64 %11, ptr %2, align 8
@@ -1254,7 +1254,7 @@ define internal fastcc void @put_str(ptr noundef %0, ptr nocapture noundef %1, p
 13:                                               ; preds = %3
   %sext = shl i64 %4, 32
   %14 = ashr exact i64 %sext, 32
-  %15 = tail call i64 @fwrite(ptr noundef %0, i64 noundef 1, i64 noundef %14, ptr noundef %1)
+  %15 = tail call i64 @fwrite(ptr noundef nonnull %0, i64 noundef 1, i64 noundef %14, ptr noundef %1)
   br label %put_buf.exit
 
 put_buf.exit:                                     ; preds = %5, %13
@@ -1264,7 +1264,7 @@ put_buf.exit:                                     ; preds = %5, %13
 declare { i64, ptr } @jv_invalid_get_msg(i64, ptr) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @jvp_dump_string(i64 %0, ptr %1, i32 noundef %2, ptr nocapture noundef %3, ptr noundef %4) unnamed_addr #4 {
+define internal fastcc void @jvp_dump_string(i64 %0, ptr %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef %4) unnamed_addr #4 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
@@ -1682,7 +1682,7 @@ declare double @jv_number_value(i64, ptr) local_unnamed_addr #5
 declare ptr @jvp_dtoa_fmt(ptr noundef, ptr noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @put_refcnt(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #4 {
+define internal fastcc void @put_refcnt(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef %3) unnamed_addr #4 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -1730,7 +1730,7 @@ put_char.exit15:                                  ; preds = %9, %19
   %25 = load i64, ptr %3, align 8
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = call { i64, ptr } @jv_string_append_buf(i64 %25, ptr %27, ptr noundef %21, i32 noundef %24) #11
+  %28 = call { i64, ptr } @jv_string_append_buf(i64 %25, ptr %27, ptr noundef nonnull %21, i32 noundef %24) #11
   %29 = extractvalue { i64, ptr } %28, 0
   %30 = extractvalue { i64, ptr } %28, 1
   store i64 %29, ptr %3, align 8
@@ -1747,7 +1747,7 @@ put_char.exit15:                                  ; preds = %9, %19
 34:                                               ; preds = %put_char.exit15
   %sext.i = shl i64 %22, 32
   %35 = ashr exact i64 %sext.i, 32
-  %36 = call i64 @fwrite(ptr noundef %21, i64 noundef 1, i64 noundef %35, ptr noundef %2)
+  %36 = call i64 @fwrite(ptr noundef nonnull %21, i64 noundef 1, i64 noundef %35, ptr noundef %2)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   %fputc.i18 = call i32 @fputc(i32 41, ptr %2)
   br label %put_char.exit19
@@ -1762,7 +1762,7 @@ declare i32 @jv_array_length(i64, ptr) local_unnamed_addr #5
 declare { i64, ptr } @jv_array_get(i64, ptr, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @put_char(i8 noundef signext %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #4 {
+define internal fastcc void @put_char(i8 noundef signext %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #4 {
   %4 = alloca i8, align 1
   store i8 %0, ptr %4, align 1
   %.not.i = icmp eq ptr %2, null
@@ -1789,7 +1789,7 @@ put_buf.exit:                                     ; preds = %5, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @put_indent(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #4 {
+define internal fastcc void @put_indent(i32 noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef %3) unnamed_addr #4 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = and i32 %1, 64
@@ -1900,26 +1900,26 @@ declare { i64, ptr } @jv_object_iter_value(i64, ptr, i32 noundef) local_unnamed_
 declare { i64, ptr } @jv_string_append_buf(i64, ptr, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @jv_string_length_bytes(i64, ptr) local_unnamed_addr #5
 
 declare ptr @jvp_utf8_next(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

@@ -63,7 +63,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #1
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @NoneUnfilter_C(ptr nocapture readnone %0, ptr noundef readonly %1, ptr noundef writeonly %2, i32 noundef %3) #2 {
+define internal void @NoneUnfilter_C(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr noundef writeonly %2, i32 noundef %3) #2 {
   %.not = icmp eq ptr %2, %1
   br i1 %.not, label %7, label %5
 
@@ -77,7 +77,7 @@ define internal void @NoneUnfilter_C(ptr nocapture readnone %0, ptr noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @HorizontalUnfilter_C(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #3 {
+define internal void @HorizontalUnfilter_C(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #3 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %8, label %6
 
@@ -111,7 +111,7 @@ define internal void @HorizontalUnfilter_C(ptr noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @VerticalUnfilter_C(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #3 {
+define internal void @VerticalUnfilter_C(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #3 {
   %5 = icmp eq ptr %0, null
   %6 = icmp sgt i32 %3, 0
   br i1 %5, label %7, label %.preheader
@@ -160,7 +160,7 @@ HorizontalUnfilter_C.exit:                        ; preds = %.lr.ph, %.lr.ph.i, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @GradientUnfilter_C(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #3 {
+define internal void @GradientUnfilter_C(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #3 {
   %5 = icmp eq ptr %0, null
   %6 = icmp sgt i32 %3, 0
   br i1 %5, label %7, label %12
@@ -220,7 +220,7 @@ HorizontalUnfilter_C.exit:                        ; preds = %.lr.ph, %.lr.ph.i, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @HorizontalFilter_C(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 1)) %4) #3 {
+define internal void @HorizontalFilter_C(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((0, 1)) %4) #3 {
   %6 = load i8, ptr %0, align 1
   store i8 %6, ptr %4, align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -310,7 +310,7 @@ DoHorizontalFilter_C.exit:                        ; preds = %.lr.ph.split.i, %Pr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @VerticalFilter_C(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 1)) %4) #3 {
+define internal void @VerticalFilter_C(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((0, 1)) %4) #3 {
   %6 = load i8, ptr %0, align 1
   store i8 %6, ptr %4, align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -377,7 +377,7 @@ DoVerticalFilter_C.exit:                          ; preds = %PredictLine_C.exit5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @GradientFilter_C(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 1)) %4) #3 {
+define internal void @GradientFilter_C(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((0, 1)) %4) #3 {
   %6 = load i8, ptr %0, align 1
   store i8 %6, ptr %4, align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -484,7 +484,7 @@ DoGradientFilter_C.exit:                          ; preds = %.lr.ph76.split.i, %
 declare void @VP8FiltersInitSSE2() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6

@@ -63,7 +63,7 @@ $_ZN7logging17MakeCheckOpStringImtEEPNSt7__cxx1112basic_stringIcSt11char_traitsI
 @_ZN3net17HpackHuffmanTableD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net17HpackHuffmanTableD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net17HpackHuffmanTable11DecodeEntryC2Ev(ptr nocapture noundef nonnull writeonly align 2 dereferenceable(4) initializes((0, 4)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net17HpackHuffmanTable11DecodeEntryC2Ev(ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(4) initializes((0, 4)) %this) unnamed_addr #0 align 2 {
 entry:
   store i8 0, ptr %this, align 2
   %length = getelementptr inbounds nuw i8, ptr %this, i64 1
@@ -74,7 +74,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net17HpackHuffmanTable11DecodeEntryC2Ehht(ptr nocapture noundef nonnull writeonly align 2 dereferenceable(4) initializes((0, 4)) %this, i8 noundef zeroext %next_table_index, i8 noundef zeroext %length, i16 noundef zeroext %symbol_id) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net17HpackHuffmanTable11DecodeEntryC2Ehht(ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(4) initializes((0, 4)) %this, i8 noundef zeroext %next_table_index, i8 noundef zeroext %length, i16 noundef zeroext %symbol_id) unnamed_addr #0 align 2 {
 entry:
   store i8 %next_table_index, ptr %this, align 2
   %length3 = getelementptr inbounds nuw i8, ptr %this, i64 1
@@ -85,7 +85,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i64 1, -9223372036854775807) i64 @_ZNK3net17HpackHuffmanTable11DecodeTable4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i64 1, -9223372036854775807) i64 @_ZNK3net17HpackHuffmanTable11DecodeTable4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
 entry:
   %indexed_length = getelementptr inbounds nuw i8, ptr %this, i64 1
   %0 = load i8, ptr %indexed_length, align 1
@@ -95,14 +95,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net17HpackHuffmanTableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(100) initializes((0, 96)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net17HpackHuffmanTableC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(100) initializes((0, 96)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 0, i64 96, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net17HpackHuffmanTableD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net17HpackHuffmanTableD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(100) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %length_by_id_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %length_by_id_, align 8
@@ -147,7 +147,7 @@ _ZNSt6vectorIN3net17HpackHuffmanTable11DecodeTableESaIS2_EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net17HpackHuffmanTable10InitializeEPKNS_18HpackHuffmanSymbolEm(ptr noundef nonnull align 8 dereferenceable(100) %this, ptr nocapture noundef readonly %input_symbols, i64 noundef %symbol_count) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net17HpackHuffmanTable10InitializeEPKNS_18HpackHuffmanSymbolEm(ptr noundef nonnull align 8 dereferenceable(100) %this, ptr noundef readonly captures(none) %input_symbols, i64 noundef %symbol_count) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.logging::LogMessage", align 8
   %symbols = alloca %"class.std::vector.18", align 8
@@ -679,7 +679,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net17HpackHuffmanTable13IsInitializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net17HpackHuffmanTable13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(100) %this) local_unnamed_addr #1 align 2 {
 entry:
   %code_by_id_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %code_by_id_, align 8
@@ -697,10 +697,10 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZN3net12_GLOBAL__N_124SymbolLengthAndIdCompareERKNS_18HpackHuffmanSymbolES3_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %b) #1 {
+define internal noundef zeroext i1 @_ZN3net12_GLOBAL__N_124SymbolLengthAndIdCompareERKNS_18HpackHuffmanSymbolES3_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %a, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %b) #1 {
 entry:
   %length = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load i8, ptr %length, align 4
@@ -718,7 +718,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net17HpackHuffmanTable17BuildDecodeTablesERKSt6vectorINS_18HpackHuffmanSymbolESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(100) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %symbols) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net17HpackHuffmanTable17BuildDecodeTablesERKSt6vectorINS_18HpackHuffmanSymbolESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(100) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %symbols) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i134 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ss.i115 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -1254,7 +1254,7 @@ for.end153:                                       ; preds = %for.inc151, %for.co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZN3net12_GLOBAL__N_115SymbolIdCompareERKNS_18HpackHuffmanSymbolES3_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %b) #1 {
+define internal noundef zeroext i1 @_ZN3net12_GLOBAL__N_115SymbolIdCompareERKNS_18HpackHuffmanSymbolES3_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %a, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %b) #1 {
 entry:
   %id = getelementptr inbounds nuw i8, ptr %a, i64 6
   %0 = load i16, ptr %id, align 2
@@ -1265,7 +1265,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net17HpackHuffmanTable16BuildEncodeTableERKSt6vectorINS_18HpackHuffmanSymbolESaIS2_EE(ptr nocapture noundef nonnull align 8 dereferenceable(100) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %symbols) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net17HpackHuffmanTable16BuildEncodeTableERKSt6vectorINS_18HpackHuffmanSymbolESaIS2_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(100) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %symbols) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %i = alloca i64, align 8
   %ref.tmp = alloca %"class.logging::LogMessage", align 8
@@ -1584,7 +1584,7 @@ _ZNSt6vectorIN3net17HpackHuffmanTable11DecodeTableESaIS2_EE9push_backERKS2_.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 2 dereferenceable(4) ptr @_ZNK3net17HpackHuffmanTable5EntryERKNS0_11DecodeTableEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %table, i32 noundef %index) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 2 dereferenceable(4) ptr @_ZNK3net17HpackHuffmanTable5EntryERKNS0_11DecodeTableEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(100) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %table, i32 noundef %index) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 if.end13:
   %decode_entries_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %entries_offset = getelementptr inbounds nuw i8, ptr %table, i64 8
@@ -1597,7 +1597,7 @@ if.end13:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net17HpackHuffmanTable8SetEntryERKNS0_11DecodeTableEjRKNS0_11DecodeEntryE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %table, i32 noundef %index, ptr nocapture noundef nonnull readonly align 2 dereferenceable(4) %entry1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net17HpackHuffmanTable8SetEntryERKNS0_11DecodeTableEjRKNS0_11DecodeEntryE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(100) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %table, i32 noundef %index, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(4) %entry1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index.addr = alloca i32, align 4
   %ref.tmp = alloca i64, align 8
@@ -1767,7 +1767,7 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3net17HpackHuffmanTable12EncodeStringEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPNS_17HpackOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %this, ptr %in.coerce0, i64 %in.coerce1, ptr noundef %out) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK3net17HpackHuffmanTable12EncodeStringEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPNS_17HpackOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(100) %this, ptr %in.coerce0, i64 %in.coerce1, ptr noundef %out) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %in = alloca %"class.base::BasicStringPiece", align 8
   %symbol_id = alloca i16, align 2
@@ -1899,7 +1899,7 @@ declare noundef signext i8 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_strin
 declare void @_ZN3net17HpackOutputStream10AppendBitsEhm(ptr noundef nonnull align 8 dereferenceable(40), i8 noundef zeroext, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i64 0, 2305843009213693952) i64 @_ZNK3net17HpackHuffmanTable11EncodedSizeEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %this, ptr %in.coerce0, i64 %in.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i64 0, 2305843009213693952) i64 @_ZNK3net17HpackHuffmanTable11EncodedSizeEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(100) %this, ptr %in.coerce0, i64 %in.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %in = alloca %"class.base::BasicStringPiece", align 8
   %symbol_id = alloca i16, align 2
@@ -1969,7 +1969,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK3net17HpackHuffmanTable19GenericDecodeStringEPNS_16HpackInputStreamEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %this, ptr noundef %in, ptr noundef nonnull %out) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK3net17HpackHuffmanTable19GenericDecodeStringEPNS_16HpackInputStreamEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(100) %this, ptr noundef %in, ptr noundef nonnull %out) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bits = alloca i32, align 4
   %bits_available = alloca i64, align 8
@@ -2098,7 +2098,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuffmanSymbolESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit, ptr %__comp.coerce) local_unnamed_addr #3 comdat {
@@ -2708,7 +2708,7 @@ return:                                           ; preds = %_ZSt13__adjust_heap
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN7logging17MakeCheckOpStringImtEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc(ptr noundef nonnull align 8 dereferenceable(8) %v1, ptr noundef nonnull align 2 dereferenceable(2) %v2, ptr noundef %names) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
@@ -2796,10 +2796,10 @@ declare noundef ptr @_ZN7logging17MakeCheckOpStringImjEEPNSt7__cxx1112basic_stri
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

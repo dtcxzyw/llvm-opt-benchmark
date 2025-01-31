@@ -252,7 +252,7 @@ $_ZTIN3fmt2v919basic_memory_bufferIiLm500ESaIiEEE = comdat any
 @_ZN5folly4FileD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5folly4FileD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly4FileC2Eib(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(5) initializes((0, 5)) %this, i32 noundef %fd, i1 noundef zeroext %ownsFd) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly4FileC2Eib(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(5) initializes((0, 5)) %this, i32 noundef %fd, i1 noundef zeroext %ownsFd) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v1.addr.i = alloca i32, align 4
   %v2.addr.i = alloca i32, align 4
@@ -344,7 +344,7 @@ terminate.lpad:                                   ; preds = %invoke.cont25, %inv
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -371,7 +371,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6s
 declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef) unnamed_addr #5
 
@@ -426,10 +426,10 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly4FileC2EPKcij(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(5) initializes((0, 5)) %this, ptr noundef %name, i32 noundef %flags, i32 noundef %mode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly4FileC2EPKcij(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(5) initializes((0, 5)) %this, ptr noundef %name, i32 noundef %flags, i32 noundef %mode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %compiled.i = alloca %"struct.fmt::v9::detail::concat", align 8
   %name.addr = alloca ptr, align 8
@@ -514,7 +514,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #10
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr void @_ZN5folly16throwSystemErrorIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %args) local_unnamed_addr #11 comdat {
@@ -692,7 +692,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #14
 declare void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() local_unnamed_addr #12
@@ -748,7 +748,7 @@ invoke.cont:                                      ; preds = %if.else.i.i, %if.th
   store i8 0, ptr %3, align 8, !tbaa !31
   call void @llvm.experimental.noalias.scope.decl(metadata !50)
   %call.i.i.i16 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__what) #33, !noalias !50
-  %call3.i.i.i28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i64 noundef 0, i64 noundef 0, ptr noundef %__what, i64 noundef %call.i.i.i16)
+  %call3.i.i.i28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %__what, i64 noundef %call.i.i.i16)
           to label %call3.i.i.i.noexc27 unwind label %lpad4
 
 call3.i.i.i.noexc27:                              ; preds = %invoke.cont
@@ -1124,7 +1124,7 @@ lor.end:                                          ; preds = %_ZN5folly13usingTCM
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #1
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nounwind
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #17
@@ -1239,7 +1239,7 @@ declare extern_weak i32 @mallctlbymib(ptr noundef, i64 noundef, ptr noundef, ptr
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #21
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZZN5folly13usingTCMallocEvENK11InitializerclEv(ptr noundef nonnull align 1 dereferenceable(1) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1868,7 +1868,7 @@ if.end10:                                         ; preds = %if.then4, %if.else,
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #23
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted10reallocateEPcmmPm(ptr noundef %data, i64 noundef %currentSize, i64 noundef %currentCapacity, ptr noundef %newCapacity) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1999,10 +1999,10 @@ ehcleanup:                                        ; preds = %lpad5, %lpad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #24
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #24
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #25
@@ -7736,7 +7736,7 @@ _ZNK3fmt2v99formatterIjcvE6formatINS0_20basic_format_contextISt20back_insert_ite
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly4FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEij(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(5) initializes((0, 5)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name, i32 noundef %flags, i32 noundef %mode) unnamed_addr #7 align 2 {
+define void @_ZN5folly4FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEij(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(5) initializes((0, 5)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name, i32 noundef %flags, i32 noundef %mode) unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %name, align 8, !tbaa !32
   tail call void @_ZN5folly4FileC2EPKcij(ptr noundef nonnull align 4 dereferenceable(5) %this, ptr noundef %0, i32 noundef %flags, i32 noundef %mode)
@@ -7744,7 +7744,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly4FileC2ENS_5RangeIPKcEEij(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(5) %this, ptr %name.coerce0, ptr %name.coerce1, i32 noundef %flags, i32 noundef %mode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly4FileC2ENS_5RangeIPKcEEij(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(5) %this, ptr %name.coerce0, ptr %name.coerce1, i32 noundef %flags, i32 noundef %mode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7851,7 +7851,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %if.t
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #26
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly4FileC2EOS0_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(5) initializes((0, 5)) %this, ptr nocapture noundef nonnull align 4 dereferenceable(5) %other) unnamed_addr #28 align 2 {
+define void @_ZN5folly4FileC2EOS0_(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(5) initializes((0, 5)) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(5) %other) unnamed_addr #28 align 2 {
 entry:
   %0 = load i32, ptr %other, align 4, !tbaa !7
   store i32 %0, ptr %this, align 4, !tbaa !7
@@ -7865,7 +7865,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN5folly4File7releaseEv(ptr nocapture noundef nonnull align 4 dereferenceable(5) initializes((4, 5)) %this) local_unnamed_addr #28 align 2 {
+define noundef i32 @_ZN5folly4File7releaseEv(ptr noundef nonnull align 4 captures(none) dereferenceable(5) initializes((4, 5)) %this) local_unnamed_addr #28 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4, !tbaa !7
   store i32 -1, ptr %this, align 4, !tbaa !7
@@ -7875,7 +7875,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(5) ptr @_ZN5folly4FileaSEOS0_(ptr noundef nonnull returned align 4 dereferenceable(5) %this, ptr nocapture noundef nonnull align 4 dereferenceable(5) %other) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 4 dereferenceable(5) ptr @_ZN5folly4FileaSEOS0_(ptr noundef nonnull returned align 4 dereferenceable(5) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(5) %other) local_unnamed_addr #7 align 2 {
 entry:
   %ownsFd_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i8, ptr %ownsFd_.i, align 4, !tbaa !13, !range !59, !noundef !60
@@ -7901,7 +7901,7 @@ _ZN5folly4File12closeNoThrowEv.exit:              ; preds = %cond.true.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5folly4File12closeNoThrowEv(ptr nocapture noundef nonnull align 4 dereferenceable(5) %this) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZN5folly4File12closeNoThrowEv(ptr noundef nonnull align 4 captures(none) dereferenceable(5) %this) local_unnamed_addr #7 align 2 {
 entry:
   %ownsFd_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i8, ptr %ownsFd_, align 4, !tbaa !13, !range !59, !noundef !60
@@ -7922,7 +7922,7 @@ cond.end:                                         ; preds = %cond.true, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly4File4swapERS0_(ptr nocapture noundef nonnull align 4 dereferenceable(5) %this, ptr nocapture noundef nonnull align 4 dereferenceable(5) %other) local_unnamed_addr #28 align 2 {
+define void @_ZN5folly4File4swapERS0_(ptr noundef nonnull align 4 captures(none) dereferenceable(5) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(5) %other) local_unnamed_addr #28 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4, !tbaa !14
   %1 = load i32, ptr %other, align 4, !tbaa !14
@@ -7938,7 +7938,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly4FileD2Ev(ptr nocapture noundef nonnull align 4 dereferenceable(5) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly4FileD2Ev(ptr noundef nonnull align 4 captures(none) dereferenceable(5) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ownsFd_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i8, ptr %ownsFd_.i, align 4, !tbaa !13, !range !59, !noundef !60
@@ -8006,7 +8006,7 @@ declare noalias noundef ptr @tmpfile() local_unnamed_addr #29
 declare i32 @dup(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #29
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #29
 
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr void @_ZN5folly16throwSystemErrorIJRA17_KcEEEvDpOT_(ptr noundef nonnull align 1 dereferenceable(17) %args) local_unnamed_addr #11 comdat {
@@ -8048,10 +8048,10 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #29
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #29
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly4swapERNS_4FileES1_(ptr nocapture noundef nonnull align 4 dereferenceable(5) %a, ptr nocapture noundef nonnull align 4 dereferenceable(5) %b) local_unnamed_addr #28 {
+define void @_ZN5folly4swapERNS_4FileES1_(ptr noundef nonnull align 4 captures(none) dereferenceable(5) %a, ptr noundef nonnull align 4 captures(none) dereferenceable(5) %b) local_unnamed_addr #28 {
 entry:
   %0 = load i32, ptr %a, align 4, !tbaa !14
   %1 = load i32, ptr %b, align 4, !tbaa !14
@@ -8067,7 +8067,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly4File3dupEv(ptr dead_on_unwind noalias writable sret(%"class.folly::File") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(5) %this) local_unnamed_addr #7 align 2 {
+define void @_ZNK5folly4File3dupEv(ptr dead_on_unwind noalias writable sret(%"class.folly::File") align 4 %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(5) %this) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4, !tbaa !7
   %cmp.not = icmp eq i32 %0, -1
@@ -8097,7 +8097,7 @@ return:                                           ; preds = %if.end, %_ZN5folly1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly4File14dupCloseOnExecEv(ptr dead_on_unwind noalias writable sret(%"class.folly::File") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(5) %this) local_unnamed_addr #7 align 2 {
+define void @_ZNK5folly4File14dupCloseOnExecEv(ptr dead_on_unwind noalias writable sret(%"class.folly::File") align 4 %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(5) %this) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4, !tbaa !7
   %cmp.not = icmp eq i32 %0, -1
@@ -8129,7 +8129,7 @@ return:                                           ; preds = %if.end, %_ZN5folly1
 declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly4File5closeEv(ptr nocapture noundef nonnull align 4 dereferenceable(5) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN5folly4File5closeEv(ptr noundef nonnull align 4 captures(none) dereferenceable(5) %this) local_unnamed_addr #7 align 2 {
 entry:
   %ownsFd_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i8, ptr %ownsFd_.i, align 4, !tbaa !13, !range !59, !noundef !60
@@ -8168,7 +8168,7 @@ entry:
 declare i32 @close(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly4File4lockEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(5) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN5folly4File4lockEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(5) %this) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4, !tbaa !7
   %call.i = tail call noundef i32 @_ZN5folly10flockNoIntEii(i32 noundef %0, i32 noundef 2)
@@ -8184,7 +8184,7 @@ _ZN5folly4File6doLockEi.exit:                     ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly4File6doLockEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(5) %this, i32 noundef %op) local_unnamed_addr #7 align 2 {
+define void @_ZN5folly4File6doLockEi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(5) %this, i32 noundef %op) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4, !tbaa !7
   %call = tail call noundef i32 @_ZN5folly10flockNoIntEii(i32 noundef %0, i32 noundef %op)
@@ -8200,7 +8200,7 @@ _ZN5folly14checkUnixErrorIJRA22_KcEEEvlDpOT_.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5folly4File8try_lockEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(5) %this) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZN5folly4File8try_lockEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(5) %this) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4, !tbaa !7
   %call.i = tail call noundef i32 @_ZN5folly10flockNoIntEii(i32 noundef %0, i32 noundef 6)
@@ -8222,7 +8222,7 @@ _ZN5folly4File9doTryLockEi.exit:                  ; preds = %land.lhs.true.i, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5folly4File9doTryLockEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(5) %this, i32 noundef %op) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZN5folly4File9doTryLockEi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(5) %this, i32 noundef %op) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4, !tbaa !7
   %or = or i32 %op, 4
@@ -8245,7 +8245,7 @@ cleanup:                                          ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly4File11lock_sharedEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(5) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN5folly4File11lock_sharedEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(5) %this) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4, !tbaa !7
   %call.i = tail call noundef i32 @_ZN5folly10flockNoIntEii(i32 noundef %0, i32 noundef 1)
@@ -8261,7 +8261,7 @@ _ZN5folly4File6doLockEi.exit:                     ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5folly4File15try_lock_sharedEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(5) %this) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZN5folly4File15try_lock_sharedEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(5) %this) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4, !tbaa !7
   %call.i = tail call noundef i32 @_ZN5folly10flockNoIntEii(i32 noundef %0, i32 noundef 5)
@@ -8303,7 +8303,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly4File6unlockEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(5) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN5folly4File6unlockEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(5) %this) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4, !tbaa !7
   %call = tail call noundef i32 @_ZN5folly10flockNoIntEii(i32 noundef %0, i32 noundef 8)
@@ -8328,7 +8328,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly4File13unlock_sharedEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(5) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN5folly4File13unlock_sharedEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(5) %this) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4, !tbaa !7
   %call.i = tail call noundef i32 @_ZN5folly10flockNoIntEii(i32 noundef %0, i32 noundef 8)

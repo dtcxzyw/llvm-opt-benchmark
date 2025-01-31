@@ -49,7 +49,7 @@ declare noundef ptr @_ZNK5folly16EventBaseManager12getEventBaseEv(ptr noundef no
 declare void @_ZN5folly18AsyncSignalHandlerC2EPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen13SignalHandler7installERKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %signals) local_unnamed_addr #3 align 2 {
+define void @_ZN8proxygen13SignalHandler7installERKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %signals) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %signals, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %signals, i64 8
@@ -72,7 +72,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare void @_ZN5folly18AsyncSignalHandler21registerSignalHandlerEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen13SignalHandler14signalReceivedEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen13SignalHandler14signalReceivedEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i32 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %server_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %1 = load ptr, ptr %server_, align 8

@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [52 x i8] c"Invalid query config data item size=%u expected=%u\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -22, 1) i32 @i915_query_ioctl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @i915_query_ioctl(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.drm_i915_query_item, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
@@ -106,13 +106,13 @@ define dso_local range(i32 -22, 1) i32 @i915_query_ioctl(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
 declare i64 @llvm.read_register.i64(metadata) #3
@@ -124,7 +124,7 @@ declare void @llvm.write_register.i64(metadata, i64) #4
 declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -22, 2088978) i32 @query_topology_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 -22, 2088978) i32 @query_topology_info(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -143,7 +143,7 @@ define internal range(i32 -22, 2088978) i32 @query_topology_info(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @query_engine_info(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal i32 @query_engine_info(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca %struct.drm_i915_query_engine_info, align 8
   %4 = alloca %struct.drm_i915_engine_info, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -293,7 +293,7 @@ define internal i32 @query_engine_info(ptr noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @query_perf_config(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal i32 @query_perf_config(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -498,7 +498,7 @@ define internal i32 @query_perf_config(ptr noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @query_memregion_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal i32 @query_memregion_info(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca %struct.drm_i915_memory_region_info, align 8
   %4 = alloca %struct.drm_i915_query_memory_regions, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -685,7 +685,7 @@ define internal i32 @query_memregion_info(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @query_hwconfig_blob(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal i32 @query_hwconfig_blob(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 9304
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 5152
@@ -738,7 +738,7 @@ define internal i32 @query_hwconfig_blob(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -22, 2088978) i32 @query_geometry_subslices(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 -22, 2088978) i32 @query_geometry_subslices(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 7176
   %4 = load i8, ptr %3, align 8
   %5 = zext i8 %4 to i32
@@ -780,7 +780,7 @@ define internal range(i32 -22, 2088978) i32 @query_geometry_subslices(ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, 2088978) i32 @fill_topology_info(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -22, 2088978) i32 @fill_topology_info(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.drm_i915_query_topology_info, align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 169
@@ -903,7 +903,7 @@ declare dso_local ptr @rb_first(ptr noundef) local_unnamed_addr #5
 declare dso_local ptr @rb_next(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, 121) i32 @query_perf_config_data(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -22, 121) i32 @query_perf_config_data(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.drm_i915_perf_oa_config, align 8
   %5 = alloca [37 x i8], align 16
   %6 = alloca i32, align 4
@@ -1142,7 +1142,7 @@ declare dso_local void @__rcu_read_lock() local_unnamed_addr #5
 declare dso_local void @__rcu_read_unlock() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc ptr @i915_oa_config_get(ptr noundef nonnull %0) unnamed_addr #8 align 16 {
@@ -1187,7 +1187,7 @@ define internal fastcc ptr @i915_oa_config_get(ptr noundef nonnull %0) unnamed_a
 declare dso_local ptr @i915_perf_get_oa_config(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -14, 1) i32 @copy_perf_config_registers_or_number(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -14, 1) i32 @copy_perf_config_registers_or_number(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 align 16 {
   %5 = inttoptr i64 %2 to ptr
   %6 = load i32, ptr %3, align 4
   %7 = icmp eq i32 %6, 0
@@ -1244,7 +1244,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @copy_perf_config_registers
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc void @i915_oa_config_put(ptr noundef nonnull %0) unnamed_addr #8 align 16 {

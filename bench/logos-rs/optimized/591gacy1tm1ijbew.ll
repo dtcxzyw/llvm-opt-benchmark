@@ -7,13 +7,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.de4d1d422ebdbf3dfb38ea082b842901.1 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.de4d1d422ebdbf3dfb38ea082b842901.0, [16 x i8] c"\22\00\00\00\00\00\00\00F\00\00\00\1D\00\00\00" }>, align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h5da4285291b2304dE"(ptr sret([32 x i8]) align 8 %0, ptr nocapture readnone align 8 %1) unnamed_addr #0 {
+define void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h5da4285291b2304dE"(ptr sret([32 x i8]) align 8 %0, ptr readnone align 8 captures(none) %1) unnamed_addr #0 {
   tail call void @"_ZN13logos_codegen6parser6nested118_$LT$impl$u20$core..convert..From$LT$logos_codegen..parser..nested..Empty$GT$$u20$for$u20$proc_macro2..TokenStream$GT$4from17h4e78f3bac4457720E"(ptr sret([32 x i8]) align 8 %0)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13logos_codegen6parser6nested15AttributeParser6parsed17h5d4e295f936366a2E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN13logos_codegen6parser6nested15AttributeParser6parsed17h5d4e295f936366a2E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
@@ -110,7 +110,7 @@ _ZN13logos_codegen6parser6nested15AttributeParser12collect_tail17h317c918fc9a0b8
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13logos_codegen6parser6nested15AttributeParser12collect_tail17hc6d57c967b5a4976E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN13logos_codegen6parser6nested15AttributeParser12collect_tail17hc6d57c967b5a4976E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -165,7 +165,7 @@ define hidden void @_ZN13logos_codegen6parser6nested15AttributeParser12collect_t
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13logos_codegen6parser6nested15AttributeParser12collect_tail17hc79792dce947e4aaE(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN13logos_codegen6parser6nested15AttributeParser12collect_tail17hc79792dce947e4aaE(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
@@ -232,7 +232,7 @@ declare void @_ZN11proc_macro211TokenStream3new17hd34098e6360de226E(ptr sret([32
 declare zeroext i1 @_ZN11proc_macro211TokenStream8is_empty17h3f9a0c6cd509f986E(ptr align 8) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217hba939dac2d9468bbE"(ptr sret([32 x i8]) align 8, ptr align 8) unnamed_addr #1
@@ -259,10 +259,10 @@ declare void @"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$proc_macro
 declare void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h00f4384c6bc95e8cE"(ptr sret([32 x i8]) align 8, ptr align 8, ptr align 8) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

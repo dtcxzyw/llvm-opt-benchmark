@@ -1625,7 +1625,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare void @ipmi_register_netfn_cmdtab(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @rq00(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rq00(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_00_addr, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_00_lun, align 4
@@ -1634,7 +1634,7 @@ define internal void @rq00(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rs01(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rs01(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_01_addr, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_01_lun, align 4
@@ -1643,13 +1643,13 @@ define internal void @rs01(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rq02(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rq02(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   tail call fastcc void @parse_platform_event(ptr noundef %0, ptr noundef %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rs10(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rs10(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_10_pef_version, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @ett_ipmi_se_10_action, align 4
@@ -1660,7 +1660,7 @@ define internal void @rs10(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rq11(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rq11(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %5 = load i32, ptr @hf_ipmi_se_11_rq_timeout, align 4
   %6 = zext i8 %4 to i32
@@ -1670,7 +1670,7 @@ define internal void @rq11(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rs11(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rs11(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %5 = load i32, ptr @hf_ipmi_se_11_rs_timeout, align 4
   %6 = zext i8 %4 to i32
@@ -1885,7 +1885,7 @@ proto_item_set_generated.exit:                    ; preds = %37, %40, %43
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rq14(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rq14(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_14_processed_by, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_14_rid, align 4
@@ -2024,7 +2024,7 @@ define internal void @rs20(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rq21(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rq21(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #3
   %5 = load i32, ptr @hf_ipmi_se_21_rid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #3
@@ -2041,7 +2041,7 @@ define internal void @rq21(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rs21(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rs21(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_21_next, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_21_recdata, align 4
@@ -2050,14 +2050,14 @@ define internal void @rs21(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rs22(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rs22(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_22_resid, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rq23(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rq23(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_23_rq_sensor, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_23_rq_reading, align 4
@@ -2066,7 +2066,7 @@ define internal void @rq23(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rs23(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rs23(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_23_rs_next_reading, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
@@ -2135,7 +2135,7 @@ define internal void @rs23(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rq24(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rq24(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_24_sensor, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_24_mask, align 4
@@ -2148,7 +2148,7 @@ define internal void @rq24(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rq25(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rq25(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_25_sensor, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_25_mask, align 4
@@ -2157,7 +2157,7 @@ define internal void @rq25(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rs25(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rs25(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_25_hyst_pos, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_25_hyst_neg, align 4
@@ -2166,7 +2166,7 @@ define internal void @rs25(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rq26(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rq26(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_26_sensor, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   tail call fastcc void @add_thresholds(ptr noundef %0, i32 noundef 1, ptr noundef %2, ptr noundef nonnull @.str.1089)
@@ -2174,20 +2174,20 @@ define internal void @rq26(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rq27(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rq27(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_27_sensor, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rs27(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rs27(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   tail call fastcc void @add_thresholds(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef nonnull @.str.1090)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rq28(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rq28(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_28_sensor, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @ett_ipmi_se_28_byte2, align 4
@@ -2197,14 +2197,14 @@ define internal void @rq28(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rq29(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rq29(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_29_sensor, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rs29(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rs29(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @ett_ipmi_se_29_byte1, align 4
   %5 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %4, ptr noundef nonnull @rs29.byte1, i32 noundef -2147483648, i32 noundef 0) #3
   tail call fastcc void @add_events(ptr noundef %0, i32 noundef 1, ptr noundef %2, ptr noundef nonnull @tfs_29_enabled, ptr noundef nonnull @.str.1095)
@@ -2212,7 +2212,7 @@ define internal void @rs29(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rq2a(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rq2a(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_2a_sensor, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_2a_fl_sel, align 4
@@ -2222,14 +2222,14 @@ define internal void @rq2a(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rq2b(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rq2b(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_2b_sensor, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rs2b(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rs2b(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @ett_ipmi_se_2b_byte1, align 4
   %5 = tail call ptr @proto_tree_add_bitmask_text(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef null, i32 noundef %4, ptr noundef nonnull @rs2b.byte1, i32 noundef -2147483648, i32 noundef 0) #3
   tail call fastcc void @add_events(ptr noundef %0, i32 noundef 1, ptr noundef %2, ptr noundef nonnull @rs2b.occur_tfs, ptr noundef nonnull @.str.1100)
@@ -2237,14 +2237,14 @@ define internal void @rs2b(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rq2d(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rq2d(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_2d_sensor, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rs2d(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rs2d(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_2d_reading, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @ett_ipmi_se_2d_byte2, align 4
@@ -2299,7 +2299,7 @@ define internal void @rs2d(ptr noundef %0, ptr nocapture readnone %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rq2e(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rq2e(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
   %5 = zext i8 %4 to i32
   br label %7
@@ -2339,14 +2339,14 @@ get_sensor_info.exit:                             ; preds = %11, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rq2f(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rq2f(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_2f_sensor, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rs2f(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @rs2f(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %5 = zext i8 %4 to i32
   br label %7
@@ -2622,7 +2622,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssi_05_2(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal range(i32 0, 2) i32 @ssi_05_2(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = icmp eq i32 %3, 3
   %8 = icmp eq i32 %4, 4
   %or.cond = and i1 %7, %8
@@ -2639,7 +2639,7 @@ define internal range(i32 0, 2) i32 @ssi_05_2(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssi_08_3(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal range(i32 0, 2) i32 @ssi_08_3(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = icmp eq i32 %3, 3
   %8 = icmp eq i32 %4, 6
   %or.cond = and i1 %7, %8
@@ -2656,7 +2656,7 @@ define internal range(i32 0, 2) i32 @ssi_08_3(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssi_0c_3(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, i32 %5) #0 {
+define internal range(i32 0, 2) i32 @ssi_0c_3(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, i32 %5) #0 {
   %7 = icmp eq i32 %3, 3
   br i1 %7, label %8, label %11
 
@@ -2671,7 +2671,7 @@ define internal range(i32 0, 2) i32 @ssi_0c_3(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssi_0f_2(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal range(i32 0, 2) i32 @ssi_0f_2(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = icmp eq i32 %3, 3
   %8 = icmp eq i32 %4, 0
   %or.cond = and i1 %7, %8
@@ -2695,7 +2695,7 @@ define internal range(i32 0, 2) i32 @ssi_0f_2(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssi_10_2(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 0, 2) i32 @ssi_10_2(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = icmp eq i32 %3, 3
   %8 = icmp eq i32 %4, 0
   %or.cond = and i1 %7, %8
@@ -2745,7 +2745,7 @@ get_evtype_info.exit:                             ; preds = %15, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssi_10_3(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 0, 2) i32 @ssi_10_3(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = icmp eq i32 %3, 3
   %8 = icmp eq i32 %4, 1
   %or.cond = and i1 %7, %8
@@ -2789,7 +2789,7 @@ define internal range(i32 0, 2) i32 @ssi_10_3(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssi_12_2(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal range(i32 0, 2) i32 @ssi_12_2(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = icmp eq i32 %3, 3
   %8 = icmp eq i32 %4, 3
   %or.cond = and i1 %7, %8
@@ -2846,7 +2846,7 @@ define internal range(i32 0, 2) i32 @ssi_12_2(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssi_19_2(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal range(i32 0, 2) i32 @ssi_19_2(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = icmp eq i32 %3, 3
   %8 = icmp eq i32 %4, 0
   %or.cond = and i1 %7, %8
@@ -2863,7 +2863,7 @@ define internal range(i32 0, 2) i32 @ssi_19_2(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssi_19_3(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal range(i32 0, 2) i32 @ssi_19_3(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = icmp eq i32 %3, 3
   %8 = icmp eq i32 %4, 0
   %or.cond = and i1 %7, %8
@@ -2880,7 +2880,7 @@ define internal range(i32 0, 2) i32 @ssi_19_3(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssi_1d_2(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal range(i32 0, 2) i32 @ssi_1d_2(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = icmp eq i32 %3, 3
   %8 = icmp eq i32 %4, 7
   %or.cond = and i1 %7, %8
@@ -2897,7 +2897,7 @@ define internal range(i32 0, 2) i32 @ssi_1d_2(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssi_1d_3(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 0, 2) i32 @ssi_1d_3(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = alloca [240 x i8], align 16
   call void @ipmi_fmt_channel(ptr noundef nonnull %7, i32 noundef %5) #3
   %8 = icmp eq i32 %3, 3
@@ -2916,7 +2916,7 @@ define internal range(i32 0, 2) i32 @ssi_1d_3(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssi_21_2(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, i32 %5) #0 {
+define internal range(i32 0, 2) i32 @ssi_21_2(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, i32 %5) #0 {
   %7 = icmp eq i32 %3, 3
   br i1 %7, label %8, label %11
 
@@ -2931,7 +2931,7 @@ define internal range(i32 0, 2) i32 @ssi_21_2(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssi_21_3(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, i32 %5) #0 {
+define internal range(i32 0, 2) i32 @ssi_21_3(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, i32 %5) #0 {
   %7 = icmp eq i32 %3, 3
   br i1 %7, label %8, label %11
 
@@ -2946,7 +2946,7 @@ define internal range(i32 0, 2) i32 @ssi_21_3(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssi_23_2(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, i32 %5) #0 {
+define internal range(i32 0, 2) i32 @ssi_23_2(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, i32 %5) #0 {
   %7 = icmp eq i32 %3, 3
   br i1 %7, label %8, label %15
 
@@ -2965,7 +2965,7 @@ define internal range(i32 0, 2) i32 @ssi_23_2(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssi_28_2(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal range(i32 0, 2) i32 @ssi_28_2(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = icmp eq i32 %3, 3
   %8 = and i32 %4, -5
   %or.cond = icmp eq i32 %8, 0
@@ -3002,7 +3002,7 @@ define internal range(i32 0, 2) i32 @ssi_28_2(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssi_28_3(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal range(i32 0, 2) i32 @ssi_28_3(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = icmp eq i32 %3, 3
   %8 = icmp eq i32 %4, 5
   %or.cond = and i1 %7, %8
@@ -3030,7 +3030,7 @@ define internal range(i32 0, 2) i32 @ssi_28_3(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ssi_2a_2(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, i32 noundef %5) #0 {
+define internal noundef i32 @ssi_2a_2(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, i32 noundef %5) #0 {
   %7 = icmp eq i32 %3, 3
   br i1 %7, label %8, label %14
 
@@ -3050,7 +3050,7 @@ define internal noundef i32 @ssi_2a_2(ptr noundef %0, ptr noundef %1, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssi_2a_3(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, i32 %5) #0 {
+define internal range(i32 0, 2) i32 @ssi_2a_3(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, i32 %5) #0 {
   %7 = icmp eq i32 %3, 3
   br i1 %7, label %8, label %15
 
@@ -3069,7 +3069,7 @@ define internal range(i32 0, 2) i32 @ssi_2a_3(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssi_2b_2(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, i32 %5) #0 {
+define internal range(i32 0, 2) i32 @ssi_2b_2(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, i32 %5) #0 {
   %7 = icmp eq i32 %3, 3
   br i1 %7, label %8, label %11
 
@@ -3084,7 +3084,7 @@ define internal range(i32 0, 2) i32 @ssi_2b_2(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssi_2c_2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 %4, i32 noundef %5) #0 {
+define internal range(i32 0, 2) i32 @ssi_2c_2(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 %4, i32 noundef %5) #0 {
   %7 = icmp eq i32 %3, 3
   br i1 %7, label %8, label %18
 
@@ -3106,7 +3106,7 @@ define internal range(i32 0, 2) i32 @ssi_2c_2(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssi_f0_2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 %4, i32 noundef %5) #0 {
+define internal range(i32 0, 2) i32 @ssi_f0_2(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 %4, i32 noundef %5) #0 {
   %7 = icmp eq i32 %3, 2
   br i1 %7, label %8, label %18
 
@@ -3128,7 +3128,7 @@ define internal range(i32 0, 2) i32 @ssi_f0_2(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssi_f0_3(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, i32 %5) #0 {
+define internal range(i32 0, 2) i32 @ssi_f0_3(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, i32 %5) #0 {
   %7 = icmp eq i32 %3, 2
   br i1 %7, label %8, label %11
 
@@ -3143,7 +3143,7 @@ define internal range(i32 0, 2) i32 @ssi_f0_3(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssi_f1_2(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, i32 %5) #0 {
+define internal range(i32 0, 2) i32 @ssi_f1_2(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, i32 %5) #0 {
   %7 = icmp eq i32 %3, 2
   br i1 %7, label %8, label %11
 
@@ -3158,7 +3158,7 @@ define internal range(i32 0, 2) i32 @ssi_f1_2(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssi_f1_3(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, i32 %5) #0 {
+define internal range(i32 0, 2) i32 @ssi_f1_3(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, i32 %5) #0 {
   %7 = icmp eq i32 %3, 2
   br i1 %7, label %8, label %19
 
@@ -3181,7 +3181,7 @@ define internal range(i32 0, 2) i32 @ssi_f1_3(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssi_f3_2(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal range(i32 0, 2) i32 @ssi_f3_2(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = icmp eq i32 %3, 2
   %8 = icmp eq i32 %4, 0
   %or.cond = and i1 %7, %8
@@ -3234,7 +3234,7 @@ define internal range(i32 0, 2) i32 @ssi_f3_2(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssi_f3_3(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal range(i32 0, 2) i32 @ssi_f3_3(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, i32 %5) #0 {
   %7 = icmp eq i32 %3, 2
   %8 = icmp eq i32 %4, 1
   %or.cond = and i1 %7, %8
@@ -3255,7 +3255,7 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @eti_thr_2(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, i32 noundef %5) #0 {
+define internal range(i32 0, 2) i32 @eti_thr_2(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, i32 noundef %5) #0 {
   %7 = icmp eq i32 %3, 1
   br i1 %7, label %8, label %13
 
@@ -3275,7 +3275,7 @@ define internal range(i32 0, 2) i32 @eti_thr_2(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @eti_thr_3(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, i32 noundef %5) #0 {
+define internal range(i32 0, 2) i32 @eti_thr_3(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, i32 noundef %5) #0 {
   %7 = icmp eq i32 %3, 1
   br i1 %7, label %8, label %13
 
@@ -3295,7 +3295,7 @@ define internal range(i32 0, 2) i32 @eti_thr_3(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @eti_2_pst_sev(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 %4, i32 noundef %5) #0 {
+define internal range(i32 0, 2) i32 @eti_2_pst_sev(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 %4, i32 noundef %5) #0 {
   %7 = icmp eq i32 %3, 1
   br i1 %7, label %8, label %22
 
@@ -3335,14 +3335,14 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @cfgparam_00(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @cfgparam_00(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp00_sip, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cfgparam_01(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @cfgparam_01(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp01_alert_startup, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_cp01_startup, align 4
@@ -3355,7 +3355,7 @@ define internal void @cfgparam_01(ptr noundef %0, ptr nocapture readnone %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cfgparam_02(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @cfgparam_02(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp02_diag_intr, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_cp02_oem_action, align 4
@@ -3372,28 +3372,28 @@ define internal void @cfgparam_02(ptr noundef %0, ptr nocapture readnone %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cfgparam_03(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @cfgparam_03(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp03_startup, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cfgparam_04(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @cfgparam_04(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp04_alert_startup, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cfgparam_05(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @cfgparam_05(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp05_num_evfilters, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cfgparam_06(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @cfgparam_06(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp06_filter, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_cp06_data, align 4
@@ -3402,7 +3402,7 @@ define internal void @cfgparam_06(ptr noundef %0, ptr nocapture readnone %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cfgparam_07(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @cfgparam_07(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp07_filter, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_cp06_data, align 4
@@ -3411,14 +3411,14 @@ define internal void @cfgparam_07(ptr noundef %0, ptr nocapture readnone %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cfgparam_08(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @cfgparam_08(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp08_policies, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cfgparam_09(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @cfgparam_09(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp09_entry, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_cp09_data, align 4
@@ -3427,7 +3427,7 @@ define internal void @cfgparam_09(ptr noundef %0, ptr nocapture readnone %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cfgparam_10(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @cfgparam_10(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp10_useval, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %6 = load i32, ptr @hf_ipmi_se_cp10_guid, align 4
@@ -3436,14 +3436,14 @@ define internal void @cfgparam_10(ptr noundef %0, ptr nocapture readnone %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cfgparam_11(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @cfgparam_11(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp11_num_alertstr, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cfgparam_12(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @cfgparam_12(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp12_byte1, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @ett_ipmi_se_cp12_byte1, align 4
@@ -3458,7 +3458,7 @@ define internal void @cfgparam_12(ptr noundef %0, ptr nocapture readnone %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cfgparam_13(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @cfgparam_13(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp13_stringsel, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @hf_ipmi_se_cp13_blocksel, align 4
@@ -3469,14 +3469,14 @@ define internal void @cfgparam_13(ptr noundef %0, ptr nocapture readnone %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cfgparam_14(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @cfgparam_14(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp14_num_gct, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cfgparam_15(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @cfgparam_15(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = load i32, ptr @hf_ipmi_se_cp15_gctsel, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
   %6 = load i32, ptr @ett_ipmi_se_cp15_byte2, align 4

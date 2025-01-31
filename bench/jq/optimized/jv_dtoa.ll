@@ -16,13 +16,13 @@ target triple = "x86_64-pc-linux-gnu"
 @pow5mult.p05 = internal unnamed_addr constant [3 x i32] [i32 5, i32 25, i32 125], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jvp_dtoa_context_init(ptr nocapture noundef writeonly initializes((0, 72)) %0) local_unnamed_addr #0 {
+define void @jvp_dtoa_context_init(ptr noundef writeonly captures(none) initializes((0, 72)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 72, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @jvp_dtoa_context_free(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define void @jvp_dtoa_context_free(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not19 = icmp eq ptr %3, null
@@ -85,7 +85,7 @@ Bfree.exit:                                       ; preds = %9, %10
 declare void @jv_mem_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define double @jvp_strtod(ptr nocapture noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
+define double @jvp_strtod(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -2636,10 +2636,10 @@ declare double @llvm.fmuladd.f64(double, double, double) #3
 declare i32 @llvm.get.rounding() #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @d2b(ptr nocapture noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3) unnamed_addr #1 {
+define internal fastcc ptr @d2b(ptr noundef captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %2, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
@@ -2887,7 +2887,7 @@ lo0bits.exit59:                                   ; preds = %79, %62, %64, %66, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pow5mult(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 1, -2147483648) %2) unnamed_addr #1 {
+define internal fastcc ptr @pow5mult(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef range(i32 1, -2147483648) %2) unnamed_addr #1 {
   %4 = and i32 %2, 3
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %11, label %5
@@ -3008,7 +3008,7 @@ Bfree.exit:                                       ; preds = %37, %36, %30, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mult(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #1 {
+define internal fastcc ptr @mult(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -3162,7 +3162,7 @@ Balloc.exit:                                      ; preds = %25, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lshift(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 -2147483593, -2147483648) %2) unnamed_addr #1 {
+define internal fastcc ptr @lshift(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef range(i32 -2147483593, -2147483648) %2) unnamed_addr #1 {
   %4 = ashr i32 %2, 5
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
@@ -3307,7 +3307,7 @@ Bfree.exit:                                       ; preds = %.loopexit, %65, %66
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @diff(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #1 {
+define internal fastcc ptr @diff(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -3491,7 +3491,7 @@ Balloc.exit63:                                    ; preds = %40, %42
 }
 
 ; Function Attrs: nounwind uwtable
-define void @jvp_freedtoa(ptr nocapture noundef %0, ptr noundef initializes((4, 12)) %1) local_unnamed_addr #1 {
+define void @jvp_freedtoa(ptr noundef captures(none) %0, ptr noundef initializes((4, 12)) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3519,7 +3519,7 @@ Bfree.exit:                                       ; preds = %9, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @jvp_dtoa(ptr nocapture noundef %0, double noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly initializes((0, 4)) %5, ptr noundef writeonly %6) local_unnamed_addr #1 {
+define nonnull ptr @jvp_dtoa(ptr noundef captures(none) %0, double noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5, ptr noundef writeonly %6) local_unnamed_addr #1 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca %union.U, align 8
@@ -5252,7 +5252,7 @@ nrv_alloc.exit:                                   ; preds = %nrv_alloc.exit.sink
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @multadd(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -176, 80) %3) unnamed_addr #1 {
+define internal fastcc ptr @multadd(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -176, 80) %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -5365,7 +5365,7 @@ Bfree.exit:                                       ; preds = %54, %53, %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @quorem(ptr nocapture noundef %0, ptr noundef readonly %1) unnamed_addr #6 {
+define internal fastcc i32 @quorem(ptr noundef captures(none) %0, ptr noundef readonly %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -5555,7 +5555,7 @@ cmp.exit.thread2:                                 ; preds = %52, %cmp.exit, %.cr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @jvp_dtoa_fmt(ptr nocapture noundef %0, ptr noundef returned writeonly %1, double noundef %2) local_unnamed_addr #1 {
+define noundef ptr @jvp_dtoa_fmt(ptr noundef captures(none) %0, ptr noundef returned writeonly %1, double noundef %2) local_unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -5818,7 +5818,7 @@ jvp_freedtoa.exit:                                ; preds = %102, %103
 declare ptr @jv_mem_alloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc double @b2d(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %1) unnamed_addr #7 {
+define internal fastcc double @b2d(ptr noundef readonly %0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %1) unnamed_addr #7 {
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
@@ -5933,16 +5933,16 @@ declare i32 @llvm.umax.i32(i32, i32) #8
 declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8

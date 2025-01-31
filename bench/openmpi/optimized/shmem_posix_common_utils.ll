@@ -62,7 +62,7 @@ define i32 @opal_shmem_posix_shm_open(ptr noundef %0, i64 noundef %1) local_unna
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare i32 @shm_open(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 

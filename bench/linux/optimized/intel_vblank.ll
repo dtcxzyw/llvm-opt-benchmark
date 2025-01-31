@@ -49,7 +49,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [3 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched29, ptr @trace_i915_reg_rw.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace777, ptr @trace_i915_reg_rw.__UNIQUE_ID___addressable___SCK__tp_func_i915_reg_rw776], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 16777216) i32 @i915_get_vblank_counter(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 16777216) i32 @i915_get_vblank_counter(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 320
   %4 = load ptr, ptr %3, align 8
@@ -237,13 +237,13 @@ define dso_local range(i32 0, 16777216) i32 @i915_get_vblank_counter(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @g4x_get_vblank_counter(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @g4x_get_vblank_counter(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 320
   %4 = load ptr, ptr %3, align 8
@@ -282,7 +282,7 @@ define dso_local i32 @g4x_get_vblank_counter(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local range(i32 -65534, 65535) i32 @intel_crtc_scanline_to_hw(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -65534, 65535) i32 @intel_crtc_scanline_to_hw(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 320
   %5 = load ptr, ptr %4, align 8
@@ -316,7 +316,7 @@ define dso_local zeroext i1 @intel_crtc_get_vblank_timestamp(ptr noundef %0, ptr
 declare dso_local zeroext i1 @drm_crtc_vblank_helper_get_vblank_timestamp_internal(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef zeroext i1 @i915_get_crtc_scanoutpos(ptr nocapture noundef readonly %0, i1 zeroext %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr nocapture noundef readonly %6) #0 align 16 {
+define internal noundef zeroext i1 @i915_get_crtc_scanoutpos(ptr noundef readonly captures(none) %0, i1 zeroext %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef readonly captures(none) %6) #0 align 16 {
   %8 = alloca i64, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1648
@@ -585,7 +585,7 @@ define internal noundef zeroext i1 @i915_get_crtc_scanoutpos(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -65534, 65535) i32 @intel_get_crtc_scanline(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -65534, 65535) i32 @intel_get_crtc_scanline(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
@@ -611,7 +611,7 @@ define dso_local range(i32 -65534, 65535) i32 @intel_get_crtc_scanline(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -65534, 65535) i32 @__intel_get_crtc_scanline(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -65534, 65535) i32 @__intel_get_crtc_scanline(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %4 = load i32, ptr %3, align 8
@@ -830,7 +830,7 @@ define internal fastcc range(i32 -65534, 65535) i32 @__intel_get_crtc_scanline(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_wait_for_pipe_scanline_stopped(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_wait_for_pipe_scanline_stopped(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %.val = load ptr, ptr %0, align 8
   %2 = getelementptr i8, ptr %0, i64 1648
   %.val1 = load i32, ptr %2, align 8
@@ -907,7 +907,7 @@ define internal fastcc void @wait_for_pipe_scanline_moving(ptr %.0.val, i32 %.16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_wait_for_pipe_scanline_moving(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_wait_for_pipe_scanline_moving(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %.val = load ptr, ptr %0, align 8
   %2 = getelementptr i8, ptr %0, i64 1648
   %.val1 = load i32, ptr %2, align 8
@@ -1037,7 +1037,7 @@ define dso_local void @intel_crtc_update_active_timings(ptr noundef %0, i1 nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @drm_mode_init(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -1076,7 +1076,7 @@ declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr
 declare dso_local i64 @ktime_get() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @intel_crtc_scanlines_since_frame_timestamp(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc i32 @intel_crtc_scanlines_since_frame_timestamp(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 320
   %4 = load ptr, ptr %3, align 8

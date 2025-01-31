@@ -274,7 +274,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_is_free_budd
 @llvm.compiler.used = appending global [52 x ptr] [ptr @__UNIQUE_ID___addressable___alloc_pages920, ptr @__UNIQUE_ID___addressable___alloc_pages_bulk917, ptr @__UNIQUE_ID___addressable___folio_alloc921, ptr @__UNIQUE_ID___addressable___free_pages924, ptr @__UNIQUE_ID___addressable___get_free_pages922, ptr @__UNIQUE_ID___addressable___page_frag_cache_drain926, ptr @__UNIQUE_ID___addressable_adjust_managed_page_count947, ptr @__UNIQUE_ID___addressable_alloc_pages_exact931, ptr @__UNIQUE_ID___addressable_free_contig_range964, ptr @__UNIQUE_ID___addressable_free_pages925, ptr @__UNIQUE_ID___addressable_free_pages_exact934, ptr @__UNIQUE_ID___addressable_get_zeroed_page923, ptr @__UNIQUE_ID___addressable_init_per_zone_wmark_min959, ptr @__UNIQUE_ID___addressable_is_free_buddy_page966, ptr @__UNIQUE_ID___addressable_movable_zone747, ptr @__UNIQUE_ID___addressable_node_states746, ptr @__UNIQUE_ID___addressable_nr_free_buffer_pages935, ptr @__UNIQUE_ID___addressable_nr_node_ids748, ptr @__UNIQUE_ID___addressable_nr_online_nodes749, ptr @__UNIQUE_ID___addressable_numa_node745, ptr @__UNIQUE_ID___addressable_page_frag_alloc_align927, ptr @__UNIQUE_ID___addressable_page_frag_free928, ptr @__UNIQUE_ID___addressable_split_page877, ptr @__alloc_pages_bulk.__UNIQUE_ID___addressable___SCK__preempt_schedule914, ptr @__alloc_pages_bulk.__UNIQUE_ID___addressable___SCK__preempt_schedule915, ptr @__alloc_pages_bulk.__UNIQUE_ID___addressable___SCK__preempt_schedule916, ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched151, ptr @free_unref_page.__UNIQUE_ID___addressable___SCK__preempt_schedule872, ptr @free_unref_page.__UNIQUE_ID___addressable___SCK__preempt_schedule873, ptr @free_unref_page_list.__UNIQUE_ID___addressable___SCK__preempt_schedule874, ptr @free_unref_page_list.__UNIQUE_ID___addressable___SCK__preempt_schedule875, ptr @free_unref_page_list.__UNIQUE_ID___addressable___SCK__preempt_schedule876, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched5, ptr @rcu_read_unlock_sched.__UNIQUE_ID___addressable___SCK__preempt_schedule92, ptr @rmqueue_pcplist.__UNIQUE_ID___addressable___SCK__preempt_schedule896, ptr @rmqueue_pcplist.__UNIQUE_ID___addressable___SCK__preempt_schedule897, ptr @trace_compact_retry.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace694, ptr @trace_compact_retry.__UNIQUE_ID___addressable___SCK__tp_func_compact_retry693, ptr @trace_mm_page_alloc.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace526, ptr @trace_mm_page_alloc.__UNIQUE_ID___addressable___SCK__tp_func_mm_page_alloc525, ptr @trace_mm_page_alloc_extfrag.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace568, ptr @trace_mm_page_alloc_extfrag.__UNIQUE_ID___addressable___SCK__tp_func_mm_page_alloc_extfrag567, ptr @trace_mm_page_alloc_zone_locked.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace540, ptr @trace_mm_page_alloc_zone_locked.__UNIQUE_ID___addressable___SCK__tp_func_mm_page_alloc_zone_locked539, ptr @trace_mm_page_free.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace498, ptr @trace_mm_page_free.__UNIQUE_ID___addressable___SCK__tp_func_mm_page_free497, ptr @trace_mm_page_free_batched.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace512, ptr @trace_mm_page_free_batched.__UNIQUE_ID___addressable___SCK__tp_func_mm_page_free_batched511, ptr @trace_mm_page_pcpu_drain.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace554, ptr @trace_mm_page_pcpu_drain.__UNIQUE_ID___addressable___SCK__tp_func_mm_page_pcpu_drain553, ptr @trace_reclaim_retry_zone.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace610, ptr @trace_reclaim_retry_zone.__UNIQUE_ID___addressable___SCK__tp_func_reclaim_retry_zone609], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @get_pfnblock_flags_mask(ptr nocapture readnone %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local i64 @get_pfnblock_flags_mask(ptr readnone captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = lshr i64 %1, 15
   %5 = lshr i64 %1, 23
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #22
@@ -321,13 +321,13 @@ define dso_local i64 @get_pfnblock_flags_mask(ptr nocapture readnone %0, i64 nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @set_pfnblock_flags_mask(ptr nocapture noundef readnone %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local void @set_pfnblock_flags_mask(ptr noundef readnone captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = lshr i64 %2, 15
   %6 = lshr i64 %2, 23
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #22
@@ -1904,7 +1904,7 @@ define dso_local i32 @move_freepages_block(ptr noundef %0, ptr noundef %1, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local i32 @find_suitable_fallback(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #5 align 16 {
+define dso_local i32 @find_suitable_fallback(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #5 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 0
@@ -4117,7 +4117,7 @@ define dso_local void @warn_alloc(i32 noundef %0, ptr noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @___ratelimit(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -5672,7 +5672,7 @@ define dso_local ptr @__alloc_pages(i32 noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @get_page_from_freelist(i32 noundef %0, i32 noundef range(i32 0, 11) %1, i32 noundef range(i32 0, 3072) %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 16 {
+define internal fastcc ptr @get_page_from_freelist(i32 noundef %0, i32 noundef range(i32 0, 11) %1, i32 noundef range(i32 0, 3072) %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 align 16 {
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -7876,7 +7876,7 @@ define dso_local void @__page_frag_cache_drain(ptr noundef %0, i32 noundef %1) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @page_frag_alloc_align(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local ptr @page_frag_alloc_align(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %._crit_edge, !prof !14
@@ -8000,7 +8000,7 @@ define dso_local ptr @page_frag_alloc_align(ptr nocapture noundef %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__page_frag_cache_refill(ptr nocapture noundef writeonly initializes((0, 8), (10, 12)) %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc ptr @__page_frag_cache_refill(ptr noundef writeonly captures(none) initializes((0, 8), (10, 12)) %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = or i32 %1, 860160
   %5 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @numa_node) #23, !srcloc !105
@@ -9181,7 +9181,7 @@ define dso_local void @setup_per_cpu_pageset() local_unnamed_addr #16 section ".
 declare dso_local ptr @next_online_pgdat(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(argmem: write)
-define dso_local void @zone_pcp_init(ptr nocapture noundef writeonly initializes((96, 124)) %0) local_unnamed_addr #18 section ".meminit.text" align 16 {
+define dso_local void @zone_pcp_init(ptr noundef writeonly captures(none) initializes((96, 124)) %0) local_unnamed_addr #18 section ".meminit.text" align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @boot_pageset, ptr %2, align 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -9196,7 +9196,7 @@ define dso_local void @zone_pcp_init(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @adjust_managed_page_count(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
+define dso_local void @adjust_managed_page_count(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 align 16 {
   %3 = load i64, ptr %0, align 16
   %4 = lshr i64 %3, 58
   %5 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %4
@@ -10081,7 +10081,7 @@ define dso_local void @zone_pcp_disable(ptr noundef %0) local_unnamed_addr #0 al
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @zone_pcp_enable(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @zone_pcp_enable(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -11327,7 +11327,7 @@ define internal fastcc void @reserve_highatomic_pageblock(ptr noundef nonnull %0
 declare dso_local void @wakeup_kswapd(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__alloc_pages_direct_compact(i32 noundef %0, i32 noundef range(i32 0, 11) %1, i32 noundef range(i32 0, 3072) %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc ptr @__alloc_pages_direct_compact(i32 noundef %0, i32 noundef range(i32 0, 11) %1, i32 noundef range(i32 0, 3072) %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(none) %5) unnamed_addr #0 align 16 {
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
   store ptr null, ptr %7, align 8
@@ -11440,7 +11440,7 @@ declare dso_local void @__delayacct_compact_start() local_unnamed_addr #3
 declare dso_local void @__delayacct_compact_end() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @unreserve_highatomic_pageblock(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @unreserve_highatomic_pageblock(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4

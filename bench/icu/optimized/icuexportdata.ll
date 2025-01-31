@@ -446,7 +446,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #3 comdat align 2 {
@@ -740,7 +740,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z19dumpPropertyAliases9UPropertyP8_IO_FILE(i32 noundef %uproperty, ptr nocapture noundef %f) local_unnamed_addr #4 {
+define dso_local void @_Z19dumpPropertyAliases9UPropertyP8_IO_FILE(i32 noundef %uproperty, ptr noundef captures(none) %f) local_unnamed_addr #4 {
 entry:
   %call8 = tail call ptr @u_getPropertyName_75(i32 noundef %uproperty, i32 noundef 2)
   %tobool.not9 = icmp eq ptr %call8, null
@@ -772,7 +772,7 @@ if.end8:                                          ; preds = %entry, %if.then6, %
 declare ptr @u_getPropertyName_75(i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z18dumpBinaryProperty9UPropertyP8_IO_FILE(i32 noundef %uproperty, ptr noundef %f) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
@@ -871,7 +871,7 @@ declare void @usrc_writeUnicodeSet(ptr noundef, ptr noundef, i32 noundef) local_
 declare void @_ZN6icu_7516IcuToolErrorCodeD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z14dumpValueEntry9UPropertyibP8_IO_FILE(i32 noundef %uproperty, i32 noundef %v, i1 noundef zeroext %is_mask, ptr nocapture noundef %f) local_unnamed_addr #4 {
+define dso_local void @_Z14dumpValueEntry9UPropertyibP8_IO_FILE(i32 noundef %uproperty, i32 noundef %v, i1 noundef zeroext %is_mask, ptr noundef captures(none) %f) local_unnamed_addr #4 {
 entry:
   %call = tail call ptr @u_getPropertyValueName_75(i32 noundef %uproperty, i32 noundef %v, i32 noundef 1)
   %call1 = tail call ptr @u_getPropertyValueName_75(i32 noundef %uproperty, i32 noundef %v, i32 noundef 0)
@@ -1378,7 +1378,7 @@ declare i32 @u_charMirror_75(i32 noundef) local_unnamed_addr #0
 declare void @umutablecptrie_set_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z18maybeDumpMaskValue9UPropertyjjP8_IO_FILE(i32 noundef %uproperty, i32 noundef %v, i32 noundef %mask, ptr nocapture noundef %f) local_unnamed_addr #4 {
+define dso_local void @_Z18maybeDumpMaskValue9UPropertyjjP8_IO_FILE(i32 noundef %uproperty, i32 noundef %v, i32 noundef %mask, ptr noundef captures(none) %f) local_unnamed_addr #4 {
 entry:
   %shl = shl nuw i32 1, %v
   %cmp = icmp ult i32 %shl, %mask
@@ -1399,7 +1399,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z23dumpGeneralCategoryMaskP8_IO_FILE(ptr nocapture noundef %f) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z23dumpGeneralCategoryMaskP8_IO_FILE(ptr noundef captures(none) %f) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca %"class.icu_75::IcuToolErrorCode", align 8
   %errorCode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 8
@@ -2379,7 +2379,7 @@ declare void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 derefere
 declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString27ensureEndsWithFileSeparatorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 declare void @usrc_writeCopyrightHeader(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
@@ -2655,7 +2655,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7517UCharsTrieBuilder18buildUnicodeStringE22UStringTrieBuildOptionRNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z24writeDecompositionTablesPKcPKtmPKjm(ptr noundef %basename, ptr noundef %ptr16, i64 noundef %len16, ptr noundef %ptr32, i64 noundef %len32) local_unnamed_addr #4 {
@@ -2670,7 +2670,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z22writeDecompositionDataPKcjjjP4USetS2_RKSt6vectorI17PendingDescriptorSaIS4_EEDs(ptr noundef %basename, i32 noundef %baseSize16, i32 noundef %baseSize32, i32 noundef %supplementSize16, ptr noundef %uset, ptr noundef %reference, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pendingTrieInsertions, i16 noundef zeroext %passthroughCap) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z22writeDecompositionDataPKcjjjP4USetS2_RKSt6vectorI17PendingDescriptorSaIS4_EEDs(ptr noundef %basename, i32 noundef %baseSize16, i32 noundef %baseSize32, i32 noundef %supplementSize16, ptr noundef %uset, ptr noundef %reference, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %pendingTrieInsertions, i16 noundef zeroext %passthroughCap) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca %"class.icu_75::IcuToolErrorCode", align 8
   %builder = alloca %"class.icu_75::LocalUMutableCPTriePointer", align 8
@@ -3014,7 +3014,7 @@ return:                                           ; preds = %if.end8, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z21computeDecompositionsPKcPK4USetRSt6vectorItSaItEERS4_IjSaIjEEPS1_SB_RS4_I17PendingDescriptorSaISC_EERiSG_(ptr noundef %basename, ptr noundef %backwardCombiningStarters, ptr noundef nonnull align 8 dereferenceable(24) %storage16, ptr noundef nonnull align 8 dereferenceable(24) %storage32, ptr noundef %decompositionStartsWithNonStarter, ptr noundef %decompositionStartsWithBackwardCombiningStarter, ptr nocapture noundef nonnull align 8 dereferenceable(24) %pendingTrieInsertions, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %decompositionPassthroughBound, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %compositionPassthroughBound) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z21computeDecompositionsPKcPK4USetRSt6vectorItSaItEERS4_IjSaIjEEPS1_SB_RS4_I17PendingDescriptorSaISC_EERiSG_(ptr noundef %basename, ptr noundef %backwardCombiningStarters, ptr noundef nonnull align 8 dereferenceable(24) %storage16, ptr noundef nonnull align 8 dereferenceable(24) %storage32, ptr noundef %decompositionStartsWithNonStarter, ptr noundef %decompositionStartsWithBackwardCombiningStarter, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %pendingTrieInsertions, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %decompositionPassthroughBound, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %compositionPassthroughBound) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca %"class.icu_75::IcuToolErrorCode", align 8
   %nonRecursiveBuilder = alloca %"class.icu_75::LocalUMutableCPTriePointer", align 8
@@ -3269,7 +3269,7 @@ if.then87:                                        ; preds = %lor.lhs.false, %inv
 
 if.then90:                                        ; preds = %if.then87
   store i32 5, ptr %errorCode.i.i, align 8
-  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef %basename)
+  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef nonnull %basename)
           to label %if.end93 unwind label %lpad43.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end93:                                         ; preds = %if.then90, %if.then87
@@ -3298,7 +3298,7 @@ lor.lhs.false106:                                 ; preds = %invoke.cont103
 
 if.then113:                                       ; preds = %lor.lhs.false106, %invoke.cont103
   store i32 5, ptr %errorCode.i.i, align 8
-  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef %basename)
+  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef nonnull %basename)
           to label %if.end122 unwind label %lpad43.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end117:                                        ; preds = %lor.lhs.false106, %lor.lhs.false
@@ -3308,7 +3308,7 @@ if.end117:                                        ; preds = %lor.lhs.false106, %
 
 if.then119:                                       ; preds = %if.end117
   store i32 5, ptr %errorCode.i.i, align 8
-  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef %basename)
+  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef nonnull %basename)
           to label %if.end122 unwind label %lpad43.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end122:                                        ; preds = %if.then113, %if.then119, %if.end117
@@ -3383,7 +3383,7 @@ if.then131:                                       ; preds = %if.then.i.i, %if.el
 
 if.else150:                                       ; preds = %if.then131
   store i32 5, ptr %errorCode.i.i, align 8
-  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef %basename)
+  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef nonnull %basename)
           to label %if.end163 unwind label %lpad43.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else155:                                       ; preds = %invoke.cont124
@@ -3413,7 +3413,7 @@ if.end163:                                        ; preds = %if.then.i.i, %if.th
 
 if.then170:                                       ; preds = %if.end163
   store i32 5, ptr %errorCode.i.i, align 8
-  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef %basename)
+  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef nonnull %basename)
           to label %if.then170.if.end173_crit_edge unwind label %lpad43.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.then170.if.end173_crit_edge:                   ; preds = %if.then170
@@ -3430,7 +3430,7 @@ if.end173:                                        ; preds = %if.then170.if.end17
 
 if.then180:                                       ; preds = %if.end173
   store i32 5, ptr %errorCode.i.i, align 8
-  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef %basename)
+  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef nonnull %basename)
           to label %if.then180.if.end183_crit_edge unwind label %lpad43.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.then180.if.end183_crit_edge:                   ; preds = %if.then180
@@ -3447,7 +3447,7 @@ if.end183:                                        ; preds = %if.then180.if.end18
 
 if.then190:                                       ; preds = %if.end183
   store i32 5, ptr %errorCode.i.i, align 8
-  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef %basename)
+  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef nonnull %basename)
           to label %if.end193 unwind label %lpad43.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end193:                                        ; preds = %if.then190, %if.end183
@@ -3668,7 +3668,7 @@ invoke.cont233:                                   ; preds = %invoke.cont229
 
 if.then236:                                       ; preds = %invoke.cont233
   store i32 5, ptr %errorCode.i.i, align 8
-  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef %basename)
+  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef nonnull %basename)
           to label %if.end239 unwind label %lpad232.loopexit
 
 lpad232.loopexit:                                 ; preds = %invoke.cont229, %if.then236, %if.then246, %if.then253, %if.then260, %if.end263, %if.then282, %if.end285, %if.then304, %if.end307, %land.rhs.i.i310, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i359
@@ -3746,7 +3746,7 @@ invoke.cont250:                                   ; preds = %if.then246
 
 if.then253:                                       ; preds = %invoke.cont250
   store i32 5, ptr %errorCode.i.i, align 8
-  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef %basename)
+  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef nonnull %basename)
           to label %if.else270 unwind label %lpad232.loopexit
 
 if.then258:                                       ; preds = %invoke.cont250
@@ -3755,7 +3755,7 @@ if.then258:                                       ; preds = %invoke.cont250
 
 if.then260:                                       ; preds = %if.then258
   store i32 5, ptr %errorCode.i.i, align 8
-  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef %basename)
+  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef nonnull %basename)
           to label %if.end263 unwind label %lpad232.loopexit
 
 if.end263:                                        ; preds = %if.then260, %if.then258
@@ -3779,7 +3779,7 @@ if.then276:                                       ; preds = %if.else270
 
 if.then282:                                       ; preds = %if.then276
   store i32 5, ptr %errorCode.i.i, align 8
-  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef %basename)
+  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef nonnull %basename)
           to label %if.then282.if.end285_crit_edge unwind label %lpad232.loopexit
 
 if.then282.if.end285_crit_edge:                   ; preds = %if.then282
@@ -3928,7 +3928,7 @@ invoke.cont302:                                   ; preds = %_ZNSt6vectorIjSaIjE
 
 if.then304:                                       ; preds = %invoke.cont302
   store i32 5, ptr %errorCode.i.i, align 8
-  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef %basename)
+  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef nonnull %basename)
           to label %if.end307 unwind label %lpad232.loopexit
 
 if.end307:                                        ; preds = %if.then304, %invoke.cont302
@@ -3973,7 +3973,7 @@ if.then329:                                       ; preds = %if.then327
 
 if.then331.invoke:                                ; preds = %if.then329, %if.else334
   store i32 5, ptr %errorCode.i.i, align 8
-  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef %basename)
+  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef nonnull %basename)
           to label %if.end351 unwind label %lpad43.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else334:                                       ; preds = %if.then329
@@ -4131,7 +4131,7 @@ lor.lhs.false390:                                 ; preds = %for.body384
 
 if.then398:                                       ; preds = %lor.lhs.false390, %land.lhs.true387
   store i32 5, ptr %errorCode.i.i, align 8
-  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef %basename)
+  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef nonnull %basename)
           to label %for.inc unwind label %lpad43.loopexit.split-lp.loopexit
 
 for.inc:                                          ; preds = %land.lhs.true387, %lor.lhs.false390, %if.then398
@@ -4142,7 +4142,7 @@ for.end:                                          ; preds = %for.inc
 
 if.then403:                                       ; preds = %for.end
   store i32 5, ptr %errorCode.i.i, align 8
-  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef %basename)
+  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef nonnull %basename)
           to label %if.end406 unwind label %lpad43.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end406:                                        ; preds = %if.then403, %for.end
@@ -4226,7 +4226,7 @@ if.else416:                                       ; preds = %if.end8.i, %invoke.
 
 if.then418:                                       ; preds = %if.else416
   store i32 5, ptr %errorCode.i.i, align 8
-  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef %basename)
+  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef nonnull %basename)
           to label %if.end421 unwind label %lpad43.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end421:                                        ; preds = %if.then418, %if.else416
@@ -4262,7 +4262,7 @@ if.then.i458:                                     ; preds = %land.lhs.true430, %
           to label %call1.i.noexc unwind label %lpad43.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call1.i.noexc:                                    ; preds = %if.then.i458
-  %call2.i460 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call1.i459, ptr noundef %basename)
+  %call2.i460 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call1.i459, ptr noundef nonnull %basename)
           to label %call2.i.noexc unwind label %lpad43.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call2.i.noexc:                                    ; preds = %call1.i.noexc
@@ -4297,7 +4297,7 @@ if.end444:                                        ; preds = %lor.lhs.false433
 
 if.then453:                                       ; preds = %if.end444
   store i32 5, ptr %errorCode.i.i, align 8
-  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef %basename)
+  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef nonnull %basename)
           to label %if.end456 unwind label %lpad43.loopexit
 
 if.end456:                                        ; preds = %land.lhs.true430, %if.then453, %if.end444
@@ -4414,7 +4414,7 @@ _ZNSt6vectorI17PendingDescriptorSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx1
 
 if.else486:                                       ; preds = %if.then476
   store i32 5, ptr %errorCode.i.i, align 8
-  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef %basename)
+  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef nonnull %basename)
           to label %if.then520 unwind label %lpad43.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else491:                                       ; preds = %for.end468
@@ -4423,7 +4423,7 @@ if.else491:                                       ; preds = %for.end468
 
 if.then495:                                       ; preds = %if.else491
   store i32 5, ptr %errorCode.i.i, align 8
-  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef %basename)
+  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef nonnull %basename)
           to label %if.else525 unwind label %lpad43.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.then520:                                       ; preds = %if.then470, %if.else486
@@ -4450,7 +4450,7 @@ if.end530:                                        ; preds = %if.else525, %if.the
 
 if.then532:                                       ; preds = %if.end530
   store i32 5, ptr %errorCode.i.i, align 8
-  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef %basename)
+  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef nonnull %basename)
           to label %if.end535 unwind label %lpad43.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end535:                                        ; preds = %if.then532, %if.end530
@@ -4463,7 +4463,7 @@ if.end535:                                        ; preds = %if.then532, %if.end
 
 if.then541:                                       ; preds = %if.end535
   store i32 5, ptr %errorCode.i.i, align 8
-  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef %basename)
+  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef nonnull %basename)
           to label %if.end544 unwind label %lpad43.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end544:                                        ; preds = %if.then541, %if.end535
@@ -4613,7 +4613,7 @@ invoke.cont575:                                   ; preds = %if.then571
 
 invoke.cont582:                                   ; preds = %invoke.cont575
   store ptr %call581, ptr %utrie, align 8
-  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef %basename)
+  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef nonnull %basename)
           to label %invoke.cont584 unwind label %lpad583
 
 invoke.cont584:                                   ; preds = %invoke.cont582
@@ -4644,7 +4644,7 @@ lpad583:                                          ; preds = %invoke.cont584, %in
   br label %ehcleanup596
 
 if.end593:                                        ; preds = %if.then.i553, %invoke.cont589, %if.end569
-  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef %basename)
+  invoke void @_Z11handleErrorRN6icu_759ErrorCodeEPKc(ptr noundef nonnull align 8 dereferenceable(12) %status, ptr noundef nonnull %basename)
           to label %invoke.cont594 unwind label %lpad14
 
 invoke.cont594:                                   ; preds = %if.end593
@@ -4695,7 +4695,7 @@ ehcleanup597:                                     ; preds = %if.then.i.i.i558, %
 declare noundef ptr @_ZN6icu_7511Normalizer214getNFDInstanceER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 declare noundef ptr @_ZN6icu_7511Normalizer215getNFKDInstanceER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
@@ -4948,14 +4948,14 @@ return:                                           ; preds = %for.cond1, %_ZNSt6v
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_Z9printHelpP8_IO_FILEPKc(ptr nocapture noundef %stdfile, ptr noundef %program) local_unnamed_addr #14 {
+define dso_local void @_Z9printHelpP8_IO_FILEPKc(ptr noundef captures(none) %stdfile, ptr noundef %program) local_unnamed_addr #14 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %stdfile, ptr noundef nonnull @.str.59, ptr noundef %program)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 6) i32 @_Z12exportUpropsiPPc(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 6) i32 @_Z12exportUpropsiPPc(i32 noundef %argc, ptr noundef readonly captures(none) %argv) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %versionInfo = alloca [4 x i8], align 1
   %uvbuf = alloca [20 x i8], align 16
@@ -5410,7 +5410,7 @@ declare void @u_getUnicodeVersion_75(ptr noundef) local_unnamed_addr #0
 declare void @u_versionToString_75(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 2) i32 @_Z10exportCaseiPPc(i32 noundef %argc, ptr nocapture readnone %argv) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_Z10exportCaseiPPc(i32 noundef %argc, ptr readnone captures(none) %argv) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca %"class.icu_75::IcuToolErrorCode", align 8
   %builder = alloca %"class.icu_75::LocalUMutableCPTriePointer", align 8
@@ -5568,7 +5568,7 @@ declare ptr @ucase_getSingleton_75(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @utrie2_enum_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL17addRangeToUCPTriePKviij(ptr nocapture noundef readonly %context, i32 noundef %start, i32 noundef %end, i32 noundef %value) #4 personality ptr @__gxx_personality_v0 {
+define internal noundef signext i8 @_ZL17addRangeToUCPTriePKviij(ptr noundef readonly captures(none) %context, i32 noundef %start, i32 noundef %end, i32 noundef %value) #4 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca %"class.icu_75::IcuToolErrorCode", align 8
   %errorCode.i.i = getelementptr inbounds nuw i8, ptr %status, i64 8
@@ -6108,7 +6108,7 @@ declare ptr @u_getDataDirectory_75() local_unnamed_addr #0
 declare i32 @u_parseArgs(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN23PropertyValueNameGetter7getNameEj(ptr noundef nonnull align 8 dereferenceable(12) %this, i32 noundef %value) unnamed_addr #4 comdat align 2 {
@@ -6139,7 +6139,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #16
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_(ptr %__first.coerce, ptr %__last.coerce) local_unnamed_addr #4 comdat {
@@ -6822,22 +6822,22 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20
@@ -6849,13 +6849,13 @@ declare i64 @llvm.umin.i64(i64, i64) #20
 declare void @llvm.assume(i1 noundef) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25

@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [45 x i8] c"Intermediate AIG is written into file \22%s\22.\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Saig_ManCexMinGetCos(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #0 {
+define void @Saig_ManCexMinGetCos(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef captures(none) initializes((4, 8)) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   %6 = icmp eq ptr %2, null
@@ -197,7 +197,7 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %Aig_ManObj.exit, %S
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Saig_ManCexMinCollectFrameTerms_rec(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define void @Saig_ManCexMinCollectFrameTerms_rec(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val2235 = load i32, ptr %4, align 8
   %5 = getelementptr i8, ptr %1, i64 32
@@ -325,7 +325,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Saig_ManCexMinCollectFrameTerms(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Saig_ManCexMinCollectFrameTerms(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4
@@ -458,7 +458,7 @@ Vec_IntFree.exit:                                 ; preds = %._crit_edge, %44
 declare void @Aig_ManIncrementTravId(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Saig_ManCexMinDerivePhasePriority_rec(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define void @Saig_ManCexMinDerivePhasePriority_rec(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 312
   %.val = load i32, ptr %3, align 8
   %4 = getelementptr i8, ptr %1, i64 32
@@ -576,7 +576,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Saig_ManCexMinVerifyPhase(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 {
+define void @Saig_ManCexMinVerifyPhase(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr i8, ptr %0, i64 48
   %.val72 = load ptr, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %.val72, i64 24
@@ -816,7 +816,7 @@ define void @Saig_ManCexMinVerifyPhase(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Saig_ManCexMinDerivePhasePriority(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define void @Saig_ManCexMinDerivePhasePriority(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   %7 = getelementptr i8, ptr %2, i64 8
   %.val40 = load ptr, ptr %7, align 8
   %8 = sext i32 %4 to i64
@@ -917,7 +917,7 @@ Aig_ManObj.exit43:                                ; preds = %43, %44
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Saig_ManCexMinCollectPhasePriority_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define noalias noundef ptr @Saig_ManCexMinCollectPhasePriority_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 4
@@ -1347,7 +1347,7 @@ Vec_IntFree.exit:                                 ; preds = %._crit_edge, %189
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Saig_ManCexMinCollectPhasePriority(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define noalias noundef ptr @Saig_ManCexMinCollectPhasePriority(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 4
@@ -1778,7 +1778,7 @@ Vec_IntFree.exit:                                 ; preds = %._crit_edge, %190
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Saig_ManCexMinCollectReason_rec(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Saig_ManCexMinCollectReason_rec(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 312
   %.val78122 = load i32, ptr %5, align 8
   %6 = getelementptr i8, ptr %1, i64 32
@@ -2041,7 +2041,7 @@ Saig_ObjIsPi.exit.thread:                         ; preds = %tailrecurse.backedg
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Saig_ManCexMinCollectReason(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define noalias noundef ptr @Saig_ManCexMinCollectReason(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = add nsw i32 %7, 1
@@ -2174,7 +2174,7 @@ Vec_IntFree.exit:                                 ; preds = %._crit_edge, %50
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Saig_ManCexMinComputeReason(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define noalias noundef ptr @Saig_ManCexMinComputeReason(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @Saig_ManCexMinCollectFrameTerms(ptr noundef %0, ptr noundef %1)
   %5 = tail call ptr @Saig_ManCexMinCollectPhasePriority(ptr noundef %0, ptr noundef %1, ptr noundef %4)
   %6 = tail call ptr @Saig_ManCexMinCollectReason(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %5, i32 noundef %2)
@@ -2276,7 +2276,7 @@ Vec_VecFree.exit25:                               ; preds = %.critedge.i13, %.cr
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Saig_ManCexMinDupWithCubes(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define ptr @Saig_ManCexMinDupWithCubes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 148
   %.val82 = load i32, ptr %3, align 4
   %4 = getelementptr i8, ptr %0, i64 152
@@ -2590,7 +2590,7 @@ declare i32 @Aig_ManCleanup(ptr noundef) local_unnamed_addr #1
 declare void @Aig_ManSetRegNum(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Saig_ManCexMinPerform(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Saig_ManCexMinPerform(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Saig_ManCexMinComputeReason(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   %4 = getelementptr i8, ptr %3, i64 4
   %.val.i = load i32, ptr %4, align 4
@@ -2687,26 +2687,26 @@ Vec_VecFree.exit:                                 ; preds = %.critedge.i, %.crit
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare void @Ioa_WriteAiger(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @Aig_ManStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #8
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10

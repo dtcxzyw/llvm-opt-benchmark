@@ -133,7 +133,7 @@ target triple = "x86_64-pc-linux-gnu"
 @class_SplStack_methods = internal constant [1 x %struct._zend_function_entry] zeroinitializer, align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplDoublyLinkedList_push(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplDoublyLinkedList_push(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -211,7 +211,7 @@ declare i32 @zend_parse_parameters(i32 noundef, ptr noundef, ...) local_unnamed_
 declare void @llvm.assume(i1 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplDoublyLinkedList_unshift(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplDoublyLinkedList_unshift(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -283,7 +283,7 @@ spl_ptr_llist_unshift.exit:                       ; preds = %32, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplDoublyLinkedList_pop(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_SplDoublyLinkedList_pop(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -375,7 +375,7 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #1
 declare ptr @zend_throw_exception(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplDoublyLinkedList_shift(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_SplDoublyLinkedList_shift(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -463,7 +463,7 @@ spl_ptr_llist_shift.exit:                         ; preds = %12, %20, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplDoublyLinkedList_top(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplDoublyLinkedList_top(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -548,7 +548,7 @@ define hidden void @zim_SplDoublyLinkedList_top(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplDoublyLinkedList_bottom(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplDoublyLinkedList_bottom(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -632,7 +632,7 @@ define hidden void @zim_SplDoublyLinkedList_bottom(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplDoublyLinkedList_count(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplDoublyLinkedList_count(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -663,7 +663,7 @@ define hidden void @zim_SplDoublyLinkedList_count(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplDoublyLinkedList_isEmpty(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplDoublyLinkedList_isEmpty(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -743,7 +743,7 @@ spl_dllist_object_count_elements.exit:            ; preds = %23, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @spl_dllist_object_count_elements(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal range(i32 -1, 1) i32 @spl_dllist_object_count_elements(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 -16
   %5 = load ptr, ptr %4, align 8
@@ -794,7 +794,7 @@ define internal range(i32 -1, 1) i32 @spl_dllist_object_count_elements(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplDoublyLinkedList_setIteratorMode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplDoublyLinkedList_setIteratorMode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -849,7 +849,7 @@ define hidden void @zim_SplDoublyLinkedList_setIteratorMode(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplDoublyLinkedList_getIteratorMode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplDoublyLinkedList_getIteratorMode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -878,7 +878,7 @@ define hidden void @zim_SplDoublyLinkedList_getIteratorMode(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplDoublyLinkedList_offsetExists(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplDoublyLinkedList_offsetExists(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -920,7 +920,7 @@ define hidden void @zim_SplDoublyLinkedList_offsetExists(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplDoublyLinkedList_offsetGet(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplDoublyLinkedList_offsetGet(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -1051,7 +1051,7 @@ spl_ptr_llist_offset.exit:                        ; preds = %35, %26
 declare void @zend_argument_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplDoublyLinkedList_offsetSet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplDoublyLinkedList_offsetSet(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i8, align 1
   %5 = alloca ptr, align 8
@@ -1219,7 +1219,7 @@ spl_ptr_llist_offset.exit:                        ; preds = %65, %56
 declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplDoublyLinkedList_offsetUnset(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplDoublyLinkedList_offsetUnset(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -1390,7 +1390,7 @@ spl_ptr_llist_offset.exit:                        ; preds = %35, %26
 declare void @_efree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplDoublyLinkedList_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplDoublyLinkedList_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1419,7 +1419,7 @@ define hidden void @zim_SplDoublyLinkedList_key(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplDoublyLinkedList_prev(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplDoublyLinkedList_prev(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1450,7 +1450,7 @@ define hidden void @zim_SplDoublyLinkedList_prev(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_dllist_it_helper_move_forward(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @spl_dllist_it_helper_move_forward(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = load ptr, ptr %0, align 8
@@ -1627,7 +1627,7 @@ spl_ptr_llist_shift.exit:                         ; preds = %47, %55, %68
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplDoublyLinkedList_next(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplDoublyLinkedList_next(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1657,7 +1657,7 @@ define hidden void @zim_SplDoublyLinkedList_next(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplDoublyLinkedList_valid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplDoublyLinkedList_valid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1686,7 +1686,7 @@ define hidden void @zim_SplDoublyLinkedList_valid(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplDoublyLinkedList_rewind(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplDoublyLinkedList_rewind(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1758,7 +1758,7 @@ spl_dllist_it_helper_rewind.exit:                 ; preds = %31, %30, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplDoublyLinkedList_current(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplDoublyLinkedList_current(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -64
@@ -1838,7 +1838,7 @@ define hidden void @zim_SplDoublyLinkedList_current(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplDoublyLinkedList_serialize(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplDoublyLinkedList_serialize(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct.smart_str, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
@@ -2026,7 +2026,7 @@ define hidden void @zim_SplDoublyLinkedList_serialize(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @php_var_serialize_init() local_unnamed_addr #1
 
@@ -2035,7 +2035,7 @@ declare void @php_var_serialize(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @php_var_serialize_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplDoublyLinkedList_unserialize(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplDoublyLinkedList_unserialize(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -2263,7 +2263,7 @@ declare void @php_var_unserialize_destroy(ptr noundef) local_unnamed_addr #1
 declare ptr @zend_throw_exception_ex(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplDoublyLinkedList___serialize(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_SplDoublyLinkedList___serialize(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -2352,7 +2352,7 @@ declare ptr @zend_proptable_to_symtable(ptr noundef, i1 noundef zeroext) local_u
 declare ptr @zend_std_get_properties(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplDoublyLinkedList___unserialize(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplDoublyLinkedList___unserialize(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -2509,7 +2509,7 @@ declare ptr @zend_hash_index_find(ptr noundef, i64 noundef) local_unnamed_addr #
 declare void @object_properties_load(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplDoublyLinkedList_add(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_SplDoublyLinkedList_add(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -2691,7 +2691,7 @@ spl_ptr_llist_offset.exit:                        ; preds = %65, %53
 declare noalias ptr @_emalloc_32() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplDoublyLinkedList___debugInfo(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_SplDoublyLinkedList___debugInfo(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -3079,7 +3079,7 @@ define internal noundef nonnull ptr @spl_dllist_object_new(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @spl_dllist_get_iterator(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal noundef ptr @spl_dllist_get_iterator(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %4
 
@@ -3130,7 +3130,7 @@ define internal noundef ptr @spl_dllist_get_iterator(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @spl_dllist_object_clone(ptr noundef %0) #0 {
@@ -3142,7 +3142,7 @@ define internal noundef nonnull ptr @spl_dllist_object_clone(ptr noundef %0) #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @spl_dllist_object_get_gc(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #0 {
+define internal ptr @spl_dllist_object_get_gc(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -72
   %5 = tail call ptr @zend_get_gc_buffer_create() #13
   %6 = load ptr, ptr %4, align 8
@@ -3366,7 +3366,7 @@ declare ptr @spl_gen_private_prop_name(ptr noundef, ptr noundef, i64 noundef) lo
 declare ptr @zend_hash_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @zend_hash_index_update(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3674,7 +3674,7 @@ define internal void @spl_dllist_it_dtor(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 1) i32 @spl_dllist_it_valid(ptr nocapture noundef readonly %0) #8 {
+define internal range(i32 -1, 1) i32 @spl_dllist_it_valid(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3683,7 +3683,7 @@ define internal range(i32 -1, 1) i32 @spl_dllist_it_valid(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal ptr @spl_dllist_it_get_current_data(ptr nocapture noundef readonly %0) #9 {
+define internal ptr @spl_dllist_it_get_current_data(ptr noundef readonly captures(none) %0) #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3703,7 +3703,7 @@ define internal ptr @spl_dllist_it_get_current_data(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @spl_dllist_it_get_current_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) #10 {
+define internal void @spl_dllist_it_get_current_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1) #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
@@ -3714,7 +3714,7 @@ define internal void @spl_dllist_it_get_current_key(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @spl_dllist_it_move_forward(ptr nocapture noundef %0) #0 {
+define internal void @spl_dllist_it_move_forward(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -72
@@ -3728,7 +3728,7 @@ define internal void @spl_dllist_it_move_forward(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @spl_dllist_it_rewind(ptr nocapture noundef initializes((96, 100)) %0) #0 {
+define internal void @spl_dllist_it_rewind(ptr noundef captures(none) initializes((96, 100)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -72
@@ -3795,10 +3795,10 @@ declare void @zend_get_gc_buffer_grow(ptr noundef) local_unnamed_addr #1
 declare void @zend_object_std_dtor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12

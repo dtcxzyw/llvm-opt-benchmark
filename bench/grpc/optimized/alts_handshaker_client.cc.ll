@@ -789,7 +789,7 @@ declare void @grpc_byte_buffer_destroy(ptr noundef) local_unnamed_addr #0
 declare ptr @gpr_realloc(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare noundef i32 @_Z33alts_tsi_handshaker_result_createP23grpc_gcp_HandshakerRespbPP21tsi_handshaker_result(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #0
 
@@ -812,7 +812,7 @@ declare noundef i32 @_Z36alts_tsi_utils_convert_to_tsi_result16grpc_status_code(
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z34alts_grpc_handshaker_client_createP19alts_tsi_handshakerP12grpc_channelPKcP16grpc_pollset_setP29grpc_alts_credentials_optionsRK10grpc_slicePFvPvN4absl12lts_202308026StatusEEPFv10tsi_resultSC_PKhmP21tsi_handshaker_resultESC_P29alts_handshaker_client_vtablebmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %handshaker, ptr noundef %channel, ptr noundef readonly %handshaker_service_url, ptr noundef %interested_parties, ptr noundef %options, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %target_name, ptr noundef %grpc_cb, ptr noundef %cb, ptr noundef %user_data, ptr noundef %vtable_for_testing, i1 noundef zeroext %is_client, i64 noundef %max_frame_size, ptr noundef %error) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_Z34alts_grpc_handshaker_client_createP19alts_tsi_handshakerP12grpc_channelPKcP16grpc_pollset_setP29grpc_alts_credentials_optionsRK10grpc_slicePFvPvN4absl12lts_202308026StatusEEPFv10tsi_resultSC_PKhmP21tsi_handshaker_resultESC_P29alts_handshaker_client_vtablebmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %handshaker, ptr noundef %channel, ptr noundef readonly %handshaker_service_url, ptr noundef %interested_parties, ptr noundef %options, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %target_name, ptr noundef %grpc_cb, ptr noundef %cb, ptr noundef %user_data, ptr noundef %vtable_for_testing, i1 noundef zeroext %is_client, i64 noundef %max_frame_size, ptr noundef %error) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.grpc_slice, align 8
   %ref.tmp12 = alloca %struct.grpc_slice, align 8
@@ -906,7 +906,7 @@ return:                                           ; preds = %cond.end27, %if.the
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
@@ -926,7 +926,7 @@ declare void @grpc_empty_slice(ptr sret(%struct.grpc_slice) align 8) local_unnam
 declare ptr @gpr_zalloc(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare noundef ptr @_Z36grpc_channel_create_pollset_set_callP12grpc_channelP9grpc_calljP16grpc_pollset_setRK10grpc_slicePS6_N9grpc_core9TimestampEPv(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64, ptr noundef) local_unnamed_addr #0
 
@@ -1125,7 +1125,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8internal49alts_handshaker_client_set_recv_bytes_for_testingEP22alts_handshaker_clientP10grpc_slice(ptr noundef writeonly %c, ptr nocapture noundef readonly %recv_bytes) local_unnamed_addr #3 {
+define void @_ZN9grpc_core8internal49alts_handshaker_client_set_recv_bytes_for_testingEP22alts_handshaker_clientP10grpc_slice(ptr noundef writeonly %c, ptr noundef readonly captures(none) %recv_bytes) local_unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %c, null
   br i1 %cmp.not, label %if.then, label %do.end
@@ -1318,7 +1318,7 @@ entry:
 declare void @gpr_ref(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8internal53alts_handshaker_client_on_status_received_for_testingEP22alts_handshaker_client16grpc_status_codeN4absl12lts_202308026StatusE(ptr nocapture noundef initializes((264, 268), (272, 304)) %c, i32 noundef %status, ptr nocapture noundef readonly %error) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core8internal53alts_handshaker_client_on_status_received_for_testingEP22alts_handshaker_client16grpc_status_codeN4absl12lts_202308026StatusE(ptr noundef captures(none) initializes((264, 268), (272, 304)) %c, i32 noundef %status, ptr noundef readonly captures(none) %error) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp = alloca %struct.grpc_slice, align 8
@@ -1947,7 +1947,7 @@ declare void @upb_Arena_Free(ptr noundef) local_unnamed_addr #0
 declare ptr @upb_Arena_Init(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef range(i32 0, 8) i32 @_ZL30handshaker_client_start_clientP22alts_handshaker_client(ptr noundef %c) #3 personality ptr @__gxx_personality_v0 {
@@ -2221,8 +2221,8 @@ while.body.i:                                     ; preds = %invoke.cont40.i, %u
   %ptr.0174.i = phi ptr [ %ptr.0.i, %upb_Arena_Malloc.exit.i.i113.i ], [ %ptr.0172.i, %invoke.cont40.i ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %field.i94.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %field.i94.i, ptr noundef nonnull align 4 dereferenceable(12) @__const.grpc_gcp_StartClientHandshakeReq_add_target_identities.field, i64 12, i1 false)
-  %call.i95121.i = invoke ptr @upb_Message_GetOrCreateMutableArray(ptr noundef %sub.0.i.i, ptr noundef nonnull %field.i94.i, ptr noundef nonnull %call.i.i.i)
-          to label %call.i95.noexc.i unwind label %lpad.i
+  %call.i95121.i = invoke ptr @upb_Message_GetOrCreateMutableArray(ptr noundef nonnull %sub.0.i.i, ptr noundef nonnull %field.i94.i, ptr noundef nonnull %call.i.i.i)
+          to label %call.i95.noexc.i unwind label %lpad.loopexit.i
 
 call.i95.noexc.i:                                 ; preds = %while.body.i
   %tobool.not.i96.i = icmp ne ptr %call.i95121.i, null
@@ -2237,7 +2237,7 @@ call.i95.noexc.i:                                 ; preds = %while.body.i
 
 _upb_array_reserve.exit.i.i120.i:                 ; preds = %call.i95.noexc.i
   %call.i.i.i123.i = invoke zeroext i1 @_upb_array_realloc(ptr noundef nonnull %call.i95121.i, i64 noundef %add.i99.i, ptr noundef nonnull %call.i.i.i)
-          to label %call.i.i.i.noexc122.i unwind label %lpad.i
+          to label %call.i.i.i.noexc122.i unwind label %lpad.loopexit.i
 
 call.i.i.i.noexc122.i:                            ; preds = %_upb_array_reserve.exit.i.i120.i
   call void @llvm.assume(i1 %call.i.i.i123.i)
@@ -2304,18 +2304,18 @@ lpad.thread.loopexit.split-lp.i:                  ; preds = %invoke.cont18.i, %i
           cleanup
   br label %if.then.i.i.i
 
-lpad.thread.i:                                    ; preds = %if.then.i.i.i139.i, %.noexc.i, %if.end.i135.i, %invoke.cont52.i
-  %lpad.loopexit.split-lp168.i = landingpad { ptr, i32 }
-          cleanup
-  br label %if.then.i.i.i
-
-lpad.i:                                           ; preds = %_upb_array_reserve.exit.i.i120.i, %while.body.i
+lpad.loopexit.i:                                  ; preds = %_upb_array_reserve.exit.i.i120.i, %while.body.i
   %lpad.loopexit167.i = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i.i.i
 
-if.then.i.i.i:                                    ; preds = %lpad.i, %lpad.thread.i, %lpad.thread.loopexit.split-lp.i, %lpad.thread.loopexit.i
-  %lpad.phi165.i = phi { ptr, i32 } [ %lpad.loopexit167.i, %lpad.i ], [ %lpad.loopexit169.i, %lpad.thread.loopexit.i ], [ %lpad.loopexit.split-lp170.i, %lpad.thread.loopexit.split-lp.i ], [ %lpad.loopexit.split-lp168.i, %lpad.thread.i ]
+lpad.loopexit.split-lp.i:                         ; preds = %if.then.i.i.i139.i, %.noexc.i, %if.end.i135.i, %invoke.cont52.i
+  %lpad.loopexit.split-lp168.i = landingpad { ptr, i32 }
+          cleanup
+  br label %if.then.i.i.i
+
+if.then.i.i.i:                                    ; preds = %lpad.loopexit.split-lp.i, %lpad.loopexit.i, %lpad.thread.loopexit.split-lp.i, %lpad.thread.loopexit.i
+  %lpad.phi165.i = phi { ptr, i32 } [ %lpad.loopexit169.i, %lpad.thread.loopexit.i ], [ %lpad.loopexit.split-lp170.i, %lpad.thread.loopexit.split-lp.i ], [ %lpad.loopexit167.i, %lpad.loopexit.i ], [ %lpad.loopexit.split-lp168.i, %lpad.loopexit.split-lp.i ]
   invoke void @upb_Arena_Free(ptr noundef nonnull %call.i.i.i)
           to label %_ZN3upb5ArenaD2Ev.exit.i unwind label %terminate.lpad.i.i.i
 
@@ -2339,54 +2339,54 @@ invoke.cont52.i:                                  ; preds = %upb_Arena_Malloc.ex
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %slice.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.i.i.i)
   %call.i.i133140.i = invoke i32 @upb_Encode(ptr noundef nonnull %retval.0.i.i.i, ptr noundef nonnull @grpc__gcp__HandshakerReq_msg_init, i32 noundef 0, ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %ptr.i.i.i, ptr noundef nonnull %buf_length.i.i)
-          to label %call.i.i133.noexc.i unwind label %lpad.thread.i
+          to label %call.i.i133.noexc.i unwind label %lpad.loopexit.split-lp.i
 
 call.i.i133.noexc.i:                              ; preds = %invoke.cont52.i
   %44 = load ptr, ptr %ptr.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i.i.i)
   %cmp.i134.i = icmp eq ptr %44, null
-  br i1 %cmp.i134.i, label %if.then.i.i145.i, label %if.end.i135.i
+  br i1 %cmp.i134.i, label %invoke.cont54.i, label %if.end.i135.i
 
 if.end.i135.i:                                    ; preds = %call.i.i133.noexc.i
   %45 = load i64, ptr %buf_length.i.i, align 8
   invoke void @grpc_slice_from_copied_buffer(ptr nonnull sret(%struct.grpc_slice) align 8 %slice.i.i, ptr noundef nonnull %44, i64 noundef %45)
-          to label %.noexc.i unwind label %lpad.thread.i
+          to label %.noexc.i unwind label %lpad.loopexit.split-lp.i
 
 .noexc.i:                                         ; preds = %if.end.i135.i
   %call1.i141.i = invoke ptr @grpc_raw_byte_buffer_create(ptr noundef nonnull %slice.i.i, i64 noundef 1)
-          to label %call1.i.noexc.i unwind label %lpad.thread.i
+          to label %call1.i.noexc.i unwind label %lpad.loopexit.split-lp.i
 
 call1.i.noexc.i:                                  ; preds = %.noexc.i
   %46 = load ptr, ptr %slice.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %46, inttoptr (i64 1 to ptr)
-  br i1 %cmp.i.i.i, label %if.then.i.i137.i, label %if.then.i.i145.i
+  br i1 %cmp.i.i.i, label %if.then.i.i137.i, label %invoke.cont54.i
 
 if.then.i.i137.i:                                 ; preds = %call1.i.noexc.i
   %47 = atomicrmw sub ptr %46, i64 1 acq_rel, align 8
   %cmp.i.i.i138.i = icmp eq i64 %47, 1
-  br i1 %cmp.i.i.i138.i, label %if.then.i.i.i139.i, label %if.then.i.i145.i
+  br i1 %cmp.i.i.i138.i, label %if.then.i.i.i139.i, label %invoke.cont54.i
 
 if.then.i.i.i139.i:                               ; preds = %if.then.i.i137.i
   %destroyer_fn_.i.i.i.i = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
   invoke void %48(ptr noundef nonnull align 8 dereferenceable(16) %46)
-          to label %if.then.i.i145.i unwind label %lpad.thread.i
+          to label %invoke.cont54.i unwind label %lpad.loopexit.split-lp.i
 
-if.then.i.i145.i:                                 ; preds = %if.then.i.i.i139.i, %if.then.i.i137.i, %call1.i.noexc.i, %call.i.i133.noexc.i
+invoke.cont54.i:                                  ; preds = %if.then.i.i.i139.i, %if.then.i.i137.i, %call1.i.noexc.i, %call.i.i133.noexc.i
   %retval.0.i136.i = phi ptr [ null, %call.i.i133.noexc.i ], [ %call1.i141.i, %call1.i.noexc.i ], [ %call1.i141.i, %if.then.i.i137.i ], [ %call1.i141.i, %if.then.i.i.i139.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf_length.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %slice.i.i)
   invoke void @upb_Arena_Free(ptr noundef nonnull %call.i.i.i)
           to label %_ZL27get_serialized_start_clientP22alts_handshaker_client.exit unwind label %terminate.lpad.i.i146.i
 
-terminate.lpad.i.i146.i:                          ; preds = %if.then.i.i145.i
+terminate.lpad.i.i146.i:                          ; preds = %invoke.cont54.i
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
   call void @__clang_call_terminate(ptr %50) #21
   unreachable
 
-_ZL27get_serialized_start_clientP22alts_handshaker_client.exit: ; preds = %if.then.i.i145.i
+_ZL27get_serialized_start_clientP22alts_handshaker_client.exit: ; preds = %invoke.cont54.i
   %cmp1 = icmp eq ptr %retval.0.i136.i, null
   br i1 %cmp1, label %if.then2, label %if.end3
 
@@ -3543,7 +3543,7 @@ declare void @grpc_call_unref(ptr noundef) local_unnamed_addr #0
 declare void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21handshaker_call_unrefPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr nocapture readnone %0) #3 {
+define internal void @_ZL21handshaker_call_unrefPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr readnone captures(none) %0) #3 {
 entry:
   tail call void @grpc_call_unref(ptr noundef %arg)
   ret void
@@ -3740,10 +3740,10 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #16
 declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

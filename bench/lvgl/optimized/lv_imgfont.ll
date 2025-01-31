@@ -41,12 +41,12 @@ define nonnull ptr @lv_imgfont_create(i16 noundef zeroext %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @imgfont_get_glyph_dsc(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+define internal noundef zeroext i1 @imgfont_get_glyph_dsc(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.lv_image_header_t, align 8
   %.not = icmp eq ptr %0, null
@@ -128,14 +128,14 @@ define internal noundef zeroext i1 @imgfont_get_glyph_dsc(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal ptr @imgfont_get_glyph_bitmap(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #3 {
+define internal ptr @imgfont_get_glyph_bitmap(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !27
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_imgfont_destroy(ptr noundef readonly %0) local_unnamed_addr #0 {

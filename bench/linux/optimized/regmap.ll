@@ -619,7 +619,7 @@ module asm ".previous\09\09\09\09\09"
 declare dso_local i32 @__SCT__tp_func_regmap_reg_write(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_regmap_reg_write(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_regmap_reg_write(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_regmap_reg_write, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -640,21 +640,21 @@ define dso_local noundef i32 @__traceiter_regmap_reg_write(ptr nocapture readnon
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_regmap_reg_write(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3) #2 align 16 {
+define dso_local void @__probestub_regmap_reg_write(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__SCT__tp_func_regmap_reg_read(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_regmap_reg_read(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_regmap_reg_read(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_regmap_reg_read, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -675,7 +675,7 @@ define dso_local noundef i32 @__traceiter_regmap_reg_read(ptr nocapture readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_regmap_reg_read(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3) #2 align 16 {
+define dso_local void @__probestub_regmap_reg_read(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #2 align 16 {
   ret void
 }
 
@@ -683,7 +683,7 @@ define dso_local void @__probestub_regmap_reg_read(ptr nocapture readnone %0, pt
 declare dso_local i32 @__SCT__tp_func_regmap_reg_read_cache(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_regmap_reg_read_cache(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_regmap_reg_read_cache(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_regmap_reg_read_cache, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -704,7 +704,7 @@ define dso_local noundef i32 @__traceiter_regmap_reg_read_cache(ptr nocapture re
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_regmap_reg_read_cache(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3) #2 align 16 {
+define dso_local void @__probestub_regmap_reg_read_cache(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #2 align 16 {
   ret void
 }
 
@@ -712,7 +712,7 @@ define dso_local void @__probestub_regmap_reg_read_cache(ptr nocapture readnone 
 declare dso_local i32 @__SCT__tp_func_regmap_bulk_write(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_regmap_bulk_write(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #1 align 16 {
+define dso_local noundef i32 @__traceiter_regmap_bulk_write(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #1 align 16 {
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_regmap_bulk_write, i64 72), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
@@ -733,7 +733,7 @@ define dso_local noundef i32 @__traceiter_regmap_bulk_write(ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_regmap_bulk_write(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3, i32 %4) #2 align 16 {
+define dso_local void @__probestub_regmap_bulk_write(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, i32 %4) #2 align 16 {
   ret void
 }
 
@@ -741,7 +741,7 @@ define dso_local void @__probestub_regmap_bulk_write(ptr nocapture readnone %0, 
 declare dso_local i32 @__SCT__tp_func_regmap_bulk_read(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_regmap_bulk_read(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #1 align 16 {
+define dso_local noundef i32 @__traceiter_regmap_bulk_read(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #1 align 16 {
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_regmap_bulk_read, i64 72), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
@@ -762,7 +762,7 @@ define dso_local noundef i32 @__traceiter_regmap_bulk_read(ptr nocapture readnon
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_regmap_bulk_read(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3, i32 %4) #2 align 16 {
+define dso_local void @__probestub_regmap_bulk_read(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, i32 %4) #2 align 16 {
   ret void
 }
 
@@ -770,7 +770,7 @@ define dso_local void @__probestub_regmap_bulk_read(ptr nocapture readnone %0, p
 declare dso_local i32 @__SCT__tp_func_regmap_hw_read_start(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_regmap_hw_read_start(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_regmap_hw_read_start(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_regmap_hw_read_start, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -791,7 +791,7 @@ define dso_local noundef i32 @__traceiter_regmap_hw_read_start(ptr nocapture rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_regmap_hw_read_start(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3) #2 align 16 {
+define dso_local void @__probestub_regmap_hw_read_start(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #2 align 16 {
   ret void
 }
 
@@ -799,7 +799,7 @@ define dso_local void @__probestub_regmap_hw_read_start(ptr nocapture readnone %
 declare dso_local i32 @__SCT__tp_func_regmap_hw_read_done(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_regmap_hw_read_done(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_regmap_hw_read_done(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_regmap_hw_read_done, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -820,7 +820,7 @@ define dso_local noundef i32 @__traceiter_regmap_hw_read_done(ptr nocapture read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_regmap_hw_read_done(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3) #2 align 16 {
+define dso_local void @__probestub_regmap_hw_read_done(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #2 align 16 {
   ret void
 }
 
@@ -828,7 +828,7 @@ define dso_local void @__probestub_regmap_hw_read_done(ptr nocapture readnone %0
 declare dso_local i32 @__SCT__tp_func_regmap_hw_write_start(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_regmap_hw_write_start(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_regmap_hw_write_start(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_regmap_hw_write_start, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -849,7 +849,7 @@ define dso_local noundef i32 @__traceiter_regmap_hw_write_start(ptr nocapture re
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_regmap_hw_write_start(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3) #2 align 16 {
+define dso_local void @__probestub_regmap_hw_write_start(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #2 align 16 {
   ret void
 }
 
@@ -857,7 +857,7 @@ define dso_local void @__probestub_regmap_hw_write_start(ptr nocapture readnone 
 declare dso_local i32 @__SCT__tp_func_regmap_hw_write_done(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_regmap_hw_write_done(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_regmap_hw_write_done(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_regmap_hw_write_done, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -878,7 +878,7 @@ define dso_local noundef i32 @__traceiter_regmap_hw_write_done(ptr nocapture rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_regmap_hw_write_done(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3) #2 align 16 {
+define dso_local void @__probestub_regmap_hw_write_done(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #2 align 16 {
   ret void
 }
 
@@ -886,7 +886,7 @@ define dso_local void @__probestub_regmap_hw_write_done(ptr nocapture readnone %
 declare dso_local i32 @__SCT__tp_func_regcache_sync(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_regcache_sync(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_regcache_sync(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_regcache_sync, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -907,7 +907,7 @@ define dso_local noundef i32 @__traceiter_regcache_sync(ptr nocapture readnone %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_regcache_sync(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #2 align 16 {
+define dso_local void @__probestub_regcache_sync(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #2 align 16 {
   ret void
 }
 
@@ -915,7 +915,7 @@ define dso_local void @__probestub_regcache_sync(ptr nocapture readnone %0, ptr 
 declare dso_local i32 @__SCT__tp_func_regmap_cache_only(ptr noundef, ptr noundef, i1 noundef zeroext) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_regmap_cache_only(ptr nocapture readnone %0, ptr noundef %1, i1 noundef zeroext %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_regmap_cache_only(ptr readnone captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_regmap_cache_only, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -936,7 +936,7 @@ define dso_local noundef i32 @__traceiter_regmap_cache_only(ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_regmap_cache_only(ptr nocapture readnone %0, ptr nocapture readnone %1, i1 zeroext %2) #2 align 16 {
+define dso_local void @__probestub_regmap_cache_only(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i1 zeroext %2) #2 align 16 {
   ret void
 }
 
@@ -944,7 +944,7 @@ define dso_local void @__probestub_regmap_cache_only(ptr nocapture readnone %0, 
 declare dso_local i32 @__SCT__tp_func_regmap_cache_bypass(ptr noundef, ptr noundef, i1 noundef zeroext) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_regmap_cache_bypass(ptr nocapture readnone %0, ptr noundef %1, i1 noundef zeroext %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_regmap_cache_bypass(ptr readnone captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_regmap_cache_bypass, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -965,7 +965,7 @@ define dso_local noundef i32 @__traceiter_regmap_cache_bypass(ptr nocapture read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_regmap_cache_bypass(ptr nocapture readnone %0, ptr nocapture readnone %1, i1 zeroext %2) #2 align 16 {
+define dso_local void @__probestub_regmap_cache_bypass(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i1 zeroext %2) #2 align 16 {
   ret void
 }
 
@@ -973,7 +973,7 @@ define dso_local void @__probestub_regmap_cache_bypass(ptr nocapture readnone %0
 declare dso_local i32 @__SCT__tp_func_regmap_async_write_start(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_regmap_async_write_start(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_regmap_async_write_start(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_regmap_async_write_start, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -994,7 +994,7 @@ define dso_local noundef i32 @__traceiter_regmap_async_write_start(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_regmap_async_write_start(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3) #2 align 16 {
+define dso_local void @__probestub_regmap_async_write_start(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #2 align 16 {
   ret void
 }
 
@@ -1002,7 +1002,7 @@ define dso_local void @__probestub_regmap_async_write_start(ptr nocapture readno
 declare dso_local i32 @__SCT__tp_func_regmap_async_io_complete(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_regmap_async_io_complete(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef i32 @__traceiter_regmap_async_io_complete(ptr readnone captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_regmap_async_io_complete, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -1023,7 +1023,7 @@ define dso_local noundef i32 @__traceiter_regmap_async_io_complete(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_regmap_async_io_complete(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
+define dso_local void @__probestub_regmap_async_io_complete(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   ret void
 }
 
@@ -1031,7 +1031,7 @@ define dso_local void @__probestub_regmap_async_io_complete(ptr nocapture readno
 declare dso_local i32 @__SCT__tp_func_regmap_async_complete_start(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_regmap_async_complete_start(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef i32 @__traceiter_regmap_async_complete_start(ptr readnone captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_regmap_async_complete_start, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -1052,7 +1052,7 @@ define dso_local noundef i32 @__traceiter_regmap_async_complete_start(ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_regmap_async_complete_start(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
+define dso_local void @__probestub_regmap_async_complete_start(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   ret void
 }
 
@@ -1060,7 +1060,7 @@ define dso_local void @__probestub_regmap_async_complete_start(ptr nocapture rea
 declare dso_local i32 @__SCT__tp_func_regmap_async_complete_done(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_regmap_async_complete_done(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef i32 @__traceiter_regmap_async_complete_done(ptr readnone captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_regmap_async_complete_done, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -1081,7 +1081,7 @@ define dso_local noundef i32 @__traceiter_regmap_async_complete_done(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_regmap_async_complete_done(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
+define dso_local void @__probestub_regmap_async_complete_done(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   ret void
 }
 
@@ -1089,7 +1089,7 @@ define dso_local void @__probestub_regmap_async_complete_done(ptr nocapture read
 declare dso_local i32 @__SCT__tp_func_regcache_drop_region(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_regcache_drop_region(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_regcache_drop_region(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_regcache_drop_region, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -1110,12 +1110,12 @@ define dso_local noundef i32 @__traceiter_regcache_drop_region(ptr nocapture rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_regcache_drop_region(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3) #2 align 16 {
+define dso_local void @__probestub_regcache_drop_region(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_regmap_reg(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define internal void @trace_event_raw_event_regmap_reg(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1221,7 +1221,7 @@ define internal void @trace_event_raw_event_regmap_reg(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_regmap_reg(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define internal void @perf_trace_regmap_reg(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
@@ -1350,7 +1350,7 @@ declare dso_local i32 @trace_event_reg(ptr noundef, i32 noundef, ptr noundef) #0
 declare dso_local i32 @trace_event_raw_init(ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_regmap_bulk(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) #1 align 16 {
+define internal void @trace_event_raw_event_regmap_bulk(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) #1 align 16 {
   %6 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1467,7 +1467,7 @@ define internal void @trace_event_raw_event_regmap_bulk(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_regmap_bulk(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) #1 align 16 {
+define internal void @perf_trace_regmap_bulk(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) #1 align 16 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #24
@@ -1603,7 +1603,7 @@ define internal void @perf_trace_regmap_bulk(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_regmap_block(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define internal void @trace_event_raw_event_regmap_block(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1709,7 +1709,7 @@ define internal void @trace_event_raw_event_regmap_block(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_regmap_block(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define internal void @perf_trace_regmap_block(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
@@ -1832,7 +1832,7 @@ define internal void @perf_trace_regmap_block(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_regcache_sync(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) #1 align 16 {
+define internal void @trace_event_raw_event_regcache_sync(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3) #1 align 16 {
   %5 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1965,7 +1965,7 @@ define internal void @trace_event_raw_event_regcache_sync(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_regcache_sync(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) #1 align 16 {
+define internal void @perf_trace_regcache_sync(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3) #1 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
@@ -2117,7 +2117,7 @@ define internal void @perf_trace_regcache_sync(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_regmap_bool(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) #1 align 16 {
+define internal void @trace_event_raw_event_regmap_bool(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) #1 align 16 {
   %4 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2222,7 +2222,7 @@ define internal void @trace_event_raw_event_regmap_bool(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_regmap_bool(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) #1 align 16 {
+define internal void @perf_trace_regmap_bool(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) #1 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
@@ -2345,7 +2345,7 @@ define internal void @perf_trace_regmap_bool(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_regmap_async(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal void @trace_event_raw_event_regmap_async(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2447,7 +2447,7 @@ define internal void @trace_event_raw_event_regmap_async(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_regmap_async(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal void @perf_trace_regmap_async(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
@@ -2566,7 +2566,7 @@ define internal void @perf_trace_regmap_async(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_regcache_drop_region(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define internal void @trace_event_raw_event_regcache_drop_region(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2672,7 +2672,7 @@ define internal void @trace_event_raw_event_regcache_drop_region(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_regcache_drop_region(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define internal void @perf_trace_regcache_drop_region(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
@@ -2795,7 +2795,7 @@ define internal void @perf_trace_regcache_drop_region(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local zeroext i1 @regmap_reg_in_ranges(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #4 align 16 {
+define dso_local zeroext i1 @regmap_reg_in_ranges(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #4 align 16 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -2826,7 +2826,7 @@ define dso_local zeroext i1 @regmap_reg_in_ranges(i32 noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local zeroext i1 @regmap_check_range_table(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef readonly %2) #5 align 16 {
+define dso_local zeroext i1 @regmap_check_range_table(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #5 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -2899,7 +2899,7 @@ define dso_local zeroext i1 @regmap_check_range_table(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @regmap_writeable(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local zeroext i1 @regmap_writeable(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load i32, ptr %3, align 8
   %5 = icmp ne i32 %4, 0
@@ -3045,7 +3045,7 @@ define dso_local zeroext i1 @regmap_cached(ptr noundef %0, i32 noundef %1) local
 declare dso_local i32 @regcache_read(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @regmap_readable(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local zeroext i1 @regmap_readable(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -3156,7 +3156,7 @@ define dso_local zeroext i1 @regmap_readable(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @regmap_volatile(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local zeroext i1 @regmap_volatile(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -3362,7 +3362,7 @@ define dso_local zeroext i1 @regmap_volatile(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @regmap_precious(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local zeroext i1 @regmap_precious(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -3562,7 +3562,7 @@ define dso_local zeroext i1 @regmap_precious(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @regmap_writeable_noinc(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local zeroext i1 @regmap_writeable_noinc(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -3653,7 +3653,7 @@ define dso_local zeroext i1 @regmap_writeable_noinc(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @regmap_readable_noinc(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local zeroext i1 @regmap_readable_noinc(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -3744,7 +3744,7 @@ define dso_local zeroext i1 @regmap_readable_noinc(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @regmap_attach_dev(ptr noundef %0, ptr noundef initializes((64, 72)) %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @regmap_attach_dev(ptr noundef %0, ptr noundef initializes((64, 72)) %1, ptr noundef readonly captures(none) %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %0, ptr %4, align 8
   %5 = load ptr, ptr %2, align 8
@@ -3794,7 +3794,7 @@ declare dso_local void @regmap_debugfs_init(ptr noundef) local_unnamed_addr #0
 declare dso_local noalias ptr @__devres_alloc_node(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @dev_get_regmap_release(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
+define internal void @dev_get_regmap_release(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   ret void
 }
 
@@ -3802,7 +3802,7 @@ define internal void @dev_get_regmap_release(ptr nocapture readnone %0, ptr noca
 declare dso_local void @devres_add(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 1, 0) i32 @regmap_get_val_endian(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define dso_local range(i32 1, 0) i32 @regmap_get_val_endian(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) #1 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %7, label %5
 
@@ -3852,7 +3852,7 @@ define dso_local range(i32 1, 0) i32 @regmap_get_val_endian(ptr noundef %0, ptr 
 declare dso_local ptr @__dev_fwnode(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__regmap_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #1 align 16 {
+define dso_local ptr @__regmap_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #1 align 16 {
   %7 = icmp eq ptr %3, null
   br i1 %7, label %606, label %8
 
@@ -4919,42 +4919,42 @@ define dso_local ptr @__regmap_init(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @regmap_lock_unlock_none(ptr nocapture readnone %0) #2 align 16 {
+define internal void @regmap_lock_unlock_none(ptr readnone captures(none) %0) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @regmap_lock_hwlock_irqsave(ptr nocapture readonly %0) #2 align 16 {
+define internal void @regmap_lock_hwlock_irqsave(ptr readonly captures(none) %0) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @regmap_unlock_hwlock_irqrestore(ptr nocapture readonly %0) #2 align 16 {
+define internal void @regmap_unlock_hwlock_irqrestore(ptr readonly captures(none) %0) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @regmap_lock_hwlock_irq(ptr nocapture readonly %0) #2 align 16 {
+define internal void @regmap_lock_hwlock_irq(ptr readonly captures(none) %0) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @regmap_unlock_hwlock_irq(ptr nocapture readonly %0) #2 align 16 {
+define internal void @regmap_unlock_hwlock_irq(ptr readonly captures(none) %0) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @regmap_lock_hwlock(ptr nocapture readonly %0) #2 align 16 {
+define internal void @regmap_lock_hwlock(ptr readonly captures(none) %0) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @regmap_unlock_hwlock(ptr nocapture readonly %0) #2 align 16 {
+define internal void @regmap_unlock_hwlock(ptr readonly captures(none) %0) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @regmap_lock_raw_spinlock(ptr noundef %0) #1 align 16 {
@@ -5007,7 +5007,7 @@ define internal void @regmap_unlock_mutex(ptr noundef %0) #1 align 16 {
 declare dso_local void @__init_waitqueue_head(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @_regmap_bus_read(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
+define internal i32 @_regmap_bus_read(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -5269,7 +5269,7 @@ define internal i32 @_regmap_bus_reg_write(ptr noundef %0, i32 noundef %1, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal void @regmap_format_2_6_write(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #7 align 16 {
+define internal void @regmap_format_2_6_write(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #7 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = shl i32 %1, 6
@@ -5280,7 +5280,7 @@ define internal void @regmap_format_2_6_write(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal void @regmap_format_4_12_write(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #7 align 16 {
+define internal void @regmap_format_4_12_write(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #7 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = shl i32 %1, 12
@@ -5292,7 +5292,7 @@ define internal void @regmap_format_4_12_write(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal void @regmap_format_7_9_write(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #7 align 16 {
+define internal void @regmap_format_7_9_write(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #7 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = shl i32 %1, 9
@@ -5304,7 +5304,7 @@ define internal void @regmap_format_7_9_write(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal void @regmap_format_7_17_write(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #7 align 16 {
+define internal void @regmap_format_7_17_write(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #7 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = trunc i32 %2 to i8
@@ -5323,7 +5323,7 @@ define internal void @regmap_format_7_17_write(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal void @regmap_format_10_14_write(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #7 align 16 {
+define internal void @regmap_format_10_14_write(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #7 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = trunc i32 %2 to i8
@@ -5342,7 +5342,7 @@ define internal void @regmap_format_10_14_write(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal void @regmap_format_12_20_write(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #7 align 16 {
+define internal void @regmap_format_12_20_write(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #7 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = lshr i32 %1, 4
@@ -5365,7 +5365,7 @@ define internal void @regmap_format_12_20_write(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @regmap_format_8(ptr nocapture noundef writeonly initializes((0, 1)) %0, i32 noundef %1, i32 noundef %2) #8 align 16 {
+define internal void @regmap_format_8(ptr noundef writeonly captures(none) initializes((0, 1)) %0, i32 noundef %1, i32 noundef %2) #8 align 16 {
   %4 = shl i32 %1, %2
   %5 = trunc i32 %4 to i8
   store i8 %5, ptr %0, align 1
@@ -5373,7 +5373,7 @@ define internal void @regmap_format_8(ptr nocapture noundef writeonly initialize
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @regmap_format_16_be(ptr nocapture noundef writeonly initializes((0, 2)) %0, i32 noundef %1, i32 noundef %2) #8 align 16 {
+define internal void @regmap_format_16_be(ptr noundef writeonly captures(none) initializes((0, 2)) %0, i32 noundef %1, i32 noundef %2) #8 align 16 {
   %4 = shl i32 %1, %2
   %5 = trunc i32 %4 to i16
   %6 = tail call i16 @llvm.bswap.i16(i16 %5)
@@ -5382,7 +5382,7 @@ define internal void @regmap_format_16_be(ptr nocapture noundef writeonly initia
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @regmap_format_16_le(ptr nocapture noundef writeonly initializes((0, 2)) %0, i32 noundef %1, i32 noundef %2) #8 align 16 {
+define internal void @regmap_format_16_le(ptr noundef writeonly captures(none) initializes((0, 2)) %0, i32 noundef %1, i32 noundef %2) #8 align 16 {
   %4 = shl i32 %1, %2
   %5 = trunc i32 %4 to i16
   store i16 %5, ptr %0, align 1
@@ -5390,7 +5390,7 @@ define internal void @regmap_format_16_le(ptr nocapture noundef writeonly initia
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @regmap_format_16_native(ptr nocapture noundef writeonly initializes((0, 2)) %0, i32 noundef %1, i32 noundef %2) #8 align 16 {
+define internal void @regmap_format_16_native(ptr noundef writeonly captures(none) initializes((0, 2)) %0, i32 noundef %1, i32 noundef %2) #8 align 16 {
   %4 = shl i32 %1, %2
   %5 = trunc i32 %4 to i16
   store i16 %5, ptr %0, align 1
@@ -5398,7 +5398,7 @@ define internal void @regmap_format_16_native(ptr nocapture noundef writeonly in
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @regmap_format_24_be(ptr nocapture noundef writeonly initializes((0, 3)) %0, i32 noundef %1, i32 noundef %2) #8 align 16 {
+define internal void @regmap_format_24_be(ptr noundef writeonly captures(none) initializes((0, 3)) %0, i32 noundef %1, i32 noundef %2) #8 align 16 {
   %4 = shl i32 %1, %2
   %5 = lshr i32 %4, 16
   %6 = trunc i32 %5 to i8
@@ -5414,7 +5414,7 @@ define internal void @regmap_format_24_be(ptr nocapture noundef writeonly initia
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @regmap_format_32_be(ptr nocapture noundef writeonly initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2) #8 align 16 {
+define internal void @regmap_format_32_be(ptr noundef writeonly captures(none) initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2) #8 align 16 {
   %4 = shl i32 %1, %2
   %5 = tail call i32 @llvm.bswap.i32(i32 %4)
   store i32 %5, ptr %0, align 1
@@ -5422,33 +5422,33 @@ define internal void @regmap_format_32_be(ptr nocapture noundef writeonly initia
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @regmap_format_32_le(ptr nocapture noundef writeonly initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2) #8 align 16 {
+define internal void @regmap_format_32_le(ptr noundef writeonly captures(none) initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2) #8 align 16 {
   %4 = shl i32 %1, %2
   store i32 %4, ptr %0, align 1
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @regmap_format_32_native(ptr nocapture noundef writeonly initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2) #8 align 16 {
+define internal void @regmap_format_32_native(ptr noundef writeonly captures(none) initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2) #8 align 16 {
   %4 = shl i32 %1, %2
   store i32 %4, ptr %0, align 1
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @regmap_parse_inplace_noop(ptr nocapture readnone %0) #2 align 16 {
+define internal void @regmap_parse_inplace_noop(ptr readnone captures(none) %0) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 0, 256) i32 @regmap_parse_8(ptr nocapture noundef readonly %0) #9 align 16 {
+define internal range(i32 0, 256) i32 @regmap_parse_8(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i32
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 0, 65536) i32 @regmap_parse_16_be(ptr nocapture noundef readonly %0) #9 align 16 {
+define internal range(i32 0, 65536) i32 @regmap_parse_16_be(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = load i16, ptr %0, align 1
   %3 = tail call i16 @llvm.bswap.i16(i16 %2)
   %4 = zext i16 %3 to i32
@@ -5456,7 +5456,7 @@ define internal range(i32 0, 65536) i32 @regmap_parse_16_be(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @regmap_parse_16_be_inplace(ptr nocapture noundef %0) #10 align 16 {
+define internal void @regmap_parse_16_be_inplace(ptr noundef captures(none) %0) #10 align 16 {
   %2 = load i16, ptr %0, align 1
   %3 = tail call i16 @llvm.bswap.i16(i16 %2)
   store i16 %3, ptr %0, align 1
@@ -5464,26 +5464,26 @@ define internal void @regmap_parse_16_be_inplace(ptr nocapture noundef %0) #10 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 0, 65536) i32 @regmap_parse_16_le(ptr nocapture noundef readonly %0) #9 align 16 {
+define internal range(i32 0, 65536) i32 @regmap_parse_16_le(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = load i16, ptr %0, align 1
   %3 = zext i16 %2 to i32
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @regmap_parse_16_le_inplace(ptr nocapture %0) #2 align 16 {
+define internal void @regmap_parse_16_le_inplace(ptr captures(none) %0) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 0, 65536) i32 @regmap_parse_16_native(ptr nocapture noundef readonly %0) #9 align 16 {
+define internal range(i32 0, 65536) i32 @regmap_parse_16_native(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = load i16, ptr %0, align 1
   %3 = zext i16 %2 to i32
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 0, 16777216) i32 @regmap_parse_24_be(ptr nocapture noundef readonly %0) #9 align 16 {
+define internal range(i32 0, 16777216) i32 @regmap_parse_24_be(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i32
   %4 = shl nuw nsw i32 %3, 16
@@ -5500,14 +5500,14 @@ define internal range(i32 0, 16777216) i32 @regmap_parse_24_be(ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @regmap_parse_32_be(ptr nocapture noundef readonly %0) #9 align 16 {
+define internal i32 @regmap_parse_32_be(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = load i32, ptr %0, align 1
   %3 = tail call i32 @llvm.bswap.i32(i32 %2)
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @regmap_parse_32_be_inplace(ptr nocapture noundef %0) #10 align 16 {
+define internal void @regmap_parse_32_be_inplace(ptr noundef captures(none) %0) #10 align 16 {
   %2 = load i32, ptr %0, align 1
   %3 = tail call i32 @llvm.bswap.i32(i32 %2)
   store i32 %3, ptr %0, align 1
@@ -5515,18 +5515,18 @@ define internal void @regmap_parse_32_be_inplace(ptr nocapture noundef %0) #10 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @regmap_parse_32_le(ptr nocapture noundef readonly %0) #9 align 16 {
+define internal i32 @regmap_parse_32_le(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = load i32, ptr %0, align 1
   ret i32 %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @regmap_parse_32_le_inplace(ptr nocapture %0) #2 align 16 {
+define internal void @regmap_parse_32_le_inplace(ptr captures(none) %0) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @regmap_parse_32_native(ptr nocapture noundef readonly %0) #9 align 16 {
+define internal i32 @regmap_parse_32_native(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = load i32, ptr %0, align 1
   ret i32 %2
 }
@@ -5790,7 +5790,7 @@ declare dso_local void @regcache_exit(ptr noundef) local_unnamed_addr #0
 declare dso_local void @kfree_const(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__devm_regmap_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #1 align 16 {
+define dso_local ptr @__devm_regmap_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #1 align 16 {
   %7 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @devm_regmap_release, i64 noundef 8, i32 noundef 3264, i32 noundef -1, ptr noundef nonnull @.str.14) #24
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9
@@ -5815,7 +5815,7 @@ define dso_local ptr @__devm_regmap_init(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @devm_regmap_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal void @devm_regmap_release(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = load ptr, ptr %1, align 8
   tail call void @regmap_exit(ptr noundef %3)
   ret void
@@ -5825,7 +5825,7 @@ define internal void @devm_regmap_release(ptr nocapture readnone %0, ptr nocaptu
 declare dso_local void @devres_free(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @devm_regmap_field_alloc(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly byval(%struct.reg_field) align 8 %2) #1 align 16 {
+define dso_local noundef ptr @devm_regmap_field_alloc(ptr noundef %0, ptr noundef %1, ptr noundef readonly byval(%struct.reg_field) align 8 captures(none) %2) #1 align 16 {
   %4 = tail call noalias noundef dereferenceable_or_null(32) ptr @devm_kmalloc(ptr noundef %0, i64 noundef 32, i32 noundef 3520) #29
   %5 = icmp eq ptr %4, null
   br i1 %5, label %33, label %6
@@ -5882,7 +5882,7 @@ define dso_local noundef ptr @devm_regmap_field_alloc(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @regmap_field_bulk_alloc(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @regmap_field_bulk_alloc(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #1 align 16 {
   %5 = icmp slt i32 %3, 0
   br i1 %5, label %.thread, label %6, !prof !26
 
@@ -5962,7 +5962,7 @@ define dso_local noundef range(i32 -12, 1) i32 @regmap_field_bulk_alloc(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @devm_regmap_field_bulk_alloc(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @devm_regmap_field_bulk_alloc(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) #1 align 16 {
   %6 = icmp slt i32 %4, 0
   br i1 %6, label %.thread, label %7, !prof !26
 
@@ -6063,7 +6063,7 @@ define dso_local void @devm_regmap_field_free(ptr noundef %0, ptr noundef %1) #1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @regmap_field_alloc(ptr noundef %0, ptr nocapture noundef readonly byval(%struct.reg_field) align 8 %1) #1 align 16 {
+define dso_local noundef ptr @regmap_field_alloc(ptr noundef %0, ptr noundef readonly byval(%struct.reg_field) align 8 captures(none) %1) #1 align 16 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %4 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 32) #26
   %5 = icmp eq ptr %4, null
@@ -6304,7 +6304,7 @@ define dso_local ptr @dev_get_regmap(ptr noundef %0, ptr noundef %1) #1 align 16
 declare dso_local ptr @devres_find(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 2) i32 @dev_get_regmap_match(ptr nocapture readnone %0, ptr noundef readonly %1, ptr noundef readonly %2) #1 align 16 {
+define internal range(i32 0, 2) i32 @dev_get_regmap_match(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) #1 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %8, label %5
 
@@ -6341,14 +6341,14 @@ define internal range(i32 0, 2) i32 @dev_get_regmap_match(ptr nocapture readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local ptr @regmap_get_device(ptr nocapture noundef readonly %0) #9 align 16 {
+define dso_local ptr @regmap_get_device(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @regmap_can_raw_write(ptr nocapture noundef readonly %0) #9 align 16 {
+define dso_local zeroext i1 @regmap_can_raw_write(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -6372,14 +6372,14 @@ define dso_local zeroext i1 @regmap_can_raw_write(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i64 @regmap_get_raw_read_max(ptr nocapture noundef readonly %0) #9 align 16 {
+define dso_local i64 @regmap_get_raw_read_max(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i64 @regmap_get_raw_write_max(ptr nocapture noundef readonly %0) #9 align 16 {
+define dso_local i64 @regmap_get_raw_write_max(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %3 = load i64, ptr %2, align 8
   ret i64 %3
@@ -8184,7 +8184,7 @@ define dso_local i32 @regmap_noinc_write(ptr noundef %0, i32 noundef %1, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @regmap_field_update_bits_base(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) #1 align 16 {
+define dso_local i32 @regmap_field_update_bits_base(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) #1 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = shl i32 %1, %8
@@ -8232,7 +8232,7 @@ define dso_local i32 @regmap_update_bits_base(ptr noundef initializes((184, 185)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @regmap_field_test_bits(ptr nocapture noundef readonly %0, i32 noundef %1) #1 align 16 {
+define dso_local i32 @regmap_field_test_bits(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #24
   %4 = load ptr, ptr %0, align 8
@@ -8285,7 +8285,7 @@ define dso_local i32 @regmap_field_test_bits(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @regmap_field_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define dso_local i32 @regmap_field_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #1 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #24
   %4 = load ptr, ptr %0, align 8
@@ -8331,7 +8331,7 @@ define dso_local i32 @regmap_field_read(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @regmap_fields_update_bits_base(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) #1 align 16 {
+define dso_local i32 @regmap_fields_update_bits_base(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) #1 align 16 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4
   %10 = icmp ugt i32 %9, %1
@@ -10144,7 +10144,7 @@ define dso_local i32 @regmap_noinc_read(ptr noundef %0, i32 noundef %1, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @regmap_fields_read(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
+define dso_local i32 @regmap_fields_read(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #1 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -10775,7 +10775,7 @@ define dso_local i32 @regmap_async_complete(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @init_wait_entry(ptr noundef, i32 noundef) local_unnamed_addr #0
@@ -10867,7 +10867,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #0
 declare dso_local ptr @krealloc(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @regmap_get_val_bytes(ptr nocapture noundef readonly %0) #9 align 16 {
+define dso_local i32 @regmap_get_val_bytes(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -10885,7 +10885,7 @@ define dso_local i32 @regmap_get_val_bytes(ptr nocapture noundef readonly %0) #9
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @regmap_get_max_register(ptr nocapture noundef readonly %0) #9 align 16 {
+define dso_local i32 @regmap_get_max_register(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -10894,14 +10894,14 @@ define dso_local i32 @regmap_get_max_register(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @regmap_get_reg_stride(ptr nocapture noundef readonly %0) #9 align 16 {
+define dso_local i32 @regmap_get_reg_stride(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 508
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local noundef zeroext i1 @regmap_might_sleep(ptr nocapture noundef readonly %0) #9 align 16 {
+define dso_local noundef zeroext i1 @regmap_might_sleep(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %3 = load i8, ptr %2, align 8, !range !36, !noundef !37
   %4 = icmp ne i8 %3, 0
@@ -10909,7 +10909,7 @@ define dso_local noundef zeroext i1 @regmap_might_sleep(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @regmap_parse_val(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @regmap_parse_val(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -10935,7 +10935,7 @@ define internal noundef i32 @regmap_initcall() #14 section ".init.text" align 16
 declare dso_local ptr @trace_event_buffer_reserve(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #15
+declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @trace_event_buffer_commit(ptr noundef) local_unnamed_addr #0
@@ -10944,7 +10944,7 @@ declare dso_local void @trace_event_buffer_commit(ptr noundef) local_unnamed_add
 declare dso_local zeroext i1 @__trace_trigger_soft_disabled(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @trace_raw_output_regmap_reg(ptr noundef %0, i32 %1, ptr noundef %2) #1 align 16 {
@@ -11216,7 +11216,7 @@ declare dso_local void @rb_erase(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare dso_local noalias ptr @devm_kmalloc(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
 declare i64 @llvm.read_register.i64(metadata) #21
@@ -11231,7 +11231,7 @@ declare void @llvm.assume(i1 noundef) #23
 declare dso_local void @__udelay(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @_regmap_raw_multi_reg_write(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef range(i64 -2147483648, 4294967296) %2) unnamed_addr #1 align 16 {
+define internal fastcc i32 @_regmap_raw_multi_reg_write(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 -2147483648, 4294967296) %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88

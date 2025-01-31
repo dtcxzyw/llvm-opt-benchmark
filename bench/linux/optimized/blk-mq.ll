@@ -282,16 +282,16 @@ define dso_local i32 @blk_mq_in_flight(ptr noundef %0, ptr noundef %1) local_unn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @blk_mq_queue_tag_busy_iter(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite)
-define internal noundef zeroext i1 @blk_mq_check_inflight(ptr noundef %0, ptr nocapture noundef %1) #4 align 16 {
+define internal noundef zeroext i1 @blk_mq_check_inflight(ptr noundef %0, ptr noundef captures(none) %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -341,10 +341,10 @@ define internal noundef zeroext i1 @blk_mq_check_inflight(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @blk_mq_in_flight_rw(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 align 16 {
+define dso_local void @blk_mq_in_flight_rw(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.mq_inflight, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #22
   store ptr %1, ptr %4, align 8
@@ -778,7 +778,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #3
 declare dso_local void @blk_queue_flag_set(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @blk_mq_wait_quiesce_done(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @blk_mq_wait_quiesce_done(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 32
@@ -2301,7 +2301,7 @@ define dso_local void @blk_mq_free_request(ptr noundef %0) #0 align 16 {
 declare dso_local void @laptop_io_completion(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__blk_mq_free_request(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @__blk_mq_free_request(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -2392,7 +2392,7 @@ define internal fastcc void @__blk_mq_free_request(ptr nocapture noundef %0) unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @blk_mq_free_plug_rqs(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @blk_mq_free_plug_rqs(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2413,7 +2413,7 @@ define dso_local void @blk_mq_free_plug_rqs(ptr nocapture noundef %0) local_unna
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @blk_dump_rq_flags(ptr nocapture noundef readonly %0, ptr noundef %1) #6 align 16 {
+define dso_local void @blk_dump_rq_flags(ptr noundef readonly captures(none) %0, ptr noundef %1) #6 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -2961,7 +2961,7 @@ define dso_local noundef zeroext i1 @blk_update_request(ptr noundef %0, i8 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @blk_print_req_error(ptr nocapture noundef readonly %0, i8 noundef zeroext range(i8 1, 0) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @blk_print_req_error(ptr noundef readonly captures(none) %0, i8 noundef zeroext range(i8 1, 0) %1) unnamed_addr #0 align 16 {
   %3 = tail call i32 @___ratelimit(ptr noundef nonnull @blk_print_req_error._rs, ptr noundef nonnull @__func__.blk_print_req_error) #22
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %29, label %5
@@ -3688,7 +3688,7 @@ define dso_local void @blk_mq_end_request_batch(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #8
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @blk_mq_complete_request_remote(ptr noundef %0) #0 align 16 {
@@ -4728,7 +4728,7 @@ define dso_local void @blk_mq_run_hw_queue(ptr noundef %0, i1 noundef zeroext %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local zeroext i1 @blk_rq_is_poll(ptr nocapture noundef readonly %0) #9 align 16 {
+define dso_local zeroext i1 @blk_rq_is_poll(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -4920,10 +4920,10 @@ define dso_local zeroext i8 @blk_execute_rq(ptr noundef initializes((232, 248)) 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @blk_end_sync_rq(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) #0 align 16 {
+define internal noundef i32 @blk_end_sync_rq(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -5133,7 +5133,7 @@ define dso_local noundef zeroext i1 @blk_mq_queue_inflight(ptr noundef %0) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef zeroext i1 @blk_mq_rq_inflight(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal noundef zeroext i1 @blk_mq_rq_inflight(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load volatile i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -5220,7 +5220,7 @@ define dso_local void @blk_mq_put_rq_ref(ptr noundef %0) local_unnamed_addr #0 a
 declare dso_local zeroext i1 @is_flush_rq(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @blk_mq_flush_busy_ctxs(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local void @blk_mq_flush_busy_ctxs(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 212
@@ -5339,7 +5339,7 @@ define dso_local void @blk_mq_flush_busy_ctxs(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @blk_mq_dequeue_from_ctx(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local ptr @blk_mq_dequeue_from_ctx(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %13, label %5
@@ -5499,7 +5499,7 @@ define dso_local ptr @blk_mq_dequeue_from_ctx(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @__blk_mq_alloc_driver_tag(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext i1 @__blk_mq_alloc_driver_tag(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 320
@@ -8645,7 +8645,7 @@ define internal fastcc void @blk_account_io_done(ptr noundef %0, i64 noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @blk_rq_unprep_clone(ptr nocapture noundef %0) #0 align 16 {
+define dso_local void @blk_rq_unprep_clone(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -8668,7 +8668,7 @@ define dso_local void @blk_rq_unprep_clone(ptr nocapture noundef %0) #0 align 16
 declare dso_local void @bio_put(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @blk_rq_prep_clone(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @blk_rq_prep_clone(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5) #0 align 16 {
   %7 = icmp eq ptr %2, null
   %8 = select i1 %7, ptr @fs_bio_set, ptr %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -8808,7 +8808,7 @@ define dso_local noundef range(i32 -12, 1) i32 @blk_rq_prep_clone(ptr nocapture 
 declare dso_local ptr @bio_alloc_clone(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @blk_steal_bios(ptr nocapture noundef %0, ptr nocapture noundef initializes((44, 48)) %1) #11 align 16 {
+define dso_local void @blk_steal_bios(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((44, 48)) %1) #11 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -12386,7 +12386,7 @@ define dso_local range(i32 0, -2147483648) i32 @blk_mq_poll(ptr noundef %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, -2147483648) i32 @blk_rq_poll(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local range(i32 0, -2147483648) i32 @blk_rq_poll(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -12587,7 +12587,7 @@ define dso_local range(i32 0, -2147483648) i32 @blk_rq_poll(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @blk_mq_rq_cpu(ptr nocapture noundef readonly %0) #9 align 16 {
+define dso_local i32 @blk_mq_rq_cpu(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -13467,7 +13467,7 @@ define internal void @blk_mq_run_work_fn(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @sbitmap_init_node(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @blk_mq_dispatch_wake(ptr noundef %0, i32 %1, i32 %2, ptr nocapture readnone %3) #0 align 16 {
+define internal noundef i32 @blk_mq_dispatch_wake(ptr noundef %0, i32 %1, i32 %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = getelementptr i8, ptr %0, i64 -8
   tail call void @_raw_spin_lock(ptr noundef %5) #22
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -13521,7 +13521,7 @@ declare dso_local i32 @__cpuhp_state_add_instance(i32 noundef, ptr noundef, i1 n
 declare dso_local i32 @__xa_insert(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define internal noundef zeroext i1 @blk_mq_check_expired(ptr noundef %0, ptr nocapture noundef %1) #18 align 16 {
+define internal noundef zeroext i1 @blk_mq_check_expired(ptr noundef %0, ptr noundef captures(none) %1) #18 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load volatile i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 1
@@ -13566,7 +13566,7 @@ define internal noundef zeroext i1 @blk_mq_check_expired(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef zeroext i1 @blk_mq_handle_expired(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define internal noundef zeroext i1 @blk_mq_handle_expired(ptr noundef %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load volatile i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 1
@@ -13726,7 +13726,7 @@ blk_freeze_queue.exit:                            ; preds = %14, %19, %20
 
 .loopexit:                                        ; preds = %36, %.preheader.split.us, %blk_freeze_queue.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
-  call void @mutex_lock(ptr noundef %9) #22
+  call void @mutex_lock(ptr noundef nonnull %9) #22
   %41 = load i32, ptr %10, align 4
   %42 = add i32 %41, -1
   store i32 %42, ptr %10, align 4
@@ -13753,7 +13753,7 @@ blk_freeze_queue.exit:                            ; preds = %14, %19, %20
   br label %52
 
 52:                                               ; preds = %48, %45
-  call void @mutex_unlock(ptr noundef %9) #22
+  call void @mutex_unlock(ptr noundef nonnull %9) #22
   %53 = load ptr, ptr %7, align 8
   %54 = icmp eq ptr %53, %4
   br i1 %54, label %.loopexit5, label %.preheader4, !llvm.loop !273
@@ -13796,7 +13796,7 @@ declare dso_local i32 @elevator_switch(ptr noundef, ptr noundef) local_unnamed_a
 declare dso_local void @module_put(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @__blk_mq_complete_request_remote(ptr nocapture readnone %0) #0 align 16 {
+define internal void @__blk_mq_complete_request_remote(ptr readnone captures(none) %0) #0 align 16 {
   tail call void @__raise_softirq_irqoff(i32 noundef 4) #22
   ret void
 }
@@ -13805,7 +13805,7 @@ define internal void @__blk_mq_complete_request_remote(ptr nocapture readnone %0
 declare dso_local void @open_softirq(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blk_done_softirq(ptr nocapture readnone %0) #0 align 16 {
+define internal void @blk_done_softirq(ptr readnone captures(none) %0) #0 align 16 {
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @blk_cpu_done) #24, !srcloc !274
   %3 = inttoptr i64 %2 to ptr
   %4 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %3, ptr null, ptr elementtype(ptr) %3) #22, !srcloc !275
@@ -14180,7 +14180,7 @@ declare dso_local i32 @__cpuhp_setup_state(i32 noundef, ptr noundef, i1 noundef 
 declare dso_local void @blk_mq_all_tag_iter(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef zeroext i1 @blk_mq_has_request(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #20 align 16 {
+define internal noundef zeroext i1 @blk_mq_has_request(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #20 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8

@@ -4935,7 +4935,7 @@ return:                                           ; preds = %if.else11, %if.end.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3smt17is_perfect_squareEPKN7grobner8monomialERK8rationalS3_S6_S3_(ptr nocapture noundef readonly %m1_sq, ptr noundef nonnull align 8 dereferenceable(32) %a, ptr nocapture noundef readonly %m2_sq, ptr noundef nonnull align 8 dereferenceable(32) %b, ptr noundef %m1m2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN3smt17is_perfect_squareEPKN7grobner8monomialERK8rationalS3_S6_S3_(ptr noundef readonly captures(none) %m1_sq, ptr noundef nonnull align 8 dereferenceable(32) %a, ptr noundef readonly captures(none) %m2_sq, ptr noundef nonnull align 8 dereferenceable(32) %b, ptr noundef %m1m2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %class.rational, align 8
   %0 = load i32, ptr %m1m2, align 8
@@ -5656,7 +5656,7 @@ _ZN6vectorIN3smt12theory_arithINS0_6mi_extEE9col_entryELb0EjE6shrinkEj.exit: ; p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN3smt12theory_arithINS_6mi_extEE3rowixEj(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %idx) local_unnamed_addr #3 comdat align 2 {
@@ -16580,7 +16580,7 @@ _ZN8uint_set5resetEv.exit:                        ; preds = %if.end, %if.then.i.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8uint_setD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -28324,7 +28324,7 @@ invoke.cont75:                                    ; preds = %invoke.cont73
           to label %invoke.cont77 unwind label %lpad74.loopexit.split-lp
 
 invoke.cont77:                                    ; preds = %invoke.cont75
-  invoke void @_ZN3smt12theory_arithINS_6mi_extEE15mk_bound_axiomsEPNS2_4atomE(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef %call76)
+  invoke void @_ZN3smt12theory_arithINS_6mi_extEE15mk_bound_axiomsEPNS2_4atomE(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef nonnull %call76)
           to label %invoke.cont78 unwind label %lpad74.loopexit.split-lp
 
 invoke.cont78:                                    ; preds = %invoke.cont77
@@ -101392,7 +101392,7 @@ invoke.cont38:                                    ; preds = %invoke.cont37
           to label %invoke.cont40 unwind label %lpad25.loopexit.split-lp
 
 invoke.cont40:                                    ; preds = %invoke.cont38
-  invoke void @_ZN3smt12theory_arithINS_6mi_extEE15mk_bound_axiomsEPNS2_4atomE(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef %call39)
+  invoke void @_ZN3smt12theory_arithINS_6mi_extEE15mk_bound_axiomsEPNS2_4atomE(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef nonnull %call39)
           to label %invoke.cont41 unwind label %lpad25.loopexit.split-lp
 
 invoke.cont41:                                    ; preds = %invoke.cont40
@@ -120415,11 +120415,11 @@ invoke.cont11:                                    ; preds = %invoke.cont10
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  invoke void @_ZN3smt12theory_arithINS_5i_extEE9set_boundEPNS2_5boundEb(ptr noundef nonnull align 8 dereferenceable(1544) %this, ptr noundef %call9, i1 noundef zeroext false)
+  invoke void @_ZN3smt12theory_arithINS_5i_extEE9set_boundEPNS2_5boundEb(ptr noundef nonnull align 8 dereferenceable(1544) %this, ptr noundef nonnull %call9, i1 noundef zeroext false)
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %invoke.cont13
-  invoke void @_ZN3smt12theory_arithINS_5i_extEE9set_boundEPNS2_5boundEb(ptr noundef nonnull align 8 dereferenceable(1544) %this, ptr noundef %call12, i1 noundef zeroext true)
+  invoke void @_ZN3smt12theory_arithINS_5i_extEE9set_boundEPNS2_5boundEb(ptr noundef nonnull align 8 dereferenceable(1544) %this, ptr noundef nonnull %call12, i1 noundef zeroext true)
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont14
@@ -131242,7 +131242,7 @@ invoke.cont75:                                    ; preds = %invoke.cont73
           to label %invoke.cont77 unwind label %lpad74.loopexit.split-lp
 
 invoke.cont77:                                    ; preds = %invoke.cont75
-  invoke void @_ZN3smt12theory_arithINS_5i_extEE15mk_bound_axiomsEPNS2_4atomE(ptr noundef nonnull align 8 dereferenceable(1544) %this, ptr noundef %call76)
+  invoke void @_ZN3smt12theory_arithINS_5i_extEE15mk_bound_axiomsEPNS2_4atomE(ptr noundef nonnull align 8 dereferenceable(1544) %this, ptr noundef nonnull %call76)
           to label %invoke.cont78 unwind label %lpad74.loopexit.split-lp
 
 invoke.cont78:                                    ; preds = %invoke.cont77
@@ -202640,7 +202640,7 @@ invoke.cont38:                                    ; preds = %invoke.cont37
           to label %invoke.cont40 unwind label %lpad25.loopexit.split-lp
 
 invoke.cont40:                                    ; preds = %invoke.cont38
-  invoke void @_ZN3smt12theory_arithINS_5i_extEE15mk_bound_axiomsEPNS2_4atomE(ptr noundef nonnull align 8 dereferenceable(1544) %this, ptr noundef %call39)
+  invoke void @_ZN3smt12theory_arithINS_5i_extEE15mk_bound_axiomsEPNS2_4atomE(ptr noundef nonnull align 8 dereferenceable(1544) %this, ptr noundef nonnull %call39)
           to label %invoke.cont41 unwind label %lpad25.loopexit.split-lp
 
 invoke.cont41:                                    ; preds = %invoke.cont40
@@ -231921,7 +231921,7 @@ invoke.cont79:                                    ; preds = %_ZN12inf_rationalD2
           to label %invoke.cont81 unwind label %lpad78.loopexit.split-lp
 
 invoke.cont81:                                    ; preds = %invoke.cont79
-  invoke void @_ZN3smt12theory_arithINS_7inf_extEE15mk_bound_axiomsEPNS2_4atomE(ptr noundef nonnull align 8 dereferenceable(1736) %this, ptr noundef %call80)
+  invoke void @_ZN3smt12theory_arithINS_7inf_extEE15mk_bound_axiomsEPNS2_4atomE(ptr noundef nonnull align 8 dereferenceable(1736) %this, ptr noundef nonnull %call80)
           to label %invoke.cont82 unwind label %lpad78.loopexit.split-lp
 
 invoke.cont82:                                    ; preds = %invoke.cont81
@@ -302362,7 +302362,7 @@ invoke.cont38:                                    ; preds = %invoke.cont37
           to label %invoke.cont40 unwind label %lpad25.loopexit.split-lp
 
 invoke.cont40:                                    ; preds = %invoke.cont38
-  invoke void @_ZN3smt12theory_arithINS_7inf_extEE15mk_bound_axiomsEPNS2_4atomE(ptr noundef nonnull align 8 dereferenceable(1736) %this, ptr noundef %call39)
+  invoke void @_ZN3smt12theory_arithINS_7inf_extEE15mk_bound_axiomsEPNS2_4atomE(ptr noundef nonnull align 8 dereferenceable(1736) %this, ptr noundef nonnull %call39)
           to label %invoke.cont41 unwind label %lpad25.loopexit.split-lp
 
 invoke.cont41:                                    ; preds = %invoke.cont40
@@ -310242,7 +310242,7 @@ declare noundef ptr @_ZN11ast_manager6mk_appEiiP4expr(ptr noundef nonnull align 
 declare void @_ZN11mpz_managerILb1EE3negER3mpz(ptr noundef nonnull align 8 dereferenceable(600), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 declare void @_ZN11mpq_managerILb1EE5floorERK3mpqR3mpz(ptr noundef nonnull align 8 dereferenceable(728), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
@@ -311474,7 +311474,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -320168,7 +320168,7 @@ if.else.sink.split:                               ; preds = %_ZNSt17_Temporary_b
   %.sink = load i32, ptr %.sink.in, align 4
   %second3.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first, i64 8
   store i32 %.sink, ptr %second3.i.i.i.i, align 8
-  invoke void @_ZSt22__stable_sort_adaptiveIPSt4pairIP4exprjES4_lN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt12theory_arithINS8_6mi_extEE15var_num_occs_ltEEEEvT_SE_T0_T1_T2_(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull %call.i.i, i64 noundef %storemerge27.i.i)
+  invoke void @_ZSt22__stable_sort_adaptiveIPSt4pairIP4exprjES4_lN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt12theory_arithINS8_6mi_extEE15var_num_occs_ltEEEEvT_SE_T0_T1_T2_(ptr noundef nonnull %__first, ptr noundef %__last, ptr noundef nonnull %call.i.i, i64 noundef %storemerge27.i.i)
           to label %if.end10 unwind label %lpad
 
 if.end10:                                         ; preds = %if.else.sink.split, %if.then2
@@ -326195,7 +326195,7 @@ if.else.sink.split:                               ; preds = %_ZNSt17_Temporary_b
   %.sink = load i32, ptr %.sink.in, align 4
   %second3.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first, i64 8
   store i32 %.sink, ptr %second3.i.i.i.i, align 8
-  invoke void @_ZSt22__stable_sort_adaptiveIPSt4pairIP4exprjES4_lN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt12theory_arithINS8_5i_extEE15var_num_occs_ltEEEEvT_SE_T0_T1_T2_(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull %call.i.i, i64 noundef %storemerge27.i.i)
+  invoke void @_ZSt22__stable_sort_adaptiveIPSt4pairIP4exprjES4_lN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt12theory_arithINS8_5i_extEE15var_num_occs_ltEEEEvT_SE_T0_T1_T2_(ptr noundef nonnull %__first, ptr noundef %__last, ptr noundef nonnull %call.i.i, i64 noundef %storemerge27.i.i)
           to label %if.end7 unwind label %lpad
 
 if.end7:                                          ; preds = %if.else.sink.split, %if.then2
@@ -331183,7 +331183,7 @@ if.else.sink.split:                               ; preds = %_ZNSt17_Temporary_b
   %.sink = load i32, ptr %.sink.in, align 4
   %second3.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first, i64 8
   store i32 %.sink, ptr %second3.i.i.i.i, align 8
-  invoke void @_ZSt22__stable_sort_adaptiveIPSt4pairIP4exprjES4_lN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt12theory_arithINS8_7inf_extEE15var_num_occs_ltEEEEvT_SE_T0_T1_T2_(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull %call.i.i, i64 noundef %storemerge27.i.i)
+  invoke void @_ZSt22__stable_sort_adaptiveIPSt4pairIP4exprjES4_lN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt12theory_arithINS8_7inf_extEE15var_num_occs_ltEEEEvT_SE_T0_T1_T2_(ptr noundef nonnull %__first, ptr noundef %__last, ptr noundef nonnull %call.i.i, i64 noundef %storemerge27.i.i)
           to label %if.end7 unwind label %lpad
 
 if.end7:                                          ; preds = %if.else.sink.split, %if.then2
@@ -332326,10 +332326,10 @@ entry:
 declare i32 @llvm.abs.i32(i32, i1 immarg) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22

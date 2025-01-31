@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN8LocationC1EP19DebugInfoReadStream = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN8LocationC2EP19DebugInfoReadStream
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK8Location8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK8Location8print_onEP12outputStream(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %0, align 4
   %4 = and i32 %3, 15
   %5 = icmp eq i32 %4, 0
@@ -140,7 +140,7 @@ _ZN9VMRegImpl4nameEv.exit:                        ; preds = %23, %27
 declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN8LocationC2EP19DebugInfoReadStream(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, ptr nocapture noundef %1) unnamed_addr #2 align 2 {
+define hidden void @_ZN8LocationC2EP19DebugInfoReadStream(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %0, ptr noundef captures(none) %1) unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 4
@@ -196,7 +196,7 @@ _ZN20CompressedReadStream8read_intEv.exit:        ; preds = %2, %.preheader.i.i,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8Location8write_onEP20DebugInfoWriteStream(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8Location8write_onEP20DebugInfoWriteStream(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %0, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12

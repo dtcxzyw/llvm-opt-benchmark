@@ -54,7 +54,7 @@ entry:
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @sifive_pdma_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @sifive_pdma_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #4
   %desc = getelementptr inbounds nuw i8, ptr %call.i, i64 112
@@ -65,7 +65,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @sifive_pdma_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
+define internal void @sifive_pdma_realize(ptr noundef %dev, ptr readnone captures(none) %errp) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 456, ptr noundef nonnull @__func__.sifive_pdma_realize) #4
   %iomem = getelementptr inbounds nuw i8, ptr %call, i64 816
@@ -99,7 +99,7 @@ declare void @sysbus_init_mmio(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @sysbus_init_irq(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @sifive_pdma_read(ptr nocapture noundef readonly %opaque, i64 noundef %offset, i32 noundef %size) #0 {
+define internal i64 @sifive_pdma_read(ptr noundef readonly captures(none) %opaque, i64 noundef %offset, i32 noundef %size) #0 {
 entry:
   %0 = trunc i64 %offset to i32
   %1 = lshr i32 %0, 12
@@ -400,7 +400,7 @@ return:                                           ; preds = %if.then.i, %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @sifive_pdma_write(ptr nocapture noundef %opaque, i64 noundef %offset, i64 noundef %value, i32 noundef %size) #0 {
+define internal void @sifive_pdma_write(ptr noundef captures(none) %opaque, i64 noundef %offset, i64 noundef %value, i32 noundef %size) #0 {
 entry:
   %0 = trunc i64 %offset to i32
   %1 = lshr i32 %0, 12
@@ -662,7 +662,7 @@ sw.epilog:                                        ; preds = %if.then139.i, %do.b
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @sifive_pdma_run(ptr nocapture noundef %s, i32 noundef range(i32 0, 4) %ch) unnamed_addr #0 {
+define internal fastcc void @sifive_pdma_run(ptr noundef captures(none) %s, i32 noundef range(i32 0, 4) %ch) unnamed_addr #0 {
 entry:
   %buf = alloca [64 x i8], align 16
   %chan = getelementptr inbounds nuw i8, ptr %s, i64 1152
@@ -785,7 +785,7 @@ return:                                           ; preds = %error, %done
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @sifive_pdma_update_irq(ptr nocapture noundef %s, i32 noundef range(i32 0, 4) %ch) unnamed_addr #0 {
+define internal fastcc void @sifive_pdma_update_irq(ptr noundef captures(none) %s, i32 noundef range(i32 0, 4) %ch) unnamed_addr #0 {
 entry:
   %chan = getelementptr inbounds nuw i8, ptr %s, i64 1152
   %idxprom = zext nneg i32 %ch to i64
@@ -835,7 +835,7 @@ declare void @qemu_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @llvm.umin.i32(i32, i32) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

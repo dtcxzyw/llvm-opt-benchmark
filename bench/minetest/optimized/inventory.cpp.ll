@@ -726,14 +726,14 @@ return:                                           ; preds = %if.else31, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 declare noundef zeroext i1 @_ZNK14SimpleMetadata5emptyEv(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #0
 
 declare void @_Z27serializeJsonStringIfNeededB5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare void @_ZNK17ItemStackMetadata9serializeERSo(ptr noundef nonnull align 8 dereferenceable(272), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
@@ -2029,7 +2029,7 @@ invoke.cont230:                                   ; preds = %if.end222
 
 invoke.cont232:                                   ; preds = %invoke.cont230
   %171 = load ptr, ptr %ref.tmp223, align 8, !tbaa !11
-  %call.i.i813 = call i64 @strtol(ptr nocapture noundef nonnull %171, ptr noundef null, i32 noundef 10) #29
+  %call.i.i813 = call i64 @strtol(ptr noundef nonnull captures(none) %171, ptr noundef null, i32 noundef 10) #29
   %conv236 = trunc i64 %call.i.i813 to i16
   store i16 %conv236, ptr %count.i, align 8, !tbaa !17
   %172 = load ptr, ptr %ref.tmp223, align 8, !tbaa !11
@@ -2633,7 +2633,7 @@ invoke.cont368:                                   ; preds = %if.end360
 
 invoke.cont370:                                   ; preds = %invoke.cont368
   %247 = load ptr, ptr %ref.tmp361, align 8, !tbaa !11
-  %call.i.i957 = call i64 @strtol(ptr nocapture noundef nonnull %247, ptr noundef null, i32 noundef 10) #29
+  %call.i.i957 = call i64 @strtol(ptr noundef nonnull captures(none) %247, ptr noundef null, i32 noundef 10) #29
   %conv374 = trunc i64 %call.i.i957 to i16
   store i16 %conv374, ptr %wear.i, align 2, !tbaa !39
   %248 = load ptr, ptr %ref.tmp361, align 8, !tbaa !11
@@ -2850,7 +2850,7 @@ lpad399:                                          ; preds = %if.end398
 
 if.end405:                                        ; preds = %invoke.cont400
   %275 = load ptr, ptr %count_str, align 8, !tbaa !11
-  %call.i.i1020 = call i64 @strtol(ptr nocapture noundef nonnull %275, ptr noundef null, i32 noundef 10) #29
+  %call.i.i1020 = call i64 @strtol(ptr noundef nonnull captures(none) %275, ptr noundef null, i32 noundef 10) #29
   %conv408 = trunc i64 %call.i.i1020 to i16
   store i16 %conv408, ptr %count.i, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %wear_str) #29
@@ -2890,7 +2890,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1030: ; preds = %i
 
 if.end415:                                        ; preds = %invoke.cont411
   %281 = load ptr, ptr %wear_str, align 8, !tbaa !11
-  %call.i.i1031 = call i64 @strtol(ptr nocapture noundef nonnull %281, ptr noundef null, i32 noundef 10) #29
+  %call.i.i1031 = call i64 @strtol(ptr noundef nonnull captures(none) %281, ptr noundef null, i32 noundef 10) #29
   %conv418 = trunc i64 %call.i.i1031 to i16
   store i16 %conv418, ptr %wear.i, align 2, !tbaa !39
   invoke void @_ZN17ItemStackMetadata11deSerializeERSi(ptr noundef nonnull align 8 dereferenceable(272) %metadata.i, ptr noundef nonnull align 8 dereferenceable(16) %is)
@@ -4950,7 +4950,7 @@ ehcleanup17:                                      ; preds = %if.then.i.i44, %_ZN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare { <2 x float>, float } @_Z10str_to_v3fSt17basic_string_viewIcSt11char_traitsIcEE(i64, ptr) local_unnamed_addr #0
 
@@ -5533,7 +5533,7 @@ return:                                           ; preds = %if.else, %call3.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9ItemStackD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5687,7 +5687,7 @@ return:                                           ; preds = %if.then6, %_ZN9Item
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13InventoryListC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjP15IItemDefManager(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name, i32 noundef %size, ptr noundef %itemdef) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13InventoryListC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjP15IItemDefManager(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 24)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name, i32 noundef %size, ptr noundef %itemdef) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
@@ -6138,7 +6138,7 @@ unreachable:                                      ; preds = %invoke.cont4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN13InventoryList8setWidthEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((60, 64), (72, 73)) %this, i32 noundef %newwidth) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN13InventoryList8setWidthEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((60, 64), (72, 73)) %this, i32 noundef %newwidth) local_unnamed_addr #12 align 2 {
 entry:
   %m_width = getelementptr inbounds nuw i8, ptr %this, i64 60
   store i32 %newwidth, ptr %m_width, align 4, !tbaa !127
@@ -6158,7 +6158,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK13InventoryList9serializeERSob(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %os, i1 zeroext %incremental) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK13InventoryList9serializeERSob(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %os, i1 zeroext %incremental) local_unnamed_addr #3 align 2 {
 entry:
   %call1.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.26, i64 noundef 6)
   %m_width = getelementptr inbounds nuw i8, ptr %this, i64 60
@@ -7067,7 +7067,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK13InventoryListeqERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK13InventoryListeqERKS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_size = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i32, ptr %m_size, align 8, !tbaa !121
@@ -7185,7 +7185,7 @@ return:                                           ; preds = %_ZNK9ItemStackneERK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK13InventoryList12getUsedSlotsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #13 align 2 {
+define dso_local noundef i32 @_ZNK13InventoryList12getUsedSlotsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) local_unnamed_addr #13 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !73
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -7285,7 +7285,7 @@ for.body:                                         ; preds = %for.body.preheader6
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13InventoryList10changeItemEjRK9ItemStack(ptr dead_on_unwind noalias writable sret(%struct.ItemStack) align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %i, ptr noundef nonnull align 8 dereferenceable(312) %newitem) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13InventoryList10changeItemEjRK9ItemStack(ptr dead_on_unwind noalias writable sret(%struct.ItemStack) align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this, i32 noundef %i, ptr noundef nonnull align 8 dereferenceable(312) %newitem) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i19 = alloca i64, align 8
   %__dnew.i.i.i = alloca i64, align 8
@@ -7560,7 +7560,7 @@ return:                                           ; preds = %invoke.cont10, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13InventoryList10deleteItemEj(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((72, 73)) %this, i32 noundef %i) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN13InventoryList10deleteItemEj(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((72, 73)) %this, i32 noundef %i) local_unnamed_addr #3 align 2 {
 entry:
   %conv = zext i32 %i to i64
   %0 = load ptr, ptr %this, align 8, !tbaa !131
@@ -7580,7 +7580,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13InventoryList7addItemERK9ItemStack(ptr dead_on_unwind noalias writable sret(%struct.ItemStack) align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(312) %newitem_) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13InventoryList7addItemERK9ItemStack(ptr dead_on_unwind noalias writable sret(%struct.ItemStack) align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(312) %newitem_) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %ref.tmp = alloca %struct.ItemStack, align 8
@@ -8088,7 +8088,7 @@ ehcleanup56:                                      ; preds = %ehcleanup44, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13InventoryList7addItemEjRK9ItemStack(ptr dead_on_unwind noalias writable sret(%struct.ItemStack) align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %i, ptr noundef nonnull align 8 dereferenceable(312) %newitem) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13InventoryList7addItemEjRK9ItemStack(ptr dead_on_unwind noalias writable sret(%struct.ItemStack) align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this, i32 noundef %i, ptr noundef nonnull align 8 dereferenceable(312) %newitem) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i16 = alloca i64, align 8
   %__dnew.i.i.i = alloca i64, align 8
@@ -8338,7 +8338,7 @@ return:                                           ; preds = %if.then8, %invoke.c
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK13InventoryList8itemFitsEjRK9ItemStackPS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i32 noundef %i, ptr noundef nonnull align 8 dereferenceable(312) %newitem, ptr noundef %restitem) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK13InventoryList8itemFitsEjRK9ItemStackPS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, i32 noundef %i, ptr noundef nonnull align 8 dereferenceable(312) %newitem, ptr noundef %restitem) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %agg.tmp = alloca %struct.ItemStack, align 8
@@ -8507,7 +8507,7 @@ return:                                           ; preds = %if.then.i.i.i18, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK13InventoryList11roomForItemERK9ItemStack(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(312) %item_) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK13InventoryList11roomForItemERK9ItemStack(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(312) %item_) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %item = alloca %struct.ItemStack, align 8
@@ -8745,7 +8745,7 @@ ehcleanup:                                        ; preds = %lpad2, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK13InventoryList12containsItemERK9ItemStackb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(312) %item, i1 noundef zeroext %match_meta) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK13InventoryList12containsItemERK9ItemStackb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(312) %item, i1 noundef zeroext %match_meta) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %count2 = getelementptr inbounds nuw i8, ptr %item, i64 32
   %0 = load i16, ptr %count2, align 8, !tbaa !17
@@ -8891,7 +8891,7 @@ cleanup29:                                        ; preds = %land.lhs.true, %for
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13InventoryList10removeItemERK9ItemStack(ptr dead_on_unwind noalias writable sret(%struct.ItemStack) align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %item) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13InventoryList10removeItemERK9ItemStack(ptr dead_on_unwind noalias writable sret(%struct.ItemStack) align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %item) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %leftover = alloca %struct.ItemStack, align 8
   %agg.tmp = alloca %struct.ItemStack, align 8
@@ -9070,7 +9070,7 @@ nrvo.skipdtor:                                    ; preds = %if.then37, %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13InventoryList8takeItemEjj(ptr dead_on_unwind noalias writable sret(%struct.ItemStack) align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %i, i32 noundef %takecount) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13InventoryList8takeItemEjj(ptr dead_on_unwind noalias writable sret(%struct.ItemStack) align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this, i32 noundef %i, i32 noundef %takecount) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conv = zext i32 %i to i64
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -9131,7 +9131,7 @@ return:                                           ; preds = %if.then6, %if.end, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13InventoryList17moveItemSomewhereEjPS_j(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %i, ptr nocapture noundef %dest, i32 noundef %count) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13InventoryList17moveItemSomewhereEjPS_j(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this, i32 noundef %i, ptr noundef captures(none) %dest, i32 noundef %count) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %item1 = alloca %struct.ItemStack, align 8
   %ref.tmp = alloca %struct.ItemStack, align 8
@@ -10372,7 +10372,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %entry
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef %__rhs, i64 noundef %call.i.i)
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef nonnull %__rhs, i64 noundef %call.i.i)
   %1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %1, ptr %agg.result, align 8, !tbaa !7
   %2 = load ptr, ptr %call2.i, align 8, !tbaa !11
@@ -10430,7 +10430,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   br i1 %cmp.i.i, label %if.then.i.i.i.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i: ; preds = %invoke.cont4
-  %call.i1617 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %__lhs, i64 noundef %call.i)
+  %call.i1617 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %__lhs, i64 noundef %call.i)
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
@@ -10563,7 +10563,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN9InventoryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9InventoryD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(33) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   invoke void @_ZN9Inventory5clearEv(ptr noundef nonnull align 8 dereferenceable(33) %this)
           to label %invoke.cont unwind label %terminate.lpad
@@ -10589,7 +10589,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9Inventory5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(33) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9Inventory5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(33) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !73
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -10721,7 +10721,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #15
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN9InventoryC2EP15IItemDefManager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((0, 33)) %this, ptr noundef %itemdef) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9InventoryC2EP15IItemDefManager(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(33) initializes((0, 33)) %this, ptr noundef %itemdef) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %m_dirty = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -10921,7 +10921,7 @@ if.end:                                           ; preds = %for.cond.cleanup, %
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK9InventoryeqERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %other) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZNK9InventoryeqERKS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %other) local_unnamed_addr #3 align 2 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !176
@@ -10972,7 +10972,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK9Inventory9serializeERSob(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(8) %os, i1 noundef zeroext %incremental) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK9Inventory9serializeERSob(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(8) %os, i1 noundef zeroext %incremental) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !73
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -11056,7 +11056,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN9Inventory11deSerializeERSi(ptr nocapture noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9Inventory11deSerializeERSi(ptr noundef nonnull align 8 captures(none) dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %line = alloca %"class.std::__cxx11::basic_string", align 8
   %iss = alloca %"class.std::__cxx11::basic_istringstream", align 8
@@ -12434,7 +12434,7 @@ unreachable:                                      ; preds = %invoke.cont173
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN9Inventory7getListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN9Inventory7getListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !176
@@ -12510,7 +12510,7 @@ cleanup:                                          ; preds = %for.inc.i, %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN9Inventory7addListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr nocapture noundef nonnull align 8 dereferenceable(33) initializes((32, 33)) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %size) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN9Inventory7addListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 captures(none) dereferenceable(33) initializes((32, 33)) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %size) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_dirty.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i8 1, ptr %m_dirty.i, align 8, !tbaa !177
@@ -12672,7 +12672,7 @@ cleanup:                                          ; preds = %_ZNSt6vectorIP13Inv
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK9Inventory12getListIndexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZNK9Inventory12getListIndexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !176
@@ -12740,7 +12740,7 @@ cleanup:                                          ; preds = %land.rhs.i, %for.in
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN9Inventory10deleteListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(33) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN9Inventory10deleteListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(33) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !176
@@ -12913,7 +12913,7 @@ cleanup:                                          ; preds = %for.inc.i, %for.inc
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK9Inventory7getListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK9Inventory7getListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name) local_unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !176
@@ -14443,7 +14443,7 @@ _ZN13BaseExceptionD2Ev.exit:                      ; preds = %if.then.i.i.i, %_ZN
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #21
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @isspace(i32 noundef) local_unnamed_addr #22
@@ -17127,7 +17127,7 @@ unreachable:                                      ; preds = %if.end38
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #23
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #23
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
 
@@ -18235,7 +18235,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(pt
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_inventory.cpp() #24 section ".text.startup" {
@@ -18260,7 +18260,7 @@ declare i64 @llvm.umin.i64(i64, i64) #25
 declare void @llvm.experimental.noalias.scope.decl(metadata) #27
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #28
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #28
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.usub.sat.i16(i16, i16) #25

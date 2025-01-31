@@ -604,7 +604,7 @@ declare ptr @H5I_object_verify(i64 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @H5I_iterate(i32 noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5F__get_all_count_cb(ptr nocapture readnone %0, i64 %1, ptr nocapture noundef %2) #2 {
+define internal noundef i32 @H5F__get_all_count_cb(ptr readnone captures(none) %0, i64 %1, ptr noundef captures(none) %2) #2 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 1
   store i64 %5, ptr %2, align 8
@@ -816,7 +816,7 @@ define i64 @H5Fget_obj_ids(i64 noundef %0, i32 noundef %1, i64 noundef %2, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @H5F__get_all_ids_cb(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef %2) #3 {
+define internal range(i32 0, 2) i32 @H5F__get_all_ids_cb(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr %2, align 8

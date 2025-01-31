@@ -25,7 +25,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @chacha_init_key(ptr nocapture noundef readonly %ctx, ptr noundef readonly %user_key, ptr noundef readonly %iv, i32 %enc) #1 {
+define internal noundef i32 @chacha_init_key(ptr noundef readonly captures(none) %ctx, ptr noundef readonly %user_key, ptr noundef readonly %iv, i32 %enc) #1 {
 entry:
   %cipher_data = getelementptr inbounds nuw i8, ptr %ctx, i64 120
   %0 = load ptr, ptr %cipher_data, align 8
@@ -69,7 +69,7 @@ if.end53:                                         ; preds = %for.body24, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @chacha_cipher(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr noundef %inp, i64 noundef %len) #2 {
+define internal noundef i32 @chacha_cipher(ptr noundef readonly captures(none) %ctx, ptr noundef %out, ptr noundef %inp, i64 noundef %len) #2 {
 entry:
   %cipher_data = getelementptr inbounds nuw i8, ptr %ctx, i64 120
   %0 = load ptr, ptr %cipher_data, align 8
@@ -227,10 +227,10 @@ return:                                           ; preds = %while.end61, %for.e
 declare void @ChaCha20_ctr32(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @chacha20_poly1305_init_key(ptr nocapture noundef readonly %ctx, ptr noundef readonly %inkey, ptr noundef readonly %iv, i32 %enc) #5 {
+define internal noundef i32 @chacha20_poly1305_init_key(ptr noundef readonly captures(none) %ctx, ptr noundef readonly %inkey, ptr noundef readonly %iv, i32 %enc) #5 {
 entry:
   %temp = alloca [16 x i8], align 16
   %cipher_data = getelementptr inbounds nuw i8, ptr %ctx, i64 120
@@ -681,7 +681,7 @@ return:                                           ; preds = %if.then137, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @chacha20_poly1305_cleanup(ptr nocapture noundef readonly %ctx) #2 {
+define internal noundef i32 @chacha20_poly1305_cleanup(ptr noundef readonly captures(none) %ctx) #2 {
 entry:
   %cipher_data = getelementptr inbounds nuw i8, ptr %ctx, i64 120
   %0 = load ptr, ptr %cipher_data, align 8
@@ -939,7 +939,7 @@ return:                                           ; preds = %entry, %if.then136,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @Poly1305_Init(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -973,10 +973,10 @@ declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 no
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

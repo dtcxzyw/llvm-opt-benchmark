@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [7 x i8] c"socket\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_net_sdp_SdpSupport_create0(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i32 @Java_sun_net_sdp_SdpSupport_create0(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 (...) @ipv6_available() #4
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %5, label %4
@@ -35,7 +35,7 @@ create.exit:                                      ; preds = %4, %5, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_net_sdp_SdpSupport_convert0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_net_sdp_SdpSupport_convert0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca %struct.linger, align 4

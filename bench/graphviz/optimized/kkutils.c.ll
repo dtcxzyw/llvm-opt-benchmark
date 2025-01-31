@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i64 @common_neighbors(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define i64 @common_neighbors(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %struct.vtx_data, ptr %0, i64 %4
   %6 = load i64, ptr %5, align 8
@@ -45,7 +45,7 @@ define i64 @common_neighbors(ptr nocapture noundef readonly %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @fill_neighbors_vec_unweighted(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define void @fill_neighbors_vec_unweighted(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %struct.vtx_data, ptr %0, i64 %4
   %6 = load i64, ptr %5, align 8
@@ -74,7 +74,7 @@ define void @fill_neighbors_vec_unweighted(ptr nocapture noundef readonly %0, i3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @empty_neighbors_vec(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define void @empty_neighbors_vec(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %struct.vtx_data, ptr %0, i64 %4
   %6 = load i64, ptr %5, align 8
@@ -239,7 +239,7 @@ restore_old_weights.exit:                         ; preds = %.lr.ph.i9, %compute
 }
 
 ; Function Attrs: nounwind uwtable
-define void @compute_new_weights(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @compute_new_weights(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = sext i32 %1 to i64
   %4 = tail call fastcc ptr @gv_calloc(i64 noundef %3, i64 noundef 4)
   %5 = icmp sgt i32 %1, 0
@@ -381,7 +381,7 @@ empty_neighbors_vec.exit:                         ; preds = %53, %fill_neighbors
 }
 
 ; Function Attrs: nounwind uwtable
-define void @restore_old_weights(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define void @restore_old_weights(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %5) #16
@@ -412,7 +412,7 @@ define void @restore_old_weights(ptr nocapture noundef %0, i32 noundef %1, ptr n
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define double @distance_kD(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define double @distance_kD(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -481,7 +481,7 @@ gv_sort.exit:                                     ; preds = %6, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @fcmpf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #7 {
+define internal range(i32 -1, 2) i32 @fcmpf(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = load i32, ptr %0, align 4
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds float, ptr %2, i64 %5
@@ -518,7 +518,7 @@ gv_sort.exit:                                     ; preds = %3, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #7 {
+define internal range(i32 -1, 2) i32 @cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = load i32, ptr %0, align 4
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds double, ptr %2, i64 %5
@@ -572,7 +572,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @dijkstra(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
 
@@ -582,7 +582,7 @@ declare void @bfs(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unna
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @gv_sort_compar_wrapper(ptr noundef %0, ptr noundef %1) #2 {
@@ -595,7 +595,7 @@ define internal i32 @gv_sort_compar_wrapper(ptr noundef %0, ptr noundef %1) #2 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #12 {

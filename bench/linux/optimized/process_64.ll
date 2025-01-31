@@ -245,7 +245,7 @@ define dso_local void @__show_regs(ptr noundef %0, i32 noundef %1, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @show_iret_regs(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -254,10 +254,10 @@ declare dso_local void @show_iret_regs(ptr noundef, ptr noundef) local_unnamed_a
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @release_thread(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local void @release_thread(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -335,7 +335,7 @@ define dso_local void @current_save_fsgs() local_unnamed_addr #4 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 0, 4294967296) i64 @x86_fsgsbase_read_task(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) local_unnamed_addr #4 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @x86_fsgsbase_read_task(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #4 align 16 {
   %3 = lshr i16 %1, 3
   %4 = and i16 %1, 4
   %5 = icmp eq i16 %4, 0
@@ -1656,7 +1656,7 @@ declare i64 @llvm.read_register.i64(metadata) #6
 declare void @llvm.write_register.i64(metadata, i64) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_arch_prctl(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local i64 @__x64_sys_arch_prctl(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1678,7 +1678,7 @@ define dso_local i64 @__x64_sys_arch_prctl(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_sys_arch_prctl(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local i64 @__ia32_sys_arch_prctl(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1701,7 +1701,7 @@ define dso_local i64 @__ia32_sys_arch_prctl(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_compat_sys_arch_prctl(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local i64 @__ia32_compat_sys_arch_prctl(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1713,7 +1713,7 @@ define dso_local i64 @__ia32_compat_sys_arch_prctl(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i64 @KSTK_ESP(ptr nocapture noundef readonly %0) local_unnamed_addr #8 align 16 {
+define dso_local i64 @KSTK_ESP(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 32
   %4 = ptrtoint ptr %3 to i64

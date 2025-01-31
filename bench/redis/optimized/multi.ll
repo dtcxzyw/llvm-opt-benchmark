@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.12 = private unnamed_addr constant [34 x i8] c"WATCH inside MULTI is not allowed\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @initClientMultiState(ptr nocapture noundef writeonly initializes((424, 444), (448, 460)) %c) local_unnamed_addr #0 {
+define dso_local void @initClientMultiState(ptr noundef writeonly captures(none) initializes((424, 444), (448, 460)) %c) local_unnamed_addr #0 {
 entry:
   %mstate = getelementptr inbounds nuw i8, ptr %c, i64 424
   %argv_len_sums = getelementptr inbounds nuw i8, ptr %c, i64 448
@@ -46,7 +46,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @freeClientMultiState(ptr nocapture noundef readonly %c) local_unnamed_addr #1 {
+define dso_local void @freeClientMultiState(ptr noundef readonly captures(none) %c) local_unnamed_addr #1 {
 entry:
   %mstate = getelementptr inbounds nuw i8, ptr %c, i64 424
   %count = getelementptr inbounds nuw i8, ptr %c, i64 432
@@ -95,7 +95,7 @@ declare void @decrRefCount(ptr noundef) local_unnamed_addr #2
 declare void @zfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @queueMultiCommand(ptr nocapture noundef %c, i64 noundef %cmd_flags) local_unnamed_addr #1 {
+define dso_local void @queueMultiCommand(ptr noundef captures(none) %c, i64 noundef %cmd_flags) local_unnamed_addr #1 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
@@ -322,7 +322,7 @@ while.end:                                        ; preds = %if.end13, %if.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @flagTransaction(ptr nocapture noundef %c) local_unnamed_addr #5 {
+define dso_local void @flagTransaction(ptr noundef captures(none) %c) local_unnamed_addr #5 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
@@ -832,7 +832,7 @@ return:                                           ; preds = %discardTransaction.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @isWatchedKeyExpired(ptr nocapture noundef readonly %c) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @isWatchedKeyExpired(ptr noundef readonly captures(none) %c) local_unnamed_addr #1 {
 entry:
   %li = alloca %struct.listIter, align 8
   %watched_keys = getelementptr inbounds nuw i8, ptr %c, i64 536
@@ -1095,7 +1095,7 @@ declare ptr @dictFind(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @calculateKeySlot(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @touchAllWatchedKeysInDb(ptr nocapture noundef readonly %emptied, ptr noundef %replaced_with) local_unnamed_addr #1 {
+define dso_local void @touchAllWatchedKeysInDb(ptr noundef readonly captures(none) %emptied, ptr noundef %replaced_with) local_unnamed_addr #1 {
 entry:
   %li = alloca %struct.listIter, align 8
   %watched_keys = getelementptr inbounds nuw i8, ptr %emptied, i64 40
@@ -1364,7 +1364,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @multiStateMemOverhead(ptr nocapture noundef readonly %c) local_unnamed_addr #7 {
+define dso_local i64 @multiStateMemOverhead(ptr noundef readonly captures(none) %c) local_unnamed_addr #7 {
 entry:
   %argv_len_sums = getelementptr inbounds nuw i8, ptr %c, i64 448
   %0 = load i64, ptr %argv_len_sums, align 8
@@ -1385,13 +1385,13 @@ entry:
 declare void @listLinkNodeTail(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -310,13 +310,13 @@ define i32 @prte_rmaps_rr_byslot(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.3165246302 = phi i32 [ %144, %.lr.ph ], [ %.1163259, %.lr.ph.preheader ]
   %.0161247301 = phi i32 [ %218, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %140 = load i32, ptr %59, align 8
-  %141 = tail call ptr @prte_rmaps_base_setup_proc(ptr noundef %0, i32 noundef %140, ptr noundef %.0160260, ptr noundef null, ptr noundef nonnull %5) #9
+  %141 = tail call ptr @prte_rmaps_base_setup_proc(ptr noundef %0, i32 noundef %140, ptr noundef nonnull %.0160260, ptr noundef null, ptr noundef nonnull %5) #9
   %142 = icmp eq ptr %141, null
   br i1 %142, label %.critedge, label %143
 
 143:                                              ; preds = %.lr.ph303
   %144 = add nsw i32 %.3165246302, 1
-  %145 = tail call i32 @prte_rmaps_base_check_oversubscribed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0160260, ptr noundef nonnull %5) #9
+  %145 = tail call i32 @prte_rmaps_base_check_oversubscribed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.0160260, ptr noundef nonnull %5) #9
   %146 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %141) #9
   %147 = icmp eq i32 %146, 35
   switch i32 %145, label %171 [
@@ -407,7 +407,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %157
 .lr.ph.i209:                                      ; preds = %180, %.lr.ph.i209
   %186 = phi ptr [ %188, %.lr.ph.i209 ], [ %185, %180 ]
   %.07.i210 = phi ptr [ %187, %.lr.ph.i209 ], [ %184, %180 ]
-  tail call void %186(ptr noundef %141) #9
+  tail call void %186(ptr noundef nonnull %141) #9
   %187 = getelementptr inbounds nuw i8, ptr %.07.i210, i64 8
   %188 = load ptr, ptr %187, align 8
   %.not.i211 = icmp eq ptr %188, null
@@ -612,7 +612,7 @@ declare ptr @prte_rmaps_base_setup_proc(ptr noundef, i32 noundef, ptr noundef, p
 declare i32 @prte_rmaps_base_check_oversubscribed(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @hwloc_bitmap_free(ptr noundef) local_unnamed_addr #1
 
@@ -827,13 +827,13 @@ define range(i32 -43, 1) i32 @prte_rmaps_rr_bynode(ptr noundef %0, ptr noundef %
   %.0133200244 = phi i32 [ %194, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.3201243 = phi i32 [ %120, %.lr.ph ], [ %.1213, %.lr.ph.preheader ]
   %116 = load i32, ptr %60, align 8
-  %117 = tail call ptr @prte_rmaps_base_setup_proc(ptr noundef %0, i32 noundef %116, ptr noundef %.0130214, ptr noundef null, ptr noundef nonnull %5) #9
+  %117 = tail call ptr @prte_rmaps_base_setup_proc(ptr noundef %0, i32 noundef %116, ptr noundef nonnull %.0130214, ptr noundef null, ptr noundef nonnull %5) #9
   %118 = icmp eq ptr %117, null
   br i1 %118, label %.critedge, label %119
 
 119:                                              ; preds = %.lr.ph245
   %120 = add nsw i32 %.3201243, 1
-  %121 = tail call i32 @prte_rmaps_base_check_oversubscribed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0130214, ptr noundef nonnull %5) #9
+  %121 = tail call i32 @prte_rmaps_base_check_oversubscribed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.0130214, ptr noundef nonnull %5) #9
   %122 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %117) #9
   %123 = icmp eq i32 %122, 35
   switch i32 %121, label %147 [
@@ -924,7 +924,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %133
 .lr.ph.i168:                                      ; preds = %156, %.lr.ph.i168
   %162 = phi ptr [ %164, %.lr.ph.i168 ], [ %161, %156 ]
   %.07.i169 = phi ptr [ %163, %.lr.ph.i168 ], [ %160, %156 ]
-  tail call void %162(ptr noundef %117) #9
+  tail call void %162(ptr noundef nonnull %117) #9
   %163 = getelementptr inbounds nuw i8, ptr %.07.i169, i64 8
   %164 = load ptr, ptr %163, align 8
   %.not.i170 = icmp eq ptr %164, null
@@ -1361,13 +1361,13 @@ define range(i32 -43, 1) i32 @prte_rmaps_rr_bycpu(ptr noundef %0, ptr noundef %1
   %.3187284347 = phi i32 [ %155, %.lr.ph ], [ %.1185294, %.lr.ph.preheader ]
   %.0177286346 = phi i32 [ %229, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %151 = load i32, ptr %68, align 8
-  %152 = tail call ptr @prte_rmaps_base_setup_proc(ptr noundef %0, i32 noundef %151, ptr noundef %.0183295, ptr noundef null, ptr noundef nonnull %5) #9
+  %152 = tail call ptr @prte_rmaps_base_setup_proc(ptr noundef %0, i32 noundef %151, ptr noundef nonnull %.0183295, ptr noundef null, ptr noundef nonnull %5) #9
   %153 = icmp eq ptr %152, null
   br i1 %153, label %.thread, label %154
 
 154:                                              ; preds = %.lr.ph348
   %155 = add nsw i32 %.3187284347, 1
-  %156 = tail call i32 @prte_rmaps_base_check_oversubscribed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0183295, ptr noundef nonnull %5) #9
+  %156 = tail call i32 @prte_rmaps_base_check_oversubscribed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.0183295, ptr noundef nonnull %5) #9
   %157 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %152) #9
   %158 = icmp eq i32 %157, 35
   switch i32 %156, label %182 [
@@ -1458,7 +1458,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %168
 .lr.ph.i237:                                      ; preds = %191, %.lr.ph.i237
   %197 = phi ptr [ %199, %.lr.ph.i237 ], [ %196, %191 ]
   %.07.i238 = phi ptr [ %198, %.lr.ph.i237 ], [ %195, %191 ]
-  tail call void %197(ptr noundef %152) #9
+  tail call void %197(ptr noundef nonnull %152) #9
   %198 = getelementptr inbounds nuw i8, ptr %.07.i238, i64 8
   %199 = load ptr, ptr %198, align 8
   %.not.i239 = icmp eq ptr %199, null
@@ -1697,7 +1697,7 @@ declare i32 @PMIx_Argv_count(ptr noundef) local_unnamed_addr #1
 declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -43, 1) i32 @prte_rmaps_rr_byobj(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -1887,7 +1887,7 @@ define range(i32 -43, 1) i32 @prte_rmaps_rr_byobj(ptr noundef %0, ptr noundef %1
 .lr.ph.i:                                         ; preds = %104, %.lr.ph.i
   %110 = phi ptr [ %112, %.lr.ph.i ], [ %109, %104 ]
   %.07.i = phi ptr [ %111, %.lr.ph.i ], [ %108, %104 ]
-  tail call void %110(ptr noundef %.0206348) #9
+  tail call void %110(ptr noundef nonnull %.0206348) #9
   %111 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %112 = load ptr, ptr %111, align 8
   %.not.i = icmp eq ptr %112, null
@@ -2059,7 +2059,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %104
 .lr.ph.i248:                                      ; preds = %189, %.lr.ph.i248
   %195 = phi ptr [ %197, %.lr.ph.i248 ], [ %194, %189 ]
   %.07.i249 = phi ptr [ %196, %.lr.ph.i248 ], [ %193, %189 ]
-  tail call void %195(ptr noundef %.1207) #9
+  tail call void %195(ptr noundef nonnull %.1207) #9
   %196 = getelementptr inbounds nuw i8, ptr %.07.i249, i64 8
   %197 = load ptr, ptr %196, align 8
   %.not.i250 = icmp eq ptr %197, null
@@ -2168,7 +2168,7 @@ pmix_obj_run_destructors.exit257:                 ; preds = %.lr.ph.i254, %214
 .lr.ph.i260:                                      ; preds = %239, %.lr.ph.i260
   %245 = phi ptr [ %247, %.lr.ph.i260 ], [ %244, %239 ]
   %.07.i261 = phi ptr [ %246, %.lr.ph.i260 ], [ %243, %239 ]
-  tail call void %245(ptr noundef %164) #9
+  tail call void %245(ptr noundef nonnull %164) #9
   %246 = getelementptr inbounds nuw i8, ptr %.07.i261, i64 8
   %247 = load ptr, ptr %246, align 8
   %.not.i262 = icmp eq ptr %247, null
@@ -2391,7 +2391,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #5
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #7

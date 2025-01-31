@@ -69,7 +69,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z49alts_iovec_record_protocol_integrity_only_protectP26alts_iovec_record_protocolPK5iovecmS1_S1_PPc(ptr noundef readonly %rp, ptr noundef %unprotected_vec, i64 noundef %unprotected_vec_length, ptr writeonly %header.coerce0, i64 %header.coerce1, ptr nocapture noundef readonly byval(%struct.iovec) align 8 %tag, ptr noundef %error_details) local_unnamed_addr #2 {
+define noundef i32 @_Z49alts_iovec_record_protocol_integrity_only_protectP26alts_iovec_record_protocolPK5iovecmS1_S1_PPc(ptr noundef readonly %rp, ptr noundef %unprotected_vec, i64 noundef %unprotected_vec_length, ptr writeonly %header.coerce0, i64 %header.coerce1, ptr noundef readonly byval(%struct.iovec) align 8 captures(none) %tag, ptr noundef %error_details) local_unnamed_addr #2 {
 entry:
   %bytes_written = alloca i64, align 8
   %cmp = icmp eq ptr %rp, null
@@ -276,7 +276,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare noundef i32 @_Z31gsec_aead_crypter_encrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef byval(%struct.iovec) align 8, ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -565,7 +565,7 @@ return:                                           ; preds = %if.then.i14, %if.th
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare noundef i32 @_Z31gsec_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef byval(%struct.iovec) align 8, ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -585,7 +585,7 @@ if.then:                                          ; preds = %entry
   %call3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %appendix) #10
   %add = add i64 %call3, 1
   %add4 = add i64 %add, %conv2
-  %call5 = tail call ptr @realloc(ptr noundef %0, i64 noundef %add4) #11
+  %call5 = tail call ptr @realloc(ptr noundef nonnull %0, i64 noundef %add4) #11
   store ptr %call5, ptr %dst, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call5, i64 %conv2
   %call6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %appendix) #10
@@ -759,7 +759,7 @@ return:                                           ; preds = %if.then.i55, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z54alts_iovec_record_protocol_privacy_integrity_unprotectP26alts_iovec_record_protocol5iovecPKS1_mS1_PPc(ptr noundef readonly %rp, ptr %header.coerce0, i64 %header.coerce1, ptr noundef %protected_vec, i64 noundef %protected_vec_length, ptr nocapture noundef readonly byval(%struct.iovec) align 8 %unprotected_data, ptr noundef %error_details) local_unnamed_addr #2 {
+define noundef i32 @_Z54alts_iovec_record_protocol_privacy_integrity_unprotectP26alts_iovec_record_protocol5iovecPKS1_mS1_PPc(ptr noundef readonly %rp, ptr %header.coerce0, i64 %header.coerce1, ptr noundef %protected_vec, i64 noundef %protected_vec_length, ptr noundef readonly byval(%struct.iovec) align 8 captures(none) %unprotected_data, ptr noundef %error_details) local_unnamed_addr #2 {
 entry:
   %bytes_written = alloca i64, align 8
   %cmp = icmp eq ptr %rp, null
@@ -1017,12 +1017,12 @@ declare void @_Z25gsec_aead_crypter_destroyP17gsec_aead_crypter(ptr noundef) loc
 declare ptr @gpr_malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare noundef i32 @_Z22alts_counter_incrementP12alts_counterPbPPc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #9

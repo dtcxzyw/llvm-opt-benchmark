@@ -34,7 +34,7 @@ entry:
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @qdict_entry_value(ptr nocapture noundef readonly %entry1) local_unnamed_addr #2 {
+define dso_local ptr @qdict_entry_value(ptr noundef readonly captures(none) %entry1) local_unnamed_addr #2 {
 entry:
   %value = getelementptr inbounds nuw i8, ptr %entry1, i64 8
   %0 = load ptr, ptr %value, align 8
@@ -42,7 +42,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @qdict_entry_key(ptr nocapture noundef readonly %entry1) local_unnamed_addr #2 {
+define dso_local ptr @qdict_entry_key(ptr noundef readonly captures(none) %entry1) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %entry1, align 8
   ret ptr %0
@@ -201,7 +201,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @qdict_get(ptr nocapture noundef readonly %qdict, ptr nocapture noundef readonly %key) local_unnamed_addr #4 {
+define dso_local ptr @qdict_get(ptr noundef readonly captures(none) %qdict, ptr noundef readonly captures(none) %key) local_unnamed_addr #4 {
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %0 = trunc i64 %call.i to i32
@@ -262,7 +262,7 @@ cond.end:                                         ; preds = %for.inc.i, %tdb_has
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @qdict_haskey(ptr nocapture noundef readonly %qdict, ptr nocapture noundef readonly %key) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @qdict_haskey(ptr noundef readonly captures(none) %qdict, ptr noundef readonly captures(none) %key) local_unnamed_addr #4 {
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %0 = trunc i64 %call.i to i32
@@ -318,7 +318,7 @@ qdict_find.exit:                                  ; preds = %for.body.i4, %for.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @qdict_size(ptr nocapture noundef readonly %qdict) local_unnamed_addr #2 {
+define dso_local i64 @qdict_size(ptr noundef readonly captures(none) %qdict) local_unnamed_addr #2 {
 entry:
   %size = getelementptr inbounds nuw i8, ptr %qdict, i64 16
   %0 = load i64, ptr %size, align 8
@@ -326,7 +326,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local double @qdict_get_double(ptr nocapture noundef readonly %qdict, ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
+define dso_local double @qdict_get_double(ptr noundef readonly captures(none) %qdict, ptr noundef readonly captures(none) %key) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %0 = trunc i64 %call.i.i to i32
@@ -408,7 +408,7 @@ qobject_check_type.exit:                          ; preds = %qobject_type.exit.i
 declare double @qnum_get_double(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @qdict_get_int(ptr nocapture noundef readonly %qdict, ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
+define dso_local i64 @qdict_get_int(ptr noundef readonly captures(none) %qdict, ptr noundef readonly captures(none) %key) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %0 = trunc i64 %call.i.i to i32
@@ -490,7 +490,7 @@ qobject_check_type.exit:                          ; preds = %qobject_type.exit.i
 declare i64 @qnum_get_int(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qdict_get_bool(ptr nocapture noundef readonly %qdict, ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
+define dso_local zeroext i1 @qdict_get_bool(ptr noundef readonly captures(none) %qdict, ptr noundef readonly captures(none) %key) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %0 = trunc i64 %call.i.i to i32
@@ -572,7 +572,7 @@ qobject_check_type.exit:                          ; preds = %qobject_type.exit.i
 declare zeroext i1 @qbool_get_bool(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qdict_get_qlist(ptr nocapture noundef readonly %qdict, ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
+define dso_local ptr @qdict_get_qlist(ptr noundef readonly captures(none) %qdict, ptr noundef readonly captures(none) %key) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %0 = trunc i64 %call.i.i to i32
@@ -651,7 +651,7 @@ qobject_check_type.exit:                          ; preds = %qobject_type.exit.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qdict_get_qdict(ptr nocapture noundef readonly %qdict, ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
+define dso_local ptr @qdict_get_qdict(ptr noundef readonly captures(none) %qdict, ptr noundef readonly captures(none) %key) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %0 = trunc i64 %call.i.i to i32
@@ -730,7 +730,7 @@ qobject_check_type.exit:                          ; preds = %qobject_type.exit.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qdict_get_str(ptr nocapture noundef readonly %qdict, ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
+define dso_local ptr @qdict_get_str(ptr noundef readonly captures(none) %qdict, ptr noundef readonly captures(none) %key) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %0 = trunc i64 %call.i.i to i32
@@ -812,7 +812,7 @@ qobject_check_type.exit:                          ; preds = %qobject_type.exit.i
 declare ptr @qstring_get_str(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @qdict_get_try_int(ptr nocapture noundef readonly %qdict, ptr nocapture noundef readonly %key, i64 noundef %def_value) local_unnamed_addr #0 {
+define dso_local i64 @qdict_get_try_int(ptr noundef readonly captures(none) %qdict, ptr noundef readonly captures(none) %key, i64 noundef %def_value) local_unnamed_addr #0 {
 entry:
   %val = alloca i64, align 8
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #10
@@ -897,7 +897,7 @@ return:                                           ; preds = %for.inc.i.i, %tdb_h
 declare zeroext i1 @qnum_get_try_int(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qdict_get_try_bool(ptr nocapture noundef readonly %qdict, ptr nocapture noundef readonly %key, i1 noundef zeroext %def_value) local_unnamed_addr #0 {
+define dso_local zeroext i1 @qdict_get_try_bool(ptr noundef readonly captures(none) %qdict, ptr noundef readonly captures(none) %key, i1 noundef zeroext %def_value) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %0 = trunc i64 %call.i.i to i32
@@ -977,7 +977,7 @@ cond.end:                                         ; preds = %for.inc.i.i, %tdb_h
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qdict_get_try_str(ptr nocapture noundef readonly %qdict, ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
+define dso_local ptr @qdict_get_try_str(ptr noundef readonly captures(none) %qdict, ptr noundef readonly captures(none) %key) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %0 = trunc i64 %call.i.i to i32
@@ -1057,7 +1057,7 @@ cond.end:                                         ; preds = %for.inc.i.i, %tdb_h
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local ptr @qdict_first(ptr nocapture noundef readonly %qdict) local_unnamed_addr #5 {
+define dso_local ptr @qdict_first(ptr noundef readonly captures(none) %qdict) local_unnamed_addr #5 {
 entry:
   %table.i = getelementptr inbounds nuw i8, ptr %qdict, i64 24
   br label %for.body.i
@@ -1077,7 +1077,7 @@ qdict_next_entry.exit:                            ; preds = %for.body.i
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @qdict_next(ptr nocapture noundef readonly %qdict, ptr nocapture noundef readonly %entry1) local_unnamed_addr #4 {
+define dso_local ptr @qdict_next(ptr noundef readonly captures(none) %qdict, ptr noundef readonly captures(none) %entry1) local_unnamed_addr #4 {
 entry:
   %next = getelementptr inbounds nuw i8, ptr %entry1, i64 16
   %0 = load ptr, ptr %next, align 8
@@ -1142,7 +1142,7 @@ if.end:                                           ; preds = %for.body.i3, %for.c
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @qdict_clone_shallow(ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define dso_local noundef ptr @qdict_clone_shallow(ptr noundef readonly captures(none) %src) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias noundef dereferenceable_or_null(4120) ptr @g_malloc0(i64 noundef 4120) #9
   %refcnt.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
@@ -1396,7 +1396,7 @@ for.end8:                                         ; preds = %for.inc7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qdict_del(ptr nocapture noundef %qdict, ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
+define dso_local void @qdict_del(ptr noundef captures(none) %qdict, ptr noundef readonly captures(none) %key) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #10
   %0 = trunc i64 %call.i to i32
@@ -1869,17 +1869,17 @@ qobject_unref_impl.exit:                          ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @qobject_destroy(ptr noundef) local_unnamed_addr #3
 
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

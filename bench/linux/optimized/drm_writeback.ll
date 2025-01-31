@@ -192,7 +192,7 @@ declare dso_local i32 @drm_connector_attach_encoder(ptr noundef, ptr noundef) lo
 declare dso_local i64 @dma_fence_context_alloc(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @drm_object_attach_property(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -204,7 +204,7 @@ declare dso_local void @drm_connector_cleanup(ptr noundef) local_unnamed_addr #1
 declare dso_local void @drm_property_blob_put(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @drm_writeback_set_fb(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_writeback_set_fb(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 140
   %5 = load i32, ptr %4, align 4
@@ -291,7 +291,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_writeback_prepare_job(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_writeback_queue_job(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define dso_local void @drm_writeback_queue_job(ptr noundef %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %4 = load ptr, ptr %3, align 8
   store ptr null, ptr %3, align 8
@@ -619,7 +619,7 @@ declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_u
 declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal ptr @drm_writeback_fence_get_driver_name(ptr nocapture noundef readonly %0) #4 align 16 {
+define internal ptr @drm_writeback_fence_get_driver_name(ptr noundef readonly captures(none) %0) #4 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 -2140
   %4 = load ptr, ptr %3, align 8
@@ -631,14 +631,14 @@ define internal ptr @drm_writeback_fence_get_driver_name(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal ptr @drm_writeback_fence_get_timeline_name(ptr nocapture noundef readonly %0) #5 align 16 {
+define internal ptr @drm_writeback_fence_get_timeline_name(ptr noundef readonly captures(none) %0) #5 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 12
   ret ptr %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef zeroext i1 @drm_writeback_fence_enable_signaling(ptr nocapture readnone %0) #6 align 16 {
+define internal noundef zeroext i1 @drm_writeback_fence_enable_signaling(ptr readnone captures(none) %0) #6 align 16 {
   ret i1 true
 }
 

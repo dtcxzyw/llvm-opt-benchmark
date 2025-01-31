@@ -112,7 +112,7 @@ define internal noundef i32 @init_query(i1 zeroext %0, i1 zeroext %1) #1 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: write, inaccessiblemem: readwrite) uwtable
-define internal noundef ptr @file_query(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #2 {
+define internal noundef ptr @file_query(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #2 {
   %4 = load i32, ptr @priority_param, align 4
   store i32 %4, ptr %2, align 4
   %5 = tail call noalias dereferenceable_or_null(464) ptr @calloc(i64 noundef 1, i64 noundef 464) #10
@@ -129,7 +129,7 @@ define internal noundef ptr @file_query(ptr nocapture readnone %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @file_unquery(ptr nocapture readnone %0, ptr noundef %1) #3 {
+define internal noundef i32 @file_unquery(ptr readnone captures(none) %0, ptr noundef %1) #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 
@@ -142,7 +142,7 @@ define internal noundef i32 @file_unquery(ptr nocapture readnone %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal noundef i32 @delete_query(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 1)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) #4 {
+define internal noundef i32 @delete_query(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) #4 {
   %6 = load i32, ptr @delete_priority_param, align 4
   store i32 %6, ptr %4, align 4
   store i8 1, ptr %3, align 1
@@ -151,7 +151,7 @@ define internal noundef i32 @delete_query(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @delete_select(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal i32 @delete_select(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i8, ptr @opal_uses_threads, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %8
@@ -175,7 +175,7 @@ define internal i32 @delete_select(ptr noundef %0, ptr noundef %1, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @register_datarep(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @register_datarep(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   ret i32 -1
 }
 
@@ -197,7 +197,7 @@ declare i32 @mca_common_ompio_buffer_alloc_fini() local_unnamed_addr #5
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @mca_common_ompio_file_delete(ptr noundef, ptr noundef) local_unnamed_addr #5
 

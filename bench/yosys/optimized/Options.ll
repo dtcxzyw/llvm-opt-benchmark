@@ -34,7 +34,7 @@ $_ZZN7Minisat6Option14getUsageStringEvE9usage_str = comdat any
 @_ZZN7Minisat6Option14getUsageStringEvE9usage_str = linkonce_odr local_unnamed_addr global ptr null, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Minisat12parseOptionsERiPPcb(ptr nocapture noundef nonnull align 4 dereferenceable(4) %0, ptr nocapture noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Minisat12parseOptionsERiPPcb(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %0, ptr noundef captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = load i32, ptr %0, align 4
   %5 = icmp sgt i32 %4, 1
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -234,7 +234,7 @@ _ZN7MinisatL5matchIPcEEbRT_PKc.exit:              ; preds = %67, %.critedge
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN7Minisat17printUsageAndExitEiPPcb(i32 %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Minisat17printUsageAndExitEiPPcb(i32 %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr @_ZZN7Minisat6Option14getUsageStringEvE9usage_str, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
@@ -437,7 +437,7 @@ _ZN7Minisat6Option13getOptionListEv.exit33:       ; preds = %_ZN7Minisat6Option1
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #3
@@ -485,7 +485,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #5
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7Minisat4sortIPNS_6OptionENS1_8OptionLtEEEvPT_iT0_(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 comdat {
@@ -662,16 +662,16 @@ _ZN7Minisat13selectionSortIPNS_6OptionENS1_8OptionLtEEEvPT_iT0_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

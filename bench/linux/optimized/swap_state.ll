@@ -107,13 +107,13 @@ define dso_local ptr @get_shadow_from_swap_cache(i64 %0) local_unnamed_addr #2 a
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @xa_load(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @add_to_swap_cache(ptr noundef %0, i64 %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #2 align 16 {
@@ -484,7 +484,7 @@ define dso_local i32 @add_to_swap_cache(ptr noundef %0, i64 %1, i32 noundef %2, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @workingset_update_node(ptr noundef) #4
@@ -1136,7 +1136,7 @@ declare dso_local ptr @filemap_get_entry(ptr noundef, i64 noundef) local_unnamed
 declare dso_local ptr @get_swap_device(i64) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__read_swap_cache_async(i64 %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly initializes((0, 1)) %4, i1 noundef zeroext %5) local_unnamed_addr #2 align 16 {
+define dso_local ptr @__read_swap_cache_async(i64 %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) initializes((0, 1)) %4, i1 noundef zeroext %5) local_unnamed_addr #2 align 16 {
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
   store ptr null, ptr %7, align 8
@@ -1619,7 +1619,7 @@ define dso_local void @exit_swap_address_space(i32 noundef %0) local_unnamed_add
 declare dso_local void @kvfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @swapin_readahead(i64 %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 align 16 {
+define dso_local ptr @swapin_readahead(i64 %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca %struct.blk_plug, align 8
   %6 = alloca ptr, align 8
@@ -2015,7 +2015,7 @@ declare dso_local i32 @sysfs_create_group(ptr noundef, ptr noundef) local_unname
 declare dso_local void @kobject_put(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @vma_ra_enabled_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @vma_ra_enabled_show(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #2 align 16 {
   %4 = load i8, ptr @enable_vma_readahead, align 1, !range !24, !noundef !25
   %5 = icmp eq i8 %4, 0
   %6 = select i1 %5, ptr @.str.9, ptr @.str.8
@@ -2025,7 +2025,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @vma_ra_enabled_show(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @vma_ra_enabled_store(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #2 align 16 {
+define internal i64 @vma_ra_enabled_store(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #2 align 16 {
   %5 = tail call i32 @kstrtobool(ptr noundef %2, ptr noundef nonnull @enable_vma_readahead) #11
   %6 = icmp eq i32 %5, 0
   %7 = sext i32 %5 to i64

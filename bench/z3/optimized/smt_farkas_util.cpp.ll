@@ -181,7 +181,7 @@ terminate.lpad:                                   ; preds = %.noexc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt11farkas_util9mk_coerceERP4exprS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %e1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %e2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt11farkas_util9mk_coerceERP4exprS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %e1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %e2) local_unnamed_addr #3 align 2 {
 entry:
   %a = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %e1, align 8
@@ -272,7 +272,7 @@ if.end14:                                         ; preds = %if.end14.sink.split
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN3smt11farkas_util6mk_addEP4exprS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef %e1, ptr noundef %e2) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN3smt11farkas_util6mk_addEP4exprS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, ptr noundef %e1, ptr noundef %e2) local_unnamed_addr #3 align 2 {
 entry:
   %e1.addr = alloca ptr, align 8
   %e2.addr = alloca ptr, align 8
@@ -288,7 +288,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN3smt11farkas_util6mk_mulEP4exprS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef %e1, ptr noundef %e2) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN3smt11farkas_util6mk_mulEP4exprS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, ptr noundef %e1, ptr noundef %e2) local_unnamed_addr #3 align 2 {
 entry:
   %e1.addr = alloca ptr, align 8
   %e2.addr = alloca ptr, align 8
@@ -304,7 +304,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN3smt11farkas_util5mk_leEP4exprS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef %e1, ptr noundef %e2) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN3smt11farkas_util5mk_leEP4exprS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, ptr noundef %e1, ptr noundef %e2) local_unnamed_addr #3 align 2 {
 entry:
   %e1.addr = alloca ptr, align 8
   %e2.addr = alloca ptr, align 8
@@ -320,7 +320,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN3smt11farkas_util5mk_geEP4exprS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef %e1, ptr noundef %e2) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN3smt11farkas_util5mk_geEP4exprS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, ptr noundef %e1, ptr noundef %e2) local_unnamed_addr #3 align 2 {
 entry:
   %e1.addr = alloca ptr, align 8
   %e2.addr = alloca ptr, align 8
@@ -336,7 +336,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN3smt11farkas_util5mk_gtEP4exprS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef %e1, ptr noundef %e2) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN3smt11farkas_util5mk_gtEP4exprS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, ptr noundef %e1, ptr noundef %e2) local_unnamed_addr #3 align 2 {
 entry:
   %e1.addr = alloca ptr, align 8
   %e2.addr = alloca ptr, align 8
@@ -352,7 +352,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN3smt11farkas_util5mk_ltEP4exprS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, ptr noundef %e1, ptr noundef %e2) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN3smt11farkas_util5mk_ltEP4exprS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, ptr noundef %e1, ptr noundef %e2) local_unnamed_addr #3 align 2 {
 entry:
   %e1.addr = alloca ptr, align 8
   %e2.addr = alloca ptr, align 8
@@ -368,7 +368,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt11farkas_util3mulERK8rationalP4exprR7obj_refIS4_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef %e, ptr nocapture noundef nonnull align 8 dereferenceable(16) %res) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt11farkas_util3mulERK8rationalP4exprR7obj_refIS4_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef %e, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %res) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %e1.addr.i32 = alloca ptr, align 8
   %e2.addr.i33 = alloca ptr, align 8
@@ -608,7 +608,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3smt11farkas_util11is_int_sortEP3app(ptr nocapture noundef nonnull readnone align 8 dereferenceable(128) %this, ptr nocapture noundef readonly %c) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN3smt11farkas_util11is_int_sortEP3app(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(128) %this, ptr noundef readonly captures(none) %c) local_unnamed_addr #3 align 2 {
 entry:
   %m_args.i = getelementptr inbounds nuw i8, ptr %c, i64 32
   %0 = load ptr, ptr %m_args.i, align 8
@@ -635,7 +635,7 @@ _ZNK17arith_recognizers6is_intEPK4expr.exit:      ; preds = %entry, %_ZNK4decl13
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3smt11farkas_util11is_int_sortEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN3smt11farkas_util11is_int_sortEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_nodes.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_nodes.i, align 8
@@ -3448,7 +3448,7 @@ declare void @_ZN11th_rewriter11updt_paramsERK10params_ref(ptr noundef nonnull a
 declare void @_ZN11th_rewriterclEP4exprR7obj_refIS0_11ast_managerERS2_I3appS3_E(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt11farkas_util6fix_dlER7obj_refI4expr11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %r) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt11farkas_util6fix_dlER7obj_refI4expr11ast_managerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %r) local_unnamed_addr #3 align 2 {
 entry:
   %args.i = alloca [2 x ptr], align 16
   %0 = load ptr, ptr %r, align 8
@@ -3736,7 +3736,7 @@ if.end40:                                         ; preds = %if.end40.sink.split
 declare void @_ZN11th_rewriterD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt11farkas_util5resetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt11farkas_util5resetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_ineqs = getelementptr inbounds nuw i8, ptr %this, i64 24
   %m_nodes.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -5035,7 +5035,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -5081,7 +5081,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5441,10 +5441,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14

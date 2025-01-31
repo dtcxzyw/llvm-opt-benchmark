@@ -217,7 +217,7 @@ if.end84:                                         ; preds = %for.end
   %chain_frozen = getelementptr inbounds nuw i8, ptr %call24, i64 565
   store i8 1, ptr %chain_frozen, align 1
   %call86 = tail call i32 @block_job_add_bdrv(ptr noundef nonnull %call24, ptr noundef nonnull @.str.9, ptr noundef %base, i64 noundef 0, i64 noundef 15, ptr noundef %errp) #6
-  tail call void @bdrv_graph_wrunlock(ptr noundef %top) #6
+  tail call void @bdrv_graph_wrunlock(ptr noundef nonnull %top) #6
   %cmp87 = icmp slt i32 %call86, 0
   br i1 %cmp87, label %fail, label %if.end90
 
@@ -240,7 +240,7 @@ if.end99:                                         ; preds = %if.end90
   %call104 = tail call ptr @blk_new(ptr noundef %7, i64 noundef 0, i64 noundef 15) #6
   %top105 = getelementptr inbounds nuw i8, ptr %call24, i64 528
   store ptr %call104, ptr %top105, align 8
-  %call107 = tail call i32 @blk_insert_bs(ptr noundef %call104, ptr noundef %top, ptr noundef %errp) #6
+  %call107 = tail call i32 @blk_insert_bs(ptr noundef %call104, ptr noundef nonnull %top, ptr noundef %errp) #6
   %cmp108 = icmp slt i32 %call107, 0
   br i1 %cmp108, label %fail, label %if.end111
 
@@ -252,12 +252,12 @@ if.end111:                                        ; preds = %if.end99
   store ptr %call113, ptr %backing_file_str114, align 8
   %on_error115 = getelementptr inbounds nuw i8, ptr %call24, i64 560
   store i32 %on_error, ptr %on_error115, align 8
-  tail call fastcc void @trace_commit_start(ptr noundef %bs, ptr noundef %base, ptr noundef %top, ptr noundef %call24)
+  tail call fastcc void @trace_commit_start(ptr noundef %bs, ptr noundef %base, ptr noundef nonnull %top, ptr noundef %call24)
   tail call void @job_start(ptr noundef nonnull %call24) #6
   br label %if.end142
 
 fail.sink.split:                                  ; preds = %for.body, %for.end
-  tail call void @bdrv_graph_wrunlock(ptr noundef %top) #6
+  tail call void @bdrv_graph_wrunlock(ptr noundef nonnull %top) #6
   br label %fail
 
 fail:                                             ; preds = %fail.sink.split, %if.end44, %if.end99, %if.end90, %if.end84, %if.end36, %if.then30
@@ -546,7 +546,7 @@ for.cond.preheader:                               ; preds = %if.end60
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %offset.062 = phi i64 [ %add, %for.inc ], [ 0, %for.cond.preheader ]
-  %call68 = call i32 @bdrv_is_allocated(ptr noundef %bs, i64 noundef %offset.062, i64 noundef 1048576, ptr noundef nonnull %n) #6
+  %call68 = call i32 @bdrv_is_allocated(ptr noundef nonnull %bs, i64 noundef %offset.062, i64 noundef 1048576, ptr noundef nonnull %n) #6
   %cmp69 = icmp slt i32 %call68, 0
   br i1 %cmp69, label %ro_cleanup, label %if.end72
 
@@ -589,7 +589,7 @@ ro_cleanup:                                       ; preds = %if.end79, %if.then7
   %commit_top_bs.0 = phi ptr [ null, %if.then26 ], [ null, %if.then31 ], [ %call28, %if.then38 ], [ %call28, %if.then43 ], [ %call28, %if.then49 ], [ %call28, %if.then58 ], [ %call28, %if.end60 ], [ %call28, %for.end ], [ %call28, %if.end92 ], [ %call28, %for.body ], [ %call28, %if.then74 ], [ %call28, %if.end79 ]
   %ret.0 = phi i32 [ %call24, %if.then26 ], [ %call24, %if.then31 ], [ %call35, %if.then38 ], [ %conv44, %if.then43 ], [ %conv50, %if.then49 ], [ %call55, %if.then58 ], [ -12, %if.end60 ], [ %call86, %for.end ], [ 0, %if.end92 ], [ %call80, %if.end79 ], [ %call75, %if.then74 ], [ %call68, %for.body ]
   call void @blk_unref(ptr noundef %call23) #6
-  %call.i52 = call ptr @bdrv_cow_child(ptr noundef %bs) #6
+  %call.i52 = call ptr @bdrv_cow_child(ptr noundef nonnull %bs) #6
   %tobool.not.i.i53 = icmp eq ptr %call.i52, null
   br i1 %tobool.not.i.i53, label %bdrv_cow_bs.exit56, label %cond.true.i.i54
 
@@ -603,7 +603,7 @@ bdrv_cow_bs.exit56:                               ; preds = %ro_cleanup, %cond.t
   br i1 %cmp96.not, label %if.end100, label %if.then98
 
 if.then98:                                        ; preds = %bdrv_cow_bs.exit56
-  %call99 = call i32 @bdrv_set_backing_hd(ptr noundef %bs, ptr noundef nonnull %1, ptr noundef nonnull @error_abort) #6
+  %call99 = call i32 @bdrv_set_backing_hd(ptr noundef nonnull %bs, ptr noundef nonnull %1, ptr noundef nonnull @error_abort) #6
   br label %if.end100
 
 if.end100:                                        ; preds = %if.then98, %bdrv_cow_bs.exit56
@@ -648,7 +648,7 @@ declare i32 @blk_make_empty(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @blk_flush(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @commit_run(ptr noundef %job, ptr nocapture readnone %errp) #0 {
+define internal i32 @commit_run(ptr noundef %job, ptr readnone captures(none) %errp) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %n = alloca i64, align 8
@@ -817,7 +817,7 @@ cleanup:                                          ; preds = %if.then51, %for.bod
 declare void @block_job_user_resume(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @commit_prepare(ptr nocapture noundef initializes((565, 566)) %job) #0 {
+define internal i32 @commit_prepare(ptr noundef captures(none) initializes((565, 566)) %job) #0 {
 entry:
   tail call void @bdrv_graph_rdlock_main_loop() #6
   %commit_top_bs = getelementptr inbounds nuw i8, ptr %job, i64 520
@@ -896,7 +896,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @commit_clean(ptr nocapture noundef readonly %job) #0 {
+define internal void @commit_clean(ptr noundef readonly captures(none) %job) #0 {
 entry:
   %base_read_only = getelementptr inbounds nuw i8, ptr %job, i64 564
   %0 = load i8, ptr %base_read_only, align 4
@@ -946,7 +946,7 @@ declare void @job_progress_update(ptr noundef, i64 noundef) local_unnamed_addr #
 declare void @block_job_ratelimit_processed_bytes(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -975,7 +975,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @bdrv_commit_top_child_perm(ptr nocapture readnone %bs, ptr nocapture readnone %c, i32 %role, ptr nocapture readnone %reopen_queue, i64 %perm, i64 %shared, ptr nocapture noundef writeonly initializes((0, 8)) %nperm, ptr nocapture noundef writeonly initializes((0, 8)) %nshared) #4 {
+define internal void @bdrv_commit_top_child_perm(ptr readnone captures(none) %bs, ptr readnone captures(none) %c, i32 %role, ptr readnone captures(none) %reopen_queue, i64 %perm, i64 %shared, ptr noundef writeonly captures(none) initializes((0, 8)) %nperm, ptr noundef writeonly captures(none) initializes((0, 8)) %nshared) #4 {
 entry:
   store i64 0, ptr %nperm, align 8
   store i64 15, ptr %nshared, align 8
@@ -983,7 +983,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @bdrv_commit_top_preadv(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
+define internal i32 @bdrv_commit_top_preadv(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
   %backing = getelementptr inbounds nuw i8, ptr %bs, i64 16832
   %0 = load ptr, ptr %backing, align 8
@@ -1002,10 +1002,10 @@ declare ptr @bdrv_filter_or_cow_child(ptr noundef) local_unnamed_addr #1
 declare void @qemu_vfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

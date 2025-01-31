@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define float @Map_SwitchCutGetDerefed(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define float @Map_SwitchCutGetDerefed(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 56
   %.val = load float, ptr %4, align 8
   %5 = tail call fastcc float @Map_SwitchCutRefDeref(float %.val, ptr noundef %1, i32 noundef %2, i32 noundef 1)
@@ -223,7 +223,7 @@ define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define float @Map_SwitchCutRef(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define float @Map_SwitchCutRef(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 56
   %.val = load float, ptr %4, align 8
   %5 = tail call fastcc float @Map_SwitchCutRefDeref(float %.val, ptr noundef %1, i32 noundef %2, i32 noundef 1)
@@ -231,7 +231,7 @@ define float @Map_SwitchCutRef(ptr nocapture noundef readonly %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define float @Map_SwitchCutDeref(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define float @Map_SwitchCutDeref(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 56
   %.val = load float, ptr %4, align 8
   %5 = tail call fastcc float @Map_SwitchCutRefDeref(float %.val, ptr noundef %1, i32 noundef %2, i32 noundef 0)
@@ -239,7 +239,7 @@ define float @Map_SwitchCutDeref(ptr nocapture noundef readonly %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define float @Map_MappingGetSwitching(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define float @Map_MappingGetSwitching(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8

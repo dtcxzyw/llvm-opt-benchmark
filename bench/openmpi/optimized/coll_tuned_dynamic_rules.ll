@@ -161,7 +161,7 @@ define range(i32 -1, 1) i32 @ompi_coll_tuned_free_msg_rules_in_com_rule(ptr noun
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @ompi_coll_tuned_free_coms_in_alg_rule(ptr noundef %0) local_unnamed_addr #5 {
@@ -363,7 +363,7 @@ define ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef readonly %0, i32 nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @ompi_coll_tuned_get_target_method_params(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #7 {
+define i32 @ompi_coll_tuned_get_target_method_params(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #7 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %33, label %7
 

@@ -34,7 +34,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i32 -1, 2) i32 @uriCompareRangeA(ptr noundef readonly %a, ptr noundef readonly %b) local_unnamed_addr #2 {
@@ -105,7 +105,7 @@ return:                                           ; preds = %if.else44, %if.end3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @uriRemoveDotSegmentsA(ptr noundef %uri, i32 noundef %relative, ptr noundef %memory) local_unnamed_addr #4 {
@@ -735,7 +735,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @uriCopyPathA(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %source, ptr noundef %memory) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @uriCopyPathA(ptr noundef writeonly captures(none) %dest, ptr noundef readonly captures(none) %source, ptr noundef %memory) local_unnamed_addr #4 {
 entry:
   %pathHead = getelementptr inbounds nuw i8, ptr %source, i64 96
   %0 = load ptr, ptr %pathHead, align 8
@@ -804,10 +804,10 @@ return:                                           ; preds = %if.then4, %if.then6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @uriCopyAuthorityA(ptr nocapture noundef writeonly initializes((16, 56)) %dest, ptr nocapture noundef readonly %source, ptr noundef %memory) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @uriCopyAuthorityA(ptr noundef writeonly captures(none) initializes((16, 56)) %dest, ptr noundef readonly captures(none) %source, ptr noundef %memory) local_unnamed_addr #4 {
 entry:
   %userInfo = getelementptr inbounds nuw i8, ptr %dest, i64 16
   %userInfo1 = getelementptr inbounds nuw i8, ptr %source, i64 16
@@ -878,7 +878,7 @@ return:                                           ; preds = %if.then20, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @uriFixAmbiguityA(ptr nocapture noundef %uri, ptr noundef %memory) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @uriFixAmbiguityA(ptr noundef captures(none) %uri, ptr noundef %memory) local_unnamed_addr #4 {
 entry:
   %absolutePath = getelementptr inbounds nuw i8, ptr %uri, i64 144
   %0 = load i32, ptr %absolutePath, align 8
@@ -944,7 +944,7 @@ return:                                           ; preds = %land.lhs.true, %lan
 }
 
 ; Function Attrs: nounwind uwtable
-define void @uriFixEmptyTrailSegmentA(ptr nocapture noundef %uri, ptr noundef %memory) local_unnamed_addr #4 {
+define void @uriFixEmptyTrailSegmentA(ptr noundef captures(none) %uri, ptr noundef %memory) local_unnamed_addr #4 {
 entry:
   %absolutePath = getelementptr inbounds nuw i8, ptr %uri, i64 144
   %0 = load i32, ptr %absolutePath, align 8
@@ -1721,7 +1721,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @uriCopyPathW(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %source, ptr noundef %memory) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @uriCopyPathW(ptr noundef writeonly captures(none) %dest, ptr noundef readonly captures(none) %source, ptr noundef %memory) local_unnamed_addr #4 {
 entry:
   %pathHead = getelementptr inbounds nuw i8, ptr %source, i64 96
   %0 = load ptr, ptr %pathHead, align 8
@@ -1790,7 +1790,7 @@ return:                                           ; preds = %if.then4, %if.then6
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @uriCopyAuthorityW(ptr nocapture noundef writeonly initializes((16, 56)) %dest, ptr nocapture noundef readonly %source, ptr noundef %memory) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @uriCopyAuthorityW(ptr noundef writeonly captures(none) initializes((16, 56)) %dest, ptr noundef readonly captures(none) %source, ptr noundef %memory) local_unnamed_addr #4 {
 entry:
   %userInfo = getelementptr inbounds nuw i8, ptr %dest, i64 16
   %userInfo1 = getelementptr inbounds nuw i8, ptr %source, i64 16
@@ -1861,7 +1861,7 @@ return:                                           ; preds = %if.then20, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @uriFixAmbiguityW(ptr nocapture noundef %uri, ptr noundef %memory) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @uriFixAmbiguityW(ptr noundef captures(none) %uri, ptr noundef %memory) local_unnamed_addr #4 {
 entry:
   %absolutePath = getelementptr inbounds nuw i8, ptr %uri, i64 144
   %0 = load i32, ptr %absolutePath, align 8
@@ -1927,7 +1927,7 @@ return:                                           ; preds = %land.lhs.true, %lan
 }
 
 ; Function Attrs: nounwind uwtable
-define void @uriFixEmptyTrailSegmentW(ptr nocapture noundef %uri, ptr noundef %memory) local_unnamed_addr #4 {
+define void @uriFixEmptyTrailSegmentW(ptr noundef captures(none) %uri, ptr noundef %memory) local_unnamed_addr #4 {
 entry:
   %absolutePath = getelementptr inbounds nuw i8, ptr %uri, i64 144
   %0 = load i32, ptr %absolutePath, align 8

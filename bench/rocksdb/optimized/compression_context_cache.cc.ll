@@ -27,7 +27,7 @@ $_ZN7rocksdb24ZSTDUncompressCachedDataD2Ev = comdat any
 @_ZN7rocksdb23CompressionContextCacheD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7rocksdb23CompressionContextCacheD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb23CompressionContextCacheC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb23CompressionContextCacheC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %call, i8 0, i64 16, i1 false)
@@ -49,7 +49,7 @@ lpad:                                             ; preds = %entry
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -131,7 +131,7 @@ _ZN7rocksdb23CompressionContextCache8InstanceEv.exit: ; preds = %entry, %init.ch
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb23CompressionContextCache27GetCachedZSTDUncompressDataEv(ptr noalias sret(%"class.rocksdb::ZSTDUncompressCachedData") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN7rocksdb23CompressionContextCache27GetCachedZSTDUncompressDataEv(ptr noalias sret(%"class.rocksdb::ZSTDUncompressCachedData") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN7rocksdb23CompressionContextCache3Rep21GetZSTDUncompressDataEv(ptr sret(%"class.rocksdb::ZSTDUncompressCachedData") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -229,7 +229,7 @@ _ZN7rocksdb17compression_cache14ZSTDCachedData17GetUncompressDataEl.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb23CompressionContextCache30ReturnCachedZSTDUncompressDataEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef %idx) local_unnamed_addr #5 align 2 {
+define void @_ZN7rocksdb23CompressionContextCache30ReturnCachedZSTDUncompressDataEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 noundef %idx) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %0, align 8
@@ -241,7 +241,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb23CompressionContextCacheD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb23CompressionContextCacheD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %isnull = icmp eq ptr %0, null

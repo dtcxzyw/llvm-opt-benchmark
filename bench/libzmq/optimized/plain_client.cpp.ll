@@ -227,7 +227,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %if.then, label %land.lhs.true6
 
 if.then:                                          ; preds = %land.lhs.true
-  %call4 = tail call noundef i32 @_ZN3zmq14plain_client_t15process_welcomeEPKhm(ptr noundef nonnull align 8 dereferenceable(1504) %this, ptr poison, i64 noundef %call2)
+  %call4 = tail call noundef i32 @_ZN3zmq14plain_client_t15process_welcomeEPKhm(ptr noundef nonnull align 8 dereferenceable(1504) %this, ptr nonnull poison, i64 noundef %call2)
   br label %if.end24
 
 if.else:                                          ; preds = %entry
@@ -240,7 +240,7 @@ land.lhs.true6:                                   ; preds = %land.lhs.true, %if.
   br i1 %tobool8.not, label %if.then9, label %land.lhs.true13
 
 if.then9:                                         ; preds = %land.lhs.true6
-  %call10 = tail call noundef i32 @_ZN3zmq14plain_client_t13process_readyEPKhm(ptr noundef nonnull align 8 dereferenceable(1504) %this, ptr noundef %call, i64 noundef %call2)
+  %call10 = tail call noundef i32 @_ZN3zmq14plain_client_t13process_readyEPKhm(ptr noundef nonnull align 8 dereferenceable(1504) %this, ptr noundef nonnull %call, i64 noundef %call2)
   br label %if.end24
 
 if.else11:                                        ; preds = %if.else
@@ -253,7 +253,7 @@ land.lhs.true13:                                  ; preds = %land.lhs.true6, %if
   br i1 %tobool15.not, label %if.then16, label %if.end24.thread
 
 if.then16:                                        ; preds = %land.lhs.true13
-  %call17 = tail call noundef i32 @_ZN3zmq14plain_client_t13process_errorEPKhm(ptr noundef nonnull align 8 dereferenceable(1504) %this, ptr noundef %call, i64 noundef %call2)
+  %call17 = tail call noundef i32 @_ZN3zmq14plain_client_t13process_errorEPKhm(ptr noundef nonnull align 8 dereferenceable(1504) %this, ptr noundef nonnull %call, i64 noundef %call2)
   br label %if.end24
 
 if.end24.thread:                                  ; preds = %if.else11, %land.lhs.true13
@@ -314,7 +314,7 @@ declare noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenc
 declare noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq14plain_client_t15process_welcomeEPKhm(ptr nocapture noundef nonnull align 8 dereferenceable(1504) %this, ptr nocapture readnone %cmd_data_, i64 noundef %data_size_) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq14plain_client_t15process_welcomeEPKhm(ptr noundef nonnull align 8 captures(none) dereferenceable(1504) %this, ptr readnone captures(none) %cmd_data_, i64 noundef %data_size_) local_unnamed_addr #0 align 2 {
 entry:
   %_state = getelementptr inbounds nuw i8, ptr %this, i64 1496
   %0 = load i32, ptr %_state, align 8
@@ -478,17 +478,17 @@ declare noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferen
 declare ptr @strerror(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #1
 
 declare noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 3) i32 @_ZNK3zmq14plain_client_t6statusEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1504) %this) unnamed_addr #7 align 2 {
+define noundef range(i32 0, 3) i32 @_ZNK3zmq14plain_client_t6statusEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1504) %this) unnamed_addr #7 align 2 {
 entry:
   %_state = getelementptr inbounds nuw i8, ptr %this, i64 1496
   %0 = load i32, ptr %_state, align 8
@@ -509,7 +509,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr noundef nonnull align 8 dereferenceable(64), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
@@ -547,7 +547,7 @@ declare noundef i32 @_ZN3zmq11mechanism_t8propertyERKNSt7__cxx1112basic_stringIc
 declare void @_ZN3zmq11mechanism_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1488)) unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

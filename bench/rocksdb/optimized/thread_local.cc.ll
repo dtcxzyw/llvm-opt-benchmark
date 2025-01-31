@@ -303,7 +303,7 @@ _ZN7rocksdb9MutexLockD2Ev.exit12:                 ; preds = %_ZN7rocksdb10Thread
 declare i32 @pthread_setspecific(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb14ThreadLocalPtr10StaticMeta16RemoveThreadDataEPNS_10ThreadDataE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %d) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14ThreadLocalPtr10StaticMeta16RemoveThreadDataEPNS_10ThreadDataE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %d) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN7rocksdb14ThreadLocalPtr8InstanceEvE4inst acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %0, 0
@@ -362,7 +362,7 @@ _ZN7rocksdb14ThreadLocalPtr10StaticMeta5MutexEv.exit: ; preds = %entry, %init.ch
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb14ThreadLocalPtr10StaticMeta10GetHandlerEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(228) %this, i32 noundef %id) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN7rocksdb14ThreadLocalPtr10StaticMeta10GetHandlerEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(228) %this, i32 noundef %id) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN7rocksdb14ThreadLocalPtr8InstanceEvE4inst acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %0, 0
@@ -565,7 +565,7 @@ declare i32 @pthread_key_create(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @abort() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN7rocksdb14ThreadLocalPtr10StaticMetaC1EvEN1AD2Ev(ptr nocapture nonnull readnone align 1 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZN7rocksdb14ThreadLocalPtr10StaticMetaC1EvEN1AD2Ev(ptr nonnull readnone align 1 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb14ThreadLocalPtr10StaticMeta4tls_E)
   %1 = load ptr, ptr %0, align 8
@@ -917,7 +917,7 @@ if.end12:                                         ; preds = %_ZN7rocksdb9MutexLo
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK7rocksdb14ThreadLocalPtr10StaticMeta3GetEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(228) %this, i32 noundef %id) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK7rocksdb14ThreadLocalPtr10StaticMeta3GetEj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(228) %this, i32 noundef %id) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN7rocksdb14ThreadLocalPtr10StaticMeta14GetThreadLocalEv()
   %conv = zext i32 %id to i64
@@ -943,7 +943,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb14ThreadLocalPtr10StaticMeta5ResetEjPv(ptr nocapture nonnull readnone align 8 %this, i32 noundef %id, ptr noundef %ptr) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14ThreadLocalPtr10StaticMeta5ResetEjPv(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %id, ptr noundef %ptr) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN7rocksdb14ThreadLocalPtr10StaticMeta14GetThreadLocalEv()
   %conv = zext i32 %id to i64
@@ -1145,7 +1145,7 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb14ThreadLocalPtr10StaticMeta4SwapEjPv(ptr nocapture nonnull readnone align 8 %this, i32 noundef %id, ptr noundef %ptr) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN7rocksdb14ThreadLocalPtr10StaticMeta4SwapEjPv(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %id, ptr noundef %ptr) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN7rocksdb14ThreadLocalPtr10StaticMeta14GetThreadLocalEv()
   %conv = zext i32 %id to i64
@@ -1249,7 +1249,7 @@ if.end:                                           ; preds = %invoke.cont.if.end_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb14ThreadLocalPtr10StaticMeta14CompareAndSwapEjPvRS2_(ptr nocapture nonnull readnone align 8 %this, i32 noundef %id, ptr noundef %ptr, ptr nocapture noundef nonnull align 8 dereferenceable(8) %expected) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb14ThreadLocalPtr10StaticMeta14CompareAndSwapEjPvRS2_(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %id, ptr noundef %ptr, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %expected) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN7rocksdb14ThreadLocalPtr10StaticMeta14GetThreadLocalEv()
   %conv = zext i32 %id to i64
@@ -1770,7 +1770,7 @@ _ZN7rocksdb14ThreadLocalPtr8InstanceEv.exit:      ; preds = %entry, %init.check.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7rocksdb14ThreadLocalPtr10StaticMeta6PeekIdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(228) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK7rocksdb14ThreadLocalPtr10StaticMeta6PeekIdEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(228) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN7rocksdb14ThreadLocalPtr8InstanceEvE4inst acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %0, 0
@@ -1997,7 +1997,7 @@ terminate.lpad.i2:                                ; preds = %lpad.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7rocksdb14ThreadLocalPtr10StaticMeta5GetIdEv(ptr nocapture noundef nonnull align 8 dereferenceable(228) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN7rocksdb14ThreadLocalPtr10StaticMeta5GetIdEv(ptr noundef nonnull align 8 captures(none) dereferenceable(228) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN7rocksdb14ThreadLocalPtr8InstanceEvE4inst acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %0, 0
@@ -2416,7 +2416,7 @@ if.end:                                           ; preds = %_ZNSt6vectorIjSaIjE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb14ThreadLocalPtrC2EPFvPvE(ptr nocapture noundef nonnull align 4 dereferenceable(4) %this, ptr noundef %handler) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14ThreadLocalPtrC2EPFvPvE(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %this, ptr noundef %handler) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN7rocksdb14ThreadLocalPtr8InstanceEvE4inst acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
@@ -2508,7 +2508,7 @@ if.end:                                           ; preds = %_ZN7rocksdb14Thread
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb14ThreadLocalPtrD2Ev(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14ThreadLocalPtrD2Ev(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN7rocksdb14ThreadLocalPtr8InstanceEvE4inst acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
@@ -2582,7 +2582,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK7rocksdb14ThreadLocalPtr3GetEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK7rocksdb14ThreadLocalPtr3GetEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN7rocksdb14ThreadLocalPtr8InstanceEvE4inst acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
@@ -2648,7 +2648,7 @@ _ZNK7rocksdb14ThreadLocalPtr10StaticMeta3GetEj.exit: ; preds = %_ZN7rocksdb14Thr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb14ThreadLocalPtr5ResetEPv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this, ptr noundef %ptr) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14ThreadLocalPtr5ResetEPv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this, ptr noundef %ptr) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN7rocksdb14ThreadLocalPtr8InstanceEvE4inst acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
@@ -2695,7 +2695,7 @@ _ZN7rocksdb14ThreadLocalPtr8InstanceEv.exit:      ; preds = %entry, %init.check.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb14ThreadLocalPtr4SwapEPv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this, ptr noundef %ptr) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN7rocksdb14ThreadLocalPtr4SwapEPv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this, ptr noundef %ptr) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN7rocksdb14ThreadLocalPtr8InstanceEvE4inst acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
@@ -2742,7 +2742,7 @@ _ZN7rocksdb14ThreadLocalPtr8InstanceEv.exit:      ; preds = %entry, %init.check.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb14ThreadLocalPtr14CompareAndSwapEPvRS1_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this, ptr noundef %ptr, ptr nocapture noundef nonnull align 8 dereferenceable(8) %expected) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb14ThreadLocalPtr14CompareAndSwapEPvRS1_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this, ptr noundef %ptr, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %expected) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN7rocksdb14ThreadLocalPtr8InstanceEvE4inst acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
@@ -2789,7 +2789,7 @@ _ZN7rocksdb14ThreadLocalPtr8InstanceEv.exit:      ; preds = %entry, %init.check.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb14ThreadLocalPtr6ScrapeEPNS_10autovectorIPvLm8EEES2_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this, ptr noundef %ptrs, ptr noundef %replacement) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14ThreadLocalPtr6ScrapeEPNS_10autovectorIPvLm8EEES2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this, ptr noundef %ptrs, ptr noundef %replacement) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN7rocksdb14ThreadLocalPtr8InstanceEvE4inst acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
@@ -2837,7 +2837,7 @@ _ZN7rocksdb14ThreadLocalPtr8InstanceEv.exit:      ; preds = %entry, %init.check.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb14ThreadLocalPtr4FoldESt8functionIFvPvS2_EES2_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this, ptr noundef %func, ptr noundef %res) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14ThreadLocalPtr4FoldESt8functionIFvPvS2_EES2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this, ptr noundef %func, ptr noundef %res) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function", align 8
   %0 = load atomic i8, ptr @_ZGVZN7rocksdb14ThreadLocalPtr8InstanceEvE4inst acquire, align 8
@@ -2970,7 +2970,7 @@ declare void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 derefere
 declare void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare void @__cxa_rethrow() local_unnamed_addr
 
@@ -2986,7 +2986,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #12
 declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: noreturn
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #12
@@ -3209,10 +3209,10 @@ declare i64 @llvm.umax.i64(i64, i64) #16
 declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { nofree nounwind }

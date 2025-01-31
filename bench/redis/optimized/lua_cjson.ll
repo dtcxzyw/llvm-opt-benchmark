@@ -400,7 +400,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @json_encode(ptr noundef %l) #0 {
@@ -784,7 +784,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @fpconv_init(...) local_unnamed_addr #1
 
@@ -795,7 +795,7 @@ declare void @lua_pushlightuserdata(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @lua_pushlstring(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @lua_gettop(ptr noundef) local_unnamed_addr #1
 
@@ -1033,7 +1033,7 @@ if.end.i60:                                       ; preds = %if.then.i.i107, %if
   %arrayidx.i106 = getelementptr inbounds i8, ptr %23, i64 %22
   store i8 44, ptr %arrayidx.i106, align 1, !tbaa !13
   tail call void @lua_rawgeti(ptr noundef %l, i32 noundef -1, i32 noundef %i.0.i193) #12
-  tail call fastcc void @json_append_data(ptr noundef %l, ptr noundef %cfg, i32 noundef %inc, ptr noundef nonnull %json)
+  tail call fastcc void @json_append_data(ptr noundef %l, ptr noundef nonnull %cfg, i32 noundef %inc, ptr noundef nonnull %json)
   tail call void @lua_settop(ptr noundef %l, i32 noundef -2) #12
   %inc.i61 = add nuw i32 %i.0.i193, 1
   %exitcond.not = icmp eq i32 %i.0.i193, %max.0.lcssa.i
@@ -1398,7 +1398,7 @@ for.end:                                          ; preds = %for.inc, %strbuf_en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @json_append_number(ptr noundef %l, ptr nocapture noundef readonly %cfg, ptr noundef %json, i32 noundef range(i32 -2, 0) %lindex) unnamed_addr #0 {
+define internal fastcc void @json_append_number(ptr noundef %l, ptr noundef readonly captures(none) %cfg, ptr noundef %json, i32 noundef range(i32 -2, 0) %lindex) unnamed_addr #0 {
 entry:
   %call = tail call double @lua_tonumber(ptr noundef %l, i32 noundef %lindex) #12
   %encode_invalid_numbers = getelementptr inbounds nuw i8, ptr %cfg, i64 1336
@@ -1565,7 +1565,7 @@ declare ptr @luaL_checklstring(ptr noundef, i32 noundef, ptr noundef) local_unna
 declare ptr @strbuf_new(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @json_next_token(ptr nocapture noundef nonnull %json, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %token) unnamed_addr #0 {
+define internal fastcc void @json_next_token(ptr noundef nonnull captures(none) %json, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %token) unnamed_addr #0 {
 entry:
   %endptr.i = alloca ptr, align 8
   %digit.sroa.0.i66.i.i = alloca i32, align 16
@@ -2208,7 +2208,7 @@ cleanup:                                          ; preds = %if.end75, %if.then6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @json_process_value(ptr noundef %l, ptr noundef nonnull %json, ptr nocapture noundef nonnull readonly %token) unnamed_addr #0 {
+define internal fastcc void @json_process_value(ptr noundef %l, ptr noundef nonnull %json, ptr noundef nonnull readonly captures(none) %token) unnamed_addr #0 {
 entry:
   %token.i21 = alloca %struct.json_token_t, align 8
   %token.i = alloca %struct.json_token_t, align 8
@@ -2471,7 +2471,7 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb7
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc range(i32 0, 2) i32 @json_is_invalid_number(ptr nocapture readonly %json.8.val) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @json_is_invalid_number(ptr readonly captures(none) %json.8.val) unnamed_addr #7 {
 entry:
   %0 = load i8, ptr %json.8.val, align 1, !tbaa !13
   switch i8 %0, label %if.end6 [
@@ -2521,7 +2521,7 @@ cleanup32:                                        ; preds = %if.end27, %if.end25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @json_next_number_token(ptr nocapture noundef nonnull %json, ptr nocapture noundef nonnull writeonly initializes((0, 4), (16, 24)) %token) unnamed_addr #0 {
+define internal fastcc void @json_next_number_token(ptr noundef nonnull captures(none) %json, ptr noundef nonnull writeonly captures(none) initializes((0, 4), (16, 24)) %token) unnamed_addr #0 {
 entry:
   %endptr = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr) #12
@@ -2557,10 +2557,10 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 declare double @fpconv_strtod(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2609,7 +2609,7 @@ json_fetch_config.exit:                           ; preds = %if.then.i, %while.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @json_enum_option(ptr noundef %l, ptr nocapture noundef %setting, ptr noundef %options) unnamed_addr #0 {
+define internal fastcc void @json_enum_option(ptr noundef %l, ptr noundef captures(none) %setting, ptr noundef %options) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %options, null
   %spec.select = select i1 %tobool.not, ptr @json_enum_option.bool_options, ptr %options
@@ -2663,7 +2663,7 @@ declare void @lua_pushstring(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @luaL_checkinteger(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 declare void @lua_pushinteger(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2732,7 +2732,7 @@ declare void @lua_insert(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @lua_pcall(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

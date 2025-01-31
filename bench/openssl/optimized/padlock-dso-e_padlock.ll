@@ -38,7 +38,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @bind_engine(ptr noundef %e, ptr noundef readonly %id, ptr nocapture noundef readonly %fns) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @bind_engine(ptr noundef %e, ptr noundef readonly %id, ptr noundef readonly captures(none) %fns) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @ENGINE_get_static_state() #9
   %0 = load ptr, ptr %fns, align 8
@@ -112,7 +112,7 @@ declare i32 @CRYPTO_set_mem_functions(ptr noundef, ptr noundef, ptr noundef) loc
 declare i32 @OPENSSL_init_crypto(i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -123,7 +123,7 @@ declare i32 @ENGINE_set_name(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @ENGINE_set_init_function(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @padlock_init(ptr nocapture readnone %e) #4 {
+define internal range(i32 0, 2) i32 @padlock_init(ptr readnone captures(none) %e) #4 {
 entry:
   %0 = load i32, ptr @padlock_use_ace, align 4
   %tobool1 = icmp ne i32 %0, 0
@@ -134,7 +134,7 @@ entry:
 declare i32 @ENGINE_set_ciphers(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 16) i32 @padlock_ciphers(ptr nocapture readnone %e, ptr noundef writeonly %cipher, ptr nocapture noundef writeonly %nids, i32 noundef %nid) #1 {
+define internal range(i32 0, 16) i32 @padlock_ciphers(ptr readnone captures(none) %e, ptr noundef writeonly %cipher, ptr noundef writeonly captures(none) %nids, i32 noundef %nid) #1 {
 entry:
   %tobool.not = icmp eq ptr %cipher, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -1142,7 +1142,7 @@ declare i32 @EVP_CIPHER_meth_set_flags(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @EVP_CIPHER_meth_set_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @padlock_aes_init_key(ptr noundef %ctx, ptr noundef readonly %key, ptr nocapture readnone %iv, i32 noundef %enc) #1 {
+define internal range(i32 0, 2) i32 @padlock_aes_init_key(ptr noundef %ctx, ptr noundef readonly %key, ptr readnone captures(none) %iv, i32 noundef %enc) #1 {
 entry:
   %call = tail call i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef %ctx) #9
   %mul = shl nsw i32 %call, 3
@@ -1374,15 +1374,15 @@ declare ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef) local_unnamed_addr #2
 declare ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -2, 1) i32 @padlock_aes_set_encrypt_key(ptr nocapture noundef nonnull readonly %userKey, i32 noundef %bits, ptr noundef %key) unnamed_addr #7 {
+define internal fastcc range(i32 -2, 1) i32 @padlock_aes_set_encrypt_key(ptr noundef nonnull readonly captures(none) %userKey, i32 noundef %bits, ptr noundef %key) unnamed_addr #7 {
 entry:
   %tobool1.not = icmp eq ptr %key, null
   br i1 %tobool1.not, label %return, label %if.end
@@ -1834,7 +1834,7 @@ entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 %and2
   %call3 = tail call ptr @EVP_CIPHER_CTX_iv(ptr noundef %ctx) #9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %add.ptr, ptr noundef nonnull align 1 dereferenceable(16) %call3, i64 16, i1 false)
-  %call4 = tail call i32 @padlock_cbc_encrypt(ptr noundef %out_arg, ptr noundef %in_arg, ptr noundef %add.ptr, i64 noundef %nbytes) #9
+  %call4 = tail call i32 @padlock_cbc_encrypt(ptr noundef %out_arg, ptr noundef %in_arg, ptr noundef nonnull %add.ptr, i64 noundef %nbytes) #9
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -2193,11 +2193,11 @@ declare void @CRYPTO_ctr128_encrypt_ctr32(ptr noundef, ptr noundef, i64 noundef,
 declare ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @padlock_ctr32_encrypt_glue(ptr noundef %in, ptr noundef %out, i64 noundef %blocks, ptr noundef initializes((0, 16)) %ctx, ptr nocapture noundef readonly %ivec) #1 {
+define internal void @padlock_ctr32_encrypt_glue(ptr noundef %in, ptr noundef %out, i64 noundef %blocks, ptr noundef initializes((0, 16)) %ctx, ptr noundef readonly captures(none) %ivec) #1 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ctx, ptr noundef nonnull align 1 dereferenceable(16) %ivec, i64 16, i1 false)
   %mul = shl i64 %blocks, 4
-  %call = tail call i32 @padlock_ctr32_encrypt(ptr noundef %out, ptr noundef %in, ptr noundef %ctx, i64 noundef %mul) #9
+  %call = tail call i32 @padlock_ctr32_encrypt(ptr noundef %out, ptr noundef %in, ptr noundef nonnull %ctx, i64 noundef %mul) #9
   ret void
 }
 

@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @order_objects(ptr noundef %orderfile, ptr nocapture noundef readonly %obj_path, ptr noundef %objs, i32 noundef %nr) local_unnamed_addr #0 {
+define dso_local void @order_objects(ptr noundef %orderfile, ptr noundef readonly captures(none) %obj_path, ptr noundef %objs, i32 noundef %nr) local_unnamed_addr #0 {
 entry:
   %sb.i = alloca %struct.strbuf, align 8
   %tobool.not = icmp eq i32 %nr, 0
@@ -210,7 +210,7 @@ if.then4.i.i:                                     ; preds = %for.body.i
 
 strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %for.body.i
   %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #13
-  call void @strbuf_add(ptr noundef nonnull @match_order.p, ptr noundef %call, i64 noundef %call.i.i) #11
+  call void @strbuf_add(ptr noundef nonnull @match_order.p, ptr noundef nonnull %call, i64 noundef %call.i.i) #11
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @match_order.p, i64 16), align 8
   %12 = load i8, ptr %11, align 1
   %tobool.not8.i = icmp eq i8 %12, 0
@@ -272,7 +272,7 @@ return:                                           ; preds = %if.then.i, %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare_objs_order(ptr nocapture noundef readonly %a_, ptr nocapture noundef readonly %b_) #1 {
+define internal i32 @compare_objs_order(ptr noundef readonly captures(none) %a_, ptr noundef readonly captures(none) %b_) #1 {
 entry:
   %order = getelementptr inbounds nuw i8, ptr %a_, i64 12
   %0 = load i32, ptr %order, align 4
@@ -365,7 +365,7 @@ return:                                           ; preds = %entry, %for.end21
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal ptr @pair_pathtwo(ptr nocapture noundef readonly %obj) #3 {
+define internal ptr @pair_pathtwo(ptr noundef readonly captures(none) %obj) #3 {
 entry:
   %two = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %0 = load ptr, ptr %two, align 8
@@ -375,10 +375,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i64 @strbuf_read_file(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -416,19 +416,19 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: noreturn
 declare void @die(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -38,16 +38,16 @@ define dso_local noundef i32 @acpi_ns_initialize_objects() local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @acpi_walk_namespace(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_ns_init_one_object(ptr noundef %0, i32 %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal noundef i32 @acpi_ns_init_one_object(ptr noundef %0, i32 %1, ptr noundef captures(none) %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, 1
@@ -160,7 +160,7 @@ define internal noundef i32 @acpi_ns_init_one_object(ptr noundef %0, i32 %1, ptr
 declare dso_local void @acpi_exception(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_ns_initialize_devices(i32 noundef %0) local_unnamed_addr #0 align 16 {
@@ -298,7 +298,7 @@ define dso_local i32 @acpi_ns_initialize_devices(i32 noundef %0) local_unnamed_a
 declare dso_local i32 @acpi_ns_walk_namespace(i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal noundef i32 @acpi_ns_find_ini_methods(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #4 align 16 {
+define internal noundef i32 @acpi_ns_find_ini_methods(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef captures(none) %2, ptr readnone captures(none) %3) #4 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %11 [
@@ -360,7 +360,7 @@ declare dso_local i32 @acpi_get_handle(ptr noundef, ptr noundef, ptr noundef) lo
 declare dso_local i32 @acpi_ev_initialize_op_regions() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @acpi_ns_init_one_device(ptr noundef %0, i32 %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal i32 @acpi_ns_init_one_device(ptr noundef %0, i32 %1, ptr noundef captures(none) %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -456,7 +456,7 @@ define internal i32 @acpi_ns_init_one_device(ptr noundef %0, i32 %1, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ns_init_one_package(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @acpi_ns_init_one_package(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 align 16 {
   %5 = tail call ptr @acpi_ns_get_attached_object(ptr noundef %0) #6
   %6 = icmp eq ptr %5, null
   br i1 %6, label %21, label %7

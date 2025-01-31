@@ -1350,7 +1350,7 @@ BufferGetPage.exit101.i:                          ; preds = %735, %729, %723, %B
   br i1 %773, label %.critedge.i42, label %779
 
 .critedge.i42:                                    ; preds = %770
-  %774 = call i32 @XLogInitBufferForRedo(ptr noundef %0, i8 noundef zeroext 2) #6
+  %774 = call i32 @XLogInitBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 2) #6
   store i32 %774, ptr %10, align 4
   %775 = getelementptr inbounds nuw i8, ptr %612, i64 11
   %776 = load i8, ptr %775, align 1
@@ -1360,7 +1360,7 @@ BufferGetPage.exit101.i:                          ; preds = %735, %729, %723, %B
   br label %782
 
 779:                                              ; preds = %770
-  %780 = call i32 @XLogReadBufferForRedo(ptr noundef %0, i8 noundef zeroext 2, ptr noundef nonnull %10) #6
+  %780 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 2, ptr noundef nonnull %10) #6
   %781 = icmp eq i32 %780, 0
   br i1 %781, label %._crit_edge114.i, label %823
 
@@ -2101,7 +2101,7 @@ declare void @spgUpdateNodeLink(ptr noundef, i32 noundef, i32 noundef, i16 nound
 declare void @spgPageIndexMultiDelete(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
@@ -2119,10 +2119,10 @@ declare void @pfree(ptr noundef) local_unnamed_addr #2
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

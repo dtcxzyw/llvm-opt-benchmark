@@ -321,7 +321,7 @@ define internal fastcc void @ompi_datatype_copy_content_same_ddt(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @ompi_op_reduce(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -432,10 +432,10 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_coll_basic_reduce_lin_inter(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef readnone %7) local_unnamed_addr #0 {
+define i32 @mca_coll_basic_reduce_lin_inter(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef %6, ptr noundef readnone captures(none) %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 1
@@ -513,7 +513,7 @@ opal_datatype_span.exit:                          ; preds = %22, %28
 .lr.ph:                                           ; preds = %.preheader, %54
   %.04152 = phi i32 [ %55, %54 ], [ 1, %.preheader ]
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 72), align 8
-  %52 = tail call i32 %51(ptr noundef nonnull %46, i64 noundef %23, ptr noundef %3, i32 noundef %.04152, i32 noundef -21, ptr noundef %6, ptr noundef null) #6
+  %52 = tail call i32 %51(ptr noundef nonnull %46, i64 noundef %23, ptr noundef nonnull %3, i32 noundef %.04152, i32 noundef -21, ptr noundef nonnull %6, ptr noundef null) #6
   %.not50 = icmp eq i32 %52, 0
   br i1 %.not50, label %54, label %53
 
@@ -522,7 +522,7 @@ opal_datatype_span.exit:                          ; preds = %22, %28
   br label %56
 
 54:                                               ; preds = %.lr.ph
-  tail call fastcc void @ompi_op_reduce(ptr noundef %4, ptr noundef nonnull %46, ptr noundef %1, i64 noundef %23, ptr noundef %3)
+  tail call fastcc void @ompi_op_reduce(ptr noundef %4, ptr noundef nonnull %46, ptr noundef %1, i64 noundef %23, ptr noundef nonnull %3)
   %55 = add nuw nsw i32 %.04152, 1
   %exitcond.not = icmp eq i32 %55, %17
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
@@ -537,7 +537,7 @@ opal_datatype_span.exit:                          ; preds = %22, %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @mca_coll_basic_reduce_log_inter(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, i32 noundef %5, ptr nocapture noundef readnone %6, ptr nocapture noundef readnone %7) local_unnamed_addr #4 {
+define noundef i32 @mca_coll_basic_reduce_log_inter(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4, i32 noundef %5, ptr noundef readnone captures(none) %6, ptr noundef readnone captures(none) %7) local_unnamed_addr #4 {
   ret i32 -7
 }
 

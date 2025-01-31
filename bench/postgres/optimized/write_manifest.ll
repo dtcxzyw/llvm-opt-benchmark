@@ -86,7 +86,7 @@ define dso_local void @add_file_to_manifest(ptr noundef %0, ptr noundef %1, i64 
   br label %17
 
 17:                                               ; preds = %16, %15
-  %18 = tail call i32 @pg_encoding_verifymbstr(i32 noundef 6, ptr noundef %1, i32 noundef %10) #6
+  %18 = tail call i32 @pg_encoding_verifymbstr(i32 noundef 6, ptr noundef nonnull %1, i32 noundef %10) #6
   %19 = icmp eq i32 %18, %10
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   br i1 %19, label %21, label %81
@@ -378,7 +378,7 @@ hex_encode.exit52:                                ; preds = %hex_encode.exit52.l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
@@ -584,10 +584,10 @@ declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_u
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #5
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 declare i32 @pg_checksum_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 

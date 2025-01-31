@@ -31,10 +31,10 @@ for.end:                                          ; preds = %for.body
 declare void @hpdata_age_heap_new(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @psset_stats_accum(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #3 {
+define hidden void @psset_stats_accum(ptr noundef captures(none) %dst, ptr noundef readonly captures(none) %src) local_unnamed_addr #3 {
 entry:
   %full_slabs = getelementptr inbounds nuw i8, ptr %dst, i64 3072
   %full_slabs1 = getelementptr inbounds nuw i8, ptr %src, i64 3072
@@ -177,7 +177,7 @@ if.end:                                           ; preds = %do.end2, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @psset_stats_remove(ptr nocapture noundef %psset, ptr nocapture noundef readonly %ps) unnamed_addr #0 {
+define internal fastcc void @psset_stats_remove(ptr noundef captures(none) %psset, ptr noundef readonly captures(none) %ps) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %ps, i64 104
   %ps.val = load i64, ptr %0, align 8
@@ -379,7 +379,7 @@ if.end9:                                          ; preds = %entry, %if.then.i20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @psset_maybe_remove_purge_list(ptr nocapture noundef %psset, ptr noundef %ps) unnamed_addr #0 {
+define internal fastcc void @psset_maybe_remove_purge_list(ptr noundef captures(none) %psset, ptr noundef %ps) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %ps, i64 19
   %ps.val = load i8, ptr %0, align 1
@@ -627,7 +627,7 @@ if.end12:                                         ; preds = %land.lhs.true, %do.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @psset_stats_insert(ptr nocapture noundef %psset, ptr nocapture noundef readonly %ps) unnamed_addr #0 {
+define internal fastcc void @psset_stats_insert(ptr noundef captures(none) %psset, ptr noundef readonly captures(none) %ps) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %ps, i64 104
   %ps.val = load i64, ptr %0, align 8
@@ -819,7 +819,7 @@ if.end9:                                          ; preds = %entry, %psset_hpdat
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @psset_maybe_insert_purge_list(ptr nocapture noundef %psset, ptr noundef %ps) unnamed_addr #0 {
+define internal fastcc void @psset_maybe_insert_purge_list(ptr noundef captures(none) %psset, ptr noundef %ps) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %ps, i64 19
   %ps.val = load i8, ptr %0, align 1
@@ -1017,7 +1017,7 @@ declare i64 @sz_psz_quantize_ceil(i64 noundef) local_unnamed_addr #1
 declare ptr @hpdata_age_heap_first(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @psset_pick_purge(ptr nocapture noundef readonly %psset) local_unnamed_addr #4 {
+define hidden ptr @psset_pick_purge(ptr noundef readonly captures(none) %psset) local_unnamed_addr #4 {
 entry:
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %psset, i64 5264
   %group.i.128.i = load i64, ptr %arrayidx.i.i, align 8
@@ -1047,7 +1047,7 @@ return:                                           ; preds = %while.cond.i.prehea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @psset_pick_hugify(ptr nocapture noundef readonly %psset) local_unnamed_addr #4 {
+define hidden ptr @psset_pick_hugify(ptr noundef readonly captures(none) %psset) local_unnamed_addr #4 {
 entry:
   %to_hugify = getelementptr inbounds nuw i8, ptr %psset, i64 5272
   %to_hugify.val = load ptr, ptr %to_hugify, align 8

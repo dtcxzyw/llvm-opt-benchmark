@@ -55,7 +55,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 4) i32 @uriNormalizeSyntaxEngineA(ptr noundef %uri, i32 noundef %inMask, ptr noundef %outMask, ptr noundef %memory) unnamed_addr #0 {
@@ -2922,7 +2922,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @uriPreventLeakageA(ptr nocapture noundef nonnull %uri, i32 noundef %revertMask, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc void @uriPreventLeakageA(ptr noundef nonnull captures(none) %uri, i32 noundef %revertMask, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %and = and i32 %revertMask, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -3071,7 +3071,7 @@ if.end87:                                         ; preds = %if.then80, %if.end7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriFixPercentEncodingMallocA(ptr nocapture noundef nonnull %first, ptr nocapture noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriFixPercentEncodingMallocA(ptr noundef nonnull captures(none) %first, ptr noundef nonnull captures(none) %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %first, align 8
   %cmp3 = icmp eq ptr %0, null
@@ -3122,7 +3122,7 @@ declare zeroext i8 @uriHexdigToIntA(i8 noundef signext) local_unnamed_addr #2
 declare i32 @uriIsUnreserved(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @uriFixPercentEncodingEngineA(ptr noundef %inFirst, ptr noundef %inAfterLast, ptr noundef nonnull %outFirst, ptr nocapture noundef nonnull writeonly %outAfterLast) unnamed_addr #0 {
+define internal fastcc void @uriFixPercentEncodingEngineA(ptr noundef %inFirst, ptr noundef %inAfterLast, ptr noundef nonnull %outFirst, ptr noundef nonnull writeonly captures(none) %outAfterLast) unnamed_addr #0 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %inAfterLast to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %inFirst to i64
@@ -3218,7 +3218,7 @@ for.end43:                                        ; preds = %for.body36, %for.co
 declare signext i8 @uriHexToLetterA(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriMakeRangeOwnerA(ptr nocapture noundef nonnull %doneMask, i32 noundef range(i32 0, 33) %maskTest, ptr nocapture noundef nonnull %range, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriMakeRangeOwnerA(ptr noundef nonnull captures(none) %doneMask, i32 noundef range(i32 0, 33) %maskTest, ptr noundef nonnull captures(none) %range, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %doneMask, align 4
   %and = and i32 %0, %maskTest
@@ -3264,7 +3264,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @uriPreventLeakageW(ptr nocapture noundef nonnull %uri, i32 noundef %revertMask, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc void @uriPreventLeakageW(ptr noundef nonnull captures(none) %uri, i32 noundef %revertMask, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %and = and i32 %revertMask, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -3413,7 +3413,7 @@ if.end87:                                         ; preds = %if.then80, %if.end7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriFixPercentEncodingMallocW(ptr nocapture noundef nonnull %first, ptr nocapture noundef nonnull %afterLast, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriFixPercentEncodingMallocW(ptr noundef nonnull captures(none) %first, ptr noundef nonnull captures(none) %afterLast, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %first, align 8
   %cmp3 = icmp eq ptr %0, null
@@ -3463,7 +3463,7 @@ declare void @uriFixEmptyTrailSegmentW(ptr noundef, ptr noundef) local_unnamed_a
 declare zeroext i8 @uriHexdigToIntW(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @uriFixPercentEncodingEngineW(ptr noundef %inFirst, ptr noundef %inAfterLast, ptr noundef nonnull %outFirst, ptr nocapture noundef nonnull writeonly %outAfterLast) unnamed_addr #0 {
+define internal fastcc void @uriFixPercentEncodingEngineW(ptr noundef %inFirst, ptr noundef %inAfterLast, ptr noundef nonnull %outFirst, ptr noundef nonnull writeonly captures(none) %outAfterLast) unnamed_addr #0 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %inAfterLast to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %inFirst to i64
@@ -3558,7 +3558,7 @@ for.end41:                                        ; preds = %for.body34, %for.co
 declare i32 @uriHexToLetterW(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriMakeRangeOwnerW(ptr nocapture noundef nonnull %doneMask, i32 noundef range(i32 0, 33) %maskTest, ptr nocapture noundef nonnull %range, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriMakeRangeOwnerW(ptr noundef nonnull captures(none) %doneMask, i32 noundef range(i32 0, 33) %maskTest, ptr noundef nonnull captures(none) %range, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %doneMask, align 4
   %and = and i32 %0, %maskTest
@@ -3606,13 +3606,13 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -28,25 +28,25 @@ define align 4 ptr @_ZN4core4iter6traits8iterator8Iterator4fold17h9f063d7114f82e
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN4core4iter6traits8iterator8Iterator9size_hint17h29c6aa3d8d89b94aE(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 16)) %0, ptr nocapture readnone align 8 %1) unnamed_addr #1 {
+define void @_ZN4core4iter6traits8iterator8Iterator9size_hint17h29c6aa3d8d89b94aE(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 16)) %0, ptr readnone align 8 captures(none) %1) unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN4core4iter6traits8iterator8Iterator9size_hint17h3c3d3f7037fb24dcE(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 16)) %0, ptr nocapture readnone align 8 %1) unnamed_addr #1 {
+define void @_ZN4core4iter6traits8iterator8Iterator9size_hint17h3c3d3f7037fb24dcE(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 16)) %0, ptr readnone align 8 captures(none) %1) unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define { i8, i8 } @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h1bf1b4ea4c7d66f1E"(i32 %0, i32 %1, ptr nocapture readnone align 8 %2) unnamed_addr #0 {
+define { i8, i8 } @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h1bf1b4ea4c7d66f1E"(i32 %0, i32 %1, ptr readnone align 8 captures(none) %2) unnamed_addr #0 {
   %4 = tail call { i8, i8 } @"_ZN118_$LT$logos_codegen..graph..range..Range$u20$as$u20$core..convert..From$LT$regex_syntax..hir..ClassUnicodeRange$GT$$GT$4from17h61709959a15ee6e5E"(i32 %0, i32 %1)
   ret { i8, i8 } %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define { i8, i8 } @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h562b10219772b6aaE"(i8 %0, i8 %1, ptr nocapture readnone align 8 %2) unnamed_addr #0 {
+define { i8, i8 } @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h562b10219772b6aaE"(i8 %0, i8 %1, ptr readnone align 8 captures(none) %2) unnamed_addr #0 {
   %4 = tail call { i8, i8 } @"_ZN116_$LT$logos_codegen..graph..range..Range$u20$as$u20$core..convert..From$LT$regex_syntax..hir..ClassBytesRange$GT$$GT$4from17h97589cef1f8ffbc0E"(i8 %0, i8 %1)
   ret { i8, i8 } %4
 }
@@ -67,7 +67,7 @@ declare { i8, i8 } @"_ZN118_$LT$logos_codegen..graph..range..Range$u20$as$u20$co
 declare { i8, i8 } @"_ZN116_$LT$logos_codegen..graph..range..Range$u20$as$u20$core..convert..From$LT$regex_syntax..hir..ClassBytesRange$GT$$GT$4from17h97589cef1f8ffbc0E"(i8, i8) unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

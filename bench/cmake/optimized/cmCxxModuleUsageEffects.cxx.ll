@@ -17,7 +17,7 @@ $__clang_call_terminate = comdat any
 @_ZN23cmCxxModuleUsageEffectsC1EPK17cmGeneratorTarget = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN23cmCxxModuleUsageEffectsC2EPK17cmGeneratorTarget
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23cmCxxModuleUsageEffectsC2EPK17cmGeneratorTarget(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture readnone %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23cmCxxModuleUsageEffectsC2EPK17cmGeneratorTarget(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readnone captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #7
   %4 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -61,7 +61,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN23cmCxxModuleUsageEffects13ApplyToTargetEP8cmTarget(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN23cmCxxModuleUsageEffects13ApplyToTargetEP8cmTarget(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 align 2 {
   ret void
 }
 

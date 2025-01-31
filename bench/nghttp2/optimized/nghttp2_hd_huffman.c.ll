@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @huff_decode_table = external local_unnamed_addr constant [0 x [16 x %struct.nghttp2_huff_decode]], align 2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden range(i64 0, 2305843009213693952) i64 @nghttp2_hd_huff_encode_count(ptr nocapture noundef readonly %src, i64 noundef %len) local_unnamed_addr #0 {
+define hidden range(i64 0, 2305843009213693952) i64 @nghttp2_hd_huff_encode_count(ptr noundef readonly captures(none) %src, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp5.not = icmp eq i64 %len, 0
   br i1 %cmp5.not, label %for.end, label %for.body
@@ -191,14 +191,14 @@ declare i32 @htonl(i32 noundef) local_unnamed_addr #2
 declare i32 @nghttp2_bufs_addb(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @nghttp2_hd_huff_decode_context_init(ptr nocapture noundef writeonly initializes((0, 2)) %ctx) local_unnamed_addr #4 {
+define hidden void @nghttp2_hd_huff_decode_context_init(ptr noundef writeonly captures(none) initializes((0, 2)) %ctx) local_unnamed_addr #4 {
 entry:
   store i16 16384, ptr %ctx, align 2
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @nghttp2_hd_huff_decode(ptr nocapture noundef %ctx, ptr nocapture noundef %buf, ptr noundef readonly %src, i64 noundef %srclen, i32 noundef %final) local_unnamed_addr #5 {
+define hidden i64 @nghttp2_hd_huff_decode(ptr noundef captures(none) %ctx, ptr noundef captures(none) %buf, ptr noundef readonly %src, i64 noundef %srclen, i32 noundef %final) local_unnamed_addr #5 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %src, i64 %srclen
   %0 = load i16, ptr %ctx, align 2
@@ -268,7 +268,7 @@ for.end:                                          ; preds = %if.end28, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @nghttp2_hd_huff_decode_failure_state(ptr nocapture noundef readonly %ctx) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @nghttp2_hd_huff_decode_failure_state(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #6 {
 entry:
   %0 = load i16, ptr %ctx, align 2
   %cmp = icmp eq i16 %0, 256

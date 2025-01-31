@@ -21,13 +21,13 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5draco9QuantizerC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0) unnamed_addr #3 align 2 {
+define void @_ZN5draco9QuantizerC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0) unnamed_addr #3 align 2 {
   store float 1.000000e+00, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5draco9Quantizer4InitEfi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, float noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define void @_ZN5draco9Quantizer4InitEfi(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, float noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = sitofp i32 %2 to float
   %5 = fdiv float %4, %1
   store float %5, ptr %0, align 4
@@ -35,20 +35,20 @@ define void @_ZN5draco9Quantizer4InitEfi(ptr nocapture noundef nonnull writeonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5draco9Quantizer4InitEf(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, float noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN5draco9Quantizer4InitEf(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, float noundef %1) local_unnamed_addr #3 align 2 {
   %3 = fdiv float 1.000000e+00, %1
   store float %3, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5draco11DequantizerC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0) unnamed_addr #3 align 2 {
+define void @_ZN5draco11DequantizerC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0) unnamed_addr #3 align 2 {
   store float 1.000000e+00, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN5draco11Dequantizer4InitEfi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, float noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN5draco11Dequantizer4InitEfi(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %0, float noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %5, label %8
 
@@ -63,7 +63,7 @@ define noundef zeroext i1 @_ZN5draco11Dequantizer4InitEfi(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN5draco11Dequantizer4InitEf(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, float noundef %1) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN5draco11Dequantizer4InitEf(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, float noundef %1) local_unnamed_addr #3 align 2 {
   store float %1, ptr %0, align 4
   ret i1 true
 }

@@ -804,7 +804,7 @@ proto_item_set_generated.exit.i:                  ; preds = %349, %346, %.lr.ph.
   br i1 %or.cond.i.i, label %404, label %406
 
 404:                                              ; preds = %393
-  %405 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %336, ptr noundef %1, ptr noundef nonnull @ei_shim6_opt_elemlen_invalid, ptr noundef %0, i32 noundef %398, i32 noundef 1, ptr noundef nonnull @.str.149, i32 noundef %400) #2
+  %405 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %336, ptr noundef nonnull %1, ptr noundef nonnull @ei_shim6_opt_elemlen_invalid, ptr noundef %0, i32 noundef %398, i32 noundef 1, ptr noundef nonnull @.str.149, i32 noundef %400) #2
   br label %dissect_shim6_opt_loc_pref.exit.i
 
 406:                                              ; preds = %393
@@ -927,7 +927,7 @@ dissect_shimopts.exit:                            ; preds = %.lr.ph45.i.i, %prot
   %474 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %11) #2
   %475 = load i8, ptr %5, align 1
   %476 = zext i8 %475 to i32
-  call void @ipv6_dissect_next(i32 noundef %476, ptr noundef %474, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2
+  call void @ipv6_dissect_next(i32 noundef %476, ptr noundef %474, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) #2
   %477 = call i32 @tvb_captured_length(ptr noundef %0) #2
   ret i32 %477
 }

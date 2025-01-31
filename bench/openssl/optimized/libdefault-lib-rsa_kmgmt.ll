@@ -163,7 +163,7 @@ return:                                           ; preds = %land.lhs.true25, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @rsa_gen_settable_params(ptr nocapture readnone %genctx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @rsa_gen_settable_params(ptr readnone captures(none) %genctx, ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @rsa_gen_settable_params.settable
 }
@@ -267,7 +267,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @rsa_load(ptr nocapture noundef %reference, i64 noundef %reference_sz) #0 {
+define internal noundef ptr @rsa_load(ptr noundef captures(none) %reference, i64 noundef %reference_sz) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #5
   %tobool.i = icmp ne i32 %call.i, 0
@@ -413,7 +413,7 @@ return:                                           ; preds = %lor.lhs.false68, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @rsa_gettable_params(ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @rsa_gettable_params(ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @rsa_params
 }
@@ -657,7 +657,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_export(ptr noundef %keydata, i32 noundef %selection, ptr nocapture noundef readonly %param_callback, ptr noundef %cbarg) #0 {
+define internal i32 @rsa_export(ptr noundef %keydata, i32 noundef %selection, ptr noundef readonly captures(none) %param_callback, ptr noundef %cbarg) #0 {
 entry:
   %call = tail call ptr @ossl_rsa_get0_pss_params_30(ptr noundef %keydata) #5
   %call1 = tail call i32 @ossl_prov_is_running() #5
@@ -791,13 +791,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @rsapss_gen_settable_params(ptr nocapture readnone %genctx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @rsapss_gen_settable_params(ptr readnone captures(none) %genctx, ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @rsapss_gen_settable_params.settable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @rsapss_load(ptr nocapture noundef %reference, i64 noundef %reference_sz) #0 {
+define internal noundef ptr @rsapss_load(ptr noundef captures(none) %reference, i64 noundef %reference_sz) #0 {
 entry:
   %call.i = tail call i32 @ossl_prov_is_running() #5
   %tobool.i = icmp ne i32 %call.i, 0
@@ -959,12 +959,12 @@ declare void @RSA_free(ptr noundef) local_unnamed_addr #2
 declare ptr @BN_GENCB_get_arg(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @OSSL_PARAM_construct_int(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @BN_clear_free(ptr noundef) local_unnamed_addr #2
 

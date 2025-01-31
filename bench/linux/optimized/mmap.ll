@@ -86,7 +86,7 @@ define dso_local range(i64 0, -4095) i64 @arch_mmap_rnd() local_unnamed_addr #1 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @arch_pick_mmap_layout(ptr nocapture noundef writeonly initializes((80, 120)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
+define dso_local void @arch_pick_mmap_layout(ptr noundef writeonly captures(none) initializes((80, 120)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1240
@@ -247,7 +247,7 @@ define dso_local i64 @get_mmap_base(i32 noundef %0) local_unnamed_addr #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noalias noundef ptr @arch_vma_name(ptr nocapture noundef readnone %0) local_unnamed_addr #3 align 16 {
+define dso_local noalias noundef ptr @arch_vma_name(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 align 16 {
   ret ptr null
 }
 

@@ -60,7 +60,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #1
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @GetResidualCost_C(i32 noundef %0, ptr nocapture noundef readonly %1) #2 {
+define internal i32 @GetResidualCost_C(i32 noundef %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load i32, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -178,7 +178,7 @@ define internal i32 @GetResidualCost_C(i32 noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @SetResidualCoeffs_C(ptr noundef %0, ptr nocapture noundef writeonly initializes((4, 8)) %1) #3 {
+define internal void @SetResidualCoeffs_C(ptr noundef %0, ptr noundef writeonly captures(none) initializes((4, 8)) %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 -1, ptr %3, align 4
   br label %4

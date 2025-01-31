@@ -286,7 +286,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_reg_prop(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5P_fill_value_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define i32 @H5P_fill_value_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -372,7 +372,7 @@ define i32 @H5P_fill_value_cmp(ptr nocapture noundef readonly %0, ptr nocapture 
 declare i32 @H5T_cmp(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5Pset_layout(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -778,10 +778,10 @@ define range(i32 -1, 1) i32 @H5Pset_chunk(i64 noundef %0, i32 noundef %1, ptr no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @H5Pget_chunk(i64 noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
@@ -1933,10 +1933,10 @@ define i64 @H5Pget_virtual_filename(i64 noundef %0, i64 noundef %1, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i64 @H5Pget_virtual_dsetname(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
@@ -3684,7 +3684,7 @@ define range(i32 -1, 1) i32 @H5Pget_fill_value(i64 noundef %0, i64 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5P_is_fill_value_defined(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5P_is_fill_value_defined(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i64, ptr %3, align 8
   switch i64 %4, label %13 [
@@ -3739,7 +3739,7 @@ define range(i32 -1, 1) i32 @H5P_is_fill_value_defined(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5P_fill_value_defined(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5P_fill_value_defined(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.H5O_fill_t, align 8
   %4 = call i32 @H5P_peek(ptr noundef %0, ptr noundef nonnull @.str.62, ptr noundef nonnull %3) #11
   %5 = icmp slt i32 %4, 0
@@ -3807,7 +3807,7 @@ H5P_is_fill_value_defined.exit.thread:            ; preds = %16, %20, %25, %26, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Pfill_value_defined(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Pfill_value_defined(i64 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @H5_libinit_g, align 1
   %4 = trunc i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1
@@ -4464,7 +4464,7 @@ define range(i32 -1, 1) i32 @H5Pset_dset_no_attrs_hint(i64 noundef %0, i1 nounde
 declare i32 @H5P__register_real(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_set(i64 %0, ptr nocapture readnone %1, i64 %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_set(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef %3) #0 {
   %5 = alloca %struct.H5O_layout_t, align 8
   %6 = call ptr @H5O_msg_copy(i32 noundef 8, ptr noundef %3, ptr noundef nonnull %5) #11
   %7 = icmp eq ptr %6, null
@@ -4486,7 +4486,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_set(i64 %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_get(i64 %0, ptr nocapture readnone %1, i64 %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_get(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef %3) #0 {
   %5 = alloca %struct.H5O_layout_t, align 8
   %6 = call ptr @H5O_msg_copy(i32 noundef 8, ptr noundef %3, ptr noundef nonnull %5) #11
   %7 = icmp eq ptr %6, null
@@ -4508,7 +4508,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_get(i64 %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_enc(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_enc(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = load ptr, ptr %1, align 8
@@ -4809,7 +4809,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_enc(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_dec(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_dec(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct.H5O_layout_t, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -5152,7 +5152,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_dec(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_del(i64 %0, ptr nocapture readnone %1, i64 %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_del(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef %3) #0 {
   %5 = tail call i32 @H5O_msg_reset(i32 noundef 8, ptr noundef %3) #11
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %11
@@ -5169,7 +5169,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_del(i64 %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_copy(ptr nocapture readnone %0, i64 %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_copy(ptr readnone captures(none) %0, i64 %1, ptr noundef %2) #0 {
   %4 = alloca %struct.H5O_layout_t, align 8
   %5 = call ptr @H5O_msg_copy(i32 noundef 8, ptr noundef %2, ptr noundef nonnull %4) #11
   %6 = icmp eq ptr %5, null
@@ -5191,7 +5191,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_copy(ptr nocapture readno
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @H5P__dcrt_layout_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal range(i32 -1, 2) i32 @H5P__dcrt_layout_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load i32, ptr %0, align 8
   %5 = load i32, ptr %1, align 8
   %6 = icmp slt i32 %4, %5
@@ -5370,7 +5370,7 @@ define internal range(i32 -1, 2) i32 @H5P__dcrt_layout_cmp(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_close(ptr nocapture readnone %0, i64 %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_close(ptr readnone captures(none) %0, i64 %1, ptr noundef %2) #0 {
   %4 = tail call i32 @H5O_msg_reset(i32 noundef 8, ptr noundef %2) #11
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %10
@@ -5387,7 +5387,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_close(ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_set(i64 %0, ptr nocapture readnone %1, i64 %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_set(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef %3) #0 {
   %5 = alloca %struct.H5O_fill_t, align 8
   %6 = call ptr @H5O_msg_copy(i32 noundef 4, ptr noundef %3, ptr noundef nonnull %5) #11
   %7 = icmp eq ptr %6, null
@@ -5409,7 +5409,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_set(i64 %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_get(i64 %0, ptr nocapture readnone %1, i64 %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_get(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef %3) #0 {
   %5 = alloca %struct.H5O_fill_t, align 8
   %6 = call ptr @H5O_msg_copy(i32 noundef 4, ptr noundef %3, ptr noundef nonnull %5) #11
   %7 = icmp eq ptr %6, null
@@ -5431,7 +5431,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_get(i64 %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_enc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_enc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) #0 {
   %4 = alloca i64, align 8
   store i64 0, ptr %4, align 8
   %5 = load ptr, ptr %1, align 8
@@ -5784,7 +5784,7 @@ H5VM_limit_enc_size.exit79:                       ; preds = %148, %154, %160, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_dec(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 88)) %1) #0 {
+define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_dec(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 88)) %1) #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(88) @H5D_def_fill_g, i64 88, i1 false)
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -5899,7 +5899,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_dec(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_del(i64 %0, ptr nocapture readnone %1, i64 %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_del(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef %3) #0 {
   %5 = tail call i32 @H5O_msg_reset(i32 noundef 4, ptr noundef %3) #11
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %11
@@ -5916,7 +5916,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_del(i64 %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_copy(ptr nocapture readnone %0, i64 %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_copy(ptr readnone captures(none) %0, i64 %1, ptr noundef %2) #0 {
   %4 = alloca %struct.H5O_fill_t, align 8
   %5 = call ptr @H5O_msg_copy(i32 noundef 4, ptr noundef %2, ptr noundef nonnull %4) #11
   %6 = icmp eq ptr %5, null
@@ -5938,7 +5938,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_copy(ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_close(ptr nocapture readnone %0, i64 %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_close(ptr readnone captures(none) %0, i64 %1, ptr noundef %2) #0 {
   %4 = tail call i32 @H5O_msg_reset(i32 noundef 4, ptr noundef %2) #11
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %10
@@ -5959,7 +5959,7 @@ declare i32 @H5P__encode_unsigned(ptr noundef, ptr noundef, ptr noundef) #1
 declare i32 @H5P__decode_unsigned(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_set(i64 %0, ptr nocapture readnone %1, i64 %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_set(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef %3) #0 {
   %5 = alloca %struct.H5O_efl_t, align 8
   %6 = call ptr @H5O_msg_copy(i32 noundef 7, ptr noundef %3, ptr noundef nonnull %5) #11
   %7 = icmp eq ptr %6, null
@@ -5981,7 +5981,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_set(i64 %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_get(i64 %0, ptr nocapture readnone %1, i64 %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_get(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef %3) #0 {
   %5 = alloca %struct.H5O_efl_t, align 8
   %6 = call ptr @H5O_msg_copy(i32 noundef 7, ptr noundef %3, ptr noundef nonnull %5) #11
   %7 = icmp eq ptr %6, null
@@ -6003,7 +6003,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_get(i64 %0, ptr no
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5P__dcrt_ext_file_list_enc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #8 {
+define internal noundef i32 @H5P__dcrt_ext_file_list_enc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) #8 {
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %4, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6941,7 +6941,7 @@ H5VM_limit_enc_size.exit170:                      ; preds = %488, %494, %500, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_dec(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 32)) %1) #0 {
+define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_dec(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 32)) %1) #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) @H5D_def_efl_g, i64 32, i1 false)
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -7122,7 +7122,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_dec(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_del(i64 %0, ptr nocapture readnone %1, i64 %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_del(i64 %0, ptr readnone captures(none) %1, i64 %2, ptr noundef %3) #0 {
   %5 = tail call i32 @H5O_msg_reset(i32 noundef 7, ptr noundef %3) #11
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %11
@@ -7139,7 +7139,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_del(i64 %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_copy(ptr nocapture readnone %0, i64 %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_copy(ptr readnone captures(none) %0, i64 %1, ptr noundef %2) #0 {
   %4 = alloca %struct.H5O_efl_t, align 8
   %5 = call ptr @H5O_msg_copy(i32 noundef 7, ptr noundef %2, ptr noundef nonnull %4) #11
   %6 = icmp eq ptr %5, null
@@ -7161,7 +7161,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_copy(ptr nocapture
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @H5P__dcrt_ext_file_list_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2) #9 {
+define internal i32 @H5P__dcrt_ext_file_list_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2) #9 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7277,7 +7277,7 @@ define internal i32 @H5P__dcrt_ext_file_list_cmp(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_close(ptr nocapture readnone %0, i64 %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_close(ptr readnone captures(none) %0, i64 %1, ptr noundef %2) #0 {
   %4 = tail call i32 @H5O_msg_reset(i32 noundef 7, ptr noundef %2) #11
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %10
@@ -7308,7 +7308,7 @@ declare i32 @H5S_extent_equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @H5S_select_shape_same(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @H5T_encode(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 

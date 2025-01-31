@@ -184,7 +184,7 @@ entry:
 declare double @sqrt(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23GaussLaguerrePolynomialC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, double noundef %s) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23GaussLaguerrePolynomialC2Ed(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, double noundef %s) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -362,7 +362,7 @@ unreachable:                                      ; preds = %invoke.cont15
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #0 align 2
@@ -481,7 +481,7 @@ _ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
@@ -489,7 +489,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #7 align 2
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib23GaussLaguerrePolynomial4mu_0Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define noundef double @_ZNK8QuantLib23GaussLaguerrePolynomial4mu_0Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::GammaFunction", align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp) #22
@@ -508,7 +508,7 @@ declare double @exp(double noundef) local_unnamed_addr #2
 declare noundef double @_ZNK8QuantLib13GammaFunction8logValueEd(ptr noundef nonnull align 1 dereferenceable(1), double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib23GaussLaguerrePolynomial5alphaEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %i) unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib23GaussLaguerrePolynomial5alphaEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %i) unnamed_addr #8 align 2 {
 entry:
   %mul = shl i64 %i, 1
   %add = or disjoint i64 %mul, 1
@@ -520,7 +520,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib23GaussLaguerrePolynomial4betaEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %i) unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib23GaussLaguerrePolynomial4betaEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %i) unnamed_addr #8 align 2 {
 entry:
   %conv = uitofp i64 %i to double
   %s_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -531,7 +531,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef double @_ZNK8QuantLib23GaussLaguerrePolynomial1wEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, double noundef %x) unnamed_addr #9 align 2 {
+define noundef double @_ZNK8QuantLib23GaussLaguerrePolynomial1wEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, double noundef %x) unnamed_addr #9 align 2 {
 entry:
   %s_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load double, ptr %s_, align 8, !tbaa !9
@@ -546,7 +546,7 @@ entry:
 declare double @pow(double noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22GaussHermitePolynomialC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, double noundef %mu) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22GaussHermitePolynomialC2Ed(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, double noundef %mu) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -724,7 +724,7 @@ unreachable:                                      ; preds = %invoke.cont15
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib22GaussHermitePolynomial4mu_0Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define noundef double @_ZNK8QuantLib22GaussHermitePolynomial4mu_0Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::GammaFunction", align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp) #22
@@ -738,13 +738,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef double @_ZNK8QuantLib22GaussHermitePolynomial5alphaEm(ptr nocapture nonnull readnone align 8 %this, i64 %0) unnamed_addr #10 align 2 {
+define noundef double @_ZNK8QuantLib22GaussHermitePolynomial5alphaEm(ptr nonnull readnone align 8 captures(none) %this, i64 %0) unnamed_addr #10 align 2 {
 entry:
   ret double 0.000000e+00
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib22GaussHermitePolynomial4betaEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %i) unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib22GaussHermitePolynomial4betaEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %i) unnamed_addr #8 align 2 {
 entry:
   %rem = and i64 %i, 1
   %cmp.not = icmp eq i64 %rem, 0
@@ -758,7 +758,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef double @_ZNK8QuantLib22GaussHermitePolynomial1wEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, double noundef %x) unnamed_addr #9 align 2 {
+define noundef double @_ZNK8QuantLib22GaussHermitePolynomial1wEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, double noundef %x) unnamed_addr #9 align 2 {
 entry:
   %0 = tail call double @llvm.fabs.f64(double %x)
   %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -776,7 +776,7 @@ entry:
 declare double @llvm.fabs.f64(double) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21GaussJacobiPolynomialC2Edd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, double noundef %alpha, double noundef %beta) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21GaussJacobiPolynomialC2Edd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, double noundef %alpha, double noundef %beta) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1329,7 +1329,7 @@ unreachable:                                      ; preds = %invoke.cont96, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib21GaussJacobiPolynomial4mu_0Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
+define noundef double @_ZNK8QuantLib21GaussJacobiPolynomial4mu_0Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::GammaFunction", align 1
   %ref.tmp6 = alloca %"class.QuantLib::GammaFunction", align 1
@@ -1366,7 +1366,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib21GaussJacobiPolynomial5alphaEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib21GaussJacobiPolynomial5alphaEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1742,7 +1742,7 @@ unreachable:                                      ; preds = %invoke.cont67, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib21GaussJacobiPolynomial4betaEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib21GaussJacobiPolynomial4betaEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2128,7 +2128,7 @@ unreachable:                                      ; preds = %invoke.cont102, %in
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef double @_ZNK8QuantLib21GaussJacobiPolynomial1wEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, double noundef %x) unnamed_addr #9 align 2 {
+define noundef double @_ZNK8QuantLib21GaussJacobiPolynomial1wEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, double noundef %x) unnamed_addr #9 align 2 {
 entry:
   %sub = fsub double 1.000000e+00, %x
   %alpha_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2143,7 +2143,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib23GaussLegendrePolynomialC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23GaussLegendrePolynomialC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %alpha_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %alpha_.i, i8 0, i64 16, i1 false)
@@ -2152,7 +2152,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib27GaussChebyshev2ndPolynomialC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib27GaussChebyshev2ndPolynomialC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %alpha_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store double 5.000000e-01, ptr %alpha_.i, align 8, !tbaa !26
@@ -2163,7 +2163,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib24GaussChebyshevPolynomialC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24GaussChebyshevPolynomialC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %alpha_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store double -5.000000e-01, ptr %alpha_.i, align 8, !tbaa !26
@@ -2174,7 +2174,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib25GaussGegenbauerPolynomialC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, double noundef %lambda) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib25GaussGegenbauerPolynomialC2Ed(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, double noundef %lambda) unnamed_addr #0 align 2 {
 entry:
   %sub = fadd double %lambda, -5.000000e-01
   tail call void @_ZN8QuantLib21GaussJacobiPolynomialC2Edd(ptr noundef nonnull align 8 dereferenceable(24) %this, double noundef %sub, double noundef %sub)
@@ -2183,19 +2183,19 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef double @_ZNK8QuantLib25GaussHyperbolicPolynomial4mu_0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define noundef double @_ZNK8QuantLib25GaussHyperbolicPolynomial4mu_0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 {
 entry:
   ret double 0x400921FB54442D18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef double @_ZNK8QuantLib25GaussHyperbolicPolynomial5alphaEm(ptr nocapture nonnull readnone align 8 %this, i64 %0) unnamed_addr #10 align 2 {
+define noundef double @_ZNK8QuantLib25GaussHyperbolicPolynomial5alphaEm(ptr nonnull readnone align 8 captures(none) %this, i64 %0) unnamed_addr #10 align 2 {
 entry:
   ret double 0.000000e+00
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef double @_ZNK8QuantLib25GaussHyperbolicPolynomial4betaEm(ptr nocapture nonnull readnone align 8 %this, i64 noundef %i) unnamed_addr #10 align 2 {
+define noundef double @_ZNK8QuantLib25GaussHyperbolicPolynomial4betaEm(ptr nonnull readnone align 8 captures(none) %this, i64 noundef %i) unnamed_addr #10 align 2 {
 entry:
   %cmp.not = icmp eq i64 %i, 0
   %conv = uitofp i64 %i to double
@@ -2206,7 +2206,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define noundef double @_ZNK8QuantLib25GaussHyperbolicPolynomial1wEd(ptr nocapture nonnull readnone align 8 %this, double noundef %x) unnamed_addr #12 align 2 {
+define noundef double @_ZNK8QuantLib25GaussHyperbolicPolynomial1wEd(ptr nonnull readnone align 8 captures(none) %this, double noundef %x) unnamed_addr #12 align 2 {
 entry:
   %call = tail call double @cosh(double noundef %x) #22, !tbaa !6
   %div = fdiv double 1.000000e+00, %call
@@ -2300,12 +2300,12 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #16
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #19
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #19
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #4
 
@@ -2315,7 +2315,7 @@ declare void @llvm.assume(i1 noundef) #20
 declare double @exp2(double) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

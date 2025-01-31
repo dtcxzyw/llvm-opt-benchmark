@@ -1461,7 +1461,7 @@ SparseMatrix_general_new.exit:                    ; preds = %2, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SparseMatrix_add(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noundef ptr @SparseMatrix_add(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2071,7 +2071,7 @@ gv_calloc.exit:                                   ; preds = %32
 declare double @llvm.fabs.f64(double) #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc noalias noundef ptr @SparseMatrix_init(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #3 {
@@ -2274,7 +2274,7 @@ define noundef ptr @SparseMatrix_general_new(i32 noundef %0, i32 noundef %1, i32
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @SparseMatrix_export(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define void @SparseMatrix_export(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %SparseMatrix_export_csr.exit [
@@ -2628,7 +2628,7 @@ SparseMatrix_export_csr.exit:                     ; preds = %.lr.ph.i8, %.lr.ph6
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SparseMatrix_from_coordinate_format(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef ptr @SparseMatrix_from_coordinate_format(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 1
@@ -2659,13 +2659,13 @@ define noundef ptr @SparseMatrix_from_coordinate_format(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SparseMatrix_from_coordinate_arrays(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, i64 noundef %7) local_unnamed_addr #0 {
+define noundef ptr @SparseMatrix_from_coordinate_arrays(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, i64 noundef %7) local_unnamed_addr #0 {
   %9 = tail call fastcc ptr @SparseMatrix_from_coordinate_arrays_internal(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef 1)
   ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SparseMatrix_from_coordinate_format_not_compacted(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef ptr @SparseMatrix_from_coordinate_format_not_compacted(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 1
@@ -2696,13 +2696,13 @@ define noundef ptr @SparseMatrix_from_coordinate_format_not_compacted(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SparseMatrix_from_coordinate_arrays_not_compacted(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, i64 noundef %7) local_unnamed_addr #0 {
+define noundef ptr @SparseMatrix_from_coordinate_arrays_not_compacted(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, i64 noundef %7) local_unnamed_addr #0 {
   %9 = tail call fastcc ptr @SparseMatrix_from_coordinate_arrays_internal(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i32 noundef 0)
   ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @SparseMatrix_from_coordinate_arrays_internal(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, i64 noundef %7, i32 noundef range(i32 0, 2) %8) unnamed_addr #0 {
+define internal fastcc noundef ptr @SparseMatrix_from_coordinate_arrays_internal(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, i64 noundef %7, i32 noundef range(i32 0, 2) %8) unnamed_addr #0 {
   %10 = icmp slt i32 %1, 1
   %11 = icmp slt i32 %2, 1
   %or.cond = or i1 %10, %11
@@ -3241,7 +3241,7 @@ SparseMatrix_general_new.exit:                    ; preds = %13, %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @SparseMatrix_multiply_dense(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #6 {
+define void @SparseMatrix_multiply_dense(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3322,7 +3322,7 @@ define void @SparseMatrix_multiply_dense(ptr nocapture noundef readonly %0, ptr 
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: nofree nounwind uwtable
-define void @SparseMatrix_multiply_vector(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #3 {
+define void @SparseMatrix_multiply_vector(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3662,7 +3662,7 @@ gv_calloc.exit114:                                ; preds = %116
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SparseMatrix_multiply(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noundef ptr @SparseMatrix_multiply(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4323,7 +4323,7 @@ SparseMatrix_new.exit:                            ; preds = %size_of_matrix_type
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SparseMatrix_multiply3(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define noundef ptr @SparseMatrix_multiply3(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5079,7 +5079,7 @@ gv_calloc.exit:                                   ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef returned %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define noundef ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef returned %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = add nsw i32 %6, 1
@@ -5277,7 +5277,7 @@ SparseMatrix_realloc.exit:                        ; preds = %16, %30, %gv_calloc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef ptr @SparseMatrix_remove_diagonal(ptr noundef %0) local_unnamed_addr #2 {
@@ -5811,7 +5811,7 @@ gv_calloc.exit:                                   ; preds = %SparseMatrix_delete
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SparseMatrix_apply_fun(ptr noundef readonly returned %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noundef ptr @SparseMatrix_apply_fun(ptr noundef readonly returned %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit25, label %3
 
@@ -5885,7 +5885,7 @@ define noundef ptr @SparseMatrix_apply_fun(ptr noundef readonly returned %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @SparseMatrix_has_diagonal(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define noundef zeroext i1 @SparseMatrix_has_diagonal(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -5936,7 +5936,7 @@ define noundef zeroext i1 @SparseMatrix_has_diagonal(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @SparseMatrix_weakly_connected_components(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define noalias noundef ptr @SparseMatrix_weakly_connected_components(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6076,7 +6076,7 @@ SparseMatrix_delete.exit:                         ; preds = %58, %._crit_edge
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @SparseMatrix_level_sets(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, i1 noundef zeroext %6) unnamed_addr #3 {
+define internal fastcc void @SparseMatrix_level_sets(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull captures(none) %5, i1 noundef zeroext %6) unnamed_addr #3 {
   %8 = load i32, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
@@ -6352,7 +6352,7 @@ gv_calloc.exit82:                                 ; preds = %49
 }
 
 ; Function Attrs: nounwind uwtable
-define void @SparseMatrix_decompose_to_supervariables(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define void @SparseMatrix_decompose_to_supervariables(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -6638,7 +6638,7 @@ gv_calloc.exit118:                                ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SparseMatrix_get_augmented(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef ptr @SparseMatrix_get_augmented(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6911,7 +6911,7 @@ SparseMatrix_delete.exit:                         ; preds = %25, %23, %20, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SparseMatrix_get_submatrix(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define noundef ptr @SparseMatrix_get_submatrix(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -7741,7 +7741,7 @@ gv_calloc.exit:                                   ; preds = %1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @SparseMatrix_from_dense(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
+define noundef ptr @SparseMatrix_from_dense(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
   %4 = mul nsw i32 %1, %0
   %5 = tail call fastcc ptr @SparseMatrix_init(i32 noundef %0, i32 noundef %1, i32 noundef 1, i64 noundef 8, i32 noundef 0)
   %6 = icmp sgt i32 %4, 0
@@ -7824,7 +7824,7 @@ SparseMatrix_new.exit:                            ; preds = %3, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define void @SparseMatrix_distance_matrix(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @SparseMatrix_distance_matrix(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -7980,7 +7980,7 @@ SparseMatrix_delete.exit:                         ; preds = %54, %._crit_edge48
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #11 {
@@ -7992,7 +7992,7 @@ define internal fastcc void @graphviz_exit() unnamed_addr #11 {
 declare void @exit(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, i64 noundef range(i64 -2147483637, 2147483648) %2, i64 noundef range(i64 1, 0) %3) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @gv_recalloc(ptr noundef captures(none) %0, i64 noundef range(i64 -2147483648, 2147483648) %1, i64 noundef range(i64 -2147483637, 2147483648) %2, i64 noundef range(i64 1, 0) %3) unnamed_addr #0 {
   %mul = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %3, i64 %2)
   %mul.ov = extractvalue { i64, i1 } %mul, 1
   br i1 %mul.ov, label %5, label %8
@@ -8040,10 +8040,10 @@ gv_realloc.exit:                                  ; preds = %12, %19, %21
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #15

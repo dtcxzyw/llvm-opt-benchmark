@@ -642,13 +642,13 @@ define internal void @pci_fixup_umc_ide(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal void @pci_fixup_latency(ptr nocapture readnone %0) #1 align 16 {
+define internal void @pci_fixup_latency(ptr readnone captures(none) %0) #1 align 16 {
   store i32 32, ptr @pcibios_max_latency, align 4
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @pci_fixup_piix4_acpi(ptr nocapture noundef writeonly initializes((916, 920)) %0) #2 align 16 {
+define internal void @pci_fixup_piix4_acpi(ptr noundef writeonly captures(none) initializes((916, 920)) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 916
   store i32 9, ptr %2, align 4
   ret void
@@ -714,7 +714,7 @@ define internal void @pci_fixup_via_northbridge_bug(ptr noundef %0) #3 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @pci_fixup_transparent_bridge(ptr nocapture noundef %0) #4 align 16 {
+define internal void @pci_fixup_transparent_bridge(ptr noundef captures(none) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %3 = load i16, ptr %2, align 2
   %4 = and i16 %3, -256
@@ -758,7 +758,7 @@ define internal void @pci_fixup_nforce2(ptr noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @pcie_rootport_aspm_quirk(ptr nocapture noundef readonly %0) #3 align 16 {
+define internal void @pcie_rootport_aspm_quirk(ptr noundef readonly captures(none) %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -993,7 +993,7 @@ define internal void @pci_early_fixup_cyrix_5530(ptr noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @pci_siemens_interrupt_controller(ptr nocapture noundef %0) #4 align 16 {
+define internal void @pci_siemens_interrupt_controller(ptr noundef captures(none) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %3 = load i64, ptr %2, align 8
   %4 = or i64 %3, 16
@@ -1053,7 +1053,7 @@ define internal void @sb600_hpet_quirk(ptr noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @twinhead_reserve_killing_zone(ptr nocapture noundef readonly %0) #3 align 16 {
+define internal void @twinhead_reserve_killing_zone(ptr noundef readonly captures(none) %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i16, ptr %2, align 8
   %4 = icmp eq i16 %3, 5375
@@ -1075,7 +1075,7 @@ define internal void @twinhead_reserve_killing_zone(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @pci_invalid_bar(ptr nocapture noundef %0) #4 align 16 {
+define internal void @pci_invalid_bar(ptr noundef captures(none) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %3 = load i40, ptr %2, align 1
   %4 = or i40 %3, 4294967296
@@ -1149,12 +1149,12 @@ define internal void @quirk_apple_mbp_poweroff(ptr noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @quirk_no_aersid(ptr nocapture readnone %0) #5 align 16 {
+define internal void @quirk_no_aersid(ptr readnone captures(none) %0) #5 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @quirk_intel_th_dnv(ptr nocapture noundef %0) #4 align 16 {
+define internal void @quirk_intel_th_dnv(ptr noundef captures(none) %0) #4 align 16 {
   %2 = getelementptr i8, ptr %0, i64 1176
   %3 = getelementptr i8, ptr %0, i64 1184
   %4 = load i64, ptr %3, align 8
@@ -1628,7 +1628,7 @@ define internal void @amd_rp_pme_resume(ptr noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #7
@@ -1640,7 +1640,7 @@ declare dso_local i32 @pci_read_config_byte(ptr noundef, i32 noundef, ptr nounde
 declare dso_local void @pcibios_scan_root(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #7
@@ -1658,7 +1658,7 @@ declare dso_local i32 @pci_write_config_dword(ptr noundef, i32 noundef, i32 noun
 declare dso_local ptr @pci_bus_set_ops(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @quirk_pcie_aspm_read(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #3 align 16 {
+define internal i32 @quirk_pcie_aspm_read(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #3 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 8
@@ -1670,7 +1670,7 @@ define internal i32 @quirk_pcie_aspm_read(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @quirk_pcie_aspm_write(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #3 align 16 {
+define internal i32 @quirk_pcie_aspm_write(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #3 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 62
@@ -1763,7 +1763,7 @@ declare dso_local i32 @amd_smn_write(i16 noundef zeroext, i32 noundef, i32 nound
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #11

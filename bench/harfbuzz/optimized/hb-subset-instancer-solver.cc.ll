@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_hb_NullPool = external hidden local_unnamed_addr constant [80 x i64], align 16
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef float @_Z16renormalizeValuefRK6TripleRK15TripleDistancesb(float noundef %v, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %triple, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %triple_distances, i1 noundef zeroext %extrapolate) local_unnamed_addr #0 {
+define hidden noundef float @_Z16renormalizeValuefRK6TripleRK15TripleDistancesb(float noundef %v, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %triple, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %triple_distances, i1 noundef zeroext %extrapolate) local_unnamed_addr #0 {
 entry:
   %ref.tmp = alloca %struct.Triple, align 8
   %ref.tmp7 = alloca %struct.TripleDistances, align 8
@@ -111,13 +111,13 @@ return:                                           ; preds = %if.end, %if.end34, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z11rebase_tent6TripleS_15TripleDistances(ptr noalias nocapture writeonly sret(%struct.hb_vector_t) align 8 initializes((0, 16)) %agg.result, <2 x float> %tent.coerce0, float %tent.coerce1, <2 x float> %axisLimit.coerce0, float %axisLimit.coerce1, <2 x float> %axis_triple_distances.coerce) local_unnamed_addr #3 {
+define hidden void @_Z11rebase_tent6TripleS_15TripleDistances(ptr noalias writeonly sret(%struct.hb_vector_t) align 8 captures(none) initializes((0, 16)) %agg.result, <2 x float> %tent.coerce0, float %tent.coerce1, <2 x float> %axisLimit.coerce0, float %axisLimit.coerce1, <2 x float> %axis_triple_distances.coerce) local_unnamed_addr #3 {
 entry:
   %retval.i.i = alloca %struct.hb_pair_t, align 8
   %axisLimit = alloca %struct.Triple, align 8
@@ -1338,22 +1338,22 @@ return:                                           ; preds = %for.body34, %for.bo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

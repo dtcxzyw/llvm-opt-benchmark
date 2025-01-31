@@ -165,7 +165,7 @@ define hidden noundef ptr @_ZN22ShenandoahBarrierSetC24bsc2Ev() local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27ShenandoahBarrierSetC2StateC2EP5Arena(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN27ShenandoahBarrierSetC2StateC2EP5Arena(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = tail call noundef ptr @_ZN6AnyObjnwEmP5Arena(i64 noundef 24, ptr noundef %1) #15
   %4 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 8, i32 noundef 8, ptr noundef %1) #15
   store i32 0, ptr %3, align 4
@@ -196,14 +196,14 @@ define hidden void @_ZN27ShenandoahBarrierSetC2StateC2EP5Arena(ptr nocapture nou
 declare noundef ptr @_ZN6AnyObjnwEmP5Arena(i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK27ShenandoahBarrierSetC2State17iu_barriers_countEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZNK27ShenandoahBarrierSetC2State17iu_barriers_countEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK27ShenandoahBarrierSetC2State10iu_barrierEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK27ShenandoahBarrierSetC2State10iu_barrierEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -214,7 +214,7 @@ define hidden noundef ptr @_ZNK27ShenandoahBarrierSetC2State10iu_barrierEi(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27ShenandoahBarrierSetC2State14add_iu_barrierEP23ShenandoahIUBarrierNode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN27ShenandoahBarrierSetC2State14add_iu_barrierEP23ShenandoahIUBarrierNode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -249,7 +249,7 @@ _ZN26GrowableArrayWithAllocatorIP23ShenandoahIUBarrierNode13GrowableArrayIS1_EE6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN27ShenandoahBarrierSetC2State17remove_iu_barrierEP23ShenandoahIUBarrierNode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef readnone %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN27ShenandoahBarrierSetC2State17remove_iu_barrierEP23ShenandoahIUBarrierNode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readnone %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -310,7 +310,7 @@ _ZN17GrowableArrayViewIP23ShenandoahIUBarrierNodeE18remove_if_existingERKS1_.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK27ShenandoahBarrierSetC2State29load_reference_barriers_countEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZNK27ShenandoahBarrierSetC2State29load_reference_barriers_countEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
@@ -318,7 +318,7 @@ define hidden noundef i32 @_ZNK27ShenandoahBarrierSetC2State29load_reference_bar
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK27ShenandoahBarrierSetC2State22load_reference_barrierEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK27ShenandoahBarrierSetC2State22load_reference_barrierEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -330,7 +330,7 @@ define hidden noundef ptr @_ZNK27ShenandoahBarrierSetC2State22load_reference_bar
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27ShenandoahBarrierSetC2State26add_load_reference_barrierEP34ShenandoahLoadReferenceBarrierNode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN27ShenandoahBarrierSetC2State26add_load_reference_barrierEP34ShenandoahLoadReferenceBarrierNode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
@@ -366,7 +366,7 @@ _ZN26GrowableArrayWithAllocatorIP34ShenandoahLoadReferenceBarrierNode13GrowableA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27ShenandoahBarrierSetC2State29remove_load_reference_barrierEP34ShenandoahLoadReferenceBarrierNode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN27ShenandoahBarrierSetC2State29remove_load_reference_barrierEP34ShenandoahLoadReferenceBarrierNode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
@@ -446,7 +446,7 @@ _ZNK17GrowableArrayViewIP34ShenandoahLoadReferenceBarrierNodeE8containsERKS1_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK22ShenandoahBarrierSetC221shenandoah_iu_barrierEP8GraphKitP4Node(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK22ShenandoahBarrierSetC221shenandoah_iu_barrierEP8GraphKitP4Node(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = load i8, ptr @ShenandoahIUBarrier, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %34
@@ -504,7 +504,7 @@ _ZN4NodenwEm.exit:                                ; preds = %24, %26
 declare void @_ZN23ShenandoahIUBarrierNodeC1EP4Node(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC227satb_can_remove_pre_barrierEP8GraphKitP11PhaseValuesP4Node9BasicTypej(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC227satb_can_remove_pre_barrierEP8GraphKitP11PhaseValuesP4Node9BasicTypej(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #1 align 2 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   store i64 0, ptr %7, align 8
@@ -644,7 +644,7 @@ declare noundef ptr @_ZN14InitializeNode10allocationEv(ptr noundef nonnull align
 declare noundef ptr @_ZN14InitializeNode19find_captured_storeEliP11PhaseValues(ptr noundef nonnull align 8 dereferenceable(73), i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22ShenandoahBarrierSetC222satb_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture readnone %3, ptr noundef %4, i32 noundef %5, ptr nocapture readnone %6, ptr noundef %7, ptr noundef %8, i8 noundef zeroext %9) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK22ShenandoahBarrierSetC222satb_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, ptr readnone captures(none) %3, ptr noundef %4, i32 noundef %5, ptr readnone captures(none) %6, ptr noundef %7, ptr noundef %8, i8 noundef zeroext %9) local_unnamed_addr #1 align 2 {
   %11 = alloca %class.IdealKit, align 8
   br i1 %2, label %12, label %19
 
@@ -1137,7 +1137,7 @@ declare void @_ZN8GraphKit10final_syncER8IdealKit(ptr noundef nonnull align 8 de
 declare void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN22ShenandoahBarrierSetC225is_shenandoah_wb_pre_callEP4Node(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN22ShenandoahBarrierSetC225is_shenandoah_wb_pre_callEP4Node(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 63
@@ -1156,7 +1156,7 @@ define hidden noundef zeroext i1 @_ZN22ShenandoahBarrierSetC225is_shenandoah_wb_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN22ShenandoahBarrierSetC222is_shenandoah_lrb_callEP4Node(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN22ShenandoahBarrierSetC222is_shenandoah_lrb_callEP4Node(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 63
@@ -1320,7 +1320,7 @@ _ZN22ShenandoahBarrierSetC224is_shenandoah_state_loadEP4Node.exit.thread: ; pred
 declare noundef ptr @_ZN11PhaseValues6intconEi(ptr noundef nonnull align 8 dereferenceable(2400), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN22ShenandoahBarrierSetC224is_shenandoah_state_loadEP4Node(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN22ShenandoahBarrierSetC224is_shenandoah_state_loadEP4Node(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 63
@@ -1379,7 +1379,7 @@ define hidden noundef zeroext i1 @_ZN22ShenandoahBarrierSetC224is_shenandoah_sta
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22ShenandoahBarrierSetC228shenandoah_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef readnone %3, ptr noundef %4, i32 noundef %5, ptr nocapture noundef readnone %6, ptr noundef %7, ptr noundef %8, i8 noundef zeroext %9) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK22ShenandoahBarrierSetC228shenandoah_write_barrier_preEP8GraphKitbP4NodeS3_jS3_PK10TypeOopPtrS3_9BasicType(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef readnone captures(none) %3, ptr noundef %4, i32 noundef %5, ptr noundef readnone captures(none) %6, ptr noundef %7, ptr noundef %8, i8 noundef zeroext %9) local_unnamed_addr #1 align 2 {
   %11 = alloca %class.IdealKit, align 8
   %12 = load i8, ptr @ShenandoahSATBBarrier, align 1
   %13 = trunc i8 %12 to i1
@@ -1405,7 +1405,7 @@ declare void @_ZN8GraphKit8sync_kitER8IdealKit(ptr noundef nonnull align 8 deref
 declare void @_ZN8IdealKit8sync_kitEP8GraphKit(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22ShenandoahBarrierSetC218insert_pre_barrierEP8GraphKitP4NodeS3_S3_b(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK22ShenandoahBarrierSetC218insert_pre_barrierEP8GraphKitP4NodeS3_S3_b(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #1 align 2 {
   %7 = alloca %class.IdealKit, align 8
   %8 = tail call noundef ptr @_ZNK4Node14find_long_typeEv(ptr noundef nonnull align 8 dereferenceable(52) %3) #15
   %.not = icmp eq ptr %8, null
@@ -3558,7 +3558,7 @@ _ZNK22ShenandoahBarrierSetC228shenandoah_write_barrier_preEP8GraphKitbP4NodeS3_j
 declare noundef ptr @_ZNK12BarrierSetC223atomic_xchg_at_resolvedER19C2AtomicParseAccessP4NodePK4Type(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(76), ptr noundef, ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC222is_gc_pre_barrier_nodeEP4Node(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC222is_gc_pre_barrier_nodeEP4Node(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 63
@@ -3577,7 +3577,7 @@ _ZN22ShenandoahBarrierSetC225is_shenandoah_wb_pre_callEP4Node.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC218is_gc_barrier_nodeEP4Node(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC218is_gc_barrier_nodeEP4Node(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(52) %1) #15
@@ -3632,10 +3632,10 @@ define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC218is_gc_barrier_no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK22ShenandoahBarrierSetC220step_over_gc_barrierEP4Node(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK22ShenandoahBarrierSetC220step_over_gc_barrierEP4Node(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %18, label %4
 
@@ -3666,7 +3666,7 @@ define hidden noundef ptr @_ZNK22ShenandoahBarrierSetC220step_over_gc_barrierEP4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC215expand_barriersEP7CompileR12PhaseIterGVN(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(2416) %2) unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC215expand_barriersEP7CompileR12PhaseIterGVN(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(2416) %2) unnamed_addr #1 align 2 {
   %4 = tail call noundef zeroext i1 @_ZN26ShenandoahBarrierC2Support6expandEP7CompileR12PhaseIterGVN(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(2416) %2) #15
   %5 = xor i1 %4, true
   ret i1 %5
@@ -3675,7 +3675,7 @@ define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC215expand_barriersE
 declare noundef zeroext i1 @_ZN26ShenandoahBarrierC2Support6expandEP7CompileR12PhaseIterGVN(ptr noundef, ptr noundef nonnull align 8 dereferenceable(2416)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC214optimize_loopsEP14PhaseIdealLoop12LoopOptsModeR9VectorSetR10Node_StackR9Node_List(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(28) %5) unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC214optimize_loopsEP14PhaseIdealLoop12LoopOptsModeR9VectorSetR10Node_StackR9Node_List(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(28) %5) unnamed_addr #1 align 2 {
   switch i32 %2, label %9 [
     i32 3, label %7
     i32 4, label %8
@@ -3700,7 +3700,7 @@ declare void @_ZN26ShenandoahBarrierC2Support14pin_and_expandEP14PhaseIdealLoop(
 declare void @_ZN26ShenandoahBarrierC2Support24optimize_after_expansionER9VectorSetR10Node_StackR9Node_ListP14PhaseIdealLoop(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(28), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC231array_copy_requires_gc_barriersEb9BasicTypebbN12BarrierSetC214ArrayCopyPhaseE(ptr nocapture nonnull readnone align 8 %0, i1 noundef zeroext %1, i8 noundef zeroext %2, i1 noundef zeroext %3, i1 zeroext %4, i32 noundef %5) unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC231array_copy_requires_gc_barriersEb9BasicTypebbN12BarrierSetC214ArrayCopyPhaseE(ptr nonnull readnone align 8 captures(none) %0, i1 noundef zeroext %1, i8 noundef zeroext %2, i1 noundef zeroext %3, i1 zeroext %4, i32 noundef %5) unnamed_addr #6 align 2 {
   %7 = and i8 %2, -2
   %or.cond.i = icmp eq i8 %7, 12
   br i1 %or.cond.i, label %8, label %_Z17is_reference_type9BasicTypeb.exit
@@ -3733,7 +3733,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %6, %11, %14, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN22ShenandoahBarrierSetC219clone_needs_barrierEP4NodeR8PhaseGVN(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2400) %1) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN22ShenandoahBarrierSetC219clone_needs_barrierEP4NodeR8PhaseGVN(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2400) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4844,7 +4844,7 @@ declare noundef ptr @_ZN16PhaseMacroExpand19basictype2arraycopyE9BasicTypeP4Node
 declare void @_ZNK12BarrierSetC218clone_at_expansionEP16PhaseMacroExpandP13ArrayCopyNode(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22ShenandoahBarrierSetC231register_potential_barrier_nodeEP4Node(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZNK22ShenandoahBarrierSetC231register_potential_barrier_nodeEP4Node(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(52) %1) #15
@@ -4946,7 +4946,7 @@ _ZN27ShenandoahBarrierSetC2State26add_load_reference_barrierEP34ShenandoahLoadRe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK22ShenandoahBarrierSetC25stateEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK22ShenandoahBarrierSetC25stateEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
@@ -4959,7 +4959,7 @@ define hidden noundef ptr @_ZNK22ShenandoahBarrierSetC25stateEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22ShenandoahBarrierSetC233unregister_potential_barrier_nodeEP4Node(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZNK22ShenandoahBarrierSetC233unregister_potential_barrier_nodeEP4Node(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(52) %1) #15
@@ -5125,7 +5125,7 @@ _ZN27ShenandoahBarrierSetC2State29remove_load_reference_barrierEP34ShenandoahLoa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22ShenandoahBarrierSetC220eliminate_gc_barrierEP16PhaseMacroExpandP4Node(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define hidden void @_ZNK22ShenandoahBarrierSetC220eliminate_gc_barrierEP16PhaseMacroExpandP4Node(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 63
@@ -5149,7 +5149,7 @@ _ZN22ShenandoahBarrierSetC225is_shenandoah_wb_pre_callEP4Node.exit.thread: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22ShenandoahBarrierSetC227shenandoah_eliminate_wb_preEP4NodeP12PhaseIterGVN(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK22ShenandoahBarrierSetC227shenandoah_eliminate_wb_preEP4NodeP12PhaseIterGVN(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = tail call noundef ptr @_ZNK9MultiNode8proj_outEj(ptr noundef nonnull align 8 dereferenceable(52) %1, i32 noundef 0) #15
   %5 = tail call noundef ptr @_ZNK4Node15unique_ctrl_outEv(ptr noundef nonnull align 8 dereferenceable(52) %4) #15
   %6 = tail call noundef ptr @_ZNK4Node15unique_ctrl_outEv(ptr noundef nonnull align 8 dereferenceable(52) %5) #15
@@ -5286,7 +5286,7 @@ declare noundef ptr @_ZN11PhaseValues7makeconEPK4Type(ptr noundef nonnull align 
 declare void @_ZN4Node7del_reqEj(ptr noundef nonnull align 8 dereferenceable(52), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22ShenandoahBarrierSetC225enqueue_useful_gc_barrierEP12PhaseIterGVNP4Node(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define hidden void @_ZNK22ShenandoahBarrierSetC225enqueue_useful_gc_barrierEP12PhaseIterGVNP4Node(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = load ptr, ptr %2, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(52) %2) #15
@@ -5332,7 +5332,7 @@ _ZN22ShenandoahBarrierSetC231has_only_shenandoah_wb_pre_usesEP4Node.exit.thread5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN22ShenandoahBarrierSetC231has_only_shenandoah_wb_pre_usesEP4Node(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN22ShenandoahBarrierSetC231has_only_shenandoah_wb_pre_usesEP4Node(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5374,7 +5374,7 @@ _ZN22ShenandoahBarrierSetC225is_shenandoah_wb_pre_callEP4Node.exit.thread: ; pre
 declare void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22ShenandoahBarrierSetC229eliminate_useless_gc_barriersER16Unique_Node_ListP7Compile(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %1, ptr nocapture noundef readonly %2) unnamed_addr #1 align 2 {
+define hidden void @_ZNK22ShenandoahBarrierSetC229eliminate_useless_gc_barriersER16Unique_Node_ListP7Compile(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %1, ptr noundef readonly captures(none) %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8
   %.not62 = icmp eq i32 %5, 0
@@ -5738,7 +5738,7 @@ _ZN27ShenandoahBarrierSetC2State29remove_load_reference_barrierEP34ShenandoahLoa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK22ShenandoahBarrierSetC220create_barrier_stateEP5Arena(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK22ShenandoahBarrierSetC220create_barrier_stateEP5Arena(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 16, ptr noundef %1) #15
   %4 = icmp eq ptr %3, null
   br i1 %4, label %18, label %5
@@ -5778,7 +5778,7 @@ define hidden noundef ptr @_ZNK22ShenandoahBarrierSetC220create_barrier_stateEP5
 declare noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC218expand_macro_nodesEP16PhaseMacroExpand(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC218expand_macro_nodesEP16PhaseMacroExpand(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #8 align 2 {
   ret i1 false
 }
 
@@ -6097,7 +6097,7 @@ declare noundef ptr @_ZN6IfNode10up_one_domEP4Nodeb(ptr noundef, i1 noundef zero
 declare noundef ptr @_ZN6IfNode12dominated_byEP4NodeP12PhaseIterGVNb(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC221final_graph_reshapingEP7CompileP4NodejR16Unique_Node_List(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture nonnull readnone align 8 %4) unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC221final_graph_reshapingEP7CompileP4NodejR16Unique_Node_List(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr nonnull readnone align 8 captures(none) %4) unnamed_addr #1 align 2 {
   switch i32 %3, label %32 [
     i32 48, label %6
     i32 49, label %6
@@ -6157,7 +6157,7 @@ _ZN22ShenandoahBarrierSetC225is_shenandoah_wb_pre_callEP4Node.exit.thread: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC223escape_add_to_con_graphEP15ConnectionGraphP8PhaseGVNP16Unique_Node_ListP4Nodej(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC223escape_add_to_con_graphEP15ConnectionGraphP8PhaseGVNP16Unique_Node_ListP4Nodej(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #1 align 2 {
   switch i32 %5, label %76 [
     i32 303, label %7
     i32 304, label %7
@@ -6373,7 +6373,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9Node_List4pushE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC222escape_add_final_edgesEP15ConnectionGraphP8PhaseGVNP4Nodej(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC222escape_add_final_edgesEP15ConnectionGraphP8PhaseGVNP4Nodej(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 align 2 {
   switch i32 %4, label %62 [
     i32 303, label %6
     i32 304, label %6
@@ -6457,7 +6457,7 @@ define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC222escape_add_final
 declare noundef zeroext i1 @_ZN15ConnectionGraph29add_final_edges_unsafe_accessEP4Nodej(ptr noundef nonnull align 8 dereferenceable(232), ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC233escape_has_out_with_unsafe_objectEP4Node(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull %1) unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC233escape_has_out_with_unsafe_objectEP4Node(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull %1) unnamed_addr #1 align 2 {
   %3 = tail call noundef zeroext i1 @_ZN4Node12has_out_withEi(ptr noundef nonnull align 8 dereferenceable(52) %1, i32 noundef 303) #15
   br i1 %3, label %8, label %4
 
@@ -6479,7 +6479,7 @@ declare noundef zeroext i1 @_ZN4Node12has_out_withEi(ptr noundef nonnull align 8
 declare noundef zeroext i1 @_ZN4Node12has_out_withEiiii(ptr noundef nonnull align 8 dereferenceable(52), i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC230matcher_find_shared_post_visitEP7MatcherP4Nodej(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC230matcher_find_shared_post_visitEP7MatcherP4Nodej(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 align 2 {
   %.off = add i32 %3, -303
   %switch = icmp ult i32 %.off, 6
   br i1 %switch, label %5, label %71
@@ -6607,7 +6607,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC229matcher_is_store_load_barrierEP4Nodej(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, i32 noundef %2) unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC229matcher_is_store_load_barrierEP4Nodej(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2) unnamed_addr #8 align 2 {
 switch.edge:
   %.off = add i32 %2, -303
   %switch = icmp ult i32 %.off, 6
@@ -7370,13 +7370,13 @@ declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) loc
 declare i32 @llvm.ctpop.i32(i32) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

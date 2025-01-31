@@ -420,7 +420,7 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
 209:                                              ; preds = %206, %204, %.thread181
   %.9 = phi i1 [ %.8180183, %.thread181 ], [ false, %204 ], [ false, %206 ]
   tail call void @ReleaseCatCacheList(ptr noundef %35) #4
-  tail call void @ReleaseCatCacheList(ptr noundef %34) #4
+  tail call void @ReleaseCatCacheList(ptr noundef nonnull %34) #4
   tail call void @ReleaseSysCache(ptr noundef nonnull %22) #4
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #4
   ret i1 %.9

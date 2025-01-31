@@ -162,10 +162,10 @@ if.end33:                                         ; preds = %if.end30, %lor.lhs.
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11KeyIteratorppEv(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6Assimp11KeyIteratorppEv(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %this) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %tobool = trunc i8 %0 to i1
@@ -524,14 +524,14 @@ if.end156:                                        ; preds = %entry, %if.then154,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Assimp21TargetAnimationHelper25SetTargetAnimationChannelEPKSt6vectorI11aiVectorKeySaIS2_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 8)) %this, ptr noundef %_targetPositions) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN6Assimp21TargetAnimationHelper25SetTargetAnimationChannelEPKSt6vectorI11aiVectorKeySaIS2_EE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(28) initializes((0, 8)) %this, ptr noundef %_targetPositions) local_unnamed_addr #3 align 2 {
 entry:
   store ptr %_targetPositions, ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Assimp21TargetAnimationHelper23SetMainAnimationChannelEPKSt6vectorI11aiVectorKeySaIS2_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((8, 16)) %this, ptr noundef %_objectPositions) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN6Assimp21TargetAnimationHelper23SetMainAnimationChannelEPKSt6vectorI11aiVectorKeySaIS2_EE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(28) initializes((8, 16)) %this, ptr noundef %_objectPositions) local_unnamed_addr #3 align 2 {
 entry:
   %objectPositions = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %_objectPositions, ptr %objectPositions, align 8
@@ -539,7 +539,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6Assimp21TargetAnimationHelper28SetFixedMainAnimationChannelERK10aiVector3tIfE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((8, 28)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %fixed) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6Assimp21TargetAnimationHelper28SetFixedMainAnimationChannelERK10aiVector3tIfE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(28) initializes((8, 28)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %fixed) local_unnamed_addr #4 align 2 {
 entry:
   %objectPositions = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %objectPositions, align 8
@@ -1110,13 +1110,13 @@ declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed
 declare float @llvm.fmuladd.f32(float, float, float) #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12

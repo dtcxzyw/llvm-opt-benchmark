@@ -45,7 +45,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5Ipopt13CGPenaltyDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(105) initializes((0, 12), (16, 24), (32, 40)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt13CGPenaltyDataC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(105) initializes((0, 12), (16, 24), (32, 40)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Ipopt13CGPenaltyDataE, i64 16), ptr %0, align 8
@@ -59,7 +59,7 @@ define void @_ZN5Ipopt13CGPenaltyDataC2Ev(ptr nocapture noundef nonnull writeonl
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Ipopt13CGPenaltyDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(105) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt13CGPenaltyDataD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(105) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5Ipopt13CGPenaltyDataE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
@@ -124,7 +124,7 @@ define void @_ZN5Ipopt13CGPenaltyDataD0Ev(ptr noundef nonnull align 8 dereferenc
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN5Ipopt13CGPenaltyData10InitializeERKNS_10JournalistERKNS_11OptionsListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(105) initializes((24, 25), (40, 42), (44, 56), (64, 65), (80, 81), (88, 105)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN5Ipopt13CGPenaltyData10InitializeERKNS_10JournalistERKNS_11OptionsListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(105) initializes((24, 25), (40, 42), (44, 56), (64, 65), (80, 81), (88, 105)) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -149,7 +149,7 @@ define noundef zeroext i1 @_ZN5Ipopt13CGPenaltyData10InitializeERKNS_10Journalis
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5Ipopt13CGPenaltyData24InitializeDataStructuresEv(ptr nocapture noundef nonnull align 8 dereferenceable(105) initializes((24, 25), (40, 41)) %0) unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN5Ipopt13CGPenaltyData24InitializeDataStructuresEv(ptr noundef nonnull align 8 captures(none) dereferenceable(105) initializes((24, 25), (40, 41)) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -208,7 +208,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEEaSEPS2_.exit2: ; preds = %_ZN5Ipopt8Sma
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt13CGPenaltyData16AcceptTrialPointEv(ptr nocapture noundef nonnull align 8 dereferenceable(105) initializes((24, 25), (40, 41)) %0) unnamed_addr #6 align 2 {
+define void @_ZN5Ipopt13CGPenaltyData16AcceptTrialPointEv(ptr noundef nonnull align 8 captures(none) dereferenceable(105) initializes((24, 25), (40, 41)) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null

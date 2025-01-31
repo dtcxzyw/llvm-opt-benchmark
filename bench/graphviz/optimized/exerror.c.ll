@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [17 x i8] c"malformed format\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @exerror(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #0 {
+define void @exerror(ptr noundef readonly captures(none) %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
@@ -51,7 +51,7 @@ define void @exerror(ptr nocapture noundef readonly %0, ...) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @make_msg(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @make_msg(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [64 x i8], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
@@ -90,10 +90,10 @@ define internal fastcc noalias noundef ptr @make_msg(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @exwarn(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #0 {
+define void @exwarn(ptr noundef readonly captures(none) %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @expr, i64 80), align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
@@ -125,13 +125,13 @@ define void @exwarn(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #
 declare ptr @excontext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5

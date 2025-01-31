@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.14 = private unnamed_addr constant [22 x i8] c"unknown H5VL subclass\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5VL__native_introspect_opt_query(ptr nocapture noundef readnone %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5VL__native_introspect_opt_query(ptr noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   store i64 1, ptr %3, align 8
   switch i32 %1, label %76 [
     i32 0, label %5

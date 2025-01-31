@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [2 x i8] c".\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_prov_conf_ctx_new(ptr nocapture noundef readnone %libctx) local_unnamed_addr #0 {
+define ptr @ossl_prov_conf_ctx_new(ptr noundef readnone captures(none) %libctx) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 32) #5
   %cmp = icmp eq ptr %call, null
@@ -331,8 +331,7 @@ if.else30.i:                                      ; preds = %for.end.i
 
 if.else30.thread.i:                               ; preds = %for.cond.preheader.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %entry31.i, i8 0, i64 40, i1 false)
-  %cmp32.not66.i = icmp eq ptr %retval.0.i.i, null
-  br i1 %cmp32.not66.i, label %if.then52.i, label %if.end40.i
+  br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.else30.thread.i, %if.else30.i
   %path.0.lcssa5569.i = phi ptr [ null, %if.else30.thread.i ], [ %path.1.i, %if.else30.i ]
@@ -358,7 +357,7 @@ if.then43.i:                                      ; preds = %if.end40.thread.i, 
 if.end50.i:                                       ; preds = %if.end40.i
   br i1 %cmp37.i, label %if.then52.i, label %if.then70.i
 
-if.then52.i:                                      ; preds = %if.end50.i, %if.then43.i, %if.end40.thread.i, %if.else30.thread.i
+if.then52.i:                                      ; preds = %if.end50.i, %if.then43.i, %if.end40.thread.i
   %call53.i = call fastcc i32 @provider_conf_params(ptr noundef null, ptr noundef nonnull %entry31.i, ptr noundef null, ptr noundef %1, ptr noundef %cnf)
   %18 = icmp eq i32 %call53.i, 0
   br i1 %18, label %if.then70.i, label %land.lhs.true56.i
@@ -426,10 +425,10 @@ declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @NCONF_get0_libctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -541,17 +540,17 @@ declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unname
 declare i64 @OPENSSL_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @ossl_provider_add_parameter(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @ossl_provider_info_add_parameter(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

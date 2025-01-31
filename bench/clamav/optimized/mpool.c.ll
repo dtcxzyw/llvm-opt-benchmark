@@ -53,13 +53,13 @@ define ptr @mpool_create() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind
 declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define void @mpool_destroy(ptr noundef %0) local_unnamed_addr #0 {
@@ -164,7 +164,7 @@ define void @mpool_flush(ptr noundef %0) local_unnamed_addr #0 {
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -1, 1) i32 @mpool_getstats(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 {
+define range(i32 -1, 1) i32 @mpool_getstats(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %4
 
@@ -439,7 +439,7 @@ allocate_aligned.exit77:                          ; preds = %105, %to_bits.exit.
 declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @mpool_free(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #6 {
+define void @mpool_free(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %3
 
@@ -678,7 +678,7 @@ define ptr @cli_mpool_hex2str(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.13, ptr noundef %1, i64 noundef %3) #10
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %1, i64 noundef %3) #10
   br label %28
 
 6:                                                ; preds = %2
@@ -693,7 +693,7 @@ define ptr @cli_mpool_hex2str(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br label %28
 
 12:                                               ; preds = %6
-  %13 = tail call i32 @cli_hex2str_to(ptr noundef %1, ptr noundef nonnull %9, i64 noundef %3) #10
+  %13 = tail call i32 @cli_hex2str_to(ptr noundef nonnull %1, ptr noundef nonnull %9, i64 noundef %3) #10
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %mpool_free.exit, label %26
 
@@ -724,7 +724,7 @@ mpool_free.exit:                                  ; preds = %12
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @cli_hex2str_to(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
@@ -792,7 +792,7 @@ define ptr @cli_mpool_strndup(ptr noundef %0, ptr noundef readonly %1, i64 nound
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strnlen(ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define ptr @cli_mpool_virname(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -864,10 +864,10 @@ cli_mpool_strdup.exit:                            ; preds = %18, %17, %3, %23, %
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define ptr @cli_mpool_hex2ui(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -877,7 +877,7 @@ define ptr @cli_mpool_hex2ui(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.23, ptr noundef %1, i64 noundef %3) #10
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.23, ptr noundef nonnull %1, i64 noundef %3) #10
   br label %mpool_calloc.exit.thread
 
 6:                                                ; preds = %2
@@ -893,7 +893,7 @@ define ptr @cli_mpool_hex2ui(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 10:                                               ; preds = %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %9, i8 0, i64 %7, i1 false)
   %11 = trunc i64 %3 to i32
-  %12 = tail call i32 @cli_realhex2ui(ptr noundef %1, ptr noundef nonnull %9, i32 noundef %11) #10
+  %12 = tail call i32 @cli_realhex2ui(ptr noundef nonnull %1, ptr noundef nonnull %9, i32 noundef %11) #10
   %.not15 = icmp eq i32 %12, 0
   br i1 %.not15, label %mpool_free.exit, label %mpool_calloc.exit.thread
 

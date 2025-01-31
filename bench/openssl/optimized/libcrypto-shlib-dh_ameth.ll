@@ -265,7 +265,7 @@ return:                                           ; preds = %entry, %err, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh_pub_encode(ptr noundef %pk, ptr nocapture noundef readonly %pkey) #0 {
+define internal range(i32 0, 2) i32 @dh_pub_encode(ptr noundef %pk, ptr noundef readonly captures(none) %pkey) #0 {
 entry:
   %penc = alloca ptr, align 8
   store ptr null, ptr %penc, align 8
@@ -348,7 +348,7 @@ return:                                           ; preds = %if.end15, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh_pub_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal range(i32 0, 2) i32 @dh_pub_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %pkey.i = getelementptr inbounds nuw i8, ptr %a, i64 32
   %0 = load ptr, ptr %pkey.i, align 8
@@ -382,7 +382,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh_public_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
+define internal range(i32 0, 2) i32 @dh_public_print(ptr noundef %bp, ptr noundef readonly captures(none) %pkey, i32 noundef %indent, ptr readnone captures(none) %ctx) #0 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -410,7 +410,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh_priv_encode(ptr noundef %p8, ptr nocapture noundef readonly %pkey) #0 {
+define internal range(i32 0, 2) i32 @dh_priv_encode(ptr noundef %p8, ptr noundef readonly captures(none) %pkey) #0 {
 entry:
   %dp = alloca ptr, align 8
   store ptr null, ptr %dp, align 8
@@ -506,7 +506,7 @@ return:                                           ; preds = %if.end15, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh_private_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
+define internal range(i32 0, 2) i32 @dh_private_print(ptr noundef %bp, ptr noundef readonly captures(none) %pkey, i32 noundef %indent, ptr readnone captures(none) %ctx) #0 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -515,7 +515,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @int_dh_size(ptr nocapture noundef readonly %pkey) #0 {
+define internal i32 @int_dh_size(ptr noundef readonly captures(none) %pkey) #0 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -524,7 +524,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_bits(ptr nocapture noundef readonly %pkey) #0 {
+define internal i32 @dh_bits(ptr noundef readonly captures(none) %pkey) #0 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -533,7 +533,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_security_bits(ptr nocapture noundef readonly %pkey) #0 {
+define internal i32 @dh_security_bits(ptr noundef readonly captures(none) %pkey) #0 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -579,7 +579,7 @@ return:                                           ; preds = %d2i_dhp.exit, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_param_encode(ptr nocapture noundef readonly %pkey, ptr noundef %pder) #0 {
+define internal i32 @dh_param_encode(ptr noundef readonly captures(none) %pkey, ptr noundef %pder) #0 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -602,7 +602,7 @@ i2d_dhp.exit:                                     ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @dh_missing_parameters(ptr nocapture noundef readonly %a) #2 {
+define internal range(i32 0, 2) i32 @dh_missing_parameters(ptr noundef readonly captures(none) %a) #2 {
 entry:
   %pkey = getelementptr inbounds nuw i8, ptr %a, i64 32
   %0 = load ptr, ptr %pkey, align 8
@@ -628,7 +628,7 @@ lor.end:                                          ; preds = %lor.rhs, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh_copy_parameters(ptr nocapture noundef %to, ptr nocapture noundef readonly %from) #0 {
+define internal range(i32 0, 2) i32 @dh_copy_parameters(ptr noundef captures(none) %to, ptr noundef readonly captures(none) %from) #0 {
 entry:
   %pkey = getelementptr inbounds nuw i8, ptr %to, i64 32
   %0 = load ptr, ptr %pkey, align 8
@@ -677,7 +677,7 @@ return:                                           ; preds = %if.end9.i, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_cmp_parameters(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal i32 @dh_cmp_parameters(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %pkey = getelementptr inbounds nuw i8, ptr %a, i64 32
   %0 = load ptr, ptr %pkey, align 8
@@ -694,7 +694,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh_param_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
+define internal range(i32 0, 2) i32 @dh_param_print(ptr noundef %bp, ptr noundef readonly captures(none) %pkey, i32 noundef %indent, ptr readnone captures(none) %ctx) #0 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -703,7 +703,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @int_dh_free(ptr nocapture noundef readonly %pkey) #0 {
+define internal void @int_dh_free(ptr noundef readonly captures(none) %pkey) #0 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -755,7 +755,7 @@ return:                                           ; preds = %sw.bb, %entry, %sw.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_pkey_public_check(ptr nocapture noundef readonly %pkey) #0 {
+define internal i32 @dh_pkey_public_check(ptr noundef readonly captures(none) %pkey) #0 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -780,7 +780,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_pkey_param_check(ptr nocapture noundef readonly %pkey) #0 {
+define internal i32 @dh_pkey_param_check(ptr noundef readonly captures(none) %pkey) #0 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -789,7 +789,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @dh_pkey_dirty_cnt(ptr nocapture noundef readonly %pkey) #2 {
+define internal i64 @dh_pkey_dirty_cnt(ptr noundef readonly captures(none) %pkey) #2 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -799,7 +799,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_pkey_export_to(ptr nocapture noundef readonly %from, ptr noundef %to_keydata, ptr nocapture noundef readonly %importer, ptr nocapture readnone %libctx, ptr nocapture readnone %propq) #0 {
+define internal i32 @dh_pkey_export_to(ptr noundef readonly captures(none) %from, ptr noundef %to_keydata, ptr noundef readonly captures(none) %importer, ptr readnone captures(none) %libctx, ptr readnone captures(none) %propq) #0 {
 entry:
   %pkey = getelementptr inbounds nuw i8, ptr %from, i64 32
   %0 = load ptr, ptr %pkey, align 8
@@ -904,7 +904,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_pkey_copy(ptr noundef %to, ptr nocapture noundef readonly %from) #0 {
+define internal i32 @dh_pkey_copy(ptr noundef %to, ptr noundef readonly captures(none) %from) #0 {
 entry:
   %pkey = getelementptr inbounds nuw i8, ptr %from, i64 32
   %0 = load ptr, ptr %pkey, align 8
@@ -933,7 +933,7 @@ return:                                           ; preds = %if.end3, %if.then5,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dhx_pkey_ctrl(ptr nocapture readnone %pkey, i32 %op, i64 %arg1, ptr nocapture readnone %arg2) #3 {
+define internal noundef i32 @dhx_pkey_ctrl(ptr readnone captures(none) %pkey, i32 %op, i64 %arg1, ptr readnone captures(none) %arg2) #3 {
 entry:
   ret i32 -2
 }

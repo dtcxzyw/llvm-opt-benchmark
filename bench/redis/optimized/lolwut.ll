@@ -187,12 +187,12 @@ if.end80:                                         ; preds = %if.then, %if.then76
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @getLongFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare void @lolwut5Command(ptr noundef) local_unnamed_addr #1
 
@@ -220,7 +220,7 @@ entry:
 declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @lwFreeCanvas(ptr noundef %canvas) local_unnamed_addr #0 {
@@ -235,7 +235,7 @@ entry:
 declare void @zfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @lwDrawPixel(ptr nocapture noundef readonly %canvas, i32 noundef %x, i32 noundef %y, i32 noundef %color) local_unnamed_addr #6 {
+define dso_local void @lwDrawPixel(ptr noundef readonly captures(none) %canvas, i32 noundef %x, i32 noundef %y, i32 noundef %color) local_unnamed_addr #6 {
 entry:
   %cmp = icmp slt i32 %x, 0
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -269,7 +269,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 -128, 128) i32 @lwGetPixel(ptr nocapture noundef readonly %canvas, i32 noundef %x, i32 noundef %y) local_unnamed_addr #7 {
+define dso_local range(i32 -128, 128) i32 @lwGetPixel(ptr noundef readonly captures(none) %canvas, i32 noundef %x, i32 noundef %y) local_unnamed_addr #7 {
 entry:
   %cmp = icmp slt i32 %x, 0
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -304,7 +304,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @lwDrawLine(ptr nocapture noundef readonly %canvas, i32 noundef %x1, i32 noundef %y1, i32 noundef %x2, i32 noundef %y2, i32 noundef %color) local_unnamed_addr #8 {
+define dso_local void @lwDrawLine(ptr noundef readonly captures(none) %canvas, i32 noundef %x1, i32 noundef %y1, i32 noundef %x2, i32 noundef %y2, i32 noundef %color) local_unnamed_addr #8 {
 entry:
   %sub = sub nsw i32 %x2, %x1
   %0 = tail call i32 @llvm.abs.i32(i32 %sub, i1 true)
@@ -377,7 +377,7 @@ while.end:                                        ; preds = %lwDrawPixel.exit
 declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define dso_local void @lwDrawSquare(ptr nocapture noundef readonly %canvas, i32 noundef %x, i32 noundef %y, float noundef %size, float noundef %angle, i32 noundef %color) local_unnamed_addr #10 {
+define dso_local void @lwDrawSquare(ptr noundef readonly captures(none) %canvas, i32 noundef %x, i32 noundef %y, float noundef %size, float noundef %angle, i32 noundef %color) local_unnamed_addr #10 {
 entry:
   %px = alloca [4 x i32], align 16
   %py = alloca [4 x i32], align 16

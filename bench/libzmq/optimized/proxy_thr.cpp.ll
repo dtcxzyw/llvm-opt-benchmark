@@ -57,7 +57,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare i32 @zmq_errno() local_unnamed_addr #2
 
@@ -67,7 +67,7 @@ declare ptr @zmq_strerror(i32 noundef) local_unnamed_addr #2
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z15terminate_proxyPK15proxy_hwm_cfg_t(ptr nocapture noundef readonly %cfg) local_unnamed_addr #0 {
+define dso_local void @_Z15terminate_proxyPK15proxy_hwm_cfg_t(ptr noundef readonly captures(none) %cfg) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %cfg, align 8
   %call = tail call ptr @zmq_socket(ptr noundef %0, i32 noundef 3)
@@ -88,7 +88,7 @@ declare i32 @zmq_send(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_
 declare i32 @zmq_close(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress norecurse uwtable
-define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #4 {
+define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %argc, ptr noundef readonly captures(none) %argv) local_unnamed_addr #4 {
 entry:
   %cfg_proxy = alloca %struct.proxy_hwm_cfg_t, align 8
   %cfg_sub1 = alloca %struct.proxy_hwm_cfg_t, align 8
@@ -218,19 +218,19 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @zmq_ctx_new() local_unnamed_addr #2
 
 declare i32 @zmq_ctx_set(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare ptr @zmq_threadstart(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL17proxy_thread_mainPv(ptr nocapture noundef readonly %pvoid) #0 {
+define internal void @_ZL17proxy_thread_mainPv(ptr noundef readonly captures(none) %pvoid) #0 {
 entry:
   %optval = alloca i32, align 4
   %0 = load ptr, ptr %pvoid, align 8
@@ -294,7 +294,7 @@ for.end24:                                        ; preds = %for.inc22
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL22subscriber_thread_mainPv(ptr nocapture noundef readonly %pvoid) #0 {
+define internal void @_ZL22subscriber_thread_mainPv(ptr noundef readonly captures(none) %pvoid) #0 {
 entry:
   %msg = alloca %struct.zmq_msg_t, align 8
   %thread_idx = getelementptr inbounds nuw i8, ptr %pvoid, i64 8
@@ -369,7 +369,7 @@ while.end:                                        ; preds = %if.end
 declare ptr @zmq_stopwatch_start() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL21publisher_thread_mainPv(ptr nocapture noundef readonly %pvoid) #0 {
+define internal void @_ZL21publisher_thread_mainPv(ptr noundef readonly captures(none) %pvoid) #0 {
 entry:
   %optval = alloca i32, align 4
   %buffer = alloca [32 x i8], align 16
@@ -570,7 +570,7 @@ declare i32 @zmq_msg_send(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare i64 @llvm.umax.i64(i64, i64) #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

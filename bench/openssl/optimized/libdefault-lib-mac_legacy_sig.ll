@@ -175,7 +175,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @mac_dupctx(ptr nocapture noundef readonly %vpmacctx) #0 {
+define internal ptr @mac_dupctx(ptr noundef readonly captures(none) %vpmacctx) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -250,7 +250,7 @@ return:                                           ; preds = %if.end19, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mac_set_ctx_params(ptr nocapture noundef readonly %vpmacctx, ptr noundef %params) #0 {
+define internal i32 @mac_set_ctx_params(ptr noundef readonly captures(none) %vpmacctx, ptr noundef %params) #0 {
 entry:
   %macctx = getelementptr inbounds nuw i8, ptr %vpmacctx, i64 24
   %0 = load ptr, ptr %macctx, align 8
@@ -259,7 +259,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @mac_hmac_settable_ctx_params(ptr nocapture readnone %ctx, ptr noundef %provctx) #0 {
+define internal ptr @mac_hmac_settable_ctx_params(ptr readnone captures(none) %ctx, ptr noundef %provctx) #0 {
 entry:
   %call.i = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #3
   %call1.i = tail call ptr @EVP_MAC_fetch(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef null) #3
@@ -284,7 +284,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @mac_siphash_settable_ctx_params(ptr nocapture readnone %ctx, ptr noundef %provctx) #0 {
+define internal ptr @mac_siphash_settable_ctx_params(ptr readnone captures(none) %ctx, ptr noundef %provctx) #0 {
 entry:
   %call.i = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #3
   %call1.i = tail call ptr @EVP_MAC_fetch(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef null) #3
@@ -309,7 +309,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @mac_poly1305_settable_ctx_params(ptr nocapture readnone %ctx, ptr noundef %provctx) #0 {
+define internal ptr @mac_poly1305_settable_ctx_params(ptr readnone captures(none) %ctx, ptr noundef %provctx) #0 {
 entry:
   %call.i = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #3
   %call1.i = tail call ptr @EVP_MAC_fetch(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef null) #3
@@ -334,7 +334,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @mac_cmac_settable_ctx_params(ptr nocapture readnone %ctx, ptr noundef %provctx) #0 {
+define internal ptr @mac_cmac_settable_ctx_params(ptr readnone captures(none) %ctx, ptr noundef %provctx) #0 {
 entry:
   %call.i = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #3
   %call1.i = tail call ptr @EVP_MAC_fetch(ptr noundef %call.i, ptr noundef nonnull @.str.4, ptr noundef null) #3
@@ -454,7 +454,7 @@ declare i32 @EVP_MAC_CTX_set_params(ptr noundef, ptr noundef) local_unnamed_addr
 declare ptr @EVP_MAC_settable_ctx_params(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

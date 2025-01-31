@@ -128,7 +128,7 @@ define internal noundef zeroext i8 @clearCommand(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @clearAllBreakpoints(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal noundef zeroext i8 @clearAllBreakpoints(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call i32 @eventHandler_freeAll(i32 noundef 2) #2
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4

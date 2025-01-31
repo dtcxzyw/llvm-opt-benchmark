@@ -27691,7 +27691,7 @@ list_length.exit9649.thread:                      ; preds = %12478, %list_length
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
@@ -27727,12 +27727,12 @@ declare ptr @makeBoolean(i1 noundef zeroext) local_unnamed_addr #2
 declare ptr @makeInteger(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @makeAConst(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @makeAConst(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4
   switch i32 %3, label %17 [
     i32 449, label %4
@@ -27998,7 +27998,7 @@ list_length.exit.thread:                          ; preds = %3, %list_length.exi
 declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SplitColQualList(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef initializes((0, 8)) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @SplitColQualList(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) initializes((0, 8)) %2, ptr noundef %3) unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   %.not29 = icmp eq ptr %0, null
   br i1 %.not29, label %._crit_edge, label %.lr.ph
@@ -28102,7 +28102,7 @@ define internal fastcc range(i32 104, 115) i32 @parsePartitionStrategy(ptr nound
 declare ptr @makeFloat(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @doNegateFloat(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @doNegateFloat(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 1
@@ -28804,7 +28804,7 @@ define internal fastcc noundef ptr @check_indirection(ptr noundef readonly retur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @insertSelectOptions(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @insertSelectOptions(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %17, label %7
 
@@ -29324,7 +29324,7 @@ declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @makeJsonKeyValue(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @parser_init(ptr nocapture noundef writeonly initializes((128, 136)) %0) local_unnamed_addr #6 {
+define dso_local void @parser_init(ptr noundef writeonly captures(none) initializes((128, 136)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr null, ptr %2, align 8
   ret void
@@ -29359,7 +29359,7 @@ declare void @llvm.assume(i1 noundef) #7
 declare i64 @llvm.smin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #8

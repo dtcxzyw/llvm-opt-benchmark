@@ -230,7 +230,7 @@ define hidden void @_ZN10MemoryPoolC2EPKcNS_8PoolTypeEmmbb(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK10MemoryPool7is_poolE14instanceHandle(ptr noundef nonnull align 8 dereferenceable(201) %0, ptr readonly %1) local_unnamed_addr #0 align 2 {
@@ -271,7 +271,7 @@ _ZNK9OopHandle7resolveEv.exit:                    ; preds = %_ZNK14instanceHandl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN10MemoryPool11add_managerEP13MemoryManager(ptr nocapture noundef nonnull align 8 dereferenceable(201) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN10MemoryPool11add_managerEP13MemoryManager(ptr noundef nonnull align 8 captures(none) dereferenceable(201) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i32, ptr %3, align 8
   %5 = icmp slt i32 %4, 5
@@ -481,7 +481,7 @@ declare noundef ptr @_ZN10Management44sun_management_ManagementFactoryHelper_kla
 declare ptr @_ZN16java_lang_String15create_from_strEPKcP10JavaThread(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -523,7 +523,7 @@ define hidden void @_ZN10MemoryPool24record_peak_memory_usageEv(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10MemoryPool20set_usage_sensor_objE14instanceHandle(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(201) initializes((176, 184)) %0, ptr readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10MemoryPool20set_usage_sensor_objE14instanceHandle(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(201) initializes((176, 184)) %0, ptr readonly %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 64, i8 noundef zeroext 9, i32 noundef 0) #10
   tail call void @_ZN10SensorInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #10
   %4 = icmp eq ptr %1, null
@@ -542,7 +542,7 @@ _ZL17set_sensor_obj_atPP10SensorInfo14instanceHandle.exit: ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10MemoryPool23set_gc_usage_sensor_objE14instanceHandle(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(201) initializes((184, 192)) %0, ptr readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10MemoryPool23set_gc_usage_sensor_objE14instanceHandle(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(201) initializes((184, 192)) %0, ptr readonly %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 64, i8 noundef zeroext 9, i32 noundef 0) #10
   tail call void @_ZN10SensorInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #10
   %4 = icmp eq ptr %1, null
@@ -617,7 +617,7 @@ declare noundef i64 @_ZNK8CodeHeap8capacityEv(ptr noundef nonnull align 8 derefe
 declare noundef i64 @_ZNK8CodeHeap12max_capacityEv(ptr noundef nonnull align 8 dereferenceable(336)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12CodeHeapPool16get_memory_usageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN12CodeHeapPool16get_memory_usageEv(ptr dead_on_unwind noalias writable writeonly sret(%class.MemoryUsage) align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
@@ -700,7 +700,7 @@ define hidden void @_ZN13MetaspacePoolC2Ev(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK13MetaspacePool18calculate_max_sizeEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(201) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK13MetaspacePool18calculate_max_sizeEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(201) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 783) #10
   %3 = load i64, ptr @MaxMetaspaceSize, align 8
   %spec.select = select i1 %2, i64 -1, i64 %3
@@ -708,7 +708,7 @@ define hidden noundef i64 @_ZNK13MetaspacePool18calculate_max_sizeEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13MetaspacePool16get_memory_usageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(201) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN13MetaspacePool16get_memory_usageEv(ptr dead_on_unwind noalias writable writeonly sret(%class.MemoryUsage) align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(201) %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.MetaspaceCombinedStats, align 8
   call void @_ZN14MetaspaceUtils23get_combined_statisticsEv(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceCombinedStats) align 8 %3) #10
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -734,7 +734,7 @@ define hidden void @_ZN13MetaspacePool16get_memory_usageEv(ptr dead_on_unwind no
 declare void @_ZN14MetaspaceUtils23get_combined_statisticsEv(ptr dead_on_unwind writable sret(%class.MetaspaceCombinedStats) align 8) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i64 0, -7) i64 @_ZN13MetaspacePool13used_in_bytesEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, -7) i64 @_ZN13MetaspacePool13used_in_bytesEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef i64 @_ZN14MetaspaceUtils10used_wordsEv() #10
   %3 = shl i64 %2, 3
   ret i64 %3
@@ -787,14 +787,14 @@ define hidden void @_ZN24CompressedKlassSpacePoolC2Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i64 0, -7) i64 @_ZN24CompressedKlassSpacePool13used_in_bytesEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, -7) i64 @_ZN24CompressedKlassSpacePool13used_in_bytesEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef i64 @_ZN14MetaspaceUtils10used_wordsEN9Metaspace12MetadataTypeE(i32 noundef 0) #10
   %3 = shl i64 %2, 3
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24CompressedKlassSpacePool16get_memory_usageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(201) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN24CompressedKlassSpacePool16get_memory_usageEv(ptr dead_on_unwind noalias writable writeonly sret(%class.MemoryUsage) align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(201) %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.MetaspaceStats, align 8
   call void @_ZN14MetaspaceUtils14get_statisticsEN9Metaspace12MetadataTypeE(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceStats) align 8 %3, i32 noundef 0) #10
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24

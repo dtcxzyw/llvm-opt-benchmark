@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden ptr @pm_static_literals_add(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden ptr @pm_static_literals_add(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %5 = load i16, ptr %4, align 2
   %6 = and i16 %5, 16384
@@ -191,7 +191,7 @@ pm_node_hash_insert.exit:                         ; preds = %._crit_edge59.i, %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @pm_node_hash_insert(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc ptr @pm_node_hash_insert(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = shl i32 %6, 1
@@ -478,7 +478,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @pm_compare_string_nodes(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal i32 @pm_compare_string_nodes(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = load i16, ptr %1, align 8
   switch i16 %4, label %pm_string_value.exit [
     i16 139, label %5
@@ -526,7 +526,7 @@ pm_string_value.exit5:                            ; preds = %pm_string_value.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @pm_compare_regular_expression_nodes(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal i32 @pm_compare_regular_expression_nodes(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %6 = tail call i32 @pm_string_compare(ptr noundef nonnull %4, ptr noundef nonnull %5) #7
@@ -547,7 +547,7 @@ define internal i32 @pm_compare_regular_expression_nodes(ptr nocapture readnone 
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden void @pm_static_literals_free(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden void @pm_static_literals_free(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %.not.i = icmp eq i32 %3, 0
@@ -1136,7 +1136,7 @@ murmur_hash.exit146:                              ; preds = %.lr.ph43.i140, %._c
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare i64 @pm_newline_list_line_column(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 

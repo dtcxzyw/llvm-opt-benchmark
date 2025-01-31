@@ -457,7 +457,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -790,7 +790,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @udbg_enumByName(i32 noundef %type, ptr nocapture noundef readonly %value) local_unnamed_addr #8 {
+define i32 @udbg_enumByName(i32 noundef %type, ptr noundef readonly captures(none) %value) local_unnamed_addr #8 {
 entry:
   %or.cond = icmp ult i32 %type, 6
   br i1 %or.cond, label %switch.lookup, label %return
@@ -852,7 +852,7 @@ return:                                           ; preds = %for.cond15, %return
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @udbg_getPlatform() local_unnamed_addr #7 {
@@ -861,7 +861,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @paramEmpty(ptr nocapture noundef readnone %0, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %status) local_unnamed_addr #1 {
+define i32 @paramEmpty(ptr noundef readnone captures(none) %0, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %status) local_unnamed_addr #1 {
 entry:
   %1 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %1, 1
@@ -879,7 +879,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @u_terminateChars_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define i32 @paramStatic(ptr nocapture noundef readonly %param, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %status) #1 {
+define i32 @paramStatic(ptr noundef readonly captures(none) %param, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %status) #1 {
 entry:
   %paramStr = getelementptr inbounds nuw i8, ptr %param, i64 16
   %0 = load ptr, ptr %paramStr, align 8
@@ -917,15 +917,15 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #10
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #10
 
 declare i32 @uprv_min_75(i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @paramInteger(ptr nocapture noundef readonly %param, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %status) #1 {
+define noundef i32 @paramInteger(ptr noundef readonly captures(none) %param, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %status) #1 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1011,7 +1011,7 @@ if.end18.sink.split.i:                            ; preds = %if.else.i, %if.then
   %call9.sink.i = phi ptr [ %str, %if.then2.i ], [ %call9.i, %if.else.i ]
   %call14.i = call i32 @uprv_min_75(i32 noundef %conv11.sink.i, i32 noundef %targetCapacity)
   %conv15.i = sext i32 %call14.i to i64
-  %call16.i = call ptr @strncpy(ptr noundef nonnull %target, ptr noundef %call9.sink.i, i64 noundef %conv15.i) #22
+  %call16.i = call ptr @strncpy(ptr noundef nonnull %target, ptr noundef nonnull %call9.sink.i, i64 noundef %conv15.i) #22
   br label %_ZL20stringToStringBufferPciPKcP10UErrorCode.exit
 
 _ZL20stringToStringBufferPciPKcP10UErrorCode.exit: ; preds = %if.then2.i, %if.else.i, %if.end18.sink.split.i
@@ -1025,7 +1025,7 @@ return:                                           ; preds = %entry, %_ZL20string
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @paramCldrVersion(ptr nocapture readnone %0, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %status) #1 {
+define noundef i32 @paramCldrVersion(ptr readnone captures(none) %0, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %status) #1 {
 entry:
   %str = alloca [200 x i8], align 16
   %icu = alloca [4 x i8], align 1
@@ -1064,7 +1064,7 @@ if.end18.sink.split.i:                            ; preds = %if.else.i, %if.then
   %call9.sink.i = phi ptr [ %str, %if.then2.i ], [ %call9.i, %if.else.i ]
   %call14.i = call i32 @uprv_min_75(i32 noundef %conv11.sink.i, i32 noundef %targetCapacity)
   %conv15.i = sext i32 %call14.i to i64
-  %call16.i = call ptr @strncpy(ptr noundef nonnull %target, ptr noundef %call9.sink.i, i64 noundef %conv15.i) #22
+  %call16.i = call ptr @strncpy(ptr noundef nonnull %target, ptr noundef nonnull %call9.sink.i, i64 noundef %conv15.i) #22
   br label %_ZL20stringToStringBufferPciPKcP10UErrorCode.exit
 
 _ZL20stringToStringBufferPciPKcP10UErrorCode.exit: ; preds = %if.then2.i, %if.else.i, %if.end18.sink.split.i
@@ -1078,14 +1078,14 @@ return:                                           ; preds = %if.end, %entry, %_Z
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare void @ulocdata_getCLDRVersion_75(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 declare void @u_versionToString_75(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @paramTimezoneDefault(ptr nocapture readnone %0, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %status) #1 {
+define noundef i32 @paramTimezoneDefault(ptr readnone captures(none) %0, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %status) #1 {
 entry:
   %buf = alloca [100 x i16], align 16
   %buf2 = alloca [100 x i8], align 16
@@ -1126,7 +1126,7 @@ if.end18.sink.split.i:                            ; preds = %if.else.i, %if.then
   %call9.sink.i = phi ptr [ %buf2, %if.then2.i ], [ %call9.i, %if.else.i ]
   %call14.i = call i32 @uprv_min_75(i32 noundef %conv11.sink.i, i32 noundef %targetCapacity)
   %conv15.i = sext i32 %call14.i to i64
-  %call16.i = call ptr @strncpy(ptr noundef nonnull %target, ptr noundef %call9.sink.i, i64 noundef %conv15.i) #22
+  %call16.i = call ptr @strncpy(ptr noundef nonnull %target, ptr noundef nonnull %call9.sink.i, i64 noundef %conv15.i) #22
   br label %_ZL20stringToStringBufferPciPKcP10UErrorCode.exit
 
 _ZL20stringToStringBufferPciPKcP10UErrorCode.exit: ; preds = %if.then2.i, %if.else.i, %if.end18.sink.split.i
@@ -1144,7 +1144,7 @@ declare i32 @ucal_getDefaultTimeZone_75(ptr noundef, i32 noundef, ptr noundef) l
 declare void @u_UCharsToChars_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define i32 @paramLocaleDefaultBcp47(ptr nocapture readnone %0, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %status) #1 {
+define i32 @paramLocaleDefaultBcp47(ptr readnone captures(none) %0, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %status) #1 {
 entry:
   %1 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %1, 1
@@ -1165,7 +1165,7 @@ declare ptr @uloc_getDefault_75() local_unnamed_addr #6
 declare i32 @uloc_toLanguageTag_75(ptr noundef, ptr noundef, i32 noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @paramIcudataPath(ptr nocapture readnone %0, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %status) #1 {
+define noundef i32 @paramIcudataPath(ptr readnone captures(none) %0, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %status) #1 {
 entry:
   %call = tail call ptr @u_getDataDirectory_75()
   %1 = load i32, ptr %status, align 4
@@ -1192,7 +1192,7 @@ if.end18.sink.split.i:                            ; preds = %if.else.i, %if.then
   %call9.sink.i = phi ptr [ %spec.select.i, %if.then2.i ], [ %call9.i, %if.else.i ]
   %call14.i = tail call i32 @uprv_min_75(i32 noundef %conv11.sink.i, i32 noundef %targetCapacity)
   %conv15.i = sext i32 %call14.i to i64
-  %call16.i = tail call ptr @strncpy(ptr noundef nonnull %target, ptr noundef %call9.sink.i, i64 noundef %conv15.i) #22
+  %call16.i = tail call ptr @strncpy(ptr noundef nonnull %target, ptr noundef nonnull %call9.sink.i, i64 noundef %conv15.i) #22
   br label %_ZL20stringToStringBufferPciPKcP10UErrorCode.exit
 
 _ZL20stringToStringBufferPciPKcP10UErrorCode.exit: ; preds = %if.then2.i, %if.else.i, %if.end18.sink.split.i
@@ -1204,7 +1204,7 @@ _ZL20stringToStringBufferPciPKcP10UErrorCode.exit: ; preds = %if.then2.i, %if.el
 declare ptr @u_getDataDirectory_75() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @paramPlatform(ptr nocapture readnone %0, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %status) #1 {
+define noundef i32 @paramPlatform(ptr readnone captures(none) %0, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %status) #1 {
 entry:
   %1 = load i32, ptr %status, align 4
   %cmp.i.i = icmp sgt i32 %1, 0
@@ -1226,7 +1226,7 @@ if.end18.sink.split.i:                            ; preds = %if.else.i, %if.then
   %call9.sink.i = phi ptr [ @.str, %if.then2.i ], [ %call9.i, %if.else.i ]
   %call14.i = tail call i32 @uprv_min_75(i32 noundef %conv11.sink.i, i32 noundef %targetCapacity)
   %conv15.i = sext i32 %call14.i to i64
-  %call16.i = tail call ptr @strncpy(ptr noundef nonnull %target, ptr noundef %call9.sink.i, i64 noundef %conv15.i) #22
+  %call16.i = tail call ptr @strncpy(ptr noundef nonnull %target, ptr noundef nonnull %call9.sink.i, i64 noundef %conv15.i) #22
   br label %_ZL20stringToStringBufferPciPKcP10UErrorCode.exit
 
 _ZL20stringToStringBufferPciPKcP10UErrorCode.exit: ; preds = %if.then2.i, %if.else.i, %if.end18.sink.split.i
@@ -1236,7 +1236,7 @@ _ZL20stringToStringBufferPciPKcP10UErrorCode.exit: ; preds = %if.then2.i, %if.el
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @paramLocaleDefault(ptr nocapture readnone %0, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %status) #1 {
+define noundef i32 @paramLocaleDefault(ptr readnone captures(none) %0, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %status) #1 {
 entry:
   %call = tail call ptr @uloc_getDefault_75()
   %1 = load i32, ptr %status, align 4
@@ -1263,7 +1263,7 @@ if.end18.sink.split.i:                            ; preds = %if.else.i, %if.then
   %call9.sink.i = phi ptr [ %spec.select.i, %if.then2.i ], [ %call9.i, %if.else.i ]
   %call14.i = tail call i32 @uprv_min_75(i32 noundef %conv11.sink.i, i32 noundef %targetCapacity)
   %conv15.i = sext i32 %call14.i to i64
-  %call16.i = tail call ptr @strncpy(ptr noundef nonnull %target, ptr noundef %call9.sink.i, i64 noundef %conv15.i) #22
+  %call16.i = tail call ptr @strncpy(ptr noundef nonnull %target, ptr noundef nonnull %call9.sink.i, i64 noundef %conv15.i) #22
   br label %_ZL20stringToStringBufferPciPKcP10UErrorCode.exit
 
 _ZL20stringToStringBufferPciPKcP10UErrorCode.exit: ; preds = %if.then2.i, %if.else.i, %if.end18.sink.split.i
@@ -1273,7 +1273,7 @@ _ZL20stringToStringBufferPciPKcP10UErrorCode.exit: ; preds = %if.then2.i, %if.el
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @paramConverterDefault(ptr nocapture readnone %0, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %status) #1 {
+define noundef i32 @paramConverterDefault(ptr readnone captures(none) %0, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %status) #1 {
 entry:
   %call = tail call ptr @ucnv_getDefaultName_75()
   %1 = load i32, ptr %status, align 4
@@ -1300,7 +1300,7 @@ if.end18.sink.split.i:                            ; preds = %if.else.i, %if.then
   %call9.sink.i = phi ptr [ %spec.select.i, %if.then2.i ], [ %call9.i, %if.else.i ]
   %call14.i = tail call i32 @uprv_min_75(i32 noundef %conv11.sink.i, i32 noundef %targetCapacity)
   %conv15.i = sext i32 %call14.i to i64
-  %call16.i = tail call ptr @strncpy(ptr noundef nonnull %target, ptr noundef %call9.sink.i, i64 noundef %conv15.i) #22
+  %call16.i = tail call ptr @strncpy(ptr noundef nonnull %target, ptr noundef nonnull %call9.sink.i, i64 noundef %conv15.i) #22
   br label %_ZL20stringToStringBufferPciPKcP10UErrorCode.exit
 
 _ZL20stringToStringBufferPciPKcP10UErrorCode.exit: ; preds = %if.then2.i, %if.else.i, %if.end18.sink.split.i
@@ -1312,7 +1312,7 @@ _ZL20stringToStringBufferPciPKcP10UErrorCode.exit: ; preds = %if.then2.i, %if.el
 declare ptr @ucnv_getDefaultName_75() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @paramTimezoneVersion(ptr nocapture readnone %0, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %status) #1 {
+define noundef i32 @paramTimezoneVersion(ptr readnone captures(none) %0, ptr noundef %target, i32 noundef %targetCapacity, ptr noundef %status) #1 {
 entry:
   %call = tail call ptr @ucal_getTZDataVersion_75(ptr noundef %status)
   %1 = load i32, ptr %status, align 4
@@ -1339,7 +1339,7 @@ if.end18.sink.split.i:                            ; preds = %if.else.i, %if.then
   %call9.sink.i = phi ptr [ %spec.select.i, %if.then2.i ], [ %call9.i, %if.else.i ]
   %call14.i = tail call i32 @uprv_min_75(i32 noundef %conv11.sink.i, i32 noundef %targetCapacity)
   %conv15.i = sext i32 %call14.i to i64
-  %call16.i = tail call ptr @strncpy(ptr noundef nonnull %target, ptr noundef %call9.sink.i, i64 noundef %conv15.i) #22
+  %call16.i = tail call ptr @strncpy(ptr noundef nonnull %target, ptr noundef nonnull %call9.sink.i, i64 noundef %conv15.i) #22
   br label %_ZL20stringToStringBufferPciPKcP10UErrorCode.exit
 
 _ZL20stringToStringBufferPciPKcP10UErrorCode.exit: ; preds = %if.then2.i, %if.else.i, %if.end18.sink.split.i
@@ -1387,7 +1387,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @udbg_writeIcuInfo(ptr nocapture noundef %out) local_unnamed_addr #1 {
+define void @udbg_writeIcuInfo(ptr noundef captures(none) %out) local_unnamed_addr #1 {
 entry:
   %str = alloca [2000 x i8], align 16
   %status2 = alloca i32, align 4
@@ -1430,7 +1430,7 @@ for.end:                                          ; preds = %for.inc, %udbg_getS
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 declare ptr @u_errorName_75(i32 noundef) local_unnamed_addr #6
 
@@ -4489,7 +4489,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #21

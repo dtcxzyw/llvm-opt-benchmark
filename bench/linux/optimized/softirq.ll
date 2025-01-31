@@ -335,7 +335,7 @@ module asm ".previous\09\09\09\09\09"
 declare dso_local i32 @__SCT__tp_func_irq_handler_entry(ptr noundef, i32 noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_irq_handler_entry(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_irq_handler_entry(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_irq_handler_entry, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -356,21 +356,21 @@ define dso_local noundef i32 @__traceiter_irq_handler_entry(ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_irq_handler_entry(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2) #2 align 16 {
+define dso_local void @__probestub_irq_handler_entry(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__SCT__tp_func_irq_handler_exit(ptr noundef, i32 noundef, ptr noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_irq_handler_exit(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local noundef i32 @__traceiter_irq_handler_exit(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #1 align 16 {
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_irq_handler_exit, i64 72), align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %.preheader
@@ -391,7 +391,7 @@ define dso_local noundef i32 @__traceiter_irq_handler_exit(ptr nocapture readnon
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_irq_handler_exit(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2, i32 %3) #2 align 16 {
+define dso_local void @__probestub_irq_handler_exit(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, i32 %3) #2 align 16 {
   ret void
 }
 
@@ -399,7 +399,7 @@ define dso_local void @__probestub_irq_handler_exit(ptr nocapture readnone %0, i
 declare dso_local i32 @__SCT__tp_func_softirq_entry(ptr noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_softirq_entry(ptr nocapture readnone %0, i32 noundef %1) #1 align 16 {
+define dso_local noundef i32 @__traceiter_softirq_entry(ptr readnone captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_softirq_entry, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -420,7 +420,7 @@ define dso_local noundef i32 @__traceiter_softirq_entry(ptr nocapture readnone %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_softirq_entry(ptr nocapture readnone %0, i32 %1) #2 align 16 {
+define dso_local void @__probestub_softirq_entry(ptr readnone captures(none) %0, i32 %1) #2 align 16 {
   ret void
 }
 
@@ -428,7 +428,7 @@ define dso_local void @__probestub_softirq_entry(ptr nocapture readnone %0, i32 
 declare dso_local i32 @__SCT__tp_func_softirq_exit(ptr noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_softirq_exit(ptr nocapture readnone %0, i32 noundef %1) #1 align 16 {
+define dso_local noundef i32 @__traceiter_softirq_exit(ptr readnone captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_softirq_exit, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -449,7 +449,7 @@ define dso_local noundef i32 @__traceiter_softirq_exit(ptr nocapture readnone %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_softirq_exit(ptr nocapture readnone %0, i32 %1) #2 align 16 {
+define dso_local void @__probestub_softirq_exit(ptr readnone captures(none) %0, i32 %1) #2 align 16 {
   ret void
 }
 
@@ -457,7 +457,7 @@ define dso_local void @__probestub_softirq_exit(ptr nocapture readnone %0, i32 %
 declare dso_local i32 @__SCT__tp_func_softirq_raise(ptr noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_softirq_raise(ptr nocapture readnone %0, i32 noundef %1) #1 align 16 {
+define dso_local noundef i32 @__traceiter_softirq_raise(ptr readnone captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_softirq_raise, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -478,7 +478,7 @@ define dso_local noundef i32 @__traceiter_softirq_raise(ptr nocapture readnone %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_softirq_raise(ptr nocapture readnone %0, i32 %1) #2 align 16 {
+define dso_local void @__probestub_softirq_raise(ptr readnone captures(none) %0, i32 %1) #2 align 16 {
   ret void
 }
 
@@ -486,7 +486,7 @@ define dso_local void @__probestub_softirq_raise(ptr nocapture readnone %0, i32 
 declare dso_local i32 @__SCT__tp_func_tasklet_entry(ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_tasklet_entry(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_tasklet_entry(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_tasklet_entry, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -507,7 +507,7 @@ define dso_local noundef i32 @__traceiter_tasklet_entry(ptr nocapture readnone %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_tasklet_entry(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 align 16 {
+define dso_local void @__probestub_tasklet_entry(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 align 16 {
   ret void
 }
 
@@ -515,7 +515,7 @@ define dso_local void @__probestub_tasklet_entry(ptr nocapture readnone %0, ptr 
 declare dso_local i32 @__SCT__tp_func_tasklet_exit(ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_tasklet_exit(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_tasklet_exit(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_tasklet_exit, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -536,12 +536,12 @@ define dso_local noundef i32 @__traceiter_tasklet_exit(ptr nocapture readnone %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_tasklet_exit(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 align 16 {
+define dso_local void @__probestub_tasklet_exit(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_irq_handler_entry(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define internal void @trace_event_raw_event_irq_handler_entry(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #1 align 16 {
   %4 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -595,7 +595,7 @@ define internal void @trace_event_raw_event_irq_handler_entry(ptr noundef %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_irq_handler_entry(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define internal void @perf_trace_irq_handler_entry(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #1 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
@@ -673,7 +673,7 @@ declare dso_local i32 @trace_event_reg(ptr noundef, i32 noundef, ptr noundef) #0
 declare dso_local i32 @trace_event_raw_init(ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_irq_handler_exit(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, i32 noundef %3) #1 align 16 {
+define internal void @trace_event_raw_event_irq_handler_exit(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, i32 noundef %3) #1 align 16 {
   %5 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -711,7 +711,7 @@ define internal void @trace_event_raw_event_irq_handler_exit(ptr noundef %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_irq_handler_exit(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, i32 noundef %3) #1 align 16 {
+define internal void @perf_trace_irq_handler_exit(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, i32 noundef %3) #1 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
@@ -1929,7 +1929,7 @@ define dso_local void @tasklet_kill(ptr noundef %0) #1 align 16 {
 declare dso_local ptr @__var_waitqueue(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @init_wait_var_entry(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
@@ -2036,7 +2036,7 @@ define dso_local void @softirq_init() local_unnamed_addr #11 section ".init.text
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @tasklet_action(ptr nocapture readnone %0) #1 align 16 {
+define internal void @tasklet_action(ptr readnone captures(none) %0) #1 align 16 {
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tasklet_vec) #19, !srcloc !98
   %3 = inttoptr i64 %2 to ptr
   tail call fastcc void @tasklet_action_common(ptr noundef %3, i32 noundef 6)
@@ -2044,7 +2044,7 @@ define internal void @tasklet_action(ptr nocapture readnone %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @tasklet_hi_action(ptr nocapture readnone %0) #1 align 16 {
+define internal void @tasklet_hi_action(ptr readnone captures(none) %0) #1 align 16 {
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tasklet_hi_vec) #19, !srcloc !99
   %3 = inttoptr i64 %2 to ptr
   tail call fastcc void @tasklet_action_common(ptr noundef %3, i32 noundef 0)
@@ -2091,7 +2091,7 @@ define weak dso_local i32 @arch_dynirq_lower_bound(i32 noundef %0) local_unnamed
 declare dso_local ptr @trace_event_buffer_reserve(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #13
+declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @trace_event_buffer_commit(ptr noundef) local_unnamed_addr #0
@@ -2100,7 +2100,7 @@ declare dso_local void @trace_event_buffer_commit(ptr noundef) local_unnamed_add
 declare dso_local zeroext i1 @__trace_trigger_soft_disabled(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @trace_raw_output_irq_handler_entry(ptr noundef %0, i32 %1, ptr noundef %2) #1 align 16 {

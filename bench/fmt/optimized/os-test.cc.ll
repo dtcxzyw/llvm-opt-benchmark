@@ -1439,7 +1439,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #5
@@ -1456,7 +1456,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %0 = load ptr, ptr @file_content, align 8
   %call = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #25
-  %call2 = invoke noundef i64 @_ZN3fmt3v104file5writeEPKvm(ptr noundef nonnull align 4 dereferenceable(4) %write_end, ptr noundef %0, i64 noundef %call)
+  %call2 = invoke noundef i64 @_ZN3fmt3v104file5writeEPKvm(ptr noundef nonnull align 4 dereferenceable(4) %write_end, ptr noundef nonnull %0, i64 noundef %call)
           to label %invoke.cont1 unwind label %lpad
 
 invoke.cont1:                                     ; preds = %invoke.cont
@@ -1482,7 +1482,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef i64 @_ZN3fmt3v104file5writeEPKvm(ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @_ZN3fmt3v104file5closeEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
@@ -1611,7 +1611,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN36buffered_file_test_default_ctor_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN36buffered_file_test_default_ctor_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %f = alloca %"class.fmt::v10::buffered_file", align 8
   store ptr null, ptr %f, align 8
@@ -1655,7 +1655,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 declare void @_ZN3fmt3v1013buffered_fileD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN33buffered_file_test_move_ctor_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN33buffered_file_test_move_ctor_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bf = alloca %"class.fmt::v10::buffered_file", align 8
   %fp = alloca ptr, align 8
@@ -2009,7 +2009,7 @@ ehcleanup68:                                      ; preds = %ehcleanup67, %ehcle
 declare void @_Z18open_buffered_filePP8_IO_FILE(ptr sret(%"class.fmt::v10::buffered_file") align 8, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN39buffered_file_test_move_assignment_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN39buffered_file_test_move_assignment_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bf = alloca %"class.fmt::v10::buffered_file", align 8
   %fp = alloca ptr, align 8
@@ -2366,7 +2366,7 @@ ehcleanup70:                                      ; preds = %ehcleanup69, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN51buffered_file_test_move_assignment_closes_file_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN51buffered_file_test_move_assignment_closes_file_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i = alloca i8, align 1
   %bf = alloca %"class.fmt::v10::buffered_file", align 8
@@ -2539,7 +2539,7 @@ ehcleanup26:                                      ; preds = %ehcleanup25, %lpad
 declare noundef i32 @_ZNK3fmt3v1013buffered_file10descriptorEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN51buffered_file_test_move_from_temporary_in_ctor_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN51buffered_file_test_move_from_temporary_in_ctor_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fp = alloca ptr, align 8
   %f = alloca %"class.fmt::v10::buffered_file", align 8
@@ -2674,7 +2674,7 @@ ehcleanup15:                                      ; preds = %ehcleanup14, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN57buffered_file_test_move_from_temporary_in_assignment_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN57buffered_file_test_move_from_temporary_in_assignment_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fp = alloca ptr, align 8
   %f = alloca %"class.fmt::v10::buffered_file", align 8
@@ -2828,7 +2828,7 @@ ehcleanup20:                                      ; preds = %ehcleanup19, %lpad2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN69buffered_file_test_move_from_temporary_in_assignment_closes_file_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN69buffered_file_test_move_from_temporary_in_assignment_closes_file_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i = alloca i8, align 1
   %f = alloca %"class.fmt::v10::buffered_file", align 8
@@ -2995,7 +2995,7 @@ ehcleanup26:                                      ; preds = %ehcleanup25, %lpad3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN42buffered_file_test_close_file_in_dtor_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN42buffered_file_test_close_file_in_dtor_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i = alloca i8, align 1
   %f = alloca %"class.fmt::v10::buffered_file", align 8
@@ -3140,7 +3140,7 @@ eh.resume:                                        ; preds = %ehcleanup18, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN43buffered_file_test_close_error_in_dtor_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN43buffered_file_test_close_error_in_dtor_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i91 = alloca %"class.testing::Message", align 8
   %ref.tmp.i72 = alloca %"class.testing::Message", align 8
@@ -3925,7 +3925,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN29buffered_file_test_close_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN29buffered_file_test_close_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i = alloca i8, align 1
   %f = alloca %"class.fmt::v10::buffered_file", align 8
@@ -4183,7 +4183,7 @@ ehcleanup48:                                      ; preds = %ehcleanup47, %ehcle
 declare void @_ZN3fmt3v1013buffered_file5closeEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN35buffered_file_test_close_error_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN35buffered_file_test_close_error_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.testing::Message", align 8
   %f = alloca %"class.fmt::v10::buffered_file", align 8
@@ -4774,7 +4774,7 @@ _ZN7testing7MessageD2Ev.exit6:                    ; preds = %lpad, %_ZNKSt14defa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN34buffered_file_test_descriptor_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN34buffered_file_test_descriptor_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %f = alloca %"class.fmt::v10::buffered_file", align 8
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
@@ -4904,7 +4904,7 @@ invoke.cont21:                                    ; preds = %invoke.cont19
           to label %invoke.cont27 unwind label %lpad24
 
 invoke.cont27:                                    ; preds = %invoke.cont21
-  %call.i.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22, ptr noundef %9) #26, !noalias !27
+  %call.i.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22, ptr noundef nonnull %9) #26, !noalias !27
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -5049,7 +5049,7 @@ declare void @_ZN3fmt3v104file3dupEi(ptr sret(%"class.fmt::v10::file") align 4, 
 declare void @_Z4readB5cxx11RN3fmt3v104fileEm(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 4 dereferenceable(4), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN22ostream_test_move_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN22ostream_test_move_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i4 = alloca %"class.fmt::v10::format_arg_store", align 16
   %ref.tmp.i = alloca %"struct.fmt::v10::detail::ostream_params", align 8
@@ -5096,7 +5096,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 declare void @_ZN3fmt3v107ostreamD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN41ostream_test_move_while_holding_data_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN41ostream_test_move_while_holding_data_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i15 = alloca %"class.fmt::v10::format_arg_store", align 16
   %ref.tmp.i13 = alloca %"class.fmt::v10::format_arg_store", align 16
@@ -5289,7 +5289,7 @@ eh.resume:                                        ; preds = %ehcleanup33, %ehcle
 declare void @_ZN3fmt3v104fileC1ENS0_18basic_cstring_viewIcEEi(ptr noundef nonnull align 4 dereferenceable(4), ptr, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN23ostream_test_print_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN23ostream_test_print_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont7:
   %ref.tmp.i11 = alloca %"class.fmt::v10::format_arg_store.88", align 16
   %ref.tmp.i = alloca %"struct.fmt::v10::detail::ostream_params", align 8
@@ -5497,7 +5497,7 @@ ehcleanup35:                                      ; preds = %ehcleanup34, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN33ostream_test_buffer_boundary_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN33ostream_test_buffer_boundary_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i19 = alloca %"class.fmt::v10::format_arg_store.104", align 16
   %ref.tmp.i16 = alloca %"class.fmt::v10::format_arg_store.104", align 16
@@ -5804,7 +5804,7 @@ eh.resume:                                        ; preds = %ehcleanup47, %lpad.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN29ostream_test_buffer_size_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN29ostream_test_buffer_size_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i9 = alloca %"class.fmt::v10::format_arg_store.105", align 16
   %ref.tmp.i = alloca %"struct.fmt::v10::detail::ostream_params", align 8
@@ -5998,7 +5998,7 @@ ehcleanup33:                                      ; preds = %ehcleanup32, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN26ostream_test_truncate_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN26ostream_test_truncate_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i13 = alloca %"class.fmt::v10::format_arg_store", align 16
   %ref.tmp.i10 = alloca %"struct.fmt::v10::detail::ostream_params", align 8
@@ -6188,7 +6188,7 @@ eh.resume:                                        ; preds = %ehcleanup29, %lpad8
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN23ostream_test_flush_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN23ostream_test_flush_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i9 = alloca %"class.fmt::v10::format_arg_store", align 16
   %ref.tmp.i = alloca %"struct.fmt::v10::detail::ostream_params", align 8
@@ -6376,7 +6376,7 @@ ehcleanup29:                                      ; preds = %ehcleanup28, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN27file_test_default_ctor_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN27file_test_default_ctor_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i:
   %f = alloca %"class.fmt::v10::file", align 4
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -6497,7 +6497,7 @@ ehcleanup16:                                      ; preds = %ehcleanup15, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN41file_test_open_buffered_file_in_ctor_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN41file_test_open_buffered_file_in_ctor_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %f = alloca %"class.fmt::v10::file", align 4
   %buffer = alloca i8, align 1
@@ -6629,13 +6629,13 @@ ehcleanup25:                                      ; preds = %ehcleanup21, %lpad
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN39file_test_open_buffered_file_error_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN39file_test_open_buffered_file_error_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.testing::Message", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -7038,7 +7038,7 @@ _ZN7testing7MessageD2Ev.exit6:                    ; preds = %lpad, %_ZNKSt14defa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN24file_test_move_ctor_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN24file_test_move_ctor_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %f = alloca %"class.fmt::v10::file", align 4
   %fd = alloca i32, align 4
@@ -7415,7 +7415,7 @@ ehcleanup62:                                      ; preds = %ehcleanup61, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN30file_test_move_assignment_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN30file_test_move_assignment_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %f = alloca %"class.fmt::v10::file", align 4
   %fd = alloca i32, align 4
@@ -7797,7 +7797,7 @@ ehcleanup64:                                      ; preds = %ehcleanup63, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN42file_test_move_assignment_closes_file_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN42file_test_move_assignment_closes_file_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i = alloca i8, align 1
   %f = alloca %"class.fmt::v10::file", align 4
@@ -7965,7 +7965,7 @@ ehcleanup25:                                      ; preds = %ehcleanup24, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z18open_buffered_fileRi(ptr noalias sret(%"class.fmt::v10::file") align 4 initializes((0, 4)) %agg.result, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %fd) local_unnamed_addr #6 {
+define hidden void @_Z18open_buffered_fileRi(ptr noalias sret(%"class.fmt::v10::file") align 4 initializes((0, 4)) %agg.result, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %fd) local_unnamed_addr #6 {
 entry:
   tail call void @_Z9open_filev(ptr sret(%"class.fmt::v10::file") align 4 %agg.result)
   %0 = load i32, ptr %agg.result, align 4
@@ -7974,7 +7974,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN42file_test_move_from_temporary_in_ctor_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN42file_test_move_from_temporary_in_ctor_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i:
   %f = alloca %"class.fmt::v10::file", align 4
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -8095,7 +8095,7 @@ ehcleanup15:                                      ; preds = %ehcleanup14, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN48file_test_move_from_temporary_in_assignment_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN48file_test_move_from_temporary_in_assignment_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fd = alloca i32, align 4
   %f = alloca %"class.fmt::v10::file", align 4
@@ -8251,7 +8251,7 @@ ehcleanup20:                                      ; preds = %ehcleanup19, %lpad2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN60file_test_move_from_temporary_in_assignment_closes_file_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN60file_test_move_from_temporary_in_assignment_closes_file_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i = alloca i8, align 1
   %f = alloca %"class.fmt::v10::file", align 4
@@ -8415,7 +8415,7 @@ ehcleanup25:                                      ; preds = %ehcleanup24, %lpad2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN33file_test_close_file_in_dtor_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN33file_test_close_file_in_dtor_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i = alloca i8, align 1
   %f = alloca %"class.fmt::v10::file", align 4
@@ -8547,7 +8547,7 @@ ehcleanup16:                                      ; preds = %_ZN7testing7Message
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN34file_test_close_error_in_dtor_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN34file_test_close_error_in_dtor_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i91 = alloca %"class.testing::Message", align 8
   %ref.tmp.i72 = alloca %"class.testing::Message", align 8
@@ -9119,7 +9119,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN20file_test_close_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN20file_test_close_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i = alloca i8, align 1
   %f = alloca %"class.fmt::v10::file", align 4
@@ -9383,7 +9383,7 @@ ehcleanup43:                                      ; preds = %ehcleanup42, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN26file_test_close_error_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN26file_test_close_error_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.testing::Message", align 8
   %f = alloca %"class.fmt::v10::file", align 4
@@ -9824,7 +9824,7 @@ terminate.lpad:                                   ; preds = %lpad27, %lpad17
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19file_test_read_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19file_test_read_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %f = alloca %"class.fmt::v10::file", align 4
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -9838,7 +9838,7 @@ entry:
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %entry
-  %call.i.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %0) #26, !noalias !99
+  %call.i.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %0) #26, !noalias !99
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -9968,7 +9968,7 @@ ehcleanup19:                                      ; preds = %ehcleanup18, %lpad4
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN25file_test_read_error_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN25file_test_read_error_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.testing::Message", align 8
   %f = alloca %"class.fmt::v10::file", align 4
@@ -10386,7 +10386,7 @@ _ZN7testing7MessageD2Ev.exit6:                    ; preds = %lpad, %_ZNKSt14defa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN20file_test_write_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN20file_test_write_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %read_end = alloca %"class.fmt::v10::file", align 4
   %write_end = alloca %"class.fmt::v10::file", align 4
@@ -10557,7 +10557,7 @@ ehcleanup23:                                      ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN26file_test_write_error_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN26file_test_write_error_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.testing::Message", align 8
   %f = alloca %"class.fmt::v10::file", align 4
@@ -10878,7 +10878,7 @@ terminate.lpad:                                   ; preds = %lpad25, %lpad15
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18file_test_dup_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18file_test_dup_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %f = alloca %"class.fmt::v10::file", align 4
   %copy = alloca %"class.fmt::v10::file", align 4
@@ -11019,7 +11019,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
           to label %invoke.cont23 unwind label %lpad5
 
 invoke.cont23:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
-  %call.i.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21, ptr noundef %15) #26, !noalias !109
+  %call.i.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21, ptr noundef nonnull %15) #26, !noalias !109
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -11155,7 +11155,7 @@ ehcleanup46:                                      ; preds = %ehcleanup45, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN24file_test_dup_error_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN24file_test_dup_error_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.testing::Message", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -11558,7 +11558,7 @@ _ZN7testing7MessageD2Ev.exit6:                    ; preds = %lpad, %_ZNKSt14defa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19file_test_dup2_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19file_test_dup2_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %f = alloca %"class.fmt::v10::file", align 4
   %copy = alloca %"class.fmt::v10::file", align 4
@@ -11703,7 +11703,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
           to label %invoke.cont26 unwind label %lpad2
 
 invoke.cont26:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
-  %call.i.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22, ptr noundef %15) #26, !noalias !114
+  %call.i.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22, ptr noundef nonnull %15) #26, !noalias !114
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -11841,7 +11841,7 @@ ehcleanup49:                                      ; preds = %ehcleanup48, %lpad
 declare void @_ZN3fmt3v104file4dup2Ei(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN25file_test_dup2_error_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN25file_test_dup2_error_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i11 = alloca %"class.testing::Message", align 8
   %ref.tmp.i = alloca %"class.fmt::v10::format_arg_store.108", align 16
@@ -12233,7 +12233,7 @@ _ZN7testing7MessageD2Ev.exit6:                    ; preds = %lpad, %_ZNKSt14defa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN28file_test_dup2_noexcept_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN28file_test_dup2_noexcept_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %f = alloca %"class.fmt::v10::file", align 4
   %copy = alloca %"class.fmt::v10::file", align 4
@@ -12495,7 +12495,7 @@ _ZN7testing15AssertionResultD2Ev.exit43:          ; preds = %if.end41, %_ZNKSt14
           to label %invoke.cont48 unwind label %lpad4
 
 invoke.cont48:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit43
-  %call.i.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44, ptr noundef %26) #26, !noalias !122
+  %call.i.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44, ptr noundef nonnull %26) #26, !noalias !122
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i.i47, label %if.end.i.i46
 
@@ -12634,7 +12634,7 @@ ehcleanup71:                                      ; preds = %ehcleanup70, %lpad
 declare void @_ZN3fmt3v104file4dup2EiRSt10error_code(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN34file_test_dup2_noexcept_error_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN34file_test_dup2_noexcept_error_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %f = alloca %"class.fmt::v10::file", align 4
   %ec = alloca %"class.std::error_code", align 8
@@ -12774,7 +12774,7 @@ ehcleanup16:                                      ; preds = %ehcleanup15, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19file_test_pipe_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19file_test_pipe_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %read_end = alloca %"class.fmt::v10::file", align 4
   %write_end = alloca %"class.fmt::v10::file", align 4
@@ -13174,7 +13174,7 @@ ehcleanup69:                                      ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN21file_test_fdopen_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN21file_test_fdopen_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %read_end = alloca %"class.fmt::v10::file", align 4
   %write_end = alloca %"class.fmt::v10::file", align 4
@@ -13330,7 +13330,7 @@ ehcleanup21:                                      ; preds = %ehcleanup20, %lpad6
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @_ZN3fmt3v104file6fdopenEPKc(ptr sret(%"class.fmt::v10::buffered_file") align 8, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef) local_unnamed_addr #0
 
@@ -14291,7 +14291,7 @@ lpad:                                             ; preds = %entry
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt12system_errorC2ESt10error_codeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 %__ec.coerce0, ptr %__ec.coerce1, ptr noundef nonnull align 8 dereferenceable(32) %__what) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -14657,7 +14657,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal15TestFactoryImplI26ostream_test_truncate_TestED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #10 comdat align 2 {
@@ -14784,7 +14784,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #13
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal15TestFactoryImplI39file_test_open_buffered_file_error_TestED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #10 comdat align 2 {
@@ -17366,7 +17366,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp.i.i.i.i, label %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %for.body.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr %5, ptr %name.coerce0, i64 %.other.coerce1.i.i.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %5, ptr %name.coerce0, i64 %.other.coerce1.i.i.i)
   %cmp6.i.i.i = icmp eq i32 %bcmp.i.i, 0
   %6 = icmp eq i64 %call.i8.i, %name.coerce1
   %or.cond.i = select i1 %cmp6.i.i.i, i1 %6, i1 false
@@ -18493,7 +18493,7 @@ _ZN3fmt3v106detail9write_intIcNS0_8appenderEjEET0_S4_NS1_13write_int_argIT1_EERK
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_9write_intIS5_cZNS1_9write_intIcS5_jEET0_S8_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlS5_E_EESD_SD_ijRKNSC_IS8_EESA_EUlS5_E_EES8_S8_RKNSC_ISA_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(32) %f) local_unnamed_addr #6 comdat {
@@ -25755,13 +25755,13 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #20
 declare i64 @llvm.usub.sat.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #21

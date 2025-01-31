@@ -358,7 +358,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib6HandleINS2_11HestonModelEE4Lin
 @_ZN8QuantLib15COSHestonEngineC1ERKN5boost10shared_ptrINS_11HestonModelEEEdm = unnamed_addr alias void (ptr, ptr, double, i64), ptr @_ZN8QuantLib15COSHestonEngineC2ERKN5boost10shared_ptrINS_11HestonModelEEEdm
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1 align 2
@@ -477,7 +477,7 @@ _ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
@@ -2951,7 +2951,7 @@ unreachable:                                      ; preds = %invoke.cont388, %in
 declare i64 @_ZNK8QuantLib8Exercise8lastDateEv(ptr noundef nonnull align 8 dereferenceable(36)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef double @_ZNK8QuantLib15COSHestonEngine2c1Ed(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this, double noundef %t) local_unnamed_addr #12 align 2 {
+define noundef double @_ZNK8QuantLib15COSHestonEngine2c1Ed(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, double noundef %t) local_unnamed_addr #12 align 2 {
 entry:
   %theta_ = getelementptr inbounds nuw i8, ptr %this, i64 376
   %0 = load double, ptr %theta_, align 8, !tbaa !76
@@ -2975,7 +2975,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef double @_ZNK8QuantLib15COSHestonEngine2c2Ed(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this, double noundef %t) local_unnamed_addr #12 align 2 {
+define noundef double @_ZNK8QuantLib15COSHestonEngine2c2Ed(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, double noundef %t) local_unnamed_addr #12 align 2 {
 entry:
   %sigma_ = getelementptr inbounds nuw i8, ptr %this, i64 384
   %0 = load double, ptr %sigma_, align 8, !tbaa !77
@@ -3438,7 +3438,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #13
 declare double @exp(double noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef { double, double } @_ZNK8QuantLib15COSHestonEngine3chFEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this, double noundef %u, double noundef %t) local_unnamed_addr #5 align 2 {
+define noundef { double, double } @_ZNK8QuantLib15COSHestonEngine3chFEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, double noundef %u, double noundef %t) local_unnamed_addr #5 align 2 {
 entry:
   %sigma_ = getelementptr inbounds nuw i8, ptr %this, i64 384
   %0 = load double, ptr %sigma_, align 8, !tbaa !77
@@ -3959,7 +3959,7 @@ ehcleanup32:                                      ; preds = %ehcleanup, %lpad
 declare noundef double @_ZNK8QuantLib18YieldTermStructure8discountEdb(ptr noundef nonnull align 8 dereferenceable(152), double noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef double @_ZNK8QuantLib15COSHestonEngine2c3Ed(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this, double noundef %t) local_unnamed_addr #12 align 2 {
+define noundef double @_ZNK8QuantLib15COSHestonEngine2c3Ed(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, double noundef %t) local_unnamed_addr #12 align 2 {
 entry:
   %sigma_ = getelementptr inbounds nuw i8, ptr %this, i64 384
   %0 = load double, ptr %sigma_, align 8, !tbaa !77
@@ -4102,7 +4102,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef double @_ZNK8QuantLib15COSHestonEngine2c4Ed(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this, double noundef %t) local_unnamed_addr #12 align 2 {
+define noundef double @_ZNK8QuantLib15COSHestonEngine2c4Ed(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, double noundef %t) local_unnamed_addr #12 align 2 {
 entry:
   %sigma_ = getelementptr inbounds nuw i8, ptr %this, i64 384
   %0 = load double, ptr %sigma_, align 8, !tbaa !77
@@ -4377,7 +4377,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef double @_ZNK8QuantLib15COSHestonEngine2muEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this, double noundef %t) local_unnamed_addr #12 align 2 {
+define noundef double @_ZNK8QuantLib15COSHestonEngine2muEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, double noundef %t) local_unnamed_addr #12 align 2 {
 entry:
   %theta_.i = getelementptr inbounds nuw i8, ptr %this, i64 376
   %0 = load double, ptr %theta_.i, align 8, !tbaa !76
@@ -4401,7 +4401,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef double @_ZNK8QuantLib15COSHestonEngine3varEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this, double noundef %t) local_unnamed_addr #12 align 2 {
+define noundef double @_ZNK8QuantLib15COSHestonEngine3varEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, double noundef %t) local_unnamed_addr #12 align 2 {
 entry:
   %sigma_.i = getelementptr inbounds nuw i8, ptr %this, i64 384
   %0 = load double, ptr %sigma_.i, align 8, !tbaa !77
@@ -4468,7 +4468,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef double @_ZNK8QuantLib15COSHestonEngine4skewEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this, double noundef %t) local_unnamed_addr #12 align 2 {
+define noundef double @_ZNK8QuantLib15COSHestonEngine4skewEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, double noundef %t) local_unnamed_addr #12 align 2 {
 entry:
   %call = tail call noundef double @_ZNK8QuantLib15COSHestonEngine2c3Ed(ptr noundef nonnull align 8 dereferenceable(408) %this, double noundef %t)
   %sigma_.i = getelementptr inbounds nuw i8, ptr %this, i64 384
@@ -4541,7 +4541,7 @@ entry:
 declare double @pow(double noundef, double noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef double @_ZNK8QuantLib15COSHestonEngine8kurtosisEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this, double noundef %t) local_unnamed_addr #12 align 2 {
+define noundef double @_ZNK8QuantLib15COSHestonEngine8kurtosisEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, double noundef %t) local_unnamed_addr #12 align 2 {
 entry:
   %call = tail call noundef double @_ZNK8QuantLib15COSHestonEngine2c4Ed(ptr noundef nonnull align 8 dereferenceable(408) %this, double noundef %t)
   %sigma_.i = getelementptr inbounds nuw i8, ptr %this, i64 384
@@ -5187,7 +5187,7 @@ _ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #19
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #19
 
 ; Function Attrs: nounwind
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #16
@@ -6952,7 +6952,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #23
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #23
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -7973,7 +7973,7 @@ declare { double, double } @clog(double noundef, double noundef) local_unnamed_a
 declare void @llvm.assume(i1 noundef) #24
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #25
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #26

@@ -153,13 +153,13 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare void @hash_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 4) i32 @XLogReadBufferForRedo(ptr noundef %0, i8 noundef zeroext %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @XLogReadBufferForRedo(ptr noundef %0, i8 noundef zeroext %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @XLogReadBufferForRedoExtended(ptr noundef %0, i8 noundef zeroext %1, i32 noundef 0, i1 noundef zeroext false, ptr noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 4) i32 @XLogReadBufferForRedoExtended(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, i1 noundef zeroext %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @XLogReadBufferForRedoExtended(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.RelFileLocator, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -880,7 +880,7 @@ declare i64 @tliSwitchPoint(i32 noundef, ptr noundef, ptr noundef) local_unnamed
 declare void @list_free_deep(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @wal_segment_open(ptr nocapture noundef initializes((1208, 1212)) %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @wal_segment_open(ptr noundef captures(none) initializes((1208, 1212)) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = load i32, ptr %2, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1204
@@ -931,7 +931,7 @@ declare i32 @errcode_for_file_access() local_unnamed_addr #1
 declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @wal_segment_close(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @wal_segment_close(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   %3 = load i32, ptr %2, align 8
   %4 = tail call i32 @close(i32 noundef %3) #7
@@ -1069,7 +1069,7 @@ define dso_local i32 @read_local_xlog_page_no_wait(ptr noundef %0, i64 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @WALReadRaiseError(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @WALReadRaiseError(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [64 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
@@ -1154,10 +1154,10 @@ declare i32 @llvm.umin.i32(i32, i32) #5
 declare i64 @llvm.fshl.i64(i64, i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

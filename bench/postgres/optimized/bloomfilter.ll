@@ -61,7 +61,7 @@ define dso_local void @bloom_free(ptr noundef %0) local_unnamed_addr #0 {
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bloom_add_element(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @bloom_add_element(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [10 x i32], align 16
   %5 = trunc i64 %2 to i32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -130,7 +130,7 @@ k_hashes.exit:                                    ; preds = %.lr.ph.i, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @bloom_lacks_element(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @bloom_lacks_element(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [10 x i32], align 16
   %5 = trunc i64 %2 to i32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8

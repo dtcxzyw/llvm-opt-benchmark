@@ -560,7 +560,7 @@ declare i32 @pthread_attr_setstacksize(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_decay_thread(ptr nocapture readnone %0) #0 {
+define internal noalias noundef ptr @_decay_thread(ptr readnone captures(none) %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -2174,7 +2174,7 @@ define void @priority_p_reconfig(i1 noundef zeroext %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @assoc_mgr_lock(ptr noundef) local_unnamed_addr #1
 
@@ -2412,7 +2412,7 @@ define internal fastcc void @_init_grp_used_tres_run_secs(i64 noundef %0) unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @set_assoc_usage_norm(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define void @set_assoc_usage_norm(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr @assoc_mgr_root_assoc, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 312
   %4 = load ptr, ptr %3, align 8
@@ -2449,7 +2449,7 @@ define void @set_assoc_usage_norm(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define void @priority_p_set_assoc_usage(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @priority_p_set_assoc_usage(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @assoc_mgr_root_assoc, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 312
   %4 = load ptr, ptr %3, align 8
@@ -3720,7 +3720,7 @@ define internal fastcc range(i32 0, 2) i32 @_apply_new_usage(ptr noundef %0, i64
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @decay_apply_new_usage(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @decay_apply_new_usage(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 255
@@ -3768,7 +3768,7 @@ define noundef zeroext i1 @decay_apply_new_usage(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @decay_apply_weighted_factors(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noundef i32 @decay_apply_weighted_factors(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -3851,7 +3851,7 @@ declare void @lock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_decay_apply_new_usage_and_weighted_factors(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @_decay_apply_new_usage_and_weighted_factors(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 255
@@ -3901,7 +3901,7 @@ decay_apply_new_usage.exit.thread:                ; preds = %19, %2, %decay_appl
 declare void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @set_priority_factors(i64 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @set_priority_factors(i64 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.assoc_mgr_lock_t, align 4
   %4 = alloca %struct.assoc_mgr_lock_t, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef nonnull align 4 dereferenceable(28) @__const.set_priority_factors.locks, i64 28, i1 false)
@@ -4585,7 +4585,7 @@ _get_tres_factors.exit:                           ; preds = %369, %.thread.i, %.
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare ptr @slurm_get_tres_weight_array(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -4593,7 +4593,7 @@ declare ptr @slurm_get_tres_weight_array(ptr noundef, i32 noundef, i1 noundef ze
 declare i32 @prctl(i32 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_reset_usage() unnamed_addr #0 {
@@ -4940,14 +4940,14 @@ declare void @pack_time(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @creat(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #10
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #10
 
 declare i32 @fsync(i32 noundef) local_unnamed_addr #1
 
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare i32 @link(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -4969,7 +4969,7 @@ declare i32 @list_is_empty(ptr noundef) local_unnamed_addr #1
 declare void @assoc_mgr_normalize_assoc_shares(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_handle_qos_tres_run_secs(ptr noundef readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @_handle_qos_tres_run_secs(ptr noundef readonly %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3) unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.loopexit, label %5
 
@@ -5134,7 +5134,7 @@ define internal fastcc void @_handle_qos_tres_run_secs(ptr noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_handle_assoc_tres_run_secs(ptr noundef readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc void @_handle_assoc_tres_run_secs(ptr noundef readonly %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = load i16, ptr @accounting_enforce, align 2
   %6 = and i16 %5, 2
   %.not = icmp ne i16 %6, 0
@@ -5320,10 +5320,10 @@ declare i64 @llvm.smax.i64(i64, i64) #13
 declare x86_fp80 @llvm.fabs.f80(x86_fp80) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

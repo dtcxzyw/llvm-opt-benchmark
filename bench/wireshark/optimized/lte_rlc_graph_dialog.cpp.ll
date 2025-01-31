@@ -2469,7 +2469,7 @@ declare void @_Z44set_action_shortcuts_visible_in_context_menu5QListIP7QActionE(
 declare void @_ZNK7QWidget7actionsEv(ptr dead_on_unwind writable sret(%class.QList.40) align 8, ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN17LteRlcGraphDialog13completeGraphEb(ptr noundef nonnull align 8 dereferenceable(268) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -3608,7 +3608,7 @@ declare void @_ZN13QCPItemTracerC1EP11QCustomPlot(ptr noundef nonnull align 8 de
 declare void @_ZN12QCPLayerable10setVisibleEb(ptr noundef nonnull align 8 dereferenceable(57), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog17toggleTracerStyleEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17LteRlcGraphDialog17toggleTracerStyleEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QPen, align 8
   %4 = alloca %class.QPen, align 8
   %5 = alloca %class.QColor, align 8
@@ -4881,7 +4881,7 @@ _ZN5QListIdED2Ev.exit83:                          ; preds = %271, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN17LteRlcGraphDialog14compareHeadersEP11rlc_segment(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN17LteRlcGraphDialog14compareHeadersEP11rlc_segment(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %4 = load i8, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2098
@@ -5027,7 +5027,7 @@ declare void @_ZN8QCPGraph7setDataERK5QListIdES3_b(ptr noundef nonnull align 8 d
 declare void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog10mouseMovedEP11QMouseEvent(ptr nocapture noundef nonnull align 8 dereferenceable(268) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17LteRlcGraphDialog10mouseMovedEP11QMouseEvent(ptr noundef nonnull align 8 captures(none) dereferenceable(268) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QRect, align 8
   %5 = alloca %class.QPoint, align 8
@@ -6109,7 +6109,7 @@ _ZN7QStringD2Ev.exit240:                          ; preds = %420, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog9resetAxesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN17LteRlcGraphDialog9resetAxesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 176
@@ -6160,7 +6160,7 @@ define void @_ZN17LteRlcGraphDialog9resetAxesEv(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog9showEventEP10QShowEvent(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %0, ptr nocapture noundef readnone %1) unnamed_addr #0 align 2 {
+define void @_ZN17LteRlcGraphDialog9showEventEP10QShowEvent(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %0, ptr noundef readnone captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
@@ -6460,7 +6460,7 @@ _ZN17LteRlcGraphDialog9zoomYAxisEb.exit:          ; preds = %106, %103, %97, %91
 declare i32 @_ZNK9QKeyEvent9modifiersEv(ptr noundef nonnull align 8 dereferenceable(82)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog8zoomAxesEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN17LteRlcGraphDialog8zoomAxesEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
@@ -6517,7 +6517,7 @@ define void @_ZN17LteRlcGraphDialog8zoomAxesEb(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog9zoomXAxisEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN17LteRlcGraphDialog9zoomXAxisEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
@@ -6540,7 +6540,7 @@ define void @_ZN17LteRlcGraphDialog9zoomXAxisEb(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog9zoomYAxisEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN17LteRlcGraphDialog9zoomYAxisEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
@@ -6578,7 +6578,7 @@ define void @_ZN17LteRlcGraphDialog9zoomYAxisEb(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog7panAxesEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN17LteRlcGraphDialog7panAxesEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 176
@@ -6707,7 +6707,7 @@ define void @_ZN17LteRlcGraphDialog29on_actionGoToPacket_triggeredEv(ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog27on_actionDragZoom_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN17LteRlcGraphDialog27on_actionDragZoom_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -6744,7 +6744,7 @@ declare void @_ZN11QCustomPlot6replotENS_15RefreshPriorityE(ptr noundef nonnull 
 declare void @_ZN7QCPAxis9moveRangeEd(ptr noundef nonnull align 8 dereferenceable(472), double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog13getZoomRangesE5QRect(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QRectF) align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %1, i64 %2, i64 %3) local_unnamed_addr #0 align 2 {
+define void @_ZN17LteRlcGraphDialog13getZoomRangesE5QRect(ptr dead_on_unwind noalias writable writeonly sret(%class.QRectF) align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %1, i64 %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.QRect, align 8
   %6 = alloca %class.QRect, align 8
   %7 = alloca %class.QRect, align 8
@@ -6869,7 +6869,7 @@ declare { i64, i64 } @_ZNK5QRect10normalizedEv(ptr noundef nonnull align 4 deref
 declare noundef zeroext i1 @_ZNK5QRect10intersectsERKS_(ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog12graphClickedEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(268) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17LteRlcGraphDialog12graphClickedEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(268) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QPoint, align 8
   %4 = alloca %class.QRect, align 8
   %5 = alloca %class.QPoint, align 8
@@ -7061,7 +7061,7 @@ declare void @_ZN7QCursorD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) un
 declare void @_ZN11QRubberBandC1ENS_5ShapeEP7QWidget(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare void @_ZN11QRubberBand11setGeometryERK5QRect(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #1
 
@@ -7190,7 +7190,7 @@ _ZN7QStringD2Ev.exit5:                            ; preds = %11, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog13mouseReleasedEP11QMouseEvent(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17LteRlcGraphDialog13mouseReleasedEP11QMouseEvent(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QRectF, align 8
   %4 = alloca %class.QCursor, align 8
   %5 = alloca %class.QCursor, align 8
@@ -7358,7 +7358,7 @@ declare void @_ZN11QCustomPlot11rescaleAxesEb(ptr noundef nonnull align 8 derefe
 declare void @_ZN17LteRlcGraphDialog10goToPacketEi(ptr noundef nonnull align 8 dereferenceable(268), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog29on_actionCrosshairs_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN17LteRlcGraphDialog29on_actionCrosshairs_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN17LteRlcGraphDialog17toggleTracerStyleEb(ptr noundef nonnull align 8 dereferenceable(268) %0, i1 noundef zeroext false)
   ret void
 }
@@ -7376,7 +7376,7 @@ declare void @_ZN4QPen8setColorERK6QColor(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN13QCPItemTracer6setPenERK4QPen(ptr noundef nonnull align 8 dereferenceable(209), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog24on_actionReset_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN17LteRlcGraphDialog24on_actionReset_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 176
@@ -7427,73 +7427,73 @@ define void @_ZN17LteRlcGraphDialog24on_actionReset_triggeredEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog25on_actionZoomIn_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN17LteRlcGraphDialog25on_actionZoomIn_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN17LteRlcGraphDialog8zoomAxesEb(ptr noundef nonnull align 8 dereferenceable(268) %0, i1 noundef zeroext true)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog26on_actionZoomOut_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN17LteRlcGraphDialog26on_actionZoomOut_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN17LteRlcGraphDialog8zoomAxesEb(ptr noundef nonnull align 8 dereferenceable(268) %0, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog27on_actionMoveUp10_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN17LteRlcGraphDialog27on_actionMoveUp10_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN17LteRlcGraphDialog7panAxesEii(ptr noundef nonnull align 8 dereferenceable(268) %0, i32 noundef 0, i32 noundef 10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog28on_actionMoveUp100_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN17LteRlcGraphDialog28on_actionMoveUp100_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN17LteRlcGraphDialog7panAxesEii(ptr noundef nonnull align 8 dereferenceable(268) %0, i32 noundef 0, i32 noundef 100)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog29on_actionMoveLeft10_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN17LteRlcGraphDialog29on_actionMoveLeft10_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN17LteRlcGraphDialog7panAxesEii(ptr noundef nonnull align 8 dereferenceable(268) %0, i32 noundef -10, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog30on_actionMoveRight10_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN17LteRlcGraphDialog30on_actionMoveRight10_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN17LteRlcGraphDialog7panAxesEii(ptr noundef nonnull align 8 dereferenceable(268) %0, i32 noundef 10, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog29on_actionMoveDown10_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN17LteRlcGraphDialog29on_actionMoveDown10_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN17LteRlcGraphDialog7panAxesEii(ptr noundef nonnull align 8 dereferenceable(268) %0, i32 noundef 0, i32 noundef -10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog30on_actionMoveDown100_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN17LteRlcGraphDialog30on_actionMoveDown100_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN17LteRlcGraphDialog7panAxesEii(ptr noundef nonnull align 8 dereferenceable(268) %0, i32 noundef 0, i32 noundef -100)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog26on_actionMoveUp1_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN17LteRlcGraphDialog26on_actionMoveUp1_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN17LteRlcGraphDialog7panAxesEii(ptr noundef nonnull align 8 dereferenceable(268) %0, i32 noundef 0, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog28on_actionMoveLeft1_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN17LteRlcGraphDialog28on_actionMoveLeft1_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN17LteRlcGraphDialog7panAxesEii(ptr noundef nonnull align 8 dereferenceable(268) %0, i32 noundef -1, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog29on_actionMoveRight1_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN17LteRlcGraphDialog29on_actionMoveRight1_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN17LteRlcGraphDialog7panAxesEii(ptr noundef nonnull align 8 dereferenceable(268) %0, i32 noundef 1, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog28on_actionMoveDown1_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN17LteRlcGraphDialog28on_actionMoveDown1_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN17LteRlcGraphDialog7panAxesEii(ptr noundef nonnull align 8 dereferenceable(268) %0, i32 noundef 0, i32 noundef -1)
   ret void
 }
@@ -7501,7 +7501,7 @@ define void @_ZN17LteRlcGraphDialog28on_actionMoveDown1_triggeredEv(ptr nocaptur
 declare void @_ZN15QAbstractButton6toggleEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog26on_dragRadioButton_toggledEb(ptr nocapture noundef nonnull align 8 dereferenceable(268) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN17LteRlcGraphDialog26on_dragRadioButton_toggledEb(ptr noundef nonnull align 8 captures(none) dereferenceable(268) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.QFlags.31, align 4
   br i1 %1, label %4, label %6
 
@@ -7523,7 +7523,7 @@ define void @_ZN17LteRlcGraphDialog26on_dragRadioButton_toggledEb(ptr nocapture 
 declare void @_ZN11QCustomPlot15setInteractionsERK6QFlagsIN3QCP11InteractionEE(ptr noundef nonnull align 8 dereferenceable(513), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog26on_zoomRadioButton_toggledEb(ptr nocapture noundef nonnull align 8 dereferenceable(268) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN17LteRlcGraphDialog26on_zoomRadioButton_toggledEb(ptr noundef nonnull align 8 captures(none) dereferenceable(268) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.QFlags.31, align 4
   br i1 %1, label %4, label %6
 
@@ -7543,7 +7543,7 @@ define void @_ZN17LteRlcGraphDialog26on_zoomRadioButton_toggledEb(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LteRlcGraphDialog22on_resetButton_clickedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN17LteRlcGraphDialog22on_resetButton_clickedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 176
@@ -11662,7 +11662,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIdSt4pairIKdP11rlc_segmentESt10_Select1s
 declare void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @_ZNK7QString3argEyii5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(24), i64 noundef, i32 noundef, i32 noundef, i16) local_unnamed_addr #1
 
@@ -12414,7 +12414,7 @@ _ZN17QArrayDataPointerI7QStringED2Ev.exit:        ; preds = %_ZN9QtPrivate16QGen
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN17QArrayDataPointerI7QStringE12allocateGrowERKS1_xN10QArrayData14GrowthPositionE(ptr dead_on_unwind noalias writable sret(%struct.QArrayDataPointer.13) align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 comdat align 2 {
@@ -13638,10 +13638,10 @@ _ZNK17QArrayDataPointerIdE5flagsEv.exit:          ; preds = %39, %_ZNK17QArrayDa
 declare i64 @llvm.smax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #16

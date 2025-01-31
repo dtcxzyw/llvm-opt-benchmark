@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @agnodesetfinger.template = internal global %struct.Agsubnode_s zeroinitializer, align 8
 
 ; Function Attrs: nounwind uwtable
-define ptr @agfindnode_by_id(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define ptr @agfindnode_by_id(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   store i64 %1, ptr getelementptr inbounds nuw (i8, ptr @agfindnode_by_id.dummy, i64 8), align 8
   store ptr @agfindnode_by_id.dummy, ptr getelementptr inbounds nuw (i8, ptr @agfindnode_by_id.template, i64 32), align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -41,7 +41,7 @@ define ptr @agfindnode_by_id(ptr nocapture noundef readonly %0, i64 noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @agfstnode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @agfstnode(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -86,7 +86,7 @@ define ptr @agnxtnode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 declare ptr @agsubrep(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @aglstnode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @aglstnode(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -241,7 +241,7 @@ installnode.exit.i:                               ; preds = %51, %tailrecurse.i
   br i1 %.not.i29, label %installnodetoroot.exit, label %tailrecurse.i
 
 installnodetoroot.exit:                           ; preds = %installnode.exit.i
-  %62 = tail call ptr @agroot(ptr noundef %0) #5
+  %62 = tail call ptr @agroot(ptr noundef nonnull %0) #5
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load i8, ptr %63, align 8
   %65 = and i8 %64, 32
@@ -249,11 +249,11 @@ installnodetoroot.exit:                           ; preds = %installnode.exit.i
   br i1 %.not.i30, label %initnode.exit, label %66
 
 66:                                               ; preds = %installnodetoroot.exit
-  tail call void @agnodeattr_init(ptr noundef %0, ptr noundef nonnull %28) #5
+  tail call void @agnodeattr_init(ptr noundef nonnull %0, ptr noundef nonnull %28) #5
   br label %initnode.exit
 
 initnode.exit:                                    ; preds = %installnodetoroot.exit, %66
-  tail call void @agmethod_init(ptr noundef %0, ptr noundef nonnull %28) #5
+  tail call void @agmethod_init(ptr noundef nonnull %0, ptr noundef nonnull %28) #5
   br label %67
 
 67:                                               ; preds = %agfindnode_by_id.exit27.thread, %23, %initnode.exit, %agfindnode_by_id.exit
@@ -264,7 +264,7 @@ initnode.exit:                                    ; preds = %installnodetoroot.e
 declare ptr @agroot(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @agsubnode(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @agsubnode(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @agroot(ptr noundef %0) #5
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -486,7 +486,7 @@ declare i32 @agmapnametoid(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i
 declare void @agregister(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @agdelnodeimage(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define void @agdelnodeimage(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @agdelnodeimage.template, i64 32), align 8
   %4 = tail call ptr @agfstedge(ptr noundef %0, ptr noundef %1) #5
   %.not14 = icmp eq ptr %4, null
@@ -548,8 +548,8 @@ agfindnode_by_id.exit:                            ; preds = %2
 
 .lr.ph:                                           ; preds = %14, %.lr.ph
   %.02632 = phi ptr [ %16, %.lr.ph ], [ %15, %14 ]
-  %16 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.02632, ptr noundef %1) #5
-  %17 = tail call i32 @agdeledge(ptr noundef %0, ptr noundef nonnull %.02632) #5
+  %16 = tail call ptr @agnxtedge(ptr noundef nonnull %0, ptr noundef nonnull %.02632, ptr noundef nonnull %1) #5
+  %17 = tail call i32 @agdeledge(ptr noundef nonnull %0, ptr noundef nonnull %.02632) #5
   %.not28 = icmp eq ptr %16, null
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
@@ -561,12 +561,12 @@ agfindnode_by_id.exit:                            ; preds = %2
   br i1 %.not29, label %22, label %21
 
 21:                                               ; preds = %._crit_edge
-  tail call void @agnodeattr_delete(ptr noundef %1) #5
+  tail call void @agnodeattr_delete(ptr noundef nonnull %1) #5
   br label %22
 
 22:                                               ; preds = %21, %._crit_edge
-  tail call void @agmethod_delete(ptr noundef nonnull %0, ptr noundef %1) #5
-  tail call void @agrecclose(ptr noundef %1) #5
+  tail call void @agmethod_delete(ptr noundef nonnull %0, ptr noundef nonnull %1) #5
+  tail call void @agrecclose(ptr noundef nonnull %1) #5
   %23 = load i64, ptr %3, align 8
   tail call void @agfreeid(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %23) #5
   br label %24
@@ -680,7 +680,7 @@ agfindnode_by_id.exit.thread:                     ; preds = %18, %agfindnode_by_
 declare ptr @agraphof(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dict_relabel(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @dict_relabel(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @agraphof(ptr noundef %1) #5
   %5 = load i64, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -698,7 +698,7 @@ define internal void @dict_relabel(ptr nocapture readnone %0, ptr noundef %1, pt
 declare ptr @agparent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @agsubnodeidcmpf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #2 {
+define internal range(i32 -1, 2) i32 @agsubnodeidcmpf(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -712,7 +712,7 @@ define internal range(i32 -1, 2) i32 @agsubnodeidcmpf(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @free_subnode(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @free_subnode(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -730,7 +730,7 @@ define internal void @free_subnode(ptr noundef %0, ptr nocapture readnone %1) #0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @agsubnodeseqcmpf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #2 {
+define internal range(i32 -1, 2) i32 @agsubnodeseqcmpf(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
@@ -799,7 +799,7 @@ agprvnode.exit:                                   ; preds = %23, %25, %30
 
 35:                                               ; preds = %55, %agprvnode.exit
   %.038 = phi ptr [ %33, %agprvnode.exit ], [ %44, %55 ]
-  %36 = tail call ptr @agsubrep(ptr noundef %3, ptr noundef %.038) #5
+  %36 = tail call ptr @agsubrep(ptr noundef nonnull %3, ptr noundef %.038) #5
   %.not.i47 = icmp eq ptr %36, null
   br i1 %.not.i47, label %agprvnode.exit49, label %37
 
@@ -817,7 +817,7 @@ agprvnode.exit:                                   ; preds = %23, %25, %30
 
 agprvnode.exit49:                                 ; preds = %35, %37, %41
   %44 = phi ptr [ %43, %41 ], [ null, %37 ], [ null, %35 ]
-  %45 = tail call i32 @agapply(ptr noundef %3, ptr noundef %.038, ptr noundef nonnull @agnodesetfinger, ptr noundef %.038, i32 noundef 0) #5
+  %45 = tail call i32 @agapply(ptr noundef nonnull %3, ptr noundef %.038, ptr noundef nonnull @agnodesetfinger, ptr noundef %.038, i32 noundef 0) #5
   %.not42 = icmp eq i32 %45, 0
   br i1 %.not42, label %46, label %.loopexit
 
@@ -828,7 +828,7 @@ agprvnode.exit49:                                 ; preds = %35, %37, %41
   %50 = and i32 %47, 15
   %51 = or disjoint i32 %49, %50
   store i32 %51, ptr %.038, align 8
-  %52 = tail call i32 @agapply(ptr noundef %3, ptr noundef nonnull %.038, ptr noundef nonnull @agnoderenew, ptr noundef nonnull %.038, i32 noundef 0) #5
+  %52 = tail call i32 @agapply(ptr noundef nonnull %3, ptr noundef nonnull %.038, ptr noundef nonnull @agnoderenew, ptr noundef nonnull %.038, i32 noundef 0) #5
   %.not43 = icmp eq i32 %52, 0
   br i1 %.not43, label %53, label %.loopexit
 
@@ -842,7 +842,7 @@ agprvnode.exit49:                                 ; preds = %35, %37, %41
 
 56:                                               ; preds = %53, %55
   %.1 = phi ptr [ %.038, %53 ], [ null, %55 ]
-  %57 = tail call i32 @agapply(ptr noundef %3, ptr noundef nonnull %1, ptr noundef nonnull @agnodesetfinger, ptr noundef %.1, i32 noundef 0) #5
+  %57 = tail call i32 @agapply(ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef nonnull @agnodesetfinger, ptr noundef %.1, i32 noundef 0) #5
   %.not45 = icmp eq i32 %57, 0
   br i1 %.not45, label %58, label %.loopexit
 
@@ -854,7 +854,7 @@ agprvnode.exit49:                                 ; preds = %35, %37, %41
   %63 = and i32 %60, 15
   %64 = or disjoint i32 %63, %62
   store i32 %64, ptr %1, align 8
-  %65 = tail call i32 @agapply(ptr noundef %3, ptr noundef nonnull %1, ptr noundef nonnull @agnoderenew, ptr noundef nonnull %1, i32 noundef 0) #5
+  %65 = tail call i32 @agapply(ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef nonnull @agnoderenew, ptr noundef nonnull %1, i32 noundef 0) #5
   %.not46 = icmp ne i32 %65, 0
   %. = sext i1 %.not46 to i32
   br label %.loopexit
@@ -865,7 +865,7 @@ agprvnode.exit49:                                 ; preds = %35, %37, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @agnodesetfinger(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @agnodesetfinger(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @agnodesetfinger.template, i64 32), align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
@@ -875,7 +875,7 @@ define internal void @agnodesetfinger(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @agnoderenew(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @agnoderenew(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -923,10 +923,10 @@ declare i32 @dtsize(ptr noundef) local_unnamed_addr #1
 declare ptr @dtrenew(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i32(i32, i32) #4

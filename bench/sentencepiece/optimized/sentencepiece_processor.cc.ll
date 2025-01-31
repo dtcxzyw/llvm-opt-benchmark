@@ -527,7 +527,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13sentencepiece26ImmutableSentencePieceTextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #3 align 2 {
+define void @_ZN13sentencepiece26ImmutableSentencePieceTextC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13sentencepiece26ImmutableSentencePieceTextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN13sentencepiece17SentencePieceText16default_instanceEv()
@@ -540,7 +540,7 @@ define void @_ZN13sentencepiece26ImmutableSentencePieceTextC2Ev(ptr nocapture no
 declare noundef nonnull align 8 dereferenceable(88) ptr @_ZN13sentencepiece17SentencePieceText16default_instanceEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13sentencepiece26ImmutableSentencePieceTextC2ERKNS_17SentencePieceTextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #4 align 2 {
+define void @_ZN13sentencepiece26ImmutableSentencePieceTextC2ERKNS_17SentencePieceTextE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13sentencepiece26ImmutableSentencePieceTextE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -550,7 +550,7 @@ define void @_ZN13sentencepiece26ImmutableSentencePieceTextC2ERKNS_17SentencePie
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13sentencepiece26ImmutableSentencePieceTextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece26ImmutableSentencePieceTextD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13sentencepiece26ImmutableSentencePieceTextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -640,7 +640,7 @@ define void @_ZN13sentencepiece26ImmutableSentencePieceTextD0Ev(ptr noundef nonn
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13sentencepiece49ImmutableSentencePieceText_ImmutableSentencePieceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define void @_ZN13sentencepiece49ImmutableSentencePieceText_ImmutableSentencePieceC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZN13sentencepiece31SentencePieceText_SentencePiece16default_instanceEv()
   store ptr %2, ptr %0, align 8
   ret void
@@ -649,13 +649,13 @@ define void @_ZN13sentencepiece49ImmutableSentencePieceText_ImmutableSentencePie
 declare noundef nonnull align 8 dereferenceable(80) ptr @_ZN13sentencepiece31SentencePieceText_SentencePiece16default_instanceEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13sentencepiece49ImmutableSentencePieceText_ImmutableSentencePieceC2ERKNS_31SentencePieceText_SentencePieceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #4 align 2 {
+define void @_ZN13sentencepiece49ImmutableSentencePieceText_ImmutableSentencePieceC2ERKNS_31SentencePieceText_SentencePieceE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #4 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK13sentencepiece49ImmutableSentencePieceText_ImmutableSentencePiece5pieceB5cxx11Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK13sentencepiece49ImmutableSentencePieceText_ImmutableSentencePiece5pieceB5cxx11Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #7 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
@@ -666,7 +666,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK13sentencepiece49Imm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK13sentencepiece49ImmutableSentencePieceText_ImmutableSentencePiece7surfaceB5cxx11Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK13sentencepiece49ImmutableSentencePieceText_ImmutableSentencePiece7surfaceB5cxx11Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #7 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -677,7 +677,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK13sentencepiece49Imm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK13sentencepiece49ImmutableSentencePieceText_ImmutableSentencePiece2idEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #7 align 2 {
+define noundef i32 @_ZNK13sentencepiece49ImmutableSentencePieceText_ImmutableSentencePiece2idEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #7 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %4 = load i32, ptr %3, align 8
@@ -685,7 +685,7 @@ define noundef i32 @_ZNK13sentencepiece49ImmutableSentencePieceText_ImmutableSen
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK13sentencepiece49ImmutableSentencePieceText_ImmutableSentencePiece5beginEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #7 align 2 {
+define noundef i32 @_ZNK13sentencepiece49ImmutableSentencePieceText_ImmutableSentencePiece5beginEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #7 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %4 = load i32, ptr %3, align 4
@@ -693,7 +693,7 @@ define noundef i32 @_ZNK13sentencepiece49ImmutableSentencePieceText_ImmutableSen
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK13sentencepiece49ImmutableSentencePieceText_ImmutableSentencePiece3endEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #7 align 2 {
+define noundef i32 @_ZNK13sentencepiece49ImmutableSentencePieceText_ImmutableSentencePiece3endEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #7 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load i32, ptr %3, align 8
@@ -701,7 +701,7 @@ define noundef i32 @_ZNK13sentencepiece49ImmutableSentencePieceText_ImmutableSen
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13sentencepiece26ImmutableSentencePieceText6piecesEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13sentencepiece26ImmutableSentencePieceText6piecesEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.0", align 1
   %4 = alloca %"class.sentencepiece::ImmutableSentencePieceText_ImmutableSentencePiece", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -855,10 +855,10 @@ _ZNSt12_Vector_baseIN13sentencepiece49ImmutableSentencePieceText_ImmutableSenten
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK13sentencepiece26ImmutableSentencePieceText11pieces_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #7 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK13sentencepiece26ImmutableSentencePieceText11pieces_sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -868,7 +868,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK13sentencepiece26Immu
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZNK13sentencepiece26ImmutableSentencePieceText6piecesEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define ptr @_ZNK13sentencepiece26ImmutableSentencePieceText6piecesEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.sentencepiece::ImmutableSentencePieceText_ImmutableSentencePiece", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -884,7 +884,7 @@ define ptr @_ZNK13sentencepiece26ImmutableSentencePieceText6piecesEi(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK13sentencepiece26ImmutableSentencePieceText4textB5cxx11Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK13sentencepiece26ImmutableSentencePieceText4textB5cxx11Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -896,7 +896,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK13sentencepiece26Imm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef float @_ZNK13sentencepiece26ImmutableSentencePieceText5scoreEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #7 align 2 {
+define noundef float @_ZNK13sentencepiece26ImmutableSentencePieceText5scoreEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -913,7 +913,7 @@ define noundef float @_ZNK13sentencepiece26ImmutableSentencePieceText5scoreEv(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13sentencepiece26ImmutableSentencePieceText13mutable_protoEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN13sentencepiece26ImmutableSentencePieceText13mutable_protoEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -1024,7 +1024,7 @@ _ZNSt10shared_ptrIN13sentencepiece17SentencePieceTextEED2Ev.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13sentencepiece26ImmutableSentencePieceText21ConvertToUnicodeSpansEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN13sentencepiece26ImmutableSentencePieceText21ConvertToUnicodeSpansEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #3 align 2 {
   %2 = tail call noundef ptr @_ZN13sentencepiece26ImmutableSentencePieceText13mutable_protoEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
   tail call fastcc void @_ZN13sentencepiece12_GLOBAL__N_129ConvertToUnicodeSpansInternalEPNS_17SentencePieceTextE(ptr noundef %2)
   ret void
@@ -1184,7 +1184,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit42:                  ; preds = %59, %._crit_edge70
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13sentencepiece26ImmutableSentencePieceText17SerializeAsStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
+define void @_ZNK13sentencepiece26ImmutableSentencePieceText17SerializeAsStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZNK6google8protobuf11MessageLite17SerializeAsStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
@@ -1194,7 +1194,7 @@ define void @_ZNK13sentencepiece26ImmutableSentencePieceText17SerializeAsStringB
 declare void @_ZNK6google8protobuf11MessageLite17SerializeAsStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13sentencepiece31ImmutableNBestSentencePieceTextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #4 align 2 {
+define void @_ZN13sentencepiece31ImmutableNBestSentencePieceTextC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13sentencepiece31ImmutableNBestSentencePieceTextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -1202,7 +1202,7 @@ define void @_ZN13sentencepiece31ImmutableNBestSentencePieceTextC2Ev(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13sentencepiece31ImmutableNBestSentencePieceTextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece31ImmutableNBestSentencePieceTextD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13sentencepiece31ImmutableNBestSentencePieceTextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -1289,7 +1289,7 @@ define void @_ZN13sentencepiece31ImmutableNBestSentencePieceTextD0Ev(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK13sentencepiece31ImmutableNBestSentencePieceText11nbests_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #7 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK13sentencepiece31ImmutableNBestSentencePieceText11nbests_sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1307,7 +1307,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK13sentencepiece31Immu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13sentencepiece31ImmutableNBestSentencePieceText6nbestsEi(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::ImmutableSentencePieceText") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13sentencepiece31ImmutableNBestSentencePieceText6nbestsEi(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::ImmutableSentencePieceText") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -1321,7 +1321,7 @@ define void @_ZNK13sentencepiece31ImmutableNBestSentencePieceText6nbestsEi(ptr d
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13sentencepiece31ImmutableNBestSentencePieceText6nbestsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.7") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13sentencepiece31ImmutableNBestSentencePieceText6nbestsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.7") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.9", align 1
   %4 = alloca %"class.sentencepiece::ImmutableSentencePieceText", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1498,7 +1498,7 @@ _ZN13sentencepiece26ImmutableSentencePieceTextaSERKS0_.exit: ; preds = %26, %_ZN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN13sentencepiece26ImmutableSentencePieceTextESaIS1_EEC2EmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1642,7 +1642,7 @@ _ZNSt12_Vector_baseIN13sentencepiece26ImmutableSentencePieceTextESaIS1_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13sentencepiece31ImmutableNBestSentencePieceText13mutable_protoEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN13sentencepiece31ImmutableNBestSentencePieceText13mutable_protoEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -1747,7 +1747,7 @@ _ZNSt10shared_ptrIN13sentencepiece22NBestSentencePieceTextEED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13sentencepiece31ImmutableNBestSentencePieceText21ConvertToUnicodeSpansEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN13sentencepiece31ImmutableNBestSentencePieceText21ConvertToUnicodeSpansEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #3 align 2 {
   %2 = tail call noundef ptr @_ZN13sentencepiece31ImmutableNBestSentencePieceText13mutable_protoEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %3
@@ -1779,7 +1779,7 @@ define void @_ZN13sentencepiece31ImmutableNBestSentencePieceText21ConvertToUnico
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13sentencepiece31ImmutableNBestSentencePieceText17SerializeAsStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13sentencepiece31ImmutableNBestSentencePieceText17SerializeAsStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -1834,7 +1834,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13sentencepiece22SentencePieceProcessorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 88)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece22SentencePieceProcessorC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((0, 88)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13sentencepiece22SentencePieceProcessorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %2, i8 0, i64 80, i1 false)
@@ -1842,7 +1842,7 @@ define void @_ZN13sentencepiece22SentencePieceProcessorC2Ev(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13sentencepiece22SentencePieceProcessorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece22SentencePieceProcessorD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13sentencepiece22SentencePieceProcessorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
@@ -2082,7 +2082,7 @@ define void @_ZN13sentencepiece2io14LoadModelProtoESt17basic_string_viewIcSt11ch
   %31 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #25
   %32 = extractvalue { i64, ptr } %31, 1
   %33 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #25, !noalias !21
-  invoke void @_ZN13sentencepiece4util6StatusC1ENS0_10StatusCodeESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 13, i64 %33, ptr %32)
+  invoke void @_ZN13sentencepiece4util6StatusC1ENS0_10StatusCodeESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 13, i64 %33, ptr nonnull %32)
           to label %_ZN13sentencepiece4util8OkStatusEv.exit.sink.split unwind label %36
 
 34:                                               ; preds = %51, %44, %38, %29, %22
@@ -2114,7 +2114,7 @@ define void @_ZN13sentencepiece2io14LoadModelProtoESt17basic_string_viewIcSt11ch
   %46 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #25
   %47 = extractvalue { i64, ptr } %46, 1
   %48 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #25, !noalias !24
-  invoke void @_ZN13sentencepiece4util6StatusC1ENS0_10StatusCodeESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 13, i64 %48, ptr %47)
+  invoke void @_ZN13sentencepiece4util6StatusC1ENS0_10StatusCodeESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 13, i64 %48, ptr nonnull %47)
           to label %_ZN13sentencepiece4util8OkStatusEv.exit.sink.split unwind label %49
 
 49:                                               ; preds = %45
@@ -2524,7 +2524,7 @@ define linkonce_odr void @_ZNK13sentencepiece4util13StatusBuildercvNS0_6StatusEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13sentencepiece22SentencePieceProcessor4LoadESt10unique_ptrINS_10ModelProtoESt14default_deleteIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nocapture noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece22SentencePieceProcessor4LoadESt10unique_ptrINS_10ModelProtoESt14default_deleteIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef captures(none) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = alloca %"class.std::vector.67", align 8
   %6 = alloca %"class.std::vector.67", align 8
@@ -3256,7 +3256,7 @@ define void @_ZN13sentencepiece22SentencePieceProcessor21SetEncodeExtraOptionsES
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13sentencepiece22SentencePieceProcessor17ParseExtraOptionsESt17basic_string_viewIcSt11char_traitsIcEEPSt6vectorINS0_11ExtraOptionESaIS6_EE(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 %2, ptr %3, ptr nocapture noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13sentencepiece22SentencePieceProcessor17ParseExtraOptionsESt17basic_string_viewIcSt11char_traitsIcEEPSt6vectorINS0_11ExtraOptionESaIS6_EE(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 %2, ptr %3, ptr noundef captures(none) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3584,7 +3584,7 @@ _ZNSt6vectorIN13sentencepiece22SentencePieceProcessor11ExtraOptionESaIS2_EE9push
   %115 = load ptr, ptr %1, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 496
   %117 = load ptr, ptr %116, align 8
-  %118 = invoke noundef i32 %117(ptr noundef nonnull align 8 dereferenceable(88) %1, i64 %114, ptr %113)
+  %118 = invoke noundef i32 %117(ptr noundef nonnull align 8 dereferenceable(88) %1, i64 %114, ptr nonnull %113)
           to label %119 unwind label %.loopexit108
 
 119:                                              ; preds = %112
@@ -3700,7 +3700,7 @@ thread-pre-split:                                 ; preds = %124
   %159 = load ptr, ptr %1, align 8
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 496
   %161 = load ptr, ptr %160, align 8
-  %162 = invoke noundef i32 %161(ptr noundef nonnull align 8 dereferenceable(88) %1, i64 %158, ptr %157)
+  %162 = invoke noundef i32 %161(ptr noundef nonnull align 8 dereferenceable(88) %1, i64 %158, ptr nonnull %157)
           to label %163 unwind label %.loopexit108
 
 163:                                              ; preds = %156
@@ -3864,7 +3864,7 @@ define void @_ZN13sentencepiece22SentencePieceProcessor21SetDecodeExtraOptionsES
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13sentencepiece22SentencePieceProcessor6statusEv(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13sentencepiece22SentencePieceProcessor6statusEv(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.sentencepiece::util::StatusBuilder", align 8
@@ -4038,7 +4038,7 @@ _ZN13sentencepiece4util13StatusBuilderlsIA31_cEERS1_RKT_.exit25: ; preds = %_ZN1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13sentencepiece22SentencePieceProcessor13SetVocabularyERKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EE(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece22SentencePieceProcessor13SetVocabularyERKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EE(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.sentencepiece::util::StatusBuilder", align 8
   %6 = alloca %"class.std::set", align 8
@@ -5581,7 +5581,7 @@ _ZNSt6vectorIiSaIiEE12emplace_backIJjEEERiDpOT_.exit: ; preds = %_ZNSt6vectorIiS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13sentencepiece22SentencePieceProcessor6DecodeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPS7_(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13sentencepiece22SentencePieceProcessor6DecodeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPS7_(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.78", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -8117,7 +8117,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %162, %.loopexit.spl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13sentencepiece22SentencePieceProcessor25PopulateSentencePieceTextESt17basic_string_viewIcSt11char_traitsIcEES4_RKSt6vectorImSaImEERKS5_ISt4pairIS4_iESaISB_EEPNS_17SentencePieceTextE(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 %2, ptr %3, i64 %4, ptr nocapture readnone %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %7, ptr noundef %8) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13sentencepiece22SentencePieceProcessor25PopulateSentencePieceTextESt17basic_string_viewIcSt11char_traitsIcEES4_RKSt6vectorImSaImEERKS5_ISt4pairIS4_iESaISB_EEPNS_17SentencePieceTextE(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 %2, ptr %3, i64 %4, ptr readnone captures(none) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %7, ptr noundef %8) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %12 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -9316,7 +9316,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %15, %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13sentencepiece22SentencePieceProcessor17ApplyExtraOptionsERKSt6vectorINS0_11ExtraOptionESaIS2_EEPNS_17SentencePieceTextE(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13sentencepiece22SentencePieceProcessor17ApplyExtraOptionsERKSt6vectorINS0_11ExtraOptionESaIS2_EEPNS_17SentencePieceTextE(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = load ptr, ptr %2, align 8
@@ -9482,7 +9482,7 @@ _ZN13sentencepiece17SentencePieceText10add_piecesEv.exit: ; preds = %59, %70
   %86 = load ptr, ptr %1, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 496
   %88 = load ptr, ptr %87, align 8
-  %89 = call noundef i32 %88(ptr noundef nonnull align 8 dereferenceable(88) %1, i64 %85, ptr %84)
+  %89 = call noundef i32 %88(ptr noundef nonnull align 8 dereferenceable(88) %1, i64 %85, ptr nonnull %84)
   %90 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %91 = load i32, ptr %90, align 4
   %92 = or i32 %91, 4
@@ -9604,7 +9604,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN13sentencepiece31SentencePieceText_Senten
   %160 = load ptr, ptr %1, align 8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 496
   %162 = load ptr, ptr %161, align 8
-  %163 = call noundef i32 %162(ptr noundef nonnull align 8 dereferenceable(88) %1, i64 %159, ptr %158)
+  %163 = call noundef i32 %162(ptr noundef nonnull align 8 dereferenceable(88) %1, i64 %159, ptr nonnull %158)
   %164 = getelementptr inbounds nuw i8, ptr %155, i64 40
   %165 = load i32, ptr %164, align 4
   %166 = or i32 %165, 4
@@ -11920,7 +11920,7 @@ _ZNSt6vectorImSaImEED2Ev.exit62:                  ; preds = %154, %156
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13sentencepiece22SentencePieceProcessor16CalculateEntropyESt17basic_string_viewIcSt11char_traitsIcEEfPf(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1, i64 %2, ptr %3, float noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13sentencepiece22SentencePieceProcessor16CalculateEntropyESt17basic_string_viewIcSt11char_traitsIcEEfPf(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1, i64 %2, ptr %3, float noundef %4, ptr noundef writeonly captures(none) %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.sentencepiece::util::StatusBuilder", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12079,7 +12079,7 @@ _ZNSt6vectorImSaImEED2Ev.exit16:                  ; preds = %.critedge, %63
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13sentencepiece22SentencePieceProcessor6DecodeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPNS_17SentencePieceTextE(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13sentencepiece22SentencePieceProcessor6DecodeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPNS_17SentencePieceTextE(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.78", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !197)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -12183,7 +12183,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit5: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13sentencepiece22SentencePieceProcessor6DecodeERKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EEPNS_17SentencePieceTextE(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13sentencepiece22SentencePieceProcessor6DecodeERKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EEPNS_17SentencePieceTextE(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"struct.std::pair.193", align 8
   %7 = alloca %"struct.std::pair.193", align 8
@@ -12842,7 +12842,7 @@ _ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i: ;
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZNK13sentencepiece22SentencePieceProcessor6DecodeERKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EEPNS_17SentencePieceTextEENK3$_0clEii"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture readonly %.0.val, ptr nocapture readonly %.8.val, i32 noundef range(i32 -2147483647, -2147483648) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZNK13sentencepiece22SentencePieceProcessor6DecodeERKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EEPNS_17SentencePieceTextEENK3$_0clEii"(ptr dead_on_unwind noalias writable align 8 %0, ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.8.val, i32 noundef range(i32 -2147483647, -2147483648) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13232,7 +13232,7 @@ _ZN13sentencepiece4util8OkStatusEv.exit:          ; preds = %_ZN13sentencepiece4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZNK13sentencepiece22SentencePieceProcessor6DecodeERKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EEPNS_17SentencePieceTextEENK3$_2clEiS5_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1, i64 %2, ptr %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZNK13sentencepiece22SentencePieceProcessor6DecodeERKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS5_EEPNS_17SentencePieceTextEENK3$_2clEiS5_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i64 %2, ptr %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -13327,7 +13327,7 @@ _ZN13sentencepiece31SentencePieceText_SentencePiece11set_surfaceEONSt7__cxx1112b
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13sentencepiece22SentencePieceProcessor6DecodeERKSt6vectorIiSaIiEEPNS_17SentencePieceTextE(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13sentencepiece22SentencePieceProcessor6DecodeERKSt6vectorIiSaIiEEPNS_17SentencePieceTextE(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.67", align 8
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13630,7 +13630,7 @@ _ZN4absl6StrCatB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds 
 declare void @_ZN13sentencepiece4util6StatusC1ENS0_10StatusCodeESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, i64, ptr) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13sentencepiece22SentencePieceProcessor9NormalizeESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1, i64 %2, ptr %3, ptr noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13sentencepiece22SentencePieceProcessor9NormalizeESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1, i64 %2, ptr %3, ptr noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::vector.131", align 8
   %8 = alloca %"class.sentencepiece::util::StatusBuilder", align 8
@@ -13754,7 +13754,7 @@ _ZNSt6vectorImSaImEED2Ev.exit8:                   ; preds = %42, %44
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13sentencepiece22SentencePieceProcessor9NormalizeESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEPSt6vectorImSaImEE(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1, i64 %2, ptr %3, ptr noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13sentencepiece22SentencePieceProcessor9NormalizeESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEPSt6vectorImSaImEE(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1, i64 %2, ptr %3, ptr noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.sentencepiece::util::StatusBuilder", align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -14837,7 +14837,7 @@ define noundef i32 @_ZNK13sentencepiece22SentencePieceProcessor6unk_idEv(ptr nou
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 496
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %6, ptr %5)
+  %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %6, ptr nonnull %5)
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 520
   %13 = load ptr, ptr %12, align 8
@@ -14858,7 +14858,7 @@ define noundef i32 @_ZNK13sentencepiece22SentencePieceProcessor6bos_idEv(ptr nou
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 496
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %6, ptr %5)
+  %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %6, ptr nonnull %5)
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 528
   %13 = load ptr, ptr %12, align 8
@@ -14879,7 +14879,7 @@ define noundef i32 @_ZNK13sentencepiece22SentencePieceProcessor6eos_idEv(ptr nou
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 496
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %6, ptr %5)
+  %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %6, ptr nonnull %5)
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 528
   %13 = load ptr, ptr %12, align 8
@@ -14900,7 +14900,7 @@ define noundef i32 @_ZNK13sentencepiece22SentencePieceProcessor6pad_idEv(ptr nou
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 496
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %6, ptr %5)
+  %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 %6, ptr nonnull %5)
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 528
   %13 = load ptr, ptr %12, align 8
@@ -14956,7 +14956,7 @@ _ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_N13sentence
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13sentencepiece22SentencePieceProcessor8SetModelEOSt10unique_ptrINS_14ModelInterfaceESt14default_deleteIS2_EE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece22SentencePieceProcessor8SetModelEOSt10unique_ptrINS_14ModelInterfaceESt14default_deleteIS2_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %1, align 8
   store ptr null, ptr %1, align 8
@@ -14977,7 +14977,7 @@ _ZNSt10unique_ptrIN13sentencepiece14ModelInterfaceESt14default_deleteIS1_EEaSEOS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13sentencepiece22SentencePieceProcessor13SetNormalizerEOSt10unique_ptrINS_10normalizer10NormalizerESt14default_deleteIS3_EE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece22SentencePieceProcessor13SetNormalizerEOSt10unique_ptrINS_10normalizer10NormalizerESt14default_deleteIS3_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %1, align 8
   store ptr null, ptr %1, align 8
@@ -14998,14 +14998,14 @@ _ZNSt10unique_ptrIN13sentencepiece10normalizer10NormalizerESt14default_deleteIS2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(104) ptr @_ZNK13sentencepiece22SentencePieceProcessor11model_protoEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) local_unnamed_addr #11 align 2 {
+define noundef nonnull align 8 dereferenceable(104) ptr @_ZNK13sentencepiece22SentencePieceProcessor11model_protoEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13sentencepiece22SentencePieceProcessor22serialized_model_protoB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13sentencepiece22SentencePieceProcessor22serialized_model_protoB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -15054,7 +15054,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK13sentencepiece22SentencePieceProcessor23mutable_normalizer_specEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZNK13sentencepiece22SentencePieceProcessor23mutable_normalizer_specEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -16125,7 +16125,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 declare void @_ZN13sentencepiece4util6StatusC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
@@ -16561,7 +16561,7 @@ define linkonce_odr void @_ZN4absl13StrReplaceAllB5cxx11ESt17basic_string_viewIc
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #16
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
@@ -17137,7 +17137,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN13sentencepiece22NBestSentencePieceTextESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 comdat align 2 {
@@ -18020,7 +18020,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE17_M_realloc_insertIJRS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -19740,7 +19740,7 @@ define internal void @_GLOBAL__sub_I_sentencepiece_processor.cc() #20 section ".
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22
@@ -19755,10 +19755,10 @@ declare i32 @llvm.smin.i32(i32, i32) #23
 declare i8 @llvm.smax.i8(i8, i8) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23

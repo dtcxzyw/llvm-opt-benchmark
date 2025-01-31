@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [35 x i8] c"position information is misordered\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 -1, 2) i32 @compareWordEntryPos(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define dso_local range(i32 -1, 2) i32 @compareWordEntryPos(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load i16, ptr %0, align 2
   %4 = and i16 %3, 16383
   %5 = zext nneg i16 %4 to i32
@@ -34,7 +34,7 @@ define dso_local range(i32 -1, 2) i32 @compareWordEntryPos(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @tsvectorin(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define dso_local noundef i64 @tsvectorin(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
@@ -635,7 +635,7 @@ declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef)
 declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @close_tsvector_parser(ptr noundef) local_unnamed_addr #2
 
@@ -651,7 +651,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @tsvectorout(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local i64 @tsvectorout(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -914,7 +914,7 @@ declare i32 @pg_mblen(ptr noundef) local_unnamed_addr #2
 declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @tsvectorsend(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local i64 @tsvectorsend(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1051,7 +1051,7 @@ declare void @pq_sendtext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @tsvectorrecv(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local i64 @tsvectorrecv(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1168,7 +1168,7 @@ define dso_local i64 @tsvectorrecv(ptr nocapture noundef readonly %0) local_unna
   %57 = sext i32 %56 to i64
   %58 = getelementptr [0 x %struct.WordEntry], ptr %48, i64 0, i64 %57
   %59 = getelementptr i8, ptr %58, i64 %34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr align 1 %18, i64 %21, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr nonnull align 1 %18, i64 %21, i1 false)
   %.not104 = icmp eq i64 %indvars.iv149, 0
   br i1 %.not104, label %78, label %60
 
@@ -1309,12 +1309,12 @@ declare i32 @pq_getmsgint(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @pq_getmsgstring(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @qsort_arg(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @compareentry(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal i32 @compareentry(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #1 {
   %4 = load i32, ptr %0, align 8
   %5 = lshr i32 %4, 12
   %6 = zext nneg i32 %5 to i64
@@ -1332,7 +1332,7 @@ define internal i32 @compareentry(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 

@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.pg_to_ascii = private unnamed_addr constant [12 x i8] c"pg_to_ascii\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @to_ascii_encname(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @to_ascii_encname(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -123,7 +123,7 @@ pg_to_ascii.exit:                                 ; preds = %28, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @to_ascii_enc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @to_ascii_enc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -149,7 +149,7 @@ define dso_local i64 @to_ascii_enc(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @to_ascii_default(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @to_ascii_default(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -163,7 +163,7 @@ define dso_local i64 @to_ascii_default(ptr nocapture noundef readonly %0) local_
 declare i32 @GetDatabaseEncoding() local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @ascii_safe_strlcpy(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #3 {
+define dso_local void @ascii_safe_strlcpy(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %17, label %.preheader
 

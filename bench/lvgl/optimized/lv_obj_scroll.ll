@@ -97,7 +97,7 @@ define void @lv_obj_set_scroll_snap_y(ptr noundef %0, i32 noundef %1) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 4) i32 @lv_obj_get_scrollbar_mode(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 4) i32 @lv_obj_get_scrollbar_mode(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %.not = icmp eq ptr %3, null
@@ -116,7 +116,7 @@ define range(i32 0, 4) i32 @lv_obj_get_scrollbar_mode(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 16) i32 @lv_obj_get_scroll_dir(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 16) i32 @lv_obj_get_scroll_dir(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %.not = icmp eq ptr %3, null
@@ -136,7 +136,7 @@ define range(i32 0, 16) i32 @lv_obj_get_scroll_dir(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 4) i32 @lv_obj_get_scroll_snap_x(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 4) i32 @lv_obj_get_scroll_snap_x(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %.not = icmp eq ptr %3, null
@@ -156,7 +156,7 @@ define range(i32 0, 4) i32 @lv_obj_get_scroll_snap_x(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 4) i32 @lv_obj_get_scroll_snap_y(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 4) i32 @lv_obj_get_scroll_snap_y(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %.not = icmp eq ptr %3, null
@@ -176,7 +176,7 @@ define range(i32 0, 4) i32 @lv_obj_get_scroll_snap_y(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -2147483647, -2147483648) i32 @lv_obj_get_scroll_x(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 -2147483647, -2147483648) i32 @lv_obj_get_scroll_x(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = icmp eq ptr %3, null
@@ -194,7 +194,7 @@ define range(i32 -2147483647, -2147483648) i32 @lv_obj_get_scroll_x(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -2147483647, -2147483648) i32 @lv_obj_get_scroll_y(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 -2147483647, -2147483648) i32 @lv_obj_get_scroll_y(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = icmp eq ptr %3, null
@@ -212,7 +212,7 @@ define range(i32 -2147483647, -2147483648) i32 @lv_obj_get_scroll_y(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -2147483647, -2147483648) i32 @lv_obj_get_scroll_top(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 -2147483647, -2147483648) i32 @lv_obj_get_scroll_top(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = icmp eq ptr %3, null
@@ -327,14 +327,14 @@ lv_obj_get_scroll_y.exit:                         ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @lv_obj_get_child_count(ptr noundef) local_unnamed_addr #1
 
 declare zeroext i1 @lv_obj_has_flag_any(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @lv_obj_get_self_height(ptr noundef) local_unnamed_addr #1
 
@@ -584,7 +584,7 @@ lv_obj_get_scroll_x.exit:                         ; preds = %51, %57
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_obj_get_scroll_end(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define void @lv_obj_get_scroll_end(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @lv_anim_get(ptr noundef %0, ptr noundef nonnull @scroll_x_anim) #5
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
@@ -955,7 +955,7 @@ declare void @lv_anim_set_var(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @lv_anim_set_deleted_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @scroll_end_cb(ptr nocapture noundef readonly %0) #0 {
+define internal void @scroll_end_cb(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 4
@@ -1116,7 +1116,7 @@ define void @lv_obj_scroll_to_view(ptr noundef %0, i32 noundef %1) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @scroll_area_into_view(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @scroll_area_into_view(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call ptr @lv_obj_get_parent(ptr noundef %1) #5
   %6 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %5, i32 noundef 16) #5
   br i1 %6, label %7, label %193

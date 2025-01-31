@@ -405,7 +405,7 @@ _ZN7Imf_3_213B44CompressorD2Ev.exit:              ; preds = %delete.end4.i, %del
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK7Imf_3_213B44Compressor12numScanLinesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(84) %this) unnamed_addr #8 align 2 {
+define hidden noundef i32 @_ZNK7Imf_3_213B44Compressor12numScanLinesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %this) unnamed_addr #8 align 2 {
 entry:
   %_numScanLines = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_numScanLines, align 8
@@ -413,7 +413,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK7Imf_3_213B44Compressor6formatEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(84) %this) unnamed_addr #8 align 2 {
+define hidden noundef i32 @_ZNK7Imf_3_213B44Compressor6formatEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %this) unnamed_addr #8 align 2 {
 entry:
   %_format = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %_format, align 4
@@ -421,7 +421,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7Imf_3_213B44Compressor8compressEPKciiRS2_(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr nocapture noundef readonly %inPtr, i32 noundef %inSize, i32 noundef %minY, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %outPtr) unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN7Imf_3_213B44Compressor8compressEPKciiRS2_(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef readonly captures(none) %inPtr, i32 noundef %inSize, i32 noundef %minY, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %outPtr) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp = alloca %"class.Imath_3_2::Box", align 4
   %_minX = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -446,7 +446,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7Imf_3_213B44Compressor8compressEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(84) %this, ptr nocapture noundef readonly %inPtr, i32 noundef %inSize, ptr nocapture noundef readonly %range, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %outPtr) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN7Imf_3_213B44Compressor8compressEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %this, ptr noundef readonly captures(none) %inPtr, i32 noundef %inSize, ptr noundef readonly captures(none) %range, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %outPtr) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i = alloca [16 x i16], align 16
   %d.i = alloca [16 x i32], align 16
@@ -1391,7 +1391,7 @@ return:                                           ; preds = %entry, %for.end237
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7Imf_3_213B44Compressor12compressTileEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(84) %this, ptr nocapture noundef readonly %inPtr, i32 noundef %inSize, ptr nocapture noundef readonly %range, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %outPtr) unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN7Imf_3_213B44Compressor12compressTileEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %this, ptr noundef readonly captures(none) %inPtr, i32 noundef %inSize, ptr noundef readonly captures(none) %range, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %outPtr) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp = alloca %"class.Imath_3_2::Box", align 4
   %0 = load i32, ptr %range, align 4
@@ -1413,7 +1413,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7Imf_3_213B44Compressor10uncompressEPKciiRS2_(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr nocapture noundef readonly %inPtr, i32 noundef %inSize, i32 noundef %minY, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %outPtr) unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN7Imf_3_213B44Compressor10uncompressEPKciiRS2_(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef readonly captures(none) %inPtr, i32 noundef %inSize, i32 noundef %minY, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %outPtr) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp = alloca %"class.Imath_3_2::Box", align 4
   %_minX = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -1438,7 +1438,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7Imf_3_213B44Compressor10uncompressEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(84) %this, ptr nocapture noundef readonly %inPtr, i32 noundef %inSize, ptr nocapture noundef readonly %range, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %outPtr) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN7Imf_3_213B44Compressor10uncompressEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %this, ptr noundef readonly captures(none) %inPtr, i32 noundef %inSize, ptr noundef readonly captures(none) %range, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %outPtr) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %b.i = alloca [2 x i8], align 1
   %s = alloca [16 x i16], align 16
@@ -2311,7 +2311,7 @@ return:                                           ; preds = %entry, %if.end236
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7Imf_3_213B44Compressor14uncompressTileEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(84) %this, ptr nocapture noundef readonly %inPtr, i32 noundef %inSize, ptr nocapture noundef readonly %range, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %outPtr) unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN7Imf_3_213B44Compressor14uncompressTileEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %this, ptr noundef readonly captures(none) %inPtr, i32 noundef %inSize, ptr noundef readonly captures(none) %range, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %outPtr) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp = alloca %"class.Imath_3_2::Box", align 4
   %0 = load i32, ptr %range, align 4
@@ -2335,7 +2335,7 @@ entry:
 declare noundef i32 @_ZN7Imf_3_210numSamplesEiii(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #10
@@ -2366,10 +2366,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #14
@@ -2381,7 +2381,7 @@ declare i32 @llvm.smax.i32(i32, i32) #14
 declare i16 @llvm.umax.i16(i16, i16) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

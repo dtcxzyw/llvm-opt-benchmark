@@ -169,7 +169,7 @@ define hidden void @awt_post_java_key_event(ptr noundef %0, ptr noundef %1, i32 
 declare i64 @JNU_CallMethodByName(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11_XWindow_getAWTKeyCodeForKeySym(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11_XWindow_getAWTKeyCodeForKeySym(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = sext i32 %2 to i64
   %5 = icmp eq i32 %2, 65406
   br i1 %5, label %6, label %8
@@ -209,7 +209,7 @@ keysymToAWTKeyCode.exit:                          ; preds = %.lr.ph, %.lr.ph.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XWindow_haveCurrentX11InputMethodInstance(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 {
+define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XWindow_haveCurrentX11InputMethodInstance(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr @currentX11InputMethodInstance, align 8
   %.not = icmp ne ptr %3, null
   %4 = zext i1 %.not to i8
@@ -217,7 +217,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XWindow_haveCurrentX11InputMe
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XWindow_x11inputMethodLookupString(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XWindow_x11inputMethodLookupString(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca [2 x i64], align 16
   store i64 0, ptr %5, align 8
@@ -270,7 +270,7 @@ declare i32 @XGetWindowAttributes(ptr noundef, i64 noundef, ptr noundef) local_u
 declare i32 @XSync(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_X11_XWindow_setSizeHints(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 {
+define void @Java_sun_awt_X11_XWindow_setSizeHints(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = tail call ptr @XAllocSizeHints() #6
   store i64 13, ptr %8, align 8
   %9 = trunc i64 %3 to i32
@@ -362,13 +362,13 @@ define void @Java_sun_awt_X11_XWindow_initIDs(ptr noundef %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_awt_X11_XWindow_getKeySymForAWTKeyCode(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @Java_sun_awt_X11_XWindow_getKeySymForAWTKeyCode(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq i32 %2, 262
   br i1 %4, label %5, label %7
 

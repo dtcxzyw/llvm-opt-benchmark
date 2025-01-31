@@ -125,7 +125,7 @@ return:                                           ; preds = %for.body41, %for.co
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_HMAC_update(ptr nocapture noundef readonly %ctxt, ptr noundef %data, i32 noundef %len) local_unnamed_addr #0 {
+define hidden noundef i32 @Curl_HMAC_update(ptr noundef readonly captures(none) %ctxt, ptr noundef %data, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctxt, align 8
   %hmac_hupdate = getelementptr inbounds nuw i8, ptr %0, i64 8

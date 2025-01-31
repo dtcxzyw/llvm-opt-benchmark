@@ -204,7 +204,7 @@ declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #1
 declare void @ruby_xfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @rb_getnameinfo(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, i64 noundef %3, ptr noundef writeonly %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define i32 @rb_getnameinfo(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2, i64 noundef %3, ptr noundef writeonly %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = zext i32 %1 to i64
   %10 = add nuw nsw i64 %9, 160
@@ -479,7 +479,7 @@ declare void @rb_thread_check_ints() local_unnamed_addr #2
 declare ptr @rb_errno_ptr() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @rsock_make_ipaddr(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define i64 @rsock_make_ipaddr(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = call i32 @rb_getnameinfo(ptr noundef readonly %0, i32 noundef %1, ptr noundef nonnull %3, i64 noundef 1024, ptr noundef null, i64 noundef 0, i32 noundef 1)
   %.not.i = icmp eq i32 %4, 0
@@ -1089,7 +1089,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %33, %43, %49
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -4, 1) i32 @numeric_getaddrinfo(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -4, 1) i32 @numeric_getaddrinfo(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca [4 x i8], align 4
   %6 = alloca [16 x i8], align 16
   %.not = icmp eq ptr %0, null
@@ -1423,7 +1423,7 @@ declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) local_unnamed_addr #3
 declare i64 @rb_fiber_scheduler_current() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
 declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #5
@@ -1459,7 +1459,7 @@ define range(i32 0, 65536) i32 @rsock_fd_family(i32 noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
 declare i32 @getsockname(i32 noundef, ptr, ptr noundef) local_unnamed_addr #1
@@ -1479,7 +1479,7 @@ define noalias noundef nonnull ptr @rsock_addrinfo(i64 noundef %0, i64 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @rsock_ipaddr(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i64 @rsock_ipaddr(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca [1024 x i8], align 16
   %6 = load i16, ptr %0, align 2
@@ -1544,7 +1544,7 @@ declare i64 @rb_id2str(i64 noundef) local_unnamed_addr #2
 declare i64 @rb_sprintf(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i64 @rb_ary_new_from_args(i64 noundef, ...) local_unnamed_addr #2
 
@@ -1826,7 +1826,7 @@ define internal i64 @make_hostent_internal(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @rsock_addrinfo_new(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 {
+define i64 @rsock_addrinfo_new(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = load i64, ptr @rb_cAddrinfo, align 8
   %9 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %8, ptr noundef null, ptr noundef nonnull @addrinfo_type) #19
   %10 = tail call noalias noundef nonnull dereferenceable(2080) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 2080) #24
@@ -2366,7 +2366,7 @@ get_addrinfo.exit:                                ; preds = %1
 declare i64 @rb_string_value(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @rsock_sockaddr_string_value_with_addrinfo(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define i64 @rsock_sockaddr_string_value_with_addrinfo(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = load volatile i64, ptr %0, align 8
   store i64 4, ptr %1, align 8
   %4 = tail call i32 @rb_typeddata_is_kind_of(i64 noundef %3, ptr noundef nonnull @addrinfo_type) #19
@@ -2481,7 +2481,7 @@ addrinfo_to_sockaddr.exit:                        ; preds = %3
 declare i64 @rb_check_string_type(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @rsock_fd_socket_addrinfo(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define i64 @rsock_fd_socket_addrinfo(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   store i32 4, ptr %5, align 4
@@ -2555,7 +2555,7 @@ declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr 
 declare void @rb_syserr_fail(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i64 @rsock_io_socket_addrinfo(i64 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define i64 @rsock_io_socket_addrinfo(i64 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = and i64 %0, 7
   %5 = icmp ne i64 %4, 0
   %6 = icmp eq i64 %0, 0
@@ -5460,12 +5460,12 @@ declare void @rb_native_cond_destroy(ptr noundef) local_unnamed_addr #2
 declare void @rb_nativethread_lock_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @rb_native_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare i64 @rb_obj_is_kind_of(i64 noundef, i64 noundef) local_unnamed_addr #2
 
@@ -5500,7 +5500,7 @@ declare i32 @ruby_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unn
 declare i64 @ruby_strtoul(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare i32 @inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -5624,7 +5624,7 @@ define internal void @cancel_getaddrinfo(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #13
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #13
 
 declare i32 @getaddrinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -5644,7 +5644,7 @@ declare i64 @rb_data_typed_object_wrap(i64 noundef, ptr noundef, ptr noundef) lo
 declare ptr @rb_check_typeddata(i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @addrinfo_mark(ptr nocapture noundef readonly %0) #0 {
+define internal void @addrinfo_mark(ptr noundef readonly captures(none) %0) #0 {
   %2 = load i64, ptr %0, align 8
   tail call void @rb_gc_mark(i64 noundef %2) #19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5654,7 +5654,7 @@ define internal void @addrinfo_mark(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @addrinfo_memsize(ptr nocapture readnone %0) #15 {
+define internal noundef i64 @addrinfo_memsize(ptr readnone captures(none) %0) #15 {
   ret i64 2080
 }
 
@@ -5941,7 +5941,7 @@ RSTRING_PTR.exit144:                              ; preds = %39, %42
 declare void @rb_obj_freeze_inline(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @rb_obj_classname(i64 noundef) local_unnamed_addr #2
 
@@ -6108,16 +6108,16 @@ declare i32 @rsock_socktype_to_int(ptr noundef, i64 noundef, ptr noundef) local_
 declare i32 @rsock_ipproto_to_int(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17

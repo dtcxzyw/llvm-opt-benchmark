@@ -24,7 +24,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call i64 @local_getxattr_nofollow(ptr noundef %ctx, ptr noundef %path, ptr noundef %name, ptr noundef %value, i64 noundef %size) #8
+  %call2 = tail call i64 @local_getxattr_nofollow(ptr noundef %ctx, ptr noundef %path, ptr noundef nonnull %name, ptr noundef %value, i64 noundef %size) #8
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -33,7 +33,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i64 -2147483648, 2147483648) i64 @mp_user_listxattr(ptr nocapture readnone %ctx, ptr nocapture readnone %path, ptr nocapture noundef readonly %name, ptr noundef writeonly %value, i64 noundef %size) #1 {
+define internal range(i64 -2147483648, 2147483648) i64 @mp_user_listxattr(ptr readnone captures(none) %ctx, ptr readnone captures(none) %path, ptr noundef readonly captures(none) %name, ptr noundef writeonly %value, i64 noundef %size) #1 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #6
   %conv = add i64 %call, 1
@@ -90,7 +90,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call i64 @local_setxattr_nofollow(ptr noundef %ctx, ptr noundef %path, ptr noundef %name, ptr noundef %value, i64 noundef %size, i32 noundef %flags) #8
+  %call2 = tail call i64 @local_setxattr_nofollow(ptr noundef %ctx, ptr noundef %path, ptr noundef nonnull %name, ptr noundef %value, i64 noundef %size, i32 noundef %flags) #8
   %conv = trunc i64 %call2 to i32
   br label %return
 
@@ -112,7 +112,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call i64 @local_removexattr_nofollow(ptr noundef %ctx, ptr noundef %path, ptr noundef %name) #8
+  %call2 = tail call i64 @local_removexattr_nofollow(ptr noundef %ctx, ptr noundef %path, ptr noundef nonnull %name) #8
   %conv = trunc i64 %call2 to i32
   br label %return
 
@@ -130,7 +130,7 @@ declare i32 @pt_setxattr(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64
 declare i32 @pt_removexattr(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #4
@@ -138,10 +138,10 @@ declare ptr @__errno_location() local_unnamed_addr #4
 declare i64 @local_getxattr_nofollow(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i64 @local_setxattr_nofollow(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 

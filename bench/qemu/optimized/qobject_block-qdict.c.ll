@@ -286,7 +286,7 @@ declare i32 @strstart(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @qdict_del(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qdict_array_split(ptr noundef %src, ptr nocapture noundef initializes((0, 8)) %dst) local_unnamed_addr #0 {
+define dso_local void @qdict_array_split(ptr noundef %src, ptr noundef captures(none) initializes((0, 8)) %dst) local_unnamed_addr #0 {
 entry:
   %subqdict = alloca ptr, align 8
   %indexstr = alloca [32 x i8], align 16
@@ -404,7 +404,7 @@ for.end:                                          ; preds = %if.end13.qdict_coun
 declare ptr @qlist_new() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
@@ -973,7 +973,7 @@ if.else:                                          ; preds = %lor.lhs.false
 for.body:                                         ; preds = %for.body.preheader, %if.end24
   %i.030 = phi i32 [ %inc, %if.end24 ], [ 0, %for.body.preheader ]
   %entries.029 = phi i32 [ %add, %if.end24 ], [ 0, %for.body.preheader ]
-  %call5 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.10, ptr noundef %subqdict, i32 noundef %i.030) #7
+  %call5 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.10, ptr noundef nonnull %subqdict, i32 noundef %i.030) #7
   %call.i = tail call ptr @qdict_first(ptr noundef %src) #7
   %tobool.not6.i = icmp eq ptr %call.i, null
   br i1 %tobool.not6.i, label %qdict_count_prefixed_entries.exit, label %for.body.i
@@ -1006,8 +1006,8 @@ qdict_count_prefixed_entries.exit:                ; preds = %if.then.i, %for.inc
   %3 = getelementptr i8, ptr %call5, i64 %call7
   %arrayidx9 = getelementptr i8, ptr %3, i64 -1
   store i8 0, ptr %arrayidx9, align 1
-  %call10 = tail call ptr @qdict_get(ptr noundef %src, ptr noundef %call5) #7
-  tail call void @g_free(ptr noundef %call5) #7
+  %call10 = tail call ptr @qdict_get(ptr noundef %src, ptr noundef nonnull %call5) #7
+  tail call void @g_free(ptr noundef nonnull %call5) #7
   %cmp11 = icmp slt i32 %retval.0.i, 0
   br i1 %cmp11, label %return, label %if.end14
 
@@ -1039,7 +1039,7 @@ for.body29:                                       ; preds = %for.end, %for.body2
   %entry1.033 = phi ptr [ %call37, %for.body29 ], [ %call26, %for.end ]
   %entries.132 = phi i32 [ %spec.select, %for.body29 ], [ %entries.0.lcssa, %for.end ]
   %call30 = tail call ptr @qdict_entry_key(ptr noundef nonnull %entry1.033) #7
-  %call31 = tail call i32 @strstart(ptr noundef %call30, ptr noundef %subqdict, ptr noundef null) #7
+  %call31 = tail call i32 @strstart(ptr noundef %call30, ptr noundef nonnull %subqdict, ptr noundef null) #7
   %tobool32.not = icmp eq i32 %call31, 0
   %inc34 = zext i1 %tobool32.not to i32
   %spec.select = add i32 %entries.132, %inc34
@@ -1061,7 +1061,7 @@ return:                                           ; preds = %if.end14, %qdict_co
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @qdict_entry_key(ptr noundef) local_unnamed_addr #1
 
@@ -1135,7 +1135,7 @@ while.end:                                        ; preds = %if.end, %qobject_re
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @qdict_rename_keys(ptr noundef %qdict, ptr nocapture noundef readonly %renames, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qdict_rename_keys(ptr noundef %qdict, ptr noundef readonly captures(none) %renames, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %renames, align 8
   %tobool.not18 = icmp eq ptr %0, null
@@ -1324,7 +1324,7 @@ declare ptr @qobject_input_visitor_new_keyval(ptr noundef) local_unnamed_addr #1
 declare ptr @qdict_entry_value(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @qdict_flatten_qlist(ptr nocapture noundef nonnull readonly %qlist, ptr noundef %target, ptr noundef %prefix) unnamed_addr #0 {
+define internal fastcc void @qdict_flatten_qlist(ptr noundef nonnull readonly captures(none) %qlist, ptr noundef %target, ptr noundef %prefix) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %prefix, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -1435,10 +1435,10 @@ declare ptr @qdict_clone_shallow(ptr noundef) local_unnamed_addr #1
 declare i64 @llvm.smax.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

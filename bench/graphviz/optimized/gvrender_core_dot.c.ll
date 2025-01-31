@@ -79,7 +79,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.50 = private unnamed_addr constant [8 x i8] c"%c %zu \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @core_loadimage_xdot(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly byval(%struct.boxf) align 8 %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define void @core_loadimage_xdot(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly byval(%struct.boxf) align 8 captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -164,12 +164,12 @@ agxbput.exit:                                     ; preds = %23, %28
   %49 = getelementptr inbounds nuw [12 x ptr], ptr @xbufs, i64 0, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #18
-  tail call void (ptr, ptr, ...) @agxbprint(ptr noundef %50, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i64 noundef %51, ptr noundef %46)
+  tail call void (ptr, ptr, ...) @agxbprint(ptr noundef %50, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i64 noundef %51, ptr noundef nonnull %46)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xdot_fmt_num(ptr nocapture noundef %0, double noundef %1) unnamed_addr #0 {
+define internal fastcc void @xdot_fmt_num(ptr noundef captures(none) %0, double noundef %1) unnamed_addr #0 {
   tail call void (ptr, ptr, ...) @agxbprint(ptr noundef %0, ptr noundef nonnull @.str.14, double noundef %1)
   %3 = getelementptr i8, ptr %0, i64 31
   %.val.i.i = load i8, ptr %3, align 1
@@ -359,7 +359,7 @@ agxbputc.exit:                                    ; preds = %62, %67
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dot_begin_graph(ptr nocapture noundef readonly %0) #0 {
+define internal void @dot_begin_graph(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -912,7 +912,7 @@ xdot_end_graph.exit:                              ; preds = %agxbfree.exit.i
   br i1 %.not, label %97, label %102
 
 97:                                               ; preds = %xdot_end_graph.exit
-  %98 = tail call i32 @agwrite(ptr noundef %5, ptr noundef nonnull %0) #17
+  %98 = tail call i32 @agwrite(ptr noundef nonnull %5, ptr noundef nonnull %0) #17
   br label %102
 
 99:                                               ; preds = %10
@@ -929,7 +929,7 @@ xdot_end_graph.exit:                              ; preds = %agxbfree.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xdot_end_cluster(ptr nocapture noundef readonly %0) #0 {
+define internal void @xdot_end_cluster(ptr noundef readonly captures(none) %0) #0 {
 agxbsizeof.exit.i.i:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %2 = load ptr, ptr %1, align 8
@@ -1073,7 +1073,7 @@ agxbuse.exit19:                                   ; preds = %agxbclear.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xdot_end_node(ptr nocapture noundef readonly %0) #0 {
+define internal void @xdot_end_node(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1242,7 +1242,7 @@ agxbuse.exit23:                                   ; preds = %agxbclear.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xdot_end_edge(ptr nocapture noundef readonly %0) #0 {
+define internal void @xdot_end_edge(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1731,7 +1731,7 @@ agxbuse.exit111:                                  ; preds = %agxbclear.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xdot_textspan(ptr nocapture noundef readonly %0, double %1, double %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @xdot_textspan(ptr noundef readonly captures(none) %0, double %1, double %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -1807,7 +1807,7 @@ agxbput.exit:                                     ; preds = %23, %28
   %43 = getelementptr inbounds nuw [12 x ptr], ptr @xbufs, i64 0, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #18
-  tail call void (ptr, ptr, ...) @agxbprint(ptr noundef %44, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i64 noundef %45, ptr noundef %40)
+  tail call void (ptr, ptr, ...) @agxbprint(ptr noundef %44, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i64 noundef %45, ptr noundef nonnull %40)
   %46 = load ptr, ptr %5, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 35
@@ -1963,12 +1963,12 @@ agxbput.exit45:                                   ; preds = %112, %117
   %131 = getelementptr inbounds nuw [12 x ptr], ptr @xbufs, i64 0, i64 %130
   %132 = load ptr, ptr %131, align 8
   %133 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %128) #18
-  tail call void (ptr, ptr, ...) @agxbprint(ptr noundef %132, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i64 noundef %133, ptr noundef %128)
+  tail call void (ptr, ptr, ...) @agxbprint(ptr noundef %132, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i64 noundef %133, ptr noundef nonnull %128)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xdot_ellipse(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal void @xdot_ellipse(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -2207,7 +2207,7 @@ agxbput.exit:                                     ; preds = %121, %116, %94, %89
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xdot_polygon(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
+define internal void @xdot_polygon(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
   tail call fastcc void @xdot_style(ptr noundef %0)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -2360,7 +2360,7 @@ xdot_points.exit:                                 ; preds = %.lr.ph.i, %.lr.ph.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xdot_bezier(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
+define internal void @xdot_bezier(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
   tail call fastcc void @xdot_style(ptr noundef %0)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -2513,7 +2513,7 @@ xdot_points.exit:                                 ; preds = %.lr.ph.i, %.lr.ph.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xdot_polyline(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal void @xdot_polyline(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   tail call fastcc void @xdot_style(ptr noundef %0)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -2585,10 +2585,10 @@ xdot_points.exit:                                 ; preds = %.lr.ph.i, %xdot_pen
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbmore(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @agxbmore(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 31
   %.val.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %.val.i, -1
@@ -2663,10 +2663,10 @@ gv_recalloc.exit:                                 ; preds = %20, %18, %11, %gv_c
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #4 {
@@ -2678,13 +2678,13 @@ define internal fastcc void @graphviz_exit() unnamed_addr #4 {
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
@@ -2692,7 +2692,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare double @yDir(double noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
+define internal void @agxbprint(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -2788,7 +2788,7 @@ vagxbprint.exit:                                  ; preds = %7, %agxbnext.exit.i
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
 declare void @attach_attrs(ptr noundef) local_unnamed_addr #10
 
@@ -2818,7 +2818,7 @@ declare i32 @agwrite(ptr noundef, ptr noundef) local_unnamed_addr #10
 declare i32 @agxset(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @put_escaping_backslashes(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @put_escaping_backslashes(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.agxbuf, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 31
@@ -2983,10 +2983,10 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit, %61
 declare i32 @agsafeset(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xdot_style(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @xdot_style(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca %struct.agxbuf, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3209,7 +3209,7 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   %91 = getelementptr inbounds nuw [12 x ptr], ptr @xbufs, i64 0, i64 %90
   %92 = load ptr, ptr %91, align 8
   %93 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %88) #18
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %92, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.41, i64 noundef %93, ptr noundef %88)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %92, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.41, i64 noundef %93, ptr noundef nonnull %88)
   %.pre106 = load ptr, ptr %3, align 8
   br label %94
 
@@ -3491,7 +3491,7 @@ agxbuse.exit93:                                   ; preds = %agxbclear.exit.thre
   %202 = getelementptr inbounds nuw [12 x ptr], ptr @xbufs, i64 0, i64 %201
   %203 = load ptr, ptr %202, align 8
   %204 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %199) #18
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %203, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.41, i64 noundef %204, ptr noundef %199)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %203, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.41, i64 noundef %204, ptr noundef nonnull %199)
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %.preheader
@@ -3510,7 +3510,7 @@ agxbfree.exit:                                    ; preds = %agxbfree.exit.sink.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xdot_gradient_fillcolor(ptr nocapture noundef readonly %0, i32 noundef range(i32 1, 0) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @xdot_gradient_fillcolor(ptr noundef readonly captures(none) %0, i32 noundef range(i32 1, 0) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca [2 x %struct.pointf_s], align 16
   %6 = alloca %struct.agxbuf, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3936,7 +3936,7 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   %196 = getelementptr inbounds nuw [12 x ptr], ptr @xbufs, i64 0, i64 %195
   %197 = load ptr, ptr %196, align 8
   %198 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %193) #18
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %197, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.48, i64 noundef %198, ptr noundef %193)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %197, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.48, i64 noundef %198, ptr noundef nonnull %193)
   %199 = load i8, ptr %119, align 1
   %200 = icmp eq i8 %199, -1
   br i1 %200, label %201, label %agxbfree.exit
@@ -3951,7 +3951,7 @@ agxbfree.exit:                                    ; preds = %201, %agxbuse.exit,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @get_gradient_points(ptr noundef, ptr noundef, i64 noundef, double noundef, i32 noundef) local_unnamed_addr #10
 
@@ -3965,7 +3965,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #13
 declare double @sin(double noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xdot_color_stop(ptr nocapture noundef nonnull %0, float noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @xdot_color_stop(ptr noundef nonnull captures(none) %0, float noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = fpext float %1 to double
   tail call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %0, ptr noundef nonnull @.str.49, double noundef %4)
   %5 = getelementptr i8, ptr %0, i64 31
@@ -4201,10 +4201,10 @@ declare void @llvm.va_copy.p0(ptr, ptr) #14
 declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

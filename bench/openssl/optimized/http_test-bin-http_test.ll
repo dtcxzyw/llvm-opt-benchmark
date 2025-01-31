@@ -484,7 +484,7 @@ return:                                           ; preds = %entry, %if.end41
 declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -714,7 +714,7 @@ declare ptr @BIO_new(ptr noundef) local_unnamed_addr #1
 declare ptr @BIO_s_mem() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -725,7 +725,7 @@ declare ptr @ASN1_item_i2d_mem_bio(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @BIO_set_callback_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -2147483648, 2147483648) i64 @http_bio_cb_ex(ptr noundef %bio, i32 noundef %oper, ptr nocapture readnone %argp, i64 %len, i32 noundef %cmd, i64 %argl, i32 noundef %ret, ptr nocapture readnone %processed) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @http_bio_cb_ex(ptr noundef %bio, i32 noundef %oper, ptr readnone captures(none) %argp, i64 %len, i32 noundef %cmd, i64 %argl, i32 noundef %ret, ptr readnone captures(none) %processed) #0 {
 entry:
   %req.i = alloca ptr, align 8
   %call = tail call ptr @BIO_get_callback_arg(ptr noundef %bio) #7
@@ -950,7 +950,7 @@ declare ptr @BIO_get_callback_arg(ptr noundef) local_unnamed_addr #1
 declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
@@ -964,14 +964,14 @@ declare i32 @test_char_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i8
 declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @ASN1_item_i2d(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @ASN1_item_i2d_bio(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1007,7 +1007,7 @@ if.end:                                           ; preds = %entry
 for.body:                                         ; preds = %if.end, %if.end33
   %i.021 = phi i32 [ 1, %if.end ], [ %inc, %if.end33 ]
   %keep_alive.addr.020 = phi i32 [ %keep_alive, %if.end ], [ 0, %if.end33 ]
-  %call9 = call ptr @OSSL_HTTP_transfer(ptr noundef nonnull %rctx, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.91, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef %call1, ptr noundef %call3, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.89, i32 noundef 0, i64 noundef 0, i32 noundef 0, i32 noundef %keep_alive.addr.020) #7
+  %call9 = call ptr @OSSL_HTTP_transfer(ptr noundef nonnull %rctx, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.91, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef nonnull %call1, ptr noundef %call3, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.89, i32 noundef 0, i64 noundef 0, i32 noundef 0, i32 noundef %keep_alive.addr.020) #7
   %cmp10 = icmp eq i32 %keep_alive.addr.020, 2
   %or.cond1 = and i1 %cmp11, %cmp10
   br i1 %or.cond1, label %land.lhs.true14, label %land.lhs.true23
@@ -1065,10 +1065,10 @@ declare i32 @OSSL_HTTP_is_alive(ptr noundef) local_unnamed_addr #1
 declare i32 @OSSL_HTTP_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

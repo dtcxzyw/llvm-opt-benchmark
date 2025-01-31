@@ -234,7 +234,7 @@ if.end:                                           ; preds = %cond.end, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fdr_engine_exec(ptr noundef readonly %fdr, ptr nocapture noundef readonly %a, i64 noundef %control) #1 {
+define internal range(i32 0, 2) i32 @fdr_engine_exec(ptr noundef readonly %fdr, ptr noundef readonly captures(none) %a, i64 noundef %control) #1 {
 entry:
   %zones = alloca [3 x %struct.zone], align 64
   %conf0 = alloca i64, align 8
@@ -4147,7 +4147,7 @@ declare i32 @fdr_exec_teddy_msks4(ptr noundef, ptr noundef, i64 noundef) #2
 declare i32 @fdr_exec_teddy_msks4_pck(ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #3
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #4

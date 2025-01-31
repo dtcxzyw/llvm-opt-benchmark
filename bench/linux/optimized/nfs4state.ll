@@ -194,13 +194,13 @@ define dso_local i32 @nfs4_init_clientid(ptr noundef %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @nfs4_proc_setclientid(ptr noundef, i32 noundef, i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #4
@@ -209,7 +209,7 @@ declare dso_local i32 @nfs4_proc_setclientid(ptr noundef, i32 noundef, i16 nound
 declare dso_local i32 @nfs4_proc_setclientid_confirm(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @nfs40_discover_server_trunking(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
@@ -376,7 +376,7 @@ define dso_local void @nfs4_schedule_state_manager(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @nfs4_get_machine_cred(ptr nocapture noundef readnone %0) local_unnamed_addr #0 align 16 {
+define dso_local ptr @nfs4_get_machine_cred(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = tail call ptr @rpc_machine_cred() #17
   %3 = icmp eq ptr %2, null
   br i1 %3, label %6, label %4
@@ -463,7 +463,7 @@ define dso_local ptr @nfs4_get_renew_cred(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @nfs4_get_clid_cred(ptr nocapture noundef readnone %0) local_unnamed_addr #0 align 16 {
+define dso_local ptr @nfs4_get_clid_cred(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = tail call ptr @rpc_machine_cred() #17
   %3 = icmp eq ptr %2, null
   br i1 %3, label %6, label %4
@@ -1569,7 +1569,7 @@ define dso_local void @nfs4_put_lock_state(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @nfs4_set_lock_state(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @nfs4_set_lock_state(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1721,7 +1721,7 @@ define dso_local noundef range(i32 -12, 1) i32 @nfs4_set_lock_state(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @nfs4_copy_open_stateid(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext i1 @nfs4_copy_open_stateid(ptr noundef writeonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -2229,7 +2229,7 @@ declare dso_local void @wake_up_var(ptr noundef) local_unnamed_addr #4
 declare dso_local void @__module_get(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @rpc_peeraddr2str(ptr noundef, i32 noundef) local_unnamed_addr #4
@@ -3687,7 +3687,7 @@ define dso_local noundef range(i32 0, 2) i32 @nfs4_state_mark_reclaim_nograce(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -9, 1) i32 @nfs4_schedule_stateid_recovery(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -9, 1) i32 @nfs4_schedule_stateid_recovery(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = load volatile i64, ptr %4, align 8
@@ -4144,7 +4144,7 @@ declare dso_local i32 @nfs4_do_close(ptr noundef, i32 noundef, i32 noundef) loca
 declare dso_local void @rpc_destroy_wait_queue(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs4_fl_copy_lock(ptr nocapture noundef writeonly initializes((184, 192)) %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @nfs4_fl_copy_lock(ptr noundef writeonly captures(none) initializes((184, 192)) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -4170,7 +4170,7 @@ define internal void @nfs4_fl_copy_lock(ptr nocapture noundef writeonly initiali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs4_fl_release_lock(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @nfs4_fl_release_lock(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   tail call void @nfs4_put_lock_state(ptr noundef %3)
@@ -4232,7 +4232,7 @@ declare dso_local void @__module_put_and_kthread_exit(ptr noundef, i64 noundef) 
 declare dso_local void @kernel_sigaction(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -10051, -10053) i32 @nfs4_do_reclaim(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -10051, -10053) i32 @nfs4_do_reclaim(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
   store ptr %3, ptr %3, align 8
@@ -5662,7 +5662,7 @@ declare dso_local void @nfs41_wake_slot_table(ptr noundef) local_unnamed_addr #4
 declare dso_local i32 @__SCT__tp_func_nfs4_state_mgr_failed(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #12

@@ -85,7 +85,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN15MemReporterBaseC1EP12outputStreamm = hidden unnamed_addr alias void (ptr, ptr, i64), ptr @_ZN15MemReporterBaseC2EP12outputStreamm
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15MemReporterBaseC2EP12outputStreamm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 25)) %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN15MemReporterBaseC2EP12outputStreamm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 25)) %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #0 align 2 {
   store i64 %2, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -99,7 +99,7 @@ define hidden void @_ZN15MemReporterBaseC2EP12outputStreamm(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef i64 @_ZN15MemReporterBase14reserved_totalEPK12MallocMemoryPK13VirtualMemory(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZN15MemReporterBase14reserved_totalEPK12MallocMemoryPK13VirtualMemory(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load volatile i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -111,7 +111,7 @@ define hidden noundef i64 @_ZN15MemReporterBase14reserved_totalEPK12MallocMemory
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef i64 @_ZN15MemReporterBase15committed_totalEPK12MallocMemoryPK13VirtualMemory(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZN15MemReporterBase15committed_totalEPK12MallocMemoryPK13VirtualMemory(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load volatile i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -124,7 +124,7 @@ define hidden noundef i64 @_ZN15MemReporterBase15committed_totalEPK12MallocMemor
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK15MemReporterBase11print_totalEmmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK15MemReporterBase11print_totalEmmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = load i64, ptr %0, align 8
   %6 = tail call noundef ptr @_ZN7NMTUtil10scale_nameEm(i64 noundef %5) #7
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -155,7 +155,7 @@ define hidden void @_ZNK15MemReporterBase11print_totalEmmm(ptr nocapture noundef
 declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK15MemReporterBase12print_mallocEPK13MemoryCounter8MEMFLAGS(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK15MemReporterBase12print_mallocEPK13MemoryCounter8MEMFLAGS(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = load i64, ptr %0, align 8
   %5 = tail call noundef ptr @_ZN7NMTUtil10scale_nameEm(i64 noundef %4) #7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -225,7 +225,7 @@ define hidden void @_ZNK15MemReporterBase12print_mallocEPK13MemoryCounter8MEMFLA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK15MemReporterBase20print_virtual_memoryEmmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK15MemReporterBase20print_virtual_memoryEmmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
@@ -257,7 +257,7 @@ define hidden void @_ZNK15MemReporterBase20print_virtual_memoryEmmm(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK15MemReporterBase11print_arenaEPK13MemoryCounter(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK15MemReporterBase11print_arenaEPK13MemoryCounter(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i64, ptr %0, align 8
   %4 = tail call noundef ptr @_ZN7NMTUtil10scale_nameEm(i64 noundef %3) #7
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -298,7 +298,7 @@ define hidden void @_ZNK15MemReporterBase11print_arenaEPK13MemoryCounter(ptr noc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK15MemReporterBase27print_virtual_memory_regionEPKcPhm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK15MemReporterBase27print_virtual_memory_regionEPKcPhm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = load i64, ptr %0, align 8
   %6 = tail call noundef ptr @_ZN7NMTUtil10scale_nameEm(i64 noundef %5) #7
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -315,7 +315,7 @@ define hidden void @_ZNK15MemReporterBase27print_virtual_memory_regionEPKcPhm(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18MemSummaryReporter6reportEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN18MemSummaryReporter6reportEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -454,7 +454,7 @@ declare void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18MemSummaryReporter22report_summary_of_typeE8MEMFLAGSP12MallocMemoryP13VirtualMemory(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, i8 noundef zeroext %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18MemSummaryReporter22report_summary_of_typeE8MEMFLAGSP12MallocMemoryP13VirtualMemory(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i8 noundef zeroext %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load volatile i64, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -765,7 +765,7 @@ _ZNK15MemReporterBase11print_arenaEPK13MemoryCounter.exit: ; preds = %165, %166,
 declare noundef i64 @_ZN11FileMapInfo14readonly_totalEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK18MemSummaryReporter15report_metadataEN9Metaspace12MetadataTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK18MemSummaryReporter15report_metadataEN9Metaspace12MetadataTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.MetaspaceStats, align 8
   %4 = tail call noundef zeroext i1 @_ZN9Metaspace11initializedEv() #7
   br i1 %4, label %5, label %45
@@ -1199,7 +1199,7 @@ declare noundef i64 @_ZNK20ReservedMemoryRegion14committed_sizeEv(ptr noundef no
 declare void @_ZNK15NativeCallStack8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17MemDetailReporter30report_memory_file_allocationsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2488) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17MemDetailReporter30report_memory_file_allocationsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2488) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.stringStream, align 8
   %3 = alloca %"class.MemoryFileTracker::Instance::Locker", align 1
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %2, i64 noundef 0) #7
@@ -1213,7 +1213,7 @@ define hidden void @_ZN17MemDetailReporter30report_memory_file_allocationsEv(ptr
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #8
-  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef %9, i64 noundef %10) #7
+  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull %9, i64 noundef %10) #7
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %2) #7
   ret void
 }
@@ -1231,7 +1231,7 @@ declare void @_ZN17MemoryFileTracker8Instance6LockerD1Ev(ptr noundef nonnull ali
 declare void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22MemSummaryDiffReporter11report_diffEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN22MemSummaryDiffReporter11report_diffEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -1476,7 +1476,7 @@ _ZNK21VirtualMemorySnapshot15total_committedEv.exit59: ; preds = %_ZNK21VirtualM
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22MemSummaryDiffReporter25print_virtual_memory_diffEmmmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK22MemSummaryDiffReporter25print_virtual_memory_diffEmmmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = tail call noundef ptr @_ZN7NMTUtil10scale_nameEm(i64 noundef %7) #7
@@ -1541,7 +1541,7 @@ define hidden void @_ZNK22MemSummaryDiffReporter25print_virtual_memory_diffEmmmm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22MemSummaryDiffReporter17print_malloc_diffEmmmm8MEMFLAGS(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK22MemSummaryDiffReporter17print_malloc_diffEmmmm8MEMFLAGS(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call noundef ptr @_ZN7NMTUtil10scale_nameEm(i64 noundef %8) #7
@@ -1610,7 +1610,7 @@ define hidden void @_ZNK22MemSummaryDiffReporter17print_malloc_diffEmmmm8MEMFLAG
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22MemSummaryDiffReporter20diff_summary_of_typeE8MEMFLAGSPK12MallocMemoryPK13VirtualMemoryRK22MetaspaceCombinedStatsS3_S6_S9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i8 noundef zeroext %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %4, ptr noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %7) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK22MemSummaryDiffReporter20diff_summary_of_typeE8MEMFLAGSPK12MallocMemoryPK13VirtualMemoryRK22MetaspaceCombinedStatsS3_S6_S9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i8 noundef zeroext %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %4, ptr noundef %5, ptr noundef readonly captures(none) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %7) local_unnamed_addr #0 align 2 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
@@ -2060,7 +2060,7 @@ _ZNK22MemSummaryDiffReporter20print_metaspace_diffERK22MetaspaceCombinedStatsS2_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22MemSummaryDiffReporter16print_arena_diffEmmmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK22MemSummaryDiffReporter16print_arena_diffEmmmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = tail call noundef ptr @_ZN7NMTUtil10scale_nameEm(i64 noundef %7) #7
@@ -2110,7 +2110,7 @@ define hidden void @_ZNK22MemSummaryDiffReporter16print_arena_diffEmmmm(ptr noca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22MemSummaryDiffReporter20print_metaspace_diffERK22MetaspaceCombinedStatsS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK22MemSummaryDiffReporter20print_metaspace_diffERK22MetaspaceCombinedStatsS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @_ZNK22MemSummaryDiffReporter20print_metaspace_diffEPKcRK14MetaspaceStatsS4_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.60, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
@@ -2129,7 +2129,7 @@ define hidden void @_ZNK22MemSummaryDiffReporter20print_metaspace_diffERK22Metas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK22MemSummaryDiffReporter20print_metaspace_diffEPKcRK14MetaspaceStatsS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK22MemSummaryDiffReporter20print_metaspace_diffEPKcRK14MetaspaceStatsS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -2703,7 +2703,7 @@ define hidden void @_ZNK21MemDetailDiffReporter23old_virtual_memory_siteEPK27Vir
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK21MemDetailDiffReporter24diff_virtual_memory_siteEPK27VirtualMemoryAllocationSiteS2_(ptr noundef nonnull align 8 dereferenceable(2464) %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK21MemDetailDiffReporter24diff_virtual_memory_siteEPK27VirtualMemoryAllocationSiteS2_(ptr noundef nonnull align 8 dereferenceable(2464) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -2835,18 +2835,18 @@ declare noundef ptr @_ZN7NMTUtil10scale_nameEm(i64 noundef) local_unnamed_addr #
 declare void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare noundef i64 @_ZNK20MallocMemorySnapshot11total_arenaEv(ptr noundef nonnull align 8 dereferenceable(1824)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5

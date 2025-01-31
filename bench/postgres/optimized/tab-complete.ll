@@ -1845,7 +1845,7 @@ define dso_local void @initialize_readline() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @psql_completion(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2) #0 {
+define internal ptr @psql_completion(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
@@ -12356,7 +12356,7 @@ append_variable_names.exit:                       ; preds = %.lr.ph.split, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @TailMatchesImpl(i1 noundef zeroext %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 1, 12) %3, ...) unnamed_addr #0 {
+define internal noundef zeroext i1 @TailMatchesImpl(i1 noundef zeroext %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 1, 12) %3, ...) unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = icmp slt i32 %1, %3
   br i1 %6, label %30, label %7
@@ -12412,7 +12412,7 @@ define internal noundef zeroext i1 @TailMatchesImpl(i1 noundef zeroext %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @HeadMatchesImpl(i1 noundef zeroext %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 1, 7) %3, ...) unnamed_addr #0 {
+define internal noundef zeroext i1 @HeadMatchesImpl(i1 noundef zeroext %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 1, 7) %3, ...) unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = icmp slt i32 %1, %3
   br i1 %6, label %31, label %7
@@ -12531,7 +12531,7 @@ create_or_drop_command_generator.exit:            ; preds = %26, %7, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @MatchesImpl(i1 zeroext %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 1, 11) %3, ...) unnamed_addr #0 {
+define internal noundef zeroext i1 @MatchesImpl(i1 zeroext %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 1, 11) %3, ...) unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %.not = icmp eq i32 %1, %3
   br i1 %.not, label %6, label %29
@@ -12782,7 +12782,7 @@ define internal fastcc ptr @get_guctype(ptr noundef %0) unnamed_addr #0 {
   %5 = or disjoint i64 %4, 1
   %6 = tail call ptr @pg_malloc(i64 noundef %5) #12
   %7 = load ptr, ptr @pset, align 8
-  %8 = tail call i64 @PQescapeStringConn(ptr noundef %7, ptr noundef %6, ptr noundef %0, i64 noundef %3, ptr noundef null) #12
+  %8 = tail call i64 @PQescapeStringConn(ptr noundef %7, ptr noundef %6, ptr noundef nonnull %0, i64 noundef %3, ptr noundef null) #12
   call void @initPQExpBuffer(ptr noundef nonnull %2) #12
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %2, ptr noundef nonnull @.str.1678, ptr noundef %6) #12
   %9 = load ptr, ptr %2, align 8
@@ -12833,10 +12833,10 @@ exec_query.exit:                                  ; preds = %1, %13, %15, %19
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare zeroext i1 @recognized_connection_string(ptr noundef) local_unnamed_addr #1
 
@@ -12873,7 +12873,7 @@ define internal ptr @complete_from_versioned_query(ptr noundef %0, i32 noundef %
 declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complete_from_const(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
+define internal ptr @complete_from_const(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %10
 
@@ -12897,16 +12897,16 @@ define internal ptr @complete_from_const(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare ptr @pg_strdup(ptr noundef) local_unnamed_addr #1
 
@@ -13042,7 +13042,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   br i1 %.not59.us, label %42, label %26
 
 26:                                               ; preds = %19
-  %27 = tail call i32 @strncmp(ptr noundef %1, ptr noundef %.050.us, i64 noundef %21) #14
+  %27 = tail call i32 @strncmp(ptr noundef nonnull %1, ptr noundef %.050.us, i64 noundef %21) #14
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %42
 
@@ -13061,7 +13061,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %35
-  %40 = tail call i32 @strncmp(ptr noundef %1, ptr noundef %.050.us, i64 noundef %13) #14
+  %40 = tail call i32 @strncmp(ptr noundef nonnull %1, ptr noundef %.050.us, i64 noundef %13) #14
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.loopexit, label %42
 
@@ -13113,7 +13113,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   br i1 %.not59, label %76, label %60
 
 60:                                               ; preds = %53
-  %61 = tail call i32 @pg_strncasecmp(ptr noundef %1, ptr noundef %.050, i64 noundef %55) #12
+  %61 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %1, ptr noundef %.050, i64 noundef %55) #12
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %63, label %76
 
@@ -13132,7 +13132,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   br i1 %72, label %73, label %76
 
 73:                                               ; preds = %69
-  %74 = tail call i32 @pg_strncasecmp(ptr noundef %1, ptr noundef %.050, i64 noundef %13) #12
+  %74 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %1, ptr noundef %.050, i64 noundef %13) #12
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %.loopexit, label %76
 
@@ -13250,7 +13250,7 @@ make_like_pattern.exit:                           ; preds = %25
   %46 = or disjoint i64 %45, 1
   %47 = tail call ptr @pg_malloc(i64 noundef %46) #12
   %48 = load ptr, ptr @pset, align 8
-  %49 = tail call i64 @PQescapeStringConn(ptr noundef %48, ptr noundef %47, ptr noundef %24, i64 noundef %44, ptr noundef null) #12
+  %49 = tail call i64 @PQescapeStringConn(ptr noundef %48, ptr noundef %47, ptr noundef nonnull %24, i64 noundef %44, ptr noundef null) #12
   tail call void @free(ptr noundef %24) #12
   %50 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %50, null
@@ -14077,7 +14077,7 @@ requote_identifier.exit:                          ; preds = %385, %.thread169.th
   %420 = add i32 %419, 1
   store i32 %420, ptr @_complete_from_query.list_index, align 4
   %421 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #14
-  %422 = call i32 @pg_strncasecmp(ptr noundef %4, ptr noundef nonnull %413, i64 noundef %421) #12
+  %422 = call i32 @pg_strncasecmp(ptr noundef nonnull %4, ptr noundef nonnull %413, i64 noundef %421) #12
   %423 = icmp eq i32 %422, 0
   br i1 %423, label %424, label %.backedge185
 
@@ -14118,7 +14118,7 @@ requote_identifier.exit:                          ; preds = %385, %.thread169.th
   %436 = add i32 %435, 1
   store i32 %436, ptr @_complete_from_query.list_index, align 4
   %437 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #14
-  %438 = call i32 @pg_strncasecmp(ptr noundef %4, ptr noundef nonnull %429, i64 noundef %437) #12
+  %438 = call i32 @pg_strncasecmp(ptr noundef nonnull %4, ptr noundef nonnull %429, i64 noundef %437) #12
   %439 = icmp eq i32 %438, 0
   br i1 %439, label %440, label %.backedge
 
@@ -14159,7 +14159,7 @@ requote_identifier.exit:                          ; preds = %385, %.thread169.th
 declare void @PQclear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_identifier(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly initializes((0, 1)) %3, ptr nocapture noundef initializes((0, 1)) %4) unnamed_addr #0 {
+define internal fastcc void @parse_identifier(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3, ptr noundef captures(none) initializes((0, 1)) %4) unnamed_addr #0 {
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
   %7 = add i64 %6, 1
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
@@ -14411,7 +14411,7 @@ declare i32 @PQstatus(ptr noundef) local_unnamed_addr #1
 declare ptr @PQexec(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @ScanKeywordLookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -14420,10 +14420,10 @@ declare ptr @rl_filename_completion_function(ptr noundef, i32 noundef) local_unn
 declare ptr @quote_if_needed(ptr noundef, ptr noundef, i8 noundef signext, i8 noundef signext, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #8
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #8
 
 declare ptr @strtokx(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i8 noundef signext, i1 noundef zeroext, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
@@ -14437,10 +14437,10 @@ declare void @llvm.va_end.p0(ptr) #9
 declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

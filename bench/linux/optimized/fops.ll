@@ -49,7 +49,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_blkdev_init462], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @blkdev_read_folio(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal i32 @blkdev_read_folio(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = tail call i32 @block_read_full_folio(ptr noundef %1, ptr noundef nonnull @blkdev_get_block) #9
   ret i32 %3
 }
@@ -76,7 +76,7 @@ define internal void @blkdev_readahead(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @blkdev_write_begin(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture readnone %5) #0 align 16 {
+define internal i32 @blkdev_write_begin(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr readnone captures(none) %5) #0 align 16 {
   %7 = tail call i32 @block_write_begin(ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull @blkdev_get_block) #9
   ret i32 %7
 }
@@ -151,7 +151,7 @@ declare dso_local i32 @buffer_migrate_folio_norefs(ptr noundef, ptr noundef, ptr
 declare dso_local void @buffer_check_dirty_writeback(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local range(i32 0, 32) i32 @file_to_blk_mode(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 0, 32) i32 @file_to_blk_mode(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -189,10 +189,10 @@ define dso_local range(i32 0, 32) i32 @file_to_blk_mode(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @blkdev_llseek(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
@@ -498,7 +498,7 @@ define internal i32 @blkdev_mmap(ptr noundef %0, ptr noundef %1) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @blkdev_open(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i32 @blkdev_open(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load i32, ptr %3, align 8
   %5 = or i32 %4, 32768
@@ -585,7 +585,7 @@ define internal i32 @blkdev_open(ptr nocapture noundef readonly %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @blkdev_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef i32 @blkdev_release(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %4 = load ptr, ptr %3, align 8
   tail call void @bdev_release(ptr noundef %4) #9
@@ -620,7 +620,7 @@ declare dso_local i64 @iter_file_splice_write(ptr noundef, ptr noundef, ptr noun
 declare dso_local i64 @filemap_splice_read(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @blkdev_fallocate(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @blkdev_fallocate(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
@@ -805,7 +805,7 @@ declare dso_local ptr @I_BDEV(ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @blk_start_plug(ptr noundef) local_unnamed_addr #1
@@ -1901,7 +1901,7 @@ define internal fastcc range(i64 -2147483648, 4294967296) i64 @blkdev_direct_wri
 declare dso_local i64 @direct_write_fallback(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc range(i64 -2147483648, -9223372036854775808) i64 @generic_write_sync(ptr nocapture noundef readonly %0, i64 noundef range(i64 1, -9223372036854775808) %1) unnamed_addr #8 align 16 {
+define internal fastcc range(i64 -2147483648, -9223372036854775808) i64 @generic_write_sync(ptr noundef readonly captures(none) %0, i64 noundef range(i64 1, -9223372036854775808) %1) unnamed_addr #8 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 2
@@ -1959,7 +1959,7 @@ declare dso_local void @kiocb_invalidate_post_direct_write(ptr noundef, i64 noun
 declare dso_local i64 @iomap_file_buffered_write(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -5, 1) i32 @blkdev_iomap_begin(ptr noundef %0, i64 noundef %1, i64 %2, i32 %3, ptr nocapture noundef initializes((8, 16), (32, 40)) %4, ptr nocapture readnone %5) #0 align 16 {
+define internal noundef range(i32 -5, 1) i32 @blkdev_iomap_begin(ptr noundef %0, i64 noundef %1, i64 %2, i32 %3, ptr noundef captures(none) initializes((8, 16), (32, 40)) %4, ptr readnone captures(none) %5) #0 align 16 {
   %7 = tail call ptr @I_BDEV(ptr noundef %0) #9
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8

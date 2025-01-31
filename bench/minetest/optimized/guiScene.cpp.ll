@@ -479,10 +479,10 @@ _ZNSt7__cxx1110_List_baseIPN3irr3gui11IGUIElementESaIS4_EED2Ev.exit: ; preds = %
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef %vtt) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -768,7 +768,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN8GUIScene7setMeshEPN3irr5scene13IAnimatedMeshE(ptr nocapture noundef nonnull align 8 dereferenceable(436) %this, ptr noundef %mesh) local_unnamed_addr #7 align 2 {
+define dso_local noundef ptr @_ZN8GUIScene7setMeshEPN3irr5scene13IAnimatedMeshE(ptr noundef nonnull align 8 captures(none) dereferenceable(436) %this, ptr noundef %mesh) local_unnamed_addr #7 align 2 {
 entry:
   %ref.tmp = alloca %"class.irr::core::vector3d", align 8
   %ref.tmp7 = alloca %"class.irr::core::vector3d", align 8
@@ -1097,10 +1097,10 @@ _ZN8GUISceneD0Ev.exit:                            ; preds = %delete.notnull.i.i.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8GUIScene10setTextureEjPN3irr5video8ITextureE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(436) %this, i32 noundef %idx, ptr noundef %texture) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN8GUIScene10setTextureEjPN3irr5video8ITextureE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(436) %this, i32 noundef %idx, ptr noundef %texture) local_unnamed_addr #3 align 2 {
 entry:
   %m_mesh = getelementptr inbounds nuw i8, ptr %this, i64 344
   %0 = load ptr, ptr %m_mesh, align 8, !tbaa !74
@@ -1673,7 +1673,7 @@ if.end62:                                         ; preds = %_ZN8GUIScene17setCa
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8GUIScene12updateCameraEPN3irr5scene10ISceneNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(436) initializes((336, 344)) %this, ptr noundef %target) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN8GUIScene12updateCameraEPN3irr5scene10ISceneNodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(436) initializes((336, 344)) %this, ptr noundef %target) local_unnamed_addr #7 align 2 {
 entry:
   %m_target = getelementptr inbounds nuw i8, ptr %this, i64 336
   store ptr %target, ptr %m_target, align 8, !tbaa !92
@@ -2543,7 +2543,7 @@ cond.end:                                         ; preds = %cond.true, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8GUIScene9setStylesERKSt5arrayI9StyleSpecLm8EE(ptr noundef nonnull align 8 dereferenceable(436) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(6720) %styles) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8GUIScene9setStylesERKSt5arrayI9StyleSpecLm8EE(ptr noundef nonnull align 8 dereferenceable(436) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(6720) %styles) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %def.i = alloca %"class.irr::video::SColor", align 4
@@ -2714,7 +2714,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8GUIScene12setFrameLoopEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(436) %this, i32 noundef %begin, i32 noundef %end) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN8GUIScene12setFrameLoopEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(436) %this, i32 noundef %begin, i32 noundef %end) local_unnamed_addr #3 align 2 {
 entry:
   %m_mesh = getelementptr inbounds nuw i8, ptr %this, i64 344
   %0 = load ptr, ptr %m_mesh, align 8, !tbaa !74
@@ -2747,7 +2747,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8GUIScene17setAnimationSpeedEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(436) %this, float noundef %speed) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN8GUIScene17setAnimationSpeedEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(436) %this, float noundef %speed) local_unnamed_addr #3 align 2 {
 entry:
   %m_mesh = getelementptr inbounds nuw i8, ptr %this, i64 344
   %0 = load ptr, ptr %m_mesh, align 8, !tbaa !74
@@ -2759,7 +2759,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8GUIScene15updateTargetPosEv(ptr nocapture noundef nonnull align 8 dereferenceable(436) %this) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN8GUIScene15updateTargetPosEv(ptr noundef nonnull align 8 captures(none) dereferenceable(436) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_target_pos = getelementptr inbounds nuw i8, ptr %this, i64 380
   %m_last_target_pos = getelementptr inbounds nuw i8, ptr %this, i64 392
@@ -2883,7 +2883,7 @@ _ZN8GUIScene13correctBoundsERN3irr4core8vector3dIfEE.exit: ; preds = %cleanup.si
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN8GUIScene13correctBoundsERN3irr4core8vector3dIfEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(436) %this, ptr nocapture noundef nonnull align 4 dereferenceable(12) %rot) local_unnamed_addr #14 align 2 {
+define dso_local noundef zeroext i1 @_ZN8GUIScene13correctBoundsERN3irr4core8vector3dIfEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(436) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(12) %rot) local_unnamed_addr #14 align 2 {
 entry:
   %0 = load float, ptr %rot, align 4, !tbaa !95
   %cmp = fcmp nsz olt float %0, 9.000000e+01
@@ -4508,7 +4508,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #19
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_Z6is_yesSt17basic_string_viewIcSt11char_traitsIcEE(i64 %str.coerce0, ptr %str.coerce1) local_unnamed_addr #20 comdat personality ptr @__gxx_personality_v0 {
@@ -4629,7 +4629,7 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false
 
 lor.rhs:                                          ; preds = %lor.lhs.false5
   %8 = load ptr, ptr %s2, align 8, !tbaa !69
-  %call.i20 = call i64 @strtol(ptr nocapture noundef nonnull %8, ptr noundef null, i32 noundef 10) #30
+  %call.i20 = call i64 @strtol(ptr noundef nonnull captures(none) %8, ptr noundef null, i32 noundef 10) #30
   %9 = and i64 %call.i20, 4294967295
   %cmp = icmp ne i64 %9, 0
   br label %lor.end
@@ -4670,7 +4670,7 @@ declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #23
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #23
 
 declare noundef zeroext i1 @_Z16parseColorStringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN3irr5video6SColorEbh(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #0
 
@@ -5151,7 +5151,7 @@ declare void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull al
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #19
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #19
 
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i32 noundef signext) local_unnamed_addr #0
 
@@ -5159,7 +5159,7 @@ declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(pt
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #26
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #26
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #18

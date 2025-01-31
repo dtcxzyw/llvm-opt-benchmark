@@ -53,7 +53,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ttm_bo_wait_
 @llvm.compiler.used = appending global [12 x ptr] [ptr @__UNIQUE_ID___addressable_ttm_bo_eviction_valuable413, ptr @__UNIQUE_ID___addressable_ttm_bo_init_reserved426, ptr @__UNIQUE_ID___addressable_ttm_bo_init_validate427, ptr @__UNIQUE_ID___addressable_ttm_bo_mem_space422, ptr @__UNIQUE_ID___addressable_ttm_bo_move_to_lru_tail405, ptr @__UNIQUE_ID___addressable_ttm_bo_pin416, ptr @__UNIQUE_ID___addressable_ttm_bo_put412, ptr @__UNIQUE_ID___addressable_ttm_bo_set_bulk_move406, ptr @__UNIQUE_ID___addressable_ttm_bo_unmap_virtual428, ptr @__UNIQUE_ID___addressable_ttm_bo_unpin421, ptr @__UNIQUE_ID___addressable_ttm_bo_validate423, ptr @__UNIQUE_ID___addressable_ttm_bo_wait_ctx429], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ttm_bo_move_to_lru_tail(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @ttm_bo_move_to_lru_tail(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -389,7 +389,7 @@ define dso_local void @ttm_bo_put(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @ttm_bo_eviction_valuable(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local zeroext i1 @ttm_bo_eviction_valuable(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -411,13 +411,13 @@ define dso_local zeroext i1 @ttm_bo_eviction_valuable(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @ttm_resource_intersects(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @ttm_mem_evict_first(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
@@ -869,7 +869,7 @@ define dso_local i32 @ttm_mem_evict_first(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @ttm_resource_manager_first(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1087,7 +1087,7 @@ define dso_local void @ttm_bo_unpin(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ttm_bo_mem_space(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local i32 @ttm_bo_mem_space(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -1251,7 +1251,7 @@ declare dso_local i32 @dma_resv_reserve_fences(ptr noundef, i32 noundef) local_u
 declare dso_local i32 @ttm_resource_alloc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ttm_bo_add_move_fence(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ttm_bo_add_move_fence(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @_raw_spin_lock(ptr noundef nonnull %4) #6
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1661,7 +1661,7 @@ define dso_local void @ttm_bo_unmap_virtual(ptr noundef %0) #0 align 16 {
 declare dso_local void @ttm_mem_io_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ttm_bo_wait_ctx(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local i32 @ttm_bo_wait_ctx(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1, !range !14, !noundef !15
   %5 = icmp eq i8 %4, 0
@@ -2130,7 +2130,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #1
 declare dso_local i32 @ttm_tt_swapout(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ttm_bo_tt_destroy(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @ttm_bo_tt_destroy(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2244,7 +2244,7 @@ declare dso_local void @ww_mutex_unlock(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @ww_mutex_lock_interruptible(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ttm_bo_mem_space_debug(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @ttm_bo_mem_space_debug(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.drm_printer, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #6
   store ptr @__drm_printfn_debug, ptr %3, align 8, !alias.scope !57

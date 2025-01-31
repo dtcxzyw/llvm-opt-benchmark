@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Base64 = internal constant [65 x i8] c"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/\00", align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i32 @hwloc_encode_to_base64(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define hidden i32 @hwloc_encode_to_base64(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [3 x i8], align 1
   %6 = icmp ugt i64 %1, 2
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -152,7 +152,7 @@ define hidden i32 @hwloc_encode_to_base64(ptr nocapture noundef readonly %0, i64
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @hwloc_decode_from_base64(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define hidden i32 @hwloc_decode_from_base64(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %.not74 = icmp eq ptr %1, null
   br label %.outer.outer
 

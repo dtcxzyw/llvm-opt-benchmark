@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @Java_com_sun_media_sound_Platform_nIsBigEndian(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define zeroext i8 @Java_com_sun_media_sound_Platform_nIsBigEndian(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 (...) @UTIL_IsBigEndianPlatform() #2
   %4 = trunc i32 %3 to i8
   ret i8 %4

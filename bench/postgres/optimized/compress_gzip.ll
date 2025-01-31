@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [44 x i8] c"could not read from input file: end of file\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @InitCompressorGzip(ptr nocapture noundef initializes((0, 24), (40, 72)) %0, ptr nocapture noundef readonly byval(%struct.pg_compress_specification) align 8 %1) local_unnamed_addr #0 {
+define dso_local void @InitCompressorGzip(ptr noundef captures(none) initializes((0, 24), (40, 72)) %0, ptr noundef readonly byval(%struct.pg_compress_specification) align 8 captures(none) %1) local_unnamed_addr #0 {
   store ptr @ReadDataFromArchiveGzip, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @WriteDataToArchiveGzip, ptr %3, align 8
@@ -71,7 +71,7 @@ DeflateCompressorInit.exit:                       ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ReadDataFromArchiveGzip(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @ReadDataFromArchiveGzip(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = tail call ptr @pg_malloc(i64 noundef 112) #10
@@ -216,7 +216,7 @@ define internal void @ReadDataFromArchiveGzip(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @WriteDataToArchiveGzip(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) #0 {
+define internal void @WriteDataToArchiveGzip(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
@@ -293,7 +293,7 @@ DeflateCompressorCommon.exit:                     ; preds = %.split.i, %43
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @EndCompressorGzip(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal void @EndCompressorGzip(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -387,10 +387,10 @@ DeflateCompressorEnd.exit:                        ; preds = %DeflateCompressorCo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @InitCompressFileHandleGzip(ptr nocapture noundef writeonly initializes((0, 112)) %0, ptr nocapture noundef readonly byval(%struct.pg_compress_specification) align 8 %1) local_unnamed_addr #2 {
+define dso_local void @InitCompressFileHandleGzip(ptr noundef writeonly captures(none) initializes((0, 112)) %0, ptr noundef readonly byval(%struct.pg_compress_specification) align 8 captures(none) %1) local_unnamed_addr #2 {
   store ptr @Gzip_open, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @Gzip_open_write, ptr %3, align 8
@@ -416,7 +416,7 @@ define dso_local void @InitCompressFileHandleGzip(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @Gzip_open(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3) #0 {
+define internal noundef zeroext i1 @Gzip_open(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(none) %3) #0 {
   %5 = alloca [32 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %7 = load i32, ptr %6, align 8
@@ -471,7 +471,7 @@ define internal zeroext i1 @Gzip_open_write(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @Gzip_read(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef zeroext i1 @Gzip_read(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %7 = load ptr, ptr %6, align 8
@@ -517,7 +517,7 @@ define internal noundef zeroext i1 @Gzip_read(ptr noundef %0, i64 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @Gzip_write(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal zeroext i1 @Gzip_write(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = trunc i64 %1 to i32
@@ -527,7 +527,7 @@ define internal zeroext i1 @Gzip_write(ptr noundef %0, i64 noundef %1, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Gzip_gets(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal ptr @Gzip_gets(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @gzgets(ptr noundef %5, ptr noundef %0, i32 noundef %1) #10
@@ -535,7 +535,7 @@ define internal ptr @Gzip_gets(ptr noundef %0, i32 noundef %1, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, -1) i32 @Gzip_getc(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 0, -1) i32 @Gzip_getc(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @__errno_location() #12
@@ -587,7 +587,7 @@ define internal range(i32 0, -1) i32 @Gzip_getc(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @Gzip_close(ptr nocapture noundef %0) #0 {
+define internal zeroext i1 @Gzip_close(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   store ptr null, ptr %2, align 8
@@ -597,7 +597,7 @@ define internal zeroext i1 @Gzip_close(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @Gzip_eof(ptr nocapture noundef readonly %0) #0 {
+define internal zeroext i1 @Gzip_eof(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @gzeof(ptr noundef %3) #10
@@ -606,7 +606,7 @@ define internal zeroext i1 @Gzip_eof(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Gzip_get_error(ptr nocapture noundef readonly %0) #0 {
+define internal ptr @Gzip_get_error(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
@@ -642,7 +642,7 @@ declare void @ahwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_
 declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @deflate(ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -657,7 +657,7 @@ declare i32 @deflateInit_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) lo
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #6
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
 
 declare ptr @gzdopen(i32 noundef, ptr noundef) local_unnamed_addr #3
 
@@ -688,7 +688,7 @@ declare i32 @gzgetc(ptr noundef) local_unnamed_addr #3
 declare i32 @gzclose(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

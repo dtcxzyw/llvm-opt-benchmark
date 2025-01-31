@@ -864,7 +864,7 @@ define range(i32 -1, 1) i32 @H5G__lheap_size_test(i64 noundef %0, ptr noundef %1
 declare i32 @H5HL_get_size(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5G__user_path_test(i64 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5G__user_path_test(i64 noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call ptr @H5VL_object(i64 noundef %0) #4
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %11
@@ -993,12 +993,12 @@ declare ptr @H5T_nameof(ptr noundef) local_unnamed_addr #1
 declare i64 @H5RS_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #2
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #2
 
 declare ptr @H5RS_get_str(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5G__verify_cached_stab_test(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5G__verify_cached_stab_test(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.H5O_stab_t, align 8
   %4 = alloca i64, align 8
   store i64 -1, ptr %4, align 8
@@ -1167,12 +1167,12 @@ define range(i32 -1, -2147483648) i32 @H5G__verify_cached_stabs_test(i64 noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @H5B_iterate(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5G__verify_cached_stabs_test_cb(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 -1, 1) i32 @H5G__verify_cached_stabs_test_cb(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca %struct.H5O_loc_t, align 8
   %7 = alloca %struct.H5O_stab_t, align 8
   %8 = tail call ptr @H5AC_protect(ptr noundef %0, ptr noundef nonnull @H5AC_SNODE, i64 noundef %2, ptr noundef %0, i32 noundef 128) #4

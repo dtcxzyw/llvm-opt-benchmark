@@ -809,7 +809,7 @@ return:                                           ; preds = %entry, %if.then
 declare i32 @ucol_getOffset_75(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @usearch_setAttribute_75(ptr noundef readonly %strsrch, i32 noundef %attribute, i32 noundef %value, ptr nocapture noundef %status) local_unnamed_addr #4 {
+define void @usearch_setAttribute_75(ptr noundef readonly %strsrch, i32 noundef %attribute, i32 noundef %value, ptr noundef captures(none) %status) local_unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1001,7 +1001,7 @@ return:                                           ; preds = %entry, %if.end18, %
 declare i32 @u_terminateUChars_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @usearch_getMatchedLength_75(ptr noundef readonly %strsrch) local_unnamed_addr #5 {
@@ -1142,7 +1142,7 @@ if.end28:                                         ; preds = %if.then6, %if.then2
 declare void @ucol_setText_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @usearch_getText_75(ptr noundef readonly %strsrch, ptr nocapture noundef writeonly %length) local_unnamed_addr #7 {
+define ptr @usearch_getText_75(ptr noundef readonly %strsrch, ptr noundef writeonly captures(none) %length) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %strsrch, null
   br i1 %tobool.not, label %return, label %if.then
@@ -1333,7 +1333,7 @@ if.end12:                                         ; preds = %if.then2, %if.end8,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @usearch_getPattern_75(ptr noundef readonly %strsrch, ptr nocapture noundef writeonly %length) local_unnamed_addr #9 {
+define ptr @usearch_getPattern_75(ptr noundef readonly %strsrch, ptr noundef writeonly captures(none) %length) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %strsrch, null
   br i1 %tobool.not, label %return, label %if.then
@@ -2010,7 +2010,7 @@ return:                                           ; preds = %if.then, %entry, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16setMatchNotFoundP13UStringSearchR10UErrorCode(ptr nocapture noundef readonly %strsrch, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 {
+define internal fastcc void @_ZL16setMatchNotFoundP13UStringSearchR10UErrorCode(ptr noundef readonly captures(none) %strsrch, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #0 {
 entry:
   %localStatus = alloca i32, align 4
   store i32 0, ptr %localStatus, align 4
@@ -4185,7 +4185,7 @@ cleanup.cont:                                     ; preds = %if.end, %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6icu_7512_GLOBAL__N_19CEIBufferC2EP13UStringSearchP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1576) %this, ptr noundef %ss, ptr nocapture noundef %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6icu_7512_GLOBAL__N_19CEIBufferC2EP13UStringSearchP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1576) %this, ptr noundef %ss, ptr noundef captures(none) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buf = getelementptr inbounds nuw i8, ptr %this, i64 1536
   store ptr %this, ptr %buf, align 8
@@ -4307,7 +4307,7 @@ if.end43:                                         ; preds = %if.end43.sink.split
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef range(i32 -1, 10559488) i32 @_ZN12_GLOBAL__N_111codePointAtERK7USearchi(ptr nocapture readonly %search.0.val, i32 %search.8.val, i32 noundef %index) unnamed_addr #8 {
+define internal fastcc noundef range(i32 -1, 10559488) i32 @_ZN12_GLOBAL__N_111codePointAtERK7USearchi(ptr readonly captures(none) %search.0.val, i32 %search.8.val, i32 noundef %index) unnamed_addr #8 {
 entry:
   %cmp = icmp slt i32 %index, %search.8.val
   br i1 %cmp, label %do.body, label %return
@@ -4345,7 +4345,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL14checkIdenticalPK13UStringSearchii(ptr nocapture noundef readonly %strsrch, i32 noundef %start, i32 noundef %end) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL14checkIdenticalPK13UStringSearchii(ptr noundef readonly captures(none) %strsrch, i32 noundef %start, i32 noundef %end) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca i32, align 4
   %t2 = alloca %"class.icu_75::UnicodeString", align 8
@@ -5588,10 +5588,10 @@ declare i32 @llvm.smax.i32(i32, i32) #14
 declare i32 @llvm.smin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #16

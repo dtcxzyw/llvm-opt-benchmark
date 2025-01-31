@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16ZSharedArguments21initialize_alignmentsEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN16ZSharedArguments21initialize_alignmentsEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i8, ptr @ZGenerational, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %5
@@ -80,7 +80,7 @@ declare void @_ZN10ZArguments10initializeEv() local_unnamed_addr #1
 declare void @_ZN10XArguments10initializeEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN16ZSharedArguments30heap_virtual_to_physical_ratioEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN16ZSharedArguments30heap_virtual_to_physical_ratioEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i8, ptr @ZGenerational, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %6
@@ -103,12 +103,12 @@ declare noundef i64 @_ZN10ZArguments30heap_virtual_to_physical_ratioEv() local_u
 declare noundef i64 @_ZN10XArguments30heap_virtual_to_physical_ratioEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN16ZSharedArguments31conservative_max_heap_alignmentEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
+define hidden noundef i64 @_ZN16ZSharedArguments31conservative_max_heap_alignmentEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16ZSharedArguments11create_heapEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN16ZSharedArguments11create_heapEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i8, ptr @ZGenerational, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %6
@@ -131,7 +131,7 @@ declare noundef ptr @_ZN10ZArguments11create_heapEv() local_unnamed_addr #1
 declare noundef ptr @_ZN10XArguments11create_heapEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK16ZSharedArguments12is_supportedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK16ZSharedArguments12is_supportedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i8, ptr @ZGenerational, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %6

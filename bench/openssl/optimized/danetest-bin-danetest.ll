@@ -435,7 +435,7 @@ if.end22.i.i:                                     ; preds = %lor.lhs.false18.i.i
   br i1 %tobool28.not.i.i, label %err.i.i, label %if.end31.i.i
 
 if.else.i.i:                                      ; preds = %lor.lhs.false9.i.i
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 126, ptr noundef nonnull @.str.61, ptr noundef %22) #9
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 126, ptr noundef nonnull @.str.61, ptr noundef nonnull %22) #9
   br label %err.i.i
 
 if.end31.i.i:                                     ; preds = %if.end22.i.i
@@ -717,7 +717,7 @@ return:                                           ; preds = %while.body, %land.r
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare ptr @SSL_new(ptr noundef) local_unnamed_addr #2
 
@@ -750,13 +750,13 @@ declare i32 @test_false(ptr noundef, i32 noundef, ptr noundef, i32 noundef) loca
 declare i32 @BIO_gets(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @checked_uint8(ptr noundef %in, ptr nocapture noundef writeonly %out) #6 {
+define internal noundef i64 @checked_uint8(ptr noundef %in, ptr noundef writeonly captures(none) %out) #6 {
 entry:
   %endp = alloca ptr, align 8
   %call.i = tail call ptr @__errno_location() #10
@@ -821,7 +821,7 @@ return:                                           ; preds = %lor.lhs.false4, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @hexdecode(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %result) #1 {
+define internal i64 @hexdecode(ptr noundef readonly captures(none) %in, ptr noundef writeonly captures(none) %result) #1 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %in) #11
   %div13 = lshr i64 %call, 1
@@ -922,7 +922,7 @@ declare i32 @SSL_dane_tlsa_add(ptr noundef, i8 noundef zeroext, i8 noundef zeroe
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #5
@@ -936,7 +936,7 @@ declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #2
 declare i32 @PEM_read_bio(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @d2i_X509_AUX(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -985,10 +985,10 @@ declare void @X509_STORE_CTX_set0_dane(ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @SSL_get0_dane(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

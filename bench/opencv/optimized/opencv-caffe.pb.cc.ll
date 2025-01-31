@@ -1848,12 +1848,12 @@ define hidden void @_ZN12opencv_caffe9BlobShapeD0Ev(ptr noundef nonnull align 8 
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe9BlobShape9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe9BlobShape9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe9BlobShape13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe9BlobShape13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -2329,7 +2329,7 @@ _ZN12opencv_caffe9BlobShape9MergeFromERKS0_.exit: ; preds = %2, %_ZN6google8prot
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe9BlobShape12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe9BlobShape12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe9BlobShape12_class_data_E
 }
 
@@ -2489,7 +2489,7 @@ _ZN12opencv_caffe9BlobShape9MergeFromERKS0_.exit: ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe9BlobShape13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe9BlobShape13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
@@ -2510,7 +2510,7 @@ define hidden void @_ZN12opencv_caffe9BlobShape12InternalSwapEPS0_(ptr noundef n
 declare void @_ZN6google8protobuf13RepeatedFieldIlE12InternalSwapEPS2_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe9BlobShape11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe9BlobShape11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) @_ZL42file_level_metadata_opencv_2dcaffe_2eproto)
   ret { ptr, ptr } %2
 }
@@ -2518,7 +2518,7 @@ define hidden { ptr, ptr } @_ZNK12opencv_caffe9BlobShape11GetMetadataEv(ptr noca
 declare { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe9BlobProto9_Internal5shapeEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe9BlobProto9_Internal5shapeEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -2824,7 +2824,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit._crit_edge: ; pr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare void @_ZN6google8protobuf13RepeatedFieldIfEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
@@ -2985,12 +2985,12 @@ define hidden void @_ZN12opencv_caffe9BlobProtoD0Ev(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe9BlobProto9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe9BlobProto9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe9BlobProto13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe9BlobProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(128) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -3097,7 +3097,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldIfE5ClearEv(ptr noundef nonnull 
 declare void @_ZN6google8protobuf13RepeatedFieldIdE5ClearEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN12opencv_caffe9BlobProto14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -4626,7 +4626,7 @@ define hidden void @_ZN12opencv_caffe9BlobProto9MergeImplEPN6google8protobuf7Mes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe9BlobProto12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe9BlobProto12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe9BlobProto12_class_data_E
 }
 
@@ -4927,7 +4927,7 @@ define hidden void @_ZN12opencv_caffe9BlobProto8CopyFromERKS0_(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe9BlobProto13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe9BlobProto13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
@@ -4989,13 +4989,13 @@ declare void @_ZN6google8protobuf13RepeatedFieldIfE12InternalSwapEPS2_(ptr nound
 declare void @_ZN6google8protobuf13RepeatedFieldIdE12InternalSwapEPS2_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe9BlobProto11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe9BlobProto11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 16))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe15BlobProtoVectorC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 44)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe15BlobProtoVectorC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 44)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -5242,19 +5242,19 @@ define hidden void @_ZN12opencv_caffe15BlobProtoVectorD0Ev(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe15BlobProtoVector9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe15BlobProtoVector9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe15BlobProtoVector13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe15BlobProtoVector13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe15BlobProtoVector5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe15BlobProtoVector5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -5476,7 +5476,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %88,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe15BlobProtoVector18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK12opencv_caffe15BlobProtoVector18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %.not36 = icmp eq i32 %5, 0
@@ -5653,7 +5653,7 @@ _ZN12opencv_caffe15BlobProtoVector9MergeFromERKS0_.exit: ; preds = %2, %_ZN6goog
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe15BlobProtoVector12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe15BlobProtoVector12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe15BlobProtoVector12_class_data_E
 }
 
@@ -5836,12 +5836,12 @@ _ZN12opencv_caffe15BlobProtoVector9MergeFromERKS0_.exit: ; preds = %_ZN6google8p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe15BlobProtoVector13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe15BlobProtoVector13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe15BlobProtoVector12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe15BlobProtoVector12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -5876,7 +5876,7 @@ define hidden void @_ZN12opencv_caffe15BlobProtoVector12InternalSwapEPS0_(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe15BlobProtoVector11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe15BlobProtoVector11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 32))
   ret { ptr, ptr } %2
 }
@@ -6100,12 +6100,12 @@ define hidden void @_ZN12opencv_caffe16PermuteParameterD0Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe16PermuteParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe16PermuteParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe16PermuteParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe16PermuteParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
@@ -6529,7 +6529,7 @@ _ZN12opencv_caffe16PermuteParameter9MergeFromERKS0_.exit: ; preds = %2, %_ZN6goo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe16PermuteParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe16PermuteParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe16PermuteParameter12_class_data_E
 }
 
@@ -6689,7 +6689,7 @@ _ZN12opencv_caffe16PermuteParameter9MergeFromERKS0_.exit: ; preds = %_ZN6google8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe16PermuteParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe16PermuteParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
@@ -6710,20 +6710,20 @@ define hidden void @_ZN12opencv_caffe16PermuteParameter12InternalSwapEPS0_(ptr n
 declare void @_ZN6google8protobuf13RepeatedFieldIjE12InternalSwapEPS2_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe16PermuteParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe16PermuteParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 48))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe22NormalizeBBoxParameter9_Internal12scale_fillerEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe22NormalizeBBoxParameter9_Internal12scale_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe22NormalizeBBoxParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe22NormalizeBBoxParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 34), (36, 40)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -6742,7 +6742,7 @@ define hidden void @_ZN12opencv_caffe22NormalizeBBoxParameterC2EPN6google8protob
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe22NormalizeBBoxParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe22NormalizeBBoxParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe22NormalizeBBoxParameterE, i64 16), ptr %0, align 8
@@ -6948,19 +6948,19 @@ define hidden void @_ZN12opencv_caffe22NormalizeBBoxParameterD0Ev(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe22NormalizeBBoxParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe22NormalizeBBoxParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe22NormalizeBBoxParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe22NormalizeBBoxParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe22NormalizeBBoxParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe22NormalizeBBoxParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 15
@@ -7143,7 +7143,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe22NormalizeBBoxParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe22NormalizeBBoxParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -7488,7 +7488,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe22NormalizeBBoxParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK12opencv_caffe22NormalizeBBoxParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 2
@@ -7678,18 +7678,18 @@ define hidden noundef i64 @_ZNK12opencv_caffe22NormalizeBBoxParameter12ByteSizeL
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe22NormalizeBBoxParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe22NormalizeBBoxParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe22NormalizeBBoxParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe22NormalizeBBoxParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe22NormalizeBBoxParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe22NormalizeBBoxParameter12_class_data_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe22NormalizeBBoxParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe22NormalizeBBoxParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 15
@@ -7871,7 +7871,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe15FillerParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe15FillerParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 255
@@ -8077,12 +8077,12 @@ define hidden void @_ZN12opencv_caffe22NormalizeBBoxParameter8CopyFromERKS0_(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe22NormalizeBBoxParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe22NormalizeBBoxParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe22NormalizeBBoxParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe22NormalizeBBoxParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -8127,7 +8127,7 @@ define hidden void @_ZN12opencv_caffe22NormalizeBBoxParameter12InternalSwapEPS0_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe22NormalizeBBoxParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe22NormalizeBBoxParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 64))
   ret { ptr, ptr } %2
 }
@@ -8592,12 +8592,12 @@ define hidden void @_ZN12opencv_caffe17PriorBoxParameterD0Ev(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe17PriorBoxParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe17PriorBoxParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe17PriorBoxParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe17PriorBoxParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(184) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -10161,7 +10161,7 @@ define hidden void @_ZN12opencv_caffe17PriorBoxParameter9MergeImplEPN6google8pro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe17PriorBoxParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe17PriorBoxParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe17PriorBoxParameter12_class_data_E
 }
 
@@ -10393,7 +10393,7 @@ define hidden void @_ZN12opencv_caffe17PriorBoxParameter8CopyFromERKS0_(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe17PriorBoxParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe17PriorBoxParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
@@ -10472,27 +10472,27 @@ define hidden void @_ZN12opencv_caffe17PriorBoxParameter12InternalSwapEPS0_(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe17PriorBoxParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe17PriorBoxParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 80))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe24DetectionOutputParameter9_Internal9nms_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe24DetectionOutputParameter9_Internal9nms_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(72) ptr @_ZN12opencv_caffe24DetectionOutputParameter9_Internal17save_output_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(72) ptr @_ZN12opencv_caffe24DetectionOutputParameter9_Internal17save_output_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe24DetectionOutputParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 54), (56, 66)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe24DetectionOutputParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) initializes((0, 54), (56, 66)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -10513,7 +10513,7 @@ define hidden void @_ZN12opencv_caffe24DetectionOutputParameterC2EPN6google8prot
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe24DetectionOutputParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe24DetectionOutputParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24DetectionOutputParameterE, i64 16), ptr %0, align 8
@@ -10790,19 +10790,19 @@ define hidden void @_ZN12opencv_caffe24DetectionOutputParameterD0Ev(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe24DetectionOutputParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe24DetectionOutputParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe24DetectionOutputParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe24DetectionOutputParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe24DetectionOutputParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe24DetectionOutputParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 3
@@ -10918,7 +10918,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 7
@@ -10961,7 +10961,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe19SaveOutputParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((64, 68)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe19SaveOutputParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((64, 68)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 31
@@ -11067,7 +11067,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe24DetectionOutputParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe24DetectionOutputParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -11806,7 +11806,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe24DetectionOutputParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK12opencv_caffe24DetectionOutputParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4
@@ -12486,18 +12486,18 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe30NonMa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe24DetectionOutputParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe24DetectionOutputParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe24DetectionOutputParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe24DetectionOutputParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe24DetectionOutputParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe24DetectionOutputParameter12_class_data_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe24DetectionOutputParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe24DetectionOutputParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 255
@@ -12844,7 +12844,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 7
@@ -12955,7 +12955,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe19SaveOutputParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe19SaveOutputParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 63
@@ -13221,12 +13221,12 @@ define hidden void @_ZN12opencv_caffe24DetectionOutputParameter8CopyFromERKS0_(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe24DetectionOutputParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe24DetectionOutputParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe24DetectionOutputParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe24DetectionOutputParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -13294,7 +13294,7 @@ define hidden void @_ZN12opencv_caffe24DetectionOutputParameter12InternalSwapEPS
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe24DetectionOutputParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe24DetectionOutputParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 96))
   ret { ptr, ptr } %2
 }
@@ -13593,12 +13593,12 @@ define hidden void @_ZN12opencv_caffe5DatumD0Ev(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe5Datum9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe5Datum9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe5Datum13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe5Datum13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -14600,7 +14600,7 @@ define hidden void @_ZN12opencv_caffe5Datum9MergeImplEPN6google8protobuf7Message
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe5Datum12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe5Datum12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe5Datum12_class_data_E
 }
 
@@ -14840,7 +14840,7 @@ _ZN12opencv_caffe5Datum5ClearEv.exit:             ; preds = %19, %23, %30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe5Datum13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe5Datum13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
@@ -14883,13 +14883,13 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe5Datum11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe5Datum11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 112))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe15FillerParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 60)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe15FillerParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((0, 60)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -14908,7 +14908,7 @@ define hidden void @_ZN12opencv_caffe15FillerParameterC2EPN6google8protobuf5Aren
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe15FillerParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe15FillerParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15FillerParameterE, i64 16), ptr %0, align 8
@@ -15118,12 +15118,12 @@ define hidden void @_ZN12opencv_caffe15FillerParameterD0Ev(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe15FillerParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe15FillerParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe15FillerParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe15FillerParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -15527,7 +15527,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe15FillerParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe15FillerParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -15954,13 +15954,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe15FillerParameter12ByteSizeLongEv(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe15FillerParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe15FillerParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe15FillerParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe15FillerParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe15FillerParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe15FillerParameter12_class_data_E
 }
 
@@ -16042,12 +16042,12 @@ _ZN12opencv_caffe15FillerParameter5ClearEv.exit:  ; preds = %24, %28, %35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe15FillerParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe15FillerParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe15FillerParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe15FillerParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
 _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
@@ -16094,13 +16094,13 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe15FillerParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe15FillerParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 128))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN12opencv_caffe12NetParameter9_Internal5stateEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN12opencv_caffe12NetParameter9_Internal5stateEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -16757,12 +16757,12 @@ define hidden void @_ZN12opencv_caffe12NetParameterD0Ev(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe12NetParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe12NetParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe12NetParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe12NetParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(160) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -18249,7 +18249,7 @@ define hidden void @_ZN12opencv_caffe12NetParameter9MergeImplEPN6google8protobuf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe12NetParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe12NetParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe12NetParameter12_class_data_E
 }
 
@@ -18622,7 +18622,7 @@ define hidden void @_ZN12opencv_caffe12NetParameter8CopyFromERKS0_(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe12NetParameter13IsInitializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %0) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe12NetParameter13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i32, ptr %2, align 8
   %4 = icmp slt i32 %3, 1
@@ -18786,27 +18786,27 @@ declare void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcS
 declare void @_ZN6google8protobuf13RepeatedFieldIiE12InternalSwapEPS2_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe12NetParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe12NetParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 144))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN12opencv_caffe15SolverParameter9_Internal9net_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN12opencv_caffe15SolverParameter9_Internal9net_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN12opencv_caffe15SolverParameter9_Internal15train_net_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN12opencv_caffe15SolverParameter9_Internal15train_net_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN12opencv_caffe15SolverParameter9_Internal11train_stateEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN12opencv_caffe15SolverParameter9_Internal11train_stateEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -19831,12 +19831,12 @@ define hidden void @_ZN12opencv_caffe15SolverParameterD0Ev(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe15SolverParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe15SolverParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe15SolverParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(304) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe15SolverParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(304) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
@@ -24588,7 +24588,7 @@ define hidden void @_ZN12opencv_caffe15SolverParameter9MergeImplEPN6google8proto
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe15SolverParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe15SolverParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe15SolverParameter12_class_data_E
 }
 
@@ -25512,7 +25512,7 @@ define hidden void @_ZN12opencv_caffe15SolverParameter8CopyFromERKS0_(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe15SolverParameter13IsInitializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %0) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe15SolverParameter13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %0) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8
   %4 = icmp slt i32 %3, 1
@@ -25900,13 +25900,13 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe15SolverParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe15SolverParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 160))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe11SolverStateC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe11SolverStateC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((0, 64)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -26212,19 +26212,19 @@ define hidden void @_ZN12opencv_caffe11SolverStateD0Ev(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe11SolverState9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe11SolverState9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe11SolverState13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe11SolverState13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe11SolverState5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe11SolverState5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -26601,7 +26601,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe11SolverState18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK12opencv_caffe11SolverState18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 2
@@ -26965,7 +26965,7 @@ define hidden void @_ZN12opencv_caffe11SolverState9MergeImplEPN6google8protobuf7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe11SolverState12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe11SolverState12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe11SolverState12_class_data_E
 }
 
@@ -27192,12 +27192,12 @@ _ZN12opencv_caffe11SolverState5ClearEv.exit:      ; preds = %29, %33, %40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe11SolverState13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe11SolverState13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe11SolverState12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe11SolverState12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
@@ -27251,7 +27251,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe11SolverState11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe11SolverState11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 176))
   ret { ptr, ptr } %2
 }
@@ -27482,12 +27482,12 @@ define hidden void @_ZN12opencv_caffe8NetStateD0Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe8NetState9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe8NetState9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe8NetState13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe8NetState13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -28096,7 +28096,7 @@ define hidden void @_ZN12opencv_caffe8NetState9MergeImplEPN6google8protobuf7Mess
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe8NetState12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe8NetState12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe8NetState12_class_data_E
 }
 
@@ -28152,7 +28152,7 @@ _ZN12opencv_caffe8NetState5ClearEv.exit:          ; preds = %12, %16, %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe8NetState13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe8NetState13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
@@ -28189,7 +28189,7 @@ define hidden void @_ZN12opencv_caffe8NetState12InternalSwapEPS0_(ptr noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe8NetState11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe8NetState11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 192))
   ret { ptr, ptr } %2
 }
@@ -28450,12 +28450,12 @@ define hidden void @_ZN12opencv_caffe12NetStateRuleD0Ev(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe12NetStateRule9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe12NetStateRule9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe12NetStateRule13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe12NetStateRule13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -29335,7 +29335,7 @@ define hidden void @_ZN12opencv_caffe12NetStateRule9MergeImplEPN6google8protobuf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe12NetStateRule12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe12NetStateRule12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe12NetStateRule12_class_data_E
 }
 
@@ -29508,7 +29508,7 @@ _ZN12opencv_caffe12NetStateRule5ClearEv.exit:     ; preds = %12, %16, %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe12NetStateRule13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe12NetStateRule13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
@@ -29548,13 +29548,13 @@ define hidden void @_ZN12opencv_caffe12NetStateRule12InternalSwapEPS0_(ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe12NetStateRule11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe12NetStateRule11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 208))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe9ParamSpecC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 44)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe9ParamSpecC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 44)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -29577,7 +29577,7 @@ define hidden void @_ZN12opencv_caffe9ParamSpecC2EPN6google8protobuf5ArenaEb(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe9ParamSpecC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe9ParamSpecC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe9ParamSpecE, i64 16), ptr %0, align 8
@@ -29785,19 +29785,19 @@ define hidden void @_ZN12opencv_caffe9ParamSpecD0Ev(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe9ParamSpec9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe9ParamSpec9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe9ParamSpec13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe9ParamSpec13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe9ParamSpec5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe9ParamSpec5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 1
@@ -30170,7 +30170,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe9ParamSpec18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe9ParamSpec18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -30424,18 +30424,18 @@ define hidden noundef i64 @_ZNK12opencv_caffe9ParamSpec12ByteSizeLongEv(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe9ParamSpec9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe9ParamSpec9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe9ParamSpec9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe9ParamSpec12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe9ParamSpec12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe9ParamSpec12_class_data_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe9ParamSpec9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe9ParamSpec9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 15
@@ -30644,12 +30644,12 @@ _ZN12opencv_caffe9ParamSpec5ClearEv.exit:         ; preds = %20, %24, %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe9ParamSpec13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe9ParamSpec13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe9ParamSpec12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe9ParamSpec12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
 _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
@@ -30691,384 +30691,384 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe9ParamSpec11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe9ParamSpec11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 224))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe14LayerParameter9_Internal15transform_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe14LayerParameter9_Internal15transform_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal10loss_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal10loss_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal14accuracy_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal14accuracy_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal12argmax_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal12argmax_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal16batch_norm_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal16batch_norm_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal10bias_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal10bias_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal12concat_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal12concat_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal22contrastive_loss_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal22contrastive_loss_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(152) ptr @_ZN12opencv_caffe14LayerParameter9_Internal17convolution_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(152) ptr @_ZN12opencv_caffe14LayerParameter9_Internal17convolution_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN12opencv_caffe14LayerParameter9_Internal10crop_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN12opencv_caffe14LayerParameter9_Internal10crop_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(72) ptr @_ZN12opencv_caffe14LayerParameter9_Internal10data_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(72) ptr @_ZN12opencv_caffe14LayerParameter9_Internal10data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(72) ptr @_ZN12opencv_caffe14LayerParameter9_Internal22detection_output_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(72) ptr @_ZN12opencv_caffe14LayerParameter9_Internal22detection_output_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal13dropout_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal13dropout_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN12opencv_caffe14LayerParameter9_Internal16dummy_data_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN12opencv_caffe14LayerParameter9_Internal16dummy_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN12opencv_caffe14LayerParameter9_Internal13eltwise_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN12opencv_caffe14LayerParameter9_Internal13eltwise_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal9elu_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal9elu_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN12opencv_caffe14LayerParameter9_Internal11embed_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN12opencv_caffe14LayerParameter9_Internal11embed_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal9exp_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal9exp_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal13flatten_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal13flatten_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal15hdf5_data_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal15hdf5_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal17hdf5_output_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal17hdf5_output_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal16hinge_loss_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal16hinge_loss_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN12opencv_caffe14LayerParameter9_Internal16image_data_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN12opencv_caffe14LayerParameter9_Internal16image_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal19infogain_loss_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal19infogain_loss_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN12opencv_caffe14LayerParameter9_Internal19inner_product_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN12opencv_caffe14LayerParameter9_Internal19inner_product_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN12opencv_caffe14LayerParameter9_Internal11input_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN12opencv_caffe14LayerParameter9_Internal11input_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal9log_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal9log_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN12opencv_caffe14LayerParameter9_Internal9lrn_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN12opencv_caffe14LayerParameter9_Internal9lrn_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal17memory_data_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal17memory_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal9mvn_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal9mvn_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal10norm_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal10norm_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal13permute_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal13permute_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal15parameter_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal15parameter_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN12opencv_caffe14LayerParameter9_Internal13pooling_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN12opencv_caffe14LayerParameter9_Internal13pooling_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal11power_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal11power_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal11prelu_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal11prelu_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(184) ptr @_ZN12opencv_caffe14LayerParameter9_Internal15prior_box_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(184) ptr @_ZN12opencv_caffe14LayerParameter9_Internal15prior_box_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN12opencv_caffe14LayerParameter9_Internal14proposal_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN12opencv_caffe14LayerParameter9_Internal14proposal_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal19psroi_pooling_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal19psroi_pooling_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN12opencv_caffe14LayerParameter9_Internal12python_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN12opencv_caffe14LayerParameter9_Internal12python_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN12opencv_caffe14LayerParameter9_Internal15recurrent_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN12opencv_caffe14LayerParameter9_Internal15recurrent_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal15reduction_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal15reduction_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal10relu_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal10relu_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal13reshape_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal13reshape_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal17roi_pooling_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal17roi_pooling_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN12opencv_caffe14LayerParameter9_Internal11scale_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN12opencv_caffe14LayerParameter9_Internal11scale_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal13sigmoid_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal13sigmoid_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal13softmax_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal13softmax_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal9spp_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe14LayerParameter9_Internal9spp_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN12opencv_caffe14LayerParameter9_Internal11slice_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN12opencv_caffe14LayerParameter9_Internal11slice_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal10tanh_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal10tanh_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal15threshold_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal15threshold_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal10tile_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe14LayerParameter9_Internal10tile_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZN12opencv_caffe14LayerParameter9_Internal17window_data_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZN12opencv_caffe14LayerParameter9_Internal17window_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -34818,12 +34818,12 @@ define hidden void @_ZN12opencv_caffe14LayerParameterD0Ev(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe14LayerParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe14LayerParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe14LayerParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(664) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe14LayerParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(664) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
@@ -37213,7 +37213,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13LossParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13LossParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 7
@@ -37254,7 +37254,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe17AccuracyParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe17AccuracyParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 7
@@ -37297,7 +37297,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe15ArgMaxParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe15ArgMaxParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 7
@@ -37338,7 +37338,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe15ConcatParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe15ConcatParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 3
@@ -37379,7 +37379,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe24ContrastiveLossParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe24ContrastiveLossParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 3
@@ -37630,7 +37630,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13DataParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13DataParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 3
@@ -37714,7 +37714,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16DropoutParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16DropoutParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 3
@@ -37969,7 +37969,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12ExpParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12ExpParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 7
@@ -38012,7 +38012,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe17HDF5DataParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe17HDF5DataParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 1
@@ -38065,7 +38065,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe19HDF5OutputParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe19HDF5OutputParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 1
@@ -38108,7 +38108,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18HingeLossParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 20), (24, 28)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18HingeLossParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((16, 20), (24, 28)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -38138,7 +38138,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18ImageDataParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18ImageDataParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 7
@@ -38240,7 +38240,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe21InfogainLossParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe21InfogainLossParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 1
@@ -38283,7 +38283,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe21InnerProductParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe21InnerProductParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 3
@@ -38473,7 +38473,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12LRNParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12LRNParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 63
@@ -38520,7 +38520,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe19MemoryDataParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe19MemoryDataParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 15
@@ -38559,7 +38559,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12MVNParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12MVNParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 7
@@ -38602,7 +38602,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16PoolingParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16PoolingParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 255
@@ -38655,7 +38655,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14PowerParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14PowerParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 7
@@ -38698,7 +38698,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13ReLUParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13ReLUParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 3
@@ -38737,7 +38737,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16SigmoidParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 20), (24, 28)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16SigmoidParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((16, 20), (24, 28)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -38767,7 +38767,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16SoftmaxParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16SoftmaxParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 3
@@ -38851,7 +38851,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13TanHParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 20), (24, 28)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13TanHParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((16, 20), (24, 28)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -38881,7 +38881,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18ThresholdParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 20), (24, 28)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18ThresholdParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((16, 20), (24, 28)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float 0.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -39039,7 +39039,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe15PythonParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((48, 49)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe15PythonParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((48, 49)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 7
@@ -39117,7 +39117,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14PReLUParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((32, 33)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14PReLUParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((32, 33)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 1
@@ -39219,7 +39219,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12SPPParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12SPPParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 7
@@ -39258,7 +39258,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16ReshapeParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16ReshapeParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 1
@@ -39329,7 +39329,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12LogParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12LogParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 7
@@ -39372,7 +39372,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16FlattenParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16FlattenParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 3
@@ -39413,7 +39413,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18ReductionParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18ReductionParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 7
@@ -39456,7 +39456,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14EmbedParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14EmbedParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 3
@@ -39644,7 +39644,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13TileParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13TileParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 3
@@ -39685,7 +39685,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18BatchNormParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((24, 26)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18BatchNormParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((24, 26)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i16 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -39728,7 +39728,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12ELUParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 20), (24, 28)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12ELUParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((16, 20), (24, 28)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float 1.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -39758,7 +39758,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13BiasParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13BiasParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 7
@@ -39870,7 +39870,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14ScaleParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14ScaleParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 3
@@ -40060,7 +40060,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14InputParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14InputParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -40166,7 +40166,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18ParameterParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18ParameterParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 1
@@ -40225,7 +40225,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18RecurrentParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18RecurrentParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 3
@@ -40464,7 +40464,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe21PSROIPoolingParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe21PSROIPoolingParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 7
@@ -40503,7 +40503,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe19ROIPoolingParameter5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe19ROIPoolingParameter5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 7
@@ -51030,7 +51030,7 @@ define hidden void @_ZN12opencv_caffe14LayerParameter9MergeImplEPN6google8protob
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe14LayerParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe14LayerParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe14LayerParameter12_class_data_E
 }
 
@@ -55184,7 +55184,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13LossParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13LossParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 7
@@ -55296,7 +55296,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe17AccuracyParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe17AccuracyParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 7
@@ -55407,7 +55407,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe15ArgMaxParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe15ArgMaxParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 7
@@ -55519,7 +55519,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe15ConcatParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe15ConcatParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 3
@@ -55618,7 +55618,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe24ContrastiveLossParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe24ContrastiveLossParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 3
@@ -56101,7 +56101,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13DataParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13DataParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 255
@@ -56352,7 +56352,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16DropoutParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16DropoutParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 3
@@ -56757,7 +56757,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12ExpParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12ExpParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 7
@@ -56868,7 +56868,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe17HDF5DataParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe17HDF5DataParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 7
@@ -57001,7 +57001,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe19HDF5OutputParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe19HDF5OutputParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -57097,7 +57097,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18HingeLossParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18HingeLossParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -57176,7 +57176,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18ImageDataParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18ImageDataParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 255
@@ -57473,7 +57473,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe21InfogainLossParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe21InfogainLossParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -57569,7 +57569,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe21InnerProductParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe21InnerProductParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 63
@@ -57832,7 +57832,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12LRNParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12LRNParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 63
@@ -57979,7 +57979,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe19MemoryDataParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe19MemoryDataParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 15
@@ -58102,7 +58102,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12MVNParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12MVNParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 7
@@ -58215,7 +58215,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16PoolingParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16PoolingParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 255
@@ -58460,7 +58460,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14PowerParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14PowerParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 7
@@ -58571,7 +58571,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13ReLUParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13ReLUParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 3
@@ -58670,7 +58670,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16SigmoidParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16SigmoidParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -58749,7 +58749,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16SoftmaxParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16SoftmaxParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 3
@@ -58950,7 +58950,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13TanHParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13TanHParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -59029,7 +59029,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18ThresholdParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18ThresholdParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -59108,7 +59108,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe19WindowDataParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe19WindowDataParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 255
@@ -59437,7 +59437,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe15PythonParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe15PythonParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 15
@@ -59624,7 +59624,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14PReLUParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14PReLUParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 3
@@ -59781,7 +59781,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12SPPParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12SPPParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 7
@@ -59892,7 +59892,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16ReshapeParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16ReshapeParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 7
@@ -60089,7 +60089,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12LogParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12LogParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 7
@@ -60200,7 +60200,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16FlattenParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16FlattenParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 3
@@ -60299,7 +60299,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18ReductionParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18ReductionParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 7
@@ -60410,7 +60410,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14EmbedParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14EmbedParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 31
@@ -60660,7 +60660,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13TileParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13TileParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 3
@@ -60759,7 +60759,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18BatchNormParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18BatchNormParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 15
@@ -60884,7 +60884,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12ELUParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12ELUParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -60963,7 +60963,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13BiasParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13BiasParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 7
@@ -61131,7 +61131,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14ScaleParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14ScaleParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 31
@@ -61381,7 +61381,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14InputParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14InputParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8
@@ -61650,7 +61650,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18ParameterParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18ParameterParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -61815,7 +61815,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18RecurrentParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18RecurrentParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 31
@@ -62219,7 +62219,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe21PSROIPoolingParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe21PSROIPoolingParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 7
@@ -62330,7 +62330,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe19ROIPoolingParameter9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe19ROIPoolingParameter9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 7
@@ -62455,7 +62455,7 @@ define hidden void @_ZN12opencv_caffe14LayerParameter8CopyFromERKS0_(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe14LayerParameter13IsInitializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(664) %0) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe14LayerParameter13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(664) %0) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 4194304
@@ -62483,7 +62483,7 @@ define hidden noundef zeroext i1 @_ZNK12opencv_caffe14LayerParameter13IsInitiali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe21PSROIPoolingParameter13IsInitializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #10 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe21PSROIPoolingParameter13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 7
@@ -62785,7 +62785,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal7memswapILi436EEENS
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe14LayerParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe14LayerParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 240))
   ret { ptr, ptr } %2
 }
@@ -63086,12 +63086,12 @@ define hidden void @_ZN12opencv_caffe23TransformationParameterD0Ev(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe23TransformationParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe23TransformationParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe23TransformationParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe23TransformationParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -63884,7 +63884,7 @@ define hidden void @_ZN12opencv_caffe23TransformationParameter9MergeImplEPN6goog
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe23TransformationParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe23TransformationParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe23TransformationParameter12_class_data_E
 }
 
@@ -63954,7 +63954,7 @@ _ZN12opencv_caffe23TransformationParameter5ClearEv.exit: ; preds = %20, %24, %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe23TransformationParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe23TransformationParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
@@ -64010,13 +64010,13 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe23TransformationParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe23TransformationParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 256))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe13LossParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 29), (32, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13LossParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 29), (32, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -64031,7 +64031,7 @@ define hidden void @_ZN12opencv_caffe13LossParameterC2EPN6google8protobuf5ArenaE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13LossParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13LossParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13LossParameterE, i64 16), ptr %0, align 8
@@ -64077,7 +64077,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe13LossParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13LossParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -64170,19 +64170,19 @@ define hidden void @_ZN12opencv_caffe13LossParameterD0Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe13LossParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe13LossParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe13LossParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe13LossParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe13LossParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe13LossParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -64537,7 +64537,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe13LossParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe13LossParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -64762,13 +64762,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe13LossParameter12ByteSizeLongEv(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13LossParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe13LossParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe13LossParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe13LossParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe13LossParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe13LossParameter12_class_data_E
 }
 
@@ -64822,12 +64822,12 @@ _ZN12opencv_caffe13LossParameter5ClearEv.exit:    ; preds = %11, %15, %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe13LossParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe13LossParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe13LossParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe13LossParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -64862,13 +64862,13 @@ define hidden void @_ZN12opencv_caffe13LossParameter12InternalSwapEPS0_(ptr noca
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe13LossParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe13LossParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 272))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe17AccuracyParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe17AccuracyParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -64889,7 +64889,7 @@ define hidden void @_ZN12opencv_caffe17AccuracyParameterC2EPN6google8protobuf5Ar
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe17AccuracyParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe17AccuracyParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17AccuracyParameterE, i64 16), ptr %0, align 8
@@ -64935,7 +64935,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe17AccuracyParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe17AccuracyParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -65028,19 +65028,19 @@ define hidden void @_ZN12opencv_caffe17AccuracyParameterD0Ev(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe17AccuracyParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe17AccuracyParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe17AccuracyParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe17AccuracyParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe17AccuracyParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe17AccuracyParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -65326,7 +65326,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %133
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe17AccuracyParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe17AccuracyParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 2
@@ -65600,13 +65600,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe17AccuracyParameter12ByteSizeLongEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe17AccuracyParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe17AccuracyParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe17AccuracyParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe17AccuracyParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe17AccuracyParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe17AccuracyParameter12_class_data_E
 }
 
@@ -65662,12 +65662,12 @@ _ZN12opencv_caffe17AccuracyParameter5ClearEv.exit: ; preds = %12, %16, %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe17AccuracyParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe17AccuracyParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe17AccuracyParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe17AccuracyParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -65702,13 +65702,13 @@ define hidden void @_ZN12opencv_caffe17AccuracyParameter12InternalSwapEPS0_(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe17AccuracyParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe17AccuracyParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 288))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe15ArgMaxParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe15ArgMaxParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -65723,7 +65723,7 @@ define hidden void @_ZN12opencv_caffe15ArgMaxParameterC2EPN6google8protobuf5Aren
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe15ArgMaxParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe15ArgMaxParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ArgMaxParameterE, i64 16), ptr %0, align 8
@@ -65769,7 +65769,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe15ArgMaxParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe15ArgMaxParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -65862,19 +65862,19 @@ define hidden void @_ZN12opencv_caffe15ArgMaxParameterD0Ev(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe15ArgMaxParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe15ArgMaxParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe15ArgMaxParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe15ArgMaxParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe15ArgMaxParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe15ArgMaxParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -66169,7 +66169,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %140
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe15ArgMaxParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe15ArgMaxParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -66393,13 +66393,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe15ArgMaxParameter12ByteSizeLongEv(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe15ArgMaxParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe15ArgMaxParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe15ArgMaxParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe15ArgMaxParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe15ArgMaxParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe15ArgMaxParameter12_class_data_E
 }
 
@@ -66453,12 +66453,12 @@ _ZN12opencv_caffe15ArgMaxParameter5ClearEv.exit:  ; preds = %11, %15, %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe15ArgMaxParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe15ArgMaxParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe15ArgMaxParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe15ArgMaxParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -66487,13 +66487,13 @@ define hidden void @_ZN12opencv_caffe15ArgMaxParameter12InternalSwapEPS0_(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe15ArgMaxParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe15ArgMaxParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 304))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe15ConcatParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe15ConcatParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -66512,7 +66512,7 @@ define hidden void @_ZN12opencv_caffe15ConcatParameterC2EPN6google8protobuf5Aren
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe15ConcatParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe15ConcatParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15ConcatParameterE, i64 16), ptr %0, align 8
@@ -66559,7 +66559,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe15ConcatParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe15ConcatParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -66652,19 +66652,19 @@ define hidden void @_ZN12opencv_caffe15ConcatParameterD0Ev(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe15ConcatParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe15ConcatParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe15ConcatParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe15ConcatParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe15ConcatParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe15ConcatParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -66908,7 +66908,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %113
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe15ConcatParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe15ConcatParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -67102,13 +67102,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe15ConcatParameter12ByteSizeLongEv(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe15ConcatParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe15ConcatParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe15ConcatParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe15ConcatParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe15ConcatParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe15ConcatParameter12_class_data_E
 }
 
@@ -67162,12 +67162,12 @@ _ZN12opencv_caffe15ConcatParameter5ClearEv.exit:  ; preds = %11, %15, %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe15ConcatParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe15ConcatParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe15ConcatParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe15ConcatParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -67196,13 +67196,13 @@ define hidden void @_ZN12opencv_caffe15ConcatParameter12InternalSwapEPS0_(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe15ConcatParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe15ConcatParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 320))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe18BatchNormParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 26), (28, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18BatchNormParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 26), (28, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -67223,7 +67223,7 @@ define hidden void @_ZN12opencv_caffe18BatchNormParameterC2EPN6google8protobuf5A
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18BatchNormParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18BatchNormParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18BatchNormParameterE, i64 16), ptr %0, align 8
@@ -67269,7 +67269,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe18BatchNormParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18BatchNormParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -67362,19 +67362,19 @@ define hidden void @_ZN12opencv_caffe18BatchNormParameterD0Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe18BatchNormParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe18BatchNormParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe18BatchNormParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe18BatchNormParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe18BatchNormParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe18BatchNormParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -67664,7 +67664,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %141
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe18BatchNormParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe18BatchNormParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -67819,13 +67819,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe18BatchNormParameter12ByteSizeLongE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18BatchNormParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe18BatchNormParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe18BatchNormParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe18BatchNormParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe18BatchNormParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe18BatchNormParameter12_class_data_E
 }
 
@@ -67881,12 +67881,12 @@ _ZN12opencv_caffe18BatchNormParameter5ClearEv.exit: ; preds = %12, %16, %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe18BatchNormParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe18BatchNormParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe18BatchNormParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe18BatchNormParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -67921,20 +67921,20 @@ define hidden void @_ZN12opencv_caffe18BatchNormParameter12InternalSwapEPS0_(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe18BatchNormParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe18BatchNormParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 336))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe13BiasParameter9_Internal6fillerEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe13BiasParameter9_Internal6fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe13BiasParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13BiasParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -67951,7 +67951,7 @@ define hidden void @_ZN12opencv_caffe13BiasParameterC2EPN6google8protobuf5ArenaE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13BiasParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13BiasParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13BiasParameterE, i64 16), ptr %0, align 8
@@ -68157,19 +68157,19 @@ define hidden void @_ZN12opencv_caffe13BiasParameterD0Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe13BiasParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe13BiasParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe13BiasParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe13BiasParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe13BiasParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe13BiasParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -68482,7 +68482,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe13BiasParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK12opencv_caffe13BiasParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 2
@@ -68741,13 +68741,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe13BiasParameter12ByteSizeLongEv(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13BiasParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe13BiasParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe13BiasParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe13BiasParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe13BiasParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe13BiasParameter12_class_data_E
 }
 
@@ -68766,12 +68766,12 @@ define hidden void @_ZN12opencv_caffe13BiasParameter8CopyFromERKS0_(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe13BiasParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe13BiasParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe13BiasParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe13BiasParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -68806,13 +68806,13 @@ define hidden void @_ZN12opencv_caffe13BiasParameter12InternalSwapEPS0_(ptr noca
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe13BiasParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe13BiasParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 352))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe24ContrastiveLossParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 25), (28, 32)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe24ContrastiveLossParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 25), (28, 32)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -68827,7 +68827,7 @@ define hidden void @_ZN12opencv_caffe24ContrastiveLossParameterC2EPN6google8prot
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe24ContrastiveLossParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe24ContrastiveLossParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe24ContrastiveLossParameterE, i64 16), ptr %0, align 8
@@ -68874,7 +68874,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe24ContrastiveLossParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe24ContrastiveLossParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -68967,19 +68967,19 @@ define hidden void @_ZN12opencv_caffe24ContrastiveLossParameterD0Ev(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe24ContrastiveLossParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe24ContrastiveLossParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe24ContrastiveLossParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe24ContrastiveLossParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe24ContrastiveLossParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe24ContrastiveLossParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -69204,7 +69204,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %107
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe24ContrastiveLossParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe24ContrastiveLossParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 2
@@ -69302,13 +69302,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe24ContrastiveLossParameter12ByteSiz
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe24ContrastiveLossParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe24ContrastiveLossParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe24ContrastiveLossParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe24ContrastiveLossParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe24ContrastiveLossParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe24ContrastiveLossParameter12_class_data_E
 }
 
@@ -69362,12 +69362,12 @@ _ZN12opencv_caffe24ContrastiveLossParameter5ClearEv.exit: ; preds = %11, %15, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe24ContrastiveLossParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe24ContrastiveLossParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe24ContrastiveLossParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe24ContrastiveLossParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -69398,20 +69398,20 @@ define hidden void @_ZN12opencv_caffe24ContrastiveLossParameter12InternalSwapEPS
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe24ContrastiveLossParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe24ContrastiveLossParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 368))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe20ConvolutionParameter9_Internal13weight_fillerEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe20ConvolutionParameter9_Internal13weight_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe20ConvolutionParameter9_Internal11bias_fillerEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe20ConvolutionParameter9_Internal11bias_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -69848,12 +69848,12 @@ define hidden void @_ZN12opencv_caffe20ConvolutionParameterD0Ev(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe20ConvolutionParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe20ConvolutionParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe20ConvolutionParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe20ConvolutionParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(152) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -72347,7 +72347,7 @@ define hidden void @_ZN12opencv_caffe20ConvolutionParameter9MergeImplEPN6google8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe20ConvolutionParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe20ConvolutionParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe20ConvolutionParameter12_class_data_E
 }
 
@@ -72366,7 +72366,7 @@ define hidden void @_ZN12opencv_caffe20ConvolutionParameter8CopyFromERKS0_(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe20ConvolutionParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe20ConvolutionParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
@@ -72441,7 +72441,7 @@ define hidden void @_ZN12opencv_caffe20ConvolutionParameter12InternalSwapEPS0_(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe20ConvolutionParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe20ConvolutionParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 384))
   ret { ptr, ptr } %2
 }
@@ -72670,12 +72670,12 @@ define hidden void @_ZN12opencv_caffe13CropParameterD0Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe13CropParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe13CropParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe13CropParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe13CropParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -73142,7 +73142,7 @@ define hidden void @_ZN12opencv_caffe13CropParameter9MergeImplEPN6google8protobu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe13CropParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe13CropParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe13CropParameter12_class_data_E
 }
 
@@ -73187,7 +73187,7 @@ _ZN12opencv_caffe13CropParameter5ClearEv.exit:    ; preds = %4, %11, %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe13CropParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe13CropParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
@@ -73218,13 +73218,13 @@ define hidden void @_ZN12opencv_caffe13CropParameter12InternalSwapEPS0_(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe13CropParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe13CropParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 400))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe13DataParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 68)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13DataParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) initializes((0, 68)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -73249,7 +73249,7 @@ define hidden void @_ZN12opencv_caffe13DataParameterC2EPN6google8protobuf5ArenaE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13DataParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13DataParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13DataParameterE, i64 16), ptr %0, align 8
@@ -73492,12 +73492,12 @@ define hidden void @_ZN12opencv_caffe13DataParameterD0Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe13DataParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe13DataParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe13DataParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe13DataParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -74100,7 +74100,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe13DataParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe13DataParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -74777,13 +74777,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe13DataParameter12ByteSizeLongEv(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13DataParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe13DataParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe13DataParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe13DataParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe13DataParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe13DataParameter12_class_data_E
 }
 
@@ -74880,12 +74880,12 @@ _ZN12opencv_caffe13DataParameter5ClearEv.exit:    ; preds = %33, %37, %44
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe13DataParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe13DataParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe13DataParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe13DataParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
 _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
@@ -74938,13 +74938,13 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe13DataParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe13DataParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 416))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -74965,7 +74965,7 @@ define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameterC2EPN6googl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe30NonMaximumSuppressionParameterE, i64 16), ptr %0, align 8
@@ -75011,7 +75011,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -75104,19 +75104,19 @@ define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameterD0Ev(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe30NonMaximumSuppressionParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe30NonMaximumSuppressionParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe30NonMaximumSuppressionParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe30NonMaximumSuppressionParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -75346,7 +75346,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %107
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe30NonMaximumSuppressionParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe30NonMaximumSuppressionParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 2
@@ -75523,13 +75523,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe30NonMaximumSuppressionParameter12B
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe30NonMaximumSuppressionParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe30NonMaximumSuppressionParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe30NonMaximumSuppressionParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe30NonMaximumSuppressionParameter12_class_data_E
 }
 
@@ -75585,12 +75585,12 @@ _ZN12opencv_caffe30NonMaximumSuppressionParameter5ClearEv.exit: ; preds = %12, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe30NonMaximumSuppressionParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe30NonMaximumSuppressionParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -75625,13 +75625,13 @@ define hidden void @_ZN12opencv_caffe30NonMaximumSuppressionParameter12InternalS
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe30NonMaximumSuppressionParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe30NonMaximumSuppressionParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 432))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe19SaveOutputParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 68)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe19SaveOutputParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) initializes((0, 68)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -75658,7 +75658,7 @@ define hidden void @_ZN12opencv_caffe19SaveOutputParameterC2EPN6google8protobuf5
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe19SaveOutputParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe19SaveOutputParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19SaveOutputParameterE, i64 16), ptr %0, align 8
@@ -76022,12 +76022,12 @@ define hidden void @_ZN12opencv_caffe19SaveOutputParameterD0Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe19SaveOutputParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe19SaveOutputParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe19SaveOutputParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe19SaveOutputParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -76377,7 +76377,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe19SaveOutputParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe19SaveOutputParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -76871,13 +76871,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe19SaveOutputParameter12ByteSizeLong
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe19SaveOutputParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe19SaveOutputParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe19SaveOutputParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe19SaveOutputParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe19SaveOutputParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe19SaveOutputParameter12_class_data_E
 }
 
@@ -76896,12 +76896,12 @@ define hidden void @_ZN12opencv_caffe19SaveOutputParameter8CopyFromERKS0_(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe19SaveOutputParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe19SaveOutputParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe19SaveOutputParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe19SaveOutputParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
 _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
@@ -76955,13 +76955,13 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe19SaveOutputParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe19SaveOutputParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 448))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe16DropoutParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16DropoutParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 29)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -76980,7 +76980,7 @@ define hidden void @_ZN12opencv_caffe16DropoutParameterC2EPN6google8protobuf5Are
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16DropoutParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16DropoutParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16DropoutParameterE, i64 16), ptr %0, align 8
@@ -77026,7 +77026,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe16DropoutParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16DropoutParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -77119,19 +77119,19 @@ define hidden void @_ZN12opencv_caffe16DropoutParameterD0Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe16DropoutParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe16DropoutParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe16DropoutParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe16DropoutParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe16DropoutParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe16DropoutParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -77356,7 +77356,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %107
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe16DropoutParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe16DropoutParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -77453,13 +77453,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe16DropoutParameter12ByteSizeLongEv(
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16DropoutParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe16DropoutParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe16DropoutParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe16DropoutParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe16DropoutParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe16DropoutParameter12_class_data_E
 }
 
@@ -77513,12 +77513,12 @@ _ZN12opencv_caffe16DropoutParameter5ClearEv.exit: ; preds = %11, %15, %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe16DropoutParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe16DropoutParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe16DropoutParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe16DropoutParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -77549,7 +77549,7 @@ define hidden void @_ZN12opencv_caffe16DropoutParameter12InternalSwapEPS0_(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe16DropoutParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe16DropoutParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 464))
   ret { ptr, ptr } %2
 }
@@ -78004,12 +78004,12 @@ define hidden void @_ZN12opencv_caffe18DummyDataParameterD0Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe18DummyDataParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe18DummyDataParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe18DummyDataParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe18DummyDataParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(136) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
@@ -79122,7 +79122,7 @@ define hidden void @_ZN12opencv_caffe18DummyDataParameter9MergeImplEPN6google8pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe18DummyDataParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe18DummyDataParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe18DummyDataParameter12_class_data_E
 }
 
@@ -79141,7 +79141,7 @@ define hidden void @_ZN12opencv_caffe18DummyDataParameter8CopyFromERKS0_(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe18DummyDataParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe18DummyDataParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
@@ -79217,7 +79217,7 @@ define hidden void @_ZN12opencv_caffe18DummyDataParameter12InternalSwapEPS0_(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe18DummyDataParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe18DummyDataParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 480))
   ret { ptr, ptr } %2
 }
@@ -79447,12 +79447,12 @@ define hidden void @_ZN12opencv_caffe16EltwiseParameterD0Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe16EltwiseParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe16EltwiseParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe16EltwiseParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe16EltwiseParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -79994,7 +79994,7 @@ define hidden void @_ZN12opencv_caffe16EltwiseParameter9MergeImplEPN6google8prot
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe16EltwiseParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe16EltwiseParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe16EltwiseParameter12_class_data_E
 }
 
@@ -80050,7 +80050,7 @@ _ZN12opencv_caffe16EltwiseParameter5ClearEv.exit: ; preds = %12, %16, %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe16EltwiseParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe16EltwiseParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
@@ -80089,13 +80089,13 @@ define hidden void @_ZN12opencv_caffe16EltwiseParameter12InternalSwapEPS0_(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe16EltwiseParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe16EltwiseParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 496))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe12ELUParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 28)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12ELUParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 28)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -80112,7 +80112,7 @@ define hidden void @_ZN12opencv_caffe12ELUParameterC2EPN6google8protobuf5ArenaEb
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12ELUParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12ELUParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ELUParameterE, i64 16), ptr %0, align 8
@@ -80159,7 +80159,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe12ELUParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12ELUParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -80252,19 +80252,19 @@ define hidden void @_ZN12opencv_caffe12ELUParameterD0Ev(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe12ELUParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe12ELUParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe12ELUParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe12ELUParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe12ELUParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe12ELUParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -80424,7 +80424,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %76,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe12ELUParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe12ELUParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -80483,7 +80483,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe12ELUParameter12ByteSizeLongEv(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12ELUParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12ELUParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -80562,7 +80562,7 @@ _ZN12opencv_caffe12ELUParameter9MergeFromERKS0_.exit: ; preds = %13, %_ZN6google
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe12ELUParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe12ELUParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe12ELUParameter12_class_data_E
 }
 
@@ -80672,12 +80672,12 @@ _ZN12opencv_caffe12ELUParameter9MergeFromERKS0_.exit: ; preds = %_ZN6google8prot
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe12ELUParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe12ELUParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe12ELUParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe12ELUParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -80700,27 +80700,27 @@ define hidden void @_ZN12opencv_caffe12ELUParameter12InternalSwapEPS0_(ptr nocap
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe12ELUParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe12ELUParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 512))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe14EmbedParameter9_Internal13weight_fillerEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe14EmbedParameter9_Internal13weight_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe14EmbedParameter9_Internal11bias_fillerEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe14EmbedParameter9_Internal11bias_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe14EmbedParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 49)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14EmbedParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((0, 49)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -80735,7 +80735,7 @@ define hidden void @_ZN12opencv_caffe14EmbedParameterC2EPN6google8protobuf5Arena
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14EmbedParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14EmbedParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14EmbedParameterE, i64 16), ptr %0, align 8
@@ -80977,19 +80977,19 @@ define hidden void @_ZN12opencv_caffe14EmbedParameterD0Ev(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe14EmbedParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe14EmbedParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe14EmbedParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe14EmbedParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe14EmbedParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe14EmbedParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -81410,7 +81410,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe14EmbedParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK12opencv_caffe14EmbedParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4
@@ -81765,13 +81765,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe14EmbedParameter12ByteSizeLongEv(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14EmbedParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe14EmbedParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe14EmbedParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe14EmbedParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe14EmbedParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe14EmbedParameter12_class_data_E
 }
 
@@ -81790,12 +81790,12 @@ define hidden void @_ZN12opencv_caffe14EmbedParameter8CopyFromERKS0_(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe14EmbedParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe14EmbedParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe14EmbedParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe14EmbedParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -81831,13 +81831,13 @@ define hidden void @_ZN12opencv_caffe14EmbedParameter12InternalSwapEPS0_(ptr noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe14EmbedParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe14EmbedParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 528))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe12ExpParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12ExpParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -81858,7 +81858,7 @@ define hidden void @_ZN12opencv_caffe12ExpParameterC2EPN6google8protobuf5ArenaEb
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12ExpParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12ExpParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12ExpParameterE, i64 16), ptr %0, align 8
@@ -81904,7 +81904,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe12ExpParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12ExpParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -81997,19 +81997,19 @@ define hidden void @_ZN12opencv_caffe12ExpParameterD0Ev(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe12ExpParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe12ExpParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe12ExpParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe12ExpParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe12ExpParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe12ExpParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -82207,7 +82207,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %91,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe12ExpParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe12ExpParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 2
@@ -82333,13 +82333,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe12ExpParameter12ByteSizeLongEv(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12ExpParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe12ExpParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe12ExpParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe12ExpParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe12ExpParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe12ExpParameter12_class_data_E
 }
 
@@ -82395,12 +82395,12 @@ _ZN12opencv_caffe12ExpParameter5ClearEv.exit:     ; preds = %12, %16, %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe12ExpParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe12ExpParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe12ExpParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe12ExpParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -82435,13 +82435,13 @@ define hidden void @_ZN12opencv_caffe12ExpParameter12InternalSwapEPS0_(ptr nocap
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe12ExpParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe12ExpParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 544))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe16FlattenParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16FlattenParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -82460,7 +82460,7 @@ define hidden void @_ZN12opencv_caffe16FlattenParameterC2EPN6google8protobuf5Are
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16FlattenParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16FlattenParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16FlattenParameterE, i64 16), ptr %0, align 8
@@ -82507,7 +82507,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe16FlattenParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16FlattenParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -82600,19 +82600,19 @@ define hidden void @_ZN12opencv_caffe16FlattenParameterD0Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe16FlattenParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe16FlattenParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe16FlattenParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe16FlattenParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe16FlattenParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe16FlattenParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -82856,7 +82856,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %113
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe16FlattenParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe16FlattenParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -83051,13 +83051,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe16FlattenParameter12ByteSizeLongEv(
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16FlattenParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe16FlattenParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe16FlattenParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe16FlattenParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe16FlattenParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe16FlattenParameter12_class_data_E
 }
 
@@ -83111,12 +83111,12 @@ _ZN12opencv_caffe16FlattenParameter5ClearEv.exit: ; preds = %11, %15, %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe16FlattenParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe16FlattenParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe16FlattenParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe16FlattenParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -83145,13 +83145,13 @@ define hidden void @_ZN12opencv_caffe16FlattenParameter12InternalSwapEPS0_(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe16FlattenParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe16FlattenParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 560))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe17HDF5DataParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 37)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe17HDF5DataParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 37)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -83170,7 +83170,7 @@ define hidden void @_ZN12opencv_caffe17HDF5DataParameterC2EPN6google8protobuf5Ar
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe17HDF5DataParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe17HDF5DataParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe17HDF5DataParameterE, i64 16), ptr %0, align 8
@@ -83378,12 +83378,12 @@ define hidden void @_ZN12opencv_caffe17HDF5DataParameterD0Ev(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe17HDF5DataParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe17HDF5DataParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe17HDF5DataParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe17HDF5DataParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -83676,7 +83676,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe17HDF5DataParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe17HDF5DataParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -83900,13 +83900,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe17HDF5DataParameter12ByteSizeLongEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe17HDF5DataParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe17HDF5DataParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe17HDF5DataParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe17HDF5DataParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe17HDF5DataParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe17HDF5DataParameter12_class_data_E
 }
 
@@ -83972,12 +83972,12 @@ _ZN12opencv_caffe17HDF5DataParameter5ClearEv.exit: ; preds = %18, %22, %29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe17HDF5DataParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe17HDF5DataParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe17HDF5DataParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe17HDF5DataParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
 _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
@@ -84013,13 +84013,13 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe17HDF5DataParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe17HDF5DataParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 576))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe19HDF5OutputParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe19HDF5OutputParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -84036,7 +84036,7 @@ define hidden void @_ZN12opencv_caffe19HDF5OutputParameterC2EPN6google8protobuf5
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe19HDF5OutputParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe19HDF5OutputParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19HDF5OutputParameterE, i64 16), ptr %0, align 8
@@ -84241,12 +84241,12 @@ define hidden void @_ZN12opencv_caffe19HDF5OutputParameterD0Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe19HDF5OutputParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe19HDF5OutputParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe19HDF5OutputParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe19HDF5OutputParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -84425,7 +84425,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe19HDF5OutputParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe19HDF5OutputParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -84531,13 +84531,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe19HDF5OutputParameter12ByteSizeLong
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe19HDF5OutputParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe19HDF5OutputParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe19HDF5OutputParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe19HDF5OutputParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe19HDF5OutputParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe19HDF5OutputParameter12_class_data_E
 }
 
@@ -84593,12 +84593,12 @@ _ZN12opencv_caffe19HDF5OutputParameter5ClearEv.exit: ; preds = %14, %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe19HDF5OutputParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe19HDF5OutputParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe19HDF5OutputParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe19HDF5OutputParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
 _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
@@ -84622,13 +84622,13 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe19HDF5OutputParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe19HDF5OutputParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 592))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe18HingeLossParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 28)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18HingeLossParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 28)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -84645,7 +84645,7 @@ define hidden void @_ZN12opencv_caffe18HingeLossParameterC2EPN6google8protobuf5A
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18HingeLossParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18HingeLossParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18HingeLossParameterE, i64 16), ptr %0, align 8
@@ -84692,7 +84692,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe18HingeLossParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18HingeLossParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -84785,19 +84785,19 @@ define hidden void @_ZN12opencv_caffe18HingeLossParameterD0Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe18HingeLossParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe18HingeLossParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe18HingeLossParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe18HingeLossParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe18HingeLossParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe18HingeLossParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -85039,7 +85039,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe18HingeLossParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe18HingeLossParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -85150,7 +85150,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe18HingeLossParameter12ByteSizeLongE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18HingeLossParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18HingeLossParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -85229,7 +85229,7 @@ _ZN12opencv_caffe18HingeLossParameter9MergeFromERKS0_.exit: ; preds = %13, %_ZN6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe18HingeLossParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe18HingeLossParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe18HingeLossParameter12_class_data_E
 }
 
@@ -85339,12 +85339,12 @@ _ZN12opencv_caffe18HingeLossParameter9MergeFromERKS0_.exit: ; preds = %_ZN6googl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe18HingeLossParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe18HingeLossParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe18HingeLossParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe18HingeLossParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -85367,13 +85367,13 @@ define hidden void @_ZN12opencv_caffe18HingeLossParameter12InternalSwapEPS0_(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe18HingeLossParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe18HingeLossParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 608))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe18ImageDataParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 69), (72, 80)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18ImageDataParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((0, 69), (72, 80)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -85402,7 +85402,7 @@ define hidden void @_ZN12opencv_caffe18ImageDataParameterC2EPN6google8protobuf5A
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18ImageDataParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18ImageDataParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ImageDataParameterE, i64 16), ptr %0, align 8
@@ -85685,12 +85685,12 @@ define hidden void @_ZN12opencv_caffe18ImageDataParameterD0Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe18ImageDataParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe18ImageDataParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe18ImageDataParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe18ImageDataParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -86317,7 +86317,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe18ImageDataParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe18ImageDataParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -87098,13 +87098,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe18ImageDataParameter12ByteSizeLongE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18ImageDataParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe18ImageDataParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe18ImageDataParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe18ImageDataParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe18ImageDataParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe18ImageDataParameter12_class_data_E
 }
 
@@ -87123,12 +87123,12 @@ define hidden void @_ZN12opencv_caffe18ImageDataParameter8CopyFromERKS0_(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe18ImageDataParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe18ImageDataParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe18ImageDataParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe18ImageDataParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
 _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
@@ -87195,13 +87195,13 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe18ImageDataParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe18ImageDataParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 624))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe21InfogainLossParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe21InfogainLossParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -87218,7 +87218,7 @@ define hidden void @_ZN12opencv_caffe21InfogainLossParameterC2EPN6google8protobu
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe21InfogainLossParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe21InfogainLossParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InfogainLossParameterE, i64 16), ptr %0, align 8
@@ -87423,12 +87423,12 @@ define hidden void @_ZN12opencv_caffe21InfogainLossParameterD0Ev(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe21InfogainLossParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe21InfogainLossParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe21InfogainLossParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe21InfogainLossParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -87607,7 +87607,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe21InfogainLossParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe21InfogainLossParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -87713,13 +87713,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe21InfogainLossParameter12ByteSizeLo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe21InfogainLossParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe21InfogainLossParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe21InfogainLossParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe21InfogainLossParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe21InfogainLossParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe21InfogainLossParameter12_class_data_E
 }
 
@@ -87775,12 +87775,12 @@ _ZN12opencv_caffe21InfogainLossParameter5ClearEv.exit: ; preds = %14, %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe21InfogainLossParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe21InfogainLossParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe21InfogainLossParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe21InfogainLossParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
 _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
@@ -87804,27 +87804,27 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe21InfogainLossParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe21InfogainLossParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 640))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe21InnerProductParameter9_Internal13weight_fillerEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe21InnerProductParameter9_Internal13weight_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe21InnerProductParameter9_Internal11bias_fillerEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe21InnerProductParameter9_Internal11bias_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe21InnerProductParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 46), (48, 52)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe21InnerProductParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((0, 46), (48, 52)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -87841,7 +87841,7 @@ define hidden void @_ZN12opencv_caffe21InnerProductParameterC2EPN6google8protobu
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe21InnerProductParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe21InnerProductParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21InnerProductParameterE, i64 16), ptr %0, align 8
@@ -88083,19 +88083,19 @@ define hidden void @_ZN12opencv_caffe21InnerProductParameterD0Ev(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe21InnerProductParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe21InnerProductParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe21InnerProductParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe21InnerProductParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe21InnerProductParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe21InnerProductParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -88567,7 +88567,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe21InnerProductParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK12opencv_caffe21InnerProductParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4
@@ -88948,13 +88948,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe21InnerProductParameter12ByteSizeLo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe21InnerProductParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe21InnerProductParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe21InnerProductParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe21InnerProductParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe21InnerProductParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe21InnerProductParameter12_class_data_E
 }
 
@@ -88973,12 +88973,12 @@ define hidden void @_ZN12opencv_caffe21InnerProductParameter8CopyFromERKS0_(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe21InnerProductParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe21InnerProductParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe21InnerProductParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe21InnerProductParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -89026,13 +89026,13 @@ define hidden void @_ZN12opencv_caffe21InnerProductParameter12InternalSwapEPS0_(
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe21InnerProductParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe21InnerProductParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 656))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe14InputParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 44)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14InputParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 44)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -89047,7 +89047,7 @@ define hidden void @_ZN12opencv_caffe14InputParameterC2EPN6google8protobuf5Arena
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14InputParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14InputParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 40)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14InputParameterE, i64 16), ptr %0, align 8
@@ -89285,12 +89285,12 @@ define hidden void @_ZN12opencv_caffe14InputParameterD0Ev(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe14InputParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe14InputParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe14InputParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe14InputParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
@@ -89495,7 +89495,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %104
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe14InputParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK12opencv_caffe14InputParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %.not36 = icmp eq i32 %5, 0
@@ -89632,13 +89632,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe9BlobSh
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14InputParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe14InputParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe14InputParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe14InputParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe14InputParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe14InputParameter12_class_data_E
 }
 
@@ -89725,12 +89725,12 @@ _ZN12opencv_caffe14InputParameter5ClearEv.exit:   ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe14InputParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe14InputParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe14InputParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14InputParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -89765,13 +89765,13 @@ define hidden void @_ZN12opencv_caffe14InputParameter12InternalSwapEPS0_(ptr noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe14InputParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe14InputParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 672))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe12LogParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12LogParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -89792,7 +89792,7 @@ define hidden void @_ZN12opencv_caffe12LogParameterC2EPN6google8protobuf5ArenaEb
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12LogParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12LogParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LogParameterE, i64 16), ptr %0, align 8
@@ -89838,7 +89838,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe12LogParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12LogParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -89931,19 +89931,19 @@ define hidden void @_ZN12opencv_caffe12LogParameterD0Ev(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe12LogParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe12LogParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe12LogParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe12LogParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe12LogParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe12LogParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -90141,7 +90141,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %91,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe12LogParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe12LogParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 2
@@ -90267,13 +90267,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe12LogParameter12ByteSizeLongEv(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12LogParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe12LogParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe12LogParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe12LogParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe12LogParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe12LogParameter12_class_data_E
 }
 
@@ -90329,12 +90329,12 @@ _ZN12opencv_caffe12LogParameter5ClearEv.exit:     ; preds = %12, %16, %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe12LogParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe12LogParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe12LogParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe12LogParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -90369,13 +90369,13 @@ define hidden void @_ZN12opencv_caffe12LogParameter12InternalSwapEPS0_(ptr nocap
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe12LogParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe12LogParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 688))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe12LRNParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12LRNParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 48)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -90396,7 +90396,7 @@ define hidden void @_ZN12opencv_caffe12LRNParameterC2EPN6google8protobuf5ArenaEb
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12LRNParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12LRNParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12LRNParameterE, i64 16), ptr %0, align 8
@@ -90442,7 +90442,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe12LRNParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12LRNParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -90535,19 +90535,19 @@ define hidden void @_ZN12opencv_caffe12LRNParameterD0Ev(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe12LRNParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe12LRNParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe12LRNParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe12LRNParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe12LRNParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe12LRNParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -90983,7 +90983,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe12LRNParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe12LRNParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4
@@ -91350,13 +91350,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe12LRNParameter12ByteSizeLongEv(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12LRNParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe12LRNParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe12LRNParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe12LRNParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe12LRNParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe12LRNParameter12_class_data_E
 }
 
@@ -91416,12 +91416,12 @@ _ZN12opencv_caffe12LRNParameter5ClearEv.exit:     ; preds = %14, %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe12LRNParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe12LRNParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe12LRNParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe12LRNParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -91468,13 +91468,13 @@ define hidden void @_ZN12opencv_caffe12LRNParameter12InternalSwapEPS0_(ptr nocap
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe12LRNParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe12LRNParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 704))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe19MemoryDataParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe19MemoryDataParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -91487,7 +91487,7 @@ define hidden void @_ZN12opencv_caffe19MemoryDataParameterC2EPN6google8protobuf5
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe19MemoryDataParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe19MemoryDataParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19MemoryDataParameterE, i64 16), ptr %0, align 8
@@ -91533,7 +91533,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe19MemoryDataParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe19MemoryDataParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -91626,19 +91626,19 @@ define hidden void @_ZN12opencv_caffe19MemoryDataParameterD0Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe19MemoryDataParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe19MemoryDataParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe19MemoryDataParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe19MemoryDataParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe19MemoryDataParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe19MemoryDataParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -91962,7 +91962,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe19MemoryDataParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe19MemoryDataParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -92313,13 +92313,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe19MemoryDataParameter12ByteSizeLong
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe19MemoryDataParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe19MemoryDataParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe19MemoryDataParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe19MemoryDataParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe19MemoryDataParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe19MemoryDataParameter12_class_data_E
 }
 
@@ -92371,12 +92371,12 @@ _ZN12opencv_caffe19MemoryDataParameter5ClearEv.exit: ; preds = %10, %14, %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe19MemoryDataParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe19MemoryDataParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe19MemoryDataParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe19MemoryDataParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -92398,13 +92398,13 @@ define hidden void @_ZN12opencv_caffe19MemoryDataParameter12InternalSwapEPS0_(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe19MemoryDataParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe19MemoryDataParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 720))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe12MVNParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 26), (28, 32)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12MVNParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 26), (28, 32)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -92421,7 +92421,7 @@ define hidden void @_ZN12opencv_caffe12MVNParameterC2EPN6google8protobuf5ArenaEb
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12MVNParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12MVNParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12MVNParameterE, i64 16), ptr %0, align 8
@@ -92468,7 +92468,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe12MVNParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12MVNParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -92561,19 +92561,19 @@ define hidden void @_ZN12opencv_caffe12MVNParameterD0Ev(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe12MVNParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe12MVNParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe12MVNParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe12MVNParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe12MVNParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe12MVNParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -92849,7 +92849,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %134
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe12MVNParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe12MVNParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 2
@@ -92975,13 +92975,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe12MVNParameter12ByteSizeLongEv(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12MVNParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe12MVNParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe12MVNParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe12MVNParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe12MVNParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe12MVNParameter12_class_data_E
 }
 
@@ -93037,12 +93037,12 @@ _ZN12opencv_caffe12MVNParameter5ClearEv.exit:     ; preds = %12, %16, %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe12MVNParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe12MVNParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe12MVNParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe12MVNParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -93081,20 +93081,20 @@ define hidden void @_ZN12opencv_caffe12MVNParameter12InternalSwapEPS0_(ptr nocap
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe12MVNParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe12MVNParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 736))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe18ParameterParameter9_Internal5shapeEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe18ParameterParameter9_Internal5shapeEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe18ParameterParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18ParameterParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -93107,7 +93107,7 @@ define hidden void @_ZN12opencv_caffe18ParameterParameterC2EPN6google8protobuf5A
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18ParameterParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18ParameterParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ParameterParameterE, i64 16), ptr %0, align 8
@@ -93309,19 +93309,19 @@ define hidden void @_ZN12opencv_caffe18ParameterParameterD0Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe18ParameterParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe18ParameterParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe18ParameterParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe18ParameterParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe18ParameterParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe18ParameterParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -93503,7 +93503,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe18ParameterParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK12opencv_caffe18ParameterParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -93621,13 +93621,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe9BlobSh
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18ParameterParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe18ParameterParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe18ParameterParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe18ParameterParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe18ParameterParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe18ParameterParameter12_class_data_E
 }
 
@@ -93699,12 +93699,12 @@ _ZN12opencv_caffe18ParameterParameter5ClearEv.exit: ; preds = %_ZN12opencv_caffe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe18ParameterParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe18ParameterParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe18ParameterParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe18ParameterParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -93727,13 +93727,13 @@ define hidden void @_ZN12opencv_caffe18ParameterParameter12InternalSwapEPS0_(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe18ParameterParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe18ParameterParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 752))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe16PoolingParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 65), (68, 73)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16PoolingParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((0, 65), (68, 73)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -93750,7 +93750,7 @@ define hidden void @_ZN12opencv_caffe16PoolingParameterC2EPN6google8protobuf5Are
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16PoolingParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16PoolingParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16PoolingParameterE, i64 16), ptr %0, align 8
@@ -93796,7 +93796,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe16PoolingParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16PoolingParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -93889,19 +93889,19 @@ define hidden void @_ZN12opencv_caffe16PoolingParameterD0Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe16PoolingParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe16PoolingParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe16PoolingParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe16PoolingParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe16PoolingParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe16PoolingParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -94733,7 +94733,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe16PoolingParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe16PoolingParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -95710,13 +95710,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe16PoolingParameter12ByteSizeLongEv(
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16PoolingParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe16PoolingParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe16PoolingParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe16PoolingParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe16PoolingParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe16PoolingParameter12_class_data_E
 }
 
@@ -95782,12 +95782,12 @@ _ZN12opencv_caffe16PoolingParameter5ClearEv.exit: ; preds = %16, %20, %27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe16PoolingParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe16PoolingParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe16PoolingParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe16PoolingParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -95840,13 +95840,13 @@ define hidden void @_ZN12opencv_caffe16PoolingParameter12InternalSwapEPS0_(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe16PoolingParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe16PoolingParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 768))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe14PowerParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14PowerParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -95867,7 +95867,7 @@ define hidden void @_ZN12opencv_caffe14PowerParameterC2EPN6google8protobuf5Arena
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14PowerParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14PowerParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PowerParameterE, i64 16), ptr %0, align 8
@@ -95913,7 +95913,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe14PowerParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14PowerParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -96006,19 +96006,19 @@ define hidden void @_ZN12opencv_caffe14PowerParameterD0Ev(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe14PowerParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe14PowerParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe14PowerParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe14PowerParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe14PowerParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe14PowerParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -96216,7 +96216,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %91,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe14PowerParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe14PowerParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 2
@@ -96342,13 +96342,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe14PowerParameter12ByteSizeLongEv(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14PowerParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe14PowerParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe14PowerParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe14PowerParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe14PowerParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe14PowerParameter12_class_data_E
 }
 
@@ -96404,12 +96404,12 @@ _ZN12opencv_caffe14PowerParameter5ClearEv.exit:   ; preds = %12, %16, %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe14PowerParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe14PowerParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe14PowerParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe14PowerParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -96444,13 +96444,13 @@ define hidden void @_ZN12opencv_caffe14PowerParameter12InternalSwapEPS0_(ptr noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe14PowerParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe14PowerParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 784))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe15PythonParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 49)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe15PythonParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((0, 49)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -96473,7 +96473,7 @@ define hidden void @_ZN12opencv_caffe15PythonParameterC2EPN6google8protobuf5Aren
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe15PythonParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe15PythonParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe15PythonParameterE, i64 16), ptr %0, align 8
@@ -96758,12 +96758,12 @@ define hidden void @_ZN12opencv_caffe15PythonParameterD0Ev(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe15PythonParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe15PythonParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe15PythonParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe15PythonParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -97070,7 +97070,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe15PythonParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe15PythonParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -97367,13 +97367,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe15PythonParameter12ByteSizeLongEv(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe15PythonParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe15PythonParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe15PythonParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe15PythonParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe15PythonParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe15PythonParameter12_class_data_E
 }
 
@@ -97392,12 +97392,12 @@ define hidden void @_ZN12opencv_caffe15PythonParameter8CopyFromERKS0_(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe15PythonParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe15PythonParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe15PythonParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe15PythonParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
 _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
@@ -97441,27 +97441,27 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe15PythonParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe15PythonParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 800))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe18RecurrentParameter9_Internal13weight_fillerEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe18RecurrentParameter9_Internal13weight_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe18RecurrentParameter9_Internal11bias_fillerEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe18RecurrentParameter9_Internal11bias_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe18RecurrentParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 46)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18RecurrentParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 46)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -97474,7 +97474,7 @@ define hidden void @_ZN12opencv_caffe18RecurrentParameterC2EPN6google8protobuf5A
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18RecurrentParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18RecurrentParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18RecurrentParameterE, i64 16), ptr %0, align 8
@@ -97716,19 +97716,19 @@ define hidden void @_ZN12opencv_caffe18RecurrentParameterD0Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe18RecurrentParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe18RecurrentParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe18RecurrentParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe18RecurrentParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe18RecurrentParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe18RecurrentParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -98158,7 +98158,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe18RecurrentParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK12opencv_caffe18RecurrentParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4
@@ -98463,13 +98463,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe18RecurrentParameter12ByteSizeLongE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18RecurrentParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe18RecurrentParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe18RecurrentParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe18RecurrentParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe18RecurrentParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe18RecurrentParameter12_class_data_E
 }
 
@@ -98488,12 +98488,12 @@ define hidden void @_ZN12opencv_caffe18RecurrentParameter8CopyFromERKS0_(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe18RecurrentParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe18RecurrentParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe18RecurrentParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe18RecurrentParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -98527,13 +98527,13 @@ define hidden void @_ZN12opencv_caffe18RecurrentParameter12InternalSwapEPS0_(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe18RecurrentParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe18RecurrentParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 816))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe18ReductionParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18ReductionParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -98554,7 +98554,7 @@ define hidden void @_ZN12opencv_caffe18ReductionParameterC2EPN6google8protobuf5A
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18ReductionParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18ReductionParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ReductionParameterE, i64 16), ptr %0, align 8
@@ -98600,7 +98600,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe18ReductionParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18ReductionParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -98693,19 +98693,19 @@ define hidden void @_ZN12opencv_caffe18ReductionParameterD0Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe18ReductionParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe18ReductionParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe18ReductionParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe18ReductionParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe18ReductionParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe18ReductionParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -99024,7 +99024,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe18ReductionParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe18ReductionParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 2
@@ -99253,13 +99253,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe18ReductionParameter12ByteSizeLongE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18ReductionParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe18ReductionParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe18ReductionParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe18ReductionParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe18ReductionParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe18ReductionParameter12_class_data_E
 }
 
@@ -99315,12 +99315,12 @@ _ZN12opencv_caffe18ReductionParameter5ClearEv.exit: ; preds = %12, %16, %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe18ReductionParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe18ReductionParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe18ReductionParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe18ReductionParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -99355,13 +99355,13 @@ define hidden void @_ZN12opencv_caffe18ReductionParameter12InternalSwapEPS0_(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe18ReductionParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe18ReductionParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 832))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe13ReLUParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13ReLUParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -99374,7 +99374,7 @@ define hidden void @_ZN12opencv_caffe13ReLUParameterC2EPN6google8protobuf5ArenaE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13ReLUParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13ReLUParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13ReLUParameterE, i64 16), ptr %0, align 8
@@ -99421,7 +99421,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe13ReLUParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13ReLUParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -99514,19 +99514,19 @@ define hidden void @_ZN12opencv_caffe13ReLUParameterD0Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe13ReLUParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe13ReLUParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe13ReLUParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe13ReLUParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe13ReLUParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe13ReLUParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -99795,7 +99795,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe13ReLUParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe13ReLUParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -99940,13 +99940,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe13ReLUParameter12ByteSizeLongEv(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13ReLUParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe13ReLUParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe13ReLUParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe13ReLUParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe13ReLUParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe13ReLUParameter12_class_data_E
 }
 
@@ -99998,12 +99998,12 @@ _ZN12opencv_caffe13ReLUParameter5ClearEv.exit:    ; preds = %10, %14, %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe13ReLUParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe13ReLUParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe13ReLUParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe13ReLUParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -100026,20 +100026,20 @@ define hidden void @_ZN12opencv_caffe13ReLUParameter12InternalSwapEPS0_(ptr noca
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe13ReLUParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe13ReLUParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 848))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe16ReshapeParameter9_Internal5shapeEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe16ReshapeParameter9_Internal5shapeEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe16ReshapeParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16ReshapeParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -100054,7 +100054,7 @@ define hidden void @_ZN12opencv_caffe16ReshapeParameterC2EPN6google8protobuf5Are
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16ReshapeParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16ReshapeParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16ReshapeParameterE, i64 16), ptr %0, align 8
@@ -100260,19 +100260,19 @@ define hidden void @_ZN12opencv_caffe16ReshapeParameterD0Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe16ReshapeParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe16ReshapeParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe16ReshapeParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe16ReshapeParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe16ReshapeParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe16ReshapeParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -100559,7 +100559,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe16ReshapeParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK12opencv_caffe16ReshapeParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -100842,13 +100842,13 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN12opencv_caffe9BlobSh
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16ReshapeParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe16ReshapeParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe16ReshapeParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe16ReshapeParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe16ReshapeParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe16ReshapeParameter12_class_data_E
 }
 
@@ -100932,12 +100932,12 @@ _ZN12opencv_caffe16ReshapeParameter5ClearEv.exit: ; preds = %27, %31, %38
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe16ReshapeParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe16ReshapeParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe16ReshapeParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe16ReshapeParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -100972,27 +100972,27 @@ define hidden void @_ZN12opencv_caffe16ReshapeParameter12InternalSwapEPS0_(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe16ReshapeParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe16ReshapeParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 864))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe14ScaleParameter9_Internal6fillerEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe14ScaleParameter9_Internal6fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe14ScaleParameter9_Internal11bias_fillerEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe14ScaleParameter9_Internal11bias_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe14ScaleParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 41), (44, 52)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14ScaleParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((0, 41), (44, 52)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -101009,7 +101009,7 @@ define hidden void @_ZN12opencv_caffe14ScaleParameterC2EPN6google8protobuf5Arena
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14ScaleParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14ScaleParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14ScaleParameterE, i64 16), ptr %0, align 8
@@ -101251,19 +101251,19 @@ define hidden void @_ZN12opencv_caffe14ScaleParameterD0Ev(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe14ScaleParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe14ScaleParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe14ScaleParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe14ScaleParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe14ScaleParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe14ScaleParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -101684,7 +101684,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe14ScaleParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK12opencv_caffe14ScaleParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 8
@@ -102037,13 +102037,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe14ScaleParameter12ByteSizeLongEv(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14ScaleParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe14ScaleParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe14ScaleParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe14ScaleParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe14ScaleParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe14ScaleParameter12_class_data_E
 }
 
@@ -102062,12 +102062,12 @@ define hidden void @_ZN12opencv_caffe14ScaleParameter8CopyFromERKS0_(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe14ScaleParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe14ScaleParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe14ScaleParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe14ScaleParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -102107,13 +102107,13 @@ define hidden void @_ZN12opencv_caffe14ScaleParameter12InternalSwapEPS0_(ptr noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe14ScaleParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe14ScaleParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 880))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe16SigmoidParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 28)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16SigmoidParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 28)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -102130,7 +102130,7 @@ define hidden void @_ZN12opencv_caffe16SigmoidParameterC2EPN6google8protobuf5Are
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16SigmoidParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16SigmoidParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SigmoidParameterE, i64 16), ptr %0, align 8
@@ -102177,7 +102177,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe16SigmoidParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16SigmoidParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -102270,19 +102270,19 @@ define hidden void @_ZN12opencv_caffe16SigmoidParameterD0Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe16SigmoidParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe16SigmoidParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe16SigmoidParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe16SigmoidParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe16SigmoidParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe16SigmoidParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -102523,7 +102523,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe16SigmoidParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe16SigmoidParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -102634,7 +102634,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe16SigmoidParameter12ByteSizeLongEv(
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16SigmoidParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16SigmoidParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -102713,7 +102713,7 @@ _ZN12opencv_caffe16SigmoidParameter9MergeFromERKS0_.exit: ; preds = %13, %_ZN6go
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe16SigmoidParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe16SigmoidParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe16SigmoidParameter12_class_data_E
 }
 
@@ -102823,12 +102823,12 @@ _ZN12opencv_caffe16SigmoidParameter9MergeFromERKS0_.exit: ; preds = %_ZN6google8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe16SigmoidParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe16SigmoidParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe16SigmoidParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe16SigmoidParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -102851,7 +102851,7 @@ define hidden void @_ZN12opencv_caffe16SigmoidParameter12InternalSwapEPS0_(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe16SigmoidParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe16SigmoidParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 896))
   ret { ptr, ptr } %2
 }
@@ -103082,12 +103082,12 @@ define hidden void @_ZN12opencv_caffe14SliceParameterD0Ev(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe14SliceParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe14SliceParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe14SliceParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe14SliceParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -103681,7 +103681,7 @@ define hidden void @_ZN12opencv_caffe14SliceParameter9MergeImplEPN6google8protob
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe14SliceParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe14SliceParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe14SliceParameter12_class_data_E
 }
 
@@ -103737,7 +103737,7 @@ _ZN12opencv_caffe14SliceParameter5ClearEv.exit:   ; preds = %12, %16, %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe14SliceParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe14SliceParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
@@ -103774,13 +103774,13 @@ define hidden void @_ZN12opencv_caffe14SliceParameter12InternalSwapEPS0_(ptr nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe14SliceParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe14SliceParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 912))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe16SoftmaxParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16SoftmaxParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -103799,7 +103799,7 @@ define hidden void @_ZN12opencv_caffe16SoftmaxParameterC2EPN6google8protobuf5Are
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16SoftmaxParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16SoftmaxParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe16SoftmaxParameterE, i64 16), ptr %0, align 8
@@ -103846,7 +103846,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe16SoftmaxParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe16SoftmaxParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -103939,19 +103939,19 @@ define hidden void @_ZN12opencv_caffe16SoftmaxParameterD0Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe16SoftmaxParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe16SoftmaxParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe16SoftmaxParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe16SoftmaxParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe16SoftmaxParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe16SoftmaxParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -104253,7 +104253,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe16SoftmaxParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe16SoftmaxParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -104449,13 +104449,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe16SoftmaxParameter12ByteSizeLongEv(
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe16SoftmaxParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe16SoftmaxParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe16SoftmaxParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe16SoftmaxParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe16SoftmaxParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe16SoftmaxParameter12_class_data_E
 }
 
@@ -104509,12 +104509,12 @@ _ZN12opencv_caffe16SoftmaxParameter5ClearEv.exit: ; preds = %11, %15, %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe16SoftmaxParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe16SoftmaxParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe16SoftmaxParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe16SoftmaxParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -104543,13 +104543,13 @@ define hidden void @_ZN12opencv_caffe16SoftmaxParameter12InternalSwapEPS0_(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe16SoftmaxParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe16SoftmaxParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 928))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe13TanHParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 28)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13TanHParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 28)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -104566,7 +104566,7 @@ define hidden void @_ZN12opencv_caffe13TanHParameterC2EPN6google8protobuf5ArenaE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13TanHParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13TanHParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TanHParameterE, i64 16), ptr %0, align 8
@@ -104613,7 +104613,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe13TanHParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13TanHParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -104706,19 +104706,19 @@ define hidden void @_ZN12opencv_caffe13TanHParameterD0Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe13TanHParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe13TanHParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe13TanHParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe13TanHParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe13TanHParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe13TanHParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -104959,7 +104959,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe13TanHParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe13TanHParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -105070,7 +105070,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe13TanHParameter12ByteSizeLongEv(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13TanHParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13TanHParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -105149,7 +105149,7 @@ _ZN12opencv_caffe13TanHParameter9MergeFromERKS0_.exit: ; preds = %13, %_ZN6googl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe13TanHParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe13TanHParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe13TanHParameter12_class_data_E
 }
 
@@ -105259,12 +105259,12 @@ _ZN12opencv_caffe13TanHParameter9MergeFromERKS0_.exit: ; preds = %_ZN6google8pro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe13TanHParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe13TanHParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe13TanHParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe13TanHParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -105287,13 +105287,13 @@ define hidden void @_ZN12opencv_caffe13TanHParameter12InternalSwapEPS0_(ptr noca
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe13TanHParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe13TanHParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 944))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe13TileParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13TileParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -105312,7 +105312,7 @@ define hidden void @_ZN12opencv_caffe13TileParameterC2EPN6google8protobuf5ArenaE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13TileParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13TileParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe13TileParameterE, i64 16), ptr %0, align 8
@@ -105359,7 +105359,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe13TileParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe13TileParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -105452,19 +105452,19 @@ define hidden void @_ZN12opencv_caffe13TileParameterD0Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe13TileParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe13TileParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe13TileParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe13TileParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe13TileParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe13TileParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -105708,7 +105708,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %113
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe13TileParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe13TileParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 2
@@ -105903,13 +105903,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe13TileParameter12ByteSizeLongEv(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe13TileParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe13TileParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe13TileParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe13TileParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe13TileParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe13TileParameter12_class_data_E
 }
 
@@ -105963,12 +105963,12 @@ _ZN12opencv_caffe13TileParameter5ClearEv.exit:    ; preds = %11, %15, %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe13TileParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe13TileParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe13TileParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe13TileParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -105997,13 +105997,13 @@ define hidden void @_ZN12opencv_caffe13TileParameter12InternalSwapEPS0_(ptr noca
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe13TileParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe13TileParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 960))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe18ThresholdParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 28)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18ThresholdParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 28)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -106020,7 +106020,7 @@ define hidden void @_ZN12opencv_caffe18ThresholdParameterC2EPN6google8protobuf5A
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18ThresholdParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18ThresholdParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe18ThresholdParameterE, i64 16), ptr %0, align 8
@@ -106067,7 +106067,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe18ThresholdParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18ThresholdParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -106160,19 +106160,19 @@ define hidden void @_ZN12opencv_caffe18ThresholdParameterD0Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe18ThresholdParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe18ThresholdParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe18ThresholdParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe18ThresholdParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe18ThresholdParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe18ThresholdParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -106332,7 +106332,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %76,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe18ThresholdParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe18ThresholdParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -106391,7 +106391,7 @@ define hidden noundef i64 @_ZNK12opencv_caffe18ThresholdParameter12ByteSizeLongE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe18ThresholdParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe18ThresholdParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -106470,7 +106470,7 @@ _ZN12opencv_caffe18ThresholdParameter9MergeFromERKS0_.exit: ; preds = %13, %_ZN6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe18ThresholdParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe18ThresholdParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe18ThresholdParameter12_class_data_E
 }
 
@@ -106580,12 +106580,12 @@ _ZN12opencv_caffe18ThresholdParameter9MergeFromERKS0_.exit: ; preds = %_ZN6googl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe18ThresholdParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe18ThresholdParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe18ThresholdParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe18ThresholdParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -106608,13 +106608,13 @@ define hidden void @_ZN12opencv_caffe18ThresholdParameter12InternalSwapEPS0_(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe18ThresholdParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe18ThresholdParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 976))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe19WindowDataParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 88)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe19WindowDataParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((0, 88)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -106647,7 +106647,7 @@ define hidden void @_ZN12opencv_caffe19WindowDataParameterC2EPN6google8protobuf5
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe19WindowDataParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe19WindowDataParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19WindowDataParameterE, i64 16), ptr %0, align 8
@@ -106970,12 +106970,12 @@ define hidden void @_ZN12opencv_caffe19WindowDataParameterD0Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe19WindowDataParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe19WindowDataParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe19WindowDataParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe19WindowDataParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -107538,7 +107538,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe19WindowDataParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe19WindowDataParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -108302,13 +108302,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe19WindowDataParameter12ByteSizeLong
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe19WindowDataParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe19WindowDataParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe19WindowDataParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe19WindowDataParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe19WindowDataParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe19WindowDataParameter12_class_data_E
 }
 
@@ -108327,12 +108327,12 @@ define hidden void @_ZN12opencv_caffe19WindowDataParameter8CopyFromERKS0_(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe19WindowDataParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe19WindowDataParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe19WindowDataParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe19WindowDataParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
 _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
@@ -108403,13 +108403,13 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe19WindowDataParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe19WindowDataParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 992))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe12SPPParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12SPPParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -108422,7 +108422,7 @@ define hidden void @_ZN12opencv_caffe12SPPParameterC2EPN6google8protobuf5ArenaEb
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12SPPParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12SPPParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe12SPPParameterE, i64 16), ptr %0, align 8
@@ -108468,7 +108468,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe12SPPParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe12SPPParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -108561,19 +108561,19 @@ define hidden void @_ZN12opencv_caffe12SPPParameterD0Ev(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe12SPPParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe12SPPParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe12SPPParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe12SPPParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe12SPPParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe12SPPParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -108973,7 +108973,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe12SPPParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe12SPPParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -109249,13 +109249,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe12SPPParameter12ByteSizeLongEv(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe12SPPParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe12SPPParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe12SPPParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe12SPPParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe12SPPParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe12SPPParameter12_class_data_E
 }
 
@@ -109307,12 +109307,12 @@ _ZN12opencv_caffe12SPPParameter5ClearEv.exit:     ; preds = %10, %14, %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe12SPPParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe12SPPParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe12SPPParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe12SPPParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -109341,223 +109341,223 @@ define hidden void @_ZN12opencv_caffe12SPPParameter12InternalSwapEPS0_(ptr nocap
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe12SPPParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe12SPPParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 1008))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal14accuracy_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal14accuracy_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal12argmax_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal12argmax_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal12concat_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal12concat_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal22contrastive_loss_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal22contrastive_loss_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(152) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal17convolution_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(152) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal17convolution_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(72) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal10data_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(72) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal10data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal13dropout_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal13dropout_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal16dummy_data_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal16dummy_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal13eltwise_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal13eltwise_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal9exp_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal9exp_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal15hdf5_data_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal15hdf5_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal17hdf5_output_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal17hdf5_output_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal16hinge_loss_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal16hinge_loss_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal16image_data_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal16image_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal19infogain_loss_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal19infogain_loss_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal19inner_product_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal19inner_product_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal9lrn_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal9lrn_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal17memory_data_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal17memory_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal9mvn_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal9mvn_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal13pooling_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal13pooling_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal11power_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal11power_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal10relu_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal10relu_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal13sigmoid_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal13sigmoid_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal13softmax_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal13softmax_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal11slice_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal11slice_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal10tanh_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal10tanh_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal15threshold_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal15threshold_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal17window_data_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal17window_data_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal15transform_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal15transform_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal10loss_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal10loss_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(256) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal5layerEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(256) ptr @_ZN12opencv_caffe16V1LayerParameter9_Internal5layerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -112048,12 +112048,12 @@ define hidden void @_ZN12opencv_caffe16V1LayerParameterD0Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe16V1LayerParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe16V1LayerParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe16V1LayerParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(504) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe16V1LayerParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(504) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
@@ -120510,7 +120510,7 @@ define hidden void @_ZN12opencv_caffe16V1LayerParameter9MergeImplEPN6google8prot
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe16V1LayerParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe16V1LayerParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe16V1LayerParameter12_class_data_E
 }
 
@@ -123685,7 +123685,7 @@ define hidden void @_ZN12opencv_caffe16V1LayerParameter8CopyFromERKS0_(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe16V1LayerParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe16V1LayerParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
@@ -123900,27 +123900,27 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe16V1LayerParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe16V1LayerParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 1024))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe16V0LayerParameter9_Internal13weight_fillerEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe16V0LayerParameter9_Internal13weight_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe16V0LayerParameter9_Internal11bias_fillerEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe16V0LayerParameter9_Internal11bias_fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe16V0LayerParameter9_Internal17hdf5_output_paramEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN12opencv_caffe16V0LayerParameter9_Internal17hdf5_output_paramEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -124621,12 +124621,12 @@ define hidden void @_ZN12opencv_caffe16V0LayerParameterD0Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe16V0LayerParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe16V0LayerParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe16V0LayerParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe16V0LayerParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(256) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
@@ -128759,7 +128759,7 @@ define hidden void @_ZN12opencv_caffe16V0LayerParameter9MergeImplEPN6google8prot
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe16V0LayerParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe16V0LayerParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe16V0LayerParameter12_class_data_E
 }
 
@@ -128778,7 +128778,7 @@ define hidden void @_ZN12opencv_caffe16V0LayerParameter8CopyFromERKS0_(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe16V0LayerParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe16V0LayerParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
@@ -128979,20 +128979,20 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe16V0LayerParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe16V0LayerParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 1040))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe14PReLUParameter9_Internal6fillerEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN12opencv_caffe14PReLUParameter9_Internal6fillerEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe14PReLUParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 33)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14PReLUParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 33)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -129005,7 +129005,7 @@ define hidden void @_ZN12opencv_caffe14PReLUParameterC2EPN6google8protobuf5Arena
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14PReLUParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14PReLUParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14PReLUParameterE, i64 16), ptr %0, align 8
@@ -129212,19 +129212,19 @@ define hidden void @_ZN12opencv_caffe14PReLUParameterD0Ev(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe14PReLUParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe14PReLUParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe14PReLUParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe14PReLUParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe14PReLUParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe14PReLUParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -129502,7 +129502,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe14PReLUParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK12opencv_caffe14PReLUParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -129634,13 +129634,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe14PReLUParameter12ByteSizeLongEv(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14PReLUParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe14PReLUParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe14PReLUParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe14PReLUParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe14PReLUParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe14PReLUParameter12_class_data_E
 }
 
@@ -129659,12 +129659,12 @@ define hidden void @_ZN12opencv_caffe14PReLUParameter8CopyFromERKS0_(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe14PReLUParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe14PReLUParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe14PReLUParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe14PReLUParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -129693,13 +129693,13 @@ define hidden void @_ZN12opencv_caffe14PReLUParameter12InternalSwapEPS0_(ptr noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe14PReLUParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe14PReLUParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 1056))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe14NormalizedBBoxC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14NormalizedBBoxC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((0, 56)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -129712,7 +129712,7 @@ define hidden void @_ZN12opencv_caffe14NormalizedBBoxC2EPN6google8protobuf5Arena
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14NormalizedBBoxC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14NormalizedBBoxC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe14NormalizedBBoxE, i64 16), ptr %0, align 8
@@ -129758,7 +129758,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe14NormalizedBBoxD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14NormalizedBBoxD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -129851,19 +129851,19 @@ define hidden void @_ZN12opencv_caffe14NormalizedBBoxD0Ev(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe14NormalizedBBox9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe14NormalizedBBox9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe14NormalizedBBox13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe14NormalizedBBox13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14NormalizedBBox5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14NormalizedBBox5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 255
@@ -129902,7 +129902,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe14NormalizedBBox14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe14NormalizedBBox14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -130235,7 +130235,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe14NormalizedBBox18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe14NormalizedBBox18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -130558,18 +130558,18 @@ define hidden noundef i64 @_ZNK12opencv_caffe14NormalizedBBox12ByteSizeLongEv(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14NormalizedBBox9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe14NormalizedBBox9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe14NormalizedBBox9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe14NormalizedBBox12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe14NormalizedBBox12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe14NormalizedBBox12_class_data_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe14NormalizedBBox9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe14NormalizedBBox9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 255
@@ -130788,12 +130788,12 @@ _ZN12opencv_caffe14NormalizedBBox5ClearEv.exit:   ; preds = %10, %14, %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe14NormalizedBBox13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe14NormalizedBBox13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe14NormalizedBBox12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe14NormalizedBBox12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -130820,13 +130820,13 @@ define hidden void @_ZN12opencv_caffe14NormalizedBBox12InternalSwapEPS0_(ptr noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe14NormalizedBBox11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe14NormalizedBBox11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 1072))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe19ROIPoolingParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe19ROIPoolingParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -130841,7 +130841,7 @@ define hidden void @_ZN12opencv_caffe19ROIPoolingParameterC2EPN6google8protobuf5
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe19ROIPoolingParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe19ROIPoolingParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe19ROIPoolingParameterE, i64 16), ptr %0, align 8
@@ -130887,7 +130887,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe19ROIPoolingParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe19ROIPoolingParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -130980,19 +130980,19 @@ define hidden void @_ZN12opencv_caffe19ROIPoolingParameterD0Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe19ROIPoolingParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe19ROIPoolingParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe19ROIPoolingParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe19ROIPoolingParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe19ROIPoolingParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe19ROIPoolingParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -131250,7 +131250,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %120
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe19ROIPoolingParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe19ROIPoolingParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -131476,13 +131476,13 @@ define hidden noundef i64 @_ZNK12opencv_caffe19ROIPoolingParameter12ByteSizeLong
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe19ROIPoolingParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe19ROIPoolingParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe19ROIPoolingParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe19ROIPoolingParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe19ROIPoolingParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe19ROIPoolingParameter12_class_data_E
 }
 
@@ -131536,12 +131536,12 @@ _ZN12opencv_caffe19ROIPoolingParameter5ClearEv.exit: ; preds = %11, %15, %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe19ROIPoolingParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe19ROIPoolingParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe19ROIPoolingParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe19ROIPoolingParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -131570,7 +131570,7 @@ define hidden void @_ZN12opencv_caffe19ROIPoolingParameter12InternalSwapEPS0_(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe19ROIPoolingParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe19ROIPoolingParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 1088))
   ret { ptr, ptr } %2
 }
@@ -131841,12 +131841,12 @@ define hidden void @_ZN12opencv_caffe17ProposalParameterD0Ev(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe17ProposalParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe17ProposalParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe17ProposalParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe17ProposalParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -132852,7 +132852,7 @@ define hidden void @_ZN12opencv_caffe17ProposalParameter9MergeImplEPN6google8pro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe17ProposalParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe17ProposalParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe17ProposalParameter12_class_data_E
 }
 
@@ -132918,7 +132918,7 @@ _ZN12opencv_caffe17ProposalParameter5ClearEv.exit: ; preds = %17, %21, %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK12opencv_caffe17ProposalParameter13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK12opencv_caffe17ProposalParameter13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
@@ -132982,13 +132982,13 @@ define hidden void @_ZN12opencv_caffe17ProposalParameter12InternalSwapEPS0_(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe17ProposalParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe17ProposalParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 1104))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12opencv_caffe21PSROIPoolingParameterC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe21PSROIPoolingParameterC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -133001,7 +133001,7 @@ define hidden void @_ZN12opencv_caffe21PSROIPoolingParameterC2EPN6google8protobu
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe21PSROIPoolingParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe21PSROIPoolingParameterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN12opencv_caffe21PSROIPoolingParameterE, i64 16), ptr %0, align 8
@@ -133047,7 +133047,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12opencv_caffe21PSROIPoolingParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12opencv_caffe21PSROIPoolingParameterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -133140,19 +133140,19 @@ define hidden void @_ZN12opencv_caffe21PSROIPoolingParameterD0Ev(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12opencv_caffe21PSROIPoolingParameter9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12opencv_caffe21PSROIPoolingParameter9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK12opencv_caffe21PSROIPoolingParameter13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define hidden void @_ZNK12opencv_caffe21PSROIPoolingParameter13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN12opencv_caffe21PSROIPoolingParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN12opencv_caffe21PSROIPoolingParameter14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -133410,7 +133410,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %120
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK12opencv_caffe21PSROIPoolingParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK12opencv_caffe21PSROIPoolingParameter18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -133579,7 +133579,7 @@ _ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i64 0, 28) i64 @_ZNK12opencv_caffe21PSROIPoolingParameter30RequiredFieldsByteSizeFallbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #10 align 2 {
+define hidden noundef range(i64 0, 28) i64 @_ZNK12opencv_caffe21PSROIPoolingParameter30RequiredFieldsByteSizeFallbackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 1
@@ -133705,13 +133705,13 @@ _ZNK12opencv_caffe21PSROIPoolingParameter30RequiredFieldsByteSizeFallbackEv.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12opencv_caffe21PSROIPoolingParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN12opencv_caffe21PSROIPoolingParameter9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN12opencv_caffe21PSROIPoolingParameter9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK12opencv_caffe21PSROIPoolingParameter12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK12opencv_caffe21PSROIPoolingParameter12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN12opencv_caffe21PSROIPoolingParameter12_class_data_E
 }
 
@@ -133763,7 +133763,7 @@ _ZN12opencv_caffe21PSROIPoolingParameter5ClearEv.exit: ; preds = %10, %14, %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12opencv_caffe21PSROIPoolingParameter12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN12opencv_caffe21PSROIPoolingParameter12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -133792,7 +133792,7 @@ define hidden void @_ZN12opencv_caffe21PSROIPoolingParameter12InternalSwapEPS0_(
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK12opencv_caffe21PSROIPoolingParameter11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK12opencv_caffe21PSROIPoolingParameter11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z46descriptor_table_opencv_2dcaffe_2eproto_getterv, ptr noundef nonnull @_ZL44descriptor_table_opencv_2dcaffe_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL42file_level_metadata_opencv_2dcaffe_2eproto, i64 1120))
   ret { ptr, ptr } %2
 }
@@ -140289,13 +140289,13 @@ define internal void @_GLOBAL__sub_I_opencv_caffe.pb.cc() #20 section ".text.sta
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

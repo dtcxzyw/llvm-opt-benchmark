@@ -50,7 +50,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [25 x ptr] [ptr @__UNIQUE_ID___addressable_crypto_sha3_final305, ptr @__UNIQUE_ID___addressable_crypto_sha3_init303, ptr @__UNIQUE_ID___addressable_crypto_sha3_update304, ptr @__UNIQUE_ID___addressable_sha3_generic_mod_init307, ptr @__UNIQUE_ID_alias_crypto312, ptr @__UNIQUE_ID_alias_crypto314, ptr @__UNIQUE_ID_alias_crypto316, ptr @__UNIQUE_ID_alias_crypto318, ptr @__UNIQUE_ID_alias_crypto320, ptr @__UNIQUE_ID_alias_crypto322, ptr @__UNIQUE_ID_alias_crypto324, ptr @__UNIQUE_ID_alias_crypto326, ptr @__UNIQUE_ID_alias_userspace311, ptr @__UNIQUE_ID_alias_userspace313, ptr @__UNIQUE_ID_alias_userspace315, ptr @__UNIQUE_ID_alias_userspace317, ptr @__UNIQUE_ID_alias_userspace319, ptr @__UNIQUE_ID_alias_userspace321, ptr @__UNIQUE_ID_alias_userspace323, ptr @__UNIQUE_ID_alias_userspace325, ptr @__UNIQUE_ID_description310, ptr @__UNIQUE_ID_file308, ptr @__UNIQUE_ID_license309, ptr @__exitcall_sha3_generic_mod_fini, ptr @sha3_generic_mod_fini], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @crypto_sha3_init(ptr nocapture noundef initializes((8, 220)) %0) #0 align 16 {
+define dso_local noundef i32 @crypto_sha3_init(ptr noundef captures(none) initializes((8, 220)) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -71,10 +71,10 @@ define dso_local noundef i32 @crypto_sha3_init(ptr nocapture noundef initializes
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @crypto_sha3_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #2 align 16 {
+define dso_local noundef i32 @crypto_sha3_update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %6 = load i32, ptr %5, align 8
@@ -160,10 +160,10 @@ define dso_local noundef i32 @crypto_sha3_update(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal fastcc void @keccakf(ptr nocapture noundef %0) unnamed_addr #4 align 16 {
+define internal fastcc void @keccakf(ptr noundef captures(none) %0) unnamed_addr #4 align 16 {
   %2 = getelementptr i8, ptr %0, i64 40
   %3 = getelementptr i8, ptr %0, i64 80
   %4 = getelementptr i8, ptr %0, i64 120
@@ -433,7 +433,7 @@ define internal fastcc void @keccakf(ptr nocapture noundef %0) unnamed_addr #4 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @crypto_sha3_final(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define dso_local noundef i32 @crypto_sha3_final(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = load i32, ptr %4, align 8

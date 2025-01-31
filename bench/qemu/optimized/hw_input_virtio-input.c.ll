@@ -53,7 +53,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_virtio_register_types, ptr null }]
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_input_send(ptr noundef %vinput, ptr nocapture noundef readonly %event) local_unnamed_addr #0 {
+define dso_local void @virtio_input_send(ptr noundef %vinput, ptr noundef readonly captures(none) %event) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %active = getelementptr inbounds nuw i8, ptr %vinput, i64 584
@@ -256,7 +256,7 @@ return:                                           ; preds = %if.end5, %lor.lhs.f
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @virtqueue_pop(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -269,7 +269,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare void @virtio_notify(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @virtio_input_find_config(ptr nocapture noundef readonly %vinput, i8 noundef zeroext %select, i8 noundef zeroext %subsel) local_unnamed_addr #3 {
+define dso_local noundef ptr @virtio_input_find_config(ptr noundef readonly captures(none) %vinput, i8 noundef zeroext %select, i8 noundef zeroext %subsel) local_unnamed_addr #3 {
 entry:
   %cfg_list = getelementptr inbounds nuw i8, ptr %vinput, i64 528
   %cfg.05 = load ptr, ptr %cfg_list, align 8
@@ -300,7 +300,7 @@ return:                                           ; preds = %land.lhs.true, %for
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_input_add_config(ptr nocapture noundef %vinput, ptr nocapture noundef readonly %config) local_unnamed_addr #0 {
+define dso_local void @virtio_input_add_config(ptr noundef captures(none) %vinput, ptr noundef readonly captures(none) %config) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %config, align 4
   %subsel = getelementptr inbounds nuw i8, ptr %config, i64 1
@@ -351,7 +351,7 @@ if.end:                                           ; preds = %for.inc.i, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #5
@@ -360,7 +360,7 @@ declare void @abort() local_unnamed_addr #5
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_input_init_config(ptr noundef initializes((528, 536)) %vinput, ptr nocapture noundef readonly %config) local_unnamed_addr #0 {
+define dso_local void @virtio_input_init_config(ptr noundef initializes((528, 536)) %vinput, ptr noundef readonly captures(none) %config) local_unnamed_addr #0 {
 entry:
   %cfg_list = getelementptr inbounds nuw i8, ptr %vinput, i64 528
   store ptr null, ptr %cfg_list, align 8
@@ -428,7 +428,7 @@ while.end:                                        ; preds = %virtio_input_add_co
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_input_idstr_config(ptr nocapture noundef %vinput, i8 noundef zeroext %select, ptr noundef %string) local_unnamed_addr #0 {
+define dso_local void @virtio_input_idstr_config(ptr noundef captures(none) %vinput, i8 noundef zeroext %select, ptr noundef %string) local_unnamed_addr #0 {
 entry:
   %id = alloca %struct.virtio_input_config, align 4
   %tobool.not = icmp eq ptr %string, null
@@ -494,10 +494,10 @@ return:                                           ; preds = %entry, %virtio_inpu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_virtio_register_types() #0 {
@@ -516,7 +516,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -574,7 +574,7 @@ for.end:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_input_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @virtio_input_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #11
   %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #11
@@ -714,7 +714,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_input_get_config(ptr noundef %vdev, ptr nocapture noundef writeonly %config_data) #0 {
+define internal void @virtio_input_get_config(ptr noundef %vdev, ptr noundef writeonly captures(none) %config_data) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT) #11
   %cfg_select = getelementptr inbounds nuw i8, ptr %call.i, i64 520
@@ -763,7 +763,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_input_set_config(ptr noundef %vdev, ptr nocapture noundef readonly %config_data) #0 {
+define internal void @virtio_input_set_config(ptr noundef %vdev, ptr noundef readonly captures(none) %config_data) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT) #11
   %0 = load i8, ptr %config_data, align 4
@@ -778,7 +778,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @virtio_input_get_features(ptr nocapture readnone %vdev, i64 noundef returned %f, ptr nocapture readnone %errp) #8 {
+define internal noundef i64 @virtio_input_get_features(ptr readnone captures(none) %vdev, i64 noundef returned %f, ptr readnone captures(none) %errp) #8 {
 entry:
   ret i64 %f
 }
@@ -879,13 +879,13 @@ declare void @virtio_init(ptr noundef, i16 noundef zeroext, i64 noundef) local_u
 declare ptr @virtio_add_queue(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @virtio_input_handle_evt(ptr nocapture readnone %vdev, ptr nocapture readnone %vq) #8 {
+define internal void @virtio_input_handle_evt(ptr readnone captures(none) %vdev, ptr readnone captures(none) %vq) #8 {
 entry:
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_input_handle_sts(ptr noundef %vdev, ptr nocapture readnone %vq) #0 {
+define internal void @virtio_input_handle_sts(ptr noundef %vdev, ptr readnone captures(none) %vq) #0 {
 entry:
   %event = alloca %struct.virtio_input_event, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %vdev) #11
@@ -962,10 +962,10 @@ declare void @virtio_cleanup(ptr noundef) local_unnamed_addr #1
 declare void @virtio_notify_config(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

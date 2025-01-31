@@ -74,7 +74,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @relay_reserve.__UNIQUE_ID___addressable___SCK__preempt_schedule508], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_guc_log_section_size_capture(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_guc_log_section_size_capture(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   tail call fastcc void @guc_log_init_sizes(ptr noundef %0)
   %2 = getelementptr i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
@@ -82,7 +82,7 @@ define dso_local i32 @intel_guc_log_section_size_capture(ptr nocapture noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @guc_log_init_sizes(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @guc_log_init_sizes(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %3 = load i8, ptr %2, align 4, !range !6, !noundef !7
   %4 = icmp eq i8 %3, 0
@@ -265,7 +265,7 @@ define internal fastcc void @guc_log_init_sizes(ptr nocapture noundef %0) unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @intel_guc_check_log_buf_overflow(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext i1 @intel_guc_check_log_buf_overflow(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %5 = zext i32 %1 to i64
   %6 = getelementptr [3 x %struct.anon.3], ptr %4, i64 0, i64 %5
@@ -299,7 +299,7 @@ define dso_local noundef zeroext i1 @intel_guc_check_log_buf_overflow(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @___ratelimit(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -308,10 +308,10 @@ declare dso_local i32 @___ratelimit(ptr noundef, ptr noundef) local_unnamed_addr
 declare dso_local void @_dev_notice(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_guc_get_log_buffer_size(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_guc_get_log_buffer_size(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   switch i32 %1, label %12 [
     i32 0, label %3
     i32 1, label %6
@@ -355,7 +355,7 @@ define dso_local i32 @intel_guc_get_log_buffer_size(ptr nocapture noundef %0, i3
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @intel_guc_get_log_buffer_offset(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i64 @intel_guc_get_log_buffer_offset(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %.loopexit, label %4
 
@@ -436,7 +436,7 @@ define dso_local void @intel_guc_log_init_early(ptr noundef %0) local_unnamed_ad
 declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @copy_debug_logs_work(ptr noundef %0) #0 align 16 {
@@ -670,7 +670,7 @@ declare dso_local i64 @intel_runtime_pm_get(ptr noundef) local_unnamed_addr #2
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @intel_guc_log_relay_created(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local zeroext i1 @intel_guc_log_relay_created(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
@@ -1265,7 +1265,7 @@ define dso_local void @intel_guc_log_handle_flush_event(ptr noundef %0) local_un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_guc_log_info(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_guc_log_info(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1463,7 +1463,7 @@ declare dso_local void @intel_runtime_pm_put_unchecked(ptr noundef) local_unname
 declare dso_local ptr @relay_open(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 2) i32 @subbuf_start_callback(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 %3) #0 align 16 {
+define internal range(i32 0, 2) i32 @subbuf_start_callback(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 %3) #0 align 16 {
   %5 = tail call i32 @relay_buf_full(ptr noundef %0) #12
   %6 = icmp eq i32 %5, 0
   %7 = zext i1 %6 to i32
@@ -1471,7 +1471,7 @@ define internal range(i32 0, 2) i32 @subbuf_start_callback(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @create_buf_file_callback(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) #0 align 16 {
+define internal ptr @create_buf_file_callback(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) #0 align 16 {
   store i32 1, ptr %4, align 4
   %6 = icmp eq ptr %1, null
   br i1 %6, label %11, label %7

@@ -205,7 +205,7 @@ define dso_local range(i32 0, 16777216) i32 @rb_enc_to_index(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @rb_enc_dummy_p(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @rb_enc_dummy_p(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load i32, ptr %2, align 8
   %4 = lshr i32 %3, 24
@@ -1824,7 +1824,7 @@ rb_vm_lock_leave.exit:                            ; preds = %enc_registered.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @rb_enc_unicode_p(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @rb_enc_unicode_p(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 1
@@ -2111,7 +2111,7 @@ rb_enc_from_index.exit.thread:                    ; preds = %1, %rb_enc_from_ind
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 -1, -2147483648) i32 @rb_enc_autoload(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -1, -2147483648) i32 @rb_enc_autoload(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -2343,7 +2343,7 @@ rb_vm_lock_leave.exit:                            ; preds = %53, %55
 declare void @rb_warn(ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 -1, -2147483648) i32 @rb_enc_find_index2(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, -2147483648) i32 @rb_enc_find_index2(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [64 x i8], align 16
   %4 = icmp sgt i64 %1, 63
   br i1 %4, label %9, label %5
@@ -3498,7 +3498,7 @@ define dso_local range(i32 1, 0) i32 @rb_enc_codelen(i32 noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local range(i32 0, -2147483648) i32 @rb_enc_toupper(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #9 {
+define dso_local range(i32 0, -2147483648) i32 @rb_enc_toupper(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #9 {
   %3 = icmp slt i32 %0, 128
   br i1 %3, label %4, label %9
 
@@ -3515,7 +3515,7 @@ define dso_local range(i32 0, -2147483648) i32 @rb_enc_toupper(i32 noundef %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local range(i32 0, -2147483648) i32 @rb_enc_tolower(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #9 {
+define dso_local range(i32 0, -2147483648) i32 @rb_enc_tolower(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #9 {
   %3 = icmp slt i32 %0, 128
   br i1 %3, label %4, label %9
 
@@ -4649,7 +4649,7 @@ rb_enc_from_encoding.exit:                        ; preds = %48, %enc_capable.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @enc_dump(i32 noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define internal i64 @enc_dump(i32 noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %or.cond.i = icmp ugt i32 %0, 1
   br i1 %or.cond.i, label %4, label %rb_check_arity.exit
 
@@ -4892,7 +4892,7 @@ declare i64 @rb_string_value(ptr noundef) local_unnamed_addr #1
 declare void @rb_vm_lock_enter_body(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare noalias nonnull ptr @ruby_strdup(ptr noundef) local_unnamed_addr #1
 
@@ -4900,10 +4900,10 @@ declare noalias nonnull ptr @ruby_strdup(ptr noundef) local_unnamed_addr #1
 declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 declare i32 @rb_st_insert(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -5092,10 +5092,10 @@ declare i32 @llvm.smax.i32(i32, i32) #18
 declare i64 @llvm.smin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

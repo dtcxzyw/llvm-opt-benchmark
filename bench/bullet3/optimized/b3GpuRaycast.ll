@@ -139,7 +139,7 @@ $_ZTI13b3OpenCLArrayI6b3Int2E = comdat any
 @_ZN12b3GpuRaycastD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN12b3GpuRaycastD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12b3GpuRaycastC2EP11_cl_contextP13_cl_device_idP17_cl_command_queue(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %ctx, ptr noundef %device, ptr noundef %q) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12b3GpuRaycastC2EP11_cl_contextP13_cl_device_idP17_cl_command_queue(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef %ctx, ptr noundef %device, ptr noundef %q) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %errNum = alloca i32, align 4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12b3GpuRaycast, i64 16), ptr %this, align 8
@@ -338,7 +338,7 @@ declare void @_ZN15b3RadixSort32CLC1EP11_cl_contextP13_cl_device_idP17_cl_comman
 declare void @_ZN8b3FillCLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queue(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN12b3GpuRaycastD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12b3GpuRaycastD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV12b3GpuRaycast, i64 16), ptr %this, align 8
   %0 = load ptr, ptr @__clewReleaseKernel, align 8
@@ -538,7 +538,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_Z16sphere_intersectRK9b3Vector3fS1_S1_Rf(ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %spherePos, float noundef %radius, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %rayFrom, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %rayTo, ptr nocapture noundef nonnull align 4 dereferenceable(4) %hitFraction) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @_Z16sphere_intersectRK9b3Vector3fS1_S1_Rf(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %spherePos, float noundef %radius, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %rayFrom, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %rayTo, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %hitFraction) local_unnamed_addr #7 {
 entry:
   %0 = load float, ptr %rayFrom, align 16
   %1 = load float, ptr %spherePos, align 16
@@ -602,7 +602,7 @@ return:                                           ; preds = %entry, %if.then, %i
 declare float @llvm.fmuladd.f32(float, float, float) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_Z9rayConvexRK9b3Vector3S1_RK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayI9b3GpuFaceERfRS_(ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %rayFromLocal, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %rayToLocal, ptr nocapture noundef nonnull readonly align 16 dereferenceable(96) %poly, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %faces, ptr nocapture noundef nonnull align 4 dereferenceable(4) %hitFraction, ptr nocapture noundef nonnull writeonly align 16 dereferenceable(16) %hitNormal) local_unnamed_addr #9 {
+define dso_local noundef zeroext i1 @_Z9rayConvexRK9b3Vector3S1_RK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayI9b3GpuFaceERfRS_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %rayFromLocal, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %rayToLocal, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(96) %poly, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %faces, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %hitFraction, ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(16) %hitNormal) local_unnamed_addr #9 {
 entry:
   %m_numFaces = getelementptr inbounds nuw i8, ptr %poly, i64 72
   %0 = load i32, ptr %m_numFaces, align 8
@@ -714,10 +714,10 @@ return:                                           ; preds = %if.end29, %if.else,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12b3GpuRaycast12castRaysHostERK20b3AlignedObjectArrayI9b3RayInfoERS0_I8b3RayHitEiPK15b3RigidBodyDataiPK12b3CollidablePK28b3GpuNarrowPhaseInternalData(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %rays, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %hitResults, i32 noundef %numBodies, ptr nocapture noundef readonly %bodies, i32 noundef %numCollidables, ptr nocapture noundef readonly %collidables, ptr nocapture noundef readonly %narrowphaseData) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12b3GpuRaycast12castRaysHostERK20b3AlignedObjectArrayI9b3RayInfoERS0_I8b3RayHitEiPK15b3RigidBodyDataiPK12b3CollidablePK28b3GpuNarrowPhaseInternalData(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %rays, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %hitResults, i32 noundef %numBodies, ptr noundef readonly captures(none) %bodies, i32 noundef %numCollidables, ptr noundef readonly captures(none) %collidables, ptr noundef readonly captures(none) %narrowphaseData) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @b3EnterProfileZone(ptr noundef nonnull @.str.5)
   %m_size.i = getelementptr inbounds nuw i8, ptr %rays, i64 4
@@ -1152,7 +1152,7 @@ _ZN13b3ProfileZoneD2Ev.exit146:                   ; preds = %for.end92
 declare void @b3OutputWarningMessageVarArgsInternal(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12b3GpuRaycast8castRaysERK20b3AlignedObjectArrayI9b3RayInfoERS0_I8b3RayHitEiPK15b3RigidBodyDataiPK12b3CollidablePK28b3GpuNarrowPhaseInternalDataP24b3GpuBroadphaseInterface(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(25) %rays, ptr noundef nonnull align 8 dereferenceable(25) %hitResults, i32 noundef %numBodies, ptr nocapture noundef readnone %bodies, i32 noundef %numCollidables, ptr nocapture noundef readnone %collidables, ptr nocapture noundef readonly %narrowphaseData, ptr noundef %broadphase) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12b3GpuRaycast8castRaysERK20b3AlignedObjectArrayI9b3RayInfoERS0_I8b3RayHitEiPK15b3RigidBodyDataiPK12b3CollidablePK28b3GpuNarrowPhaseInternalDataP24b3GpuBroadphaseInterface(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(25) %rays, ptr noundef nonnull align 8 dereferenceable(25) %hitResults, i32 noundef %numBodies, ptr noundef readnone captures(none) %bodies, i32 noundef %numCollidables, ptr noundef readnone captures(none) %collidables, ptr noundef readonly captures(none) %narrowphaseData, ptr noundef %broadphase) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gRange.i.i138 = alloca [3 x i64], align 16
   %lRange.i.i139 = alloca [3 x i64], align 16
@@ -2464,7 +2464,7 @@ declare void @b3EnterProfileZone(ptr noundef) local_unnamed_addr #2
 declare void @b3LeaveProfileZone() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #14
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI9b3RayInfoED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2929,7 +2929,7 @@ declare noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef, i32 noundef) loca
 declare void @_Z21b3AlignedFreeInternalPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayI8b3RayHitE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) local_unnamed_addr #0 comdat align 2 {
@@ -3011,10 +3011,10 @@ if.end7:                                          ; preds = %_ZN20b3AlignedObjec
 declare float @llvm.sqrt.f32(float) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16

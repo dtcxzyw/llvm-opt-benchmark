@@ -203,7 +203,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit15: ; 
 declare void @_ZN14cmCursesWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(60)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN18cmCursesBoolWidget11HandleInputERiP16cmCursesMainFormP7_win_st(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture readnone %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN18cmCursesBoolWidget11HandleInputERiP16cmCursesMainFormP7_win_st(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr readnone captures(none) %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = load i32, ptr %1, align 4
   switch i32 %5, label %19 [
     i32 10, label %6

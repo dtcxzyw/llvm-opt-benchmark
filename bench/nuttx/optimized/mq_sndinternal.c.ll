@@ -134,7 +134,7 @@ declare zeroext i1 @nxsched_add_prioritized(ptr noundef, ptr noundef) local_unna
 declare void @up_switch_context(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nxmq_do_send(ptr noundef %0, ptr noundef initializes((17, 19)) %1, ptr nocapture noundef readonly %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define noundef i32 @nxmq_do_send(ptr noundef %0, ptr noundef initializes((17, 19)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca %struct.sigevent, align 8
   %7 = trunc i32 %4 to i8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 17
@@ -262,12 +262,12 @@ define noundef i32 @nxmq_do_send(ptr noundef %0, ptr noundef initializes((17, 19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @poll_notify(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @nxsig_notification(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 

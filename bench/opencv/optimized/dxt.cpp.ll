@@ -267,7 +267,7 @@ $_ZTISt15_Sp_counted_ptrIPN2cv10OcvDctImplELN9__gnu_cxx12_Lock_policyE2EE = comd
 @_ZTISt15_Sp_counted_ptrIPN2cv10OcvDctImplELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN2cv10OcvDctImplELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3hal5DFT1D6createEiiiiPb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3hal5DFT1D6createEiiiiPb(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::Ptr") align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = tail call noalias noundef nonnull dereferenceable(2336) ptr @_Znwm(i64 noundef 2336) #18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv15OcvDftBasicImplE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -691,7 +691,7 @@ _ZN2cv10AutoBufferIiLm264EE8allocateEm.exit:      ; preds = %115, %_ZN2cv10AutoB
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3hal5DFT2D6createEiiiiiii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.1") align 8 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3hal5DFT2D6createEiiiiiii(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::Ptr.1") align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = icmp eq i32 %1, 1
@@ -4871,7 +4871,7 @@ declare void @_ZNK2cv3Mat5cloneEv(ptr dead_on_unwind writable sret(%"class.cv::M
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3hal5DCT2D6createEiiii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.8") align 8 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3hal5DCT2D6createEiiii(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::Ptr.8") align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = tail call noalias noundef nonnull dereferenceable(2392) ptr @_Znwm(i64 noundef 2392) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2392) %6, i8 0, i64 2392, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv10OcvDctImplE, i64 16), ptr %6, align 8
@@ -5017,7 +5017,7 @@ common.resume:                                    ; preds = %63, %69
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3dctERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -5966,7 +5966,7 @@ declare noundef zeroext i1 @_ZN2cv20checkHardwareSupportEi(i32 noundef) local_un
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7DFTInitEiiPKiPiiPvi(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef range(i32 8, 17) %4, ptr noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7DFTInitEiiPKiPiiPvi(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef range(i32 8, 17) %4, ptr noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca [34 x i32], align 16
   %9 = alloca [34 x i32], align 16
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6556,37 +6556,37 @@ define internal fastcc void @_ZN2cvL7DFTInitEiiPKiPiiPvi(i32 noundef %0, i32 nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL7DFT_32fERKNS_13OcvDftOptionsEPKNS_7ComplexIfEEPS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @_ZN2cvL7DFT_32fERKNS_13OcvDftOptionsEPKNS_7ComplexIfEEPS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) #0 {
   tail call fastcc void @_ZN2cvL3DFTIfEEvRKNS_13OcvDftOptionsEPKNS_7ComplexIT_EEPS6_(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL11RealDFT_32fERKNS_13OcvDftOptionsEPKfPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @_ZN2cvL11RealDFT_32fERKNS_13OcvDftOptionsEPKfPf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) #0 {
   tail call fastcc void @_ZN2cvL7RealDFTIfEEvRKNS_13OcvDftOptionsEPKT_PS4_(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL11CCSIDFT_32fERKNS_13OcvDftOptionsEPKfPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @_ZN2cvL11CCSIDFT_32fERKNS_13OcvDftOptionsEPKfPf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) #0 {
   tail call fastcc void @_ZN2cvL7CCSIDFTIfEEvRKNS_13OcvDftOptionsEPKT_PS4_(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL7DFT_64fERKNS_13OcvDftOptionsEPKNS_7ComplexIdEEPS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @_ZN2cvL7DFT_64fERKNS_13OcvDftOptionsEPKNS_7ComplexIdEEPS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) #0 {
   tail call fastcc void @_ZN2cvL3DFTIdEEvRKNS_13OcvDftOptionsEPKNS_7ComplexIT_EEPS6_(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL11RealDFT_64fERKNS_13OcvDftOptionsEPKdPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @_ZN2cvL11RealDFT_64fERKNS_13OcvDftOptionsEPKdPd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) #0 {
   tail call fastcc void @_ZN2cvL7RealDFTIdEEvRKNS_13OcvDftOptionsEPKT_PS4_(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL11CCSIDFT_64fERKNS_13OcvDftOptionsEPKdPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @_ZN2cvL11CCSIDFT_64fERKNS_13OcvDftOptionsEPKdPd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) #0 {
   tail call fastcc void @_ZN2cvL7CCSIDFTIdEEvRKNS_13OcvDftOptionsEPKT_PS4_(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2)
   ret void
 }
@@ -6595,7 +6595,7 @@ define internal void @_ZN2cvL11CCSIDFT_64fERKNS_13OcvDftOptionsEPKdPd(ptr nocapt
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @sin(double noundef) local_unnamed_addr #12
@@ -6607,7 +6607,7 @@ declare double @sqrt(double noundef) local_unnamed_addr #12
 declare double @llvm.fmuladd.f64(double, double, double) #13
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL3DFTIfEEvRKNS_13OcvDftOptionsEPKNS_7ComplexIT_EEPS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL3DFTIfEEvRKNS_13OcvDftOptionsEPKNS_7ComplexIT_EEPS6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.cv::DFT_R3", align 1
   %5 = alloca %"struct.cv::DFT_R2", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8186,7 +8186,7 @@ define linkonce_odr hidden void @_ZNK2cv6DFT_R5IfEclEPNS_7ComplexIfEEiiiPKS3_(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7RealDFTIfEEvRKNS_13OcvDftOptionsEPKT_PS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7RealDFTIfEEvRKNS_13OcvDftOptionsEPKT_PS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"struct.cv::OcvDftOptions", align 8
@@ -8484,7 +8484,7 @@ define internal fastcc void @_ZN2cvL7RealDFTIfEEvRKNS_13OcvDftOptionsEPKT_PS4_(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7CCSIDFTIfEEvRKNS_13OcvDftOptionsEPKT_PS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7CCSIDFTIfEEvRKNS_13OcvDftOptionsEPKT_PS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8894,7 +8894,7 @@ define internal fastcc void @_ZN2cvL7CCSIDFTIfEEvRKNS_13OcvDftOptionsEPKT_PS4_(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL3DFTIdEEvRKNS_13OcvDftOptionsEPKNS_7ComplexIT_EEPS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL3DFTIdEEvRKNS_13OcvDftOptionsEPKNS_7ComplexIT_EEPS6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.cv::DFT_R3.19", align 1
   %5 = alloca %"struct.cv::DFT_R2.17", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10478,7 +10478,7 @@ define linkonce_odr hidden void @_ZNK2cv6DFT_R5IdEclEPNS_7ComplexIdEEiiiPKS3_(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7RealDFTIdEEvRKNS_13OcvDftOptionsEPKT_PS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7RealDFTIdEEvRKNS_13OcvDftOptionsEPKT_PS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"struct.cv::OcvDftOptions", align 8
@@ -10775,7 +10775,7 @@ define internal fastcc void @_ZN2cvL7RealDFTIdEEvRKNS_13OcvDftOptionsEPKT_PS4_(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7CCSIDFTIdEEvRKNS_13OcvDftOptionsEPKT_PS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7CCSIDFTIdEEvRKNS_13OcvDftOptionsEPKT_PS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13364,7 +13364,7 @@ _ZN2cvL23complementComplexOutputEiPhmiii.exit:    ; preds = %._crit_edge.us.i24.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN2cvL9ExpandCCSEPhii(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #14 {
+define internal fastcc void @_ZN2cvL9ExpandCCSEPhii(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #14 {
   %4 = icmp eq i32 %2, 4
   %5 = add nsw i32 %1, 1
   %6 = icmp sgt i32 %1, 2
@@ -13618,7 +13618,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 declare noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #5
 
@@ -14484,7 +14484,7 @@ _ZN2cv10OcvDctImplD2Ev.exit:                      ; preds = %14, %_ZN2cv10AutoBu
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL7DCT_32fERKNS_13OcvDftOptionsEPKfmPfS5_S5_mPKNS_7ComplexIfEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5, i64 noundef %6, ptr nocapture noundef readonly %7) #0 {
+define internal void @_ZN2cvL7DCT_32fERKNS_13OcvDftOptionsEPKfmPfS5_S5_mPKNS_7ComplexIfEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) %5, i64 noundef %6, ptr noundef readonly captures(none) %7) #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %10 = load i32, ptr %9, align 4
   %11 = ashr i32 %10, 1
@@ -14591,7 +14591,7 @@ _ZN2cvL3DCTIfEEvRKNS_13OcvDftOptionsEPKT_mPS4_S7_S7_mPKNS_7ComplexIS4_EE.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL8IDCT_32fERKNS_13OcvDftOptionsEPKfmPfS5_S5_mPKNS_7ComplexIfEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5, i64 noundef %6, ptr nocapture noundef readonly %7) #0 {
+define internal void @_ZN2cvL8IDCT_32fERKNS_13OcvDftOptionsEPKfmPfS5_S5_mPKNS_7ComplexIfEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) %5, i64 noundef %6, ptr noundef readonly captures(none) %7) #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %10 = load i32, ptr %9, align 4
   %11 = ashr i32 %10, 1
@@ -14696,7 +14696,7 @@ _ZN2cvL4IDCTIfEEvRKNS_13OcvDftOptionsEPKT_mPS4_S7_S7_mPKNS_7ComplexIS4_EE.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL7DCT_64fERKNS_13OcvDftOptionsEPKdmPdS5_S5_mPKNS_7ComplexIdEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5, i64 noundef %6, ptr nocapture noundef readonly %7) #0 {
+define internal void @_ZN2cvL7DCT_64fERKNS_13OcvDftOptionsEPKdmPdS5_S5_mPKNS_7ComplexIdEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) %5, i64 noundef %6, ptr noundef readonly captures(none) %7) #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %10 = load i32, ptr %9, align 4
   %11 = ashr i32 %10, 1
@@ -14803,7 +14803,7 @@ _ZN2cvL3DCTIdEEvRKNS_13OcvDftOptionsEPKT_mPS4_S7_S7_mPKNS_7ComplexIS4_EE.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cvL8IDCT_64fERKNS_13OcvDftOptionsEPKdmPdS5_S5_mPKNS_7ComplexIdEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5, i64 noundef %6, ptr nocapture noundef readonly %7) #0 {
+define internal void @_ZN2cvL8IDCT_64fERKNS_13OcvDftOptionsEPKdmPdS5_S5_mPKNS_7ComplexIdEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) %5, i64 noundef %6, ptr noundef readonly captures(none) %7) #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %10 = load i32, ptr %9, align 4
   %11 = ashr i32 %10, 1
@@ -15097,10 +15097,10 @@ declare i32 @llvm.ctpop.i32(i32) #16
 declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #16

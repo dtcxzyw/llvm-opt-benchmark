@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @InterruptPending = external global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pgstat_report_archiver(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local void @pgstat_report_archiver(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @pgStatLocal, align 8
   %4 = tail call i64 @GetCurrentTimestamp() #3
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -53,7 +53,7 @@ define dso_local void @pgstat_report_archiver(ptr nocapture noundef readonly %0,
 declare i64 @GetCurrentTimestamp() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local nonnull ptr @pgstat_fetch_stat_archiver() local_unnamed_addr #0 {

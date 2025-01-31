@@ -1163,7 +1163,7 @@ declare ptr @PyNumber_InPlaceTrueDivide(ptr noundef, ptr noundef) #4
 declare ptr @PyNumber_InPlaceXor(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyEval_MatchKeys(ptr noundef %tstate, ptr noundef %map, ptr nocapture noundef readonly %keys) local_unnamed_addr #2 {
+define hidden ptr @_PyEval_MatchKeys(ptr noundef %tstate, ptr noundef %map, ptr noundef readonly captures(none) %keys) local_unnamed_addr #2 {
 entry:
   %get = alloca ptr, align 8
   %args = alloca [3 x ptr], align 16
@@ -1551,7 +1551,7 @@ declare i32 @PySet_Add(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare ptr @PyObject_Vectorcall(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyEval_MatchClass(ptr noundef %tstate, ptr noundef %subject, ptr noundef %type, i64 noundef %nargs, ptr nocapture noundef readonly %kwargs) local_unnamed_addr #2 {
+define hidden ptr @_PyEval_MatchClass(ptr noundef %tstate, ptr noundef %subject, ptr noundef %type, i64 noundef %nargs, ptr noundef readonly captures(none) %kwargs) local_unnamed_addr #2 {
 entry:
   %attr.i97 = alloca ptr, align 8
   %attr.i = alloca ptr, align 8
@@ -2242,7 +2242,7 @@ return:                                           ; preds = %if.end.i25, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyEval_EvalFrame(ptr nocapture noundef readonly %f) local_unnamed_addr #2 {
+define dso_local ptr @PyEval_EvalFrame(ptr noundef readonly captures(none) %f) local_unnamed_addr #2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -2269,7 +2269,7 @@ _PyEval_EvalFrame.exit:                           ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyEval_EvalFrameEx(ptr nocapture noundef readonly %f, i32 noundef %throwflag) local_unnamed_addr #2 {
+define dso_local ptr @PyEval_EvalFrameEx(ptr noundef readonly captures(none) %f, i32 noundef %throwflag) local_unnamed_addr #2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -28985,7 +28985,7 @@ declare i32 @PyDict_GetItemRef(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare void @_PyErr_SetKeyError(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @_PyFrame_PushUnchecked(ptr nocapture noundef %tstate, ptr noundef %func, i32 noundef %null_locals_from) unnamed_addr #1 {
+define internal fastcc ptr @_PyFrame_PushUnchecked(ptr noundef captures(none) %tstate, ptr noundef %func, i32 noundef %null_locals_from) unnamed_addr #1 {
 entry:
   %func_code = getelementptr inbounds nuw i8, ptr %func, i64 48
   %0 = load ptr, ptr %func_code, align 8
@@ -30127,7 +30127,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @_PyEval_ExceptionGroupMatch(ptr noundef %exc_value, ptr noundef %match_type, ptr nocapture noundef writeonly %match, ptr nocapture noundef writeonly %rest) local_unnamed_addr #2 {
+define hidden range(i32 -1, 1) i32 @_PyEval_ExceptionGroupMatch(ptr noundef %exc_value, ptr noundef %match_type, ptr noundef writeonly captures(none) %match, ptr noundef writeonly captures(none) %rest) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %exc_value, @_Py_NoneStruct
   br i1 %cmp, label %if.then, label %if.end
@@ -30322,7 +30322,7 @@ return:                                           ; preds = %_Py_NewRef.exit54, 
 declare void @PyErr_SetHandledException(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @_PyEval_CheckExceptTypeValid(ptr noundef %tstate, ptr nocapture noundef readonly %right) local_unnamed_addr #2 {
+define hidden range(i32 -1, 1) i32 @_PyEval_CheckExceptTypeValid(ptr noundef %tstate, ptr noundef readonly captures(none) %right) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %right, i64 8
   %right.val9 = load ptr, ptr %0, align 8
@@ -30405,7 +30405,7 @@ declare i32 @PySequence_Contains(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @PyObject_DelAttr(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyEval_FormatExcUnbound(ptr noundef %tstate, ptr nocapture noundef readonly %co, i32 noundef %oparg) local_unnamed_addr #2 {
+define hidden void @_PyEval_FormatExcUnbound(ptr noundef %tstate, ptr noundef readonly captures(none) %co, i32 noundef %oparg) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %tstate, i64 104
   %tstate.val = load ptr, ptr %0, align 8
@@ -30493,7 +30493,7 @@ declare i32 @PyObject_DelItem(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @_PyDict_MergeEx(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyEval_FormatKwargsError(ptr noundef %tstate, ptr noundef %func, ptr nocapture noundef readonly %kwargs) local_unnamed_addr #2 {
+define hidden void @_PyEval_FormatKwargsError(ptr noundef %tstate, ptr noundef %func, ptr noundef readonly captures(none) %kwargs) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @PyExc_AttributeError, align 8
   %call = tail call i32 @_PyErr_ExceptionMatches(ptr noundef %tstate, ptr noundef %0) #15
@@ -30633,7 +30633,7 @@ declare ptr @_PyCoro_GetAwaitableIter(ptr noundef) local_unnamed_addr #4
 declare ptr @_PyErr_FormatFromCause(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyEval_FormatAwaitableError(ptr noundef %tstate, ptr nocapture noundef readonly %type, i32 noundef %oparg) local_unnamed_addr #2 {
+define hidden void @_PyEval_FormatAwaitableError(ptr noundef %tstate, ptr noundef readonly captures(none) %type, i32 noundef %oparg) local_unnamed_addr #2 {
 entry:
   %tp_as_async = getelementptr inbounds nuw i8, ptr %type, i64 80
   %0 = load ptr, ptr %tp_as_async, align 8
@@ -30837,7 +30837,7 @@ declare ptr @PyNumber_Invert(ptr noundef) local_unnamed_addr #4
 declare ptr @PyNumber_Negative(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_PyEval_UnpackIterable(ptr noundef %tstate, ptr noundef %v, i32 noundef %argcnt, i32 noundef %argcntafter, ptr nocapture noundef %sp) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @_PyEval_UnpackIterable(ptr noundef %tstate, ptr noundef %v, i32 noundef %argcnt, i32 noundef %argcntafter, ptr noundef captures(none) %sp) local_unnamed_addr #2 {
 entry:
   %call = tail call ptr @PyObject_GetIter(ptr noundef %v) #15
   %cmp = icmp eq ptr %call, null
@@ -31124,10 +31124,10 @@ declare i32 @PyTraceBack_Here(ptr noundef) local_unnamed_addr #4
 declare ptr @_PyErr_GetRaisedException(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyEval_EvalCodeEx(ptr noundef %_co, ptr noundef %globals, ptr noundef %locals, ptr noundef %args, i32 noundef %argcount, ptr nocapture noundef readonly %kws, i32 noundef %kwcount, ptr noundef %defs, i32 noundef %defcount, ptr noundef %kwdefs, ptr noundef %closure) local_unnamed_addr #2 {
+define dso_local ptr @PyEval_EvalCodeEx(ptr noundef %_co, ptr noundef %globals, ptr noundef %locals, ptr noundef %args, i32 noundef %argcount, ptr noundef readonly captures(none) %kws, i32 noundef %kwcount, ptr noundef %defs, i32 noundef %defcount, ptr noundef %kwdefs, ptr noundef %closure) local_unnamed_addr #2 {
 entry:
   %constr = alloca %struct.PyFrameConstructor, align 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
@@ -31362,7 +31362,7 @@ declare ptr @PyIter_Next(ptr noundef) local_unnamed_addr #4
 declare ptr @PySequence_List(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @PyThreadState_EnterTracing(ptr nocapture noundef %tstate) local_unnamed_addr #6 {
+define dso_local void @PyThreadState_EnterTracing(ptr noundef captures(none) %tstate) local_unnamed_addr #6 {
 entry:
   %tracing = getelementptr inbounds nuw i8, ptr %tstate, i64 52
   %0 = load i32, ptr %tracing, align 4
@@ -31372,7 +31372,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @PyThreadState_LeaveTracing(ptr nocapture noundef %tstate) local_unnamed_addr #6 {
+define dso_local void @PyThreadState_LeaveTracing(ptr noundef captures(none) %tstate) local_unnamed_addr #6 {
 entry:
   %tracing = getelementptr inbounds nuw i8, ptr %tstate, i64 52
   %0 = load i32, ptr %tracing, align 4
@@ -31837,7 +31837,7 @@ return:                                           ; preds = %while.body.i.i.i, %
 declare void @PyErr_Clear() local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @_PyEval_GetBuiltins(ptr nocapture noundef readonly %tstate) local_unnamed_addr #7 {
+define hidden ptr @_PyEval_GetBuiltins(ptr noundef readonly captures(none) %tstate) local_unnamed_addr #7 {
 entry:
   %0 = getelementptr i8, ptr %tstate, i64 64
   %tstate.val = load ptr, ptr %0, align 8
@@ -32235,7 +32235,7 @@ return:                                           ; preds = %while.body.i.i, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @PyEval_MergeCompilerFlags(ptr nocapture noundef %cf) local_unnamed_addr #8 {
+define dso_local range(i32 0, 2) i32 @PyEval_MergeCompilerFlags(ptr noundef captures(none) %cf) local_unnamed_addr #8 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -32266,7 +32266,7 @@ if.end7:                                          ; preds = %if.then, %if.then5,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyEval_GetFuncName(ptr nocapture noundef readonly %func) local_unnamed_addr #2 {
+define dso_local ptr @PyEval_GetFuncName(ptr noundef readonly captures(none) %func) local_unnamed_addr #2 {
 entry:
   %ob_type12 = getelementptr inbounds nuw i8, ptr %func, i64 8
   %0 = load ptr, ptr %ob_type12, align 8
@@ -32324,7 +32324,7 @@ return:                                           ; preds = %if.else9, %if.then8
 declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef nonnull ptr @PyEval_GetFuncDesc(ptr nocapture noundef readonly %func) local_unnamed_addr #2 {
+define dso_local noundef nonnull ptr @PyEval_GetFuncDesc(ptr noundef readonly captures(none) %func) local_unnamed_addr #2 {
 entry:
   %ob_type = getelementptr inbounds nuw i8, ptr %func, i64 8
   %0 = load ptr, ptr %ob_type, align 8
@@ -32348,7 +32348,7 @@ return:                                           ; preds = %PyObject_TypeCheck.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @_PyEval_SliceIndex(ptr noundef %v, ptr nocapture noundef writeonly %pi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @_PyEval_SliceIndex(ptr noundef %v, ptr noundef writeonly captures(none) %pi) local_unnamed_addr #2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -32403,7 +32403,7 @@ return:                                           ; preds = %entry, %if.end8, %_
 declare i64 @PyNumber_AsSsize_t(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @_PyEval_SliceIndexNotNone(ptr noundef %v, ptr nocapture noundef writeonly %pi) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @_PyEval_SliceIndexNotNone(ptr noundef %v, ptr noundef writeonly captures(none) %pi) local_unnamed_addr #2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -32575,7 +32575,7 @@ declare ptr @PyErr_NoMemory() local_unnamed_addr #4
 declare i32 @PyObject_RichCompareBool(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @positional_only_passed_as_keyword(ptr noundef %tstate, ptr nocapture noundef readonly %co, i64 noundef %kwcount, ptr nocapture noundef nonnull readonly %kwnames, ptr noundef %qualname) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @positional_only_passed_as_keyword(ptr noundef %tstate, ptr noundef readonly captures(none) %co, i64 noundef %kwcount, ptr noundef nonnull readonly captures(none) %kwnames, ptr noundef %qualname) unnamed_addr #2 {
 entry:
   %call = tail call ptr @PyList_New(i64 noundef 0) #15
   %cond = icmp eq ptr %call, null
@@ -32749,7 +32749,7 @@ return:                                           ; preds = %return.sink.split, 
 declare ptr @_Py_CalculateSuggestions(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @missing_arguments(ptr noundef %tstate, ptr nocapture noundef readonly %co, i64 noundef range(i64 1, 0) %missing, i64 noundef %defcount, ptr nocapture noundef nonnull readonly %localsplus, ptr noundef %qualname) unnamed_addr #2 {
+define internal fastcc void @missing_arguments(ptr noundef %tstate, ptr noundef readonly captures(none) %co, i64 noundef range(i64 1, 0) %missing, i64 noundef %defcount, ptr noundef nonnull readonly captures(none) %localsplus, ptr noundef %qualname) unnamed_addr #2 {
 entry:
   %cmp.not = icmp eq i64 %defcount, -1
   %cond = select i1 %cmp.not, ptr @.str.79, ptr @.str.78
@@ -33072,16 +33072,16 @@ declare i32 @_PyModuleSpec_IsInitializing(ptr noundef) local_unnamed_addr #4
 declare ptr @_PyErr_SetImportErrorWithNameFrom(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

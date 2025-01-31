@@ -38,7 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.29 = private unnamed_addr constant [171 x i8] c"ucm error: the base table contains a mapping whose input sequence\0A           is the same as the input sequence of an extension mapping\0A           but it maps differently\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @ucm_printMapping(ptr nocapture noundef readonly %table, ptr nocapture noundef readonly %m, ptr nocapture noundef %f) local_unnamed_addr #0 {
+define void @ucm_printMapping(ptr noundef readonly captures(none) %table, ptr noundef readonly captures(none) %m, ptr noundef captures(none) %f) local_unnamed_addr #0 {
 entry:
   %uLen = getelementptr inbounds nuw i8, ptr %m, i64 8
   %0 = load i8, ptr %uLen, align 4
@@ -80,7 +80,7 @@ cond.end9:                                        ; preds = %cond.false5, %cond.
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL12printMappingP9UCMappingPiPhP8_IO_FILE(ptr nocapture noundef readonly %m, ptr nocapture noundef readonly %codePoints, ptr nocapture noundef readonly %bytes, ptr nocapture noundef %f) unnamed_addr #0 {
+define internal fastcc void @_ZL12printMappingP9UCMappingPiPhP8_IO_FILE(ptr noundef readonly captures(none) %m, ptr noundef readonly captures(none) %codePoints, ptr noundef readonly captures(none) %bytes, ptr noundef captures(none) %f) unnamed_addr #0 {
 entry:
   %uLen = getelementptr inbounds nuw i8, ptr %m, i64 8
   %0 = load i8, ptr %uLen, align 4
@@ -138,7 +138,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @ucm_printTable(ptr nocapture noundef readonly %table, ptr nocapture noundef %f, i8 noundef signext %byUnicode) local_unnamed_addr #0 {
+define void @ucm_printTable(ptr noundef readonly captures(none) %table, ptr noundef captures(none) %f, i8 noundef signext %byUnicode) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %table, align 8
   %mappingsLength = getelementptr inbounds nuw i8, ptr %table, i64 12
@@ -342,7 +342,7 @@ return:                                           ; preds = %entry, %if.end19
 declare void @uprv_sortArray_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL27compareMappingsUnicodeFirstPKvS0_S0_(ptr nocapture noundef readonly %context, ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) #3 {
+define internal noundef i32 @_ZL27compareMappingsUnicodeFirstPKvS0_S0_(ptr noundef readonly captures(none) %context, ptr noundef readonly captures(none) %left, ptr noundef readonly captures(none) %right) #3 {
 entry:
   %uLen.i.i = getelementptr inbounds nuw i8, ptr %left, i64 8
   %0 = load i8, ptr %uLen.i.i, align 4
@@ -515,13 +515,13 @@ _ZL15compareMappingsP8UCMTablePK9UCMappingS0_S3_a.exit: ; preds = %for.body.i.i,
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL25compareMappingsBytesFirstPKvS0_S0_(ptr nocapture noundef readonly %context, ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) #3 {
+define internal noundef i32 @_ZL25compareMappingsBytesFirstPKvS0_S0_(ptr noundef readonly captures(none) %context, ptr noundef readonly captures(none) %left, ptr noundef readonly captures(none) %right) #3 {
 entry:
   %0 = load i32, ptr %left, align 4
   %1 = load i32, ptr %right, align 4
@@ -702,7 +702,7 @@ _ZL15compareMappingsP8UCMTablePK9UCMappingS0_S3_a.exit: ; preds = %for.body.i103
 declare ptr @u_errorName_75(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @ucm_moveMappings(ptr nocapture noundef %base, ptr noundef %ext) local_unnamed_addr #1 {
+define void @ucm_moveMappings(ptr noundef captures(none) %base, ptr noundef %ext) local_unnamed_addr #1 {
 entry:
   %mappingsLength = getelementptr inbounds nuw i8, ptr %base, i64 12
   %0 = load i32, ptr %mappingsLength, align 4
@@ -836,7 +836,7 @@ while.end:                                        ; preds = %if.end27, %if.end27
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ucm_addMapping(ptr nocapture noundef %table, ptr nocapture noundef %m, ptr nocapture noundef readonly %codePoints, ptr nocapture noundef readonly %bytes) local_unnamed_addr #1 {
+define void @ucm_addMapping(ptr noundef captures(none) %table, ptr noundef captures(none) %m, ptr noundef readonly captures(none) %codePoints, ptr noundef readonly captures(none) %bytes) local_unnamed_addr #1 {
 entry:
   %mappingsLength = getelementptr inbounds nuw i8, ptr %table, i64 12
   %0 = load i32, ptr %mappingsLength, align 4
@@ -1055,10 +1055,10 @@ for.end:                                          ; preds = %for.inc, %if.end94
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @ucm_checkValidity(ptr nocapture noundef readonly %table, ptr noundef %baseStates) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @ucm_checkValidity(ptr noundef readonly captures(none) %table, ptr noundef %baseStates) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %table, align 8
   %mappingsLength = getelementptr inbounds nuw i8, ptr %table, i64 12
@@ -1151,7 +1151,7 @@ while.end:                                        ; preds = %if.end, %entry
 declare i32 @ucm_countChars(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @ucm_checkBaseExt(ptr nocapture noundef readonly %baseStates, ptr noundef %base, ptr noundef %ext, ptr noundef %moveTarget, i8 noundef signext %intersectBase) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @ucm_checkBaseExt(ptr noundef readonly captures(none) %baseStates, ptr noundef %base, ptr noundef %ext, ptr noundef %moveTarget, i8 noundef signext %intersectBase) local_unnamed_addr #1 {
 entry:
   %flagsType = getelementptr inbounds nuw i8, ptr %base, i64 57
   %0 = load i8, ptr %flagsType, align 1
@@ -2040,7 +2040,7 @@ return:                                           ; preds = %if.end20, %if.then2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ucm_mergeTables(ptr noundef %fromUTable, ptr noundef %toUTable, ptr nocapture noundef readonly %subchar, i32 noundef %subcharLength, i8 noundef zeroext %subchar1) local_unnamed_addr #1 {
+define void @ucm_mergeTables(ptr noundef %fromUTable, ptr noundef %toUTable, ptr noundef readonly captures(none) %subchar, i32 noundef %subcharLength, i8 noundef zeroext %subchar1) local_unnamed_addr #1 {
 entry:
   tail call void @ucm_sortTable(ptr noundef %fromUTable)
   tail call void @ucm_sortTable(ptr noundef %toUTable)
@@ -2909,7 +2909,7 @@ return:                                           ; preds = %for.inc.thread, %fo
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 2) i32 @ucm_mappingType(ptr noundef %baseStates, ptr nocapture noundef readonly %m, ptr nocapture noundef readnone %codePoints, ptr noundef %bytes) local_unnamed_addr #1 {
+define range(i32 -1, 2) i32 @ucm_mappingType(ptr noundef %baseStates, ptr noundef readonly captures(none) %m, ptr noundef readnone captures(none) %codePoints, ptr noundef %bytes) local_unnamed_addr #1 {
 entry:
   %bLen = getelementptr inbounds nuw i8, ptr %m, i64 9
   %0 = load i8, ptr %bLen, align 1
@@ -2977,7 +2977,7 @@ return:                                           ; preds = %land.lhs.true12, %l
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define signext i8 @ucm_parseBytes(ptr nocapture noundef writeonly %bytes, ptr noundef %line, ptr nocapture noundef %ps) local_unnamed_addr #0 {
+define signext i8 @ucm_parseBytes(ptr noundef writeonly captures(none) %bytes, ptr noundef %line, ptr noundef captures(none) %ps) local_unnamed_addr #0 {
 entry:
   %end = alloca ptr, align 8
   %s.0.pre = load ptr, ptr %ps, align 8
@@ -3048,10 +3048,10 @@ return:                                           ; preds = %for.end, %if.then17
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @ucm_parseMappingLine(ptr nocapture noundef writeonly %m, ptr noundef %codePoints, ptr nocapture noundef %bytes, ptr noundef %line) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @ucm_parseMappingLine(ptr noundef writeonly captures(none) %m, ptr noundef %codePoints, ptr noundef captures(none) %bytes, ptr noundef %line) local_unnamed_addr #1 {
 entry:
   %end.i = alloca ptr, align 8
   %end = alloca ptr, align 8
@@ -3311,7 +3311,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define void @ucm_closeTable(ptr noundef %table) local_unnamed_addr #1 {
@@ -3480,7 +3480,7 @@ if.end:                                           ; preds = %ucm_closeTable.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @ucm_addMappingAuto(ptr nocapture noundef readonly %ucm, i8 noundef signext %forBase, ptr noundef %baseStates, ptr nocapture noundef %m, ptr nocapture noundef readonly %codePoints, ptr noundef %bytes) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @ucm_addMappingAuto(ptr noundef readonly captures(none) %ucm, i8 noundef signext %forBase, ptr noundef %baseStates, ptr noundef captures(none) %m, ptr noundef readonly captures(none) %codePoints, ptr noundef %bytes) local_unnamed_addr #1 {
 entry:
   %f = getelementptr inbounds nuw i8, ptr %m, i64 10
   %0 = load i8, ptr %f, align 2
@@ -3591,7 +3591,7 @@ return:                                           ; preds = %if.then12, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @ucm_addMappingFromLine(ptr nocapture noundef readonly %ucm, ptr noundef %line, i8 noundef signext %forBase, ptr noundef %baseStates) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @ucm_addMappingFromLine(ptr noundef readonly captures(none) %ucm, ptr noundef %line, i8 noundef signext %forBase, ptr noundef %baseStates) local_unnamed_addr #1 {
 entry:
   %m = alloca %struct.UCMapping, align 4
   %codePoints = alloca [19 x i32], align 16
@@ -3625,7 +3625,7 @@ return:                                           ; preds = %if.end, %land.rhs, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ucm_readTable(ptr nocapture noundef readonly %ucm, ptr noundef %convFile, i8 noundef signext %forBase, ptr noundef %baseStates, ptr nocapture noundef %pErrorCode) local_unnamed_addr #1 {
+define void @ucm_readTable(ptr noundef readonly captures(none) %ucm, ptr noundef %convFile, i8 noundef signext %forBase, ptr noundef %baseStates, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #1 {
 entry:
   %m.i = alloca %struct.UCMapping, align 4
   %codePoints.i = alloca [19 x i32], align 16
@@ -3738,25 +3738,25 @@ if.end32:                                         ; preds = %entry, %if.then31, 
 declare ptr @T_FileStream_readLine(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture) local_unnamed_addr #13
+declare i64 @strlen(ptr captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.smin.i8(i8, i8) #14
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

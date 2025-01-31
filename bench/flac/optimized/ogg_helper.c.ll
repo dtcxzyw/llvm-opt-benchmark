@@ -7,14 +7,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [9 x i8] zeroinitializer, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @simple_ogg_page__init(ptr nocapture noundef writeonly initializes((0, 32)) %page) local_unnamed_addr #0 {
+define hidden void @simple_ogg_page__init(ptr noundef writeonly captures(none) initializes((0, 32)) %page) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %page, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden void @simple_ogg_page__clear(ptr nocapture noundef initializes((8, 16), (24, 32)) %page) local_unnamed_addr #1 {
+define hidden void @simple_ogg_page__clear(ptr noundef captures(none) initializes((8, 16), (24, 32)) %page) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %page, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -40,10 +40,10 @@ if.end5:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @simple_ogg_page__get_at(ptr noundef %encoder, i64 noundef %position, ptr noundef %page, ptr noundef readonly %seek_callback, ptr nocapture noundef readonly %read_callback, ptr noundef %client_data) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @simple_ogg_page__get_at(ptr noundef %encoder, i64 noundef %position, ptr noundef %page, ptr noundef readonly %seek_callback, ptr noundef readonly captures(none) %read_callback, ptr noundef %client_data) local_unnamed_addr #3 {
 entry:
   %bytes_read.i = alloca i64, align 8
   %crc = alloca [4 x i8], align 4
@@ -242,7 +242,7 @@ return:                                           ; preds = %full_read_.exit.thr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @full_read_(ptr noundef %encoder, ptr noundef %buffer, i64 noundef %bytes, ptr nocapture noundef readonly %read_callback, ptr noundef %client_data) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @full_read_(ptr noundef %encoder, ptr noundef %buffer, i64 noundef %bytes, ptr noundef readonly captures(none) %read_callback, ptr noundef %client_data) unnamed_addr #3 {
 entry:
   %bytes_read = alloca i64, align 8
   %cmp.not10 = icmp eq i64 %bytes, 0
@@ -289,7 +289,7 @@ return:                                           ; preds = %while.body, %sw.epi
 declare void @ogg_page_checksum_set(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @simple_ogg_page__set_at(ptr noundef %encoder, i64 noundef %position, ptr noundef %page, ptr noundef readonly %seek_callback, ptr nocapture noundef readonly %write_callback, ptr noundef %client_data) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @simple_ogg_page__set_at(ptr noundef %encoder, i64 noundef %position, ptr noundef %page, ptr noundef readonly %seek_callback, ptr noundef readonly captures(none) %write_callback, ptr noundef %client_data) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %seek_callback, null
   br i1 %cmp, label %return, label %if.end
@@ -333,19 +333,19 @@ return:                                           ; preds = %return.sink.split, 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind sspstrong willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

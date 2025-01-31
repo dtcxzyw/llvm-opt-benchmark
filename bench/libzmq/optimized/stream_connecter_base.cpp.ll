@@ -120,10 +120,10 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #1
 
@@ -221,7 +221,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN3zmq23stream_connecter_base_tD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define void @_ZN3zmq23stream_connecter_base_tD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @llvm.trap() #18
   unreachable
@@ -231,7 +231,7 @@ entry:
 declare void @llvm.trap() #9
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZThn1448_N3zmq23stream_connecter_base_tD0Ev(ptr nocapture readnone %this) unnamed_addr #10 align 2 {
+define void @_ZThn1448_N3zmq23stream_connecter_base_tD0Ev(ptr readnone captures(none) %this) unnamed_addr #10 align 2 {
 entry:
   tail call void @llvm.trap() #18
   unreachable
@@ -446,7 +446,7 @@ if.end11:                                         ; preds = %invoke.cont, %entry
 declare void @_ZN3zmq5own_t12process_termEi(ptr noundef nonnull align 8 dereferenceable(1444), i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq23stream_connecter_base_t21get_new_reconnect_ivlEv(ptr nocapture noundef nonnull align 8 dereferenceable(1544) %this) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN3zmq23stream_connecter_base_t21get_new_reconnect_ivlEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1544) %this) local_unnamed_addr #0 align 2 {
 entry:
   %reconnect_ivl_max = getelementptr inbounds nuw i8, ptr %this, i64 356
   %0 = load i32, ptr %reconnect_ivl_max, align 4

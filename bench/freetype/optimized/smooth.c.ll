@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @func_interface = internal constant %struct.FT_Outline_Funcs_ { ptr @gray_move_to, ptr @gray_line_to, ptr @gray_conic_to, ptr @gray_cubic_to, i32 0, i64 0 }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gray_raster_new(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal i32 @gray_raster_new(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 {
   %3 = alloca i32, align 4
   %4 = call ptr @ft_mem_alloc(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %3) #11
   %5 = load i32, ptr %3, align 4
@@ -42,17 +42,17 @@ define internal i32 @gray_raster_new(ptr noundef %0, ptr nocapture noundef write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @gray_raster_reset(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2) #1 {
+define internal void @gray_raster_reset(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2) #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @gray_raster_set_mode(ptr nocapture readnone %0, i64 %1, ptr nocapture readnone %2) #1 {
+define internal noundef i32 @gray_raster_set_mode(ptr readnone captures(none) %0, i64 %1, ptr readnone captures(none) %2) #1 {
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gray_raster_render(ptr noundef readnone %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @gray_raster_render(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca [1 x %struct.gray_TWorker_], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -209,7 +209,7 @@ define internal void @gray_raster_done(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ft_smooth_init(ptr nocapture noundef readonly %0) #0 {
+define internal noundef i32 @ft_smooth_init(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 344
@@ -233,7 +233,7 @@ define internal noundef i32 @ft_smooth_init(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ft_smooth_render(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+define internal i32 @ft_smooth_render(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.FT_Raster_Params_, align 8
   store i32 0, ptr %5, align 4
@@ -458,7 +458,7 @@ thread-pre-split.thread:                          ; preds = %33, %31, %thread-pr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 7) i32 @ft_smooth_transform(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal range(i32 0, 7) i32 @ft_smooth_transform(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -493,7 +493,7 @@ define internal range(i32 0, 7) i32 @ft_smooth_transform(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ft_smooth_get_cbox(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef initializes((0, 32)) %2) #0 {
+define internal void @ft_smooth_get_cbox(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef initializes((0, 32)) %2) #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %5 = load i32, ptr %4, align 8
@@ -512,7 +512,7 @@ define internal void @ft_smooth_get_cbox(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ft_smooth_set_mode(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2) #0 {
+define internal i32 @ft_smooth_set_mode(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 112
@@ -528,7 +528,7 @@ define internal i32 @ft_smooth_set_mode(ptr nocapture noundef readonly %0, i64 n
 declare hidden ptr @ft_mem_alloc(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @gray_convert_glyph(ptr noundef nonnull initializes((72, 88)) %0) unnamed_addr #0 {
@@ -1214,7 +1214,7 @@ declare i32 @FT_Outline_Decompose(ptr noundef, ptr noundef, ptr noundef) local_u
 declare hidden void @FT_Trace_Enable() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gray_move_to(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal noundef i32 @gray_move_to(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = load i64, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
@@ -1319,7 +1319,7 @@ gray_set_cell.exit:                               ; preds = %.lr.ph.i, %20, %51
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gray_line_to(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal noundef i32 @gray_line_to(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = load i64, ptr %0, align 8
   %4 = shl nsw i64 %3, 2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1330,7 +1330,7 @@ define internal noundef i32 @gray_line_to(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gray_conic_to(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal noundef i32 @gray_conic_to(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %.val = load i64, ptr %0, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %.val4 = load i64, ptr %4, align 8
@@ -1440,7 +1440,7 @@ gray_render_conic.exit:                           ; preds = %59, %28, %39
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gray_cubic_to(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #0 {
+define internal noundef i32 @gray_cubic_to(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #0 {
   %5 = alloca [49 x %struct.FT_Vector_], align 16
   %.val = load i64, ptr %0, align 8
   %6 = getelementptr i8, ptr %0, i64 8
@@ -2278,7 +2278,7 @@ gray_set_cell.exit225:                            ; preds = %.lr.ph.i220, %299, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare hidden void @ft_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2289,7 +2289,7 @@ declare hidden ptr @ft_mem_realloc(ptr noundef, i64 noundef, i64 noundef, i64 no
 declare void @FT_Outline_Translate(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ft_smooth_raster_overlap(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @ft_smooth_raster_overlap(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.FT_Raster_Params_, align 8
   %5 = alloca %struct.TOrigin_, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2396,7 +2396,7 @@ define internal fastcc i32 @ft_smooth_raster_overlap(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ft_smooth_raster_lcd(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @ft_smooth_raster_lcd(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.FT_Raster_Params_, align 8
   %5 = alloca %struct.TOrigin_, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2496,7 +2496,7 @@ define internal fastcc i32 @ft_smooth_raster_lcd(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ft_smooth_raster_lcdv(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @ft_smooth_raster_lcdv(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.FT_Raster_Params_, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i32, ptr %5, align 8
@@ -2596,7 +2596,7 @@ define internal fastcc i32 @ft_smooth_raster_lcdv(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ft_smooth_overlap_spans(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) #7 {
+define internal void @ft_smooth_overlap_spans(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) #7 {
   %5 = load ptr, ptr %3, align 8
   %6 = sdiv i32 %0, 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2653,7 +2653,7 @@ define internal void @ft_smooth_overlap_spans(i32 noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @ft_smooth_lcd_spans(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) #8 {
+define internal void @ft_smooth_lcd_spans(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) #8 {
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i32, ptr %6, align 8
@@ -2708,10 +2708,10 @@ declare void @FT_Outline_Get_CBox(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i64 @llvm.abs.i64(i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #9

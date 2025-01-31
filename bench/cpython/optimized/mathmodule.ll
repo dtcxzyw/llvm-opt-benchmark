@@ -1060,7 +1060,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @math_clear(ptr nocapture noundef readonly %module) #0 {
+define internal noundef i32 @math_clear(ptr noundef readonly captures(none) %module) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -1136,21 +1136,21 @@ do.end14:                                         ; preds = %do.body8, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @math_free(ptr nocapture noundef readonly %module) #0 {
+define internal void @math_free(ptr noundef readonly captures(none) %module) #0 {
 entry:
   %call = tail call i32 @math_clear(ptr noundef %module)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_acos(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @math_acos(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %call = tail call fastcc ptr @math_1(ptr noundef %args, ptr noundef nonnull @acos, i32 noundef 0)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_acosh(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @math_acosh(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %call.i = tail call double @PyFloat_AsDouble(ptr noundef %args) #16
   %cmp.i = fcmp oeq double %call.i, -1.000000e+00
@@ -1229,14 +1229,14 @@ math_1.exit:                                      ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_asin(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @math_asin(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %call = tail call fastcc ptr @math_1(ptr noundef %args, ptr noundef nonnull @asin, i32 noundef 0)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_asinh(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @math_asinh(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %call.i = tail call double @PyFloat_AsDouble(ptr noundef %args) #16
   %cmp.i = fcmp oeq double %call.i, -1.000000e+00
@@ -1315,21 +1315,21 @@ math_1.exit:                                      ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_atan(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @math_atan(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %call = tail call fastcc ptr @math_1(ptr noundef %args, ptr noundef nonnull @atan, i32 noundef 0)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_atan2(ptr nocapture readnone %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @math_atan2(ptr readnone captures(none) %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %call = tail call fastcc ptr @math_2(ptr noundef %args, i64 noundef %nargs, ptr noundef nonnull @m_atan2, ptr noundef nonnull @.str.6)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_atanh(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @math_atanh(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %call.i = tail call double @PyFloat_AsDouble(ptr noundef %args) #16
   %cmp.i = fcmp oeq double %call.i, -1.000000e+00
@@ -1408,7 +1408,7 @@ math_1.exit:                                      ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_cbrt(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @math_cbrt(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %call.i = tail call double @PyFloat_AsDouble(ptr noundef %args) #16
   %cmp.i = fcmp oeq double %call.i, -1.000000e+00
@@ -1456,7 +1456,7 @@ math_1.exit:                                      ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_ceil(ptr nocapture noundef readonly %module, ptr noundef %number) #0 {
+define internal ptr @math_ceil(ptr noundef readonly captures(none) %module, ptr noundef %number) #0 {
 entry:
   %0 = getelementptr i8, ptr %number, i64 8
   %number.val = load ptr, ptr %0, align 8
@@ -1547,28 +1547,28 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_copysign(ptr nocapture readnone %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @math_copysign(ptr readnone captures(none) %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %call = tail call fastcc ptr @math_2(ptr noundef %args, i64 noundef %nargs, ptr noundef nonnull @copysign, ptr noundef nonnull @.str.10)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_cos(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @math_cos(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %call = tail call fastcc ptr @math_1(ptr noundef %args, ptr noundef nonnull @cos, i32 noundef 0)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_cosh(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @math_cosh(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %call = tail call fastcc ptr @math_1(ptr noundef %args, ptr noundef nonnull @cosh, i32 noundef 1)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_degrees(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @math_degrees(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %arg, i64 8
   %arg.val = load ptr, ptr %0, align 8
@@ -1602,7 +1602,7 @@ exit:                                             ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_dist(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @math_dist(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %diffs_on_stack.i = alloca [16 x double], align 16
   %or.cond = icmp eq i64 %nargs, 2
@@ -1906,7 +1906,7 @@ exit:                                             ; preds = %lor.lhs.false, %mat
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_erf(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @math_erf(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %call.i = tail call double @PyFloat_AsDouble(ptr noundef %args) #16
   %cmp.i = fcmp oeq double %call.i, -1.000000e+00
@@ -1958,7 +1958,7 @@ math_1a.exit:                                     ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_erfc(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @math_erfc(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %call.i = tail call double @PyFloat_AsDouble(ptr noundef %args) #16
   %cmp.i = fcmp oeq double %call.i, -1.000000e+00
@@ -2010,7 +2010,7 @@ math_1a.exit:                                     ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_exp(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @math_exp(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %call.i = tail call double @PyFloat_AsDouble(ptr noundef %args) #16
   %cmp.i = fcmp oeq double %call.i, -1.000000e+00
@@ -2089,14 +2089,14 @@ math_1.exit:                                      ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_exp2(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @math_exp2(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %call = tail call fastcc ptr @math_1(ptr noundef %args, ptr noundef nonnull @exp2, i32 noundef 1)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_expm1(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @math_expm1(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %call.i = tail call double @PyFloat_AsDouble(ptr noundef %args) #16
   %cmp.i = fcmp oeq double %call.i, -1.000000e+00
@@ -2175,14 +2175,14 @@ math_1.exit:                                      ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_fabs(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @math_fabs(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %call = tail call fastcc ptr @math_1(ptr noundef %args, ptr noundef nonnull @fabs, i32 noundef 0)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_factorial(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @math_factorial(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %overflow = alloca i32, align 4
   %call = call i64 @PyLong_AsLongAndOverflow(ptr noundef %arg, ptr noundef nonnull %overflow) #16
@@ -2415,7 +2415,7 @@ return:                                           ; preds = %if.end.i.i, %Py_DEC
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_floor(ptr nocapture noundef readonly %module, ptr noundef %number) #0 {
+define internal ptr @math_floor(ptr noundef readonly captures(none) %module, ptr noundef %number) #0 {
 entry:
   %0 = getelementptr i8, ptr %number, i64 8
   %number.val = load ptr, ptr %0, align 8
@@ -2507,7 +2507,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_fmod(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @math_fmod(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -2633,7 +2633,7 @@ exit:                                             ; preds = %if.else16.i, %if.el
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_frexp(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @math_frexp(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %i.i = alloca i32, align 4
   %0 = getelementptr i8, ptr %arg, i64 8
@@ -2689,7 +2689,7 @@ exit:                                             ; preds = %land.lhs.true, %mat
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_fsum(ptr nocapture readnone %module, ptr noundef %seq) #0 {
+define internal ptr @math_fsum(ptr readnone captures(none) %module, ptr noundef %seq) #0 {
 entry:
   %ps = alloca [32 x double], align 16
   %call = tail call ptr @PyObject_GetIter(ptr noundef %seq) #16
@@ -3015,14 +3015,14 @@ return:                                           ; preds = %Py_DECREF.exit118, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_gamma(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @math_gamma(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %call = tail call fastcc ptr @math_1a(ptr noundef %args, ptr noundef nonnull @m_tgamma)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_gcd(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @math_gcd(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %cmp = icmp eq i64 %nargs, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -3156,7 +3156,7 @@ return:                                           ; preds = %Py_DECREF.exit, %fo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_hypot(ptr nocapture readnone %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @math_hypot(ptr readnone captures(none) %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %coord_on_stack = alloca [16 x double], align 16
   %cmp = icmp sgt i64 %nargs, 16
@@ -3266,7 +3266,7 @@ return:                                           ; preds = %error_exit, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_isclose(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @math_isclose(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [4 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -3456,7 +3456,7 @@ exit:                                             ; preds = %land.lhs.true86, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_isfinite(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @math_isfinite(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %arg, i64 8
   %arg.val = load ptr, ptr %0, align 8
@@ -3492,7 +3492,7 @@ exit:                                             ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_isinf(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @math_isinf(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %arg, i64 8
   %arg.val = load ptr, ptr %0, align 8
@@ -3531,7 +3531,7 @@ exit:                                             ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_isnan(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @math_isnan(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %arg, i64 8
   %arg.val = load ptr, ptr %0, align 8
@@ -3566,7 +3566,7 @@ exit:                                             ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_isqrt(ptr nocapture readnone %module, ptr noundef %n) #0 {
+define internal ptr @math_isqrt(ptr readnone captures(none) %module, ptr noundef %n) #0 {
 entry:
   %call = tail call ptr @_PyNumber_Index(ptr noundef %n) #16
   %cmp = icmp eq ptr %call, null
@@ -3975,7 +3975,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_lcm(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @math_lcm(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %cmp = icmp eq i64 %nargs, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -4191,7 +4191,7 @@ return:                                           ; preds = %Py_DECREF.exit, %fo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_ldexp(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @math_ldexp(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %overflow.i = alloca i32, align 4
   %or.cond = icmp eq i64 %nargs, 2
@@ -4345,14 +4345,14 @@ exit:                                             ; preds = %land.lhs.true10, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_lgamma(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @math_lgamma(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %call = tail call fastcc ptr @math_1a(ptr noundef %args, ptr noundef nonnull @m_lgamma)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_log(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @math_log(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %e.i21 = alloca i64, align 8
   %e.i = alloca i64, align 8
@@ -4662,14 +4662,14 @@ return:                                           ; preds = %loghelper.exit.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_log1p(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @math_log1p(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %call = tail call fastcc ptr @math_1(ptr noundef %args, ptr noundef nonnull @_Py_log1p, i32 noundef 0)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_log10(ptr nocapture readnone %module, ptr noundef %x) #0 {
+define internal ptr @math_log10(ptr readnone captures(none) %module, ptr noundef %x) #0 {
 entry:
   %e.i = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e.i)
@@ -4801,7 +4801,7 @@ loghelper.exit:                                   ; preds = %if.then3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_log2(ptr nocapture readnone %module, ptr noundef %x) #0 {
+define internal ptr @math_log2(ptr readnone captures(none) %module, ptr noundef %x) #0 {
 entry:
   %e.i = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e.i)
@@ -4933,7 +4933,7 @@ loghelper.exit:                                   ; preds = %if.then3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_modf(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @math_modf(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %y.i = alloca double, align 8
   %0 = getelementptr i8, ptr %arg, i64 8
@@ -5000,7 +5000,7 @@ exit:                                             ; preds = %land.lhs.true, %mat
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_pow(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @math_pow(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -5198,7 +5198,7 @@ exit:                                             ; preds = %if.else74.i, %if.el
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_radians(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @math_radians(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %arg, i64 8
   %arg.val = load ptr, ptr %0, align 8
@@ -5232,49 +5232,49 @@ exit:                                             ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_remainder(ptr nocapture readnone %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @math_remainder(ptr readnone captures(none) %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %call = tail call fastcc ptr @math_2(ptr noundef %args, i64 noundef %nargs, ptr noundef nonnull @m_remainder, ptr noundef nonnull @.str.44)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_sin(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @math_sin(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %call = tail call fastcc ptr @math_1(ptr noundef %args, ptr noundef nonnull @sin, i32 noundef 0)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_sinh(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @math_sinh(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %call = tail call fastcc ptr @math_1(ptr noundef %args, ptr noundef nonnull @sinh, i32 noundef 1)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_sqrt(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @math_sqrt(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %call = tail call fastcc ptr @math_1(ptr noundef %args, ptr noundef nonnull @sqrt, i32 noundef 0)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_tan(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @math_tan(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %call = tail call fastcc ptr @math_1(ptr noundef %args, ptr noundef nonnull @tan, i32 noundef 0)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_tanh(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @math_tanh(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %call = tail call fastcc ptr @math_1(ptr noundef %args, ptr noundef nonnull @tanh, i32 noundef 0)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_sumprod(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @math_sumprod(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %overflow.i = alloca i32, align 4
   %or.cond = icmp eq i64 %nargs, 2
@@ -6080,7 +6080,7 @@ exit:                                             ; preds = %lor.lhs.false, %mat
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_trunc(ptr nocapture noundef readonly %module, ptr noundef %x) #0 {
+define internal ptr @math_trunc(ptr noundef readonly captures(none) %module, ptr noundef %x) #0 {
 entry:
   %0 = getelementptr i8, ptr %x, i64 8
   %x.val12 = load ptr, ptr %0, align 8
@@ -6177,7 +6177,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_prod(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @math_prod(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %overflow.i = alloca i32, align 4
   %overflow69.i = alloca i32, align 4
@@ -6762,7 +6762,7 @@ exit:                                             ; preds = %cond.end9, %math_pr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_perm(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @math_perm(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %overflow.i = alloca i32, align 4
   %0 = add i64 %nargs, -1
@@ -6960,7 +6960,7 @@ exit:                                             ; preds = %lor.lhs.false, %mat
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_comb(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @math_comb(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %overflow.i = alloca i32, align 4
   %or.cond = icmp eq i64 %nargs, 2
@@ -7222,7 +7222,7 @@ exit:                                             ; preds = %lor.lhs.false, %mat
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_nextafter(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @math_nextafter(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -7484,7 +7484,7 @@ exit:                                             ; preds = %if.else65.i, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @math_ulp(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @math_ulp(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %arg, i64 8
   %arg.val = load ptr, ptr %0, align 8
@@ -7553,7 +7553,7 @@ exit:                                             ; preds = %land.lhs.true9, %la
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @math_1(ptr noundef %arg, ptr nocapture noundef readonly %func, i32 noundef range(i32 0, 2) %can_overflow) unnamed_addr #0 {
+define internal fastcc ptr @math_1(ptr noundef %arg, ptr noundef readonly captures(none) %func, i32 noundef range(i32 0, 2) %can_overflow) unnamed_addr #0 {
 entry:
   %call = tail call double @PyFloat_AsDouble(ptr noundef %arg) #16
   %cmp = fcmp oeq double %call, -1.000000e+00
@@ -7675,7 +7675,7 @@ declare double @asinh(double noundef) local_unnamed_addr #2
 declare double @atan(double noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @math_2(ptr nocapture noundef readonly %args, i64 noundef %nargs, ptr nocapture noundef readonly %func, ptr noundef %funcname) unnamed_addr #0 {
+define internal fastcc ptr @math_2(ptr noundef readonly captures(none) %args, i64 noundef %nargs, ptr noundef readonly captures(none) %func, ptr noundef %funcname) unnamed_addr #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -7868,7 +7868,7 @@ declare ptr @_PyObject_MakeTpCall(ptr noundef, ptr noundef, ptr noundef, i64 nou
 declare ptr @_Py_CheckFunctionResult(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
@@ -7890,7 +7890,7 @@ declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 declare double @PyLong_AsDouble(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc double @vector_norm(i64 noundef %n, ptr nocapture noundef nonnull %vec, double noundef %max, i32 noundef range(i32 0, 2) %found_nan) unnamed_addr #7 {
+define internal fastcc double @vector_norm(i64 noundef %n, ptr noundef nonnull captures(none) %vec, double noundef %max, i32 noundef range(i32 0, 2) %found_nan) unnamed_addr #7 {
 entry:
   %max_e = alloca i32, align 4
   %0 = tail call double @llvm.fabs.f64(double %max) #18
@@ -7985,7 +7985,7 @@ for.end27:                                        ; preds = %for.body16
 declare void @PyObject_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
 declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #9
@@ -7997,7 +7997,7 @@ declare double @sqrt(double noundef) #2
 declare double @llvm.fma.f64(double, double, double) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @math_1a(ptr noundef %arg, ptr nocapture noundef readonly %func) unnamed_addr #0 {
+define internal fastcc ptr @math_1a(ptr noundef %arg, ptr noundef readonly captures(none) %func) unnamed_addr #0 {
 entry:
   %call = tail call double @PyFloat_AsDouble(ptr noundef %arg) #16
   %cmp = fcmp oeq double %call, -1.000000e+00
@@ -8784,7 +8784,7 @@ return:                                           ; preds = %if.else7, %if.then,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @modf(double noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare double @modf(double noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
 define internal double @m_remainder(double noundef %x, double noundef %y) #5 {
@@ -9352,10 +9352,10 @@ declare double @llvm.log2.f64(double) #14
 declare i64 @llvm.smin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

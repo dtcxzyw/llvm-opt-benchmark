@@ -43,7 +43,7 @@ declare ptr @lexbor_dobject_create() local_unnamed_addr #1
 declare i32 @lexbor_dobject_init(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lexbor_avl_clean(ptr nocapture noundef initializes((8, 16)) %0) local_unnamed_addr #0 {
+define hidden void @lexbor_avl_clean(ptr noundef captures(none) initializes((8, 16)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   %3 = load ptr, ptr %0, align 8
@@ -78,7 +78,7 @@ declare ptr @lexbor_dobject_destroy(ptr noundef, i1 noundef zeroext) local_unnam
 declare ptr @lexbor_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_avl_node_make(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden ptr @lexbor_avl_node_make(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @lexbor_dobject_calloc(ptr noundef %4) #8
   %6 = icmp eq ptr %5, null
@@ -97,16 +97,16 @@ define hidden ptr @lexbor_avl_node_make(ptr nocapture noundef readonly %0, i64 n
 declare ptr @lexbor_dobject_calloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @lexbor_avl_node_clean(ptr nocapture noundef writeonly initializes((0, 48)) %0) local_unnamed_addr #2 {
+define hidden void @lexbor_avl_node_clean(ptr noundef writeonly captures(none) initializes((0, 48)) %0) local_unnamed_addr #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_avl_node_destroy(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define hidden ptr @lexbor_avl_node_destroy(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %1, null
   %brmerge.not = and i1 %4, %2
   br i1 %brmerge.not, label %5, label %8
@@ -124,7 +124,7 @@ define hidden ptr @lexbor_avl_node_destroy(ptr nocapture noundef readonly %0, pt
 declare ptr @lexbor_dobject_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_avl_insert(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden ptr @lexbor_avl_insert(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %1, align 8
   %6 = icmp eq ptr %5, null
   %7 = load ptr, ptr %0, align 8
@@ -203,7 +203,7 @@ lexbor_avl_node_make.exit:                        ; preds = %9, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @lexbor_avl_node_balance(ptr noundef nonnull initializes((8, 10)) %0, ptr nocapture noundef writeonly %1) unnamed_addr #4 {
+define internal fastcc ptr @lexbor_avl_node_balance(ptr noundef nonnull initializes((8, 10)) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -930,7 +930,7 @@ lexbor_avl_node_rotate_right.exit120:             ; preds = %lexbor_avl_node_hei
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_avl_remove(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @lexbor_avl_remove(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %.021 = load ptr, ptr %1, align 8
   %.not22 = icmp eq ptr %.021, null
   br i1 %.not22, label %.loopexit, label %.lr.ph
@@ -979,7 +979,7 @@ lexbor_avl_find_min.exit:                         ; preds = %.preheader.i, %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @lexbor_avl_rotate_for_delete(ptr noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #5 {
+define internal fastcc void @lexbor_avl_rotate_for_delete(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #5 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %43, label %4
 
@@ -1120,7 +1120,7 @@ define internal fastcc void @lexbor_avl_rotate_for_delete(ptr noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lexbor_avl_remove_by_node(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @lexbor_avl_remove_by_node(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1144,7 +1144,7 @@ lexbor_avl_find_min.exit:                         ; preds = %.preheader.i, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @lexbor_avl_search(ptr nocapture noundef readnone %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #6 {
+define hidden noundef ptr @lexbor_avl_search(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #6 {
   %.not11 = icmp eq ptr %1, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -1168,7 +1168,7 @@ define hidden noundef ptr @lexbor_avl_search(ptr nocapture noundef readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lexbor_avl_foreach(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden i32 @lexbor_avl_foreach(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %.loopexit95, label %6
 
@@ -1310,7 +1310,7 @@ define hidden i32 @lexbor_avl_foreach(ptr noundef %0, ptr noundef %1, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lexbor_avl_foreach_recursion(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @lexbor_avl_foreach_recursion(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %tailrecurse._crit_edge, label %tailrecurse
 

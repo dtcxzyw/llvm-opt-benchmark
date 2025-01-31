@@ -98,13 +98,13 @@ $_ZTV23ZPhantomCleanOopClosure = comdat any
 @_ZN19ZWeakRootsProcessorC1EP8ZWorkers = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN19ZWeakRootsProcessorC2EP8ZWorkers
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19ZWeakRootsProcessorC2EP8ZWorkers(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN19ZWeakRootsProcessorC2EP8ZWorkers(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ZWeakRootsProcessor18process_weak_rootsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN19ZWeakRootsProcessor18process_weak_rootsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.ZProcessWeakRootsTask, align 8
   call void @_ZN5ZTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(624) %2, ptr noundef nonnull @.str) #7
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV21ZProcessWeakRootsTask, i64 16), ptr %2, align 8
@@ -245,7 +245,7 @@ _ZN26SuspendibleThreadSetJoinerD2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN13ValueObjBlockIN10OopStorage8ParStateILb1ELb0EEELi10EEC2IN13OopStorageSet8IteratorINS5_6WeakIdEEEEET_PPS2_(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 %1, ptr noundef %2) unnamed_addr #1 comdat align 2 {

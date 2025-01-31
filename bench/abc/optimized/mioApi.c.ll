@@ -4,34 +4,34 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Mio_LibraryReadName(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Mio_LibraryReadName(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Mio_LibraryReadGateNum(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Mio_LibraryReadGateNum(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Mio_LibraryReadGates(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Mio_LibraryReadGates(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Mio_LibraryReadGateArray(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Mio_LibraryReadGateArray(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @Mio_LibraryReadGateById(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define ptr @Mio_LibraryReadGateById(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
@@ -41,63 +41,63 @@ define ptr @Mio_LibraryReadGateById(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Mio_LibraryReadBuf(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Mio_LibraryReadBuf(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Mio_LibraryReadInv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Mio_LibraryReadInv(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Mio_LibraryReadConst0(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Mio_LibraryReadConst0(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Mio_LibraryReadConst1(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Mio_LibraryReadConst1(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Mio_LibraryReadNand2(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Mio_LibraryReadNand2(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Mio_LibraryReadAnd2(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Mio_LibraryReadAnd2(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Mio_LibraryReadNor2(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Mio_LibraryReadNor2(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Mio_LibraryReadOr2(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Mio_LibraryReadOr2(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @Mio_LibraryReadDelayInvRise(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define float @Mio_LibraryReadDelayInvRise(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -117,7 +117,7 @@ define float @Mio_LibraryReadDelayInvRise(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @Mio_LibraryReadDelayInvFall(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define float @Mio_LibraryReadDelayInvFall(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -137,7 +137,7 @@ define float @Mio_LibraryReadDelayInvFall(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @Mio_LibraryReadDelayInvMax(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define float @Mio_LibraryReadDelayInvMax(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -157,7 +157,7 @@ define float @Mio_LibraryReadDelayInvMax(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @Mio_LibraryReadDelayNand2Rise(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define float @Mio_LibraryReadDelayNand2Rise(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -177,7 +177,7 @@ define float @Mio_LibraryReadDelayNand2Rise(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @Mio_LibraryReadDelayNand2Fall(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define float @Mio_LibraryReadDelayNand2Fall(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -197,7 +197,7 @@ define float @Mio_LibraryReadDelayNand2Fall(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @Mio_LibraryReadDelayNand2Max(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define float @Mio_LibraryReadDelayNand2Max(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -217,7 +217,7 @@ define float @Mio_LibraryReadDelayNand2Max(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @Mio_LibraryReadDelayAnd2Max(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define float @Mio_LibraryReadDelayAnd2Max(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -237,7 +237,7 @@ define float @Mio_LibraryReadDelayAnd2Max(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @Mio_LibraryReadDelayAigNode(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define float @Mio_LibraryReadDelayAigNode(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -264,7 +264,7 @@ Mio_LibraryReadDelayNand2Max.exit:                ; preds = %Mio_LibraryReadDela
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @Mio_LibraryReadAreaInv(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define float @Mio_LibraryReadAreaInv(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -282,7 +282,7 @@ define float @Mio_LibraryReadAreaInv(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @Mio_LibraryReadAreaBuf(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define float @Mio_LibraryReadAreaBuf(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -300,7 +300,7 @@ define float @Mio_LibraryReadAreaBuf(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @Mio_LibraryReadAreaNand2(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define float @Mio_LibraryReadAreaNand2(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -318,7 +318,7 @@ define float @Mio_LibraryReadAreaNand2(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Mio_LibrarySetName(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define void @Mio_LibrarySetName(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -333,10 +333,10 @@ define void @Mio_LibrarySetName(ptr nocapture noundef %0, ptr noundef %1) local_
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, -2147483648) i32 @Mio_LibraryReadGateNameMax(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, -2147483648) i32 @Mio_LibraryReadGateNameMax(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.09 = load ptr, ptr %2, align 8
   %.not10 = icmp eq ptr %.09, null
@@ -360,23 +360,23 @@ define range(i32 0, -2147483648) i32 @Mio_LibraryReadGateNameMax(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Mio_GateReadName(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Mio_GateReadName(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Mio_GateReadNext(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Mio_GateReadNext(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Mio_LibraryReadGateByName(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #6 {
+define ptr @Mio_LibraryReadGateByName(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #6 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
@@ -420,10 +420,10 @@ define ptr @Mio_LibraryReadGateByName(ptr nocapture noundef readonly %0, ptr nou
 declare i32 @st__lookup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @Mio_LibraryReadGateByTruth(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #8 {
+define ptr @Mio_LibraryReadGateByTruth(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.08 = load ptr, ptr %3, align 8
   %.not9 = icmp eq ptr %.08, null
@@ -454,7 +454,7 @@ define ptr @Mio_LibraryReadGateByTruth(ptr nocapture noundef readonly %0, i64 no
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Mio_LibraryReadSopByName(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #6 {
+define ptr @Mio_LibraryReadSopByName(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -474,77 +474,77 @@ define ptr @Mio_LibraryReadSopByName(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Mio_GateReadOutName(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Mio_GateReadOutName(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define double @Mio_GateReadArea(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define double @Mio_GateReadArea(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load double, ptr %2, align 8
   ret double %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Mio_GateReadForm(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Mio_GateReadForm(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Mio_GateReadPins(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Mio_GateReadPins(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Mio_GateReadLib(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Mio_GateReadLib(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Mio_GateReadTwin(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Mio_GateReadTwin(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Mio_GateReadPinNum(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Mio_GateReadPinNum(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define double @Mio_GateReadDelayMax(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define double @Mio_GateReadDelayMax(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load double, ptr %2, align 8
   ret double %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Mio_GateReadSop(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Mio_GateReadSop(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Mio_GateReadExpr(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Mio_GateReadExpr(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @Mio_GateReadTruth(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i64 @Mio_GateReadTruth(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i32, ptr %2, align 4
   %4 = icmp slt i32 %3, 7
@@ -578,63 +578,63 @@ define ptr @Mio_GateReadTruthP(ptr noundef readonly %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Mio_GateReadValue(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Mio_GateReadValue(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Mio_GateReadCell(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Mio_GateReadCell(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Mio_GateReadProfile(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Mio_GateReadProfile(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Mio_GateReadProfile2(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Mio_GateReadProfile2(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Mio_GateSetValue(ptr nocapture noundef writeonly initializes((112, 116)) %0, i32 noundef %1) local_unnamed_addr #9 {
+define void @Mio_GateSetValue(ptr noundef writeonly captures(none) initializes((112, 116)) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Mio_GateSetCell(ptr nocapture noundef writeonly initializes((64, 68)) %0, i32 noundef %1) local_unnamed_addr #9 {
+define void @Mio_GateSetCell(ptr noundef writeonly captures(none) initializes((64, 68)) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Mio_GateSetProfile(ptr nocapture noundef writeonly initializes((72, 76)) %0, i32 noundef %1) local_unnamed_addr #9 {
+define void @Mio_GateSetProfile(ptr noundef writeonly captures(none) initializes((72, 76)) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Mio_GateSetProfile2(ptr nocapture noundef writeonly initializes((76, 80)) %0, i32 noundef %1) local_unnamed_addr #9 {
+define void @Mio_GateSetProfile2(ptr noundef writeonly captures(none) initializes((76, 80)) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Mio_GateIncProfile2(ptr nocapture noundef %0) local_unnamed_addr #10 {
+define void @Mio_GateIncProfile2(ptr noundef captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, 1
@@ -643,7 +643,7 @@ define void @Mio_GateIncProfile2(ptr nocapture noundef %0) local_unnamed_addr #1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Mio_GateDecProfile2(ptr nocapture noundef %0) local_unnamed_addr #10 {
+define void @Mio_GateDecProfile2(ptr noundef captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, -1
@@ -652,7 +652,7 @@ define void @Mio_GateDecProfile2(ptr nocapture noundef %0) local_unnamed_addr #1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Mio_GateAddToProfile(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #10 {
+define void @Mio_GateAddToProfile(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, %1
@@ -661,7 +661,7 @@ define void @Mio_GateAddToProfile(ptr nocapture noundef %0, i32 noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Mio_GateAddToProfile2(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #10 {
+define void @Mio_GateAddToProfile2(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
   %5 = add nsw i32 %4, %1
@@ -670,7 +670,7 @@ define void @Mio_GateAddToProfile2(ptr nocapture noundef %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Mio_GateIsInv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Mio_GateIsInv(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 6148914691236517205
@@ -679,76 +679,76 @@ define range(i32 0, 2) i32 @Mio_GateIsInv(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Mio_PinReadName(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Mio_PinReadName(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Mio_PinReadPhase(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Mio_PinReadPhase(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define double @Mio_PinReadInputLoad(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define double @Mio_PinReadInputLoad(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load double, ptr %2, align 8
   ret double %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define double @Mio_PinReadMaxLoad(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define double @Mio_PinReadMaxLoad(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load double, ptr %2, align 8
   ret double %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define double @Mio_PinReadDelayBlockRise(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define double @Mio_PinReadDelayBlockRise(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load double, ptr %2, align 8
   ret double %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define double @Mio_PinReadDelayFanoutRise(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define double @Mio_PinReadDelayFanoutRise(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load double, ptr %2, align 8
   ret double %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define double @Mio_PinReadDelayBlockFall(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define double @Mio_PinReadDelayBlockFall(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load double, ptr %2, align 8
   ret double %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define double @Mio_PinReadDelayFanoutFall(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define double @Mio_PinReadDelayFanoutFall(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load double, ptr %2, align 8
   ret double %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define double @Mio_PinReadDelayBlockMax(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define double @Mio_PinReadDelayBlockMax(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load double, ptr %2, align 8
   ret double %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Mio_PinReadNext(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Mio_PinReadNext(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @Mio_GateReadPinName(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define ptr @Mio_GateReadPinName(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.069 = load ptr, ptr %3, align 8
   %.not10 = icmp eq ptr %.069, null
@@ -777,7 +777,7 @@ define ptr @Mio_GateReadPinName(ptr nocapture noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define float @Mio_GateReadPinDelay(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
+define float @Mio_GateReadPinDelay(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.0710 = load ptr, ptr %3, align 8
   %.not11 = icmp eq ptr %.0710, null

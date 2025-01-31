@@ -541,7 +541,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -3019,7 +3019,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number24LocalizedNumberFormatter13lnfCopyHelperERKS1_R10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(496) %this, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number24LocalizedNumberFormatter13lnfCopyHelperERKS1_R10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(496) %this, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %warehouse = alloca %"class.icu_75::LocalPointer.36", align 8
   %fCompiled = getelementptr inbounds nuw i8, ptr %this, i64 472
@@ -3393,7 +3393,7 @@ invoke.cont:                                      ; preds = %if.end.i.thread, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number24LocalizedNumberFormatter13lnfMoveHelperEOS1_(ptr nocapture noundef nonnull align 8 dereferenceable(496) %this, ptr nocapture noundef nonnull align 8 dereferenceable(496) %src) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number24LocalizedNumberFormatter13lnfMoveHelperEOS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(496) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(496) %src) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fCompiled = getelementptr inbounds nuw i8, ptr %this, i64 472
   %0 = load ptr, ptr %fCompiled, align 8
@@ -3609,7 +3609,7 @@ invoke.cont:                                      ; preds = %_ZN6icu_756number4i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_756number24LocalizedNumberFormatter13resetCompiledEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(496) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number24LocalizedNumberFormatter13resetCompiledEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(496) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fUnsafeCallCount = getelementptr inbounds nuw i8, ptr %this, i64 480
   store atomic i32 0, ptr %fUnsafeCallCount release, align 8
@@ -3783,7 +3783,7 @@ _ZN6icu_7512LocalPointerIKNS_6number4impl17UsagePrefsHandlerEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6icu_756number4impl24AutoAffixPatternProvider5setToEPKNS1_20AffixPatternProviderER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2464) %this, ptr noundef %provider, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 comdat align 2 {
@@ -4086,7 +4086,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_756number24LocalizedNumberFormatter9formatIntElR10UErrorCode(ptr noalias nocapture writeonly sret(%"class.icu_75::number::FormattedNumber") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(496) %this, i64 noundef %value, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_756number24LocalizedNumberFormatter9formatIntElR10UErrorCode(ptr noalias writeonly sret(%"class.icu_75::number::FormattedNumber") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(496) %this, i64 noundef %value, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -4260,7 +4260,7 @@ return:                                           ; preds = %if.end, %if.end6
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_756number24LocalizedNumberFormatter12formatDoubleEdR10UErrorCode(ptr noalias nocapture writeonly sret(%"class.icu_75::number::FormattedNumber") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(496) %this, double noundef %value, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_756number24LocalizedNumberFormatter12formatDoubleEdR10UErrorCode(ptr noalias writeonly sret(%"class.icu_75::number::FormattedNumber") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(496) %this, double noundef %value, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -4347,7 +4347,7 @@ return:                                           ; preds = %if.end4, %entry, %d
 declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity11setToDoubleEd(ptr noundef nonnull align 8 dereferenceable(66), double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_756number24LocalizedNumberFormatter13formatDecimalENS_11StringPieceER10UErrorCode(ptr noalias nocapture writeonly sret(%"class.icu_75::number::FormattedNumber") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(496) %this, ptr %value.coerce0, i32 %value.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_756number24LocalizedNumberFormatter13formatDecimalENS_11StringPieceER10UErrorCode(ptr noalias writeonly sret(%"class.icu_75::number::FormattedNumber") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(496) %this, ptr %value.coerce0, i32 %value.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -4434,7 +4434,7 @@ return:                                           ; preds = %if.end4, %entry, %d
 declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity14setToDecNumberENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66), ptr, i32, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_756number24LocalizedNumberFormatter21formatDecimalQuantityERKNS0_4impl15DecimalQuantityER10UErrorCode(ptr noalias nocapture writeonly sret(%"class.icu_75::number::FormattedNumber") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(496) %this, ptr noundef nonnull align 8 dereferenceable(66) %dq, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_756number24LocalizedNumberFormatter21formatDecimalQuantityERKNS0_4impl15DecimalQuantityER10UErrorCode(ptr noalias writeonly sret(%"class.icu_75::number::FormattedNumber") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(496) %this, ptr noundef nonnull align 8 dereferenceable(66) %dq, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -4796,7 +4796,7 @@ declare void @_ZN6icu_7522FormattedStringBuilderD1Ev(ptr noundef nonnull align 8
 declare void @_ZN6icu_756number4impl19NumberFormatterImplC1ERKNS1_10MacroPropsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(600), ptr noundef nonnull align 8 dereferenceable(472), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK6icu_756number24LocalizedNumberFormatter11getCompiledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(496) %this) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZNK6icu_756number24LocalizedNumberFormatter11getCompiledEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(496) %this) local_unnamed_addr #10 align 2 {
 entry:
   %fCompiled = getelementptr inbounds nuw i8, ptr %this, i64 472
   %0 = load ptr, ptr %fCompiled, align 8
@@ -4804,7 +4804,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZNK6icu_756number24LocalizedNumberFormatter12getCallCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(496) %this) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK6icu_756number24LocalizedNumberFormatter12getCallCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(496) %this) local_unnamed_addr #8 align 2 {
 entry:
   %fUnsafeCallCount = getelementptr inbounds nuw i8, ptr %this, i64 480
   %0 = load atomic i32, ptr %fUnsafeCallCount acquire, align 8
@@ -5325,10 +5325,10 @@ declare void @_ZNK6icu_7513UnicodeString13tempSubStringEii(ptr sret(%"class.icu_
 declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

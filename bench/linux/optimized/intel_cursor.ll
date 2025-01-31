@@ -159,18 +159,18 @@ define dso_local ptr @intel_cursor_plane_create(ptr noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @intel_plane_alloc() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @i845_cursor_max_stride(ptr nocapture readnone %0, i32 %1, i64 %2, i32 %3) #3 align 16 {
+define internal noundef i32 @i845_cursor_max_stride(ptr readnone captures(none) %0, i32 %1, i64 %2, i32 %3) #3 align 16 {
   ret i32 2048
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i845_cursor_update_arm(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) #0 align 16 {
+define internal void @i845_cursor_update_arm(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %2, null
   br i1 %5, label %78, label %6
@@ -664,13 +664,13 @@ define internal void @i845_cursor_update_arm(ptr nocapture noundef %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i845_cursor_disable_arm(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @i845_cursor_disable_arm(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   tail call void @i845_cursor_update_arm(ptr noundef %0, ptr noundef %1, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @i845_cursor_get_hw_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal zeroext i1 @i845_cursor_get_hw_state(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i64 @intel_display_power_get_if_enabled(ptr noundef %3, i32 noundef 1) #10
   %5 = icmp eq i64 %4, 0
@@ -838,7 +838,7 @@ define internal i32 @i845_check_cursor(ptr noundef %0, ptr noundef %1) #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal range(i32 0, -3) i32 @i9xx_cursor_max_stride(ptr nocapture noundef readonly %0, i32 %1, i64 %2, i32 %3) #4 align 16 {
+define internal range(i32 0, -3) i32 @i9xx_cursor_max_stride(ptr noundef readonly captures(none) %0, i32 %1, i64 %2, i32 %3) #4 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1432
   %7 = load i32, ptr %6, align 8
@@ -1672,7 +1672,7 @@ define internal void @i9xx_cursor_disable_arm(ptr noundef %0, ptr noundef %1) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @i9xx_cursor_get_hw_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal zeroext i1 @i9xx_cursor_get_hw_state(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %5 = load i32, ptr %4, align 8
@@ -2016,7 +2016,7 @@ declare dso_local void @intel_plane_helper_add(ptr noundef) local_unnamed_addr #
 declare dso_local void @intel_plane_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @__i915_gem_object_get_dma_address(ptr noundef, i64 noundef) local_unnamed_addr #2
@@ -2237,7 +2237,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @intel_atomic_plane_check_clipping(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2

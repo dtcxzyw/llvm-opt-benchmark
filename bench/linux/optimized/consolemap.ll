@@ -27,7 +27,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_con_copy_uni
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable_con_copy_unimap382, ptr @__UNIQUE_ID___addressable_con_set_default_unimap381, ptr @__UNIQUE_ID___addressable_inverse_translate365], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: read, inaccessiblemem: none)
-define dso_local noundef nonnull ptr @set_translate(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef nonnull ptr @set_translate(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %4 = load i16, ptr %3, align 8
   %5 = zext i16 %4 to i64
@@ -39,7 +39,7 @@ define dso_local noundef nonnull ptr @set_translate(i32 noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local zeroext i16 @inverse_translate(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i1 noundef zeroext %2) #1 align 16 {
+define dso_local zeroext i16 @inverse_translate(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i1 noundef zeroext %2) #1 align 16 {
   %4 = icmp ugt i16 %1, 511
   br i1 %4, label %35, label %5
 
@@ -91,10 +91,10 @@ define dso_local zeroext i16 @inverse_translate(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -14, 1) i32 @con_set_trans_old(ptr noundef %0) local_unnamed_addr #3 align 16 {
@@ -140,7 +140,7 @@ define dso_local noundef range(i32 -14, 1) i32 @con_set_trans_old(ptr noundef %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
 declare i64 @llvm.read_register.i64(metadata) #5
@@ -152,7 +152,7 @@ declare void @llvm.write_register.i64(metadata, i64) #6
 declare dso_local void @console_lock() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @update_user_maps() unnamed_addr #3 align 16 {
@@ -358,7 +358,7 @@ define dso_local range(i32 -14, 1) i32 @con_get_trans_old(ptr noundef %0) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local range(i32 -4, 65536) i32 @conv_uni_to_pc(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -4, 65536) i32 @conv_uni_to_pc(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = icmp sgt i64 %1, 65535
   br i1 %3, label %36, label %4
 
@@ -459,7 +459,7 @@ define dso_local range(i32 -14, 1) i32 @con_get_trans_new(ptr noundef %0) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @con_free_unimap(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local void @con_free_unimap(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -543,7 +543,7 @@ define dso_local void @con_free_unimap(ptr nocapture noundef readonly %0) local_
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @con_clear_unimap(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @con_clear_unimap(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 align 16 {
   tail call void @console_lock() #16
   %2 = tail call fastcc i32 @con_do_clear_unimap(ptr noundef %0), !range !19
   tail call void @console_unlock() #16
@@ -551,7 +551,7 @@ define dso_local noundef range(i32 -12, 1) i32 @con_clear_unimap(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @con_do_clear_unimap(ptr nocapture noundef readonly %0) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @con_do_clear_unimap(ptr noundef readonly captures(none) %0) unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -651,7 +651,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @con_do_clear_unimap(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @con_set_unimap(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #3 align 16 {
+define dso_local i32 @con_set_unimap(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #3 align 16 {
   %4 = icmp eq i16 %1, 0
   br i1 %4, label %236, label %5
 
@@ -1055,7 +1055,7 @@ define dso_local i32 @con_set_unimap(ptr nocapture noundef readonly %0, i16 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @con_unify_unimap(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @con_unify_unimap(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 264
   br label %4
 
@@ -1213,7 +1213,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @con_unify_unimap(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @set_inverse_transl(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc void @set_inverse_transl(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 16 {
   %4 = zext nneg i32 %2 to i64
   %5 = getelementptr [4 x [256 x i16]], ptr @translations, i64 0, i64 %4
   %6 = icmp eq ptr %1, null
@@ -1320,7 +1320,7 @@ define internal fastcc void @set_inverse_transl(ptr nocapture noundef readonly %
 declare dso_local void @kvfree(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr nocapture noundef readonly %0) #3 align 16 {
+define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr noundef readonly captures(none) %0) #3 align 16 {
   %2 = load ptr, ptr @dflt, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %44, label %4
@@ -1598,7 +1598,7 @@ define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @con_copy_unimap(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @con_copy_unimap(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 808
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1630,7 +1630,7 @@ define dso_local noundef range(i32 -22, 1) i32 @con_copy_unimap(ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -14, 1) i32 @con_get_unimap(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 -14, 1) i32 @con_get_unimap(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 align 16 {
   %5 = zext i16 %1 to i64
   %6 = shl nuw nsw i64 %5, 2
   %7 = tail call noalias ptr @kvmalloc_node(i64 noundef %6, i32 noundef 3264, i32 noundef -1) #18
@@ -1847,7 +1847,7 @@ declare dso_local noalias ptr @kvmalloc_node(i64 noundef, i32 noundef, i32 nound
 declare i32 @llvm.umin.i32(i32, i32) #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #14

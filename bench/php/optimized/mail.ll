@@ -77,7 +77,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.45 = private unnamed_addr constant [62 x i8] c"Header \22%s\22 must only contain values of type string, %s found\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @php_mail_build_headers(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @php_mail_build_headers(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.smart_str, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1463,7 +1463,7 @@ php_mail_build_headers_elems.exit:                ; preds = %536, %488, %438, %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare void @zend_type_error(ptr noundef, ...) local_unnamed_addr #2
 
@@ -1781,7 +1781,7 @@ declare ptr @zend_zval_value_name(ptr noundef) local_unnamed_addr #2
 declare void @zend_value_error(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_mail(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_mail(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2337,7 +2337,7 @@ declare void @llvm.assume(i1 noundef) #3
 declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -2468,7 +2468,7 @@ php_mail_log_to_file.exit:                        ; preds = %28, %37
 61:                                               ; preds = %55
   %62 = call ptr @zend_get_executed_filename() #11
   %63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #12
-  %64 = call ptr @php_basename(ptr noundef %62, i64 noundef %63, ptr noundef null, i64 noundef 0) #11
+  %64 = call ptr @php_basename(ptr noundef nonnull %62, i64 noundef %63, ptr noundef null, i64 noundef 0) #11
   %.not85 = icmp eq ptr %3, null
   br i1 %.not85, label %71, label %65
 
@@ -2692,7 +2692,7 @@ define hidden void @php_mail_log_crlf_to_spaces(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @php_mail_log_to_syslog(ptr noundef %0) local_unnamed_addr #0 {
@@ -2730,7 +2730,7 @@ declare ptr @zend_get_executed_filename() local_unnamed_addr #2
 declare i32 @zend_get_executed_lineno() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare i64 @time(ptr noundef) local_unnamed_addr #7
@@ -2747,16 +2747,16 @@ declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @popen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noalias noundef ptr @popen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @pclose(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @pclose(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zm_info_mail(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define hidden void @zm_info_mail(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @zend_ini_string_ex(ptr noundef nonnull @.str.21, i64 noundef 13, i32 noundef 0, ptr noundef null) #11
   tail call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.40, ptr noundef %2) #11
   ret void
@@ -2765,14 +2765,14 @@ define hidden void @zm_info_mail(ptr nocapture noundef readnone %0) local_unname
 declare void @php_info_print_table_row(i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare void @smart_str_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 declare zeroext i1 @zend_parse_arg_str_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

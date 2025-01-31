@@ -1305,7 +1305,7 @@ declare void @rb_iseq_mark_and_pin_insn_storage(ptr noundef) local_unnamed_addr 
 declare void @rb_hook_list_mark_and_update(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_iseq_memsize(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden i64 @rb_iseq_memsize(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %0, align 8
@@ -1590,7 +1590,7 @@ rb_obj_write.exit:                                ; preds = %rb_iseq_pathobj_new
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @rb_iseq_insns_info_encode_positions(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @rb_iseq_insns_info_encode_positions(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 128
@@ -1764,7 +1764,7 @@ succ_index_table_create.exit:                     ; preds = %82, %.preheader.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noalias nonnull ptr @rb_iseq_insns_info_decode_positions(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden noalias nonnull ptr @rb_iseq_insns_info_decode_positions(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1890,7 +1890,7 @@ succ_index_table_invert.exit:                     ; preds = %50, %.preheader44.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_iseq_init_trace(ptr nocapture noundef initializes((32, 36)) %0) local_unnamed_addr #0 {
+define hidden void @rb_iseq_init_trace(ptr noundef captures(none) initializes((32, 36)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %2, align 8
   %3 = load i32, ptr @ruby_vm_event_enabled_global_flags, align 4
@@ -1907,7 +1907,7 @@ define hidden void @rb_iseq_init_trace(ptr nocapture noundef initializes((32, 36
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @rb_iseq_trace_set(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @rb_iseq_trace_set(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2188,7 +2188,7 @@ define dso_local ptr @rb_iseq_new_top(ptr noundef %0, i64 noundef %1, i64 nounde
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @iseq_new_setup_coverage(i64 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @iseq_new_setup_coverage(i64 noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call i64 @rb_get_coverages() #20
   %4 = and i64 %3, -5
   %.not = icmp eq i64 %4, 0
@@ -2539,7 +2539,7 @@ define hidden ptr @pm_iseq_new_eval(ptr noundef %0, i64 noundef %1, i64 noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @prepare_iseq_build(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef readonly %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, i64 noundef %10, ptr noundef %11) unnamed_addr #0 {
@@ -2897,7 +2897,7 @@ rb_obj_write.exit96:                              ; preds = %182, %175, %rb_obj_
 declare i64 @rb_iseq_compile_node(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @finish_iseq_build(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @finish_iseq_build(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = load i64, ptr %0, align 8
   %4 = and i64 %3, 262144
@@ -3258,7 +3258,7 @@ iseqw_check.exit:                                 ; preds = %22, %rbimpl_intern_
 declare i64 @rb_check_funcall(i64 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc range(i64 1, 0) i64 @rbimpl_intern_const(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #4 {
+define internal fastcc range(i64 1, 0) i64 @rbimpl_intern_const(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1) unnamed_addr #4 {
   %.pr = load i64, ptr %0, align 8
   %.not4 = icmp eq i64 %.pr, 0
   br i1 %.not4, label %.lr.ph, label %._crit_edge
@@ -3749,7 +3749,7 @@ iseq_load.exit:                                   ; preds = %rb_num2int_inline.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @rb_iseq_path(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local i64 @rb_iseq_path(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -3790,7 +3790,7 @@ pathobj_path.exit:                                ; preds = %1, %RARRAY_AREF.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @rb_iseq_realpath(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local i64 @rb_iseq_realpath(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -3832,7 +3832,7 @@ pathobj_realpath.exit:                            ; preds = %1, %RARRAY_AREF.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @rb_iseq_absolute_path(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local i64 @rb_iseq_absolute_path(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -3874,7 +3874,7 @@ rb_iseq_realpath.exit:                            ; preds = %1, %RARRAY_AREF.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @rb_iseq_from_eval_p(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @rb_iseq_from_eval_p(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -3918,7 +3918,7 @@ rb_iseq_realpath.exit:                            ; preds = %1, %RARRAY_AREF.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @rb_iseq_label(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local i64 @rb_iseq_label(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -3927,7 +3927,7 @@ define dso_local i64 @rb_iseq_label(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @rb_iseq_base_label(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local i64 @rb_iseq_base_label(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -3936,7 +3936,7 @@ define dso_local i64 @rb_iseq_base_label(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i64 1, 0) i64 @rb_iseq_first_lineno(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local range(i64 1, 0) i64 @rb_iseq_first_lineno(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 88
@@ -3948,7 +3948,7 @@ define dso_local range(i64 1, 0) i64 @rb_iseq_first_lineno(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @rb_iseq_method_name(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local i64 @rb_iseq_method_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
@@ -3970,7 +3970,7 @@ define dso_local i64 @rb_iseq_method_name(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @rb_iseq_code_location(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #6 {
+define dso_local void @rb_iseq_code_location(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #6 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %1, null
@@ -4017,7 +4017,7 @@ define dso_local void @rb_iseq_code_location(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_iseq_type(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @rb_iseq_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
@@ -4171,7 +4171,7 @@ switch.lookup:                                    ; preds = %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @rb_iseq_coverage(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local i64 @rb_iseq_coverage(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 208
@@ -4188,7 +4188,7 @@ define dso_local void @rb_iseq_remove_coverage_all() local_unnamed_addr #0 {
 declare void @rb_objspace_each_objects(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @remove_coverage_i(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #7 {
+define internal noundef i32 @remove_coverage_i(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #7 {
   %5 = ptrtoint ptr %1 to i64
   %.not14 = icmp eq ptr %0, %1
   br i1 %.not14, label %._crit_edge, label %.lr.ph.preheader
@@ -4300,7 +4300,7 @@ iseqw_check.exit:                                 ; preds = %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @rb_iseq_line_no(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #5 {
+define dso_local i32 @rb_iseq_line_no(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 112
@@ -4393,7 +4393,7 @@ get_insn_info.exit.thread:                        ; preds = %2, %get_insn_info.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @rb_iseq_node_id(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #5 {
+define dso_local i32 @rb_iseq_node_id(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 112
@@ -4487,7 +4487,7 @@ get_insn_info.exit.thread:                        ; preds = %2, %get_insn_info.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @rb_iseq_event_flags(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #5 {
+define hidden i32 @rb_iseq_event_flags(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 112
@@ -4581,7 +4581,7 @@ get_insn_info.exit.thread:                        ; preds = %2, %get_insn_info.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_iseq_clear_event_flags(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @rb_iseq_clear_event_flags(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %5, align 8
@@ -4710,7 +4710,7 @@ get_insn_info.exit.thread:                        ; preds = %3, %62, %rb_iseq_tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_iseq_trace_flag_cleared(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden void @rb_iseq_trace_flag_cleared(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -4742,7 +4742,7 @@ encoded_iseq_trace_instrument.exit:               ; preds = %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_insn_operand_intern(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef readonly %6, i64 noundef %7) local_unnamed_addr #0 {
+define hidden i64 @rb_insn_operand_intern(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef readonly %6, i64 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.Dl_info, align 8
   %10 = getelementptr [210 x i16], ptr @rb_vm_insn_op_offset, i64 0, i64 %1
   %11 = load i16, ptr %10, align 2
@@ -5533,7 +5533,7 @@ declare ptr @rb_type_str(i32 noundef) local_unnamed_addr #1
 declare i64 @rb_str_new_cstr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @local_var_name(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i64 @local_var_name(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %.not21 = icmp eq i64 %1, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
@@ -5638,7 +5638,7 @@ declare i32 @dladdr(ptr noundef, ptr noundef) local_unnamed_addr #8
 declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 256) i32 @rb_iseq_disasm_insn(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 256) i32 @rb_iseq_disasm_insn(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i64, ptr %1, i64 %2
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr [210 x i8], ptr @rb_vm_insn_len_info, i64 0, i64 %7
@@ -6073,7 +6073,7 @@ declare i64 @rb_str_new_static(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @rb_str_concat(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i64 @rb_iseq_disasm(ptr noundef %0) local_unnamed_addr #0 {
@@ -6731,7 +6731,7 @@ RSTRING_PTR.exit224:                              ; preds = %320, %318
 declare i64 @rb_str_resize(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_estimate_iv_count(i64 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local i32 @rb_estimate_iv_count(i64 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @rb_id_table_create(i64 noundef 0) #20
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -6786,7 +6786,7 @@ declare i64 @rb_id_table_size(ptr noundef) local_unnamed_addr #1
 declare i64 @rb_class_superclass(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_iseq_parameters(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local i64 @rb_iseq_parameters(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -7333,7 +7333,7 @@ rbimpl_intern_const.exit183:                      ; preds = %.lr.ph.i181, %246
 declare i64 @rb_ary_new_capa(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare i64 @rb_fstring_cstr(ptr noundef) local_unnamed_addr #1
 
@@ -7877,7 +7877,7 @@ define hidden void @rb_clear_attr_ccs() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @clear_attr_ccs_i(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @clear_attr_ccs_i(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = ptrtoint ptr %1 to i64
   %.not7 = icmp eq ptr %0, %1
   br i1 %.not7, label %._crit_edge, label %.lr.ph.preheader
@@ -7921,7 +7921,7 @@ define hidden void @rb_clear_bf_ccs() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @clear_bf_ccs_i(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @clear_bf_ccs_i(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = ptrtoint ptr %1 to i64
   %.not7 = icmp eq ptr %0, %1
   br i1 %.not7, label %._crit_edge, label %.lr.ph.preheader
@@ -7967,7 +7967,7 @@ define dso_local void @rb_iseq_trace_set_all(i32 noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @trace_set_i(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @trace_set_i(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = load i32, ptr %3, align 4
   %6 = ptrtoint ptr %1 to i64
   %.not21 = icmp eq ptr %0, %1
@@ -8396,7 +8396,7 @@ iseqw_check.exit:                                 ; preds = %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @iseqw_to_binary(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal i64 @iseqw_to_binary(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %or.cond.i = icmp ugt i32 %0, 1
   br i1 %or.cond.i, label %4, label %rb_check_arity.exit
 
@@ -10455,7 +10455,7 @@ declare i64 @rb_sym2str(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_hash_aref(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @make_compile_option(ptr nocapture noundef nonnull %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @make_compile_option(ptr noundef nonnull captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   switch i64 %1, label %7 [
     i64 4, label %3
     i64 0, label %5
@@ -10875,7 +10875,7 @@ define internal void @iseqw_mark(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @iseqw_memsize(ptr nocapture noundef readonly %0) #0 {
+define internal i64 @iseqw_memsize(ptr noundef readonly captures(none) %0) #0 {
   %2 = tail call i64 @rb_iseq_memsize(ptr noundef %0)
   ret i64 %2
 }
@@ -10911,7 +10911,7 @@ declare i64 @rb_str_append(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare void @rb_str_modify_expand(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 declare ptr @rb_st_init_numtable() local_unnamed_addr #1
 
@@ -10924,7 +10924,7 @@ declare ptr @rb_iseq_original_iseq(ptr noundef) local_unnamed_addr #1
 declare void @rb_mark_set(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @iseq_iterate_children(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @iseq_iterate_children(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @rb_iseq_original_iseq(ptr noundef %0) #20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -12967,10 +12967,10 @@ declare i64 @rb_obj_is_method(i64 noundef) local_unnamed_addr #1
 declare ptr @rb_method_iseq(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #19

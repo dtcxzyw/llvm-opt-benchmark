@@ -54,7 +54,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_boggsP8PJconsts(ptr 
 declare noundef ptr @_Z6pj_newv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind memory(write) uwtable
-define internal { double, double } @_ZL15boggs_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture readnone %2) #3 {
+define internal { double, double } @_ZL15boggs_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr readnone captures(none) %2) #3 {
   %4 = tail call double @llvm.fabs.f64(double %1)
   %5 = fadd double %4, 0xBFF921FB54442D18
   %6 = tail call double @llvm.fabs.f64(double %5)

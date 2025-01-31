@@ -96,19 +96,19 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal8decision19DecisionEngineEmpty6isDoneEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal8decision19DecisionEngineEmpty6isDoneEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN4cvc58internal8decision19DecisionEngineEmpty12addAssertionENS0_12NodeTemplateILb0EEES4_b(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %lem, ptr nocapture readnone %skolem, i1 zeroext %isLemma) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal8decision19DecisionEngineEmpty12addAssertionENS0_12NodeTemplateILb0EEES4_b(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %lem, ptr readnone captures(none) %skolem, i1 zeroext %isLemma) unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden i64 @_ZN4cvc58internal8decision19DecisionEngineEmpty15getNextInternalERb(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 1 %stopSearch) unnamed_addr #5 align 2 {
+define hidden i64 @_ZN4cvc58internal8decision19DecisionEngineEmpty15getNextInternalERb(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 1 captures(none) %stopSearch) unnamed_addr #5 align 2 {
 entry:
   %retval.sroa.0.0.copyload.b = load i1, ptr @_ZN4cvc58internal4propL15undefSatLiteralE.0, align 8
   %retval.sroa.0.0.copyload = select i1 %retval.sroa.0.0.copyload.b, i64 -2, i64 0
@@ -177,7 +177,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

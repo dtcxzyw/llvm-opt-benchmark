@@ -281,10 +281,10 @@ declare ptr @slurm_bit_fmt_hexmask_trim(ptr noundef) local_unnamed_addr #1
 declare ptr @slurm_xstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @print_gres_conf(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @print_gres_conf(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -790,7 +790,7 @@ declare i64 @slurm_bit_fls(ptr noundef) local_unnamed_addr #1
 declare ptr @slurm_list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @_match_dev_inx(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @_match_dev_inx(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i32, ptr %1, align 4
   %4 = load i32, ptr %0, align 8
   %5 = icmp eq i32 %4, %3
@@ -799,7 +799,7 @@ define internal range(i32 0, 2) i32 @_match_dev_inx(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -1, 1) i32 @gres_common_set_env_types_on_node_flags(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @gres_common_set_env_types_on_node_flags(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %3 = load i32, ptr %0, align 8
   %4 = and i32 %3, 32
   %.not = icmp eq i32 %4, 0

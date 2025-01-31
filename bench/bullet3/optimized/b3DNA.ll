@@ -613,7 +613,7 @@ _ZN20b3AlignedObjectArrayIiED2Ev.exit31:          ; preds = %_ZN20b3AlignedObjec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN6bParse4bDNA8lessThanEPS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(420) %this, ptr nocapture noundef readonly %file) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN6bParse4bDNA8lessThanEPS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(420) %this, ptr noundef readonly captures(none) %file) local_unnamed_addr #2 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 36
   %0 = load i32, ptr %m_size.i, align 4
@@ -624,7 +624,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN6bParse4bDNA7getNameEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(420) %this, i32 noundef %ind) local_unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN6bParse4bDNA7getNameEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(420) %this, i32 noundef %ind) local_unnamed_addr #3 align 2 {
 entry:
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_data.i, align 8
@@ -635,7 +635,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN6bParse4bDNA7getTypeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(420) %this, i32 noundef %ind) local_unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN6bParse4bDNA7getTypeEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(420) %this, i32 noundef %ind) local_unnamed_addr #3 align 2 {
 entry:
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %m_data.i, align 8
@@ -646,7 +646,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN6bParse4bDNA9getStructEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(420) %this, i32 noundef %ind) local_unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN6bParse4bDNA9getStructEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(420) %this, i32 noundef %ind) local_unnamed_addr #3 align 2 {
 entry:
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_data.i, align 8
@@ -657,7 +657,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef signext i16 @_ZN6bParse4bDNA9getLengthEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(420) %this, i32 noundef %ind) local_unnamed_addr #3 align 2 {
+define dso_local noundef signext i16 @_ZN6bParse4bDNA9getLengthEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(420) %this, i32 noundef %ind) local_unnamed_addr #3 align 2 {
 entry:
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %m_data.i, align 8
@@ -668,7 +668,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN6bParse4bDNA14getReverseTypeEs(ptr nocapture noundef nonnull readonly align 8 dereferenceable(420) %this, i16 noundef signext %type) local_unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN6bParse4bDNA14getReverseTypeEs(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(420) %this, i16 noundef signext %type) local_unnamed_addr #3 align 2 {
 entry:
   %conv = sext i16 %type to i32
   %shl.i.i.i = shl nsw i32 %conv, 15
@@ -863,7 +863,7 @@ eh.resume:                                        ; preds = %lpad5, %lpad.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZN6bParse4bDNA13getNumStructsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(420) %this) local_unnamed_addr #2 align 2 {
+define dso_local noundef i32 @_ZN6bParse4bDNA13getNumStructsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(420) %this) local_unnamed_addr #2 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 100
   %0 = load i32, ptr %m_size.i, align 4
@@ -871,7 +871,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN6bParse4bDNA12flagNotEqualEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(420) %this, i32 noundef %dna_nr) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN6bParse4bDNA12flagNotEqualEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(420) %this, i32 noundef %dna_nr) local_unnamed_addr #3 align 2 {
 entry:
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data.i, align 8
@@ -883,7 +883,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN6bParse4bDNA9flagEqualEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(420) %this, i32 noundef %dna_nr) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN6bParse4bDNA9flagEqualEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(420) %this, i32 noundef %dna_nr) local_unnamed_addr #3 align 2 {
 entry:
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data.i, align 8
@@ -895,7 +895,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN6bParse4bDNA8flagNoneEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(420) %this, i32 noundef %dna_nr) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN6bParse4bDNA8flagNoneEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(420) %this, i32 noundef %dna_nr) local_unnamed_addr #3 align 2 {
 entry:
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data.i, align 8
@@ -907,7 +907,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZN6bParse4bDNA14getPointerSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(420) %this) local_unnamed_addr #2 align 2 {
+define dso_local noundef i32 @_ZN6bParse4bDNA14getPointerSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(420) %this) local_unnamed_addr #2 align 2 {
 entry:
   %mPtrLen = getelementptr inbounds nuw i8, ptr %this, i64 416
   %0 = load i32, ptr %mPtrLen, align 8
@@ -915,7 +915,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN6bParse4bDNA19initRecurseCmpFlagsEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(420) %this, i32 noundef %iter) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN6bParse4bDNA19initRecurseCmpFlagsEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(420) %this, i32 noundef %iter) local_unnamed_addr #5 align 2 {
 entry:
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_data.i, align 8
@@ -1007,7 +1007,7 @@ for.end29:                                        ; preds = %for.inc27, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6bParse4bDNA12initCmpFlagsEPS0_(ptr noundef nonnull align 8 dereferenceable(420) %this, ptr nocapture noundef readonly %memDNA) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN6bParse4bDNA12initCmpFlagsEPS0_(ptr noundef nonnull align 8 dereferenceable(420) %this, ptr noundef readonly captures(none) %memDNA) local_unnamed_addr #4 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 100
   %0 = load i32, ptr %m_size.i, align 4
@@ -1259,7 +1259,7 @@ for.end87:                                        ; preds = %for.inc85, %_ZN20b3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6bParse4bDNA4initEPcib(ptr noundef nonnull align 8 dereferenceable(420) %this, ptr noundef %data, i32 noundef %len, i1 noundef zeroext %swap) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
@@ -1743,7 +1743,7 @@ for.end132:                                       ; preds = %invoke.cont, %for.c
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 declare noundef i32 @_ZN6bParse10ChunkUtils7swapIntEi(i32 noundef) local_unnamed_addr #7
 
@@ -2024,7 +2024,7 @@ return:                                           ; preds = %if.end20, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local noundef i32 @_ZN6bParse4bDNA12getArraySizeEPc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(420) %this, ptr noundef readonly %string) local_unnamed_addr #8 align 2 {
+define dso_local noundef i32 @_ZN6bParse4bDNA12getArraySizeEPc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(420) %this, ptr noundef readonly %string) local_unnamed_addr #8 align 2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %string) #22
   %conv = trunc i64 %call to i32
@@ -2072,13 +2072,13 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_ZN6bParse4bDNA19dumpTypeDefinitionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(420) %this) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN6bParse4bDNA19dumpTypeDefinitionsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(420) %this) local_unnamed_addr #10 align 2 {
 entry:
   %m_size.i23 = getelementptr inbounds nuw i8, ptr %this, i64 100
   %0 = load i32, ptr %m_size.i23, align 4
@@ -2262,7 +2262,7 @@ for.end59:                                        ; preds = %for.inc57, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {
@@ -2620,7 +2620,7 @@ if.end7:                                          ; preds = %_ZN20b3AlignedObjec
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPcE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) local_unnamed_addr #4 comdat align 2 {
@@ -3281,13 +3281,13 @@ if.end7:                                          ; preds = %_ZN20b3AlignedObjec
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #17
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

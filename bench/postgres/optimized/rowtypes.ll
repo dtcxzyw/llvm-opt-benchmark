@@ -48,7 +48,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [22 x i8] c"unexpected attlen: %d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @record_in(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @record_in(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -508,7 +508,7 @@ declare ptr @lookup_rowtype_tupdesc(i32 noundef, i32 noundef) local_unnamed_addr
 declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
@@ -532,7 +532,7 @@ declare zeroext i1 @InputFunctionCallSafe(ptr noundef, ptr noundef, i32 noundef,
 declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @heap_freetuple(ptr noundef) local_unnamed_addr #1
 
@@ -543,7 +543,7 @@ declare void @DecrTupleDescRefCount(ptr noundef) local_unnamed_addr #1
 declare i64 @HeapTupleHeaderGetDatum(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @record_out(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @record_out(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.HeapTupleData, align 8
   %3 = alloca %struct.StringInfoData, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -915,7 +915,7 @@ declare void @getTypeOutputInfo(i32 noundef, ptr noundef, ptr noundef) local_unn
 declare ptr @OutputFunctionCall(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @record_recv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @record_recv(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1257,7 +1257,7 @@ declare void @getTypeBinaryInputInfo(i32 noundef, ptr noundef, ptr noundef) loca
 declare i64 @ReceiveFunctionCall(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @record_send(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @record_send(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.HeapTupleData, align 8
   %3 = alloca %struct.StringInfoData, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1540,7 +1540,7 @@ declare void @pq_sendbytes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @record_eq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @record_eq(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.HeapTupleData, align 8
   %3 = alloca %struct.HeapTupleData, align 8
   %4 = alloca %union.anon.2, align 8
@@ -2030,14 +2030,14 @@ declare ptr @format_type_be(i32 noundef) local_unnamed_addr #1
 declare ptr @lookup_type_cache(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @record_ne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @record_ne(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @record_eq(ptr noundef %0)
   %3 = xor i64 %2, 1
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @record_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @record_lt(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i32 @record_cmp(ptr noundef %0)
   %.lobit = lshr i32 %2, 31
   %3 = zext nneg i32 %.lobit to i64
@@ -2045,7 +2045,7 @@ define dso_local range(i64 0, 2) i64 @record_lt(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca %struct.HeapTupleData, align 8
   %3 = alloca %struct.HeapTupleData, align 8
   %4 = alloca %union.anon.5, align 8
@@ -2533,7 +2533,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_cmp(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @record_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @record_gt(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i32 @record_cmp(ptr noundef %0)
   %3 = icmp sgt i32 %2, 0
   %4 = zext i1 %3 to i64
@@ -2541,7 +2541,7 @@ define dso_local range(i64 0, 2) i64 @record_gt(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @record_le(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @record_le(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i32 @record_cmp(ptr noundef %0)
   %3 = icmp slt i32 %2, 1
   %4 = zext i1 %3 to i64
@@ -2549,7 +2549,7 @@ define dso_local range(i64 0, 2) i64 @record_le(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @record_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @record_ge(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i32 @record_cmp(ptr noundef %0)
   %3 = icmp sgt i32 %2, -1
   %4 = zext i1 %3 to i64
@@ -2557,14 +2557,14 @@ define dso_local range(i64 0, 2) i64 @record_ge(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -1, 2) i64 @btrecordcmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -1, 2) i64 @btrecordcmp(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i32 @record_cmp(ptr noundef %0)
   %3 = sext i32 %2 to i64
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @record_image_eq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @record_image_eq(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.HeapTupleData, align 8
   %3 = alloca %struct.HeapTupleData, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2992,14 +2992,14 @@ define dso_local range(i64 0, 2) i64 @record_image_eq(ptr nocapture noundef read
 declare zeroext i1 @datum_image_eq(i64 noundef, i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @record_image_ne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @record_image_ne(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @record_image_eq(ptr noundef %0)
   %3 = xor i64 %2, 1
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @record_image_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @record_image_lt(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i32 @record_image_cmp(ptr noundef %0)
   %.lobit = lshr i32 %2, 31
   %3 = zext nneg i32 %.lobit to i64
@@ -3007,7 +3007,7 @@ define dso_local range(i64 0, 2) i64 @record_image_lt(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca %struct.HeapTupleData, align 8
   %3 = alloca %struct.HeapTupleData, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3526,7 +3526,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @record_image_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @record_image_gt(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i32 @record_image_cmp(ptr noundef %0)
   %3 = icmp sgt i32 %2, 0
   %4 = zext i1 %3 to i64
@@ -3534,7 +3534,7 @@ define dso_local range(i64 0, 2) i64 @record_image_gt(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @record_image_le(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @record_image_le(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i32 @record_image_cmp(ptr noundef %0)
   %3 = icmp slt i32 %2, 1
   %4 = zext i1 %3 to i64
@@ -3542,7 +3542,7 @@ define dso_local range(i64 0, 2) i64 @record_image_le(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @record_image_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @record_image_ge(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i32 @record_image_cmp(ptr noundef %0)
   %3 = icmp sgt i32 %2, -1
   %4 = zext i1 %3 to i64
@@ -3550,14 +3550,14 @@ define dso_local range(i64 0, 2) i64 @record_image_ge(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -1, 2) i64 @btrecordimagecmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -1, 2) i64 @btrecordimagecmp(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i32 @record_image_cmp(ptr noundef %0)
   %3 = sext i32 %2 to i64
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @hash_record(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @hash_record(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.HeapTupleData, align 8
   %3 = alloca %union.anon.3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3816,7 +3816,7 @@ define dso_local range(i64 0, 4294967296) i64 @hash_record(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hash_record_extended(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @hash_record_extended(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.HeapTupleData, align 8
   %3 = alloca %union.anon.4, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4079,7 +4079,7 @@ declare void @enlargeStringInfo(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @llvm.bswap.i32(i32) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 declare i64 @toast_raw_datum_size(i64 noundef) local_unnamed_addr #1
 

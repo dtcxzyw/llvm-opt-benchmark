@@ -812,16 +812,16 @@ i915_gem_object_lock.exit32:                      ; preds = %314, %i915_gem_obje
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @intel_timeline_create_from_engine(ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -1726,7 +1726,7 @@ define internal void @reset_prepare(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @reset_rewind(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 align 16 {
+define internal void @reset_rewind(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -1793,7 +1793,7 @@ define internal void @reset_rewind(ptr nocapture noundef readonly %0, i1 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @reset_cancel(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @reset_cancel(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1849,7 +1849,7 @@ define internal void @reset_cancel(ptr nocapture noundef readonly %0) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @reset_finish(ptr nocapture readnone %0) #5 align 16 {
+define internal void @reset_finish(ptr readnone captures(none) %0) #5 align 16 {
   ret void
 }
 
@@ -2194,7 +2194,7 @@ declare dso_local ptr @gen3_emit_breadcrumb(ptr noundef, ptr noundef) #3
 declare dso_local ptr @gen5_emit_breadcrumb(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @i9xx_set_default_submission(ptr nocapture noundef writeonly initializes((928, 936)) %0) #7 align 16 {
+define internal void @i9xx_set_default_submission(ptr noundef writeonly captures(none) initializes((928, 936)) %0) #7 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store ptr @i9xx_submit_request, ptr %2, align 8
   ret void
@@ -2213,7 +2213,7 @@ declare dso_local i32 @i830_emit_bb_start(ptr noundef, i64 noundef, i32 noundef,
 declare dso_local i32 @gen3_emit_bb_start(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @irq_handler(ptr nocapture noundef readonly %0, i16 zeroext %1) #0 align 16 {
+define internal void @irq_handler(ptr noundef readonly captures(none) %0, i16 zeroext %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -2252,7 +2252,7 @@ declare dso_local zeroext i1 @irq_work_queue(ptr noundef) local_unnamed_addr #3
 declare dso_local void @intel_synchronize_hardirq(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @stop_ring(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc zeroext i1 @stop_ring(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2466,7 +2466,7 @@ declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #3 se
 declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ring_context_alloc(ptr nocapture noundef initializes((104, 120)) %0) #0 align 16 {
+define internal i32 @ring_context_alloc(ptr noundef captures(none) initializes((104, 120)) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 512
@@ -2621,7 +2621,7 @@ define internal void @ring_context_revoke(ptr noundef readnone %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ring_context_pre_pin(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @ring_context_pre_pin(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 504
@@ -2695,17 +2695,17 @@ define internal i32 @ring_context_pre_pin(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @ring_context_pin(ptr nocapture readnone %0, ptr nocapture readnone %1) #5 align 16 {
+define internal noundef i32 @ring_context_pin(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #5 align 16 {
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @ring_context_unpin(ptr nocapture readnone %0) #5 align 16 {
+define internal void @ring_context_unpin(ptr readnone captures(none) %0) #5 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ring_context_post_unpin(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @ring_context_post_unpin(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 536
@@ -2733,7 +2733,7 @@ define internal void @ring_context_post_unpin(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ring_context_cancel_request(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal void @ring_context_cancel_request(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   store ptr null, ptr %3, align 8
@@ -2963,7 +2963,7 @@ define internal fastcc i32 @switch_mm(ptr noundef %0, ptr noundef readonly %1) u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @mi_set_context(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 257, 269) %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @mi_set_context(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 257, 269) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -3248,7 +3248,7 @@ declare dso_local i32 @gen2_emit_flush(ptr noundef, i32 noundef) #3
 declare dso_local i32 @hsw_emit_bb_start(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @gen6_bsd_set_default_submission(ptr nocapture noundef writeonly initializes((928, 936)) %0) #7 align 16 {
+define internal void @gen6_bsd_set_default_submission(ptr noundef writeonly captures(none) initializes((928, 936)) %0) #7 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store ptr @gen6_bsd_submit_request, ptr %2, align 8
   ret void

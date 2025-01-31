@@ -1105,16 +1105,16 @@ define dso_local i32 @sata_pmp_qc_defer_cmd_switch(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @ata_std_qc_defer(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @sata_pmp_scr_read(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @sata_pmp_scr_read(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 align 16 {
   %4 = alloca %struct.ata_taskfile, align 8
   %5 = icmp sgt i32 %1, 2
   br i1 %5, label %44, label %6
@@ -1189,7 +1189,7 @@ define dso_local noundef range(i32 -22, 1) i32 @sata_pmp_scr_read(ptr nocapture 
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @sata_pmp_scr_write(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @sata_pmp_scr_write(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = alloca %struct.ata_taskfile, align 8
   %5 = icmp sgt i32 %1, 2
   br i1 %5, label %53, label %6
@@ -1278,7 +1278,7 @@ define dso_local i32 @sata_pmp_set_lpm(ptr noundef %0, i32 noundef %1, i32 nound
 declare dso_local i32 @sata_link_scr_lpm(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sata_pmp_attach(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local i32 @sata_pmp_attach(ptr noundef captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = alloca %struct.ata_taskfile, align 8
   %3 = load ptr, ptr %0, align 64
   %4 = load ptr, ptr %3, align 64
@@ -1743,7 +1743,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, 1) i32 @sata_pmp_configure(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @sata_pmp_configure(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.ata_taskfile, align 8
   %4 = alloca %struct.ata_taskfile, align 8
   %5 = alloca %struct.ata_taskfile, align 8
@@ -1996,7 +1996,7 @@ declare dso_local void @ata_eh_report(ptr noundef) local_unnamed_addr #0
 declare dso_local void @ata_eh_finish(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @ata_exec_internal(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
@@ -2035,7 +2035,7 @@ declare dso_local i32 @sata_scr_read(ptr noundef, i32 noundef, ptr noundef) loca
 declare dso_local i32 @sata_scr_write(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @sata_pmp_handle_link_fail(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @sata_pmp_handle_link_fail(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #1 align 16 {
   %3 = load ptr, ptr %0, align 64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -2108,7 +2108,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @sata_pmp_handle_link_fail(pt
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @sata_pmp_detach(ptr nocapture noundef readonly %0) unnamed_addr #6 align 16 {
+define internal fastcc void @sata_pmp_detach(ptr noundef readonly captures(none) %0) unnamed_addr #6 align 16 {
   %2 = load ptr, ptr %0, align 64
   %3 = load ptr, ptr %2, align 64
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 36
@@ -2196,7 +2196,7 @@ declare dso_local void @ata_eh_detach_dev(ptr noundef) local_unnamed_addr #0
 declare dso_local void @ata_eh_about_to_do(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @ata_eh_done(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0

@@ -186,7 +186,7 @@ if.end.i8:                                        ; preds = %if.end
 do.body.i:                                        ; preds = %if.end13.i, %if.end.i8
   %pack_sig_ofs.0.i = phi i64 [ 0, %if.end.i8 ], [ %pack_sig_ofs.1.i, %if.end13.i ]
   %offset.0.i = phi i64 [ 0, %if.end.i8 ], [ %add.i, %if.end13.i ]
-  %call4.i = call ptr @use_pack(ptr noundef %p, ptr noundef nonnull %w_curs, i64 noundef %offset.0.i, ptr noundef nonnull %remaining.i) #9
+  %call4.i = call ptr @use_pack(ptr noundef nonnull %p, ptr noundef nonnull %w_curs, i64 noundef %offset.0.i, ptr noundef nonnull %remaining.i) #9
   %6 = load i64, ptr %remaining.i, align 8
   %add.i = add i64 %6, %offset.0.i
   %tobool5.not.i = icmp eq i64 %pack_sig_ofs.0.i, 0
@@ -226,7 +226,7 @@ do.end.i:                                         ; preds = %if.end13.i
   %final_fn.i = getelementptr inbounds nuw i8, ptr %13, i64 64
   %14 = load ptr, ptr %final_fn.i, align 8
   call void %14(ptr noundef nonnull %hash.i, ptr noundef nonnull %ctx.i) #9
-  %call19.i = call ptr @use_pack(ptr noundef %p, ptr noundef nonnull %w_curs, i64 noundef %pack_sig_ofs.1.i, ptr noundef null) #9
+  %call19.i = call ptr @use_pack(ptr noundef nonnull %p, ptr noundef nonnull %w_curs, i64 noundef %pack_sig_ofs.1.i, ptr noundef null) #9
   %15 = load ptr, ptr @the_repository, align 8
   %hash_algo.i.i = getelementptr inbounds nuw i8, ptr %15, i64 256
   %16 = load ptr, ptr %hash_algo.i.i, align 8
@@ -286,7 +286,7 @@ if.end38.i:                                       ; preds = %if.then33.i, %if.en
 for.body.i:                                       ; preds = %if.end38.i, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %if.end38.i ]
   %21 = trunc nuw i64 %indvars.iv.i to i32
-  %call46.i = call i64 @nth_packed_object_offset(ptr noundef %p, i32 noundef %21) #9
+  %call46.i = call i64 @nth_packed_object_offset(ptr noundef nonnull %p, i32 noundef %21) #9
   %arrayidx48.i = getelementptr inbounds nuw %struct.idx_entry, ptr %call42.i, i64 %indvars.iv.i
   store i64 %call46.i, ptr %arrayidx48.i, align 8
   %nr.i = getelementptr inbounds nuw i8, ptr %arrayidx48.i, i64 8
@@ -316,7 +316,7 @@ for.body56.i:                                     ; preds = %if.end164.i, %for.b
   %arrayidx58.i = getelementptr inbounds nuw %struct.idx_entry, ptr %call42.i, i64 %indvars.iv120.i
   %nr59.i = getelementptr inbounds nuw i8, ptr %arrayidx58.i, i64 8
   %22 = load i32, ptr %nr59.i, align 8
-  %call60.i = call i32 @nth_packed_object_id(ptr noundef nonnull %oid.i, ptr noundef %p, i32 noundef %22) #9
+  %call60.i = call i32 @nth_packed_object_id(ptr noundef nonnull %oid.i, ptr noundef nonnull %p, i32 noundef %22) #9
   %cmp61.i = icmp slt i32 %call60.i, 0
   br i1 %cmp61.i, label %if.then63.i, label %if.end70.i
 
@@ -345,7 +345,7 @@ do.body.i.i:                                      ; preds = %if.end.i.i, %if.the
   %len.addr.0.i.i = phi i64 [ %sub82.i, %if.then73.i ], [ %sub.i.i, %if.end.i.i ]
   %data_crc.0.i.i = phi i64 [ %call.i.i, %if.then73.i ], [ %call5.i.i, %if.end.i.i ]
   %offset.addr.0.i.i = phi i64 [ %25, %if.then73.i ], [ %add.i.i, %if.end.i.i ]
-  %call1.i.i = call ptr @use_pack(ptr noundef %p, ptr noundef nonnull %w_curs, i64 noundef %offset.addr.0.i.i, ptr noundef nonnull %avail.i.i) #9
+  %call1.i.i = call ptr @use_pack(ptr noundef nonnull %p, ptr noundef nonnull %w_curs, i64 noundef %offset.addr.0.i.i, ptr noundef nonnull %avail.i.i) #9
   %28 = load i64, ptr %avail.i.i, align 8
   %cmp.i96.i = icmp ugt i64 %28, %len.addr.0.i.i
   br i1 %cmp.i96.i, label %if.then.i99.i, label %if.end.i.i
@@ -514,7 +514,7 @@ declare ptr @xmalloc(i64 noundef) local_unnamed_addr #1
 declare i64 @nth_packed_object_offset(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @compare_entries(ptr nocapture noundef readonly %e1, ptr nocapture noundef readonly %e2) #2 {
+define internal range(i32 -1, 2) i32 @compare_entries(ptr noundef readonly captures(none) %e1, ptr noundef readonly captures(none) %e2) #2 {
 entry:
   %0 = load i64, ptr %e1, align 8
   %1 = load i64, ptr %e2, align 8
@@ -540,22 +540,22 @@ declare i32 @stream_object_signature(ptr noundef, ptr noundef) local_unnamed_add
 declare void @display_progress(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.scmp.i32.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

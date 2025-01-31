@@ -132,7 +132,7 @@ ompi_request_cancel.exit:                         ; preds = %33, %36
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i32 @ompi_mirror_perm(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
@@ -267,7 +267,7 @@ define internal i32 @free_objs_callback(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @complete_objs_callback(ptr nocapture noundef %0) #0 {
+define internal i32 @complete_objs_callback(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -643,7 +643,7 @@ define internal i32 @free_vecs_callback(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @complete_vecs_callback(ptr nocapture noundef %0) #0 {
+define internal i32 @complete_vecs_callback(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -662,7 +662,7 @@ define internal i32 @complete_vecs_callback(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @nbc_req_constructor(ptr nocapture noundef writeonly initializes((160, 192), (200, 208)) %0) #5 {
+define internal void @nbc_req_constructor(ptr noundef writeonly captures(none) initializes((160, 192), (200, 208)) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr null, ptr %3, align 8
@@ -671,7 +671,7 @@ define internal void @nbc_req_constructor(ptr nocapture noundef writeonly initia
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @ompi_coll_base_file_getnext_long(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ompi_coll_base_file_getnext_long(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   br label %6
@@ -741,10 +741,10 @@ skiptonewline.exit:                               ; preds = %17, %24
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @ompi_coll_base_file_getnext_string(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ompi_coll_base_file_getnext_string(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
@@ -853,13 +853,13 @@ skiptonewline.exit14:                             ; preds = %38, %45
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #9
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @ompi_coll_base_file_getnext_size_t(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ompi_coll_base_file_getnext_size_t(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   br label %6
@@ -927,7 +927,7 @@ skiptonewline.exit:                               ; preds = %17, %24
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -1, 2) i32 @ompi_coll_base_file_peek_next_char_is(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #10 {
+define range(i32 -1, 2) i32 @ompi_coll_base_file_peek_next_char_is(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #10 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -1009,10 +1009,10 @@ skiptonewline.exit:                               ; preds = %14, %21
 declare ptr @__ctype_b_loc() local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1, 22) i32 @mca_coll_base_name_to_colltype(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define range(i32 -1, 22) i32 @mca_coll_base_name_to_colltype(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load i8, ptr %0, align 1
   switch i8 %2, label %50 [
     i8 110, label %3
@@ -1230,10 +1230,10 @@ sub_1:                                            ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define ptr @mca_coll_base_colltype_to_str(i32 noundef %0) local_unnamed_addr #2 {
@@ -1252,7 +1252,7 @@ define ptr @mca_coll_base_colltype_to_str(i32 noundef %0) local_unnamed_addr #2 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @release_objs_callback(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @release_objs_callback(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1395,10 +1395,10 @@ opal_obj_run_destructors.exit33:                  ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @release_vecs_callback(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @release_vecs_callback(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1590,13 +1590,13 @@ opal_obj_run_destructors.exit56:                  ; preds = %opal_obj_run_destru
 declare i32 @llvm.bitreverse.i32(i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

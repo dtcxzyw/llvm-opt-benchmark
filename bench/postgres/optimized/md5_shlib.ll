@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @md5_paddat = internal unnamed_addr constant <{ i8, [63 x i8] }> <{ i8 -128, [63 x i8] zeroinitializer }>, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @pg_md5_init(ptr nocapture noundef writeonly initializes((0, 92)) %0) local_unnamed_addr #0 {
+define void @pg_md5_init(ptr noundef writeonly captures(none) initializes((0, 92)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -24,10 +24,10 @@ define void @pg_md5_init(ptr nocapture noundef writeonly initializes((0, 92)) %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @pg_md5_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define void @pg_md5_update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = shl i64 %2, 3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
@@ -56,7 +56,7 @@ define void @pg_md5_update(ptr nocapture noundef %0, ptr nocapture noundef reado
   %.034 = phi i32 [ %18, %.lr.ph ], [ %10, %15 ]
   %19 = zext i32 %.034 to i64
   %20 = getelementptr i8, ptr %1, i64 %19
-  tail call fastcc void @md5_calc(ptr noundef %20, ptr noundef %0)
+  tail call fastcc void @md5_calc(ptr noundef %20, ptr noundef nonnull %0)
   %21 = add i32 %18, 64
   %22 = zext i32 %21 to i64
   %.not32 = icmp ult i64 %2, %22
@@ -90,10 +90,10 @@ define void @pg_md5_update(ptr nocapture noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @md5_calc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #4 {
+define internal fastcc void @md5_calc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #4 {
   %3 = load i32, ptr %1, align 8
   %4 = getelementptr i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -669,7 +669,7 @@ define internal fastcc void @md5_calc(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @pg_md5_final(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) local_unnamed_addr #4 {
+define void @pg_md5_final(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = sub i32 64, %4
@@ -706,7 +706,7 @@ md5_pad.exit:                                     ; preds = %11, %13
 declare i32 @llvm.fshl.i32(i32, i32, i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

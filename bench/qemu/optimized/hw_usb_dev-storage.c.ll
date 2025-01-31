@@ -115,7 +115,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_usb_msd_register_types, ptr null }]
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @usb_msd_transfer_data(ptr nocapture noundef readonly %req, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local void @usb_msd_transfer_data(ptr noundef readonly captures(none) %req, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %_now.i.i.i15 = alloca %struct.timeval, align 8
   %_now.i.i.i.i = alloca %struct.timeval, align 8
@@ -325,7 +325,7 @@ if.end15:                                         ; preds = %usb_msd_copy_data.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @usb_msd_copy_data(ptr nocapture noundef %s, ptr noundef %p) unnamed_addr #0 {
+define internal fastcc void @usb_msd_copy_data(ptr noundef captures(none) %s, ptr noundef %p) unnamed_addr #0 {
 entry:
   %size = getelementptr inbounds nuw i8, ptr %p, i64 64
   %0 = load i64, ptr %size, align 8
@@ -783,10 +783,10 @@ declare void @scsi_req_cancel(ptr noundef) local_unnamed_addr #1
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias noundef ptr @usb_msd_load_request(ptr nocapture noundef readnone %f, ptr noundef %req) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @usb_msd_load_request(ptr noundef readnone captures(none) %f, ptr noundef %req) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %req, align 8
   %parent = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -825,7 +825,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -842,7 +842,7 @@ declare void @usb_packet_complete(ptr noundef, ptr noundef) local_unnamed_addr #
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @usb_msd_class_initfn_common(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @usb_msd_class_initfn_common(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #7
   %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.21, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE_CLASS) #7
@@ -1509,10 +1509,10 @@ _nocheck__trace_usb_msd_packet_async.exit:        ; preds = %entry, %land.lhs.tr
 declare i64 @llvm.umin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #5

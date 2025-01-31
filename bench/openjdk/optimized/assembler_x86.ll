@@ -196,7 +196,7 @@ declare void @_ZN10Relocation11spec_simpleEN9relocInfo9relocTypeE(ptr dead_on_un
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZN7Address10make_arrayE12ArrayAddress(ptr dead_on_unwind noalias nocapture readnone sret(%class.Address) align 8 %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7Address10make_arrayE12ArrayAddress(ptr dead_on_unwind noalias readnone sret(%class.Address) align 8 captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %3, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 128) #19
@@ -290,7 +290,7 @@ define hidden void @_ZN7AddressC2EiPhN9relocInfo9relocTypeE(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind noalias writable sret(%class.Address) align 8 initializes((0, 21), (24, 44)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
@@ -349,7 +349,7 @@ define hidden noundef i32 @_ZN17AbstractAssembler14code_fill_byteEv() local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler15init_attributesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((24, 28), (32, 40)) %0) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN9Assembler15init_attributesEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((24, 28), (32, 40)) %0) local_unnamed_addr #6 align 2 {
   %2 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %3 = and i64 %2, 4294967296
   %.not = icmp eq i64 %3, 0
@@ -386,7 +386,7 @@ define hidden void @_ZN9Assembler14set_attributesEP15InstructionAttr(ptr noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler6membarENS_16Membar_mask_bitsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler6membarENS_16Membar_mask_bitsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
@@ -493,7 +493,7 @@ define hidden void @_ZN9Assembler6membarENS_16Membar_mask_bitsE(ptr nocapture no
 declare noundef i32 @_ZN10VM_Version12L1_line_sizeEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4lockEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4lockEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -505,7 +505,7 @@ define hidden void @_ZN9Assembler4lockEv(ptr nocapture noundef nonnull readonly 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4addlE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4addlE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -536,7 +536,7 @@ define hidden void @_ZN9Assembler4addlE7Addressi(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler9emit_dataEiN9relocInfo9relocTypeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler9emit_dataEiN9relocInfo9relocTypeEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.RelocationHolder, align 8
   %6 = icmp eq i32 %2, 0
   br i1 %6, label %_ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit, label %7
@@ -571,7 +571,7 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit: ; preds = %.sink.split.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler9emit_dataEiRK16RelocationHolderi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler9emit_dataEiRK16RelocationHolderi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
@@ -602,7 +602,7 @@ define hidden void @_ZN9Assembler9emit_dataEiRK16RelocationHolderi(ptr nocapture
 declare void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef, ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler12emit_arith_bEii8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler12emit_arith_bEii8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = sext i32 %3 to i64
   %7 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %6
   %8 = ptrtoint ptr %7 to i64
@@ -628,7 +628,7 @@ define hidden void @_ZN9Assembler12emit_arith_bEii8Registeri(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler10emit_arithEii8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler10emit_arithEii8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = add i32 %4, 128
   %7 = icmp ult i32 %6, 256
   br i1 %7, label %8, label %27
@@ -728,7 +728,7 @@ switch.lookup:                                    ; preds = %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler16emit_arith_imm32Eii8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler16emit_arith_imm32Eii8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = sext i32 %3 to i64
   %7 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %6
   %8 = ptrtoint ptr %7 to i64
@@ -758,7 +758,7 @@ define hidden void @_ZN9Assembler16emit_arith_imm32Eii8Registeri(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler18emit_arith_operandEi8Register7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler18emit_arith_operandEi8Register7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.Address, align 8
   %7 = alloca %class.Address, align 8
   %8 = add i32 %4, 128
@@ -864,7 +864,7 @@ define hidden void @_ZN9Assembler18emit_arith_operandEi8Register7Addressi(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler12emit_operandE8Register7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler12emit_operandE8Register7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %.sroa.01.0.copyload = load i32, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.sroa.0.0.copyload = load i32, ptr %5, align 4
@@ -893,7 +893,7 @@ define hidden void @_ZN9Assembler12emit_operandE8Register7Addressi(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler24emit_arith_operand_imm32Ei8Register7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler24emit_arith_operand_imm32Ei8Register7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.Address, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -944,7 +944,7 @@ define hidden void @_ZN9Assembler24emit_arith_operand_imm32Ei8Register7Addressi(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler10emit_arithEii8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 %3, i32 %4) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler10emit_arithEii8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 %3, i32 %4) local_unnamed_addr #8 align 2 {
   %6 = sext i32 %3 to i64
   %7 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %6
   %8 = ptrtoint ptr %7 to i64
@@ -1059,7 +1059,7 @@ switch.lookup:                                    ; preds = %19, %9, %12, %15, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN9Assembler25emit_compressed_disp_byteERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #10 align 2 {
+define hidden noundef zeroext i1 @_ZN9Assembler25emit_compressed_disp_byteERi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #10 align 2 {
   %3 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %4 = and i64 %3, 134217728
   %.not28 = icmp eq i64 %4, 0
@@ -1168,7 +1168,7 @@ switch.lookup:                                    ; preds = %26, %12, %19, %22, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN9Assembler10needs_rex2E8RegisterS0_S0_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN9Assembler10needs_rex2E8RegisterS0_S0_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #5 align 2 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %5
   %7 = ptrtoint ptr %6 to i64
@@ -1204,7 +1204,7 @@ define hidden noundef zeroext i1 @_ZN9Assembler10needs_rex2E8RegisterS0_S0_(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN9Assembler11needs_eevexE8RegisterS0_S0_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN9Assembler11needs_eevexE8RegisterS0_S0_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2, i32 %3) local_unnamed_addr #5 align 2 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %5
   %7 = ptrtoint ptr %6 to i64
@@ -1240,7 +1240,7 @@ _ZN9Assembler10needs_rex2E8RegisterS0_S0_.exit:   ; preds = %4, %11, %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN9Assembler11needs_eevexEiii(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN9Assembler11needs_eevexEiii(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 align 2 {
   %5 = icmp sgt i32 %1, 15
   %6 = icmp sgt i32 %2, 15
   %or.cond = or i1 %5, %6
@@ -1250,7 +1250,7 @@ define hidden noundef zeroext i1 @_ZN9Assembler11needs_eevexEiii(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler19emit_operand_helperEiiiN7Address11ScaleFactorEiRK16RelocationHolderi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %7) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler19emit_operand_helperEiiiN7Address11ScaleFactorEiRK16RelocationHolderi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %7) local_unnamed_addr #0 align 2 {
   %9 = alloca i32, align 4
   store i32 %5, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -1660,7 +1660,7 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit83: ; preds = %234, %.sink.sp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler12emit_operandE8RegisterS0_S0_N7Address11ScaleFactorEiRK16RelocationHolderi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %7) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler12emit_operandE8RegisterS0_S0_N7Address11ScaleFactorEiRK16RelocationHolderi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %7) local_unnamed_addr #0 align 2 {
   %9 = sext i32 %1 to i64
   %10 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %9
   %11 = ptrtoint ptr %10 to i64
@@ -1681,7 +1681,7 @@ define hidden void @_ZN9Assembler12emit_operandE8RegisterS0_S0_N7Address11ScaleF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler12emit_operandE11XMMRegister8RegisterS1_N7Address11ScaleFactorEiRK16RelocationHolderi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %7) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler12emit_operandE11XMMRegister8RegisterS1_N7Address11ScaleFactorEiRK16RelocationHolderi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %7) local_unnamed_addr #0 align 2 {
   %9 = sext i32 %1 to i64
   %10 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %9
   %11 = ptrtoint ptr %10 to i64
@@ -1702,7 +1702,7 @@ define hidden void @_ZN9Assembler12emit_operandE11XMMRegister8RegisterS1_N7Addre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler12emit_operandE11XMMRegister8RegisterS0_N7Address11ScaleFactorEiRK16RelocationHolderi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %7) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler12emit_operandE11XMMRegister8RegisterS0_N7Address11ScaleFactorEiRK16RelocationHolderi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %7) local_unnamed_addr #0 align 2 {
   %9 = sext i32 %1 to i64
   %10 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %9
   %11 = ptrtoint ptr %10 to i64
@@ -1723,7 +1723,7 @@ define hidden void @_ZN9Assembler12emit_operandE11XMMRegister8RegisterS0_N7Addre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler12emit_operandE9KRegister7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler12emit_operandE9KRegister7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %.sroa.01.0.copyload = load i32, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.sroa.0.0.copyload = load i32, ptr %5, align 4
@@ -1752,7 +1752,7 @@ define hidden void @_ZN9Assembler12emit_operandE9KRegister7Addressi(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler12emit_operandE9KRegister8RegisterS1_N7Address11ScaleFactorEiRK16RelocationHolderi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %7) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler12emit_operandE9KRegister8RegisterS1_N7Address11ScaleFactorEiRK16RelocationHolderi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef %7) local_unnamed_addr #0 align 2 {
   %9 = sext i32 %1 to i64
   %10 = getelementptr inbounds %"class.KRegister::KRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_KRegisterImpls, i64 1), i64 %9
   %11 = ptrtoint ptr %10 to i64
@@ -2325,7 +2325,7 @@ define hidden noundef nonnull ptr @_ZN9Assembler23locate_next_instructionEPh(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler12emit_operandE11XMMRegister7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler12emit_operandE11XMMRegister7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %6 = load i8, ptr %5, align 4
   %7 = trunc i8 %6 to i1
@@ -2372,7 +2372,7 @@ define hidden void @_ZN9Assembler12emit_operandE11XMMRegister7Addressi(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler31emit_opcode_prefix_and_encodingEiiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler31emit_opcode_prefix_and_encodingEiiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 align 2 {
   %6 = and i32 %3, 65280
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %22, label %7
@@ -2422,7 +2422,7 @@ define hidden void @_ZN9Assembler31emit_opcode_prefix_and_encodingEiiii(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler31emit_opcode_prefix_and_encodingEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler31emit_opcode_prefix_and_encodingEiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = and i32 %3, 65280
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %19, label %6
@@ -2466,7 +2466,7 @@ define hidden void @_ZN9Assembler31emit_opcode_prefix_and_encodingEiii(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler31emit_opcode_prefix_and_encodingEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler31emit_opcode_prefix_and_encodingEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = and i32 %2, 65280
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %16, label %5
@@ -2504,7 +2504,7 @@ define hidden void @_ZN9Assembler31emit_opcode_prefix_and_encodingEii(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4adclE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4adclE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2535,7 +2535,7 @@ define hidden void @_ZN9Assembler4adclE7Addressi(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler6prefixE7Addressb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler6prefixE7Addressb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = load i32, ptr %1, align 4
   %6 = sext i32 %5 to i64
@@ -2673,7 +2673,7 @@ _ZN9Assembler11prefix_rex2E7Addressb.exit:        ; preds = %21, %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4adclE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4adclE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2732,7 +2732,7 @@ define hidden void @_ZN9Assembler4adclE7Address8Register(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler6prefixE7Address8Registerbb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler6prefixE7Address8Registerbb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.Address, align 8
   %7 = sext i32 %2 to i64
   %8 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %7
@@ -2938,7 +2938,7 @@ _ZN9Assembler11prefix_rex2E7Address8Registerbb.exit: ; preds = %30, %42
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4adclE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4adclE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -3050,7 +3050,7 @@ _ZN9Assembler10emit_arithEii8Registeri.exit:      ; preds = %29, %44, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler6prefixE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler6prefixE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -3098,7 +3098,7 @@ define hidden void @_ZN9Assembler6prefixE8Register(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4adclE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4adclE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3157,7 +3157,7 @@ define hidden void @_ZN9Assembler4adclE8Register7Address(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4adclE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4adclE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -3249,7 +3249,7 @@ _ZN9Assembler17prefix_and_encodeEiib.exit:        ; preds = %36, %38, %44, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4addbE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4addbE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3310,7 +3310,7 @@ define hidden void @_ZN9Assembler4addbE7Addressi(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4addbE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4addbE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3369,7 +3369,7 @@ define hidden void @_ZN9Assembler4addbE7Address8Register(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4addbE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4addbE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -3440,7 +3440,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %_ZN9Assembler17pref
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN9Assembler17prefix_and_encodeEibb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #8 align 2 {
+define hidden noundef i32 @_ZN9Assembler17prefix_and_encodeEibb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #8 align 2 {
   %5 = icmp sgt i32 %1, 15
   br i1 %5, label %6, label %23
 
@@ -3510,7 +3510,7 @@ define hidden noundef i32 @_ZN9Assembler17prefix_and_encodeEibb(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4addwE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4addwE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3605,7 +3605,7 @@ _ZN9Assembler17prefix_and_encodeEiib.exit:        ; preds = %40, %42, %47, %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4addwE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4addwE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3673,7 +3673,7 @@ define hidden void @_ZN9Assembler4addwE7Addressi(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4addwE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4addwE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3738,7 +3738,7 @@ define hidden void @_ZN9Assembler4addwE7Address8Register(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4addlE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4addlE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3797,7 +3797,7 @@ define hidden void @_ZN9Assembler4addlE7Address8Register(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4addlE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4addlE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -3909,7 +3909,7 @@ _ZN9Assembler10emit_arithEii8Registeri.exit:      ; preds = %29, %44, %53
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4addlE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4addlE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3968,7 +3968,7 @@ define hidden void @_ZN9Assembler4addlE8Register7Address(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4addlE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4addlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -4060,7 +4060,7 @@ _ZN9Assembler17prefix_and_encodeEiib.exit:        ; preds = %36, %38, %44, %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler10addr_nop_4Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler10addr_nop_4Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4078,7 +4078,7 @@ define hidden void @_ZN9Assembler10addr_nop_4Ev(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler10addr_nop_5Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler10addr_nop_5Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4102,7 +4102,7 @@ define hidden void @_ZN9Assembler10addr_nop_5Ev(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler10addr_nop_7Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler10addr_nop_7Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4125,7 +4125,7 @@ define hidden void @_ZN9Assembler10addr_nop_7Ev(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler10addr_nop_8Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler10addr_nop_8Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4397,7 +4397,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN15InstructionAttr22set_address_attributesEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN15InstructionAttr22set_address_attributesEii(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %5 = and i64 %4, 134217728
   %.not = icmp eq i64 %5, 0
@@ -6012,7 +6012,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4andbE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4andbE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6071,7 +6071,7 @@ define hidden void @_ZN9Assembler4andbE7Address8Register(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4andwE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4andwE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -6163,7 +6163,7 @@ _ZN9Assembler17prefix_and_encodeEiib.exit:        ; preds = %36, %38, %44, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4andlE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4andlE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6194,7 +6194,7 @@ define hidden void @_ZN9Assembler4andlE7Addressi(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4andlE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4andlE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -6306,7 +6306,7 @@ _ZN9Assembler10emit_arithEii8Registeri.exit:      ; preds = %29, %44, %53
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4andlE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4andlE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6365,7 +6365,7 @@ define hidden void @_ZN9Assembler4andlE7Address8Register(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4andlE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4andlE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6424,7 +6424,7 @@ define hidden void @_ZN9Assembler4andlE8Register7Address(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4andlE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4andlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -6705,7 +6705,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler10vex_prefixE7AddressiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef initializes((32, 40)) %6) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler10vex_prefixE7AddressiiNS_13VexSimdPrefixENS_9VexOpcodeEP15InstructionAttr(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef initializes((32, 40)) %6) local_unnamed_addr #8 align 2 {
   %8 = load i32, ptr %1, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %9
@@ -7012,7 +7012,7 @@ _ZN9Assembler10vex_prefixEbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4bsflE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4bsflE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -7145,7 +7145,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %64, %76
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4bsrlE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4bsrlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -7278,7 +7278,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %64, %76
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler6bswaplE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler6bswaplE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -7906,7 +7906,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4callER5LabelN9relocInfo9relocTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(33) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4callER5LabelN9relocInfo9relocTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(33) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.RelocationHolder, align 8
   %5 = alloca %class.RelocationHolder, align 8
   %6 = load i32, ptr %1, align 8
@@ -8028,7 +8028,7 @@ _ZN9Assembler9emit_dataEiN9relocInfo9relocTypeEi.exit10: ; preds = %39, %61, %.s
 declare void @_ZN5Label12add_patch_atEP10CodeBufferiPKci(ptr noundef nonnull align 8 dereferenceable(33), ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4callE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4callE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -8091,7 +8091,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %26, %24, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4callE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4callE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8145,7 +8145,7 @@ define hidden void @_ZN9Assembler4callE7Address(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler12call_literalEPhRK16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler12call_literalEPhRK16RelocationHolder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -8195,7 +8195,7 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit: ; preds = %3, %.sink.split.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4cdqlEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4cdqlEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -8207,7 +8207,7 @@ define hidden void @_ZN9Assembler4cdqlEv(ptr nocapture noundef nonnull readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler3cldEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler3cldEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -8219,7 +8219,7 @@ define hidden void @_ZN9Assembler3cldEv(ptr nocapture noundef nonnull readonly a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5cmovlENS_9ConditionE8RegisterS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5cmovlENS_9ConditionE8RegisterS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %5
   %7 = ptrtoint ptr %6 to i64
@@ -8355,7 +8355,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %66, %79
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler5cmovlENS_9ConditionE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler5cmovlENS_9ConditionE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.Address, align 8
   %6 = alloca %class.Address, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8416,7 +8416,7 @@ define hidden void @_ZN9Assembler5cmovlENS_9ConditionE8Register7Address(ptr noca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4cmpbE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4cmpbE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8475,7 +8475,7 @@ define hidden void @_ZN9Assembler4cmpbE7Address8Register(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4cmpbE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4cmpbE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8534,7 +8534,7 @@ define hidden void @_ZN9Assembler4cmpbE8Register7Address(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4cmpbE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4cmpbE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8595,7 +8595,7 @@ define hidden void @_ZN9Assembler4cmpbE7Addressi(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4cmplE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4cmplE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8626,7 +8626,7 @@ define hidden void @_ZN9Assembler4cmplE7Addressi(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4cmplE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4cmplE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -8736,7 +8736,7 @@ _ZN9Assembler10emit_arithEii8Registeri.exit:      ; preds = %29, %43, %52
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4cmplE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4cmplE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -8828,7 +8828,7 @@ _ZN9Assembler17prefix_and_encodeEiib.exit:        ; preds = %36, %38, %44, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4cmplE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4cmplE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8887,7 +8887,7 @@ define hidden void @_ZN9Assembler4cmplE8Register7Address(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4cmplE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4cmplE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8946,7 +8946,7 @@ define hidden void @_ZN9Assembler4cmplE7Address8Register(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler10cmpl_imm32E7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler10cmpl_imm32E7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = alloca %class.Address, align 8
@@ -9016,7 +9016,7 @@ define hidden void @_ZN9Assembler10cmpl_imm32E7Addressi(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4cmpwE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4cmpwE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9084,7 +9084,7 @@ define hidden void @_ZN9Assembler4cmpwE7Addressi(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4cmpwE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4cmpwE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9149,7 +9149,7 @@ define hidden void @_ZN9Assembler4cmpwE7Address8Register(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler8cmpxchglE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler8cmpxchglE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9208,7 +9208,7 @@ define hidden void @_ZN9Assembler8cmpxchglE8Register7Address(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler8cmpxchgwE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler8cmpxchgwE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9273,7 +9273,7 @@ define hidden void @_ZN9Assembler8cmpxchgwE8Register7Address(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler11size_prefixEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler11size_prefixEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -9285,7 +9285,7 @@ define hidden void @_ZN9Assembler11size_prefixEv(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler8cmpxchgbE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler8cmpxchgbE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9751,7 +9751,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5cpuidEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5cpuidEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -9940,7 +9940,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %54, %._crit_edge, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler6prefixE8RegisterS0_NS_6PrefixE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler6prefixE8RegisterS0_NS_6PrefixE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = and i32 %3, 54528
   %.not = icmp eq i32 %5, 0
   %6 = sext i32 %2 to i64
@@ -10235,7 +10235,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %89, %_ZN15Instructi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler6prefixE8Register7AddressNS_6PrefixE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler6prefixE8Register7AddressNS_6PrefixE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.Address, align 8
   %6 = load i32, ptr %2, align 4
   %7 = sext i32 %6 to i64
@@ -14158,7 +14158,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %42
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4declE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4declE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14623,7 +14623,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler3hltEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler3hltEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -14635,7 +14635,7 @@ define hidden void @_ZN9Assembler3hltEv(ptr nocapture noundef nonnull readonly a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5idivlE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5idivlE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -14697,7 +14697,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %25, %23, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4divlE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4divlE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -14760,7 +14760,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %26, %24, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5imullE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5imullE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -14823,7 +14823,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %26, %24, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5imullE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5imullE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -14956,7 +14956,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %64, %76
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler5imullE8Register7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler5imullE8Register7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.Address, align 8
   %6 = alloca %class.Address, align 8
   %7 = alloca %class.Address, align 8
@@ -15067,7 +15067,7 @@ define hidden void @_ZN9Assembler5imullE8Register7Addressi(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5imullE8RegisterS0_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5imullE8RegisterS0_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %5
   %7 = ptrtoint ptr %6 to i64
@@ -15200,7 +15200,7 @@ _ZN9Assembler17prefix_and_encodeEiib.exit:        ; preds = %17, %59
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler5imullE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler5imullE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15259,7 +15259,7 @@ define hidden void @_ZN9Assembler5imullE8Register7Address(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4inclE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4inclE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15313,7 +15313,7 @@ define hidden void @_ZN9Assembler4inclE7Address(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(33) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(33) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -15413,7 +15413,7 @@ define hidden void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(33) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(33) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = load i32, ptr %2, align 8
   %7 = icmp sgt i32 %6, -1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15480,7 +15480,7 @@ define hidden void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler3jmpE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler3jmpE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15534,7 +15534,7 @@ define hidden void @_ZN9Assembler3jmpE7Address(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler3jmpER5Labelb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(33) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(33) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = load i32, ptr %1, align 8
   %5 = icmp sgt i32 %4, -1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15628,7 +15628,7 @@ define hidden void @_ZN9Assembler3jmpER5Labelb(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler3jmpE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler3jmpE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -15691,7 +15691,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %26, %24, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler11jmp_literalEPhRK16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler11jmp_literalEPhRK16RelocationHolder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -15741,7 +15741,7 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit: ; preds = %3, %.sink.split.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler6jmpb_0ER5LabelPKci(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler6jmpb_0ER5LabelPKci(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = load i32, ptr %1, align 8
   %6 = icmp sgt i32 %5, -1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15956,7 +15956,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %61, %13, %63
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4lealE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4lealE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16015,7 +16015,7 @@ define hidden void @_ZN9Assembler4lealE8Register7Address(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler6lfenceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler6lfenceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -16031,7 +16031,7 @@ define hidden void @_ZN9Assembler6lfenceEv(ptr nocapture noundef nonnull readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler6lzcntlE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler6lzcntlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -16166,7 +16166,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %66, %77
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler6lzcntlE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler6lzcntlE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16231,7 +16231,7 @@ define hidden void @_ZN9Assembler6lzcntlE8Register7Address(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler6mfenceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler6mfenceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -16247,7 +16247,7 @@ define hidden void @_ZN9Assembler6mfenceEv(ptr nocapture noundef nonnull readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler6sfenceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler6sfenceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -16263,7 +16263,7 @@ define hidden void @_ZN9Assembler6sfenceEv(ptr nocapture noundef nonnull readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler3movE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -16368,7 +16368,7 @@ _ZN9Assembler4movqE8RegisterS0_.exit:             ; preds = %16, %54
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4movqE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4movqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -16727,7 +16727,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4movbE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4movbE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20686,7 +20686,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4movbE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4movbE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20747,7 +20747,7 @@ define hidden void @_ZN9Assembler4movbE7Addressi(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4movbE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4movbE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -24480,7 +24480,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler12emit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4movlE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -24548,7 +24548,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %27, %25, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4movlE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4movlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -24653,7 +24653,7 @@ _ZN9Assembler17prefix_and_encodeEiib.exit:        ; preds = %16, %58
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4movlE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4movlE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -24712,7 +24712,7 @@ define hidden void @_ZN9Assembler4movlE8Register7Address(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4movlE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4movlE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -24773,7 +24773,7 @@ define hidden void @_ZN9Assembler4movlE7Addressi(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4movlE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4movlE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -25457,7 +25457,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler6movsblE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler6movsblE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -25516,7 +25516,7 @@ define hidden void @_ZN9Assembler6movsblE8Register7Address(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler6movsblE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler6movsblE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -25663,7 +25663,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %72, %84
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN9Assembler17prefix_and_encodeEibibb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #8 align 2 {
+define hidden noundef i32 @_ZN9Assembler17prefix_and_encodeEibibb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #8 align 2 {
   %7 = icmp sgt i32 %3, 15
   %8 = icmp sgt i32 %1, 15
   %or.cond = or i1 %8, %7
@@ -26513,7 +26513,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler6movswlE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler6movswlE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -26572,7 +26572,7 @@ define hidden void @_ZN9Assembler6movswlE8Register7Address(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler6movswlE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler6movswlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -27181,7 +27181,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4movwE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4movwE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -27249,7 +27249,7 @@ define hidden void @_ZN9Assembler4movwE7Addressi(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4movwE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4movwE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -27314,7 +27314,7 @@ define hidden void @_ZN9Assembler4movwE8Register7Address(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4movwE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4movwE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -27379,7 +27379,7 @@ define hidden void @_ZN9Assembler4movwE7Address8Register(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler6movzblE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler6movzblE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -27438,7 +27438,7 @@ define hidden void @_ZN9Assembler6movzblE8Register7Address(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler6movzblE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler6movzblE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -27585,7 +27585,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %72, %84
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler6movzwlE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler6movzwlE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -27644,7 +27644,7 @@ define hidden void @_ZN9Assembler6movzwlE8Register7Address(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler6movzwlE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler6movzwlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -27777,7 +27777,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %64, %76
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4mullE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4mullE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -27831,7 +27831,7 @@ define hidden void @_ZN9Assembler4mullE7Address(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4mullE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4mullE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -28305,7 +28305,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4neglE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4neglE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -28368,7 +28368,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %26, %24, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4neglE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4neglE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -29483,7 +29483,7 @@ define hidden void @_ZN9Assembler3nopEj(ptr noundef nonnull readonly align 8 der
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4notlE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4notlE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -29546,7 +29546,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %26, %24, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler3orwE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler3orwE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -29638,7 +29638,7 @@ _ZN9Assembler17prefix_and_encodeEiib.exit:        ; preds = %36, %38, %44, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler3orlE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler3orlE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -29669,7 +29669,7 @@ define hidden void @_ZN9Assembler3orlE7Addressi(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler3orlE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler3orlE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -29781,7 +29781,7 @@ _ZN9Assembler10emit_arithEii8Registeri.exit:      ; preds = %29, %44, %53
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler3orlE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler3orlE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -29840,7 +29840,7 @@ define hidden void @_ZN9Assembler3orlE8Register7Address(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler3orlE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler3orlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -29932,7 +29932,7 @@ _ZN9Assembler17prefix_and_encodeEiib.exit:        ; preds = %36, %38, %44, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler3orlE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler3orlE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -29991,7 +29991,7 @@ define hidden void @_ZN9Assembler3orlE7Address8Register(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler3orbE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler3orbE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -30052,7 +30052,7 @@ define hidden void @_ZN9Assembler3orbE7Addressi(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler3orbE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler3orbE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -32211,7 +32211,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5pauseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5pauseEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -32225,7 +32225,7 @@ define hidden void @_ZN9Assembler5pauseEv(ptr nocapture noundef nonnull readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler3ud2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler3ud2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -41135,7 +41135,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %5, %48
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler3popE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler3popE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -41196,7 +41196,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %26, %24, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler7popcntlE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler7popcntlE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -41261,7 +41261,7 @@ define hidden void @_ZN9Assembler7popcntlE8Register7Address(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler7popcntlE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler7popcntlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -41720,7 +41720,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %31, %52
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4popfEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4popfEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -41732,7 +41732,7 @@ define hidden void @_ZN9Assembler4popfEv(ptr nocapture noundef nonnull readonly 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler11prefetchntaE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler11prefetchntaE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -41786,7 +41786,7 @@ define hidden void @_ZN9Assembler11prefetchntaE7Address(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler9prefetchrE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler9prefetchrE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -41840,7 +41840,7 @@ define hidden void @_ZN9Assembler9prefetchrE7Address(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler10prefetcht0E7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler10prefetcht0E7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -41894,7 +41894,7 @@ define hidden void @_ZN9Assembler10prefetcht0E7Address(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler10prefetcht1E7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler10prefetcht1E7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -41948,7 +41948,7 @@ define hidden void @_ZN9Assembler10prefetcht1E7Address(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler10prefetcht2E7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler10prefetcht2E7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -42002,7 +42002,7 @@ define hidden void @_ZN9Assembler10prefetcht2E7Address(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler9prefetchwE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler9prefetchwE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -42056,7 +42056,7 @@ define hidden void @_ZN9Assembler9prefetchwE7Address(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler6prefixENS_6PrefixE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler6prefixENS_6PrefixE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = trunc i32 %1 to i8
@@ -42069,7 +42069,7 @@ define hidden void @_ZN9Assembler6prefixENS_6PrefixE(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler8prefix16Ei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler8prefix16Ei(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = lshr i32 %1, 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -45820,7 +45820,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler11evex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler11evex_prefixEbbbbbbbiNS_13VexSimdPrefixENS_9VexOpcodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler11evex_prefixEbbbbbbbiNS_13VexSimdPrefixENS_9VexOpcodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #8 align 2 {
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = load i8, ptr %13, align 8
@@ -46131,7 +46131,7 @@ _ZN9Assembler4pop2E8RegisterS0_b.exit:            ; preds = %3, %46
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5pushpE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5pushpE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -46169,7 +46169,7 @@ define hidden void @_ZN9Assembler5pushpE8Register(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 0, 8) i32 @_ZN9Assembler23prefixq_and_encode_rex2Eib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #8 align 2 {
+define hidden noundef range(i32 0, 8) i32 @_ZN9Assembler23prefixq_and_encode_rex2Eib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #8 align 2 {
   %4 = select i1 %2, i32 136, i32 8
   %5 = and i32 %1, 16
   %6 = lshr i32 %1, 3
@@ -46195,7 +46195,7 @@ define hidden noundef range(i32 0, 8) i32 @_ZN9Assembler23prefixq_and_encode_rex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4poppE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4poppE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -46233,7 +46233,7 @@ define hidden void @_ZN9Assembler4poppE8Register(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4pushEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4pushEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -46252,7 +46252,7 @@ define hidden void @_ZN9Assembler4pushEi(ptr nocapture noundef nonnull readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4pushE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4pushE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -46313,7 +46313,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %26, %24, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5pushfEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5pushfEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -46325,7 +46325,7 @@ define hidden void @_ZN9Assembler5pushfEv(ptr nocapture noundef nonnull readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4rcllE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4rcllE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -46566,7 +46566,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5rdtscEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5rdtscEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -46580,7 +46580,7 @@ define hidden void @_ZN9Assembler5rdtscEv(ptr nocapture noundef nonnull readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler7rep_movEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler7rep_movEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -46596,7 +46596,7 @@ define hidden void @_ZN9Assembler7rep_movEv(ptr nocapture noundef nonnull readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler9rep_stosbEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler9rep_stosbEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -46612,7 +46612,7 @@ define hidden void @_ZN9Assembler9rep_stosbEv(ptr nocapture noundef nonnull read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler8rep_stosEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler8rep_stosEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -46628,7 +46628,7 @@ define hidden void @_ZN9Assembler8rep_stosEv(ptr nocapture noundef nonnull reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler10repne_scanEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler10repne_scanEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -46644,7 +46644,7 @@ define hidden void @_ZN9Assembler10repne_scanEv(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler11repne_scanlEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler11repne_scanlEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -46658,7 +46658,7 @@ define hidden void @_ZN9Assembler11repne_scanlEv(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler3retEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler3retEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = icmp eq i32 %1, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -46690,7 +46690,7 @@ define hidden void @_ZN9Assembler3retEi(ptr nocapture noundef nonnull readonly a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4rollE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4rollE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -46773,7 +46773,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %27, %25, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4rollE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4rollE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -46836,7 +46836,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %26, %24, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4rorlE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4rorlE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -46919,7 +46919,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %27, %25, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4rorlE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4rorlE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -46982,7 +46982,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %26, %24, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4rorqE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4rorqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -47051,7 +47051,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %32, %33, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN9Assembler18prefixq_and_encodeEib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #8 align 2 {
+define hidden noundef i32 @_ZN9Assembler18prefixq_and_encodeEib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #8 align 2 {
   %4 = icmp sgt i32 %1, 15
   br i1 %4, label %5, label %22
 
@@ -47111,7 +47111,7 @@ define hidden noundef i32 @_ZN9Assembler18prefixq_and_encodeEib(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4rorqE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4rorqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -47200,7 +47200,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %33, %34, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4rolqE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4rolqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -47269,7 +47269,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %32, %33, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4rolqE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4rolqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -47358,7 +47358,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %33, %34, %10
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZN9Assembler4sahfEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN9Assembler4sahfEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 6132) #19
@@ -47366,7 +47366,7 @@ define hidden void @_ZN9Assembler4sahfEv(ptr nocapture noundef nonnull readnone 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4sallE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4sallE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = alloca %class.Address, align 8
@@ -47464,7 +47464,7 @@ define hidden void @_ZN9Assembler4sallE7Addressi(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4sallE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4sallE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -47518,7 +47518,7 @@ define hidden void @_ZN9Assembler4sallE7Address(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4sallE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4sallE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -47601,7 +47601,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %27, %25, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4sallE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4sallE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -47664,7 +47664,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %26, %24, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4sarlE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4sarlE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = alloca %class.Address, align 8
@@ -47762,7 +47762,7 @@ define hidden void @_ZN9Assembler4sarlE7Addressi(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4sarlE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4sarlE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -47816,7 +47816,7 @@ define hidden void @_ZN9Assembler4sarlE7Address(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4sarlE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4sarlE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -47898,7 +47898,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %26, %24, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4sarlE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4sarlE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -47960,7 +47960,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %25, %23, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4sbblE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4sbblE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -47991,7 +47991,7 @@ define hidden void @_ZN9Assembler4sbblE7Addressi(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4sbblE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4sbblE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -48103,7 +48103,7 @@ _ZN9Assembler10emit_arithEii8Registeri.exit:      ; preds = %29, %44, %53
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4sbblE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4sbblE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -48162,7 +48162,7 @@ define hidden void @_ZN9Assembler4sbblE8Register7Address(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4sbblE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4sbblE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -48254,7 +48254,7 @@ _ZN9Assembler17prefix_and_encodeEiib.exit:        ; preds = %36, %38, %44, %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4setbENS_9ConditionE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4setbENS_9ConditionE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -48707,7 +48707,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler9sha1rnds4E11XMMRegisterS0_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler9sha1rnds4E11XMMRegisterS0_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %5
   %7 = ptrtoint ptr %6 to i64
@@ -48827,7 +48827,7 @@ _ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #8 align 2 {
+define hidden noundef i32 @_ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #8 align 2 {
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %8, label %18
 
@@ -49039,7 +49039,7 @@ _ZN9Assembler18prefixq_and_encodeEiib.exit:       ; preds = %108, %66, %60, %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler9sha1nexteE11XMMRegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler9sha1nexteE11XMMRegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -49156,7 +49156,7 @@ _ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler8sha1msg1E11XMMRegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler8sha1msg1E11XMMRegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -49273,7 +49273,7 @@ _ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler8sha1msg2E11XMMRegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler8sha1msg2E11XMMRegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -49390,7 +49390,7 @@ _ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler11sha256rnds2E11XMMRegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler11sha256rnds2E11XMMRegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -49507,7 +49507,7 @@ _ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler10sha256msg1E11XMMRegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler10sha256msg1E11XMMRegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -49624,7 +49624,7 @@ _ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler10sha256msg2E11XMMRegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler10sha256msg2E11XMMRegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -49741,7 +49741,7 @@ _ZN9Assembler21rex_prefix_and_encodeEiiNS_13VexSimdPrefixENS_9VexOpcodeEb.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4shllE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4shllE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -49824,7 +49824,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %27, %25, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4shllE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4shllE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -49887,7 +49887,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %26, %24, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4shrlE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4shrlE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -49970,7 +49970,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %27, %25, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4shrlE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4shrlE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -50033,7 +50033,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %26, %24, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4shrlE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4shrlE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -50087,7 +50087,7 @@ define hidden void @_ZN9Assembler4shrlE7Address(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4shrlE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4shrlE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = alloca %class.Address, align 8
@@ -50185,7 +50185,7 @@ define hidden void @_ZN9Assembler4shrlE7Addressi(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5shldlE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5shldlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -50318,7 +50318,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %64, %76
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5shldlE8RegisterS0_a(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2, i8 noundef signext %3) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5shldlE8RegisterS0_a(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2, i8 noundef signext %3) local_unnamed_addr #8 align 2 {
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %5
   %7 = ptrtoint ptr %6 to i64
@@ -50455,7 +50455,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiiii.exit: ; preds = %65, %78
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5shrdlE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5shrdlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -50588,7 +50588,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %64, %76
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5shrdlE8RegisterS0_a(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2, i8 noundef signext %3) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5shrdlE8RegisterS0_a(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2, i8 noundef signext %3) local_unnamed_addr #8 align 2 {
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %5
   %7 = ptrtoint ptr %6 to i64
@@ -50725,7 +50725,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiiii.exit: ; preds = %65, %78
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5shldqE8RegisterS0_a(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2, i8 noundef signext %3) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5shldqE8RegisterS0_a(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2, i8 noundef signext %3) local_unnamed_addr #8 align 2 {
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %5
   %7 = ptrtoint ptr %6 to i64
@@ -50861,7 +50861,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiiii.exit: ; preds = %60, %73
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN9Assembler18prefixq_and_encodeEiib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #8 align 2 {
+define hidden noundef i32 @_ZN9Assembler18prefixq_and_encodeEiib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #8 align 2 {
   %5 = icmp sgt i32 %1, 15
   %6 = icmp sgt i32 %2, 15
   %or.cond = or i1 %5, %6
@@ -50958,7 +50958,7 @@ define hidden noundef i32 @_ZN9Assembler18prefixq_and_encodeEiib(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5shrdqE8RegisterS0_a(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2, i8 noundef signext %3) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5shrdqE8RegisterS0_a(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2, i8 noundef signext %3) local_unnamed_addr #8 align 2 {
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %5
   %7 = ptrtoint ptr %6 to i64
@@ -51094,7 +51094,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiiii.exit: ; preds = %60, %73
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5smovlEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5smovlEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -51594,7 +51594,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler3stdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler3stdEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -51878,7 +51878,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %61, %13, %63
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4sublE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4sublE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -51909,7 +51909,7 @@ define hidden void @_ZN9Assembler4sublE7Addressi(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4sublE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4sublE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -51968,7 +51968,7 @@ define hidden void @_ZN9Assembler4sublE7Address8Register(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4sublE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4sublE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -52080,7 +52080,7 @@ _ZN9Assembler10emit_arithEii8Registeri.exit:      ; preds = %29, %44, %53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler10subl_imm32E8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler10subl_imm32E8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -52147,7 +52147,7 @@ _ZN9Assembler6prefixE8Register.exit:              ; preds = %20, %.sink.split.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4sublE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4sublE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -52206,7 +52206,7 @@ define hidden void @_ZN9Assembler4sublE8Register7Address(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4sublE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4sublE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -52709,7 +52709,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5testbE8Registerib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5testbE8Registerib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #8 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %5, label %27
 
@@ -52825,7 +52825,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %_ZN9Assembler17pref
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler5testbE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler5testbE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -52886,7 +52886,7 @@ define hidden void @_ZN9Assembler5testbE7Addressi(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler5testlE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler5testlE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -52947,7 +52947,7 @@ define hidden void @_ZN9Assembler5testlE7Addressi(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5testlE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5testlE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %10
 
@@ -53035,7 +53035,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %34, %32, %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5testlE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5testlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -53127,7 +53127,7 @@ _ZN9Assembler17prefix_and_encodeEiib.exit:        ; preds = %36, %38, %44, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler5testlE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler5testlE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -53186,7 +53186,7 @@ define hidden void @_ZN9Assembler5testlE8Register7Address(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler6tzcntlE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler6tzcntlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -53321,7 +53321,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %66, %77
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler6tzcntlE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler6tzcntlE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -53386,7 +53386,7 @@ define hidden void @_ZN9Assembler6tzcntlE8Register7Address(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler6tzcntqE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler6tzcntqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -53521,7 +53521,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %62, %73
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler6tzcntqE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler6tzcntqE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -53586,7 +53586,7 @@ define hidden void @_ZN9Assembler6tzcntqE8Register7Address(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler7prefixqE7Address8Registerb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler7prefixqE7Address8Registerb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.Address, align 8
   %6 = alloca %class.Address, align 8
   %7 = load i32, ptr %1, align 4
@@ -54126,7 +54126,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler6xabortEa(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i8 noundef signext %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler6xabortEa(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i8 noundef signext %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -54142,7 +54142,7 @@ define hidden void @_ZN9Assembler6xabortEa(ptr nocapture noundef nonnull readonl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler5xaddbE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler5xaddbE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -54201,7 +54201,7 @@ define hidden void @_ZN9Assembler5xaddbE7Address8Register(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler5xaddwE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler5xaddwE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -54266,7 +54266,7 @@ define hidden void @_ZN9Assembler5xaddwE7Address8Register(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler5xaddlE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler5xaddlE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -54325,7 +54325,7 @@ define hidden void @_ZN9Assembler5xaddlE7Address8Register(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler6xbeginER5LabelN9relocInfo9relocTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(33) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler6xbeginER5LabelN9relocInfo9relocTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(33) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -54402,7 +54402,7 @@ define hidden void @_ZN9Assembler6xbeginER5LabelN9relocInfo9relocTypeE(ptr nocap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler5xchgbE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler5xchgbE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -54461,7 +54461,7 @@ define hidden void @_ZN9Assembler5xchgbE8Register7Address(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler5xchgwE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler5xchgwE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -54526,7 +54526,7 @@ define hidden void @_ZN9Assembler5xchgwE8Register7Address(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler5xchglE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler5xchglE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -54585,7 +54585,7 @@ define hidden void @_ZN9Assembler5xchglE8Register7Address(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5xchglE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5xchglE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -54690,7 +54690,7 @@ _ZN9Assembler17prefix_and_encodeEiib.exit:        ; preds = %16, %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4xendEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4xendEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -54706,7 +54706,7 @@ define hidden void @_ZN9Assembler4xendEv(ptr nocapture noundef nonnull readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler6xgetbvEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler6xgetbvEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -54722,7 +54722,7 @@ define hidden void @_ZN9Assembler6xgetbvEv(ptr nocapture noundef nonnull readonl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4xorlE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4xorlE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -54753,7 +54753,7 @@ define hidden void @_ZN9Assembler4xorlE7Addressi(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4xorlE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4xorlE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -54865,7 +54865,7 @@ _ZN9Assembler10emit_arithEii8Registeri.exit:      ; preds = %29, %44, %53
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4xorlE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4xorlE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -54924,7 +54924,7 @@ define hidden void @_ZN9Assembler4xorlE8Register7Address(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4xorlE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4xorlE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -55016,7 +55016,7 @@ _ZN9Assembler17prefix_and_encodeEiib.exit:        ; preds = %36, %38, %44, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4xorlE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4xorlE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -55075,7 +55075,7 @@ define hidden void @_ZN9Assembler4xorlE7Address8Register(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4xorbE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4xorbE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -55134,7 +55134,7 @@ define hidden void @_ZN9Assembler4xorbE8Register7Address(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4xorbE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4xorbE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -55193,7 +55193,7 @@ define hidden void @_ZN9Assembler4xorbE7Address8Register(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4xorwE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4xorwE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -55285,7 +55285,7 @@ _ZN9Assembler17prefix_and_encodeEiib.exit:        ; preds = %36, %38, %44, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4xorwE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4xorwE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -95265,7 +95265,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler5fld_xE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler5fld_xE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -95311,7 +95311,7 @@ define hidden void @_ZN9Assembler5fld_xE7Address(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler14emit_operand32E8Register7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler14emit_operand32E8Register7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %.sroa.01.0.copyload = load i32, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.sroa.0.0.copyload = load i32, ptr %5, align 4
@@ -95340,7 +95340,7 @@ define hidden void @_ZN9Assembler14emit_operand32E8Register7Addressi(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler6fstp_xE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler6fstp_xE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -95386,7 +95386,7 @@ define hidden void @_ZN9Assembler6fstp_xE7Address(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler5fld_dE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler5fld_dE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -95432,7 +95432,7 @@ define hidden void @_ZN9Assembler5fld_dE7Address(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5fpremEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5fpremEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -95446,7 +95446,7 @@ define hidden void @_ZN9Assembler5fpremEv(ptr nocapture noundef nonnull readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler9fnstsw_axEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler9fnstsw_axEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -95460,7 +95460,7 @@ define hidden void @_ZN9Assembler9fnstsw_axEv(ptr nocapture noundef nonnull read
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler6fstp_dE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler6fstp_dE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -95506,7 +95506,7 @@ define hidden void @_ZN9Assembler6fstp_dE7Address(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler6fstp_dEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler6fstp_dEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = trunc i32 %1 to i8
@@ -95522,7 +95522,7 @@ define hidden void @_ZN9Assembler6fstp_dEi(ptr nocapture noundef nonnull readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler11emit_farithEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler11emit_farithEiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = add nsw i32 %3, %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -95539,7 +95539,7 @@ define hidden void @_ZN9Assembler11emit_farithEiii(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler10rex_prefixE7Address11XMMRegisterNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler10rex_prefixE7Address11XMMRegisterNS_13VexSimdPrefixENS_9VexOpcodeEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %class.Address, align 8
   %8 = alloca %class.Address, align 8
   %9 = icmp sgt i32 %3, 0
@@ -95617,7 +95617,7 @@ define hidden void @_ZN9Assembler10rex_prefixE7Address11XMMRegisterNS_13VexSimdP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler7prefixqE7Address11XMMRegister(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler7prefixqE7Address11XMMRegister(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %5
@@ -95790,7 +95790,7 @@ _ZN9Assembler12prefixq_rex2E7Address11XMMRegister.exit: ; preds = %28, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler6prefixE7Address11XMMRegister(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler6prefixE7Address11XMMRegister(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %5
@@ -95968,7 +95968,7 @@ _ZN9Assembler12prefixq_rex2E7Address11XMMRegister.exit: ; preds = %28, %40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler10vex_prefixEbbbiNS_13VexSimdPrefixENS_9VexOpcodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler10vex_prefixEbbbiNS_13VexSimdPrefixENS_9VexOpcodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #8 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -102803,7 +102803,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %31, %52
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9Assembler9reachableE14AddressLiteral(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN9Assembler9reachableE14AddressLiteral(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -102868,7 +102868,7 @@ _ZL12is_reachablePhN9relocInfo9relocTypeE.exit:   ; preds = %_ZL19is_always_reac
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9Assembler16always_reachableE14AddressLiteral(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN9Assembler16always_reachableE14AddressLiteral(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -102904,7 +102904,7 @@ _ZL19is_always_reachablePhN9relocInfo9relocTypeE.exit: ; preds = %13, %9, %6, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.RelocationHolder, align 8
   %6 = icmp eq i32 %2, 0
   br i1 %6, label %7, label %9
@@ -102935,7 +102935,7 @@ define hidden void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr noca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler11emit_data64ElRK16RelocationHolderi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler11emit_data64ElRK16RelocationHolderi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -102952,7 +102952,7 @@ define hidden void @_ZN9Assembler11emit_data64ElRK16RelocationHolderi(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 0, 18) i32 @_ZN9Assembler20get_base_prefix_bitsEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden noundef range(i32 0, 18) i32 @_ZN9Assembler20get_base_prefix_bitsEi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = and i32 %1, 16
   %4 = lshr i32 %1, 3
   %5 = and i32 %4, 1
@@ -102961,7 +102961,7 @@ define hidden noundef range(i32 0, 18) i32 @_ZN9Assembler20get_base_prefix_bitsE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 0, 35) i32 @_ZN9Assembler21get_index_prefix_bitsEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden noundef range(i32 0, 35) i32 @_ZN9Assembler21get_index_prefix_bitsEi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = shl i32 %1, 1
   %spec.select = and i32 %3, 32
   %4 = lshr i32 %1, 2
@@ -102971,7 +102971,7 @@ define hidden noundef range(i32 0, 35) i32 @_ZN9Assembler21get_index_prefix_bits
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 0, 18) i32 @_ZN9Assembler20get_base_prefix_bitsE8Register(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #5 align 2 {
+define hidden noundef range(i32 0, 18) i32 @_ZN9Assembler20get_base_prefix_bitsE8Register(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #5 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -102987,7 +102987,7 @@ define hidden noundef range(i32 0, 18) i32 @_ZN9Assembler20get_base_prefix_bitsE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 0, 36) i32 @_ZN9Assembler21get_index_prefix_bitsE8Register(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #5 align 2 {
+define hidden noundef range(i32 0, 36) i32 @_ZN9Assembler21get_index_prefix_bitsE8Register(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #5 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -103010,7 +103010,7 @@ define hidden noundef range(i32 0, 36) i32 @_ZN9Assembler21get_index_prefix_bits
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 0, 69) i32 @_ZN9Assembler19get_reg_prefix_bitsEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden noundef range(i32 0, 69) i32 @_ZN9Assembler19get_reg_prefix_bitsEi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = shl i32 %1, 2
   %spec.select = and i32 %3, 64
   %4 = lshr i32 %1, 1
@@ -103020,7 +103020,7 @@ define hidden noundef range(i32 0, 69) i32 @_ZN9Assembler19get_reg_prefix_bitsEi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler11prefix_rex2E8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler11prefix_rex2E8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -103059,7 +103059,7 @@ define hidden void @_ZN9Assembler11prefix_rex2E8RegisterS0_(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler11prefix_rex2E8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr nocapture noundef readonly %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler11prefix_rex2E8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #8 align 2 {
   %.sroa.0.0.copyload.i = load i32, ptr %2, align 8
   %4 = sext i32 %.sroa.0.0.copyload.i to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
@@ -103101,7 +103101,7 @@ define hidden void @_ZN9Assembler11prefix_rex2E8Register7Address(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler11prefix_rex2E7Addressb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler11prefix_rex2E7Addressb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #8 align 2 {
   %.sroa.0.0.copyload.i = load i32, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i5 = load i32, ptr %4, align 4
@@ -103155,7 +103155,7 @@ _ZN9Assembler21get_index_prefix_bitsE8Register.exit: ; preds = %3, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler11prefix_rex2E7Address8Registerbb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1, i32 %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler11prefix_rex2E7Address8Registerbb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly captures(none) %1, i32 %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #8 align 2 {
   %.sroa.0.0.copyload.i = load i32, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i6 = load i32, ptr %6, align 4
@@ -103220,7 +103220,7 @@ _ZN9Assembler21get_index_prefix_bitsE8Register.exit: ; preds = %5, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler12prefixq_rex2E7Address11XMMRegister(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler12prefixq_rex2E7Address11XMMRegister(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly captures(none) %1, i32 %2) local_unnamed_addr #8 align 2 {
   %.sroa.0.0.copyload.i = load i32, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i5 = load i32, ptr %4, align 4
@@ -103284,7 +103284,7 @@ _ZN9Assembler21get_index_prefix_bitsE8Register.exit: ; preds = %3, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler11prefix_rex2E7Address11XMMRegister(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler11prefix_rex2E7Address11XMMRegister(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly captures(none) %1, i32 %2) local_unnamed_addr #8 align 2 {
   %.sroa.0.0.copyload.i = load i32, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i5 = load i32, ptr %4, align 4
@@ -103347,7 +103347,7 @@ _ZN9Assembler21get_index_prefix_bitsE8Register.exit: ; preds = %3, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 0, 8) i32 @_ZN9Assembler22prefix_and_encode_rex2Eib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #8 align 2 {
+define hidden noundef range(i32 0, 8) i32 @_ZN9Assembler22prefix_and_encode_rex2Eib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #8 align 2 {
   %4 = select i1 %2, i32 128, i32 0
   %5 = and i32 %1, 16
   %6 = lshr i32 %1, 3
@@ -103373,7 +103373,7 @@ define hidden noundef range(i32 0, 8) i32 @_ZN9Assembler22prefix_and_encode_rex2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 0, 64) i32 @_ZN9Assembler22prefix_and_encode_rex2Eiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
+define hidden noundef range(i32 0, 64) i32 @_ZN9Assembler22prefix_and_encode_rex2Eiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = shl i32 %1, 2
   %spec.select.i = and i32 %5, 64
   %6 = lshr i32 %1, 1
@@ -103410,14 +103410,14 @@ define hidden noundef range(i32 0, 64) i32 @_ZN9Assembler22prefix_and_encode_rex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN9Assembler14prefix_is_rex2Ei(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN9Assembler14prefix_is_rex2Ei(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = and i32 %1, 65280
   %4 = icmp eq i32 %3, 54528
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 54536, 54720) i32 @_ZN9Assembler16get_prefixq_rex2E7Addressb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #12 align 2 {
+define hidden noundef range(i32 54536, 54720) i32 @_ZN9Assembler16get_prefixq_rex2E7Addressb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #12 align 2 {
   %.sroa.0.0.copyload.i = load i32, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i6 = load i32, ptr %4, align 4
@@ -103457,7 +103457,7 @@ _ZN9Assembler21get_index_prefix_bitsE8Register.exit: ; preds = %3, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN9Assembler11get_prefixqE7Addressb(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = alloca %class.Address, align 8
@@ -103633,7 +103633,7 @@ _ZN9Assembler11get_prefixqE7Address8Registerb.exit: ; preds = %_ZN9Assembler16ge
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 72, 54784) i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, i32 %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 72, 54784) i32 @_ZN9Assembler11get_prefixqE7Address8Registerb(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, i32 %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.Address, align 8
   %6 = load i32, ptr %1, align 4
   %7 = sext i32 %6 to i64
@@ -103744,7 +103744,7 @@ _ZN9Assembler16get_prefixq_rex2E7Address8Registerb.exit: ; preds = %29, %41
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 54536, 54784) i32 @_ZN9Assembler16get_prefixq_rex2E7Address8Registerb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1, i32 %2, i1 noundef zeroext %3) local_unnamed_addr #12 align 2 {
+define hidden noundef range(i32 54536, 54784) i32 @_ZN9Assembler16get_prefixq_rex2E7Address8Registerb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %0, ptr noundef readonly captures(none) %1, i32 %2, i1 noundef zeroext %3) local_unnamed_addr #12 align 2 {
   %.sroa.0.0.copyload.i = load i32, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.0.0.copyload.i7 = load i32, ptr %5, align 4
@@ -103795,7 +103795,7 @@ _ZN9Assembler21get_index_prefix_bitsE8Register.exit: ; preds = %4, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler7prefixqE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler7prefixqE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = load i32, ptr %1, align 4
@@ -103897,7 +103897,7 @@ _ZN9Assembler16get_prefixq_rex2E7Addressb.exit:   ; preds = %21, %33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 0, 64) i32 @_ZN9Assembler23prefixq_and_encode_rex2Eiib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #8 align 2 {
+define hidden noundef range(i32 0, 64) i32 @_ZN9Assembler23prefixq_and_encode_rex2Eiib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #8 align 2 {
   %5 = select i1 %3, i32 136, i32 8
   %6 = shl i32 %1, 2
   %spec.select.i.i = and i32 %6, 64
@@ -103932,7 +103932,7 @@ define hidden noundef range(i32 0, 64) i32 @_ZN9Assembler23prefixq_and_encode_re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler20emit_prefix_and_int8Eii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler20emit_prefix_and_int8Eii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = and i32 %1, 65280
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %15
@@ -103974,7 +103974,7 @@ define hidden void @_ZN9Assembler20emit_prefix_and_int8Eii(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4adcqE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4adcqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -104093,7 +104093,7 @@ _ZN9Assembler10emit_arithEii8Registeri.exit:      ; preds = %36, %51, %60
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4adcqE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4adcqE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -104178,7 +104178,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4adcqE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4adcqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -104270,7 +104270,7 @@ _ZN9Assembler18prefixq_and_encodeEiib.exit:       ; preds = %44, %45, %46, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4addqE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4addqE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -104301,7 +104301,7 @@ define hidden void @_ZN9Assembler4addqE7Addressi(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4addqE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4addqE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -104386,7 +104386,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4addqE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4addqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -104505,7 +104505,7 @@ _ZN9Assembler10emit_arithEii8Registeri.exit:      ; preds = %36, %51, %60
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4addqE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4addqE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -104590,7 +104590,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4addqE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4addqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -105048,7 +105048,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %47, %._crit_edge, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4andqE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4andqE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -105079,7 +105079,7 @@ define hidden void @_ZN9Assembler4andqE7Addressi(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4andqE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4andqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -105198,7 +105198,7 @@ _ZN9Assembler10emit_arithEii8Registeri.exit:      ; preds = %36, %51, %60
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4andqE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4andqE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -105283,7 +105283,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4andqE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4andqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -105375,7 +105375,7 @@ _ZN9Assembler18prefixq_and_encodeEiib.exit:       ; preds = %44, %45, %46, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4andqE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4andqE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -105649,7 +105649,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4bsfqE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4bsfqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -105781,7 +105781,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %59, %71
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4bsrqE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4bsrqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -105913,7 +105913,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %59, %71
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler6bswapqE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler6bswapqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -106536,7 +106536,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4cdqqEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4cdqqEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -106550,7 +106550,7 @@ define hidden void @_ZN9Assembler4cdqqEv(ptr nocapture noundef nonnull readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4cdqeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4cdqeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -106564,7 +106564,7 @@ define hidden void @_ZN9Assembler4cdqeEv(ptr nocapture noundef nonnull readonly 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler7clflushE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler7clflushE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 21, i1 false)
@@ -106610,7 +106610,7 @@ define hidden void @_ZN9Assembler7clflushE7Address(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler10clflushoptE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler10clflushoptE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -106662,7 +106662,7 @@ define hidden void @_ZN9Assembler10clflushoptE7Address(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4clwbE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4clwbE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -106714,7 +106714,7 @@ define hidden void @_ZN9Assembler4clwbE7Address(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5cmovqENS_9ConditionE8RegisterS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5cmovqENS_9ConditionE8RegisterS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 %2, i32 %3) local_unnamed_addr #8 align 2 {
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %5
   %7 = ptrtoint ptr %6 to i64
@@ -106849,7 +106849,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %61, %74
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler5cmovqENS_9ConditionE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler5cmovqENS_9ConditionE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i32 %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.Address, align 8
   %6 = alloca %class.Address, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -106937,7 +106937,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %20, %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4cmpqE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4cmpqE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -106968,7 +106968,7 @@ define hidden void @_ZN9Assembler4cmpqE7Addressi(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4cmpqE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4cmpqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -107085,7 +107085,7 @@ _ZN9Assembler10emit_arithEii8Registeri.exit:      ; preds = %36, %50, %59
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4cmpqE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4cmpqE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -107170,7 +107170,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4cmpqE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4cmpqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -107262,7 +107262,7 @@ _ZN9Assembler18prefixq_and_encodeEiib.exit:       ; preds = %44, %45, %46, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4cmpqE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4cmpqE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -107347,7 +107347,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler8cmpxchgqE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler8cmpxchgqE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -107761,7 +107761,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler10cvttsd2siqE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler10cvttsd2siqE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -108087,7 +108087,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4declE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4declE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -108150,7 +108150,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %26, %24, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4decqE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4decqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -108219,7 +108219,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %32, %33, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4decqE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4decqE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -108300,7 +108300,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler7fxrstorE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler7fxrstorE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -108359,7 +108359,7 @@ define hidden void @_ZN9Assembler7fxrstorE7Address(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler6xrstorE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler6xrstorE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -108418,7 +108418,7 @@ define hidden void @_ZN9Assembler6xrstorE7Address(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler6fxsaveE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler6fxsaveE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -108477,7 +108477,7 @@ define hidden void @_ZN9Assembler6fxsaveE7Address(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler5xsaveE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler5xsaveE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -108536,7 +108536,7 @@ define hidden void @_ZN9Assembler5xsaveE7Address(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5idivqE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5idivqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -108604,7 +108604,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %31, %32, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4divqE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4divqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -108673,7 +108673,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %32, %33, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5imulqE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5imulqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -108805,7 +108805,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %59, %71
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5imulqE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5imulqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -108874,7 +108874,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %32, %33, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler5imulqE8Register7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler5imulqE8Register7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.Address, align 8
   %6 = alloca %class.Address, align 8
   %7 = alloca %class.Address, align 8
@@ -108985,7 +108985,7 @@ define hidden void @_ZN9Assembler5imulqE8Register7Addressi(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5imulqE8RegisterS0_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5imulqE8RegisterS0_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %5
   %7 = ptrtoint ptr %6 to i64
@@ -109118,7 +109118,7 @@ _ZN9Assembler18prefixq_and_encodeEiib.exit:       ; preds = %17, %55
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler5imulqE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler5imulqE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -109203,7 +109203,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4inclE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4inclE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -109266,7 +109266,7 @@ _ZN9Assembler17prefix_and_encodeEibb.exit:        ; preds = %26, %24, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4incqE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4incqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -109335,7 +109335,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %32, %33, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4incqE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4incqE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -109416,7 +109416,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler3leaE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 21, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -109430,7 +109430,7 @@ define hidden void @_ZN9Assembler3leaE8Register7Address(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4leaqE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4leaqE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -109515,7 +109515,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5mov64E8Registerl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i64 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5mov64E8Registerl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i64 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -109595,7 +109595,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %36, %37, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler5mov64E8RegisterlN9relocInfo9relocTypeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler5mov64E8RegisterlN9relocInfo9relocTypeEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.RelocationHolder, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -109690,7 +109690,7 @@ _ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi.exit: ; preds = %_ZN9Assembl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler13mov_literal64E8RegisterlRK16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(40) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler13mov_literal64E8RegisterlRK16RelocationHolder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(40) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -109774,7 +109774,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %37, %38, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler14mov_narrow_oopE8RegisteriRK16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(40) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler14mov_narrow_oopE8RegisteriRK16RelocationHolder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(40) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -109861,7 +109861,7 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit: ; preds = %_ZN9Assembler17p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler14mov_narrow_oopE7AddressiRK16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(40) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler14mov_narrow_oopE7AddressiRK16RelocationHolder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(40) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.Address, align 8
   %6 = alloca %class.Address, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -109935,7 +109935,7 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit: ; preds = %4, %.sink.split.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler14cmp_narrow_oopE8RegisteriRK16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(40) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler14cmp_narrow_oopE8RegisteriRK16RelocationHolder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(40) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -110023,7 +110023,7 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit: ; preds = %_ZN9Assembler17p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler14cmp_narrow_oopE7AddressiRK16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(40) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler14cmp_narrow_oopE7AddressiRK16RelocationHolder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(40) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.Address, align 8
   %6 = alloca %class.Address, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -110097,7 +110097,7 @@ _ZN9Assembler9emit_dataEiRK16RelocationHolderi.exit: ; preds = %4, %.sink.split.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler6lzcntqE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler6lzcntqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -110232,7 +110232,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %62, %73
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler6lzcntqE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler6lzcntqE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -110471,7 +110471,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN9Assembler22simd
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4movqE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4movqE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -110556,7 +110556,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4movqE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4movqE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -110641,7 +110641,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4movqE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4movqE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -110729,7 +110729,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %19, %26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4movqE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4movqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -110805,7 +110805,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %33, %34, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler6movsbqE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler6movsbqE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -110890,7 +110890,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler6movsbqE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler6movsbqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -111022,7 +111022,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %59, %71
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler6movslqE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler6movslqE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -111110,7 +111110,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %19, %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler6movslqE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler6movslqE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -111195,7 +111195,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler6movslqE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler6movslqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -111300,7 +111300,7 @@ _ZN9Assembler18prefixq_and_encodeEiib.exit:       ; preds = %16, %54
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler6movswqE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler6movswqE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -111385,7 +111385,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler6movswqE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler6movswqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -111517,7 +111517,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %59, %71
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler6movzbqE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler6movzbqE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -111602,7 +111602,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler6movzbqE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler6movzbqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -111734,7 +111734,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %59, %71
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler6movzwqE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler6movzwqE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -111819,7 +111819,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler6movzwqE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler6movzwqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -111951,7 +111951,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %59, %71
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4mulqE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4mulqE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -112032,7 +112032,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4mulqE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4mulqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -112174,7 +112174,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %4, %47
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4negqE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4negqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -112243,7 +112243,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %32, %33, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4negqE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4negqE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -112324,7 +112324,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4notqE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4notqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -112393,7 +112393,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %32, %33, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler3btqE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler3btqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -112525,7 +112525,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %59, %71
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler3btqE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler3btqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -112623,7 +112623,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %36, %48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4btsqE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4btsqE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -112711,7 +112711,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %19, %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4btrqE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4btrqE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -112799,7 +112799,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %19, %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler3orqE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler3orqE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -112830,7 +112830,7 @@ define hidden void @_ZN9Assembler3orqE7Addressi(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler3orqE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler3orqE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -112915,7 +112915,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler3orqE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler3orqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -113034,7 +113034,7 @@ _ZN9Assembler10emit_arithEii8Registeri.exit:      ; preds = %36, %51, %60
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler9orq_imm32E8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler9orq_imm32E8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -113108,7 +113108,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %32, %33, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler3orqE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler3orqE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -113193,7 +113193,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler3orqE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler3orqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -113285,7 +113285,7 @@ _ZN9Assembler18prefixq_and_encodeEiib.exit:       ; preds = %44, %45, %46, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler7popcntqE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler7popcntqE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -113376,7 +113376,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %22, %29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler7popcntqE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler7popcntqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -113511,7 +113511,7 @@ _ZN9Assembler31emit_opcode_prefix_and_encodingEiii.exit: ; preds = %62, %73
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4popqE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4popqE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -113592,7 +113592,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4popqE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4popqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -115965,7 +115965,7 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEn
 declare void @_ZN10CodeBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(448)) unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5pushaEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5pushaEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @_ZL10pusha_code, align 8
@@ -115980,7 +115980,7 @@ define hidden void @_ZN9Assembler5pushaEv(ptr nocapture noundef nonnull readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4subqE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4subqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -116099,7 +116099,7 @@ _ZN9Assembler10emit_arithEii8Registeri.exit:      ; preds = %36, %51, %60
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4popaEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4popaEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @_ZL9popa_code, align 8
@@ -116114,7 +116114,7 @@ define hidden void @_ZN9Assembler4popaEv(ptr nocapture noundef nonnull readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler10vzeroupperEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler10vzeroupperEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @_ZL9vzup_code, align 8
@@ -116180,7 +116180,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %1, %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler5pushqE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler5pushqE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -116261,7 +116261,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4rclqE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4rclqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -116350,7 +116350,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %33, %34, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4rcrqE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4rcrqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -116817,7 +116817,7 @@ _ZN15InstructionAttrD2Ev.exit:                    ; preds = %_ZN15InstructionAtt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4salqE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4salqE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = alloca %class.Address, align 8
@@ -116981,7 +116981,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit3:     ; preds = %67, %74
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4salqE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4salqE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -117062,7 +117062,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4salqE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4salqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -117151,7 +117151,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %33, %34, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4salqE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4salqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -117220,7 +117220,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %32, %33, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4sarqE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4sarqE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = alloca %class.Address, align 8
@@ -117384,7 +117384,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit3:     ; preds = %67, %74
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4sarqE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4sarqE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -117465,7 +117465,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4sarqE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4sarqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -117553,7 +117553,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %32, %33, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4sarqE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4sarqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -117621,7 +117621,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %31, %32, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4sbbqE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4sbbqE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -117652,7 +117652,7 @@ define hidden void @_ZN9Assembler4sbbqE7Addressi(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4sbbqE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4sbbqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -117771,7 +117771,7 @@ _ZN9Assembler10emit_arithEii8Registeri.exit:      ; preds = %36, %51, %60
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4sbbqE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4sbbqE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -117856,7 +117856,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4sbbqE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4sbbqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -117948,7 +117948,7 @@ _ZN9Assembler18prefixq_and_encodeEiib.exit:       ; preds = %44, %45, %46, %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4shlqE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4shlqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -118037,7 +118037,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %33, %34, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4shlqE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4shlqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -118106,7 +118106,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %32, %33, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4shrqE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4shrqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -118195,7 +118195,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %33, %34, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4shrqE8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4shrqE8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %3
   %5 = ptrtoint ptr %4 to i64
@@ -118264,7 +118264,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %32, %33, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4shrqE7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4shrqE7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -118345,7 +118345,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4shrqE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4shrqE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = alloca %class.Address, align 8
@@ -118509,7 +118509,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit3:     ; preds = %67, %74
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4subqE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4subqE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -118540,7 +118540,7 @@ define hidden void @_ZN9Assembler4subqE7Addressi(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4subqE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4subqE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -118625,7 +118625,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler10subq_imm32E8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler10subq_imm32E8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -118699,7 +118699,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %32, %33, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4subqE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4subqE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -118784,7 +118784,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4subqE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4subqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -118876,7 +118876,7 @@ _ZN9Assembler18prefixq_and_encodeEiib.exit:       ; preds = %44, %45, %46, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler5testqE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler5testqE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -118964,7 +118964,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %19, %26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5testqE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5testqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %14
 
@@ -119064,7 +119064,7 @@ _ZN9Assembler18prefixq_and_encodeEib.exit:        ; preds = %44, %45, %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5testqE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5testqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -119156,7 +119156,7 @@ _ZN9Assembler18prefixq_and_encodeEiib.exit:       ; preds = %44, %45, %46, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler5testqE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler5testqE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -119241,7 +119241,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler5xaddqE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler5xaddqE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -119326,7 +119326,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler5xchgqE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler5xchgqE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -119411,7 +119411,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler5xchgqE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler5xchgqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -119516,7 +119516,7 @@ _ZN9Assembler18prefixq_and_encodeEiib.exit:       ; preds = %16, %54
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4xorqE8RegisterS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4xorqE8RegisterS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -119608,7 +119608,7 @@ _ZN9Assembler18prefixq_and_encodeEiib.exit:       ; preds = %44, %45, %46, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4xorqE8Register7Address(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4xorqE8Register7Address(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -119693,7 +119693,7 @@ _ZN9Assembler20emit_prefix_and_int8Eii.exit:      ; preds = %18, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9Assembler4xorqE8Registeri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN9Assembler4xorqE8Registeri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %4
   %6 = ptrtoint ptr %5 to i64
@@ -119812,7 +119812,7 @@ _ZN9Assembler10emit_arithEii8Registeri.exit:      ; preds = %36, %51, %60
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4xorqE7Addressi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4xorqE7Addressi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -119843,7 +119843,7 @@ define hidden void @_ZN9Assembler4xorqE7Addressi(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Assembler4xorqE7Address8Register(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Assembler4xorqE7Address8Register(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -119951,13 +119951,13 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #15
 declare i32 @llvm.smax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

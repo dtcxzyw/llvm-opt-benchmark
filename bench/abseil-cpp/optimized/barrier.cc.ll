@@ -94,7 +94,7 @@ declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 no
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZN4abslL6IsZeroEPv(ptr nocapture noundef readonly %arg) #2 {
+define internal noundef zeroext i1 @_ZN4abslL6IsZeroEPv(ptr noundef readonly captures(none) %arg) #2 {
 entry:
   %0 = load i32, ptr %arg, align 4
   %cmp = icmp eq i32 %0, 0

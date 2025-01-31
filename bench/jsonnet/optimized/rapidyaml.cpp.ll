@@ -626,7 +626,7 @@ define dso_local void @_ZN2c46detail3fooEv() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2c48to_charsENS_15basic_substringIcEENS_3fmt12raw_wrapper_IKcEE(ptr %0, i64 %1, ptr nocapture noundef readonly byval(%"struct.c4::fmt::raw_wrapper_") align 8 %2) local_unnamed_addr #1 {
+define dso_local noundef i64 @_ZN2c48to_charsENS_15basic_substringIcEENS_3fmt12raw_wrapper_IKcEE(ptr %0, i64 %1, ptr noundef readonly byval(%"struct.c4::fmt::raw_wrapper_") align 8 captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -687,7 +687,7 @@ define dso_local noundef i32 @_ZN2c415get_error_flagsEv() local_unnamed_addr #2 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c412handle_errorENS_6srclocEPKcz(ptr %0, i32 %1, ptr nocapture noundef readonly %2, ...) local_unnamed_addr #1 {
+define dso_local void @_ZN2c412handle_errorENS_6srclocEPKcz(ptr %0, i32 %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #1 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = load i32, ptr @_ZN2c4L13s_error_flagsE, align 4
@@ -761,10 +761,10 @@ define dso_local void @_ZN2c412handle_errorENS_6srclocEPKcz(ptr %0, i32 %1, ptr 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN2c410from_charsENS_15basic_substringIKcEEPNS_3fmt12raw_wrapper_IcEE(ptr %0, i64 %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN2c410from_charsENS_15basic_substringIKcEEPNS_3fmt12raw_wrapper_IcEE(ptr %0, i64 %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp ult i64 %1, %5
@@ -810,7 +810,7 @@ _ZSt5alignmmRPvRm.exit.thread:                    ; preds = %7, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN2c410mem_repeatEPvPKvmm(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 {
+define dso_local void @_ZN2c410mem_repeatEPvPKvmm(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 {
   %5 = icmp eq i64 %3, 0
   br i1 %5, label %17, label %6
 
@@ -846,13 +846,13 @@ define dso_local void @_ZN2c410mem_repeatEPvPKvmm(ptr nocapture noundef %0, ptr 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @_ZN2c46detail10afree_implEPv(ptr nocapture noundef %0) #5 {
+define dso_local void @_ZN2c46detail10afree_implEPv(ptr noundef captures(none) %0) #5 {
   tail call void @free(ptr noundef %0) #37
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN2c46detail11aalloc_implEmm(i64 noundef %0, i64 noundef %1) #1 {
@@ -919,7 +919,7 @@ define dso_local noundef ptr @_ZN2c46aallocEmm(i64 noundef %0, i64 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2c45afreeEPv(ptr noundef %0) local_unnamed_addr #1 {
@@ -1025,7 +1025,7 @@ _ZN2c414MemoryResource8allocateEmmPv.exit:        ; preds = %2, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN2c46detail26_MemoryResourceSingleChunk7acquireEPvm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((24, 49)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN2c46detail26_MemoryResourceSingleChunk7acquireEPvm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(49) initializes((24, 49)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %5, align 8
@@ -1038,7 +1038,7 @@ define dso_local void @_ZN2c46detail26_MemoryResourceSingleChunk7acquireEPvm(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN2c420MemoryResourceLinear11do_allocateEmmPv(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0, i64 noundef %1, i64 noundef %2, ptr nocapture readnone %3) unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN2c420MemoryResourceLinear11do_allocateEmmPv(ptr noundef nonnull align 8 captures(none) dereferenceable(49) %0, i64 noundef %1, i64 noundef %2, ptr readnone captures(none) %3) unnamed_addr #1 align 2 {
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %34, label %6
 
@@ -1094,7 +1094,7 @@ _ZSt5alignmmRPvRm.exit.thread:                    ; preds = %17, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN2c420MemoryResourceLinear13do_deallocateEPvmm(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, i64 %2, i64 %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN2c420MemoryResourceLinear13do_deallocateEPvmm(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 %3) unnamed_addr #0 align 2 {
   ret void
 }
 
@@ -1151,7 +1151,7 @@ define dso_local noundef ptr @_ZN2c420MemoryResourceLinear13do_reallocateEPvmmm(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef range(i64 0, 5) i64 @_ZN2c417decode_code_pointEPhmj(ptr noalias nocapture noundef writeonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #9 {
+define dso_local noundef range(i64 0, 5) i64 @_ZN2c417decode_code_pointEPhmj(ptr noalias noundef writeonly captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = icmp ult i32 %2, 128
   br i1 %4, label %5, label %7
 
@@ -1392,7 +1392,7 @@ define dso_local noundef zeroext i1 @_ZN2c412base64_validENS_15basic_substringIK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @_ZN2c413base64_encodeENS_15basic_substringIcEENS_5blob_IKcEE(ptr nocapture writeonly %0, i64 %1, ptr nocapture readonly %2, i64 %3) local_unnamed_addr #4 {
+define dso_local noundef i64 @_ZN2c413base64_encodeENS_15basic_substringIcEENS_5blob_IKcEE(ptr writeonly captures(none) %0, i64 %1, ptr readonly captures(none) %2, i64 %3) local_unnamed_addr #4 {
   %5 = icmp ugt i64 %3, 2
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -1609,7 +1609,7 @@ define dso_local noundef i64 @_ZN2c413base64_encodeENS_15basic_substringIcEENS_5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2c413base64_decodeENS_15basic_substringIKcEENS_5blob_IcEE(ptr readonly %0, i64 %1, ptr nocapture writeonly %2, i64 %3) local_unnamed_addr #1 {
+define dso_local noundef i64 @_ZN2c413base64_decodeENS_15basic_substringIKcEENS_5blob_IcEE(ptr readonly %0, i64 %1, ptr writeonly captures(none) %2, i64 %3) local_unnamed_addr #1 {
   %5 = and i64 %1, 3
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %6, label %.thread
@@ -1828,22 +1828,22 @@ define dso_local void @_ZN2c418set_error_callbackEPFvPKcmE(ptr noundef %0) local
 declare void @llvm.va_start.p0(ptr) #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #12
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define dso_local void @_ZN2c414handle_warningENS_6srclocEPKcz(ptr %0, i32 %1, ptr nocapture noundef readonly %2, ...) local_unnamed_addr #13 {
+define dso_local void @_ZN2c414handle_warningENS_6srclocEPKcz(ptr %0, i32 %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #13 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca [1024 x i8], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -1911,22 +1911,22 @@ define dso_local noundef zeroext i1 @_ZN2c420is_debugger_attachedEv() local_unna
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #16
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #16
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #16
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #17
+declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #18
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_ZN2c43yml17report_error_implEPKcmNS0_8LocationEP8_IO_FILE(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly byval(%"struct.c4::yml::Location") align 8 %2, ptr noundef %3) local_unnamed_addr #19 {
+define dso_local void @_ZN2c43yml17report_error_implEPKcmNS0_8LocationEP8_IO_FILE(ptr noundef %0, i64 noundef %1, ptr noundef readonly byval(%"struct.c4::yml::Location") align 8 captures(none) %2, ptr noundef %3) local_unnamed_addr #19 {
   %.not = icmp eq ptr %3, null
   %5 = load ptr, ptr @stderr, align 8
   %spec.select = select i1 %.not, ptr %5, ptr %3
@@ -1981,20 +1981,20 @@ _ZNK2c43yml8LocationcvbEv.exit.thread:            ; preds = %4
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: cold mustprogress nofree noreturn nounwind uwtable
-define dso_local void @_ZN2c43yml10error_implEPKcmNS0_8LocationEPv(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly byval(%"struct.c4::yml::Location") align 8 %2, ptr nocapture readnone %3) #20 {
+define dso_local void @_ZN2c43yml10error_implEPKcmNS0_8LocationEPv(ptr noundef %0, i64 noundef %1, ptr noundef readonly byval(%"struct.c4::yml::Location") align 8 captures(none) %2, ptr readnone captures(none) %3) #20 {
   tail call void @_ZN2c43yml17report_error_implEPKcmNS0_8LocationEP8_IO_FILE(ptr noundef %0, i64 noundef %1, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %2, ptr noundef null)
   tail call void @abort() #39
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noalias noundef ptr @_ZN2c43yml13allocate_implEmPvS1_(i64 noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #19 {
+define dso_local noalias noundef ptr @_ZN2c43yml13allocate_implEmPvS1_(i64 noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #19 {
   %4 = alloca %"struct.c4::yml::Location", align 8
   %5 = alloca [26 x i8], align 16
   %6 = tail call noalias ptr @malloc(i64 noundef %0) #41
@@ -2017,13 +2017,13 @@ define dso_local noalias noundef ptr @_ZN2c43yml13allocate_implEmPvS1_(i64 nound
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @_ZN2c43yml9free_implEPvmS1_(ptr nocapture noundef %0, i64 %1, ptr nocapture readnone %2) #5 {
+define dso_local void @_ZN2c43yml9free_implEPvmS1_(ptr noundef captures(none) %0, i64 %1, ptr readnone captures(none) %2) #5 {
   tail call void @free(ptr noundef %0) #37
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN2c43yml9CallbacksC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #9 align 2 {
+define dso_local void @_ZN2c43yml9CallbacksC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #9 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZN2c43yml13allocate_implEmPvS1_, ptr %2, align 8
@@ -2035,7 +2035,7 @@ define dso_local void @_ZN2c43yml9CallbacksC2Ev(ptr nocapture noundef nonnull wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN2c43yml9CallbacksC2EPvPFS2_mS2_S2_EPFvS2_mS2_EPFvPKcmNS0_8LocationES2_E(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #9 align 2 {
+define dso_local void @_ZN2c43yml9CallbacksC2EPvPFS2_mS2_S2_EPFvS2_mS2_EPFvPKcmNS0_8LocationES2_E(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #9 align 2 {
 .thread:
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2054,7 +2054,7 @@ define dso_local void @_ZN2c43yml9CallbacksC2EPvPFS2_mS2_S2_EPFvS2_mS2_EPFvPKcmN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN2c43yml13set_callbacksERKNS0_9CallbacksE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #22 {
+define dso_local void @_ZN2c43yml13set_callbacksERKNS0_9CallbacksE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #22 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   ret void
 }
@@ -2074,7 +2074,7 @@ define dso_local void @_ZN2c43yml15reset_callbacksEv() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml5errorEPKcmNS0_8LocationE(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly byval(%"struct.c4::yml::Location") align 8 %2) local_unnamed_addr #1 {
+define dso_local void @_ZN2c43yml5errorEPKcmNS0_8LocationE(ptr noundef %0, i64 noundef %1, ptr noundef readonly byval(%"struct.c4::yml::Location") align 8 captures(none) %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, i64 24), align 8
   %5 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8
   tail call void %4(ptr noundef %0, i64 noundef %1, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %2, ptr noundef %5)
@@ -2776,7 +2776,7 @@ define dso_local noundef nonnull ptr @_ZN2c43yml8NodeType8type_strENS0_10NodeTyp
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree7rootrefEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.c4::yml::NodeRef") align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(256) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml4Tree7rootrefEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.c4::yml::NodeRef") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(256) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
@@ -2827,7 +2827,7 @@ define dso_local { ptr, i64 } @_ZNK2c43yml4Tree8crootrefEv(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree3refEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.c4::yml::NodeRef") align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(256) %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml4Tree3refEm(ptr dead_on_unwind noalias writable writeonly sret(%"class.c4::yml::NodeRef") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(256) %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca [53 x i8], align 16
   %5 = alloca %"struct.c4::yml::Location", align 8
   %.not = icmp ne i64 %2, -1
@@ -2972,7 +2972,7 @@ define dso_local { ptr, i64 } @_ZNK2c43yml4Tree4crefEm(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4TreeixENS_15basic_substringIKcEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.c4::yml::NodeRef") align 8 %0, ptr noundef nonnull align 8 dereferenceable(256) %1, ptr %2, i64 %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml4TreeixENS_15basic_substringIKcEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.c4::yml::NodeRef") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(256) %1, ptr %2, i64 %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.c4::basic_substring.0", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !noalias !38
@@ -3060,7 +3060,7 @@ define dso_local { ptr, i64 } @_ZNK2c43yml4TreeixENS_15basic_substringIKcEE(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4TreeixEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.c4::yml::NodeRef") align 8 %0, ptr noundef nonnull align 8 dereferenceable(256) %1, i64 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml4TreeixEm(ptr dead_on_unwind noalias writable writeonly sret(%"class.c4::yml::NodeRef") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(256) %1, i64 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noalias !44
   %6 = icmp eq i64 %5, 0
@@ -3165,7 +3165,7 @@ define dso_local { ptr, i64 } @_ZNK2c43yml4TreeixEm(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree6docrefEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.c4::yml::NodeRef") align 8 %0, ptr noundef nonnull align 8 dereferenceable(256) %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml4Tree6docrefEm(ptr dead_on_unwind noalias writable writeonly sret(%"class.c4::yml::NodeRef") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(256) %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca [53 x i8], align 16
   %5 = alloca %"struct.c4::yml::Location", align 8
   %6 = load ptr, ptr %1, align 8
@@ -3291,7 +3291,7 @@ _ZNK2c43yml4Tree4crefEm.exit:                     ; preds = %_ZNK2c43yml4Tree3do
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN2c43yml4TreeC2ERKNS0_9CallbacksE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((0, 96)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN2c43yml4TreeC2ERKNS0_9CallbacksE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(256) initializes((0, 96)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3314,7 +3314,7 @@ define dso_local void @_ZN2c43yml4TreeC2ERKNS0_9CallbacksE(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4TreeC2EmmRKNS0_9CallbacksE(ptr nocapture noundef nonnull align 8 dereferenceable(256) initializes((0, 96)) %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml4TreeC2EmmRKNS0_9CallbacksE(ptr noundef nonnull align 8 captures(none) dereferenceable(256) initializes((0, 96)) %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3394,7 +3394,7 @@ _ZN2c43yml4TreeD2Ev.exit:                         ; preds = %27
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree7reserveEm(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml4Tree7reserveEm(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, i64 noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [28 x i8], align 16
   %4 = alloca %"struct.c4::yml::Location", align 8
   %5 = alloca [23 x i8], align 16
@@ -3700,7 +3700,7 @@ _ZN2c43yml4Tree11_claim_rootEv.exit:              ; preds = %.split2.i, %_ZN2c43
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2c43yml4TreeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(256) initializes((16, 40), (56, 64), (96, 256)) %0) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml4TreeD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(256) initializes((16, 40), (56, 64), (96, 256)) %0) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN2c43yml4Tree5_freeEv(ptr noundef nonnull align 8 dereferenceable(256) %0)
           to label %2 unwind label %3
 
@@ -3716,7 +3716,7 @@ define dso_local void @_ZN2c43yml4TreeD2Ev(ptr nocapture noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree5_freeEv(ptr nocapture noundef nonnull align 8 dereferenceable(256) initializes((16, 40), (56, 64), (96, 256)) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml4Tree5_freeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(256) initializes((16, 40), (56, 64), (96, 256)) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca [26 x i8], align 16
   %3 = alloca %"struct.c4::yml::Location", align 8
   %4 = alloca [32 x i8], align 16
@@ -3825,7 +3825,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #26
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2c43yml4TreeC2ERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(256) initializes((0, 96)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %1) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml4TreeC2ERKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(256) initializes((0, 96)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %1) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, i8 0, i64 24, i1 false)
@@ -3860,7 +3860,7 @@ _ZN2c43yml4TreeC2ERKNS0_9CallbacksE.exit:         ; preds = %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree5_copyERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(256) initializes((8, 40), (56, 64)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml4Tree5_copyERKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(256) initializes((8, 40), (56, 64)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca [33 x i8], align 16
   %4 = alloca %"struct.c4::yml::Location", align 8
   %5 = alloca [39 x i8], align 16
@@ -4035,7 +4035,7 @@ define dso_local void @_ZN2c43yml4Tree5_copyERKS1_(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(256) ptr @_ZN2c43yml4TreeaSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(256) initializes((16, 40), (56, 64), (96, 256)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %1) local_unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(256) ptr @_ZN2c43yml4TreeaSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(256) initializes((16, 40), (56, 64), (96, 256)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %1) local_unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN2c43yml4Tree5_freeEv(ptr noundef nonnull align 8 dereferenceable(256) %0)
           to label %3 unwind label %7
 
@@ -4058,7 +4058,7 @@ define dso_local noundef nonnull align 8 dereferenceable(256) ptr @_ZN2c43yml4Tr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2c43yml4TreeC2EOS1_(ptr nocapture noundef nonnull align 8 dereferenceable(256) initializes((0, 96)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(256) %1) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml4TreeC2EOS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(256) initializes((0, 96)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(256) %1) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, i8 0, i64 24, i1 false)
@@ -4093,7 +4093,7 @@ _ZN2c43yml4TreeC2ERKNS0_9CallbacksE.exit:         ; preds = %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree5_moveERS1_(ptr nocapture noundef nonnull align 8 dereferenceable(256) initializes((8, 40), (56, 64)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(256) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml4Tree5_moveERS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(256) initializes((8, 40), (56, 64)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(256) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca [33 x i8], align 16
   %4 = alloca %"struct.c4::yml::Location", align 8
   %5 = alloca [39 x i8], align 16
@@ -4215,7 +4215,7 @@ _ZN2c43yml4Tree6_clearEv.exit:                    ; preds = %66
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(256) ptr @_ZN2c43yml4TreeaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(256) initializes((16, 40), (56, 64), (96, 256)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(256) %1) local_unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(256) ptr @_ZN2c43yml4TreeaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(256) initializes((16, 40), (56, 64), (96, 256)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(256) %1) local_unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN2c43yml4Tree5_freeEv(ptr noundef nonnull align 8 dereferenceable(256) %0)
           to label %3 unwind label %7
 
@@ -4238,7 +4238,7 @@ define dso_local noundef nonnull align 8 dereferenceable(256) ptr @_ZN2c43yml4Tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local void @_ZN2c43yml4Tree6_clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((0, 64)) %0) local_unnamed_addr #27 align 2 {
+define dso_local void @_ZN2c43yml4Tree6_clearEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(256) initializes((0, 64)) %0) local_unnamed_addr #27 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   br label %3
@@ -4256,7 +4256,7 @@ define dso_local void @_ZN2c43yml4Tree6_clearEv(ptr nocapture noundef nonnull wr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree9_relocateENS_15basic_substringIcEE(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr %1, i64 %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml4Tree9_relocateENS_15basic_substringIcEE(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, ptr %1, i64 %2) local_unnamed_addr #1 align 2 {
   %4 = alloca [39 x i8], align 16
   %5 = alloca %"struct.c4::yml::Location", align 8
   %6 = alloca [46 x i8], align 16
@@ -4760,7 +4760,7 @@ _ZNK2c43yml4Tree8in_arenaENS_15basic_substringIKcEE.exit173.thread: ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree12_clear_rangeEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml4Tree12_clear_rangeEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [51 x i8], align 16
   %5 = alloca %"struct.c4::yml::Location", align 8
   %6 = icmp eq i64 %2, 0
@@ -4829,7 +4829,7 @@ define dso_local void @_ZN2c43yml4Tree12_clear_rangeEmm(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree11_claim_rootEv(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml4Tree11_claim_rootEv(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca [28 x i8], align 16
   %3 = alloca %"struct.c4::yml::Location", align 8
   %4 = alloca [23 x i8], align 16
@@ -4894,7 +4894,7 @@ _ZN2c43yml4Tree14_set_hierarchyEmmm.exit:         ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml4Tree5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [28 x i8], align 16
   %3 = alloca %"struct.c4::yml::Location", align 8
   %4 = alloca [23 x i8], align 16
@@ -5032,7 +5032,7 @@ _ZN2c43yml4Tree11_claim_rootEv.exit:              ; preds = %.split2.i, %_ZN2c43
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2c43yml4Tree6_claimEv(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZN2c43yml4Tree6_claimEv(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [36 x i8], align 16
   %3 = alloca %"struct.c4::yml::Location", align 8
   %4 = alloca [31 x i8], align 16
@@ -5178,7 +5178,7 @@ define dso_local noundef i64 @_ZN2c43yml4Tree6_claimEv(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree14_set_hierarchyEmmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml4Tree14_set_hierarchyEmmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = alloca [69 x i8], align 16
   %6 = alloca %"struct.c4::yml::Location", align 8
   %7 = alloca [87 x i8], align 16
@@ -5517,7 +5517,7 @@ _ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit106:     ; preds = %179
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree8_releaseEm(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml4Tree8_releaseEm(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, i64 noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [36 x i8], align 16
   %4 = alloca %"struct.c4::yml::Location", align 8
   %5 = alloca [36 x i8], align 16
@@ -5712,7 +5712,7 @@ _ZN2c43yml4Tree14_free_list_addEm.exit:           ; preds = %90, %94
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree14_rem_hierarchyEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml4Tree14_rem_hierarchyEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca [36 x i8], align 16
   %4 = alloca %"struct.c4::yml::Location", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5807,7 +5807,7 @@ define dso_local void @_ZN2c43yml4Tree14_rem_hierarchyEm(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree14_free_list_addEm(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml4Tree14_free_list_addEm(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca [36 x i8], align 16
   %4 = alloca %"struct.c4::yml::Location", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5870,7 +5870,7 @@ define dso_local void @_ZN2c43yml4Tree14_free_list_addEm(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree14_free_list_remEm(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml4Tree14_free_list_remEm(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca [36 x i8], align 16
   %4 = alloca %"struct.c4::yml::Location", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5982,7 +5982,7 @@ _ZN2c43yml4Tree14_rem_hierarchyEm.exit:           ; preds = %53, %55
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree7reorderEv(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml4Tree7reorderEv(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
@@ -6000,7 +6000,7 @@ _ZN2c43yml4Tree7root_idEv.exit:                   ; preds = %1, %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2c43yml4Tree11_do_reorderEPmm(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef i64 @_ZN2c43yml4Tree11_do_reorderEPmm(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca i64, align 8
   %5 = load i64, ptr %1, align 8
   %.not = icmp eq i64 %5, %2
@@ -6037,7 +6037,7 @@ define dso_local noundef i64 @_ZN2c43yml4Tree11_do_reorderEPmm(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree5_swapEmm(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml4Tree5_swapEmm(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [36 x i8], align 16
   %5 = alloca %"struct.c4::yml::Location", align 8
   %6 = alloca [36 x i8], align 16
@@ -6689,7 +6689,7 @@ _ZN2c43yml4Tree14_free_list_addEm.exit77:         ; preds = %314, %318
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN2c43yml4Tree11_swap_propsEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #22 align 2 {
+define dso_local void @_ZN2c43yml4Tree11_swap_propsEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #22 align 2 {
   %4 = alloca %"struct.c4::yml::NodeScalar", align 8
   %5 = alloca %"struct.c4::yml::NodeScalar", align 8
   %6 = load ptr, ptr %0, align 8
@@ -6717,7 +6717,7 @@ define dso_local void @_ZN2c43yml4Tree11_swap_propsEmm(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree15_swap_hierarchyEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml4Tree15_swap_hierarchyEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca [39 x i8], align 16
   %5 = alloca %"struct.c4::yml::Location", align 8
   %6 = alloca [39 x i8], align 16
@@ -7384,7 +7384,7 @@ define dso_local void @_ZN2c43yml4Tree15_swap_hierarchyEmm(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN2c43yml4Tree15_copy_hierarchyEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #28 align 2 {
+define dso_local void @_ZN2c43yml4Tree15_copy_hierarchyEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #28 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds %"struct.c4::yml::NodeData", ptr %4, i64 %2
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 104
@@ -7472,7 +7472,7 @@ define dso_local void @_ZN2c43yml4Tree15_copy_hierarchyEmm(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree4moveEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml4Tree4moveEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca [36 x i8], align 16
   %5 = alloca %"struct.c4::yml::Location", align 8
   %6 = alloca [29 x i8], align 16
@@ -7684,7 +7684,7 @@ _ZN2c43yml4Tree14_rem_hierarchyEm.exit:           ; preds = %106, %108
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree4moveEmmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml4Tree4moveEmmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = alloca [36 x i8], align 16
   %6 = alloca %"struct.c4::yml::Location", align 8
   %7 = alloca [29 x i8], align 16
@@ -7931,7 +7931,7 @@ _ZN2c43yml4Tree14_rem_hierarchyEm.exit:           ; preds = %123, %125
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2c43yml4Tree4moveEPS1_mmm(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
+define dso_local noundef i64 @_ZN2c43yml4Tree4moveEPS1_mmm(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = alloca [31 x i8], align 16
   %7 = alloca %"struct.c4::yml::Location", align 8
   %8 = alloca [29 x i8], align 16
@@ -8035,7 +8035,7 @@ define dso_local noundef i64 @_ZN2c43yml4Tree4moveEPS1_mmm(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2c43yml4Tree9duplicateEPKS1_mmm(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
+define dso_local noundef i64 @_ZN2c43yml4Tree9duplicateEPKS1_mmm(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = alloca [31 x i8], align 16
   %7 = alloca %"struct.c4::yml::Location", align 8
   %8 = alloca [29 x i8], align 16
@@ -8154,7 +8154,7 @@ define dso_local noundef i64 @_ZN2c43yml4Tree9duplicateEPKS1_mmm(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree18set_root_as_streamEv(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml4Tree18set_root_as_streamEv(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca [31 x i8], align 16
   %3 = alloca %"struct.c4::yml::Location", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8297,7 +8297,7 @@ _ZN2c43yml4Tree7root_idEv.exit:                   ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree15remove_childrenEm(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml4Tree15remove_childrenEm(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca [37 x i8], align 16
   %4 = alloca %"struct.c4::yml::Location", align 8
   %5 = alloca [36 x i8], align 16
@@ -8431,7 +8431,7 @@ define dso_local void @_ZN2c43yml4Tree15remove_childrenEm(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN2c43yml4Tree11change_typeEmNS0_8NodeTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %1, i64 %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN2c43yml4Tree11change_typeEmNS0_8NodeTypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, i64 noundef %1, i64 %2) local_unnamed_addr #1 align 2 {
   %4 = alloca [64 x i8], align 16
   %5 = alloca %"struct.c4::yml::Location", align 8
   %6 = alloca [67 x i8], align 16
@@ -8577,7 +8577,7 @@ define dso_local noundef i64 @_ZN2c43yml4Tree9duplicateEmmm(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2c43yml4Tree18duplicate_childrenEPKS1_mmm(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
+define dso_local noundef i64 @_ZN2c43yml4Tree18duplicate_childrenEPKS1_mmm(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = alloca [31 x i8], align 16
   %7 = alloca %"struct.c4::yml::Location", align 8
   %8 = alloca [29 x i8], align 16
@@ -8715,7 +8715,7 @@ define dso_local void @_ZN2c43yml4Tree18duplicate_contentsEmm(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree18duplicate_contentsEPKS1_mm(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml4Tree18duplicate_contentsEPKS1_mm(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = alloca [31 x i8], align 16
   %6 = alloca %"struct.c4::yml::Location", align 8
   %7 = alloca [29 x i8], align 16
@@ -9785,7 +9785,7 @@ _ZN2c43yml4Tree6to_mapEmm.exit:                   ; preds = %268, %273, %277
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree6to_seqEmNS_15basic_substringIKcEEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, i64 noundef %1, ptr %2, i64 %3, i64 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml4Tree6to_seqEmNS_15basic_substringIKcEEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, i64 noundef %1, ptr %2, i64 %3, i64 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca [37 x i8], align 16
   %7 = alloca %"struct.c4::yml::Location", align 8
   %8 = alloca [60 x i8], align 16
@@ -9869,7 +9869,7 @@ define dso_local void @_ZN2c43yml4Tree6to_seqEmNS_15basic_substringIKcEEm(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree6to_seqEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml4Tree6to_seqEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [37 x i8], align 16
   %5 = alloca %"struct.c4::yml::Location", align 8
   %6 = alloca [60 x i8], align 16
@@ -9947,7 +9947,7 @@ define dso_local void @_ZN2c43yml4Tree6to_seqEmm(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree6to_mapEmNS_15basic_substringIKcEEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, i64 noundef %1, ptr %2, i64 %3, i64 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml4Tree6to_mapEmNS_15basic_substringIKcEEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, i64 noundef %1, ptr %2, i64 %3, i64 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca [37 x i8], align 16
   %7 = alloca %"struct.c4::yml::Location", align 8
   %8 = alloca [60 x i8], align 16
@@ -10031,7 +10031,7 @@ define dso_local void @_ZN2c43yml4Tree6to_mapEmNS_15basic_substringIKcEEm(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree6to_mapEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml4Tree6to_mapEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [37 x i8], align 16
   %5 = alloca %"struct.c4::yml::Location", align 8
   %6 = alloca [62 x i8], align 16
@@ -10109,7 +10109,7 @@ define dso_local void @_ZN2c43yml4Tree6to_mapEmm(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZNK2c43yml4Tree10find_childEmRKNS_15basic_substringIKcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, i64 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef i64 @_ZNK2c43yml4Tree10find_childEmRKNS_15basic_substringIKcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, i64 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca [29 x i8], align 16
   %5 = alloca %"struct.c4::yml::Location", align 8
   %6 = alloca [29 x i8], align 16
@@ -11150,7 +11150,7 @@ _ZN2c43yml6detail17ReferenceResolverD2Ev.exit217: ; preds = %334, %._crit_edge25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK2c43yml4Tree12num_childrenEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, i64 noundef %1) local_unnamed_addr #29 align 2 {
+define dso_local noundef i64 @_ZNK2c43yml4Tree12num_childrenEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, i64 noundef %1) local_unnamed_addr #29 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds %"struct.c4::yml::NodeData", ptr %3, i64 %1, i32 4
   %.06 = load i64, ptr %4, align 8
@@ -11172,7 +11172,7 @@ define dso_local noundef i64 @_ZNK2c43yml4Tree12num_childrenEm(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZNK2c43yml4Tree5childEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef i64 @_ZNK2c43yml4Tree5childEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca [29 x i8], align 16
   %5 = alloca %"struct.c4::yml::Location", align 8
   %.not = icmp eq i64 %1, -1
@@ -11229,7 +11229,7 @@ define dso_local noundef i64 @_ZNK2c43yml4Tree5childEmm(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK2c43yml4Tree9child_posEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #29 align 2 {
+define dso_local noundef i64 @_ZNK2c43yml4Tree9child_posEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #29 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds %"struct.c4::yml::NodeData", ptr %4, i64 %1, i32 4
   %.010 = load i64, ptr %5, align 8
@@ -11255,7 +11255,7 @@ define dso_local noundef i64 @_ZNK2c43yml4Tree9child_posEmm(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree6to_valEmNS_15basic_substringIKcEEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, i64 noundef %1, ptr %2, i64 %3, i64 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml4Tree6to_valEmNS_15basic_substringIKcEEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, i64 noundef %1, ptr %2, i64 %3, i64 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca [37 x i8], align 16
   %7 = alloca %"struct.c4::yml::Location", align 8
   %8 = alloca [62 x i8], align 16
@@ -11339,7 +11339,7 @@ define dso_local void @_ZN2c43yml4Tree6to_valEmNS_15basic_substringIKcEEm(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree9to_keyvalEmNS_15basic_substringIKcEES4_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, i64 noundef %1, ptr %2, i64 %3, ptr %4, i64 %5, i64 noundef %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml4Tree9to_keyvalEmNS_15basic_substringIKcEES4_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, i64 noundef %1, ptr %2, i64 %3, ptr %4, i64 %5, i64 noundef %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca [37 x i8], align 16
   %9 = alloca %"struct.c4::yml::Location", align 8
   %10 = alloca [60 x i8], align 16
@@ -11429,7 +11429,7 @@ define dso_local void @_ZN2c43yml4Tree9to_keyvalEmNS_15basic_substringIKcEES4_m(
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree6to_docEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml4Tree6to_docEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [37 x i8], align 16
   %5 = alloca %"struct.c4::yml::Location", align 8
   %6 = load ptr, ptr %0, align 8
@@ -11472,7 +11472,7 @@ define dso_local void @_ZN2c43yml4Tree6to_docEmm(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree9to_streamEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml4Tree9to_streamEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [37 x i8], align 16
   %5 = alloca %"struct.c4::yml::Location", align 8
   %6 = load ptr, ptr %0, align 8
@@ -11515,7 +11515,7 @@ define dso_local void @_ZN2c43yml4Tree9to_streamEmm(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i64 0, 5) i64 @_ZNK2c43yml4Tree18num_tag_directivesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef range(i64 0, 5) i64 @_ZNK2c43yml4Tree18num_tag_directivesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %3
 
@@ -11543,7 +11543,7 @@ define dso_local noundef range(i64 0, 5) i64 @_ZNK2c43yml4Tree18num_tag_directiv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local void @_ZN2c43yml4Tree20clear_tag_directivesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) %0) local_unnamed_addr #27 align 2 {
+define dso_local void @_ZN2c43yml4Tree20clear_tag_directivesEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(256) %0) local_unnamed_addr #27 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %2
@@ -11559,7 +11559,7 @@ define dso_local void @_ZN2c43yml4Tree20clear_tag_directivesEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2c43yml4Tree17add_tag_directiveERKNS0_12TagDirectiveE(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZN2c43yml4Tree17add_tag_directiveERKNS0_12TagDirectiveE(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [33 x i8], align 16
   %4 = alloca %"struct.c4::yml::Location", align 8
   %5 = alloca [33 x i8], align 16
@@ -11920,7 +11920,7 @@ _ZNK2c415basic_substringIKcE5trimrEc.exit:        ; preds = %10, %.preheader.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZNK2c43yml4Tree11resolve_tagENS_15basic_substringIcEENS2_IKcEEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, ptr nocapture writeonly %1, i64 %2, ptr readonly %3, i64 %4, i64 noundef %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZNK2c43yml4Tree11resolve_tagENS_15basic_substringIcEENS2_IKcEEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, ptr writeonly captures(none) %1, i64 %2, ptr readonly %3, i64 %4, i64 noundef %5) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca [28 x i8], align 16
   %8 = alloca %"struct.c4::yml::Location", align 8
   %9 = alloca [27 x i8], align 16
@@ -12500,7 +12500,7 @@ _ZNK2c415basic_substringIKcE4findEcm.exit205.thread: ; preds = %._crit_edge.thre
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree12resolve_tagsEv(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml4Tree12resolve_tagsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
@@ -12601,7 +12601,7 @@ _ZN2c43yml4Tree7root_idEv.exit2:                  ; preds = %_ZN2c43yml4Tree13re
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @_ZN2c43yml12_GLOBAL__N_125_count_resolved_tags_sizeEPKNS0_4TreeEm(ptr nocapture noundef nonnull readonly %0, i64 noundef %1) unnamed_addr #1 {
+define internal fastcc noundef i64 @_ZN2c43yml12_GLOBAL__N_125_count_resolved_tags_sizeEPKNS0_4TreeEm(ptr noundef nonnull readonly captures(none) %0, i64 noundef %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds %"struct.c4::yml::NodeData", ptr %3, i64 %1, i32 4
   %.04049 = load i64, ptr %4, align 8
@@ -12663,7 +12663,7 @@ define internal fastcc noundef i64 @_ZN2c43yml12_GLOBAL__N_125_count_resolved_ta
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2c43yml12_GLOBAL__N_113_resolve_tagsEPNS0_4TreeEm(ptr nocapture noundef nonnull %0, i64 noundef %1) unnamed_addr #1 {
+define internal fastcc void @_ZN2c43yml12_GLOBAL__N_113_resolve_tagsEPNS0_4TreeEm(ptr noundef nonnull captures(none) %0, i64 noundef %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds %"struct.c4::yml::NodeData", ptr %3, i64 %1, i32 4
   %.051 = load i64, ptr %4, align 8
@@ -12744,7 +12744,7 @@ define internal fastcc void @_ZN2c43yml12_GLOBAL__N_113_resolve_tagsEPNS0_4TreeE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { ptr, i64 } @_ZNK2c43yml4Tree13lookup_result8resolvedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #29 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local { ptr, i64 } @_ZNK2c43yml4Tree13lookup_result8resolvedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #29 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
@@ -12773,7 +12773,7 @@ _ZNK2c415basic_substringIKcE9ends_withEc.exit.thread: ; preds = %_ZNK2c415basic_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { ptr, i64 } @_ZNK2c43yml4Tree13lookup_result10unresolvedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local { ptr, i64 } @_ZNK2c43yml4Tree13lookup_result10unresolvedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
@@ -12788,7 +12788,7 @@ define dso_local { ptr, i64 } @_ZNK2c43yml4Tree13lookup_result10unresolvedEv(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK2c43yml4Tree8_advanceEPNS1_13lookup_resultEm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(256) %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #30 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK2c43yml4Tree8_advanceEPNS1_13lookup_resultEm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(256) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #30 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, %2
@@ -12816,7 +12816,7 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit.thread: ; preds = %3, %14, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK2c43yml4Tree11lookup_pathENS_15basic_substringIKcEEm(ptr dead_on_unwind noalias nocapture writable sret(%"struct.c4::yml::Tree::lookup_result") align 8 initializes((0, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %1, ptr %2, i64 %3, i64 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK2c43yml4Tree11lookup_pathENS_15basic_substringIKcEEm(ptr dead_on_unwind noalias writable sret(%"struct.c4::yml::Tree::lookup_result") align 8 captures(none) initializes((0, 40)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %1, ptr %2, i64 %3, i64 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.c4::yml::Tree::_lookup_path_token", align 8
   %7 = icmp eq i64 %4, -1
   %spec.select = select i1 %7, i64 0, i64 %4
@@ -12891,7 +12891,7 @@ _ZNK2c43yml4Tree12_lookup_pathEPNS1_13lookup_resultE.exit: ; preds = %_ZNK2c43ym
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK2c43yml4Tree12_lookup_pathEPNS1_13lookup_resultE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, ptr nocapture noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK2c43yml4Tree12_lookup_pathEPNS1_13lookup_resultE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.c4::yml::Tree::_lookup_path_token", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
@@ -13272,7 +13272,7 @@ define dso_local noundef i64 @_ZN2c43yml4Tree21lookup_path_or_modifyEPKS1_mNS_15
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml4Tree19_lookup_path_modifyEPNS1_13lookup_resultE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml4Tree19_lookup_path_modifyEPNS1_13lookup_resultE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.c4::yml::Tree::_lookup_path_token", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
@@ -13319,7 +13319,7 @@ define dso_local void @_ZN2c43yml4Tree19_lookup_path_modifyEPNS1_13lookup_result
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZNK2c43yml4Tree10_next_nodeEPNS1_13lookup_resultEPNS1_18_lookup_path_tokenE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZNK2c43yml4Tree10_next_nodeEPNS1_13lookup_resultEPNS1_18_lookup_path_tokenE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(none) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [29 x i8], align 16
   %5 = alloca %"struct.c4::yml::Location", align 8
   %6 = alloca %"struct.c4::yml::Tree::_lookup_path_token", align 8
@@ -13665,7 +13665,7 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit67.thread: ; preds = %.thread, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2c43yml4Tree17_next_node_modifyEPNS1_13lookup_resultEPNS1_18_lookup_path_tokenE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZN2c43yml4Tree17_next_node_modifyEPNS1_13lookup_resultEPNS1_18_lookup_path_tokenE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(none) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [37 x i8], align 16
   %5 = alloca %"struct.c4::yml::Location", align 8
   %6 = alloca [62 x i8], align 16
@@ -14697,7 +14697,7 @@ _ZN2c43yml4Tree6to_valEmNS_15basic_substringIKcEEm.exit: ; preds = %445, %450, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK2c43yml4Tree11_next_tokenEPNS1_13lookup_resultERKNS1_18_lookup_path_tokenE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.c4::yml::Tree::_lookup_path_token") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %1, ptr nocapture noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK2c43yml4Tree11_next_tokenEPNS1_13lookup_resultERKNS1_18_lookup_path_tokenE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.c4::yml::Tree::_lookup_path_token") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %1, ptr noundef captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [55 x i8], align 16
   %6 = alloca %"struct.c4::yml::Location", align 8
   %7 = alloca [25 x i8], align 16
@@ -15134,7 +15134,7 @@ _ZN2c43yml6detail5stackINS0_6Parser5StateELm16EE5_freeEv.exit: ; preds = %22, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN2c43yml6Parser4_clrEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2736) initializes((0, 4), (8, 56), (2496, 2504), (2544, 2625), (2632, 2736)) %0) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN2c43yml6Parser4_clrEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(2736) initializes((0, 4), (8, 56), (2496, 2504), (2544, 2625), (2632, 2736)) %0) local_unnamed_addr #9 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2496
@@ -15184,7 +15184,7 @@ _ZN2c43yml6detail5stackINS0_6Parser5StateELm16EE5_freeEv.exit: ; preds = %.noexc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN2c43yml6ParserC2ERKNS0_9CallbacksENS0_13ParserOptionsE(ptr noundef nonnull align 8 dereferenceable(2736) initializes((0, 4), (8, 56)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml6ParserC2ERKNS0_9CallbacksENS0_13ParserOptionsE(ptr noundef nonnull align 8 dereferenceable(2736) initializes((0, 4), (8, 56)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.2 = alloca [148 x i8], align 4
   store i32 %2, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15372,7 +15372,7 @@ define dso_local void @_ZN2c43yml6ParserC2EOS1_(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml6ParserC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(2736) initializes((0, 4), (8, 56)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml6ParserC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(2736) initializes((0, 4), (8, 56)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2736) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [39 x i8], align 16
   %4 = alloca %"struct.c4::yml::Location", align 8
   %5 = alloca [76 x i8], align 16
@@ -15667,7 +15667,7 @@ _ZN2c43yml6Parser20_resize_filter_arenaEm.exit:   ; preds = %125, %.noexc34
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml6Parser17_resize_locationsEm(ptr nocapture noundef nonnull align 8 dereferenceable(2736) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml6Parser17_resize_locationsEm(ptr noundef nonnull align 8 captures(none) dereferenceable(2736) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2712
   %4 = load i64, ptr %3, align 8
   %5 = icmp ugt i64 %1, %4
@@ -15705,7 +15705,7 @@ define dso_local void @_ZN2c43yml6Parser17_resize_locationsEm(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml6Parser20_resize_filter_arenaEm(ptr nocapture noundef nonnull align 8 dereferenceable(2736) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml6Parser20_resize_filter_arenaEm(ptr noundef nonnull align 8 captures(none) dereferenceable(2736) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca [39 x i8], align 16
   %4 = alloca %"struct.c4::yml::Location", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2680
@@ -16564,7 +16564,7 @@ _ZN2c43yml6Parser5State5resetEPKcm.exit:          ; preds = %_ZN2c43yml6detail5s
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml6Parser18_prepare_locationsEv(ptr nocapture noundef nonnull align 8 dereferenceable(2736) initializes((2720, 2736)) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml6Parser18_prepare_locationsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(2736) initializes((2720, 2736)) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca [54 x i8], align 16
   %3 = alloca %"struct.c4::yml::Location", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -16730,7 +16730,7 @@ _ZN2c43yml6Parser17_resize_locationsEm.exit:      ; preds = %_ZNK2c415basic_subs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK2c43yml6Parser14_finished_fileEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %0) local_unnamed_addr #29 align 2 {
+define dso_local noundef zeroext i1 @_ZNK2c43yml6Parser14_finished_fileEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2736) %0) local_unnamed_addr #29 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2544
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -16742,7 +16742,7 @@ define dso_local noundef zeroext i1 @_ZNK2c43yml6Parser14_finished_fileEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK2c43yml6Parser14_finished_lineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %0) local_unnamed_addr #29 align 2 {
+define dso_local noundef zeroext i1 @_ZNK2c43yml6Parser14_finished_lineEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2736) %0) local_unnamed_addr #29 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2544
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 128
@@ -17020,7 +17020,7 @@ _ZNK2c43yml6Parser14_finished_lineEv.exit.thread._crit_edge: ; preds = %_ZN2c43y
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN2c43yml6Parser10_scan_lineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %0) local_unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml6Parser10_scan_lineEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2736) %0) local_unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2544
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -17224,7 +17224,7 @@ define dso_local void @_ZN2c43yml6Parser12_handle_lineEv(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml6Parser11_line_endedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml6Parser11_line_endedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2736) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca [74 x i8], align 16
   %3 = alloca %"struct.c4::yml::Location", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2544
@@ -24648,7 +24648,7 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit39: ; preds = %129
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml6Parser14_start_new_docENS_15basic_substringIKcEE(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml6Parser14_start_new_docENS_15basic_substringIKcEE(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [74 x i8], align 16
   %5 = alloca %"struct.c4::yml::Location", align 8
   %6 = alloca [39 x i8], align 16
@@ -24754,7 +24754,7 @@ _ZN2c43yml6Parser16_line_progressedEm.exit:       ; preds = %_ZNK2c415basic_subs
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml6Parser16_line_progressedEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %0, i64 noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml6Parser16_line_progressedEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2736) %0, i64 noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [74 x i8], align 16
   %4 = alloca %"struct.c4::yml::Location", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2544
@@ -24810,7 +24810,7 @@ define dso_local void @_ZN2c43yml6Parser16_line_progressedEm(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml6Parser17_save_indentationEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml6Parser17_save_indentationEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2736) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca [90 x i8], align 16
   %4 = alloca %"struct.c4::yml::Location", align 8
   %5 = alloca [42 x i8], align 16
@@ -25278,7 +25278,7 @@ _ZN2c43yml4Tree6to_docEmm.exit:                   ; preds = %105, %120
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN2c43yml6Parser16_set_indentationEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %0, i64 noundef %1) local_unnamed_addr #31 align 2 {
+define dso_local void @_ZN2c43yml6Parser16_set_indentationEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2736) %0, i64 noundef %1) local_unnamed_addr #31 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2544
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -25396,7 +25396,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN2c43yml6Parser24_move_key_tag_to_val_tagEv(ptr nocapture noundef nonnull align 8 dereferenceable(2736) %0) local_unnamed_addr #32 align 2 {
+define dso_local void @_ZN2c43yml6Parser24_move_key_tag_to_val_tagEv(ptr noundef nonnull align 8 captures(none) dereferenceable(2736) %0) local_unnamed_addr #32 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2568
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2576
   %4 = load i64, ptr %3, align 8
@@ -28710,7 +28710,7 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit22.thread: ; preds = %_ZNK2c415b
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN2c43yml6Parser16_scan_scalar_unkEPNS_15basic_substringIKcEEPb(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noalias nocapture noundef writeonly %1, ptr noalias nocapture noundef writeonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN2c43yml6Parser16_scan_scalar_unkEPNS_15basic_substringIKcEEPb(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noalias noundef writeonly captures(none) %1, ptr noalias noundef writeonly captures(none) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [30 x i8], align 16
   %5 = alloca %"struct.c4::yml::Location", align 8
   %6 = alloca %"struct.c4::basic_substring.0", align 8
@@ -29125,7 +29125,7 @@ _ZNK2c43yml6Parser12_at_line_endEv.exit:          ; preds = %.lr.ph.i.i, %_ZNK2c
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN2c43yml6Parser11_append_valENS_15basic_substringIKcEEi(ptr nocapture noundef nonnull align 8 dereferenceable(2736) %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN2c43yml6Parser11_append_valENS_15basic_substringIKcEEi(ptr noundef nonnull align 8 captures(none) dereferenceable(2736) %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [37 x i8], align 16
   %6 = alloca %"struct.c4::yml::Location", align 8
   %7 = alloca [62 x i8], align 16
@@ -29448,7 +29448,7 @@ _ZN2c43yml13normalize_tagENS_15basic_substringIKcEE.exit: ; preds = %.lr.ph.i.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, i64 } @_ZN2c43yml6Parser15_consume_scalarEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %0) local_unnamed_addr #1 align 2 {
+define dso_local { ptr, i64 } @_ZN2c43yml6Parser15_consume_scalarEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2736) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"struct.c4::yml::Location", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2544
   %4 = load ptr, ptr %3, align 8
@@ -30167,7 +30167,7 @@ _ZN2c43yml6Parser20_append_key_val_nullEPKc.exit: ; preds = %_ZN2c43yml6Parser18
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, i64 } @_ZN2c43yml6Parser13_scan_commentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local { ptr, i64 } @_ZN2c43yml6Parser13_scan_commentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2736) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [74 x i8], align 16
   %3 = alloca %"struct.c4::yml::Location", align 8
   %4 = alloca [35 x i8], align 16
@@ -30297,7 +30297,7 @@ _ZNK2c415basic_substringIKcE12first_not_ofEcm.exit.thread: ; preds = %54, %_ZN2c
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml6Parser13_store_scalarENS_15basic_substringIKcEEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml6Parser13_store_scalarENS_15basic_substringIKcEEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2736) %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"struct.c4::yml::Location", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2544
   %7 = load ptr, ptr %6, align 8
@@ -30500,7 +30500,7 @@ _ZN2c43yml6Parser9_stop_seqEv.exit:               ; preds = %._crit_edge, %33
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml6Parser13_stop_seqimapEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml6Parser13_stop_seqimapEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2736) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca [34 x i8], align 16
   %3 = alloca %"struct.c4::yml::Location", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2544
@@ -30533,7 +30533,7 @@ define dso_local void @_ZN2c43yml6Parser13_stop_seqimapEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN2c43yml6Parser21_scan_scalar_seq_flowEPNS_15basic_substringIKcEEPb(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noalias nocapture noundef writeonly %1, ptr noalias nocapture noundef writeonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN2c43yml6Parser21_scan_scalar_seq_flowEPNS_15basic_substringIKcEEPb(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noalias noundef writeonly captures(none) %1, ptr noalias noundef writeonly captures(none) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [74 x i8], align 16
   %5 = alloca %"struct.c4::yml::Location", align 8
   %6 = alloca [30 x i8], align 16
@@ -32235,7 +32235,7 @@ _ZNK2c415basic_substringIKcE8first_ofES2_m.exit.thread: ; preds = %._crit_edge.u
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN2c43yml6Parser21_scan_scalar_seq_blckEPNS_15basic_substringIKcEEPb(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noalias nocapture noundef writeonly %1, ptr noalias nocapture noundef writeonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN2c43yml6Parser21_scan_scalar_seq_blckEPNS_15basic_substringIKcEEPb(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noalias noundef writeonly captures(none) %1, ptr noalias noundef writeonly captures(none) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [30 x i8], align 16
   %5 = alloca %"struct.c4::yml::Location", align 8
   %6 = alloca [30 x i8], align 16
@@ -32796,7 +32796,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN2c43yml6Parser24_move_val_tag_to_key_tagEv(ptr nocapture noundef nonnull align 8 dereferenceable(2736) %0) local_unnamed_addr #30 align 2 {
+define dso_local void @_ZN2c43yml6Parser24_move_val_tag_to_key_tagEv(ptr noundef nonnull align 8 captures(none) dereferenceable(2736) %0) local_unnamed_addr #30 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2608
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2616
   %4 = load i64, ptr %3, align 8
@@ -32841,7 +32841,7 @@ _ZNK2c43yml6Parser24_token_is_from_this_lineENS_15basic_substringIKcEE.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN2c43yml6Parser41_maybe_set_indentation_from_anchor_or_tagEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %0) local_unnamed_addr #31 align 2 {
+define dso_local noundef zeroext i1 @_ZN2c43yml6Parser41_maybe_set_indentation_from_anchor_or_tagEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2736) %0) local_unnamed_addr #31 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2648
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
@@ -32877,7 +32877,7 @@ define dso_local noundef zeroext i1 @_ZN2c43yml6Parser41_maybe_set_indentation_f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN2c43yml6Parser25_move_key_tag2_to_key_tagEv(ptr nocapture noundef nonnull align 8 dereferenceable(2736) %0) local_unnamed_addr #32 align 2 {
+define dso_local void @_ZN2c43yml6Parser25_move_key_tag2_to_key_tagEv(ptr noundef nonnull align 8 captures(none) dereferenceable(2736) %0) local_unnamed_addr #32 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2584
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2592
   %4 = load i64, ptr %3, align 8
@@ -33143,7 +33143,7 @@ define linkonce_odr dso_local noundef ptr @_ZN2c43yml6Parser20_append_key_val_nu
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN2c43yml6Parser21_scan_scalar_map_flowEPNS_15basic_substringIKcEEPb(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noalias nocapture noundef writeonly %1, ptr noalias nocapture noundef writeonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN2c43yml6Parser21_scan_scalar_map_flowEPNS_15basic_substringIKcEEPb(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noalias noundef writeonly captures(none) %1, ptr noalias noundef writeonly captures(none) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [30 x i8], align 16
   %5 = alloca %"struct.c4::yml::Location", align 8
   %6 = alloca [30 x i8], align 16
@@ -34195,7 +34195,7 @@ _ZNK2c415basic_substringIKcE12first_not_ofES2_m.exit.thread28: ; preds = %.prehe
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml6Parser21_move_scalar_from_topEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml6Parser21_move_scalar_from_topEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2736) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca [42 x i8], align 16
   %3 = alloca %"struct.c4::yml::Location", align 8
   %4 = alloca [33 x i8], align 16
@@ -34285,7 +34285,7 @@ define dso_local void @_ZN2c43yml6Parser21_move_scalar_from_topEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN2c43yml6Parser21_scan_scalar_map_blckEPNS_15basic_substringIKcEEPb(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noalias nocapture noundef writeonly %1, ptr noalias nocapture noundef writeonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN2c43yml6Parser21_scan_scalar_map_blckEPNS_15basic_substringIKcEEPb(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noalias noundef writeonly captures(none) %1, ptr noalias noundef writeonly captures(none) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [30 x i8], align 16
   %5 = alloca %"struct.c4::yml::Location", align 8
   %6 = alloca [32 x i8], align 16
@@ -39548,7 +39548,7 @@ _ZNK2c415basic_substringIKcE5trimrES2_.exit:      ; preds = %17, %.loopexit.us.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @_ZN2c43yml12_GLOBAL__N_111_is_doc_sepENS_15basic_substringIKcEE(ptr nocapture readonly %0, i64 %1) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN2c43yml12_GLOBAL__N_111_is_doc_sepENS_15basic_substringIKcEE(ptr readonly captures(none) %0, i64 %1) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %3 = icmp ult i64 %1, 3
   br i1 %3, label %_ZNK2c415basic_substringIKcE15begins_with_anyES2_.exit, label %.preheader.i
 
@@ -39988,7 +39988,7 @@ _ZNK2c415basic_substringIKcE11begins_withES2_.exit: ; preds = %4, %13, %18, %25,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, i64 } @_ZN2c43yml6Parser27_scan_to_next_nonempty_lineEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %0, i64 noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local { ptr, i64 } @_ZN2c43yml6Parser27_scan_to_next_nonempty_lineEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2736) %0, i64 noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2544
   %.not12.i = icmp eq i64 %1, 0
   br label %4
@@ -40108,7 +40108,7 @@ _ZNK2c415basic_substringIKcE5trimrES2_.exit:      ; preds = %_ZNK2c415basic_subs
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, i64 } @_ZN2c43yml6Parser17_scan_complex_keyENS_15basic_substringIKcEES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %0, ptr %1, i64 %2, ptr nocapture readonly %3, i64 %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local { ptr, i64 } @_ZN2c43yml6Parser17_scan_complex_keyENS_15basic_substringIKcEES4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2736) %0, ptr %1, i64 %2, ptr readonly captures(none) %3, i64 %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca [74 x i8], align 16
   %7 = alloca %"struct.c4::yml::Location", align 8
   %8 = alloca [74 x i8], align 16
@@ -42279,7 +42279,7 @@ _ZNK2c415basic_substringIcE5trimrENS0_IKcEE.exit: ; preds = %.loopexit.us.i.i110
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN2c43yml6Parser18_advance_to_peekedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN2c43yml6Parser18_advance_to_peekedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2736) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [74 x i8], align 16
   %3 = alloca %"struct.c4::yml::Location", align 8
   %4 = alloca [74 x i8], align 16
@@ -42567,7 +42567,7 @@ _ZN2c43yml6Parser10_scan_lineEv.exit:             ; preds = %.lr.ph.i.i.i.i, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { ptr, i64 } @_ZNK2c43yml6Parser15_peek_next_lineEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %0, i64 noundef %1) local_unnamed_addr #29 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local { ptr, i64 } @_ZNK2c43yml6Parser15_peek_next_lineEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2736) %0, i64 noundef %1) local_unnamed_addr #29 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq i64 %1, -1
   br i1 %3, label %4, label %9
 
@@ -42771,7 +42771,7 @@ _ZNK2c415basic_substringIKcE8first_ofES2_m.exit:  ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN2c43yml6Parser12LineContents20reset_with_next_lineENS_15basic_substringIKcEEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, ptr %1, i64 %2, i64 noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml6Parser12LineContents20reset_with_next_lineENS_15basic_substringIKcEEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) %0, ptr %1, i64 %2, i64 noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 %3
   %6 = getelementptr inbounds i8, ptr %1, i64 %2
   %7 = icmp slt i64 %3, %2
@@ -42856,7 +42856,7 @@ _ZN2c43yml6Parser12LineContents5resetENS_15basic_substringIKcEES5_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml6Parser16_line_ended_undoEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml6Parser16_line_ended_undoEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2736) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [39 x i8], align 16
   %3 = alloca %"struct.c4::yml::Location", align 8
   %4 = alloca [39 x i8], align 16
@@ -43503,7 +43503,7 @@ _ZN2c43yml6detail13_SubstrWriter6appendEc.exit:   ; preds = %_ZN2c44dumpIRZNKS_3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml6Parser17_write_val_anchorEm(ptr nocapture noundef nonnull align 8 dereferenceable(2736) %0, i64 noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml6Parser17_write_val_anchorEm(ptr noundef nonnull align 8 captures(none) dereferenceable(2736) %0, i64 noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.c4::yml::Location", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2664
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2672
@@ -43692,7 +43692,7 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit.thread: ; preds = %.critedge, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml6Parser9_stop_seqEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml6Parser9_stop_seqEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2736) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca [49 x i8], align 16
   %3 = alloca %"struct.c4::yml::Location", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -43731,7 +43731,7 @@ define dso_local void @_ZN2c43yml6Parser9_stop_seqEv(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml6Parser9_stop_docEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2c43yml6Parser9_stop_docEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2736) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [37 x i8], align 16
   %3 = alloca %"struct.c4::yml::Location", align 8
   %4 = alloca [62 x i8], align 16
@@ -43898,7 +43898,7 @@ _ZN2c43yml4Tree6to_valEmNS_15basic_substringIKcEEm.exit: ; preds = %64, %69, %73
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN2c43yml6Parser9rem_flagsEiPNS1_5StateE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2736) %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #32 align 2 {
+define dso_local void @_ZN2c43yml6Parser9rem_flagsEiPNS1_5StateE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2736) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #32 align 2 {
   %4 = xor i32 %1, -1
   %5 = load i32, ptr %2, align 8
   %6 = and i32 %5, %4
@@ -46917,7 +46917,7 @@ _ZNK2c415basic_substringIcE4trimENS0_IKcEE.exit.thread: ; preds = %62, %.loopexi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2c43yml6Parser18_grow_filter_arenaEm(ptr nocapture noundef nonnull align 8 dereferenceable(2736) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN2c43yml6Parser18_grow_filter_arenaEm(ptr noundef nonnull align 8 captures(none) dereferenceable(2736) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca [39 x i8], align 16
   %4 = alloca %"struct.c4::yml::Location", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2688
@@ -47117,7 +47117,7 @@ _ZNK2c415basic_substringIcE12first_not_ofENS0_IKcEEm.exit.thread: ; preds = %55,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, i64 } @_ZN2c43yml6Parser20_finish_filter_arenaENS_15basic_substringIcEEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %0, ptr %1, i64 %2, i64 noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local { ptr, i64 } @_ZN2c43yml6Parser20_finish_filter_arenaENS_15basic_substringIcEEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2736) %0, ptr %1, i64 %2, i64 noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [42 x i8], align 16
   %6 = alloca %"struct.c4::yml::Location", align 8
   %7 = alloca [31 x i8], align 16
@@ -47604,7 +47604,7 @@ _ZNK2c415basic_substringIcE12first_not_ofENS0_IKcEEm.exit.thread: ; preds = %55,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN2c43yml6Parser12_apply_chompENS_15basic_substringIcEEPmNS1_12BlockChomp_eE(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr readonly %1, i64 %2, ptr noalias nocapture noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN2c43yml6Parser12_apply_chompENS_15basic_substringIcEEPmNS1_12BlockChomp_eE(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr readonly %1, i64 %2, ptr noalias noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca [1024 x i8], align 16
   %7 = alloca %"struct.c4::yml::detail::_SubstrWriter", align 8
   %8 = alloca %class.anon.7, align 8
@@ -47745,7 +47745,7 @@ _ZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZN2c43yml6Parser13_count_nlinesENS_15basic_substringIKcEE(ptr nocapture readonly %0, i64 %1) local_unnamed_addr #10 align 2 {
+define dso_local noundef i64 @_ZN2c43yml6Parser13_count_nlinesENS_15basic_substringIKcEE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #10 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %_ZNK2c415basic_substringIKcE5countEcm.exit, label %.lr.ph.i.i.i
 
@@ -47796,13 +47796,13 @@ _ZNK2c415basic_substringIKcE5countEcm.exit:       ; preds = %6, %.lr.ph.i, %_ZNK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN2c43yml6Parser9set_flagsEiPNS1_5StateE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2736) %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN2c43yml6Parser9set_flagsEiPNS1_5StateE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2736) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #9 align 2 {
   store i32 %1, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN2c43yml6Parser9add_flagsEiPNS1_5StateE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2736) %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #32 align 2 {
+define dso_local void @_ZN2c43yml6Parser9add_flagsEiPNS1_5StateE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2736) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #32 align 2 {
   %4 = load i32, ptr %2, align 8
   %5 = or i32 %4, %1
   store i32 %5, ptr %2, align 8
@@ -47810,7 +47810,7 @@ define dso_local void @_ZN2c43yml6Parser9add_flagsEiPNS1_5StateE(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN2c43yml6Parser12addrem_flagsEiiPNS1_5StateE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2736) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #32 align 2 {
+define dso_local void @_ZN2c43yml6Parser12addrem_flagsEiiPNS1_5StateE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2736) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #32 align 2 {
   %5 = load i32, ptr %3, align 8
   %6 = or i32 %5, %1
   %7 = xor i32 %2, -1
@@ -48257,7 +48257,7 @@ define dso_local { ptr, i64 } @_ZN2c43yml6Parser5_prflENS_15basic_substringIcEEi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, i64 } @_ZNK2c43yml6Parser17location_contentsERKNS0_8LocationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local { ptr, i64 } @_ZNK2c43yml6Parser17location_contentsERKNS0_8LocationE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2736) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [39 x i8], align 16
   %4 = alloca %"struct.c4::yml::Location", align 8
   %5 = load i64, ptr %1, align 8
@@ -48299,7 +48299,7 @@ define dso_local { ptr, i64 } @_ZNK2c43yml6Parser17location_contentsERKNS0_8Loca
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK2c43yml6Parser8locationENS0_12ConstNodeRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.c4::yml::Location") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2736) %1, ptr %2, i64 %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK2c43yml6Parser8locationENS0_12ConstNodeRefE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.c4::yml::Location") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(2736) %1, ptr %2, i64 %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"struct.c4::yml::Location", align 8
   %6 = alloca %"struct.c4::yml::Location", align 8
   %7 = alloca [29 x i8], align 16
@@ -48369,7 +48369,7 @@ _ZNK2c43yml6Parser8locationERKNS0_4TreeEm.exit8:  ; preds = %23, %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK2c43yml6Parser8locationERKNS0_4TreeEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.c4::yml::Location") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2736) %1, ptr noundef nonnull align 8 dereferenceable(256) %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK2c43yml6Parser8locationERKNS0_4TreeEm(ptr dead_on_unwind noalias writable writeonly sret(%"struct.c4::yml::Location") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(2736) %1, ptr noundef nonnull align 8 dereferenceable(256) %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"struct.c4::yml::Location", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   %6 = call noundef zeroext i1 @_ZNK2c43yml6Parser19_location_from_nodeERKNS0_4TreeEmPNS0_8LocationEm(ptr noundef nonnull align 8 dereferenceable(2736) %1, ptr noundef nonnull align 8 dereferenceable(256) %2, i64 noundef %3, ptr noundef nonnull %5, i64 noundef 0)
@@ -48657,7 +48657,7 @@ define dso_local noundef zeroext i1 @_ZNK2c43yml6Parser19_location_from_nodeERKN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK2c43yml6Parser12val_locationEPKc(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.c4::yml::Location") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK2c43yml6Parser12val_locationEPKc(ptr dead_on_unwind noalias writable writeonly sret(%"struct.c4::yml::Location") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2736) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca [36 x i8], align 16
   %5 = alloca %"struct.c4::yml::Location", align 8
   %6 = alloca [55 x i8], align 16
@@ -49037,7 +49037,7 @@ define dso_local void @_ZNK2c43yml6Parser12val_locationEPKc(ptr dead_on_unwind n
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK2c43yml6Parser19_location_from_contERKNS0_4TreeEmPNS0_8LocationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %1, i64 noundef %2, ptr noalias nocapture noundef writeonly initializes((0, 40)) %3) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK2c43yml6Parser19_location_from_contERKNS0_4TreeEmPNS0_8LocationE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2736) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %1, i64 noundef %2, ptr noalias noundef writeonly captures(none) initializes((0, 40)) %3) local_unnamed_addr #1 align 2 {
   %5 = alloca [40 x i8], align 16
   %6 = alloca %"struct.c4::yml::Location", align 8
   %7 = alloca %"struct.c4::yml::Location", align 8
@@ -49119,7 +49119,7 @@ define dso_local noundef zeroext i1 @_ZNK2c43yml6Parser19_location_from_contERKN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK2c43yml6Parser16_locations_dirtyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2736) %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZNK2c43yml6Parser16_locations_dirtyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2736) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2704
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
@@ -49405,7 +49405,7 @@ _ZN2c43yml7NodeRef7set_valENS_15basic_substringIKcEE.exit: ; preds = %32, %39
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN2c43yml16preprocess_rxmapENS_15basic_substringIKcEENS1_IcEE(ptr %0, i64 %1, ptr nocapture writeonly %2, i64 %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZN2c43yml16preprocess_rxmapENS_15basic_substringIKcEENS1_IcEE(ptr %0, i64 %1, ptr writeonly captures(none) %2, i64 %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca [3 x i8], align 1
   %6 = alloca %"struct.c4::yml::Location", align 8
   %.not.i = icmp eq i64 %1, 0
@@ -49872,7 +49872,7 @@ _ZN2c420MemoryResourceLinearD2Ev.exit:            ; preds = %1, %4, %8
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN2c43yml6detail17ReferenceResolver22store_anchors_and_refsEv(ptr noundef nonnull align 8 dereferenceable(832) %0) local_unnamed_addr #1 comdat align 2 {
@@ -50940,10 +50940,10 @@ define linkonce_odr dso_local noundef i32 @_ZNK2c415basic_substringIKcE7compareE
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { ptr, i64 } @_ZN2c43yml12_GLOBAL__N_114_transform_tagEPNS0_4TreeENS_15basic_substringIKcEEm(ptr nocapture noundef nonnull %0, ptr %1, i64 %2, i64 noundef range(i64 0, -1) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc { ptr, i64 } @_ZN2c43yml12_GLOBAL__N_114_transform_tagEPNS0_4TreeENS_15basic_substringIKcEEm(ptr noundef nonnull captures(none) %0, ptr %1, i64 %2, i64 noundef range(i64 0, -1) %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca [45 x i8], align 16
   %6 = alloca %"struct.c4::yml::Location", align 8
   %7 = alloca [45 x i8], align 16
@@ -54310,7 +54310,7 @@ _ZN2c44dumpIRZNKS_3yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS6_DprRKT_EUlS6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i64 @_ZN2c43yml12_GLOBAL__N_124count_following_newlinesENS_15basic_substringIKcEEPmm(ptr nocapture readonly %0, i64 %1, ptr noalias nocapture noundef nonnull %2, i64 noundef %3) unnamed_addr #4 {
+define internal fastcc noundef i64 @_ZN2c43yml12_GLOBAL__N_124count_following_newlinesENS_15basic_substringIKcEEPmm(ptr readonly captures(none) %0, i64 %1, ptr noalias noundef nonnull captures(none) %2, i64 noundef %3) unnamed_addr #4 {
   %.promoted29 = load i64, ptr %2, align 8
   %storemerge35 = add i64 %.promoted29, 1
   %5 = icmp ult i64 %storemerge35, %1
@@ -54477,10 +54477,10 @@ declare i64 @llvm.umax.i64(i64, i64) #35
 declare i64 @llvm.umin.i64(i64, i64) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #36
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #36
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #35

@@ -86,13 +86,13 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable_activate_jump_labels370, ptr @__setup_parse_no_stealacc, ptr @__setup_setup_vmw_sched_clock], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @setup_vmw_sched_clock(ptr nocapture readnone %0) #0 section ".init.text" align 16 {
+define internal noundef i32 @setup_vmw_sched_clock(ptr readnone captures(none) %0) #0 section ".init.text" align 16 {
   store i1 true, ptr @vmw_sched_clock, align 1
   ret i32 0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @parse_no_stealacc(ptr nocapture readnone %0) #0 section ".init.text" align 16 {
+define internal noundef i32 @parse_no_stealacc(ptr readnone captures(none) %0) #0 section ".init.text" align 16 {
   store i1 true, ptr @steal_acc, align 1
   ret i32 0
 }
@@ -319,13 +319,13 @@ define internal zeroext i1 @vmware_legacy_x2apic_available() #1 section ".init.t
 declare dso_local zeroext i1 @static_key_slow_inc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @dmi_name_in_serial(ptr noundef) local_unnamed_addr #2
@@ -579,7 +579,7 @@ define internal noundef i32 @vmware_cpu_down_prepare(i32 %0) #8 align 16 {
 declare dso_local void @clocks_calc_mult_shift(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @vmware_pv_reboot_notify(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture readnone %2) #8 align 16 {
+define internal noundef i32 @vmware_pv_reboot_notify(ptr readnone captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2) #8 align 16 {
   %4 = icmp eq i64 %1, 1
   br i1 %4, label %5, label %6
 
@@ -592,7 +592,7 @@ define internal noundef i32 @vmware_pv_reboot_notify(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vmware_pv_guest_cpu_reboot(ptr nocapture readnone %0) #8 align 16 {
+define internal void @vmware_pv_guest_cpu_reboot(ptr readnone captures(none) %0) #8 align 16 {
   %2 = load i1, ptr @has_steal_clock, align 1
   br i1 %2, label %3, label %5
 
@@ -617,7 +617,7 @@ declare dso_local i64 @slow_virt_to_phys(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @__cpuhp_setup_state(i32 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 attributes #0 = { cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }

@@ -83,7 +83,7 @@ define hidden noundef ptr @_ZN8nanobind6detail21nb_static_property_tpEv() local_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN8nanobind6detailL28nb_static_property_descr_getEP7_objectS2_S2_(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #1 {
+define internal noundef ptr @_ZN8nanobind6detailL28nb_static_property_descr_getEP7_objectS2_S2_(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #1 {
   %4 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load i8, ptr %5, align 8

@@ -34,16 +34,16 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [10 x i8] c"***EOF***\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef nonnull ptr @Abc_UtilsGetVersion(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef nonnull ptr @Abc_UtilsGetVersion(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_UtilsGetVersion.Version, ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 1, i32 noundef 1) #10
   ret ptr @Abc_UtilsGetVersion.Version
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_UtilsGetUsersInput(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @Abc_UtilsGetUsersInput(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8
   %4 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_UtilsGetUsersInput.Prompt, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %3) #10
@@ -74,7 +74,7 @@ define ptr @Abc_UtilsGetUsersInput(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @readline(ptr noundef) local_unnamed_addr #4
 
@@ -84,7 +84,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #5
 declare void @add_history(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Abc_UtilsPrintHello(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Abc_UtilsPrintHello(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -93,10 +93,10 @@ define void @Abc_UtilsPrintHello(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Abc_UtilsPrintUsage(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Abc_UtilsPrintUsage(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %4)
@@ -137,114 +137,98 @@ define void @Abc_UtilsPrintUsage(ptr nocapture noundef readonly %0, ptr noundef 
 define void @Abc_UtilsSource(ptr noundef %0) local_unnamed_addr #2 {
   %2 = tail call ptr @getenv(ptr noundef nonnull @.str.20) #10
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %10, label %3
+  br i1 %.not, label %9, label %3
 
 3:                                                ; preds = %1
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #12
   %5 = add i64 %4, 2
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #13
   %7 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.21, ptr noundef nonnull %2) #10
-  %8 = tail call ptr @Extra_UtilFileSearch(ptr noundef nonnull @.str.22, ptr noundef %6, ptr noundef nonnull @.str.23) #10
-  %.not50 = icmp eq ptr %6, null
-  br i1 %.not50, label %10, label %9
+  %8 = tail call ptr @Extra_UtilFileSearch(ptr noundef nonnull @.str.22, ptr noundef nonnull %6, ptr noundef nonnull @.str.23) #10
+  tail call void @free(ptr noundef %6) #10
+  br label %9
 
-9:                                                ; preds = %3
-  tail call void @free(ptr noundef nonnull %6) #10
-  br label %10
+9:                                                ; preds = %1, %3
+  %.0 = phi ptr [ %8, %3 ], [ null, %1 ]
+  %10 = tail call ptr @Extra_UtilFileSearch(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.23) #10
+  %11 = icmp ne ptr %.0, null
+  %12 = icmp ne ptr %10, null
+  %or.cond = select i1 %11, i1 %12, i1 false
+  br i1 %or.cond, label %.thread, label %18
 
-10:                                               ; preds = %1, %9, %3
-  %.0 = phi ptr [ %8, %9 ], [ %8, %3 ], [ null, %1 ]
-  %11 = tail call ptr @Extra_UtilFileSearch(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.23) #10
-  %12 = icmp ne ptr %.0, null
-  %13 = icmp ne ptr %11, null
-  %or.cond = select i1 %12, i1 %13, i1 false
-  br i1 %or.cond, label %14, label %21
+.thread:                                          ; preds = %9
+  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #12
+  %14 = add i64 %13, 12
+  %15 = tail call noalias ptr @malloc(i64 noundef %14) #13
+  %16 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef nonnull %.0) #10
+  %17 = tail call i32 @Cmd_CommandExecute(ptr noundef %0, ptr noundef nonnull %15) #10
+  tail call void @free(ptr noundef %15) #10
+  br label %33
 
-14:                                               ; preds = %10
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #12
-  %16 = add i64 %15, 12
-  %17 = tail call noalias ptr @malloc(i64 noundef %16) #13
-  %18 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef nonnull %.0) #10
-  %19 = tail call i32 @Cmd_CommandExecute(ptr noundef %0, ptr noundef %17) #10
-  %.not53 = icmp eq ptr %17, null
-  br i1 %.not53, label %.thread, label %20
+18:                                               ; preds = %9
+  br i1 %11, label %19, label %25
 
-20:                                               ; preds = %14
-  tail call void @free(ptr noundef nonnull %17) #10
-  br label %.thread
+19:                                               ; preds = %18
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #12
+  %21 = add i64 %20, 12
+  %22 = tail call noalias ptr @malloc(i64 noundef %21) #13
+  %23 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef nonnull %.0) #10
+  %24 = tail call i32 @Cmd_CommandExecute(ptr noundef %0, ptr noundef nonnull %22) #10
+  tail call void @free(ptr noundef %22) #10
+  br label %25
 
-21:                                               ; preds = %10
-  br i1 %12, label %22, label %29
+25:                                               ; preds = %19, %18
+  br i1 %12, label %26, label %32
 
-22:                                               ; preds = %21
-  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #12
-  %24 = add i64 %23, 12
-  %25 = tail call noalias ptr @malloc(i64 noundef %24) #13
-  %26 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef nonnull %.0) #10
-  %27 = tail call i32 @Cmd_CommandExecute(ptr noundef %0, ptr noundef %25) #10
-  %.not51 = icmp eq ptr %25, null
-  br i1 %.not51, label %29, label %28
+26:                                               ; preds = %25
+  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #12
+  %28 = add i64 %27, 12
+  %29 = tail call noalias ptr @malloc(i64 noundef %28) #13
+  %30 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef nonnull %10) #10
+  %31 = tail call i32 @Cmd_CommandExecute(ptr noundef %0, ptr noundef nonnull %29) #10
+  tail call void @free(ptr noundef %29) #10
+  br label %32
 
-28:                                               ; preds = %22
-  tail call void @free(ptr noundef nonnull %25) #10
-  br label %29
+32:                                               ; preds = %25, %26
+  br i1 %11, label %33, label %34
 
-29:                                               ; preds = %28, %22, %21
-  br i1 %13, label %30, label %37
-
-30:                                               ; preds = %29
-  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #12
-  %32 = add i64 %31, 12
-  %33 = tail call noalias ptr @malloc(i64 noundef %32) #13
-  %34 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef nonnull %11) #10
-  %35 = tail call i32 @Cmd_CommandExecute(ptr noundef %0, ptr noundef %33) #10
-  %.not52 = icmp eq ptr %33, null
-  br i1 %.not52, label %37, label %36
-
-36:                                               ; preds = %30
-  tail call void @free(ptr noundef nonnull %33) #10
-  br label %37
-
-37:                                               ; preds = %29, %30, %36
-  br i1 %12, label %.thread, label %38
-
-.thread:                                          ; preds = %14, %20, %37
+33:                                               ; preds = %.thread, %32
   tail call void @free(ptr noundef nonnull %.0) #10
-  br label %38
+  br label %34
 
-38:                                               ; preds = %.thread, %37
-  br i1 %13, label %39, label %40
+34:                                               ; preds = %33, %32
+  br i1 %12, label %35, label %36
 
-39:                                               ; preds = %38
-  tail call void @free(ptr noundef nonnull %11) #10
-  br label %40
+35:                                               ; preds = %34
+  tail call void @free(ptr noundef nonnull %10) #10
+  br label %36
 
-40:                                               ; preds = %39, %38
-  %41 = tail call i32 @Cmd_CommandExecute(ptr noundef %0, ptr noundef nonnull @.str.26) #10
+36:                                               ; preds = %35, %34
+  %37 = tail call i32 @Cmd_CommandExecute(ptr noundef %0, ptr noundef nonnull @.str.26) #10
   ret void
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @Extra_UtilFileSearch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 declare i32 @Cmd_CommandExecute(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

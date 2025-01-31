@@ -108,7 +108,7 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare ptr @object_get_typename(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qdev_prop_allow_set_link_before_realize(ptr noundef %obj, ptr noundef %name, ptr nocapture readnone %val, ptr noundef %errp) #0 {
+define dso_local void @qdev_prop_allow_set_link_before_realize(ptr noundef %obj, ptr noundef %name, ptr readnone captures(none) %val, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.26, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #9
   %realized = getelementptr inbounds nuw i8, ptr %call.i, i64 56
@@ -128,7 +128,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @object_field_prop_ptr(ptr noundef readnone %obj, ptr nocapture noundef readonly %prop) local_unnamed_addr #2 {
+define dso_local ptr @object_field_prop_ptr(ptr noundef readnone %obj, ptr noundef readonly captures(none) %prop) local_unnamed_addr #2 {
 entry:
   %offset = getelementptr inbounds nuw i8, ptr %prop, i64 16
   %0 = load i64, ptr %offset, align 8
@@ -137,7 +137,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qdev_propinfo_get_enum(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define dso_local void @qdev_propinfo_get_enum(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load i64, ptr %offset.i, align 8
@@ -153,7 +153,7 @@ entry:
 declare zeroext i1 @visit_type_enum(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qdev_propinfo_set_enum(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define dso_local void @qdev_propinfo_set_enum(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load i64, ptr %offset.i, align 8
@@ -167,7 +167,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qdev_propinfo_set_default_value_enum(ptr noundef %op, ptr nocapture noundef readonly %prop) #0 {
+define dso_local void @qdev_propinfo_set_default_value_enum(ptr noundef %op, ptr noundef readonly captures(none) %prop) #0 {
 entry:
   %info = getelementptr inbounds nuw i8, ptr %prop, i64 8
   %0 = load ptr, ptr %info, align 8
@@ -186,7 +186,7 @@ declare void @object_property_set_default_str(ptr noundef, ptr noundef) local_un
 declare ptr @qapi_enum_lookup(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_default_value_bool(ptr noundef %op, ptr nocapture noundef readonly %prop) #0 {
+define internal void @set_default_value_bool(ptr noundef %op, ptr noundef readonly captures(none) %prop) #0 {
 entry:
   %defval = getelementptr inbounds nuw i8, ptr %prop, i64 48
   %0 = load i64, ptr %defval, align 8
@@ -196,7 +196,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @prop_get_bit(ptr nocapture noundef readonly %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @prop_get_bit(ptr noundef readonly captures(none) %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i8, align 1
   %info.i = getelementptr inbounds nuw i8, ptr %opaque, i64 8
@@ -225,7 +225,7 @@ qdev_get_prop_mask.exit:                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @prop_set_bit(ptr nocapture noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @prop_set_bit(ptr noundef captures(none) %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i8, align 1
   %call = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #9
@@ -274,7 +274,7 @@ return:                                           ; preds = %entry, %bit_prop_se
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @prop_get_bit64(ptr nocapture noundef readonly %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @prop_get_bit64(ptr noundef readonly captures(none) %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i8, align 1
   %info.i = getelementptr inbounds nuw i8, ptr %opaque, i64 8
@@ -303,7 +303,7 @@ qdev_get_prop_mask64.exit:                        ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @prop_set_bit64(ptr nocapture noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @prop_set_bit64(ptr noundef captures(none) %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i8, align 1
   %call = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #9
@@ -352,7 +352,7 @@ return:                                           ; preds = %entry, %bit64_prop_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @get_bool(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @get_bool(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load i64, ptr %offset.i, align 8
@@ -362,7 +362,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_bool(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @set_bool(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load i64, ptr %offset.i, align 8
@@ -372,7 +372,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qdev_propinfo_set_default_value_int(ptr noundef %op, ptr nocapture noundef readonly %prop) #0 {
+define dso_local void @qdev_propinfo_set_default_value_int(ptr noundef %op, ptr noundef readonly captures(none) %prop) #0 {
 entry:
   %defval = getelementptr inbounds nuw i8, ptr %prop, i64 48
   %0 = load i64, ptr %defval, align 8
@@ -383,7 +383,7 @@ entry:
 declare void @object_property_set_default_int(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qdev_propinfo_set_default_value_uint(ptr noundef %op, ptr nocapture noundef readonly %prop) #0 {
+define dso_local void @qdev_propinfo_set_default_value_uint(ptr noundef %op, ptr noundef readonly captures(none) %prop) #0 {
 entry:
   %defval = getelementptr inbounds nuw i8, ptr %prop, i64 48
   %0 = load i64, ptr %defval, align 8
@@ -394,7 +394,7 @@ entry:
 declare void @object_property_set_default_uint(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @get_uint8(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @get_uint8(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load i64, ptr %offset.i, align 8
@@ -404,7 +404,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_uint8(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @set_uint8(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load i64, ptr %offset.i, align 8
@@ -414,7 +414,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @get_uint16(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @get_uint16(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load i64, ptr %offset.i, align 8
@@ -424,7 +424,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_uint16(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @set_uint16(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load i64, ptr %offset.i, align 8
@@ -434,7 +434,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qdev_propinfo_get_int32(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define dso_local void @qdev_propinfo_get_int32(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load i64, ptr %offset.i, align 8
@@ -446,7 +446,7 @@ entry:
 declare zeroext i1 @visit_type_int32(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @get_uint32(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @get_uint32(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load i64, ptr %offset.i, align 8
@@ -456,7 +456,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_uint32(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @set_uint32(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load i64, ptr %offset.i, align 8
@@ -466,7 +466,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_int32(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @set_int32(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load i64, ptr %offset.i, align 8
@@ -476,7 +476,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @get_uint64(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @get_uint64(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load i64, ptr %offset.i, align 8
@@ -486,7 +486,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_uint64(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @set_uint64(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load i64, ptr %offset.i, align 8
@@ -496,7 +496,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @get_int64(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @get_int64(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load i64, ptr %offset.i, align 8
@@ -506,7 +506,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_int64(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @set_int64(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load i64, ptr %offset.i, align 8
@@ -516,7 +516,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_uint64_checkmask(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @set_uint64_checkmask(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load i64, ptr %offset.i, align 8
@@ -539,7 +539,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @get_string(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @get_string(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %str = alloca ptr, align 8
   %offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
@@ -563,7 +563,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_string(ptr nocapture noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @set_string(ptr noundef captures(none) %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %str = alloca ptr, align 8
   %offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
@@ -584,7 +584,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @release_string(ptr nocapture noundef readonly %obj, ptr nocapture readnone %name, ptr nocapture noundef readonly %opaque) #0 {
+define internal void @release_string(ptr noundef readonly captures(none) %obj, ptr readnone captures(none) %name, ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load i64, ptr %offset.i, align 8
@@ -595,7 +595,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qdev_propinfo_get_size32(ptr nocapture noundef readonly %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define dso_local void @qdev_propinfo_get_size32(ptr noundef readonly captures(none) %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i64, align 8
   %offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
@@ -611,7 +611,7 @@ entry:
 declare zeroext i1 @visit_type_size(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_size32(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @set_size32(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i64, align 8
   %offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
@@ -641,14 +641,14 @@ return:                                           ; preds = %entry, %if.end4, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @default_prop_array(ptr noundef %op, ptr nocapture readnone %prop) #0 {
+define internal void @default_prop_array(ptr noundef %op, ptr readnone captures(none) %prop) #0 {
 entry:
   tail call void @object_property_set_default_list(ptr noundef %op) #9
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @get_prop_array(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @get_prop_array(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   %list = alloca ptr, align 8
@@ -778,7 +778,7 @@ cleanup:                                          ; preds = %while.body22, %out_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_prop_array(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @set_prop_array(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   %list = alloca ptr, align 8
@@ -975,7 +975,7 @@ cleanup:                                          ; preds = %if.end31, %for.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @release_prop_array(ptr noundef %obj, ptr noundef %name, ptr nocapture noundef readonly %opaque) #0 {
+define internal void @release_prop_array(ptr noundef %obj, ptr noundef %name, ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %elem_prop = alloca %struct.Property, align 8
   %offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
@@ -1177,7 +1177,7 @@ qdev_prop_find.exit:                              ; preds = %while.body.i.i
   %enum_table = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %enum_table, align 8
   %call1 = tail call ptr @qapi_enum_lookup(ptr noundef %5, i32 noundef %value) #9
-  %call2 = tail call zeroext i1 @object_property_set_str(ptr noundef %dev, ptr noundef %name, ptr noundef %call1, ptr noundef nonnull @error_abort) #9
+  %call2 = tail call zeroext i1 @object_property_set_str(ptr noundef %dev, ptr noundef nonnull %name, ptr noundef %call1, ptr noundef nonnull @error_abort) #9
   ret void
 }
 
@@ -1235,7 +1235,7 @@ global_props.exit:                                ; preds = %entry, %if.then.i
 declare void @g_ptr_array_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @qdev_find_global_prop(ptr noundef %obj, ptr nocapture noundef readonly %name) local_unnamed_addr #0 {
+define dso_local noundef ptr @qdev_find_global_prop(ptr noundef %obj, ptr noundef readonly captures(none) %name) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @global_props.gp, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -1285,7 +1285,7 @@ return:                                           ; preds = %land.lhs.true, %for
 declare ptr @object_dynamic_cast(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 0, 2) i32 @qdev_prop_check_globals() local_unnamed_addr #0 {
@@ -1396,7 +1396,7 @@ global_props.exit:                                ; preds = %entry, %if.then.i
 declare zeroext i1 @object_apply_global_props(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @get_size(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @get_size(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load i64, ptr %offset.i, align 8
@@ -1406,7 +1406,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_size(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal void @set_size(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load i64, ptr %offset.i, align 8
@@ -1416,7 +1416,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @create_link_property(ptr noundef %oc, ptr noundef %name, ptr nocapture noundef readonly %prop) #0 {
+define internal ptr @create_link_property(ptr noundef %oc, ptr noundef %name, ptr noundef readonly captures(none) %prop) #0 {
 entry:
   %link_type = getelementptr inbounds nuw i8, ptr %prop, i64 80
   %0 = load ptr, ptr %link_type, align 8
@@ -1672,7 +1672,7 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: allocsize(0,1)
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #5

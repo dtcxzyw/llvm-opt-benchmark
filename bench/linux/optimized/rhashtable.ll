@@ -580,10 +580,10 @@ select.unfold:                                    ; preds = %.loopexit32, %101, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @rhashtable_walk_enter(ptr noundef %0, ptr noundef initializes((0, 16), (40, 57)) %1) #0 align 16 {
@@ -611,7 +611,7 @@ define dso_local void @rhashtable_walk_enter(ptr noundef %0, ptr noundef initial
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @rhashtable_walk_exit(ptr nocapture noundef %0) #0 align 16 {
+define dso_local void @rhashtable_walk_exit(ptr noundef captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 128
   tail call void @_raw_spin_lock(ptr noundef nonnull %3) #15
@@ -640,7 +640,7 @@ define dso_local void @rhashtable_walk_exit(ptr nocapture noundef %0) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -11, 1) i32 @rhashtable_walk_start_check(ptr nocapture noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -11, 1) i32 @rhashtable_walk_start_check(ptr noundef captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = load i8, ptr %3, align 8, !range !27, !noundef !28
@@ -844,7 +844,7 @@ define dso_local noundef range(i32 -11, 1) i32 @rhashtable_walk_start_check(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @rhashtable_walk_next(ptr nocapture noundef %0) #0 align 16 {
+define dso_local ptr @rhashtable_walk_next(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -910,7 +910,7 @@ define dso_local ptr @rhashtable_walk_next(ptr nocapture noundef %0) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__rhashtable_walk_find_next(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc ptr @__rhashtable_walk_find_next(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1104,7 +1104,7 @@ define internal fastcc ptr @__rhashtable_walk_find_next(ptr nocapture noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @rhashtable_walk_peek(ptr nocapture noundef %0) #0 align 16 {
+define dso_local ptr @rhashtable_walk_peek(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1232,7 +1232,7 @@ define internal void @bucket_table_free_rcu(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @rhashtable_init(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @rhashtable_init(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2
   %5 = icmp eq i16 %4, 0
@@ -1417,16 +1417,16 @@ define dso_local noundef range(i32 -22, 1) i32 @rhashtable_init(ptr noundef %0, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define internal i32 @jhash(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #5 align 16 {
+define internal i32 @jhash(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #5 align 16 {
   %4 = add i32 %1, -559038737
   %5 = add i32 %4, %2
   %6 = icmp ugt i32 %1, 12
@@ -1636,7 +1636,7 @@ define internal i32 @jhash(ptr nocapture noundef readonly %0, i32 noundef %1, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define internal i32 @rhashtable_jhash2(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #6 align 16 {
+define internal i32 @rhashtable_jhash2(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #6 align 16 {
   %4 = shl i32 %1, 2
   %5 = add i32 %4, -559038737
   %6 = add i32 %5, %2
@@ -2323,7 +2323,7 @@ define internal void @rht_deferred_worker(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @rhltable_init(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @rhltable_init(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = tail call i32 @rhashtable_init(ptr noundef %0, ptr noundef %1), !range !67
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 1, ptr %4, align 8
@@ -2607,7 +2607,7 @@ rhashtable_free_and_destroy.exit:                 ; preds = %25
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local ptr @__rht_bucket_nested(ptr nocapture noundef readonly %0, i32 noundef %1) #7 align 16 {
+define dso_local ptr @__rht_bucket_nested(ptr noundef readonly captures(none) %0, i32 noundef %1) #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = shl nsw i32 -1, %4
@@ -2652,7 +2652,7 @@ define dso_local ptr @__rht_bucket_nested(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local nonnull ptr @rht_bucket_nested(ptr nocapture noundef readonly %0, i32 noundef %1) #7 align 16 {
+define dso_local nonnull ptr @rht_bucket_nested(ptr noundef readonly captures(none) %0, i32 noundef %1) #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = shl nsw i32 -1, %4
@@ -2699,7 +2699,7 @@ define dso_local nonnull ptr @rht_bucket_nested(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @rht_bucket_nested_insert(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
+define dso_local ptr @rht_bucket_nested_insert(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = shl nsw i32 -1, %5
@@ -2923,7 +2923,7 @@ declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #3
 declare dso_local void @kvfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @nested_table_free(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @nested_table_free(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %14, label %5
@@ -2965,7 +2965,7 @@ declare i64 @llvm.umax.i64(i64, i64) #13
 declare i32 @llvm.fshl.i32(i32, i32, i32) #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.uadd.sat.i64(i64, i64) #13

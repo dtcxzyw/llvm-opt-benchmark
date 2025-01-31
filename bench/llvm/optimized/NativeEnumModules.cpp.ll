@@ -27,7 +27,7 @@ $_ZN4llvm3pdb17NativeEnumModulesD0Ev = comdat any
 @_ZN4llvm3pdb17NativeEnumModulesC1ERNS0_13NativeSessionEj = unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN4llvm3pdb17NativeEnumModulesC2ERNS0_13NativeSessionEj
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb17NativeEnumModulesC2ERNS0_13NativeSessionEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %0, ptr noundef nonnull align 8 dereferenceable(584) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb17NativeEnumModulesC2ERNS0_13NativeSessionEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20) initializes((0, 20)) %0, ptr noundef nonnull align 8 dereferenceable(584) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm3pdb17NativeEnumModulesE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -37,7 +37,7 @@ define dso_local void @_ZN4llvm3pdb17NativeEnumModulesC2ERNS0_13NativeSessionEj(
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK4llvm3pdb17NativeEnumModules13getChildCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0) unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK4llvm3pdb17NativeEnumModules13getChildCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -48,7 +48,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb17NativeEnumModules13getChildCountEv(
 declare noundef i32 @_ZNK4llvm3pdb11SymbolCache16getNumCompilandsEv(ptr noundef nonnull align 8 dereferenceable(280)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb17NativeEnumModules15getChildAtIndexEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.42") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1, i32 noundef %2) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm3pdb17NativeEnumModules15getChildAtIndexEj(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.42") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %1, i32 noundef %2) unnamed_addr #1 align 2 {
 _ZNSt10unique_ptrIN4llvm3pdb18PDBSymbolCompilandESt14default_deleteIS2_EED2Ev.exit:
   %3 = alloca %"class.std::unique_ptr.50", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -92,7 +92,7 @@ define dso_local void @_ZN4llvm3pdb17NativeEnumModules7getNextEv(ptr dead_on_unw
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb17NativeEnumModules5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((16, 20)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb17NativeEnumModules5resetEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20) initializes((16, 20)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
   ret void

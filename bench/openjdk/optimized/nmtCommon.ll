@@ -117,7 +117,7 @@ define hidden noundef nonnull ptr @_ZN7NMTUtil10scale_nameEm(i64 noundef %0) loc
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden noundef range(i64 0, 1073741825) i64 @_ZN7NMTUtil15scale_from_nameEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i64 0, 1073741825) i64 @_ZN7NMTUtil15scale_from_nameEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 2 {
   %2 = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.64) #8
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %25, label %4
@@ -164,7 +164,7 @@ define hidden noundef range(i64 0, 1073741825) i64 @_ZN7NMTUtil15scale_from_name
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull ptr @_ZN7NMTUtil24tracking_level_to_stringE17NMT_TrackingLevel(i32 noundef %0) local_unnamed_addr #4 align 2 {
@@ -211,10 +211,10 @@ define hidden noundef range(i32 0, 4) i32 @_ZN7NMTUtil20parse_tracking_levelEPKc
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden noundef zeroext range(i8 0, 28) i8 @_ZN7NMTUtil14string_to_flagEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext range(i8 0, 28) i8 @_ZN7NMTUtil14string_to_flagEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %18

@@ -571,7 +571,7 @@ declare i32 @EVP_PKEY_print_public(ptr noundef, ptr noundef, i32 noundef, ptr no
 declare void @X509_get0_uids(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_signature_dump(ptr noundef %bp, ptr nocapture noundef readonly %sig, i32 noundef %indent) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_signature_dump(ptr noundef %bp, ptr noundef readonly captures(none) %sig, i32 noundef %indent) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %sig, align 8
   %data = getelementptr inbounds nuw i8, ptr %sig, i64 8
@@ -815,18 +815,18 @@ for.body:                                         ; preds = %if.end20, %for.cond
   %arrayidx = getelementptr inbounds nuw [20 x i8], ptr %SHA1md, i64 0, i64 %indvars.iv
   %2 = load i8, ptr %arrayidx, align 1
   %conv27 = zext i8 %2 to i32
-  %call28 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.27, i32 noundef %conv27) #3
+  %call28 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %bp, ptr noundef nonnull @.str.27, i32 noundef %conv27) #3
   %cmp29 = icmp slt i32 %call28, 1
   br i1 %cmp29, label %err, label %for.cond
 
 for.end:                                          ; preds = %for.cond
   call void @CRYPTO_free(ptr noundef nonnull %call10, ptr noundef nonnull @.str, i32 noundef 261) #3
-  %call33 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.28) #3
+  %call33 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %bp, ptr noundef nonnull @.str.28) #3
   %cmp34 = icmp slt i32 %call33, 1
   br i1 %cmp34, label %err, label %if.end37
 
 if.end37:                                         ; preds = %for.end
-  %call38 = call ptr @X509_get0_pubkey_bitstr(ptr noundef %x) #3
+  %call38 = call ptr @X509_get0_pubkey_bitstr(ptr noundef nonnull %x) #3
   %cmp39 = icmp eq ptr %call38, null
   br i1 %cmp39, label %err, label %if.end42
 
@@ -848,12 +848,12 @@ for.body54:                                       ; preds = %if.end42, %for.cond
   %arrayidx56 = getelementptr inbounds nuw [20 x i8], ptr %SHA1md, i64 0, i64 %indvars.iv31
   %3 = load i8, ptr %arrayidx56, align 1
   %conv57 = zext i8 %3 to i32
-  %call58 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.27, i32 noundef %conv57) #3
+  %call58 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %bp, ptr noundef nonnull @.str.27, i32 noundef %conv57) #3
   %cmp59 = icmp slt i32 %call58, 1
   br i1 %cmp59, label %err, label %for.cond51
 
 for.end65:                                        ; preds = %for.cond51
-  %call66 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.14) #3
+  %call66 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %bp, ptr noundef nonnull @.str.14) #3
   br label %return.sink.split
 
 err:                                              ; preds = %for.body, %for.body54, %if.end42, %if.end37, %for.end, %if.end20, %if.end14, %if.end9, %if.end4, %if.end

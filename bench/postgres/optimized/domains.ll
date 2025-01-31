@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @domain_in(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @domain_in(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -348,7 +348,7 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @domain_recv(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @domain_recv(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1

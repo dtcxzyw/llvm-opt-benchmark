@@ -396,7 +396,7 @@ declare ptr @tvb_print_system_id(ptr noundef, ptr noundef, i32 noundef, i32 noun
 declare void @isis_dissect_clvs(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_snp_instance_identifier_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_snp_instance_identifier_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @hf_isis_csnp_instance_identifier, align 4
   %8 = load i32, ptr @hf_isis_csnp_supported_itid, align 4
   tail call void @isis_dissect_instance_identifier_clv(ptr noundef %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull @ei_isis_csnp_short_clv, i32 noundef %7, i32 noundef %8, i32 noundef %3, i32 noundef %5) #2
@@ -404,7 +404,7 @@ define internal void @dissect_snp_instance_identifier_clv(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_snp_lsp_entries_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal void @dissect_snp_lsp_entries_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph, label %.loopexit
 
@@ -462,7 +462,7 @@ define internal void @dissect_snp_lsp_entries_clv(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_snp_authentication_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_snp_authentication_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @hf_isis_csnp_authentication, align 4
   %8 = load i32, ptr @hf_isis_clv_key_id, align 4
   tail call void @isis_dissect_authentication_clv(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @ei_isis_csnp_authentication, i32 noundef %3, i32 noundef %5) #2
@@ -470,7 +470,7 @@ define internal void @dissect_snp_authentication_clv(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_csnp_ip_authentication_clv(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_csnp_ip_authentication_clv(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %7
 
@@ -484,7 +484,7 @@ define internal void @dissect_csnp_ip_authentication_clv(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_snp_checksum_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #0 {
+define internal void @dissect_snp_checksum_clv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #0 {
   %7 = alloca i16, align 2
   store i16 0, ptr %7, align 2
   %.not = icmp eq i32 %5, 2
@@ -636,7 +636,7 @@ define internal fastcc void @dissect_isis_psnp(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_psnp_ip_authentication_clv(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal void @dissect_psnp_ip_authentication_clv(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %7
 

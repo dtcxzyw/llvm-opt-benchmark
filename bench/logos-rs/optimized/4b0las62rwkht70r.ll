@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.8a20c52387221dcaa759c180124559e5.1 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.8a20c52387221dcaa759c180124559e5.0, [16 x i8] c"\1A\00\00\00\00\00\00\00\15\00\00\00\1E\00\00\00" }>, align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define { ptr, i64 } @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h5a556ae86449d3b2E"(ptr %0, i64 %1, ptr nocapture readnone align 8 %2) unnamed_addr #0 {
+define { ptr, i64 } @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h5a556ae86449d3b2E"(ptr %0, i64 %1, ptr readnone align 8 captures(none) %2) unnamed_addr #0 {
   %4 = tail call { ptr, i64 } @"_ZN13logos_codegen5error143_$LT$impl$u20$core..convert..From$LT$logos_codegen..error..Error$GT$$u20$for$u20$beef..generic..Cow$LT$str$C$beef..lean..internal..Lean$GT$$GT$4from17heef31fee80c4e0f7E"(ptr %0, i64 %1)
   ret { ptr, i64 } %4
 }

@@ -59,7 +59,7 @@ $_ZNSt6vectorIhSaIhEE6resizeEm = comdat any
 @.str.36 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define hidden noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
+define hidden noundef i32 @main(i32 noundef %argc, ptr noundef readonly captures(none) %argv) local_unnamed_addr #0 {
 entry:
   tail call void @CRYPTO_library_init()
   %cmp.not = icmp eq i32 %argc, 2
@@ -85,12 +85,12 @@ return:                                           ; preds = %if.end, %if.then
 declare void @CRYPTO_library_init() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare noundef i32 @_Z12FileTestMainPFbP8FileTestPvES1_PKc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZL10TestCipherP8FileTestPv(ptr noundef %t, ptr nocapture readnone %arg) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZL10TestCipherP8FileTestPv(ptr noundef %t, ptr readnone captures(none) %arg) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %cipher_str = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -881,10 +881,10 @@ declare noundef zeroext i1 @_ZN8FileTest12HasAttributeERKNSt7__cxx1112basic_stri
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN8FileTest17GetAttributeOrDieERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL13TestOperationP8FileTestPK13evp_cipher_stbmRKSt6vectorIhSaIhEES8_S8_S8_S8_S8_(ptr noundef %t, ptr noundef nonnull %cipher, i1 noundef zeroext %encrypt, i64 noundef %chunk_size, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %key, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %iv, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %plaintext, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ciphertext, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %aad, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %tag) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL13TestOperationP8FileTestPK13evp_cipher_stbmRKSt6vectorIhSaIhEES8_S8_S8_S8_S8_(ptr noundef %t, ptr noundef nonnull %cipher, i1 noundef zeroext %encrypt, i64 noundef %chunk_size, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %key, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %iv, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %plaintext, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %ciphertext, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %aad, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %tag) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ctx = alloca %class.ScopedOpenSSLContext, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1393,7 +1393,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
@@ -1527,7 +1527,7 @@ declare void @EVP_CIPHER_CTX_init(ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_CIPHER_CTX_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12

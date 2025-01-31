@@ -181,7 +181,7 @@ isReferenceTag.exit:                              ; preds = %switch.lookup, %jdw
   %51 = load ptr, ptr %6, align 8
   %52 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull readonly dereferenceable(1) %21) #5
   %53 = icmp eq i32 %52, 0
-  call void @jvmtiDeallocate(ptr noundef %51) #4
+  call void @jvmtiDeallocate(ptr noundef nonnull %51) #4
   br i1 %53, label %54, label %.thread.i.i
 
 54:                                               ; preds = %50
@@ -377,7 +377,7 @@ declare zeroext i16 @map2jdwpError(i32 noundef) local_unnamed_addr #1
 declare ptr @componentTypeSignature(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @writeNewPrimitiveArray(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @writeNewPrimitiveArray(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   tail call void @createLocalRefSpace(ptr noundef %0, i32 noundef 1) #4
   %5 = load ptr, ptr @gdata, align 8
   %.not.i = icmp eq ptr %5, null
@@ -686,15 +686,15 @@ declare i32 @classLoader(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @allLoadedClasses(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare zeroext i8 @isSameObject(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

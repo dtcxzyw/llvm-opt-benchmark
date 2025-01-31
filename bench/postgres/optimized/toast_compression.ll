@@ -178,7 +178,7 @@ define dso_local ptr @pglz_decompress_datum_slice(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noalias noundef nonnull ptr @lz4_compress_datum(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
+define dso_local noalias noundef nonnull ptr @lz4_compress_datum(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #7
@@ -193,7 +193,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noalias noundef nonnull ptr @lz4_decompress_datum(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
+define dso_local noalias noundef nonnull ptr @lz4_decompress_datum(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #7
@@ -204,7 +204,7 @@ define dso_local noalias noundef nonnull ptr @lz4_decompress_datum(ptr nocapture
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noalias noundef nonnull ptr @lz4_decompress_datum_slice(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local noalias noundef nonnull ptr @lz4_decompress_datum_slice(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %3)
   %4 = tail call i32 @errcode(i32 noundef 1088) #7
@@ -215,7 +215,7 @@ define dso_local noalias noundef nonnull ptr @lz4_decompress_datum_slice(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 4) i32 @toast_get_compression_id(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local range(i32 0, 4) i32 @toast_get_compression_id(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, 1
   br i1 %3, label %4, label %14
@@ -255,7 +255,7 @@ define dso_local range(i32 0, 4) i32 @toast_get_compression_id(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local signext range(i8 0, 113) i8 @CompressionNameToMethod(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local signext range(i8 0, 113) i8 @CompressionNameToMethod(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.4) #9
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %12, label %4
@@ -280,7 +280,7 @@ define dso_local signext range(i8 0, 113) i8 @CompressionNameToMethod(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef nonnull ptr @GetCompressionMethodName(i8 noundef signext %0) local_unnamed_addr #0 {

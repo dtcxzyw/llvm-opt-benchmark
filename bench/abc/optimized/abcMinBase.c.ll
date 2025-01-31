@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [31 x i8] c"Converting to SOP has failed.\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkMinimumBase(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Abc_NtkMinimumBase(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -60,7 +60,7 @@ define i32 @Abc_NtkMinimumBase(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NodeMinimumBase(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NodeMinimumBase(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = getelementptr i8, ptr %0, i64 28
   %4 = getelementptr i8, ptr %0, i64 32
@@ -462,7 +462,7 @@ Vec_PtrAlloc.exit:                                ; preds = %16, %20
   %34 = load ptr, ptr %25, align 8
   %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
-  tail call void @Abc_ObjDeleteFanin(ptr noundef %0, ptr noundef %36) #15
+  tail call void @Abc_ObjDeleteFanin(ptr noundef nonnull %0, ptr noundef %36) #15
   %.pre = load i32, ptr %19, align 4
   br label %37
 
@@ -512,7 +512,7 @@ Vec_StrFree.exit:                                 ; preds = %Vec_StrFree.exit.si
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NodeSupport(ptr nocapture noundef %0, ptr noundef initializes((4, 8)) %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @Abc_NodeSupport(ptr noundef captures(none) %0, ptr noundef initializes((4, 8)) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 8
   %.not.i.i = icmp slt i32 %4, %2
   br i1 %.not.i.i, label %5, label %Vec_StrGrow.exit.i
@@ -606,15 +606,15 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare ptr @Cudd_bddIthVar(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare ptr @Cudd_bddVectorCompose(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkRemoveDupFanins(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Abc_NtkRemoveDupFanins(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -741,7 +741,7 @@ Abc_NodeRemoveDupFanins.exit:                     ; preds = %Abc_NodeRemoveDupFa
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NodeRemoveDupFanins(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define i32 @Abc_NodeRemoveDupFanins(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -756,7 +756,7 @@ define i32 @Abc_NodeRemoveDupFanins(ptr nocapture noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NodeRemoveDupFanins_int(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NodeRemoveDupFanins_int(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 28
   %.val38 = load i32, ptr %2, align 4
   %3 = icmp sgt i32 %.val38, 0
@@ -837,7 +837,7 @@ declare ptr @Cudd_bddXnor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @Cudd_bddAndAbstract(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Abc_NodeSupport_rec(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+define void @Abc_NodeSupport_rec(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp eq i32 %3, 2147483647
   br i1 %4, label %common.ret10, label %5
@@ -877,7 +877,7 @@ common.ret10:                                     ; preds = %2, %5, %10
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Abc_NodeSupportClear_rec(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define void @Abc_NodeSupportClear_rec(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
@@ -917,7 +917,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @Abc_NodeCheckDupFanin(ptr noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #6 {
+define i32 @Abc_NodeCheckDupFanin(ptr noundef readnone %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #6 {
   %4 = getelementptr i8, ptr %1, i64 28
   %.val15 = load i32, ptr %4, align 4
   %5 = icmp sgt i32 %.val15, 0
@@ -992,7 +992,7 @@ define i32 @Abc_NodeCheckDupFanin(ptr noundef readnone %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NodeCollapseSuppSize(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
+define i32 @Abc_NodeCollapseSuppSize(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((4, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr i8, ptr %1, i64 28
@@ -1069,7 +1069,7 @@ define i32 @Abc_NodeCollapseSuppSize(ptr noundef readonly %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_PtrPushUnique(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -1165,7 +1165,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -2147483648, 2147483647) i32 @Abc_ObjFaninNumberNew(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #7 {
+define range(i32 -2147483648, 2147483647) i32 @Abc_ObjFaninNumberNew(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #7 {
   %3 = getelementptr i8, ptr %0, i64 4
   %.val = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val, 0
@@ -1199,7 +1199,7 @@ define range(i32 -2147483648, 2147483647) i32 @Abc_ObjFaninNumberNew(ptr nocaptu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Abc_NodeCollapsePermMap(ptr nocapture noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Abc_NodeCollapsePermMap(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #6 {
   %5 = getelementptr i8, ptr %2, i64 4
   %.val30 = load i32, ptr %5, align 4
   %6 = icmp sgt i32 %.val30, 0
@@ -1292,7 +1292,7 @@ Abc_ObjFaninNumberNew.exit:                       ; preds = %26
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_NodeCollapseFunc(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define noundef ptr @Abc_NodeCollapseFunc(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 256
   %8 = load ptr, ptr %7, align 8
@@ -1618,7 +1618,7 @@ declare ptr @Cudd_bddIte(ptr noundef, ptr noundef, ptr noundef, ptr noundef) loc
 declare void @Cudd_Deref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NodeCollapse(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NodeCollapse(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call ptr @Abc_NodeCollapseFunc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %21, label %8
@@ -2087,7 +2087,7 @@ Abc_NodeCollapseSuppSize.exit:                    ; preds = %Vec_PtrPushUnique.e
   %.val79.us = load ptr, ptr %48, align 8
   %174 = getelementptr inbounds nuw ptr, ptr %.val79.us, i64 %indvars.iv139
   %175 = load ptr, ptr %174, align 8
-  %176 = tail call i32 @Abc_NodeCollapse(ptr noundef %54, ptr noundef %175, ptr noundef nonnull %41, ptr noundef %39, ptr noundef %40)
+  %176 = tail call i32 @Abc_NodeCollapse(ptr noundef nonnull %54, ptr noundef %175, ptr noundef nonnull %41, ptr noundef %39, ptr noundef %40)
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %.val.us = load i32, ptr %46, align 4
   %177 = sext i32 %.val.us to i64
@@ -2275,7 +2275,7 @@ define i32 @Abc_NodeCountAppearancesAll(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NodeCollapseFunc1(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define ptr @Abc_NodeCollapseFunc1(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 256
   %8 = load ptr, ptr %7, align 8
@@ -2581,7 +2581,7 @@ declare ptr @Hop_Permute(ptr noundef, ptr noundef, i32 noundef, ptr noundef) loc
 declare ptr @Hop_Compose(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NodeCollapse1(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NodeCollapse1(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call ptr @Abc_NodeCollapseFunc1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %20, label %8
@@ -2623,7 +2623,7 @@ define range(i32 0, 2) i32 @Abc_NodeCollapse1(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NodeIsExor(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NodeIsExor(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 28
   %.val34 = load i32, ptr %2, align 4
   %3 = add i32 %.val34, -7
@@ -3100,7 +3100,7 @@ Abc_NodeCollapseSuppSize.exit:                    ; preds = %Vec_PtrPushUnique.e
   %.val80.us = load ptr, ptr %29, align 8
   %188 = getelementptr inbounds nuw ptr, ptr %.val80.us, i64 %indvars.iv158
   %189 = load ptr, ptr %188, align 8
-  %190 = tail call ptr @Abc_NodeCollapseFunc1(ptr noundef %37, ptr noundef %189, ptr noundef nonnull %22, ptr noundef %20, ptr noundef %21)
+  %190 = tail call ptr @Abc_NodeCollapseFunc1(ptr noundef nonnull %37, ptr noundef %189, ptr noundef nonnull %22, ptr noundef %20, ptr noundef %21)
   %191 = icmp eq ptr %190, null
   br i1 %191, label %Abc_NodeCollapse1.exit115.us, label %192
 
@@ -3151,7 +3151,7 @@ Abc_NodeCollapse1.exit115.us:                     ; preds = %.critedge.i108.us, 
   %205 = getelementptr i8, ptr %203, i64 28
   %.val85 = load i32, ptr %205, align 4
   %206 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.val94, i32 noundef %.val86, i32 noundef %.val93, i32 noundef %.val85)
-  %207 = tail call ptr @Abc_NodeCollapseFunc1(ptr noundef %37, ptr noundef %203, ptr noundef nonnull %22, ptr noundef %20, ptr noundef %21)
+  %207 = tail call ptr @Abc_NodeCollapseFunc1(ptr noundef nonnull %37, ptr noundef %203, ptr noundef nonnull %22, ptr noundef %20, ptr noundef %21)
   %208 = icmp eq ptr %207, null
   br i1 %208, label %Abc_NodeCollapse1.exit, label %209
 
@@ -3307,7 +3307,7 @@ define range(i32 0, 2) i32 @Abc_NtkEliminate1(ptr noundef %0, i32 noundef %1, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Abc_ObjCompareByNumber(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define i32 @Abc_ObjCompareByNumber(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
   %3 = load ptr, ptr %0, align 8
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, -2
@@ -3325,7 +3325,7 @@ define i32 @Abc_ObjCompareByNumber(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_ObjSortInReverseOrder(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @Abc_ObjSortInReverseOrder(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Abc_NtkDfsReverse(ptr noundef %0) #15
   %4 = getelementptr i8, ptr %3, i64 4
   %.val1720 = load i32, ptr %4, align 4
@@ -3796,7 +3796,7 @@ Abc_NodeCollapse.exit:                            ; preds = %144, %.critedge.i
   br i1 %exitcond137.not, label %.critedge2, label %.lr.ph128.split, !llvm.loop !38
 
 .critedge2:                                       ; preds = %.critedge4, %.critedge4.us, %116
-  tail call void @Abc_NtkBddReorder(ptr noundef %0, i32 noundef 0) #15
+  tail call void @Abc_NtkBddReorder(ptr noundef nonnull %0, i32 noundef 0) #15
   %174 = load ptr, ptr %125, align 8
   %.not.i114 = icmp eq ptr %174, null
   br i1 %.not.i114, label %Vec_PtrFree.exit115, label %175
@@ -3856,15 +3856,15 @@ declare i32 @Abc_SopIsComplement(ptr noundef) local_unnamed_addr #1
 declare i32 @Abc_SopGetIthCareLit(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 declare ptr @Abc_NtkCreateObj(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13

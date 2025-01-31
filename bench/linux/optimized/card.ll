@@ -42,7 +42,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_pnp_unregist
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_pnp_register_card_driver356, ptr @__UNIQUE_ID___addressable_pnp_release_card_device355, ptr @__UNIQUE_ID___addressable_pnp_request_card_device354, ptr @__UNIQUE_ID___addressable_pnp_unregister_card_driver357], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @pnp_alloc_card(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef ptr @pnp_alloc_card(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(872) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 872) #7
   %6 = icmp eq ptr %5, null
@@ -612,7 +612,7 @@ define dso_local void @pnp_release_card_device(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @card_remove(ptr nocapture noundef writeonly initializes((832, 840)) %0) #3 align 16 {
+define internal void @card_remove(ptr noundef writeonly captures(none) initializes((832, 840)) %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 832
   store ptr null, ptr %2, align 8
   ret void
@@ -622,7 +622,7 @@ define internal void @card_remove(ptr nocapture noundef writeonly initializes((8
 declare dso_local void @device_release_driver(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @card_remove_first(ptr nocapture noundef %0) #0 align 16 {
+define internal void @card_remove_first(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -72
@@ -717,7 +717,7 @@ define dso_local range(i32 -2147483648, 1) i32 @pnp_register_card_driver(ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @card_suspend(ptr nocapture noundef readonly %0, i32 %1) #0 align 16 {
+define internal i32 @card_suspend(ptr noundef readonly captures(none) %0, i32 %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -740,7 +740,7 @@ define internal i32 @card_suspend(ptr nocapture noundef readonly %0, i32 %1) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @card_resume(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef i32 @card_resume(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -794,7 +794,7 @@ declare dso_local i32 @device_create_file(ptr noundef, ptr noundef) local_unname
 declare dso_local void @device_remove_file(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @name_show(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @name_show(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #5 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef nonnull %4) #8
   %6 = sext i32 %5 to i64
@@ -802,10 +802,10 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @name_show(ptr no
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @card_id_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #5 align 16 {
+define internal noundef i64 @card_id_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #5 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

@@ -42,7 +42,7 @@ return:                                           ; preds = %sw.bb1, %switch.loo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_1EEEvPKfS4_S4_iPKvPvl(ptr nocapture noundef readonly %lutR, ptr nocapture noundef readonly %lutG, ptr nocapture noundef readonly %lutB, i32 noundef %dim, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) #4 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_1EEEvPKfS4_S4_iPKvPvl(ptr noundef readonly captures(none) %lutR, ptr noundef readonly captures(none) %lutG, ptr noundef readonly captures(none) %lutB, i32 noundef %dim, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) #4 {
 entry:
   %in_buf = alloca [16 x float], align 16
   %out_buf = alloca [16 x i8], align 16
@@ -557,7 +557,7 @@ if.end:                                           ; preds = %for.body47, %for.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_2EEEvPKfS4_S4_iPKvPvl(ptr nocapture noundef readonly %lutR, ptr nocapture noundef readonly %lutG, ptr nocapture noundef readonly %lutB, i32 noundef %dim, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) #4 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_2EEEvPKfS4_S4_iPKvPvl(ptr noundef readonly captures(none) %lutR, ptr noundef readonly captures(none) %lutG, ptr noundef readonly captures(none) %lutB, i32 noundef %dim, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) #4 {
 entry:
   %in_buf = alloca [16 x float], align 16
   %out_buf = alloca [16 x i16], align 16
@@ -1070,7 +1070,7 @@ if.end:                                           ; preds = %for.body47, %for.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_3EEEvPKfS4_S4_iPKvPvl(ptr nocapture noundef readonly %lutR, ptr nocapture noundef readonly %lutG, ptr nocapture noundef readonly %lutB, i32 noundef %dim, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) #4 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_3EEEvPKfS4_S4_iPKvPvl(ptr noundef readonly captures(none) %lutR, ptr noundef readonly captures(none) %lutG, ptr noundef readonly captures(none) %lutB, i32 noundef %dim, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) #4 {
 entry:
   %in_buf = alloca [16 x float], align 16
   %out_buf = alloca [16 x i16], align 16
@@ -1583,7 +1583,7 @@ if.end:                                           ; preds = %for.body47, %for.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_5EEEvPKfS4_S4_iPKvPvl(ptr nocapture noundef readonly %lutR, ptr nocapture noundef readonly %lutG, ptr nocapture noundef readonly %lutB, i32 noundef %dim, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) #4 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_5EEEvPKfS4_S4_iPKvPvl(ptr noundef readonly captures(none) %lutR, ptr noundef readonly captures(none) %lutG, ptr noundef readonly captures(none) %lutB, i32 noundef %dim, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) #4 {
 entry:
   %in_buf = alloca [16 x float], align 16
   %out_buf = alloca [16 x i16], align 16
@@ -2096,7 +2096,7 @@ if.end:                                           ; preds = %for.body47, %for.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_7EEEvPKfS4_S4_iPKvPvl(ptr nocapture noundef readonly %lutR, ptr nocapture noundef readonly %lutG, ptr nocapture noundef readonly %lutB, i32 noundef %dim, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) #4 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_7EEEvPKfS4_S4_iPKvPvl(ptr noundef readonly captures(none) %lutR, ptr noundef readonly captures(none) %lutG, ptr noundef readonly captures(none) %lutB, i32 noundef %dim, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) #4 {
 entry:
   %in_buf = alloca [16 x float], align 16
   %out_buf = alloca [16 x %"class.Imath_3_1::half"], align 16
@@ -2973,7 +2973,7 @@ if.end:                                           ; preds = %for.body47, %_ZN19O
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_8EEEvPKfS4_S4_iPKvPvl(ptr nocapture noundef readonly %lutR, ptr nocapture noundef readonly %lutG, ptr nocapture noundef readonly %lutB, i32 noundef %dim, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) #4 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_18linear1DILNS_8BitDepthE8ELS2_8EEEvPKfS4_S4_iPKvPvl(ptr noundef readonly captures(none) %lutR, ptr noundef readonly captures(none) %lutG, ptr noundef readonly captures(none) %lutB, i32 noundef %dim, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) #4 {
 entry:
   %in_buf = alloca [16 x float], align 16
   %out_buf = alloca [16 x float], align 16
@@ -3462,7 +3462,7 @@ if.end:                                           ; preds = %for.body44, %for.en
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <4 x float> @llvm.x86.sse.min.ps(<4 x float>, <4 x float>) #6

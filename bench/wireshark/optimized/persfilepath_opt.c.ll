@@ -72,7 +72,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @test_for_directory(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @set_persconffile_dir(ptr noundef) local_unnamed_addr #2
 

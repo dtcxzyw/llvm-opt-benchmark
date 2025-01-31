@@ -280,7 +280,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @.str.131 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5scene16CXMeshFileLoaderC2EPNS0_13ISceneManagerE(ptr noundef nonnull align 8 dereferenceable(138) initializes((0, 48)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef readnone %smgr) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene16CXMeshFileLoaderC2EPNS0_13ISceneManagerE(ptr noundef nonnull align 8 dereferenceable(138) initializes((0, 48)) %this, ptr noundef readonly captures(none) %vtt, ptr noundef readnone captures(none) %smgr) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -319,7 +319,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr5scene16CXMeshFileLoaderC1EPNS0_13ISceneManagerE(ptr noundef nonnull align 8 dereferenceable(138) initializes((0, 48), (144, 164)) %this, ptr nocapture noundef readnone %smgr) unnamed_addr #1 align 2 {
+define void @_ZN3irr5scene16CXMeshFileLoaderC1EPNS0_13ISceneManagerE(ptr noundef nonnull align 8 dereferenceable(138) initializes((0, 48), (144, 164)) %this, ptr noundef readnone captures(none) %smgr) unnamed_addr #1 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 144
   %DebugName.i = getelementptr inbounds nuw i8, ptr %this, i64 152
@@ -348,7 +348,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK3irr5scene16CXMeshFileLoader24isALoadableFileExtensionERKNS_4core6stringIcEE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZNK3irr5scene16CXMeshFileLoader24isALoadableFileExtensionERKNS_4core6stringIcEE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #2 align 2 {
 entry:
   %ref.tmp = alloca %"class.irr::core::string", align 8
   %ref.tmp2 = alloca %"class.irr::core::string", align 8
@@ -430,7 +430,7 @@ _ZN3irr4core6stringIcED2Ev.exit38:                ; preds = %if.then.i.i.i34, %_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr4core6stringIcEC2IcEEPKT_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %c) unnamed_addr #2 comdat align 2 {
@@ -538,10 +538,10 @@ _ZN3irr4core6stringIcEaSIcEERS2_PKT_.exit:        ; preds = %for.body.i.epil, %_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3irr5scene16CXMeshFileLoader10createMeshEPNS_2io9IReadFileE(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this, ptr noundef %file) unnamed_addr #2 align 2 {
+define noundef ptr @_ZN3irr5scene16CXMeshFileLoader10createMeshEPNS_2io9IReadFileE(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this, ptr noundef %file) unnamed_addr #2 align 2 {
 entry:
   %tobool.not = icmp eq ptr %file, null
   br i1 %tobool.not, label %return, label %if.end
@@ -668,7 +668,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 declare void @_ZN3irr5scene12CSkinnedMeshC1Ev(ptr noundef nonnull align 8 dereferenceable(186)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader4loadEPNS_2io9IReadFileE(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this, ptr noundef %file) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader4loadEPNS_2io9IReadFileE(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this, ptr noundef %file) local_unnamed_addr #2 align 2 {
 entry:
   %ref.tmp = alloca %"class.irr::video::SMaterial", align 8
   %ref.tmp250.sroa.0 = alloca %"struct.irr::video::S3DVertex", align 8
@@ -2929,7 +2929,7 @@ _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZN
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader18readFileIntoMemoryEPNS_2io9IReadFileE(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this, ptr noundef %file) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader18readFileIntoMemoryEPNS_2io9IReadFileE(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this, ptr noundef %file) local_unnamed_addr #2 align 2 {
 entry:
   %tmp = alloca [3 x i8], align 1
   %vtable = load ptr, ptr %file, align 8, !tbaa !3
@@ -3122,7 +3122,7 @@ cleanup64:                                        ; preds = %cleanup, %if.then15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader9parseFileEv(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader9parseFileEv(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this) local_unnamed_addr #2 align 2 {
 entry:
   br label %while.cond
 
@@ -3424,7 +3424,7 @@ if.end21.i.3:                                     ; preds = %if.else18.i.3, %if.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
@@ -3432,15 +3432,15 @@ declare void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef, ptr nou
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this) local_unnamed_addr #11 align 2 {
+define void @_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this) local_unnamed_addr #11 align 2 {
 entry:
   %BinaryFormat = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load i8, ptr %BinaryFormat, align 8, !tbaa !200, !range !42, !noundef !43
@@ -3483,7 +3483,7 @@ while.end:                                        ; preds = %if.end10, %if.then8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader15parseDataObjectEv(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader15parseDataObjectEv(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this) local_unnamed_addr #2 align 2 {
 entry:
   %objectName = alloca %"class.irr::core::string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %objectName) #22
@@ -3712,7 +3712,7 @@ _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene16CXMeshFileLoader12getNextTokenEv(ptr dead_on_unwind noalias writable sret(%"class.irr::core::string") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(138) %this) local_unnamed_addr #2 align 2 {
+define void @_ZN3irr5scene16CXMeshFileLoader12getNextTokenEv(ptr dead_on_unwind noalias writable sret(%"class.irr::core::string") align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this) local_unnamed_addr #2 align 2 {
 entry:
   %s = alloca %"class.irr::core::string", align 8
   %ref.tmp = alloca %"class.irr::core::string", align 8
@@ -4197,7 +4197,7 @@ _ZN3irr4core6stringIcED2Ev.exit164:               ; preds = %if.then.i.i.i160, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader23parseDataObjectTemplateEv(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader23parseDataObjectTemplateEv(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this) local_unnamed_addr #2 align 2 {
 entry:
   %name = alloca %"class.irr::core::string", align 8
   %ref.tmp = alloca %"class.irr::core::string", align 8
@@ -4340,7 +4340,7 @@ _ZN3irr4core6stringIcED2Ev.exit31:                ; preds = %if.then.i.i.i27, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader20parseDataObjectFrameEPNS0_12ISkinnedMesh6SJointE(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this, ptr noundef %Parent) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader20parseDataObjectFrameEPNS0_12ISkinnedMesh6SJointE(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this, ptr noundef %Parent) local_unnamed_addr #2 align 2 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %name = alloca %"class.irr::core::string", align 8
@@ -4846,7 +4846,7 @@ _ZN3irr4core6stringIcED2Ev.exit160:               ; preds = %if.then.i.i.i156, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader19parseDataObjectMeshERNS1_6SXMeshE(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this, ptr noundef nonnull align 8 dereferenceable(342) %mesh) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader19parseDataObjectMeshERNS1_6SXMeshE(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this, ptr noundef nonnull align 8 dereferenceable(342) %mesh) local_unnamed_addr #2 align 2 {
 entry:
   %nameOrBrace.i94 = alloca %"class.irr::core::string", align 8
   %ref.tmp.i95 = alloca %"class.irr::core::string", align 8
@@ -6865,7 +6865,7 @@ _ZN3irr4core6stringIcED2Ev.exit904:               ; preds = %if.then.i.i.i900, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader27parseDataObjectAnimationSetEv(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader27parseDataObjectAnimationSetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this) local_unnamed_addr #2 align 2 {
 entry:
   %AnimationName = alloca %"class.irr::core::string", align 8
   %ref.tmp = alloca %"class.irr::core::string", align 8
@@ -7030,7 +7030,7 @@ _ZN3irr4core6stringIcED2Ev.exit51:                ; preds = %if.then.i.i.i47, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader38parseDataObjectAnimationTicksPerSecondEv(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader38parseDataObjectAnimationTicksPerSecondEv(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this) local_unnamed_addr #2 align 2 {
 entry:
   %nameOrBrace.i = alloca %"class.irr::core::string", align 8
   %ref.tmp.i5 = alloca %"class.irr::core::string", align 8
@@ -7299,7 +7299,7 @@ return:                                           ; preds = %if.end22, %_ZN3irr4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader22parseUnknownDataObjectEv(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader22parseUnknownDataObjectEv(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this) local_unnamed_addr #2 align 2 {
 entry:
   %t = alloca %"class.irr::core::string", align 8
   %t7 = alloca %"class.irr::core::string", align 8
@@ -7425,7 +7425,7 @@ unreachable:                                      ; preds = %_ZN3irr4core6string
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader20readHeadOfDataObjectEPNS_4core6stringIcEE(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this, ptr noundef %outname) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader20readHeadOfDataObjectEPNS_4core6stringIcEE(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this, ptr noundef %outname) local_unnamed_addr #2 align 2 {
 entry:
   %nameOrBrace = alloca %"class.irr::core::string", align 8
   %ref.tmp = alloca %"class.irr::core::string", align 8
@@ -7738,7 +7738,7 @@ if.then:                                          ; preds = %entry
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !10
   %call.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef 0, i64 noundef %2, ptr noundef %1, i64 noundef %call.i.i.i) #22
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef 0, i64 noundef %2, ptr noundef nonnull %1, i64 noundef %call.i.i.i) #22
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -7797,7 +7797,7 @@ if.end:                                           ; preds = %_ZNSt19_Optional_ba
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader35parseDataObjectTransformationMatrixERNS_4core8CMatrix4IfEE(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(64) %mat) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader35parseDataObjectTransformationMatrixERNS_4core8CMatrix4IfEE(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(64) %mat) local_unnamed_addr #2 align 2 {
 entry:
   %nameOrBrace.i = alloca %"class.irr::core::string", align 8
   %ref.tmp.i5 = alloca %"class.irr::core::string", align 8
@@ -8055,7 +8055,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader10readMatrixERNS_4core8CMatrix4IfEE(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(64) initializes((0, 64)) %mat) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader10readMatrixERNS_4core8CMatrix4IfEE(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(64) initializes((0, 64)) %mat) local_unnamed_addr #2 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.irr::core::string", align 8
   %call = tail call noundef float @_ZN3irr5scene16CXMeshFileLoader9readFloatEv(ptr noundef nonnull align 8 dereferenceable(138) %this)
@@ -8158,7 +8158,7 @@ _ZN3irr5scene16CXMeshFileLoader30checkForOneFollowingSemicolonsEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader30checkForOneFollowingSemicolonsEv(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader30checkForOneFollowingSemicolonsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this) local_unnamed_addr #2 align 2 {
 entry:
   %ref.tmp = alloca %"class.irr::core::string", align 8
   %BinaryFormat = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -8214,7 +8214,7 @@ return:                                           ; preds = %if.else, %_ZN3irr4c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader20checkForClosingBraceEv(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader20checkForClosingBraceEv(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this) local_unnamed_addr #2 align 2 {
 entry:
   %ref.tmp = alloca %"class.irr::core::string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #22
@@ -8253,7 +8253,7 @@ _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN3irr5scene16CXMeshFileLoader7readIntEv(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this) local_unnamed_addr #11 align 2 {
+define noundef i32 @_ZN3irr5scene16CXMeshFileLoader7readIntEv(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this) local_unnamed_addr #11 align 2 {
 entry:
   %BinaryFormat = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load i8, ptr %BinaryFormat, align 8, !tbaa !200, !range !42, !noundef !43
@@ -8421,7 +8421,7 @@ return:                                           ; preds = %_ZN3irr4core9strtou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader11readVector3ERNS_4core8vector3dIfEE(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %vec) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader11readVector3ERNS_4core8vector3dIfEE(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %vec) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call noundef float @_ZN3irr5scene16CXMeshFileLoader9readFloatEv(ptr noundef nonnull align 8 dereferenceable(138) %this)
   store float %call, ptr %vec, align 4, !tbaa !223
@@ -8435,7 +8435,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader30checkForTwoFollowingSemicolonsEv(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader30checkForTwoFollowingSemicolonsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this) local_unnamed_addr #2 align 2 {
 entry:
   %ref.tmp = alloca %"class.irr::core::string", align 8
   %BinaryFormat = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -8524,7 +8524,7 @@ return:                                           ; preds = %if.then2, %_ZN3irr4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader26parseDataObjectMeshNormalsERNS1_6SXMeshE(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(342) %mesh) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader26parseDataObjectMeshNormalsERNS1_6SXMeshE(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(342) %mesh) local_unnamed_addr #2 align 2 {
 entry:
   %ref.tmp.i45 = alloca %"class.irr::core::string", align 8
   %ref.tmp.i34 = alloca %"class.irr::core::string", align 8
@@ -9909,7 +9909,7 @@ return:                                           ; preds = %if.then.i.i.i.i333,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader32parseDataObjectMeshTextureCoordsERNS1_6SXMeshE(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(342) %mesh) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader32parseDataObjectMeshTextureCoordsERNS1_6SXMeshE(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(342) %mesh) local_unnamed_addr #2 align 2 {
 entry:
   %ref.tmp.i10 = alloca %"class.irr::core::string", align 8
   %nameOrBrace.i = alloca %"class.irr::core::string", align 8
@@ -10222,7 +10222,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader31parseDataObjectMeshVertexColorsERNS1_6SXMeshE(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this, ptr nocapture noundef nonnull align 8 dereferenceable(342) %mesh) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader31parseDataObjectMeshVertexColorsERNS1_6SXMeshE(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(342) %mesh) local_unnamed_addr #2 align 2 {
 entry:
   %nameOrBrace.i = alloca %"class.irr::core::string", align 8
   %ref.tmp.i7 = alloca %"class.irr::core::string", align 8
@@ -10589,7 +10589,7 @@ return:                                           ; preds = %_ZN3irr4core6string
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader31parseDataObjectMeshMaterialListERNS1_6SXMeshE(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this, ptr noundef nonnull align 8 dereferenceable(342) %mesh) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader31parseDataObjectMeshMaterialListERNS1_6SXMeshE(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this, ptr noundef nonnull align 8 dereferenceable(342) %mesh) local_unnamed_addr #2 align 2 {
 entry:
   %nameOrBrace.i = alloca %"class.irr::core::string", align 8
   %ref.tmp.i = alloca %"class.irr::core::string", align 8
@@ -11529,7 +11529,7 @@ if.end7:                                          ; preds = %_ZNSt12_Vector_base
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader29parseDataObjectSkinMeshHeaderERNS1_6SXMeshE(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(342) %mesh) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader29parseDataObjectSkinMeshHeaderERNS1_6SXMeshE(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(342) %mesh) local_unnamed_addr #2 align 2 {
 entry:
   %nameOrBrace.i = alloca %"class.irr::core::string", align 8
   %ref.tmp.i4 = alloca %"class.irr::core::string", align 8
@@ -11745,7 +11745,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader26parseDataObjectSkinWeightsERNS1_6SXMeshE(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this, ptr noundef nonnull align 8 dereferenceable(342) %mesh) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader26parseDataObjectSkinWeightsERNS1_6SXMeshE(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this, ptr noundef nonnull align 8 dereferenceable(342) %mesh) local_unnamed_addr #2 align 2 {
 entry:
   %nameOrBrace.i = alloca %"class.irr::core::string", align 8
   %ref.tmp.i19 = alloca %"class.irr::core::string", align 8
@@ -12566,7 +12566,7 @@ return:                                           ; preds = %_ZN3irr4core6string
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader20getNextTokenAsStringERNS_4core6stringIcEE(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this, ptr noundef nonnull align 8 dereferenceable(32) %out) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader20getNextTokenAsStringERNS_4core6stringIcEE(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this, ptr noundef nonnull align 8 dereferenceable(32) %out) local_unnamed_addr #2 align 2 {
 entry:
   %ref.tmp = alloca %"class.irr::core::string", align 8
   %BinaryFormat = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -12746,7 +12746,7 @@ return:                                           ; preds = %if.end10.i.i, %if.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef float @_ZN3irr5scene16CXMeshFileLoader9readFloatEv(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this) local_unnamed_addr #2 align 2 {
+define noundef float @_ZN3irr5scene16CXMeshFileLoader9readFloatEv(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this) local_unnamed_addr #2 align 2 {
 entry:
   %ftmp = alloca float, align 4
   %BinaryFormat = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -12894,7 +12894,7 @@ return:                                           ; preds = %_ZN3irr5scene16CXMe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader11readVector2ERNS_4core8vector2dIfEE(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %vec) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader11readVector2ERNS_4core8vector2dIfEE(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %vec) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call noundef float @_ZN3irr5scene16CXMeshFileLoader9readFloatEv(ptr noundef nonnull align 8 dereferenceable(138) %this)
   store float %call, ptr %vec, align 4, !tbaa !270
@@ -12905,7 +12905,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader8readRGBAERNS_5video6SColorE(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %color) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader8readRGBAERNS_5video6SColorE(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %color) local_unnamed_addr #2 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.irr::core::string", align 8
   %call = tail call noundef float @_ZN3irr5scene16CXMeshFileLoader9readFloatEv(ptr noundef nonnull align 8 dereferenceable(138) %this)
@@ -12993,7 +12993,7 @@ _ZN3irr5scene16CXMeshFileLoader30checkForOneFollowingSemicolonsEv.exit: ; preds 
 declare void @_ZN3irr2os7Printer3logEPKcRKNS_4core6stringIcEENS_10ELOG_LEVELE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader24parseDataObjectAnimationEv(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader24parseDataObjectAnimationEv(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this) local_unnamed_addr #2 align 2 {
 entry:
   %nameOrBrace.i = alloca %"class.irr::core::string", align 8
   %ref.tmp.i33 = alloca %"class.irr::core::string", align 8
@@ -14129,7 +14129,7 @@ return:                                           ; preds = %_ZN3irr5scene12ISki
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader27parseDataObjectAnimationKeyEPNS0_12ISkinnedMesh6SJointE(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this, ptr noundef %joint) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader27parseDataObjectAnimationKeyEPNS0_12ISkinnedMesh6SJointE(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this, ptr noundef %joint) local_unnamed_addr #12 align 2 {
 entry:
   %ref.tmp.i70 = alloca %"class.irr::core::string", align 8
   %ref.tmp.i41 = alloca %"class.irr::core::string", align 8
@@ -15212,7 +15212,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader30parseDataObjectTextureFilenameERNS_4core6stringIcEE(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this, ptr noundef nonnull align 8 dereferenceable(32) %texturename) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader30parseDataObjectTextureFilenameERNS_4core6stringIcEE(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this, ptr noundef nonnull align 8 dereferenceable(32) %texturename) local_unnamed_addr #2 align 2 {
 entry:
   %nameOrBrace.i = alloca %"class.irr::core::string", align 8
   %ref.tmp.i4 = alloca %"class.irr::core::string", align 8
@@ -15427,7 +15427,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i16 @_ZN3irr5scene16CXMeshFileLoader11readBinWordEv(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this) local_unnamed_addr #0 align 2 {
+define noundef zeroext i16 @_ZN3irr5scene16CXMeshFileLoader11readBinWordEv(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this) local_unnamed_addr #0 align 2 {
 entry:
   %P = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %P, align 8, !tbaa !203
@@ -15448,7 +15448,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN3irr5scene16CXMeshFileLoader12readBinDWordEv(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN3irr5scene16CXMeshFileLoader12readBinDWordEv(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this) local_unnamed_addr #0 align 2 {
 entry:
   %P = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %P, align 8, !tbaa !203
@@ -15546,7 +15546,7 @@ for.end:                                          ; preds = %for.body.epil, %for
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5scene16CXMeshFileLoader22findNextNoneWhiteSpaceEv(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this) local_unnamed_addr #11 align 2 {
+define void @_ZN3irr5scene16CXMeshFileLoader22findNextNoneWhiteSpaceEv(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this) local_unnamed_addr #11 align 2 {
 entry:
   %BinaryFormat = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load i8, ptr %BinaryFormat, align 8, !tbaa !200, !range !42, !noundef !43
@@ -15637,7 +15637,7 @@ while.end30:                                      ; preds = %_ZN3irr5scene16CXMe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5scene16CXMeshFileLoader28findNextNoneWhiteSpaceNumberEv(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this) local_unnamed_addr #11 align 2 {
+define void @_ZN3irr5scene16CXMeshFileLoader28findNextNoneWhiteSpaceNumberEv(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this) local_unnamed_addr #11 align 2 {
 entry:
   %BinaryFormat = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load i8, ptr %BinaryFormat, align 8, !tbaa !200, !range !42, !noundef !43
@@ -15958,7 +15958,7 @@ return:                                           ; preds = %if.end31, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader7readRGBERNS_5video6SColorE(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %color) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene16CXMeshFileLoader7readRGBERNS_5video6SColorE(ptr noundef nonnull align 8 captures(none) dereferenceable(138) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %color) local_unnamed_addr #2 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.irr::core::string", align 8
   %call = tail call noundef float @_ZN3irr5scene16CXMeshFileLoader9readFloatEv(ptr noundef nonnull align 8 dereferenceable(138) %this)
@@ -16421,7 +16421,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #19
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #5
 
@@ -17089,7 +17089,7 @@ if.end41:                                         ; preds = %_ZNSt12_Vector_base
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #2 comdat align 2 {
@@ -17662,7 +17662,7 @@ if.end41:                                         ; preds = %_ZNSt12_Vector_base
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #5
 

@@ -173,7 +173,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_wcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_wcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca [2048 x i8], align 16
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -542,7 +542,7 @@ get_wcp_window_ptr.exit.i69:                      ; preds = %149, %143
   %narrow.le.i = add nuw nsw i16 %188, 1
   %229 = zext nneg i16 %narrow.le.i to i32
   %230 = zext nneg i16 %227 to i32
-  %231 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %163, ptr noundef nonnull @ei_wcp_invalid_window_offset, ptr noundef nonnull @.str.89, i32 noundef %229, i32 noundef %230) #5
+  %231 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %163, ptr noundef nonnull @ei_wcp_invalid_window_offset, ptr noundef nonnull @.str.89, i32 noundef %229, i32 noundef %230) #5
   br label %wcp_uncompress.exit.thread
 
 232:                                              ; preds = %224
@@ -553,7 +553,7 @@ get_wcp_window_ptr.exit.i69:                      ; preds = %149, %143
   %narrow.le200.i = add nuw nsw i16 %188, 1
   %235 = zext nneg i16 %narrow.le200.i to i32
   %236 = zext nneg i16 %.0126.i to i32
-  %237 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %163, ptr noundef nonnull @ei_wcp_invalid_window_offset, ptr noundef nonnull @.str.90, i32 noundef %236, i32 noundef %235) #5
+  %237 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %163, ptr noundef nonnull @ei_wcp_invalid_window_offset, ptr noundef nonnull @.str.90, i32 noundef %236, i32 noundef %235) #5
   br label %wcp_uncompress.exit.thread
 
 238:                                              ; preds = %232
@@ -611,7 +611,7 @@ decompressed_entry.exit.i:                        ; preds = %259
   br i1 %264, label %decompressed_entry.exit.thread.i, label %287
 
 decompressed_entry.exit.thread.i:                 ; preds = %decompressed_entry.exit.i, %256
-  %265 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %163, ptr noundef nonnull @ei_wcp_uncompressed_data_exceeds, ptr noundef nonnull @.str.91, i32 noundef %257, i32 noundef 2048) #5
+  %265 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %163, ptr noundef nonnull @ei_wcp_uncompressed_data_exceeds, ptr noundef nonnull @.str.91, i32 noundef %257, i32 noundef 2048) #5
   br label %wcp_uncompress.exit.thread
 
 266:                                              ; preds = %179
@@ -620,7 +620,7 @@ decompressed_entry.exit.thread.i:                 ; preds = %decompressed_entry.
   br i1 %268, label %269, label %271
 
 269:                                              ; preds = %266
-  %270 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %163, ptr noundef nonnull @ei_wcp_uncompressed_data_exceeds, ptr noundef nonnull @.str.91, i32 noundef %267, i32 noundef 2048) #5
+  %270 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %163, ptr noundef nonnull @ei_wcp_uncompressed_data_exceeds, ptr noundef nonnull @.str.91, i32 noundef %267, i32 noundef 2048) #5
   br label %wcp_uncompress.exit.thread
 
 271:                                              ; preds = %266
@@ -830,7 +830,7 @@ declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -839,10 +839,10 @@ declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

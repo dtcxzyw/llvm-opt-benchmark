@@ -24,13 +24,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [14 x i8] c"insn_idx >= 0\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local void @helper_plugin_vcpu_udata_cb(i32 %cpu_index, ptr nocapture readnone %udata) #0 {
+define dso_local void @helper_plugin_vcpu_udata_cb(i32 %cpu_index, ptr readnone captures(none) %udata) #0 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local void @helper_plugin_vcpu_mem_cb(i32 %vcpu_index, i32 %info, i64 %vaddr, ptr nocapture readnone %userdata) #0 {
+define dso_local void @helper_plugin_vcpu_mem_cb(i32 %vcpu_index, i32 %info, i64 %vaddr, ptr readnone captures(none) %userdata) #0 {
 entry:
   ret void
 }
@@ -105,7 +105,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
 declare ptr @tcg_constant_ptr_int(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @plugin_gen_tb_start(ptr nocapture noundef readonly %cpu, ptr nocapture noundef readonly %db, i1 noundef zeroext %mem_only) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @plugin_gen_tb_start(ptr noundef readonly captures(none) %cpu, ptr noundef readonly captures(none) %db, i1 noundef zeroext %mem_only) local_unnamed_addr #1 {
 entry:
   %frombool = zext i1 %mem_only to i8
   %plugin_mask = getelementptr inbounds nuw i8, ptr %cpu, i64 696
@@ -238,7 +238,7 @@ sw.epilog:                                        ; preds = %sw.bb2, %sw.bb
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @plugin_gen_insn_start(ptr noundef %cpu, ptr nocapture noundef readonly %db) local_unnamed_addr #1 {
+define dso_local void @plugin_gen_insn_start(ptr noundef %cpu, ptr noundef readonly captures(none) %db) local_unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
@@ -1227,7 +1227,7 @@ inject_cb_type.exit:                              ; preds = %rm_ops.exit.i, %rm_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @op_ok(ptr nocapture readnone %op, ptr nocapture readnone %cb) #0 {
+define internal noundef zeroext i1 @op_ok(ptr readnone captures(none) %op, ptr readnone captures(none) %cb) #0 {
 entry:
   ret i1 true
 }
@@ -1237,10 +1237,10 @@ declare ptr @tcg_constant_i64(i64 noundef) local_unnamed_addr #2
 declare ptr @tcg_op_insert_after(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @inject_inline_cb(ptr noundef readonly %cbs, ptr noundef nonnull %begin_op, ptr nocapture noundef readonly %ok) unnamed_addr #1 {
+define internal fastcc void @inject_inline_cb(ptr noundef readonly %cbs, ptr noundef nonnull %begin_op, ptr noundef readonly captures(none) %ok) unnamed_addr #1 {
 entry:
   %tobool.not.i = icmp eq ptr %cbs, null
   br i1 %tobool.not.i, label %while.body.i.i.i.preheader, label %lor.lhs.false.i
@@ -1545,7 +1545,7 @@ rm_ops_range.exit:                                ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @op_rw(ptr nocapture noundef readonly %op, ptr nocapture noundef readonly %cb) #7 {
+define internal zeroext i1 @op_rw(ptr noundef readonly captures(none) %op, ptr noundef readonly captures(none) %cb) #7 {
 entry:
   %arrayidx = getelementptr i8, ptr %op, i64 48
   %0 = load i64, ptr %arrayidx, align 8

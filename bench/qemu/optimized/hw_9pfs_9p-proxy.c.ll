@@ -61,7 +61,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.36 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @proxy_parse_opts(ptr noundef %opts, ptr nocapture noundef %fs, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @proxy_parse_opts(ptr noundef %opts, ptr noundef captures(none) %fs, ptr noundef %errp) #0 {
 entry:
   %call = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str) #19
   %call1 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.1) #19
@@ -111,7 +111,7 @@ return:                                           ; preds = %if.then9, %if.else,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @proxy_init(ptr nocapture noundef %ctx, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @proxy_init(ptr noundef captures(none) %ctx, ptr noundef %errp) #0 {
 entry:
   %helper.i = alloca %struct.sockaddr_un, align 2
   %call = tail call noalias dereferenceable_or_null(88) ptr @g_malloc_n(i64 noundef 1, i64 noundef 88) #20
@@ -155,7 +155,7 @@ if.end5.i:                                        ; preds = %if.end.i
 if.then9.i:                                       ; preds = %if.end5.i
   %call10.i = tail call ptr @__errno_location() #22
   %3 = load i32, ptr %call10.i, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 1149, ptr noundef nonnull @__func__.connect_namedsocket, i32 noundef %3, ptr noundef nonnull @.str.9, ptr noundef %1) #19
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 1149, ptr noundef nonnull @__func__.connect_namedsocket, i32 noundef %3, ptr noundef nonnull @.str.9, ptr noundef nonnull %1) #19
   %call11.i = call i32 @close(i32 noundef %call1.i) #19
   br label %if.end5.thread24
 
@@ -173,7 +173,7 @@ if.end5.thread24:                                 ; preds = %if.then.i, %if.then
   br label %if.then7
 
 if.end5:                                          ; preds = %if.end5.i
-  %call13.i = call i32 @unlink(ptr noundef %1) #19
+  %call13.i = call i32 @unlink(ptr noundef nonnull %1) #19
   call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %helper.i)
   %.pre = load ptr, ptr %fs_root2, align 8
   br label %if.end8
@@ -216,7 +216,7 @@ return:                                           ; preds = %if.end8, %if.then7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @proxy_cleanup(ptr nocapture noundef readonly %ctx) #0 {
+define internal void @proxy_cleanup(ptr noundef readonly captures(none) %ctx) #0 {
 entry:
   %private = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %private, align 8
@@ -250,7 +250,7 @@ return:                                           ; preds = %entry, %if.end4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, -2147483648) i32 @proxy_lstat(ptr nocapture noundef readonly %fs_ctx, ptr noundef %fs_path, ptr noundef %stbuf) #0 {
+define internal range(i32 -1, -2147483648) i32 @proxy_lstat(ptr noundef readonly captures(none) %fs_ctx, ptr noundef %fs_path, ptr noundef %stbuf) #0 {
 entry:
   %private = getelementptr inbounds nuw i8, ptr %fs_ctx, i64 48
   %0 = load ptr, ptr %private, align 8
@@ -270,7 +270,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @proxy_readlink(ptr nocapture noundef readonly %fs_ctx, ptr noundef %fs_path, ptr noundef %buf, i64 noundef %bufsz) #0 {
+define internal i64 @proxy_readlink(ptr noundef readonly captures(none) %fs_ctx, ptr noundef %fs_path, ptr noundef %buf, i64 noundef %bufsz) #0 {
 entry:
   %private = getelementptr inbounds nuw i8, ptr %fs_ctx, i64 48
   %0 = load ptr, ptr %private, align 8
@@ -294,7 +294,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @proxy_chmod(ptr nocapture noundef readonly %fs_ctx, ptr noundef %fs_path, ptr nocapture noundef readonly %credp) #0 {
+define internal i32 @proxy_chmod(ptr noundef readonly captures(none) %fs_ctx, ptr noundef %fs_path, ptr noundef readonly captures(none) %credp) #0 {
 entry:
   %private = getelementptr inbounds nuw i8, ptr %fs_ctx, i64 48
   %0 = load ptr, ptr %private, align 8
@@ -315,7 +315,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @proxy_chown(ptr nocapture noundef readonly %fs_ctx, ptr noundef %fs_path, ptr nocapture noundef readonly %credp) #0 {
+define internal i32 @proxy_chown(ptr noundef readonly captures(none) %fs_ctx, ptr noundef %fs_path, ptr noundef readonly captures(none) %credp) #0 {
 entry:
   %private = getelementptr inbounds nuw i8, ptr %fs_ctx, i64 48
   %0 = load ptr, ptr %private, align 8
@@ -337,7 +337,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, -2147483648) i32 @proxy_mknod(ptr nocapture noundef readonly %fs_ctx, ptr nocapture noundef readonly %dir_path, ptr noundef %name, ptr nocapture noundef readonly %credp) #0 {
+define internal range(i32 -1, -2147483648) i32 @proxy_mknod(ptr noundef readonly captures(none) %fs_ctx, ptr noundef readonly captures(none) %dir_path, ptr noundef %name, ptr noundef readonly captures(none) %credp) #0 {
 entry:
   %fullname = alloca %struct.V9fsString, align 8
   %data.i = getelementptr inbounds nuw i8, ptr %fullname, i64 8
@@ -372,7 +372,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @proxy_utimensat(ptr nocapture noundef readonly %s, ptr noundef %fs_path, ptr nocapture noundef readonly %buf) #0 {
+define internal i32 @proxy_utimensat(ptr noundef readonly captures(none) %s, ptr noundef %fs_path, ptr noundef readonly captures(none) %buf) #0 {
 entry:
   %private = getelementptr inbounds nuw i8, ptr %s, i64 48
   %0 = load ptr, ptr %private, align 8
@@ -398,7 +398,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @proxy_remove(ptr nocapture noundef readonly %ctx, ptr noundef %path) #0 {
+define internal i32 @proxy_remove(ptr noundef readonly captures(none) %ctx, ptr noundef %path) #0 {
 entry:
   %name = alloca %struct.V9fsString, align 8
   %data.i = getelementptr inbounds nuw i8, ptr %name, i64 8
@@ -423,7 +423,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, -2147483648) i32 @proxy_symlink(ptr nocapture noundef readonly %fs_ctx, ptr noundef %oldpath, ptr nocapture noundef readonly %dir_path, ptr noundef %name, ptr nocapture noundef readonly %credp) #0 {
+define internal range(i32 -1, -2147483648) i32 @proxy_symlink(ptr noundef readonly captures(none) %fs_ctx, ptr noundef %oldpath, ptr noundef readonly captures(none) %dir_path, ptr noundef %name, ptr noundef readonly captures(none) %credp) #0 {
 entry:
   %fullname = alloca %struct.V9fsString, align 8
   %target = alloca %struct.V9fsString, align 8
@@ -460,7 +460,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, -2147483648) i32 @proxy_link(ptr nocapture noundef readonly %ctx, ptr noundef %oldpath, ptr nocapture noundef readonly %dirpath, ptr noundef %name) #0 {
+define internal range(i32 -1, -2147483648) i32 @proxy_link(ptr noundef readonly captures(none) %ctx, ptr noundef %oldpath, ptr noundef readonly captures(none) %dirpath, ptr noundef %name) #0 {
 entry:
   %newpath = alloca %struct.V9fsString, align 8
   %data.i = getelementptr inbounds nuw i8, ptr %newpath, i64 8
@@ -488,7 +488,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @proxy_close(ptr nocapture readnone %ctx, ptr nocapture noundef readonly %fs) #0 {
+define internal i32 @proxy_close(ptr readnone captures(none) %ctx, ptr noundef readonly captures(none) %fs) #0 {
 entry:
   %0 = load i32, ptr %fs, align 8
   %call = tail call i32 @close(i32 noundef %0) #19
@@ -496,7 +496,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal noundef i32 @proxy_closedir(ptr nocapture readnone %ctx, ptr nocapture noundef readonly %fs) #1 {
+define internal noundef i32 @proxy_closedir(ptr readnone captures(none) %ctx, ptr noundef readonly captures(none) %fs) #1 {
 entry:
   %0 = load ptr, ptr %fs, align 8
   %call = tail call i32 @closedir(ptr noundef %0)
@@ -504,7 +504,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @proxy_opendir(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, ptr nocapture noundef writeonly initializes((0, 8)) %fs) #0 {
+define internal range(i32 -1, 1) i32 @proxy_opendir(ptr noundef readonly captures(none) %ctx, ptr noundef %fs_path, ptr noundef writeonly captures(none) initializes((0, 8)) %fs) #0 {
 entry:
   store ptr null, ptr %fs, align 8
   %private = getelementptr inbounds nuw i8, ptr %ctx, i64 48
@@ -538,7 +538,7 @@ return:                                           ; preds = %if.end, %if.then5, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, -2147483648) i32 @proxy_open(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, i32 noundef %flags, ptr nocapture noundef writeonly initializes((0, 4)) %fs) #0 {
+define internal range(i32 -1, -2147483648) i32 @proxy_open(ptr noundef readonly captures(none) %ctx, ptr noundef %fs_path, i32 noundef %flags, ptr noundef writeonly captures(none) initializes((0, 4)) %fs) #0 {
 entry:
   %private = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %private, align 8
@@ -560,7 +560,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, -2147483648) i32 @proxy_open2(ptr nocapture noundef readonly %fs_ctx, ptr nocapture noundef readonly %dir_path, ptr noundef %name, i32 noundef %flags, ptr nocapture noundef readonly %credp, ptr nocapture noundef initializes((0, 4)) %fs) #0 {
+define internal range(i32 -1, -2147483648) i32 @proxy_open2(ptr noundef readonly captures(none) %fs_ctx, ptr noundef readonly captures(none) %dir_path, ptr noundef %name, i32 noundef %flags, ptr noundef readonly captures(none) %credp, ptr noundef captures(none) initializes((0, 4)) %fs) #0 {
 entry:
   %fullname = alloca %struct.V9fsString, align 8
   %data.i = getelementptr inbounds nuw i8, ptr %fullname, i64 8
@@ -596,7 +596,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @proxy_rewinddir(ptr nocapture readnone %ctx, ptr nocapture noundef readonly %fs) #0 {
+define internal void @proxy_rewinddir(ptr readnone captures(none) %ctx, ptr noundef readonly captures(none) %fs) #0 {
 entry:
   %0 = load ptr, ptr %fs, align 8
   tail call void @rewinddir(ptr noundef %0) #19
@@ -604,7 +604,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @proxy_telldir(ptr nocapture readnone %ctx, ptr nocapture noundef readonly %fs) #0 {
+define internal i64 @proxy_telldir(ptr readnone captures(none) %ctx, ptr noundef readonly captures(none) %fs) #0 {
 entry:
   %0 = load ptr, ptr %fs, align 8
   %call = tail call i64 @telldir(ptr noundef %0) #19
@@ -612,7 +612,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @proxy_readdir(ptr nocapture readnone %ctx, ptr nocapture noundef readonly %fs) #0 {
+define internal ptr @proxy_readdir(ptr readnone captures(none) %ctx, ptr noundef readonly captures(none) %fs) #0 {
 entry:
   %0 = load ptr, ptr %fs, align 8
   %call = tail call ptr @readdir64(ptr noundef %0) #19
@@ -620,7 +620,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @proxy_seekdir(ptr nocapture readnone %ctx, ptr nocapture noundef readonly %fs, i64 noundef %off) #0 {
+define internal void @proxy_seekdir(ptr readnone captures(none) %ctx, ptr noundef readonly captures(none) %fs, i64 noundef %off) #0 {
 entry:
   %0 = load ptr, ptr %fs, align 8
   tail call void @seekdir(ptr noundef %0, i64 noundef %off) #19
@@ -628,7 +628,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @proxy_preadv(ptr nocapture readnone %ctx, ptr nocapture noundef readonly %fs, ptr noundef %iov, i32 noundef %iovcnt, i64 noundef %offset) #0 {
+define internal i64 @proxy_preadv(ptr readnone captures(none) %ctx, ptr noundef readonly captures(none) %fs, ptr noundef %iov, i32 noundef %iovcnt, i64 noundef %offset) #0 {
 entry:
   %0 = load i32, ptr %fs, align 8
   %call = tail call i64 @preadv64(i32 noundef %0, ptr noundef %iov, i32 noundef %iovcnt, i64 noundef %offset) #19
@@ -636,7 +636,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @proxy_pwritev(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %fs, ptr noundef %iov, i32 noundef %iovcnt, i64 noundef %offset) #0 {
+define internal i64 @proxy_pwritev(ptr noundef readonly captures(none) %ctx, ptr noundef readonly captures(none) %fs, ptr noundef %iov, i32 noundef %iovcnt, i64 noundef %offset) #0 {
 entry:
   %0 = load i32, ptr %fs, align 8
   %call = tail call i64 @pwritev64(i32 noundef %0, ptr noundef %iov, i32 noundef %iovcnt, i64 noundef %offset) #19
@@ -660,7 +660,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, -2147483648) i32 @proxy_mkdir(ptr nocapture noundef readonly %fs_ctx, ptr nocapture noundef readonly %dir_path, ptr noundef %name, ptr nocapture noundef readonly %credp) #0 {
+define internal range(i32 -1, -2147483648) i32 @proxy_mkdir(ptr noundef readonly captures(none) %fs_ctx, ptr noundef readonly captures(none) %dir_path, ptr noundef %name, ptr noundef readonly captures(none) %credp) #0 {
 entry:
   %fullname = alloca %struct.V9fsString, align 8
   %data.i = getelementptr inbounds nuw i8, ptr %fullname, i64 8
@@ -693,7 +693,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @proxy_fstat(ptr nocapture readnone %fs_ctx, i32 noundef %fid_type, ptr nocapture noundef readonly %fs, ptr nocapture noundef %stbuf) #0 {
+define internal noundef i32 @proxy_fstat(ptr readnone captures(none) %fs_ctx, i32 noundef %fid_type, ptr noundef readonly captures(none) %fs, ptr noundef captures(none) %stbuf) #0 {
 entry:
   %cmp = icmp eq i32 %fid_type, 2
   br i1 %cmp, label %if.then, label %if.else
@@ -714,7 +714,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @proxy_rename(ptr nocapture noundef readonly %ctx, ptr noundef %oldpath, ptr noundef %newpath) #0 {
+define internal i32 @proxy_rename(ptr noundef readonly captures(none) %ctx, ptr noundef %oldpath, ptr noundef %newpath) #0 {
 entry:
   %oldname = alloca %struct.V9fsString, align 8
   %newname = alloca %struct.V9fsString, align 8
@@ -745,7 +745,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @proxy_truncate(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, i64 noundef %size) #0 {
+define internal range(i32 -1, 1) i32 @proxy_truncate(ptr noundef readonly captures(none) %ctx, ptr noundef %fs_path, i64 noundef %size) #0 {
 entry:
   %private = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %private, align 8
@@ -765,7 +765,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @proxy_fsync(ptr nocapture readnone %ctx, i32 noundef %fid_type, ptr nocapture noundef readonly %fs, i32 noundef %datasync) #0 {
+define internal i32 @proxy_fsync(ptr readnone captures(none) %ctx, i32 noundef %fid_type, ptr noundef readonly captures(none) %fs, i32 noundef %datasync) #0 {
 entry:
   %cmp = icmp eq i32 %fid_type, 2
   br i1 %cmp, label %if.then, label %if.else
@@ -798,7 +798,7 @@ return:                                           ; preds = %if.else3, %if.then1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, -2147483648) i32 @proxy_statfs(ptr nocapture noundef readonly %s, ptr noundef %fs_path, ptr noundef %stbuf) #0 {
+define internal range(i32 -1, -2147483648) i32 @proxy_statfs(ptr noundef readonly captures(none) %s, ptr noundef %fs_path, ptr noundef %stbuf) #0 {
 entry:
   %private = getelementptr inbounds nuw i8, ptr %s, i64 48
   %0 = load ptr, ptr %private, align 8
@@ -818,7 +818,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 -2147483648, 2147483648) i64 @proxy_lgetxattr(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, ptr noundef %name, ptr noundef %value, i64 noundef %size) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @proxy_lgetxattr(ptr noundef readonly captures(none) %ctx, ptr noundef %fs_path, ptr noundef %name, ptr noundef %value, i64 noundef %size) #0 {
 entry:
   %xname = alloca %struct.V9fsString, align 8
   %data.i = getelementptr inbounds nuw i8, ptr %xname, i64 8
@@ -844,7 +844,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 -2147483648, 2147483648) i64 @proxy_llistxattr(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, ptr noundef %value, i64 noundef %size) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @proxy_llistxattr(ptr noundef readonly captures(none) %ctx, ptr noundef %fs_path, ptr noundef %value, i64 noundef %size) #0 {
 entry:
   %private = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %private, align 8
@@ -864,7 +864,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @proxy_lsetxattr(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, ptr noundef %name, ptr noundef %value, i64 noundef %size, i32 noundef %flags) #0 {
+define internal i32 @proxy_lsetxattr(ptr noundef readonly captures(none) %ctx, ptr noundef %fs_path, ptr noundef %name, ptr noundef %value, i64 noundef %size, i32 noundef %flags) #0 {
 entry:
   %xname = alloca %struct.V9fsString, align 8
   %xvalue = alloca %struct.V9fsString, align 8
@@ -897,7 +897,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @proxy_lremovexattr(ptr nocapture noundef readonly %ctx, ptr noundef %fs_path, ptr noundef %name) #0 {
+define internal i32 @proxy_lremovexattr(ptr noundef readonly captures(none) %ctx, ptr noundef %fs_path, ptr noundef %name) #0 {
 entry:
   %xname = alloca %struct.V9fsString, align 8
   %data.i = getelementptr inbounds nuw i8, ptr %xname, i64 8
@@ -922,7 +922,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @proxy_name_to_path(ptr nocapture readnone %ctx, ptr noundef readonly %dir_path, ptr noundef %name, ptr noundef %target) #0 {
+define internal noundef i32 @proxy_name_to_path(ptr readnone captures(none) %ctx, ptr noundef readonly %dir_path, ptr noundef %name, ptr noundef %target) #0 {
 entry:
   %tobool.not = icmp eq ptr %dir_path, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -942,7 +942,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @proxy_renameat(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %olddir, ptr noundef %old_name, ptr nocapture noundef readonly %newdir, ptr noundef %new_name) #0 {
+define internal i32 @proxy_renameat(ptr noundef readonly captures(none) %ctx, ptr noundef readonly captures(none) %olddir, ptr noundef %old_name, ptr noundef readonly captures(none) %newdir, ptr noundef %new_name) #0 {
 entry:
   %old_full_name = alloca %struct.V9fsString, align 8
   %new_full_name = alloca %struct.V9fsString, align 8
@@ -967,7 +967,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @proxy_unlinkat(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %dir, ptr noundef %name, i32 %flags) #0 {
+define internal i32 @proxy_unlinkat(ptr noundef readonly captures(none) %ctx, ptr noundef readonly captures(none) %dir, ptr noundef %name, i32 %flags) #0 {
 entry:
   %name.i = alloca %struct.V9fsString, align 8
   %fullname = alloca %struct.V9fsString, align 8
@@ -1014,7 +1014,7 @@ declare void @error_append_hint(ptr noundef, ptr noundef, ...) local_unnamed_add
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
@@ -1024,7 +1024,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #5
 declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, -2147483648) i32 @proxy_ioc_getversion(ptr nocapture noundef readonly %fs_ctx, ptr noundef %path, i32 noundef %st_mode, ptr noundef %st_gen) #0 {
+define internal range(i32 -1, -2147483648) i32 @proxy_ioc_getversion(ptr noundef readonly captures(none) %fs_ctx, ptr noundef %path, i32 noundef %st_mode, ptr noundef %st_gen) #0 {
 entry:
   %0 = trunc i32 %st_mode to i16
   %trunc = and i16 %0, -4096
@@ -1056,7 +1056,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
@@ -1067,14 +1067,14 @@ declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, p
 declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #9
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 declare i32 @connect(i32 noundef, ptr, i32 noundef) local_unnamed_addr #2
 
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @v9fs_request(ptr noundef %proxy, i32 noundef range(i32 2, 22) %type, ptr noundef %response, ...) unnamed_addr #0 {
@@ -2506,7 +2506,7 @@ return:                                           ; preds = %close_error, %err_o
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare i64 @v9fs_iov_marshal(ptr noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -2516,7 +2516,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare i64 @qemu_write_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @v9fs_receivefd(i32 noundef %sockfd, ptr nocapture noundef nonnull writeonly %status) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @v9fs_receivefd(i32 noundef %sockfd, ptr noundef nonnull writeonly captures(none) %status) unnamed_addr #0 {
 entry:
   %iov = alloca %struct.iovec, align 8
   %msg = alloca %struct.msghdr, align 8
@@ -2604,7 +2604,7 @@ return:                                           ; preds = %land.rhs, %return.s
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @v9fs_receive_status(ptr nocapture noundef readonly %proxy, ptr noundef initializes((8, 16)) %reply, ptr noundef nonnull initializes((0, 4)) %status) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @v9fs_receive_status(ptr noundef readonly captures(none) %proxy, ptr noundef initializes((8, 16)) %reply, ptr noundef nonnull initializes((0, 4)) %status) unnamed_addr #0 {
 entry:
   %header = alloca %struct.ProxyHeader, align 4
   store i32 0, ptr %status, align 4
@@ -3102,10 +3102,10 @@ declare ptr @__cmsg_nxthdr(ptr noundef, ptr noundef) local_unnamed_addr #7
 declare i64 @v9fs_iov_unmarshal(ptr noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @prstat_to_stat(ptr nocapture noundef writeonly initializes((0, 144)) %stbuf, ptr nocapture noundef nonnull readonly %prstat) unnamed_addr #14 {
+define internal fastcc void @prstat_to_stat(ptr noundef writeonly captures(none) initializes((0, 144)) %stbuf, ptr noundef nonnull readonly captures(none) %prstat) unnamed_addr #14 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %stbuf, i8 0, i64 144, i1 false)
   %0 = load i64, ptr %prstat, align 8
@@ -3182,12 +3182,12 @@ entry:
 declare void @v9fs_string_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 declare void @v9fs_string_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare ptr @fdopendir(i32 noundef) local_unnamed_addr #2
 
@@ -3212,7 +3212,7 @@ declare i32 @sync_file_range(i32 noundef, i64 noundef, i64 noundef, i32 noundef)
 declare i32 @dirfd(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 declare i32 @qemu_fdatasync(i32 noundef) local_unnamed_addr #2
 
@@ -3233,10 +3233,10 @@ declare i32 @llvm.umin.i32(i32, i32) #17
 declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

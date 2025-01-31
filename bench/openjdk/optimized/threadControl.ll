@@ -645,7 +645,7 @@ declare void @eventHandler_unlock() local_unnamed_addr #1
 declare void @unblockCommandLoop() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @threadControl_suspendCount(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define hidden noundef i32 @threadControl_suspendCount(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load ptr, ptr @threadLock, align 8
   tail call void @debugMonitorEnter(ptr noundef %4) #6
@@ -2640,7 +2640,7 @@ declare void @stepControl_resetRequest(ptr noundef) local_unnamed_addr #1
 declare void @invoker_enableInvokeRequests(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @threadControl_onEventHandlerEntry(i8 noundef signext %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden ptr @threadControl_onEventHandlerEntry(i8 noundef signext %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -3262,7 +3262,7 @@ doPendingTasks.exit.thread:                       ; preds = %69, %76, %removeThr
 declare void @tossGlobalRef(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @threadControl_applicationThreadStatus(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
+define hidden i32 @threadControl_applicationThreadStatus(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   tail call void @log_debugee_location(ptr noundef nonnull @.str.29, ptr noundef %0, ptr noundef null, i64 noundef 0) #6
   %5 = load ptr, ptr @threadLock, align 8
@@ -3955,7 +3955,7 @@ define hidden i64 @threadControl_getFrameGeneration(ptr noundef %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @threadControl_allVThreads(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #0 {
+define hidden ptr @threadControl_allVThreads(ptr noundef writeonly captures(none) initializes((0, 4)) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @getEnv() #6
   %3 = load ptr, ptr @threadLock, align 8
   tail call void @debugMonitorEnter(ptr noundef %3) #6
@@ -4024,7 +4024,7 @@ define hidden ptr @threadControl_allVThreads(ptr nocapture noundef writeonly ini
 declare ptr @jvmtiAllocate(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @eventHelper_createEventBag() local_unnamed_addr #1
 
@@ -4037,7 +4037,7 @@ declare void @stepControl_lock() local_unnamed_addr #1
 declare void @commonRef_lock() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @commonSuspendByNode(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @commonSuspendByNode(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr @gdata, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 528
   %4 = load i32, ptr %3, align 8
@@ -4113,7 +4113,7 @@ declare void @stepControl_unlock() local_unnamed_addr #1
 declare void @eventHelper_unlock() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resumeThreadByNode(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @resumeThreadByNode(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i16, ptr %2, align 8
   %4 = and i16 %3, 4
@@ -4216,7 +4216,7 @@ define internal fastcc i32 @resumeThreadByNode(ptr nocapture noundef %0) unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @nonTlsSearch(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @nonTlsSearch(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %.08 = load ptr, ptr %1, align 8
   %.not9 = icmp eq ptr %.08, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -4457,10 +4457,10 @@ declare void @stepControl_clearRequest(ptr noundef, ptr noundef) local_unnamed_a
 declare void @invoker_detach(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5

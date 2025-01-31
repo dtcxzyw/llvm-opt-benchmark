@@ -29,16 +29,16 @@ target triple = "x86_64-pc-linux-gnu"
 @LogTable256 = internal unnamed_addr constant [256 x i8] c"\00\00\01\01\02\02\02\02\03\03\03\03\03\03\03\03\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\04\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\05\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\06\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07\07", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @H5HF__man_iter_init(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #0 {
+define noundef i32 @H5HF__man_iter_init(ptr noundef writeonly captures(none) initializes((0, 16)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF__man_iter_start_offset(ptr noundef %0, ptr nocapture noundef initializes((8, 16)) %1, i64 noundef %2) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5HF__man_iter_start_offset(ptr noundef %0, ptr noundef captures(none) initializes((8, 16)) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = alloca i8, align 1
   %5 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5HF_block_loc_t_reg_free_list) #8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -345,7 +345,7 @@ declare i32 @H5HF__iblock_incr(ptr noundef) local_unnamed_addr #3
 declare i32 @H5HF__man_iblock_unprotect(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5HF__man_iter_set_entry(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #4 {
+define noundef i32 @H5HF__man_iter_set_entry(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -364,7 +364,7 @@ define noundef i32 @H5HF__man_iter_set_entry(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF__man_iter_start_entry(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5HF__man_iter_start_entry(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5HF_block_loc_t_reg_free_list) #8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %11
@@ -414,7 +414,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_start_entry(ptr nocapture noundef re
 declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF__man_iter_reset(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5HF__man_iter_reset(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -461,7 +461,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_reset(ptr nocapture noundef %0) loca
 declare i32 @H5HF__iblock_decr(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5HF__man_iter_next(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 {
+define noundef i32 @H5HF__man_iter_next(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -486,7 +486,7 @@ define noundef i32 @H5HF__man_iter_next(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF__man_iter_up(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5HF__man_iter_up(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -515,7 +515,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_up(ptr nocapture noundef %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF__man_iter_down(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5HF__man_iter_down(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5HF_block_loc_t_reg_free_list) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %9
@@ -559,7 +559,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_down(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5HF__man_iter_curr(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #6 {
+define noundef i32 @H5HF__man_iter_curr(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %6
 
@@ -611,7 +611,7 @@ define noundef i32 @H5HF__man_iter_curr(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @H5HF__man_iter_ready(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define zeroext i1 @H5HF__man_iter_ready(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = load i8, ptr %0, align 8
   %3 = trunc i8 %2 to i1
   ret i1 %3

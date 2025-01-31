@@ -707,7 +707,7 @@ _list_node_create.exit:                           ; preds = %63, %50
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @list_transfer_unique(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define i32 @list_transfer_unique(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %5) #9
@@ -1010,19 +1010,19 @@ _list_node_create.exit:                           ; preds = %29, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @list_find_first(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define ptr @list_find_first(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call fastcc ptr @_list_find_first_lock(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @list_find_first_ro(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define ptr @list_find_first_ro(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call fastcc ptr @_list_find_first_lock(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @list_delete_all(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define i32 @list_delete_all(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %5) #9
@@ -1166,7 +1166,7 @@ _list_node_destroy.exit:                          ; preds = %41, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @list_delete_first(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define range(i32 -1, 2) i32 @list_delete_first(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %5) #9
@@ -1428,7 +1428,7 @@ _list_node_destroy.exit:                          ; preds = %37, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @list_for_each(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define i32 @list_for_each(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   store i32 -1, ptr %4, align 4
   %5 = call i32 @list_for_each_max(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 1)
@@ -1436,7 +1436,7 @@ define i32 @list_for_each(ptr noundef %0, ptr nocapture noundef readonly %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @list_for_each_ro(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define i32 @list_for_each_ro(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   store i32 -1, ptr %4, align 4
   %5 = call i32 @list_for_each_max(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 0)
@@ -1444,7 +1444,7 @@ define i32 @list_for_each_ro(ptr noundef %0, ptr nocapture noundef readonly %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @list_for_each_max(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+define i32 @list_for_each_max(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %.not = icmp eq i32 %5, 0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br i1 %.not, label %12, label %8
@@ -1688,7 +1688,7 @@ _list_node_destroy.exit:                          ; preds = %36, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define void @list_sort(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define void @list_sort(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2276,7 +2276,7 @@ define noundef ptr @list_iterator_create(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @list_iterator_reset(ptr nocapture noundef %0) #0 {
+define void @list_iterator_reset(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -2385,7 +2385,7 @@ define void @list_iterator_destroy(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @list_next(ptr nocapture noundef %0) #0 {
+define ptr @list_next(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -2449,7 +2449,7 @@ _list_next_locked.exit:                           ; preds = %20, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define void @list_insert(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define void @list_insert(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -2537,7 +2537,7 @@ _list_node_create.exit:                           ; preds = %33, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @list_find(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define ptr @list_find(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -2610,7 +2610,7 @@ _list_next_locked.exit:                           ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @list_remove(ptr nocapture noundef readonly %0) #0 {
+define ptr @list_remove(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -2724,7 +2724,7 @@ _list_node_destroy.exit:                          ; preds = %15, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @list_remove_first(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define ptr @list_remove_first(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %5) #9
@@ -2844,7 +2844,7 @@ _list_node_destroy.exit:                          ; preds = %13, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @list_delete_item(ptr nocapture noundef readonly %0) #0 {
+define range(i32 0, 2) i32 @list_delete_item(ptr noundef readonly captures(none) %0) #0 {
   %2 = tail call ptr @list_remove(ptr noundef %0)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %3
@@ -2892,7 +2892,7 @@ declare i32 @pthread_rwlock_destroy(ptr noundef) local_unnamed_addr #2
 declare i32 @pthread_rwlock_rdlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @list_transfer_match(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @list_transfer_match(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %6) #9
@@ -3151,7 +3151,7 @@ _list_node_create.exit:                           ; preds = %90, %69, %77, %56, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_list_find_first_lock(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc ptr @_list_find_first_lock(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br i1 %3, label %6, label %10
 
@@ -3215,7 +3215,7 @@ _list_find_first_locked.exit:                     ; preds = %14, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @list_for_each_nobreak(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @list_for_each_nobreak(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   store i32 -1, ptr %4, align 4
   %5 = call i32 @list_for_each_max(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 1)
@@ -3223,10 +3223,10 @@ define i32 @list_for_each_nobreak(ptr noundef %0, ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define ptr @list_peek_next(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @list_peek_next(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -3269,13 +3269,13 @@ define ptr @list_peek_next(ptr nocapture noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8

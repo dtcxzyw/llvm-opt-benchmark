@@ -181,7 +181,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.5e57fe82ff1aab3e07530ed2abc6b869.191 = private unnamed_addr constant <{ [9 x i8] }> <{ [9 x i8] c"VariantId" }>, align 1
 
 ; Function Attrs: nonlazybind uwtable
-define { ptr, i64 } @_ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
+define { ptr, i64 } @_ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8, !range !3, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
   %.0.v = select i1 %4, i64 48, i64 24
@@ -210,7 +210,7 @@ define { ptr, i64 } @_ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN14cranelift_isle4sema4Type3pos17h6106c82e2e44935cE(ptr nocapture writeonly sret({ i64, i64, i64, i64 }) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define void @_ZN14cranelift_isle4sema4Type3pos17h6106c82e2e44935cE(ptr writeonly sret({ i64, i64, i64, i64 }) align 8 captures(none) initializes((0, 32)) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 {
   %3 = load i64, ptr %1, align 8, !range !3, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
   %.0.v = select i1 %4, i64 8, i64 40
@@ -220,35 +220,35 @@ define void @_ZN14cranelift_isle4sema4Type3pos17h6106c82e2e44935cE(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN14cranelift_isle4sema4Type7is_prim17haa84efbe726acbd9E(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
+define noundef zeroext i1 @_ZN14cranelift_isle4sema4Type7is_prim17haa84efbe726acbd9E(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !3, !noundef !4
   %3 = icmp eq i64 %2, -9223372036854775808
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN14cranelift_isle4sema4Term2ty17h6408e7f14b80835eE(ptr nocapture readonly align 16 %0) unnamed_addr #2 {
+define noundef i64 @_ZN14cranelift_isle4sema4Term2ty17h6408e7f14b80835eE(ptr readonly align 16 captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load i64, ptr %2, align 8, !noundef !4
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN14cranelift_isle4sema4Term15is_enum_variant17h1139b19a6e851105E(ptr nocapture readonly align 16 %0) unnamed_addr #2 {
+define noundef zeroext i1 @_ZN14cranelift_isle4sema4Term15is_enum_variant17h1139b19a6e851105E(ptr readonly align 16 captures(none) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 16, !range !6, !noundef !4
   %3 = icmp eq i64 %2, 3
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN14cranelift_isle4sema4Term15has_constructor17hef4547a80c2ddad6E(ptr nocapture readonly align 16 %0) unnamed_addr #2 {
+define noundef zeroext i1 @_ZN14cranelift_isle4sema4Term15has_constructor17hef4547a80c2ddad6E(ptr readonly align 16 captures(none) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 16, !range !6, !noundef !4
   %3 = icmp ne i64 %2, 2
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN14cranelift_isle4sema4Term13has_extractor17h13ad1177cbfb9861E(ptr nocapture readonly align 16 %0) unnamed_addr #2 {
+define noundef zeroext i1 @_ZN14cranelift_isle4sema4Term13has_extractor17h13ad1177cbfb9861E(ptr readonly align 16 captures(none) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 16, !range !6, !noundef !4
   %3 = icmp eq i64 %2, 3
   br i1 %3, label %8, label %4
@@ -265,7 +265,7 @@ define noundef zeroext i1 @_ZN14cranelift_isle4sema4Term13has_extractor17h13ad11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN14cranelift_isle4sema4Term22has_external_extractor17h96f939461fffce1dE(ptr nocapture readonly align 16 %0) unnamed_addr #2 {
+define noundef zeroext i1 @_ZN14cranelift_isle4sema4Term22has_external_extractor17h96f939461fffce1dE(ptr readonly align 16 captures(none) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 16, !range !6, !noundef !4
   %.not = icmp eq i64 %2, 3
   br i1 %.not, label %7, label %3
@@ -282,7 +282,7 @@ define noundef zeroext i1 @_ZN14cranelift_isle4sema4Term22has_external_extractor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN14cranelift_isle4sema4Term24has_external_constructor17he6b18c5eb33b3648E(ptr nocapture readonly align 16 %0) unnamed_addr #2 {
+define noundef zeroext i1 @_ZN14cranelift_isle4sema4Term24has_external_constructor17he6b18c5eb33b3648E(ptr readonly align 16 captures(none) %0) unnamed_addr #2 {
 switch.edge:
   %1 = load i64, ptr %0, align 16, !range !6, !noundef !4
   %switch = icmp eq i64 %1, 1
@@ -290,7 +290,7 @@ switch.edge:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN14cranelift_isle4sema4Term13extractor_sig17h4e321f171638b969E(ptr nocapture writeonly sret({ i64, [12 x i64] }) align 8 %0, ptr align 16 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN14cranelift_isle4sema4Term13extractor_sig17h4e321f171638b969E(ptr writeonly sret({ i64, [12 x i64] }) align 8 captures(none) %0, ptr align 16 %1, ptr readonly align 8 captures(none) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = alloca [1 x { ptr, ptr }], align 8
@@ -423,7 +423,7 @@ define void @_ZN14cranelift_isle4sema4Term13extractor_sig17h4e321f171638b969E(pt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN14cranelift_isle4sema4Term15constructor_sig17h9d5b9ef455e5a236E(ptr nocapture writeonly sret({ i64, [12 x i64] }) align 8 %0, ptr align 16 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN14cranelift_isle4sema4Term15constructor_sig17h9d5b9ef455e5a236E(ptr writeonly sret({ i64, [12 x i64] }) align 8 captures(none) %0, ptr align 16 %1, ptr readonly align 8 captures(none) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -603,21 +603,21 @@ default.unreachable:                              ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN14cranelift_isle4sema7Pattern2ty17h04d36a9dab9945d2E(ptr nocapture readonly align 16 %0) unnamed_addr #2 {
+define noundef i64 @_ZN14cranelift_isle4sema7Pattern2ty17h04d36a9dab9945d2E(ptr readonly align 16 captures(none) %0) unnamed_addr #2 {
   %.0.in = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0 = load i64, ptr %.0.in, align 8, !noundef !4
   ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN14cranelift_isle4sema4Expr2ty17ha4e052af3042a8aaE(ptr nocapture readonly align 16 %0) unnamed_addr #2 {
+define noundef i64 @_ZN14cranelift_isle4sema4Expr2ty17ha4e052af3042a8aaE(ptr readonly align 16 captures(none) %0) unnamed_addr #2 {
   %.0.in = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0 = load i64, ptr %.0.in, align 8, !noundef !4
   ret i64 %.0
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN14cranelift_isle4sema7TypeEnv8from_ast17h221ea9d7af873c75E(ptr nocapture writeonly sret({ i64, [32 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN14cranelift_isle4sema7TypeEnv8from_ast17h221ea9d7af873c75E(ptr writeonly sret({ i64, [32 x i64] }) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = alloca i64, align 8
@@ -1790,7 +1790,7 @@ define hidden { i64, i64 } @_ZN14cranelift_isle4sema7TypeEnv16get_type_by_name17
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN14cranelift_isle4sema7TermEnv8from_ast17h2d05c26bb065409bE(ptr nocapture writeonly sret({ i64, [17 x i64] }) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN14cranelift_isle4sema7TermEnv8from_ast17h2d05c26bb065409bE(ptr writeonly sret({ i64, [17 x i64] }) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -6011,7 +6011,7 @@ _ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE.exit184: ; preds = %391
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_isle4sema7TermEnv27maybe_implicit_convert_expr17hb5b21ff42faaf6c8E(ptr noalias nocapture nonnull writeonly align 16 %0, ptr align 8 %1, ptr nocapture readonly align 8 %2, ptr align 16 %3, i64 %4, i64 %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14cranelift_isle4sema7TermEnv27maybe_implicit_convert_expr17hb5b21ff42faaf6c8E(ptr noalias nonnull writeonly align 16 captures(none) %0, ptr align 8 %1, ptr readonly align 8 captures(none) %2, ptr align 16 %3, i64 %4, i64 %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { i64, [15 x i64] }, align 16
   %8 = alloca ptr, align 8
   %9 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -7259,7 +7259,7 @@ _ZN14cranelift_isle4sema8Bindings10exit_scope17ha9efbc9b06456769E.exit: ; preds 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14cranelift_isle4sema7TermEnv15translate_iflet17h31c5806966bfc37aE(ptr nocapture writeonly sret({ i64, [11 x i64] }) align 16 %0, ptr align 8 %1, ptr align 8 %2, ptr align 16 %3, ptr align 8 %4, ptr align 1 %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN14cranelift_isle4sema7TermEnv15translate_iflet17h31c5806966bfc37aE(ptr writeonly sret({ i64, [11 x i64] }) align 16 captures(none) %0, ptr align 8 %1, ptr align 8 %2, ptr align 16 %3, ptr align 8 %4, ptr align 1 %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca { i64, [5 x i64] }, align 16
   %8 = alloca { i64, [5 x i64] }, align 16
   %9 = alloca { i64, [5 x i64] }, align 16
@@ -7362,7 +7362,7 @@ define hidden zeroext i1 @"_ZN62_$LT$cranelift_isle..sema..Sym$u20$as$u20$core..
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN66_$LT$cranelift_isle..sema..Sym$u20$as$u20$core..cmp..PartialEq$GT$2eq17h72c2b8222a74926cE"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define hidden noundef zeroext i1 @"_ZN66_$LT$cranelift_isle..sema..Sym$u20$as$u20$core..cmp..PartialEq$GT$2eq17h72c2b8222a74926cE"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #5 {
   %3 = load i64, ptr %0, align 8, !noundef !4
   %4 = load i64, ptr %1, align 8, !noundef !4
   %5 = icmp eq i64 %3, %4
@@ -7383,7 +7383,7 @@ define hidden zeroext i1 @"_ZN65_$LT$cranelift_isle..sema..TypeId$u20$as$u20$cor
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN69_$LT$cranelift_isle..sema..TypeId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc31dc833590368cfE"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define hidden noundef zeroext i1 @"_ZN69_$LT$cranelift_isle..sema..TypeId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc31dc833590368cfE"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #5 {
   %3 = load i64, ptr %0, align 8, !noundef !4
   %4 = load i64, ptr %1, align 8, !noundef !4
   %5 = icmp eq i64 %3, %4
@@ -7414,7 +7414,7 @@ define i64 @_ZN14cranelift_isle4sema6TermId5index17h9d50722cbc83615eE(i64 return
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN69_$LT$cranelift_isle..sema..TermId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9dce4acc03323626E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define hidden noundef zeroext i1 @"_ZN69_$LT$cranelift_isle..sema..TermId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9dce4acc03323626E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #5 {
   %3 = load i64, ptr %0, align 8, !noundef !4
   %4 = load i64, ptr %1, align 8, !noundef !4
   %5 = icmp eq i64 %3, %4
@@ -7422,7 +7422,7 @@ define hidden noundef zeroext i1 @"_ZN69_$LT$cranelift_isle..sema..TermId$u20$as
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i8 -1, 2) i8 @"_ZN70_$LT$cranelift_isle..sema..TermId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h2015d02bbc67b0a2E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define hidden range(i8 -1, 2) i8 @"_ZN70_$LT$cranelift_isle..sema..TermId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h2015d02bbc67b0a2E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #5 {
   %3 = load i64, ptr %0, align 8, !noundef !4
   %4 = load i64, ptr %1, align 8, !noundef !4
   %.0 = tail call i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
@@ -7430,7 +7430,7 @@ define hidden range(i8 -1, 2) i8 @"_ZN70_$LT$cranelift_isle..sema..TermId$u20$as
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i8 -1, 2) i8 @"_ZN63_$LT$cranelift_isle..sema..TermId$u20$as$u20$core..cmp..Ord$GT$3cmp17h462961b65fb6efe5E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define hidden range(i8 -1, 2) i8 @"_ZN63_$LT$cranelift_isle..sema..TermId$u20$as$u20$core..cmp..Ord$GT$3cmp17h462961b65fb6efe5E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #5 {
   %3 = load i64, ptr %0, align 8, !noundef !4
   %4 = load i64, ptr %1, align 8, !noundef !4
   %.0 = tail call i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
@@ -7448,7 +7448,7 @@ define i64 @_ZN14cranelift_isle4sema5VarId5index17h04b818da50fe372bE(i64 returne
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN68_$LT$cranelift_isle..sema..VarId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h72609aaad3830e6fE"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define hidden noundef zeroext i1 @"_ZN68_$LT$cranelift_isle..sema..VarId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h72609aaad3830e6fE"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #5 {
   %3 = load i64, ptr %0, align 8, !noundef !4
   %4 = load i64, ptr %1, align 8, !noundef !4
   %5 = icmp eq i64 %3, %4
@@ -7462,7 +7462,7 @@ declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #0
 declare hidden ptr @_ZN5alloc5alloc15exchange_malloc17h449635dedb28fafeE(i64, i64) unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN4core3ptr47drop_in_place$LT$cranelift_isle..sema..Expr$GT$17h585c74c1aa1ee1deE"(ptr align 16) unnamed_addr #0
@@ -7882,19 +7882,19 @@ declare zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0bdd3
 declare zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr align 8, ptr align 1, i64, ptr align 1, ptr align 8) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.ucmp.i8.i64(i64, i64) #14

@@ -68,7 +68,7 @@ $__clang_call_terminate = comdat any
 @_ZN8QuantLib12DistributionC1Eidd = unnamed_addr alias void (ptr, i32, double, double), ptr @_ZN8QuantLib12DistributionC2Eidd
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12DistributionC2Eidd(ptr nocapture noundef nonnull align 8 dereferenceable(225) initializes((0, 4), (8, 24)) %this, i32 noundef %nBuckets, double noundef %xmin, double noundef %xmax) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12DistributionC2Eidd(ptr noundef nonnull align 8 captures(none) dereferenceable(225) initializes((0, 4), (8, 24)) %this, i32 noundef %nBuckets, double noundef %xmin, double noundef %xmax) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %nBuckets, ptr %this, align 8, !tbaa !3
   %xmin_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -364,15 +364,15 @@ eh.resume:                                        ; preds = %if.then.i.i.i195, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN8QuantLib12Distribution6locateEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(225) %this, double noundef %x) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN8QuantLib12Distribution6locateEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(225) %this, double noundef %x) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -792,7 +792,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #5 align 2
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib12Distribution2dxEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(225) %this, double noundef %x) local_unnamed_addr #0 align 2 {
+define noundef double @_ZN8QuantLib12Distribution2dxEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(225) %this, double noundef %x) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN8QuantLib12Distribution6locateEd(ptr noundef nonnull align 8 dereferenceable(225) %this, double noundef %x)
   %dx_ = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -804,7 +804,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8QuantLib12Distribution3addEd(ptr nocapture noundef nonnull align 8 dereferenceable(225) initializes((224, 225)) %this, double noundef %value) local_unnamed_addr #6 align 2 {
+define void @_ZN8QuantLib12Distribution3addEd(ptr noundef nonnull align 8 captures(none) dereferenceable(225) initializes((224, 225)) %this, double noundef %value) local_unnamed_addr #6 align 2 {
 entry:
   %isNormalized_ = getelementptr inbounds nuw i8, ptr %this, i64 224
   store i8 0, ptr %isNormalized_, align 8, !tbaa !45
@@ -879,7 +879,7 @@ if.end16:                                         ; preds = %cleanup, %for.end, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12Distribution10addDensityEid(ptr nocapture noundef nonnull align 8 dereferenceable(225) %this, i32 noundef %bucket, double noundef %value) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12Distribution10addDensityEid(ptr noundef nonnull align 8 captures(none) dereferenceable(225) %this, i32 noundef %bucket, double noundef %value) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1066,7 +1066,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12Distribution10addAverageEid(ptr nocapture noundef nonnull align 8 dereferenceable(225) %this, i32 noundef %bucket, double noundef %value) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12Distribution10addAverageEid(ptr noundef nonnull align 8 captures(none) dereferenceable(225) %this, i32 noundef %bucket, double noundef %value) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1253,7 +1253,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8QuantLib12Distribution9normalizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(225) %this) local_unnamed_addr #6 align 2 {
+define void @_ZN8QuantLib12Distribution9normalizeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(225) %this) local_unnamed_addr #6 align 2 {
 entry:
   %isNormalized_ = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load i8, ptr %isNormalized_, align 8, !tbaa !45, !range !49, !noundef !50
@@ -1458,7 +1458,7 @@ return:                                           ; preds = %entry, %for.cond.cl
 declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef double @_ZN8QuantLib12Distribution15confidenceLevelEd(ptr nocapture noundef nonnull align 8 dereferenceable(225) %this, double noundef %quantil) local_unnamed_addr #6 align 2 {
+define noundef double @_ZN8QuantLib12Distribution15confidenceLevelEd(ptr noundef nonnull align 8 captures(none) dereferenceable(225) %this, double noundef %quantil) local_unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN8QuantLib12Distribution9normalizeEv(ptr noundef nonnull align 8 dereferenceable(225) %this)
   %0 = load i32, ptr %this, align 8, !tbaa !3
@@ -1513,7 +1513,7 @@ return:                                           ; preds = %cleanup, %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef double @_ZN8QuantLib12Distribution13expectedValueEv(ptr nocapture noundef nonnull align 8 dereferenceable(225) %this) local_unnamed_addr #6 align 2 {
+define noundef double @_ZN8QuantLib12Distribution13expectedValueEv(ptr noundef nonnull align 8 captures(none) dereferenceable(225) %this) local_unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN8QuantLib12Distribution9normalizeEv(ptr noundef nonnull align 8 dereferenceable(225) %this)
   %0 = load i32, ptr %this, align 8, !tbaa !3
@@ -1553,7 +1553,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib12Distribution20trancheExpectedValueEdd(ptr nocapture noundef nonnull align 8 dereferenceable(225) %this, double noundef %a, double noundef %d) local_unnamed_addr #0 align 2 {
+define noundef double @_ZN8QuantLib12Distribution20trancheExpectedValueEdd(ptr noundef nonnull align 8 captures(none) dereferenceable(225) %this, double noundef %a, double noundef %d) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN8QuantLib12Distribution9normalizeEv(ptr noundef nonnull align 8 dereferenceable(225) %this)
   %0 = load i32, ptr %this, align 8, !tbaa !3
@@ -1610,7 +1610,7 @@ cleanup14:                                        ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib12Distribution17cumulativeDensityEd(ptr nocapture noundef nonnull align 8 dereferenceable(225) %this, double noundef %x) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZN8QuantLib12Distribution17cumulativeDensityEd(ptr noundef nonnull align 8 captures(none) dereferenceable(225) %this, double noundef %x) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2019,7 +2019,7 @@ unreachable:                                      ; preds = %invoke.cont86, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib12Distribution27cumulativeExcessProbabilityEdd(ptr nocapture noundef nonnull align 8 dereferenceable(225) %this, double noundef %a, double noundef %b) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZN8QuantLib12Distribution27cumulativeExcessProbabilityEdd(ptr noundef nonnull align 8 captures(none) dereferenceable(225) %this, double noundef %a, double noundef %b) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3568,7 +3568,7 @@ unreachable:                                      ; preds = %invoke.cont50, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22ManipulateDistribution8convolveERKNS_12DistributionES3_(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::Distribution") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(225) %d1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(225) %d2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22ManipulateDistribution8convolveERKNS_12DistributionES3_(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::Distribution") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(225) %d1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(225) %d2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4397,7 +4397,7 @@ unreachable:                                      ; preds = %invoke.cont152, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib12Distribution17expectedShortfallEd(ptr nocapture noundef nonnull align 8 dereferenceable(225) %this, double noundef %percValue) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZN8QuantLib12Distribution17expectedShortfallEd(ptr noundef nonnull align 8 captures(none) dereferenceable(225) %this, double noundef %percValue) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4725,12 +4725,12 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
@@ -4743,13 +4743,13 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #18

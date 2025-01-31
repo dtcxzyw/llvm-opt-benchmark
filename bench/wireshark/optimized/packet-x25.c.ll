@@ -739,7 +739,7 @@ declare ptr @register_heur_dissector_list_with_description(ptr noundef, ptr noun
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_x25_dir(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_x25_dir(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = load i8, ptr %6, align 8
@@ -753,7 +753,7 @@ define internal i32 @dissect_x25_dir(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_x25(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_x25(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %7 = load i32, ptr %5, align 8
@@ -2091,7 +2091,7 @@ declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @x25_toa(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @x25_toa(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noalias ptr @wmem_alloc(ptr noundef %6, i64 noundef 256) #4
@@ -2224,7 +2224,7 @@ define internal fastcc void @x25_toa(ptr noundef %0, ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @x25_ntoa(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @x25_ntoa(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noalias ptr @wmem_alloc(ptr noundef %7, i64 noundef 16) #4
@@ -2372,7 +2372,7 @@ define internal fastcc void @x25_ntoa(ptr noundef %0, ptr nocapture noundef nonn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dump_facilities(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dump_facilities(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr %1, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %5) #4
   %7 = zext i8 %6 to i32
@@ -2825,7 +2825,7 @@ dte_address_util.exit:                            ; preds = %271, %243
   %274 = load i32, ptr %1, align 4
   %275 = add i32 %274, 4
   %276 = add nsw i32 %176, -2
-  %277 = tail call ptr @proto_tree_add_string(ptr noundef %169, i32 noundef %273, ptr noundef %2, i32 noundef %275, i32 noundef %276, ptr noundef %255) #4
+  %277 = tail call ptr @proto_tree_add_string(ptr noundef nonnull %169, i32 noundef %273, ptr noundef %2, i32 noundef %275, i32 noundef %276, ptr noundef %255) #4
   br label %.loopexit
 
 278:                                              ; preds = %185
@@ -2914,7 +2914,7 @@ dte_address_util.exit387:                         ; preds = %318, %289
   %321 = load i32, ptr %1, align 4
   %322 = add i32 %321, 3
   %323 = add nsw i32 %176, -1
-  %324 = tail call ptr @proto_tree_add_string(ptr noundef %169, i32 noundef %320, ptr noundef %2, i32 noundef %322, i32 noundef %323, ptr noundef %302) #4
+  %324 = tail call ptr @proto_tree_add_string(ptr noundef nonnull %169, i32 noundef %320, ptr noundef %2, i32 noundef %322, i32 noundef %323, ptr noundef %302) #4
   br label %.loopexit
 
 325:                                              ; preds = %185
@@ -3109,7 +3109,7 @@ dte_address_util.exit413:                         ; preds = %432, %394
   %435 = load i32, ptr %1, align 4
   %436 = add i32 %435, 4
   %437 = add nsw i32 %176, -2
-  %438 = tail call ptr @proto_tree_add_string(ptr noundef %169, i32 noundef %434, ptr noundef %2, i32 noundef %436, i32 noundef %437, ptr noundef %416) #4
+  %438 = tail call ptr @proto_tree_add_string(ptr noundef nonnull %169, i32 noundef %434, ptr noundef %2, i32 noundef %436, i32 noundef %437, ptr noundef %416) #4
   br label %.loopexit
 
 439:                                              ; preds = %185
@@ -3346,7 +3346,7 @@ declare nonnull ptr @conversation_new_by_id(i32 noundef, i32 noundef, i32 nounde
 declare void @conversation_set_dissector(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.fshl.i8(i8, i8, i8) #3

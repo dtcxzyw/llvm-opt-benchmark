@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [6 x i8] c"INPUT\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @lj_clib_index(ptr noundef %L, ptr nocapture noundef readonly %cl, ptr noundef %name) local_unnamed_addr #0 {
+define hidden noundef ptr @lj_clib_index(ptr noundef %L, ptr noundef readonly captures(none) %cl, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %ct = alloca ptr, align 8
   %cache = getelementptr inbounds nuw i8, ptr %cl, i64 8
@@ -391,7 +391,7 @@ clib_loadlib.exit:                                ; preds = %clib_extname.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_clib_unload(ptr nocapture noundef %cl) local_unnamed_addr #0 {
+define hidden void @lj_clib_unload(ptr noundef captures(none) %cl) local_unnamed_addr #0 {
 entry:
   %cl.val = load ptr, ptr %cl, align 8
   %tobool.not.i = icmp eq ptr %cl.val, null
@@ -452,13 +452,13 @@ declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare hidden ptr @lj_strfmt_pushf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare hidden ptr @lj_tab_new(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -468,13 +468,13 @@ declare hidden ptr @lj_udata_new(ptr noundef, i32 noundef, ptr noundef) local_un
 declare i32 @dlclose(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

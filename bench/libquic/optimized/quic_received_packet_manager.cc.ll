@@ -51,7 +51,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net25QuicReceivedPacketManager14EntropyTrackerD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net25QuicReceivedPacketManager14EntropyTrackerD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -88,7 +88,7 @@ _ZNSt5dequeISt4pairIhbESaIS1_EED2Ev.exit:         ; preds = %entry, %_ZNSt11_Deq
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i8 @_ZNK3net25QuicReceivedPacketManager14EntropyTracker11EntropyHashEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, i64 noundef %packet_number) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i8 @_ZNK3net25QuicReceivedPacketManager14EntropyTracker11EntropyHashEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, i64 noundef %packet_number) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %largest_observed_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load i64, ptr %largest_observed_, align 8
@@ -358,7 +358,7 @@ if.end34:                                         ; preds = %_ZNSt5dequeISt4pair
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net25QuicReceivedPacketManager14EntropyTracker42AdvanceFirstGapAndGarbageCollectEntropyMapEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net25QuicReceivedPacketManager14EntropyTracker42AdvanceFirstGapAndGarbageCollectEntropyMapEv(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -420,7 +420,7 @@ while.end:                                        ; preds = %land.rhs, %_ZNSt5de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net25QuicReceivedPacketManager14EntropyTracker24SetCumulativeEntropyUpToEmh(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %packet_number, i8 noundef zeroext %entropy_hash) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net25QuicReceivedPacketManager14EntropyTracker24SetCumulativeEntropyUpToEmh(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %this, i64 noundef %packet_number, i8 noundef zeroext %entropy_hash) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %first_gap_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i64, ptr %first_gap_, align 8
@@ -712,7 +712,7 @@ _ZN3net25QuicReceivedPacketManagerD2Ev.exit:      ; preds = %entry, %_ZNSt11_Deq
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net25QuicReceivedPacketManager20RecordPacketReceivedEmRKNS_16QuicPacketHeaderENS_8QuicTimeE(ptr noundef nonnull align 8 dereferenceable(248) %this, i64 %bytes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %header, i64 %receipt_time.coerce) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net25QuicReceivedPacketManager20RecordPacketReceivedEmRKNS_16QuicPacketHeaderENS_8QuicTimeE(ptr noundef nonnull align 8 dereferenceable(248) %this, i64 %bytes, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %header, i64 %receipt_time.coerce) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %packet_number2 = getelementptr inbounds nuw i8, ptr %header, i64 48
   %0 = load i64, ptr %packet_number2, align 8
@@ -904,7 +904,7 @@ declare void @_ZN3net17PacketNumberQueue3AddEm(ptr noundef nonnull align 8 deref
 declare void @_ZN3net17PacketNumberQueue6RemoveEm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net25QuicReceivedPacketManager9IsMissingEm(ptr noundef nonnull align 8 dereferenceable(248) %this, i64 noundef %packet_number) unnamed_addr #0 align 2 {
@@ -1067,7 +1067,7 @@ for.end:                                          ; preds = %if.end55, %if.end
 declare void @_ZN3net9QuicFrameC1EPNS_12QuicAckFrameE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i8 @_ZNK3net25QuicReceivedPacketManager11EntropyHashEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this, i64 noundef %packet_number) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i8 @_ZNK3net25QuicReceivedPacketManager11EntropyHashEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %this, i64 noundef %packet_number) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %largest_observed_.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load i64, ptr %largest_observed_.i, align 8
@@ -1141,7 +1141,7 @@ entry:
 declare noundef zeroext i1 @_ZN3net17PacketNumberQueue10RemoveUpToEm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net25QuicReceivedPacketManager33UpdatePacketInformationSentByPeerERKNS_20QuicStopWaitingFrameE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stop_waiting) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net25QuicReceivedPacketManager33UpdatePacketInformationSentByPeerERKNS_20QuicStopWaitingFrameE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stop_waiting) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %least_unacked = getelementptr inbounds nuw i8, ptr %stop_waiting, i64 8
   %0 = load i64, ptr %least_unacked, align 8
@@ -1274,7 +1274,7 @@ declare noundef i64 @_ZNK3net17PacketNumberQueue3MaxEv(ptr noundef nonnull align
 declare noundef i64 @_ZNK3net17PacketNumberQueue18LastIntervalLengthEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK3net25QuicReceivedPacketManager17NumTrackedPacketsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef i64 @_ZNK3net25QuicReceivedPacketManager17NumTrackedPacketsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %this) local_unnamed_addr #7 align 2 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %_M_start.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1310,7 +1310,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net25QuicReceivedPacketManager10SetVersionENS_11QuicVersionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) initializes((219, 220)) %this, i32 noundef %version) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN3net25QuicReceivedPacketManager10SetVersionENS_11QuicVersionE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(248) initializes((219, 220)) %this, i32 noundef %version) local_unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp slt i32 %version, 34
   %missing = getelementptr inbounds nuw i8, ptr %this, i64 219
@@ -1320,7 +1320,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net25QuicReceivedPacketManager17ack_frame_updatedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net25QuicReceivedPacketManager17ack_frame_updatedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %this) unnamed_addr #7 align 2 {
 entry:
   %ack_frame_updated_ = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load i8, ptr %ack_frame_updated_, align 8
@@ -1329,7 +1329,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK3net25QuicReceivedPacketManager18GetLargestObservedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef i64 @_ZNK3net25QuicReceivedPacketManager18GetLargestObservedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %this) local_unnamed_addr #7 align 2 {
 entry:
   %ack_frame_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load i64, ptr %ack_frame_, align 8
@@ -1679,10 +1679,10 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

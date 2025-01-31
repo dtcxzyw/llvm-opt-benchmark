@@ -318,7 +318,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.155 = private unnamed_addr constant [3 x i8] c"-@\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @pm_token_new(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define hidden i64 @pm_token_new(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [4 x i64], align 16
   %6 = load i32, ptr %1, align 8
   %7 = tail call ptr @pm_token_type_name(i32 noundef %6) #6
@@ -381,7 +381,7 @@ declare i64 @rb_enc_str_new(ptr noundef, i64 noundef, ptr noundef) local_unnamed
 declare i64 @rb_class_new_instance(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @pm_source_new(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden i64 @pm_source_new(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [3 x i64], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %5 = load ptr, ptr %4, align 8
@@ -17792,7 +17792,7 @@ declare i64 @rb_float_new(double noundef) local_unnamed_addr #1
 declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @Init_prism_api_node() local_unnamed_addr #0 {

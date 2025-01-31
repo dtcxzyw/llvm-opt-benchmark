@@ -835,12 +835,12 @@ declare void @_ZN4cvc58internal12TheoryEngine22initializeProofCheckerEPNS0_12Pro
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @_ZN4cvc58internal4prop10PropEngineC1ERNS0_3EnvEPNS0_12TheoryEngineE(ptr noundef nonnull align 8 dereferenceable(424), ptr noundef nonnull align 8 dereferenceable(576), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN4cvc58internal3smt9SmtSolver13getPropEngineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1216) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZN4cvc58internal3smt9SmtSolver13getPropEngineEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1216) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_propEngine = getelementptr inbounds nuw i8, ptr %this, i64 1016
   %0 = load ptr, ptr %d_propEngine, align 8
@@ -913,7 +913,7 @@ lpad:                                             ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal3smt9SmtSolver9interruptEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1216) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal3smt9SmtSolver9interruptEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1216) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_propEngine = getelementptr inbounds nuw i8, ptr %this, i64 1016
   %0 = load ptr, ptr %d_propEngine, align 8
@@ -943,7 +943,7 @@ declare void @_ZN4cvc58internal4prop10PropEngine9interruptEv(ptr noundef nonnull
 declare void @_ZN4cvc58internal12TheoryEngine9interruptEv(ptr noundef nonnull align 8 dereferenceable(1448)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal3smt9SmtSolver16checkSatInternalEv(ptr noalias sret(%"class.cvc5::internal::Result") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1216) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal3smt9SmtSolver16checkSatInternalEv(ptr noalias sret(%"class.cvc5::internal::Result") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1216) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_propEngine = getelementptr inbounds nuw i8, ptr %this, i64 1016
   %0 = load ptr, ptr %d_propEngine, align 8
@@ -1459,7 +1459,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN4cvc58internal3smt9SmtSolver15getTheoryEngineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1216) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZN4cvc58internal3smt9SmtSolver15getTheoryEngineEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1216) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_theoryEngine = getelementptr inbounds nuw i8, ptr %this, i64 1008
   %0 = load ptr, ptr %d_theoryEngine, align 8
@@ -1467,7 +1467,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN4cvc58internal3smt9SmtSolver20getQuantifiersEngineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1216) %this) local_unnamed_addr #10 align 2 {
+define hidden noundef ptr @_ZN4cvc58internal3smt9SmtSolver20getQuantifiersEngineEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1216) %this) local_unnamed_addr #10 align 2 {
 entry:
   %d_theoryEngine = getelementptr inbounds nuw i8, ptr %this, i64 1008
   %0 = load ptr, ptr %d_theoryEngine, align 8
@@ -1491,7 +1491,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal3smt9SmtSolver15pushPropContextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1216) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal3smt9SmtSolver15pushPropContextEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1216) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pushPopTimer = alloca %"class.cvc5::internal::CodeTimer", align 8
   %d_stats = getelementptr inbounds nuw i8, ptr %this, i64 1000
@@ -1517,7 +1517,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN4cvc58internal4prop10PropEngine4pushEv(ptr noundef nonnull align 8 dereferenceable(424)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal3smt9SmtSolver14popPropContextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1216) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal3smt9SmtSolver14popPropContextEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1216) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pushPopTimer = alloca %"class.cvc5::internal::CodeTimer", align 8
   %d_stats = getelementptr inbounds nuw i8, ptr %this, i64 1000
@@ -1543,7 +1543,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN4cvc58internal4prop10PropEngine3popEv(ptr noundef nonnull align 8 dereferenceable(424)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal3smt9SmtSolver10resetTrailEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1216) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal3smt9SmtSolver10resetTrailEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1216) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_propEngine = getelementptr inbounds nuw i8, ptr %this, i64 1016
   %0 = load ptr, ptr %d_propEngine, align 8
@@ -1661,7 +1661,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #13 comdat {

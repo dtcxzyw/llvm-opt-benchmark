@@ -10,14 +10,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [18 x i8] c"SSL alert number \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 65536) i32 @dtls1_read_app_data(ptr noundef %ssl, ptr nocapture noundef writeonly %buf, i32 noundef %len, i32 noundef %peek) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 65536) i32 @dtls1_read_app_data(ptr noundef %ssl, ptr noundef writeonly captures(none) %buf, i32 noundef %len, i32 noundef %peek) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @dtls1_read_bytes(ptr noundef %ssl, i32 noundef 23, ptr noundef %buf, i32 noundef %len, i32 noundef %peek)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 65536) i32 @dtls1_read_bytes(ptr noundef %ssl, i32 noundef %type, ptr nocapture noundef writeonly %buf, i32 noundef %len, i32 noundef %peek) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 65536) i32 @dtls1_read_bytes(ptr noundef %ssl, i32 noundef %type, ptr noundef writeonly captures(none) %buf, i32 noundef %len, i32 noundef %peek) local_unnamed_addr #0 {
 entry:
   %type.i = alloca i8, align 1
   %alert.i = alloca i8, align 1
@@ -452,7 +452,7 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare i32 @ssl3_send_alert(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @dtls1_read_close_notify(ptr nocapture noundef %ssl) local_unnamed_addr #2 {
+define hidden void @dtls1_read_close_notify(ptr noundef captures(none) %ssl) local_unnamed_addr #2 {
 entry:
   %shutdown = getelementptr inbounds nuw i8, ptr %ssl, i64 48
   %0 = load i32, ptr %shutdown, align 8
@@ -468,7 +468,7 @@ declare i32 @dtls1_read_failed(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @SSL_in_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @ssl_read_buffer_discard(ptr noundef) local_unnamed_addr #1
 
@@ -683,10 +683,10 @@ declare void @ssl_write_buffer_set_len(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @ssl_write_buffer_flush(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #5

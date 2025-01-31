@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [5 x i8] c"Text\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_label_constructor(ptr nocapture readnone %0, ptr noundef initializes((64, 72), (76, 80)) %1) #0 {
+define internal void @lv_label_constructor(ptr readnone captures(none) %0, ptr noundef initializes((64, 72), (76, 80)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr null, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 116
@@ -53,12 +53,12 @@ define internal void @lv_label_constructor(ptr nocapture readnone %0, ptr nounde
   %17 = and i8 %16, -40
   store i8 %17, ptr %4, align 4
   tail call fastcc void @lv_label_refr_text(ptr noundef nonnull %1)
-  tail call void @lv_label_set_text(ptr noundef %1, ptr noundef nonnull @.str.1)
+  tail call void @lv_label_set_text(ptr noundef nonnull %1, ptr noundef nonnull @.str.1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_label_destructor(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 {
+define internal void @lv_label_destructor(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %4 = load i8, ptr %3, align 4
   %5 = and i8 %4, 8
@@ -78,7 +78,7 @@ define internal void @lv_label_destructor(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_label_event(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_label_event(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.lv_area_t, align 4
   %4 = alloca %struct.lv_draw_label_dsc_t, align 8
   %5 = alloca %struct.lv_point_t, align 4
@@ -556,14 +556,14 @@ define noundef ptr @lv_label_create(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_label_set_text(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1631,14 +1631,14 @@ define void @lv_label_set_recolor(ptr noundef %0, i1 noundef zeroext %1) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_label_get_text(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define ptr @lv_label_get_text(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 8) i32 @lv_label_get_long_mode(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 8) i32 @lv_label_get_long_mode(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, 7
@@ -2418,21 +2418,21 @@ get_label_flags.exit:                             ; preds = %8, %29, %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_label_get_text_selection_start(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define i32 @lv_label_get_text_selection_start(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %3 = load i32, ptr %2, align 4, !tbaa !18
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_label_get_text_selection_end(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define i32 @lv_label_get_text_selection_end(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8, !tbaa !19
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_label_get_recolor(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define zeroext i1 @lv_label_get_recolor(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, 16
@@ -2602,7 +2602,7 @@ declare void @lv_draw_label_dsc_init(ptr noundef) local_unnamed_addr #2
 declare void @lv_obj_init_draw_label_dsc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare zeroext i1 @lv_area_intersect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 

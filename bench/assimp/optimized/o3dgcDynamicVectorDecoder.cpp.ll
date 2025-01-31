@@ -16,7 +16,7 @@ $_ZN5o3dgc10ITransformEPlm = comdat any
 @_ZN5o3dgc20DynamicVectorDecoderD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5o3dgc20DynamicVectorDecoderD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @_ZN5o3dgc7IUpdateEPll(ptr nocapture noundef %data, i64 noundef %size) local_unnamed_addr #0 {
+define hidden noundef i32 @_ZN5o3dgc7IUpdateEPll(ptr noundef captures(none) %data, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %sub = add nsw i64 %size, -1
   %arrayidx = getelementptr inbounds nuw i8, ptr %data, i64 8
@@ -66,7 +66,7 @@ if.end:                                           ; preds = %if.then, %while.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @_ZN5o3dgc8IPredictEPll(ptr nocapture noundef %data, i64 noundef %size) local_unnamed_addr #0 {
+define hidden noundef i32 @_ZN5o3dgc8IPredictEPll(ptr noundef captures(none) %data, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %sub = add nsw i64 %size, -1
   %cmp13 = icmp sgt i64 %size, 2
@@ -108,7 +108,7 @@ if.end:                                           ; preds = %if.then, %while.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @_ZN5o3dgc5MergeEPll(ptr nocapture noundef %data, i64 noundef %size) local_unnamed_addr #0 {
+define hidden noundef i32 @_ZN5o3dgc5MergeEPll(ptr noundef captures(none) %data, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %shr = ashr i64 %size, 1
   %and = and i64 %size, 1
@@ -145,7 +145,7 @@ while.end:                                        ; preds = %for.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5o3dgc20DynamicVectorDecoderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(68) initializes((0, 68)) %this) unnamed_addr #1 align 2 {
+define hidden void @_ZN5o3dgc20DynamicVectorDecoderC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(68) initializes((0, 68)) %this) unnamed_addr #1 align 2 {
 entry:
   %m_params = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i64 10, ptr %m_params, align 8
@@ -160,7 +160,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5o3dgc20DynamicVectorDecoderD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN5o3dgc20DynamicVectorDecoderD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %this) unnamed_addr #2 align 2 {
 entry:
   %m_quantVectors = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_quantVectors, align 8
@@ -179,7 +179,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 0, 6) i32 @_ZN5o3dgc20DynamicVectorDecoder12DecodeHeaderERNS_13DynamicVectorERKNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %dynamicVector, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i32 0, 6) i32 @_ZN5o3dgc20DynamicVectorDecoder12DecodeHeaderERNS_13DynamicVectorERKNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %dynamicVector, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #4 align 2 {
 entry:
   %m_iterator = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %m_iterator, align 8
@@ -427,7 +427,7 @@ if.end:                                           ; preds = %for.body.i, %if.els
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5o3dgc20DynamicVectorDecoder14DecodePlayloadERNS_13DynamicVectorERKNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %dynamicVector, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN5o3dgc20DynamicVectorDecoder14DecodePlayloadERNS_13DynamicVectorERKNS_12BinaryStreamE(ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %dynamicVector, ptr noundef nonnull align 8 dereferenceable(28) %bstream) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %acd = alloca %"class.o3dgc::Arithmetic_Codec", align 8
   %bModel0 = alloca %"class.o3dgc::Static_Bit_Model", align 4
@@ -1298,7 +1298,7 @@ for.end:                                          ; preds = %_ZN5o3dgc8IPredictE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5o3dgc20DynamicVectorDecoder9IQuantizeEPfmmmPKfS3_m(ptr nocapture noundef nonnull align 8 dereferenceable(68) %this, ptr nocapture noundef writeonly %floatArray, i64 noundef %numFloatArray, i64 noundef %dimFloatArray, i64 noundef %stride, ptr nocapture noundef readonly %minFloatArray, ptr nocapture noundef readonly %maxFloatArray, i64 noundef %nQBits) local_unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZN5o3dgc20DynamicVectorDecoder9IQuantizeEPfmmmPKfS3_m(ptr noundef nonnull align 8 captures(none) dereferenceable(68) %this, ptr noundef writeonly captures(none) %floatArray, i64 noundef %numFloatArray, i64 noundef %dimFloatArray, i64 noundef %stride, ptr noundef readonly captures(none) %minFloatArray, ptr noundef readonly captures(none) %maxFloatArray, i64 noundef %nQBits) local_unnamed_addr #4 align 2 {
 entry:
   %mul = mul i64 %dimFloatArray, %numFloatArray
   %m_maxNumVectors = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1393,7 +1393,7 @@ declare noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_16Static_Bit_ModelE(
 declare noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_19Adaptive_Data_ModelE(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef nonnull align 8 dereferenceable(52)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -268,7 +268,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -576,21 +576,21 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @ures_close_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ulocdata_setNoSubstitute_75(ptr nocapture noundef writeonly initializes((0, 1)) %uld, i8 noundef signext %setting) local_unnamed_addr #7 {
+define void @ulocdata_setNoSubstitute_75(ptr noundef writeonly captures(none) initializes((0, 1)) %uld, i8 noundef signext %setting) local_unnamed_addr #7 {
 entry:
   store i8 %setting, ptr %uld, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext i8 @ulocdata_getNoSubstitute_75(ptr nocapture noundef readonly %uld) local_unnamed_addr #8 {
+define signext i8 @ulocdata_getNoSubstitute_75(ptr noundef readonly captures(none) %uld) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %uld, align 8
   ret i8 %0
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ulocdata_getExemplarSet_75(ptr nocapture noundef readonly %uld, ptr noundef %fillIn, i32 noundef %options, i32 noundef %extype, ptr noundef %status) local_unnamed_addr #1 {
+define ptr @ulocdata_getExemplarSet_75(ptr noundef readonly captures(none) %uld, ptr noundef %fillIn, i32 noundef %options, i32 noundef %extype, ptr noundef %status) local_unnamed_addr #1 {
 entry:
   %len = alloca i32, align 4
   %localStatus = alloca i32, align 4
@@ -662,7 +662,7 @@ declare i32 @uset_applyPattern_75(ptr noundef, ptr noundef, i32 noundef, i32 nou
 declare ptr @uset_openPatternOptions_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ulocdata_getDelimiter_75(ptr nocapture noundef readonly %uld, i32 noundef %type, ptr noundef %result, i32 noundef %resultLength, ptr nocapture noundef %status) local_unnamed_addr #1 {
+define i32 @ulocdata_getDelimiter_75(ptr noundef readonly captures(none) %uld, i32 noundef %type, ptr noundef %result, i32 noundef %resultLength, ptr noundef captures(none) %status) local_unnamed_addr #1 {
 entry:
   %len = alloca i32, align 4
   %localStatus = alloca i32, align 4
@@ -841,7 +841,7 @@ if.end16:                                         ; preds = %if.end15, %entry
 declare i32 @ures_getInt_75(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @ulocdata_getPaperSize_75(ptr noundef %localeID, ptr nocapture noundef writeonly %height, ptr nocapture noundef writeonly %width, ptr noundef %status) local_unnamed_addr #1 {
+define void @ulocdata_getPaperSize_75(ptr noundef %localeID, ptr noundef writeonly captures(none) %height, ptr noundef writeonly captures(none) %width, ptr noundef %status) local_unnamed_addr #1 {
 entry:
   %len = alloca i32, align 4
   store i32 0, ptr %len, align 4
@@ -901,7 +901,7 @@ declare ptr @ures_openDirect_75(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @ures_getVersionByKey_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ulocdata_getLocaleDisplayPattern_75(ptr nocapture noundef readonly %uld, ptr noundef %result, i32 noundef %resultCapacity, ptr nocapture noundef %status) local_unnamed_addr #1 {
+define i32 @ulocdata_getLocaleDisplayPattern_75(ptr noundef readonly captures(none) %uld, ptr noundef %result, i32 noundef %resultCapacity, ptr noundef captures(none) %status) local_unnamed_addr #1 {
 entry:
   %len = alloca i32, align 4
   %localStatus = alloca i32, align 4
@@ -999,7 +999,7 @@ return:                                           ; preds = %if.end25, %entry, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ulocdata_getLocaleSeparator_75(ptr nocapture noundef readonly %uld, ptr noundef %result, i32 noundef %resultCapacity, ptr nocapture noundef %status) local_unnamed_addr #1 {
+define i32 @ulocdata_getLocaleSeparator_75(ptr noundef readonly captures(none) %uld, ptr noundef %result, i32 noundef %resultCapacity, ptr noundef captures(none) %status) local_unnamed_addr #1 {
 entry:
   %len = alloca i32, align 4
   %localStatus = alloca i32, align 4

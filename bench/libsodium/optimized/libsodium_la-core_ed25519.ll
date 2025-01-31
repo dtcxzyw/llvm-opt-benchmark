@@ -321,7 +321,7 @@ entry:
 declare void @_sodium_sc25519_invert(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define void @crypto_core_ed25519_scalar_negate(ptr nocapture noundef nonnull writeonly initializes((0, 32)) %neg, ptr nocapture noundef nonnull readonly %s) local_unnamed_addr #0 {
+define void @crypto_core_ed25519_scalar_negate(ptr noundef nonnull writeonly captures(none) initializes((0, 32)) %neg, ptr noundef nonnull readonly captures(none) %s) local_unnamed_addr #0 {
 entry:
   %t_ = alloca [64 x i8], align 16
   %s_ = alloca [64 x i8], align 16
@@ -338,17 +338,17 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @sodium_sub(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare void @_sodium_sc25519_reduce(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define void @crypto_core_ed25519_scalar_complement(ptr nocapture noundef nonnull writeonly initializes((0, 32)) %comp, ptr nocapture noundef nonnull readonly %s) local_unnamed_addr #0 {
+define void @crypto_core_ed25519_scalar_complement(ptr noundef nonnull writeonly captures(none) initializes((0, 32)) %comp, ptr noundef nonnull readonly captures(none) %s) local_unnamed_addr #0 {
 entry:
   %t_ = alloca [64 x i8], align 16
   %s_ = alloca [64 x i8], align 16
@@ -366,7 +366,7 @@ entry:
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define void @crypto_core_ed25519_scalar_add(ptr nocapture noundef nonnull writeonly initializes((0, 32)) %z, ptr nocapture noundef nonnull readonly %x, ptr nocapture noundef nonnull readonly %y) local_unnamed_addr #0 {
+define void @crypto_core_ed25519_scalar_add(ptr noundef nonnull writeonly captures(none) initializes((0, 32)) %z, ptr noundef nonnull readonly captures(none) %x, ptr noundef nonnull readonly captures(none) %y) local_unnamed_addr #0 {
 entry:
   %t.i = alloca [64 x i8], align 16
   %x_ = alloca [64 x i8], align 16
@@ -390,7 +390,7 @@ entry:
 declare void @sodium_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define void @crypto_core_ed25519_scalar_reduce(ptr nocapture noundef nonnull writeonly initializes((0, 32)) %r, ptr nocapture noundef nonnull readonly %s) local_unnamed_addr #0 {
+define void @crypto_core_ed25519_scalar_reduce(ptr noundef nonnull writeonly captures(none) initializes((0, 32)) %r, ptr noundef nonnull readonly captures(none) %s) local_unnamed_addr #0 {
 entry:
   %t = alloca [64 x i8], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %t, ptr noundef nonnull align 1 dereferenceable(64) %s, i64 64, i1 false)
@@ -401,7 +401,7 @@ entry:
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define void @crypto_core_ed25519_scalar_sub(ptr nocapture noundef nonnull writeonly initializes((0, 32)) %z, ptr nocapture noundef nonnull readonly %x, ptr nocapture noundef nonnull readonly %y) local_unnamed_addr #0 {
+define void @crypto_core_ed25519_scalar_sub(ptr noundef nonnull writeonly captures(none) initializes((0, 32)) %z, ptr noundef nonnull readonly captures(none) %x, ptr noundef nonnull readonly captures(none) %y) local_unnamed_addr #0 {
 entry:
   %t.i.i = alloca [64 x i8], align 16
   %x_.i = alloca [64 x i8], align 16
@@ -493,10 +493,10 @@ declare i32 @_sodium_core_h2c_string_to_hash(ptr noundef, i64 noundef, ptr nound
 declare void @_sodium_ge25519_from_hash(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind ssp uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

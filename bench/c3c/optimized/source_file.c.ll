@@ -51,7 +51,7 @@ define dso_local ptr @source_file_text_load(ptr noundef %0, ptr noundef %1) loca
   %.0 = phi i16 [ %8, %5 ], [ 0, %2 ]
   store i16 %.0, ptr %3, align 8
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
-  %11 = tail call ptr @str_copy(ptr noundef %0, i64 noundef %10) #6
+  %11 = tail call ptr @str_copy(ptr noundef nonnull %0, i64 noundef %10) #6
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -127,10 +127,10 @@ declare ptr @calloc_arena(i64 noundef) local_unnamed_addr #2
 declare ptr @str_copy(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @source_file_load(ptr noundef %0, ptr noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define dso_local ptr @source_file_load(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca i64, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %5
@@ -303,19 +303,19 @@ define dso_local ptr @source_file_load(ptr noundef %0, ptr noundef writeonly %1,
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @realpath(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
+declare noundef ptr @realpath(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #4
 
 declare ptr @str_printf(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @file_read_all(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @file_get_dir_and_filename_from_full(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

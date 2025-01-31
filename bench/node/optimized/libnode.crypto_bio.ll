@@ -129,7 +129,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto7NodeBIO3NewEPNS_11EnvironmentE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef %env) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto7NodeBIO3NewEPNS_11EnvironmentE(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef %env) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN4node6crypto7NodeBIO9GetMethodEvE6method acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
@@ -218,7 +218,7 @@ do.end4:                                          ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto7NodeBIO8NewFixedEPKcmPNS_11EnvironmentE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef %data, i64 noundef %len, ptr noundef %env) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto7NodeBIO8NewFixedEPKcmPNS_11EnvironmentE(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef %data, i64 noundef %len, ptr noundef %env) local_unnamed_addr #3 align 2 {
 entry:
   %bio = alloca %"class.std::unique_ptr", align 8
   call void @_ZN4node6crypto7NodeBIO3NewEPNS_11EnvironmentE(ptr nonnull sret(%"class.std::unique_ptr") align 8 %bio, ptr noundef %env)
@@ -293,7 +293,7 @@ declare void @BIO_set_data(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @BIO_set_init(ptr noundef, i32 noundef) local_unnamed_addr #0
 
@@ -394,7 +394,7 @@ if.end6:                                          ; preds = %if.then, %if.then5,
 declare void @BIO_clear_flags(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN4node6crypto7NodeBIO4ReadEPcm(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef writeonly %out, i64 noundef %size) local_unnamed_addr #3 align 2 {
+define dso_local noundef i64 @_ZN4node6crypto7NodeBIO4ReadEPcm(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef writeonly %out, i64 noundef %size) local_unnamed_addr #3 align 2 {
 entry:
   %length_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %length_.i, align 8
@@ -567,7 +567,7 @@ do.end38:                                         ; preds = %entry, %do.body29
 declare void @BIO_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN4node6crypto7NodeBIO4PeekEPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef writeonly initializes((0, 8)) %size) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN4node6crypto7NodeBIO4PeekEPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %size) local_unnamed_addr #6 align 2 {
 entry:
   %read_head_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %read_head_, align 8
@@ -587,7 +587,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4node6crypto7NodeBIO12PeekMultipleEPPcPmS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %size, ptr nocapture noundef %count) local_unnamed_addr #7 align 2 {
+define dso_local noundef i64 @_ZN4node6crypto7NodeBIO12PeekMultipleEPPcPmS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef writeonly captures(none) %out, ptr noundef writeonly captures(none) %size, ptr noundef captures(none) %count) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i64, ptr %count, align 8
   %cmp19.not = icmp eq i64 %0, 0
@@ -638,7 +638,7 @@ for.end:                                          ; preds = %if.else, %for.body,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4node6crypto7NodeBIO5WriteEP6bio_stPKci(ptr noundef %bio, ptr nocapture noundef readonly %data, i32 noundef returned %len) #3 align 2 {
+define dso_local noundef i32 @_ZN4node6crypto7NodeBIO5WriteEP6bio_stPKci(ptr noundef %bio, ptr noundef readonly captures(none) %data, i32 noundef returned %len) #3 align 2 {
 entry:
   tail call void @BIO_clear_flags(ptr noundef %bio, i32 noundef 15) #16
   %call.i = tail call ptr @BIO_get_data(ptr noundef %bio) #16
@@ -658,7 +658,7 @@ _ZN4node6crypto7NodeBIO7FromBIOEP6bio_st.exit:    ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto7NodeBIO5WriteEPKcm(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %data, i64 noundef %size) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto7NodeBIO5WriteEPKcm(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %data, i64 noundef %size) local_unnamed_addr #3 align 2 {
 entry:
   %write_head_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %write_head_.i, align 8
@@ -927,7 +927,7 @@ do.end66:                                         ; preds = %do.end37, %_ZN4node
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4node6crypto7NodeBIO4PutsEP6bio_stPKc(ptr noundef %bio, ptr nocapture noundef readonly %str) #3 align 2 {
+define dso_local noundef i32 @_ZN4node6crypto7NodeBIO4PutsEP6bio_stPKc(ptr noundef %bio, ptr noundef readonly captures(none) %str) #3 align 2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #19
   tail call void @BIO_clear_flags(ptr noundef %bio, i32 noundef 15) #16
@@ -945,12 +945,12 @@ _ZN4node6crypto7NodeBIO5WriteEP6bio_stPKci.exit:  ; preds = %entry
   %call5.i.i = tail call noundef ptr @BIO_get_data(ptr noundef %bio) #16
   %sext = shl i64 %call, 32
   %conv.i = ashr exact i64 %sext, 32
-  tail call void @_ZN4node6crypto7NodeBIO5WriteEPKcm(ptr noundef nonnull align 8 dereferenceable(64) %call5.i.i, ptr noundef readonly %str, i64 noundef %conv.i)
+  tail call void @_ZN4node6crypto7NodeBIO5WriteEPKcm(ptr noundef nonnull align 8 dereferenceable(64) %call5.i.i, ptr noundef nonnull readonly %str, i64 noundef %conv.i)
   ret i32 %conv
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZN4node6crypto7NodeBIO4GetsEP6bio_stPci(ptr noundef %bio, ptr noundef %out, i32 noundef %size) #3 align 2 {
@@ -1005,7 +1005,7 @@ return:                                           ; preds = %_ZN4node6crypto7Nod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN4node6crypto7NodeBIO7IndexOfEcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i8 noundef signext %delim, i64 noundef %limit) local_unnamed_addr #3 align 2 {
+define dso_local noundef i64 @_ZN4node6crypto7NodeBIO7IndexOfEcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i8 noundef signext %delim, i64 noundef %limit) local_unnamed_addr #3 align 2 {
 entry:
   %length_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %length_.i, align 8
@@ -1252,7 +1252,7 @@ sw.epilog:                                        ; preds = %while.end.i, %sw.bb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto7NodeBIO5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto7NodeBIO5ResetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) local_unnamed_addr #3 align 2 {
 entry:
   %read_head_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %read_head_, align 8
@@ -1349,7 +1349,7 @@ entry:
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4node6crypto7NodeBIO15TryMoveReadHeadEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN4node6crypto7NodeBIO15TryMoveReadHeadEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) local_unnamed_addr #10 align 2 {
 entry:
   %read_head_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %read_head_, align 8
@@ -1399,10 +1399,10 @@ while.end:                                        ; preds = %land.rhs, %if.end, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto7NodeBIO9FreeEmptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto7NodeBIO9FreeEmptyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) local_unnamed_addr #3 align 2 {
 entry:
   %write_head_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %write_head_, align 8
@@ -1497,7 +1497,7 @@ return:                                           ; preds = %if.end7, %if.end, %
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto7NodeBIO19TryAllocateForWriteEm(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %hint) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto7NodeBIO19TryAllocateForWriteEm(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, i64 noundef %hint) local_unnamed_addr #3 align 2 {
 entry:
   %write_head_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %write_head_, align 8
@@ -1587,7 +1587,7 @@ if.end25:                                         ; preds = %if.then17, %if.else
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4node6crypto7NodeBIO12PeekWritableEPm(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef %size) local_unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN4node6crypto7NodeBIO12PeekWritableEPm(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef captures(none) %size) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i64, ptr %size, align 8
   %write_head_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -1705,7 +1705,7 @@ if.end:                                           ; preds = %_ZN4node6crypto7Nod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto7NodeBIO6CommitEm(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %size) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto7NodeBIO6CommitEm(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, i64 noundef %size) local_unnamed_addr #3 align 2 {
 entry:
   %write_head_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %write_head_, align 8
@@ -1847,7 +1847,7 @@ if.end18:                                         ; preds = %if.end.i, %land.rhs
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto7NodeBIOD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto7NodeBIOD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto7NodeBIOE, i64 16), ptr %this, align 8
   %read_head_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -2190,10 +2190,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15

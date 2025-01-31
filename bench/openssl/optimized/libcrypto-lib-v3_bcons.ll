@@ -26,7 +26,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @i2v_BASIC_CONSTRAINTS(ptr nocapture readnone %method, ptr nocapture noundef readonly %bcons, ptr noundef %extlist) #1 {
+define internal ptr @i2v_BASIC_CONSTRAINTS(ptr readnone captures(none) %method, ptr noundef readonly captures(none) %bcons, ptr noundef %extlist) #1 {
 entry:
   %extlist.addr = alloca ptr, align 8
   store ptr %extlist, ptr %extlist.addr, align 8
@@ -40,7 +40,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @v2i_BASIC_CONSTRAINTS(ptr nocapture readnone %method, ptr nocapture readnone %ctx, ptr noundef %values) #1 {
+define internal ptr @v2i_BASIC_CONSTRAINTS(ptr readnone captures(none) %method, ptr readnone captures(none) %ctx, ptr noundef %values) #1 {
 entry:
   %call1.i = tail call ptr @ASN1_item_new(ptr noundef nonnull @BASIC_CONSTRAINTS_it.local_it) #4
   %cmp = icmp eq ptr %call1.i, null
@@ -178,7 +178,7 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @X509V3_get_value_bool(ptr noundef, ptr noundef) local_unnamed_addr #2
 

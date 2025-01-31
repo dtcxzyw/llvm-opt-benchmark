@@ -1635,7 +1635,7 @@ declare ptr @BN_GENCB_new() local_unnamed_addr #1
 declare void @BN_GENCB_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @cb(i32 %p, i32 %n, ptr nocapture readnone %arg) #2 {
+define internal noundef i32 @cb(i32 %p, i32 %n, ptr readnone captures(none) %arg) #2 {
 entry:
   ret i32 1
 }

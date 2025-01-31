@@ -27,7 +27,7 @@ $_ZTI36btDiscreteCollisionDetectorInterface = comdat any
 @_ZN22SphereTriangleDetectorC1EP13btSphereShapeP15btTriangleShapef = dso_local unnamed_addr alias void (ptr, ptr, ptr, float), ptr @_ZN22SphereTriangleDetectorC2EP13btSphereShapeP15btTriangleShapef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22SphereTriangleDetectorC2EP13btSphereShapeP15btTriangleShapef(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 28)) %this, ptr noundef %sphere, ptr noundef %triangle, float noundef %contactBreakingThreshold) unnamed_addr #0 align 2 {
+define dso_local void @_ZN22SphereTriangleDetectorC2EP13btSphereShapeP15btTriangleShapef(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(28) initializes((0, 28)) %this, ptr noundef %sphere, ptr noundef %triangle, float noundef %contactBreakingThreshold) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22SphereTriangleDetector, i64 16), ptr %this, align 8
   %m_sphere = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -40,7 +40,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22SphereTriangleDetector16getClosestPointsERKN36btDiscreteCollisionDetectorInterface17ClosestPointInputERNS0_6ResultEP12btIDebugDrawb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(132) %input, ptr noundef nonnull align 8 dereferenceable(8) %output, ptr nocapture readnone %debugDraw, i1 noundef zeroext %swapResults) unnamed_addr #1 align 2 {
+define dso_local void @_ZN22SphereTriangleDetector16getClosestPointsERKN36btDiscreteCollisionDetectorInterface17ClosestPointInputERNS0_6ResultEP12btIDebugDrawb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(132) %input, ptr noundef nonnull align 8 dereferenceable(8) %output, ptr readnone captures(none) %debugDraw, i1 noundef zeroext %swapResults) unnamed_addr #1 align 2 {
 entry:
   %point = alloca %class.btVector3, align 4
   %normal = alloca %class.btVector3, align 4
@@ -293,7 +293,7 @@ if.end24:                                         ; preds = %if.then3, %if.else,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN22SphereTriangleDetector7collideERK9btVector3RS0_S3_RfS4_f(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %sphereCenter, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %point, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %resultNormal, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %depth, ptr nocapture nonnull readnone align 4 %timeOfImpact, float noundef %contactBreakingThreshold) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN22SphereTriangleDetector7collideERK9btVector3RS0_S3_RfS4_f(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %sphereCenter, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) %point, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) %resultNormal, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %depth, ptr nonnull readnone align 4 captures(none) %timeOfImpact, float noundef %contactBreakingThreshold) local_unnamed_addr #1 align 2 {
 entry:
   %normal = alloca %class.btVector3, align 4
   %pa = alloca %class.btVector3, align 4
@@ -598,7 +598,7 @@ return:                                           ; preds = %if.else, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef float @_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %from, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %to, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %p, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %nearest) local_unnamed_addr #2 {
+define dso_local noundef float @_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %from, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %to, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %p, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %nearest) local_unnamed_addr #2 {
 entry:
   %0 = load float, ptr %p, align 4
   %1 = load float, ptr %from, align 4
@@ -685,17 +685,17 @@ if.end12:                                         ; preds = %entry, %if.then6, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN22SphereTriangleDetector12facecontainsERK9btVector3PS1_RS0_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %p, ptr nocapture noundef readonly %vertices, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %normal) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN22SphereTriangleDetector12facecontainsERK9btVector3PS1_RS0_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %p, ptr noundef readonly captures(none) %vertices, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %normal) local_unnamed_addr #4 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN22SphereTriangleDetector15pointInTriangleEPK9btVector3RS1_PS0_(ptr nonnull align 8 poison, ptr noundef %vertices, ptr noundef nonnull align 4 dereferenceable(16) %normal, ptr noundef nonnull %p)
   ret i1 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN22SphereTriangleDetector15pointInTriangleEPK9btVector3RS1_PS0_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %vertices, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %normal, ptr nocapture noundef readonly %p) local_unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZN22SphereTriangleDetector15pointInTriangleEPK9btVector3RS1_PS0_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %vertices, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %normal, ptr noundef readonly captures(none) %p) local_unnamed_addr #5 align 2 {
 entry:
   %arrayidx2 = getelementptr inbounds nuw i8, ptr %vertices, i64 16
   %arrayidx3 = getelementptr inbounds nuw i8, ptr %vertices, i64 32

@@ -30,7 +30,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node13AsyncResourceC2EPN2v87IsolateENS1_5LocalINS1_6ObjectEEEPKcd(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %this, ptr noundef nonnull %isolate, ptr %resource.coerce, ptr noundef %name, double noundef %trigger_async_id) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node13AsyncResourceC2EPN2v87IsolateENS1_5LocalINS1_6ObjectEEEPKcd(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 24)) %this, ptr noundef nonnull %isolate, ptr %resource.coerce, ptr noundef %name, double noundef %trigger_async_id) unnamed_addr #3 align 2 {
 entry:
   %handle_scope.i = alloca %"class.v8::HandleScope", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13AsyncResourceE, i64 16), ptr %this, align 8
@@ -120,7 +120,7 @@ declare void @abort() local_unnamed_addr #4
 declare { double, double } @_ZN4node13EmitAsyncInitEPN2v87IsolateENS0_5LocalINS0_6ObjectEEEPKcd(ptr noundef, ptr, ptr noundef, double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node13AsyncResourceD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node13AsyncResourceD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13AsyncResourceE, i64 16), ptr %this, align 8
   %env_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -175,7 +175,7 @@ _ZN4node13AsyncResourceD2Ev.exit:                 ; preds = %entry, %if.end.i.i
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node13AsyncResource12MakeCallbackEN2v85LocalINS1_8FunctionEEEiPNS2_INS1_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %callback.coerce, i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #3 align 2 {
+define dso_local ptr @_ZN4node13AsyncResource12MakeCallbackEN2v85LocalINS1_8FunctionEEEiPNS2_INS1_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr %callback.coerce, i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #3 align 2 {
 entry:
   %env_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %env_, align 8
@@ -204,7 +204,7 @@ _ZN4node13AsyncResource12get_resourceEv.exit:     ; preds = %entry, %if.end.i.i
 declare ptr @_ZN4node12MakeCallbackEPN2v87IsolateENS0_5LocalINS0_6ObjectEEENS3_INS0_8FunctionEEEiPNS3_INS0_5ValueEEENS_13async_contextE(ptr noundef, ptr, ptr, i32 noundef, ptr noundef, double, double) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4node13AsyncResource12get_resourceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN4node13AsyncResource12get_resourceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #3 align 2 {
 entry:
   %resource_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %resource_, align 8
@@ -226,7 +226,7 @@ _ZN2v89LocalBaseINS_6ObjectEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %entry, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node13AsyncResource12MakeCallbackEPKciPN2v85LocalINS3_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %method, i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #3 align 2 {
+define dso_local ptr @_ZN4node13AsyncResource12MakeCallbackEPKciPN2v85LocalINS3_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %method, i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #3 align 2 {
 entry:
   %env_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %env_, align 8
@@ -255,7 +255,7 @@ _ZN4node13AsyncResource12get_resourceEv.exit:     ; preds = %entry, %if.end.i.i
 declare ptr @_ZN4node12MakeCallbackEPN2v87IsolateENS0_5LocalINS0_6ObjectEEEPKciPNS3_INS0_5ValueEEENS_13async_contextE(ptr noundef, ptr, ptr noundef, i32 noundef, ptr noundef, double, double) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN4node13AsyncResource12MakeCallbackEN2v85LocalINS1_6StringEEEiPNS2_INS1_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %symbol.coerce, i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #3 align 2 {
+define dso_local ptr @_ZN4node13AsyncResource12MakeCallbackEN2v85LocalINS1_6StringEEEiPNS2_INS1_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr %symbol.coerce, i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #3 align 2 {
 entry:
   %env_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %env_, align 8
@@ -284,7 +284,7 @@ _ZN4node13AsyncResource12get_resourceEv.exit:     ; preds = %entry, %if.end.i.i
 declare ptr @_ZN4node12MakeCallbackEPN2v87IsolateENS0_5LocalINS0_6ObjectEEENS3_INS0_6StringEEEiPNS3_INS0_5ValueEEENS_13async_contextE(ptr noundef, ptr, ptr, i32 noundef, ptr noundef, double, double) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef double @_ZNK4node13AsyncResource12get_async_idEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #6 align 2 {
+define dso_local noundef double @_ZNK4node13AsyncResource12get_async_idEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #6 align 2 {
 entry:
   %async_context_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load double, ptr %async_context_, align 8
@@ -292,7 +292,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef double @_ZNK4node13AsyncResource20get_trigger_async_idEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #6 align 2 {
+define dso_local noundef double @_ZNK4node13AsyncResource20get_trigger_async_idEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #6 align 2 {
 entry:
   %trigger_async_id = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load double, ptr %trigger_async_id, align 8
@@ -300,7 +300,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node13AsyncResource13CallbackScopeC2EPS0_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %res) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node13AsyncResource13CallbackScopeC2EPS0_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef readonly captures(none) %res) unnamed_addr #3 align 2 {
 entry:
   %env_ = getelementptr inbounds nuw i8, ptr %res, i64 8
   %0 = load ptr, ptr %env_, align 8
@@ -354,10 +354,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

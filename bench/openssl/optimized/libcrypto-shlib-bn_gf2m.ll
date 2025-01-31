@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.BN_GF2m_mod_solve_quad = private unnamed_addr constant [23 x i8] c"BN_GF2m_mod_solve_quad\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_GF2m_add(ptr noundef %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_add(ptr noundef %r, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #0 {
 entry:
   %top = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
@@ -97,7 +97,7 @@ declare ptr @bn_wexpand(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @bn_correct_top(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %r, ptr noundef readonly %a, ptr nocapture noundef readonly %p) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_mod_arr(ptr noundef %r, ptr noundef readonly %a, ptr noundef readonly captures(none) %p) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %p, align 4
   %cmp = icmp eq i32 %0, 0
@@ -446,7 +446,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_GF2m_poly2arr(ptr noundef %a, ptr nocapture noundef writeonly %p, i32 noundef %max) local_unnamed_addr #0 {
+define i32 @BN_GF2m_poly2arr(ptr noundef %a, ptr noundef writeonly captures(none) %p, i32 noundef %max) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_is_zero(ptr noundef %a) #4
   %tobool.not = icmp eq i32 %call, 0
@@ -539,7 +539,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_GF2m_mod_mul_arr(ptr noundef %r, ptr noundef readonly %a, ptr noundef readonly %b, ptr nocapture noundef readonly %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_mod_mul_arr(ptr noundef %r, ptr noundef readonly %a, ptr noundef readonly %b, ptr noundef readonly captures(none) %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %zz = alloca [4 x i64], align 16
   %cmp = icmp eq ptr %a, %b
@@ -682,7 +682,7 @@ return:                                           ; preds = %err, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_GF2m_mod_sqr_arr(ptr noundef %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_mod_sqr_arr(ptr noundef %r, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #4
   %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #4
@@ -1079,7 +1079,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @BN_GF2m_mod_sqr(ptr noundef %r, ptr nocapture noundef readonly %a, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @BN_GF2m_mod_sqr(ptr noundef %r, ptr noundef readonly captures(none) %a, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_num_bits(ptr noundef %p) #4
   %add = add nsw i32 %call, 1
@@ -1508,7 +1508,7 @@ declare i32 @BN_priv_rand_ex(ptr noundef, i32 noundef, i32 noundef, i32 noundef,
 declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_GF2m_mod_inv_arr(ptr noundef %r, ptr noundef %xx, ptr nocapture noundef readonly %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_mod_inv_arr(ptr noundef %r, ptr noundef %xx, ptr noundef readonly captures(none) %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #4
   %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #4
@@ -1546,7 +1546,7 @@ err:                                              ; preds = %for.body.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_GF2m_arr2poly(ptr nocapture noundef readonly %p, ptr noundef %a) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_arr2poly(ptr noundef readonly captures(none) %p, ptr noundef %a) local_unnamed_addr #0 {
 entry:
   tail call void @BN_zero_ex(ptr noundef %a) #4
   %0 = load i32, ptr %p, align 4
@@ -1598,7 +1598,7 @@ err:                                              ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_GF2m_mod_div_arr(ptr noundef %r, ptr noundef %yy, ptr noundef %xx, ptr nocapture noundef readonly %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_mod_div_arr(ptr noundef %r, ptr noundef %yy, ptr noundef %xx, ptr noundef readonly captures(none) %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #4
   %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #4
@@ -1654,7 +1654,7 @@ err:                                              ; preds = %for.body.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_GF2m_mod_exp_arr(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define i32 @BN_GF2m_mod_exp_arr(ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef readonly captures(none) %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_is_zero(ptr noundef %b) #4
   %tobool.not = icmp eq i32 %call, 0
@@ -1857,7 +1857,7 @@ return:                                           ; preds = %entry, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_GF2m_mod_sqrt_arr(ptr noundef %r, ptr noundef %a, ptr nocapture noundef readonly %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define i32 @BN_GF2m_mod_sqrt_arr(ptr noundef %r, ptr noundef %a, ptr noundef readonly captures(none) %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %p, align 4
   %cmp = icmp eq i32 %0, 0
@@ -2039,7 +2039,7 @@ return:                                           ; preds = %entry, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_GF2m_mod_solve_quad_arr(ptr noundef %r, ptr noundef %a_, ptr nocapture noundef readonly %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_mod_solve_quad_arr(ptr noundef %r, ptr noundef %a_, ptr noundef readonly captures(none) %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %p, align 4
   %cmp = icmp eq i32 %0, 0
@@ -2548,7 +2548,7 @@ declare i32 @BN_num_bits_word(i64 noundef) local_unnamed_addr #1
 declare i64 @llvm.fshl.i64(i64, i64, i64) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

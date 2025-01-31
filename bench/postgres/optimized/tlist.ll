@@ -677,7 +677,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_sortgroupclause_tle(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @get_sortgroupclause_tle(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq ptr %1, null
@@ -721,7 +721,7 @@ get_sortgroupref_tle.exit:                        ; preds = %11
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_sortgroupclause_expr(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @get_sortgroupclause_expr(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not.i.i = icmp eq ptr %1, null
@@ -1252,7 +1252,7 @@ list_length.exit.thread:                          ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @make_tlist_from_pathtarget(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @make_tlist_from_pathtarget(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1299,7 +1299,7 @@ define dso_local ptr @make_tlist_from_pathtarget(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @copy_pathtarget(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @copy_pathtarget(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @palloc0(i64 noundef 48) #9
   store i32 261, ptr %2, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false)
@@ -1339,7 +1339,7 @@ list_length.exit:                                 ; preds = %9, %11
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @list_copy(ptr noundef) local_unnamed_addr #1
 
@@ -1351,7 +1351,7 @@ define dso_local noundef ptr @create_empty_pathtarget() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_column_to_pathtarget(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @add_column_to_pathtarget(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @lappend(ptr noundef %5, ptr noundef %1) #9
@@ -1426,7 +1426,7 @@ declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_new_column_to_pathtarget(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @add_new_column_to_pathtarget(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call zeroext i1 @list_member(ptr noundef %4, ptr noundef %1) #9
@@ -1479,7 +1479,7 @@ add_column_to_pathtarget.exit:                    ; preds = %26, %22, %2
 declare zeroext i1 @list_member(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_new_columns_to_pathtarget(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @add_new_columns_to_pathtarget(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1552,7 +1552,7 @@ add_new_column_to_pathtarget.exit:                ; preds = %.lr.ph15, %30, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @apply_pathtarget_labeling_to_tlist(ptr noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @apply_pathtarget_labeling_to_tlist(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1753,7 +1753,7 @@ tlist_member.exit._crit_edge:                     ; preds = %tlist_member.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @split_pathtarget_at_srfs(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define dso_local void @split_pathtarget_at_srfs(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.split_pathtarget_context, align 8
   %7 = icmp eq ptr %1, %2
   br i1 %7, label %8, label %11
@@ -2347,7 +2347,7 @@ list_length.exit:                                 ; preds = %33, %49
 declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_sp_item_to_pathtarget(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @add_sp_item_to_pathtarget(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2529,7 +2529,7 @@ declare void @llvm.assume(i1 noundef) #6
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

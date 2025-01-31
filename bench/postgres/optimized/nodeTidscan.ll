@@ -60,7 +60,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 declare void @ExecScanReScan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecEndTidScan(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExecEndTidScan(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -279,7 +279,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 declare ptr @ExecScan(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @TidNext(ptr nocapture noundef %0) #0 {
+define internal ptr @TidNext(ptr noundef captures(none) %0) #0 {
   %2 = alloca i8, align 1
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -762,12 +762,12 @@ table_tuple_fetch_row_version.exit:               ; preds = %228
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @TidRecheck(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 {
+define internal noundef zeroext i1 @TidRecheck(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @table_tuple_get_latest_tid(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -786,7 +786,7 @@ declare zeroext i1 @execCurrentOf(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @itemptr_comparator(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @itemptr_comparator(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load i16, ptr %0, align 2
   %3 = getelementptr i8, ptr %0, i64 2
   %.val18 = load i16, ptr %3, align 2
@@ -841,10 +841,10 @@ declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8

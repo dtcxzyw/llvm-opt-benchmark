@@ -53,7 +53,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._brin_parallel_scan_and_build = private unnamed_addr constant [30 x i8] c"_brin_parallel_scan_and_build\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @brinhandler(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @brinhandler(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @palloc0(i64 noundef 216) #10
   store i32 422, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1032,7 +1032,7 @@ BufferGetPage.exit:                               ; preds = %9, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @brininsert(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, i32 %5, i1 zeroext %6, ptr nocapture noundef %7) #0 {
+define dso_local noundef zeroext i1 @brininsert(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, i32 %5, i1 zeroext %6, ptr noundef captures(none) %7) #0 {
   %9 = alloca i32, align 4
   %10 = alloca i16, align 2
   %11 = alloca i64, align 8
@@ -1241,7 +1241,7 @@ BufferGetPage.exit:                               ; preds = %86, %92
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @brininsertcleanup(ptr nocapture noundef readonly %0) #0 {
+define dso_local void @brininsertcleanup(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -1251,7 +1251,7 @@ define dso_local void @brininsertcleanup(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @brinbulkdelete(ptr nocapture readnone %0, ptr noundef readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
+define dso_local ptr @brinbulkdelete(ptr readnone captures(none) %0, ptr noundef readnone %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %8
 
@@ -1265,7 +1265,7 @@ define dso_local ptr @brinbulkdelete(ptr nocapture readnone %0, ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @brinvacuumcleanup(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define dso_local ptr @brinvacuumcleanup(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -1353,7 +1353,7 @@ define dso_local ptr @brinbeginscan(ptr noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @brinrescan(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 %2, ptr nocapture readnone %3, i32 %4) #2 {
+define dso_local void @brinrescan(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 %2, ptr readnone captures(none) %3, i32 %4) #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %6
 
@@ -1376,7 +1376,7 @@ define dso_local void @brinrescan(ptr nocapture noundef readonly %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @bringetbitmap(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @bringetbitmap(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
   %5 = alloca i16, align 2
@@ -1819,7 +1819,7 @@ check_null_keys.exit:                             ; preds = %181, %155, %149
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @brinendscan(ptr nocapture noundef readonly %0) #0 {
+define dso_local void @brinendscan(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1857,7 +1857,7 @@ declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef
 declare ptr @brin_deform_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @add_values_to_range(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc zeroext i1 @add_values_to_range(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2092,7 +2092,7 @@ declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @index_getprocinfo(ptr noundef, i16 noundef signext, i16 noundef zeroext) local_unnamed_addr #1
 
@@ -2107,10 +2107,10 @@ declare i64 @FunctionCall3Coll(ptr noundef, i32 noundef, i64 noundef, i64 nounde
 declare void @tbm_add_page(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @brin_free_desc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @brin_free_desc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @MemoryContextDelete(ptr noundef %2) #10
   ret void
@@ -2139,7 +2139,7 @@ declare void @UnlockReleaseBuffer(i32 noundef) local_unnamed_addr #1
 declare ptr @tuplesort_begin_index_brin(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @brinbuildCallback(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i1 zeroext %4, ptr noundef %5) #0 {
+define internal void @brinbuildCallback(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i1 zeroext %4, ptr noundef %5) #0 {
   %7 = alloca i64, align 8
   %.val = load i16, ptr %1, align 2
   %8 = getelementptr i8, ptr %1, i64 2
@@ -2541,7 +2541,7 @@ summarize_range.exit:                             ; preds = %95
 declare ptr @build_reloptions(i64 noundef, i1 noundef zeroext, i32 noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @brin_summarize_new_values(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @brin_summarize_new_values(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @brin_summarize_range, i32 noundef 0, i64 noundef %3, i64 noundef 4294967295) #10
@@ -2551,7 +2551,7 @@ define dso_local i64 @brin_summarize_new_values(ptr nocapture noundef readonly %
 declare i64 @DirectFunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @brin_summarize_range(ptr nocapture noundef readonly %0) #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @brin_summarize_range(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca double, align 8
@@ -2724,7 +2724,7 @@ declare void @AtEOXact_GUC(i1 noundef zeroext, i32 noundef) local_unnamed_addr #
 declare void @relation_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @brin_desummarize_range(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @brin_desummarize_range(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2857,7 +2857,7 @@ declare zeroext i1 @brinRevmapDesummarizeRange(ptr noundef, i32 noundef) local_u
 declare i64 @FunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @brinGetStats(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define dso_local void @brinGetStats(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @ReadBuffer(ptr noundef %0, i32 noundef 0) #10
   tail call void @LockBuffer(i32 noundef %3, i32 noundef 1) #10
   %4 = icmp slt i32 %3, 0
@@ -3330,7 +3330,7 @@ declare i64 @tuplesort_estimate_shared(i32 noundef) local_unnamed_addr #1
 declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @InitializeParallelDSM(ptr noundef) local_unnamed_addr #1
 
@@ -3351,7 +3351,7 @@ declare void @tuplesort_initialize_shared(ptr noundef, i32 noundef, ptr noundef)
 declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @LaunchParallelWorkers(ptr noundef) local_unnamed_addr #1
 
@@ -3372,7 +3372,7 @@ declare void @InstrAccumParallelQuery(ptr noundef, ptr noundef) local_unnamed_ad
 declare ptr @table_beginscan_parallel(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @brinbuildCallbackParallel(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i1 zeroext %4, ptr nocapture noundef %5) #0 {
+define internal void @brinbuildCallbackParallel(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i1 zeroext %4, ptr noundef captures(none) %5) #0 {
   %7 = alloca i64, align 8
   %.val = load i16, ptr %1, align 2
   %8 = getelementptr i8, ptr %1, i64 2
@@ -3455,10 +3455,10 @@ declare void @llvm.assume(i1 noundef) #7
 declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

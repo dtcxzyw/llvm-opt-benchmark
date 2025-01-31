@@ -2956,7 +2956,7 @@ define linkonce_odr hidden void @_ZN10BlockBeginC2Ei(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16BlockListBuilder17handle_exceptionsEP10BlockBegini(ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16BlockListBuilder17handle_exceptionsEP10BlockBegini(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(140) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -3116,10 +3116,10 @@ declare noundef i32 @_ZNK20Bytecode_tableswitch14dest_offset_atEi(ptr noundef no
 declare void @_ZN14GrowableBitMapI14ResourceBitMapE10initializeEmb(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN16BlockListBuilder10mark_loopsEP10BlockBeginb(ptr nocapture noundef nonnull align 8 dereferenceable(140) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN16BlockListBuilder10mark_loopsEP10BlockBeginb(ptr noundef nonnull align 8 captures(none) dereferenceable(140) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.ResourceBitMap, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %6 = load i32, ptr %5, align 8
@@ -3316,7 +3316,7 @@ declare noundef zeroext i1 @_ZNK6BitMap8is_emptyEv(ptr noundef nonnull align 8 d
 declare void @_ZN14GrowableBitMapI14ResourceBitMapE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16BlockListBuilder16make_loop_headerEP10BlockBegin(ptr nocapture noundef nonnull align 8 dereferenceable(140) %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN16BlockListBuilder16make_loop_headerEP10BlockBegin(ptr noundef nonnull align 8 captures(none) dereferenceable(140) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 132
@@ -3363,7 +3363,7 @@ declare void @_ZN6BitMap14set_differenceERKS_(ptr noundef nonnull align 8 derefe
 declare void @_ZN6BitMap8set_fromERKS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN12GraphBuilder9ScopeDataC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(137) initializes((0, 25), (32, 60), (64, 73), (96, 108), (112, 137)) %0, ptr noundef %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN12GraphBuilder9ScopeDataC2EPS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(137) initializes((0, 25), (32, 60), (64, 73), (96, 108), (112, 137)) %0, ptr noundef %1) unnamed_addr #4 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3408,7 +3408,7 @@ define hidden void @_ZN12GraphBuilder9ScopeDataC2EPS0_(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder8kill_allEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder8kill_allEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN8ValueMap8kill_allEv(ptr noundef nonnull align 8 dereferenceable(52) %3) #19
@@ -3426,7 +3426,7 @@ define hidden void @_ZN12GraphBuilder8kill_allEv(ptr nocapture noundef nonnull r
 declare void @_ZN8ValueMap8kill_allEv(ptr noundef nonnull align 8 dereferenceable(52)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12GraphBuilder9ScopeData8block_atEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN12GraphBuilder9ScopeData8block_atEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -3566,7 +3566,7 @@ _ZN10BlockBeginnwEm.exit:                         ; preds = %38, %40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK12GraphBuilder9ScopeData9xhandlersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef ptr @_ZNK12GraphBuilder9ScopeData9xhandlersEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3585,7 +3585,7 @@ define hidden noundef ptr @_ZNK12GraphBuilder9ScopeData9xhandlersEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN12GraphBuilder9ScopeData9set_scopeEP7IRScope(ptr nocapture noundef nonnull align 8 dereferenceable(137) initializes((16, 25)) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12GraphBuilder9ScopeData9set_scopeEP7IRScope(ptr noundef nonnull align 8 captures(none) dereferenceable(137) initializes((16, 25)) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
@@ -3614,7 +3614,7 @@ define hidden void @_ZN12GraphBuilder9ScopeData9set_scopeEP7IRScope(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12GraphBuilder9ScopeData23set_inline_cleanup_infoEP10BlockBeginP11InstructionP10ValueStack(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(137) initializes((112, 136)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN12GraphBuilder9ScopeData23set_inline_cleanup_infoEP10BlockBeginP11InstructionP10ValueStack(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(137) initializes((112, 136)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -3625,7 +3625,7 @@ define hidden void @_ZN12GraphBuilder9ScopeData23set_inline_cleanup_infoEP10Bloc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder9ScopeData16add_to_work_listEP10BlockBegin(ptr nocapture noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder9ScopeData16add_to_work_listEP10BlockBegin(ptr noundef nonnull align 8 captures(none) dereferenceable(137) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -3755,7 +3755,7 @@ _ZN12GraphBuilder22sort_top_into_worklistEP9BlockListP10BlockBegin.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN12GraphBuilder22sort_top_into_worklistEP9BlockListP10BlockBegin(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN12GraphBuilder22sort_top_into_worklistEP9BlockListP10BlockBegin(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %4 = load i32, ptr %3, align 8
   %5 = load i32, ptr %0, align 4
@@ -3811,7 +3811,7 @@ define hidden void @_ZN12GraphBuilder22sort_top_into_worklistEP9BlockListP10Bloc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN12GraphBuilder9ScopeData21remove_from_work_listEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN12GraphBuilder9ScopeData21remove_from_work_listEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3838,7 +3838,7 @@ _ZNK12GraphBuilder9ScopeData18is_work_list_emptyEv.exit.thread: ; preds = %1, %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK12GraphBuilder9ScopeData18is_work_list_emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZNK12GraphBuilder9ScopeData18is_work_list_emptyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3855,7 +3855,7 @@ define hidden noundef zeroext i1 @_ZNK12GraphBuilder9ScopeData18is_work_list_emp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder9ScopeData19setup_jsr_xhandlersEv(ptr nocapture noundef nonnull align 8 dereferenceable(137) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder9ScopeData19setup_jsr_xhandlersEv(ptr noundef nonnull align 8 captures(none) dereferenceable(137) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
@@ -3959,7 +3959,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %18, %20
 declare void @_ZN9XHandlersC1EPS_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN12GraphBuilder9ScopeData11num_returnsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef i32 @_ZN12GraphBuilder9ScopeData11num_returnsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -3981,7 +3981,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN12GraphBuilder9ScopeData16incr_num_returnsEv(ptr nocapture noundef nonnull align 8 dereferenceable(137) %0) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN12GraphBuilder9ScopeData16incr_num_returnsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(137) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -4005,7 +4005,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder13load_constantEv(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder13load_constantEv(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -4873,7 +4873,7 @@ _ZN9LoadFieldC2EP11InstructioniP7ciFieldbP10ValueStackb.exit: ; preds = %441, %4
 declare { i8, i64 } @_ZN16ciBytecodeStream12get_constantEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12GraphBuilder17copy_state_beforeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN12GraphBuilder17copy_state_beforeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -5010,7 +5010,7 @@ declare noundef ptr @_ZN5ciEnv32get_box_klass_for_primitive_typeE9BasicType(ptr 
 declare noundef ptr @_ZN15ciInstanceKlass19get_field_by_offsetEib(ptr noundef nonnull align 8 dereferenceable(144), i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12GraphBuilder6appendEP11Instruction(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN12GraphBuilder6appendEP11Instruction(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -5029,7 +5029,7 @@ define hidden noundef ptr @_ZN12GraphBuilder6appendEP11Instruction(ptr nocapture
 declare noundef ptr @_Z12as_ValueType9BasicType(i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder10load_localEP9ValueTypei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder10load_localEP9ValueTypei(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -5042,7 +5042,7 @@ define hidden void @_ZN12GraphBuilder10load_localEP9ValueTypei(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder11store_localEP9ValueTypei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder11store_localEP9ValueTypei(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = icmp ult i32 %5, 6
@@ -5185,7 +5185,7 @@ _ZN12GraphBuilder11store_localEP10ValueStackP11Instructioni.exit: ; preds = %50,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder11store_localEP10ValueStackP11Instructioni(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder11store_localEP10ValueStackP11Instructioni(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = load i8, ptr %6, align 8
@@ -5301,7 +5301,7 @@ _ZN10ValueStack11store_localEiP11Instruction.exit: ; preds = %67, %57, %35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN12GraphBuilder8round_fpEP11Instruction(ptr nocapture noundef nonnull readnone align 8 dereferenceable(97) %0, ptr noundef readnone returned %1) local_unnamed_addr #9 align 2 {
+define hidden noundef ptr @_ZN12GraphBuilder8round_fpEP11Instruction(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(97) %0, ptr noundef readnone returned %1) local_unnamed_addr #9 align 2 {
   ret ptr %1
 }
 
@@ -6617,7 +6617,7 @@ _ZN11Compilation12is_profilingEv.exit:            ; preds = %1, %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder8stack_opEN9Bytecodes4CodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder8stack_opEN9Bytecodes4CodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   switch i32 %1, label %706 [
     i32 87, label %3
     i32 88, label %9
@@ -7668,7 +7668,7 @@ _ZN10ValueStack8raw_pushEP11Instruction.exit126:  ; preds = %_ZN10ValueStack8raw
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder13arithmetic_opEP9ValueTypeN9Bytecodes4CodeEP10ValueStack(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder13arithmetic_opEP9ValueTypeN9Bytecodes4CodeEP10ValueStack(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %7 = load i32, ptr %6, align 4
@@ -7822,7 +7822,7 @@ _ZN12ArithmeticOpC2EN9Bytecodes4CodeEP11InstructionS3_P10ValueStack.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder9negate_opEP9ValueType(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder9negate_opEP9ValueType(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1808
@@ -8241,7 +8241,7 @@ _ZN10ValueStack5ipushEP11Instruction.exit:        ; preds = %2, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder8logic_opEP9ValueTypeN9Bytecodes4CodeE(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder8logic_opEP9ValueTypeN9Bytecodes4CodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i32, ptr %5, align 4
@@ -8387,7 +8387,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %46, %48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder10compare_opEP9ValueTypeN9Bytecodes4CodeE(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder10compare_opEP9ValueTypeN9Bytecodes4CodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -8605,7 +8605,7 @@ _ZNK12GraphBuilder5ipushEP11Instruction.exit:     ; preds = %105, %124
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder7convertEN9Bytecodes4CodeE9BasicTypeS2_(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder7convertEN9Bytecodes4CodeE9BasicTypeS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef ptr @_Z12as_ValueType9BasicType(i8 noundef zeroext %3) #19
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %7 = load ptr, ptr %6, align 8
@@ -8765,7 +8765,7 @@ define linkonce_odr hidden void @_ZN7ConvertC2EN9Bytecodes4CodeEP11InstructionP9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder9incrementEv(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder9incrementEv(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -9011,7 +9011,7 @@ _ZNK12GraphBuilder5ipushEP11Instruction.exit:     ; preds = %121, %140
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder5_gotoEii(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder5_gotoEii(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1808
@@ -9220,7 +9220,7 @@ _ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE6appendERKS1_.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder7if_nodeEP11InstructionNS0_9ConditionES1_P10ValueStack(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder7if_nodeEP11InstructionNS0_9ConditionES1_P10ValueStack(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
@@ -9711,7 +9711,7 @@ _ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE6appendERKS1_.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder7if_zeroEP9ValueTypeN11Instruction9ConditionE(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr nocapture readnone %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder7if_zeroEP9ValueTypeN11Instruction9ConditionE(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1808
@@ -9854,7 +9854,7 @@ _ZN12GraphBuilder17copy_state_beforeEv.exit:      ; preds = %_ZN22CompilationRes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder7if_nullEP9ValueTypeN11Instruction9ConditionE(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr nocapture readnone %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder7if_nullEP9ValueTypeN11Instruction9ConditionE(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1808
@@ -9997,7 +9997,7 @@ _ZN12GraphBuilder17copy_state_beforeEv.exit:      ; preds = %_ZN22CompilationRes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder7if_sameEP9ValueTypeN11Instruction9ConditionE(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder7if_sameEP9ValueTypeN11Instruction9ConditionE(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -10444,7 +10444,7 @@ _ZN12GraphBuilder26copy_state_before_with_bciEi.exit: ; preds = %_ZN22Compilatio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder3retEi(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder3retEi(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load i8, ptr %4, align 8
@@ -11632,7 +11632,7 @@ _ZN11InstructionnwEm.exit49:                      ; preds = %274, %276
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder23call_register_finalizerEv(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder23call_register_finalizerEv(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -11863,7 +11863,7 @@ declare noundef zeroext i1 @_ZN12Dependencies24has_finalizable_subclassEP15ciIns
 declare void @_ZN12Dependencies36assert_has_no_finalizable_subclassesEP7ciKlass(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12GraphBuilder24copy_state_for_exceptionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN12GraphBuilder24copy_state_for_exceptionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -11880,7 +11880,7 @@ define hidden noundef ptr @_ZN12GraphBuilder24copy_state_for_exceptionEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12GraphBuilder12append_splitEP10StateSplit(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN12GraphBuilder12append_splitEP10StateSplit(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -11983,7 +11983,7 @@ define linkonce_odr hidden void @_ZN9IntrinsicC2EP9ValueType13vmIntrinsicIDP13Gr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder13method_returnEP11Instructionb(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder13method_returnEP11Instructionb(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i8, align 1
   %5 = alloca ptr, align 8
   %6 = load ptr, ptr %0, align 8
@@ -14300,7 +14300,7 @@ define linkonce_odr hidden void @_ZN11RuntimeCallC2EP9ValueTypePKcPhP13GrowableA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder11monitorexitEP11Instructioni(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder11monitorexitEP11Instructioni(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1808
@@ -14681,7 +14681,7 @@ _ZN11Compilation14profile_returnEv.exit:          ; preds = %1, %8, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder19profile_return_typeEP11InstructionP8ciMethodS3_i(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder19profile_return_typeEP11InstructionP8ciMethodS3_i(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = icmp eq ptr %3, null
   br i1 %6, label %7, label %13
 
@@ -14865,7 +14865,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %78, %80
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12GraphBuilder15append_with_bciEP11Instructioni(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN12GraphBuilder15append_with_bciEP11Instructioni(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Canonicalizer, align 8
   %5 = alloca %class.ValueNumberingEffects, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15057,7 +15057,7 @@ _ZN11Instruction13can_be_linkedEv.exit.thread:    ; preds = %18, %106, %111, %29
 declare noundef i32 @_ZN10ValueStack6unlockEv(ptr noundef nonnull align 8 dereferenceable(81)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12GraphBuilder13make_constantE10ciConstantP7ciField(ptr nocapture nonnull readnone align 8 %0, i8 %1, i64 %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN12GraphBuilder13make_constantE10ciConstantP7ciField(ptr nonnull readnone align 8 captures(none) %0, i8 %1, i64 %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.ciConstant, align 8
   store i8 %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -15299,7 +15299,7 @@ declare noundef zeroext i1 @_ZNK10ciConstant15is_null_or_zeroEv(ptr noundef nonn
 declare noundef zeroext i1 @_ZN8ciObject18should_be_constantEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder12access_fieldEN9Bytecodes4CodeE(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder12access_fieldEN9Bytecodes4CodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i8, align 1
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -17093,7 +17093,7 @@ declare noundef zeroext i1 @_ZN7ciField19is_call_site_targetEv(ptr noundef nonnu
 declare noundef zeroext i1 @_ZN10ciCallSite39is_fully_initialized_constant_call_siteEv(ptr noundef nonnull align 8 dereferenceable(41)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK12GraphBuilder19dependency_recorderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK12GraphBuilder19dependency_recorderEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef ptr @_ZNK11Compilation19dependency_recorderEv(ptr noundef nonnull align 8 dereferenceable(704) %3) #19
@@ -17595,7 +17595,7 @@ _ZN11FieldBuffer6at_putEP7ciFieldP11Instruction.exit39: ; preds = %_ZN26Growable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12GraphBuilder23args_list_for_profilingEP8ciMethodRib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0, ptr noundef %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN12GraphBuilder23args_list_for_profilingEP8ciMethodRib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, ptr noundef %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   br i1 %3, label %5, label %38
 
 5:                                                ; preds = %4
@@ -17822,12 +17822,12 @@ declare noundef ptr @_ZN12ciMethodData11bci_to_dataEiP8ciMethod(ptr noundef nonn
 declare noundef ptr @_ZNK12ciMethodData20parameters_type_dataEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN12GraphBuilder24check_args_for_profilingEP13GrowableArrayIP11InstructionEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(97) %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN12GraphBuilder24check_args_for_profilingEP13GrowableArrayIP11InstructionEi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(97) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12GraphBuilder26collect_args_for_profilingEP13GrowableArrayIP11InstructionEP8ciMethodb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0, ptr nocapture noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN12GraphBuilder26collect_args_for_profilingEP13GrowableArrayIP11InstructionEP8ciMethodb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
   %6 = call noundef ptr @_ZN12GraphBuilder23args_list_for_profilingEP8ciMethodRib(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %5, i1 noundef zeroext %3)
   %7 = icmp eq ptr %6, null
@@ -19492,7 +19492,7 @@ declare noundef zeroext i1 @_ZNK8ciMethod23can_be_statically_boundEP15ciInstance
 declare void @_ZN12Dependencies29assert_unique_concrete_methodEP7ciKlassP8ciMethodS1_S3_(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN12GraphBuilder10try_inlineEP8ciMethodbbN9Bytecodes4CodeEP11Instruction(ptr noundef nonnull align 8 dereferenceable(97) initializes((32, 40)) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, ptr nocapture noundef readnone %5) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN12GraphBuilder10try_inlineEP8ciMethodbbN9Bytecodes4CodeEP11Instruction(ptr noundef nonnull align 8 dereferenceable(97) initializes((32, 40)) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, ptr noundef readnone captures(none) %5) local_unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19698,7 +19698,7 @@ _ZL28set_flags_for_inlined_calleeP11CompilationP8ciMethod.exit: ; preds = %100, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12GraphBuilder20clear_inline_bailoutEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(97) initializes((32, 40)) %0) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN12GraphBuilder20clear_inline_bailoutEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(97) initializes((32, 40)) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %2, align 8
   ret void
@@ -19707,7 +19707,7 @@ define hidden void @_ZN12GraphBuilder20clear_inline_bailoutEv(ptr nocapture noun
 declare void @_ZN12Dependencies18assert_evol_methodEP8ciMethod(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder14print_inliningEP8ciMethodPKcb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder14print_inliningEP8ciMethodPKcb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.EventCompilerInlining, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -19819,7 +19819,7 @@ _ZN8JfrEventI21EventCompilerInliningE13should_commitEv.exit: ; preds = %13, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12GraphBuilder21copy_state_exhandlingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN12GraphBuilder21copy_state_exhandlingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -19880,7 +19880,7 @@ _ZN12GraphBuilder30copy_state_exhandling_with_bciEi.exit: ; preds = %1, %_ZN22Co
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder10null_checkEP11Instruction(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder10null_checkEP11Instruction(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %5 = load ptr, ptr %4, align 8
@@ -20046,7 +20046,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %53, %55
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder12profile_callEP8ciMethodP11InstructionP7ciKlassP13GrowableArrayIS3_Eb(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder12profile_callEP8ciMethodP11InstructionP7ciKlassP13GrowableArrayIS3_Eb(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %17, label %7
 
@@ -20186,7 +20186,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %32, %34
 declare void @_ZN6InvokeC1EN9Bytecodes4CodeEP9ValueTypeP11InstructionP13GrowableArrayIS5_EP8ciMethodP10ValueStack(ptr noundef nonnull align 8 dereferenceable(144), i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder12new_instanceEi(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, i32 %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder12new_instanceEi(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -20543,7 +20543,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %64, %66
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder14new_type_arrayEv(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder14new_type_arrayEv(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -20791,7 +20791,7 @@ _ZNK12GraphBuilder5apushEP11Instruction.exit:     ; preds = %123, %143
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder16new_object_arrayEv(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder16new_object_arrayEv(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -21053,7 +21053,7 @@ _ZNK12GraphBuilder5apushEP11Instruction.exit:     ; preds = %137, %157
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN12GraphBuilder14direct_compareEP7ciKlass(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN12GraphBuilder14direct_compareEP7ciKlass(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -21110,7 +21110,7 @@ _ZN15ciInstanceKlass12has_subklassEv.exit.thread: ; preds = %16, %_ZNK10ciMetada
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder10check_castEi(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, i32 %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder10check_castEi(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -21454,7 +21454,7 @@ _ZN12GraphBuilder18profile_checkcastsEv.exit.thread: ; preds = %_ZN12GraphBuilde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder11instance_ofEi(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, i32 %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder11instance_ofEi(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -21841,7 +21841,7 @@ _ZN12GraphBuilder18profile_checkcastsEv.exit.thread: ; preds = %_ZN12GraphBuilde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder12monitorenterEP11Instructioni(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder12monitorenterEP11Instructioni(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZN12GraphBuilder33copy_state_for_exception_with_bciEi(ptr noundef nonnull align 8 dereferenceable(97) %0, i32 noundef %2)
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
@@ -21941,7 +21941,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %19, %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12GraphBuilder33copy_state_for_exception_with_bciEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN12GraphBuilder33copy_state_for_exception_with_bciEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i8, ptr %4, align 8
@@ -22046,7 +22046,7 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %60, %_ZN22Compilati
 declare noundef i32 @_ZN10ValueStack4lockEP11Instruction(ptr noundef nonnull align 8 dereferenceable(81), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder15new_multi_arrayEi(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder15new_multi_arrayEi(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -22340,7 +22340,7 @@ _ZNK12GraphBuilder5apushEP11Instruction.exit:     ; preds = %153, %173
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder8throw_opEi(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder8throw_opEi(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -22475,7 +22475,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %38, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12GraphBuilder26copy_state_before_with_bciEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN12GraphBuilder26copy_state_before_with_bciEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -22520,7 +22520,7 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationRes
 declare noundef ptr @_ZN8ValueMap11find_insertEP11Instruction(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12GraphBuilder16handle_exceptionEP11Instruction(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN12GraphBuilder16handle_exceptionEP11Instruction(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i8, ptr %4, align 8
@@ -23013,7 +23013,7 @@ declare void @_ZN10BlockBegin21add_exception_handlerEPS_(ptr noundef nonnull ali
 declare void @_ZN10BlockBegin15add_predecessorEPS_(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13PhiSimplifier8simplifyEP11Instruction(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13PhiSimplifier8simplifyEP11Instruction(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -23139,7 +23139,7 @@ declare noundef i32 @_ZNK3Phi13operand_countEv(ptr noundef nonnull align 8 deref
 declare noundef ptr @_ZNK3Phi10operand_atEi(ptr noundef nonnull align 8 dereferenceable(104), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13PhiSimplifier8block_doEP10BlockBegin(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN13PhiSimplifier8block_doEP10BlockBegin(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -23252,7 +23252,7 @@ define hidden void @_ZN13PhiSimplifier8block_doEP10BlockBegin(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder24eliminate_redundant_phisEP10BlockBegin(ptr nocapture noundef nonnull readnone align 8 dereferenceable(97) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder24eliminate_redundant_phisEP10BlockBegin(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(97) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.SubstitutionResolver, align 8
   %4 = alloca %class.PhiSimplifier, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -28587,7 +28587,7 @@ _ZNK12GraphBuilder9ScopeData18is_work_list_emptyEv.exit: ; preds = %80
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder21setup_osr_entry_blockEv(ptr nocapture noundef nonnull align 8 dereferenceable(97) initializes((56, 64), (72, 96)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder21setup_osr_entry_blockEv(ptr noundef nonnull align 8 captures(none) dereferenceable(97) initializes((56, 64), (72, 96)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.ciBytecodeStream, align 8
   %3 = alloca %class.ResourceBitMap, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -29413,7 +29413,7 @@ define hidden void @_ZN12GraphBuilder10initializeEv() local_unnamed_addr #10 ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12GraphBuilder12header_blockEP10BlockBeginNS0_4FlagEP10ValueStack(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN12GraphBuilder12header_blockEP10BlockBeginNS0_4FlagEP10ValueStack(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -29547,7 +29547,7 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationRes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12GraphBuilder17setup_start_blockEiP10BlockBeginS1_P10ValueStack(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0, i32 %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN12GraphBuilder17setup_start_blockEiP10BlockBeginS1_P10ValueStack(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, i32 %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1808
@@ -29905,7 +29905,7 @@ declare noundef zeroext i8 @_Z12as_BasicTypeP9ValueType(ptr noundef) local_unnam
 declare void @_ZN10ValueStack12clear_localsEv(ptr noundef nonnull align 8 dereferenceable(81)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12GraphBuilder14state_at_entryEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN12GraphBuilder14state_at_entryEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
@@ -30956,7 +30956,7 @@ _ZN16BlockListBuilderD2Ev.exit:                   ; preds = %.loopexit.i, %.loop
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder15push_root_scopeEP7IRScopeP9BlockListP10BlockBegin(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(97) initializes((0, 8), (72, 80)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder15push_root_scopeEP7IRScopeP9BlockListP10BlockBegin(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(97) initializes((0, 8), (72, 80)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -31195,7 +31195,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN16AbstractCompil
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12GraphBuilder30copy_state_exhandling_with_bciEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN12GraphBuilder30copy_state_exhandling_with_bciEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i8, ptr %4, align 8
@@ -31246,7 +31246,7 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %29, %_ZN22Compilati
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK12GraphBuilder22recursive_inline_levelEP8ciMethod(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0, ptr noundef readnone %1) local_unnamed_addr #5 align 2 {
+define hidden noundef i32 @_ZNK12GraphBuilder22recursive_inline_levelEP8ciMethod(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, ptr noundef readnone %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.07 = load ptr, ptr %4, align 8
@@ -31272,7 +31272,7 @@ define hidden noundef i32 @_ZNK12GraphBuilder22recursive_inline_levelEP8ciMethod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK12GraphBuilder17should_not_inlineEP8ciMethod(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK12GraphBuilder17should_not_inlineEP8ciMethod(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -31853,7 +31853,7 @@ _ZN10ValueStack16copy_for_parsingEv.exit:         ; preds = %_ZN22CompilationRes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK12GraphBuilder15check_can_parseEP8ciMethod(ptr nocapture noundef nonnull readnone align 8 dereferenceable(97) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 align 2 {
+define hidden noundef ptr @_ZNK12GraphBuilder15check_can_parseEP8ciMethod(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(97) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
   %4 = and i64 %.sroa.0.0.copyload.i.i, 256
@@ -31878,7 +31878,7 @@ define hidden noundef ptr @_ZNK12GraphBuilder15check_can_parseEP8ciMethod(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN12GraphBuilder15try_inline_fullEP8ciMethodbbN9Bytecodes4CodeEP11Instruction(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, ptr nocapture readnone %5) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN12GraphBuilder15try_inline_fullEP8ciMethodbbN9Bytecodes4CodeEP11Instruction(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, ptr readnone captures(none) %5) local_unnamed_addr #0 align 2 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -33339,7 +33339,7 @@ _ZN12GraphBuilder13profile_callsEv.exit.thread:   ; preds = %98, %107, %92, %117
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder17append_unsafe_getEP8ciMethod9BasicTypeb(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder17append_unsafe_getEP8ciMethod9BasicTypeb(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -33468,7 +33468,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %37, %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder17append_unsafe_putEP8ciMethod9BasicTypeb(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder17append_unsafe_putEP8ciMethod9BasicTypeb(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -33820,7 +33820,7 @@ _ZN11InstructionnwEm.exit23:                      ; preds = %172, %174
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder17append_unsafe_CASEP8ciMethod(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder17append_unsafe_CASEP8ciMethod(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -34097,7 +34097,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %135, %137
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder25append_unsafe_get_and_setEP8ciMethodb(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder25append_unsafe_get_and_setEP8ciMethodb(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -34246,7 +34246,7 @@ _ZN11InstructionnwEm.exit:                        ; preds = %41, %43
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder18append_char_accessEP8ciMethodb(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder18append_char_accessEP8ciMethodb(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZN12GraphBuilder25copy_state_indexed_accessEv(ptr noundef nonnull align 8 dereferenceable(97) %0)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -34525,7 +34525,7 @@ _ZN11InstructionnwEm.exit20:                      ; preds = %131, %133
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder23append_alloc_array_copyEP8ciMethod(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder23append_alloc_array_copyEP8ciMethod(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -35445,14 +35445,14 @@ declare noundef zeroext i1 @_ZN12vmIntrinsics8can_trapE13vmIntrinsicID(i32 nound
 declare void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12GraphBuilder14inline_bailoutEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(97) initializes((32, 40)) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN12GraphBuilder14inline_bailoutEPKc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(97) initializes((32, 40)) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder18push_scope_for_jsrEP10BlockBegini(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder18push_scope_for_jsrEP10BlockBegini(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1808
@@ -35712,7 +35712,7 @@ _ZN12GraphBuilder9ScopeData19setup_jsr_xhandlersEv.exit: ; preds = %127, %_ZN22C
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN12GraphBuilder17pop_scope_for_jsrEv(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12GraphBuilder17pop_scope_for_jsrEv(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
@@ -35720,7 +35720,7 @@ define hidden void @_ZN12GraphBuilder17pop_scope_for_jsrEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder17inline_sync_entryEP11InstructionP10BlockBegin(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder17inline_sync_entryEP11InstructionP10BlockBegin(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   tail call void @_ZN12GraphBuilder12monitorenterEP11Instructioni(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %1, i32 noundef -1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -35845,7 +35845,7 @@ _ZN9XHandlers6appendEP8XHandler.exit:             ; preds = %_ZNK12GraphBuilder9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder17fill_sync_handlerEP11InstructionP10BlockBeginb(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder17fill_sync_handlerEP11InstructionP10BlockBeginb(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -36360,7 +36360,7 @@ _ZNK12GraphBuilder5apushEP11Instruction.exit:     ; preds = %281, %288
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN12GraphBuilder9pop_scopeEv(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12GraphBuilder9pop_scopeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -36431,7 +36431,7 @@ declare noundef zeroext i1 @_ZN7ciKlass14is_subclass_ofEPS_(ptr noundef nonnull 
 declare noundef i32 @_ZNK5ciEnv21num_inlined_bytecodesEv(ptr noundef nonnull align 8 dereferenceable(1265)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder10push_scopeEP8ciMethodP10BlockBegin(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder10push_scopeEP8ciMethodP10BlockBegin(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.BlockListBuilder, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
@@ -36830,7 +36830,7 @@ _ZN11Compilation21profile_inlined_callsEv.exit:   ; preds = %1, %8, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12GraphBuilder18profile_invocationEP8ciMethodP10ValueStack(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12GraphBuilder18profile_invocationEP8ciMethodP10ValueStack(ptr noundef nonnull align 8 captures(none) dereferenceable(97) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1808
@@ -40759,16 +40759,16 @@ declare i32 @llvm.smax.i32(i32, i32) #16
 declare i32 @llvm.ctpop.i32(i32) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

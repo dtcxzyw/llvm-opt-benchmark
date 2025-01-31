@@ -831,12 +831,12 @@ declare i64 @rb_obj_memsize_of(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_ull2inum(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @rb_scan_args(i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @total_i(i64 noundef %0, ptr nocapture noundef %1) #0 {
+define internal void @total_i(i64 noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = tail call i32 @rb_objspace_internal_object_p(i64 noundef %0) #7
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %14
@@ -866,7 +866,7 @@ define internal void @total_i(i64 noundef %0, ptr nocapture noundef %1) #0 {
 declare void @rb_objspace_each_objects(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @heap_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @heap_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = ptrtoint ptr %1 to i64
   %.not14 = icmp eq ptr %0, %1
   br i1 %.not14, label %._crit_edge, label %.lr.ph
@@ -972,7 +972,7 @@ RHASH_EMPTY_P.exit:                               ; preds = %25, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cos_i(i64 noundef %0, ptr nocapture noundef %1) #0 {
+define internal void @cos_i(i64 noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = tail call i64 @rb_obj_memsize_of(i64 noundef %0) #7
   %4 = inttoptr i64 %0 to ptr
   %5 = load i64, ptr %4, align 8
@@ -1348,7 +1348,7 @@ declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @rb_sym_immortal_count() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cs_i(i64 noundef %0, ptr nocapture noundef %1) #5 {
+define internal void @cs_i(i64 noundef %0, ptr noundef captures(none) %1) #5 {
   %3 = inttoptr i64 %0 to ptr
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 31
@@ -1480,7 +1480,7 @@ declare i64 @rb_ary_new() local_unnamed_addr #1
 declare void @rb_objspace_reachable_objects_from(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @reachable_object_from_i(i64 noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @reachable_object_from_i(i64 noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = tail call i32 @rb_objspace_markable_object_p(i64 noundef %0) #7
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %20, label %4
@@ -1540,7 +1540,7 @@ declare i64 @rb_data_typed_object_wrap(i64 noundef, ptr noundef, ptr noundef) lo
 declare void @rb_objspace_reachable_objects_from_root(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @reachable_object_from_root_i(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2) #0 {
+define internal void @reachable_object_from_root_i(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %0, %5
@@ -1633,10 +1633,10 @@ declare i64 @rb_sym2str(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_obj_id(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

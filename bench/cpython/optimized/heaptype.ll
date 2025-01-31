@@ -409,7 +409,7 @@ declare ptr @PyType_FromMetaclass(ptr noundef, ptr noundef, ptr noundef, ptr nou
 declare i32 @PyModule_AddType(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pytype_fromspec_meta(ptr nocapture readnone %self, ptr noundef %meta) #0 {
+define internal ptr @pytype_fromspec_meta(ptr readnone captures(none) %self, ptr noundef %meta) #0 {
 entry:
   %HeapCTypeViaMetaclass_slots = alloca [1 x %struct.PyType_Slot], align 16
   %HeapCTypeViaMetaclass_spec = alloca %struct.PyType_Spec, align 8
@@ -446,7 +446,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @test_type_from_ephemeral_spec(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @test_type_from_ephemeral_spec(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call ptr @PyMem_Malloc(i64 noundef 32) #7
   %cmp = icmp eq ptr %call, null
@@ -666,7 +666,7 @@ Py_XDECREF.exit56:                                ; preds = %Py_XDECREF.exit, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @create_type_from_repeated_slots(ptr nocapture readnone %self, ptr noundef %variant_obj) #0 {
+define internal ptr @create_type_from_repeated_slots(ptr readnone captures(none) %self, ptr noundef %variant_obj) #0 {
 entry:
   %call = tail call i64 @PyLong_AsLong(ptr noundef %variant_obj) #7
   %call1 = tail call ptr @PyErr_Occurred() #7
@@ -699,7 +699,7 @@ return:                                           ; preds = %sw.bb, %sw.bb3, %sw
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @test_from_spec_metatype_inheritance(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @test_from_spec_metatype_inheritance(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call ptr @PyType_FromSpecWithBases(ptr noundef nonnull @MinimalMetaclass_spec, ptr noundef nonnull @PyType_Type) #7
   %cmp = icmp eq ptr %call, null
@@ -843,7 +843,7 @@ Py_XDECREF.exit39:                                ; preds = %entry, %Py_XDECREF.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @test_from_spec_invalid_metatype_inheritance(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @test_from_spec_invalid_metatype_inheritance(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call ptr @PyType_FromSpecWithBases(ptr noundef nonnull @MinimalMetaclass_spec, ptr noundef nonnull @PyType_Type) #7
   %cmp = icmp eq ptr %call, null
@@ -1169,7 +1169,7 @@ Py_XDECREF.exit102:                               ; preds = %entry, %Py_XDECREF.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @make_immutable_type_with_base(ptr nocapture readnone %self, ptr noundef %base) #0 {
+define internal ptr @make_immutable_type_with_base(ptr readnone captures(none) %self, ptr noundef %base) #0 {
 entry:
   %ImmutableSubclass_spec = alloca %struct.PyType_Spec, align 8
   %0 = getelementptr i8, ptr %base, i64 8
@@ -1202,7 +1202,7 @@ cond.end:                                         ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @make_type_with_base(ptr nocapture readnone %self, ptr noundef %base) #0 {
+define internal ptr @make_type_with_base(ptr readnone captures(none) %self, ptr noundef %base) #0 {
 entry:
   %ImmutableSubclass_spec = alloca %struct.PyType_Spec, align 8
   %0 = getelementptr i8, ptr %base, i64 8
@@ -1235,7 +1235,7 @@ cond.end:                                         ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pyobject_getitemdata(ptr nocapture readnone %self, ptr noundef %o) #0 {
+define internal ptr @pyobject_getitemdata(ptr readnone captures(none) %self, ptr noundef %o) #0 {
 entry:
   %call = tail call ptr @PyObject_GetItemData(ptr noundef %o) #7
   %cmp = icmp eq ptr %call, null
@@ -1253,17 +1253,17 @@ return:                                           ; preds = %entry, %if.end
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 
 declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @simple_str(ptr nocapture readnone %self) #0 {
+define internal ptr @simple_str(ptr readnone captures(none) %self) #0 {
 entry:
   %call = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.40) #7
   ret ptr %call
@@ -1272,7 +1272,7 @@ entry:
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: noreturn nounwind
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
@@ -1310,7 +1310,7 @@ declare ptr @PyObject_GetItemData(ptr noundef) local_unnamed_addr #1
 declare ptr @PyLong_FromVoidPtr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @heapctype_init(ptr nocapture noundef writeonly initializes((16, 20)) %self, ptr nocapture readnone %args, ptr nocapture readnone %kwargs) #6 {
+define internal noundef i32 @heapctype_init(ptr noundef writeonly captures(none) initializes((16, 20)) %self, ptr readnone captures(none) %args, ptr readnone captures(none) %kwargs) #6 {
 entry:
   %value = getelementptr inbounds nuw i8, ptr %self, i64 16
   store i32 10, ptr %value, align 8
@@ -1344,7 +1344,7 @@ Py_DECREF.exit:                                   ; preds = %entry, %if.then1.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @heapgcctype_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @heapgcctype_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val3 = load ptr, ptr %0, align 8
@@ -1398,7 +1398,7 @@ declare void @PyObject_Free(ptr noundef) local_unnamed_addr #1
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @heapctypesubclass_init(ptr nocapture noundef writeonly initializes((16, 20), (24, 28)) %self, ptr nocapture readnone %args, ptr nocapture readnone %kwargs) #6 {
+define internal noundef i32 @heapctypesubclass_init(ptr noundef writeonly captures(none) initializes((16, 20), (24, 28)) %self, ptr readnone captures(none) %args, ptr readnone captures(none) %kwargs) #6 {
 entry:
   %value.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   store i32 10, ptr %value.i, align 8
@@ -1616,7 +1616,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @heapctypewithbuffer_releasebuffer(ptr noundef readnone %self, ptr nocapture noundef readonly %view) #0 {
+define internal void @heapctypewithbuffer_releasebuffer(ptr noundef readnone %self, ptr noundef readonly captures(none) %view) #0 {
 entry:
   %obj = getelementptr inbounds nuw i8, ptr %view, i64 8
   %0 = load ptr, ptr %obj, align 8
@@ -1634,7 +1634,7 @@ cond.end:                                         ; preds = %entry
 declare i32 @PyBuffer_FillInfo(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @heapctypesetattr_init(ptr nocapture noundef writeonly initializes((16, 24)) %self, ptr nocapture readnone %args, ptr nocapture readnone %kwargs) #6 {
+define internal noundef i32 @heapctypesetattr_init(ptr noundef writeonly captures(none) initializes((16, 24)) %self, ptr readnone captures(none) %args, ptr readnone captures(none) %kwargs) #6 {
 entry:
   %value = getelementptr inbounds nuw i8, ptr %self, i64 16
   store i64 10, ptr %value, align 8
@@ -1916,7 +1916,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @HeapCCollection_new(ptr noundef %subtype, ptr nocapture noundef readonly %args, ptr nocapture readnone %kwds) #0 {
+define internal ptr @HeapCCollection_new(ptr noundef %subtype, ptr noundef readonly captures(none) %args, ptr readnone captures(none) %kwds) #0 {
 entry:
   %0 = getelementptr i8, ptr %args, i64 8
   %op.val.i = load ptr, ptr %0, align 8
@@ -2022,7 +2022,7 @@ Py_XDECREF.exit:                                  ; preds = %_Py_NewRef.exit, %f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @HeapCCollection_length(ptr nocapture noundef readonly %self) #0 {
+define internal i64 @HeapCCollection_length(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %ob_type.i = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load ptr, ptr %ob_type.i, align 8
@@ -2105,7 +2105,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @HeapCCollection_traverse(ptr noundef %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @HeapCCollection_traverse(ptr noundef %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %call = tail call ptr @PyObject_GetItemData(ptr noundef %self) #7
   %tobool.not = icmp eq ptr %call, null

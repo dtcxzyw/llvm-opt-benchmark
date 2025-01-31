@@ -40,7 +40,7 @@ define void @fini() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @preempt_p_job_preempt_check(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @preempt_p_job_preempt_check(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -82,7 +82,7 @@ define noundef zeroext i1 @preempt_p_job_preempt_check(ptr nocapture noundef rea
 declare i32 @bit_overlap_any(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @preempt_p_preemptable(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define zeroext i1 @preempt_p_preemptable(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -110,7 +110,7 @@ define zeroext i1 @preempt_p_preemptable(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @preempt_p_get_data(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @preempt_p_get_data(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   switch i32 %1, label %35 [
     i32 0, label %4
     i32 1, label %8

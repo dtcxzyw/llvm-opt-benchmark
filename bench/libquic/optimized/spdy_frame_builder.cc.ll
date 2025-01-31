@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3net16SpdyFrameBuilderD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net16SpdyFrameBuilderD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net16SpdyFrameBuilderC2EmNS_16SpdyMajorVersionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %this, i64 noundef %size, i32 noundef %version) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net16SpdyFrameBuilderC2EmNS_16SpdyMajorVersionE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(36) initializes((0, 36)) %this, i64 noundef %size, i32 noundef %version) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %size) #13
   store ptr %call, ptr %this, align 8
@@ -41,7 +41,7 @@ entry:
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net16SpdyFrameBuilderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net16SpdyFrameBuilderD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -57,7 +57,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %entry, %_ZNKS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN3net16SpdyFrameBuilder17GetWritableBufferEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this, i64 noundef %length) local_unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN3net16SpdyFrameBuilder17GetWritableBufferEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %this, i64 noundef %length) local_unnamed_addr #3 align 2 {
 entry:
   %cmp.i = icmp ugt i64 %length, 16777215
   br i1 %cmp.i, label %return, label %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit
@@ -86,7 +86,7 @@ return:                                           ; preds = %entry, %_ZNK3net16S
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net16SpdyFrameBuilder8CanWriteEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this, i64 noundef %length) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net16SpdyFrameBuilder8CanWriteEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %this, i64 noundef %length) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp ugt i64 %length, 16777215
   br i1 %cmp, label %return, label %if.end
@@ -109,7 +109,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder4SeekEm(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, i64 noundef %length) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder4SeekEm(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %this, i64 noundef %length) local_unnamed_addr #4 align 2 {
 entry:
   %cmp.i = icmp ugt i64 %length, 16777215
   br i1 %cmp.i, label %return, label %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit
@@ -137,7 +137,7 @@ return:                                           ; preds = %entry, %_ZNK3net16S
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder23WriteControlFrameHeaderERKNS_10SpdyFramerENS_13SpdyFrameTypeEh(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(259) %framer, i32 noundef %type, i8 noundef zeroext %flags) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder23WriteControlFrameHeaderERKNS_10SpdyFramerENS_13SpdyFrameTypeEh(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(259) %framer, i32 noundef %type, i8 noundef zeroext %flags) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %capacity_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %capacity_, align 8
@@ -248,7 +248,7 @@ declare noundef i64 @_ZNK3net10SpdyFramer18GetFrameHeaderSizeEv(ptr noundef nonn
 declare noundef i32 @_ZN3net13SpdyConstants18SerializeFrameTypeENS_16SpdyMajorVersionENS_13SpdyFrameTypeE(i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, ptr nocapture noundef readonly %data, i32 noundef %data_len) local_unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %this, ptr noundef readonly captures(none) %data, i32 noundef %data_len) local_unnamed_addr #7 align 2 {
 entry:
   %conv = zext i32 %data_len to i64
   %cmp.i = icmp ugt i32 %data_len, 16777215
@@ -289,7 +289,7 @@ return:                                           ; preds = %entry, %if.end.i14,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder20WriteDataFrameHeaderERKNS_10SpdyFramerEjh(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(259) %framer, i32 noundef %stream_id, i8 noundef zeroext %flags) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder20WriteDataFrameHeaderERKNS_10SpdyFramerEjh(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(259) %framer, i32 noundef %stream_id, i8 noundef zeroext %flags) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %version_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %version_, align 8
@@ -375,7 +375,7 @@ return:                                           ; preds = %_ZN3net16SpdyFrameB
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder13BeginNewFrameERKNS_10SpdyFramerENS_13SpdyFrameTypeEhj(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(259) %framer, i32 noundef %type, i8 noundef zeroext %flags, i32 noundef %stream_id) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder13BeginNewFrameERKNS_10SpdyFramerENS_13SpdyFrameTypeEhj(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(259) %framer, i32 noundef %type, i8 noundef zeroext %flags, i32 noundef %stream_id) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end13:
   %ref.tmp24 = alloca %"class.logging::LogMessage", align 8
   %protocol_version_.i = getelementptr inbounds nuw i8, ptr %framer, i64 248
@@ -599,7 +599,7 @@ declare noundef i64 @_ZNK3net10SpdyFramer23GetDataFrameMinimumSizeEv(ptr noundef
 declare noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder15OverwriteLengthERKNS_10SpdyFramerEm(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(259) %framer, i64 noundef %length) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder15OverwriteLengthERKNS_10SpdyFramerEm(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %this, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(259) %framer, i64 noundef %length) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %version_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %version_, align 8
@@ -665,7 +665,7 @@ declare void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 derefe
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder18WriteStringPiece16ERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(16) %value) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder18WriteStringPiece16ERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(16) %value) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %value)
   %cmp = icmp ugt i64 %call, 65535
@@ -742,7 +742,7 @@ declare noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11
 declare noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder18WriteStringPiece32ERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(16) %value) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder18WriteStringPiece32ERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(16) %value) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %value)
   %offset_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -815,10 +815,10 @@ return:                                           ; preds = %if.end.i14.i, %_ZNK
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder13RewriteLengthERKNS_10SpdyFramerE(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(259) %framer) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder13RewriteLengthERKNS_10SpdyFramerE(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(259) %framer) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %length_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %length_, align 8
@@ -873,7 +873,7 @@ _ZN3net16SpdyFrameBuilder15OverwriteLengthERKNS_10SpdyFramerEm.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder14OverwriteFlagsERKNS_10SpdyFramerEh(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(259) %framer, i8 noundef zeroext %flags) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder14OverwriteFlagsERKNS_10SpdyFramerEh(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %this, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(259) %framer, i8 noundef zeroext %flags) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %length_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %length_, align 8
@@ -908,7 +908,7 @@ declare i32 @llvm.bswap.i32(i32) #10
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

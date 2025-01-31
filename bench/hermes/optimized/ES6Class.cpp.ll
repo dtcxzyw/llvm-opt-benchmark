@@ -438,7 +438,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %name.coerce0, i64 %name.coerce1) local_unnamed_addr #0 comdat align 2 {
@@ -822,7 +822,7 @@ declare void @_ZN6hermes12hermes_fatalEPKc(ptr noundef) local_unnamed_addr #3
 declare noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E20InsertIntoBucketImplIS2_EEPSA_RKS2_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(16) %Key, ptr noundef nonnull align 8 dereferenceable(16) %Lookup, ptr noundef %TheBucket) local_unnamed_addr #0 comdat align 2 {
@@ -30349,7 +30349,7 @@ return:                                           ; preds = %if.end, %return.sin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN6hermes25ES6ClassesTransformations27createCallWithForwardedThisEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef readonly %srcNode, ptr noundef %object, ptr noundef nonnull %parameters) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN6hermes25ES6ClassesTransformations27createCallWithForwardedThisEPNS_6ESTree4NodeES3_N12_GLOBAL__N_110NodeVectorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef readonly %srcNode, ptr noundef %object, ptr noundef nonnull %parameters) unnamed_addr #0 align 2 {
 entry:
   %node.addr.i = alloca ptr, align 8
   %ref.tmp5 = alloca %"class.llvh::simple_ilist", align 8
@@ -30666,7 +30666,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18CallExp
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvh15SmallVectorImplIPN6hermes6ESTree4NodeEE6insertEPS4_RKS4_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %I, ptr noundef nonnull align 8 dereferenceable(8) %Elt) local_unnamed_addr #0 comdat align 2 {
@@ -30910,7 +30910,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN6hermes25ES6ClassesTransformations22createGetSuperPropertyEPNS_6ESTree4NodeES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %srcNode, ptr noundef %superClass, ptr noundef %propertyName) local_unnamed_addr #0 comdat align 2 {
@@ -31567,7 +31567,7 @@ _ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit: ; 
   %retval.sroa.0.0.copyload.i9.i.i.i.i = load ptr, ptr %debugLoc_.i.i.i.i.i, align 8
   %debugLoc_.i10.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i, i64 40
   store ptr %retval.sroa.0.0.copyload.i9.i.i.i.i, ptr %debugLoc_.i10.i.i.i.i, align 8
-  %call5 = tail call noundef ptr @_ZN6hermes25ES6ClassesTransformations22makeSingleVariableDeclEPNS_6ESTree4NodeES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %call2, ptr noundef %retval.0.i.i.i.i.i, ptr noundef %call2)
+  %call5 = tail call noundef ptr @_ZN6hermes25ES6ClassesTransformations22makeSingleVariableDeclEPNS_6ESTree4NodeES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %call2, ptr noundef nonnull %retval.0.i.i.i.i.i, ptr noundef %call2)
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6hermes25ES6ClassesTransformations14copyIdentifierEPNS_6ESTree4NodeE.exit
@@ -31711,7 +31711,7 @@ _ZN6hermes25ES6ClassesTransformations18makeIdentifierNodeEPNS_6ESTree4NodeEN4llv
   store ptr null, ptr %_typeAnnotation.i.i.i.i39, align 8
   %_optional.i.i.i.i40 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i35, i64 64
   store i8 0, ptr %_optional.i.i.i.i40, align 8
-  %call.i = call noundef ptr @_ZN6hermes25ES6ClassesTransformations17cloneNodeInternalEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %retval.0.i.i.i.i.i.i35)
+  %call.i = call noundef ptr @_ZN6hermes25ES6ClassesTransformations17cloneNodeInternalEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %retval.0.i.i.i.i.i.i35)
   %call.i44 = call noundef ptr @_ZN6hermes25ES6ClassesTransformations17cloneNodeInternalEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %superClass)
   %call8 = call noundef ptr @_ZN6hermes25ES6ClassesTransformations22makeSingleVariableDeclEPNS_6ESTree4NodeES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %superClass, ptr noundef %call.i, ptr noundef %call.i44)
   %24 = load i32, ptr %Size.i.i.i.i.i.i, align 8
@@ -32181,7 +32181,7 @@ _ZN6hermes25ES6ClassesTransformations19resolveClassMembersEPNS_6ESTree13ClassBod
   call void @_ZdlPv(ptr noundef %classMemberIndexByIdentifier.sroa.0.0.lcssa.i) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %memberKey.i)
   %83 = load ptr, ptr %classMembers, align 8
-  %call14 = call noundef ptr @_ZN6hermes25ES6ClassesTransformations15createClassCtorEPNS_6ESTree4NodeEPNS1_13ClassBodyNodeES3_PNS1_20MethodDefinitionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %resolvedClassId.0, ptr noundef %classBody, ptr noundef %superClass, ptr noundef %83)
+  %call14 = call noundef ptr @_ZN6hermes25ES6ClassesTransformations15createClassCtorEPNS_6ESTree4NodeEPNS1_13ClassBodyNodeES3_PNS1_20MethodDefinitionNodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %resolvedClassId.0, ptr noundef %classBody, ptr noundef %superClass, ptr noundef %83)
   %_id = getelementptr inbounds nuw i8, ptr %call14, i64 72
   %84 = load ptr, ptr %_id, align 8
   %85 = load ptr, ptr %this, align 8
@@ -34356,7 +34356,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree23Functio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN6hermes25ES6ClassesTransformations25makeHermesES6InternalCallEPNS_6ESTree4NodeEN4llvh9StringRefERKN12_GLOBAL__N_110NodeVectorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef readonly %srcNode, ptr %methodName.coerce0, i64 %methodName.coerce1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %parameters) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN6hermes25ES6ClassesTransformations25makeHermesES6InternalCallEPNS_6ESTree4NodeEN4llvh9StringRefERKN12_GLOBAL__N_110NodeVectorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef readonly %srcNode, ptr %methodName.coerce0, i64 %methodName.coerce1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %parameters) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp6 = alloca %"class.llvh::simple_ilist", align 8
   %0 = load ptr, ptr %this, align 8
@@ -34676,7 +34676,7 @@ _ZN6hermes25ES6ClassesTransformations21createTransformedNodeINS_6ESTree18CallExp
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_(ptr %this.0.val, i32 %this.16.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %Val, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %FoundBucket) unnamed_addr #9 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_114ClassMemberKeyEmNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_(ptr %this.0.val, i32 %this.16.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %Val, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %FoundBucket) unnamed_addr #9 align 2 {
 entry:
   %helper.i.i.sroa.0.i.i = alloca [5 x i8], align 8
   %cmp.i = icmp eq i32 %this.16.val, 0
@@ -35085,13 +35085,13 @@ return:                                           ; preds = %entry, %if.end
 declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #14

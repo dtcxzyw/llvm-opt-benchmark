@@ -37,7 +37,7 @@ define hidden noundef ptr @create_notation(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare ptr @xmlStrdup(ptr noundef) local_unnamed_addr #2
 
@@ -73,7 +73,7 @@ declare noalias ptr @_emalloc_16() local_unnamed_addr #2
 declare void @xmlHashScan(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @itemHashScanner(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #3 {
+define internal void @itemHashScanner(ptr noundef %0, ptr noundef captures(none) %1, ptr readnone captures(none) %2) #3 {
   %4 = load i32, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
@@ -159,7 +159,7 @@ define hidden nonnull ptr @php_dom_iterator_current_data(ptr noundef readnone %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @php_dom_get_iterator(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden noundef ptr @php_dom_get_iterator(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   store i32 0, ptr %4, align 4
   %.not = icmp eq i32 %2, 0
@@ -365,7 +365,7 @@ define internal void @php_dom_iterator_dtor(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 1) i32 @php_dom_iterator_valid(ptr nocapture noundef readonly %0) #5 {
+define internal range(i32 -1, 1) i32 @php_dom_iterator_valid(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i8, ptr %2, align 8
   %.not = icmp eq i8 %3, 0
@@ -374,7 +374,7 @@ define internal range(i32 -1, 1) i32 @php_dom_iterator_valid(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @php_dom_iterator_current_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) #0 {
+define internal void @php_dom_iterator_current_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((8, 12)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -657,7 +657,7 @@ declare i32 @xmlStrlen(ptr noundef) local_unnamed_addr #2
 declare zeroext i1 @instanceof_function_slow(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #7

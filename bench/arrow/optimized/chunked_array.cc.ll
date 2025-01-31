@@ -194,7 +194,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZN5arrow12ChunkedArrayC1ESt6vectorISt10shared_ptrINS_5ArrayEESaIS4_EES2_INS_8DataTypeEE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN5arrow12ChunkedArrayC2ESt6vectorISt10shared_ptrINS_5ArrayEESaIS4_EES2_INS_8DataTypeEE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow12ChunkedArrayC2ESt6vectorISt10shared_ptrINS_5ArrayEESaIS4_EES2_INS_8DataTypeEE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 56)) %this, ptr nocapture noundef %chunks, ptr nocapture noundef %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow12ChunkedArrayC2ESt6vectorISt10shared_ptrINS_5ArrayEESaIS4_EES2_INS_8DataTypeEE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 56)) %this, ptr noundef captures(none) %chunks, ptr noundef captures(none) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9 = alloca %"class.arrow::util::ArrowLog", align 8
   %0 = load ptr, ptr %chunks, align 8
@@ -1334,7 +1334,7 @@ _ZNSt12__shared_ptrIN5arrow12ChunkedArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow12ChunkedArray9MakeEmptyESt10shared_ptrINS_8DataTypeEEPNS_10MemoryPoolE(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr nocapture noundef readonly %type, ptr noundef %memory_pool) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow12ChunkedArray9MakeEmptyESt10shared_ptrINS_8DataTypeEEPNS_10MemoryPoolE(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef readonly captures(none) %type, ptr noundef %memory_pool) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %new_chunks = alloca %"class.std::vector", align 8
   %ref.tmp1 = alloca %"class.arrow::Result.25", align 8
@@ -2279,7 +2279,7 @@ return:                                           ; preds = %_ZN5arrow6Status11D
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK5arrow12ChunkedArray6EqualsERKSt10shared_ptrIS0_ERKNS_12EqualOptionsE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %other, ptr noundef nonnull align 8 dereferenceable(24) %opts) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK5arrow12ChunkedArray6EqualsERKSt10shared_ptrIS0_ERKNS_12EqualOptionsE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %other, ptr noundef nonnull align 8 dereferenceable(24) %opts) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %other, align 8
   %cmp.i.not = icmp eq ptr %0, null
@@ -2305,7 +2305,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_110mayHaveNaNERKNS_8DataTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %type) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_110mayHaveNaNERKNS_8DataTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %type) unnamed_addr #4 {
 entry:
   %children_.i = getelementptr inbounds nuw i8, ptr %type, i64 48
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %type, i64 56
@@ -3006,7 +3006,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 declare void @_ZNK5arrow5Array9GetScalarEl(ptr sret(%"class.arrow::Result.30") align 8, ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5arrow12ChunkedArray5SliceEll(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.22") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5arrow12ChunkedArray5SliceEll(ptr noalias writeonly sret(%"class.std::shared_ptr.22") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.arrow::util::ArrowLog", align 8
   %new_chunks = alloca %"class.std::vector", align 8
@@ -3694,7 +3694,7 @@ eh.resume:                                        ; preds = %lpad, %ehcleanup
 declare void @_ZNK5arrow5Array5SliceEll(ptr sret(%"class.std::shared_ptr.8") align 8, ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5arrow12ChunkedArray5SliceEl(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.22") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %offset) local_unnamed_addr #0 align 2 {
+define void @_ZNK5arrow12ChunkedArray5SliceEl(ptr noalias writeonly sret(%"class.std::shared_ptr.22") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %offset) local_unnamed_addr #0 align 2 {
 entry:
   %length_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %length_, align 8
@@ -5000,7 +5000,7 @@ _ZNSt12_Vector_baseISt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS4_EESaIS6_EED2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5arrow12ChunkedArray4ViewERKSt10shared_ptrINS_8DataTypeEE(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(16) %type) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5arrow12ChunkedArray4ViewERKSt10shared_ptrINS_8DataTypeEE(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(16) %type) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %out_chunks = alloca %"class.std::vector", align 8
   %ref.tmp5 = alloca %"class.arrow::Result.25", align 8
@@ -5757,14 +5757,14 @@ declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5arrow12ChunkedArray8ValidateEv(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #0 align 2 {
+define void @_ZNK5arrow12ChunkedArray8ValidateEv(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this) local_unnamed_addr #0 align 2 {
 entry:
   tail call fastcc void @_ZN5arrow12_GLOBAL__N_114ValidateChunksERKSt6vectorISt10shared_ptrINS_5ArrayEESaIS4_EEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_114ValidateChunksERKSt6vectorISt10shared_ptrINS_5ArrayEESaIS4_EEb(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %chunks, i1 noundef zeroext %full_validation) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_114ValidateChunksERKSt6vectorISt10shared_ptrINS_5ArrayEESaIS4_EEb(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %chunks, i1 noundef zeroext %full_validation) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i27 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6069,14 +6069,14 @@ eh.resume:                                        ; preds = %ehcleanup38, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5arrow12ChunkedArray12ValidateFullEv(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #0 align 2 {
+define void @_ZNK5arrow12ChunkedArray12ValidateFullEv(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this) local_unnamed_addr #0 align 2 {
 entry:
   tail call fastcc void @_ZN5arrow12_GLOBAL__N_114ValidateChunksERKSt6vectorISt10shared_ptrINS_5ArrayEESaIS4_EEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext true)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5arrow8internal21MultipleChunkIterator4NextEPSt10shared_ptrINS_5ArrayEES5_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef %next_left, ptr nocapture noundef %next_right) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5arrow8internal21MultipleChunkIterator4NextEPSt10shared_ptrINS_5ArrayEES5_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noundef captures(none) %next_left, ptr noundef captures(none) %next_right) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %chunk_left = alloca %"class.std::shared_ptr.8", align 8
   %chunk_right = alloca %"class.std::shared_ptr.8", align 8
@@ -6882,7 +6882,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow21PrettyPrintDelimitersC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -7761,7 +7761,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EED2Ev.exit: ; preds = %invoke.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
@@ -8991,10 +8991,10 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #14

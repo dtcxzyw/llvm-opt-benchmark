@@ -99,7 +99,7 @@ $_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE17_M_default_appendEm = comdat a
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3ue221buildLongLiteralTableERKNS_13RoseBuildImplERNS_14RoseEngineBlobERSt6vectorINS_15ue2_case_stringESaIS6_EEmPmSA_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(780) %build, ptr noundef nonnull align 8 dereferenceable(256) %blob, ptr noundef nonnull align 8 dereferenceable(24) %lits, i64 noundef %longLitLengthThreshold, ptr nocapture noundef %historyRequired, ptr nocapture noundef writeonly %longLitStreamStateRequired) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN3ue221buildLongLiteralTableERKNS_13RoseBuildImplERNS_14RoseEngineBlobERSt6vectorINS_15ue2_case_stringESaIS6_EEmPmSA_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(780) %build, ptr noundef nonnull align 8 dereferenceable(256) %blob, ptr noundef nonnull align 8 dereferenceable(24) %lits, i64 noundef %longLitLengthThreshold, ptr noundef captures(none) %historyRequired, ptr noundef writeonly captures(none) %longLitStreamStateRequired) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca i32, align 4
   %__buf.i.i = alloca %"class.std::_Temporary_buffer.228", align 8
@@ -1105,15 +1105,15 @@ cleanup:                                          ; preds = %_ZNSt6vectorIjSaIjE
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L15makeBloomFilterERKSt6vectorINS_15ue2_case_stringESaIS1_EEmb(ptr noalias nocapture nonnull align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %lits, i64 noundef %max_len, i1 noundef zeroext %nocase) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L15makeBloomFilterERKSt6vectorINS_15ue2_case_stringESaIS1_EEmb(ptr noalias nonnull align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %lits, i64 noundef %max_len, i1 noundef zeroext %nocase) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %lits, i64 8
@@ -1496,7 +1496,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L13makeHashTableERKSt6vectorINS_15ue2_case_stringESaIS1_EEmRKS0_IjSaIjEEjb(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %lits, i64 noundef %max_len, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %litToOffsetVal, i32 noundef %numPositions, i1 noundef zeroext %nocase) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L13makeHashTableERKSt6vectorINS_15ue2_case_stringESaIS1_EEmRKS0_IjSaIjEEjb(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %lits, i64 noundef %max_len, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %litToOffsetVal, i32 noundef %numPositions, i1 noundef zeroext %nocase) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__z.i = alloca %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, boost::container::small_vector<std::pair<unsigned int, unsigned int>, 1, boost::container::new_allocator<std::pair<unsigned int, unsigned int>>>>, std::_Select1st<std::pair<const unsigned int, boost::container::small_vector<std::pair<unsigned int, unsigned int>, 1, boost::container::new_allocator<std::pair<unsigned int, unsigned int>>>>>, std::less<unsigned int>>::_Auto_node", align 8
   %agg.tmp4.i.i.i = alloca %"class.boost::container::vec_iterator", align 8
@@ -2646,10 +2646,10 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #6
@@ -3071,7 +3071,7 @@ if.end108:                                        ; preds = %for.body.i.i.i.i.i1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt3mapIjN5boost9container12small_vectorISt4pairIjjELm1ENS1_13new_allocatorIS4_EEvEESt4lessIjESaIS3_IKjS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3500,7 +3500,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #15
 declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt21__inplace_stable_sortIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L16computeLitHashesERKSt6vectorINSA_15ue2_case_stringESaISC_EEmbE3$_0EEEvT_SJ_T0_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull readonly %__last, ptr nonnull %__comp.coerce) unnamed_addr #0 {
+define internal fastcc void @"_ZSt21__inplace_stable_sortIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L16computeLitHashesERKSt6vectorINSA_15ue2_case_stringESaISC_EEmbE3$_0EEEvT_SJ_T0_"(ptr noundef nonnull readonly captures(none) %__first, ptr noundef nonnull readonly captures(none) %__last, ptr nonnull %__comp.coerce) unnamed_addr #0 {
 entry:
   %agg.tmp7 = alloca %"class.boost::container::vec_iterator", align 8
   %agg.tmp8 = alloca %"class.boost::container::vec_iterator", align 8
@@ -3552,7 +3552,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt22__stable_sort_adaptiveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L16computeLitHashesERKSt6vectorINSA_15ue2_case_stringESaISC_EEmbE3$_0EEEvT_SJ_T0_T1_T2_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull readonly %__last, ptr noundef nonnull %__buffer, i64 noundef range(i64 1, 4611686018427387904) %__buffer_size, ptr nonnull %__comp.coerce) unnamed_addr #0 {
+define internal fastcc void @"_ZSt22__stable_sort_adaptiveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L16computeLitHashesERKSt6vectorINSA_15ue2_case_stringESaISC_EEmbE3$_0EEEvT_SJ_T0_T1_T2_"(ptr noundef nonnull readonly captures(none) %__first, ptr noundef nonnull readonly captures(none) %__last, ptr noundef nonnull %__buffer, i64 noundef range(i64 1, 4611686018427387904) %__buffer_size, ptr nonnull %__comp.coerce) unnamed_addr #0 {
 entry:
   %agg.tmp = alloca %"class.boost::container::vec_iterator", align 8
   %agg.tmp2 = alloca %"class.boost::container::vec_iterator", align 8
@@ -3611,7 +3611,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L16computeLitHashesERKSt6vectorINSA_15ue2_case_stringESaISC_EEmbE3$_0EEEvT_SJ_T0_"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #17 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__insertion_sortIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L16computeLitHashesERKSt6vectorINSA_15ue2_case_stringESaISC_EEmbE3$_0EEEvT_SJ_T0_"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr nonnull readonly captures(none) %__comp.coerce) unnamed_addr #17 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i = icmp eq ptr %__first.0.val, %__last.0.val
   %__i.sroa.0.033 = getelementptr inbounds nuw i8, ptr %__first.0.val, i64 8
@@ -3822,7 +3822,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt22__merge_without_bufferIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEElN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L16computeLitHashesERKSt6vectorINSA_15ue2_case_stringESaISC_EEmbE3$_0EEEvT_SJ_SJ_T0_SK_T1_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull readonly %__middle, ptr nocapture noundef nonnull readonly %__last, i64 noundef %__len1, i64 noundef %__len2, ptr nonnull %__comp.coerce) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt22__merge_without_bufferIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEElN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L16computeLitHashesERKSt6vectorINSA_15ue2_case_stringESaISC_EEmbE3$_0EEEvT_SJ_SJ_T0_SK_T1_"(ptr noundef nonnull readonly captures(none) %__first, ptr noundef nonnull readonly captures(none) %__middle, ptr noundef nonnull readonly captures(none) %__last, i64 noundef %__len1, i64 noundef %__len2, ptr nonnull %__comp.coerce) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.boost::container::vec_iterator", align 8
   %agg.tmp1.i = alloca %"class.boost::container::vec_iterator", align 8
@@ -4145,7 +4145,7 @@ return:                                           ; preds = %if.end47, %if.then6
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #18
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt3_V28__rotateIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEEEET_S8_S8_S8_St26random_access_iterator_tag(ptr noalias sret(%"class.boost::container::vec_iterator") align 8 %agg.result, ptr noundef %__first, ptr noundef %__middle, ptr noundef %__last) local_unnamed_addr #0 comdat {
@@ -4567,7 +4567,7 @@ while.end:                                        ; preds = %"_ZSt17__merge_sort
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__merge_adaptiveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L16computeLitHashesERKSt6vectorINSA_15ue2_case_stringESaISC_EEmbE3$_0EEEvT_SJ_SJ_T0_SK_T1_SK_T2_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull readonly %__middle, ptr nocapture noundef nonnull readonly %__last, i64 noundef %__len1, i64 noundef range(i64 -4611686018427387901, -9223372036854775808) %__len2, ptr noundef nonnull %__buffer, i64 noundef range(i64 1, 4611686018427387904) %__buffer_size, i64 %__comp.coerce) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__merge_adaptiveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L16computeLitHashesERKSt6vectorINSA_15ue2_case_stringESaISC_EEmbE3$_0EEEvT_SJ_SJ_T0_SK_T1_SK_T2_"(ptr noundef nonnull readonly captures(none) %__first, ptr noundef nonnull readonly captures(none) %__middle, ptr noundef nonnull readonly captures(none) %__last, i64 noundef %__len1, i64 noundef range(i64 -4611686018427387901, -9223372036854775808) %__len2, ptr noundef nonnull %__buffer, i64 noundef range(i64 1, 4611686018427387904) %__buffer_size, i64 %__comp.coerce) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__new_middle = alloca %"class.boost::container::vec_iterator", align 8
   %agg.tmp60 = alloca %"class.boost::container::vec_iterator", align 8
@@ -5391,7 +5391,7 @@ if.end79:                                         ; preds = %if.end.i, %for.body
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @"_ZSt12__move_mergeIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L16computeLitHashesERKSt6vectorINSA_15ue2_case_stringESaISC_EEmbE3$_0EEET0_T_SK_SK_SK_SJ_T1_"(ptr nocapture noundef nonnull %__first1, ptr %__last1.0.val, ptr nocapture noundef nonnull %__first2, ptr %__last2.0.val, ptr noundef writeonly %__result, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #20 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @"_ZSt12__move_mergeIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L16computeLitHashesERKSt6vectorINSA_15ue2_case_stringESaISC_EEmbE3$_0EEET0_T_SK_SK_SK_SJ_T1_"(ptr noundef nonnull captures(none) %__first1, ptr %__last1.0.val, ptr noundef nonnull captures(none) %__first2, ptr %__last2.0.val, ptr noundef writeonly %__result, ptr nonnull readonly captures(none) %__comp.coerce) unnamed_addr #20 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %__first1, align 8
   %cmp.i.not42 = icmp eq ptr %0, %__last1.0.val
@@ -5637,7 +5637,7 @@ _ZSt4moveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_ET0_T_S8_S7_.exit
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @"_ZSt12__move_mergeIPSt4pairIjjEN5boost9container12vec_iteratorIS2_Lb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L16computeLitHashesERKSt6vectorINSA_15ue2_case_stringESaISC_EEmbE3$_0EEET0_T_SK_SK_SK_SJ_T1_"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull %__first1, ptr noundef nonnull %__last1, ptr noundef nonnull %__first2, ptr noundef nonnull %__last2, ptr nocapture noundef nonnull %__result, i64 %__comp.coerce) unnamed_addr #19 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt12__move_mergeIPSt4pairIjjEN5boost9container12vec_iteratorIS2_Lb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L16computeLitHashesERKSt6vectorINSA_15ue2_case_stringESaISC_EEmbE3$_0EEET0_T_SK_SK_SK_SJ_T1_"(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef nonnull %__first1, ptr noundef nonnull %__last1, ptr noundef nonnull %__first2, ptr noundef nonnull %__last2, ptr noundef nonnull captures(none) %__result, i64 %__comp.coerce) unnamed_addr #19 personality ptr @__gxx_personality_v0 {
 entry:
   %coerce.val.ip = inttoptr i64 %__comp.coerce to ptr
   %cmp38 = icmp ne ptr %__first1, %__last1
@@ -6406,7 +6406,7 @@ cleanup:                                          ; preds = %if.else22, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt21__inplace_stable_sortIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L16computeLitHashesERKSt6vectorINSA_15ue2_case_stringESaISC_EEmbE3$_2EEEvT_SJ_T0_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull readonly %__last) unnamed_addr #0 {
+define internal fastcc void @"_ZSt21__inplace_stable_sortIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L16computeLitHashesERKSt6vectorINSA_15ue2_case_stringESaISC_EEmbE3$_2EEEvT_SJ_T0_"(ptr noundef nonnull readonly captures(none) %__first, ptr noundef nonnull readonly captures(none) %__last) unnamed_addr #0 {
 entry:
   %agg.tmp4 = alloca %"class.boost::container::vec_iterator", align 8
   %agg.tmp5 = alloca %"class.boost::container::vec_iterator", align 8
@@ -6568,7 +6568,7 @@ return:                                           ; preds = %for.inc.i, %if.end,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt22__stable_sort_adaptiveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L16computeLitHashesERKSt6vectorINSA_15ue2_case_stringESaISC_EEmbE3$_2EEEvT_SJ_T0_T1_T2_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull readonly %__last, ptr noundef nonnull %__buffer, i64 noundef range(i64 1, 4611686018427387904) %__buffer_size) unnamed_addr #0 {
+define internal fastcc void @"_ZSt22__stable_sort_adaptiveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES5_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L16computeLitHashesERKSt6vectorINSA_15ue2_case_stringESaISC_EEmbE3$_2EEEvT_SJ_T0_T1_T2_"(ptr noundef nonnull readonly captures(none) %__first, ptr noundef nonnull readonly captures(none) %__last, ptr noundef nonnull %__buffer, i64 noundef range(i64 1, 4611686018427387904) %__buffer_size) unnamed_addr #0 {
 entry:
   %agg.tmp = alloca %"class.boost::container::vec_iterator", align 8
   %agg.tmp1 = alloca %"class.boost::container::vec_iterator", align 8
@@ -6623,7 +6623,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt22__merge_without_bufferIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEElN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L16computeLitHashesERKSt6vectorINSA_15ue2_case_stringESaISC_EEmbE3$_2EEEvT_SJ_SJ_T0_SK_T1_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull readonly %__middle, ptr nocapture noundef nonnull readonly %__last, i64 noundef %__len1, i64 noundef %__len2) unnamed_addr #0 {
+define internal fastcc void @"_ZSt22__merge_without_bufferIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEElN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L16computeLitHashesERKSt6vectorINSA_15ue2_case_stringESaISC_EEmbE3$_2EEEvT_SJ_SJ_T0_SK_T1_"(ptr noundef nonnull readonly captures(none) %__first, ptr noundef nonnull readonly captures(none) %__middle, ptr noundef nonnull readonly captures(none) %__last, i64 noundef %__len1, i64 noundef %__len2) unnamed_addr #0 {
 entry:
   %agg.tmp.i = alloca %"class.boost::container::vec_iterator", align 8
   %agg.tmp1.i = alloca %"class.boost::container::vec_iterator", align 8
@@ -7851,7 +7851,7 @@ while.end:                                        ; preds = %"_ZSt17__merge_sort
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__merge_adaptiveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L16computeLitHashesERKSt6vectorINSA_15ue2_case_stringESaISC_EEmbE3$_2EEEvT_SJ_SJ_T0_SK_T1_SK_T2_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull readonly %__middle, ptr nocapture noundef nonnull readonly %__last, i64 noundef %__len1, i64 noundef range(i64 -4611686018427387901, -9223372036854775808) %__len2, ptr noundef nonnull %__buffer, i64 noundef range(i64 1, 4611686018427387904) %__buffer_size) unnamed_addr #0 {
+define internal fastcc void @"_ZSt16__merge_adaptiveIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue2L16computeLitHashesERKSt6vectorINSA_15ue2_case_stringESaISC_EEmbE3$_2EEEvT_SJ_SJ_T0_SK_T1_SK_T2_"(ptr noundef nonnull readonly captures(none) %__first, ptr noundef nonnull readonly captures(none) %__middle, ptr noundef nonnull readonly captures(none) %__last, i64 noundef %__len1, i64 noundef range(i64 -4611686018427387901, -9223372036854775808) %__len2, ptr noundef nonnull %__buffer, i64 noundef range(i64 1, 4611686018427387904) %__buffer_size) unnamed_addr #0 {
 entry:
   %__new_middle = alloca %"class.boost::container::vec_iterator", align 8
   %agg.tmp42 = alloca %"class.boost::container::vec_iterator", align 8
@@ -14072,7 +14072,7 @@ declare i64 @llvm.smax.i64(i64, i64) #22
 declare i64 @llvm.umin.i64(i64, i64) #22
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #25
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #26

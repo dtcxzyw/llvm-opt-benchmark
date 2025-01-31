@@ -24,7 +24,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN2EA6Thread21GetInstructionPointerERPv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %p) local_unnamed_addr #1 {
+define dso_local void @_ZN2EA6Thread21GetInstructionPointerERPv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %p) local_unnamed_addr #1 {
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   store ptr %0, ptr %p, align 8
@@ -62,10 +62,10 @@ if.end4:                                          ; preds = %if.then, %if.then3,
 declare i32 @backtrace(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN2EA6Thread19GetCallstackContextERNS0_16CallstackContextEPKNS0_7ContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((24, 48)) %context, ptr nocapture noundef readonly %pContext) local_unnamed_addr #6 {
+define dso_local void @_ZN2EA6Thread19GetCallstackContextERNS0_16CallstackContextEPKNS0_7ContextE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((24, 48)) %context, ptr noundef readonly captures(none) %pContext) local_unnamed_addr #6 {
 entry:
   %Rip = getelementptr inbounds nuw i8, ptr %pContext, i64 248
   %0 = load i64, ptr %Rip, align 8
@@ -83,30 +83,30 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i64 @_ZN2EA6Thread20GetModuleFromAddressEPKvPcm(ptr nocapture noundef readnone %address, ptr nocapture noundef writeonly initializes((0, 1)) %pModuleName, i64 noundef %moduleNameCapacity) local_unnamed_addr #1 {
+define dso_local noundef i64 @_ZN2EA6Thread20GetModuleFromAddressEPKvPcm(ptr noundef readnone captures(none) %address, ptr noundef writeonly captures(none) initializes((0, 1)) %pModuleName, i64 noundef %moduleNameCapacity) local_unnamed_addr #1 {
 entry:
   store i8 0, ptr %pModuleName, align 1
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noalias noundef ptr @_ZN2EA6Thread26GetModuleHandleFromAddressEPKv(ptr nocapture noundef readnone %pAddress) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @_ZN2EA6Thread26GetModuleHandleFromAddressEPKv(ptr noundef readnone captures(none) %pAddress) local_unnamed_addr #0 {
 entry:
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @_ZN2EA6Thread19GetCallstackContextERNS0_16CallstackContextEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %context, i64 noundef %threadId) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN2EA6Thread19GetCallstackContextERNS0_16CallstackContextEl(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 48)) %context, i64 noundef %threadId) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %context, i8 0, i64 48, i1 false)
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @_ZN2EA6Thread30GetCallstackContextSysThreadIdERNS0_16CallstackContextEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %context, i64 noundef %sysThreadId) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN2EA6Thread30GetCallstackContextSysThreadIdERNS0_16CallstackContextEl(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 48)) %context, i64 noundef %sysThreadId) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %context, i8 0, i64 48, i1 false)
   ret i1 false
@@ -334,10 +334,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

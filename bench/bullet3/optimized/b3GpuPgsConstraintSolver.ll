@@ -225,7 +225,7 @@ $_ZTI13b3OpenCLArrayI21b3GpuSolverConstraintE = comdat any
 @_ZN24b3GpuPgsConstraintSolverD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN24b3GpuPgsConstraintSolverD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { <2 x float>, <2 x float> } @_Z23getVelocityInLocalPointP15b3RigidBodyDataRK9b3Vector3(ptr nocapture noundef readonly %rb, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %rel_pos) local_unnamed_addr #0 {
+define dso_local { <2 x float>, <2 x float> } @_Z23getVelocityInLocalPointP15b3RigidBodyDataRK9b3Vector3(ptr noundef readonly captures(none) %rb, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %rel_pos) local_unnamed_addr #0 {
 entry:
   %m_linVel.i = getelementptr inbounds nuw i8, ptr %rb, i64 32
   %m_angVel.i = getelementptr inbounds nuw i8, ptr %rb, i64 48
@@ -608,7 +608,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
@@ -724,7 +724,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN24b3GpuPgsConstraintSolverD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(228) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24b3GpuPgsConstraintSolverD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(228) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24b3GpuPgsConstraintSolver, i64 16), ptr %this, align 8
   %0 = load ptr, ptr @__clewReleaseKernel, align 8
@@ -1377,7 +1377,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24b3GpuPgsConstraintSolver16recomputeBatchesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(228) %this) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN24b3GpuPgsConstraintSolver16recomputeBatchesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(228) %this) local_unnamed_addr #1 align 2 {
 entry:
   %m_gpuData = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_gpuData, align 8
@@ -4183,7 +4183,7 @@ if.end:                                           ; preds = %do.body.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN24b3GpuPgsConstraintSolver14initSolverBodyEiP15b3GpuSolverBodyP15b3RigidBodyData(ptr nocapture noundef nonnull readnone align 8 dereferenceable(228) %this, i32 noundef %bodyIndex, ptr nocapture noundef writeonly initializes((0, 148)) %solverBody, ptr nocapture noundef readonly %rb) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN24b3GpuPgsConstraintSolver14initSolverBodyEiP15b3GpuSolverBodyP15b3RigidBodyData(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(228) %this, i32 noundef %bodyIndex, ptr noundef writeonly captures(none) initializes((0, 148)) %solverBody, ptr noundef readonly captures(none) %rb) local_unnamed_addr #12 align 2 {
 entry:
   %m_pushVelocity.i = getelementptr inbounds nuw i8, ptr %solverBody, i64 80
   %m_invMass = getelementptr inbounds nuw i8, ptr %rb, i64 68
@@ -4804,7 +4804,7 @@ if.end:                                           ; preds = %do.body.i, %if.then
 declare void @_ZN22b3GpuGenericConstraint8getInfo2EP20b3GpuConstraintInfo2PK15b3RigidBodyData(ptr noundef nonnull align 16 dereferenceable(80), ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #14
@@ -4931,7 +4931,7 @@ if.end:                                           ; preds = %if.then4.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z34resolveSingleConstraintRowGeneric2P15b3GpuSolverBodyS0_P21b3GpuSolverConstraint(ptr nocapture noundef %body1, ptr nocapture noundef %body2, ptr nocapture noundef %c) local_unnamed_addr #12 {
+define dso_local void @_Z34resolveSingleConstraintRowGeneric2P15b3GpuSolverBodyS0_P21b3GpuSolverConstraint(ptr noundef captures(none) %body1, ptr noundef captures(none) %body2, ptr noundef captures(none) %c) local_unnamed_addr #12 {
 entry:
   %m_rhs = getelementptr inbounds nuw i8, ptr %c, i64 104
   %0 = load float, ptr %m_rhs, align 8
@@ -5148,13 +5148,13 @@ if.end26:                                         ; preds = %if.else, %if.then18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN24b3GpuPgsConstraintSolver17averageVelocitiesEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(228) %this) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN24b3GpuPgsConstraintSolver17averageVelocitiesEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(228) %this) local_unnamed_addr #15 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN24b3GpuPgsConstraintSolver33solveGroupCacheFriendlyIterationsEP13b3OpenCLArrayI22b3GpuGenericConstraintEiRK19b3ContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(228) %this, ptr noundef %gpuConstraints1, i32 noundef %numConstraints, ptr nocapture noundef nonnull readonly align 4 dereferenceable(84) %infoGlobal) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef float @_ZN24b3GpuPgsConstraintSolver33solveGroupCacheFriendlyIterationsEP13b3OpenCLArrayI22b3GpuGenericConstraintEiRK19b3ContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(228) %this, ptr noundef %gpuConstraints1, i32 noundef %numConstraints, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(84) %infoGlobal) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gRange.i.i = alloca [3 x i64], align 16
   %lRange.i.i = alloca [3 x i64], align 16
@@ -6597,7 +6597,7 @@ _ZN13b3ProfileZoneD2Ev.exit11:                    ; preds = %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN24b3GpuPgsConstraintSolver29solveGroupCacheFriendlyFinishEP13b3OpenCLArrayI15b3RigidBodyDataEPS0_I13b3InertiaDataEiPS0_I22b3GpuGenericConstraintEiRK19b3ContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(228) %this, ptr noundef %gpuBodies, ptr nocapture readnone %gpuInertias, i32 noundef %numBodies, ptr noundef %gpuConstraints, i32 noundef %numConstraints, ptr nocapture noundef nonnull readonly align 4 dereferenceable(84) %infoGlobal) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef float @_ZN24b3GpuPgsConstraintSolver29solveGroupCacheFriendlyFinishEP13b3OpenCLArrayI15b3RigidBodyDataEPS0_I13b3InertiaDataEiPS0_I22b3GpuGenericConstraintEiRK19b3ContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(228) %this, ptr noundef %gpuBodies, ptr readnone captures(none) %gpuInertias, i32 noundef %numBodies, ptr noundef %gpuConstraints, i32 noundef %numConstraints, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(84) %infoGlobal) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gRange.i.i88 = alloca [3 x i64], align 16
   %lRange.i.i89 = alloca [3 x i64], align 16
@@ -7944,7 +7944,7 @@ declare ptr @b3OpenCLUtils_compileCLKernelFromString(ptr noundef, ptr noundef, p
 declare void @b3EnterProfileZone(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #16
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #16
 
 declare void @b3LeaveProfileZone() local_unnamed_addr #5
 
@@ -9260,10 +9260,10 @@ entry:
 declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

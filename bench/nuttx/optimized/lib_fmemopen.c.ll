@@ -137,13 +137,13 @@ declare ptr @__errno() local_unnamed_addr #2
 declare i32 @lib_mode2oflags(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strnlen(ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i64 @fmemopen_read(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #5 {
+define internal i64 @fmemopen_read(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
@@ -166,7 +166,7 @@ define internal i64 @fmemopen_read(ptr nocapture noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i64 @fmemopen_write(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #5 {
+define internal i64 @fmemopen_write(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
@@ -215,7 +215,7 @@ define internal i64 @fmemopen_write(ptr nocapture noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, -2147483648) i32 @fmemopen_seek(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) #0 {
+define internal range(i32 -1, -2147483648) i32 @fmemopen_seek(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #0 {
   switch i32 %2, label %16 [
     i32 0, label %4
     i32 2, label %6
@@ -273,7 +273,7 @@ define internal range(i32 -1, -2147483648) i32 @fmemopen_seek(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @fmemopen_close(ptr nocapture noundef %0) #6 {
+define internal noundef i32 @fmemopen_close(ptr noundef captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -292,7 +292,7 @@ define internal noundef i32 @fmemopen_close(ptr nocapture noundef %0) #6 {
 declare ptr @fopencookie(ptr noundef, ptr noundef, ptr noundef byval(%struct.cookie_io_functions_t) align 8) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

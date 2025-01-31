@@ -183,7 +183,7 @@ cleanup:                                          ; preds = %_ZN4node11Environme
 declare void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS1_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) #3 align 2 {
+define dso_local void @_ZN4node12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS1_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %data) #3 align 2 {
 entry:
   %search.i.i = alloca %"class.node::CleanupQueue::CleanupHookCallback", align 8
   %parameter_.i = getelementptr inbounds nuw i8, ptr %data, i64 8
@@ -338,7 +338,7 @@ _ZN4node11Environment14AddCleanupHookEPFvPvES1_.exit: ; preds = %entry
 declare ptr @_ZN4node10NewContextEPN2v87IsolateENS0_5LocalINS0_14ObjectTemplateEEE(ptr noundef, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @_ZN4node5RealmC2EPNS_11EnvironmentEN2v85LocalINS3_7ContextEEENS0_4KindE(ptr noundef nonnull align 8 dereferenceable(872), ptr noundef, ptr, i32 noundef) unnamed_addr #0
 
@@ -415,7 +415,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm7contextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm7contextEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -442,7 +442,7 @@ _ZN4node17PersistentToLocal7DefaultIN2v87ContextEEENS2_5LocalIT_EEPNS2_7IsolateE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm26async_hooks_after_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm26async_hooks_after_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -544,7 +544,7 @@ declare ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable
 declare i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm27async_hooks_before_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm27async_hooks_before_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -642,7 +642,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm31async_hooks_callback_trampolineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm31async_hooks_callback_trampolineEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -740,7 +740,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm19async_hooks_bindingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm19async_hooks_bindingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -838,7 +838,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm28async_hooks_destroy_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm28async_hooks_destroy_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -936,7 +936,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm25async_hooks_init_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm25async_hooks_init_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -1034,7 +1034,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm36async_hooks_promise_resolve_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm36async_hooks_promise_resolve_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -1132,7 +1132,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm23buffer_prototype_objectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm23buffer_prototype_objectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -1230,7 +1230,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm29crypto_key_object_constructorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm29crypto_key_object_constructorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -1328,7 +1328,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm37crypto_key_object_private_constructorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm37crypto_key_object_private_constructorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -1426,7 +1426,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm36crypto_key_object_public_constructorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm36crypto_key_object_public_constructorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -1524,7 +1524,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm36crypto_key_object_secret_constructorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm36crypto_key_object_secret_constructorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -1622,7 +1622,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm21domexception_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm21domexception_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -1720,7 +1720,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm35enhance_fatal_stack_after_inspectorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm35enhance_fatal_stack_after_inspectorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -1818,7 +1818,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm36enhance_fatal_stack_before_inspectorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm36enhance_fatal_stack_before_inspectorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -1916,7 +1916,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm27get_source_map_error_sourceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm27get_source_map_error_sourceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -2014,7 +2014,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm39host_import_module_dynamically_callbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm39host_import_module_dynamically_callbackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -2112,7 +2112,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm43host_initialize_import_meta_object_callbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm43host_initialize_import_meta_object_callbackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -2210,7 +2210,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm31http2session_on_altsvc_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm31http2session_on_altsvc_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -2308,7 +2308,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm30http2session_on_error_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm30http2session_on_error_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -2406,7 +2406,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm36http2session_on_frame_error_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm36http2session_on_frame_error_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -2504,7 +2504,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm36http2session_on_goaway_data_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm36http2session_on_goaway_data_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -2602,7 +2602,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm32http2session_on_headers_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm32http2session_on_headers_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -2700,7 +2700,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm31http2session_on_origin_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm31http2session_on_origin_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -2798,7 +2798,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm29http2session_on_ping_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm29http2session_on_ping_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -2896,7 +2896,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm33http2session_on_priority_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm33http2session_on_priority_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -2994,7 +2994,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm33http2session_on_settings_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm33http2session_on_settings_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -3092,7 +3092,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm37http2session_on_stream_close_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm37http2session_on_stream_close_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -3190,7 +3190,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm40http2session_on_stream_trailers_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm40http2session_on_stream_trailers_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -3288,7 +3288,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm23internal_binding_loaderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm23internal_binding_loaderEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -3386,7 +3386,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm27immediate_callback_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm27immediate_callback_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -3484,7 +3484,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm37inspector_console_extension_installerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm37inspector_console_extension_installerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -3582,7 +3582,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm29inspector_disable_async_hooksEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm29inspector_disable_async_hooksEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -3680,7 +3680,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm28inspector_enable_async_hooksEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm28inspector_enable_async_hooksEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -3778,7 +3778,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm32maybe_cache_generated_source_mapEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm32maybe_cache_generated_source_mapEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -3876,7 +3876,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm35messaging_deserialize_create_objectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm35messaging_deserialize_create_objectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -3974,7 +3974,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm12message_portEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm12message_portEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -4072,7 +4072,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm22builtin_module_requireEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm22builtin_module_requireEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -4170,7 +4170,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm26performance_entry_callbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm26performance_entry_callbackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -4268,7 +4268,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm28prepare_stack_trace_callbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm28prepare_stack_trace_callbackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -4366,7 +4366,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm14process_objectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm14process_objectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -4464,7 +4464,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm11primordialsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm11primordialsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -4562,7 +4562,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm37primordials_safe_map_prototype_objectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm37primordials_safe_map_prototype_objectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -4660,7 +4660,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm37primordials_safe_set_prototype_objectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm37primordials_safe_set_prototype_objectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -4758,7 +4758,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm42primordials_safe_weak_map_prototype_objectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm42primordials_safe_weak_map_prototype_objectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -4856,7 +4856,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm42primordials_safe_weak_set_prototype_objectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm42primordials_safe_weak_set_prototype_objectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -4954,7 +4954,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm20promise_hook_handlerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm20promise_hook_handlerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -5052,7 +5052,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm23promise_reject_callbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm23promise_reject_callbackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -5150,7 +5150,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm27snapshot_serialize_callbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm27snapshot_serialize_callbackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -5248,7 +5248,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm29snapshot_deserialize_callbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm29snapshot_deserialize_callbackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -5346,7 +5346,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm25snapshot_deserialize_mainEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm25snapshot_deserialize_mainEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -5444,7 +5444,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm23source_map_cache_getterEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm23source_map_cache_getterEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -5542,7 +5542,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm22tick_callback_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm22tick_callback_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -5640,7 +5640,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm24timers_callback_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm24timers_callback_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -5738,7 +5738,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm29tls_wrap_constructor_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm29tls_wrap_constructor_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -5836,7 +5836,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm29trace_category_state_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm29trace_category_state_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -5934,7 +5934,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm24udp_constructor_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm24udp_constructor_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -6032,7 +6032,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm24url_constructor_functionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm24url_constructor_functionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -6130,7 +6130,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm31wasm_streaming_compilation_implEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm31wasm_streaming_compilation_implEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -6228,7 +6228,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm33wasm_streaming_object_constructorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4node12shadow_realm11ShadowRealm33wasm_streaming_object_constructorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_, align 8
@@ -6899,7 +6899,7 @@ declare void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef) local_unnamed_
 declare void @_ZN4node11Environment18ToggleImmediateRefEb(ptr noundef nonnull align 8 dereferenceable(2872), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS6_EEE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS6_EEE3$_0ED2Ev"(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -6941,7 +6941,7 @@ _ZNKSt14default_deleteIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackEEc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS6_EEE3$_0E4CallES2_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture readnone %args) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS6_EEE3$_0E4CallES2_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr readnone captures(none) %args) unnamed_addr #3 align 2 {
 entry:
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %callback_.val = load ptr, ptr %callback_, align 8
@@ -7013,10 +7013,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

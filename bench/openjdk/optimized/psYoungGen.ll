@@ -101,7 +101,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN10PSYoungGenC1E13ReservedSpacemmm = hidden unnamed_addr alias void (ptr, ptr, i64, i64, i64), ptr @_ZN10PSYoungGenC2E13ReservedSpacemmm
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10PSYoungGenC2E13ReservedSpacemmm(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((0, 104)) %0, ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN10PSYoungGenC2E13ReservedSpacemmm(ptr noundef nonnull align 8 captures(none) dereferenceable(104) initializes((0, 104)) %0, ptr noundef readonly byval(%class.ReservedSpace) align 8 captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV10PSYoungGen, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -131,7 +131,7 @@ _ZN10PSYoungGen10initializeE13ReservedSpacemm.exit: ; preds = %5, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10PSYoungGen10initializeE13ReservedSpacemm(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((8, 56), (72, 104)) %0, ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10PSYoungGen10initializeE13ReservedSpacemm(ptr noundef nonnull align 8 captures(none) dereferenceable(104) initializes((8, 56), (72, 104)) %0, ptr noundef readonly byval(%class.ReservedSpace) align 8 captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 5, i32 noundef 0) #9
   tail call void @_ZN14PSVirtualSpaceC1E13ReservedSpacem(ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef nonnull byval(%class.ReservedSpace) align 8 %1, i64 noundef %3) #9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -151,7 +151,7 @@ _ZN10PSYoungGen24initialize_virtual_spaceE13ReservedSpacemm.exit: ; preds = %4, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10PSYoungGen24initialize_virtual_spaceE13ReservedSpacemm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((24, 32)) %0, ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10PSYoungGen24initialize_virtual_spaceE13ReservedSpacemm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) initializes((24, 32)) %0, ptr noundef readonly byval(%class.ReservedSpace) align 8 captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 5, i32 noundef 0) #9
   tail call void @_ZN14PSVirtualSpaceC1E13ReservedSpacem(ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef nonnull byval(%class.ReservedSpace) align 8 %1, i64 noundef %3) #9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -174,7 +174,7 @@ declare void @_ZN14PSVirtualSpaceC1E13ReservedSpacem(ptr noundef nonnull align 8
 declare void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10PSYoungGen15initialize_workEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((8, 24), (32, 56), (72, 104)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10PSYoungGen15initialize_workEv(ptr noundef nonnull align 8 captures(none) dereferenceable(104) initializes((8, 24), (32, 56), (72, 104)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -315,7 +315,7 @@ declare void @_ZN20PSGenerationCountersC1EPKciimmP14PSVirtualSpace(ptr noundef n
 declare void @_ZN13SpaceCountersC1EPKcimP12MutableSpaceP18GenerationCounters(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10PSYoungGen32compute_initial_space_boundariesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10PSYoungGen32compute_initial_space_boundariesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -417,7 +417,7 @@ define hidden void @_ZN10PSYoungGen32compute_initial_space_boundariesEv(ptr noca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10PSYoungGen20set_space_boundariesEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10PSYoungGen20set_space_boundariesEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -450,7 +450,7 @@ define hidden void @_ZN10PSYoungGen20set_space_boundariesEmm(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10PSYoungGen6resizeEmm(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10PSYoungGen6resizeEmm(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef zeroext i1 @_ZN10PSYoungGen17resize_generationEmm(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %1, i64 noundef %2)
   br i1 %4, label %5, label %45
 
@@ -506,7 +506,7 @@ define hidden void @_ZN10PSYoungGen6resizeEmm(ptr nocapture noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10PSYoungGen17resize_generationEmm(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN10PSYoungGen17resize_generationEmm(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -740,7 +740,7 @@ _ZN10PSYoungGen16limit_gen_shrinkEm.exit:         ; preds = %55, %63
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10PSYoungGen13resize_spacesEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10PSYoungGen13resize_spacesEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -1194,7 +1194,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i64 0, -7) i64 @_ZNK10PSYoungGen13used_in_bytesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, -7) i64 @_ZNK10PSYoungGen13used_in_bytesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -1213,7 +1213,7 @@ define hidden noundef range(i64 0, -7) i64 @_ZNK10PSYoungGen13used_in_bytesEv(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK10PSYoungGen17capacity_in_bytesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef i64 @_ZNK10PSYoungGen17capacity_in_bytesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -1239,7 +1239,7 @@ define hidden noundef i64 @_ZNK10PSYoungGen17capacity_in_bytesEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN10PSYoungGen16limit_gen_shrinkEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN10PSYoungGen16limit_gen_shrinkEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -1309,7 +1309,7 @@ _ZN10PSYoungGen17available_to_liveEv.exit:        ; preds = %29, %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10PSYoungGen28reset_survivors_after_shrinkEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((8, 24)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10PSYoungGen28reset_survivors_after_shrinkEv(ptr noundef nonnull align 8 captures(none) dereferenceable(104) initializes((8, 24)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1372,7 +1372,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10PSYoungGen11post_resizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10PSYoungGen11post_resizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -1393,7 +1393,7 @@ define hidden void @_ZN10PSYoungGen11post_resizeEv(ptr nocapture noundef nonnull
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN10PSYoungGen11swap_spacesEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN10PSYoungGen11swap_spacesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1404,7 +1404,7 @@ define hidden void @_ZN10PSYoungGen11swap_spacesEv(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i64 0, -7) i64 @_ZNK10PSYoungGen13free_in_bytesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, -7) i64 @_ZNK10PSYoungGen13free_in_bytesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -1423,7 +1423,7 @@ define hidden noundef range(i64 0, -7) i64 @_ZNK10PSYoungGen13free_in_bytesEv(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef range(i64 0, 4611686018427387903) i64 @_ZNK10PSYoungGen17capacity_in_wordsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i64 0, 4611686018427387903) i64 @_ZNK10PSYoungGen17capacity_in_wordsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -1449,7 +1449,7 @@ define hidden noundef range(i64 0, 4611686018427387903) i64 @_ZNK10PSYoungGen17c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK10PSYoungGen13used_in_wordsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK10PSYoungGen13used_in_wordsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -1467,7 +1467,7 @@ define hidden noundef i64 @_ZNK10PSYoungGen13used_in_wordsEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK10PSYoungGen13free_in_wordsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK10PSYoungGen13free_in_wordsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -1485,7 +1485,7 @@ define hidden noundef i64 @_ZNK10PSYoungGen13free_in_wordsEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10PSYoungGen14object_iterateEP13ObjectClosure(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10PSYoungGen14object_iterateEP13ObjectClosure(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN12MutableSpace14object_iterateEP13ObjectClosure(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef %1) #9
@@ -1510,7 +1510,7 @@ define hidden void @_ZNK10PSYoungGen5printEv(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK10PSYoungGen8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define hidden void @_ZNK10PSYoungGen8print_onEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35) #9
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -1577,7 +1577,7 @@ define hidden void @_ZNK10PSYoungGen8print_onEP12outputStream(ptr nocapture noun
 declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZN10PSYoungGen20available_to_min_genEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef i64 @_ZN10PSYoungGen20available_to_min_genEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -1594,7 +1594,7 @@ define hidden noundef i64 @_ZN10PSYoungGen20available_to_min_genEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN10PSYoungGen17available_to_liveEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN10PSYoungGen17available_to_liveEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -1650,7 +1650,7 @@ define hidden noundef i64 @_ZN10PSYoungGen17available_to_liveEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10PSYoungGen15update_countersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10PSYoungGen15update_countersEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
   %2 = load i8, ptr @UsePerfData, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %54
@@ -1719,7 +1719,7 @@ define hidden void @_ZN10PSYoungGen15update_countersEv(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10PSYoungGen6verifyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10PSYoungGen6verifyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -1869,7 +1869,7 @@ declare i64 @llvm.umax.i64(i64, i64) #7
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

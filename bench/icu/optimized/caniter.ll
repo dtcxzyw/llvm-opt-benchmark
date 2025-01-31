@@ -44,7 +44,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7517CanonicalIterator17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7517CanonicalIterator17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret ptr @_ZZN6icu_7517CanonicalIterator16getStaticClassIDEvE7classID
 }
@@ -460,7 +460,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7517CanonicalIterator11cleanPiecesEv(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7517CanonicalIterator11cleanPiecesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %this) local_unnamed_addr #1 align 2 {
 entry:
   %pieces = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %pieces, align 8
@@ -589,7 +589,7 @@ entry:
 declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6icu_7517CanonicalIterator5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(200) initializes((72, 73)) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN6icu_7517CanonicalIterator5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) initializes((72, 73)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %done = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i8 0, ptr %done, align 8
@@ -729,7 +729,7 @@ declare noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull a
 declare noundef signext i8 @_ZNK6icu_7515Normalizer2Impl21isCanonSegmentStarterEi(ptr noundef nonnull align 8 dereferenceable(80), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7517CanonicalIterator14getEquivalentsERKNS_13UnicodeStringERiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(64) %segment, ptr nocapture noundef nonnull align 4 dereferenceable(4) %result_len, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN6icu_7517CanonicalIterator14getEquivalentsERKNS_13UnicodeStringERiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(64) %segment, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %result_len, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result = alloca %"class.icu_75::Hashtable", align 8
   %permutations = alloca %"class.icu_75::Hashtable", align 8
@@ -1195,7 +1195,7 @@ ehcleanup102:                                     ; preds = %ehcleanup100, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7517CanonicalIterator7permuteERNS_13UnicodeStringEaPNS_9HashtableER10UErrorCodei(ptr noundef nonnull align 8 dereferenceable(64) %source, i8 noundef signext %skipZeros, ptr nocapture noundef readonly %result, ptr noundef nonnull align 4 dereferenceable(4) %status, i32 noundef %depth) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7517CanonicalIterator7permuteERNS_13UnicodeStringEaPNS_9HashtableER10UErrorCodei(ptr noundef nonnull align 8 dereferenceable(64) %source, i8 noundef signext %skipZeros, ptr noundef readonly captures(none) %result, ptr noundef nonnull align 4 dereferenceable(4) %status, i32 noundef %depth) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %subpermute = alloca %"class.icu_75::Hashtable", align 8
   %el = alloca i32, align 4
@@ -1554,7 +1554,7 @@ terminate.lpad:                                   ; preds = %if.then
 declare noundef i32 @_ZNK6icu_7513UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7517CanonicalIterator15getEquivalents2EPNS_9HashtableEPKDsiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, ptr noundef readonly %fillinResult, ptr noundef %segment, i32 noundef %segLen, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN6icu_7517CanonicalIterator15getEquivalents2EPNS_9HashtableEPKDsiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef readonly %fillinResult, ptr noundef %segment, i32 noundef %segLen, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %toPut = alloca %"class.icu_75::UnicodeString", align 8
   %starts = alloca %"class.icu_75::UnicodeSet", align 8
@@ -1954,7 +1954,7 @@ declare void @_ZN6icu_7518UnicodeSetIteratorC1ERKNS_10UnicodeSetE(ptr noundef no
 declare noundef signext i8 @_ZN6icu_7518UnicodeSetIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7517CanonicalIterator7extractEPNS_9HashtableEiPKDsiiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, ptr noundef %fillinResult, i32 noundef %comp, ptr noundef %segment, i32 noundef %segLen, i32 noundef %segmentPos, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN6icu_7517CanonicalIterator7extractEPNS_9HashtableEiPKDsiiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef %fillinResult, i32 noundef %comp, ptr noundef %segment, i32 noundef %segLen, i32 noundef %segmentPos, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.icu_75::UnicodeString", align 8
   %decompString = alloca %"class.icu_75::UnicodeString", align 8
@@ -2356,7 +2356,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare noundef signext i8 @_ZNK6icu_7513UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

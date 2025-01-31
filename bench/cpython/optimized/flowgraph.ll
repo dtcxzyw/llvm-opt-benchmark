@@ -70,7 +70,7 @@ declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 
@@ -114,7 +114,7 @@ return:                                           ; preds = %entry, %while.end
 declare void @PyObject_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @_PyCfgBuilder_CheckSize(ptr nocapture noundef readonly %g) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyCfgBuilder_CheckSize(ptr noundef readonly captures(none) %g) local_unnamed_addr #0 {
 entry:
   %g_block_list = getelementptr inbounds nuw i8, ptr %g, i64 8
   br label %for.cond
@@ -141,7 +141,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @_PyCfgBuilder_UseLabel(ptr nocapture noundef initializes((24, 28)) %g, i32 %lbl.coerce) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyCfgBuilder_UseLabel(ptr noundef captures(none) initializes((24, 28)) %g, i32 %lbl.coerce) local_unnamed_addr #0 {
 entry:
   %g_current_label = getelementptr inbounds nuw i8, ptr %g, i64 24
   store i32 %lbl.coerce, ptr %g_current_label, align 8
@@ -150,10 +150,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @cfg_builder_maybe_start_new_block(ptr nocapture noundef %g) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @cfg_builder_maybe_start_new_block(ptr noundef captures(none) %g) unnamed_addr #0 {
 entry:
   %g_curblock.i = getelementptr inbounds nuw i8, ptr %g, i64 16
   %0 = load ptr, ptr %g_curblock.i, align 8
@@ -244,7 +244,7 @@ return:                                           ; preds = %if.end.i, %if.else.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @_PyCfgBuilder_Addop(ptr nocapture noundef %g, i32 noundef %opcode, i32 noundef %oparg, i64 %loc.coerce0, i64 %loc.coerce1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyCfgBuilder_Addop(ptr noundef captures(none) %g, i32 noundef %opcode, i32 noundef %oparg, i64 %loc.coerce0, i64 %loc.coerce1) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @cfg_builder_maybe_start_new_block(ptr noundef %g)
   %cmp = icmp eq i32 %call, -1
@@ -290,7 +290,7 @@ return:                                           ; preds = %if.end.i, %basicblo
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @_PyCfg_JumpLabelsToTargets(ptr nocapture noundef readonly %g) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyCfg_JumpLabelsToTargets(ptr noundef readonly captures(none) %g) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %g, align 8
   %call = tail call fastcc i32 @translate_jump_labels_to_targets(ptr noundef %0)
@@ -415,7 +415,7 @@ return:                                           ; preds = %for.end43, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @_PyCfg_OptimizeCodeUnit(ptr nocapture noundef %g, ptr noundef %consts, ptr noundef %const_cache, i32 noundef %nlocals, i32 noundef %nparams, i32 noundef %firstlineno) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyCfg_OptimizeCodeUnit(ptr noundef captures(none) %g, ptr noundef %consts, ptr noundef %const_cache, i32 noundef %nlocals, i32 noundef %nparams, i32 noundef %firstlineno) local_unnamed_addr #0 {
 entry:
   %prev_location.i.i = alloca %struct._PyCompilerSrcLocation, align 4
   %sp.i = alloca ptr, align 8
@@ -4344,7 +4344,7 @@ return:                                           ; preds = %for.body.i23, %for.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @_PyCfg_ToInstructionSequence(ptr nocapture noundef readonly %g, ptr noundef %seq) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyCfg_ToInstructionSequence(ptr noundef readonly captures(none) %g, ptr noundef %seq) local_unnamed_addr #0 {
 entry:
   %b.028 = load ptr, ptr %g, align 8
   %cmp.not29 = icmp eq ptr %b.028, null
@@ -4482,7 +4482,7 @@ declare i32 @_PyCompile_InstructionSequence_UseLabel(ptr noundef, i32 noundef) l
 declare i32 @_PyCompile_InstructionSequence_Addop(ptr noundef, i32 noundef, i32 noundef, i64, i64) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @_PyCfg_OptimizedCfgToInstructionSequence(ptr nocapture noundef %g, ptr nocapture noundef readonly %umd, i32 noundef %code_flags, ptr nocapture noundef writeonly %stackdepth, ptr nocapture noundef writeonly %nlocalsplus, ptr noundef %seq) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_PyCfg_OptimizedCfgToInstructionSequence(ptr noundef captures(none) %g, ptr noundef readonly captures(none) %umd, i32 noundef %code_flags, ptr noundef writeonly captures(none) %stackdepth, ptr noundef writeonly captures(none) %nlocalsplus, ptr noundef %seq) local_unnamed_addr #0 {
 entry:
   %varname.i.i = alloca ptr, align 8
   %cellindex.i.i = alloca ptr, align 8
@@ -5507,7 +5507,7 @@ declare ptr @PyObject_Calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @_PyCompile_EnsureArrayLargeEnough(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @eliminate_empty_basic_blocks(ptr nocapture noundef %g) unnamed_addr #4 {
+define internal fastcc void @eliminate_empty_basic_blocks(ptr noundef captures(none) %g) unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %g, align 8
   %cmp.not40 = icmp eq ptr %0, null
@@ -5775,7 +5775,7 @@ return:                                           ; preds = %if.end.i, %for.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @remove_redundant_nops(ptr nocapture noundef nonnull %bb) unnamed_addr #4 {
+define internal fastcc void @remove_redundant_nops(ptr noundef nonnull captures(none) %bb) unnamed_addr #4 {
 entry:
   %b_iused = getelementptr inbounds nuw i8, ptr %bb, i64 40
   %0 = load i32, ptr %b_iused, align 8
@@ -6052,7 +6052,7 @@ declare i32 @PyList_SetItem(ptr noundef, i64 noundef, ptr noundef) local_unnamed
 declare i32 @PyList_SetSlice(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @scan_block_for_locals(ptr nocapture noundef readonly %b, ptr nocapture noundef nonnull %sp) unnamed_addr #4 {
+define internal fastcc void @scan_block_for_locals(ptr noundef readonly captures(none) %b, ptr noundef nonnull captures(none) %sp) unnamed_addr #4 {
 entry:
   %b_unsafe_locals_mask = getelementptr inbounds nuw i8, ptr %b, i64 48
   %0 = load i64, ptr %b_unsafe_locals_mask, align 8
@@ -6291,10 +6291,10 @@ declare void @PyMem_RawFree(ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #7

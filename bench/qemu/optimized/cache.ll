@@ -82,7 +82,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.45 = private unnamed_addr constant [34 x i8] c"\0Aaddress, L2 misses, instruction\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %id, ptr nocapture noundef readonly %info, i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %id, ptr noundef readonly captures(none) %info, i32 noundef %argc, ptr noundef readonly captures(none) %argv) local_unnamed_addr #0 {
 entry:
   store i32 32, ptr @limit, align 4
   %system_emulation = getelementptr inbounds nuw i8, ptr %info, i64 16
@@ -518,7 +518,7 @@ declare i64 @g_ascii_strtoll(ptr noundef, ptr noundef, i32 noundef) local_unname
 declare zeroext i1 @qemu_plugin_bool_parse(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @caches_init(i32 noundef %blksize, i32 noundef %assoc, i32 noundef %cachesize) unnamed_addr #0 {
@@ -698,7 +698,7 @@ for.end:                                          ; preds = %if.end11, %entry
 declare void @qemu_plugin_register_atexit_cb(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @plugin_exit(i64 %id, ptr nocapture readnone %p) #0 {
+define internal void @plugin_exit(i64 %id, ptr readnone captures(none) %p) #0 {
 entry:
   %call.i = tail call ptr @g_string_new(ptr noundef nonnull @.str.29) #11
   %0 = load i8, ptr @use_l2, align 1
@@ -1253,7 +1253,7 @@ entry:
 declare void @g_strfreev(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @lru_update_blk(ptr nocapture noundef readonly %cache, i32 noundef %set_idx, i32 noundef %blk_idx) #5 {
+define internal void @lru_update_blk(ptr noundef readonly captures(none) %cache, i32 noundef %set_idx, i32 noundef %blk_idx) #5 {
 entry:
   %0 = load ptr, ptr %cache, align 8
   %idxprom = sext i32 %set_idx to i64
@@ -1271,7 +1271,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lru_priorities_init(ptr nocapture noundef readonly %cache) #0 {
+define internal void @lru_priorities_init(ptr noundef readonly captures(none) %cache) #0 {
 entry:
   %num_sets = getelementptr inbounds nuw i8, ptr %cache, i64 8
   %0 = load i32, ptr %num_sets, align 8
@@ -1304,7 +1304,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lru_priorities_destroy(ptr nocapture noundef readonly %cache) #0 {
+define internal void @lru_priorities_destroy(ptr noundef readonly captures(none) %cache) #0 {
 entry:
   %num_sets = getelementptr inbounds nuw i8, ptr %cache, i64 8
   %0 = load i32, ptr %num_sets, align 8
@@ -1328,7 +1328,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @fifo_update_on_miss(ptr nocapture noundef readonly %cache, i32 noundef %set, i32 noundef %blk_idx) #0 {
+define internal void @fifo_update_on_miss(ptr noundef readonly captures(none) %cache, i32 noundef %set, i32 noundef %blk_idx) #0 {
 entry:
   %0 = load ptr, ptr %cache, align 8
   %idxprom = sext i32 %set to i64
@@ -1341,7 +1341,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @fifo_init(ptr nocapture noundef readonly %cache) #0 {
+define internal void @fifo_init(ptr noundef readonly captures(none) %cache) #0 {
 entry:
   %num_sets = getelementptr inbounds nuw i8, ptr %cache, i64 8
   %0 = load i32, ptr %num_sets, align 8
@@ -1365,7 +1365,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @fifo_destroy(ptr nocapture noundef readonly %cache) #0 {
+define internal void @fifo_destroy(ptr noundef readonly captures(none) %cache) #0 {
 entry:
   %num_sets = getelementptr inbounds nuw i8, ptr %cache, i64 8
   %0 = load i32, ptr %num_sets, align 8
@@ -1427,7 +1427,7 @@ declare void @g_mutex_unlock(ptr noundef) local_unnamed_addr #1
 declare void @qemu_plugin_register_vcpu_mem_cb(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @vcpu_mem_access(i32 noundef %vcpu_index, i32 noundef %info, i64 noundef %vaddr, ptr nocapture noundef %userdata) #0 {
+define internal void @vcpu_mem_access(i32 noundef %vcpu_index, i32 noundef %info, i64 noundef %vaddr, ptr noundef captures(none) %userdata) #0 {
 entry:
   %call = tail call ptr @qemu_plugin_get_hwaddr(i32 noundef %info, i64 noundef %vaddr) #11
   %tobool.not = icmp eq ptr %call, null
@@ -1528,7 +1528,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @qemu_plugin_register_vcpu_insn_exec_cb(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @vcpu_insn_exec(i32 noundef %vcpu_index, ptr nocapture noundef %userdata) #0 {
+define internal void @vcpu_insn_exec(i32 noundef %vcpu_index, ptr noundef captures(none) %userdata) #0 {
 entry:
   %addr = getelementptr inbounds nuw i8, ptr %userdata, i64 16
   %0 = load i64, ptr %addr, align 8
@@ -1799,7 +1799,7 @@ declare ptr @g_hash_table_get_values(ptr noundef) local_unnamed_addr #1
 declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @dcmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #7 {
+define internal range(i32 -1, 2) i32 @dcmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #7 {
 entry:
   %l1_dmisses = getelementptr inbounds nuw i8, ptr %a, i64 24
   %0 = load i64, ptr %l1_dmisses, align 8
@@ -1811,7 +1811,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @icmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #7 {
+define internal range(i32 -1, 2) i32 @icmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #7 {
 entry:
   %l1_imisses = getelementptr inbounds nuw i8, ptr %a, i64 32
   %0 = load i64, ptr %l1_imisses, align 8
@@ -1823,7 +1823,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @l2_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #7 {
+define internal range(i32 -1, 2) i32 @l2_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #7 {
 entry:
   %l2_misses = getelementptr inbounds nuw i8, ptr %a, i64 40
   %0 = load i64, ptr %l2_misses, align 8
@@ -1837,13 +1837,13 @@ entry:
 declare void @g_list_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9

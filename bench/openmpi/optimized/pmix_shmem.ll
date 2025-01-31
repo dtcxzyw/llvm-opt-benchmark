@@ -121,7 +121,7 @@ get_page_size.exit:                               ; preds = %1, %4
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #1
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
 declare i32 @ftruncate(i32 noundef, i64 noundef) local_unnamed_addr #2
@@ -274,7 +274,7 @@ define range(i32 -1, 1) i32 @pmix_shmem_segment_detach(ptr noundef %0) local_unn
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @pmix_shmem_segment_chown(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @pmix_shmem_segment_chown(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = tail call i32 @lchown(ptr noundef nonnull %4, i32 noundef %1, i32 noundef %2) #8
   %.not = icmp eq i32 %5, 0
@@ -291,10 +291,10 @@ define range(i32 -1, 1) i32 @pmix_shmem_segment_chown(ptr nocapture noundef read
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lchown(ptr nocapture noundef readonly, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare noundef i32 @lchown(ptr noundef readonly captures(none), i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @pmix_shmem_segment_chmod(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @pmix_shmem_segment_chmod(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = tail call i32 @chmod(ptr noundef nonnull %3, i32 noundef %1) #8
   %.not = icmp eq i32 %4, 0
@@ -311,10 +311,10 @@ define range(i32 -1, 1) i32 @pmix_shmem_segment_chmod(ptr nocapture noundef read
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #4
+declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -1, 1) i32 @pmix_shmem_segment_unlink(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define range(i32 -1, 1) i32 @pmix_shmem_segment_unlink(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = tail call i32 @unlink(ptr noundef nonnull %2) #8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4097) %2, i8 0, i64 4097, i1 false)
@@ -324,10 +324,10 @@ define range(i32 -1, 1) i32 @pmix_shmem_segment_unlink(ptr nocapture noundef %0)
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @shmem_construct(ptr noundef %0) #7 {

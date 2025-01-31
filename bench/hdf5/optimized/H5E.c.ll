@@ -1063,7 +1063,7 @@ define range(i32 -1, 1) i32 @H5Epop(i64 noundef %0, i64 noundef %1) local_unname
 declare i32 @H5E__pop(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Epush2(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7, ...) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Epush2(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7, ...) local_unnamed_addr #0 {
   %9 = alloca [1 x %struct.__va_list_tag], align 16
   %10 = load i8, ptr @H5_libinit_g, align 1
   %11 = trunc i8 %10 to i1
@@ -1223,7 +1223,7 @@ define range(i32 -1, 1) i32 @H5Epush2(i64 noundef %0, ptr nocapture noundef read
 declare void @llvm.va_start.p0(ptr) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 declare i32 @H5I_inc_ref(i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 

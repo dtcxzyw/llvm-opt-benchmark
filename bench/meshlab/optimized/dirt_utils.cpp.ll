@@ -651,7 +651,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -691,7 +691,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
@@ -1009,7 +1009,7 @@ define { <2 x float>, float } @_Z18getRandomDirectionv() local_unnamed_addr #12 
 declare i32 @rand() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef zeroext i1 @_Z17CheckFallPositionP6CFaceON3vcg6Point3IfEEf(ptr nocapture noundef readonly %0, <2 x float> %1, float %2, float noundef %3) local_unnamed_addr #13 {
+define noundef zeroext i1 @_Z17CheckFallPositionP6CFaceON3vcg6Point3IfEEf(ptr noundef readonly captures(none) %0, <2 x float> %1, float %2, float noundef %3) local_unnamed_addr #13 {
   %5 = fcmp ogt float %3, 1.000000e+00
   br i1 %5, label %25, label %6
 
@@ -1086,7 +1086,7 @@ define noundef float @_Z14GetElapsedTimeN3vcg6Point3IfEES1_S1_f(<2 x float> %0, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef float @_Z11GetVelocityN3vcg6Point3IfEES1_P6CFaceOS1_ff(<2 x float> %0, float %1, <2 x float> %2, float %3, ptr nocapture noundef readonly %4, <2 x float> %5, float %6, float noundef %7, float noundef %8) local_unnamed_addr #13 {
+define noundef float @_Z11GetVelocityN3vcg6Point3IfEES1_P6CFaceOS1_ff(<2 x float> %0, float %1, <2 x float> %2, float %3, ptr noundef readonly captures(none) %4, <2 x float> %5, float %6, float noundef %7, float noundef %8) local_unnamed_addr #13 {
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %.sroa.022.0.copyload = load float, ptr %10, align 4
   %.sroa.324.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -1432,7 +1432,7 @@ define linkonce_odr noundef i32 @_ZN3vcg4math18MarsenneTwisterRNG8generateEv(ptr
 declare double @llvm.fmuladd.f64(double, double, double) #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { <2 x float>, float } @_Z13fromBarCoordsN3vcg6Point3IfEEP6CFaceO(<2 x float> %0, float %1, ptr nocapture noundef readonly %2) local_unnamed_addr #17 {
+define { <2 x float>, float } @_Z13fromBarCoordsN3vcg6Point3IfEEP6CFaceO(<2 x float> %0, float %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #17 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1482,7 +1482,7 @@ define { <2 x float>, float } @_Z13fromBarCoordsN3vcg6Point3IfEEP6CFaceO(<2 x fl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { <2 x float>, float } @_Z14GetNewVelocityN3vcg6Point3IfEEP6CFaceOS3_S1_S1_ff(<2 x float> %0, float %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, <2 x float> %4, float %5, <2 x float> %6, float %7, float noundef %8, float noundef %9) local_unnamed_addr #18 {
+define { <2 x float>, float } @_Z14GetNewVelocityN3vcg6Point3IfEEP6CFaceOS3_S1_S1_ff(<2 x float> %0, float %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, <2 x float> %4, float %5, <2 x float> %6, float %7, float noundef %8, float noundef %9) local_unnamed_addr #18 {
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %.sroa.050.0.copyload = load float, ptr %11, align 4
   %.sroa.352.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -1539,7 +1539,7 @@ define { <2 x float>, float } @_Z14GetNewVelocityN3vcg6Point3IfEEP6CFaceOS3_S1_S
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { <2 x float>, float } @_Z20getVelocityComponentfP6CFaceON3vcg6Point3IfEE(float noundef %0, ptr nocapture noundef readonly %1, <2 x float> %2, float %3) local_unnamed_addr #18 {
+define { <2 x float>, float } @_Z20getVelocityComponentfP6CFaceON3vcg6Point3IfEE(float noundef %0, ptr noundef readonly captures(none) %1, <2 x float> %2, float %3) local_unnamed_addr #18 {
 _ZN3vcg6Point3IfE9NormalizeEv.exit:
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %.sroa.020.0.copyload = load float, ptr %4, align 4
@@ -1567,7 +1567,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { <2 x float>, float } @_Z15GetSafePositionN3vcg6Point3IfEEP6CFaceO(<2 x float> %0, float %1, ptr nocapture noundef readonly %2) local_unnamed_addr #17 {
+define { <2 x float>, float } @_Z15GetSafePositionN3vcg6Point3IfEEP6CFaceO(<2 x float> %0, float %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #17 {
 _ZN3vcg4Ray3IfLb0EE9NormalizeEv.exit:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1627,7 +1627,7 @@ _ZN3vcg4Ray3IfLb0EE9NormalizeEv.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_Z8IsOnFaceN3vcg6Point3IfEEP6CFaceO(<2 x float> %0, float %1, ptr nocapture noundef readonly %2) local_unnamed_addr #17 {
+define noundef zeroext i1 @_Z8IsOnFaceN3vcg6Point3IfEEP6CFaceO(<2 x float> %0, float %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #17 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1709,7 +1709,7 @@ define noundef zeroext i1 @_Z8IsOnFaceN3vcg6Point3IfEEP6CFaceO(<2 x float> %0, f
 declare float @llvm.fabs.f32(float) #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { <2 x float>, float } @_Z11StepForwardN3vcg6Point3IfEES1_fRP6CFaceOS1_ff(<2 x float> %0, float %1, <2 x float> %2, float %3, float noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, <2 x float> %6, float %7, float noundef %8, float noundef %9) local_unnamed_addr #17 {
+define { <2 x float>, float } @_Z11StepForwardN3vcg6Point3IfEES1_fRP6CFaceOS1_ff(<2 x float> %0, float %1, <2 x float> %2, float %3, float noundef %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, <2 x float> %6, float %7, float noundef %8, float noundef %9) local_unnamed_addr #17 {
   %11 = load ptr, ptr %5, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 36
   %.sroa.088.0.copyload = load float, ptr %12, align 4
@@ -4261,10 +4261,10 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVerte
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 -1, 3) i32 @_Z19ComputeIntersectionN3vcg6Point3IfEES1_RP6CFaceOS4_RS1_(<2 x float> %0, float %1, <2 x float> %2, float %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %6) local_unnamed_addr #12 {
+define noundef range(i32 -1, 3) i32 @_Z19ComputeIntersectionN3vcg6Point3IfEES1_RP6CFaceOS4_RS1_(<2 x float> %0, float %1, <2 x float> %2, float %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %5, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) %6) local_unnamed_addr #12 {
   %8 = alloca [3 x %"class.vcg::Point3"], align 16
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -4751,7 +4751,7 @@ define linkonce_odr noundef float @_ZN3vcg6PSDistIfEET_RKNS_6Point3IS1_EES5_S5_R
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @_Z23ComputeNormalDustAmountP9MeshModelN3vcg6Point3IfEEff(ptr nocapture noundef readonly %0, <2 x float> %1, float %2, float noundef %3, float noundef %4) local_unnamed_addr #22 {
+define void @_Z23ComputeNormalDustAmountP9MeshModelN3vcg6Point3IfEEff(ptr noundef readonly captures(none) %0, <2 x float> %1, float %2, float noundef %3, float noundef %4) local_unnamed_addr #22 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -10662,7 +10662,7 @@ _ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit65:       ; preds = %238, %.body, %192, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z17GenerateParticlesP9MeshModelRSt6vectorIN3vcg6Point3IfEESaIS4_EEif(ptr noundef %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, float noundef %3) local_unnamed_addr #19 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z17GenerateParticlesP9MeshModelRSt6vectorIN3vcg6Point3IfEESaIS4_EEif(ptr noundef %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1, i32 noundef %2, float noundef %3) local_unnamed_addr #19 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.161", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #29
@@ -11430,7 +11430,7 @@ _ZN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEEfEC2ERKS4_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z18associateParticlesP9MeshModelS0_RfS1_N3vcg6Point3IfEE(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, <2 x float> %4, float %5) local_unnamed_addr #19 personality ptr @__gxx_personality_v0 {
+define void @_Z18associateParticlesP9MeshModelS0_RfS1_N3vcg6Point3IfEE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, <2 x float> %4, float %5) local_unnamed_addr #19 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.vcg::GridStaticPtr", align 8
   %8 = alloca %"class.vcg::Point3", align 4
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -22153,7 +22153,7 @@ define linkonce_odr void @_ZN3vcg3tri18RequireVFAdjacencyI6CMeshOEEvRKT_(ptr nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_Z12MoveParticleR8ParticleI6CMeshOEP8CVertexOfiN3vcg6Point3IfEES7_f(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0, ptr nocapture noundef %1, float noundef %2, i32 noundef %3, <2 x float> %4, float %5, <2 x float> %6, float %7, float noundef %8) local_unnamed_addr #12 {
+define void @_Z12MoveParticleR8ParticleI6CMeshOEP8CVertexOfiN3vcg6Point3IfEES7_f(ptr noundef nonnull align 8 captures(none) dereferenceable(44) %0, ptr noundef captures(none) %1, float noundef %2, i32 noundef %3, <2 x float> %4, float %5, <2 x float> %6, float %7, float noundef %8) local_unnamed_addr #12 {
   %10 = alloca %"class.vcg::Point3", align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
@@ -27920,10 +27920,10 @@ declare i64 @llvm.smax.i64(i64, i64) #25
 declare float @llvm.sqrt.f32(float) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #27

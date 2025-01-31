@@ -1030,7 +1030,7 @@ declare i32 @cuddSymmSiftingConv(ptr noundef, i32 noundef, i32 noundef) local_un
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc noalias noundef ptr @initSymmInfo(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc noalias noundef ptr @initSymmInfo(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
@@ -1273,7 +1273,7 @@ ddClearGlobal.exit:                               ; preds = %._crit_edge26.i, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ddShuffle(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ddShuffle(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %.not18 = icmp slt i32 %3, %2
   br i1 %.not18, label %ddSiftUp.exit, label %.lr.ph
 
@@ -1323,7 +1323,7 @@ ddSiftUp.exit:                                    ; preds = %.loopexit, %.lr.ph.
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @freeMatrix(ptr nocapture noundef nonnull %0) unnamed_addr #5 {
+define internal fastcc void @freeMatrix(ptr noundef nonnull captures(none) %0) unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -1338,7 +1338,7 @@ define internal fastcc void @freeMatrix(ptr nocapture noundef nonnull %0) unname
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @cuddNextLow(ptr noundef, i32 noundef) local_unnamed_addr #1
 

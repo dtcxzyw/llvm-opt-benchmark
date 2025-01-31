@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zend_llist_init(ptr nocapture noundef writeonly initializes((0, 41)) %0, i64 noundef %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define void @zend_llist_init(ptr noundef writeonly captures(none) initializes((0, 41)) %0, i64 noundef %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store i64 %1, ptr %5, align 8
@@ -18,7 +18,7 @@ define void @zend_llist_init(ptr nocapture noundef writeonly initializes((0, 41)
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_llist_add_element(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define void @zend_llist_add_element(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i8, ptr %3, align 8
   %.not = icmp eq i8 %4, 0
@@ -64,10 +64,10 @@ declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #2
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define void @zend_llist_prepend_element(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define void @zend_llist_prepend_element(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i8, ptr %3, align 8
   %.not = icmp eq i8 %4, 0
@@ -107,7 +107,7 @@ define void @zend_llist_prepend_element(ptr nocapture noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_llist_del_element(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define void @zend_llist_del_element(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   br label %4
 
 4:                                                ; preds = %5, %3
@@ -169,12 +169,12 @@ define void @zend_llist_del_element(ptr nocapture noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @_efree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @zend_llist_destroy(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define void @zend_llist_destroy(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   %.not16 = icmp eq ptr %2, null
   br i1 %.not16, label %._crit_edge, label %.lr.ph
@@ -219,7 +219,7 @@ define void @zend_llist_destroy(ptr nocapture noundef %0) local_unnamed_addr #1 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_llist_clean(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define void @zend_llist_clean(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   %.not16.i = icmp eq ptr %2, null
   br i1 %.not16.i, label %zend_llist_destroy.exit, label %.lr.ph.i
@@ -264,7 +264,7 @@ zend_llist_destroy.exit:                          ; preds = %14, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_llist_remove_tail(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define void @zend_llist_remove_tail(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -311,7 +311,7 @@ define void @zend_llist_remove_tail(ptr nocapture noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_llist_copy(ptr nocapture noundef initializes((0, 41)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define void @zend_llist_copy(ptr noundef captures(none) initializes((0, 41)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -376,7 +376,7 @@ zend_llist_add_element.exit:                      ; preds = %19, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_llist_apply_with_del(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define void @zend_llist_apply_with_del(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %.not31 = icmp eq ptr %3, null
   br i1 %.not31, label %._crit_edge, label %.lr.ph
@@ -453,7 +453,7 @@ define void @zend_llist_apply_with_del(ptr nocapture noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_llist_apply(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define void @zend_llist_apply(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %.05 = load ptr, ptr %0, align 8
   %.not6 = icmp eq ptr %.05, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
@@ -471,7 +471,7 @@ define void @zend_llist_apply(ptr nocapture noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_llist_sort(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @zend_llist_sort(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
@@ -538,7 +538,7 @@ define void @zend_llist_sort(ptr nocapture noundef %0, ptr noundef %1) local_unn
 declare void @zend_sort(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @zend_llist_swap(ptr nocapture noundef %0, ptr nocapture noundef %1) #6 {
+define internal void @zend_llist_swap(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
@@ -547,7 +547,7 @@ define internal void @zend_llist_swap(ptr nocapture noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_llist_apply_with_argument(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 {
+define void @zend_llist_apply_with_argument(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
   %.06 = load ptr, ptr %0, align 8
   %.not7 = icmp eq ptr %.06, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
@@ -565,7 +565,7 @@ define void @zend_llist_apply_with_argument(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_llist_apply_with_arguments(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ...) local_unnamed_addr #1 {
+define void @zend_llist_apply_with_arguments(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ...) local_unnamed_addr #1 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
   %.05 = load ptr, ptr %0, align 8
@@ -586,14 +586,14 @@ define void @zend_llist_apply_with_arguments(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @zend_llist_count(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define i64 @zend_llist_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @zend_llist_get_first_ex(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #8 {
+define ptr @zend_llist_get_first_ex(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %1, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = select i1 %.not, ptr %3, ptr %1
@@ -606,7 +606,7 @@ define ptr @zend_llist_get_first_ex(ptr nocapture noundef %0, ptr noundef writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @zend_llist_get_last_ex(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #8 {
+define ptr @zend_llist_get_last_ex(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %1, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = select i1 %.not, ptr %3, ptr %1
@@ -620,7 +620,7 @@ define ptr @zend_llist_get_last_ex(ptr nocapture noundef %0, ptr noundef writeon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @zend_llist_get_next_ex(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #9 {
+define ptr @zend_llist_get_next_ex(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #9 {
   %.not = icmp eq ptr %1, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = select i1 %.not, ptr %3, ptr %1
@@ -642,7 +642,7 @@ define ptr @zend_llist_get_next_ex(ptr nocapture noundef %0, ptr noundef %1) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @zend_llist_get_prev_ex(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #9 {
+define ptr @zend_llist_get_prev_ex(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #9 {
   %.not = icmp eq ptr %1, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = select i1 %.not, ptr %3, ptr %1
@@ -671,7 +671,7 @@ declare void @llvm.va_start.p0(ptr) #10
 declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

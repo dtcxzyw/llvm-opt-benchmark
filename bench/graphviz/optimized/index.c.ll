@@ -49,7 +49,7 @@ RTreeNewLeafList.exit:                            ; preds = %3, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define void @RTreeLeafListFree(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @RTreeLeafListFree(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %.not6 = icmp eq ptr %2, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
@@ -69,7 +69,7 @@ define void @RTreeLeafListFree(ptr nocapture noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @RTreeOpen() local_unnamed_addr #2 {
@@ -99,7 +99,7 @@ define ptr @RTreeNewIndex() local_unnamed_addr #2 {
 declare ptr @RTreeNewNode() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @RTreeClose(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define noundef i32 @RTreeClose(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   tail call fastcc void @RTreeClose2(ptr noundef %2)
   %3 = load ptr, ptr %0, align 8
@@ -160,7 +160,7 @@ define internal fastcc void @RTreeClose2(ptr noundef %0) unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @RTreeSearch(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define ptr @RTreeSearch(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
@@ -243,7 +243,7 @@ RTreeLeafListAdd.exit:                            ; preds = %25, %27
 declare zeroext i1 @Overlap(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @RTreeInsert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @RTreeInsert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.Branch, align 8
   store ptr null, ptr %6, align 8
@@ -357,7 +357,7 @@ define internal fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr nou
 declare { i64, i64 } @NodeCover(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @AddBranch(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 

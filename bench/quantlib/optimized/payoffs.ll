@@ -216,7 +216,7 @@ $_ZTIN8QuantLib6PayoffE = comdat any
 @_ZTVSt15basic_streambufIcSt11char_traitsIcEE = external unnamed_addr constant { [16 x ptr] }, align 8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -233,7 +233,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
 declare void @llvm.trap() #3
@@ -541,7 +541,7 @@ unreachable:                                      ; preds = %invoke.cont13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK8QuantLib10NullPayoff4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib10NullPayoff4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %agg.result, align 8, !tbaa !3
@@ -564,7 +564,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define noundef double @_ZNK8QuantLib10NullPayoffclEd(ptr nocapture nonnull readnone align 8 %this, double %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib10NullPayoffclEd(ptr nonnull readnone align 8 captures(none) %this, double %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i8 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -1203,7 +1203,7 @@ unreachable:                                      ; preds = %invoke.cont15
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define noundef double @_ZNK8QuantLib18FloatingTypePayoffclEd(ptr nocapture nonnull readnone align 8 %this, double %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib18FloatingTypePayoffclEd(ptr nonnull readnone align 8 captures(none) %this, double %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i8 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -1458,7 +1458,7 @@ unreachable:                                      ; preds = %invoke.cont13
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib18FloatingTypePayoffclEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, double noundef %price, double noundef %strike) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib18FloatingTypePayoffclEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, double noundef %price, double noundef %strike) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1848,7 +1848,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib18PlainVanillaPayoffclEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, double noundef %price) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib18PlainVanillaPayoffclEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, double noundef %price) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2064,7 +2064,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib22PercentageStrikePayoffclEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, double noundef %price) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib22PercentageStrikePayoffclEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, double noundef %price) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2281,7 +2281,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib20AssetOrNothingPayoffclEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, double noundef %price) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib20AssetOrNothingPayoffclEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, double noundef %price) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2674,7 +2674,7 @@ ehcleanup14:                                      ; preds = %if.then.i.i.i.i, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib19CashOrNothingPayoffclEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, double noundef %price) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib19CashOrNothingPayoffclEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, double noundef %price) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3069,7 +3069,7 @@ ehcleanup14:                                      ; preds = %if.then.i.i.i.i, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib9GapPayoffclEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, double noundef %price) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib9GapPayoffclEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, double noundef %price) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3293,7 +3293,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib15SuperFundPayoffclEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, double noundef %price) unnamed_addr #13 align 2 {
+define noundef double @_ZNK8QuantLib15SuperFundPayoffclEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, double noundef %price) unnamed_addr #13 align 2 {
 entry:
   %strike_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load double, ptr %strike_, align 8, !tbaa !47
@@ -3522,7 +3522,7 @@ ehcleanup22:                                      ; preds = %if.then.i.i.i.i, %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib16SuperSharePayoffclEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, double noundef %price) unnamed_addr #13 align 2 {
+define noundef double @_ZNK8QuantLib16SuperSharePayoffclEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, double noundef %price) unnamed_addr #13 align 2 {
 entry:
   %strike_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load double, ptr %strike_, align 8, !tbaa !47
@@ -3761,7 +3761,7 @@ entry:
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: nounwind
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #16
@@ -3772,7 +3772,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nounwind
 declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #16

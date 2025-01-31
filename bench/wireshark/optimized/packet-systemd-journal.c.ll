@@ -993,7 +993,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_systemd_journal_line_entry(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_systemd_journal_line_entry(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i64, align 8
   %6 = alloca %struct.nstime_t, align 8
   %7 = alloca i32, align 4
@@ -1101,7 +1101,7 @@ dissect_sjle_time_usecs.exit:                     ; preds = %45, %52
 54:                                               ; preds = %36, %36, %36
   %55 = call ptr @wmem_packet_scope() #6
   %56 = call ptr @tvb_format_text(ptr noundef %55, ptr noundef %0, i32 noundef %25, i32 noundef %27) #6
-  %57 = call i64 @strtoul(ptr nocapture noundef %56, ptr noundef null, i32 noundef 10) #6
+  %57 = call i64 @strtoul(ptr noundef captures(none) %56, ptr noundef null, i32 noundef 10) #6
   %58 = trunc i64 %57 to i32
   %59 = call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %39, ptr noundef %0, i32 noundef %25, i32 noundef %27, i32 noundef %58) #6
   br label %75
@@ -1109,7 +1109,7 @@ dissect_sjle_time_usecs.exit:                     ; preds = %45, %52
 60:                                               ; preds = %36, %36, %36
   %61 = call ptr @wmem_packet_scope() #6
   %62 = call ptr @tvb_format_text(ptr noundef %61, ptr noundef %0, i32 noundef %25, i32 noundef %27) #6
-  %63 = call i64 @strtol(ptr nocapture noundef %62, ptr noundef null, i32 noundef 10) #6
+  %63 = call i64 @strtol(ptr noundef captures(none) %62, ptr noundef null, i32 noundef 10) #6
   %64 = trunc i64 %63 to i32
   %65 = call ptr @proto_tree_add_int(ptr noundef %15, i32 noundef %39, ptr noundef %0, i32 noundef %25, i32 noundef %27, i32 noundef %64) #6
   br label %75
@@ -1315,7 +1315,7 @@ declare i32 @tvb_find_guint8(ptr noundef, i32 noundef, i32 noundef, i8 noundef z
 declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @proto_registrar_get_ftype(i32 noundef) local_unnamed_addr #1
 
@@ -1340,12 +1340,12 @@ declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1353,10 +1353,10 @@ declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 nound
 declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

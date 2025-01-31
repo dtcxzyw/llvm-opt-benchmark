@@ -101,7 +101,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @background_thread_enabled_state = external local_unnamed_addr global %struct.atomic_b_t, align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @arena_basic_stats_merge(ptr nocapture noundef readnone %tsdn, ptr noundef %arena, ptr nocapture noundef %nthreads, ptr nocapture noundef writeonly initializes((0, 8)) %dss, ptr nocapture noundef writeonly initializes((0, 8)) %dirty_decay_ms, ptr nocapture noundef writeonly initializes((0, 8)) %muzzy_decay_ms, ptr noundef %nactive, ptr noundef %ndirty, ptr noundef %nmuzzy) local_unnamed_addr #0 {
+define hidden void @arena_basic_stats_merge(ptr noundef readnone captures(none) %tsdn, ptr noundef %arena, ptr noundef captures(none) %nthreads, ptr noundef writeonly captures(none) initializes((0, 8)) %dss, ptr noundef writeonly captures(none) initializes((0, 8)) %dirty_decay_ms, ptr noundef writeonly captures(none) initializes((0, 8)) %muzzy_decay_ms, ptr noundef %nactive, ptr noundef %ndirty, ptr noundef %nmuzzy) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i32, ptr %arena monotonic, align 4
   %1 = load i32, ptr %nthreads, align 4
@@ -123,7 +123,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @arena_nthreads_get(ptr nocapture noundef readonly %arena, i1 noundef zeroext %internal) local_unnamed_addr #1 {
+define hidden i32 @arena_nthreads_get(ptr noundef readonly captures(none) %arena, i1 noundef zeroext %internal) local_unnamed_addr #1 {
 entry:
   %idxprom = zext i1 %internal to i64
   %arrayidx = getelementptr inbounds nuw [2 x %struct.atomic_u_t], ptr %arena, i64 0, i64 %idxprom
@@ -132,7 +132,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @arena_dss_prec_get(ptr nocapture noundef readonly %arena) local_unnamed_addr #1 {
+define hidden i32 @arena_dss_prec_get(ptr noundef readonly captures(none) %arena) local_unnamed_addr #1 {
 entry:
   %dss_prec = getelementptr inbounds nuw i8, ptr %arena, i64 10520
   %0 = load atomic i32, ptr %dss_prec acquire, align 4
@@ -150,7 +150,7 @@ entry:
 declare void @pa_shard_basic_stats_merge(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @arena_stats_merge(ptr noundef %tsdn, ptr noundef %arena, ptr nocapture noundef %nthreads, ptr nocapture noundef writeonly initializes((0, 8)) %dss, ptr nocapture noundef writeonly initializes((0, 8)) %dirty_decay_ms, ptr nocapture noundef writeonly initializes((0, 8)) %muzzy_decay_ms, ptr noundef %nactive, ptr noundef %ndirty, ptr noundef %nmuzzy, ptr noundef %astats, ptr noundef %bstats, ptr nocapture noundef %lstats, ptr noundef %estats, ptr noundef %hpastats, ptr noundef %secstats) local_unnamed_addr #0 {
+define hidden void @arena_stats_merge(ptr noundef %tsdn, ptr noundef %arena, ptr noundef captures(none) %nthreads, ptr noundef writeonly captures(none) initializes((0, 8)) %dss, ptr noundef writeonly captures(none) initializes((0, 8)) %dirty_decay_ms, ptr noundef writeonly captures(none) initializes((0, 8)) %muzzy_decay_ms, ptr noundef %nactive, ptr noundef %ndirty, ptr noundef %nmuzzy, ptr noundef %astats, ptr noundef %bstats, ptr noundef captures(none) %lstats, ptr noundef %estats, ptr noundef %hpastats, ptr noundef %secstats) local_unnamed_addr #0 {
 entry:
   %base_allocated = alloca i64, align 8
   %base_resident = alloca i64, align 8
@@ -924,7 +924,7 @@ if.end9:                                          ; preds = %san_large_extent_de
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @arena_get_ehooks(ptr nocapture noundef readonly %arena) local_unnamed_addr #0 {
+define hidden ptr @arena_get_ehooks(ptr noundef readonly captures(none) %arena) local_unnamed_addr #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %arena, i64 78936
   %0 = load ptr, ptr %base, align 8
@@ -935,7 +935,7 @@ entry:
 declare ptr @pa_alloc(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @arena_extent_dalloc_large_prep(ptr nocapture noundef readnone %tsdn, ptr nocapture noundef %arena, ptr nocapture noundef readonly %edata) local_unnamed_addr #3 {
+define hidden void @arena_extent_dalloc_large_prep(ptr noundef readnone captures(none) %tsdn, ptr noundef captures(none) %arena, ptr noundef readonly captures(none) %edata) local_unnamed_addr #3 {
 entry:
   %edata.val = load i64, ptr %edata, align 8
   %0 = lshr i64 %edata.val, 20
@@ -975,7 +975,7 @@ arena_large_dalloc_stats_update.exit:             ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @arena_extent_ralloc_large_shrink(ptr nocapture noundef readnone %tsdn, ptr nocapture noundef %arena, ptr nocapture noundef readonly %edata, i64 noundef %oldusize) local_unnamed_addr #3 {
+define hidden void @arena_extent_ralloc_large_shrink(ptr noundef readnone captures(none) %tsdn, ptr noundef captures(none) %arena, ptr noundef readonly captures(none) %edata, i64 noundef %oldusize) local_unnamed_addr #3 {
 entry:
   %edata.val = load i64, ptr %edata, align 8
   %0 = lshr i64 %edata.val, 20
@@ -1043,7 +1043,7 @@ arena_large_ralloc_stats_update.exit:             ; preds = %arena_large_malloc_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @arena_extent_ralloc_large_expand(ptr nocapture noundef readnone %tsdn, ptr nocapture noundef %arena, ptr nocapture noundef readonly %edata, i64 noundef %oldusize) local_unnamed_addr #3 {
+define hidden void @arena_extent_ralloc_large_expand(ptr noundef readnone captures(none) %tsdn, ptr noundef captures(none) %arena, ptr noundef readonly captures(none) %edata, i64 noundef %oldusize) local_unnamed_addr #3 {
 entry:
   %edata.val = load i64, ptr %edata, align 8
   %0 = lshr i64 %edata.val, 20
@@ -1396,7 +1396,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ma
   store atomic i8 0, ptr %locked.i32 monotonic, align 1
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #15
   tail call fastcc void @rtree_metadata_read(ptr noundef nonnull %tsd, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i, i64 noundef %and.i)
-  tail call void @large_dalloc(ptr noundef %tsd, ptr noundef nonnull %edata.0129) #15
+  tail call void @large_dalloc(ptr noundef nonnull %tsd, ptr noundef nonnull %edata.0129) #15
   %call.i.i34 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #15
   %cmp.i.not.i35 = icmp eq i32 %call.i.i34, 0
   br i1 %cmp.i.not.i35, label %if.end.i38, label %if.then.i36
@@ -2049,7 +2049,7 @@ if.end9:                                          ; preds = %if.then8, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @arena_cache_bin_fill_small(ptr noundef %tsdn, ptr noundef %arena, ptr nocapture noundef %cache_bin, ptr nocapture noundef readnone %cache_bin_info, i32 noundef %binind, i32 noundef %nfill) local_unnamed_addr #0 {
+define hidden void @arena_cache_bin_fill_small(ptr noundef %tsdn, ptr noundef %arena, ptr noundef captures(none) %cache_bin, ptr noundef readnone captures(none) %cache_bin_info, i32 noundef %binind, i32 noundef %nfill) local_unnamed_addr #0 {
 entry:
   %deferred_work_generated.i = alloca i8, align 1
   %idxprom = zext i32 %binind to i64
@@ -2642,7 +2642,7 @@ return:                                           ; preds = %if.end, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @arena_fill_small_fresh(ptr noundef %tsdn, ptr noundef %arena, i32 noundef %binind, ptr nocapture noundef %ptrs, i64 noundef %nfill, i1 noundef zeroext %zero) local_unnamed_addr #0 {
+define hidden i64 @arena_fill_small_fresh(ptr noundef %tsdn, ptr noundef %arena, i32 noundef %binind, ptr noundef captures(none) %ptrs, i64 noundef %nfill, i1 noundef zeroext %zero) local_unnamed_addr #0 {
 entry:
   %idxprom = zext i32 %binind to i64
   %arrayidx = getelementptr inbounds nuw [39 x %struct.bin_info_s], ptr @bin_infos, i64 0, i64 %idxprom
@@ -3100,10 +3100,10 @@ arena_decay_ticks.exit:                           ; preds = %pa_shard_dont_decay
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @arena_bin_lower_slab(ptr nocapture noundef readonly %arena, ptr noundef %slab, ptr noundef %bin) unnamed_addr #0 {
+define internal fastcc void @arena_bin_lower_slab(ptr noundef readonly captures(none) %arena, ptr noundef %slab, ptr noundef %bin) unnamed_addr #0 {
 entry:
   %slabcur = getelementptr inbounds nuw i8, ptr %bin, i64 192
   %0 = load ptr, ptr %slabcur, align 8
@@ -3822,19 +3822,19 @@ if.end13:                                         ; preds = %if.end31.i, %if.end
 declare ptr @large_palloc(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define hidden void @arena_prof_promote(ptr nocapture noundef readnone %tsdn, ptr nocapture noundef readnone %ptr, i64 noundef %usize) local_unnamed_addr #6 {
+define hidden void @arena_prof_promote(ptr noundef readnone captures(none) %tsdn, ptr noundef readnone captures(none) %ptr, i64 noundef %usize) local_unnamed_addr #6 {
 entry:
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define hidden void @arena_dalloc_promoted(ptr nocapture noundef readnone %tsdn, ptr nocapture noundef readnone %ptr, ptr nocapture noundef readnone %tcache, i1 noundef zeroext %slow_path) local_unnamed_addr #6 {
+define hidden void @arena_dalloc_promoted(ptr noundef readnone captures(none) %tsdn, ptr noundef readnone captures(none) %ptr, ptr noundef readnone captures(none) %tcache, i1 noundef zeroext %slow_path) local_unnamed_addr #6 {
 entry:
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @arena_dalloc_bin_locked_handle_newly_empty(ptr nocapture noundef readnone %tsdn, ptr nocapture noundef readonly %arena, ptr noundef %slab, ptr noundef %bin) local_unnamed_addr #0 {
+define hidden void @arena_dalloc_bin_locked_handle_newly_empty(ptr noundef readnone captures(none) %tsdn, ptr noundef readonly captures(none) %arena, ptr noundef %slab, ptr noundef %bin) local_unnamed_addr #0 {
 entry:
   %slabcur.i = getelementptr inbounds nuw i8, ptr %bin, i64 192
   %0 = load ptr, ptr %slabcur.i, align 8
@@ -3926,7 +3926,7 @@ arena_dissociate_bin_slab.exit:                   ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @arena_dalloc_bin_locked_handle_newly_nonempty(ptr nocapture noundef readnone %tsdn, ptr nocapture noundef readonly %arena, ptr noundef %slab, ptr noundef %bin) local_unnamed_addr #0 {
+define hidden void @arena_dalloc_bin_locked_handle_newly_nonempty(ptr noundef readnone captures(none) %tsdn, ptr noundef readonly captures(none) %arena, ptr noundef %slab, ptr noundef %bin) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %arena, i64 78928
   %arena.val = load i32, ptr %0, align 8
@@ -4448,7 +4448,7 @@ if.end:                                           ; preds = %arena_slab_dalloc.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @arena_ralloc_no_move(ptr noundef %tsdn, ptr noundef %ptr, i64 noundef %oldsize, i64 noundef %size, i64 noundef %extra, i1 noundef zeroext %zero, ptr nocapture noundef writeonly initializes((0, 8)) %newsize) local_unnamed_addr #0 {
+define hidden zeroext i1 @arena_ralloc_no_move(ptr noundef %tsdn, ptr noundef %ptr, i64 noundef %oldsize, i64 noundef %size, i64 noundef %extra, i1 noundef zeroext %zero, ptr noundef writeonly captures(none) initializes((0, 8)) %newsize) local_unnamed_addr #0 {
 entry:
   %rtree_ctx_fallback.i = alloca %struct.rtree_ctx_s, align 8
   %tmp.i = alloca %struct.rtree_contents_s, align 8
@@ -5454,7 +5454,7 @@ declare void @hook_invoke_alloc(i32 noundef, ptr noundef, i64 noundef, ptr nound
 declare void @hook_invoke_dalloc(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare ptr @base_ehooks_get(ptr noundef) local_unnamed_addr #2
 
@@ -5514,7 +5514,7 @@ declare void @pa_shard_disable_hpa(ptr noundef, ptr noundef) local_unnamed_addr 
 declare ptr @base_extent_hooks_set(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @arena_dss_prec_set(ptr nocapture noundef writeonly %arena, i32 noundef %dss_prec) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @arena_dss_prec_set(ptr noundef writeonly captures(none) %arena, i32 noundef %dss_prec) local_unnamed_addr #1 {
 entry:
   %dss_prec1 = getelementptr inbounds nuw i8, ptr %arena, i64 10520
   store atomic i32 %dss_prec, ptr %dss_prec1 release, align 4
@@ -5578,7 +5578,7 @@ entry:
 declare zeroext i1 @pac_retain_grow_limit_get_set(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @arena_nthreads_inc(ptr nocapture noundef %arena, i1 noundef zeroext %internal) local_unnamed_addr #1 {
+define hidden void @arena_nthreads_inc(ptr noundef captures(none) %arena, i1 noundef zeroext %internal) local_unnamed_addr #1 {
 entry:
   %idxprom = zext i1 %internal to i64
   %arrayidx = getelementptr inbounds nuw [2 x %struct.atomic_u_t], ptr %arena, i64 0, i64 %idxprom
@@ -5587,7 +5587,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @arena_nthreads_dec(ptr nocapture noundef %arena, i1 noundef zeroext %internal) local_unnamed_addr #1 {
+define hidden void @arena_nthreads_dec(ptr noundef captures(none) %arena, i1 noundef zeroext %internal) local_unnamed_addr #1 {
 entry:
   %idxprom = zext i1 %internal to i64
   %arrayidx = getelementptr inbounds nuw [2 x %struct.atomic_u_t], ptr %arena, i64 0, i64 %idxprom
@@ -5596,7 +5596,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @arena_new(ptr noundef %tsdn, i32 noundef %ind, ptr nocapture noundef readonly %config) local_unnamed_addr #0 {
+define hidden ptr @arena_new(ptr noundef %tsdn, i32 noundef %ind, ptr noundef readonly captures(none) %config) local_unnamed_addr #0 {
 entry:
   %cur_time = alloca %struct.nstime_t, align 8
   %hpa_shard_opts = alloca %struct.hpa_shard_opts_s, align 8
@@ -5876,7 +5876,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @arena_boot(ptr nocapture noundef readonly %sc_data, ptr noundef %base, i1 noundef zeroext %hpa) local_unnamed_addr #0 {
+define hidden zeroext i1 @arena_boot(ptr noundef readonly captures(none) %sc_data, ptr noundef %base, i1 noundef zeroext %hpa) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr @opt_dirty_decay_ms, align 8
   %call.i = tail call zeroext i1 @decay_ms_valid(i64 noundef %0) #15
@@ -6008,7 +6008,7 @@ entry:
 declare void @pa_shard_prefork5(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @arena_prefork6(ptr noundef %tsdn, ptr nocapture noundef readonly %arena) local_unnamed_addr #0 {
+define hidden void @arena_prefork6(ptr noundef %tsdn, ptr noundef readonly captures(none) %arena) local_unnamed_addr #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %arena, i64 78936
   %0 = load ptr, ptr %base, align 8
@@ -6621,7 +6621,7 @@ declare ptr @rtree_leaf_elm_lookup_hard(ptr noundef, ptr noundef, ptr noundef, i
 declare ptr @edata_heap_remove_first(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @arena_prepare_base_deletion_sync(ptr noundef %tsd, ptr noundef nonnull %mtx, ptr nocapture noundef nonnull %delayed_mtx, ptr nocapture noundef nonnull %n_delayed) unnamed_addr #0 {
+define internal fastcc void @arena_prepare_base_deletion_sync(ptr noundef %tsd, ptr noundef nonnull %mtx, ptr noundef nonnull captures(none) %delayed_mtx, ptr noundef nonnull captures(none) %n_delayed) unnamed_addr #0 {
 entry:
   %lock.i.i = getelementptr inbounds nuw i8, ptr %mtx, i64 64
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #15
@@ -6724,7 +6724,7 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #11
 declare void @bitmap_init(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @arena_choose(ptr noundef %tsd, ptr noundef readnone %arena) unnamed_addr #0 {
@@ -6893,7 +6893,7 @@ declare i32 @sched_getcpu() local_unnamed_addr #10
 declare void @arena_migrate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @arena_bin_malloc_no_fresh_slab(ptr nocapture noundef nonnull readonly %arena, ptr noundef %bin, i32 noundef %binind) unnamed_addr #0 {
+define internal fastcc ptr @arena_bin_malloc_no_fresh_slab(ptr noundef nonnull readonly captures(none) %arena, ptr noundef %bin, i32 noundef %binind) unnamed_addr #0 {
 entry:
   %slabcur = getelementptr inbounds nuw i8, ptr %bin, i64 192
   %0 = load ptr, ptr %slabcur, align 8
@@ -7030,7 +7030,7 @@ declare void @tcache_bin_flush_stashed(ptr noundef, ptr noundef, ptr noundef, i3
 declare ptr @tcache_alloc_small_hard(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr noundef %tsdn, ptr noundef nonnull %rtree_ctx, i64 noundef %key) unnamed_addr #0 {
+define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %agg.result, ptr noundef %tsdn, ptr noundef nonnull %rtree_ctx, i64 noundef %key) unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %key, 30
   %and.i = and i64 %shr.i, 15
@@ -7162,10 +7162,10 @@ declare i32 @llvm.umin.i32(i32, i32) #13
 declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

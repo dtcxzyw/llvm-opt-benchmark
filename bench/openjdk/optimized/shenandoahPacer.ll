@@ -900,7 +900,7 @@ _ZN15ShenandoahPacer15claim_for_allocEmb.exit.thread: ; preds = %12, %_ZN15Shena
 declare noundef double @_ZN2os11elapsedTimeEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ShenandoahPacer4waitEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15ShenandoahPacer4waitEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(480) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -960,7 +960,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %1, %10, %_ZN13Monit
 declare void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ShenandoahPacer20flush_stats_to_cycleEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(480) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15ShenandoahPacer20flush_stats_to_cycleEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(480) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.JavaThreadIteratorWithHandle, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -1012,7 +1012,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
 declare void @_ZN22ShenandoahPhaseTimings17record_phase_timeENS_5PhaseEd(ptr noundef nonnull align 8 dereferenceable(30352), i32 noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ShenandoahPacer14print_cycle_onEP12outputStream(ptr nocapture noundef nonnull align 8 dereferenceable(480) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15ShenandoahPacer14print_cycle_onEP12outputStream(ptr noundef nonnull align 8 captures(none) dereferenceable(480) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.JavaThreadIteratorWithHandle, align 8
   %4 = load ptr, ptr @Threads_lock, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -1144,7 +1144,7 @@ declare void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN33ShenandoahPeriodicPacerNotifyTask4taskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN33ShenandoahPeriodicPacerNotifyTask4taskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96

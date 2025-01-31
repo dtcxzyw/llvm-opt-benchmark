@@ -111,7 +111,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [8 x ptr] [ptr @trace_i915_reg_rw.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace777, ptr @trace_i915_reg_rw.__UNIQUE_ID___addressable___SCK__tp_func_i915_reg_rw776, ptr @trace_intel_fbc_activate.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1070, ptr @trace_intel_fbc_activate.__UNIQUE_ID___addressable___SCK__tp_func_intel_fbc_activate1069, ptr @trace_intel_fbc_deactivate.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1084, ptr @trace_intel_fbc_deactivate.__UNIQUE_ID___addressable___SCK__tp_func_intel_fbc_deactivate1083, ptr @trace_intel_fbc_nuke.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1098, ptr @trace_intel_fbc_nuke.__UNIQUE_ID___addressable___SCK__tp_func_intel_fbc_nuke1097], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_fbc_cleanup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_fbc_cleanup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2650
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 5992
   br label %4
@@ -190,7 +190,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @intel_fbc_pre_update(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @intel_fbc_pre_update(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 704
@@ -545,7 +545,7 @@ define dso_local zeroext i1 @intel_fbc_pre_update(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_fbc_post_update(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_fbc_post_update(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 704
@@ -665,7 +665,7 @@ define dso_local void @intel_fbc_post_update(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_fbc_invalidate(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_fbc_invalidate(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2650
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 5992
   switch i32 %2, label %.split [
@@ -785,7 +785,7 @@ define dso_local void @intel_fbc_invalidate(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_fbc_flush(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_fbc_flush(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2650
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 5992
   switch i32 %2, label %.split [
@@ -1327,7 +1327,7 @@ define dso_local i32 @intel_fbc_atomic_check(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_fbc_disable(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_fbc_disable(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 712
   %4 = load ptr, ptr %3, align 8
@@ -1470,7 +1470,7 @@ define internal fastcc void @__intel_fbc_disable(ptr noundef %0) unnamed_addr #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_fbc_update(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_fbc_update(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 704
@@ -2038,7 +2038,7 @@ define dso_local void @intel_fbc_update(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_fbc_reset_underrun(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_fbc_reset_underrun(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2650
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 5992
   br label %4
@@ -2100,7 +2100,7 @@ define dso_local void @intel_fbc_reset_underrun(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_fbc_handle_fifo_underrun_irq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_fbc_handle_fifo_underrun_irq(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2650
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 5992
   br label %4
@@ -2144,7 +2144,7 @@ define dso_local void @intel_fbc_handle_fifo_underrun_irq(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @intel_fbc_add_plane(ptr noundef %0, ptr nocapture noundef writeonly initializes((1352, 1360)) %1) local_unnamed_addr #2 align 16 {
+define dso_local void @intel_fbc_add_plane(ptr noundef %0, ptr noundef writeonly captures(none) initializes((1352, 1360)) %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1352
   store ptr %0, ptr %3, align 8
   ret void
@@ -2325,7 +2325,7 @@ define dso_local void @intel_fbc_init(ptr noundef %0) local_unnamed_addr #0 alig
 declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_fbc_sanitize(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_fbc_sanitize(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2650
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 5992
   br label %4
@@ -2414,7 +2414,7 @@ define dso_local void @intel_fbc_sanitize(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_fbc_crtc_debugfs_add(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_fbc_crtc_debugfs_add(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1352
@@ -2442,7 +2442,7 @@ define dso_local void @intel_fbc_crtc_debugfs_add(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_fbc_debugfs_register(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_fbc_debugfs_register(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5992
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2476,7 +2476,7 @@ declare dso_local zeroext i1 @i915_gem_stolen_node_allocated(ptr noundef) local_
 declare dso_local void @i915_gem_stolen_remove_node(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @intel_fbc_is_ok(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc zeroext i1 @intel_fbc_is_ok(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2606,7 +2606,7 @@ define internal fastcc zeroext i1 @intel_fbc_is_ok(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal fastcc i32 @intel_fbc_cfb_size(ptr nocapture noundef readonly %0) unnamed_addr #3 align 16 {
+define internal fastcc i32 @intel_fbc_cfb_size(ptr noundef readonly captures(none) %0) unnamed_addr #3 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 108
@@ -2685,7 +2685,7 @@ define internal fastcc i32 @intel_fbc_cfb_size(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal fastcc zeroext i16 @intel_fbc_override_cfb_stride(ptr nocapture noundef readonly %0) unnamed_addr #3 align 16 {
+define internal fastcc zeroext i16 @intel_fbc_override_cfb_stride(ptr noundef readonly captures(none) %0) unnamed_addr #3 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 308
@@ -2889,7 +2889,7 @@ declare dso_local zeroext i1 @i915_gem_stolen_initialized(ptr noundef) local_unn
 declare dso_local zeroext i1 @intel_vgpu_active(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal fastcc zeroext i1 @rotation_is_valid(ptr nocapture noundef readonly %0) unnamed_addr #3 align 16 {
+define internal fastcc zeroext i1 @rotation_is_valid(ptr noundef readonly captures(none) %0) unnamed_addr #3 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2632
@@ -2939,7 +2939,7 @@ define internal fastcc zeroext i1 @rotation_is_valid(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal fastcc zeroext i1 @stride_is_valid(ptr nocapture noundef readonly %0) unnamed_addr #3 align 16 {
+define internal fastcc zeroext i1 @stride_is_valid(ptr noundef readonly captures(none) %0) unnamed_addr #3 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2632
@@ -3055,7 +3055,7 @@ define internal fastcc zeroext i1 @stride_is_valid(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal fastcc zeroext i1 @intel_fbc_plane_size_valid(ptr nocapture noundef readonly %0) unnamed_addr #3 align 16 {
+define internal fastcc zeroext i1 @intel_fbc_plane_size_valid(ptr noundef readonly captures(none) %0) unnamed_addr #3 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2632
@@ -3108,7 +3108,7 @@ define internal fastcc zeroext i1 @intel_fbc_plane_size_valid(ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal fastcc zeroext i1 @intel_fbc_hw_tracking_covers_screen(ptr nocapture noundef readonly %0) unnamed_addr #3 align 16 {
+define internal fastcc zeroext i1 @intel_fbc_hw_tracking_covers_screen(ptr noundef readonly captures(none) %0) unnamed_addr #3 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2632
@@ -3168,7 +3168,7 @@ define internal fastcc zeroext i1 @intel_fbc_hw_tracking_covers_screen(ptr nocap
 declare dso_local ptr @intel_atomic_get_cdclk_state(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_fbc_update_state(ptr nocapture noundef readonly %0, i32 %.144.val, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
+define internal fastcc void @intel_fbc_update_state(ptr noundef readonly captures(none) %0, i32 %.144.val, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3645,7 +3645,7 @@ declare dso_local void @intel_crtc_wait_for_next_vblank(ptr noundef) local_unnam
 declare dso_local ptr @intel_crtc_for_pipe(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ivb_fbc_activate(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @ivb_fbc_activate(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2632
   %4 = load i16, ptr %3, align 8
@@ -3844,7 +3844,7 @@ define internal void @ivb_fbc_activate(ptr nocapture noundef readonly %0) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ilk_fbc_deactivate(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @ilk_fbc_deactivate(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %4 = load i32, ptr %3, align 8
@@ -3872,7 +3872,7 @@ define internal void @ilk_fbc_deactivate(ptr nocapture noundef readonly %0) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @ilk_fbc_is_active(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal zeroext i1 @ilk_fbc_is_active(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %4 = load i32, ptr %3, align 8
@@ -3887,7 +3887,7 @@ define internal zeroext i1 @ilk_fbc_is_active(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @ivb_fbc_is_compressing(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal zeroext i1 @ivb_fbc_is_compressing(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %4 = load i32, ptr %3, align 8
@@ -3903,7 +3903,7 @@ define internal zeroext i1 @ivb_fbc_is_compressing(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @snb_fbc_nuke(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @snb_fbc_nuke(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %4 = load i32, ptr %3, align 8
@@ -3940,7 +3940,7 @@ define internal void @ilk_fbc_program_cfb(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ivb_fbc_set_false_color(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 align 16 {
+define internal void @ivb_fbc_set_false_color(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %5 = load i32, ptr %4, align 8
@@ -3963,7 +3963,7 @@ define internal void @ivb_fbc_set_false_color(ptr nocapture noundef readonly %0,
 declare dso_local i64 @i915_gem_stolen_node_offset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @snb_fbc_activate(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @snb_fbc_activate(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %4 = load i8, ptr %3, align 8
@@ -4060,7 +4060,7 @@ g4x_dpfc_ctl.exit:                                ; preds = %35, %51, %56
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @ilk_fbc_is_compressing(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal zeroext i1 @ilk_fbc_is_compressing(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %4 = load i32, ptr %3, align 8
@@ -4076,7 +4076,7 @@ define internal zeroext i1 @ilk_fbc_is_compressing(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ilk_fbc_activate(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @ilk_fbc_activate(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %4 = load i32, ptr %3, align 8
@@ -4159,7 +4159,7 @@ g4x_dpfc_ctl.exit:                                ; preds = %22, %39, %44
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i965_fbc_nuke(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @i965_fbc_nuke(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1320
@@ -4295,7 +4295,7 @@ define internal void @i965_fbc_nuke(ptr nocapture noundef readonly %0) #0 align 
 declare dso_local i32 @__SCT__tp_func_i915_reg_rw(ptr noundef, i1 noundef zeroext, i32, i64 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @g4x_fbc_activate(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @g4x_fbc_activate(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %4 = load i32, ptr %3, align 8
@@ -4371,7 +4371,7 @@ g4x_dpfc_ctl.exit:                                ; preds = %17, %34, %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @g4x_fbc_deactivate(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @g4x_fbc_deactivate(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 7368
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 7512
@@ -4392,7 +4392,7 @@ define internal void @g4x_fbc_deactivate(ptr nocapture noundef readonly %0) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @g4x_fbc_is_active(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal zeroext i1 @g4x_fbc_is_active(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 7368
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 7512
@@ -4403,7 +4403,7 @@ define internal zeroext i1 @g4x_fbc_is_active(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @g4x_fbc_is_compressing(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal zeroext i1 @g4x_fbc_is_compressing(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 7368
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 7512
@@ -4428,7 +4428,7 @@ define internal void @g4x_fbc_program_cfb(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i8xx_fbc_activate(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @i8xx_fbc_activate(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 7368
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 7544
@@ -4509,7 +4509,7 @@ define internal void @i8xx_fbc_activate(ptr nocapture noundef readonly %0) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i8xx_fbc_deactivate(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @i8xx_fbc_deactivate(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 7368
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 7512
@@ -4546,7 +4546,7 @@ define internal void @i8xx_fbc_deactivate(ptr nocapture noundef readonly %0) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @i8xx_fbc_is_active(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal zeroext i1 @i8xx_fbc_is_active(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 7368
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 7512
@@ -4557,7 +4557,7 @@ define internal zeroext i1 @i8xx_fbc_is_active(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @i8xx_fbc_is_compressing(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal zeroext i1 @i8xx_fbc_is_compressing(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 7368
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 7512
@@ -4661,7 +4661,7 @@ declare dso_local i64 @i915_gem_stolen_area_address(ptr noundef) local_unnamed_a
 declare dso_local i64 @i915_gem_stolen_node_address(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i8xx_fbc_nuke(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @i8xx_fbc_nuke(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1320
@@ -4809,7 +4809,7 @@ declare dso_local i64 @seq_lseek(ptr noundef, i64 noundef, i32 noundef) #1
 declare dso_local i64 @seq_read(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_fbc_debugfs_status_open(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i32 @intel_fbc_debugfs_status_open(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @single_open(ptr noundef %1, ptr noundef nonnull @intel_fbc_debugfs_status_show, ptr noundef %4) #12
@@ -4823,7 +4823,7 @@ declare dso_local i32 @single_release(ptr noundef, ptr noundef) #1
 declare dso_local i32 @single_open(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @intel_fbc_debugfs_status_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef i32 @intel_fbc_debugfs_status_show(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -4938,7 +4938,7 @@ declare dso_local i32 @simple_attr_release(ptr noundef, ptr noundef) #1
 declare dso_local i32 @simple_attr_open(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @intel_fbc_debugfs_false_color_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #9 align 16 {
+define internal noundef i32 @intel_fbc_debugfs_false_color_get(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #9 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 397
   %4 = load i8, ptr %3, align 1, !range !13, !noundef !14
   %5 = zext nneg i8 %4 to i64

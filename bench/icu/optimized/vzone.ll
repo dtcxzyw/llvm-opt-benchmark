@@ -139,7 +139,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @vzone_getTZURL_75(ptr noundef nonnull %zone, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %url, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %urlLength) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef signext i8 @vzone_getTZURL_75(ptr noundef nonnull %zone, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %url, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %urlLength) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.icu_75::UnicodeString", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %s, align 8
@@ -193,7 +193,7 @@ lpad:                                             ; preds = %entry
 declare noundef signext i8 @_ZNK6icu_759VTimeZone8getTZURLERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(288), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define void @vzone_setTZURL_75(ptr noundef %zone, ptr noundef %url, i32 noundef %urlLength) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -255,7 +255,7 @@ entry:
 declare void @_ZN6icu_759VTimeZone15setLastModifiedEd(ptr noundef nonnull align 8 dereferenceable(288), double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @vzone_write_75(ptr noundef nonnull %zone, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, ptr nocapture noundef nonnull align 4 dereferenceable(4) %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @vzone_write_75(ptr noundef nonnull %zone, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %result, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.icu_75::UnicodeString", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %s, align 8
@@ -319,7 +319,7 @@ declare void @_ZNK6icu_759VTimeZone5writeERNS_13UnicodeStringER10UErrorCode(ptr 
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @vzone_writeFromStart_75(ptr noundef nonnull %zone, double noundef %start, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, ptr nocapture noundef nonnull align 4 dereferenceable(4) %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @vzone_writeFromStart_75(ptr noundef nonnull %zone, double noundef %start, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %result, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.icu_75::UnicodeString", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %s, align 8
@@ -380,7 +380,7 @@ lpad:                                             ; preds = %invoke.cont1, %entr
 declare void @_ZNK6icu_759VTimeZone5writeEdRNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288), double noundef, ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @vzone_writeSimple_75(ptr noundef nonnull %zone, double noundef %time, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, ptr nocapture noundef nonnull align 4 dereferenceable(4) %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @vzone_writeSimple_75(ptr noundef nonnull %zone, double noundef %time, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %result, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %resultLength, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.icu_75::UnicodeString", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %s, align 8
@@ -540,7 +540,7 @@ entry:
 declare noundef i32 @_ZNK6icu_759VTimeZone20countTransitionRulesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(288), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @vzone_getStaticClassID_75(ptr nocapture noundef readnone %zone) local_unnamed_addr #0 {
+define noundef ptr @vzone_getStaticClassID_75(ptr noundef readnone captures(none) %zone) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef ptr @_ZN6icu_759VTimeZone16getStaticClassIDEv()
   ret ptr %call

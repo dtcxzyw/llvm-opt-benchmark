@@ -352,7 +352,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5Moves21WeightAllocNTNotvoid1ERK3pos(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39992) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(1544) %1) #4 align 2 {
+define void @_ZN5Moves21WeightAllocNTNotvoid1ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1) #4 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds [4 x i32], ptr @partner, i64 0, i64 %4
@@ -503,7 +503,7 @@ define void @_ZN5Moves21WeightAllocNTNotvoid1ERK3pos(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5Moves24WeightAllocTrumpNotvoid1ERK3pos(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39992) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(1544) %1) #4 align 2 {
+define void @_ZN5Moves24WeightAllocTrumpNotvoid1ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1) #4 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds [4 x i32], ptr @partner, i64 0, i64 %4
@@ -838,7 +838,7 @@ define void @_ZN5Moves24WeightAllocTrumpNotvoid1ERK3pos(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5Moves18WeightAllocNTVoid1ERK3pos(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39992) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(1544) %1) #4 align 2 {
+define void @_ZN5Moves18WeightAllocNTVoid1ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1) #4 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds [4 x i32], ptr @rho, i64 0, i64 %4
@@ -990,7 +990,7 @@ define void @_ZN5Moves18WeightAllocNTVoid1ERK3pos(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39992) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(1544) %1) #4 align 2 {
+define void @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1) #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -1440,7 +1440,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid1ERK3pos(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5Moves21WeightAllocNTNotvoid2ERK3pos(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39992) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(1544) %1) #4 align 2 {
+define void @_ZN5Moves21WeightAllocNTNotvoid2ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1) #4 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds [4 x i32], ptr @rho, i64 0, i64 %4
@@ -1809,7 +1809,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %156, %.critedge4.lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39992) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(1544) %1) #4 align 2 {
+define void @_ZN5Moves24WeightAllocTrumpNotvoid2ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1) #4 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds [4 x i32], ptr @rho, i64 0, i64 %4
@@ -2390,7 +2390,7 @@ _ZNK5Moves13RankForcesAceEi.exit:                 ; preds = %103, %.critedge.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5Moves18WeightAllocNTVoid2ERK3pos(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39992) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(1544) %1) #4 align 2 {
+define void @_ZN5Moves18WeightAllocNTVoid2ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1) #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -2463,7 +2463,7 @@ define void @_ZN5Moves18WeightAllocNTVoid2ERK3pos(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5Moves21WeightAllocTrumpVoid2ERK3pos(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39992) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(1544) %1) #4 align 2 {
+define void @_ZN5Moves21WeightAllocTrumpVoid2ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1) #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -2756,7 +2756,7 @@ define void @_ZN5Moves21WeightAllocTrumpVoid2ERK3pos(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5Moves27WeightAllocCombinedNotvoid3ERK3pos(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39992) %0, ptr nocapture nonnull readnone align 4 %1) #4 align 2 {
+define void @_ZN5Moves27WeightAllocCombinedNotvoid3ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr nonnull readnone align 4 captures(none) %1) #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 132
@@ -2838,7 +2838,7 @@ define void @_ZN5Moves27WeightAllocCombinedNotvoid3ERK3pos(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5Moves18WeightAllocNTVoid3ERK3pos(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39992) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(1544) %1) #4 align 2 {
+define void @_ZN5Moves18WeightAllocNTVoid3ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1) #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -2911,7 +2911,7 @@ define void @_ZN5Moves18WeightAllocNTVoid3ERK3pos(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5Moves21WeightAllocTrumpVoid3ERK3pos(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39992) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(1544) %1) #4 align 2 {
+define void @_ZN5Moves21WeightAllocTrumpVoid3ERK3pos(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1) #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -3201,7 +3201,7 @@ define void @_ZN5MovesD2Ev(ptr noundef nonnull align 8 dereferenceable(39992) %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5Moves4InitEiiPKiS1_PA4_Ktii(ptr nocapture noundef nonnull align 8 dereferenceable(39992) initializes((16, 24)) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #6 align 2 {
+define void @_ZN5Moves4InitEiiPKiS1_PA4_Ktii(ptr noundef nonnull align 8 captures(none) dereferenceable(39992) initializes((16, 24)) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #6 align 2 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -3309,7 +3309,7 @@ define void @_ZN5Moves4InitEiiPKiS1_PA4_Ktii(ptr nocapture noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5Moves6ReinitEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
+define void @_ZN5Moves6ReinitEii(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [13 x %"struct.Moves::trackType"], ptr %4, i64 0, i64 %5
@@ -3318,7 +3318,7 @@ define void @_ZN5Moves6ReinitEii(ptr nocapture noundef nonnull writeonly align 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr noundef nonnull align 8 dereferenceable(39992) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(1544) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %4, ptr nocapture noundef readonly %5) local_unnamed_addr #4 align 2 {
+define noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr noundef nonnull align 8 dereferenceable(39992) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(1544) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #4 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %8 = sext i32 %1 to i64
   %9 = getelementptr inbounds [13 x %"struct.Moves::trackType"], ptr %7, i64 0, i64 %8
@@ -3493,7 +3493,7 @@ define noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 dereferenceable(1544) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %3, ptr nocapture noundef readonly %4) local_unnamed_addr #4 align 2 {
+define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 dereferenceable(1544) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #4 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load i32, ptr %0, align 8
   %8 = sext i32 %7 to i64
@@ -4231,7 +4231,7 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5Moves14WeightAllocNT0ERK3posRK8moveTypeS5_PK12relRanksType(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39992) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(1544) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %3, ptr nocapture noundef readonly %4) local_unnamed_addr #4 align 2 {
+define void @_ZN5Moves14WeightAllocNT0ERK3posRK8moveTypeS5_PK12relRanksType(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1544) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #4 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
@@ -9242,7 +9242,7 @@ define noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK5Moves13RankForcesAceEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39992) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK5Moves13RankForcesAceEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [8192 x %struct.moveGroupType], ptr @groupData, i64 0, i64 %3
   %5 = load i32, ptr %4, align 4
@@ -9369,7 +9369,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK5Moves13RankForcesAce
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK5Moves12GetTopNumberEiiRiS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %4) local_unnamed_addr #6 align 2 {
+define void @_ZNK5Moves12GetTopNumberEiiRiS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %3, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %4) local_unnamed_addr #6 align 2 {
   store i32 -10, ptr %3, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 14968
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -9448,7 +9448,7 @@ define void @_ZNK5Moves12GetTopNumberEiiRiS0_(ptr nocapture noundef nonnull read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK5Moves9GetLengthEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK5Moves9GetLengthEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
   %4 = sext i32 %1 to i64
   %5 = sext i32 %2 to i64
   %.idx = mul nsw i64 %4, 928
@@ -9462,7 +9462,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK5Moves9GetLengthEii(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5Moves12MakeSpecificERK8moveTypeii(ptr noundef nonnull align 8 dereferenceable(39992) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 2 {
+define void @_ZN5Moves12MakeSpecificERK8moveTypeii(ptr noundef nonnull align 8 dereferenceable(39992) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = sext i32 %2 to i64
   %7 = getelementptr inbounds [13 x %"struct.Moves::trackType"], ptr %5, i64 0, i64 %6
@@ -9646,10 +9646,10 @@ define void @_ZN5Moves12MakeSpecificERK8moveTypeii(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #4 align 2 {
+define noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #4 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds [13 x %"struct.Moves::trackType"], ptr %5, i64 0, i64 %6
@@ -10081,7 +10081,7 @@ define noundef ptr @_ZN5Moves14MakeNextSimpleEii(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5Moves4StepEii(ptr nocapture noundef nonnull align 8 dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 align 2 {
+define void @_ZN5Moves4StepEii(ptr noundef nonnull align 8 captures(none) dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 align 2 {
   %4 = sext i32 %1 to i64
   %5 = sext i32 %2 to i64
   %.idx = mul nsw i64 %4, 928
@@ -10096,7 +10096,7 @@ define void @_ZN5Moves4StepEii(ptr nocapture noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5Moves6RewindEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
+define void @_ZN5Moves6RewindEii(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = sext i32 %1 to i64
   %5 = sext i32 %2 to i64
   %.idx = mul nsw i64 %4, 928
@@ -10109,7 +10109,7 @@ define void @_ZN5Moves6RewindEii(ptr nocapture noundef nonnull writeonly align 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5Moves5PurgeEiiPK8moveType(ptr nocapture noundef nonnull align 8 dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #13 align 2 {
+define void @_ZN5Moves5PurgeEiiPK8moveType(ptr noundef nonnull align 8 captures(none) dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #13 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2904
   %6 = sext i32 %1 to i64
   %7 = sext i32 %2 to i64
@@ -10184,7 +10184,7 @@ define void @_ZN5Moves5PurgeEiiPK8moveType(ptr nocapture noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5Moves6RewardEii(ptr nocapture noundef nonnull align 8 dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 align 2 {
+define void @_ZN5Moves6RewardEii(ptr noundef nonnull align 8 captures(none) dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2904
   %5 = sext i32 %1 to i64
   %6 = sext i32 %2 to i64
@@ -10298,7 +10298,7 @@ define void @_ZN5Moves4SortEii(ptr noundef nonnull align 8 dereferenceable(39992
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Moves9PrintMoveB5cxx11ERK11movePlyType(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(232) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Moves9PrintMoveB5cxx11ERK11movePlyType(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(232) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -10467,7 +10467,7 @@ declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Moves10PrintMovesB5cxx11Eii(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(39992) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Moves10PrintMovesB5cxx11Eii(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10844,7 +10844,7 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %49, %59
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Moves11TrickToTextB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(39992) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Moves11TrickToTextB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2904
   %6 = sext i32 %2 to i64
@@ -11019,7 +11019,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt4leftR
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Moves16UpdateStatsEntryERNS_13moveStatsTypeEiii(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull align 4 dereferenceable(212) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 align 2 {
+define void @_ZNK5Moves16UpdateStatsEntryERNS_13moveStatsTypeEiii(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(212) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 align 2 {
   %6 = load i32, ptr %1, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge.thread
@@ -11114,7 +11114,7 @@ define void @_ZNK5Moves16UpdateStatsEntryERNS_13moveStatsTypeEiii(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Moves11RegisterHitEii(ptr nocapture noundef nonnull align 8 dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define void @_ZN5Moves11RegisterHitEii(ptr noundef nonnull align 8 captures(none) dereferenceable(39992) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2904
   %5 = sext i32 %1 to i64
   %6 = sext i32 %2 to i64
@@ -11223,7 +11223,7 @@ define void @_ZN5Moves11RegisterHitEii(ptr nocapture noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Moves13AverageStringB5cxx11ERKNS_12moveStatTypeE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Moves13AverageStringB5cxx11ERKNS_12moveStatTypeE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
   %5 = load i32, ptr %2, align 4
@@ -11326,7 +11326,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt5fixed
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Moves17FullAverageStringB5cxx11ERKNS_12moveStatTypeE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Moves17FullAverageStringB5cxx11ERKNS_12moveStatTypeE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
   %5 = load i32, ptr %2, align 4
@@ -11489,7 +11489,7 @@ define void @_ZNK5Moves17FullAverageStringB5cxx11ERKNS_12moveStatTypeE(ptr dead_
 declare double @llvm.fmuladd.f64(double, double, double) #15
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Moves15PrintTrickTableB5cxx11EPA4_KNS_12moveStatTypeE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Moves15PrintTrickTableB5cxx11EPA4_KNS_12moveStatTypeE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11758,7 +11758,7 @@ define void @_ZNK5Moves15PrintTrickTableB5cxx11EPA4_KNS_12moveStatTypeE(ptr dead
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Moves18PrintFunctionTableB5cxx11ERKNS_13moveStatsTypeE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(39992) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(212) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Moves18PrintFunctionTableB5cxx11ERKNS_13moveStatsTypeE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(39992) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(212) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11972,7 +11972,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Moves15PrintTrickStatsERSt14basic_ofstreamIcSt11char_traitsIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(39992) %0, ptr noundef nonnull align 8 dereferenceable(248) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Moves15PrintTrickStatsERSt14basic_ofstreamIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(39992) %0, ptr noundef nonnull align 8 dereferenceable(248) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.44)
@@ -12295,7 +12295,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #19
 declare i32 @llvm.smax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

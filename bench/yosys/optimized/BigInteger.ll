@@ -93,7 +93,7 @@ _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %24, %_ZN15Numberlik
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10BigIntegerC2EPKmjNS_4SignE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 24)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10BigIntegerC2EPKmjNS_4SignE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((8, 24)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -195,7 +195,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10BigIntegerC2ERK11BigUnsignedNS_4SignE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10BigIntegerC2ERK11BigUnsignedNS_4SignE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((8, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -355,7 +355,7 @@ define void @_ZN10BigIntegerC2Es(ptr noundef nonnull align 8 dereferenceable(24)
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK10BigInteger14toUnsignedLongEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define noundef i64 @_ZNK10BigInteger14toUnsignedLongEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, -1
   br i1 %3, label %4, label %6
@@ -392,7 +392,7 @@ _ZNK10BigInteger26convertToUnsignedPrimitiveImEET_v.exit: ; preds = %6, %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK10BigInteger13toUnsignedIntEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK10BigInteger13toUnsignedIntEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, -1
   br i1 %3, label %4, label %6
@@ -434,7 +434,7 @@ _ZNK10BigInteger26convertToUnsignedPrimitiveIjEET_v.exit: ; preds = %6, %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i16 @_ZNK10BigInteger15toUnsignedShortEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define noundef zeroext i16 @_ZNK10BigInteger15toUnsignedShortEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, -1
   br i1 %3, label %4, label %6
@@ -476,7 +476,7 @@ _ZNK10BigInteger26convertToUnsignedPrimitiveItEET_v.exit: ; preds = %6, %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 -9223372036854775807, -9223372036854775808) i64 @_ZNK10BigInteger6toLongEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define noundef range(i64 -9223372036854775807, -9223372036854775808) i64 @_ZNK10BigInteger6toLongEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %_ZNK10BigInteger24convertToSignedPrimitiveIlmEET_v.exit, label %4
@@ -515,7 +515,7 @@ _ZNK10BigInteger24convertToSignedPrimitiveIlmEET_v.exit: ; preds = %1, %12, %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK10BigInteger5toIntEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK10BigInteger5toIntEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %_ZNK10BigInteger24convertToSignedPrimitiveIijEET_v.exit, label %4
@@ -557,7 +557,7 @@ _ZNK10BigInteger24convertToSignedPrimitiveIijEET_v.exit: ; preds = %1, %13, %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i16 @_ZNK10BigInteger7toShortEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define noundef signext i16 @_ZNK10BigInteger7toShortEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %_ZNK10BigInteger24convertToSignedPrimitiveIstEET_v.exit, label %4
@@ -2353,13 +2353,13 @@ declare i32 @llvm.scmp.i32.i16(i16, i16) #5
 declare i16 @llvm.abs.i16(i16, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold noreturn }

@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [32 x i8] c"Saved %d names into file \22%s\22.\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_ObjName(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Abc_ObjName(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -35,7 +35,7 @@ define ptr @Abc_ObjName(ptr nocapture noundef readonly %0) local_unnamed_addr #0
 declare ptr @Nm_ManCreateUniqueName(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_ObjAssignName(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Abc_ObjAssignName(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -51,7 +51,7 @@ define ptr @Abc_ObjAssignName(ptr nocapture noundef readonly %0, ptr noundef %1,
 declare ptr @Nm_ManStoreIdName(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef nonnull ptr @Abc_ObjNamePrefix(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef nonnull ptr @Abc_ObjNamePrefix(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -63,10 +63,10 @@ define noundef nonnull ptr @Abc_ObjNamePrefix(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef nonnull ptr @Abc_ObjNameSuffix(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef nonnull ptr @Abc_ObjNameSuffix(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -84,7 +84,7 @@ define noundef nonnull ptr @Abc_ObjNameDummy(ptr noundef %0, i32 noundef %1, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkTrasferNames(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Abc_NtkTrasferNames(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 56
   %.val2435 = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val2435, i64 4
@@ -251,7 +251,7 @@ Abc_ObjFanin0Ntk.exit:                            ; preds = %.lr.ph43, %51
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkTrasferNamesNoLatches(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Abc_NtkTrasferNamesNoLatches(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 56
   %.val3153 = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val3153, i64 4
@@ -483,7 +483,7 @@ Abc_ObjFanin0Ntk.exit:                            ; preds = %71, %74
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Abc_NodeGetFaninNames(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @Abc_NodeGetFaninNames(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4
@@ -847,10 +847,10 @@ Vec_PtrFree.exit:                                 ; preds = %._crit_edge, %21
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Abc_NtkCollectCioNames(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Abc_NtkCollectCioNames(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %23, label %3
 
@@ -931,7 +931,7 @@ define noalias noundef ptr @Abc_NtkCollectCioNames(ptr nocapture noundef readonl
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 2) i32 @Abc_NodeCompareNames(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define range(i32 -1, 2) i32 @Abc_NodeCompareNames(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
@@ -965,7 +965,7 @@ define range(i32 -1, 2) i32 @Abc_NodeCompareNames(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define void @Abc_NtkOrderObjsByName(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1178,12 +1178,12 @@ define void @Abc_NtkOrderObjsByName(ptr noundef %0, i32 noundef %1) local_unname
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @Abc_NtkOrderCisCos(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkNameMan(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @Abc_NtkNameMan(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %22, label %3
 
@@ -1265,7 +1265,7 @@ declare ptr @Abc_NamStart(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @Abc_NamStrFindOrAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 2) i32 @Abc_NodeCompareIndexes(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define range(i32 -1, 2) i32 @Abc_NodeCompareIndexes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load i32, ptr %4, align 8
@@ -1277,7 +1277,7 @@ define range(i32 -1, 2) i32 @Abc_NodeCompareIndexes(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkTransferOrder(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @Abc_NtkTransferOrder(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 56
   %.val23.i = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val23.i, i64 4
@@ -1498,7 +1498,7 @@ declare i32 @Abc_NamStrFind(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @Abc_NamDeref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NodeCompareCiCo(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NodeCompareCiCo(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 40
   %.val31 = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val31, i64 4
@@ -1634,7 +1634,7 @@ define range(i32 0, 2) i32 @Abc_NodeCompareCiCo(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkAddDummyPiNames(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Abc_NtkAddDummyPiNames(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 40
   %.val8 = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %.val8, i64 4
@@ -1690,7 +1690,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkAddDummyPoNames(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Abc_NtkAddDummyPoNames(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 48
   %.val8 = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %.val8, i64 4
@@ -1746,7 +1746,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkAddDummyBoxNames(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Abc_NtkAddDummyBoxNames(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [100 x i8], align 16
   %3 = alloca [100 x i8], align 16
   %4 = getelementptr i8, ptr %0, i64 40
@@ -1981,7 +1981,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %.critedg
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkShortNames(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Abc_NtkShortNames(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @Nm_ManFree(ptr noundef %3) #14
@@ -2112,7 +2112,7 @@ declare void @Nm_ManFree(ptr noundef) local_unnamed_addr #1
 declare ptr @Nm_ManCreate(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkCleanNames(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Abc_NtkCleanNames(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 56
   %.val25 = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %.val25, i64 4
@@ -2200,7 +2200,7 @@ define void @Abc_NtkCleanNames(ptr nocapture noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkRedirectCiCo(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Abc_NtkRedirectCiCo(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 64
   %.val29 = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %.val29, i64 4
@@ -2297,10 +2297,10 @@ declare void @Abc_ObjPatchFanin(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @Abc_NtkDeleteObj(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkMoveNames(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @Abc_NtkMoveNames(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void @Nm_ManFree(ptr noundef %4) #14
@@ -2883,18 +2883,18 @@ declare ptr @Extra_FileNameGenericAppend(ptr noundef, ptr noundef) local_unnamed
 declare ptr @Extra_FileNameExtension(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @Abc_NtkDfs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Abc_NtkTransferNameIds(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((440, 448)) %1) local_unnamed_addr #3 {
+define void @Abc_NtkTransferNameIds(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((440, 448)) %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %1, i64 32
   %.val25 = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val25, i64 4
@@ -3026,7 +3026,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkUpdateNameIds(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Abc_NtkUpdateNameIds(ptr noundef captures(none) %0) local_unnamed_addr #0 {
 Vec_IntPush.exit:
   %1 = alloca [1000 x i8], align 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3244,22 +3244,22 @@ Vec_IntFreeP.exit:                                ; preds = %Vec_IntFree.exit, %
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fgetc(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #11
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13

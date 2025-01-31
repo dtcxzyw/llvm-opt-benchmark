@@ -190,7 +190,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare i32 @gnutls_dh_params_import_pkcs3(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @qcrypto_tls_creds_get_path(ptr noundef %creds, ptr noundef %filename, i1 noundef zeroext %required, ptr nocapture noundef %cred, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qcrypto_tls_creds_get_path(ptr noundef %creds, ptr noundef %filename, i1 noundef zeroext %required, ptr noundef captures(none) %cred, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %sb = alloca %struct.stat, align 8
@@ -285,7 +285,7 @@ return:                                           ; preds = %if.then, %trace_qcr
 declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #2
@@ -293,7 +293,7 @@ declare ptr @__errno_location() local_unnamed_addr #2
 declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @qcrypto_tls_creds_check_endpoint(ptr nocapture noundef readonly %creds, i32 noundef %endpoint, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qcrypto_tls_creds_check_endpoint(ptr noundef readonly captures(none) %creds, i32 noundef %endpoint, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %endpoint1 = getelementptr inbounds nuw i8, ptr %creds, i64 48
   %0 = load i32, ptr %endpoint1, align 8
@@ -328,7 +328,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -359,7 +359,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qcrypto_tls_creds_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @qcrypto_tls_creds_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call = tail call ptr @object_class_property_add_bool(ptr noundef %oc, ptr noundef nonnull @.str.18, ptr noundef nonnull @qcrypto_tls_creds_prop_get_verify, ptr noundef nonnull @qcrypto_tls_creds_prop_set_verify) #5
   %call1 = tail call ptr @object_class_property_add_str(ptr noundef %oc, ptr noundef nonnull @.str.19, ptr noundef nonnull @qcrypto_tls_creds_prop_get_dir, ptr noundef nonnull @qcrypto_tls_creds_prop_set_dir) #5
@@ -373,7 +373,7 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @qcrypto_tls_creds_prop_get_verify(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @qcrypto_tls_creds_prop_get_verify(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS) #5
   %verifyPeer = getelementptr inbounds nuw i8, ptr %call.i, i64 64
@@ -383,7 +383,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qcrypto_tls_creds_prop_set_verify(ptr noundef %obj, i1 noundef zeroext %value, ptr nocapture readnone %errp) #0 {
+define internal void @qcrypto_tls_creds_prop_set_verify(ptr noundef %obj, i1 noundef zeroext %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS) #5
@@ -395,7 +395,7 @@ entry:
 declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @qcrypto_tls_creds_prop_get_dir(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @qcrypto_tls_creds_prop_get_dir(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS) #5
   %dir = getelementptr inbounds nuw i8, ptr %call.i, i64 40
@@ -405,7 +405,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qcrypto_tls_creds_prop_set_dir(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
+define internal void @qcrypto_tls_creds_prop_set_dir(ptr noundef %obj, ptr noundef %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS) #5
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #5
@@ -417,7 +417,7 @@ entry:
 declare ptr @object_class_property_add_enum(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcrypto_tls_creds_prop_get_endpoint(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal i32 @qcrypto_tls_creds_prop_get_endpoint(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS) #5
   %endpoint = getelementptr inbounds nuw i8, ptr %call.i, i64 48
@@ -426,7 +426,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qcrypto_tls_creds_prop_set_endpoint(ptr noundef %obj, i32 noundef %value, ptr nocapture readnone %errp) #0 {
+define internal void @qcrypto_tls_creds_prop_set_endpoint(ptr noundef %obj, i32 noundef %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS) #5
   %endpoint = getelementptr inbounds nuw i8, ptr %call.i, i64 48
@@ -435,7 +435,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @qcrypto_tls_creds_prop_get_priority(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @qcrypto_tls_creds_prop_get_priority(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS) #5
   %priority = getelementptr inbounds nuw i8, ptr %call.i, i64 72
@@ -445,7 +445,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qcrypto_tls_creds_prop_set_priority(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
+define internal void @qcrypto_tls_creds_prop_set_priority(ptr noundef %obj, ptr noundef %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17, i32 noundef 31, ptr noundef nonnull @__func__.QCRYPTO_TLS_CREDS) #5
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #5
@@ -457,10 +457,10 @@ entry:
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

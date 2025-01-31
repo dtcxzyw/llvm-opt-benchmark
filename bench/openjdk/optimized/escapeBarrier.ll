@@ -85,7 +85,7 @@ $_ZTV29EscapeBarrierSuspendHandshake = comdat any
 @llvm.used = appending global [4 x ptr] [ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN13EscapeBarrier20objs_are_deoptimizedEP10JavaThreadPl(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN13EscapeBarrier20objs_are_deoptimizedEP10JavaThreadPl(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -129,7 +129,7 @@ define hidden noundef zeroext i1 @_ZN13EscapeBarrier20objs_are_deoptimizedEP10Ja
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN13EscapeBarrier18deoptimize_objectsEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN13EscapeBarrier18deoptimize_objectsEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.frame, align 8
   %5 = alloca %class.KeepStackGCProcessedMark, align 8
   %6 = alloca %class.HandleMark, align 8
@@ -326,7 +326,7 @@ declare void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56
 declare void @_ZN24KeepStackGCProcessedMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN13EscapeBarrier30deoptimize_objects_all_threadsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN13EscapeBarrier30deoptimize_objects_all_threadsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.frame, align 8
   %3 = alloca %class.JavaThreadIteratorWithHandle, align 8
   %4 = alloca %class.KeepStackGCProcessedMark, align 8
@@ -498,7 +498,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %82, %80, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN13EscapeBarrier27deoptimize_objects_internalEP10JavaThreadPl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN13EscapeBarrier27deoptimize_objects_internalEP10JavaThreadPl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.frame, align 8
   %5 = alloca i8, align 1
   %6 = alloca %class.StackFrameStream, align 8
@@ -793,7 +793,7 @@ _ZL24set_objs_are_deoptimizedP10JavaThreadPl.exit: ; preds = %131, %138, %.prehe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13EscapeBarrier20sync_and_suspend_oneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13EscapeBarrier20sync_and_suspend_oneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.EscapeBarrierSuspendHandshake, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 928
@@ -918,7 +918,7 @@ define linkonce_odr hidden void @_ZN29EscapeBarrierSuspendHandshakeD2Ev(ptr noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13EscapeBarrier20sync_and_suspend_allEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13EscapeBarrier20sync_and_suspend_allEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.JavaThreadIteratorWithHandle, align 8
   %3 = alloca %class.JavaThreadIteratorWithHandle, align 8
   %4 = alloca %class.EscapeBarrierSuspendHandshake, align 8
@@ -1122,7 +1122,7 @@ _ZN10JavaThread18set_obj_deopt_flagEv.exit:       ; preds = %81, %73, %68
 declare void @_ZN9Handshake7executeEP16HandshakeClosure(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13EscapeBarrier10resume_oneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13EscapeBarrier10resume_oneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @EscapeBarrier_lock, align 8
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %_ZN13MonitorLockerC2EP6ThreadP7MonitorN5Mutex18SafepointCheckFlagE.exit, label %3
@@ -1161,7 +1161,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %12, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13EscapeBarrier10resume_allEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13EscapeBarrier10resume_allEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.JavaThreadIteratorWithHandle, align 8
   %3 = load ptr, ptr @EscapeBarrier_lock, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -1417,7 +1417,7 @@ declare void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 
 declare void @_ZN10JavaThread13pd_last_frameEv(ptr dead_on_unwind writable sret(%class.frame) align 8, ptr noundef nonnull align 8 dereferenceable(1800)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #2
 
@@ -2043,13 +2043,13 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
 declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

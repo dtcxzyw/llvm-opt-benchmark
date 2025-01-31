@@ -1863,7 +1863,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit44:                  ; preds = %_ZN4Luau10TypeFamil
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4Luau8Unifier2C2ENS_7NotNullINS_9TypeArenaEEENS1_INS_12BuiltinTypesEEENS1_INS_5ScopeEEENS1_INS_21InternalErrorReporterEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(336) initializes((0, 32), (40, 41), (52, 53), (60, 61), (64, 120), (128, 168), (176, 208), (216, 248), (256, 288), (296, 336)) %0, ptr %1, ptr %2, ptr %3, ptr %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau8Unifier2C2ENS_7NotNullINS_9TypeArenaEEENS1_INS_12BuiltinTypesEEENS1_INS_5ScopeEEENS1_INS_21InternalErrorReporterEEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(336) initializes((0, 32), (40, 41), (52, 53), (60, 61), (64, 120), (128, 168), (176, 208), (216, 248), (256, 288), (296, 336)) %0, ptr %1, ptr %2, ptr %3, ptr %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %6, align 8
@@ -1900,12 +1900,12 @@ define dso_local void @_ZN4Luau8Unifier2C2ENS_7NotNullINS_9TypeArenaEEENS1_INS_1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4Luau8Unifier2C2ENS_7NotNullINS_9TypeArenaEEENS1_INS_12BuiltinTypesEEENS1_INS_5ScopeEEENS1_INS_21InternalErrorReporterEEEPNS_12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toISC_EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(336) initializes((0, 32), (40, 41), (52, 53), (60, 61), (64, 120), (128, 168), (176, 208), (216, 248), (256, 288), (296, 336)) %0, ptr %1, ptr %2, ptr %3, ptr %4, ptr noundef %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau8Unifier2C2ENS_7NotNullINS_9TypeArenaEEENS1_INS_12BuiltinTypesEEENS1_INS_5ScopeEEENS1_INS_21InternalErrorReporterEEEPNS_12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toISC_EEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(336) initializes((0, 32), (40, 41), (52, 53), (60, 61), (64, 120), (128, 168), (176, 208), (216, 248), (256, 288), (296, 336)) %0, ptr %1, ptr %2, ptr %3, ptr %4, ptr noundef %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8
@@ -2824,7 +2824,7 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_17SubtypeConstraintENS0_21PackSubtypeConstraint
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4Luau8Unifier27mkUnionEPKNS_4TypeES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4Luau8Unifier27mkUnionEPKNS_4TypeES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(336) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::SimplifyResult", align 8
   %5 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %1)
   %6 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %2)
@@ -3090,7 +3090,7 @@ _ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeEPKNS_12FunctionTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeEPKNS_12FunctionTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %.not.i.i = icmp eq ptr %1, null
@@ -3211,7 +3211,7 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %3, %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_9UnionTypeEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_9UnionTypeEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #6 align 2 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -3248,7 +3248,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_9UnionTypeEPKN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeEPKNS_9UnionTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeEPKNS_9UnionTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 align 2 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -3285,7 +3285,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeEPKNS_9Un
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_16IntersectionTypeEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_16IntersectionTypeEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #6 align 2 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -3308,7 +3308,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_16Intersection
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeEPKNS_16IntersectionTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeEPKNS_16IntersectionTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 align 2 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -4256,7 +4256,7 @@ _ZN4Luau7VariantIJNS_17SubtypeConstraintENS_21PackSubtypeConstraintENS_24General
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_7AnyTypeEPKNS_12FunctionTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_7AnyTypeEPKNS_12FunctionTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4275,7 +4275,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_7AnyTypeEPKNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_12FunctionTypeEPKNS_7AnyTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_12FunctionTypeEPKNS_7AnyTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 184
@@ -4294,7 +4294,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_12FunctionType
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_7AnyTypeEPKNS_9TableTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr nocapture readnone %1, ptr noundef readonly %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_7AnyTypeEPKNS_9TableTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr readnone captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4368,7 +4368,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_7AnyTypeEPKNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_9TableTypeEPKNS_7AnyTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef readonly %1, ptr nocapture readnone %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_9TableTypeEPKNS_7AnyTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef readonly %1, ptr readnone captures(none) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4837,7 +4837,7 @@ _ZNSt8optionalIN4Luau12TableIndexerEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_IS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_13MetatableTypeES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_13MetatableTypeES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4857,7 +4857,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_13MetatableTyp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4Luau8Unifier217unifyFreeWithTypeEPKNS_4TypeES3_ENK3$_0clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4Luau8Unifier217unifyFreeWithTypeEPKNS_4TypeES3_ENK3$_0clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.Luau::SimplifyResult", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -5597,7 +5597,7 @@ _ZN4Luau6detail14DenseHashTableISt4pairIPKNS_11TypePackVarES5_ES6_S6_NS0_16ItemI
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 2) i32 @_ZN4Luau8Unifier211occursCheckERNS_12DenseHashSetIPKNS_11TypePackVarENS_16DenseHashPointerESt8equal_toIS4_EEES4_S4_(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN4Luau8Unifier211occursCheckERNS_12DenseHashSetIPKNS_11TypePackVarENS_16DenseHashPointerESt8equal_toIS4_EEES4_S4_(ptr noundef nonnull align 8 captures(none) dereferenceable(336) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = tail call noundef ptr @_ZN4Luau6followEPKNS_11TypePackVarE(ptr noundef %2)
@@ -5901,12 +5901,12 @@ declare noundef ptr @_ZN4Luau15emplaceTypePackINS_9Unifiable5BoundIPKNS_11TypePa
 declare void @_ZN4Luau14extendTypePackERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_11TypePackVarEmSt6vectorISt8optionalIPKNS_4TypeEESaISD_EE(ptr dead_on_unwind writable sret(%"struct.Luau::TypePack") align 8, ptr noundef nonnull align 8 dereferenceable(88), ptr, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @_ZN4Luau13simplifyUnionENS_7NotNullINS_12BuiltinTypesEEENS0_INS_9TypeArenaEEEPKNS_4TypeES7_(ptr dead_on_unwind writable sret(%"struct.Luau::SimplifyResult") align 8, ptr, ptr, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4Luau8Unifier214mkIntersectionEPKNS_4TypeES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4Luau8Unifier214mkIntersectionEPKNS_4TypeES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(336) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::SimplifyResult", align 8
   %5 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %1)
   %6 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %2)
@@ -6779,7 +6779,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
@@ -7830,7 +7830,7 @@ define linkonce_odr dso_local void @_ZN4Luau7VariantIJNS_17SubtypeConstraintENS_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4Luau14NameConstraintC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8869,10 +8869,10 @@ declare i64 @llvm.umax.i64(i64, i64) #19
 declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

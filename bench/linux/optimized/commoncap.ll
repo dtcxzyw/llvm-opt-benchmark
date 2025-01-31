@@ -62,7 +62,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__lsm_capability], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local range(i32 -1, 1) i32 @cap_capable(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, i32 %3) #0 align 16 {
+define dso_local range(i32 -1, 1) i32 @cap_capable(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2, i32 %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
@@ -110,13 +110,13 @@ define dso_local range(i32 -1, 1) i32 @cap_capable(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -1, 1) i32 @cap_settime(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
+define dso_local range(i32 -1, 1) i32 @cap_settime(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   %3 = tail call zeroext i1 @capable(i32 noundef 25) #14
   %4 = xor i1 %3, true
   %5 = sext i1 %4 to i32
@@ -212,7 +212,7 @@ define dso_local range(i32 -1, 1) i32 @cap_ptrace_traceme(ptr noundef %0) #2 ali
 declare dso_local zeroext i1 @has_ns_capability(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @cap_capget(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #2 align 16 {
+define dso_local noundef i32 @cap_capget(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) #2 align 16 {
   tail call void @__rcu_read_lock() #14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %6 = load volatile ptr, ptr %5, align 16
@@ -230,10 +230,10 @@ define dso_local noundef i32 @cap_capget(ptr noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @cap_capset(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @cap_capset(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) #2 align 16 {
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !7
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1784
@@ -346,7 +346,7 @@ define dso_local i32 @cap_inode_killpriv(ptr noundef %0, ptr noundef %1) #2 alig
 declare dso_local i32 @__vfs_removexattr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cap_inode_getsecurity(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i1 noundef zeroext %4) #2 align 16 {
+define dso_local i32 @cap_inode_getsecurity(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i1 noundef zeroext %4) #2 align 16 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
   store ptr null, ptr %6, align 8
@@ -485,10 +485,10 @@ define dso_local i32 @cap_inode_getsecurity(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @d_find_any_alias(ptr noundef) local_unnamed_addr #3
@@ -506,7 +506,7 @@ declare dso_local i32 @make_vfsuid(ptr noundef, ptr noundef, i32) local_unnamed_
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 25) i32 @cap_convert_nscap(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i64 noundef %3) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 25) i32 @cap_convert_nscap(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i64 noundef %3) local_unnamed_addr #2 align 16 {
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load ptr, ptr %6, align 8
@@ -601,7 +601,7 @@ declare dso_local zeroext i1 @capable_wrt_inode_uidgid(ptr noundef, ptr noundef,
 declare dso_local i32 @from_vfsuid(ptr noundef, ptr noundef, i32) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -2147483648, 1) i32 @get_vfs_caps_from_disk(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 24)) %2) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -2147483648, 1) i32 @get_vfs_caps_from_disk(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 24)) %2) local_unnamed_addr #2 align 16 {
   %4 = alloca %struct.vfs_ns_cap_data, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -708,7 +708,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @get_vfs_caps_from_disk(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @cap_bprm_creds_from_file(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @cap_bprm_creds_from_file(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = alloca %struct.cpu_vfs_cap_data, align 8
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !7
   %5 = inttoptr i64 %4 to ptr
@@ -1152,7 +1152,7 @@ define dso_local range(i32 -2147483648, 1) i32 @cap_bprm_creds_from_file(ptr nou
 declare dso_local zeroext i1 @ptracer_capable(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -1, 1) i32 @cap_inode_setxattr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -1, 1) i32 @cap_inode_setxattr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1072
@@ -1178,10 +1178,10 @@ define dso_local range(i32 -1, 1) i32 @cap_inode_setxattr(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -22, 1) i32 @cap_inode_removexattr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -22, 1) i32 @cap_inode_removexattr(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1072
@@ -1219,7 +1219,7 @@ define dso_local range(i32 -22, 1) i32 @cap_inode_removexattr(ptr noundef %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 -22, 1) i32 @cap_task_fix_setuid(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #7 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @cap_task_fix_setuid(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #7 align 16 {
   switch i32 %2, label %.thread8 [
     i32 2, label %4
     i32 1, label %4
@@ -1708,7 +1708,7 @@ declare dso_local ptr @prepare_creds() local_unnamed_addr #3
 declare dso_local i32 @commit_creds(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local range(i32 0, 2) i32 @cap_vm_enough_memory(ptr nocapture readnone %0, i64 %1) #8 align 16 {
+define dso_local range(i32 0, 2) i32 @cap_vm_enough_memory(ptr readnone captures(none) %0, i64 %1) #8 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !7
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1784
@@ -1823,7 +1823,7 @@ define dso_local range(i32 -1, 1) i32 @cap_mmap_addr(i64 noundef %0) #9 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @cap_mmap_file(ptr nocapture readnone %0, i64 %1, i64 %2, i64 %3) #10 align 16 {
+define dso_local noundef i32 @cap_mmap_file(ptr readnone captures(none) %0, i64 %1, i64 %2, i64 %3) #10 align 16 {
   ret i32 0
 }
 

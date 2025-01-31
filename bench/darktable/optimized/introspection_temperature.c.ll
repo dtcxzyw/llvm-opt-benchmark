@@ -158,7 +158,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #1 {
   switch i32 %2, label %27 [
     i32 2, label %7
     i32 3, label %15
@@ -206,13 +206,13 @@ define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readnone
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @name() local_unnamed_addr #4 {
@@ -249,7 +249,7 @@ define noundef i32 @flags() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 3) i32 @default_colorspace(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef readonly %2) local_unnamed_addr #7 {
+define noundef range(i32 0, 3) i32 @default_colorspace(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #7 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %9, label %5
 
@@ -268,7 +268,7 @@ define noundef range(i32 0, 3) i32 @default_colorspace(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef readnone %4, ptr nocapture noundef readonly %5) local_unnamed_addr #8 {
+define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef readnone captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #8 {
   %7 = alloca [3 x [4 x float]], align 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !31
@@ -1061,7 +1061,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @commit_params(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2, ptr nocapture noundef %3) local_unnamed_addr #9 {
+define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #9 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 16, !tbaa !42
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 492
@@ -1156,7 +1156,7 @@ define void @commit_params(ptr nocapture noundef readonly %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #10 {
+define void @init_pipe(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((16, 24)) %2) local_unnamed_addr #10 {
   %4 = tail call noalias dereferenceable_or_null(20) ptr @malloc(i64 noundef 20) #22
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %4, ptr %5, align 16, !tbaa !42
@@ -1164,7 +1164,7 @@ define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @cleanup_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef %2) local_unnamed_addr #11 {
+define void @cleanup_pipe(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #11 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 16, !tbaa !42
   tail call void @free(ptr noundef %5) #23
@@ -1173,7 +1173,7 @@ define void @cleanup_pipe(ptr nocapture noundef readnone %0, ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) #12
+declare void @free(ptr allocptr noundef captures(none)) #12
 
 ; Function Attrs: nounwind uwtable
 define void @gui_update(ptr noundef initializes((492, 496), (676, 680)) %0) local_unnamed_addr #4 {
@@ -1690,8 +1690,8 @@ define void @gui_update(ptr noundef initializes((492, 496), (676, 680)) %0) loca
   %365 = icmp eq i32 %364, 4
   %366 = zext i1 %365 to i32
   call void @gtk_toggle_button_set_active(ptr noundef %363, i32 noundef %366) #23
-  call fastcc void @_color_temptint_sliders(ptr noundef %0)
-  call fastcc void @_color_rgb_sliders(ptr noundef %0)
+  call fastcc void @_color_temptint_sliders(ptr noundef nonnull %0)
+  call fastcc void @_color_rgb_sliders(ptr noundef nonnull %0)
   %367 = load ptr, ptr %5, align 16, !tbaa !86
   call fastcc void @_color_finetuning_slider(ptr %367)
   %368 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
@@ -1755,7 +1755,7 @@ declare i64 @gtk_stack_get_type() local_unnamed_addr #13
 declare void @dt_iop_color_picker_reset(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mul2temp(ptr nocapture readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 4)) %2, ptr nocapture noundef %3) unnamed_addr #4 {
+define internal fastcc void @_mul2temp(ptr readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef captures(none) %3) unnamed_addr #4 {
   %5 = alloca %struct.cmsCIEXYZ, align 8
   %6 = load float, ptr %1, align 4, !tbaa !6, !noalias !132
   %7 = fpext float %6 to double
@@ -1904,7 +1904,7 @@ declare i32 @dt_dev_equal_chroma(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare i32 @dt_wb_presets_count() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
 declare ptr @dt_wb_preset(i32 noundef) local_unnamed_addr #5
 
@@ -1917,7 +1917,7 @@ declare void @dt_bauhaus_slider_set_hard_max(ptr noundef, float noundef) local_u
 declare void @dt_bauhaus_slider_set_default(ptr noundef, float noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 declare void @dt_wb_preset_interpolate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
@@ -1932,7 +1932,7 @@ declare void @gtk_toggle_button_set_active(ptr noundef, i32 noundef) local_unnam
 declare i64 @gtk_toggle_button_get_type() local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_color_temptint_sliders(ptr nocapture noundef readonly %0) unnamed_addr #4 {
+define internal fastcc void @_color_temptint_sliders(ptr noundef readonly captures(none) %0) unnamed_addr #4 {
   %2 = alloca %struct.cmsCIEXYZ, align 8
   %3 = alloca %struct.cmsCIEXYZ, align 8
   %4 = alloca %struct.cmsCIEXYZ, align 16
@@ -2351,7 +2351,7 @@ define internal fastcc void @_color_temptint_sliders(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_color_rgb_sliders(ptr nocapture noundef readonly %0) unnamed_addr #4 {
+define internal fastcc void @_color_rgb_sliders(ptr noundef readonly captures(none) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %3 = load ptr, ptr %2, align 16, !tbaa !86
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 584
@@ -2546,7 +2546,7 @@ define internal fastcc void @_color_rgb_sliders(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_color_finetuning_slider(ptr nocapture readonly %0) unnamed_addr #4 {
+define internal fastcc void @_color_finetuning_slider(ptr readonly captures(none) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !tbaa !104
   tail call void @dt_bauhaus_slider_clear_stops(ptr noundef %3) #23
@@ -3341,10 +3341,10 @@ define void @reload_defaults(ptr noundef %0) local_unnamed_addr #4 {
 declare i32 @dt_history_check_module_exists(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_find_coeffs(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #4 {
+define internal fastcc void @_find_coeffs(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #4 {
   %3 = alloca [4 x double], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %5 = load ptr, ptr %4, align 8, !tbaa !58
@@ -3614,7 +3614,7 @@ declare void @dt_bauhaus_combobox_clear(ptr noundef) local_unnamed_addr #5
 declare void @dt_bauhaus_combobox_add(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define void @init_global(ptr nocapture noundef writeonly initializes((528, 536)) %0) local_unnamed_addr #17 {
+define void @init_global(ptr noundef writeonly captures(none) initializes((528, 536)) %0) local_unnamed_addr #17 {
   %2 = tail call noalias dereferenceable_or_null(12) ptr @malloc(i64 noundef 12) #22
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store ptr %2, ptr %3, align 8, !tbaa !152
@@ -3627,7 +3627,7 @@ define void @init_global(ptr nocapture noundef writeonly initializes((528, 536))
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @cleanup_global(ptr nocapture noundef %0) local_unnamed_addr #11 {
+define void @cleanup_global(ptr noundef captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %3 = load ptr, ptr %2, align 8, !tbaa !152
   tail call void @free(ptr noundef %3) #23
@@ -3636,7 +3636,7 @@ define void @cleanup_global(ptr nocapture noundef %0) local_unnamed_addr #11 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_changed(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #4 {
+define void @gui_changed(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %5 = load ptr, ptr %4, align 16, !tbaa !86
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 680
@@ -3662,7 +3662,7 @@ define void @gui_changed(ptr nocapture noundef readonly %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define void @color_picker_apply(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #4 {
+define void @color_picker_apply(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #4 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !159
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !160
@@ -4012,7 +4012,7 @@ declare i64 @gtk_box_get_type() local_unnamed_addr #13
 declare ptr @dt_iop_togglebutton_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_btn_toggled(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #4 {
+define internal noundef i32 @_btn_toggled(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #4 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !159
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !160
@@ -4159,7 +4159,7 @@ declare i64 @gtk_container_get_type() local_unnamed_addr #13
 declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @temp_label_click(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @temp_label_click(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 704
   %5 = load ptr, ptr %4, align 16, !tbaa !86
   %6 = tail call ptr @dt_conf_get_string(ptr noundef nonnull @.str.23) #23
@@ -4210,7 +4210,7 @@ declare void @dt_bauhaus_slider_set_digits(ptr noundef, i32 noundef) local_unnam
 declare void @gtk_widget_set_no_show_all(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_temp_tint_callback(ptr nocapture readnone %0, ptr noundef %1) #4 {
+define internal void @_temp_tint_callback(ptr readnone captures(none) %0, ptr noundef %1) #4 {
   %3 = alloca %struct.cmsCIEXYZ, align 8
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !159
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
@@ -4323,7 +4323,7 @@ define internal void @_temp_tint_callback(ptr nocapture readnone %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_preset_tune_callback(ptr nocapture readnone %0, ptr noundef %1) #4 {
+define internal void @_preset_tune_callback(ptr readnone captures(none) %0, ptr noundef %1) #4 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.dt_wb_data, align 8
   %5 = alloca float, align 4
@@ -4710,7 +4710,7 @@ define internal void @_preset_tune_callback(ptr nocapture readnone %0, ptr nound
 declare void @dt_control_signal_connect(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_preference_changed(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #4 {
+define internal void @_preference_changed(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 704
   %4 = load ptr, ptr %3, align 16, !tbaa !86
   %5 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.23) #23
@@ -4881,7 +4881,7 @@ define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #20 {
+define ptr @get_p(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #20 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.54) #25
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %25, label %5
@@ -4960,7 +4960,7 @@ define ptr @get_f(ptr noundef %0) local_unnamed_addr #4 {
 declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_temperature_to_XYZ(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, double noundef %1) unnamed_addr #4 {
+define internal fastcc void @_temperature_to_XYZ(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, double noundef %1) unnamed_addr #4 {
   %3 = alloca %struct.cmsCIExyY, align 16
   %4 = fcmp reassoc nsz arcp contract afn olt double %1, 1.901000e+03
   %5 = select i1 %4, double 1.901000e+03, double %1

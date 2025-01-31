@@ -1029,14 +1029,14 @@ declare i32 @VP8LBitWriterInit(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @WebPEncodingSetError(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @WebPPictureView(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @VP8LBitWriterClone(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @EncodeStreamHook(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 2) i32 @EncodeStreamHook(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct.VP8LBitWriter, align 8
   %4 = alloca %struct.VP8LBitWriter, align 8
   %5 = alloca %struct.VP8LHashChain, align 8
@@ -2227,7 +2227,7 @@ VP8LPutBits.exit:                                 ; preds = %514, %517
   br i1 %or.cond3.i, label %741, label %583
 
 583:                                              ; preds = %577
-  call void @VP8LBitWriterReset(ptr noundef nonnull %3, ptr noundef %18) #8
+  call void @VP8LBitWriterReset(ptr noundef nonnull %3, ptr noundef nonnull %18) #8
   %584 = call ptr @VP8LAllocateHistogramSet(i32 noundef %528, i32 noundef %581) #8
   %585 = call ptr @VP8LAllocateHistogram(i32 noundef %581) #8
   %586 = icmp eq ptr %584, null
@@ -2577,7 +2577,7 @@ ClearHuffmanTreeIfOnlyOneSymbol.exit.i:           ; preds = %687, %689, %.lr.ph3
 ._crit_edge316.i:                                 ; preds = %741, %560
   %.1231 = phi i32 [ %.0230308, %560 ], [ %.6236, %741 ]
   %.1228 = phi i32 [ %.0227309, %560 ], [ %.6, %741 ]
-  call void @VP8LBitWriterSwap(ptr noundef %18, ptr noundef nonnull %4) #8
+  call void @VP8LBitWriterSwap(ptr noundef nonnull %18, ptr noundef nonnull %4) #8
   %745 = add i32 %529, %.2
   %746 = call i32 @WebPReportProgress(ptr noundef %16, i32 noundef %745, ptr noundef nonnull %11) #8
   br label %.loopexit.i
@@ -2968,12 +2968,12 @@ WriteRealAlphaAndVersion.exit:                    ; preds = %VP8LPutBits.exit.i6
 declare i32 @WebPReportProgress(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @WebPPictureHasTransparency(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @WriteImage(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2) unnamed_addr #0 {
+define internal fastcc i32 @WriteImage(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %2) unnamed_addr #0 {
   %4 = alloca [21 x i8], align 16
   %5 = alloca [1 x i8], align 1
   %6 = tail call ptr @VP8LBitWriterFinish(ptr noundef nonnull %1) #8
@@ -3103,7 +3103,7 @@ declare i32 @VP8LHashChainInit(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @VP8LBackwardRefsInit(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @AllocateTransformBuffer(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @AllocateTransformBuffer(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = sext i32 %1 to i64
   %5 = sext i32 %2 to i64
   %6 = mul nsw i64 %5, %4
@@ -3401,7 +3401,7 @@ declare void @VP8LHistogramSetClear(ptr noundef) local_unnamed_addr #1
 declare void @VP8LHistogramStoreRefs(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @GetHuffBitLengthsAndCodes(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @GetHuffBitLengthsAndCodes(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge.thread
@@ -4254,7 +4254,7 @@ StoreFullHuffmanCode.exit:                        ; preds = %303, %244
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @StoreImageToBitMask(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef nonnull readonly %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @StoreImageToBitMask(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef nonnull readonly captures(none) %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.VP8LRefsCursor, align 8
   %.not = icmp eq i32 %2, 0
   %9 = shl nuw i32 1, %2
@@ -4694,10 +4694,10 @@ declare i32 @llvm.smin.i32(i32, i32) #6
 declare i32 @llvm.smax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6

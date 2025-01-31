@@ -549,7 +549,7 @@ define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -1, 1) i32 @rsock_family_to_int(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #1 {
+define range(i32 -1, 1) i32 @rsock_family_to_int(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #1 {
   switch i64 %1, label %172 [
     i64 2, label %4
     i64 3, label %6
@@ -994,7 +994,7 @@ define range(i32 -1, 1) i32 @rsock_family_to_int(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -1, 1) i32 @rsock_socktype_to_int(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #1 {
+define range(i32 -1, 1) i32 @rsock_socktype_to_int(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #1 {
   switch i64 %1, label %36 [
     i64 3, label %4
     i64 5, label %8
@@ -1100,7 +1100,7 @@ define range(i32 -1, 1) i32 @rsock_socktype_to_int(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -1, 1) i32 @rsock_ipproto_to_int(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @rsock_ipproto_to_int(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   switch i64 %1, label %80 [
     i64 2, label %4
     i64 3, label %10
@@ -1317,7 +1317,7 @@ define range(i32 -1, 1) i32 @rsock_ipproto_to_int(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -1, 1) i32 @rsock_unknown_level_to_int(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #1 {
+define range(i32 -1, 1) i32 @rsock_unknown_level_to_int(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #1 {
   switch i64 %1, label %8 [
     i64 6, label %4
     i64 10, label %6
@@ -1343,7 +1343,7 @@ define range(i32 -1, 1) i32 @rsock_unknown_level_to_int(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -1, 1) i32 @rsock_ip_level_to_int(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #1 {
+define range(i32 -1, 1) i32 @rsock_ip_level_to_int(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #1 {
   switch i64 %1, label %84 [
     i64 2, label %4
     i64 3, label %10
@@ -1570,7 +1570,7 @@ define range(i32 -1, 1) i32 @rsock_ip_level_to_int(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -1, 1) i32 @rsock_so_optname_to_int(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #1 {
+define range(i32 -1, 1) i32 @rsock_so_optname_to_int(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #1 {
   switch i64 %1, label %204 [
     i64 32, label %202
     i64 4, label %4
@@ -2107,7 +2107,7 @@ define range(i32 -1, 1) i32 @rsock_so_optname_to_int(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -1, 1) i32 @rsock_ip_optname_to_int(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #1 {
+define range(i32 -1, 1) i32 @rsock_ip_optname_to_int(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #1 {
   switch i64 %1, label %152 [
     i64 3, label %4
     i64 6, label %10
@@ -2510,7 +2510,7 @@ define range(i32 -1, 1) i32 @rsock_ip_optname_to_int(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -1, 1) i32 @rsock_ipv6_optname_to_int(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #1 {
+define range(i32 -1, 1) i32 @rsock_ipv6_optname_to_int(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #1 {
   switch i64 %1, label %116 [
     i64 5, label %4
     i64 6, label %6
@@ -2819,7 +2819,7 @@ define range(i32 -1, 1) i32 @rsock_ipv6_optname_to_int(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -1, 1) i32 @rsock_tcp_optname_to_int(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #1 {
+define range(i32 -1, 1) i32 @rsock_tcp_optname_to_int(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #1 {
   switch i64 %1, label %100 [
     i64 4, label %4
     i64 24, label %98
@@ -3091,7 +3091,7 @@ define range(i32 -1, 1) i32 @rsock_tcp_optname_to_int(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -1, 1) i32 @rsock_udp_optname_to_int(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #1 {
+define range(i32 -1, 1) i32 @rsock_udp_optname_to_int(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #1 {
   switch i64 %1, label %8 [
     i64 4, label %4
     i64 8, label %6
@@ -3117,7 +3117,7 @@ define range(i32 -1, 1) i32 @rsock_udp_optname_to_int(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -1, 1) i32 @rsock_shutdown_how_to_int(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #1 {
+define range(i32 -1, 1) i32 @rsock_shutdown_how_to_int(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #1 {
   switch i64 %1, label %16 [
     i64 2, label %4
     i64 4, label %8
@@ -3166,7 +3166,7 @@ define range(i32 -1, 1) i32 @rsock_shutdown_how_to_int(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -1, 1) i32 @rsock_scm_optname_to_int(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #1 {
+define range(i32 -1, 1) i32 @rsock_scm_optname_to_int(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) #1 {
   switch i64 %1, label %28 [
     i64 16, label %26
     i64 6, label %4
@@ -3413,7 +3413,7 @@ define i32 @rsock_family_arg(i64 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @constant_arg(i64 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @constant_arg(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = and i64 %0, 255
   %6 = icmp eq i64 %5, 12
@@ -6419,7 +6419,7 @@ declare i32 @rb_st_insert(ptr noundef, i64 noundef, i64 noundef) local_unnamed_a
 declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #4
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Curl_cstrdup = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @curl_getenv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @curl_getenv(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @getenv(ptr noundef readonly %0) #2
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %GetEnv.exit, label %3
@@ -27,7 +27,7 @@ GetEnv.exit:                                      ; preds = %1, %3, %5
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #1
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

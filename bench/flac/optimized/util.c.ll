@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.timespec = type { i64, i64 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local double @benchmark_function(ptr nocapture noundef readonly %testfunc, i32 noundef %count) local_unnamed_addr #0 {
+define dso_local double @benchmark_function(ptr noundef readonly captures(none) %testfunc, i32 noundef %count) local_unnamed_addr #0 {
 entry:
   %start = alloca %struct.timespec, align 8
   %end = alloca %struct.timespec, align 8
@@ -49,7 +49,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @benchmark_stats(ptr nocapture noundef %stats) local_unnamed_addr #0 {
+define dso_local void @benchmark_stats(ptr noundef captures(none) %stats) local_unnamed_addr #0 {
 entry:
   %start.i = alloca %struct.timespec, align 8
   %end.i = alloca %struct.timespec, align 8
@@ -195,10 +195,10 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @double_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #3 {
+define internal range(i32 0, 2) i32 @double_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #3 {
 entry:
   %0 = load double, ptr %a, align 8
   %1 = load double, ptr %b, align 8
@@ -211,10 +211,10 @@ entry:
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

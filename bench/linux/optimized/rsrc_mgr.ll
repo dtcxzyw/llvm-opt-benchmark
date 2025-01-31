@@ -17,7 +17,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_pccard_stati
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_pccard_static_ops352, ptr @__UNIQUE_ID_alias356, ptr @__UNIQUE_ID_author353, ptr @__UNIQUE_ID_file354, ptr @__UNIQUE_ID_license355], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @static_init(ptr nocapture noundef writeonly initializes((344, 345)) %0) #0 align 16 {
+define dso_local noundef i32 @static_init(ptr noundef writeonly captures(none) initializes((344, 345)) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store i8 1, ptr %2, align 8
   ret i32 0
@@ -47,7 +47,7 @@ define dso_local noalias noundef ptr @pcmcia_make_resource(i64 noundef %0, i64 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef range(i32 -22, 1) i32 @static_find_io(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture noundef %2, i32 %3, i32 %4, ptr nocapture noundef writeonly %5) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @static_find_io(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef captures(none) %2, i32 %3, i32 %4, ptr noundef writeonly captures(none) %5) #2 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0

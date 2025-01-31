@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Gia_Rpr_t_ = type { i32 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Gia_AigerReadEquivClasses(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Gia_AigerReadEquivClasses(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   br label %4
 
@@ -128,7 +128,7 @@ Gia_AigerReadUnsigned.exit:                       ; preds = %21, %._crit_edge.lo
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias ptr @Gia_WriteEquivClassesInt(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define noalias ptr @Gia_WriteEquivClassesInt(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %3, align 8
   %4 = icmp sgt i32 %.val, 1
@@ -398,7 +398,7 @@ Gia_AigerWriteInt.exit:                           ; preds = %98
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Gia_WriteEquivClasses(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @Gia_WriteEquivClasses(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = call ptr @Gia_WriteEquivClassesInt(ptr noundef %0, ptr noundef nonnull %2)
   %4 = load i32, ptr %2, align 4
@@ -412,7 +412,7 @@ define noalias noundef ptr @Gia_WriteEquivClasses(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Gia_AigerReadMapping(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Gia_AigerReadMapping(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   br label %4
 
@@ -567,7 +567,7 @@ Gia_AigerReadDiffValue.exit:                      ; preds = %.lr.ph, %._crit_edg
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias ptr @Gia_AigerWriteMappingInt(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define noalias ptr @Gia_AigerWriteMappingInt(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val48 = load i32, ptr %3, align 8
   %4 = icmp sgt i32 %.val48, 1
@@ -846,7 +846,7 @@ Gia_AigerWriteInt.exit:                           ; preds = %95
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Gia_AigerWriteMapping(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @Gia_AigerWriteMapping(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = call ptr @Gia_AigerWriteMappingInt(ptr noundef %0, ptr noundef nonnull %2)
   %4 = load i32, ptr %2, align 4
@@ -860,7 +860,7 @@ define noalias noundef ptr @Gia_AigerWriteMapping(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noalias noundef ptr @Gia_AigerReadMappingSimple(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define noalias noundef ptr @Gia_AigerReadMappingSimple(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = sext i32 %1 to i64
   %4 = and i64 %3, -4
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #10
@@ -870,10 +870,10 @@ define noalias noundef ptr @Gia_AigerReadMappingSimple(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noalias noundef ptr @Gia_AigerWriteMappingSimple(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define noalias noundef ptr @Gia_AigerWriteMappingSimple(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -896,7 +896,7 @@ define noalias noundef ptr @Gia_AigerWriteMappingSimple(ptr nocapture noundef re
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Gia_AigerReadMappingDoc(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Gia_AigerReadMappingDoc(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   br label %4
 
@@ -1058,7 +1058,7 @@ Gia_AigerReadInt.exit53:                          ; preds = %51
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
-define noalias noundef ptr @Gia_AigerWriteMappingDoc(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define noalias noundef ptr @Gia_AigerWriteMappingDoc(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr i8, ptr %0, i64 24
   %.val52 = load i32, ptr %2, align 8
   %3 = icmp sgt i32 %.val52, 1
@@ -1271,7 +1271,7 @@ Gia_AigerWriteInt.exit63._crit_edge:              ; preds = %.critedge, %Gia_Aig
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Gia_AigerReadPacking(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #6 {
+define noalias noundef ptr @Gia_AigerReadPacking(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = sdiv i32 %1, 4
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
   %5 = add nsw i32 %3, -1
@@ -1392,7 +1392,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
-define noalias noundef ptr @Gia_WritePacking(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define noalias noundef ptr @Gia_WritePacking(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr i8, ptr %0, i64 4
   %.val13 = load i32, ptr %2, align 4
   %3 = shl nsw i32 %.val13, 2
@@ -1443,7 +1443,7 @@ Gia_AigerWriteInt.exit:                           ; preds = %13
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8

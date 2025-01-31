@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define dso_local range(i32 -255, 256) i32 @pg_strcasecmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 -255, 256) i32 @pg_strcasecmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %45, %2
@@ -104,7 +104,7 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #1
 declare i32 @tolower(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define dso_local range(i32 -255, 256) i32 @pg_strncasecmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -255, 256) i32 @pg_strncasecmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %48, %3

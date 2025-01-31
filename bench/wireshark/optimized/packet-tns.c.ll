@@ -607,7 +607,7 @@ define hidden void @proto_register_tns() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @vsnum_to_vstext_basecustom(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @vsnum_to_vstext_basecustom(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = lshr i32 %1, 24
   %4 = lshr i32 %1, 20
   %5 = and i32 %4, 15
@@ -675,7 +675,7 @@ declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr n
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
@@ -686,7 +686,7 @@ declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_tns_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @get_tns_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %2) #6
   %6 = zext i16 %5 to i32
   %7 = add i32 %2, 4
@@ -711,7 +711,7 @@ define internal i32 @get_tns_pdu_len(ptr nocapture readnone %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_tns_pdu_len_nochksum(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @get_tns_pdu_len_nochksum(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #6
   %6 = add i32 %2, 4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %6) #6
@@ -735,7 +735,7 @@ define internal i32 @get_tns_pdu_len_nochksum(ptr nocapture readnone %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_tns_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_tns_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -1489,7 +1489,7 @@ switch.early.test266.i:                           ; preds = %400
 457:                                              ; preds = %.thread.i, %442, %._crit_edge.i, %._crit_edge333.i, %340, %321, %317, %._crit_edge324.i, %280
   %.1.i = phi i32 [ %.0249.i, %280 ], [ %.0249269.i, %.thread.i ], [ %445, %442 ], [ %358, %._crit_edge333.i ], [ %.5.lcssa.i, %._crit_edge.i ], [ %320, %317 ], [ %316, %._crit_edge324.i ], [ %.0249.i, %340 ], [ %.0249.i, %321 ]
   %458 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1.i) #6
-  %459 = call i32 @call_data_dissector(ptr noundef %458, ptr noundef %1, ptr noundef %218) #6
+  %459 = call i32 @call_data_dissector(ptr noundef %458, ptr noundef nonnull %1, ptr noundef %218) #6
   br label %dissect_tns_data.exit
 
 dissect_tns_data.exit:                            ; preds = %255, %268, %._crit_edge330.i, %457
@@ -1554,14 +1554,14 @@ dissect_tns_data.exit:                            ; preds = %255, %268, %._crit_
 
 487:                                              ; preds = %._crit_edge.i107
   %488 = load ptr, ptr %5, align 8
-  %489 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %488, ptr noundef nonnull @ei_tns_data_descriptor_size_mismatch) #6
+  %489 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %488, ptr noundef nonnull @ei_tns_data_descriptor_size_mismatch) #6
   %.pre.i = load i32, ptr %6, align 4
   br label %dissect_tns_data_descriptor.exit
 
 dissect_tns_data_descriptor.exit:                 ; preds = %._crit_edge.i107, %487
   %490 = phi i32 [ %.pre.i, %487 ], [ %.034.lcssa.i, %._crit_edge.i107 ]
   %491 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %461, i32 noundef %490) #6
-  %492 = call i32 @call_data_dissector(ptr noundef %491, ptr noundef %1, ptr noundef %467) #6
+  %492 = call i32 @call_data_dissector(ptr noundef %491, ptr noundef nonnull %1, ptr noundef %467) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -1646,10 +1646,10 @@ declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

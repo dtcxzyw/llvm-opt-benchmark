@@ -896,10 +896,10 @@ _SPI_begin_call.exit:                             ; preds = %11, %3, %_SPI_prepa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -8, 19) i32 @_SPI_execute_plan(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 -8, 19) i32 @_SPI_execute_plan(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %struct.SPICallbackArg, align 8
   %7 = alloca %struct.ErrorContextCallback, align 8
   %8 = alloca %struct.QueryCompletion, align 8
@@ -2238,7 +2238,7 @@ _SPI_begin_call.exit:                             ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_SPI_prepare_plan(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @_SPI_prepare_plan(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
   %3 = alloca %struct.SPICallbackArg, align 8
   %4 = alloca %struct.ErrorContextCallback, align 8
   store ptr %0, ptr %3, align 8
@@ -2327,7 +2327,7 @@ define internal fastcc void @_SPI_prepare_plan(ptr noundef nonnull %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @_SPI_make_plan_non_temp(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @_SPI_make_plan_non_temp(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr @_SPI_current, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -3037,7 +3037,7 @@ declare void @heap_deform_tuple(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @pfree(ptr noundef) local_unnamed_addr #2
 
@@ -3354,7 +3354,7 @@ define dso_local i64 @SPI_getbinval(ptr noundef %0, ptr noundef %1, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @SPI_gettype(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @SPI_gettype(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 0, ptr @SPI_result, align 4
   %3 = load i32, ptr %0, align 8
   %4 = icmp sgt i32 %1, %3
@@ -3420,7 +3420,7 @@ declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #2
 declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @SPI_gettypeid(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @SPI_gettypeid(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 0, ptr @SPI_result, align 4
   %3 = load i32, ptr %0, align 8
   %4 = icmp sgt i32 %1, %3
@@ -3460,7 +3460,7 @@ define dso_local i32 @SPI_gettypeid(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @SPI_getrelname(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @SPI_getrelname(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -3469,7 +3469,7 @@ define dso_local ptr @SPI_getrelname(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @SPI_getnspname(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @SPI_getnspname(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 68
@@ -3622,7 +3622,7 @@ define dso_local void @SPI_freetuptable(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @SPI_cursor_open(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local ptr @SPI_cursor_open(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -4020,7 +4020,7 @@ list_length.exit85.thread:                        ; preds = %list_length.exit85,
 
 156:                                              ; preds = %152, %151
   %.0 = phi ptr [ %155, %152 ], [ null, %151 ]
-  call void @PortalStart(ptr noundef %.060, ptr noundef %.0, i32 noundef 0, ptr noundef %.061) #15
+  call void @PortalStart(ptr noundef nonnull %.060, ptr noundef %.0, i32 noundef 0, ptr noundef %.061) #15
   %157 = load ptr, ptr %6, align 8
   store ptr %157, ptr @error_context_stack, align 8
   %158 = load ptr, ptr @_SPI_current, align 8
@@ -4491,7 +4491,7 @@ list_length.exit.thread:                          ; preds = %6, %list_length.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @SPI_plan_is_valid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @SPI_plan_is_valid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -4555,14 +4555,14 @@ switch.lookup:                                    ; preds = %switch.hole_check
 declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @SPI_plan_get_plan_sources(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define dso_local ptr @SPI_plan_get_plan_sources(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @SPI_plan_get_cached_plan(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @SPI_plan_get_cached_plan(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.SPICallbackArg, align 8
   %3 = alloca %struct.ErrorContextCallback, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 5
@@ -4619,7 +4619,7 @@ list_length.exit.thread:                          ; preds = %7, %list_length.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_SPI_error_callback(ptr nocapture noundef readonly %0) #0 {
+define internal void @_SPI_error_callback(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %23, label %4
@@ -4667,7 +4667,7 @@ define internal void @_SPI_error_callback(ptr nocapture noundef readonly %0) #0 
 declare ptr @GetCachedPlan(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @spi_dest_startup(ptr nocapture noundef readnone %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @spi_dest_startup(ptr noundef readnone captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @_SPI_current, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %9
@@ -4732,7 +4732,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 declare ptr @CreateTupleDescCopy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @spi_printtup(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @spi_printtup(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @_SPI_current, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8
@@ -5182,10 +5182,10 @@ declare ptr @get_ENR(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

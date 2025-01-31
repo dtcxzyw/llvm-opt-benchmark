@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @jiffies = external dso_local global i64, section ".data..cacheline_aligned", align 64
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i915_gem_throttle_ioctl(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @i915_gem_throttle_ioctl(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca %struct.i915_gem_engines_iter, align 8
   %6 = load volatile i64, ptr @jiffies, align 64
@@ -257,7 +257,7 @@ define dso_local i32 @i915_gem_throttle_ioctl(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @intel_gt_terminally_wedged(ptr noundef) local_unnamed_addr #2
@@ -266,7 +266,7 @@ declare dso_local i32 @intel_gt_terminally_wedged(ptr noundef) local_unnamed_add
 declare dso_local ptr @xa_find(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @i915_gem_engines_iter_next(ptr noundef) local_unnamed_addr #2
@@ -275,7 +275,7 @@ declare dso_local ptr @i915_gem_engines_iter_next(ptr noundef) local_unnamed_add
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2

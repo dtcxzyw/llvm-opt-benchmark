@@ -729,7 +729,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0
 declare void @_ZN13ReservedSpaceC1Em(ptr noundef nonnull align 8 dereferenceable(49), i64 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef %0, ...) local_unnamed_addr #3 comdat align 2 {
@@ -1722,7 +1722,7 @@ declare noundef zeroext i1 @_ZNK13InstanceKlass27can_be_verified_at_dumptimeEv(p
 declare void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN26VM_PopulateDumpSharedSpace21dump_read_only_tablesEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN26VM_PopulateDumpSharedSpace21dump_read_only_tablesEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %"class.ArchiveBuilder::OtherROAllocMark", align 8
   %3 = alloca %class.WriteClosure, align 8
   %4 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
@@ -1893,7 +1893,7 @@ declare void @_ZN14ArchiveBuilder16dump_ro_metadataEv(ptr noundef nonnull align 
 declare void @_ZN14ArchiveBuilder39relocate_metaspaceobj_embedded_pointersEv(ptr noundef nonnull align 8 dereferenceable(1080)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN26VM_PopulateDumpSharedSpace22dump_java_heap_objectsEP13GrowableArrayIP5KlassE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN26VM_PopulateDumpSharedSpace22dump_java_heap_objectsEP13GrowableArrayIP5KlassE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %"class.ArchiveBuilder::OtherROAllocMark", align 8
   %4 = load i8, ptr @_ZN10HeapShared16_disable_writingE, align 1
   %5 = trunc i8 %4 to i1
@@ -2903,7 +2903,7 @@ define hidden void @_ZN15MetaspaceShared21get_default_classlistEPcm(ptr noundef 
   %30 = getelementptr inbounds i8, ptr %0, i64 %.0
   %31 = sub i64 %1, %.0
   %32 = tail call noundef ptr @_ZN2os14file_separatorEv() #15
-  %33 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %30, i64 noundef %31, ptr noundef nonnull @.str.27, ptr noundef %32) #15
+  %33 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %30, i64 noundef %31, ptr noundef nonnull @.str.27, ptr noundef %32) #15
   br label %34
 
 34:                                               ; preds = %29, %26
@@ -2918,10 +2918,10 @@ declare noundef ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 declare noundef ptr @_ZN2os14file_separatorEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #0
 
@@ -3717,7 +3717,7 @@ declare void @_ZN11FileMapInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(4
 declare noundef zeroext i1 @_ZN11FileMapInfo10initializeEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN15MetaspaceShared34reserve_address_space_for_archivesEP11FileMapInfoS1_bR13ReservedSpaceS3_S3_(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(49) %3, ptr nocapture noundef nonnull align 8 dereferenceable(49) %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %5) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN15MetaspaceShared34reserve_address_space_for_archivesEP11FileMapInfoS1_bR13ReservedSpaceS3_S3_(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(49) %3, ptr noundef nonnull align 8 captures(none) dereferenceable(49) %4, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(49) %5) local_unnamed_addr #3 align 2 {
   %7 = alloca %class.ThreadCritical, align 1
   %8 = alloca i64, align 8
   %9 = alloca %class.ThreadCritical, align 1
@@ -3880,7 +3880,7 @@ _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %38, %41
 declare void @_ZN13ReservedSpace7releaseEv(ptr noundef nonnull align 8 dereferenceable(49)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN15MetaspaceShared11map_archiveEP11FileMapInfoPc13ReservedSpace(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %2) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN15MetaspaceShared11map_archiveEP11FileMapInfoPc13ReservedSpace(ptr noundef %0, ptr noundef %1, ptr noundef readonly byval(%class.ReservedSpace) align 8 captures(none) %2) local_unnamed_addr #3 align 2 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %20, label %5
 
@@ -4528,7 +4528,7 @@ declare void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull alig
 declare void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN23DumpClassListCLDClosure6do_cldEP15ClassLoaderData(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
@@ -6448,10 +6448,10 @@ declare i32 @llvm.umin.i32(i32, i32) #13
 declare i32 @llvm.ctpop.i32(i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #13

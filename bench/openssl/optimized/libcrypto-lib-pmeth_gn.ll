@@ -448,7 +448,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_CTX_set_cb(ptr nocapture noundef writeonly initializes((96, 104)) %ctx, ptr noundef %cb) local_unnamed_addr #2 {
+define void @EVP_PKEY_CTX_set_cb(ptr noundef writeonly captures(none) initializes((96, 104)) %ctx, ptr noundef %cb) local_unnamed_addr #2 {
 entry:
   %pkey_gencb = getelementptr inbounds nuw i8, ptr %ctx, i64 96
   store ptr %cb, ptr %pkey_gencb, align 8
@@ -456,7 +456,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_PKEY_CTX_get_cb(ptr nocapture noundef readonly %ctx) local_unnamed_addr #3 {
+define ptr @EVP_PKEY_CTX_get_cb(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #3 {
 entry:
   %pkey_gencb = getelementptr inbounds nuw i8, ptr %ctx, i64 96
   %0 = load ptr, ptr %pkey_gencb, align 8
@@ -489,7 +489,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @EVP_PKEY_CTX_get_keygen_info(ptr nocapture noundef readonly %ctx, i32 noundef %idx) local_unnamed_addr #4 {
+define i32 @EVP_PKEY_CTX_get_keygen_info(ptr noundef readonly captures(none) %ctx, i32 noundef %idx) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq i32 %idx, -1
   br i1 %cmp, label %if.then, label %if.end
@@ -814,7 +814,7 @@ return:                                           ; preds = %if.end6, %if.then3,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ossl_pkey_todata_cb(ptr noundef %params, ptr nocapture noundef writeonly initializes((0, 8)) %arg) #0 {
+define internal noundef i32 @ossl_pkey_todata_cb(ptr noundef %params, ptr noundef writeonly captures(none) initializes((0, 8)) %arg) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_dup(ptr noundef %params) #6
   store ptr %call, ptr %arg, align 8
@@ -822,7 +822,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pkey_fake_import(ptr nocapture noundef readonly %fake_keydata, i32 %ignored_selection, ptr noundef %params) #0 {
+define internal i32 @pkey_fake_import(ptr noundef readonly captures(none) %fake_keydata, i32 %ignored_selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %fake_keydata, align 8
   %export_cbarg = getelementptr inbounds nuw i8, ptr %fake_keydata, i64 8
@@ -846,10 +846,10 @@ declare ptr @BN_GENCB_get_arg(ptr noundef) local_unnamed_addr #1
 declare ptr @OSSL_PARAM_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

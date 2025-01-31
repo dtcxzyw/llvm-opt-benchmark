@@ -215,7 +215,7 @@ $_ZZN11QMetaTypeIdI19bytes_encoding_typeE14qt_metatype_idEvE11metatype_id = comd
 @_ZN12ByteViewTextD1Ev = unnamed_addr alias void (ptr), ptr @_ZN12ByteViewTextD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ByteViewTextC2ERK10QByteArray15packet_char_encP7QWidget(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12ByteViewTextC2ERK10QByteArray15packet_char_encP7QWidget(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca { i64, i64 }, align 8
   %6 = alloca %class.QColor, align 4
   %7 = alloca %class.QColor, align 4
@@ -453,7 +453,7 @@ declare noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7QWidget7paletteEv(
 declare void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14), i32 noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare noundef ptr @_ZNK7QWidget6windowEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
@@ -1382,7 +1382,7 @@ declare void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferencea
 declare void @_ZN7QAction7toggledEb(ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define void @_ZN12ByteViewText18toggleHoverAllowedEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(328) initializes((232, 233)) %0, i1 noundef zeroext %1) #10 align 2 {
+define void @_ZN12ByteViewText18toggleHoverAllowedEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(328) initializes((232, 233)) %0, i1 noundef zeroext %1) #10 align 2 {
   %3 = xor i1 %1, true
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %5 = zext i1 %3 to i8
@@ -1439,7 +1439,7 @@ _ZNK8QVariant5valueI15bytes_view_typeEET_v.exit:  ; preds = %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ByteViewText17updateContextMenuEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(328) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN12ByteViewText17updateContextMenuEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(328) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 68), align 4
@@ -1504,7 +1504,7 @@ _ZNK8QVariant5valueI19bytes_encoding_typeEET_v.exit: ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK12ByteViewText7isEmptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(328) %0) local_unnamed_addr #11 align 2 {
+define noundef zeroext i1 @_ZNK12ByteViewText7isEmptyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(328) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
@@ -1512,7 +1512,7 @@ define noundef zeroext i1 @_ZNK12ByteViewText7isEmptyEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZNK12ByteViewText15minimumSizeHintEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(328) %0) unnamed_addr #12 align 2 {
+define noundef i64 @_ZNK12ByteViewText15minimumSizeHintEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(328) %0) unnamed_addr #12 align 2 {
   ret i64 -1
 }
 
@@ -1891,7 +1891,7 @@ _ZN10QByteArray6detachEv.exit:                    ; preds = %_ZNK17QArrayDataPoi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ByteViewText10paintEventEP11QPaintEvent(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr nocapture noundef readnone %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12ByteViewText10paintEventEP11QPaintEvent(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef readnone captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %class.QPointF, align 8
@@ -4443,7 +4443,7 @@ declare noundef ptr @_ZNK7QWidget5styleEv(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ByteViewText11resizeEventEP12QResizeEvent(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr nocapture noundef readnone %1) unnamed_addr #0 align 2 {
+define void @_ZN12ByteViewText11resizeEventEP12QResizeEvent(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef readnone captures(none) %1) unnamed_addr #0 align 2 {
   tail call void @_ZN12ByteViewText16updateScrollbarsEv(ptr noundef nonnull align 8 dereferenceable(328) %0)
   ret void
 }
@@ -4599,7 +4599,7 @@ declare void @_ZN7QWidget17setUpdatesEnabledEb(ptr noundef nonnull align 8 deref
 declare void @_ZN12ByteViewText12byteSelectedEi(ptr noundef nonnull align 8 dereferenceable(328), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ByteViewText14mouseMoveEventEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12ByteViewText14mouseMoveEventEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, -1
@@ -4736,7 +4736,7 @@ declare void @_ZN12QFontMetricsD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare noundef i32 @_ZNK12QFontMetrics17horizontalAdvanceERK7QStringi(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 4, 11) i32 @_ZN12ByteViewText11offsetCharsEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(328) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
+define noundef range(i32 4, 11) i32 @_ZN12ByteViewText11offsetCharsEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(328) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
   %3 = select i1 %1, i32 2, i32 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i64, ptr %4, align 8
@@ -4872,7 +4872,7 @@ _ZN17QArrayDataPointerIiED2Ev.exit:               ; preds = %36, %31, %23, %_ZN1
 declare noundef i32 @_ZN11DataPrinter8hexCharsEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: noreturn
 declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #14
@@ -5648,7 +5648,7 @@ declare double @llvm.copysign.f64(double, double) #15
 declare void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind writable sret(%class.QString) align 8, i64, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 declare void @_ZN12QFontMetricsC1ERK5QFont(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #1
 
@@ -5719,7 +5719,7 @@ declare noundef i32 @_ZN9QtPrivate13compareMemoryE14QByteArrayViewS0_(i64, ptr, 
 declare noundef zeroext i1 @_ZNK10QByteArray6isNullEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN12ByteViewTextC1ERK10QByteArray15packet_char_encP7QWidgetE3$_0Li1ENS_4ListIJP7QScreenEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 align 2 {
+define internal void @"_ZN9QtPrivate18QFunctorSlotObjectIZN12ByteViewTextC1ERK10QByteArray15packet_char_encP7QWidgetE3$_0Li1ENS_4ListIJP7QScreenEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb"(i32 noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 align 2 {
   switch i32 %0, label %12 [
     i32 0, label %6
     i32 1, label %9
@@ -6820,7 +6820,7 @@ _ZN17QArrayDataPointerIiED2Ev.exit35:             ; preds = %76, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN17QArrayDataPointerIiE12allocateGrowERKS0_xN10QArrayData14GrowthPositionE(ptr dead_on_unwind noalias writable sret(%struct.QArrayDataPointer.8) align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 comdat align 2 {
@@ -8565,10 +8565,10 @@ _ZNK8QVariant7Private3getI19bytes_encoding_typeEERKT_v.exit: ; preds = %23, %20,
 declare i64 @llvm.smax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21

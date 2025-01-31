@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @slurm_init_job_desc_msg(ptr nocapture noundef writeonly initializes((0, 904)) %0) local_unnamed_addr #0 {
+define void @slurm_init_job_desc_msg(ptr noundef writeonly captures(none) initializes((0, 904)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(904) %0, i8 0, i64 904, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 -2, ptr %2, align 4
@@ -98,10 +98,10 @@ define void @slurm_init_job_desc_msg(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @slurm_init_update_step_msg(ptr nocapture noundef writeonly initializes((0, 12)) %0) local_unnamed_addr #0 {
+define void @slurm_init_update_step_msg(ptr noundef writeonly captures(none) initializes((0, 12)) %0) local_unnamed_addr #0 {
   store i32 -2, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -2, ptr %2, align 4
@@ -111,7 +111,7 @@ define void @slurm_init_update_step_msg(ptr nocapture noundef writeonly initiali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @slurm_init_part_desc_msg(ptr nocapture noundef writeonly initializes((0, 232)) %0) local_unnamed_addr #0 {
+define void @slurm_init_part_desc_msg(ptr noundef writeonly captures(none) initializes((0, 232)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %0, i8 0, i64 232, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 -2, ptr %2, align 8
@@ -147,7 +147,7 @@ define void @slurm_init_part_desc_msg(ptr nocapture noundef writeonly initialize
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @slurm_init_resv_desc_msg(ptr nocapture noundef writeonly initializes((0, 160)) %0) local_unnamed_addr #0 {
+define void @slurm_init_resv_desc_msg(ptr noundef writeonly captures(none) initializes((0, 160)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %0, i8 0, i64 160, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 -2, ptr %2, align 8
@@ -171,7 +171,7 @@ define void @slurm_init_resv_desc_msg(ptr nocapture noundef writeonly initialize
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @slurm_init_update_node_msg(ptr nocapture noundef writeonly initializes((0, 120)) %0) local_unnamed_addr #0 {
+define void @slurm_init_update_node_msg(ptr noundef writeonly captures(none) initializes((0, 120)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, i8 0, i64 120, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 -2, ptr %2, align 8
@@ -183,7 +183,7 @@ define void @slurm_init_update_node_msg(ptr nocapture noundef writeonly initiali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @slurm_init_update_front_end_msg(ptr nocapture noundef writeonly initializes((0, 32)) %0) local_unnamed_addr #0 {
+define void @slurm_init_update_front_end_msg(ptr noundef writeonly captures(none) initializes((0, 32)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -2, ptr %2, align 8
@@ -191,7 +191,7 @@ define void @slurm_init_update_front_end_msg(ptr nocapture noundef writeonly ini
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @slurm_init_trigger_msg(ptr nocapture noundef writeonly initializes((0, 48)) %0) local_unnamed_addr #0 {
+define void @slurm_init_trigger_msg(ptr noundef writeonly captures(none) initializes((0, 48)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 -2, ptr %2, align 4

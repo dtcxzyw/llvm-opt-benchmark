@@ -2714,7 +2714,7 @@ declare double @tanh(double noundef) local_unnamed_addr #3
 declare double @tan(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @_ZN4Luau7CompileL5ctypeERKNS0_8ConstantE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 initializes((0, 16)) %0, i32 %.0.val) unnamed_addr #5 {
+define internal fastcc void @_ZN4Luau7CompileL5ctypeERKNS0_8ConstantE(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) initializes((0, 16)) %0, i32 %.0.val) unnamed_addr #5 {
   switch i32 %.0.val, label %17 [
     i32 1, label %2
     i32 2, label %5
@@ -2775,7 +2775,7 @@ define internal fastcc void @_ZN4Luau7CompileL5ctypeERKNS0_8ConstantE(ptr dead_o
 declare double @llvm.round.f64(double) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4Luau7Compile15foldBuiltinMathENS_7AstNameE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::Compile::Constant") align 8 initializes((0, 16)) %0, ptr readonly %1) local_unnamed_addr #6 {
+define dso_local void @_ZN4Luau7Compile15foldBuiltinMathENS_7AstNameE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::Compile::Constant") align 8 captures(none) initializes((0, 16)) %0, ptr readonly %1) local_unnamed_addr #6 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_ZNK4Luau7AstNameeqEPKc.exit2.thread, label %sub_0
 
@@ -2826,10 +2826,10 @@ _ZNK4Luau7AstNameeqEPKc.exit2.thread:             ; preds = %2, %_ZNK4Luau7AstNa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshr.i32(i32, i32, i32) #9

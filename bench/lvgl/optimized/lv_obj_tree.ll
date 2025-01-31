@@ -87,7 +87,7 @@ lv_obj_get_screen.exit.i:                         ; preds = %lv_obj_get_parent.e
   %26 = getelementptr inbounds nuw i8, ptr %.01727.i, i64 800
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = icmp eq ptr %27, %0
-  tail call fastcc void @obj_delete_core(ptr noundef %0)
+  tail call fastcc void @obj_delete_core(ptr noundef nonnull %0)
   br i1 %28, label %29, label %lv_obj_get_display.exit.thread
 
 29:                                               ; preds = %25
@@ -102,7 +102,7 @@ lv_obj_get_display.exit.thread:                   ; preds = %._crit_edge.i, %.th
 declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @lv_obj_get_parent(ptr noundef readonly %0) local_unnamed_addr #3 {
@@ -280,7 +280,7 @@ lv_obj_get_child.exit86:                          ; preds = %25
   br label %obj_indev_reset.exit
 
 obj_indev_reset.exit:                             ; preds = %46, %48
-  tail call void @lv_indev_reset(ptr noundef nonnull %.076109, ptr noundef %0) #7
+  tail call void @lv_indev_reset(ptr noundef nonnull %.076109, ptr noundef nonnull %0) #7
   br label %49
 
 49:                                               ; preds = %obj_indev_reset.exit, %42
@@ -324,7 +324,7 @@ obj_indev_reset.exit:                             ; preds = %46, %48
   br label %obj_indev_reset.exit89
 
 obj_indev_reset.exit89:                           ; preds = %66, %68
-  tail call void @lv_indev_reset(ptr noundef nonnull %.076109, ptr noundef %0) #7
+  tail call void @lv_indev_reset(ptr noundef nonnull %.076109, ptr noundef nonnull %0) #7
   br label %69
 
 69:                                               ; preds = %obj_indev_reset.exit89, %63, %59
@@ -336,12 +336,12 @@ obj_indev_reset.exit89:                           ; preds = %66, %68
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %71 = tail call i32 @lv_async_call_cancel(ptr noundef nonnull @lv_obj_delete_async_cb, ptr noundef %0) #7
+  %71 = tail call i32 @lv_async_call_cancel(ptr noundef nonnull @lv_obj_delete_async_cb, ptr noundef nonnull %0) #7
   %72 = icmp eq i32 %71, 1
   br i1 %72, label %.preheader, label %73, !llvm.loop !41
 
 73:                                               ; preds = %.preheader
-  tail call void @lv_obj_destruct(ptr noundef %0) #7
+  tail call void @lv_obj_destruct(ptr noundef nonnull %0) #7
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !3
   %76 = icmp eq ptr %75, null
@@ -533,7 +533,7 @@ lv_obj_get_index.exit:                            ; preds = %116
   br label %152
 
 152:                                              ; preds = %._crit_edge115, %._crit_edge129
-  tail call void @lv_free(ptr noundef %0) #7
+  tail call void @lv_free(ptr noundef nonnull %0) #7
   br label %153
 
 153:                                              ; preds = %9, %152, %1
@@ -545,7 +545,7 @@ declare void @lv_obj_scrollbar_invalidate(ptr noundef) local_unnamed_addr #1
 declare i32 @lv_obj_send_event(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define void @lv_obj_clean(ptr noundef %0) local_unnamed_addr #0 {
@@ -653,7 +653,7 @@ lv_obj_get_child_count.exit27:                    ; preds = %._crit_edge, %29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 65536) i32 @lv_obj_get_child_count(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 65536) i32 @lv_obj_get_child_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !26
   %4 = icmp eq ptr %3, null
@@ -700,7 +700,7 @@ declare void @lv_anim_set_delay(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @lv_anim_set_completed_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_obj_delete_anim_completed_cb(ptr nocapture noundef readonly %0) #0 {
+define void @lv_obj_delete_anim_completed_cb(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !50
   tail call void @lv_obj_delete(ptr noundef %2)
   ret void
@@ -852,12 +852,12 @@ lv_obj_get_child_count.exit46:                    ; preds = %44, %40
   store ptr %0, ptr %61, align 8, !tbaa !22
   store ptr %1, ptr %3, align 8, !tbaa !3
   tail call void @lv_obj_scrollbar_invalidate(ptr noundef nonnull %8) #7
-  %62 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %8, i32 noundef 42, ptr noundef %0) #7
+  %62 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %8, i32 noundef 42, ptr noundef nonnull %0) #7
   %63 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %8, i32 noundef 44, ptr noundef null) #7
-  %64 = tail call i32 @lv_obj_send_event(ptr noundef %1, i32 noundef 42, ptr noundef %0) #7
-  %65 = tail call i32 @lv_obj_send_event(ptr noundef %1, i32 noundef 43, ptr noundef null) #7
-  tail call void @lv_obj_mark_layout_as_dirty(ptr noundef %0) #7
-  tail call void @lv_obj_invalidate(ptr noundef %0) #7
+  %64 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %1, i32 noundef 42, ptr noundef nonnull %0) #7
+  %65 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %1, i32 noundef 43, ptr noundef null) #7
+  tail call void @lv_obj_mark_layout_as_dirty(ptr noundef nonnull %0) #7
+  tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #7
   br label %66
 
 66:                                               ; preds = %2, %lv_obj_get_child_count.exit46
@@ -1218,7 +1218,7 @@ declare ptr @lv_ll_get_head(ptr noundef) local_unnamed_addr #1
 declare ptr @lv_ll_get_next(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @lv_obj_get_child(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define ptr @lv_obj_get_child(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !26
   %5 = icmp eq ptr %4, null
@@ -1254,7 +1254,7 @@ define ptr @lv_obj_get_child(ptr nocapture noundef readonly %0, i32 noundef %1) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @lv_obj_get_child_by_type(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readnone %2) local_unnamed_addr #5 {
+define noundef ptr @lv_obj_get_child_by_type(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readnone %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !26
   %6 = icmp eq ptr %5, null
@@ -1565,7 +1565,7 @@ lv_obj_get_parent.exit.thread:                    ; preds = %21, %17, %.preheade
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @lv_obj_get_child_count_by_type(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #5 {
+define i32 @lv_obj_get_child_count_by_type(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !26
   %5 = icmp eq ptr %4, null
@@ -1736,7 +1736,7 @@ define void @lv_obj_dump_tree(ptr noundef readonly %0) local_unnamed_addr #0 {
 declare ptr @lv_display_get_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc void @dump_tree_core(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #6 {
+define internal fastcc void @dump_tree_core(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 

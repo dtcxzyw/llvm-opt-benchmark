@@ -211,7 +211,7 @@ entry:
 declare double @log2(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal13preprocessing6passes17collectUSortsToBVERKSt13unordered_setINS0_12NodeTemplateILb0EEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EERKSt13unordered_mapINS0_8TypeNodeEmS6_ISF_ES8_ISF_ESaISt4pairIKSF_mEEERNS0_6theory15SubstitutionMapE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %vars, ptr noundef nonnull align 8 dereferenceable(56) %usortCardinality, ptr noundef nonnull align 8 dereferenceable(256) %usVarsToBVVars) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal13preprocessing6passes17collectUSortsToBVERKSt13unordered_setINS0_12NodeTemplateILb0EEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EERKSt13unordered_mapINS0_8TypeNodeEmS6_ISF_ES8_ISF_ESaISt4pairIKSF_mEEERNS0_6theory15SubstitutionMapE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %vars, ptr noundef nonnull align 8 dereferenceable(56) %usortCardinality, ptr noundef nonnull align 8 dereferenceable(256) %usVarsToBVVars) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %var = alloca %"class.cvc5::internal::NodeTemplate.77", align 8
   %type = alloca %"class.cvc5::internal::TypeNode", align 8
@@ -776,7 +776,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal13preprocessing6passes17getVarsWithUSortsEPNS1_17AssertionPipelineE(ptr noalias sret(%"class.std::unordered_set.60") align 8 %agg.result, ptr nocapture noundef readonly %assertions) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal13preprocessing6passes17getVarsWithUSortsEPNS1_17AssertionPipelineE(ptr noalias sret(%"class.std::unordered_set.60") align 8 %agg.result, ptr noundef readonly captures(none) %assertions) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %vars = alloca %"class.std::unordered_set.60", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.77", align 8
@@ -1411,7 +1411,7 @@ declare void @_ZN4cvc58internal6theory15SubstitutionMap5applyENS0_12NodeTemplate
 declare void @_ZN4cvc58internal13preprocessing17AssertionPipeline7replaceEmNS0_12NodeTemplateILb1EEEPNS0_14ProofGeneratorE(ptr noundef nonnull align 8 dereferenceable(164), i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal13preprocessing6passes9AckermannC2EPNS1_24PreprocessingPassContextE(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %preprocContext) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
@@ -4503,7 +4503,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #10
 declare void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
@@ -4683,7 +4683,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #13
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEES4_St4hashIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -6918,10 +6918,10 @@ entry:
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19

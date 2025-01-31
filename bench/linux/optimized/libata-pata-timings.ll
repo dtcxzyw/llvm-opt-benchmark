@@ -20,7 +20,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ata_timing_c
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable_ata_timing_compute457, ptr @__UNIQUE_ID___addressable_ata_timing_find_mode456, ptr @__UNIQUE_ID___addressable_ata_timing_merge451], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @ata_timing_merge(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #0 align 16 {
+define dso_local void @ata_timing_merge(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #0 align 16 {
   %5 = and i32 %3, 1
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %14, label %7
@@ -160,10 +160,10 @@ define dso_local void @ata_timing_merge(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @ata_timing_find_mode(i8 noundef zeroext %0) #2 align 16 {
@@ -205,7 +205,7 @@ define dso_local noundef ptr @ata_timing_find_mode(i8 noundef zeroext %0) #2 ali
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @ata_timing_compute(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ata_timing_compute(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #2 align 16 {
   %6 = alloca %struct.ata_timing, align 2
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #7
   %7 = and i16 %1, 255
@@ -597,10 +597,10 @@ define dso_local noundef range(i32 -22, 1) i32 @ata_timing_compute(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #6

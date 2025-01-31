@@ -61,10 +61,10 @@ define dso_local noundef i32 @main() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal noundef i32 @_ZL12ArchSnprintfPcmPKcz(ptr noundef nonnull %0, i64 noundef %1, ptr nocapture readnone %2, ...) unnamed_addr #3 {
+define internal noundef i32 @_ZL12ArchSnprintfPcmPKcz(ptr noundef nonnull %0, i64 noundef %1, ptr readnone captures(none) %2, ...) unnamed_addr #3 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__13ArchVsnprintfEPcmPKcP13__va_list_tag(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull %4)
@@ -73,7 +73,7 @@ define internal noundef i32 @_ZL12ArchSnprintfPcmPKcz(ptr noundef nonnull %0, i6
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: noreturn
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__10Arch_ErrorEPKcS1_mS1_(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6

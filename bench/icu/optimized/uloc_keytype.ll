@@ -280,7 +280,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -837,7 +837,7 @@ invoke.cont117.i:                                 ; preds = %invoke.cont109.i
 
 if.then122.i:                                     ; preds = %invoke.cont117.i
   store i32 0, ptr %tmpSts.i, align 4
-  %call126.i = invoke ptr @ures_getByKey_75(ptr noundef nonnull %21, ptr noundef %call80.i, ptr noundef null, ptr noundef nonnull %tmpSts.i)
+  %call126.i = invoke ptr @ures_getByKey_75(ptr noundef nonnull %21, ptr noundef nonnull %call80.i, ptr noundef null, ptr noundef nonnull %tmpSts.i)
           to label %invoke.cont127.i unwind label %lpad118.i
 
 invoke.cont127.i:                                 ; preds = %if.then122.i
@@ -871,7 +871,7 @@ invoke.cont143.i:                                 ; preds = %if.then138.i
 
 if.end150.i:                                      ; preds = %invoke.cont143.i, %if.end134.i
   %24 = load ptr, ptr %typeMapRes.i, align 8
-  %call154.i = invoke ptr @ures_getByKey_75(ptr noundef %24, ptr noundef %call80.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %sts)
+  %call154.i = invoke ptr @ures_getByKey_75(ptr noundef %24, ptr noundef nonnull %call80.i, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %sts)
           to label %invoke.cont155.i unwind label %lpad118.i
 
 invoke.cont155.i:                                 ; preds = %if.end150.i
@@ -1444,7 +1444,7 @@ if.then.i230.i:                                   ; preds = %if.end418.i
 invoke.cont422.i:                                 ; preds = %if.then.i230.i, %if.end418.i
   store ptr %call110.i, ptr %typeMap.i, align 8
   %81 = load ptr, ptr @_ZL13gLocExtKeyMap, align 8
-  %call424.i = invoke ptr @uhash_put_75(ptr noundef %81, ptr noundef %call80.i, ptr noundef nonnull %call415.i, ptr noundef nonnull align 4 dereferenceable(4) %sts)
+  %call424.i = invoke ptr @uhash_put_75(ptr noundef %81, ptr noundef nonnull %call80.i, ptr noundef nonnull %call415.i, ptr noundef nonnull align 4 dereferenceable(4) %sts)
           to label %invoke.cont423.i unwind label %lpad159.i
 
 invoke.cont423.i:                                 ; preds = %invoke.cont422.i
@@ -2474,7 +2474,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #8
@@ -2795,7 +2795,7 @@ declare void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 derefere
 declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare signext i8 @uprv_isASCIILetter_75(i8 noundef signext) local_unnamed_addr #6
 
@@ -2806,10 +2806,10 @@ declare i32 @llvm.smin.i32(i32, i32) #10
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

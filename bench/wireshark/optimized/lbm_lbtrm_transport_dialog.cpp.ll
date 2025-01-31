@@ -1125,7 +1125,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i65:    ; preds = %.body41
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4QMapIjP18LBMLBTRMFrameEntryED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1702,7 +1702,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i23:    ; preds = %_ZN7QStringD2Ev.exi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
@@ -3632,7 +3632,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i27:    ; preds = %_ZN7QStringD2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN28LBMLBTRMSourceTransportEntryC2ERK7QString(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN28LBMLBTRMSourceTransportEntryC2ERK7QString(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QVariant, align 8
   tail call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(92) %0, i32 noundef 0)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV28LBMLBTRMSourceTransportEntry, i64 16), ptr %0, align 8
@@ -8048,7 +8048,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i568:   ; preds = %.body387
 declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11format_rateRK8nstime_tm(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i64 %.0.val, i32 %.8.val, i64 noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL11format_rateRK8nstime_tm(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, i64 %.0.val, i32 %.8.val, i64 noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
@@ -8337,7 +8337,7 @@ _ZN7QStringD2Ev.exit78:                           ; preds = %_ZN7QStringD2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19LBMLBTRMSourceEntryC2ERK7QString(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19LBMLBTRMSourceEntryC2ERK7QString(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QVariant, align 8
   tail call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(92) %0, i32 noundef 0)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19LBMLBTRMSourceEntry, i64 16), ptr %0, align 8
@@ -12029,7 +12029,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i568:   ; preds = %.body387
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN30LBMLBTRMReceiverTransportEntryC2ERK7QString(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN30LBMLBTRMReceiverTransportEntryC2ERK7QString(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QVariant, align 8
   tail call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(92) %0, i32 noundef 0)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV30LBMLBTRMReceiverTransportEntry, i64 16), ptr %0, align 8
@@ -12269,7 +12269,7 @@ define void @_ZN30LBMLBTRMReceiverTransportEntryD0Ev(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN30LBMLBTRMReceiverTransportEntry13processPacketEPK12_packet_infoPK20lbm_lbtrm_tap_info_t(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN30LBMLBTRMReceiverTransportEntry13processPacketEPK12_packet_infoPK20lbm_lbtrm_tap_info_t(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = load i8, ptr %5, align 8
@@ -13010,7 +13010,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i82:    ; preds = %.body49
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21LBMLBTRMReceiverEntryC2ERK7QString(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN21LBMLBTRMReceiverEntryC2ERK7QString(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QVariant, align 8
   tail call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(92) %0, i32 noundef 0)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV21LBMLBTRMReceiverEntry, i64 16), ptr %0, align 8
@@ -13377,7 +13377,7 @@ define void @_ZN21LBMLBTRMReceiverEntryD0Ev(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21LBMLBTRMReceiverEntry13processPacketEPK12_packet_infoPK20lbm_lbtrm_tap_info_t(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN21LBMLBTRMReceiverEntry13processPacketEPK12_packet_infoPK20lbm_lbtrm_tap_info_t(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::tuple.150", align 8
   %5 = alloca %"class.std::tuple.162", align 8
   %6 = alloca %class.QString, align 8
@@ -14355,7 +14355,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i82:    ; preds = %.body49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN27LBMLBTRMTransportDialogInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #10 align 2 {
+define void @_ZN27LBMLBTRMTransportDialogInfoC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #10 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
@@ -14622,13 +14622,13 @@ _ZN4QMapI7QStringP21LBMLBTRMReceiverEntryE3endEv.exit: ; preds = %53, %_ZN9QtPri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN27LBMLBTRMTransportDialogInfo9setDialogEP23LBMLBTRMTransportDialog(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
+define void @_ZN27LBMLBTRMTransportDialogInfo9setDialogEP23LBMLBTRMTransportDialog(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN27LBMLBTRMTransportDialogInfo9getDialogEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #11 align 2 {
+define noundef ptr @_ZN27LBMLBTRMTransportDialogInfo9getDialogEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #11 align 2 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
@@ -20346,7 +20346,7 @@ _ZN23LBMLBTRMTransportDialog14resetReceiversEv.exit: ; preds = %.noexc4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog18resetSourcesDetailEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN23LBMLBTRMTransportDialog18resetSourcesDetailEv(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = alloca %class.QString, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -20430,7 +20430,7 @@ _ZN7QStringD2Ev.exit6:                            ; preds = %31, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog12resetSourcesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog12resetSourcesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %3
 
@@ -20447,7 +20447,7 @@ define void @_ZN23LBMLBTRMTransportDialog12resetSourcesEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog20resetReceiversDetailEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN23LBMLBTRMTransportDialog20resetReceiversDetailEv(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = alloca %class.QString, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -20523,7 +20523,7 @@ _ZN7QStringD2Ev.exit5:                            ; preds = %27, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog14resetReceiversEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog14resetReceiversEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %3
 
@@ -20562,7 +20562,7 @@ define void @_ZThn16_N23LBMLBTRMTransportDialogD0Ev(ptr noundef %0) unnamed_addr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog14setCaptureFileEP13_capture_file(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog14setCaptureFileEP13_capture_file(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %13
 
@@ -20632,7 +20632,7 @@ _ZN23LBMLBTRMTransportDialog14resetReceiversEv.exit: ; preds = %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN23LBMLBTRMTransportDialog9tapPacketEPvP12_packet_infoP12epan_dissectPKvj(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 align 2 {
+define noundef i32 @_ZN23LBMLBTRMTransportDialog9tapPacketEPvP12_packet_infoP12epan_dissectPKvj(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 %4) #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 50
@@ -20650,7 +20650,7 @@ define noundef i32 @_ZN23LBMLBTRMTransportDialog9tapPacketEPvP12_packet_infoP12e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN23LBMLBTRMTransportDialog13drawTreeItemsEPv(ptr nocapture readnone %0) #13 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog13drawTreeItemsEPv(ptr readnone captures(none) %0) #13 align 2 {
   ret void
 }
 
@@ -20669,7 +20669,7 @@ define void @_ZN23LBMLBTRMTransportDialog28on_applyFilterButton_clickedEv(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog27sourcesDetailCurrentChangedEi(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog27sourcesDetailCurrentChangedEi(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp ult i32 %1, 4
   br i1 %3, label %switch.lookup, label %11
 
@@ -20692,7 +20692,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog18sourcesItemClickedEP15QTreeWidgetItemi(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog18sourcesItemClickedEP15QTreeWidgetItemi(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.thread, label %5
 
@@ -20752,7 +20752,7 @@ declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #14
 declare noundef i32 @_ZNK9QComboBox12currentIndexEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog21loadSourceDataDetailsEP28LBMLBTRMSourceTransportEntry(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN23LBMLBTRMTransportDialog21loadSourceDataDetailsEP28LBMLBTRMSourceTransportEntry(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -20835,7 +20835,7 @@ _ZN4QMapIjP16LBMLBTRMSQNEntryE3endEv.exit:        ; preds = %19, %_ZN9QtPrivate3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog23loadSourceRXDataDetailsEP28LBMLBTRMSourceTransportEntry(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN23LBMLBTRMTransportDialog23loadSourceRXDataDetailsEP28LBMLBTRMSourceTransportEntry(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -20918,7 +20918,7 @@ _ZN4QMapIjP16LBMLBTRMSQNEntryE3endEv.exit:        ; preds = %19, %_ZN9QtPrivate3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog20loadSourceNCFDetailsEP28LBMLBTRMSourceTransportEntry(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN23LBMLBTRMTransportDialog20loadSourceNCFDetailsEP28LBMLBTRMSourceTransportEntry(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -21001,7 +21001,7 @@ _ZN4QMapIjP19LBMLBTRMNCFSQNEntryE3endEv.exit:     ; preds = %19, %_ZN9QtPrivate3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog19loadSourceSMDetailsEP28LBMLBTRMSourceTransportEntry(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN23LBMLBTRMTransportDialog19loadSourceSMDetailsEP28LBMLBTRMSourceTransportEntry(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -21084,7 +21084,7 @@ _ZN4QMapIjP16LBMLBTRMSQNEntryE3endEv.exit:        ; preds = %19, %_ZN9QtPrivate3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog20receiversItemClickedEP15QTreeWidgetItemi(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog20receiversItemClickedEP15QTreeWidgetItemi(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.thread, label %5
 
@@ -21115,7 +21115,7 @@ define void @_ZN23LBMLBTRMTransportDialog20receiversItemClickedEP15QTreeWidgetIt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog22loadReceiverNAKDetailsEP30LBMLBTRMReceiverTransportEntry(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN23LBMLBTRMTransportDialog22loadReceiverNAKDetailsEP30LBMLBTRMReceiverTransportEntry(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -21240,7 +21240,7 @@ define void @_ZN23LBMLBTRMTransportDialog32receiversDetailItemDoubleClickedEP15Q
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog35custom_source_context_menuRequestedERK6QPoint(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog35custom_source_context_menuRequestedERK6QPoint(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.QPoint, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
@@ -21257,7 +21257,7 @@ declare void @_ZN5QMenu5popupERK6QPointP7QAction(ptr noundef nonnull align 8 der
 declare i64 @_ZNK7QWidget11mapToGlobalERK6QPoint(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog32actionSourceDataFrames_triggeredEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog32actionSourceDataFrames_triggeredEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
@@ -21268,7 +21268,7 @@ define void @_ZN23LBMLBTRMTransportDialog32actionSourceDataFrames_triggeredEb(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog31actionSourceDataBytes_triggeredEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog31actionSourceDataBytes_triggeredEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
@@ -21279,7 +21279,7 @@ define void @_ZN23LBMLBTRMTransportDialog31actionSourceDataBytes_triggeredEb(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog37actionSourceDataFramesBytes_triggeredEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog37actionSourceDataFramesBytes_triggeredEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
@@ -21290,7 +21290,7 @@ define void @_ZN23LBMLBTRMTransportDialog37actionSourceDataFramesBytes_triggered
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog30actionSourceDataRate_triggeredEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog30actionSourceDataRate_triggeredEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
@@ -21301,7 +21301,7 @@ define void @_ZN23LBMLBTRMTransportDialog30actionSourceDataRate_triggeredEb(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog34actionSourceRXDataFrames_triggeredEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog34actionSourceRXDataFrames_triggeredEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
@@ -21312,7 +21312,7 @@ define void @_ZN23LBMLBTRMTransportDialog34actionSourceRXDataFrames_triggeredEb(
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog33actionSourceRXDataBytes_triggeredEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog33actionSourceRXDataBytes_triggeredEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
@@ -21323,7 +21323,7 @@ define void @_ZN23LBMLBTRMTransportDialog33actionSourceRXDataBytes_triggeredEb(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog39actionSourceRXDataFramesBytes_triggeredEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog39actionSourceRXDataFramesBytes_triggeredEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
@@ -21334,7 +21334,7 @@ define void @_ZN23LBMLBTRMTransportDialog39actionSourceRXDataFramesBytes_trigger
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog32actionSourceRXDataRate_triggeredEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog32actionSourceRXDataRate_triggeredEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
@@ -21345,7 +21345,7 @@ define void @_ZN23LBMLBTRMTransportDialog32actionSourceRXDataRate_triggeredEb(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog31actionSourceNCFFrames_triggeredEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog31actionSourceNCFFrames_triggeredEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
@@ -21356,7 +21356,7 @@ define void @_ZN23LBMLBTRMTransportDialog31actionSourceNCFFrames_triggeredEb(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog30actionSourceNCFCount_triggeredEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog30actionSourceNCFCount_triggeredEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
@@ -21367,7 +21367,7 @@ define void @_ZN23LBMLBTRMTransportDialog30actionSourceNCFCount_triggeredEb(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog30actionSourceNCFBytes_triggeredEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog30actionSourceNCFBytes_triggeredEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
@@ -21378,7 +21378,7 @@ define void @_ZN23LBMLBTRMTransportDialog30actionSourceNCFBytes_triggeredEb(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog36actionSourceNCFFramesBytes_triggeredEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog36actionSourceNCFFramesBytes_triggeredEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
@@ -21389,7 +21389,7 @@ define void @_ZN23LBMLBTRMTransportDialog36actionSourceNCFFramesBytes_triggeredE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog35actionSourceNCFCountBytes_triggeredEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog35actionSourceNCFCountBytes_triggeredEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
@@ -21400,7 +21400,7 @@ define void @_ZN23LBMLBTRMTransportDialog35actionSourceNCFCountBytes_triggeredEb
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog36actionSourceNCFFramesCount_triggeredEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog36actionSourceNCFFramesCount_triggeredEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
@@ -21411,7 +21411,7 @@ define void @_ZN23LBMLBTRMTransportDialog36actionSourceNCFFramesCount_triggeredE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog41actionSourceNCFFramesCountBytes_triggeredEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog41actionSourceNCFFramesCountBytes_triggeredEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
@@ -21422,7 +21422,7 @@ define void @_ZN23LBMLBTRMTransportDialog41actionSourceNCFFramesCountBytes_trigg
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog29actionSourceNCFRate_triggeredEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog29actionSourceNCFRate_triggeredEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
@@ -21433,7 +21433,7 @@ define void @_ZN23LBMLBTRMTransportDialog29actionSourceNCFRate_triggeredEb(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog30actionSourceSMFrames_triggeredEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog30actionSourceSMFrames_triggeredEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
@@ -21444,7 +21444,7 @@ define void @_ZN23LBMLBTRMTransportDialog30actionSourceSMFrames_triggeredEb(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog29actionSourceSMBytes_triggeredEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog29actionSourceSMBytes_triggeredEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
@@ -21455,7 +21455,7 @@ define void @_ZN23LBMLBTRMTransportDialog29actionSourceSMBytes_triggeredEb(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog35actionSourceSMFramesBytes_triggeredEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog35actionSourceSMFramesBytes_triggeredEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
@@ -21466,7 +21466,7 @@ define void @_ZN23LBMLBTRMTransportDialog35actionSourceSMFramesBytes_triggeredEb
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog28actionSourceSMRate_triggeredEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog28actionSourceSMRate_triggeredEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
@@ -21477,7 +21477,7 @@ define void @_ZN23LBMLBTRMTransportDialog28actionSourceSMRate_triggeredEb(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23LBMLBTRMTransportDialog39actionSourceAutoResizeColumns_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN23LBMLBTRMTransportDialog39actionSourceAutoResizeColumns_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 224
@@ -21599,7 +21599,7 @@ declare void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) 
 declare void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind writable sret(%class.QString) align 8, i64, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
 declare void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
@@ -30904,10 +30904,10 @@ _ZNSt8_Rb_treeI7QStringSt4pairIKS0_P21LBMLBTRMReceiverEntryESt10_Select1stIS5_ES
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

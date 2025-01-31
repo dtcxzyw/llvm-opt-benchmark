@@ -1234,7 +1234,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal4prop15SatProofManager11printClauseERKNS0_7Minisat6ClauseE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1128) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %clause) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal4prop15SatProofManager11printClauseERKNS0_7Minisat6ClauseE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1128) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %clause) local_unnamed_addr #3 align 2 {
 entry:
   %bf.load.i = load i64, ptr %clause, align 4
   %0 = lshr i64 %bf.load.i, 5
@@ -1264,10 +1264,10 @@ for.end:                                          ; preds = %for.inc, %entry
 declare i64 @_ZN4cvc58internal4prop16MinisatSatSolver12toSatLiteralENS0_7Minisat3LitE(i32) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal4prop15SatProofManager13getClauseNodeERKNS0_7Minisat6ClauseE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1128) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %clause) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal4prop15SatProofManager13getClauseNodeERKNS0_7Minisat6ClauseE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1128) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %clause) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"class.cvc5::internal::NodeTemplate.423", align 8
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
@@ -1657,7 +1657,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal4prop15SatProofManager13startResChainERKNS0_7Minisat6ClauseE(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %start) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal4prop15SatProofManager13startResChainERKNS0_7Minisat6ClauseE(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %start) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %ref.tmp33 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp34 = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -2344,7 +2344,7 @@ if.end:                                           ; preds = %if.else, %_ZNSt16al
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal4prop15SatProofManager17addResolutionStepERKNS0_7Minisat6ClauseENS3_3LitE(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %clause, i32 %lit.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal4prop15SatProofManager17addResolutionStepERKNS0_7Minisat6ClauseENS3_3LitE(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %clause, i32 %lit.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %litNode = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %negated = alloca i8, align 1
@@ -4097,7 +4097,7 @@ _ZNSt8_Rb_treeIN4cvc58internal4prop10SatLiteralES3_St9_IdentityIS3_ESt4lessIS3_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal4prop15SatProofManager11endResChainERKNS0_7Minisat6ClauseE(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %clause) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal4prop15SatProofManager11endResChainERKNS0_7Minisat6ClauseE(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %clause) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %clauseLits = alloca %"class.std::set", align 8
   %ref.tmp41 = alloca %"class.cvc5::internal::prop::SatLiteral", align 8
@@ -7237,7 +7237,7 @@ if.end38:                                         ; preds = %if.then13.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal4prop15SatProofManager13finalizeProofENS0_12NodeTemplateILb1EEERKSt6vectorINS1_10SatLiteralESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr nocapture noundef readonly %inConflictNode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %inConflict) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal4prop15SatProofManager13finalizeProofENS0_12NodeTemplateILb1EEERKSt6vectorINS1_10SatLiteralESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef readonly captures(none) %inConflictNode, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %inConflict) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %__node_gen.i.i3077 = alloca %"struct.std::__detail::_AllocNode", align 8
   %__node_gen.i.i2885 = alloca %"struct.std::__detail::_AllocNode", align 8
@@ -9661,7 +9661,7 @@ declare noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6Env
 declare void @_ZN4cvc58internal16LazyCDProofChain11addLazyStepENS0_12NodeTemplateILb1EEEPNS0_14ProofGeneratorERKSt6vectorIS3_SaIS3_EEPKc(ptr noundef nonnull align 8 dereferenceable(424), ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal4prop15SatProofManager17storeUnitConflictENS0_7Minisat3LitE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1128) initializes((840, 848)) %this, i32 %inConflict.coerce) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal4prop15SatProofManager17storeUnitConflictENS0_7Minisat3LitE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1128) initializes((840, 848)) %this, i32 %inConflict.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call i64 @_ZN4cvc58internal4prop16MinisatSatSolver12toSatLiteralENS0_7Minisat3LitE(i32 %inConflict.coerce)
   %d_conflictLit = getelementptr inbounds nuw i8, ptr %this, i64 840
@@ -10104,7 +10104,7 @@ ehcleanup51:                                      ; preds = %ehcleanup, %lpad13,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal4prop15SatProofManager22registerSatAssumptionsERKSt6vectorINS0_12NodeTemplateILb1EEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %assumps) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal4prop15SatProofManager22registerSatAssumptionsERKSt6vectorINS0_12NodeTemplateILb1EEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %assumps) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca i8, align 1
   %0 = load ptr, ptr %assumps, align 8
@@ -10132,7 +10132,7 @@ for.end:                                          ; preds = %cond.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal4prop15SatProofManager13finalizeProofERKNS0_7Minisat6ClauseEb(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %inConflict, i1 noundef zeroext %adding) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal4prop15SatProofManager13finalizeProofERKNS0_7Minisat6ClauseEb(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %inConflict, i1 noundef zeroext %adding) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %ref.tmp.i.i = alloca i8, align 1
   %clause = alloca %"class.std::vector.0", align 8
@@ -12221,7 +12221,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt5dequeIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE19_M_destroy_data_auxESt15_Deque_iteratorIS3_RS3_PS3_ES9_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %__first, ptr noundef %__last) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -21169,7 +21169,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIiSt4pairIKiSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS6_EEESt10_Select1stIS9_ESt4lessIiESaIS9_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESK_IJEEEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 1 dereferenceable(1) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 1 dereferenceable(1) %__args3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -21916,10 +21916,10 @@ declare i64 @llvm.umax.i64(i64, i64) #17
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17

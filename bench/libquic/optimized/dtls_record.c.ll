@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [121 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/ssl/dtls_record.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 4) i32 @dtls_open_record(ptr noundef %ssl, ptr nocapture noundef writeonly %out_type, ptr noundef %out, ptr nocapture noundef writeonly %out_len, ptr nocapture noundef writeonly %out_consumed, ptr nocapture noundef writeonly %out_alert, i64 noundef %max_out, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 4) i32 @dtls_open_record(ptr noundef %ssl, ptr noundef writeonly captures(none) %out_type, ptr noundef %out, ptr noundef writeonly captures(none) %out_len, ptr noundef writeonly captures(none) %out_consumed, ptr noundef writeonly captures(none) %out_alert, i64 noundef %max_out, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
 entry:
   %cbs = alloca %struct.cbs_st, align 8
   %type = alloca i8, align 1
@@ -201,7 +201,7 @@ declare void @ERR_clear_error() local_unnamed_addr #1
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @dtls1_bitmap_record(ptr nocapture noundef %bitmap, ptr nocapture noundef nonnull readonly %seq_num) unnamed_addr #2 {
+define internal fastcc void @dtls1_bitmap_record(ptr noundef captures(none) %bitmap, ptr noundef nonnull readonly captures(none) %seq_num) unnamed_addr #2 {
 entry:
   br label %for.body.i
 
@@ -257,7 +257,7 @@ if.end13:                                         ; preds = %if.then10, %if.end6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @dtls_seal_record(ptr noundef %ssl, ptr noundef %out, ptr nocapture noundef writeonly %out_len, i64 noundef %max_out, i8 noundef zeroext %type, ptr noundef %in, i64 noundef %in_len, i32 noundef %use_epoch) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @dtls_seal_record(ptr noundef %ssl, ptr noundef %out, ptr noundef writeonly captures(none) %out_len, i64 noundef %max_out, i8 noundef zeroext %type, ptr noundef %in, i64 noundef %in_len, i32 noundef %use_epoch) local_unnamed_addr #0 {
 entry:
   %ciphertext_len = alloca i64, align 8
   %d1 = getelementptr inbounds nuw i8, ptr %ssl, i64 88
@@ -372,7 +372,7 @@ return:                                           ; preds = %if.end49, %if.then5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @SSL_AEAD_CTX_seal(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext, i16 noundef zeroext, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 

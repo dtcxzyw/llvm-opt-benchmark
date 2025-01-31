@@ -379,7 +379,7 @@ declare ptr @T_FileStream_readLine(ptr noundef, ptr noundef, i32 noundef) local_
 declare void @T_FileStream_close(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define i32 @u_parseCodePoints(ptr noundef %s, ptr noundef writeonly %dest, i32 noundef %destCapacity, ptr nocapture noundef %pErrorCode) local_unnamed_addr #5 {
+define i32 @u_parseCodePoints(ptr noundef %s, ptr noundef writeonly %dest, i32 noundef %destCapacity, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #5 {
 entry:
   %end = alloca ptr, align 8
   %0 = load i32, ptr %pErrorCode, align 4
@@ -476,10 +476,10 @@ return:                                           ; preds = %while.cond.i, %whil
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define i32 @u_parseString(ptr noundef %s, ptr noundef writeonly %dest, i32 noundef %destCapacity, ptr noundef writeonly %pFirst, ptr nocapture noundef %pErrorCode) local_unnamed_addr #5 {
+define i32 @u_parseString(ptr noundef %s, ptr noundef writeonly %dest, i32 noundef %destCapacity, ptr noundef writeonly %pFirst, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #5 {
 entry:
   %end = alloca ptr, align 8
   %0 = load i32, ptr %pErrorCode, align 4
@@ -639,7 +639,7 @@ return:                                           ; preds = %if.then17, %if.else
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define i32 @u_parseCodePointRangeAnyTerminator(ptr noundef %s, ptr noundef %pStart, ptr noundef writeonly %pEnd, ptr nocapture noundef writeonly %terminator, ptr nocapture noundef %pErrorCode) local_unnamed_addr #5 {
+define i32 @u_parseCodePointRangeAnyTerminator(ptr noundef %s, ptr noundef %pStart, ptr noundef writeonly %pEnd, ptr noundef writeonly captures(none) %terminator, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #5 {
 entry:
   %end = alloca ptr, align 8
   %0 = load i32, ptr %pErrorCode, align 4
@@ -769,7 +769,7 @@ return:                                           ; preds = %entry, %if.end31, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define i32 @u_parseCodePointRange(ptr noundef %s, ptr noundef %pStart, ptr noundef %pEnd, ptr nocapture noundef %pErrorCode) local_unnamed_addr #5 {
+define i32 @u_parseCodePointRange(ptr noundef %s, ptr noundef %pStart, ptr noundef %pEnd, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #5 {
 entry:
   %terminator = alloca ptr, align 8
   %call = call i32 @u_parseCodePointRangeAnyTerminator(ptr noundef %s, ptr noundef %pStart, ptr noundef %pEnd, ptr noundef nonnull %terminator, ptr noundef %pErrorCode)
@@ -861,15 +861,15 @@ while.end:                                        ; preds = %while.end.loopexit,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare i32 @u_terminateChars_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

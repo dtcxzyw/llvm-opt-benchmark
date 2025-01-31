@@ -262,7 +262,7 @@ return:                                           ; preds = %file_open_stream.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @file_settable_ctx_params(ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @file_settable_ctx_params(ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @file_settable_ctx_params.known_settable_ctx_params
 }
@@ -707,7 +707,7 @@ file_name_to_uri.exit.i:                          ; preds = %ossl_ends_with_dirs
   %46 = load ptr, ptr %uri.i.i, align 8
   %call9.i.i18 = tail call i64 @OPENSSL_strlcat(ptr noundef nonnull %call7.i.i, ptr noundef %46, i64 noundef %add6.i.i) #8
   %call10.i.i = tail call i64 @OPENSSL_strlcat(ptr noundef nonnull %call7.i.i, ptr noundef nonnull %cond.i.i, i64 noundef %add6.i.i) #8
-  %call11.i.i = tail call i64 @OPENSSL_strlcat(ptr noundef nonnull %call7.i.i, ptr noundef %39, i64 noundef %add6.i.i) #8
+  %call11.i.i = tail call i64 @OPENSSL_strlcat(ptr noundef nonnull %call7.i.i, ptr noundef nonnull %39, i64 noundef %add6.i.i) #8
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %file_name_to_uri.exit.i, %file_name_check.exit.i, %if.end46.i.i, %if.else.i.i, %if.then31.i.i, %lor.lhs.false.i.i16, %if.end14.i.i, %if.end.i.i13, %if.end4.i
@@ -752,7 +752,7 @@ return:                                           ; preds = %entry, %file_load_d
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @file_eof(ptr nocapture noundef readonly %loaderctx) #0 {
+define internal i32 @file_eof(ptr noundef readonly captures(none) %loaderctx) #0 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %loaderctx, i64 16
   %0 = load i32, ptr %type, align 8
@@ -860,7 +860,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #4
@@ -986,7 +986,7 @@ declare i32 @OSSL_DECODER_CTX_add_extra(ptr noundef, ptr noundef, ptr noundef) l
 declare i32 @OSSL_DECODER_CTX_set_construct(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @file_load_construct(ptr nocapture readnone %decoder_inst, ptr noundef %params, ptr nocapture noundef readonly %construct_data) #0 {
+define internal i32 @file_load_construct(ptr readnone captures(none) %decoder_inst, ptr noundef %params, ptr noundef readonly captures(none) %construct_data) #0 {
 entry:
   %0 = load ptr, ptr %construct_data, align 8
   %object_cbarg = getelementptr inbounds nuw i8, ptr %construct_data, i64 8
@@ -998,16 +998,16 @@ entry:
 declare i32 @OSSL_DECODER_CTX_set_cleanup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @file_load_cleanup(ptr nocapture readnone %construct_data) #1 {
+define internal void @file_load_cleanup(ptr readnone captures(none) %construct_data) #1 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #4
@@ -1017,10 +1017,10 @@ declare i64 @OPENSSL_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unname
 declare i32 @OPENSSL_DIR_end(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

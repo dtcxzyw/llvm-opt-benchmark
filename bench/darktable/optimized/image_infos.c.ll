@@ -49,7 +49,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define ptr @name(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #8
   ret ptr %2
 }
@@ -58,7 +58,7 @@ define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
 declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @views(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define range(i32 0, 3) i32 @views(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call i32 @dt_conf_is_equal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #8
   %3 = icmp eq i32 %2, 0
   %4 = select i1 %3, i32 2, i32 0
@@ -66,15 +66,15 @@ define range(i32 0, 3) i32 @views(ptr nocapture noundef readnone %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @dt_conf_is_equal(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 14) i32 @container(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define range(i32 0, 14) i32 @container(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.1) #8
   %3 = tail call i32 @g_strcmp0(ptr noundef %2, ptr noundef nonnull @.str.3) #8
   %4 = icmp eq i32 %3, 0
@@ -101,17 +101,17 @@ declare ptr @dt_conf_get_string_const(ptr noundef) local_unnamed_addr #4
 declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @expandable(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @expandable(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @position(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 1500
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_lib_imageinfo_update_message(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
+define hidden void @_lib_imageinfo_update_message(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = alloca [512 x i8], align 16
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -163,7 +163,7 @@ define hidden void @_lib_imageinfo_update_message(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @dt_image_full_path(i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
@@ -185,7 +185,7 @@ declare ptr @g_type_check_instance_cast(ptr noundef, i64 noundef) local_unnamed_
 declare i64 @gtk_label_get_type() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_lib_imageinfo_update_message3(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture readnone %3, i32 %4, ptr nocapture noundef readonly %5) #1 {
+define hidden void @_lib_imageinfo_update_message3(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr readnone captures(none) %3, i32 %4, ptr noundef readonly captures(none) %5) #1 {
   tail call void @_lib_imageinfo_update_message(ptr poison, ptr noundef %5)
   ret void
 }
@@ -332,7 +332,7 @@ declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #4
 declare void @dt_control_signal_connect(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_lib_imageinfo_update_message2(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #1 {
+define internal void @_lib_imageinfo_update_message2(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #1 {
   tail call void @_lib_imageinfo_update_message(ptr poison, ptr noundef %2)
   ret void
 }

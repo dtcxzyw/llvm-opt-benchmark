@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lv_area_t = type { i32, i32, i32, i32 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_matrix_transform_point(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @lv_matrix_transform_point(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = load float, ptr %1, align 4, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load float, ptr %4, align 4, !tbaa !8
@@ -34,16 +34,16 @@ define void @lv_matrix_transform_point(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_matrix_transform_path(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @lv_matrix_transform_path(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = tail call ptr @lv_array_front(ptr noundef nonnull %3) #9
   %5 = tail call i32 @lv_array_size(ptr noundef nonnull %3) #9
@@ -621,7 +621,7 @@ declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #4
 declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @lv_vector_path_append_circle(ptr noundef %0, ptr nocapture noundef readonly %1, float noundef %2, float noundef %3) local_unnamed_addr #3 {
+define void @lv_vector_path_append_circle(ptr noundef %0, ptr noundef readonly captures(none) %1, float noundef %2, float noundef %3) local_unnamed_addr #3 {
   %5 = alloca %struct._lv_fpoint_t, align 4
   %6 = alloca %struct._lv_fpoint_t, align 4
   %7 = alloca %struct._lv_fpoint_t, align 4
@@ -683,7 +683,7 @@ define void @lv_vector_path_append_circle(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_vector_path_append_arc(ptr noundef %0, ptr nocapture noundef readonly %1, float noundef %2, float noundef %3, float noundef %4, i1 noundef zeroext %5) local_unnamed_addr #3 {
+define void @lv_vector_path_append_arc(ptr noundef %0, ptr noundef readonly captures(none) %1, float noundef %2, float noundef %3, float noundef %4, i1 noundef zeroext %5) local_unnamed_addr #3 {
   %7 = alloca %struct._lv_fpoint_t, align 4
   %8 = alloca %struct._lv_fpoint_t, align 4
   %9 = alloca %struct._lv_fpoint_t, align 4
@@ -905,7 +905,7 @@ declare i32 @lv_color_to_32(i24, i8 noundef zeroext) local_unnamed_addr #4
 declare i24 @lv_color_black() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @lv_matrix_identity(ptr noundef) local_unnamed_addr #4
 
@@ -993,7 +993,7 @@ define void @lv_vector_for_each_destroy_tasks(ptr noundef %0, ptr noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_vector_dsc_set_blend_mode(ptr nocapture noundef writeonly initializes((428, 432)) %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @lv_vector_dsc_set_blend_mode(ptr noundef writeonly captures(none) initializes((428, 432)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 428
   store i32 %1, ptr %3, align 4, !tbaa !55
   ret void
@@ -1009,7 +1009,7 @@ define void @lv_vector_dsc_set_transform(ptr noundef %0, ptr noundef %1) local_u
 declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @lv_vector_dsc_set_fill_color(ptr nocapture noundef writeonly initializes((8, 16)) %0, i24 %1) local_unnamed_addr #3 {
+define void @lv_vector_dsc_set_fill_color(ptr noundef writeonly captures(none) initializes((8, 16)) %0, i24 %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8, !tbaa !61
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1019,7 +1019,7 @@ define void @lv_vector_dsc_set_fill_color(ptr nocapture noundef writeonly initia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_vector_dsc_set_fill_color32(ptr nocapture noundef writeonly initializes((8, 16)) %0, i32 %1) local_unnamed_addr #7 {
+define void @lv_vector_dsc_set_fill_color32(ptr noundef writeonly captures(none) initializes((8, 16)) %0, i32 %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8, !tbaa !61
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1028,14 +1028,14 @@ define void @lv_vector_dsc_set_fill_color32(ptr nocapture noundef writeonly init
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_vector_dsc_set_fill_opa(ptr nocapture noundef writeonly initializes((16, 17)) %0, i8 noundef zeroext %1) local_unnamed_addr #7 {
+define void @lv_vector_dsc_set_fill_opa(ptr noundef writeonly captures(none) initializes((16, 17)) %0, i8 noundef zeroext %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %1, ptr %3, align 8, !tbaa !62
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_vector_dsc_set_fill_rule(ptr nocapture noundef writeonly initializes((20, 24)) %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @lv_vector_dsc_set_fill_rule(ptr noundef writeonly captures(none) initializes((20, 24)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %1, ptr %3, align 4, !tbaa !63
   ret void
@@ -1051,7 +1051,7 @@ define void @lv_vector_dsc_set_fill_image(ptr noundef initializes((8, 12)) %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_vector_dsc_set_fill_linear_gradient(ptr nocapture noundef writeonly initializes((8, 12), (168, 172), (184, 200)) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #7 {
+define void @lv_vector_dsc_set_fill_linear_gradient(ptr noundef writeonly captures(none) initializes((8, 12), (168, 172), (184, 200)) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #7 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 2, ptr %6, align 8, !tbaa !61
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -1068,7 +1068,7 @@ define void @lv_vector_dsc_set_fill_linear_gradient(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_vector_dsc_set_fill_radial_gradient(ptr nocapture noundef writeonly initializes((8, 12), (168, 172), (200, 212)) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #7 {
+define void @lv_vector_dsc_set_fill_radial_gradient(ptr noundef writeonly captures(none) initializes((8, 12), (168, 172), (200, 212)) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 2, ptr %5, align 8, !tbaa !61
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -1083,7 +1083,7 @@ define void @lv_vector_dsc_set_fill_radial_gradient(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_vector_dsc_set_fill_gradient_spread(ptr nocapture noundef writeonly initializes((212, 216)) %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @lv_vector_dsc_set_fill_gradient_spread(ptr noundef writeonly captures(none) initializes((212, 216)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 212
   store i32 %1, ptr %3, align 4, !tbaa !72
   ret void
@@ -1116,7 +1116,7 @@ define void @lv_vector_dsc_set_stroke_transform(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_vector_dsc_set_stroke_color32(ptr nocapture noundef writeonly initializes((256, 264)) %0, i32 %1) local_unnamed_addr #7 {
+define void @lv_vector_dsc_set_stroke_color32(ptr noundef writeonly captures(none) initializes((256, 264)) %0, i32 %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i32 0, ptr %3, align 8, !tbaa !74
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 260
@@ -1125,7 +1125,7 @@ define void @lv_vector_dsc_set_stroke_color32(ptr nocapture noundef writeonly in
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_vector_dsc_set_stroke_color(ptr nocapture noundef writeonly initializes((256, 264)) %0, i24 %1) local_unnamed_addr #3 {
+define void @lv_vector_dsc_set_stroke_color(ptr noundef writeonly captures(none) initializes((256, 264)) %0, i24 %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i32 0, ptr %3, align 8, !tbaa !74
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 260
@@ -1135,14 +1135,14 @@ define void @lv_vector_dsc_set_stroke_color(ptr nocapture noundef writeonly init
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_vector_dsc_set_stroke_opa(ptr nocapture noundef writeonly initializes((264, 265)) %0, i8 noundef zeroext %1) local_unnamed_addr #7 {
+define void @lv_vector_dsc_set_stroke_opa(ptr noundef writeonly captures(none) initializes((264, 265)) %0, i8 noundef zeroext %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i8 %1, ptr %3, align 8, !tbaa !75
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_vector_dsc_set_stroke_width(ptr nocapture noundef writeonly initializes((268, 272)) %0, float noundef %1) local_unnamed_addr #7 {
+define void @lv_vector_dsc_set_stroke_width(ptr noundef writeonly captures(none) initializes((268, 272)) %0, float noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 268
   store float %1, ptr %3, align 4, !tbaa !76
   ret void
@@ -1190,28 +1190,28 @@ define void @lv_vector_dsc_set_stroke_dash(ptr noundef %0, ptr noundef %1, i16 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_vector_dsc_set_stroke_cap(ptr nocapture noundef writeonly initializes((296, 300)) %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @lv_vector_dsc_set_stroke_cap(ptr noundef writeonly captures(none) initializes((296, 300)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i32 %1, ptr %3, align 8, !tbaa !78
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_vector_dsc_set_stroke_join(ptr nocapture noundef writeonly initializes((300, 304)) %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @lv_vector_dsc_set_stroke_join(ptr noundef writeonly captures(none) initializes((300, 304)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i32 %1, ptr %3, align 4, !tbaa !79
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_vector_dsc_set_stroke_miter_limit(ptr nocapture noundef writeonly initializes((304, 306)) %0, i16 noundef zeroext %1) local_unnamed_addr #7 {
+define void @lv_vector_dsc_set_stroke_miter_limit(ptr noundef writeonly captures(none) initializes((304, 306)) %0, i16 noundef zeroext %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i16 %1, ptr %3, align 8, !tbaa !80
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_vector_dsc_set_stroke_linear_gradient(ptr nocapture noundef writeonly initializes((256, 260), (308, 312), (324, 340)) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #7 {
+define void @lv_vector_dsc_set_stroke_linear_gradient(ptr noundef writeonly captures(none) initializes((256, 260), (308, 312), (324, 340)) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #7 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i32 2, ptr %6, align 8, !tbaa !74
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 308
@@ -1228,7 +1228,7 @@ define void @lv_vector_dsc_set_stroke_linear_gradient(ptr nocapture noundef writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_vector_dsc_set_stroke_radial_gradient(ptr nocapture noundef writeonly initializes((256, 260), (308, 312), (340, 352)) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #7 {
+define void @lv_vector_dsc_set_stroke_radial_gradient(ptr noundef writeonly captures(none) initializes((256, 260), (308, 312), (340, 352)) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i32 2, ptr %5, align 8, !tbaa !74
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 308
@@ -1243,7 +1243,7 @@ define void @lv_vector_dsc_set_stroke_radial_gradient(ptr nocapture noundef writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_vector_dsc_set_stroke_gradient_spread(ptr nocapture noundef writeonly initializes((352, 356)) %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @lv_vector_dsc_set_stroke_gradient_spread(ptr noundef writeonly captures(none) initializes((352, 356)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i32 %1, ptr %3, align 4, !tbaa !89
   ret void
@@ -1428,7 +1428,7 @@ declare ptr @lv_ll_ins_tail(ptr noundef) local_unnamed_addr #4
 declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @lv_vector_clear_area(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define void @lv_vector_clear_area(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = alloca %struct.lv_area_t, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
   %4 = load ptr, ptr %0, align 8, !tbaa !30

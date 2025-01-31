@@ -43,7 +43,7 @@ $_ZN4absl12lts_2023080216strings_internal13JoinAlgorithmIN9__gnu_cxx17__normal_i
 @llvm.used = appending global [1 x ptr] [ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E], section "llvm.metadata"
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core12stats_detail11StatsAsJsonB5cxx11EN4absl12lts_202308024SpanIKmEENS3_IKSt17basic_string_viewIcSt11char_traitsIcEEEENS3_IKNS_13HistogramViewEEESB_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture readonly %counters.coerce0, i64 %counters.coerce1, ptr nocapture readonly %counter_name.coerce0, i64 %counter_name.coerce1, ptr nocapture noundef readonly byval(%"class.absl::lts_20230802::Span.1") align 8 %histograms, ptr nocapture noundef readonly byval(%"class.absl::lts_20230802::Span.0") align 8 %histogram_name) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core12stats_detail11StatsAsJsonB5cxx11EN4absl12lts_202308024SpanIKmEENS3_IKSt17basic_string_viewIcSt11char_traitsIcEEEENS3_IKNS_13HistogramViewEEESB_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr readonly captures(none) %counters.coerce0, i64 %counters.coerce1, ptr readonly captures(none) %counter_name.coerce0, i64 %counter_name.coerce1, ptr noundef readonly byval(%"class.absl::lts_20230802::Span.1") align 8 captures(none) %histograms, ptr noundef readonly byval(%"class.absl::lts_20230802::Span.0") align 8 captures(none) %histogram_name) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i42 = alloca %"class.std::allocator", align 1
   %parts.i43 = alloca %"class.std::vector", align 8
@@ -812,7 +812,7 @@ declare void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_S3_(ptr
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
@@ -896,7 +896,7 @@ init.end:                                         ; preds = %_ZN9grpc_core10NoDe
 declare noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare noundef i64 @_ZN9grpc_core13PerCpuOptions6ShardsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
@@ -1101,10 +1101,10 @@ declare i64 @llvm.umin.i64(i64, i64) #11
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

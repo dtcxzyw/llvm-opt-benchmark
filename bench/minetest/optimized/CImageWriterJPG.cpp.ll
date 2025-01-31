@@ -70,7 +70,7 @@ entry:
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr5video15CImageWriterJPGC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this) unnamed_addr #2 align 2 {
+define void @_ZN3irr5video15CImageWriterJPGC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20) initializes((0, 20)) %this) unnamed_addr #2 align 2 {
 entry:
   %DebugName.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !3
@@ -81,7 +81,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK3irr5video15CImageWriterJPG25isAWriteableFileExtensionERKNS_4core6stringIcEE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK3irr5video15CImageWriterJPG25isAWriteableFileExtensionERKNS_4core6stringIcEE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.irr::core::string", align 8
   %ref.tmp2 = alloca %"class.irr::core::string", align 8
@@ -180,13 +180,13 @@ _ZN3irr4core6stringIcED2Ev.exit38:                ; preds = %if.then.i.i.i34, %_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK3irr5video15CImageWriterJPG10writeImageEPNS_2io10IWriteFileEPNS0_6IImageEj(ptr nocapture nonnull readnone align 8 %this, ptr noundef %file, ptr nocapture noundef readonly %image, i32 noundef %quality) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK3irr5video15CImageWriterJPG10writeImageEPNS_2io10IWriteFileEPNS0_6IImageEj(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %file, ptr noundef readonly captures(none) %image, i32 noundef %quality) unnamed_addr #0 align 2 {
 entry:
   %cinfo.i = alloca %struct.jpeg_compress_struct, align 8
   %jerr.i = alloca %struct.jpeg_error_mgr, align 8
@@ -513,7 +513,7 @@ declare void @jpeg_finish_compress(ptr noundef) local_unnamed_addr #7
 declare void @jpeg_destroy_compress(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN3irr5videoL21jpeg_init_destinationEP20jpeg_compress_struct(ptr nocapture noundef readonly %cinfo) #8 {
+define internal void @_ZN3irr5videoL21jpeg_init_destinationEP20jpeg_compress_struct(ptr noundef readonly captures(none) %cinfo) #8 {
 entry:
   %dest1 = getelementptr inbounds nuw i8, ptr %cinfo, i64 40
   %0 = load ptr, ptr %dest1, align 8, !tbaa !32

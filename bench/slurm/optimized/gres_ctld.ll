@@ -362,7 +362,7 @@ declare i32 @gres_build_id(ptr noundef) local_unnamed_addr #1
 declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @gres_ctld_job_alloc(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @gres_ctld_job_alloc(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9) local_unnamed_addr #0 {
   %11 = icmp eq ptr %0, null
   br i1 %11, label %41, label %12
 
@@ -435,7 +435,7 @@ define dso_local range(i32 -1, 1) i32 @gres_ctld_job_alloc(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9) unnamed_addr #0 {
   %11 = alloca i64, align 8
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
@@ -3379,7 +3379,7 @@ define dso_local void @gres_ctld_job_clear_alloc(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_foreach_clear_job_gres(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @_foreach_clear_job_gres(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @gres_job_clear_alloc(ptr noundef %4) #8
@@ -3387,7 +3387,7 @@ define internal noundef i32 @_foreach_clear_job_gres(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @gres_ctld_job_build_details(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local void @gres_ctld_job_build_details(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca [128 x i8], align 16
@@ -3938,7 +3938,7 @@ define dso_local void @gres_ctld_set_node_tres_cnt(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @gres_ctld_step_alloc(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i1 noundef zeroext %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr nocapture noundef %13) local_unnamed_addr #0 {
+define dso_local i32 @gres_ctld_step_alloc(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i1 noundef zeroext %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef captures(none) %13) local_unnamed_addr #0 {
   %15 = alloca %struct.slurm_step_id_msg, align 4
   %16 = alloca %struct.gres_search_key, align 4
   %17 = alloca %struct.foreach_step_alloc_t, align 8
@@ -4159,7 +4159,7 @@ _step_get_gres_needed.exit:                       ; preds = %66, %72, %77, %84, 
 declare void @gres_step_list_delete(ptr noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_step_alloc_type(ptr noundef %0, ptr noundef %1) #0 {
@@ -5632,7 +5632,7 @@ define internal fastcc void @_gres_2_tres_str_internal(ptr noundef nonnull %0, p
 declare void @assoc_mgr_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gres_ctld_step_test(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @gres_ctld_step_test(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.slurm_step_id_msg, align 4
   %3 = alloca %struct.foreach_gres_cnt_t, align 8
   %4 = alloca %struct.gres_search_key, align 4
@@ -5922,10 +5922,10 @@ define dso_local i64 @gres_ctld_step_test(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_step_get_gres_cnt(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @_step_get_gres_cnt(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6141,7 +6141,7 @@ define dso_local ptr @gres_ctld_gres_2_tres_str(ptr noundef %0, i1 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @gres_ctld_step_test_per_step(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @gres_ctld_step_test_per_step(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.slurm_step_id_msg, align 4
   %6 = alloca %struct.foreach_gres_cnt_t, align 8
   %7 = alloca %struct.gres_search_key, align 4
@@ -6403,7 +6403,7 @@ declare i32 @bit_overlap_any(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @bit_and_not(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_allocate_gres_bits(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef nonnull %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @_allocate_gres_bits(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef nonnull captures(none) %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   store ptr null, ptr %9, align 8
   %.not = icmp ne ptr %6, null
@@ -6607,7 +6607,7 @@ define internal fastcc void @_allocate_gres_bits(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @_cnt_topo_gres(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @_cnt_topo_gres(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -6676,7 +6676,7 @@ define internal fastcc i64 @_cnt_topo_gres(ptr nocapture noundef readonly %0, i3
 declare void @gres_add_type(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_get_job_alloc_gres_ptr(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @_get_job_alloc_gres_ptr(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.gres_search_key, align 4
   %7 = load i32, ptr %1, align 8
   store i32 %7, ptr %6, align 4
@@ -6742,7 +6742,7 @@ define internal fastcc ptr @_get_job_alloc_gres_ptr(ptr noundef %0, ptr nocaptur
 declare ptr @bit_pick_cnt(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_copy_matching_gres_per_bit(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_copy_matching_gres_per_bit(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -6807,7 +6807,7 @@ define internal fastcc void @_copy_matching_gres_per_bit(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @_cores_on_gres(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_cores_on_gres(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %.loopexit, label %7
 
@@ -6926,7 +6926,7 @@ declare i64 @bit_ffs_from_bit(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @gres_find_job_by_key_exact_type(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @_handle_explicit_alloc(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal void @_handle_explicit_alloc(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = load i32, ptr %0, align 8
   %4 = and i32 %3, 4096
   %.not = icmp eq i32 %4, 0
@@ -6998,7 +6998,7 @@ declare void @hostlist_destroy(ptr noundef) local_unnamed_addr #1
 declare ptr @find_node_record(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @_xstrfmtcatat(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -7017,7 +7017,7 @@ declare i32 @gres_find_step_by_key(ptr noundef, ptr noundef) #1
 declare ptr @assoc_mgr_find_tres_rec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_gres_add_2_tres_str(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_gres_add_2_tres_str(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -7057,7 +7057,7 @@ define internal fastcc void @_gres_add_2_tres_str(ptr noundef nonnull %0, ptr no
 declare i64 @slurmdb_find_tres_count_in_string(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #6
@@ -7084,10 +7084,10 @@ declare i64 @llvm.umin.i64(i64, i64) #6
 declare i64 @llvm.usub.sat.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

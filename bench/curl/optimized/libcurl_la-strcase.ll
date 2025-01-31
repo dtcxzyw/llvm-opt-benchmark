@@ -163,7 +163,7 @@ return:                                           ; preds = %while.body.i, %if.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Curl_strntoupper(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %src, i64 noundef %n) local_unnamed_addr #2 {
+define hidden void @Curl_strntoupper(ptr noundef writeonly captures(none) %dest, ptr noundef readonly captures(none) %src, i64 noundef %n) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i64 %n, 0
   br i1 %cmp, label %do.end, label %do.body
@@ -191,7 +191,7 @@ do.end:                                           ; preds = %do.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Curl_strntolower(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %src, i64 noundef %n) local_unnamed_addr #2 {
+define hidden void @Curl_strntolower(ptr noundef writeonly captures(none) %dest, ptr noundef readonly captures(none) %src, i64 noundef %n) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i64 %n, 0
   br i1 %cmp, label %do.end, label %do.body
@@ -242,7 +242,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define hidden i32 @Curl_timestrcmp(ptr noundef readonly %a, ptr noundef readonly %b) local_unnamed_addr #1 {

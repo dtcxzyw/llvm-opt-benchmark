@@ -64,7 +64,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._load_step_thread = private unnamed_addr constant [18 x i8] c"_load_step_thread\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @slurm_print_job_step_info_msg(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @slurm_print_job_step_info_msg(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca [256 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -99,10 +99,10 @@ define void @slurm_print_job_step_info_msg(ptr nocapture noundef %0, ptr noundef
 declare void @slurm_make_time_str(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @slurm_print_job_step_info(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @slurm_print_job_step_info(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call ptr @slurm_sprint_job_step_info(ptr noundef %1, i32 noundef %2)
   store ptr %5, ptr %4, align 8
@@ -369,7 +369,7 @@ declare i32 @cpu_freq_debug(ptr noundef, ptr noundef, ptr noundef, i32 noundef, 
 declare ptr @slurm_step_layout_type_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurm_get_job_steps(i64 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_get_job_steps(i64 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -746,10 +746,10 @@ declare zeroext i1 @cluster_in_federation(ptr noundef, ptr noundef) local_unname
 declare void @slurm_msg_t_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @slurm_destroy_federation_rec(ptr noundef) local_unnamed_addr #1
 
@@ -837,7 +837,7 @@ declare i32 @list_transfer(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @slurm_free_msg_data(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @slurm_job_step_layout_get(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @slurm_job_step_layout_get(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.slurm_step_id_msg, align 4
   %3 = alloca %struct.slurm_msg, align 8
   %4 = alloca %struct.slurm_msg, align 8
@@ -888,7 +888,7 @@ define ptr @slurm_job_step_layout_get(ptr nocapture noundef readonly %0) local_u
 declare void @slurm_free_return_code_msg(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_job_step_stat(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define i32 @slurm_job_step_stat(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.slurm_msg, align 8
   %7 = alloca %struct.slurm_step_id_msg, align 4
@@ -1025,7 +1025,7 @@ slurm_job_step_stat_response_msg_free.exit:       ; preds = %38, %40
   br i1 %61, label %62, label %79
 
 62:                                               ; preds = %59
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.30, ptr noundef nonnull @__func__.slurm_job_step_stat, ptr noundef %0) #11
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.30, ptr noundef nonnull @__func__.slurm_job_step_stat, ptr noundef nonnull %0) #11
   br label %79
 
 63:                                               ; preds = %54
@@ -1136,7 +1136,7 @@ declare void @list_destroy(ptr noundef) local_unnamed_addr #1
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @_sort_stats_by_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 2) i32 @_sort_stats_by_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -1178,7 +1178,7 @@ _sort_pids_by_name.exit:                          ; preds = %17, %14, %12, %10, 
 declare i32 @slurm_step_layout_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_job_step_get_pids(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define i32 @slurm_job_step_get_pids(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.slurm_msg, align 8
   %6 = alloca %struct.slurm_step_id_msg, align 4
@@ -1371,7 +1371,7 @@ define void @slurm_job_step_pids_response_msg_free(ptr noundef %0) local_unnamed
 declare void @slurm_free_job_step_pids(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @_sort_pids_by_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 2) i32 @_sort_pids_by_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1531,13 +1531,13 @@ declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef z
 declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #10

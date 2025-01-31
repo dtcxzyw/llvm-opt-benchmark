@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.TValue = type { i64 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lj_ccall_ctid_vararg(ptr noundef %cts, ptr nocapture noundef readonly %o) local_unnamed_addr #0 {
+define hidden i32 @lj_ccall_ctid_vararg(ptr noundef %cts, ptr noundef readonly captures(none) %o) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %o, align 8
   %shr = ashr i64 %0, 47
@@ -85,7 +85,7 @@ return:                                           ; preds = %if.else, %land.lhs.
 declare hidden i32 @lj_ctype_intern(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @lj_ccall_func(ptr noundef %L, ptr nocapture noundef readonly %cd) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @lj_ccall_func(ptr noundef %L, ptr noundef readonly captures(none) %cd) local_unnamed_addr #0 {
 entry:
   %sp.i.i = alloca [2 x i64], align 16
   %rcl.i42 = alloca [2 x i32], align 4
@@ -886,10 +886,10 @@ declare hidden ptr @lj_tab_set(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare hidden i32 @lj_gc_step(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 5) i32 @ccall_classify_struct(ptr nocapture noundef readonly %cts, ptr nocapture noundef readonly %ct, ptr nocapture noundef nonnull %rcl, i32 noundef %ofs) unnamed_addr #3 {
+define internal fastcc range(i32 0, 5) i32 @ccall_classify_struct(ptr noundef readonly captures(none) %cts, ptr noundef readonly captures(none) %ct, ptr noundef nonnull captures(none) %rcl, i32 noundef %ofs) unnamed_addr #3 {
 entry:
   %size = getelementptr inbounds nuw i8, ptr %ct, i64 4
   %0 = load i32, ptr %size, align 4
@@ -984,7 +984,7 @@ declare hidden void @lj_cconv_ct_tv(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare hidden ptr @lj_mem_newgco(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ccall_classify_ct(ptr nocapture noundef readonly %cts, ptr nocapture noundef readonly %ct, ptr nocapture noundef nonnull %rcl, i32 noundef %ofs) unnamed_addr #3 {
+define internal fastcc void @ccall_classify_ct(ptr noundef readonly captures(none) %cts, ptr noundef readonly captures(none) %ct, ptr noundef nonnull captures(none) %rcl, i32 noundef %ofs) unnamed_addr #3 {
 entry:
   %0 = load i32, ptr %ct, align 8
   %shr = lshr i32 %0, 28
@@ -1049,15 +1049,15 @@ if.end17:                                         ; preds = %for.body, %ctype_ra
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare hidden i32 @lj_cconv_tv_ct(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

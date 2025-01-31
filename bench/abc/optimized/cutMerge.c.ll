@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Cut_CutMergeTwo5.M = internal unnamed_addr global [7 x [3 x i32]] zeroinitializer, align 16
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Cut_CutMergeTwo2(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define noundef ptr @Cut_CutMergeTwo2(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %1, align 8
@@ -375,7 +375,7 @@ define noundef ptr @Cut_CutMergeTwo2(ptr noundef %0, ptr nocapture noundef reado
 declare ptr @Cut_CutAlloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cut_CutMergeTwo(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define ptr @Cut_CutMergeTwo(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 8
   %5 = lshr i32 %4, 28
   %6 = load i32, ptr %2, align 8
@@ -644,7 +644,7 @@ define ptr @Cut_CutMergeTwo(ptr noundef %0, ptr nocapture noundef readonly %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cut_CutMergeTwo3(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define ptr @Cut_CutMergeTwo3(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -858,7 +858,7 @@ define ptr @Cut_CutMergeTwo3(ptr noundef %0, ptr nocapture noundef readonly %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cut_CutMergeTwo4(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define ptr @Cut_CutMergeTwo4(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1117,7 +1117,7 @@ define ptr @Cut_CutMergeTwo4(ptr noundef %0, ptr nocapture noundef readonly %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cut_CutMergeTwo5(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define ptr @Cut_CutMergeTwo5(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %1, align 8

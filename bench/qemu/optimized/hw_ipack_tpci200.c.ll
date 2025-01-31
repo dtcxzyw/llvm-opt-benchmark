@@ -80,7 +80,7 @@ entry:
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tpci200_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @tpci200_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   %call.i9 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #6
@@ -108,7 +108,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tpci200_realize(ptr noundef %pci_dev, ptr nocapture readnone %errp) #0 {
+define internal void @tpci200_realize(ptr noundef %pci_dev, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.13, i32 noundef 75, ptr noundef nonnull @__func__.TPCI200) #6
   %config = getelementptr inbounds nuw i8, ptr %call.i, i64 168
@@ -292,7 +292,7 @@ if.end103:                                        ; preds = %land.lhs.true86, %i
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 256) i64 @tpci200_read_cfg(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #2 {
+define internal range(i64 0, 256) i64 @tpci200_read_cfg(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 %size) #2 {
 entry:
   %cmp = icmp ult i64 %addr, 88
   br i1 %cmp, label %if.then, label %if.end
@@ -339,7 +339,7 @@ do.end:                                           ; preds = %land.lhs.true4, %la
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @tpci200_write_cfg(ptr nocapture noundef writeonly %opaque, i64 noundef %addr, i64 noundef %val, i32 %size) #3 {
+define internal void @tpci200_write_cfg(ptr noundef writeonly captures(none) %opaque, i64 noundef %addr, i64 noundef %val, i32 %size) #3 {
 entry:
   switch i64 %addr, label %if.end [
     i64 51, label %if.then
@@ -363,7 +363,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 65536) i64 @tpci200_read_las0(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #2 {
+define internal range(i64 0, 65536) i64 @tpci200_read_las0(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #2 {
 entry:
   switch i64 %addr, label %sw.epilog [
     i64 12, label %sw.bb8

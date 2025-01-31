@@ -38,7 +38,7 @@ define hidden void @_crypt_extended_init_r() local_unnamed_addr #1 {
 declare void @_crypt_extended_init() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef nonnull ptr @php_md5_crypt_r(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #1 {
+define hidden noundef nonnull ptr @php_md5_crypt_r(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
 sub_0:
   %3 = alloca [16 x i8], align 16
   %4 = alloca %struct.PHP_MD5_CTX, align 4
@@ -87,14 +87,14 @@ sub_2:                                            ; preds = %sub_1
 .critedge:                                        ; preds = %15, %15, %17
   call void @PHP_MD5InitArgs(ptr noundef nonnull %4, ptr noundef null) #7
   %19 = and i64 %6, 4294967295
-  call void @PHP_MD5Update(ptr noundef nonnull %4, ptr noundef %0, i64 noundef %19) #7
+  call void @PHP_MD5Update(ptr noundef nonnull %4, ptr noundef nonnull %0, i64 noundef %19) #7
   call void @PHP_MD5Update(ptr noundef nonnull %4, ptr noundef nonnull @.str, i64 noundef 3) #7
   %20 = and i64 %.055.idx, 4294967295
   call void @PHP_MD5Update(ptr noundef nonnull %4, ptr noundef nonnull %spec.select, i64 noundef %20) #7
   call void @PHP_MD5InitArgs(ptr noundef nonnull %5, ptr noundef null) #7
-  call void @PHP_MD5Update(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %19) #7
+  call void @PHP_MD5Update(ptr noundef nonnull %5, ptr noundef nonnull %0, i64 noundef %19) #7
   call void @PHP_MD5Update(ptr noundef nonnull %5, ptr noundef nonnull %spec.select, i64 noundef %20) #7
-  call void @PHP_MD5Update(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %19) #7
+  call void @PHP_MD5Update(ptr noundef nonnull %5, ptr noundef nonnull %0, i64 noundef %19) #7
   call void @PHP_MD5Final(ptr noundef nonnull %3, ptr noundef nonnull %5) #7
   %21 = icmp sgt i32 %7, 0
   br i1 %21, label %.lr.ph, label %._crit_edge
@@ -118,7 +118,7 @@ sub_2:                                            ; preds = %sub_1
   %26 = and i32 %.05688, 1
   %.not63 = icmp eq i32 %26, 0
   %. = select i1 %.not63, ptr %0, ptr %3
-  call void @PHP_MD5Update(ptr noundef nonnull %4, ptr noundef %., i64 noundef 1) #7
+  call void @PHP_MD5Update(ptr noundef nonnull %4, ptr noundef nonnull %., i64 noundef 1) #7
   %27 = lshr i32 %.05688, 1
   %.not59 = icmp ult i32 %.05688, 2
   br i1 %.not59, label %._crit_edge91, label %.lr.ph90
@@ -142,7 +142,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not60, label %34, label %33
 
 33:                                               ; preds = %31
-  call void @PHP_MD5Update(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %19) #7
+  call void @PHP_MD5Update(ptr noundef nonnull %5, ptr noundef nonnull %0, i64 noundef %19) #7
   br label %35
 
 34:                                               ; preds = %31
@@ -165,7 +165,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not62, label %41, label %40
 
 40:                                               ; preds = %38
-  call void @PHP_MD5Update(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %19) #7
+  call void @PHP_MD5Update(ptr noundef nonnull %5, ptr noundef nonnull %0, i64 noundef %19) #7
   br label %41
 
 41:                                               ; preds = %40, %38
@@ -176,7 +176,7 @@ sub_2:                                            ; preds = %sub_1
   br label %44
 
 43:                                               ; preds = %41
-  call void @PHP_MD5Update(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %19) #7
+  call void @PHP_MD5Update(ptr noundef nonnull %5, ptr noundef nonnull %0, i64 noundef %19) #7
   br label %44
 
 44:                                               ; preds = %43, %42
@@ -377,7 +377,7 @@ to64.exit83:                                      ; preds = %166
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @PHP_MD5InitArgs(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -389,7 +389,7 @@ declare void @PHP_MD5Final(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i64 @php_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 

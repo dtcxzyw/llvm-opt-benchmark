@@ -339,7 +339,7 @@ entry:
 declare hidden i32 @lj_vm_cpcall(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @cpgrowstack(ptr noundef %co, ptr nocapture readnone %dummy, ptr nocapture noundef readonly %ud) #0 {
+define internal noalias noundef ptr @cpgrowstack(ptr noundef %co, ptr readnone captures(none) %dummy, ptr noundef readonly captures(none) %ud) #0 {
 entry:
   %0 = load i32, ptr %ud, align 4
   tail call void @lj_state_growstack(ptr noundef %co, i32 noundef %0)
@@ -465,17 +465,17 @@ declare hidden ptr @lj_alloc_create(ptr noundef) local_unnamed_addr #2
 declare hidden ptr @lj_alloc_f(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare hidden void @lj_alloc_setprng(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare hidden void @lj_dispatch_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @cpluaopen(ptr noundef %L, ptr nocapture readnone %dummy, ptr nocapture readnone %ud) #0 {
+define internal noalias noundef ptr @cpluaopen(ptr noundef %L, ptr readnone captures(none) %dummy, ptr readnone captures(none) %ud) #0 {
 entry:
   %glref = getelementptr inbounds nuw i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
@@ -634,7 +634,7 @@ if.end23:                                         ; preds = %if.else, %if.then20
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @lua_close(ptr nocapture noundef readonly %L) local_unnamed_addr #0 {
+define dso_local void @lua_close(ptr noundef readonly captures(none) %L) local_unnamed_addr #0 {
 entry:
   %glref = getelementptr inbounds nuw i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
@@ -709,7 +709,7 @@ declare hidden i64 @lj_gc_separateudata(ptr noundef, i32 noundef) local_unnamed_
 declare hidden void @lj_dispatch_update(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @cpfinalize(ptr noundef %L, ptr nocapture readnone %dummy, ptr nocapture readnone %ud) #0 {
+define internal noalias noundef ptr @cpfinalize(ptr noundef %L, ptr readnone captures(none) %dummy, ptr readnone captures(none) %ud) #0 {
 entry:
   tail call void @lj_gc_finalize_cdata(ptr noundef %L) #7
   tail call void @lj_gc_finalize_udata(ptr noundef %L) #7
@@ -765,7 +765,7 @@ entry:
 declare hidden ptr @lj_mem_newgco(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_state_free(ptr nocapture noundef %g, ptr noundef %L) local_unnamed_addr #0 {
+define hidden void @lj_state_free(ptr noundef captures(none) %g, ptr noundef %L) local_unnamed_addr #0 {
 entry:
   %cur_L = getelementptr inbounds nuw i8, ptr %g, i64 368
   %0 = load i64, ptr %cur_L, align 8

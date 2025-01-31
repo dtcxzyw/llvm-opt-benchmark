@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ossl_ffc_params_full_validate = private unnamed_addr constant [30 x i8] c"ossl_ffc_params_full_validate\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ffc_params_validate_unverifiable_g(ptr noundef %ctx, ptr noundef %mont, ptr noundef %p, ptr noundef %q, ptr noundef %g, ptr noundef %tmp, ptr nocapture noundef %ret) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ffc_params_validate_unverifiable_g(ptr noundef %ctx, ptr noundef %mont, ptr noundef %p, ptr noundef %q, ptr noundef %g, ptr noundef %tmp, ptr noundef captures(none) %ret) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BN_value_one() #3
   %call1 = tail call i32 @BN_cmp(ptr noundef %g, ptr noundef %call) #3
@@ -220,7 +220,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @ossl_ffc_params_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 

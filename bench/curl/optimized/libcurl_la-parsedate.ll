@@ -38,7 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @time2epoch.month_days_cumulative = internal unnamed_addr constant [12 x i32] [i32 0, i32 31, i32 59, i32 90, i32 120, i32 151, i32 181, i32 212, i32 243, i32 273, i32 304, i32 334], align 16
 
 ; Function Attrs: nounwind uwtable
-define i64 @curl_getdate(ptr noundef %p, ptr nocapture noundef readnone %now) local_unnamed_addr #0 {
+define i64 @curl_getdate(ptr noundef %p, ptr noundef readnone captures(none) %now) local_unnamed_addr #0 {
 entry:
   %parsed = alloca i64, align 8
   store i64 -1, ptr %parsed, align 8
@@ -52,7 +52,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @parsedate(ptr noundef %date, ptr nocapture noundef nonnull writeonly %output) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parsedate(ptr noundef %date, ptr noundef nonnull writeonly captures(none) %output) unnamed_addr #0 {
 entry:
   %end = alloca ptr, align 8
   %0 = load i8, ptr %date, align 1
@@ -159,7 +159,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   br i1 %cmp6.i, label %land.lhs.true.i, label %if.end10.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %call8.i = tail call i32 @curl_strnequal(ptr noundef nonnull %date.addr.2, ptr noundef %16, i64 noundef range(i64 13, 12) %len.0) #7
+  %call8.i = tail call i32 @curl_strnequal(ptr noundef nonnull %date.addr.2, ptr noundef nonnull %16, i64 noundef range(i64 13, 12) %len.0) #7
   %tobool.not.i97 = icmp eq i32 %call8.i, 0
   br i1 %tobool.not.i97, label %if.end10.i, label %if.end71
 
@@ -583,12 +583,12 @@ declare ptr @gmtime_r(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 declare i32 @curlx_sltosi(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 

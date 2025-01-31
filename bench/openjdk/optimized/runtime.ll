@@ -577,7 +577,7 @@ define hidden noundef ptr @_ZN11OptoRuntime14new_array_TypeEv() #0 align 2 {
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11OptoRuntime11new_array_CEP5KlassiP10JavaThread(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 align 2 {
+define hidden void @_ZN11OptoRuntime11new_array_CEP5KlassiP10JavaThread(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 1092
   store volatile i32 6, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2090,7 +2090,7 @@ declare void @_ZN15DirectivesStack7releaseEP12DirectiveSet(ptr noundef) local_un
 declare void @_ZN7CompileD1Ev(ptr noundef nonnull align 8 dereferenceable(2316)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN11OptoRuntime9stub_nameEPh(ptr nocapture noundef readnone %0) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZN11OptoRuntime9stub_nameEPh(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 align 2 {
   ret ptr @.str.21
 }
 
@@ -3297,7 +3297,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11OptoRuntime25handle_exception_C_helperEP10JavaThreadRP7nmethod(ptr noundef %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN11OptoRuntime25handle_exception_C_helperEP10JavaThreadRP7nmethod(ptr noundef %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.stringStream, align 8
   %4 = alloca %class.Handle, align 8
   %5 = alloca %class.LogStream, align 8
@@ -3422,7 +3422,7 @@ _ZL15trace_exceptionP12outputStreamP7oopDescPhPKc.exit: ; preds = %55, %61, %62
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %65 = load ptr, ptr %64, align 8
   %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #14
-  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef %65, i64 noundef %66) #12
+  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull %65, i64 noundef %66) #12
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %5) #12
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %3) #12
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3)
@@ -4608,7 +4608,7 @@ declare void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -4665,13 +4665,13 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEn
 declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

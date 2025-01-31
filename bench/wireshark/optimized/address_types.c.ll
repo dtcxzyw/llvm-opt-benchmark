@@ -115,7 +115,7 @@ define i32 @address_type_dissector_register(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @address_type_get_by_name(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i32 @address_type_get_by_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @type_list, align 16
   %.not9 = icmp eq ptr %2, null
   br i1 %.not9, label %.loopexit, label %.lr.ph
@@ -145,16 +145,16 @@ define i32 @address_type_get_by_name(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @none_addr_to_str(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, i32 %2) #3 {
+define hidden noundef i32 @none_addr_to_str(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1, i32 %2) #3 {
   store i8 0, ptr %1, align 1
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @none_addr_str_len(ptr nocapture readnone %0) #4 {
+define hidden noundef i32 @none_addr_str_len(ptr readnone captures(none) %0) #4 {
   ret i32 1
 }
 
@@ -164,7 +164,7 @@ define hidden noundef i32 @none_addr_len() #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 19) i32 @ether_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #5 {
+define hidden range(i32 -2147483648, 19) i32 @ether_to_str(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #5 {
   %4 = icmp slt i32 %2, 18
   br i1 %4, label %5, label %8
 
@@ -191,7 +191,7 @@ declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare ptr @bytes_to_hexstr_punct(ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @ether_str_len(ptr nocapture readnone %0) #4 {
+define hidden noundef i32 @ether_str_len(ptr readnone captures(none) %0) #4 {
   ret i32 18
 }
 
@@ -201,7 +201,7 @@ define hidden noundef i32 @ether_len() #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @ether_name_resolution_str(ptr nocapture noundef readonly %0) #5 {
+define hidden ptr @ether_name_resolution_str(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @get_ether_name(ptr noundef %3) #16
@@ -237,7 +237,7 @@ define hidden void @address_types_initialize() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @none_name_res_str(ptr nocapture readnone %0) #4 {
+define internal noundef nonnull ptr @none_name_res_str(ptr readnone captures(none) %0) #4 {
   ret ptr @.str.29
 }
 
@@ -247,14 +247,14 @@ define internal noundef i32 @none_name_res_len() #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @ether_col_filter_str(ptr nocapture readnone %0, i32 noundef %1) #4 {
+define internal noundef nonnull ptr @ether_col_filter_str(ptr readnone captures(none) %0, i32 noundef %1) #4 {
   %.not = icmp eq i32 %1, 0
   %.str.34..str.33 = select i1 %.not, ptr @.str.34, ptr @.str.33
   ret ptr %.str.34..str.33
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ipv4_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #5 {
+define internal i32 @ipv4_to_str(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @ip_addr_to_str_buf(ptr noundef %5, ptr noundef %1, i32 noundef %2) #16
@@ -265,12 +265,12 @@ define internal i32 @ipv4_to_str(ptr nocapture noundef readonly %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @ipv4_str_len(ptr nocapture readnone %0) #4 {
+define internal noundef i32 @ipv4_str_len(ptr readnone captures(none) %0) #4 {
   ret i32 16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @ipv4_col_filter_str(ptr nocapture readnone %0, i32 noundef %1) #4 {
+define internal noundef nonnull ptr @ipv4_col_filter_str(ptr readnone captures(none) %0, i32 noundef %1) #4 {
   %.not = icmp eq i32 %1, 0
   %.str.36..str.35 = select i1 %.not, ptr @.str.36, ptr @.str.35
   ret ptr %.str.36..str.35
@@ -282,7 +282,7 @@ define internal noundef i32 @ipv4_len() #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ipv4_name_res_str(ptr nocapture noundef readonly %0) #5 {
+define internal ptr @ipv4_name_res_str(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.0.copyload = load i32, ptr %3, align 1
@@ -296,7 +296,7 @@ define internal noundef i32 @ipv4_name_res_len() #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ipv6_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #5 {
+define internal i32 @ipv6_to_str(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %2 to i64
@@ -308,12 +308,12 @@ define internal i32 @ipv6_to_str(ptr nocapture noundef readonly %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @ipv6_str_len(ptr nocapture readnone %0) #4 {
+define internal noundef i32 @ipv6_str_len(ptr readnone captures(none) %0) #4 {
   ret i32 46
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @ipv6_col_filter_str(ptr nocapture readnone %0, i32 noundef %1) #4 {
+define internal noundef nonnull ptr @ipv6_col_filter_str(ptr readnone captures(none) %0, i32 noundef %1) #4 {
   %.not = icmp eq i32 %1, 0
   %.str.38..str.37 = select i1 %.not, ptr @.str.38, ptr @.str.37
   ret ptr %.str.38..str.37
@@ -325,7 +325,7 @@ define internal noundef i32 @ipv6_len() #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ipv6_name_res_str(ptr nocapture noundef readonly %0) #5 {
+define internal ptr @ipv6_name_res_str(ptr noundef readonly captures(none) %0) #5 {
   %2 = alloca %struct.e_in6_addr, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -340,7 +340,7 @@ define internal noundef i32 @ipv6_name_res_len() #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ipx_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #5 {
+define internal noundef i32 @ipx_to_str(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #5 {
   %4 = icmp slt i32 %2, 22
   br i1 %4, label %5, label %8
 
@@ -371,7 +371,7 @@ define internal noundef i32 @ipx_to_str(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @ipx_str_len(ptr nocapture readnone %0) #4 {
+define internal noundef i32 @ipx_str_len(ptr readnone captures(none) %0) #4 {
   ret i32 22
 }
 
@@ -381,7 +381,7 @@ define internal noundef i32 @ipx_len() #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fc_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #5 {
+define internal noundef i32 @fc_to_str(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #5 {
   %4 = icmp slt i32 %2, 9
   br i1 %4, label %5, label %8
 
@@ -408,7 +408,7 @@ define internal noundef i32 @fc_to_str(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @fc_str_len(ptr nocapture readnone %0) #4 {
+define internal noundef i32 @fc_str_len(ptr readnone captures(none) %0) #4 {
   ret i32 9
 }
 
@@ -418,7 +418,7 @@ define internal noundef i32 @fc_len() #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 25) i32 @fcwwn_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #5 {
+define internal range(i32 -2147483648, 25) i32 @fcwwn_to_str(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #5 {
   %4 = icmp slt i32 %2, 24
   br i1 %4, label %5, label %8
 
@@ -440,7 +440,7 @@ define internal range(i32 -2147483648, 25) i32 @fcwwn_to_str(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @fcwwn_str_len(ptr nocapture readnone %0) #4 {
+define internal noundef i32 @fcwwn_str_len(ptr readnone captures(none) %0) #4 {
   ret i32 24
 }
 
@@ -450,7 +450,7 @@ define internal noundef i32 @fcwwn_len() #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @fcwwn_name_res_str(ptr nocapture noundef readonly %0) #5 {
+define internal ptr @fcwwn_name_res_str(ptr noundef readonly captures(none) %0) #5 {
   %2 = alloca [6 x i8], align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -514,7 +514,7 @@ define internal noundef i32 @fcwwn_name_res_len() #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @stringz_addr_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #5 {
+define internal i32 @stringz_addr_to_str(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %2 to i64
@@ -526,7 +526,7 @@ define internal i32 @stringz_addr_to_str(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @stringz_addr_str_len(ptr nocapture noundef readonly %0) #8 {
+define internal i32 @stringz_addr_str_len(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, 1
@@ -534,7 +534,7 @@ define internal i32 @stringz_addr_str_len(ptr nocapture noundef readonly %0) #8 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 25) i32 @eui64_addr_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #5 {
+define internal range(i32 -2147483648, 25) i32 @eui64_addr_to_str(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #5 {
   %4 = icmp slt i32 %2, 24
   br i1 %4, label %5, label %8
 
@@ -556,7 +556,7 @@ define internal range(i32 -2147483648, 25) i32 @eui64_addr_to_str(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @eui64_str_len(ptr nocapture readnone %0) #4 {
+define internal noundef i32 @eui64_str_len(ptr readnone captures(none) %0) #4 {
   ret i32 24
 }
 
@@ -566,7 +566,7 @@ define internal noundef i32 @eui64_len() #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ib_addr_to_str(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #5 {
+define internal i32 @ib_addr_to_str(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #5 {
   %4 = alloca [46 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
@@ -598,12 +598,12 @@ define internal i32 @ib_addr_to_str(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @ib_str_len(ptr nocapture readnone %0) #4 {
+define internal noundef i32 @ib_str_len(ptr readnone captures(none) %0) #4 {
   ret i32 256
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ax25_addr_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #5 {
+define internal i32 @ax25_addr_to_str(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #5 {
   %4 = icmp slt i32 %2, 10
   br i1 %4, label %5, label %8
 
@@ -674,12 +674,12 @@ define internal i32 @ax25_addr_to_str(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @ax25_addr_str_len(ptr nocapture readnone %0) #4 {
+define internal noundef i32 @ax25_addr_str_len(ptr readnone captures(none) %0) #4 {
   ret i32 10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @ax25_col_filter_str(ptr nocapture readnone %0, i32 noundef %1) #4 {
+define internal noundef nonnull ptr @ax25_col_filter_str(ptr readnone captures(none) %0, i32 noundef %1) #4 {
   %.not = icmp eq i32 %1, 0
   %.str.43..str.42 = select i1 %.not, ptr @.str.43, ptr @.str.42
   ret ptr %.str.43..str.42
@@ -691,7 +691,7 @@ define internal noundef i32 @ax25_len() #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vines_addr_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #5 {
+define internal noundef i32 @vines_addr_to_str(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #5 {
   %4 = icmp slt i32 %2, 14
   br i1 %4, label %5, label %8
 
@@ -746,7 +746,7 @@ define internal noundef i32 @vines_addr_to_str(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @vines_addr_str_len(ptr nocapture readnone %0) #4 {
+define internal noundef i32 @vines_addr_str_len(ptr readnone captures(none) %0) #4 {
   ret i32 14
 }
 
@@ -756,7 +756,7 @@ define internal noundef i32 @vines_len() #4 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @numeric_addr_to_str(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #9 {
+define internal noundef i32 @numeric_addr_to_str(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #9 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %2 to i64
@@ -797,7 +797,7 @@ define internal noundef i32 @numeric_addr_to_str(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 4, 22) i32 @numeric_addr_str_len(ptr nocapture noundef readonly %0) #8 {
+define internal range(i32 4, 22) i32 @numeric_addr_str_len(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %switch.tableidx = add i32 %3, -2
@@ -816,7 +816,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @mctp_addr_to_str(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 %2) #9 {
+define internal noundef i32 @mctp_addr_to_str(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 %2) #9 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr %5, align 1
@@ -826,7 +826,7 @@ define internal noundef i32 @mctp_addr_to_str(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @mctp_addr_str_len(ptr nocapture readnone %0) #4 {
+define internal noundef i32 @mctp_addr_str_len(ptr readnone captures(none) %0) #4 {
   ret i32 4
 }
 
@@ -836,7 +836,7 @@ define internal noundef i32 @mctp_len() #4 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
 define ptr @address_to_str(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
@@ -967,7 +967,7 @@ define i32 @address_to_bytes(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
 define ptr @address_to_name(ptr noundef %0) local_unnamed_addr #5 {
@@ -1471,7 +1471,7 @@ set_address_tvb.exit:                             ; preds = %15, %.split.i
 declare void @ip_addr_to_str_buf(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @get_hostname(i32 noundef) local_unnamed_addr #6
 
@@ -1486,7 +1486,7 @@ declare ptr @get_manuf_name(ptr noundef, i64 noundef) local_unnamed_addr #6
 declare nonnull ptr @ws_inet_ntop6(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 declare signext i8 @printable_char_or_period(i8 noundef signext) local_unnamed_addr #6
 

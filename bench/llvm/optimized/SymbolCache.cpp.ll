@@ -692,7 +692,7 @@ declare noundef nonnull align 8 dereferenceable(352) ptr @_ZNK4llvm3pdb9DbiStrea
 declare noundef i32 @_ZNK4llvm3pdb13DbiModuleList14getModuleCountEv(ptr noundef nonnull align 8 dereferenceable(352)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb11SymbolCache20createTypeEnumeratorENS_8codeview12TypeLeafKindE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.82") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1, i16 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb11SymbolCache20createTypeEnumeratorENS_8codeview12TypeLeafKindE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.82") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %1, i16 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::vector.90", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(2) ptr @_Znwm(i64 noundef 2) #15
   store ptr %5, ptr %4, align 8
@@ -720,7 +720,7 @@ _ZNSt6vectorIN4llvm8codeview12TypeLeafKindESaIS2_EED2Ev.exit: ; preds = %3, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb11SymbolCache20createTypeEnumeratorESt6vectorINS_8codeview12TypeLeafKindESaIS4_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.82") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb11SymbolCache20createTypeEnumeratorESt6vectorINS_8codeview12TypeLeafKindESaIS4_EE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.82") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %class.anon.400, align 1
@@ -856,7 +856,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 declare void @_ZN4llvm3pdb15NativeEnumTypesC1ERNS0_13NativeSessionERNS_8codeview24LazyRandomTypeCollectionESt6vectorINS4_12TypeLeafKindESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(584), ptr noundef nonnull align 8 dereferenceable(248), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb11SymbolCache23createGlobalsEnumeratorENS_8codeview10SymbolKindE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.82") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1, i16 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb11SymbolCache23createGlobalsEnumeratorENS_8codeview10SymbolKindE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.82") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %1, i16 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::vector.208", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   %6 = load ptr, ptr %1, align 8
@@ -1512,7 +1512,7 @@ _ZN4llvm8codeview16TypeDeserializer11MappingInfoD2Ev.exit: ; preds = %_ZN4llvm8c
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZNK4llvm3pdb11SymbolCache21findSymbolByTypeIndexENS_8codeview9TypeIndexE(ptr noundef nonnull align 8 dereferenceable(280) %0, i32 %1) local_unnamed_addr #0 align 2 {
@@ -2971,7 +2971,7 @@ _ZNSt10unique_ptrIN4llvm3pdb15NativeRawSymbolESt14default_deleteIS2_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb11SymbolCache13getSymbolByIdEj(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.253") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3pdb11SymbolCache13getSymbolByIdEj(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.253") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %15, label %5
 
@@ -3014,7 +3014,7 @@ define dso_local void @_ZNK4llvm3pdb11SymbolCache13getSymbolByIdEj(ptr dead_on_u
 declare void @_ZN4llvm3pdb9PDBSymbol6createERKNS0_11IPDBSessionERNS0_13IPDBRawSymbolE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.253") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4llvm3pdb11SymbolCache19getNativeSymbolByIdEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4llvm3pdb11SymbolCache19getNativeSymbolByIdEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
@@ -3024,7 +3024,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4llvm3pdb1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK4llvm3pdb11SymbolCache16getNumCompilandsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZNK4llvm3pdb11SymbolCache16getNumCompilandsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -6013,7 +6013,7 @@ _ZNK4llvm3pdb11SymbolCache13getSymbolByIdEj.exit: ; preds = %678, %_ZNKSt14defau
 declare noundef zeroext i1 @_ZNK4llvm3pdb13NativeSession24moduleIndexForSectOffsetEjjRt(ptr noundef nonnull align 8 dereferenceable(584), i32 noundef, i32 noundef, ptr noundef nonnull align 2 dereferenceable(2)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb11SymbolCache20getOrCreateCompilandEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.288") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb11SymbolCache20getOrCreateCompilandEj(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.288") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::unique_ptr.253", align 8
   %5 = alloca %"class.llvm::pdb::DbiModuleDescriptor", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6517,7 +6517,7 @@ _ZNSt10unique_ptrIN4llvm3pdb18NativePublicSymbolESt14default_deleteIS2_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb11SymbolCache13findLineTableEt(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.330") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i16 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3pdb11SymbolCache13findLineTableEt(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.330") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i16 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %"class.llvm::Error", align 8
@@ -10060,7 +10060,7 @@ _ZN4llvm8codeview21DebugSubsectionRecordD2Ev.exit: ; preds = %_ZN4llvm15BinarySt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb11SymbolCache19findLineNumbersByVAEmj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.360") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3pdb11SymbolCache19findLineNumbersByVAEmj(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.360") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::vector.374", align 8
   %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %"class.llvm::Error", align 8
@@ -10927,7 +10927,7 @@ _ZNSt10unique_ptrIN4llvm3pdb21NativeCompilandSymbolESt14default_deleteIS2_EED2Ev
 declare void @_ZNK4llvm3pdb13DbiModuleList19getModuleDescriptorEj(ptr dead_on_unwind writable sret(%"class.llvm::pdb::DbiModuleDescriptor") align 8, ptr noundef nonnull align 8 dereferenceable(352), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb11SymbolCache17getSourceFileByIdEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.390") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3pdb11SymbolCache17getSourceFileByIdEj(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.390") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %13, label %_ZNSt10unique_ptrIN4llvm3pdb16NativeSourceFileESt14default_deleteIS2_EED2Ev.exit
 
@@ -10951,7 +10951,7 @@ _ZNSt10unique_ptrIN4llvm3pdb16NativeSourceFileESt14default_deleteIS2_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm12handleErrorsIJZNS_12consumeErrorENS_5ErrorEEUlRKNS_13ErrorInfoBaseEE_EEES1_S1_DpOT_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat {
@@ -12266,7 +12266,7 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit: ; preds = %_ZNSt6vectorIjSa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 declare void @_ZN4llvm3pdb17NativeTypePointerC1ERNS0_13NativeSessionEjNS_8codeview9TypeIndexE(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef nonnull align 8 dereferenceable(584), i32 noundef, i32) unnamed_addr #1
 
@@ -12398,7 +12398,7 @@ declare void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 der
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @_ZN4llvm3pdb14NativeTypeEnumC1ERNS0_13NativeSessionEjRS1_NS_8codeview14ModifierRecordE(ptr noundef nonnull align 8 dereferenceable(114), ptr noundef nonnull align 8 dereferenceable(584), i32 noundef, ptr noundef nonnull align 8 dereferenceable(114), i64) unnamed_addr #1
 
@@ -25702,7 +25702,7 @@ _ZNSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS3_EED2Ev.exit10.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_T0_SI_T1_T2_"(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIN4llvm3pdb11SymbolCache14LineTableEntryESaIS6_EES2_IS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNKS5_13findLineTableEtE3$_0EEEvT_T0_SI_T1_T2_"(ptr captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6
@@ -26675,10 +26675,10 @@ declare i64 @llvm.umin.i64(i64, i64) #12
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #12

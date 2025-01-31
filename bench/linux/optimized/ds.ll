@@ -162,13 +162,13 @@ define dso_local void @intel_pmu_pebs_data_source_adl() local_unnamed_addr #1 se
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(readwrite, inaccessiblemem: none)
 define dso_local void @intel_pmu_pebs_data_source_mtl() local_unnamed_addr #1 section ".init.text" align 16 {
@@ -215,7 +215,7 @@ define dso_local void @intel_pmu_pebs_data_source_cmt() local_unnamed_addr #0 se
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 1100585369600, 0) i64 @adl_latency_data_small(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #4 align 16 {
+define dso_local range(i64 1100585369600, 0) i64 @adl_latency_data_small(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 312
@@ -261,10 +261,10 @@ define dso_local range(i64 1100585369600, 0) i64 @adl_latency_data_small(ptr noc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 1100585369600, 0) i64 @mtl_latency_data_small(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #4 align 16 {
+define dso_local range(i64 1100585369600, 0) i64 @mtl_latency_data_small(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 312
@@ -1322,7 +1322,7 @@ declare dso_local void @perf_output_sample(ptr noundef, ptr noundef, ptr noundef
 declare dso_local void @perf_output_end(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @intel_pebs_constraints(ptr nocapture noundef %0) local_unnamed_addr #4 align 16 {
+define dso_local ptr @intel_pebs_constraints(ptr noundef captures(none) %0) local_unnamed_addr #4 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @perf_is_hybrid, i32 2) #14
           to label %7 [label %2], !srcloc !10
 
@@ -1401,7 +1401,7 @@ define dso_local ptr @intel_pebs_constraints(ptr nocapture noundef %0) local_unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_pmu_pebs_sched_task(ptr nocapture noundef readnone %0, i1 noundef zeroext %1) local_unnamed_addr #4 align 16 {
+define dso_local void @intel_pmu_pebs_sched_task(ptr noundef readnone captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #4 align 16 {
   %3 = alloca %struct.perf_sample_data, align 64
   %4 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_hw_events) #15, !srcloc !49
   br i1 %1, label %20, label %5
@@ -1436,7 +1436,7 @@ define dso_local void @intel_pmu_pebs_sched_task(ptr nocapture noundef readnone 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_pmu_pebs_add(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local void @intel_pmu_pebs_add(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_hw_events) #15, !srcloc !50
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2392
@@ -1637,7 +1637,7 @@ pebs_update_state.exit:                           ; preds = %53, %115, %122
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_pmu_pebs_enable(ptr nocapture noundef %0) local_unnamed_addr #4 align 16 {
+define dso_local void @intel_pmu_pebs_enable(ptr noundef captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = alloca %struct.perf_sample_data, align 64
   %3 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_hw_events) #15, !srcloc !51
   %4 = inttoptr i64 %3 to ptr
@@ -1938,7 +1938,7 @@ define dso_local void @intel_pmu_pebs_enable(ptr nocapture noundef %0) local_unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_pmu_pebs_del(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local void @intel_pmu_pebs_del(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_hw_events) #15, !srcloc !54
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2392
@@ -2036,7 +2036,7 @@ define dso_local void @intel_pmu_pebs_del(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_pmu_pebs_disable(ptr nocapture noundef %0) local_unnamed_addr #4 align 16 {
+define dso_local void @intel_pmu_pebs_disable(ptr noundef captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = alloca %struct.perf_sample_data, align 64
   %3 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_hw_events) #15, !srcloc !55
   %4 = inttoptr i64 %3 to ptr
@@ -2193,7 +2193,7 @@ define dso_local void @intel_pmu_pebs_disable_all() local_unnamed_addr #4 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_pmu_auto_reload_read(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local void @intel_pmu_auto_reload_read(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = alloca %struct.perf_sample_data, align 64
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %4 = load i32, ptr %3, align 4
@@ -3664,7 +3664,7 @@ define internal fastcc void @intel_pmu_save_and_restart_reload(ptr noundef %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @setup_pebs_fixed_sample_data(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #4 align 16 {
+define internal fastcc void @setup_pebs_fixed_sample_data(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) unnamed_addr #4 align 16 {
   %6 = alloca %struct.insn, align 8
   %7 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_hw_events) #15, !srcloc !106
   %8 = inttoptr i64 %7 to ptr
@@ -4346,7 +4346,7 @@ declare dso_local i32 @perf_event_account_interrupt(ptr noundef) local_unnamed_a
 declare dso_local i64 @_find_first_bit(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @setup_pebs_adaptive_sample_data(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #4 align 16 {
+define internal fastcc void @setup_pebs_adaptive_sample_data(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4) unnamed_addr #4 align 16 {
   %6 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_hw_events) #15, !srcloc !111
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr i8, ptr %2, i64 32

@@ -1430,7 +1430,7 @@ _ZN4Luau13RefinementKeyD2Ev.exit2:                ; preds = %29, %33
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -1511,7 +1511,7 @@ _ZN4Luau13RefinementKeyD2Ev.exit4:                ; preds = %31, %35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define dso_local ptr @_ZNK4Luau13DataFlowGraph6getDefEPKNS_7AstExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4Luau13DataFlowGraph6getDefEPKNS_7AstExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load i64, ptr %4, align 8
@@ -1559,7 +1559,7 @@ _ZNK4Luau12DenseHashMapIPKNS_7AstExprEPKNS_3DefENS_16DenseHashPointerESt8equal_t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { ptr, i8 } @_ZNK4Luau13DataFlowGraph29getRValueDefForCompoundAssignEPKNS_7AstExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
+define dso_local { ptr, i8 } @_ZNK4Luau13DataFlowGraph29getRValueDefForCompoundAssignEPKNS_7AstExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = load i64, ptr %4, align 8
@@ -1616,7 +1616,7 @@ define dso_local { ptr, i8 } @_ZNK4Luau13DataFlowGraph29getRValueDefForCompoundA
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define dso_local ptr @_ZNK4Luau13DataFlowGraph6getDefEPKNS_8AstLocalE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4Luau13DataFlowGraph6getDefEPKNS_8AstLocalE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load i64, ptr %4, align 8
@@ -1664,7 +1664,7 @@ _ZNK4Luau12DenseHashMapIPKNS_8AstLocalEPKNS_3DefENS_16DenseHashPointerESt8equal_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define dso_local ptr @_ZNK4Luau13DataFlowGraph6getDefEPKNS_20AstStatDeclareGlobalE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4Luau13DataFlowGraph6getDefEPKNS_20AstStatDeclareGlobalE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load i64, ptr %4, align 8
@@ -1712,7 +1712,7 @@ _ZNK4Luau12DenseHashMapIPKNS_7AstStatEPKNS_3DefENS_16DenseHashPointerESt8equal_t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define dso_local ptr @_ZNK4Luau13DataFlowGraph6getDefEPKNS_22AstStatDeclareFunctionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local ptr @_ZNK4Luau13DataFlowGraph6getDefEPKNS_22AstStatDeclareFunctionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load i64, ptr %4, align 8
@@ -1760,7 +1760,7 @@ _ZNK4Luau12DenseHashMapIPKNS_7AstStatEPKNS_3DefENS_16DenseHashPointerESt8equal_t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK4Luau13DataFlowGraph16getRefinementKeyEPKNS_7AstExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef ptr @_ZNK4Luau13DataFlowGraph16getRefinementKeyEPKNS_7AstExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = load i64, ptr %4, align 8
@@ -1847,7 +1847,7 @@ define dso_local { ptr, i8 } @_ZNK4Luau8DfgScope6lookupENS_6SymbolE(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, i8 } @_ZNK4Luau8DfgScope6lookupENS_7NotNullIKNS_3DefEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local { ptr, i8 } @_ZNK4Luau8DfgScope6lookupENS_7NotNullIKNS_3DefEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = ptrtoint ptr %1 to i64
   %5 = lshr i64 %4, 4
   %6 = lshr i64 %4, 9
@@ -2413,7 +2413,7 @@ define dso_local noundef zeroext i1 @_ZNK4Luau8DfgScope19canUpdateDefinitionENS_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4Luau8DfgScope19canUpdateDefinitionENS_7NotNullIKNS_3DefEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %2) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4Luau8DfgScope19canUpdateDefinitionENS_7NotNullIKNS_3DefEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %2) local_unnamed_addr #4 align 2 {
   %4 = ptrtoint ptr %1 to i64
   %5 = lshr i64 %4, 4
   %6 = lshr i64 %4, 9
@@ -2477,7 +2477,7 @@ _ZNK4Luau12DenseHashMapIPKNS_3DefESt13unordered_mapINSt7__cxx1112basic_stringIcS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau20DataFlowGraphBuilder5buildEPNS_12AstStatBlockENS_7NotNullINS_21InternalErrorReporterEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::DataFlowGraph") align 8 %0, ptr nocapture noundef readonly %1, ptr %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau20DataFlowGraphBuilder5buildEPNS_12AstStatBlockENS_7NotNullINS_21InternalErrorReporterEEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::DataFlowGraph") align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::DataFlowGraphBuilder", align 8
   store i8 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2754,7 +2754,7 @@ _ZN4Luau14TypedAllocatorINS_13RefinementKeyEE6freezeEv.exit: ; preds = %.noexc13
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(384) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #25
   store ptr %1, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2846,7 +2846,7 @@ _ZNSt6vectorISt10unique_ptrIN4Luau8DfgScopeESt14default_deleteIS2_EESaIS5_EE12em
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12AstStatBlockE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12AstStatBlockE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -3290,14 +3290,14 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau20DataFlowGraphBuilder4joinEPNS_8DfgScopeES2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau20DataFlowGraphBuilder4joinEPNS_8DfgScopeES2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) local_unnamed_addr #1 align 2 {
   tail call void @_ZN4Luau20DataFlowGraphBuilder12joinBindingsEPNS_8DfgScopeERKS1_S4_(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(104) %3)
   tail call void @_ZN4Luau20DataFlowGraphBuilder9joinPropsEPNS_8DfgScopeERKS1_S4_(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(104) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau20DataFlowGraphBuilder12joinBindingsEPNS_8DfgScopeERKS1_S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(104) %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau20DataFlowGraphBuilder12joinBindingsEPNS_8DfgScopeERKS1_S4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(104) %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.Luau::Symbol", align 8
   %6 = alloca %"struct.Luau::Symbol", align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3674,7 +3674,7 @@ _ZN4Luau6detail14DenseHashTableINS_6SymbolESt4pairIS2_PKNS_3DefEES3_IKS2_S6_ENS0
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau20DataFlowGraphBuilder9joinPropsEPNS_8DfgScopeERKS1_S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau20DataFlowGraphBuilder9joinPropsEPNS_8DfgScopeERKS1_S4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(384) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unordered_map", align 8
   %6 = alloca %"class.std::unordered_map", align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -4222,7 +4222,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Lua
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau3DefESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4263,7 +4263,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4Luau20DataFlowGraphBuilder9joinPropsEPNS_8DfgScopeERKS1_S4_EN3$_0clISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_3DefESt4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SG_EEESP_EEDaS2_RKT_RKT0_NS_7NotNullISF_EE"(ptr nocapture readonly %.0.val, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4Luau20DataFlowGraphBuilder9joinPropsEPNS_8DfgScopeERKS1_S4_EN3$_0clISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_3DefESt4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SG_EEESP_EEDaS2_RKT_RKT0_NS_7NotNullISF_EE"(ptr readonly captures(none) %.0.val, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %3, ptr %5, align 8
@@ -4835,7 +4835,7 @@ declare ptr @_ZN4Luau8DefArena3phiERKSt6vectorINS_7NotNullIKNS_3DefEEESaIS5_EE(p
 declare ptr @_ZN4Luau8DefArena9freshCellEb(ptr noundef nonnull align 8 dereferenceable(40), i1 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @_ZN4Luau20DataFlowGraphBuilder6lookupEPNS_8DfgScopeENS_7NotNullIKNS_3DefEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %0, ptr noundef %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local ptr @_ZN4Luau20DataFlowGraphBuilder6lookupEPNS_8DfgScopeENS_7NotNullIKNS_3DefEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(384) %0, ptr noundef %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca %"class.std::vector.71", align 8
   %7 = alloca ptr, align 8
@@ -5250,7 +5250,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_12AstStatBlockE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_12AstStatBlockE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, i32 noundef 0)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -5612,7 +5612,7 @@ _ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_13AstStatReturnE.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_9AstStatIfE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_9AstStatIfE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef %5)
@@ -5713,7 +5713,7 @@ _ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_12AstStatWhileE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_12AstStatWhileE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, i32 noundef 1)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -5744,7 +5744,7 @@ _ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_12AstStatBlockE.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_13AstStatRepeatE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_13AstStatRepeatE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, i32 noundef 1)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -5773,17 +5773,17 @@ _ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_12AstStatBreakE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(384) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #12 align 2 {
+define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_12AstStatBreakE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(384) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #12 align 2 {
   ret i32 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_15AstStatContinueE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(384) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #12 align 2 {
+define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_15AstStatContinueE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(384) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #12 align 2 {
   ret i32 16
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_13AstStatReturnE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_13AstStatReturnE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -5805,7 +5805,7 @@ define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScope
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 1, 5) i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_11AstStatExprE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 1, 5) i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_11AstStatExprE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef %5)
@@ -5831,7 +5831,7 @@ define dso_local noundef range(i32 1, 5) i32 @_ZN4Luau20DataFlowGraphBuilder5vis
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_12AstStatLocalE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_12AstStatLocalE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %"struct.Luau::Symbol", align 8
   %6 = alloca %"struct.Luau::Symbol", align 8
@@ -6432,7 +6432,7 @@ _ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_12AstStatForInE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_12AstStatForInE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %"struct.Luau::Symbol", align 8
   %6 = alloca %"struct.Luau::Symbol", align 8
@@ -6643,7 +6643,7 @@ _ZN4Luau20DataFlowGraphBuilder27visitBlockWithoutChildScopeEPNS_8DfgScopeEPNS_12
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_13AstStatAssignE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_13AstStatAssignE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::NotNull", align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6886,7 +6886,7 @@ _ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EED2Ev.exit29: ; preds = %._crit_e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_21AstStatCompoundAssignE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_21AstStatCompoundAssignE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"struct.Luau::NotNull", align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6929,7 +6929,7 @@ define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScope
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_15AstStatFunctionE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_15AstStatFunctionE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"struct.Luau::NotNull", align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7169,7 +7169,7 @@ _ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backERKS4_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_16AstStatTypeAliasE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_16AstStatTypeAliasE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = tail call noundef ptr @_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, i32 noundef 0)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.sroa.01.0.copyload = load ptr, ptr %5, align 8
@@ -7622,7 +7622,7 @@ _ZN4Luau20DataFlowGraphBuilder13visitTypeListEPNS_8DfgScopeENS_11AstTypeListE.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_19AstStatDeclareClassE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_19AstStatDeclareClassE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = tail call noundef ptr @_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, i32 noundef 0)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -7646,7 +7646,7 @@ define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScope
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_12AstStatErrorE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZN4Luau20DataFlowGraphBuilder5visitEPNS_8DfgScopeEPNS_12AstStatErrorE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = tail call noundef ptr @_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, i32 noundef 0)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -8520,7 +8520,7 @@ define dso_local void @_ZN4Luau20DataFlowGraphBuilder11visitLValueEPNS_8DfgScope
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_15AstExprFunctionE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_15AstExprFunctionE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %"struct.Luau::Symbol", align 8
   %6 = alloca %"struct.Luau::Symbol", align 8
@@ -9063,7 +9063,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_7AstStatESt4pairIS4_PKNS_3DefEES5_IKS4_S8_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau20DataFlowGraphBuilder13visitTypeListEPNS_8DfgScopeENS_11AstTypeListE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly byval(%"struct.Luau::AstTypeList") align 8 %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau20DataFlowGraphBuilder13visitTypeListEPNS_8DfgScopeENS_11AstTypeListE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly byval(%"struct.Luau::AstTypeList") align 8 captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
@@ -9308,7 +9308,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_7AstExprESt4pairIS4_PKNS_13RefinementKeyEES
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_12AstExprGroupE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
+define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_12AstExprGroupE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef %5)
@@ -9316,7 +9316,7 @@ define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8Dfg
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_12AstExprLocalE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_12AstExprLocalE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::RefinementKey", align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -9400,7 +9400,7 @@ _ZN4Luau18RefinementKeyArena4leafENS_7NotNullIKNS_3DefEEE.exit: ; preds = %29, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_13AstExprGlobalE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_13AstExprGlobalE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::RefinementKey", align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = load i64, ptr %5, align 8
@@ -9485,7 +9485,7 @@ _ZN4Luau18RefinementKeyArena4leafENS_7NotNullIKNS_3DefEEE.exit: ; preds = %30, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_11AstExprCallE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
+define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_11AstExprCallE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef %5)
@@ -9515,7 +9515,7 @@ define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8Dfg
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_16AstExprIndexNameE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_16AstExprIndexNameE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.1", align 1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -9595,7 +9595,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_16AstExprIndexExprE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_16AstExprIndexExprE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.1", align 1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -9763,7 +9763,7 @@ _ZN4Luau20DataFlowGraphBuilder13visitTypeListEPNS_8DfgScopeENS_11AstTypeListE.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_12AstExprTableE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_12AstExprTableE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::__detail::_ReuseOrAllocNode", align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -9936,7 +9936,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Lua
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_12AstExprUnaryE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
+define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_12AstExprUnaryE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef %5)
@@ -9949,7 +9949,7 @@ define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8Dfg
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_13AstExprBinaryE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
+define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_13AstExprBinaryE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef %5)
@@ -9965,7 +9965,7 @@ define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8Dfg
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_20AstExprTypeAssertionE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
+define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_20AstExprTypeAssertionE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef %5)
@@ -9976,7 +9976,7 @@ define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8Dfg
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_13AstExprIfElseE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
+define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_13AstExprIfElseE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef %5)
@@ -9995,7 +9995,7 @@ define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8Dfg
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_19AstExprInterpStringE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
+define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_19AstExprInterpStringE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -10022,7 +10022,7 @@ define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8Dfg
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_12AstExprErrorE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
+define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_12AstExprErrorE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = tail call noundef ptr @_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, i32 noundef 0)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -10050,7 +10050,7 @@ define dso_local { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8Dfg
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc ptr @"_ZZN4Luau20DataFlowGraphBuilder11visitLValueEPNS_8DfgScopeEPNS_7AstExprENS_7NotNullIKNS_3DefEEEbENK3$_0clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc ptr @"_ZZN4Luau20DataFlowGraphBuilder11visitLValueEPNS_8DfgScopeEPNS_7AstExprENS_7NotNullIKNS_3DefEEEbENK3$_0clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator.1", align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10973,7 +10973,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Lua
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @_ZN4Luau20DataFlowGraphBuilder11visitLValueEPNS_8DfgScopeEPNS_12AstExprErrorENS_7NotNullIKNS_3DefEEE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) local_unnamed_addr #1 align 2 {
+define dso_local ptr @_ZN4Luau20DataFlowGraphBuilder11visitLValueEPNS_8DfgScopeEPNS_12AstExprErrorENS_7NotNullIKNS_3DefEEE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) local_unnamed_addr #1 align 2 {
   %5 = tail call noundef ptr @_ZN4Luau20DataFlowGraphBuilder10childScopeEPNS_8DfgScopeENS1_9ScopeTypeE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, i32 noundef 0)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -10999,7 +10999,7 @@ _ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_12AstExprErrorE.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau20DataFlowGraphBuilder9visitTypeEPNS_8DfgScopeEPNS_16AstTypeReferenceE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau20DataFlowGraphBuilder9visitTypeEPNS_8DfgScopeEPNS_16AstTypeReferenceE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 104
@@ -11034,7 +11034,7 @@ define dso_local void @_ZN4Luau20DataFlowGraphBuilder9visitTypeEPNS_8DfgScopeEPN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau20DataFlowGraphBuilder9visitTypeEPNS_8DfgScopeEPNS_12AstTypeTableE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau20DataFlowGraphBuilder9visitTypeEPNS_8DfgScopeEPNS_12AstTypeTableE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -11072,7 +11072,7 @@ define dso_local void @_ZN4Luau20DataFlowGraphBuilder9visitTypeEPNS_8DfgScopeEPN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau20DataFlowGraphBuilder9visitTypeEPNS_8DfgScopeEPNS_15AstTypeFunctionE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau20DataFlowGraphBuilder9visitTypeEPNS_8DfgScopeEPNS_15AstTypeFunctionE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.sroa.01.0.copyload = load ptr, ptr %4, align 8
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -11181,7 +11181,7 @@ _ZN4Luau20DataFlowGraphBuilder13visitTypeListEPNS_8DfgScopeENS_11AstTypeListE.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau20DataFlowGraphBuilder9visitTypeEPNS_8DfgScopeEPNS_13AstTypeTypeofE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau20DataFlowGraphBuilder9visitTypeEPNS_8DfgScopeEPNS_13AstTypeTypeofE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call { ptr, ptr } @_ZN4Luau20DataFlowGraphBuilder9visitExprEPNS_8DfgScopeEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef %5)
@@ -11189,7 +11189,7 @@ define dso_local void @_ZN4Luau20DataFlowGraphBuilder9visitTypeEPNS_8DfgScopeEPN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau20DataFlowGraphBuilder9visitTypeEPNS_8DfgScopeEPNS_12AstTypeUnionE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau20DataFlowGraphBuilder9visitTypeEPNS_8DfgScopeEPNS_12AstTypeUnionE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -11211,7 +11211,7 @@ define dso_local void @_ZN4Luau20DataFlowGraphBuilder9visitTypeEPNS_8DfgScopeEPN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau20DataFlowGraphBuilder9visitTypeEPNS_8DfgScopeEPNS_19AstTypeIntersectionE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau20DataFlowGraphBuilder9visitTypeEPNS_8DfgScopeEPNS_19AstTypeIntersectionE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -11233,7 +11233,7 @@ define dso_local void @_ZN4Luau20DataFlowGraphBuilder9visitTypeEPNS_8DfgScopeEPN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau20DataFlowGraphBuilder9visitTypeEPNS_8DfgScopeEPNS_12AstTypeErrorE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau20DataFlowGraphBuilder9visitTypeEPNS_8DfgScopeEPNS_12AstTypeErrorE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -11255,7 +11255,7 @@ define dso_local void @_ZN4Luau20DataFlowGraphBuilder9visitTypeEPNS_8DfgScopeEPN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau20DataFlowGraphBuilder13visitTypePackEPNS_8DfgScopeEPNS_19AstTypePackExplicitE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau20DataFlowGraphBuilder13visitTypePackEPNS_8DfgScopeEPNS_19AstTypePackExplicitE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.sroa.03.0.copyload = load ptr, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -11287,7 +11287,7 @@ _ZN4Luau20DataFlowGraphBuilder13visitTypeListEPNS_8DfgScopeENS_11AstTypeListE.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau20DataFlowGraphBuilder13visitTypePackEPNS_8DfgScopeEPNS_19AstTypePackVariadicE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau20DataFlowGraphBuilder13visitTypePackEPNS_8DfgScopeEPNS_19AstTypePackVariadicE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN4Luau20DataFlowGraphBuilder9visitTypeEPNS_8DfgScopeEPNS_7AstTypeE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1, ptr noundef %5)
@@ -11916,7 +11916,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #10
 declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #11
@@ -11990,7 +11990,7 @@ declare noundef zeroext i1 @_ZNK4Luau6SymboleqERKS0_(ptr noundef nonnull align 8
 declare noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN4Luau3DefEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -14426,13 +14426,13 @@ declare i64 @llvm.umin.i64(i64, i64) #18
 declare void @llvm.assume(i1 noundef) #19
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22

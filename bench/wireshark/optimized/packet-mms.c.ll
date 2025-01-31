@@ -2824,7 +2824,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_mms(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_mms(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #3
   %.not = icmp eq ptr %2, null
@@ -2892,7 +2892,7 @@ declare void @register_ber_oid_dissector(ptr noundef, ptr noundef, i32 noundef, 
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_mms_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_mms_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i8, align 1
@@ -3100,7 +3100,7 @@ define internal i32 @dissect_mms_CS_Request_Detail(i1 zeroext %0, ptr noundef %1
 declare i32 @dissect_ber_integer(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -4111,7 +4111,7 @@ private_data_add_moreCinfo_float.exit:            ; preds = %6, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_mms_TimeOfDay(i1 zeroext %0, ptr noundef %1, i32 noundef returned %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal noundef i32 @dissect_mms_TimeOfDay(i1 zeroext %0, ptr noundef %1, i32 noundef returned %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca %struct.nstime_t, align 8
   %8 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #3
   switch i32 %8, label %40 [
@@ -4188,7 +4188,7 @@ define internal i32 @dissect_mms_MMSString(i1 noundef zeroext %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_mms_UtcTime(i1 zeroext %0, ptr noundef %1, i32 noundef returned %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal noundef i32 @dissect_mms_UtcTime(i1 zeroext %0, ptr noundef %1, i32 noundef returned %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca %struct.nstime_t, align 8
   %8 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #3
   %.not = icmp eq i32 %8, 8

@@ -445,7 +445,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit32:          ; preds = %lor.lhs.false.i19, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -874,7 +874,7 @@ _ZN8uint_set6insertEj.exit:                       ; preds = %_ZNK6vectorIjLb0EjE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11state_graph13add_edge_coreEjjb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, i32 noundef %s1, i32 noundef %s2, i1 noundef zeroext %maybecycle) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11state_graph13add_edge_coreEjjb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, i32 noundef %s1, i32 noundef %s2, i1 noundef zeroext %maybecycle) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq i32 %s1, %s2
   br i1 %cmp, label %if.end18, label %if.end
@@ -1514,7 +1514,7 @@ if.end18:                                         ; preds = %_ZN9table2mapI17def
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden void @_ZN11state_graph16remove_edge_coreEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, i32 noundef %s1, i32 noundef %s2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11state_graph16remove_edge_coreEjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, i32 noundef %s1, i32 noundef %s2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_targets = getelementptr inbounds nuw i8, ptr %this, i64 88
   %m_capacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -1792,7 +1792,7 @@ _ZN8uint_set6removeEj.exit102:                    ; preds = %_ZN9table2mapI17def
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11state_graph16rename_edge_coreEjjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, i32 noundef %old1, i32 noundef %old2, i32 noundef %new1, i32 noundef %new2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11state_graph16rename_edge_coreEjjjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, i32 noundef %old1, i32 noundef %old2, i32 noundef %new1, i32 noundef %new2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_sources_maybecycle = getelementptr inbounds nuw i8, ptr %this, i64 112
   %m_capacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -2573,7 +2573,7 @@ for.end:                                          ; preds = %for.inc, %_ZNK8uint
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11state_graph19mark_live_recursiveEj(ptr nocapture noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11state_graph19mark_live_recursiveEj(ptr noundef nonnull align 8 captures(none) dereferenceable(152) %this, i32 noundef %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i:
   %ref.tmp.i51 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i52 = alloca %"class.std::allocator", align 1
@@ -3297,7 +3297,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN11state_graph16all_targets_deadEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, i32 noundef %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN11state_graph16all_targets_deadEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, i32 noundef %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i3 = alloca %"class.uint_set::iterator", align 8
   %retval.i = alloca %"class.uint_set::iterator", align 8
@@ -3484,7 +3484,7 @@ return:                                           ; preds = %_ZNK8uint_set8conta
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11state_graph19mark_dead_recursiveEj(ptr nocapture noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11state_graph19mark_dead_recursiveEj(ptr noundef nonnull align 8 captures(none) dereferenceable(152) %this, i32 noundef %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i:
   %ref.tmp.i51 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i52 = alloca %"class.std::allocator", align 1
@@ -6045,7 +6045,7 @@ return:                                           ; preds = %_ZNK8uint_set8conta
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK11state_graph8get_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef i32 @_ZNK11state_graph8get_sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_state_ufind = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_state_ufind, align 8
@@ -6063,7 +6063,7 @@ _ZNK16basic_union_find12get_num_varsEv.exit:      ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK11state_graph7is_seenEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, i32 noundef %s) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK11state_graph7is_seenEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, i32 noundef %s) local_unnamed_addr #7 align 2 {
 entry:
   %m_seen = getelementptr inbounds nuw i8, ptr %this, i64 32
   %shr.i = lshr i32 %s, 5
@@ -6093,7 +6093,7 @@ _ZNK8uint_set8containsEj.exit:                    ; preds = %entry, %_ZNK6vector
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK11state_graph7is_liveEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, i32 noundef %s) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK11state_graph7is_liveEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, i32 noundef %s) local_unnamed_addr #7 align 2 {
 entry:
   %m_state_ufind = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_state_ufind, align 8
@@ -6143,7 +6143,7 @@ _ZNK8uint_set8containsEj.exit:                    ; preds = %_ZNK16basic_union_f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK11state_graph7is_deadEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, i32 noundef %s) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK11state_graph7is_deadEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, i32 noundef %s) local_unnamed_addr #7 align 2 {
 entry:
   %m_dead = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_state_ufind = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -6194,7 +6194,7 @@ _ZNK8uint_set8containsEj.exit:                    ; preds = %_ZNK16basic_union_f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK11state_graph7is_doneEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, i32 noundef %s) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK11state_graph7is_doneEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, i32 noundef %s) local_unnamed_addr #7 align 2 {
 entry:
   %m_seen = getelementptr inbounds nuw i8, ptr %this, i64 32
   %shr.i = lshr i32 %s, 5
@@ -6845,7 +6845,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -7869,10 +7869,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #16

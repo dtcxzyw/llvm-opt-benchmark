@@ -11,13 +11,13 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17InvocationCounter4initEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17InvocationCounter4initEv(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0) local_unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17InvocationCounter3setEjj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17InvocationCounter3setEjj(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = shl i32 %1, 1
   %5 = and i32 %2, 1
   %6 = or disjoint i32 %5, %4
@@ -26,7 +26,7 @@ define hidden void @_ZN17InvocationCounter3setEjj(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN17InvocationCounter3setEj(ptr nocapture noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN17InvocationCounter3setEj(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = load i32, ptr %0, align 4
   %4 = and i32 %3, 1
   %5 = shl i32 %1, 1
@@ -36,7 +36,7 @@ define hidden void @_ZN17InvocationCounter3setEj(ptr nocapture noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN17InvocationCounter6updateEj(ptr nocapture noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN17InvocationCounter6updateEj(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = load i32, ptr %0, align 4
   %4 = and i32 %3, 1
   %5 = icmp ugt i32 %3, 1
@@ -50,7 +50,7 @@ define hidden void @_ZN17InvocationCounter6updateEj(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN17InvocationCounter21set_carry_on_overflowEv(ptr nocapture noundef nonnull align 4 dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN17InvocationCounter21set_carry_on_overflowEv(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
   %2 = load i32, ptr %0, align 4
   %3 = and i32 %2, 1
   %4 = icmp eq i32 %3, 0
@@ -68,7 +68,7 @@ define hidden void @_ZN17InvocationCounter21set_carry_on_overflowEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN17InvocationCounter5resetEv(ptr nocapture noundef nonnull align 4 dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN17InvocationCounter5resetEv(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
   %2 = load i32, ptr %0, align 4
   %3 = and i32 %2, 1
   %.inv = icmp ult i32 %2, 2
@@ -79,7 +79,7 @@ define hidden void @_ZN17InvocationCounter5resetEv(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17InvocationCounter5printEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN17InvocationCounter5printEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #2 align 2 {
   %2 = load i32, ptr %0, align 4
   %3 = load ptr, ptr @tty, align 8
   %4 = lshr i32 %2, 1

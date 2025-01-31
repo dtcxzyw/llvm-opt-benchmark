@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [21 x i8] c"pthread_mutex_lock()\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @process_set_construct(ptr nocapture noundef writeonly initializes((144, 664)) %0) #0 {
+define internal void @process_set_construct(ptr noundef writeonly captures(none) initializes((144, 664)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(260) %2, ptr noundef nonnull align 4 dereferenceable(260) @prte_name_invalid, i64 260, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 404
@@ -28,7 +28,7 @@ define internal void @process_set_construct(ptr nocapture noundef writeonly init
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @process_set_destruct(ptr nocapture noundef writeonly initializes((144, 664)) %0) #0 {
+define internal void @process_set_destruct(ptr noundef writeonly captures(none) initializes((144, 664)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(260) %2, ptr noundef nonnull align 4 dereferenceable(260) @prte_name_invalid, i64 260, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 404
@@ -37,7 +37,7 @@ define internal void @process_set_destruct(ptr nocapture noundef writeonly initi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @file_set_construct(ptr nocapture noundef writeonly initializes((152, 164), (168, 184)) %0) #1 {
+define internal void @file_set_construct(ptr noundef writeonly captures(none) initializes((152, 164), (168, 184)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -52,7 +52,7 @@ define internal void @file_set_construct(ptr nocapture noundef writeonly initial
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @file_set_destruct(ptr nocapture noundef initializes((160, 164), (176, 184)) %0) #2 {
+define internal void @file_set_destruct(ptr noundef captures(none) initializes((160, 164), (176, 184)) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -412,47 +412,47 @@ define noundef i32 @prte_filem_base_module_finalize() local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @prte_filem_base_none_put(ptr nocapture noundef readnone %0) local_unnamed_addr #4 {
+define noundef i32 @prte_filem_base_none_put(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @prte_filem_base_none_put_nb(ptr nocapture noundef readnone %0) local_unnamed_addr #4 {
+define noundef i32 @prte_filem_base_none_put_nb(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @prte_filem_base_none_get(ptr nocapture noundef readnone %0) local_unnamed_addr #4 {
+define noundef i32 @prte_filem_base_none_get(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @prte_filem_base_none_get_nb(ptr nocapture noundef readnone %0) local_unnamed_addr #4 {
+define noundef i32 @prte_filem_base_none_get_nb(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @prte_filem_base_none_rm(ptr nocapture noundef readnone %0) local_unnamed_addr #4 {
+define noundef i32 @prte_filem_base_none_rm(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @prte_filem_base_none_rm_nb(ptr nocapture noundef readnone %0) local_unnamed_addr #4 {
+define noundef i32 @prte_filem_base_none_rm_nb(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @prte_filem_base_none_wait(ptr nocapture noundef readnone %0) local_unnamed_addr #4 {
+define noundef i32 @prte_filem_base_none_wait(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @prte_filem_base_none_wait_all(ptr nocapture noundef readnone %0) local_unnamed_addr #4 {
+define noundef i32 @prte_filem_base_none_wait_all(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_filem_base_none_preposition_files(ptr nocapture noundef readnone %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #3 {
+define noundef i32 @prte_filem_base_none_preposition_files(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4
 
@@ -465,15 +465,15 @@ define noundef i32 @prte_filem_base_none_preposition_files(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @prte_filem_base_none_link_local_files(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #4 {
+define noundef i32 @prte_filem_base_none_link_local_files(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #4 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #7
 
@@ -484,7 +484,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #8
 declare ptr @__errno_location() local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #10
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #11
@@ -493,7 +493,7 @@ declare void @abort() local_unnamed_addr #11
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

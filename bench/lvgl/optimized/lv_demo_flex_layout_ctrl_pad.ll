@@ -99,7 +99,7 @@ define internal void @ctrl_pad_checkbox_event_handler(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ctrl_pad_obj_update(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @ctrl_pad_obj_update(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %4 = load ptr, ptr %3, align 8, !tbaa !16
   %5 = tail call i32 @lv_obj_get_width(ptr noundef %0) #2

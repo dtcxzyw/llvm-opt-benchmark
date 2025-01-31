@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @PAD = internal unnamed_addr constant <{ i8, [63 x i8] }> <{ i8 -128, [63 x i8] zeroinitializer }>, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @crypto_hash_sha256_init(ptr nocapture noundef nonnull writeonly initializes((0, 40)) %state) local_unnamed_addr #0 {
+define noundef i32 @crypto_hash_sha256_init(ptr noundef nonnull writeonly captures(none) initializes((0, 40)) %state) local_unnamed_addr #0 {
 entry:
   %count = getelementptr inbounds nuw i8, ptr %state, i64 32
   store i64 0, ptr %count, align 8
@@ -19,10 +19,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_hash_sha256_update(ptr nocapture noundef nonnull %state, ptr nocapture noundef readonly %in, i64 noundef %inlen) local_unnamed_addr #2 {
+define noundef i32 @crypto_hash_sha256_update(ptr noundef nonnull captures(none) %state, ptr noundef readonly captures(none) %in, i64 noundef %inlen) local_unnamed_addr #2 {
 entry:
   %tmp32 = alloca [72 x i32], align 16
   %cmp = icmp eq i64 %inlen, 0
@@ -106,7 +106,7 @@ return:                                           ; preds = %for.body, %entry, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define internal fastcc void @SHA256_Transform(ptr nocapture noundef nonnull %state, ptr nocapture noundef readonly %block, ptr nocapture noundef nonnull %W, ptr nocapture noundef %S) unnamed_addr #3 {
+define internal fastcc void @SHA256_Transform(ptr noundef nonnull captures(none) %state, ptr noundef readonly captures(none) %block, ptr noundef nonnull captures(none) %W, ptr noundef captures(none) %S) unnamed_addr #3 {
 entry:
   br label %for.body.i
 
@@ -935,7 +935,7 @@ for.end1556:                                      ; preds = %for.body1549
 declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_hash_sha256_final(ptr noundef nonnull %state, ptr nocapture noundef nonnull writeonly %out) local_unnamed_addr #2 {
+define noundef i32 @crypto_hash_sha256_final(ptr noundef nonnull %state, ptr noundef nonnull writeonly captures(none) %out) local_unnamed_addr #2 {
 entry:
   %tmp32 = alloca [72 x i32], align 16
   fence acquire
@@ -1038,7 +1038,7 @@ be32enc_vect.exit:                                ; preds = %for.body.i
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_hash_sha256(ptr nocapture noundef nonnull writeonly %out, ptr nocapture noundef readonly %in, i64 noundef %inlen) local_unnamed_addr #2 {
+define noundef i32 @crypto_hash_sha256(ptr noundef nonnull writeonly captures(none) %out, ptr noundef readonly captures(none) %in, i64 noundef %inlen) local_unnamed_addr #2 {
 entry:
   %state = alloca %struct.crypto_hash_sha256_state, align 8
   %count.i = getelementptr inbounds nuw i8, ptr %state, i64 32
@@ -1050,7 +1050,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #6

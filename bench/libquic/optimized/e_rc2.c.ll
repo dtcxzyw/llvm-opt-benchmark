@@ -22,7 +22,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rc2_init_key(ptr noundef %ctx, ptr nocapture noundef readonly %key, ptr nocapture readnone %iv, i32 %enc) #1 {
+define internal noundef i32 @rc2_init_key(ptr noundef %ctx, ptr noundef readonly captures(none) %key, ptr readnone captures(none) %iv, i32 %enc) #1 {
 entry:
   %cipher_data = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %cipher_data, align 8
@@ -142,7 +142,7 @@ RC2_set_key.exit:                                 ; preds = %for.body61.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @rc2_cbc_cipher(ptr nocapture noundef %ctx, ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %in, i64 noundef %inl) #2 {
+define internal noundef i32 @rc2_cbc_cipher(ptr noundef captures(none) %ctx, ptr noundef writeonly captures(none) %out, ptr noundef readonly captures(none) %in, i64 noundef %inl) #2 {
 entry:
   %cipher_data = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %cipher_data, align 8
@@ -187,7 +187,7 @@ if.end:                                           ; preds = %if.then, %while.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @rc2_ctrl(ptr noundef %ctx, i32 noundef %type, i32 noundef %arg, ptr nocapture readnone %ptr) #1 {
+define internal range(i32 -1, 2) i32 @rc2_ctrl(ptr noundef %ctx, i32 noundef %type, i32 noundef %arg, ptr readnone captures(none) %ptr) #1 {
 entry:
   %cipher_data = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %cipher_data, align 8
@@ -214,7 +214,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i32 @EVP_CIPHER_CTX_key_length(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @RC2_cbc_encrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i64 noundef range(i64 1, 65537) %length, ptr nocapture noundef readonly %ks, ptr nocapture noundef %iv, i32 noundef %encrypt) unnamed_addr #2 {
+define internal fastcc void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %in, ptr noundef writeonly captures(none) %out, i64 noundef range(i64 1, 65537) %length, ptr noundef readonly captures(none) %ks, ptr noundef captures(none) %iv, i32 noundef %encrypt) unnamed_addr #2 {
 entry:
   %tin = alloca [2 x i32], align 4
   %tobool.not = icmp eq i32 %encrypt, 0
@@ -678,7 +678,7 @@ if.end407:                                        ; preds = %if.end376, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @RC2_encrypt(ptr nocapture noundef nonnull %d, ptr nocapture noundef readonly %key) unnamed_addr #4 {
+define internal fastcc void @RC2_encrypt(ptr noundef nonnull captures(none) %d, ptr noundef readonly captures(none) %key) unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %d, align 4
   %shr = lshr i32 %0, 16
@@ -808,7 +808,7 @@ for.end:                                          ; preds = %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @RC2_decrypt(ptr nocapture noundef nonnull %d, ptr nocapture noundef readonly %key) unnamed_addr #4 {
+define internal fastcc void @RC2_decrypt(ptr noundef nonnull captures(none) %d, ptr noundef readonly captures(none) %key) unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %d, align 4
   %shr = lshr i32 %0, 16

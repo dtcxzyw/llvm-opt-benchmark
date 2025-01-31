@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @blk_SHA256_Final.pad = internal constant <{ i8, [63 x i8] }> <{ i8 -128, [63 x i8] zeroinitializer }>, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @blk_SHA256_Init(ptr nocapture noundef writeonly initializes((0, 44)) %ctx) local_unnamed_addr #0 {
+define dso_local void @blk_SHA256_Init(ptr noundef writeonly captures(none) initializes((0, 44)) %ctx) local_unnamed_addr #0 {
 entry:
   %offset = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   store i32 0, ptr %offset, align 8
@@ -31,7 +31,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @blk_SHA256_Update(ptr nocapture noundef %ctx, ptr nocapture noundef readonly %data, i64 noundef %len) local_unnamed_addr #1 {
+define dso_local void @blk_SHA256_Update(ptr noundef captures(none) %ctx, ptr noundef readonly captures(none) %data, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %size = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load i64, ptr %size, align 8
@@ -93,10 +93,10 @@ if.end27:                                         ; preds = %if.then, %if.then24
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @blk_SHA256_Transform(ptr nocapture noundef %ctx, ptr nocapture noundef readonly %buf) unnamed_addr #1 {
+define internal fastcc void @blk_SHA256_Transform(ptr noundef captures(none) %ctx, ptr noundef readonly captures(none) %buf) unnamed_addr #1 {
 entry:
   %S = alloca [8 x i32], align 16
   %W = alloca [64 x i32], align 16
@@ -1870,7 +1870,7 @@ for.end1517:                                      ; preds = %for.body1508
 }
 
 ; Function Attrs: nounwind memory(argmem: readwrite) uwtable
-define dso_local void @blk_SHA256_Final(ptr nocapture noundef writeonly %digest, ptr nocapture noundef %ctx) local_unnamed_addr #3 {
+define dso_local void @blk_SHA256_Final(ptr noundef writeonly captures(none) %digest, ptr noundef captures(none) %ctx) local_unnamed_addr #3 {
 entry:
   %padlen = alloca [2 x i32], align 4
   %size = getelementptr inbounds nuw i8, ptr %ctx, i64 32

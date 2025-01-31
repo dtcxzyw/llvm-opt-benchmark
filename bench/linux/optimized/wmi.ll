@@ -194,17 +194,17 @@ define dso_local i32 @wmi_instance_count(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i8 @wmidev_instance_count(ptr nocapture noundef readonly %0) #2 align 16 {
+define dso_local zeroext i8 @wmidev_instance_count(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 770
   %3 = load i8, ptr %2, align 2
   ret i8 %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @wmi_evaluate_method(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) #0 align 16 {
@@ -324,7 +324,7 @@ define dso_local i32 @wmi_evaluate_method(ptr noundef %0, i8 noundef zeroext %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @wmidev_evaluate_method(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) #0 align 16 {
+define dso_local i32 @wmidev_evaluate_method(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) #0 align 16 {
   %6 = alloca %struct.acpi_object_list, align 8
   %7 = alloca [3 x %union.acpi_object], align 16
   %8 = alloca [5 x i8], align 1
@@ -408,7 +408,7 @@ define dso_local i32 @wmidev_evaluate_method(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @acpi_evaluate_object(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
@@ -689,7 +689,7 @@ define dso_local i32 @wmi_set_block(ptr noundef %0, i8 noundef zeroext %1, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @wmidev_block_set(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, ptr noundef readonly %2) #0 align 16 {
+define dso_local i32 @wmidev_block_set(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, ptr noundef readonly %2) #0 align 16 {
   %4 = alloca [5 x i8], align 1
   %5 = alloca %struct.acpi_object_list, align 8
   %6 = alloca [2 x %union.acpi_object], align 16
@@ -1126,7 +1126,7 @@ declare dso_local i32 @guid_parse(ptr noundef, ptr noundef) local_unnamed_addr #
 declare dso_local ptr @bus_find_device(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 0, 2) i32 @wmidev_match_guid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 align 16 {
+define internal range(i32 0, 2) i32 @wmidev_match_guid(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %4 = tail call i32 @bcmp(ptr noundef dereferenceable(16) %1, ptr noundef nonnull dereferenceable(16) %3, i64 16)
   %5 = icmp eq i32 %4, 0
@@ -1141,10 +1141,10 @@ declare dso_local void @put_device(ptr noundef) local_unnamed_addr #4
 declare dso_local i32 @acpi_execute_simple_method(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal noundef range(i32 0, 2) i32 @wmidev_match_notify_id(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @wmidev_match_notify_id(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 771
   %4 = load i8, ptr %3, align 1
   %5 = and i8 %4, 8
@@ -1168,7 +1168,7 @@ define internal noundef range(i32 0, 2) i32 @wmidev_match_notify_id(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @wmi_dev_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @wmi_dev_match(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca %struct.guid_t, align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %5 = load ptr, ptr %4, align 8
@@ -1391,7 +1391,7 @@ define internal void @wmi_dev_remove(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @modalias_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @modalias_show(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %5 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.6, ptr noundef nonnull %4) #12
   %6 = sext i32 %5 to i64
@@ -1402,7 +1402,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @modalias_show(ptr nounde
 declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @guid_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @guid_show(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %5 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.8, ptr noundef nonnull %4) #12
   %6 = sext i32 %5 to i64
@@ -1410,7 +1410,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @guid_show(ptr noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @instance_count_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @instance_count_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 770
   %5 = load i8, ptr %4, align 2
   %6 = zext i8 %5 to i32
@@ -1420,7 +1420,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @instance_count_show(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @expensive_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @expensive_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 771
   %5 = load i8, ptr %4, align 1
   %6 = and i8 %5, 1
@@ -1853,7 +1853,7 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @acpi_wmi_remove(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @acpi_wmi_remove(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @device_for_each_child_reverse(ptr noundef %3, ptr noundef null, ptr noundef nonnull @wmi_remove_device) #12
@@ -1879,7 +1879,7 @@ define internal void @acpi_wmi_remove_bus_device(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @acpi_install_address_space_handler(ptr noundef, i8 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 4098) i32 @acpi_wmi_ec_space_handler(i32 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 align 16 {
+define internal noundef range(i32 0, 4098) i32 @acpi_wmi_ec_space_handler(i32 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 align 16 {
   %7 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #12
   store i8 0, ptr %7, align 1
@@ -1935,7 +1935,7 @@ define internal noundef range(i32 0, 4098) i32 @acpi_wmi_ec_space_handler(i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @acpi_wmi_remove_address_space_handler(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @acpi_wmi_remove_address_space_handler(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @acpi_remove_address_space_handler(ptr noundef %3, i8 noundef zeroext 3, ptr noundef nonnull @acpi_wmi_ec_space_handler) #12
@@ -1946,7 +1946,7 @@ define internal void @acpi_wmi_remove_address_space_handler(ptr nocapture nounde
 declare dso_local i32 @acpi_install_notify_handler(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @acpi_wmi_notify_handler(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
+define internal void @acpi_wmi_notify_handler(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   store i32 %1, ptr %4, align 4
   %5 = call i32 @device_for_each_child(ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull @wmi_notify_device) #12
@@ -1954,7 +1954,7 @@ define internal void @acpi_wmi_notify_handler(ptr nocapture readnone %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @acpi_wmi_remove_notify_handler(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @acpi_wmi_remove_notify_handler(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @acpi_remove_notify_handler(ptr noundef %3, i32 noundef 3, ptr noundef nonnull @acpi_wmi_notify_handler) #12
@@ -1983,7 +1983,7 @@ declare dso_local i32 @acpi_remove_address_space_handler(ptr noundef, i8 noundef
 declare dso_local i32 @device_for_each_child(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -16, 1) i32 @wmi_notify_device(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -16, 1) i32 @wmi_notify_device(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca %union.acpi_object, align 8
   %4 = alloca %struct.acpi_object_list, align 8
   %5 = alloca %struct.acpi_buffer, align 8
@@ -2135,7 +2135,7 @@ declare dso_local i32 @acpi_remove_notify_handler(ptr noundef, i32 noundef, ptr 
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #10
@@ -2159,7 +2159,7 @@ define internal void @wmi_dev_release(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @notify_id_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @notify_id_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %5 = load i8, ptr %4, align 8
   %6 = zext i8 %5 to i32
@@ -2169,7 +2169,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @notify_id_show(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @object_id_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @object_id_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %5 = load i8, ptr %4, align 8
   %6 = zext i8 %5 to i32
@@ -2188,7 +2188,7 @@ declare dso_local i32 @acpi_get_handle(ptr noundef, ptr noundef, ptr noundef) lo
 declare dso_local i32 @acpi_get_object_info(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @setable_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @setable_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %5 = load i8, ptr %4, align 8, !range !15, !noundef !16
   %6 = zext nneg i8 %5 to i32
@@ -2207,7 +2207,7 @@ declare dso_local i32 @device_add(ptr noundef) local_unnamed_addr #4
 declare dso_local i32 @device_for_each_child_reverse(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @wmi_remove_device(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef i32 @wmi_remove_device(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %5 = load ptr, ptr %4, align 8
@@ -2231,7 +2231,7 @@ declare dso_local i32 @bus_register(ptr noundef) local_unnamed_addr #4
 declare dso_local i32 @__platform_driver_register(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

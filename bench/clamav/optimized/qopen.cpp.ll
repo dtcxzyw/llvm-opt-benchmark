@@ -53,7 +53,7 @@ declare void @_ZN9CryptDataC1Ev(ptr noundef nonnull align 8 dereferenceable(2516
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9QuickOpen4InitEP7Archiveb(ptr nocapture noundef nonnull align 8 dereferenceable(2673) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define void @_ZN9QuickOpen4InitEP7Archiveb(ptr noundef nonnull align 8 captures(none) dereferenceable(2673) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -239,7 +239,7 @@ _ZN5ArrayIhED2Ev.exit:                            ; preds = %14, %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9QuickOpen5CloseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2673) %0) local_unnamed_addr #2 align 2 {
+define void @_ZN9QuickOpen5CloseEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2673) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not7 = icmp eq ptr %3, null
@@ -502,7 +502,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN9QuickOpen10ReadBufferEv(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN9QuickOpen4ReadEPvmRm(ptr noundef nonnull align 8 dereferenceable(2673) %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN9QuickOpen4ReadEPvmRm(ptr noundef nonnull align 8 dereferenceable(2673) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2568
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
@@ -730,7 +730,7 @@ _ZN7RawReadD2Ev.exit12:                           ; preds = %45, %47
 declare void @_ZN4File4SeekEli(ptr noundef nonnull align 8 dereferenceable(8256), i64 noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare noundef i32 @_ZN4File4ReadEPvm(ptr noundef nonnull align 8 dereferenceable(8256), ptr noundef, i64 noundef) unnamed_addr #1
 
@@ -799,7 +799,7 @@ define noundef zeroext i1 @_ZN9QuickOpen4SeekEli(ptr noundef nonnull align 8 der
 declare noundef i64 @_ZN4File4TellEv(ptr noundef nonnull align 8 dereferenceable(8256)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN9QuickOpen4TellEPl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2673) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZN9QuickOpen4TellEPl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2673) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2568
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -935,20 +935,20 @@ declare void @_Z9cleandataPvm(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @wcscmp(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @_ZN12ErrorHandler13GeneralErrMsgEPKwz(ptr noundef nonnull align 4 dereferenceable(14), ptr noundef, ...) local_unnamed_addr #1
 
 declare void @_ZN12ErrorHandler11MemoryErrorEv(ptr noundef nonnull align 4 dereferenceable(14)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13

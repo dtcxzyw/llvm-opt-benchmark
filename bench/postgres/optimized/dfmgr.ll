@@ -256,7 +256,7 @@ define internal fastcc ptr @internal_load_library(ptr noundef %0) unnamed_addr #
   %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   tail call void @llvm.assume(i1 %60)
   %61 = tail call i32 @errcode_for_file_access() #17
-  %62 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %0, ptr noundef %59) #17
+  %62 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %0, ptr noundef %59) #17
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 248, ptr noundef nonnull @__func__.internal_load_library) #17
   unreachable
 
@@ -281,7 +281,7 @@ define internal fastcc ptr @internal_load_library(ptr noundef %0) unnamed_addr #
   %70 = load ptr, ptr %56, align 8
   %71 = tail call i32 @dlclose(ptr noundef %70) #17
   tail call void @free(ptr noundef nonnull %27) #17
-  call fastcc void @incompatible_module_error(ptr noundef %0, ptr noundef %3) #21
+  call fastcc void @incompatible_module_error(ptr noundef nonnull %0, ptr noundef %3) #21
   unreachable
 
 72:                                               ; preds = %63
@@ -290,7 +290,7 @@ define internal fastcc ptr @internal_load_library(ptr noundef %0) unnamed_addr #
   tail call void @free(ptr noundef nonnull %27) #17
   %75 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   tail call void @llvm.assume(i1 %75)
-  %76 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %0) #17
+  %76 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %0) #17
   %77 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.8) #17
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 281, ptr noundef nonnull @__func__.internal_load_library) #17
   unreachable
@@ -356,7 +356,7 @@ define dso_local void @load_file(ptr noundef %0, i1 noundef zeroext %1) local_un
   %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   tail call void @llvm.assume(i1 %9)
   %10 = tail call i32 @errcode(i32 noundef 16797828) #17
-  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.34, ptr noundef %0) #17
+  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.34, ptr noundef nonnull %0) #17
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 476, ptr noundef nonnull @__func__.check_restricted_library_name) #17
   unreachable
 
@@ -436,7 +436,7 @@ define dso_local i64 @EstimateLibraryStateSpace() local_unnamed_addr #0 {
 declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @SerializeLibraryState(i64 noundef %0, ptr noundef %1) local_unnamed_addr #5 {
@@ -487,10 +487,10 @@ define dso_local void @RestoreLibraryState(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @errcode_for_file_access() local_unnamed_addr #3
 
@@ -498,10 +498,10 @@ declare i32 @errcode_for_file_access() local_unnamed_addr #3
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #10
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -510,10 +510,10 @@ declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @dlerror() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nounwind
 declare i32 @dlclose(ptr noundef) local_unnamed_addr #1
@@ -758,7 +758,7 @@ define internal fastcc noundef ptr @find_in_dynamic_libpath(ptr noundef %0) unna
   %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #19
   %34 = add i64 %8, %33
   %35 = tail call ptr @palloc(i64 noundef %34) #17
-  %36 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %35, ptr noundef nonnull @.str.29, ptr noundef nonnull %25, ptr noundef %0) #17
+  %36 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %35, ptr noundef nonnull @.str.29, ptr noundef nonnull %25, ptr noundef nonnull %0) #17
   tail call void @pfree(ptr noundef nonnull %25) #17
   %37 = tail call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #17
   br i1 %37, label %38, label %40
@@ -857,13 +857,13 @@ declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #14
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16

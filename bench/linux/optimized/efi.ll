@@ -77,7 +77,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__setup_setup_add_efi_memmap], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @setup_add_efi_memmap(ptr nocapture readnone %0) #0 section ".init.text" align 16 {
+define internal noundef i32 @setup_add_efi_memmap(ptr readnone captures(none) %0) #0 section ".init.text" align 16 {
   store i1 true, ptr @add_efi_memmap, align 4
   ret i32 0
 }
@@ -166,10 +166,10 @@ define dso_local i32 @efi_memblock_x86_reserve_range() local_unnamed_addr #1 sec
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @efi_memmap_init_early(ptr noundef) local_unnamed_addr #4 section ".init.text"
@@ -256,7 +256,7 @@ define internal fastcc void @do_add_efi_memmap() unnamed_addr #1 section ".init.
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @memblock_reserve(i64 noundef, i64 noundef) local_unnamed_addr #5
@@ -944,10 +944,10 @@ define dso_local noundef ptr @efi_systab_show_arch(ptr noundef writeonly %0) loc
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @fw_vendor_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #7 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @fw_vendor_show(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #7 align 16 {
   %4 = load i64, ptr @efi_fw_vendor, align 8
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.22, i64 noundef %4) #12
   %6 = sext i32 %5 to i64
@@ -955,7 +955,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @fw_vendor_show(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @runtime_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #7 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @runtime_show(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #7 align 16 {
   %4 = load i64, ptr @efi_runtime, align 8
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.22, i64 noundef %4) #12
   %6 = sext i32 %5 to i64
@@ -963,7 +963,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @runtime_show(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @config_table_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #7 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @config_table_show(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #7 align 16 {
   %4 = load i64, ptr @efi_config_table, align 8
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.22, i64 noundef %4) #12
   %6 = sext i32 %5 to i64
@@ -971,7 +971,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @config_table_sho
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: read)
-define dso_local zeroext i16 @efi_attr_is_visible(ptr nocapture noundef readnone %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 align 16 {
+define dso_local zeroext i16 @efi_attr_is_visible(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 align 16 {
   %4 = icmp eq ptr %1, @efi_attr_fw_vendor
   br i1 %4, label %5, label %12
 
@@ -1094,7 +1094,7 @@ define internal fastcc noundef zeroext i1 @efi_memmap_entry_valid(ptr noundef %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @efi_memmap_install(ptr noundef) local_unnamed_addr #4 section ".init.text"
@@ -1192,7 +1192,7 @@ define internal fastcc void @efi_merge_regions() unnamed_addr #11 section ".init
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc ptr @efi_map_regions(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #1 section ".init.text" align 16 {
+define internal fastcc ptr @efi_map_regions(ptr noundef captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #1 section ".init.text" align 16 {
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 248), align 8
   br label %4
 

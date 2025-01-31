@@ -98,7 +98,7 @@ declare ptr @prte_util_make_version_string(ptr noundef, i32 noundef, i32 noundef
 declare void @prte_info_out(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @PMIx_Get_version() local_unnamed_addr #1
 
@@ -200,12 +200,12 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i
   br label %47
 
 44:                                               ; preds = %.thread
-  tail call void @prte_info_show_component_version(ptr noundef %30, ptr noundef nonnull %32, ptr noundef nonnull %.str.20., ptr noundef nonnull @.str.20)
+  tail call void @prte_info_show_component_version(ptr noundef nonnull %30, ptr noundef nonnull %32, ptr noundef nonnull %.str.20., ptr noundef nonnull @.str.20)
   br label %47
 
 45:                                               ; preds = %34
   %46 = load ptr, ptr @prte_info_component_all, align 8
-  tail call void @prte_info_show_component_version(ptr noundef %30, ptr noundef %46, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.20)
+  tail call void @prte_info_show_component_version(ptr noundef nonnull %30, ptr noundef %46, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.20)
   br label %47
 
 47:                                               ; preds = %44, %45, %43
@@ -219,7 +219,7 @@ pmix_cmd_line_get_param.exit.thread:              ; preds = %23, %14, %2, %18, %
 declare void @prte_info_components_open() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @prte_info_show_component_version(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define dso_local void @prte_info_show_component_version(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -518,7 +518,7 @@ show_mca_version.exit:                            ; preds = %137, %.sink.split.i
   br i1 %.not34, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .thread:                                          ; preds = %31, %.preheader, %32
-  %146 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.18, ptr noundef %0) #6
+  %146 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.18, ptr noundef nonnull %0) #6
   %147 = load ptr, ptr %8, align 8
   call void @prte_info_out(ptr noundef %147, ptr noundef null, ptr noundef nonnull @.str.19) #6
   %148 = load ptr, ptr %8, align 8
@@ -532,7 +532,7 @@ show_mca_version.exit:                            ; preds = %137, %.sink.split.i
 declare ptr @PMIx_Argv_split(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #1
 
@@ -540,10 +540,10 @@ declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #1
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -97,7 +97,7 @@ declare i32 @EVP_EncryptInit_ex2(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @items_fwd_hash(ptr nocapture noundef readonly %item) #2 {
+define internal i64 @items_fwd_hash(ptr noundef readonly captures(none) %item) #2 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %item, i64 16
   %0 = load ptr, ptr %opaque, align 8
@@ -106,7 +106,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @items_fwd_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #2 {
+define internal range(i32 0, 2) i32 @items_fwd_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #2 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %a, i64 16
   %0 = load ptr, ptr %opaque, align 8
@@ -118,7 +118,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @items_rev_hash(ptr nocapture noundef readonly %item) #2 {
+define internal i64 @items_rev_hash(ptr noundef readonly captures(none) %item) #2 {
 entry:
   %srt_blinded = getelementptr inbounds nuw i8, ptr %item, i64 48
   %l.0.copyload = load i64, ptr %srt_blinded, align 8
@@ -126,7 +126,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @items_rev_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #3 {
+define internal i32 @items_rev_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #3 {
 entry:
   %srt_blinded = getelementptr inbounds nuw i8, ptr %a, i64 48
   %srt_blinded1 = getelementptr inbounds nuw i8, ptr %b, i64 48
@@ -191,7 +191,7 @@ declare void @EVP_CIPHER_CTX_free(ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_srtm_add(ptr nocapture noundef %srtm, ptr noundef %opaque, i64 noundef %seq_num, ptr nocapture noundef readonly %token) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_srtm_add(ptr noundef captures(none) %srtm, ptr noundef %opaque, i64 noundef %seq_num, ptr noundef readonly captures(none) %token) local_unnamed_addr #0 {
 entry:
   %outl.i = alloca i32, align 4
   %key.i = alloca %struct.srtm_item_st, align 8
@@ -401,10 +401,10 @@ return:                                           ; preds = %sorted_insert_srt.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_srtm_remove(ptr nocapture noundef %srtm, ptr noundef %opaque, i64 noundef %seq_num) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_srtm_remove(ptr noundef captures(none) %srtm, ptr noundef %opaque, i64 noundef %seq_num) local_unnamed_addr #0 {
 entry:
   %key.i = alloca %struct.srtm_item_st, align 8
   %alloc_failed = getelementptr inbounds nuw i8, ptr %srtm, i64 24
@@ -536,7 +536,7 @@ return:                                           ; preds = %srtm_remove_from_re
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_srtm_cull(ptr nocapture noundef %srtm, ptr noundef %opaque) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_srtm_cull(ptr noundef captures(none) %srtm, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %key = alloca %struct.srtm_item_st, align 8
   %opaque1 = getelementptr inbounds nuw i8, ptr %key, i64 16
@@ -665,7 +665,7 @@ return:                                           ; preds = %if.end, %entry, %sr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_srtm_lookup(ptr nocapture noundef readonly %srtm, ptr noundef %token, i64 noundef %idx, ptr noundef writeonly %opaque, ptr noundef writeonly %seq_num) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_srtm_lookup(ptr noundef readonly captures(none) %srtm, ptr noundef %token, i64 noundef %idx, ptr noundef writeonly %opaque, ptr noundef writeonly %seq_num) local_unnamed_addr #0 {
 entry:
   %outl.i = alloca i32, align 4
   %key = alloca %struct.srtm_item_st, align 8
@@ -738,7 +738,7 @@ return:                                           ; preds = %if.end12, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @ossl_quic_srtm_check(ptr nocapture noundef readnone %srtm) local_unnamed_addr #5 {
+define void @ossl_quic_srtm_check(ptr noundef readnone captures(none) %srtm) local_unnamed_addr #5 {
 entry:
   ret void
 }
@@ -746,7 +746,7 @@ entry:
 declare ptr @OPENSSL_LH_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 declare void @OPENSSL_LH_free(ptr noundef) local_unnamed_addr #1
 
@@ -763,10 +763,10 @@ declare ptr @OPENSSL_LH_retrieve(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @OPENSSL_LH_delete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

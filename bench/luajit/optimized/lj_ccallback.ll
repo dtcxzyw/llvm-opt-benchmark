@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.FPRCBArg = type { double }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 -1, 947854885) i32 @lj_ccallback_ptr2slot(ptr nocapture noundef readonly %cts, ptr noundef %p) local_unnamed_addr #0 {
+define hidden range(i32 -1, 947854885) i32 @lj_ccallback_ptr2slot(ptr noundef readonly captures(none) %cts, ptr noundef %p) local_unnamed_addr #0 {
 entry:
   %mcode = getelementptr inbounds nuw i8, ptr %cts, i64 184
   %0 = load ptr, ptr %mcode, align 8
@@ -44,7 +44,7 @@ return:                                           ; preds = %if.then, %if.end7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_ccallback_mcode_free(ptr nocapture noundef readonly %cts) local_unnamed_addr #1 {
+define hidden void @lj_ccallback_mcode_free(ptr noundef readonly captures(none) %cts) local_unnamed_addr #1 {
 entry:
   %mcode = getelementptr inbounds nuw i8, ptr %cts, i64 184
   %0 = load ptr, ptr %mcode, align 8
@@ -492,7 +492,7 @@ callback_conv_result.exit:                        ; preds = %while.cond.i.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_ccallback_new(ptr noundef %cts, ptr nocapture noundef readonly %ct, ptr noundef %fn) local_unnamed_addr #1 {
+define hidden ptr @lj_ccallback_new(ptr noundef %cts, ptr noundef readonly captures(none) %ct, ptr noundef %fn) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %ct, align 8
   %shr.mask.i = and i32 %0, -268435456
@@ -844,7 +844,7 @@ declare hidden void @lj_cconv_ct_tv(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare hidden ptr @lj_mem_grow(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
 declare ptr @mmap64(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2

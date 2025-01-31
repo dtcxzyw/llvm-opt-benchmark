@@ -378,7 +378,7 @@ opal_obj_run_constructors.exit.i:                 ; preds = %.lr.ph.i63.i, %49
   %70 = sub i64 %68, %69
   %sext.i65.i = shl i64 %70, 32
   %71 = ashr exact i64 %sext.i65.i, 32
-  %72 = call i32 @strncmp(ptr noundef %66, ptr noundef nonnull @.str.26, i64 noundef %71) #13
+  %72 = call i32 @strncmp(ptr noundef nonnull %66, ptr noundef nonnull @.str.26, i64 noundef %71) #13
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %.loopexit.i, label %.preheader.i66.i
 
@@ -397,12 +397,12 @@ opal_obj_run_constructors.exit.i:                 ; preds = %.lr.ph.i63.i, %49
 .lr.ph.i68.i:                                     ; preds = %.preheader.i66.i, %75
   %79 = phi ptr [ %78, %75 ], [ %74, %.preheader.i66.i ]
   %.01013.i69.i = phi i64 [ %76, %75 ], [ 0, %.preheader.i66.i ]
-  %80 = call i32 @strncmp(ptr noundef %66, ptr noundef nonnull %79, i64 noundef %71) #13
+  %80 = call i32 @strncmp(ptr noundef nonnull %66, ptr noundef nonnull %79, i64 noundef %71) #13
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %.loopexit.i, label %75
 
 .loopexit.i:                                      ; preds = %.lr.ph.i68.i, %65
-  %82 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.13, ptr noundef %66) #12
+  %82 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.13, ptr noundef nonnull %66) #12
   %83 = load ptr, ptr %1, align 8
   %84 = load ptr, ptr %62, align 8
   %85 = call i32 @setenv(ptr noundef %83, ptr noundef %84, i32 noundef 0) #12
@@ -686,7 +686,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i2, %203
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #1
 
@@ -784,7 +784,7 @@ opal_obj_run_destructors.exit9:                   ; preds = %.lr.ph.i6, %opal_li
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -13, 1) i32 @opal_pmix_convert_jobid(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -900,7 +900,7 @@ define noundef i32 @opal_pmix_convert_nspace(ptr noundef writeonly %0, ptr nound
 30:                                               ; preds = %._crit_edge62
   store i8 64, ptr %14, align 1
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %32 = tail call i64 @strtoul(ptr nocapture noundef nonnull %31, ptr noundef null, i32 noundef 10) #12
+  %32 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %31, ptr noundef null, i32 noundef 10) #12
   %33 = trunc i64 %32 to i32
   %34 = and i32 %33, 65535
   br label %35
@@ -980,7 +980,7 @@ declare zeroext i1 @PMIx_Check_nspace(ptr noundef, ptr noundef) local_unnamed_ad
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define range(i32 -53, -56) i32 @opal_pmix_convert_rc(i32 noundef %0) local_unnamed_addr #2 {
@@ -1433,7 +1433,7 @@ declare i32 @opal_cond_init(ptr noundef) local_unnamed_addr #1
 declare i32 @PMIx_Job_control_nb(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @cleanup_cbfunc(i32 noundef %0, ptr nocapture readnone %1, i64 %2, ptr noundef initializes((116, 120)) %3, ptr noundef readonly %4, ptr noundef %5) #0 {
+define internal void @cleanup_cbfunc(i32 noundef %0, ptr readnone captures(none) %1, i64 %2, ptr noundef initializes((116, 120)) %3, ptr noundef readonly %4, ptr noundef %5) #0 {
   fence release
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %7
@@ -1459,7 +1459,7 @@ define internal void @cleanup_cbfunc(i32 noundef %0, ptr nocapture readnone %1, 
 declare ptr @opal_proc_local_get() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare i32 @opal_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1491,10 +1491,10 @@ define internal void @infoitdecon(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @check_pmix_overlap(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
@@ -1603,10 +1603,10 @@ declare void @PMIx_Proc_construct(ptr noundef) local_unnamed_addr #1
 declare void @PMIx_Info_construct(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

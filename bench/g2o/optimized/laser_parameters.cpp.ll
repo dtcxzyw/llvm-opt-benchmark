@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN3g2o15LaserParametersC1Eidddd = unnamed_addr alias void (ptr, i32, double, double, double, double), ptr @_ZN3g2o15LaserParametersC2Eidddd
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o15LaserParametersC2Eiiddddid(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(96) initializes((0, 8), (16, 36), (40, 76), (80, 96)) %0, i32 noundef %1, i32 noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, i32 noundef %7, double noundef %8) unnamed_addr #0 align 2 {
+define void @_ZN3g2o15LaserParametersC2Eiiddddid(ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(96) initializes((0, 8), (16, 36), (40, 76), (80, 96)) %0, i32 noundef %1, i32 noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, i32 noundef %7, double noundef %8) unnamed_addr #0 align 2 {
   store double 0.000000e+00, ptr %0, align 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -35,7 +35,7 @@ define void @_ZN3g2o15LaserParametersC2Eiiddddid(ptr nocapture noundef nonnull w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o15LaserParametersC2Eidddd(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(96) initializes((0, 8), (16, 36), (40, 76), (80, 96)) %0, i32 noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5) unnamed_addr #0 align 2 {
+define void @_ZN3g2o15LaserParametersC2Eidddd(ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(96) initializes((0, 8), (16, 36), (40, 76), (80, 96)) %0, i32 noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5) unnamed_addr #0 align 2 {
   store double 0.000000e+00, ptr %0, align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -59,7 +59,7 @@ define void @_ZN3g2o15LaserParametersC2Eidddd(ptr nocapture noundef nonnull writ
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }

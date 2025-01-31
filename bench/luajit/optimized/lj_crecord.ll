@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @lj_ir_type_size = external hidden local_unnamed_addr constant [0 x i8], align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @recff_cdata_index(ptr noundef %J, ptr nocapture noundef %rd) local_unnamed_addr #0 {
+define hidden void @recff_cdata_index(ptr noundef %J, ptr noundef captures(none) %rd) local_unnamed_addr #0 {
 entry:
   %fofs = alloca i32, align 4
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -100,7 +100,7 @@ if.end:                                           ; preds = %do.body.i330, %if.t
   store i16 %conv11, ptr %ot1.i12.i, align 4
   store i16 %conv.i, ptr %fold.i11.i, align 8
   store i16 21, ptr %op2.i15.i, align 2
-  %call13 = tail call i32 @lj_opt_fold(ptr noundef %J) #8
+  %call13 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #8
   %14 = getelementptr i8, ptr %J, i64 32
   %J.val = load ptr, ptr %14, align 8
   %15 = getelementptr i8, ptr %J, i64 168
@@ -356,12 +356,12 @@ if.then86:                                        ; preds = %if.then73
 
 if.else91:                                        ; preds = %if.then73
   %conv92 = trunc i32 %27 to i16
-  %call93 = call i32 @lj_ir_kint64(ptr noundef %J, i64 noundef 16) #8
+  %call93 = call i32 @lj_ir_kint64(ptr noundef nonnull %J, i64 noundef 16) #8
   %conv94 = trunc i32 %call93 to i16
   store i16 10505, ptr %ot1.i12.i, align 4
   store i16 %conv92, ptr %fold.i11.i, align 8
   store i16 %conv94, ptr %op2.i15.i, align 2
-  %call95 = call i32 @lj_opt_fold(ptr noundef %J) #8
+  %call95 = call i32 @lj_opt_fold(ptr noundef nonnull %J) #8
   br label %if.end101
 
 if.end101:                                        ; preds = %if.then73, %if.then86, %if.else91
@@ -374,7 +374,7 @@ if.end101:                                        ; preds = %if.then73, %if.then
   store i16 %conv88, ptr %ot1.i12.i, align 4
   store i16 %conv89, ptr %fold.i11.i, align 8
   store i16 %.sink, ptr %op2.i15.i, align 2
-  %call90 = call i32 @lj_opt_fold(ptr noundef %J) #8
+  %call90 = call i32 @lj_opt_fold(ptr noundef nonnull %J) #8
   %53 = load i32, ptr %size74, align 4
   %cmp104 = icmp ult i32 %53, 8
   br i1 %cmp104, label %land.lhs.true106, label %integer_key
@@ -452,12 +452,12 @@ if.then141:                                       ; preds = %if.then138
   %conv142 = zext i32 %63 to i64
   %add = add nsw i64 %ofs.1, %conv142
   %conv143 = trunc i32 %27 to i16
-  %call144 = call i32 @lj_ir_kgc(ptr noundef %J, ptr noundef %57, i32 noundef 4) #8
+  %call144 = call i32 @lj_ir_kgc(ptr noundef nonnull %J, ptr noundef %57, i32 noundef 4) #8
   %conv145 = trunc i32 %call144 to i16
   store i16 2180, ptr %ot1.i12.i, align 4
   store i16 %conv143, ptr %fold.i11.i, align 8
   store i16 %conv145, ptr %op2.i15.i, align 2
-  %call146 = call i32 @lj_opt_fold(ptr noundef %J) #8
+  %call146 = call i32 @lj_opt_fold(ptr noundef nonnull %J) #8
   %64 = load i32, ptr %call139, align 8
   %shr148 = lshr i32 %64, 28
   switch i32 %shr148, label %if.else185 [
@@ -553,12 +553,12 @@ land.lhs.true216:                                 ; preds = %land.lhs.true199
 
 if.then222:                                       ; preds = %land.lhs.true216, %land.lhs.true205
   %conv223 = trunc i32 %27 to i16
-  %call224 = call i32 @lj_ir_kgc(ptr noundef %J, ptr noundef nonnull %57, i32 noundef 4) #8
+  %call224 = call i32 @lj_ir_kgc(ptr noundef nonnull %J, ptr noundef nonnull %57, i32 noundef 4) #8
   %conv225 = trunc i32 %call224 to i16
   store i16 2180, ptr %ot1.i12.i, align 4
   store i16 %conv223, ptr %fold.i11.i, align 8
   store i16 %conv225, ptr %op2.i15.i, align 2
-  %call226 = call i32 @lj_opt_fold(ptr noundef %J) #8
+  %call226 = call i32 @lj_opt_fold(ptr noundef nonnull %J) #8
   %76 = load i8, ptr %add.ptr200, align 1
   %cmp230 = icmp eq i8 %76, 105
   br i1 %cmp230, label %if.then232, label %if.end237
@@ -630,7 +630,7 @@ if.end265:                                        ; preds = %if.then258, %if.the
   br i1 %tobool1.not.i, label %if.then.i263, label %if.end.i256
 
 if.then.i263:                                     ; preds = %if.end265
-  call void @lj_trace_err(ptr noundef %J, i32 noundef 11) #7
+  call void @lj_trace_err(ptr noundef nonnull %J, i32 noundef 11) #7
   unreachable
 
 if.end.i256:                                      ; preds = %if.end265
@@ -642,7 +642,7 @@ if.end.i256:                                      ; preds = %if.end265
 if.then4.i:                                       ; preds = %if.end.i256
   %and.i.i261 = and i64 %83, 140737488355327
   %84 = inttoptr i64 %and.i.i261 to ptr
-  %call.i.i = call i32 @lj_ir_kgc(ptr noundef %J, ptr noundef %84, i32 noundef 8) #8
+  %call.i.i = call i32 @lj_ir_kgc(ptr noundef nonnull %J, ptr noundef %84, i32 noundef 8) #8
   %85 = load ptr, ptr %base, align 8
   %arrayidx.i.i262 = getelementptr inbounds i8, ptr %85, i64 -8
   store i32 %call.i.i, ptr %arrayidx.i.i262, align 4
@@ -706,7 +706,7 @@ if.end26.i:                                       ; preds = %if.then15.i
   br label %if.end303
 
 if.else37.i:                                      ; preds = %land.lhs.true12.i, %if.else.i258
-  call void @lj_trace_err(ptr noundef %J, i32 noundef 11) #7
+  call void @lj_trace_err(ptr noundef nonnull %J, i32 noundef 11) #7
   unreachable
 
 if.end266:                                        ; preds = %if.end245
@@ -773,7 +773,7 @@ while.end:                                        ; preds = %while.body, %if.end
   br i1 %cmp291, label %if.then293, label %if.else297
 
 if.then293:                                       ; preds = %while.end
-  %call294 = call fastcc i32 @crec_tv_ct(ptr noundef %J, ptr noundef nonnull %ct.7.lcssa, i32 noundef %sid.2, i32 noundef %ptr.5)
+  %call294 = call fastcc i32 @crec_tv_ct(ptr noundef nonnull %J, ptr noundef nonnull %ct.7.lcssa, i32 noundef %sid.2, i32 noundef %ptr.5)
   %109 = load ptr, ptr %base, align 8
   store i32 %call294, ptr %109, align 4
   br label %if.end303
@@ -788,7 +788,7 @@ if.else297:                                       ; preds = %while.end
   %111 = load i32, ptr %arrayidx299, align 4
   %112 = load ptr, ptr %rd, align 8
   %arrayidx301 = getelementptr inbounds nuw i8, ptr %112, i64 16
-  %call302 = call fastcc i32 @crec_ct_tv(ptr noundef %J, ptr noundef nonnull %ct.7.lcssa, i32 noundef %ptr.5, i32 noundef %111, ptr noundef nonnull %arrayidx301)
+  %call302 = call fastcc i32 @crec_ct_tv(ptr noundef nonnull %J, ptr noundef nonnull %ct.7.lcssa, i32 noundef %ptr.5, i32 noundef %111, ptr noundef nonnull %arrayidx301)
   br label %if.end303
 
 if.end303:                                        ; preds = %if.end26.i, %if.then4.i, %if.else297, %if.then293, %if.end183, %if.end166, %if.then160
@@ -804,7 +804,7 @@ declare hidden i32 @lj_ir_kint64(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare hidden i32 @lj_ctype_size(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 5, 23) i32 @crec_ct2irt(ptr nocapture noundef readonly %cts, ptr nocapture noundef readonly %ct) unnamed_addr #2 {
+define internal fastcc range(i32 5, 23) i32 @crec_ct2irt(ptr noundef readonly captures(none) %cts, ptr noundef readonly captures(none) %ct) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %ct, align 8
   %shr.mask = and i32 %0, -268435456
@@ -891,7 +891,7 @@ declare hidden i32 @lj_ir_kgc(ptr noundef, ptr noundef, i32 noundef) local_unnam
 declare hidden i32 @lj_ir_kint(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @crec_index_bf(ptr noundef initializes((184, 190)) %J, ptr nocapture noundef %rd, i32 noundef %ptr, i32 noundef %info) unnamed_addr #0 {
+define internal fastcc void @crec_index_bf(ptr noundef initializes((184, 190)) %J, ptr noundef captures(none) %rd, i32 noundef %ptr, i32 noundef %info) unnamed_addr #0 {
 entry:
   %shr = lshr i32 %info, 16
   %and = and i32 %shr, 127
@@ -1058,7 +1058,7 @@ if.end84:                                         ; preds = %if.else43, %if.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @crec_tv_ct(ptr noundef %J, ptr nocapture noundef readonly %s, i32 noundef range(i32 0, 65536) %sid, i32 noundef %sp) unnamed_addr #0 {
+define internal fastcc i32 @crec_tv_ct(ptr noundef %J, ptr noundef readonly captures(none) %s, i32 noundef range(i32 0, 65536) %sid, i32 noundef %sp) unnamed_addr #0 {
 entry:
   %ctype_state = getelementptr inbounds i8, ptr %J, i64 -344
   %0 = load i64, ptr %ctype_state, align 8
@@ -1317,7 +1317,7 @@ return:                                           ; preds = %if.else21, %if.end9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @crec_ct_tv(ptr noundef %J, ptr noundef %d, i32 noundef %dp, i32 noundef %sp, ptr nocapture noundef readonly %sval) unnamed_addr #0 {
+define internal fastcc i32 @crec_ct_tv(ptr noundef %J, ptr noundef %d, i32 noundef %dp, i32 noundef %sp, ptr noundef readonly captures(none) %sval) unnamed_addr #0 {
 entry:
   %ofs = alloca i32, align 4
   %ctype_state = getelementptr inbounds i8, ptr %J, i64 -344
@@ -2364,7 +2364,7 @@ crec_ct_ct.exit:                                  ; preds = %xstore.i, %if.end11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @recff_cdata_call(ptr noundef %J, ptr nocapture noundef %rd) local_unnamed_addr #0 {
+define hidden void @recff_cdata_call(ptr noundef %J, ptr noundef captures(none) %rd) local_unnamed_addr #0 {
 entry:
   %args.i.i = alloca [32 x i32], align 16
   %tv.i = alloca %union.TValue, align 8
@@ -3086,7 +3086,7 @@ return:                                           ; preds = %crec_call.exit, %if
 declare hidden ptr @lj_ctype_meta(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @crec_alloc(ptr noundef %J, ptr nocapture noundef readonly %rd, i32 noundef %id) unnamed_addr #0 {
+define internal fastcc void @crec_alloc(ptr noundef %J, ptr noundef readonly captures(none) %rd, i32 noundef %id) unnamed_addr #0 {
 entry:
   %sz = alloca i32, align 4
   %tv = alloca %union.TValue, align 8
@@ -3681,7 +3681,7 @@ if.end341:                                        ; preds = %crec_finalizer.exit
 declare hidden void @lj_trace_err(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @recff_cdata_arith(ptr noundef %J, ptr nocapture noundef %rd) local_unnamed_addr #0 {
+define hidden void @recff_cdata_arith(ptr noundef %J, ptr noundef captures(none) %rd) local_unnamed_addr #0 {
 entry:
   %sp = alloca [2 x i32], align 4
   %s = alloca [2 x ptr], align 16
@@ -4874,7 +4874,7 @@ declare hidden i32 @lj_ctype_intern(ptr noundef, i32 noundef, i32 noundef) local
 declare hidden i32 @lj_ir_kptr_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @recff_clib_index(ptr noundef %J, ptr nocapture noundef %rd) local_unnamed_addr #0 {
+define hidden void @recff_clib_index(ptr noundef %J, ptr noundef captures(none) %rd) local_unnamed_addr #0 {
 entry:
   %ct = alloca ptr, align 8
   %ctype_state = getelementptr inbounds i8, ptr %J, i64 -344
@@ -5006,11 +5006,11 @@ ctype_raw.exit:                                   ; preds = %while.cond.i
 
 if.then69:                                        ; preds = %ctype_raw.exit
   %29 = ptrtoint ptr %26 to i64
-  %call70 = call i32 @lj_ir_kint64(ptr noundef %J, i64 noundef %29) #8
+  %call70 = call i32 @lj_ir_kint64(ptr noundef nonnull %J, i64 noundef %29) #8
   br label %if.end73
 
 if.else71:                                        ; preds = %ctype_raw.exit
-  %call72 = call i32 @lj_ir_kptr_(ptr noundef %J, i32 noundef 25, ptr noundef %26) #8
+  %call72 = call i32 @lj_ir_kptr_(ptr noundef nonnull %J, i32 noundef 25, ptr noundef %26) #8
   br label %if.end73
 
 if.end73:                                         ; preds = %if.else71, %if.then69
@@ -5021,7 +5021,7 @@ if.end73:                                         ; preds = %if.else71, %if.then
 
 if.then76:                                        ; preds = %if.end73
   %31 = load ptr, ptr %ct, align 8
-  %call77 = call fastcc i32 @crec_tv_ct(ptr noundef %J, ptr noundef %31, i32 noundef %and60, i32 noundef %ptr.0)
+  %call77 = call fastcc i32 @crec_tv_ct(ptr noundef nonnull %J, ptr noundef %31, i32 noundef %and60, i32 noundef %ptr.0)
   %32 = load ptr, ptr %base, align 8
   store i32 %call77, ptr %32, align 4
   br label %if.end97
@@ -5035,7 +5035,7 @@ if.else80:                                        ; preds = %if.end73
   %35 = load i32, ptr %arrayidx82, align 4
   %36 = load ptr, ptr %rd, align 8
   %arrayidx84 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %call85 = call fastcc i32 @crec_ct_tv(ptr noundef %J, ptr noundef %33, i32 noundef %ptr.0, i32 noundef %35, ptr noundef nonnull %arrayidx84)
+  %call85 = call fastcc i32 @crec_ct_tv(ptr noundef nonnull %J, ptr noundef %33, i32 noundef %ptr.0, i32 noundef %35, ptr noundef nonnull %arrayidx84)
   br label %if.end97
 
 if.else87:                                        ; preds = %if.then26
@@ -5060,7 +5060,7 @@ declare hidden i32 @lj_ctype_getname(ptr noundef, ptr noundef, ptr noundef, i32 
 declare hidden ptr @lj_tab_getstr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @recff_ffi_new(ptr noundef %J, ptr nocapture noundef readonly %rd) local_unnamed_addr #0 {
+define hidden void @recff_ffi_new(ptr noundef %J, ptr noundef readonly captures(none) %rd) local_unnamed_addr #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -5072,7 +5072,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @argv2ctype(ptr noundef %J, i32 noundef %tr, ptr nocapture noundef readonly %o) unnamed_addr #0 {
+define internal fastcc i32 @argv2ctype(ptr noundef %J, i32 noundef %tr, ptr noundef readonly captures(none) %o) unnamed_addr #0 {
 entry:
   %cp = alloca %struct.CPState, align 8
   %and = and i32 %tr, 520093696
@@ -5196,7 +5196,7 @@ return:                                           ; preds = %cond.true, %cond.fa
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @recff_ffi_errno(ptr noundef %J, ptr nocapture noundef readnone %rd) local_unnamed_addr #0 {
+define hidden void @recff_ffi_errno(ptr noundef %J, ptr noundef readnone captures(none) %rd) local_unnamed_addr #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -5218,7 +5218,7 @@ if.end:                                           ; preds = %entry
 declare hidden i32 @lj_ir_call(ptr noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @recff_ffi_string(ptr noundef %J, ptr nocapture noundef readonly %rd) local_unnamed_addr #0 {
+define hidden void @recff_ffi_string(ptr noundef %J, ptr noundef readonly captures(none) %rd) local_unnamed_addr #0 {
 entry:
   %ctype_state = getelementptr inbounds i8, ptr %J, i64 -344
   %0 = load i64, ptr %ctype_state, align 8
@@ -5277,7 +5277,7 @@ if.end18:                                         ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @recff_ffi_copy(ptr noundef %J, ptr nocapture noundef %rd) local_unnamed_addr #0 {
+define hidden void @recff_ffi_copy(ptr noundef %J, ptr noundef captures(none) %rd) local_unnamed_addr #0 {
 entry:
   %ctype_state = getelementptr inbounds i8, ptr %J, i64 -344
   %0 = load i64, ptr %ctype_state, align 8
@@ -5815,7 +5815,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @recff_ffi_fill(ptr noundef %J, ptr nocapture noundef %rd) local_unnamed_addr #0 {
+define hidden void @recff_ffi_fill(ptr noundef %J, ptr noundef captures(none) %rd) local_unnamed_addr #0 {
 entry:
   %sz = alloca i32, align 4
   %ctype_state = getelementptr inbounds i8, ptr %J, i64 -344
@@ -6104,7 +6104,7 @@ return:                                           ; preds = %if.then, %if.end59
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @recff_ffi_typeof(ptr noundef %J, ptr nocapture noundef readonly %rd) local_unnamed_addr #0 {
+define hidden void @recff_ffi_typeof(ptr noundef %J, ptr noundef readonly captures(none) %rd) local_unnamed_addr #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -6146,7 +6146,7 @@ if.else:                                          ; preds = %entry
 declare hidden void @lj_trace_err_info(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @recff_ffi_istype(ptr noundef %J, ptr nocapture noundef readonly %rd) local_unnamed_addr #0 {
+define hidden void @recff_ffi_istype(ptr noundef %J, ptr noundef readonly captures(none) %rd) local_unnamed_addr #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -6179,7 +6179,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @recff_ffi_abi(ptr noundef %J, ptr nocapture noundef readonly %rd) local_unnamed_addr #0 {
+define hidden void @recff_ffi_abi(ptr noundef %J, ptr noundef readonly captures(none) %rd) local_unnamed_addr #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -6215,7 +6215,7 @@ if.else:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @recff_ffi_xof(ptr noundef %J, ptr nocapture noundef %rd) local_unnamed_addr #0 {
+define hidden void @recff_ffi_xof(ptr noundef %J, ptr noundef captures(none) %rd) local_unnamed_addr #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -6292,7 +6292,7 @@ if.end23:                                         ; preds = %entry, %if.end13, %
 declare hidden ptr @lj_ctype_rawref(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @recff_ffi_gc(ptr noundef %J, ptr nocapture noundef readonly %rd) local_unnamed_addr #0 {
+define hidden void @recff_ffi_gc(ptr noundef %J, ptr noundef readonly captures(none) %rd) local_unnamed_addr #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -6375,7 +6375,7 @@ crec_finalizer.exit:                              ; preds = %if.end, %if.end9.si
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @recff_bit64_tobit(ptr noundef %J, ptr nocapture noundef readonly %rd) local_unnamed_addr #0 {
+define hidden void @recff_bit64_tobit(ptr noundef %J, ptr noundef readonly captures(none) %rd) local_unnamed_addr #0 {
 entry:
   %ctype_state = getelementptr inbounds i8, ptr %J, i64 -344
   %0 = load i64, ptr %ctype_state, align 8
@@ -6414,7 +6414,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @recff_bit64_unary(ptr noundef %J, ptr nocapture noundef readonly %rd) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @recff_bit64_unary(ptr noundef %J, ptr noundef readonly captures(none) %rd) local_unnamed_addr #0 {
 entry:
   %ctype_state = getelementptr inbounds i8, ptr %J, i64 -344
   %0 = load i64, ptr %ctype_state, align 8
@@ -6502,7 +6502,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @recff_bit64_nary(ptr noundef %J, ptr nocapture noundef readonly %rd) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @recff_bit64_nary(ptr noundef %J, ptr noundef readonly captures(none) %rd) local_unnamed_addr #0 {
 entry:
   %ctype_state = getelementptr inbounds i8, ptr %J, i64 -344
   %0 = load i64, ptr %ctype_state, align 8
@@ -6644,7 +6644,7 @@ return:                                           ; preds = %entry, %for.end, %f
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @recff_bit64_shift(ptr noundef %J, ptr nocapture noundef readonly %rd) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @recff_bit64_shift(ptr noundef %J, ptr noundef readonly captures(none) %rd) local_unnamed_addr #0 {
 entry:
   %ctype_state = getelementptr inbounds i8, ptr %J, i64 -344
   %0 = load i64, ptr %ctype_state, align 8
@@ -6793,7 +6793,7 @@ return:                                           ; preds = %if.end17, %if.end47
 declare hidden i32 @lj_opt_narrow_tobit(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @recff_bit64_tohex(ptr noundef %J, ptr nocapture noundef readonly %rd, i32 noundef %hdr) local_unnamed_addr #0 {
+define hidden i32 @recff_bit64_tohex(ptr noundef %J, ptr noundef readonly captures(none) %rd, i32 noundef %hdr) local_unnamed_addr #0 {
 entry:
   %id2 = alloca i32, align 4
   %ctype_state = getelementptr inbounds i8, ptr %J, i64 -344
@@ -6967,7 +6967,7 @@ if.end60:                                         ; preds = %if.end60.sink.split
 declare hidden i64 @lj_carith_check64(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_crecord_tonumber(ptr noundef %J, ptr nocapture noundef readonly %rd) local_unnamed_addr #0 {
+define hidden void @lj_crecord_tonumber(ptr noundef %J, ptr noundef readonly captures(none) %rd) local_unnamed_addr #0 {
 entry:
   %ctype_state = getelementptr inbounds i8, ptr %J, i64 -344
   %0 = load i64, ptr %ctype_state, align 8
@@ -7079,7 +7079,7 @@ if.end43:                                         ; preds = %argv2cdata.exit, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lj_crecord_loadiu64(ptr noundef %J, i32 noundef %tr, ptr nocapture noundef readonly %o) local_unnamed_addr #0 {
+define hidden i32 @lj_crecord_loadiu64(ptr noundef %J, i32 noundef %tr, ptr noundef readonly captures(none) %o) local_unnamed_addr #0 {
 entry:
   %and.i = and i32 %tr, 520093696
   %cmp.i = icmp eq i32 %and.i, 167772160
@@ -7131,7 +7131,7 @@ if.end:                                           ; preds = %argv2cdata.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lj_crecord_topcvoid(ptr noundef %J, i32 noundef %tr, ptr nocapture noundef readonly %o) local_unnamed_addr #0 {
+define hidden i32 @lj_crecord_topcvoid(ptr noundef %J, i32 noundef %tr, ptr noundef readonly captures(none) %o) local_unnamed_addr #0 {
 entry:
   %and = and i32 %tr, 520093696
   %cmp = icmp eq i32 %and, 167772160
@@ -7198,10 +7198,10 @@ declare i32 @llvm.ctpop.i32(i32) #5
 declare i32 @llvm.umin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #5

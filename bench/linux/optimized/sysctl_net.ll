@@ -260,7 +260,7 @@ define internal range(i32 0, 2) i32 @is_seen(ptr noundef readnone %0) #3 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal ptr @net_ctl_header_lookup(ptr nocapture readnone %0) #3 align 16 {
+define internal ptr @net_ctl_header_lookup(ptr readnone captures(none) %0) #3 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !14
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1872
@@ -272,14 +272,14 @@ define internal ptr @net_ctl_header_lookup(ptr nocapture readnone %0) #3 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @net_ctl_set_ownership(ptr nocapture readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) #4 align 16 {
+define internal void @net_ctl_set_ownership(ptr readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) #4 align 16 {
   store i32 0, ptr %2, align 4
   store i32 0, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 65536) i32 @net_ctl_permissions(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal range(i32 0, 65536) i32 @net_ctl_permissions(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -96

@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @known_shake_settable_ctx_params = internal constant [2 x %struct.ossl_param_st] [%struct.ossl_param_st { ptr @.str.1, i32 2, ptr null, i64 0, i64 0 }, %struct.ossl_param_st zeroinitializer], align 16
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sha3_224_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @sha3_224_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -113,7 +113,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @keccak_final(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outlen) #0 {
+define internal i32 @keccak_final(ptr noundef %vctx, ptr noundef %out, ptr noundef writeonly captures(none) %outl, i64 noundef %outlen) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -151,7 +151,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @keccak_dupctx(ptr nocapture noundef readonly %ctx) #0 {
+define internal noalias ptr @keccak_dupctx(ptr noundef readonly captures(none) %ctx) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -181,7 +181,7 @@ entry:
 declare ptr @ossl_digest_default_gettable_params(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @keccak_init(ptr noundef %vctx, ptr nocapture readnone %params) #0 {
+define internal range(i32 0, 2) i32 @keccak_init(ptr noundef %vctx, ptr readnone captures(none) %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -197,7 +197,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sha3_256_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @sha3_256_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -227,7 +227,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sha3_384_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @sha3_384_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -257,7 +257,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sha3_512_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @sha3_512_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -287,7 +287,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @keccak_224_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @keccak_224_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -317,7 +317,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @keccak_256_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @keccak_256_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -347,7 +347,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @keccak_384_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @keccak_384_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -377,7 +377,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @keccak_512_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @keccak_512_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -407,7 +407,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @shake_128_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @shake_128_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -437,7 +437,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @shake_squeeze(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outlen) #0 {
+define internal i32 @shake_squeeze(ptr noundef %vctx, ptr noundef %out, ptr noundef writeonly captures(none) %outl, i64 noundef %outlen) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -538,13 +538,13 @@ return:                                           ; preds = %if.end3, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @shake_settable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @shake_settable_ctx_params(ptr readnone captures(none) %ctx, ptr readnone captures(none) %provctx) #2 {
 entry:
   ret ptr @known_shake_settable_ctx_params
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @shake_256_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @shake_256_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -574,7 +574,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @keccak_kmac_128_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @keccak_kmac_128_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -604,7 +604,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @keccak_kmac_256_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @keccak_kmac_256_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -640,7 +640,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare i32 @ossl_sha3_init(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @generic_sha3_absorb(ptr noundef %vctx, ptr noundef %inp, i64 noundef %len) #0 {

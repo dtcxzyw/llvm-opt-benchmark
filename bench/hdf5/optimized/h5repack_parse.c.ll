@@ -44,7 +44,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.36 = private unnamed_addr constant [52 x i8] c"in parse layout, <%s> conversion to number in <%s>\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef initializes((0, 96)) %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) local_unnamed_addr #0 {
+define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) initializes((0, 96)) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) local_unnamed_addr #0 {
   %6 = alloca [256 x i8], align 16
   %7 = alloca [16 x i8], align 16
   %8 = alloca [16 x i8], align 16
@@ -172,7 +172,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
 
 58:                                               ; preds = %.loopexit338
   tail call void @free(ptr noundef %28) #14
-  tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.1, ptr noundef %0) #14
+  tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.1, ptr noundef nonnull %0) #14
   tail call void @exit(i32 noundef 1) #15
   unreachable
 
@@ -477,7 +477,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
   br i1 %186, label %187, label %190
 
 187:                                              ; preds = %185
-  %188 = call i64 @strtoul(ptr nocapture noundef nonnull %8, ptr noundef null, i32 noundef 0) #14
+  %188 = call i64 @strtoul(ptr noundef nonnull captures(none) %8, ptr noundef null, i32 noundef 0) #14
   %189 = trunc i64 %188 to i32
   store i32 %189, ptr %173, align 4
   br label %200
@@ -487,12 +487,12 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
   br i1 %191, label %192, label %194
 
 192:                                              ; preds = %190
-  %193 = call i64 @strtoull(ptr nocapture noundef nonnull %8, ptr noundef null, i32 noundef 0) #14
+  %193 = call i64 @strtoull(ptr noundef nonnull captures(none) %8, ptr noundef null, i32 noundef 0) #14
   store i64 %193, ptr %172, align 8
   br label %200
 
 194:                                              ; preds = %190
-  %195 = call i64 @strtoul(ptr nocapture noundef nonnull %8, ptr noundef null, i32 noundef 0) #14
+  %195 = call i64 @strtoul(ptr noundef nonnull captures(none) %8, ptr noundef null, i32 noundef 0) #14
   %196 = trunc i64 %195 to i32
   %197 = add i32 %.6381, 1
   %198 = zext i32 %.6381 to i64
@@ -595,7 +595,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
 .loopexit:                                        ; preds = %163, %116, %.loopexit.sink.split, %.preheader332, %.preheader
   %.1283 = phi i64 [ 0, %.preheader ], [ 0, %.preheader332 ], [ %.1283.ph, %.loopexit.sink.split ], [ %117, %116 ], [ %164, %163 ]
   %.3245 = phi i32 [ 0, %.preheader ], [ 0, %.preheader332 ], [ %.3245.ph, %.loopexit.sink.split ], [ %.2244, %116 ], [ %.5, %163 ]
-  %235 = call i64 @strtoul(ptr nocapture noundef nonnull %8, ptr noundef null, i32 noundef 0) #14
+  %235 = call i64 @strtoul(ptr noundef nonnull captures(none) %8, ptr noundef null, i32 noundef 0) #14
   %236 = trunc i64 %235 to i32
   %237 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %238 = add i32 %.3245, 1
@@ -780,7 +780,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
 
 298:                                              ; preds = %.thread330
   tail call void @free(ptr noundef %28) #14
-  tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.26, ptr noundef %0) #14
+  tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.26, ptr noundef nonnull %0) #14
   tail call void @exit(i32 noundef 1) #15
   unreachable
 
@@ -793,7 +793,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
 
 302:                                              ; preds = %.thread331
   tail call void @free(ptr noundef %28) #14
-  tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.27, ptr noundef %0) #14
+  tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.27, ptr noundef nonnull %0) #14
   tail call void @exit(i32 noundef 1) #15
   unreachable
 
@@ -803,7 +803,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
 
 305:                                              ; preds = %303
   tail call void @free(ptr noundef %28) #14
-  tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.28, ptr noundef %0) #14
+  tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.28, ptr noundef nonnull %0) #14
   tail call void @exit(i32 noundef 1) #15
   unreachable
 
@@ -828,10 +828,10 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
@@ -839,10 +839,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare void @error_msg(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #5
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #7
@@ -851,16 +851,16 @@ declare void @exit(i32 noundef) local_unnamed_addr #7
 declare ptr @__ctype_b_loc() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #10
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #10
+declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @parse_layout(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @parse_layout(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [256 x i8], align 16
   %6 = alloca [10 x i8], align 1
   %7 = alloca [10 x i8], align 1
@@ -980,7 +980,7 @@ define dso_local noundef ptr @parse_layout(ptr noundef %0, ptr nocapture noundef
 
 56:                                               ; preds = %.loopexit146
   tail call void @free(ptr noundef %24) #14
-  tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.29, ptr noundef %0) #14
+  tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.29, ptr noundef nonnull %0) #14
   tail call void @exit(i32 noundef 1) #15
   unreachable
 
@@ -1009,7 +1009,7 @@ define dso_local noundef ptr @parse_layout(ptr noundef %0, ptr nocapture noundef
   br i1 %64, label %73, label %65
 
 65:                                               ; preds = %63
-  tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.33, ptr noundef %0) #14
+  tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.33, ptr noundef nonnull %0) #14
   tail call void @exit(i32 noundef 1) #15
   unreachable
 
@@ -1046,7 +1046,7 @@ define dso_local noundef ptr @parse_layout(ptr noundef %0, ptr nocapture noundef
 
 82:                                               ; preds = %73
   tail call void @free(ptr noundef %24) #14
-  tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.34, ptr noundef %0) #14
+  tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.34, ptr noundef nonnull %0) #14
   tail call void @exit(i32 noundef 1) #15
   unreachable
 
@@ -1095,7 +1095,7 @@ switch.early.test:                                ; preds = %83
 
 101:                                              ; preds = %100
   store i8 0, ptr %88, align 1
-  %102 = call i64 @strtoull(ptr nocapture noundef nonnull %6, ptr noundef null, i32 noundef 0) #14
+  %102 = call i64 @strtoull(ptr noundef nonnull captures(none) %6, ptr noundef null, i32 noundef 0) #14
   %103 = sext i32 %.0159 to i64
   %104 = getelementptr inbounds [32 x i64], ptr %80, i64 0, i64 %103
   store i64 %102, ptr %104, align 8
@@ -1128,7 +1128,7 @@ switch.early.test:                                ; preds = %83
   br label %123
 
 115:                                              ; preds = %110
-  %116 = call i64 @strtoull(ptr nocapture noundef nonnull %6, ptr noundef null, i32 noundef 0) #14
+  %116 = call i64 @strtoull(ptr noundef nonnull captures(none) %6, ptr noundef null, i32 noundef 0) #14
   %117 = sext i32 %.0159 to i64
   %118 = getelementptr inbounds [32 x i64], ptr %80, i64 0, i64 %117
   store i64 %116, ptr %118, align 8
@@ -1159,7 +1159,7 @@ switch.early.test:                                ; preds = %83
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

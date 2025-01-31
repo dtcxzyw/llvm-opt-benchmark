@@ -4264,13 +4264,13 @@ define void @_ZThn16_N22LayoutPreferencesFrameD0Ev(ptr noundef %0) unnamed_addr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame9showEventEP10QShowEvent(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, ptr nocapture noundef readnone %1) unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame9showEventEP10QShowEvent(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readnone captures(none) %1) unnamed_addr #0 align 2 {
   tail call void @_ZN22LayoutPreferencesFrame13updateWidgetsEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame13updateWidgetsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22LayoutPreferencesFrame13updateWidgetsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
@@ -4404,7 +4404,7 @@ declare void @_ZN9QLineEdit7setTextERK7QString(ptr noundef nonnull align 8 deref
 declare void @_ZN7QString6numberEji(ptr dead_on_unwind writable sret(%class.QString) align 8, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame28on_layout5ToolButton_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame28on_layout5ToolButton_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   br i1 %1, label %3, label %7
 
 3:                                                ; preds = %2
@@ -4420,7 +4420,7 @@ define void @_ZN22LayoutPreferencesFrame28on_layout5ToolButton_toggledEb(ptr noc
 declare i32 @prefs_set_uint_value(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame28on_layout2ToolButton_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame28on_layout2ToolButton_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   br i1 %1, label %3, label %7
 
 3:                                                ; preds = %2
@@ -4434,7 +4434,7 @@ define void @_ZN22LayoutPreferencesFrame28on_layout2ToolButton_toggledEb(ptr noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame28on_layout1ToolButton_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame28on_layout1ToolButton_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   br i1 %1, label %3, label %7
 
 3:                                                ; preds = %2
@@ -4448,7 +4448,7 @@ define void @_ZN22LayoutPreferencesFrame28on_layout1ToolButton_toggledEb(ptr noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame28on_layout4ToolButton_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame28on_layout4ToolButton_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   br i1 %1, label %3, label %7
 
 3:                                                ; preds = %2
@@ -4462,7 +4462,7 @@ define void @_ZN22LayoutPreferencesFrame28on_layout4ToolButton_toggledEb(ptr noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame28on_layout3ToolButton_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame28on_layout3ToolButton_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   br i1 %1, label %3, label %7
 
 3:                                                ; preds = %2
@@ -4476,7 +4476,7 @@ define void @_ZN22LayoutPreferencesFrame28on_layout3ToolButton_toggledEb(ptr noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame28on_layout6ToolButton_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame28on_layout6ToolButton_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   br i1 %1, label %3, label %7
 
 3:                                                ; preds = %2
@@ -4490,7 +4490,7 @@ define void @_ZN22LayoutPreferencesFrame28on_layout6ToolButton_toggledEb(ptr noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame37on_pane1PacketListRadioButton_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame37on_pane1PacketListRadioButton_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   br i1 %1, label %3, label %25
 
 3:                                                ; preds = %2
@@ -4536,7 +4536,7 @@ declare noundef zeroext i1 @_ZNK15QAbstractButton9isCheckedEv(ptr noundef nonnul
 declare void @_ZN15QAbstractButton5clickEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame40on_pane1PacketDetailsRadioButton_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame40on_pane1PacketDetailsRadioButton_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   br i1 %1, label %3, label %25
 
 3:                                                ; preds = %2
@@ -4576,7 +4576,7 @@ define void @_ZN22LayoutPreferencesFrame40on_pane1PacketDetailsRadioButton_toggl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame38on_pane1PacketBytesRadioButton_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame38on_pane1PacketBytesRadioButton_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   br i1 %1, label %3, label %25
 
 3:                                                ; preds = %2
@@ -4616,7 +4616,7 @@ define void @_ZN22LayoutPreferencesFrame38on_pane1PacketBytesRadioButton_toggled
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame40on_pane1PacketDiagramRadioButton_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame40on_pane1PacketDiagramRadioButton_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   br i1 %1, label %3, label %25
 
 3:                                                ; preds = %2
@@ -4656,7 +4656,7 @@ define void @_ZN22LayoutPreferencesFrame40on_pane1PacketDiagramRadioButton_toggl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame31on_pane1NoneRadioButton_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame31on_pane1NoneRadioButton_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   br i1 %1, label %3, label %7
 
 3:                                                ; preds = %2
@@ -4670,7 +4670,7 @@ define void @_ZN22LayoutPreferencesFrame31on_pane1NoneRadioButton_toggledEb(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame37on_pane2PacketListRadioButton_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame37on_pane2PacketListRadioButton_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   br i1 %1, label %3, label %25
 
 3:                                                ; preds = %2
@@ -4710,7 +4710,7 @@ define void @_ZN22LayoutPreferencesFrame37on_pane2PacketListRadioButton_toggledE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame40on_pane2PacketDetailsRadioButton_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame40on_pane2PacketDetailsRadioButton_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   br i1 %1, label %3, label %25
 
 3:                                                ; preds = %2
@@ -4750,7 +4750,7 @@ define void @_ZN22LayoutPreferencesFrame40on_pane2PacketDetailsRadioButton_toggl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame38on_pane2PacketBytesRadioButton_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame38on_pane2PacketBytesRadioButton_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   br i1 %1, label %3, label %25
 
 3:                                                ; preds = %2
@@ -4790,7 +4790,7 @@ define void @_ZN22LayoutPreferencesFrame38on_pane2PacketBytesRadioButton_toggled
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame40on_pane2PacketDiagramRadioButton_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame40on_pane2PacketDiagramRadioButton_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   br i1 %1, label %3, label %25
 
 3:                                                ; preds = %2
@@ -4830,7 +4830,7 @@ define void @_ZN22LayoutPreferencesFrame40on_pane2PacketDiagramRadioButton_toggl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame31on_pane2NoneRadioButton_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame31on_pane2NoneRadioButton_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   br i1 %1, label %3, label %7
 
 3:                                                ; preds = %2
@@ -4844,7 +4844,7 @@ define void @_ZN22LayoutPreferencesFrame31on_pane2NoneRadioButton_toggledEb(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame37on_pane3PacketListRadioButton_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame37on_pane3PacketListRadioButton_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   br i1 %1, label %3, label %25
 
 3:                                                ; preds = %2
@@ -4884,7 +4884,7 @@ define void @_ZN22LayoutPreferencesFrame37on_pane3PacketListRadioButton_toggledE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame40on_pane3PacketDetailsRadioButton_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame40on_pane3PacketDetailsRadioButton_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   br i1 %1, label %3, label %25
 
 3:                                                ; preds = %2
@@ -4924,7 +4924,7 @@ define void @_ZN22LayoutPreferencesFrame40on_pane3PacketDetailsRadioButton_toggl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame38on_pane3PacketBytesRadioButton_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame38on_pane3PacketBytesRadioButton_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   br i1 %1, label %3, label %25
 
 3:                                                ; preds = %2
@@ -4964,7 +4964,7 @@ define void @_ZN22LayoutPreferencesFrame38on_pane3PacketBytesRadioButton_toggled
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame40on_pane3PacketDiagramRadioButton_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame40on_pane3PacketDiagramRadioButton_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   br i1 %1, label %3, label %25
 
 3:                                                ; preds = %2
@@ -5004,7 +5004,7 @@ define void @_ZN22LayoutPreferencesFrame40on_pane3PacketDiagramRadioButton_toggl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame31on_pane3NoneRadioButton_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame31on_pane3NoneRadioButton_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   br i1 %1, label %3, label %7
 
 3:                                                ; preds = %2
@@ -5018,7 +5018,7 @@ define void @_ZN22LayoutPreferencesFrame31on_pane3NoneRadioButton_toggledEb(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame27on_restoreButtonBox_clickedEP15QAbstractButton(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame27on_restoreButtonBox_clickedEP15QAbstractButton(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   tail call void @reset_stashed_pref(ptr noundef %4)
@@ -5089,7 +5089,7 @@ define void @_ZN22LayoutPreferencesFrame27on_restoreButtonBox_clickedEP15QAbstra
 declare void @reset_stashed_pref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame38on_packetListSeparatorCheckBox_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame38on_packetListSeparatorCheckBox_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = zext i1 %1 to i32
@@ -5100,7 +5100,7 @@ define void @_ZN22LayoutPreferencesFrame38on_packetListSeparatorCheckBox_toggled
 declare i32 @prefs_set_bool_value(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame47on_packetListHeaderShowColumnDefinition_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame47on_packetListHeaderShowColumnDefinition_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = zext i1 %1 to i32
@@ -5109,7 +5109,7 @@ define void @_ZN22LayoutPreferencesFrame47on_packetListHeaderShowColumnDefinitio
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame39on_packetListHoverStyleCheckbox_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame39on_packetListHoverStyleCheckbox_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = zext i1 %1 to i32
@@ -5118,7 +5118,7 @@ define void @_ZN22LayoutPreferencesFrame39on_packetListHoverStyleCheckbox_toggle
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame33on_packetListAllowSorting_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame33on_packetListAllowSorting_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = zext i1 %1 to i32
@@ -5127,7 +5127,7 @@ define void @_ZN22LayoutPreferencesFrame33on_packetListAllowSorting_toggledEb(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame42on_packetListCachedRowsLineEdit_textEditedERK7QString(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22LayoutPreferencesFrame42on_packetListCachedRowsLineEdit_textEditedERK7QString(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -5154,7 +5154,7 @@ _ZNK7QString6toUIntEPbi.exit.thread:              ; preds = %2, %10, %_ZNK7QStri
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame46on_statusBarShowSelectedPacketCheckBox_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame46on_statusBarShowSelectedPacketCheckBox_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
   %5 = zext i1 %1 to i32
@@ -5163,7 +5163,7 @@ define void @_ZN22LayoutPreferencesFrame46on_statusBarShowSelectedPacketCheckBox
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LayoutPreferencesFrame44on_statusBarShowFileLoadTimeCheckBox_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22LayoutPreferencesFrame44on_statusBarShowFileLoadTimeCheckBox_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = zext i1 %1 to i32
@@ -6522,13 +6522,13 @@ declare void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef, i64 noundef, i64 no
 declare noundef i64 @_ZN7QString17toIntegral_helperE11QStringViewPbj(i64, ptr, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN18GenerationCountersD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN18GenerationCountersD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18GenerationCounters10initializeEPKciimmm(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18GenerationCounters10initializeEPKciimmm(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %class.ExceptionMark, align 8
   %9 = load i8, ptr @UsePerfData, align 1
   %10 = trunc i8 %9 to i1
@@ -126,10 +126,10 @@ declare noundef ptr @_ZN15PerfDataManager10name_spaceEPKci(ptr noundef, i32 noun
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #3
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #3
 
 declare noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -139,7 +139,7 @@ declare noundef ptr @_ZN15PerfDataManager22create_string_constantE9CounterNSPKcS
 declare void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18GenerationCountersC2EPKciimmP12VirtualSpace(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8), (16, 24)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef nonnull %6) unnamed_addr #0 align 2 {
+define hidden void @_ZN18GenerationCountersC2EPKciimmP12VirtualSpace(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 8), (16, 24)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef nonnull %6) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV18GenerationCounters, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %8, align 8
@@ -151,7 +151,7 @@ define hidden void @_ZN18GenerationCountersC2EPKciimmP12VirtualSpace(ptr nocaptu
 declare noundef i64 @_ZNK12VirtualSpace14committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18GenerationCountersC2EPKciimmm(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8), (16, 24)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
+define hidden void @_ZN18GenerationCountersC2EPKciimmm(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 8), (16, 24)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV18GenerationCounters, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %8, align 8
@@ -160,7 +160,7 @@ define hidden void @_ZN18GenerationCountersC2EPKciimmm(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18GenerationCountersD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN18GenerationCountersD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV18GenerationCounters, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -171,7 +171,7 @@ define hidden void @_ZN18GenerationCountersD2Ev(ptr nocapture noundef nonnull al
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18GenerationCounters10update_allEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN18GenerationCounters10update_allEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -127,7 +127,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @toast_save_datum(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local noundef i64 @toast_save_datum(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [3 x i64], align 16
   %7 = alloca [3 x i8], align 1
@@ -395,7 +395,7 @@ declare i32 @GetCurrentCommandId(i1 noundef zeroext) local_unnamed_addr #1
 declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483648, 2147483647) i32 @toast_open_indexes(ptr noundef %0, i32 noundef %1, ptr nocapture noundef initializes((0, 8)) %2, ptr nocapture noundef initializes((0, 4)) %3) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 2147483647) i32 @toast_open_indexes(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) initializes((0, 8)) %2, ptr noundef captures(none) initializes((0, 4)) %3) local_unnamed_addr #0 {
   %5 = tail call ptr @RelationGetIndexList(ptr noundef %0) #6
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %list_length.exit, label %6
@@ -481,7 +481,7 @@ list_length.exit:                                 ; preds = %4, %6
 declare i32 @GetNewOidWithIndex(ptr noundef, i32 noundef, i16 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @toastrel_valueid_exists(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
@@ -561,7 +561,7 @@ declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @toast_delete_datum(ptr nocapture noundef readnone %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local void @toast_delete_datum(ptr noundef readnone captures(none) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.ScanKeyData, align 8
   %6 = alloca i32, align 4
@@ -666,7 +666,7 @@ toast_close_indexes.exit:                         ; preds = %.lr.ph.i, %._crit_e
 declare void @ScanKeyInit(ptr noundef, i16 noundef signext, i16 noundef zeroext, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @init_toast_snapshot(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define dso_local void @init_toast_snapshot(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @GetOldestSnapshot() #6
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %7

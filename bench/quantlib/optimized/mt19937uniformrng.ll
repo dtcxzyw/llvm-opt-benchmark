@@ -21,14 +21,14 @@ $_ZGVZN8QuantLib9SingletonINS_13SeedGeneratorESt17integral_constantIbLb0EEE8inst
 @_ZN8QuantLib25MersenneTwisterUniformRngC1ERKSt6vectorImSaImEE = unnamed_addr alias void (ptr, ptr), ptr @_ZN8QuantLib25MersenneTwisterUniformRngC2ERKSt6vectorImSaImEE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib25MersenneTwisterUniformRngC2Em(ptr nocapture noundef nonnull align 8 dereferenceable(5000) %this, i64 noundef %seed) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib25MersenneTwisterUniformRngC2Em(ptr noundef nonnull align 8 captures(none) dereferenceable(5000) %this, i64 noundef %seed) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN8QuantLib25MersenneTwisterUniformRng18seedInitializationEm(ptr noundef nonnull align 8 dereferenceable(5000) %this, i64 noundef %seed)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib25MersenneTwisterUniformRng18seedInitializationEm(ptr nocapture noundef nonnull align 8 dereferenceable(5000) %this, i64 noundef %seed) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib25MersenneTwisterUniformRng18seedInitializationEm(ptr noundef nonnull align 8 captures(none) dereferenceable(5000) %this, i64 noundef %seed) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not = icmp eq i64 %seed, 0
   br i1 %cmp.not, label %cond.false, label %cond.end
@@ -98,7 +98,7 @@ for.end:                                          ; preds = %for.body
 declare noundef i64 @_ZN8QuantLib13SeedGenerator3getEv(ptr noundef nonnull align 8 dereferenceable(5000)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8QuantLib25MersenneTwisterUniformRngC2ERKSt6vectorImSaImEE(ptr nocapture noundef nonnull align 8 dereferenceable(5000) initializes((0, 8), (4992, 5000)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %seeds) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib25MersenneTwisterUniformRngC2ERKSt6vectorImSaImEE(ptr noundef nonnull align 8 captures(none) dereferenceable(5000) initializes((0, 8), (4992, 5000)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %seeds) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 19650218, ptr %this, align 8, !tbaa !4
   %mti.i = getelementptr inbounds nuw i8, ptr %this, i64 4992
@@ -212,7 +212,7 @@ for.end57:                                        ; preds = %for.inc55
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZNK8QuantLib25MersenneTwisterUniformRng5twistEv(ptr nocapture noundef nonnull align 8 dereferenceable(5000) %this) local_unnamed_addr #3 align 2 {
+define void @_ZNK8QuantLib25MersenneTwisterUniformRng5twistEv(ptr noundef nonnull align 8 captures(none) dereferenceable(5000) %this) local_unnamed_addr #3 align 2 {
 entry:
   %.pre = load i64, ptr %this, align 8, !tbaa !4
   br label %for.body

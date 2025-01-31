@@ -136,7 +136,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.heap_xlog_lock_updated = private unnamed_addr constant [23 x i8] c"heap_xlog_lock_updated\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @heap_setscanlimits(ptr nocapture noundef writeonly initializes((60, 68)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @heap_setscanlimits(ptr noundef writeonly captures(none) initializes((60, 68)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %1, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -145,7 +145,7 @@ define dso_local void @heap_setscanlimits(ptr nocapture noundef writeonly initia
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heapgetpage(ptr nocapture noundef initializes((72, 76)) %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local void @heapgetpage(ptr noundef captures(none) initializes((72, 76)) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.HeapTupleData, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %5 = load i32, ptr %4, align 4
@@ -589,7 +589,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 declare void @PredicateLockRelation(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @initscan(ptr nocapture noundef initializes((56, 60), (64, 69), (72, 80), (92, 98), (104, 112)) %0, ptr noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc void @initscan(ptr noundef captures(none) initializes((56, 60), (64, 69), (72, 80), (92, 98), (104, 112)) %0, ptr noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -810,7 +810,7 @@ define internal fastcc void @initscan(ptr nocapture noundef initializes((56, 60)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_rescan(ptr nocapture noundef initializes((56, 60), (64, 69), (72, 76), (92, 98), (104, 112)) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #1 {
+define dso_local void @heap_rescan(ptr noundef captures(none) initializes((56, 60), (64, 69), (72, 76), (92, 98), (104, 112)) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #1 {
   br i1 %2, label %7, label %24
 
 7:                                                ; preds = %6
@@ -2257,7 +2257,7 @@ define dso_local noundef zeroext i1 @heap_getnextslot(ptr noundef %0, i32 nounde
 declare ptr @ExecStoreBufferHeapTuple(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_set_tidrange(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local void @heap_set_tidrange(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.ItemPointerData, align 2
   %5 = alloca %struct.ItemPointerData, align 2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2531,7 +2531,7 @@ define dso_local noundef zeroext i1 @heap_getnextslot_tidrange(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @heap_fetch(ptr noundef %0, ptr noundef %1, ptr noundef initializes((16, 24)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @heap_fetch(ptr noundef %0, ptr noundef %1, ptr noundef initializes((16, 24)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.val53 = load i16, ptr %6, align 2
   %7 = getelementptr i8, ptr %2, i64 6
@@ -2666,7 +2666,7 @@ declare i32 @ReadBuffer(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @PredicateLockTID(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @heap_hot_search_buffer(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @heap_hot_search_buffer(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #1 {
   %8 = alloca ptr, align 8
   %9 = icmp slt i32 %2, 0
   br i1 %9, label %10, label %16
@@ -2937,7 +2937,7 @@ declare ptr @GlobalVisTestFor(ptr noundef) local_unnamed_addr #2
 declare zeroext i1 @HeapTupleIsSurelyDead(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @HeapTupleGetUpdateXid(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local i32 @HeapTupleGetUpdateXid(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -2980,7 +2980,7 @@ MultiXactIdGetUpdateXid.exit:                     ; preds = %1, %.loopexit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_get_latest_tid(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define dso_local void @heap_get_latest_tid(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.HeapTupleData, align 8
   %5 = load ptr, ptr %0, align 8
@@ -3200,7 +3200,7 @@ HeapTupleGetUpdateXid.exit:                       ; preds = %95, %.loopexit.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @UnlockReleaseBuffer(i32 noundef) local_unnamed_addr #2
 
@@ -3245,7 +3245,7 @@ define dso_local void @FreeBulkInsertState(ptr noundef %0) local_unnamed_addr #1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ReleaseBulkInsertStatePin(ptr nocapture noundef initializes((12, 20)) %0) local_unnamed_addr #1 {
+define dso_local void @ReleaseBulkInsertStatePin(ptr noundef captures(none) initializes((12, 20)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -3642,7 +3642,7 @@ declare void @MarkBufferDirty(i32 noundef) local_unnamed_addr #2
 declare zeroext i1 @IsCatalogRelation(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @log_heap_new_cid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @log_heap_new_cid(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca %struct.xl_heap_new_cid, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -3718,7 +3718,7 @@ declare void @pgstat_count_heap_insert(ptr noundef, i64 noundef) local_unnamed_a
 declare void @heap_freetuple(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_multi_insert(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #1 {
+define dso_local void @heap_multi_insert(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = alloca %struct.xl_heap_new_cid, align 4
   %8 = alloca %union.PGAlignedBlock, align 8
   %9 = alloca i32, align 4
@@ -3959,7 +3959,7 @@ heap_multi_insert_pages.exit:                     ; preds = %.lr.ph.i221, %.lr.p
   %134 = load i32, ptr %133, align 8
   %135 = zext i32 %134 to i64
   %136 = sub i32 %.1183, %.1187
-  %137 = call i32 @RelationGetBufferForTuple(ptr noundef %0, i64 noundef %135, i32 noundef 0, i32 noundef %4, ptr noundef %5, ptr noundef nonnull %9, ptr noundef null, i32 noundef %136) #11
+  %137 = call i32 @RelationGetBufferForTuple(ptr noundef nonnull %0, i64 noundef %135, i32 noundef 0, i32 noundef %4, ptr noundef %5, ptr noundef nonnull %9, ptr noundef null, i32 noundef %136) #11
   %138 = icmp slt i32 %137, 0
   br i1 %138, label %139, label %145
 
@@ -3994,12 +3994,12 @@ BufferGetPage.exit:                               ; preds = %139, %145
   %159 = add i32 %158, 1
   store volatile i32 %159, ptr @CritSectionCount, align 4
   %160 = load ptr, ptr %132, align 8
-  call void @RelationPutHeapTuple(ptr noundef %0, i32 noundef %137, ptr noundef %160, i1 noundef zeroext false) #11
+  call void @RelationPutHeapTuple(ptr noundef nonnull %0, i32 noundef %137, ptr noundef %160, i1 noundef zeroext false) #11
   br i1 %brmerge, label %163, label %161
 
 161:                                              ; preds = %BufferGetPage.exit
   %162 = load ptr, ptr %132, align 8
-  call fastcc void @log_heap_new_cid(ptr noundef %0, ptr noundef %162)
+  call fastcc void @log_heap_new_cid(ptr noundef nonnull %0, ptr noundef %162)
   br label %163
 
 163:                                              ; preds = %BufferGetPage.exit, %161
@@ -4027,7 +4027,7 @@ BufferGetPage.exit:                               ; preds = %139, %145
   br i1 %176, label %._crit_edge235.loopexit.split.loop.exit, label %177
 
 177:                                              ; preds = %.lr.ph234
-  call void @RelationPutHeapTuple(ptr noundef %0, i32 noundef %137, ptr noundef nonnull %169, i1 noundef zeroext false) #11
+  call void @RelationPutHeapTuple(ptr noundef nonnull %0, i32 noundef %137, ptr noundef nonnull %169, i1 noundef zeroext false) #11
   br i1 %brmerge, label %199, label %178
 
 178:                                              ; preds = %177
@@ -4103,7 +4103,7 @@ log_heap_new_cid.exit:                            ; preds = %187, %192
   store i16 %206, ptr %202, align 2
   %207 = call i32 @BufferGetBlockNumber(i32 noundef %137) #11
   %208 = load i32, ptr %9, align 4
-  %209 = call zeroext i1 @visibilitymap_clear(ptr noundef %0, i32 noundef %207, i32 noundef %208, i8 noundef zeroext 3) #11
+  %209 = call zeroext i1 @visibilitymap_clear(ptr noundef nonnull %0, i32 noundef %207, i32 noundef %208, i8 noundef zeroext 3) #11
   br label %213
 
 210:                                              ; preds = %._crit_edge235
@@ -4242,7 +4242,7 @@ log_heap_new_cid.exit:                            ; preds = %187, %192
 278:                                              ; preds = %275
   %279 = call i32 @BufferGetBlockNumber(i32 noundef %137) #11
   %280 = load i32, ptr %9, align 4
-  call void @visibilitymap_set(ptr noundef %0, i32 noundef %279, i32 noundef %137, i64 noundef 0, i32 noundef %280, i32 noundef 0, i8 noundef zeroext 3) #11
+  call void @visibilitymap_set(ptr noundef nonnull %0, i32 noundef %279, i32 noundef %137, i64 noundef 0, i32 noundef %280, i32 noundef 0, i8 noundef zeroext 3) #11
   br label %281
 
 281:                                              ; preds = %278, %275
@@ -4260,8 +4260,8 @@ log_heap_new_cid.exit:                            ; preds = %187, %192
   br label %._crit_edge252.thread
 
 ._crit_edge252.thread:                            ; preds = %._crit_edge.thread, %283, %._crit_edge252
-  call void @CheckForSerializableConflictIn(ptr noundef %0, ptr noundef null, i32 noundef -1) #11
-  %284 = call zeroext i1 @IsCatalogRelation(ptr noundef %0) #11
+  call void @CheckForSerializableConflictIn(ptr noundef nonnull %0, ptr noundef null, i32 noundef -1) #11
+  %284 = call zeroext i1 @IsCatalogRelation(ptr noundef nonnull %0) #11
   %or.cond = and i1 %284, %77
   br i1 %or.cond, label %.lr.ph254.preheader, label %.loopexit
 
@@ -4273,7 +4273,7 @@ log_heap_new_cid.exit:                            ; preds = %187, %192
   %indvars.iv271 = phi i64 [ 0, %.lr.ph254.preheader ], [ %indvars.iv.next272, %.lr.ph254 ]
   %285 = getelementptr ptr, ptr %76, i64 %indvars.iv271
   %286 = load ptr, ptr %285, align 8
-  call void @CacheInvalidateHeapTuple(ptr noundef %0, ptr noundef %286, ptr noundef null) #11
+  call void @CacheInvalidateHeapTuple(ptr noundef nonnull %0, ptr noundef %286, ptr noundef null) #11
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %exitcond275.not = icmp eq i64 %indvars.iv.next272, %wide.trip.count274
   br i1 %exitcond275.not, label %.loopexit, label %.lr.ph254, !llvm.loop !18
@@ -4299,7 +4299,7 @@ log_heap_new_cid.exit:                            ; preds = %187, %192
   br i1 %exitcond280.not, label %._crit_edge258, label %.lr.ph257, !llvm.loop !19
 
 ._crit_edge258:                                   ; preds = %.lr.ph257, %.loopexit
-  call void @pgstat_count_heap_insert(ptr noundef %0, i64 noundef %74) #11
+  call void @pgstat_count_heap_insert(ptr noundef nonnull %0, i64 noundef %74) #11
   ret void
 }
 
@@ -4321,7 +4321,7 @@ define dso_local void @simple_heap_insert(ptr noundef %0, ptr noundef %1) local_
 declare i32 @GetCurrentCommandId(i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 2, 1) i32 @heap_delete(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr nocapture noundef writeonly %5, i1 noundef zeroext %6) local_unnamed_addr #1 {
+define dso_local range(i32 2, 1) i32 @heap_delete(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef writeonly captures(none) %5, i1 noundef zeroext %6) local_unnamed_addr #1 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca %struct.HeapTupleData, align 8
@@ -5213,7 +5213,7 @@ declare void @UnlockTuple(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @HeapTupleHeaderAdjustCmax(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ExtractReplicaIdentity(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %3) unnamed_addr #1 {
+define internal fastcc ptr @ExtractReplicaIdentity(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %3) unnamed_addr #1 {
   %5 = alloca [1600 x i8], align 16
   %6 = alloca [1600 x i64], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -5322,7 +5322,7 @@ define internal fastcc ptr @ExtractReplicaIdentity(ptr noundef %0, ptr noundef n
 declare void @MultiXactIdSetOldestMember() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @compute_new_xmax_infomask(i32 noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef nonnull writeonly %8) unnamed_addr #1 {
+define internal fastcc void @compute_new_xmax_infomask(i32 noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef nonnull writeonly captures(none) %6, ptr noundef nonnull writeonly captures(none) %7, ptr noundef nonnull writeonly captures(none) %8) unnamed_addr #1 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
@@ -5923,7 +5923,7 @@ define dso_local void @simple_heap_delete(ptr noundef %0, ptr noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 2, 1) i32 @heap_update(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #1 {
+define dso_local range(i32 2, 1) i32 @heap_update(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef writeonly captures(none) %6, ptr noundef captures(none) %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #1 {
   %10 = alloca %struct.xl_heap_update, align 4
   %11 = alloca %struct.xl_heap_header, align 2
   %12 = alloca %struct.xl_heap_header, align 2
@@ -7765,7 +7765,7 @@ declare ptr @heap_toast_insert_or_update(ptr noundef, ptr noundef, ptr noundef, 
 declare void @pgstat_count_heap_update(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @simple_heap_update(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 {
+define dso_local void @simple_heap_update(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #1 {
   %5 = alloca %struct.TM_FailureData, align 4
   %6 = alloca i32, align 4
   %7 = tail call i32 @GetCurrentCommandId(i1 noundef zeroext true) #11
@@ -7810,7 +7810,7 @@ define dso_local void @simple_heap_update(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @heap_lock_tuple(ptr noundef %0, ptr noundef initializes((0, 4), (12, 24)) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr nocapture noundef initializes((0, 4)) %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #1 {
+define dso_local i32 @heap_lock_tuple(ptr noundef %0, ptr noundef initializes((0, 4), (12, 24)) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef captures(none) initializes((0, 4)) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #1 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -9339,7 +9339,7 @@ heap_lock_updated_tuple_rec.exit:                 ; preds = %.loopexit106.i, %28
 declare zeroext i1 @ConditionalXactLockTableWait(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_finish_speculative(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define dso_local void @heap_finish_speculative(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca %struct.xl_heap_confirm, align 2
   %.val25 = load i16, ptr %1, align 2
   %4 = getelementptr i8, ptr %1, i64 2
@@ -9460,7 +9460,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_abort_speculative(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define dso_local void @heap_abort_speculative(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca %struct.HeapTupleData, align 8
   %4 = alloca %struct.xl_heap_delete, align 4
   %5 = tail call i32 @GetCurrentTransactionId() #11
@@ -9847,7 +9847,7 @@ BufferGetPage.exit:                               ; preds = %18, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @heap_prepare_freeze_tuple(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef initializes((0, 10)) %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @heap_prepare_freeze_tuple(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) initializes((0, 10)) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -10471,7 +10471,7 @@ GetMultiXactIdHintBits.exit:                      ; preds = %201, %222, %223, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @heap_tuple_should_freeze(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #1 {
+define dso_local zeroext i1 @heap_tuple_should_freeze(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i16, ptr %6, align 4
@@ -10990,7 +10990,7 @@ heap_log_freeze_plan.exit:                        ; preds = %160, %105
 declare zeroext i1 @TransactionIdDidCommit(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @heap_freeze_tuple(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @heap_freeze_tuple(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca %struct.HeapTupleFreeze, align 4
   %7 = alloca i8, align 1
   %8 = alloca %struct.VacuumCutoffs, align 4
@@ -11059,7 +11059,7 @@ heap_execute_freeze_tuple.exit:                   ; preds = %28, %30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @heap_tuple_needs_eventual_freeze(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @heap_tuple_needs_eventual_freeze(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i16, ptr %2, align 4
   %4 = and i16 %3, 768
@@ -11107,7 +11107,7 @@ define dso_local noundef zeroext i1 @heap_tuple_needs_eventual_freeze(ptr nocapt
 declare zeroext i1 @MultiXactIdPrecedes(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @HeapTupleHeaderAdvanceConflictHorizon(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define dso_local void @HeapTupleHeaderAdvanceConflictHorizon(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i16, ptr %4, align 4
@@ -11221,7 +11221,7 @@ HeapTupleGetUpdateXid.exit:                       ; preds = %15, %.loopexit.i.i
 declare zeroext i1 @TransactionIdFollows(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @heap_index_delete_tuples(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define dso_local i32 @heap_index_delete_tuples(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct.SnapshotData, align 8
@@ -13998,7 +13998,7 @@ BufferGetPage.exit.i12:                           ; preds = %122, %116
 BufferGetPage.exit21.i:                           ; preds = %156, %150
   %.0.i.i20.i = phi ptr [ %155, %150 ], [ %161, %156 ]
   %162 = call i64 @PageGetHeapFreeSpace(ptr noundef %.0.i.i20.i) #11
-  call void @XLogRecGetBlockTag(ptr noundef %0, i8 noundef zeroext 0, ptr noundef nonnull %21, ptr noundef null, ptr noundef nonnull %19) #11
+  call void @XLogRecGetBlockTag(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef nonnull %21, ptr noundef null, ptr noundef nonnull %19) #11
   %163 = load i32, ptr %18, align 4
   call void @UnlockReleaseBuffer(i32 noundef %163) #11
   %164 = load i32, ptr %19, align 4
@@ -15072,7 +15072,7 @@ declare void @mask_page_hint_bits(ptr noundef) local_unnamed_addr #2
 declare void @mask_unused_space(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare zeroext i1 @CheckForSerializableConflictOutNeeded(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -15251,7 +15251,7 @@ declare i32 @MultiXactIdCreate(i32 noundef, i32 noundef, i32 noundef, i32 nounde
 declare zeroext i1 @TransactionIdIsInProgress(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @test_lockmode_for_conflict(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, 5) i32 @test_lockmode_for_conflict(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %4) unnamed_addr #1 {
 get_mxact_status_for_lock.exit:
   store i8 0, ptr %4, align 1
   %5 = zext i32 %2 to i64
@@ -15333,7 +15333,7 @@ declare i32 @MultiXactIdCreateFromMembers(i32 noundef, ptr noundef) local_unname
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @heap_log_freeze_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -1, 2) i32 @heap_log_freeze_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp ult i32 %3, %4
@@ -15624,7 +15624,7 @@ define internal fastcc noundef zeroext i1 @Do_MultiXactIdWait(i32 noundef %0, i3
 declare i64 @PrefetchBuffer(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @bottomup_sort_and_shrink_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -1, 2) i32 @bottomup_sort_and_shrink_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = load i16, ptr %0, align 2
   %4 = load i16, ptr %1, align 2
   %5 = icmp sgt i16 %3, %4
@@ -15736,10 +15736,10 @@ declare i32 @llvm.smin.i32(i32, i32) #9
 declare i32 @llvm.ctpop.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #9

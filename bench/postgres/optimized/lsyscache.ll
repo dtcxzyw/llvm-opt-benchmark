@@ -140,7 +140,7 @@ define dso_local i32 @get_op_opfamily_sortfamily(i32 noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @get_op_opfamily_properties(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define dso_local void @get_op_opfamily_properties(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
   %7 = zext i32 %0 to i64
   %8 = select i1 %2, i64 111, i64 115
   %9 = zext i32 %1 to i64
@@ -213,7 +213,7 @@ define dso_local i32 @get_opfamily_member(i32 noundef %0, i32 noundef %1, i32 no
 declare ptr @SearchSysCache4(i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @get_ordering_op_properties(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 2)) %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @get_ordering_op_properties(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 2)) %3) local_unnamed_addr #0 {
   store i32 0, ptr %1, align 4
   store i32 0, ptr %2, align 4
   store i16 0, ptr %3, align 2
@@ -1528,7 +1528,7 @@ define dso_local i32 @get_atttype(i32 noundef %0, i16 noundef signext %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @get_atttypetypmodcoll(i32 noundef %0, i16 noundef signext %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define dso_local void @get_atttypetypmodcoll(i32 noundef %0, i16 noundef signext %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = zext i32 %0 to i64
   %7 = sext i16 %1 to i64
   %8 = tail call ptr @SearchSysCache2(i32 noundef 7, i64 noundef %6, i64 noundef %7) #8
@@ -1835,7 +1835,7 @@ define dso_local i32 @get_opclass_input_type(i32 noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @get_opclass_opfamily_and_input_type(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @get_opclass_opfamily_and_input_type(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
   %5 = tail call ptr @SearchSysCache1(i32 noundef 14, i64 noundef %4) #8
   %.not = icmp ne ptr %5, null
@@ -1961,7 +1961,7 @@ define dso_local i32 @get_op_rettype(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @op_input_types(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local void @op_input_types(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
   %5 = tail call ptr @SearchSysCache1(i32 noundef 38, i64 noundef %4) #8
   %.not = icmp eq ptr %5, null
@@ -2421,7 +2421,7 @@ define dso_local range(i32 -32768, 32768) i32 @get_func_nargs(i32 noundef %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_func_signature(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @get_func_signature(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
   %5 = tail call ptr @SearchSysCache1(i32 noundef 45, i64 noundef %4) #8
   %.not = icmp eq ptr %5, null
@@ -2461,7 +2461,7 @@ define dso_local i32 @get_func_signature(i32 noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_func_variadictype(i32 noundef %0) local_unnamed_addr #0 {
@@ -2939,7 +2939,7 @@ define dso_local zeroext i1 @get_typbyval(i32 noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @get_typlenbyval(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local void @get_typlenbyval(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
   %5 = tail call ptr @SearchSysCache1(i32 noundef 80, i64 noundef %4) #8
   %.not = icmp eq ptr %5, null
@@ -2971,7 +2971,7 @@ define dso_local void @get_typlenbyval(i32 noundef %0, ptr nocapture noundef wri
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @get_typlenbyvalalign(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local void @get_typlenbyvalalign(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = zext i32 %0 to i64
   %6 = tail call ptr @SearchSysCache1(i32 noundef 80, i64 noundef %5) #8
   %.not = icmp eq ptr %6, null
@@ -3006,7 +3006,7 @@ define dso_local void @get_typlenbyvalalign(i32 noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @getTypeIOParam(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local i32 @getTypeIOParam(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 22
@@ -3028,7 +3028,7 @@ define dso_local i32 @getTypeIOParam(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @get_type_io_data(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
+define dso_local void @get_type_io_data(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = load i32, ptr @Mode, align 4
@@ -3252,7 +3252,7 @@ define dso_local i32 @getBaseType(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @getBaseTypeAndTypmod(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local i32 @getBaseTypeAndTypmod(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
   %4 = tail call ptr @SearchSysCache1(i32 noundef 80, i64 noundef %3) #8
   %.not15 = icmp eq ptr %4, null
@@ -3520,7 +3520,7 @@ get_typtype.exit:                                 ; preds = %1, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @get_type_category_preferred(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local void @get_type_category_preferred(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
   %5 = tail call ptr @SearchSysCache1(i32 noundef 80, i64 noundef %4) #8
   %.not = icmp eq ptr %5, null
@@ -3746,7 +3746,7 @@ define dso_local i32 @get_base_element_type(i32 noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @getTypeInputInfo(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local void @getTypeInputInfo(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
   %5 = tail call ptr @SearchSysCache1(i32 noundef 80, i64 noundef %4) #8
   %.not = icmp eq ptr %5, null
@@ -3819,7 +3819,7 @@ getTypeIOParam.exit:                              ; preds = %32, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @getTypeOutputInfo(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local void @getTypeOutputInfo(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
   %5 = tail call ptr @SearchSysCache1(i32 noundef 80, i64 noundef %4) #8
   %.not = icmp eq ptr %5, null
@@ -3890,7 +3890,7 @@ define dso_local void @getTypeOutputInfo(i32 noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @getTypeBinaryInputInfo(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local void @getTypeBinaryInputInfo(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
   %5 = tail call ptr @SearchSysCache1(i32 noundef 80, i64 noundef %4) #8
   %.not = icmp eq ptr %5, null
@@ -3963,7 +3963,7 @@ getTypeIOParam.exit:                              ; preds = %32, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @getTypeBinaryOutputInfo(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local void @getTypeBinaryOutputInfo(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
   %5 = tail call ptr @SearchSysCache1(i32 noundef 80, i64 noundef %4) #8
   %.not = icmp eq ptr %5, null
@@ -4424,7 +4424,7 @@ define dso_local noundef zeroext i1 @get_attstatsslot(ptr noundef initializes((0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i64 @SysCacheGetAttrNotNull(i32 noundef, ptr noundef, i16 noundef signext) local_unnamed_addr #1
 
@@ -4433,7 +4433,7 @@ declare ptr @pg_detoast_datum_copy(ptr noundef) local_unnamed_addr #1
 declare void @deconstruct_array(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i8 noundef signext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @free_attstatsslot(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @free_attstatsslot(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -4855,10 +4855,10 @@ define dso_local ptr @get_subscription_name(i32 noundef %0, i1 noundef zeroext %
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

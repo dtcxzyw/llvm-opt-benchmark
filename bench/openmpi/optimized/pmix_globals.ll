@@ -271,14 +271,14 @@ define internal void @endes(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @cfcon(ptr nocapture noundef writeonly initializes((144, 152)) %0) #1 {
+define internal void @cfcon(ptr noundef writeonly captures(none) initializes((144, 152)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr null, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @cfdes(ptr nocapture noundef readonly %0) #2 {
+define internal void @cfdes(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -293,7 +293,7 @@ define internal void @cfdes(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @cdcon(ptr nocapture noundef writeonly initializes((144, 154)) %0) #1 {
+define internal void @cdcon(ptr noundef writeonly captures(none) initializes((144, 154)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -304,7 +304,7 @@ define internal void @cdcon(ptr nocapture noundef writeonly initializes((144, 15
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @cddes(ptr nocapture noundef readonly %0) #2 {
+define internal void @cddes(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1237,14 +1237,14 @@ pmix_obj_run_destructors.exit226:                 ; preds = %.lr.ph.i223, %._cri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @ncdcon(ptr nocapture noundef writeonly initializes((144, 152)) %0) #1 {
+define internal void @ncdcon(ptr noundef writeonly captures(none) initializes((144, 152)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr null, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ncddes(ptr nocapture noundef %0) #0 {
+define internal void @ncddes(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1560,7 +1560,7 @@ pmix_tma_free.exit47:                             ; preds = %45, %43, %pmix_poin
 .lr.ph.i48:                                       ; preds = %61, %.lr.ph.i48
   %67 = phi ptr [ %69, %.lr.ph.i48 ], [ %66, %61 ]
   %.07.i = phi ptr [ %68, %.lr.ph.i48 ], [ %65, %61 ]
-  tail call void %67(ptr noundef %.lcssa) #13
+  tail call void %67(ptr noundef nonnull %.lcssa) #13
   %68 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %69 = load ptr, ptr %68, align 8
   %.not.i49 = icmp eq ptr %69, null
@@ -1592,7 +1592,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i48, %61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @info_con(ptr nocapture noundef writeonly initializes((144, 148), (152, 164), (168, 177), (180, 192)) %0) #1 {
+define internal void @info_con(ptr noundef writeonly captures(none) initializes((144, 148), (152, 164), (168, 177), (180, 192)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -1613,7 +1613,7 @@ define internal void @info_con(ptr nocapture noundef writeonly initializes((144,
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @info_des(ptr nocapture noundef readonly %0) #2 {
+define internal void @info_des(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2495,7 +2495,7 @@ pmix_obj_run_destructors.exit235:                 ; preds = %.lr.ph.i232, %331
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @iofreqcon(ptr nocapture noundef writeonly initializes((248, 290), (296, 320)) %0) #1 {
+define internal void @iofreqcon(ptr noundef writeonly captures(none) initializes((248, 290), (296, 320)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(42) %2, i8 0, i64 42, i1 false)
@@ -2504,7 +2504,7 @@ define internal void @iofreqcon(ptr nocapture noundef writeonly initializes((248
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @iofreqdes(ptr nocapture noundef %0) #0 {
+define internal void @iofreqdes(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2811,7 +2811,7 @@ pmix_obj_run_destructors.exit53:                  ; preds = %.lr.ph.i50, %61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @lgcon(ptr nocapture noundef writeonly initializes((120, 389), (392, 398), (400, 414), (416, 420)) %0) #1 {
+define internal void @lgcon(ptr noundef writeonly captures(none) initializes((120, 389), (392, 398), (400, 414), (416, 420)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 392
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(269) %2, i8 0, i64 269, i1 false)
@@ -3571,7 +3571,7 @@ pmix_tma_free.exit8:                              ; preds = %9, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pmix_bfrops_base_tma_value_destruct(ptr nocapture noundef nonnull initializes((2, 8), (24, 32)) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef nonnull captures(none) initializes((2, 8), (24, 32)) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i16, ptr %0, align 8
   switch i16 %3, label %pmix_tma_free.exit [
     i16 3, label %4
@@ -4046,14 +4046,14 @@ pmix_tma_free.exit:                               ; preds = %125, %122, %92, %89
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @grcon(ptr nocapture noundef writeonly initializes((144, 168)) %0) #1 {
+define internal void @grcon(ptr noundef writeonly captures(none) initializes((144, 168)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @grdes(ptr nocapture noundef %0) #0 {
+define internal void @grdes(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -4183,7 +4183,7 @@ define void @pmix_execute_epilog(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %49, %.lr.ph.i
   %55 = phi ptr [ %57, %.lr.ph.i ], [ %54, %49 ]
   %.07.i = phi ptr [ %56, %.lr.ph.i ], [ %53, %49 ]
-  tail call void %55(ptr noundef %.06694) #13
+  tail call void %55(ptr noundef nonnull %.06694) #13
   %56 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %57 = load ptr, ptr %56, align 8
   %.not.i = icmp eq ptr %57, null
@@ -4296,7 +4296,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %49
 .lr.ph.i84:                                       ; preds = %101, %.lr.ph.i84
   %107 = phi ptr [ %109, %.lr.ph.i84 ], [ %106, %101 ]
   %.07.i85 = phi ptr [ %108, %.lr.ph.i84 ], [ %105, %101 ]
-  tail call void %107(ptr noundef %.069108) #13
+  tail call void %107(ptr noundef nonnull %.069108) #13
   %108 = getelementptr inbounds nuw i8, ptr %.07.i85, i64 8
   %109 = load ptr, ptr %108, align 8
   %.not.i86 = icmp eq ptr %109, null
@@ -4328,7 +4328,7 @@ pmix_obj_run_destructors.exit87:                  ; preds = %.lr.ph.i84, %101
 declare ptr @PMIx_Argv_split(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
@@ -4341,16 +4341,16 @@ declare ptr @__errno_location() local_unnamed_addr #6
 declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dirpath_destroy(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dirpath_destroy(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %dirpath_is_empty.exit.thread, label %5
 
@@ -4548,14 +4548,14 @@ declare ptr @event_new(ptr noundef, i32 noundef, i16 noundef signext, ptr nounde
 declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare void @PMIx_Envar_construct(ptr noundef) local_unnamed_addr #3
 
 declare void @PMIx_Envar_destruct(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare i32 @pmix_pointer_array_init(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
@@ -6863,7 +6863,7 @@ declare void @pmix_hwloc_destruct_topology(ptr noundef) local_unnamed_addr #3
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #11
@@ -6872,14 +6872,14 @@ declare void @abort() local_unnamed_addr #11
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 declare ptr @readdir(ptr noundef) local_unnamed_addr #3
 
 declare noalias ptr @pmix_os_path(i32 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rmdir(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @rmdir(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

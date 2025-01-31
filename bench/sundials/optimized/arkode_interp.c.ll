@@ -219,7 +219,7 @@ define noalias noundef ptr @arkInterpCreate_Hermite(ptr noundef %0, i32 noundef 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -21, 1) i32 @arkInterpResize_Hermite(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) #0 {
@@ -380,7 +380,7 @@ define void @arkInterpFree_Hermite(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @arkInterpPrintMem_Hermite(ptr noundef readonly %0, ptr nocapture noundef %1) #4 {
+define void @arkInterpPrintMem_Hermite(ptr noundef readonly %0, ptr noundef captures(none) %1) #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %3
 
@@ -407,7 +407,7 @@ define void @arkInterpPrintMem_Hermite(ptr noundef readonly %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @arkInterpSetDegree_Hermite(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define range(i32 -22, 1) i32 @arkInterpSetDegree_Hermite(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %19, label %5
 
@@ -582,7 +582,7 @@ arkInterpFree.exit40:                             ; preds = %61
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkInterpUpdate_Hermite(ptr noundef %0, ptr nocapture noundef readonly %1, double noundef %2) #0 {
+define range(i32 -21, 1) i32 @arkInterpUpdate_Hermite(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2) #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %40, label %5
 
@@ -1352,7 +1352,7 @@ declare i32 @arkResizeVec(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i6
 declare void @arkFreeVec(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #7
@@ -1621,7 +1621,7 @@ define void @arkInterpFree_Lagrange(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @arkInterpPrintMem_Lagrange(ptr noundef readonly %0, ptr nocapture noundef %1) #4 {
+define void @arkInterpPrintMem_Lagrange(ptr noundef readonly %0, ptr noundef captures(none) %1) #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %48, label %3
 
@@ -1704,7 +1704,7 @@ define void @arkInterpPrintMem_Lagrange(ptr noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @arkInterpSetDegree_Lagrange(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define range(i32 -22, 1) i32 @arkInterpSetDegree_Lagrange(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %23, label %5
 
@@ -1993,7 +1993,7 @@ arkInterpFree.exit69:                             ; preds = %86
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkInterpUpdate_Lagrange(ptr noundef readonly %0, ptr nocapture noundef readonly %1, double noundef %2) #0 {
+define range(i32 -21, 1) i32 @arkInterpUpdate_Lagrange(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, double noundef %2) #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %60, label %5
 
@@ -2096,7 +2096,7 @@ define range(i32 -21, 1) i32 @arkInterpUpdate_Lagrange(ptr noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -28, 1) i32 @arkInterpEvaluate_Lagrange(ptr noundef %0, ptr nocapture noundef readonly %1, double noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #0 {
+define range(i32 -28, 1) i32 @arkInterpEvaluate_Lagrange(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #0 {
   %7 = alloca [6 x double], align 16
   %8 = alloca [6 x ptr], align 16
   %9 = icmp eq ptr %0, null
@@ -2568,7 +2568,7 @@ declare i32 @N_VConstVectorArray(i32 noundef, double noundef, ptr noundef) local
 declare double @llvm.fabs.f64(double) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define double @LBasis(ptr nocapture noundef readonly %0, i32 noundef %1, double noundef %2) local_unnamed_addr #8 {
+define double @LBasis(ptr noundef readonly captures(none) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #8 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i32, ptr %5, align 8
@@ -2612,7 +2612,7 @@ define double @LBasis(ptr nocapture noundef readonly %0, i32 noundef %1, double 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define double @LBasisD(ptr nocapture noundef readonly %0, i32 noundef %1, double noundef %2) local_unnamed_addr #8 {
+define double @LBasisD(ptr noundef readonly captures(none) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #8 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i32, ptr %5, align 8
@@ -2681,7 +2681,7 @@ define double @LBasisD(ptr nocapture noundef readonly %0, i32 noundef %1, double
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define double @LBasisD2(ptr nocapture noundef readonly %0, i32 noundef %1, double noundef %2) local_unnamed_addr #8 {
+define double @LBasisD2(ptr noundef readonly captures(none) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #8 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i32, ptr %5, align 8
@@ -2777,7 +2777,7 @@ define double @LBasisD2(ptr nocapture noundef readonly %0, i32 noundef %1, doubl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define double @LBasisD3(ptr nocapture noundef readonly %0, i32 noundef %1, double noundef %2) local_unnamed_addr #8 {
+define double @LBasisD3(ptr noundef readonly captures(none) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #8 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i32, ptr %5, align 8
@@ -2908,10 +2908,10 @@ declare i32 @llvm.smin.i32(i32, i32) #9
 declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9

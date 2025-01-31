@@ -2584,13 +2584,13 @@ $_ZZN11QMetaTypeIdIN18QCPPolarAxisRadial14SelectablePartEE14qt_metatype_idEvE11m
 @_ZN13QCPPolarGraphD1Ev = unnamed_addr alias void (ptr), ptr @_ZN13QCPPolarGraphD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11QCPVector2DC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define void @_ZN11QCPVector2DC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11QCPVector2DC2Edd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, double noundef %1, double noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN11QCPVector2DC2Edd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, double noundef %1, double noundef %2) unnamed_addr #0 align 2 {
   store double %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %2, ptr %4, align 8
@@ -2598,7 +2598,7 @@ define void @_ZN11QCPVector2DC2Edd(ptr nocapture noundef nonnull writeonly align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11QCPVector2DC2ERK6QPoint(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) unnamed_addr #1 align 2 {
+define void @_ZN11QCPVector2DC2ERK6QPoint(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) unnamed_addr #1 align 2 {
   %3 = load i32, ptr %1, align 4
   %4 = sitofp i32 %3 to double
   store double %4, ptr %0, align 8
@@ -2611,7 +2611,7 @@ define void @_ZN11QCPVector2DC2ERK6QPoint(ptr nocapture noundef nonnull writeonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11QCPVector2DC2ERK7QPointF(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 {
+define void @_ZN11QCPVector2DC2ERK7QPointF(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #1 align 2 {
   %3 = load double, ptr %1, align 8
   store double %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2622,7 +2622,7 @@ define void @_ZN11QCPVector2DC2ERK7QPointF(ptr nocapture noundef nonnull writeon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11QCPVector2D9normalizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
+define void @_ZN11QCPVector2D9normalizeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   %2 = load double, ptr %0, align 8
   %3 = fcmp oeq double %2, 0.000000e+00
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2647,7 +2647,7 @@ define void @_ZN11QCPVector2D9normalizeEv(ptr nocapture noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK11QCPVector2D10normalizedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
+define { double, double } @_ZNK11QCPVector2D10normalizedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca %class.QCPVector2D, align 8
   %3 = load double, ptr %0, align 8
   %4 = fcmp oeq double %3, 0.000000e+00
@@ -2681,10 +2681,10 @@ define { double, double } @_ZNK11QCPVector2D10normalizedEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK11QCPVector2D21distanceSquaredToLineERKS_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) local_unnamed_addr #2 align 2 {
+define noundef double @_ZNK11QCPVector2D21distanceSquaredToLineERKS_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %class.QCPVector2D, align 8
   %5 = alloca %class.QCPVector2D, align 8
   %6 = alloca %class.QCPVector2D, align 8
@@ -2829,7 +2829,7 @@ define noundef double @_ZNK11QCPVector2D21distanceSquaredToLineERKS_S1_(ptr noca
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK11QCPVector2D21distanceSquaredToLineERK6QLineF(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #2 align 2 {
+define noundef double @_ZNK11QCPVector2D21distanceSquaredToLineERK6QLineF(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.QCPVector2D, align 8
   %4 = alloca %class.QPointF, align 8
   %5 = alloca %class.QCPVector2D, align 8
@@ -2854,7 +2854,7 @@ define noundef double @_ZNK11QCPVector2D21distanceSquaredToLineERK6QLineF(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK11QCPVector2D22distanceToStraightLineERKS_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) local_unnamed_addr #2 align 2 {
+define noundef double @_ZNK11QCPVector2D22distanceToStraightLineERKS_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %class.QCPVector2D, align 8
   %5 = alloca %class.QCPVector2D, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -2920,7 +2920,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QCPVector2DdVEd(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QCPVector2DpLERKS_(ptr noundef nonnull returned align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QCPVector2DpLERKS_(ptr noundef nonnull returned align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = load double, ptr %1, align 8
   %4 = load double, ptr %0, align 8
   %5 = fadd double %3, %4
@@ -2935,7 +2935,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QCPVector2DpLERKS_(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QCPVector2DmIERKS_(ptr noundef nonnull returned align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QCPVector2DmIERKS_(ptr noundef nonnull returned align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = load double, ptr %1, align 8
   %4 = load double, ptr %0, align 8
   %5 = fsub double %4, %3
@@ -3174,7 +3174,7 @@ define void @_ZN10QCPPainter15setAntialiasingEb(ptr noundef nonnull align 8 dere
 declare void @_ZN8QPainter13setRenderHintENS_10RenderHintEb(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10QCPPainter8setModesE6QFlagsINS_11PainterModeEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((8, 12)) %0, i32 %1) local_unnamed_addr #0 align 2 {
+define void @_ZN10QCPPainter8setModesE6QFlagsINS_11PainterModeEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((8, 12)) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   ret void
@@ -3189,7 +3189,7 @@ define noundef zeroext i1 @_ZN10QCPPainter5beginEP12QPaintDevice(ptr noundef non
 declare noundef zeroext i1 @_ZN8QPainter5beginEP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10QCPPainter7setModeENS_11PainterModeEb(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
+define void @_ZN10QCPPainter7setModeENS_11PainterModeEb(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not.i.i6 = icmp eq i32 %1, 0
   %5 = load i32, ptr %4, align 8
@@ -3412,7 +3412,7 @@ declare void @_ZN4QPen8setWidthEi(ptr noundef nonnull align 8 dereferenceable(8)
 declare void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN22QCPAbstractPaintBufferC2ERK5QSized(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, double noundef %2) unnamed_addr #1 align 2 {
+define void @_ZN22QCPAbstractPaintBufferC2ERK5QSized(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(25) initializes((0, 25)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, double noundef %2) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22QCPAbstractPaintBuffer, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %1, align 4
@@ -3425,12 +3425,12 @@ define void @_ZN22QCPAbstractPaintBufferC2ERK5QSized(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN22QCPAbstractPaintBufferD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #6 align 2 {
+define void @_ZN22QCPAbstractPaintBufferD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN22QCPAbstractPaintBufferD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
+define void @_ZN22QCPAbstractPaintBufferD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   tail call void @llvm.trap() #49
   unreachable
 }
@@ -3439,7 +3439,7 @@ define void @_ZN22QCPAbstractPaintBufferD0Ev(ptr nocapture nonnull readnone alig
 declare void @llvm.trap() #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22QCPAbstractPaintBuffer7setSizeERK5QSize(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN22QCPAbstractPaintBuffer7setSizeERK5QSize(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = load i32, ptr %1, align 4
@@ -3466,7 +3466,7 @@ define void @_ZN22QCPAbstractPaintBuffer7setSizeERK5QSize(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN22QCPAbstractPaintBuffer14setInvalidatedEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((24, 25)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22QCPAbstractPaintBuffer14setInvalidatedEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(25) initializes((24, 25)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %3, ptr %4, align 8
@@ -3506,7 +3506,7 @@ define void @_ZN22QCPAbstractPaintBuffer19setDevicePixelRatioEd(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN20QCPPaintBufferPixmapC2ERK5QSized(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 25)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, double noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN20QCPPaintBufferPixmapC2ERK5QSized(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 25)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, double noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22QCPAbstractPaintBuffer, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %1, align 4
@@ -3724,7 +3724,7 @@ declare void @_ZN7QPixmapC1ERK5QSize(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZN7QPixmap19setDevicePixelRatioEd(ptr noundef nonnull align 8 dereferenceable(24), double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QCPLayerC2EP11QCustomPlotRK7QString(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QCPLayerC2EP11QCustomPlotRK7QString(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8QCPLayer, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3940,7 +3940,7 @@ define noundef zeroext i1 @_ZN12QCPLayerable8setLayerEP8QCPLayer(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK11QCustomPlot12currentLayerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0) local_unnamed_addr #14 align 2 {
+define noundef ptr @_ZNK11QCustomPlot12currentLayerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -3997,7 +3997,7 @@ define void @_ZN8QCPLayerD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QCPLayer10setVisibleEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((80, 81)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN8QCPLayer10setVisibleEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) initializes((80, 81)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 %3, ptr %4, align 8
@@ -4005,7 +4005,7 @@ define void @_ZN8QCPLayer10setVisibleEb(ptr nocapture noundef nonnull writeonly 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QCPLayer7setModeENS_9LayerModeE(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QCPLayer7setModeENS_9LayerModeE(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, %1
@@ -4122,7 +4122,7 @@ _ZN14QSharedPointerI22QCPAbstractPaintBufferE5derefEv.exit: ; preds = %1, %_ZN15
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QCPLayer4drawEP10QCPPainter(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QCPLayer4drawEP10QCPPainter(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, ptr noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
   %4 = alloca %class.QRect, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4291,7 +4291,7 @@ _ZNK12QCPLayerable14realVisibilityEv.exit.thread: ; preds = %_ZNK8QPointerI12QCP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK12QCPLayerable14realVisibilityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %0) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK12QCPLayerable14realVisibilityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %0) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -4343,7 +4343,7 @@ _ZNK8QPointerI12QCPLayerableEcvPS0_Ev.exit.thread: ; preds = %_ZNK8QPointerI12QC
 declare void @_ZN8QPainter11setClipRectERK5QRectN2Qt13ClipOperationE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(16), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QCPLayer17drawToPaintBufferEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QCPLayer17drawToPaintBufferEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QSharedPointer, align 8
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
@@ -4631,7 +4631,7 @@ _ZN6QStackIbED2Ev.exit:                           ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QCPLayer6replotEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QCPLayer6replotEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QSharedPointer, align 8
   %3 = alloca %class.QColor, align 4
   %4 = alloca %class.QDebug, align 8
@@ -4832,7 +4832,7 @@ _ZN14QSharedPointerI22QCPAbstractPaintBufferED2Ev.exit: ; preds = %79, %_ZN15QtS
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN11QCustomPlot26hasInvalidatedPaintBuffersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN11QCustomPlot26hasInvalidatedPaintBuffersEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8, !noalias !19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -5626,7 +5626,7 @@ _ZN14QSharedPointerI22QCPAbstractPaintBufferED2Ev.exit: ; preds = %20, %13, %8, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12QCPLayerableC2EP11QCustomPlot7QStringPS_(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12QCPLayerableC2EP11QCustomPlot7QStringPS_(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QDebug, align 8
   %6 = alloca %class.QMessageLogger, align 8
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
@@ -5756,7 +5756,7 @@ _ZN12QCPLayerable8setLayerEP8QCPLayer.exit:       ; preds = %22, %52, %32, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN12QCPLayerable8setLayerERK7QString(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN12QCPLayerable8setLayerERK7QString(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = alloca %class.QDebug, align 8
@@ -5951,13 +5951,13 @@ _ZN8QPointerI12QCPLayerableED2Ev.exit:            ; preds = %6, %9, %11, %14
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN12QCPLayerableD0Ev(ptr nocapture noundef nonnull readnone align 8 dereferenceable(57) %0) unnamed_addr #7 align 2 {
+define void @_ZN12QCPLayerableD0Ev(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(57) %0) unnamed_addr #7 align 2 {
   tail call void @llvm.trap() #49
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12QCPLayerable10setVisibleEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) initializes((16, 17)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN12QCPLayerable10setVisibleEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(57) initializes((16, 17)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %3, ptr %4, align 8
@@ -6134,7 +6134,7 @@ _ZN7QStringD2Ev.exit29:                           ; preds = %49, %51, %_ZN17QArr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZNK11QCustomPlot5layerERK7QString(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK11QCustomPlot5layerERK7QString(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8, !noalias !42
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -6225,7 +6225,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP8QCPLayerEED2Ev.exit: ; preds = %_ZN7QS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12QCPLayerable14setAntialiasedEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) initializes((56, 57)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN12QCPLayerable14setAntialiasedEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(57) initializes((56, 57)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %3, ptr %4, align 8
@@ -6233,7 +6233,7 @@ define void @_ZN12QCPLayerable14setAntialiasedEb(ptr nocapture noundef nonnull w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef double @_ZNK12QCPLayerable10selectTestERK7QPointFbP8QVariant(ptr nocapture noundef nonnull readnone align 8 dereferenceable(57) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr nocapture noundef readnone %3) unnamed_addr #6 align 2 {
+define noundef double @_ZNK12QCPLayerable10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(57) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef readnone captures(none) %3) unnamed_addr #6 align 2 {
   ret double -1.000000e+00
 }
 
@@ -6317,7 +6317,7 @@ define void @_ZN12QCPLayerable20initializeParentPlotEP11QCustomPlot(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12QCPLayerable18setParentLayerableEPS_(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN12QCPLayerable18setParentLayerableEPS_(ptr noundef nonnull align 8 captures(none) dereferenceable(57) initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.not.i.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i.i, label %_ZN12QWeakPointerI7QObjectEC2IS0_TnNSt9enable_ifIXsr3std14is_convertibleIPT_PS0_EE5valueEbE4typeELb1EEES5_b.exit.i.i, label %4
@@ -6351,7 +6351,7 @@ _ZN8QPointerI12QCPLayerableEaSEPS0_.exit:         ; preds = %_ZN12QWeakPointerI7
 declare void @_ZN12QCPLayerable12layerChangedEP8QCPLayer(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
+define void @_ZNK12QCPLayerable21applyAntialiasingHintEP10QCPPainterbN3QCP18AntialiasedElementE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
   %5 = alloca %class.QPointF, align 8
   %6 = alloca %class.QPointF, align 8
   %7 = alloca %class.QPointF, align 8
@@ -6471,17 +6471,17 @@ _ZN10QCPPainter15setAntialiasingEb.exit:          ; preds = %54, %52, %46, %.cri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN12QCPLayerable21parentPlotInitializedEP11QCustomPlot(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #6 align 2 {
+define void @_ZN12QCPLayerable21parentPlotInitializedEP11QCustomPlot(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #6 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK12QCPLayerable17selectionCategoryEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(57) %0) unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK12QCPLayerable17selectionCategoryEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(57) %0) unnamed_addr #6 align 2 {
   ret i32 128
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { i64, i64 } @_ZNK12QCPLayerable8clipRectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %0) unnamed_addr #16 align 2 {
+define { i64, i64 } @_ZNK12QCPLayerable8clipRectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %0) unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -6503,58 +6503,58 @@ define { i64, i64 } @_ZNK12QCPLayerable8clipRectEv(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN12QCPLayerable11selectEventEP11QMouseEventbRK8QVariantPb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(57) %0, ptr nocapture noundef readnone %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %3, ptr nocapture noundef readnone %4) unnamed_addr #6 align 2 {
+define void @_ZN12QCPLayerable11selectEventEP11QMouseEventbRK8QVariantPb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(57) %0, ptr noundef readnone captures(none) %1, i1 noundef zeroext %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %3, ptr noundef readnone captures(none) %4) unnamed_addr #6 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN12QCPLayerable13deselectEventEPb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(57) %0, ptr nocapture noundef readnone %1) unnamed_addr #6 align 2 {
+define void @_ZN12QCPLayerable13deselectEventEPb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(57) %0, ptr noundef readnone captures(none) %1) unnamed_addr #6 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12QCPLayerable15mousePressEventEP11QMouseEventRK8QVariant(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly initializes((12, 13)) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define void @_ZN12QCPLayerable15mousePressEventEP11QMouseEventRK8QVariant(ptr nonnull readnone align 8 captures(none) %0, ptr noundef writeonly captures(none) initializes((12, 13)) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i8 0, ptr %4, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12QCPLayerable14mouseMoveEventEP11QMouseEventRK7QPointF(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly initializes((12, 13)) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define void @_ZN12QCPLayerable14mouseMoveEventEP11QMouseEventRK7QPointF(ptr nonnull readnone align 8 captures(none) %0, ptr noundef writeonly captures(none) initializes((12, 13)) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i8 0, ptr %4, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12QCPLayerable17mouseReleaseEventEP11QMouseEventRK7QPointF(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly initializes((12, 13)) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define void @_ZN12QCPLayerable17mouseReleaseEventEP11QMouseEventRK7QPointF(ptr nonnull readnone align 8 captures(none) %0, ptr noundef writeonly captures(none) initializes((12, 13)) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i8 0, ptr %4, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12QCPLayerable21mouseDoubleClickEventEP11QMouseEventRK8QVariant(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly initializes((12, 13)) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define void @_ZN12QCPLayerable21mouseDoubleClickEventEP11QMouseEventRK8QVariant(ptr nonnull readnone align 8 captures(none) %0, ptr noundef writeonly captures(none) initializes((12, 13)) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i8 0, ptr %4, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12QCPLayerable10wheelEventEP11QWheelEvent(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly initializes((12, 13)) %1) unnamed_addr #0 align 2 {
+define void @_ZN12QCPLayerable10wheelEventEP11QWheelEvent(ptr nonnull readnone align 8 captures(none) %0, ptr noundef writeonly captures(none) initializes((12, 13)) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i8 0, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QCPRangeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define void @_ZN8QCPRangeC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QCPRangeC2Edd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, double noundef %1, double noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN8QCPRangeC2Edd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, double noundef %1, double noundef %2) unnamed_addr #0 align 2 {
   store double %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %2, ptr %4, align 8
@@ -6571,7 +6571,7 @@ _ZN8QCPRange9normalizeEv.exit:                    ; preds = %3, %6
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QCPRange6expandERKS_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #17 align 2 {
+define void @_ZN8QCPRange6expandERKS_(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #17 align 2 {
   %3 = load double, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = fcmp ogt double %3, %4
@@ -6609,7 +6609,7 @@ define void @_ZN8QCPRange6expandERKS_(ptr nocapture noundef nonnull align 8 dere
 declare noundef zeroext i1 @_Z6qIsNaNd(double noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QCPRange6expandEd(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, double noundef %1) local_unnamed_addr #17 align 2 {
+define void @_ZN8QCPRange6expandEd(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, double noundef %1) local_unnamed_addr #17 align 2 {
   %3 = load double, ptr %0, align 8
   %4 = fcmp ogt double %3, %1
   br i1 %4, label %7, label %5
@@ -6641,7 +6641,7 @@ define void @_ZN8QCPRange6expandEd(ptr nocapture noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define { double, double } @_ZNK8QCPRange8expandedERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #19 align 2 {
+define { double, double } @_ZNK8QCPRange8expandedERKS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #19 align 2 {
   %.sroa.0.0.copyload = load double, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
@@ -6678,7 +6678,7 @@ _ZN8QCPRange6expandERKS_.exit:                    ; preds = %12, %14
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define { double, double } @_ZNK8QCPRange8expandedEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1) local_unnamed_addr #19 align 2 {
+define { double, double } @_ZNK8QCPRange8expandedEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, double noundef %1) local_unnamed_addr #19 align 2 {
   %.sroa.0.0.copyload = load double, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
@@ -6712,7 +6712,7 @@ _ZN8QCPRange6expandEd.exit:                       ; preds = %9, %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK8QCPRange7boundedEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1, double noundef %2) local_unnamed_addr #2 align 2 {
+define { double, double } @_ZNK8QCPRange7boundedEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, double noundef %1, double noundef %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %class.QCPRange, align 8
   %5 = fcmp ogt double %1, %2
   %.016 = select i1 %5, double %2, double %1
@@ -6798,7 +6798,7 @@ define { double, double } @_ZNK8QCPRange7boundedEdd(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK8QCPRange20sanitizedForLogScaleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
+define { double, double } @_ZNK8QCPRange20sanitizedForLogScaleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
 _ZN8QCPRange9normalizeEv.exit:
   %1 = alloca %class.QCPRange, align 8
   %2 = load double, ptr %0, align 8
@@ -6866,7 +6866,7 @@ _ZN8QCPRange9normalizeEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK8QCPRange20sanitizedForLinScaleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
+define { double, double } @_ZNK8QCPRange20sanitizedForLinScaleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
 _ZN8QCPRange9normalizeEv.exit:
   %1 = alloca %class.QCPRange, align 8
   %2 = load double, ptr %0, align 8
@@ -6929,7 +6929,7 @@ define noundef zeroext i1 @_ZN8QCPRange10validRangeEdd(double noundef %0, double
 declare noundef zeroext i1 @_Z6qIsInfd(double noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN8QCPRange10validRangeERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #19 align 2 {
+define noundef zeroext i1 @_ZN8QCPRange10validRangeERKS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #19 align 2 {
   %2 = load double, ptr %0, align 8
   %3 = fcmp ogt double %2, 0xF3D658E3AB795204
   br i1 %3, label %4, label %26
@@ -6975,7 +6975,7 @@ define noundef zeroext i1 @_ZN8QCPRange10validRangeERKS_(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12QCPDataRangeC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define void @_ZN12QCPDataRangeC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
@@ -6983,7 +6983,7 @@ define void @_ZN12QCPDataRangeC2Ev(ptr nocapture noundef nonnull writeonly align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12QCPDataRangeC2Eii(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN12QCPDataRangeC2Eii(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %4, align 4
@@ -6991,7 +6991,7 @@ define void @_ZN12QCPDataRangeC2Eii(ptr nocapture noundef nonnull writeonly alig
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZNK12QCPDataRange7boundedERKS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
+define i64 @_ZNK12QCPDataRange7boundedERKS_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.QCPDataRange, align 4
   %4 = alloca %class.QCPDataRange, align 4
   %5 = alloca %class.QCPDataRange, align 8
@@ -7059,7 +7059,7 @@ _ZNK12QCPDataRange12intersectionERKS_.exit:       ; preds = %2, %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZNK12QCPDataRange12intersectionERKS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
+define i64 @_ZNK12QCPDataRange12intersectionERKS_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.QCPDataRange, align 4
   %4 = alloca %class.QCPDataRange, align 4
   %5 = load i32, ptr %0, align 4
@@ -7090,7 +7090,7 @@ define i64 @_ZNK12QCPDataRange12intersectionERKS_(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZNK12QCPDataRange8expandedERKS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
+define i64 @_ZNK12QCPDataRange8expandedERKS_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.QCPDataRange, align 8
   %4 = load i32, ptr %0, align 4
   %5 = load i32, ptr %1, align 4
@@ -7106,7 +7106,7 @@ define i64 @_ZNK12QCPDataRange8expandedERKS_(ptr nocapture noundef nonnull reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK12QCPDataRange10intersectsERKS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
+define noundef zeroext i1 @_ZNK12QCPDataRange10intersectsERKS_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp sle i32 %3, %4
@@ -7130,7 +7130,7 @@ define noundef zeroext i1 @_ZNK12QCPDataRange10intersectsERKS_(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK12QCPDataRange8containsERKS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
+define noundef zeroext i1 @_ZNK12QCPDataRange8containsERKS_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %.not = icmp sle i32 %3, %4
@@ -7144,7 +7144,7 @@ define noundef zeroext i1 @_ZNK12QCPDataRange8containsERKS_(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN16QCPDataSelectionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
+define void @_ZN16QCPDataSelectionC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
@@ -7186,7 +7186,7 @@ _ZN17QArrayDataPointerI12QCPDataRangeED2Ev.exit:  ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK16QCPDataSelectioneqERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #16 align 2 {
+define noundef zeroext i1 @_ZNK16QCPDataSelectioneqERKS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -7233,7 +7233,7 @@ define noundef zeroext i1 @_ZNK16QCPDataSelectioneqERKS_(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN16QCPDataSelectionpLERKS_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN16QCPDataSelectionpLERKS_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -7678,7 +7678,7 @@ define void @_ZN16QCPDataSelection12addDataRangeERK12QCPDataRangeb(ptr noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN16QCPDataSelectionmIERKS_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN16QCPDataSelectionmIERKS_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.QCPDataRange, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
@@ -7702,7 +7702,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN16QCPDataSelectionmIE
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZNK16QCPDataSelection9dataRangeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define i64 @_ZNK16QCPDataSelection9dataRangeEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QCPDataRange, align 4
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
@@ -7770,7 +7770,7 @@ _ZN6QDebuglsEi.exit:                              ; preds = %.noexc, %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN16QCPDataSelectionmIERK12QCPDataRange(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN16QCPDataSelectionmIERK12QCPDataRange(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QCPDataRange, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -8049,7 +8049,7 @@ _ZN5QListI12QCPDataRangeEixEx.exit49:             ; preds = %_ZNK17QArrayDataPoi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZNK16QCPDataSelection14dataPointCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK16QCPDataSelection14dataPointCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !noalias !58
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noalias !58
@@ -8099,7 +8099,7 @@ _ZN9QtPrivate17QForeachContainerI5QListI12QCPDataRangeEED2Ev.exit: ; preds = %._
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZNK16QCPDataSelection4spanEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define i64 @_ZNK16QCPDataSelection4spanEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QCPDataRange, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
@@ -8126,7 +8126,7 @@ define i64 @_ZNK16QCPDataSelection4spanEv(ptr nocapture noundef nonnull readonly
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN16QCPDataSelection5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16QCPDataSelection5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
@@ -8500,10 +8500,10 @@ _ZN5QListI12QCPDataRangeED2Ev.exit13:             ; preds = %_ZN5QListI12QCPData
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK16QCPDataSelection8containsERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #16 align 2 {
+define noundef zeroext i1 @_ZNK16QCPDataSelection8containsERKS_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
@@ -8557,7 +8557,7 @@ define noundef zeroext i1 @_ZNK16QCPDataSelection8containsERKS_(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK16QCPDataSelection12intersectionERK12QCPDataRange(ptr dead_on_unwind noalias writable sret(%class.QCPDataSelection) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK16QCPDataSelection12intersectionERK12QCPDataRange(ptr dead_on_unwind noalias writable sret(%class.QCPDataSelection) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QCPDataRange, align 4
   %5 = alloca %class.QCPDataRange, align 4
   %6 = alloca %class.QCPDataRange, align 8
@@ -8693,7 +8693,7 @@ _ZN5QListI12QCPDataRangeED2Ev.exit:               ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK16QCPDataSelection12intersectionERKS_(ptr dead_on_unwind noalias writable sret(%class.QCPDataSelection) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK16QCPDataSelection12intersectionERKS_(ptr dead_on_unwind noalias writable sret(%class.QCPDataSelection) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QCPDataSelection, align 8
   %5 = alloca %class.QCPDataRange, align 8
   tail call void @_ZN16QCPDataSelectionC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0)
@@ -8792,7 +8792,7 @@ _ZN16QCPDataSelectionD2Ev.exit15:                 ; preds = %.loopexit, %.loopex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK16QCPDataSelection7inverseERK12QCPDataRange(ptr dead_on_unwind noalias writable sret(%class.QCPDataSelection) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK16QCPDataSelection7inverseERK12QCPDataRange(ptr dead_on_unwind noalias writable sret(%class.QCPDataSelection) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QCPDataRange, align 8
   %5 = alloca %class.QCPDataRange, align 8
   %6 = alloca %class.QCPDataRange, align 4
@@ -9089,7 +9089,7 @@ define void @_ZN16QCPSelectionRectD0Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK16QCPSelectionRect5rangeEPK7QCPAxis(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0, ptr noundef readonly %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define { double, double } @_ZNK16QCPSelectionRect5rangeEPK7QCPAxis(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, ptr noundef readonly %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QCPRange, align 8
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
@@ -9163,7 +9163,7 @@ define { double, double } @_ZNK16QCPSelectionRect5rangeEPK7QCPAxis(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define noundef double @_ZNK7QCPAxis12pixelToCoordEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %0, double noundef %1) local_unnamed_addr #22 align 2 {
+define noundef double @_ZNK7QCPAxis12pixelToCoordEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %0, double noundef %1) local_unnamed_addr #22 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 1
@@ -9471,7 +9471,7 @@ define void @_ZN16QCPSelectionRect13keyPressEventEP9QKeyEvent(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK16QCPSelectionRect28applyDefaultAntialiasingHintEP10QCPPainter(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define void @_ZNK16QCPSelectionRect28applyDefaultAntialiasingHintEP10QCPPainter(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -9828,7 +9828,7 @@ define void @_ZN14QCPMarginGroupD2Ev(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14QCPMarginGroup5clearEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14QCPMarginGroup5clearEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QHashIterator, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -10030,7 +10030,7 @@ define void @_ZN14QCPMarginGroupD0Ev(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK14QCPMarginGroup7isEmptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK14QCPMarginGroup7isEmptyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QHashIterator, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -11291,7 +11291,7 @@ define void @_ZN16QCPLayoutElementD0Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN16QCPLayoutElement12setOuterRectERK5QRect(ptr nocapture noundef nonnull align 8 dereferenceable(168) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN16QCPLayoutElement12setOuterRectERK5QRect(ptr noundef nonnull align 8 captures(none) dereferenceable(168) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %1, align 4
@@ -11362,7 +11362,7 @@ _ZneRK5QRectS1_.exit.thread:                      ; preds = %2, %6, %11, %_ZneRK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN16QCPLayoutElement10setMarginsERK8QMargins(ptr nocapture noundef nonnull align 8 dereferenceable(168) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN16QCPLayoutElement10setMarginsERK8QMargins(ptr noundef nonnull align 8 captures(none) dereferenceable(168) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %1, align 4
@@ -11433,7 +11433,7 @@ _ZneRK8QMarginsS1_.exit.thread:                   ; preds = %2, %7, %13, %_ZneRK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN16QCPLayoutElement17setMinimumMarginsERK8QMargins(ptr nocapture noundef nonnull align 8 dereferenceable(168) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN16QCPLayoutElement17setMinimumMarginsERK8QMargins(ptr noundef nonnull align 8 captures(none) dereferenceable(168) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %1, align 4
@@ -11473,14 +11473,14 @@ _ZneRK8QMarginsS1_.exit.thread:                   ; preds = %2, %7, %13, %_ZneRK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN16QCPLayoutElement14setAutoMarginsE6QFlagsIN3QCP10MarginSideEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) initializes((156, 160)) %0, i32 %1) local_unnamed_addr #0 align 2 {
+define void @_ZN16QCPLayoutElement14setAutoMarginsE6QFlagsIN3QCP10MarginSideEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(168) initializes((156, 160)) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16QCPLayoutElement14setMinimumSizeERK5QSize(ptr nocapture noundef nonnull align 8 dereferenceable(168) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN16QCPLayoutElement14setMinimumSizeERK5QSize(ptr noundef nonnull align 8 captures(none) dereferenceable(168) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
   %5 = load i32, ptr %1, align 4
@@ -11533,7 +11533,7 @@ _ZNK9QCPLayout22sizeConstraintsChangedEv.exit:    ; preds = %select.unfold.i, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9QCPLayout22sizeConstraintsChangedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0) local_unnamed_addr #2 align 2 {
+define void @_ZNK9QCPLayout22sizeConstraintsChangedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0) local_unnamed_addr #2 align 2 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %select.unfold, %1
@@ -11568,7 +11568,7 @@ select.unfold:                                    ; preds = %6, %tailrecurse
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16QCPLayoutElement14setMinimumSizeEii(ptr nocapture noundef nonnull align 8 dereferenceable(168) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define void @_ZN16QCPLayoutElement14setMinimumSizeEii(ptr noundef nonnull align 8 captures(none) dereferenceable(168) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i32, ptr %4, align 8
   %.not.i.i = icmp ne i32 %5, %1
@@ -11621,7 +11621,7 @@ _ZN16QCPLayoutElement14setMinimumSizeERK5QSize.exit: ; preds = %select.unfold.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16QCPLayoutElement14setMaximumSizeERK5QSize(ptr nocapture noundef nonnull align 8 dereferenceable(168) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN16QCPLayoutElement14setMaximumSizeERK5QSize(ptr noundef nonnull align 8 captures(none) dereferenceable(168) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   %5 = load i32, ptr %1, align 4
@@ -11674,7 +11674,7 @@ _ZNK9QCPLayout22sizeConstraintsChangedEv.exit:    ; preds = %select.unfold.i, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16QCPLayoutElement14setMaximumSizeEii(ptr nocapture noundef nonnull align 8 dereferenceable(168) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define void @_ZN16QCPLayoutElement14setMaximumSizeEii(ptr noundef nonnull align 8 captures(none) dereferenceable(168) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i32, ptr %4, align 8
   %.not.i.i = icmp ne i32 %5, %1
@@ -11727,7 +11727,7 @@ _ZN16QCPLayoutElement14setMaximumSizeERK5QSize.exit: ; preds = %select.unfold.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16QCPLayoutElement21setSizeConstraintRectENS_18SizeConstraintRectE(ptr nocapture noundef nonnull align 8 dereferenceable(168) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN16QCPLayoutElement21setSizeConstraintRectENS_18SizeConstraintRectE(ptr noundef nonnull align 8 captures(none) dereferenceable(168) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, %1
@@ -12478,7 +12478,7 @@ _ZN5QListIN3QCP10MarginSideEED2Ev.exit20:         ; preds = %_ZN5QListIN3QCP10Ma
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @_ZNK16QCPLayoutElement20minimumOuterSizeHintEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0) unnamed_addr #14 align 2 {
+define i64 @_ZNK16QCPLayoutElement20minimumOuterSizeHintEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0) unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -12497,18 +12497,18 @@ define i64 @_ZNK16QCPLayoutElement20minimumOuterSizeHintEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZNK16QCPLayoutElement20maximumOuterSizeHintEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %0) unnamed_addr #6 align 2 {
+define noundef i64 @_ZNK16QCPLayoutElement20maximumOuterSizeHintEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(168) %0) unnamed_addr #6 align 2 {
   ret i64 72057589759737855
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK16QCPLayoutElement8elementsEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QList.59) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define void @_ZNK16QCPLayoutElement8elementsEb(ptr dead_on_unwind noalias writable writeonly sret(%class.QList.59) align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(168) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK16QCPLayoutElement10selectTestERK7QPointFbP8QVariant(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr nocapture noundef readnone %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK16QCPLayoutElement10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef readnone captures(none) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QRectF, align 8
   %6 = alloca %class.QDebug, align 8
   %7 = alloca %class.QMessageLogger, align 8
@@ -12658,7 +12658,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP16QCPLayoutElementEED2Ev.exit15: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN16QCPLayoutElement19calculateAutoMarginEN3QCP10MarginSideE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, i32 noundef %1) unnamed_addr #14 align 2 {
+define noundef i32 @_ZN16QCPLayoutElement19calculateAutoMarginEN3QCP10MarginSideE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0, i32 noundef %1) unnamed_addr #14 align 2 {
   switch i32 %1, label %_ZN3QCP14getMarginValueERK8QMarginsNS_10MarginSideE.exit3 [
     i32 1, label %_ZN3QCP14getMarginValueERK8QMarginsNS_10MarginSideE.exit.thread
     i32 2, label %_ZN3QCP14getMarginValueERK8QMarginsNS_10MarginSideE.exit.thread10
@@ -12702,7 +12702,7 @@ _ZN3QCP14getMarginValueERK8QMarginsNS_10MarginSideE.exit3: ; preds = %2, %_ZN3QC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN16QCPLayoutElement13layoutChangedEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %0) unnamed_addr #6 align 2 {
+define void @_ZN16QCPLayoutElement13layoutChangedEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(168) %0) unnamed_addr #6 align 2 {
   ret void
 }
 
@@ -13024,7 +13024,7 @@ _ZN17QArrayDataPointerIP16QCPLayoutElementED2Ev.exit: ; preds = %39, %_ZN17QArra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN9QCPLayout8simplifyEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %0) unnamed_addr #6 align 2 {
+define void @_ZN9QCPLayout8simplifyEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(168) %0) unnamed_addr #6 align 2 {
   ret void
 }
 
@@ -13119,7 +13119,7 @@ _ZN9QCPLayout8removeAtEi.exit:                    ; preds = %16, %11, %.lr.ph
 declare void @_ZN7QWidget14updateGeometryEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN9QCPLayout12updateLayoutEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %0) unnamed_addr #6 align 2 {
+define void @_ZN9QCPLayout12updateLayoutEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(168) %0) unnamed_addr #6 align 2 {
   ret void
 }
 
@@ -13202,7 +13202,7 @@ _ZN12QCPLayerable18setParentLayerableEPS_.exit:   ; preds = %5, %11, %13
 declare void @_ZN7QObject9setParentEPS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9QCPLayout14releaseElementEP16QCPLayoutElement(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, ptr noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9QCPLayout14releaseElementEP16QCPLayoutElement(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0, ptr noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %.not = icmp eq ptr %1, null
@@ -13261,7 +13261,7 @@ _ZN12QCPLayerable18setParentLayerableEPS_.exit:   ; preds = %5, %9, %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9QCPLayout15getSectionSizesE5QListIiES1_S0_IdEi(ptr dead_on_unwind noalias writable sret(%class.QList.73) align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9QCPLayout15getSectionSizesE5QListIiES1_S0_IdEi(ptr dead_on_unwind noalias writable sret(%class.QList.73) align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -15576,7 +15576,7 @@ define void @_ZN13QCPLayoutGridD0Ev(ptr noundef nonnull align 8 dereferenceable(
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK13QCPLayoutGrid7elementEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK13QCPLayoutGrid7elementEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   %6 = alloca %class.QDebug, align 8
@@ -16088,7 +16088,7 @@ _ZN6QDebuglsEi.exit42:                            ; preds = %.noexc40, %119
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN13QCPLayoutGrid10hasElementEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN13QCPLayoutGrid10hasElementEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %4 = icmp sgt i32 %1, -1
   br i1 %4, label %5, label %_ZNK13QCPLayoutGrid11columnCountEv.exit.thread
 
@@ -17313,21 +17313,21 @@ _ZN5QListIdEixEx.exit:                            ; preds = %_ZNK17QArrayDataPoi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13QCPLayoutGrid16setColumnSpacingEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((240, 244)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13QCPLayoutGrid16setColumnSpacingEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(256) initializes((240, 244)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13QCPLayoutGrid13setRowSpacingEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((244, 248)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13QCPLayoutGrid13setRowSpacingEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(256) initializes((244, 248)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 244
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13QCPLayoutGrid7setWrapEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((248, 252)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13QCPLayoutGrid7setWrapEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(256) initializes((248, 252)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i32 %.sroa.speculated, ptr %3, align 8
@@ -17751,7 +17751,7 @@ _ZN5QListIS_IP16QCPLayoutElementEEixEx.exit:      ; preds = %_ZNK17QArrayDataPoi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK13QCPLayoutGrid13rowColToIndexEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK13QCPLayoutGrid13rowColToIndexEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   %6 = alloca %class.QDebug, align 8
@@ -17889,7 +17889,7 @@ _ZN6QDebuglsEi.exit22:                            ; preds = %.noexc20, %60
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13QCPLayoutGrid13indexToRowColEiRiS0_(ptr noundef nonnull align 8 dereferenceable(256) %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13QCPLayoutGrid13indexToRowColEiRiS0_(ptr noundef nonnull align 8 dereferenceable(256) %0, i32 noundef %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QDebug, align 8
   %6 = alloca %class.QMessageLogger, align 8
   store i32 -1, ptr %2, align 4
@@ -17990,7 +17990,7 @@ _ZNK13QCPLayoutGrid11columnCountEv.exit.thread:   ; preds = %4, %_ZNK13QCPLayout
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13QCPLayoutGrid12updateLayoutEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13QCPLayoutGrid12updateLayoutEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QList.73, align 8
   %3 = alloca %class.QList.73, align 8
   %4 = alloca %class.QList.73, align 8
@@ -18695,7 +18695,7 @@ _ZN5QListIiED2Ev.exit125:                         ; preds = %_ZN5QListIiED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13QCPLayoutGrid21getMinimumRowColSizesEP5QListIiES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, ptr nocapture noundef initializes((8, 24)) %1, ptr nocapture noundef initializes((8, 24)) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13QCPLayoutGrid21getMinimumRowColSizesEP5QListIiES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, ptr noundef captures(none) initializes((8, 24)) %1, ptr noundef captures(none) initializes((8, 24)) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -19497,7 +19497,7 @@ _ZN5QListIiEixEx.exit43:                          ; preds = %320, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13QCPLayoutGrid21getMaximumRowColSizesEP5QListIiES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13QCPLayoutGrid21getMaximumRowColSizesEP5QListIiES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -21252,7 +21252,7 @@ _ZN5QListIP16QCPLayoutElementE8removeAtEx.exit:   ; preds = %205, %206, %207
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZNK13QCPLayoutGrid20minimumOuterSizeHintEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define i64 @_ZNK13QCPLayoutGrid20minimumOuterSizeHintEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QList.73, align 8
   %3 = alloca %class.QList.73, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
@@ -21456,7 +21456,7 @@ _ZN5QListIiED2Ev.exit25:                          ; preds = %_ZN5QListIiED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZNK13QCPLayoutGrid20maximumOuterSizeHintEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define i64 @_ZNK13QCPLayoutGrid20maximumOuterSizeHintEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QList.73, align 8
   %3 = alloca %class.QList.73, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
@@ -21987,7 +21987,7 @@ _ZN6QDebuglsEi.exit:                              ; preds = %.noexc, %28
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK14QCPLayoutInset9insetRectEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QRectF) align 8 %0, ptr noundef nonnull align 8 dereferenceable(264) %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK14QCPLayoutInset9insetRectEi(ptr dead_on_unwind noalias writable writeonly sret(%class.QRectF) align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(264) %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   %6 = load ptr, ptr %1, align 8
@@ -22231,7 +22231,7 @@ _ZN6QDebuglsEi.exit:                              ; preds = %.noexc, %35
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14QCPLayoutInset12setInsetRectEiRK6QRectF(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14QCPLayoutInset12setInsetRectEiRK6QRectF(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   %6 = load ptr, ptr %0, align 8
@@ -22321,7 +22321,7 @@ _ZN6QDebuglsEi.exit:                              ; preds = %.noexc, %35
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14QCPLayoutInset12updateLayoutEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0) unnamed_addr #2 align 2 {
+define void @_ZN14QCPLayoutInset12updateLayoutEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load i64, ptr %2, align 8
   %4 = icmp sgt i64 %3, 0
@@ -22703,7 +22703,7 @@ _ZN16QCPLayoutElement12setOuterRectERK5QRect.exit: ; preds = %_ZneRK5QRectS1_.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK14QCPLayoutInset12elementCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0) unnamed_addr #14 align 2 {
+define noundef i32 @_ZNK14QCPLayoutInset12elementCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0) unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -22711,7 +22711,7 @@ define noundef i32 @_ZNK14QCPLayoutInset12elementCountEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK14QCPLayoutInset9elementAtEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, i32 noundef %1) unnamed_addr #16 align 2 {
+define noundef ptr @_ZNK14QCPLayoutInset9elementAtEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, i32 noundef %1) unnamed_addr #16 align 2 {
   %3 = icmp sgt i32 %1, -1
   br i1 %3, label %4, label %14
 
@@ -23095,7 +23095,7 @@ define noundef zeroext i1 @_ZN14QCPLayoutInset4takeEP16QCPLayoutElement(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK14QCPLayoutInset10selectTestERK7QPointFbP8QVariant(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr nocapture noundef readnone %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK14QCPLayoutInset10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef readnone captures(none) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   br i1 %2, label %61, label %5
 
 5:                                                ; preds = %4
@@ -23468,7 +23468,7 @@ _ZN9QCPLayout12adoptElementEP16QCPLayoutElement.exit: ; preds = %_ZN12QCPLayerab
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13QCPLineEndingC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 4), (8, 25)) %0) unnamed_addr #0 align 2 {
+define void @_ZN13QCPLineEndingC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(25) initializes((0, 4), (8, 25)) %0) unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double 8.000000e+00, ptr %2, align 8
@@ -23480,7 +23480,7 @@ define void @_ZN13QCPLineEndingC2Ev(ptr nocapture noundef nonnull writeonly alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13QCPLineEndingC2ENS_11EndingStyleEddb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 4), (8, 25)) %0, i32 noundef %1, double noundef %2, double noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define void @_ZN13QCPLineEndingC2ENS_11EndingStyleEddb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(25) initializes((0, 4), (8, 25)) %0, i32 noundef %1, double noundef %2, double noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = zext i1 %4 to i8
   store i32 %1, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -23493,27 +23493,27 @@ define void @_ZN13QCPLineEndingC2ENS_11EndingStyleEddb(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13QCPLineEnding8setStyleENS_11EndingStyleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13QCPLineEnding8setStyleENS_11EndingStyleE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(25) initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13QCPLineEnding8setWidthEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((8, 16)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13QCPLineEnding8setWidthEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(25) initializes((8, 16)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13QCPLineEnding9setLengthEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((16, 24)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13QCPLineEnding9setLengthEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(25) initializes((16, 24)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13QCPLineEnding11setInvertedEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((24, 25)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13QCPLineEnding11setInvertedEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(25) initializes((24, 25)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %3, ptr %4, align 8
@@ -23521,7 +23521,7 @@ define void @_ZN13QCPLineEnding11setInvertedEb(ptr nocapture noundef nonnull wri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK13QCPLineEnding16boundingDistanceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0) local_unnamed_addr #14 align 2 {
+define noundef double @_ZNK13QCPLineEnding16boundingDistanceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0) local_unnamed_addr #14 align 2 {
   %2 = load i32, ptr %0, align 8
   switch i32 %2, label %14 [
     i32 8, label %10
@@ -23557,7 +23557,7 @@ define noundef double @_ZNK13QCPLineEnding16boundingDistanceEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK13QCPLineEnding10realLengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0) local_unnamed_addr #14 align 2 {
+define noundef double @_ZNK13QCPLineEnding10realLengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0) local_unnamed_addr #14 align 2 {
   %2 = load i32, ptr %0, align 8
   switch i32 %2, label %14 [
     i32 2, label %10
@@ -23590,7 +23590,7 @@ define noundef double @_ZNK13QCPLineEnding10realLengthEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13QCPLineEnding4drawEP10QCPPainterRK11QCPVector2DS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13QCPLineEnding4drawEP10QCPPainterRK11QCPVector2DS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QLine, align 8
   %6 = alloca %class.QLineF, align 8
   %7 = alloca %class.QCPVector2D, align 8
@@ -24943,7 +24943,7 @@ declare void @_ZN8QPainter17drawConvexPolygonEPK7QPointFi(ptr noundef nonnull al
 declare void @_ZN8QPainter12drawPolylineEPK7QPointFi(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13QCPLineEnding4drawEP10QCPPainterRK11QCPVector2Dd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, double noundef %3) local_unnamed_addr #2 align 2 {
+define void @_ZNK13QCPLineEnding4drawEP10QCPPainterRK11QCPVector2Dd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, double noundef %3) local_unnamed_addr #2 align 2 {
   %5 = alloca %class.QCPVector2D, align 8
   %6 = tail call noundef double @cos(double noundef %3) #48
   %7 = tail call noundef double @sin(double noundef %3) #48
@@ -25204,28 +25204,28 @@ define void @_ZN22QCPLabelPainterPrivateD0Ev(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN22QCPLabelPainterPrivate13setAnchorSideENS_10AnchorSideE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((12, 16)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22QCPLabelPainterPrivate13setAnchorSideENS_10AnchorSideE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(256) initializes((12, 16)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN22QCPLabelPainterPrivate13setAnchorModeENS_10AnchorModeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22QCPLabelPainterPrivate13setAnchorModeENS_10AnchorModeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(256) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN22QCPLabelPainterPrivate18setAnchorReferenceERK7QPointF(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((16, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN22QCPLabelPainterPrivate18setAnchorReferenceERK7QPointF(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(256) initializes((16, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN22QCPLabelPainterPrivate22setAnchorReferenceTypeENS_19AnchorReferenceTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((32, 36)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22QCPLabelPainterPrivate22setAnchorReferenceTypeENS_19AnchorReferenceTypeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(256) initializes((32, 36)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %1, ptr %3, align 8
   ret void
@@ -25251,21 +25251,21 @@ declare noundef zeroext i1 @_ZNK5QFontneERKS_(ptr noundef nonnull align 8 derefe
 declare noundef nonnull align 8 dereferenceable(12) ptr @_ZN5QFontaSERKS_(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN22QCPLabelPainterPrivate8setColorERK6QColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((56, 70)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN22QCPLabelPainterPrivate8setColorERK6QColor(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(256) initializes((56, 70)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %3, ptr noundef nonnull align 4 dereferenceable(14) %1, i64 14, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN22QCPLabelPainterPrivate10setPaddingEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((72, 76)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22QCPLabelPainterPrivate10setPaddingEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(256) initializes((72, 76)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN22QCPLabelPainterPrivate11setRotationEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((80, 88)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22QCPLabelPainterPrivate11setRotationEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(256) initializes((80, 88)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = fcmp ogt double %1, 9.000000e+01
   %4 = select i1 %3, double 9.000000e+01, double %1
   %5 = fcmp ogt double %4, -9.000000e+01
@@ -25276,7 +25276,7 @@ define void @_ZN22QCPLabelPainterPrivate11setRotationEd(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN22QCPLabelPainterPrivate21setSubstituteExponentEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((88, 89)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22QCPLabelPainterPrivate21setSubstituteExponentEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(256) initializes((88, 89)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i8 %3, ptr %4, align 8
@@ -25284,14 +25284,14 @@ define void @_ZN22QCPLabelPainterPrivate21setSubstituteExponentEb(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN22QCPLabelPainterPrivate23setMultiplicationSymbolE5QChar(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((90, 92)) %0, i16 %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22QCPLabelPainterPrivate23setMultiplicationSymbolE5QChar(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(256) initializes((90, 92)) %0, i16 %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 90
   store i16 %1, ptr %3, align 2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN22QCPLabelPainterPrivate26setAbbreviateDecimalPowersEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((92, 93)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN22QCPLabelPainterPrivate26setAbbreviateDecimalPowersEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(256) initializes((92, 93)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i8 %3, ptr %4, align 4
@@ -25327,7 +25327,7 @@ _ZN6QCacheI7QStringN22QCPLabelPainterPrivate11CachedLabelEE10setMaxCostEx.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK22QCPLabelPainterPrivate9cacheSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0) local_unnamed_addr #14 align 2 {
+define noundef i32 @_ZNK22QCPLabelPainterPrivate9cacheSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -25335,7 +25335,7 @@ define noundef i32 @_ZNK22QCPLabelPainterPrivate9cacheSizeEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22QCPLabelPainterPrivate13drawTickLabelEP10QCPPainterRK7QPointFRK7QString(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #2 align 2 {
+define void @_ZN22QCPLabelPainterPrivate13drawTickLabelEP10QCPPainterRK7QPointFRK7QString(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #2 align 2 {
   %5 = alloca %class.QCPVector2D, align 8
   %6 = alloca %class.QCPVector2D, align 8
   %7 = alloca %class.QPointF, align 8
@@ -25679,7 +25679,7 @@ _ZNK22QCPLabelPainterPrivate21rotationCorrectedSideENS_10AnchorSideEd.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 8) i32 @_ZNK22QCPLabelPainterPrivate16skewedAnchorSideERK7QPointFdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, double noundef %2, double noundef %3) local_unnamed_addr #2 align 2 {
+define noundef range(i32 0, 8) i32 @_ZNK22QCPLabelPainterPrivate16skewedAnchorSideERK7QPointFdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, double noundef %2, double noundef %3) local_unnamed_addr #2 align 2 {
   %5 = alloca %class.QCPVector2D, align 8
   %6 = alloca %class.QCPVector2D, align 8
   %7 = alloca %class.QPointF, align 8
@@ -25766,7 +25766,7 @@ define noundef range(i32 0, 8) i32 @_ZNK22QCPLabelPainterPrivate16skewedAnchorSi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK22QCPLabelPainterPrivate21rotationCorrectedSideENS_10AnchorSideEd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(256) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK22QCPLabelPainterPrivate21rotationCorrectedSideENS_10AnchorSideEd(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(256) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #6 align 2 {
   %4 = fcmp ogt double %2, 0.000000e+00
   %5 = fcmp ult double %2, 0.000000e+00
   %6 = fneg double %2
@@ -25874,7 +25874,7 @@ define noundef i32 @_ZNK22QCPLabelPainterPrivate21rotationCorrectedSideENS_10Anc
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZN22QCPLabelPainterPrivate12getAnchorPosERK7QPointF(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define { double, double } @_ZN22QCPLabelPainterPrivate12getAnchorPosERK7QPointF(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QCPVector2D, align 8
   %4 = alloca %class.QCPVector2D, align 8
   %5 = alloca %class.QDebug, align 8
@@ -26996,7 +26996,7 @@ _ZN10QByteArrayD2Ev.exit55:                       ; preds = %95, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK22QCPLabelPainterPrivate8cacheKeyERK7QStringRK6QColordNS_10AnchorSideE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QByteArray) align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 4 dereferenceable(14) %3, double noundef %4, i32 noundef %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK22QCPLabelPainterPrivate8cacheKeyERK7QStringRK6QColordNS_10AnchorSideE(ptr dead_on_unwind noalias writable writeonly sret(%class.QByteArray) align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 4 dereferenceable(14) %3, double noundef %4, i32 noundef %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %class.QByteArray, align 8
   %8 = alloca %class.QByteArray, align 8
   %9 = alloca %class.QByteArray, align 8
@@ -27427,7 +27427,7 @@ _ZN10QByteArrayD2Ev.exit92:                       ; preds = %_ZN10QByteArrayD2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK22QCPLabelPainterPrivate16getTickLabelDataERK5QFontRK6QColordNS_10AnchorSideERK7QString(ptr dead_on_unwind noalias nonnull writable sret(%"struct.QCPLabelPainterPrivate::LabelData") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(14) %3, double noundef %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK22QCPLabelPainterPrivate16getTickLabelDataERK5QFontRK6QColordNS_10AnchorSideERK7QString(ptr dead_on_unwind noalias nonnull writable sret(%"struct.QCPLabelPainterPrivate::LabelData") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(14) %3, double noundef %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %class.QRect, align 4
   %9 = alloca %class.QRect, align 4
   %10 = alloca %class.QRect, align 4
@@ -28101,7 +28101,7 @@ _ZN7QStringD2Ev.exit100:                          ; preds = %.loopexit, %.loopex
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZNK22QCPLabelPainterPrivate17createCachedLabelERKNS_9LabelDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(296) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZNK22QCPLabelPainterPrivate17createCachedLabelERKNS_9LabelDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(296) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QPixmap, align 8
   %4 = alloca %class.QPixmap, align 8
   %5 = alloca %class.QPixmap, align 8
@@ -28490,7 +28490,7 @@ _ZNK6QCacheI7QStringN22QCPLabelPainterPrivate11CachedLabelEE6relinkERKS0_.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK22QCPLabelPainterPrivate8drawTextEP10QCPPainterRK7QPointFRKNS_9LabelDataE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(296) %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK22QCPLabelPainterPrivate8drawTextEP10QCPPainterRK7QPointFRKNS_9LabelDataE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(296) %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QRect, align 4
   %6 = alloca %class.QRect, align 4
   %7 = alloca %class.QRect, align 4
@@ -28912,7 +28912,7 @@ declare void @_ZN12QFontMetricsD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK22QCPLabelPainterPrivate20applyAnchorTransformERNS_9LabelDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(296) %1) local_unnamed_addr #2 align 2 {
+define void @_ZNK22QCPLabelPainterPrivate20applyAnchorTransformERNS_9LabelDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(296) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load double, ptr %3, align 8
   %5 = fcmp ult double %4, 0.000000e+00
@@ -29032,7 +29032,7 @@ declare { i64, i64 } @_ZNK12QFontMetrics17tightBoundingRectERK7QString(ptr nound
 declare noundef i32 @_ZNK12QFontMetrics7descentEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13QCPAxisTickerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
+define void @_ZN13QCPAxisTickerC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13QCPAxisTicker, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
@@ -29044,7 +29044,7 @@ define void @_ZN13QCPAxisTickerC2Ev(ptr nocapture noundef nonnull writeonly alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN13QCPAxisTickerD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #6 align 2 {
+define void @_ZN13QCPAxisTickerD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
   ret void
 }
 
@@ -29056,14 +29056,14 @@ define void @_ZN13QCPAxisTickerD0Ev(ptr noundef nonnull align 8 dereferenceable(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13QCPAxisTicker19setTickStepStrategyENS_16TickStepStrategyE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13QCPAxisTicker19setTickStepStrategyENS_16TickStepStrategyE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13QCPAxisTicker12setTickCountEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13QCPAxisTicker12setTickCountEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = icmp sgt i32 %1, 0
@@ -29119,7 +29119,7 @@ _ZN6QDebuglsEi.exit:                              ; preds = %.noexc, %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13QCPAxisTicker13setTickOriginEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((16, 24)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13QCPAxisTicker13setTickOriginEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((16, 24)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %1, ptr %3, align 8
   ret void
@@ -29366,7 +29366,7 @@ _ZN5QListI7QStringED2Ev.exit:                     ; preds = %_ZN9QtPrivate16QGen
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13QCPAxisTicker9trimTicksERK8QCPRangeR5QListIdEb(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13QCPAxisTicker9trimTicksERK8QCPRangeR5QListIdEb(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca %class.QList.51, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -29581,7 +29581,7 @@ _ZN17QArrayDataPointerI7QStringED2Ev.exit:        ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN13QCPAxisTicker11getTickStepERK8QCPRange(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #2 align 2 {
+define noundef double @_ZN13QCPAxisTicker11getTickStepERK8QCPRange(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load double, ptr %3, align 8
   %5 = load double, ptr %1, align 8
@@ -29596,7 +29596,7 @@ define noundef double @_ZN13QCPAxisTicker11getTickStepERK8QCPRange(ptr nocapture
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK13QCPAxisTicker13cleanMantissaEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, double noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK13QCPAxisTicker13cleanMantissaEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, double noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   %5 = alloca double, align 8
@@ -29773,7 +29773,7 @@ _ZN5QListIdED2Ev.exit:                            ; preds = %59, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define noundef range(i32 1, 7) i32 @_ZN13QCPAxisTicker15getSubTickCountEd(ptr nocapture nonnull readnone align 8 %0, double noundef %1) unnamed_addr #24 align 2 {
+define noundef range(i32 1, 7) i32 @_ZN13QCPAxisTicker15getSubTickCountEd(ptr nonnull readnone align 8 captures(none) %0, double noundef %1) unnamed_addr #24 align 2 {
   %3 = alloca double, align 8
   %4 = tail call double @log10(double noundef %1) #48
   %5 = tail call double @llvm.floor.f64(double %4)
@@ -29826,10 +29826,10 @@ switch.lookup16:                                  ; preds = %23
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @modf(double noundef, ptr nocapture noundef) local_unnamed_addr #25
+declare double @modf(double noundef, ptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define noundef double @_ZNK13QCPAxisTicker11getMantissaEdPd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0, double noundef %1, ptr noundef writeonly %2) local_unnamed_addr #24 align 2 {
+define noundef double @_ZNK13QCPAxisTicker11getMantissaEdPd(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, double noundef %1, ptr noundef writeonly %2) local_unnamed_addr #24 align 2 {
   %4 = tail call double @log10(double noundef %1) #48
   %5 = tail call double @llvm.floor.f64(double %4)
   %6 = tail call double @pow(double noundef 1.000000e+01, double noundef %5) #48
@@ -29846,7 +29846,7 @@ define noundef double @_ZNK13QCPAxisTicker11getMantissaEdPd(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13QCPAxisTicker12getTickLabelEdRK7QLocale5QChari(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr nocapture nonnull readnone align 8 %1, double noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i16 %4, i32 noundef %5) unnamed_addr #2 align 2 {
+define void @_ZN13QCPAxisTicker12getTickLabelEdRK7QLocale5QChari(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr nonnull readnone align 8 captures(none) %1, double noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i16 %4, i32 noundef %5) unnamed_addr #2 align 2 {
   %7 = icmp ugt i16 %4, 255
   %8 = trunc nuw i16 %4 to i8
   %spec.select.i = select i1 %7, i8 0, i8 %8
@@ -29857,7 +29857,7 @@ define void @_ZN13QCPAxisTicker12getTickLabelEdRK7QLocale5QChari(ptr dead_on_unw
 declare void @_ZNK7QLocale8toStringEdci(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(8), double noundef, i8 noundef signext, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13QCPAxisTicker19createSubTickVectorEiRK5QListIdE(ptr dead_on_unwind noalias writable sret(%class.QList.51) align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13QCPAxisTicker19createSubTickVectorEiRK5QListIdE(ptr dead_on_unwind noalias writable sret(%class.QList.51) align 8 initializes((0, 24)) %0, ptr nonnull readnone align 8 captures(none) %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = icmp slt i32 %2, 1
   br i1 %5, label %.loopexit34, label %6
@@ -30165,7 +30165,7 @@ _ZN17QArrayDataPointerIdED2Ev.exit:               ; preds = %39, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13QCPAxisTicker16createTickVectorEdRK8QCPRange(ptr dead_on_unwind noalias nonnull writable sret(%class.QList.51) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, double noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13QCPAxisTicker16createTickVectorEdRK8QCPRange(ptr dead_on_unwind noalias nonnull writable sret(%class.QList.51) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, double noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = load double, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -30281,7 +30281,7 @@ declare double @llvm.floor.f64(double) #23
 declare double @llvm.ceil.f64(double) #23
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13QCPAxisTicker17createLabelVectorERK5QListIdERK7QLocale5QChari(ptr dead_on_unwind noalias nonnull writable sret(%class.QList.55) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i16 %4, i32 noundef %5) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13QCPAxisTicker17createLabelVectorERK5QListIdERK7QLocale5QChari(ptr dead_on_unwind noalias nonnull writable sret(%class.QList.55) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i16 %4, i32 noundef %5) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %class.QString, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -30659,7 +30659,7 @@ _ZN5QListIdEC2ERKS0_.exit:                        ; preds = %_ZN9QtPrivate12QPod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef double @_ZNK13QCPAxisTicker11pickClosestEdRK5QListIdE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0, double noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK13QCPAxisTicker11pickClosestEdRK5QListIdE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, double noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 1
@@ -30761,7 +30761,7 @@ define void @_ZN21QCPAxisTickerDateTime17setDateTimeFormatERK7QString(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN21QCPAxisTickerDateTime15setDateTimeSpecEN2Qt8TimeSpecE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(68) initializes((48, 52)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN21QCPAxisTickerDateTime15setDateTimeSpecEN2Qt8TimeSpecE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(68) initializes((48, 52)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %1, ptr %3, align 8
   ret void
@@ -30779,14 +30779,14 @@ define void @_ZN21QCPAxisTickerDateTime11setTimeZoneERK9QTimeZone(ptr noundef no
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN9QTimeZoneaSERKS_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN21QCPAxisTickerDateTime13setTickOriginEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(68) initializes((16, 24)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN21QCPAxisTickerDateTime13setTickOriginEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(68) initializes((16, 24)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21QCPAxisTickerDateTime13setTickOriginERK9QDateTime(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(68) initializes((16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN21QCPAxisTickerDateTime13setTickOriginERK9QDateTime(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(68) initializes((16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
   %3 = tail call noundef i64 @_ZNK9QDateTime17toMSecsSinceEpochEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %4 = sitofp i64 %3 to double
   %5 = fdiv double %4, 1.000000e+03
@@ -30804,7 +30804,7 @@ define noundef double @_ZN21QCPAxisTickerDateTime13dateTimeToKeyERK9QDateTime(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN21QCPAxisTickerDateTime11getTickStepERK8QCPRange(ptr nocapture noundef nonnull align 8 dereferenceable(68) initializes((64, 68)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZN21QCPAxisTickerDateTime11getTickStepERK8QCPRange(ptr noundef nonnull align 8 captures(none) dereferenceable(68) initializes((64, 68)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   %5 = alloca double, align 8
@@ -31196,7 +31196,7 @@ _ZN5QListIdED2Ev.exit43:                          ; preds = %137, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define noundef range(i32 1, 7) i32 @_ZN21QCPAxisTickerDateTime15getSubTickCountEd(ptr nocapture nonnull readnone align 8 %0, double noundef %1) unnamed_addr #24 align 2 {
+define noundef range(i32 1, 7) i32 @_ZN21QCPAxisTickerDateTime15getSubTickCountEd(ptr nonnull readnone align 8 captures(none) %0, double noundef %1) unnamed_addr #24 align 2 {
   %3 = alloca double, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = tail call double @log10(double noundef %1) #48
@@ -31392,7 +31392,7 @@ declare void @_ZN9QDateTimeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) 
 declare void @_ZNK9QDateTime10toTimeSpecEN2Qt8TimeSpecE(ptr dead_on_unwind writable sret(%class.QDateTime) align 8, ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21QCPAxisTickerDateTime16createTickVectorEdRK8QCPRange(ptr dead_on_unwind noalias writable sret(%class.QList.51) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %1, double noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN21QCPAxisTickerDateTime16createTickVectorEdRK8QCPRange(ptr dead_on_unwind noalias writable sret(%class.QList.51) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %1, double noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QDateTime, align 8
   %6 = alloca %class.QDateTime, align 8
   %7 = alloca %class.QDateTime, align 8
@@ -32589,7 +32589,7 @@ define void @_ZN17QCPAxisTickerTime13setFieldWidthENS_8TimeUnitEi(ptr noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN17QCPAxisTickerTime11getTickStepERK8QCPRange(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZN17QCPAxisTickerTime11getTickStepERK8QCPRange(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   %5 = alloca double, align 8
@@ -32980,7 +32980,7 @@ _ZN5QListIdED2Ev.exit34:                          ; preds = %150, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define noundef range(i32 1, 7) i32 @_ZN17QCPAxisTickerTime15getSubTickCountEd(ptr nocapture nonnull readnone align 8 %0, double noundef %1) unnamed_addr #24 align 2 {
+define noundef range(i32 1, 7) i32 @_ZN17QCPAxisTickerTime15getSubTickCountEd(ptr nonnull readnone align 8 captures(none) %0, double noundef %1) unnamed_addr #24 align 2 {
   %3 = alloca double, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = tail call double @log10(double noundef %1) #48
@@ -33065,7 +33065,7 @@ _ZN13QCPAxisTicker15getSubTickCountEd.exit:       ; preds = %switch.lookup3, %23
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17QCPAxisTickerTime12getTickLabelEdRK7QLocale5QChari(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, double noundef %2, ptr nocapture nonnull readnone align 8 %3, i16 %4, i32 %5) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17QCPAxisTickerTime12getTickLabelEdRK7QLocale5QChari(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, double noundef %2, ptr nonnull readnone align 8 captures(none) %3, i16 %4, i32 %5) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca [5 x double], align 16
   %8 = alloca [5 x double], align 16
   %9 = fcmp olt double %2, 0.000000e+00
@@ -33400,7 +33400,7 @@ declare void @_ZN7QString6numberEii(ptr dead_on_unwind writable sret(%class.QStr
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QString7replaceERKS_S1_N2Qt15CaseSensitivityE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN18QCPAxisTickerFixedC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %0) unnamed_addr #0 align 2 {
+define void @_ZN18QCPAxisTickerFixedC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(36) initializes((0, 36)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -33416,7 +33416,7 @@ define void @_ZN18QCPAxisTickerFixedC2Ev(ptr nocapture noundef nonnull writeonly
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18QCPAxisTickerFixed11setTickStepEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %0, double noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18QCPAxisTickerFixed11setTickStepEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(36) %0, double noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = fcmp ogt double %1, 0.000000e+00
@@ -33472,14 +33472,14 @@ _ZN6QDebuglsEd.exit:                              ; preds = %.noexc, %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN18QCPAxisTickerFixed16setScaleStrategyENS_13ScaleStrategyE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((32, 36)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN18QCPAxisTickerFixed16setScaleStrategyENS_13ScaleStrategyE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(36) initializes((32, 36)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN18QCPAxisTickerFixed11getTickStepERK8QCPRange(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #2 align 2 {
+define noundef double @_ZN18QCPAxisTickerFixed11getTickStepERK8QCPRange(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %49 [
@@ -33551,7 +33551,7 @@ define noundef double @_ZN18QCPAxisTickerFixed11getTickStepERK8QCPRange(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN17QCPAxisTickerTextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %0) unnamed_addr #0 align 2 {
+define void @_ZN17QCPAxisTickerTextC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(36) initializes((0, 36)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -33567,7 +33567,7 @@ define void @_ZN17QCPAxisTickerTextC2Ev(ptr nocapture noundef nonnull writeonly 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN17QCPAxisTickerText8setTicksERK4QMapId7QStringE(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17QCPAxisTickerText8setTicksERK4QMapId7QStringE(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %1, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -33611,7 +33611,7 @@ _ZN4QMapId7QStringEaSERKS1_.exit:                 ; preds = %_ZN9QtPrivate30QExp
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17QCPAxisTickerText8setTicksERK5QListIdERKS0_I7QStringE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #2 align 2 {
+define void @_ZN17QCPAxisTickerText8setTicksERK5QListIdERKS0_I7QStringE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN4QMapId7QStringE5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
   tail call void @_ZN17QCPAxisTickerText8addTicksERK5QListIdERKS0_I7QStringE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
@@ -33626,7 +33626,7 @@ define void @_ZN17QCPAxisTickerText5clearEv(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17QCPAxisTickerText8addTicksERK5QListIdERKS0_I7QStringE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17QCPAxisTickerText8addTicksERK5QListIdERKS0_I7QStringE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -33731,7 +33731,7 @@ _ZN6QDebuglsEx.exit18:                            ; preds = %.noexc16, %33
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17QCPAxisTickerText15setSubTickCountEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17QCPAxisTickerText15setSubTickCountEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(36) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = icmp sgt i32 %1, -1
@@ -34116,19 +34116,19 @@ _ZNSt3mapId7QStringSt4lessIdESaISt4pairIKdS0_EEED2Ev.exit: ; preds = %2, %_ZNSt3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef double @_ZN17QCPAxisTickerText11getTickStepERK8QCPRange(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #6 align 2 {
+define noundef double @_ZN17QCPAxisTickerText11getTickStepERK8QCPRange(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #6 align 2 {
   ret double 1.000000e+00
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN17QCPAxisTickerText15getSubTickCountEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, double %1) unnamed_addr #14 align 2 {
+define noundef i32 @_ZN17QCPAxisTickerText15getSubTickCountEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0, double %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define void @_ZN17QCPAxisTickerText12getTickLabelEdRK7QLocale5QChari(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, double noundef %2, ptr nocapture nonnull readnone align 8 %3, i16 %4, i32 %5) unnamed_addr #27 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17QCPAxisTickerText12getTickLabelEdRK7QLocale5QChari(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %1, double noundef %2, ptr nonnull readnone align 8 captures(none) %3, i16 %4, i32 %5) unnamed_addr #27 align 2 personality ptr @__gxx_personality_v0 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !316)
   %8 = load ptr, ptr %7, align 8, !noalias !316
@@ -34197,7 +34197,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %31, %9, %22, %_ZN7Q
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17QCPAxisTickerText16createTickVectorEdRK8QCPRange(ptr dead_on_unwind noalias writable sret(%class.QList.51) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, double %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17QCPAxisTickerText16createTickVectorEdRK8QCPRange(ptr dead_on_unwind noalias writable sret(%class.QList.51) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, double %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca double, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -34467,14 +34467,14 @@ define void @_ZN15QCPAxisTickerPi11setPiSymbolE7QString(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN15QCPAxisTickerPi10setPiValueEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((48, 56)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN15QCPAxisTickerPi10setPiValueEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) initializes((48, 56)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN15QCPAxisTickerPi14setPeriodicityEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((56, 60)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN15QCPAxisTickerPi14setPeriodicityEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) initializes((56, 60)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef i32 @llvm.abs.i32(i32 %1, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %3, ptr %4, align 8
@@ -34482,14 +34482,14 @@ define void @_ZN15QCPAxisTickerPi14setPeriodicityEi(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN15QCPAxisTickerPi16setFractionStyleENS_13FractionStyleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((60, 64)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN15QCPAxisTickerPi16setFractionStyleENS_13FractionStyleE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) initializes((60, 64)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN15QCPAxisTickerPi11getTickStepERK8QCPRange(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((64, 72)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #2 align 2 {
+define noundef double @_ZN15QCPAxisTickerPi11getTickStepERK8QCPRange(ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((64, 72)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load double, ptr %3, align 8
   %5 = load double, ptr %1, align 8
@@ -34512,7 +34512,7 @@ define noundef double @_ZN15QCPAxisTickerPi11getTickStepERK8QCPRange(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef range(i32 1, 7) i32 @_ZN15QCPAxisTickerPi15getSubTickCountEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, double noundef %1) unnamed_addr #28 align 2 {
+define noundef range(i32 1, 7) i32 @_ZN15QCPAxisTickerPi15getSubTickCountEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, double noundef %1) unnamed_addr #28 align 2 {
   %3 = alloca double, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load double, ptr %4, align 8
@@ -34982,7 +34982,7 @@ _ZN7QStringD2Ev.exit29:                           ; preds = %_ZN7QStringD2Ev.exi
 declare double @fmod(double noundef, double noundef) local_unnamed_addr #26
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZNK15QCPAxisTickerPi16simplifyFractionERiS0_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #29 align 2 {
+define void @_ZNK15QCPAxisTickerPi16simplifyFractionERiS0_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #29 align 2 {
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %4, 0
   %6 = load i32, ptr %2, align 4
@@ -35010,7 +35010,7 @@ define void @_ZNK15QCPAxisTickerPi16simplifyFractionERiS0_(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK15QCPAxisTickerPi16fractionToStringEii(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK15QCPAxisTickerPi16fractionToStringEii(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QDebug, align 8
   %6 = alloca %class.QMessageLogger, align 8
   %7 = alloca %class.QDebug, align 8
@@ -35679,7 +35679,7 @@ declare void @_ZNK7QString3argE13QLatin1Stringi5QChar(ptr dead_on_unwind writabl
 declare void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i16) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK15QCPAxisTickerPi15unicodeFractionEii(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr nocapture nonnull readnone align 8 %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK15QCPAxisTickerPi15unicodeFractionEii(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
@@ -35945,7 +35945,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i34:    ; preds = %.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK15QCPAxisTickerPi18unicodeSuperscriptEi(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK15QCPAxisTickerPi18unicodeSuperscriptEi(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %6
 
@@ -35989,7 +35989,7 @@ _ZN7QString7prependE5QChar.exit:                  ; preds = %.lr.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK15QCPAxisTickerPi16unicodeSubscriptEi(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK15QCPAxisTickerPi16unicodeSubscriptEi(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %6
 
@@ -36026,7 +36026,7 @@ _ZN7QString7prependE5QChar.exit:                  ; preds = %.lr.ph
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN16QCPAxisTickerLogC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16QCPAxisTickerLogC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 36), (40, 48)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -36044,7 +36044,7 @@ define void @_ZN16QCPAxisTickerLogC2Ev(ptr nocapture noundef nonnull writeonly a
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16QCPAxisTickerLog10setLogBaseEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, double noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16QCPAxisTickerLog10setLogBaseEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, double noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = fcmp ogt double %1, 0.000000e+00
@@ -36104,7 +36104,7 @@ _ZN6QDebuglsEd.exit:                              ; preds = %.noexc, %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16QCPAxisTickerLog15setSubTickCountEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16QCPAxisTickerLog15setSubTickCountEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = icmp sgt i32 %1, -1
@@ -36160,14 +36160,14 @@ _ZN6QDebuglsEi.exit:                              ; preds = %.noexc, %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN16QCPAxisTickerLog15getSubTickCountEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, double %1) unnamed_addr #14 align 2 {
+define noundef i32 @_ZN16QCPAxisTickerLog15getSubTickCountEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, double %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16QCPAxisTickerLog16createTickVectorEdRK8QCPRange(ptr dead_on_unwind noalias writable sret(%class.QList.51) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, double noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16QCPAxisTickerLog16createTickVectorEdRK8QCPRange(ptr dead_on_unwind noalias writable sret(%class.QList.51) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, double noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca double, align 8
   %6 = alloca double, align 8
   %7 = alloca double, align 8
@@ -36662,7 +36662,7 @@ define void @_ZN7QCPGrid14setZeroLinePenERK4QPen(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7QCPGrid17setSubGridVisibleEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((57, 58)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN7QCPGrid17setSubGridVisibleEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((57, 58)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 57
   store i8 %3, ptr %4, align 1
@@ -36670,7 +36670,7 @@ define void @_ZN7QCPGrid17setSubGridVisibleEb(ptr nocapture noundef nonnull writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7QCPGrid21setAntialiasedSubGridEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((58, 59)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN7QCPGrid21setAntialiasedSubGridEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((58, 59)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 58
   store i8 %3, ptr %4, align 2
@@ -36678,7 +36678,7 @@ define void @_ZN7QCPGrid21setAntialiasedSubGridEb(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7QCPGrid22setAntialiasedZeroLineEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((59, 60)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN7QCPGrid22setAntialiasedZeroLineEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((59, 60)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 59
   store i8 %3, ptr %4, align 1
@@ -36686,7 +36686,7 @@ define void @_ZN7QCPGrid22setAntialiasedZeroLineEb(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7QCPGrid28applyDefaultAntialiasingHintEP10QCPPainter(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define void @_ZNK7QCPGrid28applyDefaultAntialiasingHintEP10QCPPainter(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -37556,7 +37556,7 @@ _ZN10QCPPainter8drawLineERK6QLineF.exit92:        ; preds = %254, %255
 declare noundef i32 @_ZNK4QPen5styleEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define noundef double @_ZNK7QCPAxis12coordToPixelEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %0, double noundef %1) local_unnamed_addr #22 align 2 {
+define noundef double @_ZNK7QCPAxis12coordToPixelEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %0, double noundef %1) local_unnamed_addr #22 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 1
@@ -38432,7 +38432,7 @@ declare void @_ZNK5QFont6familyEv(ptr dead_on_unwind writable sret(%class.QStrin
 declare void @_ZN5QFontC1ERK7QStringiib(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i32 noundef, i1 noundef zeroext) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7QCPAxis19setTickLabelPaddingEi(ptr nocapture noundef nonnull align 8 dereferenceable(472) %0, i32 noundef %1) local_unnamed_addr #30 align 2 {
+define void @_ZN7QCPAxis19setTickLabelPaddingEi(ptr noundef nonnull align 8 captures(none) dereferenceable(472) %0, i32 noundef %1) local_unnamed_addr #30 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 152
@@ -38451,7 +38451,7 @@ define void @_ZN7QCPAxis19setTickLabelPaddingEi(ptr nocapture noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7QCPAxis15setLabelPaddingEi(ptr nocapture noundef nonnull align 8 dereferenceable(472) %0, i32 noundef %1) local_unnamed_addr #30 align 2 {
+define void @_ZN7QCPAxis15setLabelPaddingEi(ptr noundef nonnull align 8 captures(none) dereferenceable(472) %0, i32 noundef %1) local_unnamed_addr #30 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
@@ -38740,7 +38740,7 @@ define void @_ZN7QCPAxisD0Ev(ptr noundef nonnull align 8 dereferenceable(472) %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK7QCPAxis16tickLabelPaddingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %0) local_unnamed_addr #16 align 2 {
+define noundef i32 @_ZNK7QCPAxis16tickLabelPaddingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 152
@@ -38749,7 +38749,7 @@ define noundef i32 @_ZNK7QCPAxis16tickLabelPaddingEv(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef double @_ZNK7QCPAxis17tickLabelRotationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %0) local_unnamed_addr #16 align 2 {
+define noundef double @_ZNK7QCPAxis17tickLabelRotationEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
@@ -38758,7 +38758,7 @@ define noundef double @_ZNK7QCPAxis17tickLabelRotationEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK7QCPAxis13tickLabelSideEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %0) local_unnamed_addr #16 align 2 {
+define noundef i32 @_ZNK7QCPAxis13tickLabelSideEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
@@ -38767,7 +38767,7 @@ define noundef i32 @_ZNK7QCPAxis13tickLabelSideEv(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7QCPAxis12numberFormatEv(ptr dead_on_unwind noalias nonnull writable sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7QCPAxis12numberFormatEv(ptr dead_on_unwind noalias nonnull writable sret(%class.QString) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %.sroa.0.0.copyload = load i8, ptr %3, align 4
@@ -38810,7 +38810,7 @@ define void @_ZNK7QCPAxis12numberFormatEv(ptr dead_on_unwind noalias nonnull wri
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QString6appendE5QChar(ptr noundef nonnull align 8 dereferenceable(24), i16) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK7QCPAxis12tickLengthInEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %0) local_unnamed_addr #16 align 2 {
+define noundef i32 @_ZNK7QCPAxis12tickLengthInEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 176
@@ -38819,7 +38819,7 @@ define noundef i32 @_ZNK7QCPAxis12tickLengthInEv(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK7QCPAxis13tickLengthOutEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %0) local_unnamed_addr #16 align 2 {
+define noundef i32 @_ZNK7QCPAxis13tickLengthOutEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 180
@@ -38828,7 +38828,7 @@ define noundef i32 @_ZNK7QCPAxis13tickLengthOutEv(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK7QCPAxis15subTickLengthInEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %0) local_unnamed_addr #16 align 2 {
+define noundef i32 @_ZNK7QCPAxis15subTickLengthInEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 184
@@ -38837,7 +38837,7 @@ define noundef i32 @_ZNK7QCPAxis15subTickLengthInEv(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK7QCPAxis16subTickLengthOutEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %0) local_unnamed_addr #16 align 2 {
+define noundef i32 @_ZNK7QCPAxis16subTickLengthOutEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 188
@@ -38846,7 +38846,7 @@ define noundef i32 @_ZNK7QCPAxis16subTickLengthOutEv(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK7QCPAxis12labelPaddingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %0) local_unnamed_addr #16 align 2 {
+define noundef i32 @_ZNK7QCPAxis12labelPaddingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 88
@@ -38855,7 +38855,7 @@ define noundef i32 @_ZNK7QCPAxis12labelPaddingEv(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK7QCPAxis6offsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %0) local_unnamed_addr #16 align 2 {
+define noundef i32 @_ZNK7QCPAxis6offsetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 272
@@ -38864,7 +38864,7 @@ define noundef i32 @_ZNK7QCPAxis6offsetEv(ptr nocapture noundef nonnull readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK7QCPAxis11lowerEndingEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QCPLineEnding) align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %1) local_unnamed_addr #30 align 2 {
+define void @_ZNK7QCPAxis11lowerEndingEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QCPLineEnding) align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %1) local_unnamed_addr #30 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -38873,7 +38873,7 @@ define void @_ZNK7QCPAxis11lowerEndingEv(ptr dead_on_unwind noalias nocapture wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK7QCPAxis11upperEndingEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QCPLineEnding) align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %1) local_unnamed_addr #30 align 2 {
+define void @_ZNK7QCPAxis11upperEndingEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QCPLineEnding) align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %1) local_unnamed_addr #30 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -38977,7 +38977,7 @@ _ZNK8QCPRange20sanitizedForLogScaleEv.exit:       ; preds = %22, %28, %31, %37, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7QCPAxis8setRangeERK8QCPRange(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN7QCPAxis8setRangeERK8QCPRange(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.QCPRange, align 8
   %4 = alloca %class.QCPRange, align 8
   %5 = alloca %class.QCPRange, align 8
@@ -39140,7 +39140,7 @@ declare void @_ZN7QCPAxis12rangeChangedERK8QCPRange(ptr noundef nonnull align 8 
 declare void @_ZN7QCPAxis12rangeChangedERK8QCPRangeS2_(ptr noundef nonnull align 8 dereferenceable(472), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7QCPAxis18setSelectablePartsERK6QFlagsINS_14SelectablePartEE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN7QCPAxis18setSelectablePartsERK6QFlagsINS_14SelectablePartEE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.sroa.01.0.copyload = load i32, ptr %3, align 8
   %.sroa.0.0.copyload = load i32, ptr %1, align 4
@@ -39159,7 +39159,7 @@ define void @_ZN7QCPAxis18setSelectablePartsERK6QFlagsINS_14SelectablePartEE(ptr
 declare void @_ZN7QCPAxis17selectableChangedERK6QFlagsINS_14SelectablePartEE(ptr noundef nonnull align 8 dereferenceable(472), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7QCPAxis16setSelectedPartsERK6QFlagsINS_14SelectablePartEE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN7QCPAxis16setSelectedPartsERK6QFlagsINS_14SelectablePartEE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %.sroa.01.0.copyload = load i32, ptr %3, align 4
   %.sroa.0.0.copyload = load i32, ptr %1, align 4
@@ -39563,7 +39563,7 @@ _ZNK8QCPRange20sanitizedForLogScaleEv.exit:       ; preds = %24, %30, %33, %39, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7QCPAxis16setRangeReversedEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(472) initializes((320, 321)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN7QCPAxis16setRangeReversedEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(472) initializes((320, 321)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i8 %3, ptr %4, align 8
@@ -39571,7 +39571,7 @@ define void @_ZN7QCPAxis16setRangeReversedEb(ptr nocapture noundef nonnull write
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7QCPAxis9setTickerE14QSharedPointerI13QCPAxisTickerE(ptr nocapture noundef nonnull align 8 dereferenceable(472) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7QCPAxis9setTickerE14QSharedPointerI13QCPAxisTickerE(ptr noundef nonnull align 8 captures(none) dereferenceable(472) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = load ptr, ptr %1, align 8
@@ -39656,7 +39656,7 @@ _ZN14QSharedPointerI13QCPAxisTickerEaSERKS1_.exit: ; preds = %23, %_ZN15QtShared
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7QCPAxis8setTicksEb(ptr nocapture noundef nonnull align 8 dereferenceable(472) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define void @_ZN7QCPAxis8setTicksEb(ptr noundef nonnull align 8 captures(none) dereferenceable(472) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 270
   %4 = load i8, ptr %3, align 2
   %5 = trunc i8 %4 to i1
@@ -39826,14 +39826,14 @@ define void @_ZN7QCPAxis16setTickLabelFontERK5QFont(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7QCPAxis17setTickLabelColorERK6QColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(472) initializes((232, 246)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN7QCPAxis17setTickLabelColorERK6QColor(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(472) initializes((232, 246)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %3, ptr noundef nonnull align 4 dereferenceable(14) %1, i64 14, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7QCPAxis20setTickLabelRotationEd(ptr nocapture noundef nonnull align 8 dereferenceable(472) %0, double noundef %1) local_unnamed_addr #30 align 2 {
+define void @_ZN7QCPAxis20setTickLabelRotationEd(ptr noundef nonnull align 8 captures(none) dereferenceable(472) %0, double noundef %1) local_unnamed_addr #30 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 160
@@ -39860,7 +39860,7 @@ define void @_ZN7QCPAxis20setTickLabelRotationEd(ptr nocapture noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7QCPAxis16setTickLabelSideENS_9LabelSideE(ptr nocapture noundef nonnull align 8 dereferenceable(472) initializes((432, 433)) %0, i32 noundef %1) local_unnamed_addr #31 align 2 {
+define void @_ZN7QCPAxis16setTickLabelSideENS_9LabelSideE(ptr noundef nonnull align 8 captures(none) dereferenceable(472) initializes((432, 433)) %0, i32 noundef %1) local_unnamed_addr #31 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
@@ -39871,7 +39871,7 @@ define void @_ZN7QCPAxis16setTickLabelSideENS_9LabelSideE(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7QCPAxis15setNumberFormatERK7QString(ptr nocapture noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7QCPAxis15setNumberFormatERK7QString(ptr noundef nonnull align 8 captures(none) dereferenceable(472) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = alloca %class.QString, align 8
@@ -40165,7 +40165,7 @@ _ZN7QStringD2Ev.exit33:                           ; preds = %130, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7QCPAxis18setNumberPrecisionEi(ptr nocapture noundef nonnull align 8 dereferenceable(472) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define void @_ZN7QCPAxis18setNumberPrecisionEi(ptr noundef nonnull align 8 captures(none) dereferenceable(472) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, %1
@@ -40182,7 +40182,7 @@ define void @_ZN7QCPAxis18setNumberPrecisionEi(ptr nocapture noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7QCPAxis13setTickLengthEii(ptr nocapture noundef nonnull align 8 dereferenceable(472) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #30 align 2 {
+define void @_ZN7QCPAxis13setTickLengthEii(ptr noundef nonnull align 8 captures(none) dereferenceable(472) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #30 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 176
@@ -40213,7 +40213,7 @@ _ZN7QCPAxis16setTickLengthOutEi.exit:             ; preds = %_ZN7QCPAxis15setTic
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7QCPAxis15setTickLengthInEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %0, i32 noundef %1) local_unnamed_addr #30 align 2 {
+define void @_ZN7QCPAxis15setTickLengthInEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %0, i32 noundef %1) local_unnamed_addr #30 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
@@ -40230,7 +40230,7 @@ define void @_ZN7QCPAxis15setTickLengthInEi(ptr nocapture noundef nonnull readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7QCPAxis16setTickLengthOutEi(ptr nocapture noundef nonnull align 8 dereferenceable(472) %0, i32 noundef %1) local_unnamed_addr #30 align 2 {
+define void @_ZN7QCPAxis16setTickLengthOutEi(ptr noundef nonnull align 8 captures(none) dereferenceable(472) %0, i32 noundef %1) local_unnamed_addr #30 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 180
@@ -40249,7 +40249,7 @@ define void @_ZN7QCPAxis16setTickLengthOutEi(ptr nocapture noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7QCPAxis11setSubTicksEb(ptr nocapture noundef nonnull align 8 dereferenceable(472) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define void @_ZN7QCPAxis11setSubTicksEb(ptr noundef nonnull align 8 captures(none) dereferenceable(472) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 271
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -40268,7 +40268,7 @@ define void @_ZN7QCPAxis11setSubTicksEb(ptr nocapture noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7QCPAxis16setSubTickLengthEii(ptr nocapture noundef nonnull align 8 dereferenceable(472) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #30 align 2 {
+define void @_ZN7QCPAxis16setSubTickLengthEii(ptr noundef nonnull align 8 captures(none) dereferenceable(472) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #30 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 184
@@ -40299,7 +40299,7 @@ _ZN7QCPAxis19setSubTickLengthOutEi.exit:          ; preds = %_ZN7QCPAxis18setSub
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7QCPAxis18setSubTickLengthInEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %0, i32 noundef %1) local_unnamed_addr #30 align 2 {
+define void @_ZN7QCPAxis18setSubTickLengthInEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %0, i32 noundef %1) local_unnamed_addr #30 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 184
@@ -40316,7 +40316,7 @@ define void @_ZN7QCPAxis18setSubTickLengthInEi(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7QCPAxis19setSubTickLengthOutEi(ptr nocapture noundef nonnull align 8 dereferenceable(472) %0, i32 noundef %1) local_unnamed_addr #30 align 2 {
+define void @_ZN7QCPAxis19setSubTickLengthOutEi(ptr noundef nonnull align 8 captures(none) dereferenceable(472) %0, i32 noundef %1) local_unnamed_addr #30 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 188
@@ -40372,7 +40372,7 @@ define void @_ZN7QCPAxis12setLabelFontERK5QFont(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7QCPAxis13setLabelColorERK6QColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(472) initializes((160, 174)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN7QCPAxis13setLabelColorERK6QColor(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(472) initializes((160, 174)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %3, ptr noundef nonnull align 4 dereferenceable(14) %1, i64 14, i1 false)
   ret void
@@ -40408,7 +40408,7 @@ _ZneRK7QStringS1_.exit.thread:                    ; preds = %2, %_ZneRK7QStringS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7QCPAxis10setPaddingEi(ptr nocapture noundef nonnull align 8 dereferenceable(472) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define void @_ZN7QCPAxis10setPaddingEi(ptr noundef nonnull align 8 captures(none) dereferenceable(472) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, %1
@@ -40425,7 +40425,7 @@ define void @_ZN7QCPAxis10setPaddingEi(ptr nocapture noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7QCPAxis9setOffsetEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %0, i32 noundef %1) local_unnamed_addr #31 align 2 {
+define void @_ZN7QCPAxis9setOffsetEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %0, i32 noundef %1) local_unnamed_addr #31 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 272
@@ -40472,7 +40472,7 @@ define void @_ZN7QCPAxis25setSelectedTickLabelColorERK6QColor(ptr noundef nonnul
 declare noundef zeroext i1 @_ZNK6QColorneERKS_(ptr noundef nonnull align 4 dereferenceable(14), ptr noundef nonnull align 4 dereferenceable(14)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7QCPAxis21setSelectedLabelColorERK6QColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(472) initializes((176, 190)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN7QCPAxis21setSelectedLabelColorERK6QColor(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(472) initializes((176, 190)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %3, ptr noundef nonnull align 4 dereferenceable(14) %1, i64 14, i1 false)
   ret void
@@ -40500,7 +40500,7 @@ define void @_ZN7QCPAxis21setSelectedSubTickPenERK4QPen(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7QCPAxis14setLowerEndingERK13QCPLineEnding(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %1) local_unnamed_addr #30 align 2 {
+define void @_ZN7QCPAxis14setLowerEndingERK13QCPLineEnding(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %1) local_unnamed_addr #30 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -40509,7 +40509,7 @@ define void @_ZN7QCPAxis14setLowerEndingERK13QCPLineEnding(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7QCPAxis14setUpperEndingERK13QCPLineEnding(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %1) local_unnamed_addr #30 align 2 {
+define void @_ZN7QCPAxis14setUpperEndingERK13QCPLineEnding(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %1) local_unnamed_addr #30 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -40809,7 +40809,7 @@ _ZN8QCPRange10validRangeERKS_.exit.thread:        ; preds = %54, %67, %76, %15, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7QCPAxis13setScaleRatioEPKS_d(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr nocapture noundef readonly %1, double noundef %2) local_unnamed_addr #2 align 2 {
+define void @_ZN7QCPAxis13setScaleRatioEPKS_d(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef readonly captures(none) %1, double noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 1
@@ -41297,7 +41297,7 @@ _ZN17QArrayDataPointerIP20QCPAbstractPlottableED2Ev.exit: ; preds = %1, %_ZN17QA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 0, 5) i32 @_ZNK7QCPAxis9getPartAtERK7QPointF(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #9 align 2 {
+define noundef range(i32 0, 5) i32 @_ZNK7QCPAxis9getPartAtERK7QPointF(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #9 align 2 {
   %3 = alloca %class.QRect, align 8
   %4 = alloca %class.QPoint, align 8
   %5 = alloca %class.QRect, align 8
@@ -41396,7 +41396,7 @@ define noundef range(i32 0, 5) i32 @_ZNK7QCPAxis9getPartAtERK7QPointF(ptr nocapt
 declare noundef zeroext i1 @_ZNK5QRect8containsERK6QPointb(ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK7QCPAxis10selectTestERK7QPointFbP8QVariant(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #2 align 2 {
+define noundef double @_ZNK7QCPAxis10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #2 align 2 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -42025,7 +42025,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7QCPAxis11selectEventEP11QMouseEventbRK8QVariantPb(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr nocapture noundef readnone %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef writeonly %4) unnamed_addr #2 align 2 {
+define void @_ZN7QCPAxis11selectEventEP11QMouseEventbRK8QVariantPb(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef readnone captures(none) %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef writeonly %4) unnamed_addr #2 align 2 {
   %6 = tail call noundef i32 @_Z13qvariant_castIN7QCPAxis14SelectablePartEET_RK8QVariant(ptr noundef nonnull align 8 dereferenceable(32) %3)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.not.i.i = icmp eq i32 %6, 0
@@ -42096,7 +42096,7 @@ _ZN7QCPAxis16setSelectedPartsERK6QFlagsINS_14SelectablePartEE.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7QCPAxis15mousePressEventEP11QMouseEventRK8QVariant(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7QCPAxis15mousePressEventEP11QMouseEventRK8QVariant(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QList.136, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -42221,7 +42221,7 @@ _ZN5QListIP7QCPAxisED2Ev.exit.thread:             ; preds = %9, %3, %40, %_ZN5QL
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11QCPAxisRect13rangeDragAxesEN2Qt11OrientationE(ptr dead_on_unwind noalias writable sret(%class.QList.136) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11QCPAxisRect13rangeDragAxesEN2Qt11OrientationE(ptr dead_on_unwind noalias writable sret(%class.QList.136) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(432) %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.QtPrivate::QForeachContainer.197", align 8
@@ -42551,7 +42551,7 @@ _ZN17QArrayDataPointerIP7QCPAxisED2Ev.exit:       ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7QCPAxis14mouseMoveEventEP11QMouseEventRK7QPointF(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7QCPAxis14mouseMoveEventEP11QMouseEventRK7QPointF(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -42659,7 +42659,7 @@ _ZN11QCustomPlot6replotENS_15RefreshPriorityE.exit: ; preds = %68, %_ZN11QCustom
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11QCustomPlot25setNotAntialiasedElementsERK6QFlagsIN3QCP18AntialiasedElementEE(ptr nocapture noundef nonnull align 8 dereferenceable(513) initializes((220, 224)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN11QCustomPlot25setNotAntialiasedElementsERK6QFlagsIN3QCP18AntialiasedElementEE(ptr noundef nonnull align 8 captures(none) dereferenceable(513) initializes((220, 224)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %3, align 4
@@ -42680,7 +42680,7 @@ define void @_ZN11QCustomPlot25setNotAntialiasedElementsERK6QFlagsIN3QCP18Antial
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7QCPAxis17mouseReleaseEventEP11QMouseEventRK7QPointF(ptr nocapture noundef nonnull align 8 dereferenceable(472) initializes((440, 441)) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2) unnamed_addr #30 align 2 {
+define void @_ZN7QCPAxis17mouseReleaseEventEP11QMouseEventRK7QPointF(ptr noundef nonnull align 8 captures(none) dereferenceable(472) initializes((440, 441)) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %2) unnamed_addr #30 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store i8 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -42730,7 +42730,7 @@ _ZN11QCustomPlot25setNotAntialiasedElementsERK6QFlagsIN3QCP18AntialiasedElementE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11QCustomPlot22setAntialiasedElementsERK6QFlagsIN3QCP18AntialiasedElementEE(ptr nocapture noundef nonnull align 8 dereferenceable(513) initializes((216, 220)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN11QCustomPlot22setAntialiasedElementsERK6QFlagsIN3QCP18AntialiasedElementEE(ptr noundef nonnull align 8 captures(none) dereferenceable(513) initializes((216, 220)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %3, align 8
@@ -42751,7 +42751,7 @@ define void @_ZN11QCustomPlot22setAntialiasedElementsERK6QFlagsIN3QCP18Antialias
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7QCPAxis10wheelEventEP11QWheelEvent(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr nocapture noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7QCPAxis10wheelEventEP11QWheelEvent(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef captures(none) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList.136, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -42864,7 +42864,7 @@ _ZN5QListIP7QCPAxisED2Ev.exit.thread:             ; preds = %8, %2, %39, %_ZN5QL
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11QCPAxisRect13rangeZoomAxesEN2Qt11OrientationE(ptr dead_on_unwind noalias writable sret(%class.QList.136) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11QCPAxisRect13rangeZoomAxesEN2Qt11OrientationE(ptr dead_on_unwind noalias writable sret(%class.QList.136) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(432) %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.QtPrivate::QForeachContainer.197", align 8
@@ -43174,7 +43174,7 @@ _ZN8QPointerI7QCPAxisED2Ev.exit:                  ; preds = %_ZN8QPointerI7QCPAx
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZN11QCPAxisRect15rangeZoomFactorEN2Qt11OrientationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %0, i32 noundef %1) local_unnamed_addr #14 align 2 {
+define noundef double @_ZN11QCPAxisRect15rangeZoomFactorEN2Qt11OrientationE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(432) %0, i32 noundef %1) local_unnamed_addr #14 align 2 {
   %3 = icmp eq i32 %1, 1
   %.in.v = select i1 %3, i64 344, i64 352
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
@@ -43183,7 +43183,7 @@ define noundef double @_ZN11QCPAxisRect15rangeZoomFactorEN2Qt11OrientationE(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7QCPAxis28applyDefaultAntialiasingHintEP10QCPPainter(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define void @_ZNK7QCPAxis28applyDefaultAntialiasingHintEP10QCPPainter(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -43765,7 +43765,7 @@ define void @_ZNK7QCPAxis12getLabelFontEv(ptr dead_on_unwind noalias nonnull wri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZNK7QCPAxis13getLabelColorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %0) local_unnamed_addr #14 align 2 {
+define { i64, i64 } @_ZNK7QCPAxis13getLabelColorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 4
@@ -43817,7 +43817,7 @@ define void @_ZNK7QCPAxis16getTickLabelFontEv(ptr dead_on_unwind noalias nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZNK7QCPAxis17getTickLabelColorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %0) local_unnamed_addr #14 align 2 {
+define { i64, i64 } @_ZNK7QCPAxis17getTickLabelColorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 2
@@ -44393,7 +44393,7 @@ _ZN5QListIdED2Ev.exit30:                          ; preds = %151, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK7QCPAxis17selectionCategoryEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(472) %0) unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK7QCPAxis17selectionCategoryEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(472) %0) unnamed_addr #6 align 2 {
   ret i32 16
 }
 
@@ -47568,7 +47568,7 @@ _ZN10QByteArrayD2Ev.exit57:                       ; preds = %191, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21QCPAxisPainterPrivate14placeTickLabelEP10QCPPainterdiRK7QStringP5QSize(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef %1, double noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr nocapture noundef %5) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN21QCPAxisPainterPrivate14placeTickLabelEP10QCPPainterdiRK7QStringP5QSize(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef %1, double noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef captures(none) %5) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %class.QPixmap, align 8
   %8 = alloca %class.QPixmap, align 8
   %9 = alloca %"struct.QCPAxisPainterPrivate::TickLabelData", align 8
@@ -48346,7 +48346,7 @@ _ZNK6QCacheI7QStringN21QCPAxisPainterPrivate11CachedLabelEE6relinkERKS0_.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK21QCPAxisPainterPrivate13drawTickLabelEP10QCPPainterddRKNS_13TickLabelDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(504) %0, ptr noundef nonnull %1, double noundef %2, double noundef %3, ptr noundef nonnull align 8 dereferenceable(184) %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK21QCPAxisPainterPrivate13drawTickLabelEP10QCPPainterddRKNS_13TickLabelDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(504) %0, ptr noundef nonnull %1, double noundef %2, double noundef %3, ptr noundef nonnull align 8 dereferenceable(184) %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QRect, align 4
   %7 = alloca %class.QRect, align 4
   %8 = alloca %class.QRect, align 4
@@ -48532,7 +48532,7 @@ _ZN8QPainter8drawTextEiiiiiRK7QStringP5QRect.exit35: ; preds = %87
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK21QCPAxisPainterPrivate16getTickLabelDataERK5QFontRK7QString(ptr dead_on_unwind noalias nonnull writable sret(%"struct.QCPAxisPainterPrivate::TickLabelData") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(504) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK21QCPAxisPainterPrivate16getTickLabelDataERK5QFontRK7QString(ptr dead_on_unwind noalias nonnull writable sret(%"struct.QCPAxisPainterPrivate::TickLabelData") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(504) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QRect, align 4
   %6 = alloca %class.QRect, align 4
   %7 = alloca %class.QRect, align 4
@@ -49365,7 +49365,7 @@ declare noundef i64 @_ZNK7QString7indexOfERKS_xN2Qt15CaseSensitivityE(ptr nounde
 declare void @_ZNK7QLocale11exponentialEv(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetERKNS_13TickLabelDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(504) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %1) unnamed_addr #28 align 2 {
+define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetERKNS_13TickLabelDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(504) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %1) unnamed_addr #28 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load double, ptr %3, align 8
   %5 = fcmp ult double %4, 0.000000e+00
@@ -49783,7 +49783,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK21QCPAxisPainterPrivate19getMaxTickLabelSizeERK5QFontRK7QStringP5QSize(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef %3) unnamed_addr #2 align 2 {
+define void @_ZNK21QCPAxisPainterPrivate19getMaxTickLabelSizeERK5QFontRK7QStringP5QSize(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef captures(none) %3) unnamed_addr #2 align 2 {
   %5 = alloca %"struct.QCPAxisPainterPrivate::TickLabelData", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %7 = load ptr, ptr %6, align 8
@@ -50358,7 +50358,7 @@ define void @_ZN15QCPScatterStyle6setPenERK4QPen(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN15QCPScatterStyle11undefinePenEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(65) initializes((64, 65)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15QCPScatterStyle11undefinePenEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(65) initializes((64, 65)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 0, ptr %2, align 8
   ret void
@@ -50372,13 +50372,13 @@ define void @_ZN15QCPScatterStyle8setBrushERK6QBrush(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN15QCPScatterStyle7setSizeEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(65) initializes((0, 8)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN15QCPScatterStyle7setSizeEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(65) initializes((0, 8)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   store double %1, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN15QCPScatterStyle8setShapeENS_12ScatterShapeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(65) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN15QCPScatterStyle8setShapeENS_12ScatterShapeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(65) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   ret void
@@ -50431,7 +50431,7 @@ _ZN10QCPPainter6setPenERK4QPen.exit:              ; preds = %3, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK15QCPScatterStyle9drawShapeEP10QCPPainterRK7QPointF(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) local_unnamed_addr #2 align 2 {
+define void @_ZNK15QCPScatterStyle9drawShapeEP10QCPPainterRK7QPointF(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #2 align 2 {
   %4 = load double, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load double, ptr %5, align 8
@@ -52036,7 +52036,7 @@ define void @_ZN21QCPSelectionDecorator15setScatterStyleERK15QCPScatterStyle6QFl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN21QCPSelectionDecorator24setUsedScatterPropertiesERK6QFlagsIN15QCPScatterStyle15ScatterPropertyEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((96, 100)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN21QCPSelectionDecorator24setUsedScatterPropertiesERK6QFlagsIN15QCPScatterStyle15ScatterPropertyEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(112) initializes((96, 100)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %3, align 8
@@ -52234,12 +52234,12 @@ _ZN21QCPSelectionDecorator8setBrushERK6QBrush.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN21QCPSelectionDecorator14drawDecorationEP10QCPPainter16QCPDataSelection(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, ptr nocapture readnone %2) unnamed_addr #6 align 2 {
+define void @_ZN21QCPSelectionDecorator14drawDecorationEP10QCPPainter16QCPDataSelection(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) unnamed_addr #6 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN21QCPSelectionDecorator21registerWithPlottableEP20QCPAbstractPlottable(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN21QCPSelectionDecorator21registerWithPlottableEP20QCPAbstractPlottable(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -52922,7 +52922,7 @@ _ZN12QCPLayerableD2Ev.exit:                       ; preds = %41, %44, %46, %49
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN20QCPAbstractPlottableD0Ev(ptr nocapture noundef nonnull readnone align 8 dereferenceable(184) %0) unnamed_addr #7 align 2 {
+define void @_ZN20QCPAbstractPlottableD0Ev(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(184) %0) unnamed_addr #7 align 2 {
   tail call void @llvm.trap() #49
   unreachable
 }
@@ -52935,7 +52935,7 @@ define void @_ZN20QCPAbstractPlottable7setNameERK7QString(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN20QCPAbstractPlottable18setAntialiasedFillEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) initializes((88, 89)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN20QCPAbstractPlottable18setAntialiasedFillEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(184) initializes((88, 89)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i8 %3, ptr %4, align 8
@@ -52943,7 +52943,7 @@ define void @_ZN20QCPAbstractPlottable18setAntialiasedFillEb(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN20QCPAbstractPlottable22setAntialiasedScattersEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) initializes((89, 90)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN20QCPAbstractPlottable22setAntialiasedScattersEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(184) initializes((89, 90)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 89
   store i8 %3, ptr %4, align 1
@@ -52965,7 +52965,7 @@ define void @_ZN20QCPAbstractPlottable8setBrushERK6QBrush(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN20QCPAbstractPlottable10setKeyAxisEP7QCPAxis(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((120, 128)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN20QCPAbstractPlottable10setKeyAxisEP7QCPAxis(ptr noundef nonnull align 8 captures(none) dereferenceable(184) initializes((120, 128)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.not.i.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i.i, label %_ZN12QWeakPointerI7QObjectEC2IS0_TnNSt9enable_ifIXsr3std14is_convertibleIPT_PS0_EE5valueEbE4typeELb1EEES5_b.exit.i.i, label %4
@@ -52997,7 +52997,7 @@ _ZN8QPointerI7QCPAxisEaSEPS0_.exit:               ; preds = %_ZN12QWeakPointerI7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN20QCPAbstractPlottable12setValueAxisEP7QCPAxis(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((136, 144)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN20QCPAbstractPlottable12setValueAxisEP7QCPAxis(ptr noundef nonnull align 8 captures(none) dereferenceable(184) initializes((136, 144)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.not.i.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i.i, label %_ZN12QWeakPointerI7QObjectEC2IS0_TnNSt9enable_ifIXsr3std14is_convertibleIPT_PS0_EE5valueEbE4typeELb1EEES5_b.exit.i.i, label %4
@@ -53235,7 +53235,7 @@ _ZN16QCPDataSelectionD2Ev.exit8:                  ; preds = %44, %_ZN17QArrayDat
 declare void @_ZN20QCPAbstractPlottable17selectableChangedEN3QCP13SelectionTypeE(ptr noundef nonnull align 8 dereferenceable(184), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK20QCPAbstractPlottable14coordsToPixelsEddRdS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, double noundef %1, double noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK20QCPAbstractPlottable14coordsToPixelsEddRdS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, double noundef %1, double noundef %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QDebug, align 8
   %7 = alloca %class.QMessageLogger, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -53323,7 +53323,7 @@ _ZNK8QPointerI7QCPAxisE4dataEv.exit19.thread:     ; preds = %_ZNK8QPointerI7QCPA
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK20QCPAbstractPlottable14coordsToPixelsEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, double noundef %1, double noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define { double, double } @_ZNK20QCPAbstractPlottable14coordsToPixelsEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, double noundef %1, double noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -53412,7 +53412,7 @@ _ZNK8QPointerI7QCPAxisE4dataEv.exit15.thread:     ; preds = %_ZNK8QPointerI7QCPA
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, double noundef %1, double noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK20QCPAbstractPlottable14pixelsToCoordsEddRdS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, double noundef %1, double noundef %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QDebug, align 8
   %7 = alloca %class.QMessageLogger, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -53501,7 +53501,7 @@ _ZNK8QPointerI7QCPAxisE4dataEv.exit19.thread:     ; preds = %_ZNK8QPointerI7QCPA
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3) local_unnamed_addr #2 align 2 {
+define void @_ZNK20QCPAbstractPlottable14pixelsToCoordsERK7QPointFRdS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #2 align 2 {
   %5 = load double, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load double, ptr %6, align 8
@@ -54299,7 +54299,7 @@ define noundef zeroext i1 @_ZNK20QCPAbstractPlottable16removeFromLegendEv(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define { i64, i64 } @_ZNK20QCPAbstractPlottable8clipRectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define { i64, i64 } @_ZNK20QCPAbstractPlottable8clipRectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QRect, align 8
   %3 = alloca %class.QRect, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -54383,12 +54383,12 @@ _ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit.thread:      ; preds = %13, %17, %1, %7, %_
 declare { i64, i64 } @_ZNK5QRectanERKS_(ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK20QCPAbstractPlottable17selectionCategoryEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK20QCPAbstractPlottable17selectionCategoryEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
   ret i32 8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK20QCPAbstractPlottable28applyDefaultAntialiasingHintEP10QCPPainter(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define void @_ZNK20QCPAbstractPlottable28applyDefaultAntialiasingHintEP10QCPPainter(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -54397,7 +54397,7 @@ define void @_ZNK20QCPAbstractPlottable28applyDefaultAntialiasingHintEP10QCPPain
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK20QCPAbstractPlottable25applyFillAntialiasingHintEP10QCPPainter(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZNK20QCPAbstractPlottable25applyFillAntialiasingHintEP10QCPPainter(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -54406,7 +54406,7 @@ define void @_ZNK20QCPAbstractPlottable25applyFillAntialiasingHintEP10QCPPainter
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK20QCPAbstractPlottable29applyScattersAntialiasingHintEP10QCPPainter(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZNK20QCPAbstractPlottable29applyScattersAntialiasingHintEP10QCPPainter(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -54415,7 +54415,7 @@ define void @_ZNK20QCPAbstractPlottable29applyScattersAntialiasingHintEP10QCPPai
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN20QCPAbstractPlottable11selectEventEP11QMouseEventbRK8QVariantPb(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr nocapture readnone %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef writeonly %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN20QCPAbstractPlottable11selectEventEP11QMouseEventbRK8QVariantPb(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr readnone captures(none) %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef writeonly %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QCPDataRange, align 8
   %7 = alloca %class.QCPDataSelection, align 8
   %8 = alloca %class.QCPDataSelection, align 8
@@ -55068,7 +55068,7 @@ _ZN16QCPDataSelectionD2Ev.exit16:                 ; preds = %52, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN13QCPItemAnchorC2EP11QCustomPlotP15QCPAbstractItemRK7QStringi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 52), (56, 72)) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, i32 noundef %4) unnamed_addr #32 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13QCPItemAnchorC2EP11QCustomPlotP15QCPAbstractItemRK7QStringi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) initializes((0, 52), (56, 72)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, i32 noundef %4) unnamed_addr #32 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13QCPItemAnchor, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %3, align 8
@@ -56073,7 +56073,7 @@ define void @_ZN13QCPItemAnchorD0Ev(ptr noundef nonnull align 8 dereferenceable(
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK13QCPItemAnchor13pixelPositionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define { double, double } @_ZNK13QCPItemAnchor13pixelPositionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QDebug, align 8
   %3 = alloca %class.QMessageLogger, align 8
   %4 = alloca %class.QDebug, align 8
@@ -56564,7 +56564,7 @@ _ZN6QDebuglsEy.exit:                              ; preds = %.noexc, %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN15QCPItemPositionC2EP11QCustomPlotP15QCPAbstractItemRK7QString(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((0, 52), (56, 160)) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #32 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15QCPItemPositionC2EP11QCustomPlotP15QCPAbstractItemRK7QString(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(160) initializes((0, 52), (56, 160)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #32 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13QCPItemAnchor, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %3, align 8
@@ -56835,7 +56835,7 @@ define void @_ZN15QCPItemPositionD0Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK15QCPItemPosition8axisRectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %0) local_unnamed_addr #32 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK15QCPItemPosition8axisRectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0) local_unnamed_addr #32 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -57257,7 +57257,7 @@ _ZNK8QPointerI11QCPAxisRectEcvPS0_Ev.exit:        ; preds = %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15QCPItemPosition16setPixelPositionERK7QPointF(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15QCPItemPosition16setPixelPositionERK7QPointF(ptr noundef nonnull align 8 captures(none) dereferenceable(160) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = alloca %class.QDebug, align 8
@@ -57774,7 +57774,7 @@ define noundef zeroext i1 @_ZN15QCPItemPosition15setParentAnchorEP13QCPItemAncho
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN15QCPItemPosition9setCoordsEdd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((128, 144)) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN15QCPItemPosition9setCoordsEdd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(160) initializes((128, 144)) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store double %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -57783,7 +57783,7 @@ define void @_ZN15QCPItemPosition9setCoordsEdd(ptr nocapture noundef nonnull wri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN15QCPItemPosition9setCoordsERK7QPointF(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((128, 144)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN15QCPItemPosition9setCoordsERK7QPointF(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(160) initializes((128, 144)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = load double, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
@@ -57795,7 +57795,7 @@ define void @_ZN15QCPItemPosition9setCoordsERK7QPointF(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK15QCPItemPosition13pixelPositionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define { double, double } @_ZNK15QCPItemPosition13pixelPositionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QDebug, align 8
   %3 = alloca %class.QMessageLogger, align 8
   %4 = alloca %class.QDebug, align 8
@@ -58274,7 +58274,7 @@ _ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit47.thread:    ; preds = %_ZNK8QPointerI7QCPA
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15QCPItemPosition7setAxesEP7QCPAxisS1_(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((88, 96), (104, 112)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
+define void @_ZN15QCPItemPosition7setAxesEP7QCPAxisS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(160) initializes((88, 96), (104, 112)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.not.i.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i.i, label %_ZN12QWeakPointerI7QObjectEC2IS0_TnNSt9enable_ifIXsr3std14is_convertibleIPT_PS0_EE5valueEbE4typeELb1EEES5_b.exit.i.i, label %5
@@ -58333,7 +58333,7 @@ _ZN8QPointerI7QCPAxisEaSEPS0_.exit7:              ; preds = %_ZN12QWeakPointerI7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15QCPItemPosition11setAxisRectEP11QCPAxisRect(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((120, 128)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN15QCPItemPosition11setAxisRectEP11QCPAxisRect(ptr noundef nonnull align 8 captures(none) dereferenceable(160) initializes((120, 128)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.not.i.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i.i, label %_ZN12QWeakPointerI7QObjectEC2IS0_TnNSt9enable_ifIXsr3std14is_convertibleIPT_PS0_EE5valueEbE4typeELb1EEES5_b.exit.i.i, label %4
@@ -58724,7 +58724,7 @@ _ZN6QDebuglsEy.exit11:                            ; preds = %.noexc9, %59
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK11QCustomPlot9axisRectsEv(ptr dead_on_unwind noalias writable sret(%class.QList.145) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK11QCustomPlot9axisRectsEv(ptr dead_on_unwind noalias writable sret(%class.QList.145) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.QStack.163, align 8
   %5 = alloca %class.QList.59, align 8
@@ -59185,7 +59185,7 @@ _ZN6QStackIP16QCPLayoutElementED2Ev.exit31:       ; preds = %_ZN9QtPrivate17QFor
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15QCPAbstractItem17setClipToAxisRectEb(ptr nocapture noundef nonnull align 8 dereferenceable(130) initializes((57, 58)) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15QCPAbstractItem17setClipToAxisRectEb(ptr noundef nonnull align 8 captures(none) dereferenceable(130) initializes((57, 58)) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 57
   store i8 %3, ptr %4, align 1
@@ -59238,7 +59238,7 @@ _ZN12QCPLayerable18setParentLayerableEPS_.exit:   ; preds = %24, %22, %_ZN12QWea
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15QCPAbstractItem15setClipAxisRectEP11QCPAxisRect(ptr nocapture noundef nonnull align 8 dereferenceable(130) initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15QCPAbstractItem15setClipAxisRectEP11QCPAxisRect(ptr noundef nonnull align 8 captures(none) dereferenceable(130) initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.not.i.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i.i, label %_ZN12QWeakPointerI7QObjectEC2IS0_TnNSt9enable_ifIXsr3std14is_convertibleIPT_PS0_EE5valueEbE4typeELb1EEES5_b.exit.i.i, label %4
@@ -59485,13 +59485,13 @@ _ZN12QCPLayerableD2Ev.exit:                       ; preds = %37, %40, %42, %45
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN15QCPAbstractItemD0Ev(ptr nocapture noundef nonnull readnone align 8 dereferenceable(130) %0) unnamed_addr #7 align 2 {
+define void @_ZN15QCPAbstractItemD0Ev(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(130) %0) unnamed_addr #7 align 2 {
   tail call void @llvm.trap() #49
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK15QCPAbstractItem12clipAxisRectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(130) %0) local_unnamed_addr #32 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK15QCPAbstractItem12clipAxisRectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(130) %0) local_unnamed_addr #32 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -59554,7 +59554,7 @@ define void @_ZN15QCPAbstractItem11setSelectedEb(ptr noundef nonnull align 8 der
 declare void @_ZN15QCPAbstractItem16selectionChangedEb(ptr noundef nonnull align 8 dereferenceable(130), i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK15QCPAbstractItem8positionERK7QString(ptr nocapture noundef nonnull readonly align 8 dereferenceable(130) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK15QCPAbstractItem8positionERK7QString(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(130) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -59700,7 +59700,7 @@ _ZN6QDebuglsERK7QString.exit:                     ; preds = %.noexc, %54
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK15QCPAbstractItem6anchorERK7QString(ptr nocapture noundef nonnull readonly align 8 dereferenceable(130) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK15QCPAbstractItem6anchorERK7QString(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(130) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -59846,7 +59846,7 @@ _ZN6QDebuglsERK7QString.exit:                     ; preds = %.noexc, %54
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK15QCPAbstractItem9hasAnchorERK7QString(ptr nocapture noundef nonnull readonly align 8 dereferenceable(130) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK15QCPAbstractItem9hasAnchorERK7QString(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(130) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8, !noalias !519
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -59935,7 +59935,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP13QCPItemAnchorEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define { i64, i64 } @_ZNK15QCPAbstractItem8clipRectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(130) %0) unnamed_addr #33 align 2 personality ptr @__gxx_personality_v0 {
+define { i64, i64 } @_ZNK15QCPAbstractItem8clipRectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(130) %0) unnamed_addr #33 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -59983,7 +59983,7 @@ _ZNK8QPointerI11QCPAxisRectEcvPS0_Ev.exit.thread: ; preds = %5, %9, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK15QCPAbstractItem28applyDefaultAntialiasingHintEP10QCPPainter(ptr nocapture noundef nonnull readonly align 8 dereferenceable(130) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define void @_ZNK15QCPAbstractItem28applyDefaultAntialiasingHintEP10QCPPainter(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(130) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -59992,7 +59992,7 @@ define void @_ZNK15QCPAbstractItem28applyDefaultAntialiasingHintEP10QCPPainter(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK15QCPAbstractItem12rectDistanceERK6QRectFRK7QPointFb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(130) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK15QCPAbstractItem12rectDistanceERK6QRectFRK7QPointFb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(130) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QList.151, align 8
   %6 = alloca %class.QLineF, align 8
   %7 = alloca %class.QLineF, align 8
@@ -60280,7 +60280,7 @@ _ZN17QArrayDataPointerI6QLineFED2Ev.exit:         ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK15QCPAbstractItem19anchorPixelPositionEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(130) %0, i32 noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define { double, double } @_ZNK15QCPAbstractItem19anchorPixelPositionEi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(130) %0, i32 noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   store i32 2, ptr %4, align 8
@@ -60511,7 +60511,7 @@ _ZN15QCPItemPosition11setAxisRectEP11QCPAxisRect.exit: ; preds = %75, %73, %_ZN1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK11QCustomPlot8axisRectEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK11QCustomPlot8axisRectEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList.145, align 8
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
@@ -60703,7 +60703,7 @@ _ZN6QDebuglsERK7QString.exit:                     ; preds = %.noexc, %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15QCPAbstractItem11selectEventEP11QMouseEventbRK8QVariantPb(ptr noundef nonnull align 8 dereferenceable(130) %0, ptr nocapture noundef readnone %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %3, ptr noundef writeonly %4) unnamed_addr #2 align 2 {
+define void @_ZN15QCPAbstractItem11selectEventEP11QMouseEventbRK8QVariantPb(ptr noundef nonnull align 8 dereferenceable(130) %0, ptr noundef readnone captures(none) %1, i1 noundef zeroext %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %3, ptr noundef writeonly %4) unnamed_addr #2 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
@@ -60773,7 +60773,7 @@ _ZN15QCPAbstractItem11setSelectedEb.exit:         ; preds = %6, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK15QCPAbstractItem17selectionCategoryEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(130) %0) unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK15QCPAbstractItem17selectionCategoryEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(130) %0) unnamed_addr #6 align 2 {
   ret i32 64
 }
 
@@ -62349,7 +62349,7 @@ declare void @_ZN7QLocale16setNumberOptionsE6QFlagsINS_12NumberOptionEE(ptr noun
 declare void @_ZN7QWidget9setLocaleERK7QLocale(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11QCustomPlot25setBufferDevicePixelRatioEd(ptr nocapture noundef nonnull align 8 dereferenceable(513) %0, double noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11QCustomPlot25setBufferDevicePixelRatioEd(ptr noundef nonnull align 8 captures(none) dereferenceable(513) %0, double noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.QtPrivate::QForeachContainer.159", align 8
   %4 = alloca %class.QSharedPointer, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -62574,7 +62574,7 @@ _ZN9QtPrivate17QForeachContainerI5QListI14QSharedPointerI22QCPAbstractPaintBuffe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK11QCustomPlot18updateLayerIndicesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0) local_unnamed_addr #34 align 2 {
+define void @_ZNK11QCustomPlot18updateLayerIndicesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0) local_unnamed_addr #34 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load i64, ptr %2, align 8
   %4 = icmp sgt i64 %3, 0
@@ -62603,7 +62603,7 @@ define void @_ZNK11QCustomPlot18updateLayerIndicesEv(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN11QCustomPlot15setCurrentLayerERK7QString(ptr nocapture noundef nonnull align 8 dereferenceable(513) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN11QCustomPlot15setCurrentLayerERK7QString(ptr noundef nonnull align 8 captures(none) dereferenceable(513) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = tail call noundef ptr @_ZNK11QCustomPlot5layerERK7QString(ptr noundef nonnull align 8 dereferenceable(513) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
@@ -62796,7 +62796,7 @@ _ZN5QListIP7QCPAxisED2Ev.exit20:                  ; preds = %50, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN11QCustomPlot11setViewportERK5QRect(ptr nocapture noundef nonnull align 8 dereferenceable(513) initializes((80, 96)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) local_unnamed_addr #30 align 2 {
+define void @_ZN11QCustomPlot11setViewportERK5QRect(ptr noundef nonnull align 8 captures(none) dereferenceable(513) initializes((80, 96)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #30 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -63514,7 +63514,7 @@ define void @_ZThn16_N11QCustomPlotD0Ev(ptr noundef %0) unnamed_addr #35 align 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11QCustomPlot21setAntialiasedElementEN3QCP18AntialiasedElementEb(ptr nocapture noundef nonnull align 8 dereferenceable(513) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
+define void @_ZN11QCustomPlot21setAntialiasedElementEN3QCP18AntialiasedElementEb(ptr noundef nonnull align 8 captures(none) dereferenceable(513) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %.not.i.i7 = icmp eq i32 %1, 0
   %5 = load i32, ptr %4, align 8
@@ -63563,7 +63563,7 @@ define void @_ZN11QCustomPlot21setAntialiasedElementEN3QCP18AntialiasedElementEb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11QCustomPlot24setNotAntialiasedElementEN3QCP18AntialiasedElementEb(ptr nocapture noundef nonnull align 8 dereferenceable(513) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
+define void @_ZN11QCustomPlot24setNotAntialiasedElementEN3QCP18AntialiasedElementEb(ptr noundef nonnull align 8 captures(none) dereferenceable(513) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %.not.i.i7 = icmp eq i32 %1, 0
   %5 = load i32, ptr %4, align 4
@@ -63612,7 +63612,7 @@ define void @_ZN11QCustomPlot24setNotAntialiasedElementEN3QCP18AntialiasedElemen
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11QCustomPlot27setAutoAddPlottableToLegendEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(513) initializes((112, 113)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN11QCustomPlot27setAutoAddPlottableToLegendEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(513) initializes((112, 113)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i8 %3, ptr %4, align 8
@@ -63620,7 +63620,7 @@ define void @_ZN11QCustomPlot27setAutoAddPlottableToLegendEb(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11QCustomPlot15setInteractionsERK6QFlagsIN3QCP11InteractionEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(513) initializes((224, 228)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN11QCustomPlot15setInteractionsERK6QFlagsIN3QCP11InteractionEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(513) initializes((224, 228)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %3, align 8
@@ -63628,7 +63628,7 @@ define void @_ZN11QCustomPlot15setInteractionsERK6QFlagsIN3QCP11InteractionEE(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11QCustomPlot14setInteractionERKN3QCP11InteractionEb(ptr nocapture noundef nonnull align 8 dereferenceable(513) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
+define void @_ZN11QCustomPlot14setInteractionERKN3QCP11InteractionEb(ptr noundef nonnull align 8 captures(none) dereferenceable(513) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = load i32, ptr %1, align 4
   %.not.i.i6 = icmp eq i32 %5, 0
@@ -63664,14 +63664,14 @@ define void @_ZN11QCustomPlot14setInteractionERKN3QCP11InteractionEb(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11QCustomPlot21setSelectionToleranceEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(513) initializes((228, 232)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN11QCustomPlot21setSelectionToleranceEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(513) initializes((228, 232)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11QCustomPlot23setNoAntialiasingOnDragEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(513) initializes((232, 233)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN11QCustomPlot23setNoAntialiasingOnDragEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(513) initializes((232, 233)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i8 %3, ptr %4, align 8
@@ -63679,7 +63679,7 @@ define void @_ZN11QCustomPlot23setNoAntialiasingOnDragEb(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11QCustomPlot16setPlottingHintsERK6QFlagsIN3QCP12PlottingHintEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(513) initializes((312, 316)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN11QCustomPlot16setPlottingHintsERK6QFlagsIN3QCP12PlottingHintEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(513) initializes((312, 316)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %3, align 8
@@ -63687,7 +63687,7 @@ define void @_ZN11QCustomPlot16setPlottingHintsERK6QFlagsIN3QCP12PlottingHintEE(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11QCustomPlot15setPlottingHintEN3QCP12PlottingHintEb(ptr nocapture noundef nonnull align 8 dereferenceable(513) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
+define void @_ZN11QCustomPlot15setPlottingHintEN3QCP12PlottingHintEb(ptr noundef nonnull align 8 captures(none) dereferenceable(513) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %5 = load i32, ptr %4, align 8
   %6 = or i32 %5, %1
@@ -63706,7 +63706,7 @@ define void @_ZN11QCustomPlot15setPlottingHintEN3QCP12PlottingHintEb(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11QCustomPlot22setMultiSelectModifierEN2Qt16KeyboardModifierE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(513) initializes((316, 320)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN11QCustomPlot22setMultiSelectModifierEN2Qt16KeyboardModifierE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(513) initializes((316, 320)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 316
   store i32 %1, ptr %3, align 4
   ret void
@@ -63835,7 +63835,7 @@ define void @_ZN11QCustomPlot16setSelectionRectEP16QCPSelectionRect(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11QCustomPlot9setOpenGlEbi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(513) initializes((504, 508)) %0, i1 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11QCustomPlot9setOpenGlEbi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(513) initializes((504, 508)) %0, i1 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
@@ -63996,7 +63996,7 @@ define void @_ZN11QCustomPlot13setBackgroundERK7QPixmapbN2Qt15AspectRatioModeE(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11QCustomPlot19setBackgroundScaledEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(513) initializes((296, 297)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN11QCustomPlot19setBackgroundScaledEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(513) initializes((296, 297)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i8 %3, ptr %4, align 8
@@ -64004,14 +64004,14 @@ define void @_ZN11QCustomPlot19setBackgroundScaledEb(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11QCustomPlot23setBackgroundScaledModeEN2Qt15AspectRatioModeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(513) initializes((300, 304)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN11QCustomPlot23setBackgroundScaledModeEN2Qt15AspectRatioModeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(513) initializes((300, 304)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN11QCustomPlot9plottableEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN11QCustomPlot9plottableEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = icmp sgt i32 %1, -1
@@ -64327,7 +64327,7 @@ _ZN6QDebuglsEi.exit:                              ; preds = %.noexc, %37
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK11QCustomPlot14plottableCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0) local_unnamed_addr #14 align 2 {
+define noundef i32 @_ZNK11QCustomPlot14plottableCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -64335,7 +64335,7 @@ define noundef i32 @_ZNK11QCustomPlot14plottableCountEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK11QCustomPlot18selectedPlottablesEv(ptr dead_on_unwind noalias writable sret(%class.QList.10) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK11QCustomPlot18selectedPlottablesEv(ptr dead_on_unwind noalias writable sret(%class.QList.10) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -64656,7 +64656,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP20QCPAbstractPlottableEED2Ev.exit39: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK11QCustomPlot12hasPlottableEP20QCPAbstractPlottable(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0, ptr noundef readnone %1) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK11QCustomPlot12hasPlottableEP20QCPAbstractPlottable(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0, ptr noundef readnone %1) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
   %5 = icmp sgt i64 %4, 0
@@ -64693,7 +64693,7 @@ _ZNK23QListSpecialMethodsBaseIP20QCPAbstractPlottableE8containsIS1_EEbRKT_.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK11QCustomPlot5graphEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK11QCustomPlot5graphEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = icmp sgt i32 %1, -1
@@ -64759,7 +64759,7 @@ _ZN6QDebuglsEi.exit:                              ; preds = %.noexc, %29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK11QCustomPlot5graphEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK11QCustomPlot5graphEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
@@ -65126,7 +65126,7 @@ _ZN5QListIP8QCPGraphEixEx.exit:                   ; preds = %_ZNK17QArrayDataPoi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK11QCustomPlot10graphCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0) local_unnamed_addr #14 align 2 {
+define noundef i32 @_ZNK11QCustomPlot10graphCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -65134,7 +65134,7 @@ define noundef i32 @_ZNK11QCustomPlot10graphCountEv(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK11QCustomPlot14selectedGraphsEv(ptr dead_on_unwind noalias writable sret(%class.QList.14) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK11QCustomPlot14selectedGraphsEv(ptr dead_on_unwind noalias writable sret(%class.QList.14) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -65219,7 +65219,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP8QCPGraphEED2Ev.exit10: ; preds = %19, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK11QCustomPlot4itemEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK11QCustomPlot4itemEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = icmp sgt i32 %1, -1
@@ -65285,7 +65285,7 @@ _ZN6QDebuglsEi.exit:                              ; preds = %.noexc, %29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK11QCustomPlot4itemEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK11QCustomPlot4itemEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
@@ -65497,7 +65497,7 @@ _ZN6QDebuglsEi.exit:                              ; preds = %.noexc, %37
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK11QCustomPlot9itemCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0) local_unnamed_addr #14 align 2 {
+define noundef i32 @_ZNK11QCustomPlot9itemCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -65505,7 +65505,7 @@ define noundef i32 @_ZNK11QCustomPlot9itemCountEv(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK11QCustomPlot13selectedItemsEv(ptr dead_on_unwind noalias writable sret(%class.QList.18) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK11QCustomPlot13selectedItemsEv(ptr dead_on_unwind noalias writable sret(%class.QList.18) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 168
@@ -65814,7 +65814,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP15QCPAbstractItemEED2Ev.exit24: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK11QCustomPlot7hasItemEP15QCPAbstractItem(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0, ptr noundef readnone %1) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK11QCustomPlot7hasItemEP15QCPAbstractItem(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0, ptr noundef readnone %1) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load i64, ptr %3, align 8
   %5 = icmp sgt i64 %4, 0
@@ -65851,7 +65851,7 @@ _ZNK23QListSpecialMethodsBaseIP15QCPAbstractItemE8containsIS1_EEbRKT_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK11QCustomPlot5layerEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK11QCustomPlot5layerEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = icmp sgt i32 %1, -1
@@ -65917,7 +65917,7 @@ _ZN6QDebuglsEi.exit:                              ; preds = %.noexc, %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN11QCustomPlot15setCurrentLayerEP8QCPLayer(ptr nocapture noundef nonnull align 8 dereferenceable(513) %0, ptr noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN11QCustomPlot15setCurrentLayerEP8QCPLayer(ptr noundef nonnull align 8 captures(none) dereferenceable(513) %0, ptr noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -66002,7 +66002,7 @@ _ZN6QDebuglsEy.exit:                              ; preds = %.noexc, %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK11QCustomPlot10layerCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0) local_unnamed_addr #14 align 2 {
+define noundef i32 @_ZNK11QCustomPlot10layerCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -67582,7 +67582,7 @@ _ZNK11QCustomPlot18updateLayerIndicesEv.exit:     ; preds = %.lr.ph.i, %_ZNK11QC
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK11QCustomPlot13axisRectCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0) local_unnamed_addr #2 align 2 {
+define noundef i32 @_ZNK11QCustomPlot13axisRectCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca %class.QList.145, align 8
   call void @_ZNK11QCustomPlot9axisRectsEv(ptr dead_on_unwind nonnull writable sret(%class.QList.145) align 8 %2, ptr noundef nonnull align 8 dereferenceable(513) %0)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -67607,7 +67607,7 @@ _ZN5QListIP11QCPAxisRectED2Ev.exit:               ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK11QCustomPlot15layoutElementAtERK7QPointF(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK11QCustomPlot15layoutElementAtERK7QPointF(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList.59, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -67742,7 +67742,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP16QCPLayoutElementEED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK11QCustomPlot10axisRectAtERK7QPointF(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK11QCustomPlot10axisRectAtERK7QPointF(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList.59, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -67897,7 +67897,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP16QCPLayoutElementEED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK11QCustomPlot12selectedAxesEv(ptr dead_on_unwind noalias writable sret(%class.QList.136) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK11QCustomPlot12selectedAxesEv(ptr dead_on_unwind noalias writable sret(%class.QList.136) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.QList.136, align 8
   %5 = alloca %class.QList.145, align 8
@@ -68116,7 +68116,7 @@ _ZN5QListIP7QCPAxisED2Ev.exit40:                  ; preds = %_ZN9QtPrivate17QFor
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK11QCPAxisRect4axesEv(ptr dead_on_unwind noalias writable sret(%class.QList.136) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK11QCPAxisRect4axesEv(ptr dead_on_unwind noalias writable sret(%class.QList.136) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(432) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QHashIterator.196, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 424
@@ -68244,7 +68244,7 @@ _ZN13QHashIteratorIN7QCPAxis8AxisTypeE5QListIPS0_EE4nextEv.exit: ; preds = %41, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK11QCustomPlot15selectedLegendsEv(ptr dead_on_unwind noalias writable sret(%class.QList.168) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK11QCustomPlot15selectedLegendsEv(ptr dead_on_unwind noalias writable sret(%class.QList.168) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.QStack.163, align 8
   %5 = alloca %class.QList.59, align 8
@@ -68853,7 +68853,7 @@ _ZN17QArrayDataPointerIP9QCPLegendED2Ev.exit:     ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11QCustomPlot11deselectAllEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11QCustomPlot11deselectAllEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8, !noalias !620
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -68986,7 +68986,7 @@ declare noundef i64 @_ZNK13QElapsedTimer12nsecsElapsedEv(ptr noundef nonnull ali
 declare void @_ZN11QCustomPlot11afterReplotEv(ptr noundef nonnull align 8 dereferenceable(513)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK11QCustomPlot10replotTimeEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0, i1 noundef zeroext %1) local_unnamed_addr #14 align 2 {
+define noundef double @_ZNK11QCustomPlot10replotTimeEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0, i1 noundef zeroext %1) local_unnamed_addr #14 align 2 {
   %.in.v = select i1 %1, i64 496, i64 488
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
   %3 = load double, ptr %.in, align 8
@@ -68994,7 +68994,7 @@ define noundef double @_ZNK11QCustomPlot10replotTimeEb(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11QCustomPlot11rescaleAxesEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11QCustomPlot11rescaleAxesEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList.136, align 8
   %4 = alloca %class.QList.145, align 8
   %5 = alloca %class.QList.136, align 8
@@ -69799,7 +69799,7 @@ define noundef zeroext i1 @_ZN11QCustomPlot7saveBmpERK7QStringiidiN3QCP14Resolut
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZNK11QCustomPlot15minimumSizeHintEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0) unnamed_addr #2 align 2 {
+define i64 @_ZNK11QCustomPlot15minimumSizeHintEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -69810,7 +69810,7 @@ define i64 @_ZNK11QCustomPlot15minimumSizeHintEv(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZNK11QCustomPlot8sizeHintEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0) unnamed_addr #2 align 2 {
+define i64 @_ZNK11QCustomPlot8sizeHintEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -69821,7 +69821,7 @@ define i64 @_ZNK11QCustomPlot8sizeHintEv(ptr nocapture noundef nonnull readonly 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11QCustomPlot10paintEventEP11QPaintEvent(ptr noundef nonnull align 8 dereferenceable(513) %0, ptr nocapture noundef readnone %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11QCustomPlot10paintEventEP11QPaintEvent(ptr noundef nonnull align 8 dereferenceable(513) %0, ptr noundef readnone captures(none) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QCPPainter, align 8
   %4 = alloca %"class.QtPrivate::QForeachContainer.159", align 8
   %5 = alloca %class.QSharedPointer, align 8
@@ -70287,7 +70287,7 @@ define void @_ZN11QCustomPlot14drawBackgroundEP10QCPPainter(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11QCustomPlot11resizeEventEP12QResizeEvent(ptr noundef nonnull align 8 dereferenceable(513) initializes((80, 96)) %0, ptr nocapture noundef readnone %1) unnamed_addr #2 align 2 {
+define void @_ZN11QCustomPlot11resizeEventEP12QResizeEvent(ptr noundef nonnull align 8 dereferenceable(513) initializes((80, 96)) %0, ptr noundef readnone captures(none) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -70834,7 +70834,7 @@ _ZN5QListIP12QCPLayerableED2Ev.exit100:           ; preds = %171, %_ZN17QArrayDa
 declare void @_ZN11QCustomPlot16mouseDoubleClickEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(513), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK11QCustomPlot15layerableListAtERK7QPointFbP5QListI8QVariantE(ptr dead_on_unwind noalias writable sret(%class.QList.6) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK11QCustomPlot15layerableListAtERK7QPointFbP5QListI8QVariantE(ptr dead_on_unwind noalias writable sret(%class.QList.6) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QVariant, align 8
   %7 = alloca %class.QVariant, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -72274,7 +72274,7 @@ declare void @_ZNK7QPixmap6scaledERK5QSizeN2Qt15AspectRatioModeENS3_18Transforma
 declare { i64, i64 } @_ZNK7QPixmap4rectEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN11QCustomPlot17createPaintBufferEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN11QCustomPlot17createPaintBufferEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QDebug, align 8
   %3 = alloca %class.QMessageLogger, align 8
   %4 = alloca %class.QSize, align 8
@@ -72435,17 +72435,17 @@ _ZN9QtPrivate16QGenericArrayOpsI14QSharedPointerI22QCPAbstractPaintBufferEE9eras
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN11QCustomPlot11setupOpenGlEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(513) %0) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN11QCustomPlot11setupOpenGlEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(513) %0) local_unnamed_addr #6 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN11QCustomPlot10freeOpenGlEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(513) %0) local_unnamed_addr #6 align 2 {
+define void @_ZN11QCustomPlot10freeOpenGlEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(513) %0) local_unnamed_addr #6 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11QCustomPlot11axisRemovedEP7QCPAxis(ptr nocapture noundef nonnull align 8 dereferenceable(513) %0, ptr noundef readnone %1) unnamed_addr #1 align 2 {
+define void @_ZN11QCustomPlot11axisRemovedEP7QCPAxis(ptr noundef nonnull align 8 captures(none) dereferenceable(513) %0, ptr noundef readnone %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %1
@@ -72490,7 +72490,7 @@ define void @_ZN11QCustomPlot11axisRemovedEP7QCPAxis(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11QCustomPlot13legendRemovedEP9QCPLegend(ptr nocapture noundef nonnull align 8 dereferenceable(513) %0, ptr noundef readnone %1) unnamed_addr #1 align 2 {
+define void @_ZN11QCustomPlot13legendRemovedEP9QCPLegend(ptr noundef nonnull align 8 captures(none) dereferenceable(513) %0, ptr noundef readnone %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %1
@@ -73514,7 +73514,7 @@ _ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt8multimapIiSt4pairIP20
 declare void @_ZN11QCustomPlot22selectionChangedByUserEv(ptr noundef nonnull align 8 dereferenceable(513)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11QCustomPlot15processRectZoomE5QRectP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(513) %0, i64 %1, i64 %2, ptr nocapture noundef readnone %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11QCustomPlot15processRectZoomE5QRectP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(513) %0, i64 %1, i64 %2, ptr noundef readnone captures(none) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.anon.701, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %class.QPointF, align 8
@@ -73753,7 +73753,7 @@ _ZN5QListIP7QCPAxisED2Ev.exit39:                  ; preds = %_ZN5QListIP7QCPAxis
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11QCPAxisRect4zoomERK6QRectFRK5QListIP7QCPAxisE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11QCPAxisRect4zoomERK6QRectFRK5QListIP7QCPAxisE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   %6 = alloca %class.QCPRange, align 8
@@ -74156,7 +74156,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP8QCPLayerEED2Ev.exit46: ; preds = %88, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK11QCustomPlot11layerableAtERK7QPointFbP8QVariant(ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK11QCustomPlot11layerableAtERK7QPointFbP8QVariant(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(513) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QList.175, align 8
   %6 = alloca %class.QList.6, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -78271,7 +78271,7 @@ _ZeqId6QColorENSt9enable_ifIXsr3stdE13conjunction_vISt11disjunctionIJSt10is_base
 declare noundef zeroext i1 @_ZNK6QColoreqERKS_(ptr noundef nonnull align 4 dereferenceable(14), ptr noundef nonnull align 4 dereferenceable(14)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16QCPColorGradient13setLevelCountEi(ptr nocapture noundef nonnull align 8 dereferenceable(73) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16QCPColorGradient13setLevelCountEi(ptr noundef nonnull align 8 captures(none) dereferenceable(73) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = icmp slt i32 %1, 2
@@ -78334,7 +78334,7 @@ _ZN6QDebuglsEi.exit:                              ; preds = %.noexc, %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN16QCPColorGradient13setColorStopsERK4QMapId6QColorE(ptr nocapture noundef nonnull align 8 dereferenceable(73) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16QCPColorGradient13setColorStopsERK4QMapId6QColorE(ptr noundef nonnull align 8 captures(none) dereferenceable(73) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %1, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -78419,7 +78419,7 @@ _ZN4QMapId6QColorE6insertERKdRKS0_.exit:          ; preds = %7, %_ZN9QtPrivate30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN16QCPColorGradient21setColorInterpolationENS_18ColorInterpolationE(ptr nocapture noundef nonnull align 8 dereferenceable(73) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define void @_ZN16QCPColorGradient21setColorInterpolationENS_18ColorInterpolationE(ptr noundef nonnull align 8 captures(none) dereferenceable(73) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %1, %4
@@ -78436,21 +78436,21 @@ define void @_ZN16QCPColorGradient21setColorInterpolationENS_18ColorInterpolatio
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN16QCPColorGradient14setNanHandlingENS_11NanHandlingE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(73) initializes((20, 24)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN16QCPColorGradient14setNanHandlingENS_11NanHandlingE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(73) initializes((20, 24)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN16QCPColorGradient11setNanColorERK6QColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(73) initializes((24, 38)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN16QCPColorGradient11setNanColorERK6QColor(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(73) initializes((24, 38)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %3, ptr noundef nonnull align 4 dereferenceable(14) %1, i64 14, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN16QCPColorGradient11setPeriodicEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(73) initializes((40, 41)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN16QCPColorGradient11setPeriodicEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(73) initializes((40, 41)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %3, ptr %4, align 8
@@ -78458,7 +78458,7 @@ define void @_ZN16QCPColorGradient11setPeriodicEb(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16QCPColorGradient8colorizeEPKdRK8QCPRangePjiib(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef writeonly %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16QCPColorGradient8colorizeEPKdRK8QCPRangePjiib(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef readonly %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr noundef writeonly %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %class.QDebug, align 8
   %9 = alloca %class.QMessageLogger, align 8
   %10 = alloca %class.QDebug, align 8
@@ -79431,7 +79431,7 @@ _ZNK4QMapId6QColorE10constBeginEv.exit167:        ; preds = %_ZNK4QMapId6QColorE
 declare noundef i32 @_ZNK6QColor4rgbaEv(ptr noundef nonnull align 4 dereferenceable(14)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16QCPColorGradient8colorizeEPKdPKhRK8QCPRangePjiib(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noundef writeonly %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16QCPColorGradient8colorizeEPKdPKhRK8QCPRangePjiib(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3, ptr noundef writeonly %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %class.QDebug, align 8
   %10 = alloca %class.QMessageLogger, align 8
   %11 = alloca %class.QDebug, align 8
@@ -79723,7 +79723,7 @@ _ZN5QListIjE4lastEv.exit:                         ; preds = %_ZNK17QArrayDataPoi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN16QCPColorGradient5colorEdRK8QCPRangeb(ptr noundef nonnull align 8 dereferenceable(73) %0, double noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN16QCPColorGradient5colorEdRK8QCPRangeb(ptr noundef nonnull align 8 dereferenceable(73) %0, double noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
@@ -79943,7 +79943,7 @@ _ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapId6QColorSt4lessId
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK16QCPColorGradient8invertedEv(ptr dead_on_unwind noalias writable sret(%class.QCPColorGradient) align 8 initializes((0, 4), (8, 41), (48, 73)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK16QCPColorGradient8invertedEv(ptr dead_on_unwind noalias writable sret(%class.QCPColorGradient) align 8 initializes((0, 4), (8, 41), (48, 73)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(73) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca double, align 8
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %0, align 8
@@ -80124,7 +80124,7 @@ _ZN4QMapId6QColorED2Ev.exit:                      ; preds = %_ZN5QListIjED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK16QCPColorGradient13stopsUseAlphaEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %0) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK16QCPColorGradient13stopsUseAlphaEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(73) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -80273,28 +80273,28 @@ define void @_ZN28QCPSelectionDecoratorBracket15setBracketBrushERK6QBrush(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN28QCPSelectionDecoratorBracket15setBracketWidthEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(148) initializes((128, 132)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN28QCPSelectionDecoratorBracket15setBracketWidthEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(148) initializes((128, 132)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN28QCPSelectionDecoratorBracket16setBracketHeightEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(148) initializes((132, 136)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN28QCPSelectionDecoratorBracket16setBracketHeightEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(148) initializes((132, 136)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN28QCPSelectionDecoratorBracket15setBracketStyleENS_12BracketStyleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(148) initializes((136, 140)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN28QCPSelectionDecoratorBracket15setBracketStyleENS_12BracketStyleE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(148) initializes((136, 140)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN28QCPSelectionDecoratorBracket16setTangentToDataEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(148) initializes((140, 141)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN28QCPSelectionDecoratorBracket16setTangentToDataEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(148) initializes((140, 141)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i8 %3, ptr %4, align 4
@@ -80302,7 +80302,7 @@ define void @_ZN28QCPSelectionDecoratorBracket16setTangentToDataEb(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN28QCPSelectionDecoratorBracket17setTangentAverageEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(148) initializes((144, 148)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN28QCPSelectionDecoratorBracket17setTangentAverageEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(148) initializes((144, 148)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %spec.select = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %spec.select, ptr %3, align 8
@@ -80310,7 +80310,7 @@ define void @_ZN28QCPSelectionDecoratorBracket17setTangentAverageEi(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK28QCPSelectionDecoratorBracket11drawBracketEP10QCPPainteri(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK28QCPSelectionDecoratorBracket11drawBracketEP10QCPPainteri(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QLine, align 8
   %5 = alloca %class.QLine, align 8
   %6 = alloca %class.QLine, align 8
@@ -80682,7 +80682,7 @@ declare void @_ZN8QPainter7drawArcERK6QRectFii(ptr noundef nonnull align 8 deref
 declare void @_ZN8QPainter11drawEllipseERK6QRectF(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN28QCPSelectionDecoratorBracket14drawDecorationEP10QCPPainter16QCPDataSelection(ptr noundef nonnull align 8 dereferenceable(148) %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN28QCPSelectionDecoratorBracket14drawDecorationEP10QCPPainter16QCPDataSelection(ptr noundef nonnull align 8 dereferenceable(148) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QPointF, align 8
   %5 = alloca %class.QPointF, align 8
   %6 = alloca %class.QTransform, align 8
@@ -80924,7 +80924,7 @@ _ZN9QtPrivate17QForeachContainerI5QListI12QCPDataRangeEED2Ev.exit47: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK28QCPSelectionDecoratorBracket19getPixelCoordinatesEPK23QCPPlottableInterface1Di(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define { double, double } @_ZNK28QCPSelectionDecoratorBracket19getPixelCoordinatesEPK23QCPPlottableInterface1Di(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -81030,7 +81030,7 @@ _ZNK20QCPAbstractPlottable9valueAxisEv.exit.thread: ; preds = %_ZNK20QCPAbstract
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK28QCPSelectionDecoratorBracket15getTangentAngleEPK23QCPPlottableInterface1Dii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK28QCPSelectionDecoratorBracket15getTangentAngleEPK23QCPPlottableInterface1Dii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %class.QDebug, align 8
@@ -84016,7 +84016,7 @@ _ZN5QListIP7QCPAxisElsES1_.exit5:                 ; preds = %34
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11QCPAxisRect4zoomERK6QRectF(ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11QCPAxisRect4zoomERK6QRectF(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(432) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList.136, align 8
   call void @_ZNK11QCPAxisRect4axesEv(ptr dead_on_unwind nonnull writable sret(%class.QList.136) align 8 %3, ptr noundef nonnull align 8 dereferenceable(432) %0)
   invoke void @_ZN11QCPAxisRect4zoomERK6QRectFRK5QListIP7QCPAxisE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %3)
@@ -85512,7 +85512,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP7QCPAxisEED2Ev.exit16: ; preds = %15, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK11QCPAxisRect8elementsEb(ptr dead_on_unwind noalias writable sret(%class.QList.59) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %1, i1 noundef zeroext %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK11QCPAxisRect8elementsEb(ptr dead_on_unwind noalias writable sret(%class.QList.59) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(432) %1, i1 noundef zeroext %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %class.QList.59, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -85590,7 +85590,7 @@ _ZN5QListIP16QCPLayoutElementED2Ev.exit12:        ; preds = %26, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK11QCPAxisRect28applyDefaultAntialiasingHintEP10QCPPainter(ptr nocapture noundef nonnull readnone align 8 dereferenceable(432) %0, ptr noundef nonnull %1) unnamed_addr #2 align 2 {
+define void @_ZNK11QCPAxisRect28applyDefaultAntialiasingHintEP10QCPPainter(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(432) %0, ptr noundef nonnull %1) unnamed_addr #2 align 2 {
   %3 = alloca %class.QPointF, align 8
   tail call void @_ZN8QPainter13setRenderHintENS_10RenderHintEb(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 1, i1 noundef zeroext false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -85905,7 +85905,7 @@ define void @_ZN11QCPAxisRect13setBackgroundERK7QPixmapbN2Qt15AspectRatioModeE(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11QCPAxisRect19setBackgroundScaledEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(432) initializes((224, 225)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN11QCPAxisRect19setBackgroundScaledEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(432) initializes((224, 225)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i8 %3, ptr %4, align 8
@@ -85913,7 +85913,7 @@ define void @_ZN11QCPAxisRect19setBackgroundScaledEb(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11QCPAxisRect23setBackgroundScaledModeEN2Qt15AspectRatioModeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(432) initializes((228, 232)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN11QCPAxisRect23setBackgroundScaledModeEN2Qt15AspectRatioModeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(432) initializes((228, 232)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i32 %1, ptr %3, align 4
   ret void
@@ -86143,21 +86143,21 @@ _ZN5QListI8QPointerI7QCPAxisEED2Ev.exit:          ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11QCPAxisRect12setRangeDragE6QFlagsIN2Qt11OrientationEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(432) initializes((240, 244)) %0, i32 %1) local_unnamed_addr #0 align 2 {
+define void @_ZN11QCPAxisRect12setRangeDragE6QFlagsIN2Qt11OrientationEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(432) initializes((240, 244)) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11QCPAxisRect12setRangeZoomE6QFlagsIN2Qt11OrientationEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(432) initializes((244, 248)) %0, i32 %1) local_unnamed_addr #0 align 2 {
+define void @_ZN11QCPAxisRect12setRangeZoomE6QFlagsIN2Qt11OrientationEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(432) initializes((244, 248)) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 244
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11QCPAxisRect16setRangeDragAxesE5QListIP7QCPAxisES3_(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11QCPAxisRect16setRangeDragAxesE5QListIP7QCPAxisES3_(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QPointer.116, align 8
   %5 = alloca %class.QDebug, align 8
   %6 = alloca %class.QMessageLogger, align 8
@@ -86530,7 +86530,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP7QCPAxisEED2Ev.exit32: ; preds = %_ZN9Q
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11QCPAxisRect16setRangeDragAxesE5QListIP7QCPAxisE(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11QCPAxisRect16setRangeDragAxesE5QListIP7QCPAxisE(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %class.QList.136, align 8
@@ -86899,7 +86899,7 @@ _ZN17QArrayDataPointerI8QPointerI7QCPAxisEED2Ev.exit: ; preds = %_ZN9QtPrivate16
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11QCPAxisRect16setRangeZoomAxesE5QListIP7QCPAxisES3_(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11QCPAxisRect16setRangeZoomAxesE5QListIP7QCPAxisES3_(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QPointer.116, align 8
   %5 = alloca %class.QDebug, align 8
   %6 = alloca %class.QMessageLogger, align 8
@@ -87272,7 +87272,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP7QCPAxisEED2Ev.exit32: ; preds = %_ZN9Q
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11QCPAxisRect16setRangeZoomAxesE5QListIP7QCPAxisE(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11QCPAxisRect16setRangeZoomAxesE5QListIP7QCPAxisE(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %class.QList.136, align 8
@@ -87522,7 +87522,7 @@ _ZN5QListIP7QCPAxisED2Ev.exit43:                  ; preds = %_ZN5QListIP7QCPAxis
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11QCPAxisRect18setRangeZoomFactorEdd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(432) initializes((344, 360)) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN11QCPAxisRect18setRangeZoomFactorEdd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(432) initializes((344, 360)) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store double %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -87531,7 +87531,7 @@ define void @_ZN11QCPAxisRect18setRangeZoomFactorEdd(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11QCPAxisRect18setRangeZoomFactorEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(432) initializes((344, 360)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN11QCPAxisRect18setRangeZoomFactorEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(432) initializes((344, 360)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store double %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -88100,7 +88100,7 @@ _ZNK11QCPAxisRect9axisCountEN7QCPAxis8AxisTypeE.exit31: ; preds = %_ZN5QListIP7Q
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11QCPAxisRect15mousePressEventEP11QMouseEventRK8QVariant(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11QCPAxisRect15mousePressEventEP11QMouseEventRK8QVariant(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.QtPrivate::QForeachContainer.197", align 8
@@ -88571,7 +88571,7 @@ _ZN8QPointerI7QCPAxisED2Ev.exit29:                ; preds = %_ZN8QPointerI7QCPAx
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11QCPAxisRect14mouseMoveEventEP11QMouseEventRK7QPointF(ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11QCPAxisRect14mouseMoveEventEP11QMouseEventRK7QPointF(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(432) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -88847,7 +88847,7 @@ _ZN11QCustomPlot25setNotAntialiasedElementsERK6QFlagsIN3QCP18AntialiasedElementE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN11QCPAxisRect17mouseReleaseEventEP11QMouseEventRK7QPointF(ptr nocapture noundef nonnull align 8 dereferenceable(432) initializes((416, 417)) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2) unnamed_addr #30 align 2 {
+define void @_ZN11QCPAxisRect17mouseReleaseEventEP11QMouseEventRK7QPointF(ptr noundef nonnull align 8 captures(none) dereferenceable(432) initializes((416, 417)) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %2) unnamed_addr #30 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store i8 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -88897,7 +88897,7 @@ _ZN11QCustomPlot25setNotAntialiasedElementsERK6QFlagsIN3QCP18AntialiasedElementE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11QCPAxisRect10wheelEventEP11QWheelEvent(ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %0, ptr nocapture noundef readonly %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11QCPAxisRect10wheelEventEP11QWheelEvent(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(432) %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.QtPrivate::QForeachContainer.197", align 8
   %4 = alloca %"class.QtPrivate::QForeachContainer.197", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -89421,7 +89421,7 @@ define void @_ZN21QCPAbstractLegendItem7setFontERK5QFont(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN21QCPAbstractLegendItem12setTextColorERK6QColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(242) initializes((192, 206)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN21QCPAbstractLegendItem12setTextColorERK6QColor(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(242) initializes((192, 206)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %3, ptr noundef nonnull align 4 dereferenceable(14) %1, i64 14, i1 false)
   ret void
@@ -89435,7 +89435,7 @@ define void @_ZN21QCPAbstractLegendItem15setSelectedFontERK5QFont(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN21QCPAbstractLegendItem20setSelectedTextColorERK6QColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(242) initializes((224, 238)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN21QCPAbstractLegendItem20setSelectedTextColorERK6QColor(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(242) initializes((224, 238)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %3, ptr noundef nonnull align 4 dereferenceable(14) %1, i64 14, i1 false)
   ret void
@@ -89482,7 +89482,7 @@ define void @_ZN21QCPAbstractLegendItem11setSelectedEb(ptr noundef nonnull align
 declare void @_ZN21QCPAbstractLegendItem16selectionChangedEb(ptr noundef nonnull align 8 dereferenceable(242), i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef double @_ZNK21QCPAbstractLegendItem10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull align 8 dereferenceable(242) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr nocapture noundef readnone %3) unnamed_addr #9 align 2 {
+define noundef double @_ZNK21QCPAbstractLegendItem10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull align 8 dereferenceable(242) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef readnone captures(none) %3) unnamed_addr #9 align 2 {
   %5 = alloca %class.QPoint, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -89540,7 +89540,7 @@ define noundef double @_ZNK21QCPAbstractLegendItem10selectTestERK7QPointFbP8QVar
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK21QCPAbstractLegendItem28applyDefaultAntialiasingHintEP10QCPPainter(ptr nocapture noundef nonnull readonly align 8 dereferenceable(242) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define void @_ZNK21QCPAbstractLegendItem28applyDefaultAntialiasingHintEP10QCPPainter(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(242) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -89549,7 +89549,7 @@ define void @_ZNK21QCPAbstractLegendItem28applyDefaultAntialiasingHintEP10QCPPai
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZNK21QCPAbstractLegendItem8clipRectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(242) %0) unnamed_addr #14 align 2 {
+define { i64, i64 } @_ZNK21QCPAbstractLegendItem8clipRectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(242) %0) unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %.sroa.0.0.copyload = load i64, ptr %2, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -89560,7 +89560,7 @@ define { i64, i64 } @_ZNK21QCPAbstractLegendItem8clipRectEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21QCPAbstractLegendItem11selectEventEP11QMouseEventbRK8QVariantPb(ptr noundef nonnull align 8 dereferenceable(242) %0, ptr nocapture noundef readnone %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %3, ptr noundef writeonly %4) unnamed_addr #2 align 2 {
+define void @_ZN21QCPAbstractLegendItem11selectEventEP11QMouseEventbRK8QVariantPb(ptr noundef nonnull align 8 dereferenceable(242) %0, ptr noundef readnone captures(none) %1, i1 noundef zeroext %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %3, ptr noundef writeonly %4) unnamed_addr #2 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
@@ -89659,7 +89659,7 @@ define void @_ZN22QCPPlottableLegendItemC2EP9QCPLegendP20QCPAbstractPlottable(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK22QCPPlottableLegendItem16getIconBorderPenEv(ptr dead_on_unwind noalias nonnull writable sret(%class.QPen) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %1) local_unnamed_addr #9 align 2 {
+define void @_ZNK22QCPPlottableLegendItem16getIconBorderPenEv(ptr dead_on_unwind noalias nonnull writable sret(%class.QPen) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 241
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -89672,7 +89672,7 @@ define void @_ZNK22QCPPlottableLegendItem16getIconBorderPenEv(ptr dead_on_unwind
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZNK22QCPPlottableLegendItem12getTextColorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0) local_unnamed_addr #14 align 2 {
+define { i64, i64 } @_ZNK22QCPPlottableLegendItem12getTextColorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 241
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -90736,7 +90736,7 @@ _ZN9QCPLegend20setSelectedTextColorERK6QColor.exit: ; preds = %.noexc38, %.noexc
 declare void @_ZN6QBrushC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9QCPLegend11setIconSizeEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(392) initializes((312, 320)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN9QCPLegend11setIconSizeEii(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(392) initializes((312, 320)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 316
@@ -90745,14 +90745,14 @@ define void @_ZN9QCPLegend11setIconSizeEii(ptr nocapture noundef nonnull writeon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9QCPLegend18setIconTextPaddingEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(392) initializes((320, 324)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN9QCPLegend18setIconTextPaddingEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(392) initializes((320, 324)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9QCPLegend18setSelectablePartsERK6QFlagsINS_14SelectablePartEE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN9QCPLegend18setSelectablePartsERK6QFlagsINS_14SelectablePartEE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %.sroa.02.0.copyload = load i32, ptr %3, align 8
   %.sroa.01.0.copyload = load i32, ptr %1, align 4
@@ -90769,7 +90769,7 @@ define void @_ZN9QCPLegend18setSelectablePartsERK6QFlagsINS_14SelectablePartEE(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9QCPLegend16setSelectedPartsERK6QFlagsINS_14SelectablePartEE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9QCPLegend16setSelectedPartsERK6QFlagsINS_14SelectablePartEE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = load i32, ptr %1, align 4
@@ -90968,7 +90968,7 @@ define void @_ZN9QCPLegend16setSelectedBrushERK6QBrush(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9QCPLegend12setTextColorERK6QColor(ptr noundef nonnull align 8 dereferenceable(392) initializes((296, 310)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(14) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN9QCPLegend12setTextColorERK6QColor(ptr noundef nonnull align 8 dereferenceable(392) initializes((296, 310)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(14) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %3, ptr noundef nonnull align 4 dereferenceable(14) %1, i64 14, i1 false)
   %4 = load ptr, ptr %0, align 8
@@ -91012,7 +91012,7 @@ define void @_ZN9QCPLegend12setTextColorERK6QColor(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9QCPLegend20setSelectedTextColorERK6QColor(ptr noundef nonnull align 8 dereferenceable(392) initializes((376, 390)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(14) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN9QCPLegend20setSelectedTextColorERK6QColor(ptr noundef nonnull align 8 dereferenceable(392) initializes((376, 390)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(14) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 376
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %3, ptr noundef nonnull align 4 dereferenceable(14) %1, i64 14, i1 false)
   %4 = load ptr, ptr %0, align 8
@@ -91285,7 +91285,7 @@ define void @_ZN9QCPLegend7setFontERK5QFont(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9QCPLegend11setIconSizeERK5QSize(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(392) initializes((312, 320)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN9QCPLegend11setIconSizeERK5QSize(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(392) initializes((312, 320)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %4 = load i64, ptr %1, align 4
   store i64 %4, ptr %3, align 8
@@ -91491,7 +91491,7 @@ _ZN17QArrayDataPointerIP21QCPAbstractLegendItemED2Ev.exit: ; preds = %1, %_ZN17Q
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9QCPLegend28applyDefaultAntialiasingHintEP10QCPPainter(ptr nocapture noundef nonnull readonly align 8 dereferenceable(392) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define void @_ZNK9QCPLegend28applyDefaultAntialiasingHintEP10QCPPainter(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(392) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -91583,7 +91583,7 @@ _ZN10QCPPainter6setPenERK4QPen.exit:              ; preds = %.noexc, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK9QCPLegend10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #2 align 2 {
+define noundef double @_ZNK9QCPLegend10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #2 align 2 {
   %5 = alloca %class.QPoint, align 8
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -91758,7 +91758,7 @@ _ZNK8QVariant9constDataEv.exit:                   ; preds = %27, %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9QCPLegend11selectEventEP11QMouseEventbRK8QVariantPb(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr nocapture noundef readnone %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef writeonly %4) unnamed_addr #2 align 2 {
+define void @_ZN9QCPLegend11selectEventEP11QMouseEventbRK8QVariantPb(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef readnone captures(none) %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef writeonly %4) unnamed_addr #2 align 2 {
   %6 = alloca %class.QFlags.143, align 4
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 248
@@ -91975,12 +91975,12 @@ _ZNK9QCPLegend13selectedPartsEv.exit11:           ; preds = %68, %.critedge.i6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK9QCPLegend17selectionCategoryEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(392) %0) unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK9QCPLegend17selectionCategoryEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(392) %0) unnamed_addr #6 align 2 {
   ret i32 32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK21QCPAbstractLegendItem17selectionCategoryEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(242) %0) unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK21QCPAbstractLegendItem17selectionCategoryEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(242) %0) unnamed_addr #6 align 2 {
   ret i32 32
 }
 
@@ -92239,7 +92239,7 @@ _ZN7QStringD2Ev.exit18:                           ; preds = %62, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14QCPTextElementC2EP11QCustomPlotRK7QString(ptr noundef nonnull align 8 dereferenceable(282) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14QCPTextElementC2EP11QCustomPlotRK7QString(ptr noundef nonnull align 8 dereferenceable(282) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
@@ -92491,7 +92491,7 @@ _ZN7QStringD2Ev.exit20:                           ; preds = %72, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14QCPTextElementC2EP11QCustomPlotRK7QStringd(ptr noundef nonnull align 8 dereferenceable(282) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, double noundef %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14QCPTextElementC2EP11QCustomPlotRK7QStringd(ptr noundef nonnull align 8 dereferenceable(282) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, double noundef %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
@@ -92756,7 +92756,7 @@ _ZN7QStringD2Ev.exit25:                           ; preds = %77, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14QCPTextElementC2EP11QCustomPlotRK7QStringS4_d(ptr noundef nonnull align 8 dereferenceable(282) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, double noundef %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14QCPTextElementC2EP11QCustomPlotRK7QStringS4_d(ptr noundef nonnull align 8 dereferenceable(282) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, double noundef %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QString, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -92922,7 +92922,7 @@ _ZN16QCPLayoutElement10setMarginsERK8QMargins.exit: ; preds = %48, %_ZneRK8QMarg
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14QCPTextElementC2EP11QCustomPlotRK7QStringRK5QFont(ptr noundef nonnull align 8 dereferenceable(282) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(12) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14QCPTextElementC2EP11QCustomPlotRK7QStringRK5QFont(ptr noundef nonnull align 8 dereferenceable(282) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(12) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
@@ -93080,7 +93080,7 @@ define void @_ZN14QCPTextElement7setTextERK7QString(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN14QCPTextElement12setTextFlagsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(282) initializes((192, 196)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN14QCPTextElement12setTextFlagsEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(282) initializes((192, 196)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 %1, ptr %3, align 8
   ret void
@@ -93094,7 +93094,7 @@ define void @_ZN14QCPTextElement7setFontERK5QFont(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN14QCPTextElement12setTextColorERK6QColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(282) initializes((216, 230)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN14QCPTextElement12setTextColorERK6QColor(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(282) initializes((216, 230)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %3, ptr noundef nonnull align 4 dereferenceable(14) %1, i64 14, i1 false)
   ret void
@@ -93108,7 +93108,7 @@ define void @_ZN14QCPTextElement15setSelectedFontERK5QFont(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN14QCPTextElement20setSelectedTextColorERK6QColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(282) initializes((248, 262)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN14QCPTextElement20setSelectedTextColorERK6QColor(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(282) initializes((248, 262)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %3, ptr noundef nonnull align 4 dereferenceable(14) %1, i64 14, i1 false)
   ret void
@@ -93155,7 +93155,7 @@ define void @_ZN14QCPTextElement11setSelectedEb(ptr noundef nonnull align 8 dere
 declare void @_ZN14QCPTextElement16selectionChangedEb(ptr noundef nonnull align 8 dereferenceable(282), i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK14QCPTextElement28applyDefaultAntialiasingHintEP10QCPPainter(ptr nocapture noundef nonnull readonly align 8 dereferenceable(282) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define void @_ZNK14QCPTextElement28applyDefaultAntialiasingHintEP10QCPPainter(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(282) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -93243,7 +93243,7 @@ define void @_ZNK14QCPTextElement8mainFontEv(ptr dead_on_unwind noalias nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZNK14QCPTextElement13mainTextColorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(282) %0) local_unnamed_addr #14 align 2 {
+define { i64, i64 } @_ZNK14QCPTextElement13mainTextColorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(282) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 281
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -93364,7 +93364,7 @@ define range(i64 16777215, -4278190080) i64 @_ZNK14QCPTextElement20maximumOuterS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14QCPTextElement11selectEventEP11QMouseEventbRK8QVariantPb(ptr noundef nonnull align 8 dereferenceable(282) %0, ptr nocapture noundef readnone %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %3, ptr noundef writeonly %4) unnamed_addr #2 align 2 {
+define void @_ZN14QCPTextElement11selectEventEP11QMouseEventbRK8QVariantPb(ptr noundef nonnull align 8 dereferenceable(282) %0, ptr noundef readnone captures(none) %1, i1 noundef zeroext %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %3, ptr noundef writeonly %4) unnamed_addr #2 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
@@ -93434,7 +93434,7 @@ _ZN14QCPTextElement11setSelectedEb.exit:          ; preds = %6, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef double @_ZNK14QCPTextElement10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull align 8 dereferenceable(282) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr nocapture noundef readnone %3) unnamed_addr #9 align 2 {
+define noundef double @_ZNK14QCPTextElement10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull align 8 dereferenceable(282) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef readnone captures(none) %3) unnamed_addr #9 align 2 {
   %5 = alloca %class.QPoint, align 8
   br i1 %2, label %6, label %10
 
@@ -93478,14 +93478,14 @@ define noundef double @_ZNK14QCPTextElement10selectTestERK7QPointFbP8QVariant(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN14QCPTextElement15mousePressEventEP11QMouseEventRK8QVariant(ptr nocapture noundef nonnull readnone align 8 dereferenceable(282) %0, ptr nocapture noundef writeonly initializes((12, 13)) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %2) unnamed_addr #0 align 2 {
+define void @_ZN14QCPTextElement15mousePressEventEP11QMouseEventRK8QVariant(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(282) %0, ptr noundef writeonly captures(none) initializes((12, 13)) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i8 1, ptr %4, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14QCPTextElement17mouseReleaseEventEP11QMouseEventRK7QPointF(ptr noundef nonnull align 8 dereferenceable(282) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14QCPTextElement17mouseReleaseEventEP11QMouseEventRK7QPointF(ptr noundef nonnull align 8 dereferenceable(282) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call { double, double } @_ZNK11QEventPoint8positionEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
@@ -93525,7 +93525,7 @@ define void @_ZN14QCPTextElement17mouseReleaseEventEP11QMouseEventRK7QPointF(ptr
 declare void @_ZN14QCPTextElement7clickedEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(282), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14QCPTextElement21mouseDoubleClickEventEP11QMouseEventRK8QVariant(ptr noundef nonnull align 8 dereferenceable(282) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %2) unnamed_addr #2 align 2 {
+define void @_ZN14QCPTextElement21mouseDoubleClickEventEP11QMouseEventRK8QVariant(ptr noundef nonnull align 8 dereferenceable(282) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %2) unnamed_addr #2 align 2 {
   tail call void @_ZN14QCPTextElement13doubleClickedEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(282) %0, ptr noundef %1)
   ret void
 }
@@ -94600,7 +94600,7 @@ _ZN7QStringD2Ev.exit108:                          ; preds = %365, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13QCPColorScale12setDataRangeERK8QCPRange(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13QCPColorScale12setDataRangeERK8QCPRange(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load double, ptr %3, align 8
   %5 = load double, ptr %1, align 8
@@ -94800,7 +94800,7 @@ define void @_ZN13QCPColorScaleD0Ev(ptr noundef nonnull align 8 dereferenceable(
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13QCPColorScale5labelEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13QCPColorScale5labelEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 304
@@ -94871,7 +94871,7 @@ _ZNK7QCPAxis5labelEv.exit:                        ; preds = %32, %_ZNK8QPointerI
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK13QCPColorScale9rangeDragEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK13QCPColorScale9rangeDragEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QDebug, align 8
   %3 = alloca %class.QMessageLogger, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -95097,7 +95097,7 @@ _ZN11QCPAxisRect13rangeDragAxisEN2Qt11OrientationE.exit.thread: ; preds = %_ZN5Q
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK13QCPColorScale9rangeZoomEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK13QCPColorScale9rangeZoomEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QDebug, align 8
   %3 = alloca %class.QMessageLogger, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -95602,7 +95602,7 @@ _ZN5QListIjEaSERKS0_.exit:                        ; preds = %_ZN17QArrayDataPoin
 declare void @_ZN13QCPColorScale15gradientChangedERK16QCPColorGradient(ptr noundef nonnull align 8 dereferenceable(320), ptr noundef nonnull align 8 dereferenceable(73)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13QCPColorScale8setLabelERK7QString(ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13QCPColorScale8setLabelERK7QString(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -95676,14 +95676,14 @@ _ZN7QCPAxis8setLabelERK7QString.exit:             ; preds = %_ZneRK7QStringS1_.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13QCPColorScale11setBarWidthEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(320) initializes((280, 284)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13QCPColorScale11setBarWidthEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(320) initializes((280, 284)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13QCPColorScale12setRangeDragEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13QCPColorScale12setRangeDragEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -95752,7 +95752,7 @@ _ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit3: ; preds = %22
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13QCPColorScale12setRangeZoomEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13QCPColorScale12setRangeZoomEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -96723,7 +96723,7 @@ _ZN16QCPLayoutElement14setMinimumSizeEii.exit:    ; preds = %select.unfold.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13QCPColorScale28applyDefaultAntialiasingHintEP10QCPPainter(ptr nocapture noundef nonnull readnone align 8 dereferenceable(320) %0, ptr noundef nonnull %1) unnamed_addr #2 align 2 {
+define void @_ZNK13QCPColorScale28applyDefaultAntialiasingHintEP10QCPPainter(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(320) %0, ptr noundef nonnull %1) unnamed_addr #2 align 2 {
   %3 = alloca %class.QPointF, align 8
   tail call void @_ZN8QPainter13setRenderHintENS_10RenderHintEb(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 1, i1 noundef zeroext false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -96753,7 +96753,7 @@ _ZN10QCPPainter15setAntialiasingEb.exit:          ; preds = %2, %7, %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13QCPColorScale15mousePressEventEP11QMouseEventRK8QVariant(ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13QCPColorScale15mousePressEventEP11QMouseEventRK8QVariant(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -96810,7 +96810,7 @@ _ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit: ; preds = %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13QCPColorScale14mouseMoveEventEP11QMouseEventRK7QPointF(ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13QCPColorScale14mouseMoveEventEP11QMouseEventRK7QPointF(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -96867,7 +96867,7 @@ _ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit: ; preds = %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13QCPColorScale17mouseReleaseEventEP11QMouseEventRK7QPointF(ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13QCPColorScale17mouseReleaseEventEP11QMouseEventRK7QPointF(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -96924,7 +96924,7 @@ _ZNK8QPointerI28QCPColorScaleAxisRectPrivateE4dataEv.exit: ; preds = %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13QCPColorScale10wheelEventEP11QWheelEvent(ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13QCPColorScale10wheelEventEP11QWheelEvent(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -98551,13 +98551,13 @@ _ZN5QListIN7QCPAxis8AxisTypeEED2Ev.exit27:        ; preds = %_ZN5QListIN7QCPAxis
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12QCPGraphDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define void @_ZN12QCPGraphDataC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12QCPGraphDataC2Edd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, double noundef %1, double noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN12QCPGraphDataC2Edd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, double noundef %1, double noundef %2) unnamed_addr #0 align 2 {
   store double %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %2, ptr %4, align 8
@@ -98691,14 +98691,14 @@ _ZN22QCPAbstractPlottable1DI12QCPGraphDataEC2EP7QCPAxisS3_.exit: ; preds = %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QCPGraph12setLineStyleENS_9LineStyleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(313) initializes((208, 212)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN8QCPGraph12setLineStyleENS_9LineStyleE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(313) initializes((208, 212)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QCPGraph14setScatterSkipEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(313) initializes((288, 292)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN8QCPGraph14setScatterSkipEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(313) initializes((288, 292)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i32 %.sroa.speculated, ptr %3, align 8
@@ -98844,7 +98844,7 @@ _ZN8QPointerI8QCPGraphEaSEPS0_.exit:              ; preds = %51, %49, %46, %39, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QCPGraph19setAdaptiveSamplingEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(313) initializes((312, 313)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN8QCPGraph19setAdaptiveSamplingEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(313) initializes((312, 313)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i8 %3, ptr %4, align 8
@@ -98971,7 +98971,7 @@ define void @_ZThn184_N8QCPGraphD0Ev(ptr noundef %0) unnamed_addr #35 align 2 {
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8QCPGraph7setDataE14QSharedPointerI16QCPDataContainerI12QCPGraphDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(313) initializes((192, 200)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QCPGraph7setDataE14QSharedPointerI16QCPDataContainerI12QCPGraphDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(313) initializes((192, 200)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -99026,7 +99026,7 @@ _ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEEaSERKS3_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QCPGraph7setDataERK5QListIdES3_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(313) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QCPGraph7setDataERK5QListIdES3_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(313) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
@@ -99089,7 +99089,7 @@ _ZN16QCPDataContainerI12QCPGraphDataE5clearEv.exit: ; preds = %4, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QCPGraph7addDataERK5QListIdES3_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(313) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QCPGraph7addDataERK5QListIdES3_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(313) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QCPGraphData, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %class.QDebug, align 8
@@ -99904,7 +99904,7 @@ _ZN16QCPDataContainerI12QCPGraphDataE3endEv.exit67: ; preds = %_ZNK17QArrayDataP
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QCPGraph7addDataEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(313) %0, double noundef %1, double noundef %2) local_unnamed_addr #2 align 2 {
+define void @_ZN8QCPGraph7addDataEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(313) %0, double noundef %1, double noundef %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %class.QCPGraphData, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
@@ -100265,7 +100265,7 @@ _ZN16QCPDataSelectionD2Ev.exit:                   ; preds = %32, %36, %22, %26, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QCPGraph13pointDistanceERK7QPointFRN5QListI12QCPGraphDataE14const_iteratorE(ptr noundef nonnull align 8 dereferenceable(313) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QCPGraph13pointDistanceERK7QPointFRN5QListI12QCPGraphDataE14const_iteratorE(ptr noundef nonnull align 8 dereferenceable(313) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QCPGraphData, align 8
   %5 = alloca %class.QCPGraphData, align 8
   %6 = alloca double, align 8
@@ -100765,7 +100765,7 @@ _ZN16QCPDataSelectionaSEOS_.exit:                 ; preds = %44, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK8QCPGraph11getKeyRangeERbN3QCP10SignDomainE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(313) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2) unnamed_addr #2 align 2 {
+define { double, double } @_ZNK8QCPGraph11getKeyRangeERbN3QCP10SignDomainE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(313) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
   %6 = tail call { double, double } @_ZN16QCPDataContainerI12QCPGraphDataE8keyRangeERbN3QCP10SignDomainE(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2)
@@ -101003,7 +101003,7 @@ define linkonce_odr { double, double } @_ZN16QCPDataContainerI12QCPGraphDataE8ke
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK8QCPGraph13getValueRangeERbN3QCP10SignDomainERK8QCPRange(ptr nocapture noundef nonnull readonly align 8 dereferenceable(313) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #2 align 2 {
+define { double, double } @_ZNK8QCPGraph13getValueRangeERbN3QCP10SignDomainERK8QCPRange(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(313) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
   %7 = tail call { double, double } @_ZN16QCPDataContainerI12QCPGraphDataE10valueRangeERbN3QCP10SignDomainERK8QCPRange(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
@@ -103398,7 +103398,7 @@ _ZN5QListI12QCPGraphDataED2Ev.exit:               ; preds = %127, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QCPGraph14drawLegendIconEP10QCPPainterRK6QRectF(ptr noundef nonnull align 8 dereferenceable(313) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QCPGraph14drawLegendIconEP10QCPPainterRK6QRectF(ptr noundef nonnull align 8 dereferenceable(313) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QLine, align 8
   %5 = alloca %class.QRectF, align 8
   %6 = alloca %class.QLineF, align 8
@@ -103743,7 +103743,7 @@ _ZNK15QCPScatterStyle7applyToEP10QCPPainterRK4QPen.exit54: ; preds = %.thread74,
 declare void @_ZN8QPainter8fillRectERK6QRectFRK6QBrush(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QCPGraph20getVisibleDataBoundsERN5QListI12QCPGraphDataE14const_iteratorES4_RK12QCPDataRange(ptr nocapture noundef nonnull readonly align 8 dereferenceable(313) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QCPGraph20getVisibleDataBoundsERN5QListI12QCPGraphDataE14const_iteratorES4_RK12QCPDataRange(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(313) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QCPGraphData, align 8
   %6 = alloca %class.QCPGraphData, align 8
   %7 = alloca %class.QDebug, align 8
@@ -103959,7 +103959,7 @@ _ZNK16QCPDataContainerI12QCPGraphDataE7findEndEdb.exit: ; preds = %93, %_ZSt11up
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QCPGraph11dataToLinesERK5QListI12QCPGraphDataE(ptr dead_on_unwind noalias writable sret(%class.QList.190) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(313) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QCPGraph11dataToLinesERK5QListI12QCPGraphDataE(ptr dead_on_unwind noalias writable sret(%class.QList.190) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(313) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -104260,7 +104260,7 @@ _ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i65: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QCPGraph19dataToStepLeftLinesERK5QListI12QCPGraphDataE(ptr dead_on_unwind noalias writable sret(%class.QList.190) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(313) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QCPGraph19dataToStepLeftLinesERK5QListI12QCPGraphDataE(ptr dead_on_unwind noalias writable sret(%class.QList.190) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(313) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -104704,7 +104704,7 @@ _ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i122: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QCPGraph20dataToStepRightLinesERK5QListI12QCPGraphDataE(ptr dead_on_unwind noalias writable sret(%class.QList.190) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(313) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QCPGraph20dataToStepRightLinesERK5QListI12QCPGraphDataE(ptr dead_on_unwind noalias writable sret(%class.QList.190) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(313) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -105147,7 +105147,7 @@ _ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i122: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QCPGraph21dataToStepCenterLinesERK5QListI12QCPGraphDataE(ptr dead_on_unwind noalias writable sret(%class.QList.190) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(313) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QCPGraph21dataToStepCenterLinesERK5QListI12QCPGraphDataE(ptr dead_on_unwind noalias writable sret(%class.QList.190) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(313) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -105878,7 +105878,7 @@ _ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i228: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QCPGraph18dataToImpulseLinesERK5QListI12QCPGraphDataE(ptr dead_on_unwind noalias writable sret(%class.QList.190) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(313) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QCPGraph18dataToImpulseLinesERK5QListI12QCPGraphDataE(ptr dead_on_unwind noalias writable sret(%class.QList.190) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(313) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -106477,7 +106477,7 @@ _ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i162: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QCPGraph8drawFillEP10QCPPainterP5QListI7QPointFE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(313) %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QCPGraph8drawFillEP10QCPPainterP5QListI7QPointFE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(313) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QList.42, align 8
   %5 = alloca %class.QPolygonF, align 8
   %6 = alloca %class.QList.190, align 8
@@ -106992,7 +106992,7 @@ _ZN5QListI12QCPDataRangeED2Ev.exit97:             ; preds = %_ZN9QtPrivate17QFor
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QCPGraph17getNonNanSegmentsEPK5QListI7QPointFEN2Qt11OrientationE(ptr dead_on_unwind noalias writable sret(%class.QList.42) align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QCPGraph17getNonNanSegmentsEPK5QListI7QPointFEN2Qt11OrientationE(ptr dead_on_unwind noalias writable sret(%class.QList.42) align 8 initializes((0, 24)) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QCPDataRange, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -107147,7 +107147,7 @@ _ZN5QListI12QCPDataRangeE6appendERKS0_.exit44:    ; preds = %9, %.critedge6
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QCPGraph14getFillPolygonEPK5QListI7QPointFE12QCPDataRange(ptr dead_on_unwind noalias writable sret(%class.QPolygonF) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(313) %1, ptr nocapture noundef readonly %2, i64 %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QCPGraph14getFillPolygonEPK5QListI7QPointFE12QCPDataRange(ptr dead_on_unwind noalias writable sret(%class.QPolygonF) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(313) %1, ptr noundef readonly captures(none) %2, i64 %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %.sroa.034.0.extract.trunc = trunc i64 %3 to i32
   %.sroa.5.0.extract.shift = lshr i64 %3, 32
@@ -107341,7 +107341,7 @@ _ZN5QListI7QPointFED2Ev.exit:                     ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QCPGraph22getOverlappingSegmentsE5QListI12QCPDataRangeEPKS0_I7QPointFES2_S6_(ptr dead_on_unwind noalias writable sret(%class.QList.225) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(313) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QCPGraph22getOverlappingSegmentsE5QListI12QCPDataRangeEPKS0_I7QPointFES2_S6_(ptr dead_on_unwind noalias writable sret(%class.QList.225) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(313) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.std::pair.229", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -107518,7 +107518,7 @@ _ZNK8QCPGraph17segmentsIntersectEddddRi.exit:     ; preds = %._ZNK8QCPGraph17seg
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QCPGraph21getChannelFillPolygonEPK5QListI7QPointFE12QCPDataRangeS4_S5_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QPolygonF) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(313) %1, ptr nocapture noundef readonly %2, i64 %3, ptr nocapture noundef readonly %4, i64 %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QCPGraph21getChannelFillPolygonEPK5QListI7QPointFE12QCPDataRangeS4_S5_(ptr dead_on_unwind noalias writable writeonly sret(%class.QPolygonF) align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(313) %1, ptr noundef readonly captures(none) %2, i64 %3, ptr noundef readonly captures(none) %4, i64 %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %class.QDebug, align 8
@@ -108567,7 +108567,7 @@ _ZN17QArrayDataPointerISt4pairI12QCPDataRangeS1_EED2Ev.exit: ; preds = %1, %_ZN1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QCPGraph15drawScatterPlotEP10QCPPainterRK5QListI7QPointFERK15QCPScatterStyle(ptr noundef nonnull align 8 dereferenceable(313) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(65) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QCPGraph15drawScatterPlotEP10QCPPainterRK5QListI7QPointFERK15QCPScatterStyle(ptr noundef nonnull align 8 dereferenceable(313) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(65) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %6 = load i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
@@ -108964,7 +108964,7 @@ _ZN10QCPPainter8drawLineERK7QPointFS2_.exit:      ; preds = %81, %82
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QCPGraph15drawImpulsePlotEP10QCPPainterRK5QListI7QPointFE(ptr noundef nonnull align 8 dereferenceable(313) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QCPGraph15drawImpulsePlotEP10QCPPainterRK5QListI7QPointFE(ptr noundef nonnull align 8 dereferenceable(313) %0, ptr noundef nonnull %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QColor, align 8
   %5 = alloca %class.QPen, align 8
   %6 = alloca %class.QPen, align 8
@@ -109067,7 +109067,7 @@ _ZN10QCPPainter6setPenERK4QPen.exit19:            ; preds = %.noexc17, %36
 declare void @_ZN4QPen11setCapStyleEN2Qt11PenCapStyleE(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QCPGraph20getOptimizedLineDataEP5QListI12QCPGraphDataERKNS2_14const_iteratorES6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(313) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QCPGraph20getOptimizedLineDataEP5QListI12QCPGraphDataERKNS2_14const_iteratorES6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(313) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QCPGraphData, align 8
   %6 = alloca %class.QDebug, align 8
   %7 = alloca %class.QMessageLogger, align 8
@@ -109477,7 +109477,7 @@ _ZSt4copyIN5QListI12QCPGraphDataE14const_iteratorENS2_8iteratorEET0_T_S6_S5_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QCPGraph23getOptimizedScatterDataEP5QListI12QCPGraphDataENS2_14const_iteratorES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(313) %0, ptr noundef %1, ptr %2, ptr %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QCPGraph23getOptimizedScatterDataEP5QListI12QCPGraphDataENS2_14const_iteratorES4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(313) %0, ptr noundef %1, ptr %2, ptr %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QDebug, align 8
   %6 = alloca %class.QMessageLogger, align 8
   %.not = icmp eq ptr %1, null
@@ -110278,7 +110278,7 @@ _ZNK12QCPDataRange7boundedERKS_.exit26:           ; preds = %_ZNK12QCPDataRange1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZNK8QCPGraph17segmentsIntersectEddddRi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(313) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %5) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK8QCPGraph17segmentsIntersectEddddRi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(313) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %5) local_unnamed_addr #0 align 2 {
   store i32 0, ptr %5, align 4
   %7 = fcmp ogt double %1, %4
   br i1 %7, label %.sink.split, label %8
@@ -110307,7 +110307,7 @@ define noundef zeroext i1 @_ZNK8QCPGraph17segmentsIntersectEddddRi(ptr nocapture
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK8QCPGraph16getFillBasePointE7QPointF(ptr nocapture noundef nonnull readonly align 8 dereferenceable(313) %0, double %1, double %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define { double, double } @_ZNK8QCPGraph16getFillBasePointE7QPointF(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(313) %0, double %1, double %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -110504,7 +110504,7 @@ _ZN5QListI7QPointFE5beginEv.exit:                 ; preds = %_ZNK17QArrayDataPoi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -1, 2147483647) i32 @_ZNK8QCPGraph15findIndexBelowXEPK5QListI7QPointFEd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(313) %0, ptr nocapture noundef readonly %1, double noundef %2) local_unnamed_addr #16 align 2 {
+define noundef range(i32 -1, 2147483647) i32 @_ZNK8QCPGraph15findIndexBelowXEPK5QListI7QPointFEd(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(313) %0, ptr noundef readonly captures(none) %1, double noundef %2) local_unnamed_addr #16 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp sgt i64 %5, 0
@@ -110623,7 +110623,7 @@ _ZN5QListI7QPointFE3endEv.exit:                   ; preds = %_ZNK17QArrayDataPoi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK8QCPGraph15findIndexAboveXEPK5QListI7QPointFEd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(313) %0, ptr nocapture noundef readonly %1, double noundef %2) local_unnamed_addr #16 align 2 {
+define noundef i32 @_ZNK8QCPGraph15findIndexAboveXEPK5QListI7QPointFEd(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(313) %0, ptr noundef readonly captures(none) %1, double noundef %2) local_unnamed_addr #16 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
@@ -110660,7 +110660,7 @@ define noundef i32 @_ZNK8QCPGraph15findIndexAboveXEPK5QListI7QPointFEd(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -1, 2147483647) i32 @_ZNK8QCPGraph15findIndexBelowYEPK5QListI7QPointFEd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(313) %0, ptr nocapture noundef readonly %1, double noundef %2) local_unnamed_addr #16 align 2 {
+define noundef range(i32 -1, 2147483647) i32 @_ZNK8QCPGraph15findIndexBelowYEPK5QListI7QPointFEd(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(313) %0, ptr noundef readonly captures(none) %1, double noundef %2) local_unnamed_addr #16 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp sgt i64 %5, 0
@@ -110696,7 +110696,7 @@ define noundef range(i32 -1, 2147483647) i32 @_ZNK8QCPGraph15findIndexBelowYEPK5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK8QCPGraph15findIndexAboveYEPK5QListI7QPointFEd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(313) %0, ptr nocapture noundef readonly %1, double noundef %2) local_unnamed_addr #16 align 2 {
+define noundef i32 @_ZNK8QCPGraph15findIndexAboveYEPK5QListI7QPointFEd(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(313) %0, ptr noundef readonly captures(none) %1, double noundef %2) local_unnamed_addr #16 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
@@ -110733,13 +110733,13 @@ define noundef i32 @_ZNK8QCPGraph15findIndexAboveYEPK5QListI7QPointFEd(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12QCPCurveDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
+define void @_ZN12QCPCurveDataC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12QCPCurveDataC2Eddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, double noundef %1, double noundef %2, double noundef %3) unnamed_addr #0 align 2 {
+define void @_ZN12QCPCurveDataC2Eddd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, double noundef %1, double noundef %2, double noundef %3) unnamed_addr #0 align 2 {
   store double %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %2, ptr %5, align 8
@@ -110926,14 +110926,14 @@ define void @_ZN8QCPCurve15setScatterStyleERK15QCPScatterStyle(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QCPCurve12setLineStyleENS_9LineStyleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(288) initializes((284, 288)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN8QCPCurve12setLineStyleENS_9LineStyleE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(288) initializes((284, 288)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 284
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QCPCurve14setScatterSkipEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(288) initializes((280, 284)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN8QCPCurve14setScatterSkipEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(288) initializes((280, 284)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 %.sroa.speculated, ptr %3, align 8
@@ -111016,7 +111016,7 @@ define void @_ZThn184_N8QCPCurveD0Ev(ptr noundef %0) unnamed_addr #35 align 2 {
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8QCPCurve7setDataE14QSharedPointerI16QCPDataContainerI12QCPCurveDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(288) initializes((192, 200)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QCPCurve7setDataE14QSharedPointerI16QCPDataContainerI12QCPCurveDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(288) initializes((192, 200)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -111071,7 +111071,7 @@ _ZN14QSharedPointerI16QCPDataContainerI12QCPCurveDataEEaSERKS3_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QCPCurve7setDataERK5QListIdES3_S3_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, i1 noundef zeroext %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QCPCurve7setDataERK5QListIdES3_S3_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, i1 noundef zeroext %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %8 = load ptr, ptr %7, align 8
@@ -111134,7 +111134,7 @@ _ZN16QCPDataContainerI12QCPCurveDataE5clearEv.exit: ; preds = %5, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QCPCurve7addDataERK5QListIdES3_S3_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, i1 noundef zeroext %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QCPCurve7addDataERK5QListIdES3_S3_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, i1 noundef zeroext %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QCPCurveData, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %class.QDebug, align 8
@@ -111405,7 +111405,7 @@ _ZN5QListI12QCPCurveDataED2Ev.exit:               ; preds = %102, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QCPCurve7setDataERK5QListIdES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QCPCurve7setDataERK5QListIdES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
@@ -111468,7 +111468,7 @@ _ZN16QCPDataContainerI12QCPCurveDataE5clearEv.exit: ; preds = %3, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QCPCurve7addDataERK5QListIdES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QCPCurve7addDataERK5QListIdES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QCPCurveData, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %class.QDebug, align 8
@@ -112283,7 +112283,7 @@ _ZN16QCPDataContainerI12QCPCurveDataE3endEv.exit68: ; preds = %_ZNK17QArrayDataP
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QCPCurve7addDataEddd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0, double noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #2 align 2 {
+define void @_ZN8QCPCurve7addDataEddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %0, double noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #2 align 2 {
   %5 = alloca %class.QCPCurveData, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
@@ -112484,7 +112484,7 @@ _ZN5QListI12QCPCurveDataE6insertENS1_14const_iteratorERKS0_.exit: ; preds = %76,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QCPCurve7addDataEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0, double noundef %1, double noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QCPCurve7addDataEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %0, double noundef %1, double noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QCPCurveData, align 8
   %5 = alloca %class.QCPCurveData, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -112678,7 +112678,7 @@ _ZN16QCPDataSelectionD2Ev.exit:                   ; preds = %32, %36, %22, %26, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QCPCurve13pointDistanceERK7QPointFRN5QListI12QCPCurveDataE14const_iteratorE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QCPCurve13pointDistanceERK7QPointFRN5QListI12QCPCurveDataE14const_iteratorE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QCPVector2D, align 8
   %5 = alloca %class.QPointF, align 8
   %6 = alloca %class.QCPVector2D, align 8
@@ -112936,7 +112936,7 @@ _ZN5QListI7QPointFED2Ev.exit34:                   ; preds = %137, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK8QCPCurve11getKeyRangeERbN3QCP10SignDomainE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2) unnamed_addr #2 align 2 {
+define { double, double } @_ZNK8QCPCurve11getKeyRangeERbN3QCP10SignDomainE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
   %6 = tail call { double, double } @_ZN16QCPDataContainerI12QCPCurveDataE8keyRangeERbN3QCP10SignDomainE(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2)
@@ -113191,7 +113191,7 @@ define linkonce_odr { double, double } @_ZN16QCPDataContainerI12QCPCurveDataE8ke
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK8QCPCurve13getValueRangeERbN3QCP10SignDomainERK8QCPRange(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #2 align 2 {
+define { double, double } @_ZNK8QCPCurve13getValueRangeERbN3QCP10SignDomainERK8QCPRange(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
   %7 = tail call { double, double } @_ZN16QCPDataContainerI12QCPCurveDataE10valueRangeERbN3QCP10SignDomainERK8QCPRange(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
@@ -114509,7 +114509,7 @@ _ZN16QCPDataSelectionD2Ev.exit37:                 ; preds = %104, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QCPCurve13getCurveLinesEP5QListI7QPointFERK12QCPDataRanged(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QCPCurve13getCurveLinesEP5QListI7QPointFERK12QCPDataRanged(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca %class.QDebug, align 8
   %7 = alloca %class.QMessageLogger, align 8
@@ -115253,7 +115253,7 @@ _ZN5QListI7QPointFED2Ev.exit189:                  ; preds = %306, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QCPCurve11getScattersEP5QListI7QPointFERK12QCPDataRanged(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QCPCurve11getScattersEP5QListI7QPointFERK12QCPDataRanged(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %2, double noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca %class.QDebug, align 8
   %7 = alloca %class.QMessageLogger, align 8
@@ -115667,7 +115667,7 @@ _ZNK8QPointerI7QCPAxisE4dataEv.exit64.thread:     ; preds = %_ZNK8QPointerI7QCPA
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QCPCurve14drawLegendIconEP10QCPPainterRK6QRectF(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QCPCurve14drawLegendIconEP10QCPPainterRK6QRectF(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QLine, align 8
   %5 = alloca %class.QRectF, align 8
   %6 = alloca %class.QLineF, align 8
@@ -116317,7 +116317,7 @@ _ZN10QCPPainter8drawLineERK7QPointFS2_.exit:      ; preds = %81, %82
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QCPCurve15drawScatterPlotEP10QCPPainterRK5QListI7QPointFERK15QCPScatterStyle(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(65) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QCPCurve15drawScatterPlotEP10QCPPainterRK5QListI7QPointFERK15QCPScatterStyle(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(65) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %6 = load i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
@@ -116588,7 +116588,7 @@ _ZNK12QCPDataRange7boundedERKS_.exit26:           ; preds = %_ZNK12QCPDataRange1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 1, 10) i32 @_ZNK8QCPCurve9getRegionEdddddd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(288) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6) local_unnamed_addr #6 align 2 {
+define noundef range(i32 1, 10) i32 @_ZNK8QCPCurve9getRegionEdddddd(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(288) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6) local_unnamed_addr #6 align 2 {
   %8 = fcmp olt double %1, %3
   br i1 %8, label %9, label %13
 
@@ -116628,7 +116628,7 @@ define noundef range(i32 1, 10) i32 @_ZNK8QCPCurve9getRegionEdddddd(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define { double, double } @_ZNK8QCPCurve17getOptimizedPointEidddddddd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0, i32 noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9) local_unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
+define { double, double } @_ZNK8QCPCurve17getOptimizedPointEidddddddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %0, i32 noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9) local_unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
 _ZNK8QPointerI7QCPAxisEptEv.exit:
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load ptr, ptr %10, align 8, !nonnull !115, !noundef !115
@@ -116833,7 +116833,7 @@ _ZNK8QPointerI7QCPAxisEptEv.exit124:              ; preds = %125, %106, %81, %62
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QCPCurve24getOptimizedCornerPointsEiidddddddd(ptr dead_on_unwind noalias writable sret(%class.QList.190) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %1, i32 noundef %2, i32 noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, double noundef %10, double noundef %11) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QCPCurve24getOptimizedCornerPointsEiidddddddd(ptr dead_on_unwind noalias writable sret(%class.QList.190) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %1, i32 noundef %2, i32 noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, double noundef %10, double noundef %11) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %13 = alloca %class.QPointF, align 8
   %14 = alloca %class.QPointF, align 8
   %15 = alloca %class.QPointF, align 8
@@ -118673,7 +118673,7 @@ _ZN5QListI7QPointFElsERKS0_.exit:                 ; preds = %.invoke, %12, %113,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK8QCPCurve11mayTraverseEii(ptr nocapture noundef nonnull readnone align 8 dereferenceable(288) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK8QCPCurve11mayTraverseEii(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(288) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
   switch i32 %1, label %18 [
     i32 1, label %4
     i32 2, label %6
@@ -118759,7 +118759,7 @@ switch.lookup25:                                  ; preds = %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8QCPCurve11getTraverseEddddddddR7QPointFS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %9, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %10) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK8QCPCurve11getTraverseEddddddddR7QPointFS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %9, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %10) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZNK8QPointerI7QCPAxisEptEv.exit:
   %11 = alloca %class.QList.190, align 8
   %12 = alloca %class.QPointF, align 8
@@ -119274,7 +119274,7 @@ _ZN5QListI7QPointFED2Ev.exit124:                  ; preds = %_ZN5QListI7QPointFE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QCPCurve23getTraverseCornerPointsEiiddddR5QListI7QPointFES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0, i32 noundef %1, i32 noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8) local_unnamed_addr #2 align 2 {
+define void @_ZNK8QCPCurve23getTraverseCornerPointsEiiddddR5QListI7QPointFES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %0, i32 noundef %1, i32 noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8) local_unnamed_addr #2 align 2 {
   %10 = alloca %class.QPointF, align 8
   %11 = alloca %class.QPointF, align 8
   %12 = alloca %class.QPointF, align 8
@@ -119929,7 +119929,7 @@ _ZN5QListIP7QCPBarsED2Ev.exit:                    ; preds = %2, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12QCPBarsGroup5clearEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12QCPBarsGroup5clearEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -120035,21 +120035,21 @@ define void @_ZN12QCPBarsGroupD0Ev(ptr noundef nonnull align 8 dereferenceable(6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12QCPBarsGroup14setSpacingTypeENS_11SpacingTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((24, 28)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN12QCPBarsGroup14setSpacingTypeENS_11SpacingTypeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((24, 28)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12QCPBarsGroup10setSpacingEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((32, 40)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN12QCPBarsGroup10setSpacingEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((32, 40)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK12QCPBarsGroup4barsEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK12QCPBarsGroup4barsEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = icmp sgt i32 %1, -1
@@ -120544,7 +120544,7 @@ _ZN5QListIP7QCPBarsE4moveExx.exit:                ; preds = %91, %85, %_ZNK23QLi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12QCPBarsGroup6removeEP7QCPBars(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12QCPBarsGroup6removeEP7QCPBars(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
@@ -120730,7 +120730,7 @@ define void @_ZN12QCPBarsGroup14unregisterBarsEP7QCPBars(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN12QCPBarsGroup14keyPixelOffsetEPK7QCPBarsd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef readonly %1, double noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZN12QCPBarsGroup14keyPixelOffsetEPK7QCPBarsd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly %1, double noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %class.QList.249, align 8
   %6 = alloca double, align 8
@@ -121354,7 +121354,7 @@ _ZN5QListIPK7QCPBarsED2Ev.exit70:                 ; preds = %_ZN9QtPrivate17QFor
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define noundef double @_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1, double noundef %2) local_unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZN12QCPBarsGroup15getPixelSpacingEPK7QCPBarsd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly captures(none) %1, double noundef %2) local_unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %62 [
@@ -121443,7 +121443,7 @@ _ZNK20QCPAbstractPlottable7keyAxisEv.exit12:      ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7QCPBars13getPixelWidthEdRdS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, double noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7QCPBars13getPixelWidthEdRdS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, double noundef %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QDebug, align 8
   %6 = alloca %class.QMessageLogger, align 8
   %7 = alloca %class.QDebug, align 8
@@ -121675,13 +121675,13 @@ _ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit30.thread:    ; preds = %95, %99
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11QCPBarsDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define void @_ZN11QCPBarsDataC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11QCPBarsDataC2Edd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, double noundef %1, double noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN11QCPBarsDataC2Edd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, double noundef %1, double noundef %2) unnamed_addr #0 align 2 {
   store double %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %2, ptr %4, align 8
@@ -122388,7 +122388,7 @@ define void @_ZThn184_N7QCPBarsD0Ev(ptr noundef %0) unnamed_addr #35 align 2 {
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7QCPBars7setDataE14QSharedPointerI16QCPDataContainerI11QCPBarsDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(280) initializes((192, 200)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7QCPBars7setDataE14QSharedPointerI16QCPDataContainerI11QCPBarsDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(280) initializes((192, 200)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -122443,7 +122443,7 @@ _ZN14QSharedPointerI16QCPDataContainerI11QCPBarsDataEEaSERKS3_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7QCPBars7setDataERK5QListIdES3_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7QCPBars7setDataERK5QListIdES3_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
@@ -122506,7 +122506,7 @@ _ZN16QCPDataContainerI11QCPBarsDataE5clearEv.exit: ; preds = %4, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7QCPBars7addDataERK5QListIdES3_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7QCPBars7addDataERK5QListIdES3_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QCPBarsData, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %class.QDebug, align 8
@@ -122743,28 +122743,28 @@ _ZN5QListI11QCPBarsDataED2Ev.exit:                ; preds = %84, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7QCPBars8setWidthEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(280) initializes((208, 216)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN7QCPBars8setWidthEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(280) initializes((208, 216)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store double %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7QCPBars12setWidthTypeENS_9WidthTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(280) initializes((216, 220)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN7QCPBars12setWidthTypeENS_9WidthTypeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(280) initializes((216, 220)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7QCPBars12setBaseValueEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(280) initializes((232, 240)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN7QCPBars12setBaseValueEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(280) initializes((232, 240)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store double %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7QCPBars14setStackingGapEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(280) initializes((240, 248)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN7QCPBars14setStackingGapEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(280) initializes((240, 248)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store double %1, ptr %3, align 8
   ret void
@@ -123325,7 +123325,7 @@ _ZN16QCPDataContainerI11QCPBarsDataE3endEv.exit67: ; preds = %_ZNK17QArrayDataPo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7QCPBars7addDataEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, double noundef %1, double noundef %2) local_unnamed_addr #2 align 2 {
+define void @_ZN7QCPBars7addDataEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, double noundef %1, double noundef %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %class.QCPBarsData, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
@@ -124111,7 +124111,7 @@ _ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit.thread:      ; preds = %32, %36, %22, %26, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7QCPBars20getVisibleDataBoundsERN5QListI11QCPBarsDataE14const_iteratorES4_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7QCPBars20getVisibleDataBoundsERN5QListI11QCPBarsDataE14const_iteratorES4_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QCPBarsData, align 8
   %5 = alloca %class.QCPBarsData, align 8
   %6 = alloca %class.QDebug, align 8
@@ -125353,7 +125353,7 @@ define linkonce_odr { double, double } @_ZN16QCPDataContainerI11QCPBarsDataE8key
 declare noundef zeroext i1 @_Z9qIsFinited(double noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK7QCPBars13getValueRangeERbN3QCP10SignDomainERK8QCPRange(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define { double, double } @_ZNK7QCPBars13getValueRangeERbN3QCP10SignDomainERK8QCPRange(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QCPBarsData, align 8
   %6 = alloca %class.QCPBarsData, align 8
   %7 = alloca %class.QCPRange, align 8
@@ -125577,7 +125577,7 @@ _ZNK16QCPDataContainerI11QCPBarsDataE7findEndEdb.exit: ; preds = %_ZSt7advanceIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK7QCPBars19getStackedBaseValueEdb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, double noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK7QCPBars19getStackedBaseValueEdb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, double noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QCPBarsData, align 8
   %5 = alloca %class.QCPBarsData, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -126893,7 +126893,7 @@ _ZNK12QCPDataRange7boundedERKS_.exit26:           ; preds = %_ZNK12QCPDataRange1
 declare void @_ZN9QPolygonFC1ERK6QRectF(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7QCPBars14drawLegendIconEP10QCPPainterRK6QRectF(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #2 align 2 {
+define void @_ZNK7QCPBars14drawLegendIconEP10QCPPainterRK6QRectF(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #2 align 2 {
   %4 = alloca %class.QRectF, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
@@ -126948,13 +126948,13 @@ declare noundef zeroext i1 @_ZNK4QPen10isCosmeticEv(ptr noundef nonnull align 8 
 declare void @_ZNK6QRectF10normalizedEv(ptr dead_on_unwind writable sret(%class.QRectF) align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN21QCPStatisticalBoxDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 72)) %0) unnamed_addr #0 align 2 {
+define void @_ZN21QCPStatisticalBoxDataC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) initializes((0, 72)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 72, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN21QCPStatisticalBoxDataC2EddddddRK5QListIdE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 72)) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %7) unnamed_addr #32 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN21QCPStatisticalBoxDataC2EddddddRK5QListIdE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) initializes((0, 72)) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %7) unnamed_addr #32 align 2 personality ptr @__gxx_personality_v0 {
   store double %1, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %2, ptr %9, align 8
@@ -127163,7 +127163,7 @@ _ZN20QCPAbstractPlottable8setBrushERK6QBrush.exit: ; preds = %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN17QCPStatisticalBox7setDataE14QSharedPointerI16QCPDataContainerI21QCPStatisticalBoxDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(328) initializes((192, 200)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17QCPStatisticalBox7setDataE14QSharedPointerI16QCPDataContainerI21QCPStatisticalBoxDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(328) initializes((192, 200)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -127218,7 +127218,7 @@ _ZN14QSharedPointerI16QCPDataContainerI21QCPStatisticalBoxDataEEaSERKS3_.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17QCPStatisticalBox7setDataERK5QListIdES3_S3_S3_S3_S3_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(328) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %6, i1 noundef zeroext %7) local_unnamed_addr #2 align 2 {
+define void @_ZN17QCPStatisticalBox7setDataERK5QListIdES3_S3_S3_S3_S3_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(328) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %6, i1 noundef zeroext %7) local_unnamed_addr #2 align 2 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -127232,7 +127232,7 @@ define void @_ZN17QCPStatisticalBox7setDataERK5QListIdES3_S3_S3_S3_S3_b(ptr noca
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17QCPStatisticalBox7addDataERK5QListIdES3_S3_S3_S3_S3_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(328) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %6, i1 noundef zeroext %7) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17QCPStatisticalBox7addDataERK5QListIdES3_S3_S3_S3_S3_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(328) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %6, i1 noundef zeroext %7) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca ptr, align 8
   %10 = alloca %class.QDebug, align 8
   %11 = alloca %class.QMessageLogger, align 8
@@ -127627,14 +127627,14 @@ _ZN5QListI21QCPStatisticalBoxDataED2Ev.exit:      ; preds = %166, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN17QCPStatisticalBox8setWidthEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(328) initializes((208, 216)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN17QCPStatisticalBox8setWidthEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(328) initializes((208, 216)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store double %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN17QCPStatisticalBox15setWhiskerWidthEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(328) initializes((216, 224)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN17QCPStatisticalBox15setWhiskerWidthEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(328) initializes((216, 224)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store double %1, ptr %3, align 8
   ret void
@@ -127655,7 +127655,7 @@ define void @_ZN17QCPStatisticalBox16setWhiskerBarPenERK4QPen(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN17QCPStatisticalBox21setWhiskerAntialiasedEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(328) initializes((240, 241)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN17QCPStatisticalBox21setWhiskerAntialiasedEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(328) initializes((240, 241)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i8 %3, ptr %4, align 8
@@ -128675,7 +128675,7 @@ _ZN17QArrayDataPointerI21QCPStatisticalBoxDataED2Ev.exit: ; preds = %1, %_ZN17QA
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17QCPStatisticalBox7addDataEddddddRK5QListIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(328) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, ptr noundef nonnull align 8 dereferenceable(24) %7) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17QCPStatisticalBox7addDataEddddddRK5QListIdE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(328) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, ptr noundef nonnull align 8 dereferenceable(24) %7) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %class.QCPStatisticalBoxData, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load ptr, ptr %10, align 8
@@ -128910,7 +128910,7 @@ _ZN21QCPStatisticalBoxDataaSERKS_.exit:           ; preds = %50, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK17QCPStatisticalBox14selectTestRectERK6QRectFb(ptr dead_on_unwind noalias writable sret(%class.QCPDataSelection) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(328) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK17QCPStatisticalBox14selectTestRectERK6QRectFb(ptr dead_on_unwind noalias writable sret(%class.QCPDataSelection) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(328) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.QList<QCPStatisticalBoxData>::const_iterator", align 8
   %6 = alloca %"class.QList<QCPStatisticalBoxData>::const_iterator", align 8
   %7 = alloca %class.QRectF, align 8
@@ -129074,7 +129074,7 @@ _ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit.thread:      ; preds = %32, %36, %22, %26, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK17QCPStatisticalBox20getVisibleDataBoundsERN5QListI21QCPStatisticalBoxDataE14const_iteratorES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(328) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK17QCPStatisticalBox20getVisibleDataBoundsERN5QListI21QCPStatisticalBoxDataE14const_iteratorES4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(328) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -129165,7 +129165,7 @@ _ZNK8QPointerI7QCPAxisE4dataEv.exit:              ; preds = %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK17QCPStatisticalBox14getQuartileBoxEN5QListI21QCPStatisticalBoxDataE14const_iteratorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QRectF) align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(328) %1, ptr nocapture readonly %2) local_unnamed_addr #2 align 2 {
+define void @_ZNK17QCPStatisticalBox14getQuartileBoxEN5QListI21QCPStatisticalBoxDataE14const_iteratorE(ptr dead_on_unwind noalias writable writeonly sret(%class.QRectF) align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(328) %1, ptr readonly captures(none) %2) local_unnamed_addr #2 align 2 {
   %4 = load double, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %6 = load double, ptr %5, align 8
@@ -129199,14 +129199,14 @@ define void @_ZNK17QCPStatisticalBox14getQuartileBoxEN5QListI21QCPStatisticalBox
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn184_NK17QCPStatisticalBox14selectTestRectERK6QRectFb(ptr dead_on_unwind noalias writable sret(%class.QCPDataSelection) align 8 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #36 align 2 {
+define void @_ZThn184_NK17QCPStatisticalBox14selectTestRectERK6QRectFb(ptr dead_on_unwind noalias writable sret(%class.QCPDataSelection) align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #36 align 2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 -184
   tail call void @_ZNK17QCPStatisticalBox14selectTestRectERK6QRectFb(ptr dead_on_unwind writable sret(%class.QCPDataSelection) align 8 %0, ptr noundef nonnull align 8 dereferenceable(328) %5, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK17QCPStatisticalBox10selectTestERK7QPointFbP8QVariant(ptr nocapture noundef nonnull readonly align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK17QCPStatisticalBox10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QCPVector2D, align 8
   %6 = alloca %class.QPointF, align 8
   %7 = alloca %class.QCPVector2D, align 8
@@ -129588,7 +129588,7 @@ _ZN5QListI6QLineFED2Ev.exit49:                    ; preds = %_ZN5QListI6QLineFED
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK17QCPStatisticalBox23getWhiskerBackboneLinesEN5QListI21QCPStatisticalBoxDataE14const_iteratorE(ptr dead_on_unwind noalias writable sret(%class.QList.151) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(328) %1, ptr nocapture readonly %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK17QCPStatisticalBox23getWhiskerBackboneLinesEN5QListI21QCPStatisticalBoxDataE14const_iteratorE(ptr dead_on_unwind noalias writable sret(%class.QList.151) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(328) %1, ptr readonly captures(none) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5QListI6QLineFEC2Ex.exit:
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -129722,7 +129722,7 @@ _ZNK17QArrayDataPointerI6QLineFE11needsDetachEv.exit.thread.i.i.i.i7: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK17QCPStatisticalBox11getKeyRangeERbN3QCP10SignDomainE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(328) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2) unnamed_addr #2 align 2 {
+define { double, double } @_ZNK17QCPStatisticalBox11getKeyRangeERbN3QCP10SignDomainE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(328) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
   %6 = tail call { double, double } @_ZN16QCPDataContainerI21QCPStatisticalBoxDataE8keyRangeERbN3QCP10SignDomainE(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2)
@@ -129998,7 +129998,7 @@ define linkonce_odr { double, double } @_ZN16QCPDataContainerI21QCPStatisticalBo
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK17QCPStatisticalBox13getValueRangeERbN3QCP10SignDomainERK8QCPRange(ptr nocapture noundef nonnull readonly align 8 dereferenceable(328) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #2 align 2 {
+define { double, double } @_ZNK17QCPStatisticalBox13getValueRangeERbN3QCP10SignDomainERK8QCPRange(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(328) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
   %7 = tail call { double, double } @_ZN16QCPDataContainerI21QCPStatisticalBoxDataE10valueRangeERbN3QCP10SignDomainERK8QCPRange(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
@@ -131503,7 +131503,7 @@ _ZNK12QCPDataRange7boundedERKS_.exit26:           ; preds = %_ZNK12QCPDataRange1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK17QCPStatisticalBox14drawLegendIconEP10QCPPainterRK6QRectF(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #2 align 2 {
+define void @_ZNK17QCPStatisticalBox14drawLegendIconEP10QCPPainterRK6QRectF(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #2 align 2 {
   %4 = alloca %class.QRectF, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
@@ -131553,7 +131553,7 @@ _ZN10QCPPainter6setPenERK4QPen.exit:              ; preds = %3, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK17QCPStatisticalBox18drawStatisticalBoxEP10QCPPainterN5QListI21QCPStatisticalBoxDataE14const_iteratorERK15QCPScatterStyle(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, ptr nocapture readonly %2, ptr noundef nonnull align 8 dereferenceable(65) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK17QCPStatisticalBox18drawStatisticalBoxEP10QCPPainterN5QListI21QCPStatisticalBoxDataE14const_iteratorERK15QCPScatterStyle(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, ptr readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(65) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QLine, align 8
   %6 = alloca i8, align 1
   %7 = alloca %class.QRectF, align 8
@@ -131857,7 +131857,7 @@ _ZN5QListI6QLineFED2Ev.exit42:                    ; preds = %_ZN5QListI6QLineFED
 declare void @_ZN8QPainter11setClipRectERK6QRectFN2Qt13ClipOperationE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK17QCPStatisticalBox18getWhiskerBarLinesEN5QListI21QCPStatisticalBoxDataE14const_iteratorE(ptr dead_on_unwind noalias writable sret(%class.QList.151) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(328) %1, ptr nocapture readonly %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK17QCPStatisticalBox18getWhiskerBarLinesEN5QListI21QCPStatisticalBoxDataE14const_iteratorE(ptr dead_on_unwind noalias writable sret(%class.QList.151) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(328) %1, ptr readonly captures(none) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5QListI6QLineFEC2Ex.exit:
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -132247,7 +132247,7 @@ _ZN21QCPStatisticalBoxDataD2Ev.exit:              ; preds = %_ZSt11upper_boundIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15QCPColorMapDataC2EiiRK8QCPRangeS2_(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 41), (48, 64)) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) unnamed_addr #2 align 2 {
+define void @_ZN15QCPColorMapDataC2EiiRK8QCPRangeS2_(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 41), (48, 64)) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %4) unnamed_addr #2 align 2 {
   %6 = alloca %class.QCPRange, align 8
   store i32 0, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -132281,7 +132281,7 @@ define void @_ZN15QCPColorMapDataC2EiiRK8QCPRangeS2_(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15QCPColorMapData7setSizeEii(ptr nocapture noundef nonnull align 8 dereferenceable(81) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15QCPColorMapData7setSizeEii(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QCPRange, align 8
   %5 = alloca %class.QDebug, align 8
   %6 = alloca %class.QMessageLogger, align 8
@@ -132449,7 +132449,7 @@ _ZN6QDebuglsEi.exit14:                            ; preds = %.noexc12, %63
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15QCPColorMapData4fillEd(ptr nocapture noundef nonnull align 8 dereferenceable(81) initializes((64, 81)) %0, double noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN15QCPColorMapData4fillEd(ptr noundef nonnull align 8 captures(none) dereferenceable(81) initializes((64, 81)) %0, double noundef %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.QCPRange, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -132471,7 +132471,7 @@ define void @_ZN15QCPColorMapData4fillEd(ptr nocapture noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN15QCPColorMapDataD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0) unnamed_addr #9 align 2 {
+define void @_ZN15QCPColorMapDataD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -132614,7 +132614,7 @@ _ZN15QCPColorMapData10clearAlphaEv.exit:          ; preds = %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN15QCPColorMapData10clearAlphaEv(ptr nocapture noundef nonnull align 8 dereferenceable(81) %0) local_unnamed_addr #9 align 2 {
+define void @_ZN15QCPColorMapData10clearAlphaEv(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -132632,7 +132632,7 @@ define void @_ZN15QCPColorMapData10clearAlphaEv(ptr nocapture noundef nonnull al
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN15QCPColorMapData11createAlphaEb(ptr nocapture noundef nonnull align 8 dereferenceable(81) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN15QCPColorMapData11createAlphaEb(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -132759,7 +132759,7 @@ _ZN6QDebuglsEi.exit9:                             ; preds = %.noexc7, %55
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN15QCPColorMapData8setRangeERK8QCPRangeS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(81) initializes((8, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) local_unnamed_addr #1 align 2 {
+define void @_ZN15QCPColorMapData8setRangeERK8QCPRangeS2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(81) initializes((8, 40)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -132768,7 +132768,7 @@ define void @_ZN15QCPColorMapData8setRangeERK8QCPRangeS2_(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef double @_ZN15QCPColorMapData4dataEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0, double noundef %1, double noundef %2) local_unnamed_addr #16 align 2 {
+define noundef double @_ZN15QCPColorMapData4dataEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %0, double noundef %1, double noundef %2) local_unnamed_addr #16 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
   %6 = fsub double %1, %5
@@ -132821,7 +132821,7 @@ define noundef double @_ZN15QCPColorMapData4dataEdd(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef double @_ZN15QCPColorMapData4cellEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #16 align 2 {
+define noundef double @_ZN15QCPColorMapData4cellEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #16 align 2 {
   %4 = icmp sgt i32 %1, -1
   br i1 %4, label %5, label %20
 
@@ -132852,7 +132852,7 @@ define noundef double @_ZN15QCPColorMapData4cellEii(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i8 @_ZN15QCPColorMapData5alphaEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #16 align 2 {
+define noundef zeroext i8 @_ZN15QCPColorMapData5alphaEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #16 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
@@ -132893,7 +132893,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #11
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15QCPColorMapData10setKeySizeEi(ptr nocapture noundef nonnull align 8 dereferenceable(81) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN15QCPColorMapData10setKeySizeEi(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   tail call void @_ZN15QCPColorMapData7setSizeEii(ptr noundef nonnull align 8 dereferenceable(81) %0, i32 noundef %1, i32 noundef %4)
@@ -132901,28 +132901,28 @@ define void @_ZN15QCPColorMapData10setKeySizeEi(ptr nocapture noundef nonnull al
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15QCPColorMapData12setValueSizeEi(ptr nocapture noundef nonnull align 8 dereferenceable(81) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN15QCPColorMapData12setValueSizeEi(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load i32, ptr %0, align 8
   tail call void @_ZN15QCPColorMapData7setSizeEii(ptr noundef nonnull align 8 dereferenceable(81) %0, i32 noundef %3, i32 noundef %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN15QCPColorMapData11setKeyRangeERK8QCPRange(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(81) initializes((8, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN15QCPColorMapData11setKeyRangeERK8QCPRange(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(81) initializes((8, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN15QCPColorMapData13setValueRangeERK8QCPRange(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(81) initializes((24, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN15QCPColorMapData13setValueRangeERK8QCPRange(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(81) initializes((24, 40)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN15QCPColorMapData7setDataEddd(ptr nocapture noundef nonnull align 8 dereferenceable(81) %0, double noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #31 align 2 {
+define void @_ZN15QCPColorMapData7setDataEddd(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %0, double noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #31 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load double, ptr %5, align 8
   %7 = fsub double %1, %6
@@ -132996,7 +132996,7 @@ define void @_ZN15QCPColorMapData7setDataEddd(ptr nocapture noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15QCPColorMapData7setCellEiid(ptr nocapture noundef nonnull align 8 dereferenceable(81) %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15QCPColorMapData7setCellEiid(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QDebug, align 8
   %6 = alloca %class.QMessageLogger, align 8
   %7 = icmp sgt i32 %1, -1
@@ -133110,7 +133110,7 @@ _ZN6QDebuglsEi.exit25:                            ; preds = %.noexc23, %54
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15QCPColorMapData8setAlphaEiih(ptr nocapture noundef nonnull align 8 dereferenceable(81) %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15QCPColorMapData8setAlphaEiih(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QDebug, align 8
   %6 = alloca %class.QMessageLogger, align 8
   %7 = icmp sgt i32 %1, -1
@@ -133219,7 +133219,7 @@ _ZN6QDebuglsEi.exit19:                            ; preds = %.noexc17, %49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN15QCPColorMapData21recalculateDataBoundsEv(ptr nocapture noundef nonnull align 8 dereferenceable(81) %0) local_unnamed_addr #37 align 2 {
+define void @_ZN15QCPColorMapData21recalculateDataBoundsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %0) local_unnamed_addr #37 align 2 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %4, label %20
@@ -133269,13 +133269,13 @@ define void @_ZN15QCPColorMapData21recalculateDataBoundsEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15QCPColorMapData5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(81) %0) local_unnamed_addr #2 align 2 {
+define void @_ZN15QCPColorMapData5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %0) local_unnamed_addr #2 align 2 {
   tail call void @_ZN15QCPColorMapData7setSizeEii(ptr noundef nonnull align 8 dereferenceable(81) %0, i32 noundef 0, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15QCPColorMapData9fillAlphaEh(ptr nocapture noundef nonnull align 8 dereferenceable(81) %0, i8 noundef zeroext %1) local_unnamed_addr #2 align 2 {
+define void @_ZN15QCPColorMapData9fillAlphaEh(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %0, i8 noundef zeroext %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -133306,7 +133306,7 @@ define void @_ZN15QCPColorMapData9fillAlphaEh(ptr nocapture noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK15QCPColorMapData11coordToCellEddPiS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0, double noundef %1, double noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #1 align 2 {
+define void @_ZNK15QCPColorMapData11coordToCellEddPiS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %0, double noundef %1, double noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #1 align 2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %19, label %6
 
@@ -133352,7 +133352,7 @@ define void @_ZNK15QCPColorMapData11coordToCellEddPiS0_(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK15QCPColorMapData11cellToCoordEiiPdS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #1 align 2 {
+define void @_ZNK15QCPColorMapData11cellToCoordEiiPdS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #1 align 2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %18, label %6
 
@@ -133602,7 +133602,7 @@ define void @_ZN11QCPColorMapD0Ev(ptr noundef nonnull align 8 dereferenceable(39
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11QCPColorMap7setDataEP15QCPColorMapDatab(ptr nocapture noundef nonnull align 8 dereferenceable(393) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11QCPColorMap7setDataEP15QCPColorMapDatab(ptr noundef nonnull align 8 captures(none) dereferenceable(393) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -133681,7 +133681,7 @@ _ZN6QDebuglsEy.exit:                              ; preds = %.noexc, %23
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11QCPColorMap12setDataRangeERK8QCPRange(ptr noundef nonnull align 8 dereferenceable(393) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN11QCPColorMap12setDataRangeERK8QCPRange(ptr noundef nonnull align 8 dereferenceable(393) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.QCPRange, align 8
   %4 = alloca %class.QCPRange, align 8
   %5 = load double, ptr %1, align 8
@@ -133941,7 +133941,7 @@ define void @_ZN11QCPColorMap11setGradientERK16QCPColorGradient(ptr noundef nonn
 declare void @_ZN11QCPColorMap15gradientChangedERK16QCPColorGradient(ptr noundef nonnull align 8 dereferenceable(393), ptr noundef nonnull align 8 dereferenceable(73)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11QCPColorMap14setInterpolateEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(393) initializes((296, 297), (392, 393)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN11QCPColorMap14setInterpolateEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(393) initializes((296, 297), (392, 393)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i8 %3, ptr %4, align 8
@@ -133951,7 +133951,7 @@ define void @_ZN11QCPColorMap14setInterpolateEb(ptr nocapture noundef nonnull wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11QCPColorMap16setTightBoundaryEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(393) initializes((297, 298)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN11QCPColorMap16setTightBoundaryEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(393) initializes((297, 298)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 297
   store i8 %3, ptr %4, align 1
@@ -134585,7 +134585,7 @@ _ZN7QPixmap9fromImageEO6QImage6QFlagsIN2Qt19ImageConversionFlagEE.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK11QCPColorMap10selectTestERK7QPointFbP8QVariant(ptr nocapture noundef nonnull readonly align 8 dereferenceable(393) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK11QCPColorMap10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(393) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QRect, align 8
   %6 = alloca %class.QPoint, align 8
   %7 = alloca double, align 8
@@ -134765,7 +134765,7 @@ _ZN16QCPDataSelectionD2Ev.exit:                   ; preds = %80, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define { double, double } @_ZNK11QCPColorMap11getKeyRangeERbN3QCP10SignDomainE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(393) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, i32 noundef %2) unnamed_addr #38 align 2 {
+define { double, double } @_ZNK11QCPColorMap11getKeyRangeERbN3QCP10SignDomainE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(393) %0, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %1, i32 noundef %2) unnamed_addr #38 align 2 {
 _ZN8QCPRange9normalizeEv.exit:
   store i8 1, ptr %1, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -134829,7 +134829,7 @@ _ZN8QCPRange9normalizeEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK11QCPColorMap13getValueRangeERbN3QCP10SignDomainERK8QCPRange(ptr nocapture noundef nonnull readonly align 8 dereferenceable(393) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3) unnamed_addr #2 align 2 {
+define { double, double } @_ZNK11QCPColorMap13getValueRangeERbN3QCP10SignDomainERK8QCPRange(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(393) %0, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3) unnamed_addr #2 align 2 {
   %5 = alloca %class.QCPRange, align 8
   %6 = alloca %class.QCPRange, align 8
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
@@ -135998,7 +135998,7 @@ declare void @_ZN7QRegionC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) un
 declare void @_ZN8QPainter13setClipRegionERK7QRegionN2Qt13ClipOperationE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK11QCPColorMap14drawLegendIconEP10QCPPainterRK6QRectF(ptr noundef nonnull align 8 dereferenceable(393) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK11QCPColorMap14drawLegendIconEP10QCPPainterRK6QRectF(ptr noundef nonnull align 8 dereferenceable(393) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QPixmap, align 8
   %5 = alloca %class.QSize, align 8
   %6 = alloca %class.QPointF, align 8
@@ -136071,13 +136071,13 @@ define void @_ZNK11QCPColorMap14drawLegendIconEP10QCPPainterRK6QRectF(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN16QCPFinancialDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #0 align 2 {
+define void @_ZN16QCPFinancialDataC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN16QCPFinancialDataC2Eddddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5) unnamed_addr #0 align 2 {
+define void @_ZN16QCPFinancialDataC2Eddddd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5) unnamed_addr #0 align 2 {
   store double %1, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %2, ptr %7, align 8
@@ -136366,7 +136366,7 @@ define void @_ZThn184_N12QCPFinancialD0Ev(ptr noundef %0) unnamed_addr #35 align
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN12QCPFinancial7setDataE14QSharedPointerI16QCPDataContainerI16QCPFinancialDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((192, 200)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12QCPFinancial7setDataE14QSharedPointerI16QCPDataContainerI16QCPFinancialDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(264) initializes((192, 200)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -136421,7 +136421,7 @@ _ZN14QSharedPointerI16QCPDataContainerI16QCPFinancialDataEEaSERKS3_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12QCPFinancial7setDataERK5QListIdES3_S3_S3_S3_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, i1 noundef zeroext %6) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12QCPFinancial7setDataERK5QListIdES3_S3_S3_S3_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, i1 noundef zeroext %6) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca ptr, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %10 = load ptr, ptr %9, align 8
@@ -136484,7 +136484,7 @@ _ZN16QCPDataContainerI16QCPFinancialDataE5clearEv.exit: ; preds = %7, %_ZN17QArr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12QCPFinancial7addDataERK5QListIdES3_S3_S3_S3_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, i1 noundef zeroext %6) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12QCPFinancial7addDataERK5QListIdES3_S3_S3_S3_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, i1 noundef zeroext %6) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %class.QCPFinancialData, align 8
   %9 = alloca ptr, align 8
   %10 = alloca %class.QDebug, align 8
@@ -136826,28 +136826,28 @@ _ZN5QListI16QCPFinancialDataED2Ev.exit:           ; preds = %144, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12QCPFinancial13setChartStyleENS_10ChartStyleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(264) initializes((208, 212)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN12QCPFinancial13setChartStyleENS_10ChartStyleE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(264) initializes((208, 212)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12QCPFinancial8setWidthEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(264) initializes((216, 224)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN12QCPFinancial8setWidthEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(264) initializes((216, 224)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store double %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12QCPFinancial12setWidthTypeENS_9WidthTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(264) initializes((224, 228)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN12QCPFinancial12setWidthTypeENS_9WidthTypeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(264) initializes((224, 228)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12QCPFinancial13setTwoColoredEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(264) initializes((228, 229)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN12QCPFinancial13setTwoColoredEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(264) initializes((228, 229)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i8 %3, ptr %4, align 4
@@ -137437,7 +137437,7 @@ _ZN16QCPDataContainerI16QCPFinancialDataE3endEv.exit68: ; preds = %_ZNK17QArrayD
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12QCPFinancial7addDataEddddd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5) local_unnamed_addr #2 align 2 {
+define void @_ZN12QCPFinancial7addDataEddddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5) local_unnamed_addr #2 align 2 {
   %7 = alloca %class.QCPFinancialData, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %9 = load ptr, ptr %8, align 8
@@ -137638,7 +137638,7 @@ _ZN5QListI16QCPFinancialDataE6insertENS1_14const_iteratorERKS0_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK12QCPFinancial14selectTestRectERK6QRectFb(ptr dead_on_unwind noalias writable sret(%class.QCPDataSelection) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK12QCPFinancial14selectTestRectERK6QRectFb(ptr dead_on_unwind noalias writable sret(%class.QCPDataSelection) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.QList<QCPFinancialData>::const_iterator", align 8
   %6 = alloca %"class.QList<QCPFinancialData>::const_iterator", align 8
   %7 = alloca %class.QRectF, align 8
@@ -137770,7 +137770,7 @@ _ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit.thread:      ; preds = %32, %36, %22, %26, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK12QCPFinancial20getVisibleDataBoundsERN5QListI16QCPFinancialDataE14const_iteratorES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK12QCPFinancial20getVisibleDataBoundsERN5QListI16QCPFinancialDataE14const_iteratorES4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QCPFinancialData, align 8
   %5 = alloca %class.QCPFinancialData, align 8
   %6 = alloca %class.QDebug, align 8
@@ -137978,7 +137978,7 @@ _ZNK16QCPDataContainerI16QCPFinancialDataE7findEndEdb.exit: ; preds = %90, %_ZSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK12QCPFinancial15selectionHitBoxEN5QListI16QCPFinancialDataE14const_iteratorE(ptr dead_on_unwind noalias writable sret(%class.QRectF) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1, ptr nocapture readonly %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK12QCPFinancial15selectionHitBoxEN5QListI16QCPFinancialDataE14const_iteratorE(ptr dead_on_unwind noalias writable sret(%class.QRectF) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %1, ptr readonly captures(none) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   %6 = alloca %class.QRectF, align 8
@@ -138098,14 +138098,14 @@ _ZNK8QPointerI7QCPAxisE4dataEv.exit24.thread:     ; preds = %_ZNK8QPointerI7QCPA
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn184_NK12QCPFinancial14selectTestRectERK6QRectFb(ptr dead_on_unwind noalias writable sret(%class.QCPDataSelection) align 8 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #36 align 2 {
+define void @_ZThn184_NK12QCPFinancial14selectTestRectERK6QRectFb(ptr dead_on_unwind noalias writable sret(%class.QCPDataSelection) align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #36 align 2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 -184
   tail call void @_ZNK12QCPFinancial14selectTestRectERK6QRectFb(ptr dead_on_unwind writable sret(%class.QCPDataSelection) align 8 %0, ptr noundef nonnull align 8 dereferenceable(264) %5, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK12QCPFinancial10selectTestERK7QPointFbP8QVariant(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK12QCPFinancial10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QRect, align 8
   %6 = alloca %class.QPoint, align 8
   %7 = alloca %"class.QList<QCPFinancialData>::const_iterator", align 8
@@ -138293,7 +138293,7 @@ _ZN16QCPDataSelectionD2Ev.exit:                   ; preds = %34, %38, %24, %28, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK12QCPFinancial14ohlcSelectTestERK7QPointFRKN5QListI16QCPFinancialDataE14const_iteratorES8_RS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK12QCPFinancial14ohlcSelectTestERK7QPointFRKN5QListI16QCPFinancialDataE14const_iteratorES8_RS6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QDebug, align 8
   %7 = alloca %class.QMessageLogger, align 8
   %8 = alloca %class.QCPVector2D, align 8
@@ -138458,7 +138458,7 @@ _ZNK8QPointerI7QCPAxisE4dataEv.exit40.thread:     ; preds = %_ZNK8QPointerI7QCPA
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK12QCPFinancial21candlestickSelectTestERK7QPointFRKN5QListI16QCPFinancialDataE14const_iteratorES8_RS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK12QCPFinancial21candlestickSelectTestERK7QPointFRKN5QListI16QCPFinancialDataE14const_iteratorES8_RS6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QDebug, align 8
   %7 = alloca %class.QMessageLogger, align 8
   %8 = alloca %class.QCPRange, align 8
@@ -138781,7 +138781,7 @@ _ZNK8QPointerI7QCPAxisE4dataEv.exit52.thread:     ; preds = %_ZNK8QPointerI7QCPA
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK12QCPFinancial11getKeyRangeERbN3QCP10SignDomainE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2) unnamed_addr #2 align 2 {
+define { double, double } @_ZNK12QCPFinancial11getKeyRangeERbN3QCP10SignDomainE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
   %6 = tail call { double, double } @_ZN16QCPDataContainerI16QCPFinancialDataE8keyRangeERbN3QCP10SignDomainE(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2)
@@ -139057,7 +139057,7 @@ define linkonce_odr { double, double } @_ZN16QCPDataContainerI16QCPFinancialData
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK12QCPFinancial13getValueRangeERbN3QCP10SignDomainERK8QCPRange(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #2 align 2 {
+define { double, double } @_ZNK12QCPFinancial13getValueRangeERbN3QCP10SignDomainERK8QCPRange(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
   %7 = tail call { double, double } @_ZN16QCPDataContainerI16QCPFinancialDataE10valueRangeERbN3QCP10SignDomainERK8QCPRange(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
@@ -139500,7 +139500,7 @@ _ZNK16QCPDataContainerI16QCPFinancialDataE7findEndEdb.exit: ; preds = %_ZSt7adva
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12QCPFinancial16timeSeriesToOhlcERK5QListIdES3_dd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QCPDataContainer.269) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, double noundef %3, double noundef %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12QCPFinancial16timeSeriesToOhlcERK5QListIdES3_dd(ptr dead_on_unwind noalias writable writeonly sret(%class.QCPDataContainer.269) align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, double noundef %3, double noundef %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QCPDataContainer.269, align 8
   %7 = alloca %class.QCPFinancialData, align 8
   store i8 1, ptr %6, align 8
@@ -140403,7 +140403,7 @@ _ZNK12QCPDataRange7boundedERKS_.exit26:           ; preds = %_ZNK12QCPDataRange1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12QCPFinancial12drawOhlcPlotEP10QCPPainterRKN5QListI16QCPFinancialDataE14const_iteratorES7_b(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, i1 noundef zeroext %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12QCPFinancial12drawOhlcPlotEP10QCPPainterRKN5QListI16QCPFinancialDataE14const_iteratorES7_b(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, i1 noundef zeroext %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QLine, align 8
   %7 = alloca %class.QLineF, align 8
   %8 = alloca %class.QLine, align 8
@@ -140949,7 +140949,7 @@ _ZN10QCPPainter8drawLineERK7QPointFS2_.exit125:   ; preds = %246, %247
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12QCPFinancial19drawCandlestickPlotEP10QCPPainterRKN5QListI16QCPFinancialDataE14const_iteratorES7_b(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, i1 noundef zeroext %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12QCPFinancial19drawCandlestickPlotEP10QCPPainterRKN5QListI16QCPFinancialDataE14const_iteratorES7_b(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, i1 noundef zeroext %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QLine, align 8
   %7 = alloca %class.QLineF, align 8
   %8 = alloca %class.QLine, align 8
@@ -143242,7 +143242,7 @@ _ZN8QPolygonD2Ev.exit288:                         ; preds = %_ZN8QPolygonD2Ev.ex
 declare void @_ZN7QRegionC1ERK8QPolygonN2Qt8FillRuleE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK12QCPFinancial13getPixelWidthEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, double noundef %1, double noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK12QCPFinancial13getPixelWidthEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %0, double noundef %1, double noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   %6 = alloca %class.QDebug, align 8
@@ -143454,13 +143454,13 @@ _ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit.thread:      ; preds = %10, %14, %_ZNK8QPoi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN16QCPErrorBarsDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define void @_ZN16QCPErrorBarsDataC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN16QCPErrorBarsDataC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, double noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN16QCPErrorBarsDataC2Ed(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, double noundef %1) unnamed_addr #0 align 2 {
   store double %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %1, ptr %3, align 8
@@ -143468,7 +143468,7 @@ define void @_ZN16QCPErrorBarsDataC2Ed(ptr nocapture noundef nonnull writeonly a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN16QCPErrorBarsDataC2Edd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, double noundef %1, double noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN16QCPErrorBarsDataC2Edd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, double noundef %1, double noundef %2) unnamed_addr #0 align 2 {
   store double %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %2, ptr %4, align 8
@@ -143719,7 +143719,7 @@ define void @_ZThn184_N12QCPErrorBarsD0Ev(ptr noundef %0) unnamed_addr #35 align
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN12QCPErrorBars7setDataE14QSharedPointerI5QListI16QCPErrorBarsDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(248) initializes((192, 200)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12QCPErrorBars7setDataE14QSharedPointerI5QListI16QCPErrorBarsDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(248) initializes((192, 200)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -143774,7 +143774,7 @@ _ZN14QSharedPointerI5QListI16QCPErrorBarsDataEEaSERKS3_.exit: ; preds = %_ZN14QS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12QCPErrorBars7setDataERK5QListIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12QCPErrorBars7setDataERK5QListIdE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
@@ -143832,13 +143832,13 @@ _ZN5QListI16QCPErrorBarsDataE5clearEv.exit:       ; preds = %2, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12QCPErrorBars7addDataERK5QListIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN12QCPErrorBars7addDataERK5QListIdE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
   tail call void @_ZN12QCPErrorBars7addDataERK5QListIdES3_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12QCPErrorBars7setDataERK5QListIdES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12QCPErrorBars7setDataERK5QListIdES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
@@ -143896,7 +143896,7 @@ _ZN5QListI16QCPErrorBarsDataE5clearEv.exit:       ; preds = %3, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12QCPErrorBars7addDataERK5QListIdES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12QCPErrorBars7addDataERK5QListIdES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   %6 = alloca %class.QCPErrorBarsData, align 8
@@ -144012,7 +144012,7 @@ _ZN6QDebuglsEx.exit19:                            ; preds = %.noexc17, %34
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12QCPErrorBars16setDataPlottableEP20QCPAbstractPlottable(ptr nocapture noundef nonnull align 8 dereferenceable(248) initializes((216, 224)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12QCPErrorBars16setDataPlottableEP20QCPAbstractPlottable(ptr noundef nonnull align 8 captures(none) dereferenceable(248) initializes((216, 224)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = alloca %class.QDebug, align 8
@@ -144156,21 +144156,21 @@ _ZN8QPointerI20QCPAbstractPlottableEaSEPS0_.exit15: ; preds = %39, %37, %_ZN12QW
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12QCPErrorBars12setErrorTypeENS_9ErrorTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) initializes((224, 228)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN12QCPErrorBars12setErrorTypeENS_9ErrorTypeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(248) initializes((224, 228)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12QCPErrorBars15setWhiskerWidthEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) initializes((232, 240)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN12QCPErrorBars15setWhiskerWidthEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(248) initializes((232, 240)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store double %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12QCPErrorBars12setSymbolGapEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) initializes((240, 248)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN12QCPErrorBars12setSymbolGapEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(248) initializes((240, 248)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store double %1, ptr %3, align 8
   ret void
@@ -144271,7 +144271,7 @@ _ZN17QArrayDataPointerI16QCPErrorBarsDataED2Ev.exit: ; preds = %39, %_ZN17QArray
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12QCPErrorBars7addDataEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %0, double noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN12QCPErrorBars7addDataEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, double noundef %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.QCPErrorBarsData, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
@@ -144283,7 +144283,7 @@ define void @_ZN12QCPErrorBars7addDataEd(ptr nocapture noundef nonnull readonly 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12QCPErrorBars7addDataEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %0, double noundef %1, double noundef %2) local_unnamed_addr #2 align 2 {
+define void @_ZN12QCPErrorBars7addDataEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, double noundef %1, double noundef %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %class.QCPErrorBarsData, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
@@ -144295,7 +144295,7 @@ define void @_ZN12QCPErrorBars7addDataEdd(ptr nocapture noundef nonnull readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK12QCPErrorBars9dataCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %0) unnamed_addr #16 align 2 {
+define noundef i32 @_ZNK12QCPErrorBars9dataCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0) unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -144305,7 +144305,7 @@ define noundef i32 @_ZNK12QCPErrorBars9dataCountEv(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZThn184_NK12QCPErrorBars9dataCountEv(ptr nocapture noundef readonly %0) unnamed_addr #16 align 2 {
+define noundef i32 @_ZThn184_NK12QCPErrorBars9dataCountEv(ptr noundef readonly captures(none) %0) unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -144315,7 +144315,7 @@ define noundef i32 @_ZThn184_NK12QCPErrorBars9dataCountEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK12QCPErrorBars11dataMainKeyEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %0, i32 noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK12QCPErrorBars11dataMainKeyEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, i32 noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -144377,14 +144377,14 @@ _ZNK8QPointerI20QCPAbstractPlottableEcvPS0_Ev.exit.thread: ; preds = %2, %8
 }
 
 ; Function Attrs: uwtable
-define noundef double @_ZThn184_NK12QCPErrorBars11dataMainKeyEi(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #36 align 2 {
+define noundef double @_ZThn184_NK12QCPErrorBars11dataMainKeyEi(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #36 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -184
   %4 = tail call noundef double @_ZNK12QCPErrorBars11dataMainKeyEi(ptr noundef nonnull align 8 dereferenceable(248) %3, i32 noundef %1)
   ret double %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK12QCPErrorBars11dataSortKeyEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %0, i32 noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK12QCPErrorBars11dataSortKeyEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, i32 noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -144446,14 +144446,14 @@ _ZNK8QPointerI20QCPAbstractPlottableEcvPS0_Ev.exit.thread: ; preds = %2, %8
 }
 
 ; Function Attrs: uwtable
-define noundef double @_ZThn184_NK12QCPErrorBars11dataSortKeyEi(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #36 align 2 {
+define noundef double @_ZThn184_NK12QCPErrorBars11dataSortKeyEi(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #36 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -184
   %4 = tail call noundef double @_ZNK12QCPErrorBars11dataSortKeyEi(ptr noundef nonnull align 8 dereferenceable(248) %3, i32 noundef %1)
   ret double %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK12QCPErrorBars13dataMainValueEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %0, i32 noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK12QCPErrorBars13dataMainValueEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, i32 noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -144515,14 +144515,14 @@ _ZNK8QPointerI20QCPAbstractPlottableEcvPS0_Ev.exit.thread: ; preds = %2, %8
 }
 
 ; Function Attrs: uwtable
-define noundef double @_ZThn184_NK12QCPErrorBars13dataMainValueEi(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #36 align 2 {
+define noundef double @_ZThn184_NK12QCPErrorBars13dataMainValueEi(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #36 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -184
   %4 = tail call noundef double @_ZNK12QCPErrorBars13dataMainValueEi(ptr noundef nonnull align 8 dereferenceable(248) %3, i32 noundef %1)
   ret double %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK12QCPErrorBars14dataValueRangeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %0, i32 noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define { double, double } @_ZNK12QCPErrorBars14dataValueRangeEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, i32 noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QCPRange, align 8
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
@@ -144620,14 +144620,14 @@ _ZNK8QPointerI20QCPAbstractPlottableEcvPS0_Ev.exit.thread: ; preds = %2, %9
 }
 
 ; Function Attrs: uwtable
-define { double, double } @_ZThn184_NK12QCPErrorBars14dataValueRangeEi(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #36 align 2 {
+define { double, double } @_ZThn184_NK12QCPErrorBars14dataValueRangeEi(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #36 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -184
   %4 = tail call { double, double } @_ZNK12QCPErrorBars14dataValueRangeEi(ptr noundef nonnull align 8 dereferenceable(248) %3, i32 noundef %1)
   ret { double, double } %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK12QCPErrorBars17dataPixelPositionEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %0, i32 noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define { double, double } @_ZNK12QCPErrorBars17dataPixelPositionEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, i32 noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -144694,14 +144694,14 @@ _ZNK8QPointerI20QCPAbstractPlottableEcvPS0_Ev.exit.thread: ; preds = %2, %8
 }
 
 ; Function Attrs: uwtable
-define { double, double } @_ZThn184_NK12QCPErrorBars17dataPixelPositionEi(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #36 align 2 {
+define { double, double } @_ZThn184_NK12QCPErrorBars17dataPixelPositionEi(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #36 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -184
   %4 = tail call { double, double } @_ZNK12QCPErrorBars17dataPixelPositionEi(ptr noundef nonnull align 8 dereferenceable(248) %3, i32 noundef %1)
   ret { double, double } %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK12QCPErrorBars16sortKeyIsMainKeyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK12QCPErrorBars16sortKeyIsMainKeyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QDebug, align 8
   %3 = alloca %class.QMessageLogger, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -144763,14 +144763,14 @@ _ZNK8QPointerI20QCPAbstractPlottableEcvPS0_Ev.exit.thread: ; preds = %1, %7
 }
 
 ; Function Attrs: uwtable
-define noundef zeroext i1 @_ZThn184_NK12QCPErrorBars16sortKeyIsMainKeyEv(ptr nocapture noundef readonly %0) unnamed_addr #36 align 2 {
+define noundef zeroext i1 @_ZThn184_NK12QCPErrorBars16sortKeyIsMainKeyEv(ptr noundef readonly captures(none) %0) unnamed_addr #36 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -184
   %3 = tail call noundef zeroext i1 @_ZNK12QCPErrorBars16sortKeyIsMainKeyEv(ptr noundef nonnull align 8 dereferenceable(248) %2)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK12QCPErrorBars14selectTestRectERK6QRectFb(ptr dead_on_unwind noalias writable sret(%class.QCPDataSelection) align 8 %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK12QCPErrorBars14selectTestRectERK6QRectFb(ptr dead_on_unwind noalias writable sret(%class.QCPDataSelection) align 8 %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"class.QList<QCPErrorBarsData>::const_iterator", align 8
@@ -145181,7 +145181,7 @@ _ZN5QListI6QLineFED2Ev.exit47:                    ; preds = %169, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK12QCPErrorBars20getVisibleDataBoundsERN5QListI16QCPErrorBarsDataE14const_iteratorES4_RK12QCPDataRange(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK12QCPErrorBars20getVisibleDataBoundsERN5QListI16QCPErrorBarsDataE14const_iteratorES4_RK12QCPDataRange(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QCPDataRange, align 4
   %6 = alloca %class.QCPDataRange, align 4
   %7 = alloca %class.QCPDataRange, align 8
@@ -145639,7 +145639,7 @@ _ZNK12QCPDataRange7boundedERKS_.exit102:          ; preds = %_ZNK12QCPDataRange1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK12QCPErrorBars16getErrorBarLinesEN5QListI16QCPErrorBarsDataE14const_iteratorERS0_I6QLineFES6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK12QCPErrorBars16getErrorBarLinesEN5QListI16QCPErrorBarsDataE14const_iteratorERS0_I6QLineFES6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QLineF, align 8
   %6 = alloca %class.QLineF, align 8
   %7 = alloca %class.QLineF, align 8
@@ -145952,7 +145952,7 @@ _ZNK8QPointerI20QCPAbstractPlottableEcvPS0_Ev.exit.thread: ; preds = %_ZNK8QPoin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK12QCPErrorBars18rectIntersectsLineERK6QRectFRK6QLineF(ptr nocapture noundef nonnull readnone align 8 dereferenceable(248) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) local_unnamed_addr #14 align 2 {
+define noundef zeroext i1 @_ZNK12QCPErrorBars18rectIntersectsLineERK6QRectFRK6QLineF(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(248) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) local_unnamed_addr #14 align 2 {
   %4 = load double, ptr %1, align 8
   %5 = load double, ptr %2, align 8
   %6 = fcmp ogt double %4, %5
@@ -145998,14 +145998,14 @@ define noundef zeroext i1 @_ZNK12QCPErrorBars18rectIntersectsLineERK6QRectFRK6QL
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn184_NK12QCPErrorBars14selectTestRectERK6QRectFb(ptr dead_on_unwind noalias writable sret(%class.QCPDataSelection) align 8 %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #36 align 2 {
+define void @_ZThn184_NK12QCPErrorBars14selectTestRectERK6QRectFb(ptr dead_on_unwind noalias writable sret(%class.QCPDataSelection) align 8 %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #36 align 2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 -184
   tail call void @_ZNK12QCPErrorBars14selectTestRectERK6QRectFb(ptr dead_on_unwind writable sret(%class.QCPDataSelection) align 8 %0, ptr noundef nonnull align 8 dereferenceable(248) %5, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK12QCPErrorBars9findBeginEdb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %0, double noundef %1, i1 noundef zeroext %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK12QCPErrorBars9findBeginEdb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, double noundef %1, i1 noundef zeroext %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -146085,14 +146085,14 @@ _ZNK8QPointerI20QCPAbstractPlottableEcvPS0_Ev.exit.thread: ; preds = %3, %9
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn184_NK12QCPErrorBars9findBeginEdb(ptr nocapture noundef readonly %0, double noundef %1, i1 noundef zeroext %2) unnamed_addr #36 align 2 {
+define noundef i32 @_ZThn184_NK12QCPErrorBars9findBeginEdb(ptr noundef readonly captures(none) %0, double noundef %1, i1 noundef zeroext %2) unnamed_addr #36 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -184
   %5 = tail call noundef i32 @_ZNK12QCPErrorBars9findBeginEdb(ptr noundef nonnull align 8 dereferenceable(248) %4, double noundef %1, i1 noundef zeroext %2)
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK12QCPErrorBars7findEndEdb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %0, double noundef %1, i1 noundef zeroext %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK12QCPErrorBars7findEndEdb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, double noundef %1, i1 noundef zeroext %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -146168,7 +146168,7 @@ _ZNK8QPointerI20QCPAbstractPlottableEcvPS0_Ev.exit.thread: ; preds = %3, %9
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn184_NK12QCPErrorBars7findEndEdb(ptr nocapture noundef readonly %0, double noundef %1, i1 noundef zeroext %2) unnamed_addr #36 align 2 {
+define noundef i32 @_ZThn184_NK12QCPErrorBars7findEndEdb(ptr noundef readonly captures(none) %0, double noundef %1, i1 noundef zeroext %2) unnamed_addr #36 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -184
   %5 = tail call noundef i32 @_ZNK12QCPErrorBars7findEndEdb(ptr noundef nonnull align 8 dereferenceable(248) %4, double noundef %1, i1 noundef zeroext %2)
   ret i32 %5
@@ -146344,7 +146344,7 @@ _ZN16QCPDataSelectionD2Ev.exit:                   ; preds = %39, %43, %29, %33, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK12QCPErrorBars13pointDistanceERK7QPointFRN5QListI16QCPErrorBarsDataE14const_iteratorE(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK12QCPErrorBars13pointDistanceERK7QPointFRN5QListI16QCPErrorBarsDataE14const_iteratorE(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QCPVector2D, align 8
   %5 = alloca %class.QPointF, align 8
   %6 = alloca %class.QCPVector2D, align 8
@@ -147612,7 +147612,7 @@ _ZN16QCPDataSelectionD2Ev.exit37:                 ; preds = %104, %_ZN17QArrayDa
 declare noundef i32 @_ZNK4QPen8capStyleEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK12QCPErrorBars15errorBarVisibleEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK12QCPErrorBars15errorBarVisibleEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZNK8QPointerI20QCPAbstractPlottableEptEv.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8, !nonnull !115, !noundef !115
@@ -147754,7 +147754,7 @@ _ZNK8QPointerI7QCPAxisEptEv.exit26:               ; preds = %_ZNK8QPointerI7QCPA
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK12QCPErrorBars14drawLegendIconEP10QCPPainterRK6QRectF(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK12QCPErrorBars14drawLegendIconEP10QCPPainterRK6QRectF(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QLine, align 8
   %5 = alloca %class.QLine, align 8
   %6 = alloca %class.QLine, align 8
@@ -148166,7 +148166,7 @@ _ZN10QCPPainter8drawLineERK6QLineF.exit105:       ; preds = %213, %214
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK12QCPErrorBars11getKeyRangeERbN3QCP10SignDomainE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define { double, double } @_ZNK12QCPErrorBars11getKeyRangeERbN3QCP10SignDomainE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QCPRange, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %6 = load ptr, ptr %5, align 8
@@ -148390,7 +148390,7 @@ _ZNK8QPointerI20QCPAbstractPlottableEptEv.exit61: ; preds = %26
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK12QCPErrorBars13getValueRangeERbN3QCP10SignDomainERK8QCPRange(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define { double, double } @_ZNK12QCPErrorBars13getValueRangeERbN3QCP10SignDomainERK8QCPRange(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QCPRange, align 8
   %6 = alloca %class.QCPRange, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -148896,7 +148896,7 @@ define void @_ZN19QCPItemStraightLineD0Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK19QCPItemStraightLine10selectTestERK7QPointFbP8QVariant(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr nocapture noundef readnone %3) unnamed_addr #2 align 2 {
+define noundef double @_ZNK19QCPItemStraightLine10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef readnone captures(none) %3) unnamed_addr #2 align 2 {
   %5 = alloca %class.QCPVector2D, align 8
   %6 = alloca %class.QCPVector2D, align 8
   %7 = alloca %class.QCPVector2D, align 8
@@ -149229,7 +149229,7 @@ define void @_ZNK19QCPItemStraightLine7mainPenEv(ptr dead_on_unwind noalias nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK19QCPItemStraightLine26getRectClippedStraightLineERK11QCPVector2DS2_RK5QRect(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QLineF) align 8 initializes((0, 32)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK19QCPItemStraightLine26getRectClippedStraightLineERK11QCPVector2DS2_RK5QRect(ptr dead_on_unwind noalias writable writeonly sret(%class.QLineF) align 8 captures(none) initializes((0, 32)) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QCPVector2D, align 8
   %7 = alloca %class.QList.284, align 8
   %8 = alloca %class.QCPVector2D, align 8
@@ -149900,21 +149900,21 @@ define void @_ZN11QCPItemLineD0Ev(ptr noundef nonnull align 8 dereferenceable(23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11QCPItemLine7setHeadERK13QCPLineEnding(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) initializes((168, 193)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN11QCPItemLine7setHeadERK13QCPLineEnding(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(232) initializes((168, 193)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %3, ptr noundef nonnull align 8 dereferenceable(25) %1, i64 25, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11QCPItemLine7setTailERK13QCPLineEnding(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) initializes((200, 225)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN11QCPItemLine7setTailERK13QCPLineEnding(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(232) initializes((200, 225)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %3, ptr noundef nonnull align 8 dereferenceable(25) %1, i64 25, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK11QCPItemLine10selectTestERK7QPointFbP8QVariant(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr nocapture noundef readnone %3) unnamed_addr #2 align 2 {
+define noundef double @_ZNK11QCPItemLine10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef readnone captures(none) %3) unnamed_addr #2 align 2 {
   %5 = alloca %class.QCPVector2D, align 8
   %6 = alloca %class.QCPVector2D, align 8
   %7 = alloca %class.QPointF, align 8
@@ -150326,7 +150326,7 @@ define void @_ZNK11QCPItemLine7mainPenEv(ptr dead_on_unwind noalias nonnull writ
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK11QCPItemLine18getRectClippedLineERK11QCPVector2DS2_RK5QRect(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QLineF) align 8 initializes((0, 32)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK11QCPItemLine18getRectClippedLineERK11QCPVector2DS2_RK5QRect(ptr dead_on_unwind noalias writable writeonly sret(%class.QLineF) align 8 captures(none) initializes((0, 32)) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QCPVector2D, align 8
   %7 = alloca %class.QCPVector2D, align 8
   %8 = alloca %class.QPoint, align 4
@@ -151074,21 +151074,21 @@ define void @_ZN12QCPItemCurveD0Ev(ptr noundef nonnull align 8 dereferenceable(2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN12QCPItemCurve7setHeadERK13QCPLineEnding(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) initializes((184, 209)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN12QCPItemCurve7setHeadERK13QCPLineEnding(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(248) initializes((184, 209)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %3, ptr noundef nonnull align 8 dereferenceable(25) %1, i64 25, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN12QCPItemCurve7setTailERK13QCPLineEnding(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) initializes((216, 241)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN12QCPItemCurve7setTailERK13QCPLineEnding(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(248) initializes((216, 241)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %3, ptr noundef nonnull align 8 dereferenceable(25) %1, i64 25, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK12QCPItemCurve10selectTestERK7QPointFbP8QVariant(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr nocapture noundef readnone %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK12QCPItemCurve10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef readnone captures(none) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QPointF, align 8
   %6 = alloca %class.QPointF, align 8
   %7 = alloca %class.QPointF, align 8
@@ -152302,7 +152302,7 @@ define void @_ZN11QCPItemRectD0Ev(ptr noundef nonnull align 8 dereferenceable(23
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK11QCPItemRect10selectTestERK7QPointFbP8QVariant(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr nocapture noundef readnone %3) unnamed_addr #2 align 2 {
+define noundef double @_ZNK11QCPItemRect10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef readnone captures(none) %3) unnamed_addr #2 align 2 {
   %5 = alloca %class.QRectF, align 8
   %6 = alloca %class.QRectF, align 8
   br i1 %2, label %7, label %11
@@ -152562,7 +152562,7 @@ define void @_ZNK11QCPItemRect9mainBrushEv(ptr dead_on_unwind noalias nonnull wr
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK11QCPItemRect19anchorPixelPositionEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, i32 noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define { double, double } @_ZNK11QCPItemRect19anchorPixelPositionEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, i32 noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -153293,14 +153293,14 @@ define void @_ZN11QCPItemText16setSelectedBrushERK6QBrush(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11QCPItemText8setColorERK6QColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(360) initializes((208, 222)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN11QCPItemText8setColorERK6QColor(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(360) initializes((208, 222)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %3, ptr noundef nonnull align 4 dereferenceable(14) %1, i64 14, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11QCPItemText16setSelectedColorERK6QColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(360) initializes((224, 238)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN11QCPItemText16setSelectedColorERK6QColor(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(360) initializes((224, 238)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %3, ptr noundef nonnull align 4 dereferenceable(14) %1, i64 14, i1 false)
   ret void
@@ -153370,35 +153370,35 @@ define void @_ZN11QCPItemText7setTextERK7QString(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11QCPItemText20setPositionAlignmentE6QFlagsIN2Qt13AlignmentFlagEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(360) initializes((328, 332)) %0, i32 %1) local_unnamed_addr #0 align 2 {
+define void @_ZN11QCPItemText20setPositionAlignmentE6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(360) initializes((328, 332)) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11QCPItemText16setTextAlignmentE6QFlagsIN2Qt13AlignmentFlagEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(360) initializes((332, 336)) %0, i32 %1) local_unnamed_addr #0 align 2 {
+define void @_ZN11QCPItemText16setTextAlignmentE6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(360) initializes((332, 336)) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 332
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11QCPItemText11setRotationEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(360) initializes((336, 344)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN11QCPItemText11setRotationEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(360) initializes((336, 344)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store double %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11QCPItemText10setPaddingERK8QMargins(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(360) initializes((344, 360)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN11QCPItemText10setPaddingERK8QMargins(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(360) initializes((344, 360)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK11QCPItemText10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr nocapture noundef readnone %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK11QCPItemText10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef readnone captures(none) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QRect, align 4
   %6 = alloca %class.QTransform, align 8
   %7 = alloca %class.QPointF, align 8
@@ -153568,7 +153568,7 @@ _ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFl
 declare { double, double } @_ZNK10QTransform3mapERK7QPointF(ptr noundef nonnull align 8 dereferenceable(74), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { double, double } @_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(360) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, i32 %3) local_unnamed_addr #14 align 2 {
+define { double, double } @_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(360) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, i32 %3) local_unnamed_addr #14 align 2 {
   switch i32 %3, label %6 [
     i32 0, label %5
     i32 33, label %5
@@ -154126,7 +154126,7 @@ define void @_ZNK11QCPItemText9mainBrushEv(ptr dead_on_unwind noalias nonnull wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZNK11QCPItemText9mainColorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %0) local_unnamed_addr #14 align 2 {
+define { i64, i64 } @_ZNK11QCPItemText9mainColorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -155227,7 +155227,7 @@ define void @_ZN14QCPItemEllipseD0Ev(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK14QCPItemEllipse10selectTestERK7QPointFbP8QVariant(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr nocapture noundef readnone %3) unnamed_addr #2 align 2 {
+define noundef double @_ZNK14QCPItemEllipse10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef readnone captures(none) %3) unnamed_addr #2 align 2 {
   br i1 %2, label %5, label %9
 
 5:                                                ; preds = %4
@@ -155561,7 +155561,7 @@ define void @_ZNK14QCPItemEllipse9mainBrushEv(ptr dead_on_unwind noalias nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK14QCPItemEllipse19anchorPixelPositionEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, i32 noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define { double, double } @_ZNK14QCPItemEllipse19anchorPixelPositionEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, i32 noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -156268,7 +156268,7 @@ define void @_ZN13QCPItemPixmap9setPixmapERK7QPixmap(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13QCPItemPixmap9setScaledEbN2Qt15AspectRatioModeENS0_18TransformationModeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(280) initializes((248, 250), (252, 260)) %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define void @_ZN13QCPItemPixmap9setScaledEbN2Qt15AspectRatioModeENS0_18TransformationModeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(280) initializes((248, 250), (252, 260)) %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = zext i1 %1 to i8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i8 %5, ptr %6, align 8
@@ -156282,7 +156282,7 @@ define void @_ZN13QCPItemPixmap9setScaledEbN2Qt15AspectRatioModeENS0_18Transform
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK13QCPItemPixmap10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr nocapture noundef readnone %3) unnamed_addr #2 align 2 {
+define noundef double @_ZNK13QCPItemPixmap10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef readnone captures(none) %3) unnamed_addr #2 align 2 {
   %5 = alloca %class.QRectF, align 8
   br i1 %2, label %6, label %10
 
@@ -157311,21 +157311,21 @@ define void @_ZN13QCPItemTracerD0Ev(ptr noundef nonnull align 8 dereferenceable(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13QCPItemTracer7setSizeEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(209) initializes((176, 184)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13QCPItemTracer7setSizeEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(209) initializes((176, 184)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store double %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13QCPItemTracer8setStyleENS_11TracerStyleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(209) initializes((184, 188)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13QCPItemTracer8setStyleENS_11TracerStyleE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(209) initializes((184, 188)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13QCPItemTracer8setGraphEP8QCPGraph(ptr nocapture noundef nonnull align 8 dereferenceable(209) %0, ptr noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13QCPItemTracer8setGraphEP8QCPGraph(ptr noundef nonnull align 8 captures(none) dereferenceable(209) %0, ptr noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %.not = icmp eq ptr %1, null
@@ -157473,7 +157473,7 @@ _ZN15QCPItemPosition7setAxesEP7QCPAxisS1_.exit:   ; preds = %_ZN12QWeakPointerI7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13QCPItemTracer14updatePositionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(209) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13QCPItemTracer14updatePositionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(209) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QCPGraphData, align 8
   %3 = alloca %class.QSharedPointer.119, align 8
   %4 = alloca %class.QDebug, align 8
@@ -158177,14 +158177,14 @@ _ZNK11QCustomPlot12hasPlottableEP20QCPAbstractPlottable.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13QCPItemTracer11setGraphKeyEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(209) initializes((200, 208)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13QCPItemTracer11setGraphKeyEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(209) initializes((200, 208)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store double %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13QCPItemTracer16setInterpolatingEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(209) initializes((208, 209)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13QCPItemTracer16setInterpolatingEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(209) initializes((208, 209)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i8 %3, ptr %4, align 8
@@ -158192,7 +158192,7 @@ define void @_ZN13QCPItemTracer16setInterpolatingEb(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK13QCPItemTracer10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull align 8 dereferenceable(209) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr nocapture noundef readnone %3) unnamed_addr #2 align 2 {
+define noundef double @_ZNK13QCPItemTracer10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull align 8 dereferenceable(209) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef readnone captures(none) %3) unnamed_addr #2 align 2 {
   %5 = alloca %class.QRect, align 8
   %6 = alloca %class.QRect, align 8
   %7 = alloca %class.QRect, align 8
@@ -159336,21 +159336,21 @@ define void @_ZN14QCPItemBracketD0Ev(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN14QCPItemBracket9setLengthEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(188) initializes((176, 184)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN14QCPItemBracket9setLengthEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(188) initializes((176, 184)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store double %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN14QCPItemBracket8setStyleENS_12BracketStyleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(188) initializes((184, 188)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN14QCPItemBracket8setStyleENS_12BracketStyleE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(188) initializes((184, 188)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK14QCPItemBracket10selectTestERK7QPointFbP8QVariant(ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr nocapture noundef readnone %3) unnamed_addr #2 align 2 {
+define noundef double @_ZNK14QCPItemBracket10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef readnone captures(none) %3) unnamed_addr #2 align 2 {
   %5 = alloca %class.QCPVector2D, align 8
   %6 = alloca %class.QCPVector2D, align 8
   %7 = alloca %class.QCPVector2D, align 8
@@ -161473,7 +161473,7 @@ declare { i64, i64 } @_ZNK8QPolygon12boundingRectEv(ptr noundef nonnull align 8 
 declare void @_ZN12QPainterPath6moveToERK7QPointF(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK14QCPItemBracket19anchorPixelPositionEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define { double, double } @_ZNK14QCPItemBracket19anchorPixelPositionEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %0, i32 noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QCPVector2D, align 8
   %4 = alloca %class.QCPVector2D, align 8
   %5 = alloca %class.QCPVector2D, align 8
@@ -162148,14 +162148,14 @@ _ZN7QStringD2Ev.exit43:                           ; preds = %179, %121, %119
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN18QCPPolarAxisRadial19setTickLabelPaddingEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(776) initializes((592, 596)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN18QCPPolarAxisRadial19setTickLabelPaddingEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(776) initializes((592, 596)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN18QCPPolarAxisRadial20setTickLabelRotationEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(776) initializes((600, 608)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN18QCPPolarAxisRadial20setTickLabelRotationEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(776) initializes((600, 608)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = fcmp ogt double %1, 9.000000e+01
   %4 = select i1 %3, double 9.000000e+01, double %1
   %5 = fcmp ogt double %4, -9.000000e+01
@@ -162166,7 +162166,7 @@ define void @_ZN18QCPPolarAxisRadial20setTickLabelRotationEd(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN18QCPPolarAxisRadial16setTickLabelModeENS_9LabelModeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(776) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN18QCPPolarAxisRadial16setTickLabelModeENS_9LabelModeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(776) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   switch i32 %1, label %5 [
     i32 0, label %.sink.split
     i32 1, label %3
@@ -162393,7 +162393,7 @@ define void @_ZN18QCPPolarAxisRadialD0Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZNK18QCPPolarAxisRadial13tickLabelModeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZNK18QCPPolarAxisRadial13tickLabelModeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QDebug, align 8
   %3 = alloca %class.QMessageLogger, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 528
@@ -162436,7 +162436,7 @@ define noundef range(i32 0, 2) i32 @_ZNK18QCPPolarAxisRadial13tickLabelModeEv(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK18QCPPolarAxisRadial12numberFormatEv(ptr dead_on_unwind noalias nonnull writable sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK18QCPPolarAxisRadial12numberFormatEv(ptr dead_on_unwind noalias nonnull writable sret(%class.QString) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %.sroa.0.0.copyload = load i8, ptr %3, align 4
@@ -162475,42 +162475,42 @@ define void @_ZNK18QCPPolarAxisRadial12numberFormatEv(ptr dead_on_unwind noalias
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK18QCPPolarAxisRadial12tickLengthInEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %0) local_unnamed_addr #14 align 2 {
+define noundef i32 @_ZNK18QCPPolarAxisRadial12tickLengthInEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK18QCPPolarAxisRadial13tickLengthOutEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %0) local_unnamed_addr #14 align 2 {
+define noundef i32 @_ZNK18QCPPolarAxisRadial13tickLengthOutEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK18QCPPolarAxisRadial15subTickLengthInEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %0) local_unnamed_addr #14 align 2 {
+define noundef i32 @_ZNK18QCPPolarAxisRadial15subTickLengthInEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK18QCPPolarAxisRadial16subTickLengthOutEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %0) local_unnamed_addr #14 align 2 {
+define noundef i32 @_ZNK18QCPPolarAxisRadial16subTickLengthOutEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK18QCPPolarAxisRadial12labelPaddingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %0) local_unnamed_addr #14 align 2 {
+define noundef i32 @_ZNK18QCPPolarAxisRadial12labelPaddingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN18QCPPolarAxisRadial12setRangeDragEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(776) initializes((57, 58)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN18QCPPolarAxisRadial12setRangeDragEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(776) initializes((57, 58)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 57
   store i8 %3, ptr %4, align 1
@@ -162518,7 +162518,7 @@ define void @_ZN18QCPPolarAxisRadial12setRangeDragEb(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN18QCPPolarAxisRadial12setRangeZoomEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(776) initializes((58, 59)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN18QCPPolarAxisRadial12setRangeZoomEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(776) initializes((58, 59)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 58
   store i8 %3, ptr %4, align 2
@@ -162526,7 +162526,7 @@ define void @_ZN18QCPPolarAxisRadial12setRangeZoomEb(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN18QCPPolarAxisRadial18setRangeZoomFactorEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(776) initializes((64, 72)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN18QCPPolarAxisRadial18setRangeZoomFactorEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(776) initializes((64, 72)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double %1, ptr %3, align 8
   ret void
@@ -162626,7 +162626,7 @@ _ZNK8QCPRange20sanitizedForLogScaleEv.exit:       ; preds = %22, %28, %31, %37, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18QCPPolarAxisRadial8setRangeERK8QCPRange(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN18QCPPolarAxisRadial8setRangeERK8QCPRange(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.QCPRange, align 8
   %4 = alloca %class.QCPRange, align 8
   %5 = alloca %class.QCPRange, align 8
@@ -162789,7 +162789,7 @@ declare void @_ZN18QCPPolarAxisRadial12rangeChangedERK8QCPRange(ptr noundef nonn
 declare void @_ZN18QCPPolarAxisRadial12rangeChangedERK8QCPRangeS2_(ptr noundef nonnull align 8 dereferenceable(776), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18QCPPolarAxisRadial18setSelectablePartsERK6QFlagsINS_14SelectablePartEE(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN18QCPPolarAxisRadial18setSelectablePartsERK6QFlagsINS_14SelectablePartEE(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %.sroa.01.0.copyload = load i32, ptr %3, align 4
   %.sroa.0.0.copyload = load i32, ptr %1, align 4
@@ -162808,7 +162808,7 @@ define void @_ZN18QCPPolarAxisRadial18setSelectablePartsERK6QFlagsINS_14Selectab
 declare void @_ZN18QCPPolarAxisRadial17selectableChangedERK6QFlagsINS_14SelectablePartEE(ptr noundef nonnull align 8 dereferenceable(776), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18QCPPolarAxisRadial16setSelectedPartsERK6QFlagsINS_14SelectablePartEE(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN18QCPPolarAxisRadial16setSelectedPartsERK6QFlagsINS_14SelectablePartEE(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.sroa.01.0.copyload = load i32, ptr %3, align 8
   %.sroa.0.0.copyload = load i32, ptr %1, align 4
@@ -163212,7 +163212,7 @@ _ZNK8QCPRange20sanitizedForLogScaleEv.exit:       ; preds = %24, %30, %33, %39, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN18QCPPolarAxisRadial16setRangeReversedEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(776) initializes((368, 369)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN18QCPPolarAxisRadial16setRangeReversedEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(776) initializes((368, 369)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store i8 %3, ptr %4, align 8
@@ -163220,21 +163220,21 @@ define void @_ZN18QCPPolarAxisRadial16setRangeReversedEb(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN18QCPPolarAxisRadial8setAngleEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(776) initializes((80, 88)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN18QCPPolarAxisRadial8setAngleEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(776) initializes((80, 88)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store double %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN18QCPPolarAxisRadial17setAngleReferenceENS_14AngleReferenceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(776) initializes((88, 92)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN18QCPPolarAxisRadial17setAngleReferenceENS_14AngleReferenceE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(776) initializes((88, 92)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18QCPPolarAxisRadial9setTickerE14QSharedPointerI13QCPAxisTickerE(ptr nocapture noundef nonnull align 8 dereferenceable(776) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18QCPPolarAxisRadial9setTickerE14QSharedPointerI13QCPAxisTickerE(ptr noundef nonnull align 8 captures(none) dereferenceable(776) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = load ptr, ptr %1, align 8
@@ -163319,7 +163319,7 @@ _ZN14QSharedPointerI13QCPAxisTickerEaSERKS1_.exit: ; preds = %23, %_ZN15QtShared
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN18QCPPolarAxisRadial8setTicksEb(ptr nocapture noundef nonnull align 8 dereferenceable(776) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define void @_ZN18QCPPolarAxisRadial8setTicksEb(ptr noundef nonnull align 8 captures(none) dereferenceable(776) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 295
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -163372,14 +163372,14 @@ define void @_ZN18QCPPolarAxisRadial16setTickLabelFontERK5QFont(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN18QCPPolarAxisRadial17setTickLabelColorERK6QColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(776) initializes((256, 270)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN18QCPPolarAxisRadial17setTickLabelColorERK6QColor(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(776) initializes((256, 270)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %3, ptr noundef nonnull align 4 dereferenceable(14) %1, i64 14, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18QCPPolarAxisRadial15setNumberFormatERK7QString(ptr nocapture noundef nonnull align 8 dereferenceable(776) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18QCPPolarAxisRadial15setNumberFormatERK7QString(ptr noundef nonnull align 8 captures(none) dereferenceable(776) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = alloca %class.QString, align 8
@@ -163681,7 +163681,7 @@ _ZN7QStringD2Ev.exit34:                           ; preds = %130, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN18QCPPolarAxisRadial18setNumberPrecisionEi(ptr nocapture noundef nonnull align 8 dereferenceable(776) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define void @_ZN18QCPPolarAxisRadial18setNumberPrecisionEi(ptr noundef nonnull align 8 captures(none) dereferenceable(776) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, %1
@@ -163696,7 +163696,7 @@ define void @_ZN18QCPPolarAxisRadial18setNumberPrecisionEi(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN18QCPPolarAxisRadial13setTickLengthEii(ptr nocapture noundef nonnull align 8 dereferenceable(776) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
+define void @_ZN18QCPPolarAxisRadial13setTickLengthEii(ptr noundef nonnull align 8 captures(none) dereferenceable(776) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %5 = load i32, ptr %4, align 4
   %.not.i = icmp eq i32 %5, %1
@@ -163721,7 +163721,7 @@ _ZN18QCPPolarAxisRadial16setTickLengthOutEi.exit: ; preds = %_ZN18QCPPolarAxisRa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN18QCPPolarAxisRadial15setTickLengthInEi(ptr nocapture noundef nonnull align 8 dereferenceable(776) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define void @_ZN18QCPPolarAxisRadial15setTickLengthInEi(ptr noundef nonnull align 8 captures(none) dereferenceable(776) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, %1
@@ -163736,7 +163736,7 @@ define void @_ZN18QCPPolarAxisRadial15setTickLengthInEi(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN18QCPPolarAxisRadial16setTickLengthOutEi(ptr nocapture noundef nonnull align 8 dereferenceable(776) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define void @_ZN18QCPPolarAxisRadial16setTickLengthOutEi(ptr noundef nonnull align 8 captures(none) dereferenceable(776) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, %1
@@ -163751,7 +163751,7 @@ define void @_ZN18QCPPolarAxisRadial16setTickLengthOutEi(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN18QCPPolarAxisRadial11setSubTicksEb(ptr nocapture noundef nonnull align 8 dereferenceable(776) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define void @_ZN18QCPPolarAxisRadial11setSubTicksEb(ptr noundef nonnull align 8 captures(none) dereferenceable(776) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -163768,7 +163768,7 @@ define void @_ZN18QCPPolarAxisRadial11setSubTicksEb(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN18QCPPolarAxisRadial16setSubTickLengthEii(ptr nocapture noundef nonnull align 8 dereferenceable(776) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
+define void @_ZN18QCPPolarAxisRadial16setSubTickLengthEii(ptr noundef nonnull align 8 captures(none) dereferenceable(776) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %5 = load i32, ptr %4, align 4
   %.not.i = icmp eq i32 %5, %1
@@ -163793,7 +163793,7 @@ _ZN18QCPPolarAxisRadial19setSubTickLengthOutEi.exit: ; preds = %_ZN18QCPPolarAxi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN18QCPPolarAxisRadial18setSubTickLengthInEi(ptr nocapture noundef nonnull align 8 dereferenceable(776) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define void @_ZN18QCPPolarAxisRadial18setSubTickLengthInEi(ptr noundef nonnull align 8 captures(none) dereferenceable(776) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, %1
@@ -163808,7 +163808,7 @@ define void @_ZN18QCPPolarAxisRadial18setSubTickLengthInEi(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN18QCPPolarAxisRadial19setSubTickLengthOutEi(ptr nocapture noundef nonnull align 8 dereferenceable(776) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define void @_ZN18QCPPolarAxisRadial19setSubTickLengthOutEi(ptr noundef nonnull align 8 captures(none) dereferenceable(776) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, %1
@@ -163858,7 +163858,7 @@ define void @_ZN18QCPPolarAxisRadial12setLabelFontERK5QFont(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN18QCPPolarAxisRadial13setLabelColorERK6QColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(776) initializes((184, 198)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN18QCPPolarAxisRadial13setLabelColorERK6QColor(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(776) initializes((184, 198)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %3, ptr noundef nonnull align 4 dereferenceable(14) %1, i64 14, i1 false)
   ret void
@@ -163892,7 +163892,7 @@ _ZneRK7QStringS1_.exit.thread:                    ; preds = %2, %_ZneRK7QStringS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN18QCPPolarAxisRadial15setLabelPaddingEi(ptr nocapture noundef nonnull align 8 dereferenceable(776) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define void @_ZN18QCPPolarAxisRadial15setLabelPaddingEi(ptr noundef nonnull align 8 captures(none) dereferenceable(776) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, %1
@@ -163942,7 +163942,7 @@ define void @_ZN18QCPPolarAxisRadial25setSelectedTickLabelColorERK6QColor(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN18QCPPolarAxisRadial21setSelectedLabelColorERK6QColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(776) initializes((200, 214)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN18QCPPolarAxisRadial21setSelectedLabelColorERK6QColor(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(776) initializes((200, 214)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %3, ptr noundef nonnull align 4 dereferenceable(14) %1, i64 14, i1 false)
   ret void
@@ -164261,12 +164261,12 @@ _ZN8QCPRange10validRangeERKS_.exit.thread:        ; preds = %54, %67, %76, %15, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN18QCPPolarAxisRadial7rescaleEb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(776) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
+define void @_ZN18QCPPolarAxisRadial7rescaleEb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(776) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK18QCPPolarAxisRadial12pixelToCoordE7QPointFRdS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %0, double %1, double %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %4) local_unnamed_addr #2 align 2 {
+define void @_ZNK18QCPPolarAxisRadial12pixelToCoordE7QPointFRdS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0, double %1, double %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) local_unnamed_addr #2 align 2 {
   %6 = alloca %class.QCPVector2D, align 8
   %7 = alloca %class.QPointF, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 376
@@ -164375,7 +164375,7 @@ _ZNK18QCPPolarAxisRadial13radiusToCoordEd.exit:   ; preds = %27, %37, %54, %61
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef double @_ZNK18QCPPolarAxisRadial13radiusToCoordEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %0, double noundef %1) local_unnamed_addr #28 align 2 {
+define noundef double @_ZNK18QCPPolarAxisRadial13radiusToCoordEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0, double noundef %1) local_unnamed_addr #28 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 372
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -164445,7 +164445,7 @@ define noundef double @_ZNK18QCPPolarAxisRadial13radiusToCoordEd(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define { double, double } @_ZNK18QCPPolarAxisRadial12coordToPixelEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %0, double noundef %1, double noundef %2) local_unnamed_addr #22 align 2 {
+define { double, double } @_ZNK18QCPPolarAxisRadial12coordToPixelEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0, double noundef %1, double noundef %2) local_unnamed_addr #22 align 2 {
   %4 = tail call noundef double @_ZNK18QCPPolarAxisRadial13coordToRadiusEd(ptr noundef nonnull align 8 dereferenceable(776) %0, double noundef %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
@@ -164477,7 +164477,7 @@ define { double, double } @_ZNK18QCPPolarAxisRadial12coordToPixelEdd(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef double @_ZNK18QCPPolarAxisRadial13coordToRadiusEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %0, double noundef %1) local_unnamed_addr #28 align 2 {
+define noundef double @_ZNK18QCPPolarAxisRadial13coordToRadiusEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0, double noundef %1) local_unnamed_addr #28 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 372
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -164583,17 +164583,17 @@ define noundef double @_ZNK18QCPPolarAxisRadial13coordToRadiusEd(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK18QCPPolarAxisRadial9getPartAtERK7QPointF(ptr nocapture noundef nonnull readnone align 8 dereferenceable(776) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %1) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK18QCPPolarAxisRadial9getPartAtERK7QPointF(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(776) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef double @_ZNK18QCPPolarAxisRadial10selectTestERK7QPointFbP8QVariant(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr nocapture noundef readnone %3) unnamed_addr #6 align 2 {
+define noundef double @_ZNK18QCPPolarAxisRadial10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef readnone captures(none) %3) unnamed_addr #6 align 2 {
   ret double -1.000000e+00
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18QCPPolarAxisRadial11selectEventEP11QMouseEventbRK8QVariantPb(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr nocapture noundef readnone %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef writeonly %4) unnamed_addr #2 align 2 {
+define void @_ZN18QCPPolarAxisRadial11selectEventEP11QMouseEventbRK8QVariantPb(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef readnone captures(none) %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef writeonly %4) unnamed_addr #2 align 2 {
   %6 = tail call noundef i32 @_Z13qvariant_castIN18QCPPolarAxisRadial14SelectablePartEET_RK8QVariant(ptr noundef nonnull align 8 dereferenceable(32) %3)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %.not.i.i = icmp eq i32 %6, 0
@@ -164664,7 +164664,7 @@ _ZN18QCPPolarAxisRadial16setSelectedPartsERK6QFlagsINS_14SelectablePartEE.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN18QCPPolarAxisRadial15mousePressEventEP11QMouseEventRK8QVariant(ptr nocapture noundef nonnull align 8 dereferenceable(776) %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %2) unnamed_addr #38 align 2 {
+define void @_ZN18QCPPolarAxisRadial15mousePressEventEP11QMouseEventRK8QVariant(ptr noundef nonnull align 8 captures(none) dereferenceable(776) %0, ptr noundef captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %2) unnamed_addr #38 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 224
@@ -164721,7 +164721,7 @@ define void @_ZN18QCPPolarAxisRadial15mousePressEventEP11QMouseEventRK8QVariant(
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18QCPPolarAxisRadial14mouseMoveEventEP11QMouseEventRK7QPointF(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18QCPPolarAxisRadial14mouseMoveEventEP11QMouseEventRK7QPointF(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -164766,7 +164766,7 @@ _ZN11QCustomPlot6replotENS_15RefreshPriorityE.exit: ; preds = %23, %_ZN11QCustom
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN18QCPPolarAxisRadial17mouseReleaseEventEP11QMouseEventRK7QPointF(ptr nocapture noundef nonnull align 8 dereferenceable(776) initializes((488, 489)) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2) unnamed_addr #30 align 2 {
+define void @_ZN18QCPPolarAxisRadial17mouseReleaseEventEP11QMouseEventRK7QPointF(ptr noundef nonnull align 8 captures(none) dereferenceable(776) initializes((488, 489)) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %2) unnamed_addr #30 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store i8 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -164816,7 +164816,7 @@ _ZN11QCustomPlot25setNotAntialiasedElementsERK6QFlagsIN3QCP18AntialiasedElementE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18QCPPolarAxisRadial10wheelEventEP11QWheelEvent(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %0, ptr nocapture noundef writeonly %1) unnamed_addr #2 align 2 {
+define void @_ZN18QCPPolarAxisRadial10wheelEventEP11QWheelEvent(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
@@ -164839,7 +164839,7 @@ define void @_ZN18QCPPolarAxisRadial10wheelEventEP11QWheelEvent(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN18QCPPolarAxisRadial14updateGeometryERK7QPointFd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(776) initializes((376, 400)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, double noundef %2) local_unnamed_addr #1 align 2 {
+define void @_ZN18QCPPolarAxisRadial14updateGeometryERK7QPointFd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(776) initializes((376, 400)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, double noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 376
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %5 = fcmp olt double %2, 1.000000e+00
@@ -164850,7 +164850,7 @@ define void @_ZN18QCPPolarAxisRadial14updateGeometryERK7QPointFd(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK18QCPPolarAxisRadial28applyDefaultAntialiasingHintEP10QCPPainter(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define void @_ZNK18QCPPolarAxisRadial28applyDefaultAntialiasingHintEP10QCPPainter(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -165418,7 +165418,7 @@ define void @_ZNK18QCPPolarAxisRadial16getTickLabelFontEv(ptr dead_on_unwind noa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZNK18QCPPolarAxisRadial17getTickLabelColorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %0) local_unnamed_addr #14 align 2 {
+define { i64, i64 } @_ZNK18QCPPolarAxisRadial17getTickLabelColorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 2
@@ -165527,7 +165527,7 @@ define void @_ZNK18QCPPolarAxisRadial12getLabelFontEv(ptr dead_on_unwind noalias
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZNK18QCPPolarAxisRadial13getLabelColorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(776) %0) local_unnamed_addr #14 align 2 {
+define { i64, i64 } @_ZNK18QCPPolarAxisRadial13getLabelColorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 4
@@ -165543,7 +165543,7 @@ define { i64, i64 } @_ZNK18QCPPolarAxisRadial13getLabelColorEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK18QCPPolarAxisRadial17selectionCategoryEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(776) %0) unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK18QCPPolarAxisRadial17selectionCategoryEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(776) %0) unnamed_addr #6 align 2 {
   ret i32 16
 }
 
@@ -166383,14 +166383,14 @@ _ZN7QStringD2Ev.exit52:                           ; preds = %187, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN19QCPPolarAxisAngular19setTickLabelPaddingEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1080) initializes((896, 900)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN19QCPPolarAxisAngular19setTickLabelPaddingEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1080) initializes((896, 900)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 896
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN19QCPPolarAxisAngular20setTickLabelRotationEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1080) initializes((904, 912)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN19QCPPolarAxisAngular20setTickLabelRotationEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1080) initializes((904, 912)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = fcmp ogt double %1, 9.000000e+01
   %4 = select i1 %3, double 9.000000e+01, double %1
   %5 = fcmp ogt double %4, -9.000000e+01
@@ -166401,7 +166401,7 @@ define void @_ZN19QCPPolarAxisAngular20setTickLabelRotationEd(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN19QCPPolarAxisAngular16setTickLabelModeENS_9LabelModeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1080) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN19QCPPolarAxisAngular16setTickLabelModeENS_9LabelModeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1080) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   switch i32 %1, label %5 [
     i32 0, label %.sink.split
     i32 1, label %3
@@ -166573,7 +166573,7 @@ _ZN5QListIP18QCPPolarAxisRadialED2Ev.exit:        ; preds = %_ZNK23QListSpecialM
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12QCPPolarGrid13setRadialAxisEP18QCPPolarAxisRadial(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((128, 136)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN12QCPPolarGrid13setRadialAxisEP18QCPPolarAxisRadial(ptr noundef nonnull align 8 captures(none) dereferenceable(136) initializes((128, 136)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.not.i.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i.i, label %_ZN12QWeakPointerI7QObjectEC2IS0_TnNSt9enable_ifIXsr3std14is_convertibleIPT_PS0_EE5valueEbE4typeELb1EEES5_b.exit.i.i, label %4
@@ -166605,7 +166605,7 @@ _ZN8QPointerI18QCPPolarAxisRadialEaSEPS0_.exit:   ; preds = %_ZN12QWeakPointerI7
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK19QCPPolarAxisAngular10radialAxisEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1080) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK19QCPPolarAxisAngular10radialAxisEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1080) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = icmp sgt i32 %1, -1
@@ -167033,7 +167033,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN5QListIP18QCPPol
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK19QCPPolarAxisAngular10radialAxesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QList.294) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1080) %1) local_unnamed_addr #32 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK19QCPPolarAxisAngular10radialAxesEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QList.294) align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1080) %1) local_unnamed_addr #32 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 576
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -167160,7 +167160,7 @@ define void @_ZN19QCPPolarAxisAngularD0Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZNK19QCPPolarAxisAngular13tickLabelModeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1080) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZNK19QCPPolarAxisAngular13tickLabelModeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1080) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QDebug, align 8
   %3 = alloca %class.QMessageLogger, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 832
@@ -167203,7 +167203,7 @@ define noundef range(i32 0, 2) i32 @_ZNK19QCPPolarAxisAngular13tickLabelModeEv(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK19QCPPolarAxisAngular12numberFormatEv(ptr dead_on_unwind noalias nonnull writable sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1080) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK19QCPPolarAxisAngular12numberFormatEv(ptr dead_on_unwind noalias nonnull writable sret(%class.QString) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1080) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 468
   %.sroa.02.0.copyload = load i8, ptr %3, align 4
@@ -167242,7 +167242,7 @@ define void @_ZNK19QCPPolarAxisAngular12numberFormatEv(ptr dead_on_unwind noalia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK19QCPPolarAxisAngular15radialAxisCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1080) %0) local_unnamed_addr #14 align 2 {
+define noundef i32 @_ZNK19QCPPolarAxisAngular15radialAxisCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1080) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -167250,7 +167250,7 @@ define noundef i32 @_ZNK19QCPPolarAxisAngular15radialAxisCountEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK19QCPPolarAxisAngular15exactClipRegionEv(ptr dead_on_unwind noalias nonnull writable sret(%class.QRegion) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1080) %1) local_unnamed_addr #2 align 2 {
+define void @_ZNK19QCPPolarAxisAngular15exactClipRegionEv(ptr dead_on_unwind noalias nonnull writable sret(%class.QRegion) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1080) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   %4 = load double, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 568
@@ -167601,7 +167601,7 @@ _ZN8QCPRange10validRangeERKS_.exit.thread18:      ; preds = %104, %_ZN8QCPRange1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QCPPolarAxisAngular8setRangeERK8QCPRange(ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN19QCPPolarAxisAngular8setRangeERK8QCPRange(ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.QCPRange, align 8
   %4 = alloca %class.QCPRange, align 8
   %5 = load double, ptr %1, align 8
@@ -167685,7 +167685,7 @@ _ZN8QCPRange10validRangeERKS_.exit.thread:        ; preds = %16, %17, %20, %29, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK19QCPPolarAxisAngular12pixelToCoordE7QPointFRdS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1080) %0, double %1, double %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK19QCPPolarAxisAngular12pixelToCoordE7QPointFRdS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1080) %0, double %1, double %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QDebug, align 8
   %7 = alloca %class.QMessageLogger, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 592
@@ -167729,7 +167729,7 @@ define void @_ZNK19QCPPolarAxisAngular12pixelToCoordE7QPointFRdS1_(ptr nocapture
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK19QCPPolarAxisAngular12coordToPixelEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1080) %0, double noundef %1, double noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define { double, double } @_ZNK19QCPPolarAxisAngular12coordToPixelEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1080) %0, double noundef %1, double noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 592
@@ -167801,12 +167801,12 @@ define { double, double } @_ZNK19QCPPolarAxisAngular12coordToPixelEdd(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK19QCPPolarAxisAngular9getPartAtERK7QPointF(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1080) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %1) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK19QCPPolarAxisAngular9getPartAtERK7QPointF(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1080) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #6 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK19QCPPolarAxisAngular10selectTestERK7QPointFbP8QVariant(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1080) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr nocapture noundef readnone %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK19QCPPolarAxisAngular10selectTestERK7QPointFbP8QVariant(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1080) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef readnone captures(none) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QRectF, align 8
   %6 = alloca %class.QDebug, align 8
   %7 = alloca %class.QMessageLogger, align 8
@@ -168426,7 +168426,7 @@ _ZN5QListI7QPointFEixEx.exit26:                   ; preds = %_ZNK17QArrayDataPoi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK19QCPPolarAxisAngular8elementsEb(ptr dead_on_unwind noalias writable sret(%class.QList.59) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1080) %1, i1 noundef zeroext %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK19QCPPolarAxisAngular8elementsEb(ptr dead_on_unwind noalias writable sret(%class.QList.59) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1080) %1, i1 noundef zeroext %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %class.QList.59, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -168633,7 +168633,7 @@ define noundef zeroext i1 @_ZNK13QCPPolarGraph16removeFromLegendEv(ptr noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK19QCPPolarAxisAngular28applyDefaultAntialiasingHintEP10QCPPainter(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1080) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define void @_ZNK19QCPPolarAxisAngular28applyDefaultAntialiasingHintEP10QCPPainter(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1080) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -169088,7 +169088,7 @@ _ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i._crit_edge:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QCPPolarAxisAngular14drawBackgroundEP10QCPPainterRK7QPointFd(ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, double noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19QCPPolarAxisAngular14drawBackgroundEP10QCPPainterRK7QPointFd(ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, double noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QRectF, align 8
   %6 = alloca %class.QRectF, align 8
   %7 = alloca %class.QRectF, align 8
@@ -169443,7 +169443,7 @@ define void @_ZNK19QCPPolarAxisAngular16getTickLabelFontEv(ptr dead_on_unwind no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZNK19QCPPolarAxisAngular17getTickLabelColorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1080) %0) local_unnamed_addr #14 align 2 {
+define { i64, i64 } @_ZNK19QCPPolarAxisAngular17getTickLabelColorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1080) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 2
@@ -169471,7 +169471,7 @@ define void @_ZNK19QCPPolarAxisAngular10getTickPenEv(ptr dead_on_unwind noalias 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK19QCPPolarAxisAngular17selectionCategoryEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1080) %0) unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK19QCPPolarAxisAngular17selectionCategoryEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1080) %0) unnamed_addr #6 align 2 {
   ret i32 16
 }
 
@@ -169536,7 +169536,7 @@ define void @_ZN19QCPPolarAxisAngular13setBackgroundERK7QPixmapbN2Qt15AspectRati
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN19QCPPolarAxisAngular19setBackgroundScaledEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1080) initializes((224, 225)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN19QCPPolarAxisAngular19setBackgroundScaledEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1080) initializes((224, 225)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i8 %3, ptr %4, align 8
@@ -169544,14 +169544,14 @@ define void @_ZN19QCPPolarAxisAngular19setBackgroundScaledEb(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN19QCPPolarAxisAngular23setBackgroundScaledModeEN2Qt15AspectRatioModeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1080) initializes((228, 232)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN19QCPPolarAxisAngular23setBackgroundScaledModeEN2Qt15AspectRatioModeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1080) initializes((228, 232)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN19QCPPolarAxisAngular12setRangeDragEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1080) initializes((240, 241)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN19QCPPolarAxisAngular12setRangeDragEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1080) initializes((240, 241)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i8 %3, ptr %4, align 8
@@ -169559,7 +169559,7 @@ define void @_ZN19QCPPolarAxisAngular12setRangeDragEb(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN19QCPPolarAxisAngular12setRangeZoomEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1080) initializes((241, 242)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN19QCPPolarAxisAngular12setRangeZoomEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1080) initializes((241, 242)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 241
   store i8 %3, ptr %4, align 1
@@ -169567,14 +169567,14 @@ define void @_ZN19QCPPolarAxisAngular12setRangeZoomEb(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN19QCPPolarAxisAngular18setRangeZoomFactorEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1080) initializes((248, 256)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN19QCPPolarAxisAngular18setRangeZoomFactorEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1080) initializes((248, 256)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store double %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QCPPolarAxisAngular18setSelectablePartsERK6QFlagsINS_14SelectablePartEE(ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN19QCPPolarAxisAngular18setSelectablePartsERK6QFlagsINS_14SelectablePartEE(ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %.sroa.01.0.copyload = load i32, ptr %3, align 8
   %.sroa.0.0.copyload = load i32, ptr %1, align 4
@@ -169593,7 +169593,7 @@ define void @_ZN19QCPPolarAxisAngular18setSelectablePartsERK6QFlagsINS_14Selecta
 declare void @_ZN19QCPPolarAxisAngular17selectableChangedERK6QFlagsINS_14SelectablePartEE(ptr noundef nonnull align 8 dereferenceable(1080), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QCPPolarAxisAngular16setSelectedPartsERK6QFlagsINS_14SelectablePartEE(ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN19QCPPolarAxisAngular16setSelectedPartsERK6QFlagsINS_14SelectablePartEE(ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %.sroa.01.0.copyload = load i32, ptr %3, align 4
   %.sroa.0.0.copyload = load i32, ptr %1, align 4
@@ -169776,7 +169776,7 @@ define void @_ZN19QCPPolarAxisAngular13setRangeUpperEd(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN19QCPPolarAxisAngular16setRangeReversedEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1080) initializes((544, 545)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN19QCPPolarAxisAngular16setRangeReversedEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1080) initializes((544, 545)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i8 %3, ptr %4, align 8
@@ -169784,7 +169784,7 @@ define void @_ZN19QCPPolarAxisAngular16setRangeReversedEb(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN19QCPPolarAxisAngular8setAngleEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1080) initializes((256, 272)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN19QCPPolarAxisAngular8setAngleEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1080) initializes((256, 272)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store double %1, ptr %3, align 8
   %4 = fdiv double %1, 1.800000e+02
@@ -169795,7 +169795,7 @@ define void @_ZN19QCPPolarAxisAngular8setAngleEd(ptr nocapture noundef nonnull w
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QCPPolarAxisAngular9setTickerE14QSharedPointerI13QCPAxisTickerE(ptr nocapture noundef nonnull align 8 dereferenceable(1080) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19QCPPolarAxisAngular9setTickerE14QSharedPointerI13QCPAxisTickerE(ptr noundef nonnull align 8 captures(none) dereferenceable(1080) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = load ptr, ptr %1, align 8
@@ -169880,7 +169880,7 @@ _ZN14QSharedPointerI13QCPAxisTickerEaSERKS1_.exit: ; preds = %23, %_ZN15QtShared
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN19QCPPolarAxisAngular8setTicksEb(ptr nocapture noundef nonnull align 8 dereferenceable(1080) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define void @_ZN19QCPPolarAxisAngular8setTicksEb(ptr noundef nonnull align 8 captures(none) dereferenceable(1080) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 471
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -169926,14 +169926,14 @@ define void @_ZN19QCPPolarAxisAngular16setTickLabelFontERK5QFont(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN19QCPPolarAxisAngular17setTickLabelColorERK6QColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1080) initializes((432, 446)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN19QCPPolarAxisAngular17setTickLabelColorERK6QColor(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1080) initializes((432, 446)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 432
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %3, ptr noundef nonnull align 4 dereferenceable(14) %1, i64 14, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QCPPolarAxisAngular15setNumberFormatERK7QString(ptr nocapture noundef nonnull align 8 dereferenceable(1080) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19QCPPolarAxisAngular15setNumberFormatERK7QString(ptr noundef nonnull align 8 captures(none) dereferenceable(1080) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QDebug, align 8
   %4 = alloca %class.QMessageLogger, align 8
   %5 = alloca %class.QString, align 8
@@ -170235,7 +170235,7 @@ _ZN7QStringD2Ev.exit34:                           ; preds = %130, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN19QCPPolarAxisAngular18setNumberPrecisionEi(ptr nocapture noundef nonnull align 8 dereferenceable(1080) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define void @_ZN19QCPPolarAxisAngular18setNumberPrecisionEi(ptr noundef nonnull align 8 captures(none) dereferenceable(1080) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, %1
@@ -170250,7 +170250,7 @@ define void @_ZN19QCPPolarAxisAngular18setNumberPrecisionEi(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN19QCPPolarAxisAngular13setTickLengthEii(ptr nocapture noundef nonnull align 8 dereferenceable(1080) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
+define void @_ZN19QCPPolarAxisAngular13setTickLengthEii(ptr noundef nonnull align 8 captures(none) dereferenceable(1080) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %5 = load i32, ptr %4, align 4
   %.not.i = icmp eq i32 %5, %1
@@ -170275,7 +170275,7 @@ _ZN19QCPPolarAxisAngular16setTickLengthOutEi.exit: ; preds = %_ZN19QCPPolarAxisA
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN19QCPPolarAxisAngular15setTickLengthInEi(ptr nocapture noundef nonnull align 8 dereferenceable(1080) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define void @_ZN19QCPPolarAxisAngular15setTickLengthInEi(ptr noundef nonnull align 8 captures(none) dereferenceable(1080) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 476
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, %1
@@ -170290,7 +170290,7 @@ define void @_ZN19QCPPolarAxisAngular15setTickLengthInEi(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN19QCPPolarAxisAngular16setTickLengthOutEi(ptr nocapture noundef nonnull align 8 dereferenceable(1080) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define void @_ZN19QCPPolarAxisAngular16setTickLengthOutEi(ptr noundef nonnull align 8 captures(none) dereferenceable(1080) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, %1
@@ -170305,7 +170305,7 @@ define void @_ZN19QCPPolarAxisAngular16setTickLengthOutEi(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN19QCPPolarAxisAngular11setSubTicksEb(ptr nocapture noundef nonnull align 8 dereferenceable(1080) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define void @_ZN19QCPPolarAxisAngular11setSubTicksEb(ptr noundef nonnull align 8 captures(none) dereferenceable(1080) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -170322,7 +170322,7 @@ define void @_ZN19QCPPolarAxisAngular11setSubTicksEb(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN19QCPPolarAxisAngular16setSubTickLengthEii(ptr nocapture noundef nonnull align 8 dereferenceable(1080) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
+define void @_ZN19QCPPolarAxisAngular16setSubTickLengthEii(ptr noundef nonnull align 8 captures(none) dereferenceable(1080) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 484
   %5 = load i32, ptr %4, align 4
   %.not.i = icmp eq i32 %5, %1
@@ -170347,7 +170347,7 @@ _ZN19QCPPolarAxisAngular19setSubTickLengthOutEi.exit: ; preds = %_ZN19QCPPolarAx
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN19QCPPolarAxisAngular18setSubTickLengthInEi(ptr nocapture noundef nonnull align 8 dereferenceable(1080) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define void @_ZN19QCPPolarAxisAngular18setSubTickLengthInEi(ptr noundef nonnull align 8 captures(none) dereferenceable(1080) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 484
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, %1
@@ -170362,7 +170362,7 @@ define void @_ZN19QCPPolarAxisAngular18setSubTickLengthInEi(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN19QCPPolarAxisAngular19setSubTickLengthOutEi(ptr nocapture noundef nonnull align 8 dereferenceable(1080) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define void @_ZN19QCPPolarAxisAngular19setSubTickLengthOutEi(ptr noundef nonnull align 8 captures(none) dereferenceable(1080) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, %1
@@ -170412,7 +170412,7 @@ define void @_ZN19QCPPolarAxisAngular12setLabelFontERK5QFont(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN19QCPPolarAxisAngular13setLabelColorERK6QColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1080) initializes((360, 374)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN19QCPPolarAxisAngular13setLabelColorERK6QColor(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1080) initializes((360, 374)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %3, ptr noundef nonnull align 4 dereferenceable(14) %1, i64 14, i1 false)
   ret void
@@ -170446,7 +170446,7 @@ _ZneRK7QStringS1_.exit.thread:                    ; preds = %2, %_ZneRK7QStringS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN19QCPPolarAxisAngular15setLabelPaddingEi(ptr nocapture noundef nonnull align 8 dereferenceable(1080) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define void @_ZN19QCPPolarAxisAngular15setLabelPaddingEi(ptr noundef nonnull align 8 captures(none) dereferenceable(1080) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, %1
@@ -170496,7 +170496,7 @@ define void @_ZN19QCPPolarAxisAngular25setSelectedTickLabelColorERK6QColor(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN19QCPPolarAxisAngular21setSelectedLabelColorERK6QColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1080) initializes((376, 390)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN19QCPPolarAxisAngular21setSelectedLabelColorERK6QColor(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1080) initializes((376, 390)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(14) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 376
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %3, ptr noundef nonnull align 4 dereferenceable(14) %1, i64 14, i1 false)
   ret void
@@ -170538,7 +170538,7 @@ define void @_ZNK19QCPPolarAxisAngular12getLabelFontEv(ptr dead_on_unwind noalia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZNK19QCPPolarAxisAngular13getLabelColorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1080) %0) local_unnamed_addr #14 align 2 {
+define { i64, i64 } @_ZNK19QCPPolarAxisAngular13getLabelColorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1080) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 4
@@ -170554,7 +170554,7 @@ define { i64, i64 } @_ZNK19QCPPolarAxisAngular13getLabelColorEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QCPPolarAxisAngular15mousePressEventEP11QMouseEventRK8QVariant(ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19QCPPolarAxisAngular15mousePressEventEP11QMouseEventRK8QVariant(ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %class.QCPRange, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -170685,7 +170685,7 @@ _ZN5QListI8QCPRangeE5clearEv.exit:                ; preds = %23, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QCPPolarAxisAngular14mouseMoveEventEP11QMouseEventRK7QPointF(ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19QCPPolarAxisAngular14mouseMoveEventEP11QMouseEventRK7QPointF(ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca double, align 8
   %5 = alloca double, align 8
   %6 = alloca double, align 8
@@ -170876,7 +170876,7 @@ _ZN11QCustomPlot25setNotAntialiasedElementsERK6QFlagsIN3QCP18AntialiasedElementE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN19QCPPolarAxisAngular17mouseReleaseEventEP11QMouseEventRK7QPointF(ptr nocapture noundef nonnull align 8 dereferenceable(1080) initializes((768, 769)) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2) unnamed_addr #30 align 2 {
+define void @_ZN19QCPPolarAxisAngular17mouseReleaseEventEP11QMouseEventRK7QPointF(ptr noundef nonnull align 8 captures(none) dereferenceable(1080) initializes((768, 769)) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %2) unnamed_addr #30 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 768
   store i8 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -170926,7 +170926,7 @@ _ZN11QCustomPlot25setNotAntialiasedElementsERK6QFlagsIN3QCP18AntialiasedElementE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19QCPPolarAxisAngular10wheelEventEP11QWheelEvent(ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr nocapture noundef readonly %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19QCPPolarAxisAngular10wheelEventEP11QWheelEvent(ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   %5 = alloca double, align 8
@@ -171509,14 +171509,14 @@ _ZN7QStringD2Ev.exit23:                           ; preds = %104, %78
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12QCPPolarGrid7setTypeE6QFlagsINS_8GridTypeEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((60, 64)) %0, i32 %1) local_unnamed_addr #0 align 2 {
+define void @_ZN12QCPPolarGrid7setTypeE6QFlagsINS_8GridTypeEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(136) initializes((60, 64)) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12QCPPolarGrid14setSubGridTypeE6QFlagsINS_8GridTypeEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((64, 68)) %0, i32 %1) local_unnamed_addr #0 align 2 {
+define void @_ZN12QCPPolarGrid14setSubGridTypeE6QFlagsINS_8GridTypeEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(136) initializes((64, 68)) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %1, ptr %3, align 8
   ret void
@@ -171582,7 +171582,7 @@ _ZN12QWeakPointerI7QObjectED2Ev.exit:             ; preds = %1, %3, %5, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12QCPPolarGrid21setAntialiasedSubGridEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((68, 69)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN12QCPPolarGrid21setAntialiasedSubGridEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(136) initializes((68, 69)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i8 %3, ptr %4, align 4
@@ -171590,7 +171590,7 @@ define void @_ZN12QCPPolarGrid21setAntialiasedSubGridEb(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12QCPPolarGrid22setAntialiasedZeroLineEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((69, 70)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN12QCPPolarGrid22setAntialiasedZeroLineEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(136) initializes((69, 70)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 69
   store i8 %3, ptr %4, align 1
@@ -171598,7 +171598,7 @@ define void @_ZN12QCPPolarGrid22setAntialiasedZeroLineEb(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK12QCPPolarGrid28applyDefaultAntialiasingHintEP10QCPPainter(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define void @_ZNK12QCPPolarGrid28applyDefaultAntialiasingHintEP10QCPPainter(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -171859,7 +171859,7 @@ _ZN5QListIdED2Ev.exit20:                          ; preds = %111, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12QCPPolarGrid15drawAngularGridEP10QCPPainterRK7QPointFdRK5QListIS2_ERK4QPen(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, double noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) local_unnamed_addr #2 align 2 {
+define void @_ZN12QCPPolarGrid15drawAngularGridEP10QCPPainterRK7QPointFdRK5QListIS2_ERK4QPen(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, double noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) local_unnamed_addr #2 align 2 {
   %7 = alloca %class.QLine, align 8
   %8 = alloca %class.QLineF, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -171969,7 +171969,7 @@ _ZN10QCPPainter8drawLineERK7QPointFS2_.exit:      ; preds = %43, %44
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12QCPPolarGrid14drawRadialGridEP10QCPPainterRK7QPointFRK5QListIdERK4QPenSB_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12QCPPolarGrid14drawRadialGridEP10QCPPainterRK7QPointFRK5QListIdERK4QPenSB_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %class.QRectF, align 8
   %8 = alloca %class.QRectF, align 8
   %9 = alloca %class.QPen, align 8
@@ -172559,7 +172559,7 @@ define void @_ZNK18QCPPolarLegendItem7getFontEv(ptr dead_on_unwind noalias nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZNK18QCPPolarLegendItem12getTextColorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0) local_unnamed_addr #14 align 2 {
+define { i64, i64 } @_ZNK18QCPPolarLegendItem12getTextColorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 241
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -172574,7 +172574,7 @@ define { i64, i64 } @_ZNK18QCPPolarLegendItem12getTextColorEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK18QCPPolarLegendItem16getIconBorderPenEv(ptr dead_on_unwind noalias nonnull writable sret(%class.QPen) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %1) local_unnamed_addr #9 align 2 {
+define void @_ZNK18QCPPolarLegendItem16getIconBorderPenEv(ptr dead_on_unwind noalias nonnull writable sret(%class.QPen) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 241
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -173005,7 +173005,7 @@ define void @_ZN13QCPPolarGraph8setBrushERK6QBrush(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13QCPPolarGraph12setLineStyleENS_9LineStyleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(280) initializes((80, 84)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13QCPPolarGraph12setLineStyleENS_9LineStyleE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(280) initializes((80, 84)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %1, ptr %3, align 8
   ret void
@@ -173217,7 +173217,7 @@ define void @_ZN13QCPPolarGraph7setNameERK7QString(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13QCPPolarGraph18setAntialiasedFillEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(280) initializes((184, 185)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13QCPPolarGraph18setAntialiasedFillEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(280) initializes((184, 185)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i8 %3, ptr %4, align 8
@@ -173225,7 +173225,7 @@ define void @_ZN13QCPPolarGraph18setAntialiasedFillEb(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13QCPPolarGraph22setAntialiasedScattersEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(280) initializes((185, 186)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13QCPPolarGraph22setAntialiasedScattersEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(280) initializes((185, 186)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 185
   store i8 %3, ptr %4, align 1
@@ -173233,7 +173233,7 @@ define void @_ZN13QCPPolarGraph22setAntialiasedScattersEb(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13QCPPolarGraph11setPeriodicEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(280) initializes((208, 209)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13QCPPolarGraph11setPeriodicEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(280) initializes((208, 209)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i8 %3, ptr %4, align 8
@@ -173241,7 +173241,7 @@ define void @_ZN13QCPPolarGraph11setPeriodicEb(ptr nocapture noundef nonnull wri
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13QCPPolarGraph10setKeyAxisEP19QCPPolarAxisAngular(ptr nocapture noundef nonnull align 8 dereferenceable(280) initializes((224, 232)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN13QCPPolarGraph10setKeyAxisEP19QCPPolarAxisAngular(ptr noundef nonnull align 8 captures(none) dereferenceable(280) initializes((224, 232)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %.not.i.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i.i, label %_ZN12QWeakPointerI7QObjectEC2IS0_TnNSt9enable_ifIXsr3std14is_convertibleIPT_PS0_EE5valueEbE4typeELb1EEES5_b.exit.i.i, label %4
@@ -173273,7 +173273,7 @@ _ZN8QPointerI19QCPPolarAxisAngularEaSEPS0_.exit:  ; preds = %_ZN12QWeakPointerI7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13QCPPolarGraph12setValueAxisEP18QCPPolarAxisRadial(ptr nocapture noundef nonnull align 8 dereferenceable(280) initializes((240, 248)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN13QCPPolarGraph12setValueAxisEP18QCPPolarAxisRadial(ptr noundef nonnull align 8 captures(none) dereferenceable(280) initializes((240, 248)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %.not.i.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i.i, label %_ZN12QWeakPointerI7QObjectEC2IS0_TnNSt9enable_ifIXsr3std14is_convertibleIPT_PS0_EE5valueEbE4typeELb1EEES5_b.exit.i.i, label %4
@@ -173511,7 +173511,7 @@ _ZNK16QCPDataSelectionneERKS_.exit:               ; preds = %15, %.preheader.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13QCPPolarGraph7setDataE14QSharedPointerI16QCPDataContainerI12QCPGraphDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(280) initializes((64, 72)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13QCPPolarGraph7setDataE14QSharedPointerI16QCPDataContainerI12QCPGraphDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(280) initializes((64, 72)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -173566,7 +173566,7 @@ _ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEEaSERKS3_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13QCPPolarGraph7setDataERK5QListIdES3_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13QCPPolarGraph7setDataERK5QListIdES3_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
@@ -173629,7 +173629,7 @@ _ZN16QCPDataContainerI12QCPGraphDataE5clearEv.exit: ; preds = %4, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13QCPPolarGraph7addDataERK5QListIdES3_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13QCPPolarGraph7addDataERK5QListIdES3_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QCPGraphData, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %class.QDebug, align 8
@@ -173890,7 +173890,7 @@ define void @_ZN13QCPPolarGraph15setScatterStyleERK15QCPScatterStyle(ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13QCPPolarGraph7addDataEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, double noundef %1, double noundef %2) local_unnamed_addr #2 align 2 {
+define void @_ZN13QCPPolarGraph7addDataEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, double noundef %1, double noundef %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %class.QCPGraphData, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
@@ -173900,7 +173900,7 @@ define void @_ZN13QCPPolarGraph7addDataEdd(ptr nocapture noundef nonnull readonl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13QCPPolarGraph14coordsToPixelsEddRdS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, double noundef %1, double noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13QCPPolarGraph14coordsToPixelsEddRdS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, double noundef %1, double noundef %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QDebug, align 8
   %7 = alloca %class.QMessageLogger, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -173980,7 +173980,7 @@ _ZNK8QPointerI18QCPPolarAxisRadialEcvPS0_Ev.exit.thread: ; preds = %5, %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK13QCPPolarGraph14coordsToPixelsEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, double noundef %1, double noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define { double, double } @_ZNK13QCPPolarGraph14coordsToPixelsEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, double noundef %1, double noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -174062,7 +174062,7 @@ _ZNK8QPointerI18QCPPolarAxisRadialEcvPS0_Ev.exit.thread: ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13QCPPolarGraph14pixelsToCoordsEddRdS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, double noundef %1, double noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13QCPPolarGraph14pixelsToCoordsEddRdS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, double noundef %1, double noundef %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QDebug, align 8
   %7 = alloca %class.QMessageLogger, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -174116,7 +174116,7 @@ _ZNK8QPointerI18QCPPolarAxisRadialEcvPS0_Ev.exit.thread: ; preds = %5, %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13QCPPolarGraph14pixelsToCoordsERK7QPointFRdS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13QCPPolarGraph14pixelsToCoordsERK7QPointFRdS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QDebug, align 8
   %6 = alloca %class.QMessageLogger, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -174882,7 +174882,7 @@ _ZN16QCPDataSelectionD2Ev.exit:                   ; preds = %32, %36, %22, %26, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK13QCPPolarGraph13pointDistanceERK7QPointFRN5QListI12QCPGraphDataE14const_iteratorE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK13QCPPolarGraph13pointDistanceERK7QPointFRN5QListI12QCPGraphDataE14const_iteratorE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QCPGraphData, align 8
   %5 = alloca %class.QCPGraphData, align 8
   %6 = alloca double, align 8
@@ -175250,7 +175250,7 @@ _ZN5QListI7QPointFED2Ev.exit50:                   ; preds = %181, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK13QCPPolarGraph11getKeyRangeERbN3QCP10SignDomainE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2) unnamed_addr #2 align 2 {
+define { double, double } @_ZNK13QCPPolarGraph11getKeyRangeERbN3QCP10SignDomainE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = tail call { double, double } @_ZN16QCPDataContainerI12QCPGraphDataE8keyRangeERbN3QCP10SignDomainE(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2)
@@ -175258,7 +175258,7 @@ define { double, double } @_ZNK13QCPPolarGraph11getKeyRangeERbN3QCP10SignDomainE
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK13QCPPolarGraph13getValueRangeERbN3QCP10SignDomainERK8QCPRange(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #2 align 2 {
+define { double, double } @_ZNK13QCPPolarGraph13getValueRangeERbN3QCP10SignDomainERK8QCPRange(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = tail call { double, double } @_ZN16QCPDataContainerI12QCPGraphDataE10valueRangeERbN3QCP10SignDomainERK8QCPRange(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
@@ -175266,7 +175266,7 @@ define { double, double } @_ZNK13QCPPolarGraph13getValueRangeERbN3QCP10SignDomai
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define { i64, i64 } @_ZNK13QCPPolarGraph8clipRectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0) unnamed_addr #33 align 2 personality ptr @__gxx_personality_v0 {
+define { i64, i64 } @_ZNK13QCPPolarGraph8clipRectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0) unnamed_addr #33 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -176069,7 +176069,7 @@ _ZN16QCPDataSelectionD2Ev.exit37:                 ; preds = %104, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13QCPPolarGraph8getLinesEP5QListI7QPointFERK12QCPDataRange(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13QCPPolarGraph8getLinesEP5QListI7QPointFERK12QCPDataRange(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.QList<QCPGraphData>::const_iterator", align 8
@@ -176288,7 +176288,7 @@ _ZN5QListI7QPointFE5clearEv.exit:                 ; preds = %77, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13QCPPolarGraph11getScattersEP5QListI7QPointFERK12QCPDataRange(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13QCPPolarGraph11getScattersEP5QListI7QPointFERK12QCPDataRange(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %class.QDebug, align 8
   %6 = alloca %class.QMessageLogger, align 8
@@ -176587,12 +176587,12 @@ _ZN5QListI12QCPGraphDataED2Ev.exit:               ; preds = %125, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK13QCPPolarGraph17selectionCategoryEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(280) %0) unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK13QCPPolarGraph17selectionCategoryEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(280) %0) unnamed_addr #6 align 2 {
   ret i32 8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13QCPPolarGraph28applyDefaultAntialiasingHintEP10QCPPainter(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define void @_ZNK13QCPPolarGraph28applyDefaultAntialiasingHintEP10QCPPainter(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -176601,7 +176601,7 @@ define void @_ZNK13QCPPolarGraph28applyDefaultAntialiasingHintEP10QCPPainter(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13QCPPolarGraph11selectEventEP11QMouseEventbRK8QVariantPb(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr nocapture noundef readnone %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef writeonly %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13QCPPolarGraph11selectEventEP11QMouseEventbRK8QVariantPb(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef readnone captures(none) %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef writeonly %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QCPDataRange, align 8
   %7 = alloca %class.QCPDataSelection, align 8
   %8 = alloca %class.QCPDataSelection, align 8
@@ -177254,7 +177254,7 @@ _ZN16QCPDataSelectionD2Ev.exit16:                 ; preds = %52, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13QCPPolarGraph12drawLinePlotEP10QCPPainterRK5QListI7QPointFE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #2 align 2 {
+define void @_ZNK13QCPPolarGraph12drawLinePlotEP10QCPPainterRK5QListI7QPointFE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #2 align 2 {
   %4 = alloca %class.QColor, align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPainter3penEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %6 = tail call noundef i32 @_ZNK4QPen5styleEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
@@ -177286,7 +177286,7 @@ define void @_ZNK13QCPPolarGraph12drawLinePlotEP10QCPPainterRK5QListI7QPointFE(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13QCPPolarGraph12drawPolylineEP10QCPPainterRK5QListI7QPointFE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #2 align 2 {
+define void @_ZNK13QCPPolarGraph12drawPolylineEP10QCPPainterRK5QListI7QPointFE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %class.QLine, align 8
   %5 = alloca %class.QLineF, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -177508,7 +177508,7 @@ _ZN10QCPPainter8drawLineERK7QPointFS2_.exit:      ; preds = %58, %59
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13QCPPolarGraph8drawFillEP10QCPPainterP5QListI7QPointFE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13QCPPolarGraph8drawFillEP10QCPPainterP5QListI7QPointFE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -177580,7 +177580,7 @@ _ZN9QPolygonFD2Ev.exit:                           ; preds = %26, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13QCPPolarGraph25applyFillAntialiasingHintEP10QCPPainter(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZNK13QCPPolarGraph25applyFillAntialiasingHintEP10QCPPainter(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -177589,7 +177589,7 @@ define void @_ZNK13QCPPolarGraph25applyFillAntialiasingHintEP10QCPPainter(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13QCPPolarGraph15drawScatterPlotEP10QCPPainterRK5QListI7QPointFERK15QCPScatterStyle(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(65) %3) unnamed_addr #2 align 2 {
+define void @_ZNK13QCPPolarGraph15drawScatterPlotEP10QCPPainterRK5QListI7QPointFERK15QCPScatterStyle(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(65) %3) unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 185
   %6 = load i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
@@ -177643,7 +177643,7 @@ _ZNK15QCPScatterStyle7applyToEP10QCPPainterRK4QPen.exit: ; preds = %4, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13QCPPolarGraph29applyScattersAntialiasingHintEP10QCPPainter(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZNK13QCPPolarGraph29applyScattersAntialiasingHintEP10QCPPainter(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 185
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -177652,7 +177652,7 @@ define void @_ZNK13QCPPolarGraph29applyScattersAntialiasingHintEP10QCPPainter(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13QCPPolarGraph14drawLegendIconEP10QCPPainterRK6QRectF(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13QCPPolarGraph14drawLegendIconEP10QCPPainterRK6QRectF(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QLine, align 8
   %5 = alloca %class.QRectF, align 8
   %6 = alloca %class.QLineF, align 8
@@ -177995,7 +177995,7 @@ _ZNK15QCPScatterStyle7applyToEP10QCPPainterRK4QPen.exit54: ; preds = %.thread74,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK13QCPPolarGraph9dataCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0) unnamed_addr #16 align 2 {
+define noundef i32 @_ZNK13QCPPolarGraph9dataCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0) unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -178008,7 +178008,7 @@ define noundef i32 @_ZNK13QCPPolarGraph9dataCountEv(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13QCPPolarGraph20getVisibleDataBoundsERN5QListI12QCPGraphDataE14const_iteratorES4_RK12QCPDataRange(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13QCPPolarGraph20getVisibleDataBoundsERN5QListI12QCPGraphDataE14const_iteratorES4_RK12QCPDataRange(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QCPGraphData, align 8
   %6 = alloca %class.QCPGraphData, align 8
   %7 = alloca %class.QDebug, align 8
@@ -178247,7 +178247,7 @@ _ZNK16QCPDataContainerI12QCPGraphDataE7findEndEdb.exit: ; preds = %_ZSt11upper_b
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13QCPPolarGraph20getOptimizedLineDataEP5QListI12QCPGraphDataERKNS2_14const_iteratorES6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13QCPPolarGraph20getOptimizedLineDataEP5QListI12QCPGraphDataERKNS2_14const_iteratorES6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca %class.QCPGraphData, align 8
   %7 = alloca %class.QCPGraphData, align 8
@@ -178528,7 +178528,7 @@ _ZNK8QPointerI19QCPPolarAxisAngularEptEv.exit:    ; preds = %42, %45
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13QCPPolarGraph11dataToLinesERK5QListI12QCPGraphDataE(ptr dead_on_unwind noalias writable sret(%class.QList.190) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13QCPPolarGraph11dataToLinesERK5QListI12QCPGraphDataE(ptr dead_on_unwind noalias writable sret(%class.QList.190) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QDebug, align 8
   %5 = alloca %class.QMessageLogger, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -178727,7 +178727,7 @@ _ZNK17QArrayDataPointerI7QPointFE11needsDetachEv.exit.thread.i.i.i.i: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK13QCPPolarGraph23getOptimizedScatterDataEP5QListI12QCPGraphDataENS2_14const_iteratorES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1, ptr %2, ptr readnone %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK13QCPPolarGraph23getOptimizedScatterDataEP5QListI12QCPGraphDataENS2_14const_iteratorES4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef %1, ptr %2, ptr readnone %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8
@@ -179144,7 +179144,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsERK7Q
 declare void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind writable sret(%class.QString) align 8, i64, ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #39
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #39
 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEc(ptr noundef nonnull align 8 dereferenceable(16), i8 noundef signext) local_unnamed_addr #4
 
@@ -180340,7 +180340,7 @@ _ZN17QArrayDataPointerIbED2Ev.exit35:             ; preds = %73, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN17QArrayDataPointerIbE12allocateGrowERKS0_xN10QArrayData14GrowthPositionE(ptr dead_on_unwind noalias writable sret(%struct.QArrayDataPointer) align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 comdat align 2 {
@@ -200641,7 +200641,7 @@ _ZNK8QVariant7Private3getI16QCPDataSelectionEERKT_v.exit: ; preds = %20, %23
 
 _ZNK8QVariant9constDataEv.exit:                   ; preds = %44, %41
   %50 = phi ptr [ %49, %44 ], [ %1, %41 ]
-  %51 = invoke noundef zeroext i1 @_ZN9QMetaType7convertES_PKvS_Pv(ptr %40, ptr noundef %50, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI16QCPDataSelectionE8metaTypeE, ptr noundef %0)
+  %51 = invoke noundef zeroext i1 @_ZN9QMetaType7convertES_PKvS_Pv(ptr %40, ptr noundef %50, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI16QCPDataSelectionE8metaTypeE, ptr noundef nonnull %0)
           to label %_ZN16QCPDataSelectionC2ERKS_.exit unwind label %52
 
 52:                                               ; preds = %_ZNK8QVariant9constDataEv.exit, %39
@@ -246746,10 +246746,10 @@ declare double @llvm.fabs.f64(double) #45
 declare double @llvm.sqrt.f64(double) #45
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #46
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #46
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #46
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #46
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #47

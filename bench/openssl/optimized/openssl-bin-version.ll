@@ -251,7 +251,7 @@ declare void @opt_help(ptr noundef) local_unnamed_addr #1
 declare i32 @opt_check_rest_arg(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @OpenSSL_version(i32 noundef) local_unnamed_addr #1
 
@@ -260,7 +260,7 @@ declare ptr @BN_options() local_unnamed_addr #1
 declare ptr @OPENSSL_info(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #3

@@ -45,7 +45,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.Bac_ManWriteBlifLines = private unnamed_addr constant [16 x ptr] [ptr @.str.19, ptr @.str.20, ptr @.str.19, ptr @.str.19, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32], align 8
 
 ; Function Attrs: nounwind uwtable
-define void @Psr_ManWriteBlif(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @Psr_ManWriteBlif(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val.i.i = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val.i.i, 0
@@ -339,21 +339,21 @@ Psr_ManWriteBlifNtk.exit:                         ; preds = %136, %Psr_ManWriteB
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare ptr @Extra_TimeStamp(...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Bac_ManWriteBlifGate(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @Bac_ManWriteBlifGate(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 4
   %.val24 = load i32, ptr %6, align 4
   %7 = icmp sgt i32 %.val24, 0
@@ -456,7 +456,7 @@ declare ptr @Mio_GateReadPinName(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @Mio_GateReadOutName(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Bac_ManWriteBlifArray(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Bac_ManWriteBlifArray(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 4
   %.val23 = load i32, ptr %5, align 4
   %6 = icmp sgt i32 %.val23, 0
@@ -559,7 +559,7 @@ Bac_ObjNameStr.exit22:                            ; preds = %39, %46
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Bac_ManWriteBlifArray2(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Bac_ManWriteBlifArray2(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %.val = load ptr, ptr %1, align 8
   %4 = getelementptr i8, ptr %1, i64 104
   %.val28 = load ptr, ptr %4, align 8
@@ -768,7 +768,7 @@ Bac_ObjNameStr.exit60:                            ; preds = %95, %100
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Bac_ManWriteBlifLines(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @Bac_ManWriteBlifLines(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 84
   %.val92158 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val92158, 0
@@ -1067,7 +1067,7 @@ declare ptr @Abc_FrameReadLibGen(...) local_unnamed_addr #2
 declare ptr @Mio_LibraryReadGateByName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Bac_ManWriteBlifNtk(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @Bac_ManWriteBlifNtk(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %1, i64 8
   %.val13 = load i32, ptr %3, align 8
@@ -1255,13 +1255,13 @@ Bac_ManNtk.exit:                                  ; preds = %Bac_ManNtk.exit.lr.
 declare void @Bac_ManAssignInternWordNames(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #4

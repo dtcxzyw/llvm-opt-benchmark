@@ -623,7 +623,7 @@ declare void @LLVMInitializeX86TargetMC() local_unnamed_addr #4
 declare i32 @LLVMGetTargetFromTriple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare ptr @LLVMCreateTargetMachine(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
@@ -632,7 +632,7 @@ declare void @LLVMSetTargetMachineUseInitArray(ptr noundef, i1 noundef zeroext) 
 declare void @LLVMSetTargetMachineAsmVerbosity(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @target_setup(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define dso_local void @target_setup(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = alloca %struct.X86Features, align 8
   %3 = alloca %struct.X86Features, align 8
   %4 = alloca %struct.X86Features, align 8
@@ -3393,7 +3393,7 @@ define internal fastcc range(i32 0, 65) i32 @arch_pointer_bit_width(i32 noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 65) i32 @os_target_c_type_bits(i32 noundef %0, i32 noundef %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #2 {
@@ -3486,21 +3486,21 @@ declare ptr @macos_sysroot() local_unnamed_addr #4
 declare ptr @macos_sysroot_sdk_information(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 declare void @type_setup(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc zeroext i1 @slice_strcmp(ptr nocapture readonly %0, i64 %1, ptr nocapture noundef readonly %2) unnamed_addr #9 {
+define internal fastcc zeroext i1 @slice_strcmp(ptr readonly captures(none) %0, i64 %1, ptr noundef readonly captures(none) %2) unnamed_addr #9 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
   %.not = icmp eq i64 %4, %1
   br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %2, i64 noundef %1) #18
+  %6 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull %2, i64 noundef %1) #18
   %7 = icmp eq i32 %6, 0
   br label %8
 
@@ -3510,7 +3510,7 @@ define internal fastcc zeroext i1 @slice_strcmp(ptr nocapture readonly %0, i64 %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @x86features_from_cpu(ptr noundef nonnull initializes((0, 24)) %0, i32 noundef range(i32 0, -1) %1) unnamed_addr #2 {
@@ -3793,7 +3793,7 @@ declare ptr @LLVMGetHostCPUFeatures() local_unnamed_addr #4
 declare ptr @LLVMGetHostCPUName() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #10
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @x86_features_add_feature(ptr noundef nonnull initializes((16, 24)) %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #2 {
@@ -4048,7 +4048,7 @@ common.ret:                                       ; preds = %x64features_add_fea
 declare void @LLVMDisposeMessage(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare void @scratch_buffer_append_char(i8 noundef signext) local_unnamed_addr #4
 
@@ -4060,19 +4060,19 @@ declare void @scratch_buffer_printf(ptr noundef, ...) local_unnamed_addr #4
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #13
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -116,7 +116,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN28ReferenceProcessorPhaseTimesD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN28ReferenceProcessorPhaseTimesD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24RefProcWorkerTimeTrackerC2EP15WorkerDataArrayIdEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN24RefProcWorkerTimeTrackerC2EP15WorkerDataArrayIdEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20) initializes((0, 20)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call noundef double @_ZN2os11elapsedTimeEv() #11
@@ -129,7 +129,7 @@ define hidden void @_ZN24RefProcWorkerTimeTrackerC2EP15WorkerDataArrayIdEj(ptr n
 declare noundef double @_ZN2os11elapsedTimeEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24RefProcWorkerTimeTrackerD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN24RefProcWorkerTimeTrackerD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef double @_ZN2os11elapsedTimeEv() #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
@@ -159,7 +159,7 @@ _ZN15WorkerDataArrayIdE10set_or_addEjd.exit:      ; preds = %1, %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN33RefProcSubPhasesWorkerTimeTrackerC2EN18ReferenceProcessor16RefProcSubPhasesEP28ReferenceProcessorPhaseTimesj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((8, 28)) %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN33RefProcSubPhasesWorkerTimeTrackerC2EN18ReferenceProcessor16RefProcSubPhasesEP28ReferenceProcessorPhaseTimesj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((8, 28)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = zext i32 %1 to i64
   %7 = getelementptr inbounds nuw [5 x ptr], ptr %2, i64 0, i64 %6
@@ -174,7 +174,7 @@ define hidden void @_ZN33RefProcSubPhasesWorkerTimeTrackerC2EN18ReferenceProcess
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK28ReferenceProcessorPhaseTimes25sub_phase_worker_time_secEN18ReferenceProcessor16RefProcSubPhasesE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK28ReferenceProcessorPhaseTimes25sub_phase_worker_time_secEN18ReferenceProcessor16RefProcSubPhasesE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds nuw [5 x ptr], ptr %0, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
@@ -204,7 +204,7 @@ define hidden void @_ZN27RefProcPhaseTimeBaseTrackerC2EPKcN18ReferenceProcessor1
 declare void @_ZN7GCTimer23register_gc_phase_startEPKcRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i64, i64 } @_ZN27RefProcPhaseTimeBaseTracker9end_ticksEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0) local_unnamed_addr #0 align 2 {
+define hidden { i64, i64 } @_ZN27RefProcPhaseTimeBaseTracker9end_ticksEv(ptr noundef nonnull align 8 captures(none) dereferenceable(44) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = icmp slt i64 %3, 1
@@ -232,7 +232,7 @@ define hidden { i64, i64 } @_ZN27RefProcPhaseTimeBaseTracker9end_ticksEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef double @_ZN27RefProcPhaseTimeBaseTracker12elapsed_timeEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef double @_ZN27RefProcPhaseTimeBaseTracker12elapsed_timeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(44) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = icmp slt i64 %3, 1
@@ -259,7 +259,7 @@ _ZN27RefProcPhaseTimeBaseTracker9end_ticksEv.exit: ; preds = %1, %5
 declare noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27RefProcPhaseTimeBaseTrackerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN27RefProcPhaseTimeBaseTrackerD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(44) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.TimeInstant, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
@@ -316,7 +316,7 @@ define hidden void @_ZN31RefProcBalanceQueuesTimeTrackerC2EN18ReferenceProcessor
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN31RefProcBalanceQueuesTimeTrackerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN31RefProcBalanceQueuesTimeTrackerD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(44) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.TimeInstant, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
@@ -379,7 +379,7 @@ _ZN27RefProcPhaseTimeBaseTrackerD2Ev.exit:        ; preds = %._crit_edge.i.i, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN28ReferenceProcessorPhaseTimes26set_balance_queues_time_msEN18ReferenceProcessor13RefProcPhasesEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN28ReferenceProcessorPhaseTimes26set_balance_queues_time_msEN18ReferenceProcessor13RefProcPhasesEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(184) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = zext i32 %1 to i64
   %6 = getelementptr inbounds nuw [3 x double], ptr %4, i64 0, i64 %5
@@ -411,7 +411,7 @@ define hidden void @_ZN29RefProcTotalPhaseTimesTrackerC2EN18ReferenceProcessor13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN29RefProcTotalPhaseTimesTrackerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN29RefProcTotalPhaseTimesTrackerD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(44) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.TimeInstant, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
@@ -474,7 +474,7 @@ _ZN27RefProcPhaseTimeBaseTrackerD2Ev.exit:        ; preds = %._crit_edge.i.i, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN28ReferenceProcessorPhaseTimes17set_phase_time_msEN18ReferenceProcessor13RefProcPhasesEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN28ReferenceProcessorPhaseTimes17set_phase_time_msEN18ReferenceProcessor13RefProcPhasesEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(184) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = zext i32 %1 to i64
   %6 = getelementptr inbounds nuw [3 x double], ptr %4, i64 0, i64 %5
@@ -483,7 +483,7 @@ define hidden void @_ZN28ReferenceProcessorPhaseTimes17set_phase_time_msEN18Refe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28ReferenceProcessorPhaseTimesC2EP7GCTimerj(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((168, 169), (176, 184)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN28ReferenceProcessorPhaseTimesC2EP7GCTimerj(ptr noundef nonnull align 8 captures(none) dereferenceable(184) initializes((168, 169), (176, 184)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i8 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -606,7 +606,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit22:         ; preds = %46
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28ReferenceProcessorPhaseTimes5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(184) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN28ReferenceProcessorPhaseTimes5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(184) %0) local_unnamed_addr #0 align 2 {
   br label %4
 
 .preheader:                                       ; preds = %_ZN15WorkerDataArrayIdE5resetEv.exit
@@ -721,7 +721,7 @@ _ZN15WorkerDataArrayIdE5resetEv.exit22.preheader: ; preds = %40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef double @_ZNK28ReferenceProcessorPhaseTimes13phase_time_msEN18ReferenceProcessor13RefProcPhasesE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef double @_ZNK28ReferenceProcessorPhaseTimes13phase_time_msEN18ReferenceProcessor13RefProcPhasesE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = zext i32 %1 to i64
   %5 = getelementptr inbounds nuw [3 x double], ptr %3, i64 0, i64 %4
@@ -730,7 +730,7 @@ define hidden noundef double @_ZNK28ReferenceProcessorPhaseTimes13phase_time_msE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28ReferenceProcessorPhaseTimesD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN28ReferenceProcessorPhaseTimesD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0) unnamed_addr #0 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %15
@@ -820,7 +820,7 @@ define hidden void @_ZN28ReferenceProcessorPhaseTimes15add_ref_droppedE13Referen
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN28ReferenceProcessorPhaseTimes18set_ref_discoveredE13ReferenceTypem(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN28ReferenceProcessorPhaseTimes18set_ref_discoveredE13ReferenceTypem(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(184) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = add nsw i32 %1, -1
   %6 = sext i32 %5 to i64
@@ -830,7 +830,7 @@ define hidden void @_ZN28ReferenceProcessorPhaseTimes18set_ref_discoveredE13Refe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN28ReferenceProcessorPhaseTimes14ref_discoveredE13ReferenceType(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef i64 @_ZN28ReferenceProcessorPhaseTimes14ref_discoveredE13ReferenceType(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = add nsw i32 %1, -1
   %5 = sext i32 %4 to i64
@@ -840,7 +840,7 @@ define hidden noundef i64 @_ZN28ReferenceProcessorPhaseTimes14ref_discoveredE13R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef double @_ZNK28ReferenceProcessorPhaseTimes22balance_queues_time_msEN18ReferenceProcessor13RefProcPhasesE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef double @_ZNK28ReferenceProcessorPhaseTimes22balance_queues_time_msEN18ReferenceProcessor13RefProcPhasesE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = zext i32 %1 to i64
   %5 = getelementptr inbounds nuw [3 x double], ptr %3, i64 0, i64 %4
@@ -849,7 +849,7 @@ define hidden noundef double @_ZNK28ReferenceProcessorPhaseTimes22balance_queues
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK28ReferenceProcessorPhaseTimes20print_all_referencesEjb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK28ReferenceProcessorPhaseTimes20print_all_referencesEjb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.LogStream, align 8
   br i1 %2, label %5, label %15
 
@@ -898,7 +898,7 @@ define linkonce_odr hidden void @_ZN9LogStreamD2Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK28ReferenceProcessorPhaseTimes11print_phaseEN18ReferenceProcessor13RefProcPhasesEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK28ReferenceProcessorPhaseTimes11print_phaseEN18ReferenceProcessor13RefProcPhasesEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.LogStream, align 8
   %5 = alloca %class.LogStream, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1015,7 +1015,7 @@ _ZNK28ReferenceProcessorPhaseTimes18print_balance_timeEP9LogStreamN18ReferencePr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK28ReferenceProcessorPhaseTimes15print_referenceE13ReferenceTypej(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK28ReferenceProcessorPhaseTimes15print_referenceE13ReferenceTypej(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.LogStream, align 8
   %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_126ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %5, null
@@ -1088,7 +1088,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %38, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK28ReferenceProcessorPhaseTimes18print_balance_timeEP9LogStreamN18ReferenceProcessor13RefProcPhasesEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK28ReferenceProcessorPhaseTimes18print_balance_timeEP9LogStreamN18ReferenceProcessor13RefProcPhasesEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = zext i32 %2 to i64
   %7 = getelementptr inbounds nuw [3 x double], ptr %5, i64 0, i64 %6
@@ -1108,7 +1108,7 @@ define hidden void @_ZNK28ReferenceProcessorPhaseTimes18print_balance_timeEP9Log
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK28ReferenceProcessorPhaseTimes15print_sub_phaseEP9LogStreamN18ReferenceProcessor16RefProcSubPhasesEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK28ReferenceProcessorPhaseTimes15print_sub_phaseEP9LogStreamN18ReferenceProcessor16RefProcSubPhasesEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = zext i32 %2 to i64
   %6 = getelementptr inbounds nuw [5 x ptr], ptr %0, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
@@ -1122,7 +1122,7 @@ define hidden void @_ZNK28ReferenceProcessorPhaseTimes15print_sub_phaseEP9LogStr
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK28ReferenceProcessorPhaseTimes17print_worker_timeEP9LogStreamP15WorkerDataArrayIdEPKcj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK28ReferenceProcessorPhaseTimes17print_worker_timeEP9LogStreamP15WorkerDataArrayIdEPKcj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.LogStream, align 8
   %7 = zext i32 %4 to i64
   %8 = getelementptr inbounds nuw [6 x ptr], ptr @_ZL7Indents, i64 0, i64 %7
@@ -1450,13 +1450,13 @@ declare void @_ZN15WorkerDataArrayIdE10WDAPrinter7summaryEP12outputStreamdddddb(
 declare void @_ZN15WorkerDataArrayIdE10WDAPrinter7detailsEPKS0_P12outputStream(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

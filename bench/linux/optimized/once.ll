@@ -31,7 +31,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol___do_once_sl
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable___do_once_done305, ptr @__UNIQUE_ID___addressable___do_once_sleepable_done307, ptr @__UNIQUE_ID___addressable___do_once_sleepable_start306, ptr @__UNIQUE_ID___addressable___do_once_start304], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @__do_once_start(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 align 16 {
+define dso_local noundef zeroext i1 @__do_once_start(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 align 16 {
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @once_lock) #3
   store i64 %3, ptr %1, align 8
   %4 = load i8, ptr %0, align 1, !range !5, !noundef !6
@@ -50,7 +50,7 @@ define dso_local noundef zeroext i1 @__do_once_start(ptr nocapture noundef reado
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__do_once_done(ptr nocapture noundef writeonly initializes((0, 1)) %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) #0 align 16 {
+define dso_local void @__do_once_done(ptr noundef writeonly captures(none) initializes((0, 1)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #0 align 16 {
   store i8 1, ptr %0, align 1
   %5 = load i64, ptr %2, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @once_lock, i64 noundef %5) #3
@@ -81,7 +81,7 @@ define dso_local void @__do_once_done(ptr nocapture noundef writeonly initialize
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @__do_once_sleepable_start(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local noundef zeroext i1 @__do_once_sleepable_start(ptr noundef readonly captures(none) %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @once_mutex) #3
   %2 = load i8, ptr %0, align 1, !range !5, !noundef !6
   %3 = icmp eq i8 %2, 0
@@ -102,7 +102,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__do_once_sleepable_done(ptr nocapture noundef writeonly initializes((0, 1)) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local void @__do_once_sleepable_done(ptr noundef writeonly captures(none) initializes((0, 1)) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   store i8 1, ptr %0, align 1
   tail call void @mutex_unlock(ptr noundef nonnull @once_mutex) #3
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16

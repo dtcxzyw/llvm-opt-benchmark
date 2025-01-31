@@ -78,7 +78,7 @@ define noundef nonnull ptr @pg_finfo_check_primary_key() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @check_primary_key(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i64 @check_primary_key(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca i8, align 1
   %3 = alloca [128 x i8], align 16
   %4 = alloca [8192 x i8], align 16
@@ -369,7 +369,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #3
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_plan(ptr noundef nonnull %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #1 {
+define internal fastcc ptr @find_plan(ptr noundef nonnull %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #1 {
   %4 = load ptr, ptr @TopMemoryContext, align 8
   %5 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %4, ptr @CurrentMemoryContext, align 8
@@ -456,7 +456,7 @@ declare i32 @SPI_finish() local_unnamed_addr #3
 declare i32 @SPI_gettypeid(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @SPI_prepare(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
@@ -476,7 +476,7 @@ define noundef nonnull ptr @pg_finfo_check_foreign_key() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @check_foreign_key(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca i8, align 1
   %3 = alloca [128 x i8], align 16
   %4 = alloca [8192 x i8], align 16
@@ -1082,7 +1082,7 @@ declare i32 @tolower(i32 noundef) local_unnamed_addr #5
 declare ptr @SPI_getvalue(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @SPI_gettype(ptr noundef, i32 noundef) local_unnamed_addr #3
 

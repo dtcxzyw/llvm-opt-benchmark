@@ -436,7 +436,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext range(i8 0, 2) i8 @utext_isLengthExpensive_75(ptr nocapture noundef readonly %ut) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @utext_isLengthExpensive_75(ptr noundef readonly captures(none) %ut) local_unnamed_addr #1 {
 entry:
   %providerProperties = getelementptr inbounds nuw i8, ptr %ut, i64 8
   %0 = load i32, ptr %providerProperties, align 8
@@ -1670,7 +1670,7 @@ return:                                           ; preds = %utext_getNativeInde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext range(i8 0, 2) i8 @utext_isWritable_75(ptr nocapture noundef readonly %ut) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @utext_isWritable_75(ptr noundef readonly captures(none) %ut) local_unnamed_addr #1 {
 entry:
   %providerProperties = getelementptr inbounds nuw i8, ptr %ut, i64 8
   %0 = load i32, ptr %providerProperties, align 8
@@ -1681,7 +1681,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @utext_freeze_75(ptr nocapture noundef %ut) local_unnamed_addr #2 {
+define void @utext_freeze_75(ptr noundef captures(none) %ut) local_unnamed_addr #2 {
 entry:
   %providerProperties = getelementptr inbounds nuw i8, ptr %ut, i64 8
   %0 = load i32, ptr %providerProperties, align 8
@@ -1691,7 +1691,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext range(i8 0, 2) i8 @utext_hasMetaData_75(ptr nocapture noundef readonly %ut) local_unnamed_addr #1 {
+define signext range(i8 0, 2) i8 @utext_hasMetaData_75(ptr noundef readonly captures(none) %ut) local_unnamed_addr #1 {
 entry:
   %providerProperties = getelementptr inbounds nuw i8, ptr %ut, i64 8
   %0 = load i32, ptr %providerProperties, align 8
@@ -1804,7 +1804,7 @@ return:                                           ; preds = %if.end7, %if.then9,
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @utext_setup_75(ptr noundef %ut, i32 noundef %extraSpace, ptr nocapture noundef %status) local_unnamed_addr #0 {
+define ptr @utext_setup_75(ptr noundef %ut, i32 noundef %extraSpace, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1954,12 +1954,12 @@ return:                                           ; preds = %if.end49.thread, %i
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @utext_close_75(ptr noundef %ut) local_unnamed_addr #0 {
@@ -2030,7 +2030,7 @@ return:                                           ; preds = %if.end17, %if.then2
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @utext_openUTF8_75(ptr noundef %ut, ptr noundef %s, i64 noundef %length, ptr nocapture noundef %status) local_unnamed_addr #0 {
+define ptr @utext_openUTF8_75(ptr noundef %ut, ptr noundef %s, i64 noundef %length, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -2094,7 +2094,7 @@ return:                                           ; preds = %if.end9, %entry, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @utext_openReplaceable_75(ptr noundef %ut, ptr noundef %rep, ptr nocapture noundef %status) local_unnamed_addr #0 {
+define ptr @utext_openReplaceable_75(ptr noundef %ut, ptr noundef %rep, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -2143,7 +2143,7 @@ return:                                           ; preds = %if.end2, %entry, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @utext_openUnicodeString_75(ptr noundef %ut, ptr noundef %s, ptr nocapture noundef %status) local_unnamed_addr #0 {
+define ptr @utext_openUnicodeString_75(ptr noundef %ut, ptr noundef %s, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @utext_openConstUnicodeString_75(ptr noundef %ut, ptr noundef %s, ptr noundef %status)
   %0 = load i32, ptr %status, align 4
@@ -2162,7 +2162,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @utext_openConstUnicodeString_75(ptr noundef %ut, ptr noundef %s, ptr nocapture noundef %status) local_unnamed_addr #0 {
+define ptr @utext_openConstUnicodeString_75(ptr noundef %ut, ptr noundef %s, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %0, 0
@@ -2263,7 +2263,7 @@ return:                                           ; preds = %if.end, %_ZNK6icu_7
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @utext_openUChars_75(ptr noundef %ut, ptr noundef %s, i64 noundef %length, ptr nocapture noundef %status) local_unnamed_addr #0 {
+define ptr @utext_openUChars_75(ptr noundef %ut, ptr noundef %s, i64 noundef %length, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -2323,7 +2323,7 @@ return:                                           ; preds = %if.end9, %if.then13
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @utext_openCharacterIterator_75(ptr noundef %ut, ptr noundef %ci, ptr nocapture noundef %status) local_unnamed_addr #0 {
+define ptr @utext_openCharacterIterator_75(ptr noundef %ut, ptr noundef %ci, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -2388,7 +2388,7 @@ return:                                           ; preds = %if.end3, %if.then7,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL13utf8TextCloneP5UTextPKS_aP10UErrorCode(ptr noundef %dest, ptr noundef %src, i8 noundef signext %deep, ptr nocapture noundef %status) #0 {
+define internal noundef ptr @_ZL13utf8TextCloneP5UTextPKS_aP10UErrorCode(ptr noundef %dest, ptr noundef %src, i8 noundef signext %deep, ptr noundef captures(none) %status) #0 {
 entry:
   %call = tail call fastcc noundef ptr @_ZL16shallowTextCloneP5UTextPKS_P10UErrorCode(ptr noundef %dest, ptr noundef %src, ptr noundef %status)
   %tobool.not = icmp eq i8 %deep, 0
@@ -2433,7 +2433,7 @@ if.end10:                                         ; preds = %if.then6, %do.body,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZL14utf8TextLengthP5UText(ptr nocapture noundef %ut) #7 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZL14utf8TextLengthP5UText(ptr noundef captures(none) %ut) #7 {
 entry:
   %b = getelementptr inbounds nuw i8, ptr %ut, i64 120
   %0 = load i32, ptr %b, align 8
@@ -3598,7 +3598,7 @@ return:                                           ; preds = %entry, %_ZL17utext_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZL25utf8TextMapOffsetToNativePK5UText(ptr nocapture noundef readonly %ut) #8 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZL25utf8TextMapOffsetToNativePK5UText(ptr noundef readonly captures(none) %ut) #8 {
 entry:
   %p = getelementptr inbounds nuw i8, ptr %ut, i64 80
   %0 = load ptr, ptr %p, align 8
@@ -3620,7 +3620,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23utf8TextMapIndexToUTF16PK5UTextl(ptr nocapture noundef readonly %ut, i64 noundef %index64) #8 {
+define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23utf8TextMapIndexToUTF16PK5UTextl(ptr noundef readonly captures(none) %ut, i64 noundef %index64) #8 {
 entry:
   %conv = trunc i64 %index64 to i32
   %p = getelementptr inbounds nuw i8, ptr %ut, i64 80
@@ -3640,7 +3640,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL13utf8TextCloseP5UText(ptr nocapture noundef %ut) #0 {
+define internal void @_ZL13utf8TextCloseP5UText(ptr noundef captures(none) %ut) #0 {
 entry:
   %providerProperties = getelementptr inbounds nuw i8, ptr %ut, i64 8
   %0 = load i32, ptr %providerProperties, align 8
@@ -3660,7 +3660,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL16shallowTextCloneP5UTextPKS_P10UErrorCode(ptr noundef %dest, ptr noundef %src, ptr nocapture noundef %status) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL16shallowTextCloneP5UTextPKS_P10UErrorCode(ptr noundef %dest, ptr noundef %src, ptr noundef captures(none) %status) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -3919,7 +3919,7 @@ declare i32 @utf8_nextCharSafeBody_75(ptr noundef, ptr noundef, i32 noundef, i32
 declare i32 @u_terminateUChars_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL12repTextCloneP5UTextPKS_aP10UErrorCode(ptr noundef %dest, ptr noundef %src, i8 noundef signext %deep, ptr nocapture noundef %status) #0 {
+define internal noundef ptr @_ZL12repTextCloneP5UTextPKS_aP10UErrorCode(ptr noundef %dest, ptr noundef %src, i8 noundef signext %deep, ptr noundef captures(none) %status) #0 {
 entry:
   %call = tail call fastcc noundef ptr @_ZL16shallowTextCloneP5UTextPKS_P10UErrorCode(ptr noundef %dest, ptr noundef %src, ptr noundef %status)
   %tobool.not = icmp eq i8 %deep, 0
@@ -3950,7 +3950,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZL13repTextLengthP5UText(ptr nocapture noundef readonly %ut) #0 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZL13repTextLengthP5UText(ptr noundef readonly captures(none) %ut) #0 {
 entry:
   %context = getelementptr inbounds nuw i8, ptr %ut, i64 72
   %0 = load ptr, ptr %context, align 8
@@ -3963,7 +3963,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL13repTextAccessP5UTextla(ptr nocapture noundef %ut, i64 noundef %index, i8 noundef signext %forward) #0 personality ptr @__gxx_personality_v0 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL13repTextAccessP5UTextla(ptr noundef captures(none) %ut, i64 noundef %index, i8 noundef signext %forward) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer = alloca %"class.icu_75::UnicodeString", align 8
   %context = getelementptr inbounds nuw i8, ptr %ut, i64 72
@@ -4189,7 +4189,7 @@ return:                                           ; preds = %do.end, %if.then53,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL14repTextExtractP5UTextllPDsiP10UErrorCode(ptr nocapture noundef %ut, i64 noundef %start, i64 noundef %limit, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %status) #0 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @_ZL14repTextExtractP5UTextllPDsiP10UErrorCode(ptr noundef captures(none) %ut, i64 noundef %start, i64 noundef %limit, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %status) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer = alloca %"class.icu_75::UnicodeString", align 8
   %context = getelementptr inbounds nuw i8, ptr %ut, i64 72
@@ -4320,7 +4320,7 @@ return:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL14repTextReplaceP5UTextllPKDsiP10UErrorCode(ptr nocapture noundef %ut, i64 noundef %start, i64 noundef %limit, ptr noundef %src, i32 noundef %length, ptr nocapture noundef %status) #0 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @_ZL14repTextReplaceP5UTextllPKDsiP10UErrorCode(ptr noundef captures(none) %ut, i64 noundef %start, i64 noundef %limit, ptr noundef %src, i32 noundef %length, ptr noundef captures(none) %status) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %replStr = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -4484,7 +4484,7 @@ eh.resume:                                        ; preds = %lpad41, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL11repTextCopyP5UTextlllaP10UErrorCode(ptr nocapture noundef %ut, i64 noundef %start, i64 noundef %limit, i64 noundef %destIndex, i8 noundef signext %move, ptr nocapture noundef %status) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL11repTextCopyP5UTextlllaP10UErrorCode(ptr noundef captures(none) %ut, i64 noundef %start, i64 noundef %limit, i64 noundef %destIndex, i8 noundef signext %move, ptr noundef captures(none) %status) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %context = getelementptr inbounds nuw i8, ptr %ut, i64 72
@@ -4588,7 +4588,7 @@ return:                                           ; preds = %entry, %if.end30, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL12repTextCloseP5UText(ptr nocapture noundef %ut) #9 {
+define internal void @_ZL12repTextCloseP5UText(ptr noundef captures(none) %ut) #9 {
 entry:
   %providerProperties = getelementptr inbounds nuw i8, ptr %ut, i64 8
   %0 = load i32, ptr %providerProperties, align 8
@@ -4627,7 +4627,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 declare void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext, ptr noundef, i32 noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL15unistrTextCloneP5UTextPKS_aP10UErrorCode(ptr noundef %dest, ptr noundef %src, i8 noundef signext %deep, ptr nocapture noundef %status) #0 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZL15unistrTextCloneP5UTextPKS_aP10UErrorCode(ptr noundef %dest, ptr noundef %src, i8 noundef signext %deep, ptr noundef captures(none) %status) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call fastcc noundef ptr @_ZL16shallowTextCloneP5UTextPKS_P10UErrorCode(ptr noundef %dest, ptr noundef %src, ptr noundef %status)
   %tobool.not = icmp eq i8 %deep, 0
@@ -4669,7 +4669,7 @@ if.end:                                           ; preds = %new.cont, %land.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZL16unistrTextLengthP5UText(ptr nocapture noundef readonly %t) #8 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZL16unistrTextLengthP5UText(ptr noundef readonly captures(none) %t) #8 {
 entry:
   %context = getelementptr inbounds nuw i8, ptr %t, i64 72
   %0 = load ptr, ptr %context, align 8
@@ -4686,7 +4686,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL16unistrTextAccessP5UTextla(ptr nocapture noundef initializes((40, 44)) %ut, i64 noundef %index, i8 noundef signext %forward) #2 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL16unistrTextAccessP5UTextla(ptr noundef captures(none) initializes((40, 44)) %ut, i64 noundef %index, i8 noundef signext %forward) #2 {
 entry:
   %chunkLength = getelementptr inbounds nuw i8, ptr %ut, i64 44
   %0 = load i32, ptr %chunkLength, align 4
@@ -4707,7 +4707,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL17unistrTextExtractP5UTextllPDsiP10UErrorCode(ptr nocapture noundef %t, i64 noundef %start, i64 noundef %limit, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %pErrorCode) #0 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @_ZL17unistrTextExtractP5UTextllPDsiP10UErrorCode(ptr noundef captures(none) %t, i64 noundef %start, i64 noundef %limit, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %pErrorCode) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %context = getelementptr inbounds nuw i8, ptr %t, i64 72
   %0 = load ptr, ptr %context, align 8
@@ -4804,7 +4804,7 @@ return:                                           ; preds = %entry, %if.end30, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL17unistrTextReplaceP5UTextllPKDsiP10UErrorCode(ptr nocapture noundef %ut, i64 noundef %start, i64 noundef %limit, ptr noundef %src, i32 noundef %length, ptr nocapture noundef %pErrorCode) #0 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @_ZL17unistrTextReplaceP5UTextllPKDsiP10UErrorCode(ptr noundef captures(none) %ut, i64 noundef %start, i64 noundef %limit, ptr noundef %src, i32 noundef %length, ptr noundef captures(none) %pErrorCode) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %context = getelementptr inbounds nuw i8, ptr %ut, i64 72
   %0 = load ptr, ptr %context, align 8
@@ -4925,7 +4925,7 @@ return:                                           ; preds = %entry, %_ZNK6icu_75
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL14unistrTextCopyP5UTextlllaP10UErrorCode(ptr nocapture noundef %ut, i64 noundef %start, i64 noundef %limit, i64 noundef %destIndex, i8 noundef signext %move, ptr nocapture noundef %pErrorCode) #0 {
+define internal void @_ZL14unistrTextCopyP5UTextlllaP10UErrorCode(ptr noundef captures(none) %ut, i64 noundef %start, i64 noundef %limit, i64 noundef %destIndex, i8 noundef signext %move, ptr noundef captures(none) %pErrorCode) #0 {
 entry:
   %context = getelementptr inbounds nuw i8, ptr %ut, i64 72
   %0 = load ptr, ptr %context, align 8
@@ -5060,7 +5060,7 @@ if.end37:                                         ; preds = %if.end29, %entry, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL15unistrTextCloseP5UText(ptr nocapture noundef %ut) #9 {
+define internal void @_ZL15unistrTextCloseP5UText(ptr noundef captures(none) %ut) #9 {
 entry:
   %providerProperties = getelementptr inbounds nuw i8, ptr %ut, i64 8
   %0 = load i32, ptr %providerProperties, align 8
@@ -5104,7 +5104,7 @@ declare void @_ZNK6icu_7513UnicodeString9doExtractEiiPDsi(ptr noundef nonnull al
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL14ucstrTextCloneP5UTextPKS_aP10UErrorCode(ptr noundef %dest, ptr noundef %src, i8 noundef signext %deep, ptr nocapture noundef %status) #0 {
+define internal noundef ptr @_ZL14ucstrTextCloneP5UTextPKS_aP10UErrorCode(ptr noundef %dest, ptr noundef %src, i8 noundef signext %deep, ptr noundef captures(none) %status) #0 {
 entry:
   %call = tail call fastcc noundef ptr @_ZL16shallowTextCloneP5UTextPKS_P10UErrorCode(ptr noundef %dest, ptr noundef %src, ptr noundef %status)
   %tobool.not = icmp eq i8 %deep, 0
@@ -5165,7 +5165,7 @@ if.end12:                                         ; preds = %if.then6, %for.end,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @_ZL15ucstrTextLengthP5UText(ptr nocapture noundef %ut) #7 {
+define internal noundef i64 @_ZL15ucstrTextLengthP5UText(ptr noundef captures(none) %ut) #7 {
 entry:
   %a = getelementptr inbounds nuw i8, ptr %ut, i64 112
   %0 = load i64, ptr %a, align 8
@@ -5211,7 +5211,7 @@ if.end9:                                          ; preds = %for.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL15ucstrTextAccessP5UTextla(ptr nocapture noundef %ut, i64 noundef %index, i8 noundef signext %forward) #7 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL15ucstrTextAccessP5UTextla(ptr noundef captures(none) %ut, i64 noundef %index, i8 noundef signext %forward) #7 {
 entry:
   %context = getelementptr inbounds nuw i8, ptr %ut, i64 72
   %0 = load ptr, ptr %context, align 8
@@ -5393,7 +5393,7 @@ lor.end:                                          ; preds = %lor.rhs, %land.lhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL16ucstrTextExtractP5UTextllPDsiP10UErrorCode(ptr nocapture noundef %ut, i64 noundef %start, i64 noundef %limit, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %pErrorCode) #0 {
+define internal noundef i32 @_ZL16ucstrTextExtractP5UTextllPDsiP10UErrorCode(ptr noundef captures(none) %ut, i64 noundef %start, i64 noundef %limit, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %pErrorCode) #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -5578,7 +5578,7 @@ return:                                           ; preds = %entry, %if.end72, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL14ucstrTextCloseP5UText(ptr nocapture noundef %ut) #0 {
+define internal void @_ZL14ucstrTextCloseP5UText(ptr noundef captures(none) %ut) #0 {
 entry:
   %providerProperties = getelementptr inbounds nuw i8, ptr %ut, i64 8
   %0 = load i32, ptr %providerProperties, align 8
@@ -5598,7 +5598,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL17charIterTextCloneP5UTextPKS_aP10UErrorCode(ptr noundef %dest, ptr noundef %src, i8 noundef signext %deep, ptr nocapture noundef %status) #0 {
+define internal noundef ptr @_ZL17charIterTextCloneP5UTextPKS_aP10UErrorCode(ptr noundef %dest, ptr noundef %src, i8 noundef signext %deep, ptr noundef captures(none) %status) #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -5810,7 +5810,7 @@ return:                                           ; preds = %if.end3.i, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZL18charIterTextLengthP5UText(ptr nocapture noundef readonly %ut) #1 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZL18charIterTextLengthP5UText(ptr noundef readonly captures(none) %ut) #1 {
 entry:
   %a = getelementptr inbounds nuw i8, ptr %ut, i64 112
   %0 = load i64, ptr %a, align 8
@@ -5820,7 +5820,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL18charIterTextAccessP5UTextla(ptr nocapture noundef %ut, i64 noundef %index, i8 noundef signext %forward) #0 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL18charIterTextAccessP5UTextla(ptr noundef captures(none) %ut, i64 noundef %index, i8 noundef signext %forward) #0 {
 entry:
   %context = getelementptr inbounds nuw i8, ptr %ut, i64 72
   %0 = load ptr, ptr %context, align 8
@@ -5989,7 +5989,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL19charIterTextExtractP5UTextllPDsiP10UErrorCode(ptr nocapture noundef %ut, i64 noundef %start, i64 noundef %limit, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %status) #0 {
+define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL19charIterTextExtractP5UTextllPDsiP10UErrorCode(ptr noundef captures(none) %ut, i64 noundef %start, i64 noundef %limit, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %status) #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -6106,7 +6106,7 @@ return:                                           ; preds = %entry, %while.end, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL17charIterTextCloseP5UText(ptr nocapture noundef %ut) #9 {
+define internal void @_ZL17charIterTextCloseP5UText(ptr noundef captures(none) %ut) #9 {
 entry:
   %r = getelementptr inbounds nuw i8, ptr %ut, i64 96
   %0 = load ptr, ptr %r, align 8
@@ -6138,10 +6138,10 @@ declare i64 @llvm.umin.i64(i64, i64) #11
 declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #11

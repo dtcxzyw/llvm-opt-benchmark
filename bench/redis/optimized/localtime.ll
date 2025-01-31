@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.nolocks_localtime.mdays = private unnamed_addr constant [12 x i32] [i32 31, i32 28, i32 31, i32 30, i32 31, i32 30, i32 31, i32 31, i32 30, i32 31, i32 30, i32 31], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local void @nolocks_localtime(ptr nocapture noundef writeonly initializes((0, 12), (24, 28), (32, 36)) %tmp, i64 noundef %t, i64 noundef %tz, i32 noundef %dst) local_unnamed_addr #0 {
+define dso_local void @nolocks_localtime(ptr noundef writeonly captures(none) initializes((0, 12), (24, 28), (32, 36)) %tmp, i64 noundef %t, i64 noundef %tz, i32 noundef %dst) local_unnamed_addr #0 {
 entry:
   %mdays = alloca [12 x i32], align 16
   %sub = sub nsw i64 %t, %tz
@@ -133,7 +133,7 @@ while.end37:                                      ; preds = %while.end37.loopexi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -407,7 +407,7 @@ declare ptr @_ZNK7Imf_3_211ChannelList5beginEv(ptr noundef nonnull align 8 deref
 declare ptr @_ZNK7Imf_3_211ChannelList3endEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN7Imf_3_221bytesPerDeepLineTableERKNS_6HeaderEiiPKciiRSt6vectorImSaImEE(ptr noundef nonnull align 8 dereferenceable(49) %header, i32 noundef %minY, i32 noundef %maxY, ptr nocapture noundef readonly %base, i32 noundef %xStride, i32 noundef %yStride, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %bytesPerLine) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN7Imf_3_221bytesPerDeepLineTableERKNS_6HeaderEiiPKciiRSt6vectorImSaImEE(ptr noundef nonnull align 8 dereferenceable(49) %header, i32 noundef %minY, i32 noundef %maxY, ptr noundef readonly captures(none) %base, i32 noundef %xStride, i32 noundef %yStride, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %bytesPerLine) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %header)
   %call1 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7Imf_3_26Header8channelsEv(ptr noundef nonnull align 8 dereferenceable(49) %header)
@@ -561,7 +561,7 @@ for.end64:                                        ; preds = %for.body49, %for.co
 declare i32 @llvm.abs.i32(i32, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN7Imf_3_221bytesPerDeepLineTableERKNS_6HeaderEPciiRSt6vectorImSaImEE(ptr noundef nonnull align 8 dereferenceable(49) %header, ptr nocapture noundef readonly %base, i32 noundef %xStride, i32 noundef %yStride, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %bytesPerLine) local_unnamed_addr #3 {
+define noundef i64 @_ZN7Imf_3_221bytesPerDeepLineTableERKNS_6HeaderEPciiRSt6vectorImSaImEE(ptr noundef nonnull align 8 dereferenceable(49) %header, ptr noundef readonly captures(none) %base, i32 noundef %xStride, i32 noundef %yStride, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %bytesPerLine) local_unnamed_addr #3 {
 entry:
   %call = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %header)
   %y = getelementptr inbounds nuw i8, ptr %call, i64 4
@@ -574,7 +574,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_223offsetInLineBufferTableERKSt6vectorImSaImEEiiiRS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %bytesPerLine, i32 noundef %scanline1, i32 noundef %scanline2, i32 noundef %linesInLineBuffer, ptr noundef nonnull align 8 dereferenceable(24) %offsetInLineBuffer) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_223offsetInLineBufferTableERKSt6vectorImSaImEEiiiRS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %bytesPerLine, i32 noundef %scanline1, i32 noundef %scanline2, i32 noundef %linesInLineBuffer, ptr noundef nonnull align 8 dereferenceable(24) %offsetInLineBuffer) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %bytesPerLine, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -644,7 +644,7 @@ for.end:                                          ; preds = %for.body, %_ZNSt6ve
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_223offsetInLineBufferTableERKSt6vectorImSaImEEiRS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %bytesPerLine, i32 noundef %linesInLineBuffer, ptr noundef nonnull align 8 dereferenceable(24) %offsetInLineBuffer) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_223offsetInLineBufferTableERKSt6vectorImSaImEEiRS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %bytesPerLine, i32 noundef %linesInLineBuffer, ptr noundef nonnull align 8 dereferenceable(24) %offsetInLineBuffer) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %bytesPerLine, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -770,7 +770,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_219copyIntoFrameBufferERPKcPcS3_mbdNS_10Compressor6FormatENS_9PixelTypeES6_(ptr nocapture noundef nonnull align 8 dereferenceable(8) %readPtr, ptr noundef %writePtr, ptr noundef %endPtr, i64 noundef %xStride, i1 noundef zeroext %fill, double noundef %fillValue, i32 noundef %format, i32 noundef %typeInFrameBuffer, i32 noundef %typeInFile) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_219copyIntoFrameBufferERPKcPcS3_mbdNS_10Compressor6FormatENS_9PixelTypeES6_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %readPtr, ptr noundef %writePtr, ptr noundef %endPtr, i64 noundef %xStride, i1 noundef zeroext %fill, double noundef %fillValue, i32 noundef %format, i32 noundef %typeInFrameBuffer, i32 noundef %typeInFile) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %b.i241 = alloca [4 x i8], align 4
   %b.i230 = alloca [2 x i8], align 2
@@ -1610,7 +1610,7 @@ eh.resume:                                        ; preds = %lpad264, %lpad259, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare noundef i32 @_ZN7Imf_3_210halfToUintEN9Imath_3_24halfE(i16) local_unnamed_addr #0
 
@@ -1621,7 +1621,7 @@ declare i16 @_ZN7Imf_3_210uintToHalfEj(i32 noundef) local_unnamed_addr #0
 declare i16 @_ZN7Imf_3_211floatToHalfEf(float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_223copyIntoDeepFrameBufferERPKcPcS1_lliiiiiiilllbdNS_10Compressor6FormatENS_9PixelTypeES6_(ptr nocapture noundef nonnull align 8 dereferenceable(8) %readPtr, ptr nocapture noundef readonly %base, ptr nocapture noundef readonly %sampleCountBase, i64 noundef %sampleCountXStride, i64 noundef %sampleCountYStride, i32 noundef %y, i32 noundef %minX, i32 noundef %maxX, i32 noundef %xOffsetForSampleCount, i32 noundef %yOffsetForSampleCount, i32 noundef %xOffsetForData, i32 noundef %yOffsetForData, i64 noundef %sampleStride, i64 noundef %xPointerStride, i64 noundef %yPointerStride, i1 noundef zeroext %fill, double noundef %fillValue, i32 noundef %format, i32 noundef %typeInFrameBuffer, i32 noundef %typeInFile) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_223copyIntoDeepFrameBufferERPKcPcS1_lliiiiiiilllbdNS_10Compressor6FormatENS_9PixelTypeES6_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %readPtr, ptr noundef readonly captures(none) %base, ptr noundef readonly captures(none) %sampleCountBase, i64 noundef %sampleCountXStride, i64 noundef %sampleCountYStride, i32 noundef %y, i32 noundef %minX, i32 noundef %maxX, i32 noundef %xOffsetForSampleCount, i32 noundef %yOffsetForSampleCount, i32 noundef %xOffsetForData, i32 noundef %yOffsetForData, i64 noundef %sampleStride, i64 noundef %xPointerStride, i64 noundef %yPointerStride, i1 noundef zeroext %fill, double noundef %fillValue, i32 noundef %format, i32 noundef %typeInFrameBuffer, i32 noundef %typeInFile) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %c.i923 = alloca [1024 x i8], align 16
   %b.i912 = alloca [4 x i8], align 4
@@ -3925,7 +3925,7 @@ eh.resume:                                        ; preds = %lpad904, %lpad899, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_211skipChannelERPKcNS_9PixelTypeEm(ptr nocapture noundef nonnull align 8 dereferenceable(8) %readPtr, i32 noundef %typeInFile, i64 noundef %xSize) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_211skipChannelERPKcNS_9PixelTypeEm(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %readPtr, i32 noundef %typeInFile, i64 noundef %xSize) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %c.i35 = alloca [1024 x i8], align 16
   %c.i5 = alloca [1024 x i8], align 16
@@ -4118,7 +4118,7 @@ sw.epilog:                                        ; preds = %_ZN7Imf_3_23Xdr4ski
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_214convertInPlaceERPcRPKcNS_9PixelTypeEm(ptr nocapture noundef nonnull align 8 dereferenceable(8) %writePtr, ptr nocapture noundef nonnull align 8 dereferenceable(8) %readPtr, i32 noundef %type, i64 noundef %numPixels) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_214convertInPlaceERPcRPKcNS_9PixelTypeEm(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %writePtr, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %readPtr, i32 noundef %type, i64 noundef %numPixels) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %b.i22 = alloca [4 x i8], align 1
   %b.i13 = alloca [2 x i8], align 1
@@ -4294,7 +4294,7 @@ sw.epilog:                                        ; preds = %_ZN7Imf_3_23Xdr5wri
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_219copyFromFrameBufferERPcRPKcS3_mNS_10Compressor6FormatENS_9PixelTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %writePtr, ptr nocapture noundef nonnull align 8 dereferenceable(8) %readPtr, ptr noundef readnone %endPtr, i64 noundef %xStride, i32 noundef %format, i32 noundef %type) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_219copyFromFrameBufferERPcRPKcS3_mNS_10Compressor6FormatENS_9PixelTypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %writePtr, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %readPtr, ptr noundef readnone %endPtr, i64 noundef %xStride, i32 noundef %format, i32 noundef %type) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %b.i46 = alloca [4 x i8], align 1
   %b.i37 = alloca [2 x i8], align 1
@@ -4555,7 +4555,7 @@ eh.resume:                                        ; preds = %lpad45, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_223copyFromDeepFrameBufferERPcPKcS0_lliiiiiiilllNS_10Compressor6FormatENS_9PixelTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %writePtr, ptr nocapture noundef readonly %base, ptr nocapture noundef readonly %sampleCountBase, i64 noundef %sampleCountXStride, i64 noundef %sampleCountYStride, i32 noundef %y, i32 noundef %xMin, i32 noundef %xMax, i32 noundef %xOffsetForSampleCount, i32 noundef %yOffsetForSampleCount, i32 noundef %xOffsetForData, i32 noundef %yOffsetForData, i64 noundef %sampleStride, i64 noundef %dataXStride, i64 noundef %dataYStride, i32 noundef %format, i32 noundef %type) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_223copyFromDeepFrameBufferERPcPKcS0_lliiiiiiilllNS_10Compressor6FormatENS_9PixelTypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %writePtr, ptr noundef readonly captures(none) %base, ptr noundef readonly captures(none) %sampleCountBase, i64 noundef %sampleCountXStride, i64 noundef %sampleCountYStride, i32 noundef %y, i32 noundef %xMin, i32 noundef %xMax, i32 noundef %xOffsetForSampleCount, i32 noundef %yOffsetForSampleCount, i32 noundef %xOffsetForData, i32 noundef %yOffsetForData, i64 noundef %sampleStride, i64 noundef %dataXStride, i64 noundef %dataYStride, i32 noundef %format, i32 noundef %type) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %b.i147 = alloca [4 x i8], align 1
   %b.i129 = alloca [2 x i8], align 1
@@ -5062,7 +5062,7 @@ eh.resume:                                        ; preds = %lpad201, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_221fillChannelWithZeroesERPcNS_10Compressor6FormatENS_9PixelTypeEm(ptr nocapture noundef nonnull align 8 dereferenceable(8) %writePtr, i32 noundef %format, i32 noundef %type, i64 noundef %xSize) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_221fillChannelWithZeroesERPcNS_10Compressor6FormatENS_9PixelTypeEm(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %writePtr, i32 noundef %format, i32 noundef %type, i64 noundef %xSize) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %b.i32 = alloca [4 x i8], align 4
   %b.i24 = alloca [2 x i8], align 1
@@ -5341,7 +5341,7 @@ declare ptr @_ZNK7Imf_3_26Header5beginEv(ptr noundef nonnull align 8 dereference
 declare ptr @_ZNK7Imf_3_26Header3endEv(ptr noundef nonnull align 8 dereferenceable(49)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN7Imf_3_231getScanlineChunkOffsetTableSizeERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(49) %header) local_unnamed_addr #3 {
@@ -5482,7 +5482,7 @@ _ZNSt7__cxx1115wstring_convertISt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EEw
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %_M_state.i, i8 0, i64 18, i1 false)
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %filename) #21, !noalias !118
   %add.ptr.i = getelementptr inbounds i8, ptr %filename, i64 %call.i.i
-  invoke void @_ZNSt7__cxx1115wstring_convertISt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EEwSaIwESaIcEE10from_bytesEPKcS8_(ptr sret(%"class.std::__cxx11::basic_string.12") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(90) %converter, ptr noundef %filename, ptr noundef %add.ptr.i)
+  invoke void @_ZNSt7__cxx1115wstring_convertISt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EEwSaIwESaIcEE10from_bytesEPKcS8_(ptr sret(%"class.std::__cxx11::basic_string.12") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(90) %converter, ptr noundef nonnull %filename, ptr noundef nonnull %add.ptr.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt7__cxx1115wstring_convertISt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EEwSaIwESaIcEEC2Ev.exit
@@ -5702,7 +5702,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
@@ -5711,7 +5711,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #9 comdat align 2 {
@@ -6223,10 +6223,10 @@ declare i64 @llvm.umax.i64(i64, i64) #19
 declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

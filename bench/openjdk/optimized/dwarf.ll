@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [29 x i8] c"DWARF: Unknown opcode: 0x%x\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZN11DwarfParser8read_lebEb(ptr nocapture noundef nonnull align 8 dereferenceable(61) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN11DwarfParser8read_lebEb(ptr noundef nonnull align 8 captures(none) dereferenceable(61) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.promoted = load ptr, ptr %3, align 8
   br label %4
@@ -42,7 +42,7 @@ define hidden noundef i64 @_ZN11DwarfParser8read_lebEb(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZN11DwarfParser16get_entry_lengthEv(ptr nocapture noundef nonnull align 8 dereferenceable(61) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZN11DwarfParser16get_entry_lengthEv(ptr noundef nonnull align 8 captures(none) dereferenceable(61) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
@@ -64,7 +64,7 @@ define hidden noundef i64 @_ZN11DwarfParser16get_entry_lengthEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN11DwarfParser11process_cieEPhj(ptr nocapture noundef nonnull align 8 dereferenceable(61) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN11DwarfParser11process_cieEPhj(ptr noundef nonnull align 8 captures(none) dereferenceable(61) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %2 to i64
@@ -222,16 +222,16 @@ _ZN11DwarfParser8read_lebEb.exit26:               ; preds = %.preheader
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11DwarfParser24parse_dwarf_instructionsEmmPKh(ptr nocapture noundef nonnull align 8 dereferenceable(61) initializes((40, 48)) %0, i64 noundef %1, i64 noundef %2, ptr noundef readnone %3) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN11DwarfParser24parse_dwarf_instructionsEmmPKh(ptr noundef nonnull align 8 captures(none) dereferenceable(61) initializes((40, 48)) %0, i64 noundef %1, i64 noundef %2, ptr noundef readnone %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -554,7 +554,7 @@ _ZN11DwarfParser8read_lebEb.exit66:               ; preds = %.preheader71
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN11DwarfParser17get_decoded_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(61) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef i32 @_ZN11DwarfParser17get_decoded_valueEv(ptr noundef nonnull align 8 captures(none) dereferenceable(61) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 7
@@ -647,7 +647,7 @@ define hidden noundef i32 @_ZN11DwarfParser17get_decoded_valueEv(ptr nocapture n
 declare void @print_debug(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN11DwarfParser12get_pc_rangeEv(ptr nocapture noundef nonnull align 8 dereferenceable(61) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef i32 @_ZN11DwarfParser12get_pc_rangeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(61) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 7
@@ -699,7 +699,7 @@ define hidden noundef i32 @_ZN11DwarfParser12get_pc_rangeEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN11DwarfParser13process_dwarfEm(ptr nocapture noundef nonnull align 8 dereferenceable(61) initializes((8, 16)) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN11DwarfParser13process_dwarfEm(ptr noundef nonnull align 8 captures(none) dereferenceable(61) initializes((8, 16)) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4400
   %5 = load ptr, ptr %4, align 8
@@ -880,7 +880,7 @@ _ZN11DwarfParser8read_lebEb.exit:                 ; preds = %70
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

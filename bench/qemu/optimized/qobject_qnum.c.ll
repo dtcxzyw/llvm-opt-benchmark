@@ -69,7 +69,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @qnum_get_try_int(ptr nocapture noundef readonly %qn, ptr nocapture noundef writeonly %val) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qnum_get_try_int(ptr noundef readonly captures(none) %qn, ptr noundef writeonly captures(none) %val) local_unnamed_addr #0 {
 entry:
   %kind = getelementptr inbounds nuw i8, ptr %qn, i64 16
   %0 = load i32, ptr %kind, align 8
@@ -108,7 +108,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @qnum_get_int(ptr nocapture noundef readonly %qn) local_unnamed_addr #0 {
+define dso_local i64 @qnum_get_int(ptr noundef readonly captures(none) %qn) local_unnamed_addr #0 {
 entry:
   %kind.i = getelementptr inbounds nuw i8, ptr %qn, i64 16
   %0 = load i32, ptr %kind.i, align 8
@@ -143,7 +143,7 @@ if.end:                                           ; preds = %sw.bb1.i, %sw.bb.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @qnum_get_try_uint(ptr nocapture noundef readonly %qn, ptr nocapture noundef writeonly %val) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qnum_get_try_uint(ptr noundef readonly captures(none) %qn, ptr noundef writeonly captures(none) %val) local_unnamed_addr #0 {
 entry:
   %kind = getelementptr inbounds nuw i8, ptr %qn, i64 16
   %0 = load i32, ptr %kind, align 8
@@ -179,7 +179,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @qnum_get_uint(ptr nocapture noundef readonly %qn) local_unnamed_addr #0 {
+define dso_local i64 @qnum_get_uint(ptr noundef readonly captures(none) %qn) local_unnamed_addr #0 {
 entry:
   %kind.i = getelementptr inbounds nuw i8, ptr %qn, i64 16
   %0 = load i32, ptr %kind.i, align 8
@@ -214,7 +214,7 @@ if.end:                                           ; preds = %sw.bb.i, %sw.bb2.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local double @qnum_get_double(ptr nocapture noundef readonly %qn) local_unnamed_addr #0 {
+define dso_local double @qnum_get_double(ptr noundef readonly captures(none) %qn) local_unnamed_addr #0 {
 entry:
   %kind = getelementptr inbounds nuw i8, ptr %qn, i64 16
   %0 = load i32, ptr %kind, align 8
@@ -251,7 +251,7 @@ return:                                           ; preds = %sw.bb4, %sw.bb1, %s
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias ptr @qnum_to_string(ptr nocapture noundef readonly %qn) local_unnamed_addr #0 {
+define dso_local noalias ptr @qnum_to_string(ptr noundef readonly captures(none) %qn) local_unnamed_addr #0 {
 entry:
   %kind = getelementptr inbounds nuw i8, ptr %qn, i64 16
   %0 = load i32, ptr %kind, align 8

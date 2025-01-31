@@ -53,7 +53,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rc2_init_key(ptr noundef %ctx, ptr noundef %key, ptr nocapture readnone %iv, i32 %enc) #1 {
+define internal noundef i32 @rc2_init_key(ptr noundef %ctx, ptr noundef %key, ptr readnone captures(none) %iv, i32 %enc) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
   %ks = getelementptr inbounds nuw i8, ptr %call, i64 4
@@ -222,7 +222,7 @@ return:                                           ; preds = %rc2_magic_to_meth.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @rc2_ctrl(ptr noundef %c, i32 noundef %type, i32 noundef %arg, ptr nocapture noundef writeonly %ptr) #1 {
+define internal range(i32 -1, 2) i32 @rc2_ctrl(ptr noundef %c, i32 noundef %type, i32 noundef %arg, ptr noundef writeonly captures(none) %ptr) #1 {
 entry:
   switch i32 %type, label %return [
     i32 0, label %sw.bb
@@ -418,10 +418,10 @@ declare ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef) local_unnamed_addr #2
 declare void @RC2_ecb_encrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5

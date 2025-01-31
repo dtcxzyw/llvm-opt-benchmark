@@ -1756,7 +1756,7 @@ define linkonce_odr noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal19EvalBasisG
 declare float @llvm.fmuladd.f32(float, float, float) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIfEEviPT_(i32 noundef range(i32 1, 0) %0, ptr nocapture noundef nonnull %1) unnamed_addr #2 {
+define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIfEEviPT_(i32 noundef range(i32 1, 0) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #2 {
   %3 = and i32 %0, 1
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.loopexit62, label %.preheader61
@@ -4920,7 +4920,7 @@ define linkonce_odr noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal19EvalBasisG
 declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIdEEviPT_(i32 noundef range(i32 1, 0) %0, ptr nocapture noundef nonnull %1) unnamed_addr #2 {
+define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsIdEEviPT_(i32 noundef range(i32 1, 0) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #2 {
   %3 = and i32 %0, 1
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.loopexit62, label %.preheader61
@@ -6263,7 +6263,7 @@ define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i32 @_ZN10OpenSubdiv6v3_6_03Far8internal18EvaluatePatchBasisIdEEiiRKNS1_10PatchParamET_S7_PS7_S8_S8_S8_S8_S8_(i32 noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, double noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #0 comdat {

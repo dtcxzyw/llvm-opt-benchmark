@@ -615,7 +615,7 @@ _ZN3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden { ptr, i64 } @_ZNK3ue28NGHolder16getSpecialVertexEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, i32 noundef %id) local_unnamed_addr #5 align 2 {
+define hidden { ptr, i64 } @_ZNK3ue28NGHolder16getSpecialVertexEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %this, i32 noundef %id) local_unnamed_addr #5 align 2 {
 entry:
   switch i32 %id, label %return [
     i32 0, label %sw.bb
@@ -666,7 +666,7 @@ return:                                           ; preds = %entry, %sw.bb4, %sw
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, i64 } @_ZN3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE15add_vertex_implEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {

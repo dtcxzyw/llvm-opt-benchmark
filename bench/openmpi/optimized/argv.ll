@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @opal_argv_append(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @opal_argv_append(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %.preheader.i.i
@@ -78,7 +78,7 @@ opal_argv_append_nosize.exit.thread:              ; preds = %17, %opal_argv_coun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @opal_argv_append_nosize(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @opal_argv_append_nosize(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %.preheader.i
@@ -161,13 +161,13 @@ define i32 @opal_argv_count(ptr noundef readonly %0) local_unnamed_addr #1 {
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @opal_argv_prepend_nosize(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @opal_argv_prepend_nosize(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %.preheader.i
@@ -248,7 +248,7 @@ opal_argv_count.exit:                             ; preds = %.lr.ph.i, %.prehead
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @opal_argv_append_unique_nosize(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @opal_argv_append_unique_nosize(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %7, label %.preheader
@@ -290,7 +290,7 @@ define range(i32 -2, 1) i32 @opal_argv_append_unique_nosize(ptr nocapture nounde
 
 19:                                               ; preds = %18
   tail call void @free(ptr noundef nonnull %15) #13
-  %20 = tail call noalias ptr @strdup(ptr noundef %1) #13
+  %20 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #13
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   store ptr %20, ptr %22, align 8
@@ -334,10 +334,10 @@ opal_argv_append_nosize.exit:                     ; preds = %9, %36, %31, %opal_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define void @opal_argv_free(ptr noundef %0) local_unnamed_addr #0 {
@@ -720,7 +720,7 @@ define noalias noundef ptr @opal_argv_join(ptr noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
 define noalias noundef ptr @opal_argv_join_range(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #7 {
@@ -933,7 +933,7 @@ opal_argv_free.exit:                              ; preds = %.preheader.i.i, %op
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 1) i32 @opal_argv_delete(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @opal_argv_delete(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %47, label %6
 

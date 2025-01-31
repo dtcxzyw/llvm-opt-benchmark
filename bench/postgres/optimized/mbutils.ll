@@ -452,7 +452,7 @@ define dso_local ptr @pg_do_encoding_conversion(ptr noundef %0, i32 noundef %1, 
 
 52:                                               ; preds = %44
   %53 = add nuw nsw i64 %45, 1
-  %54 = tail call ptr @repalloc(ptr noundef %37, i64 noundef %53) #12
+  %54 = tail call ptr @repalloc(ptr noundef nonnull %37, i64 noundef %53) #12
   br label %pg_verify_mbstr.exit
 
 pg_verify_mbstr.exit:                             ; preds = %10, %32, %52, %4
@@ -492,7 +492,7 @@ declare ptr @MemoryContextAllocHuge(ptr noundef, i64 noundef) local_unnamed_addr
 declare i64 @OidFunctionCall6Coll(i32 noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -517,7 +517,7 @@ define dso_local i32 @pg_do_encoding_conversion_buf(i32 noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_convert_to(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_convert_to(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
@@ -537,7 +537,7 @@ declare i64 @namein(ptr noundef) #2
 declare i64 @DirectFunctionCall3Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_convert(ptr nocapture noundef readonly %0) #0 {
+define dso_local i64 @pg_convert(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -643,8 +643,8 @@ pg_verify_mbstr.exit:                             ; preds = %47
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %sext = shl i64 %62, 32
   %69 = ashr exact i64 %sext, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %68, ptr align 1 %59, i64 %69, i1 false)
-  tail call void @pfree(ptr noundef %59) #12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %68, ptr nonnull align 1 %59, i64 %69, i1 false)
+  tail call void @pfree(ptr noundef nonnull %59) #12
   %70 = load i64, ptr %2, align 8
   %71 = inttoptr i64 %70 to ptr
   %.not48 = icmp eq ptr %5, %71
@@ -661,7 +661,7 @@ pg_verify_mbstr.exit:                             ; preds = %47
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_convert_from(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_convert_from(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
@@ -681,10 +681,10 @@ declare i32 @pg_char_to_encoding_private(ptr noundef) local_unnamed_addr #2
 declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @length_in_encoding(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @length_in_encoding(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -829,7 +829,7 @@ define dso_local i32 @pg_verify_mbstr_len(i32 noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @pg_encoding_max_length_sql(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @pg_encoding_max_length_sql(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -1008,7 +1008,7 @@ define internal fastcc ptr @perform_default_encoding_conversion(ptr noundef %0, 
 
 25:                                               ; preds = %17
   %26 = add nuw nsw i64 %18, 1
-  %27 = tail call ptr @repalloc(ptr noundef %10, i64 noundef %26) #12
+  %27 = tail call ptr @repalloc(ptr noundef nonnull %10, i64 noundef %26) #12
   br label %28
 
 28:                                               ; preds = %5, %25, %3
@@ -1262,7 +1262,7 @@ define dso_local i32 @pg_mb2wchar(ptr noundef %0, ptr noundef %1) local_unnamed_
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
   %10 = trunc i64 %9 to i32
-  %11 = tail call i32 %8(ptr noundef %0, ptr noundef %1, i32 noundef %10) #12
+  %11 = tail call i32 %8(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %10) #12
   ret i32 %11
 }
 
@@ -1688,7 +1688,7 @@ define dso_local void @SetMessageEncoding(i32 noundef %0) local_unnamed_addr #7 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @getdatabaseencoding(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @getdatabaseencoding(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @DatabaseEncoding, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
@@ -1697,7 +1697,7 @@ define dso_local i64 @getdatabaseencoding(ptr nocapture noundef readnone %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_client_encoding(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_client_encoding(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @ClientEncoding, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
@@ -1706,7 +1706,7 @@ define dso_local i64 @pg_client_encoding(ptr nocapture noundef readnone %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @PG_char_to_encoding(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @PG_char_to_encoding(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1716,7 +1716,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @PG_char_to_encoding(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @PG_encoding_to_char(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @PG_encoding_to_char(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -1747,7 +1747,7 @@ define dso_local nonnull ptr @pg_database_encoding_character_incrementer() local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @pg_utf8_increment(ptr nocapture noundef %0, i32 noundef %1) #6 {
+define internal noundef zeroext i1 @pg_utf8_increment(ptr noundef captures(none) %0, i32 noundef %1) #6 {
   switch i32 %1, label %27 [
     i32 4, label %3
     i32 3, label %9
@@ -1818,7 +1818,7 @@ define internal noundef zeroext i1 @pg_utf8_increment(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @pg_eucjp_increment(ptr nocapture noundef %0, i32 noundef %1) #8 {
+define internal noundef zeroext i1 @pg_eucjp_increment(ptr noundef captures(none) %0, i32 noundef %1) #8 {
   %3 = load i8, ptr %0, align 1
   switch i8 %3, label %30 [
     i8 -114, label %4

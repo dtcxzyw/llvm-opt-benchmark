@@ -46,7 +46,7 @@ define void @Java_sun_awt_image_ImageRepresentation_initIDs(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setICMpixels(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setICMpixels(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10) local_unnamed_addr #0 {
   %12 = icmp eq ptr %6, null
   br i1 %12, label %13, label %14
 
@@ -708,7 +708,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setDiff
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @compareLUTs(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 257) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3, i32 noundef range(i32 0, 257) %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %8) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @compareLUTs(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 257) %1, i32 noundef %2, ptr noundef nonnull readonly captures(none) %3, i32 noundef range(i32 0, 257) %4, ptr noundef nonnull writeonly captures(none) %5, ptr noundef nonnull writeonly captures(none) %6, ptr noundef nonnull writeonly captures(none) %7, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %8) unnamed_addr #2 {
   %10 = tail call i32 @llvm.umax.i32(i32 %1, i32 %4)
   store i32 2, ptr %8, align 4
   %.not86 = icmp eq i32 %10, 0

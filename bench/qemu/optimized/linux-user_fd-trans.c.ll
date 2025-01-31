@@ -47,7 +47,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.24 = private unnamed_addr constant [38 x i8] c"Unknown target audit message type %d\0A\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 -14, 1) i64 @packet_target_to_host_sockaddr(ptr nocapture noundef writeonly %host_addr, i64 noundef %target_addr, i32 noundef %len) #0 {
+define internal range(i64 -14, 1) i64 @packet_target_to_host_sockaddr(ptr noundef writeonly captures(none) %host_addr, i64 noundef %target_addr, i32 noundef %len) #0 {
 entry:
   %conv = zext i32 %len to i64
   %call = tail call ptr @lock_user(i32 noundef 1, i64 noundef %target_addr, i64 noundef %conv, i1 noundef zeroext true) #5
@@ -1008,7 +1008,7 @@ host_to_target_nlmsg_route.exit:                  ; preds = %while.body.i.i, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @netlink_route_target_to_host(ptr nocapture noundef readonly %buf, i64 noundef %len) #0 {
+define internal noundef i64 @netlink_route_target_to_host(ptr noundef readonly captures(none) %buf, i64 noundef %len) #0 {
 entry:
   %cmp16.i.i = icmp ugt i64 %len, 16
   br i1 %cmp16.i.i, label %while.body.i.i, label %target_to_host_nlmsg_route.exit
@@ -1336,7 +1336,7 @@ target_to_host_nlmsg_route.exit:                  ; preds = %while.body.i.i, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @netlink_audit_host_to_target(ptr nocapture noundef readonly %buf, i64 noundef %len) #0 {
+define internal noundef i64 @netlink_audit_host_to_target(ptr noundef readonly captures(none) %buf, i64 noundef %len) #0 {
 entry:
   %cmp19.i.i = icmp ugt i64 %len, 16
   br i1 %cmp19.i.i, label %while.body.i.i, label %host_to_target_nlmsg_audit.exit
@@ -1388,7 +1388,7 @@ host_to_target_nlmsg_audit.exit:                  ; preds = %while.body.i.i, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @netlink_audit_target_to_host(ptr nocapture noundef readonly %buf, i64 noundef %len) #0 {
+define internal noundef i64 @netlink_audit_target_to_host(ptr noundef readonly captures(none) %buf, i64 noundef %len) #0 {
 entry:
   %cmp16.i.i = icmp ugt i64 %len, 16
   br i1 %cmp16.i.i, label %while.body.i.i, label %target_to_host_nlmsg_audit.exit
@@ -1449,7 +1449,7 @@ target_to_host_nlmsg_audit.exit:                  ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @host_to_target_data_signalfd(ptr nocapture noundef %buf, i64 noundef returned %len) #0 {
+define internal noundef i64 @host_to_target_data_signalfd(ptr noundef captures(none) %buf, i64 noundef returned %len) #0 {
 entry:
   %cmp6.not = icmp eq i64 %len, 0
   br i1 %cmp6.not, label %for.end, label %for.body
@@ -1471,7 +1471,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal range(i64 8, 0) i64 @swap_data_u64(ptr nocapture readnone %buf, i64 noundef %len) #1 {
+define internal range(i64 8, 0) i64 @swap_data_u64(ptr readnone captures(none) %buf, i64 noundef %len) #1 {
 entry:
   %cmp = icmp ult i64 %len, 8
   %spec.select = select i1 %cmp, i64 -22, i64 %len
@@ -1479,7 +1479,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @host_to_target_data_inotify(ptr nocapture readnone %buf, i64 noundef returned %len) #1 {
+define internal noundef i64 @host_to_target_data_inotify(ptr readnone captures(none) %buf, i64 noundef returned %len) #1 {
 entry:
   ret i64 %len
 }
@@ -1487,12 +1487,12 @@ entry:
 declare ptr @lock_user(i32 noundef, i64 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare i32 @host_to_target_signal(i32 noundef) local_unnamed_addr #2
 

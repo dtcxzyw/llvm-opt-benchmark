@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_mpi_datatype_null = external global %struct.ompi_predefined_datatype_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_datatype_create_indexed(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define i32 @ompi_datatype_create_indexed(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 24
   %.val = load i64, ptr %6, align 8
   %7 = icmp sgt i32 %0, 0
@@ -138,7 +138,7 @@ declare i32 @ompi_datatype_duplicate(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @ompi_datatype_create(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_datatype_create_hindexed(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define i32 @ompi_datatype_create_hindexed(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %3, i64 24
   %.val = load i64, ptr %6, align 8
   %7 = icmp sgt i32 %0, 0
@@ -258,7 +258,7 @@ define i32 @ompi_datatype_create_hindexed(i32 noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_datatype_create_indexed_block(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define i32 @ompi_datatype_create_indexed_block(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq i32 %0, 0
   %7 = icmp eq i32 %1, 0
   %or.cond = or i1 %6, %7
@@ -335,7 +335,7 @@ define i32 @ompi_datatype_create_indexed_block(i32 noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_datatype_create_hindexed_block(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define i32 @ompi_datatype_create_hindexed_block(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq i32 %0, 0
   %7 = icmp eq i32 %1, 0
   %or.cond = or i1 %6, %7

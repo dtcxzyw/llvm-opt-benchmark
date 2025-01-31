@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [61 x i8] c"Change in size after identity transformation! From %d to %d\0A\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @Cudd_PrintLinear(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Cudd_PrintLinear(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, -1
@@ -94,10 +94,10 @@ define range(i32 0, 2) i32 @Cudd_PrintLinear(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Cudd_ReadLinear(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Cudd_ReadLinear(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load i32, ptr %4, align 8
   %6 = add nsw i32 %5, -1
@@ -304,7 +304,7 @@ cuddInitLinear.exit.thread:                       ; preds = %.lr.ph31.i, %.prehe
   %99 = load i32, ptr %.137.i.i, align 8
   %100 = getelementptr inbounds nuw i8, ptr %.137.i.i, i64 4
   %101 = load i32, ptr %100, align 4
-  %102 = tail call i32 @cuddLinearInPlace(ptr noundef %0, i32 noundef %99, i32 noundef %101)
+  %102 = tail call i32 @cuddLinearInPlace(ptr noundef nonnull %0, i32 noundef %99, i32 noundef %101)
   %.not30.i.i = icmp eq i32 %102, 0
   br i1 %.not30.i.i, label %ddLinearAndSiftingBackward.exit.thread.i, label %103
 
@@ -312,7 +312,7 @@ cuddInitLinear.exit.thread:                       ; preds = %.lr.ph31.i, %.prehe
   %104 = load i32, ptr %.137.i.i, align 8
   %105 = getelementptr inbounds nuw i8, ptr %.137.i.i, i64 4
   %106 = load i32, ptr %105, align 4
-  %107 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %104, i32 noundef %106) #13
+  %107 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %104, i32 noundef %106) #13
   %.not31.i.i = icmp eq i32 %107, 0
   br i1 %.not31.i.i, label %ddLinearAndSiftingBackward.exit.thread.i, label %108
 
@@ -324,7 +324,7 @@ cuddInitLinear.exit.thread:                       ; preds = %.lr.ph31.i, %.prehe
 111:                                              ; preds = %108
   %112 = load i32, ptr %.137.i.i, align 8
   %113 = load i32, ptr %105, align 4
-  %114 = tail call i32 @cuddLinearInPlace(ptr noundef %0, i32 noundef %112, i32 noundef %113)
+  %114 = tail call i32 @cuddLinearInPlace(ptr noundef nonnull %0, i32 noundef %112, i32 noundef %113)
   %.not32.i.i = icmp eq i32 %114, 0
   br i1 %.not32.i.i, label %ddLinearAndSiftingBackward.exit.thread.i, label %115
 
@@ -374,7 +374,7 @@ cuddInitLinear.exit.thread:                       ; preds = %.lr.ph31.i, %.prehe
   %134 = load i32, ptr %.137.i124.i, align 8
   %135 = getelementptr inbounds nuw i8, ptr %.137.i124.i, i64 4
   %136 = load i32, ptr %135, align 4
-  %137 = tail call i32 @cuddLinearInPlace(ptr noundef %0, i32 noundef %134, i32 noundef %136)
+  %137 = tail call i32 @cuddLinearInPlace(ptr noundef nonnull %0, i32 noundef %134, i32 noundef %136)
   %.not30.i129.i = icmp eq i32 %137, 0
   br i1 %.not30.i129.i, label %.preheader172.i, label %138
 
@@ -382,7 +382,7 @@ cuddInitLinear.exit.thread:                       ; preds = %.lr.ph31.i, %.prehe
   %139 = load i32, ptr %.137.i124.i, align 8
   %140 = getelementptr inbounds nuw i8, ptr %.137.i124.i, i64 4
   %141 = load i32, ptr %140, align 4
-  %142 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %139, i32 noundef %141) #13
+  %142 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %139, i32 noundef %141) #13
   %.not31.i125.i = icmp eq i32 %142, 0
   br i1 %.not31.i125.i, label %.preheader172.i, label %143
 
@@ -394,7 +394,7 @@ cuddInitLinear.exit.thread:                       ; preds = %.lr.ph31.i, %.prehe
 146:                                              ; preds = %143
   %147 = load i32, ptr %.137.i124.i, align 8
   %148 = load i32, ptr %140, align 4
-  %149 = tail call i32 @cuddLinearInPlace(ptr noundef %0, i32 noundef %147, i32 noundef %148)
+  %149 = tail call i32 @cuddLinearInPlace(ptr noundef nonnull %0, i32 noundef %147, i32 noundef %148)
   %.not32.i128.i = icmp eq i32 %149, 0
   br i1 %.not32.i128.i, label %.preheader172.i, label %150
 
@@ -452,7 +452,7 @@ cuddInitLinear.exit.thread:                       ; preds = %.lr.ph31.i, %.prehe
   %175 = load i32, ptr %.137.i139.i, align 8
   %176 = getelementptr inbounds nuw i8, ptr %.137.i139.i, i64 4
   %177 = load i32, ptr %176, align 4
-  %178 = tail call i32 @cuddLinearInPlace(ptr noundef %0, i32 noundef %175, i32 noundef %177)
+  %178 = tail call i32 @cuddLinearInPlace(ptr noundef nonnull %0, i32 noundef %175, i32 noundef %177)
   %.not30.i144.i = icmp eq i32 %178, 0
   br i1 %.not30.i144.i, label %ddLinearAndSiftingBackward.exit.thread.i, label %179
 
@@ -460,7 +460,7 @@ cuddInitLinear.exit.thread:                       ; preds = %.lr.ph31.i, %.prehe
   %180 = load i32, ptr %.137.i139.i, align 8
   %181 = getelementptr inbounds nuw i8, ptr %.137.i139.i, i64 4
   %182 = load i32, ptr %181, align 4
-  %183 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %180, i32 noundef %182) #13
+  %183 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %180, i32 noundef %182) #13
   %.not31.i140.i = icmp eq i32 %183, 0
   br i1 %.not31.i140.i, label %ddLinearAndSiftingBackward.exit.thread.i, label %184
 
@@ -472,7 +472,7 @@ cuddInitLinear.exit.thread:                       ; preds = %.lr.ph31.i, %.prehe
 187:                                              ; preds = %184
   %188 = load i32, ptr %.137.i139.i, align 8
   %189 = load i32, ptr %181, align 4
-  %190 = tail call i32 @cuddLinearInPlace(ptr noundef %0, i32 noundef %188, i32 noundef %189)
+  %190 = tail call i32 @cuddLinearInPlace(ptr noundef nonnull %0, i32 noundef %188, i32 noundef %189)
   %.not32.i143.i = icmp eq i32 %190, 0
   br i1 %.not32.i143.i, label %ddLinearAndSiftingBackward.exit.thread.i, label %191
 
@@ -524,7 +524,7 @@ cuddInitLinear.exit.thread:                       ; preds = %.lr.ph31.i, %.prehe
   %212 = load i32, ptr %.137.i154.i, align 8
   %213 = getelementptr inbounds nuw i8, ptr %.137.i154.i, i64 4
   %214 = load i32, ptr %213, align 4
-  %215 = tail call i32 @cuddLinearInPlace(ptr noundef %0, i32 noundef %212, i32 noundef %214)
+  %215 = tail call i32 @cuddLinearInPlace(ptr noundef nonnull %0, i32 noundef %212, i32 noundef %214)
   %.not30.i159.i = icmp eq i32 %215, 0
   br i1 %.not30.i159.i, label %ddLinearAndSiftingBackward.exit.thread.i, label %216
 
@@ -532,7 +532,7 @@ cuddInitLinear.exit.thread:                       ; preds = %.lr.ph31.i, %.prehe
   %217 = load i32, ptr %.137.i154.i, align 8
   %218 = getelementptr inbounds nuw i8, ptr %.137.i154.i, i64 4
   %219 = load i32, ptr %218, align 4
-  %220 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %217, i32 noundef %219) #13
+  %220 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %217, i32 noundef %219) #13
   %.not31.i155.i = icmp eq i32 %220, 0
   br i1 %.not31.i155.i, label %ddLinearAndSiftingBackward.exit.thread.i, label %221
 
@@ -544,7 +544,7 @@ cuddInitLinear.exit.thread:                       ; preds = %.lr.ph31.i, %.prehe
 224:                                              ; preds = %221
   %225 = load i32, ptr %.137.i154.i, align 8
   %226 = load i32, ptr %218, align 4
-  %227 = tail call i32 @cuddLinearInPlace(ptr noundef %0, i32 noundef %225, i32 noundef %226)
+  %227 = tail call i32 @cuddLinearInPlace(ptr noundef nonnull %0, i32 noundef %225, i32 noundef %226)
   %.not32.i158.i = icmp eq i32 %227, 0
   br i1 %.not32.i158.i, label %ddLinearAndSiftingBackward.exit.thread.i, label %228
 
@@ -686,7 +686,7 @@ ddLinearAndSiftingAux.exit:                       ; preds = %.lr.ph184.i, %ddLin
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 0, 2) i32 @cuddInitLinear(ptr nocapture noundef initializes((384, 392)) %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @cuddInitLinear(ptr noundef captures(none) initializes((384, 392)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, -1
@@ -747,7 +747,7 @@ define range(i32 0, 2) i32 @cuddInitLinear(ptr nocapture noundef initializes((38
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @cuddResizeLinear(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @cuddResizeLinear(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, -1
@@ -867,10 +867,10 @@ define range(i32 0, 2) i32 @cuddResizeLinear(ptr nocapture noundef %0) local_unn
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @ddLinearUniqueCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal i32 @ddLinearUniqueCompare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load ptr, ptr @entry, align 8
   %4 = load i32, ptr %1, align 4
   %5 = sext i32 %4 to i64
@@ -885,7 +885,7 @@ define internal i32 @ddLinearUniqueCompare(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define i32 @cuddLinearInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
@@ -2104,10 +2104,10 @@ declare i32 @cuddSwapInPlace(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare i32 @cuddNextLow(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #11

@@ -78,7 +78,7 @@ define dso_local void @LockTableCommand(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @RangeVarGetRelidExtended(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @RangeVarCallbackForLockTable(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @RangeVarCallbackForLockTable(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %32, label %6

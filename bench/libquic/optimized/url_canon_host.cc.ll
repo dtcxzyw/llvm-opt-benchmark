@@ -112,7 +112,7 @@ $_ZTVN3url15RawCanonOutputTIcLi64EEE = comdat any
 @_ZTVN3url15RawCanonOutputTIcLi64EEE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3url15RawCanonOutputTIcLi64EEE, ptr @_ZN3url15RawCanonOutputTIcLi64EED2Ev, ptr @_ZN3url15RawCanonOutputTIcLi64EED0Ev, ptr @_ZN3url15RawCanonOutputTIcLi64EE6ResizeEi] }, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url16CanonicalizeHostEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr noundef %output, ptr nocapture noundef writeonly initializes((0, 8)) %out_host) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url16CanonicalizeHostEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %host, ptr noundef %output, ptr noundef writeonly captures(none) initializes((0, 8)) %out_host) local_unnamed_addr #0 {
 entry:
   %host_info = alloca %"struct.url::CanonHostInfo", align 4
   store i32 0, ptr %host_info, align 4
@@ -336,10 +336,10 @@ return:                                           ; preds = %if.end35, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url16CanonicalizeHostEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr noundef %output, ptr nocapture noundef writeonly initializes((0, 8)) %out_host) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url16CanonicalizeHostEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %host, ptr noundef %output, ptr noundef writeonly captures(none) initializes((0, 8)) %out_host) local_unnamed_addr #0 {
 entry:
   %host_info = alloca %"struct.url::CanonHostInfo", align 4
   store i32 0, ptr %host_info, align 4
@@ -825,7 +825,7 @@ return:                                           ; preds = %if.end29, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url23CanonicalizeHostVerboseEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr noundef %output, ptr noundef %host_info) local_unnamed_addr #0 {
+define dso_local void @_ZN3url23CanonicalizeHostVerboseEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE(ptr noundef %spec, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %host, ptr noundef %output, ptr noundef %host_info) local_unnamed_addr #0 {
 entry:
   %host.val = load i32, ptr %host, align 4
   %0 = getelementptr inbounds nuw i8, ptr %host, i64 4
@@ -835,7 +835,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url23CanonicalizeHostVerboseEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr noundef %output, ptr noundef %host_info) local_unnamed_addr #0 {
+define dso_local void @_ZN3url23CanonicalizeHostVerboseEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE(ptr noundef %spec, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %host, ptr noundef %output, ptr noundef %host_info) local_unnamed_addr #0 {
 entry:
   %host.val = load i32, ptr %host, align 4
   %0 = getelementptr inbounds nuw i8, ptr %host, i64 4
@@ -845,7 +845,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_112DoSimpleHostIccEEbPKT_iPNS_12CanonOutputTIT0_EEPb(ptr nocapture noundef readonly %host, i32 noundef %host_len, ptr noundef %output, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %has_non_ascii) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_112DoSimpleHostIccEEbPKT_iPNS_12CanonOutputTIT0_EEPb(ptr noundef readonly captures(none) %host, i32 noundef %host_len, ptr noundef %output, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %has_non_ascii) unnamed_addr #0 {
 entry:
   store i8 0, ptr %has_non_ascii, align 1
   %cmp46 = icmp sgt i32 %host_len, 0
@@ -2394,10 +2394,10 @@ declare noundef zeroext i1 @_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIc
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

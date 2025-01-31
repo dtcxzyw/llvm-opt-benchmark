@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @jmm_interface = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_management_HotspotThread_getInternalThreadCount(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i32 @Java_sun_management_HotspotThread_getInternalThreadCount(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -16,7 +16,7 @@ define i32 @Java_sun_management_HotspotThread_getInternalThreadCount(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_management_HotspotThread_getInternalThreadTimes0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @Java_sun_management_HotspotThread_getInternalThreadTimes0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @jmm_interface, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %7 = load ptr, ptr %6, align 8

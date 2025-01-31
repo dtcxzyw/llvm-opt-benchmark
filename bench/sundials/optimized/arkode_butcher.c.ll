@@ -366,7 +366,7 @@ define void @ARKodeButcherTable_Free(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ARKodeButcherTable_Create(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef readonly %6) local_unnamed_addr #0 {
+define noundef ptr @ARKodeButcherTable_Create(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly %6) local_unnamed_addr #0 {
   %8 = icmp slt i32 %0, 1
   br i1 %8, label %.loopexit, label %9
 
@@ -550,7 +550,7 @@ define noundef ptr @ARKodeButcherTable_Copy(ptr noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ARKodeButcherTable_Space(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #3 {
+define void @ARKodeButcherTable_Space(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #3 {
   store i64 0, ptr %1, align 8
   store i64 0, ptr %2, align 8
   %4 = icmp eq ptr %0, null
@@ -575,10 +575,10 @@ define void @ARKodeButcherTable_Space(ptr noundef readonly %0, ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define void @ARKodeButcherTable_Write(ptr noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #5 {
+define void @ARKodeButcherTable_Write(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -728,10 +728,10 @@ define void @ARKodeButcherTable_Write(ptr noundef readonly %0, ptr nocapture nou
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ARKodeButcherTable_IsStifflyAccurate(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @ARKodeButcherTable_IsStifflyAccurate(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -773,7 +773,7 @@ define range(i32 0, 2) i32 @ARKodeButcherTable_IsStifflyAccurate(ptr nocapture n
 declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 2) i32 @ARKodeButcherTable_CheckOrder(ptr noundef readonly %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef initializes((0, 4)) %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @ARKodeButcherTable_CheckOrder(ptr noundef readonly %0, ptr noundef captures(none) initializes((0, 4)) %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef %3) local_unnamed_addr #0 {
   store i32 0, ptr %2, align 4
   store i32 0, ptr %1, align 4
   %5 = icmp eq ptr %0, null
@@ -7126,7 +7126,7 @@ __dot.exit:                                       ; preds = %61, %69, %__mv.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @__ButcherSimplifyingAssumptions(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @__ButcherSimplifyingAssumptions(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = sext i32 %3 to i64
   %6 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #15
   %7 = icmp eq ptr %6, null
@@ -7326,7 +7326,7 @@ __vp.exit:                                        ; preds = %38, %.loopexit, %.l
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @ARKodeButcherTable_CheckARKOrder(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef initializes((0, 4)) %2, ptr nocapture noundef initializes((0, 4)) %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @ARKodeButcherTable_CheckARKOrder(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef captures(none) initializes((0, 4)) %3, ptr noundef %4) local_unnamed_addr #0 {
   %.sroa.05613 = alloca ptr, align 16
   %.sroa.118 = alloca ptr, align 8
   %.sroa.05496 = alloca ptr, align 16
@@ -13776,16 +13776,16 @@ declare double @llvm.fmuladd.f64(double, double, double) #8
 declare double @SUNRpowerI(double noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12

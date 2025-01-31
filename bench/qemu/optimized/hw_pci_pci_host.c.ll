@@ -416,7 +416,7 @@ return:                                           ; preds = %if.end, %trace_pci_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 4294967296) i64 @pci_host_config_read(ptr nocapture noundef readonly %opaque, i64 %addr, i32 %len) #3 {
+define internal range(i64 0, 4294967296) i64 @pci_host_config_read(ptr noundef readonly captures(none) %opaque, i64 %addr, i32 %len) #3 {
 entry:
   %config_reg = getelementptr inbounds nuw i8, ptr %opaque, i64 1632
   %0 = load i32, ptr %config_reg, align 16
@@ -425,7 +425,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @pci_host_config_write(ptr nocapture noundef writeonly %opaque, i64 noundef %addr, i64 noundef %val, i32 noundef %len) #4 {
+define internal void @pci_host_config_write(ptr noundef writeonly captures(none) %opaque, i64 noundef %addr, i64 noundef %val, i32 noundef %len) #4 {
 entry:
   %cmp = icmp ne i64 %addr, 0
   %cmp1 = icmp ne i32 %len, 4
@@ -443,7 +443,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 4294967296) i64 @pci_host_data_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %len) #0 {
+define internal range(i64 0, 4294967296) i64 @pci_host_data_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 noundef %len) #0 {
 entry:
   %config_reg = getelementptr inbounds nuw i8, ptr %opaque, i64 1632
   %0 = load i32, ptr %config_reg, align 16
@@ -466,7 +466,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pci_host_data_write(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i64 noundef %val, i32 noundef %len) #0 {
+define internal void @pci_host_data_write(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i64 noundef %val, i32 noundef %len) #0 {
 entry:
   %config_reg = getelementptr inbounds nuw i8, ptr %opaque, i64 1632
   %0 = load i32, ptr %config_reg, align 16
@@ -488,7 +488,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pci_host_needed(ptr nocapture noundef readonly %opaque) #3 {
+define internal zeroext i1 @pci_host_needed(ptr noundef readonly captures(none) %opaque) #3 {
 entry:
   %mig_enabled = getelementptr inbounds nuw i8, ptr %opaque, i64 1636
   %0 = load i8, ptr %mig_enabled, align 4
@@ -517,7 +517,7 @@ declare ptr @qdev_get_parent_bus(ptr noundef) local_unnamed_addr #2
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
@@ -530,7 +530,7 @@ declare ptr @pci_find_device(ptr noundef, i32 noundef, i8 noundef zeroext) local
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pci_host_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @pci_host_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @pci_host_properties_common) #8
@@ -547,10 +547,10 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

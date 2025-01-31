@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [35 x i8] c"git get-tar-commit-id: write error\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @cmd_get_tar_commit_id(i32 noundef %argc, ptr nocapture noundef readnone %argv, ptr noundef %prefix) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @cmd_get_tar_commit_id(i32 noundef %argc, ptr noundef readnone captures(none) %argv, ptr noundef %prefix) local_unnamed_addr #0 {
 entry:
   %buffer = alloca [1024 x i8], align 16
   %end = alloca ptr, align 8
@@ -137,7 +137,7 @@ declare i64 @read_in_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_a
 declare void @die_errno(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #4

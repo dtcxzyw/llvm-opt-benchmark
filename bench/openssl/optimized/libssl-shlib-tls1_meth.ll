@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [14 x i8] c"tls-data-size\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls1_allocate_write_buffers(ptr noundef %rl, ptr nocapture noundef readonly %templates, i64 noundef %numtempl, ptr nocapture noundef writeonly initializes((0, 8)) %prefix) #0 {
+define range(i32 0, 2) i32 @tls1_allocate_write_buffers(ptr noundef %rl, ptr noundef readonly captures(none) %templates, i64 noundef %numtempl, ptr noundef writeonly captures(none) initializes((0, 8)) %prefix) #0 {
 entry:
   %need_empty_fragments = getelementptr inbounds nuw i8, ptr %rl, i64 4120
   %0 = load i32, ptr %need_empty_fragments, align 8
@@ -51,7 +51,7 @@ land.end.thread:                                  ; preds = %entry, %land.end
 declare i32 @tls_setup_write_buffer(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @tls1_initialise_write_packets(ptr noundef %rl, ptr noundef %templates, i64 noundef %numtempl, ptr nocapture noundef writeonly %prefixtempl, ptr noundef %pkt, ptr noundef %bufs, ptr noundef %wpinited) #0 {
+define i32 @tls1_initialise_write_packets(ptr noundef %rl, ptr noundef %templates, i64 noundef %numtempl, ptr noundef writeonly captures(none) %prefixtempl, ptr noundef %pkt, ptr noundef %bufs, ptr noundef %wpinited) #0 {
 entry:
   %need_empty_fragments = getelementptr inbounds nuw i8, ptr %rl, i64 4120
   %0 = load i32, ptr %need_empty_fragments, align 8
@@ -1285,7 +1285,7 @@ declare i32 @RAND_bytes_ex(ptr noundef, ptr noundef, i64 noundef, i32 noundef) l
 declare i32 @EVP_CIPHER_get_block_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @tls_increment_sequence_ctr(ptr noundef) local_unnamed_addr #1
 

@@ -662,7 +662,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_megaco_text(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_megaco_text(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i8, align 1
   %6 = alloca ptr, align 8
   %7 = alloca [15 x i8], align 1
@@ -1036,7 +1036,7 @@ megaco_tree_add_string.exit1056:                  ; preds = %megaco_tvb_skip_wsp
   br i1 %192, label %193, label %196
 
 193:                                              ; preds = %188
-  %194 = call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %.0864, ptr noundef %190, i64 noundef %187) #9
+  %194 = call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %.0864, ptr noundef nonnull %190, i64 noundef %187) #9
   %195 = icmp eq i32 %194, 0
   br i1 %195, label %.split.loop.exit25.i, label %196
 
@@ -1174,7 +1174,7 @@ megaco_tvb_find_token.exit:                       ; preds = %210, %.lr.ph.i.i, %
   %255 = add i32 %253, %254
   %256 = load ptr, ptr %175, align 8
   %257 = call ptr @tvb_format_text(ptr noundef %256, ptr noundef %0, i32 noundef %251, i32 noundef %255) #9
-  %258 = call i64 @strtoul(ptr nocapture noundef %257, ptr noundef null, i32 noundef 10) #9
+  %258 = call i64 @strtoul(ptr noundef captures(none) %257, ptr noundef null, i32 noundef 10) #9
   %259 = trunc i64 %258 to i32
   %260 = load ptr, ptr %72, align 8
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %260, i32 noundef 25, ptr noundef nonnull @.str.293, ptr noundef nonnull @.str.294, i32 noundef %259) #9
@@ -1205,7 +1205,7 @@ megaco_tvb_find_token.exit:                       ; preds = %210, %.lr.ph.i.i, %
   %275 = sub i32 %274, %269
   %276 = load ptr, ptr %175, align 8
   %277 = call ptr @tvb_format_text(ptr noundef %276, ptr noundef %0, i32 noundef %269, i32 noundef %275) #9
-  %278 = call i64 @strtoul(ptr nocapture noundef %277, ptr noundef null, i32 noundef 10) #9
+  %278 = call i64 @strtoul(ptr noundef captures(none) %277, ptr noundef null, i32 noundef 10) #9
   %279 = trunc i64 %278 to i32
   %280 = load ptr, ptr %72, align 8
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %280, i32 noundef 25, ptr noundef nonnull @.str.293, ptr noundef nonnull @.str.296, i32 noundef %279) #9
@@ -1291,7 +1291,7 @@ megaco_tvb_skip_wsp_return.exit:                  ; preds = %megaco_tvb_skip_wsp
   %318 = sub i32 %.0.lcssa.i1071, %.0.lcssa.i1065
   %319 = load ptr, ptr %175, align 8
   %320 = call ptr @tvb_format_text(ptr noundef %319, ptr noundef %0, i32 noundef %.0.lcssa.i1065, i32 noundef %318) #9
-  %321 = call i64 @strtoul(ptr nocapture noundef %320, ptr noundef null, i32 noundef 10) #9
+  %321 = call i64 @strtoul(ptr noundef captures(none) %320, ptr noundef null, i32 noundef 10) #9
   %322 = trunc i64 %321 to i32
   %323 = load ptr, ptr %72, align 8
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %323, i32 noundef 25, ptr noundef nonnull @.str.297, i32 noundef %322) #9
@@ -1426,7 +1426,7 @@ megaco_tvb_skip_wsp_return.exit1100:              ; preds = %megaco_tvb_skip_wsp
   %382 = sub i32 %.0.lcssa.i1096, %.0.lcssa.i1090
   %383 = load ptr, ptr %175, align 8
   %384 = call ptr @tvb_format_text(ptr noundef %383, ptr noundef %0, i32 noundef %.0.lcssa.i1090, i32 noundef %382) #9
-  %385 = call i64 @strtoul(ptr nocapture noundef %384, ptr noundef null, i32 noundef 10) #9
+  %385 = call i64 @strtoul(ptr noundef captures(none) %384, ptr noundef null, i32 noundef 10) #9
   %386 = trunc i64 %385 to i32
   %387 = load ptr, ptr %72, align 8
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %387, i32 noundef 25, ptr noundef nonnull @.str.293, ptr noundef nonnull @.str.299, i32 noundef %386) #9
@@ -1563,7 +1563,7 @@ megaco_tvb_skip_wsp.exit1117:                     ; preds = %.lr.ph.i1113, %428,
   %spec.select957 = add i32 %441, %442
   %443 = load ptr, ptr %175, align 8
   %444 = call ptr @tvb_format_text(ptr noundef %443, ptr noundef %0, i32 noundef %.0.lcssa.i1112, i32 noundef %spec.select957) #9
-  %445 = call i64 @strtoul(ptr nocapture noundef %444, ptr noundef null, i32 noundef 10) #9
+  %445 = call i64 @strtoul(ptr noundef captures(none) %444, ptr noundef null, i32 noundef 10) #9
   %446 = trunc i64 %445 to i32
   br label %447
 
@@ -2513,7 +2513,7 @@ declare void @ws_mempbrk_compile(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @register_rtd_table(i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @megacostat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @megacostat_packet(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = alloca %struct.nstime_t, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load i32, ptr %7, align 8
@@ -2734,7 +2734,7 @@ megacostat_had_request.exit.thread:               ; preds = %30, %.thread57, %me
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @megacostat_filtercheck(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 {
+define internal void @megacostat_filtercheck(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = tail call ptr @prefs_find_module(ptr noundef nonnull @.str.177) #9
   %5 = tail call ptr @prefs_find_preference(ptr noundef %4, ptr noundef nonnull @.str.184) #9
   %6 = tail call ptr @prefs_find_module(ptr noundef nonnull @.str.191) #9
@@ -2803,7 +2803,7 @@ declare ptr @find_dissector(ptr noundef) local_unnamed_addr #1
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_megaco_text_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_megaco_text_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @is_tpkt(ptr noundef %0, i32 noundef 6) #9
   %6 = icmp eq i32 %5, -1
   br i1 %6, label %7, label %9
@@ -2834,7 +2834,7 @@ declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
@@ -3091,7 +3091,7 @@ define internal fastcc noundef i32 @megaco_tvb_skip_wsp_return(ptr noundef %0, i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 declare ptr @tvb_format_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -3183,7 +3183,7 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @get_utf_8_string(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @gcp_cmd_add_term(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -3334,7 +3334,7 @@ megaco_tvb_skip_wsp_return.exit:                  ; preds = %48, %.lr.ph.i179, %
   br i1 %78, label %79, label %82
 
 79:                                               ; preds = %74
-  %80 = call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %.0161, ptr noundef %76, i64 noundef %73) #9
+  %80 = call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %.0161, ptr noundef nonnull %76, i64 noundef %73) #9
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %find_megaco_descriptors_names.exit, label %82
 
@@ -3498,7 +3498,7 @@ megaco_tvb_skip_wsp.exit.i:                       ; preds = %132, %.lr.ph.i.i, %
   br i1 %148, label %149, label %152
 
 149:                                              ; preds = %144
-  %150 = call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %.0.lcssa.i.i, ptr noundef %146, i64 noundef %143) #9
+  %150 = call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %.0.lcssa.i.i, ptr noundef nonnull %146, i64 noundef %143) #9
   %151 = icmp eq i32 %150, 0
   br i1 %151, label %.split.loop.exit25.i.i, label %152
 
@@ -3735,7 +3735,7 @@ megaco_tvb_skip_wsp_return.exit.i:                ; preds = %megaco_tvb_skip_wsp
   br i1 %252, label %253, label %256
 
 253:                                              ; preds = %248
-  %254 = call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %.0.lcssa.i.i193, ptr noundef %250, i64 noundef %247) #9
+  %254 = call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %.0.lcssa.i.i193, ptr noundef nonnull %250, i64 noundef %247) #9
   %255 = icmp eq i32 %254, 0
   br i1 %255, label %find_megaco_descriptors_names.exit.i, label %256
 
@@ -3926,7 +3926,7 @@ megaco_tvb_skip_wsp_return.exit.i209:             ; preds = %342, %.lr.ph.i190.i
   %346 = load i32, ptr @hf_megaco_requestid, align 4
   %347 = load ptr, ptr %26, align 8
   %348 = call ptr @tvb_format_text(ptr noundef %347, ptr noundef %0, i32 noundef %.0.lcssa.i.i208, i32 noundef %345) #9
-  %349 = call i64 @strtoul(ptr nocapture noundef %348, ptr noundef null, i32 noundef 10) #9
+  %349 = call i64 @strtoul(ptr noundef captures(none) %348, ptr noundef null, i32 noundef 10) #9
   %350 = trunc i64 %349 to i32
   %351 = call ptr @proto_tree_add_uint(ptr noundef %319, i32 noundef %346, ptr noundef %0, i32 noundef %.0.lcssa.i.i208, i32 noundef 1, i32 noundef %350) #9
   call void @proto_item_set_len(ptr noundef %351, i32 noundef %345) #9
@@ -4393,7 +4393,7 @@ megaco_tvb_skip_wsp.exit:                         ; preds = %.lr.ph.i, %28, %20
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %40
-  %46 = call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %.0.lcssa.i, ptr noundef %42, i64 noundef %39) #9
+  %46 = call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %.0.lcssa.i, ptr noundef nonnull %42, i64 noundef %39) #9
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %find_megaco_mediaParm_names.exit, label %48
 
@@ -4564,7 +4564,7 @@ megaco_tvb_skip_wsp.exit124:                      ; preds = %.lr.ph.i120, %95, %
   br i1 %118, label %119, label %122
 
 119:                                              ; preds = %114
-  %120 = call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %.0486.i, ptr noundef %116, i64 noundef %113) #9
+  %120 = call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %.0486.i, ptr noundef nonnull %116, i64 noundef %113) #9
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %.split.loop.exit25.i.i, label %122
 
@@ -4991,7 +4991,7 @@ megaco_tvb_skip_wsp.exit344.i:                    ; preds = %302, %.lr.ph.i340.i
 305:                                              ; preds = %megaco_tvb_skip_wsp_return.exit.i
   %306 = call i32 @tvb_get_raw_bytes_as_stringz(ptr noundef %0, i32 noundef %.0.lcssa.i.i, i32 noundef 3, ptr noundef nonnull %10) #9
   %307 = load i32, ptr @hf_megaco_ds_dscp, align 4
-  %308 = call i64 @strtoul(ptr nocapture noundef nonnull %10, ptr noundef null, i32 noundef 16) #9
+  %308 = call i64 @strtoul(ptr noundef nonnull captures(none) %10, ptr noundef null, i32 noundef 16) #9
   %309 = trunc i64 %308 to i32
   %310 = call ptr @proto_tree_add_uint(ptr noundef %101, i32 noundef %307, ptr noundef %0, i32 noundef %.0486.i, i32 noundef 1, i32 noundef %309) #9
   %311 = sub i32 %.2.i, %.0486.i
@@ -5426,7 +5426,7 @@ megaco_tvb_skip_wsp_return.exit:                  ; preds = %megaco_tvb_skip_wsp
   %558 = sub i32 %.0.lcssa.i134, %.0.lcssa.i128
   %559 = load ptr, ptr %18, align 8
   %560 = call ptr @tvb_format_text(ptr noundef %559, ptr noundef %0, i32 noundef %.0.lcssa.i128, i32 noundef %558) #9
-  %561 = call i64 @strtoul(ptr nocapture noundef %560, ptr noundef null, i32 noundef 10) #9
+  %561 = call i64 @strtoul(ptr noundef captures(none) %560, ptr noundef null, i32 noundef 10) #9
   %562 = trunc i64 %561 to i32
   %563 = load i32, ptr @hf_megaco_streamid, align 4
   %564 = call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %563, ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef 1, i32 noundef %562) #9
@@ -6075,7 +6075,7 @@ megaco_tvb_skip_wsp_return.exit:                  ; preds = %.lr.ph.i165, %35, %
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr @tvb_format_text(ptr noundef %41, ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef %38) #9
-  %43 = tail call i64 @strtoul(ptr nocapture noundef %42, ptr noundef null, i32 noundef 10) #9
+  %43 = tail call i64 @strtoul(ptr noundef captures(none) %42, ptr noundef null, i32 noundef 10) #9
   %44 = trunc i64 %43 to i32
   %45 = tail call ptr @proto_tree_add_uint(ptr noundef %12, i32 noundef %39, ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef 1, i32 noundef %44) #9
   tail call void @proto_item_set_len(ptr noundef %45, i32 noundef %38) #9
@@ -6400,7 +6400,7 @@ megaco_tvb_skip_wsp_return.exit:                  ; preds = %.lr.ph.i106, %33, %
   %37 = load i32, ptr @hf_megaco_requestid, align 4
   %38 = tail call ptr @wmem_packet_scope() #9
   %39 = tail call ptr @tvb_format_text(ptr noundef %38, ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef %36) #9
-  %40 = tail call i64 @strtoul(ptr nocapture noundef %39, ptr noundef null, i32 noundef 10) #9
+  %40 = tail call i64 @strtoul(ptr noundef captures(none) %39, ptr noundef null, i32 noundef 10) #9
   %41 = trunc i64 %40 to i32
   %42 = tail call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %37, ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef 1, i32 noundef %41) #9
   tail call void @proto_item_set_len(ptr noundef %42, i32 noundef %36) #9
@@ -6594,7 +6594,7 @@ define internal fastcc void @dissect_megaco_LocalRemotedescriptor(ptr noundef %0
 declare void @proto_item_set_end(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @prefs_get_bool_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -6770,10 +6770,10 @@ declare i32 @is_tpkt(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @dissect_tpkt_encap(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8

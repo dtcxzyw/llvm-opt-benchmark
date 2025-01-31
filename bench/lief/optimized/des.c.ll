@@ -31,13 +31,13 @@ target triple = "x86_64-pc-linux-gnu"
 @str.3 = private unnamed_addr constant [7 x i8] c"failed\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_des_init(ptr nocapture noundef writeonly initializes((0, 128)) %0) local_unnamed_addr #0 {
+define hidden void @mbedtls_des_init(ptr noundef writeonly captures(none) initializes((0, 128)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %0, i8 0, i64 128, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @mbedtls_des_free(ptr noundef %0) local_unnamed_addr #2 {
@@ -55,7 +55,7 @@ define hidden void @mbedtls_des_free(ptr noundef %0) local_unnamed_addr #2 {
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_des3_init(ptr nocapture noundef writeonly initializes((0, 384)) %0) local_unnamed_addr #0 {
+define hidden void @mbedtls_des3_init(ptr noundef writeonly captures(none) initializes((0, 384)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(384) %0, i8 0, i64 384, i1 false)
   ret void
 }
@@ -74,7 +74,7 @@ define hidden void @mbedtls_des3_free(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @mbedtls_des_key_set_parity(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define hidden void @mbedtls_des_key_set_parity(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   br label %2
 
 2:                                                ; preds = %1, %2
@@ -95,7 +95,7 @@ define hidden void @mbedtls_des_key_set_parity(ptr nocapture noundef %0) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @mbedtls_des_key_check_key_parity(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @mbedtls_des_key_check_key_parity(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   br label %3
 
 2:                                                ; preds = %3
@@ -120,7 +120,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_des_key_check_key_parity(ptr nocaptur
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @mbedtls_des_key_check_weak(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @mbedtls_des_key_check_weak(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   br label %3
 
 2:                                                ; preds = %3
@@ -141,7 +141,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_des_key_check_weak(ptr nocapture noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @mbedtls_des_setkey(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @mbedtls_des_setkey(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = load i8, ptr %1, align 1
   %4 = zext i8 %3 to i32
   %5 = shl nuw i32 %4, 24
@@ -459,13 +459,13 @@ define hidden void @mbedtls_des_setkey(ptr nocapture noundef writeonly %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @mbedtls_des_setkey_enc(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define hidden noundef i32 @mbedtls_des_setkey_enc(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   tail call void @mbedtls_des_setkey(ptr noundef %0, ptr noundef %1)
   ret i32 0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @mbedtls_des_setkey_dec(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define hidden noundef i32 @mbedtls_des_setkey_dec(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   tail call void @mbedtls_des_setkey(ptr noundef %0, ptr noundef %1)
   br label %3
 
@@ -495,7 +495,7 @@ define hidden noundef i32 @mbedtls_des_setkey_dec(ptr nocapture noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_des3_set2key_enc(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define hidden noundef i32 @mbedtls_des3_set2key_enc(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca [96 x i32], align 16
   tail call void @mbedtls_des_setkey(ptr noundef %0, ptr noundef readonly %1)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 128
@@ -552,7 +552,7 @@ des3_set2key.exit:                                ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_des3_set2key_dec(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define hidden noundef i32 @mbedtls_des3_set2key_dec(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca [96 x i32], align 16
   call void @mbedtls_des_setkey(ptr noundef nonnull %3, ptr noundef readonly %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -609,7 +609,7 @@ des3_set2key.exit:                                ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_des3_set3key_enc(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define hidden noundef i32 @mbedtls_des3_set3key_enc(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca [96 x i32], align 16
   tail call void @mbedtls_des_setkey(ptr noundef %0, ptr noundef readonly %1)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 128
@@ -667,7 +667,7 @@ des3_set3key.exit:                                ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_des3_set3key_dec(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define hidden noundef i32 @mbedtls_des3_set3key_dec(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca [96 x i32], align 16
   call void @mbedtls_des_setkey(ptr noundef nonnull %3, ptr noundef readonly %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -725,7 +725,7 @@ des3_set3key.exit:                                ; preds = %8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @mbedtls_des_crypt_ecb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define hidden noundef i32 @mbedtls_des_crypt_ecb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
   %4 = load i8, ptr %1, align 1
   %5 = zext i8 %4 to i32
   %6 = shl nuw i32 %5, 24
@@ -972,7 +972,7 @@ define hidden noundef i32 @mbedtls_des_crypt_ecb(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 -50, 1) i32 @mbedtls_des_crypt_cbc(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) local_unnamed_addr #4 {
+define hidden range(i32 -50, 1) i32 @mbedtls_des_crypt_cbc(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2, ptr noundef captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) local_unnamed_addr #4 {
   %7 = and i64 %2, 7
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %8, label %.loopexit
@@ -1051,7 +1051,7 @@ define hidden range(i32 -50, 1) i32 @mbedtls_des_crypt_cbc(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @mbedtls_des3_crypt_ecb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define hidden noundef i32 @mbedtls_des3_crypt_ecb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
   %4 = load i8, ptr %1, align 1
   %5 = zext i8 %4 to i32
   %6 = shl nuw i32 %5, 24
@@ -1536,7 +1536,7 @@ define hidden noundef i32 @mbedtls_des3_crypt_ecb(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 -50, 1) i32 @mbedtls_des3_crypt_cbc(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef %5) local_unnamed_addr #4 {
+define hidden range(i32 -50, 1) i32 @mbedtls_des3_crypt_cbc(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2, ptr noundef captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) local_unnamed_addr #4 {
   %7 = and i64 %2, 7
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %8, label %.loopexit
@@ -2226,10 +2226,10 @@ default.unreachable115:                           ; preds = %133
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #9
@@ -2238,13 +2238,13 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #9
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

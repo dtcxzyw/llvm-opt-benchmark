@@ -31,10 +31,10 @@ define noundef ptr @lv_freetype_create_draw_data_image(i32 noundef %0) local_unn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal signext range(i8 -1, 2) i8 @freetype_image_compare_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal signext range(i8 -1, 2) i8 @freetype_image_compare_cb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load i32, ptr %0, align 8, !tbaa !3
   %4 = load i32, ptr %1, align 8, !tbaa !3
   %.not = icmp eq i32 %3, %4
@@ -64,7 +64,7 @@ define internal signext range(i8 -1, 2) i8 @freetype_image_compare_cb(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @freetype_image_create_cb(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef zeroext i1 @freetype_image_create_cb(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %5 = load ptr, ptr %4, align 8, !tbaa !10
@@ -195,7 +195,7 @@ define internal noundef zeroext i1 @freetype_image_create_cb(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @freetype_image_free_cb(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal void @freetype_image_free_cb(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !33
   tail call void @lv_draw_buf_destroy(ptr noundef %4) #5
@@ -207,7 +207,7 @@ declare ptr @lv_cache_create(ptr noundef, i64 noundef, i64 noundef, ptr noundef 
 declare void @lv_cache_set_name(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @lv_freetype_set_cbs_image_font(ptr noundef %0) local_unnamed_addr #4 {
@@ -234,7 +234,7 @@ define void @lv_freetype_set_cbs_image_font(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @freetype_get_glyph_bitmap_cb(ptr nocapture noundef %0, ptr nocapture readnone %1) #0 {
+define internal ptr @freetype_get_glyph_bitmap_cb(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct._lv_freetype_image_cache_data_t, align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !43
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -279,7 +279,7 @@ define internal ptr @freetype_get_glyph_bitmap_cb(ptr nocapture noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @freetype_image_release_cb(ptr noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal void @freetype_image_release_cb(ptr noundef readonly %0, ptr noundef captures(none) %1) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 

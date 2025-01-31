@@ -747,7 +747,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, i64 } @_ZN7rocksdb13CompressBlockERKNS_5SliceERKNS_15CompressionInfoEPNS_15CompressionTypeEjbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_(ptr noundef nonnull align 8 dereferenceable(16) %uncompressed_data, ptr noundef nonnull align 8 dereferenceable(40) %info, ptr nocapture noundef writeonly %type, i32 noundef %format_version, i1 noundef zeroext %allow_sample, ptr noundef %compressed_output, ptr noundef %sampled_output_fast, ptr noundef %sampled_output_slow) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define { ptr, i64 } @_ZN7rocksdb13CompressBlockERKNS_5SliceERKNS_15CompressionInfoEPNS_15CompressionTypeEjbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_(ptr noundef nonnull align 8 dereferenceable(16) %uncompressed_data, ptr noundef nonnull align 8 dereferenceable(40) %info, ptr noundef writeonly captures(none) %type, i32 noundef %format_version, i1 noundef zeroext %allow_sample, ptr noundef %compressed_output, ptr noundef %sampled_output_fast, ptr noundef %sampled_output_slow) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %options = alloca %"struct.rocksdb::CompressionOptions", align 8
   %context = alloca %"class.rocksdb::CompressionContext", align 8
@@ -1105,7 +1105,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
@@ -3723,7 +3723,7 @@ _ZNSt10shared_ptrIN7rocksdb23FlushBlockPolicyFactoryEED2Ev.exit: ; preds = %_ZNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb22BlockBasedTableBuilderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define void @_ZN7rocksdb22BlockBasedTableBuilderD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb22BlockBasedTableBuilderE, i64 16), ptr %this, align 8
   %rep_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -6077,7 +6077,7 @@ _ZN7rocksdb6StatusD2Ev.exit28:                    ; preds = %ehcleanup, %_ZNKSt1
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb22BlockBasedTableBuilder22CompressAndVerifyBlockERKNS_5SliceEbRKNS_18CompressionContextEPNS_20UncompressionContextEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_PNS_15CompressionTypeEPNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %uncompressed_block_data, i1 noundef zeroext %is_data_block, ptr noundef nonnull align 8 dereferenceable(8) %compression_ctx, ptr noundef %verify_ctx, ptr noundef %compressed_output, ptr nocapture noundef %block_contents, ptr nocapture noundef %type, ptr noundef %out_status) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb22BlockBasedTableBuilder22CompressAndVerifyBlockERKNS_5SliceEbRKNS_18CompressionContextEPNS_20UncompressionContextEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_PNS_15CompressionTypeEPNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %uncompressed_block_data, i1 noundef zeroext %is_data_block, ptr noundef nonnull align 8 dereferenceable(8) %compression_ctx, ptr noundef %verify_ctx, ptr noundef %compressed_output, ptr noundef captures(none) %block_contents, ptr noundef captures(none) %type, ptr noundef %out_status) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.rocksdb::Status", align 8
   %compression_info = alloca %"class.rocksdb::CompressionInfo", align 8
@@ -6907,7 +6907,7 @@ _ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit11: ; preds = %lpad, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb22BlockBasedTableBuilder25WriteMaybeCompressedBlockERKNS_5SliceENS_15CompressionTypeEPNS_11BlockHandleENS_9BlockTypeEPS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %block_contents, i8 noundef zeroext %comp_type, ptr noundef initializes((0, 16)) %handle, i8 noundef zeroext %block_type, ptr noundef %uncompressed_block_data) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb22BlockBasedTableBuilder25WriteMaybeCompressedBlockERKNS_5SliceENS_15CompressionTypeEPNS_11BlockHandleENS_9BlockTypeEPS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %block_contents, i8 noundef zeroext %comp_type, ptr noundef initializes((0, 16)) %handle, i8 noundef zeroext %block_type, ptr noundef %uncompressed_block_data) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i248 = alloca %"class.std::unique_ptr.165", align 8
   %ref.tmp.i190 = alloca %"class.std::unique_ptr.165", align 8
@@ -8324,7 +8324,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %lpad, %_ZNKSt14defa
 declare noundef i32 @_ZN7rocksdb34ComputeBuiltinChecksumWithLastByteENS_12ChecksumTypeEPKcmc(i8 noundef signext, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb22BlockBasedTableBuilder24InsertBlockInCacheHelperERKNS_5SliceEPKNS_11BlockHandleENS_9BlockTypeE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %block_contents, ptr noundef %handle, i8 noundef zeroext %block_type) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb22BlockBasedTableBuilder24InsertBlockInCacheHelperERKNS_5SliceEPKNS_11BlockHandleENS_9BlockTypeE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %block_contents, ptr noundef %handle, i8 noundef zeroext %block_type) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %key = alloca %"class.rocksdb::CacheKey", align 8
   %charge = alloca i64, align 8
@@ -9576,7 +9576,7 @@ eh.resume:                                        ; preds = %ehcleanup77, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb22BlockBasedTableBuilder23StopParallelCompressionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb22BlockBasedTableBuilder23StopParallelCompressionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rep_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %rep_, align 8
@@ -9657,7 +9657,7 @@ _ZN7rocksdb9WorkQueueIPNS_22BlockBasedTableBuilder22ParallelCompressionRep12Bloc
 declare void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb22BlockBasedTableBuilder6statusEv(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb22BlockBasedTableBuilder6statusEv(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rep_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %rep_, align 8
@@ -9703,7 +9703,7 @@ _ZN7rocksdb22BlockBasedTableBuilder3Rep9GetStatusEv.exit: ; preds = %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb22BlockBasedTableBuilder9io_statusEv(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb22BlockBasedTableBuilder9io_statusEv(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rep_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %rep_, align 8
@@ -10644,11 +10644,11 @@ if.end73:                                         ; preds = %invoke.cont57, %if.
   br i1 %tobool77, label %if.then78, label %if.else81
 
 if.then78:                                        ; preds = %if.end73
-  invoke void @_ZN7rocksdb22BlockBasedTableBuilder10WriteBlockERKNS_5SliceEPNS_11BlockHandleENS_9BlockTypeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %index_blocks, ptr noundef %index_block_handle, i8 noundef zeroext 9)
+  invoke void @_ZN7rocksdb22BlockBasedTableBuilder10WriteBlockERKNS_5SliceEPNS_11BlockHandleENS_9BlockTypeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %index_blocks, ptr noundef nonnull %index_block_handle, i8 noundef zeroext 9)
           to label %cleanup unwind label %lpad58
 
 if.else81:                                        ; preds = %if.end73
-  invoke void @_ZN7rocksdb22BlockBasedTableBuilder25WriteMaybeCompressedBlockERKNS_5SliceENS_15CompressionTypeEPNS_11BlockHandleENS_9BlockTypeEPS2_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %index_blocks, i8 noundef zeroext 0, ptr noundef %index_block_handle, i8 noundef zeroext 9, ptr noundef null)
+  invoke void @_ZN7rocksdb22BlockBasedTableBuilder25WriteMaybeCompressedBlockERKNS_5SliceENS_15CompressionTypeEPNS_11BlockHandleENS_9BlockTypeEPS2_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %index_blocks, i8 noundef zeroext 0, ptr noundef nonnull %index_block_handle, i8 noundef zeroext 9, ptr noundef null)
           to label %cleanup unwind label %lpad58
 
 cleanup:                                          ; preds = %if.then78, %if.else81, %_ZN7rocksdb6StatusD2Ev.exit107
@@ -12042,7 +12042,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb22BlockBasedTableBuilder11WriteFooterERNS_11BlockHandleES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %metaindex_block_handle, ptr noundef nonnull align 8 dereferenceable(16) %index_block_handle) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb22BlockBasedTableBuilder11WriteFooterERNS_11BlockHandleES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %metaindex_block_handle, ptr noundef nonnull align 8 dereferenceable(16) %index_block_handle) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i21 = alloca %"class.std::unique_ptr.165", align 8
   %ref.tmp.i = alloca %"class.std::unique_ptr.165", align 8
@@ -12678,7 +12678,7 @@ if.end16:                                         ; preds = %land.lhs.true, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN7rocksdb22BlockBasedTableBuilder15EnterUnbufferedEvENK3$_0clEm"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture readonly %this.0.val, i64 noundef %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN7rocksdb22BlockBasedTableBuilder15EnterUnbufferedEvENK3$_0clEm"(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr readonly captures(none) %this.0.val, i64 noundef %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %reader = alloca %"class.rocksdb::Block", align 8
   %ref.tmp = alloca %"struct.rocksdb::BlockContents", align 8
@@ -13366,7 +13366,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_N7rocksdb12stl_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb22BlockBasedTableBuilder7AbandonEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
+define void @_ZN7rocksdb22BlockBasedTableBuilder7AbandonEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
   %rep_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %rep_, align 8
@@ -13388,7 +13388,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK7rocksdb22BlockBasedTableBuilder10NumEntriesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #10 align 2 {
+define noundef i64 @_ZNK7rocksdb22BlockBasedTableBuilder10NumEntriesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #10 align 2 {
 entry:
   %rep_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %rep_, align 8
@@ -13398,7 +13398,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK7rocksdb22BlockBasedTableBuilder7IsEmptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZNK7rocksdb22BlockBasedTableBuilder7IsEmptyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #10 align 2 {
 entry:
   %rep_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %rep_, align 8
@@ -13419,7 +13419,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK7rocksdb22BlockBasedTableBuilder8FileSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK7rocksdb22BlockBasedTableBuilder8FileSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rep_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %rep_, align 8
@@ -13458,7 +13458,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK7rocksdb22BlockBasedTableBuilder11GetTailSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #10 align 2 {
+define noundef i64 @_ZNK7rocksdb22BlockBasedTableBuilder11GetTailSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #10 align 2 {
 entry:
   %rep_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %rep_, align 8
@@ -13468,7 +13468,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK7rocksdb22BlockBasedTableBuilder11NeedCompactEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK7rocksdb22BlockBasedTableBuilder11NeedCompactEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
   %rep_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %rep_, align 8
@@ -13497,7 +13497,7 @@ return:                                           ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb22BlockBasedTableBuilder18GetTablePropertiesEv(ptr noalias nonnull sret(%"struct.rocksdb::TableProperties") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
+define void @_ZNK7rocksdb22BlockBasedTableBuilder18GetTablePropertiesEv(ptr noalias nonnull sret(%"struct.rocksdb::TableProperties") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
   %rep_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %rep_, align 8
@@ -13811,7 +13811,7 @@ ehcleanup51:                                      ; preds = %ehcleanup50, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb22BlockBasedTableBuilder15GetFileChecksumB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb22BlockBasedTableBuilder15GetFileChecksumB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.0", align 1
   %rep_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -13865,7 +13865,7 @@ return:                                           ; preds = %invoke.cont, %if.th
 declare void @_ZN7rocksdb18WritableFileWriter15GetFileChecksumB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(218)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK7rocksdb22BlockBasedTableBuilder23GetFileChecksumFuncNameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
+define noundef ptr @_ZNK7rocksdb22BlockBasedTableBuilder23GetFileChecksumFuncNameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
   %rep_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %rep_, align 8
@@ -13886,7 +13886,7 @@ return:                                           ; preds = %entry, %if.then
 declare noundef ptr @_ZNK7rocksdb18WritableFileWriter23GetFileChecksumFuncNameEv(ptr noundef nonnull align 8 dereferenceable(218)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb22BlockBasedTableBuilder27SetSeqnoTimeTablePropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %encoded_seqno_to_time_mapping, i64 noundef %oldest_ancestor_time) unnamed_addr #3 align 2 {
+define void @_ZN7rocksdb22BlockBasedTableBuilder27SetSeqnoTimeTablePropertiesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %encoded_seqno_to_time_mapping, i64 noundef %oldest_ancestor_time) unnamed_addr #3 align 2 {
 entry:
   %rep_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %rep_, align 8
@@ -13969,7 +13969,7 @@ declare ptr @ZSTD_createCCtx() local_unnamed_addr #4
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb15CompressionDictD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -22069,7 +22069,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIPN7rocksdb22BlockBasedTableBuilder22ParallelCompressionRep8BlockRepESaIS4_EE16_M_push_back_auxIJRKS4_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -22279,7 +22279,7 @@ declare void @_ZN7rocksdb6Status9CopyStateEPKc(ptr sret(%"class.std::unique_ptr.
 declare void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16), i8 noundef zeroext, i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), i8 noundef zeroext) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nounwind
 declare void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #6
@@ -24477,7 +24477,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7rocksdb22BlockBasedTableBuilder24StartParallelCompressionEvE3$_0EEEEE6_M_runEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7rocksdb22BlockBasedTableBuilder24StartParallelCompressionEvE3$_0EEEEE6_M_runEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
   %block_rep.i.i.i.i.i.i = alloca ptr, align 8
   %_M_func = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -24543,7 +24543,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7rocksdb22BlockBasedTableBuilder24StartParallelCompressionEvE3$_1EEEEE6_M_runEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7rocksdb22BlockBasedTableBuilder24StartParallelCompressionEvE3$_1EEEEE6_M_runEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #3 align 2 {
 entry:
   %_M_func = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_func.val = load ptr, ptr %_M_func, align 8
@@ -24707,10 +24707,10 @@ declare extern_weak void @_ZTHN7rocksdb12perf_contextE() #4
 declare i32 @llvm.abs.i32(i32, i1 immarg) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22
@@ -24728,7 +24728,7 @@ declare i64 @llvm.umin.i64(i64, i64) #20
 declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
 
 attributes #0 = { uwtable "frame-pointer"="non-leaf" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }

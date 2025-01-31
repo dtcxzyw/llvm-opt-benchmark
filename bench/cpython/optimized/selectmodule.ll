@@ -396,7 +396,7 @@ declare void @PyObject_Free(ptr noundef) local_unnamed_addr #1
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @select_poll_register(ptr nocapture noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @select_poll_register(ptr noundef captures(none) %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %fd = alloca i32, align 4
   %eventmask = alloca i16, align 2
@@ -511,7 +511,7 @@ exit:                                             ; preds = %if.end12.i, %Py_DEC
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @select_poll_modify(ptr nocapture noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @select_poll_modify(ptr noundef captures(none) %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %fd = alloca i32, align 4
   %eventmask = alloca i16, align 2
@@ -662,7 +662,7 @@ exit:                                             ; preds = %if.end24.i, %Py_DEC
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @select_poll_unregister(ptr nocapture noundef %self, ptr noundef %arg) #0 {
+define internal noundef ptr @select_poll_unregister(ptr noundef captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %fd = alloca i32, align 4
   %call = call i32 @_PyLong_FileDescriptor_Converter(ptr noundef %arg, ptr noundef nonnull %fd) #8
@@ -723,7 +723,7 @@ exit:                                             ; preds = %Py_DECREF.exit.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @select_poll_poll(ptr nocapture noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @select_poll_poll(ptr noundef captures(none) %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %pos.i.i = alloca i64, align 8
   %key.i.i = alloca ptr, align 8
@@ -1269,7 +1269,7 @@ declare ptr @PyType_GetSlot(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal nonnull ptr @pyepoll_get_closed(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #3 {
+define internal nonnull ptr @pyepoll_get_closed(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #3 {
 entry:
   %epfd = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i32, ptr %epfd, align 8
@@ -1301,7 +1301,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @select_epoll_close(ptr nocapture noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @select_epoll_close(ptr noundef captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %epfd.i.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i32, ptr %epfd.i.i, align 8
@@ -1344,7 +1344,7 @@ select_epoll_close_impl.exit:                     ; preds = %pyepoll_internal_cl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @select_epoll_fileno(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @select_epoll_fileno(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load i32, ptr %0, align 8
@@ -1367,7 +1367,7 @@ select_epoll_fileno_impl.exit:                    ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @select_epoll_modify(ptr nocapture noundef readonly %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @select_epoll_modify(ptr noundef readonly captures(none) %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %ev.i.i15 = alloca %struct.epoll_event, align 4
   %ev.i.i = alloca %struct.epoll_event, align 4
@@ -1477,7 +1477,7 @@ exit:                                             ; preds = %select_epoll_modify
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @select_epoll_register(ptr nocapture noundef readonly %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @select_epoll_register(ptr noundef readonly captures(none) %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %ev.i.i = alloca %struct.epoll_event, align 4
   %argsbuf = alloca [2 x ptr], align 16
@@ -1569,7 +1569,7 @@ exit:                                             ; preds = %land.lhs.true23, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @select_epoll_unregister(ptr nocapture noundef readonly %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @select_epoll_unregister(ptr noundef readonly captures(none) %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %ev.i.i = alloca %struct.epoll_event, align 1
   %argsbuf = alloca [1 x ptr], align 8
@@ -1629,7 +1629,7 @@ exit:                                             ; preds = %if.end, %cond.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @select_epoll_poll(ptr nocapture noundef readonly %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @select_epoll_poll(ptr noundef readonly captures(none) %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %timeout.i = alloca i64, align 8
   %argsbuf = alloca [2 x ptr], align 16
@@ -1900,7 +1900,7 @@ exit:                                             ; preds = %land.lhs.true25, %c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @select_epoll___enter__(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @select_epoll___enter__(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %epfd.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i32, ptr %epfd.i, align 8
@@ -1928,7 +1928,7 @@ select_epoll___enter___impl.exit:                 ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @select_epoll___exit__(ptr noundef %self, ptr nocapture readnone %args, i64 noundef %nargs) #0 {
+define internal ptr @select_epoll___exit__(ptr noundef %self, ptr readnone captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 4
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -2035,7 +2035,7 @@ declare ptr @PyType_GetModule(ptr noundef) local_unnamed_addr #1
 declare ptr @PyObject_CallMethodObjArgs(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_select_traverse(ptr noundef %module, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @_select_traverse(ptr noundef %module, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #8
   %0 = load ptr, ptr %call.i, align 8
@@ -2194,7 +2194,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @select_select(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @select_select(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %rfd2obj.i = alloca [1025 x %struct.pylist], align 16
   %wfd2obj.i = alloca [1025 x %struct.pylist], align 16
@@ -2586,7 +2586,7 @@ exit:                                             ; preds = %lor.lhs.false, %sel
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @select_poll(ptr noundef %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @select_poll(ptr noundef %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i.i.i = tail call ptr @PyModule_GetState(ptr noundef %module) #8
   %poll_Type.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
@@ -2632,7 +2632,7 @@ select_poll_impl.exit:                            ; preds = %entry, %if.end.i.i,
 declare i32 @_PyTime_AsTimeval(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1025) i32 @seq2set(ptr noundef %seq, ptr nocapture noundef nonnull initializes((0, 128)) %set, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %fd2obj) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1025) i32 @seq2set(ptr noundef %seq, ptr noundef nonnull captures(none) initializes((0, 128)) %set, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %fd2obj) unnamed_addr #0 {
 entry:
   store ptr null, ptr %fd2obj, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %set, i8 0, i64 128, i1 false)
@@ -2792,7 +2792,7 @@ declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare void @_PyTime_AsTimeval_clamp(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @set2list(ptr nocapture noundef nonnull readonly %set, ptr nocapture noundef nonnull %fd2obj) unnamed_addr #0 {
+define internal fastcc ptr @set2list(ptr noundef nonnull readonly captures(none) %set, ptr noundef nonnull captures(none) %fd2obj) unnamed_addr #0 {
 entry:
   %sentinel24 = getelementptr inbounds nuw i8, ptr %fd2obj, i64 12
   %0 = load i32, ptr %sentinel24, align 4
@@ -2914,16 +2914,16 @@ declare ptr @PyDict_New() local_unnamed_addr #1
 declare i64 @llvm.smax.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #5

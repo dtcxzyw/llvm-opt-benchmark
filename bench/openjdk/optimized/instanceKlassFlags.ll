@@ -110,7 +110,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_
 @switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1 = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm548932ES1_EELNS_11BarrierTypeE2ELm548932EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm548932ES1_EELNS_11BarrierTypeE2ELm548932EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm548932ES1_EELNS_11BarrierTypeE2ELm548932EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm548932ES1_EELNS_11BarrierTypeE2ELm548932EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm548932ES1_EELNS_11BarrierTypeE2ELm548932EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm548932ES1_EELNS_11BarrierTypeE2ELm548932EE18oop_access_barrierEPv], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK18InstanceKlassFlags8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 2 dereferenceable(3) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK18InstanceKlassFlags8print_onEP12outputStream(ptr noundef nonnull readonly align 2 captures(none) dereferenceable(3) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i16, ptr %0, align 2
   %4 = and i16 %3, 1
   %.not = icmp eq i16 %4, 0
@@ -325,7 +325,7 @@ define hidden void @_ZNK18InstanceKlassFlags8print_onEP12outputStream(ptr nocapt
 declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18InstanceKlassFlags28set_shared_class_loader_typeEs(ptr nocapture noundef nonnull align 2 dereferenceable(3) %0, i16 noundef signext %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18InstanceKlassFlags28set_shared_class_loader_typeEs(ptr noundef nonnull align 2 captures(none) dereferenceable(3) %0, i16 noundef signext %1) local_unnamed_addr #0 align 2 {
   %switch.tableidx = add i16 %1, -1
   %3 = icmp ult i16 %switch.tableidx, 3
   br i1 %3, label %switch.lookup, label %4
@@ -351,7 +351,7 @@ switch.lookup:                                    ; preds = %2
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18InstanceKlassFlags24assign_class_loader_typeEPK15ClassLoaderData(ptr nocapture noundef nonnull align 2 dereferenceable(3) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18InstanceKlassFlags24assign_class_loader_typeEPK15ClassLoaderData(ptr noundef nonnull align 2 captures(none) dereferenceable(3) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
   %4 = icmp eq ptr %1, %3
   br i1 %4, label %.sink.split, label %5

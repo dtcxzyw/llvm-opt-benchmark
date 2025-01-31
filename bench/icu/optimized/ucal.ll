@@ -287,7 +287,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -1000,10 +1000,10 @@ return:                                           ; preds = %cleanup.thread, %in
 declare ptr @uloc_getDefault_75() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #10
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #10
 
 declare i32 @uloc_setKeywordValue_75(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
@@ -1032,7 +1032,7 @@ if.end:                                           ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ucal_clone_75(ptr noundef %cal, ptr nocapture noundef %status) local_unnamed_addr #1 {
+define noundef ptr @ucal_clone_75(ptr noundef %cal, ptr noundef captures(none) %status) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1368,7 +1368,7 @@ return:                                           ; preds = %entry, %if.end9, %i
 declare void @_ZN6icu_7517GregorianCalendar18setGregorianChangeEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654), double noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @ucal_getGregorianChange_75(ptr noundef %cal, ptr nocapture noundef %pErrorCode) local_unnamed_addr #1 {
+define noundef double @ucal_getGregorianChange_75(ptr noundef %cal, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1586,7 +1586,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ucal_setDate_75(ptr noundef %cal, i32 noundef %year, i32 noundef %month, i32 noundef %date, ptr nocapture noundef readonly %status) local_unnamed_addr #1 {
+define void @ucal_setDate_75(ptr noundef %cal, i32 noundef %year, i32 noundef %month, i32 noundef %date, ptr noundef readonly captures(none) %status) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1603,7 +1603,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @_ZN6icu_758Calendar3setEiii(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @ucal_setDateTime_75(ptr noundef %cal, i32 noundef %year, i32 noundef %month, i32 noundef %date, i32 noundef %hour, i32 noundef %minute, i32 noundef %second, ptr nocapture noundef readonly %status) local_unnamed_addr #1 {
+define void @ucal_setDateTime_75(ptr noundef %cal, i32 noundef %year, i32 noundef %month, i32 noundef %date, i32 noundef %hour, i32 noundef %minute, i32 noundef %second, ptr noundef readonly captures(none) %status) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -2041,7 +2041,7 @@ ehcleanup:                                        ; preds = %lpad4, %lpad1, %lpa
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_758TimeZone9getIanaIDERKNS_13UnicodeStringERS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ucal_getType_75(ptr noundef %cal, ptr nocapture noundef readonly %status) local_unnamed_addr #1 {
+define noundef ptr @ucal_getType_75(ptr noundef %cal, ptr noundef readonly captures(none) %status) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -2136,7 +2136,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @ucal_getKeywordValuesForLocale_75(ptr nocapture noundef readnone %0, ptr noundef %locale, i8 noundef signext %commonlyUsed, ptr noundef %status) local_unnamed_addr #1 {
+define noalias noundef ptr @ucal_getKeywordValuesForLocale_75(ptr noundef readnone captures(none) %0, ptr noundef %locale, i8 noundef signext %commonlyUsed, ptr noundef %status) local_unnamed_addr #1 {
 entry:
   %prefRegion = alloca [4 x i8], align 1
   %len = alloca i32, align 4
@@ -2219,12 +2219,12 @@ for.body32:                                       ; preds = %for.end, %for.body3
   %9 = load ptr, ptr %arrayidx, align 8
   %call37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #15
   %conv38 = trunc i64 %call37 to i32
-  %call39 = call signext i8 @ulist_containsString_75(ptr noundef %call9, ptr noundef %9, i32 noundef %conv38)
+  %call39 = call signext i8 @ulist_containsString_75(ptr noundef %call9, ptr noundef nonnull %9, i32 noundef %conv38)
   %tobool40.not = icmp eq i8 %call39, 0
   br i1 %tobool40.not, label %if.then41, label %for.inc49
 
 if.then41:                                        ; preds = %for.body32
-  call void @ulist_addItemEndList_75(ptr noundef %call9, ptr noundef %9, i8 noundef signext 0, ptr noundef nonnull %status)
+  call void @ulist_addItemEndList_75(ptr noundef %call9, ptr noundef nonnull %9, i8 noundef signext 0, ptr noundef nonnull %status)
   %10 = load i32, ptr %status, align 4
   %cmp.i54 = icmp sgt i32 %10, 0
   %inc50 = add nuw nsw i32 %i29.063, 1
@@ -2311,7 +2311,7 @@ declare void @ures_close_75(ptr noundef) local_unnamed_addr #6
 declare void @ulist_resetList_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @ucal_getTimeZoneTransitionDate_75(ptr noundef %cal, i32 noundef %type, ptr nocapture noundef writeonly %transition, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define signext range(i8 0, 2) i8 @ucal_getTimeZoneTransitionDate_75(ptr noundef %cal, i32 noundef %type, ptr noundef writeonly captures(none) %transition, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %tzt = alloca %"class.icu_75::TimeZoneTransition", align 8
   %0 = load i32, ptr %status, align 4
@@ -2587,7 +2587,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare noundef ptr @_ZN6icu_758TimeZone14createTimeZoneERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare noundef double @_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 

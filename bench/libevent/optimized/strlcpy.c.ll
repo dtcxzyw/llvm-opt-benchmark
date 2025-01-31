@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i64 -9223372036854775808, 9223372036854775807) i64 @event_strlcpy_(ptr nocapture noundef writeonly %dst, ptr noundef %src, i64 noundef %siz) local_unnamed_addr #0 {
+define dso_local range(i64 -9223372036854775808, 9223372036854775807) i64 @event_strlcpy_(ptr noundef writeonly captures(none) %dst, ptr noundef %src, i64 noundef %siz) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i64 %siz, 0
   %or.cond = icmp ult i64 %siz, 2

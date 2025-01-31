@@ -76,7 +76,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.57 = private unnamed_addr constant [6 x i8] c"false\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @gen_db_file_maps(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local ptr @gen_db_file_maps(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %8 = load i32, ptr %7, align 8
@@ -201,7 +201,7 @@ define dso_local ptr @gen_db_file_maps(ptr nocapture noundef readonly %0, ptr no
 
 ._crit_edge:                                      ; preds = %49, %57
   %59 = load ptr, ptr %14, align 8
-  tail call void (i32, ptr, ...) @pg_log(i32 noundef 4, ptr noundef nonnull @.str.1, i32 noundef %39, ptr noundef %59, ptr noundef %50, ptr noundef %54, ptr noundef %51, ptr noundef %56) #8
+  tail call void (i32, ptr, ...) @pg_log(i32 noundef 4, ptr noundef nonnull @.str.1, i32 noundef %39, ptr noundef %59, ptr noundef nonnull %50, ptr noundef %54, ptr noundef nonnull %51, ptr noundef %56) #8
   %60 = add i32 %.0, 1
   br label %.outer73.backedge
 
@@ -282,7 +282,7 @@ create_rel_filename_map.exit:                     ; preds = %77, %78
 declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @report_unmatched_relation(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @report_unmatched_relation(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca [1000 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
@@ -416,7 +416,7 @@ define internal fastcc void @report_unmatched_relation(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @pg_log(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -599,7 +599,7 @@ get_template0_info.exit:                          ; preds = %55, %74
   %indvars.iv.i17 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i18, %.lr.ph.i16 ]
   %100 = trunc nuw nsw i64 %indvars.iv.i17 to i32
   %101 = call ptr @PQgetvalue(ptr noundef %91, i32 noundef %100, i32 noundef %92) #8
-  %102 = call i64 @strtoul(ptr nocapture noundef %101, ptr noundef null, i32 noundef 10) #8
+  %102 = call i64 @strtoul(ptr noundef captures(none) %101, ptr noundef null, i32 noundef 10) #8
   %103 = trunc i64 %102 to i32
   %104 = getelementptr %struct.DbInfo, ptr %98, i64 %indvars.iv.i17
   store i32 %103, ptr %104, align 8
@@ -682,17 +682,17 @@ get_db_infos.exit:                                ; preds = %.lr.ph.i16, %get_te
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i21, 1
   %152 = getelementptr %struct.RelInfo, ptr %140, i64 %indvars.iv.i21
   %153 = call ptr @PQgetvalue(ptr noundef %136, i32 noundef %indvars83.i, i32 noundef %141) #8
-  %154 = call i64 @strtoul(ptr nocapture noundef %153, ptr noundef null, i32 noundef 10) #8
+  %154 = call i64 @strtoul(ptr noundef captures(none) %153, ptr noundef null, i32 noundef 10) #8
   %155 = trunc i64 %154 to i32
   %156 = getelementptr inbounds nuw i8, ptr %152, i64 16
   store i32 %155, ptr %156, align 8
   %157 = call ptr @PQgetvalue(ptr noundef %136, i32 noundef %indvars83.i, i32 noundef %142) #8
-  %158 = call i64 @strtoul(ptr nocapture noundef %157, ptr noundef null, i32 noundef 10) #8
+  %158 = call i64 @strtoul(ptr noundef captures(none) %157, ptr noundef null, i32 noundef 10) #8
   %159 = trunc i64 %158 to i32
   %160 = getelementptr inbounds nuw i8, ptr %152, i64 24
   store i32 %159, ptr %160, align 8
   %161 = call ptr @PQgetvalue(ptr noundef %136, i32 noundef %indvars83.i, i32 noundef %143) #8
-  %162 = call i64 @strtoul(ptr nocapture noundef %161, ptr noundef null, i32 noundef 10) #8
+  %162 = call i64 @strtoul(ptr noundef captures(none) %161, ptr noundef null, i32 noundef 10) #8
   %163 = trunc i64 %162 to i32
   %164 = getelementptr inbounds nuw i8, ptr %152, i64 28
   store i32 %163, ptr %164, align 4
@@ -724,14 +724,14 @@ get_db_infos.exit:                                ; preds = %.lr.ph.i16, %get_te
   %176 = getelementptr inbounds nuw i8, ptr %152, i64 8
   store ptr %175, ptr %176, align 8
   %177 = call ptr @PQgetvalue(ptr noundef %136, i32 noundef %indvars83.i, i32 noundef %146) #8
-  %178 = call i64 @strtoul(ptr nocapture noundef %177, ptr noundef null, i32 noundef 10) #8
+  %178 = call i64 @strtoul(ptr noundef captures(none) %177, ptr noundef null, i32 noundef 10) #8
   %179 = trunc i64 %178 to i32
   %180 = getelementptr inbounds nuw i8, ptr %152, i64 20
   store i32 %179, ptr %180, align 4
   %181 = getelementptr inbounds nuw i8, ptr %152, i64 41
   store i8 0, ptr %181, align 1
   %182 = call ptr @PQgetvalue(ptr noundef %136, i32 noundef %indvars83.i, i32 noundef %147) #8
-  %183 = call i64 @strtoul(ptr nocapture noundef %182, ptr noundef null, i32 noundef 10) #8
+  %183 = call i64 @strtoul(ptr noundef captures(none) %182, ptr noundef null, i32 noundef 10) #8
   %184 = and i64 %183, 4294967295
   %.not77.i = icmp eq i64 %184, 0
   br i1 %.not77.i, label %195, label %185
@@ -1060,7 +1060,7 @@ define dso_local i32 @count_old_cluster_subscriptions() local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -1073,7 +1073,7 @@ declare i32 @PQntuples(ptr noundef) local_unnamed_addr #1
 declare i32 @PQfnumber(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @PQgetvalue(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1088,15 +1088,15 @@ declare void @PQfinish(ptr noundef) local_unnamed_addr #1
 declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 declare void @pg_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

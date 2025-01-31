@@ -202,7 +202,7 @@ for.end:                                          ; preds = %if.end, %trace_srio
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pcie_sriov_pf_init_vf_bar(ptr nocapture noundef %dev, i32 noundef %region_num, i8 noundef zeroext %type, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local void @pcie_sriov_pf_init_vf_bar(ptr noundef captures(none) %dev, i32 noundef %region_num, i8 noundef zeroext %type, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %sriov_cap1 = getelementptr inbounds nuw i8, ptr %dev, i64 2196
   %0 = load i16, ptr %sriov_cap1, align 4
@@ -639,7 +639,7 @@ if.end8:                                          ; preds = %if.then, %if.then5,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @pcie_sriov_pf_add_sup_pgsize(ptr nocapture noundef readonly %dev, i16 noundef zeroext %opt_sup_pgsize) local_unnamed_addr #4 {
+define dso_local void @pcie_sriov_pf_add_sup_pgsize(ptr noundef readonly captures(none) %dev, i16 noundef zeroext %opt_sup_pgsize) local_unnamed_addr #4 {
 entry:
   %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
@@ -660,7 +660,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @pcie_sriov_vf_number(ptr nocapture noundef readonly %dev) local_unnamed_addr #0 {
+define dso_local zeroext i16 @pcie_sriov_vf_number(ptr noundef readonly captures(none) %dev) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %dev, i64 2232
   %dev.val = load ptr, ptr %0, align 8
@@ -678,7 +678,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @pcie_sriov_get_pf(ptr nocapture noundef readonly %dev) local_unnamed_addr #5 {
+define dso_local ptr @pcie_sriov_get_pf(ptr noundef readonly captures(none) %dev) local_unnamed_addr #5 {
 entry:
   %sriov_vf = getelementptr inbounds nuw i8, ptr %dev, i64 2232
   %0 = load ptr, ptr %sriov_vf, align 8
@@ -686,7 +686,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @pcie_sriov_get_vf_at_index(ptr nocapture noundef readonly %dev, i32 noundef %n) local_unnamed_addr #0 {
+define dso_local ptr @pcie_sriov_get_vf_at_index(ptr noundef readonly captures(none) %dev, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %dev, i64 2232
   %dev.val = load ptr, ptr %0, align 8
@@ -718,7 +718,7 @@ return:                                           ; preds = %if.end, %if.then2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i16 @pcie_sriov_num_vfs(ptr nocapture noundef readonly %dev) local_unnamed_addr #5 {
+define dso_local zeroext i16 @pcie_sriov_num_vfs(ptr noundef readonly captures(none) %dev) local_unnamed_addr #5 {
 entry:
   %sriov_pf = getelementptr inbounds nuw i8, ptr %dev, i64 2200
   %0 = load i16, ptr %sriov_pf, align 8
@@ -738,7 +738,7 @@ declare void @object_unparent(ptr noundef) local_unnamed_addr #1
 declare void @object_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -757,10 +757,10 @@ declare void @error_report_err(ptr noundef) local_unnamed_addr #1
 declare i64 @llvm.ctpop.i64(i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

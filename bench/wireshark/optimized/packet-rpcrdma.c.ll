@@ -224,7 +224,7 @@ declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.rdma_lists_t, align 8
   %7 = alloca ptr, align 8
@@ -837,7 +837,7 @@ define internal i32 @dissect_rpcrdma_iwarp_heur(ptr noundef %0, ptr noundef %1, 
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %30, align 8
-  tail call void @wmem_tree_insert32(ptr noundef %32, i32 noundef %33, ptr noundef %27) #9
+  tail call void @wmem_tree_insert32(ptr noundef %32, i32 noundef %33, ptr noundef nonnull %27) #9
   br label %43
 
 34:                                               ; preds = %5
@@ -867,7 +867,7 @@ define internal i32 @dissect_rpcrdma_iwarp_heur(ptr noundef %0, ptr noundef %1, 
 declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
@@ -884,7 +884,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef range(i32 16, 25) %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #1 {
+define internal fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef range(i32 16, 25) %1, ptr noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #1 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef range(i32 16, 25) %1) #9
   %.not7.i.i = icmp eq i32 %5, 0
   br i1 %.not7.i.i, label %get_read_list_chunk_count.exit.i, label %.lr.ph.i.i
@@ -1314,7 +1314,7 @@ set_fragment_head.exit:                           ; preds = %.lr.ph.i, %._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @process_rdma_lists(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc ptr @process_rdma_lists(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
   %6 = tail call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %17
@@ -2594,7 +2594,7 @@ find_segment_info.exit.thread:                    ; preds = %find_segment_info.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare ptr @tvb_new_real_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 

@@ -84,7 +84,7 @@ entry:
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ipoctal_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @ipoctal_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   %call.i15 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 34, ptr noundef nonnull @__func__.IPACK_DEVICE_CLASS) #6
@@ -123,7 +123,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ipoctal_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
+define internal void @ipoctal_realize(ptr noundef %dev, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 127, ptr noundef nonnull @__func__.IPOCTAL) #6
   %ch1 = getelementptr inbounds nuw i8, ptr %call.i, i64 176
@@ -524,7 +524,7 @@ if.end52:                                         ; preds = %update_irq.exit, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal zeroext range(i16 0, 256) i16 @id_read(ptr nocapture readnone %ip, i8 noundef zeroext %addr) #2 {
+define internal zeroext range(i16 0, 256) i16 @id_read(ptr readnone captures(none) %ip, i8 noundef zeroext %addr) #2 {
 entry:
   %cmp = icmp ult i8 %addr, 24
   br i1 %cmp, label %if.then, label %if.end
@@ -612,25 +612,25 @@ return:                                           ; preds = %entry, %update_irq.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @int_write(ptr nocapture readnone %ip, i8 zeroext %addr, i16 zeroext %val) #2 {
+define internal void @int_write(ptr readnone captures(none) %ip, i8 zeroext %addr, i16 zeroext %val) #2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i16 @mem_read16(ptr nocapture readnone %ip, i32 %addr) #2 {
+define internal noundef zeroext i16 @mem_read16(ptr readnone captures(none) %ip, i32 %addr) #2 {
 entry:
   ret i16 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @mem_write16(ptr nocapture readnone %ip, i32 %addr, i16 zeroext %val) #2 {
+define internal void @mem_write16(ptr readnone captures(none) %ip, i32 %addr, i16 zeroext %val) #2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i8 @mem_read8(ptr nocapture readnone %ip, i32 %addr) #2 {
+define internal noundef zeroext i8 @mem_read8(ptr readnone captures(none) %ip, i32 %addr) #2 {
 entry:
   ret i8 0
 }
@@ -660,7 +660,7 @@ declare zeroext i1 @qemu_chr_fe_backend_connected(ptr noundef) local_unnamed_add
 declare void @qemu_chr_fe_set_handlers(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 -252, 4) i32 @hostdev_can_receive(ptr nocapture noundef readonly %opaque) #3 {
+define internal range(i32 -252, 4) i32 @hostdev_can_receive(ptr noundef readonly captures(none) %opaque) #3 {
 entry:
   %rx_pending = getelementptr inbounds nuw i8, ptr %opaque, i64 73
   %0 = load i8, ptr %rx_pending, align 1
@@ -674,7 +674,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @hostdev_receive(ptr noundef %opaque, ptr nocapture noundef readonly %buf, i32 noundef %size) #0 {
+define internal void @hostdev_receive(ptr noundef %opaque, ptr noundef readonly captures(none) %buf, i32 noundef %size) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %rx_pending = getelementptr inbounds nuw i8, ptr %opaque, i64 73

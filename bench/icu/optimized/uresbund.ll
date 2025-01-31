@@ -305,7 +305,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -542,17 +542,17 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ures_initStackObject_75(ptr nocapture noundef writeonly initializes((0, 136)) %resB) local_unnamed_addr #7 {
+define void @ures_initStackObject_75(ptr noundef writeonly captures(none) initializes((0, 136)) %resB) local_unnamed_addr #7 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %resB, i8 0, i64 136, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7520StackUResourceBundleC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 136)) %this) unnamed_addr #7 align 2 {
+define void @_ZN6icu_7520StackUResourceBundleC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(136) initializes((0, 136)) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %this, i8 0, i64 136, i1 false)
   ret void
@@ -669,7 +669,7 @@ if.end11:                                         ; preds = %_ZL16ures_freeResPa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ures_copyResb_75(ptr noundef %r, ptr noundef readonly %original, ptr nocapture noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef ptr @ures_copyResb_75(ptr noundef %r, ptr noundef readonly %original, ptr noundef captures(none) %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %0, 0
@@ -804,7 +804,7 @@ return:                                           ; preds = %while.end.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode(ptr noundef %resB, ptr nocapture noundef readonly %toAdd, i32 noundef %lenToAdd, ptr nocapture noundef writeonly %status) unnamed_addr #1 {
+define internal fastcc void @_ZL18ures_appendResPathP15UResourceBundlePKciP10UErrorCode(ptr noundef %resB, ptr noundef readonly captures(none) %toAdd, i32 noundef %lenToAdd, ptr noundef writeonly captures(none) %status) unnamed_addr #1 {
 entry:
   %fResPathLen = getelementptr inbounds nuw i8, ptr %resB, i64 104
   %0 = load i32, ptr %fResPathLen, align 8
@@ -1691,7 +1691,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ures_findResource_75(ptr nocapture noundef readonly %path, ptr noundef %fillIn, ptr noundef %status) local_unnamed_addr #1 {
+define noundef ptr @ures_findResource_75(ptr noundef readonly captures(none) %path, ptr noundef %fillIn, ptr noundef %status) local_unnamed_addr #1 {
 entry:
   %path.addr.i = alloca ptr, align 8
   %key.i = alloca ptr, align 8
@@ -1717,7 +1717,7 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 do.body:                                          ; preds = %if.end
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3, ptr align 1 %path, i64 %conv2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call3, ptr nonnull align 1 %path, i64 %conv2, i1 false)
   %1 = load i8, ptr %call3, align 1
   %cmp9 = icmp eq i8 %1, 47
   br i1 %cmp9, label %if.then10, label %if.end15
@@ -1829,7 +1829,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #11
@@ -1842,7 +1842,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ures_findSubResource_75(ptr nocapture noundef readonly %resB, ptr noundef %path, ptr noundef %fillIn, ptr noundef %status) local_unnamed_addr #1 {
+define noundef ptr @ures_findSubResource_75(ptr noundef readonly captures(none) %resB, ptr noundef %path, ptr noundef %fillIn, ptr noundef %status) local_unnamed_addr #1 {
 entry:
   %path.addr = alloca ptr, align 8
   %key = alloca ptr, align 8
@@ -2537,7 +2537,7 @@ if.end79:                                         ; preds = %if.else, %if.end75
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 declare ptr @uloc_getDefault_75() local_unnamed_addr #6
 
@@ -2640,7 +2640,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ures_getValueWithFallback_75(ptr noundef %bundle, ptr noundef %path, ptr noundef %tempFillIn, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(29) %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 {
+define void @ures_getValueWithFallback_75(ptr noundef %bundle, ptr noundef %path, ptr noundef %tempFillIn, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(29) %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -2687,7 +2687,7 @@ return:                                           ; preds = %if.else, %entry, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123getAllItemsWithFallbackEPK15UResourceBundleRN6icu_7517ResourceDataValueERNS3_12ResourceSinkER10UErrorCode(ptr nocapture noundef readonly %bundle, ptr noundef nonnull align 8 dereferenceable(29) %value, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_123getAllItemsWithFallbackEPK15UResourceBundleRN6icu_7517ResourceDataValueERNS3_12ResourceSinkER10UErrorCode(ptr noundef readonly captures(none) %bundle, ptr noundef nonnull align 8 dereferenceable(29) %value, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %parentBundle = alloca %"class.icu_75::StackUResourceBundle", align 8
   %containerBundle = alloca %"class.icu_75::StackUResourceBundle", align 8
@@ -2948,7 +2948,7 @@ return:                                           ; preds = %if.else28, %if.else
 declare i32 @res_getTableItemByKey_75(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL15getFallbackDataPK15UResourceBundlePPKcPjP10UErrorCode(ptr nocapture noundef nonnull readonly %resBundle, ptr noundef nonnull %resTag, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %res, ptr nocapture noundef nonnull writeonly %status) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL15getFallbackDataPK15UResourceBundlePPKcPjP10UErrorCode(ptr noundef nonnull readonly captures(none) %resBundle, ptr noundef nonnull %resTag, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %res, ptr noundef nonnull writeonly captures(none) %status) unnamed_addr #1 {
 entry:
   %indexR = alloca i32, align 4
   %fData = getelementptr inbounds nuw i8, ptr %resBundle, i64 8
@@ -3506,7 +3506,7 @@ if.end54.i:                                       ; preds = %invoke.cont48.i, %l
 
 if.then62.i:                                      ; preds = %if.end54.i
   %call64.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull dereferenceable(1) %call15.i39) #21
-  %call67.i = invoke fastcc noundef ptr @_ZL17findFirstExistingPKcPcS0_12UResOpenTypePaS3_S3_P10UErrorCode(ptr noundef %path, ptr noundef %name.i, ptr noundef %call15.i39, i32 noundef 0, ptr noundef %isRoot.i, ptr noundef %hasChopped.i, ptr noundef %isDefault.i, ptr noundef %intStatus.i)
+  %call67.i = invoke fastcc noundef ptr @_ZL17findFirstExistingPKcPcS0_12UResOpenTypePaS3_S3_P10UErrorCode(ptr noundef %path, ptr noundef %name.i, ptr noundef nonnull %call15.i39, i32 noundef 0, ptr noundef %isRoot.i, ptr noundef %hasChopped.i, ptr noundef %isDefault.i, ptr noundef %intStatus.i)
           to label %invoke.cont66.i unwind label %lpad.i
 
 invoke.cont66.i:                                  ; preds = %if.then62.i
@@ -4176,7 +4176,7 @@ return:                                           ; preds = %if.end, %if.else, %
 declare void @u_UCharsToChars_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #15
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define ptr @ures_getVersionNumber_75(ptr noundef %resourceBundle) local_unnamed_addr #1 {
@@ -5225,12 +5225,12 @@ if.end11:                                         ; preds = %if.then9, %lor.lhs.
 declare i32 @uloc_getLanguage_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #15
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #15
 
 declare i32 @uprv_min_75(i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #15
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #15
 
 declare i32 @u_terminateChars_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
@@ -5422,7 +5422,7 @@ return:                                           ; preds = %while.end58, %if.th
 declare ptr @uenum_next_75(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 declare ptr @uloc_openKeywordList_75(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
@@ -5446,7 +5446,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @u_versionFromUString_75(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10entryCloseP18UResourceDataEntry(ptr nocapture noundef nonnull %resB) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL10entryCloseP18UResourceDataEntry(ptr noundef nonnull captures(none) %resB) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @umtx_lock_75(ptr noundef nonnull @_ZL9resbMutex)
   br label %while.body.i
@@ -6565,7 +6565,7 @@ entry:
 declare noundef ptr @_ZNK6icu_757UObject17getDynamicClassIDEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_118GetAllChildrenSink3putEPKcRN6icu_7513ResourceValueEaR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %key, ptr noundef nonnull align 8 dereferenceable(8) %value, i8 noundef signext %isRoot, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_118GetAllChildrenSink3putEPKcRN6icu_7513ResourceValueEaR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %key, ptr noundef nonnull align 8 dereferenceable(8) %value, i8 noundef signext %isRoot, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %key.addr = alloca ptr, align 8
   %itemsTable = alloca %"class.icu_75::ResourceTable", align 8
@@ -6881,7 +6881,7 @@ declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString8
 declare void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL17findFirstExistingPKcPcS0_12UResOpenTypePaS3_S3_P10UErrorCode(ptr noundef %path, ptr noundef nonnull %name, ptr nocapture noundef readonly %defaultLocale, i32 noundef range(i32 0, 2) %openType, ptr nocapture noundef nonnull writeonly %isRoot, ptr nocapture noundef nonnull initializes((0, 1)) %foundParent, ptr nocapture noundef nonnull writeonly %isDefault, ptr noundef nonnull %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL17findFirstExistingPKcPcS0_12UResOpenTypePaS3_S3_P10UErrorCode(ptr noundef %path, ptr noundef nonnull %name, ptr noundef readonly captures(none) %defaultLocale, i32 noundef range(i32 0, 2) %openType, ptr noundef nonnull writeonly captures(none) %isRoot, ptr noundef nonnull captures(none) initializes((0, 1)) %foundParent, ptr noundef nonnull writeonly captures(none) %isDefault, ptr noundef nonnull %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 while.body.lr.ph:
   %err.i.i = alloca i32, align 4
   %err.i = alloca i32, align 4
@@ -7763,7 +7763,7 @@ return:                                           ; preds = %if.end93.thread, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL21loadParentsExceptRootRP18UResourceDataEntryPciaS2_P10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(8) %t1, ptr noundef nonnull %name, ptr nocapture noundef %status) unnamed_addr #1 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL21loadParentsExceptRootRP18UResourceDataEntryPciaS2_P10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %t1, ptr noundef nonnull %name, ptr noundef captures(none) %status) unnamed_addr #1 {
 entry:
   %parentLocaleLen = alloca i32, align 4
   %parentStatus = alloca i32, align 4
@@ -7868,7 +7868,7 @@ return:                                           ; preds = %if.then18, %land.lh
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL16insertRootBundleRP18UResourceDataEntryP10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(8) %t1, ptr nocapture noundef %status) unnamed_addr #1 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL16insertRootBundleRP18UResourceDataEntryP10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %t1, ptr noundef captures(none) %status) unnamed_addr #1 {
 entry:
   %parentStatus = alloca i32, align 4
   %0 = load i32, ptr %status, align 4
@@ -7908,7 +7908,7 @@ declare void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonn
 declare ptr @uhash_open_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL9hashEntry8UElement(ptr nocapture readonly %parm.coerce) #1 {
+define internal noundef i32 @_ZL9hashEntry8UElement(ptr readonly captures(none) %parm.coerce) #1 {
 entry:
   %0 = load ptr, ptr %parm.coerce, align 8
   %fPath = getelementptr inbounds nuw i8, ptr %parm.coerce, i64 8
@@ -7921,7 +7921,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL14compareEntries8UElementS_(ptr nocapture readonly %p1.coerce, ptr nocapture readonly %p2.coerce) #1 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL14compareEntries8UElementS_(ptr readonly captures(none) %p1.coerce, ptr readonly captures(none) %p2.coerce) #1 {
 entry:
   %0 = load ptr, ptr %p1.coerce, align 8
   %1 = load ptr, ptr %p2.coerce, align 8
@@ -8189,7 +8189,7 @@ declare void @_Z20ulocimp_getScript_75PKcPS0_R10UErrorCode(ptr sret(%"class.icu_
 declare void @_Z21ulocimp_getCountry_75PKcPS0_R10UErrorCode(ptr sret(%"class.icu_75::CharString") align 8, ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16getDefaultScriptRKN6icu_7510CharStringES2_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %language, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %region) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16getDefaultScriptRKN6icu_7510CharStringES2_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %language, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %region) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %err = alloca i32, align 4
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8
@@ -8419,7 +8419,7 @@ declare i32 @res_getResource_75(ptr noundef, ptr noundef) local_unnamed_addr #6
 declare ptr @uhash_put_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL21ures_loc_closeLocalesP12UEnumeration(ptr noundef %enumerator) #1 {
@@ -8435,7 +8435,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL21ures_loc_countLocalesP12UEnumerationP10UErrorCode(ptr nocapture noundef readonly %en, ptr nocapture readnone %0) #14 {
+define internal noundef i32 @_ZL21ures_loc_countLocalesP12UEnumerationP10UErrorCode(ptr noundef readonly captures(none) %en, ptr readnone captures(none) %0) #14 {
 entry:
   %context = getelementptr inbounds nuw i8, ptr %en, i64 8
   %1 = load ptr, ptr %context, align 8
@@ -8455,7 +8455,7 @@ ures_getSize_75.exit:                             ; preds = %entry, %if.end.i
 declare ptr @uenum_unextDefault_75(ptr noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL19ures_loc_nextLocaleP12UEnumerationPiP10UErrorCode(ptr nocapture noundef readonly %en, ptr noundef writeonly %resultLength, ptr noundef %status) #1 {
+define internal noundef ptr @_ZL19ures_loc_nextLocaleP12UEnumerationPiP10UErrorCode(ptr noundef readonly captures(none) %en, ptr noundef writeonly %resultLength, ptr noundef %status) #1 {
 entry:
   %context = getelementptr inbounds nuw i8, ptr %en, i64 8
   %0 = load ptr, ptr %context, align 8
@@ -8498,7 +8498,7 @@ if.end6:                                          ; preds = %if.then5, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL21ures_loc_resetLocalesP12UEnumerationP10UErrorCode(ptr nocapture noundef readonly %en, ptr nocapture readnone %0) #17 {
+define internal void @_ZL21ures_loc_resetLocalesP12UEnumerationP10UErrorCode(ptr noundef readonly captures(none) %en, ptr readnone captures(none) %0) #17 {
 entry:
   %context = getelementptr inbounds nuw i8, ptr %en, i64 8
   %1 = load ptr, ptr %context, align 8
@@ -8520,16 +8520,16 @@ declare i32 @uloc_getParent_75(ptr noundef, ptr noundef, i32 noundef, ptr nounde
 declare i32 @llvm.smax.i32(i32, i32) #18
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

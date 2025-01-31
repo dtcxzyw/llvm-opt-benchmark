@@ -2222,7 +2222,7 @@ $_ZTIN8nlohmann16json_abi_v3_11_38json_saxINS0_10basic_jsonISt3mapSt6vectorNSt7_
 declare noundef i32 @_ZN7doctest6detail12setTestSuiteERKNS0_9TestSuiteE(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare noundef nonnull align 8 dereferenceable(40) ptr @_ZN7doctest6detail9TestSuitemlEPKc(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #0
 
@@ -61901,7 +61901,7 @@ _ZNSt8functionIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail6parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPhEEE5parseEbRSF_(ptr noundef nonnull align 8 dereferenceable(201) %this, i1 noundef zeroext %strict, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -63940,7 +63940,7 @@ _ZNSt8functionIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_112SaxCountdownD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define internal void @_ZN12_GLOBAL__N_112SaxCountdownD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret void
 }
@@ -70358,7 +70358,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #9
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
@@ -72354,7 +72354,7 @@ terminate.lpad:                                   ; preds = %invoke.cont, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -79087,16 +79087,16 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(
 declare ptr @__errno_location() local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #16
+declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #16
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #16
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail11parse_errorC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
@@ -79129,7 +79129,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #17
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #17
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -83481,7 +83481,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare ptr @localeconv() local_unnamed_addr #3
@@ -96710,7 +96710,7 @@ invoke.cont:
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %__lhs, i64 noundef %call.i)
+  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %__lhs, i64 noundef %call.i)
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %invoke.cont4
@@ -101933,7 +101933,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZN12_GLOBAL__N_115comments_helperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZN12_GLOBAL__N_115comments_helperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_6.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -110104,7 +110104,7 @@ eh.resume:                                        ; preds = %lpad17, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114SaxEventLoggerD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114SaxEventLoggerD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -110188,7 +110188,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZN12_GLOBAL__N_113accept_helperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZN12_GLOBAL__N_113accept_helperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_3.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -113682,13 +113682,13 @@ eh.resume:                                        ; preds = %lpad6, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZN12_GLOBAL__N_113accept_helperERKSC_E3$_0E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture nonnull readonly align 4 %__args, ptr nocapture nonnull readonly align 1 %__args1, ptr nocapture nonnull readnone align 8 %__args3) #8 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZN12_GLOBAL__N_113accept_helperERKSC_E3$_0E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nonnull readnone align 8 captures(none) %__functor, ptr nonnull readonly align 4 captures(none) %__args, ptr nonnull readonly align 1 captures(none) %__args1, ptr nonnull readnone align 8 captures(none) %__args3) #8 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZN12_GLOBAL__N_113accept_helperERKSC_E3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZN12_GLOBAL__N_113accept_helperERKSC_E3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -113741,7 +113741,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_14E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_14E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_62.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -113869,7 +113869,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_15E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_15E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_65.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -113952,7 +113952,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_16E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_16E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_68.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -114035,7 +114035,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_17E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_17E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_71.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -114118,7 +114118,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_18E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_18E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_74.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -114201,7 +114201,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_19E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_19E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_78.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -114284,7 +114284,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_20E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_20E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_82.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -114367,7 +114367,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_21E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_21E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_86.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -115904,7 +115904,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_22E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_22E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_91.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -115987,7 +115987,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_23E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_23E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_94.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -116070,7 +116070,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_24E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_24E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_97.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -116153,7 +116153,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_25E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_25E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_100.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -116236,7 +116236,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_26E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_26E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_103.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -116319,7 +116319,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_27E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_27E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_106.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -116402,7 +116402,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_28E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_28E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_109.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -116485,7 +116485,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_29E9stringifyEPSo"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_8vE4$_29E9stringifyEPSo"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.doctest::String", align 8
   %DOCTEST_CAPTURE_112.i = alloca %"struct.doctest::detail::MessageBuilder", align 8
@@ -116542,7 +116542,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_0E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture nonnull readonly align 4 %__args, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %__args1, ptr nocapture nonnull readnone align 8 %__args3) #19 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_0E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nonnull readnone align 8 captures(none) %__functor, ptr nonnull readonly align 4 captures(none) %__args, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %__args1, ptr nonnull readnone align 8 captures(none) %__args3) #19 align 2 {
 entry:
   %__args1.val = load i8, ptr %__args1, align 1
   %cmp.i.i.i = icmp ne i8 %__args1.val, 4
@@ -116550,7 +116550,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -116570,13 +116570,13 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_1E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture nonnull readonly align 4 %__args, ptr nocapture nonnull readonly align 1 %__args1, ptr nocapture nonnull readnone align 8 %__args3) #8 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_1E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nonnull readnone align 8 captures(none) %__functor, ptr nonnull readonly align 4 captures(none) %__args, ptr nonnull readonly align 1 captures(none) %__args1, ptr nonnull readnone align 8 captures(none) %__args3) #8 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_1E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_1E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -116596,13 +116596,13 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_2E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture nonnull readonly align 4 %__args, ptr nocapture nonnull readonly align 1 %__args1, ptr nocapture nonnull readnone align 8 %__args3) #8 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_2E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nonnull readnone align 8 captures(none) %__functor, ptr nonnull readonly align 4 captures(none) %__args, ptr nonnull readonly align 1 captures(none) %__args1, ptr nonnull readnone align 8 captures(none) %__args3) #8 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_2E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_2E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -116622,13 +116622,13 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_3E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture nonnull readonly align 4 %__args, ptr nocapture nonnull readonly align 1 %__args1, ptr nocapture nonnull readnone align 8 %__args3) #8 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_3E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nonnull readnone align 8 captures(none) %__functor, ptr nonnull readonly align 4 captures(none) %__args, ptr nonnull readonly align 1 captures(none) %__args1, ptr nonnull readnone align 8 captures(none) %__args3) #8 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_3E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_3E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -116648,13 +116648,13 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_4E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture nonnull readonly align 4 %__args, ptr nocapture nonnull readonly align 1 %__args1, ptr nocapture nonnull readnone align 8 %__args3) #8 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_4E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nonnull readnone align 8 captures(none) %__functor, ptr nonnull readonly align 4 captures(none) %__args, ptr nonnull readonly align 1 captures(none) %__args1, ptr nonnull readnone align 8 captures(none) %__args3) #8 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_4E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_4E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -116674,7 +116674,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_5E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture nonnull readonly align 4 %__args, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %__args1, ptr noundef nonnull align 8 dereferenceable(16) %__args3) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_5E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nonnull readnone align 8 captures(none) %__functor, ptr nonnull readonly align 4 captures(none) %__args, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %__args1, ptr noundef nonnull align 8 dereferenceable(16) %__args3) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.nlohmann::json_abi_v3_11_3::basic_json", align 8
   %__args1.val = load i8, ptr %__args1, align 1
@@ -116722,7 +116722,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %cleanup.action.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_5E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_5E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -116742,7 +116742,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_6E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture nonnull readonly align 4 %__args, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %__args1, ptr noundef nonnull align 8 dereferenceable(16) %__args3) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_6E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nonnull readnone align 8 captures(none) %__functor, ptr nonnull readonly align 4 captures(none) %__args, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %__args1, ptr noundef nonnull align 8 dereferenceable(16) %__args3) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.nlohmann::json_abi_v3_11_3::basic_json", align 8
   %__args1.val = load i8, ptr %__args1, align 1
@@ -116790,7 +116790,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %cleanup.action.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_6E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_6E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -116810,7 +116810,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_7E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture nonnull readonly align 4 %__args, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %__args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__args3) #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_7E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nonnull readnone align 8 captures(none) %__functor, ptr nonnull readonly align 4 captures(none) %__args, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %__args1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__args3) #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i.i.i = alloca %"class.std::allocator", align 1
@@ -116910,7 +116910,7 @@ lpad.i.i.i:                                       ; preds = %land.rhs.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_7E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_7E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -116999,7 +116999,7 @@ ehcleanup11:                                      ; preds = %ehcleanup10, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_8E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture nonnull readonly align 4 %__args, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %__args1, ptr nocapture nonnull readnone align 8 %__args3) #19 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_8E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nonnull readnone align 8 captures(none) %__functor, ptr nonnull readonly align 4 captures(none) %__args, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %__args1, ptr nonnull readnone align 8 captures(none) %__args3) #19 align 2 {
 entry:
   %__args1.val = load i8, ptr %__args1, align 1
   %cmp.i.i.i = icmp ne i8 %__args1.val, 1
@@ -117007,7 +117007,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_8E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_8E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -117027,7 +117027,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_9E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture nonnull readonly align 4 %__args, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %__args1, ptr nocapture nonnull readnone align 8 %__args3) #20 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_9E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nonnull readnone align 8 captures(none) %__functor, ptr nonnull readonly align 4 captures(none) %__args, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %__args1, ptr nonnull readnone align 8 captures(none) %__args3) #20 align 2 {
 entry:
   %__args1.val = load i8, ptr %__args1, align 1
   %cmp.i.i.i = icmp eq i8 %__args1.val, 1
@@ -117047,7 +117047,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_9E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE3$_9E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -117067,7 +117067,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE4$_10E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture nonnull readonly align 4 %__args, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %__args1, ptr nocapture nonnull readnone align 8 %__args3) #20 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE4$_10E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nonnull readnone align 8 captures(none) %__functor, ptr nonnull readonly align 4 captures(none) %__args, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %__args1, ptr nonnull readnone align 8 captures(none) %__args3) #20 align 2 {
 entry:
   %__args1.val = load i8, ptr %__args1, align 1
   %cmp.i.i.i = icmp eq i8 %__args1.val, 3
@@ -117087,7 +117087,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE4$_10E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE4$_10E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -117107,7 +117107,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE4$_11E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture nonnull readonly align 4 %__args, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %__args1, ptr nocapture nonnull readnone align 8 %__args3) #19 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE4$_11E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nonnull readnone align 8 captures(none) %__functor, ptr nonnull readonly align 4 captures(none) %__args, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %__args1, ptr nonnull readnone align 8 captures(none) %__args3) #19 align 2 {
 entry:
   %__args1.val = load i8, ptr %__args1, align 1
   %cmp.i.i.i = icmp ne i8 %__args1.val, 1
@@ -117115,7 +117115,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE4$_11E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE4$_11E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -117135,7 +117135,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE4$_12E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture nonnull readonly align 4 %__args, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %__args1, ptr nocapture nonnull readnone align 8 %__args3) #19 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE4$_12E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nonnull readnone align 8 captures(none) %__functor, ptr nonnull readonly align 4 captures(none) %__args, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %__args1, ptr nonnull readnone align 8 captures(none) %__args3) #19 align 2 {
 entry:
   %__args1.val = load i8, ptr %__args1, align 1
   %cmp.i.i.i = icmp ne i8 %__args1.val, 3
@@ -117143,7 +117143,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE4$_12E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE4$_12E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -139515,13 +139515,13 @@ _ZNSt6vectorIbSaIbEED2Ev.exit310:                 ; preds = %ehcleanup491, %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE4$_13E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture nonnull readonly align 4 %__args, ptr nocapture nonnull readonly align 1 %__args1, ptr nocapture nonnull readnone align 8 %__args3) #8 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE4$_13E9_M_invokeERKSt9_Any_dataOiOS3_SH_"(ptr nonnull readnone align 8 captures(none) %__functor, ptr nonnull readonly align 4 captures(none) %__args, ptr nonnull readonly align 1 captures(none) %__args1, ptr nonnull readnone align 8 captures(none) %__args3) #8 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE4$_13E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEZL19DOCTEST_ANON_FUNC_8vE4$_13E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -139541,7 +139541,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SaxCountdown4nullEv(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #21 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SaxCountdown4nullEv(ptr noundef nonnull align 8 captures(none) dereferenceable(12) %this) unnamed_addr #21 align 2 {
 entry:
   %events_left = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %events_left, align 8
@@ -139552,7 +139552,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SaxCountdown7booleanEb(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this, i1 zeroext %0) unnamed_addr #21 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SaxCountdown7booleanEb(ptr noundef nonnull align 8 captures(none) dereferenceable(12) %this, i1 zeroext %0) unnamed_addr #21 align 2 {
 entry:
   %events_left = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %events_left, align 8
@@ -139563,7 +139563,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SaxCountdown14number_integerEl(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this, i64 %0) unnamed_addr #21 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SaxCountdown14number_integerEl(ptr noundef nonnull align 8 captures(none) dereferenceable(12) %this, i64 %0) unnamed_addr #21 align 2 {
 entry:
   %events_left = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %events_left, align 8
@@ -139574,7 +139574,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SaxCountdown15number_unsignedEm(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this, i64 %0) unnamed_addr #21 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SaxCountdown15number_unsignedEm(ptr noundef nonnull align 8 captures(none) dereferenceable(12) %this, i64 %0) unnamed_addr #21 align 2 {
 entry:
   %events_left = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %events_left, align 8
@@ -139585,7 +139585,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SaxCountdown12number_floatEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this, double %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #21 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SaxCountdown12number_floatEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(12) %this, double %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #21 align 2 {
 entry:
   %events_left = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i32, ptr %events_left, align 8
@@ -139596,7 +139596,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SaxCountdown6stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #21 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SaxCountdown6stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(12) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #21 align 2 {
 entry:
   %events_left = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %events_left, align 8
@@ -139607,7 +139607,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SaxCountdown6binaryERN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #21 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SaxCountdown6binaryERN8nlohmann16json_abi_v3_11_327byte_container_with_subtypeISt6vectorIhSaIhEEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(12) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #21 align 2 {
 entry:
   %events_left = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %events_left, align 8
@@ -139618,7 +139618,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SaxCountdown12start_objectEm(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this, i64 %0) unnamed_addr #21 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SaxCountdown12start_objectEm(ptr noundef nonnull align 8 captures(none) dereferenceable(12) %this, i64 %0) unnamed_addr #21 align 2 {
 entry:
   %events_left = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %events_left, align 8
@@ -139629,7 +139629,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SaxCountdown3keyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #21 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SaxCountdown3keyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(12) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #21 align 2 {
 entry:
   %events_left = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %events_left, align 8
@@ -139640,7 +139640,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SaxCountdown10end_objectEv(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #21 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SaxCountdown10end_objectEv(ptr noundef nonnull align 8 captures(none) dereferenceable(12) %this) unnamed_addr #21 align 2 {
 entry:
   %events_left = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %events_left, align 8
@@ -139651,7 +139651,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SaxCountdown11start_arrayEm(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this, i64 %0) unnamed_addr #21 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SaxCountdown11start_arrayEm(ptr noundef nonnull align 8 captures(none) dereferenceable(12) %this, i64 %0) unnamed_addr #21 align 2 {
 entry:
   %events_left = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %events_left, align 8
@@ -139662,7 +139662,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SaxCountdown9end_arrayEv(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #21 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SaxCountdown9end_arrayEv(ptr noundef nonnull align 8 captures(none) dereferenceable(12) %this) unnamed_addr #21 align 2 {
 entry:
   %events_left = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %events_left, align 8
@@ -139673,7 +139673,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SaxCountdown11parse_errorEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann16json_abi_v3_11_36detail9exceptionE(ptr nocapture nonnull readnone align 8 %this, i64 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #8 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_112SaxCountdown11parse_errorEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann16json_abi_v3_11_36detail9exceptionE(ptr nonnull readnone align 8 captures(none) %this, i64 %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #8 align 2 {
 entry:
   ret i1 false
 }
@@ -141743,16 +141743,16 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #24
 declare i64 @llvm.abs.i64(i64, i1 immarg) #24
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #25
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #24

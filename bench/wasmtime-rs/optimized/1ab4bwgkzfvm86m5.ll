@@ -68,7 +68,7 @@ define noundef zeroext i1 @_ZN5alloc3vec16in_place_collect13needs_realloc17h9f17
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define { ptr, ptr } @"_ZN5alloc3vec16in_place_collect24write_in_place_with_drop28_$u7b$$u7b$closure$u7d$$u7d$17h80a643e31223ecb4E"(ptr nocapture readnone align 8 %0, ptr %1, ptr initializes((0, 2)) %2, i16 %3) unnamed_addr #2 {
+define { ptr, ptr } @"_ZN5alloc3vec16in_place_collect24write_in_place_with_drop28_$u7b$$u7b$closure$u7d$$u7d$17h80a643e31223ecb4E"(ptr readnone align 8 captures(none) %0, ptr %1, ptr initializes((0, 2)) %2, i16 %3) unnamed_addr #2 {
   store i16 %3, ptr %2, align 2
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %6 = insertvalue { ptr, ptr } poison, ptr %1, 0
@@ -77,7 +77,7 @@ define { ptr, ptr } @"_ZN5alloc3vec16in_place_collect24write_in_place_with_drop2
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define { ptr, ptr } @"_ZN5alloc3vec16in_place_collect24write_in_place_with_drop28_$u7b$$u7b$closure$u7d$$u7d$17h9ffafbe0d67a0791E"(ptr nocapture readnone align 8 %0, ptr %1, ptr initializes((0, 4)) %2, i16 %3, i16 %4) unnamed_addr #2 {
+define { ptr, ptr } @"_ZN5alloc3vec16in_place_collect24write_in_place_with_drop28_$u7b$$u7b$closure$u7d$$u7d$17h9ffafbe0d67a0791E"(ptr readnone align 8 captures(none) %0, ptr %1, ptr initializes((0, 4)) %2, i16 %3, i16 %4) unnamed_addr #2 {
   store i16 %3, ptr %2, align 2
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 %4, ptr %6, align 2

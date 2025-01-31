@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opa4_table = internal unnamed_addr constant [16 x i8] c"\00\11\223DUfw\88\99\AA\BB\CC\DD\EE\FF", align 16
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @lv_font_get_bitmap_fmt_txt(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define noundef ptr @lv_font_get_bitmap_fmt_txt(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !10
@@ -343,15 +343,15 @@ default.unreachable:                              ; preds = %.lr.ph167
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @lv_draw_buf_width_to_stride(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define noundef zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.kern_pair_ref_t, align 4
   %6 = alloca %struct.kern_pair_ref_t, align 4
   %7 = icmp eq i32 %2, 9
@@ -552,7 +552,7 @@ get_kern_value.exit:                              ; preds = %41, %42, %59, %60, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_glyph_dsc_id(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @get_glyph_dsc_id(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
   %5 = icmp eq i32 %1, 0
@@ -698,7 +698,7 @@ define internal fastcc i32 @get_glyph_dsc_id(ptr nocapture noundef readonly %0, 
 declare ptr @lv_utils_bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -65535, 65536) i32 @unicode_list_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 -65535, 65536) i32 @unicode_list_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i16, ptr %0, align 2, !tbaa !58
   %4 = zext i16 %3 to i32
   %5 = load i16, ptr %1, align 2, !tbaa !58
@@ -708,7 +708,7 @@ define internal range(i32 -65535, 65536) i32 @unicode_list_compare(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @kern_pair_8_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal i32 @kern_pair_8_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i32, ptr %0, align 4, !tbaa !32
   %4 = load i8, ptr %1, align 1, !tbaa !15
   %5 = zext i8 %4 to i32
@@ -734,7 +734,7 @@ define internal i32 @kern_pair_8_compare(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @kern_pair_16_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal i32 @kern_pair_16_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i32, ptr %0, align 4, !tbaa !32
   %4 = load i16, ptr %1, align 2, !tbaa !58
   %5 = zext i16 %4 to i32

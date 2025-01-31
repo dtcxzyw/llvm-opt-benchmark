@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lib_memsostream(ptr nocapture noundef writeonly initializes((0, 4), (8, 64)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @lib_memsostream(ptr noundef writeonly captures(none) initializes((0, 4), (8, 64)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @memsostream_putc, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -27,7 +27,7 @@ define void @lib_memsostream(ptr nocapture noundef writeonly initializes((0, 4),
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @memsostream_putc(ptr nocapture noundef %0, i32 noundef %1) #1 {
+define internal void @memsostream_putc(ptr noundef captures(none) %0, i32 noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -57,7 +57,7 @@ define internal void @memsostream_putc(ptr nocapture noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @memsostream_puts(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #2 {
+define internal i32 @memsostream_puts(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = sext i32 %2 to i64
@@ -97,7 +97,7 @@ define internal i32 @memsostream_puts(ptr nocapture noundef %0, ptr nocapture no
 declare i32 @lib_snoflush(ptr noundef) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -1, 2147483647) i32 @memsostream_seek(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #4 {
+define internal range(i32 -1, 2147483647) i32 @memsostream_seek(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #4 {
   switch i32 %2, label %18 [
     i32 1, label %.sink.split
     i32 0, label %9
@@ -139,7 +139,7 @@ define internal range(i32 -1, 2147483647) i32 @memsostream_seek(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

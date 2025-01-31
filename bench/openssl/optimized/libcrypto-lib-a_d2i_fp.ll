@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.asn1_d2i_read_bio = private unnamed_addr constant [18 x i8] c"asn1_d2i_read_bio\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ASN1_d2i_fp(ptr nocapture noundef readnone %xnew, ptr nocapture noundef readonly %d2i, ptr noundef %in, ptr noundef %x) local_unnamed_addr #0 {
+define ptr @ASN1_d2i_fp(ptr noundef readnone captures(none) %xnew, ptr noundef readonly captures(none) %d2i, ptr noundef %in, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %b.i = alloca ptr, align 8
   %p.i = alloca ptr, align 8
@@ -68,7 +68,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ASN1_d2i_bio(ptr nocapture noundef readnone %xnew, ptr nocapture noundef readonly %d2i, ptr noundef %in, ptr noundef %x) local_unnamed_addr #0 {
+define ptr @ASN1_d2i_bio(ptr noundef readnone captures(none) %xnew, ptr noundef readonly captures(none) %d2i, ptr noundef %in, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %b = alloca ptr, align 8
   %p = alloca ptr, align 8
@@ -95,7 +95,7 @@ err:                                              ; preds = %entry, %if.end
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %in, ptr nocapture noundef writeonly %pb) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr noundef %in, ptr noundef writeonly captures(none) %pb) local_unnamed_addr #0 {
 entry:
   %q = alloca ptr, align 8
   %slen = alloca i64, align 8
@@ -474,10 +474,10 @@ declare i32 @ERR_clear_last_mark() local_unnamed_addr #1
 declare i64 @llvm.umin.i64(i64, i64) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -177,7 +177,7 @@ if.then111:                                       ; preds = %lor.lhs.false108, %
 
 if.end119:                                        ; preds = %if.then111, %lor.lhs.false108
   %a_mod_m.1 = phi ptr [ %a2, %lor.lhs.false108 ], [ %call11, %if.then111 ]
-  %call120 = tail call i32 @BN_is_zero(ptr noundef %a_mod_m.1) #3
+  %call120 = tail call i32 @BN_is_zero(ptr noundef nonnull %a_mod_m.1) #3
   %tobool121.not = icmp eq i32 %call120, 0
   br i1 %tobool121.not, label %if.end123, label %if.then122
 
@@ -186,7 +186,7 @@ if.then122:                                       ; preds = %if.end119
   br label %err
 
 if.end123:                                        ; preds = %if.end119
-  %call125 = tail call i32 @BN_to_montgomery(ptr noundef nonnull %call11, ptr noundef %a_mod_m.1, ptr noundef nonnull %mont.1, ptr noundef %ctx) #3
+  %call125 = tail call i32 @BN_to_montgomery(ptr noundef nonnull %call11, ptr noundef nonnull %a_mod_m.1, ptr noundef nonnull %mont.1, ptr noundef %ctx) #3
   %tobool126.not = icmp eq i32 %call125, 0
   br i1 %tobool126.not, label %err, label %if.end128
 

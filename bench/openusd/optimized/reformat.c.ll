@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.avifRGBImage = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @avifGetRGBColorSpaceInfo(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @avifGetRGBColorSpaceInfo(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %.thread76 [
@@ -1755,7 +1755,7 @@ avifPrepareReformatState.exit.thread:             ; preds = %.thread.i, %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @avifImageYUVToRGBImpl(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @avifImageYUVToRGBImpl(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca [2 x [2 x i16]], align 2
   %6 = alloca [2 x [2 x i16]], align 2
   %7 = alloca i32, align 4
@@ -2820,7 +2820,7 @@ declare i32 @avifArrayCreate(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare i32 @avifImageSetViewRect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @avifImageYUVToRGBThreadWorker(ptr noundef %0) #0 {
@@ -3005,7 +3005,7 @@ define hidden i32 @avifFullToLimitedUV(i32 noundef %0, i32 noundef %1) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @avifGetRGBAPixel(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly initializes((0, 16)) %4) local_unnamed_addr #0 {
+define hidden void @avifGetRGBAPixel(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 16)) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -3209,7 +3209,7 @@ define hidden void @avifGetRGBAPixel(ptr nocapture noundef readonly %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @avifSetRGBAPixel(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define hidden void @avifSetRGBAPixel(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -3382,7 +3382,7 @@ declare float @avifRoundf(float noundef) local_unnamed_addr #1
 declare i32 @avifImageYUVToRGBLibYUV(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @avifImageIdentity8ToRGB8ColorFullRange(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #5 {
+define internal fastcc void @avifImageIdentity8ToRGB8ColorFullRange(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
@@ -3514,7 +3514,7 @@ define internal fastcc void @avifImageIdentity8ToRGB8ColorFullRange(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @avifImageYUV16ToRGB16Color(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @avifImageYUV16ToRGB16Color(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load float, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 36
@@ -3763,7 +3763,7 @@ avifCreateYUVToRGBLookUpTables.exit.thread:       ; preds = %avifCreateYUVToRGBL
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @avifImageYUV16ToRGB16Mono(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @avifImageYUV16ToRGB16Mono(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load float, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 36
@@ -3933,7 +3933,7 @@ avifCreateYUVToRGBLookUpTables.exit.thread:       ; preds = %3, %._crit_edge90
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @avifImageYUV16ToRGB8Color(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @avifImageYUV16ToRGB8Color(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load float, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 36
@@ -4205,7 +4205,7 @@ avifCreateYUVToRGBLookUpTables.exit.thread:       ; preds = %avifCreateYUVToRGBL
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @avifImageYUV16ToRGB8Mono(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @avifImageYUV16ToRGB8Mono(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load float, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 36
@@ -4398,7 +4398,7 @@ avifCreateYUVToRGBLookUpTables.exit.thread:       ; preds = %3, %._crit_edge91
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @avifImageYUV8ToRGB16Color(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @avifImageYUV8ToRGB16Color(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load float, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 36
@@ -4634,7 +4634,7 @@ avifCreateYUVToRGBLookUpTables.exit.thread:       ; preds = %avifCreateYUVToRGBL
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @avifImageYUV8ToRGB16Mono(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @avifImageYUV8ToRGB16Mono(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load float, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 36
@@ -4797,7 +4797,7 @@ avifCreateYUVToRGBLookUpTables.exit.thread:       ; preds = %3, %._crit_edge82
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @avifImageYUV8ToRGB8Color(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @avifImageYUV8ToRGB8Color(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load float, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 36
@@ -5056,7 +5056,7 @@ avifCreateYUVToRGBLookUpTables.exit.thread:       ; preds = %avifCreateYUVToRGBL
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @avifImageYUV8ToRGB8Mono(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @avifImageYUV8ToRGB8Mono(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load float, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 36
@@ -5262,13 +5262,13 @@ declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.smin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7

@@ -180,7 +180,7 @@ define hidden ptr @nvgCreateGL3(i32 noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef range(i32 0, 2) i32 @_ZL19glnvg__renderCreatePv(ptr noundef initializes((0, 24)) %0) #3 {
@@ -287,7 +287,7 @@ _ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit19:  ; preds = %_ZL17glnvg__checkEr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL26glnvg__renderCreateTexturePviiiiPKh(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
+define internal noundef i32 @_ZL26glnvg__renderCreateTexturePviiiiPKh(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #3 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
@@ -461,7 +461,7 @@ _ZL19glnvg__allocTextureP12GLNVGcontext.exit.thread: ; preds = %19, %_ZL18glnvg_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL26glnvg__renderDeleteTexturePvi(ptr nocapture noundef readonly %0, i32 noundef %1) #3 {
+define internal noundef range(i32 0, 2) i32 @_ZL26glnvg__renderDeleteTexturePvi(ptr noundef readonly captures(none) %0, i32 noundef %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -515,7 +515,7 @@ _ZL20glnvg__deleteTextureP12GLNVGcontexti.exit:   ; preds = %8, %2, %22
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL26glnvg__renderUpdateTexturePviiiiiPKh(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) #3 {
+define internal noundef range(i32 0, 2) i32 @_ZL26glnvg__renderUpdateTexturePviiiiiPKh(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) #3 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, 0
@@ -583,7 +583,7 @@ _ZL18glnvg__bindTextureP12GLNVGcontextj.exit23:   ; preds = %13, %7, %29, %_ZL18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL27glnvg__renderGetTextureSizePviPiS0_(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #5 {
+define internal noundef range(i32 0, 2) i32 @_ZL27glnvg__renderGetTextureSizePviPiS0_(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
@@ -622,7 +622,7 @@ _ZL18glnvg__findTextureP12GLNVGcontexti.exit.thread: ; preds = %10, %4, %_ZL18gl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL21glnvg__renderViewportPvfff(ptr nocapture noundef writeonly initializes((32, 40)) %0, float noundef %1, float noundef %2, float %3) #6 {
+define internal void @_ZL21glnvg__renderViewportPvfff(ptr noundef writeonly captures(none) initializes((32, 40)) %0, float noundef %1, float noundef %2, float %3) #6 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -631,7 +631,7 @@ define internal void @_ZL21glnvg__renderViewportPvfff(ptr nocapture noundef writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL19glnvg__renderCancelPv(ptr nocapture noundef writeonly initializes((84, 88), (100, 104), (116, 120), (132, 136)) %0) #6 {
+define internal void @_ZL19glnvg__renderCancelPv(ptr noundef writeonly captures(none) initializes((84, 88), (100, 104), (116, 120), (132, 136)) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
@@ -1129,7 +1129,7 @@ _ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i63: ; preds = %201, %199, %_ZL18g
 ._crit_edge.i64:                                  ; preds = %.lr.ph.i68, %_ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i63
   %209 = load i32, ptr %191, align 4
   %210 = load i32, ptr %195, align 4
-  tail call fastcc void @_ZL18glnvg__setUniformsP12GLNVGcontextii(ptr noundef %0, i32 noundef %209, i32 noundef %210)
+  tail call fastcc void @_ZL18glnvg__setUniformsP12GLNVGcontextii(ptr noundef nonnull %0, i32 noundef %209, i32 noundef %210)
   %211 = load i32, ptr %9, align 8
   %.not.i53.i = icmp eq i32 %211, 514
   br i1 %.not.i53.i, label %212, label %216
@@ -1337,7 +1337,7 @@ _ZL18glnvg__bindTextureP12GLNVGcontextj.exit:     ; preds = %275, %._crit_edge, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL17glnvg__renderFillPvP8NVGpaint26NVGcompositeOperationStateP10NVGscissorfPKfPK7NVGpathi(ptr nocapture noundef %0, ptr noundef %1, i64 %2, i64 %3, ptr noundef %4, float noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, i32 noundef %8) #3 {
+define internal void @_ZL17glnvg__renderFillPvP8NVGpaint26NVGcompositeOperationStateP10NVGscissorfPKfPK7NVGpathi(ptr noundef captures(none) %0, ptr noundef %1, i64 %2, i64 %3, ptr noundef %4, float noundef %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, i32 noundef %8) #3 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1348,7 +1348,7 @@ define internal void @_ZL17glnvg__renderFillPvP8NVGpaint26NVGcompositeOperationS
 ._crit_edge.i:                                    ; preds = %9
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  br label %26
+  br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit
 
 14:                                               ; preds = %9
   %15 = tail call i32 @llvm.smax.i32(i32 %11, i32 127)
@@ -1367,442 +1367,20 @@ define internal void @_ZL17glnvg__renderFillPvP8NVGpaint26NVGcompositeOperationS
   store ptr %23, ptr %19, align 8
   store i32 %18, ptr %12, align 8
   %.pre17.i = load i32, ptr %10, align 4
-  br label %26
+  br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit
 
-26:                                               ; preds = %25, %._crit_edge.i
-  %27 = phi i32 [ %11, %._crit_edge.i ], [ %.pre17.i, %25 ]
-  %28 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %23, %25 ]
-  %29 = add nsw i32 %27, 1
-  store i32 %29, ptr %10, align 4
-  %30 = sext i32 %27 to i64
-  %31 = getelementptr inbounds %struct.GLNVGcall, ptr %28, i64 %30
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %32, i8 0, i64 40, i1 false)
-  store i32 1, ptr %31, align 4
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 20
-  store i32 4, ptr %33, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %35 = load i32, ptr %34, align 4
-  %36 = add nsw i32 %35, %8
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %38 = load i32, ptr %37, align 8
-  %39 = icmp sgt i32 %36, %38
-  br i1 %39, label %40, label %_ZL17glnvg__allocPathsP12GLNVGcontexti.exit
-
-40:                                               ; preds = %26
-  %41 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %36, i32 128)
-  %42 = sdiv i32 %38, 2
-  %43 = add nsw i32 %41, %42
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %45 = load ptr, ptr %44, align 8
-  %46 = sext i32 %43 to i64
-  %47 = shl nsw i64 %46, 4
-  %48 = tail call ptr @realloc(ptr noundef %45, i64 noundef %47) #31
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split, label %50
-
-50:                                               ; preds = %40
-  store ptr %48, ptr %44, align 8
-  store i32 %43, ptr %37, align 8
-  %.pre.i112 = load i32, ptr %34, align 4
-  %.pre19.i = add nsw i32 %.pre.i112, %8
-  br label %_ZL17glnvg__allocPathsP12GLNVGcontexti.exit
-
-_ZL17glnvg__allocPathsP12GLNVGcontexti.exit:      ; preds = %26, %50
-  %.pre-phi.i = phi i32 [ %.pre19.i, %50 ], [ %36, %26 ]
-  %51 = phi i32 [ %.pre.i112, %50 ], [ %35, %26 ]
-  store i32 %.pre-phi.i, ptr %34, align 4
-  %52 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i32 %51, ptr %52, align 4
-  %53 = icmp eq i32 %51, -1
-  br i1 %53, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %54
-
-54:                                               ; preds = %_ZL17glnvg__allocPathsP12GLNVGcontexti.exit
-  %55 = getelementptr inbounds nuw i8, ptr %31, i64 12
-  store i32 %8, ptr %55, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  store i32 %57, ptr %58, align 4
-  %59 = tail call fastcc { i64, i64 } @_ZL30glnvg__blendCompositeOperation26NVGcompositeOperationState(i64 %2, i64 %3)
-  %60 = extractvalue { i64, i64 } %59, 0
-  %61 = extractvalue { i64, i64 } %59, 1
-  %62 = getelementptr inbounds nuw i8, ptr %31, i64 28
-  store i64 %60, ptr %62, align 4
-  %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 36
-  store i64 %61, ptr %.sroa.216.0..sroa_idx, align 4
-  %63 = icmp eq i32 %8, 1
-  br i1 %63, label %64, label %68
-
-64:                                               ; preds = %54
-  %65 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %66 = load i32, ptr %65, align 8
-  %.not = icmp eq i32 %66, 0
-  br i1 %.not, label %.lr.ph.preheader.i, label %67
-
-67:                                               ; preds = %64
-  store i32 2, ptr %31, align 4
-  store i32 0, ptr %33, align 4
-  br label %.lr.ph.preheader.i
-
-68:                                               ; preds = %54
-  %69 = icmp sgt i32 %8, 0
-  br i1 %69, label %.lr.ph.preheader.i, label %_ZL19glnvg__maxVertCountPK7NVGpathi.exit
-
-.lr.ph.preheader.i:                               ; preds = %64, %67, %68
-  %wide.trip.count.i = zext nneg i32 %8 to i64
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.011.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %76, %.lr.ph.i ]
-  %70 = getelementptr inbounds nuw %struct.NVGpath, ptr %7, i64 %indvars.iv.i
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %72 = load i32, ptr %71, align 8
-  %73 = add nsw i32 %72, %.011.i
-  %74 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  %75 = load i32, ptr %74, align 8
-  %76 = add nsw i32 %73, %75
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL19glnvg__maxVertCountPK7NVGpathi.exit, label %.lr.ph.i, !llvm.loop !17
-
-_ZL19glnvg__maxVertCountPK7NVGpathi.exit:         ; preds = %.lr.ph.i, %68
-  %.0.lcssa.i = phi i32 [ 0, %68 ], [ %76, %.lr.ph.i ]
-  %77 = load i32, ptr %33, align 4
-  %78 = add nsw i32 %77, %.0.lcssa.i
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %80 = load i32, ptr %79, align 4
-  %81 = add nsw i32 %80, %78
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %83 = load i32, ptr %82, align 8
-  %84 = icmp sgt i32 %81, %83
-  br i1 %84, label %85, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
-
-85:                                               ; preds = %_ZL19glnvg__maxVertCountPK7NVGpathi.exit
-  %86 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %81, i32 4096)
-  %87 = sdiv i32 %83, 2
-  %88 = add nsw i32 %86, %87
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %90 = load ptr, ptr %89, align 8
-  %91 = sext i32 %88 to i64
-  %92 = shl nsw i64 %91, 4
-  %93 = tail call ptr @realloc(ptr noundef %90, i64 noundef %92) #31
-  %94 = icmp eq ptr %93, null
-  br i1 %94, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %95
-
-95:                                               ; preds = %85
-  store ptr %93, ptr %89, align 8
-  store i32 %88, ptr %82, align 8
-  %.pre.i116 = load i32, ptr %79, align 4
-  %.pre19.i117 = add nsw i32 %.pre.i116, %78
-  br label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
-
-_ZL17glnvg__allocVertsP12GLNVGcontexti.exit:      ; preds = %_ZL19glnvg__maxVertCountPK7NVGpathi.exit, %95
-  %.pre-phi.i114 = phi i32 [ %.pre19.i117, %95 ], [ %81, %_ZL19glnvg__maxVertCountPK7NVGpathi.exit ]
-  %96 = phi i32 [ %.pre.i116, %95 ], [ %80, %_ZL19glnvg__maxVertCountPK7NVGpathi.exit ]
-  store i32 %.pre-phi.i114, ptr %79, align 4
-  %97 = icmp eq i32 %96, -1
-  br i1 %97, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %.preheader
-
-.preheader:                                       ; preds = %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
-  %98 = icmp sgt i32 %8, 0
-  br i1 %98, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %.preheader
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %wide.trip.count = zext nneg i32 %8 to i64
-  br label %101
-
-101:                                              ; preds = %.lr.ph, %141
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %141 ]
-  %.0103132 = phi i32 [ %96, %.lr.ph ], [ %.2, %141 ]
-  %102 = load ptr, ptr %99, align 8
-  %103 = load i32, ptr %52, align 4
-  %104 = trunc nuw nsw i64 %indvars.iv to i32
-  %105 = add nsw i32 %103, %104
-  %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds %struct.GLNVGpath, ptr %102, i64 %106
-  %108 = getelementptr inbounds nuw %struct.NVGpath, ptr %7, i64 %indvars.iv
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %107, i8 0, i64 16, i1 false)
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
-  %110 = load i32, ptr %109, align 8
-  %111 = icmp sgt i32 %110, 0
-  br i1 %111, label %112, label %124
-
-112:                                              ; preds = %101
-  store i32 %.0103132, ptr %107, align 4
-  %113 = load i32, ptr %109, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %107, i64 4
-  store i32 %113, ptr %114, align 4
-  %115 = load ptr, ptr %100, align 8
-  %116 = sext i32 %.0103132 to i64
-  %117 = getelementptr inbounds %struct.NVGvertex, ptr %115, i64 %116
-  %118 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %119 = load ptr, ptr %118, align 8
-  %120 = sext i32 %113 to i64
-  %121 = shl nsw i64 %120, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %117, ptr align 4 %119, i64 %121, i1 false)
-  %122 = load i32, ptr %109, align 8
-  %123 = add nsw i32 %122, %.0103132
-  br label %124
-
-124:                                              ; preds = %112, %101
-  %.1 = phi i32 [ %123, %112 ], [ %.0103132, %101 ]
-  %125 = getelementptr inbounds nuw i8, ptr %108, i64 40
-  %126 = load i32, ptr %125, align 8
-  %127 = icmp sgt i32 %126, 0
-  br i1 %127, label %128, label %141
-
-128:                                              ; preds = %124
-  %129 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  store i32 %.1, ptr %129, align 4
-  %130 = load i32, ptr %125, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %107, i64 12
-  store i32 %130, ptr %131, align 4
-  %132 = load ptr, ptr %100, align 8
-  %133 = sext i32 %.1 to i64
-  %134 = getelementptr inbounds %struct.NVGvertex, ptr %132, i64 %133
-  %135 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %136 = load ptr, ptr %135, align 8
-  %137 = sext i32 %130 to i64
-  %138 = shl nsw i64 %137, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %134, ptr align 4 %136, i64 %138, i1 false)
-  %139 = load i32, ptr %125, align 8
-  %140 = add nsw i32 %139, %.1
-  br label %141
-
-141:                                              ; preds = %124, %128
-  %.2 = phi i32 [ %140, %128 ], [ %.1, %124 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %101, !llvm.loop !18
-
-._crit_edge:                                      ; preds = %141, %.preheader
-  %.0103.lcssa = phi i32 [ %96, %.preheader ], [ %.2, %141 ]
-  %142 = load i32, ptr %31, align 4
-  %143 = icmp eq i32 %142, 1
-  br i1 %143, label %144, label %210
-
-144:                                              ; preds = %._crit_edge
-  %145 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i32 %.0103.lcssa, ptr %145, align 4
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %147 = load ptr, ptr %146, align 8
-  %148 = sext i32 %.0103.lcssa to i64
-  %149 = getelementptr inbounds %struct.NVGvertex, ptr %147, i64 %148
-  %150 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %151 = load float, ptr %150, align 4
-  %152 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %153 = load float, ptr %152, align 4
-  store float %151, ptr %149, align 4
-  %154 = getelementptr inbounds nuw i8, ptr %149, i64 4
-  store float %153, ptr %154, align 4
-  %155 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  store float 5.000000e-01, ptr %155, align 4
-  %156 = getelementptr inbounds nuw i8, ptr %149, i64 12
-  store float 1.000000e+00, ptr %156, align 4
-  %157 = getelementptr inbounds nuw i8, ptr %149, i64 16
-  %158 = load float, ptr %150, align 4
-  %159 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %160 = load float, ptr %159, align 4
-  store float %158, ptr %157, align 4
-  %161 = getelementptr inbounds nuw i8, ptr %149, i64 20
-  store float %160, ptr %161, align 4
-  %162 = getelementptr inbounds nuw i8, ptr %149, i64 24
-  store float 5.000000e-01, ptr %162, align 4
-  %163 = getelementptr inbounds nuw i8, ptr %149, i64 28
-  store float 1.000000e+00, ptr %163, align 4
-  %164 = getelementptr inbounds nuw i8, ptr %149, i64 32
-  %165 = load float, ptr %6, align 4
-  %166 = load float, ptr %152, align 4
-  store float %165, ptr %164, align 4
-  %167 = getelementptr inbounds nuw i8, ptr %149, i64 36
-  store float %166, ptr %167, align 4
-  %168 = getelementptr inbounds nuw i8, ptr %149, i64 40
-  store float 5.000000e-01, ptr %168, align 4
-  %169 = getelementptr inbounds nuw i8, ptr %149, i64 44
-  store float 1.000000e+00, ptr %169, align 4
-  %170 = getelementptr inbounds nuw i8, ptr %149, i64 48
-  %171 = load float, ptr %6, align 4
-  %172 = load float, ptr %159, align 4
-  store float %171, ptr %170, align 4
-  %173 = getelementptr inbounds nuw i8, ptr %149, i64 52
-  store float %172, ptr %173, align 4
-  %174 = getelementptr inbounds nuw i8, ptr %149, i64 56
-  store float 5.000000e-01, ptr %174, align 4
-  %175 = getelementptr inbounds nuw i8, ptr %149, i64 60
-  store float 1.000000e+00, ptr %175, align 4
-  %176 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %177 = load i32, ptr %176, align 8
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %179 = load i32, ptr %178, align 4
-  %180 = add nsw i32 %179, 2
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %182 = load i32, ptr %181, align 8
-  %183 = icmp sgt i32 %180, %182
-  br i1 %183, label %184, label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit
-
-184:                                              ; preds = %144
-  %185 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %180, i32 128)
-  %186 = sdiv i32 %182, 2
-  %187 = add nsw i32 %185, %186
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %189 = load ptr, ptr %188, align 8
-  %190 = mul nsw i32 %187, %177
-  %191 = sext i32 %190 to i64
-  %192 = tail call ptr @realloc(ptr noundef %189, i64 noundef %191) #31
-  %193 = icmp eq ptr %192, null
-  br i1 %193, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split, label %194
-
-194:                                              ; preds = %184
-  store ptr %192, ptr %188, align 8
-  store i32 %187, ptr %181, align 8
-  %.pre.i120 = load i32, ptr %178, align 4
-  %.pre22.i = add nsw i32 %.pre.i120, 2
-  br label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit
-
-_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit: ; preds = %144, %194
-  %.pre-phi.i118 = phi i32 [ %.pre22.i, %194 ], [ %180, %144 ]
-  %195 = phi i32 [ %.pre.i120, %194 ], [ %179, %144 ]
-  %196 = mul nsw i32 %195, %177
-  store i32 %.pre-phi.i118, ptr %178, align 4
-  %197 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store i32 %196, ptr %197, align 4
-  %198 = icmp eq i32 %196, -1
-  br i1 %198, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %199
-
-199:                                              ; preds = %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit
-  %200 = getelementptr i8, ptr %0, i64 120
-  %.val = load ptr, ptr %200, align 8
-  %201 = sext i32 %196 to i64
-  %202 = getelementptr inbounds i8, ptr %.val, i64 %201
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(176) %202, i8 0, i64 172, i1 false)
-  %203 = getelementptr inbounds nuw i8, ptr %202, i64 164
-  store float -1.000000e+00, ptr %203, align 4
-  %204 = getelementptr inbounds nuw i8, ptr %202, i64 172
-  store i32 2, ptr %204, align 4
-  %205 = load i32, ptr %197, align 4
-  %206 = load i32, ptr %176, align 8
-  %207 = add nsw i32 %206, %205
-  %.val109 = load ptr, ptr %200, align 8
-  %208 = sext i32 %207 to i64
-  %209 = getelementptr inbounds i8, ptr %.val109, i64 %208
-  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef nonnull %0, ptr noundef %209, ptr noundef %1, ptr noundef %4, float noundef %5, float noundef %5, float noundef -1.000000e+00)
-  br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
-
-210:                                              ; preds = %._crit_edge
-  %211 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %212 = load i32, ptr %211, align 8
-  %213 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %214 = load i32, ptr %213, align 4
-  %215 = add nsw i32 %214, 1
-  %216 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %217 = load i32, ptr %216, align 8
-  %.not131 = icmp slt i32 %214, %217
-  br i1 %.not131, label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit125, label %218
-
-218:                                              ; preds = %210
-  %219 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %215, i32 128)
-  %220 = sdiv i32 %217, 2
-  %221 = add nsw i32 %219, %220
-  %222 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %223 = load ptr, ptr %222, align 8
-  %224 = mul nsw i32 %221, %212
-  %225 = sext i32 %224 to i64
-  %226 = tail call ptr @realloc(ptr noundef %223, i64 noundef %225) #31
-  %227 = icmp eq ptr %226, null
-  br i1 %227, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split, label %228
-
-228:                                              ; preds = %218
-  store ptr %226, ptr %222, align 8
-  store i32 %221, ptr %216, align 8
-  %.pre.i123 = load i32, ptr %213, align 4
-  %.pre22.i124 = add nsw i32 %.pre.i123, 1
-  br label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit125
-
-_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit125: ; preds = %210, %228
-  %.pre-phi.i121 = phi i32 [ %.pre22.i124, %228 ], [ %215, %210 ]
-  %229 = phi i32 [ %.pre.i123, %228 ], [ %214, %210 ]
-  %230 = mul nsw i32 %229, %212
-  store i32 %.pre-phi.i121, ptr %213, align 4
-  %231 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store i32 %230, ptr %231, align 4
-  %232 = icmp eq i32 %230, -1
-  br i1 %232, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %233
-
-233:                                              ; preds = %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit125
-  %234 = getelementptr i8, ptr %0, i64 120
-  %.val110 = load ptr, ptr %234, align 8
-  %235 = sext i32 %230 to i64
-  %236 = getelementptr inbounds i8, ptr %.val110, i64 %235
-  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef nonnull %0, ptr noundef %236, ptr noundef %1, ptr noundef %4, float noundef %5, float noundef %5, float noundef -1.000000e+00)
-  br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
-
-_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split: ; preds = %218, %184, %40
-  %.sink135 = phi i64 [ 8, %40 ], [ 24, %184 ], [ 24, %218 ]
-  %237 = getelementptr inbounds nuw i8, ptr %31, i64 %.sink135
-  store i32 -1, ptr %237, align 4
-  br label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread
-
-_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread: ; preds = %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split, %85, %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit125, %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit, %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit, %_ZL17glnvg__allocPathsP12GLNVGcontexti.exit
-  %238 = load i32, ptr %10, align 4
-  %239 = icmp sgt i32 %238, 0
-  br i1 %239, label %240, label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
-
-240:                                              ; preds = %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread
-  %241 = add nsw i32 %238, -1
-  store i32 %241, ptr %10, align 4
-  br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
-
-_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread: ; preds = %14, %199, %233, %240, %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define internal void @_ZL19glnvg__renderStrokePvP8NVGpaint26NVGcompositeOperationStateP10NVGscissorffPK7NVGpathi(ptr nocapture noundef %0, ptr noundef %1, i64 %2, i64 %3, ptr noundef %4, float noundef %5, float noundef %6, ptr nocapture noundef readonly %7, i32 noundef %8) #3 {
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %13 = load i32, ptr %12, align 8
-  %.not.i = icmp slt i32 %11, %13
-  br i1 %.not.i, label %._crit_edge.i, label %14
-
-._crit_edge.i:                                    ; preds = %9
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  br label %26
-
-14:                                               ; preds = %9
-  %15 = tail call i32 @llvm.smax.i32(i32 %11, i32 127)
-  %16 = add nuw nsw i32 %15, 1
-  %17 = sdiv i32 %13, 2
-  %18 = add nsw i32 %16, %17
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %20 = load ptr, ptr %19, align 8
-  %21 = sext i32 %18 to i64
-  %22 = mul nsw i64 %21, 44
-  %23 = tail call ptr @realloc(ptr noundef %20, i64 noundef %22) #31
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread, label %25
-
-25:                                               ; preds = %14
-  store ptr %23, ptr %19, align 8
-  store i32 %18, ptr %12, align 8
-  %.pre17.i = load i32, ptr %10, align 4
-  br label %26
-
-26:                                               ; preds = %25, %._crit_edge.i
-  %27 = phi i32 [ %11, %._crit_edge.i ], [ %.pre17.i, %25 ]
-  %28 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %23, %25 ]
-  %29 = add nsw i32 %27, 1
-  store i32 %29, ptr %10, align 4
-  %30 = sext i32 %27 to i64
-  %31 = getelementptr inbounds %struct.GLNVGcall, ptr %28, i64 %30
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %32, i8 0, i64 40, i1 false)
-  store i32 3, ptr %31, align 4
+_ZL16glnvg__allocCallP12GLNVGcontext.exit:        ; preds = %._crit_edge.i, %25
+  %26 = phi i32 [ %11, %._crit_edge.i ], [ %.pre17.i, %25 ]
+  %27 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %23, %25 ]
+  %28 = add nsw i32 %26, 1
+  store i32 %28, ptr %10, align 4
+  %29 = sext i32 %26 to i64
+  %30 = getelementptr inbounds %struct.GLNVGcall, ptr %27, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %31, i8 0, i64 40, i1 false)
+  store i32 1, ptr %30, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 20
+  store i32 4, ptr %32, align 4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %34 = load i32, ptr %33, align 4
   %35 = add nsw i32 %34, %8
@@ -1811,7 +1389,7 @@ define internal void @_ZL19glnvg__renderStrokePvP8NVGpaint26NVGcompositeOperatio
   %38 = icmp sgt i32 %35, %37
   br i1 %38, label %39, label %_ZL17glnvg__allocPathsP12GLNVGcontexti.exit
 
-39:                                               ; preds = %26
+39:                                               ; preds = %_ZL16glnvg__allocCallP12GLNVGcontext.exit
   %40 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %35, i32 128)
   %41 = sdiv i32 %37, 2
   %42 = add nsw i32 %40, %41
@@ -1826,265 +1404,687 @@ define internal void @_ZL19glnvg__renderStrokePvP8NVGpaint26NVGcompositeOperatio
 49:                                               ; preds = %39
   store ptr %47, ptr %43, align 8
   store i32 %42, ptr %36, align 8
-  %.pre.i82 = load i32, ptr %33, align 4
-  %.pre19.i = add nsw i32 %.pre.i82, %8
+  %.pre.i112 = load i32, ptr %33, align 4
+  %.pre19.i = add nsw i32 %.pre.i112, %8
   br label %_ZL17glnvg__allocPathsP12GLNVGcontexti.exit
 
-_ZL17glnvg__allocPathsP12GLNVGcontexti.exit:      ; preds = %26, %49
-  %.pre-phi.i = phi i32 [ %.pre19.i, %49 ], [ %35, %26 ]
-  %50 = phi i32 [ %.pre.i82, %49 ], [ %34, %26 ]
+_ZL17glnvg__allocPathsP12GLNVGcontexti.exit:      ; preds = %_ZL16glnvg__allocCallP12GLNVGcontext.exit, %49
+  %.pre-phi.i = phi i32 [ %.pre19.i, %49 ], [ %35, %_ZL16glnvg__allocCallP12GLNVGcontext.exit ]
+  %50 = phi i32 [ %.pre.i112, %49 ], [ %34, %_ZL16glnvg__allocCallP12GLNVGcontext.exit ]
   store i32 %.pre-phi.i, ptr %33, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 %50, ptr %51, align 4
   %52 = icmp eq i32 %50, -1
   br i1 %52, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %53
 
 53:                                               ; preds = %_ZL17glnvg__allocPathsP12GLNVGcontexti.exit
-  %54 = getelementptr inbounds nuw i8, ptr %31, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %30, i64 12
   store i32 %8, ptr %54, align 4
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 %56, ptr %57, align 4
   %58 = tail call fastcc { i64, i64 } @_ZL30glnvg__blendCompositeOperation26NVGcompositeOperationState(i64 %2, i64 %3)
   %59 = extractvalue { i64, i64 } %58, 0
   %60 = extractvalue { i64, i64 } %58, 1
-  %61 = getelementptr inbounds nuw i8, ptr %31, i64 28
+  %61 = getelementptr inbounds nuw i8, ptr %30, i64 28
   store i64 %59, ptr %61, align 4
-  %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 36
-  store i64 %60, ptr %.sroa.29.0..sroa_idx, align 4
-  %62 = icmp sgt i32 %8, 0
-  br i1 %62, label %.lr.ph.preheader.i, label %_ZL19glnvg__maxVertCountPK7NVGpathi.exit
+  %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 36
+  store i64 %60, ptr %.sroa.216.0..sroa_idx, align 4
+  %62 = icmp eq i32 %8, 1
+  br i1 %62, label %63, label %67
 
-.lr.ph.preheader.i:                               ; preds = %53
+63:                                               ; preds = %53
+  %64 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %65 = load i32, ptr %64, align 8
+  %.not = icmp eq i32 %65, 0
+  br i1 %.not, label %.lr.ph.preheader.i, label %66
+
+66:                                               ; preds = %63
+  store i32 2, ptr %30, align 4
+  store i32 0, ptr %32, align 4
+  br label %.lr.ph.preheader.i
+
+67:                                               ; preds = %53
+  %68 = icmp sgt i32 %8, 0
+  br i1 %68, label %.lr.ph.preheader.i, label %_ZL19glnvg__maxVertCountPK7NVGpathi.exit
+
+.lr.ph.preheader.i:                               ; preds = %63, %66, %67
   %wide.trip.count.i = zext nneg i32 %8 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.011.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %69, %.lr.ph.i ]
-  %63 = getelementptr inbounds nuw %struct.NVGpath, ptr %7, i64 %indvars.iv.i
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  %65 = load i32, ptr %64, align 8
-  %66 = add nsw i32 %65, %.011.i
-  %67 = getelementptr inbounds nuw i8, ptr %63, i64 40
-  %68 = load i32, ptr %67, align 8
-  %69 = add nsw i32 %66, %68
+  %.011.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %75, %.lr.ph.i ]
+  %69 = getelementptr inbounds nuw %struct.NVGpath, ptr %7, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
+  %71 = load i32, ptr %70, align 8
+  %72 = add nsw i32 %71, %.011.i
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 40
+  %74 = load i32, ptr %73, align 8
+  %75 = add nsw i32 %72, %74
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZL19glnvg__maxVertCountPK7NVGpathi.exit, label %.lr.ph.i, !llvm.loop !17
 
-_ZL19glnvg__maxVertCountPK7NVGpathi.exit:         ; preds = %.lr.ph.i, %53
-  %.0.lcssa.i = phi i32 [ 0, %53 ], [ %69, %.lr.ph.i ]
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %71 = load i32, ptr %70, align 4
-  %72 = add nsw i32 %71, %.0.lcssa.i
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %74 = load i32, ptr %73, align 8
-  %75 = icmp sgt i32 %72, %74
-  br i1 %75, label %76, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
+_ZL19glnvg__maxVertCountPK7NVGpathi.exit:         ; preds = %.lr.ph.i, %67
+  %.0.lcssa.i = phi i32 [ 0, %67 ], [ %75, %.lr.ph.i ]
+  %76 = load i32, ptr %32, align 4
+  %77 = add nsw i32 %76, %.0.lcssa.i
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %79 = load i32, ptr %78, align 4
+  %80 = add nsw i32 %79, %77
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %82 = load i32, ptr %81, align 8
+  %83 = icmp sgt i32 %80, %82
+  br i1 %83, label %84, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
 
-76:                                               ; preds = %_ZL19glnvg__maxVertCountPK7NVGpathi.exit
-  %77 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %72, i32 4096)
-  %78 = sdiv i32 %74, 2
-  %79 = add nsw i32 %77, %78
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %81 = load ptr, ptr %80, align 8
-  %82 = sext i32 %79 to i64
-  %83 = shl nsw i64 %82, 4
-  %84 = tail call ptr @realloc(ptr noundef %81, i64 noundef %83) #31
-  %85 = icmp eq ptr %84, null
-  br i1 %85, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %86
+84:                                               ; preds = %_ZL19glnvg__maxVertCountPK7NVGpathi.exit
+  %85 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %80, i32 4096)
+  %86 = sdiv i32 %82, 2
+  %87 = add nsw i32 %85, %86
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %89 = load ptr, ptr %88, align 8
+  %90 = sext i32 %87 to i64
+  %91 = shl nsw i64 %90, 4
+  %92 = tail call ptr @realloc(ptr noundef %89, i64 noundef %91) #31
+  %93 = icmp eq ptr %92, null
+  br i1 %93, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %94
 
-86:                                               ; preds = %76
-  store ptr %84, ptr %80, align 8
-  store i32 %79, ptr %73, align 8
-  %.pre.i86 = load i32, ptr %70, align 4
-  %.pre19.i87 = add nsw i32 %.pre.i86, %.0.lcssa.i
+94:                                               ; preds = %84
+  store ptr %92, ptr %88, align 8
+  store i32 %87, ptr %81, align 8
+  %.pre.i116 = load i32, ptr %78, align 4
+  %.pre19.i117 = add nsw i32 %.pre.i116, %77
   br label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
 
-_ZL17glnvg__allocVertsP12GLNVGcontexti.exit:      ; preds = %_ZL19glnvg__maxVertCountPK7NVGpathi.exit, %86
-  %.pre-phi.i84 = phi i32 [ %.pre19.i87, %86 ], [ %72, %_ZL19glnvg__maxVertCountPK7NVGpathi.exit ]
-  %87 = phi i32 [ %.pre.i86, %86 ], [ %71, %_ZL19glnvg__maxVertCountPK7NVGpathi.exit ]
-  store i32 %.pre-phi.i84, ptr %70, align 4
-  %88 = icmp eq i32 %87, -1
-  br i1 %88, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %.preheader
+_ZL17glnvg__allocVertsP12GLNVGcontexti.exit:      ; preds = %_ZL19glnvg__maxVertCountPK7NVGpathi.exit, %94
+  %.pre-phi.i114 = phi i32 [ %.pre19.i117, %94 ], [ %80, %_ZL19glnvg__maxVertCountPK7NVGpathi.exit ]
+  %95 = phi i32 [ %.pre.i116, %94 ], [ %79, %_ZL19glnvg__maxVertCountPK7NVGpathi.exit ]
+  store i32 %.pre-phi.i114, ptr %78, align 4
+  %96 = icmp eq i32 %95, -1
+  br i1 %96, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
-  br i1 %62, label %.lr.ph, label %._crit_edge
+  %97 = icmp sgt i32 %8, 0
+  br i1 %97, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %wide.trip.count = zext nneg i32 %8 to i64
-  br label %91
+  br label %100
 
-91:                                               ; preds = %.lr.ph, %114
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %114 ]
-  %.072102 = phi i32 [ %87, %.lr.ph ], [ %.1, %114 ]
-  %92 = load ptr, ptr %89, align 8
-  %93 = load i32, ptr %51, align 4
-  %94 = trunc nuw nsw i64 %indvars.iv to i32
-  %95 = add nsw i32 %93, %94
-  %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds %struct.GLNVGpath, ptr %92, i64 %96
-  %98 = getelementptr inbounds nuw %struct.NVGpath, ptr %7, i64 %indvars.iv
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %97, i8 0, i64 16, i1 false)
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
-  %100 = load i32, ptr %99, align 8
-  %.not78 = icmp eq i32 %100, 0
-  br i1 %.not78, label %114, label %101
+100:                                              ; preds = %.lr.ph, %140
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %140 ]
+  %.0103132 = phi i32 [ %95, %.lr.ph ], [ %.2, %140 ]
+  %101 = load ptr, ptr %98, align 8
+  %102 = load i32, ptr %51, align 4
+  %103 = trunc nuw nsw i64 %indvars.iv to i32
+  %104 = add nsw i32 %102, %103
+  %105 = sext i32 %104 to i64
+  %106 = getelementptr inbounds %struct.GLNVGpath, ptr %101, i64 %105
+  %107 = getelementptr inbounds nuw %struct.NVGpath, ptr %7, i64 %indvars.iv
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %106, i8 0, i64 16, i1 false)
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
+  %109 = load i32, ptr %108, align 8
+  %110 = icmp sgt i32 %109, 0
+  br i1 %110, label %111, label %123
 
-101:                                              ; preds = %91
-  %102 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  store i32 %.072102, ptr %102, align 4
-  %103 = load i32, ptr %99, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %97, i64 12
-  store i32 %103, ptr %104, align 4
-  %105 = load ptr, ptr %90, align 8
-  %106 = sext i32 %.072102 to i64
-  %107 = getelementptr inbounds %struct.NVGvertex, ptr %105, i64 %106
-  %108 = getelementptr inbounds nuw i8, ptr %98, i64 32
-  %109 = load ptr, ptr %108, align 8
-  %110 = sext i32 %103 to i64
-  %111 = shl nsw i64 %110, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %107, ptr align 4 %109, i64 %111, i1 false)
-  %112 = load i32, ptr %99, align 8
-  %113 = add nsw i32 %112, %.072102
-  br label %114
+111:                                              ; preds = %100
+  store i32 %.0103132, ptr %106, align 4
+  %112 = load i32, ptr %108, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %106, i64 4
+  store i32 %112, ptr %113, align 4
+  %114 = load ptr, ptr %99, align 8
+  %115 = sext i32 %.0103132 to i64
+  %116 = getelementptr inbounds %struct.NVGvertex, ptr %114, i64 %115
+  %117 = getelementptr inbounds nuw i8, ptr %107, i64 16
+  %118 = load ptr, ptr %117, align 8
+  %119 = sext i32 %112 to i64
+  %120 = shl nsw i64 %119, 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %116, ptr align 4 %118, i64 %120, i1 false)
+  %121 = load i32, ptr %108, align 8
+  %122 = add nsw i32 %121, %.0103132
+  br label %123
 
-114:                                              ; preds = %91, %101
-  %.1 = phi i32 [ %113, %101 ], [ %.072102, %91 ]
+123:                                              ; preds = %111, %100
+  %.1 = phi i32 [ %122, %111 ], [ %.0103132, %100 ]
+  %124 = getelementptr inbounds nuw i8, ptr %107, i64 40
+  %125 = load i32, ptr %124, align 8
+  %126 = icmp sgt i32 %125, 0
+  br i1 %126, label %127, label %140
+
+127:                                              ; preds = %123
+  %128 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  store i32 %.1, ptr %128, align 4
+  %129 = load i32, ptr %124, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %106, i64 12
+  store i32 %129, ptr %130, align 4
+  %131 = load ptr, ptr %99, align 8
+  %132 = sext i32 %.1 to i64
+  %133 = getelementptr inbounds %struct.NVGvertex, ptr %131, i64 %132
+  %134 = getelementptr inbounds nuw i8, ptr %107, i64 32
+  %135 = load ptr, ptr %134, align 8
+  %136 = sext i32 %129 to i64
+  %137 = shl nsw i64 %136, 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %133, ptr align 4 %135, i64 %137, i1 false)
+  %138 = load i32, ptr %124, align 8
+  %139 = add nsw i32 %138, %.1
+  br label %140
+
+140:                                              ; preds = %123, %127
+  %.2 = phi i32 [ %139, %127 ], [ %.1, %123 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %91, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %100, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %114, %.preheader
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %116 = load i32, ptr %115, align 4
-  %117 = and i32 %116, 2
-  %.not = icmp eq i32 %117, 0
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %119 = load i32, ptr %118, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %121 = load i32, ptr %120, align 4
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %123 = load i32, ptr %122, align 8
-  br i1 %.not, label %151, label %124
+._crit_edge:                                      ; preds = %140, %.preheader
+  %.0103.lcssa = phi i32 [ %95, %.preheader ], [ %.2, %140 ]
+  %141 = load i32, ptr %30, align 4
+  %142 = icmp eq i32 %141, 1
+  br i1 %142, label %143, label %209
 
-124:                                              ; preds = %._crit_edge
-  %125 = add nsw i32 %121, 2
-  %126 = icmp sgt i32 %125, %123
-  br i1 %126, label %127, label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit
+143:                                              ; preds = %._crit_edge
+  %144 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  store i32 %.0103.lcssa, ptr %144, align 4
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %146 = load ptr, ptr %145, align 8
+  %147 = sext i32 %.0103.lcssa to i64
+  %148 = getelementptr inbounds %struct.NVGvertex, ptr %146, i64 %147
+  %149 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %150 = load float, ptr %149, align 4
+  %151 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %152 = load float, ptr %151, align 4
+  store float %150, ptr %148, align 4
+  %153 = getelementptr inbounds nuw i8, ptr %148, i64 4
+  store float %152, ptr %153, align 4
+  %154 = getelementptr inbounds nuw i8, ptr %148, i64 8
+  store float 5.000000e-01, ptr %154, align 4
+  %155 = getelementptr inbounds nuw i8, ptr %148, i64 12
+  store float 1.000000e+00, ptr %155, align 4
+  %156 = getelementptr inbounds nuw i8, ptr %148, i64 16
+  %157 = load float, ptr %149, align 4
+  %158 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %159 = load float, ptr %158, align 4
+  store float %157, ptr %156, align 4
+  %160 = getelementptr inbounds nuw i8, ptr %148, i64 20
+  store float %159, ptr %160, align 4
+  %161 = getelementptr inbounds nuw i8, ptr %148, i64 24
+  store float 5.000000e-01, ptr %161, align 4
+  %162 = getelementptr inbounds nuw i8, ptr %148, i64 28
+  store float 1.000000e+00, ptr %162, align 4
+  %163 = getelementptr inbounds nuw i8, ptr %148, i64 32
+  %164 = load float, ptr %6, align 4
+  %165 = load float, ptr %151, align 4
+  store float %164, ptr %163, align 4
+  %166 = getelementptr inbounds nuw i8, ptr %148, i64 36
+  store float %165, ptr %166, align 4
+  %167 = getelementptr inbounds nuw i8, ptr %148, i64 40
+  store float 5.000000e-01, ptr %167, align 4
+  %168 = getelementptr inbounds nuw i8, ptr %148, i64 44
+  store float 1.000000e+00, ptr %168, align 4
+  %169 = getelementptr inbounds nuw i8, ptr %148, i64 48
+  %170 = load float, ptr %6, align 4
+  %171 = load float, ptr %158, align 4
+  store float %170, ptr %169, align 4
+  %172 = getelementptr inbounds nuw i8, ptr %148, i64 52
+  store float %171, ptr %172, align 4
+  %173 = getelementptr inbounds nuw i8, ptr %148, i64 56
+  store float 5.000000e-01, ptr %173, align 4
+  %174 = getelementptr inbounds nuw i8, ptr %148, i64 60
+  store float 1.000000e+00, ptr %174, align 4
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %176 = load i32, ptr %175, align 8
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %178 = load i32, ptr %177, align 4
+  %179 = add nsw i32 %178, 2
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %181 = load i32, ptr %180, align 8
+  %182 = icmp sgt i32 %179, %181
+  br i1 %182, label %183, label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit
 
-127:                                              ; preds = %124
-  %128 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %125, i32 128)
-  %129 = sdiv i32 %123, 2
-  %130 = add nsw i32 %128, %129
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %132 = load ptr, ptr %131, align 8
-  %133 = mul nsw i32 %130, %119
-  %134 = sext i32 %133 to i64
-  %135 = tail call ptr @realloc(ptr noundef %132, i64 noundef %134) #31
-  %136 = icmp eq ptr %135, null
-  br i1 %136, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split, label %137
+183:                                              ; preds = %143
+  %184 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %179, i32 128)
+  %185 = sdiv i32 %181, 2
+  %186 = add nsw i32 %184, %185
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %188 = load ptr, ptr %187, align 8
+  %189 = mul nsw i32 %186, %176
+  %190 = sext i32 %189 to i64
+  %191 = tail call ptr @realloc(ptr noundef %188, i64 noundef %190) #31
+  %192 = icmp eq ptr %191, null
+  br i1 %192, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split, label %193
 
-137:                                              ; preds = %127
-  store ptr %135, ptr %131, align 8
-  store i32 %130, ptr %122, align 8
-  %.pre.i90 = load i32, ptr %120, align 4
-  %.pre22.i = add nsw i32 %.pre.i90, 2
+193:                                              ; preds = %183
+  store ptr %191, ptr %187, align 8
+  store i32 %186, ptr %180, align 8
+  %.pre.i120 = load i32, ptr %177, align 4
+  %.pre22.i = add nsw i32 %.pre.i120, 2
   br label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit
 
-_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit: ; preds = %124, %137
-  %.pre-phi.i88 = phi i32 [ %.pre22.i, %137 ], [ %125, %124 ]
-  %138 = phi i32 [ %.pre.i90, %137 ], [ %121, %124 ]
-  %139 = mul nsw i32 %138, %119
-  store i32 %.pre-phi.i88, ptr %120, align 4
-  %140 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store i32 %139, ptr %140, align 4
-  %141 = icmp eq i32 %139, -1
-  br i1 %141, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %142
+_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit: ; preds = %143, %193
+  %.pre-phi.i118 = phi i32 [ %.pre22.i, %193 ], [ %179, %143 ]
+  %194 = phi i32 [ %.pre.i120, %193 ], [ %178, %143 ]
+  %195 = mul nsw i32 %194, %176
+  store i32 %.pre-phi.i118, ptr %177, align 4
+  %196 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  store i32 %195, ptr %196, align 4
+  %197 = icmp eq i32 %195, -1
+  br i1 %197, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %198
 
-142:                                              ; preds = %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit
-  %143 = getelementptr i8, ptr %0, i64 120
-  %.val = load ptr, ptr %143, align 8
-  %144 = sext i32 %139 to i64
-  %145 = getelementptr inbounds i8, ptr %.val, i64 %144
-  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef nonnull %0, ptr noundef %145, ptr noundef %1, ptr noundef %4, float noundef %6, float noundef %5, float noundef -1.000000e+00)
-  %146 = load i32, ptr %140, align 4
-  %147 = load i32, ptr %118, align 8
-  %148 = add nsw i32 %147, %146
-  %.val79 = load ptr, ptr %143, align 8
-  %149 = sext i32 %148 to i64
-  %150 = getelementptr inbounds i8, ptr %.val79, i64 %149
-  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef nonnull %0, ptr noundef %150, ptr noundef %1, ptr noundef %4, float noundef %6, float noundef %5, float noundef 0x3FEFEFEFE0000000)
+198:                                              ; preds = %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit
+  %199 = getelementptr i8, ptr %0, i64 120
+  %.val = load ptr, ptr %199, align 8
+  %200 = sext i32 %195 to i64
+  %201 = getelementptr inbounds i8, ptr %.val, i64 %200
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(176) %201, i8 0, i64 172, i1 false)
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 164
+  store float -1.000000e+00, ptr %202, align 4
+  %203 = getelementptr inbounds nuw i8, ptr %201, i64 172
+  store i32 2, ptr %203, align 4
+  %204 = load i32, ptr %196, align 4
+  %205 = load i32, ptr %175, align 8
+  %206 = add nsw i32 %205, %204
+  %.val109 = load ptr, ptr %199, align 8
+  %207 = sext i32 %206 to i64
+  %208 = getelementptr inbounds i8, ptr %.val109, i64 %207
+  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef nonnull %0, ptr noundef %208, ptr noundef %1, ptr noundef %4, float noundef %5, float noundef %5, float noundef -1.000000e+00)
   br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
 
-151:                                              ; preds = %._crit_edge
-  %152 = add nsw i32 %121, 1
-  %.not101 = icmp slt i32 %121, %123
-  br i1 %.not101, label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit95, label %153
+209:                                              ; preds = %._crit_edge
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %211 = load i32, ptr %210, align 8
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %213 = load i32, ptr %212, align 4
+  %214 = add nsw i32 %213, 1
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %216 = load i32, ptr %215, align 8
+  %.not131 = icmp slt i32 %213, %216
+  br i1 %.not131, label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit125, label %217
 
-153:                                              ; preds = %151
-  %154 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %152, i32 128)
-  %155 = sdiv i32 %123, 2
-  %156 = add nsw i32 %154, %155
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %158 = load ptr, ptr %157, align 8
-  %159 = mul nsw i32 %156, %119
-  %160 = sext i32 %159 to i64
-  %161 = tail call ptr @realloc(ptr noundef %158, i64 noundef %160) #31
-  %162 = icmp eq ptr %161, null
-  br i1 %162, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split, label %163
+217:                                              ; preds = %209
+  %218 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %214, i32 128)
+  %219 = sdiv i32 %216, 2
+  %220 = add nsw i32 %218, %219
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %222 = load ptr, ptr %221, align 8
+  %223 = mul nsw i32 %220, %211
+  %224 = sext i32 %223 to i64
+  %225 = tail call ptr @realloc(ptr noundef %222, i64 noundef %224) #31
+  %226 = icmp eq ptr %225, null
+  br i1 %226, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split, label %227
 
-163:                                              ; preds = %153
-  store ptr %161, ptr %157, align 8
-  store i32 %156, ptr %122, align 8
-  %.pre.i93 = load i32, ptr %120, align 4
-  %.pre22.i94 = add nsw i32 %.pre.i93, 1
-  br label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit95
+227:                                              ; preds = %217
+  store ptr %225, ptr %221, align 8
+  store i32 %220, ptr %215, align 8
+  %.pre.i123 = load i32, ptr %212, align 4
+  %.pre22.i124 = add nsw i32 %.pre.i123, 1
+  br label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit125
 
-_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit95: ; preds = %151, %163
-  %.pre-phi.i91 = phi i32 [ %.pre22.i94, %163 ], [ %152, %151 ]
-  %164 = phi i32 [ %.pre.i93, %163 ], [ %121, %151 ]
-  %165 = mul nsw i32 %164, %119
-  store i32 %.pre-phi.i91, ptr %120, align 4
-  %166 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store i32 %165, ptr %166, align 4
-  %167 = icmp eq i32 %165, -1
-  br i1 %167, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %168
+_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit125: ; preds = %209, %227
+  %.pre-phi.i121 = phi i32 [ %.pre22.i124, %227 ], [ %214, %209 ]
+  %228 = phi i32 [ %.pre.i123, %227 ], [ %213, %209 ]
+  %229 = mul nsw i32 %228, %211
+  store i32 %.pre-phi.i121, ptr %212, align 4
+  %230 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  store i32 %229, ptr %230, align 4
+  %231 = icmp eq i32 %229, -1
+  br i1 %231, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %232
 
-168:                                              ; preds = %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit95
-  %169 = getelementptr i8, ptr %0, i64 120
-  %.val80 = load ptr, ptr %169, align 8
-  %170 = sext i32 %165 to i64
-  %171 = getelementptr inbounds i8, ptr %.val80, i64 %170
-  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef nonnull %0, ptr noundef %171, ptr noundef %1, ptr noundef %4, float noundef %6, float noundef %5, float noundef -1.000000e+00)
+232:                                              ; preds = %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit125
+  %233 = getelementptr i8, ptr %0, i64 120
+  %.val110 = load ptr, ptr %233, align 8
+  %234 = sext i32 %229 to i64
+  %235 = getelementptr inbounds i8, ptr %.val110, i64 %234
+  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef nonnull %0, ptr noundef %235, ptr noundef %1, ptr noundef %4, float noundef %5, float noundef %5, float noundef -1.000000e+00)
   br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
 
-_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split: ; preds = %153, %127, %39
-  %.sink105 = phi i64 [ 8, %39 ], [ 24, %127 ], [ 24, %153 ]
-  %172 = getelementptr inbounds nuw i8, ptr %31, i64 %.sink105
-  store i32 -1, ptr %172, align 4
+_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split: ; preds = %217, %183, %39
+  %.sink135 = phi i64 [ 8, %39 ], [ 24, %183 ], [ 24, %217 ]
+  %236 = getelementptr inbounds nuw i8, ptr %30, i64 %.sink135
+  store i32 -1, ptr %236, align 4
   br label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread
 
-_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread: ; preds = %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split, %76, %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit95, %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit, %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit, %_ZL17glnvg__allocPathsP12GLNVGcontexti.exit
-  %173 = load i32, ptr %10, align 4
-  %174 = icmp sgt i32 %173, 0
-  br i1 %174, label %175, label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
+_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread: ; preds = %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split, %84, %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit125, %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit, %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit, %_ZL17glnvg__allocPathsP12GLNVGcontexti.exit
+  %237 = load i32, ptr %10, align 4
+  %238 = icmp sgt i32 %237, 0
+  br i1 %238, label %239, label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
 
-175:                                              ; preds = %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread
-  %176 = add nsw i32 %173, -1
-  store i32 %176, ptr %10, align 4
+239:                                              ; preds = %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread
+  %240 = add nsw i32 %237, -1
+  store i32 %240, ptr %10, align 4
   br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
 
-_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread: ; preds = %14, %142, %168, %175, %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread
+_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread: ; preds = %14, %198, %232, %239, %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL22glnvg__renderTrianglesPvP8NVGpaint26NVGcompositeOperationStateP10NVGscissorPK9NVGvertexi(ptr nocapture noundef %0, ptr noundef %1, i64 %2, i64 %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) #3 {
+define internal void @_ZL19glnvg__renderStrokePvP8NVGpaint26NVGcompositeOperationStateP10NVGscissorffPK7NVGpathi(ptr noundef captures(none) %0, ptr noundef %1, i64 %2, i64 %3, ptr noundef %4, float noundef %5, float noundef %6, ptr noundef readonly captures(none) %7, i32 noundef %8) #3 {
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %11 = load i32, ptr %10, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %13 = load i32, ptr %12, align 8
+  %.not.i = icmp slt i32 %11, %13
+  br i1 %.not.i, label %._crit_edge.i, label %14
+
+._crit_edge.i:                                    ; preds = %9
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
+  br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit
+
+14:                                               ; preds = %9
+  %15 = tail call i32 @llvm.smax.i32(i32 %11, i32 127)
+  %16 = add nuw nsw i32 %15, 1
+  %17 = sdiv i32 %13, 2
+  %18 = add nsw i32 %16, %17
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %20 = load ptr, ptr %19, align 8
+  %21 = sext i32 %18 to i64
+  %22 = mul nsw i64 %21, 44
+  %23 = tail call ptr @realloc(ptr noundef %20, i64 noundef %22) #31
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread, label %25
+
+25:                                               ; preds = %14
+  store ptr %23, ptr %19, align 8
+  store i32 %18, ptr %12, align 8
+  %.pre17.i = load i32, ptr %10, align 4
+  br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit
+
+_ZL16glnvg__allocCallP12GLNVGcontext.exit:        ; preds = %._crit_edge.i, %25
+  %26 = phi i32 [ %11, %._crit_edge.i ], [ %.pre17.i, %25 ]
+  %27 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %23, %25 ]
+  %28 = add nsw i32 %26, 1
+  store i32 %28, ptr %10, align 4
+  %29 = sext i32 %26 to i64
+  %30 = getelementptr inbounds %struct.GLNVGcall, ptr %27, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %31, i8 0, i64 40, i1 false)
+  store i32 3, ptr %30, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %33 = load i32, ptr %32, align 4
+  %34 = add nsw i32 %33, %8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %36 = load i32, ptr %35, align 8
+  %37 = icmp sgt i32 %34, %36
+  br i1 %37, label %38, label %_ZL17glnvg__allocPathsP12GLNVGcontexti.exit
+
+38:                                               ; preds = %_ZL16glnvg__allocCallP12GLNVGcontext.exit
+  %39 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %34, i32 128)
+  %40 = sdiv i32 %36, 2
+  %41 = add nsw i32 %39, %40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %43 = load ptr, ptr %42, align 8
+  %44 = sext i32 %41 to i64
+  %45 = shl nsw i64 %44, 4
+  %46 = tail call ptr @realloc(ptr noundef %43, i64 noundef %45) #31
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split, label %48
+
+48:                                               ; preds = %38
+  store ptr %46, ptr %42, align 8
+  store i32 %41, ptr %35, align 8
+  %.pre.i82 = load i32, ptr %32, align 4
+  %.pre19.i = add nsw i32 %.pre.i82, %8
+  br label %_ZL17glnvg__allocPathsP12GLNVGcontexti.exit
+
+_ZL17glnvg__allocPathsP12GLNVGcontexti.exit:      ; preds = %_ZL16glnvg__allocCallP12GLNVGcontext.exit, %48
+  %.pre-phi.i = phi i32 [ %.pre19.i, %48 ], [ %34, %_ZL16glnvg__allocCallP12GLNVGcontext.exit ]
+  %49 = phi i32 [ %.pre.i82, %48 ], [ %33, %_ZL16glnvg__allocCallP12GLNVGcontext.exit ]
+  store i32 %.pre-phi.i, ptr %32, align 4
+  %50 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store i32 %49, ptr %50, align 4
+  %51 = icmp eq i32 %49, -1
+  br i1 %51, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %52
+
+52:                                               ; preds = %_ZL17glnvg__allocPathsP12GLNVGcontexti.exit
+  %53 = getelementptr inbounds nuw i8, ptr %30, i64 12
+  store i32 %8, ptr %53, align 4
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %55 = load i32, ptr %54, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  store i32 %55, ptr %56, align 4
+  %57 = tail call fastcc { i64, i64 } @_ZL30glnvg__blendCompositeOperation26NVGcompositeOperationState(i64 %2, i64 %3)
+  %58 = extractvalue { i64, i64 } %57, 0
+  %59 = extractvalue { i64, i64 } %57, 1
+  %60 = getelementptr inbounds nuw i8, ptr %30, i64 28
+  store i64 %58, ptr %60, align 4
+  %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 36
+  store i64 %59, ptr %.sroa.29.0..sroa_idx, align 4
+  %61 = icmp sgt i32 %8, 0
+  br i1 %61, label %.lr.ph.preheader.i, label %_ZL19glnvg__maxVertCountPK7NVGpathi.exit
+
+.lr.ph.preheader.i:                               ; preds = %52
+  %wide.trip.count.i = zext nneg i32 %8 to i64
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %.011.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %68, %.lr.ph.i ]
+  %62 = getelementptr inbounds nuw %struct.NVGpath, ptr %7, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
+  %64 = load i32, ptr %63, align 8
+  %65 = add nsw i32 %64, %.011.i
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 40
+  %67 = load i32, ptr %66, align 8
+  %68 = add nsw i32 %65, %67
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %_ZL19glnvg__maxVertCountPK7NVGpathi.exit, label %.lr.ph.i, !llvm.loop !17
+
+_ZL19glnvg__maxVertCountPK7NVGpathi.exit:         ; preds = %.lr.ph.i, %52
+  %.0.lcssa.i = phi i32 [ 0, %52 ], [ %68, %.lr.ph.i ]
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %70 = load i32, ptr %69, align 4
+  %71 = add nsw i32 %70, %.0.lcssa.i
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %73 = load i32, ptr %72, align 8
+  %74 = icmp sgt i32 %71, %73
+  br i1 %74, label %75, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
+
+75:                                               ; preds = %_ZL19glnvg__maxVertCountPK7NVGpathi.exit
+  %76 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %71, i32 4096)
+  %77 = sdiv i32 %73, 2
+  %78 = add nsw i32 %76, %77
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %80 = load ptr, ptr %79, align 8
+  %81 = sext i32 %78 to i64
+  %82 = shl nsw i64 %81, 4
+  %83 = tail call ptr @realloc(ptr noundef %80, i64 noundef %82) #31
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %85
+
+85:                                               ; preds = %75
+  store ptr %83, ptr %79, align 8
+  store i32 %78, ptr %72, align 8
+  %.pre.i86 = load i32, ptr %69, align 4
+  %.pre19.i87 = add nsw i32 %.pre.i86, %.0.lcssa.i
+  br label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
+
+_ZL17glnvg__allocVertsP12GLNVGcontexti.exit:      ; preds = %_ZL19glnvg__maxVertCountPK7NVGpathi.exit, %85
+  %.pre-phi.i84 = phi i32 [ %.pre19.i87, %85 ], [ %71, %_ZL19glnvg__maxVertCountPK7NVGpathi.exit ]
+  %86 = phi i32 [ %.pre.i86, %85 ], [ %70, %_ZL19glnvg__maxVertCountPK7NVGpathi.exit ]
+  store i32 %.pre-phi.i84, ptr %69, align 4
+  %87 = icmp eq i32 %86, -1
+  br i1 %87, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %.preheader
+
+.preheader:                                       ; preds = %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
+  br i1 %61, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %.preheader
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %wide.trip.count = zext nneg i32 %8 to i64
+  br label %90
+
+90:                                               ; preds = %.lr.ph, %113
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %113 ]
+  %.072102 = phi i32 [ %86, %.lr.ph ], [ %.1, %113 ]
+  %91 = load ptr, ptr %88, align 8
+  %92 = load i32, ptr %50, align 4
+  %93 = trunc nuw nsw i64 %indvars.iv to i32
+  %94 = add nsw i32 %92, %93
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds %struct.GLNVGpath, ptr %91, i64 %95
+  %97 = getelementptr inbounds nuw %struct.NVGpath, ptr %7, i64 %indvars.iv
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %96, i8 0, i64 16, i1 false)
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 40
+  %99 = load i32, ptr %98, align 8
+  %.not78 = icmp eq i32 %99, 0
+  br i1 %.not78, label %113, label %100
+
+100:                                              ; preds = %90
+  %101 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  store i32 %.072102, ptr %101, align 4
+  %102 = load i32, ptr %98, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %96, i64 12
+  store i32 %102, ptr %103, align 4
+  %104 = load ptr, ptr %89, align 8
+  %105 = sext i32 %.072102 to i64
+  %106 = getelementptr inbounds %struct.NVGvertex, ptr %104, i64 %105
+  %107 = getelementptr inbounds nuw i8, ptr %97, i64 32
+  %108 = load ptr, ptr %107, align 8
+  %109 = sext i32 %102 to i64
+  %110 = shl nsw i64 %109, 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %106, ptr align 4 %108, i64 %110, i1 false)
+  %111 = load i32, ptr %98, align 8
+  %112 = add nsw i32 %111, %.072102
+  br label %113
+
+113:                                              ; preds = %90, %100
+  %.1 = phi i32 [ %112, %100 ], [ %.072102, %90 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %90, !llvm.loop !19
+
+._crit_edge:                                      ; preds = %113, %.preheader
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %115 = load i32, ptr %114, align 4
+  %116 = and i32 %115, 2
+  %.not = icmp eq i32 %116, 0
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %118 = load i32, ptr %117, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %120 = load i32, ptr %119, align 4
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %122 = load i32, ptr %121, align 8
+  br i1 %.not, label %150, label %123
+
+123:                                              ; preds = %._crit_edge
+  %124 = add nsw i32 %120, 2
+  %125 = icmp sgt i32 %124, %122
+  br i1 %125, label %126, label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit
+
+126:                                              ; preds = %123
+  %127 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %124, i32 128)
+  %128 = sdiv i32 %122, 2
+  %129 = add nsw i32 %127, %128
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %131 = load ptr, ptr %130, align 8
+  %132 = mul nsw i32 %129, %118
+  %133 = sext i32 %132 to i64
+  %134 = tail call ptr @realloc(ptr noundef %131, i64 noundef %133) #31
+  %135 = icmp eq ptr %134, null
+  br i1 %135, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split, label %136
+
+136:                                              ; preds = %126
+  store ptr %134, ptr %130, align 8
+  store i32 %129, ptr %121, align 8
+  %.pre.i90 = load i32, ptr %119, align 4
+  %.pre22.i = add nsw i32 %.pre.i90, 2
+  br label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit
+
+_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit: ; preds = %123, %136
+  %.pre-phi.i88 = phi i32 [ %.pre22.i, %136 ], [ %124, %123 ]
+  %137 = phi i32 [ %.pre.i90, %136 ], [ %120, %123 ]
+  %138 = mul nsw i32 %137, %118
+  store i32 %.pre-phi.i88, ptr %119, align 4
+  %139 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  store i32 %138, ptr %139, align 4
+  %140 = icmp eq i32 %138, -1
+  br i1 %140, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %141
+
+141:                                              ; preds = %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit
+  %142 = getelementptr i8, ptr %0, i64 120
+  %.val = load ptr, ptr %142, align 8
+  %143 = sext i32 %138 to i64
+  %144 = getelementptr inbounds i8, ptr %.val, i64 %143
+  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef nonnull %0, ptr noundef %144, ptr noundef %1, ptr noundef %4, float noundef %6, float noundef %5, float noundef -1.000000e+00)
+  %145 = load i32, ptr %139, align 4
+  %146 = load i32, ptr %117, align 8
+  %147 = add nsw i32 %146, %145
+  %.val79 = load ptr, ptr %142, align 8
+  %148 = sext i32 %147 to i64
+  %149 = getelementptr inbounds i8, ptr %.val79, i64 %148
+  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef nonnull %0, ptr noundef %149, ptr noundef %1, ptr noundef %4, float noundef %6, float noundef %5, float noundef 0x3FEFEFEFE0000000)
+  br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
+
+150:                                              ; preds = %._crit_edge
+  %151 = add nsw i32 %120, 1
+  %.not101 = icmp slt i32 %120, %122
+  br i1 %.not101, label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit95, label %152
+
+152:                                              ; preds = %150
+  %153 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %151, i32 128)
+  %154 = sdiv i32 %122, 2
+  %155 = add nsw i32 %153, %154
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %157 = load ptr, ptr %156, align 8
+  %158 = mul nsw i32 %155, %118
+  %159 = sext i32 %158 to i64
+  %160 = tail call ptr @realloc(ptr noundef %157, i64 noundef %159) #31
+  %161 = icmp eq ptr %160, null
+  br i1 %161, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split, label %162
+
+162:                                              ; preds = %152
+  store ptr %160, ptr %156, align 8
+  store i32 %155, ptr %121, align 8
+  %.pre.i93 = load i32, ptr %119, align 4
+  %.pre22.i94 = add nsw i32 %.pre.i93, 1
+  br label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit95
+
+_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit95: ; preds = %150, %162
+  %.pre-phi.i91 = phi i32 [ %.pre22.i94, %162 ], [ %151, %150 ]
+  %163 = phi i32 [ %.pre.i93, %162 ], [ %120, %150 ]
+  %164 = mul nsw i32 %163, %118
+  store i32 %.pre-phi.i91, ptr %119, align 4
+  %165 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  store i32 %164, ptr %165, align 4
+  %166 = icmp eq i32 %164, -1
+  br i1 %166, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread, label %167
+
+167:                                              ; preds = %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit95
+  %168 = getelementptr i8, ptr %0, i64 120
+  %.val80 = load ptr, ptr %168, align 8
+  %169 = sext i32 %164 to i64
+  %170 = getelementptr inbounds i8, ptr %.val80, i64 %169
+  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef nonnull %0, ptr noundef %170, ptr noundef %1, ptr noundef %4, float noundef %6, float noundef %5, float noundef -1.000000e+00)
+  br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
+
+_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split: ; preds = %152, %126, %38
+  %.sink105 = phi i64 [ 8, %38 ], [ 24, %126 ], [ 24, %152 ]
+  %171 = getelementptr inbounds nuw i8, ptr %30, i64 %.sink105
+  store i32 -1, ptr %171, align 4
+  br label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread
+
+_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread: ; preds = %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread.sink.split, %75, %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit95, %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit, %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit, %_ZL17glnvg__allocPathsP12GLNVGcontexti.exit
+  %172 = load i32, ptr %10, align 4
+  %173 = icmp sgt i32 %172, 0
+  br i1 %173, label %174, label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
+
+174:                                              ; preds = %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread
+  %175 = add nsw i32 %172, -1
+  store i32 %175, ptr %10, align 4
+  br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
+
+_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread: ; preds = %14, %141, %167, %174, %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit.thread
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZL22glnvg__renderTrianglesPvP8NVGpaint26NVGcompositeOperationStateP10NVGscissorPK9NVGvertexi(ptr noundef captures(none) %0, ptr noundef %1, i64 %2, i64 %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) #3 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2095,7 +2095,7 @@ define internal void @_ZL22glnvg__renderTrianglesPvP8NVGpaint26NVGcompositeOpera
 ._crit_edge.i:                                    ; preds = %7
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  br label %24
+  br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit
 
 12:                                               ; preds = %7
   %13 = tail call i32 @llvm.smax.i32(i32 %9, i32 127)
@@ -2114,141 +2114,141 @@ define internal void @_ZL22glnvg__renderTrianglesPvP8NVGpaint26NVGcompositeOpera
   store ptr %21, ptr %17, align 8
   store i32 %16, ptr %10, align 8
   %.pre17.i = load i32, ptr %8, align 4
-  br label %24
+  br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit
 
-24:                                               ; preds = %23, %._crit_edge.i
-  %25 = phi i32 [ %9, %._crit_edge.i ], [ %.pre17.i, %23 ]
-  %26 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %21, %23 ]
-  %27 = add nsw i32 %25, 1
-  store i32 %27, ptr %8, align 4
-  %28 = sext i32 %25 to i64
-  %29 = getelementptr inbounds %struct.GLNVGcall, ptr %26, i64 %28
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %30, i8 0, i64 40, i1 false)
-  store i32 4, ptr %29, align 4
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  store i32 %32, ptr %33, align 4
-  %34 = tail call fastcc { i64, i64 } @_ZL30glnvg__blendCompositeOperation26NVGcompositeOperationState(i64 %2, i64 %3)
-  %35 = extractvalue { i64, i64 } %34, 0
-  %36 = extractvalue { i64, i64 } %34, 1
-  %37 = getelementptr inbounds nuw i8, ptr %29, i64 28
-  store i64 %35, ptr %37, align 4
-  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 36
-  store i64 %36, ptr %.sroa.22.0..sroa_idx, align 4
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %39 = load i32, ptr %38, align 4
-  %40 = add nsw i32 %39, %6
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %42 = load i32, ptr %41, align 8
-  %43 = icmp sgt i32 %40, %42
-  br i1 %43, label %44, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
+_ZL16glnvg__allocCallP12GLNVGcontext.exit:        ; preds = %._crit_edge.i, %23
+  %24 = phi i32 [ %9, %._crit_edge.i ], [ %.pre17.i, %23 ]
+  %25 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %21, %23 ]
+  %26 = add nsw i32 %24, 1
+  store i32 %26, ptr %8, align 4
+  %27 = sext i32 %24 to i64
+  %28 = getelementptr inbounds %struct.GLNVGcall, ptr %25, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %29, i8 0, i64 40, i1 false)
+  store i32 4, ptr %28, align 4
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %31 = load i32, ptr %30, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  store i32 %31, ptr %32, align 4
+  %33 = tail call fastcc { i64, i64 } @_ZL30glnvg__blendCompositeOperation26NVGcompositeOperationState(i64 %2, i64 %3)
+  %34 = extractvalue { i64, i64 } %33, 0
+  %35 = extractvalue { i64, i64 } %33, 1
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 28
+  store i64 %34, ptr %36, align 4
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 36
+  store i64 %35, ptr %.sroa.22.0..sroa_idx, align 4
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %38 = load i32, ptr %37, align 4
+  %39 = add nsw i32 %38, %6
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %41 = load i32, ptr %40, align 8
+  %42 = icmp sgt i32 %39, %41
+  br i1 %42, label %43, label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
 
-44:                                               ; preds = %24
-  %45 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %40, i32 4096)
-  %46 = sdiv i32 %42, 2
-  %47 = add nsw i32 %45, %46
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %49 = load ptr, ptr %48, align 8
-  %50 = sext i32 %47 to i64
-  %51 = shl nsw i64 %50, 4
-  %52 = tail call ptr @realloc(ptr noundef %49, i64 noundef %51) #31
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %.sink.split, label %54
+43:                                               ; preds = %_ZL16glnvg__allocCallP12GLNVGcontext.exit
+  %44 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %39, i32 4096)
+  %45 = sdiv i32 %41, 2
+  %46 = add nsw i32 %44, %45
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %48 = load ptr, ptr %47, align 8
+  %49 = sext i32 %46 to i64
+  %50 = shl nsw i64 %49, 4
+  %51 = tail call ptr @realloc(ptr noundef %48, i64 noundef %50) #31
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %.sink.split, label %53
 
-54:                                               ; preds = %44
-  store ptr %52, ptr %48, align 8
-  store i32 %47, ptr %41, align 8
-  %.pre.i35 = load i32, ptr %38, align 4
+53:                                               ; preds = %43
+  store ptr %51, ptr %47, align 8
+  store i32 %46, ptr %40, align 8
+  %.pre.i35 = load i32, ptr %37, align 4
   %.pre19.i = add nsw i32 %.pre.i35, %6
   br label %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
 
-_ZL17glnvg__allocVertsP12GLNVGcontexti.exit:      ; preds = %24, %54
-  %.pre-phi.i = phi i32 [ %.pre19.i, %54 ], [ %40, %24 ]
-  %55 = phi i32 [ %.pre.i35, %54 ], [ %39, %24 ]
-  store i32 %.pre-phi.i, ptr %38, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store i32 %55, ptr %56, align 4
-  %57 = icmp eq i32 %55, -1
-  br i1 %57, label %94, label %58
+_ZL17glnvg__allocVertsP12GLNVGcontexti.exit:      ; preds = %_ZL16glnvg__allocCallP12GLNVGcontext.exit, %53
+  %.pre-phi.i = phi i32 [ %.pre19.i, %53 ], [ %39, %_ZL16glnvg__allocCallP12GLNVGcontext.exit ]
+  %54 = phi i32 [ %.pre.i35, %53 ], [ %38, %_ZL16glnvg__allocCallP12GLNVGcontext.exit ]
+  store i32 %.pre-phi.i, ptr %37, align 4
+  %55 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  store i32 %54, ptr %55, align 4
+  %56 = icmp eq i32 %54, -1
+  br i1 %56, label %93, label %57
 
-58:                                               ; preds = %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
-  %59 = getelementptr inbounds nuw i8, ptr %29, i64 20
-  store i32 %6, ptr %59, align 4
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %61 = load ptr, ptr %60, align 8
-  %62 = sext i32 %55 to i64
-  %63 = getelementptr inbounds %struct.NVGvertex, ptr %61, i64 %62
-  %64 = sext i32 %6 to i64
-  %65 = shl nsw i64 %64, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %63, ptr align 4 %5, i64 %65, i1 false)
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %67 = load i32, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %69 = load i32, ptr %68, align 4
-  %70 = add nsw i32 %69, 1
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %72 = load i32, ptr %71, align 8
-  %.not = icmp slt i32 %69, %72
-  br i1 %.not, label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit, label %73
+57:                                               ; preds = %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
+  %58 = getelementptr inbounds nuw i8, ptr %28, i64 20
+  store i32 %6, ptr %58, align 4
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %60 = load ptr, ptr %59, align 8
+  %61 = sext i32 %54 to i64
+  %62 = getelementptr inbounds %struct.NVGvertex, ptr %60, i64 %61
+  %63 = sext i32 %6 to i64
+  %64 = shl nsw i64 %63, 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %62, ptr align 4 %5, i64 %64, i1 false)
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %66 = load i32, ptr %65, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %68 = load i32, ptr %67, align 4
+  %69 = add nsw i32 %68, 1
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %71 = load i32, ptr %70, align 8
+  %.not = icmp slt i32 %68, %71
+  br i1 %.not, label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit, label %72
 
-73:                                               ; preds = %58
-  %74 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %70, i32 128)
-  %75 = sdiv i32 %72, 2
-  %76 = add nsw i32 %74, %75
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %78 = load ptr, ptr %77, align 8
-  %79 = mul nsw i32 %76, %67
-  %80 = sext i32 %79 to i64
-  %81 = tail call ptr @realloc(ptr noundef %78, i64 noundef %80) #31
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %.sink.split, label %83
+72:                                               ; preds = %57
+  %73 = tail call noundef range(i32 4, -2147483648) i32 @llvm.smax.i32(i32 %69, i32 128)
+  %74 = sdiv i32 %71, 2
+  %75 = add nsw i32 %73, %74
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %77 = load ptr, ptr %76, align 8
+  %78 = mul nsw i32 %75, %66
+  %79 = sext i32 %78 to i64
+  %80 = tail call ptr @realloc(ptr noundef %77, i64 noundef %79) #31
+  %81 = icmp eq ptr %80, null
+  br i1 %81, label %.sink.split, label %82
 
-83:                                               ; preds = %73
-  store ptr %81, ptr %77, align 8
-  store i32 %76, ptr %71, align 8
-  %.pre.i38 = load i32, ptr %68, align 4
+82:                                               ; preds = %72
+  store ptr %80, ptr %76, align 8
+  store i32 %75, ptr %70, align 8
+  %.pre.i38 = load i32, ptr %67, align 4
   %.pre22.i = add nsw i32 %.pre.i38, 1
   br label %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit
 
-_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit: ; preds = %58, %83
-  %.pre-phi.i36 = phi i32 [ %.pre22.i, %83 ], [ %70, %58 ]
-  %84 = phi i32 [ %.pre.i38, %83 ], [ %69, %58 ]
-  %85 = mul nsw i32 %84, %67
-  store i32 %.pre-phi.i36, ptr %68, align 4
-  %86 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store i32 %85, ptr %86, align 4
-  %87 = icmp eq i32 %85, -1
-  br i1 %87, label %94, label %88
+_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit: ; preds = %57, %82
+  %.pre-phi.i36 = phi i32 [ %.pre22.i, %82 ], [ %69, %57 ]
+  %83 = phi i32 [ %.pre.i38, %82 ], [ %68, %57 ]
+  %84 = mul nsw i32 %83, %66
+  store i32 %.pre-phi.i36, ptr %67, align 4
+  %85 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  store i32 %84, ptr %85, align 4
+  %86 = icmp eq i32 %84, -1
+  br i1 %86, label %93, label %87
 
-88:                                               ; preds = %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit
-  %89 = getelementptr i8, ptr %0, i64 120
-  %.val = load ptr, ptr %89, align 8
-  %90 = sext i32 %85 to i64
-  %91 = getelementptr inbounds i8, ptr %.val, i64 %90
-  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef nonnull %0, ptr noundef %91, ptr noundef nonnull %1, ptr noundef %4, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef -1.000000e+00)
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 172
-  store i32 3, ptr %92, align 4
+87:                                               ; preds = %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit
+  %88 = getelementptr i8, ptr %0, i64 120
+  %.val = load ptr, ptr %88, align 8
+  %89 = sext i32 %84 to i64
+  %90 = getelementptr inbounds i8, ptr %.val, i64 %89
+  tail call fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef nonnull %0, ptr noundef %90, ptr noundef nonnull %1, ptr noundef %4, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef -1.000000e+00)
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 172
+  store i32 3, ptr %91, align 4
   br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
 
-.sink.split:                                      ; preds = %73, %44
-  %.sink42 = phi i64 [ 16, %44 ], [ 24, %73 ]
-  %93 = getelementptr inbounds nuw i8, ptr %29, i64 %.sink42
-  store i32 -1, ptr %93, align 4
-  br label %94
+.sink.split:                                      ; preds = %72, %43
+  %.sink42 = phi i64 [ 16, %43 ], [ 24, %72 ]
+  %92 = getelementptr inbounds nuw i8, ptr %28, i64 %.sink42
+  store i32 -1, ptr %92, align 4
+  br label %93
 
-94:                                               ; preds = %.sink.split, %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit, %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
-  %95 = load i32, ptr %8, align 4
-  %96 = icmp sgt i32 %95, 0
-  br i1 %96, label %97, label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
+93:                                               ; preds = %.sink.split, %_ZL24glnvg__allocFragUniformsP12GLNVGcontexti.exit, %_ZL17glnvg__allocVertsP12GLNVGcontexti.exit
+  %94 = load i32, ptr %8, align 4
+  %95 = icmp sgt i32 %94, 0
+  br i1 %95, label %96, label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
 
-97:                                               ; preds = %94
-  %98 = add nsw i32 %95, -1
-  store i32 %98, ptr %8, align 4
+96:                                               ; preds = %93
+  %97 = add nsw i32 %94, -1
+  store i32 %97, ptr %8, align 4
   br label %_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread
 
-_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread: ; preds = %12, %97, %94, %88
+_ZL16glnvg__allocCallP12GLNVGcontext.exit.thread: ; preds = %12, %96, %93, %87
   ret void
 }
 
@@ -2648,7 +2648,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui6ScreenC2ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjj(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i32 noundef %8, i32 noundef %9) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7nanogui6ScreenC2ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjj(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i32 noundef %8, i32 noundef %9) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3601,7 +3601,7 @@ declare void @_ZN7nanogui5ThemeC1EP10NVGcontext(ptr noundef nonnull align 8 dere
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare double @glfwGetTime() local_unnamed_addr #0
 
@@ -3824,7 +3824,7 @@ define hidden void @_ZN7nanogui6ScreenD0Ev(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui6Screen11set_visibleEb(ptr nocapture noundef nonnull align 8 dereferenceable(384) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7nanogui6Screen11set_visibleEb(ptr noundef nonnull align 8 captures(none) dereferenceable(384) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -3891,7 +3891,7 @@ declare void @glfwSetWindowTitle(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui6Screen8set_sizeERKNS_5ArrayIiLm2EEE(ptr nocapture noundef nonnull align 8 dereferenceable(384) initializes((48, 56)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7nanogui6Screen8set_sizeERKNS_5ArrayIiLm2EEE(ptr noundef nonnull align 8 captures(none) dereferenceable(384) initializes((48, 56)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %1, align 4
   store i64 %4, ptr %3, align 8
@@ -3913,7 +3913,7 @@ define hidden void @_ZN7nanogui6Screen8set_sizeERKNS_5ArrayIiLm2EEE(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui6Screen5clearEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN7nanogui6Screen5clearEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(384) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %3 = load float, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -3961,7 +3961,7 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui6Screen13draw_teardownEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN7nanogui6Screen13draw_teardownEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(384) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   tail call void @glfwSwapBuffers(ptr noundef %3)
@@ -4307,7 +4307,7 @@ define hidden void @_ZN7nanogui6Screen13draw_contentsEv(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui6Screen9nvg_flushEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7nanogui6Screen9nvg_flushEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(384) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @nvgInternalParams(ptr noundef %3)
@@ -4400,7 +4400,7 @@ declare void @nvgFontBlur(ptr noundef, float noundef) local_unnamed_addr #0
 declare void @nvgTextBox(ptr noundef, float noundef, float noundef, float noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN7nanogui6Screen14keyboard_eventEiiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN7nanogui6Screen14keyboard_eventEiiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(384) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %8 = load ptr, ptr %7, align 8
@@ -4443,7 +4443,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui6Screen14keyboard_eventEiiii(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN7nanogui6Screen24keyboard_character_eventEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN7nanogui6Screen24keyboard_character_eventEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(384) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = load ptr, ptr %4, align 8
@@ -4486,7 +4486,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui6Screen24keyboard_character_eventEj
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN7nanogui6Screen12resize_eventERKNS_5ArrayIiLm2EEE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN7nanogui6Screen12resize_eventERKNS_5ArrayIiLm2EEE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.nanogui::Array", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %5 = load ptr, ptr %4, align 8
@@ -4515,7 +4515,7 @@ _ZNKSt8functionIFvN7nanogui5ArrayIiLm2EEEEEclES2_.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui6Screen6redrawEv(ptr nocapture noundef nonnull align 8 dereferenceable(384) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7nanogui6Screen6redrawEv(ptr noundef nonnull align 8 captures(none) dereferenceable(384) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 349
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -5035,7 +5035,7 @@ _ZN7nanogui6Screen12update_focusEPNS_6WidgetE.exit: ; preds = %129, %._crit_edge
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui6Screen12update_focusEPNS_6WidgetE(ptr nocapture noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7nanogui6Screen12update_focusEPNS_6WidgetE(ptr noundef nonnull align 8 captures(none) dereferenceable(384) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -5338,7 +5338,7 @@ define hidden void @_ZN7nanogui6Screen19char_callback_eventEj(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui6Screen19drop_callback_eventEiPPKc(ptr noundef nonnull align 8 dereferenceable(384) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7nanogui6Screen19drop_callback_eventEiPPKc(ptr noundef nonnull align 8 dereferenceable(384) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.27", align 8
   %5 = sext i32 %1 to i64
   %6 = icmp slt i32 %1, 0
@@ -5747,7 +5747,7 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge: ; preds = %_ZNK7nan
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui6Screen20move_window_to_frontEPNS_6WindowE(ptr nocapture noundef nonnull align 8 dereferenceable(384) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7nanogui6Screen20move_window_to_frontEPNS_6WindowE(ptr noundef nonnull align 8 captures(none) dereferenceable(384) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -6159,7 +6159,7 @@ _ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit: ; preds = %._crit_edge.i.i
 declare void @_ZN7nanogui6Widget12remove_childEPKS0_(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui6Screen13center_windowEPNS_6WindowE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7nanogui6Screen13center_windowEPNS_6WindowE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(384) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
 _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %3
@@ -6243,12 +6243,12 @@ define hidden noundef zeroext i1 @_ZNK7nanogui6Screen24tooltip_fade_in_progressE
 declare noundef ptr @_ZNK7nanogui6Widget11find_widgetERKNS_5ArrayIiLm2EEE(ptr noundef nonnull align 8 dereferenceable(140), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i8 @_ZNK7nanogui6Screen12pixel_formatEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(384) %0) local_unnamed_addr #16 align 2 {
+define hidden noundef zeroext i8 @_ZNK7nanogui6Screen12pixel_formatEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(384) %0) local_unnamed_addr #16 align 2 {
   ret i8 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext range(i8 2, 10) i8 @_ZNK7nanogui6Screen16component_formatEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %0) local_unnamed_addr #17 align 2 {
+define hidden noundef zeroext range(i8 2, 10) i8 @_ZNK7nanogui6Screen16component_formatEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(384) %0) local_unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 348
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
@@ -6284,7 +6284,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7nanogui6Screen10drop_eventERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL19glnvg__createShaderP11GLNVGshaderPKcS2_S2_S2_S2_(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL19glnvg__createShaderP11GLNVGshaderPKcS2_S2_S2_S2_(ptr noundef writeonly captures(none) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #3 {
   %3 = alloca [513 x i8], align 16
   %4 = alloca i32, align 4
   %5 = alloca [513 x i8], align 16
@@ -6426,7 +6426,7 @@ declare void @glFinish() local_unnamed_addr #0
 declare i32 @glGetError() local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #18
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #18
 
 declare i32 @glCreateProgram() local_unnamed_addr #0
 
@@ -6509,7 +6509,7 @@ declare void @glDisableVertexAttribArray(i32 noundef) local_unnamed_addr #0
 declare void @glBlendFuncSeparate(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL18glnvg__setUniformsP12GLNVGcontextii(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc void @_ZL18glnvg__setUniformsP12GLNVGcontextii(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %1 to i64
@@ -6821,7 +6821,7 @@ _ZL28glnvg_convertBlendFuncFactori.exit18.thread: ; preds = %_ZL28glnvg_convertB
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 176)) %1, ptr noundef %2, ptr noundef %3, float noundef %4, float noundef %5, float noundef %6) unnamed_addr #14 {
+define internal fastcc void @_ZL19glnvg__convertPaintP12GLNVGcontextP17GLNVGfragUniformsP8NVGpaintP10NVGscissorfff(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 176)) %1, ptr noundef %2, ptr noundef %3, float noundef %4, float noundef %5, float noundef %6) unnamed_addr #14 {
   %8 = alloca [6 x float], align 16
   %9 = alloca [6 x float], align 16
   %10 = alloca [6 x float], align 16
@@ -7088,7 +7088,7 @@ _ZL18glnvg__findTextureP12GLNVGcontexti.exit.thread: ; preds = %95, %89, %130
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #19
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #19
 
 declare i32 @nvgTransformInverse(ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -7106,7 +7106,7 @@ declare void @glDeleteBuffers(i32 noundef, ptr noundef) local_unnamed_addr #0
 declare void @glDeleteVertexArrays(i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #21
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #21
 
 declare void @glDeleteProgram(i32 noundef) local_unnamed_addr #0
 
@@ -7333,7 +7333,7 @@ _ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE4findE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_48__invokeEP10GLFWwindowiPPKc"(ptr noundef readnone %0, i32 noundef %1, ptr nocapture noundef readonly %2) #3 align 2 {
+define internal void @"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjEN3$_48__invokeEP10GLFWwindowiPPKc"(ptr noundef readnone %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #3 align 2 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7nanogui17__nanogui_screensE, i64 16), align 8
   %.not10.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not10.i.i.i.i, label %"_ZZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjjENK3$_4clEP10GLFWwindowiPPKc.exit", label %.lr.ph.i.i.i.i
@@ -7932,7 +7932,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_screen.cpp() #24 section ".text.startup" personality ptr @__gxx_personality_v0 {
@@ -7951,7 +7951,7 @@ define internal void @_GLOBAL__sub_I_screen.cpp() #24 section ".text.startup" pe
 declare i32 @llvm.eh.typeid.for.p0(ptr) #25
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #26
@@ -7960,10 +7960,10 @@ declare i32 @llvm.smax.i32(i32, i32) #26
 declare float @llvm.sqrt.f32(float) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #28
@@ -7978,7 +7978,7 @@ declare i64 @llvm.umax.i64(i64, i64) #26
 declare i64 @llvm.umin.i64(i64, i64) #26
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #30
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #30
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }

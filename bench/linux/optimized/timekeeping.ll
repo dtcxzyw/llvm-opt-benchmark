@@ -262,10 +262,10 @@ define dso_local i64 @ktime_get_boot_fast_ns() #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @ktime_get_tai_fast_ns() #0 align 16 {
@@ -459,7 +459,7 @@ define dso_local i32 @pvclock_gtod_unregister_notifier(ptr noundef %0) #0 align 
 declare dso_local i32 @raw_notifier_chain_unregister(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ktime_get_real_ts64(ptr nocapture noundef %0) #0 align 16 {
+define dso_local void @ktime_get_real_ts64(ptr noundef captures(none) %0) #0 align 16 {
   %2 = alloca i64, align 8
   %3 = load i32, ptr @timekeeping_suspended, align 4
   %4 = icmp eq i32 %3, 0
@@ -860,7 +860,7 @@ define dso_local i64 @ktime_get_raw() #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ktime_get_ts64(ptr nocapture noundef %0) #0 align 16 {
+define dso_local void @ktime_get_ts64(ptr noundef captures(none) %0) #0 align 16 {
   %2 = alloca i64, align 8
   %3 = load i32, ptr @timekeeping_suspended, align 4
   %4 = icmp eq i32 %3, 0
@@ -960,10 +960,10 @@ define dso_local void @ktime_get_ts64(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @ktime_get_seconds() #0 align 16 {
@@ -995,7 +995,7 @@ define dso_local i64 @__ktime_get_real_seconds() local_unnamed_addr #6 section "
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ktime_get_snapshot(ptr nocapture noundef writeonly %0) #0 align 16 {
+define dso_local void @ktime_get_snapshot(ptr noundef writeonly captures(none) %0) #0 align 16 {
   %2 = load i32, ptr @timekeeping_suspended, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %5, label %4, !prof !11
@@ -1094,7 +1094,7 @@ define dso_local void @ktime_get_snapshot(ptr nocapture noundef writeonly %0) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @get_device_system_crosststamp(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) #0 align 16 {
+define dso_local i32 @get_device_system_crosststamp(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) #0 align 16 {
   %5 = alloca %struct.system_counterval_t, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !67
@@ -1572,7 +1572,7 @@ tk_set_wall_to_mono.exit:                         ; preds = %.thread, %103
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tk_set_wall_to_mono(ptr nocapture noundef initializes((160, 168)) %0, i64 %1, i64 %2) unnamed_addr #0 align 16 {
+define internal fastcc void @tk_set_wall_to_mono(ptr noundef captures(none) initializes((160, 168)) %0, i64 %1, i64 %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.timespec64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !67
@@ -2182,7 +2182,7 @@ define internal noundef i32 @change_clocksource(ptr noundef %0) #0 align 16 {
 declare dso_local void @tick_clock_notify() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ktime_get_raw_ts64(ptr nocapture noundef %0) #0 align 16 {
+define dso_local void @ktime_get_raw_ts64(ptr noundef captures(none) %0) #0 align 16 {
   %2 = alloca i64, align 8
   br label %3
 
@@ -3499,7 +3499,7 @@ tk_set_wall_to_mono.exit:                         ; preds = %73, %94
 declare dso_local void @clock_was_set_delayed() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @getboottime64(ptr nocapture noundef writeonly initializes((0, 16)) %0) #0 align 16 {
+define dso_local void @getboottime64(ptr noundef writeonly captures(none) initializes((0, 16)) %0) #0 align 16 {
   %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @tk_core, i64 152), align 8
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @tk_core, i64 160), align 32
   %4 = sub i64 %2, %3
@@ -3513,7 +3513,7 @@ define dso_local void @getboottime64(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ktime_get_coarse_real_ts64(ptr nocapture noundef writeonly %0) #0 align 16 {
+define dso_local void @ktime_get_coarse_real_ts64(ptr noundef writeonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %3
 
@@ -3604,7 +3604,7 @@ define dso_local void @do_timer(i64 noundef %0) local_unnamed_addr #0 align 16 {
 declare dso_local void @calc_global_load() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @ktime_get_update_offsets_now(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
+define dso_local i64 @ktime_get_update_offsets_now(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 align 16 {
   br label %5
 
 5:                                                ; preds = %48, %4
@@ -3936,7 +3936,7 @@ declare dso_local i32 @__do_adjtimex(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare dso_local void @ntp_notify_cmos_timer() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @dummy_clock_read(ptr nocapture readnone %0) #0 align 16 {
+define internal i64 @dummy_clock_read(ptr readnone captures(none) %0) #0 align 16 {
   %2 = load i32, ptr @timekeeping_suspended, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %6, label %4

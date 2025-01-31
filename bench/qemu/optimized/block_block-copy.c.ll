@@ -111,7 +111,7 @@ declare void @shres_destroy(ptr noundef) local_unnamed_addr #1
 declare void @g_free(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @block_copy_set_copy_opts(ptr nocapture noundef initializes((104, 108)) %s, i1 noundef zeroext %use_copy_range, i1 noundef zeroext %compress) local_unnamed_addr #2 {
+define dso_local void @block_copy_set_copy_opts(ptr noundef captures(none) initializes((104, 108)) %s, i1 noundef zeroext %use_copy_range, i1 noundef zeroext %compress) local_unnamed_addr #2 {
 entry:
   %write_flags = getelementptr inbounds nuw i8, ptr %s, i64 40
   %0 = load i32, ptr %write_flags, align 8
@@ -324,17 +324,17 @@ declare void @bdrv_graph_rdunlock_main_loop() local_unnamed_addr #1
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare ptr @shres_create(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @qemu_co_mutex_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @block_copy_set_progress_meter(ptr nocapture noundef writeonly initializes((144, 152)) %s, ptr noundef %pm) local_unnamed_addr #7 {
+define dso_local void @block_copy_set_progress_meter(ptr noundef writeonly captures(none) initializes((144, 152)) %s, ptr noundef %pm) local_unnamed_addr #7 {
 entry:
   %progress = getelementptr inbounds nuw i8, ptr %s, i64 144
   store ptr %pm, ptr %progress, align 8
@@ -379,7 +379,7 @@ declare void @progress_set_remaining(ptr noundef, i64 noundef) local_unnamed_add
 declare i64 @bdrv_get_dirty_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @block_copy_reset_unallocated(ptr noundef %s, i64 noundef %offset, ptr nocapture noundef writeonly %count) #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @block_copy_reset_unallocated(ptr noundef %s, i64 noundef %offset, ptr noundef writeonly captures(none) %count) #0 {
 entry:
   %clusters = alloca i64, align 8
   %call = call i32 @block_copy_is_cluster_allocated(ptr noundef %s, i64 noundef %offset, ptr noundef nonnull %clusters)
@@ -433,7 +433,7 @@ return:                                           ; preds = %if.end2, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @block_copy_is_cluster_allocated(ptr nocapture noundef readonly %s, i64 noundef %offset, ptr nocapture noundef writeonly %pnum) #0 {
+define internal i32 @block_copy_is_cluster_allocated(ptr noundef readonly captures(none) %s, i64 noundef %offset, ptr noundef writeonly captures(none) %pnum) #0 {
 entry:
   %count = alloca i64, align 8
   %0 = load ptr, ptr %s, align 8
@@ -662,7 +662,7 @@ return:                                           ; preds = %entry, %if.end4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local zeroext i1 @block_copy_call_finished(ptr nocapture noundef readonly %call_state) local_unnamed_addr #8 {
+define dso_local zeroext i1 @block_copy_call_finished(ptr noundef readonly captures(none) %call_state) local_unnamed_addr #8 {
 entry:
   %finished = getelementptr inbounds nuw i8, ptr %call_state, i64 72
   %0 = load atomic i8, ptr %finished monotonic, align 8
@@ -671,7 +671,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local zeroext i1 @block_copy_call_succeeded(ptr nocapture noundef readonly %call_state) local_unnamed_addr #8 {
+define dso_local zeroext i1 @block_copy_call_succeeded(ptr noundef readonly captures(none) %call_state) local_unnamed_addr #8 {
 entry:
   %finished = getelementptr inbounds nuw i8, ptr %call_state, i64 72
   %0 = load atomic i8, ptr %finished acquire, align 8
@@ -696,7 +696,7 @@ land.end:                                         ; preds = %land.rhs, %while.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local zeroext i1 @block_copy_call_failed(ptr nocapture noundef readonly %call_state) local_unnamed_addr #8 {
+define dso_local zeroext i1 @block_copy_call_failed(ptr noundef readonly captures(none) %call_state) local_unnamed_addr #8 {
 entry:
   %finished = getelementptr inbounds nuw i8, ptr %call_state, i64 72
   %0 = load atomic i8, ptr %finished acquire, align 8
@@ -721,7 +721,7 @@ land.end:                                         ; preds = %land.rhs, %while.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local zeroext i1 @block_copy_call_cancelled(ptr nocapture noundef readonly %call_state) local_unnamed_addr #8 {
+define dso_local zeroext i1 @block_copy_call_cancelled(ptr noundef readonly captures(none) %call_state) local_unnamed_addr #8 {
 entry:
   %cancelled = getelementptr inbounds nuw i8, ptr %call_state, i64 88
   %0 = load atomic i8, ptr %cancelled monotonic, align 8
@@ -730,7 +730,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @block_copy_call_status(ptr nocapture noundef readonly %call_state, ptr noundef writeonly %error_is_read) local_unnamed_addr #0 {
+define dso_local i32 @block_copy_call_status(ptr noundef readonly captures(none) %call_state, ptr noundef writeonly %error_is_read) local_unnamed_addr #0 {
 entry:
   %finished = getelementptr inbounds nuw i8, ptr %call_state, i64 72
   %0 = load atomic i8, ptr %finished acquire, align 8
@@ -759,7 +759,7 @@ if.end7:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @block_copy_dirty_bitmap(ptr nocapture noundef readonly %s) local_unnamed_addr #9 {
+define dso_local ptr @block_copy_dirty_bitmap(ptr noundef readonly captures(none) %s) local_unnamed_addr #9 {
 entry:
   %copy_bitmap = getelementptr inbounds nuw i8, ptr %s, i64 136
   %0 = load ptr, ptr %copy_bitmap, align 8
@@ -767,7 +767,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @block_copy_cluster_size(ptr nocapture noundef readonly %s) local_unnamed_addr #9 {
+define dso_local i64 @block_copy_cluster_size(ptr noundef readonly captures(none) %s) local_unnamed_addr #9 {
 entry:
   %cluster_size = getelementptr inbounds nuw i8, ptr %s, i64 16
   %0 = load i64, ptr %cluster_size, align 8
@@ -775,7 +775,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @block_copy_set_skip_unallocated(ptr nocapture noundef writeonly %s, i1 noundef zeroext %skip) local_unnamed_addr #8 {
+define dso_local void @block_copy_set_skip_unallocated(ptr noundef writeonly captures(none) %s, i1 noundef zeroext %skip) local_unnamed_addr #8 {
 entry:
   %frombool = zext i1 %skip to i8
   %skip_unallocated = getelementptr inbounds nuw i8, ptr %s, i64 128
@@ -947,7 +947,7 @@ if.end77:                                         ; preds = %if.then70, %if.end6
 declare void @bdrv_graph_co_rdlock() #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @graph_lockable_auto_unlock(ptr nocapture readnone %x) #0 {
+define internal void @graph_lockable_auto_unlock(ptr readnone captures(none) %x) #0 {
 entry:
   tail call void @bdrv_graph_co_rdunlock() #14
   ret void
@@ -1655,7 +1655,7 @@ glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %block_copy_chunk_si
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, -2147483648) i32 @block_copy_block_status(ptr nocapture noundef readonly %s, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef writeonly initializes((0, 8)) %pnum) #0 {
+define internal range(i32 0, -2147483648) i32 @block_copy_block_status(ptr noundef readonly captures(none) %s, i64 noundef %offset, i64 noundef %bytes, ptr noundef writeonly captures(none) initializes((0, 8)) %pnum) #0 {
 entry:
   %num = alloca i64, align 8
   %skip_unallocated = getelementptr inbounds nuw i8, ptr %s, i64 128
@@ -1954,7 +1954,7 @@ declare void @reqlist_init_req(ptr noundef, ptr noundef, i64 noundef, i64 nounde
 declare void @abort() local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @block_copy_do_copy(ptr noundef %s, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef %method, ptr nocapture noundef writeonly %error_is_read) #0 {
+define internal i32 @block_copy_do_copy(ptr noundef %s, i64 noundef %offset, i64 noundef %bytes, ptr noundef captures(none) %method, ptr noundef writeonly captures(none) %error_is_read) #0 {
 entry:
   %_now.i.i99 = alloca %struct.timeval, align 8
   %qiov.i94 = alloca %struct.QEMUIOVector, align 8
@@ -2327,7 +2327,7 @@ entry:
 declare void @qemu_vfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -2366,10 +2366,10 @@ declare i64 @llvm.smin.i64(i64, i64) #12
 declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -12,7 +12,7 @@ $_ZNK4llvm25MCXCOFFObjectTargetWriter9getFormatEv = comdat any
 @_ZN4llvm25MCXCOFFObjectTargetWriterD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm25MCXCOFFObjectTargetWriterD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm25MCXCOFFObjectTargetWriterC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm25MCXCOFFObjectTargetWriterC2Eb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) initializes((0, 9)) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm25MCXCOFFObjectTargetWriterE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -21,12 +21,12 @@ define dso_local void @_ZN4llvm25MCXCOFFObjectTargetWriterC2Eb(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4llvm25MCXCOFFObjectTargetWriterD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm25MCXCOFFObjectTargetWriterD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm25MCXCOFFObjectTargetWriterD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm25MCXCOFFObjectTargetWriterD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
   tail call void @llvm.trap() #5
   unreachable
 }

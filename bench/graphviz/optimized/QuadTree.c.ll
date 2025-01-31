@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [13 x i8] c"}]}(*end C*)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @QuadTree_get_supernodes(ptr noundef %0, double noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef initializes((0, 4)) %4, ptr nocapture noundef initializes((0, 4)) %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef initializes((0, 8)) %9) local_unnamed_addr #0 {
+define void @QuadTree_get_supernodes(ptr noundef %0, double noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) initializes((0, 4)) %4, ptr noundef captures(none) initializes((0, 4)) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef captures(none) initializes((0, 8)) %9) local_unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8
   store double 0.000000e+00, ptr %9, align 8
@@ -108,7 +108,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @QuadTree_get_supernodes_internal(ptr noundef readonly %0, double noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9) unnamed_addr #0 {
+define internal fastcc void @QuadTree_get_supernodes_internal(ptr noundef readonly %0, double noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef captures(none) %9) unnamed_addr #0 {
   %11 = load double, ptr %9, align 8
   %12 = fadd double %11, 1.000000e+00
   store double %12, ptr %9, align 8
@@ -785,7 +785,7 @@ get_or_assign_node_force.exit222:                 ; preds = %.lr.ph249.split, %1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @QuadTree_repulsive_force_accumulate(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #1 {
+define internal fastcc void @QuadTree_repulsive_force_accumulate(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -980,7 +980,7 @@ get_or_alloc_force_qt.exit56:                     ; preds = %72, %75
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @QuadTree_new_from_point_list(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define noundef ptr @QuadTree_new_from_point_list(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = sext i32 %0 to i64
   %6 = tail call fastcc ptr @gv_calloc(i64 noundef %5, i64 noundef 8)
   %7 = tail call fastcc ptr @gv_calloc(i64 noundef %5, i64 noundef 8)
@@ -1131,7 +1131,7 @@ QuadTree_add.exit:                                ; preds = %QuadTree_add.exit.p
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.minnum.f64(double, double) #3
@@ -1140,7 +1140,7 @@ declare double @llvm.minnum.f64(double, double) #3
 declare double @llvm.maxnum.f64(double, double) #3
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @QuadTree_new(i32 noundef %0, ptr nocapture noundef readonly %1, double noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define noalias noundef ptr @QuadTree_new(i32 noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 81) 80) #15
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %gv_alloc.exit
@@ -1180,7 +1180,7 @@ gv_alloc.exit:                                    ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @QuadTree_add(ptr noundef returned %0, ptr nocapture noundef readonly %1, double noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define noundef ptr @QuadTree_add(ptr noundef returned %0, ptr noundef readonly captures(none) %1, double noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %5
 
@@ -1269,7 +1269,7 @@ define void @QuadTree_delete(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @QuadTree_new_in_quadrant(i32 noundef %0, ptr nocapture noundef readonly %1, double noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define noalias noundef ptr @QuadTree_new_in_quadrant(i32 noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 81) 80) #15
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %gv_alloc.exit.i
@@ -1329,7 +1329,7 @@ QuadTree_new.exit:                                ; preds = %gv_alloc.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @QuadTree_add_internal(ptr noundef returned %0, ptr nocapture noundef readonly %1, double noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @QuadTree_add_internal(ptr noundef returned %0, ptr noundef readonly captures(none) %1, double noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1809,10 +1809,10 @@ define void @QuadTree_print(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @QuadTree_print_internal(ptr nocapture noundef nonnull %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @QuadTree_print_internal(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -2121,7 +2121,7 @@ draw_polygon.exit:                                ; preds = %4, %176
 }
 
 ; Function Attrs: nounwind uwtable
-define void @QuadTree_get_nearest(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef initializes((0, 8)) %4) local_unnamed_addr #0 {
+define void @QuadTree_get_nearest(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) initializes((0, 8)) %4) local_unnamed_addr #0 {
   store double -1.000000e+00, ptr %4, align 8
   tail call fastcc void @QuadTree_get_nearest_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, ptr noundef %3, i1 noundef zeroext true)
   tail call fastcc void @QuadTree_get_nearest_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, ptr noundef %3, i1 noundef zeroext false)
@@ -2129,7 +2129,7 @@ define void @QuadTree_get_nearest(ptr noundef %0, ptr noundef %1, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @QuadTree_get_nearest_internal(ptr noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @QuadTree_get_nearest_internal(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %.not96 = icmp eq ptr %0, null
   br i1 %.not96, label %.loopexit, label %.lr.ph100
 
@@ -2326,7 +2326,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #7
 declare double @point_distance(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, i64 noundef range(i64 -2147483648, 2147483648) %2) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @gv_recalloc(ptr noundef captures(none) %0, i64 noundef range(i64 -2147483648, 2147483648) %1, i64 noundef range(i64 -2147483648, 2147483648) %2) unnamed_addr #0 {
   %4 = icmp ugt i64 %2, 2305843009213693951
   br i1 %4, label %5, label %8
 
@@ -2373,10 +2373,10 @@ gv_realloc.exit:                                  ; preds = %12, %19, %21
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #11
@@ -2387,7 +2387,7 @@ declare double @distance_cropped(ptr noundef, i32 noundef, i32 noundef, i32 noun
 declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @sqrt(double noundef) local_unnamed_addr #11
@@ -2396,10 +2396,10 @@ declare double @sqrt(double noundef) local_unnamed_addr #11
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #13
@@ -2408,7 +2408,7 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #13
 declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

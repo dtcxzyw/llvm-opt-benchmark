@@ -4,13 +4,13 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @zero_list(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #0 {
+define hidden void @zero_list(ptr noundef writeonly captures(none) initializes((0, 16)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 0, 2) i32 @add_to_list(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @add_to_list(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -46,7 +46,7 @@ define hidden noalias noundef ptr @new_list() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: read, inaccessiblemem: readwrite) uwtable
-define hidden noalias noundef ptr @dup_list_head(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define hidden noalias noundef ptr @dup_list_head(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %10, label %5
@@ -67,7 +67,7 @@ define hidden noalias noundef ptr @dup_list_head(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @list_length(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define hidden i32 @list_length(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -83,7 +83,7 @@ define hidden i32 @list_length(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @delete_from_list(ptr nocapture noundef %0, ptr noundef readnone %1) local_unnamed_addr #6 {
+define hidden noundef ptr @delete_from_list(ptr noundef captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #6 {
   br label %3
 
 3:                                                ; preds = %5, %2
@@ -110,10 +110,10 @@ define hidden noundef ptr @delete_from_list(ptr nocapture noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden void @delete_list(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #6 {
+define hidden void @delete_list(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = load ptr, ptr %0, align 8
   %.not8 = icmp eq ptr %3, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -148,7 +148,7 @@ define hidden void @delete_list(ptr nocapture noundef %0, i32 noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @delete_list_destroying(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #6 {
+define hidden void @delete_list_destroying(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %3 = load ptr, ptr %0, align 8
   %.not11 = icmp eq ptr %3, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
@@ -248,7 +248,7 @@ define hidden range(i32 0, 2) i32 @list_is_empty(ptr noundef readonly %0) local_
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #11

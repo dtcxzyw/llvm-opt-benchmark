@@ -121,7 +121,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.rb_node_name = private unnamed_addr constant [113 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr @.str.52, ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.65, ptr @.str.66, ptr @.str.67, ptr @.str.68, ptr @.str.69, ptr @.str.70, ptr @.str.71, ptr @.str.72, ptr @.str.73, ptr @.str.74, ptr @.str.75, ptr @.str.76, ptr @.str.77, ptr @.str.78, ptr @.str.79, ptr @.str.80, ptr @.str.81, ptr @.str.82, ptr @.str.83, ptr @.str.84, ptr @.str.85, ptr @.str.86, ptr @.str.87, ptr @.str.88, ptr @.str.89, ptr @.str.90, ptr @.str.91, ptr @.str.92, ptr @.str.93, ptr @.str.94, ptr @.str.95, ptr @.str.96, ptr @.str.97, ptr @.str.98, ptr @.str.99, ptr @.str.100, ptr @.str.101, ptr @.str.102, ptr @.str.103, ptr @.str.104, ptr @.str.105, ptr @.str.106, ptr @.str.107, ptr @.str.108, ptr @.str.109, ptr @.str.110, ptr @.str.111, ptr @.str.112], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @rb_node_init(ptr nocapture noundef writeonly initializes((0, 28)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @rb_node_init(ptr noundef writeonly captures(none) initializes((0, 28)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = zext i32 %1 to i64
   %4 = shl nuw nsw i64 %3, 8
   %5 = and i64 %4, 32512
@@ -168,7 +168,7 @@ define dso_local nonnull ptr @ruby_node_name(i32 noundef %0) local_unnamed_addr 
 declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @rb_ast_newnode(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 {
+define dso_local ptr @rb_ast_newnode(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %cond.i = icmp eq i32 %1, 59
@@ -236,7 +236,7 @@ ast_newnode_in_bucket.exit:                       ; preds = %4, %23
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef nonnull ptr @rb_ast_new_local_table(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local noundef nonnull ptr @rb_ast_new_local_table(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = sext i32 %1 to i64
   %4 = shl nsw i64 %3, 3
   %5 = add nsw i64 %4, 16
@@ -256,7 +256,7 @@ define dso_local noundef nonnull ptr @rb_ast_new_local_table(ptr nocapture nound
 declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef nonnull ptr @rb_ast_resize_latest_local_table(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local noundef nonnull ptr @rb_ast_resize_latest_local_table(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -277,7 +277,7 @@ define dso_local noundef nonnull ptr @rb_ast_resize_latest_local_table(ptr nocap
 declare nonnull ptr @ruby_xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local void @rb_ast_delete_node(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define dso_local void @rb_ast_delete_node(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   ret void
 }
 
@@ -400,7 +400,7 @@ iterate_node_values.exit:                         ; preds = %iterate_buffer_elem
 declare void @rb_gc_mark_and_move(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @rb_ast_free(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define dso_local void @rb_ast_free(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -663,7 +663,7 @@ rb_node_buffer_free.exit:                         ; preds = %.lr.ph.i, %node_buf
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @rb_ast_memsize(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define dso_local i64 @rb_ast_memsize(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -722,13 +722,13 @@ buffer_list_size.exit16:                          ; preds = %.lr.ph.i10, %buffer
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @rb_ast_dispose(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define dso_local void @rb_ast_dispose(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   tail call void @rb_ast_free(ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @rb_ast_tokens(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define dso_local i64 @rb_ast_tokens(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -758,7 +758,7 @@ rb_obj_write.exit:                                ; preds = %2, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local i64 @rb_node_set_type(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #9 {
+define dso_local i64 @rb_node_set_type(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = load i64, ptr %0, align 8
   %4 = and i64 %3, -32513
   %5 = zext i32 %1 to i64
@@ -776,7 +776,7 @@ declare void @ruby_xfree(ptr noundef) local_unnamed_addr #6
 declare void @rb_gc_writebarrier(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

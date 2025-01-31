@@ -53,7 +53,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_gem_fb_a
 @llvm.compiler.used = appending global [13 x ptr] [ptr @__UNIQUE_ID___addressable_drm_gem_fb_afbc_init413, ptr @__UNIQUE_ID___addressable_drm_gem_fb_begin_cpu_access411, ptr @__UNIQUE_ID___addressable_drm_gem_fb_create407, ptr @__UNIQUE_ID___addressable_drm_gem_fb_create_handle404, ptr @__UNIQUE_ID___addressable_drm_gem_fb_create_with_dirty408, ptr @__UNIQUE_ID___addressable_drm_gem_fb_create_with_funcs406, ptr @__UNIQUE_ID___addressable_drm_gem_fb_destroy403, ptr @__UNIQUE_ID___addressable_drm_gem_fb_end_cpu_access412, ptr @__UNIQUE_ID___addressable_drm_gem_fb_get_obj402, ptr @__UNIQUE_ID___addressable_drm_gem_fb_init_with_funcs405, ptr @__UNIQUE_ID___addressable_drm_gem_fb_vmap409, ptr @__UNIQUE_ID___addressable_drm_gem_fb_vunmap410, ptr @__UNIQUE_ID_import_ns393], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @drm_gem_fb_get_obj(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local ptr @drm_gem_fb_get_obj(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = zext i32 %1 to i64
   %5 = icmp ult i32 %1, 4
@@ -129,10 +129,10 @@ define dso_local ptr @drm_gem_fb_get_obj(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
@@ -200,7 +200,7 @@ declare dso_local void @drm_framebuffer_cleanup(ptr noundef) local_unnamed_addr 
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_gem_fb_create_handle(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local i32 @drm_gem_fb_create_handle(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @drm_gem_handle_create(ptr noundef %1, ptr noundef %5, ptr noundef %2) #7
@@ -470,7 +470,7 @@ define dso_local i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @drm_get_format_info(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -557,7 +557,7 @@ define dso_local ptr @drm_gem_fb_create_with_dirty(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_gem_fb_vmap(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local i32 @drm_gem_fb_vmap(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 5
@@ -656,13 +656,13 @@ define dso_local i32 @drm_gem_fb_vmap(ptr nocapture noundef readonly %0, ptr nou
 declare dso_local i32 @drm_gem_vmap_unlocked(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @drm_gem_vunmap_unlocked(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_gem_fb_vunmap(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local void @drm_gem_fb_vunmap(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 5
@@ -703,7 +703,7 @@ define dso_local void @drm_gem_fb_vunmap(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_gem_fb_begin_cpu_access(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local i32 @drm_gem_fb_begin_cpu_access(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 5
@@ -790,7 +790,7 @@ define dso_local i32 @drm_gem_fb_begin_cpu_access(ptr nocapture noundef readonly
 declare dso_local i32 @dma_buf_begin_cpu_access(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_gem_fb_end_cpu_access(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local void @drm_gem_fb_end_cpu_access(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 5
@@ -845,7 +845,7 @@ define dso_local void @drm_gem_fb_end_cpu_access(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -22, 1) i32 @drm_gem_fb_afbc_init(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @drm_gem_fb_afbc_init(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %5 = tail call ptr @drm_get_format_info(ptr noundef %0, ptr noundef %1) #7
   %6 = icmp eq ptr %5, null

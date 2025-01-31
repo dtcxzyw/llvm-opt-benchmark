@@ -17,7 +17,7 @@ define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN4Luau9Unifi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4Luau9Unifiable5ErrorC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau9Unifiable5ErrorC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0) unnamed_addr #1 align 2 {
   %2 = load i32, ptr @_ZN4Luau9Unifiable5Error9nextIndexE, align 4
   %3 = add nsw i32 %2, 1
   store i32 %3, ptr @_ZN4Luau9Unifiable5Error9nextIndexE, align 4

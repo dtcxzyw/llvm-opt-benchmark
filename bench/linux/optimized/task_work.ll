@@ -100,7 +100,7 @@ define dso_local noundef range(i32 -3, 1) i32 @task_work_add(ptr noundef %0, ptr
 declare void @llvm.assume(i1 noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @task_work_cancel_match(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef ptr @task_work_cancel_match(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1968
   %5 = load volatile ptr, ptr %4, align 16
   %6 = icmp eq ptr %5, null

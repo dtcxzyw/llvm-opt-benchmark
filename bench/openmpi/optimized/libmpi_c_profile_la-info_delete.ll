@@ -142,7 +142,7 @@ ompi_errcode_get_mpi_code.exit:                   ; preds = %28, %24, %.preheade
 declare i32 @ompi_errhandler_invoke(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @ompi_info_delete(ptr noundef, ptr noundef) local_unnamed_addr #1
 

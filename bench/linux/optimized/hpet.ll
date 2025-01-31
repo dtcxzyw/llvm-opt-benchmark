@@ -209,7 +209,7 @@ define internal noundef i32 @hpet_setup(ptr noundef %0) #1 section ".init.text" 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @disable_hpet(ptr nocapture readnone %0) #2 section ".init.text" align 16 {
+define internal noundef i32 @disable_hpet(ptr readnone captures(none) %0) #2 section ".init.text" align 16 {
   store i8 1, ptr @boot_hpet_disable, align 1
   ret i32 1
 }
@@ -404,7 +404,7 @@ define dso_local noundef range(i32 0, 2) i32 @hpet_enable() local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc noundef zeroext i1 @hpet_is_pc10_damaged() unnamed_addr #4 section ".init.text" align 16 {
@@ -483,7 +483,7 @@ define internal fastcc zeroext i1 @hpet_cfg_working() unnamed_addr #4 section ".
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @_hpet_print_config(ptr noundef %0, i32 noundef range(i32 323, 1149) %1) unnamed_addr #6 align 16 {
@@ -835,7 +835,7 @@ define dso_local noundef range(i32 -19, 1) i32 @hpet_register_irq_handler(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: none, inaccessiblemem: none)
-define dso_local void @hpet_unregister_irq_handler(ptr nocapture readnone %0) #10 align 16 {
+define dso_local void @hpet_unregister_irq_handler(ptr readnone captures(none) %0) #10 align 16 {
   %2 = load i8, ptr @boot_hpet_disable, align 1, !range !9, !noundef !10
   %3 = icmp eq i8 %2, 0
   %4 = load i64, ptr @hpet_address, align 8
@@ -1332,7 +1332,7 @@ define dso_local noundef i32 @hpet_rtc_interrupt(i32 %0, ptr noundef %1) #9 alig
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @mc146818_get_time(ptr noundef, i32 noundef) local_unnamed_addr #8
@@ -1344,7 +1344,7 @@ declare dso_local i32 @___ratelimit(ptr noundef, ptr noundef) local_unnamed_addr
 declare dso_local ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc zeroext i1 @mwait_pc10_supported() unnamed_addr #4 section ".init.text" align 16 {
@@ -1394,7 +1394,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 0, 4294967296) i64 @read_hpet(ptr nocapture readnone %0) #9 align 16 {
+define internal range(i64 0, 4294967296) i64 @read_hpet(ptr readnone captures(none) %0) #9 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca i32, align 8
   %4 = alloca i32, align 8
@@ -1495,7 +1495,7 @@ define internal range(i64 0, 4294967296) i64 @read_hpet(ptr nocapture readnone %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hpet_resume_counter(ptr nocapture readnone %0) #9 align 16 {
+define internal void @hpet_resume_counter(ptr readnone captures(none) %0) #9 align 16 {
   tail call void @force_hpet_resume() #19
   %2 = load ptr, ptr @hpet_virt_address, align 8
   %3 = getelementptr i8, ptr %2, i64 16
@@ -1530,7 +1530,7 @@ declare dso_local i32 @__clocksource_register_scale(ptr noundef, i32 noundef, i3
 declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @hpet_clkevt_legacy_resume(ptr nocapture readnone %0) #9 align 16 {
+define internal noundef i32 @hpet_clkevt_legacy_resume(ptr readnone captures(none) %0) #9 align 16 {
   %2 = load ptr, ptr @hpet_virt_address, align 8
   %3 = getelementptr i8, ptr %2, i64 16
   %4 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3) #19, !srcloc !5
@@ -1551,7 +1551,7 @@ define internal noundef i32 @hpet_clkevt_legacy_resume(ptr nocapture readnone %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @hpet_clkevt_set_state_periodic(ptr nocapture noundef readonly %0) #9 align 16 {
+define internal noundef i32 @hpet_clkevt_set_state_periodic(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load i32, ptr %2, align 64
   %4 = load ptr, ptr @hpet_virt_address, align 8
@@ -1615,7 +1615,7 @@ define internal noundef i32 @hpet_clkevt_set_state_periodic(ptr nocapture nounde
 declare dso_local void @clockevents_config_and_register(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @hpet_clkevt_set_state_oneshot(ptr nocapture noundef readonly %0) #9 align 16 {
+define internal noundef i32 @hpet_clkevt_set_state_oneshot(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load i32, ptr %2, align 64
   %4 = shl i32 %3, 5
@@ -1633,7 +1633,7 @@ define internal noundef i32 @hpet_clkevt_set_state_oneshot(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -62, 1) i32 @hpet_clkevt_set_next_event(i64 noundef %0, ptr nocapture noundef readonly %1) #9 align 16 {
+define internal range(i32 -62, 1) i32 @hpet_clkevt_set_next_event(i64 noundef %0, ptr noundef readonly captures(none) %1) #9 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %4 = load i32, ptr %3, align 64
   %5 = load ptr, ptr @hpet_virt_address, align 8
@@ -1657,7 +1657,7 @@ define internal range(i32 -62, 1) i32 @hpet_clkevt_set_next_event(i64 noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @hpet_clkevt_set_state_shutdown(ptr nocapture noundef readonly %0) #9 align 16 {
+define internal noundef i32 @hpet_clkevt_set_state_shutdown(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load i32, ptr %2, align 64
   %4 = shl i32 %3, 5
@@ -2082,10 +2082,10 @@ define internal noundef i32 @hpet_cpuhp_dead(i32 noundef %0) #9 align 16 {
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #17
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #18
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #18
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @irq_find_matching_fwspec(ptr noundef, i32 noundef) local_unnamed_addr #8
@@ -2097,7 +2097,7 @@ declare dso_local void @irq_domain_free_fwnode(ptr noundef) local_unnamed_addr #
 declare dso_local ptr @msi_create_irq_domain(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @hpet_msi_init(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i64 %3, ptr nocapture noundef readonly %4) #9 align 16 {
+define internal noundef i32 @hpet_msi_init(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i64 %3, ptr noundef readonly captures(none) %4) #9 align 16 {
   tail call void @irq_modify_status(i32 noundef %2, i64 noundef 0, i64 noundef 16384) #19
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load i64, ptr %6, align 8
@@ -2110,7 +2110,7 @@ define internal noundef i32 @hpet_msi_init(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hpet_msi_free(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 noundef %2) #9 align 16 {
+define internal void @hpet_msi_free(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2) #9 align 16 {
   tail call void @irq_modify_status(i32 noundef %2, i64 noundef 16384, i64 noundef 0) #19
   ret void
 }
@@ -2131,7 +2131,7 @@ declare dso_local ptr @__irq_domain_alloc_fwnode(i32 noundef, i32 noundef, ptr n
 declare dso_local void @irq_chip_ack_parent(ptr noundef) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hpet_msi_mask(ptr nocapture noundef readonly %0) #9 align 16 {
+define internal void @hpet_msi_mask(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2156,7 +2156,7 @@ define internal void @hpet_msi_mask(ptr nocapture noundef readonly %0) #9 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hpet_msi_unmask(ptr nocapture noundef readonly %0) #9 align 16 {
+define internal void @hpet_msi_unmask(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2187,7 +2187,7 @@ declare dso_local i32 @msi_domain_set_affinity(ptr noundef, ptr noundef, i1 noun
 declare dso_local i32 @irq_chip_retrigger_hierarchy(ptr noundef) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hpet_msi_write_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 align 16 {
+define internal void @hpet_msi_write_msg(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2229,7 +2229,7 @@ declare dso_local i32 @hpet_alloc(ptr noundef) local_unnamed_addr #8
 declare dso_local i32 @__cpuhp_setup_state(i32 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @hpet_clkevt_msi_resume(ptr nocapture noundef readonly %0) #9 align 16 {
+define internal noundef i32 @hpet_clkevt_msi_resume(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = alloca %struct.msi_msg, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %4 = load i32, ptr %3, align 8

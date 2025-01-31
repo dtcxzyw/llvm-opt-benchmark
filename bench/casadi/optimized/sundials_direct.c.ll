@@ -76,7 +76,7 @@ define noalias noundef ptr @NewDenseMat(i64 noundef %0, i64 noundef %1) local_un
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind memory(readwrite, argmem: none) uwtable
 define noalias noundef ptr @newDenseMat(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -237,7 +237,7 @@ define noalias noundef ptr @newBandMat(i64 noundef %0, i64 noundef %1, i64 nound
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @DestroyMat(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define void @DestroyMat(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #13
@@ -250,7 +250,7 @@ define void @DestroyMat(ptr nocapture noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @destroyMat(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define void @destroyMat(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %2) #13
   tail call void @free(ptr noundef %0) #13
@@ -350,19 +350,19 @@ define noalias noundef ptr @newRealArray(i64 noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @DestroyArray(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define void @DestroyArray(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   tail call void @free(ptr noundef %0) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @destroyArray(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define void @destroyArray(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   tail call void @free(ptr noundef %0) #13
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @AddIdentity(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define void @AddIdentity(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i32, ptr %0, align 8
   switch i32 %2, label %.loopexit [
     i32 1, label %.preheader
@@ -424,7 +424,7 @@ define void @AddIdentity(ptr nocapture noundef readonly %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @SetToZero(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define void @SetToZero(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i32, ptr %0, align 8
   switch i32 %2, label %.loopexit [
     i32 1, label %.preheader
@@ -517,7 +517,7 @@ define void @SetToZero(ptr nocapture noundef readonly %0) local_unnamed_addr #6 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @PrintMat(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define void @PrintMat(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = load i32, ptr %0, align 8
   switch i32 %2, label %55 [
     i32 1, label %3
@@ -632,13 +632,13 @@ define void @PrintMat(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #11

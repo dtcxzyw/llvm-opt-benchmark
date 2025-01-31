@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.9 = private unnamed_addr constant [13 x i8] c"1234567890.,\00", align 1
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local void @flac__utils_printf(ptr nocapture noundef %stream, i32 noundef %level, ptr nocapture noundef readonly %format, ...) local_unnamed_addr #0 {
+define dso_local void @flac__utils_printf(ptr noundef captures(none) %stream, i32 noundef %level, ptr noundef readonly captures(none) %format, ...) local_unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   %0 = load i32, ptr @flac__utils_verbosity_, align 4
@@ -43,7 +43,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 0, 65536) i32 @get_console_width() local_unnamed_addr #2 {
@@ -74,7 +74,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call i64 @mbstowcs(ptr noundef nonnull %call1, ptr noundef %text, i64 noundef %add) #18
+  %call2 = tail call i64 @mbstowcs(ptr noundef nonnull %call1, ptr noundef nonnull %text, i64 noundef %add) #18
   %call3 = tail call i32 @wcswidth(ptr noundef nonnull %call1, i64 noundef %add) #18
   %conv = sext i32 %call3 to i64
   tail call void @free(ptr noundef nonnull %call1) #18
@@ -86,7 +86,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
@@ -98,7 +98,7 @@ declare i64 @mbstowcs(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr 
 declare i32 @wcswidth(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @stats_new_file() local_unnamed_addr #7 {
@@ -129,7 +129,7 @@ while.end:                                        ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @stats_print_name(i32 noundef %level, ptr noundef %name) local_unnamed_addr #2 {
@@ -178,7 +178,7 @@ if.end:                                           ; preds = %stats_clear.exit
   br i1 %cmp.i4, label %strlen_console.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %call2.i = call i64 @mbstowcs(ptr noundef nonnull %call1.i, ptr noundef %name, i64 noundef %add.i) #18
+  %call2.i = call i64 @mbstowcs(ptr noundef nonnull %call1.i, ptr noundef nonnull %name, i64 noundef %add.i) #18
   %call3.i = call i32 @wcswidth(ptr noundef nonnull %call1.i, i64 noundef %add.i) #18
   %conv.i56 = zext i32 %call3.i to i64
   call void @free(ptr noundef nonnull %call1.i) #18
@@ -194,7 +194,7 @@ strlen_console.exit:                              ; preds = %if.end, %if.end.i
   %sub = sub nsw i32 %6, %rem
   store i32 %sub, ptr @console_chars_left, align 4
   %8 = load ptr, ptr @stderr, align 8
-  %call3 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.2, ptr noundef %name) #21
+  %call3 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #21
   store i1 true, ptr @is_name_printed, align 4
   br label %if.end4
 
@@ -268,10 +268,10 @@ if.end12:                                         ; preds = %if.end, %entry
 declare i32 @flac_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @flac__utils_parse_skip_until_specification(ptr noundef %s, ptr nocapture noundef writeonly initializes((0, 16)) %spec) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @flac__utils_parse_skip_until_specification(ptr noundef %s, ptr noundef writeonly captures(none) initializes((0, 16)) %spec) local_unnamed_addr #0 {
 entry:
   %endptr.i = alloca ptr, align 8
   store i32 0, ptr %spec, align 8
@@ -428,7 +428,7 @@ return:                                           ; preds = %local__parse_timeco
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @flac__utils_canonicalize_skip_until_specification(ptr nocapture noundef %spec, i32 noundef %sample_rate) local_unnamed_addr #9 {
+define dso_local range(i32 0, 2) i32 @flac__utils_canonicalize_skip_until_specification(ptr noundef captures(none) %spec, i32 noundef %sample_rate) local_unnamed_addr #9 {
 entry:
   %value_is_samples = getelementptr inbounds nuw i8, ptr %spec, i64 4
   %0 = load i32, ptr %value_is_samples, align 4
@@ -456,14 +456,14 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @flac__utils_parse_cue_specification(ptr noundef %s, ptr nocapture noundef writeonly initializes((0, 8)) %spec) local_unnamed_addr #10 {
+define dso_local range(i32 0, 2) i32 @flac__utils_parse_cue_specification(ptr noundef %s, ptr noundef writeonly captures(none) initializes((0, 8)) %spec) local_unnamed_addr #10 {
 entry:
   %has_end_point = getelementptr inbounds nuw i8, ptr %spec, i64 4
   store i32 0, ptr %has_end_point, align 4
   store i32 0, ptr %spec, align 4
   %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %s, i32 noundef 45) #19
   %cmp.not = icmp eq ptr %call, null
-  br i1 %cmp.not, label %if.end7, label %if.then
+  br i1 %cmp.not, label %entry.split.us.i, label %if.then
 
 if.then:                                          ; preds = %entry
   %cmp1 = icmp eq ptr %call, %s
@@ -471,15 +471,9 @@ if.then:                                          ; preds = %entry
   %0 = load i8, ptr %add.ptr, align 1
   %cmp3 = icmp eq i8 %0, 0
   %spec.store.select1 = select i1 %cmp3, ptr null, ptr %add.ptr
-  %tobool.not69 = icmp eq ptr %s, null
-  %or.cond = or i1 %tobool.not69, %cmp1
-  br i1 %or.cond, label %if.end14, label %entry.split.i
+  br i1 %cmp1, label %if.end14, label %entry.split.i
 
-if.end7:                                          ; preds = %entry
-  %tobool.not = icmp eq ptr %s, null
-  br i1 %tobool.not, label %return, label %entry.split.us.i
-
-entry.split.us.i:                                 ; preds = %if.end7
+entry.split.us.i:                                 ; preds = %entry
   %start_track = getelementptr inbounds nuw i8, ptr %spec, i64 8
   %start_index = getelementptr inbounds nuw i8, ptr %spec, i64 12
   %1 = load i8, ptr %s, align 1
@@ -722,8 +716,8 @@ if.end20:                                         ; preds = %local__parse_cue_.e
   store i32 1, ptr %has_end_point, align 4
   br label %return
 
-return:                                           ; preds = %while.body29.i, %while.body29.us.i, %while.body29.us.i38, %if.else.i.thread177, %if.else.i.thread, %if.else.i27, %if.else.i, %if.end7, %if.end14, %if.end20, %local__parse_cue_.exit61, %local__parse_cue_.exit
-  %retval.0 = phi i32 [ 0, %local__parse_cue_.exit ], [ 0, %local__parse_cue_.exit61 ], [ 1, %if.end20 ], [ 1, %if.end14 ], [ 1, %if.end7 ], [ 0, %if.else.i ], [ 0, %if.else.i27 ], [ 0, %if.else.i.thread ], [ 0, %if.else.i.thread177 ], [ 0, %while.body29.us.i38 ], [ 0, %while.body29.us.i ], [ 0, %while.body29.i ]
+return:                                           ; preds = %while.body29.i, %while.body29.us.i, %while.body29.us.i38, %if.else.i.thread177, %if.else.i.thread, %if.else.i27, %if.else.i, %if.end14, %if.end20, %local__parse_cue_.exit61, %local__parse_cue_.exit
+  %retval.0 = phi i32 [ 0, %local__parse_cue_.exit ], [ 0, %local__parse_cue_.exit61 ], [ 1, %if.end20 ], [ 1, %if.end14 ], [ 0, %if.else.i ], [ 0, %if.else.i27 ], [ 0, %if.else.i.thread ], [ 0, %if.else.i.thread177 ], [ 0, %while.body29.us.i38 ], [ 0, %while.body29.us.i ], [ 0, %while.body29.i ]
   ret i32 %retval.0
 }
 
@@ -731,7 +725,7 @@ return:                                           ; preds = %while.body29.i, %wh
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @flac__utils_canonicalize_cue_specification(ptr nocapture noundef readonly %cue_spec, ptr nocapture noundef readonly %cuesheet, i64 noundef %total_samples, ptr nocapture noundef writeonly initializes((0, 8)) %skip_spec, ptr nocapture noundef writeonly initializes((0, 8)) %until_spec) local_unnamed_addr #11 {
+define dso_local void @flac__utils_canonicalize_cue_specification(ptr noundef readonly captures(none) %cue_spec, ptr noundef readonly captures(none) %cuesheet, i64 noundef %total_samples, ptr noundef writeonly captures(none) initializes((0, 8)) %skip_spec, ptr noundef writeonly captures(none) initializes((0, 8)) %until_spec) local_unnamed_addr #11 {
 entry:
   store i32 0, ptr %skip_spec, align 8
   %value_is_samples = getelementptr inbounds nuw i8, ptr %skip_spec, i64 4
@@ -935,7 +929,7 @@ declare i32 @flac_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unn
 declare i32 @FLAC__metadata_object_vorbiscomment_replace_comment(ptr noundef, i32, ptr, i32 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @flac__utils_get_channel_mask_tag(ptr noundef %object, ptr nocapture noundef writeonly %channel_mask) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @flac__utils_get_channel_mask_tag(ptr noundef %object, ptr noundef writeonly captures(none) %channel_mask) local_unnamed_addr #2 {
 entry:
   %val = alloca i32, align 4
   %0 = load ptr, ptr @CHANNEL_MASK_TAG, align 8
@@ -987,16 +981,16 @@ return:                                           ; preds = %if.end18, %if.end15
 declare i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #13
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #14
@@ -1005,16 +999,16 @@ declare void @llvm.va_start.p0(ptr) #14
 declare void @llvm.va_end.p0(ptr) #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

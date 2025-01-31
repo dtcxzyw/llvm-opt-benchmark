@@ -341,7 +341,7 @@ default.unreachable:                              ; preds = %85
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @H5Z__filter_nbit(i32 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) #0 {
+define internal i64 @H5Z__filter_nbit(i32 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca %struct.parms_atomic, align 4
@@ -649,7 +649,7 @@ declare i32 @H5T_get_class(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i64 @H5T_get_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5Z__calc_parms_array(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5Z__calc_parms_array(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8
   %4 = add i64 %3, 2
   store i64 %4, ptr %1, align 8
@@ -744,7 +744,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__calc_parms_array(ptr noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5Z__calc_parms_compound(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5Z__calc_parms_compound(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8
   %4 = add i64 %3, 2
   store i64 %4, ptr %1, align 8
@@ -885,7 +885,7 @@ declare i32 @H5P_get_filter_by_id(ptr noundef, i32 noundef, ptr noundef, ptr nou
 declare i64 @H5S_get_simple_extent_npoints(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_atomic(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_atomic(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr %1, align 4
   %6 = add i32 %5, 1
   store i32 %6, ptr %1, align 4
@@ -1006,7 +1006,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_atomic(ptr noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_array(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_array(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr %1, align 4
   %6 = add i32 %5, 1
   store i32 %6, ptr %1, align 4
@@ -1166,7 +1166,7 @@ H5Z__set_parms_nooptype.exit:                     ; preds = %63
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_compound(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5Z__set_parms_compound(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr %1, align 4
   %6 = add i32 %5, 1
   store i32 %6, ptr %1, align 4
@@ -1421,7 +1421,7 @@ declare i32 @H5T_is_variable_str(ptr noundef) local_unnamed_addr #1
 declare i64 @H5T_get_member_offset(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @H5Z__nbit_decompress_one_atomic(ptr nocapture noundef nonnull %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #3 {
+define internal fastcc void @H5Z__nbit_decompress_one_atomic(ptr noundef nonnull captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull readonly captures(none) %5) unnamed_addr #3 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
@@ -1832,7 +1832,7 @@ H5Z__nbit_decompress_one_byte.exit56:             ; preds = %238, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_array(ptr nocapture noundef nonnull %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef readonly %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_array(ptr noundef nonnull captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef nonnull captures(none) %6) unnamed_addr #0 {
   %8 = alloca %struct.parms_atomic, align 4
   %9 = load i32, ptr %6, align 4
   %10 = add i32 %9, 1
@@ -2044,7 +2044,7 @@ H5Z__nbit_decompress_one_nooptype.exit:           ; preds = %125, %88, %70, %50,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_compound(ptr nocapture noundef nonnull %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef readonly %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_compound(ptr noundef nonnull captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef nonnull captures(none) %6) unnamed_addr #0 {
   %8 = alloca %struct.parms_atomic, align 4
   %9 = load i32, ptr %6, align 4
   %10 = add i32 %9, 1
@@ -2261,7 +2261,7 @@ H5Z__nbit_decompress_one_nooptype.exit:           ; preds = %133, %97, %76, %79,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @H5Z__nbit_compress_one_atomic(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #3 {
+define internal fastcc void @H5Z__nbit_compress_one_atomic(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull readonly captures(none) %5) unnamed_addr #3 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
@@ -2646,7 +2646,7 @@ H5Z__nbit_compress_one_byte.exit55:               ; preds = %228, %.sink.split.i
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @H5Z__nbit_compress_one_array(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef readonly %5, ptr nocapture noundef nonnull %6) unnamed_addr #4 {
+define internal fastcc void @H5Z__nbit_compress_one_array(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef nonnull captures(none) %6) unnamed_addr #4 {
   %8 = alloca %struct.parms_atomic, align 4
   %9 = load i32, ptr %6, align 4
   %10 = add i32 %9, 1
@@ -2824,7 +2824,7 @@ H5Z__nbit_compress_one_nooptype.exit:             ; preds = %103, %63, %52, %41,
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @H5Z__nbit_compress_one_compound(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef readonly %5, ptr nocapture noundef nonnull %6) unnamed_addr #4 {
+define internal fastcc void @H5Z__nbit_compress_one_compound(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef nonnull captures(none) %6) unnamed_addr #4 {
   %8 = alloca %struct.parms_atomic, align 4
   %9 = load i32, ptr %6, align 4
   %10 = add i32 %9, 1
@@ -2983,10 +2983,10 @@ H5Z__nbit_compress_one_nooptype.exit:             ; preds = %94, %54, %29, %48, 
 declare i32 @llvm.umax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7

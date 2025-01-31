@@ -107,7 +107,7 @@ $_ZTVN8QuantLib10ObservableE = comdat any
 @_ZN8QuantLib21FaceValueAccrualClaimC1ERKN5boost10shared_ptrINS_4BondEEE = unnamed_addr alias void (ptr, ptr), ptr @_ZN8QuantLib21FaceValueAccrualClaimC2ERKN5boost10shared_ptrINS_4BondEEE
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -192,7 +192,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -207,7 +207,7 @@ declare void @llvm.trap() #5
 declare void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef double @_ZNK8QuantLib14FaceValueClaim6amountERKNS_4DateEdd(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, double noundef %notional, double noundef %recoveryRate) unnamed_addr #7 align 2 {
+define noundef double @_ZNK8QuantLib14FaceValueClaim6amountERKNS_4DateEdd(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, double noundef %notional, double noundef %recoveryRate) unnamed_addr #7 align 2 {
 entry:
   %sub = fsub double 1.000000e+00, %recoveryRate
   %mul = fmul double %notional, %sub
@@ -215,7 +215,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21FaceValueAccrualClaimC2ERKN5boost10shared_ptrINS_4BondEEE(ptr noundef nonnull align 8 dereferenceable(128) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %referenceSecurity) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21FaceValueAccrualClaimC2ERKN5boost10shared_ptrINS_4BondEEE(ptr noundef nonnull align 8 dereferenceable(128) initializes((16, 20), (24, 32)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %referenceSecurity) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -567,7 +567,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib21FaceValueAccrualClaim6amountERKNS_4DateEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %d, double noundef %notional, double noundef %recoveryRate) unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib21FaceValueAccrualClaim6amountERKNS_4DateEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %d, double noundef %notional, double noundef %recoveryRate) unnamed_addr #8 align 2 {
 entry:
   %referenceSecurity_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %referenceSecurity_, align 8, !tbaa !30

@@ -343,7 +343,7 @@ _ZNK17DumpTimeClassInfo28num_enum_klass_static_fieldsEv.exit: ; preds = %134, %1
 declare noundef i32 @_ZN17DumpTimeClassInfo23enum_klass_static_fieldEi(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i64 0, 9) i64 @_ZN16RunTimeClassInfo8crc_sizeEP13InstanceKlass(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i64 0, 9) i64 @_ZN16RunTimeClassInfo8crc_sizeEP13InstanceKlass(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 186
   %3 = load i16, ptr %2, align 2
   %.not = icmp eq i16 %3, -9999

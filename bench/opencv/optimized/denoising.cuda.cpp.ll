@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [142 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/opencv/opencv/modules/core/include/opencv2/core/private.cuda.hpp\00", align 1
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv4cuda13nonLocalMeansERKNS_11_InputArrayERKNS_12_OutputArrayEfiiiRNS0_6StreamE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1, float noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %6) local_unnamed_addr #0 {
+define void @_ZN2cv4cuda13nonLocalMeansERKNS_11_InputArrayERKNS_12_OutputArrayEfiiiRNS0_6StreamE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1, float noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %6) local_unnamed_addr #0 {
   tail call fastcc void @_ZL13throw_no_cudav() #4
   unreachable
 }
@@ -51,13 +51,13 @@ define internal fastcc void @_ZL13throw_no_cudav() unnamed_addr #0 personality p
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv4cuda20fastNlMeansDenoisingERKNS_11_InputArrayERKNS_12_OutputArrayEfiiRNS0_6StreamE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1, float noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %5) local_unnamed_addr #0 {
+define void @_ZN2cv4cuda20fastNlMeansDenoisingERKNS_11_InputArrayERKNS_12_OutputArrayEfiiRNS0_6StreamE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1, float noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %5) local_unnamed_addr #0 {
   tail call fastcc void @_ZL13throw_no_cudav() #4
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv4cuda27fastNlMeansDenoisingColoredERKNS_11_InputArrayERKNS_12_OutputArrayEffiiRNS0_6StreamE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1, float noundef %2, float noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %6) local_unnamed_addr #0 {
+define void @_ZN2cv4cuda27fastNlMeansDenoisingColoredERKNS_11_InputArrayERKNS_12_OutputArrayEffiiRNS0_6StreamE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1, float noundef %2, float noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %6) local_unnamed_addr #0 {
   tail call fastcc void @_ZL13throw_no_cudav() #4
   unreachable
 }

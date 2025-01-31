@@ -139,15 +139,15 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 384), align 16, !tbaa !4
   %cmp.i.i.i = icmp eq ptr %1, getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 400)
@@ -348,7 +348,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15ClientScriptingC2EP6Client(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %client) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15ClientScriptingC2EP6Client(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef readonly captures(none) %vtt, ptr noundef %client) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stack_unroller = alloca %class.StackUnroller, align 8
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
@@ -925,7 +925,7 @@ declare void @_ZN13ScriptApiBaseC2E13ScriptingType(ptr noundef nonnull align 8 d
 declare void @_ZN13ScriptApiBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(137)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15ClientScripting16InitializeModApiEP9lua_Statei(ptr nocapture nonnull readnone align 8 %this, ptr noundef %L, i32 noundef %top) unnamed_addr #7 align 2 {
+define dso_local void @_ZN15ClientScripting16InitializeModApiEP9lua_Statei(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %L, i32 noundef %top) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12LuaItemStack8RegisterEP9lua_State(ptr noundef %L)
   tail call void @_ZN16ItemStackMetaRef8RegisterEP9lua_State(ptr noundef %L)
@@ -988,7 +988,7 @@ declare void @_ZN20ModApiParticlesLocal10InitializeEP9lua_Statei(ptr noundef, i3
 declare void @_ZN17ModApiClientSound10InitializeEP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15ClientScripting15on_client_readyEP11LocalPlayer(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %localplayer) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN15ClientScripting15on_client_readyEP11LocalPlayer(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %localplayer) local_unnamed_addr #7 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !12
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
@@ -1003,7 +1003,7 @@ entry:
 declare void @_ZN14LuaLocalPlayer6createEP9lua_StateP11LocalPlayer(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15ClientScripting15on_camera_readyEP6Camera(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %camera) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN15ClientScripting15on_camera_readyEP6Camera(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %camera) local_unnamed_addr #7 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !12
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
@@ -1018,7 +1018,7 @@ entry:
 declare void @_ZN9LuaCamera6createEP9lua_StateP6Camera(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15ClientScripting16on_minimap_readyEP7Minimap(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %minimap) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN15ClientScripting16on_minimap_readyEP7Minimap(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %minimap) local_unnamed_addr #7 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !12
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
@@ -1307,7 +1307,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare i64 @pthread_self() local_unnamed_addr #12

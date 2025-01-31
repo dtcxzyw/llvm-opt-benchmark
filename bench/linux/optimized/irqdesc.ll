@@ -298,7 +298,7 @@ irq_insert_desc.exit:                             ; preds = %35, %40
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @arch_probe_nr_irqs() local_unnamed_addr #2
@@ -307,7 +307,7 @@ declare dso_local i32 @arch_probe_nr_irqs() local_unnamed_addr #2
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef ptr @alloc_desc(i32 noundef %0, i32 noundef %1, i32 noundef range(i32 0, 10485761) %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #1 align 16 {
@@ -1029,7 +1029,7 @@ define dso_local i32 @irq_get_next_irq(i32 noundef %0) local_unnamed_addr #1 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__irq_get_desc_lock(i32 noundef %0, ptr nocapture noundef writeonly %1, i1 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #1 align 16 {
+define dso_local ptr @__irq_get_desc_lock(i32 noundef %0, ptr noundef writeonly captures(none) %1, i1 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #1 align 16 {
   %5 = zext i32 %0 to i64
   %6 = tail call ptr @mtree_load(ptr noundef nonnull @sparse_irqs, i64 noundef %5) #11
   %7 = icmp eq ptr %6, null
@@ -1328,7 +1328,7 @@ declare dso_local ptr @kobject_create_and_add(ptr noundef, ptr noundef) local_un
 declare dso_local i32 @kobject_add(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
 declare dso_local noalias ptr @__alloc_percpu(i64 noundef, i64 noundef) local_unnamed_addr #6
@@ -1368,7 +1368,7 @@ define internal void @irq_kobj_release(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @per_cpu_count_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
+define internal i64 @per_cpu_count_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -192
   br label %5
 
@@ -1429,7 +1429,7 @@ define internal i64 @per_cpu_count_show(ptr nocapture noundef readonly %0, ptr n
 declare dso_local i32 @scnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @chip_name_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @chip_name_show(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -124
   tail call void @_raw_spin_lock_irq(ptr noundef %4) #11
   %5 = getelementptr i8, ptr %0, i64 -224
@@ -1460,7 +1460,7 @@ declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #2 se
 declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @hwirq_show(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #1 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @hwirq_show(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #1 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -124
   tail call void @_raw_spin_lock_irq(ptr noundef %4) #11
   %5 = getelementptr i8, ptr %0, i64 -216
@@ -1482,10 +1482,10 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @hwirq_show(ptr n
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @type_show(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #1 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @type_show(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #1 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -124
   tail call void @_raw_spin_lock_irq(ptr noundef %4) #11
   %5 = getelementptr i8, ptr %0, i64 -232
@@ -1501,7 +1501,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @type_show(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @wakeup_show(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #1 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @wakeup_show(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #1 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -124
   tail call void @_raw_spin_lock_irq(ptr noundef %4) #11
   %5 = getelementptr i8, ptr %0, i64 -232
@@ -1517,7 +1517,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @wakeup_show(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @name_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @name_show(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -124
   tail call void @_raw_spin_lock_irq(ptr noundef %4) #11
   %5 = getelementptr i8, ptr %0, i64 112
@@ -1537,7 +1537,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @name_show(ptr noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @actions_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #1 align 16 {
+define internal i64 @actions_show(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -124
   tail call void @_raw_spin_lock_irq(ptr noundef %4) #11
   %5 = getelementptr i8, ptr %0, i64 -176

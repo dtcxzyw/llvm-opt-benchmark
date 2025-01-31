@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @quantizeColors.scale = internal unnamed_addr constant [3 x i32] [i32 8, i32 4, i32 6], align 4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @initDither(ptr nocapture noundef writeonly initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @initDither(ptr noundef writeonly captures(none) initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   store i32 %1, ptr %0, align 4
   %4 = add nsw i32 %1, -1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -56,7 +56,7 @@ define hidden void @initDither(ptr nocapture noundef writeonly initializes((0, 4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i32 @quantizeColors(i32 noundef %0, ptr nocapture noundef initializes((0, 12)) %1) local_unnamed_addr #1 {
+define hidden i32 @quantizeColors(i32 noundef %0, ptr noundef captures(none) initializes((0, 12)) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -152,7 +152,7 @@ define hidden i32 @quantizeColors(i32 noundef %0, ptr nocapture noundef initiali
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @initColorCube(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define hidden void @initColorCube(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
@@ -398,7 +398,7 @@ initDither.exit53:                                ; preds = %120
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @convertLine(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, i32 noundef %7, ptr nocapture noundef readonly %8, i32 noundef %9, ptr nocapture readnone %10, i32 noundef %11, i32 noundef %12) local_unnamed_addr #2 {
+define hidden void @convertLine(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef readonly captures(none) %8, i32 noundef %9, ptr readnone captures(none) %10, i32 noundef %11, i32 noundef %12) local_unnamed_addr #2 {
   switch i32 %7, label %.loopexit [
     i32 0, label %.preheader
     i32 1, label %.preheader60
@@ -524,7 +524,7 @@ define hidden void @convertLine(ptr nocapture noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @putRGBADither(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 {
+define internal fastcc void @putRGBADither(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 60
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
@@ -769,7 +769,7 @@ define internal fastcc void @putRGBADither(i32 noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @getRGBA(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #4 {
+define internal fastcc i32 @getRGBA(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %65 [
@@ -968,7 +968,7 @@ define internal fastcc i32 @getRGBA(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @initRect(ptr nocapture noundef writeonly initializes((0, 44)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #5 {
+define hidden void @initRect(ptr noundef writeonly captures(none) initializes((0, 44)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #5 {
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1000,7 +1000,7 @@ define hidden void @initRect(ptr nocapture noundef writeonly initializes((0, 44)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @convertRect(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #6 {
+define hidden i32 @convertRect(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = load i32, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
@@ -1064,7 +1064,7 @@ convertRect2.exit:                                ; preds = %.thread.us.i, %.._c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @convertRect2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #6 {
+define hidden i32 @convertRect2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #6 {
   %5 = load i32, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
@@ -1188,7 +1188,7 @@ define hidden i32 @convertRect2(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @fillRect(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define hidden i32 @fillRect(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -1250,7 +1250,7 @@ fillLine.exit.loopexit.us:                        ; preds = %21
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @initFormat(ptr nocapture noundef initializes((0, 16), (32, 44), (48, 56), (60, 64)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @initFormat(ptr noundef captures(none) initializes((0, 16), (32, 44), (48, 56), (60, 64)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 2, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1330,12 +1330,12 @@ getMaskShift.exit:                                ; preds = %.preheader.i, %15, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @dumpFormat(ptr nocapture noundef readnone %0) local_unnamed_addr #7 {
+define hidden void @dumpFormat(ptr noundef readnone captures(none) %0) local_unnamed_addr #7 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @optimizeFormat(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define hidden void @optimizeFormat(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0

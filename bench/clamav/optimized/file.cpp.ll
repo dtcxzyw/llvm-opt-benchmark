@@ -21,7 +21,7 @@ $_ZN4File8IsOpenedEv = comdat any
 @_ZN4FileD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4FileD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4FileC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8256) initializes((0, 17), (20, 26), (28, 37), (40, 49), (52, 56), (8244, 8248)) %0) unnamed_addr #0 align 2 {
+define void @_ZN4FileC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8256) initializes((0, 17), (20, 26), (28, 37), (40, 49), (52, 56), (8244, 8248)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV4File, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -1, ptr %2, align 8
@@ -329,7 +329,7 @@ define noundef zeroext i1 @_ZN4File4OpenEPKwj(ptr noundef nonnull align 8 derefe
 declare noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #7
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare i32 @flock(i32 noundef, i32 noundef) local_unnamed_addr #8
@@ -548,7 +548,7 @@ declare i32 @wcscmp(ptr noundef, ptr noundef) local_unnamed_addr #10
 declare noundef zeroext i1 @_Z10RenameFilePKwS0_(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4File5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8256) %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN4File5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8256) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %50, label %5
 
@@ -638,14 +638,14 @@ define noundef zeroext i1 @_ZN4File5WriteEPKvm(ptr noundef nonnull align 8 deref
 declare i32 @dup(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
 
 declare noundef zeroext i1 @_ZN12ErrorHandler14AskRepeatWriteEPKwb(ptr noundef nonnull align 4 dereferenceable(14), ptr noundef, i1 noundef zeroext) local_unnamed_addr #6
 
 declare void @_ZN12ErrorHandler10WriteErrorEPKwS1_(ptr noundef nonnull align 4 dereferenceable(14), ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN4File4ReadEPvm(ptr noundef nonnull align 8 dereferenceable(8256) %0, ptr nocapture noundef %1, i64 noundef %2) unnamed_addr #2 align 2 {
+define noundef i32 @_ZN4File4ReadEPvm(ptr noundef nonnull align 8 dereferenceable(8256) %0, ptr noundef captures(none) %1, i64 noundef %2) unnamed_addr #2 align 2 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
@@ -835,7 +835,7 @@ split:                                            ; preds = %60, %._crit_edge
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define noundef i32 @_ZN4File10DirectReadEPvm(ptr nocapture noundef nonnull align 8 dereferenceable(8256) %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #11 align 2 {
+define noundef i32 @_ZN4File10DirectReadEPvm(ptr noundef nonnull align 8 captures(none) dereferenceable(8256) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #11 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 1
@@ -863,7 +863,7 @@ declare void @_ZN12ErrorHandler13AskRepeatReadEPKwRbS2_S2_(ptr noundef nonnull a
 declare void @_ZN12ErrorHandler9ReadErrorEPKw(ptr noundef nonnull align 4 dereferenceable(14), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4File4SeekEli(ptr noundef nonnull align 8 dereferenceable(8256) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #2 align 2 {
@@ -1086,7 +1086,7 @@ define noundef i64 @_ZN4File4TellEv(ptr noundef nonnull align 8 dereferenceable(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN4File8PreallocEl(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8256) %0, i64 noundef %1) local_unnamed_addr #12 align 2 {
+define void @_ZN4File8PreallocEl(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8256) %0, i64 noundef %1) local_unnamed_addr #12 align 2 {
   ret void
 }
 
@@ -1128,7 +1128,7 @@ define noundef zeroext i1 @_ZN4File8TruncateEv(ptr noundef nonnull align 8 deref
 declare i32 @ftruncate64(i32 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4File5FlushEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8256) %0) local_unnamed_addr #2 align 2 {
+define void @_ZN4File5FlushEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8256) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -1139,7 +1139,7 @@ define void @_ZN4File5FlushEv(ptr nocapture noundef nonnull readonly align 8 der
 declare i32 @fsync(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN4File15SetOpenFileTimeEP7RarTimeS1_S1_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8256) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #12 align 2 {
+define void @_ZN4File15SetOpenFileTimeEP7RarTimeS1_S1_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8256) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #12 align 2 {
   ret void
 }
 
@@ -1235,7 +1235,7 @@ declare noundef i64 @_ZN7RarTime9GetUnixNSEv(ptr noundef nonnull align 8 derefer
 declare i32 @utimensat(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4File13StatToRarTimeER4statP7RarTimeS3_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
+define void @_ZN4File13StatToRarTimeER4statP7RarTimeS3_S3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %5
 
@@ -1284,7 +1284,7 @@ define void @_ZN4File13StatToRarTimeER4statP7RarTimeS3_S3_(ptr nocapture noundef
 declare void @_ZN7RarTime9SetUnixNSEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4File15GetOpenFileTimeEP7RarTimeS1_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8256) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
+define void @_ZN4File15GetOpenFileTimeEP7RarTimeS1_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8256) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
   %5 = alloca %struct.stat, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
@@ -1336,10 +1336,10 @@ _ZN4File13StatToRarTimeER4statP7RarTimeS3_S3_.exit: ; preds = %25, %26
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN4File8IsDeviceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8256) %0) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN4File8IsDeviceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8256) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, -1
@@ -1477,16 +1477,16 @@ define linkonce_odr noundef zeroext i1 @_ZN4File8IsOpenedEv(ptr noundef nonnull 
 declare void @_ZN12ErrorHandler11MemoryErrorEv(ptr noundef nonnull align 4 dereferenceable(14)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #17

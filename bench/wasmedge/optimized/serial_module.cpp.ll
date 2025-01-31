@@ -529,7 +529,7 @@ $_ZNSt8__detail9__variant12__gen_vtableINS0_20__variant_idx_cookieEOZNSt7variant
 @_ZNSt8__detail9__variant12__gen_vtableINS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS5_11TypeSectionEPKNS5_13ImportSectionEPKNS5_15FunctionSectionEPKNS5_12TableSectionEPKNS5_13MemorySectionEPKNS5_13GlobalSectionEPKNS5_13ExportSectionEPKNS5_12StartSectionEPKNS5_14ElementSectionEPKNS5_11CodeSectionEPKNS5_11DataSectionEPKNS5_16DataCountSectionEEE4swapERS19_EUlOT_T0_E_JS1A_EE9_S_vtableE = linkonce_odr hidden local_unnamed_addr constant %"struct.std::__detail::__variant::_Multi_array.245" { [13 x %"struct.std::__detail::__variant::_Multi_array.246"] [%"struct.std::__detail::__variant::_Multi_array.246" { ptr @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS6_11TypeSectionEPKNS6_13ImportSectionEPKNS6_15FunctionSectionEPKNS6_12TableSectionEPKNS6_13MemorySectionEPKNS6_13GlobalSectionEPKNS6_13ExportSectionEPKNS6_12StartSectionEPKNS6_14ElementSectionEPKNS6_11CodeSectionEPKNS6_11DataSectionEPKNS6_16DataCountSectionEEE4swapERS1A_EUlOT_T0_E_S1B_EJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES1G_S1B_ }, %"struct.std::__detail::__variant::_Multi_array.246" { ptr @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS6_11TypeSectionEPKNS6_13ImportSectionEPKNS6_15FunctionSectionEPKNS6_12TableSectionEPKNS6_13MemorySectionEPKNS6_13GlobalSectionEPKNS6_13ExportSectionEPKNS6_12StartSectionEPKNS6_14ElementSectionEPKNS6_11CodeSectionEPKNS6_11DataSectionEPKNS6_16DataCountSectionEEE4swapERS1A_EUlOT_T0_E_S1B_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES1G_S1B_ }, %"struct.std::__detail::__variant::_Multi_array.246" { ptr @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS6_11TypeSectionEPKNS6_13ImportSectionEPKNS6_15FunctionSectionEPKNS6_12TableSectionEPKNS6_13MemorySectionEPKNS6_13GlobalSectionEPKNS6_13ExportSectionEPKNS6_12StartSectionEPKNS6_14ElementSectionEPKNS6_11CodeSectionEPKNS6_11DataSectionEPKNS6_16DataCountSectionEEE4swapERS1A_EUlOT_T0_E_S1B_EJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES1G_S1B_ }, %"struct.std::__detail::__variant::_Multi_array.246" { ptr @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS6_11TypeSectionEPKNS6_13ImportSectionEPKNS6_15FunctionSectionEPKNS6_12TableSectionEPKNS6_13MemorySectionEPKNS6_13GlobalSectionEPKNS6_13ExportSectionEPKNS6_12StartSectionEPKNS6_14ElementSectionEPKNS6_11CodeSectionEPKNS6_11DataSectionEPKNS6_16DataCountSectionEEE4swapERS1A_EUlOT_T0_E_S1B_EJEEESt16integer_sequenceImJLm3EEEE14__visit_invokeES1G_S1B_ }, %"struct.std::__detail::__variant::_Multi_array.246" { ptr @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS6_11TypeSectionEPKNS6_13ImportSectionEPKNS6_15FunctionSectionEPKNS6_12TableSectionEPKNS6_13MemorySectionEPKNS6_13GlobalSectionEPKNS6_13ExportSectionEPKNS6_12StartSectionEPKNS6_14ElementSectionEPKNS6_11CodeSectionEPKNS6_11DataSectionEPKNS6_16DataCountSectionEEE4swapERS1A_EUlOT_T0_E_S1B_EJEEESt16integer_sequenceImJLm4EEEE14__visit_invokeES1G_S1B_ }, %"struct.std::__detail::__variant::_Multi_array.246" { ptr @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS6_11TypeSectionEPKNS6_13ImportSectionEPKNS6_15FunctionSectionEPKNS6_12TableSectionEPKNS6_13MemorySectionEPKNS6_13GlobalSectionEPKNS6_13ExportSectionEPKNS6_12StartSectionEPKNS6_14ElementSectionEPKNS6_11CodeSectionEPKNS6_11DataSectionEPKNS6_16DataCountSectionEEE4swapERS1A_EUlOT_T0_E_S1B_EJEEESt16integer_sequenceImJLm5EEEE14__visit_invokeES1G_S1B_ }, %"struct.std::__detail::__variant::_Multi_array.246" { ptr @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS6_11TypeSectionEPKNS6_13ImportSectionEPKNS6_15FunctionSectionEPKNS6_12TableSectionEPKNS6_13MemorySectionEPKNS6_13GlobalSectionEPKNS6_13ExportSectionEPKNS6_12StartSectionEPKNS6_14ElementSectionEPKNS6_11CodeSectionEPKNS6_11DataSectionEPKNS6_16DataCountSectionEEE4swapERS1A_EUlOT_T0_E_S1B_EJEEESt16integer_sequenceImJLm6EEEE14__visit_invokeES1G_S1B_ }, %"struct.std::__detail::__variant::_Multi_array.246" { ptr @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS6_11TypeSectionEPKNS6_13ImportSectionEPKNS6_15FunctionSectionEPKNS6_12TableSectionEPKNS6_13MemorySectionEPKNS6_13GlobalSectionEPKNS6_13ExportSectionEPKNS6_12StartSectionEPKNS6_14ElementSectionEPKNS6_11CodeSectionEPKNS6_11DataSectionEPKNS6_16DataCountSectionEEE4swapERS1A_EUlOT_T0_E_S1B_EJEEESt16integer_sequenceImJLm7EEEE14__visit_invokeES1G_S1B_ }, %"struct.std::__detail::__variant::_Multi_array.246" { ptr @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS6_11TypeSectionEPKNS6_13ImportSectionEPKNS6_15FunctionSectionEPKNS6_12TableSectionEPKNS6_13MemorySectionEPKNS6_13GlobalSectionEPKNS6_13ExportSectionEPKNS6_12StartSectionEPKNS6_14ElementSectionEPKNS6_11CodeSectionEPKNS6_11DataSectionEPKNS6_16DataCountSectionEEE4swapERS1A_EUlOT_T0_E_S1B_EJEEESt16integer_sequenceImJLm8EEEE14__visit_invokeES1G_S1B_ }, %"struct.std::__detail::__variant::_Multi_array.246" { ptr @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS6_11TypeSectionEPKNS6_13ImportSectionEPKNS6_15FunctionSectionEPKNS6_12TableSectionEPKNS6_13MemorySectionEPKNS6_13GlobalSectionEPKNS6_13ExportSectionEPKNS6_12StartSectionEPKNS6_14ElementSectionEPKNS6_11CodeSectionEPKNS6_11DataSectionEPKNS6_16DataCountSectionEEE4swapERS1A_EUlOT_T0_E_S1B_EJEEESt16integer_sequenceImJLm9EEEE14__visit_invokeES1G_S1B_ }, %"struct.std::__detail::__variant::_Multi_array.246" { ptr @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS6_11TypeSectionEPKNS6_13ImportSectionEPKNS6_15FunctionSectionEPKNS6_12TableSectionEPKNS6_13MemorySectionEPKNS6_13GlobalSectionEPKNS6_13ExportSectionEPKNS6_12StartSectionEPKNS6_14ElementSectionEPKNS6_11CodeSectionEPKNS6_11DataSectionEPKNS6_16DataCountSectionEEE4swapERS1A_EUlOT_T0_E_S1B_EJEEESt16integer_sequenceImJLm10EEEE14__visit_invokeES1G_S1B_ }, %"struct.std::__detail::__variant::_Multi_array.246" { ptr @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS6_11TypeSectionEPKNS6_13ImportSectionEPKNS6_15FunctionSectionEPKNS6_12TableSectionEPKNS6_13MemorySectionEPKNS6_13GlobalSectionEPKNS6_13ExportSectionEPKNS6_12StartSectionEPKNS6_14ElementSectionEPKNS6_11CodeSectionEPKNS6_11DataSectionEPKNS6_16DataCountSectionEEE4swapERS1A_EUlOT_T0_E_S1B_EJEEESt16integer_sequenceImJLm11EEEE14__visit_invokeES1G_S1B_ }, %"struct.std::__detail::__variant::_Multi_array.246" { ptr @_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS6_11TypeSectionEPKNS6_13ImportSectionEPKNS6_15FunctionSectionEPKNS6_12TableSectionEPKNS6_13MemorySectionEPKNS6_13GlobalSectionEPKNS6_13ExportSectionEPKNS6_12StartSectionEPKNS6_14ElementSectionEPKNS6_11CodeSectionEPKNS6_11DataSectionEPKNS6_16DataCountSectionEEE4swapERS1A_EUlOT_T0_E_S1B_EJEEESt16integer_sequenceImJLm12EEEE14__visit_invokeES1G_S1B_ }] }, comdat, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS_3AST6ModuleE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(705) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS_3AST6ModuleE(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(705) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %class.anon.240, align 1
   %6 = alloca %"class.std::variant", align 8
@@ -2030,7 +2030,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #2
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5cxx208expectedIvN8WasmEdge7ErrCodeEEEEERZNKS6_6Loader10Serializer15serializeModuleERKNS6_3AST6ModuleEE3$_0RSt7variantIJPKNSC_13CustomSectionEPKNSC_11TypeSectionEPKNSC_13ImportSectionEPKNSC_15FunctionSectionEPKNSC_12TableSectionEPKNSC_13MemorySectionEPKNSC_13GlobalSectionEPKNSC_13ExportSectionEPKNSC_12StartSectionEPKNSC_14ElementSectionEPKNSC_11CodeSectionEPKNSC_11DataSectionEPKNSC_16DataCountSectionEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_S1N_"(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.108") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %2) #0 align 2 {
+define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5cxx208expectedIvN8WasmEdge7ErrCodeEEEEERZNKS6_6Loader10Serializer15serializeModuleERKNS6_3AST6ModuleEE3$_0RSt7variantIJPKNSC_13CustomSectionEPKNSC_11TypeSectionEPKNSC_13ImportSectionEPKNSC_15FunctionSectionEPKNSC_12TableSectionEPKNSC_13MemorySectionEPKNSC_13GlobalSectionEPKNSC_13ExportSectionEPKNSC_12StartSectionEPKNSC_14ElementSectionEPKNSC_11CodeSectionEPKNSC_11DataSectionEPKNSC_16DataCountSectionEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_S1N_"(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.108") align 4 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val2 = load ptr, ptr %4, align 8
@@ -2040,7 +2040,7 @@ define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5cxx208expectedIvN8WasmEdge7ErrCodeEEEEERZNKS6_6Loader10Serializer15serializeModuleERKNS6_3AST6ModuleEE3$_0RSt7variantIJPKNSC_13CustomSectionEPKNSC_11TypeSectionEPKNSC_13ImportSectionEPKNSC_15FunctionSectionEPKNSC_12TableSectionEPKNSC_13MemorySectionEPKNSC_13GlobalSectionEPKNSC_13ExportSectionEPKNSC_12StartSectionEPKNSC_14ElementSectionEPKNSC_11CodeSectionEPKNSC_11DataSectionEPKNSC_16DataCountSectionEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESH_S1N_"(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.108") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %2) #0 align 2 {
+define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5cxx208expectedIvN8WasmEdge7ErrCodeEEEEERZNKS6_6Loader10Serializer15serializeModuleERKNS6_3AST6ModuleEE3$_0RSt7variantIJPKNSC_13CustomSectionEPKNSC_11TypeSectionEPKNSC_13ImportSectionEPKNSC_15FunctionSectionEPKNSC_12TableSectionEPKNSC_13MemorySectionEPKNSC_13GlobalSectionEPKNSC_13ExportSectionEPKNSC_12StartSectionEPKNSC_14ElementSectionEPKNSC_11CodeSectionEPKNSC_11DataSectionEPKNSC_16DataCountSectionEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESH_S1N_"(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.108") align 4 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val2 = load ptr, ptr %4, align 8
@@ -2050,7 +2050,7 @@ define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5cxx208expectedIvN8WasmEdge7ErrCodeEEEEERZNKS6_6Loader10Serializer15serializeModuleERKNS6_3AST6ModuleEE3$_0RSt7variantIJPKNSC_13CustomSectionEPKNSC_11TypeSectionEPKNSC_13ImportSectionEPKNSC_15FunctionSectionEPKNSC_12TableSectionEPKNSC_13MemorySectionEPKNSC_13GlobalSectionEPKNSC_13ExportSectionEPKNSC_12StartSectionEPKNSC_14ElementSectionEPKNSC_11CodeSectionEPKNSC_11DataSectionEPKNSC_16DataCountSectionEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESH_S1N_"(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.108") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %2) #0 align 2 {
+define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5cxx208expectedIvN8WasmEdge7ErrCodeEEEEERZNKS6_6Loader10Serializer15serializeModuleERKNS6_3AST6ModuleEE3$_0RSt7variantIJPKNSC_13CustomSectionEPKNSC_11TypeSectionEPKNSC_13ImportSectionEPKNSC_15FunctionSectionEPKNSC_12TableSectionEPKNSC_13MemorySectionEPKNSC_13GlobalSectionEPKNSC_13ExportSectionEPKNSC_12StartSectionEPKNSC_14ElementSectionEPKNSC_11CodeSectionEPKNSC_11DataSectionEPKNSC_16DataCountSectionEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESH_S1N_"(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.108") align 4 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val2 = load ptr, ptr %4, align 8
@@ -2060,7 +2060,7 @@ define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5cxx208expectedIvN8WasmEdge7ErrCodeEEEEERZNKS6_6Loader10Serializer15serializeModuleERKNS6_3AST6ModuleEE3$_0RSt7variantIJPKNSC_13CustomSectionEPKNSC_11TypeSectionEPKNSC_13ImportSectionEPKNSC_15FunctionSectionEPKNSC_12TableSectionEPKNSC_13MemorySectionEPKNSC_13GlobalSectionEPKNSC_13ExportSectionEPKNSC_12StartSectionEPKNSC_14ElementSectionEPKNSC_11CodeSectionEPKNSC_11DataSectionEPKNSC_16DataCountSectionEEEEJEEESt16integer_sequenceImJLm3EEEE14__visit_invokeESH_S1N_"(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.108") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %2) #0 align 2 {
+define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5cxx208expectedIvN8WasmEdge7ErrCodeEEEEERZNKS6_6Loader10Serializer15serializeModuleERKNS6_3AST6ModuleEE3$_0RSt7variantIJPKNSC_13CustomSectionEPKNSC_11TypeSectionEPKNSC_13ImportSectionEPKNSC_15FunctionSectionEPKNSC_12TableSectionEPKNSC_13MemorySectionEPKNSC_13GlobalSectionEPKNSC_13ExportSectionEPKNSC_12StartSectionEPKNSC_14ElementSectionEPKNSC_11CodeSectionEPKNSC_11DataSectionEPKNSC_16DataCountSectionEEEEJEEESt16integer_sequenceImJLm3EEEE14__visit_invokeESH_S1N_"(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.108") align 4 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val2 = load ptr, ptr %4, align 8
@@ -2070,7 +2070,7 @@ define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5cxx208expectedIvN8WasmEdge7ErrCodeEEEEERZNKS6_6Loader10Serializer15serializeModuleERKNS6_3AST6ModuleEE3$_0RSt7variantIJPKNSC_13CustomSectionEPKNSC_11TypeSectionEPKNSC_13ImportSectionEPKNSC_15FunctionSectionEPKNSC_12TableSectionEPKNSC_13MemorySectionEPKNSC_13GlobalSectionEPKNSC_13ExportSectionEPKNSC_12StartSectionEPKNSC_14ElementSectionEPKNSC_11CodeSectionEPKNSC_11DataSectionEPKNSC_16DataCountSectionEEEEJEEESt16integer_sequenceImJLm4EEEE14__visit_invokeESH_S1N_"(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.108") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %2) #0 align 2 {
+define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5cxx208expectedIvN8WasmEdge7ErrCodeEEEEERZNKS6_6Loader10Serializer15serializeModuleERKNS6_3AST6ModuleEE3$_0RSt7variantIJPKNSC_13CustomSectionEPKNSC_11TypeSectionEPKNSC_13ImportSectionEPKNSC_15FunctionSectionEPKNSC_12TableSectionEPKNSC_13MemorySectionEPKNSC_13GlobalSectionEPKNSC_13ExportSectionEPKNSC_12StartSectionEPKNSC_14ElementSectionEPKNSC_11CodeSectionEPKNSC_11DataSectionEPKNSC_16DataCountSectionEEEEJEEESt16integer_sequenceImJLm4EEEE14__visit_invokeESH_S1N_"(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.108") align 4 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val2 = load ptr, ptr %4, align 8
@@ -2080,7 +2080,7 @@ define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5cxx208expectedIvN8WasmEdge7ErrCodeEEEEERZNKS6_6Loader10Serializer15serializeModuleERKNS6_3AST6ModuleEE3$_0RSt7variantIJPKNSC_13CustomSectionEPKNSC_11TypeSectionEPKNSC_13ImportSectionEPKNSC_15FunctionSectionEPKNSC_12TableSectionEPKNSC_13MemorySectionEPKNSC_13GlobalSectionEPKNSC_13ExportSectionEPKNSC_12StartSectionEPKNSC_14ElementSectionEPKNSC_11CodeSectionEPKNSC_11DataSectionEPKNSC_16DataCountSectionEEEEJEEESt16integer_sequenceImJLm5EEEE14__visit_invokeESH_S1N_"(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.108") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %2) #0 align 2 {
+define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5cxx208expectedIvN8WasmEdge7ErrCodeEEEEERZNKS6_6Loader10Serializer15serializeModuleERKNS6_3AST6ModuleEE3$_0RSt7variantIJPKNSC_13CustomSectionEPKNSC_11TypeSectionEPKNSC_13ImportSectionEPKNSC_15FunctionSectionEPKNSC_12TableSectionEPKNSC_13MemorySectionEPKNSC_13GlobalSectionEPKNSC_13ExportSectionEPKNSC_12StartSectionEPKNSC_14ElementSectionEPKNSC_11CodeSectionEPKNSC_11DataSectionEPKNSC_16DataCountSectionEEEEJEEESt16integer_sequenceImJLm5EEEE14__visit_invokeESH_S1N_"(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.108") align 4 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val2 = load ptr, ptr %4, align 8
@@ -2090,7 +2090,7 @@ define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5cxx208expectedIvN8WasmEdge7ErrCodeEEEEERZNKS6_6Loader10Serializer15serializeModuleERKNS6_3AST6ModuleEE3$_0RSt7variantIJPKNSC_13CustomSectionEPKNSC_11TypeSectionEPKNSC_13ImportSectionEPKNSC_15FunctionSectionEPKNSC_12TableSectionEPKNSC_13MemorySectionEPKNSC_13GlobalSectionEPKNSC_13ExportSectionEPKNSC_12StartSectionEPKNSC_14ElementSectionEPKNSC_11CodeSectionEPKNSC_11DataSectionEPKNSC_16DataCountSectionEEEEJEEESt16integer_sequenceImJLm6EEEE14__visit_invokeESH_S1N_"(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.108") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %2) #0 align 2 {
+define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5cxx208expectedIvN8WasmEdge7ErrCodeEEEEERZNKS6_6Loader10Serializer15serializeModuleERKNS6_3AST6ModuleEE3$_0RSt7variantIJPKNSC_13CustomSectionEPKNSC_11TypeSectionEPKNSC_13ImportSectionEPKNSC_15FunctionSectionEPKNSC_12TableSectionEPKNSC_13MemorySectionEPKNSC_13GlobalSectionEPKNSC_13ExportSectionEPKNSC_12StartSectionEPKNSC_14ElementSectionEPKNSC_11CodeSectionEPKNSC_11DataSectionEPKNSC_16DataCountSectionEEEEJEEESt16integer_sequenceImJLm6EEEE14__visit_invokeESH_S1N_"(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.108") align 4 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val2 = load ptr, ptr %4, align 8
@@ -2100,7 +2100,7 @@ define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5cxx208expectedIvN8WasmEdge7ErrCodeEEEEERZNKS6_6Loader10Serializer15serializeModuleERKNS6_3AST6ModuleEE3$_0RSt7variantIJPKNSC_13CustomSectionEPKNSC_11TypeSectionEPKNSC_13ImportSectionEPKNSC_15FunctionSectionEPKNSC_12TableSectionEPKNSC_13MemorySectionEPKNSC_13GlobalSectionEPKNSC_13ExportSectionEPKNSC_12StartSectionEPKNSC_14ElementSectionEPKNSC_11CodeSectionEPKNSC_11DataSectionEPKNSC_16DataCountSectionEEEEJEEESt16integer_sequenceImJLm7EEEE14__visit_invokeESH_S1N_"(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.108") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %2) #0 align 2 {
+define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5cxx208expectedIvN8WasmEdge7ErrCodeEEEEERZNKS6_6Loader10Serializer15serializeModuleERKNS6_3AST6ModuleEE3$_0RSt7variantIJPKNSC_13CustomSectionEPKNSC_11TypeSectionEPKNSC_13ImportSectionEPKNSC_15FunctionSectionEPKNSC_12TableSectionEPKNSC_13MemorySectionEPKNSC_13GlobalSectionEPKNSC_13ExportSectionEPKNSC_12StartSectionEPKNSC_14ElementSectionEPKNSC_11CodeSectionEPKNSC_11DataSectionEPKNSC_16DataCountSectionEEEEJEEESt16integer_sequenceImJLm7EEEE14__visit_invokeESH_S1N_"(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.108") align 4 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val2 = load ptr, ptr %4, align 8
@@ -2110,7 +2110,7 @@ define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5cxx208expectedIvN8WasmEdge7ErrCodeEEEEERZNKS6_6Loader10Serializer15serializeModuleERKNS6_3AST6ModuleEE3$_0RSt7variantIJPKNSC_13CustomSectionEPKNSC_11TypeSectionEPKNSC_13ImportSectionEPKNSC_15FunctionSectionEPKNSC_12TableSectionEPKNSC_13MemorySectionEPKNSC_13GlobalSectionEPKNSC_13ExportSectionEPKNSC_12StartSectionEPKNSC_14ElementSectionEPKNSC_11CodeSectionEPKNSC_11DataSectionEPKNSC_16DataCountSectionEEEEJEEESt16integer_sequenceImJLm8EEEE14__visit_invokeESH_S1N_"(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.108") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %2) #0 align 2 {
+define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5cxx208expectedIvN8WasmEdge7ErrCodeEEEEERZNKS6_6Loader10Serializer15serializeModuleERKNS6_3AST6ModuleEE3$_0RSt7variantIJPKNSC_13CustomSectionEPKNSC_11TypeSectionEPKNSC_13ImportSectionEPKNSC_15FunctionSectionEPKNSC_12TableSectionEPKNSC_13MemorySectionEPKNSC_13GlobalSectionEPKNSC_13ExportSectionEPKNSC_12StartSectionEPKNSC_14ElementSectionEPKNSC_11CodeSectionEPKNSC_11DataSectionEPKNSC_16DataCountSectionEEEEJEEESt16integer_sequenceImJLm8EEEE14__visit_invokeESH_S1N_"(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.108") align 4 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val2 = load ptr, ptr %4, align 8
@@ -2120,7 +2120,7 @@ define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5cxx208expectedIvN8WasmEdge7ErrCodeEEEEERZNKS6_6Loader10Serializer15serializeModuleERKNS6_3AST6ModuleEE3$_0RSt7variantIJPKNSC_13CustomSectionEPKNSC_11TypeSectionEPKNSC_13ImportSectionEPKNSC_15FunctionSectionEPKNSC_12TableSectionEPKNSC_13MemorySectionEPKNSC_13GlobalSectionEPKNSC_13ExportSectionEPKNSC_12StartSectionEPKNSC_14ElementSectionEPKNSC_11CodeSectionEPKNSC_11DataSectionEPKNSC_16DataCountSectionEEEEJEEESt16integer_sequenceImJLm9EEEE14__visit_invokeESH_S1N_"(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.108") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %2) #0 align 2 {
+define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5cxx208expectedIvN8WasmEdge7ErrCodeEEEEERZNKS6_6Loader10Serializer15serializeModuleERKNS6_3AST6ModuleEE3$_0RSt7variantIJPKNSC_13CustomSectionEPKNSC_11TypeSectionEPKNSC_13ImportSectionEPKNSC_15FunctionSectionEPKNSC_12TableSectionEPKNSC_13MemorySectionEPKNSC_13GlobalSectionEPKNSC_13ExportSectionEPKNSC_12StartSectionEPKNSC_14ElementSectionEPKNSC_11CodeSectionEPKNSC_11DataSectionEPKNSC_16DataCountSectionEEEEJEEESt16integer_sequenceImJLm9EEEE14__visit_invokeESH_S1N_"(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.108") align 4 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val2 = load ptr, ptr %4, align 8
@@ -2130,7 +2130,7 @@ define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5cxx208expectedIvN8WasmEdge7ErrCodeEEEEERZNKS6_6Loader10Serializer15serializeModuleERKNS6_3AST6ModuleEE3$_0RSt7variantIJPKNSC_13CustomSectionEPKNSC_11TypeSectionEPKNSC_13ImportSectionEPKNSC_15FunctionSectionEPKNSC_12TableSectionEPKNSC_13MemorySectionEPKNSC_13GlobalSectionEPKNSC_13ExportSectionEPKNSC_12StartSectionEPKNSC_14ElementSectionEPKNSC_11CodeSectionEPKNSC_11DataSectionEPKNSC_16DataCountSectionEEEEJEEESt16integer_sequenceImJLm10EEEE14__visit_invokeESH_S1N_"(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.108") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %2) #0 align 2 {
+define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5cxx208expectedIvN8WasmEdge7ErrCodeEEEEERZNKS6_6Loader10Serializer15serializeModuleERKNS6_3AST6ModuleEE3$_0RSt7variantIJPKNSC_13CustomSectionEPKNSC_11TypeSectionEPKNSC_13ImportSectionEPKNSC_15FunctionSectionEPKNSC_12TableSectionEPKNSC_13MemorySectionEPKNSC_13GlobalSectionEPKNSC_13ExportSectionEPKNSC_12StartSectionEPKNSC_14ElementSectionEPKNSC_11CodeSectionEPKNSC_11DataSectionEPKNSC_16DataCountSectionEEEEJEEESt16integer_sequenceImJLm10EEEE14__visit_invokeESH_S1N_"(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.108") align 4 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val2 = load ptr, ptr %4, align 8
@@ -2140,7 +2140,7 @@ define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5cxx208expectedIvN8WasmEdge7ErrCodeEEEEERZNKS6_6Loader10Serializer15serializeModuleERKNS6_3AST6ModuleEE3$_0RSt7variantIJPKNSC_13CustomSectionEPKNSC_11TypeSectionEPKNSC_13ImportSectionEPKNSC_15FunctionSectionEPKNSC_12TableSectionEPKNSC_13MemorySectionEPKNSC_13GlobalSectionEPKNSC_13ExportSectionEPKNSC_12StartSectionEPKNSC_14ElementSectionEPKNSC_11CodeSectionEPKNSC_11DataSectionEPKNSC_16DataCountSectionEEEEJEEESt16integer_sequenceImJLm11EEEE14__visit_invokeESH_S1N_"(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.108") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %2) #0 align 2 {
+define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5cxx208expectedIvN8WasmEdge7ErrCodeEEEEERZNKS6_6Loader10Serializer15serializeModuleERKNS6_3AST6ModuleEE3$_0RSt7variantIJPKNSC_13CustomSectionEPKNSC_11TypeSectionEPKNSC_13ImportSectionEPKNSC_15FunctionSectionEPKNSC_12TableSectionEPKNSC_13MemorySectionEPKNSC_13GlobalSectionEPKNSC_13ExportSectionEPKNSC_12StartSectionEPKNSC_14ElementSectionEPKNSC_11CodeSectionEPKNSC_11DataSectionEPKNSC_16DataCountSectionEEEEJEEESt16integer_sequenceImJLm11EEEE14__visit_invokeESH_S1N_"(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.108") align 4 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val2 = load ptr, ptr %4, align 8
@@ -2150,7 +2150,7 @@ define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5cxx208expectedIvN8WasmEdge7ErrCodeEEEEERZNKS6_6Loader10Serializer15serializeModuleERKNS6_3AST6ModuleEE3$_0RSt7variantIJPKNSC_13CustomSectionEPKNSC_11TypeSectionEPKNSC_13ImportSectionEPKNSC_15FunctionSectionEPKNSC_12TableSectionEPKNSC_13MemorySectionEPKNSC_13GlobalSectionEPKNSC_13ExportSectionEPKNSC_12StartSectionEPKNSC_14ElementSectionEPKNSC_11CodeSectionEPKNSC_11DataSectionEPKNSC_16DataCountSectionEEEEJEEESt16integer_sequenceImJLm12EEEE14__visit_invokeESH_S1N_"(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.108") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %2) #0 align 2 {
+define internal void @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN5cxx208expectedIvN8WasmEdge7ErrCodeEEEEERZNKS6_6Loader10Serializer15serializeModuleERKNS6_3AST6ModuleEE3$_0RSt7variantIJPKNSC_13CustomSectionEPKNSC_11TypeSectionEPKNSC_13ImportSectionEPKNSC_15FunctionSectionEPKNSC_12TableSectionEPKNSC_13MemorySectionEPKNSC_13GlobalSectionEPKNSC_13ExportSectionEPKNSC_12StartSectionEPKNSC_14ElementSectionEPKNSC_11CodeSectionEPKNSC_11DataSectionEPKNSC_16DataCountSectionEEEEJEEESt16integer_sequenceImJLm12EEEE14__visit_invokeESH_S1N_"(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.108") align 4 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val2 = load ptr, ptr %4, align 8
@@ -2201,10 +2201,10 @@ declare void @_ZNK8WasmEdge6Loader10Serializer16serializeSectionERKNS_3AST16Data
 declare noundef ptr @_ZN6spdlog18default_logger_rawEv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef byval(%"struct.spdlog::source_loc") align 8 %1, i32 noundef %2, ptr %3, i64 %4, ptr noundef nonnull align 1 dereferenceable(1) %5) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2839,7 +2839,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #9
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: noreturn
 declare void @_ZN3fmt2v86detail13error_handler8on_errorEPKc(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #9
@@ -8360,7 +8360,7 @@ _ZN3fmt2v86detail4fillINS0_8appenderEcEET_S4_mRKNS1_6fill_tIT0_EE.exit69: ; pred
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare i64 @_ZN3fmt2v86detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef) local_unnamed_addr #4
@@ -19348,7 +19348,7 @@ _ZN3fmt2v86detail23check_cstring_type_specINS1_13error_handlerEEEbNS0_17presenta
 
 _ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewINS0_13type_identityIT_E4typeEEERKNS0_18basic_format_specsIS7_EENS1_10locale_refE.exit.i: ; preds = %_ZN3fmt2v86detail23check_cstring_type_specINS1_13error_handlerEEEbNS0_17presentation_typeEOT_.exit.i
   %307 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.0402.0..sroa.0402.0..sroa.0402.0..sroa.0402.0.410) #23
-  %308 = call ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS6_EE(ptr %.sroa.0.0.copyload.i, ptr %.sroa.0402.0..sroa.0402.0..sroa.0402.0..sroa.0402.0.410, i64 %307, ptr noundef nonnull align 4 dereferenceable(16) %26)
+  %308 = call ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS6_EE(ptr %.sroa.0.0.copyload.i, ptr nonnull %.sroa.0402.0..sroa.0402.0..sroa.0402.0..sroa.0402.0.410, i64 %307, ptr noundef nonnull align 4 dereferenceable(16) %26)
   br label %_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_PKT_RKNS0_18basic_format_specsIS5_EENS1_10locale_refE.exit
 
 309:                                              ; preds = %_ZN3fmt2v86detail23check_cstring_type_specINS1_13error_handlerEEEbNS0_17presentation_typeEOT_.exit.i
@@ -19617,7 +19617,7 @@ _ZZN3fmt2v86detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6buffer
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %79
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %82, i64 %66)
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr %81, ptr nonnull %0, i64 %..i.i.i.i.i.i)
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %81, ptr nonnull %0, i64 %..i.i.i.i.i.i)
   %84 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   %85 = icmp eq i64 %82, %66
   %or.cond.i.i.i.i = and i1 %85, %84
@@ -20551,7 +20551,7 @@ define linkonce_odr hidden void @_ZNK3fmt2v817basic_format_argsINS0_20basic_form
   br i1 %19, label %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %15
-  %bcmp.i.i = tail call i32 @bcmp(ptr %17, ptr %2, i64 %..i.i.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %17, ptr %2, i64 %..i.i.i)
   %20 = icmp eq i32 %bcmp.i.i, 0
   %21 = icmp eq i64 %18, %3
   %or.cond.i = select i1 %20, i1 %21, i1 false
@@ -29448,7 +29448,7 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13Cus
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_S1N_T0_.exit.i", !llvm.loop !258
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEET_S1N_S1N_T0_.exit": ; preds = %186
-  call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_T0_T1_"(ptr %.sroa.010.1.i.i, ptr %storemerge55143, i64 noundef %47)
+  call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_T0_T1_"(ptr nonnull %.sroa.010.1.i.i, ptr %storemerge55143, i64 noundef %47)
   %197 = ptrtoint ptr %.sroa.010.1.i.i to i64
   %198 = sub i64 %197, %18
   %199 = ashr exact i64 %198, 4
@@ -29563,7 +29563,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES1O_S1P_"(ptr nocapture nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %1) #13 align 2 {
+define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeES1O_S1P_"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) #13 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i64, ptr %3, align 8
@@ -29571,7 +29571,7 @@ define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES1O_S1P_"(ptr nocapture nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %1) #13 align 2 {
+define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES1O_S1P_"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) #13 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i64, ptr %3, align 8
@@ -29579,7 +29579,7 @@ define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES1O_S1P_"(ptr nocapture nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %1) #13 align 2 {
+define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeES1O_S1P_"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) #13 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i64, ptr %3, align 8
@@ -29587,7 +29587,7 @@ define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm3EEEE14__visit_invokeES1O_S1P_"(ptr nocapture nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %1) #13 align 2 {
+define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm3EEEE14__visit_invokeES1O_S1P_"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) #13 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i64, ptr %3, align 8
@@ -29595,7 +29595,7 @@ define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm4EEEE14__visit_invokeES1O_S1P_"(ptr nocapture nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %1) #13 align 2 {
+define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm4EEEE14__visit_invokeES1O_S1P_"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) #13 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i64, ptr %3, align 8
@@ -29603,7 +29603,7 @@ define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm5EEEE14__visit_invokeES1O_S1P_"(ptr nocapture nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %1) #13 align 2 {
+define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm5EEEE14__visit_invokeES1O_S1P_"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) #13 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i64, ptr %3, align 8
@@ -29611,7 +29611,7 @@ define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm6EEEE14__visit_invokeES1O_S1P_"(ptr nocapture nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %1) #13 align 2 {
+define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm6EEEE14__visit_invokeES1O_S1P_"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) #13 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i64, ptr %3, align 8
@@ -29619,7 +29619,7 @@ define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm7EEEE14__visit_invokeES1O_S1P_"(ptr nocapture nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %1) #13 align 2 {
+define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm7EEEE14__visit_invokeES1O_S1P_"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) #13 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i64, ptr %3, align 8
@@ -29627,7 +29627,7 @@ define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm8EEEE14__visit_invokeES1O_S1P_"(ptr nocapture nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %1) #13 align 2 {
+define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm8EEEE14__visit_invokeES1O_S1P_"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) #13 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i64, ptr %3, align 8
@@ -29635,7 +29635,7 @@ define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm9EEEE14__visit_invokeES1O_S1P_"(ptr nocapture nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %1) #13 align 2 {
+define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm9EEEE14__visit_invokeES1O_S1P_"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) #13 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i64, ptr %3, align 8
@@ -29643,7 +29643,7 @@ define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm10EEEE14__visit_invokeES1O_S1P_"(ptr nocapture nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %1) #13 align 2 {
+define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm10EEEE14__visit_invokeES1O_S1P_"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) #13 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i64, ptr %3, align 8
@@ -29651,7 +29651,7 @@ define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm11EEEE14__visit_invokeES1O_S1P_"(ptr nocapture nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %1) #13 align 2 {
+define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm11EEEE14__visit_invokeES1O_S1P_"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) #13 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i64, ptr %3, align 8
@@ -29659,7 +29659,7 @@ define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm12EEEE14__visit_invokeES1O_S1P_"(ptr nocapture nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %1) #13 align 2 {
+define internal noundef i64 @"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS5_3AST6ModuleEENK3$_1clISt7variantIJPKNS8_13CustomSectionEPKNS8_11TypeSectionEPKNS8_13ImportSectionEPKNS8_15FunctionSectionEPKNS8_12TableSectionEPKNS8_13MemorySectionEPKNS8_13GlobalSectionEPKNS8_13ExportSectionEPKNS8_12StartSectionEPKNS8_14ElementSectionEPKNS8_11CodeSectionEPKNS8_11DataSectionEPKNS8_16DataCountSectionEEES1I_EEDaRT_RT0_EUlS1K_E_RS1I_EJEEESt16integer_sequenceImJLm12EEEE14__visit_invokeES1O_S1P_"(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) #13 align 2 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load i64, ptr %3, align 8
@@ -30034,7 +30034,7 @@ _ZSt8__invokeIZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionE
 declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #14
@@ -30058,10 +30058,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #14

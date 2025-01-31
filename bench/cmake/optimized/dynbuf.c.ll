@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Curl_crealloc = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @Curl_dyn_init(ptr nocapture noundef writeonly initializes((0, 32)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local void @Curl_dyn_init(ptr noundef writeonly captures(none) initializes((0, 32)) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store i64 %1, ptr %3, align 8
@@ -17,7 +17,7 @@ define dso_local void @Curl_dyn_init(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_dyn_free(ptr nocapture noundef initializes((8, 24)) %0) local_unnamed_addr #1 {
+define dso_local void @Curl_dyn_free(ptr noundef captures(none) initializes((8, 24)) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @Curl_cfree, align 8
   %3 = load ptr, ptr %0, align 8
   tail call void %2(ptr noundef %3) #11
@@ -26,7 +26,7 @@ define dso_local void @Curl_dyn_free(ptr nocapture noundef initializes((8, 24)) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @Curl_dyn_reset(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define dso_local void @Curl_dyn_reset(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
@@ -43,7 +43,7 @@ define dso_local void @Curl_dyn_reset(ptr nocapture noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 44) i32 @Curl_dyn_tail(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define dso_local range(i32 0, 44) i32 @Curl_dyn_tail(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp ugt i64 %1, %4
@@ -87,10 +87,10 @@ Curl_dyn_reset.exit:                              ; preds = %9, %10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 101) i32 @Curl_dyn_addn(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 0, 101) i32 @Curl_dyn_addn(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -179,7 +179,7 @@ dyn_nappend.exit:                                 ; preds = %12, %27, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 101) i32 @Curl_dyn_add(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define dso_local range(i32 0, 101) i32 @Curl_dyn_add(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
@@ -252,7 +252,7 @@ define dso_local range(i32 0, 101) i32 @Curl_dyn_add(ptr nocapture noundef %0, p
 
 32:                                               ; preds = %31
   %33 = getelementptr inbounds i8, ptr %.pre48.i, i64 %5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr readonly align 1 %1, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr nonnull readonly align 1 %1, i64 %3, i1 false)
   %.pre.i = load ptr, ptr %0, align 8
   br label %34
 
@@ -269,7 +269,7 @@ dyn_nappend.exit:                                 ; preds = %12, %27, %34
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 101) i32 @Curl_dyn_vaddf(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
@@ -297,26 +297,26 @@ define dso_local range(i32 0, 101) i32 @Curl_dyn_addf(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @Curl_dyn_ptr(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define dso_local ptr @Curl_dyn_ptr(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @Curl_dyn_uptr(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define dso_local ptr @Curl_dyn_uptr(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @Curl_dyn_len(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define dso_local i64 @Curl_dyn_len(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 44) i32 @Curl_dyn_setlen(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
+define dso_local range(i32 0, 44) i32 @Curl_dyn_setlen(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp ugt i64 %1, %4
@@ -335,7 +335,7 @@ define dso_local range(i32 0, 44) i32 @Curl_dyn_setlen(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #8
@@ -344,7 +344,7 @@ declare void @llvm.va_start.p0(ptr) #8
 declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10

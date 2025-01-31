@@ -46,7 +46,7 @@ define dso_local range(i32 -1, 65536) i32 @ScanECPGKeywordLookup(ptr noundef %0)
 declare i32 @ScanKeywordLookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal range(i32 -256, 255) i32 @ScanECPGKeywords_hash_func(ptr nocapture noundef readonly %0, i64 noundef %1) #2 {
+define internal range(i32 -256, 255) i32 @ScanECPGKeywords_hash_func(ptr noundef readonly captures(none) %0, i64 noundef %1) #2 {
   %.not11 = icmp eq i64 %1, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 

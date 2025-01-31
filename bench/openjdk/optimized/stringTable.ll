@@ -1315,7 +1315,7 @@ _ZN16java_lang_String9hash_codeEPKti.exit:        ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN11StringTable6internEP7oopDescP10JavaThread(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
@@ -2802,7 +2802,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE149ELS1_0ELS1_0ELS1_
 declare void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringTable20get_table_statisticsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.TableStatistics) align 8 initializes((0, 96)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11StringTable20get_table_statisticsEv(ptr dead_on_unwind noalias writable writeonly sret(%class.TableStatistics) align 8 captures(none) initializes((0, 96)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %struct.SizeFunc, align 1
   %3 = alloca %class.TableStatistics, align 8
   %4 = alloca %class.TableStatistics, align 8
@@ -3461,7 +3461,7 @@ define hidden void @_ZN15StringtableDCmdC2EP12outputStreamb(ptr noundef nonnull 
 declare void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15StringtableDCmd7executeE10DCmdSourceP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i32 %1, ptr nocapture readnone %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN15StringtableDCmd7executeE10DCmdSourceP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i32 %1, ptr readnone captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %class.VM_DumpHashtable, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -3955,7 +3955,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0
 declare void @_ZN15MetaspaceShared27unrecoverable_writing_errorEPKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11StringTable17init_shared_tableEPK21DumpedInternedStrings(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN11StringTable17init_shared_tableEPK21DumpedInternedStrings(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.CompactHashtableWriter, align 8
   %3 = load ptr, ptr @_ZN11StringTable21_shared_strings_arrayE, align 8
   %4 = icmp eq ptr %3, null
@@ -6533,7 +6533,7 @@ declare noundef zeroext i1 @_ZN16java_lang_String6equalsEP7oopDescS1_(ptr nounde
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind
 declare void @_ZN6AnyObjdlEPv(ptr noundef) local_unnamed_addr #5
@@ -11175,10 +11175,10 @@ declare i64 @llvm.umin.i64(i64, i64) #14
 declare i32 @llvm.ctpop.i32(i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14

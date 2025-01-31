@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4absl12log_internal12EncodeVarintEmmPNS_4SpanIcEE(i64 noundef %tag, i64 noundef %value, ptr nocapture noundef %buf) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl12log_internal12EncodeVarintEmmPNS_4SpanIcEE(i64 noundef %tag, i64 noundef %value, ptr noundef captures(none) %buf) local_unnamed_addr #0 {
 entry:
   %shl.i = shl i64 %tag, 3
   %cmp2.i = icmp ult i64 %shl.i, 128
@@ -101,7 +101,7 @@ return:                                           ; preds = %_ZN4absl12log_inter
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4absl12log_internal11Encode64BitEmmPNS_4SpanIcEE(i64 noundef %tag, i64 noundef %value, ptr nocapture noundef %buf) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl12log_internal11Encode64BitEmmPNS_4SpanIcEE(i64 noundef %tag, i64 noundef %value, ptr noundef captures(none) %buf) local_unnamed_addr #0 {
 entry:
   %shl.i = shl i64 %tag, 3
   %or.i = or disjoint i64 %shl.i, 1
@@ -179,7 +179,7 @@ return:                                           ; preds = %_ZN4absl12log_inter
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4absl12log_internal11Encode32BitEmjPNS_4SpanIcEE(i64 noundef %tag, i32 noundef %value, ptr nocapture noundef %buf) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl12log_internal11Encode32BitEmjPNS_4SpanIcEE(i64 noundef %tag, i32 noundef %value, ptr noundef captures(none) %buf) local_unnamed_addr #0 {
 entry:
   %shl.i = shl i64 %tag, 3
   %or.i = or disjoint i64 %shl.i, 5
@@ -257,7 +257,7 @@ return:                                           ; preds = %_ZN4absl12log_inter
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4absl12log_internal11EncodeBytesEmNS_4SpanIKcEEPNS1_IcEE(i64 noundef %tag, ptr nocapture readonly %value.coerce0, i64 %value.coerce1, ptr nocapture noundef %buf) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN4absl12log_internal11EncodeBytesEmNS_4SpanIKcEEPNS1_IcEE(i64 noundef %tag, ptr readonly captures(none) %value.coerce0, i64 %value.coerce1, ptr noundef captures(none) %buf) local_unnamed_addr #1 {
 entry:
   %shl.i = shl i64 %tag, 3
   %or.i = or disjoint i64 %shl.i, 2
@@ -363,10 +363,10 @@ return:                                           ; preds = %_ZN4absl12log_inter
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4absl12log_internal19EncodeBytesTruncateEmNS_4SpanIKcEEPNS1_IcEE(i64 noundef %tag, ptr nocapture readonly %value.coerce0, i64 %value.coerce1, ptr nocapture noundef %buf) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN4absl12log_internal19EncodeBytesTruncateEmNS_4SpanIKcEEPNS1_IcEE(i64 noundef %tag, ptr readonly captures(none) %value.coerce0, i64 %value.coerce1, ptr noundef captures(none) %buf) local_unnamed_addr #1 {
 entry:
   %shl.i = shl i64 %tag, 3
   %or.i = or disjoint i64 %shl.i, 2
@@ -479,7 +479,7 @@ return:                                           ; preds = %_ZN4absl12log_inter
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local { ptr, i64 } @_ZN4absl12log_internal18EncodeMessageStartEmmPNS_4SpanIcEE(i64 noundef %tag, i64 noundef %max_size, ptr nocapture noundef %buf) local_unnamed_addr #0 {
+define dso_local { ptr, i64 } @_ZN4absl12log_internal18EncodeMessageStartEmmPNS_4SpanIcEE(i64 noundef %tag, i64 noundef %max_size, ptr noundef captures(none) %buf) local_unnamed_addr #0 {
 entry:
   %shl.i = shl i64 %tag, 3
   %or.i = or disjoint i64 %shl.i, 2
@@ -578,7 +578,7 @@ return:                                           ; preds = %_ZN4absl12log_inter
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl12log_internal19EncodeMessageLengthENS_4SpanIcEEPKS2_(ptr %msg.coerce0, i64 %msg.coerce1, ptr nocapture noundef readonly %buf) local_unnamed_addr #3 {
+define dso_local void @_ZN4absl12log_internal19EncodeMessageLengthENS_4SpanIcEEPKS2_(ptr %msg.coerce0, i64 %msg.coerce1, ptr noundef readonly captures(none) %buf) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %msg.coerce0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -616,7 +616,7 @@ return:                                           ; preds = %for.body.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4absl12log_internal10ProtoField10DecodeFromEPNS_4SpanIKcEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr nocapture noundef %data) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN4absl12log_internal10ProtoField10DecodeFromEPNS_4SpanIKcEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %this, ptr noundef captures(none) %data) local_unnamed_addr #4 align 2 {
 entry:
   %len_.i.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load i64, ptr %len_.i.i, align 8

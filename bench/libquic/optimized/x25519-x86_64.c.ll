@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.fe25519 = type { [5 x i64] }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @x25519_x86_64(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %scalar, ptr nocapture noundef readonly %point) local_unnamed_addr #0 {
+define hidden void @x25519_x86_64(ptr noundef writeonly captures(none) %out, ptr noundef readonly captures(none) %scalar, ptr noundef readonly captures(none) %point) local_unnamed_addr #0 {
 entry:
   %t.i2 = alloca %struct.fe25519, align 8
   %z2.i = alloca %struct.fe25519, align 8
@@ -530,7 +530,7 @@ fe25519_invert.exit:                              ; preds = %for.body33.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare void @x25519_x86_64_mul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -543,13 +543,13 @@ declare void @x25519_x86_64_square(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @x25519_x86_64_freeze(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -448,7 +448,7 @@ $_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib7SimplexEEE = comdat any
 @_ZN8QuantLib23FittedBondDiscountCurve13FittingMethod11FittingCostC1EPS1_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN8QuantLib23FittedBondDiscountCurve13FittingMethod11FittingCostC2EPS1_
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -533,7 +533,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -795,7 +795,7 @@ _ZN8QuantLib10DayCounterC2ERKS0_.exit:            ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr i64 @_ZNK8QuantLib23FittedBondDiscountCurve7maxDateEv(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #3 comdat align 2 {
@@ -811,7 +811,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23FittedBondDiscountCurveC2EjRKNS_8CalendarESt6vectorIN5boost10shared_ptrINS_10BondHelperEEESaIS8_EERKNS_10DayCounterERKNS0_13FittingMethodEdmNS_5ArrayEdm(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %vtt, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %calendar, ptr nocapture noundef %bondHelpers, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter, ptr noundef nonnull align 8 dereferenceable(176) %fittingMethod, double noundef %accuracy, i64 noundef %maxEvaluations, ptr nocapture noundef %guess, double noundef %simplexLambda, i64 noundef %maxStationaryStateIterations) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23FittedBondDiscountCurveC2EjRKNS_8CalendarESt6vectorIN5boost10shared_ptrINS_10BondHelperEEESaIS8_EERKNS_10DayCounterERKNS0_13FittingMethodEdmNS_5ArrayEdm(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %vtt, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %calendar, ptr noundef captures(none) %bondHelpers, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter, ptr noundef nonnull align 8 dereferenceable(176) %fittingMethod, double noundef %accuracy, i64 noundef %maxEvaluations, ptr noundef captures(none) %guess, double noundef %simplexLambda, i64 noundef %maxStationaryStateIterations) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr.40", align 8
   %agg.tmp = alloca %"class.std::vector", align 8
@@ -1083,7 +1083,7 @@ eh.resume:                                        ; preds = %_ZN8QuantLib5ArrayD
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 declare void @_ZN8QuantLib18YieldTermStructureC2EjRKNS_8CalendarERKNS_10DayCounterESt6vectorINS_6HandleINS_5QuoteEEESaISA_EERKS7_INS_4DateESaISD_EE(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #6
 
@@ -1602,7 +1602,7 @@ _ZNSt6vectorIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EED2Ev.exit: ; preds = %invoke
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23FittedBondDiscountCurveC1EjRKNS_8CalendarESt6vectorIN5boost10shared_ptrINS_10BondHelperEEESaIS8_EERKNS_10DayCounterERKNS0_13FittingMethodEdmNS_5ArrayEdm(ptr noundef nonnull align 8 dereferenceable(256) initializes((256, 264), (272, 276), (280, 288)) %this, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %calendar, ptr nocapture noundef %bondHelpers, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter, ptr noundef nonnull align 8 dereferenceable(176) %fittingMethod, double noundef %accuracy, i64 noundef %maxEvaluations, ptr nocapture noundef %guess, double noundef %simplexLambda, i64 noundef %maxStationaryStateIterations) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23FittedBondDiscountCurveC1EjRKNS_8CalendarESt6vectorIN5boost10shared_ptrINS_10BondHelperEEESaIS8_EERKNS_10DayCounterERKNS0_13FittingMethodEdmNS_5ArrayEdm(ptr noundef nonnull align 8 dereferenceable(256) initializes((256, 264), (272, 276), (280, 288)) %this, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %calendar, ptr noundef captures(none) %bondHelpers, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter, ptr noundef nonnull align 8 dereferenceable(176) %fittingMethod, double noundef %accuracy, i64 noundef %maxEvaluations, ptr noundef captures(none) %guess, double noundef %simplexLambda, i64 noundef %maxStationaryStateIterations) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr.40", align 8
   %agg.tmp = alloca %"class.std::vector", align 8
@@ -1869,7 +1869,7 @@ ehcleanup17:                                      ; preds = %_ZN8QuantLib5ArrayD
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23FittedBondDiscountCurveC2ERKNS_4DateESt6vectorIN5boost10shared_ptrINS_10BondHelperEEESaIS8_EERKNS_10DayCounterERKNS0_13FittingMethodEdmNS_5ArrayEdm(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, ptr nocapture noundef %bondHelpers, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter, ptr noundef nonnull align 8 dereferenceable(176) %fittingMethod, double noundef %accuracy, i64 noundef %maxEvaluations, ptr nocapture noundef %guess, double noundef %simplexLambda, i64 noundef %maxStationaryStateIterations) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23FittedBondDiscountCurveC2ERKNS_4DateESt6vectorIN5boost10shared_ptrINS_10BondHelperEEESaIS8_EERKNS_10DayCounterERKNS0_13FittingMethodEdmNS_5ArrayEdm(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, ptr noundef captures(none) %bondHelpers, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter, ptr noundef nonnull align 8 dereferenceable(176) %fittingMethod, double noundef %accuracy, i64 noundef %maxEvaluations, ptr noundef captures(none) %guess, double noundef %simplexLambda, i64 noundef %maxStationaryStateIterations) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr.40", align 8
   %ref.tmp = alloca %"class.QuantLib::Calendar", align 8
@@ -2233,7 +2233,7 @@ _ZN5boost10shared_ptrIN8QuantLib8Calendar4ImplEED2Ev.exit: ; preds = %entry, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23FittedBondDiscountCurveC1ERKNS_4DateESt6vectorIN5boost10shared_ptrINS_10BondHelperEEESaIS8_EERKNS_10DayCounterERKNS0_13FittingMethodEdmNS_5ArrayEdm(ptr noundef nonnull align 8 dereferenceable(256) initializes((256, 264), (272, 276), (280, 288)) %this, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, ptr nocapture noundef %bondHelpers, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter, ptr noundef nonnull align 8 dereferenceable(176) %fittingMethod, double noundef %accuracy, i64 noundef %maxEvaluations, ptr nocapture noundef %guess, double noundef %simplexLambda, i64 noundef %maxStationaryStateIterations) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23FittedBondDiscountCurveC1ERKNS_4DateESt6vectorIN5boost10shared_ptrINS_10BondHelperEEESaIS8_EERKNS_10DayCounterERKNS0_13FittingMethodEdmNS_5ArrayEdm(ptr noundef nonnull align 8 dereferenceable(256) initializes((256, 264), (272, 276), (280, 288)) %this, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, ptr noundef captures(none) %bondHelpers, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter, ptr noundef nonnull align 8 dereferenceable(176) %fittingMethod, double noundef %accuracy, i64 noundef %maxEvaluations, ptr noundef captures(none) %guess, double noundef %simplexLambda, i64 noundef %maxStationaryStateIterations) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr.40", align 8
   %ref.tmp = alloca %"class.QuantLib::Calendar", align 8
@@ -2545,7 +2545,7 @@ ehcleanup18:                                      ; preds = %_ZN8QuantLib5ArrayD
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23FittedBondDiscountCurve10resetGuessERKNS_5ArrayE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %guess) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23FittedBondDiscountCurve10resetGuessERKNS_5ArrayE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %guess) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4983,7 +4983,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23FittedBondDiscountCurve13FittingMethodC2EbRKNS_5ArrayEN5boost10shared_ptrINS_18OptimizationMethodEEES2_ddNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 9), (24, 72)) %this, i1 noundef zeroext %constrainAtZero, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %weights, ptr nocapture noundef %optimizationMethod, ptr nocapture noundef %l2, double noundef %minCutoffTime, double noundef %maxCutoffTime, ptr nocapture noundef %constraint) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23FittedBondDiscountCurve13FittingMethodC2EbRKNS_5ArrayEN5boost10shared_ptrINS_18OptimizationMethodEEES2_ddNS_10ConstraintE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 9), (24, 72)) %this, i1 noundef zeroext %constrainAtZero, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %weights, ptr noundef captures(none) %optimizationMethod, ptr noundef captures(none) %l2, double noundef %minCutoffTime, double noundef %maxCutoffTime, ptr noundef captures(none) %constraint) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.QuantLib::NoConstraint", align 8
   %storedv = zext i1 %constrainAtZero to i8
@@ -6993,7 +6993,7 @@ unreachable:                                      ; preds = %invoke.cont16
 declare void @_ZN8QuantLib11EndCriteriaC1Emmddd(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef, i64 noundef, double noundef, double noundef, double noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib23FittedBondDiscountCurve13FittingMethod11FittingCostC2EPS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %fittingMethod) unnamed_addr #16 align 2 {
+define void @_ZN8QuantLib23FittedBondDiscountCurve13FittingMethod11FittingCostC2EPS1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef %fittingMethod) unnamed_addr #16 align 2 {
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN8QuantLib23FittedBondDiscountCurve13FittingMethod11FittingCostE, i64 16), ptr %this, align 8, !tbaa !33
   %fittingMethod_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -7041,7 +7041,7 @@ for.body:                                         ; preds = %entry, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib23FittedBondDiscountCurve13FittingMethod11FittingCost6valuesERKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib23FittedBondDiscountCurve13FittingMethod11FittingCost6valuesERKNS_5ArrayE(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::Array") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %x) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %helper = alloca %"class.boost::shared_ptr.52", align 8
   %fittingMethod_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -9078,7 +9078,7 @@ _ZN8QuantLib10ObservableD2Ev.exit:                ; preds = %entry
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 declare void @_ZN8QuantLib10ConstraintC2EN5boost10shared_ptrINS0_4ImplEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #6
 
@@ -9756,7 +9756,7 @@ declare double @log(double noundef) local_unnamed_addr #15
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #25
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #25
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
 
@@ -9868,7 +9868,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #25
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib7SimplexENS0_13sp_ms_deleterIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 comdat align 2 {

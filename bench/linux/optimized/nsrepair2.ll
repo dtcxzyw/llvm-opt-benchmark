@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.9 = private unnamed_addr constant [6 x i8] c"^_PSS\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_ns_complex_repairs(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local i32 @acpi_ns_complex_repairs(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i32, ptr %5, align 4
   br label %7
@@ -51,13 +51,13 @@ define dso_local i32 @acpi_ns_complex_repairs(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_ALR(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_ALR(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %5 = load i8, ptr %4, align 1
@@ -181,7 +181,7 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_ALR(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 5) i32 @acpi_ns_repair_CID(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 5) i32 @acpi_ns_repair_CID(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %5 = load i8, ptr %4, align 1
@@ -238,7 +238,7 @@ define internal noundef range(i32 0, 5) i32 @acpi_ns_repair_CID(ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_CST(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_CST(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %5 = load i32, ptr %4, align 4
@@ -467,7 +467,7 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_CST(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 12292) i32 @acpi_ns_repair_FDE(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 12292) i32 @acpi_ns_repair_FDE(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %5 = load i8, ptr %4, align 1
@@ -532,7 +532,7 @@ define internal noundef range(i32 0, 12292) i32 @acpi_ns_repair_FDE(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 5) i32 @acpi_ns_repair_HID(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 5) i32 @acpi_ns_repair_HID(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %5 = load i8, ptr %4, align 1
@@ -619,7 +619,7 @@ define internal noundef range(i32 0, 5) i32 @acpi_ns_repair_HID(ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_ns_repair_PRT(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef i32 @acpi_ns_repair_PRT(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %5 = load i32, ptr %4, align 4
@@ -681,7 +681,7 @@ define internal noundef i32 @acpi_ns_repair_PRT(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_PSS(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_PSS(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %5 = load i8, ptr %4, align 1
@@ -842,7 +842,7 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_PSS(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_TSS(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_TSS(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4

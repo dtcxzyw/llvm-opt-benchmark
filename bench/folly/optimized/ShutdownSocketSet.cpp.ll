@@ -88,10 +88,10 @@ declare void @_ZN5folly4FileC1EPKcij(ptr noundef nonnull align 4 dereferenceable
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
@@ -134,10 +134,10 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly17ShutdownSocketSet3addENS_13NetworkSocketE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 %fd.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly17ShutdownSocketSet3addENS_13NetworkSocketE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 %fd.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fd = alloca %"struct.folly::NetworkSocket", align 4
   %ref.tmp15 = alloca %"class.google::LogMessageFatal", align 8
@@ -232,7 +232,7 @@ declare void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull ali
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly17ShutdownSocketSet6removeENS_13NetworkSocketE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 %fd.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly17ShutdownSocketSet6removeENS_13NetworkSocketE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 %fd.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__ts.i = alloca %struct.timespec, align 8
   %fd = alloca %"struct.folly::NetworkSocket", align 4
@@ -334,7 +334,7 @@ declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @__errno_location() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5folly17ShutdownSocketSet5closeENS_13NetworkSocketE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 %fd.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN5folly17ShutdownSocketSet5closeENS_13NetworkSocketE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 %fd.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fd = alloca %"struct.folly::NetworkSocket", align 4
   %ref.tmp18 = alloca %"class.google::LogMessageFatal", align 8
@@ -421,7 +421,7 @@ cleanup:                                          ; preds = %sw.bb17.split, %cle
 declare noundef i32 @_ZN5folly10closeNoIntENS_13NetworkSocketE(i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly17ShutdownSocketSet8shutdownENS_13NetworkSocketEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 %fd.coerce, i1 noundef zeroext %abortive) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly17ShutdownSocketSet8shutdownENS_13NetworkSocketEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 %fd.coerce, i1 noundef zeroext %abortive) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %l.i88 = alloca %struct.linger, align 8
   %l.i = alloca %struct.linger, align 8
@@ -599,7 +599,7 @@ cleanup81:                                        ; preds = %while.exit32, %_ZN5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly17ShutdownSocketSet10doShutdownENS_13NetworkSocketEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 %fd.coerce, i1 noundef zeroext %abortive) local_unnamed_addr #0 align 2 {
+define void @_ZN5folly17ShutdownSocketSet10doShutdownENS_13NetworkSocketEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 %fd.coerce, i1 noundef zeroext %abortive) local_unnamed_addr #0 align 2 {
 entry:
   %l = alloca %struct.linger, align 8
   %call = tail call noundef i32 @_ZN5folly13shutdownNoIntENS_13NetworkSocketEi(i32 %fd.coerce, i32 noundef 2)
@@ -682,7 +682,7 @@ declare void @_ZN6google22MakeCheckOpValueStringIhEEvPSoRKT_(ptr noundef, ptr no
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly17ShutdownSocketSet11shutdownAllEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i1 noundef zeroext %abortive) local_unnamed_addr #0 align 2 {
+define void @_ZN5folly17ShutdownSocketSet11shutdownAllEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i1 noundef zeroext %abortive) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8, !tbaa !7
   %cmp9.not = icmp eq i64 %0, 0

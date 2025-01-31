@@ -65,7 +65,7 @@ return:                                           ; preds = %entry, %while.end
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_set_wait_fd(ptr nocapture noundef %ctx, ptr noundef %key, i32 noundef %fd, ptr noundef %custom_data, ptr noundef %cleanup) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_set_wait_fd(ptr noundef captures(none) %ctx, ptr noundef %key, i32 noundef %fd, ptr noundef %custom_data, ptr noundef %cleanup) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 48, ptr noundef nonnull @.str, i32 noundef 50) #8
   %cmp = icmp eq ptr %call, null
@@ -97,7 +97,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_get_fd(ptr nocapture noundef readonly %ctx, ptr noundef readnone %key, ptr nocapture noundef writeonly %fd, ptr nocapture noundef writeonly %custom_data) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_get_fd(ptr noundef readonly captures(none) %ctx, ptr noundef readnone %key, ptr noundef writeonly captures(none) %fd, ptr noundef writeonly captures(none) %custom_data) local_unnamed_addr #2 {
 entry:
   %curr.08 = load ptr, ptr %ctx, align 8
   %cmp.not9 = icmp eq ptr %curr.08, null
@@ -136,7 +136,7 @@ return:                                           ; preds = %while.cond.backedge
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ASYNC_WAIT_CTX_get_all_fds(ptr nocapture noundef readonly %ctx, ptr noundef writeonly %fd, ptr nocapture noundef initializes((0, 8)) %numfds) local_unnamed_addr #3 {
+define noundef i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef readonly captures(none) %ctx, ptr noundef writeonly %fd, ptr noundef captures(none) initializes((0, 8)) %numfds) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   store i64 0, ptr %numfds, align 8
@@ -189,7 +189,7 @@ while.end:                                        ; preds = %if.end4, %if.then, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr nocapture noundef readonly %ctx, ptr noundef writeonly %addfd, ptr nocapture noundef writeonly initializes((0, 8)) %numaddfds, ptr noundef writeonly %delfd, ptr nocapture noundef writeonly initializes((0, 8)) %numdelfds) local_unnamed_addr #2 {
+define noundef i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef readonly captures(none) %ctx, ptr noundef writeonly %addfd, ptr noundef writeonly captures(none) initializes((0, 8)) %numaddfds, ptr noundef writeonly %delfd, ptr noundef writeonly captures(none) initializes((0, 8)) %numdelfds) local_unnamed_addr #2 {
 entry:
   %numadd = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load i64, ptr %numadd, align 8
@@ -264,7 +264,7 @@ return:                                           ; preds = %if.end19, %while.co
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_clear_fd(ptr nocapture noundef %ctx, ptr noundef readnone %key) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_clear_fd(ptr noundef captures(none) %ctx, ptr noundef readnone %key) local_unnamed_addr #0 {
 entry:
   %curr.019 = load ptr, ptr %ctx, align 8
   %cmp.not20 = icmp eq ptr %curr.019, null
@@ -352,7 +352,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_get_callback(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %callback, ptr nocapture noundef writeonly %callback_arg) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_get_callback(ptr noundef readonly captures(none) %ctx, ptr noundef writeonly captures(none) %callback, ptr noundef writeonly captures(none) %callback_arg) local_unnamed_addr #5 {
 entry:
   %callback1 = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %callback1, align 8
@@ -372,7 +372,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ASYNC_WAIT_CTX_set_status(ptr nocapture noundef writeonly initializes((40, 44)) %ctx, i32 noundef %status) local_unnamed_addr #4 {
+define noundef i32 @ASYNC_WAIT_CTX_set_status(ptr noundef writeonly captures(none) initializes((40, 44)) %ctx, i32 noundef %status) local_unnamed_addr #4 {
 entry:
   %status1 = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   store i32 %status, ptr %status1, align 8
@@ -380,7 +380,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ASYNC_WAIT_CTX_get_status(ptr nocapture noundef readonly %ctx) local_unnamed_addr #6 {
+define i32 @ASYNC_WAIT_CTX_get_status(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #6 {
 entry:
   %status = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %0 = load i32, ptr %status, align 8
@@ -388,7 +388,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @async_wait_ctx_reset_counts(ptr nocapture noundef initializes((8, 24)) %ctx) local_unnamed_addr #0 {
+define void @async_wait_ctx_reset_counts(ptr noundef captures(none) initializes((8, 24)) %ctx) local_unnamed_addr #0 {
 entry:
   %numadd = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %numadd, i8 0, i64 16, i1 false)
@@ -459,7 +459,7 @@ while.end:                                        ; preds = %if.end16, %if.then,
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

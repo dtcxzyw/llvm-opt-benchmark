@@ -508,10 +508,10 @@ define hidden ptr @accel_new_interned_string(ptr noundef %0) #0 {
 declare void @zend_accel_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @zend_get_file_handle_timestamp(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define hidden i64 @zend_get_file_handle_timestamp(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   %4 = alloca %struct._php_stream_statbuf, align 8
   %5 = alloca [1 x %struct.__jmp_buf_tag], align 16
@@ -705,16 +705,16 @@ php_is_stream_path.exit.thread:                   ; preds = %42, %44, %51, %php_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @zend_get_stream_timestamp(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @zend_get_stream_timestamp(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca %struct._php_stream_statbuf, align 8
   %4 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %.not = icmp eq ptr %0, null
@@ -775,13 +775,13 @@ define internal fastcc range(i32 -1, 1) i32 @zend_get_stream_timestamp(ptr nound
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind returns_twice
 declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @validate_timestamp_and_record(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @validate_timestamp_and_record(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
@@ -818,7 +818,7 @@ define hidden range(i32 -1, 1) i32 @validate_timestamp_and_record(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @do_validate_timestamps(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @do_validate_timestamps(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = alloca %struct._zend_file_handle, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -1006,7 +1006,7 @@ define internal fastcc range(i32 -1, 1) i32 @do_validate_timestamps(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @validate_timestamp_and_record_ex(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @validate_timestamp_and_record_ex(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %6
@@ -2043,7 +2043,7 @@ declare ptr @zend_accel_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @zend_stream_init_filename_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_accel_lock_discard_script(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @zend_accel_lock_discard_script(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   tail call void @zend_shared_alloc_lock() #24
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %3 = load i8, ptr %2, align 8
@@ -2338,8 +2338,8 @@ php_is_stream_path.exit.thread:                   ; preds = %22, %13, %15, %is_c
   %97 = load i64, ptr %96, align 8
   %98 = add i64 %97, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %93, ptr nonnull align 8 %95, i64 %98, i1 false)
-  %99 = call i32 @_php_stream_stat_path(ptr noundef %92, i32 noundef 0, ptr noundef nonnull %4, ptr noundef null) #24
-  call void @_efree(ptr noundef %92) #24
+  %99 = call i32 @_php_stream_stat_path(ptr noundef nonnull %92, i32 noundef 0, ptr noundef nonnull %4, ptr noundef null) #24
+  call void @_efree(ptr noundef nonnull %92) #24
   br label %100
 
 100:                                              ; preds = %78, %78, %83, %87, %81, %64
@@ -2472,7 +2472,7 @@ declare void @_efree(ptr noundef) local_unnamed_addr #1
 declare ptr @zend_accel_load_script(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @opcache_compile_file(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @opcache_compile_file(ptr noundef %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -3536,8 +3536,8 @@ is_cacheable_stream_path.exit:                    ; preds = %106
   %350 = load i64, ptr %349, align 8
   %351 = add i64 %350, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %346, ptr nonnull align 8 %348, i64 %351, i1 false)
-  %352 = call i32 @_php_stream_stat_path(ptr noundef %345, i32 noundef 0, ptr noundef nonnull %7, ptr noundef null) #24
-  call void @_efree(ptr noundef %345) #24
+  %352 = call i32 @_php_stream_stat_path(ptr noundef nonnull %345, i32 noundef 0, ptr noundef nonnull %7, ptr noundef null) #24
+  call void @_efree(ptr noundef nonnull %345) #24
   br label %353
 
 353:                                              ; preds = %331, %331, %336, %340, %334, %.thread211
@@ -3836,8 +3836,8 @@ define internal fastcc range(i32 0, 2) i32 @check_persistent_script_access(ptr %
   br label %15
 
 15:                                               ; preds = %13, %9
-  %16 = tail call i32 @access(ptr noundef %11, i32 noundef 4) #24
-  tail call void @_efree(ptr noundef %11) #24
+  %16 = tail call i32 @access(ptr noundef nonnull %11, i32 noundef 4) #24
+  tail call void @_efree(ptr noundef nonnull %11) #24
   br label %17
 
 17:                                               ; preds = %15, %6
@@ -3848,7 +3848,7 @@ define internal fastcc range(i32 0, 2) i32 @check_persistent_script_access(ptr %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cache_script_in_shared_memory(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc ptr @cache_script_in_shared_memory(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 172), align 4
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 152), align 8
   %.not = icmp eq ptr %5, null
@@ -5336,7 +5336,7 @@ define internal void @accel_post_shutdown() #0 {
 declare i64 @time(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @accel_startup(ptr nocapture noundef writeonly %0) #0 {
+define internal range(i32 -1, 1) i32 @accel_startup(ptr noundef writeonly captures(none) %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
@@ -5612,7 +5612,7 @@ declare i64 @zend_string_hash_func(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @zend_string_equal_val(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #11
@@ -5623,7 +5623,7 @@ declare ptr @php_stream_locate_url_wrapper(ptr noundef, ptr noundef, i32 noundef
 declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #7
@@ -5770,7 +5770,7 @@ declare void @zend_shared_alloc_destroy_xlat_table() local_unnamed_addr #1
 declare i32 @zend_file_cache_script_store(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #1
 
@@ -5784,7 +5784,7 @@ declare zeroext i1 @zend_accel_in_shm(ptr noundef) local_unnamed_addr #1
 declare ptr @zend_shared_alloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #4
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #4
 
 declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #1
 
@@ -5811,10 +5811,10 @@ declare i32 @start_accel_module() local_unnamed_addr #1
 declare void @zend_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @accelerator_remove_cb(ptr nocapture noundef %0, ptr nocapture readnone %1) #14 {
+define internal noundef i32 @accelerator_remove_cb(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #14 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(13) @.str.13) #26
   %.not = icmp eq i32 %4, 0
@@ -6368,18 +6368,18 @@ accel_finish_startup.exit:                        ; preds = %213, %228
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
@@ -6528,7 +6528,7 @@ define internal ptr @accel_new_interned_string_for_php(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @accel_init_interned_string_for_php(ptr nocapture noundef readonly %0, i64 noundef %1, i1 noundef zeroext %2) #0 {
+define internal ptr @accel_init_interned_string_for_php(ptr noundef readonly captures(none) %0, i64 noundef %1, i1 noundef zeroext %2) #0 {
   %4 = load i8, ptr @accel_globals, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %.preheader195, label %138
@@ -7148,7 +7148,7 @@ declare void @zend_accel_blacklist_init(ptr noundef) local_unnamed_addr #1
 declare void @zend_accel_blacklist_load(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zend_accel_inheritance_cache_get(ptr nocapture noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef readonly %2) #0 {
+define internal ptr @zend_accel_inheritance_cache_get(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %5 = load ptr, ptr %4, align 8
   %.not112 = icmp eq ptr %5, null
@@ -7355,7 +7355,7 @@ replay_warnings.exit:                             ; preds = %.lr.ph.i, %.thread8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zend_accel_inheritance_cache_add(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4) #0 {
+define internal ptr @zend_accel_inheritance_cache_add(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4) #0 {
   %6 = alloca %struct.flock, align 8
   %7 = alloca %struct._zend_persistent_script, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -7809,7 +7809,7 @@ accel_restart_is_active.exit:                     ; preds = %32
 declare void @zend_accel_hash_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @accel_copy_permanent_strings(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @accel_copy_permanent_strings(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr @zend_empty_string, align 8
   %3 = tail call ptr %0(ptr noundef %2) #24, !callees !5
   store ptr %3, ptr @zend_empty_string, align 8
@@ -8648,7 +8648,7 @@ accel_activate_add.exit.thread:                   ; preds = %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @accel_copy_permanent_list_types(ptr nocapture noundef readonly %0, ptr %1, i32 %2) unnamed_addr #0 {
+define internal fastcc void @accel_copy_permanent_list_types(ptr noundef readonly captures(none) %0, ptr %1, i32 %2) unnamed_addr #0 {
   %4 = alloca %struct.zend_type, align 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -8919,7 +8919,7 @@ define internal fastcc void @preload_load() unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @accel_finish_startup_preload_subprocess(ptr nocapture noundef nonnull writeonly %0) unnamed_addr #0 {
+define internal fastcc void @accel_finish_startup_preload_subprocess(ptr noundef nonnull writeonly captures(none) %0) unnamed_addr #0 {
   %2 = tail call i32 @geteuid() #24
   %.not = icmp eq i32 %2, 0
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 176), align 8
@@ -9132,7 +9132,7 @@ declare ptr @__zend_realloc(ptr noundef, i64 noundef) local_unnamed_addr #17
 declare i32 @geteuid() local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @getpwnam(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef ptr @getpwnam(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
 declare i32 @fork() local_unnamed_addr #4
@@ -9146,29 +9146,29 @@ declare i32 @initgroups(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @setuid(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @preload_header_handler(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2) #18 {
+define internal noundef i32 @preload_header_handler(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #18 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @preload_send_headers(ptr nocapture readnone %0) #18 {
+define internal noundef i32 @preload_send_headers(ptr readnone captures(none) %0) #18 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @preload_send_header(ptr nocapture readnone %0, ptr nocapture readnone %1) #18 {
+define internal void @preload_send_header(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #18 {
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @preload_ub_write(ptr nocapture noundef %0, i64 noundef %1) #19 {
+define internal noundef i64 @preload_ub_write(ptr noundef captures(none) %0, i64 noundef %1) #19 {
   %3 = load ptr, ptr @stdout, align 8
   %4 = tail call i64 @fwrite(ptr noundef %0, i64 noundef 1, i64 noundef %1, ptr noundef %3)
   ret i64 %4
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @preload_flush(ptr nocapture readnone %0) #19 {
+define internal void @preload_flush(ptr readnone captures(none) %0) #19 {
   %2 = load ptr, ptr @stdout, align 8
   %3 = tail call i32 @fflush(ptr noundef %2)
   ret void
@@ -10937,10 +10937,10 @@ declare void @php_request_shutdown(ptr noundef) local_unnamed_addr #1
 declare void @sapi_activate() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @preload_compile_file(ptr noundef %0, i32 noundef %1) #0 {
@@ -12287,7 +12287,7 @@ declare void @zend_vm_set_opcode_handler(ptr noundef) local_unnamed_addr #1
 declare void @zend_hash_sort_ex(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @preload_sort_classes(ptr noundef %0, i64 noundef %1, i64 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #20 {
+define internal void @preload_sort_classes(ptr noundef %0, i64 noundef %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #20 {
   %6 = alloca %struct._Bucket, align 8
   %7 = getelementptr inbounds %struct._Bucket, ptr %0, i64 %1
   %8 = icmp sgt i64 %1, 0
@@ -12501,7 +12501,7 @@ declare ptr @zend_hash_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare ptr @zend_hash_set_bucket_key(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @preload_error_cb(i32 noundef %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3) #0 {
+define internal void @preload_error_cb(i32 noundef %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3) #0 {
   %5 = and i32 %0, 4437
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %7, label %6
@@ -12521,7 +12521,7 @@ declare void @zend_emit_recorded_errors() local_unnamed_addr #1
 declare void @zend_error_at(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @preload_remove_declares(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @preload_remove_declares(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -12710,16 +12710,16 @@ declare void @zend_update_parent_ce(ptr noundef) local_unnamed_addr #1
 declare ptr @zend_persist_warnings(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #22

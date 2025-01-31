@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7ciFlags17print_klass_flagsEP12outputStream(ptr nocapture noundef nonnull readonly align 4 dereferenceable(6) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN7ciFlags17print_klass_flagsEP12outputStream(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(6) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %0, align 4
   %4 = and i32 %3, 1
   %.not = icmp eq i32 %4, 0
@@ -75,7 +75,7 @@ define hidden void @_ZN7ciFlags17print_klass_flagsEP12outputStream(ptr nocapture
 declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7ciFlags18print_member_flagsEP12outputStream(ptr nocapture noundef nonnull readonly align 4 dereferenceable(6) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN7ciFlags18print_member_flagsEP12outputStream(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(6) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %0, align 4
   %4 = and i32 %3, 1
   %.not = icmp eq i32 %4, 0
@@ -175,7 +175,7 @@ define hidden void @_ZN7ciFlags18print_member_flagsEP12outputStream(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7ciFlags5printEP12outputStream(ptr nocapture noundef nonnull readonly align 4 dereferenceable(6) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN7ciFlags5printEP12outputStream(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(6) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %0, align 4
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.16, i32 noundef %3) #2
   ret void

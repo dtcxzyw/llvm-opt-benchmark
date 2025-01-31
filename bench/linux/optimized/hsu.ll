@@ -38,7 +38,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_hsu_dma_remo
 @llvm.compiler.used = appending global [8 x ptr] [ptr @__UNIQUE_ID___addressable_hsu_dma_do_irq357, ptr @__UNIQUE_ID___addressable_hsu_dma_get_status356, ptr @__UNIQUE_ID___addressable_hsu_dma_probe358, ptr @__UNIQUE_ID___addressable_hsu_dma_remove359, ptr @__UNIQUE_ID_author363, ptr @__UNIQUE_ID_description362, ptr @__UNIQUE_ID_file360, ptr @__UNIQUE_ID_license361], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -22, 2) i32 @hsu_dma_get_status(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define dso_local range(i32 -22, 2) i32 @hsu_dma_get_status(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 392
@@ -83,10 +83,10 @@ define dso_local range(i32 -22, 2) i32 @hsu_dma_get_status(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
@@ -95,7 +95,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2
 declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 2) i32 @hsu_dma_do_irq(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @hsu_dma_do_irq(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 392
@@ -222,7 +222,7 @@ define dso_local noundef range(i32 0, 2) i32 @hsu_dma_do_irq(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @hsu_dma_start_channel(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @hsu_dma_start_channel(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -329,7 +329,7 @@ define internal fastcc void @hsu_dma_start_channel(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @hsu_dma_probe(ptr nocapture noundef %0) #0 align 16 {
+define dso_local i32 @hsu_dma_probe(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -590,7 +590,7 @@ define internal void @hsu_dma_free_chan_resources(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @hsu_dma_prep_slave_sg(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr nocapture readnone %5) #0 align 16 {
+define internal noundef ptr @hsu_dma_prep_slave_sg(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr readnone captures(none) %5) #0 align 16 {
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %8 = tail call noalias noundef align 8 dereferenceable_or_null(152) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 10496, i64 noundef 152) #15
   %9 = icmp eq ptr %8, null
@@ -870,7 +870,7 @@ define internal i32 @hsu_dma_tx_status(ptr noundef %0, i32 noundef %1, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @hsu_dma_slave_config(ptr nocapture noundef writeonly initializes((272, 344)) %0, ptr nocapture noundef readonly %1) #3 align 16 {
+define internal noundef i32 @hsu_dma_slave_config(ptr noundef writeonly captures(none) initializes((272, 344)) %0, ptr noundef readonly captures(none) %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef align 8 dereferenceable(72) %1, i64 72, i1 false)
   ret i32 0
@@ -1112,7 +1112,7 @@ declare dso_local i32 @dma_async_device_register(ptr noundef) local_unnamed_addr
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @hsu_dma_remove(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local noundef i32 @hsu_dma_remove(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   tail call void @dma_async_device_unregister(ptr noundef %3) #11
@@ -1186,7 +1186,7 @@ declare dso_local i32 @vchan_tx_desc_free(ptr noundef) #2
 declare dso_local ptr @vchan_find_desc(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10

@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7glslang15HlslTokenStream12pushPreTokenERKNS_9HlslTokenE(ptr nocapture noundef nonnull align 8 dereferenceable(324) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang15HlslTokenStream12pushPreTokenERKNS_9HlslTokenE(ptr noundef nonnull align 8 captures(none) dereferenceable(324) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %5 = load i32, ptr %4, align 8
@@ -23,10 +23,10 @@ define void @_ZN7glslang15HlslTokenStream12pushPreTokenERKNS_9HlslTokenE(ptr noc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7glslang15HlslTokenStream11popPreTokenEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.glslang::HlslToken") align 8 initializes((0, 40)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(324) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang15HlslTokenStream11popPreTokenEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.glslang::HlslToken") align 8 captures(none) initializes((0, 40)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(324) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %5 = load i32, ptr %4, align 8
@@ -39,7 +39,7 @@ define void @_ZN7glslang15HlslTokenStream11popPreTokenEv(ptr dead_on_unwind noal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7glslang15HlslTokenStream15pushTokenBufferERKNS_9HlslTokenE(ptr nocapture noundef nonnull align 8 dereferenceable(324) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang15HlslTokenStream15pushTokenBufferERKNS_9HlslTokenE(ptr noundef nonnull align 8 captures(none) dereferenceable(324) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %5 = load i32, ptr %4, align 8
@@ -54,7 +54,7 @@ define void @_ZN7glslang15HlslTokenStream15pushTokenBufferERKNS_9HlslTokenE(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7glslang15HlslTokenStream14popTokenBufferEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.glslang::HlslToken") align 8 initializes((0, 40)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(324) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang15HlslTokenStream14popTokenBufferEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.glslang::HlslToken") align 8 captures(none) initializes((0, 40)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(324) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, 1
@@ -68,7 +68,7 @@ define void @_ZN7glslang15HlslTokenStream14popTokenBufferEv(ptr dead_on_unwind n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang15HlslTokenStream15pushTokenStreamEPKNS_7TVectorINS_9HlslTokenEEE(ptr nocapture noundef nonnull align 8 dereferenceable(324) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN7glslang15HlslTokenStream15pushTokenStreamEPKNS_7TVectorINS_9HlslTokenEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(324) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -271,7 +271,7 @@ _ZNSt6vectorIiN7glslang14pool_allocatorIiEEE9push_backEOi.exit: ; preds = %70, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7glslang15HlslTokenStream14popTokenStreamEv(ptr nocapture noundef nonnull align 8 dereferenceable(324) initializes((8, 48)) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN7glslang15HlslTokenStream14popTokenStreamEv(ptr noundef nonnull align 8 captures(none) dereferenceable(324) initializes((8, 48)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -8
@@ -373,7 +373,7 @@ define void @_ZN7glslang15HlslTokenStream12advanceTokenEv(ptr noundef nonnull al
 declare void @_ZN7glslang15HlslScanContext8tokenizeERNS_9HlslTokenE(ptr noundef nonnull align 8 dereferenceable(76), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7glslang15HlslTokenStream11recedeTokenEv(ptr nocapture noundef nonnull align 8 dereferenceable(324) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang15HlslTokenStream11recedeTokenEv(ptr noundef nonnull align 8 captures(none) dereferenceable(324) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -396,14 +396,14 @@ define void @_ZN7glslang15HlslTokenStream11recedeTokenEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK7glslang15HlslTokenStream4peekEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(324) %0) local_unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK7glslang15HlslTokenStream4peekEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(324) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK7glslang15HlslTokenStream14peekTokenClassENS_15EHlslTokenClassE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(324) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK7glslang15HlslTokenStream14peekTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(324) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, %1

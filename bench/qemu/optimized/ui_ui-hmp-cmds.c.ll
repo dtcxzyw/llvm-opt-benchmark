@@ -73,14 +73,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [2 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @qmp_screendump, ptr @.str.45, ptr @.str.46, i32 25, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @hmp_screendump, ptr @.str.45, ptr @.str.47, i32 442, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @hmp_mouse_move(ptr nocapture noundef readnone %mon, ptr noundef %qdict) local_unnamed_addr #0 {
+define dso_local void @hmp_mouse_move(ptr noundef readnone captures(none) %mon, ptr noundef %qdict) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qdict_get_str(ptr noundef %qdict, ptr noundef nonnull @.str) #7
   %call1 = tail call ptr @qdict_get_str(ptr noundef %qdict, ptr noundef nonnull @.str.1) #7
   %call2 = tail call ptr @qdict_get_try_str(ptr noundef %qdict, ptr noundef nonnull @.str.2) #7
-  %call3 = tail call i64 @strtol(ptr nocapture noundef %call, ptr noundef null, i32 noundef 0) #7
+  %call3 = tail call i64 @strtol(ptr noundef captures(none) %call, ptr noundef null, i32 noundef 0) #7
   %conv = trunc i64 %call3 to i32
-  %call4 = tail call i64 @strtol(ptr nocapture noundef %call1, ptr noundef null, i32 noundef 0) #7
+  %call4 = tail call i64 @strtol(ptr noundef captures(none) %call1, ptr noundef null, i32 noundef 0) #7
   %conv5 = trunc i64 %call4 to i32
   tail call void @qemu_input_queue_rel(ptr noundef null, i32 noundef 0, i32 noundef %conv) #7
   tail call void @qemu_input_queue_rel(ptr noundef null, i32 noundef 1, i32 noundef %conv5) #7
@@ -88,7 +88,7 @@ entry:
   br i1 %tobool.not, label %if.end12, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call6 = tail call i64 @strtol(ptr nocapture noundef nonnull %call2, ptr noundef null, i32 noundef 0) #7
+  %call6 = tail call i64 @strtol(ptr noundef nonnull captures(none) %call2, ptr noundef null, i32 noundef 0) #7
   %conv7 = trunc i64 %call6 to i32
   %cmp.not = icmp eq i32 %conv7, 0
   br i1 %cmp.not, label %if.end12, label %if.then9
@@ -111,7 +111,7 @@ declare ptr @qdict_get_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @qdict_get_try_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #2
 
 declare void @qemu_input_queue_rel(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -120,7 +120,7 @@ declare void @qemu_input_queue_btn(ptr noundef, i32 noundef, i1 noundef zeroext)
 declare void @qemu_input_event_sync() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @hmp_mouse_button(ptr nocapture noundef readnone %mon, ptr noundef %qdict) local_unnamed_addr #0 {
+define dso_local void @hmp_mouse_button(ptr noundef readnone captures(none) %mon, ptr noundef %qdict) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @qdict_get_int(ptr noundef %qdict, ptr noundef nonnull @.str.3) #7
   %conv = trunc i64 %call to i32
@@ -160,7 +160,7 @@ declare zeroext i1 @qemu_mouse_set(i32 noundef, ptr noundef) local_unnamed_addr 
 declare zeroext i1 @hmp_handle_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @hmp_info_mice(ptr noundef %mon, ptr nocapture noundef readnone %qdict) local_unnamed_addr #0 {
+define dso_local void @hmp_info_mice(ptr noundef %mon, ptr noundef readnone captures(none) %qdict) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qmp_query_mice(ptr noundef null) #7
   %tobool.not = icmp eq ptr %call, null
@@ -205,7 +205,7 @@ declare i32 @monitor_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @qapi_free_MouseInfoList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @hmp_info_vnc(ptr noundef %mon, ptr nocapture noundef readnone %qdict) local_unnamed_addr #0 {
+define dso_local void @hmp_info_vnc(ptr noundef %mon, ptr noundef readnone captures(none) %qdict) local_unnamed_addr #0 {
 entry:
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
@@ -453,7 +453,7 @@ out:                                              ; preds = %entry, %if.end10
 declare void @qmp_expire_password(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @hmp_change_vnc(ptr noundef %mon, ptr nocapture noundef readnone %device, ptr nocapture noundef readonly %target, ptr noundef %arg, ptr noundef readnone %read_only, i1 noundef zeroext %force, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @hmp_change_vnc(ptr noundef %mon, ptr noundef readnone captures(none) %device, ptr noundef readonly captures(none) %target, ptr noundef %arg, ptr noundef readnone %read_only, i1 noundef zeroext %force, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %read_only, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -495,12 +495,12 @@ if.end9:                                          ; preds = %if.else, %if.then7,
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @monitor_read_password(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @hmp_change_read_arg(ptr noundef %opaque, ptr noundef %password, ptr nocapture readnone %readline_opaque) #0 {
+define internal void @hmp_change_read_arg(ptr noundef %opaque, ptr noundef %password, ptr readnone captures(none) %readline_opaque) #0 {
 entry:
   tail call void @qmp_change_vnc_password(ptr noundef %password, ptr noundef null) #7
   tail call void @monitor_read_command(ptr noundef %opaque, i32 noundef 1) #7
@@ -660,7 +660,7 @@ if.end:                                           ; preds = %entry
 for.body:                                         ; preds = %if.end, %for.inc
   %i.09 = phi i32 [ 0, %if.end ], [ %inc, %for.inc ]
   %call6 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @QKeyCode_lookup, i32 noundef %i.09) #7
-  %call7 = tail call i32 @strncmp(ptr noundef %spec.select, ptr noundef %call6, i64 noundef %call3) #8
+  %call7 = tail call i32 @strncmp(ptr noundef nonnull %spec.select, ptr noundef %call6, i64 noundef %call3) #8
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.then9, label %for.inc
 
@@ -682,12 +682,12 @@ for.end:                                          ; preds = %for.inc, %entry
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @readline_set_completion_index(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare ptr @qapi_enum_lookup(ptr noundef, i32 noundef) local_unnamed_addr #1
 

@@ -2483,7 +2483,7 @@ _ZNSt8functionIFiRKSt6vectorIN2cv4util7variantIJNS2_9monostateENS1_8GMatDescENS1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL12run_rgb2grayERNS1_6BufferERKNS1_4ViewEfff(ptr nocapture readonly %.8.val, ptr nocapture readonly %.8.val1, float noundef %0, float noundef %1, float noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL12run_rgb2grayERNS1_6BufferERKNS1_4ViewEfff(ptr readonly captures(none) %.8.val, ptr readonly captures(none) %.8.val1, float noundef %0, float noundef %1, float noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.26", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2735,7 +2735,7 @@ declare void @_ZN2cv4gapi5fluid17run_rgb2gray_implEPhPKhifff(ptr noundef, ptr no
 declare float @llvm.fabs.f32(float) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt17_Function_handlerIFvRKSt6vectorIN2cv4GArgESaIS2_EERKS0_IPNS1_4gapi5fluid6BufferESaISA_EEEPSF_E9_M_invokeERKSt9_Any_dataS6_SE_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #3 comdat align 2 {
@@ -3230,7 +3230,7 @@ define linkonce_odr hidden void @_ZN2cv4util3any11holder_implINS_12GFluidKernelE
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv12GFluidKernelC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(176) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3872,7 +3872,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #5
 declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr hidden void @_ZN2cv4util11throw_errorINS0_18bad_variant_accessEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #13 comdat {
@@ -12648,7 +12648,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid10GFluidBlur3runERKNS1_4ViewER
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, i32 %.0.val, i32 %.4.val, i1 noundef zeroext %1, ptr noundef nonnull %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIhhEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr readonly captures(none) %.8.val, i32 %.0.val, i32 %.4.val, i1 noundef zeroext %1, ptr noundef nonnull %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.26", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12950,7 +12950,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIhhEEvRNS1_6Buffer
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIttEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, i32 %.0.val, i32 %.4.val, i1 noundef zeroext %1, ptr noundef nonnull %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIttEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr readonly captures(none) %.8.val, i32 %.0.val, i32 %.4.val, i1 noundef zeroext %1, ptr noundef nonnull %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.26", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13252,7 +13252,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIttEEvRNS1_6Buffer
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIssEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, i32 %.0.val, i32 %.4.val, i1 noundef zeroext %1, ptr noundef nonnull %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIssEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr readonly captures(none) %.8.val, i32 %.0.val, i32 %.4.val, i1 noundef zeroext %1, ptr noundef nonnull %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.26", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13538,7 +13538,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIssEEvRNS1_6Buffer
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIffEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, i32 %.0.val, i32 %.4.val, i1 noundef zeroext %1, ptr noundef nonnull %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL13run_boxfilterIffEEvRNS1_6BufferERKNS1_4ViewERKNS_5Size_IiEERKNS_6Point_IiEEbPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr readonly captures(none) %.8.val, i32 %.0.val, i32 %.4.val, i1 noundef zeroext %1, ptr noundef nonnull %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.26", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15742,7 +15742,7 @@ _ZN2cv4gapi5fluidL13run_sepfilterIfsEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Po
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIhhEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, float noundef %5, ptr noundef nonnull %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIhhEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr readonly captures(none) %.8.val, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, float noundef %5, ptr noundef nonnull %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.26", align 1
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16032,7 +16032,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIhhEEvRNS1_6Buffer
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIttEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, float noundef %5, ptr noundef nonnull %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIttEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr readonly captures(none) %.8.val, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, float noundef %5, ptr noundef nonnull %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.26", align 1
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16329,7 +16329,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIttEEvRNS1_6Buffer
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIssEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, float noundef %5, ptr noundef nonnull %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIssEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr readonly captures(none) %.8.val, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, float noundef %5, ptr noundef nonnull %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.26", align 1
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16618,7 +16618,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIssEEvRNS1_6Buffer
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIffEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, float noundef %5, ptr noundef nonnull %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL13run_sepfilterIffEEvRNS1_6BufferERKNS1_4ViewEPKfiS9_iRKNS_6Point_IiEEffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr readonly captures(none) %.8.val, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, float noundef %5, ptr noundef nonnull %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.26", align 1
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -17367,7 +17367,7 @@ _ZN2cv8GMatDescD2Ev.exit23:                       ; preds = %51, %53
 declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL9getKernelIfEEvPT_RKNS_3MatE(ptr nocapture noundef writeonly %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL9getKernelIfEEvPT_RKNS_3MatE(ptr noundef writeonly captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.26", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -23426,7 +23426,7 @@ _ZN2cv8GMatDescD2Ev.exit21:                       ; preds = %71, %73
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL9getKernelIhEEvPT_RKNS_3MatE(ptr nocapture noundef writeonly %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL9getKernelIhEEvPT_RKNS_3MatE(ptr noundef writeonly captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.26", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -29946,7 +29946,7 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid11GFluidSobel3runERKNS1_4ViewE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIhhEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIhhEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr readonly captures(none) %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.26", align 1
   %10 = alloca [11 x ptr], align 16
@@ -30026,7 +30026,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIhhEEvRNS1_6BufferERKNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIttEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIttEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr readonly captures(none) %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.26", align 1
   %10 = alloca [11 x ptr], align 16
@@ -30106,7 +30106,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIttEEvRNS1_6BufferERKNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIshEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIshEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr readonly captures(none) %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.26", align 1
   %10 = alloca [11 x ptr], align 16
@@ -30186,7 +30186,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIshEEvRNS1_6BufferERKNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIstEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIstEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr readonly captures(none) %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.26", align 1
   %10 = alloca [11 x ptr], align 16
@@ -30266,7 +30266,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIstEEvRNS1_6BufferERKNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIssEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIssEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr readonly captures(none) %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.26", align 1
   %10 = alloca [11 x ptr], align 16
@@ -30346,7 +30346,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIssEEvRNS1_6BufferERKNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIfhEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIfhEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr readonly captures(none) %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.26", align 1
   %10 = alloca [11 x ptr], align 16
@@ -30426,7 +30426,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIfhEEvRNS1_6BufferERKNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIftEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIftEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr readonly captures(none) %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.26", align 1
   %10 = alloca [11 x ptr], align 16
@@ -30506,7 +30506,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIftEEvRNS1_6BufferERKNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIfsEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIfsEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr readonly captures(none) %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.26", align 1
   %10 = alloca [11 x ptr], align 16
@@ -30586,7 +30586,7 @@ define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIfsEEvRNS1_6BufferERKNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIffEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture readonly %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4gapi5fluidL9run_sobelIffEEvRNS1_6BufferERKNS1_4ViewEPKfS9_iffPPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr readonly captures(none) %.8.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.26", align 1
   %10 = alloca [11 x ptr], align 16
@@ -36657,13 +36657,13 @@ declare i32 @llvm.smin.i32(i32, i32) #20
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #20

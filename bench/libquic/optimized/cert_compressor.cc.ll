@@ -34,7 +34,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @_ZN3net12_GLOBAL__N_121kCommonCertSubstringsE = internal constant [1484 x i8] c"\04\020\000\1D\06\03U\1D%\04\160\14\06\08+\06\01\05\05\07\03\01\06\08+\06\01\05\05\07\03\020_\06\09`\86H\01\86\F8B\04\01\06\06\0B`\86H\01\86\FDm\01\07\17\0103 Extended Validation S Limited14 SSL CA0\1E\17\0D12 Secure Server CA0-aia.verisign.com/E-crl.verisign.com/E.cer0\0D\06\09*\86H\86\F7\0D\01\01\05\05\00\03\82\01\01\00J.com/resources/cps (c)00\09\06\03U\1D\13\04\020\000\1D0\0D\06\09*\86H\86\F7\0D\01\01\05\05\00\03\82\01\01\00{0\1D\06\03U\1D\0E0\82\01\220\0D\06\09*\86H\86\F7\0D\01\01\01\05\00\03\82\01\0F\000\82\01\0A\02\82\01\01\00\D2odoca.com/C.crl0\1D\06\03U\1D\0E\04\16\04\14\B4.globalsign.com/r0\0B\06\03U\1D\0F\04\04\03\02\010\0D\06\09*\86H\86\F7\0D\01\01\05\05\000\81\CA1\0B0\09\06\03U\04\06\13\02US1\100\0E\06\03U\04\08\13\07Arizona1\130\11\06\03U\04\07\13\0AScottsdale1\1A0\18\06\03U\04\0A\13\11GoDaddy.com, Inc.1301\06\03U\04\0B\13*http://certificates.godaddy.com/repository100.\06\03U\04\03\13'Go Daddy Secure Certification Authority1\110\0F\06\03U\04\05\13\08079692870\1E\17\0D110\0E\06\03U\1D\0F\01\01\FF\04\04\03\02\05\A00\0C\06\03U\1D\13\01\01\FF\04\020\000\1D0\0F\06\03U\1D\13\01\01\FF\04\050\03\01\01\000\1D\06\03U\1D%\04\160\14\06\08+\06\01\05\05\07\03\01\06\08+\06\01\05\05\07\03\020\0E\06\03U\1D\0F\01\01\FF\04\04\03\02\05\A003\06\03U\1D\1F\04,0*0(\A0&\A0$\86\22http://crl.godaddy.com/gds1-20*0(\06\08+\06\01\05\05\07\02\01\16\1Chttps://www.verisign.com/cps04000000Z\17\0D130509\06\08+\06\01\05\05\070\02\86-http://s0907\06\08+\06\01\05\05\07\020D\06\03U\1D \04=0;09\06\0B`\86H\01\86\F8E\01\07\17\061\0B0\09\06\03U\04\06\13\02GB1\1BS1\170\15\06\03U\04\0A\13\0EVeriSign, Inc.1\1F0\1D\06\03U\04\0B\13\16VeriSign Trust Network1;09\06\03U\04\0B\132Terms of use at https://www.verisign.com/rpa (c)01\100\0E\06\03U\04\07\13\07S1\130\11\06\03U\04\0B\13\0AG1\130\11\06\0B+\06\01\04\01\827<\02\01\03\13\02U1\160\14\06\03U\04\03\141\190\17\06\03U\04\03\131\1D0\1B\06\03U\04\0F\13\14Private Organization1\121!0\1F\06\03U\04\0B\13\18Domain Control Validated1\14110/\06\03U\04\0B\13(See www.r://secure.gGlobalSign1ServerCA.crlVeriSign Class 3 Ecrl.geotrust.com/crls/sd1\1A0\18\06\03U\04\0Ahttp://EVIntl-ccrt.gwww.gicert.com/1ocsp.verisign.com09rapidssl.cos.godaddy.com/repository/0\81\80\06\08+\06\01\05\05\07\01\01\04t0r0$\06\08+\06\01\05\05\070\01\86\18http://ocsp.godaddy.com/0J\06\08+\06\01\05\05\070\02\86>http://certificates.godaddy.com/repository/gd_intermediate.crt0\1F\06\03U\1D#\04\180\16\80\14\FD\ACa2\93lE\D6\E2\EE\85_\9A\BA\E7v\99h\CC\E70'\86)http://c\860http://s", align 16
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14CertCompressor13CompressChainERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEN4base16BasicStringPieceIS7_EESE_PKNS_14CommonCertSetsE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %certs, ptr %client_common_set_hashes.coerce0, i64 %client_common_set_hashes.coerce1, ptr %client_cached_cert_hashes.coerce0, i64 %client_cached_cert_hashes.coerce1, ptr noundef %common_sets) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net14CertCompressor13CompressChainERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEN4base16BasicStringPieceIS7_EESE_PKNS_14CommonCertSetsE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %certs, ptr %client_common_set_hashes.coerce0, i64 %client_common_set_hashes.coerce1, ptr %client_cached_cert_hashes.coerce0, i64 %client_cached_cert_hashes.coerce1, ptr noundef %common_sets) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %client_cached_cert_hashes.i = alloca %"class.base::BasicStringPiece", align 8
   %entry9.i = alloca %"struct.net::(anonymous namespace)::CertEntry", align 8
@@ -946,7 +946,7 @@ ehcleanup231:                                     ; preds = %lpad141.body, %lpad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -954,7 +954,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @MOZ_Z_deflateInit_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
@@ -965,7 +965,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3net12_GLOBAL__N_118ZlibDictForEntriesERKSt6vectorINS0_9CertEntryESaIS2_EERKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %entries, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %certs) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3net12_GLOBAL__N_118ZlibDictForEntriesERKSt6vectorINS0_9CertEntryESaIS2_EERKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %entries, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %certs) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp25 = alloca %"class.std::allocator", align 1
@@ -1138,7 +1138,7 @@ declare i32 @MOZ_Z_deflate(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN3net12_GLOBAL__N_110ScopedZLibD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3net12_GLOBAL__N_110ScopedZLibD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(12) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -1174,7 +1174,7 @@ terminate.lpad:                                   ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net14CertCompressor15DecompressChainEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKSt6vectorIS8_SaIS8_EEPKNS_14CommonCertSetsEPSC_(ptr %in.coerce0, i64 %in.coerce1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %cached_certs, ptr noundef %common_sets, ptr noundef %out_certs) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net14CertCompressor15DecompressChainEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKSt6vectorIS8_SaIS8_EEPKNS_14CommonCertSetsEPSC_(ptr %in.coerce0, i64 %in.coerce1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %cached_certs, ptr noundef %common_sets, ptr noundef %out_certs) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %in.i = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2070,7 +2070,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #9
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
@@ -2389,10 +2389,10 @@ declare void @llvm.assume(i1 noundef) #12
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11

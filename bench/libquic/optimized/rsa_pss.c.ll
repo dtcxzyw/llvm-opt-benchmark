@@ -66,7 +66,7 @@ entry:
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @x509_rsa_ctx_to_pss(ptr nocapture noundef readonly %ctx, ptr noundef %algor) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @x509_rsa_ctx_to_pss(ptr noundef readonly captures(none) %ctx, ptr noundef %algor) local_unnamed_addr #0 {
 entry:
   %stmp.i = alloca ptr, align 8
   %sigmd = alloca ptr, align 8
@@ -278,7 +278,7 @@ declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @x509_rsa_pss_to_ctx(ptr noundef %ctx, ptr nocapture noundef readonly %sigalg, ptr noundef %pkey) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @x509_rsa_pss_to_ctx(ptr noundef %ctx, ptr noundef readonly captures(none) %sigalg, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
   %p.i.i = alloca ptr, align 8
   %p.i = alloca ptr, align 8
@@ -495,7 +495,7 @@ declare i32 @EVP_PKEY_CTX_set_rsa_mgf1_md(ptr noundef, ptr noundef) local_unname
 declare void @X509_ALGOR_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @x509_print_rsa_pss_params(ptr noundef %bp, ptr nocapture noundef readonly %sigalg, i32 noundef %indent, ptr nocapture noundef readnone %pctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @x509_print_rsa_pss_params(ptr noundef %bp, ptr noundef readonly captures(none) %sigalg, i32 noundef %indent, ptr noundef readnone captures(none) %pctx) local_unnamed_addr #0 {
 entry:
   %p.i.i = alloca ptr, align 8
   %p.i = alloca ptr, align 8
@@ -740,10 +740,10 @@ declare ptr @EVP_sha1() local_unnamed_addr #1
 declare ptr @EVP_get_digestbyobj(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

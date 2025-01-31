@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.37 = private unnamed_addr constant [5 x i8] c"t140\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @rtppacket_analyse(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define hidden void @rtppacket_analyse(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = tail call double @nstime_to_msec(ptr noundef nonnull %4) #5
   %6 = load i32, ptr %0, align 8
@@ -399,7 +399,7 @@ define hidden void @rtppacket_analyse(ptr noundef %0, ptr noundef %1, ptr nocapt
   %189 = getelementptr [38 x %struct._mimetype_and_clock], ptr @mimetype_and_clock_map, i64 0, i64 %indvars.iv.i
   %190 = load ptr, ptr %189, align 16
   %191 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %190) #6
-  %192 = tail call i32 @g_ascii_strncasecmp(ptr noundef %190, ptr noundef %186, i64 noundef %191) #5
+  %192 = tail call i32 @g_ascii_strncasecmp(ptr noundef nonnull %190, ptr noundef %186, i64 noundef %191) #5
   %193 = icmp eq i32 %192, 0
   br i1 %193, label %194, label %187
 
@@ -751,10 +751,10 @@ declare double @llvm.fabs.f64(double) #2
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

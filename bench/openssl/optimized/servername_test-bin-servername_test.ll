@@ -324,7 +324,7 @@ declare i32 @test_int_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32
 declare i32 @SSL_connect(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @get_sni_from_client_hello(ptr noundef %bio, ptr nocapture noundef nonnull %sni) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @get_sni_from_client_hello(ptr noundef %bio, ptr noundef nonnull captures(none) %sni) unnamed_addr #0 {
 entry:
   %data = alloca ptr, align 8
   %call = call i64 @BIO_ctrl(ptr noundef %bio, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %data) #3
@@ -696,7 +696,7 @@ declare i32 @test_uint_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i3
 declare i32 @test_false(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @PACKET_strndup(ptr %pkt.0.val, i64 %pkt.8.val, ptr nocapture noundef nonnull %data) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @PACKET_strndup(ptr %pkt.0.val, i64 %pkt.8.val, ptr noundef nonnull captures(none) %data) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %data, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef 483) #3

@@ -137,7 +137,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox20generator_spec_utils19generateNullsBufferERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEPNS0_6memory10MemoryPoolEid(ptr noalias nocapture writeonly sret(%"class.boost::intrusive_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(5000) %rng, ptr noundef %pool, i32 noundef %vectorSize, double noundef %nullProbability) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox20generator_spec_utils19generateNullsBufferERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEPNS0_6memory10MemoryPoolEid(ptr noalias writeonly sret(%"class.boost::intrusive_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(5000) %rng, ptr noundef %pool, i32 noundef %vectorSize, double noundef %nullProbability) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %builder = alloca %"struct.facebook::velox::NullsBuilder", align 8
   store i32 %vectorSize, ptr %builder, align 8
@@ -800,10 +800,10 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #4

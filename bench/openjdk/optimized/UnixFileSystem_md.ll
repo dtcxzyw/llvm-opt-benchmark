@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.Java_java_io_UnixFileSystem_checkAccess0 = private unnamed_addr constant [4 x i32] [i32 1, i32 2, i32 0, i32 4], align 4
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_io_UnixFileSystem_initIDs(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_java_io_UnixFileSystem_initIDs(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -39,7 +39,7 @@ define void @Java_java_io_UnixFileSystem_initIDs(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_java_io_UnixFileSystem_canonicalize0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Java_java_io_UnixFileSystem_canonicalize0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4096 x i8], align 16
   %5 = icmp eq ptr %2, null
   br i1 %5, label %6, label %7
@@ -89,7 +89,7 @@ declare ptr @JNU_NewStringPlatform(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @JNU_ReleaseStringPlatformChars(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 8) i32 @Java_java_io_UnixFileSystem_getBooleanAttributes0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 8) i32 @Java_java_io_UnixFileSystem_getBooleanAttributes0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
   %5 = icmp eq ptr %2, null
   br i1 %5, label %.thread, label %6
@@ -145,7 +145,7 @@ statMode.exit.thread:                             ; preds = %16
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_checkAccess0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_checkAccess0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %3, -1
   %5 = icmp ult i32 %switch.tableidx, 4
   br i1 %5, label %switch.lookup, label %7
@@ -206,13 +206,13 @@ switch.lookup:                                    ; preds = %4
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #2
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_setPermission0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_setPermission0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = alloca %struct.stat, align 8
   %8 = icmp eq ptr %2, null
   br i1 %8, label %.thread, label %9
@@ -306,10 +306,10 @@ statMode.exit.thread:                             ; preds = %23
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #2
+declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_java_io_UnixFileSystem_getLastModifiedTime0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define i64 @Java_java_io_UnixFileSystem_getLastModifiedTime0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
   %5 = icmp eq ptr %2, null
   br i1 %5, label %.thread, label %6
@@ -358,10 +358,10 @@ define i64 @Java_java_io_UnixFileSystem_getLastModifiedTime0(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_java_io_UnixFileSystem_getLength0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define i64 @Java_java_io_UnixFileSystem_getLength0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
   %5 = icmp eq ptr %2, null
   br i1 %5, label %.thread, label %6
@@ -399,7 +399,7 @@ define i64 @Java_java_io_UnixFileSystem_getLength0(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_createFileExclusively0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_createFileExclusively0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %5, label %6
 
@@ -460,7 +460,7 @@ declare i32 @handleOpen(ptr noundef, i32 noundef, i32 noundef) local_unnamed_add
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_delete0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_delete0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %.thread, label %5
 
@@ -495,10 +495,10 @@ define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_delete0(ptr nounde
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @remove(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noundef i32 @remove(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_java_io_UnixFileSystem_list0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Java_java_io_UnixFileSystem_list0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @JNU_ClassString(ptr noundef %0) #7
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread81, label %6
@@ -668,17 +668,17 @@ sub_185:                                          ; preds = %.tail
 declare ptr @JNU_ClassString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 declare ptr @readdir64(ptr noundef) local_unnamed_addr #1
 
 declare i32 @JNU_CopyObjectArray(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_createDirectory0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_createDirectory0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %.thread, label %5
 
@@ -713,10 +713,10 @@ define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_createDirectory0(p
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #2
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_rename0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_rename0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %.thread, label %6
 
@@ -778,10 +778,10 @@ define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_rename0(ptr nounde
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_setLastModifiedTime0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_setLastModifiedTime0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.stat, align 8
   %6 = alloca [2 x %struct.timeval], align 16
   %7 = icmp eq ptr %2, null
@@ -842,10 +842,10 @@ define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_setLastModifiedTim
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @utimes(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noundef i32 @utimes(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_setReadOnly0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_setReadOnly0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
   %5 = icmp eq ptr %2, null
   br i1 %5, label %.thread, label %6
@@ -912,7 +912,7 @@ statMode.exit:                                    ; preds = %16
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_java_io_UnixFileSystem_getSpace0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i64 @Java_java_io_UnixFileSystem_getSpace0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.statvfs, align 8
   %6 = icmp eq ptr %2, null
   br i1 %6, label %.thread, label %7
@@ -994,13 +994,13 @@ define i64 @Java_java_io_UnixFileSystem_getSpace0(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @statvfs64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @statvfs64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, -1) i64 @Java_java_io_UnixFileSystem_getNameMax0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i64 0, -1) i64 @Java_java_io_UnixFileSystem_getNameMax0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %5, label %6
 
@@ -1032,10 +1032,10 @@ define range(i64 0, -1) i64 @Java_java_io_UnixFileSystem_getNameMax0(ptr noundef
 declare i64 @pathconf(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

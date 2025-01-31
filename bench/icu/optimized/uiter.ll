@@ -53,7 +53,7 @@ if.end11:                                         ; preds = %if.end, %if.else9, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare i32 @u_strlen_75(ptr noundef) local_unnamed_addr #2
 
@@ -229,7 +229,7 @@ if.end13:                                         ; preds = %if.end, %if.else11,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define i32 @uiter_current32_75(ptr noundef %iter) local_unnamed_addr #0 {
@@ -421,7 +421,7 @@ if.end9:                                          ; preds = %if.then2, %if.else6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZL22stringIteratorGetIndexP13UCharIterator19UCharIteratorOrigin(ptr nocapture noundef readonly %iter, i32 noundef %origin) #6 {
+define internal noundef i32 @_ZL22stringIteratorGetIndexP13UCharIterator19UCharIteratorOrigin(ptr noundef readonly captures(none) %iter, i32 noundef %origin) #6 {
 entry:
   switch i32 %origin, label %sw.default [
     i32 3, label %return
@@ -460,7 +460,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZL18stringIteratorMoveP13UCharIteratori19UCharIteratorOrigin(ptr nocapture noundef %iter, i32 noundef %delta, i32 noundef %origin) #3 {
+define internal noundef i32 @_ZL18stringIteratorMoveP13UCharIteratori19UCharIteratorOrigin(ptr noundef captures(none) %iter, i32 noundef %delta, i32 noundef %origin) #3 {
 entry:
   switch i32 %origin, label %return [
     i32 3, label %sw.epilog
@@ -519,7 +519,7 @@ return:                                           ; preds = %entry, %if.end14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL21stringIteratorHasNextP13UCharIterator(ptr nocapture noundef readonly %iter) #6 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL21stringIteratorHasNextP13UCharIterator(ptr noundef readonly captures(none) %iter) #6 {
 entry:
   %index = getelementptr inbounds nuw i8, ptr %iter, i64 16
   %0 = load i32, ptr %index, align 8
@@ -531,7 +531,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL25stringIteratorHasPreviousP13UCharIterator(ptr nocapture noundef readonly %iter) #6 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL25stringIteratorHasPreviousP13UCharIterator(ptr noundef readonly captures(none) %iter) #6 {
 entry:
   %index = getelementptr inbounds nuw i8, ptr %iter, i64 16
   %0 = load i32, ptr %index, align 8
@@ -543,7 +543,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef range(i32 -1, 65536) i32 @_ZL21stringIteratorCurrentP13UCharIterator(ptr nocapture noundef readonly %iter) #7 {
+define internal noundef range(i32 -1, 65536) i32 @_ZL21stringIteratorCurrentP13UCharIterator(ptr noundef readonly captures(none) %iter) #7 {
 entry:
   %index = getelementptr inbounds nuw i8, ptr %iter, i64 16
   %0 = load i32, ptr %index, align 8
@@ -566,7 +566,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef range(i32 -1, 65536) i32 @_ZL18stringIteratorNextP13UCharIterator(ptr nocapture noundef %iter) #8 {
+define internal noundef range(i32 -1, 65536) i32 @_ZL18stringIteratorNextP13UCharIterator(ptr noundef captures(none) %iter) #8 {
 entry:
   %index = getelementptr inbounds nuw i8, ptr %iter, i64 16
   %0 = load i32, ptr %index, align 8
@@ -591,7 +591,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef range(i32 -1, 65536) i32 @_ZL22stringIteratorPreviousP13UCharIterator(ptr nocapture noundef %iter) #8 {
+define internal noundef range(i32 -1, 65536) i32 @_ZL22stringIteratorPreviousP13UCharIterator(ptr noundef captures(none) %iter) #8 {
 entry:
   %index = getelementptr inbounds nuw i8, ptr %iter, i64 16
   %0 = load i32, ptr %index, align 8
@@ -616,7 +616,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZL22stringIteratorGetStatePK13UCharIterator(ptr nocapture noundef readonly %iter) #6 {
+define internal noundef i32 @_ZL22stringIteratorGetStatePK13UCharIterator(ptr noundef readonly captures(none) %iter) #6 {
 entry:
   %index = getelementptr inbounds nuw i8, ptr %iter, i64 16
   %0 = load i32, ptr %index, align 8
@@ -668,44 +668,44 @@ if.end10:                                         ; preds = %if.then2, %if.else8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL12noopGetIndexP13UCharIterator19UCharIteratorOrigin(ptr nocapture readnone %0, i32 %1) #9 {
+define internal noundef i32 @_ZL12noopGetIndexP13UCharIterator19UCharIteratorOrigin(ptr readnone captures(none) %0, i32 %1) #9 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL8noopMoveP13UCharIteratori19UCharIteratorOrigin(ptr nocapture readnone %0, i32 %1, i32 %2) #9 {
+define internal noundef i32 @_ZL8noopMoveP13UCharIteratori19UCharIteratorOrigin(ptr readnone captures(none) %0, i32 %1, i32 %2) #9 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef signext i8 @_ZL11noopHasNextP13UCharIterator(ptr nocapture readnone %0) #9 {
+define internal noundef signext i8 @_ZL11noopHasNextP13UCharIterator(ptr readnone captures(none) %0) #9 {
 entry:
   ret i8 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL11noopCurrentP13UCharIterator(ptr nocapture readnone %0) #9 {
+define internal noundef i32 @_ZL11noopCurrentP13UCharIterator(ptr readnone captures(none) %0) #9 {
 entry:
   ret i32 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL12noopGetStatePK13UCharIterator(ptr nocapture readnone %0) #9 {
+define internal noundef i32 @_ZL12noopGetStatePK13UCharIterator(ptr readnone captures(none) %0) #9 {
 entry:
   ret i32 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL12noopSetStateP13UCharIteratorjP10UErrorCode(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef writeonly initializes((0, 4)) %pErrorCode) #10 {
+define internal void @_ZL12noopSetStateP13UCharIteratorjP10UErrorCode(ptr readnone captures(none) %0, i32 %1, ptr noundef writeonly captures(none) initializes((0, 4)) %pErrorCode) #10 {
 entry:
   store i32 16, ptr %pErrorCode, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef range(i32 -1, 65536) i32 @_ZL22utf16BEIteratorCurrentP13UCharIterator(ptr nocapture noundef readonly %iter) #7 {
+define internal noundef range(i32 -1, 65536) i32 @_ZL22utf16BEIteratorCurrentP13UCharIterator(ptr noundef readonly captures(none) %iter) #7 {
 entry:
   %index1 = getelementptr inbounds nuw i8, ptr %iter, i64 16
   %0 = load i32, ptr %index1, align 8
@@ -736,7 +736,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef range(i32 -1, 65536) i32 @_ZL19utf16BEIteratorNextP13UCharIterator(ptr nocapture noundef %iter) #8 {
+define internal noundef range(i32 -1, 65536) i32 @_ZL19utf16BEIteratorNextP13UCharIterator(ptr noundef captures(none) %iter) #8 {
 entry:
   %index1 = getelementptr inbounds nuw i8, ptr %iter, i64 16
   %0 = load i32, ptr %index1, align 8
@@ -769,7 +769,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef range(i32 -1, 65536) i32 @_ZL23utf16BEIteratorPreviousP13UCharIterator(ptr nocapture noundef %iter) #8 {
+define internal noundef range(i32 -1, 65536) i32 @_ZL23utf16BEIteratorPreviousP13UCharIterator(ptr noundef captures(none) %iter) #8 {
 entry:
   %index1 = getelementptr inbounds nuw i8, ptr %iter, i64 16
   %0 = load i32, ptr %index1, align 8
@@ -802,7 +802,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL25characterIteratorGetIndexP13UCharIterator19UCharIteratorOrigin(ptr nocapture noundef readonly %iter, i32 noundef %origin) #7 {
+define internal noundef i32 @_ZL25characterIteratorGetIndexP13UCharIterator19UCharIteratorOrigin(ptr noundef readonly captures(none) %iter, i32 noundef %origin) #7 {
 entry:
   switch i32 %origin, label %sw.default [
     i32 3, label %return
@@ -845,7 +845,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL21characterIteratorMoveP13UCharIteratori19UCharIteratorOrigin(ptr nocapture noundef readonly %iter, i32 noundef %delta, i32 noundef %origin) #0 {
+define internal noundef i32 @_ZL21characterIteratorMoveP13UCharIteratori19UCharIteratorOrigin(ptr noundef readonly captures(none) %iter, i32 noundef %delta, i32 noundef %origin) #0 {
 entry:
   switch i32 %origin, label %return [
     i32 3, label %sw.bb
@@ -894,7 +894,7 @@ return:                                           ; preds = %entry, %sw.bb8, %sw
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL24characterIteratorHasNextP13UCharIterator(ptr nocapture noundef readonly %iter) #0 {
+define internal noundef signext i8 @_ZL24characterIteratorHasNextP13UCharIterator(ptr noundef readonly captures(none) %iter) #0 {
 entry:
   %0 = load ptr, ptr %iter, align 8
   %vtable = load ptr, ptr %0, align 8
@@ -905,7 +905,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZL28characterIteratorHasPreviousP13UCharIterator(ptr nocapture noundef readonly %iter) #0 {
+define internal noundef signext i8 @_ZL28characterIteratorHasPreviousP13UCharIterator(ptr noundef readonly captures(none) %iter) #0 {
 entry:
   %0 = load ptr, ptr %iter, align 8
   %vtable = load ptr, ptr %0, align 8
@@ -916,7 +916,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 -1, 65536) i32 @_ZL24characterIteratorCurrentP13UCharIterator(ptr nocapture noundef readonly %iter) #0 {
+define internal noundef range(i32 -1, 65536) i32 @_ZL24characterIteratorCurrentP13UCharIterator(ptr noundef readonly captures(none) %iter) #0 {
 entry:
   %0 = load ptr, ptr %iter, align 8
   %vtable = load ptr, ptr %0, align 8
@@ -943,7 +943,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 -1, 65536) i32 @_ZL21characterIteratorNextP13UCharIterator(ptr nocapture noundef readonly %iter) #0 {
+define internal noundef range(i32 -1, 65536) i32 @_ZL21characterIteratorNextP13UCharIterator(ptr noundef readonly captures(none) %iter) #0 {
 entry:
   %0 = load ptr, ptr %iter, align 8
   %vtable = load ptr, ptr %0, align 8
@@ -968,7 +968,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 -1, 65536) i32 @_ZL25characterIteratorPreviousP13UCharIterator(ptr nocapture noundef readonly %iter) #0 {
+define internal noundef range(i32 -1, 65536) i32 @_ZL25characterIteratorPreviousP13UCharIterator(ptr noundef readonly captures(none) %iter) #0 {
 entry:
   %0 = load ptr, ptr %iter, align 8
   %vtable = load ptr, ptr %0, align 8
@@ -993,7 +993,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL25characterIteratorGetStatePK13UCharIterator(ptr nocapture noundef readonly %iter) #7 {
+define internal noundef i32 @_ZL25characterIteratorGetStatePK13UCharIterator(ptr noundef readonly captures(none) %iter) #7 {
 entry:
   %0 = load ptr, ptr %iter, align 8
   %pos.i = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1053,7 +1053,7 @@ if.end18:                                         ; preds = %if.then4, %if.else1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 -1, 65536) i32 @_ZL26replaceableIteratorCurrentP13UCharIterator(ptr nocapture noundef readonly %iter) #0 {
+define internal noundef range(i32 -1, 65536) i32 @_ZL26replaceableIteratorCurrentP13UCharIterator(ptr noundef readonly captures(none) %iter) #0 {
 entry:
   %index = getelementptr inbounds nuw i8, ptr %iter, i64 16
   %0 = load i32, ptr %index, align 8
@@ -1077,7 +1077,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 -1, 65536) i32 @_ZL23replaceableIteratorNextP13UCharIterator(ptr nocapture noundef %iter) #0 {
+define internal noundef range(i32 -1, 65536) i32 @_ZL23replaceableIteratorNextP13UCharIterator(ptr noundef captures(none) %iter) #0 {
 entry:
   %index = getelementptr inbounds nuw i8, ptr %iter, i64 16
   %0 = load i32, ptr %index, align 8
@@ -1103,7 +1103,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 -1, 65536) i32 @_ZL27replaceableIteratorPreviousP13UCharIterator(ptr nocapture noundef %iter) #0 {
+define internal noundef range(i32 -1, 65536) i32 @_ZL27replaceableIteratorPreviousP13UCharIterator(ptr noundef captures(none) %iter) #0 {
 entry:
   %index = getelementptr inbounds nuw i8, ptr %iter, i64 16
   %0 = load i32, ptr %index, align 8
@@ -1129,7 +1129,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL20utf8IteratorGetIndexP13UCharIterator19UCharIteratorOrigin(ptr nocapture noundef %iter, i32 noundef %origin) #11 {
+define internal noundef i32 @_ZL20utf8IteratorGetIndexP13UCharIterator19UCharIteratorOrigin(ptr noundef captures(none) %iter, i32 noundef %origin) #11 {
 entry:
   switch i32 %origin, label %sw.default [
     i32 3, label %return
@@ -1602,7 +1602,7 @@ return:                                           ; preds = %sw.bb85, %while.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL16utf8IteratorMoveP13UCharIteratori19UCharIteratorOrigin(ptr nocapture noundef %iter, i32 noundef %delta, i32 noundef %origin) #0 {
+define internal noundef i32 @_ZL16utf8IteratorMoveP13UCharIteratori19UCharIteratorOrigin(ptr noundef captures(none) %iter, i32 noundef %delta, i32 noundef %origin) #0 {
 entry:
   %i = alloca i32, align 4
   switch i32 %origin, label %return [
@@ -2057,7 +2057,7 @@ return:                                           ; preds = %if.else281, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL19utf8IteratorHasNextP13UCharIterator(ptr nocapture noundef readonly %iter) #6 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL19utf8IteratorHasNextP13UCharIterator(ptr noundef readonly captures(none) %iter) #6 {
 entry:
   %start = getelementptr inbounds nuw i8, ptr %iter, i64 12
   %0 = load i32, ptr %start, align 4
@@ -2079,7 +2079,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZL23utf8IteratorHasPreviousP13UCharIterator(ptr nocapture noundef readonly %iter) #6 {
+define internal noundef signext range(i8 0, 2) i8 @_ZL23utf8IteratorHasPreviousP13UCharIterator(ptr noundef readonly captures(none) %iter) #6 {
 entry:
   %start = getelementptr inbounds nuw i8, ptr %iter, i64 12
   %0 = load i32, ptr %start, align 4
@@ -2089,7 +2089,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef range(i32 -1, 65536) i32 @_ZL19utf8IteratorCurrentP13UCharIterator(ptr nocapture noundef readonly %iter) #7 {
+define internal noundef range(i32 -1, 65536) i32 @_ZL19utf8IteratorCurrentP13UCharIterator(ptr noundef readonly captures(none) %iter) #7 {
 entry:
   %reservedField = getelementptr inbounds nuw i8, ptr %iter, i64 24
   %0 = load i32, ptr %reservedField, align 8
@@ -2235,7 +2235,7 @@ return:                                           ; preds = %if.then9, %cond.tru
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef range(i32 -1, 65536) i32 @_ZL16utf8IteratorNextP13UCharIterator(ptr nocapture noundef %iter) #8 {
+define internal noundef range(i32 -1, 65536) i32 @_ZL16utf8IteratorNextP13UCharIterator(ptr noundef captures(none) %iter) #8 {
 entry:
   %reservedField = getelementptr inbounds nuw i8, ptr %iter, i64 24
   %0 = load i32, ptr %reservedField, align 8
@@ -2537,7 +2537,7 @@ return:                                           ; preds = %if.else, %if.end33,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZL20utf8IteratorGetStatePK13UCharIterator(ptr nocapture noundef readonly %iter) #6 {
+define internal noundef i32 @_ZL20utf8IteratorGetStatePK13UCharIterator(ptr noundef readonly captures(none) %iter) #6 {
 entry:
   %start = getelementptr inbounds nuw i8, ptr %iter, i64 12
   %0 = load i32, ptr %start, align 4

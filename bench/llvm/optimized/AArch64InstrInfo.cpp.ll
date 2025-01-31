@@ -759,7 +759,7 @@ $_ZTVN4llvm2cl11OptionValueIjEE = comdat any
 @_ZN4llvm16AArch64InstrInfoC1ERKNS_16AArch64SubtargetE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm16AArch64InstrInfoC2ERKNS_16AArch64SubtargetE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm19AArch64GenInstrInfoC2Ejjjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 52), (56, 80)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm19AArch64GenInstrInfoC2Ejjjj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((0, 52), (56, 80)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -998,7 +998,7 @@ declare void @_ZN4llvm15PatchPointOpersC1EPKNS_12MachineInstrE(ptr noundef nonnu
 declare noundef i64 @_ZNK4llvm8Function29getFnAttributeAsParsedIntegerENS_9StringRefEm(ptr noundef nonnull align 8 dereferenceable(136), ptr, i64, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK4llvm16AArch64InstrInfo19getInstBundleLengthERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK4llvm16AArch64InstrInfo19getInstBundleLengthERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1030,7 +1030,7 @@ define dso_local noundef i32 @_ZNK4llvm16AArch64InstrInfo19getInstBundleLengthER
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo21isBranchOffsetInRangeEjl(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1, i64 noundef %2) unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo21isBranchOffsetInRangeEjl(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #4 align 2 {
   switch i32 %1, label %4 [
     i32 1612, label %_ZL25getBranchDisplacementBitsj.exit
     i32 6997, label %5
@@ -1084,7 +1084,7 @@ _ZN4llvm6isIntNEjl.exit:                          ; preds = %_ZL25getBranchDispl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK4llvm16AArch64InstrInfo18getBranchDestBlockERKNS_12MachineInstrE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1) unnamed_addr #4 align 2 {
+define dso_local noundef ptr @_ZNK4llvm16AArch64InstrInfo18getBranchDestBlockERKNS_12MachineInstrE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %4 = load i16, ptr %3, align 4
   switch i16 %4, label %5 [
@@ -1652,7 +1652,7 @@ _ZN4llvm8DebugLocD2Ev.exit65:                     ; preds = %192, %_ZN4llvm10MIM
 declare void @_ZN4llvm12RegScavenger18enterBasicBlockEndERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 8 dereferenceable(288)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare noundef zeroext i1 @_ZNK4llvm12RegScavenger9isRegUsedENS_8RegisterEb(ptr noundef nonnull align 8 dereferenceable(168), i32, i1 noundef zeroext) local_unnamed_addr #3
 
@@ -1767,7 +1767,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo13analyzeBranchERNS_17MachineBasicBlockERPS1_S4_RNS_15SmallVectorImplINS_14MachineOperandEEEb(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i1 noundef zeroext %5) unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo13analyzeBranchERNS_17MachineBasicBlockERPS1_S4_RNS_15SmallVectorImplINS_14MachineOperandEEEb(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i1 noundef zeroext %5) unnamed_addr #1 align 2 {
   %7 = alloca %"class.llvm::MachineInstrBundleIterator", align 8
   %8 = tail call ptr @_ZN4llvm17MachineBasicBlock20getLastNonDebugInstrEb(ptr noundef nonnull align 8 dereferenceable(288) %1, i1 noundef zeroext true) #26
   store ptr %8, ptr %7, align 8
@@ -2170,7 +2170,7 @@ define internal fastcc noundef zeroext i1 @_ZN4llvmL18isCondBranchOpcodeEi(i32 n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15parseCondBranchPN4llvm12MachineInstrERPNS_17MachineBasicBlockERNS_15SmallVectorImplINS_14MachineOperandEEE(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #1 {
+define internal fastcc void @_ZL15parseCondBranchPN4llvm12MachineInstrERPNS_17MachineBasicBlockERNS_15SmallVectorImplINS_14MachineOperandEEE(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #1 {
   %4 = alloca %"class.llvm::MachineOperand", align 8
   %5 = alloca %"class.llvm::MachineOperand", align 8
   %6 = alloca %"class.llvm::MachineOperand", align 8
@@ -2262,7 +2262,7 @@ declare void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull alig
 declare noundef zeroext i1 @_ZNK4llvm17MachineBasicBlock17isLayoutSuccessorEPKS0_(ptr noundef nonnull align 8 dereferenceable(288), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo22analyzeBranchPredicateERNS_17MachineBasicBlockERNS_15TargetInstrInfo22MachineBranchPredicateEb(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(97) %2, i1 zeroext %3) unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo22analyzeBranchPredicateERNS_17MachineBasicBlockERNS_15TargetInstrInfo22MachineBranchPredicateEb(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(97) %2, i1 zeroext %3) unnamed_addr #1 align 2 {
   %5 = tail call ptr @_ZN4llvm17MachineBasicBlock20getLastNonDebugInstrEb(ptr noundef nonnull align 8 dereferenceable(288) %1, i1 noundef zeroext true) #26
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = icmp eq ptr %5, %6
@@ -2365,7 +2365,7 @@ _ZN4llvmL18isCondBranchOpcodeEi.exit.thread:      ; preds = %25, %_ZN4llvmL18isC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo22reverseBranchConditionERNS_15SmallVectorImplINS_14MachineOperandEEE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #8 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo22reverseBranchConditionERNS_15SmallVectorImplINS_14MachineOperandEEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #8 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8
@@ -2432,7 +2432,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo22reverseBranchC
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 3) i32 @_ZNK4llvm16AArch64InstrInfo12removeBranchERNS_17MachineBasicBlockEPi(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef writeonly %2) unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZNK4llvm16AArch64InstrInfo12removeBranchERNS_17MachineBasicBlockEPi(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef writeonly %2) unnamed_addr #1 align 2 {
   %4 = tail call ptr @_ZN4llvm17MachineBasicBlock20getLastNonDebugInstrEb(ptr noundef nonnull align 8 dereferenceable(288) %1, i1 noundef zeroext true) #26
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = icmp eq ptr %4, %5
@@ -2529,7 +2529,7 @@ _ZN4llvmL18isCondBranchOpcodeEi.exit:             ; preds = %_ZN4llvmL18isCondBr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm16AArch64InstrInfo21instantiateCondBranchERNS_17MachineBasicBlockERKNS_8DebugLocEPS1_NS_8ArrayRefINS_14MachineOperandEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef %3, ptr %4, i64 %5) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm16AArch64InstrInfo21instantiateCondBranchERNS_17MachineBasicBlockERKNS_8DebugLocEPS1_NS_8ArrayRefINS_14MachineOperandEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef %3, ptr %4, i64 %5) local_unnamed_addr #1 align 2 {
   %7 = alloca %"class.llvm::MachineOperand", align 8
   %8 = alloca %"class.llvm::MachineOperand", align 8
   %9 = alloca %"class.llvm::MachineOperand", align 8
@@ -2695,7 +2695,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %38, %_ZN4llvm10MIMe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZNK4llvm16AArch64InstrInfo12insertBranchERNS_17MachineBasicBlockEPS1_S3_NS_8ArrayRefINS_14MachineOperandEEERKNS_8DebugLocEPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef %2, ptr noundef %3, ptr %4, i64 %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noundef writeonly %7) unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 1, 3) i32 @_ZNK4llvm16AArch64InstrInfo12insertBranchERNS_17MachineBasicBlockEPS1_S3_NS_8ArrayRefINS_14MachineOperandEEERKNS_8DebugLocEPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef %2, ptr noundef %3, ptr %4, i64 %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef writeonly %7) unnamed_addr #1 align 2 {
   %9 = alloca %"class.llvm::MachineOperand", align 8
   %10 = alloca %"class.llvm::MachineOperand", align 8
   %11 = alloca %"class.llvm::MIMetadata", align 8
@@ -2848,7 +2848,7 @@ _ZN4llvm8DebugLocD2Ev.exit33:                     ; preds = %_ZN4llvm10MIMetadat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo15canInsertSelectERKNS_17MachineBasicBlockENS_8ArrayRefINS_14MachineOperandEEENS_8RegisterES7_S7_RiS8_S8_(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %1, ptr nocapture readnone %2, i64 %3, i32 %4, i32 %5, i32 %6, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %7, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %8, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %9) unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo15canInsertSelectERKNS_17MachineBasicBlockENS_8ArrayRefINS_14MachineOperandEEENS_8RegisterES7_S7_RiS8_S8_(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %1, ptr readnone captures(none) %2, i64 %3, i32 %4, i32 %5, i32 %6, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %7, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %8, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %9) unnamed_addr #1 align 2 {
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -3182,7 +3182,7 @@ _ZL12removeCopiesRKN4llvm19MachineRegisterInfoEj.exit: ; preds = %17, %3, %115, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm16AArch64InstrInfo12insertSelectERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_8DebugLocENS_8RegisterENS_8ArrayRefINS_14MachineOperandEEES9_S9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, i32 %4, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.342") align 8 %5, i32 %6, i32 %7) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm16AArch64InstrInfo12insertSelectERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_8DebugLocENS_8RegisterENS_8ArrayRefINS_14MachineOperandEEES9_S9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, i32 %4, ptr noundef readonly byval(%"class.llvm::ArrayRef.342") align 8 captures(none) %5, i32 %6, i32 %7) unnamed_addr #1 align 2 {
   %9 = alloca %"class.llvm::MachineOperand", align 8
   %10 = alloca %"class.llvm::MachineOperand", align 8
   %11 = alloca %"class.llvm::MachineOperand", align 8
@@ -3896,7 +3896,7 @@ _ZN4llvm10AArch64_AML23processLogicalImmediateEmjRm.exit: ; preds = %2, %5, %8, 
 declare void @_ZNK4llvm19MachineRegisterInfo14clearKillFlagsENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512), i32) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo16isAsCheapAsAMoveERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo16isAsCheapAsAMoveERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::SmallVector.568", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %5 = load ptr, ptr %4, align 8
@@ -4011,7 +4011,7 @@ _ZNK4llvm12MachineInstr16isAsCheapAsAMoveENS0_9QueryTypeE.exit: ; preds = %27, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosCheapAsMoveERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosCheapAsMoveERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   switch i16 %3, label %4 [
@@ -4049,7 +4049,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosCheapAs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isFalkorShiftExtFastERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   switch i16 %3, label %_ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit [
@@ -4215,7 +4215,7 @@ _ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit: ; preds = %45, %15, %35, %_ZN4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo16isSEHInstructionERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo16isSEHInstructionERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   %4 = add i16 %3, -1042
@@ -4224,7 +4224,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo16isSEHInstructio
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo21isCoalescableExtInstrERKNS_12MachineInstrERNS_8RegisterES5_Rj(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4) unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo21isCoalescableExtInstrERKNS_12MachineInstrERNS_8RegisterES5_Rj(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %4) unnamed_addr #10 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %7 = load i16, ptr %6, align 4
   switch i16 %7, label %22 [
@@ -4263,7 +4263,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo21isCoalescableE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo31areMemAccessesTriviallyDisjointERKNS_12MachineInstrES3_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(70) %2) unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo31areMemAccessesTriviallyDisjointERKNS_12MachineInstrES3_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(70) %2) unnamed_addr #1 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -4360,7 +4360,7 @@ declare noundef zeroext i1 @_ZNK4llvm12MachineInstr23hasUnmodeledSideEffectsEv(p
 declare noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasOrderedMemoryRefEv(ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo28getMemOperandWithOffsetWidthERKNS_12MachineInstrERPKNS_14MachineOperandERlRbRNS_8TypeSizeEPKNS_18TargetRegisterInfoE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(9) %5, ptr nocapture readnone %6) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo28getMemOperandWithOffsetWidthERKNS_12MachineInstrERPKNS_14MachineOperandERlRbRNS_8TypeSizeEPKNS_18TargetRegisterInfoE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(9) %5, ptr readnone captures(none) %6) local_unnamed_addr #1 align 2 {
   %8 = alloca %"class.llvm::TypeSize", align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
@@ -4766,7 +4766,7 @@ _ZN4llvm16AArch64InstrInfo15hasBTISemanticsERKNS_12MachineInstrE.exit.thread: ; 
 declare noundef zeroext i1 @_ZNK4llvm15TargetInstrInfo20isSchedulingBoundaryERKNS_12MachineInstrEPKNS_17MachineBasicBlockERKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(70), ptr noundef, ptr noundef nonnull align 8 dereferenceable(1041)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo15hasBTISemanticsERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo15hasBTISemanticsERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   switch i16 %3, label %13 [
@@ -4808,7 +4808,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo14analyzeCompareERKNS_12MachineInstrERNS_8RegisterES5_RlS6_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %5) unnamed_addr #11 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo14analyzeCompareERKNS_12MachineInstrERNS_8RegisterES5_RlS6_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %5) unnamed_addr #11 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -5004,7 +5004,7 @@ define internal fastcc noundef i64 @_ZN4llvm10AArch64_AML22decodeLogicalImmediat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZNK4llvm16AArch64InstrInfo19canRemovePTestInstrEPNS_12MachineInstrES2_S2_PKNS_19MachineRegisterInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
+define dso_local range(i64 0, 8589934592) i64 @_ZNK4llvm16AArch64InstrInfo19canRemovePTestInstrEPNS_12MachineInstrES2_S2_PKNS_19MachineRegisterInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %7 = load i16, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 68
@@ -5193,7 +5193,7 @@ _ZN4llvmL13isPTrueOpcodeEj.exit38:                ; preds = %47, %69, %54, %48
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo17isPTestLikeOpcodeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo17isPTestLikeOpcodeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = zext i32 %1 to i64
@@ -5206,7 +5206,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo17isPTestLikeOpc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo13isWhileOpcodeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo13isWhileOpcodeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = zext i32 %1 to i64
@@ -5219,7 +5219,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo13isWhileOpcodeE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef range(i64 0, 8) i64 @_ZNK4llvm16AArch64InstrInfo23getElementSizeForOpcodeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i64 0, 8) i64 @_ZNK4llvm16AArch64InstrInfo23getElementSizeForOpcodeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = zext i32 %1 to i64
@@ -6267,7 +6267,7 @@ _ZN4llvm11SmallVectorIPNS_12MachineInstrELj4EED2Ev.exit: ; preds = %89, %_ZL20ca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i40 0, 8589934592) i40 @_ZN4llvm16examineCFlagsUseERNS_12MachineInstrES1_RKNS_18TargetRegisterInfoEPNS_15SmallVectorImplIPS0_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(308) %2, ptr noundef %3) local_unnamed_addr #1 {
+define dso_local range(i40 0, 8589934592) i40 @_ZN4llvm16examineCFlagsUseERNS_12MachineInstrES1_RKNS_18TargetRegisterInfoEPNS_15SmallVectorImplIPS0_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(308) %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6643,7 +6643,7 @@ define internal fastcc noundef range(i32 302, 8174) i32 @_ZL5sFormRN4llvm12Machi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo18expandPostRAPseudoERNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo18expandPostRAPseudoERNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::MachineOperand", align 8
   %4 = alloca %"class.llvm::MachineOperand", align 8
   %5 = alloca %"class.llvm::MachineOperand", align 8
@@ -8956,7 +8956,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBloc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo9isGPRZeroERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo9isGPRZeroERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   switch i16 %3, label %33 [
@@ -9015,7 +9015,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo9isGPRZeroERKNS_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo9isGPRCopyERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo9isGPRCopyERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   switch i16 %3, label %53 [
@@ -9101,7 +9101,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit10: ; preds = %30, %.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo9isFPRCopyERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo9isFPRCopyERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   switch i16 %3, label %36 [
@@ -9159,7 +9159,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %17, %11, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @_ZNK4llvm16AArch64InstrInfo19isLoadFromStackSlotERKNS_12MachineInstrERi(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) unnamed_addr #10 align 2 {
+define dso_local i32 @_ZNK4llvm16AArch64InstrInfo19isLoadFromStackSlotERKNS_12MachineInstrERi(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %5 = load i16, ptr %4, align 4
   switch i16 %5, label %32 [
@@ -9216,7 +9216,7 @@ define dso_local i32 @_ZNK4llvm16AArch64InstrInfo19isLoadFromStackSlotERKNS_12Ma
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @_ZNK4llvm16AArch64InstrInfo18isStoreToStackSlotERKNS_12MachineInstrERi(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) unnamed_addr #10 align 2 {
+define dso_local i32 @_ZNK4llvm16AArch64InstrInfo18isStoreToStackSlotERKNS_12MachineInstrERi(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2) unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %5 = load i16, ptr %4, align 4
   switch i16 %5, label %32 [
@@ -9429,7 +9429,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm16AArch64InstrInfo16suppressLdStPairERNS_12MachineInstrE(ptr nocapture noundef nonnull align 8 dereferenceable(70) %0) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN4llvm16AArch64InstrInfo16suppressLdStPairERNS_12MachineInstrE(ptr noundef nonnull align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = icmp ugt i64 %3, 7
@@ -10046,7 +10046,7 @@ define dso_local noundef range(i32 2, 5) i32 @_ZN4llvm16AArch64InstrInfo18getLoa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isPairableLdStInstERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isPairableLdStInstERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   switch i16 %3, label %5 [
@@ -10094,7 +10094,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isPairableLdStI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   switch i16 %3, label %5 [
@@ -10258,7 +10258,7 @@ _ZNK4llvm8Function21needsUnwindTableEntryEv.exit.thread: ; preds = %44, %49, %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo9isPreLdStERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo9isPreLdStERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   switch i16 %3, label %_ZN4llvm16AArch64InstrInfo7isPreStERKNS_12MachineInstrE.exit.fold.split [
@@ -10286,7 +10286,7 @@ _ZN4llvm16AArch64InstrInfo7isPreStERKNS_12MachineInstrE.exit: ; preds = %1, %1, 
 declare noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo29getMemOperandsWithOffsetWidthERKNS_12MachineInstrERNS_15SmallVectorImplIPKNS_14MachineOperandEEERlRbRNS_12LocationSizeEPKNS_18TargetRegisterInfoE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %5, ptr nocapture readnone %6) unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo29getMemOperandsWithOffsetWidthERKNS_12MachineInstrERNS_15SmallVectorImplIPKNS_14MachineOperandEEERlRbRNS_12LocationSizeEPKNS_18TargetRegisterInfoE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %4, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %5, ptr readnone captures(none) %6) unnamed_addr #1 align 2 {
   %8 = alloca ptr, align 8
   %9 = alloca %"class.llvm::TypeSize", align 8
   %10 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr14mayLoadOrStoreENS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef 1)
@@ -10431,7 +10431,7 @@ _ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit: ; preds = %6, %50, %43, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm16AArch64InstrInfo23getAddrModeFromMemoryOpERKNS_12MachineInstrEPKNS_18TargetRegisterInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.503") align 8 initializes((32, 33)) %0, ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(70) %2, ptr noundef %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm16AArch64InstrInfo23getAddrModeFromMemoryOpERKNS_12MachineInstrEPKNS_18TargetRegisterInfoE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.503") align 8 captures(none) initializes((32, 33)) %0, ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(70) %2, ptr noundef %3) unnamed_addr #1 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca i8, align 1
@@ -11097,7 +11097,7 @@ declare noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo15hasOneNonDBGUseENS_8
 declare noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512), i32) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_2clElNS5_7FormulaE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef range(i64 1, -9223372036854775807) %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #8 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZNK4llvm16AArch64InstrInfo19canFoldIntoAddrModeERKNS_12MachineInstrENS_8RegisterES3_RNS_11ExtAddrModeEENK3$_2clElNS5_7FormulaE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i64 noundef range(i64 1, -9223372036854775807) %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #8 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -11155,7 +11155,7 @@ _ZNK4llvm16AArch64InstrInfo21isLegalAddressingModeEjlj.exit.thread: ; preds = %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef range(i32 4380, 6797) i32 @_Z18scaledOffsetOpcodejRj(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1) local_unnamed_addr #0 {
+define dso_local noundef range(i32 4380, 6797) i32 @_Z18scaledOffsetOpcodejRj(i32 noundef %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #0 {
   switch i32 %0, label %3 [
     i32 4554, label %29
     i32 6810, label %4
@@ -11405,7 +11405,7 @@ define dso_local noundef range(i32 4549, 6814) i32 @_Z20unscaledOffsetOpcodej(i3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4llvm16AArch64InstrInfo16emitLdStWithAddrERNS_12MachineInstrERKNS_11ExtAddrModeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %2) unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZNK4llvm16AArch64InstrInfo16emitLdStWithAddrERNS_12MachineInstrERKNS_11ExtAddrModeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::MachineOperand", align 8
   %5 = alloca %"class.llvm::MachineOperand", align 8
   %6 = alloca %"class.llvm::MachineOperand", align 8
@@ -12402,7 +12402,7 @@ declare i32 @_ZN4llvm19MachineRegisterInfo21createVirtualRegisterEPKNS_19TargetR
 declare noundef i32 @_ZNK4llvm12MachineInstr22getNumExplicitOperandsEv(ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12getMemOpInfoEjRNS_8TypeSizeES2_RlS3_(i32 noundef %0, ptr noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %1, ptr noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %4) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12getMemOpInfoEjRNS_8TypeSizeES2_RlS3_(i32 noundef %0, ptr noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %1, ptr noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) local_unnamed_addr #0 align 2 {
   switch i32 %0, label %6 [
     i32 4407, label %7
     i32 6781, label %7
@@ -13120,7 +13120,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12getMemOpInfoEjR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4llvm16AArch64InstrInfo34getMemOpBaseRegImmOfsOffsetOperandERNS_12MachineInstrE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4llvm16AArch64InstrInfo34getMemOpBaseRegImmOfsOffsetOperandERNS_12MachineInstrE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #1 align 2 {
   %3 = tail call noundef i32 @_ZNK4llvm12MachineInstr22getNumExplicitOperandsEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #26
   %4 = add i32 %3, -1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -13217,7 +13217,7 @@ define dso_local noundef range(i32 1, 17) i32 @_ZN4llvm16AArch64InstrInfo11getMe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isPreLdERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isPreLdERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   %switch.tableidx = add i16 %3, -4388
@@ -13230,7 +13230,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isPreLdERKNS_12M
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isPreStERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isPreStERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   %switch.tableidx = add i16 %3, -6763
@@ -13243,7 +13243,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isPreStERKNS_12M
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isPairedLdStERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isPairedLdStERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   switch i16 %3, label %5 [
@@ -13270,7 +13270,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isPairedLdStERK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm16AArch64InstrInfo13getLdStBaseOpERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #9 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm16AArch64InstrInfo13getLdStBaseOpERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   switch i16 %3, label %_ZN4llvm16AArch64InstrInfo9isPreLdStERKNS_12MachineInstrE.exit.fold.split [
@@ -13311,7 +13311,7 @@ _ZN4llvm16AArch64InstrInfo9isPreLdStERKNS_12MachineInstrE.exit: ; preds = %1, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm16AArch64InstrInfo15getLdStOffsetOpERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #9 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm16AArch64InstrInfo15getLdStOffsetOpERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   switch i16 %3, label %_ZN4llvm16AArch64InstrInfo9isPreLdStERKNS_12MachineInstrE.exit.fold.split [
@@ -13352,7 +13352,7 @@ _ZN4llvm16AArch64InstrInfo9isPreLdStERKNS_12MachineInstrE.exit: ; preds = %1, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm16AArch64InstrInfo15getLdStAmountOpERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #9 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm16AArch64InstrInfo15getLdStAmountOpERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 128
@@ -13360,7 +13360,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm16AArc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isHFormERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -13908,7 +13908,7 @@ _ZL11getRegClassRKN4llvm12MachineInstrENS_8RegisterE.exit.i.i97.i.i.i.i.i.i: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo7isQFormERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -14573,7 +14573,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit16: ; preds = %62, %.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo10isFpOrNEONERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo10isFpOrNEONERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -15074,7 +15074,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo10isFpOrNEONERKNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo19shouldClusterMemOpsENS_8ArrayRefIPKNS_14MachineOperandEEElbS5_lbjj(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr nocapture readonly %1, i64 %2, i64 %3, i1 zeroext %4, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.520") align 8 %5, i64 %6, i1 zeroext %7, i32 noundef %8, i32 %9) unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo19shouldClusterMemOpsENS_8ArrayRefIPKNS_14MachineOperandEEElbS5_lbjj(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr readonly captures(none) %1, i64 %2, i64 %3, i1 zeroext %4, ptr noundef readonly byval(%"class.llvm::ArrayRef.520") align 8 captures(none) %5, i64 %6, i1 zeroext %7, i32 noundef %8, i32 %9) unnamed_addr #1 align 2 {
   %11 = load ptr, ptr %1, align 8
   %12 = load ptr, ptr %5, align 8
   %13 = load ptr, ptr %12, align 8
@@ -15300,7 +15300,7 @@ _ZL11scaleOffsetjRl.exit:                         ; preds = %_ZL14canPairLdStOpc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @_ZL15shouldClusterFIRKN4llvm16MachineFrameInfoEiljilj(ptr nocapture readonly %.8.val, i32 %.32.val, i32 noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #9 {
+define internal fastcc noundef zeroext i1 @_ZL15shouldClusterFIRKN4llvm16MachineFrameInfoEiljilj(ptr readonly captures(none) %.8.val, i32 %.32.val, i32 noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #9 {
   %7 = icmp slt i32 %0, 0
   %8 = sub nsw i32 0, %.32.val
   %9 = icmp sge i32 %0, %8
@@ -15354,7 +15354,7 @@ define internal fastcc noundef zeroext i1 @_ZL15shouldClusterFIRKN4llvm16Machine
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm16AArch64InstrInfo16copyPhysRegTupleERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_8DebugLocENS_10MCRegisterES9_bjNS_8ArrayRefIjEE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, i32 %4, i32 %5, i1 noundef zeroext %6, i32 noundef %7, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.536") align 8 %8) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm16AArch64InstrInfo16copyPhysRegTupleERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_8DebugLocENS_10MCRegisterES9_bjNS_8ArrayRefIjEE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, i32 %4, i32 %5, i1 noundef zeroext %6, i32 noundef %7, ptr noundef readonly byval(%"class.llvm::ArrayRef.536") align 8 captures(none) %8) local_unnamed_addr #1 align 2 {
   %10 = alloca %"class.llvm::MachineOperand", align 8
   %11 = alloca %"class.llvm::MachineOperand", align 8
   %12 = alloca %"class.llvm::MachineOperand", align 8
@@ -15695,7 +15695,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZL9AddS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm16AArch64InstrInfo15copyGPRRegTupleERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_8DebugLocENS_10MCRegisterES9_bjjNS_8ArrayRefIjEE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, i32 %4, i32 %5, i1 noundef zeroext %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.536") align 8 %9) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm16AArch64InstrInfo15copyGPRRegTupleERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_8DebugLocENS_10MCRegisterES9_bjjNS_8ArrayRefIjEE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, i32 %4, i32 %5, i1 noundef zeroext %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly byval(%"class.llvm::ArrayRef.536") align 8 captures(none) %9) local_unnamed_addr #1 align 2 {
   %11 = alloca %"class.llvm::MachineOperand", align 8
   %12 = alloca %"class.llvm::MachineOperand", align 8
   %13 = alloca %"class.llvm::MachineOperand", align 8
@@ -15864,7 +15864,7 @@ _ZL9AddSubRegRKN4llvm19MachineInstrBuilderENS_10MCRegisterEjjPKNS_18TargetRegist
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm16AArch64InstrInfo11copyPhysRegERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_8DebugLocENS_10MCRegisterES9_bbb(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, i32 %4, i32 %5, i1 noundef zeroext %6, i1 zeroext %7, i1 zeroext %8) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm16AArch64InstrInfo11copyPhysRegERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_8DebugLocENS_10MCRegisterES9_bbb(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, i32 %4, i32 %5, i1 noundef zeroext %6, i1 zeroext %7, i1 zeroext %8) unnamed_addr #1 align 2 {
   %10 = alloca %"class.llvm::MachineOperand", align 8
   %11 = alloca %"class.llvm::MachineOperand", align 8
   %12 = alloca %"class.llvm::MachineOperand", align 8
@@ -18996,7 +18996,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %1451, %_ZN4llvm10MI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm16AArch64InstrInfo19storeRegToStackSlotERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8RegisterEbiPKNS_19TargetRegisterClassEPKNS_18TargetRegisterInfoES6_(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, i32 %8) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm16AArch64InstrInfo19storeRegToStackSlotERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8RegisterEbiPKNS_19TargetRegisterClassEPKNS_18TargetRegisterInfoES6_(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, i32 %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, i32 %8) unnamed_addr #1 align 2 {
   %10 = alloca %"class.llvm::MachineOperand", align 8
   %11 = alloca %"class.llvm::MachineOperand", align 8
   %12 = alloca %"class.llvm::MachineOperand", align 8
@@ -19416,7 +19416,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
 declare void @_ZN4llvm18MachinePointerInfo13getFixedStackERNS_15MachineFunctionEil(ptr dead_on_unwind writable sret(%"struct.llvm::MachinePointerInfo") align 8, ptr noundef nonnull align 8 dereferenceable(1041), i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZL23storeRegPairToStackSlotRKN4llvm18TargetRegisterInfoERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_11MCInstrDescENS_8RegisterEbjjiPNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(308) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 %4, i1 noundef zeroext %5, i32 noundef range(i32 17, 19) %6, i32 noundef range(i32 19, 21) %7, i32 noundef %8, ptr noundef %9) unnamed_addr #1 {
@@ -19508,7 +19508,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm16AArch64InstrInfo20loadRegFromStackSlotERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8RegisterEiPKNS_19TargetRegisterClassEPKNS_18TargetRegisterInfoES6_(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, i32 %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, i32 %7) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm16AArch64InstrInfo20loadRegFromStackSlotERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8RegisterEiPKNS_19TargetRegisterClassEPKNS_18TargetRegisterInfoES6_(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, i32 %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 %7) unnamed_addr #1 align 2 {
   %9 = alloca %"class.llvm::MachineOperand", align 8
   %10 = alloca %"class.llvm::MachineOperand", align 8
   %11 = alloca %"class.llvm::MachineOperand", align 8
@@ -20076,7 +20076,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm31isNZCVTouchedInInstructionRangeERKNS_12MachineInstrES2_PKNS_18TargetRegisterInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0, ptr noundef nonnull readnone align 8 dereferenceable(70) %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN4llvm31isNZCVTouchedInInstructionRangeERKNS_12MachineInstrES2_PKNS_18TargetRegisterInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0, ptr noundef nonnull readnone align 8 dereferenceable(70) %1, ptr noundef %2) local_unnamed_addr #1 {
 .preheader.i.i.i:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -20155,7 +20155,7 @@ _ZN4llvm20filter_iterator_baseINS_14ilist_iteratorINS_12ilist_detail12node_optio
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm16AArch64InstrInfo35decomposeStackOffsetForDwarfOffsetsERKNS_11StackOffsetERlS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN4llvm16AArch64InstrInfo35decomposeStackOffsetForDwarfOffsetsERKNS_11StackOffsetERlS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #13 align 2 {
   %4 = load i64, ptr %0, align 8
   store i64 %4, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20166,7 +20166,7 @@ define dso_local void @_ZN4llvm16AArch64InstrInfo35decomposeStackOffsetForDwarfO
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm16AArch64InstrInfo35decomposeStackOffsetForFrameOffsetsERKNS_11StackOffsetERlS4_S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %3) local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN4llvm16AArch64InstrInfo35decomposeStackOffsetForFrameOffsetsERKNS_11StackOffsetERlS4_S4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %3) local_unnamed_addr #13 align 2 {
   %5 = load i64, ptr %0, align 8
   store i64 %5, ptr %1, align 8
   store i64 0, ptr %3, align 8
@@ -20195,7 +20195,7 @@ define dso_local void @_ZN4llvm16AArch64InstrInfo35decomposeStackOffsetForFrameO
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12createDefCFAERKNS_18TargetRegisterInfoEjjRKNS_11StackOffsetEb(ptr dead_on_unwind noalias writable sret(%"class.llvm::MCCFIInstruction") align 8 %0, ptr noundef nonnull align 8 dereferenceable(308) %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4, i1 noundef zeroext %5) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm12createDefCFAERKNS_18TargetRegisterInfoEjjRKNS_11StackOffsetEb(ptr dead_on_unwind noalias writable sret(%"class.llvm::MCCFIInstruction") align 8 %0, ptr noundef nonnull align 8 dereferenceable(308) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %4, i1 noundef zeroext %5) local_unnamed_addr #1 {
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = alloca %"class.llvm::StringRef", align 8
   %9 = alloca %"class.llvm::StringRef", align 8
@@ -20494,7 +20494,7 @@ _ZL22createDefCFAExpressionRKN4llvm18TargetRegisterInfoEjRKNS_11StackOffsetE.exi
 declare noundef i32 @_ZNK4llvm14MCRegisterInfo14getDwarfRegNumENS_10MCRegisterEb(ptr noundef nonnull align 8 dereferenceable(224), i32, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15createCFAOffsetERKNS_18TargetRegisterInfoEjRKNS_11StackOffsetE(ptr dead_on_unwind noalias writable sret(%"class.llvm::MCCFIInstruction") align 8 %0, ptr noundef nonnull align 8 dereferenceable(308) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm15createCFAOffsetERKNS_18TargetRegisterInfoEjRKNS_11StackOffsetE(ptr dead_on_unwind noalias writable sret(%"class.llvm::MCCFIInstruction") align 8 %0, ptr noundef nonnull align 8 dereferenceable(308) %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3) local_unnamed_addr #1 {
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca %"class.llvm::StringRef", align 8
@@ -21082,7 +21082,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull al
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15emitFrameOffsetERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_8DebugLocEjjNS_11StackOffsetEPKNS_15TargetInstrInfoENS3_6MIFlagEbbPbbS8_j(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly byval(%"class.llvm::StackOffset") align 8 %5, ptr nocapture noundef readonly %6, i32 noundef %7, i1 noundef zeroext %8, i1 noundef zeroext %9, ptr noundef %10, i1 noundef zeroext %11, ptr nocapture noundef byval(%"class.llvm::StackOffset") align 8 %12, i32 noundef %13) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm15emitFrameOffsetERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_8DebugLocEjjNS_11StackOffsetEPKNS_15TargetInstrInfoENS3_6MIFlagEbbPbbS8_j(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly byval(%"class.llvm::StackOffset") align 8 captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i1 noundef zeroext %8, i1 noundef zeroext %9, ptr noundef %10, i1 noundef zeroext %11, ptr noundef byval(%"class.llvm::StackOffset") align 8 captures(none) %12, i32 noundef %13) local_unnamed_addr #1 {
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %16, align 8
@@ -21173,7 +21173,7 @@ _ZN4llvm16AArch64InstrInfo35decomposeStackOffsetForFrameOffsetsERKNS_11StackOffs
 declare noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136), ptr, i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18emitFrameOffsetAdjRN4llvm17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_8DebugLocEjjljPKNS_15TargetInstrInfoENS3_6MIFlagEbPbbNS_11StackOffsetEj(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef range(i32 1427, 6862) %6, ptr nocapture noundef readonly %7, i32 noundef %8, i1 noundef zeroext %9, ptr noundef writeonly %10, i1 noundef zeroext %11, ptr nocapture noundef byval(%"class.llvm::StackOffset") align 8 %12, i32 noundef %13) unnamed_addr #1 {
+define internal fastcc void @_ZL18emitFrameOffsetAdjRN4llvm17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_8DebugLocEjjljPKNS_15TargetInstrInfoENS3_6MIFlagEbPbbNS_11StackOffsetEj(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef range(i32 1427, 6862) %6, ptr noundef readonly captures(none) %7, i32 noundef %8, i1 noundef zeroext %9, ptr noundef writeonly %10, i1 noundef zeroext %11, ptr noundef byval(%"class.llvm::StackOffset") align 8 captures(none) %12, i32 noundef %13) unnamed_addr #1 {
   %15 = alloca %"class.llvm::MachineOperand", align 8
   %16 = alloca %"class.llvm::MachineOperand", align 8
   %17 = alloca %"class.llvm::MachineOperand", align 8
@@ -21694,7 +21694,7 @@ _ZN4llvm8DebugLocD2Ev.exit142:                    ; preds = %216, %_ZN4llvm10MIM
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4llvm16AArch64InstrInfo21foldMemoryOperandImplERNS_15MachineFunctionERNS_12MachineInstrENS_8ArrayRefIjEENS_26MachineInstrBundleIteratorIS3_Lb0EEEiPNS_13LiveIntervalsEPNS_10VirtRegMapE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %2, ptr nocapture readonly %3, i64 %4, ptr %5, i32 noundef %6, ptr nocapture readnone %7, ptr nocapture readnone %8) unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZNK4llvm16AArch64InstrInfo21foldMemoryOperandImplERNS_15MachineFunctionERNS_12MachineInstrENS_8ArrayRefIjEENS_26MachineInstrBundleIteratorIS3_Lb0EEEiPNS_13LiveIntervalsEPNS_10VirtRegMapE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1041) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %2, ptr readonly captures(none) %3, i64 %4, ptr %5, i32 noundef %6, ptr readnone captures(none) %7, ptr readnone captures(none) %8) unnamed_addr #1 align 2 {
   %10 = alloca %"class.llvm::MachineInstrBundleIterator", align 8
   %11 = alloca %"class.llvm::TypeSize", align 8
   store ptr %5, ptr %10, align 8
@@ -21985,7 +21985,7 @@ _ZNK4llvm12MachineInstr10isFullCopyEv.exit:       ; preds = %15
 declare noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm25isAArch64FrameOffsetLegalERKNS_12MachineInstrERNS_11StackOffsetEPbPjPl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #15 {
+define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm25isAArch64FrameOffsetLegalERKNS_12MachineInstrERNS_11StackOffsetEPbPjPl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #15 {
   %6 = alloca %"class.llvm::TypeSize", align 8
   %7 = alloca %"class.llvm::TypeSize", align 8
   %8 = alloca i64, align 8
@@ -22159,7 +22159,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm25isAArch64FrameOffsetLega
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm24rewriteAArch64FrameIndexERNS_12MachineInstrEjjRNS_11StackOffsetEPKNS_16AArch64InstrInfoE(ptr noundef nonnull align 8 dereferenceable(70) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr nocapture noundef readonly %4) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @_ZN4llvm24rewriteAArch64FrameIndexERNS_12MachineInstrEjjRNS_11StackOffsetEPKNS_16AArch64InstrInfoE(ptr noundef nonnull align 8 dereferenceable(70) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #1 {
   %6 = alloca %"class.llvm::StackOffset", align 8
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
@@ -22252,7 +22252,7 @@ declare void @_ZN4llvm14MachineOperand16ChangeToRegisterENS_8RegisterEbbbbbb(ptr
 declare void @_ZN4llvm14MachineOperand17ChangeToImmediateElj(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm16AArch64InstrInfo10insertNoopERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm16AArch64InstrInfo10insertNoopERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2) unnamed_addr #1 align 2 {
 _ZN4llvm8DebugLocC2ERKS0_.exit:
   %3 = alloca %"class.llvm::MachineOperand", align 8
   %4 = alloca %"class.llvm::DebugLoc", align 8
@@ -22304,7 +22304,7 @@ _ZN4llvm8DebugLocD2Ev.exit6:                      ; preds = %_ZN4llvm8DebugLocD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm16AArch64InstrInfo6getNopEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::MCInst") align 8 initializes((0, 16)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm16AArch64InstrInfo6getNopEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::MCInst") align 8 initializes((0, 16)) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::MCInstBuilder", align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -22357,12 +22357,12 @@ _ZN4llvm13MCInstBuilderD2Ev.exit:                 ; preds = %_ZN4llvm6MCInstC2ER
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo18useMachineCombinerEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo18useMachineCombinerEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo27isAssociativeAndCommutativeERKNS_12MachineInstrEb(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo27isAssociativeAndCommutativeERKNS_12MachineInstrEb(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 {
   br i1 %2, label %25, label %4
 
 4:                                                ; preds = %3
@@ -22476,7 +22476,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo27isAssociativeA
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo19isThroughputPatternEj(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo19isThroughputPatternEj(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #7 align 2 {
   switch i32 %1, label %3 [
     i32 58, label %4
     i32 59, label %4
@@ -24933,7 +24933,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit105
 declare void @_ZNK4llvm15TargetInstrInfo26genAlternativeCodeSequenceERNS_12MachineInstrEjRNS_15SmallVectorImplIPS1_EES6_RNS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(70), i32 noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(20)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16genSubAdd2SubSubRN4llvm15MachineFunctionERNS_19MachineRegisterInfoEPKNS_15TargetInstrInfoERNS_12MachineInstrERNS_15SmallVectorImplIPS7_EESC_jRNS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEE(ptr noundef nonnull align 8 dereferenceable(1041) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr nocapture noundef readonly %2, ptr noundef nonnull align 8 dereferenceable(70) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef range(i32 1, 3) %6, ptr noundef nonnull align 8 dereferenceable(20) %7) unnamed_addr #1 {
+define internal fastcc void @_ZL16genSubAdd2SubSubRN4llvm15MachineFunctionERNS_19MachineRegisterInfoEPKNS_15TargetInstrInfoERNS_12MachineInstrERNS_15SmallVectorImplIPS7_EESC_jRNS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEE(ptr noundef nonnull align 8 dereferenceable(1041) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(70) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef range(i32 1, 3) %6, ptr noundef nonnull align 8 dereferenceable(20) %7) unnamed_addr #1 {
   %9 = alloca %"class.llvm::MachineOperand", align 8
   %10 = alloca %"class.llvm::MachineOperand", align 8
   %11 = alloca %"class.llvm::MachineOperand", align 8
@@ -25339,7 +25339,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit79:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL16genFusedMultiplyRN4llvm15MachineFunctionERNS_19MachineRegisterInfoEPKNS_15TargetInstrInfoERNS_12MachineInstrERNS_15SmallVectorImplIPS7_EEjjPKNS_19TargetRegisterClassE11FMAInstKindPKNS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(1041) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef range(i32 1, 3) %5, i32 noundef range(i32 2920, 4807) %6, ptr noundef %7, i32 noundef range(i32 0, 3) %8, ptr noundef readonly %9) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL16genFusedMultiplyRN4llvm15MachineFunctionERNS_19MachineRegisterInfoEPKNS_15TargetInstrInfoERNS_12MachineInstrERNS_15SmallVectorImplIPS7_EEjjPKNS_19TargetRegisterClassE11FMAInstKindPKNS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(1041) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef range(i32 1, 3) %5, i32 noundef range(i32 2920, 4807) %6, ptr noundef %7, i32 noundef range(i32 0, 3) %8, ptr noundef readonly %9) unnamed_addr #1 {
   %11 = alloca %"class.llvm::MachineOperand", align 8
   %12 = alloca %"class.llvm::MachineOperand", align 8
   %13 = alloca %"class.llvm::MachineOperand", align 8
@@ -25993,7 +25993,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL8genMaddRRN4llvm15MachineFunctionERNS_19MachineRegisterInfoEPKNS_15TargetInstrInfoERNS_12MachineInstrERNS_15SmallVectorImplIPS7_EEjjjPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(1041) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef range(i32 4653, 4655) %5, i32 noundef %6, ptr noundef %7) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL8genMaddRRN4llvm15MachineFunctionERNS_19MachineRegisterInfoEPKNS_15TargetInstrInfoERNS_12MachineInstrERNS_15SmallVectorImplIPS7_EEjjjPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(1041) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef range(i32 4653, 4655) %5, i32 noundef %6, ptr noundef %7) unnamed_addr #1 {
   %9 = alloca %"class.llvm::MachineOperand", align 8
   %10 = alloca %"class.llvm::MachineOperand", align 8
   %11 = alloca %"class.llvm::MachineOperand", align 8
@@ -26206,7 +26206,7 @@ _ZN4llvm15SmallVectorImplINS_11AArch64_IMM12ImmInsnModelEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL22genFusedMultiplyAccNegRN4llvm15MachineFunctionERNS_19MachineRegisterInfoEPKNS_15TargetInstrInfoERNS_12MachineInstrERNS_15SmallVectorImplIPS7_EERNS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjjPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(1041) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(20) %5, i32 noundef range(i32 4670, 4680) %6, i32 noundef range(i32 4845, 4853) %7, ptr noundef %8) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL22genFusedMultiplyAccNegRN4llvm15MachineFunctionERNS_19MachineRegisterInfoEPKNS_15TargetInstrInfoERNS_12MachineInstrERNS_15SmallVectorImplIPS7_EERNS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjjPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(1041) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(20) %5, i32 noundef range(i32 4670, 4680) %6, i32 noundef range(i32 4845, 4853) %7, ptr noundef %8) unnamed_addr #1 {
   %10 = alloca %"class.llvm::Register", align 4
   %11 = tail call fastcc i32 @_ZL6genNegRN4llvm15MachineFunctionERNS_19MachineRegisterInfoEPKNS_15TargetInstrInfoERNS_12MachineInstrERNS_15SmallVectorImplIPS7_EERNS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(1041) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(70) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(20) %5, i32 noundef %7, ptr noundef %8)
   store i32 %11, ptr %10, align 4
@@ -26215,7 +26215,7 @@ define internal fastcc noundef ptr @_ZL22genFusedMultiplyAccNegRN4llvm15MachineF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL22genFusedMultiplyIdxNegRN4llvm15MachineFunctionERNS_19MachineRegisterInfoEPKNS_15TargetInstrInfoERNS_12MachineInstrERNS_15SmallVectorImplIPS7_EERNS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjjPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(1041) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(20) %5, i32 noundef range(i32 4672, 4679) %6, i32 noundef range(i32 4847, 4852) %7, ptr noundef %8) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL22genFusedMultiplyIdxNegRN4llvm15MachineFunctionERNS_19MachineRegisterInfoEPKNS_15TargetInstrInfoERNS_12MachineInstrERNS_15SmallVectorImplIPS7_EERNS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjjPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(1041) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(20) %5, i32 noundef range(i32 4672, 4679) %6, i32 noundef range(i32 4847, 4852) %7, ptr noundef %8) unnamed_addr #1 {
   %10 = alloca %"class.llvm::Register", align 4
   %11 = tail call fastcc i32 @_ZL6genNegRN4llvm15MachineFunctionERNS_19MachineRegisterInfoEPKNS_15TargetInstrInfoERNS_12MachineInstrERNS_15SmallVectorImplIPS7_EERNS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(1041) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(70) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(20) %5, i32 noundef %7, ptr noundef %8)
   store i32 %11, ptr %10, align 4
@@ -26391,7 +26391,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL14genFNegatedMADRN4llvm15MachineFunctionERNS_19MachineRegisterInfoEPKNS_15TargetInstrInfoERNS_12MachineInstrERNS_15SmallVectorImplIPS7_EE(ptr noundef nonnull align 8 dereferenceable(1041) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL14genFNegatedMADRN4llvm15MachineFunctionERNS_19MachineRegisterInfoEPKNS_15TargetInstrInfoERNS_12MachineInstrERNS_15SmallVectorImplIPS7_EE(ptr noundef nonnull align 8 dereferenceable(1041) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) unnamed_addr #1 {
   %6 = alloca %"class.llvm::MachineOperand", align 8
   %7 = alloca %"class.llvm::MachineOperand", align 8
   %8 = alloca %"class.llvm::MachineOperand", align 8
@@ -27065,7 +27065,7 @@ _ZN4llvm8DebugLocD2Ev.exit98:                     ; preds = %_ZN4llvm10MIMetadat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i64 0, -34359738360) i64 @_ZNK4llvm16AArch64InstrInfo35decomposeMachineOperandsTargetFlagsEj(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) unnamed_addr #7 align 2 {
+define dso_local range(i64 0, -34359738360) i64 @_ZNK4llvm16AArch64InstrInfo35decomposeMachineOperandsTargetFlagsEj(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #7 align 2 {
   %3 = and i32 %1, 7
   %4 = and i32 %1, -8
   %.sroa.2.0.insert.ext.i = zext i32 %4 to i64
@@ -27076,22 +27076,22 @@ define dso_local range(i64 0, -34359738360) i64 @_ZNK4llvm16AArch64InstrInfo35de
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local { ptr, i64 } @_ZNK4llvm16AArch64InstrInfo46getSerializableDirectMachineOperandTargetFlagsEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
+define dso_local { ptr, i64 } @_ZNK4llvm16AArch64InstrInfo46getSerializableDirectMachineOperandTargetFlagsEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret { ptr, i64 } { ptr @_ZZNK4llvm16AArch64InstrInfo46getSerializableDirectMachineOperandTargetFlagsEvE11TargetFlags, i64 7 }
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local { ptr, i64 } @_ZNK4llvm16AArch64InstrInfo47getSerializableBitmaskMachineOperandTargetFlagsEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
+define dso_local { ptr, i64 } @_ZNK4llvm16AArch64InstrInfo47getSerializableBitmaskMachineOperandTargetFlagsEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret { ptr, i64 } { ptr @_ZZNK4llvm16AArch64InstrInfo47getSerializableBitmaskMachineOperandTargetFlagsEvE11TargetFlags, i64 9 }
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local { ptr, i64 } @_ZNK4llvm16AArch64InstrInfo43getSerializableMachineMemOperandTargetFlagsEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
+define dso_local { ptr, i64 } @_ZNK4llvm16AArch64InstrInfo43getSerializableMachineMemOperandTargetFlagsEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret { ptr, i64 } { ptr @_ZZNK4llvm16AArch64InstrInfo43getSerializableMachineMemOperandTargetFlagsEvE11TargetFlags, i64 2 }
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 65536) i32 @_ZNK4llvm16AArch64InstrInfo22findRegisterToSaveLRToERNS_8outliner9CandidateE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(220) %1) local_unnamed_addr #1 align 2 {
+define dso_local range(i32 0, 65536) i32 @_ZNK4llvm16AArch64InstrInfo22findRegisterToSaveLRToERNS_8outliner9CandidateE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(220) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -27325,7 +27325,7 @@ _ZNK4llvm12LiveRegUnits9availableEt.exit:         ; preds = %49, %_ZN4llvm17MCRe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm16AArch64InstrInfo25getOutliningCandidateInfoERKNS_17MachineModuleInfoERSt6vectorINS_8outliner9CandidateESaIS6_EEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.585") align 8 %0, ptr noundef nonnull align 8 dereferenceable(408) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %4) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm16AArch64InstrInfo25getOutliningCandidateInfoERKNS_17MachineModuleInfoERSt6vectorINS_8outliner9CandidateESaIS6_EEj(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.585") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(408) %1, ptr nonnull readnone align 8 captures(none) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %4) unnamed_addr #1 align 2 {
   %6 = alloca %"class.std::allocator.2", align 1
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
@@ -29173,7 +29173,7 @@ _ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPN4llvm8outliner9CandidateESt6vecto
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm8erase_ifISt6vectorINS_8outliner9CandidateESaIS3_EEZNKS_16AArch64InstrInfo25getOutliningCandidateInfoERKNS_17MachineModuleInfoERS5_jE3$_5EEvRT_T0_"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture nonnull readnone %1, ptr nonnull %2) unnamed_addr #1 {
+define internal fastcc void @"_ZN4llvm8erase_ifISt6vectorINS_8outliner9CandidateESaIS3_EEZNKS_16AArch64InstrInfo25getOutliningCandidateInfoERKNS_17MachineModuleInfoERS5_jE3$_5EEvRT_T0_"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull readnone captures(none) %1, ptr nonnull %2) unnamed_addr #1 {
   %.val = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val6 = load ptr, ptr %4, align 8
@@ -29404,7 +29404,7 @@ declare ptr @_ZNK4llvm8Function14getFnAttributeENS_9StringRefE(ptr noundef nonnu
 declare void @_ZNK4llvm15TargetInstrInfo33mergeOutliningCandidateAttributesERNS_8FunctionERSt6vectorINS_8outliner9CandidateESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(136), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo27isFunctionSafeToOutlineFromERNS_15MachineFunctionEb(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo27isFunctionSafeToOutlineFromERNS_15MachineFunctionEb(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1041) %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 {
   %4 = load ptr, ptr %1, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 8
@@ -29463,7 +29463,7 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit:       ; preds = %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm16AArch64InstrInfo19getOutlinableRangesERNS_17MachineBasicBlockERj(ptr dead_on_unwind noalias nonnull writable sret(%"class.llvm::SmallVector.619") align 8 %0, ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(288) %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm16AArch64InstrInfo19getOutlinableRangesERNS_17MachineBasicBlockERj(ptr dead_on_unwind noalias nonnull writable sret(%"class.llvm::SmallVector.619") align 8 %0, ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(288) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3) unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::LiveRegUnits", align 8
   %6 = alloca %"class.llvm::ilist_iterator.290", align 8
   %7 = alloca %"class.llvm::ilist_iterator.290", align 8
@@ -30067,7 +30067,7 @@ declare void @_ZN4llvm12LiveRegUnits11addLiveOutsERKNS_17MachineBasicBlockE(ptr 
 declare void @_ZN4llvm12LiveRegUnits12stepBackwardERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK4llvm16AArch64InstrInfo19getOutlinableRangesERNS_17MachineBasicBlockERjENK3$_3clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
+define internal fastcc void @"_ZZNK4llvm16AArch64InstrInfo19getOutlinableRangesERNS_17MachineBasicBlockERjENK3$_3clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 4
   %4 = icmp ugt i32 %3, 1
@@ -30114,7 +30114,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_26MachineInstrBundleIteratorINS_12M
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 3) i32 @_ZNK4llvm16AArch64InstrInfo20getOutliningTypeImplERKNS_17MachineModuleInfoERNS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEj(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(2512) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, i32 %3) unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZNK4llvm16AArch64InstrInfo20getOutliningTypeImplERKNS_17MachineModuleInfoERNS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEj(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(2512) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, i32 %3) unnamed_addr #1 align 2 {
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %7 = load i16, ptr %6, align 4
@@ -30378,7 +30378,7 @@ declare { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dere
 declare noundef ptr @_ZNK4llvm17MachineModuleInfo18getMachineFunctionERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(2512), ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm16AArch64InstrInfo16fixupPostOutlineERNS_17MachineBasicBlockE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %0, ptr noundef nonnull readonly align 8 dereferenceable(288) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm16AArch64InstrInfo16fixupPostOutlineERNS_17MachineBasicBlockE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(408) %0, ptr noundef nonnull readonly align 8 dereferenceable(288) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca %"class.llvm::TypeSize", align 8
   %5 = alloca i64, align 8
@@ -30476,7 +30476,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm16AArch64InstrInfo18buildOutlinedFrameERNS_17MachineBasicBlockERNS_15MachineFunctionERKNS_8outliner16OutlinedFunctionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(1041) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm16AArch64InstrInfo18buildOutlinedFrameERNS_17MachineBasicBlockERNS_15MachineFunctionERKNS_8outliner16OutlinedFunctionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef nonnull align 8 dereferenceable(1041) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %3) unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::MachineOperand", align 8
   %6 = alloca %"class.llvm::DebugLoc", align 8
   %7 = alloca %"class.llvm::MachineOperand", align 8
@@ -31406,7 +31406,7 @@ declare noundef zeroext i1 @_ZNK4llvm19AArch64FunctionInfo20needsDwarfUnwindInfo
 declare noundef i32 @_ZN4llvm15MachineFunction12addFrameInstERKNS_16MCCFIInstructionE(ptr noundef nonnull align 8 dereferenceable(1041), ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20signOutlinedFunctionRN4llvm15MachineFunctionERNS_17MachineBasicBlockEPKNS_16AArch64InstrInfoEb(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr nocapture noundef nonnull readonly %1, i1 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc void @_ZL20signOutlinedFunctionRN4llvm15MachineFunctionERNS_17MachineBasicBlockEPKNS_16AArch64InstrInfoEb(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #1 {
   %4 = alloca %"class.llvm::MIMetadata", align 8
   %5 = alloca %"class.llvm::MIMetadata", align 8
   br i1 %2, label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit, label %_ZN4llvm8DebugLocD2Ev.exit13
@@ -31456,7 +31456,7 @@ _ZN4llvm8DebugLocD2Ev.exit13:                     ; preds = %27, %_ZN4llvm10MIMe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4llvm16AArch64InstrInfo18insertOutlinedCallERNS_6ModuleERNS_17MachineBasicBlockERNS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERNS_15MachineFunctionERNS_8outliner9CandidateE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull align 8 dereferenceable(288) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(1041) %4, ptr noundef nonnull align 8 dereferenceable(220) %5) unnamed_addr #1 align 2 {
+define dso_local ptr @_ZNK4llvm16AArch64InstrInfo18insertOutlinedCallERNS_6ModuleERNS_17MachineBasicBlockERNS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERNS_15MachineFunctionERNS_8outliner9CandidateE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull align 8 dereferenceable(288) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(1041) %4, ptr noundef nonnull align 8 dereferenceable(220) %5) unnamed_addr #1 align 2 {
   %7 = alloca %"class.llvm::MachineOperand", align 8
   %8 = alloca %"class.llvm::DebugLoc", align 8
   %9 = alloca %"class.llvm::MachineOperand", align 8
@@ -32171,14 +32171,14 @@ declare noundef ptr @_ZNK4llvm6Module13getNamedValueENS_9StringRefE(ptr noundef 
 declare { ptr, i64 } @_ZNK4llvm15MachineFunction7getNameEv(ptr noundef nonnull align 8 dereferenceable(1041)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo34shouldOutlineFromFunctionByDefaultERNS_15MachineFunctionE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1) unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo34shouldOutlineFromFunctionByDefaultERNS_15MachineFunctionE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1041) %1) unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %3, i32 noundef 17) #26
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm16AArch64InstrInfo18buildClearRegisterENS_8RegisterERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERNS_8DebugLocEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %0, i32 %1, ptr noundef nonnull align 8 dereferenceable(288) %2, ptr %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, i1 zeroext %5) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm16AArch64InstrInfo18buildClearRegisterENS_8RegisterERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERNS_8DebugLocEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %0, i32 %1, ptr noundef nonnull align 8 dereferenceable(288) %2, ptr %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, i1 zeroext %5) unnamed_addr #1 align 2 {
   %7 = alloca %"class.llvm::MachineOperand", align 8
   %8 = alloca %"class.llvm::MachineOperand", align 8
   %9 = alloca %"class.llvm::MachineOperand", align 8
@@ -32383,7 +32383,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %79, %_ZN4llvm10MIMe
 declare noundef zeroext i1 @_ZNK4llvm22AArch64GenRegisterInfo24isGeneralPurposeRegisterERKNS_15MachineFunctionENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(308), ptr noundef nonnull align 8 dereferenceable(1041), i32) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm16AArch64InstrInfo15isCopyInstrImplERKNS_12MachineInstrE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.757") align 8 initializes((16, 17)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(70) %2) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm16AArch64InstrInfo15isCopyInstrImplERKNS_12MachineInstrE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.757") align 8 captures(none) initializes((16, 17)) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(70) %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %5 = load i16, ptr %4, align 4
   %6 = icmp eq i16 %5, 4875
@@ -32469,7 +32469,7 @@ define dso_local void @_ZNK4llvm16AArch64InstrInfo15isCopyInstrImplERKNS_12Machi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK4llvm16AArch64InstrInfo19isCopyLikeInstrImplERKNS_12MachineInstrE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.757") align 8 initializes((16, 17)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %2) unnamed_addr #10 align 2 {
+define dso_local void @_ZNK4llvm16AArch64InstrInfo19isCopyLikeInstrImplERKNS_12MachineInstrE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.757") align 8 captures(none) initializes((16, 17)) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %2) unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %5 = load i16, ptr %4, align 4
   %6 = icmp eq i16 %5, 4875
@@ -32504,7 +32504,7 @@ define dso_local void @_ZNK4llvm16AArch64InstrInfo19isCopyLikeInstrImplERKNS_12M
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK4llvm16AArch64InstrInfo14isAddImmediateERKNS_12MachineInstrENS_8RegisterE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.765") align 8 initializes((16, 17)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %2, i32 %3) unnamed_addr #10 align 2 {
+define dso_local void @_ZNK4llvm16AArch64InstrInfo14isAddImmediateERKNS_12MachineInstrENS_8RegisterE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::optional.765") align 8 captures(none) initializes((16, 17)) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %2, i32 %3) unnamed_addr #10 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
@@ -32596,7 +32596,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo21isFunctionSafe
 declare noundef zeroext i1 @_ZNK4llvm15TargetInstrInfo21isFunctionSafeToSplitERKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(1041)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo22isMBBSafeToSplitToColdERKNS_17MachineBasicBlockE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(288) %1) unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo22isMBBSafeToSplitToColdERKNS_17MachineBasicBlockE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 dereferenceable(288) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -33764,7 +33764,7 @@ _ZL22describeORRLoadedValueRKN4llvm12MachineInstrENS_8RegisterEPKNS_15TargetInst
 declare void @_ZNK4llvm15TargetInstrInfo19describeLoadedValueERKNS_12MachineInstrENS_8RegisterE(ptr dead_on_unwind writable sret(%"class.std::optional.781") align 8, ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(70), i32) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo24isExtendLikelyToBeFoldedERNS_12MachineInstrERNS_19MachineRegisterInfoE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(512) %2) unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo24isExtendLikelyToBeFoldedERNS_12MachineInstrERNS_19MachineRegisterInfoE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(512) %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %5 = load i16, ptr %4, align 4
   %6 = icmp eq i16 %5, 126
@@ -33820,14 +33820,14 @@ _ZNK4llvm19MachineRegisterInfo21use_instr_nodbg_beginENS_8RegisterE.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef range(i32 2, 7) i32 @_ZNK4llvm16AArch64InstrInfo20getTailDuplicateSizeENS_15CodeGenOptLevelE(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 2, 7) i32 @_ZNK4llvm16AArch64InstrInfo20getTailDuplicateSizeENS_15CodeGenOptLevelE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #7 align 2 {
   %3 = icmp sgt i32 %1, 2
   %4 = select i1 %3, i32 6, i32 2
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo21isLegalAddressingModeEjlj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo21isLegalAddressingModeEjlj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(408) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #7 align 2 {
   %5 = icmp ne i64 %2, 0
   %6 = icmp ne i32 %3, 0
   %or.cond = and i1 %5, %6
@@ -33877,7 +33877,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo21isLegalAddress
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 431, 1771) i32 @_ZN4llvm16getBLRCallOpcodeERKNS_15MachineFunctionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %0) local_unnamed_addr #4 {
+define dso_local noundef range(i32 431, 1771) i32 @_ZN4llvm16getBLRCallOpcodeERKNS_15MachineFunctionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1041) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 303
@@ -33888,7 +33888,7 @@ define dso_local noundef range(i32 431, 1771) i32 @_ZN4llvm16getBLRCallOpcodeERK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZNK4llvm16AArch64InstrInfo16probedStackAllocENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8RegisterEb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %0, ptr %1, i32 %2, i1 noundef zeroext %3) local_unnamed_addr #1 align 2 {
+define dso_local ptr @_ZNK4llvm16AArch64InstrInfo16probedStackAllocENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8RegisterEb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(408) %0, ptr %1, i32 %2, i1 noundef zeroext %3) local_unnamed_addr #1 align 2 {
 .preheader.i.i.i:
   %4 = alloca %"class.llvm::MachineOperand", align 8
   %5 = alloca %"class.llvm::MachineOperand", align 8
@@ -34632,7 +34632,7 @@ _ZN4llvmL16recomputeLiveInsERNS_17MachineBasicBlockE.exit.us: ; preds = %45, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm16AArch64InstrInfo24analyzeLoopForPipeliningEPNS_17MachineBasicBlockE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.794") align 8 %0, ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm16AArch64InstrInfo24analyzeLoopForPipeliningEPNS_17MachineBasicBlockE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.794") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.llvm::SmallVector.802", align 8
@@ -34921,7 +34921,7 @@ _ZN4llvm11SmallVectorINS_14MachineOperandELj4EED2Ev.exit: ; preds = %129, %_ZL16
 declare ptr @_ZN4llvm17MachineBasicBlock18getFirstTerminatorEv(ptr noundef nonnull align 8 dereferenceable(288)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL13getIndVarInfoN4llvm8RegisterEPKNS_17MachineBasicBlockERPNS_12MachineInstrERjRS0_Rb(i32 %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %5) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZL13getIndVarInfoN4llvm8RegisterEPKNS_17MachineBasicBlockERPNS_12MachineInstrERjRS0_Rb(i32 %0, ptr noundef %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %4, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %5) unnamed_addr #1 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #26
   %9 = and i64 %8, 4294967295
@@ -35106,7 +35106,7 @@ _ZL16isDefinedOutsideN4llvm8RegisterEPKNS_17MachineBasicBlockE.exit49.thread: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124AArch64PipelinerLoopInfoEJRPN4llvm17MachineBasicBlockERPNS2_12MachineInstrES8_RjS8_S9_RNS2_8RegisterERbRNS2_11SmallVectorINS2_14MachineOperandELj4EEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr %.0.val, ptr %.0.val1, ptr %.0.val3, i32 %.0.val5, ptr %.0.val7, i32 %.0.val9, i32 %.0.val11, i8 %.0.val13, ptr noundef nonnull align 8 dereferenceable(144) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124AArch64PipelinerLoopInfoEJRPN4llvm17MachineBasicBlockERPNS2_12MachineInstrES8_RjS8_S9_RNS2_8RegisterERbRNS2_11SmallVectorINS2_14MachineOperandELj4EEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 8)) %0, ptr %.0.val, ptr %.0.val1, ptr %.0.val3, i32 %.0.val5, ptr %.0.val7, i32 %.0.val9, i32 %.0.val11, i8 %.0.val13, ptr noundef nonnull align 8 dereferenceable(144) %1) unnamed_addr #1 {
   %3 = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #29
   %4 = and i8 %.0.val13, 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_124AArch64PipelinerLoopInfoE, i64 16), ptr %3, align 8
@@ -35163,7 +35163,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124AArch64Pipeliner
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo17verifyInstructionERKNS_12MachineInstrERNS_9StringRefE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %2) unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo17verifyInstructionERKNS_12MachineInstrERNS_9StringRefE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #10 align 2 {
   %4 = alloca %"class.llvm::TypeSize", align 8
   %5 = alloca %"class.llvm::TypeSize", align 8
   %6 = alloca i64, align 8
@@ -35214,7 +35214,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo17verifyInstruct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosArithFastERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   switch i16 %3, label %24 [
@@ -35299,7 +35299,7 @@ _ZN4llvm10AArch64_AML18getArithExtendTypeEj.exit15.thread: ; preds = %22, %12, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosResetFastERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosResetFastERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   switch i16 %3, label %_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit.fold.split [
@@ -35442,7 +35442,7 @@ _ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo17isExynosLogicFastERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   switch i16 %3, label %14 [
@@ -35512,7 +35512,7 @@ _ZN4llvm10AArch64_AML12getShiftTypeEj.exit.thread: ; preds = %12, %1, %1, %1, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo19isExynosLogicExFastERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   switch i16 %3, label %14 [
@@ -35586,7 +35586,7 @@ _ZN4llvm10AArch64_AML12getShiftTypeEj.exit10.thread: ; preds = %switch.lookup, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   switch i16 %3, label %45 [
@@ -35669,7 +35669,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isCopyIdiomERKN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   switch i16 %3, label %20 [
@@ -35711,7 +35711,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13isZeroFPIdiomER
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo18isExynosScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   switch i16 %3, label %_ZN4llvm10AArch64_AML16getMemExtendTypeEj.exit [
@@ -35800,7 +35800,7 @@ _ZN4llvm10AArch64_AML16getMemExtendTypeEj.exit:   ; preds = %4, %4, %1, %.thread
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isZeroIdiomERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isZeroIdiomERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   switch i16 %3, label %18 [
@@ -35836,7 +35836,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo11isZeroIdiomERKN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isNeoversePdSameAsPgERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isNeoversePdSameAsPgERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   switch i16 %3, label %4 [
@@ -35861,7 +35861,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo20isNeoversePdSam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   switch i16 %3, label %10 [
@@ -35893,7 +35893,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo14hasExtendedRegE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   switch i16 %3, label %10 [
@@ -35937,7 +35937,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo13hasShiftedRegER
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm16AArch64InstrInfo12isScaledAddrERKNS_12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   switch i16 %3, label %_ZN4llvm10AArch64_AML16getMemExtendTypeEj.exit.thread [
@@ -37201,7 +37201,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm15TargetInstrInfo20getTailDupli
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #16
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #16
 
 declare noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70), i64 noundef, i32 noundef) local_unnamed_addr #3
 
@@ -37651,7 +37651,7 @@ declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind
 declare { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64, ptr) local_unnamed_addr #14
@@ -37764,7 +37764,7 @@ _ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31: ; preds = %20, %19, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZL15getMaddPatternsRN4llvm12MachineInstrERNS_15SmallVectorImplIjEEENK3$_0clEiijj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 4653, 4655) %1, i32 noundef range(i32 1, 3) %2, i32 noundef range(i32 11, 13) %3, i32 noundef range(i32 6, 18) %4) unnamed_addr #1 align 2 {
+define internal fastcc void @"_ZZL15getMaddPatternsRN4llvm12MachineInstrERNS_15SmallVectorImplIjEEENK3$_0clEiijj"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef range(i32 4653, 4655) %1, i32 noundef range(i32 1, 3) %2, i32 noundef range(i32 11, 13) %3, i32 noundef range(i32 6, 18) %4) unnamed_addr #1 align 2 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -37810,7 +37810,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %15, %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZL15getMaddPatternsRN4llvm12MachineInstrERNS_15SmallVectorImplIjEEENK3$_1clEiij"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 4822, 4832) %1, i32 noundef range(i32 1, 3) %2, i32 noundef %3) unnamed_addr #1 align 2 {
+define internal fastcc void @"_ZZL15getMaddPatternsRN4llvm12MachineInstrERNS_15SmallVectorImplIjEEENK3$_1clEiij"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef range(i32 4822, 4832) %1, i32 noundef range(i32 1, 3) %2, i32 noundef %3) unnamed_addr #1 align 2 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -37951,7 +37951,7 @@ _ZL25isCombineInstrSettingFlagj.exit:             ; preds = %31, %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZL15getFMULPatternsRN4llvm12MachineInstrERNS_15SmallVectorImplIjEEENK3$_0clEjij"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef range(i32 2292, 2301) %1, i32 noundef range(i32 1, 3) %2, i32 noundef range(i32 119, 129) %3) unnamed_addr #1 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZL15getFMULPatternsRN4llvm12MachineInstrERNS_15SmallVectorImplIjEEENK3$_0clEjij"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef range(i32 2292, 2301) %1, i32 noundef range(i32 1, 3) %2, i32 noundef range(i32 119, 129) %3) unnamed_addr #1 align 2 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -38039,7 +38039,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %38, %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZL14getFMAPatternsRN4llvm12MachineInstrERNS_15SmallVectorImplIjEEENK3$_0clEiij"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef range(i32 3303, 3382) %1, i32 noundef range(i32 1, 3) %2, i32 noundef range(i32 58, 119) %3) unnamed_addr #1 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZL14getFMAPatternsRN4llvm12MachineInstrERNS_15SmallVectorImplIjEEENK3$_0clEiij"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef range(i32 3303, 3382) %1, i32 noundef range(i32 1, 3) %2, i32 noundef range(i32 58, 119) %3) unnamed_addr #1 align 2 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -38285,7 +38285,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i32 @_ZL6genNegRN4llvm15MachineFunctionERNS_19MachineRegisterInfoEPKNS_15TargetInstrInfoERNS_12MachineInstrERNS_15SmallVectorImplIPS7_EERNS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(1041) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(20) %5, i32 noundef range(i32 4845, 4853) %6, ptr noundef %7) unnamed_addr #1 {
+define internal fastcc i32 @_ZL6genNegRN4llvm15MachineFunctionERNS_19MachineRegisterInfoEPKNS_15TargetInstrInfoERNS_12MachineInstrERNS_15SmallVectorImplIPS7_EERNS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(1041) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(20) %5, i32 noundef range(i32 4845, 4853) %6, ptr noundef %7) unnamed_addr #1 {
   %9 = alloca %"class.llvm::MIMetadata", align 8
   %10 = alloca %"struct.std::pair.575", align 4
   %11 = tail call i32 @_ZN4llvm19MachineRegisterInfo21createVirtualRegisterEPKNS_19TargetRegisterClassENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(512) %1, ptr noundef %7, ptr nonnull @.str.16, i64 0) #26
@@ -39480,7 +39480,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm16AArch64InstrInfo25getOutliningCandidateInfoERKNS2_17MachineModuleInfoERSt6vectorINS2_8outliner9CandidateESaIS9_EEjE3$_1EclINS_17__normal_iteratorIPS9_SB_EEEEbT_"(ptr %.0.val, ptr nocapture readonly %0) unnamed_addr #1 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm16AArch64InstrInfo25getOutliningCandidateInfoERKNS2_17MachineModuleInfoERSt6vectorINS2_8outliner9CandidateESaIS9_EEjE3$_1EclINS_17__normal_iteratorIPS9_SB_EEEEbT_"(ptr %.0.val, ptr readonly captures(none) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 16
@@ -39838,7 +39838,7 @@ _ZSt4copyIPKmPmET0_T_S4_S3_.exit31:               ; preds = %20, %19, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm16AArch64InstrInfo25getOutliningCandidateInfoERKNS2_17MachineModuleInfoERSt6vectorINS2_8outliner9CandidateESaIS9_EEjE3$_5EclINS_17__normal_iteratorIPS9_SB_EEEEbT_"(ptr nocapture readnone %.0.val, ptr %.8.val, ptr %0) unnamed_addr #1 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm16AArch64InstrInfo25getOutliningCandidateInfoERKNS2_17MachineModuleInfoERSt6vectorINS2_8outliner9CandidateESaIS9_EEjE3$_5EclINS_17__normal_iteratorIPS9_SB_EEEEbT_"(ptr readnone captures(none) %.0.val, ptr %.8.val, ptr %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -40147,7 +40147,7 @@ _ZN12_GLOBAL__N_124AArch64PipelinerLoopInfoD2Ev.exit: ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_124AArch64PipelinerLoopInfo25shouldIgnoreForPipeliningEPKN4llvm12MachineInstrE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %0, ptr noundef readnone %1) unnamed_addr #9 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_124AArch64PipelinerLoopInfo25shouldIgnoreForPipeliningEPKN4llvm12MachineInstrE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(240) %0, ptr noundef readnone %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
@@ -40160,7 +40160,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm15TargetInstrInfo17Pipeli
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i16 @_ZN12_GLOBAL__N_124AArch64PipelinerLoopInfo31createTripCountGreaterConditionEiRN4llvm17MachineBasicBlockERNS1_15SmallVectorImplINS1_14MachineOperandEEE(ptr noundef nonnull align 8 dereferenceable(240) %0, i32 %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #1 align 2 {
+define internal noundef i16 @_ZN12_GLOBAL__N_124AArch64PipelinerLoopInfo31createTripCountGreaterConditionEiRN4llvm17MachineBasicBlockERNS1_15SmallVectorImplINS1_14MachineOperandEEE(ptr noundef nonnull align 8 dereferenceable(240) %0, i32 %1, ptr nonnull readnone align 8 captures(none) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_14MachineOperandEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %5)
   ret i16 0
@@ -40700,22 +40700,22 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_124AArch64PipelinerLoopInfo15adjustTripCountEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_124AArch64PipelinerLoopInfo15adjustTripCountEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #7 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_124AArch64PipelinerLoopInfo12setPreheaderEPN4llvm17MachineBasicBlockE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_124AArch64PipelinerLoopInfo12setPreheaderEPN4llvm17MachineBasicBlockE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #7 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_124AArch64PipelinerLoopInfo8disposedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_124AArch64PipelinerLoopInfo8disposedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124AArch64PipelinerLoopInfo22isMVEExpanderSupportedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124AArch64PipelinerLoopInfo22isMVEExpanderSupportedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i1 true
 }
 
@@ -40948,7 +40948,7 @@ define internal fastcc i32 @_ZL10cloneInstrPKN4llvm12MachineInstrEjNS_8RegisterE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i32 @"_ZZN12_GLOBAL__N_124AArch64PipelinerLoopInfo41createRemainingIterationsGreaterConditionEiRN4llvm17MachineBasicBlockERNS1_15SmallVectorImplINS1_14MachineOperandEEERNS1_8DenseMapIPNS1_12MachineInstrESA_NS1_12DenseMapInfoISA_vEENS1_6detail12DenseMapPairISA_SA_EEEEENK3$_0clENS1_8RegisterENS1_9AArch64CC8CondCodeE"(ptr nocapture readonly %.0.val, ptr %.8.val, i32 %0, i32 noundef %1) unnamed_addr #1 align 2 {
+define internal fastcc i32 @"_ZZN12_GLOBAL__N_124AArch64PipelinerLoopInfo41createRemainingIterationsGreaterConditionEiRN4llvm17MachineBasicBlockERNS1_15SmallVectorImplINS1_14MachineOperandEEERNS1_8DenseMapIPNS1_12MachineInstrESA_NS1_12DenseMapInfoISA_vEENS1_6detail12DenseMapPairISA_SA_EEEEENK3$_0clENS1_8RegisterENS1_9AArch64CC8CondCodeE"(ptr readonly captures(none) %.0.val, ptr %.8.val, i32 %0, i32 noundef %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::MachineOperand", align 8
   %4 = alloca %"class.llvm::MachineOperand", align 8
   %5 = alloca %"class.llvm::MachineOperand", align 8
@@ -41507,7 +41507,7 @@ declare i64 @llvm.smin.i64(i64, i64) #22
 declare i64 @llvm.smax.i64(i64, i64) #22
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #22
@@ -41519,10 +41519,10 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #22
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #22

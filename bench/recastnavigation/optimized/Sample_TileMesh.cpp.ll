@@ -208,7 +208,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6Sample19resetCommonSettingsEv(ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @_ZN6Sample7setToolEP10SampleTool(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef) local_unnamed_addr #4
 
@@ -286,7 +286,7 @@ define dso_local void @_ZN15Sample_TileMeshD2Ev(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15Sample_TileMesh7cleanupEv(ptr nocapture noundef nonnull align 8 dereferenceable(404) %0) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN15Sample_TileMesh7cleanupEv(ptr noundef nonnull align 8 captures(none) dereferenceable(404) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -526,7 +526,7 @@ declare noundef zeroext i1 @_Z11imguiSliderPKcPffffb(ptr noundef, ptr noundef, f
 declare void @_Z14rcCalcGridSizePKfS0_fPiS1_(ptr noundef, ptr noundef, float noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 declare void @_Z10imguiValuePKc(ptr noundef) local_unnamed_addr #4
 
@@ -705,7 +705,7 @@ declare void @_ZN9CrowdToolC1Ev(ptr noundef nonnull align 8 dereferenceable(28))
 declare void @_Z18imguiSeparatorLinev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15Sample_TileMesh15handleDebugModeEv(ptr nocapture noundef nonnull align 8 dereferenceable(404) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN15Sample_TileMesh15handleDebugModeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(404) %0) unnamed_addr #3 align 2 {
   %2 = alloca [18 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %2, i8 0, i64 18, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1954,7 +1954,7 @@ define dso_local void @_ZN15Sample_TileMesh15collectSettingsER13BuildSettings(pt
 declare void @_ZN6Sample15collectSettingsER13BuildSettings(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 4 dereferenceable(84)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15Sample_TileMesh9buildTileEPKf(ptr noundef nonnull align 8 dereferenceable(404) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN15Sample_TileMesh9buildTileEPKf(ptr noundef nonnull align 8 dereferenceable(404) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -2070,7 +2070,7 @@ _ZN9rcContext8resetLogEv.exit:                    ; preds = %9, %61
 declare float @llvm.fmuladd.f32(float, float, float) #10
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN15Sample_TileMesh13buildTileMeshEiiPKfS1_Ri(ptr noundef nonnull align 8 dereferenceable(404) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %5) local_unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN15Sample_TileMesh13buildTileMeshEiiPKfS1_Ri(ptr noundef nonnull align 8 dereferenceable(404) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %5) local_unnamed_addr #3 align 2 {
   %7 = alloca [2 x float], align 4
   %8 = alloca [2 x float], align 4
   %9 = alloca [512 x i32], align 16
@@ -2967,7 +2967,7 @@ declare void @_Z6dtFreePv(ptr noundef) local_unnamed_addr #4
 declare void @_ZN12BuildContext7dumpLogEPKcz(ptr noundef nonnull align 8 dereferenceable(16472), ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN15Sample_TileMesh10getTilePosEPKfRiS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(404) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN15Sample_TileMesh10getTilePosEPKfRiS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(404) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #11 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -3005,7 +3005,7 @@ define dso_local void @_ZN15Sample_TileMesh10getTilePosEPKfRiS2_(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15Sample_TileMesh10removeTileEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(404) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN15Sample_TileMesh10removeTileEPKf(ptr noundef nonnull align 8 captures(none) dereferenceable(404) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3082,7 +3082,7 @@ define dso_local void @_ZN15Sample_TileMesh10removeTileEPKf(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15Sample_TileMesh14removeAllTilesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(404) %0) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN15Sample_TileMesh14removeAllTilesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(404) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

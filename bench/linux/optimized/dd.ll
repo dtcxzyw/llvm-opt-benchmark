@@ -99,7 +99,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_device_relea
 @llvm.compiler.used = appending global [13 x ptr] [ptr @__UNIQUE_ID___addressable_deferred_probe_initcall355, ptr @__UNIQUE_ID___addressable_device_attach358, ptr @__UNIQUE_ID___addressable_device_bind_driver356, ptr @__UNIQUE_ID___addressable_device_driver_attach359, ptr @__UNIQUE_ID___addressable_device_release_driver361, ptr @__UNIQUE_ID___addressable_driver_attach360, ptr @__UNIQUE_ID___addressable_driver_deferred_probe_check_state353, ptr @__UNIQUE_ID___addressable_wait_for_device_probe357, ptr @__exitcall_deferred_probe_exit, ptr @__setup_deferred_probe_timeout_setup, ptr @__setup_save_async_options, ptr @deferred_probe_exit, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched32], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @driver_deferred_probe_add(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @driver_deferred_probe_add(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 724
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, 16
@@ -139,7 +139,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @driver_deferred_probe_del(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @driver_deferred_probe_del(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @deferred_probe_mutex) #9
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -299,7 +299,7 @@ define dso_local void @device_set_deferred_probe_reason(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #1
@@ -308,7 +308,7 @@ declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #1
 declare dso_local noalias ptr @kasprintf(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @deferred_probe_timeout_setup(ptr noundef %0) #3 section ".init.text" align 16 {
@@ -447,7 +447,7 @@ define internal void @deferred_probe_exit() #3 section ".exit.text" align 16 {
 declare dso_local void @debugfs_lookup_and_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @device_is_bound(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @device_is_bound(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -623,7 +623,7 @@ define dso_local zeroext i1 @driver_probe_done() local_unnamed_addr #5 section "
 declare dso_local zeroext i1 @flush_work(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @init_wait_entry(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1398,7 +1398,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @deferred_probe_work_func(ptr nocapture readnone %0) #0 align 16 {
+define internal void @deferred_probe_work_func(ptr readnone captures(none) %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @deferred_probe_mutex) #9
   %2 = load volatile ptr, ptr @deferred_probe_active_list, align 8
   %3 = icmp eq ptr %2, @deferred_probe_active_list
@@ -1449,7 +1449,7 @@ declare dso_local void @bus_probe_device(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @kstrtoint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @deferred_probe_timeout_work_func(ptr nocapture readnone %0) #0 align 16 {
+define internal void @deferred_probe_timeout_work_func(ptr readnone captures(none) %0) #0 align 16 {
   tail call void @fw_devlink_drivers_done() #9
   store i32 0, ptr @driver_deferred_probe_timeout, align 4
   %2 = load i1, ptr @driver_deferred_probe_enable, align 1
@@ -1531,7 +1531,7 @@ declare dso_local i64 @seq_lseek(ptr noundef, i64 noundef, i32 noundef) #1
 declare dso_local i64 @seq_read(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @deferred_devs_open(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i32 @deferred_devs_open(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @single_open(ptr noundef %1, ptr noundef nonnull @deferred_devs_show, ptr noundef %4) #9
@@ -1545,7 +1545,7 @@ declare dso_local i32 @single_release(ptr noundef, ptr noundef) #1
 declare dso_local i32 @single_open(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @deferred_devs_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef i32 @deferred_devs_show(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @deferred_probe_mutex) #9
   %3 = load ptr, ptr @deferred_probe_pending_list, align 8
   %4 = icmp eq ptr %3, @deferred_probe_pending_list
@@ -1610,7 +1610,7 @@ declare dso_local i32 @kobject_uevent(ptr noundef, i32 noundef) local_unnamed_ad
 declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -1622,7 +1622,7 @@ declare dso_local zeroext i1 @parse_option_str(ptr noundef, ptr noundef) local_u
 declare dso_local i32 @bus_for_each_drv(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -2147483648, 2) i32 @__device_attach_driver(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define internal noundef range(i32 -2147483648, 2) i32 @__device_attach_driver(ptr noundef %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -2232,7 +2232,7 @@ define internal fastcc void @device_remove(ptr noundef %0) unnamed_addr #0 align
 declare dso_local void @device_links_no_driver(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @state_synced_show(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @state_synced_show(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @mutex_lock(ptr noundef nonnull %4) #9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 724
@@ -2247,7 +2247,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @state_synced_show(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @state_synced_store(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i64 noundef %3) #0 align 16 {
+define internal noundef i64 @state_synced_store(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #0 align 16 {
 sub_0:
   %4 = load i8, ptr %2, align 1
   %5 = zext i8 %4 to i32
@@ -2323,7 +2323,7 @@ declare dso_local void @device_remove_file(ptr noundef, ptr noundef) local_unnam
 declare dso_local void @device_remove_groups(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @coredump_store(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef returned %3) #0 align 16 {
+define internal noundef i64 @coredump_store(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef returned %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @mutex_lock(ptr noundef nonnull %5) #9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104

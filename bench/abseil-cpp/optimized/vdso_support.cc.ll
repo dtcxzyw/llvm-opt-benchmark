@@ -183,17 +183,17 @@ declare ptr @__errno_location() local_unnamed_addr #2
 declare i64 @getauxval(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #4
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN4absl18debugging_internal11VDSOSupport16GetCPUViaSyscallEPjPvS3_(ptr noundef %cpu, ptr nocapture readnone %0, ptr nocapture readnone %1) #5 align 2 {
+define dso_local noundef i64 @_ZN4absl18debugging_internal11VDSOSupport16GetCPUViaSyscallEPjPvS3_(ptr noundef %cpu, ptr readnone captures(none) %0, ptr readnone captures(none) %1) #5 align 2 {
 entry:
   %call = tail call i64 (i64, ...) @syscall(i64 noundef 309, ptr noundef %cpu, ptr null, ptr null) #7
   ret i64 %call
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 

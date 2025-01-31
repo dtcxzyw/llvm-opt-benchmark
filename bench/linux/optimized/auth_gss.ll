@@ -245,7 +245,7 @@ declare dso_local i32 @gss_svc_init_net(ptr noundef) local_unnamed_addr #1
 declare dso_local void @gss_svc_shutdown_net(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @gss_create(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal ptr @gss_create(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %4 = load volatile ptr, ptr %3, align 8
   br label %5
@@ -612,7 +612,7 @@ gss_pipe_free.exit2:                              ; preds = %gss_pipe_free.exit,
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal i32 @gss_hash_cred(ptr nocapture noundef readonly %0, i32 noundef %1) #3 align 16 {
+define internal i32 @gss_hash_cred(ptr noundef readonly captures(none) %0, i32 noundef %1) #3 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load i32, ptr %4, align 8
@@ -693,13 +693,13 @@ declare dso_local i32 @gss_mech_info2flavor(ptr noundef) #1
 declare dso_local i32 @gss_mech_flavor2info(i32 noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @gss_auth_find_or_add_hashed(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc ptr @gss_auth_find_or_add_hashed(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 16 {
   %4 = ptrtoint ptr %1 to i64
   tail call void @_raw_spin_lock(ptr noundef nonnull @gss_auth_hash_lock) #18
   %5 = mul i64 %4, 7046029254386353131
@@ -822,7 +822,7 @@ define internal fastcc ptr @gss_auth_find_or_add_hashed(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
@@ -933,13 +933,13 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @rpc_find_or_alloc_pipe_dir_object(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 2) i32 @gss_pipe_match_pdo(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal range(i32 0, 2) i32 @gss_pipe_match_pdo(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @gss_pipe_dir_object_ops
@@ -997,7 +997,7 @@ define internal range(i32 0, 2) i32 @gss_pipe_match_pdo(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @gss_pipe_alloc_pdo(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal ptr @gss_pipe_alloc_pdo(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1045,7 +1045,7 @@ define internal ptr @gss_pipe_alloc_pdo(ptr nocapture noundef readonly %0) #2 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @gss_pipe_dentry_create(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal i32 @gss_pipe_dentry_create(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1075,7 +1075,7 @@ define internal i32 @gss_pipe_dentry_create(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gss_pipe_dentry_destroy(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal void @gss_pipe_dentry_destroy(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1273,7 +1273,7 @@ define internal i64 @gss_v1_upcall(ptr noundef %0, ptr noundef %1, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @gss_pipe_downcall(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #2 align 16 {
+define internal i64 @gss_pipe_downcall(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 608
@@ -1474,7 +1474,7 @@ gss_put_ctx.exit:                                 ; preds = %99, %98, %96, %28, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gss_pipe_release(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @gss_pipe_release(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 872
@@ -1573,7 +1573,7 @@ define internal void @gss_pipe_release(ptr nocapture noundef readonly %0) #2 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -16, 1) i32 @gss_pipe_open_v1(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef range(i32 -16, 1) i32 @gss_pipe_open_v1(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 40
   %.val = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %.val, i64 872
@@ -1666,7 +1666,7 @@ declare i64 @llvm.read_register.i64(metadata) #10
 declare void @llvm.write_register.i64(metadata, i64) #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @gss_fill_context(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #2 align 16 {
@@ -1974,7 +1974,7 @@ define internal fastcc void @gss_release_msg(ptr noundef %0) unnamed_addr #2 ali
 declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc ptr @simple_get_netobj(ptr noundef %0, ptr noundef readnone %1, ptr nocapture noundef writeonly %2) unnamed_addr #14 align 16 {
+define internal fastcc ptr @simple_get_netobj(ptr noundef %0, ptr noundef readnone %1, ptr noundef writeonly captures(none) %2) unnamed_addr #14 align 16 {
   %4 = getelementptr i8, ptr %0, i64 4
   %5 = icmp ugt ptr %4, %1
   %6 = icmp ult ptr %4, %0
@@ -2356,7 +2356,7 @@ define internal i64 @gss_v0_upcall(ptr noundef %0, ptr noundef %1, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -16, 1) i32 @gss_pipe_open_v0(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef range(i32 -16, 1) i32 @gss_pipe_open_v0(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 40
   %.val = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %.val, i64 872
@@ -2847,7 +2847,7 @@ define internal void @gss_destroy_cred(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 2) i32 @gss_match(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #2 align 16 {
+define internal range(i32 0, 2) i32 @gss_match(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = load volatile i64, ptr %4, align 8
   %6 = and i64 %5, 1
@@ -5198,7 +5198,7 @@ declare dso_local void @rpc_put_task(ptr noundef) local_unnamed_addr #1
 declare dso_local void @put_rpccred(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @gss_refresh_null(ptr nocapture readnone %0) #16 align 16 {
+define internal noundef i32 @gss_refresh_null(ptr readnone captures(none) %0) #16 align 16 {
   ret i32 0
 }
 
@@ -5291,7 +5291,7 @@ declare dso_local void @rpc_sleep_on_timeout(ptr noundef, ptr noundef, ptr nound
 declare dso_local void @rpc_sleep_on(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gss_upcall_callback(ptr nocapture noundef initializes((4, 8)) %0) #2 align 16 {
+define internal void @gss_upcall_callback(ptr noundef captures(none) initializes((4, 8)) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
@@ -5444,7 +5444,7 @@ declare dso_local i32 @gss_wrap(ptr noundef, i32 noundef, ptr noundef, ptr nound
 declare dso_local ptr @alloc_pages(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @priv_release_snd_buf(ptr nocapture noundef %0) #2 align 16 {
+define internal void @priv_release_snd_buf(ptr noundef captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0

@@ -210,7 +210,7 @@ declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb6DBIterC2EPNS_3EnvERKNS_11ReadOptionsERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsEPKNS_10ComparatorEPNS_20InternalIteratorBaseINS_5SliceEEEPKNS_7VersionEmbmPNS_12ReadCallbackEPNS_6DBImplEPNS_16ColumnFamilyDataEb(ptr noundef nonnull align 8 dereferenceable(808) %this, ptr noundef %_env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(154) %read_options, ptr nocapture noundef nonnull readonly align 8 dereferenceable(857) %ioptions, ptr nocapture noundef nonnull readonly align 8 dereferenceable(560) %mutable_cf_options, ptr noundef %cmp, ptr noundef %iter, ptr noundef %version, i64 noundef %s, i1 noundef zeroext %arena_mode, i64 noundef %max_sequential_skip_in_iterations, ptr noundef %read_callback, ptr noundef %db_impl, ptr noundef %cfd, i1 noundef zeroext %expose_blob_index) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb6DBIterC2EPNS_3EnvERKNS_11ReadOptionsERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsEPKNS_10ComparatorEPNS_20InternalIteratorBaseINS_5SliceEEEPKNS_7VersionEmbmPNS_12ReadCallbackEPNS_6DBImplEPNS_16ColumnFamilyDataEb(ptr noundef nonnull align 8 dereferenceable(808) %this, ptr noundef %_env, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(154) %read_options, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(857) %ioptions, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(560) %mutable_cf_options, ptr noundef %cmp, ptr noundef %iter, ptr noundef %version, i64 noundef %s, i1 noundef zeroext %arena_mode, i64 noundef %max_sequential_skip_in_iterations, ptr noundef %read_callback, ptr noundef %db_impl, ptr noundef %cfd, i1 noundef zeroext %expose_blob_index) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %arena_mode to i8
   %frombool1 = zext i1 %expose_blob_index to i8
@@ -718,7 +718,7 @@ _ZNSt10unique_ptrISt6vectorIN7rocksdb5SliceESaIS2_EESt14default_deleteIS4_EED2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb6DBIter11GetPropertyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS6_(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(808) %this, ptr noundef %prop_name, ptr noundef %prop) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb6DBIter11GetPropertyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS6_(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(808) %this, ptr noundef %prop_name, ptr noundef %prop) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp2 = alloca %"class.rocksdb::Slice", align 8
@@ -2778,7 +2778,7 @@ _ZN7rocksdb6StatusD2Ev.exit7:                     ; preds = %cleanup, %_ZNKSt14d
 declare void @_ZN7rocksdb23WideColumnSerialization11DeserializeERNS_5SliceERSt6vectorINS_10WideColumnESaIS4_EE(ptr sret(%"class.rocksdb::Status") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN7rocksdb6DBIter33SetValueAndColumnsFromMergeResultERKNS_6StatusENS_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(808) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %merge_status, i8 noundef zeroext %result_type) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
@@ -4199,7 +4199,7 @@ return:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb6DBIter9IsVisibleEmRKNS_5SliceEPb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(808) %this, i64 noundef %sequence, ptr noundef nonnull align 8 dereferenceable(16) %ts, ptr noundef writeonly %more_recent) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb6DBIter9IsVisibleEmRKNS_5SliceEPb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(808) %this, i64 noundef %sequence, ptr noundef nonnull align 8 dereferenceable(16) %ts, ptr noundef writeonly %more_recent) local_unnamed_addr #4 align 2 {
 entry:
   %read_callback_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %read_callback_, align 8
@@ -5726,7 +5726,7 @@ eh.resume:                                        ; preds = %lpad.thread, %clean
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb6DBIter23MergeWithPlainBaseValueERKNS_5SliceES3_(ptr noundef nonnull align 8 dereferenceable(808) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) %user_key) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb6DBIter23MergeWithPlainBaseValueERKNS_5SliceES3_(ptr noundef nonnull align 8 dereferenceable(808) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value, ptr noundef nonnull align 8 dereferenceable(16) %user_key) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %existing_value.i = alloca %"class.std::variant", align 8
   %__tmp.i.i.i.i.i.i.i = alloca %"class.rocksdb::Slice", align 8
@@ -10070,7 +10070,7 @@ _ZNSt7variantIJSt9monostateN7rocksdb5SliceESt6vectorINS1_10WideColumnESaIS4_EEEE
 }
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb6DBIter23SetSavedKeyToSeekTargetERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(808) initializes((168, 176), (579, 580)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %target) local_unnamed_addr #5 align 2 {
+define void @_ZN7rocksdb6DBIter23SetSavedKeyToSeekTargetERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(808) initializes((168, 176), (579, 580)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %target) local_unnamed_addr #5 align 2 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Slice", align 8
   %is_key_seqnum_zero_ = getelementptr inbounds nuw i8, ptr %this, i64 579
@@ -10236,7 +10236,7 @@ if.end:                                           ; preds = %_ZN7rocksdb7IterKey
 }
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb6DBIter30SetSavedKeyToSeekForPrevTargetERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(808) initializes((168, 176), (579, 580)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %target) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb6DBIter30SetSavedKeyToSeekForPrevTargetERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(808) initializes((168, 176), (579, 580)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %target) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %kTsMin = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator.0", align 1
@@ -13617,7 +13617,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN7rocksdb13NewDBIteratorEPNS_3EnvERKNS_11ReadOptionsERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsEPKNS_10ComparatorEPNS_20InternalIteratorBaseINS_5SliceEEEPKNS_7VersionERKmmPNS_12ReadCallbackEPNS_6DBImplEPNS_16ColumnFamilyDataEb(ptr noundef %env, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef nonnull align 8 dereferenceable(857) %ioptions, ptr noundef nonnull align 8 dereferenceable(560) %mutable_cf_options, ptr noundef %user_key_comparator, ptr noundef %internal_iter, ptr noundef %version, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %sequence, i64 noundef %max_sequential_skip_in_iterations, ptr noundef %read_callback, ptr noundef %db_impl, ptr noundef %cfd, i1 noundef zeroext %expose_blob_index) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN7rocksdb13NewDBIteratorEPNS_3EnvERKNS_11ReadOptionsERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsEPKNS_10ComparatorEPNS_20InternalIteratorBaseINS_5SliceEEEPKNS_7VersionERKmmPNS_12ReadCallbackEPNS_6DBImplEPNS_16ColumnFamilyDataEb(ptr noundef %env, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef nonnull align 8 dereferenceable(857) %ioptions, ptr noundef nonnull align 8 dereferenceable(560) %mutable_cf_options, ptr noundef %user_key_comparator, ptr noundef %internal_iter, ptr noundef %version, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %sequence, i64 noundef %max_sequential_skip_in_iterations, ptr noundef %read_callback, ptr noundef %db_impl, ptr noundef %cfd, i1 noundef zeroext %expose_blob_index) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(808) ptr @_Znwm(i64 noundef 808) #26
   %0 = load i64, ptr %sequence, align 8
@@ -13940,7 +13940,7 @@ return:                                           ; preds = %if.end, %if.then
 declare void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
@@ -14779,7 +14779,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #8
 declare void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16), i8 noundef zeroext, i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), i8 noundef zeroext) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx119to_stringEm(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i64 noundef %__val) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
@@ -15219,7 +15219,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #12
 declare extern_weak void @_ZTHN7rocksdb12perf_contextE() #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
@@ -15228,10 +15228,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18

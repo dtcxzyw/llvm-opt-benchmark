@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZN12CDSConstants14get_cds_offsetEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN12CDSConstants14get_cds_offsetEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   br label %3
 
 2:                                                ; preds = %3
@@ -56,10 +56,10 @@ define hidden noundef i64 @_ZN12CDSConstants14get_cds_offsetEPKc(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZN12CDSConstants16get_cds_constantEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN12CDSConstants16get_cds_constantEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   br label %3
 
 2:                                                ; preds = %3

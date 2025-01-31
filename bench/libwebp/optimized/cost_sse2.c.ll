@@ -17,7 +17,7 @@ define hidden void @VP8EncDspCostInitSSE2() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @SetResidualCoeffs_SSE2(ptr noundef %0, ptr nocapture noundef writeonly initializes((4, 16)) %1) #1 {
+define internal void @SetResidualCoeffs_SSE2(ptr noundef %0, ptr noundef writeonly captures(none) initializes((4, 16)) %1) #1 {
   %3 = load <8 x i16>, ptr %0, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load <8 x i16>, ptr %4, align 1
@@ -44,7 +44,7 @@ define internal void @SetResidualCoeffs_SSE2(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @GetResidualCost_SSE2(i32 noundef %0, ptr nocapture noundef readonly %1) #2 {
+define internal i32 @GetResidualCost_SSE2(i32 noundef %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = alloca [16 x i8], align 16
   %4 = alloca [16 x i8], align 16
   %5 = alloca [16 x i16], align 16

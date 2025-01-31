@@ -20,7 +20,7 @@ define hidden void @VP8LEncDspInitSSE41() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @ExtraCost_SSE41(ptr nocapture noundef readonly %0, i32 noundef %1) #1 {
+define internal i32 @ExtraCost_SSE41(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = shl i32 %4, 1
@@ -80,7 +80,7 @@ define internal i32 @ExtraCost_SSE41(ptr nocapture noundef readonly %0, i32 noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @ExtraCostCombined_SSE41(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #1 {
+define internal i32 @ExtraCostCombined_SSE41(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = shl i32 %5, 1

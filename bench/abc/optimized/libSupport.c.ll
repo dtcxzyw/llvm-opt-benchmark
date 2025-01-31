@@ -42,7 +42,7 @@ define void @open_libs() local_unnamed_addr #0 {
   br label %.outer
 
 .outer:                                           ; preds = %._crit_edge, %11
-  %.038.ph = phi ptr [ %54, %._crit_edge ], [ %.039, %11 ]
+  %.038.ph = phi ptr [ %53, %._crit_edge ], [ %.039, %11 ]
   %.0.ph = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %11 ]
   br label %12
 
@@ -56,22 +56,22 @@ define void @open_libs() local_unnamed_addr #0 {
   br label %15
 
 15:                                               ; preds = %14, %12
-  %16 = tail call ptr @opendir(ptr noundef %.038.ph)
+  %16 = tail call ptr @opendir(ptr noundef nonnull %.038.ph)
   %17 = icmp eq ptr %16, null
   br i1 %17, label %12, label %.preheader
 
 .preheader:                                       ; preds = %15
   %18 = tail call ptr @readdir(ptr noundef nonnull %16) #9
-  %.not4550 = icmp eq ptr %18, null
-  br i1 %.not4550, label %._crit_edge, label %.lr.ph
+  %.not4548 = icmp eq ptr %18, null
+  br i1 %.not4548, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %51
-  %19 = phi ptr [ %52, %51 ], [ %18, %.preheader ]
-  %.151 = phi i32 [ %.2, %51 ], [ %.0.ph, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %50
+  %19 = phi ptr [ %51, %50 ], [ %18, %.preheader ]
+  %.149 = phi i32 [ %.2, %50 ], [ %.0.ph, %.preheader ]
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 19
   %21 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.1, ptr noundef nonnull dereferenceable(1) %20, i64 noundef 7) #11
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %51
+  br i1 %22, label %23, label %50
 
 23:                                               ; preds = %.lr.ph
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #11
@@ -79,110 +79,99 @@ define void @open_libs() local_unnamed_addr #0 {
   %26 = getelementptr inbounds i8, ptr %25, i64 -3
   %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.2, ptr noundef nonnull dereferenceable(1) %26) #11
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %51
+  br i1 %28, label %29, label %50
 
 29:                                               ; preds = %23
-  %30 = icmp sgt i32 %.151, 255
+  %30 = icmp sgt i32 %.149, 255
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %29
   %32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef 256, ptr noundef nonnull %20)
-  br label %51
+  br label %50
 
 33:                                               ; preds = %29
   %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.038.ph) #11
   %35 = add i64 %24, 2
   %36 = add i64 %35, %34
   %37 = tail call noalias ptr @malloc(i64 noundef %36) #10
-  %38 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %.038.ph) #9
+  %38 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %.038.ph) #9
   %39 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %20) #9
-  %40 = tail call ptr @dlopen(ptr noundef %37, i32 noundef 2) #9
-  %41 = sext i32 %.151 to i64
+  %40 = tail call ptr @dlopen(ptr noundef nonnull %37, i32 noundef 2) #9
+  %41 = sext i32 %.149 to i64
   %42 = getelementptr inbounds [257 x ptr], ptr @libHandles, i64 0, i64 %41
   store ptr %40, ptr %42, align 8
-  %.not47 = icmp eq ptr %40, null
-  br i1 %.not47, label %46, label %43
+  %.not46 = icmp eq ptr %40, null
+  br i1 %.not46, label %46, label %43
 
 43:                                               ; preds = %33
-  %44 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %37, i32 noundef %.151)
-  %45 = add nsw i32 %.151, 1
+  %44 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef nonnull %37, i32 noundef %.149)
+  %45 = add nsw i32 %.149, 1
   br label %49
 
 46:                                               ; preds = %33
   %47 = tail call ptr @dlerror() #9
-  %48 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %37, ptr noundef %47)
+  %48 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef nonnull %37, ptr noundef %47)
   br label %49
 
-49:                                               ; preds = %46, %43
-  %.3 = phi i32 [ %45, %43 ], [ %.151, %46 ]
-  %.not48 = icmp eq ptr %37, null
-  br i1 %.not48, label %51, label %50
+49:                                               ; preds = %43, %46
+  %.3 = phi i32 [ %45, %43 ], [ %.149, %46 ]
+  tail call void @free(ptr noundef %37) #9
+  br label %50
 
-50:                                               ; preds = %49
-  tail call void @free(ptr noundef nonnull %37) #9
-  br label %51
-
-51:                                               ; preds = %31, %49, %50, %23, %.lr.ph
-  %.2 = phi i32 [ %.151, %31 ], [ %.3, %50 ], [ %.3, %49 ], [ %.151, %23 ], [ %.151, %.lr.ph ]
-  %52 = tail call ptr @readdir(ptr noundef nonnull %16) #9
-  %.not45 = icmp eq ptr %52, null
+50:                                               ; preds = %31, %49, %23, %.lr.ph
+  %.2 = phi i32 [ %.149, %31 ], [ %.3, %49 ], [ %.149, %23 ], [ %.149, %.lr.ph ]
+  %51 = tail call ptr @readdir(ptr noundef nonnull %16) #9
+  %.not45 = icmp eq ptr %51, null
   br i1 %.not45, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %51, %.preheader
-  %.1.lcssa = phi i32 [ %.0.ph, %.preheader ], [ %.2, %51 ]
-  %53 = tail call i32 @closedir(ptr noundef nonnull %16)
-  %54 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  br i1 %.not, label %55, label %.outer
+._crit_edge:                                      ; preds = %50, %.preheader
+  %.1.lcssa = phi i32 [ %.0.ph, %.preheader ], [ %.2, %50 ]
+  %52 = tail call i32 @closedir(ptr noundef nonnull %16)
+  %53 = getelementptr inbounds nuw i8, ptr %13, i64 1
+  br i1 %.not, label %54, label %.outer
 
-55:                                               ; preds = %._crit_edge
-  %.not46 = icmp eq ptr %.039, null
-  br i1 %.not46, label %57, label %56
-
-56:                                               ; preds = %55
-  tail call void @free(ptr noundef nonnull %.039) #9
-  br label %57
-
-57:                                               ; preds = %55, %56
-  %58 = sext i32 %.1.lcssa to i64
-  %59 = getelementptr inbounds [257 x ptr], ptr @libHandles, i64 0, i64 %58
-  store ptr null, ptr %59, align 8
+54:                                               ; preds = %._crit_edge
+  tail call void @free(ptr noundef %.039) #9
+  %55 = sext i32 %.1.lcssa to i64
+  %56 = getelementptr inbounds [257 x ptr], ptr @libHandles, i64 0, i64 %55
+  store ptr null, ptr %56, align 8
   ret void
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 declare ptr @readdir(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #7
@@ -191,10 +180,10 @@ declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #7
 declare ptr @dlerror() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define void @close_libs() local_unnamed_addr #0 {

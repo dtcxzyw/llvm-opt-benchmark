@@ -109,7 +109,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #1
 declare void @g_ptr_array_add(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @crs_range_set_init(ptr nocapture noundef writeonly initializes((0, 24)) %range_set) local_unnamed_addr #0 {
+define dso_local void @crs_range_set_init(ptr noundef writeonly captures(none) initializes((0, 24)) %range_set) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @g_ptr_array_new_with_free_func(ptr noundef nonnull @crs_range_free) #14
   store ptr %call, ptr %range_set, align 8
@@ -132,7 +132,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @crs_range_set_free(ptr nocapture noundef readonly %range_set) local_unnamed_addr #0 {
+define dso_local void @crs_range_set_free(ptr noundef readonly captures(none) %range_set) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %range_set, align 8
   %call = tail call ptr @g_ptr_array_free(ptr noundef %0, i32 noundef 1) #14
@@ -214,7 +214,7 @@ for.body9:                                        ; preds = %if.end5, %for.body9
   %idxprom11 = sext i32 %i.126 to i64
   %arrayidx12 = getelementptr ptr, ptr %8, i64 %idxprom11
   %9 = load ptr, ptr %arrayidx12, align 8
-  tail call void @g_ptr_array_add(ptr noundef %ranges, ptr noundef %9) #14
+  tail call void @g_ptr_array_add(ptr noundef nonnull %ranges, ptr noundef %9) #14
   %inc14 = add nuw i32 %i.126, 1
   %10 = load i32, ptr %len7, align 8
   %cmp8 = icmp ult i32 %inc14, %10
@@ -230,7 +230,7 @@ declare ptr @g_ptr_array_new() local_unnamed_addr #2
 declare void @g_ptr_array_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @crs_range_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #3 {
+define internal range(i32 -1, 2) i32 @crs_range_compare(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #3 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
@@ -468,7 +468,7 @@ if.else.i47:                                      ; preds = %build_append_namese
   unreachable
 
 build_append_nameseg.exit51:                      ; preds = %build_append_nameseg.exit43
-  %call2.i48 = call ptr @g_array_append_vals(ptr noundef %array, ptr noundef %3, i32 noundef %conv.i45) #14
+  %call2.i48 = call ptr @g_array_append_vals(ptr noundef %array, ptr noundef nonnull %3, i32 noundef %conv.i45) #14
   %sub.i49 = sub i32 4, %conv.i45
   %call3.i50 = call ptr @g_array_append_vals(ptr noundef %array, ptr noundef nonnull @.str.49, i32 noundef %sub.i49) #14
   br label %sw.epilog
@@ -567,7 +567,7 @@ entry:
 declare void @g_ptr_array_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @aml_free(ptr noundef %data, ptr nocapture readnone %user_data) #0 {
+define internal void @aml_free(ptr noundef %data, ptr readnone captures(none) %user_data) #0 {
 entry:
   %0 = load ptr, ptr %data, align 8
   %call.i = tail call ptr @g_array_free(ptr noundef %0, i32 noundef 1) #14
@@ -576,7 +576,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @aml_append(ptr nocapture noundef readonly %parent_ctx, ptr nocapture noundef readonly %child) local_unnamed_addr #0 {
+define dso_local void @aml_append(ptr noundef readonly captures(none) %parent_ctx, ptr noundef readonly captures(none) %child) local_unnamed_addr #0 {
 entry:
   %val.addr.i.i.i24 = alloca i8, align 1
   %val.addr.i22 = alloca i8, align 1
@@ -708,7 +708,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_return(ptr nocapture noundef readonly %val) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_return(ptr noundef readonly captures(none) %val) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -901,7 +901,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_name_decl(ptr noundef %name, ptr nocapture noundef readonly %val) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_name_decl(ptr noundef %name, ptr noundef readonly captures(none) %val) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -919,7 +919,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @build_append_namestring(ptr noundef %array, ptr nocapture readnone %format, ...) unnamed_addr #0 {
+define internal void @build_append_namestring(ptr noundef %array, ptr readnone captures(none) %format, ...) unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -955,7 +955,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_to_integer(ptr nocapture noundef readonly %arg) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_to_integer(ptr noundef readonly captures(none) %arg) local_unnamed_addr #0 {
 entry:
   %val.addr.i = alloca i8, align 1
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
@@ -978,7 +978,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_to_hexstring(ptr nocapture noundef readonly %src, ptr noundef readonly %dst) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_to_hexstring(ptr noundef readonly captures(none) %src, ptr noundef readonly %dst) local_unnamed_addr #0 {
 entry:
   %val.addr.i = alloca i8, align 1
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
@@ -1012,7 +1012,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_to_buffer(ptr nocapture noundef readonly %src, ptr noundef readonly %dst) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_to_buffer(ptr noundef readonly captures(none) %src, ptr noundef readonly %dst) local_unnamed_addr #0 {
 entry:
   %val.addr.i = alloca i8, align 1
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
@@ -1046,7 +1046,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_to_decimalstring(ptr nocapture noundef readonly %src, ptr noundef readonly %dst) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_to_decimalstring(ptr noundef readonly captures(none) %src, ptr noundef readonly %dst) local_unnamed_addr #0 {
 entry:
   %val.addr.i = alloca i8, align 1
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
@@ -1080,7 +1080,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_store(ptr nocapture noundef readonly %val, ptr nocapture noundef readonly %target) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_store(ptr noundef readonly captures(none) %val, ptr noundef readonly captures(none) %target) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -1098,14 +1098,14 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_and(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr noundef %dst) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_and(ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2, ptr noundef %dst) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @build_opcode_2arg_dst(i8 noundef zeroext 123, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %dst)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @build_opcode_2arg_dst(i8 noundef zeroext range(i8 114, -119) %op, ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc noundef ptr @build_opcode_2arg_dst(i8 noundef zeroext range(i8 114, -119) %op, ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2, ptr noundef readonly %dst) unnamed_addr #0 {
 entry:
   %val.addr.i = alloca i8, align 1
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
@@ -1140,14 +1140,14 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_or(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr noundef %dst) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_or(ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2, ptr noundef %dst) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @build_opcode_2arg_dst(i8 noundef zeroext 125, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %dst)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_land(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_land(ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -1165,7 +1165,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_lor(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_lor(ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -1183,7 +1183,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_shiftleft(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %count) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_shiftleft(ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %count) local_unnamed_addr #0 {
 entry:
   %val.addr.i.i = alloca i8, align 1
   %call.i.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
@@ -1207,14 +1207,14 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_shiftright(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %count, ptr noundef %dst) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_shiftright(ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %count, ptr noundef %dst) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @build_opcode_2arg_dst(i8 noundef zeroext 122, ptr noundef %arg1, ptr noundef %count, ptr noundef %dst)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_lless(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_lless(ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -1232,21 +1232,21 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_add(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr noundef %dst) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_add(ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2, ptr noundef %dst) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @build_opcode_2arg_dst(i8 noundef zeroext 114, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %dst)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_subtract(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr noundef %dst) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_subtract(ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2, ptr noundef %dst) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @build_opcode_2arg_dst(i8 noundef zeroext 116, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %dst)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_increment(ptr nocapture noundef readonly %arg) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_increment(ptr noundef readonly captures(none) %arg) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -1263,7 +1263,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_decrement(ptr nocapture noundef readonly %arg) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_decrement(ptr noundef readonly captures(none) %arg) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -1280,7 +1280,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_index(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %idx) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_index(ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %idx) local_unnamed_addr #0 {
 entry:
   %val.addr.i.i = alloca i8, align 1
   %call.i.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
@@ -1304,7 +1304,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_notify(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_notify(ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -1352,7 +1352,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_call1(ptr noundef %method, ptr nocapture noundef readonly %arg1) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_call1(ptr noundef %method, ptr noundef readonly captures(none) %arg1) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -1367,7 +1367,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_call2(ptr noundef %method, ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_call2(ptr noundef %method, ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -1383,7 +1383,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_call3(ptr noundef %method, ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr nocapture noundef readonly %arg3) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_call3(ptr noundef %method, ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2, ptr noundef readonly captures(none) %arg3) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -1400,7 +1400,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_call4(ptr noundef %method, ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr nocapture noundef readonly %arg3, ptr nocapture noundef readonly %arg4) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_call4(ptr noundef %method, ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2, ptr noundef readonly captures(none) %arg3, ptr noundef readonly captures(none) %arg4) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -1418,7 +1418,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_call5(ptr noundef %method, ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr nocapture noundef readonly %arg3, ptr nocapture noundef readonly %arg4, ptr nocapture noundef readonly %arg5) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_call5(ptr noundef %method, ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2, ptr noundef readonly captures(none) %arg3, ptr noundef readonly captures(none) %arg4, ptr noundef readonly captures(none) %arg5) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -1437,7 +1437,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_call6(ptr noundef %method, ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr nocapture noundef readonly %arg3, ptr nocapture noundef readonly %arg4, ptr nocapture noundef readonly %arg5, ptr nocapture noundef readonly %arg6) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_call6(ptr noundef %method, ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2, ptr noundef readonly captures(none) %arg3, ptr noundef readonly captures(none) %arg4, ptr noundef readonly captures(none) %arg5, ptr noundef readonly captures(none) %arg6) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -1457,7 +1457,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_gpio_int(i32 noundef %con_and_pro, i32 noundef %edge_level, i32 noundef %active_level, i32 noundef %shared, i32 noundef %pin_config, i16 noundef zeroext %debounce_timeout, ptr nocapture noundef readonly %pin_list, i32 noundef %pin_count, ptr noundef %resource_source_name, ptr noundef %vendor_data, i16 noundef zeroext %vendor_data_len) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_gpio_int(i32 noundef %con_and_pro, i32 noundef %edge_level, i32 noundef %active_level, i32 noundef %shared, i32 noundef %pin_config, i16 noundef zeroext %debounce_timeout, ptr noundef readonly captures(none) %pin_list, i32 noundef %pin_count, ptr noundef %resource_source_name, ptr noundef %vendor_data, i16 noundef zeroext %vendor_data_len) local_unnamed_addr #0 {
 entry:
   %val.addr.i130.i = alloca i8, align 1
   %val.addr.i.i120.i = alloca i8, align 1
@@ -1828,7 +1828,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_interrupt(i32 noundef %con_and_pro, i32 noundef %level_and_edge, i32 noundef %high_and_low, i32 noundef %shared, ptr nocapture noundef readonly %irq_list, i8 noundef zeroext %irq_count) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_interrupt(i32 noundef %con_and_pro, i32 noundef %level_and_edge, i32 noundef %high_and_low, i32 noundef %shared, ptr noundef readonly captures(none) %irq_list, i8 noundef zeroext %irq_count) local_unnamed_addr #0 {
 entry:
   %val.addr.i.i = alloca i8, align 1
   %val.addr.i20 = alloca i8, align 1
@@ -2028,7 +2028,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_lnot(ptr nocapture noundef readonly %arg) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_lnot(ptr noundef readonly captures(none) %arg) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -2045,7 +2045,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_equal(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_equal(ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -2063,7 +2063,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_lgreater(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_lgreater(ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -2081,7 +2081,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_lgreater_equal(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_lgreater_equal(ptr noundef readonly captures(none) %arg1, ptr noundef readonly captures(none) %arg2) local_unnamed_addr #0 {
 entry:
   %val.addr.i = alloca i8, align 1
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
@@ -2104,7 +2104,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_if(ptr nocapture noundef readonly %predicate) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_if(ptr noundef readonly captures(none) %predicate) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -2137,7 +2137,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_while(ptr nocapture noundef readonly %predicate) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_while(ptr noundef readonly captures(none) %predicate) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -2300,7 +2300,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_operation_region(ptr noundef %name, i32 noundef %rs, ptr nocapture noundef readonly %offset, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_operation_region(ptr noundef %name, i32 noundef %rs, ptr noundef readonly captures(none) %offset, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %val.addr.i10 = alloca i8, align 1
   %val.addr.i8 = alloca i8, align 1
@@ -2356,7 +2356,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 build_append_nameseg.exit:                        ; preds = %entry
-  %call2.i = tail call ptr @g_array_append_vals(ptr noundef %call.i.i, ptr noundef %name, i32 noundef %conv.i) #14
+  %call2.i = tail call ptr @g_array_append_vals(ptr noundef %call.i.i, ptr noundef nonnull %name, i32 noundef %conv.i) #14
   %sub.i = sub i32 4, %conv.i
   %call3.i = tail call ptr @g_array_append_vals(ptr noundef %call.i.i, ptr noundef nonnull @.str.49, i32 noundef %sub.i) #14
   %1 = load ptr, ptr %call.i, align 8
@@ -2425,7 +2425,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_create_field(ptr nocapture noundef readonly %srcbuf, ptr nocapture noundef readonly %bit_index, ptr nocapture noundef readonly %num_bits, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_create_field(ptr noundef readonly captures(none) %srcbuf, ptr noundef readonly captures(none) %bit_index, ptr noundef readonly captures(none) %num_bits, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %val.addr.i8 = alloca i8, align 1
   %val.addr.i = alloca i8, align 1
@@ -2454,7 +2454,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_create_dword_field(ptr nocapture noundef readonly %srcbuf, ptr nocapture noundef readonly %index, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_create_dword_field(ptr noundef readonly captures(none) %srcbuf, ptr noundef readonly captures(none) %index, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %call.i.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -2474,7 +2474,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_create_qword_field(ptr nocapture noundef readonly %srcbuf, ptr nocapture noundef readonly %index, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_create_qword_field(ptr noundef readonly captures(none) %srcbuf, ptr noundef readonly captures(none) %index, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %call.i.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -2622,7 +2622,7 @@ build_append_int_noprefix.exit:                   ; preds = %for.body.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_eisaid(ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_eisaid(ptr noundef readonly captures(none) %str) local_unnamed_addr #0 {
 entry:
   %val.addr.i.i = alloca i8, align 1
   %val.addr.i = alloca i8, align 1
@@ -2714,7 +2714,7 @@ build_append_int_noprefix.exit:                   ; preds = %for.body.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: noreturn
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
@@ -3284,7 +3284,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_touuid(ptr nocapture noundef readonly %uuid) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_touuid(ptr noundef readonly captures(none) %uuid) local_unnamed_addr #0 {
 entry:
   %val.addr.i275 = alloca i8, align 1
   %val.addr.i259 = alloca i8, align 1
@@ -3891,7 +3891,7 @@ Hex2Byte.exit274:                                 ; preds = %if.end6.i266
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_unicode(ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_unicode(ptr noundef readonly captures(none) %str) local_unnamed_addr #0 {
 entry:
   %val.addr.i6 = alloca i8, align 1
   %val.addr.i = alloca i8, align 1
@@ -3933,7 +3933,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_refof(ptr nocapture noundef readonly %arg) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_refof(ptr noundef readonly captures(none) %arg) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -3950,7 +3950,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_derefof(ptr nocapture noundef readonly %arg) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_derefof(ptr noundef readonly captures(none) %arg) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -3967,7 +3967,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_sizeof(ptr nocapture noundef readonly %arg) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_sizeof(ptr noundef readonly captures(none) %arg) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -4024,7 +4024,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_acquire(ptr nocapture noundef readonly %mutex, i16 noundef zeroext %timeout) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_acquire(ptr noundef readonly captures(none) %mutex, i16 noundef zeroext %timeout) local_unnamed_addr #0 {
 entry:
   %val.addr.i.i = alloca i8, align 1
   %val.addr.i6 = alloca i8, align 1
@@ -4067,7 +4067,7 @@ build_append_int_noprefix.exit:                   ; preds = %for.body.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_release(ptr nocapture noundef readonly %mutex) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_release(ptr noundef readonly captures(none) %mutex) local_unnamed_addr #0 {
 entry:
   %val.addr.i5 = alloca i8, align 1
   %val.addr.i = alloca i8, align 1
@@ -4112,14 +4112,14 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_concatenate(ptr nocapture noundef readonly %source1, ptr nocapture noundef readonly %source2, ptr noundef %target) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_concatenate(ptr noundef readonly captures(none) %source1, ptr noundef readonly captures(none) %source2, ptr noundef %target) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @build_opcode_2arg_dst(i8 noundef zeroext 115, ptr noundef %source1, ptr noundef %source2, ptr noundef %target)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @aml_object_type(ptr nocapture noundef readonly %object) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_object_type(ptr noundef readonly captures(none) %object) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -4136,7 +4136,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @acpi_table_begin(ptr nocapture noundef initializes((32, 44)) %desc, ptr noundef %array) local_unnamed_addr #0 {
+define dso_local void @acpi_table_begin(ptr noundef captures(none) initializes((32, 44)) %desc, ptr noundef %array) local_unnamed_addr #0 {
 entry:
   %val.addr.i.i64 = alloca i8, align 1
   %val.addr.i.i54 = alloca i8, align 1
@@ -4161,14 +4161,14 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %call3 = tail call ptr @g_array_append_vals(ptr noundef nonnull %array, ptr noundef %1, i32 noundef 4) #14
+  %call3 = tail call ptr @g_array_append_vals(ptr noundef nonnull %array, ptr noundef nonnull %1, i32 noundef 4) #14
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %do.end
   %i.05.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %do.end ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i)
   store i8 0, ptr %val.addr.i.i, align 1
-  %call.i.i = call ptr @g_array_append_vals(ptr noundef %array, ptr noundef nonnull %val.addr.i.i, i32 noundef 1) #14
+  %call.i.i = call ptr @g_array_append_vals(ptr noundef nonnull %array, ptr noundef nonnull %val.addr.i.i, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i)
   %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 4
@@ -4179,11 +4179,11 @@ build_append_int_noprefix.exit:                   ; preds = %for.body.i
   %2 = load i8, ptr %rev, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i17)
   store i8 %2, ptr %val.addr.i.i17, align 1
-  %call.i.i22 = call ptr @g_array_append_vals(ptr noundef %array, ptr noundef nonnull %val.addr.i.i17, i32 noundef 1) #14
+  %call.i.i22 = call ptr @g_array_append_vals(ptr noundef nonnull %array, ptr noundef nonnull %val.addr.i.i17, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i17)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i27)
   store i8 0, ptr %val.addr.i.i27, align 1
-  %call.i.i32 = call ptr @g_array_append_vals(ptr noundef %array, ptr noundef nonnull %val.addr.i.i27, i32 noundef 1) #14
+  %call.i.i32 = call ptr @g_array_append_vals(ptr noundef nonnull %array, ptr noundef nonnull %val.addr.i.i27, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i27)
   %oem_id = getelementptr inbounds nuw i8, ptr %desc, i64 16
   %3 = load ptr, ptr %oem_id, align 8
@@ -4199,7 +4199,7 @@ if.else.i:                                        ; preds = %build_append_int_no
 
 do.end.i:                                         ; preds = %build_append_int_noprefix.exit
   %conv.i37 = trunc nuw nsw i64 %call.i to i32
-  %call1.i = call ptr @g_array_append_vals(ptr noundef %array, ptr noundef %3, i32 noundef %conv.i37) #14
+  %call1.i = call ptr @g_array_append_vals(ptr noundef nonnull %array, ptr noundef nonnull %3, i32 noundef %conv.i37) #14
   %cmp2.not7.i = icmp eq i64 %call.i, 6
   br i1 %cmp2.not7.i, label %build_append_padded_str.exit, label %for.body.i38.preheader
 
@@ -4209,7 +4209,7 @@ for.body.i38.preheader:                           ; preds = %do.end.i
 
 for.body.i38:                                     ; preds = %for.body.i38.preheader, %for.body.i38
   %i.08.i = phi i64 [ %dec.i, %for.body.i38 ], [ %sub.i, %for.body.i38.preheader ]
-  %call4.i = call ptr @g_array_append_vals(ptr noundef %array, ptr noundef nonnull %pad.addr.i, i32 noundef 1) #14
+  %call4.i = call ptr @g_array_append_vals(ptr noundef nonnull %array, ptr noundef nonnull %pad.addr.i, i32 noundef 1) #14
   %dec.i = add i64 %i.08.i, -1
   %cmp2.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp2.not.i, label %build_append_padded_str.exit, label %for.body.i38, !llvm.loop !16
@@ -4230,7 +4230,7 @@ if.else.i52:                                      ; preds = %build_append_padded
 
 do.end.i42:                                       ; preds = %build_append_padded_str.exit
   %conv.i43 = trunc nuw nsw i64 %call.i40 to i32
-  %call1.i44 = call ptr @g_array_append_vals(ptr noundef %array, ptr noundef %4, i32 noundef %conv.i43) #14
+  %call1.i44 = call ptr @g_array_append_vals(ptr noundef nonnull %array, ptr noundef nonnull %4, i32 noundef %conv.i43) #14
   %cmp2.not7.i46 = icmp eq i64 %call.i40, 8
   br i1 %cmp2.not7.i46, label %build_append_padded_str.exit53, label %for.body.i47.preheader
 
@@ -4240,7 +4240,7 @@ for.body.i47.preheader:                           ; preds = %do.end.i42
 
 for.body.i47:                                     ; preds = %for.body.i47.preheader, %for.body.i47
   %i.08.i48 = phi i64 [ %dec.i50, %for.body.i47 ], [ %sub.i45, %for.body.i47.preheader ]
-  %call4.i49 = call ptr @g_array_append_vals(ptr noundef %array, ptr noundef nonnull %pad.addr.i39, i32 noundef 1) #14
+  %call4.i49 = call ptr @g_array_append_vals(ptr noundef nonnull %array, ptr noundef nonnull %pad.addr.i39, i32 noundef 1) #14
   %dec.i50 = add i64 %i.08.i48, -1
   %cmp2.not.i51 = icmp eq i64 %dec.i50, 0
   br i1 %cmp2.not.i51, label %build_append_padded_str.exit53, label %for.body.i47, !llvm.loop !16
@@ -4254,14 +4254,14 @@ for.body.i55:                                     ; preds = %for.body.i55, %buil
   %value.addr.04.i57 = phi i8 [ 0, %for.body.i55 ], [ 1, %build_append_padded_str.exit53 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i54)
   store i8 %value.addr.04.i57, ptr %val.addr.i.i54, align 1
-  %call.i.i59 = call ptr @g_array_append_vals(ptr noundef %array, ptr noundef nonnull %val.addr.i.i54, i32 noundef 1) #14
+  %call.i.i59 = call ptr @g_array_append_vals(ptr noundef nonnull %array, ptr noundef nonnull %val.addr.i.i54, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i54)
   %inc.i61 = add nuw nsw i32 %i.05.i56, 1
   %exitcond.not.i62 = icmp eq i32 %inc.i61, 4
   br i1 %exitcond.not.i62, label %build_append_int_noprefix.exit63, label %for.body.i55, !llvm.loop !8
 
 build_append_int_noprefix.exit63:                 ; preds = %for.body.i55
-  %call4 = call ptr @g_array_append_vals(ptr noundef %array, ptr noundef nonnull @.str.19, i32 noundef 4) #14
+  %call4 = call ptr @g_array_append_vals(ptr noundef nonnull %array, ptr noundef nonnull @.str.19, i32 noundef 4) #14
   br label %for.body.i65
 
 for.body.i65:                                     ; preds = %for.body.i65, %build_append_int_noprefix.exit63
@@ -4269,7 +4269,7 @@ for.body.i65:                                     ; preds = %for.body.i65, %buil
   %value.addr.04.i67 = phi i8 [ 0, %for.body.i65 ], [ 1, %build_append_int_noprefix.exit63 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i64)
   store i8 %value.addr.04.i67, ptr %val.addr.i.i64, align 1
-  %call.i.i69 = call ptr @g_array_append_vals(ptr noundef %array, ptr noundef nonnull %val.addr.i.i64, i32 noundef 1) #14
+  %call.i.i69 = call ptr @g_array_append_vals(ptr noundef nonnull %array, ptr noundef nonnull %val.addr.i.i64, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i64)
   %inc.i71 = add nuw nsw i32 %i.05.i66, 1
   %exitcond.not.i72 = icmp eq i32 %inc.i71, 4
@@ -4280,7 +4280,7 @@ build_append_int_noprefix.exit73:                 ; preds = %for.body.i65
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @acpi_table_end(ptr noundef %linker, ptr nocapture noundef readonly %desc) local_unnamed_addr #0 {
+define dso_local void @acpi_table_end(ptr noundef %linker, ptr noundef readonly captures(none) %desc) local_unnamed_addr #0 {
 entry:
   %array = getelementptr inbounds nuw i8, ptr %desc, i64 32
   %0 = load ptr, ptr %array, align 8
@@ -4337,7 +4337,7 @@ if.end:                                           ; preds = %entry
 declare i32 @g_array_get_element_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @acpi_add_table(ptr noundef %table_offsets, ptr nocapture noundef readonly %table_data) local_unnamed_addr #0 {
+define dso_local void @acpi_add_table(ptr noundef %table_offsets, ptr noundef readonly captures(none) %table_data) local_unnamed_addr #0 {
 entry:
   %offset = alloca i32, align 4
   %len = getelementptr inbounds nuw i8, ptr %table_data, i64 8
@@ -4348,7 +4348,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @acpi_build_tables_init(ptr nocapture noundef writeonly initializes((0, 48)) %tables) local_unnamed_addr #0 {
+define dso_local void @acpi_build_tables_init(ptr noundef writeonly captures(none) initializes((0, 48)) %tables) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   %rsdp = getelementptr inbounds nuw i8, ptr %tables, i64 8
@@ -4375,7 +4375,7 @@ declare ptr @g_array_new(i32 noundef, i32 noundef, i32 noundef) local_unnamed_ad
 declare ptr @bios_linker_loader_init() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @acpi_build_tables_cleanup(ptr nocapture noundef readonly %tables, i1 noundef zeroext %mfre) local_unnamed_addr #0 {
+define dso_local void @acpi_build_tables_cleanup(ptr noundef readonly captures(none) %tables, i1 noundef zeroext %mfre) local_unnamed_addr #0 {
 entry:
   %linker = getelementptr inbounds nuw i8, ptr %tables, i64 40
   %0 = load ptr, ptr %linker, align 8
@@ -4403,7 +4403,7 @@ declare void @bios_linker_loader_cleanup(ptr noundef) local_unnamed_addr #2
 declare ptr @g_array_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @build_rsdp(ptr noundef %tbl, ptr noundef %linker, ptr nocapture noundef readonly %rsdp_data) local_unnamed_addr #0 {
+define dso_local void @build_rsdp(ptr noundef %tbl, ptr noundef %linker, ptr noundef readonly captures(none) %rsdp_data) local_unnamed_addr #0 {
 entry:
   %val.addr.i.i76 = alloca i8, align 1
   %val.addr.i.i66 = alloca i8, align 1
@@ -4465,7 +4465,7 @@ for.body.i37:                                     ; preds = %sw.epilog, %for.bod
   %i.05.i38 = phi i32 [ %inc.i43, %for.body.i37 ], [ 0, %sw.epilog ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i36)
   store i8 0, ptr %val.addr.i.i36, align 1
-  %call.i.i41 = call ptr @g_array_append_vals(ptr noundef %tbl, ptr noundef nonnull %val.addr.i.i36, i32 noundef 1) #14
+  %call.i.i41 = call ptr @g_array_append_vals(ptr noundef nonnull %tbl, ptr noundef nonnull %val.addr.i.i36, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i36)
   %inc.i43 = add nuw nsw i32 %i.05.i38, 1
   %exitcond.not.i44 = icmp eq i32 %inc.i43, 4
@@ -4494,7 +4494,7 @@ for.body.i47:                                     ; preds = %if.end17, %for.body
   %value.addr.04.i49 = phi i8 [ 0, %for.body.i47 ], [ 36, %if.end17 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i46)
   store i8 %value.addr.04.i49, ptr %val.addr.i.i46, align 1
-  %call.i.i51 = call ptr @g_array_append_vals(ptr noundef %tbl, ptr noundef nonnull %val.addr.i.i46, i32 noundef 1) #14
+  %call.i.i51 = call ptr @g_array_append_vals(ptr noundef nonnull %tbl, ptr noundef nonnull %val.addr.i.i46, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i46)
   %inc.i53 = add nuw nsw i32 %i.05.i48, 1
   %exitcond.not.i54 = icmp eq i32 %inc.i53, 4
@@ -4504,7 +4504,7 @@ for.body.i57:                                     ; preds = %for.body.i47, %for.
   %i.05.i58 = phi i32 [ %inc.i63, %for.body.i57 ], [ 0, %for.body.i47 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i56)
   store i8 0, ptr %val.addr.i.i56, align 1
-  %call.i.i61 = call ptr @g_array_append_vals(ptr noundef %tbl, ptr noundef nonnull %val.addr.i.i56, i32 noundef 1) #14
+  %call.i.i61 = call ptr @g_array_append_vals(ptr noundef nonnull %tbl, ptr noundef nonnull %val.addr.i.i56, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i56)
   %inc.i63 = add nuw nsw i32 %i.05.i58, 1
   %exitcond.not.i64 = icmp eq i32 %inc.i63, 8
@@ -4518,7 +4518,7 @@ build_append_int_noprefix.exit65:                 ; preds = %for.body.i57
   call void @bios_linker_loader_add_pointer(ptr noundef %linker, ptr noundef nonnull @.str.24, i32 noundef %add23, i8 noundef zeroext 8, ptr noundef nonnull @.str.20, i32 noundef %10) #14
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i66)
   store i8 0, ptr %val.addr.i.i66, align 1
-  %call.i.i71 = call ptr @g_array_append_vals(ptr noundef %tbl, ptr noundef nonnull %val.addr.i.i66, i32 noundef 1) #14
+  %call.i.i71 = call ptr @g_array_append_vals(ptr noundef nonnull %tbl, ptr noundef nonnull %val.addr.i.i66, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i66)
   br label %for.body.i77
 
@@ -4526,7 +4526,7 @@ for.body.i77:                                     ; preds = %build_append_int_no
   %i.05.i78 = phi i32 [ %inc.i83, %for.body.i77 ], [ 0, %build_append_int_noprefix.exit65 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i76)
   store i8 0, ptr %val.addr.i.i76, align 1
-  %call.i.i81 = call ptr @g_array_append_vals(ptr noundef %tbl, ptr noundef nonnull %val.addr.i.i76, i32 noundef 1) #14
+  %call.i.i81 = call ptr @g_array_append_vals(ptr noundef nonnull %tbl, ptr noundef nonnull %val.addr.i.i76, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i76)
   %inc.i83 = add nuw nsw i32 %i.05.i78, 1
   %exitcond.not.i84 = icmp eq i32 %inc.i83, 3
@@ -4545,7 +4545,7 @@ declare void @bios_linker_loader_alloc(ptr noundef, ptr noundef, ptr noundef, i3
 declare void @bios_linker_loader_add_pointer(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @build_rsdt(ptr noundef %table_data, ptr noundef %linker, ptr nocapture noundef readonly %table_offsets, ptr noundef %oem_id, ptr noundef %oem_table_id) local_unnamed_addr #0 {
+define dso_local void @build_rsdt(ptr noundef %table_data, ptr noundef %linker, ptr noundef readonly captures(none) %table_offsets, ptr noundef %oem_id, ptr noundef %oem_table_id) local_unnamed_addr #0 {
 entry:
   %val.addr.i.i = alloca i8, align 1
   %table = alloca %struct.AcpiTable, align 8
@@ -4613,7 +4613,7 @@ for.end:                                          ; preds = %build_append_int_no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @build_xsdt(ptr noundef %table_data, ptr noundef %linker, ptr nocapture noundef readonly %table_offsets, ptr noundef %oem_id, ptr noundef %oem_table_id) local_unnamed_addr #0 {
+define dso_local void @build_xsdt(ptr noundef %table_data, ptr noundef %linker, ptr noundef readonly captures(none) %table_offsets, ptr noundef %oem_id, ptr noundef %oem_table_id) local_unnamed_addr #0 {
 entry:
   %val.addr.i.i = alloca i8, align 1
   %table = alloca %struct.AcpiTable, align 8
@@ -4826,7 +4826,7 @@ build_append_int_noprefix.exit112:                ; preds = %for.body.i104
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @build_slit(ptr noundef %table_data, ptr noundef %linker, ptr nocapture noundef readonly %ms, ptr noundef %oem_id, ptr noundef %oem_table_id) local_unnamed_addr #0 {
+define dso_local void @build_slit(ptr noundef %table_data, ptr noundef %linker, ptr noundef readonly captures(none) %ms, ptr noundef %oem_id, ptr noundef %oem_table_id) local_unnamed_addr #0 {
 entry:
   %val.addr.i.i14 = alloca i8, align 1
   %val.addr.i.i = alloca i8, align 1
@@ -5167,7 +5167,7 @@ build_append_int_noprefix.exit55:                 ; preds = %for.body.i47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @build_fadt(ptr noundef %tbl, ptr noundef %linker, ptr nocapture noundef readonly %f, ptr noundef %oem_id, ptr noundef %oem_table_id) local_unnamed_addr #0 {
+define dso_local void @build_fadt(ptr noundef %tbl, ptr noundef %linker, ptr noundef readonly captures(none) %f, ptr noundef %oem_id, ptr noundef %oem_table_id) local_unnamed_addr #0 {
 entry:
   %pad.addr.i = alloca i8, align 1
   %val.addr.i.i35.i586 = alloca i8, align 1
@@ -5938,7 +5938,7 @@ done:                                             ; preds = %build_append_padded
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @build_append_gas_from_struct(ptr noundef %table, ptr nocapture noundef readonly %s) unnamed_addr #0 {
+define internal fastcc void @build_append_gas_from_struct(ptr noundef %table, ptr noundef readonly captures(none) %s) unnamed_addr #0 {
 entry:
   %val.addr.i.i35.i = alloca i8, align 1
   %val.addr.i.i25.i = alloca i8, align 1
@@ -6153,12 +6153,12 @@ build_append_int_noprefix.exit74:                 ; preds = %for.body.i66
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare ptr @object_dynamic_cast(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @build_crs(ptr nocapture noundef readonly %host, ptr nocapture noundef readonly %range_set, i32 noundef %io_offset, i32 noundef %mmio32_offset, i64 noundef %mmio64_offset, i16 noundef zeroext %bus_nr_offset) local_unnamed_addr #0 {
+define dso_local noundef ptr @build_crs(ptr noundef readonly captures(none) %host, ptr noundef readonly captures(none) %range_set, i32 noundef %io_offset, i32 noundef %mmio32_offset, i64 noundef %mmio64_offset, i16 noundef zeroext %bus_nr_offset) local_unnamed_addr #0 {
 entry:
   %call.i.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
@@ -6700,7 +6700,7 @@ build_append_int_noprefix.exit17:                 ; preds = %for.body.i9
   %conv = add i16 %0, 1
   %12 = load ptr, ptr %call.i.i, align 8
   %conv5 = zext i16 %conv to i32
-  %call6 = call ptr @g_array_append_vals(ptr noundef %12, ptr noundef %resource_source, i32 noundef %conv5) #14
+  %call6 = call ptr @g_array_append_vals(ptr noundef %12, ptr noundef nonnull %resource_source, i32 noundef %conv5) #14
   ret ptr %call.i.i
 }
 
@@ -6817,10 +6817,10 @@ declare void @llvm.va_end.p0(ptr) #10
 declare i32 @llvm.ucmp.i32.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #11

@@ -42,15 +42,15 @@ define i32 @ramdisk_register(i32 noundef %0, ptr noundef %1, i32 noundef %2, i16
 declare noalias ptr @zalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare i32 @register_blockdriver(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @rd_open(ptr nocapture noundef readonly %0) #5 {
+define internal noundef i32 @rd_open(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 6
@@ -61,7 +61,7 @@ define internal noundef i32 @rd_open(ptr nocapture noundef readonly %0) #5 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @rd_close(ptr nocapture noundef readonly %0) #6 {
+define internal noundef i32 @rd_close(ptr noundef readonly captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 6
@@ -98,7 +98,7 @@ rd_destroy.exit:                                  ; preds = %12, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i64 -22, 4294967296) i64 @rd_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3) #5 {
+define internal range(i64 -22, 4294967296) i64 @rd_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
@@ -129,7 +129,7 @@ define internal range(i64 -22, 4294967296) i64 @rd_read(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i64 -27, 4294967296) i64 @rd_write(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #5 {
+define internal range(i64 -27, 4294967296) i64 @rd_write(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 7
@@ -167,7 +167,7 @@ define internal range(i64 -27, 4294967296) i64 @rd_write(ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -22, 1) i32 @rd_geometry(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) #7 {
+define internal range(i32 -22, 1) i32 @rd_geometry(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) #7 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %3
 
@@ -196,7 +196,7 @@ define internal range(i32 -22, 1) i32 @rd_geometry(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -25, 1) i32 @rd_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #5 {
+define internal range(i32 -25, 1) i32 @rd_ioctl(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2) #5 {
   %4 = icmp eq i32 %1, 1281
   %5 = icmp ne i64 %2, 0
   %or.cond = and i1 %4, %5
@@ -217,7 +217,7 @@ define internal range(i32 -25, 1) i32 @rd_ioctl(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @rd_unlink(ptr nocapture noundef readonly %0) #6 {
+define internal noundef i32 @rd_unlink(ptr noundef readonly captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 7
@@ -249,10 +249,10 @@ rd_destroy.exit:                                  ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

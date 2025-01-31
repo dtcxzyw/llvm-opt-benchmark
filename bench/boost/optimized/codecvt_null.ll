@@ -19,7 +19,7 @@ $_ZNK5boost7archive12codecvt_nullIwE13do_max_lengthEv = comdat any
 @_ZN5boost7archive12codecvt_nullIwED1Ev = unnamed_addr alias void (ptr), ptr @_ZN5boost7archive12codecvt_nullIwED2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 2) i32 @_ZNK5boost7archive12codecvt_nullIwE6do_outER11__mbstate_tPKwS6_RS6_PcS8_RS8_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 4 %1, ptr noundef %2, ptr noundef readnone %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %7) unnamed_addr #0 align 2 {
+define noundef range(i32 0, 2) i32 @_ZNK5boost7archive12codecvt_nullIwE6do_outER11__mbstate_tPKwS6_RS6_PcS8_RS8_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr noundef readnone %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %7) unnamed_addr #0 align 2 {
   %9 = ptrtoint ptr %6 to i64
   %.not17 = icmp eq ptr %2, %3
   br i1 %.not17, label %._crit_edge, label %.lr.ph
@@ -50,7 +50,7 @@ define noundef range(i32 0, 2) i32 @_ZNK5boost7archive12codecvt_nullIwE6do_outER
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 2) i32 @_ZNK5boost7archive12codecvt_nullIwE5do_inER11__mbstate_tPKcS6_RS6_PwS8_RS8_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 4 %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %4, ptr noundef %5, ptr noundef readnone %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %7) unnamed_addr #0 align 2 {
+define noundef range(i32 0, 2) i32 @_ZNK5boost7archive12codecvt_nullIwE5do_inER11__mbstate_tPKcS6_RS6_PwS8_RS8_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %4, ptr noundef %5, ptr noundef readnone %6, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %7) unnamed_addr #0 align 2 {
   %9 = ptrtoint ptr %3 to i64
   %.not20 = icmp eq ptr %5, %6
   %10 = icmp eq ptr %2, %3

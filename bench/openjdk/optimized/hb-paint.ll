@@ -22,7 +22,7 @@ $_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_
 @_hb_NullPool = external local_unnamed_addr constant [80 x i64], align 16
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_paint_funcs_set_push_transform_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_paint_funcs_set_push_transform_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -142,12 +142,12 @@ _ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZL27hb_paint_push_transform_nilP16hb_paint_funcs_tPvffffffS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, float %2, float %3, float %4, float %5, float %6, float %7, ptr nocapture readnone %8) #1 {
+define internal void @_ZL27hb_paint_push_transform_nilP16hb_paint_funcs_tPvffffffS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, float %2, float %3, float %4, float %5, float %6, float %7, ptr readnone captures(none) %8) #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_paint_funcs_set_pop_transform_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_paint_funcs_set_pop_transform_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -271,12 +271,12 @@ _ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZL26hb_paint_pop_transform_nilP16hb_paint_funcs_tPvS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #1 {
+define internal void @_ZL26hb_paint_pop_transform_nilP16hb_paint_funcs_tPvS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_paint_funcs_set_color_glyph_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_paint_funcs_set_color_glyph_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -400,12 +400,12 @@ _ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL24hb_paint_color_glyph_nilP16hb_paint_funcs_tPvjP9hb_font_tS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @_ZL24hb_paint_color_glyph_nilP16hb_paint_funcs_tPvjP9hb_font_tS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_paint_funcs_set_push_clip_glyph_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_paint_funcs_set_push_clip_glyph_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -529,12 +529,12 @@ _ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZL28hb_paint_push_clip_glyph_nilP16hb_paint_funcs_tPvjP9hb_font_tS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @_ZL28hb_paint_push_clip_glyph_nilP16hb_paint_funcs_tPvjP9hb_font_tS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_paint_funcs_set_push_clip_rectangle_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_paint_funcs_set_push_clip_rectangle_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -658,12 +658,12 @@ _ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZL32hb_paint_push_clip_rectangle_nilP16hb_paint_funcs_tPvffffS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, float %2, float %3, float %4, float %5, ptr nocapture readnone %6) #1 {
+define internal void @_ZL32hb_paint_push_clip_rectangle_nilP16hb_paint_funcs_tPvffffS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, float %2, float %3, float %4, float %5, ptr readnone captures(none) %6) #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_paint_funcs_set_pop_clip_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_paint_funcs_set_pop_clip_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -787,12 +787,12 @@ _ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZL21hb_paint_pop_clip_nilP16hb_paint_funcs_tPvS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #1 {
+define internal void @_ZL21hb_paint_pop_clip_nilP16hb_paint_funcs_tPvS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_paint_funcs_set_color_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_paint_funcs_set_color_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -916,12 +916,12 @@ _ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZL18hb_paint_color_nilP16hb_paint_funcs_tPvijS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3, ptr nocapture readnone %4) #1 {
+define internal void @_ZL18hb_paint_color_nilP16hb_paint_funcs_tPvijS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3, ptr readnone captures(none) %4) #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_paint_funcs_set_image_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_paint_funcs_set_image_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -1045,12 +1045,12 @@ _ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL18hb_paint_image_nilP16hb_paint_funcs_tPvP9hb_blob_tjjjfP18hb_glyph_extents_tS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 %3, i32 %4, i32 %5, float %6, ptr nocapture readnone %7, ptr nocapture readnone %8) #1 {
+define internal noundef i32 @_ZL18hb_paint_image_nilP16hb_paint_funcs_tPvP9hb_blob_tjjjfP18hb_glyph_extents_tS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 %3, i32 %4, i32 %5, float %6, ptr readnone captures(none) %7, ptr readnone captures(none) %8) #1 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_paint_funcs_set_linear_gradient_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_paint_funcs_set_linear_gradient_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -1174,12 +1174,12 @@ _ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZL28hb_paint_linear_gradient_nilP16hb_paint_funcs_tPvP15hb_color_line_tffffffS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, float %3, float %4, float %5, float %6, float %7, float %8, ptr nocapture readnone %9) #1 {
+define internal void @_ZL28hb_paint_linear_gradient_nilP16hb_paint_funcs_tPvP15hb_color_line_tffffffS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, float %3, float %4, float %5, float %6, float %7, float %8, ptr readnone captures(none) %9) #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_paint_funcs_set_radial_gradient_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_paint_funcs_set_radial_gradient_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -1303,12 +1303,12 @@ _ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZL28hb_paint_radial_gradient_nilP16hb_paint_funcs_tPvP15hb_color_line_tffffffS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, float %3, float %4, float %5, float %6, float %7, float %8, ptr nocapture readnone %9) #1 {
+define internal void @_ZL28hb_paint_radial_gradient_nilP16hb_paint_funcs_tPvP15hb_color_line_tffffffS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, float %3, float %4, float %5, float %6, float %7, float %8, ptr readnone captures(none) %9) #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_paint_funcs_set_sweep_gradient_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_paint_funcs_set_sweep_gradient_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -1432,12 +1432,12 @@ _ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZL27hb_paint_sweep_gradient_nilP16hb_paint_funcs_tPvP15hb_color_line_tffffS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, float %3, float %4, float %5, float %6, ptr nocapture readnone %7) #1 {
+define internal void @_ZL27hb_paint_sweep_gradient_nilP16hb_paint_funcs_tPvP15hb_color_line_tffffS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, float %3, float %4, float %5, float %6, ptr readnone captures(none) %7) #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_paint_funcs_set_push_group_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_paint_funcs_set_push_group_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -1561,12 +1561,12 @@ _ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZL23hb_paint_push_group_nilP16hb_paint_funcs_tPvS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #1 {
+define internal void @_ZL23hb_paint_push_group_nilP16hb_paint_funcs_tPvS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_paint_funcs_set_pop_group_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_paint_funcs_set_pop_group_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -1690,12 +1690,12 @@ _ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZL22hb_paint_pop_group_nilP16hb_paint_funcs_tPv25hb_paint_composite_mode_tS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3) #1 {
+define internal void @_ZL22hb_paint_pop_group_nilP16hb_paint_funcs_tPv25hb_paint_composite_mode_tS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3) #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_paint_funcs_set_custom_palette_color_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_paint_funcs_set_custom_palette_color_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -1819,7 +1819,7 @@ _ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL33hb_paint_custom_palette_color_nilP16hb_paint_funcs_tPvjPjS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @_ZL33hb_paint_custom_palette_color_nilP16hb_paint_funcs_tPvjPjS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #1 {
   ret i32 0
 }
 
@@ -1846,7 +1846,7 @@ define hidden nonnull ptr @hb_paint_funcs_create() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull ptr @hb_paint_funcs_get_empty() local_unnamed_addr #1 {
@@ -2257,7 +2257,7 @@ _ZL17hb_object_destroyI16hb_paint_funcs_tEbPT_.exit.thread: ; preds = %1, %5, %2
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define hidden range(i32 0, 2) i32 @hb_paint_funcs_set_user_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -2369,7 +2369,7 @@ _ZL23hb_object_get_user_dataIK16hb_paint_funcs_tEPvPT_P18hb_user_data_key_t.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @hb_paint_funcs_make_immutable(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define hidden void @hb_paint_funcs_make_immutable(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load atomic i32, ptr %2 monotonic, align 4
   %.not.i = icmp eq i32 %3, 0
@@ -2384,7 +2384,7 @@ define hidden void @hb_paint_funcs_make_immutable(ptr nocapture noundef %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @hb_paint_funcs_is_immutable(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @hb_paint_funcs_is_immutable(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load atomic i32, ptr %2 monotonic, align 4
   %.not.i = icmp eq i32 %3, 0
@@ -2701,7 +2701,7 @@ _ZN16hb_paint_funcs_t20custom_palette_colorEPvjPj.exit: ; preds = %4, %9
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 comdat align 2 {
@@ -3012,7 +3012,7 @@ _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %19, %17, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

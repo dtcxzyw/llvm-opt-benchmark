@@ -300,7 +300,7 @@ declare ptr @g_list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @recent_insert_column(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 2147483647) i32 @column_prefs_has_custom(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden range(i32 -2147483648, 2147483647) i32 @column_prefs_has_custom(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 8), align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
@@ -346,7 +346,7 @@ define hidden range(i32 -2147483648, 2147483647) i32 @column_prefs_has_custom(pt
 declare ptr @g_list_nth(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @column_prefs_custom_resolve(ptr noundef %0) local_unnamed_addr #1 {
@@ -487,7 +487,7 @@ column_prefs_remove_link.exit:                    ; preds = %1, %4, %6
 declare void @recent_remove_column(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @save_migrated_uat(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define hidden void @save_migrated_uat(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = tail call ptr @uat_get_table_by_name(ptr noundef %0) #6

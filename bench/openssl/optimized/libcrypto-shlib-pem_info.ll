@@ -301,7 +301,7 @@ if.then158:                                       ; preds = %if.else154
 
 if.else161:                                       ; preds = %lor.lhs.false124, %if.end118
   %enc_cipher = getelementptr inbounds nuw i8, ptr %xi.2, i64 24
-  %call162 = call i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %7, ptr noundef nonnull %enc_cipher) #3
+  %call162 = call i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef nonnull %7, ptr noundef nonnull %enc_cipher) #3
   %tobool163.not = icmp eq i32 %call162, 0
   br i1 %tobool163.not, label %err, label %if.end165
 
@@ -421,7 +421,7 @@ declare i32 @ERR_pop_to_mark() local_unnamed_addr #1
 declare i32 @ERR_clear_last_mark() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -434,7 +434,7 @@ declare ptr @X509_new_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @d2i_X509_CRL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @evp_pkey_name2type(ptr noundef) local_unnamed_addr #1
 
@@ -443,7 +443,7 @@ declare ptr @d2i_AutoPrivateKey(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare ptr @X509_PKEY_new() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef, ptr noundef) local_unnamed_addr #1
 

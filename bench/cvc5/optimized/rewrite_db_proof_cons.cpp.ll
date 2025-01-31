@@ -64,7 +64,7 @@ declare void @_ZN4cvc58internal8rewriter17BasicRewriteRConsC1ERNS0_3EnvE(ptr nou
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal8rewriter18RewriteDbProofCons5proveEPNS0_7CDProofENS0_12NodeTemplateILb1EEES6_NS0_6theory8TheoryIdENS0_8MethodIdEl(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %cdp, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %tid, i32 noundef %mid, i64 noundef %recLimit) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal8rewriter18RewriteDbProofCons5proveEPNS0_7CDProofENS0_12NodeTemplateILb1EEES6_NS0_6theory8TheoryIdENS0_8MethodIdEl(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %cdp, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, i32 noundef %tid, i32 noundef %mid, i64 noundef %recLimit) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end17:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp18 = alloca %"class.cvc5::internal::NodeTemplate", align 8

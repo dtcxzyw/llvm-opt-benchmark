@@ -556,7 +556,7 @@ declare i32 @ompi_errcode_intern_init() local_unnamed_addr #1
 declare i32 @ompi_mpiinfo_init() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_mpi_instance_init(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define i32 @ompi_mpi_instance_init(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
@@ -2277,7 +2277,7 @@ ompi_mpi_instance_release.exit:                   ; preds = %opal_obj_run_destru
 declare i32 @opal_info_dup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_mpi_instance_finalize(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define i32 @ompi_mpi_instance_finalize(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i8, ptr @opal_uses_threads, align 1
@@ -2347,10 +2347,10 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_instance_get_num_psets(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define noundef i32 @ompi_instance_get_num_psets(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
   tail call fastcc void @ompi_instance_refresh_pmix_psets(ptr noundef nonnull @.str.8)
   %3 = load i64, ptr @ompi_mpi_instance_num_pmix_psets, align 8
   %4 = trunc i64 %3 to i32
@@ -2464,7 +2464,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i4, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 1) i32 @ompi_instance_get_nth_pset(ptr nocapture noundef readnone %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @ompi_instance_get_nth_pset(ptr noundef readnone captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @ompi_mpi_instance_pmix_psets, align 8
   %6 = icmp eq ptr %5, null
   %.pre23 = sext i32 %1 to i64
@@ -2535,10 +2535,10 @@ define range(i32 -5, 1) i32 @ompi_instance_get_nth_pset(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #4
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @ompi_group_from_pset(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
@@ -2791,7 +2791,7 @@ ompi_instance_group_self.exit:                    ; preds = %68, %opal_obj_new.e
   %122 = phi ptr [ %118, %.lr.ph.i22 ], [ %151, %opal_thread_add_fetch_32.exit.i26 ]
   %.04262.i = phi i64 [ 0, %.lr.ph.i22 ], [ %149, %opal_thread_add_fetch_32.exit.i26 ]
   %123 = load i32, ptr @opal_process_info, align 8
-  %124 = call i64 @strtoul(ptr nocapture noundef nonnull %122, ptr noundef null, i32 noundef 10) #13
+  %124 = call i64 @strtoul(ptr noundef nonnull captures(none) %122, ptr noundef null, i32 noundef 10) #13
   %.sroa.3.0.insert.ext.i23 = shl i64 %124, 32
   %.sroa.0.0.insert.ext.i24 = zext i32 %123 to i64
   %.sroa.0.0.insert.insert.i25 = or disjoint i64 %.sroa.3.0.insert.ext.i23, %.sroa.0.0.insert.ext.i24
@@ -2874,7 +2874,7 @@ ompi_instance_group_shared.exit:                  ; preds = %93, %107, %110, %12
   store ptr %156, ptr %157, align 8
   %158 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 1, ptr %158, align 8
-  %159 = call i32 @PMIx_Info_load(ptr noundef %156, ptr noundef nonnull @.str.72, ptr noundef %.1, i16 noundef zeroext 3) #13
+  %159 = call i32 @PMIx_Info_load(ptr noundef %156, ptr noundef nonnull @.str.72, ptr noundef nonnull %.1, i16 noundef zeroext 3) #13
   %160 = call i32 @PMIx_Query_info(ptr noundef nonnull %6, i64 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %8) #13
   %.not60.i = icmp eq i32 %160, -46
   br i1 %.not60.i, label %.lr.ph.preheader.i, label %._crit_edge.i29
@@ -2885,7 +2885,7 @@ ompi_instance_group_shared.exit:                  ; preds = %93, %107, %110, %12
   %161 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %6, ptr noundef nonnull @.str.71) #13
   %162 = call ptr @PMIx_Info_create(i64 noundef 2) #13
   store ptr %162, ptr %157, align 8
-  %163 = call i32 @PMIx_Info_load(ptr noundef %162, ptr noundef nonnull @.str.72, ptr noundef %.1, i16 noundef zeroext 3) #13
+  %163 = call i32 @PMIx_Info_load(ptr noundef %162, ptr noundef nonnull @.str.72, ptr noundef nonnull %.1, i16 noundef zeroext 3) #13
   %164 = load ptr, ptr %157, align 8
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 552
   %166 = call i32 @PMIx_Info_load(ptr noundef nonnull %165, ptr noundef nonnull @.str.66, ptr noundef nonnull %5, i16 noundef zeroext 1) #13
@@ -3028,13 +3028,13 @@ ompi_instance_group_world.exit:                   ; preds = %._crit_edge.i, %24,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_instance_get_pset_info(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define i32 @ompi_instance_get_pset_info(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.pmix_proc, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -3183,7 +3183,7 @@ define i32 @ompi_instance_get_pset_info(ptr nocapture noundef readnone %0, ptr n
 declare ptr @ompi_info_allocate() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare i32 @opal_info_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3251,7 +3251,7 @@ declare void @PMIx_Info_destruct(ptr noundef) local_unnamed_addr #1
 declare i32 @opal_pmix_convert_status(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare i32 @ompi_mpiinfo_init_env(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3513,7 +3513,7 @@ define internal void @ompi_instance_get_num_psets_complete(i32 %0, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @PMIx_Value_unload(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3536,7 +3536,7 @@ declare i32 @PMIx_Get(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr no
 declare void @PMIx_Value_free(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #11
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #11
 
 declare i32 @PMIx_Query_info(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3547,10 +3547,10 @@ declare i32 @opal_pmix_convert_nspace(ptr noundef, ptr noundef) local_unnamed_ad
 declare ptr @ompi_proc_find_and_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

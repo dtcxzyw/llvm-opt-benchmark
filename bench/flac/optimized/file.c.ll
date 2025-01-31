@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @stdout = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @grabbag__file_copy_metadata(ptr nocapture noundef readonly %srcpath, ptr noundef %destpath) local_unnamed_addr #0 {
+define dso_local void @grabbag__file_copy_metadata(ptr noundef readonly captures(none) %srcpath, ptr noundef %destpath) local_unnamed_addr #0 {
 entry:
   %srcstat = alloca %struct.stat, align 8
   %srctime = alloca [2 x %struct.timespec], align 16
@@ -38,19 +38,19 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #1
+declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
 declare i32 @utimensat(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local i64 @grabbag__file_get_filesize(ptr nocapture noundef readonly %srcpath) local_unnamed_addr #4 {
+define dso_local i64 @grabbag__file_get_filesize(ptr noundef readonly captures(none) %srcpath) local_unnamed_addr #4 {
 entry:
   %srcstat = alloca %struct.stat, align 8
   %call = call i32 @stat64(ptr noundef %srcpath, ptr noundef nonnull %srcstat) #9
@@ -75,7 +75,7 @@ entry:
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @grabbag__file_change_stats(ptr nocapture noundef readonly %filename, i32 noundef %read_only) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @grabbag__file_change_stats(ptr noundef readonly captures(none) %filename, i32 noundef %read_only) local_unnamed_addr #4 {
 entry:
   %stats = alloca %struct.stat, align 8
   %call = call i32 @stat64(ptr noundef %filename, ptr noundef nonnull %stats) #9
@@ -140,7 +140,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @grabbag__file_remove_file(ptr nocapture noundef readonly %filename) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @grabbag__file_remove_file(ptr noundef readonly captures(none) %filename) local_unnamed_addr #4 {
 entry:
   %stats.i = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %stats.i)
@@ -173,7 +173,7 @@ land.end:                                         ; preds = %grabbag__file_chang
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local ptr @grabbag__file_get_binary_stdin() local_unnamed_addr #7 {
@@ -190,10 +190,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

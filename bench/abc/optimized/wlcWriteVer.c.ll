@@ -171,7 +171,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.176 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Wlc_WriteTableOne(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @Wlc_WriteTableOne(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %4) #12
   %7 = add nsw i32 %1, -1
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %7) #12
@@ -217,10 +217,10 @@ define void @Wlc_WriteTableOne(ptr nocapture noundef %0, i32 noundef %1, i32 nou
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_WriteTables(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @Wlc_WriteTables(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 672
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -363,7 +363,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2.thread, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_WriteAddPos(ptr nocapture noundef initializes((36, 40)) %0) local_unnamed_addr #2 {
+define void @Wlc_WriteAddPos(ptr noundef captures(none) initializes((36, 40)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %3, align 4
@@ -475,7 +475,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_WriteVerIntVec(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #2 {
+define void @Wlc_WriteVerIntVec(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr i8, ptr %2, i64 4
   %.val2325 = load i32, ptr %5, align 4
   %6 = icmp sgt i32 %.val2325, 0
@@ -516,7 +516,7 @@ define void @Wlc_WriteVerIntVec(ptr nocapture noundef %0, ptr noundef %1, ptr no
   %22 = zext i32 %21 to i64
   %23 = icmp eq i64 %indvars.iv, %22
   %24 = select i1 %23, ptr @.str.14, ptr @.str.15
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %11, ptr noundef nonnull %24) #12
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull %11, ptr noundef nonnull %24) #12
   %26 = add nsw i32 %.1, %14
   %27 = add nsw i32 %.122, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -532,10 +532,10 @@ define void @Wlc_WriteVerIntVec(ptr nocapture noundef %0, ptr noundef %1, ptr no
 declare ptr @Wlc_ObjName(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, -2147483648) i32 @Wlc_ObjFaninBitNum(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define range(i32 0, -2147483648) i32 @Wlc_ObjFaninBitNum(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val11 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val11, 0
@@ -698,7 +698,7 @@ define void @Wlc_WriteVerInt(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   %33 = zext i32 %32 to i64
   %34 = icmp eq i64 %indvars.iv.i, %33
   %35 = select i1 %34, ptr @.str.14, ptr @.str.15
-  %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %22, ptr noundef nonnull %35) #12
+  %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull %22, ptr noundef nonnull %35) #12
   %37 = add nsw i32 %.1.i, %25
   %38 = add nsw i32 %.122.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -778,7 +778,7 @@ Wlc_WriteVerIntVec.exit:                          ; preds = %31, %14
   %70 = zext i32 %69 to i64
   %71 = icmp eq i64 %indvars.iv.i907, %70
   %72 = select i1 %71, ptr @.str.14, ptr @.str.15
-  %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %59, ptr noundef nonnull %72) #12
+  %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull %59, ptr noundef nonnull %72) #12
   %74 = add nsw i32 %.1.i913, %62
   %75 = add nsw i32 %.122.i912, 1
   %indvars.iv.next.i915 = add nuw nsw i64 %indvars.iv.i907, 1
@@ -3149,7 +3149,7 @@ Abc_Base10Log.exit1063:                           ; preds = %.lr.ph.i1058, %1200
   %1223 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1211) #15
   %1224 = trunc i64 %1223 to i32
   %1225 = sub nsw i32 11, %1224
-  %1226 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.143, ptr noundef %1211, i32 noundef %1225, ptr noundef nonnull @.str.14) #12
+  %1226 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.143, ptr noundef nonnull %1211, i32 noundef %1225, ptr noundef nonnull @.str.14) #12
   %1227 = load ptr, ptr %1193, align 8
   %.val880 = load i32, ptr %9, align 4
   %1228 = trunc nuw nsw i64 %indvars.iv1242 to i32
@@ -3498,12 +3498,12 @@ Wlc_ObjFaninId.exit1077:                          ; preds = %1387, %Wlc_ObjHasAr
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare void @Extra_PrintHex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @Wlc_WriteVer(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
@@ -3544,33 +3544,33 @@ define void @Wlc_WriteVer(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 no
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 declare ptr @Extra_TimeStamp(...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #11

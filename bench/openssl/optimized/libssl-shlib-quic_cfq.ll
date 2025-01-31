@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [31 x i8] c"../openssl/ssl/quic/quic_cfq.c\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_quic_cfq_item_get_frame_type(ptr nocapture noundef readonly %item) local_unnamed_addr #0 {
+define i64 @ossl_quic_cfq_item_get_frame_type(ptr noundef readonly captures(none) %item) local_unnamed_addr #0 {
 entry:
   %frame_type = getelementptr inbounds nuw i8, ptr %item, i64 56
   %0 = load i64, ptr %frame_type, align 8
@@ -14,7 +14,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_quic_cfq_item_get_encoded(ptr nocapture noundef readonly %item) local_unnamed_addr #0 {
+define ptr @ossl_quic_cfq_item_get_encoded(ptr noundef readonly captures(none) %item) local_unnamed_addr #0 {
 entry:
   %encoded = getelementptr inbounds nuw i8, ptr %item, i64 32
   %0 = load ptr, ptr %encoded, align 8
@@ -22,7 +22,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_quic_cfq_item_get_encoded_len(ptr nocapture noundef readonly %item) local_unnamed_addr #0 {
+define i64 @ossl_quic_cfq_item_get_encoded_len(ptr noundef readonly captures(none) %item) local_unnamed_addr #0 {
 entry:
   %encoded_len = getelementptr inbounds nuw i8, ptr %item, i64 64
   %0 = load i64, ptr %encoded_len, align 8
@@ -30,7 +30,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_quic_cfq_item_get_state(ptr nocapture noundef readonly %item) local_unnamed_addr #0 {
+define i32 @ossl_quic_cfq_item_get_state(ptr noundef readonly captures(none) %item) local_unnamed_addr #0 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %item, i64 84
   %0 = load i32, ptr %state, align 4
@@ -38,7 +38,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_quic_cfq_item_get_pn_space(ptr nocapture noundef readonly %item) local_unnamed_addr #0 {
+define i32 @ossl_quic_cfq_item_get_pn_space(ptr noundef readonly captures(none) %item) local_unnamed_addr #0 {
 entry:
   %pn_space = getelementptr inbounds nuw i8, ptr %item, i64 76
   %0 = load i32, ptr %pn_space, align 4
@@ -46,7 +46,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_quic_cfq_item_is_unreliable(ptr nocapture noundef readonly %item) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_cfq_item_is_unreliable(ptr noundef readonly captures(none) %item) local_unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %item, i64 80
   %0 = load i32, ptr %flags, align 8
@@ -181,7 +181,7 @@ return:                                           ; preds = %entry, %free_list_i
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_quic_cfq_add_frame(ptr nocapture noundef %cfq, i32 noundef %priority, i32 noundef %pn_space, i64 noundef %frame_type, i32 noundef %flags, ptr noundef %encoded, i64 noundef %encoded_len, ptr noundef %free_cb, ptr noundef %free_cb_arg) local_unnamed_addr #1 {
+define ptr @ossl_quic_cfq_add_frame(ptr noundef captures(none) %cfq, i32 noundef %priority, i32 noundef %pn_space, i64 noundef %frame_type, i32 noundef %flags, ptr noundef %encoded, i64 noundef %encoded_len, ptr noundef %free_cb, ptr noundef %free_cb_arg) local_unnamed_addr #1 {
 entry:
   %free_list.i = getelementptr inbounds nuw i8, ptr %cfq, i64 32
   %0 = load ptr, ptr %free_list.i, align 8
@@ -406,7 +406,7 @@ return:                                           ; preds = %if.then7.i.i, %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ossl_quic_cfq_mark_tx(ptr nocapture noundef %cfq, ptr noundef %item) local_unnamed_addr #3 {
+define void @ossl_quic_cfq_mark_tx(ptr noundef captures(none) %cfq, ptr noundef %item) local_unnamed_addr #3 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %item, i64 84
   %0 = load i32, ptr %state, align 4
@@ -492,7 +492,7 @@ sw.epilog:                                        ; preds = %entry, %list_insert
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_quic_cfq_mark_lost(ptr nocapture noundef %cfq, ptr noundef %item, i32 noundef %priority) local_unnamed_addr #1 {
+define void @ossl_quic_cfq_mark_lost(ptr noundef captures(none) %cfq, ptr noundef %item, i32 noundef %priority) local_unnamed_addr #1 {
 entry:
   %flags.i = getelementptr inbounds nuw i8, ptr %item, i64 80
   %0 = load i32, ptr %flags.i, align 8
@@ -862,7 +862,7 @@ sw.epilog:                                        ; preds = %if.then7.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_quic_cfq_release(ptr nocapture noundef %cfq, ptr noundef %item) local_unnamed_addr #1 {
+define void @ossl_quic_cfq_release(ptr noundef captures(none) %cfq, ptr noundef %item) local_unnamed_addr #1 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %item, i64 84
   %0 = load i32, ptr %state, align 4
@@ -1046,7 +1046,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @ossl_quic_cfq_get_priority_head(ptr nocapture noundef readonly %cfq, i32 noundef %pn_space) local_unnamed_addr #4 {
+define ptr @ossl_quic_cfq_get_priority_head(ptr noundef readonly captures(none) %cfq, i32 noundef %pn_space) local_unnamed_addr #4 {
 entry:
   %item.05 = load ptr, ptr %cfq, align 8
   %cond6 = icmp eq ptr %item.05, null
@@ -1095,7 +1095,7 @@ return:                                           ; preds = %land.rhs, %for.cond
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

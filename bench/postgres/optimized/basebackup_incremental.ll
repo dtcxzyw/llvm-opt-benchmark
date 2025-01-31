@@ -111,13 +111,13 @@ define dso_local void @FinalizeIncrementalManifest(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @manifest_process_file(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i32 %3, i32 %4, ptr nocapture readnone %5) #0 {
+define internal void @manifest_process_file(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i32 %3, i32 %4, ptr readnone captures(none) %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %11 = trunc i64 %10 to i32
-  %12 = tail call i32 @hash_bytes(ptr noundef %1, i32 noundef %11) #12
+  %12 = tail call i32 @hash_bytes(ptr noundef nonnull %1, i32 noundef %11) #12
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -214,7 +214,7 @@ backup_file_update_parameters.exit.i.i.i:         ; preds = %backup_file_compute
   %.val53.i.i.i = load ptr, ptr %62, align 8
   %63 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val53.i.i.i) #13
   %64 = trunc i64 %63 to i32
-  %65 = tail call i32 @hash_bytes(ptr noundef %.val53.i.i.i, i32 noundef %64) #12
+  %65 = tail call i32 @hash_bytes(ptr noundef nonnull %.val53.i.i.i, i32 noundef %64) #12
   %.val56.i.i.i = load i32, ptr %17, align 4
   %66 = and i32 %.val56.i.i.i, %65
   %67 = icmp eq i32 %66, %.058.i.i.i
@@ -244,7 +244,7 @@ backup_file_update_parameters.exit.i.i.i:         ; preds = %backup_file_compute
   %.val54.i.i.i = load ptr, ptr %77, align 8
   %78 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val54.i.i.i) #13
   %79 = trunc i64 %78 to i32
-  %80 = tail call i32 @hash_bytes(ptr noundef %.val54.i.i.i, i32 noundef %79) #12
+  %80 = tail call i32 @hash_bytes(ptr noundef nonnull %.val54.i.i.i, i32 noundef %79) #12
   %.val55.i.i.i = load i32, ptr %17, align 4
   br label %81
 
@@ -308,7 +308,7 @@ backup_file_grow.exit.i.i:                        ; preds = %88, %backup_file_up
 109:                                              ; preds = %.lr.ph.i.i
   %110 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %106) #13
   %111 = trunc i64 %110 to i32
-  %112 = tail call i32 @hash_bytes(ptr noundef %106, i32 noundef %111) #12
+  %112 = tail call i32 @hash_bytes(ptr noundef nonnull %106, i32 noundef %111) #12
   %.val76.i.i = load i32, ptr %17, align 4
   %113 = and i32 %.val76.i.i, %112
   %.not.i81.i.i = icmp ugt i32 %113, %.069113.i.i
@@ -418,7 +418,7 @@ backup_file_distance.exit.i.i:                    ; preds = %114, %109
   %166 = load ptr, ptr %8, align 8
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 32
   %168 = load ptr, ptr %167, align 8
-  %169 = tail call ptr @MemoryContextStrdup(ptr noundef %168, ptr noundef %1) #12
+  %169 = tail call ptr @MemoryContextStrdup(ptr noundef %168, ptr noundef nonnull %1) #12
   %170 = getelementptr inbounds nuw i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 8
   store ptr %169, ptr %170, align 8
   %171 = getelementptr inbounds nuw i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 16
@@ -430,7 +430,7 @@ backup_file_insert.exit.thread:                   ; preds = %.lr.ph.i.i, %165
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @manifest_process_wal_range(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+define internal void @manifest_process_wal_range(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = tail call ptr @palloc(i64 noundef 24) #12
   store i32 %1, ptr %6, align 8
@@ -446,7 +446,7 @@ define internal void @manifest_process_wal_range(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal void @manifest_report_error(ptr nocapture readnone %0, ptr noundef %1, ...) #2 {
+define internal void @manifest_report_error(ptr readnone captures(none) %0, ptr noundef %1, ...) #2 {
   %3 = alloca %struct.StringInfoData, align 8
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @initStringInfo(ptr noundef nonnull %3) #12
@@ -479,7 +479,7 @@ declare void @json_parse_manifest(ptr noundef, ptr noundef, i64 noundef) local_u
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PrepareForIncrementalBackup(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @PrepareForIncrementalBackup(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.WalSummaryIO, align 8
@@ -1148,16 +1148,16 @@ define dso_local ptr @GetIncrementalFilePath(i32 noundef %0, i32 noundef %1, i32
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.15, ptr noundef %6, ptr noundef %8, i32 noundef %4) #12
+  %10 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.15, ptr noundef nonnull %6, ptr noundef %8, i32 noundef %4) #12
   br label %13
 
 11:                                               ; preds = %5
-  %12 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.16, ptr noundef %6, ptr noundef %8) #12
+  %12 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.16, ptr noundef nonnull %6, ptr noundef %8) #12
   br label %13
 
 13:                                               ; preds = %11, %9
   %.0 = phi ptr [ %10, %9 ], [ %12, %11 ]
-  tail call void @pfree(ptr noundef %6) #12
+  tail call void @pfree(ptr noundef nonnull %6) #12
   ret ptr %.0
 }
 
@@ -1169,7 +1169,7 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @GetFileBackupMethod(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9, ptr nocapture noundef writeonly %10) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @GetFileBackupMethod(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7, ptr noundef writeonly captures(none) %8, ptr noundef writeonly captures(none) %9, ptr noundef writeonly captures(none) %10) local_unnamed_addr #0 {
   %12 = alloca [131072 x i32], align 16
   %13 = alloca i32, align 4
   %14 = alloca %struct.RelFileLocator, align 4
@@ -1189,7 +1189,7 @@ define dso_local range(i32 0, 2) i32 @GetFileBackupMethod(ptr nocapture noundef 
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %24 = trunc i64 %23 to i32
-  %25 = tail call i32 @hash_bytes(ptr noundef %1, i32 noundef %24) #12
+  %25 = tail call i32 @hash_bytes(ptr noundef nonnull %1, i32 noundef %24) #12
   %26 = getelementptr i8, ptr %22, i64 12
   %.val.i.i = load i32, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 24
@@ -1228,20 +1228,20 @@ define dso_local range(i32 0, 2) i32 @GetFileBackupMethod(ptr nocapture noundef 
   br i1 %.not.i, label %49, label %47
 
 47:                                               ; preds = %.loopexit
-  %48 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.15, ptr noundef %44, ptr noundef %46, i32 noundef %6) #12
+  %48 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.15, ptr noundef nonnull %44, ptr noundef %46, i32 noundef %6) #12
   br label %GetIncrementalFilePath.exit
 
 49:                                               ; preds = %.loopexit
-  %50 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.16, ptr noundef %44, ptr noundef %46) #12
+  %50 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.16, ptr noundef nonnull %44, ptr noundef %46) #12
   br label %GetIncrementalFilePath.exit
 
 GetIncrementalFilePath.exit:                      ; preds = %47, %49
   %.0.i = phi ptr [ %48, %47 ], [ %50, %49 ]
-  tail call void @pfree(ptr noundef %44) #12
+  tail call void @pfree(ptr noundef nonnull %44) #12
   %51 = load ptr, ptr %21, align 8
   %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #13
   %53 = trunc i64 %52 to i32
-  %54 = tail call i32 @hash_bytes(ptr noundef %.0.i, i32 noundef %53) #12
+  %54 = tail call i32 @hash_bytes(ptr noundef nonnull %.0.i, i32 noundef %53) #12
   %55 = getelementptr i8, ptr %51, i64 12
   %.val.i.i65 = load i32, ptr %55, align 4
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 24
@@ -1367,7 +1367,7 @@ declare i32 @BlockRefTableEntryGetBlocks(ptr noundef, i32 noundef, i32 noundef, 
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @compare_block_numbers(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -1, 2) i32 @compare_block_numbers(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %3, i32 %4)
@@ -1392,15 +1392,15 @@ declare ptr @MemoryContextAllocExtended(ptr noundef, i64 noundef, i32 noundef) l
 declare i32 @hash_bytes(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @MemoryContextStrdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 

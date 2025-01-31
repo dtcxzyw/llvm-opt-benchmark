@@ -589,7 +589,7 @@ if.end22:                                         ; preds = %if.end20, %if.end9,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @qio_channel_tls_get_session(ptr nocapture noundef readonly %ioc) local_unnamed_addr #2 {
+define dso_local ptr @qio_channel_tls_get_session(ptr noundef readonly captures(none) %ioc) local_unnamed_addr #2 {
 entry:
   %session = getelementptr inbounds nuw i8, ptr %ioc, i64 104
   %0 = load ptr, ptr %session, align 8
@@ -622,7 +622,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 declare i64 @qio_channel_read(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -646,7 +646,7 @@ declare ptr @g_main_context_ref(ptr noundef) local_unnamed_addr #1
 declare i32 @qio_channel_add_watch_full(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qio_channel_tls_handshake_io(ptr nocapture readnone %ioc, i32 %condition, ptr noundef %user_data) #0 {
+define internal noundef i32 @qio_channel_tls_handshake_io(ptr readnone captures(none) %ioc, i32 %condition, ptr noundef %user_data) #0 {
 entry:
   %0 = load ptr, ptr %user_data, align 8
   %context2 = getelementptr inbounds nuw i8, ptr %user_data, i64 8
@@ -677,7 +677,7 @@ declare void @g_main_context_unref(ptr noundef) local_unnamed_addr #1
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @qio_channel_tls_init(ptr nocapture readnone %obj) #6 {
+define internal void @qio_channel_tls_init(ptr readnone captures(none) %obj) #6 {
 entry:
   ret void
 }
@@ -696,7 +696,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qio_channel_tls_class_init(ptr noundef %klass, ptr nocapture readnone %class_data) #0 {
+define internal void @qio_channel_tls_class_init(ptr noundef %klass, ptr readnone captures(none) %class_data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_CLASS) #8
   %io_writev = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -723,7 +723,7 @@ entry:
 declare void @qcrypto_tls_session_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @qio_channel_tls_writev(ptr noundef %ioc, ptr nocapture noundef readonly %iov, i64 noundef %niov, ptr nocapture readnone %fds, i64 %nfds, i32 %flags, ptr noundef %errp) #0 {
+define internal i64 @qio_channel_tls_writev(ptr noundef %ioc, ptr noundef readonly captures(none) %iov, i64 noundef %niov, ptr readnone captures(none) %fds, i64 %nfds, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_TLS) #8
   %cmp13.not = icmp eq i64 %niov, 0
@@ -775,7 +775,7 @@ return:                                           ; preds = %if.end9, %entry, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @qio_channel_tls_readv(ptr noundef %ioc, ptr nocapture noundef readonly %iov, i64 noundef %niov, ptr nocapture readnone %fds, ptr nocapture readnone %nfds, i32 %flags, ptr noundef %errp) #0 {
+define internal i64 @qio_channel_tls_readv(ptr noundef %ioc, ptr noundef readonly captures(none) %iov, i64 noundef %niov, ptr readnone captures(none) %fds, ptr readnone captures(none) %nfds, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_TLS) #8
   %cmp14.not = icmp eq i64 %niov, 0
@@ -966,7 +966,7 @@ declare void @g_source_add_child_source(ptr noundef, ptr noundef) local_unnamed_
 declare void @g_source_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 2) i32 @qio_channel_tls_source_prepare(ptr nocapture noundef readonly %source, ptr nocapture noundef writeonly initializes((0, 4)) %timeout) #0 {
+define internal range(i32 0, 2) i32 @qio_channel_tls_source_prepare(ptr noundef readonly captures(none) %source, ptr noundef writeonly captures(none) initializes((0, 4)) %timeout) #0 {
 entry:
   store i32 -1, ptr %timeout, align 4
   %tioc.i = getelementptr inbounds nuw i8, ptr %source, i64 96
@@ -980,7 +980,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 2) i32 @qio_channel_tls_source_check(ptr nocapture noundef readonly %source) #0 {
+define internal range(i32 0, 2) i32 @qio_channel_tls_source_check(ptr noundef readonly captures(none) %source) #0 {
 entry:
   %tioc = getelementptr inbounds nuw i8, ptr %source, i64 96
   %0 = load ptr, ptr %tioc, align 8
@@ -993,13 +993,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @qio_channel_tls_source_dispatch(ptr nocapture readnone %source, ptr nocapture readnone %callback, ptr nocapture readnone %user_data) #6 {
+define internal noundef i32 @qio_channel_tls_source_dispatch(ptr readnone captures(none) %source, ptr readnone captures(none) %callback, ptr readnone captures(none) %user_data) #6 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qio_channel_tls_source_finalize(ptr nocapture noundef readonly %source) #0 {
+define internal void @qio_channel_tls_source_finalize(ptr noundef readonly captures(none) %source) #0 {
 entry:
   %tioc = getelementptr inbounds nuw i8, ptr %source, i64 96
   %0 = load ptr, ptr %tioc, align 8
@@ -1012,10 +1012,10 @@ declare i64 @qcrypto_tls_session_check_pending(ptr noundef) local_unnamed_addr #
 declare void @qio_channel_set_aio_fd_handler(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

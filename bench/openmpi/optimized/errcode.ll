@@ -186,7 +186,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @ompi_mpi_errcode_construct(ptr nocapture noundef writeonly initializes((16, 280)) %0) #0 {
+define internal void @ompi_mpi_errcode_construct(ptr noundef writeonly captures(none) initializes((16, 280)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -32766, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -197,7 +197,7 @@ define internal void @ompi_mpi_errcode_construct(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ompi_mpi_errcode_destruct(ptr nocapture noundef readonly %0) #1 {
+define internal void @ompi_mpi_errcode_destruct(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, -32766
@@ -4244,7 +4244,7 @@ opal_obj_run_destructors.exit412:                 ; preds = %.lr.ph.i409, %opal_
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @ompi_mpi_errcode_add(i32 noundef %0) local_unnamed_addr #1 {
@@ -4405,7 +4405,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7

@@ -90,14 +90,14 @@ declare i32 @trace_want(ptr noundef) local_unnamed_addr #1
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @trace_printf_key_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare void @base_ref_store_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_init_db(ptr nocapture noundef readonly %refs, ptr noundef %err) #0 {
+define internal i32 @debug_init_db(ptr noundef readonly captures(none) %refs, ptr noundef %err) #0 {
 entry:
   %refs1 = getelementptr inbounds nuw i8, ptr %refs, i64 24
   %0 = load ptr, ptr %refs1, align 8
@@ -122,7 +122,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_transaction_prepare(ptr nocapture noundef readonly %refs, ptr noundef initializes((0, 8)) %transaction, ptr noundef %err) #0 {
+define internal i32 @debug_transaction_prepare(ptr noundef readonly captures(none) %refs, ptr noundef initializes((0, 8)) %transaction, ptr noundef %err) #0 {
 entry:
   %refs1 = getelementptr inbounds nuw i8, ptr %refs, i64 24
   %0 = load ptr, ptr %refs1, align 8
@@ -150,7 +150,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_transaction_finish(ptr nocapture noundef readonly %refs, ptr noundef initializes((0, 8)) %transaction, ptr noundef %err) #0 {
+define internal i32 @debug_transaction_finish(ptr noundef readonly captures(none) %refs, ptr noundef initializes((0, 8)) %transaction, ptr noundef %err) #0 {
 entry:
   %o.i.i = alloca [65 x i8], align 16
   %n.i.i = alloca [65 x i8], align 16
@@ -267,7 +267,7 @@ do.end:                                           ; preds = %do.body2.i, %print_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_transaction_abort(ptr nocapture noundef readonly %refs, ptr noundef initializes((0, 8)) %transaction, ptr noundef %err) #0 {
+define internal i32 @debug_transaction_abort(ptr noundef readonly captures(none) %refs, ptr noundef initializes((0, 8)) %transaction, ptr noundef %err) #0 {
 entry:
   %refs1 = getelementptr inbounds nuw i8, ptr %refs, i64 24
   %0 = load ptr, ptr %refs1, align 8
@@ -280,7 +280,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_initial_transaction_commit(ptr nocapture noundef readonly %refs, ptr noundef initializes((0, 8)) %transaction, ptr noundef %err) #0 {
+define internal i32 @debug_initial_transaction_commit(ptr noundef readonly captures(none) %refs, ptr noundef initializes((0, 8)) %transaction, ptr noundef %err) #0 {
 entry:
   %refs1 = getelementptr inbounds nuw i8, ptr %refs, i64 24
   %0 = load ptr, ptr %refs1, align 8
@@ -293,7 +293,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_pack_refs(ptr nocapture noundef readonly %ref_store, ptr noundef %opts) #0 {
+define internal i32 @debug_pack_refs(ptr noundef readonly captures(none) %ref_store, ptr noundef %opts) #0 {
 entry:
   %refs = getelementptr inbounds nuw i8, ptr %ref_store, i64 24
   %0 = load ptr, ptr %refs, align 8
@@ -318,7 +318,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_create_symref(ptr nocapture noundef readonly %ref_store, ptr noundef %ref_name, ptr noundef %target, ptr noundef %logmsg) #0 {
+define internal i32 @debug_create_symref(ptr noundef readonly captures(none) %ref_store, ptr noundef %ref_name, ptr noundef %target, ptr noundef %logmsg) #0 {
 entry:
   %refs = getelementptr inbounds nuw i8, ptr %ref_store, i64 24
   %0 = load ptr, ptr %refs, align 8
@@ -343,7 +343,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_rename_ref(ptr nocapture noundef readonly %ref_store, ptr noundef %oldref, ptr noundef %newref, ptr noundef %logmsg) #0 {
+define internal i32 @debug_rename_ref(ptr noundef readonly captures(none) %ref_store, ptr noundef %oldref, ptr noundef %newref, ptr noundef %logmsg) #0 {
 entry:
   %refs = getelementptr inbounds nuw i8, ptr %ref_store, i64 24
   %0 = load ptr, ptr %refs, align 8
@@ -368,7 +368,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_copy_ref(ptr nocapture noundef readonly %ref_store, ptr noundef %oldref, ptr noundef %newref, ptr noundef %logmsg) #0 {
+define internal i32 @debug_copy_ref(ptr noundef readonly captures(none) %ref_store, ptr noundef %oldref, ptr noundef %newref, ptr noundef %logmsg) #0 {
 entry:
   %refs = getelementptr inbounds nuw i8, ptr %ref_store, i64 24
   %0 = load ptr, ptr %refs, align 8
@@ -393,7 +393,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @debug_ref_iterator_begin(ptr nocapture noundef readonly %ref_store, ptr noundef %prefix, ptr noundef %exclude_patterns, i32 noundef %flags) #0 {
+define internal noundef ptr @debug_ref_iterator_begin(ptr noundef readonly captures(none) %ref_store, ptr noundef %prefix, ptr noundef %exclude_patterns, i32 noundef %flags) #0 {
 entry:
   %refs = getelementptr inbounds nuw i8, ptr %ref_store, i64 24
   %0 = load ptr, ptr %refs, align 8
@@ -422,7 +422,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_read_raw_ref(ptr nocapture noundef readonly %ref_store, ptr noundef %refname, ptr noundef initializes((0, 36)) %oid, ptr noundef %referent, ptr noundef %type, ptr noundef %failure_errno) #0 {
+define internal i32 @debug_read_raw_ref(ptr noundef readonly captures(none) %ref_store, ptr noundef %refname, ptr noundef initializes((0, 36)) %oid, ptr noundef %referent, ptr noundef %type, ptr noundef %failure_errno) #0 {
 entry:
   %call = tail call ptr @null_oid() #6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid, ptr noundef nonnull readonly align 4 dereferenceable(32) %call, i64 32, i1 false)
@@ -435,7 +435,7 @@ entry:
   %2 = load ptr, ptr %1, align 8
   %read_raw_ref = getelementptr inbounds nuw i8, ptr %2, i64 96
   %3 = load ptr, ptr %read_raw_ref, align 8
-  %call2 = tail call i32 %3(ptr noundef nonnull %1, ptr noundef %refname, ptr noundef %oid, ptr noundef %referent, ptr noundef %type, ptr noundef %failure_errno) #6
+  %call2 = tail call i32 %3(ptr noundef nonnull %1, ptr noundef %refname, ptr noundef nonnull %oid, ptr noundef %referent, ptr noundef %type, ptr noundef %failure_errno) #6
   %cmp = icmp eq i32 %call2, 0
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i = icmp eq i32 %4, 0
@@ -469,7 +469,7 @@ if.end12:                                         ; preds = %if.then9, %do.body6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_read_symbolic_ref(ptr nocapture noundef readonly %ref_store, ptr noundef %refname, ptr noundef %referent) #0 {
+define internal i32 @debug_read_symbolic_ref(ptr noundef readonly captures(none) %ref_store, ptr noundef %refname, ptr noundef %referent) #0 {
 entry:
   %refs1 = getelementptr inbounds nuw i8, ptr %ref_store, i64 24
   %0 = load ptr, ptr %refs1, align 8
@@ -507,7 +507,7 @@ if.end11:                                         ; preds = %if.then8, %do.body5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @debug_reflog_iterator_begin(ptr nocapture noundef readonly %ref_store) #0 {
+define internal ptr @debug_reflog_iterator_begin(ptr noundef readonly captures(none) %ref_store) #0 {
 entry:
   %refs = getelementptr inbounds nuw i8, ptr %ref_store, i64 24
   %0 = load ptr, ptr %refs, align 8
@@ -532,7 +532,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_for_each_reflog_ent(ptr nocapture noundef readonly %ref_store, ptr noundef %refname, ptr noundef %fn, ptr noundef %cb_data) #0 {
+define internal i32 @debug_for_each_reflog_ent(ptr noundef readonly captures(none) %ref_store, ptr noundef %refname, ptr noundef %fn, ptr noundef %cb_data) #0 {
 entry:
   %dbg = alloca %struct.debug_reflog, align 8
   store ptr %refname, ptr %dbg, align 8
@@ -563,7 +563,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_for_each_reflog_ent_reverse(ptr nocapture noundef readonly %ref_store, ptr noundef %refname, ptr noundef %fn, ptr noundef %cb_data) #0 {
+define internal i32 @debug_for_each_reflog_ent_reverse(ptr noundef readonly captures(none) %ref_store, ptr noundef %refname, ptr noundef %fn, ptr noundef %cb_data) #0 {
 entry:
   %dbg = alloca %struct.debug_reflog, align 8
   store ptr %refname, ptr %dbg, align 8
@@ -594,7 +594,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_reflog_exists(ptr nocapture noundef readonly %ref_store, ptr noundef %refname) #0 {
+define internal i32 @debug_reflog_exists(ptr noundef readonly captures(none) %ref_store, ptr noundef %refname) #0 {
 entry:
   %refs = getelementptr inbounds nuw i8, ptr %ref_store, i64 24
   %0 = load ptr, ptr %refs, align 8
@@ -619,7 +619,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_create_reflog(ptr nocapture noundef readonly %ref_store, ptr noundef %refname, ptr noundef %err) #0 {
+define internal i32 @debug_create_reflog(ptr noundef readonly captures(none) %ref_store, ptr noundef %refname, ptr noundef %err) #0 {
 entry:
   %refs = getelementptr inbounds nuw i8, ptr %ref_store, i64 24
   %0 = load ptr, ptr %refs, align 8
@@ -644,7 +644,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_delete_reflog(ptr nocapture noundef readonly %ref_store, ptr noundef %refname) #0 {
+define internal i32 @debug_delete_reflog(ptr noundef readonly captures(none) %ref_store, ptr noundef %refname) #0 {
 entry:
   %refs = getelementptr inbounds nuw i8, ptr %ref_store, i64 24
   %0 = load ptr, ptr %refs, align 8
@@ -669,7 +669,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_reflog_expire(ptr nocapture noundef readonly %ref_store, ptr noundef %refname, i32 noundef %flags, ptr noundef %prepare_fn, ptr noundef %should_prune_fn, ptr noundef %cleanup_fn, ptr noundef %policy_cb_data) #0 {
+define internal i32 @debug_reflog_expire(ptr noundef readonly captures(none) %ref_store, ptr noundef %refname, i32 noundef %flags, ptr noundef %prepare_fn, ptr noundef %should_prune_fn, ptr noundef %cleanup_fn, ptr noundef %policy_cb_data) #0 {
 entry:
   %prune = alloca %struct.debug_reflog_expiry_should_prune, align 8
   store ptr %prepare_fn, ptr %prune, align 8
@@ -702,7 +702,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @oid_to_hex_r(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -711,7 +711,7 @@ declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare void @base_ref_iterator_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_ref_iterator_advance(ptr nocapture noundef initializes((16, 36)) %ref_iterator) #0 {
+define internal i32 @debug_ref_iterator_advance(ptr noundef captures(none) initializes((16, 36)) %ref_iterator) #0 {
 entry:
   %iter = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 40
   %0 = load ptr, ptr %iter, align 8
@@ -770,7 +770,7 @@ if.end12:                                         ; preds = %if.then8, %do.body5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_ref_iterator_peel(ptr nocapture noundef readonly %ref_iterator, ptr noundef %peeled) #0 {
+define internal i32 @debug_ref_iterator_peel(ptr noundef readonly captures(none) %ref_iterator, ptr noundef %peeled) #0 {
 entry:
   %iter = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 40
   %0 = load ptr, ptr %iter, align 8
@@ -798,7 +798,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_ref_iterator_abort(ptr nocapture noundef readonly %ref_iterator) #0 {
+define internal i32 @debug_ref_iterator_abort(ptr noundef readonly captures(none) %ref_iterator) #0 {
 entry:
   %iter = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 40
   %0 = load ptr, ptr %iter, align 8
@@ -827,7 +827,7 @@ declare ptr @null_oid() local_unnamed_addr #1
 declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_print_reflog_ent(ptr noundef %old_oid, ptr noundef %new_oid, ptr noundef %committer, i64 noundef %timestamp, i32 noundef %tz, ptr noundef %msg, ptr nocapture noundef readonly %cb_data) #0 {
+define internal i32 @debug_print_reflog_ent(ptr noundef %old_oid, ptr noundef %new_oid, ptr noundef %committer, i64 noundef %timestamp, i32 noundef %tz, ptr noundef %msg, ptr noundef readonly captures(none) %cb_data) #0 {
 entry:
   %o = alloca [65 x i8], align 16
   %n = alloca [65 x i8], align 16
@@ -894,7 +894,7 @@ do.end:                                           ; preds = %if.end6, %if.then11
 declare ptr @strchrnul(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @debug_reflog_expiry_prepare(ptr noundef %refname, ptr noundef %oid, ptr nocapture noundef readonly %cb_data) #0 {
+define internal void @debug_reflog_expiry_prepare(ptr noundef %refname, ptr noundef %oid, ptr noundef readonly captures(none) %cb_data) #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8
   %tobool.not.i = icmp eq i32 %0, 0
@@ -917,7 +917,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @debug_reflog_expiry_should_prune_fn(ptr noundef %ooid, ptr noundef %noid, ptr noundef %email, i64 noundef %timestamp, i32 noundef %tz, ptr noundef %message, ptr nocapture noundef readonly %cb_data) #0 {
+define internal i32 @debug_reflog_expiry_should_prune_fn(ptr noundef %ooid, ptr noundef %noid, ptr noundef %email, i64 noundef %timestamp, i32 noundef %tz, ptr noundef %message, ptr noundef readonly captures(none) %cb_data) #0 {
 entry:
   %should_prune = getelementptr inbounds nuw i8, ptr %cb_data, i64 8
   %0 = load ptr, ptr %should_prune, align 8
@@ -941,7 +941,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @debug_reflog_expiry_cleanup(ptr nocapture noundef readonly %cb_data) #0 {
+define internal void @debug_reflog_expiry_cleanup(ptr noundef readonly captures(none) %cb_data) #0 {
 entry:
   %cleanup = getelementptr inbounds nuw i8, ptr %cb_data, i64 16
   %0 = load ptr, ptr %cleanup, align 8
@@ -952,10 +952,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

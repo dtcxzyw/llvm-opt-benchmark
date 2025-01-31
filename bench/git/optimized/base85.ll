@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @en85 = internal unnamed_addr constant [85 x i8] c"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%&()*+-;<=>?@^_`{|}~", align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @decode_85(ptr nocapture noundef writeonly %dst, ptr noundef %buffer, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @decode_85(ptr noundef writeonly captures(none) %dst, ptr noundef %buffer, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr getelementptr inbounds nuw (i8, ptr @de85, i64 90), align 2
   %tobool.not.i = icmp eq i8 %0, 0
@@ -124,7 +124,7 @@ return:                                           ; preds = %do.end42, %prep_bas
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @encode_85(ptr nocapture noundef writeonly %buf, ptr nocapture noundef readonly %data, i32 noundef %bytes) local_unnamed_addr #2 {
+define dso_local void @encode_85(ptr noundef writeonly captures(none) %buf, ptr noundef readonly captures(none) %data, i32 noundef %bytes) local_unnamed_addr #2 {
 entry:
   %tobool.not17 = icmp eq i32 %bytes, 0
   br i1 %tobool.not17, label %do.end15, label %for.cond.preheader

@@ -191,7 +191,7 @@ define hidden noundef zeroext i8 @eventHandler_synthesizeUnloadEvent(ptr noundef
   %16 = add nsw i32 %15, 1
   %17 = tail call ptr @jvmtiAllocate(i32 noundef %16) #6
   %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %0) #6
-  tail call void @convertSignatureToClassname(ptr noundef %17) #6
+  tail call void @convertSignatureToClassname(ptr noundef nonnull %17) #6
   %19 = load ptr, ptr @handlerLock, align 8
   tail call void @debugMonitorEnter(ptr noundef %19) #6
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__handlers, i64 56), align 8
@@ -202,7 +202,7 @@ define hidden noundef zeroext i8 @eventHandler_synthesizeUnloadEvent(ptr noundef
   %.033 = phi ptr [ %22, %freeHandler.exit ], [ %20, %13 ]
   %21 = getelementptr inbounds nuw i8, ptr %.033, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = call zeroext i8 @eventFilterRestricted_passesUnloadFilter(ptr noundef %1, ptr noundef %17, ptr noundef nonnull %.033, ptr noundef nonnull %3) #6
+  %23 = call zeroext i8 @eventFilterRestricted_passesUnloadFilter(ptr noundef %1, ptr noundef nonnull %17, ptr noundef nonnull %.033, ptr noundef nonnull %3) #6
   %.not29 = icmp eq i8 %23, 0
   br i1 %.not29, label %31, label %24
 
@@ -213,7 +213,7 @@ define hidden noundef zeroext i8 @eventHandler_synthesizeUnloadEvent(ptr noundef
   %28 = call ptr @jvmtiAllocate(i32 noundef %27) #6
   %29 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %0) #6
   %30 = load i32, ptr %.033, align 4
-  call void @eventHelper_recordClassUnload(i32 noundef %30, ptr noundef %28, ptr noundef %5) #6
+  call void @eventHelper_recordClassUnload(i32 noundef %30, ptr noundef nonnull %28, ptr noundef %5) #6
   br label %31
 
 31:                                               ; preds = %24, %.lr.ph
@@ -309,8 +309,8 @@ reportEvents.exit:                                ; preds = %53, %56, %58, %61
   br label %63
 
 63:                                               ; preds = %reportEvents.exit, %._crit_edge
-  call void @jvmtiDeallocate(ptr noundef %0) #6
-  call void @jvmtiDeallocate(ptr noundef %17) #6
+  call void @jvmtiDeallocate(ptr noundef nonnull %0) #6
+  call void @jvmtiDeallocate(ptr noundef nonnull %17) #6
   ret i8 1
 }
 
@@ -321,10 +321,10 @@ declare void @jdiAssertionFailed(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @jvmtiAllocate(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #3
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #3
 
 declare void @convertSignatureToClassname(ptr noundef) local_unnamed_addr #1
 
@@ -341,7 +341,7 @@ declare void @bagDestroyBag(ptr noundef) local_unnamed_addr #1
 declare void @jvmtiDeallocate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @getMethodClass(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden ptr @getMethodClass(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = icmp eq ptr %1, null
@@ -928,10 +928,10 @@ declare void @log_message_begin(ptr noundef, ptr noundef, i32 noundef) local_unn
 declare void @log_message_end(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @cbSingleStep(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #0 {
+define internal void @cbSingleStep(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.EventInfo, align 8
   %8 = load ptr, ptr @gdata, align 8
@@ -1071,7 +1071,7 @@ getMethodClass.exit:                              ; preds = %18, %26, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cbBreakpoint(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #0 {
+define internal void @cbBreakpoint(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.EventInfo, align 8
   %8 = load ptr, ptr @gdata, align 8
@@ -1211,7 +1211,7 @@ getMethodClass.exit:                              ; preds = %18, %26, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cbFramePop(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4) #0 {
+define internal void @cbFramePop(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.EventInfo, align 8
   %.not = icmp eq i8 %4, 0
@@ -1353,7 +1353,7 @@ getMethodClass.exit:                              ; preds = %19, %27, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cbException(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %7) #0 {
+define internal void @cbException(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca %struct.EventInfo, align 8
@@ -1526,7 +1526,7 @@ getMethodClass.exit17:                            ; preds = %getMethodClass.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cbThreadStart(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @cbThreadStart(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.EventInfo, align 8
   %5 = load ptr, ptr @gdata, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 528
@@ -1635,7 +1635,7 @@ define internal void @cbThreadStart(ptr nocapture readnone %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cbThreadEnd(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @cbThreadEnd(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.EventInfo, align 8
   %5 = load ptr, ptr @gdata, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 528
@@ -1744,7 +1744,7 @@ define internal void @cbThreadEnd(ptr nocapture readnone %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cbClassPrepare(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal void @cbClassPrepare(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.EventInfo, align 8
   %6 = load ptr, ptr @gdata, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 528
@@ -1855,7 +1855,7 @@ define internal void @cbClassPrepare(ptr nocapture readnone %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cbClassLoad(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal void @cbClassLoad(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.EventInfo, align 8
   %6 = load ptr, ptr @gdata, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 528
@@ -1966,7 +1966,7 @@ define internal void @cbClassLoad(ptr nocapture readnone %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cbFieldAccess(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #0 {
+define internal void @cbFieldAccess(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca %struct.EventInfo, align 8
   %11 = load ptr, ptr @gdata, align 8
@@ -2112,7 +2112,7 @@ getMethodClass.exit:                              ; preds = %21, %29, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cbFieldModification(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i8 noundef signext %8, i64 %9) #0 {
+define internal void @cbFieldModification(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i8 noundef signext %8, i64 %9) #0 {
   %11 = alloca ptr, align 8
   %12 = alloca %struct.EventInfo, align 8
   %13 = load ptr, ptr @gdata, align 8
@@ -2262,7 +2262,7 @@ getMethodClass.exit:                              ; preds = %23, %31, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cbExceptionCatch(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) #0 {
+define internal void @cbExceptionCatch(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca %struct.EventInfo, align 8
   %9 = load ptr, ptr @gdata, align 8
@@ -2404,7 +2404,7 @@ getMethodClass.exit:                              ; preds = %19, %27, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cbMethodEntry(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal void @cbMethodEntry(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.EventInfo, align 8
   %7 = load ptr, ptr @gdata, align 8
@@ -2542,7 +2542,7 @@ getMethodClass.exit:                              ; preds = %17, %25, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cbMethodExit(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4, i64 %5) #0 {
+define internal void @cbMethodExit(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4, i64 %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca %struct.EventInfo, align 8
   %.not = icmp eq i8 %4, 0
@@ -2686,7 +2686,7 @@ getMethodClass.exit:                              ; preds = %20, %28, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cbMonitorContendedEnter(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal void @cbMonitorContendedEnter(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.EventInfo, align 8
   %7 = alloca ptr, align 8
@@ -2864,7 +2864,7 @@ getMethodClass.exit:                              ; preds = %38, %46, %49
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cbMonitorContendedEntered(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal void @cbMonitorContendedEntered(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.EventInfo, align 8
   %7 = alloca ptr, align 8
@@ -3042,7 +3042,7 @@ getMethodClass.exit:                              ; preds = %38, %46, %49
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cbMonitorWait(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #0 {
+define internal void @cbMonitorWait(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #0 {
   %6 = alloca %struct.EventInfo, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
@@ -3211,7 +3211,7 @@ getObjectClass.exit:                              ; preds = %19, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cbMonitorWaited(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4) #0 {
+define internal void @cbMonitorWaited(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4) #0 {
   %6 = alloca %struct.EventInfo, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
@@ -3380,7 +3380,7 @@ getObjectClass.exit:                              ; preds = %19, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cbVMInit(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @cbVMInit(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.EventInfo, align 8
   %5 = load ptr, ptr @gdata, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 528
@@ -3489,7 +3489,7 @@ define internal void @cbVMInit(ptr nocapture readnone %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cbVMDeath(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @cbVMDeath(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.EventInfo, align 8
   %4 = load ptr, ptr @gdata, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 528
@@ -3585,7 +3585,7 @@ define internal void @cbVMDeath(ptr nocapture readnone %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cbGarbageCollectionFinish(ptr nocapture readnone %0) #0 {
+define internal void @cbGarbageCollectionFinish(ptr readnone captures(none) %0) #0 {
   %2 = load ptr, ptr @gdata, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 528
   %4 = load i32, ptr %3, align 8
@@ -3620,7 +3620,7 @@ define internal void @cbGarbageCollectionFinish(ptr nocapture readnone %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cbVThreadStart(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @cbVThreadStart(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.EventInfo, align 8
   %5 = load ptr, ptr @gdata, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 528
@@ -3748,7 +3748,7 @@ define internal void @cbVThreadStart(ptr nocapture readnone %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cbVThreadEnd(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @cbVThreadEnd(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.EventInfo, align 8
   %5 = load ptr, ptr @gdata, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 528
@@ -4864,10 +4864,10 @@ declare i32 @eventFilter_setLocationOnlyFilter(ptr noundef, i32 noundef, ptr nou
 declare i32 @eventFilterRestricted_install(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

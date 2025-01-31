@@ -456,10 +456,10 @@ peek.exit.thread:                                 ; preds = %103, %99, %108, %11
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare zeroext i1 @pm_constant_pool_init(ptr noundef, i32 noundef) local_unnamed_addr #4
 
@@ -511,7 +511,7 @@ declare ptr @pm_options_scope_local_get(ptr noundef, i64 noundef) local_unnamed_
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @pm_parser_register_encoding_changed_callback(ptr nocapture noundef writeonly initializes((480, 488)) %0, ptr noundef %1) local_unnamed_addr #6 {
+define hidden void @pm_parser_register_encoding_changed_callback(ptr noundef writeonly captures(none) initializes((480, 488)) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store ptr %1, ptr %3, align 8
   ret void
@@ -1806,7 +1806,7 @@ pm_parser_errors_format_line.exit179:             ; preds = %pm_parser_errors_fo
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 24
   %217 = load ptr, ptr %216, align 8
   %218 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %217) #29
-  tail call void @pm_buffer_append_string(ptr noundef %1, ptr noundef %217, i64 noundef %218) #27
+  tail call void @pm_buffer_append_string(ptr noundef %1, ptr noundef nonnull %217, i64 noundef %218) #27
   tail call void @pm_buffer_append_byte(ptr noundef %1, i8 noundef zeroext 10) #27
   %219 = load i64, ptr %4, align 8
   %220 = add i64 %219, -1
@@ -1945,12 +1945,12 @@ pm_parser_errors_format_sort.exit:                ; preds = %3, %._crit_edge195
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @pm_buffer_append_string(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 declare ptr @pm_encoding_find(ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -9246,7 +9246,7 @@ accept1.exit:                                     ; preds = %51
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_statements_node_create(ptr nocapture noundef readonly %0) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_statements_node_create(ptr noundef readonly captures(none) %0) unnamed_addr #10 {
   %2 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #30
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %pm_alloc_node.exit
@@ -9417,7 +9417,7 @@ define internal fastcc void @parser_lex_magic_comment_encoding(ptr noundef %0) u
 declare i64 @pm_strspn_inline_whitespace(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @lex_state_spcarg_p(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #1 {
+define internal fastcc zeroext i1 @lex_state_spcarg_p(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -9446,7 +9446,7 @@ define internal fastcc zeroext i1 @lex_state_spcarg_p(ptr nocapture noundef read
 declare zeroext i1 @pm_char_is_whitespace(i8 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @char_is_identifier(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc i64 @char_is_identifier(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 643
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -11193,7 +11193,7 @@ lex_mode_pop.exit:                                ; preds = %139, %136, %132, %.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @char_is_identifier_start(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc i64 @char_is_identifier_start(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 643
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -13730,7 +13730,7 @@ escape_write_escape_encoded.exit:                 ; preds = %tailrecurse.backedg
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pm_token_buffer_push_escaped(ptr noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #1 {
+define internal fastcc void @pm_token_buffer_push_escaped(ptr noundef nonnull %0, ptr noundef captures(none) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 643
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -14208,7 +14208,7 @@ declare zeroext i1 @pm_char_is_octal_digit(i8 noundef zeroext) local_unnamed_add
 declare zeroext i1 @pm_char_is_hexadecimal_digit(i8 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 44, 59) i32 @lex_optional_float_suffix(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #1 {
+define internal fastcc range(i32 44, 59) i32 @lex_optional_float_suffix(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr i8, ptr %0, i64 272
@@ -14588,7 +14588,7 @@ escape_write_byte_encoded.exit:                   ; preds = %32, %14, %11, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal fastcc zeroext i1 @context_terminator(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #13 {
+define internal fastcc zeroext i1 @context_terminator(i32 noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #13 {
   switch i32 %0, label %switch.edge [
     i32 20, label %3
     i32 8, label %3
@@ -23004,7 +23004,7 @@ accept1.exit790.thread824:                        ; preds = %601, %accept1.exit7
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_array_node_create(ptr nocapture noundef readonly %0) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_array_node_create(ptr noundef readonly captures(none) %0) unnamed_addr #10 {
   %2 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #30
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %pm_alloc_node.exit
@@ -23069,7 +23069,7 @@ accept1.exit:                                     ; preds = %3
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_splat_node_create(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_splat_node_create(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #10 {
   %3 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #30
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %pm_alloc_node.exit
@@ -23658,7 +23658,7 @@ accept1.exit:                                     ; preds = %pm_hash_node_elemen
 declare void @pm_static_literals_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_assoc_node_create(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_assoc_node_create(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2) unnamed_addr #10 {
   %4 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #30
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %pm_alloc_node.exit
@@ -23823,7 +23823,7 @@ define internal fastcc void @pm_array_node_elements_append(ptr noundef nonnull %
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_parentheses_node_create(ptr %.8.val, ptr %.16.val, ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_parentheses_node_create(ptr %.8.val, ptr %.16.val, ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #10 {
   %3 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #30
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %pm_alloc_node.exit
@@ -24066,7 +24066,7 @@ context_p.exit21.thread:                          ; preds = %13, %6, %context_p.
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_hash_node_create(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_hash_node_create(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #10 {
   %3 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #30
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %pm_alloc_node.exit
@@ -24103,7 +24103,7 @@ pm_alloc_node.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_string_node_create_current_string(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_string_node_create_current_string(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #10 {
   %5 = tail call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef 1, i64 noundef 96) #30
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %pm_alloc_node.exit.i
@@ -25424,7 +25424,7 @@ pm_interpolated_string_node_append.exit489:       ; preds = %317, %321, %325
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_class_variable_read_node_create(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_class_variable_read_node_create(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #30
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %pm_alloc_node.exit
@@ -25506,7 +25506,7 @@ define internal fastcc zeroext i1 @token_begins_expression_p(i32 noundef %0) unn
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @parse_arguments_list(ptr noundef %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @parse_arguments_list(ptr noundef %0, ptr noundef nonnull captures(none) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #1 {
   %5 = getelementptr i8, ptr %0, i64 304
   %.val.i = load i32, ptr %5, align 8
   %6 = icmp eq i32 %.val.i, 123
@@ -25758,7 +25758,7 @@ pm_arguments_validate_block.exit:                 ; preds = %pm_arguments_valida
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_call_node_fcall_create(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_call_node_fcall_create(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #1 {
   %4 = tail call noalias dereferenceable_or_null(120) ptr @calloc(i64 noundef 1, i64 noundef 120) #30
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %pm_call_node_create.exit
@@ -25860,7 +25860,7 @@ pm_arguments_end.exit:                            ; preds = %13, %18, %25, %31, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_constant_read_node_create(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_constant_read_node_create(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #30
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %pm_alloc_node.exit
@@ -25892,7 +25892,7 @@ pm_alloc_node.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_constant_path_node_create(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr noundef nonnull %3) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_constant_path_node_create(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull %3) unnamed_addr #1 {
   %5 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %1)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %pm_assert_value_expression.exit, label %6
@@ -25945,7 +25945,7 @@ pm_alloc_node.exit:                               ; preds = %pm_assert_value_exp
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_range_node_create(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_range_node_create(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %1)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %pm_assert_value_expression.exit, label %6
@@ -26047,7 +26047,7 @@ pm_alloc_node.exit:                               ; preds = %pm_assert_value_exp
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_float_node_create(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_float_node_create(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #30
   %5 = icmp eq ptr %4, null
@@ -26167,7 +26167,7 @@ pm_double_parse.exit:                             ; preds = %pm_alloc_node.exit,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_float_node_imaginary_create(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_float_node_imaginary_create(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca %struct.pm_token_t, align 8
   %4 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #30
   %5 = icmp eq ptr %4, null
@@ -26204,7 +26204,7 @@ pm_alloc_node.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_float_node_rational_create(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_float_node_rational_create(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca %struct.pm_token_t, align 8
   %4 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #30
   %5 = icmp eq ptr %4, null
@@ -26241,7 +26241,7 @@ pm_alloc_node.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_float_node_rational_imaginary_create(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_float_node_rational_imaginary_create(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca %struct.pm_token_t, align 8
   %4 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #30
   %5 = icmp eq ptr %4, null
@@ -26301,7 +26301,7 @@ pm_float_node_rational_create.exit:               ; preds = %pm_alloc_node.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_numbered_reference_read_node_create(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_numbered_reference_read_node_create(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #30
   %5 = icmp eq ptr %4, null
@@ -26376,7 +26376,7 @@ parse_decimal_number.exit:                        ; preds = %.thread.i, %31, %33
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_global_variable_read_node_create(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_global_variable_read_node_create(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #30
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %pm_alloc_node.exit
@@ -26408,7 +26408,7 @@ pm_alloc_node.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_back_reference_read_node_create(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_back_reference_read_node_create(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #30
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %pm_alloc_node.exit
@@ -26579,7 +26579,7 @@ pm_node_is_it.exit.thread:                        ; preds = %19, %28, %16, %14, 
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_xstring_node_create_unescaped(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_xstring_node_create_unescaped(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #10 {
   %5 = tail call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef 1, i64 noundef 96) #30
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %pm_alloc_node.exit
@@ -26628,7 +26628,7 @@ pm_alloc_node.exit:                               ; preds = %4
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_string_node_create_unescaped(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_string_node_create_unescaped(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #10 {
   %6 = tail call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef 1, i64 noundef 96) #30
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %pm_alloc_node.exit
@@ -27153,7 +27153,7 @@ define internal fastcc void @parse_heredoc_dedent_string(ptr noundef %0, i64 nou
 declare void @pm_node_list_append(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_interpolated_xstring_node_create(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_interpolated_xstring_node_create(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #10 {
   %3 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #30
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %pm_alloc_node.exit
@@ -27210,7 +27210,7 @@ pm_alloc_node.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_interpolated_string_node_create(ptr nocapture noundef nonnull readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_interpolated_string_node_create(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) unnamed_addr #10 {
   %4 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #30
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %pm_alloc_node.exit
@@ -27276,7 +27276,7 @@ pm_alloc_node.exit:                               ; preds = %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parse_heredoc_dedent(ptr noundef %0, ptr nocapture noundef nonnull %1, i64 noundef range(i64 1, -1) %2) unnamed_addr #1 {
+define internal fastcc void @parse_heredoc_dedent(ptr noundef %0, ptr noundef nonnull captures(none) %1, i64 noundef range(i64 1, -1) %2) unnamed_addr #1 {
   %4 = load i64, ptr %1, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -27399,7 +27399,7 @@ parse_heredoc_dedent_string.exit:                 ; preds = %16, %.critedge.loop
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_instance_variable_read_node_create(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_instance_variable_read_node_create(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #30
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %pm_alloc_node.exit
@@ -27431,7 +27431,7 @@ pm_alloc_node.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc nonnull ptr @pm_integer_node_create(i16 noundef zeroext %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc nonnull ptr @pm_integer_node_create(i16 noundef zeroext %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #30
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %pm_alloc_node.exit
@@ -27478,7 +27478,7 @@ pm_alloc_node.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_integer_node_imaginary_create(i16 noundef zeroext %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_integer_node_imaginary_create(i16 noundef zeroext %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #30
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %pm_alloc_node.exit
@@ -27546,7 +27546,7 @@ pm_integer_node_create.exit:                      ; preds = %pm_alloc_node.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_integer_node_rational_create(i16 noundef zeroext %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_integer_node_rational_create(i16 noundef zeroext %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #30
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %pm_alloc_node.exit
@@ -27614,7 +27614,7 @@ pm_integer_node_create.exit:                      ; preds = %pm_alloc_node.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_integer_node_rational_imaginary_create(i16 noundef zeroext %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_integer_node_rational_imaginary_create(i16 noundef zeroext %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca %struct.pm_token_t, align 8
   %4 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #30
   %5 = icmp eq ptr %4, null
@@ -27651,7 +27651,7 @@ pm_alloc_node.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_source_encoding_node_create(ptr nocapture noundef readonly %0) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_source_encoding_node_create(ptr noundef readonly captures(none) %0) unnamed_addr #10 {
   %2 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #30
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %pm_alloc_node.exit
@@ -27678,7 +27678,7 @@ pm_alloc_node.exit:                               ; preds = %1
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_source_file_node_create(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_source_file_node_create(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #10 {
   %3 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #30
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %pm_alloc_node.exit
@@ -27708,7 +27708,7 @@ pm_alloc_node.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_source_line_node_create(ptr nocapture noundef readonly %0) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_source_line_node_create(ptr noundef readonly captures(none) %0) unnamed_addr #10 {
   %2 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #30
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %pm_alloc_node.exit
@@ -28024,7 +28024,7 @@ pm_alloc_node.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_case_node_create(ptr %.8.val, ptr %.16.val, ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_case_node_create(ptr %.8.val, ptr %.16.val, ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #10 {
   %3 = tail call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef 1, i64 noundef 96) #30
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %pm_alloc_node.exit
@@ -28709,7 +28709,7 @@ pm_statements_node_body_append.exit:              ; preds = %39, %45
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_else_node_create(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_else_node_create(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #10 {
   %4 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #30
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %pm_alloc_node.exit
@@ -28763,7 +28763,7 @@ pm_alloc_node.exit:                               ; preds = %3
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_begin_node_create(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_begin_node_create(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #10 {
   %3 = tail call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 1, i64 noundef 88) #30
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %pm_alloc_node.exit
@@ -28808,7 +28808,7 @@ pm_alloc_node.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parse_rescues(ptr noundef %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc void @parse_rescues(ptr noundef %0, ptr noundef nonnull captures(none) %1, i1 noundef zeroext %2) unnamed_addr #1 {
   %4 = getelementptr i8, ptr %0, i64 304
   %.val.i172 = load i32, ptr %4, align 8
   %5 = icmp eq i32 %.val.i172, 89
@@ -29336,7 +29336,7 @@ pm_begin_node_end_keyword_set.exit:               ; preds = %151, %146, %pm_begi
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_pre_execution_node_create(ptr %.8.val, ptr %.16.val, ptr %.8.val1, ptr %.16.val3, ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_pre_execution_node_create(ptr %.8.val, ptr %.16.val, ptr %.8.val1, ptr %.16.val3, ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #10 {
   %3 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #30
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %pm_alloc_node.exit
@@ -29375,7 +29375,7 @@ pm_alloc_node.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parse_arguments(ptr noundef %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2, i32 noundef range(i32 1, 126) %3) unnamed_addr #1 {
+define internal fastcc void @parse_arguments(ptr noundef %0, ptr noundef nonnull captures(none) %1, i1 noundef zeroext %2, i32 noundef range(i32 1, 126) %3) unnamed_addr #1 {
   %5 = alloca %struct.pm_static_literals_t, align 8
   %6 = alloca %struct.pm_token_t, align 8
   %7 = alloca %struct.pm_token_t, align 8
@@ -30263,7 +30263,7 @@ accept1.exit192:                                  ; preds = %360, %362, %346, %3
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_break_node_create(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_break_node_create(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #10 {
   %3 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #30
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %pm_alloc_node.exit
@@ -30298,7 +30298,7 @@ pm_alloc_node.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_next_node_create(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_next_node_create(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #10 {
   %3 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #30
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %pm_alloc_node.exit
@@ -30333,7 +30333,7 @@ pm_alloc_node.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_return_node_create(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_return_node_create(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #10 {
   %3 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #30
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %pm_alloc_node.exit
@@ -30368,7 +30368,7 @@ pm_alloc_node.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_forwarding_super_node_create(ptr nocapture noundef nonnull readonly %0, ptr %.40.val) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_forwarding_super_node_create(ptr noundef nonnull readonly captures(none) %0, ptr %.40.val) unnamed_addr #10 {
   %2 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #30
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %pm_alloc_node.exit
@@ -30397,7 +30397,7 @@ pm_alloc_node.exit:                               ; preds = %1
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_super_node_create(ptr %.8.val, ptr %.16.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_super_node_create(ptr %.8.val, ptr %.16.val, ptr noundef nonnull readonly captures(none) %0) unnamed_addr #10 {
   %2 = tail call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 1, i64 noundef 88) #30
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %pm_alloc_node.exit
@@ -30482,7 +30482,7 @@ pm_arguments_end.exit:                            ; preds = %9, %14, %21, %27, %
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_yield_node_create(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_yield_node_create(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #10 {
   %5 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #30
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %pm_alloc_node.exit
@@ -30586,7 +30586,7 @@ pm_begin_node_create.exit:                        ; preds = %pm_alloc_node.exit.
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_singleton_class_node_create(ptr nocapture noundef nonnull readonly %0, ptr %.8.val, ptr %.16.val, ptr %.8.val1, ptr %.16.val3, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_singleton_class_node_create(ptr noundef nonnull readonly captures(none) %0, ptr %.8.val, ptr %.16.val, ptr %.8.val1, ptr %.16.val3, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #10 {
   %5 = tail call noalias dereferenceable_or_null(112) ptr @calloc(i64 noundef 1, i64 noundef 112) #30
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %pm_alloc_node.exit
@@ -30657,7 +30657,7 @@ accept2.exit:                                     ; preds = %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_class_node_create(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr %.8.val, ptr %.16.val, ptr noundef %2, ptr %.8.val1, ptr %.16.val3, ptr nocapture noundef nonnull readonly %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_class_node_create(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr %.8.val, ptr %.16.val, ptr noundef %2, ptr %.8.val1, ptr %.16.val3, ptr noundef nonnull readonly captures(none) %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6) unnamed_addr #1 {
   %.sroa.5 = alloca %struct.pm_constant_id_list_t, align 8
   %8 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #30
   %9 = icmp eq ptr %8, null
@@ -30725,7 +30725,7 @@ pm_alloc_node.exit:                               ; preds = %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parse_method_definition_name(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 4), (8, 24)) %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @parse_method_definition_name(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 4), (8, 24)) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %15 [
@@ -30881,7 +30881,7 @@ pm_token_is_numbered_parameter.exit.thread:       ; preds = %3, %8, %11, %15, %p
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_nil_node_create(ptr nocapture noundef readonly %0) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_nil_node_create(ptr noundef readonly captures(none) %0) unnamed_addr #10 {
   %2 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #30
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %pm_alloc_node.exit
@@ -30908,7 +30908,7 @@ pm_alloc_node.exit:                               ; preds = %1
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_self_node_create(ptr nocapture noundef readonly %0) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_self_node_create(ptr noundef readonly captures(none) %0) unnamed_addr #10 {
   %2 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #30
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %pm_alloc_node.exit
@@ -30933,7 +30933,7 @@ pm_alloc_node.exit:                               ; preds = %1
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_true_node_create(ptr nocapture noundef readonly %0) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_true_node_create(ptr noundef readonly captures(none) %0) unnamed_addr #10 {
   %2 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #30
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %pm_alloc_node.exit
@@ -30960,7 +30960,7 @@ pm_alloc_node.exit:                               ; preds = %1
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_false_node_create(ptr nocapture noundef readonly %0) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_false_node_create(ptr noundef readonly captures(none) %0) unnamed_addr #10 {
   %2 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #30
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %pm_alloc_node.exit
@@ -32572,7 +32572,7 @@ pm_alloc_node.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_def_node_create(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef nonnull readonly %6, ptr nocapture noundef nonnull readonly %7, ptr nocapture noundef nonnull readonly %8, ptr nocapture noundef nonnull readonly %9, ptr nocapture noundef nonnull readonly %10, ptr nocapture noundef nonnull readonly %11, ptr nocapture noundef nonnull readonly %12) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_def_node_create(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull readonly captures(none) %6, ptr noundef nonnull readonly captures(none) %7, ptr noundef nonnull readonly captures(none) %8, ptr noundef nonnull readonly captures(none) %9, ptr noundef nonnull readonly captures(none) %10, ptr noundef nonnull readonly captures(none) %11, ptr noundef nonnull readonly captures(none) %12) unnamed_addr #1 {
   %14 = tail call noalias dereferenceable_or_null(192) ptr @calloc(i64 noundef 1, i64 noundef 192) #30
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %pm_alloc_node.exit
@@ -32784,7 +32784,7 @@ pm_def_node_receiver_check.exit:                  ; preds = %28, %25, %tailrecur
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_defined_node_create(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_defined_node_create(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #10 {
   %5 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #30
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %pm_alloc_node.exit
@@ -32849,7 +32849,7 @@ pm_alloc_node.exit:                               ; preds = %4
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_post_execution_node_create(ptr %.8.val, ptr %.16.val, ptr %.8.val1, ptr %.16.val3, ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_post_execution_node_create(ptr %.8.val, ptr %.16.val, ptr %.8.val1, ptr %.16.val3, ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #10 {
   %3 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #30
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %pm_alloc_node.exit
@@ -33304,7 +33304,7 @@ pm_call_node_index_p.exit.thread:                 ; preds = %89, %93, %95, %98, 
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_for_node_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr %.8.val, ptr %.16.val, ptr %.8.val1, ptr %.16.val3, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_for_node_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr %.8.val, ptr %.16.val, ptr %.8.val1, ptr %.16.val3, ptr noundef nonnull readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #10 {
   %6 = tail call noalias dereferenceable_or_null(112) ptr @calloc(i64 noundef 1, i64 noundef 112) #30
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %pm_alloc_node.exit
@@ -33885,7 +33885,7 @@ expect1.exit99:                                   ; preds = %accept1.exit.i97, %
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_undef_node_create(ptr nocapture noundef readonly %0) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_undef_node_create(ptr noundef readonly captures(none) %0) unnamed_addr #10 {
   %2 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #30
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %pm_alloc_node.exit
@@ -34111,7 +34111,7 @@ parse_symbol_encoding.exit:                       ; preds = %29, %19, %21, %25, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pm_conditional_predicate(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #1 {
+define internal fastcc void @pm_conditional_predicate(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #1 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %2
@@ -34246,7 +34246,7 @@ pm_flip_flop_predicate.exit39:                    ; preds = %44, %47, %51
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pm_predicate_check(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @pm_predicate_check(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %tailrecurse.i.backedge, %2
@@ -34321,7 +34321,7 @@ pm_write_node_value.exit.thread:                  ; preds = %tailrecurse.i, %7, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_call_node_not_create(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_call_node_not_create(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #1 {
   %5 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %1)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %pm_assert_value_expression.exit, label %6
@@ -34408,7 +34408,7 @@ pm_call_node_create.exit:                         ; preds = %15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_module_node_create(ptr noundef %0, ptr noundef readonly %1, ptr %.8.val, ptr %.16.val, ptr noundef %2, ptr %.8.val1, ptr %.16.val3, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_module_node_create(ptr noundef %0, ptr noundef readonly %1, ptr %.8.val, ptr %.16.val, ptr noundef %2, ptr %.8.val1, ptr %.16.val3, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #1 {
   %.sroa.5 = alloca %struct.pm_constant_id_list_t, align 8
   %6 = tail call noalias dereferenceable_or_null(104) ptr @calloc(i64 noundef 1, i64 noundef 104) #30
   %7 = icmp eq ptr %6, null
@@ -34467,7 +34467,7 @@ pm_alloc_node.exit:                               ; preds = %5
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_redo_node_create(ptr nocapture noundef readonly %0) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_redo_node_create(ptr noundef readonly captures(none) %0) unnamed_addr #10 {
   %2 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #30
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %pm_alloc_node.exit
@@ -34492,7 +34492,7 @@ pm_alloc_node.exit:                               ; preds = %1
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_retry_node_create(ptr nocapture noundef readonly %0) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_retry_node_create(ptr noundef readonly captures(none) %0) unnamed_addr #10 {
   %2 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #30
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %pm_alloc_node.exit
@@ -34550,7 +34550,7 @@ accept3.exit:                                     ; preds = %2, %2, %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_until_node_create(ptr noundef %0, ptr %.8.val, ptr %.16.val, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_until_node_create(ptr noundef %0, ptr %.8.val, ptr %.16.val, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #30
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %tailrecurse.i.i
@@ -34664,7 +34664,7 @@ pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_while_node_create(ptr noundef %0, ptr %.8.val, ptr %.16.val, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_while_node_create(ptr noundef %0, ptr %.8.val, ptr %.16.val, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #30
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %tailrecurse.i.i
@@ -34778,7 +34778,7 @@ pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_symbol_node_create_current_string(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_symbol_node_create_current_string(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %7 = load ptr, ptr %6, align 8
@@ -34893,7 +34893,7 @@ pm_symbol_node_create_unescaped.exit:             ; preds = %38, %43
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_regular_expression_node_create_unescaped(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_regular_expression_node_create_unescaped(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #10 {
   %5 = tail call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef 1, i64 noundef 96) #30
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %pm_alloc_node.exit
@@ -35074,7 +35074,7 @@ define internal fastcc void @pm_interpolated_regular_expression_node_append(ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @pm_interpolated_regular_expression_node_closing_set(ptr nocapture noundef nonnull initializes((16, 24), (64, 80)) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #15 {
+define internal fastcc void @pm_interpolated_regular_expression_node_closing_set(ptr noundef nonnull captures(none) initializes((16, 24), (64, 80)) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #15 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -35163,7 +35163,7 @@ pm_regular_expression_flags_create.exit:          ; preds = %36, %2, %12
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_xstring_node_create(ptr %.8.val, ptr %.16.val, ptr %.8.val1, ptr %.16.val3, ptr nocapture noundef readonly %0) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_xstring_node_create(ptr %.8.val, ptr %.16.val, ptr %.8.val1, ptr %.16.val3, ptr noundef readonly captures(none) %0) unnamed_addr #10 {
   %2 = tail call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef 1, i64 noundef 96) #30
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %pm_xstring_node_create_unescaped.exit
@@ -35256,7 +35256,7 @@ define internal fastcc void @pm_parser_err_prefix(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_call_node_unary_create(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_call_node_unary_create(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %2)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %pm_assert_value_expression.exit, label %6
@@ -35316,14 +35316,14 @@ pm_call_node_create.exit:                         ; preds = %pm_assert_value_exp
   store ptr %.sink, ptr %30, align 8
   %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %33 = tail call i32 @pm_constant_pool_insert_constant(ptr noundef nonnull %32, ptr noundef %3, i64 noundef %31) #27
+  %33 = tail call i32 @pm_constant_pool_insert_constant(ptr noundef nonnull %32, ptr noundef nonnull %3, i64 noundef %31) #27
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i32 %33, ptr %34, align 8
   ret ptr %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_call_node_binary_create(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_call_node_binary_create(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %1)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %pm_assert_value_expression.exit, label %6
@@ -35440,7 +35440,7 @@ pm_arguments_node_arguments_append.exit:          ; preds = %44
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @parse_negative_numeric(ptr nocapture noundef %0) unnamed_addr #16 {
+define internal fastcc void @parse_negative_numeric(ptr noundef captures(none) %0) unnamed_addr #16 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %1
@@ -35487,7 +35487,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_block_parameters_node_create(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_block_parameters_node_create(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #10 {
   %.sroa.6 = alloca %struct.pm_node_list, align 8
   %3 = tail call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 1, i64 noundef 88) #30
   %4 = icmp eq ptr %3, null
@@ -35562,7 +35562,7 @@ pm_alloc_node.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc nonnull ptr @parse_block_parameters(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef nonnull readonly %2, i1 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc nonnull ptr @parse_block_parameters(ptr noundef %0, i1 noundef zeroext %1, ptr noundef nonnull readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #1 {
   %.sroa.6.i = alloca %struct.pm_node_list, align 8
   %5 = getelementptr i8, ptr %0, i64 304
   %.val = load i32, ptr %5, align 8
@@ -35764,7 +35764,7 @@ accept1.exit.thread:                              ; preds = %pm_block_parameters
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noundef ptr @parse_blocklike_parameters(ptr nocapture readonly %.456.val, ptr noundef readnone %0, ptr %.8.val, ptr nocapture noundef readonly %1) unnamed_addr #10 {
+define internal fastcc noundef ptr @parse_blocklike_parameters(ptr readonly captures(none) %.456.val, ptr noundef readnone %0, ptr %.8.val, ptr noundef readonly captures(none) %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %.456.val, i64 32
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 7
@@ -35833,7 +35833,7 @@ pm_it_parameters_node_create.exit:                ; preds = %19
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_lambda_node_create(ptr nocapture noundef nonnull readonly %0, ptr %.8.val, ptr %.16.val, ptr %.8.val1, ptr %.16.val3, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_lambda_node_create(ptr noundef nonnull readonly captures(none) %0, ptr %.8.val, ptr %.16.val, ptr %.8.val1, ptr %.16.val3, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #10 {
   %5 = tail call noalias dereferenceable_or_null(112) ptr @calloc(i64 noundef 1, i64 noundef 112) #30
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %pm_alloc_node.exit
@@ -36741,7 +36741,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #17
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #17
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #18
@@ -36882,7 +36882,7 @@ define internal fastcc ptr @pm_check_value_expression(ptr noundef readonly %0) u
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @pm_symbol_node_label_create(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc noundef ptr @pm_symbol_node_label_create(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = load i32, ptr %1, align 8
   switch i32 %3, label %44 [
     i32 109, label %4
@@ -37001,7 +37001,7 @@ pm_symbol_node_create.exit37:                     ; preds = %34
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_local_variable_read_node_create(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, -1) %2) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_local_variable_read_node_create(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, -1) %2) unnamed_addr #1 {
   %4 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %1, i64 16
@@ -37050,7 +37050,7 @@ pm_local_variable_read_node_create_constant_id.exit: ; preds = %17
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_local_variable_read_node_create_constant_id(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef range(i32 0, -1) %3) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_local_variable_read_node_create_constant_id(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef range(i32 0, -1) %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, %2
@@ -37407,7 +37407,7 @@ pm_block_node_create.exit:                        ; preds = %expect1.exit64
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pm_arguments_validate_block(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #1 {
+define internal fastcc void @pm_arguments_validate_block(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -37447,7 +37447,7 @@ define internal fastcc void @pm_arguments_validate_block(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_arguments_node_create(ptr nocapture noundef readonly %0) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_arguments_node_create(ptr noundef readonly captures(none) %0) unnamed_addr #10 {
   %2 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #30
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %pm_alloc_node.exit
@@ -37470,19 +37470,19 @@ pm_alloc_node.exit:                               ; preds = %1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #21
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #22
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #21
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #21
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noalias ptr @parse_variable(ptr noundef %0) unnamed_addr #1 {
@@ -37711,7 +37711,7 @@ pm_parser_local_add.exit:                         ; preds = %10, %5, %2
 declare i32 @pm_constant_pool_insert_constant(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias noundef ptr @pm_local_variable_read_node_create_it(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc noalias noundef ptr @pm_local_variable_read_node_create_it(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -37812,7 +37812,7 @@ declare void @pm_string_ensure_owned(ptr noundef) local_unnamed_addr #4
 declare void @pm_integer_parse(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc nonnull ptr @parse_operator_symbol(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 0, 4225) %2) unnamed_addr #1 {
+define internal fastcc nonnull ptr @parse_operator_symbol(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 0, 4225) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %5 = tail call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef 1, i64 noundef 96) #30
   %6 = icmp eq ptr %5, null
@@ -38668,7 +38668,7 @@ pm_parser_local_depth.exit.thread:                ; preds = %69, %65, %expect1.e
 
 pm_parser_local_add_token.exit:                   ; preds = %77, %73, %pm_parser_local_depth.exit.thread, %pm_parser_local_depth.exit
   %.039 = phi i32 [ %.012.i.i, %pm_parser_local_depth.exit ], [ 0, %pm_parser_local_depth.exit.thread ], [ 0, %73 ], [ 0, %77 ]
-  %81 = tail call fastcc ptr @pm_local_variable_target_node_create_depth(ptr noundef %0, ptr %.sroa.1.0.copyload, ptr %.sroa.4.0.copyload, i32 noundef %.039)
+  %81 = tail call fastcc ptr @pm_local_variable_target_node_create_depth(ptr noundef nonnull %0, ptr %.sroa.1.0.copyload, ptr %.sroa.4.0.copyload, i32 noundef %.039)
   %82 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #30
   %83 = icmp eq ptr %82, null
   br i1 %83, label %84, label %pm_capture_pattern_node_create.exit
@@ -38707,7 +38707,7 @@ accept1.exit64:                                   ; preds = %expect1.exit, %pm_c
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @parse_pattern_hash_implicit_value(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @parse_pattern_hash_implicit_value(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %.sroa.3.i18 = alloca [20 x i8], align 4
   %.sroa.3.i = alloca [20 x i8], align 4
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -38845,7 +38845,7 @@ pm_parser_local_add.exit:                         ; preds = %14, %9, %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_local_variable_target_node_create(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_local_variable_target_node_create(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -39663,7 +39663,7 @@ pm_local_variable_target_node_create_values.exit: ; preds = %pm_refute_numbered_
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_array_pattern_node_empty_create(ptr %.8.val, ptr %.16.val, ptr nocapture noundef readonly %0) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_array_pattern_node_empty_create(ptr %.8.val, ptr %.16.val, ptr noundef readonly captures(none) %0) unnamed_addr #10 {
   %2 = tail call noalias dereferenceable_or_null(120) ptr @calloc(i64 noundef 1, i64 noundef 120) #30
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %pm_alloc_node.exit
@@ -39696,7 +39696,7 @@ pm_alloc_node.exit:                               ; preds = %1
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_hash_pattern_node_empty_create(ptr %.8.val, ptr %.16.val, ptr nocapture noundef readonly %0) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_hash_pattern_node_empty_create(ptr %.8.val, ptr %.16.val, ptr noundef readonly captures(none) %0) unnamed_addr #10 {
   %2 = tail call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef 1, i64 noundef 96) #30
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %pm_alloc_node.exit
@@ -39758,7 +39758,7 @@ pm_alloc_node.exit:                               ; preds = %1
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_pinned_expression_node_create(ptr noundef %0, ptr %.8.val, ptr %.16.val, ptr %.8.val1, ptr %.16.val3, ptr nocapture noundef readonly %1) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_pinned_expression_node_create(ptr noundef %0, ptr %.8.val, ptr %.16.val, ptr %.8.val1, ptr %.16.val3, ptr noundef readonly captures(none) %1) unnamed_addr #10 {
   %3 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #30
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %pm_alloc_node.exit
@@ -40512,7 +40512,7 @@ expect1.exit73:                                   ; preds = %accept1.exit.thread
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @pm_parser_parameter_name_check(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @pm_parser_parameter_name_check(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -40578,7 +40578,7 @@ pm_refute_numbered_parameter.exit:                ; preds = %2, %11, %14, %pm_to
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parse_write_name(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #1 {
+define internal fastcc void @parse_write_name(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %4 = load i32, ptr %1, align 4
   %5 = tail call ptr @pm_constant_pool_id_to_constant(ptr noundef nonnull %3, i32 noundef %4) #27
@@ -40603,7 +40603,7 @@ define internal fastcc void @parse_write_name(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_call_target_node_create(ptr nocapture noundef %0) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_call_target_node_create(ptr noundef captures(none) %0) unnamed_addr #1 {
   %.sroa.3 = alloca [20 x i8], align 4
   %.sroa.7 = alloca [20 x i8], align 4
   %2 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #30
@@ -40648,7 +40648,7 @@ pm_alloc_node.exit:                               ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @pm_call_node_index_p(ptr nocapture noundef readonly %0) unnamed_addr #23 {
+define internal fastcc zeroext i1 @pm_call_node_index_p(ptr noundef readonly captures(none) %0) unnamed_addr #23 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -40690,7 +40690,7 @@ define internal fastcc zeroext i1 @pm_call_node_index_p(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_if_node_create(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, ptr noundef %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_if_node_create(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef %4, ptr noundef nonnull readonly captures(none) %5) unnamed_addr #1 {
   tail call fastcc void @pm_conditional_predicate(ptr noundef %0, ptr noundef %2)
   br label %tailrecurse.i.i
 
@@ -41225,7 +41225,7 @@ pm_rescue_modifier_node_create.exit:              ; preds = %126
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @parse_write(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc ptr @parse_write(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef %3) unnamed_addr #1 {
   %.sroa.6.i = alloca [20 x i8], align 4
   %5 = alloca %struct.pm_location_t, align 8
   %6 = load i16, ptr %1, align 8
@@ -42051,7 +42051,7 @@ pm_rescue_modifier_node_create.exit:              ; preds = %17
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_global_variable_and_write_node_create(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_global_variable_and_write_node_create(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef %3) unnamed_addr #1 {
   %.sroa.6 = alloca [20 x i8], align 4
   %5 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #30
   %6 = icmp eq ptr %5, null
@@ -42122,7 +42122,7 @@ pm_global_variable_write_name.exit:               ; preds = %pm_alloc_node.exit,
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_class_variable_and_write_node_create(ptr nocapture noundef readonly %0, ptr %.8.val, ptr %.16.val, ptr noundef %1) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_class_variable_and_write_node_create(ptr noundef readonly captures(none) %0, ptr %.8.val, ptr %.16.val, ptr noundef %1) unnamed_addr #10 {
   %.sroa.6 = alloca [20 x i8], align 4
   %3 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #30
   %4 = icmp eq ptr %3, null
@@ -42195,7 +42195,7 @@ pm_alloc_node.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_constant_and_write_node_create(ptr nocapture noundef readonly %0, ptr %.8.val, ptr %.16.val, ptr noundef %1) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_constant_and_write_node_create(ptr noundef readonly captures(none) %0, ptr %.8.val, ptr %.16.val, ptr noundef %1) unnamed_addr #10 {
   %.sroa.6 = alloca [20 x i8], align 4
   %3 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #30
   %4 = icmp eq ptr %3, null
@@ -42235,7 +42235,7 @@ pm_alloc_node.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_instance_variable_and_write_node_create(ptr nocapture noundef readonly %0, ptr %.8.val, ptr %.16.val, ptr noundef %1) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_instance_variable_and_write_node_create(ptr noundef readonly captures(none) %0, ptr %.8.val, ptr %.16.val, ptr noundef %1) unnamed_addr #10 {
   %.sroa.6 = alloca [20 x i8], align 4
   %3 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #30
   %4 = icmp eq ptr %3, null
@@ -42275,7 +42275,7 @@ pm_alloc_node.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_local_variable_and_write_node_create(ptr nocapture noundef readonly %0, ptr %.8.val, ptr %.16.val, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_local_variable_and_write_node_create(ptr noundef readonly captures(none) %0, ptr %.8.val, ptr %.16.val, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #10 {
   %5 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #30
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %pm_alloc_node.exit
@@ -42312,7 +42312,7 @@ pm_alloc_node.exit:                               ; preds = %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_index_and_write_node_create(ptr nocapture noundef %0, ptr %.8.val, ptr %.16.val, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_index_and_write_node_create(ptr noundef captures(none) %0, ptr %.8.val, ptr %.16.val, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call noalias dereferenceable_or_null(120) ptr @calloc(i64 noundef 1, i64 noundef 120) #30
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %pm_alloc_node.exit
@@ -42369,7 +42369,7 @@ pm_alloc_node.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @pm_call_node_writable_p(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc zeroext i1 @pm_call_node_writable_p(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -42477,7 +42477,7 @@ char_is_identifier_start.exit.thread14:           ; preds = %28, %5, %5, %61, %5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parse_call_operator_write(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #1 {
+define internal fastcc void @parse_call_operator_write(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -42518,7 +42518,7 @@ define internal fastcc void @parse_call_operator_write(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_call_and_write_node_create(ptr noundef %0, ptr nocapture noundef %1, ptr %.8.val, ptr %.16.val, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_call_and_write_node_create(ptr noundef %0, ptr noundef captures(none) %1, ptr %.8.val, ptr %.16.val, ptr noundef %2) unnamed_addr #1 {
   %4 = tail call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef 1, i64 noundef 96) #30
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %pm_alloc_node.exit
@@ -42591,7 +42591,7 @@ pm_call_write_read_name_init.exit:                ; preds = %25, %30
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_global_variable_or_write_node_create(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_global_variable_or_write_node_create(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef %3) unnamed_addr #1 {
   %.sroa.6 = alloca [20 x i8], align 4
   %5 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #30
   %6 = icmp eq ptr %5, null
@@ -42662,7 +42662,7 @@ pm_global_variable_write_name.exit:               ; preds = %pm_alloc_node.exit,
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_class_variable_or_write_node_create(ptr nocapture noundef readonly %0, ptr %.8.val, ptr %.16.val, ptr noundef %1) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_class_variable_or_write_node_create(ptr noundef readonly captures(none) %0, ptr %.8.val, ptr %.16.val, ptr noundef %1) unnamed_addr #10 {
   %.sroa.6 = alloca [20 x i8], align 4
   %3 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #30
   %4 = icmp eq ptr %3, null
@@ -42735,7 +42735,7 @@ pm_alloc_node.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_constant_or_write_node_create(ptr nocapture noundef readonly %0, ptr %.8.val, ptr %.16.val, ptr noundef %1) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_constant_or_write_node_create(ptr noundef readonly captures(none) %0, ptr %.8.val, ptr %.16.val, ptr noundef %1) unnamed_addr #10 {
   %.sroa.6 = alloca [20 x i8], align 4
   %3 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #30
   %4 = icmp eq ptr %3, null
@@ -42775,7 +42775,7 @@ pm_alloc_node.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_instance_variable_or_write_node_create(ptr nocapture noundef readonly %0, ptr %.8.val, ptr %.16.val, ptr noundef %1) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_instance_variable_or_write_node_create(ptr noundef readonly captures(none) %0, ptr %.8.val, ptr %.16.val, ptr noundef %1) unnamed_addr #10 {
   %.sroa.6 = alloca [20 x i8], align 4
   %3 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #30
   %4 = icmp eq ptr %3, null
@@ -42815,7 +42815,7 @@ pm_alloc_node.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_local_variable_or_write_node_create(ptr nocapture noundef readonly %0, ptr %.8.val, ptr %.16.val, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_local_variable_or_write_node_create(ptr noundef readonly captures(none) %0, ptr %.8.val, ptr %.16.val, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #10 {
   %5 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #30
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %pm_alloc_node.exit
@@ -42852,7 +42852,7 @@ pm_alloc_node.exit:                               ; preds = %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_index_or_write_node_create(ptr nocapture noundef %0, ptr %.8.val, ptr %.16.val, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_index_or_write_node_create(ptr noundef captures(none) %0, ptr %.8.val, ptr %.16.val, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call noalias dereferenceable_or_null(120) ptr @calloc(i64 noundef 1, i64 noundef 120) #30
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %pm_alloc_node.exit
@@ -42909,7 +42909,7 @@ pm_alloc_node.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_call_or_write_node_create(ptr noundef %0, ptr nocapture noundef %1, ptr %.8.val, ptr %.16.val, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_call_or_write_node_create(ptr noundef %0, ptr noundef captures(none) %1, ptr %.8.val, ptr %.16.val, ptr noundef %2) unnamed_addr #1 {
   %4 = tail call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef 1, i64 noundef 96) #30
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %pm_alloc_node.exit
@@ -42982,7 +42982,7 @@ pm_call_write_read_name_init.exit:                ; preds = %25, %30
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_class_variable_operator_write_node_create(ptr noundef %0, ptr nocapture noundef readonly %1, ptr %.8.val, ptr %.16.val, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_class_variable_operator_write_node_create(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr %.8.val, ptr %.16.val, ptr noundef %2) unnamed_addr #1 {
   %.sroa.6 = alloca [20 x i8], align 4
   %4 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #30
   %5 = icmp eq ptr %4, null
@@ -43071,7 +43071,7 @@ pm_alloc_node.exit:                               ; preds = %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_constant_operator_write_node_create(ptr noundef %0, ptr nocapture noundef readonly %1, ptr %.8.val, ptr %.16.val, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_constant_operator_write_node_create(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr %.8.val, ptr %.16.val, ptr noundef %2) unnamed_addr #1 {
   %.sroa.6 = alloca [20 x i8], align 4
   %4 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #30
   %5 = icmp eq ptr %4, null
@@ -43119,7 +43119,7 @@ pm_alloc_node.exit:                               ; preds = %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_instance_variable_operator_write_node_create(ptr noundef %0, ptr nocapture noundef readonly %1, ptr %.8.val, ptr %.16.val, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_instance_variable_operator_write_node_create(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr %.8.val, ptr %.16.val, ptr noundef %2) unnamed_addr #1 {
   %.sroa.6 = alloca [20 x i8], align 4
   %4 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #30
   %5 = icmp eq ptr %4, null
@@ -43167,7 +43167,7 @@ pm_alloc_node.exit:                               ; preds = %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_local_variable_operator_write_node_create(ptr noundef %0, ptr nocapture noundef readonly %1, ptr %.8.val, ptr %.16.val, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_local_variable_operator_write_node_create(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr %.8.val, ptr %.16.val, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #30
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %pm_alloc_node.exit
@@ -43212,7 +43212,7 @@ pm_alloc_node.exit:                               ; preds = %5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_index_operator_write_node_create(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_index_operator_write_node_create(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef 128) #30
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %pm_alloc_node.exit
@@ -43283,7 +43283,7 @@ pm_alloc_node.exit:                               ; preds = %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_call_operator_write_node_create(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_call_operator_write_node_create(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = tail call noalias dereferenceable_or_null(104) ptr @calloc(i64 noundef 1, i64 noundef 104) #30
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %pm_alloc_node.exit
@@ -43757,7 +43757,7 @@ name_is_identifier.exit.thread:                   ; preds = %45, %char_is_identi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_call_node_shorthand_create(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_call_node_shorthand_create(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #1 {
   %5 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %1)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %pm_assert_value_expression.exit, label %6
@@ -43892,7 +43892,7 @@ pm_arguments_end.exit:                            ; preds = %22, %27, %34, %40, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_call_node_call_create(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_call_node_call_create(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #1 {
   %6 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %1)
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %pm_assert_value_expression.exit, label %7
@@ -44062,7 +44062,7 @@ pm_arguments_end.exit:                            ; preds = %23, %28, %35, %41, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_until_node_modifier_create(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef nonnull %3, i16 noundef zeroext range(i16 0, 2) %4) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_until_node_modifier_create(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2, ptr noundef nonnull %3, i16 noundef zeroext range(i16 0, 2) %4) unnamed_addr #1 {
   %6 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #30
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %tailrecurse.i.i
@@ -44168,7 +44168,7 @@ pm_predicate_check.exit:                          ; preds = %tailrecurse.i.i, %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_while_node_modifier_create(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef nonnull %3, i16 noundef zeroext range(i16 0, 2) %4) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_while_node_modifier_create(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2, ptr noundef nonnull %3, i16 noundef zeroext range(i16 0, 2) %4) unnamed_addr #1 {
   %6 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #30
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %tailrecurse.i.i
@@ -44489,7 +44489,7 @@ pm_alloc_node.exit:                               ; preds = %pm_else_node_create
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_call_node_aref_create(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #1 {
+define internal fastcc noalias nonnull ptr @pm_call_node_aref_create(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #1 {
   %4 = tail call fastcc ptr @pm_check_value_expression(ptr noundef readonly %1)
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %pm_assert_value_expression.exit, label %5
@@ -44698,7 +44698,7 @@ pm_alloc_node.exit:                               ; preds = %pm_assert_value_exp
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc noalias nonnull ptr @pm_local_variable_write_node_create(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #10 {
+define internal fastcc noalias nonnull ptr @pm_local_variable_write_node_create(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #10 {
   %6 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #30
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %pm_alloc_node.exit
@@ -44764,16 +44764,16 @@ declare i32 @llvm.umax.i32(i32, i32) #24
 declare i64 @llvm.umax.i64(i64, i64) #24
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #25
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #24

@@ -301,7 +301,7 @@ declare void @_ZN6Assimp6Logger4warnEPKc(ptr noundef nonnull align 8 dereference
 declare void @_ZN6Assimp11LWOImporter13LoadLWOPointsEj(ptr noundef nonnull align 8 dereferenceable(233), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11LWOImporter16LoadLWOBPolygonsEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(233) %this, i32 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11LWOImporter16LoadLWOBPolygonsEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this, i32 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cursor = alloca ptr, align 8
   %iNumFaces = alloca i32, align 4
@@ -1023,7 +1023,7 @@ eh.resume:                                        ; preds = %lpad191, %lpad174, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11LWOImporter22CountVertsAndFacesLWOBERjS1_RPtPKtj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(233) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %verts, ptr nocapture noundef nonnull align 4 dereferenceable(4) %faces, ptr nocapture noundef nonnull align 8 dereferenceable(8) %cursor, ptr noundef %end, i32 noundef %max) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11LWOImporter22CountVertsAndFacesLWOBERjS1_RPtPKtj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(233) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %verts, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %faces, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %cursor, ptr noundef %end, i32 noundef %max) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %cursor, align 8
   %cmp18 = icmp ult ptr %0, %end
@@ -1128,7 +1128,7 @@ eh.resume:                                        ; preds = %lpad11, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11LWOImporter19CopyFaceIndicesLWOBERN9__gnu_cxx17__normal_iteratorIPNS_3LWO4FaceESt6vectorIS4_SaIS4_EEEERPtPKtj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(233) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %it, ptr nocapture noundef nonnull align 8 dereferenceable(8) %cursor, ptr noundef %end, i32 noundef %max) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp11LWOImporter19CopyFaceIndicesLWOBERN9__gnu_cxx17__normal_iteratorIPNS_3LWO4FaceESt6vectorIS4_SaIS4_EEEERPtPKtj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(233) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %it, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %cursor, ptr noundef %end, i32 noundef %max) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %cursor, align 8
   %cmp33 = icmp ult ptr %0, %end
@@ -1259,7 +1259,7 @@ while.end:                                        ; preds = %land.rhs, %if.then,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #5
@@ -1417,7 +1417,7 @@ lpad:                                             ; preds = %while.end
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6Assimp6Logger5errorIJRA35_KcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 1 dereferenceable(35) %args, ptr noundef nonnull align 8 dereferenceable(32) %args1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3319,13 +3319,13 @@ declare i32 @llvm.bswap.i32(i32) #14
 declare i64 @llvm.bswap.i64(i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

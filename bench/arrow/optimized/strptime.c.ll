@@ -211,7 +211,7 @@ for.inc85:                                        ; preds = %land.rhs75
 sw.bb88:                                          ; preds = %if.end43
   %call89 = tail call ptr @nl_langinfo(i32 noundef 131110) #7
   %call90 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call89) #8
-  %call91 = tail call i32 @strncasecmp(ptr noundef %s.addr.0, ptr noundef %call89, i64 noundef %call90) #8
+  %call91 = tail call i32 @strncasecmp(ptr noundef %s.addr.0, ptr noundef nonnull %call89, i64 noundef %call90) #8
   %tobool92.not = icmp eq i32 %call91, 0
   br i1 %tobool92.not, label %if.then93, label %if.end95
 
@@ -225,7 +225,7 @@ if.then93:                                        ; preds = %sw.bb88
 if.end95:                                         ; preds = %sw.bb88
   %call96 = tail call ptr @nl_langinfo(i32 noundef 131111) #7
   %call97 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call96) #8
-  %call98 = tail call i32 @strncasecmp(ptr noundef %s.addr.0, ptr noundef %call96, i64 noundef %call97) #8
+  %call98 = tail call i32 @strncasecmp(ptr noundef %s.addr.0, ptr noundef nonnull %call96, i64 noundef %call97) #8
   %tobool99.not = icmp eq i32 %call98, 0
   br i1 %tobool99.not, label %if.then100, label %return
 
@@ -427,7 +427,7 @@ for.body240:                                      ; preds = %for.cond237
   %add241 = add nuw nsw i32 %i.2, %min.0
   %call242 = tail call ptr @nl_langinfo(i32 noundef %add241) #7
   %call243 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call242) #8
-  %call244 = tail call i32 @strncasecmp(ptr noundef %s.addr.0, ptr noundef %call242, i64 noundef %call243) #8
+  %call244 = tail call i32 @strncasecmp(ptr noundef %s.addr.0, ptr noundef nonnull %call242, i64 noundef %call243) #8
   %tobool245.not = icmp eq i32 %call244, 0
   br i1 %tobool245.not, label %for.end251, label %for.cond237, !llvm.loop !10
 
@@ -482,16 +482,16 @@ return:                                           ; preds = %if.end200, %for.end
 declare ptr @__ctype_b_loc() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare ptr @nl_langinfo(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }

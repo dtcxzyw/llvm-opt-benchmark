@@ -81,13 +81,13 @@ define dso_local void @radix_tree_node_rcu_free(ptr noundef initializes((16, 552
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -1118,7 +1118,7 @@ define dso_local void @radix_tree_replace_slot(ptr noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @radix_tree_iter_replace(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local void @radix_tree_iter_replace(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   tail call void @__radix_tree_replace(ptr noundef %0, ptr noundef %6, ptr noundef %2, ptr noundef %3)
@@ -1315,7 +1315,7 @@ define dso_local ptr @radix_tree_tag_clear(ptr noundef %0, i64 noundef %1, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @radix_tree_iter_tag_clear(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @radix_tree_iter_tag_clear(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1448,7 +1448,7 @@ define dso_local noundef range(i32 0, 2) i32 @radix_tree_tag_get(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noalias noundef ptr @radix_tree_iter_resume(ptr nocapture readnone %0, ptr nocapture noundef initializes((8, 24)) %1) #5 align 16 {
+define dso_local noalias noundef ptr @radix_tree_iter_resume(ptr readnone captures(none) %0, ptr noundef captures(none) initializes((8, 24)) %1) #5 align 16 {
   %3 = load i64, ptr %1, align 8
   %4 = add i64 %3, 1
   store i64 %4, ptr %1, align 8
@@ -1460,7 +1460,7 @@ define dso_local noalias noundef ptr @radix_tree_iter_resume(ptr nocapture readn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) #0 align 16 {
   %4 = and i32 %2, 15
   %5 = and i32 %2, 16
   %6 = icmp eq i32 %5, 0
@@ -1860,7 +1860,7 @@ define dso_local ptr @radix_tree_next_chunk(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @radix_tree_gang_lookup(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local i32 @radix_tree_gang_lookup(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = alloca %struct.radix_tree_iter, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
   %6 = icmp eq i32 %3, 0
@@ -1947,7 +1947,7 @@ define dso_local i32 @radix_tree_gang_lookup(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @radix_tree_gang_lookup_tag(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local i32 @radix_tree_gang_lookup_tag(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = alloca %struct.radix_tree_iter, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13
   %7 = icmp eq i32 %3, 0
@@ -2111,7 +2111,7 @@ define dso_local i32 @radix_tree_gang_lookup_tag(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @radix_tree_gang_lookup_tag_slot(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local i32 @radix_tree_gang_lookup_tag_slot(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = alloca %struct.radix_tree_iter, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13
   %7 = icmp eq i32 %3, 0
@@ -2235,7 +2235,7 @@ define dso_local i32 @radix_tree_gang_lookup_tag_slot(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @radix_tree_iter_delete(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local void @radix_tree_iter_delete(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call fastcc zeroext i1 @__radix_tree_delete(ptr noundef %0, ptr noundef %5, ptr noundef %2)
@@ -2537,7 +2537,7 @@ define dso_local ptr @radix_tree_delete(ptr noundef %0, i64 noundef %1) #0 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local range(i32 0, -2147483647) i32 @radix_tree_tagged(ptr nocapture noundef readonly %0, i32 noundef %1) #6 align 16 {
+define dso_local range(i32 0, -2147483647) i32 @radix_tree_tagged(ptr noundef readonly captures(none) %0, i32 noundef %1) #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %1, 26
@@ -2563,7 +2563,7 @@ define dso_local void @idr_preload(i32 noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @idr_get_free(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local ptr @idr_get_free(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8

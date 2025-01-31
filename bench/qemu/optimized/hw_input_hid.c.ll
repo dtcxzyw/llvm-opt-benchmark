@@ -61,7 +61,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.compoundliteral.29 = internal global [5 x %struct.VMStateField] [%struct.VMStateField { ptr @.str.25, ptr null, i64 0, i64 4, i64 0, i32 0, i64 0, i64 0, ptr @vmstate_info_int32, i32 1, ptr null, i32 0, i32 0, ptr null }, %struct.VMStateField { ptr @.str.26, ptr null, i64 4, i64 4, i64 0, i32 0, i64 0, i64 0, ptr @vmstate_info_int32, i32 1, ptr null, i32 0, i32 0, ptr null }, %struct.VMStateField { ptr @.str.27, ptr null, i64 8, i64 4, i64 0, i32 0, i64 0, i64 0, ptr @vmstate_info_int32, i32 1, ptr null, i32 0, i32 0, ptr null }, %struct.VMStateField { ptr @.str.28, ptr null, i64 12, i64 4, i64 0, i32 0, i64 0, i64 0, ptr @vmstate_info_int32, i32 1, ptr null, i32 0, i32 0, ptr null }, %struct.VMStateField { ptr null, ptr null, i64 0, i64 0, i64 0, i32 0, i64 0, i64 0, ptr null, i32 65536, ptr null, i32 0, i32 0, ptr null }], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @hid_has_events(ptr nocapture noundef readonly %hs) local_unnamed_addr #0 {
+define dso_local zeroext i1 @hid_has_events(ptr noundef readonly captures(none) %hs) local_unnamed_addr #0 {
 entry:
   %n = getelementptr inbounds nuw i8, ptr %hs, i64 264
   %0 = load i32, ptr %n, align 8
@@ -141,7 +141,7 @@ entry:
 declare void @timer_mod_ns(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @hid_pointer_activate(ptr nocapture noundef %hs) local_unnamed_addr #1 {
+define dso_local void @hid_pointer_activate(ptr noundef captures(none) %hs) local_unnamed_addr #1 {
 entry:
   %mouse_grabbed = getelementptr inbounds nuw i8, ptr %hs, i64 256
   %0 = load i32, ptr %mouse_grabbed, align 8
@@ -162,7 +162,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @qemu_input_handler_activate(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 7) i32 @hid_pointer_poll(ptr nocapture noundef initializes((277, 278)) %hs, ptr nocapture noundef writeonly %buf, i32 noundef %len) local_unnamed_addr #1 {
+define dso_local range(i32 0, 7) i32 @hid_pointer_poll(ptr noundef captures(none) initializes((277, 278)) %hs, ptr noundef writeonly captures(none) %buf, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %idle_pending = getelementptr inbounds nuw i8, ptr %hs, i64 277
   store i8 0, ptr %idle_pending, align 1
@@ -353,7 +353,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 9) i32 @hid_keyboard_poll(ptr nocapture noundef initializes((277, 278)) %hs, ptr nocapture noundef writeonly %buf, i32 noundef %len) local_unnamed_addr #1 {
+define dso_local range(i32 0, 9) i32 @hid_keyboard_poll(ptr noundef captures(none) initializes((277, 278)) %hs, ptr noundef writeonly captures(none) %buf, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %idle_pending = getelementptr inbounds nuw i8, ptr %hs, i64 277
@@ -593,13 +593,13 @@ return:                                           ; preds = %if.then5, %if.else,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @hid_keyboard_write(ptr nocapture noundef writeonly %hs, ptr nocapture noundef readonly %buf, i32 noundef %len) local_unnamed_addr #1 {
+define dso_local noundef i32 @hid_keyboard_write(ptr noundef writeonly captures(none) %hs, ptr noundef readonly captures(none) %buf, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp sgt i32 %len, 0
   br i1 %cmp, label %if.then, label %if.end17
@@ -624,7 +624,7 @@ if.end17:                                         ; preds = %if.then, %entry
 declare void @kbd_put_ledstate(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @hid_reset(ptr nocapture noundef initializes((260, 268), (272, 278)) %hs) local_unnamed_addr #1 {
+define dso_local void @hid_reset(ptr noundef captures(none) initializes((260, 268), (272, 278)) %hs) local_unnamed_addr #1 {
 entry:
   %kind = getelementptr inbounds nuw i8, ptr %hs, i64 268
   %0 = load i32, ptr %kind, align 4
@@ -673,7 +673,7 @@ hid_del_idle_timer.exit:                          ; preds = %sw.epilog, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @hid_free(ptr nocapture noundef %hs) local_unnamed_addr #1 {
+define dso_local void @hid_free(ptr noundef captures(none) %hs) local_unnamed_addr #1 {
 entry:
   %s = getelementptr inbounds nuw i8, ptr %hs, i64 296
   %0 = load ptr, ptr %s, align 8
@@ -789,14 +789,14 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @hid_keyboard_event(ptr noundef %dev, ptr nocapture readnone %src, ptr nocapture noundef readonly %evt) #1 {
+define internal void @hid_keyboard_event(ptr noundef %dev, ptr readnone captures(none) %src, ptr noundef readonly captures(none) %evt) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %scancodes = alloca [3 x i32], align 4
@@ -892,7 +892,7 @@ return:                                           ; preds = %for.end, %trace_hid
 declare i32 @qemu_input_key_value_to_scancode(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @hid_pointer_event(ptr nocapture noundef %dev, ptr nocapture readnone %src, ptr nocapture noundef readonly %evt) #1 {
+define internal void @hid_pointer_event(ptr noundef captures(none) %dev, ptr readnone captures(none) %src, ptr noundef readonly captures(none) %evt) #1 {
 entry:
   %n = getelementptr inbounds nuw i8, ptr %dev, i64 264
   %0 = load i32, ptr %n, align 8
@@ -1133,10 +1133,10 @@ declare i32 @llvm.smin.i32(i32, i32) #9
 declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

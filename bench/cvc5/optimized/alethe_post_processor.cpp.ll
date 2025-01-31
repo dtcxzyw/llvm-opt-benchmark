@@ -212,7 +212,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -945,7 +945,7 @@ declare void @_ZN4cvc58internal11NodeManager7mkConstIbEENS0_12NodeTemplateILb1EE
 declare void @_ZN4cvc58internal24ProofNodeUpdaterCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal5proof30AletheProofPostprocessCallback12shouldUpdateESt10shared_ptrINS0_9ProofNodeEERKSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EERb(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %pn, ptr nocapture nonnull readnone align 8 %fa, ptr nocapture nonnull readnone align 1 %continueUpdate) unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal5proof30AletheProofPostprocessCallback12shouldUpdateESt10shared_ptrINS0_9ProofNodeEERKSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EERb(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %pn, ptr nonnull readnone align 8 captures(none) %fa, ptr nonnull readnone align 1 captures(none) %continueUpdate) unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %pn, align 8
   %call2 = tail call noundef i32 @_ZNK4cvc58internal9ProofNode7getRuleEv(ptr noundef nonnull align 8 dereferenceable(65) %0)
@@ -956,7 +956,7 @@ entry:
 declare noundef i32 @_ZNK4cvc58internal9ProofNode7getRuleEv(ptr noundef nonnull align 8 dereferenceable(65)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define hidden noundef zeroext i1 @_ZThn16_N4cvc58internal5proof30AletheProofPostprocessCallback12shouldUpdateESt10shared_ptrINS0_9ProofNodeEERKSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EERb(ptr nocapture readnone %this, ptr nocapture noundef readonly %pn, ptr nocapture nonnull readnone align 8 %fa, ptr nocapture nonnull readnone align 1 %continueUpdate) unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZThn16_N4cvc58internal5proof30AletheProofPostprocessCallback12shouldUpdateESt10shared_ptrINS0_9ProofNodeEERKSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EERb(ptr readnone captures(none) %this, ptr noundef readonly captures(none) %pn, ptr nonnull readnone align 8 captures(none) %fa, ptr nonnull readnone align 1 captures(none) %continueUpdate) unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %pn, align 8
   %call2.i = tail call noundef i32 @_ZNK4cvc58internal9ProofNode7getRuleEv(ptr noundef nonnull align 8 dereferenceable(65) %0)
@@ -965,7 +965,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal5proof30AletheProofPostprocessCallback16shouldUpdatePostESt10shared_ptrINS0_9ProofNodeEERKSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %pn, ptr nocapture nonnull readnone align 8 %fa) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal5proof30AletheProofPostprocessCallback16shouldUpdatePostESt10shared_ptrINS0_9ProofNodeEERKSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %pn, ptr nonnull readnone align 8 captures(none) %fa) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %0 = load ptr, ptr %pn, align 8
@@ -1084,14 +1084,14 @@ _ZN4cvc58internal4expr9NodeValue3incEv.exit:      ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: uwtable
-define hidden noundef zeroext i1 @_ZThn16_N4cvc58internal5proof30AletheProofPostprocessCallback16shouldUpdatePostESt10shared_ptrINS0_9ProofNodeEERKSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EE(ptr nocapture noundef readnone %this, ptr nocapture noundef readonly %pn, ptr nocapture nonnull readnone align 8 %fa) unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZThn16_N4cvc58internal5proof30AletheProofPostprocessCallback16shouldUpdatePostESt10shared_ptrINS0_9ProofNodeEERKSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EE(ptr noundef readnone captures(none) %this, ptr noundef readonly captures(none) %pn, ptr nonnull readnone align 8 captures(none) %fa) unnamed_addr #6 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN4cvc58internal5proof30AletheProofPostprocessCallback16shouldUpdatePostESt10shared_ptrINS0_9ProofNodeEERKSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EE(ptr nonnull align 8 poison, ptr noundef %pn, ptr nonnull align 8 poison)
   ret i1 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal5proof30AletheProofPostprocessCallback6updateENS0_12NodeTemplateILb1EEENS_9ProofRuleERKSt6vectorIS4_SaIS4_EESA_PNS0_7CDProofERb(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %res, i32 noundef %id, ptr noundef nonnull align 8 dereferenceable(24) %children, ptr noundef nonnull align 8 dereferenceable(24) %args, ptr noundef %cdp, ptr nocapture nonnull readnone align 1 %continueUpdate) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal5proof30AletheProofPostprocessCallback6updateENS0_12NodeTemplateILb1EEENS_9ProofRuleERKSt6vectorIS4_SaIS4_EESA_PNS0_7CDProofERb(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %res, i32 noundef %id, ptr noundef nonnull align 8 dereferenceable(24) %children, ptr noundef nonnull align 8 dereferenceable(24) %args, ptr noundef %cdp, ptr nonnull readnone align 1 captures(none) %continueUpdate) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %nb.i4488 = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i4489 = alloca %"class.cvc5::internal::NodeTemplate.421", align 8
@@ -23489,10 +23489,10 @@ ehcleanup10498:                                   ; preds = %arraydestroy.body28
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal5proof30AletheProofPostprocessCallback13addAletheStepENS1_10AletheRuleENS0_12NodeTemplateILb1EEES5_RKSt6vectorIS5_SaIS5_EESA_RNS0_7CDProofE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %rule, ptr noundef %res, ptr nocapture noundef readonly %conclusion, ptr noundef nonnull align 8 dereferenceable(24) %children, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %args, ptr noundef nonnull align 8 dereferenceable(217) %cdp) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal5proof30AletheProofPostprocessCallback13addAletheStepENS1_10AletheRuleENS0_12NodeTemplateILb1EEES5_RKSt6vectorIS5_SaIS5_EESA_RNS0_7CDProofE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i32 noundef %rule, ptr noundef %res, ptr noundef readonly captures(none) %conclusion, ptr noundef nonnull align 8 dereferenceable(24) %children, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %args, ptr noundef nonnull align 8 dereferenceable(217) %cdp) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newArgs = alloca %"class.std::vector.391", align 8
   %ref.tmp = alloca [1 x %"class.cvc5::internal::NodeTemplate"], align 8
@@ -24550,7 +24550,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit: ; preds = %
 declare noundef zeroext i1 @_ZN4cvc58internal5proof17isSingletonClauseENS0_12NodeTemplateILb0EEERKSt6vectorINS2_ILb1EEESaIS5_EES9_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal5proof30AletheProofPostprocessCallback19addAletheStepFromOrENS1_10AletheRuleENS0_12NodeTemplateILb1EEERKSt6vectorIS5_SaIS5_EESA_RNS0_7CDProofE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %rule, ptr nocapture noundef readonly %res, ptr noundef nonnull align 8 dereferenceable(24) %children, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %args, ptr noundef nonnull align 8 dereferenceable(217) %cdp) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal5proof30AletheProofPostprocessCallback19addAletheStepFromOrENS1_10AletheRuleENS0_12NodeTemplateILb1EEERKSt6vectorIS5_SaIS5_EESA_RNS0_7CDProofE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i32 noundef %rule, ptr noundef readonly captures(none) %res, ptr noundef nonnull align 8 dereferenceable(24) %children, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %args, ptr noundef nonnull align 8 dereferenceable(217) %cdp) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"class.cvc5::internal::NodeTemplate.421", align 8
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
@@ -25460,7 +25460,7 @@ eh.resume:                                        ; preds = %if.then.i.i, %lpad1
 }
 
 ; Function Attrs: uwtable
-define hidden noundef zeroext i1 @_ZThn16_N4cvc58internal5proof30AletheProofPostprocessCallback6updateENS0_12NodeTemplateILb1EEENS_9ProofRuleERKSt6vectorIS4_SaIS4_EESA_PNS0_7CDProofERb(ptr noundef %this, ptr noundef %res, i32 noundef %id, ptr noundef nonnull align 8 dereferenceable(24) %children, ptr noundef nonnull align 8 dereferenceable(24) %args, ptr noundef %cdp, ptr nocapture nonnull readnone align 1 %continueUpdate) unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZThn16_N4cvc58internal5proof30AletheProofPostprocessCallback6updateENS0_12NodeTemplateILb1EEENS_9ProofRuleERKSt6vectorIS4_SaIS4_EESA_PNS0_7CDProofERb(ptr noundef %this, ptr noundef %res, i32 noundef %id, ptr noundef nonnull align 8 dereferenceable(24) %children, ptr noundef nonnull align 8 dereferenceable(24) %args, ptr noundef %cdp, ptr nonnull readnone align 1 captures(none) %continueUpdate) unnamed_addr #6 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   %call = tail call noundef zeroext i1 @_ZN4cvc58internal5proof30AletheProofPostprocessCallback6updateENS0_12NodeTemplateILb1EEENS_9ProofRuleERKSt6vectorIS4_SaIS4_EESA_PNS0_7CDProofERb(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %res, i32 noundef %id, ptr noundef nonnull align 8 dereferenceable(24) %children, ptr noundef nonnull align 8 dereferenceable(24) %args, ptr noundef %cdp, ptr nonnull align 1 poison)
@@ -25468,7 +25468,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal5proof30AletheProofPostprocessCallback24maybeReplacePremiseProofENS0_12NodeTemplateILb1EEEPNS0_7CDProofE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %premise, ptr noundef %cdp) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal5proof30AletheProofPostprocessCallback24maybeReplacePremiseProofENS0_12NodeTemplateILb1EEEPNS0_7CDProofE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef %premise, ptr noundef %cdp) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i449 = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i450 = alloca %"class.cvc5::internal::NodeTemplate.421", align 8
@@ -27718,7 +27718,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal9Proo
 declare void @_ZNK4cvc58internal9ProofNode9getResultEv(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(65)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal5proof30AletheProofPostprocessCallback10updatePostENS0_12NodeTemplateILb1EEENS_9ProofRuleERKSt6vectorIS4_SaIS4_EESA_PNS0_7CDProofE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %res, i32 %id, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %children, ptr noundef nonnull align 8 dereferenceable(24) %args, ptr noundef %cdp) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal5proof30AletheProofPostprocessCallback10updatePostENS0_12NodeTemplateILb1EEENS_9ProofRuleERKSt6vectorIS4_SaIS4_EESA_PNS0_7CDProofE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %res, i32 %id, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %children, ptr noundef nonnull align 8 dereferenceable(24) %args, ptr noundef %cdp) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i2251 = alloca %"class.cvc5::internal::NodeTemplate.421", align 8
   %nb.i2252 = alloca %"class.cvc5::internal::NodeBuilder", align 8
@@ -32659,7 +32659,7 @@ return:                                           ; preds = %cond.end, %if.end8.
 declare noundef zeroext i1 @_ZN4cvc58internal7CDProof7addStepENS0_12NodeTemplateILb1EEENS_9ProofRuleERKSt6vectorIS3_SaIS3_EES9_bNS0_12CDPOverwriteE(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define hidden noundef zeroext i1 @_ZThn16_N4cvc58internal5proof30AletheProofPostprocessCallback10updatePostENS0_12NodeTemplateILb1EEENS_9ProofRuleERKSt6vectorIS4_SaIS4_EESA_PNS0_7CDProofE(ptr nocapture noundef readonly %this, ptr nocapture noundef readonly %res, i32 %id, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %children, ptr noundef nonnull align 8 dereferenceable(24) %args, ptr noundef %cdp) unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZThn16_N4cvc58internal5proof30AletheProofPostprocessCallback10updatePostENS0_12NodeTemplateILb1EEENS_9ProofRuleERKSt6vectorIS4_SaIS4_EESA_PNS0_7CDProofE(ptr noundef readonly captures(none) %this, ptr noundef readonly captures(none) %res, i32 %id, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %children, ptr noundef nonnull align 8 dereferenceable(24) %args, ptr noundef %cdp) unnamed_addr #6 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   %call = tail call noundef zeroext i1 @_ZN4cvc58internal5proof30AletheProofPostprocessCallback10updatePostENS0_12NodeTemplateILb1EEENS_9ProofRuleERKSt6vectorIS4_SaIS4_EESA_PNS0_7CDProofE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %res, i32 poison, ptr noundef nonnull align 8 dereferenceable(24) %children, ptr noundef nonnull align 8 dereferenceable(24) %args, ptr noundef %cdp)
@@ -32667,7 +32667,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal5proof30AletheProofPostprocessCallback9finalStepENS0_12NodeTemplateILb1EEENS_9ProofRuleERSt6vectorIS4_SaIS4_EERKS8_PNS0_7CDProofE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %res, i32 %id, ptr noundef nonnull align 8 dereferenceable(24) %children, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %args, ptr noundef %cdp) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal5proof30AletheProofPostprocessCallback9finalStepENS0_12NodeTemplateILb1EEENS_9ProofRuleERSt6vectorIS4_SaIS4_EERKS8_PNS0_7CDProofE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %res, i32 %id, ptr noundef nonnull align 8 dereferenceable(24) %children, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %args, ptr noundef %cdp) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i78 = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i79 = alloca %"class.cvc5::internal::NodeTemplate.421", align 8
@@ -34736,7 +34736,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal5proof22AletheProofPostprocess7processESt10shared_ptrINS0_9ProofNodeEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef readonly %pf) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal5proof22AletheProofPostprocess7processESt10shared_ptrINS0_9ProofNodeEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef readonly captures(none) %pf) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %definitionsScope = alloca %"class.std::shared_ptr", align 8
   %assumptionsScope = alloca %"class.std::shared_ptr", align 8
@@ -38480,10 +38480,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15

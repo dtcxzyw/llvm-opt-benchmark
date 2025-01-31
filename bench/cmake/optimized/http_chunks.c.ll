@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [14 x i8] c"Out of memory\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_httpchunk_init(ptr nocapture noundef readnone %0, ptr noundef initializes((8, 16), (48, 49)) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local void @Curl_httpchunk_init(ptr noundef readnone captures(none) %0, ptr noundef initializes((8, 16), (48, 49)) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -44,7 +44,7 @@ define dso_local void @Curl_httpchunk_init(ptr nocapture noundef readnone %0, pt
 declare void @Curl_dyn_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_httpchunk_reset(ptr nocapture noundef readnone %0, ptr noundef initializes((8, 16), (48, 49)) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local void @Curl_httpchunk_reset(ptr noundef readnone captures(none) %0, ptr noundef initializes((8, 16), (48, 49)) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -65,7 +65,7 @@ define dso_local void @Curl_httpchunk_reset(ptr nocapture noundef readnone %0, p
 declare void @Curl_dyn_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_httpchunk_free(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @Curl_httpchunk_free(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @Curl_dyn_free(ptr noundef nonnull %3) #3
   ret void
@@ -74,7 +74,7 @@ define dso_local void @Curl_httpchunk_free(ptr nocapture noundef readnone %0, pt
 declare void @Curl_dyn_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @Curl_httpchunk_is_done(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define dso_local zeroext i1 @Curl_httpchunk_is_done(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 8
@@ -82,13 +82,13 @@ define dso_local zeroext i1 @Curl_httpchunk_is_done(ptr nocapture noundef readno
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_httpchunk_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef initializes((0, 8)) %4) local_unnamed_addr #0 {
+define dso_local i32 @Curl_httpchunk_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef captures(none) initializes((0, 8)) %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i32 @httpchunk_readwrite(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef %2, i64 noundef %3, ptr noundef %4)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @httpchunk_readwrite(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef initializes((0, 8)) %5) unnamed_addr #0 {
+define internal fastcc i32 @httpchunk_readwrite(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef captures(none) initializes((0, 8)) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   store i64 0, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -492,7 +492,7 @@ switch.early.test:                                ; preds = %35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cw_chunked_init(ptr nocapture noundef %0, ptr noundef initializes((32, 40), (72, 73)) %1) #0 {
+define internal noundef i32 @cw_chunked_init(ptr noundef captures(none) %0, ptr noundef initializes((32, 40), (72, 73)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 403
   %4 = load i16, ptr %3, align 1
   %5 = or i16 %4, 128
@@ -620,7 +620,7 @@ Curl_chunked_strerror.exit:                       ; preds = %17, %21, %22, %23, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cw_chunked_close(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @cw_chunked_close(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @Curl_dyn_free(ptr noundef nonnull %3) #3
   ret void

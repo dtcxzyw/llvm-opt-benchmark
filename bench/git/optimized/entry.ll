@@ -56,7 +56,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.30 = private unnamed_addr constant [32 x i8] c"cannot create directory at '%s'\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @read_blob_entry(ptr noundef %ce, ptr nocapture noundef writeonly initializes((0, 8)) %size) local_unnamed_addr #0 {
+define dso_local ptr @read_blob_entry(ptr noundef %ce, ptr noundef writeonly captures(none) initializes((0, 8)) %size) local_unnamed_addr #0 {
 entry:
   %type = alloca i32, align 4
   %ul = alloca i64, align 8
@@ -85,10 +85,10 @@ return:                                           ; preds = %entry, %if.end, %if
 declare ptr @repo_read_object_file(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local range(i32 0, 2) i32 @fstat_checkout_output(i32 noundef %fd, ptr nocapture noundef readonly %state, ptr nocapture noundef %st) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @fstat_checkout_output(i32 noundef %fd, ptr noundef readonly captures(none) %state, ptr noundef captures(none) %st) local_unnamed_addr #3 {
 entry:
   %refresh_cache = getelementptr inbounds nuw i8, ptr %state, i64 120
   %bf.load = load i8, ptr %refresh_cache, align 8
@@ -114,10 +114,10 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @enable_delayed_checkout(ptr nocapture noundef %state) local_unnamed_addr #0 {
+define dso_local void @enable_delayed_checkout(ptr noundef captures(none) %state) local_unnamed_addr #0 {
 entry:
   %delayed_checkout = getelementptr inbounds nuw i8, ptr %state, i64 32
   %0 = load ptr, ptr %delayed_checkout, align 8
@@ -251,7 +251,7 @@ if.end43:                                         ; preds = %for.body35
   %17 = load ptr, ptr %state, align 8
   %call46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #15
   %conv = trunc i64 %call46 to i32
-  %call47 = call ptr @index_file_exists(ptr noundef %17, ptr noundef %15, i32 noundef %conv, i32 noundef 0) #14
+  %call47 = call ptr @index_file_exists(ptr noundef %17, ptr noundef nonnull %15, i32 noundef %conv, i32 noundef 0) #14
   %tobool48.not = icmp eq ptr %call47, null
   br i1 %tobool48.not, label %for.inc, label %if.then49
 
@@ -385,14 +385,14 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @async_query_available_blobs(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @filter_string_list(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @remove_available_paths(ptr nocapture noundef readonly %item, ptr noundef %cb_data) #0 {
+define internal range(i32 0, 2) i32 @remove_available_paths(ptr noundef readonly captures(none) %item, ptr noundef %cb_data) #0 {
 entry:
   %0 = load ptr, ptr %item, align 8
   %call = tail call ptr @string_list_lookup(ptr noundef %cb_data, ptr noundef %0) #14
@@ -416,7 +416,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @index_file_exists(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @display_progress(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -427,7 +427,7 @@ declare void @string_list_remove_empty_items(ptr noundef, i32 noundef) local_unn
 declare void @string_list_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @update_ce_after_write(ptr nocapture noundef readonly %state, ptr noundef %ce, ptr noundef %st) local_unnamed_addr #0 {
+define dso_local void @update_ce_after_write(ptr noundef readonly captures(none) %state, ptr noundef %ce, ptr noundef %st) local_unnamed_addr #0 {
 entry:
   %refresh_cache = getelementptr inbounds nuw i8, ptr %state, i64 120
   %bf.load = load i8, ptr %refresh_cache, align 8
@@ -1260,7 +1260,7 @@ declare ptr @submodule_from_ce(ptr noundef) local_unnamed_addr #1
 declare i32 @is_submodule_populated_gently(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lstat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @lstat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
 declare void @die(ptr noundef, ...) local_unnamed_addr #7
@@ -1272,10 +1272,10 @@ declare i32 @submodule_move_head(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mark_colliding_entries(ptr nocapture noundef readonly %state, ptr noundef %ce, ptr noundef nonnull %st) unnamed_addr #0 {
+define internal fastcc void @mark_colliding_entries(ptr noundef readonly captures(none) %state, ptr noundef %ce, ptr noundef nonnull %st) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @check_stat, align 4
   %ce_flags = getelementptr inbounds nuw i8, ptr %ce, i64 56
@@ -1510,7 +1510,7 @@ if.end27:                                         ; preds = %while.end
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 declare i32 @error_errno(ptr noundef, ...) local_unnamed_addr #1
 
@@ -1556,7 +1556,7 @@ declare void @untracked_cache_invalidate_path(ptr noundef, ptr noundef, i32 noun
 declare void @trace_printf_key_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare void @clone_checkout_metadata(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1576,7 +1576,7 @@ declare i64 @write_in_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #4
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #4
 
 declare i32 @stream_blob_to_fd(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1585,7 +1585,7 @@ declare i32 @xsnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed
 declare i32 @mkstemp64(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #10
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #10
 
 declare i32 @has_dirs_only_path(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1601,7 +1601,7 @@ declare i32 @match_stat_data(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @fspathcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
 declare void @die_errno(ptr noundef, ...) local_unnamed_addr #7
@@ -1609,7 +1609,7 @@ declare void @die_errno(ptr noundef, ...) local_unnamed_addr #7
 declare ptr @readdir_skip_dot_and_dotdot(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @lstat_cache_aware_rmdir(ptr noundef) local_unnamed_addr #1
 
@@ -1618,10 +1618,10 @@ declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @xmallocz(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #13

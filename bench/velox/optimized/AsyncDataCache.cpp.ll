@@ -1352,10 +1352,10 @@ _ZNSt10unique_ptrIN5folly13SharedPromiseIbEESt14default_deleteIS2_EED2Ev.exit: ;
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox5cache14AsyncDataCache15possibleSsdSaveEm(ptr nocapture noundef nonnull align 8 dereferenceable(300) %this, i64 noundef %bytes) local_unnamed_addr #4 align 2 {
+define void @_ZN8facebook5velox5cache14AsyncDataCache15possibleSsdSaveEm(ptr noundef nonnull align 8 captures(none) dereferenceable(300) %this, i64 noundef %bytes) local_unnamed_addr #4 align 2 {
 entry:
   %ssdCache_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %ssdCache_, align 8
@@ -1511,7 +1511,7 @@ if.end18:                                         ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox5cache10CacheShard11removeEntryEPNS1_19AsyncDataCacheEntryE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef %entry1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox5cache10CacheShard11removeEntryEPNS1_19AsyncDataCacheEntryE(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef %entry1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #21
@@ -1543,7 +1543,7 @@ lpad:                                             ; preds = %_ZNSt10lock_guardIS
 }
 
 ; Function Attrs: mustprogress nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define void @_ZN8facebook5velox5cache19AsyncDataCacheEntry12addReferenceEv(ptr nocapture noundef nonnull align 8 dereferenceable(169) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN8facebook5velox5cache19AsyncDataCacheEntry12addReferenceEv(ptr noundef nonnull align 8 captures(none) dereferenceable(169) %this) local_unnamed_addr #7 align 2 {
 entry:
   %numPins_.i = getelementptr inbounds nuw i8, ptr %this, i64 116
   %0 = load atomic i32, ptr %numPins_.i seq_cst, align 4
@@ -1560,7 +1560,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN8facebook5velox5cache19AsyncDataCacheEntry11setPrefetchEb(ptr nocapture noundef nonnull align 8 dereferenceable(169) initializes((128, 129)) %this, i1 noundef zeroext %flag) local_unnamed_addr #8 align 2 {
+define noundef i64 @_ZN8facebook5velox5cache19AsyncDataCacheEntry11setPrefetchEb(ptr noundef nonnull align 8 captures(none) dereferenceable(169) initializes((128, 129)) %this, i1 noundef zeroext %flag) local_unnamed_addr #8 align 2 {
 entry:
   %frombool = zext i1 %flag to i8
   %isPrefetch_ = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -1582,7 +1582,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox5cache19AsyncDataCacheEntry10initializeENS1_12FileCacheKeyE(ptr noundef nonnull align 8 dereferenceable(169) %this, ptr nocapture noundef %key) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox5cache19AsyncDataCacheEntry10initializeENS1_12FileCacheKeyE(ptr noundef nonnull align 8 dereferenceable(169) %this, ptr noundef captures(none) %key) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function.69", align 8
   %numPins_.i = getelementptr inbounds nuw i8, ptr %this, i64 116
@@ -1758,7 +1758,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr 
 declare noundef zeroext i1 @_ZN8facebook5velox6memory15MemoryAllocator21allocateNonContiguousEmRNS1_10AllocationESt8functionIFvlbEEm(ptr noundef nonnull align 8 dereferenceable(880), i64 noundef, ptr noundef nonnull align 8 dereferenceable(36), ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook5velox5cache19AsyncDataCacheEntry13makeEvictableEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(169) initializes((120, 128)) %this) local_unnamed_addr #10 align 2 {
+define void @_ZN8facebook5velox5cache19AsyncDataCacheEntry13makeEvictableEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(169) initializes((120, 128)) %this) local_unnamed_addr #10 align 2 {
 entry:
   %accessStats_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   store i32 0, ptr %accessStats_, align 8
@@ -1768,7 +1768,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox5cache19AsyncDataCacheEntry8toStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(169) %this) local_unnamed_addr #4 align 2 {
+define void @_ZNK8facebook5velox5cache19AsyncDataCacheEntry8toStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(169) %this) local_unnamed_addr #4 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::format_arg_store", align 16
   %id_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1794,7 +1794,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox5cache10CacheShard12getFreeEntryEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.72") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(280) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox5cache10CacheShard12getFreeEntryEv(ptr noalias writeonly sret(%"class.std::unique_ptr.72") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(280) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %freeEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 176
@@ -1858,7 +1858,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox5cache10CacheShard12findOrCreateENS1_15RawFileCacheKeyEmPN5folly10SemiFutureIbEE(ptr noalias nocapture writeonly sret(%"class.facebook::velox::cache::CachePin") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(280) %this, i64 %key.coerce0, i64 %key.coerce1, i64 noundef %size, ptr noundef %wait) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox5cache10CacheShard12findOrCreateENS1_15RawFileCacheKeyEmPN5folly10SemiFutureIbEE(ptr noalias writeonly sret(%"class.facebook::velox::cache::CachePin") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(280) %this, i64 %key.coerce0, i64 %key.coerce1, i64 noundef %size, ptr noundef %wait) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rv.i.i = alloca %"struct.std::pair.246", align 8
   %ref.tmp.i.i = alloca %"class.std::tuple.249", align 8
@@ -2483,7 +2483,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef no
 declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox5cache10CacheShard9initEntryENS1_15RawFileCacheKeyEPNS1_19AsyncDataCacheEntryE(ptr noalias nocapture writeonly sret(%"class.facebook::velox::cache::CachePin") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %this, i64 %key.coerce0, i64 %key.coerce1, ptr noundef %entry1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox5cache10CacheShard9initEntryENS1_15RawFileCacheKeyEPNS1_19AsyncDataCacheEntryE(ptr noalias writeonly sret(%"class.facebook::velox::cache::CachePin") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %this, i64 %key.coerce0, i64 %key.coerce1, ptr noundef %entry1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.facebook::velox::cache::FileCacheKey", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(104) ptr @_ZN8facebook5velox7fileIdsEv()
@@ -2682,7 +2682,7 @@ cleanup:                                          ; preds = %if.end20.i, %while.
 declare noundef nonnull align 8 dereferenceable(104) ptr @_ZN8facebook5velox7fileIdsEv() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8facebook5velox5cache14AsyncDataCache12incrementNewEm(ptr nocapture noundef nonnull align 8 dereferenceable(300) %this, i64 noundef %size) local_unnamed_addr #12 align 2 {
+define void @_ZN8facebook5velox5cache14AsyncDataCache12incrementNewEm(ptr noundef nonnull align 8 captures(none) dereferenceable(300) %this, i64 noundef %size) local_unnamed_addr #12 align 2 {
 entry:
   %newBytes_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = atomicrmw add ptr %newBytes_, i64 %size seq_cst, align 8
@@ -2839,7 +2839,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN8facebook5velox5cache13CoalescedLoadD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define void @_ZN8facebook5velox5cache13CoalescedLoadD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #42
   unreachable
@@ -4388,7 +4388,7 @@ ehcleanup159:                                     ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox5cache10CacheShard18calibrateThresholdEv(ptr nocapture noundef nonnull align 8 dereferenceable(280) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox5cache10CacheShard18calibrateThresholdEv(ptr noundef nonnull align 8 captures(none) dereferenceable(280) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -4766,7 +4766,7 @@ declare void @_ZN8facebook5velox6memory10Allocation10appendMoveERS2_(ptr noundef
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox5cache10CacheShard15tryAddFreeEntryEOSt10unique_ptrINS1_19AsyncDataCacheEntryESt14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %entry1) local_unnamed_addr #4 align 2 {
+define void @_ZN8facebook5velox5cache10CacheShard15tryAddFreeEntryEOSt10unique_ptrINS1_19AsyncDataCacheEntryESt14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %entry1) local_unnamed_addr #4 align 2 {
 entry:
   %freeEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -4864,7 +4864,7 @@ if.end:                                           ; preds = %if.then, %_ZNSt6vec
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox5cache10CacheShard15freeAllocationsERSt6vectorINS0_6memory10AllocationESaIS5_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %allocations) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox5cache10CacheShard15freeAllocationsERSt6vectorINS0_6memory10AllocationESaIS5_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %allocations) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %allocations, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %allocations, i64 8
@@ -4913,7 +4913,7 @@ declare noundef zeroext i1 @_ZN8facebook5velox5cache8SsdCache10startWriteEv(ptr 
 declare void @_ZN6google10LogMessageC1EPKci(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox5cache14AsyncDataCache9saveToSsdEv(ptr nocapture noundef nonnull align 8 dereferenceable(300) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox5cache14AsyncDataCache9saveToSsdEv(ptr noundef nonnull align 8 captures(none) dereferenceable(300) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pins = alloca %"class.std::vector.119", align 8
   %agg.tmp = alloca %"class.std::vector.119", align 8
@@ -5180,7 +5180,7 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox5cache10CacheShard11updateStatsERNS1_10CacheStatsE(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr nocapture noundef nonnull align 8 dereferenceable(160) %stats) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox5cache10CacheShard11updateStatsERNS1_10CacheStatsE(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(160) %stats) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #21
@@ -5428,7 +5428,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capa
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox5cache10CacheShard17appendSsdSaveableERSt6vectorINS1_8CachePinESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %pins) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox5cache10CacheShard17appendSsdSaveableERSt6vectorINS1_8CachePinESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %pins) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pin = alloca %"class.facebook::velox::cache::CachePin", align 8
   %ref.tmp = alloca %"class.google::LogMessage", align 8
@@ -5733,7 +5733,7 @@ for.end:                                          ; preds = %_ZNSt15_Deque_itera
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox5cache14AsyncDataCacheC2EPNS0_6memory15MemoryAllocatorESt10unique_ptrINS1_8SsdCacheESt14default_deleteIS7_EE(ptr noundef nonnull align 8 dereferenceable(300) initializes((0, 52), (56, 148), (152, 294), (296, 300)) %this, ptr noundef %allocator, ptr nocapture noundef %ssdCache) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox5cache14AsyncDataCacheC2EPNS0_6memory15MemoryAllocatorESt10unique_ptrINS1_8SsdCacheESt14default_deleteIS7_EE(ptr noundef nonnull align 8 dereferenceable(300) initializes((0, 52), (56, 148), (152, 294), (296, 300)) %this, ptr noundef %allocator, ptr noundef captures(none) %ssdCache) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.130", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox5cache14AsyncDataCacheE, i64 16), ptr %this, align 8
@@ -6231,7 +6231,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox5cache14AsyncDataCache6createEPNS0_6memory15MemoryAllocatorESt10unique_ptrINS1_8SsdCacheESt14default_deleteIS7_EE(ptr noalias sret(%"class.std::shared_ptr.138") align 8 initializes((0, 8)) %agg.result, ptr noundef %allocator, ptr nocapture noundef %ssdCache) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox5cache14AsyncDataCache6createEPNS0_6memory15MemoryAllocatorESt10unique_ptrINS1_8SsdCacheESt14default_deleteIS7_EE(ptr noalias sret(%"class.std::shared_ptr.138") align 8 initializes((0, 8)) %agg.result, ptr noundef %allocator, ptr noundef captures(none) %ssdCache) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i.i.i.i.i = alloca %"class.std::unique_ptr.16", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.141", align 8
@@ -6573,7 +6573,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8facebook5velox5cache14AsyncDataCache8shutdownEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(300) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox5cache14AsyncDataCache8shutdownEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(300) %this) local_unnamed_addr #0 align 2 {
 entry:
   %shards_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %shards_, align 8
@@ -6695,7 +6695,7 @@ _ZNSt6vectorISt10unique_ptrIN8facebook5velox5cache19AsyncDataCacheEntryESt14defa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox5cache14AsyncDataCache12findOrCreateENS1_15RawFileCacheKeyEmPN5folly10SemiFutureIbEE(ptr noalias nocapture writeonly sret(%"class.facebook::velox::cache::CachePin") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(300) %this, i64 %key.coerce0, i64 %key.coerce1, i64 noundef %size, ptr noundef %wait) local_unnamed_addr #4 align 2 {
+define void @_ZN8facebook5velox5cache14AsyncDataCache12findOrCreateENS1_15RawFileCacheKeyEmPN5folly10SemiFutureIbEE(ptr noalias writeonly sret(%"class.facebook::velox::cache::CachePin") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(300) %this, i64 %key.coerce0, i64 %key.coerce1, i64 noundef %size, ptr noundef %wait) local_unnamed_addr #4 align 2 {
 entry:
   %xor.i.i = xor i64 %key.coerce1, %key.coerce0
   %mul.i.i = mul i64 %xor.i.i, -7070675565921424023
@@ -6715,7 +6715,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8facebook5velox5cache14AsyncDataCache6existsENS1_15RawFileCacheKeyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(300) %this, i64 %key.coerce0, i64 %key.coerce1) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK8facebook5velox5cache14AsyncDataCache6existsENS1_15RawFileCacheKeyE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(300) %this, i64 %key.coerce0, i64 %key.coerce1) local_unnamed_addr #4 align 2 {
 entry:
   %xor.i.i = xor i64 %key.coerce1, %key.coerce0
   %mul.i.i = mul i64 %xor.i.i, -7070675565921424023
@@ -7074,7 +7074,7 @@ ehcleanup97:                                      ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8facebook5velox5cache14AsyncDataCache14canTryAllocateEiRKNS0_6memory10AllocationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(300) %this, i32 noundef %numPages, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %acquired) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK8facebook5velox5cache14AsyncDataCache14canTryAllocateEiRKNS0_6memory10AllocationE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(300) %this, i32 noundef %numPages, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %acquired) local_unnamed_addr #4 align 2 {
 entry:
   %numPages_.i = getelementptr inbounds nuw i8, ptr %acquired, i64 32
   %0 = load i32, ptr %numPages_.i, align 8
@@ -7108,7 +7108,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox5cache14AsyncDataCache7backoffEi(ptr nocapture noundef nonnull align 8 dereferenceable(300) %this, i32 noundef %counter) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox5cache14AsyncDataCache7backoffEi(ptr noundef nonnull align 8 captures(none) dereferenceable(300) %this, i32 noundef %counter) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__ts.i = alloca %struct.timespec, align 8
   %ref.tmp26 = alloca %"class.google::LogMessage", align 8
@@ -7216,7 +7216,7 @@ _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT
 declare void @_ZN8facebook5velox6memory22setCacheFailureMessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox5cache14AsyncDataCache8toStringB5cxx11Eb(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(300) %this, i1 noundef zeroext %details) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox5cache14AsyncDataCache8toStringB5cxx11Eb(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(300) %this, i1 noundef zeroext %details) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stats = alloca %"struct.facebook::velox::cache::CacheStats", align 8
   %out = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -7441,7 +7441,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8facebook5velox5cache14AsyncDataCache9makeSpaceEmSt8functionIFbRNS3_6memory10AllocationEEEE3$_0Lb1EED2Ev"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8facebook5velox5cache14AsyncDataCache9makeSpaceEmSt8functionIFbRNS3_6memory10AllocationEEEE3$_0Lb1EED2Ev"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %tobool = trunc i8 %0 to i1
@@ -7485,7 +7485,7 @@ if.end:                                           ; preds = %if.then.i.i, %call.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8facebook5velox5cache14AsyncDataCache6shrinkEm(ptr nocapture noundef nonnull align 8 dereferenceable(300) %this, i64 noundef %targetBytes) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN8facebook5velox5cache14AsyncDataCache6shrinkEm(ptr noundef nonnull align 8 captures(none) dereferenceable(300) %this, i64 noundef %targetBytes) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %reporter = alloca %"class.folly::ReadMostlySharedPtr", align 8
   %ref.tmp = alloca %"class.google::LogMessage", align 8
@@ -7901,7 +7901,7 @@ declare void @_ZN8facebook5velox14succinctMicrosB5cxx11Emi(ptr sret(%"class.std:
 declare void @_ZN8facebook5velox5cache8SsdCache5writeESt6vectorINS1_8CachePinESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(89), ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox5cache14AsyncDataCache12refreshStatsEv(ptr noalias sret(%"struct.facebook::velox::cache::CacheStats") align 8 initializes((0, 52), (56, 160)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(300) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox5cache14AsyncDataCache12refreshStatsEv(ptr noalias sret(%"struct.facebook::velox::cache::CacheStats") align 8 initializes((0, 52), (56, 160)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(300) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9 = alloca %"struct.facebook::velox::cache::SsdCacheStats", align 8
   %prefetchBytes.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 56
@@ -8106,7 +8106,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont13, %_ZN
 declare void @_ZNK8facebook5velox5cache8SsdCache5statsEv(ptr sret(%"struct.facebook::velox::cache::SsdCacheStats") align 8, ptr noundef nonnull align 8 dereferenceable(89)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox5cache14AsyncDataCache5clearEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(300) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox5cache14AsyncDataCache5clearEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(300) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %unused = alloca %"class.facebook::velox::memory::Allocation", align 8
   %shards_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -8178,7 +8178,7 @@ for.end:                                          ; preds = %if.end, %entry
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox5cache10CacheStats8toStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox5cache10CacheStats8toStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %out = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8530,7 +8530,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(pt
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox5cache8readPinsERKSt6vectorINS1_8CachePinESaIS3_EEiiSt8functionIFmiEES8_IFvS7_iimRKS2_IN5folly5RangeIPcEESaISE_EEEE(ptr noalias nocapture sret(%"struct.facebook::velox::CoalesceIoStats") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %pins, i32 noundef %maxGap, i32 noundef %rangesPerIo, ptr nocapture noundef %offsetFunc, ptr nocapture noundef %readFunc) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox5cache8readPinsERKSt6vectorINS1_8CachePinESaIS3_EEiiSt8functionIFmiEES8_IFvS7_iimRKS2_IN5folly5RangeIPcEESaISE_EEEE(ptr noalias sret(%"struct.facebook::velox::CoalesceIoStats") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %pins, i32 noundef %maxGap, i32 noundef %rangesPerIo, ptr noundef captures(none) %offsetFunc, ptr noundef captures(none) %readFunc) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr2.i116.i = alloca i32, align 4
   %__args.addr4.i117.i = alloca i32, align 4
@@ -9217,7 +9217,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly13SharedPromiseIbED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -9700,7 +9700,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #20
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #20
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #9
 
@@ -9759,7 +9759,7 @@ invoke.cont:
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %__lhs, i64 noundef %call.i)
+  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %__lhs, i64 noundef %call.i)
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %invoke.cont4
@@ -11073,7 +11073,7 @@ declare void @llvm.assume(i1 noundef) #26
 declare i64 @llvm.x86.sse42.crc32.64.64(i64, i64) #27
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #28
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #28
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #29
@@ -12104,7 +12104,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly3f146detail16F14VectorMapImplIN8facebook5velox5cache15RawFileCacheKeyEPNS5_19AsyncDataCacheEntryENS_23HeterogeneousAccessHashIS6_vEENS_26HeterogeneousAccessEqualToIS6_vEESaISt4pairIKS6_S8_EESt17integral_constantIbLb1EEE15eraseUnderlyingIRZNSJ_5eraseENS1_23VectorContainerIteratorIPSF_EEEUlOS6_OS8_E_EEvNS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %underlying.coerce0, i64 %underlying.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %beforeDestroy) local_unnamed_addr #11 comdat align 2 {
@@ -13689,7 +13689,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #20
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #20
 
 declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #9
 
@@ -20570,7 +20570,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #35
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #35
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly10TLRefCountC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -22579,10 +22579,10 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #39
 declare i32 @llvm.smax.i32(i32, i32) #39
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #40
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #40
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #39

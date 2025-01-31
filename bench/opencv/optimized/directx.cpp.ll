@@ -104,7 +104,7 @@ define noundef i32 @_ZN2cv7directx20getTypeFromD3DFORMATEi(i32 noundef %0) local
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv7directx3ocl32initializeContextFromD3D11DeviceEP12ID3D11Device(ptr nocapture noundef readnone %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv7directx3ocl32initializeContextFromD3D11DeviceEP12ID3D11Device(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #4
@@ -136,7 +136,7 @@ define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv7directx3oc
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv7directx3ocl32initializeContextFromD3D10DeviceEP12ID3D10Device(ptr nocapture noundef readnone %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv7directx3ocl32initializeContextFromD3D10DeviceEP12ID3D10Device(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #4
@@ -168,7 +168,7 @@ define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv7directx3oc
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv7directx3ocl38initializeContextFromDirect3DDevice9ExEP18IDirect3DDevice9Ex(ptr nocapture noundef readnone %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv7directx3ocl38initializeContextFromDirect3DDevice9ExEP18IDirect3DDevice9Ex(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #4
@@ -200,7 +200,7 @@ define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv7directx3oc
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv7directx3ocl36initializeContextFromDirect3DDevice9EP16IDirect3DDevice9(ptr nocapture noundef readnone %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv7directx3ocl36initializeContextFromDirect3DDevice9EP16IDirect3DDevice9(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #4
@@ -232,7 +232,7 @@ define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv7directx3oc
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv7directx23convertToD3D11Texture2DERKNS_11_InputArrayEP15ID3D11Texture2D(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv7directx23convertToD3D11Texture2DERKNS_11_InputArrayEP15ID3D11Texture2D(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #4
@@ -264,7 +264,7 @@ define void @_ZN2cv7directx23convertToD3D11Texture2DERKNS_11_InputArrayEP15ID3D1
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv7directx25convertFromD3D11Texture2DEP15ID3D11Texture2DRKNS_12_OutputArrayE(ptr nocapture noundef readnone %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv7directx25convertFromD3D11Texture2DEP15ID3D11Texture2DRKNS_12_OutputArrayE(ptr noundef readnone captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #4
@@ -296,7 +296,7 @@ define void @_ZN2cv7directx25convertFromD3D11Texture2DEP15ID3D11Texture2DRKNS_12
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv7directx23convertToD3D10Texture2DERKNS_11_InputArrayEP15ID3D10Texture2D(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv7directx23convertToD3D10Texture2DERKNS_11_InputArrayEP15ID3D10Texture2D(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #4
@@ -328,7 +328,7 @@ define void @_ZN2cv7directx23convertToD3D10Texture2DERKNS_11_InputArrayEP15ID3D1
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv7directx25convertFromD3D10Texture2DEP15ID3D10Texture2DRKNS_12_OutputArrayE(ptr nocapture noundef readnone %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv7directx25convertFromD3D10Texture2DEP15ID3D10Texture2DRKNS_12_OutputArrayE(ptr noundef readnone captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #4
@@ -360,7 +360,7 @@ define void @_ZN2cv7directx25convertFromD3D10Texture2DEP15ID3D10Texture2DRKNS_12
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv7directx25convertToDirect3DSurface9ERKNS_11_InputArrayEP17IDirect3DSurface9Pv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv7directx25convertToDirect3DSurface9ERKNS_11_InputArrayEP17IDirect3DSurface9Pv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #4
@@ -392,7 +392,7 @@ define void @_ZN2cv7directx25convertToDirect3DSurface9ERKNS_11_InputArrayEP17IDi
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv7directx27convertFromDirect3DSurface9EP17IDirect3DSurface9RKNS_12_OutputArrayEPv(ptr nocapture noundef readnone %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv7directx27convertFromDirect3DSurface9EP17IDirect3DSurface9RKNS_12_OutputArrayEPv(ptr noundef readnone captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #4

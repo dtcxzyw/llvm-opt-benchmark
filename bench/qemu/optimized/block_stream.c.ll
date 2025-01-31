@@ -402,7 +402,7 @@ declare ptr @bdrv_cow_child(ptr noundef) local_unnamed_addr #1
 declare ptr @bdrv_filter_child(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @stream_run(ptr noundef %job, ptr nocapture readnone %errp) #0 {
+define internal i32 @stream_run(ptr noundef %job, ptr readnone captures(none) %errp) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %n = alloca i64, align 8
@@ -446,8 +446,8 @@ for.body11.lr.ph:                                 ; preds = %for.inc
 for.body11:                                       ; preds = %for.body11.lr.ph, %for.inc76
   %error.070 = phi i32 [ 0, %for.body11.lr.ph ], [ %error.3, %for.inc76 ]
   %offset.069 = phi i64 [ 0, %for.body11.lr.ph ], [ %add, %for.inc76 ]
-  call void @block_job_ratelimit_sleep(ptr noundef %job) #5
-  %call15 = call zeroext i1 @job_is_cancelled(ptr noundef %job) #5
+  call void @block_job_ratelimit_sleep(ptr noundef nonnull %job) #5
+  %call15 = call zeroext i1 @job_is_cancelled(ptr noundef nonnull %job) #5
   br i1 %call15, label %return, label %if.end17
 
 if.end17:                                         ; preds = %for.body11
@@ -475,11 +475,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i40
   %call10.i.i = call i32 @qemu_get_thread_id() #5
   %5 = load i64, ptr %_now.i.i, align 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %job, i64 noundef %offset.069, i64 noundef %11, i32 noundef %ret.2) #5
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %job, i64 noundef %offset.069, i64 noundef %11, i32 noundef %ret.2) #5
   br label %trace_stream_one_iteration.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i40
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, ptr noundef %job, i64 noundef %offset.069, i64 noundef %11, i32 noundef %ret.2) #5
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, ptr noundef nonnull %job, i64 noundef %offset.069, i64 noundef %11, i32 noundef %ret.2) #5
   br label %trace_stream_one_iteration.exit
 
 trace_stream_one_iteration.exit:                  ; preds = %for.inc44, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -549,7 +549,7 @@ if.end50:                                         ; preds = %stream_populate.exi
 if.then53:                                        ; preds = %if.end50
   %16 = load i32, ptr %on_error, align 8
   %sub55 = sub i32 0, %ret.3
-  %call56 = call i32 @block_job_error_action(ptr noundef %job, i32 noundef %16, i32 noundef 1, i32 noundef %sub55) #5
+  %call56 = call i32 @block_job_error_action(ptr noundef nonnull %job, i32 noundef %16, i32 noundef 1, i32 noundef %sub55) #5
   %cmp57 = icmp eq i32 %call56, 2
   br i1 %cmp57, label %if.then59, label %if.end60
 
@@ -566,12 +566,12 @@ if.end60:                                         ; preds = %if.then53
 if.end69:                                         ; preds = %if.end60, %if.end50
   %error.2 = phi i32 [ %spec.select, %if.end60 ], [ %error.070, %if.end50 ]
   %17 = load i64, ptr %n, align 8
-  call void @job_progress_update(ptr noundef %job, i64 noundef %17) #5
+  call void @job_progress_update(ptr noundef nonnull %job, i64 noundef %17) #5
   %.pre73 = load i64, ptr %n, align 8
   br i1 %copy.1, label %if.then73, label %for.inc76
 
 if.then73:                                        ; preds = %if.end69
-  call void @block_job_ratelimit_processed_bytes(ptr noundef %job, i64 noundef %.pre73) #5
+  call void @block_job_ratelimit_processed_bytes(ptr noundef nonnull %job, i64 noundef %.pre73) #5
   %.pre = load i64, ptr %n, align 8
   br label %for.inc76
 
@@ -590,7 +590,7 @@ return:                                           ; preds = %if.end60, %for.body
 declare void @block_job_user_resume(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @stream_prepare(ptr nocapture noundef %job) #0 {
+define internal i32 @stream_prepare(ptr noundef captures(none) %job) #0 {
 entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
@@ -697,7 +697,7 @@ if.end28:                                         ; preds = %bdrv_filter_or_cow_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @stream_clean(ptr nocapture noundef %job) #0 {
+define internal void @stream_clean(ptr noundef captures(none) %job) #0 {
 entry:
   %cor_filter_bs = getelementptr inbounds nuw i8, ptr %job, i64 544
   %0 = load ptr, ptr %cor_filter_bs, align 8
@@ -746,7 +746,7 @@ declare ptr @bdrv_skip_filters(ptr noundef) local_unnamed_addr #1
 declare i64 @bdrv_co_getlength(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @graph_lockable_auto_unlock(ptr nocapture readnone %x) #0 {
+define internal void @graph_lockable_auto_unlock(ptr readnone captures(none) %x) #0 {
 entry:
   tail call void @bdrv_graph_co_rdunlock() #5
   ret void
@@ -788,7 +788,7 @@ declare void @bdrv_graph_co_rdlock() #1
 declare void @bdrv_graph_co_rdunlock() #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -817,10 +817,10 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare ptr @bdrv_filter_or_cow_child(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

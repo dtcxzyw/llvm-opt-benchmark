@@ -62,7 +62,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.41 = private unnamed_addr constant [7 x i8] c" host=\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @connectToServer(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local nonnull ptr @connectToServer(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @get_db_conn(ptr noundef %0, ptr noundef %1)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.critedge, label %5
@@ -95,7 +95,7 @@ define dso_local nonnull ptr @connectToServer(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_db_conn(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @get_db_conn(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.PQExpBufferData, align 8
   call void @initPQExpBuffer(ptr noundef nonnull %3) #9
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.38) #9
@@ -167,7 +167,7 @@ define dso_local noundef ptr @executeQueryOrDie(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @cluster_conn_opts(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @cluster_conn_opts(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @cluster_conn_opts.buf, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
@@ -279,7 +279,7 @@ define dso_local i32 @get_major_server_version(ptr noundef %0) local_unnamed_add
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
 declare void @pg_fatal(ptr noundef, ...) local_unnamed_addr #4
@@ -287,10 +287,10 @@ declare void @pg_fatal(ptr noundef, ...) local_unnamed_addr #4
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @start_postmaster(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
@@ -457,7 +457,7 @@ stop_postmaster.exit:                             ; preds = %3, %5
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @initPQExpBuffer(ptr noundef) local_unnamed_addr #1
 
@@ -576,10 +576,10 @@ define dso_local void @check_pghost_envvar() local_unnamed_addr #0 {
 declare ptr @PQconndefaults() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @PQconninfoFree(ptr noundef) local_unnamed_addr #1
 
@@ -594,7 +594,7 @@ declare void @llvm.va_start.p0(ptr) #7
 declare void @llvm.va_end.p0(ptr) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

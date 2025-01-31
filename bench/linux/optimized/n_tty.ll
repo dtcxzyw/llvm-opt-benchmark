@@ -41,7 +41,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_n_tty_inheri
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_n_tty_inherit_ops389], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local void @n_tty_inherit_ops(ptr nocapture noundef writeonly initializes((0, 144)) %0) #0 align 16 {
+define dso_local void @n_tty_inherit_ops(ptr noundef writeonly captures(none) initializes((0, 144)) %0) #0 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(144) @n_tty_ops, i64 136, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr null, ptr %2, align 8
@@ -49,7 +49,7 @@ define dso_local void @n_tty_inherit_ops(ptr nocapture noundef writeonly initial
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @n_tty_init() local_unnamed_addr #2 section ".init.text" align 16 {
@@ -1744,7 +1744,7 @@ define internal range(i32 0, 384) i32 @n_tty_poll(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @n_tty_receive_buf(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) #4 align 16 {
+define internal void @n_tty_receive_buf(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) #4 align 16 {
   %5 = tail call fastcc i64 @n_tty_receive_buf_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext false)
   ret void
 }
@@ -1759,13 +1759,13 @@ define internal void @n_tty_write_wakeup(ptr noundef %0) #4 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @n_tty_receive_buf2(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) #4 align 16 {
+define internal i64 @n_tty_receive_buf2(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) #4 align 16 {
   %5 = tail call fastcc i64 @n_tty_receive_buf_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext true)
   ret i64 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @n_tty_lookahead_flow_ctrl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i64 noundef %3) #4 align 16 {
+define internal void @n_tty_lookahead_flow_ctrl(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i64 noundef %3) #4 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8816
@@ -1863,7 +1863,7 @@ n_tty_receive_char_flow_ctrl.exit:                ; preds = %57, %56, %51, %45, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
 declare dso_local noalias ptr @vzalloc(i64 noundef) local_unnamed_addr #6
@@ -1875,7 +1875,7 @@ declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) loca
 declare dso_local void @tty_unthrottle(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @down_write(ptr noundef) local_unnamed_addr #3
@@ -1958,7 +1958,7 @@ define internal fastcc void @n_tty_kick_worker(ptr noundef %0) unnamed_addr #4 a
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @___ratelimit(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -1976,7 +1976,7 @@ declare void @llvm.assume(i1 noundef) #8
 declare dso_local i32 @woken_wake_function(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @canon_copy_from_read_buf(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #4 align 16 {
+define internal fastcc zeroext i1 @canon_copy_from_read_buf(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #4 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %2, align 8
@@ -2738,7 +2738,7 @@ declare dso_local void @start_tty(ptr noundef) local_unnamed_addr #3
 declare dso_local zeroext i1 @mutex_is_locked(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @n_tty_receive_buf_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #4 align 16 {
+define internal fastcc i64 @n_tty_receive_buf_common(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #4 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -3147,7 +3147,7 @@ define internal fastcc i64 @n_tty_receive_buf_common(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @n_tty_receive_buf_closing(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i64 noundef range(i64 -2147483646, 2147483648) %3, i1 noundef zeroext %4) unnamed_addr #4 align 16 {
+define internal fastcc void @n_tty_receive_buf_closing(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i64 noundef range(i64 -2147483646, 2147483648) %3, i1 noundef zeroext %4) unnamed_addr #4 align 16 {
   %6 = icmp eq i64 %3, 0
   br i1 %6, label %.loopexit, label %7
 
@@ -3293,7 +3293,7 @@ define internal fastcc void @n_tty_receive_buf_closing(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i64 noundef range(i64 -2147483646, 2147483648) %3, i1 noundef zeroext %4) unnamed_addr #4 align 16 {
+define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i64 noundef range(i64 -2147483646, 2147483648) %3, i1 noundef zeroext %4) unnamed_addr #4 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq i64 %3, 0
@@ -5754,7 +5754,7 @@ define internal fastcc void @n_tty_receive_signal_char(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @echo_char(i8 noundef zeroext range(i8 11, 10) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 16 {
+define internal fastcc void @echo_char(i8 noundef zeroext range(i8 11, 10) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 576
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq i8 %0, -1

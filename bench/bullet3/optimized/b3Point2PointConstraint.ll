@@ -51,7 +51,7 @@ $_ZTV17b3TypedConstraint = comdat any
 @_ZN23b3Point2PointConstraintC1EiiRK9b3Vector3S2_ = dso_local unnamed_addr alias void (ptr, i32, i32, ptr, ptr), ptr @_ZN23b3Point2PointConstraintC2EiiRK9b3Vector3S2_
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23b3Point2PointConstraintC2EiiRK9b3Vector3S2_(ptr noundef nonnull align 16 dereferenceable(120) %this, i32 noundef %rbA, i32 noundef %rbB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %pivotInA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %pivotInB) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23b3Point2PointConstraintC2EiiRK9b3Vector3S2_(ptr noundef nonnull align 16 dereferenceable(120) %this, i32 noundef %rbA, i32 noundef %rbB, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %pivotInA, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %pivotInB) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN17b3TypedConstraintC2E21b3TypedConstraintTypeii(ptr noundef nonnull align 16 dereferenceable(64) %this, i32 noundef 3, i32 noundef %rbA, i32 noundef %rbB)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV23b3Point2PointConstraint, i64 16), ptr %this, align 16
@@ -73,12 +73,12 @@ entry:
 declare void @_ZN17b3TypedConstraintC2E21b3TypedConstraintTypeii(ptr noundef nonnull align 16 dereferenceable(64), i32 noundef, i32 noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN23b3Point2PointConstraint8getInfo1EPN17b3TypedConstraint17b3ConstraintInfo1EPK15b3RigidBodyData(ptr nocapture nonnull readnone align 16 %this, ptr nocapture noundef writeonly initializes((0, 8)) %info, ptr nocapture readnone %bodies) unnamed_addr #3 align 2 {
+define dso_local void @_ZN23b3Point2PointConstraint8getInfo1EPN17b3TypedConstraint17b3ConstraintInfo1EPK15b3RigidBodyData(ptr nonnull readnone align 16 captures(none) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %info, ptr readnone captures(none) %bodies) unnamed_addr #3 align 2 {
 entry:
   store i32 3, ptr %info, align 4
   %nub.i = getelementptr inbounds nuw i8, ptr %info, i64 4
@@ -87,7 +87,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN23b3Point2PointConstraint18getInfo1NonVirtualEPN17b3TypedConstraint17b3ConstraintInfo1EPK15b3RigidBodyData(ptr nocapture noundef nonnull readnone align 16 dereferenceable(120) %this, ptr nocapture noundef writeonly initializes((0, 8)) %info, ptr nocapture noundef readnone %bodies) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN23b3Point2PointConstraint18getInfo1NonVirtualEPN17b3TypedConstraint17b3ConstraintInfo1EPK15b3RigidBodyData(ptr noundef nonnull readnone align 16 captures(none) dereferenceable(120) %this, ptr noundef writeonly captures(none) initializes((0, 8)) %info, ptr noundef readnone captures(none) %bodies) local_unnamed_addr #3 align 2 {
 entry:
   store i32 3, ptr %info, align 4
   %nub = getelementptr inbounds nuw i8, ptr %info, i64 4
@@ -96,7 +96,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN23b3Point2PointConstraint8getInfo2EPN17b3TypedConstraint17b3ConstraintInfo2EPK15b3RigidBodyData(ptr nocapture noundef nonnull readonly align 16 dereferenceable(120) %this, ptr nocapture noundef %info, ptr nocapture noundef readonly %bodies) unnamed_addr #4 align 2 {
+define dso_local void @_ZN23b3Point2PointConstraint8getInfo2EPN17b3TypedConstraint17b3ConstraintInfo2EPK15b3RigidBodyData(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(120) %this, ptr noundef captures(none) %info, ptr noundef readonly captures(none) %bodies) unnamed_addr #4 align 2 {
 entry:
   %trA = alloca %class.b3Transform, align 16
   %trB = alloca %class.b3Transform, align 16
@@ -237,7 +237,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN23b3Point2PointConstraint18getInfo2NonVirtualEPN17b3TypedConstraint17b3ConstraintInfo2ERK11b3TransformS5_(ptr nocapture noundef nonnull readonly align 16 dereferenceable(120) %this, ptr nocapture noundef %info, ptr nocapture noundef nonnull readonly align 16 dereferenceable(64) %body0_trans, ptr nocapture noundef nonnull readonly align 16 dereferenceable(64) %body1_trans) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN23b3Point2PointConstraint18getInfo2NonVirtualEPN17b3TypedConstraint17b3ConstraintInfo2ERK11b3TransformS5_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(120) %this, ptr noundef captures(none) %info, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(64) %body0_trans, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(64) %body1_trans) local_unnamed_addr #5 align 2 {
 entry:
   %a1 = alloca %class.b3Vector3, align 16
   %a2 = alloca %class.b3Vector3, align 16
@@ -529,13 +529,13 @@ for.end108:                                       ; preds = %for.inc106, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN23b3Point2PointConstraint9updateRHSEf(ptr nocapture noundef nonnull readnone align 16 dereferenceable(120) %this, float noundef %timeStep) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN23b3Point2PointConstraint9updateRHSEf(ptr noundef nonnull readnone align 16 captures(none) dereferenceable(120) %this, float noundef %timeStep) local_unnamed_addr #6 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN23b3Point2PointConstraint8setParamEifi(ptr nocapture noundef nonnull align 16 dereferenceable(120) %this, i32 noundef %num, float noundef %value, i32 noundef %axis) unnamed_addr #7 align 2 {
+define dso_local void @_ZN23b3Point2PointConstraint8setParamEifi(ptr noundef nonnull align 16 captures(none) dereferenceable(120) %this, i32 noundef %num, float noundef %value, i32 noundef %axis) unnamed_addr #7 align 2 {
 entry:
   %cmp.not = icmp eq i32 %axis, -1
   br i1 %cmp.not, label %if.else, label %if.end
@@ -571,7 +571,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZNK23b3Point2PointConstraint8getParamEii(ptr nocapture noundef nonnull readonly align 16 dereferenceable(120) %this, i32 noundef %num, i32 noundef %axis) unnamed_addr #8 align 2 {
+define dso_local noundef float @_ZNK23b3Point2PointConstraint8getParamEii(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(120) %this, i32 noundef %num, i32 noundef %axis) unnamed_addr #8 align 2 {
 entry:
   %cmp.not = icmp eq i32 %axis, -1
   br i1 %cmp.not, label %if.else, label %if.end

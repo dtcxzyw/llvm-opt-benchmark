@@ -620,7 +620,7 @@ _ZN7QStringD2Ev.exit22:                           ; preds = %44, %_ZN9QtPrivate8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare void @_ZN7QWidgetC2EPS_6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i32) unnamed_addr #2
 
@@ -9497,7 +9497,7 @@ declare void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on
 declare void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8Paintbox19refreshBrushPreviewEv(ptr nocapture noundef nonnull align 8 dereferenceable(844) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8Paintbox19refreshBrushPreviewEv(ptr noundef nonnull align 8 captures(none) dereferenceable(844) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QList, align 8
   %3 = alloca %class.QPixmap, align 8
   %4 = alloca %class.QImage, align 8
@@ -12512,7 +12512,7 @@ declare void @_ZN9QHashData6rehashEi(ptr noundef nonnull align 8 dereferenceable
 declare noundef ptr @_ZN9QHashData12allocateNodeEi(ptr noundef nonnull align 8 dereferenceable(44), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8Paintbox25on_default_colors_clickedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(844) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN8Paintbox25on_default_colors_clickedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(844) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.QColor, align 4
   %3 = alloca %class.QColor, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -12629,7 +12629,7 @@ declare void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(4
 declare void @_ZN10Colorframe12colorChangedE6QColor(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8Paintbox24on_switch_colors_clickedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(844) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN8Paintbox24on_switch_colors_clickedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(844) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.QColor, align 4
   %3 = alloca %class.QColor, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -12665,7 +12665,7 @@ define void @_ZN8Paintbox24on_switch_colors_clickedEv(ptr nocapture noundef nonn
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette5brushENS_10ColorGroupENS_9ColorRoleE(ptr noundef nonnull align 8 dereferenceable(12), i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8Paintbox14setClonePixmapER6QImage(ptr nocapture noundef nonnull align 8 dereferenceable(844) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8Paintbox14setClonePixmapER6QImage(ptr noundef nonnull align 8 captures(none) dereferenceable(844) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QPointF, align 8
   %4 = alloca %class.QPointF, align 8
   %5 = alloca %class.QList, align 8
@@ -12885,7 +12885,7 @@ declare void @_ZN9QListData7disposeEPNS_4DataE(ptr noundef) local_unnamed_addr #
 declare void @_ZN13QGraphicsItem6setPosERK7QPointF(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8Paintbox14setPixmapDeltaEdd(ptr nocapture noundef nonnull align 8 dereferenceable(844) initializes((836, 844)) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN8Paintbox14setPixmapDeltaEdd(ptr noundef nonnull align 8 captures(none) dereferenceable(844) initializes((836, 844)) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.QPointF, align 8
   %5 = alloca %class.QPointF, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 836
@@ -12916,7 +12916,7 @@ define void @_ZN8Paintbox14setPixmapDeltaEdd(ptr nocapture noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8Paintbox15setPixmapOffsetEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(844) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN8Paintbox15setPixmapOffsetEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(844) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.QPointF, align 8
   %5 = alloca %class.QPointF, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 824
@@ -12947,14 +12947,14 @@ define void @_ZN8Paintbox15setPixmapOffsetEdd(ptr nocapture noundef nonnull read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @_ZN8Paintbox14getPixmapDeltaEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(844) %0) local_unnamed_addr #9 align 2 {
+define i64 @_ZN8Paintbox14getPixmapDeltaEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(844) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 836
   %.sroa.0.0.copyload = load i64, ptr %2, align 4
   ret i64 %.sroa.0.0.copyload
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8Paintbox15movePixmapDeltaEdd(ptr nocapture noundef nonnull align 8 dereferenceable(844) %0, double noundef %1, double noundef %2) local_unnamed_addr #10 align 2 {
+define void @_ZN8Paintbox15movePixmapDeltaEdd(ptr noundef nonnull align 8 captures(none) dereferenceable(844) %0, double noundef %1, double noundef %2) local_unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 836
   %5 = load i32, ptr %4, align 4
   %6 = sitofp i32 %5 to double
@@ -12971,7 +12971,7 @@ define void @_ZN8Paintbox15movePixmapDeltaEdd(ptr nocapture noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8Paintbox16resetPixmapDeltaEv(ptr nocapture noundef nonnull align 8 dereferenceable(844) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8Paintbox16resetPixmapDeltaEv(ptr noundef nonnull align 8 captures(none) dereferenceable(844) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QPointF, align 8
   %3 = alloca %class.QPointF, align 8
   %4 = alloca %class.QPixmap, align 8
@@ -13512,7 +13512,7 @@ declare noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef, i32 noundef
 declare void @_ZN14QGraphicsScene12setSceneRectERK6QRectF(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8Paintbox15getPixmapBufferERPhRPfRiS4_(ptr nocapture noundef nonnull align 8 dereferenceable(844) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8Paintbox15getPixmapBufferERPhRPfRiS4_(ptr noundef nonnull align 8 captures(none) dereferenceable(844) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QImage, align 8
   %7 = alloca %class.QPixmap, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 824
@@ -13739,7 +13739,7 @@ declare noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8Paintbox19restorePreviousTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(844) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN8Paintbox19restorePreviousTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(844) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 816
@@ -13921,7 +13921,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #12
 declare noundef i32 @_ZNK9QComboBox12currentIndexEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8Paintbox18setForegroundColorER6QColor(ptr nocapture noundef nonnull readonly align 8 dereferenceable(844) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(14) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN8Paintbox18setForegroundColorER6QColor(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(844) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(14) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.QColor, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = load ptr, ptr %4, align 8
@@ -13935,7 +13935,7 @@ define void @_ZN8Paintbox18setForegroundColorER6QColor(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8Paintbox18setBackgroundColorER6QColor(ptr nocapture noundef nonnull readonly align 8 dereferenceable(844) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(14) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN8Paintbox18setBackgroundColorER6QColor(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(844) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(14) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.QColor, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
@@ -13952,13 +13952,13 @@ define void @_ZN8Paintbox18setBackgroundColorER6QColor(ptr nocapture noundef non
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16

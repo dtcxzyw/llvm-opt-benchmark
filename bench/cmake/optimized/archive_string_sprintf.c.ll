@@ -20,7 +20,7 @@ define dso_local void @archive_string_sprintf(ptr noundef %0, ptr noundef %1, ..
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @archive_string_ensure(ptr noundef %0, i64 noundef 64) #6
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
@@ -477,7 +477,7 @@ declare ptr @archive_strappend_char(ptr noundef, i8 noundef signext) local_unnam
 declare i32 @archive_string_append_from_wcs(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #4

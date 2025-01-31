@@ -847,7 +847,7 @@ return:                                           ; preds = %for.body, %lor.lhs.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
 define internal fastcc void @demangle_path(ptr noundef nonnull %rdm, i1 noundef zeroext %in_value) unnamed_addr #0 {
@@ -1837,7 +1837,7 @@ return:                                           ; preds = %str_buf_append.exit
 }
 
 ; Function Attrs: nounwind
-define internal void @str_buf_demangle_callback(ptr nocapture noundef readonly %data, i64 noundef %len, ptr nocapture noundef %opaque) #0 {
+define internal void @str_buf_demangle_callback(ptr noundef readonly captures(none) %data, i64 noundef %len, ptr noundef captures(none) %opaque) #0 {
 entry:
   %errored.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load i8, ptr %errored.i.i, align 8
@@ -1922,10 +1922,10 @@ str_buf_append.exit:                              ; preds = %if.then7.i.i, %if.t
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc void @parse_ident(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull %rdm) unnamed_addr #3 {
+define internal fastcc void @parse_ident(ptr noalias nonnull writeonly align 8 captures(none) initializes((0, 32)) %agg.result, ptr noundef nonnull captures(none) %rdm) unnamed_addr #3 {
 entry:
   %ascii_len = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %punycode = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
@@ -2100,16 +2100,16 @@ return:                                           ; preds = %if.end86, %if.then9
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-define internal fastcc void @print_ident(ptr nocapture noundef nonnull %rdm, ptr nocapture noundef readonly byval(%struct.rust_mangled_ident) align 8 %ident) unnamed_addr #0 {
+define internal fastcc void @print_ident(ptr noundef nonnull captures(none) %rdm, ptr noundef readonly byval(%struct.rust_mangled_ident) align 8 captures(none) %ident) unnamed_addr #0 {
 entry:
   %errored = getelementptr inbounds nuw i8, ptr %rdm, i64 40
   %0 = load i8, ptr %errored, align 8
@@ -2415,7 +2415,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind
-define internal fastcc void @print_uint64(ptr nocapture noundef nonnull readonly %rdm, i64 noundef %x) unnamed_addr #0 {
+define internal fastcc void @print_uint64(ptr noundef nonnull readonly captures(none) %rdm, i64 noundef %x) unnamed_addr #0 {
 entry:
   %s = alloca [21 x i8], align 16
   %call = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s, ptr noundef nonnull dereferenceable(1) @.str.38, i64 noundef %x) #12
@@ -3482,7 +3482,7 @@ sw.default:                                       ; preds = %next.exit, %if.end8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc i64 @parse_integer_62(ptr nocapture noundef nonnull %rdm) unnamed_addr #3 {
+define internal fastcc i64 @parse_integer_62(ptr noundef nonnull captures(none) %rdm) unnamed_addr #3 {
 entry:
   %next.i.i = getelementptr inbounds nuw i8, ptr %rdm, i64 32
   %0 = load i64, ptr %next.i.i, align 8
@@ -3573,13 +3573,13 @@ return:                                           ; preds = %eat.exit.thread, %w
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind
-define internal fastcc void @print_lifetime_from_index(ptr nocapture noundef nonnull readonly %rdm, i64 noundef %lt) unnamed_addr #0 {
+define internal fastcc void @print_lifetime_from_index(ptr noundef nonnull readonly captures(none) %rdm, i64 noundef %lt) unnamed_addr #0 {
 entry:
   %s.i = alloca [21 x i8], align 16
   %c = alloca i8, align 1
@@ -4825,7 +4825,7 @@ if.then.i467:                                     ; preds = %land.lhs.true.i464
 }
 
 ; Function Attrs: nounwind
-define internal fastcc void @demangle_binder(ptr nocapture noundef nonnull %rdm) unnamed_addr #0 {
+define internal fastcc void @demangle_binder(ptr noundef nonnull captures(none) %rdm) unnamed_addr #0 {
 entry:
   %errored = getelementptr inbounds nuw i8, ptr %rdm, i64 40
   %0 = load i8, ptr %errored, align 8
@@ -4994,10 +4994,10 @@ if.end10:                                         ; preds = %do.end3, %peek.exit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind
-define internal fastcc void @demangle_const_uint(ptr nocapture noundef nonnull %rdm, i8 noundef signext %ty_tag) unnamed_addr #0 {
+define internal fastcc void @demangle_const_uint(ptr noundef nonnull captures(none) %rdm, i8 noundef signext %ty_tag) unnamed_addr #0 {
 entry:
   %s.i = alloca [21 x i8], align 16
   %errored = getelementptr inbounds nuw i8, ptr %rdm, i64 40
@@ -5212,7 +5212,7 @@ if.end25:                                         ; preds = %if.then.i54, %land.
 }
 
 ; Function Attrs: nounwind
-define internal fastcc void @print_quoted_escaped_char(ptr nocapture noundef nonnull %rdm, i8 noundef signext range(i8 34, 40) %quote, i32 noundef %c) unnamed_addr #0 {
+define internal fastcc void @print_quoted_escaped_char(ptr noundef nonnull captures(none) %rdm, i8 noundef signext range(i8 34, 40) %quote, i32 noundef %c) unnamed_addr #0 {
 entry:
   %v = alloca i8, align 1
   %s = alloca [9 x i8], align 1
@@ -5514,7 +5514,7 @@ sw.epilog:                                        ; preds = %if.then.i128, %land
 }
 
 ; Function Attrs: nounwind
-define internal fastcc void @demangle_const_str_literal(ptr nocapture noundef nonnull %rdm) unnamed_addr #0 {
+define internal fastcc void @demangle_const_str_literal(ptr noundef nonnull captures(none) %rdm) unnamed_addr #0 {
 entry:
   %errored = getelementptr inbounds nuw i8, ptr %rdm, i64 40
   %0 = load i8, ptr %errored, align 8
@@ -6055,10 +6055,10 @@ if.else20:                                        ; preds = %do.end4, %peek.exit
 declare i64 @llvm.usub.sat.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9

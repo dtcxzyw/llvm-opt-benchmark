@@ -254,7 +254,7 @@ declare ptr @lxb_html_tokenizer_ref(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @lxb_html_tree_insertion_mode_initial(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @lxb_html_tree_token_callback(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal noundef ptr @lxb_html_tree_token_callback(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %4
 
 4:                                                ; preds = %4, %3
@@ -379,7 +379,7 @@ define hidden ptr @lxb_html_tree_destroy(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lxb_html_tree_clean(ptr nocapture noundef initializes((8, 32), (80, 82), (88, 96), (104, 116)) %0) local_unnamed_addr #0 {
+define hidden void @lxb_html_tree_clean(ptr noundef captures(none) initializes((8, 32), (80, 82), (88, 96), (104, 116)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   tail call void @lexbor_array_clean(ptr noundef %3) #9
@@ -423,7 +423,7 @@ declare ptr @lxb_html_tokenizer_unref(ptr noundef) local_unnamed_addr #1
 declare ptr @lexbor_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_html_tree_stop_parsing(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define hidden noundef i32 @lxb_html_tree_stop_parsing(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 368
@@ -432,7 +432,7 @@ define hidden noundef i32 @lxb_html_tree_stop_parsing(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @lxb_html_tree_process_abort(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @lxb_html_tree_process_abort(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -455,7 +455,7 @@ define hidden noundef zeroext i1 @lxb_html_tree_process_abort(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lxb_html_tree_parse_error(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @lxb_html_tree_parse_error(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @lxb_html_tree_error_add(ptr noundef %5, ptr noundef %1, i32 noundef %2) #9
@@ -690,7 +690,7 @@ define hidden noundef zeroext i1 @lxb_html_tree_html_integration_point(ptr nound
 declare zeroext i1 @lxb_html_tree_insertion_mode_foreign_content(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lxb_html_tree_appropriate_place_inserting_node(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
+define hidden ptr @lxb_html_tree_appropriate_place_inserting_node(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   store i32 0, ptr %2, align 4
@@ -826,7 +826,7 @@ lxb_html_tree_open_elements_first.exit.thread44:  ; preds = %lxb_html_tree_open_
 declare ptr @lxb_html_tree_open_elements_find_reverse(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lxb_html_tree_insert_foreign_element(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @lxb_html_tree_insert_foreign_element(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = call ptr @lxb_html_tree_appropriate_place_inserting_node(ptr noundef %0, ptr noundef null, ptr noundef nonnull %4)
   %6 = load i32, ptr %4, align 4
@@ -867,7 +867,7 @@ lxb_html_tree_insert_node.exit:                   ; preds = %13, %12, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lxb_html_tree_create_element_for_token(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture readnone %3) local_unnamed_addr #0 {
+define hidden ptr @lxb_html_tree_create_element_for_token(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr i8, ptr %0, i64 8
@@ -947,7 +947,7 @@ lxb_html_tree_append_attributes_from_element.exit.thread25: ; preds = %34, %17, 
 declare ptr @lxb_html_interface_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lxb_html_tree_append_attributes(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define hidden i32 @lxb_html_tree_append_attributes(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -1020,7 +1020,7 @@ define hidden i32 @lxb_html_tree_append_attributes(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lxb_html_tree_append_attributes_from_element(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define hidden i32 @lxb_html_tree_append_attributes_from_element(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.01927 = load ptr, ptr %5, align 8
@@ -1080,7 +1080,7 @@ declare i32 @lxb_dom_element_attr_append(ptr noundef, ptr noundef) local_unnamed
 declare i32 @lxb_dom_attr_clone_name_value(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @lxb_html_tree_adjust_mathml_attributes(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @lxb_html_tree_adjust_mathml_attributes(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 208
@@ -1121,7 +1121,7 @@ declare zeroext i1 @lexbor_str_data_cmp(ptr noundef, ptr noundef) local_unnamed_
 declare ptr @lxb_dom_attr_qualified_name_append(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @lxb_html_tree_adjust_svg_attributes(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @lxb_html_tree_adjust_svg_attributes(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 208
@@ -1180,7 +1180,7 @@ lexbor_hash_entry_str.exit:                       ; preds = %18, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @lxb_html_tree_adjust_foreign_attributes(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @lxb_html_tree_adjust_foreign_attributes(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 208
@@ -1279,7 +1279,7 @@ declare ptr @lxb_dom_attr_local_name_append(ptr noundef, ptr noundef, i64 nounde
 declare ptr @lxb_ns_prefix_append(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @lxb_html_tree_insert_character(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @lxb_html_tree_insert_character(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.lexbor_str_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1316,12 +1316,12 @@ define hidden range(i32 0, 3) i32 @lxb_html_tree_insert_character(ptr noundef %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @lexbor_str_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 3) i32 @lxb_html_tree_insert_character_for_data(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
@@ -1543,7 +1543,7 @@ lxb_html_tree_insert_node.exit:                   ; preds = %31, %30, %17, %9
 declare i32 @lxb_html_token_make_text(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lxb_html_tree_create_document_type_from_token(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden ptr @lxb_html_tree_create_document_type_from_token(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 8
@@ -1571,7 +1571,7 @@ declare i32 @lxb_html_token_doctype_parse(ptr noundef, ptr noundef) local_unname
 declare ptr @lxb_dom_document_type_interface_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lxb_html_tree_node_delete_deep(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @lxb_html_tree_node_delete_deep(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @lxb_dom_node_remove(ptr noundef %1) #9
   ret void
 }
@@ -1579,7 +1579,7 @@ define hidden void @lxb_html_tree_node_delete_deep(ptr nocapture noundef readnon
 declare void @lxb_dom_node_remove(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lxb_html_tree_generic_rawtext_parsing(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden ptr @lxb_html_tree_generic_rawtext_parsing(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @lxb_html_tree_insert_foreign_element(ptr noundef %0, ptr noundef readonly %1, i64 noundef 2)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %14, label %5
@@ -1608,7 +1608,7 @@ declare ptr @lxb_html_tokenizer_state_rawtext_before(ptr noundef, ptr noundef, p
 declare zeroext i1 @lxb_html_tree_insertion_mode_text(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lxb_html_tree_generic_rcdata_parsing(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden ptr @lxb_html_tree_generic_rcdata_parsing(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @lxb_html_tree_insert_foreign_element(ptr noundef %0, ptr noundef readonly %1, i64 noundef 2)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %14, label %5
@@ -1635,7 +1635,7 @@ define hidden ptr @lxb_html_tree_generic_rcdata_parsing(ptr noundef %0, ptr noca
 declare ptr @lxb_html_tokenizer_state_rcdata_before(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lxb_html_tree_generate_implied_end_tags(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden void @lxb_html_tree_generate_implied_end_tags(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 16
@@ -1688,7 +1688,7 @@ lxb_html_tree_current_node.exit._crit_edge:       ; preds = %20, %16, %lxb_html_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lxb_html_tree_generate_all_implied_end_tags_thoroughly(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden void @lxb_html_tree_generate_all_implied_end_tags_thoroughly(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 16
@@ -1749,7 +1749,7 @@ lxb_html_tree_current_node.exit._crit_edge:       ; preds = %20, %16, %lxb_html_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @lxb_html_tree_reset_insertion_mode_appropriately(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define hidden void @lxb_html_tree_reset_insertion_mode_appropriately(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2007,7 +2007,7 @@ declare zeroext i1 @lxb_html_tree_insertion_mode_before_head(ptr noundef, ptr no
 declare zeroext i1 @lxb_html_tree_insertion_mode_after_head(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @lxb_html_tree_element_in_scope(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #7 {
+define hidden ptr @lxb_html_tree_element_in_scope(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -2057,7 +2057,7 @@ lxb_html_tag_is_category.exit:                    ; preds = %._crit_edge, %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @lxb_html_tree_element_in_scope_by_node(ptr nocapture noundef readonly %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #7 {
+define hidden ptr @lxb_html_tree_element_in_scope_by_node(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -2105,7 +2105,7 @@ lxb_html_tag_is_category.exit:                    ; preds = %16, %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @lxb_html_tree_element_in_scope_h123456(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define hidden ptr @lxb_html_tree_element_in_scope_h123456(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2157,7 +2157,7 @@ define hidden ptr @lxb_html_tree_element_in_scope_h123456(ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @lxb_html_tree_element_in_scope_tbody_thead_tfoot(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define hidden ptr @lxb_html_tree_element_in_scope_tbody_thead_tfoot(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2211,7 +2211,7 @@ define hidden ptr @lxb_html_tree_element_in_scope_tbody_thead_tfoot(ptr nocaptur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @lxb_html_tree_element_in_scope_td_th(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define hidden ptr @lxb_html_tree_element_in_scope_td_th(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2264,7 +2264,7 @@ define hidden ptr @lxb_html_tree_element_in_scope_td_th(ptr nocapture noundef re
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @lxb_html_tree_check_scope_element(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define hidden noundef zeroext i1 @lxb_html_tree_check_scope_element(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2399,7 +2399,7 @@ lxb_html_tree_node_is.exit.thread:                ; preds = %lxb_html_tree_curre
 declare void @lxb_html_tree_open_elements_pop_until_tag_id(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @lxb_html_tree_adoption_agency_algorithm(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @lxb_html_tree_adoption_agency_algorithm(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -2460,8 +2460,8 @@ lxb_html_tree_node_is.exit.thread:                ; preds = %lxb_html_tree_curre
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 64
   br label %42
 
-42:                                               ; preds = %174, %lxb_html_tree_node_is.exit.thread
-  %.0138 = phi i16 [ 0, %lxb_html_tree_node_is.exit.thread ], [ %44, %174 ]
+42:                                               ; preds = %173, %lxb_html_tree_node_is.exit.thread
+  %.0138 = phi i16 [ 0, %lxb_html_tree_node_is.exit.thread ], [ %44, %173 ]
   %exitcond254.not = icmp eq i16 %.0138, 8
   br i1 %exitcond254.not, label %.thread, label %43
 
@@ -2514,7 +2514,7 @@ lxb_html_tree_node_is.exit.thread:                ; preds = %lxb_html_tree_curre
   %70 = getelementptr inbounds ptr, ptr %68, i64 %69
   %71 = load ptr, ptr %70, align 8
   %72 = icmp eq ptr %71, %52
-  br i1 %72, label %lxb_html_tree_element_in_scope_by_node.exit, label %.lr.ph328
+  br i1 %72, label %lxb_html_tree_current_node.exit166, label %.lr.ph328
 
 .lr.ph328:                                        ; preds = %.lr.ph.preheader, %.lr.ph.backedge
   %73 = phi ptr [ %87, %.lr.ph.backedge ], [ %71, %.lr.ph.preheader ]
@@ -2546,234 +2546,230 @@ lxb_html_tag_is_category.exit.i:                  ; preds = %.lr.ph328
   %86 = getelementptr inbounds ptr, ptr %68, i64 %85
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %87, %52
-  br i1 %88, label %lxb_html_tree_element_in_scope_by_node.exit, label %.lr.ph328
+  br i1 %88, label %lxb_html_tree_current_node.exit166, label %.lr.ph328
 
-lxb_html_tree_element_in_scope_by_node.exit:      ; preds = %.lr.ph.backedge, %.lr.ph.preheader
-  %89 = icmp eq ptr %52, null
-  br i1 %89, label %lxb_html_tree_element_in_scope_by_node.exit.thread, label %lxb_html_tree_current_node.exit166
-
-lxb_html_tree_element_in_scope_by_node.exit.thread: ; preds = %lxb_html_tree_element_in_scope_by_node.exit, %64, %lxb_html_tag_is_category.exit.i, %.critedge.backedge
-  %90 = load ptr, ptr %37, align 8
-  %91 = call ptr @lxb_html_tree_error_add(ptr noundef %90, ptr noundef %1, i32 noundef 25) #9
+lxb_html_tree_element_in_scope_by_node.exit.thread: ; preds = %64, %lxb_html_tag_is_category.exit.i, %.critedge.backedge
+  %89 = load ptr, ptr %37, align 8
+  %90 = call ptr @lxb_html_tree_error_add(ptr noundef %89, ptr noundef %1, i32 noundef 25) #9
   br label %.thread
 
-lxb_html_tree_current_node.exit166:               ; preds = %lxb_html_tree_element_in_scope_by_node.exit
-  %92 = getelementptr ptr, ptr %68, i64 %67
-  %93 = getelementptr i8, ptr %92, i64 -8
-  %94 = load ptr, ptr %93, align 8
-  %.not151 = icmp eq ptr %52, %94
-  br i1 %.not151, label %98, label %95
+lxb_html_tree_current_node.exit166:               ; preds = %.lr.ph.backedge, %.lr.ph.preheader
+  %91 = getelementptr ptr, ptr %68, i64 %67
+  %92 = getelementptr i8, ptr %91, i64 -8
+  %93 = load ptr, ptr %92, align 8
+  %.not151 = icmp eq ptr %52, %93
+  br i1 %.not151, label %97, label %94
 
-95:                                               ; preds = %lxb_html_tree_current_node.exit166
-  %96 = load ptr, ptr %37, align 8
-  %97 = call ptr @lxb_html_tree_error_add(ptr noundef %96, ptr noundef %1, i32 noundef 22) #9
+94:                                               ; preds = %lxb_html_tree_current_node.exit166
+  %95 = load ptr, ptr %37, align 8
+  %96 = call ptr @lxb_html_tree_error_add(ptr noundef %95, ptr noundef %1, i32 noundef 22) #9
   %.pre = load ptr, ptr %12, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre255 = load i64, ptr %.phi.trans.insert, align 8
-  br label %98
+  br label %97
 
-98:                                               ; preds = %95, %lxb_html_tree_current_node.exit166
-  %99 = phi i64 [ %.pre255, %95 ], [ %67, %lxb_html_tree_current_node.exit166 ]
-  %100 = load i64, ptr %4, align 8
-  store i64 %100, ptr %5, align 8
-  %101 = icmp ult i64 %100, %99
-  br i1 %101, label %.lr.ph205, label %._crit_edge
+97:                                               ; preds = %94, %lxb_html_tree_current_node.exit166
+  %98 = phi i64 [ %.pre255, %94 ], [ %67, %lxb_html_tree_current_node.exit166 ]
+  %99 = load i64, ptr %4, align 8
+  store i64 %99, ptr %5, align 8
+  %100 = icmp ult i64 %99, %98
+  br i1 %100, label %.lr.ph205, label %._crit_edge
 
-.lr.ph205:                                        ; preds = %98, %lxb_html_tag_is_category.exit.thread
-  %storemerge204 = phi i64 [ %113, %lxb_html_tag_is_category.exit.thread ], [ %100, %98 ]
-  %102 = getelementptr inbounds ptr, ptr %14, i64 %storemerge204
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  %105 = load i64, ptr %104, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  %107 = load i64, ptr %106, align 8
-  %108 = icmp ult i64 %105, 196
-  %109 = icmp ult i64 %107, 8
-  %or.cond.i = and i1 %108, %109
+.lr.ph205:                                        ; preds = %97, %lxb_html_tag_is_category.exit.thread
+  %storemerge204 = phi i64 [ %112, %lxb_html_tag_is_category.exit.thread ], [ %99, %97 ]
+  %101 = getelementptr inbounds ptr, ptr %14, i64 %storemerge204
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  %104 = load i64, ptr %103, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 24
+  %106 = load i64, ptr %105, align 8
+  %107 = icmp ult i64 %104, 196
+  %108 = icmp ult i64 %106, 8
+  %or.cond.i = and i1 %107, %108
   br i1 %or.cond.i, label %lxb_html_tag_is_category.exit, label %lxb_html_tag_is_category.exit.thread
 
 lxb_html_tag_is_category.exit:                    ; preds = %.lr.ph205
-  %110 = getelementptr inbounds nuw [196 x [8 x i32]], ptr @lxb_html_tag_res_cats, i64 0, i64 %105, i64 %107
-  %111 = load i32, ptr %110, align 4
-  %112 = and i32 %111, 2
-  %.0.i167.not = icmp eq i32 %112, 0
-  br i1 %.0.i167.not, label %lxb_html_tag_is_category.exit.thread, label %114
+  %109 = getelementptr inbounds nuw [196 x [8 x i32]], ptr @lxb_html_tag_res_cats, i64 0, i64 %104, i64 %106
+  %110 = load i32, ptr %109, align 4
+  %111 = and i32 %110, 2
+  %.0.i167.not = icmp eq i32 %111, 0
+  br i1 %.0.i167.not, label %lxb_html_tag_is_category.exit.thread, label %113
 
 lxb_html_tag_is_category.exit.thread:             ; preds = %.lr.ph205, %lxb_html_tag_is_category.exit
-  %113 = add i64 %storemerge204, 1
-  store i64 %113, ptr %5, align 8
-  %exitcond.not = icmp eq i64 %113, %99
+  %112 = add i64 %storemerge204, 1
+  store i64 %112, ptr %5, align 8
+  %exitcond.not = icmp eq i64 %112, %98
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph205
 
-._crit_edge:                                      ; preds = %98, %lxb_html_tag_is_category.exit.thread
+._crit_edge:                                      ; preds = %97, %lxb_html_tag_is_category.exit.thread
   call void @lxb_html_tree_open_elements_pop_until_node(ptr noundef %0, ptr noundef nonnull %52, i1 noundef zeroext true) #9
   call void @lxb_html_tree_active_formatting_remove_by_node(ptr noundef %0, ptr noundef nonnull %52) #9
   br label %.thread
 
-114:                                              ; preds = %lxb_html_tag_is_category.exit
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %100
-  %115 = load ptr, ptr %gep, align 8
-  %116 = icmp eq i64 %storemerge204, 0
-  br i1 %116, label %.thread, label %.lr.ph210
+113:                                              ; preds = %lxb_html_tag_is_category.exit
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %99
+  %114 = load ptr, ptr %gep, align 8
+  %115 = icmp eq i64 %storemerge204, 0
+  br i1 %115, label %.thread, label %.lr.ph210
 
-.lr.ph210:                                        ; preds = %114, %.outer
-  %117 = phi i64 [ %147, %.outer ], [ 1, %114 ]
-  %.0134.ph213 = phi i64 [ %120, %.outer ], [ %storemerge204, %114 ]
-  %.0135.ph212 = phi ptr [ %135, %.outer ], [ %103, %114 ]
-  %.0137.ph211 = phi i64 [ %.1, %.outer ], [ %50, %114 ]
-  br label %118
+.lr.ph210:                                        ; preds = %113, %.outer
+  %116 = phi i64 [ %146, %.outer ], [ 1, %113 ]
+  %.0134.ph213 = phi i64 [ %119, %.outer ], [ %storemerge204, %113 ]
+  %.0135.ph212 = phi ptr [ %134, %.outer ], [ %102, %113 ]
+  %.0137.ph211 = phi i64 [ %.1, %.outer ], [ %50, %113 ]
+  br label %117
 
-118:                                              ; preds = %.lr.ph210, %.backedge
-  %119 = phi i64 [ %117, %.lr.ph210 ], [ %128, %.backedge ]
-  %.0134209 = phi i64 [ %.0134.ph213, %.lr.ph210 ], [ %120, %.backedge ]
-  %120 = add i64 %.0134209, -1
-  %121 = getelementptr inbounds ptr, ptr %14, i64 %120
-  %122 = load ptr, ptr %121, align 8
-  %123 = icmp eq ptr %122, %52
-  br i1 %123, label %149, label %124
+117:                                              ; preds = %.lr.ph210, %.backedge
+  %118 = phi i64 [ %116, %.lr.ph210 ], [ %127, %.backedge ]
+  %.0134209 = phi i64 [ %.0134.ph213, %.lr.ph210 ], [ %119, %.backedge ]
+  %119 = add i64 %.0134209, -1
+  %120 = getelementptr inbounds ptr, ptr %14, i64 %119
+  %121 = load ptr, ptr %120, align 8
+  %122 = icmp eq ptr %121, %52
+  br i1 %122, label %148, label %123
 
-124:                                              ; preds = %118
-  %125 = call zeroext i1 @lxb_html_tree_active_formatting_find_by_node_reverse(ptr noundef %0, ptr noundef %122, ptr noundef nonnull %6) #9
-  %126 = icmp ugt i64 %119, 3
-  %brmerge.not = select i1 %126, i1 %125, i1 false
-  br i1 %brmerge.not, label %127, label %130
+123:                                              ; preds = %117
+  %124 = call zeroext i1 @lxb_html_tree_active_formatting_find_by_node_reverse(ptr noundef %0, ptr noundef %121, ptr noundef nonnull %6) #9
+  %125 = icmp ugt i64 %118, 3
+  %brmerge.not = select i1 %125, i1 %124, i1 false
+  br i1 %brmerge.not, label %126, label %129
 
-127:                                              ; preds = %124
-  call void @lxb_html_tree_active_formatting_remove_by_node(ptr noundef %0, ptr noundef %122) #9
+126:                                              ; preds = %123
+  call void @lxb_html_tree_active_formatting_remove_by_node(ptr noundef %0, ptr noundef %121) #9
   br label %.backedge
 
-.backedge:                                        ; preds = %127, %131
-  %128 = add i64 %119, 1
-  %129 = icmp eq i64 %120, 0
-  br i1 %129, label %.thread, label %118
+.backedge:                                        ; preds = %126, %130
+  %127 = add i64 %118, 1
+  %128 = icmp eq i64 %119, 0
+  br i1 %128, label %.thread, label %117
 
-130:                                              ; preds = %124
-  br i1 %125, label %132, label %131
+129:                                              ; preds = %123
+  br i1 %124, label %131, label %130
 
-131:                                              ; preds = %130
-  call void @lxb_html_tree_open_elements_remove_by_node(ptr noundef %0, ptr noundef %122) #9
+130:                                              ; preds = %129
+  call void @lxb_html_tree_open_elements_remove_by_node(ptr noundef %0, ptr noundef %121) #9
   br label %.backedge
 
-132:                                              ; preds = %130
+131:                                              ; preds = %129
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %7, i8 0, i64 96, i1 false)
-  %133 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %134 = load i64, ptr %133, align 8
-  store i64 %134, ptr %38, align 8
-  store ptr %122, ptr %39, align 8
-  %135 = call ptr @lxb_html_tree_create_element_for_token(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2, ptr poison)
-  %136 = icmp eq ptr %135, null
-  br i1 %136, label %137, label %138
+  %132 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  %133 = load i64, ptr %132, align 8
+  store i64 %133, ptr %38, align 8
+  store ptr %121, ptr %39, align 8
+  %134 = call ptr @lxb_html_tree_create_element_for_token(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 2, ptr poison)
+  %135 = icmp eq ptr %134, null
+  br i1 %135, label %136, label %137
 
-137:                                              ; preds = %132
+136:                                              ; preds = %131
   store i32 2, ptr %2, align 4
   br label %.thread
 
-138:                                              ; preds = %132
-  %139 = getelementptr inbounds ptr, ptr %14, i64 %120
-  %140 = load i64, ptr %6, align 8
-  %141 = getelementptr inbounds ptr, ptr %17, i64 %140
-  store ptr %135, ptr %141, align 8
-  store ptr %135, ptr %139, align 8
-  %142 = icmp eq ptr %.0135.ph212, %103
-  %143 = add i64 %140, 1
-  %.1 = select i1 %142, i64 %143, i64 %.0137.ph211
-  %144 = getelementptr inbounds nuw i8, ptr %.0135.ph212, i64 56
-  %145 = load ptr, ptr %144, align 8
-  %.not152 = icmp eq ptr %145, null
-  br i1 %.not152, label %.outer, label %146
+137:                                              ; preds = %131
+  %138 = getelementptr inbounds ptr, ptr %14, i64 %119
+  %139 = load i64, ptr %6, align 8
+  %140 = getelementptr inbounds ptr, ptr %17, i64 %139
+  store ptr %134, ptr %140, align 8
+  store ptr %134, ptr %138, align 8
+  %141 = icmp eq ptr %.0135.ph212, %102
+  %142 = add i64 %139, 1
+  %.1 = select i1 %141, i64 %142, i64 %.0137.ph211
+  %143 = getelementptr inbounds nuw i8, ptr %.0135.ph212, i64 56
+  %144 = load ptr, ptr %143, align 8
+  %.not152 = icmp eq ptr %144, null
+  br i1 %.not152, label %.outer, label %145
 
-146:                                              ; preds = %138
+145:                                              ; preds = %137
   call void @lxb_dom_node_remove(ptr noundef nonnull %.0135.ph212) #9
   br label %.outer
 
-.outer:                                           ; preds = %146, %138
-  call void @lxb_dom_node_insert_child_wo_events(ptr noundef nonnull %135, ptr noundef nonnull %.0135.ph212) #9
-  %147 = add i64 %119, 1
-  %148 = icmp eq i64 %120, 0
-  br i1 %148, label %.thread, label %.lr.ph210
+.outer:                                           ; preds = %145, %137
+  call void @lxb_dom_node_insert_child_wo_events(ptr noundef nonnull %134, ptr noundef nonnull %.0135.ph212) #9
+  %146 = add i64 %118, 1
+  %147 = icmp eq i64 %119, 0
+  br i1 %147, label %.thread, label %.lr.ph210
 
-149:                                              ; preds = %118
-  %150 = getelementptr inbounds nuw i8, ptr %.0135.ph212, i64 56
-  %151 = load ptr, ptr %150, align 8
-  %.not153 = icmp eq ptr %151, null
-  br i1 %.not153, label %153, label %152
+148:                                              ; preds = %117
+  %149 = getelementptr inbounds nuw i8, ptr %.0135.ph212, i64 56
+  %150 = load ptr, ptr %149, align 8
+  %.not153 = icmp eq ptr %150, null
+  br i1 %.not153, label %152, label %151
 
-152:                                              ; preds = %149
+151:                                              ; preds = %148
   call void @lxb_dom_node_remove(ptr noundef nonnull %.0135.ph212) #9
-  br label %153
+  br label %152
 
-153:                                              ; preds = %152, %149
-  %154 = call ptr @lxb_html_tree_appropriate_place_inserting_node(ptr noundef %0, ptr noundef %115, ptr noundef nonnull %8)
-  %155 = icmp eq ptr %154, null
-  br i1 %155, label %.thread, label %156
+152:                                              ; preds = %151, %148
+  %153 = call ptr @lxb_html_tree_appropriate_place_inserting_node(ptr noundef %0, ptr noundef %114, ptr noundef nonnull %8)
+  %154 = icmp eq ptr %153, null
+  br i1 %154, label %.thread, label %155
 
-156:                                              ; preds = %153
-  %157 = load i32, ptr %8, align 4
-  %158 = icmp eq i32 %157, 1
-  br i1 %158, label %159, label %160
+155:                                              ; preds = %152
+  %156 = load i32, ptr %8, align 4
+  %157 = icmp eq i32 %156, 1
+  br i1 %157, label %158, label %159
 
-159:                                              ; preds = %156
-  call void @lxb_dom_node_insert_before_wo_events(ptr noundef nonnull %154, ptr noundef nonnull %.0135.ph212) #9
+158:                                              ; preds = %155
+  call void @lxb_dom_node_insert_before_wo_events(ptr noundef nonnull %153, ptr noundef nonnull %.0135.ph212) #9
   br label %lxb_html_tree_insert_node.exit
 
-160:                                              ; preds = %156
-  call void @lxb_dom_node_insert_child_wo_events(ptr noundef nonnull %154, ptr noundef nonnull %.0135.ph212) #9
+159:                                              ; preds = %155
+  call void @lxb_dom_node_insert_child_wo_events(ptr noundef nonnull %153, ptr noundef nonnull %.0135.ph212) #9
   br label %lxb_html_tree_insert_node.exit
 
-lxb_html_tree_insert_node.exit:                   ; preds = %159, %160
+lxb_html_tree_insert_node.exit:                   ; preds = %158, %159
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %9, i8 0, i64 96, i1 false)
-  %161 = load i64, ptr %59, align 8
-  store i64 %161, ptr %40, align 8
+  %160 = load i64, ptr %59, align 8
+  store i64 %160, ptr %40, align 8
   store ptr %52, ptr %41, align 8
-  %162 = call ptr @lxb_html_tree_create_element_for_token(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 2, ptr nonnull poison)
-  %163 = icmp eq ptr %162, null
-  br i1 %163, label %164, label %165
+  %161 = call ptr @lxb_html_tree_create_element_for_token(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 2, ptr nonnull poison)
+  %162 = icmp eq ptr %161, null
+  br i1 %162, label %163, label %164
 
-164:                                              ; preds = %lxb_html_tree_insert_node.exit
+163:                                              ; preds = %lxb_html_tree_insert_node.exit
   store i32 2, ptr %2, align 4
   br label %.thread
 
-165:                                              ; preds = %lxb_html_tree_insert_node.exit
-  %166 = getelementptr inbounds nuw i8, ptr %103, i64 64
-  %167 = load ptr, ptr %166, align 8
-  %.not154214 = icmp eq ptr %167, null
+164:                                              ; preds = %lxb_html_tree_insert_node.exit
+  %165 = getelementptr inbounds nuw i8, ptr %102, i64 64
+  %166 = load ptr, ptr %165, align 8
+  %.not154214 = icmp eq ptr %166, null
   br i1 %.not154214, label %._crit_edge218, label %.lr.ph217
 
-.lr.ph217:                                        ; preds = %165, %.lr.ph217
-  %.0136215 = phi ptr [ %169, %.lr.ph217 ], [ %167, %165 ]
-  %168 = getelementptr inbounds nuw i8, ptr %.0136215, i64 40
-  %169 = load ptr, ptr %168, align 8
+.lr.ph217:                                        ; preds = %164, %.lr.ph217
+  %.0136215 = phi ptr [ %168, %.lr.ph217 ], [ %166, %164 ]
+  %167 = getelementptr inbounds nuw i8, ptr %.0136215, i64 40
+  %168 = load ptr, ptr %167, align 8
   call void @lxb_dom_node_remove(ptr noundef nonnull %.0136215) #9
-  call void @lxb_dom_node_insert_child_wo_events(ptr noundef nonnull %162, ptr noundef nonnull %.0136215) #9
-  %.not154 = icmp eq ptr %169, null
+  call void @lxb_dom_node_insert_child_wo_events(ptr noundef nonnull %161, ptr noundef nonnull %.0136215) #9
+  %.not154 = icmp eq ptr %168, null
   br i1 %.not154, label %._crit_edge218, label %.lr.ph217
 
-._crit_edge218:                                   ; preds = %.lr.ph217, %165
-  call void @lxb_dom_node_insert_child_wo_events(ptr noundef nonnull %103, ptr noundef nonnull %162) #9
+._crit_edge218:                                   ; preds = %.lr.ph217, %164
+  call void @lxb_dom_node_insert_child_wo_events(ptr noundef nonnull %102, ptr noundef nonnull %161) #9
   %.val161 = load ptr, ptr %15, align 8
   call void @lexbor_array_delete(ptr noundef %.val161, i64 noundef range(i64 0, -1) %50, i64 noundef 1) #9
-  %170 = load ptr, ptr %15, align 8
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
-  %172 = load i64, ptr %171, align 8
-  %spec.select = call i64 @llvm.umin.i64(i64 %.0137.ph211, i64 %172)
-  %173 = call i32 @lexbor_array_insert(ptr noundef %170, i64 noundef %spec.select, ptr noundef nonnull %162) #9
-  store i32 %173, ptr %2, align 4
-  %.not155 = icmp eq i32 %173, 0
-  br i1 %.not155, label %174, label %.thread
+  %169 = load ptr, ptr %15, align 8
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
+  %171 = load i64, ptr %170, align 8
+  %spec.select = call i64 @llvm.umin.i64(i64 %.0137.ph211, i64 %171)
+  %172 = call i32 @lexbor_array_insert(ptr noundef %169, i64 noundef %spec.select, ptr noundef nonnull %161) #9
+  store i32 %172, ptr %2, align 4
+  %.not155 = icmp eq i32 %172, 0
+  br i1 %.not155, label %173, label %.thread
 
-174:                                              ; preds = %._crit_edge218
+173:                                              ; preds = %._crit_edge218
   call void @lxb_html_tree_open_elements_remove_by_node(ptr noundef nonnull %0, ptr noundef nonnull %52) #9
-  %175 = call zeroext i1 @lxb_html_tree_open_elements_find_by_node(ptr noundef nonnull %0, ptr noundef nonnull %103, ptr noundef nonnull %5) #9
-  %176 = load i64, ptr %5, align 8
+  %174 = call zeroext i1 @lxb_html_tree_open_elements_find_by_node(ptr noundef nonnull %0, ptr noundef nonnull %102, ptr noundef nonnull %5) #9
+  %175 = load i64, ptr %5, align 8
   %.val163 = load ptr, ptr %12, align 8
-  %177 = add i64 %176, 1
-  %178 = call i32 @lexbor_array_insert(ptr noundef %.val163, i64 noundef %177, ptr noundef nonnull %162) #9
-  store i32 %178, ptr %2, align 4
-  %.not156 = icmp eq i32 %178, 0
+  %176 = add i64 %175, 1
+  %177 = call i32 @lexbor_array_insert(ptr noundef %.val163, i64 noundef %176, ptr noundef nonnull %161) #9
+  store i32 %177, ptr %2, align 4
+  %.not156 = icmp eq i32 %177, 0
   br i1 %.not156, label %42, label %.thread
 
-.thread:                                          ; preds = %42, %174, %._crit_edge218, %153, %114, %48, %49, %.outer, %.backedge, %164, %137, %._crit_edge, %lxb_html_tree_element_in_scope_by_node.exit.thread, %61, %35
-  %.0 = phi i1 [ false, %35 ], [ false, %61 ], [ false, %lxb_html_tree_element_in_scope_by_node.exit.thread ], [ false, %._crit_edge ], [ false, %164 ], [ false, %137 ], [ false, %.backedge ], [ false, %.outer ], [ true, %49 ], [ true, %48 ], [ false, %114 ], [ false, %153 ], [ false, %._crit_edge218 ], [ false, %174 ], [ false, %42 ]
+.thread:                                          ; preds = %42, %173, %._crit_edge218, %152, %113, %48, %49, %.outer, %.backedge, %163, %136, %._crit_edge, %lxb_html_tree_element_in_scope_by_node.exit.thread, %61, %35
+  %.0 = phi i1 [ false, %35 ], [ false, %61 ], [ false, %lxb_html_tree_element_in_scope_by_node.exit.thread ], [ false, %._crit_edge ], [ false, %163 ], [ false, %136 ], [ false, %.backedge ], [ false, %.outer ], [ true, %49 ], [ true, %48 ], [ false, %113 ], [ false, %152 ], [ false, %._crit_edge218 ], [ false, %173 ], [ false, %42 ]
   ret i1 %.0
 }
 
@@ -2798,7 +2794,7 @@ declare ptr @lxb_dom_element_attr_is_exist(ptr noundef, ptr noundef, i64 noundef
 declare zeroext i1 @lexbor_str_data_casecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @lxb_html_tree_adjust_attributes_mathml(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @lxb_html_tree_adjust_attributes_mathml(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 208
@@ -2837,7 +2833,7 @@ lxb_html_tree_adjust_mathml_attributes.exit:      ; preds = %15, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @lxb_html_tree_adjust_attributes_svg(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @lxb_html_tree_adjust_attributes_svg(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 208

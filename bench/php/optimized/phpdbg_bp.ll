@@ -225,7 +225,7 @@ define void @phpdbg_reset_breakpoints() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @phpdbg_export_breakpoints(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define void @phpdbg_export_breakpoints(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   call void @phpdbg_export_breakpoints_to_string(ptr noundef nonnull %2)
   %3 = load ptr, ptr %2, align 8
@@ -334,7 +334,7 @@ define void @phpdbg_export_breakpoints_to_string(ptr noundef initializes((0, 8))
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #15
-  %51 = call ptr @php_addcslashes_str(ptr noundef %49, i64 noundef %50, ptr noundef nonnull @.str.2, i64 noundef 3) #14
+  %51 = call ptr @php_addcslashes_str(ptr noundef nonnull %49, i64 noundef %50, ptr noundef nonnull @.str.2, i64 noundef 3) #14
   %52 = load ptr, ptr %0, align 8
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %54 = getelementptr inbounds nuw i8, ptr %40, i64 32
@@ -408,7 +408,7 @@ define void @phpdbg_export_breakpoints_to_string(ptr noundef initializes((0, 8))
   %98 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %99 = load ptr, ptr %98, align 8
   %100 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %99) #15
-  %101 = call ptr @php_addcslashes_str(ptr noundef %99, i64 noundef %100, ptr noundef nonnull @.str.2, i64 noundef 3) #14
+  %101 = call ptr @php_addcslashes_str(ptr noundef nonnull %99, i64 noundef %100, ptr noundef nonnull @.str.2, i64 noundef 3) #14
   %102 = load ptr, ptr %0, align 8
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 24
   %104 = getelementptr inbounds nuw i8, ptr %40, i64 56
@@ -524,7 +524,7 @@ define void @phpdbg_export_breakpoints_to_string(ptr noundef initializes((0, 8))
   %175 = getelementptr inbounds nuw i8, ptr %40, i64 72
   %176 = load ptr, ptr %175, align 8
   %177 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %176) #15
-  %178 = call ptr @php_addcslashes_str(ptr noundef %176, i64 noundef %177, ptr noundef nonnull @.str.2, i64 noundef 3) #14
+  %178 = call ptr @php_addcslashes_str(ptr noundef nonnull %176, i64 noundef %177, ptr noundef nonnull @.str.2, i64 noundef 3) #14
   %179 = load ptr, ptr %0, align 8
   %180 = getelementptr inbounds nuw i8, ptr %178, i64 24
   %181 = getelementptr inbounds nuw i8, ptr %40, i64 80
@@ -613,19 +613,19 @@ define void @phpdbg_export_breakpoints_to_string(ptr noundef initializes((0, 8))
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @phpdbg_print(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 declare ptr @php_addcslashes_str(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @_phpdbg_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define void @phpdbg_set_breakpoint_file(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
@@ -649,12 +649,12 @@ define void @phpdbg_set_breakpoint_file(ptr noundef %0, i64 noundef %1, i64 noun
 12:                                               ; preds = %10, %3
   %.0224 = phi ptr [ %0, %3 ], [ %spec.select, %10 ]
   %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0224) #15
-  %14 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1416), ptr noundef %.0224, i64 noundef %13) #14
+  %14 = call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1416), ptr noundef nonnull %.0224, i64 noundef %13) #14
   %.not251 = icmp eq ptr %14, null
   br i1 %.not251, label %15, label %33
 
 15:                                               ; preds = %12
-  %16 = call i32 @_php_stream_stat_path(ptr noundef %.0224, i32 noundef 0, ptr noundef nonnull %7, ptr noundef null) #14
+  %16 = call i32 @_php_stream_stat_path(ptr noundef nonnull %.0224, i32 noundef 0, ptr noundef nonnull %7, ptr noundef null) #14
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %18, label %26
 
@@ -681,7 +681,7 @@ define void @phpdbg_set_breakpoint_file(ptr noundef %0, i64 noundef %1, i64 noun
 
 30:                                               ; preds = %26
   %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
-  %32 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %31, ptr noundef nonnull @.str.17, ptr noundef %.0224) #14
+  %32 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %31, ptr noundef nonnull @.str.17, ptr noundef nonnull %.0224) #14
   br label %132
 
 33:                                               ; preds = %24, %26, %12
@@ -700,7 +700,7 @@ define void @phpdbg_set_breakpoint_file(ptr noundef %0, i64 noundef %1, i64 noun
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i64 %.0225, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %40, ptr align 1 %.1, i64 %.0225, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %40, ptr nonnull align 1 %.1, i64 %.0225, i1 false)
   %41 = getelementptr inbounds [1 x i8], ptr %40, i64 0, i64 %.0225
   store i8 0, ptr %41, align 1
   %42 = call ptr @zend_hash_find(ptr noundef nonnull %.0226, ptr noundef nonnull %36) #14
@@ -753,7 +753,7 @@ define void @phpdbg_set_breakpoint_file(ptr noundef %0, i64 noundef %1, i64 noun
   %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1376), align 8
   %62 = add nsw i32 %61, 1
   store i32 %62, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1376), align 8
-  %63 = call noalias ptr @_estrndup(ptr noundef %.1, i64 noundef %.0225) #14
+  %63 = call noalias ptr @_estrndup(ptr noundef nonnull %.1, i64 noundef %.0225) #14
   %64 = getelementptr inbounds nuw i8, ptr %.0227, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = and i32 %65, 128
@@ -832,7 +832,7 @@ define void @phpdbg_set_breakpoint_file(ptr noundef %0, i64 noundef %1, i64 noun
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %98 = load i64, ptr %97, align 8
   %99 = trunc i64 %98 to i32
-  %100 = call ptr @phpdbg_resolve_pending_file_break_ex(ptr noundef nonnull %96, i32 noundef %99, ptr noundef nonnull %36, ptr noundef %.0227)
+  %100 = call ptr @phpdbg_resolve_pending_file_break_ex(ptr noundef nonnull %96, i32 noundef %99, ptr noundef nonnull %36, ptr noundef nonnull %.0227)
   %101 = icmp eq ptr %100, null
   br i1 %101, label %104, label %.thread266
 
@@ -880,7 +880,7 @@ define void @phpdbg_set_breakpoint_file(ptr noundef %0, i64 noundef %1, i64 noun
 
 117:                                              ; preds = %58
   %118 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
-  %119 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %118, ptr noundef nonnull @.str.20, ptr noundef %.1, i64 noundef %2) #14
+  %119 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %118, ptr noundef nonnull @.str.20, ptr noundef nonnull %.1, i64 noundef %2) #14
   br label %120
 
 120:                                              ; preds = %107, %112, %117
@@ -922,7 +922,7 @@ declare i32 @_php_stream_stat_path(ptr noundef, i32 noundef, ptr noundef, ptr no
 declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @phpdbg_file_breaks_dtor(ptr nocapture noundef readonly %0) #1 {
+define internal void @phpdbg_file_breaks_dtor(ptr noundef readonly captures(none) %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -932,7 +932,7 @@ define internal void @phpdbg_file_breaks_dtor(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -940,7 +940,7 @@ declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @phpdbg_resolve_pending_file_break_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define noundef ptr @phpdbg_resolve_pending_file_break_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca %struct._zval_struct, align 8
@@ -1123,7 +1123,7 @@ define noundef ptr @phpdbg_resolve_pending_file_break_ex(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare i32 @zend_hash_index_del(ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -1155,7 +1155,7 @@ define void @phpdbg_resolve_pending_file_break(ptr noundef %0) local_unnamed_add
   %14 = getelementptr inbounds nuw i8, ptr %.018, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %.018, align 8
-  %17 = tail call ptr @phpdbg_resolve_pending_file_break_ex(ptr noundef %0, i32 noundef %3, ptr noundef %15, ptr noundef %16)
+  %17 = tail call ptr @phpdbg_resolve_pending_file_break_ex(ptr noundef nonnull %0, i32 noundef %3, ptr noundef %15, ptr noundef %16)
   br label %18
 
 18:                                               ; preds = %.lr.ph, %13
@@ -1261,7 +1261,7 @@ define void @phpdbg_set_breakpoint_method(ptr noundef %0, ptr noundef %1) local_
   %.0144 = add i64 %7, %11
   %.0142.idx = zext i1 %10 to i64
   %.0142 = getelementptr inbounds nuw i8, ptr %0, i64 %.0142.idx
-  %12 = tail call ptr @zend_str_tolower_dup(ptr noundef %1, i64 noundef %8) #14
+  %12 = tail call ptr @zend_str_tolower_dup(ptr noundef nonnull %1, i64 noundef %8) #14
   %13 = tail call ptr @zend_str_tolower_dup(ptr noundef nonnull %.0142, i64 noundef %.0144) #14
   %14 = tail call ptr @zend_hash_str_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 224), ptr noundef %13, i64 noundef %.0144) #14
   %.not = icmp eq ptr %14, null
@@ -1306,7 +1306,7 @@ define void @phpdbg_set_breakpoint_method(ptr noundef %0, ptr noundef %1) local_
   %32 = add nsw i32 %31, 1
   store i32 %32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1376), align 8
   %33 = call noalias ptr @_estrndup(ptr noundef nonnull %.0142, i64 noundef %.0144) #14
-  %34 = call noalias ptr @_estrndup(ptr noundef %1, i64 noundef %8) #14
+  %34 = call noalias ptr @_estrndup(ptr noundef nonnull %1, i64 noundef %8) #14
   %35 = getelementptr inbounds nuw i8, ptr %.0143, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, 128
@@ -1344,7 +1344,7 @@ define void @phpdbg_set_breakpoint_method(ptr noundef %0, ptr noundef %1) local_
   %47 = icmp ne ptr %46, null
   call void @llvm.assume(i1 %47)
   %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
-  %49 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 2, i32 noundef %48, ptr noundef nonnull @.str.23, i32 noundef %31, ptr noundef nonnull %.0142, ptr noundef %1) #14
+  %49 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 2, i32 noundef %48, ptr noundef nonnull @.str.23, i32 noundef %31, ptr noundef nonnull %.0142, ptr noundef nonnull %1) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %50 = sext i32 %31 to i64
   store ptr %.0143, ptr %3, align 8
@@ -1359,7 +1359,7 @@ define void @phpdbg_set_breakpoint_method(ptr noundef %0, ptr noundef %1) local_
 
 55:                                               ; preds = %26
   %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1500), align 4
-  %57 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %56, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0142, ptr noundef %1) #14
+  %57 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %56, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0142, ptr noundef nonnull %1) #14
   br label %58
 
 58:                                               ; preds = %55, %42
@@ -1369,7 +1369,7 @@ define void @phpdbg_set_breakpoint_method(ptr noundef %0, ptr noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @phpdbg_class_breaks_dtor(ptr nocapture noundef readonly %0) #1 {
+define internal void @phpdbg_class_breaks_dtor(ptr noundef readonly captures(none) %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -1451,7 +1451,7 @@ define void @phpdbg_set_breakpoint_opline(i64 noundef %0) local_unnamed_addr #1 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @phpdbg_resolve_op_array_break(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @phpdbg_resolve_op_array_break(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %5 = load i32, ptr %4, align 4
@@ -1557,7 +1557,7 @@ define range(i32 -1, 1) i32 @phpdbg_resolve_op_array_break(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define void @phpdbg_resolve_op_array_breaks(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define void @phpdbg_resolve_op_array_breaks(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1847,13 +1847,13 @@ define void @phpdbg_set_breakpoint_method_opline(ptr noundef %0, ptr noundef %1,
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 %15, ptr %16, align 8
-  %17 = tail call noalias ptr @_estrndup(ptr noundef %1, i64 noundef %15) #14
+  %17 = tail call noalias ptr @_estrndup(ptr noundef nonnull %1, i64 noundef %15) #14
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %17, ptr %18, align 8
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 %19, ptr %20, align 8
-  %21 = tail call noalias ptr @_estrndup(ptr noundef %0, i64 noundef %19) #14
+  %21 = tail call noalias ptr @_estrndup(ptr noundef nonnull %0, i64 noundef %19) #14
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %21, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 56
@@ -2015,7 +2015,7 @@ define void @phpdbg_set_breakpoint_method_opline(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @phpdbg_opline_class_breaks_dtor(ptr nocapture noundef readonly %0) #1 {
+define internal void @phpdbg_opline_class_breaks_dtor(ptr noundef readonly captures(none) %0) #1 {
   %2 = load ptr, ptr %0, align 8
   tail call void @zend_hash_destroy(ptr noundef %2) #14
   %3 = load ptr, ptr %0, align 8
@@ -2024,7 +2024,7 @@ define internal void @phpdbg_opline_class_breaks_dtor(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @phpdbg_opline_breaks_dtor(ptr nocapture noundef readonly %0) #1 {
+define internal void @phpdbg_opline_breaks_dtor(ptr noundef readonly captures(none) %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -2069,7 +2069,7 @@ define void @phpdbg_set_breakpoint_function_opline(ptr noundef %0, i64 noundef %
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 %12, ptr %13, align 8
-  %14 = tail call noalias ptr @_estrndup(ptr noundef %0, i64 noundef %12) #14
+  %14 = tail call noalias ptr @_estrndup(ptr noundef nonnull %0, i64 noundef %12) #14
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %14, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -2213,7 +2213,7 @@ define void @phpdbg_set_breakpoint_file_opline(ptr noundef %0, i64 noundef %1) l
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i64 %13, ptr %14, align 8
-  %15 = tail call noalias ptr @_estrndup(ptr noundef %0, i64 noundef %13) #14
+  %15 = tail call noalias ptr @_estrndup(ptr noundef nonnull %0, i64 noundef %13) #14
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -2714,7 +2714,7 @@ define void @phpdbg_set_breakpoint_at(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @phpdbg_find_breakpoint(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define ptr @phpdbg_find_breakpoint(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2176), align 8
   %3 = and i64 %2, 536870912
   %.not = icmp eq i64 %3, 0
@@ -3009,7 +3009,7 @@ phpdbg_find_breakpoint_opcode.exit.thread:        ; preds = %128, %123, %phpdbg_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @phpdbg_find_conditional_breakpoint(ptr nocapture noundef readonly %0) unnamed_addr #1 {
+define internal fastcc ptr @phpdbg_find_conditional_breakpoint(ptr noundef readonly captures(none) %0) unnamed_addr #1 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 296), align 8
@@ -3133,7 +3133,7 @@ define internal fastcc ptr @phpdbg_find_conditional_breakpoint(ptr nocapture nou
   br i1 %77, label %78, label %phpdbg_find_breakpoint_param.exit.thread
 
 78:                                               ; preds = %71
-  %bcmp55.i = call i32 @bcmp(ptr %74, ptr %73, i64 %75)
+  %bcmp55.i = call i32 @bcmp(ptr nonnull %74, ptr nonnull %73, i64 %75)
   %79 = icmp eq i32 %bcmp55.i, 0
   br i1 %79, label %phpdbg_find_breakpoint_param.exit.thread30, label %phpdbg_find_breakpoint_param.exit.thread
 
@@ -3160,7 +3160,7 @@ define internal fastcc ptr @phpdbg_find_conditional_breakpoint(ptr nocapture nou
   br i1 %93, label %94, label %phpdbg_find_breakpoint_param.exit.thread
 
 94:                                               ; preds = %85
-  %bcmp.i = call i32 @bcmp(ptr %87, ptr nonnull %90, i64 %88)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %87, ptr nonnull %90, i64 %88)
   %95 = icmp eq i32 %bcmp.i, 0
   br i1 %95, label %96, label %phpdbg_find_breakpoint_param.exit.thread
 
@@ -3176,7 +3176,7 @@ define internal fastcc ptr @phpdbg_find_conditional_breakpoint(ptr nocapture nou
   br i1 %104, label %105, label %phpdbg_find_breakpoint_param.exit.thread
 
 105:                                              ; preds = %96
-  %bcmp54.i = call i32 @bcmp(ptr %98, ptr nonnull %101, i64 %99)
+  %bcmp54.i = call i32 @bcmp(ptr nonnull %98, ptr nonnull %101, i64 %99)
   %106 = icmp eq i32 %bcmp54.i, 0
   br i1 %106, label %107, label %phpdbg_find_breakpoint_param.exit.thread
 
@@ -3453,7 +3453,7 @@ phpdbg_find_breakbase_ex.exit:                    ; preds = %phpdbg_find_breakba
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @phpdbg_find_breakbase_ex(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 {
+define noundef ptr @phpdbg_find_breakbase_ex(i64 noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #1 {
   %5 = tail call ptr @zend_hash_index_find(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 560), i64 noundef %0) #14
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.thread, label %6
@@ -4878,13 +4878,13 @@ declare ptr @zend_string_tolower_ex(ptr noundef, i1 noundef zeroext) local_unnam
 declare ptr @zend_get_opcode_name(i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -93,7 +93,7 @@ return:                                           ; preds = %if.end31, %for.cond
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @a2i_ASN1_STRING(ptr noundef %bp, ptr nocapture noundef writeonly %bs, ptr noundef %buf, i32 noundef %size) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @a2i_ASN1_STRING(ptr noundef %bp, ptr noundef writeonly captures(none) %bs, ptr noundef %buf, i32 noundef %size) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BIO_gets(ptr noundef %bp, ptr noundef %buf, i32 noundef %size) #3
   %invariant.gep = getelementptr i8, ptr %buf, i64 -1

@@ -32,13 +32,13 @@ define void @Init_emoji_iso2022_kddi() local_unnamed_addr #0 {
 declare void @rb_register_transcoder(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @iso2022jp_kddi_init(ptr nocapture noundef writeonly initializes((0, 1)) %0) #2 {
+define internal noundef i32 @iso2022jp_kddi_init(ptr noundef writeonly captures(none) initializes((0, 1)) %0) #2 {
   store i8 0, ptr %0, align 1
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i64 1, 65) i64 @fun_si_iso2022jp_kddi_decoder(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2) #3 {
+define internal range(i64 1, 65) i64 @fun_si_iso2022jp_kddi_decoder(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2) #3 {
   %4 = load i8, ptr %0, align 1
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %9, label %6
@@ -56,7 +56,7 @@ define internal range(i64 1, 65) i64 @fun_si_iso2022jp_kddi_decoder(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i64 0, 4) i64 @fun_so_iso2022jp_kddi_decoder(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3, i64 %4) #4 {
+define internal range(i64 0, 4) i64 @fun_so_iso2022jp_kddi_decoder(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) %3, i64 %4) #4 {
   %6 = load i8, ptr %1, align 1
   %7 = icmp eq i8 %6, 27
   br i1 %7, label %8, label %20
@@ -116,7 +116,7 @@ define internal range(i64 0, 4) i64 @fun_so_iso2022jp_kddi_decoder(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i64 @fun_so_iso2022jp_kddi_encoder(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, i64 %4) #4 {
+define internal i64 @fun_so_iso2022jp_kddi_encoder(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, i64 %4) #4 {
   %6 = icmp eq i64 %2, 1
   br i1 %6, label %10, label %7
 
@@ -191,7 +191,7 @@ define internal i64 @fun_so_iso2022jp_kddi_encoder(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i64 0, 4) i64 @finish_iso2022jp_kddi_encoder(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i64 %2) #4 {
+define internal range(i64 0, 4) i64 @finish_iso2022jp_kddi_encoder(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i64 %2) #4 {
   %4 = load i8, ptr %0, align 1
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %9, label %6
@@ -211,7 +211,7 @@ define internal range(i64 0, 4) i64 @finish_iso2022jp_kddi_encoder(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 4) i64 @iso2022jp_kddi_encoder_reset_sequence_size(ptr nocapture noundef readonly %0) #3 {
+define internal range(i64 0, 4) i64 @iso2022jp_kddi_encoder_reset_sequence_size(ptr noundef readonly captures(none) %0) #3 {
   %2 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %2, 0
   %. = select i1 %.not, i64 0, i64 3

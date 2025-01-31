@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.a167e12e5e4651d7b77a2f2acd6ec7f3.7 = private unnamed_addr constant <{ [5 x i8] }> <{ [5 x i8] c"Error" }>, align 1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core3fmt9Arguments6new_v117h6427ca1b3147dc17E(ptr nocapture writeonly sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %0, ptr align 8 %1, i64 %2, ptr align 8 %3, i64 %4) unnamed_addr #0 {
+define hidden void @_ZN4core3fmt9Arguments6new_v117h6427ca1b3147dc17E(ptr writeonly sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 captures(none) %0, ptr align 8 %1, i64 %2, ptr align 8 %3, i64 %4) unnamed_addr #0 {
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
@@ -47,7 +47,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h6427ca1b3147dc17E(ptr nocapt
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core3fmt9Arguments9new_const17h549c6c9fada6b613E(ptr nocapture writeonly sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %0, ptr align 8 %1, i64 %2) unnamed_addr #0 {
+define hidden void @_ZN4core3fmt9Arguments9new_const17h549c6c9fada6b613E(ptr writeonly sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 captures(none) %0, ptr align 8 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = icmp ugt i64 %2, 1
   br i1 %5, label %11, label %6
@@ -79,7 +79,7 @@ define hidden void @_ZN4core3fmt9Arguments9new_const17h549c6c9fada6b613E(ptr noc
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden zeroext i1 @"_ZN53_$LT$core..fmt..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17hc9decf30e226fdc9E"(ptr nocapture readnone align 1 %0, ptr align 8 %1) unnamed_addr #0 {
+define hidden zeroext i1 @"_ZN53_$LT$core..fmt..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17hc9decf30e226fdc9E"(ptr readnone align 1 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr align 8 %1, ptr nonnull align 1 @anon.a167e12e5e4651d7b77a2f2acd6ec7f3.7, i64 5)
   ret i1 %3
 }

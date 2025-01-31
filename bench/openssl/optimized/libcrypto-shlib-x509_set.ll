@@ -55,7 +55,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @X509_get_version(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
+define i64 @X509_get_version(ptr noundef readonly captures(none) %x) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %x, align 8
   %call = tail call i64 @ASN1_INTEGER_get(ptr noundef %0) #8
@@ -142,7 +142,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_x509_set1_time(ptr noundef writeonly %modified, ptr nocapture noundef %ptm, ptr noundef %tm) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_x509_set1_time(ptr noundef writeonly %modified, ptr noundef captures(none) %ptm, ptr noundef %tm) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ptm, align 8
   %cmp = icmp eq ptr %0, %tm
@@ -264,7 +264,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @X509_PUBKEY_set(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @X509_up_ref(ptr nocapture noundef %x) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @X509_up_ref(ptr noundef captures(none) %x) local_unnamed_addr #2 {
 entry:
   %references = getelementptr inbounds nuw i8, ptr %x, i64 192
   %0 = atomicrmw add ptr %references, i32 1 monotonic, align 4
@@ -276,7 +276,7 @@ entry:
 declare i64 @ASN1_INTEGER_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @X509_get0_notBefore(ptr nocapture noundef readonly %x) local_unnamed_addr #3 {
+define ptr @X509_get0_notBefore(ptr noundef readonly captures(none) %x) local_unnamed_addr #3 {
 entry:
   %validity = getelementptr inbounds nuw i8, ptr %x, i64 56
   %0 = load ptr, ptr %validity, align 8
@@ -284,7 +284,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @X509_get0_notAfter(ptr nocapture noundef readonly %x) local_unnamed_addr #3 {
+define ptr @X509_get0_notAfter(ptr noundef readonly captures(none) %x) local_unnamed_addr #3 {
 entry:
   %notAfter = getelementptr inbounds nuw i8, ptr %x, i64 64
   %0 = load ptr, ptr %notAfter, align 8
@@ -292,7 +292,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @X509_getm_notBefore(ptr nocapture noundef readonly %x) local_unnamed_addr #3 {
+define ptr @X509_getm_notBefore(ptr noundef readonly captures(none) %x) local_unnamed_addr #3 {
 entry:
   %validity = getelementptr inbounds nuw i8, ptr %x, i64 56
   %0 = load ptr, ptr %validity, align 8
@@ -300,7 +300,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @X509_getm_notAfter(ptr nocapture noundef readonly %x) local_unnamed_addr #3 {
+define ptr @X509_getm_notAfter(ptr noundef readonly captures(none) %x) local_unnamed_addr #3 {
 entry:
   %notAfter = getelementptr inbounds nuw i8, ptr %x, i64 64
   %0 = load ptr, ptr %notAfter, align 8
@@ -308,7 +308,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_get_signature_type(ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
+define i32 @X509_get_signature_type(ptr noundef readonly captures(none) %x) local_unnamed_addr #0 {
 entry:
   %sig_alg = getelementptr inbounds nuw i8, ptr %x, i64 136
   %0 = load ptr, ptr %sig_alg, align 8
@@ -322,7 +322,7 @@ declare i32 @EVP_PKEY_type(i32 noundef) local_unnamed_addr #1
 declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @X509_get_X509_PUBKEY(ptr nocapture noundef readonly %x) local_unnamed_addr #3 {
+define ptr @X509_get_X509_PUBKEY(ptr noundef readonly captures(none) %x) local_unnamed_addr #3 {
 entry:
   %key = getelementptr inbounds nuw i8, ptr %x, i64 80
   %0 = load ptr, ptr %key, align 8
@@ -330,7 +330,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @X509_get0_extensions(ptr nocapture noundef readonly %x) local_unnamed_addr #3 {
+define ptr @X509_get0_extensions(ptr noundef readonly captures(none) %x) local_unnamed_addr #3 {
 entry:
   %extensions = getelementptr inbounds nuw i8, ptr %x, i64 104
   %0 = load ptr, ptr %extensions, align 8
@@ -338,7 +338,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @X509_get0_uids(ptr nocapture noundef readonly %x, ptr noundef writeonly %piuid, ptr noundef writeonly %psuid) local_unnamed_addr #4 {
+define void @X509_get0_uids(ptr noundef readonly captures(none) %x, ptr noundef writeonly %piuid, ptr noundef writeonly %psuid) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %piuid, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -371,7 +371,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @X509_SIG_INFO_get(ptr nocapture noundef readonly %siginf, ptr noundef writeonly %mdnid, ptr noundef writeonly %pknid, ptr noundef writeonly %secbits, ptr noundef writeonly %flags) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @X509_SIG_INFO_get(ptr noundef readonly captures(none) %siginf, ptr noundef writeonly %mdnid, ptr noundef writeonly %pknid, ptr noundef writeonly %secbits, ptr noundef writeonly %flags) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %mdnid, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -417,7 +417,7 @@ if.end13:                                         ; preds = %if.end9, %if.then11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_SIG_INFO_set(ptr nocapture noundef writeonly initializes((0, 16)) %siginf, i32 noundef %mdnid, i32 noundef %pknid, i32 noundef %secbits, i32 noundef %flags) local_unnamed_addr #6 {
+define void @X509_SIG_INFO_set(ptr noundef writeonly captures(none) initializes((0, 16)) %siginf, i32 noundef %mdnid, i32 noundef %pknid, i32 noundef %secbits, i32 noundef %flags) local_unnamed_addr #6 {
 entry:
   store i32 %mdnid, ptr %siginf, align 4
   %pknid2 = getelementptr inbounds nuw i8, ptr %siginf, i64 4
@@ -639,10 +639,10 @@ declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #1
 declare i32 @EVP_MD_get_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

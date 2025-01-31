@@ -95,7 +95,7 @@ define dso_local void @manifest_files_destroy(ptr noundef %0) local_unnamed_addr
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @manifest_files_reset(ptr nocapture noundef initializes((8, 12)) %0) local_unnamed_addr #2 {
+define dso_local void @manifest_files_reset(ptr noundef captures(none) initializes((8, 12)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %0, align 8
@@ -107,10 +107,10 @@ define dso_local void @manifest_files_reset(ptr nocapture noundef initializes((8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @manifest_files_grow(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local void @manifest_files_grow(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -177,7 +177,7 @@ manifest_files_update_parameters.exit:            ; preds = %manifest_files_comp
   %.val = load ptr, ptr %36, align 8
   %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val) #19
   %38 = trunc i64 %37 to i32
-  %39 = tail call i32 @hash_bytes(ptr noundef %.val, i32 noundef %38) #17
+  %39 = tail call i32 @hash_bytes(ptr noundef nonnull %.val, i32 noundef %38) #17
   %.val54 = load i32, ptr %26, align 4
   %40 = and i32 %.val54, %39
   %41 = icmp eq i32 %40, %.057
@@ -207,7 +207,7 @@ manifest_files_update_parameters.exit:            ; preds = %manifest_files_comp
   %.val53 = load ptr, ptr %51, align 8
   %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val53) #19
   %53 = trunc i64 %52 to i32
-  %54 = tail call i32 @hash_bytes(ptr noundef %.val53, i32 noundef %53) #17
+  %54 = tail call i32 @hash_bytes(ptr noundef nonnull %.val53, i32 noundef %53) #17
   %.val55 = load i32, ptr %26, align 4
   br label %55
 
@@ -241,19 +241,19 @@ manifest_files_update_parameters.exit:            ; preds = %manifest_files_comp
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @manifest_files_insert(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @manifest_files_insert(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %5 = trunc i64 %4 to i32
-  %6 = tail call i32 @hash_bytes(ptr noundef %1, i32 noundef %5) #17
-  %7 = tail call fastcc ptr @manifest_files_insert_hash_internal(ptr noundef %0, ptr noundef %1, i32 noundef %6, ptr noundef %2)
+  %6 = tail call i32 @hash_bytes(ptr noundef nonnull %1, i32 noundef %5) #17
+  %7 = tail call fastcc ptr @manifest_files_insert_hash_internal(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %6, ptr noundef %2)
   ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @manifest_files_insert_hash_internal(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @manifest_files_insert_hash_internal(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -315,7 +315,7 @@ define internal fastcc noundef ptr @manifest_files_insert_hash_internal(ptr noca
 33:                                               ; preds = %.lr.ph
   %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #19
   %35 = trunc i64 %34 to i32
-  %36 = tail call i32 @hash_bytes(ptr noundef %30, i32 noundef %35) #17
+  %36 = tail call i32 @hash_bytes(ptr noundef nonnull %30, i32 noundef %35) #17
   %.val76 = load i32, ptr %8, align 4
   %37 = and i32 %.val76, %36
   %.not.i = icmp ugt i32 %37, %.069108
@@ -432,16 +432,16 @@ manifest_files_distance.exit:                     ; preds = %33, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @manifest_files_insert_hash(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @manifest_files_insert_hash(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call fastcc ptr @manifest_files_insert_hash_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @manifest_files_lookup(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @manifest_files_lookup(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %4 = trunc i64 %3 to i32
-  %5 = tail call i32 @hash_bytes(ptr noundef %1, i32 noundef %4) #17
+  %5 = tail call i32 @hash_bytes(ptr noundef nonnull %1, i32 noundef %4) #17
   %6 = getelementptr i8, ptr %0, i64 12
   %.val.i = load i32, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -477,7 +477,7 @@ manifest_files_lookup_hash_internal.exit:         ; preds = %13, %.lr.ph.i, %2
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @manifest_files_lookup_hash(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 {
+define dso_local noundef ptr @manifest_files_lookup_hash(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr i8, ptr %0, i64 12
   %.val.i = load i32, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -513,10 +513,10 @@ manifest_files_lookup_hash_internal.exit:         ; preds = %11, %.lr.ph.i, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @manifest_files_delete(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @manifest_files_delete(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %4 = trunc i64 %3 to i32
-  %5 = tail call i32 @hash_bytes(ptr noundef %1, i32 noundef %4) #17
+  %5 = tail call i32 @hash_bytes(ptr noundef nonnull %1, i32 noundef %4) #17
   %6 = getelementptr i8, ptr %0, i64 12
   %.val37 = load i32, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -563,7 +563,7 @@ define dso_local noundef zeroext i1 @manifest_files_delete(ptr nocapture noundef
   %.val = load ptr, ptr %31, align 8
   %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val) #19
   %33 = trunc i64 %32 to i32
-  %34 = tail call i32 @hash_bytes(ptr noundef %.val, i32 noundef %33) #17
+  %34 = tail call i32 @hash_bytes(ptr noundef nonnull %.val, i32 noundef %33) #17
   %.val36 = load i32, ptr %6, align 4
   %35 = and i32 %.val36, %34
   %36 = icmp eq i32 %35, %30
@@ -601,15 +601,15 @@ define dso_local noundef zeroext i1 @manifest_files_delete(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @manifest_files_delete_item(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @manifest_files_delete_item(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.val26 = load ptr, ptr %3, align 8
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val26) #19
   %5 = trunc i64 %4 to i32
-  %6 = tail call i32 @hash_bytes(ptr noundef %.val26, i32 noundef %5) #17
+  %6 = tail call i32 @hash_bytes(ptr noundef nonnull %.val26, i32 noundef %5) #17
   %7 = getelementptr i8, ptr %0, i64 12
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
@@ -639,7 +639,7 @@ define dso_local void @manifest_files_delete_item(ptr nocapture noundef %0, ptr 
   %.val = load ptr, ptr %25, align 8
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val) #19
   %27 = trunc i64 %26 to i32
-  %28 = tail call i32 @hash_bytes(ptr noundef %.val, i32 noundef %27) #17
+  %28 = tail call i32 @hash_bytes(ptr noundef nonnull %.val, i32 noundef %27) #17
   %.val27 = load i32, ptr %7, align 4
   %29 = and i32 %.val27, %28
   %30 = icmp eq i32 %29, %24
@@ -664,7 +664,7 @@ define dso_local void @manifest_files_delete_item(ptr nocapture noundef %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @manifest_files_start_iterate(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #7 {
+define dso_local void @manifest_files_start_iterate(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #7 {
   %3 = load i64, ptr %0, align 8
   %.not16 = icmp eq i64 %3, 0
   br i1 %.not16, label %._crit_edge, label %.lr.ph
@@ -699,7 +699,7 @@ define dso_local void @manifest_files_start_iterate(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @manifest_files_start_iterate_at(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 9)) %1, i32 noundef %2) local_unnamed_addr #8 {
+define dso_local void @manifest_files_start_iterate_at(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 9)) %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, %2
@@ -712,7 +712,7 @@ define dso_local void @manifest_files_start_iterate_at(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @manifest_files_iterate(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #7 {
+define dso_local ptr @manifest_files_iterate(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.promoted = load i8, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -757,7 +757,7 @@ define dso_local ptr @manifest_files_iterate(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @manifest_files_stat(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @manifest_files_stat(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8
   %3 = shl i64 %2, 2
   %4 = tail call ptr @palloc0(i64 noundef %3) #17
@@ -791,7 +791,7 @@ define dso_local void @manifest_files_stat(ptr nocapture noundef readonly %0) lo
   %.val = load ptr, ptr %15, align 8
   %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val) #19
   %17 = trunc i64 %16 to i32
-  %18 = tail call i32 @hash_bytes(ptr noundef %.val, i32 noundef %17) #17
+  %18 = tail call i32 @hash_bytes(ptr noundef nonnull %.val, i32 noundef %17) #17
   %.val68 = load i32, ptr %7, align 4
   %19 = and i32 %.val68, %18
   %.not.i = icmp ugt i32 %19, %.05769
@@ -877,7 +877,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @load_backup_manifests(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @load_backup_manifests(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = sext i32 %0 to i64
   %4 = shl nsw i64 %3, 3
   %5 = tail call ptr @pg_malloc(i64 noundef %4) #17
@@ -993,7 +993,7 @@ define dso_local noundef ptr @load_backup_manifest(ptr noundef %0) local_unnamed
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #9
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #10
@@ -1002,28 +1002,28 @@ declare ptr @__errno_location() local_unnamed_addr #10
 declare void @exit(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @combinebackup_per_file_cb(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #0 {
+define internal void @combinebackup_per_file_cb(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #0 {
   %7 = alloca i8, align 1
   %8 = load ptr, ptr %0, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %11 = trunc i64 %10 to i32
-  %12 = tail call i32 @hash_bytes(ptr noundef %1, i32 noundef %11) #17
-  %13 = call fastcc noundef ptr @manifest_files_insert_hash_internal(ptr noundef %9, ptr noundef %1, i32 noundef %12, ptr noundef nonnull %7)
+  %12 = tail call i32 @hash_bytes(ptr noundef nonnull %1, i32 noundef %11) #17
+  %13 = call fastcc noundef ptr @manifest_files_insert_hash_internal(ptr noundef %9, ptr noundef nonnull %1, i32 noundef %12, ptr noundef nonnull %7)
   %14 = load i8, ptr %7, align 1
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %6
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %1) #17
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %1) #17
   tail call void @exit(i32 noundef 1) #18
   unreachable
 
@@ -1040,7 +1040,7 @@ define internal void @combinebackup_per_file_cb(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @combinebackup_per_wal_range_cb(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+define internal void @combinebackup_per_wal_range_cb(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = tail call ptr @palloc(i64 noundef 40) #17
   store i32 %1, ptr %6, align 8
@@ -1075,7 +1075,7 @@ define internal void @combinebackup_per_wal_range_cb(ptr nocapture noundef reado
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal void @report_manifest_error(ptr nocapture readnone %0, ptr noundef %1, ...) #13 {
+define internal void @report_manifest_error(ptr readnone captures(none) %0, ptr noundef %1, ...) #13 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   call void @pg_log_generic_v(i32 noundef 4, i32 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #17
@@ -1096,7 +1096,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare i32 @hash_bytes(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #15

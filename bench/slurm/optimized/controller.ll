@@ -1313,12 +1313,12 @@ _create_clustername_file.exit:                    ; preds = %352
   br label %372
 
 372:                                              ; preds = %371, %369
-  %373 = call i32 @access(ptr noundef %366, i32 noundef 2) #21
+  %373 = call i32 @access(ptr noundef nonnull %366, i32 noundef 2) #21
   %.not6.i294 = icmp eq i32 %373, 0
   br i1 %.not6.i294, label %374, label %377
 
 374:                                              ; preds = %372
-  %375 = call i32 @chdir(ptr noundef %366) #21
+  %375 = call i32 @chdir(ptr noundef nonnull %366) #21
   %376 = icmp slt i32 %375, 0
   br i1 %376, label %377, label %.thread11.i
 
@@ -1327,7 +1327,7 @@ _create_clustername_file.exit:                    ; preds = %352
   br label %_set_work_dir.exit
 
 377:                                              ; preds = %374, %372
-  %378 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.230, ptr noundef %366) #21
+  %378 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.230, ptr noundef nonnull %366) #21
   call void @slurm_xfree(ptr noundef nonnull %22) #21
   br label %.thread.i291
 
@@ -4136,14 +4136,14 @@ _try_to_reconfig.exit:                            ; preds = %1372, %1379, %1430,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare void @prep_prolog_slurmctld_callback(i32 noundef, i32 noundef, i1 noundef zeroext) #2
 
 declare void @prep_epilog_slurmctld_callback(i32 noundef, i32 noundef, i1 noundef zeroext) #2
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @closeall(i32 noundef) local_unnamed_addr #2
 
@@ -4270,10 +4270,10 @@ thread-pre-split:                                 ; preds = %0
 declare void @unlock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 
@@ -4344,7 +4344,7 @@ define dso_local void @set_slurmctld_state_loc() local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @get_log_level() local_unnamed_addr #2
 
@@ -5170,7 +5170,7 @@ declare i32 @pthread_attr_setstacksize(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_slurmctld_rpc_mgr(ptr nocapture readnone %0) #4 {
+define internal noalias noundef ptr @_slurmctld_rpc_mgr(ptr readnone captures(none) %0) #4 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.sockaddr_storage, align 8
   %4 = alloca [2 x i32], align 8
@@ -5491,7 +5491,7 @@ _wait_for_server_thread.exit:                     ; preds = %.loopexit.i
 declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_slurmctld_signal_hand(ptr nocapture readnone %0) #4 {
+define internal noalias noundef ptr @_slurmctld_signal_hand(ptr readnone captures(none) %0) #4 {
   %2 = alloca i32, align 4
   %3 = alloca [6 x i32], align 16
   %4 = alloca %struct.__sigset_t, align 8
@@ -5625,7 +5625,7 @@ declare ptr @slurmctld_state_save(ptr noundef) #2
 declare void @power_save_init() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_purge_files_thread(ptr nocapture readnone %0) #4 {
+define internal noalias noundef ptr @_purge_files_thread(ptr readnone captures(none) %0) #4 {
   %2 = alloca ptr, align 8
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @purge_thread_lock) #21
   %.not = icmp eq i32 %3, 0
@@ -5714,7 +5714,7 @@ define internal noalias noundef ptr @_purge_files_thread(ptr nocapture readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_acct_update_thread(ptr nocapture readnone %0) #4 {
+define internal noalias noundef ptr @_acct_update_thread(ptr readnone captures(none) %0) #4 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 56)) #21
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.preheader, label %4
@@ -5995,7 +5995,7 @@ declare i32 @slurmscriptd_fini() local_unnamed_addr #2
 declare i32 @jobcomp_g_fini() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_close_ports() unnamed_addr #4 {
@@ -6028,10 +6028,10 @@ declare void @sched_log_fini() local_unnamed_addr #2
 declare void @abort() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #13
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #13
 
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
@@ -6342,7 +6342,7 @@ define internal void @_resize_qos() #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_remove_assoc(ptr nocapture noundef readonly %0) #4 {
+define internal void @_remove_assoc(ptr noundef readonly captures(none) %0) #4 {
   %2 = tail call i32 @bb_g_reconfig() #21
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %4 = load i32, ptr %3, align 4
@@ -6893,7 +6893,7 @@ define internal fastcc void @_init_tres() unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_assoc_cache_mgr(ptr nocapture readnone %0) #4 {
+define internal noalias noundef ptr @_assoc_cache_mgr(ptr readnone captures(none) %0) #4 {
   %2 = alloca %struct.slurmdb_update_object_t, align 8
   %3 = alloca %struct.slurmdb_federation_cond_t, align 8
   %4 = alloca %struct.slurmdb_qos_rec_t, align 8
@@ -7427,7 +7427,7 @@ define dso_local void @set_cluster_tres(i1 noundef zeroext %0) local_unnamed_add
   br i1 %.not67, label %46, label %57
 
 46:                                               ; preds = %42
-  %47 = call i64 @gres_get_system_cnt(ptr noundef %44) #21
+  %47 = call i64 @gres_get_system_cnt(ptr noundef nonnull %44) #21
   %48 = icmp eq i64 %47, -2
   %spec.store.select = select i1 %48, i64 0, i64 %47
   store i64 %spec.store.select, ptr %28, align 8
@@ -7660,7 +7660,7 @@ declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noun
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_add_node_gres_tres(ptr noundef %0, ptr nocapture noundef readonly %1) #4 {
+define internal noundef i32 @_add_node_gres_tres(ptr noundef %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @xstrcmp(ptr noundef %4, ptr noundef nonnull @.str.73) #21
@@ -7858,13 +7858,13 @@ declare void @log_set_timefmt(i32 noundef) local_unnamed_addr #2
 declare i32 @sched_log_alter(ptr noundef byval(%struct.log_options_t) align 8, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chown(ptr nocapture noundef readonly, i32 noundef, i32 noundef) local_unnamed_addr #6
+declare noundef i32 @chown(ptr noundef readonly captures(none), i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #6
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #6
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @slurm_rpc_control_status(ptr noundef %0) local_unnamed_addr #4 {
@@ -7929,7 +7929,7 @@ declare void @list_destroy(ptr noundef) local_unnamed_addr #2
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_find_node_event(ptr nocapture noundef readonly %0, ptr noundef %1) #4 {
+define internal range(i32 0, 2) i32 @_find_node_event(ptr noundef readonly captures(none) %0, ptr noundef %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @xstrcmp(ptr noundef %4, ptr noundef %1) #21
@@ -7975,7 +7975,7 @@ declare i32 @pipe(ptr noundef) local_unnamed_addr #8
 declare i32 @fork() local_unnamed_addr #6
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -8010,7 +8010,7 @@ declare i32 @slurm_init_msg_engine_port(i16 noundef zeroext) local_unnamed_addr 
 declare i32 @slurm_get_stream_addr(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #15
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #15
 
 declare void @rate_limit_init() local_unnamed_addr #2
 
@@ -8205,7 +8205,7 @@ declare void @agent_queue_request(ptr noundef) local_unnamed_addr #2
 declare i32 @list_for_each_ro(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_foreach_job_running(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #17 {
+define internal noundef i32 @_foreach_job_running(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #17 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = load i32, ptr %3, align 8
   %trunc = trunc i32 %4 to i8
@@ -8305,7 +8305,7 @@ define internal noundef i32 @_update_qos_for_each(ptr noundef %0, ptr noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_update_job_tres(ptr noundef %0, ptr nocapture readnone %1) #4 {
+define internal noundef i32 @_update_job_tres(ptr noundef %0, ptr readnone captures(none) %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %5 = load ptr, ptr %4, align 8
@@ -8398,7 +8398,7 @@ define internal fastcc void @_usage() unnamed_addr #18 {
 declare void @print_slurm_version() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @readlink(ptr nocapture noundef readonly, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree
 declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #13
@@ -8561,16 +8561,16 @@ declare i32 @getpriority(i32 noundef, i32 noundef) local_unnamed_addr #8
 declare i32 @setpriority(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @read_pidfile(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -8614,7 +8614,7 @@ declare i32 @setuid(i32 noundef) local_unnamed_addr #8
 declare ptr @xstrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #15
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #14
@@ -8629,7 +8629,7 @@ declare void @delete_job_desc_files(i32 noundef) local_unnamed_addr #2
 declare i32 @list_delete_all(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_acct_update_list_for_each(ptr noundef %0, ptr nocapture readnone %1) #4 {
+define internal noundef i32 @_acct_update_list_for_each(ptr noundef %0, ptr readnone captures(none) %1) #4 {
   %3 = alloca i8, align 1
   store i8 0, ptr %3, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8706,7 +8706,7 @@ define internal noalias noundef ptr @_wait_primary_prog(ptr noundef %0) #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_init_dep_job_ptr(ptr nocapture noundef initializes((24, 32)) %0, ptr nocapture readnone %1) #4 {
+define internal noundef i32 @_init_dep_job_ptr(ptr noundef captures(none) initializes((24, 32)) %0, ptr readnone captures(none) %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load i32, ptr %0, align 8
@@ -8728,10 +8728,10 @@ declare i32 @llvm.umax.i32(i32, i32) #19
 declare i32 @llvm.smax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

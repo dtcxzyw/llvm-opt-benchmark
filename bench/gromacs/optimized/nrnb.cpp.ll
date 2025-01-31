@@ -175,13 +175,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.167 = private unnamed_addr constant [6 x i8] c"%c%2d\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z10clear_nrnbP6t_nrnb(ptr nocapture noundef writeonly initializes((0, 928)) %0) local_unnamed_addr #0 {
+define void @_Z10clear_nrnbP6t_nrnb(ptr noundef writeonly captures(none) initializes((0, 928)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(928) %0, i8 0, i64 928, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z10print_nrnbP8_IO_FILEP6t_nrnb(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define void @_Z10print_nrnbP8_IO_FILEP6t_nrnb(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   br label %3
 
 3:                                                ; preds = %2, %11
@@ -207,10 +207,10 @@ define void @_Z10print_nrnbP8_IO_FILEP6t_nrnb(ptr nocapture noundef %0, ptr noca
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds [116 x double], ptr %0, i64 0, i64 %4
   %6 = sitofp i32 %2 to double
@@ -219,7 +219,7 @@ define void @_Z19atomicNrnbIncrementP6t_nrnbii(ptr nocapture noundef %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef %3) local_unnamed_addr #1 {
+define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef captures(none) %3) local_unnamed_addr #1 {
   store double 0.000000e+00, ptr %2, align 8
   br label %5
 
@@ -479,13 +479,13 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z10print_perfP8_IO_FILEddlddd(ptr nocapture noundef %0, double noundef %1, double noundef %2, i64 noundef %3, double noundef %4, double noundef %5, double noundef %6) local_unnamed_addr #1 {
+define void @_Z10print_perfP8_IO_FILEddlddd(ptr noundef captures(none) %0, double noundef %1, double noundef %2, i64 noundef %3, double noundef %4, double noundef %5, double noundef %6) local_unnamed_addr #1 {
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
   %8 = fcmp ogt double %2, 0.000000e+00
   br i1 %8, label %9, label %100
@@ -632,7 +632,7 @@ _ZL11pr_difftimeP8_IO_FILEd.exit:                 ; preds = %.critedge.i, %49
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_Z9cost_nrnbi(i32 noundef %0) local_unnamed_addr #7 {
@@ -651,13 +651,13 @@ define noundef ptr @_Z8nrnb_stri(i32 noundef %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

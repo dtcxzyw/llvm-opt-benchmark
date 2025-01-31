@@ -282,7 +282,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_ack_send_btl(ptr nocapture noundef readnone %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_ack_send_btl(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %8, align 8
   %9 = getelementptr i8, ptr %1, i64 16
@@ -336,7 +336,7 @@ define range(i32 -2, 1) i32 @mca_pml_ob1_recv_request_ack_send_btl(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_pml_ob1_recv_ctl_completion(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i32 %3) #0 {
+define internal void @mca_pml_ob1_recv_ctl_completion(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_ob1, i64 2120), align 8
@@ -636,7 +636,7 @@ opal_free_list_return.exit:                       ; preds = %opal_free_list_retu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_pml_ob1_rget_completion(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) #0 {
+define internal void @mca_pml_ob1_rget_completion(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq i32 %6, 0
@@ -875,7 +875,7 @@ opal_free_list_return.exit:                       ; preds = %opal_lifo_push_atom
 }
 
 ; Function Attrs: nounwind uwtable
-define void @mca_pml_ob1_recv_request_progress_frag(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @mca_pml_ob1_recv_request_progress_frag(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca [16 x %struct.iovec], align 16
   %7 = alloca i32, align 4
@@ -1236,7 +1236,7 @@ define internal fastcc void @opal_convertor_set_position(ptr noundef %0, ptr nou
 declare i32 @opal_convertor_unpack(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @mca_pml_ob1_recv_request_frag_copy_start(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define void @mca_pml_ob1_recv_request_frag_copy_start(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca [16 x %struct.iovec], align 16
   %8 = alloca i32, align 4
@@ -1412,7 +1412,7 @@ declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @ompi_rte_abort(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @mca_pml_ob1_recv_request_frag_copy_finished(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @mca_pml_ob1_recv_request_frag_copy_finished(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -1580,7 +1580,7 @@ mca_pml_ob1_recv_request_schedule.exit:           ; preds = %.preheader.i, %mca_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @mca_pml_ob1_recv_request_progress_rget(ptr noundef initializes((64, 72), (512, 520), (552, 568), (578, 579)) %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 %3) local_unnamed_addr #0 {
+define void @mca_pml_ob1_recv_request_progress_rget(ptr noundef initializes((64, 72), (512, 520), (552, 568), (578, 579)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = load ptr, ptr %2, align 8
   store i64 0, ptr %5, align 8
@@ -2007,7 +2007,7 @@ mca_pml_ob1_recv_request_get_frag.exit.thread:    ; preds = %.thread.i101, %mca_
 declare i32 @mca_pml_ob1_accelerator_need_buffers(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mca_pml_ob1_recv_request_ack(ptr noundef initializes((560, 568)) %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @mca_pml_ob1_recv_request_ack(ptr noundef initializes((560, 568)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
@@ -2166,7 +2166,7 @@ opal_convertor_need_buffers.exit.thread56:        ; preds = %28, %68, %76, %70, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc nonnull ptr @opal_free_list_wait() unnamed_addr #0 {
@@ -2590,7 +2590,7 @@ opal_free_list_wait_st.exit:                      ; preds = %107, %137, %opal_fr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @mca_pml_ob1_recv_request_progress_rndv(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @mca_pml_ob1_recv_request_progress_rndv(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca [16 x %struct.iovec], align 16
   %7 = alloca i32, align 4
@@ -2933,7 +2933,7 @@ mca_pml_ob1_recv_request_schedule.exit:           ; preds = %.preheader.i, %mca_
 declare ptr @mca_pml_ob1_get_htod_stream() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @mca_pml_ob1_recv_request_progress_match(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @mca_pml_ob1_recv_request_progress_match(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca [16 x %struct.iovec], align 16
   %7 = alloca i32, align 4
@@ -3339,7 +3339,7 @@ opal_free_list_return.exit:                       ; preds = %115, %112, %opal_th
 }
 
 ; Function Attrs: nounwind uwtable
-define void @mca_pml_ob1_recv_request_matched_probe(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @mca_pml_ob1_recv_request_matched_probe(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %2, align 8
   %6 = load i8, ptr %5, align 8
   switch i8 %6, label %mca_pml_ob1_compute_segment_length_base.exit [
@@ -5184,7 +5184,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 declare i32 @mca_pml_ob1_start(i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_pml_ob1_recv_request_free(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @mca_pml_ob1_recv_request_free(ptr noundef captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 164
   store volatile i32 1, ptr %3, align 4
@@ -5641,7 +5641,7 @@ opal_convertor_cleanup.exit:                      ; preds = %58, %62
 declare i32 @opal_pointer_array_set_item(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare zeroext i1 @opal_output_check_verbosity(i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -5978,10 +5978,10 @@ declare i64 @opal_convertor_compute_remote_size(ptr noundef) local_unnamed_addr 
 declare ptr @mca_pml_ob1_peer_create(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7
@@ -5993,7 +5993,7 @@ declare i64 @llvm.umax.i64(i64, i64) #7
 declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

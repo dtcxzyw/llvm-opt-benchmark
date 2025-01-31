@@ -622,7 +622,7 @@ _ZN15wiggle_generate5types14define_builtin17h957e7ea78fd4c309E.exit: ; preds = %
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15wiggle_generate5types19define_witx_pointer17h1b9a9baa50043d39E(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr nonnull align 8 %2, ptr nonnull align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN15wiggle_generate5types19define_witx_pointer17h1b9a9baa50043d39E(ptr noalias writeonly align 8 captures(none) %0, ptr align 8 %1, ptr nonnull align 8 %2, ptr nonnull align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
   %6 = alloca { { i64, [3 x i64] }, {} }, align 8
   %7 = alloca { { i64, [3 x i64] }, {} }, align 8
@@ -770,7 +770,7 @@ define internal fastcc void @_ZN15wiggle_generate5types19define_witx_pointer17h1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN15wiggle_generate5types15int_repr_tokens17h6c427b1b03a19153E(ptr nocapture writeonly sret({ { i64, [3 x i64] }, {} }) align 8 %0, i8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN15wiggle_generate5types15int_repr_tokens17h6c427b1b03a19153E(ptr writeonly sret({ { i64, [3 x i64] }, {} }) align 8 captures(none) %0, i8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = alloca { { i64, [3 x i64] }, {} }, align 8
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
@@ -867,7 +867,7 @@ declare void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr sret({ {
 declare void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8, ptr align 8) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8) unnamed_addr #0
@@ -924,10 +924,10 @@ declare void @_ZN5quote9__private10push_comma17h75bcf5f75c43eb53E(ptr align 8) u
 declare void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8, i8, ptr align 8) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

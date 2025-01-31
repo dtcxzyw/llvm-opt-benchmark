@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @env_dup(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -12, 1) i32 @env_dup(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call i32 @sched_lock() #6
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %35, label %.preheader42
@@ -92,10 +92,10 @@ declare i32 @sched_lock() local_unnamed_addr #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree
 declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5

@@ -54,7 +54,7 @@ define dso_local { double, i32 } @float_neg(double %0, i32 %1) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local { double, i32 } @float_from_string(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define dso_local { double, i32 } @float_from_string(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   tail call void @scratch_buffer_clear() #6
   %4 = load i8, ptr %0, align 1
@@ -275,10 +275,10 @@ declare ptr @scratch_buffer_to_string() local_unnamed_addr #2
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #4
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local { double, i32 } @float_from_hex(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
+define dso_local { double, i32 } @float_from_hex(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   tail call void @scratch_buffer_clear() #6

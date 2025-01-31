@@ -22,7 +22,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7518TimeZoneTransition17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7518TimeZoneTransition17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret ptr @_ZZN6icu_7518TimeZoneTransition16getStaticClassIDEvE7classID
 }
@@ -61,7 +61,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -69,7 +69,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7518TimeZoneTransitionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this) unnamed_addr #4 align 2 {
+define void @_ZN6icu_7518TimeZoneTransitionC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7518TimeZoneTransitionE, i64 16), ptr %this, align 8
   %fTime = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -78,7 +78,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7518TimeZoneTransitionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %source) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7518TimeZoneTransitionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %source) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7518TimeZoneTransitionE, i64 16), ptr %this, align 8
   %fTime = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -258,7 +258,7 @@ if.end:                                           ; preds = %_ZN6icu_7518TimeZon
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7518TimeZoneTransition7setFromERKNS_12TimeZoneRuleE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(80) %from) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7518TimeZoneTransition7setFromERKNS_12TimeZoneRuleE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(80) %from) local_unnamed_addr #1 align 2 {
 entry:
   %fFrom = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %fFrom, align 8
@@ -282,7 +282,7 @@ if.end:                                           ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7518TimeZoneTransition5setToERKNS_12TimeZoneRuleE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(80) %to) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7518TimeZoneTransition5setToERKNS_12TimeZoneRuleE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(80) %to) local_unnamed_addr #1 align 2 {
 entry:
   %fTo = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %fTo, align 8
@@ -406,7 +406,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7518TimeZoneTransition7setTimeEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((8, 16)) %this, double noundef %time) local_unnamed_addr #4 align 2 {
+define void @_ZN6icu_7518TimeZoneTransition7setTimeEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((8, 16)) %this, double noundef %time) local_unnamed_addr #4 align 2 {
 entry:
   %fTime = getelementptr inbounds nuw i8, ptr %this, i64 8
   store double %time, ptr %fTime, align 8
@@ -414,7 +414,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7518TimeZoneTransition9adoptFromEPNS_12TimeZoneRuleE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %from) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7518TimeZoneTransition9adoptFromEPNS_12TimeZoneRuleE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef %from) local_unnamed_addr #5 align 2 {
 entry:
   %fFrom = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %fFrom, align 8
@@ -434,7 +434,7 @@ if.end:                                           ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7518TimeZoneTransition7adoptToEPNS_12TimeZoneRuleE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %to) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7518TimeZoneTransition7adoptToEPNS_12TimeZoneRuleE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef %to) local_unnamed_addr #5 align 2 {
 entry:
   %fTo = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %fTo, align 8
@@ -454,7 +454,7 @@ if.end:                                           ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK6icu_7518TimeZoneTransition7getTimeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
+define noundef double @_ZNK6icu_7518TimeZoneTransition7getTimeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
 entry:
   %fTime = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load double, ptr %fTime, align 8
@@ -462,7 +462,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK6icu_7518TimeZoneTransition5getToEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZNK6icu_7518TimeZoneTransition5getToEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
 entry:
   %fTo = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %fTo, align 8
@@ -470,7 +470,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK6icu_7518TimeZoneTransition7getFromEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZNK6icu_7518TimeZoneTransition7getFromEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
 entry:
   %fFrom = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %fFrom, align 8
@@ -478,7 +478,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

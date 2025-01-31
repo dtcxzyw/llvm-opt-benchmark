@@ -174,7 +174,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8internal23SerializeMessageNoTableEPKNS0_11MessageLiteEPNS1_11ArrayOutputE(ptr noundef %msg, ptr nocapture noundef %output) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8internal23SerializeMessageNoTableEPKNS0_11MessageLiteEPNS1_11ArrayOutputE(ptr noundef %msg, ptr noundef captures(none) %output) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %data.i.i = alloca ptr, align 8
   %size.i.i = alloca i32, align 4
@@ -311,7 +311,7 @@ entry:
 declare void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi9EEEbPKv(ptr nocapture noundef readonly %ptr) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi9EEEbPKv(ptr noundef readonly captures(none) %ptr) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %ptr, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -326,7 +326,7 @@ entry:
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi12EEEbPKv(ptr nocapture noundef readonly %ptr) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi12EEEbPKv(ptr noundef readonly captures(none) %ptr) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %ptr, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -338,7 +338,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi10EEEbPKv(ptr nocapture noundef readonly %ptr) local_unnamed_addr #8 {
+define hidden noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi10EEEbPKv(ptr noundef readonly captures(none) %ptr) local_unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr %ptr, align 8
   %cmp = icmp eq ptr %0, null
@@ -346,7 +346,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi11EEEbPKv(ptr nocapture noundef readonly %ptr) local_unnamed_addr #8 {
+define hidden noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi11EEEbPKv(ptr noundef readonly captures(none) %ptr) local_unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr %ptr, align 8
   %cmp = icmp eq ptr %0, null
@@ -376,7 +376,7 @@ _ZNK6google8protobuf8internal12ExtensionSet24SerializeWithCachedSizesEPKNS0_11Me
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal26UnknownFieldSerializerLiteEPKhjjjPNS0_2io17CodedOutputStreamE(ptr nocapture noundef readonly %ptr, i32 noundef %offset, i32 noundef %0, i32 noundef %1, ptr noundef %output) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal26UnknownFieldSerializerLiteEPKhjjjPNS0_2io17CodedOutputStreamE(ptr noundef readonly captures(none) %ptr, i32 noundef %offset, i32 noundef %0, i32 noundef %1, ptr noundef %output) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %idx.ext = zext i32 %offset to i64
   %add.ptr = getelementptr inbounds nuw i8, ptr %ptr, i64 %idx.ext
@@ -578,7 +578,7 @@ declare noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet22_InternalSeria
 declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare noundef i64 @_ZNK6google8protobuf2io17ArrayOutputStream9ByteCountEv(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
@@ -644,10 +644,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

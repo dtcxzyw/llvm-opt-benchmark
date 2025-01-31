@@ -77,7 +77,7 @@ handleSocketErrorWithMessage.exit:                ; preds = %2, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_Net_initIDs(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_sun_nio_ch_Net_initIDs(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -120,7 +120,7 @@ declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_
 declare void @initInetAddressIDs(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_Net_isIPv6Available0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_Net_isIPv6Available0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 (...) @ipv6_available() #7
   %.not = icmp ne i32 %3, 0
   %4 = zext i1 %.not to i8
@@ -130,7 +130,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_Net_isIPv6Available0(ptr nocap
 declare i32 @ipv6_available(...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_Net_isReusePortAvailable0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_Net_isReusePortAvailable0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 (...) @reuseport_available() #7
   %.not = icmp ne i32 %3, 0
   %4 = zext i1 %.not to i8
@@ -140,32 +140,32 @@ define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_Net_isReusePortAvailable0(ptr 
 declare i32 @reuseport_available(...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @Java_sun_nio_ch_Net_isExclusiveBindAvailable(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
+define noundef i32 @Java_sun_nio_ch_Net_isExclusiveBindAvailable(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
   ret i32 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @Java_sun_nio_ch_Net_shouldSetBothIPv4AndIPv6Options0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
+define noundef zeroext i8 @Java_sun_nio_ch_Net_shouldSetBothIPv4AndIPv6Options0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
   ret i8 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @Java_sun_nio_ch_Net_canIPv6SocketJoinIPv4Group0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
+define noundef zeroext i8 @Java_sun_nio_ch_Net_canIPv6SocketJoinIPv4Group0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
   ret i8 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @Java_sun_nio_ch_Net_canJoin6WithIPv4Group0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
+define noundef zeroext i8 @Java_sun_nio_ch_Net_canJoin6WithIPv4Group0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
   ret i8 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @Java_sun_nio_ch_Net_canUseIPv6OptionsWithIPv4LocalAddress0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
+define noundef zeroext i8 @Java_sun_nio_ch_Net_canUseIPv6OptionsWithIPv4LocalAddress0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
   ret i8 1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, -2147483648) i32 @Java_sun_nio_ch_Net_socket0(ptr noundef %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #0 {
+define range(i32 -5, -2147483648) i32 @Java_sun_nio_ch_Net_socket0(ptr noundef %0, ptr noundef readnone captures(none) %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -320,7 +320,7 @@ declare void @JNU_ThrowByNameWithLastError(ptr noundef, ptr noundef, ptr noundef
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_Net_bind0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define void @Java_sun_nio_ch_Net_bind0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %union.SOCKETADDRESS, align 4
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
@@ -378,7 +378,7 @@ declare i32 @NET_Bind(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr 
 declare i32 @fdval(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_Net_listen(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_nio_ch_Net_listen(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #7
   %6 = tail call i32 @listen(i32 noundef %5, i32 noundef %3) #7
   %7 = icmp slt i32 %6, 0
@@ -424,7 +424,7 @@ handleSocketError.exit:                           ; preds = %15, %8, %4
 declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 2) i32 @Java_sun_nio_ch_Net_connect0(ptr noundef %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define range(i32 -5, 2) i32 @Java_sun_nio_ch_Net_connect0(ptr noundef %0, ptr noundef readnone captures(none) %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %union.SOCKETADDRESS, align 4
   %8 = alloca i32, align 4
   store i32 0, ptr %8, align 4
@@ -483,7 +483,7 @@ handleSocketError.exit:                           ; preds = %14, %22, %10, %6, %
 declare i32 @connect(i32 noundef, ptr, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 2) i32 @Java_sun_nio_ch_Net_accept(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -5, 2) i32 @Java_sun_nio_ch_Net_accept(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %union.SOCKETADDRESS, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -551,7 +551,7 @@ declare void @setfdval(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @NET_SockaddrToInetAddress(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_Net_localPort(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_ch_Net_localPort(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %union.SOCKETADDRESS, align 4
   %5 = alloca i32, align 4
   store i32 28, ptr %5, align 4
@@ -607,7 +607,7 @@ declare i32 @getsockname(i32 noundef, ptr, ptr noundef) local_unnamed_addr #3
 declare i32 @NET_GetPortFromSockaddr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_nio_ch_Net_localInetAddress(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Java_sun_nio_ch_Net_localInetAddress(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %union.SOCKETADDRESS, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -659,7 +659,7 @@ handleSocketError.exit:                           ; preds = %17, %10, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_Net_remotePort(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_ch_Net_remotePort(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %union.SOCKETADDRESS, align 4
   %5 = alloca i32, align 4
   store i32 28, ptr %5, align 4
@@ -713,7 +713,7 @@ handleSocketError.exit:                           ; preds = %16, %9, %17
 declare i32 @getpeername(i32 noundef, ptr, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_nio_ch_Net_remoteInetAddress(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Java_sun_nio_ch_Net_remoteInetAddress(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %union.SOCKETADDRESS, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -765,7 +765,7 @@ handleSocketError.exit:                           ; preds = %17, %10, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_Net_getIntOption0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_ch_Net_getIntOption0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.linger, align 4
   %9 = alloca i8, align 1
@@ -837,7 +837,7 @@ declare i32 @NET_GetSockOpt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_Net_setIntOption0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i8 noundef zeroext %7) local_unnamed_addr #0 {
+define void @Java_sun_nio_ch_Net_setIntOption0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i8 noundef zeroext %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca %struct.linger, align 4
   %11 = alloca i8, align 1
@@ -905,7 +905,7 @@ define void @Java_sun_nio_ch_Net_setIntOption0(ptr noundef %0, ptr nocapture nou
 declare i32 @NET_SetSockOpt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_joinOrDrop4(ptr noundef %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_joinOrDrop4(ptr noundef %0, ptr noundef readnone captures(none) %1, i8 noundef zeroext %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.ip_mreq, align 4
   %9 = alloca %struct.ip_mreq_source, align 4
   %10 = icmp eq i32 %6, 0
@@ -1005,7 +1005,7 @@ handleSocketErrorWithMessage.exit:                ; preds = %27, %27, %handleSoc
 declare i32 @htonl(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_blockOrUnblock4(ptr noundef %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_blockOrUnblock4(ptr noundef %0, ptr noundef readnone captures(none) %1, i8 noundef zeroext %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.ip_mreq_source, align 4
   %.not = icmp eq i8 %2, 0
   %9 = select i1 %.not, i32 37, i32 38
@@ -1081,7 +1081,7 @@ handleSocketError.exit:                           ; preds = %19, %19, %handleSoc
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_joinOrDrop6(ptr noundef %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_joinOrDrop6(ptr noundef %0, ptr noundef readnone captures(none) %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.ipv6_mreq, align 4
   %9 = alloca %struct.group_source_req, align 8
   %10 = icmp eq ptr %6, null
@@ -1187,7 +1187,7 @@ handleSocketErrorWithMessage.exit:                ; preds = %34, %34, %handleSoc
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_blockOrUnblock6(ptr noundef %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_blockOrUnblock6(ptr noundef %0, ptr noundef readnone captures(none) %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.group_source_req, align 8
   %.not = icmp eq i8 %2, 0
   %9 = select i1 %.not, i32 44, i32 43
@@ -1270,7 +1270,7 @@ handleSocketError.exit:                           ; preds = %24, %24, %handleSoc
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_Net_setInterface4(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_nio_ch_Net_setInterface4(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.in_addr, align 4
   %6 = tail call i32 @htonl(i32 noundef %3) #6
   store i32 %6, ptr %5, align 4
@@ -1316,7 +1316,7 @@ handleSocketError.exit:                           ; preds = %17, %10, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_Net_getInterface4(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_ch_Net_getInterface4(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.in_addr, align 4
   %5 = alloca i32, align 4
   store i32 4, ptr %5, align 4
@@ -1371,7 +1371,7 @@ handleSocketError.exit:                           ; preds = %16, %9, %17
 declare i32 @ntohl(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_Net_setInterface6(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_nio_ch_Net_setInterface6(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 %3, ptr %5, align 4
   %6 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #7
@@ -1416,7 +1416,7 @@ handleSocketError.exit:                           ; preds = %16, %9, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_Net_getInterface6(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_ch_Net_getInterface6(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   store i32 4, ptr %5, align 4
@@ -1467,7 +1467,7 @@ handleSocketError.exit:                           ; preds = %16, %9, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_Net_shutdown(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_nio_ch_Net_shutdown(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq i32 %3, 0
   %6 = icmp eq i32 %3, 1
   %7 = select i1 %6, i32 1, i32 2
@@ -1517,7 +1517,7 @@ handleSocketError.exit:                           ; preds = %12, %12, %19, %4
 declare i32 @shutdown(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_Net_available(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_ch_Net_available(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   store i32 0, ptr %4, align 4
   br label %5
@@ -1585,7 +1585,7 @@ handleSocketError.exit:                           ; preds = %17, %.critedge, %18
 declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -32768, 32768) i32 @Java_sun_nio_ch_Net_poll(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define range(i32 -32768, 32768) i32 @Java_sun_nio_ch_Net_poll(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.pollfd, align 4
   %7 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #7
   store i32 %7, ptr %6, align 4
@@ -1649,7 +1649,7 @@ handleSocketError.exit:                           ; preds = %16, %handleSocketEr
 declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_Net_pollConnect(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_Net_pollConnect(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.pollfd, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -1770,37 +1770,37 @@ handleSocketError.exit:                           ; preds = %24, %30, %23, %17, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i16 @Java_sun_nio_ch_Net_pollinValue(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
+define noundef signext i16 @Java_sun_nio_ch_Net_pollinValue(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
   ret i16 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i16 @Java_sun_nio_ch_Net_polloutValue(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
+define noundef signext i16 @Java_sun_nio_ch_Net_polloutValue(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
   ret i16 4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i16 @Java_sun_nio_ch_Net_pollerrValue(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
+define noundef signext i16 @Java_sun_nio_ch_Net_pollerrValue(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
   ret i16 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i16 @Java_sun_nio_ch_Net_pollhupValue(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
+define noundef signext i16 @Java_sun_nio_ch_Net_pollhupValue(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
   ret i16 16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i16 @Java_sun_nio_ch_Net_pollnvalValue(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
+define noundef signext i16 @Java_sun_nio_ch_Net_pollnvalValue(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
   ret i16 32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i16 @Java_sun_nio_ch_Net_pollconnValue(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
+define noundef signext i16 @Java_sun_nio_ch_Net_pollconnValue(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
   ret i16 4
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_Net_sendOOB(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i8 noundef signext %3) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_ch_Net_sendOOB(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i8 noundef signext %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   store i8 %3, ptr %5, align 1
   %6 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #7

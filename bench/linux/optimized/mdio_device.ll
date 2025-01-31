@@ -38,7 +38,7 @@ define dso_local void @mdio_device_free(ptr noundef %0) #0 align 16 {
 declare dso_local void @put_device(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local range(i32 0, 2) i32 @mdio_device_bus_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 0, 2) i32 @mdio_device_bus_match(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, -1
@@ -58,7 +58,7 @@ define dso_local range(i32 0, 2) i32 @mdio_device_bus_match(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @mdio_device_create(ptr noundef %0, i32 noundef %1) #0 align 16 {
@@ -156,7 +156,7 @@ declare dso_local i32 @mdiobus_unregister_device(ptr noundef) local_unnamed_addr
 declare dso_local void @device_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mdio_device_reset(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local void @mdio_device_reset(ptr noundef captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

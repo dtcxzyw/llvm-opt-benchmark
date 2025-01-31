@@ -999,7 +999,7 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %323
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @dshash_find(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -1218,7 +1218,7 @@ define internal fastcc void @pgstat_release_entry_ref(i64 %0, i32 %1, ptr nounde
 declare void @dshash_release_lock(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @pgstat_lock_entry(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @pgstat_lock_entry(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -1242,7 +1242,7 @@ declare zeroext i1 @LWLockConditionalAcquire(ptr noundef, i32 noundef) local_unn
 declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @pgstat_lock_entry_shared(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @pgstat_lock_entry_shared(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -1262,7 +1262,7 @@ define dso_local zeroext i1 @pgstat_lock_entry_shared(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pgstat_unlock_entry(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @pgstat_unlock_entry(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1317,7 +1317,7 @@ define dso_local noundef zeroext i1 @pgstat_drop_entry(i32 noundef %0, i32 nound
   store i32 %2, ptr %8, align 8
   %9 = load ptr, ptr @pgStatEntryRefHash, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %53, label %10
+  br i1 %.not, label %52, label %10
 
 10:                                               ; preds = %3
   %.sroa.01.0.copyload = load i64, ptr %6, align 8
@@ -1379,129 +1379,125 @@ define dso_local noundef zeroext i1 @pgstat_drop_entry(i32 noundef %0, i32 nound
 
 pgstat_entry_ref_hash_lookup.exit.thread:         ; preds = %41, %10
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
-  br label %53
+  br label %52
 
 pgstat_entry_ref_hash_lookup.exit:                ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
-  %.not13 = icmp eq ptr %48, null
-  br i1 %.not13, label %53, label %50
-
-50:                                               ; preds = %pgstat_entry_ref_hash_lookup.exit
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %52 = load ptr, ptr %51, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %51 = load ptr, ptr %50, align 8
   %.sroa.0.0.copyload = load i64, ptr %48, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
-  tail call fastcc void @pgstat_release_entry_ref(i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, ptr noundef %52, i1 noundef zeroext true)
-  br label %53
+  tail call fastcc void @pgstat_release_entry_ref(i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, ptr noundef %51, i1 noundef zeroext true)
+  br label %52
 
-53:                                               ; preds = %pgstat_entry_ref_hash_lookup.exit.thread, %pgstat_entry_ref_hash_lookup.exit, %50, %3
-  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
-  %55 = call ptr @dshash_find(ptr noundef %54, ptr noundef nonnull %6, i1 noundef zeroext true) #14
-  %.not14 = icmp eq ptr %55, null
-  br i1 %.not14, label %127, label %56
+52:                                               ; preds = %pgstat_entry_ref_hash_lookup.exit.thread, %pgstat_entry_ref_hash_lookup.exit, %3
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
+  %54 = call ptr @dshash_find(ptr noundef %53, ptr noundef nonnull %6, i1 noundef zeroext true) #14
+  %.not14 = icmp eq ptr %54, null
+  br i1 %.not14, label %126, label %55
 
-56:                                               ; preds = %53
-  %57 = call fastcc zeroext i1 @pgstat_drop_entry_internal(ptr noundef %55, ptr noundef null)
-  %58 = load i32, ptr %6, align 8
-  %59 = icmp eq i32 %58, 1
-  br i1 %59, label %60, label %127
+55:                                               ; preds = %52
+  %56 = call fastcc zeroext i1 @pgstat_drop_entry_internal(ptr noundef %54, ptr noundef null)
+  %57 = load i32, ptr %6, align 8
+  %58 = icmp eq i32 %57, 1
+  br i1 %58, label %59, label %126
 
-60:                                               ; preds = %56
-  %61 = load i32, ptr %7, align 4
+59:                                               ; preds = %55
+  %60 = load i32, ptr %7, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  %62 = load ptr, ptr @pgStatEntryRefHash, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %pgstat_release_db_entry_refs.exit.i, label %64
+  %61 = load ptr, ptr @pgStatEntryRefHash, align 8
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %pgstat_release_db_entry_refs.exit.i, label %63
 
-64:                                               ; preds = %60
-  %65 = load i64, ptr %62, align 8
-  %.not16.i.i.i.i = icmp eq i64 %65, 0
+63:                                               ; preds = %59
+  %64 = load i64, ptr %61, align 8
+  %.not16.i.i.i.i = icmp eq i64 %64, 0
   br i1 %.not16.i.i.i.i, label %pgstat_entry_ref_hash_start_iterate.exit.i.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %64
-  %66 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %67 = load ptr, ptr %66, align 8
-  br label %68
+.lr.ph.i.i.i.i:                                   ; preds = %63
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %66 = load ptr, ptr %65, align 8
+  br label %67
 
-68:                                               ; preds = %72, %.lr.ph.i.i.i.i
-  %69 = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %74, %72 ]
-  %.01113.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i ], [ %73, %72 ]
-  %70 = getelementptr %struct.PgStat_EntryRefHashEntry, ptr %67, i64 %69, i32 1
-  %71 = load i8, ptr %70, align 4
-  %.not.i.i.i.i = icmp eq i8 %71, 1
-  br i1 %.not.i.i.i.i, label %72, label %pgstat_entry_ref_hash_start_iterate.exit.i.i.i
+67:                                               ; preds = %71, %.lr.ph.i.i.i.i
+  %68 = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %73, %71 ]
+  %.01113.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i ], [ %72, %71 ]
+  %69 = getelementptr %struct.PgStat_EntryRefHashEntry, ptr %66, i64 %68, i32 1
+  %70 = load i8, ptr %69, align 4
+  %.not.i.i.i.i = icmp eq i8 %70, 1
+  br i1 %.not.i.i.i.i, label %71, label %pgstat_entry_ref_hash_start_iterate.exit.i.i.i
 
-72:                                               ; preds = %68
-  %73 = add i32 %.01113.i.i.i.i, 1
-  %74 = zext i32 %73 to i64
-  %75 = icmp ugt i64 %65, %74
-  br i1 %75, label %68, label %pgstat_entry_ref_hash_start_iterate.exit.i.i.i, !llvm.loop !7
+71:                                               ; preds = %67
+  %72 = add i32 %.01113.i.i.i.i, 1
+  %73 = zext i32 %72 to i64
+  %74 = icmp ugt i64 %64, %73
+  br i1 %74, label %67, label %pgstat_entry_ref_hash_start_iterate.exit.i.i.i, !llvm.loop !7
 
-pgstat_entry_ref_hash_start_iterate.exit.i.i.i:   ; preds = %72, %68, %64
-  %.0.i.i.i.i = phi i32 [ -1, %64 ], [ %.01113.i.i.i.i, %68 ], [ -1, %72 ]
+pgstat_entry_ref_hash_start_iterate.exit.i.i.i:   ; preds = %71, %67, %63
+  %.0.i.i.i.i = phi i32 [ -1, %63 ], [ %.01113.i.i.i.i, %67 ], [ -1, %71 ]
   br label %pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i.outer
 
-pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i.outer: ; preds = %97, %pgstat_entry_ref_hash_start_iterate.exit.i.i.i
-  %.pre.i5.i.i.ph = phi ptr [ %.pre.i.pre.i.i, %97 ], [ %62, %pgstat_entry_ref_hash_start_iterate.exit.i.i.i ]
-  %.sroa.5.0.i.i.i.ph = phi i1 [ %spec.select.i.i.i, %97 ], [ false, %pgstat_entry_ref_hash_start_iterate.exit.i.i.i ]
-  %.sroa.0.0.i.i.i.ph = phi i32 [ %86, %97 ], [ %.0.i.i.i.i, %pgstat_entry_ref_hash_start_iterate.exit.i.i.i ]
-  %76 = getelementptr inbounds nuw i8, ptr %.pre.i5.i.i.ph, i64 24
-  %77 = getelementptr inbounds nuw i8, ptr %.pre.i5.i.i.ph, i64 12
+pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i.outer: ; preds = %96, %pgstat_entry_ref_hash_start_iterate.exit.i.i.i
+  %.pre.i5.i.i.ph = phi ptr [ %.pre.i.pre.i.i, %96 ], [ %61, %pgstat_entry_ref_hash_start_iterate.exit.i.i.i ]
+  %.sroa.5.0.i.i.i.ph = phi i1 [ %spec.select.i.i.i, %96 ], [ false, %pgstat_entry_ref_hash_start_iterate.exit.i.i.i ]
+  %.sroa.0.0.i.i.i.ph = phi i32 [ %85, %96 ], [ %.0.i.i.i.i, %pgstat_entry_ref_hash_start_iterate.exit.i.i.i ]
+  %75 = getelementptr inbounds nuw i8, ptr %.pre.i5.i.i.ph, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %.pre.i5.i.i.ph, i64 12
   br label %pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i
 
-pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i: ; preds = %pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i.outer, %93
-  %.sroa.5.0.i.i.i = phi i1 [ %spec.select.i.i.i, %93 ], [ %.sroa.5.0.i.i.i.ph, %pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i.outer ]
-  %.sroa.0.0.i.i.i = phi i32 [ %86, %93 ], [ %.sroa.0.0.i.i.i.ph, %pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i.outer ]
-  br label %78
+pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i: ; preds = %pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i.outer, %92
+  %.sroa.5.0.i.i.i = phi i1 [ %spec.select.i.i.i, %92 ], [ %.sroa.5.0.i.i.i.ph, %pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i.outer ]
+  %.sroa.0.0.i.i.i = phi i32 [ %85, %92 ], [ %.sroa.0.0.i.i.i.ph, %pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i.outer ]
+  br label %77
 
-78:                                               ; preds = %80, %pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i
-  %.sroa.5.1.i.i.i = phi i1 [ %.sroa.5.0.i.i.i, %pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i ], [ %spec.select.i.i.i, %80 ]
-  %.sroa.0.1.i.i.i = phi i32 [ %.sroa.0.0.i.i.i, %pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i ], [ %86, %80 ]
-  %79 = phi i1 [ %.sroa.5.0.i.i.i, %pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i ], [ %89, %80 ]
-  br i1 %79, label %pgstat_release_db_entry_refs.exit.i, label %80
+77:                                               ; preds = %79, %pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i
+  %.sroa.5.1.i.i.i = phi i1 [ %.sroa.5.0.i.i.i, %pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i ], [ %spec.select.i.i.i, %79 ]
+  %.sroa.0.1.i.i.i = phi i32 [ %.sroa.0.0.i.i.i, %pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i ], [ %85, %79 ]
+  %78 = phi i1 [ %.sroa.5.0.i.i.i, %pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i ], [ %88, %79 ]
+  br i1 %78, label %pgstat_release_db_entry_refs.exit.i, label %79
 
-80:                                               ; preds = %78
-  %81 = load ptr, ptr %76, align 8
-  %82 = zext i32 %.sroa.0.1.i.i.i to i64
-  %83 = getelementptr %struct.PgStat_EntryRefHashEntry, ptr %81, i64 %82
-  %84 = add i32 %.sroa.0.1.i.i.i, -1
-  %85 = load i32, ptr %77, align 4
-  %86 = and i32 %85, %84
-  %87 = xor i32 %84, %.0.i.i.i.i
-  %88 = and i32 %85, %87
-  %89 = icmp eq i32 %88, 0
-  %spec.select.i.i.i = select i1 %89, i1 true, i1 %.sroa.5.1.i.i.i
-  %90 = getelementptr inbounds nuw i8, ptr %83, i64 12
-  %91 = load i8, ptr %90, align 4
-  %92 = icmp eq i8 %91, 1
-  br i1 %92, label %pgstat_entry_ref_hash_iterate.exit.i.i.i, label %78, !llvm.loop !8
+79:                                               ; preds = %77
+  %80 = load ptr, ptr %75, align 8
+  %81 = zext i32 %.sroa.0.1.i.i.i to i64
+  %82 = getelementptr %struct.PgStat_EntryRefHashEntry, ptr %80, i64 %81
+  %83 = add i32 %.sroa.0.1.i.i.i, -1
+  %84 = load i32, ptr %76, align 4
+  %85 = and i32 %84, %83
+  %86 = xor i32 %83, %.0.i.i.i.i
+  %87 = and i32 %84, %86
+  %88 = icmp eq i32 %87, 0
+  %spec.select.i.i.i = select i1 %88, i1 true, i1 %.sroa.5.1.i.i.i
+  %89 = getelementptr inbounds nuw i8, ptr %82, i64 12
+  %90 = load i8, ptr %89, align 4
+  %91 = icmp eq i8 %90, 1
+  br i1 %91, label %pgstat_entry_ref_hash_iterate.exit.i.i.i, label %77, !llvm.loop !8
 
-pgstat_entry_ref_hash_iterate.exit.i.i.i:         ; preds = %80
-  %.not.i.i.i = icmp eq ptr %83, null
-  br i1 %.not.i.i.i, label %pgstat_release_db_entry_refs.exit.i, label %93
+pgstat_entry_ref_hash_iterate.exit.i.i.i:         ; preds = %79
+  %.not.i.i.i = icmp eq ptr %82, null
+  br i1 %.not.i.i.i, label %pgstat_release_db_entry_refs.exit.i, label %92
 
-93:                                               ; preds = %pgstat_entry_ref_hash_iterate.exit.i.i.i
-  %94 = getelementptr inbounds nuw i8, ptr %83, i64 4
-  %95 = load i32, ptr %94, align 4
-  %96 = icmp eq i32 %95, %61
-  br i1 %96, label %97, label %pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i, !llvm.loop !9
+92:                                               ; preds = %pgstat_entry_ref_hash_iterate.exit.i.i.i
+  %93 = getelementptr inbounds nuw i8, ptr %82, i64 4
+  %94 = load i32, ptr %93, align 4
+  %95 = icmp eq i32 %94, %60
+  br i1 %95, label %96, label %pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i, !llvm.loop !9
 
-97:                                               ; preds = %93
-  %98 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  %99 = load ptr, ptr %98, align 8
-  %.sroa.0.0.copyload.i.i.i = load i64, ptr %83, align 8
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %83, i64 8
+96:                                               ; preds = %92
+  %97 = getelementptr inbounds nuw i8, ptr %82, i64 16
+  %98 = load ptr, ptr %97, align 8
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %82, align 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %82, i64 8
   %.sroa.2.0.copyload.i.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  call fastcc void @pgstat_release_entry_ref(i64 %.sroa.0.0.copyload.i.i.i, i32 %.sroa.2.0.copyload.i.i.i, ptr noundef %99, i1 noundef zeroext true)
+  call fastcc void @pgstat_release_entry_ref(i64 %.sroa.0.0.copyload.i.i.i, i32 %.sroa.2.0.copyload.i.i.i, ptr noundef %98, i1 noundef zeroext true)
   %.pre.i.pre.i.i = load ptr, ptr @pgStatEntryRefHash, align 8
   br label %pgstat_entry_ref_hash_start_iterate.exit.split.i.i.i.outer, !llvm.loop !9
 
-pgstat_release_db_entry_refs.exit.i:              ; preds = %pgstat_entry_ref_hash_iterate.exit.i.i.i, %78, %60
-  %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
-  call void @dshash_seq_init(ptr noundef nonnull %4, ptr noundef %100, i1 noundef zeroext true) #14
-  %101 = call ptr @dshash_seq_next(ptr noundef nonnull %4) #14
-  %.not1517.i = icmp eq ptr %101, null
+pgstat_release_db_entry_refs.exit.i:              ; preds = %pgstat_entry_ref_hash_iterate.exit.i.i.i, %77, %59
+  %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
+  call void @dshash_seq_init(ptr noundef nonnull %4, ptr noundef %99, i1 noundef zeroext true) #14
+  %100 = call ptr @dshash_seq_next(ptr noundef nonnull %4) #14
+  %.not1517.i = icmp eq ptr %100, null
   br i1 %.not1517.i, label %.outer._crit_edge.thread.i, label %.lr.ph.i
 
 .outer._crit_edge.thread.i:                       ; preds = %pgstat_release_db_entry_refs.exit.i
@@ -1509,69 +1505,69 @@ pgstat_release_db_entry_refs.exit.i:              ; preds = %pgstat_entry_ref_ha
   br label %pgstat_drop_database_and_contents.exit
 
 .lr.ph.i:                                         ; preds = %pgstat_release_db_entry_refs.exit.i, %pgstat_drop_entry_internal.exit.i
-  %102 = phi ptr [ %122, %pgstat_drop_entry_internal.exit.i ], [ %101, %pgstat_release_db_entry_refs.exit.i ]
+  %101 = phi ptr [ %121, %pgstat_drop_entry_internal.exit.i ], [ %100, %pgstat_release_db_entry_refs.exit.i ]
   %.0.ph18.i = phi i64 [ %spec.select.i, %pgstat_drop_entry_internal.exit.i ], [ 0, %pgstat_release_db_entry_refs.exit.i ]
-  br label %103
+  br label %102
 
-103:                                              ; preds = %.backedge.i, %.lr.ph.i
-  %104 = phi ptr [ %102, %.lr.ph.i ], [ %108, %.backedge.i ]
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 12
-  %106 = load i8, ptr %105, align 4
-  %107 = trunc i8 %106 to i1
-  br i1 %107, label %.backedge.i, label %109
+102:                                              ; preds = %.backedge.i, %.lr.ph.i
+  %103 = phi ptr [ %101, %.lr.ph.i ], [ %107, %.backedge.i ]
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 12
+  %105 = load i8, ptr %104, align 4
+  %106 = trunc i8 %105 to i1
+  br i1 %106, label %.backedge.i, label %108
 
-.backedge.i:                                      ; preds = %109, %103
-  %108 = call ptr @dshash_seq_next(ptr noundef nonnull %4) #14
-  %.not.i = icmp eq ptr %108, null
-  br i1 %.not.i, label %.outer._crit_edge.i, label %103, !llvm.loop !16
+.backedge.i:                                      ; preds = %108, %102
+  %107 = call ptr @dshash_seq_next(ptr noundef nonnull %4) #14
+  %.not.i = icmp eq ptr %107, null
+  br i1 %.not.i, label %.outer._crit_edge.i, label %102, !llvm.loop !16
 
-109:                                              ; preds = %103
-  %110 = getelementptr inbounds nuw i8, ptr %104, i64 4
-  %111 = load i32, ptr %110, align 4
-  %.not8.i = icmp eq i32 %111, %61
-  br i1 %.not8.i, label %112, label %.backedge.i
+108:                                              ; preds = %102
+  %109 = getelementptr inbounds nuw i8, ptr %103, i64 4
+  %110 = load i32, ptr %109, align 4
+  %.not8.i = icmp eq i32 %110, %60
+  br i1 %.not8.i, label %111, label %.backedge.i
 
-112:                                              ; preds = %109
-  %113 = getelementptr inbounds nuw i8, ptr %104, i64 12
-  store i8 1, ptr %113, align 4
-  %114 = getelementptr inbounds nuw i8, ptr %104, i64 16
-  %115 = atomicrmw sub ptr %114, i32 1 seq_cst, align 4
-  %116 = icmp ne i32 %115, 1
-  br i1 %116, label %pgstat_drop_entry_internal.exit.i, label %117
+111:                                              ; preds = %108
+  %112 = getelementptr inbounds nuw i8, ptr %103, i64 12
+  store i8 1, ptr %112, align 4
+  %113 = getelementptr inbounds nuw i8, ptr %103, i64 16
+  %114 = atomicrmw sub ptr %113, i32 1 seq_cst, align 4
+  %115 = icmp ne i32 %114, 1
+  br i1 %115, label %pgstat_drop_entry_internal.exit.i, label %116
 
-117:                                              ; preds = %112
-  %118 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  %119 = load i64, ptr %118, align 8
+116:                                              ; preds = %111
+  %117 = getelementptr inbounds nuw i8, ptr %103, i64 24
+  %118 = load i64, ptr %117, align 8
   call void @dshash_delete_current(ptr noundef nonnull %4) #14
-  %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
-  call void @dsa_free(ptr noundef %120, i64 noundef %119) #14
+  %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
+  call void @dsa_free(ptr noundef %119, i64 noundef %118) #14
   br label %pgstat_drop_entry_internal.exit.i
 
-pgstat_drop_entry_internal.exit.i:                ; preds = %117, %112
-  %121 = zext i1 %116 to i64
-  %spec.select.i = add i64 %.0.ph18.i, %121
-  %122 = call ptr @dshash_seq_next(ptr noundef nonnull %4) #14
-  %.not15.i = icmp eq ptr %122, null
+pgstat_drop_entry_internal.exit.i:                ; preds = %116, %111
+  %120 = zext i1 %115 to i64
+  %spec.select.i = add i64 %.0.ph18.i, %120
+  %121 = call ptr @dshash_seq_next(ptr noundef nonnull %4) #14
+  %.not15.i = icmp eq ptr %121, null
   br i1 %.not15.i, label %.outer._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
 
 .outer._crit_edge.i:                              ; preds = %pgstat_drop_entry_internal.exit.i, %.backedge.i
   %.0.ph.lcssa.i = phi i64 [ %.0.ph18.i, %.backedge.i ], [ %spec.select.i, %pgstat_drop_entry_internal.exit.i ]
   call void @dshash_seq_term(ptr noundef nonnull %4) #14
   %.not7.i = icmp eq i64 %.0.ph.lcssa.i, 0
-  br i1 %.not7.i, label %pgstat_drop_database_and_contents.exit, label %123
+  br i1 %.not7.i, label %pgstat_drop_database_and_contents.exit, label %122
 
-123:                                              ; preds = %.outer._crit_edge.i
-  %124 = load ptr, ptr @pgStatLocal, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
-  %126 = call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %125, i64 1, ptr nonnull elementtype(i64) %125) #14, !srcloc !15
+122:                                              ; preds = %.outer._crit_edge.i
+  %123 = load ptr, ptr @pgStatLocal, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 24
+  %125 = call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %124, i64 1, ptr nonnull elementtype(i64) %124) #14, !srcloc !15
   br label %pgstat_drop_database_and_contents.exit
 
-pgstat_drop_database_and_contents.exit:           ; preds = %.outer._crit_edge.thread.i, %.outer._crit_edge.i, %123
+pgstat_drop_database_and_contents.exit:           ; preds = %.outer._crit_edge.thread.i, %.outer._crit_edge.i, %122
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  br label %127
+  br label %126
 
-127:                                              ; preds = %56, %pgstat_drop_database_and_contents.exit, %53
-  %.0.shrunk = phi i1 [ %57, %pgstat_drop_database_and_contents.exit ], [ %57, %56 ], [ true, %53 ]
+126:                                              ; preds = %55, %pgstat_drop_database_and_contents.exit, %52
+  %.0.shrunk = phi i1 [ %56, %pgstat_drop_database_and_contents.exit ], [ %56, %55 ], [ true, %52 ]
   ret i1 %.0.shrunk
 }
 
@@ -1743,7 +1739,7 @@ shared_stat_reset_contents.exit:                  ; preds = %11, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pgstat_reset_matching_entries(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @pgstat_reset_matching_entries(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.dshash_seq_status, align 8
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
   call void @dshash_seq_init(ptr noundef nonnull %4, ptr noundef %5, i1 noundef zeroext false) #14
@@ -1812,7 +1808,7 @@ define dso_local void @pgstat_reset_entries_of_kind(i32 noundef %0, i64 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @match_kind(ptr nocapture noundef readonly %0, i64 noundef %1) #3 {
+define internal zeroext i1 @match_kind(ptr noundef readonly captures(none) %0, i64 noundef %1) #3 {
   %3 = load i32, ptr %0, align 8
   %4 = trunc i64 %1 to i32
   %5 = icmp eq i32 %3, %4
@@ -1820,13 +1816,13 @@ define internal zeroext i1 @match_kind(ptr nocapture noundef readonly %0, i64 no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pgstat_cmp_hash_key(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture readnone %3) #4 {
+define internal i32 @pgstat_cmp_hash_key(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2, ptr readnone captures(none) %3) #4 {
   %5 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(12) %0, ptr noundef nonnull dereferenceable(12) %1, i64 noundef 12) #16
   ret i32 %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @pgstat_hash_hash_key(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2) #5 {
+define internal i32 @pgstat_hash_hash_key(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2) #5 {
   %.sroa.15.016.i.i = mul i64 %1, -8645972361240307355
   %4 = icmp ugt i64 %1, 7
   br i1 %4, label %.lr.ph.i.i, label %._crit_edge.i.i
@@ -1948,10 +1944,10 @@ fasthash32.exit:                                  ; preds = %._crit_edge.i.i, %5
 declare void @dshash_memcpy(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1991,13 +1987,13 @@ declare i64 @llvm.umax.i64(i64, i64) #11
 declare i64 @llvm.ctpop.i64(i64) #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

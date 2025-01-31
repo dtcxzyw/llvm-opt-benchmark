@@ -2390,7 +2390,7 @@ define internal void @_ZN12_GLOBAL__N_111FlowmapPassD0Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_111FlowmapPass4helpEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_111FlowmapPass4helpEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   tail call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.3)
   tail call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.4)
   tail call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.3)
@@ -7121,7 +7121,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 declare void @_ZN5Yosys3logEPKcz(ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -7611,7 +7611,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #7
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare void @__cxa_rethrow() local_unnamed_addr
 
@@ -8092,7 +8092,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i71, %.l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
@@ -9263,7 +9263,7 @@ _ZNK5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE9do_lookupERKS2_Ri.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #13
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 declare void @_ZN5Yosys13log_backtraceEPKci(ptr noundef, i32 noundef) local_unnamed_addr #0
 
@@ -9909,7 +9909,7 @@ _ZNK5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE9do_lookupERKS2_Ri.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE8do_eraseEii(ptr noundef nonnull align 8 dereferenceable(49) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -45342,7 +45342,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit81: ; preds = %_ZN5Yosys5RTLIL
 declare void @_ZN5Yosys11log_warningEPKcz(ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys7hashlib4poolINS6_5RTLIL6SigBitENS7_8hash_opsISA_EEEENS7_4dictISA_SD_SC_EESD_SD_St8functionIFNS_10GraphStyleESA_EESG_IFSH_SA_SA_EES5_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys7hashlib4poolINS6_5RTLIL6SigBitENS7_8hash_opsISA_EEEENS7_4dictISA_SD_SC_EESD_SD_St8functionIFNS_10GraphStyleESA_EESG_IFSH_SA_SA_EES5_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %9 = alloca [75 x i32], align 4
   %10 = alloca %"class.std::allocator.5", align 1
   %11 = alloca [75 x i32], align 4
@@ -47796,10 +47796,10 @@ _ZNSt6vectorIN5Yosys7hashlib4poolINS0_5RTLIL6SigBitENS1_8hash_opsIS4_EEE7entry_t
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #15
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #15
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) local_unnamed_addr #4 comdat align 2 {
@@ -48034,7 +48034,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110GraphStyleD2Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEE9do_insertEOSt4pairIS3_iERi(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -48462,10 +48462,10 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4dictINS0_5RTLIL6SigBitENS1_4poolIS4_NS1_8has
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFN12_GLOBAL__N_110GraphStyleEN5Yosys5RTLIL6SigBitEEZNS0_13FlowmapWorker14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS6_9GraphModeENS2_7hashlib4poolIS4_NSE_8hash_opsIS4_EEEENSE_4dictIS4_SI_SH_EESK_St4pairISI_SI_EEUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_(ptr dead_on_unwind noalias writable sret(%"struct.(anonymous namespace)::GraphStyle") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFN12_GLOBAL__N_110GraphStyleEN5Yosys5RTLIL6SigBitEEZNS0_13FlowmapWorker14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS6_9GraphModeENS2_7hashlib4poolIS4_NSE_8hash_opsIS4_EEEENSE_4dictIS4_SI_SH_EESK_St4pairISI_SI_EEUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_(ptr dead_on_unwind noalias writable sret(%"struct.(anonymous namespace)::GraphStyle") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
@@ -49553,7 +49553,7 @@ _ZSt10__invoke_rIN12_GLOBAL__N_110GraphStyleERZNS0_13FlowmapWorker14dump_dot_gra
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFN12_GLOBAL__N_110GraphStyleEN5Yosys5RTLIL6SigBitEEZNS0_13FlowmapWorker14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS6_9GraphModeENS2_7hashlib4poolIS4_NSE_8hash_opsIS4_EEEENSE_4dictIS4_SI_SH_EESK_St4pairISI_SI_EEUlS4_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #4 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFN12_GLOBAL__N_110GraphStyleEN5Yosys5RTLIL6SigBitEEZNS0_13FlowmapWorker14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS6_9GraphModeENS2_7hashlib4poolIS4_NSE_8hash_opsIS4_EEEENSE_4dictIS4_SI_SH_EESK_St4pairISI_SI_EEUlS4_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #4 align 2 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113FlowmapWorker14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9GraphModeEN5Yosys7hashlib4poolINSA_5RTLIL6SigBitENSB_8hash_opsISE_EEEENSB_4dictISE_SH_SG_EESJ_St4pairISH_SH_EEUlSE_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit [
     i32 0, label %4
     i32 1, label %5
@@ -49681,13 +49681,13 @@ define linkonce_odr void @_ZN5Yosys8vstringfB5cxx11EPKcP13__va_list_tag(ptr dead
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #15
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
 declare i32 @vasprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFN12_GLOBAL__N_110GraphStyleEN5Yosys5RTLIL6SigBitES4_EZNS0_13FlowmapWorker14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS6_9GraphModeENS2_7hashlib4poolIS4_NSE_8hash_opsIS4_EEEENSE_4dictIS4_SI_SH_EESK_St4pairISI_SI_EEUlS4_S4_E_E9_M_invokeERKSt9_Any_dataOS4_SS_(ptr dead_on_unwind noalias writable sret(%"struct.(anonymous namespace)::GraphStyle") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readonly align 8 %2, ptr nocapture nonnull readonly align 8 %3) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFN12_GLOBAL__N_110GraphStyleEN5Yosys5RTLIL6SigBitES4_EZNS0_13FlowmapWorker14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS6_9GraphModeENS2_7hashlib4poolIS4_NSE_8hash_opsIS4_EEEENSE_4dictIS4_SI_SH_EESK_St4pairISI_SI_EEUlS4_S4_E_E9_M_invokeERKSt9_Any_dataOS4_SS_(ptr dead_on_unwind noalias writable sret(%"struct.(anonymous namespace)::GraphStyle") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readonly align 8 captures(none) %2, ptr nonnull readonly align 8 captures(none) %3) #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -49803,7 +49803,7 @@ _ZSt10__invoke_rIN12_GLOBAL__N_110GraphStyleERZNS0_13FlowmapWorker14dump_dot_gra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFN12_GLOBAL__N_110GraphStyleEN5Yosys5RTLIL6SigBitES4_EZNS0_13FlowmapWorker14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS6_9GraphModeENS2_7hashlib4poolIS4_NSE_8hash_opsIS4_EEEENSE_4dictIS4_SI_SH_EESK_St4pairISI_SI_EEUlS4_S4_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFN12_GLOBAL__N_110GraphStyleEN5Yosys5RTLIL6SigBitES4_EZNS0_13FlowmapWorker14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS6_9GraphModeENS2_7hashlib4poolIS4_NSE_8hash_opsIS4_EEEENSE_4dictIS4_SI_SH_EESK_St4pairISI_SI_EEUlS4_S4_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #17 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113FlowmapWorker14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9GraphModeEN5Yosys7hashlib4poolINSA_5RTLIL6SigBitENSB_8hash_opsISE_EEEENSB_4dictISE_SH_SG_EESJ_St4pairISH_SH_EEUlSE_SE_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113FlowmapWorker14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_9GraphModeEN5Yosys7hashlib4poolINSA_5RTLIL6SigBitENSB_8hash_opsISE_EEEENSB_4dictISE_SH_SG_EESJ_St4pairISH_SH_EEUlSE_SE_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -50300,7 +50300,7 @@ _ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEC2ERKS6_.exit8: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19FlowGraphD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(376) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19FlowGraphD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(376) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %4 = load ptr, ptr %3, align 8
@@ -53630,7 +53630,7 @@ _ZNSt6vectorIN12_GLOBAL__N_19FlowGraph9NodePrimeESaIS2_EED2Ev.exit: ; preds = %.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_19FlowGraph9NodePrimeENS0_8hash_opsIS4_EEE6insertERKS4_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_19FlowGraph9NodePrimeENS0_8hash_opsIS4_EEE6insertERKS4_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %.val = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -53879,7 +53879,7 @@ _ZN5Yosys7hashlib4poolIN12_GLOBAL__N_19FlowGraph9NodePrimeENS0_8hash_opsIS4_EEE9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_19FlowGraph9NodePrimeENS0_8hash_opsIS4_EEED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5Yosys7hashlib4poolIN12_GLOBAL__N_19FlowGraph9NodePrimeENS0_8hash_opsIS4_EEED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %.val, null
@@ -53903,7 +53903,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN5Yosy
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZNK5Yosys7hashlib4poolIN12_GLOBAL__N_19FlowGraph9NodePrimeENS0_8hash_opsIS4_EEE9do_lookupERKS4_Ri(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #4 align 2 {
+define internal fastcc noundef i32 @_ZNK5Yosys7hashlib4poolIN12_GLOBAL__N_19FlowGraph9NodePrimeENS0_8hash_opsIS4_EEE9do_lookupERKS4_Ri(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %2) unnamed_addr #4 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -54748,7 +54748,7 @@ _ZNK5Yosys7hashlib4dictISt4pairINS_5RTLIL6SigBitES4_EiNS0_8hash_opsIS5_EEE7do_ha
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFN12_GLOBAL__N_110GraphStyleEN5Yosys5RTLIL6SigBitEEZNS0_9FlowGraph14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_(ptr dead_on_unwind noalias writable sret(%"struct.(anonymous namespace)::GraphStyle") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFN12_GLOBAL__N_110GraphStyleEN5Yosys5RTLIL6SigBitEEZNS0_9FlowGraph14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_(ptr dead_on_unwind noalias writable sret(%"struct.(anonymous namespace)::GraphStyle") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2) #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
@@ -55218,7 +55218,7 @@ _ZSt10__invoke_rIN12_GLOBAL__N_110GraphStyleERZNS0_9FlowGraph14dump_dot_graphENS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFN12_GLOBAL__N_110GraphStyleEN5Yosys5RTLIL6SigBitEEZNS0_9FlowGraph14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlS4_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFN12_GLOBAL__N_110GraphStyleEN5Yosys5RTLIL6SigBitEEZNS0_9FlowGraph14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlS4_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #18 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_19FlowGraph14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlN5Yosys5RTLIL6SigBitEE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit [
     i32 0, label %4
     i32 1, label %5
@@ -55243,7 +55243,7 @@ _ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_19FlowGraph14dump_dot_graphE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFN12_GLOBAL__N_110GraphStyleEN5Yosys5RTLIL6SigBitES4_EZNS0_9FlowGraph14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlS4_S4_E_E9_M_invokeERKSt9_Any_dataOS4_SI_(ptr dead_on_unwind noalias writable sret(%"struct.(anonymous namespace)::GraphStyle") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %3) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFN12_GLOBAL__N_110GraphStyleEN5Yosys5RTLIL6SigBitES4_EZNS0_9FlowGraph14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlS4_S4_E_E9_M_invokeERKSt9_Any_dataOS4_SI_(ptr dead_on_unwind noalias writable sret(%"struct.(anonymous namespace)::GraphStyle") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %3) #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca %"struct.std::pair.313", align 8
   %7 = alloca %"struct.std::pair.309", align 8
@@ -55437,7 +55437,7 @@ _ZSt10__invoke_rIN12_GLOBAL__N_110GraphStyleERZNS0_9FlowGraph14dump_dot_graphENS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFN12_GLOBAL__N_110GraphStyleEN5Yosys5RTLIL6SigBitES4_EZNS0_9FlowGraph14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlS4_S4_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFN12_GLOBAL__N_110GraphStyleEN5Yosys5RTLIL6SigBitES4_EZNS0_9FlowGraph14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlS4_S4_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #18 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_19FlowGraph14dump_dot_graphENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlN5Yosys5RTLIL6SigBitESB_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit [
     i32 0, label %4
     i32 1, label %5
@@ -69684,7 +69684,7 @@ _ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEED2Ev.exit179: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker19check_lut_distancesERKN5Yosys7hashlib4dictINS1_5RTLIL6SigBitEiNS2_8hash_opsIS5_EEEEb(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113FlowmapWorker19check_lut_distancesERKN5Yosys7hashlib4dictINS1_5RTLIL6SigBitEiNS2_8hash_opsIS5_EEEEb(ptr noundef nonnull align 8 dereferenceable(1076) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Yosys::hashlib::dict.97", align 8
   %5 = alloca %"class.Yosys::hashlib::pool.72", align 8
   %6 = alloca %"struct.std::pair.271", align 8
@@ -130371,7 +130371,7 @@ declare void @llvm.va_copy.p0(ptr, ptr) #20
 declare void @llvm.assume(i1 noundef) #21
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #22
@@ -130383,10 +130383,10 @@ declare i64 @llvm.umin.i64(i64, i64) #22
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #22

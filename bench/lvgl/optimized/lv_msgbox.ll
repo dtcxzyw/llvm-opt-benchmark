@@ -226,7 +226,7 @@ declare void @lv_image_set_src(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @lv_obj_align(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @lv_msgbox_add_text(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef ptr @lv_msgbox_add_text(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = tail call ptr @lv_label_create(ptr noundef %4) #3
@@ -311,28 +311,28 @@ lv_msgbox_close.exit:                             ; preds = %1, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_msgbox_get_header(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_msgbox_get_header(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_msgbox_get_footer(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_msgbox_get_footer(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_msgbox_get_content(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_msgbox_get_content(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_msgbox_get_title(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_msgbox_get_title(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !13
   ret ptr %3

@@ -258,7 +258,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN4YAML6detail6memoryEEET
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIN4YAML6detail13memory_holderEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -341,7 +341,7 @@ _ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4YAML11NodeBuilderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML11NodeBuilderD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML11NodeBuilderE, i64 16), ptr %this, align 8
   %m_keys = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -460,7 +460,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML11NodeBuilder4RootEv(ptr noalias sret(%"class.YAML::Node") align 8 initializes((0, 1)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML11NodeBuilder4RootEv(ptr noalias sret(%"class.YAML::Node") align 8 initializes((0, 1)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_pRoot = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_pRoot, align 8
@@ -607,19 +607,19 @@ return:                                           ; preds = %if.end8.sink.split.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN4YAML11NodeBuilder15OnDocumentStartERKNS_4MarkE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #5 align 2 {
+define void @_ZN4YAML11NodeBuilder15OnDocumentStartERKNS_4MarkE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN4YAML11NodeBuilder13OnDocumentEndEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define void @_ZN4YAML11NodeBuilder13OnDocumentEndEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML11NodeBuilder6OnNullERKNS_4MarkEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark, i64 noundef %anchor) unnamed_addr #0 align 2 {
+define void @_ZN4YAML11NodeBuilder6OnNullERKNS_4MarkEm(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark, i64 noundef %anchor) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML11NodeBuilder4PushERKNS_4MarkEm(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark, i64 noundef %anchor)
   tail call void @_ZN4YAML6detail4node12mark_definedEv(ptr noundef nonnull align 8 dereferenceable(72) %call)
@@ -631,7 +631,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML11NodeBuilder4PushERKNS_4MarkEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark, i64 noundef %anchor) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML11NodeBuilder4PushERKNS_4MarkEm(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark, i64 noundef %anchor) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_pMemory = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_pMemory, align 8
@@ -713,7 +713,7 @@ _ZN4YAML11NodeBuilder14RegisterAnchorEmRNS_6detail4nodeE.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML11NodeBuilder3PopEv(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML11NodeBuilder3PopEv(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr", align 8
   %agg.tmp18 = alloca %"class.std::shared_ptr", align 8
@@ -1010,7 +1010,7 @@ eh.resume:                                        ; preds = %lpad20, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML11NodeBuilder7OnAliasERKNS_4MarkEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture nonnull readnone align 4 %0, i64 noundef %anchor) unnamed_addr #0 align 2 {
+define void @_ZN4YAML11NodeBuilder7OnAliasERKNS_4MarkEm(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %this, ptr nonnull readnone align 4 captures(none) %0, i64 noundef %anchor) unnamed_addr #0 align 2 {
 entry:
   %m_anchors = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load ptr, ptr %m_anchors, align 8
@@ -1022,7 +1022,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML11NodeBuilder4PushERNS_6detail4nodeE(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(72) %node) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML11NodeBuilder4PushERNS_6detail4nodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(72) %node) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_stack = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_stack, align 8
@@ -1255,7 +1255,7 @@ if.end:                                           ; preds = %_ZNSt6vectorIPN4YAM
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML11NodeBuilder8OnScalarERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSB_(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark, ptr noundef nonnull align 8 dereferenceable(32) %tag, i64 noundef %anchor, ptr noundef nonnull align 8 dereferenceable(32) %value) unnamed_addr #0 align 2 {
+define void @_ZN4YAML11NodeBuilder8OnScalarERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSB_(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark, ptr noundef nonnull align 8 dereferenceable(32) %tag, i64 noundef %anchor, ptr noundef nonnull align 8 dereferenceable(32) %value) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML11NodeBuilder4PushERKNS_4MarkEm(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark, i64 noundef %anchor)
   tail call void @_ZN4YAML6detail4node12mark_definedEv(ptr noundef nonnull align 8 dereferenceable(72) %call)
@@ -1271,7 +1271,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML11NodeBuilder15OnSequenceStartERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_12EmitterStyle5valueE(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark, ptr noundef nonnull align 8 dereferenceable(32) %tag, i64 noundef %anchor, i32 noundef %style) unnamed_addr #0 align 2 {
+define void @_ZN4YAML11NodeBuilder15OnSequenceStartERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_12EmitterStyle5valueE(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark, ptr noundef nonnull align 8 dereferenceable(32) %tag, i64 noundef %anchor, i32 noundef %style) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML11NodeBuilder4PushERKNS_4MarkEm(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark, i64 noundef %anchor)
   tail call void @_ZN4YAML6detail4node12mark_definedEv(ptr noundef nonnull align 8 dereferenceable(72) %call)
@@ -1290,14 +1290,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML11NodeBuilder13OnSequenceEndEv(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 {
+define void @_ZN4YAML11NodeBuilder13OnSequenceEndEv(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN4YAML11NodeBuilder3PopEv(ptr noundef nonnull align 8 dereferenceable(112) %this)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML11NodeBuilder10OnMapStartERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_12EmitterStyle5valueE(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark, ptr noundef nonnull align 8 dereferenceable(32) %tag, i64 noundef %anchor, i32 noundef %style) unnamed_addr #0 align 2 {
+define void @_ZN4YAML11NodeBuilder10OnMapStartERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_12EmitterStyle5valueE(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark, ptr noundef nonnull align 8 dereferenceable(32) %tag, i64 noundef %anchor, i32 noundef %style) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML11NodeBuilder4PushERKNS_4MarkEm(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark, i64 noundef %anchor)
   tail call void @_ZN4YAML6detail4node12mark_definedEv(ptr noundef nonnull align 8 dereferenceable(72) %call)
@@ -1320,7 +1320,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML11NodeBuilder8OnMapEndEv(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 {
+define void @_ZN4YAML11NodeBuilder8OnMapEndEv(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %this) unnamed_addr #0 align 2 {
 entry:
   %m_mapDepth = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load i64, ptr %m_mapDepth, align 8
@@ -1331,7 +1331,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML11NodeBuilder14RegisterAnchorEmRNS_6detail4nodeE(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, i64 noundef %anchor, ptr noundef nonnull align 8 dereferenceable(72) %node) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML11NodeBuilder14RegisterAnchorEmRNS_6detail4nodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %this, i64 noundef %anchor, ptr noundef nonnull align 8 dereferenceable(72) %node) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq i64 %anchor, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -2038,7 +2038,7 @@ declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare void @_ZN4YAML6detail9node_data6insertERNS0_4nodeES3_RKSt10shared_ptrINS0_13memory_holderEE(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #9
 
@@ -2242,7 +2242,7 @@ entry:
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13

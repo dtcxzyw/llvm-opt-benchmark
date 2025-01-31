@@ -192,7 +192,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow4util8ArrowLogC2EPKciNS0_13ArrowLogLevelE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %this, ptr noundef %file_name, i32 noundef %line_number, i32 noundef %severity) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow4util8ArrowLogC2EPKciNS0_13ArrowLogLevelE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((0, 17)) %this, ptr noundef %file_name, i32 noundef %line_number, i32 noundef %severity) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow4util8ArrowLogE, i64 16), ptr %this, align 8
   %logging_provider_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -228,7 +228,7 @@ invoke.cont10:                                    ; preds = %if.then.i20, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow4util8ArrowLog6StreamEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) unnamed_addr #9 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrow4util8ArrowLog6StreamEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) unnamed_addr #9 align 2 {
 entry:
   %logging_provider_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %logging_provider_, align 8
@@ -238,7 +238,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5arrow4util8ArrowLog9IsEnabledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this) unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZNK5arrow4util8ArrowLog9IsEnabledEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %this) unnamed_addr #10 align 2 {
 entry:
   %is_enabled_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i8, ptr %is_enabled_, align 8
@@ -247,7 +247,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow4util8ArrowLogD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define void @_ZN5arrow4util8ArrowLogD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(17) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow4util8ArrowLogE, i64 16), ptr %this, align 8
   %logging_provider_ = getelementptr inbounds nuw i8, ptr %this, i64 8

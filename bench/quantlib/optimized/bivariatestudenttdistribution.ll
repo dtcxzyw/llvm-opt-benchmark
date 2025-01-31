@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN8QuantLib38BivariateCumulativeStudentDistributionC1Ejd = unnamed_addr alias void (ptr, i32, double), ptr @_ZN8QuantLib38BivariateCumulativeStudentDistributionC2Ejd
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib38BivariateCumulativeStudentDistributionC2Ejd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %this, i32 noundef %n, double noundef %rho) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib38BivariateCumulativeStudentDistributionC2Ejd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 4), (8, 16)) %this, i32 noundef %n, double noundef %rho) unnamed_addr #0 align 2 {
 entry:
   store i32 %n, ptr %this, align 8, !tbaa !3
   %rho_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -15,7 +15,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define noundef double @_ZNK8QuantLib38BivariateCumulativeStudentDistributionclEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, double noundef %x, double noundef %y) local_unnamed_addr #1 align 2 {
+define noundef double @_ZNK8QuantLib38BivariateCumulativeStudentDistributionclEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, double noundef %x, double noundef %y) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8, !tbaa !3
   %rho_ = getelementptr inbounds nuw i8, ptr %this, i64 8

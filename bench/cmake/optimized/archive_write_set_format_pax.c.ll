@@ -208,7 +208,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @archive_write_pax_options(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) #0 {
+define internal range(i32 -30, 1) i32 @archive_write_pax_options(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.6) #17
@@ -542,7 +542,7 @@ get_entry_hardlink.exit:                          ; preds = %40, %51
 ._crit_edge:                                      ; preds = %99, %93
   %101 = getelementptr inbounds nuw i8, ptr %89, i64 2
   %102 = add i64 %87, 1
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %101, ptr align 1 %89, i64 %102, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %101, ptr nonnull align 1 %89, i64 %102, i1 false)
   store i16 24366, ptr %89, align 1
   br label %107
 
@@ -556,7 +556,7 @@ get_entry_hardlink.exit:                          ; preds = %40, %51
   br label %107
 
 107:                                              ; preds = %.critedge, %._crit_edge
-  call void @archive_entry_copy_pathname(ptr noundef %85, ptr noundef %89) #15
+  call void @archive_entry_copy_pathname(ptr noundef %85, ptr noundef nonnull %89) #15
   call void @free(ptr noundef %89) #15
   %108 = load i64, ptr %8, align 8
   call void @archive_entry_set_size(ptr noundef %85, i64 noundef %108) #15
@@ -574,14 +574,14 @@ get_entry_hardlink.exit:                          ; preds = %40, %51
   call void @archive_entry_set_uid(ptr noundef %85, i64 noundef %114) #15
   %115 = call ptr @archive_entry_uname(ptr noundef %1) #15
   call void @archive_entry_set_uname(ptr noundef %85, ptr noundef %115) #15
-  %116 = call i32 @archive_write_pax_header(ptr noundef %0, ptr noundef %85)
+  %116 = call i32 @archive_write_pax_header(ptr noundef nonnull %0, ptr noundef %85)
   call void @archive_entry_free(ptr noundef %85) #15
   %117 = icmp slt i32 %116, -20
   br i1 %117, label %550, label %118
 
 118:                                              ; preds = %107
   %119 = load i64, ptr %8, align 8
-  %120 = call i64 @archive_write_pax_data(ptr noundef %0, ptr noundef nonnull %83, i64 noundef %119)
+  %120 = call i64 @archive_write_pax_data(ptr noundef nonnull %0, ptr noundef nonnull %83, i64 noundef %119)
   %121 = trunc i64 %120 to i32
   %122 = icmp slt i32 %121, -20
   br i1 %122, label %550, label %123
@@ -627,7 +627,7 @@ archive_write_pax_finish_entry.exit:              ; preds = %136, %123, %.prehea
   %138 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %139 = load i64, ptr %138, align 8
   %140 = add i64 %139, %.0.i577
-  %141 = call i32 @__archive_write_nulls(ptr noundef %0, i64 noundef %140) #15
+  %141 = call i32 @__archive_write_nulls(ptr noundef nonnull %0, i64 noundef %140) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %124, i8 0, i64 16, i1 false)
   %142 = icmp slt i32 %141, -20
   br i1 %142, label %550, label %143
@@ -964,7 +964,7 @@ has_non_ASCII.exit:                               ; preds = %.preheader.i588
 
 .sink.split:                                      ; preds = %272, %274, %has_non_ASCII.exit, %.critedge567
   %282 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %257) #17
-  call fastcc void @add_pax_attr_binary(ptr noundef nonnull %149, ptr noundef nonnull @.str.27, ptr noundef %257, i64 noundef %282)
+  call fastcc void @add_pax_attr_binary(ptr noundef nonnull %149, ptr noundef nonnull @.str.27, ptr noundef nonnull %257, i64 noundef %282)
   %283 = load ptr, ptr %4, align 8
   %284 = load i64, ptr %10, align 8
   %285 = call fastcc ptr @build_ustar_entry_name(ptr noundef %16, ptr noundef %283, i64 noundef %284, ptr noundef null)
@@ -1345,7 +1345,7 @@ select.unfold:                                    ; preds = %367, %365
   call fastcc void @add_pax_attr_int(ptr noundef nonnull %149, ptr noundef nonnull @.str.43, i64 noundef 0)
   %446 = load ptr, ptr %4, align 8
   %447 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %446) #17
-  call fastcc void @add_pax_attr_binary(ptr noundef nonnull %149, ptr noundef nonnull @.str.44, ptr noundef %446, i64 noundef %447)
+  call fastcc void @add_pax_attr_binary(ptr noundef nonnull %149, ptr noundef nonnull @.str.44, ptr noundef nonnull %446, i64 noundef %447)
   %448 = call i64 @archive_entry_size(ptr noundef nonnull %145) #15
   call fastcc void @add_pax_attr_int(ptr noundef nonnull %149, ptr noundef nonnull @.str.45, i64 noundef %448)
   %449 = load ptr, ptr %19, align 8
@@ -1709,7 +1709,7 @@ define internal i32 @archive_write_pax_close(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_write_pax_free(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @archive_write_pax_free(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1792,7 +1792,7 @@ define internal i32 @archive_write_pax_finish_entry(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @archive_string_conversion_to_charset(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1824,7 +1824,7 @@ declare ptr @archive_string_conversion_charset_name(ptr noundef) local_unnamed_a
 declare i32 @archive_entry_filetype(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @archive_string_ensure(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1848,16 +1848,16 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare void @archive_entry_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #6
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 declare void @archive_entry_set_size(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1892,7 +1892,7 @@ declare ptr @archive_entry_uname(ptr noundef) local_unnamed_addr #1
 declare ptr @archive_entry_clone(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sparse_list_clear(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @sparse_list_clear(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not6 = icmp eq ptr %3, null
@@ -2509,7 +2509,7 @@ define internal fastcc noundef nonnull ptr @build_gnu_sparse_name(ptr noundef no
 declare void @archive_string_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc range(i32 -30, 1) i32 @sparse_list_add(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #9 {
+define internal fastcc range(i32 -30, 1) i32 @sparse_list_add(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #9 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -3070,7 +3070,7 @@ format_int.exit:                                  ; preds = %26, %28
   %.110.i = phi ptr [ %29, %28 ], [ %24, %26 ]
   %30 = call ptr @archive_strcat(ptr noundef %0, ptr noundef nonnull %.110.i) #15
   %31 = call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext 32) #15
-  %32 = call ptr @archive_strcat(ptr noundef %0, ptr noundef %1) #15
+  %32 = call ptr @archive_strcat(ptr noundef %0, ptr noundef nonnull %1) #15
   %33 = call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext 61) #15
   %34 = call ptr @archive_array_append(ptr noundef %0, ptr noundef %2, i64 noundef %3) #15
   %35 = call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext 10) #15
@@ -3082,7 +3082,7 @@ declare ptr @archive_strcat(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @archive_array_append(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #6
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 declare ptr @_archive_entry_acl_to_text_l(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3096,7 +3096,7 @@ declare i32 @archive_strncpy_l(ptr noundef, ptr noundef, i64 noundef, ptr nounde
 declare i32 @llvm.fshl.i32(i32, i32, i32) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #11
@@ -3105,7 +3105,7 @@ declare i64 @llvm.smin.i64(i64, i64) #11
 declare i64 @llvm.smax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11
@@ -3117,10 +3117,10 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #11
 declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11

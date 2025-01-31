@@ -260,7 +260,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 declare void @_ZN2cv11FileStorage7releaseEv(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN2cv3dnn15HalideScheduler7processERNS_3PtrINS0_14dnn4_v2024052111BackendNodeEEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readnone align 1 %1) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZN2cv3dnn15HalideScheduler7processERNS_3PtrINS0_14dnn4_v2024052111BackendNodeEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull readnone align 1 captures(none) %1) local_unnamed_addr #7 align 2 {
   ret i1 false
 }
 

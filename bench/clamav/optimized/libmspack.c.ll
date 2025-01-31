@@ -222,10 +222,10 @@ define i32 @cli_scanmscab(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @mspack_create_cab_decompressor(ptr noundef) local_unnamed_addr #3
 
@@ -240,7 +240,7 @@ declare i32 @cli_magic_scan_file(ptr noundef, ptr noundef, ptr noundef, i32 noun
 declare i32 @cli_unlink(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @mspack_destroy_cab_decompressor(ptr noundef) local_unnamed_addr #3
 
@@ -433,7 +433,7 @@ declare ptr @mspack_create_chm_decompressor(ptr noundef) local_unnamed_addr #3
 declare void @mspack_destroy_chm_decompressor(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @mspack_fmap_open(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) #0 {
+define internal noalias noundef ptr @mspack_fmap_open(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %5
 
@@ -539,7 +539,7 @@ define internal void @mspack_fmap_close(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mspack_fmap_read(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) #0 {
+define internal i32 @mspack_fmap_read(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) #0 {
   %4 = icmp slt i32 %2, 0
   br i1 %4, label %5, label %6
 
@@ -635,7 +635,7 @@ fmap_readn.exit:                                  ; preds = %31, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, -2147483648) i32 @mspack_fmap_write(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) #0 {
+define internal range(i32 -1, -2147483648) i32 @mspack_fmap_write(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) #0 {
   %4 = icmp sgt i32 %2, -1
   %5 = icmp ne ptr %0, null
   %or.cond = and i1 %5, %4
@@ -791,7 +791,7 @@ define internal i64 @mspack_fmap_tell(ptr noundef readonly %0) #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mspack_fmap_message(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ...) #0 {
+define internal void @mspack_fmap_message(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ...) #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [8192 x i8], align 16
   %5 = load i8, ptr @cli_debug_flag, align 1
@@ -821,7 +821,7 @@ define internal void @mspack_fmap_message(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define internal noalias noundef ptr @mspack_fmap_alloc(ptr nocapture readnone %0, i64 noundef %1) #6 {
+define internal noalias noundef ptr @mspack_fmap_alloc(ptr readnone captures(none) %0, i64 noundef %1) #6 {
   %calloc = tail call ptr @calloc(i64 1, i64 %1)
   ret ptr %calloc
 }
@@ -840,40 +840,40 @@ define internal void @mspack_fmap_free(ptr noundef %0) #7 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @mspack_fmap_copy(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #8 {
+define internal void @mspack_fmap_copy(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #8 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %0, i64 %2, i1 false)
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #9
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #9
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @clrs_eprint(ptr noundef) local_unnamed_addr #3
 

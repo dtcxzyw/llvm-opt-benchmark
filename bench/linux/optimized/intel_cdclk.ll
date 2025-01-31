@@ -674,7 +674,7 @@ define dso_local void @intel_cdclk_uninit_hw(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @intel_cdclk_needs_modeset(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
+define dso_local zeroext i1 @intel_cdclk_needs_modeset(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 16 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -702,7 +702,7 @@ define dso_local zeroext i1 @intel_cdclk_needs_modeset(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_cdclk_dump_config(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_cdclk_dump_config(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
 
@@ -921,13 +921,13 @@ define dso_local void @intel_set_cdclk_pre_plane_update(ptr noundef %0) local_un
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @intel_atomic_get_old_global_obj_state(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @intel_atomic_get_new_global_obj_state(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -3233,13 +3233,13 @@ define dso_local void @intel_init_cdclk_hooks(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 16711426) i32 @bxt_calc_cdclk_pll_vco(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 16711426) i32 @bxt_calc_cdclk_pll_vco(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2184
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2172
@@ -3319,7 +3319,7 @@ define internal fastcc range(i32 0, 16711426) i32 @bxt_calc_cdclk_pll_vco(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @bxt_set_cdclk(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
+define internal void @bxt_set_cdclk(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 align 16 {
   %4 = load i32, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   %6 = load i16, ptr %5, align 8
@@ -3606,7 +3606,7 @@ thread-pre-split:                                 ; preds = %129, %119
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 12582913) i32 @bxt_cdclk_cd2x_div_sel(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 12582913) i32 @bxt_cdclk_cd2x_div_sel(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = icmp sgt i32 %2, 0
   %5 = icmp slt i32 %1, 1
   %6 = xor i1 %5, %4
@@ -4084,7 +4084,7 @@ define internal fastcc void @_bxt_set_cdclk(ptr noundef %0, i32 %.0.val, i32 %.4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 65536) i32 @cdclk_squash_waveform(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 65536) i32 @cdclk_squash_waveform(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2184
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2172
@@ -4169,7 +4169,7 @@ declare dso_local void @intel_crtc_wait_for_next_vblank(ptr noundef) local_unnam
 declare dso_local i32 @__intel_wait_for_register(ptr noundef, i32, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @skl_set_cdclk(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2) #0 align 16 {
+define internal void @skl_set_cdclk(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 %2) #0 align 16 {
   %4 = load i32, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
@@ -4532,7 +4532,7 @@ declare dso_local i32 @intel_dp_mode_to_fec_clock(i32 noundef) local_unnamed_add
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @intel_cdclk_duplicate_state(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef ptr @intel_cdclk_duplicate_state(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call dereferenceable_or_null(104) ptr @kmemdup(ptr noundef %3, i64 noundef 104, i32 noundef 3264) #20
@@ -4549,7 +4549,7 @@ define internal noundef ptr @intel_cdclk_duplicate_state(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_cdclk_destroy_state(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal void @intel_cdclk_destroy_state(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   tail call void @kfree(ptr noundef %1) #15
   ret void
 }
@@ -4570,7 +4570,7 @@ declare dso_local i64 @seq_lseek(ptr noundef, i64 noundef, i32 noundef) #2
 declare dso_local i64 @seq_read(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @i915_cdclk_info_open(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i32 @i915_cdclk_info_open(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @single_open(ptr noundef %1, ptr noundef nonnull @i915_cdclk_info_show, ptr noundef %4) #15
@@ -4584,7 +4584,7 @@ declare dso_local i32 @single_release(ptr noundef, ptr noundef) #2
 declare dso_local i32 @single_open(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i915_cdclk_info_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef i32 @i915_cdclk_info_show(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2160
@@ -4603,7 +4603,7 @@ define internal noundef i32 @i915_cdclk_info_show(ptr noundef %0, ptr nocapture 
 declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @bxt_get_cdclk(ptr noundef %0, ptr nocapture noundef initializes((4, 16)) %1) #0 align 16 {
+define internal void @bxt_get_cdclk(ptr noundef %0, ptr noundef captures(none) initializes((4, 16)) %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 7188
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 2048
@@ -5361,7 +5361,7 @@ define internal noundef zeroext i8 @bxt_calc_voltage_level(i32 noundef %0) #9 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @skl_get_cdclk(ptr noundef %0, ptr nocapture noundef initializes((0, 16)) %1) #0 align 16 {
+define internal void @skl_get_cdclk(ptr noundef %0, ptr noundef captures(none) initializes((0, 16)) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 24000, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -5754,7 +5754,7 @@ define internal range(i32 -2147483648, 1) i32 @skl_modeset_calc_cdclk(ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @bdw_get_cdclk(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal void @bdw_get_cdclk(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 7368
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %5 = load ptr, ptr %4, align 8
@@ -5802,7 +5802,7 @@ default.unreachable:                              ; preds = %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @bdw_set_cdclk(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2) #0 align 16 {
+define internal void @bdw_set_cdclk(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 %2) #0 align 16 {
   %4 = load i32, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 7368
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 7512
@@ -6165,7 +6165,7 @@ declare dso_local void @usleep_range_state(i64 noundef, i64 noundef, i32 noundef
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hsw_get_cdclk(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 align 16 {
+define internal void @hsw_get_cdclk(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 7368
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %5 = load ptr, ptr %4, align 8
@@ -6208,7 +6208,7 @@ define internal range(i32 -2147483648, 1) i32 @fixed_modeset_calc_cdclk(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vlv_get_cdclk(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8), (16, 17)) %1) #0 align 16 {
+define internal void @vlv_get_cdclk(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8), (16, 17)) %1) #0 align 16 {
   tail call void @vlv_iosf_sb_get(ptr noundef %0, i64 noundef 130) #15
   %3 = tail call i32 @vlv_get_hpll_vco(ptr noundef %0) #15
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -6232,7 +6232,7 @@ define internal void @vlv_get_cdclk(ptr noundef %0, ptr nocapture noundef writeo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @chv_set_cdclk(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2) #0 align 16 {
+define internal void @chv_set_cdclk(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 %2) #0 align 16 {
   %4 = load i32, ptr %1, align 4
   switch i32 %4, label %5 [
     i32 333333, label %7
@@ -6560,7 +6560,7 @@ define internal fastcc void @vlv_program_pfi_credits(ptr noundef %0) unnamed_add
 declare dso_local void @intel_display_power_put_unchecked(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vlv_set_cdclk(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2) #0 align 16 {
+define internal void @vlv_set_cdclk(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 %2) #0 align 16 {
   %4 = load i32, ptr %1, align 4
   switch i32 %4, label %5 [
     i32 400000, label %7
@@ -6748,19 +6748,19 @@ declare dso_local i32 @vlv_bunit_read(ptr noundef, i32 noundef) local_unnamed_ad
 declare dso_local void @vlv_bunit_write(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @fixed_400mhz_get_cdclk(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #13 align 16 {
+define internal void @fixed_400mhz_get_cdclk(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #13 align 16 {
   store i32 400000, ptr %1, align 4
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @fixed_450mhz_get_cdclk(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #13 align 16 {
+define internal void @fixed_450mhz_get_cdclk(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #13 align 16 {
   store i32 450000, ptr %1, align 4
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gm45_get_cdclk(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1) #0 align 16 {
+define internal void @gm45_get_cdclk(ptr noundef %0, ptr noundef captures(none) initializes((0, 8)) %1) #0 align 16 {
   %3 = alloca i16, align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -6908,7 +6908,7 @@ define internal fastcc i32 @intel_hpll_vco(ptr noundef %0) unnamed_addr #0 align
 declare dso_local i32 @pci_read_config_word(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @g33_get_cdclk(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1) #0 align 16 {
+define internal void @g33_get_cdclk(ptr noundef %0, ptr noundef captures(none) initializes((0, 8)) %1) #0 align 16 {
   %3 = alloca i16, align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -6977,7 +6977,7 @@ define internal void @g33_get_cdclk(ptr noundef %0, ptr nocapture noundef initia
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i965gm_get_cdclk(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1) #0 align 16 {
+define internal void @i965gm_get_cdclk(ptr noundef %0, ptr noundef captures(none) initializes((0, 8)) %1) #0 align 16 {
   %3 = alloca i16, align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -7044,7 +7044,7 @@ define internal void @i965gm_get_cdclk(ptr noundef %0, ptr nocapture noundef ini
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @pnv_get_cdclk(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 align 16 {
+define internal void @pnv_get_cdclk(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #0 align 16 {
   %3 = alloca i16, align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -7101,7 +7101,7 @@ define internal void @pnv_get_cdclk(ptr noundef readonly %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i945gm_get_cdclk(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 align 16 {
+define internal void @i945gm_get_cdclk(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #0 align 16 {
   %3 = alloca i16, align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -7123,7 +7123,7 @@ define internal void @i945gm_get_cdclk(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i915gm_get_cdclk(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 align 16 {
+define internal void @i915gm_get_cdclk(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #0 align 16 {
   %3 = alloca i16, align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -7145,19 +7145,19 @@ define internal void @i915gm_get_cdclk(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @fixed_333mhz_get_cdclk(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #13 align 16 {
+define internal void @fixed_333mhz_get_cdclk(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #13 align 16 {
   store i32 333333, ptr %1, align 4
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @fixed_266mhz_get_cdclk(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #13 align 16 {
+define internal void @fixed_266mhz_get_cdclk(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #13 align 16 {
   store i32 266667, ptr %1, align 4
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i85x_get_cdclk(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal void @i85x_get_cdclk(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = alloca i16, align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -7208,13 +7208,13 @@ default.unreachable1:                             ; preds = %9
 declare dso_local i32 @pci_bus_read_config_word(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @fixed_200mhz_get_cdclk(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #13 align 16 {
+define internal void @fixed_200mhz_get_cdclk(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #13 align 16 {
   store i32 200000, ptr %1, align 4
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @fixed_133mhz_get_cdclk(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #13 align 16 {
+define internal void @fixed_133mhz_get_cdclk(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #13 align 16 {
   store i32 133333, ptr %1, align 4
   ret void
 }

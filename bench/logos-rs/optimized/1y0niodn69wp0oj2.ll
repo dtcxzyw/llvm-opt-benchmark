@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.6cfd75972d4296e486867bd147c48156.2 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.6cfd75972d4296e486867bd147c48156.1, [16 x i8] c"\1E\00\00\00\00\00\00\00F\00\00\00*\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN13logos_codegen5graph5impls75_$LT$impl$u20$core..fmt..Debug$u20$for$u20$logos_codegen..graph..NodeId$GT$3fmt17h758480357da03839E"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN13logos_codegen5graph5impls75_$LT$impl$u20$core..fmt..Debug$u20$for$u20$logos_codegen..graph..NodeId$GT$3fmt17h758480357da03839E"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [4 x i8], align 4
   %4 = load i32, ptr %0, align 4
   store i32 %4, ptr %3, align 4
@@ -37,7 +37,7 @@ define hidden range(i32 1, 0) i32 @_ZN13logos_codegen5graph6NodeId3new17h1ea5a5e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i32 @_ZN13logos_codegen5graph10ReservedId3get17ha4d04382d0018ec6E(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define hidden i32 @_ZN13logos_codegen5graph10ReservedId3get17ha4d04382d0018ec6E(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
@@ -52,7 +52,7 @@ define hidden { i32, i32 } @_ZN13logos_codegen5graph5Merge3new17ha8bd8de38fc0836
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN67_$LT$logos_codegen..graph..NodeId$u20$as$u20$core..fmt..Display$GT$3fmt17h21bd1929831684f3E"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN67_$LT$logos_codegen..graph..NodeId$u20$as$u20$core..fmt..Display$GT$3fmt17h21bd1929831684f3E"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [4 x i8], align 4
   %4 = load i32, ptr %0, align 4
   store i32 %4, ptr %3, align 4
@@ -61,13 +61,13 @@ define zeroext i1 @"_ZN67_$LT$logos_codegen..graph..NodeId$u20$as$u20$core..fmt.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN13logos_codegen4leaf142_$LT$impl$u20$core..convert..From$LT$logos_codegen..leaf..Leaf$GT$$u20$for$u20$logos_codegen..graph..Node$LT$logos_codegen..leaf..Leaf$GT$$GT$4from17h0cdb4722b469afedE"(ptr nocapture writeonly sret([88 x i8]) align 8 initializes((0, 88)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
+define void @"_ZN13logos_codegen4leaf142_$LT$impl$u20$core..convert..From$LT$logos_codegen..leaf..Leaf$GT$$u20$for$u20$logos_codegen..graph..Node$LT$logos_codegen..leaf..Leaf$GT$$GT$4from17h0cdb4722b469afedE"(ptr writeonly sret([88 x i8]) align 8 captures(none) initializes((0, 88)) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden zeroext i1 @"_ZN69_$LT$logos_codegen..graph..NodeId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf2a0bc14b8b9cd6fE"(ptr nocapture readonly align 4 %0, ptr nocapture readonly align 4 %1) unnamed_addr #4 {
+define hidden zeroext i1 @"_ZN69_$LT$logos_codegen..graph..NodeId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf2a0bc14b8b9cd6fE"(ptr readonly align 4 captures(none) %0, ptr readonly align 4 captures(none) %1) unnamed_addr #4 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -75,7 +75,7 @@ define hidden zeroext i1 @"_ZN69_$LT$logos_codegen..graph..NodeId$u20$as$u20$cor
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i8 -1, 2) i8 @"_ZN63_$LT$logos_codegen..graph..NodeId$u20$as$u20$core..cmp..Ord$GT$3cmp17h22e13cec68574b74E"(ptr nocapture readonly align 4 %0, ptr nocapture readonly align 4 %1) unnamed_addr #4 {
+define hidden range(i8 -1, 2) i8 @"_ZN63_$LT$logos_codegen..graph..NodeId$u20$as$u20$core..cmp..Ord$GT$3cmp17h22e13cec68574b74E"(ptr readonly align 4 captures(none) %0, ptr readonly align 4 captures(none) %1) unnamed_addr #4 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = tail call i8 @llvm.ucmp.i8.i32(i32 %3, i32 %4)
@@ -83,7 +83,7 @@ define hidden range(i8 -1, 2) i8 @"_ZN63_$LT$logos_codegen..graph..NodeId$u20$as
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i8 -1, 2) i8 @"_ZN62_$LT$logos_codegen..graph..Merge$u20$as$u20$core..cmp..Ord$GT$3cmp17hdf9f92324ee4400eE"(ptr nocapture readonly align 4 %0, ptr nocapture readonly align 4 %1) unnamed_addr #4 {
+define hidden range(i8 -1, 2) i8 @"_ZN62_$LT$logos_codegen..graph..Merge$u20$as$u20$core..cmp..Ord$GT$3cmp17hdf9f92324ee4400eE"(ptr readonly align 4 captures(none) %0, ptr readonly align 4 captures(none) %1) unnamed_addr #4 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = tail call i8 @llvm.ucmp.i8.i32(i32 %3, i32 %4)
@@ -113,7 +113,7 @@ declare void @_ZN4core6option13expect_failed17h7f842a57ad883afaE(ptr align 1, i6
 declare zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h460e19850081d7ebE"(ptr align 4, ptr align 8) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.ucmp.i8.i32(i32, i32) #8

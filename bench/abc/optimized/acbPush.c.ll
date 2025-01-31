@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_PMasks = internal unnamed_addr constant [5 x [3 x i64]] [[3 x i64] [i64 -7378697629483820647, i64 2459565876494606882, i64 4919131752989213764], [3 x i64] [i64 -4340410370284600381, i64 868082074056920076, i64 3472328296227680304], [3 x i64] [i64 -1148435428713435121, i64 67555025218437360, i64 1080880403494997760], [3 x i64] [i64 -72056494543077121, i64 280375465148160, i64 71776119077928960], [3 x i64] [i64 -281474976645121, i64 4294901760, i64 281470681743360]], align 16
 
 ; Function Attrs: nounwind uwtable
-define void @Acb_ObjPushToFanout(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Acb_ObjPushToFanout(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 216
   %.val = load ptr, ptr %5, align 8
   %6 = sext i32 %1 to i64
@@ -361,7 +361,7 @@ Acb_ObjRemoveFaninFanoutOne.exit:                 ; preds = %.lr.ph.i.i.i, %.._c
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Acb_ObjAddFaninFanoutOne(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @Acb_ObjAddFaninFanoutOne(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
   %4 = getelementptr i8, ptr %0, i64 440
   %.val = load ptr, ptr %4, align 8
   %5 = sext i32 %2 to i64
@@ -451,7 +451,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Acb_ObjPushToFanin(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Acb_ObjPushToFanin(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   store i64 0, ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 216
@@ -880,7 +880,7 @@ define internal fastcc range(i32 -1, 5) i32 @Abc_TtCheckDsdAnd(i64 noundef %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Acb_ObjSuppMin_int(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Acb_ObjSuppMin_int(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %0, i64 216
   %.val = load ptr, ptr %3, align 8
   %4 = sext i32 %1 to i64
@@ -1057,7 +1057,7 @@ Abc_Tt6RemoveVar.exit:                            ; preds = %.lr.ph.i33, %Vec_In
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Acb_ObjSuppMin(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define void @Acb_ObjSuppMin(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -1070,7 +1070,7 @@ define void @Acb_ObjSuppMin(ptr nocapture noundef readonly %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Acb_ObjRemoveDup(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define void @Acb_ObjRemoveDup(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr i8, ptr %0, i64 216
   %.val = load ptr, ptr %5, align 8
   %6 = sext i32 %1 to i64
@@ -1261,7 +1261,7 @@ Acb_ObjSuppMin.exit:                              ; preds = %Vec_IntRemove.exit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Acb_ObjRemoveDupFanins_int(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Acb_ObjRemoveDupFanins_int(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %0, i64 136
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 152
@@ -1316,7 +1316,7 @@ define range(i32 0, 2) i32 @Acb_ObjRemoveDupFanins_int(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Acb_ObjRemoveDupFanins(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define void @Acb_ObjRemoveDupFanins(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %0, i64 136
   %4 = getelementptr i8, ptr %0, i64 152
   %5 = sext i32 %1 to i64
@@ -1380,7 +1380,7 @@ Acb_ObjRemoveDupFanins_int.exit:                  ; preds = %16
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Acb_ObjRemoveConst(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define void @Acb_ObjRemoveConst(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %0, i64 216
   %4 = sext i32 %1 to i64
   %5 = getelementptr i8, ptr %0, i64 440
@@ -1833,7 +1833,7 @@ Acb_ObjFindNodeFanout.exit.thread:                ; preds = %Acb_ObjFindNodeFano
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Acb_ObjRemoveBufInv(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Acb_ObjRemoveBufInv(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 216
   %.val40 = load ptr, ptr %3, align 8
   %4 = sext i32 %1 to i64
@@ -2497,7 +2497,7 @@ Acb_ObjRemoveFanins.exit:                         ; preds = %Acb_ObjRemoveFaninF
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Acb_ObjPatchFanin(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @Acb_ObjPatchFanin(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 136
   %.val = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 152
@@ -2684,7 +2684,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Acb_ObjPushToFanins(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Acb_ObjPushToFanins(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 136
   %.val50 = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 152
@@ -2887,7 +2887,7 @@ Acb_ObjFindFanoutPushableIndex.exit:              ; preds = %95, %Abc_Tt6CheckOu
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Acb_NtkPushLogic(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Acb_NtkPushLogic(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 116
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
@@ -3121,7 +3121,7 @@ Acb_NtkNodeNum.exit87:                            ; preds = %84, %._crit_edge107
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Acb_NtkCreateFanout(ptr nocapture noundef initializes((436, 440)) %0) unnamed_addr #0 {
+define internal fastcc void @Acb_NtkCreateFanout(ptr noundef captures(none) initializes((436, 440)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.val.i = load i32, ptr %3, align 8
@@ -3293,10 +3293,10 @@ Acb_ObjAddFaninFanout.exit:                       ; preds = %Acb_ObjAddFaninFano
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Acb_NtkPushLogic2(ptr nocapture noundef initializes((436, 440)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Acb_NtkPushLogic2(ptr noundef captures(none) initializes((436, 440)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call fastcc void @Acb_NtkCreateFanout(ptr noundef %0)
   %4 = getelementptr i8, ptr %0, i64 116
   %.val18 = load i32, ptr %4, align 4
@@ -3351,13 +3351,13 @@ define void @Acb_NtkPushLogic2(ptr nocapture noundef initializes((436, 440)) %0,
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8

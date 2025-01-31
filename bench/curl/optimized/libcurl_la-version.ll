@@ -169,10 +169,10 @@ for.end:                                          ; preds = %for.body, %if.end42
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @Curl_ssl_version(ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -186,7 +186,7 @@ declare ptr @idn2_check_version(ptr noundef) local_unnamed_addr #4
 declare i32 @psl_check_version_number(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @curl_version_info(i32 noundef %stamp) local_unnamed_addr #0 {
@@ -267,7 +267,7 @@ declare i32 @BrotliDecoderVersion() local_unnamed_addr #3
 declare i32 @ZSTD_versionNumber() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @https_proxy_present(ptr nocapture readnone %info) #0 {
+define internal range(i32 0, 2) i32 @https_proxy_present(ptr readnone captures(none) %info) #0 {
 entry:
   %call = tail call zeroext i1 @Curl_ssl_supports(ptr noundef null, i32 noundef 16) #7
   %conv = zext i1 %call to i32
@@ -275,7 +275,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @idn_present(ptr nocapture noundef readonly %info) #6 {
+define internal range(i32 0, 2) i32 @idn_present(ptr noundef readonly captures(none) %info) #6 {
 entry:
   %libidn = getelementptr inbounds nuw i8, ptr %info, i64 88
   %0 = load ptr, ptr %libidn, align 8

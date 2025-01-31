@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ossl_cms_RecipientInfo_pwri_crypt = private unnamed_addr constant [34 x i8] c"ossl_cms_RecipientInfo_pwri_crypt\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CMS_RecipientInfo_set0_password(ptr nocapture noundef readonly %ri, ptr noundef %pass, i64 noundef %passlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_RecipientInfo_set0_password(ptr noundef readonly captures(none) %ri, ptr noundef %pass, i64 noundef %passlen) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ri, align 8
   %cmp.not = icmp eq i32 %0, 3
@@ -53,7 +53,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @CMS_add0_recipient_password(ptr noundef %cms, i32 noundef %iter, i32 noundef %wrap_nid, i32 noundef %pbe_nid, ptr noundef %pass, i64 noundef %passlen, ptr noundef %kekciph) local_unnamed_addr #0 {
@@ -348,7 +348,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cms_RecipientInfo_pwri_crypt(ptr noundef %cms, ptr nocapture noundef readonly %ri, i32 noundef %en_de) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_RecipientInfo_pwri_crypt(ptr noundef %cms, ptr noundef readonly captures(none) %ri, i32 noundef %en_de) local_unnamed_addr #0 {
 entry:
   %name = alloca [50 x i8], align 16
   %keylen = alloca i64, align 8
@@ -586,7 +586,7 @@ declare i32 @EVP_CIPHER_asn1_to_param(ptr noundef, ptr noundef) local_unnamed_ad
 declare i32 @EVP_PBE_CipherInit(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kek_wrap_key(ptr noundef %out, ptr nocapture noundef nonnull writeonly %outlen, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr noundef nonnull %ctx, ptr noundef %cms_ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @kek_wrap_key(ptr noundef %out, ptr noundef nonnull writeonly captures(none) %outlen, ptr noundef readonly captures(none) %in, i64 noundef %inlen, ptr noundef nonnull %ctx, ptr noundef %cms_ctx) unnamed_addr #0 {
 entry:
   %dummy = alloca i32, align 4
   %call = tail call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef nonnull %ctx) #4
@@ -661,7 +661,7 @@ return:                                           ; preds = %if.end36, %lor.lhs.
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kek_unwrap_key(ptr nocapture noundef nonnull writeonly %out, ptr nocapture noundef nonnull writeonly %outlen, ptr noundef %in, i64 noundef range(i64 -2147483648, 2147483648) %inlen, ptr noundef nonnull %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @kek_unwrap_key(ptr noundef nonnull writeonly captures(none) %out, ptr noundef nonnull writeonly captures(none) %outlen, ptr noundef %in, i64 noundef range(i64 -2147483648, 2147483648) %inlen, ptr noundef nonnull %ctx) unnamed_addr #0 {
 entry:
   %outl = alloca i32, align 4
   %call = tail call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef nonnull %ctx) #4
@@ -767,7 +767,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @EVP_EncryptUpdate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 

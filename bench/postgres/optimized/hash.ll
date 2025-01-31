@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @BufferBlocks = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @hashhandler(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @hashhandler(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @palloc0(i64 noundef 216) #7
   store i32 422, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -174,7 +174,7 @@ define dso_local void @hashbuildempty(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @hashinsert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5, i1 zeroext %6, ptr nocapture readnone %7) #0 {
+define dso_local noundef zeroext i1 @hashinsert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 %5, i1 zeroext %6, ptr readnone captures(none) %7) #0 {
   %9 = alloca [1 x i64], align 8
   %10 = alloca [1 x i8], align 1
   %11 = call zeroext i1 @_hash_convert_tuple(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %10) #7
@@ -185,8 +185,8 @@ define dso_local noundef zeroext i1 @hashinsert(ptr noundef %0, ptr noundef %1, 
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @index_form_tuple(ptr noundef %14, ptr noundef nonnull %9, ptr noundef nonnull %10) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %15, ptr noundef nonnull align 2 dereferenceable(6) %3, i64 6, i1 false)
-  call void @_hash_doinsert(ptr noundef %0, ptr noundef %15, ptr noundef %4, i1 noundef zeroext false) #7
-  call void @pfree(ptr noundef %15) #7
+  call void @_hash_doinsert(ptr noundef %0, ptr noundef nonnull %15, ptr noundef %4, i1 noundef zeroext false) #7
+  call void @pfree(ptr noundef nonnull %15) #7
   br label %16
 
 16:                                               ; preds = %8, %12
@@ -194,7 +194,7 @@ define dso_local noundef zeroext i1 @hashinsert(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @hashbulkdelete(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define dso_local ptr @hashbulkdelete(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca double, align 8
   %6 = alloca double, align 8
   %7 = alloca i32, align 4
@@ -468,7 +468,7 @@ BufferGetPage.exit79:                             ; preds = %129, %135
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @hashvacuumcleanup(ptr nocapture noundef readonly %0, ptr noundef returned writeonly %1) #0 {
+define dso_local noundef ptr @hashvacuumcleanup(ptr noundef readonly captures(none) %0, ptr noundef returned writeonly %1) #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %7, label %4
 
@@ -520,7 +520,7 @@ define dso_local ptr @hashbeginscan(ptr noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hashrescan(ptr noundef %0, ptr noundef readonly %1, i32 %2, ptr nocapture readnone %3, i32 %4) #0 {
+define dso_local void @hashrescan(ptr noundef %0, ptr noundef readonly %1, i32 %2, ptr readnone captures(none) %3, i32 %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -719,7 +719,7 @@ declare i32 @_hash_init(ptr noundef, double noundef, i32 noundef) local_unnamed_
 declare ptr @_h_spoolinit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @hashbuildCallback(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 zeroext %4, ptr nocapture noundef %5) #0 {
+define internal void @hashbuildCallback(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 zeroext %4, ptr noundef captures(none) %5) #0 {
   %7 = alloca [1 x i64], align 8
   %8 = alloca [1 x i8], align 1
   %9 = call zeroext i1 @_hash_convert_tuple(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
@@ -741,8 +741,8 @@ define internal void @hashbuildCallback(ptr noundef %0, ptr noundef %1, ptr noun
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %16, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = load ptr, ptr %17, align 8
-  call void @_hash_doinsert(ptr noundef %0, ptr noundef %16, ptr noundef %18, i1 noundef zeroext false) #7
-  call void @pfree(ptr noundef %16) #7
+  call void @_hash_doinsert(ptr noundef %0, ptr noundef nonnull %16, ptr noundef %18, i1 noundef zeroext false) #7
+  call void @pfree(ptr noundef nonnull %16) #7
   br label %19
 
 19:                                               ; preds = %13, %12
@@ -769,7 +769,7 @@ declare zeroext i1 @_hash_convert_tuple(ptr noundef, ptr noundef, ptr noundef, p
 declare ptr @index_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @_hash_doinsert(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -788,7 +788,7 @@ declare void @_hash_kill_items(ptr noundef) local_unnamed_addr #1
 declare void @_hash_dropscanbuf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @_hash_getcachedmetap(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -1278,7 +1278,7 @@ declare void @llvm.assume(i1 noundef) #4
 declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #5

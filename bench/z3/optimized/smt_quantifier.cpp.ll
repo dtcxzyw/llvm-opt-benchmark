@@ -230,7 +230,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt18quantifier_manager25log_justification_to_rootERSoPNS_5enodeER13obj_hashtableIS2_ERNS_7contextER11ast_manager(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %en, ptr noundef nonnull align 8 dereferenceable(20) %visited, ptr nocapture noundef nonnull readonly align 8 dereferenceable(11616) %ctx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(976) %m) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt18quantifier_manager25log_justification_to_rootERSoPNS_5enodeER13obj_hashtableIS2_ERNS_7contextER11ast_manager(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %en, ptr noundef nonnull align 8 dereferenceable(20) %visited, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(11616) %ctx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(976) %m) local_unnamed_addr #3 align 2 {
 entry:
   %tmp.i = alloca ptr, align 8
   %m_root.i = getelementptr inbounds nuw i8, ptr %en, i64 8
@@ -414,7 +414,7 @@ if.end37:                                         ; preds = %if.then31, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt24log_single_justificationERSoPNS_5enodeER13obj_hashtableIS1_ERNS_7contextER11ast_manager(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr nocapture noundef readonly %en, ptr noundef nonnull align 8 dereferenceable(20) %visited, ptr nocapture noundef nonnull readonly align 8 dereferenceable(11616) %ctx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(976) %m) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt24log_single_justificationERSoPNS_5enodeER13obj_hashtableIS1_ERNS_7contextER11ast_manager(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef readonly captures(none) %en, ptr noundef nonnull align 8 dereferenceable(20) %visited, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(11616) %ctx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(976) %m) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %theory = alloca %class.symbol, align 8
   %ref.tmp97 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -685,7 +685,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
@@ -697,7 +697,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt18quantifier_managerC2ERNS_7contextER10smt_paramsRK10params_ref(ptr noundef nonnull align 8 dereferenceable(13) %this, ptr noundef nonnull align 8 dereferenceable(11616) %ctx, ptr noundef nonnull align 8 dereferenceable(800) %fp, ptr nocapture nonnull readnone align 8 %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt18quantifier_managerC2ERNS_7contextER10smt_paramsRK10params_ref(ptr noundef nonnull align 8 dereferenceable(13) %this, ptr noundef nonnull align 8 dereferenceable(11616) %ctx, ptr noundef nonnull align 8 dereferenceable(800) %fp, ptr nonnull readnone align 8 captures(none) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 1176)
   %call.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 80)
@@ -809,7 +809,7 @@ ehcleanup17:                                      ; preds = %ehcleanup16, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3smt18quantifier_managerD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt18quantifier_managerD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -844,7 +844,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(11616) ptr @_ZNK3smt18quantifier_manager11get_contextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(11616) ptr @_ZNK3smt18quantifier_manager11get_contextEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_context = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -853,7 +853,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt18quantifier_manager3addEP10quantifierj(ptr nocapture noundef nonnull align 8 dereferenceable(13) %this, ptr noundef %q, i32 noundef %generation) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt18quantifier_manager3addEP10quantifierj(ptr noundef nonnull align 8 captures(none) dereferenceable(13) %this, ptr noundef %q, i32 noundef %generation) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i.i = alloca %"struct.obj_map<quantifier, q::quantifier_stat *>::key_data", align 8
   %m_lazy = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -941,7 +941,7 @@ _ZN3smt18quantifier_manager3imp3addEP10quantifierj.exit: ; preds = %lor.lhs.fals
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt18quantifier_manager3delEP10quantifier(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this, ptr noundef %q) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt18quantifier_manager3delEP10quantifier(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this, ptr noundef %q) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i.i.i = alloca %"struct.obj_map<quantifier, q::quantifier_stat *>::key_data", align 8
   %0 = load ptr, ptr %this, align 8
@@ -975,7 +975,7 @@ _ZN3smt18quantifier_manager3imp3delEP10quantifier.exit: ; preds = %entry, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK3smt18quantifier_manager5emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK3smt18quantifier_manager5emptyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_quantifiers.i = getelementptr inbounds nuw i8, ptr %0, i64 1152
@@ -995,7 +995,7 @@ _ZNK3smt18quantifier_manager3imp5emptyEv.exit:    ; preds = %entry, %lor.rhs.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK3smt18quantifier_manager9is_sharedEPNS_5enodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this, ptr noundef %n) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK3smt18quantifier_manager9is_sharedEPNS_5enodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this, ptr noundef %n) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_plugin.i = getelementptr inbounds nuw i8, ptr %0, i64 1160
@@ -1008,7 +1008,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef ptr @_ZNK3smt18quantifier_manager8get_statEP10quantifier(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this, ptr noundef readonly %q) local_unnamed_addr #9 align 2 {
+define hidden noundef ptr @_ZNK3smt18quantifier_manager8get_statEP10quantifier(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this, ptr noundef readonly %q) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_quantifier_stat.i = getelementptr inbounds nuw i8, ptr %0, i64 1072
@@ -1078,7 +1078,7 @@ _ZNK3smt18quantifier_manager3imp8get_statEP10quantifier.exit: ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef i32 @_ZNK3smt18quantifier_manager14get_generationEP10quantifier(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this, ptr noundef readonly %q) local_unnamed_addr #9 align 2 {
+define hidden noundef i32 @_ZNK3smt18quantifier_manager14get_generationEP10quantifier(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this, ptr noundef readonly %q) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_quantifier_stat.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1072
@@ -1150,7 +1150,7 @@ _ZNK3smt18quantifier_manager3imp14get_generationEP10quantifier.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3smt18quantifier_manager12add_instanceEP10quantifierP3appjPKPNS_5enodeEP4exprjjjR6vectorISt5tupleIJS6_S6_EELb1EjE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this, ptr noundef %q, ptr noundef %pat, i32 noundef %num_bindings, ptr noundef %bindings, ptr noundef %def, i32 noundef %max_generation, i32 noundef %min_top_generation, i32 noundef %max_top_generation, ptr noundef nonnull align 8 dereferenceable(8) %used_enodes) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN3smt18quantifier_manager12add_instanceEP10quantifierP3appjPKPNS_5enodeEP4exprjjjR6vectorISt5tupleIJS6_S6_EELb1EjE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this, ptr noundef %q, ptr noundef %pat, i32 noundef %num_bindings, ptr noundef %bindings, ptr noundef %def, i32 noundef %max_generation, i32 noundef %min_top_generation, i32 noundef %max_top_generation, ptr noundef nonnull align 8 dereferenceable(8) %used_enodes) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef zeroext i1 @_ZN3smt18quantifier_manager3imp12add_instanceEP10quantifierP3appjPKPNS_5enodeEP4exprjjjR6vectorISt5tupleIJS7_S7_EELb1EjE(ptr noundef nonnull align 8 dereferenceable(1172) %0, ptr noundef %q, ptr noundef %pat, i32 noundef %num_bindings, ptr noundef %bindings, ptr noundef %def, i32 noundef %max_generation, i32 noundef %min_top_generation, i32 noundef %max_generation, ptr noundef nonnull align 8 dereferenceable(8) %used_enodes)
@@ -1331,7 +1331,7 @@ return:                                           ; preds = %_ZN1q15quantifier_s
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3smt18quantifier_manager12add_instanceEP10quantifierjPKPNS_5enodeEP4exprj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this, ptr noundef %q, i32 noundef %num_bindings, ptr noundef %bindings, ptr noundef %def, i32 noundef %generation) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN3smt18quantifier_manager12add_instanceEP10quantifierjPKPNS_5enodeEP4exprj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this, ptr noundef %q, i32 noundef %num_bindings, ptr noundef %bindings, ptr noundef %def, i32 noundef %generation) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp = alloca %class.vector.361, align 8
   store ptr null, ptr %tmp, align 8
@@ -1390,7 +1390,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt18quantifier_manager14init_search_ehEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt18quantifier_manager14init_search_ehEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_num_instances.i = getelementptr inbounds nuw i8, ptr %0, i64 1168
@@ -1496,7 +1496,7 @@ _ZN3smt18quantifier_manager3imp14init_search_ehEv.exit: ; preds = %_ZNK3smt18qua
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt18quantifier_manager9assign_ehEP10quantifier(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this, ptr noundef %q) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt18quantifier_manager9assign_ehEP10quantifier(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this, ptr noundef %q) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_plugin.i = getelementptr inbounds nuw i8, ptr %0, i64 1160
@@ -1509,7 +1509,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt18quantifier_manager9add_eq_ehEPNS_5enodeES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this, ptr noundef %n1, ptr noundef %n2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt18quantifier_manager9add_eq_ehEPNS_5enodeES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this, ptr noundef %n1, ptr noundef %n2) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_plugin.i = getelementptr inbounds nuw i8, ptr %0, i64 1160
@@ -1522,7 +1522,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt18quantifier_manager11relevant_ehEPNS_5enodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this, ptr noundef %n) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt18quantifier_manager11relevant_ehEPNS_5enodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this, ptr noundef %n) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_plugin.i = getelementptr inbounds nuw i8, ptr %0, i64 1160
@@ -1535,7 +1535,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3smt18quantifier_manager14final_check_ehEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this, i1 noundef zeroext %full) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN3smt18quantifier_manager14final_check_ehEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this, i1 noundef zeroext %full) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef i32 @_ZN3smt18quantifier_manager3imp14final_check_ehEb(ptr noundef nonnull align 8 dereferenceable(1172) %0, i1 noundef zeroext %full)
@@ -1644,7 +1644,7 @@ return:                                           ; preds = %land.lhs.true29, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt18quantifier_manager10restart_ehEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt18quantifier_manager10restart_ehEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_plugin.i = getelementptr inbounds nuw i8, ptr %0, i64 1160
@@ -1657,7 +1657,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK3smt18quantifier_manager13can_propagateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK3smt18quantifier_manager13can_propagateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_new_entries.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1024
@@ -1686,7 +1686,7 @@ _ZN3smt18quantifier_manager3imp13can_propagateEv.exit: ; preds = %_ZNK3smt8qi_qu
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt18quantifier_manager9propagateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt18quantifier_manager9propagateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_plugin.i = getelementptr inbounds nuw i8, ptr %0, i64 1160
@@ -1701,7 +1701,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK3smt18quantifier_manager11model_basedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK3smt18quantifier_manager11model_basedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_plugin = getelementptr inbounds nuw i8, ptr %0, i64 1160
@@ -1714,7 +1714,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK3smt18quantifier_manager15has_quantifiersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK3smt18quantifier_manager15has_quantifiersEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_quantifiers.i = getelementptr inbounds nuw i8, ptr %0, i64 1152
@@ -1734,7 +1734,7 @@ _ZNK3smt18quantifier_manager3imp15has_quantifiersEv.exit: ; preds = %entry, %lor
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK3smt18quantifier_manager12mbqi_enabledEP10quantifier(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this, ptr noundef %q) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK3smt18quantifier_manager12mbqi_enabledEP10quantifier(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this, ptr noundef %q) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_plugin = getelementptr inbounds nuw i8, ptr %0, i64 1160
@@ -1747,7 +1747,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt18quantifier_manager12adjust_modelEP11proto_model(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this, ptr noundef %m) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt18quantifier_manager12adjust_modelEP11proto_model(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this, ptr noundef %m) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_plugin = getelementptr inbounds nuw i8, ptr %0, i64 1160
@@ -1760,7 +1760,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3smt18quantifier_manager11check_modelEP11proto_modelRK7obj_mapINS_5enodeEP3appE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this, ptr noundef %m, ptr noundef nonnull align 1 %root2value) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN3smt18quantifier_manager11check_modelEP11proto_modelRK7obj_mapINS_5enodeEP3appE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this, ptr noundef %m, ptr noundef nonnull align 1 %root2value) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_quantifiers.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1152
@@ -1789,7 +1789,7 @@ _ZN3smt18quantifier_manager3imp11check_modelEP11proto_modelRK7obj_mapINS_5enodeE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt18quantifier_manager4pushEv(ptr nocapture noundef nonnull align 8 dereferenceable(13) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt18quantifier_manager4pushEv(ptr noundef nonnull align 8 captures(none) dereferenceable(13) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_lazy = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %m_lazy, align 4
@@ -1820,7 +1820,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt18quantifier_manager3popEj(ptr nocapture noundef nonnull align 8 dereferenceable(13) %this, i32 noundef %num_scopes) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt18quantifier_manager3popEj(ptr noundef nonnull align 8 captures(none) dereferenceable(13) %this, i32 noundef %num_scopes) local_unnamed_addr #3 align 2 {
 entry:
   %m_lazy = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %m_lazy, align 4
@@ -1977,13 +1977,13 @@ _ZN7obj_mapI10quantifierPN1q15quantifier_statEED2Ev.exit: ; preds = %_ZN1q19quan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK3smt18quantifier_manager7displayERSo(ptr nocapture noundef nonnull readnone align 8 dereferenceable(13) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %out) local_unnamed_addr #10 align 2 {
+define hidden void @_ZNK3smt18quantifier_manager7displayERSo(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(13) %this, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %out) local_unnamed_addr #10 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3smt18quantifier_manager18collect_statisticsER10statistics(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this, ptr noundef nonnull align 8 dereferenceable(16) %st) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK3smt18quantifier_manager18collect_statisticsER10statistics(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this, ptr noundef nonnull align 8 dereferenceable(16) %st) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_qi_queue = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1994,13 +1994,13 @@ entry:
 declare void @_ZNK3smt8qi_queue18collect_statisticsER10statistics(ptr noundef nonnull align 8 dereferenceable(1048), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3smt18quantifier_manager16reset_statisticsEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(13) %this) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN3smt18quantifier_manager16reset_statisticsEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(13) %this) local_unnamed_addr #10 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3smt18quantifier_manager13display_statsERSoP10quantifier(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %q) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK3smt18quantifier_manager13display_statsERSoP10quantifier(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %q) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN3smt18quantifier_manager3imp13display_statsERSoP10quantifier(ptr noundef nonnull align 8 dereferenceable(1172) %0, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %q)
@@ -2155,7 +2155,7 @@ if.end:                                           ; preds = %_ZNK3smt18quantifie
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK3smt18quantifier_manager17begin_quantifiersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZNK3smt18quantifier_manager17begin_quantifiersEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_quantifiers = getelementptr inbounds nuw i8, ptr %0, i64 1152
@@ -2164,7 +2164,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK3smt18quantifier_manager15end_quantifiersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZNK3smt18quantifier_manager15end_quantifiersEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_quantifiers = getelementptr inbounds nuw i8, ptr %0, i64 1152
@@ -2185,7 +2185,7 @@ _ZN6vectorIP10quantifierLb0EjE3endEv.exit:        ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK3smt18quantifier_manager15num_quantifiersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef i32 @_ZNK3smt18quantifier_manager15num_quantifiersEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_quantifiers = getelementptr inbounds nuw i8, ptr %0, i64 1152
@@ -2326,7 +2326,7 @@ _ZN14core_hashtableIN7obj_mapI10quantifierPN1q15quantifier_statEE13obj_map_entry
 declare void @_ZN3smt8qi_queueD1Ev(ptr noundef nonnull align 8 dereferenceable(1048)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare void @_ZN6memory10deallocateEPv(ptr noundef) local_unnamed_addr #0
 
@@ -2779,7 +2779,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -5048,7 +5048,7 @@ declare void @_ZN3smt12model_finder10restart_ehEv(ptr noundef nonnull align 8 de
 declare void @_ZN3smt13model_checker10restart_ehEv(ptr noundef nonnull align 8 dereferenceable(184)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #15
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #15
 
 declare void @_ZN3smt12model_finder9fix_modelEP11proto_model(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef) local_unnamed_addr #0
 
@@ -5322,10 +5322,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #19

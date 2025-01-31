@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @crypto_stream_chacha20_dolbeau_ssse3_implementation = hidden local_unnamed_addr global %struct.crypto_stream_chacha20_implementation { ptr @stream_ref, ptr @stream_ietf_ext_ref, ptr @stream_ref_xor_ic, ptr @stream_ietf_ext_ref_xor_ic }, align 8
 
 ; Function Attrs: nounwind ssp uwtable
-define internal noundef i32 @stream_ref(ptr nocapture noundef %c, i64 noundef %clen, ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %k) #0 {
+define internal noundef i32 @stream_ref(ptr noundef captures(none) %c, i64 noundef %clen, ptr noundef readonly captures(none) %n, ptr noundef readonly captures(none) %k) #0 {
 entry:
   %ctx = alloca %struct.chacha_ctx, align 4
   %tobool.not = icmp eq i64 %clen, 0
@@ -75,7 +75,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal noundef i32 @stream_ietf_ext_ref(ptr nocapture noundef %c, i64 noundef %clen, ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %k) #0 {
+define internal noundef i32 @stream_ietf_ext_ref(ptr noundef captures(none) %c, i64 noundef %clen, ptr noundef readonly captures(none) %n, ptr noundef readonly captures(none) %k) #0 {
 entry:
   %ctx = alloca %struct.chacha_ctx, align 4
   %tobool.not = icmp eq i64 %clen, 0
@@ -143,7 +143,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal noundef i32 @stream_ref_xor_ic(ptr nocapture noundef writeonly %c, ptr nocapture noundef readonly %m, i64 noundef %mlen, ptr nocapture noundef readonly %n, i64 noundef %ic, ptr nocapture noundef readonly %k) #0 {
+define internal noundef i32 @stream_ref_xor_ic(ptr noundef writeonly captures(none) %c, ptr noundef readonly captures(none) %m, i64 noundef %mlen, ptr noundef readonly captures(none) %n, i64 noundef %ic, ptr noundef readonly captures(none) %k) #0 {
 entry:
   %ctx = alloca %struct.chacha_ctx, align 4
   %tobool.not = icmp eq i64 %mlen, 0
@@ -211,7 +211,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal noundef i32 @stream_ietf_ext_ref_xor_ic(ptr nocapture noundef writeonly %c, ptr nocapture noundef readonly %m, i64 noundef %mlen, ptr nocapture noundef readonly %n, i32 noundef %ic, ptr nocapture noundef readonly %k) #0 {
+define internal noundef i32 @stream_ietf_ext_ref_xor_ic(ptr noundef writeonly captures(none) %c, ptr noundef readonly captures(none) %m, i64 noundef %mlen, ptr noundef readonly captures(none) %n, i32 noundef %ic, ptr noundef readonly captures(none) %k) #0 {
 entry:
   %ctx = alloca %struct.chacha_ctx, align 4
   %tobool.not = icmp eq i64 %mlen, 0
@@ -278,10 +278,10 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind ssp uwtable
-define internal fastcc void @chacha20_encrypt_bytes(ptr nocapture noundef nonnull %ctx, ptr nocapture noundef readonly %m, ptr nocapture noundef writeonly %c, i64 noundef range(i64 1, 0) %bytes) unnamed_addr #2 {
+define internal fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull captures(none) %ctx, ptr noundef readonly captures(none) %m, ptr noundef writeonly captures(none) %c, i64 noundef range(i64 1, 0) %bytes) unnamed_addr #2 {
 entry:
   %partialblock = alloca [64 x i8], align 16
   %cmp = icmp ugt i64 %bytes, 255

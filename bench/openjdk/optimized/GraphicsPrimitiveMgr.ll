@@ -600,7 +600,7 @@ declare void @initAlphaTables(...) local_unnamed_addr #1
 declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @GrPrim_RefineBounds(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #2 {
+define hidden void @GrPrim_RefineBounds(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = icmp sgt i32 %4, 1
   br i1 %6, label %7, label %56
 
@@ -705,7 +705,7 @@ define hidden void @GrPrim_RefineBounds(ptr nocapture noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_loops_GraphicsPrimitiveMgr_registerNativeLoops(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_sun_java2d_loops_GraphicsPrimitiveMgr_registerNativeLoops(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call zeroext i8 @RegisterAnyByte(ptr noundef %0) #6
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %56, label %4
@@ -1065,7 +1065,7 @@ define ptr @GetNativePrim(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 declare void @JNU_ThrowInternalError(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @GrPrim_Sg2dGetCompInfo(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @GrPrim_Sg2dGetCompInfo(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 760
   %7 = load ptr, ptr %6, align 8
@@ -1146,7 +1146,7 @@ define i32 @GrPrim_Sg2dGetLCDTextContrast(ptr noundef %0, ptr noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Transform_GetInfo(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 48)) %2) local_unnamed_addr #0 {
+define hidden void @Transform_GetInfo(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 48)) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 824
   %6 = load ptr, ptr %5, align 8
@@ -1192,7 +1192,7 @@ define hidden void @Transform_GetInfo(ptr noundef %0, ptr noundef %1, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Transform_transform(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #3 {
+define hidden void @Transform_transform(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
   %4 = load double, ptr %1, align 8
   %5 = load double, ptr %2, align 8
   %6 = load double, ptr %0, align 8
@@ -1255,7 +1255,7 @@ declare i32 @PixelForFourByteAbgr(ptr noundef, i32 noundef) #1
 declare i32 @PixelForFourByteAbgrPre(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @GrPrim_CompGetAlphaInfo(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef %2) #0 {
+define internal void @GrPrim_CompGetAlphaInfo(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 800
   %6 = load ptr, ptr %5, align 8
@@ -1273,7 +1273,7 @@ define internal void @GrPrim_CompGetAlphaInfo(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @GrPrim_CompGetXorInfo(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, ptr noundef %2) #0 {
+define internal void @GrPrim_CompGetXorInfo(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr noundef %2) #0 {
   store i32 0, ptr %1, align 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 800

@@ -107,13 +107,13 @@ define void @Aig_MmFixedStop(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Aig_MmFixedEntryFetch(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define noundef ptr @Aig_MmFixedEntryFetch(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -221,10 +221,10 @@ define noundef ptr @Aig_MmFixedEntryFetch(ptr nocapture noundef %0) local_unname
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Aig_MmFixedEntryRecycle(ptr nocapture noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #6 {
+define void @Aig_MmFixedEntryRecycle(ptr noundef captures(none) %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, -1
@@ -237,7 +237,7 @@ define void @Aig_MmFixedEntryRecycle(ptr nocapture noundef %0, ptr noundef initi
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Aig_MmFixedRestart(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @Aig_MmFixedRestart(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -329,14 +329,14 @@ define void @Aig_MmFixedRestart(ptr nocapture noundef %0) local_unnamed_addr #2 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Aig_MmFixedReadMemUsage(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define i32 @Aig_MmFixedReadMemUsage(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Aig_MmFixedReadMaxEntriesUsed(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define i32 @Aig_MmFixedReadMaxEntriesUsed(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   ret i32 %3
@@ -431,7 +431,7 @@ define void @Aig_MmFlexStop(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define ptr @Aig_MmFlexEntryFetch(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #8 {
+define ptr @Aig_MmFlexEntryFetch(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -527,7 +527,7 @@ define ptr @Aig_MmFlexEntryFetch(ptr nocapture noundef %0, i32 noundef %1) local
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Aig_MmFlexRestart(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @Aig_MmFlexRestart(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -590,7 +590,7 @@ define void @Aig_MmFlexRestart(ptr nocapture noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Aig_MmFlexReadMemUsage(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define i32 @Aig_MmFlexReadMemUsage(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   ret i32 %3
@@ -706,7 +706,7 @@ define noalias noundef ptr @Aig_MmStepStart(i32 noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Aig_MmStepStop(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @Aig_MmStepStop(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
@@ -805,7 +805,7 @@ define void @Aig_MmStepStop(ptr nocapture noundef %0, i32 noundef %1) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Aig_MmStepEntryFetch(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define ptr @Aig_MmStepEntryFetch(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %48, label %4
 
@@ -887,7 +887,7 @@ define ptr @Aig_MmStepEntryFetch(ptr nocapture noundef %0, i32 noundef %1) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @Aig_MmStepEntryRecycle(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #10 {
+define void @Aig_MmStepEntryRecycle(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #10 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %20, label %5
 
@@ -918,7 +918,7 @@ define void @Aig_MmStepEntryRecycle(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Aig_MmStepReadMemUsage(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define i32 @Aig_MmStepReadMemUsage(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph, label %._crit_edge

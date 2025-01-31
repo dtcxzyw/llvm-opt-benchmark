@@ -26,7 +26,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN17double_conversion6Bignum12AssignUInt16Et(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(516) initializes((0, 4)) %this, i16 noundef zeroext %value) local_unnamed_addr #1 align 2 {
+define void @_ZN17double_conversion6Bignum12AssignUInt16Et(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(516) initializes((0, 4)) %this, i16 noundef zeroext %value) local_unnamed_addr #1 align 2 {
 entry:
   store i16 0, ptr %this, align 4
   %exponent_.i = getelementptr inbounds nuw i8, ptr %this, i64 2
@@ -46,7 +46,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN17double_conversion6Bignum12AssignUInt64Em(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(516) initializes((0, 4)) %this, i64 noundef %value) local_unnamed_addr #2 align 2 {
+define void @_ZN17double_conversion6Bignum12AssignUInt64Em(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(516) initializes((0, 4)) %this, i64 noundef %value) local_unnamed_addr #2 align 2 {
 entry:
   store i16 0, ptr %this, align 4
   %exponent_.i = getelementptr inbounds nuw i8, ptr %this, i64 2
@@ -81,7 +81,7 @@ for.end:                                          ; preds = %for.cond.for.end_cr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN17double_conversion6Bignum12AssignBignumERKS0_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(516) initializes((2, 4)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %other) local_unnamed_addr #3 align 2 {
+define void @_ZN17double_conversion6Bignum12AssignBignumERKS0_(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(516) initializes((2, 4)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %other) local_unnamed_addr #3 align 2 {
 entry:
   %exponent_ = getelementptr inbounds nuw i8, ptr %other, i64 2
   %0 = load i16, ptr %exponent_, align 2
@@ -115,7 +115,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN17double_conversion6Bignum19AssignDecimalStringENS_6VectorIKcEE(ptr nocapture noundef nonnull align 4 dereferenceable(516) initializes((0, 4)) %this, ptr nocapture readonly %value.coerce0, i32 %value.coerce1) local_unnamed_addr #4 align 2 {
+define void @_ZN17double_conversion6Bignum19AssignDecimalStringENS_6VectorIKcEE(ptr noundef nonnull align 4 captures(none) dereferenceable(516) initializes((0, 4)) %this, ptr readonly captures(none) %value.coerce0, i32 %value.coerce1) local_unnamed_addr #4 align 2 {
 entry:
   %other.i19 = alloca %"class.double_conversion::Bignum", align 4
   %other.i = alloca %"class.double_conversion::Bignum", align 4
@@ -286,7 +286,7 @@ _ZN17double_conversion6Bignum5ClampEv.exit:       ; preds = %land.rhs.i, %while.
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN17double_conversion6Bignum20MultiplyByPowerOfTenEi(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, i32 noundef %exponent) local_unnamed_addr #4 align 2 {
+define void @_ZN17double_conversion6Bignum20MultiplyByPowerOfTenEi(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %this, i32 noundef %exponent) local_unnamed_addr #4 align 2 {
 entry:
   %cmp = icmp eq i32 %exponent, 0
   %0 = load i16, ptr %this, align 4
@@ -591,7 +591,7 @@ return:                                           ; preds = %if.then.i2.i, %for.
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN17double_conversion6Bignum9AddUInt64Em(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, i64 noundef %operand) local_unnamed_addr #4 align 2 {
+define void @_ZN17double_conversion6Bignum9AddUInt64Em(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %this, i64 noundef %operand) local_unnamed_addr #4 align 2 {
 entry:
   %other = alloca %"class.double_conversion::Bignum", align 4
   %cmp = icmp eq i64 %operand, 0
@@ -625,7 +625,7 @@ return:                                           ; preds = %entry, %_ZN17double
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN17double_conversion6Bignum5ClampEv(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this) local_unnamed_addr #3 align 2 {
+define void @_ZN17double_conversion6Bignum5ClampEv(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %this) local_unnamed_addr #3 align 2 {
 entry:
   %.pr = load i16, ptr %this, align 4
   %cmp3 = icmp sgt i16 %.pr, 0
@@ -665,7 +665,7 @@ if.end:                                           ; preds = %land.rhs, %if.then,
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN17double_conversion6Bignum15AssignHexStringENS_6VectorIKcEE(ptr nocapture noundef nonnull align 4 dereferenceable(516) initializes((0, 4)) %this, ptr nocapture readonly %value.coerce0, i32 %value.coerce1) local_unnamed_addr #4 align 2 {
+define void @_ZN17double_conversion6Bignum15AssignHexStringENS_6VectorIKcEE(ptr noundef nonnull align 4 captures(none) dereferenceable(516) initializes((0, 4)) %this, ptr readonly captures(none) %value.coerce0, i32 %value.coerce1) local_unnamed_addr #4 align 2 {
 entry:
   store i16 0, ptr %this, align 4
   %exponent_.i = getelementptr inbounds nuw i8, ptr %this, i64 2
@@ -801,7 +801,7 @@ _ZN17double_conversion6Bignum5ClampEv.exit:       ; preds = %land.rhs.i, %while.
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN17double_conversion6Bignum9AddBignumERKS0_(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %other) local_unnamed_addr #4 align 2 {
+define void @_ZN17double_conversion6Bignum9AddBignumERKS0_(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %other) local_unnamed_addr #4 align 2 {
 entry:
   %exponent_.i = getelementptr inbounds nuw i8, ptr %this, i64 2
   %0 = load i16, ptr %exponent_.i, align 2
@@ -997,7 +997,7 @@ while.end:                                        ; preds = %for.cond13.preheade
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN17double_conversion6Bignum5AlignERKS0_(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %other) local_unnamed_addr #4 align 2 {
+define void @_ZN17double_conversion6Bignum5AlignERKS0_(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %other) local_unnamed_addr #4 align 2 {
 entry:
   %exponent_ = getelementptr inbounds nuw i8, ptr %this, i64 2
   %0 = load i16, ptr %exponent_, align 2
@@ -1067,7 +1067,7 @@ if.end:                                           ; preds = %for.end21, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN17double_conversion6Bignum14SubtractBignumERKS0_(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %other) local_unnamed_addr #4 align 2 {
+define void @_ZN17double_conversion6Bignum14SubtractBignumERKS0_(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %other) local_unnamed_addr #4 align 2 {
 entry:
   %exponent_.i = getelementptr inbounds nuw i8, ptr %this, i64 2
   %0 = load i16, ptr %exponent_.i, align 2
@@ -1226,7 +1226,7 @@ _ZN17double_conversion6Bignum5ClampEv.exit:       ; preds = %land.rhs.i, %while.
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN17double_conversion6Bignum9ShiftLeftEi(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, i32 noundef %shift_amount) local_unnamed_addr #4 align 2 {
+define void @_ZN17double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %this, i32 noundef %shift_amount) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i16, ptr %this, align 4
   %cmp = icmp eq i16 %0, 0
@@ -1287,7 +1287,7 @@ return:                                           ; preds = %if.then.i2, %for.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN17double_conversion6Bignum15BigitsShiftLeftEi(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, i32 noundef %shift_amount) local_unnamed_addr #3 align 2 {
+define void @_ZN17double_conversion6Bignum15BigitsShiftLeftEi(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %this, i32 noundef %shift_amount) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i16, ptr %this, align 4
   %cmp17 = icmp sgt i16 %0, 0
@@ -1332,7 +1332,7 @@ if.end:                                           ; preds = %entry, %if.then, %f
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN17double_conversion6Bignum16MultiplyByUInt32Ej(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, i32 noundef %factor) local_unnamed_addr #4 align 2 {
+define void @_ZN17double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %this, i32 noundef %factor) local_unnamed_addr #4 align 2 {
 entry:
   switch i32 %factor, label %if.end4 [
     i32 1, label %while.end
@@ -1408,7 +1408,7 @@ while.end:                                        ; preds = %_ZN17double_convers
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN17double_conversion6Bignum16MultiplyByUInt64Em(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, i64 noundef %factor) local_unnamed_addr #4 align 2 {
+define void @_ZN17double_conversion6Bignum16MultiplyByUInt64Em(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %this, i64 noundef %factor) local_unnamed_addr #4 align 2 {
 entry:
   switch i64 %factor, label %if.end4 [
     i64 1, label %while.end
@@ -1495,7 +1495,7 @@ while.end:                                        ; preds = %_ZN17double_convers
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN17double_conversion6Bignum6SquareEv(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this) local_unnamed_addr #4 align 2 {
+define void @_ZN17double_conversion6Bignum6SquareEv(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i16, ptr %this, align 4
   %conv = sext i16 %0 to i32
@@ -1689,7 +1689,7 @@ _ZN17double_conversion6Bignum5ClampEv.exit:       ; preds = %land.rhs.i, %while.
 declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN17double_conversion6Bignum17AssignPowerUInt16Eti(ptr nocapture noundef nonnull align 4 dereferenceable(516) initializes((0, 4)) %this, i16 noundef zeroext %base, i32 noundef %power_exponent) local_unnamed_addr #4 align 2 {
+define void @_ZN17double_conversion6Bignum17AssignPowerUInt16Eti(ptr noundef nonnull align 4 captures(none) dereferenceable(516) initializes((0, 4)) %this, i16 noundef zeroext %base, i32 noundef %power_exponent) local_unnamed_addr #4 align 2 {
 entry:
   %cmp = icmp eq i32 %power_exponent, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -2014,7 +2014,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef zeroext i16 @_ZN17double_conversion6Bignum21DivideModuloIntBignumERKS0_(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %other) local_unnamed_addr #4 align 2 {
+define noundef zeroext i16 @_ZN17double_conversion6Bignum21DivideModuloIntBignumERKS0_(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %other) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i16, ptr %this, align 4
   %conv.i = sext i16 %0 to i32
@@ -2274,7 +2274,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN17double_conversion6Bignum13SubtractTimesERKS0_i(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %other, i32 noundef %factor) local_unnamed_addr #4 align 2 {
+define void @_ZN17double_conversion6Bignum13SubtractTimesERKS0_i(ptr noundef nonnull align 4 captures(none) dereferenceable(516) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %other, i32 noundef %factor) local_unnamed_addr #4 align 2 {
 entry:
   %cmp = icmp slt i32 %factor, 3
   br i1 %cmp, label %for.cond.preheader, label %if.end
@@ -2408,7 +2408,7 @@ return:                                           ; preds = %for.body36, %land.r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK17double_conversion6Bignum11ToHexStringEPci(ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %this, ptr nocapture noundef writeonly %buffer, i32 noundef %buffer_size) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK17double_conversion6Bignum11ToHexStringEPci(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %this, ptr noundef writeonly captures(none) %buffer, i32 noundef %buffer_size) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i16, ptr %this, align 4
   %cmp = icmp eq i16 %0, 0
@@ -2564,7 +2564,7 @@ return:                                           ; preds = %while.body, %for.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK17double_conversion6Bignum11BigitOrZeroEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %this, i32 noundef %index) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK17double_conversion6Bignum11BigitOrZeroEi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %this, i32 noundef %index) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i16, ptr %this, align 4
   %conv.i = sext i16 %0 to i32
@@ -2591,7 +2591,7 @@ return:                                           ; preds = %entry, %if.end4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 -1, 2) i32 @_ZN17double_conversion6Bignum7CompareERKS0_S2_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %b) local_unnamed_addr #6 align 2 {
+define noundef range(i32 -1, 2) i32 @_ZN17double_conversion6Bignum7CompareERKS0_S2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %a, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %b) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i16, ptr %a, align 4
   %conv.i = sext i16 %0 to i32
@@ -2672,7 +2672,7 @@ return:                                           ; preds = %for.cond, %if.end12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -1, 2) i32 @_ZN17double_conversion6Bignum11PlusCompareERKS0_S2_S2_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %b, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %c) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -1, 2) i32 @_ZN17double_conversion6Bignum11PlusCompareERKS0_S2_S2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %a, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %b, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %c) local_unnamed_addr #7 align 2 {
 entry:
   %.pre = load i16, ptr %a, align 4
   %exponent_.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %a, i64 2
@@ -2815,16 +2815,16 @@ return:                                           ; preds = %if.else, %_ZNK17dou
 declare i32 @llvm.usub.sat.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8

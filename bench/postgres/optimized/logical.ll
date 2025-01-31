@@ -189,7 +189,7 @@ declare zeroext i1 @RecoveryInProgress() local_unnamed_addr #1
 declare i32 @GetActiveWalLevelOnStandby() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @CreateInitDecodingContext(ptr noundef %0, ptr nocapture noundef readnone %1, i1 noundef zeroext %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define dso_local noundef ptr @CreateInitDecodingContext(ptr noundef %0, ptr noundef readnone captures(none) %1, i1 noundef zeroext %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.LogicalErrorCallbackState, align 8
   %10 = alloca %struct.ErrorContextCallback, align 8
   %11 = alloca %struct.nameData, align 1
@@ -400,7 +400,7 @@ declare void @namestrcpy(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @s_lock(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @ReplicationSlotReserveWal() local_unnamed_addr #1
 
@@ -948,7 +948,7 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 declare void @SnapBuildSetTwoPhaseAt(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @DecodingContextReady(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local zeroext i1 @DecodingContextReady(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @SnapBuildCurrentState(ptr noundef %3) #10
@@ -1238,7 +1238,7 @@ define dso_local zeroext i1 @filter_prepare_cb_wrapper(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @output_plugin_error_callback(ptr nocapture noundef readonly %0) #0 {
+define internal void @output_plugin_error_callback(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
@@ -1615,7 +1615,7 @@ define dso_local void @ResetLogicalStreamingState() local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @UpdateDecodingStats(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @UpdateDecodingStats(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.PgStat_StatReplSlotEntry, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -1862,7 +1862,7 @@ declare ptr @ReorderBufferAllocate() local_unnamed_addr #1
 declare ptr @AllocateSnapshotBuilder(ptr noundef, i32 noundef, i64 noundef, i1 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @begin_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @begin_cb_wrapper(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.LogicalErrorCallbackState, align 8
   %4 = alloca %struct.ErrorContextCallback, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -1901,7 +1901,7 @@ define internal void @begin_cb_wrapper(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @change_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal void @change_cb_wrapper(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.LogicalErrorCallbackState, align 8
   %6 = alloca %struct.ErrorContextCallback, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -1939,7 +1939,7 @@ define internal void @change_cb_wrapper(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @truncate_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal void @truncate_cb_wrapper(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca %struct.LogicalErrorCallbackState, align 8
   %7 = alloca %struct.ErrorContextCallback, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -1984,7 +1984,7 @@ define internal void @truncate_cb_wrapper(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @commit_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal void @commit_cb_wrapper(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.LogicalErrorCallbackState, align 8
   %5 = alloca %struct.ErrorContextCallback, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -2024,7 +2024,7 @@ define internal void @commit_cb_wrapper(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @message_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) #0 {
+define internal void @message_cb_wrapper(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) #0 {
   %8 = alloca %struct.LogicalErrorCallbackState, align 8
   %9 = alloca %struct.ErrorContextCallback, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -2075,7 +2075,7 @@ define internal void @message_cb_wrapper(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stream_start_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal void @stream_start_cb_wrapper(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.LogicalErrorCallbackState, align 8
   %5 = alloca %struct.ErrorContextCallback, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -2123,7 +2123,7 @@ define internal void @stream_start_cb_wrapper(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stream_stop_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal void @stream_stop_cb_wrapper(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.LogicalErrorCallbackState, align 8
   %5 = alloca %struct.ErrorContextCallback, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -2171,7 +2171,7 @@ define internal void @stream_stop_cb_wrapper(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stream_abort_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal void @stream_abort_cb_wrapper(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.LogicalErrorCallbackState, align 8
   %5 = alloca %struct.ErrorContextCallback, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -2219,7 +2219,7 @@ define internal void @stream_abort_cb_wrapper(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stream_prepare_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal void @stream_prepare_cb_wrapper(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.LogicalErrorCallbackState, align 8
   %5 = alloca %struct.ErrorContextCallback, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -2271,7 +2271,7 @@ define internal void @stream_prepare_cb_wrapper(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stream_commit_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal void @stream_commit_cb_wrapper(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.LogicalErrorCallbackState, align 8
   %5 = alloca %struct.ErrorContextCallback, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -2323,7 +2323,7 @@ define internal void @stream_commit_cb_wrapper(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stream_change_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal void @stream_change_cb_wrapper(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.LogicalErrorCallbackState, align 8
   %6 = alloca %struct.ErrorContextCallback, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -2373,7 +2373,7 @@ define internal void @stream_change_cb_wrapper(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stream_message_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) #0 {
+define internal void @stream_message_cb_wrapper(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) #0 {
   %8 = alloca %struct.LogicalErrorCallbackState, align 8
   %9 = alloca %struct.ErrorContextCallback, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -2424,7 +2424,7 @@ define internal void @stream_message_cb_wrapper(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stream_truncate_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal void @stream_truncate_cb_wrapper(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca %struct.LogicalErrorCallbackState, align 8
   %7 = alloca %struct.ErrorContextCallback, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -2469,7 +2469,7 @@ define internal void @stream_truncate_cb_wrapper(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @begin_prepare_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @begin_prepare_cb_wrapper(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.LogicalErrorCallbackState, align 8
   %4 = alloca %struct.ErrorContextCallback, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -2520,7 +2520,7 @@ define internal void @begin_prepare_cb_wrapper(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @prepare_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal void @prepare_cb_wrapper(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.LogicalErrorCallbackState, align 8
   %5 = alloca %struct.ErrorContextCallback, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -2572,7 +2572,7 @@ define internal void @prepare_cb_wrapper(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @commit_prepared_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal void @commit_prepared_cb_wrapper(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.LogicalErrorCallbackState, align 8
   %5 = alloca %struct.ErrorContextCallback, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -2624,7 +2624,7 @@ define internal void @commit_prepared_cb_wrapper(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rollback_prepared_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+define internal void @rollback_prepared_cb_wrapper(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = alloca %struct.LogicalErrorCallbackState, align 8
   %6 = alloca %struct.ErrorContextCallback, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -2676,7 +2676,7 @@ define internal void @rollback_prepared_cb_wrapper(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @update_progress_txn_cb_wrapper(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal void @update_progress_txn_cb_wrapper(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca %struct.LogicalErrorCallbackState, align 8
   %5 = alloca %struct.ErrorContextCallback, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -2731,13 +2731,13 @@ declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -1275,7 +1275,7 @@ dnsserver_dissect_element_DNS_RPC_NODE_RecordCount.exit: ; preds = %18, %22
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.0912.i = phi i32 [ %35, %.lr.ph.i ], [ %30, %.preheader.i ]
   %34 = load i32, ptr @hf_dnsserver_DNS_RPC_NODE_records, align 4
-  %35 = tail call i32 @dnsserver_dissect_struct_DNS_RPC_RECORD(ptr noundef %0, i32 noundef %.0912.i, ptr noundef %2, ptr noundef %.053, ptr noundef %4, ptr noundef %5, i32 noundef %34, i32 poison)
+  %35 = tail call i32 @dnsserver_dissect_struct_DNS_RPC_RECORD(ptr noundef %0, i32 noundef %.0912.i, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
   %36 = load i16, ptr @node_record_count, align 2
   %37 = add i16 %36, -1
   store i16 %37, ptr @node_record_count, align 2
@@ -1517,45 +1517,45 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_SERVER_INFO_DOTNET(ptr nound
   %.010.i = phi i32 [ 0, %33 ], [ %125, %122 ]
   %.089.i = phi i32 [ %121, %33 ], [ %124, %122 ]
   %123 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_reserve_array, align 4
-  %124 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %123, i32 noundef 0) #4
+  %124 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %123, i32 noundef 0) #4
   %125 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %125, 4
   br i1 %exitcond.not.i, label %dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserve_array.exit, label %122, !llvm.loop !6
 
 dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserve_array.exit: ; preds = %122
   %126 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AutoReverseZones, align 4
-  %127 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %124, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %126, i32 noundef 0) #4
+  %127 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %124, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %126, i32 noundef 0) #4
   %128 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AutoCacheUpdate, align 4
-  %129 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %127, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %128, i32 noundef 0) #4
+  %129 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %127, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %128, i32 noundef 0) #4
   %130 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RecurseAfterForwarding, align 4
-  %131 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %129, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %130, i32 noundef 0) #4
+  %131 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %129, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %130, i32 noundef 0) #4
   %132 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ForwardDelegations, align 4
-  %133 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %131, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %132, i32 noundef 0) #4
+  %133 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %131, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %132, i32 noundef 0) #4
   %134 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_NoRecursion, align 4
-  %135 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %133, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %134, i32 noundef 0) #4
+  %135 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %133, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %134, i32 noundef 0) #4
   %136 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_SecureResponses, align 4
-  %137 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %135, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %136, i32 noundef 0) #4
+  %137 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %135, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %136, i32 noundef 0) #4
   %138 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RoundRobin, align 4
-  %139 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %137, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %138, i32 noundef 0) #4
+  %139 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %137, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %138, i32 noundef 0) #4
   %140 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LocalNetPriority, align 4
-  %141 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %139, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %140, i32 noundef 0) #4
+  %141 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %139, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %140, i32 noundef 0) #4
   %142 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_BindSecondaries, align 4
-  %143 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %141, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %142, i32 noundef 0) #4
+  %143 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %141, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %142, i32 noundef 0) #4
   %144 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_WriteAuthorityNs, align 4
-  %145 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %143, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %144, i32 noundef 0) #4
+  %145 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %143, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %144, i32 noundef 0) #4
   %146 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_StrictFileParsing, align 4
-  %147 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %145, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %146, i32 noundef 0) #4
+  %147 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %145, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %146, i32 noundef 0) #4
   %148 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LooseWildcarding, align 4
-  %149 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %147, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %148, i32 noundef 0) #4
+  %149 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %147, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %148, i32 noundef 0) #4
   %150 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DefaultAgingState, align 4
-  %151 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %149, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %150, i32 noundef 0) #4
+  %151 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %149, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %150, i32 noundef 0) #4
   br label %152
 
 152:                                              ; preds = %152, %dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserve_array.exit
   %.010.i392 = phi i32 [ 0, %dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserve_array.exit ], [ %155, %152 ]
   %.089.i393 = phi i32 [ %151, %dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserve_array.exit ], [ %154, %152 ]
   %153 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_reserve_array2, align 4
-  %154 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i393, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %153, i32 noundef 0) #4
+  %154 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i393, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %153, i32 noundef 0) #4
   %155 = add nuw nsw i32 %.010.i392, 1
   %exitcond.not.i394 = icmp eq i32 %155, 15
   br i1 %exitcond.not.i394, label %dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserve_array2.exit, label %152, !llvm.loop !7
@@ -1872,7 +1872,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extens
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dnsserver_dissect_DnssrvOperation_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @dnsserver_dissect_DnssrvOperation_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.458, ptr %7, align 8
   ret i32 %1
@@ -1901,7 +1901,7 @@ define internal i32 @dnsserver_dissect_DnssrvOperation_response(ptr noundef %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dnsserver_dissect_DnssrvQuery_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @dnsserver_dissect_DnssrvQuery_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.459, ptr %7, align 8
   ret i32 %1
@@ -1930,7 +1930,7 @@ define internal i32 @dnsserver_dissect_DnssrvQuery_response(ptr noundef %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dnsserver_dissect_DnssrvComplexOperation_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @dnsserver_dissect_DnssrvComplexOperation_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.460, ptr %7, align 8
   ret i32 %1
@@ -1959,7 +1959,7 @@ define internal i32 @dnsserver_dissect_DnssrvComplexOperation_response(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dnsserver_dissect_DnssrvEnumRecords_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @dnsserver_dissect_DnssrvEnumRecords_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.461, ptr %7, align 8
   ret i32 %1
@@ -1988,7 +1988,7 @@ define internal i32 @dnsserver_dissect_DnssrvEnumRecords_response(ptr noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dnsserver_dissect_DnssrvUpdateRecord_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @dnsserver_dissect_DnssrvUpdateRecord_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.462, ptr %7, align 8
   ret i32 %1
@@ -2017,7 +2017,7 @@ define internal i32 @dnsserver_dissect_DnssrvUpdateRecord_response(ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dnsserver_dissect_DnssrvOperation2_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @dnsserver_dissect_DnssrvOperation2_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.463, ptr %7, align 8
   ret i32 %1
@@ -2100,7 +2100,7 @@ define internal i32 @dnsserver_dissect_DnssrvQuery2_response(ptr noundef %0, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dnsserver_dissect_DnssrvComplexOperation2_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @dnsserver_dissect_DnssrvComplexOperation2_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.465, ptr %7, align 8
   ret i32 %1
@@ -2202,7 +2202,7 @@ define internal i32 @dnsserver_dissect_DnssrvEnumRecords2_response(ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dnsserver_dissect_DnssrvUpdateRecord2_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @dnsserver_dissect_DnssrvUpdateRecord2_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.467, ptr %7, align 8
   ret i32 %1
@@ -2491,10 +2491,10 @@ declare i32 @dissect_ndr_uint3264(ptr noundef, i32 noundef, ptr noundef, ptr nou
 declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

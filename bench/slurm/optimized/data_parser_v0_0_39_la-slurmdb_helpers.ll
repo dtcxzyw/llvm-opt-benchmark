@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [90 x i8] c"Comparing database tres(name:%s, type:%s, id:%u) with requested(name:%s, type:%s, id:%u).\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @db_query_list_funcname(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define i32 @db_query_list_funcname(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = tail call ptr @__errno_location() #4
   store i32 0, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -102,7 +102,7 @@ declare i32 @on_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr no
 declare i32 @list_count(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @resolve_qos(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7) local_unnamed_addr #0 {
+define i32 @resolve_qos(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   store ptr null, ptr %9, align 8
@@ -326,7 +326,7 @@ declare ptr @data_get_type_string(ptr noundef) local_unnamed_addr #2
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @load_prereqs_funcname(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define i32 @load_prereqs_funcname(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.slurmdb_tres_cond_t, align 8
   %6 = alloca %struct.slurmdb_qos_cond_t, align 8
   %7 = alloca %struct.slurmdb_assoc_cond_t, align 8
@@ -624,7 +624,7 @@ db_query_list_funcname.exit72:                    ; preds = %124
 declare ptr @slurmdb_connection_get(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @slurmdb_tres_get(ptr noundef, ptr noundef) #2
 
@@ -641,7 +641,7 @@ declare ptr @slurmdb_qos_get(ptr noundef, ptr noundef) #2
 declare ptr @slurmdb_associations_get(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @compare_assoc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @compare_assoc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -767,7 +767,7 @@ define range(i32 0, 2) i32 @compare_assoc(ptr nocapture noundef readonly %0, ptr
 declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @fuzzy_match_tres(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @fuzzy_match_tres(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @get_log_level() #5
   %4 = icmp sgt i32 %3, 8
   br i1 %4, label %5, label %18

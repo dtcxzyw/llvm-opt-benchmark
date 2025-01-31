@@ -137,7 +137,7 @@ define dso_local { ptr, i64 } @_ZN4llvm8ELFAttrs16attrTypeAsStringEjNS_8ArrayRef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm8ELFAttrs18attrTypeFromStringENS_9StringRefENS_8ArrayRefINS_11TagNameItemEEE(ptr nocapture readonly %0, i64 %1, ptr readonly %2, i64 %3) local_unnamed_addr #1 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm8ELFAttrs18attrTypeFromStringENS_9StringRefENS_8ArrayRefINS_11TagNameItemEEE(ptr readonly captures(none) %0, i64 %1, ptr readonly %2, i64 %3) local_unnamed_addr #1 {
   %.not.i = icmp ult i64 %1, 4
   br i1 %.not.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit, label %5
 
@@ -384,7 +384,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %4, %5
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #2
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #3

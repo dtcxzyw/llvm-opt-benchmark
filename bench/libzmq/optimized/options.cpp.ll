@@ -40,7 +40,7 @@ $_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
 @_ZN3zmq9options_tC1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq9options_tC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq13do_getsockoptEPvPmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef writeonly %optval_, ptr nocapture noundef %optvallen_, ptr noundef nonnull align 8 dereferenceable(32) %value_) local_unnamed_addr #0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq13do_getsockoptEPvPmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef writeonly captures(none) %optval_, ptr noundef captures(none) %optvallen_, ptr noundef nonnull align 8 dereferenceable(32) %value_) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %value_) #16
   %call1 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %value_) #16
@@ -69,7 +69,7 @@ _ZN3zmq13do_getsockoptEPvPmPKvm.exit:             ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq13do_getsockoptEPvPmPKvm(ptr nocapture noundef writeonly %optval_, ptr nocapture noundef %optvallen_, ptr nocapture noundef readonly %value_, i64 noundef %value_len_) local_unnamed_addr #1 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq13do_getsockoptEPvPmPKvm(ptr noundef writeonly captures(none) %optval_, ptr noundef captures(none) %optvallen_, ptr noundef readonly captures(none) %value_, i64 noundef %value_len_) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %optvallen_, align 8
   %cmp = icmp ult i64 %0, %value_len_
@@ -101,13 +101,13 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq32do_setsockopt_int_as_bool_strictEPKvmPb(ptr nocapture noundef readonly %optval_, i64 noundef %optvallen_, ptr nocapture noundef writeonly %out_value_) local_unnamed_addr #1 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq32do_setsockopt_int_as_bool_strictEPKvmPb(ptr noundef readonly captures(none) %optval_, i64 noundef %optvallen_, ptr noundef writeonly captures(none) %out_value_) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp eq i64 %optvallen_, 4
   br i1 %cmp.i, label %if.end, label %_ZL13do_setsockoptIiEiPKvmPT_.exit.thread
@@ -138,7 +138,7 @@ return:                                           ; preds = %_ZL13do_setsockoptI
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq33do_setsockopt_int_as_bool_relaxedEPKvmPb(ptr nocapture noundef readonly %optval_, i64 noundef %optvallen_, ptr nocapture noundef writeonly %out_value_) local_unnamed_addr #1 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq33do_setsockopt_int_as_bool_relaxedEPKvmPb(ptr noundef readonly captures(none) %optval_, i64 noundef %optvallen_, ptr noundef writeonly captures(none) %out_value_) local_unnamed_addr #1 {
 entry:
   %cmp.i = icmp eq i64 %optvallen_, 4
   br i1 %cmp.i, label %if.end, label %_ZL13do_setsockoptIiEiPKvmPT_.exit.thread
@@ -349,7 +349,7 @@ entry:
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq9options_t13set_curve_keyEPhPKvm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1336) %this, ptr noundef %destination_, ptr noundef %optval_, i64 noundef %optvallen_) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq9options_t13set_curve_keyEPhPKvm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1336) %this, ptr noundef %destination_, ptr noundef %optval_, i64 noundef %optvallen_) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -1976,7 +1976,7 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit:             ; preds = %lpad, %if.then.i.i2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 -1, 1) i32 @_ZNK3zmq9options_t10getsockoptEiPvPm(ptr noundef nonnull align 8 dereferenceable(1336) %this, i32 noundef %option_, ptr nocapture noundef writeonly %optval_, ptr nocapture noundef %optvallen_) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZNK3zmq9options_t10getsockoptEiPvPm(ptr noundef nonnull align 8 dereferenceable(1336) %this, i32 noundef %option_, ptr noundef writeonly captures(none) %optval_, ptr noundef captures(none) %optvallen_) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i64, ptr %optvallen_, align 8
   %cmp = icmp eq i64 %0, 4

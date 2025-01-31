@@ -117,7 +117,7 @@ entry:
 declare void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #2
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7521DictionaryBreakEngineD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define void @_ZN6icu_7521DictionaryBreakEngineD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.trap() #11
   unreachable
@@ -127,7 +127,7 @@ entry:
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK6icu_7521DictionaryBreakEngine7handlesEiPKc(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %c, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define noundef signext i8 @_ZNK6icu_7521DictionaryBreakEngine7handlesEiPKc(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %c, ptr readnone captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   %fSet = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %fSet, i32 noundef %c)
@@ -270,7 +270,7 @@ if.end17:                                         ; preds = %if.then12, %if.end9
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7512PossibleWord12acceptMarkedEP5UText(ptr nocapture noundef nonnull readonly align 4 dereferenceable(180) %this, ptr noundef %text) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN6icu_7512PossibleWord12acceptMarkedEP5UText(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(180) %this, ptr noundef %text) local_unnamed_addr #0 align 2 {
 entry:
   %offset = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %offset, align 4
@@ -291,7 +291,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7512PossibleWord6backUpEP5UText(ptr nocapture noundef nonnull align 4 dereferenceable(180) %this, ptr noundef %text) local_unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7512PossibleWord6backUpEP5UText(ptr noundef nonnull align 4 captures(none) dereferenceable(180) %this, ptr noundef %text) local_unnamed_addr #0 align 2 {
 entry:
   %current = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %current, align 4
@@ -4125,7 +4125,7 @@ ehcleanup60:                                      ; preds = %ehcleanup59, %lpad
 declare noundef ptr @_ZN6icu_7511Normalizer215getNFKCInstanceER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514CjkBreakEngine27initJapanesePhraseParameterER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(928) %this, ptr noundef nonnull align 4 dereferenceable(4) %error) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_7514CjkBreakEngine27initJapanesePhraseParameterER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(928) %this, ptr noundef nonnull align 4 dereferenceable(4) %error) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6icu_7514CjkBreakEngine22loadJapaneseExtensionsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(928) %this, ptr noundef nonnull align 4 dereferenceable(4) %error)
   tail call void @_ZN6icu_7514CjkBreakEngine12loadHiraganaER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(928) %this, ptr noundef nonnull align 4 dereferenceable(4) %error)
@@ -4394,7 +4394,7 @@ lpad37:                                           ; preds = %new.notnull
   br label %ehcleanup545
 
 while.cond:                                       ; preds = %while.cond.backedge, %while.cond.preheader
-  %call46 = invoke i64 @utext_getNativeIndex_75(ptr noundef %inText)
+  %call46 = invoke i64 @utext_getNativeIndex_75(ptr noundef nonnull %inText)
           to label %invoke.cont45 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont45:                                    ; preds = %while.cond
@@ -4402,12 +4402,12 @@ invoke.cont45:                                    ; preds = %while.cond
   br i1 %cmp48, label %while.body, label %while.end68
 
 while.body:                                       ; preds = %invoke.cont45
-  %call50 = invoke i64 @utext_getNativeIndex_75(ptr noundef %inText)
+  %call50 = invoke i64 @utext_getNativeIndex_75(ptr noundef nonnull %inText)
           to label %invoke.cont49 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont49:                                    ; preds = %while.body
   %conv51 = trunc i64 %call50 to i32
-  %call53 = invoke i32 @utext_next32_75(ptr noundef %inText)
+  %call53 = invoke i32 @utext_next32_75(ptr noundef nonnull %inText)
           to label %invoke.cont52 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont52:                                    ; preds = %invoke.cont49
@@ -6171,7 +6171,7 @@ declare void @_ZN6icu_759UVector32C1EiR10UErrorCode(ptr noundef nonnull align 8 
 declare void @_ZN6icu_759UVector327setSizeEi(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare ptr @utext_openUnicodeString_75(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -6185,7 +6185,7 @@ declare i32 @utext_char32At_75(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @_ZN6icu_759UVector32D1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514CjkBreakEngine22loadJapaneseExtensionsER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(928) %this, ptr noundef nonnull align 4 dereferenceable(4) %error) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7514CjkBreakEngine22loadJapaneseExtensionsER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(928) %this, ptr noundef nonnull align 4 dereferenceable(4) %error) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ja = alloca %"class.icu_75::ResourceBundle", align 8
   %ref.tmp = alloca %"class.icu_75::Locale", align 8
@@ -6302,7 +6302,7 @@ eh.resume:                                        ; preds = %ehcleanup17, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514CjkBreakEngine12loadHiraganaER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(928) %this, ptr noundef nonnull align 4 dereferenceable(4) %error) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7514CjkBreakEngine12loadHiraganaER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(928) %this, ptr noundef nonnull align 4 dereferenceable(4) %error) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hiraganaWordSet = alloca %"class.icu_75::UnicodeSet", align 8
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
@@ -6473,10 +6473,10 @@ declare i32 @uhash_puti_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) l
 declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

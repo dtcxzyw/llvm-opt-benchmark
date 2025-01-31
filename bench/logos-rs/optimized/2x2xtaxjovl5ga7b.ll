@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i32 @_ZN11proc_macro29TokenTree4span17h01751e3b2c8c2adfE(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define hidden i32 @_ZN11proc_macro29TokenTree4span17h01751e3b2c8c2adfE(ptr readonly align 8 captures(none) %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   switch i32 %2, label %3 [
     i32 0, label %4

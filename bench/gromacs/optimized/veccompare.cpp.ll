@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [12 x i8] c"%s RMSD %g\0A\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z8cmp_rvecP8_IO_FILEPKciPKfS4_ff(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, float noundef %5, float noundef %6) local_unnamed_addr #0 {
+define void @_Z8cmp_rvecP8_IO_FILEPKciPKfS4_ff(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, float noundef %5, float noundef %6) local_unnamed_addr #0 {
   %8 = load float, ptr %3, align 4
   %9 = load float, ptr %4, align 4
   %10 = tail call noundef zeroext i1 @_Z10equal_realffff(float noundef %8, float noundef %9, float noundef %5, float noundef %6)
@@ -67,10 +67,10 @@ define void @_Z8cmp_rvecP8_IO_FILEPKciPKfS4_ff(ptr nocapture noundef %0, ptr nou
 declare noundef zeroext i1 @_Z10equal_realffff(float noundef, float noundef, float noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z8cmp_ivecP8_IO_FILEPKciPKiS4_(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #3 {
+define void @_Z8cmp_ivecP8_IO_FILEPKciPKiS4_(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #3 {
   %6 = load i32, ptr %3, align 4
   %7 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %6, %7
@@ -117,7 +117,7 @@ define void @_Z8cmp_ivecP8_IO_FILEPKciPKiS4_(ptr nocapture noundef %0, ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z9cmp_rvecsP8_IO_FILEPKciPA3_KfS5_bff(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i1 noundef zeroext %5, float noundef %6, float noundef %7) local_unnamed_addr #0 {
+define void @_Z9cmp_rvecsP8_IO_FILEPKciPA3_KfS5_bff(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i1 noundef zeroext %5, float noundef %6, float noundef %7) local_unnamed_addr #0 {
   %9 = icmp sgt i32 %2, 0
   br i1 %5, label %.preheader28, label %23
 

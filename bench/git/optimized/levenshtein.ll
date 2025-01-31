@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @levenshtein(ptr nocapture noundef readonly %string1, ptr nocapture noundef readonly %string2, i32 noundef %w, i32 noundef %s, i32 noundef %a, i32 noundef %d) local_unnamed_addr #0 {
+define dso_local i32 @levenshtein(ptr noundef readonly captures(none) %string1, ptr noundef readonly captures(none) %string2, i32 noundef %w, i32 noundef %s, i32 noundef %a, i32 noundef %d) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %string1) #6
   %conv = trunc i64 %call to i32
@@ -195,12 +195,12 @@ for.end120:                                       ; preds = %for.body18, %for.co
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
 declare void @die(ptr noundef, ...) local_unnamed_addr #4

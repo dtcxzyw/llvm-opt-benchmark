@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @VP8Scan = external local_unnamed_addr constant [16 x i16], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @VP8IteratorSetRow(ptr nocapture noundef initializes((0, 8), (48, 80), (200, 204), (384, 400)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @VP8IteratorSetRow(ptr noundef captures(none) initializes((0, 8), (48, 80), (200, 204), (384, 400)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   store i32 0, ptr %0, align 8
@@ -93,7 +93,7 @@ InitLeft.exit:                                    ; preds = %2, %57
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @VP8IteratorReset(ptr nocapture noundef initializes((0, 8), (48, 80), (200, 204), (208, 304), (328, 340), (384, 400)) %0) local_unnamed_addr #0 {
+define hidden void @VP8IteratorReset(ptr noundef captures(none) initializes((0, 8), (48, 80), (200, 204), (208, 304), (328, 340), (384, 400)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   store i32 0, ptr %0, align 8
@@ -198,7 +198,7 @@ InitTop.exit:                                     ; preds = %VP8IteratorSetRow.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @VP8IteratorSetCountDown(ptr nocapture noundef writeonly initializes((332, 340)) %0, i32 noundef %1) local_unnamed_addr #1 {
+define hidden void @VP8IteratorSetCountDown(ptr noundef writeonly captures(none) initializes((332, 340)) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 332
@@ -207,10 +207,10 @@ define hidden void @VP8IteratorSetCountDown(ptr nocapture noundef writeonly init
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @VP8IteratorIsDone(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @VP8IteratorIsDone(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %3 = load i32, ptr %2, align 4
   %4 = icmp slt i32 %3, 1
@@ -360,7 +360,7 @@ VP8IteratorReset.exit:                            ; preds = %VP8IteratorSetRow.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @VP8IteratorProgress(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define hidden i32 @VP8IteratorProgress(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq i32 %1, 0
@@ -410,7 +410,7 @@ define hidden i32 @VP8IteratorProgress(ptr nocapture noundef readonly %0, i32 no
 declare i32 @WebPReportProgress(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @VP8IteratorImport(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #6 {
+define hidden void @VP8IteratorImport(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %0, align 8
@@ -986,7 +986,7 @@ ImportLine.exit200:                               ; preds = %.lr.ph18.i185, %.pr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @VP8IteratorExport(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define hidden void @VP8IteratorExport(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -1101,7 +1101,7 @@ ExportBlock.exit52:                               ; preds = %69, %ExportBlock.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @VP8IteratorNzToBytes(ptr nocapture noundef initializes((132, 200)) %0) local_unnamed_addr #7 {
+define hidden void @VP8IteratorNzToBytes(ptr noundef captures(none) initializes((132, 200)) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
@@ -1179,7 +1179,7 @@ define hidden void @VP8IteratorNzToBytes(ptr nocapture noundef initializes((132,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @VP8IteratorBytesToNz(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define hidden void @VP8IteratorBytesToNz(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load i32, ptr %2, align 4
@@ -1242,7 +1242,7 @@ define hidden void @VP8IteratorBytesToNz(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @VP8IteratorSaveBoundary(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define hidden void @VP8IteratorSaveBoundary(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %0, align 8
@@ -1344,10 +1344,10 @@ define hidden void @VP8IteratorSaveBoundary(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @VP8IteratorNext(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @VP8IteratorNext(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = add nsw i32 %2, 1
   store i32 %3, ptr %0, align 8
@@ -1469,7 +1469,7 @@ VP8IteratorSetRow.exit:                           ; preds = %63, %9, %65
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @VP8SetIntra16Mode(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define hidden void @VP8SetIntra16Mode(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = trunc i32 %1 to i8
@@ -1500,7 +1500,7 @@ define hidden void @VP8SetIntra16Mode(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @VP8SetIntra4Mode(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define hidden void @VP8SetIntra4Mode(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1532,7 +1532,7 @@ define hidden void @VP8SetIntra4Mode(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @VP8SetIntraUVMode(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @VP8SetIntraUVMode(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = trunc i32 %1 to i8
@@ -1546,7 +1546,7 @@ define hidden void @VP8SetIntraUVMode(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @VP8SetSkip(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @VP8SetSkip(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = trunc i32 %1 to i8
@@ -1560,7 +1560,7 @@ define hidden void @VP8SetSkip(ptr nocapture noundef readonly %0, i32 noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @VP8SetSegment(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @VP8SetSegment(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = trunc i32 %1 to i8
@@ -1726,7 +1726,7 @@ define hidden void @VP8IteratorStartI4(ptr noundef initializes((128, 132)) %0) l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @VP8IteratorRotateI4(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @VP8IteratorRotateI4(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64

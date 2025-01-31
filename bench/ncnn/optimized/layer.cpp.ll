@@ -173,7 +173,7 @@ $_ZTIN4ncnn11Layer_finalE = comdat any
 @_ZN4ncnn5LayerD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN4ncnn5LayerD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn20AbsVal_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn20AbsVal_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn6AbsValC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -199,7 +199,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn23BatchNorm_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn23BatchNorm_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(648) ptr @_Znwm(i64 noundef 648) #16
   invoke void @_ZN4ncnn9BatchNormC1Ev(ptr noundef nonnull align 8 dereferenceable(648) %2)
           to label %3 unwind label %4
@@ -217,7 +217,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn23BatchNorm_layer_creatorEPv(ptr noca
 declare void @_ZN4ncnn9BatchNormC1Ev(ptr noundef nonnull align 8 dereferenceable(648)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn27BatchNorm_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn27BatchNorm_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(648) ptr @_Znwm(i64 noundef 648) #16
   invoke void @_ZN4ncnn13BatchNorm_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(648) %2)
           to label %3 unwind label %4
@@ -235,7 +235,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27BatchNorm_x86_layer_creatorEPv(ptr 
 declare void @_ZN4ncnn13BatchNorm_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(648)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn34BatchNorm_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn34BatchNorm_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(648) ptr @_Znwm(i64 noundef 648) #16
   invoke void @_ZN4ncnn20BatchNorm_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(648) %2)
           to label %3 unwind label %4
@@ -253,7 +253,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn34BatchNorm_x86_avx512_layer_creatorE
 declare void @_ZN4ncnn20BatchNorm_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(648)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn31BatchNorm_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn31BatchNorm_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(648) ptr @_Znwm(i64 noundef 648) #16
   invoke void @_ZN4ncnn17BatchNorm_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(648) %2)
           to label %3 unwind label %4
@@ -271,7 +271,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31BatchNorm_x86_fma_layer_creatorEPv(
 declare void @_ZN4ncnn17BatchNorm_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(648)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn31BatchNorm_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn31BatchNorm_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(648) ptr @_Znwm(i64 noundef 648) #16
   invoke void @_ZN4ncnn17BatchNorm_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(648) %2)
           to label %3 unwind label %4
@@ -289,7 +289,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31BatchNorm_x86_avx_layer_creatorEPv(
 declare void @_ZN4ncnn17BatchNorm_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(648)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn18Bias_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn18Bias_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #16
   invoke void @_ZN4ncnn4BiasC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
@@ -307,7 +307,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18Bias_layer_creatorEPv(ptr nocapture
 declare void @_ZN4ncnn4BiasC1Ev(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn22Bias_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn22Bias_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #16
   invoke void @_ZN4ncnn4BiasC2Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
@@ -324,7 +324,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22Bias_x86_layer_creatorEPv(ptr nocap
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Bias_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Bias_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #16
   invoke void @_ZN4ncnn4BiasC2Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
@@ -341,7 +341,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Bias_x86_avx512_layer_creatorEPv(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26Bias_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26Bias_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #16
   invoke void @_ZN4ncnn4BiasC2Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
@@ -358,7 +358,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Bias_x86_fma_layer_creatorEPv(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26Bias_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26Bias_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #16
   invoke void @_ZN4ncnn4BiasC2Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
@@ -375,7 +375,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Bias_x86_avx_layer_creatorEPv(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn18BNLL_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn18BNLL_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn4BNLLC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -393,7 +393,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18BNLL_layer_creatorEPv(ptr nocapture
 declare void @_ZN4ncnn4BNLLC1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn22BNLL_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn22BNLL_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn8BNLL_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -411,7 +411,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22BNLL_x86_layer_creatorEPv(ptr nocap
 declare void @_ZN4ncnn8BNLL_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29BNLL_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29BNLL_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn15BNLL_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -429,7 +429,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29BNLL_x86_avx512_layer_creatorEPv(pt
 declare void @_ZN4ncnn15BNLL_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26BNLL_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26BNLL_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn12BNLL_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -447,7 +447,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26BNLL_x86_fma_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12BNLL_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26BNLL_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26BNLL_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn12BNLL_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -465,7 +465,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26BNLL_x86_avx_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12BNLL_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn20Concat_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn20Concat_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn6ConcatC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -483,7 +483,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn20Concat_layer_creatorEPv(ptr nocaptu
 declare void @_ZN4ncnn6ConcatC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn24Concat_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn24Concat_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn10Concat_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -501,7 +501,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn24Concat_x86_layer_creatorEPv(ptr noc
 declare void @_ZN4ncnn10Concat_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn31Concat_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn31Concat_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn17Concat_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -519,7 +519,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31Concat_x86_avx512_layer_creatorEPv(
 declare void @_ZN4ncnn17Concat_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn28Concat_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn28Concat_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn14Concat_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -537,7 +537,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn28Concat_x86_fma_layer_creatorEPv(ptr
 declare void @_ZN4ncnn14Concat_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn28Concat_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn28Concat_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn14Concat_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -555,7 +555,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn28Concat_x86_avx_layer_creatorEPv(ptr
 declare void @_ZN4ncnn14Concat_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn25Convolution_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn25Convolution_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(712) ptr @_Znwm(i64 noundef 712) #16
   invoke void @_ZN4ncnn11ConvolutionC1Ev(ptr noundef nonnull align 8 dereferenceable(712) %2)
           to label %3 unwind label %4
@@ -573,7 +573,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25Convolution_layer_creatorEPv(ptr no
 declare void @_ZN4ncnn11ConvolutionC1Ev(ptr noundef nonnull align 8 dereferenceable(712)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Convolution_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Convolution_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(1168) ptr @_Znwm(i64 noundef 1168) #16
   invoke void @_ZN4ncnn15Convolution_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(1168) %2)
           to label %3 unwind label %4
@@ -591,7 +591,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Convolution_x86_layer_creatorEPv(pt
 declare void @_ZN4ncnn15Convolution_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(1168)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn36Convolution_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn36Convolution_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(1168) ptr @_Znwm(i64 noundef 1168) #16
   invoke void @_ZN4ncnn22Convolution_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(1168) %2)
           to label %3 unwind label %4
@@ -609,7 +609,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn36Convolution_x86_avx512_layer_creato
 declare void @_ZN4ncnn22Convolution_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(1168)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn33Convolution_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn33Convolution_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(1168) ptr @_Znwm(i64 noundef 1168) #16
   invoke void @_ZN4ncnn19Convolution_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(1168) %2)
           to label %3 unwind label %4
@@ -627,7 +627,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn33Convolution_x86_fma_layer_creatorEP
 declare void @_ZN4ncnn19Convolution_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(1168)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn33Convolution_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn33Convolution_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(1168) ptr @_Znwm(i64 noundef 1168) #16
   invoke void @_ZN4ncnn19Convolution_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(1168) %2)
           to label %3 unwind label %4
@@ -645,7 +645,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn33Convolution_x86_avx_layer_creatorEP
 declare void @_ZN4ncnn19Convolution_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(1168)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn18Crop_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn18Crop_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(472) ptr @_Znwm(i64 noundef 472) #16
   invoke void @_ZN4ncnn4CropC1Ev(ptr noundef nonnull align 8 dereferenceable(472) %2)
           to label %3 unwind label %4
@@ -663,7 +663,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18Crop_layer_creatorEPv(ptr nocapture
 declare void @_ZN4ncnn4CropC1Ev(ptr noundef nonnull align 8 dereferenceable(472)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn22Crop_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn22Crop_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(472) ptr @_Znwm(i64 noundef 472) #16
   invoke void @_ZN4ncnn8Crop_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(472) %2)
           to label %3 unwind label %4
@@ -681,7 +681,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22Crop_x86_layer_creatorEPv(ptr nocap
 declare void @_ZN4ncnn8Crop_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(472)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Crop_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Crop_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(472) ptr @_Znwm(i64 noundef 472) #16
   invoke void @_ZN4ncnn15Crop_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(472) %2)
           to label %3 unwind label %4
@@ -699,7 +699,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Crop_x86_avx512_layer_creatorEPv(pt
 declare void @_ZN4ncnn15Crop_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(472)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26Crop_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26Crop_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(472) ptr @_Znwm(i64 noundef 472) #16
   invoke void @_ZN4ncnn12Crop_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(472) %2)
           to label %3 unwind label %4
@@ -717,7 +717,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Crop_x86_fma_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12Crop_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(472)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26Crop_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26Crop_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(472) ptr @_Znwm(i64 noundef 472) #16
   invoke void @_ZN4ncnn12Crop_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(472) %2)
           to label %3 unwind label %4
@@ -735,7 +735,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Crop_x86_avx_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12Crop_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(472)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn27Deconvolution_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn27Deconvolution_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #16
   invoke void @_ZN4ncnn13DeconvolutionC1Ev(ptr noundef nonnull align 8 dereferenceable(504) %2)
           to label %3 unwind label %4
@@ -753,7 +753,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27Deconvolution_layer_creatorEPv(ptr 
 declare void @_ZN4ncnn13DeconvolutionC1Ev(ptr noundef nonnull align 8 dereferenceable(504)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn31Deconvolution_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn31Deconvolution_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(592) ptr @_Znwm(i64 noundef 592) #16
   invoke void @_ZN4ncnn17Deconvolution_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(592) %2)
           to label %3 unwind label %4
@@ -771,7 +771,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31Deconvolution_x86_layer_creatorEPv(
 declare void @_ZN4ncnn17Deconvolution_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(592)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn38Deconvolution_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn38Deconvolution_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(592) ptr @_Znwm(i64 noundef 592) #16
   invoke void @_ZN4ncnn24Deconvolution_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(592) %2)
           to label %3 unwind label %4
@@ -789,7 +789,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn38Deconvolution_x86_avx512_layer_crea
 declare void @_ZN4ncnn24Deconvolution_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(592)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn35Deconvolution_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn35Deconvolution_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(592) ptr @_Znwm(i64 noundef 592) #16
   invoke void @_ZN4ncnn21Deconvolution_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(592) %2)
           to label %3 unwind label %4
@@ -807,7 +807,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn35Deconvolution_x86_fma_layer_creator
 declare void @_ZN4ncnn21Deconvolution_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(592)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn35Deconvolution_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn35Deconvolution_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(592) ptr @_Znwm(i64 noundef 592) #16
   invoke void @_ZN4ncnn21Deconvolution_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(592) %2)
           to label %3 unwind label %4
@@ -825,7 +825,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn35Deconvolution_x86_avx_layer_creator
 declare void @_ZN4ncnn21Deconvolution_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(592)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn21Dropout_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn21Dropout_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn7DropoutC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -843,7 +843,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21Dropout_layer_creatorEPv(ptr nocapt
 declare void @_ZN4ncnn7DropoutC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn25Dropout_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn25Dropout_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn11Dropout_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -861,7 +861,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25Dropout_x86_layer_creatorEPv(ptr no
 declare void @_ZN4ncnn11Dropout_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn32Dropout_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn32Dropout_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn18Dropout_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -879,7 +879,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32Dropout_x86_avx512_layer_creatorEPv
 declare void @_ZN4ncnn18Dropout_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Dropout_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Dropout_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn15Dropout_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -897,7 +897,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Dropout_x86_fma_layer_creatorEPv(pt
 declare void @_ZN4ncnn15Dropout_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Dropout_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Dropout_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn15Dropout_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -915,7 +915,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Dropout_x86_avx_layer_creatorEPv(pt
 declare void @_ZN4ncnn15Dropout_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn21Eltwise_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn21Eltwise_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #16
   invoke void @_ZN4ncnn7EltwiseC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
@@ -933,7 +933,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21Eltwise_layer_creatorEPv(ptr nocapt
 declare void @_ZN4ncnn7EltwiseC1Ev(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn25Eltwise_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn25Eltwise_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #16
   invoke void @_ZN4ncnn11Eltwise_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
@@ -951,7 +951,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25Eltwise_x86_layer_creatorEPv(ptr no
 declare void @_ZN4ncnn11Eltwise_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn32Eltwise_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn32Eltwise_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #16
   invoke void @_ZN4ncnn18Eltwise_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
@@ -969,7 +969,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32Eltwise_x86_avx512_layer_creatorEPv
 declare void @_ZN4ncnn18Eltwise_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Eltwise_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Eltwise_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #16
   invoke void @_ZN4ncnn15Eltwise_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
@@ -987,7 +987,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Eltwise_x86_fma_layer_creatorEPv(pt
 declare void @_ZN4ncnn15Eltwise_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Eltwise_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Eltwise_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #16
   invoke void @_ZN4ncnn15Eltwise_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
@@ -1005,7 +1005,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Eltwise_x86_avx_layer_creatorEPv(pt
 declare void @_ZN4ncnn15Eltwise_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn17ELU_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn17ELU_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn3ELUC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -1023,7 +1023,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn17ELU_layer_creatorEPv(ptr nocapture 
 declare void @_ZN4ncnn3ELUC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn21ELU_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn21ELU_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn7ELU_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -1041,7 +1041,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21ELU_x86_layer_creatorEPv(ptr nocapt
 declare void @_ZN4ncnn7ELU_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn28ELU_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn28ELU_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn14ELU_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -1059,7 +1059,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn28ELU_x86_avx512_layer_creatorEPv(ptr
 declare void @_ZN4ncnn14ELU_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn25ELU_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn25ELU_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn11ELU_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -1077,7 +1077,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25ELU_x86_fma_layer_creatorEPv(ptr no
 declare void @_ZN4ncnn11ELU_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn25ELU_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn25ELU_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn11ELU_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -1095,7 +1095,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25ELU_x86_avx_layer_creatorEPv(ptr no
 declare void @_ZN4ncnn11ELU_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn19Embed_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn19Embed_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(384) ptr @_Znwm(i64 noundef 384) #16
   invoke void @_ZN4ncnn5EmbedC1Ev(ptr noundef nonnull align 8 dereferenceable(380) %2)
           to label %3 unwind label %4
@@ -1113,7 +1113,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn19Embed_layer_creatorEPv(ptr nocaptur
 declare void @_ZN4ncnn5EmbedC1Ev(ptr noundef nonnull align 8 dereferenceable(380)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn17Exp_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn17Exp_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn3ExpC1Ev(ptr noundef nonnull align 8 dereferenceable(220) %2)
           to label %3 unwind label %4
@@ -1131,7 +1131,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn17Exp_layer_creatorEPv(ptr nocapture 
 declare void @_ZN4ncnn3ExpC1Ev(ptr noundef nonnull align 8 dereferenceable(220)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn21Flatten_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn21Flatten_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn7FlattenC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -1149,7 +1149,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21Flatten_layer_creatorEPv(ptr nocapt
 declare void @_ZN4ncnn7FlattenC1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn25Flatten_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn25Flatten_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn11Flatten_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -1167,7 +1167,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25Flatten_x86_layer_creatorEPv(ptr no
 declare void @_ZN4ncnn11Flatten_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn32Flatten_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn32Flatten_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn18Flatten_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -1185,7 +1185,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32Flatten_x86_avx512_layer_creatorEPv
 declare void @_ZN4ncnn18Flatten_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Flatten_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Flatten_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn15Flatten_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -1203,7 +1203,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Flatten_x86_fma_layer_creatorEPv(pt
 declare void @_ZN4ncnn15Flatten_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Flatten_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Flatten_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn15Flatten_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -1221,7 +1221,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Flatten_x86_avx_layer_creatorEPv(pt
 declare void @_ZN4ncnn15Flatten_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26InnerProduct_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26InnerProduct_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(592) ptr @_Znwm(i64 noundef 592) #16
   invoke void @_ZN4ncnn12InnerProductC1Ev(ptr noundef nonnull align 8 dereferenceable(592) %2)
           to label %3 unwind label %4
@@ -1239,7 +1239,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26InnerProduct_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12InnerProductC1Ev(ptr noundef nonnull align 8 dereferenceable(592)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn30InnerProduct_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn30InnerProduct_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(744) ptr @_Znwm(i64 noundef 744) #16
   invoke void @_ZN4ncnn16InnerProduct_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(744) %2)
           to label %3 unwind label %4
@@ -1257,7 +1257,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn30InnerProduct_x86_layer_creatorEPv(p
 declare void @_ZN4ncnn16InnerProduct_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(744)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn37InnerProduct_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn37InnerProduct_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(744) ptr @_Znwm(i64 noundef 744) #16
   invoke void @_ZN4ncnn23InnerProduct_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(744) %2)
           to label %3 unwind label %4
@@ -1275,7 +1275,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn37InnerProduct_x86_avx512_layer_creat
 declare void @_ZN4ncnn23InnerProduct_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(744)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn34InnerProduct_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn34InnerProduct_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(744) ptr @_Znwm(i64 noundef 744) #16
   invoke void @_ZN4ncnn20InnerProduct_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(744) %2)
           to label %3 unwind label %4
@@ -1293,7 +1293,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn34InnerProduct_x86_fma_layer_creatorE
 declare void @_ZN4ncnn20InnerProduct_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(744)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn34InnerProduct_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn34InnerProduct_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(744) ptr @_Znwm(i64 noundef 744) #16
   invoke void @_ZN4ncnn20InnerProduct_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(744) %2)
           to label %3 unwind label %4
@@ -1311,7 +1311,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn34InnerProduct_x86_avx_layer_creatorE
 declare void @_ZN4ncnn20InnerProduct_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(744)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn19Input_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn19Input_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn5InputC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
@@ -1329,7 +1329,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn19Input_layer_creatorEPv(ptr nocaptur
 declare void @_ZN4ncnn5InputC1Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn17Log_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn17Log_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn3LogC1Ev(ptr noundef nonnull align 8 dereferenceable(220) %2)
           to label %3 unwind label %4
@@ -1347,7 +1347,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn17Log_layer_creatorEPv(ptr nocapture 
 declare void @_ZN4ncnn3LogC1Ev(ptr noundef nonnull align 8 dereferenceable(220)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn17LRN_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn17LRN_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #16
   invoke void @_ZN4ncnn3LRNC1Ev(ptr noundef nonnull align 8 dereferenceable(228) %2)
           to label %3 unwind label %4
@@ -1365,7 +1365,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn17LRN_layer_creatorEPv(ptr nocapture 
 declare void @_ZN4ncnn3LRNC1Ev(ptr noundef nonnull align 8 dereferenceable(228)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn21LRN_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn21LRN_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #16
   invoke void @_ZN4ncnn3LRNC2Ev(ptr noundef nonnull align 8 dereferenceable(228) %2)
           to label %3 unwind label %4
@@ -1382,7 +1382,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21LRN_x86_layer_creatorEPv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn28LRN_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn28LRN_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #16
   invoke void @_ZN4ncnn3LRNC2Ev(ptr noundef nonnull align 8 dereferenceable(228) %2)
           to label %3 unwind label %4
@@ -1399,7 +1399,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn28LRN_x86_avx512_layer_creatorEPv(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn25LRN_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn25LRN_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #16
   invoke void @_ZN4ncnn3LRNC2Ev(ptr noundef nonnull align 8 dereferenceable(228) %2)
           to label %3 unwind label %4
@@ -1416,7 +1416,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25LRN_x86_fma_layer_creatorEPv(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn25LRN_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn25LRN_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #16
   invoke void @_ZN4ncnn3LRNC2Ev(ptr noundef nonnull align 8 dereferenceable(228) %2)
           to label %3 unwind label %4
@@ -1433,7 +1433,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25LRN_x86_avx_layer_creatorEPv(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn24MemoryData_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn24MemoryData_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(304) ptr @_Znwm(i64 noundef 304) #16
   invoke void @_ZN4ncnn10MemoryDataC1Ev(ptr noundef nonnull align 8 dereferenceable(304) %2)
           to label %3 unwind label %4
@@ -1451,7 +1451,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn24MemoryData_layer_creatorEPv(ptr noc
 declare void @_ZN4ncnn10MemoryDataC1Ev(ptr noundef nonnull align 8 dereferenceable(304)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn17MVN_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn17MVN_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn3MVNC1Ev(ptr noundef nonnull align 8 dereferenceable(220) %2)
           to label %3 unwind label %4
@@ -1469,7 +1469,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn17MVN_layer_creatorEPv(ptr nocapture 
 declare void @_ZN4ncnn3MVNC1Ev(ptr noundef nonnull align 8 dereferenceable(220)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn21Pooling_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn21Pooling_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #16
   invoke void @_ZN4ncnn7PoolingC1Ev(ptr noundef nonnull align 8 dereferenceable(268) %2)
           to label %3 unwind label %4
@@ -1487,7 +1487,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21Pooling_layer_creatorEPv(ptr nocapt
 declare void @_ZN4ncnn7PoolingC1Ev(ptr noundef nonnull align 8 dereferenceable(268)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn25Pooling_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn25Pooling_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #16
   invoke void @_ZN4ncnn11Pooling_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(268) %2)
           to label %3 unwind label %4
@@ -1505,7 +1505,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25Pooling_x86_layer_creatorEPv(ptr no
 declare void @_ZN4ncnn11Pooling_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(268)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn32Pooling_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn32Pooling_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #16
   invoke void @_ZN4ncnn18Pooling_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(268) %2)
           to label %3 unwind label %4
@@ -1523,7 +1523,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32Pooling_x86_avx512_layer_creatorEPv
 declare void @_ZN4ncnn18Pooling_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(268)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Pooling_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Pooling_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #16
   invoke void @_ZN4ncnn15Pooling_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(268) %2)
           to label %3 unwind label %4
@@ -1541,7 +1541,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Pooling_x86_fma_layer_creatorEPv(pt
 declare void @_ZN4ncnn15Pooling_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(268)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Pooling_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Pooling_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #16
   invoke void @_ZN4ncnn15Pooling_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(268) %2)
           to label %3 unwind label %4
@@ -1559,7 +1559,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Pooling_x86_avx_layer_creatorEPv(pt
 declare void @_ZN4ncnn15Pooling_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(268)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn19Power_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn19Power_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn5PowerC1Ev(ptr noundef nonnull align 8 dereferenceable(220) %2)
           to label %3 unwind label %4
@@ -1577,7 +1577,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn19Power_layer_creatorEPv(ptr nocaptur
 declare void @_ZN4ncnn5PowerC1Ev(ptr noundef nonnull align 8 dereferenceable(220)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn19PReLU_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn19PReLU_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #16
   invoke void @_ZN4ncnn5PReLUC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
@@ -1595,7 +1595,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn19PReLU_layer_creatorEPv(ptr nocaptur
 declare void @_ZN4ncnn5PReLUC1Ev(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn23PReLU_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn23PReLU_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #16
   invoke void @_ZN4ncnn9PReLU_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
@@ -1613,7 +1613,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn23PReLU_x86_layer_creatorEPv(ptr noca
 declare void @_ZN4ncnn9PReLU_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn30PReLU_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn30PReLU_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #16
   invoke void @_ZN4ncnn16PReLU_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
@@ -1631,7 +1631,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn30PReLU_x86_avx512_layer_creatorEPv(p
 declare void @_ZN4ncnn16PReLU_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn27PReLU_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn27PReLU_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #16
   invoke void @_ZN4ncnn13PReLU_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
@@ -1649,7 +1649,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27PReLU_x86_fma_layer_creatorEPv(ptr 
 declare void @_ZN4ncnn13PReLU_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn27PReLU_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn27PReLU_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #16
   invoke void @_ZN4ncnn13PReLU_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
@@ -1667,7 +1667,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27PReLU_x86_avx_layer_creatorEPv(ptr 
 declare void @_ZN4ncnn13PReLU_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn22Proposal_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn22Proposal_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(448) ptr @_Znwm(i64 noundef 448) #16
   invoke void @_ZN4ncnn8ProposalC1Ev(ptr noundef nonnull align 8 dereferenceable(448) %2)
           to label %3 unwind label %4
@@ -1685,7 +1685,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22Proposal_layer_creatorEPv(ptr nocap
 declare void @_ZN4ncnn8ProposalC1Ev(ptr noundef nonnull align 8 dereferenceable(448)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn23Reduction_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn23Reduction_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(304) ptr @_Znwm(i64 noundef 304) #16
   invoke void @_ZN4ncnn9ReductionC1Ev(ptr noundef nonnull align 8 dereferenceable(300) %2)
           to label %3 unwind label %4
@@ -1703,7 +1703,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn23Reduction_layer_creatorEPv(ptr noca
 declare void @_ZN4ncnn9ReductionC1Ev(ptr noundef nonnull align 8 dereferenceable(300)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn18ReLU_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn18ReLU_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn4ReLUC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -1721,7 +1721,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18ReLU_layer_creatorEPv(ptr nocapture
 declare void @_ZN4ncnn4ReLUC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn22ReLU_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn22ReLU_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn8ReLU_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -1739,7 +1739,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22ReLU_x86_layer_creatorEPv(ptr nocap
 declare void @_ZN4ncnn8ReLU_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29ReLU_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29ReLU_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn15ReLU_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -1757,7 +1757,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29ReLU_x86_avx512_layer_creatorEPv(pt
 declare void @_ZN4ncnn15ReLU_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26ReLU_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26ReLU_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn12ReLU_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -1775,7 +1775,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26ReLU_x86_fma_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12ReLU_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26ReLU_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26ReLU_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn12ReLU_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -1793,7 +1793,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26ReLU_x86_avx_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12ReLU_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn21Reshape_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn21Reshape_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #16
   invoke void @_ZN4ncnn7ReshapeC1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
@@ -1811,7 +1811,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21Reshape_layer_creatorEPv(ptr nocapt
 declare void @_ZN4ncnn7ReshapeC1Ev(ptr noundef nonnull align 8 dereferenceable(232)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn25Reshape_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn25Reshape_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #16
   invoke void @_ZN4ncnn11Reshape_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
@@ -1829,7 +1829,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25Reshape_x86_layer_creatorEPv(ptr no
 declare void @_ZN4ncnn11Reshape_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(232)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn32Reshape_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn32Reshape_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #16
   invoke void @_ZN4ncnn18Reshape_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
@@ -1847,7 +1847,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32Reshape_x86_avx512_layer_creatorEPv
 declare void @_ZN4ncnn18Reshape_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(232)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Reshape_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Reshape_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #16
   invoke void @_ZN4ncnn15Reshape_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
@@ -1865,7 +1865,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Reshape_x86_fma_layer_creatorEPv(pt
 declare void @_ZN4ncnn15Reshape_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(232)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Reshape_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Reshape_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #16
   invoke void @_ZN4ncnn15Reshape_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
@@ -1883,7 +1883,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Reshape_x86_avx_layer_creatorEPv(pt
 declare void @_ZN4ncnn15Reshape_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(232)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn24ROIPooling_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn24ROIPooling_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn10ROIPoolingC1Ev(ptr noundef nonnull align 8 dereferenceable(220) %2)
           to label %3 unwind label %4
@@ -1901,7 +1901,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn24ROIPooling_layer_creatorEPv(ptr noc
 declare void @_ZN4ncnn10ROIPoolingC1Ev(ptr noundef nonnull align 8 dereferenceable(220)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn19Scale_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn19Scale_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #16
   invoke void @_ZN4ncnn5ScaleC1Ev(ptr noundef nonnull align 8 dereferenceable(360) %2)
           to label %3 unwind label %4
@@ -1919,7 +1919,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn19Scale_layer_creatorEPv(ptr nocaptur
 declare void @_ZN4ncnn5ScaleC1Ev(ptr noundef nonnull align 8 dereferenceable(360)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn23Scale_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn23Scale_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #16
   invoke void @_ZN4ncnn9Scale_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(360) %2)
           to label %3 unwind label %4
@@ -1937,7 +1937,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn23Scale_x86_layer_creatorEPv(ptr noca
 declare void @_ZN4ncnn9Scale_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(360)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn30Scale_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn30Scale_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #16
   invoke void @_ZN4ncnn16Scale_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(360) %2)
           to label %3 unwind label %4
@@ -1955,7 +1955,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn30Scale_x86_avx512_layer_creatorEPv(p
 declare void @_ZN4ncnn16Scale_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(360)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn27Scale_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn27Scale_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #16
   invoke void @_ZN4ncnn13Scale_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(360) %2)
           to label %3 unwind label %4
@@ -1973,7 +1973,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27Scale_x86_fma_layer_creatorEPv(ptr 
 declare void @_ZN4ncnn13Scale_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(360)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn27Scale_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn27Scale_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #16
   invoke void @_ZN4ncnn13Scale_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(360) %2)
           to label %3 unwind label %4
@@ -1991,7 +1991,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27Scale_x86_avx_layer_creatorEPv(ptr 
 declare void @_ZN4ncnn13Scale_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(360)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn21Sigmoid_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn21Sigmoid_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn7SigmoidC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -2009,7 +2009,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21Sigmoid_layer_creatorEPv(ptr nocapt
 declare void @_ZN4ncnn7SigmoidC1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn25Sigmoid_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn25Sigmoid_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn11Sigmoid_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -2027,7 +2027,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25Sigmoid_x86_layer_creatorEPv(ptr no
 declare void @_ZN4ncnn11Sigmoid_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn32Sigmoid_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn32Sigmoid_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn18Sigmoid_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -2045,7 +2045,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32Sigmoid_x86_avx512_layer_creatorEPv
 declare void @_ZN4ncnn18Sigmoid_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Sigmoid_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Sigmoid_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn15Sigmoid_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -2063,7 +2063,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Sigmoid_x86_fma_layer_creatorEPv(pt
 declare void @_ZN4ncnn15Sigmoid_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Sigmoid_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Sigmoid_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn15Sigmoid_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -2081,7 +2081,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Sigmoid_x86_avx_layer_creatorEPv(pt
 declare void @_ZN4ncnn15Sigmoid_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn19Slice_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn19Slice_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #16
   invoke void @_ZN4ncnn5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(356) %2)
           to label %3 unwind label %4
@@ -2099,7 +2099,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn19Slice_layer_creatorEPv(ptr nocaptur
 declare void @_ZN4ncnn5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(356)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn23Slice_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn23Slice_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #16
   invoke void @_ZN4ncnn9Slice_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(356) %2)
           to label %3 unwind label %4
@@ -2117,7 +2117,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn23Slice_x86_layer_creatorEPv(ptr noca
 declare void @_ZN4ncnn9Slice_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(356)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn30Slice_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn30Slice_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #16
   invoke void @_ZN4ncnn16Slice_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(356) %2)
           to label %3 unwind label %4
@@ -2135,7 +2135,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn30Slice_x86_avx512_layer_creatorEPv(p
 declare void @_ZN4ncnn16Slice_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(356)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn27Slice_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn27Slice_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #16
   invoke void @_ZN4ncnn13Slice_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(356) %2)
           to label %3 unwind label %4
@@ -2153,7 +2153,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27Slice_x86_fma_layer_creatorEPv(ptr 
 declare void @_ZN4ncnn13Slice_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(356)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn27Slice_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn27Slice_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #16
   invoke void @_ZN4ncnn13Slice_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(356) %2)
           to label %3 unwind label %4
@@ -2171,7 +2171,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27Slice_x86_avx_layer_creatorEPv(ptr 
 declare void @_ZN4ncnn13Slice_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(356)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn21Softmax_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn21Softmax_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn7SoftmaxC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -2189,7 +2189,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21Softmax_layer_creatorEPv(ptr nocapt
 declare void @_ZN4ncnn7SoftmaxC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn25Softmax_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn25Softmax_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn11Softmax_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -2207,7 +2207,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25Softmax_x86_layer_creatorEPv(ptr no
 declare void @_ZN4ncnn11Softmax_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn32Softmax_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn32Softmax_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn18Softmax_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -2225,7 +2225,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32Softmax_x86_avx512_layer_creatorEPv
 declare void @_ZN4ncnn18Softmax_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Softmax_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Softmax_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn15Softmax_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -2243,7 +2243,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Softmax_x86_fma_layer_creatorEPv(pt
 declare void @_ZN4ncnn15Softmax_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Softmax_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Softmax_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn15Softmax_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -2261,7 +2261,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Softmax_x86_avx_layer_creatorEPv(pt
 declare void @_ZN4ncnn15Softmax_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn19Split_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn19Split_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn5SplitC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -2279,7 +2279,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn19Split_layer_creatorEPv(ptr nocaptur
 declare void @_ZN4ncnn5SplitC1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn18TanH_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn18TanH_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn4TanHC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -2297,7 +2297,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18TanH_layer_creatorEPv(ptr nocapture
 declare void @_ZN4ncnn4TanHC1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn22TanH_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn22TanH_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn8TanH_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -2315,7 +2315,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22TanH_x86_layer_creatorEPv(ptr nocap
 declare void @_ZN4ncnn8TanH_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29TanH_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29TanH_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn15TanH_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -2333,7 +2333,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29TanH_x86_avx512_layer_creatorEPv(pt
 declare void @_ZN4ncnn15TanH_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26TanH_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26TanH_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn12TanH_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -2351,7 +2351,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26TanH_x86_fma_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12TanH_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26TanH_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26TanH_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn12TanH_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -2369,7 +2369,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26TanH_x86_avx_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12TanH_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn23Threshold_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn23Threshold_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn9ThresholdC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -2387,7 +2387,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn23Threshold_layer_creatorEPv(ptr noca
 declare void @_ZN4ncnn9ThresholdC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn18Tile_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn18Tile_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #16
   invoke void @_ZN4ncnn4TileC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
@@ -2405,7 +2405,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18Tile_layer_creatorEPv(ptr nocapture
 declare void @_ZN4ncnn4TileC1Ev(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn17RNN_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn17RNN_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(584) ptr @_Znwm(i64 noundef 584) #16
   invoke void @_ZN4ncnn3RNNC1Ev(ptr noundef nonnull align 8 dereferenceable(584) %2)
           to label %3 unwind label %4
@@ -2423,7 +2423,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn17RNN_layer_creatorEPv(ptr nocapture 
 declare void @_ZN4ncnn3RNNC1Ev(ptr noundef nonnull align 8 dereferenceable(584)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn18LSTM_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn18LSTM_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(664) ptr @_Znwm(i64 noundef 664) #16
   invoke void @_ZN4ncnn4LSTMC1Ev(ptr noundef nonnull align 8 dereferenceable(664) %2)
           to label %3 unwind label %4
@@ -2441,7 +2441,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18LSTM_layer_creatorEPv(ptr nocapture
 declare void @_ZN4ncnn4LSTMC1Ev(ptr noundef nonnull align 8 dereferenceable(664)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn22LSTM_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn22LSTM_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znwm(i64 noundef 1024) #16
   invoke void @_ZN4ncnn8LSTM_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(1024) %2)
           to label %3 unwind label %4
@@ -2459,7 +2459,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22LSTM_x86_layer_creatorEPv(ptr nocap
 declare void @_ZN4ncnn8LSTM_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(1024)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29LSTM_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29LSTM_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znwm(i64 noundef 1024) #16
   invoke void @_ZN4ncnn15LSTM_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(1024) %2)
           to label %3 unwind label %4
@@ -2477,7 +2477,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29LSTM_x86_avx512_layer_creatorEPv(pt
 declare void @_ZN4ncnn15LSTM_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(1024)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26LSTM_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26LSTM_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znwm(i64 noundef 1024) #16
   invoke void @_ZN4ncnn12LSTM_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(1024) %2)
           to label %3 unwind label %4
@@ -2495,7 +2495,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26LSTM_x86_fma_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12LSTM_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(1024)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26LSTM_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26LSTM_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znwm(i64 noundef 1024) #16
   invoke void @_ZN4ncnn12LSTM_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(1024) %2)
           to label %3 unwind label %4
@@ -2513,7 +2513,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26LSTM_x86_avx_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12LSTM_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(1024)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn22BinaryOp_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn22BinaryOp_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn8BinaryOpC1Ev(ptr noundef nonnull align 8 dereferenceable(220) %2)
           to label %3 unwind label %4
@@ -2531,7 +2531,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22BinaryOp_layer_creatorEPv(ptr nocap
 declare void @_ZN4ncnn8BinaryOpC1Ev(ptr noundef nonnull align 8 dereferenceable(220)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26BinaryOp_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26BinaryOp_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn12BinaryOp_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(220) %2)
           to label %3 unwind label %4
@@ -2549,7 +2549,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26BinaryOp_x86_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12BinaryOp_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(220)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn33BinaryOp_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn33BinaryOp_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn19BinaryOp_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(220) %2)
           to label %3 unwind label %4
@@ -2567,7 +2567,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn33BinaryOp_x86_avx512_layer_creatorEP
 declare void @_ZN4ncnn19BinaryOp_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(220)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn30BinaryOp_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn30BinaryOp_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn16BinaryOp_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(220) %2)
           to label %3 unwind label %4
@@ -2585,7 +2585,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn30BinaryOp_x86_fma_layer_creatorEPv(p
 declare void @_ZN4ncnn16BinaryOp_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(220)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn30BinaryOp_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn30BinaryOp_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn16BinaryOp_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(220) %2)
           to label %3 unwind label %4
@@ -2603,7 +2603,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn30BinaryOp_x86_avx_layer_creatorEPv(p
 declare void @_ZN4ncnn16BinaryOp_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(220)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn21UnaryOp_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn21UnaryOp_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn7UnaryOpC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -2621,7 +2621,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21UnaryOp_layer_creatorEPv(ptr nocapt
 declare void @_ZN4ncnn7UnaryOpC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn25UnaryOp_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn25UnaryOp_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn11UnaryOp_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -2639,7 +2639,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25UnaryOp_x86_layer_creatorEPv(ptr no
 declare void @_ZN4ncnn11UnaryOp_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn32UnaryOp_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn32UnaryOp_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn18UnaryOp_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -2657,7 +2657,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32UnaryOp_x86_avx512_layer_creatorEPv
 declare void @_ZN4ncnn18UnaryOp_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29UnaryOp_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29UnaryOp_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn15UnaryOp_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -2675,7 +2675,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29UnaryOp_x86_fma_layer_creatorEPv(pt
 declare void @_ZN4ncnn15UnaryOp_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29UnaryOp_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29UnaryOp_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn15UnaryOp_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -2693,7 +2693,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29UnaryOp_x86_avx_layer_creatorEPv(pt
 declare void @_ZN4ncnn15UnaryOp_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn34ConvolutionDepthWise_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn34ConvolutionDepthWise_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(720) ptr @_Znwm(i64 noundef 720) #16
   invoke void @_ZN4ncnn20ConvolutionDepthWiseC1Ev(ptr noundef nonnull align 8 dereferenceable(720) %2)
           to label %3 unwind label %4
@@ -2711,7 +2711,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn34ConvolutionDepthWise_layer_creatorE
 declare void @_ZN4ncnn20ConvolutionDepthWiseC1Ev(ptr noundef nonnull align 8 dereferenceable(720)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn38ConvolutionDepthWise_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn38ConvolutionDepthWise_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(824) ptr @_Znwm(i64 noundef 824) #16
   invoke void @_ZN4ncnn24ConvolutionDepthWise_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(824) %2)
           to label %3 unwind label %4
@@ -2729,7 +2729,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn38ConvolutionDepthWise_x86_layer_crea
 declare void @_ZN4ncnn24ConvolutionDepthWise_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(824)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn45ConvolutionDepthWise_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn45ConvolutionDepthWise_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(824) ptr @_Znwm(i64 noundef 824) #16
   invoke void @_ZN4ncnn31ConvolutionDepthWise_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(824) %2)
           to label %3 unwind label %4
@@ -2747,7 +2747,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn45ConvolutionDepthWise_x86_avx512_lay
 declare void @_ZN4ncnn31ConvolutionDepthWise_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(824)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn42ConvolutionDepthWise_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn42ConvolutionDepthWise_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(824) ptr @_Znwm(i64 noundef 824) #16
   invoke void @_ZN4ncnn28ConvolutionDepthWise_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(824) %2)
           to label %3 unwind label %4
@@ -2765,7 +2765,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn42ConvolutionDepthWise_x86_fma_layer_
 declare void @_ZN4ncnn28ConvolutionDepthWise_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(824)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn42ConvolutionDepthWise_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn42ConvolutionDepthWise_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(824) ptr @_Znwm(i64 noundef 824) #16
   invoke void @_ZN4ncnn28ConvolutionDepthWise_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(824) %2)
           to label %3 unwind label %4
@@ -2783,7 +2783,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn42ConvolutionDepthWise_x86_avx_layer_
 declare void @_ZN4ncnn28ConvolutionDepthWise_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(824)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn21Padding_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn21Padding_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #16
   invoke void @_ZN4ncnn7PaddingC1Ev(ptr noundef nonnull align 8 dereferenceable(320) %2)
           to label %3 unwind label %4
@@ -2801,7 +2801,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21Padding_layer_creatorEPv(ptr nocapt
 declare void @_ZN4ncnn7PaddingC1Ev(ptr noundef nonnull align 8 dereferenceable(320)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn25Padding_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn25Padding_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #16
   invoke void @_ZN4ncnn11Padding_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(320) %2)
           to label %3 unwind label %4
@@ -2819,7 +2819,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25Padding_x86_layer_creatorEPv(ptr no
 declare void @_ZN4ncnn11Padding_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(320)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn32Padding_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn32Padding_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #16
   invoke void @_ZN4ncnn18Padding_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(320) %2)
           to label %3 unwind label %4
@@ -2837,7 +2837,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32Padding_x86_avx512_layer_creatorEPv
 declare void @_ZN4ncnn18Padding_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(320)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Padding_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Padding_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #16
   invoke void @_ZN4ncnn15Padding_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(320) %2)
           to label %3 unwind label %4
@@ -2855,7 +2855,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Padding_x86_fma_layer_creatorEPv(pt
 declare void @_ZN4ncnn15Padding_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(320)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Padding_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Padding_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #16
   invoke void @_ZN4ncnn15Padding_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(320) %2)
           to label %3 unwind label %4
@@ -2873,7 +2873,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Padding_x86_avx_layer_creatorEPv(pt
 declare void @_ZN4ncnn15Padding_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(320)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn21Squeeze_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn21Squeeze_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #16
   invoke void @_ZN4ncnn7SqueezeC1Ev(ptr noundef nonnull align 8 dereferenceable(296) %2)
           to label %3 unwind label %4
@@ -2891,7 +2891,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21Squeeze_layer_creatorEPv(ptr nocapt
 declare void @_ZN4ncnn7SqueezeC1Ev(ptr noundef nonnull align 8 dereferenceable(296)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn24ExpandDims_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn24ExpandDims_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #16
   invoke void @_ZN4ncnn10ExpandDimsC1Ev(ptr noundef nonnull align 8 dereferenceable(296) %2)
           to label %3 unwind label %4
@@ -2909,7 +2909,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn24ExpandDims_layer_creatorEPv(ptr noc
 declare void @_ZN4ncnn10ExpandDimsC1Ev(ptr noundef nonnull align 8 dereferenceable(296)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn23Normalize_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn23Normalize_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(304) ptr @_Znwm(i64 noundef 304) #16
   invoke void @_ZN4ncnn9NormalizeC1Ev(ptr noundef nonnull align 8 dereferenceable(304) %2)
           to label %3 unwind label %4
@@ -2927,7 +2927,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn23Normalize_layer_creatorEPv(ptr noca
 declare void @_ZN4ncnn9NormalizeC1Ev(ptr noundef nonnull align 8 dereferenceable(304)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn21Permute_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn21Permute_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn7PermuteC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -2945,7 +2945,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21Permute_layer_creatorEPv(ptr nocapt
 declare void @_ZN4ncnn7PermuteC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn22PriorBox_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn22PriorBox_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(472) ptr @_Znwm(i64 noundef 472) #16
   invoke void @_ZN4ncnn8PriorBoxC1Ev(ptr noundef nonnull align 8 dereferenceable(470) %2)
           to label %3 unwind label %4
@@ -2963,7 +2963,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22PriorBox_layer_creatorEPv(ptr nocap
 declare void @_ZN4ncnn8PriorBoxC1Ev(ptr noundef nonnull align 8 dereferenceable(470)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29DetectionOutput_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29DetectionOutput_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #16
   invoke void @_ZN4ncnn15DetectionOutputC1Ev(ptr noundef nonnull align 8 dereferenceable(244) %2)
           to label %3 unwind label %4
@@ -2981,7 +2981,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29DetectionOutput_layer_creatorEPv(pt
 declare void @_ZN4ncnn15DetectionOutputC1Ev(ptr noundef nonnull align 8 dereferenceable(244)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn20Interp_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn20Interp_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #16
   invoke void @_ZN4ncnn6InterpC1Ev(ptr noundef nonnull align 8 dereferenceable(236) %2)
           to label %3 unwind label %4
@@ -2999,7 +2999,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn20Interp_layer_creatorEPv(ptr nocaptu
 declare void @_ZN4ncnn6InterpC1Ev(ptr noundef nonnull align 8 dereferenceable(236)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn24Interp_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn24Interp_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #16
   invoke void @_ZN4ncnn10Interp_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(236) %2)
           to label %3 unwind label %4
@@ -3017,7 +3017,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn24Interp_x86_layer_creatorEPv(ptr noc
 declare void @_ZN4ncnn10Interp_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(236)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn31Interp_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn31Interp_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #16
   invoke void @_ZN4ncnn17Interp_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(236) %2)
           to label %3 unwind label %4
@@ -3035,7 +3035,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31Interp_x86_avx512_layer_creatorEPv(
 declare void @_ZN4ncnn17Interp_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(236)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn28Interp_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn28Interp_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #16
   invoke void @_ZN4ncnn14Interp_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(236) %2)
           to label %3 unwind label %4
@@ -3053,7 +3053,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn28Interp_x86_fma_layer_creatorEPv(ptr
 declare void @_ZN4ncnn14Interp_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(236)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn28Interp_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn28Interp_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #16
   invoke void @_ZN4ncnn14Interp_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(236) %2)
           to label %3 unwind label %4
@@ -3071,7 +3071,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn28Interp_x86_avx_layer_creatorEPv(ptr
 declare void @_ZN4ncnn14Interp_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(236)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn36DeconvolutionDepthWise_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn36DeconvolutionDepthWise_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #16
   invoke void @_ZN4ncnn22DeconvolutionDepthWiseC1Ev(ptr noundef nonnull align 8 dereferenceable(512) %2)
           to label %3 unwind label %4
@@ -3089,7 +3089,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn36DeconvolutionDepthWise_layer_creato
 declare void @_ZN4ncnn22DeconvolutionDepthWiseC1Ev(ptr noundef nonnull align 8 dereferenceable(512)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn40DeconvolutionDepthWise_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn40DeconvolutionDepthWise_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(608) ptr @_Znwm(i64 noundef 608) #16
   invoke void @_ZN4ncnn26DeconvolutionDepthWise_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(608) %2)
           to label %3 unwind label %4
@@ -3107,7 +3107,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn40DeconvolutionDepthWise_x86_layer_cr
 declare void @_ZN4ncnn26DeconvolutionDepthWise_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(608)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn47DeconvolutionDepthWise_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn47DeconvolutionDepthWise_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(608) ptr @_Znwm(i64 noundef 608) #16
   invoke void @_ZN4ncnn33DeconvolutionDepthWise_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(608) %2)
           to label %3 unwind label %4
@@ -3125,7 +3125,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn47DeconvolutionDepthWise_x86_avx512_l
 declare void @_ZN4ncnn33DeconvolutionDepthWise_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(608)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn44DeconvolutionDepthWise_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn44DeconvolutionDepthWise_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(608) ptr @_Znwm(i64 noundef 608) #16
   invoke void @_ZN4ncnn30DeconvolutionDepthWise_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(608) %2)
           to label %3 unwind label %4
@@ -3143,7 +3143,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn44DeconvolutionDepthWise_x86_fma_laye
 declare void @_ZN4ncnn30DeconvolutionDepthWise_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(608)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn44DeconvolutionDepthWise_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn44DeconvolutionDepthWise_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(608) ptr @_Znwm(i64 noundef 608) #16
   invoke void @_ZN4ncnn30DeconvolutionDepthWise_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(608) %2)
           to label %3 unwind label %4
@@ -3161,7 +3161,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn44DeconvolutionDepthWise_x86_avx_laye
 declare void @_ZN4ncnn30DeconvolutionDepthWise_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(608)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn28ShuffleChannel_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn28ShuffleChannel_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn14ShuffleChannelC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
@@ -3179,7 +3179,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn28ShuffleChannel_layer_creatorEPv(ptr
 declare void @_ZN4ncnn14ShuffleChannelC1Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn32ShuffleChannel_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn32ShuffleChannel_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn18ShuffleChannel_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
@@ -3197,7 +3197,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32ShuffleChannel_x86_layer_creatorEPv
 declare void @_ZN4ncnn18ShuffleChannel_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn39ShuffleChannel_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn39ShuffleChannel_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn25ShuffleChannel_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
@@ -3215,7 +3215,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn39ShuffleChannel_x86_avx512_layer_cre
 declare void @_ZN4ncnn25ShuffleChannel_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn36ShuffleChannel_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn36ShuffleChannel_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn22ShuffleChannel_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
@@ -3233,7 +3233,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn36ShuffleChannel_x86_fma_layer_creato
 declare void @_ZN4ncnn22ShuffleChannel_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn36ShuffleChannel_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn36ShuffleChannel_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn22ShuffleChannel_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
@@ -3251,7 +3251,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn36ShuffleChannel_x86_avx_layer_creato
 declare void @_ZN4ncnn22ShuffleChannel_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26InstanceNorm_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26InstanceNorm_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #16
   invoke void @_ZN4ncnn12InstanceNormC1Ev(ptr noundef nonnull align 8 dereferenceable(368) %2)
           to label %3 unwind label %4
@@ -3269,7 +3269,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26InstanceNorm_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12InstanceNormC1Ev(ptr noundef nonnull align 8 dereferenceable(368)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn18Clip_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn18Clip_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn4ClipC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
@@ -3287,7 +3287,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18Clip_layer_creatorEPv(ptr nocapture
 declare void @_ZN4ncnn4ClipC1Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn22Clip_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn22Clip_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn8Clip_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
@@ -3305,7 +3305,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22Clip_x86_layer_creatorEPv(ptr nocap
 declare void @_ZN4ncnn8Clip_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Clip_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Clip_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn15Clip_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
@@ -3323,7 +3323,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Clip_x86_avx512_layer_creatorEPv(pt
 declare void @_ZN4ncnn15Clip_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26Clip_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26Clip_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn12Clip_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
@@ -3341,7 +3341,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Clip_x86_fma_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12Clip_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26Clip_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26Clip_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn12Clip_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
@@ -3359,7 +3359,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Clip_x86_avx_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12Clip_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn19Reorg_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn19Reorg_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn5ReorgC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
@@ -3377,7 +3377,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn19Reorg_layer_creatorEPv(ptr nocaptur
 declare void @_ZN4ncnn5ReorgC1Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn33YoloDetectionOutput_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn33YoloDetectionOutput_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(304) ptr @_Znwm(i64 noundef 304) #16
   invoke void @_ZN4ncnn19YoloDetectionOutputC1Ev(ptr noundef nonnull align 8 dereferenceable(304) %2)
           to label %3 unwind label %4
@@ -3395,7 +3395,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn33YoloDetectionOutput_layer_creatorEP
 declare void @_ZN4ncnn19YoloDetectionOutputC1Ev(ptr noundef nonnull align 8 dereferenceable(304)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn22Quantize_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn22Quantize_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #16
   invoke void @_ZN4ncnn8QuantizeC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
@@ -3413,7 +3413,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22Quantize_layer_creatorEPv(ptr nocap
 declare void @_ZN4ncnn8QuantizeC1Ev(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26Quantize_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26Quantize_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #16
   invoke void @_ZN4ncnn12Quantize_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
@@ -3431,7 +3431,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Quantize_x86_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12Quantize_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn33Quantize_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn33Quantize_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #16
   invoke void @_ZN4ncnn19Quantize_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
@@ -3449,7 +3449,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn33Quantize_x86_avx512_layer_creatorEP
 declare void @_ZN4ncnn19Quantize_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn30Quantize_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn30Quantize_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #16
   invoke void @_ZN4ncnn16Quantize_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
@@ -3467,7 +3467,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn30Quantize_x86_fma_layer_creatorEPv(p
 declare void @_ZN4ncnn16Quantize_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn30Quantize_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn30Quantize_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #16
   invoke void @_ZN4ncnn16Quantize_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
@@ -3485,7 +3485,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn30Quantize_x86_avx_layer_creatorEPv(p
 declare void @_ZN4ncnn16Quantize_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn24Dequantize_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn24Dequantize_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #16
   invoke void @_ZN4ncnn10DequantizeC1Ev(ptr noundef nonnull align 8 dereferenceable(360) %2)
           to label %3 unwind label %4
@@ -3503,7 +3503,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn24Dequantize_layer_creatorEPv(ptr noc
 declare void @_ZN4ncnn10DequantizeC1Ev(ptr noundef nonnull align 8 dereferenceable(360)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn28Dequantize_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn28Dequantize_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #16
   invoke void @_ZN4ncnn14Dequantize_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(360) %2)
           to label %3 unwind label %4
@@ -3521,7 +3521,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn28Dequantize_x86_layer_creatorEPv(ptr
 declare void @_ZN4ncnn14Dequantize_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(360)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn35Dequantize_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn35Dequantize_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #16
   invoke void @_ZN4ncnn21Dequantize_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(360) %2)
           to label %3 unwind label %4
@@ -3539,7 +3539,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn35Dequantize_x86_avx512_layer_creator
 declare void @_ZN4ncnn21Dequantize_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(360)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn32Dequantize_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn32Dequantize_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #16
   invoke void @_ZN4ncnn18Dequantize_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(360) %2)
           to label %3 unwind label %4
@@ -3557,7 +3557,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32Dequantize_x86_fma_layer_creatorEPv
 declare void @_ZN4ncnn18Dequantize_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(360)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn32Dequantize_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn32Dequantize_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #16
   invoke void @_ZN4ncnn18Dequantize_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(360) %2)
           to label %3 unwind label %4
@@ -3575,7 +3575,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32Dequantize_x86_avx_layer_creatorEPv
 declare void @_ZN4ncnn18Dequantize_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(360)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn35Yolov3DetectionOutput_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn35Yolov3DetectionOutput_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(456) ptr @_Znwm(i64 noundef 456) #16
   invoke void @_ZN4ncnn21Yolov3DetectionOutputC1Ev(ptr noundef nonnull align 8 dereferenceable(456) %2)
           to label %3 unwind label %4
@@ -3593,7 +3593,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn35Yolov3DetectionOutput_layer_creator
 declare void @_ZN4ncnn21Yolov3DetectionOutputC1Ev(ptr noundef nonnull align 8 dereferenceable(456)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn39Yolov3DetectionOutput_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn39Yolov3DetectionOutput_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(456) ptr @_Znwm(i64 noundef 456) #16
   invoke void @_ZN4ncnn25Yolov3DetectionOutput_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(456) %2)
           to label %3 unwind label %4
@@ -3611,7 +3611,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn39Yolov3DetectionOutput_x86_layer_cre
 declare void @_ZN4ncnn25Yolov3DetectionOutput_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(456)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn46Yolov3DetectionOutput_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn46Yolov3DetectionOutput_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(456) ptr @_Znwm(i64 noundef 456) #16
   invoke void @_ZN4ncnn32Yolov3DetectionOutput_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(456) %2)
           to label %3 unwind label %4
@@ -3629,7 +3629,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn46Yolov3DetectionOutput_x86_avx512_la
 declare void @_ZN4ncnn32Yolov3DetectionOutput_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(456)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn43Yolov3DetectionOutput_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn43Yolov3DetectionOutput_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(456) ptr @_Znwm(i64 noundef 456) #16
   invoke void @_ZN4ncnn29Yolov3DetectionOutput_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(456) %2)
           to label %3 unwind label %4
@@ -3647,7 +3647,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn43Yolov3DetectionOutput_x86_fma_layer
 declare void @_ZN4ncnn29Yolov3DetectionOutput_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(456)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn43Yolov3DetectionOutput_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn43Yolov3DetectionOutput_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(456) ptr @_Znwm(i64 noundef 456) #16
   invoke void @_ZN4ncnn29Yolov3DetectionOutput_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(456) %2)
           to label %3 unwind label %4
@@ -3665,7 +3665,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn43Yolov3DetectionOutput_x86_avx_layer
 declare void @_ZN4ncnn29Yolov3DetectionOutput_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(456)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26PSROIPooling_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26PSROIPooling_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn12PSROIPoolingC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
@@ -3683,7 +3683,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26PSROIPooling_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12PSROIPoolingC1Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn22ROIAlign_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn22ROIAlign_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #16
   invoke void @_ZN4ncnn8ROIAlignC1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
@@ -3701,7 +3701,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22ROIAlign_layer_creatorEPv(ptr nocap
 declare void @_ZN4ncnn8ROIAlignC1Ev(ptr noundef nonnull align 8 dereferenceable(232)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26ROIAlign_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26ROIAlign_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #16
   invoke void @_ZN4ncnn12ROIAlign_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
@@ -3719,7 +3719,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26ROIAlign_x86_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12ROIAlign_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(232)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn33ROIAlign_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn33ROIAlign_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #16
   invoke void @_ZN4ncnn19ROIAlign_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
@@ -3737,7 +3737,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn33ROIAlign_x86_avx512_layer_creatorEP
 declare void @_ZN4ncnn19ROIAlign_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(232)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn30ROIAlign_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn30ROIAlign_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #16
   invoke void @_ZN4ncnn16ROIAlign_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
@@ -3755,7 +3755,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn30ROIAlign_x86_fma_layer_creatorEPv(p
 declare void @_ZN4ncnn16ROIAlign_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(232)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn30ROIAlign_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn30ROIAlign_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #16
   invoke void @_ZN4ncnn16ROIAlign_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
@@ -3773,7 +3773,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn30ROIAlign_x86_avx_layer_creatorEPv(p
 declare void @_ZN4ncnn16ROIAlign_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(232)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn21Packing_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn21Packing_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #16
   invoke void @_ZN4ncnn7PackingC1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
@@ -3791,7 +3791,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21Packing_layer_creatorEPv(ptr nocapt
 declare void @_ZN4ncnn7PackingC1Ev(ptr noundef nonnull align 8 dereferenceable(232)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn25Packing_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn25Packing_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #16
   invoke void @_ZN4ncnn11Packing_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
@@ -3809,7 +3809,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25Packing_x86_layer_creatorEPv(ptr no
 declare void @_ZN4ncnn11Packing_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(232)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn32Packing_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn32Packing_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #16
   invoke void @_ZN4ncnn18Packing_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
@@ -3827,7 +3827,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32Packing_x86_avx512_layer_creatorEPv
 declare void @_ZN4ncnn18Packing_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(232)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Packing_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Packing_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #16
   invoke void @_ZN4ncnn15Packing_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
@@ -3845,7 +3845,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Packing_x86_fma_layer_creatorEPv(pt
 declare void @_ZN4ncnn15Packing_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(232)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Packing_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Packing_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #16
   invoke void @_ZN4ncnn15Packing_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
@@ -3863,7 +3863,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Packing_x86_avx_layer_creatorEPv(pt
 declare void @_ZN4ncnn15Packing_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(232)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn24Requantize_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn24Requantize_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #16
   invoke void @_ZN4ncnn10RequantizeC1Ev(ptr noundef nonnull align 8 dereferenceable(512) %2)
           to label %3 unwind label %4
@@ -3881,7 +3881,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn24Requantize_layer_creatorEPv(ptr noc
 declare void @_ZN4ncnn10RequantizeC1Ev(ptr noundef nonnull align 8 dereferenceable(512)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn28Requantize_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn28Requantize_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #16
   invoke void @_ZN4ncnn14Requantize_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(512) %2)
           to label %3 unwind label %4
@@ -3899,7 +3899,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn28Requantize_x86_layer_creatorEPv(ptr
 declare void @_ZN4ncnn14Requantize_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(512)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn35Requantize_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn35Requantize_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #16
   invoke void @_ZN4ncnn21Requantize_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(512) %2)
           to label %3 unwind label %4
@@ -3917,7 +3917,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn35Requantize_x86_avx512_layer_creator
 declare void @_ZN4ncnn21Requantize_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(512)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn32Requantize_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn32Requantize_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #16
   invoke void @_ZN4ncnn18Requantize_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(512) %2)
           to label %3 unwind label %4
@@ -3935,7 +3935,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32Requantize_x86_fma_layer_creatorEPv
 declare void @_ZN4ncnn18Requantize_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(512)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn32Requantize_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn32Requantize_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #16
   invoke void @_ZN4ncnn18Requantize_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(512) %2)
           to label %3 unwind label %4
@@ -3953,7 +3953,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32Requantize_x86_avx_layer_creatorEPv
 declare void @_ZN4ncnn18Requantize_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(512)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn18Cast_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn18Cast_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn4CastC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
@@ -3971,7 +3971,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18Cast_layer_creatorEPv(ptr nocapture
 declare void @_ZN4ncnn4CastC1Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn22Cast_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn22Cast_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn8Cast_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
@@ -3989,7 +3989,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22Cast_x86_layer_creatorEPv(ptr nocap
 declare void @_ZN4ncnn8Cast_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Cast_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Cast_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn15Cast_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
@@ -4007,7 +4007,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Cast_x86_avx512_layer_creatorEPv(pt
 declare void @_ZN4ncnn15Cast_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26Cast_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26Cast_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn12Cast_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
@@ -4025,7 +4025,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Cast_x86_fma_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12Cast_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26Cast_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26Cast_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn12Cast_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
@@ -4043,7 +4043,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Cast_x86_avx_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12Cast_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn25HardSigmoid_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn25HardSigmoid_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn11HardSigmoidC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
@@ -4061,7 +4061,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25HardSigmoid_layer_creatorEPv(ptr no
 declare void @_ZN4ncnn11HardSigmoidC1Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29HardSigmoid_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29HardSigmoid_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn15HardSigmoid_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
@@ -4079,7 +4079,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29HardSigmoid_x86_layer_creatorEPv(pt
 declare void @_ZN4ncnn15HardSigmoid_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn36HardSigmoid_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn36HardSigmoid_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn22HardSigmoid_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
@@ -4097,7 +4097,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn36HardSigmoid_x86_avx512_layer_creato
 declare void @_ZN4ncnn22HardSigmoid_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn33HardSigmoid_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn33HardSigmoid_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn19HardSigmoid_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
@@ -4115,7 +4115,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn33HardSigmoid_x86_fma_layer_creatorEP
 declare void @_ZN4ncnn19HardSigmoid_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn33HardSigmoid_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn33HardSigmoid_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn19HardSigmoid_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
@@ -4133,7 +4133,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn33HardSigmoid_x86_avx_layer_creatorEP
 declare void @_ZN4ncnn19HardSigmoid_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn18SELU_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn18SELU_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn4SELUC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
@@ -4151,7 +4151,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18SELU_layer_creatorEPv(ptr nocapture
 declare void @_ZN4ncnn4SELUC1Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn22SELU_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn22SELU_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn8SELU_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
@@ -4169,7 +4169,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22SELU_x86_layer_creatorEPv(ptr nocap
 declare void @_ZN4ncnn8SELU_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29SELU_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29SELU_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn15SELU_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
@@ -4187,7 +4187,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29SELU_x86_avx512_layer_creatorEPv(pt
 declare void @_ZN4ncnn15SELU_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26SELU_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26SELU_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn12SELU_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
@@ -4205,7 +4205,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26SELU_x86_fma_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12SELU_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26SELU_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26SELU_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn12SELU_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
@@ -4223,7 +4223,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26SELU_x86_avx_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12SELU_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn23HardSwish_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn23HardSwish_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn9HardSwishC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
@@ -4241,7 +4241,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn23HardSwish_layer_creatorEPv(ptr noca
 declare void @_ZN4ncnn9HardSwishC1Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn27HardSwish_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn27HardSwish_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn13HardSwish_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
@@ -4259,7 +4259,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27HardSwish_x86_layer_creatorEPv(ptr 
 declare void @_ZN4ncnn13HardSwish_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn34HardSwish_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn34HardSwish_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn20HardSwish_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
@@ -4277,7 +4277,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn34HardSwish_x86_avx512_layer_creatorE
 declare void @_ZN4ncnn20HardSwish_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn31HardSwish_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn31HardSwish_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn17HardSwish_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
@@ -4295,7 +4295,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31HardSwish_x86_fma_layer_creatorEPv(
 declare void @_ZN4ncnn17HardSwish_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn31HardSwish_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn31HardSwish_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn17HardSwish_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
@@ -4313,7 +4313,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31HardSwish_x86_avx_layer_creatorEPv(
 declare void @_ZN4ncnn17HardSwish_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn18Noop_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn18Noop_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn4NoopC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -4331,7 +4331,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18Noop_layer_creatorEPv(ptr nocapture
 declare void @_ZN4ncnn4NoopC1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26PixelShuffle_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26PixelShuffle_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn12PixelShuffleC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
@@ -4349,7 +4349,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26PixelShuffle_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12PixelShuffleC1Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn22DeepCopy_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn22DeepCopy_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn8DeepCopyC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -4367,7 +4367,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22DeepCopy_layer_creatorEPv(ptr nocap
 declare void @_ZN4ncnn8DeepCopyC1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn18Mish_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn18Mish_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn4MishC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -4385,7 +4385,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18Mish_layer_creatorEPv(ptr nocapture
 declare void @_ZN4ncnn4MishC1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn22Mish_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn22Mish_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn8Mish_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -4403,7 +4403,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22Mish_x86_layer_creatorEPv(ptr nocap
 declare void @_ZN4ncnn8Mish_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Mish_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Mish_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn15Mish_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -4421,7 +4421,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Mish_x86_avx512_layer_creatorEPv(pt
 declare void @_ZN4ncnn15Mish_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26Mish_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26Mish_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn12Mish_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -4439,7 +4439,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Mish_x86_fma_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12Mish_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26Mish_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26Mish_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn12Mish_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -4457,7 +4457,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Mish_x86_avx_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12Mish_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn31StatisticsPooling_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn31StatisticsPooling_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn17StatisticsPoolingC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -4475,7 +4475,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31StatisticsPooling_layer_creatorEPv(
 declare void @_ZN4ncnn17StatisticsPoolingC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn19Swish_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn19Swish_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn5SwishC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -4493,7 +4493,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn19Swish_layer_creatorEPv(ptr nocaptur
 declare void @_ZN4ncnn5SwishC1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn23Swish_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn23Swish_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn9Swish_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -4511,7 +4511,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn23Swish_x86_layer_creatorEPv(ptr noca
 declare void @_ZN4ncnn9Swish_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn30Swish_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn30Swish_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn16Swish_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -4529,7 +4529,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn30Swish_x86_avx512_layer_creatorEPv(p
 declare void @_ZN4ncnn16Swish_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn27Swish_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn27Swish_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn13Swish_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -4547,7 +4547,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27Swish_x86_fma_layer_creatorEPv(ptr 
 declare void @_ZN4ncnn13Swish_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn27Swish_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn27Swish_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn13Swish_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -4565,7 +4565,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27Swish_x86_avx_layer_creatorEPv(ptr 
 declare void @_ZN4ncnn13Swish_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn18Gemm_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn18Gemm_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(496) ptr @_Znwm(i64 noundef 496) #16
   invoke void @_ZN4ncnn4GemmC1Ev(ptr noundef nonnull align 8 dereferenceable(496) %2)
           to label %3 unwind label %4
@@ -4583,7 +4583,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18Gemm_layer_creatorEPv(ptr nocapture
 declare void @_ZN4ncnn4GemmC1Ev(ptr noundef nonnull align 8 dereferenceable(496)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn22Gemm_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn22Gemm_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(720) ptr @_Znwm(i64 noundef 720) #16
   invoke void @_ZN4ncnn8Gemm_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(720) %2)
           to label %3 unwind label %4
@@ -4601,7 +4601,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22Gemm_x86_layer_creatorEPv(ptr nocap
 declare void @_ZN4ncnn8Gemm_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(720)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Gemm_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Gemm_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(720) ptr @_Znwm(i64 noundef 720) #16
   invoke void @_ZN4ncnn15Gemm_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(720) %2)
           to label %3 unwind label %4
@@ -4619,7 +4619,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Gemm_x86_avx512_layer_creatorEPv(pt
 declare void @_ZN4ncnn15Gemm_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(720)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26Gemm_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26Gemm_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(720) ptr @_Znwm(i64 noundef 720) #16
   invoke void @_ZN4ncnn12Gemm_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(720) %2)
           to label %3 unwind label %4
@@ -4637,7 +4637,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Gemm_x86_fma_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12Gemm_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(720)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26Gemm_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26Gemm_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(720) ptr @_Znwm(i64 noundef 720) #16
   invoke void @_ZN4ncnn12Gemm_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(720) %2)
           to label %3 unwind label %4
@@ -4655,7 +4655,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Gemm_x86_avx_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12Gemm_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(720)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn23GroupNorm_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn23GroupNorm_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #16
   invoke void @_ZN4ncnn9GroupNormC1Ev(ptr noundef nonnull align 8 dereferenceable(368) %2)
           to label %3 unwind label %4
@@ -4673,7 +4673,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn23GroupNorm_layer_creatorEPv(ptr noca
 declare void @_ZN4ncnn9GroupNormC1Ev(ptr noundef nonnull align 8 dereferenceable(368)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn27GroupNorm_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn27GroupNorm_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #16
   invoke void @_ZN4ncnn13GroupNorm_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(368) %2)
           to label %3 unwind label %4
@@ -4691,7 +4691,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27GroupNorm_x86_layer_creatorEPv(ptr 
 declare void @_ZN4ncnn13GroupNorm_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(368)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn34GroupNorm_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn34GroupNorm_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #16
   invoke void @_ZN4ncnn20GroupNorm_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(368) %2)
           to label %3 unwind label %4
@@ -4709,7 +4709,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn34GroupNorm_x86_avx512_layer_creatorE
 declare void @_ZN4ncnn20GroupNorm_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(368)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn31GroupNorm_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn31GroupNorm_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #16
   invoke void @_ZN4ncnn17GroupNorm_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(368) %2)
           to label %3 unwind label %4
@@ -4727,7 +4727,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31GroupNorm_x86_fma_layer_creatorEPv(
 declare void @_ZN4ncnn17GroupNorm_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(368)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn31GroupNorm_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn31GroupNorm_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #16
   invoke void @_ZN4ncnn17GroupNorm_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(368) %2)
           to label %3 unwind label %4
@@ -4745,7 +4745,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31GroupNorm_x86_avx_layer_creatorEPv(
 declare void @_ZN4ncnn17GroupNorm_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(368)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn23LayerNorm_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn23LayerNorm_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #16
   invoke void @_ZN4ncnn9LayerNormC1Ev(ptr noundef nonnull align 8 dereferenceable(368) %2)
           to label %3 unwind label %4
@@ -4763,7 +4763,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn23LayerNorm_layer_creatorEPv(ptr noca
 declare void @_ZN4ncnn9LayerNormC1Ev(ptr noundef nonnull align 8 dereferenceable(368)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn27LayerNorm_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn27LayerNorm_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #16
   invoke void @_ZN4ncnn13LayerNorm_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(368) %2)
           to label %3 unwind label %4
@@ -4781,7 +4781,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27LayerNorm_x86_layer_creatorEPv(ptr 
 declare void @_ZN4ncnn13LayerNorm_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(368)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn34LayerNorm_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn34LayerNorm_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #16
   invoke void @_ZN4ncnn20LayerNorm_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(368) %2)
           to label %3 unwind label %4
@@ -4799,7 +4799,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn34LayerNorm_x86_avx512_layer_creatorE
 declare void @_ZN4ncnn20LayerNorm_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(368)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn31LayerNorm_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn31LayerNorm_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #16
   invoke void @_ZN4ncnn17LayerNorm_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(368) %2)
           to label %3 unwind label %4
@@ -4817,7 +4817,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31LayerNorm_x86_fma_layer_creatorEPv(
 declare void @_ZN4ncnn17LayerNorm_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(368)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn31LayerNorm_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn31LayerNorm_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #16
   invoke void @_ZN4ncnn17LayerNorm_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(368) %2)
           to label %3 unwind label %4
@@ -4835,7 +4835,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31LayerNorm_x86_avx_layer_creatorEPv(
 declare void @_ZN4ncnn17LayerNorm_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(368)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn22Softplus_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn22Softplus_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn8SoftplusC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -4853,7 +4853,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22Softplus_layer_creatorEPv(ptr nocap
 declare void @_ZN4ncnn8SoftplusC1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn17GRU_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn17GRU_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(584) ptr @_Znwm(i64 noundef 584) #16
   invoke void @_ZN4ncnn3GRUC1Ev(ptr noundef nonnull align 8 dereferenceable(584) %2)
           to label %3 unwind label %4
@@ -4871,7 +4871,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn17GRU_layer_creatorEPv(ptr nocapture 
 declare void @_ZN4ncnn3GRUC1Ev(ptr noundef nonnull align 8 dereferenceable(584)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn32MultiHeadAttention_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn32MultiHeadAttention_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(816) ptr @_Znwm(i64 noundef 816) #16
   invoke void @_ZN4ncnn18MultiHeadAttentionC1Ev(ptr noundef nonnull align 8 dereferenceable(816) %2)
           to label %3 unwind label %4
@@ -4889,7 +4889,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32MultiHeadAttention_layer_creatorEPv
 declare void @_ZN4ncnn18MultiHeadAttentionC1Ev(ptr noundef nonnull align 8 dereferenceable(816)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn36MultiHeadAttention_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn36MultiHeadAttention_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(872) ptr @_Znwm(i64 noundef 872) #16
   invoke void @_ZN4ncnn22MultiHeadAttention_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(872) %2)
           to label %3 unwind label %4
@@ -4907,7 +4907,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn36MultiHeadAttention_x86_layer_creato
 declare void @_ZN4ncnn22MultiHeadAttention_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(872)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn43MultiHeadAttention_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn43MultiHeadAttention_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(872) ptr @_Znwm(i64 noundef 872) #16
   invoke void @_ZN4ncnn29MultiHeadAttention_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(872) %2)
           to label %3 unwind label %4
@@ -4925,7 +4925,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn43MultiHeadAttention_x86_avx512_layer
 declare void @_ZN4ncnn29MultiHeadAttention_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(872)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn40MultiHeadAttention_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn40MultiHeadAttention_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(872) ptr @_Znwm(i64 noundef 872) #16
   invoke void @_ZN4ncnn26MultiHeadAttention_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(872) %2)
           to label %3 unwind label %4
@@ -4943,7 +4943,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn40MultiHeadAttention_x86_fma_layer_cr
 declare void @_ZN4ncnn26MultiHeadAttention_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(872)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn40MultiHeadAttention_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn40MultiHeadAttention_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(872) ptr @_Znwm(i64 noundef 872) #16
   invoke void @_ZN4ncnn26MultiHeadAttention_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(872) %2)
           to label %3 unwind label %4
@@ -4961,7 +4961,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn40MultiHeadAttention_x86_avx_layer_cr
 declare void @_ZN4ncnn26MultiHeadAttention_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(872)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn18GELU_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn18GELU_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn4GELUC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -4979,7 +4979,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18GELU_layer_creatorEPv(ptr nocapture
 declare void @_ZN4ncnn4GELUC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn22GELU_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn22GELU_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn8GELU_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -4997,7 +4997,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22GELU_x86_layer_creatorEPv(ptr nocap
 declare void @_ZN4ncnn8GELU_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29GELU_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29GELU_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn15GELU_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -5015,7 +5015,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29GELU_x86_avx512_layer_creatorEPv(pt
 declare void @_ZN4ncnn15GELU_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26GELU_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26GELU_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn12GELU_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -5033,7 +5033,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26GELU_x86_fma_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12GELU_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn26GELU_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn26GELU_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn12GELU_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -5051,7 +5051,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26GELU_x86_avx_layer_creatorEPv(ptr n
 declare void @_ZN4ncnn12GELU_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn27Convolution1D_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn27Convolution1D_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(472) ptr @_Znwm(i64 noundef 472) #16
   invoke void @_ZN4ncnn13Convolution1DC1Ev(ptr noundef nonnull align 8 dereferenceable(472) %2)
           to label %3 unwind label %4
@@ -5069,7 +5069,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27Convolution1D_layer_creatorEPv(ptr 
 declare void @_ZN4ncnn13Convolution1DC1Ev(ptr noundef nonnull align 8 dereferenceable(472)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn31Convolution1D_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn31Convolution1D_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #16
   invoke void @_ZN4ncnn17Convolution1D_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(544) %2)
           to label %3 unwind label %4
@@ -5087,7 +5087,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31Convolution1D_x86_layer_creatorEPv(
 declare void @_ZN4ncnn17Convolution1D_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(544)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn38Convolution1D_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn38Convolution1D_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #16
   invoke void @_ZN4ncnn24Convolution1D_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(544) %2)
           to label %3 unwind label %4
@@ -5105,7 +5105,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn38Convolution1D_x86_avx512_layer_crea
 declare void @_ZN4ncnn24Convolution1D_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(544)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn35Convolution1D_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn35Convolution1D_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #16
   invoke void @_ZN4ncnn21Convolution1D_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(544) %2)
           to label %3 unwind label %4
@@ -5123,7 +5123,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn35Convolution1D_x86_fma_layer_creator
 declare void @_ZN4ncnn21Convolution1D_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(544)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn35Convolution1D_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn35Convolution1D_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #16
   invoke void @_ZN4ncnn21Convolution1D_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(544) %2)
           to label %3 unwind label %4
@@ -5141,7 +5141,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn35Convolution1D_x86_avx_layer_creator
 declare void @_ZN4ncnn21Convolution1D_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(544)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn23Pooling1D_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn23Pooling1D_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #16
   invoke void @_ZN4ncnn9Pooling1DC1Ev(ptr noundef nonnull align 8 dereferenceable(248) %2)
           to label %3 unwind label %4
@@ -5159,7 +5159,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn23Pooling1D_layer_creatorEPv(ptr noca
 declare void @_ZN4ncnn9Pooling1DC1Ev(ptr noundef nonnull align 8 dereferenceable(248)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn36ConvolutionDepthWise1D_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn36ConvolutionDepthWise1D_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #16
   invoke void @_ZN4ncnn22ConvolutionDepthWise1DC1Ev(ptr noundef nonnull align 8 dereferenceable(480) %2)
           to label %3 unwind label %4
@@ -5177,7 +5177,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn36ConvolutionDepthWise1D_layer_creato
 declare void @_ZN4ncnn22ConvolutionDepthWise1DC1Ev(ptr noundef nonnull align 8 dereferenceable(480)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn27Convolution3D_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn27Convolution3D_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #16
   invoke void @_ZN4ncnn13Convolution3DC1Ev(ptr noundef nonnull align 8 dereferenceable(504) %2)
           to label %3 unwind label %4
@@ -5195,7 +5195,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27Convolution3D_layer_creatorEPv(ptr 
 declare void @_ZN4ncnn13Convolution3DC1Ev(ptr noundef nonnull align 8 dereferenceable(504)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn36ConvolutionDepthWise3D_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn36ConvolutionDepthWise3D_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #16
   invoke void @_ZN4ncnn22ConvolutionDepthWise3DC1Ev(ptr noundef nonnull align 8 dereferenceable(512) %2)
           to label %3 unwind label %4
@@ -5213,7 +5213,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn36ConvolutionDepthWise3D_layer_creato
 declare void @_ZN4ncnn22ConvolutionDepthWise3DC1Ev(ptr noundef nonnull align 8 dereferenceable(512)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn23Pooling3D_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn23Pooling3D_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #16
   invoke void @_ZN4ncnn9Pooling3DC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
@@ -5231,7 +5231,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn23Pooling3D_layer_creatorEPv(ptr noca
 declare void @_ZN4ncnn9Pooling3DC1Ev(ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn20MatMul_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn20MatMul_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn6MatMulC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -5249,7 +5249,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn20MatMul_layer_creatorEPv(ptr nocaptu
 declare void @_ZN4ncnn6MatMulC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn24MatMul_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn24MatMul_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn10MatMul_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
@@ -5267,7 +5267,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn24MatMul_x86_layer_creatorEPv(ptr noc
 declare void @_ZN4ncnn10MatMul_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn31MatMul_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn31MatMul_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn17MatMul_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
@@ -5285,7 +5285,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31MatMul_x86_avx512_layer_creatorEPv(
 declare void @_ZN4ncnn17MatMul_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn28MatMul_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn28MatMul_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn14MatMul_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
@@ -5303,7 +5303,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn28MatMul_x86_fma_layer_creatorEPv(ptr
 declare void @_ZN4ncnn14MatMul_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn28MatMul_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn28MatMul_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn14MatMul_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
@@ -5321,7 +5321,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn28MatMul_x86_avx_layer_creatorEPv(ptr
 declare void @_ZN4ncnn14MatMul_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Deconvolution1D_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Deconvolution1D_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #16
   invoke void @_ZN4ncnn15Deconvolution1DC1Ev(ptr noundef nonnull align 8 dereferenceable(480) %2)
           to label %3 unwind label %4
@@ -5339,7 +5339,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Deconvolution1D_layer_creatorEPv(pt
 declare void @_ZN4ncnn15Deconvolution1DC1Ev(ptr noundef nonnull align 8 dereferenceable(480)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn38DeconvolutionDepthWise1D_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn38DeconvolutionDepthWise1D_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #16
   invoke void @_ZN4ncnn24DeconvolutionDepthWise1DC1Ev(ptr noundef nonnull align 8 dereferenceable(480) %2)
           to label %3 unwind label %4
@@ -5357,7 +5357,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn38DeconvolutionDepthWise1D_layer_crea
 declare void @_ZN4ncnn24DeconvolutionDepthWise1DC1Ev(ptr noundef nonnull align 8 dereferenceable(480)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29Deconvolution3D_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29Deconvolution3D_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(528) ptr @_Znwm(i64 noundef 528) #16
   invoke void @_ZN4ncnn15Deconvolution3DC1Ev(ptr noundef nonnull align 8 dereferenceable(528) %2)
           to label %3 unwind label %4
@@ -5375,7 +5375,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Deconvolution3D_layer_creatorEPv(pt
 declare void @_ZN4ncnn15Deconvolution3DC1Ev(ptr noundef nonnull align 8 dereferenceable(528)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn38DeconvolutionDepthWise3D_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn38DeconvolutionDepthWise3D_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(528) ptr @_Znwm(i64 noundef 528) #16
   invoke void @_ZN4ncnn24DeconvolutionDepthWise3DC1Ev(ptr noundef nonnull align 8 dereferenceable(528) %2)
           to label %3 unwind label %4
@@ -5393,7 +5393,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn38DeconvolutionDepthWise3D_layer_crea
 declare void @_ZN4ncnn24DeconvolutionDepthWise3DC1Ev(ptr noundef nonnull align 8 dereferenceable(528)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn20Einsum_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn20Einsum_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #16
   invoke void @_ZN4ncnn6EinsumC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %2)
           to label %3 unwind label %4
@@ -5411,7 +5411,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn20Einsum_layer_creatorEPv(ptr nocaptu
 declare void @_ZN4ncnn6EinsumC1Ev(ptr noundef nonnull align 8 dereferenceable(264)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn30DeformableConv2D_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn30DeformableConv2D_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #16
   invoke void @_ZN4ncnn16DeformableConv2DC1Ev(ptr noundef nonnull align 8 dereferenceable(480) %2)
           to label %3 unwind label %4
@@ -5429,7 +5429,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn30DeformableConv2D_layer_creatorEPv(p
 declare void @_ZN4ncnn16DeformableConv2DC1Ev(ptr noundef nonnull align 8 dereferenceable(480)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn34DeformableConv2D_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn34DeformableConv2D_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(568) ptr @_Znwm(i64 noundef 568) #16
   invoke void @_ZN4ncnn20DeformableConv2D_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(568) %2)
           to label %3 unwind label %4
@@ -5447,7 +5447,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn34DeformableConv2D_x86_layer_creatorE
 declare void @_ZN4ncnn20DeformableConv2D_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(568)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn41DeformableConv2D_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn41DeformableConv2D_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(568) ptr @_Znwm(i64 noundef 568) #16
   invoke void @_ZN4ncnn27DeformableConv2D_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(568) %2)
           to label %3 unwind label %4
@@ -5465,7 +5465,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn41DeformableConv2D_x86_avx512_layer_c
 declare void @_ZN4ncnn27DeformableConv2D_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(568)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn38DeformableConv2D_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn38DeformableConv2D_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(568) ptr @_Znwm(i64 noundef 568) #16
   invoke void @_ZN4ncnn24DeformableConv2D_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(568) %2)
           to label %3 unwind label %4
@@ -5483,7 +5483,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn38DeformableConv2D_x86_fma_layer_crea
 declare void @_ZN4ncnn24DeformableConv2D_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(568)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn38DeformableConv2D_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn38DeformableConv2D_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(568) ptr @_Znwm(i64 noundef 568) #16
   invoke void @_ZN4ncnn24DeformableConv2D_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(568) %2)
           to label %3 unwind label %4
@@ -5501,7 +5501,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn38DeformableConv2D_x86_avx_layer_crea
 declare void @_ZN4ncnn24DeformableConv2D_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(568)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn17GLU_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn17GLU_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn3GLUC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -5519,7 +5519,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn17GLU_layer_creatorEPv(ptr nocapture 
 declare void @_ZN4ncnn3GLUC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn18Fold_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn18Fold_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #16
   invoke void @_ZN4ncnn4FoldC1Ev(ptr noundef nonnull align 8 dereferenceable(256) %2)
           to label %3 unwind label %4
@@ -5537,7 +5537,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18Fold_layer_creatorEPv(ptr nocapture
 declare void @_ZN4ncnn4FoldC1Ev(ptr noundef nonnull align 8 dereferenceable(256)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn20Unfold_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn20Unfold_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #16
   invoke void @_ZN4ncnn6UnfoldC1Ev(ptr noundef nonnull align 8 dereferenceable(252) %2)
           to label %3 unwind label %4
@@ -5555,7 +5555,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn20Unfold_layer_creatorEPv(ptr nocaptu
 declare void @_ZN4ncnn6UnfoldC1Ev(ptr noundef nonnull align 8 dereferenceable(252)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn24GridSample_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn24GridSample_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn10GridSampleC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
@@ -5573,7 +5573,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn24GridSample_layer_creatorEPv(ptr noc
 declare void @_ZN4ncnn10GridSampleC1Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn28GridSample_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn28GridSample_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn14GridSample_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
@@ -5591,7 +5591,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn28GridSample_x86_layer_creatorEPv(ptr
 declare void @_ZN4ncnn14GridSample_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn35GridSample_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn35GridSample_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn21GridSample_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
@@ -5609,7 +5609,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn35GridSample_x86_avx512_layer_creator
 declare void @_ZN4ncnn21GridSample_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn32GridSample_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn32GridSample_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn18GridSample_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
@@ -5627,7 +5627,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32GridSample_x86_fma_layer_creatorEPv
 declare void @_ZN4ncnn18GridSample_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn32GridSample_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn32GridSample_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #16
   invoke void @_ZN4ncnn18GridSample_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
@@ -5645,7 +5645,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32GridSample_x86_avx_layer_creatorEPv
 declare void @_ZN4ncnn18GridSample_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn27CumulativeSum_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn27CumulativeSum_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn13CumulativeSumC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -5663,7 +5663,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27CumulativeSum_layer_creatorEPv(ptr 
 declare void @_ZN4ncnn13CumulativeSumC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn20CopyTo_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn20CopyTo_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #16
   invoke void @_ZN4ncnn6CopyToC1Ev(ptr noundef nonnull align 8 dereferenceable(368) %2)
           to label %3 unwind label %4
@@ -5681,7 +5681,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn20CopyTo_layer_creatorEPv(ptr nocaptu
 declare void @_ZN4ncnn6CopyToC1Ev(ptr noundef nonnull align 8 dereferenceable(368)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn17Erf_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn17Erf_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   invoke void @_ZN4ncnn3ErfC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
@@ -5699,7 +5699,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn17Erf_layer_creatorEPv(ptr nocapture 
 declare void @_ZN4ncnn3ErfC1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn18Diag_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn18Diag_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn4DiagC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -5717,7 +5717,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18Diag_layer_creatorEPv(ptr nocapture
 declare void @_ZN4ncnn4DiagC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn18CELU_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn18CELU_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn4CELUC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
@@ -5735,7 +5735,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18CELU_layer_creatorEPv(ptr nocapture
 declare void @_ZN4ncnn4CELUC1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn20Shrink_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn20Shrink_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #16
   invoke void @_ZN4ncnn6ShrinkC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
@@ -5753,7 +5753,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn20Shrink_layer_creatorEPv(ptr nocaptu
 declare void @_ZN4ncnn6ShrinkC1Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn21RMSNorm_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn21RMSNorm_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #16
   invoke void @_ZN4ncnn7RMSNormC1Ev(ptr noundef nonnull align 8 dereferenceable(296) %2)
           to label %3 unwind label %4
@@ -5771,7 +5771,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21RMSNorm_layer_creatorEPv(ptr nocapt
 declare void @_ZN4ncnn7RMSNormC1Ev(ptr noundef nonnull align 8 dereferenceable(296)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn25RMSNorm_x86_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn25RMSNorm_x86_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #16
   invoke void @_ZN4ncnn11RMSNorm_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(296) %2)
           to label %3 unwind label %4
@@ -5789,7 +5789,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25RMSNorm_x86_layer_creatorEPv(ptr no
 declare void @_ZN4ncnn11RMSNorm_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(296)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn32RMSNorm_x86_avx512_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn32RMSNorm_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #16
   invoke void @_ZN4ncnn18RMSNorm_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(296) %2)
           to label %3 unwind label %4
@@ -5807,7 +5807,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32RMSNorm_x86_avx512_layer_creatorEPv
 declare void @_ZN4ncnn18RMSNorm_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(296)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29RMSNorm_x86_fma_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29RMSNorm_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #16
   invoke void @_ZN4ncnn15RMSNorm_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(296) %2)
           to label %3 unwind label %4
@@ -5825,7 +5825,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29RMSNorm_x86_fma_layer_creatorEPv(pt
 declare void @_ZN4ncnn15RMSNorm_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(296)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN4ncnn29RMSNorm_x86_avx_layer_creatorEPv(ptr nocapture readnone %0) #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN4ncnn29RMSNorm_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #16
   invoke void @_ZN4ncnn15RMSNorm_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(296) %2)
           to label %3 unwind label %4
@@ -6068,22 +6068,22 @@ define hidden void @_ZN4ncnn5LayerD0Ev(ptr noundef nonnull align 8 dereferenceab
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN4ncnn5Layer10load_paramERKNS_9ParamDictE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #6 align 2 {
+define hidden noundef i32 @_ZN4ncnn5Layer10load_paramERKNS_9ParamDictE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #6 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN4ncnn5Layer10load_modelERKNS_8ModelBinE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #6 align 2 {
+define hidden noundef i32 @_ZN4ncnn5Layer10load_modelERKNS_8ModelBinE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #6 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN4ncnn5Layer15create_pipelineERKNS_6OptionE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #6 align 2 {
+define hidden noundef i32 @_ZN4ncnn5Layer15create_pipelineERKNS_6OptionE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #6 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN4ncnn5Layer16destroy_pipelineERKNS_6OptionE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #6 align 2 {
+define hidden noundef i32 @_ZN4ncnn5Layer16destroy_pipelineERKNS_6OptionE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #6 align 2 {
   ret i32 0
 }
 
@@ -6888,17 +6888,17 @@ define hidden noundef i32 @_ZNK4ncnn5Layer7forwardERKNS_3MatERS1_RKNS_6OptionE(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK4ncnn5Layer15forward_inplaceERSt6vectorINS_3MatESaIS2_EERKNS_6OptionE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #6 align 2 {
+define hidden noundef i32 @_ZNK4ncnn5Layer15forward_inplaceERSt6vectorINS_3MatESaIS2_EERKNS_6OptionE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #6 align 2 {
   ret i32 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK4ncnn5Layer15forward_inplaceERNS_3MatERKNS_6OptionE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #6 align 2 {
+define hidden noundef i32 @_ZNK4ncnn5Layer15forward_inplaceERNS_3MatERKNS_6OptionE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #6 align 2 {
   ret i32 -1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 -1, 105) i32 @_ZN4ncnn14layer_to_indexEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define hidden noundef range(i32 -1, 105) i32 @_ZN4ncnn14layer_to_indexEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   br label %2
 
 2:                                                ; preds = %1, %7
@@ -6924,10 +6924,10 @@ define hidden noundef range(i32 -1, 105) i32 @_ZN4ncnn14layer_to_indexEPKc(ptr n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN4ncnn12create_layerEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden noundef ptr @_ZN4ncnn12create_layerEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %7, %1
@@ -7094,7 +7094,7 @@ _ZN4ncnn16create_layer_cpuEi.exit.thread:         ; preds = %20, %20, %1, %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN4ncnn18create_layer_naiveEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden noundef ptr @_ZN4ncnn18create_layer_naiveEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %7, %1
@@ -7160,7 +7160,7 @@ define hidden noundef ptr @_ZN4ncnn18create_layer_naiveEi(i32 noundef %0) local_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN4ncnn16create_layer_cpuEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden noundef ptr @_ZN4ncnn16create_layer_cpuEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %7, %1
@@ -7301,7 +7301,7 @@ declare void @_ZN4ncnn4BiasC2Ev(ptr noundef nonnull align 8 dereferenceable(288)
 declare void @_ZN4ncnn3LRNC2Ev(ptr noundef nonnull align 8 dereferenceable(228)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
@@ -7721,7 +7721,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKN4ncnn3MatEPS4_EET0_T_S9_S8_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 {
@@ -7964,10 +7964,10 @@ define linkonce_odr hidden noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_ac
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 attributes #0 = { mustprogress uwtable "approx-func-fp-math"="true" "frame-pointer"="all" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #1 = { nobuiltin allocsize(0) "approx-func-fp-math"="true" "frame-pointer"="all" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }

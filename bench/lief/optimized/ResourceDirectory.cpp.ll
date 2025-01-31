@@ -186,7 +186,7 @@ define void @_ZN4LIEF2PE17ResourceDirectoryC2Ev(ptr noundef nonnull align 8 dere
 declare void @_ZN4LIEF2PE12ResourceNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(76)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4LIEF2PE17ResourceDirectoryC2ERKNS0_7details27pe_resource_directory_tableE(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(16) %1) unnamed_addr #3 align 2 {
+define void @_ZN4LIEF2PE17ResourceDirectoryC2ERKNS0_7details27pe_resource_directory_tableE(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(16) %1) unnamed_addr #3 align 2 {
   tail call void @_ZN4LIEF2PE12ResourceNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF2PE17ResourceDirectoryE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -217,84 +217,84 @@ define void @_ZN4LIEF2PE17ResourceDirectoryC2ERKNS0_7details27pe_resource_direct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK4LIEF2PE17ResourceDirectory15characteristicsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %0) local_unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK4LIEF2PE17ResourceDirectory15characteristicsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(92) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK4LIEF2PE17ResourceDirectory15time_date_stampEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %0) local_unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK4LIEF2PE17ResourceDirectory15time_date_stampEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(92) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i16 @_ZNK4LIEF2PE17ResourceDirectory13major_versionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %0) local_unnamed_addr #5 align 2 {
+define noundef zeroext i16 @_ZNK4LIEF2PE17ResourceDirectory13major_versionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(92) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %3 = load i16, ptr %2, align 4
   ret i16 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i16 @_ZNK4LIEF2PE17ResourceDirectory13minor_versionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %0) local_unnamed_addr #5 align 2 {
+define noundef zeroext i16 @_ZNK4LIEF2PE17ResourceDirectory13minor_versionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(92) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 86
   %3 = load i16, ptr %2, align 2
   ret i16 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i16 @_ZNK4LIEF2PE17ResourceDirectory21numberof_name_entriesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %0) local_unnamed_addr #5 align 2 {
+define noundef zeroext i16 @_ZNK4LIEF2PE17ResourceDirectory21numberof_name_entriesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(92) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i16, ptr %2, align 8
   ret i16 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i16 @_ZNK4LIEF2PE17ResourceDirectory19numberof_id_entriesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %0) local_unnamed_addr #5 align 2 {
+define noundef zeroext i16 @_ZNK4LIEF2PE17ResourceDirectory19numberof_id_entriesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(92) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 90
   %3 = load i16, ptr %2, align 2
   ret i16 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE17ResourceDirectory15characteristicsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) initializes((76, 80)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN4LIEF2PE17ResourceDirectory15characteristicsEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(92) initializes((76, 80)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE17ResourceDirectory15time_date_stampEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) initializes((80, 84)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN4LIEF2PE17ResourceDirectory15time_date_stampEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(92) initializes((80, 84)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE17ResourceDirectory13major_versionEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) initializes((84, 86)) %0, i16 noundef zeroext %1) local_unnamed_addr #6 align 2 {
+define void @_ZN4LIEF2PE17ResourceDirectory13major_versionEt(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(92) initializes((84, 86)) %0, i16 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i16 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE17ResourceDirectory13minor_versionEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) initializes((86, 88)) %0, i16 noundef zeroext %1) local_unnamed_addr #6 align 2 {
+define void @_ZN4LIEF2PE17ResourceDirectory13minor_versionEt(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(92) initializes((86, 88)) %0, i16 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 86
   store i16 %1, ptr %3, align 2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE17ResourceDirectory21numberof_name_entriesEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) initializes((88, 90)) %0, i16 noundef zeroext %1) local_unnamed_addr #6 align 2 {
+define void @_ZN4LIEF2PE17ResourceDirectory21numberof_name_entriesEt(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(92) initializes((88, 90)) %0, i16 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i16 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE17ResourceDirectory19numberof_id_entriesEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) initializes((90, 92)) %0, i16 noundef zeroext %1) local_unnamed_addr #6 align 2 {
+define void @_ZN4LIEF2PE17ResourceDirectory19numberof_id_entriesEt(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(92) initializes((90, 92)) %0, i16 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 90
   store i16 %1, ptr %3, align 2
   ret void
@@ -432,7 +432,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

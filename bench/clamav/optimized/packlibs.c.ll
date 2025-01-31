@@ -479,7 +479,7 @@ doubledl.exit.thread:                             ; preds = %183, %185, %.loopex
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @unmew(ptr noundef %0, ptr noundef initializes((0, 1)) %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @unmew(ptr noundef %0, ptr noundef initializes((0, 1)) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #1 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %8 = load i8, ptr %0, align 1
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 1

@@ -134,7 +134,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h84916b10df8
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$12to_uppercase17h967a4ecdc00c91adE"(ptr nocapture writeonly sret({ { [2 x i32], i32 } }) align 4 initializes((0, 12)) %0, i32 %1) unnamed_addr #0 {
+define hidden void @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$12to_uppercase17h967a4ecdc00c91adE"(ptr writeonly sret({ { [2 x i32], i32 } }) align 4 captures(none) initializes((0, 12)) %0, i32 %1) unnamed_addr #0 {
   %3 = alloca [3 x i32], align 4
   call void @_ZN4core7unicode12unicode_data11conversions8to_upper17h3d15e8f6bc4279a0E(ptr nonnull sret([3 x i32]) align 4 %3, i32 %1)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8

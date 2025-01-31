@@ -242,7 +242,7 @@ if.end18:                                         ; preds = %EVP_PKEY_asn1_get0.
   br i1 %cmp21, label %land.lhs.true, label %for.cond.backedge
 
 land.lhs.true:                                    ; preds = %if.end18
-  %call25 = call i32 @OPENSSL_strncasecmp(ptr noundef %10, ptr noundef %str, i64 noundef %conv2426) #10
+  %call25 = call i32 @OPENSSL_strncasecmp(ptr noundef nonnull %10, ptr noundef %str, i64 noundef %conv2426) #10
   %cmp26 = icmp eq i32 %call25, 0
   br i1 %cmp26, label %return, label %for.cond.backedge
 
@@ -256,7 +256,7 @@ return:                                           ; preds = %land.lhs.true, %for
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @ENGINE_pkey_asn1_find_str(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -329,7 +329,7 @@ return:                                           ; preds = %if.end18, %if.then9
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @ERR_new() local_unnamed_addr #1
 
@@ -338,7 +338,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @ameth_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #4 {
+define internal i32 @ameth_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #4 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load i32, ptr %0, align 8
@@ -526,7 +526,7 @@ return:                                           ; preds = %if.end12, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_PKEY_get0_asn1(ptr nocapture noundef readonly %pkey) local_unnamed_addr #6 {
+define ptr @EVP_PKEY_get0_asn1(ptr noundef readonly captures(none) %pkey) local_unnamed_addr #6 {
 entry:
   %ameth = getelementptr inbounds nuw i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %ameth, align 8
@@ -538,7 +538,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EVP_PKEY_asn1_copy(ptr nocapture noundef initializes((32, 320)) %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #5 {
+define void @EVP_PKEY_asn1_copy(ptr noundef captures(none) initializes((32, 320)) %dst, ptr noundef readonly captures(none) %src) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %dst, align 8
   %pkey_base_id2 = getelementptr inbounds nuw i8, ptr %dst, i64 4
@@ -559,12 +559,12 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_asn1_set_public(ptr nocapture noundef writeonly initializes((32, 64), (88, 104)) %ameth, ptr noundef %pub_decode, ptr noundef %pub_encode, ptr noundef %pub_cmp, ptr noundef %pub_print, ptr noundef %pkey_size, ptr noundef %pkey_bits) local_unnamed_addr #8 {
+define void @EVP_PKEY_asn1_set_public(ptr noundef writeonly captures(none) initializes((32, 64), (88, 104)) %ameth, ptr noundef %pub_decode, ptr noundef %pub_encode, ptr noundef %pub_cmp, ptr noundef %pub_print, ptr noundef %pkey_size, ptr noundef %pkey_bits) local_unnamed_addr #8 {
 entry:
   %pub_decode1 = getelementptr inbounds nuw i8, ptr %ameth, i64 32
   store ptr %pub_decode, ptr %pub_decode1, align 8
@@ -582,7 +582,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_asn1_set_private(ptr nocapture noundef writeonly initializes((64, 88)) %ameth, ptr noundef %priv_decode, ptr noundef %priv_encode, ptr noundef %priv_print) local_unnamed_addr #8 {
+define void @EVP_PKEY_asn1_set_private(ptr noundef writeonly captures(none) initializes((64, 88)) %ameth, ptr noundef %priv_decode, ptr noundef %priv_encode, ptr noundef %priv_print) local_unnamed_addr #8 {
 entry:
   %priv_decode1 = getelementptr inbounds nuw i8, ptr %ameth, i64 64
   store ptr %priv_decode, ptr %priv_decode1, align 8
@@ -594,7 +594,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_asn1_set_param(ptr nocapture noundef writeonly initializes((112, 160)) %ameth, ptr noundef %param_decode, ptr noundef %param_encode, ptr noundef %param_missing, ptr noundef %param_copy, ptr noundef %param_cmp, ptr noundef %param_print) local_unnamed_addr #8 {
+define void @EVP_PKEY_asn1_set_param(ptr noundef writeonly captures(none) initializes((112, 160)) %ameth, ptr noundef %param_decode, ptr noundef %param_encode, ptr noundef %param_missing, ptr noundef %param_copy, ptr noundef %param_cmp, ptr noundef %param_print) local_unnamed_addr #8 {
 entry:
   %param_decode1 = getelementptr inbounds nuw i8, ptr %ameth, i64 112
   store ptr %param_decode, ptr %param_decode1, align 8
@@ -612,7 +612,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_asn1_set_free(ptr nocapture noundef writeonly initializes((168, 176)) %ameth, ptr noundef %pkey_free) local_unnamed_addr #8 {
+define void @EVP_PKEY_asn1_set_free(ptr noundef writeonly captures(none) initializes((168, 176)) %ameth, ptr noundef %pkey_free) local_unnamed_addr #8 {
 entry:
   %pkey_free1 = getelementptr inbounds nuw i8, ptr %ameth, i64 168
   store ptr %pkey_free, ptr %pkey_free1, align 8
@@ -620,7 +620,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_asn1_set_ctrl(ptr nocapture noundef writeonly initializes((176, 184)) %ameth, ptr noundef %pkey_ctrl) local_unnamed_addr #8 {
+define void @EVP_PKEY_asn1_set_ctrl(ptr noundef writeonly captures(none) initializes((176, 184)) %ameth, ptr noundef %pkey_ctrl) local_unnamed_addr #8 {
 entry:
   %pkey_ctrl1 = getelementptr inbounds nuw i8, ptr %ameth, i64 176
   store ptr %pkey_ctrl, ptr %pkey_ctrl1, align 8
@@ -628,7 +628,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_asn1_set_security_bits(ptr nocapture noundef writeonly initializes((104, 112)) %ameth, ptr noundef %pkey_security_bits) local_unnamed_addr #8 {
+define void @EVP_PKEY_asn1_set_security_bits(ptr noundef writeonly captures(none) initializes((104, 112)) %ameth, ptr noundef %pkey_security_bits) local_unnamed_addr #8 {
 entry:
   %pkey_security_bits1 = getelementptr inbounds nuw i8, ptr %ameth, i64 104
   store ptr %pkey_security_bits, ptr %pkey_security_bits1, align 8
@@ -636,7 +636,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_asn1_set_item(ptr nocapture noundef writeonly initializes((200, 216)) %ameth, ptr noundef %item_verify, ptr noundef %item_sign) local_unnamed_addr #8 {
+define void @EVP_PKEY_asn1_set_item(ptr noundef writeonly captures(none) initializes((200, 216)) %ameth, ptr noundef %item_verify, ptr noundef %item_sign) local_unnamed_addr #8 {
 entry:
   %item_sign1 = getelementptr inbounds nuw i8, ptr %ameth, i64 208
   store ptr %item_sign, ptr %item_sign1, align 8
@@ -646,7 +646,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_asn1_set_siginf(ptr nocapture noundef writeonly initializes((216, 224)) %ameth, ptr noundef %siginf_set) local_unnamed_addr #8 {
+define void @EVP_PKEY_asn1_set_siginf(ptr noundef writeonly captures(none) initializes((216, 224)) %ameth, ptr noundef %siginf_set) local_unnamed_addr #8 {
 entry:
   %siginf_set1 = getelementptr inbounds nuw i8, ptr %ameth, i64 216
   store ptr %siginf_set, ptr %siginf_set1, align 8
@@ -654,7 +654,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_asn1_set_check(ptr nocapture noundef writeonly initializes((224, 232)) %ameth, ptr noundef %pkey_check) local_unnamed_addr #8 {
+define void @EVP_PKEY_asn1_set_check(ptr noundef writeonly captures(none) initializes((224, 232)) %ameth, ptr noundef %pkey_check) local_unnamed_addr #8 {
 entry:
   %pkey_check1 = getelementptr inbounds nuw i8, ptr %ameth, i64 224
   store ptr %pkey_check, ptr %pkey_check1, align 8
@@ -662,7 +662,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_asn1_set_public_check(ptr nocapture noundef writeonly initializes((232, 240)) %ameth, ptr noundef %pkey_pub_check) local_unnamed_addr #8 {
+define void @EVP_PKEY_asn1_set_public_check(ptr noundef writeonly captures(none) initializes((232, 240)) %ameth, ptr noundef %pkey_pub_check) local_unnamed_addr #8 {
 entry:
   %pkey_public_check = getelementptr inbounds nuw i8, ptr %ameth, i64 232
   store ptr %pkey_pub_check, ptr %pkey_public_check, align 8
@@ -670,7 +670,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_asn1_set_param_check(ptr nocapture noundef writeonly initializes((240, 248)) %ameth, ptr noundef %pkey_param_check) local_unnamed_addr #8 {
+define void @EVP_PKEY_asn1_set_param_check(ptr noundef writeonly captures(none) initializes((240, 248)) %ameth, ptr noundef %pkey_param_check) local_unnamed_addr #8 {
 entry:
   %pkey_param_check1 = getelementptr inbounds nuw i8, ptr %ameth, i64 240
   store ptr %pkey_param_check, ptr %pkey_param_check1, align 8
@@ -678,7 +678,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_asn1_set_set_priv_key(ptr nocapture noundef writeonly initializes((248, 256)) %ameth, ptr noundef %set_priv_key) local_unnamed_addr #8 {
+define void @EVP_PKEY_asn1_set_set_priv_key(ptr noundef writeonly captures(none) initializes((248, 256)) %ameth, ptr noundef %set_priv_key) local_unnamed_addr #8 {
 entry:
   %set_priv_key1 = getelementptr inbounds nuw i8, ptr %ameth, i64 248
   store ptr %set_priv_key, ptr %set_priv_key1, align 8
@@ -686,7 +686,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_asn1_set_set_pub_key(ptr nocapture noundef writeonly initializes((256, 264)) %ameth, ptr noundef %set_pub_key) local_unnamed_addr #8 {
+define void @EVP_PKEY_asn1_set_set_pub_key(ptr noundef writeonly captures(none) initializes((256, 264)) %ameth, ptr noundef %set_pub_key) local_unnamed_addr #8 {
 entry:
   %set_pub_key1 = getelementptr inbounds nuw i8, ptr %ameth, i64 256
   store ptr %set_pub_key, ptr %set_pub_key1, align 8
@@ -694,7 +694,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_asn1_set_get_priv_key(ptr nocapture noundef writeonly initializes((264, 272)) %ameth, ptr noundef %get_priv_key) local_unnamed_addr #8 {
+define void @EVP_PKEY_asn1_set_get_priv_key(ptr noundef writeonly captures(none) initializes((264, 272)) %ameth, ptr noundef %get_priv_key) local_unnamed_addr #8 {
 entry:
   %get_priv_key1 = getelementptr inbounds nuw i8, ptr %ameth, i64 264
   store ptr %get_priv_key, ptr %get_priv_key1, align 8
@@ -702,7 +702,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @EVP_PKEY_asn1_set_get_pub_key(ptr nocapture noundef writeonly initializes((272, 280)) %ameth, ptr noundef %get_pub_key) local_unnamed_addr #8 {
+define void @EVP_PKEY_asn1_set_get_pub_key(ptr noundef writeonly captures(none) initializes((272, 280)) %ameth, ptr noundef %get_pub_key) local_unnamed_addr #8 {
 entry:
   %get_pub_key1 = getelementptr inbounds nuw i8, ptr %ameth, i64 272
   store ptr %get_pub_key, ptr %get_pub_key1, align 8
@@ -716,7 +716,7 @@ declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @OBJ_bsearch_(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @ameth_cmp_BSEARCH_CMP_FN(ptr nocapture noundef readonly %a_, ptr nocapture noundef readonly %b_) #4 {
+define internal i32 @ameth_cmp_BSEARCH_CMP_FN(ptr noundef readonly captures(none) %a_, ptr noundef readonly captures(none) %b_) #4 {
 entry:
   %0 = load ptr, ptr %a_, align 8
   %1 = load i32, ptr %0, align 8
@@ -735,10 +735,10 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @OPENSSL_sk_sort(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

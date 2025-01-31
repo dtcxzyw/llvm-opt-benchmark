@@ -772,7 +772,7 @@ _ZN23btDiscreteDynamicsWorlddlEPv.exit:           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDiscreteDynamicsWorld18saveKinematicStateEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(508) %this, float noundef %timeStep) unnamed_addr #0 align 2 {
+define dso_local void @_ZN23btDiscreteDynamicsWorld18saveKinematicStateEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(508) %this, float noundef %timeStep) unnamed_addr #0 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %m_size.i, align 4
@@ -1040,7 +1040,7 @@ declare void @_ZN16btCollisionWorld14debugDrawWorldEv(ptr noundef nonnull align 
 declare void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN23btDiscreteDynamicsWorld11clearForcesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(508) %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZN23btDiscreteDynamicsWorld11clearForcesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(508) %this) unnamed_addr #6 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 372
   %0 = load i32, ptr %m_size.i, align 4
@@ -1069,7 +1069,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDiscreteDynamicsWorld12applyGravityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(508) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN23btDiscreteDynamicsWorld12applyGravityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(508) %this) unnamed_addr #0 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 372
   %0 = load i32, ptr %m_size.i, align 4
@@ -1113,7 +1113,7 @@ for.end:                                          ; preds = %for.inc, %entry
 declare void @_ZN11btRigidBody12applyGravityEv(ptr noundef nonnull align 8 dereferenceable(744)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDiscreteDynamicsWorld28synchronizeSingleMotionStateEP11btRigidBody(ptr nocapture noundef nonnull readonly align 8 dereferenceable(508) %this, ptr noundef %body) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN23btDiscreteDynamicsWorld28synchronizeSingleMotionStateEP11btRigidBody(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(508) %this, ptr noundef %body) local_unnamed_addr #0 align 2 {
 entry:
   %interpolatedTransform = alloca %class.btTransform, align 4
   %m_optionalMotionState.i = getelementptr inbounds nuw i8, ptr %body, i64 592
@@ -1384,7 +1384,7 @@ if.end50:                                         ; preds = %if.else48, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDiscreteDynamicsWorld23synchronizeMotionStatesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(508) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN23btDiscreteDynamicsWorld23synchronizeMotionStatesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(508) %this) unnamed_addr #0 align 2 {
 entry:
   %interpolatedTransform.i12 = alloca %class.btTransform, align 4
   %interpolatedTransform.i = alloca %class.btTransform, align 4
@@ -1693,7 +1693,7 @@ if.end45:                                         ; preds = %for.body, %if.then2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN23btDiscreteDynamicsWorld14startProfilingEf(ptr nocapture noundef nonnull readnone align 8 dereferenceable(508) %this, float noundef %timeStep) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN23btDiscreteDynamicsWorld14startProfilingEf(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(508) %this, float noundef %timeStep) local_unnamed_addr #8 align 2 {
 entry:
   ret void
 }
@@ -1891,7 +1891,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDiscreteDynamicsWorld10setGravityERK9btVector3(ptr nocapture noundef nonnull align 8 dereferenceable(508) initializes((400, 416)) %this, ptr noundef nonnull align 4 dereferenceable(16) %gravity) unnamed_addr #0 align 2 {
+define dso_local void @_ZN23btDiscreteDynamicsWorld10setGravityERK9btVector3(ptr noundef nonnull align 8 captures(none) dereferenceable(508) initializes((400, 416)) %this, ptr noundef nonnull align 4 dereferenceable(16) %gravity) unnamed_addr #0 align 2 {
 entry:
   %m_gravity = getelementptr inbounds nuw i8, ptr %this, i64 400
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_gravity, ptr noundef nonnull align 4 dereferenceable(16) %gravity, i64 16, i1 false)
@@ -1942,12 +1942,12 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare void @_ZN11btRigidBody10setGravityERK9btVector3(ptr noundef nonnull align 8 dereferenceable(744), ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK23btDiscreteDynamicsWorld10getGravityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(508) %this) unnamed_addr #11 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK23btDiscreteDynamicsWorld10getGravityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(508) %this) unnamed_addr #11 align 2 {
 entry:
   %m_gravity = getelementptr inbounds nuw i8, ptr %this, i64 400
   %retval.sroa.0.0.copyload = load <2 x float>, ptr %m_gravity, align 8
@@ -2326,7 +2326,7 @@ if.end9:                                          ; preds = %if.end8, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDiscreteDynamicsWorld21updateActivationStateEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(508) %this, float noundef %timeStep) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23btDiscreteDynamicsWorld21updateActivationStateEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(508) %this, float noundef %timeStep) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__profile = alloca %class.CProfileSample, align 1
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.3)
@@ -2488,7 +2488,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDiscreteDynamicsWorld13addConstraintEP17btTypedConstraintb(ptr nocapture noundef nonnull align 8 dereferenceable(508) %this, ptr noundef %constraint, i1 noundef zeroext %disableCollisionsBetweenLinkedBodies) unnamed_addr #0 align 2 {
+define dso_local void @_ZN23btDiscreteDynamicsWorld13addConstraintEP17btTypedConstraintb(ptr noundef nonnull align 8 captures(none) dereferenceable(508) %this, ptr noundef %constraint, i1 noundef zeroext %disableCollisionsBetweenLinkedBodies) unnamed_addr #0 align 2 {
 entry:
   %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 340
   %0 = load i32, ptr %m_size.i.i, align 4
@@ -2589,7 +2589,7 @@ if.end:                                           ; preds = %if.then, %_ZN20btAl
 declare void @_ZN11btRigidBody16addConstraintRefEP17btTypedConstraint(ptr noundef nonnull align 8 dereferenceable(744), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDiscreteDynamicsWorld16removeConstraintEP17btTypedConstraint(ptr nocapture noundef nonnull align 8 dereferenceable(508) %this, ptr noundef %constraint) unnamed_addr #0 align 2 {
+define dso_local void @_ZN23btDiscreteDynamicsWorld16removeConstraintEP17btTypedConstraint(ptr noundef nonnull align 8 captures(none) dereferenceable(508) %this, ptr noundef %constraint) unnamed_addr #0 align 2 {
 entry:
   %m_size.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 340
   %0 = load i32, ptr %m_size.i.i.i, align 4
@@ -2650,7 +2650,7 @@ _ZN20btAlignedObjectArrayIP17btTypedConstraintE6removeERKS1_.exit: ; preds = %fo
 declare void @_ZN11btRigidBody19removeConstraintRefEP17btTypedConstraint(ptr noundef nonnull align 8 dereferenceable(744), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDiscreteDynamicsWorld9addActionEP17btActionInterface(ptr nocapture noundef nonnull align 8 dereferenceable(508) %this, ptr noundef %action) unnamed_addr #0 align 2 {
+define dso_local void @_ZN23btDiscreteDynamicsWorld9addActionEP17btActionInterface(ptr noundef nonnull align 8 captures(none) dereferenceable(508) %this, ptr noundef %action) unnamed_addr #0 align 2 {
 entry:
   %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 436
   %0 = load i32, ptr %m_size.i.i, align 4
@@ -2737,7 +2737,7 @@ _ZN20btAlignedObjectArrayIP17btActionInterfaceE9push_backERKS1_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN23btDiscreteDynamicsWorld12removeActionEP17btActionInterface(ptr nocapture noundef nonnull align 8 dereferenceable(508) %this, ptr noundef readnone %action) unnamed_addr #6 align 2 {
+define dso_local void @_ZN23btDiscreteDynamicsWorld12removeActionEP17btActionInterface(ptr noundef nonnull align 8 captures(none) dereferenceable(508) %this, ptr noundef readnone %action) unnamed_addr #6 align 2 {
 entry:
   %m_size.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 436
   %0 = load i32, ptr %m_size.i.i.i, align 4
@@ -3662,7 +3662,7 @@ invoke.cont82:                                    ; preds = %for.end75
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDiscreteDynamicsWorld32createPredictiveContactsInternalEPP11btRigidBodyif(ptr noundef nonnull align 8 dereferenceable(508) %this, ptr nocapture noundef readonly %bodies, i32 noundef %numBodies, float noundef %timeStep) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23btDiscreteDynamicsWorld32createPredictiveContactsInternalEPP11btRigidBodyif(ptr noundef nonnull align 8 dereferenceable(508) %this, ptr noundef readonly captures(none) %bodies, i32 noundef %numBodies, float noundef %timeStep) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %predictedTrans = alloca %class.btTransform, align 4
   %__profile = alloca %class.CProfileSample, align 1
@@ -4103,7 +4103,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDiscreteDynamicsWorld25releasePredictiveContactsEv(ptr nocapture noundef nonnull align 8 dereferenceable(508) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23btDiscreteDynamicsWorld25releasePredictiveContactsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(508) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__profile = alloca %class.CProfileSample, align 1
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.7)
@@ -4210,7 +4210,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDiscreteDynamicsWorld27integrateTransformsInternalEPP11btRigidBodyif(ptr noundef nonnull align 8 dereferenceable(508) %this, ptr nocapture noundef readonly %bodies, i32 noundef %numBodies, float noundef %timeStep) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23btDiscreteDynamicsWorld27integrateTransformsInternalEPP11btRigidBodyif(ptr noundef nonnull align 8 dereferenceable(508) %this, ptr noundef readonly captures(none) %bodies, i32 noundef %numBodies, float noundef %timeStep) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %predictedTrans = alloca %class.btTransform, align 4
   %__profile = alloca %class.CProfileSample, align 1
@@ -4796,7 +4796,7 @@ ehcleanup:                                        ; preds = %lpad12, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDiscreteDynamicsWorld25predictUnconstraintMotionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(508) %this, float noundef %timeStep) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23btDiscreteDynamicsWorld25predictUnconstraintMotionEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(508) %this, float noundef %timeStep) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__profile = alloca %class.CProfileSample, align 1
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.12)
@@ -6724,7 +6724,7 @@ declare { <2 x float>, <2 x float> } @_ZNK21btConeTwistConstraint16GetPointForAn
 declare noundef float @_ZNK23btGeneric6DofConstraint8getAngleEi(ptr noundef nonnull align 8 dereferenceable(1333), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDiscreteDynamicsWorld19setConstraintSolverEP18btConstraintSolver(ptr nocapture noundef nonnull align 8 dereferenceable(508) %this, ptr noundef %solver) unnamed_addr #0 align 2 {
+define dso_local void @_ZN23btDiscreteDynamicsWorld19setConstraintSolverEP18btConstraintSolver(ptr noundef nonnull align 8 captures(none) dereferenceable(508) %this, ptr noundef %solver) unnamed_addr #0 align 2 {
 entry:
   %m_ownsConstraintSolver = getelementptr inbounds nuw i8, ptr %this, i64 425
   %0 = load i8, ptr %m_ownsConstraintSolver, align 1
@@ -6749,7 +6749,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN23btDiscreteDynamicsWorld19getConstraintSolverEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(508) %this) unnamed_addr #11 align 2 {
+define dso_local noundef ptr @_ZN23btDiscreteDynamicsWorld19getConstraintSolverEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(508) %this) unnamed_addr #11 align 2 {
 entry:
   %m_constraintSolver = getelementptr inbounds nuw i8, ptr %this, i64 320
   %0 = load ptr, ptr %m_constraintSolver, align 8
@@ -6757,7 +6757,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK23btDiscreteDynamicsWorld17getNumConstraintsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(508) %this) unnamed_addr #11 align 2 {
+define dso_local noundef i32 @_ZNK23btDiscreteDynamicsWorld17getNumConstraintsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(508) %this) unnamed_addr #11 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 340
   %0 = load i32, ptr %m_size.i, align 4
@@ -6765,7 +6765,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN23btDiscreteDynamicsWorld13getConstraintEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(508) %this, i32 noundef %index) unnamed_addr #12 align 2 {
+define dso_local noundef ptr @_ZN23btDiscreteDynamicsWorld13getConstraintEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(508) %this, i32 noundef %index) unnamed_addr #12 align 2 {
 entry:
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 352
   %0 = load ptr, ptr %m_data.i, align 8
@@ -6776,7 +6776,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK23btDiscreteDynamicsWorld13getConstraintEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(508) %this, i32 noundef %index) unnamed_addr #12 align 2 {
+define dso_local noundef ptr @_ZNK23btDiscreteDynamicsWorld13getConstraintEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(508) %this, i32 noundef %index) unnamed_addr #12 align 2 {
 entry:
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 352
   %0 = load ptr, ptr %m_data.i, align 8
@@ -6787,7 +6787,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDiscreteDynamicsWorld20serializeRigidBodiesEP12btSerializer(ptr nocapture noundef nonnull readonly align 8 dereferenceable(508) %this, ptr noundef %serializer) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN23btDiscreteDynamicsWorld20serializeRigidBodiesEP12btSerializer(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(508) %this, ptr noundef %serializer) local_unnamed_addr #0 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %m_size.i, align 4
@@ -6885,7 +6885,7 @@ for.end37:                                        ; preds = %for.body17, %for.co
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btDiscreteDynamicsWorld26serializeDynamicsWorldInfoEP12btSerializer(ptr nocapture noundef nonnull readonly align 8 dereferenceable(508) %this, ptr noundef %serializer) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN23btDiscreteDynamicsWorld26serializeDynamicsWorldInfoEP12btSerializer(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(508) %this, ptr noundef %serializer) local_unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %serializer, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
@@ -7000,7 +7000,7 @@ _ZNK9btVector39serializeER18btVector3FloatData.exit: ; preds = %for.body.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN23btDiscreteDynamicsWorld9serializeEP12btSerializer(ptr noundef nonnull align 8 dereferenceable(508) %this, ptr noundef %serializer) unnamed_addr #0 align 2 {
@@ -8193,10 +8193,10 @@ if.end20:                                         ; preds = %if.end17
 declare i32 @llvm.smin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18

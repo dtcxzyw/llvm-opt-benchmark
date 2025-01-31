@@ -93,7 +93,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK7rocksdb28InMemoryStatsHistoryIterator5ValidEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK7rocksdb28InMemoryStatsHistoryIterator5ValidEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this) unnamed_addr #3 align 2 {
 entry:
   %valid_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load i8, ptr %valid_, align 8
@@ -234,7 +234,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK7rocksdb28InMemoryStatsHistoryIterator12GetStatsTimeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) unnamed_addr #3 align 2 {
+define noundef i64 @_ZNK7rocksdb28InMemoryStatsHistoryIterator12GetStatsTimeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this) unnamed_addr #3 align 2 {
 entry:
   %time_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %time_, align 8
@@ -302,7 +302,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZN7rocksdb6Status9CopyStateEPKc(ptr sret(%"class.std::unique_ptr") align 8, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @_GLOBAL__sub_I_in_memory_stats_history.cc() #11 section ".text.startup" {

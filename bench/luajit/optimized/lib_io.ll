@@ -712,10 +712,10 @@ declare hidden void @lj_err_caller(ptr noundef, i32 noundef) local_unnamed_addr 
 declare hidden void @lj_err_argtype(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @pclose(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @pclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @lua_pushlstring(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -819,7 +819,7 @@ if.else36:                                        ; preds = %if.else24
 for.cond.i:                                       ; preds = %if.else36, %for.cond.i
   %n.0.i = phi i32 [ %m.0.i, %for.cond.i ], [ 0, %if.else36 ]
   %m.0.i = phi i32 [ %add16.i, %for.cond.i ], [ 8192, %if.else36 ]
-  %call.i40 = call ptr @lj_buf_tmp(ptr noundef %L, i32 noundef %m.0.i) #10
+  %call.i40 = call ptr @lj_buf_tmp(ptr noundef nonnull %L, i32 noundef %m.0.i) #10
   %idx.ext.i = zext i32 %n.0.i to i64
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %call.i40, i64 %idx.ext.i
   %sub.i = sub i32 %m.0.i, %n.0.i
@@ -836,7 +836,7 @@ if.then.i41:                                      ; preds = %for.cond.i
   %incdec.ptr.i43 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %incdec.ptr.i43, ptr %top, align 8
   %conv4.i = zext i32 %add.i to i64
-  %call5.i = call ptr @lj_str_new(ptr noundef %L, ptr noundef %call.i40, i64 noundef %conv4.i) #10
+  %call5.i = call ptr @lj_str_new(ptr noundef nonnull %L, ptr noundef %call.i40, i64 noundef %conv4.i) #10
   %13 = ptrtoint ptr %call5.i to i64
   %or.i.i = or i64 %13, -703687441776640
   store i64 %or.i.i, ptr %12, align 8
@@ -964,10 +964,10 @@ return:                                           ; preds = %if.end73, %if.then6
 }
 
 ; Function Attrs: nofree nounwind
-declare void @clearerr(ptr nocapture noundef) local_unnamed_addr #3
+declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @io_file_readline(ptr noundef %L, ptr nocapture noundef %fp, i32 noundef range(i32 0, 2) %chop) unnamed_addr #0 {
+define internal fastcc i32 @io_file_readline(ptr noundef %L, ptr noundef captures(none) %fp, i32 noundef range(i32 0, 2) %chop) unnamed_addr #0 {
 entry:
   %call30 = tail call ptr @lj_buf_tmp(ptr noundef %L, i32 noundef 8192) #10
   %call131 = tail call ptr @fgets(ptr noundef %call30, i32 noundef 8192, ptr noundef %fp)
@@ -1051,15 +1051,15 @@ declare hidden void @lj_err_arg(ptr noundef, i32 noundef, i32 noundef) local_unn
 declare hidden i32 @lj_lib_checkint(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare hidden ptr @lj_buf_tmp(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1068,13 +1068,13 @@ declare hidden i32 @lj_gc_step(ptr noundef) local_unnamed_addr #1
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @ungetc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @ungetc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 declare hidden ptr @lj_strfmt_wstrnum(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1082,23 +1082,23 @@ declare hidden ptr @lj_strfmt_wstrnum(ptr noundef, ptr noundef, ptr noundef) loc
 declare hidden void @lj_err_argt(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare hidden i32 @lj_lib_checkopt(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseeko64(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare noundef i32 @fseeko64(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftello64(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @ftello64(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare hidden i32 @lj_lib_optint(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @setvbuf(ptr nocapture noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare noundef i32 @setvbuf(ptr noundef captures(none), ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 declare void @lua_pushcclosure(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1229,7 +1229,7 @@ return:                                           ; preds = %if.end12.i, %if.els
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: noreturn
 declare hidden void @lj_err_callermsg(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -1773,18 +1773,18 @@ declare hidden ptr @lj_lib_checkstr(ptr noundef, i32 noundef) local_unnamed_addr
 declare hidden ptr @lj_lib_optstr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 declare ptr @lua_newuserdata(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @popen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @popen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
 declare noalias noundef ptr @tmpfile64() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @io_file_open(ptr noundef %L, ptr nocapture noundef readonly %mode) unnamed_addr #0 {
+define internal fastcc noundef ptr @io_file_open(ptr noundef %L, ptr noundef readonly captures(none) %mode) unnamed_addr #0 {
 entry:
   %call = tail call ptr @lj_lib_checkstr(ptr noundef %L, i32 noundef 1) #10
   %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 24
@@ -1840,10 +1840,10 @@ declare ptr @__errno_location() local_unnamed_addr #8
 declare hidden ptr @lj_lib_checkany(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

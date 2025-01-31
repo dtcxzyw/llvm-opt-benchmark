@@ -1039,7 +1039,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.923 = private unnamed_addr constant [31 x i8] c"Extended Attribute Information\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_zcl_read_attr(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden void @dissect_zcl_read_attr(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %9 = load i32, ptr %3, align 4
   %10 = icmp ult i32 %9, %8
@@ -1142,7 +1142,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %40, %.lr.ph.split, 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_zcl_attr_id(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden void @dissect_zcl_attr_id(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = load i32, ptr @hf_zbee_zcl_attr_id, align 4
   %.089.i = load ptr, ptr @acluster_desc, align 8
   %.not10.i = icmp eq ptr %.089.i, null
@@ -1197,7 +1197,7 @@ zbee_zcl_get_cluster_desc.exit.thread:            ; preds = %16, %6, %22, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_zcl_read_attr_resp(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden void @dissect_zcl_read_attr_resp(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = icmp eq i32 %6, 0
   %9 = zext i1 %8 to i32
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
@@ -1297,7 +1297,7 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 256) i32 @dissect_zcl_attr_uint8(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 256) i32 @dissect_zcl_attr_uint8(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %2, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #5
   %7 = zext i8 %6 to i32
@@ -1377,7 +1377,7 @@ declare void @proto_item_set_end(ptr noundef, ptr noundef, i32 noundef) local_un
 declare ptr @proto_tree_get_parent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_zcl_write_attr(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden void @dissect_zcl_write_attr(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = icmp eq i32 %6, 1
   %9 = zext i1 %8 to i32
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
@@ -1458,7 +1458,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %28, %.lr.ph, %30, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_zcl_report_attr(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden void @dissect_zcl_report_attr(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = icmp eq i32 %6, 0
   %9 = zext i1 %8 to i32
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
@@ -2413,7 +2413,7 @@ declare ptr @abs_time_to_str_ex(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare ptr @proto_tree_add_time_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @decode_zcl_utc_time(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @decode_zcl_utc_time(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = zext i32 %1 to i64
   %4 = add nuw nsw i64 %3, 946684800
   %5 = tail call ptr @abs_time_secs_to_str_ex(ptr noundef null, i64 noundef %4, i32 noundef 19, i32 noundef 1) #5
@@ -2425,12 +2425,12 @@ define hidden void @decode_zcl_utc_time(ptr nocapture noundef writeonly %0, i32 
 declare ptr @abs_time_secs_to_str_ex(ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @decode_zcl_time_in_100ms(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) local_unnamed_addr #3 {
+define void @decode_zcl_time_in_100ms(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = udiv i16 %1, 10
   %.zext = zext nneg i16 %3 to i32
   %4 = urem i16 %1, 10
@@ -2440,14 +2440,14 @@ define void @decode_zcl_time_in_100ms(ptr nocapture noundef writeonly %0, i16 no
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @decode_zcl_time_in_seconds(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) local_unnamed_addr #3 {
+define void @decode_zcl_time_in_seconds(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = zext i16 %1 to i32
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.700, i32 noundef %3) #5
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @decode_zcl_time_in_minutes(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) local_unnamed_addr #3 {
+define void @decode_zcl_time_in_minutes(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = zext i16 %1 to i32
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.701, i32 noundef %3) #5
   ret void
@@ -2935,7 +2935,7 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_write_attr_resp(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_write_attr_resp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull captures(none) %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %.not1 = icmp eq i32 %5, 0
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %8 = load i32, ptr %2, align 4
@@ -3245,7 +3245,7 @@ dissect_zcl_attr_data_general.exit:               ; preds = %zbee_zcl_get_cluste
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_config_report_resp(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_config_report_resp(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull captures(none) %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6) unnamed_addr #0 {
   %8 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %9 = load i32, ptr %3, align 4
   %10 = add i32 %8, -1
@@ -3368,7 +3368,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %60, %29, %62, %66
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_read_report_config(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_read_report_config(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull captures(none) %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %8 = load i32, ptr %2, align 4
   %9 = icmp ult i32 %8, %7
@@ -3644,7 +3644,7 @@ dissect_zcl_attr_data_general.exit:               ; preds = %zbee_zcl_get_cluste
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_default_resp(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_default_resp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_cmd_id_rsp, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0) #5
@@ -3663,7 +3663,7 @@ define internal fastcc void @dissect_zcl_default_resp(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_discover_attr(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_discover_attr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_attr_start, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 2, i32 noundef -2147483648) #5
@@ -3682,7 +3682,7 @@ define internal fastcc void @dissect_zcl_discover_attr(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_discover_attr_resp(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_discover_attr_resp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull captures(none) %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %.not = icmp eq i32 %5, 0
   %7 = load i32, ptr %2, align 4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %7) #5
@@ -3772,7 +3772,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %31, %.lr.ph, %33, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_read_attr_struct(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_read_attr_struct(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull captures(none) %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %.not = icmp eq i32 %5, 1
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %8 = load i32, ptr %2, align 4
@@ -3982,7 +3982,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %30, %.lr.ph4, %32, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_write_attr_struct_resp(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_write_attr_struct_resp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull captures(none) %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %.not1 = icmp eq i32 %5, 0
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %8 = load i32, ptr %2, align 4
@@ -4098,7 +4098,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %35, %25, %37, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_discover_cmd_rec(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_discover_cmd_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #5
   %6 = zext i8 %5 to i32
@@ -4120,7 +4120,7 @@ define internal fastcc void @dissect_zcl_discover_cmd_rec(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_discover_cmd_rec_resp(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_discover_cmd_rec_resp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #5
   %6 = zext i8 %5 to i32
@@ -4269,7 +4269,7 @@ declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @g_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @cluster_desc_free(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @cluster_desc_free(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   tail call void @g_free(ptr noundef %0) #5
   ret void
 }

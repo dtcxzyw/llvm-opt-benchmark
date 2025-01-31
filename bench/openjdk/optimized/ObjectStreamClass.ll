@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [4 x i8] c"()V\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_io_ObjectStreamClass_initNative(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_java_io_ObjectStreamClass_initNative(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -30,7 +30,7 @@ define void @Java_java_io_ObjectStreamClass_initNative(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_java_io_ObjectStreamClass_hasStaticInitializer(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_java_io_ObjectStreamClass_hasStaticInitializer(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 904
   %6 = load ptr, ptr %5, align 8

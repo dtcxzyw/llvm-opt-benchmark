@@ -285,16 +285,16 @@ define dso_local ptr @curl_pushheader_byname(ptr noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @Curl_http2_request_upgrade(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -365,7 +365,7 @@ declare i32 @Curl_base64url_encode(ptr noundef, i64 noundef, ptr noundef, ptr no
 declare i32 @Curl_dyn_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @cf_h2_destroy(ptr nocapture noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @cf_h2_destroy(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -505,7 +505,7 @@ define internal i32 @cf_h2_connect(ptr noundef %0, ptr noundef %1, i1 noundef ze
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cf_h2_close(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @cf_h2_close(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -681,7 +681,7 @@ define internal void @cf_h2_adjust_pollset(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @cf_h2_data_pending(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal zeroext i1 @cf_h2_data_pending(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %1, null
@@ -1693,7 +1693,7 @@ drain_stream.exit115:                             ; preds = %111, %drain_stream.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 17) i32 @cf_h2_cntrl(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 17) i32 @cf_h2_cntrl(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -2137,7 +2137,7 @@ http2_connisalive.exit:                           ; preds = %9, %13, %18, %35, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 56) i32 @cf_h2_keep_alive(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 56) i32 @cf_h2_keep_alive(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2174,7 +2174,7 @@ http2_send_ping.exit:                             ; preds = %8, %10, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cf_h2_query(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal i32 @cf_h2_query(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %cond = icmp eq i32 %2, 1
@@ -2231,7 +2231,7 @@ define internal i32 @cf_h2_query(ptr nocapture noundef readonly %0, ptr noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @Curl_conn_is_http2(ptr nocapture noundef readnone %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @Curl_conn_is_http2(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %Curl_cf_is_http2.exit, label %4
 
@@ -2372,7 +2372,7 @@ define dso_local i32 @Curl_http2_switch(ptr noundef %0, ptr noundef %1, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @http2_cfilter_add(ptr nocapture noundef nonnull writeonly initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @http2_cfilter_add(ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = load ptr, ptr @Curl_ccalloc, align 8
@@ -2871,7 +2871,7 @@ declare i64 @nghttp2_pack_settings_payload(ptr noundef, i64 noundef, ptr noundef
 declare i32 @Curl_multi_max_concurrent_streams(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @nghttp2_session_del(ptr noundef) local_unnamed_addr #1
 
@@ -2880,7 +2880,7 @@ declare void @Curl_bufq_free(ptr noundef) local_unnamed_addr #1
 declare void @Curl_bufcp_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @h2_progress_ingress(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
@@ -2922,7 +2922,7 @@ define internal fastcc i32 @h2_progress_ingress(ptr noundef %0, ptr noundef %1) 
 
 23:                                               ; preds = %20
   %24 = load i32, ptr %3, align 4
-  br label %100
+  br label %98
 
 25:                                               ; preds = %20, %2
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 200
@@ -2956,7 +2956,7 @@ define internal fastcc i32 @h2_progress_ingress(ptr noundef %0, ptr noundef %1) 
   %.not66.us = icmp eq i32 %39, 0
   br i1 %.not66.us, label %.split.us, label %.split81.us, !llvm.loop !9
 
-.split.split:                                     ; preds = %25, %90
+.split.split:                                     ; preds = %25, %88
   %40 = load i8, ptr %26, align 8
   %41 = and i8 %40, 1
   %.not61 = icmp eq i8 %41, 0
@@ -3014,79 +3014,76 @@ define internal fastcc i32 @h2_progress_ingress(ptr noundef %0, ptr noundef %1) 
   %67 = call ptr @curl_easy_strerror(i32 noundef %65) #11
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.12, i32 noundef %65, ptr noundef %67) #11
   %68 = load i32, ptr %3, align 4
-  br label %100
+  br label %98
 
 69:                                               ; preds = %.thread
   %70 = icmp eq i64 %63, 0
   %71 = load i64, ptr %29, align 2
   %72 = and i64 %71, 268435456
-  br i1 %70, label %.split79.us.thread, label %83
+  %.not104 = icmp eq i64 %72, 0
+  br i1 %70, label %.split79.us.thread, label %81
 
 .split79.us.thread:                               ; preds = %69
-  %73 = icmp ne i64 %72, 0
-  %74 = icmp ne ptr %0, null
-  %or.cond3 = and i1 %74, %73
-  br i1 %or.cond3, label %75, label %.split79.us
+  br i1 %.not104, label %.split79.us, label %73
 
-75:                                               ; preds = %.split79.us.thread
-  %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %80, label %.split79.us
+73:                                               ; preds = %.split79.us.thread
+  %74 = load ptr, ptr %0, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 12
+  %76 = load i32, ptr %75, align 4
+  %77 = icmp sgt i32 %76, 0
+  br i1 %77, label %78, label %.split79.us
 
-80:                                               ; preds = %75
+78:                                               ; preds = %73
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #11
   br label %.split79.us
 
-.split79.us:                                      ; preds = %36, %.split79.us.thread, %75, %80
-  %81 = load i8, ptr %26, align 8
-  %82 = or i8 %81, 1
-  store i8 %82, ptr %26, align 8
+.split79.us:                                      ; preds = %36, %.split79.us.thread, %73, %78
+  %79 = load i8, ptr %26, align 8
+  %80 = or i8 %79, 1
+  store i8 %80, ptr %26, align 8
   br label %.critedge
 
-83:                                               ; preds = %69
-  %.not89 = icmp eq i64 %72, 0
-  br i1 %.not89, label %90, label %84
+81:                                               ; preds = %69
+  br i1 %.not104, label %88, label %82
 
-84:                                               ; preds = %83
-  %85 = load ptr, ptr %0, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 12
-  %87 = load i32, ptr %86, align 4
-  %88 = icmp sgt i32 %87, 0
-  br i1 %88, label %89, label %90
+82:                                               ; preds = %81
+  %83 = load ptr, ptr %0, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 12
+  %85 = load i32, ptr %84, align 4
+  %86 = icmp sgt i32 %85, 0
+  br i1 %86, label %87, label %88
 
-89:                                               ; preds = %84
+87:                                               ; preds = %82
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.14, i64 noundef %63) #11
-  br label %90
+  br label %88
 
-90:                                               ; preds = %83, %84, %89
-  %91 = call fastcc i32 @h2_process_pending_input(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %3)
-  %.not66 = icmp eq i32 %91, 0
+88:                                               ; preds = %81, %82, %87
+  %89 = call fastcc i32 @h2_process_pending_input(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %3)
+  %.not66 = icmp eq i32 %89, 0
   br i1 %.not66, label %.split.split, label %.split81.us, !llvm.loop !9
 
-.split81.us:                                      ; preds = %90, %38
-  %92 = load i32, ptr %3, align 4
-  br label %100
+.split81.us:                                      ; preds = %88, %38
+  %90 = load i32, ptr %3, align 4
+  br label %98
 
 .critedge:                                        ; preds = %.split.split, %56, %58, %42, %32, %.split.us, %.split77.us, %.split79.us
-  %93 = load i8, ptr %26, align 8
-  %94 = and i8 %93, 1
-  %.not68 = icmp eq i8 %94, 0
-  br i1 %.not68, label %100, label %95
+  %91 = load i8, ptr %26, align 8
+  %92 = and i8 %91, 1
+  %.not68 = icmp eq i8 %92, 0
+  br i1 %.not68, label %98, label %93
 
-95:                                               ; preds = %.critedge
-  %96 = call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %6) #11
-  br i1 %96, label %97, label %100
+93:                                               ; preds = %.critedge
+  %94 = call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %6) #11
+  br i1 %94, label %95, label %98
 
-97:                                               ; preds = %95
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %99 = load ptr, ptr %98, align 8
-  call void @Curl_conncontrol(ptr noundef %99, i32 noundef 1) #11
-  br label %100
+95:                                               ; preds = %93
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %97 = load ptr, ptr %96, align 8
+  call void @Curl_conncontrol(ptr noundef %97, i32 noundef 1) #11
+  br label %98
 
-100:                                              ; preds = %.critedge, %95, %97, %.split81.us, %66, %23
-  %.0 = phi i32 [ %68, %66 ], [ %92, %.split81.us ], [ %24, %23 ], [ 0, %97 ], [ 0, %95 ], [ 0, %.critedge ]
+98:                                               ; preds = %.critedge, %93, %95, %.split81.us, %66, %23
+  %.0 = phi i32 [ %68, %66 ], [ %90, %.split81.us ], [ %24, %23 ], [ 0, %95 ], [ 0, %93 ], [ 0, %.critedge ]
   ret i32 %.0
 }
 
@@ -3333,7 +3330,7 @@ declare zeroext i1 @Curl_bufq_is_empty(ptr noundef) local_unnamed_addr #1
 declare i64 @Curl_bufq_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @h2_process_pending_input(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @h2_process_pending_input(ptr noundef %0, ptr noundef %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3534,7 +3531,7 @@ declare void @Curl_pollset_set(ptr noundef, ptr noundef, i32 noundef, i1 noundef
 declare i32 @nghttp2_session_resume_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -1, 1) i64 @http2_handle_stream_close(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef initializes((0, 4)) %3) unnamed_addr #0 {
+define internal fastcc range(i64 -1, 1) i64 @http2_handle_stream_close(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) initializes((0, 4)) %3) unnamed_addr #0 {
   %5 = alloca %struct.dynbuf, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 324
   %7 = load i32, ptr %6, align 4
@@ -3712,7 +3709,7 @@ define internal fastcc range(i64 -1, 1) i64 @http2_handle_stream_close(ptr nound
 declare void @Curl_dynhds_init(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 28) i32 @http2_data_setup(ptr %.16.val, ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 28) i32 @http2_data_setup(ptr %.16.val, ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3785,7 +3782,7 @@ declare void @Curl_h1_req_parse_free(ptr noundef) local_unnamed_addr #1
 declare ptr @Curl_dynhds_to_nva(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -902, -9223372036854775808) i64 @req_body_read_callback(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5, ptr noundef %6) #0 {
+define internal range(i64 -902, -9223372036854775808) i64 @req_body_read_callback(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6) #0 {
   %8 = alloca i32, align 4
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %.thread, label %9
@@ -4068,7 +4065,7 @@ define internal fastcc i64 @stream_recv(ptr noundef %0, ptr noundef %1, ptr noun
 declare i32 @nghttp2_session_consume(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @drain_stream(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc void @drain_stream(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 337
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
@@ -4298,7 +4295,7 @@ declare i32 @nghttp2_session_callbacks_new(ptr noundef) local_unnamed_addr #1
 declare void @nghttp2_session_callbacks_set_send_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -902, -9223372036854775808) i64 @send_callback(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i32 %3, ptr noundef %4) #0 {
+define internal range(i64 -902, -9223372036854775808) i64 @send_callback(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i32 %3, ptr noundef %4) #0 {
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -5338,7 +5335,7 @@ on_stream_frame.exit:                             ; preds = %98, %145, %150, %15
 declare void @nghttp2_session_callbacks_set_on_frame_send_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @on_frame_send(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal noundef i32 @on_frame_send(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca [256 x i8], align 16
   %.not24 = icmp eq ptr %2, null
   br i1 %.not24, label %.thread, label %5
@@ -5755,7 +5752,7 @@ drain_stream.exit:                                ; preds = %97, %113
 declare void @nghttp2_session_callbacks_set_on_begin_headers_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @on_begin_headers(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @on_begin_headers(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = tail call ptr @nghttp2_session_get_stream_user_data(ptr noundef %0, i32 noundef %5) #11
@@ -5765,7 +5762,7 @@ define internal noundef i32 @on_begin_headers(ptr noundef %0, ptr nocapture noun
 declare void @nghttp2_session_callbacks_set_on_header_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -902, 1) i32 @on_header(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i8 zeroext %6, ptr noundef %7) #0 {
+define internal range(i32 -902, 1) i32 @on_header(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i8 zeroext %6, ptr noundef %7) #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -5905,7 +5902,7 @@ define internal range(i32 -902, 1) i32 @on_header(ptr noundef %0, ptr nocapture 
   br label %80
 
 80:                                               ; preds = %63, %79, %61
-  %81 = tail call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.110, ptr noundef %2, ptr noundef %4) #11
+  %81 = tail call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.110, ptr noundef nonnull %2, ptr noundef %4) #11
   %.not173 = icmp eq ptr %81, null
   br i1 %.not173, label %212, label %82
 
@@ -5990,7 +5987,7 @@ recvbuf_write_hds.exit:                           ; preds = %116, %118
 124:                                              ; preds = %122
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   %125 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %126 = call i64 @Curl_bufq_write(ptr noundef nonnull %125, ptr noundef %2, i64 noundef 7, ptr noundef nonnull %10) #11
+  %126 = call i64 @Curl_bufq_write(ptr noundef nonnull %125, ptr noundef nonnull %2, i64 noundef 7, ptr noundef nonnull %10) #11
   %127 = icmp slt i64 %126, 0
   br i1 %127, label %128, label %130
 
@@ -6181,7 +6178,7 @@ recvbuf_write_hds.exit186:                        ; preds = %175
 declare void @nghttp2_session_callbacks_set_error_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @error_callback(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3) #0 {
+define internal noundef i32 @error_callback(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %5
 
@@ -6208,7 +6205,7 @@ declare void @nghttp2_session_callbacks_del(ptr noundef) local_unnamed_addr #1
 declare i64 @Curl_bufq_write_pass(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @fr_print(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc i32 @fr_print(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i8, ptr %4, align 4
@@ -6454,13 +6451,13 @@ declare void @Curl_conn_cf_insert_after(ptr noundef, ptr noundef) local_unnamed_
 declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

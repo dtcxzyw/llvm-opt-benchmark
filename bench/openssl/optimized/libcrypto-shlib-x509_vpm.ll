@@ -551,7 +551,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_email(ptr nocapture noundef %param, ptr noundef readonly %email, i64 noundef %emaillen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_email(ptr noundef captures(none) %param, ptr noundef readonly %email, i64 noundef %emaillen) local_unnamed_addr #0 {
 entry:
   %email1 = getelementptr inbounds nuw i8, ptr %param, i64 80
   %emaillen2 = getelementptr inbounds nuw i8, ptr %param, i64 88
@@ -594,7 +594,7 @@ int_x509_param_set1.exit:                         ; preds = %if.end.i, %if.end7.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_ip(ptr nocapture noundef %param, ptr noundef readonly %ip, i64 noundef %iplen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_ip(ptr noundef captures(none) %param, ptr noundef readonly %ip, i64 noundef %iplen) local_unnamed_addr #0 {
 entry:
   switch i64 %iplen, label %if.then [
     i64 16, label %if.end
@@ -682,7 +682,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_name(ptr nocapture noundef %param, ptr noundef %name) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_name(ptr noundef captures(none) %param, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %param, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 263) #8
@@ -696,7 +696,7 @@ entry:
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @X509_VERIFY_PARAM_set_flags(ptr nocapture noundef %param, i64 noundef %flags) local_unnamed_addr #2 {
+define noundef i32 @X509_VERIFY_PARAM_set_flags(ptr noundef captures(none) %param, i64 noundef %flags) local_unnamed_addr #2 {
 entry:
   %flags1 = getelementptr inbounds nuw i8, ptr %param, i64 24
   %0 = load i64, ptr %flags1, align 8
@@ -710,7 +710,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @X509_VERIFY_PARAM_clear_flags(ptr nocapture noundef %param, i64 noundef %flags) local_unnamed_addr #2 {
+define noundef i32 @X509_VERIFY_PARAM_clear_flags(ptr noundef captures(none) %param, i64 noundef %flags) local_unnamed_addr #2 {
 entry:
   %not = xor i64 %flags, -1
   %flags1 = getelementptr inbounds nuw i8, ptr %param, i64 24
@@ -721,7 +721,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @X509_VERIFY_PARAM_get_flags(ptr nocapture noundef readonly %param) local_unnamed_addr #3 {
+define i64 @X509_VERIFY_PARAM_get_flags(ptr noundef readonly captures(none) %param) local_unnamed_addr #3 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %param, i64 24
   %0 = load i64, ptr %flags, align 8
@@ -729,7 +729,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @X509_VERIFY_PARAM_get_inh_flags(ptr nocapture noundef readonly %param) local_unnamed_addr #3 {
+define i32 @X509_VERIFY_PARAM_get_inh_flags(ptr noundef readonly captures(none) %param) local_unnamed_addr #3 {
 entry:
   %inh_flags = getelementptr inbounds nuw i8, ptr %param, i64 16
   %0 = load i32, ptr %inh_flags, align 8
@@ -737,7 +737,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @X509_VERIFY_PARAM_set_inh_flags(ptr nocapture noundef writeonly initializes((16, 20)) %param, i32 noundef %flags) local_unnamed_addr #4 {
+define noundef i32 @X509_VERIFY_PARAM_set_inh_flags(ptr noundef writeonly captures(none) initializes((16, 20)) %param, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
   %inh_flags = getelementptr inbounds nuw i8, ptr %param, i64 16
   store i32 %flags, ptr %inh_flags, align 8
@@ -765,7 +765,7 @@ entry:
 declare i32 @X509_TRUST_set(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_VERIFY_PARAM_set_depth(ptr nocapture noundef writeonly initializes((40, 44)) %param, i32 noundef %depth) local_unnamed_addr #4 {
+define void @X509_VERIFY_PARAM_set_depth(ptr noundef writeonly captures(none) initializes((40, 44)) %param, i32 noundef %depth) local_unnamed_addr #4 {
 entry:
   %depth1 = getelementptr inbounds nuw i8, ptr %param, i64 40
   store i32 %depth, ptr %depth1, align 8
@@ -773,7 +773,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_VERIFY_PARAM_set_auth_level(ptr nocapture noundef writeonly initializes((44, 48)) %param, i32 noundef %auth_level) local_unnamed_addr #4 {
+define void @X509_VERIFY_PARAM_set_auth_level(ptr noundef writeonly captures(none) initializes((44, 48)) %param, i32 noundef %auth_level) local_unnamed_addr #4 {
 entry:
   %auth_level1 = getelementptr inbounds nuw i8, ptr %param, i64 44
   store i32 %auth_level, ptr %auth_level1, align 4
@@ -781,7 +781,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @X509_VERIFY_PARAM_get_time(ptr nocapture noundef readonly %param) local_unnamed_addr #3 {
+define i64 @X509_VERIFY_PARAM_get_time(ptr noundef readonly captures(none) %param) local_unnamed_addr #3 {
 entry:
   %check_time = getelementptr inbounds nuw i8, ptr %param, i64 8
   %0 = load i64, ptr %check_time, align 8
@@ -789,7 +789,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @X509_VERIFY_PARAM_set_time(ptr nocapture noundef initializes((8, 16)) %param, i64 noundef %t) local_unnamed_addr #2 {
+define void @X509_VERIFY_PARAM_set_time(ptr noundef captures(none) initializes((8, 16)) %param, i64 noundef %t) local_unnamed_addr #2 {
 entry:
   %check_time = getelementptr inbounds nuw i8, ptr %param, i64 8
   store i64 %t, ptr %check_time, align 8
@@ -801,7 +801,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_VERIFY_PARAM_add0_policy(ptr nocapture noundef %param, ptr noundef %policy) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_VERIFY_PARAM_add0_policy(ptr noundef captures(none) %param, ptr noundef %policy) local_unnamed_addr #0 {
 entry:
   %policies = getelementptr inbounds nuw i8, ptr %param, i64 48
   %0 = load ptr, ptr %policies, align 8
@@ -837,7 +837,7 @@ declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @OBJ_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_VERIFY_PARAM_get0_host(ptr nocapture noundef readonly %param, i32 noundef %idx) local_unnamed_addr #0 {
+define ptr @X509_VERIFY_PARAM_get0_host(ptr noundef readonly captures(none) %param, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
   %hosts = getelementptr inbounds nuw i8, ptr %param, i64 56
   %0 = load ptr, ptr %hosts, align 8
@@ -846,14 +846,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_host(ptr nocapture noundef %param, ptr noundef %name, i64 noundef %namelen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_host(ptr noundef captures(none) %param, ptr noundef %name, i64 noundef %namelen) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @int_x509_param_set_hosts(ptr noundef %param, i32 noundef 0, ptr noundef %name, i64 noundef %namelen)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @int_x509_param_set_hosts(ptr nocapture noundef %vpm, i32 noundef range(i32 0, 2) %mode, ptr noundef %name, i64 noundef %namelen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @int_x509_param_set_hosts(ptr noundef captures(none) %vpm, i32 noundef range(i32 0, 2) %mode, ptr noundef %name, i64 noundef %namelen) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %namelen, 0
   %cmp1 = icmp eq ptr %name, null
@@ -949,14 +949,14 @@ return:                                           ; preds = %if.end47, %if.then5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_VERIFY_PARAM_add1_host(ptr nocapture noundef %param, ptr noundef %name, i64 noundef %namelen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_VERIFY_PARAM_add1_host(ptr noundef captures(none) %param, ptr noundef %name, i64 noundef %namelen) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @int_x509_param_set_hosts(ptr noundef %param, i32 noundef 1, ptr noundef %name, i64 noundef %namelen)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_VERIFY_PARAM_set_hostflags(ptr nocapture noundef writeonly initializes((64, 68)) %param, i32 noundef %flags) local_unnamed_addr #4 {
+define void @X509_VERIFY_PARAM_set_hostflags(ptr noundef writeonly captures(none) initializes((64, 68)) %param, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
   %hostflags = getelementptr inbounds nuw i8, ptr %param, i64 64
   store i32 %flags, ptr %hostflags, align 8
@@ -964,7 +964,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @X509_VERIFY_PARAM_get_hostflags(ptr nocapture noundef readonly %param) local_unnamed_addr #3 {
+define i32 @X509_VERIFY_PARAM_get_hostflags(ptr noundef readonly captures(none) %param) local_unnamed_addr #3 {
 entry:
   %hostflags = getelementptr inbounds nuw i8, ptr %param, i64 64
   %0 = load i32, ptr %hostflags, align 8
@@ -972,7 +972,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @X509_VERIFY_PARAM_get0_peername(ptr nocapture noundef readonly %param) local_unnamed_addr #3 {
+define ptr @X509_VERIFY_PARAM_get0_peername(ptr noundef readonly captures(none) %param) local_unnamed_addr #3 {
 entry:
   %peername = getelementptr inbounds nuw i8, ptr %param, i64 72
   %0 = load ptr, ptr %peername, align 8
@@ -980,7 +980,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @X509_VERIFY_PARAM_move_peername(ptr nocapture noundef %to, ptr noundef %from) local_unnamed_addr #0 {
+define void @X509_VERIFY_PARAM_move_peername(ptr noundef captures(none) %to, ptr noundef %from) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %from, null
   br i1 %cmp.not, label %cond.end, label %cond.true
@@ -1015,7 +1015,7 @@ if.end9:                                          ; preds = %if.then7, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @X509_VERIFY_PARAM_get0_email(ptr nocapture noundef readonly %param) local_unnamed_addr #3 {
+define ptr @X509_VERIFY_PARAM_get0_email(ptr noundef readonly captures(none) %param) local_unnamed_addr #3 {
 entry:
   %email = getelementptr inbounds nuw i8, ptr %param, i64 80
   %0 = load ptr, ptr %email, align 8
@@ -1055,7 +1055,7 @@ cond.end:                                         ; preds = %int_X509_VERIFY_PAR
 declare ptr @ossl_ipaddr_to_asc(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_ip_asc(ptr nocapture noundef %param, ptr noundef %ipasc) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_VERIFY_PARAM_set1_ip_asc(ptr noundef captures(none) %param, ptr noundef %ipasc) local_unnamed_addr #0 {
 entry:
   %ipout = alloca [16 x i8], align 16
   %call = call i32 @ossl_a2i_ipadd(ptr noundef nonnull %ipout, ptr noundef %ipasc) #8
@@ -1075,7 +1075,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @ossl_a2i_ipadd(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @X509_VERIFY_PARAM_get_depth(ptr nocapture noundef readonly %param) local_unnamed_addr #3 {
+define i32 @X509_VERIFY_PARAM_get_depth(ptr noundef readonly captures(none) %param) local_unnamed_addr #3 {
 entry:
   %depth = getelementptr inbounds nuw i8, ptr %param, i64 40
   %0 = load i32, ptr %depth, align 8
@@ -1083,7 +1083,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @X509_VERIFY_PARAM_get_auth_level(ptr nocapture noundef readonly %param) local_unnamed_addr #3 {
+define i32 @X509_VERIFY_PARAM_get_auth_level(ptr noundef readonly captures(none) %param) local_unnamed_addr #3 {
 entry:
   %auth_level = getelementptr inbounds nuw i8, ptr %param, i64 44
   %0 = load i32, ptr %auth_level, align 4
@@ -1091,7 +1091,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @X509_VERIFY_PARAM_get0_name(ptr nocapture noundef readonly %param) local_unnamed_addr #3 {
+define ptr @X509_VERIFY_PARAM_get0_name(ptr noundef readonly captures(none) %param) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %param, align 8
   ret ptr %0
@@ -1137,7 +1137,7 @@ return:                                           ; preds = %if.end12, %if.then
 declare ptr @OPENSSL_sk_new(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @param_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
+define internal i32 @param_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #5 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %0, align 8
@@ -1232,7 +1232,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
@@ -1244,15 +1244,15 @@ declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @OBJ_bsearch_(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @table_cmp_BSEARCH_CMP_FN(ptr nocapture noundef readonly %a_, ptr nocapture noundef readonly %b_) #5 {
+define internal i32 @table_cmp_BSEARCH_CMP_FN(ptr noundef readonly captures(none) %a_, ptr noundef readonly captures(none) %b_) #5 {
 entry:
   %a_.val = load ptr, ptr %a_, align 8
   %b_.val = load ptr, ptr %b_, align 8

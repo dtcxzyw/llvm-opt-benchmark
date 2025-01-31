@@ -123,7 +123,7 @@ define internal { double, double } @_ZL16hatano_s_inverse5PJ_XYP8PJconsts(double
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write) uwtable
-define internal { double, double } @_ZL16hatano_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture readnone %2) #3 {
+define internal { double, double } @_ZL16hatano_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr readnone captures(none) %2) #3 {
   %4 = tail call double @sin(double noundef %1) #6
   %5 = fcmp olt double %1, 0.000000e+00
   %6 = select i1 %5, double 2.437630e+00, double 2.675950e+00

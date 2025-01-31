@@ -366,7 +366,7 @@ if.then.i.i.i.i:                                  ; preds = %do.cond.i.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %do.body.i.i.i.i.i
   %call.i.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %scevgep.i.i.i.i) #18
-  call void @strbuf_add(ptr noundef nonnull %action.i.i.i, ptr noundef %scevgep.i.i.i.i, i64 noundef %call.i.i.i.i.i) #15
+  call void @strbuf_add(ptr noundef nonnull %action.i.i.i, ptr noundef nonnull %scevgep.i.i.i.i, i64 noundef %call.i.i.i.i.i) #15
   %call4.i.i.i.i = call i32 @strbuf_getline_lf(ptr noundef nonnull @read_request.item, ptr noundef %call25.i.i) #15
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @read_request.item, i64 16), align 8
   %scevgep22.i.i.i.i = getelementptr i8, ptr %26, i64 8
@@ -599,7 +599,7 @@ cache_credential.exit.i.i.i:                      ; preds = %st_mult.exit.i.i.i.
   br label %serve_one_client.exit.i.i
 
 if.else50.i.i.i:                                  ; preds = %if.else34.i.i.i
-  call void (ptr, ...) @warning(ptr noundef nonnull @.str.28, ptr noundef %29) #15
+  call void (ptr, ...) @warning(ptr noundef nonnull @.str.28, ptr noundef nonnull %29) #15
   br label %serve_one_client.exit.i.i
 
 serve_one_client.exit.i.i:                        ; preds = %for.inc.i.i.i.i, %for.cond.i.i.i.i, %if.else50.i.i.i, %cache_credential.exit.i.i.i, %if.then46.i.i.i, %if.then40.i.i.i, %if.then33.i.i.i, %if.then17.i.i.i, %if.end.i14.i.i, %lookup_credential.exit.i.i.i, %if.then2.i13.i.i, %read_request.exit.i.i.i, %if.then6.i.i.i.i, %if.then.i.i.i.i
@@ -624,7 +624,7 @@ serve_cache.exit:                                 ; preds = %if.then24.i.i.i, %c
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare i32 @git_config_get_bool(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -649,7 +649,7 @@ declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
 declare ptr @dirname(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_() unnamed_addr #0 {
@@ -673,13 +673,13 @@ declare i32 @safe_create_leading_directories_const(ptr noundef) local_unnamed_ad
 declare void @die_errno(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #5
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare i32 @chdir(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare ptr @gettext(ptr noundef) local_unnamed_addr #4
@@ -687,7 +687,7 @@ declare ptr @gettext(ptr noundef) local_unnamed_addr #4
 declare i32 @unix_stream_listen(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @freopen64(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -710,16 +710,16 @@ declare ptr @xfdopen(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare void @credential_clear(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #10
@@ -735,27 +735,27 @@ declare i32 @strbuf_getline_lf(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare i32 @credential_read(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare i32 @credential_match(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14

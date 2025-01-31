@@ -564,7 +564,7 @@ declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr nound
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_log3gpp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_log3gpp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_clear(ptr noundef %6, i32 noundef 25) #5
@@ -626,14 +626,14 @@ define internal i32 @dissect_log3gpp(ptr noundef %0, ptr noundef %1, ptr noundef
   %52 = tail call ptr @tvb_get_string_enc(ptr noundef %51, ptr noundef %0, i32 noundef 0, i32 noundef %11, i32 noundef 2) #5
   %53 = icmp eq i8 %42, 0
   %54 = select i1 %53, i32 85, i32 68
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %8, ptr noundef nonnull @.str.197, ptr noundef %52, i32 noundef %54, ptr noundef %48) #5
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %8, ptr noundef nonnull @.str.197, ptr noundef %52, i32 noundef %54, ptr noundef nonnull %48) #5
   %.not124 = icmp eq i32 %50, 0
   br i1 %.not124, label %81, label %55
 
 55:                                               ; preds = %40
   %56 = load ptr, ptr %46, align 8
   %57 = tail call ptr @tvb_get_string_enc(ptr noundef %56, ptr noundef %0, i32 noundef %44, i32 noundef %45, i32 noundef 2) #5
-  %58 = tail call ptr @bsearch(ptr noundef %48, ptr noundef nonnull @dissector_lookup_table, i64 noundef 67, i64 noundef 48, ptr noundef nonnull @dissector_element_compare) #5
+  %58 = tail call ptr @bsearch(ptr noundef nonnull %48, ptr noundef nonnull @dissector_lookup_table, i64 noundef 67, i64 noundef 48, ptr noundef nonnull @dissector_element_compare) #5
   %.not.i = icmp eq ptr %58, null
   br i1 %.not.i, label %look_for_dissector.exit.thread136, label %59
 
@@ -731,7 +731,7 @@ look_for_dissector.exit.thread136:                ; preds = %55, %look_for_disse
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @dissector_element_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal i32 @dissector_element_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load ptr, ptr %1, align 8
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %3) #6
   ret i32 %4
@@ -1097,10 +1097,10 @@ declare ptr @wmem_file_scope() local_unnamed_addr #1
 declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #3
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare zeroext i1 @ws_strtoi16(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 

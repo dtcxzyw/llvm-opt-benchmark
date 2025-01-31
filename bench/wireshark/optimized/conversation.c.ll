@@ -167,10 +167,10 @@ declare i32 @wmem_str_hash(ptr noundef) #1
 declare i32 @g_str_equal(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @conversation_element_list_name(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @conversation_element_list_name(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %0, ptr noundef nonnull @.str.15) #13
   br label %4
 
@@ -231,7 +231,7 @@ declare noalias ptr @wmem_map_new_autoreset(ptr noundef, ptr noundef, ptr nounde
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @conversation_hash_element_list(ptr nocapture noundef readonly %0) #3 {
+define internal i32 @conversation_hash_element_list(ptr noundef readonly captures(none) %0) #3 {
   br label %2
 
 2:                                                ; preds = %add_address_to_hash.exit, %1
@@ -423,7 +423,7 @@ add_address_to_hash.exit:                         ; preds = %.lr.ph.i75, %.lr.ph
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @conversation_match_element_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @conversation_match_element_list(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %.not38 = icmp eq i32 %3, %4
@@ -1171,7 +1171,7 @@ conversation_remove_from_hashtable.exit:          ; preds = %.lr.ph.i, %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define void @conversation_set_addr2(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3063,7 +3063,7 @@ is_no_addr2_key.exit:                             ; preds = %23, %72, %68, %64, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @conversation_lookup_no_ports(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @conversation_lookup_no_ports(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca [3 x %struct.conversation_element], align 16
   store i32 1, ptr %5, align 16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3315,7 +3315,7 @@ define void @conversation_delete_proto_data(ptr noundef readonly %0, i32 noundef
 declare ptr @wmem_tree_remove32(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @conversation_set_dissector_from_frame_number(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @conversation_set_dissector_from_frame_number(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -3334,7 +3334,7 @@ define void @conversation_set_dissector_from_frame_number(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @conversation_set_dissector(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @conversation_set_dissector(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -3353,7 +3353,7 @@ conversation_set_dissector_from_frame_number.exit: ; preds = %2, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @conversation_get_dissector(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @conversation_get_dissector(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3779,7 +3779,7 @@ switch.lookup:                                    ; preds = %27
 }
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @find_or_create_conversation_by_id(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define nonnull ptr @find_or_create_conversation_by_id(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [2 x %struct.conversation_element], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
@@ -3896,7 +3896,7 @@ find_conversation_by_id.exit:                     ; preds = %17, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define void @conversation_set_conv_addr_port_endpoints(ptr nocapture noundef initializes((304, 308), (312, 320)) %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define void @conversation_set_conv_addr_port_endpoints(ptr noundef captures(none) initializes((304, 308), (312, 320)) %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noalias ptr @wmem_alloc0(ptr noundef %8, i64 noundef 64) #13
@@ -3973,7 +3973,7 @@ copy_address_wmem.exit18:                         ; preds = %35, %25, %copy_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @conversation_set_elements_by_id(ptr nocapture noundef initializes((320, 328)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @conversation_set_elements_by_id(ptr noundef captures(none) initializes((320, 328)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noalias ptr @wmem_alloc0(ptr noundef %5, i64 noundef 64) #13
@@ -3990,7 +3990,7 @@ define void @conversation_set_elements_by_id(ptr nocapture noundef initializes((
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @conversation_get_id_from_elements(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define i32 @conversation_get_id_from_elements(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -4042,7 +4042,7 @@ define nonnull ptr @conversation_key_addr1(ptr noundef readonly %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @conversation_key_port1(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define i32 @conversation_key_port1(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %4, label %11
@@ -4089,7 +4089,7 @@ define ptr @conversation_key_addr2(ptr noundef readonly %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @conversation_key_port2(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define i32 @conversation_key_port2(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %4, label %.thread
@@ -4148,21 +4148,21 @@ declare void @wmem_strbuf_append_printf(ptr noundef, ptr noundef, ...) local_unn
 declare ptr @wmem_strbuf_finalize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 declare zeroext i1 @wmem_map_steal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

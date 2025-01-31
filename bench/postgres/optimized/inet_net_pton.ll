@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @getbits.digits = internal constant [11 x i8] c"0123456789\00", align 1
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   switch i32 %0, label %230 [
     i32 2, label %5
     i32 3, label %224
@@ -522,7 +522,7 @@ inet_net_pton_ipv4.exit:                          ; preds = %216, %.loopexit.sin
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @inet_cidr_pton_ipv6(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef range(i64 0, -1) %2) unnamed_addr #1 {
+define internal fastcc noundef i32 @inet_cidr_pton_ipv6(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef range(i64 0, -1) %2) unnamed_addr #1 {
   %4 = alloca [16 x i8], align 16
   %5 = icmp ult i64 %2, 16
   br i1 %5, label %135, label %6
@@ -869,10 +869,10 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #2
 declare i32 @tolower(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #6

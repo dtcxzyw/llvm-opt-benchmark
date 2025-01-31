@@ -111,7 +111,7 @@ define void @Io_WriteBookLogic(ptr noundef %0, ptr noundef %1) local_unnamed_add
 declare ptr @Abc_NtkToNetlist(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @Io_WriteBook(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -122,17 +122,17 @@ define void @Io_WriteBook(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %5)
   %endptr = getelementptr inbounds i8, ptr %5, i64 %strlen
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %endptr, ptr noundef nonnull align 1 dereferenceable(7) @.str.1, i64 7, i1 false)
-  %7 = tail call noalias ptr @fopen(ptr noundef %5, ptr noundef nonnull @.str.2)
+  %7 = tail call noalias ptr @fopen(ptr noundef nonnull %5, ptr noundef nonnull @.str.2)
   %8 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %1) #15
   %strlen74 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %5)
   %endptr75 = getelementptr inbounds i8, ptr %5, i64 %strlen74
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %endptr75, ptr noundef nonnull align 1 dereferenceable(6) @.str.3, i64 6, i1 false)
-  %9 = tail call noalias ptr @fopen(ptr noundef %5, ptr noundef nonnull @.str.2)
+  %9 = tail call noalias ptr @fopen(ptr noundef nonnull %5, ptr noundef nonnull @.str.2)
   %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %1) #15
   %strlen76 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %5)
   %endptr77 = getelementptr inbounds i8, ptr %5, i64 %strlen76
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr77, ptr noundef nonnull align 1 dereferenceable(5) @.str.4, i64 5, i1 false)
-  %11 = tail call noalias ptr @fopen(ptr noundef %5, ptr noundef nonnull @.str.2)
+  %11 = tail call noalias ptr @fopen(ptr noundef nonnull %5, ptr noundef nonnull @.str.2)
   %12 = icmp eq ptr %7, null
   %13 = icmp eq ptr %9, null
   %or.cond = or i1 %12, %13
@@ -147,13 +147,13 @@ define void @Io_WriteBook(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br label %939
 
 19:                                               ; preds = %2
-  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %11, ptr noundef nonnull @.str.6, ptr noundef %1, ptr noundef %1, ptr noundef %1, ptr noundef %1, ptr noundef %1) #15
+  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %11, ptr noundef nonnull @.str.6, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %1) #15
   %21 = tail call i32 @fclose(ptr noundef nonnull %11)
   %22 = tail call fastcc i32 @Io_NtkWriteNodes(ptr noundef %7, ptr noundef %0)
   tail call fastcc void @Io_NtkWriteNets(ptr noundef %9, ptr noundef %0)
   %23 = getelementptr i8, ptr %0, i64 328
-  %.val86 = load ptr, ptr %23, align 8
-  %.not = icmp eq ptr %.val86, null
+  %.val85 = load ptr, ptr %23, align 8
+  %.not = icmp eq ptr %.val85, null
   br i1 %.not, label %27, label %24
 
 24:                                               ; preds = %19
@@ -165,9 +165,9 @@ define void @Io_WriteBook(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 27:                                               ; preds = %24, %19
   %.068 = phi i32 [ %26, %24 ], [ %22, %19 ]
   %28 = getelementptr i8, ptr %0, i64 136
-  %.val87 = load i32, ptr %28, align 8
-  %29 = icmp sgt i32 %.val87, 0
-  br i1 %29, label %.preheader, label %.loopexit
+  %.val86 = load i32, ptr %28, align 8
+  %29 = icmp sgt i32 %.val86, 0
+  br i1 %29, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -175,32 +175,32 @@ define void @Io_WriteBook(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr i8, ptr %33, i64 4
-  %.val97 = load i32, ptr %34, align 4
-  %35 = icmp sgt i32 %.val97, 0
-  br i1 %35, label %.lr.ph, label %.loopexit
+  %.val96 = load i32, ptr %34, align 4
+  %35 = icmp sgt i32 %.val96, 0
+  br i1 %35, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader, %45
   %36 = phi ptr [ %46, %45 ], [ %31, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %.preheader ]
   %37 = phi ptr [ %48, %45 ], [ %33, %.preheader ]
-  %.298 = phi i32 [ %.3, %45 ], [ %.068, %.preheader ]
+  %.297 = phi i32 [ %.3, %45 ], [ %.068, %.preheader ]
   %38 = getelementptr i8, ptr %37, i64 8
-  %.val85 = load ptr, ptr %38, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %.val85, i64 %indvars.iv
+  %.val84 = load ptr, ptr %38, align 8
+  %39 = getelementptr inbounds nuw ptr, ptr %.val84, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, %0
   br i1 %41, label %45, label %42
 
 42:                                               ; preds = %.lr.ph
   %43 = tail call fastcc i32 @Io_NtkWriteNodes(ptr noundef %7, ptr noundef %40)
-  %44 = add i32 %43, %.298
+  %44 = add i32 %43, %.297
   tail call fastcc void @Io_NtkWriteNets(ptr noundef %9, ptr noundef %40)
   %.pre = load ptr, ptr %30, align 8
   br label %45
 
 45:                                               ; preds = %.lr.ph, %42
   %46 = phi ptr [ %36, %.lr.ph ], [ %.pre, %42 ]
-  %.3 = phi i32 [ %.298, %.lr.ph ], [ %44, %42 ]
+  %.3 = phi i32 [ %.297, %.lr.ph ], [ %44, %42 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = load ptr, ptr %47, align 8
@@ -208,9 +208,9 @@ define void @Io_WriteBook(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %.val = load i32, ptr %49, align 4
   %50 = sext i32 %.val to i64
   %51 = icmp slt i64 %indvars.iv.next, %50
-  br i1 %51, label %.lr.ph, label %.loopexit, !llvm.loop !4
+  br i1 %51, label %.lr.ph, label %.critedge, !llvm.loop !4
 
-.loopexit:                                        ; preds = %45, %.preheader, %27
+.critedge:                                        ; preds = %45, %.preheader, %27
   %.1 = phi i32 [ %.068, %27 ], [ %.068, %.preheader ], [ %.3, %45 ]
   %52 = tail call i32 @fclose(ptr noundef nonnull %7)
   %53 = tail call i32 @fclose(ptr noundef nonnull %9)
@@ -218,17 +218,17 @@ define void @Io_WriteBook(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %strlen78 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %5)
   %endptr79 = getelementptr inbounds i8, ptr %5, i64 %strlen78
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr79, ptr noundef nonnull align 1 dereferenceable(5) @.str.7, i64 5, i1 false)
-  %55 = tail call noalias ptr @fopen(ptr noundef %5, ptr noundef nonnull @.str.2)
+  %55 = tail call noalias ptr @fopen(ptr noundef nonnull %5, ptr noundef nonnull @.str.2)
   %56 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %1) #15
   %strlen80 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %5)
   %endptr81 = getelementptr inbounds i8, ptr %5, i64 %strlen80
   store i32 7106606, ptr %endptr81, align 1
-  %57 = tail call noalias ptr @fopen(ptr noundef %5, ptr noundef nonnull @.str.2)
+  %57 = tail call noalias ptr @fopen(ptr noundef nonnull %5, ptr noundef nonnull @.str.2)
   %58 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %1) #15
   %strlen82 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %5)
   %endptr83 = getelementptr inbounds i8, ptr %5, i64 %strlen82
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr83, ptr noundef nonnull align 1 dereferenceable(5) @.str.9, i64 5, i1 false)
-  %59 = tail call noalias ptr @fopen(ptr noundef %5, ptr noundef nonnull @.str.2)
+  %59 = tail call noalias ptr @fopen(ptr noundef nonnull %5, ptr noundef nonnull @.str.2)
   tail call void @free(ptr noundef %5) #15
   %60 = getelementptr i8, ptr %0, i64 124
   %.val39.i = load i32, ptr %60, align 4
@@ -276,8 +276,8 @@ define void @Io_WriteBook(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %.not.i.i = icmp eq i32 %64, 0
   br i1 %.not.i.i, label %Io_NtkWriteScl.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.loopexit, %.lr.ph.i.i
-  %.023.i.i = phi i32 [ %107, %.lr.ph.i.i ], [ 0, %.loopexit ]
+.lr.ph.i.i:                                       ; preds = %.critedge, %.lr.ph.i.i
+  %.023.i.i = phi i32 [ %107, %.lr.ph.i.i ], [ 0, %.critedge ]
   %94 = tail call i64 @fwrite(ptr nonnull @.str.61, i64 19, i64 1, ptr %55)
   %95 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.62, i32 noundef %.023.i.i) #15
   %96 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.63, i32 noundef 1) #15
@@ -295,7 +295,7 @@ define void @Io_WriteBook(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %exitcond.not.i.i = icmp eq i32 %107, %64
   br i1 %exitcond.not.i.i, label %Io_NtkWriteScl.exit.i, label %.lr.ph.i.i, !llvm.loop !6
 
-Io_NtkWriteScl.exit.i:                            ; preds = %.lr.ph.i.i, %.loopexit
+Io_NtkWriteScl.exit.i:                            ; preds = %.lr.ph.i.i, %.critedge
   %108 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %109 = add i32 %70, -1
   %or.cond.i.i.i = icmp ult i32 %109, 7
@@ -1839,8 +1839,8 @@ Io_NtkOrderingPads.exit.i.i:                      ; preds = %Extra_ProgressBarUp
   %777 = fptosi double %.0159253.i.i to i32
   %778 = fsub double %.0159253.i.i, %757
   %779 = fptosi double %778 to i32
-  %.not128 = icmp slt i32 %779, %777
-  br i1 %.not128, label %782, label %780
+  %.not127 = icmp slt i32 %779, %777
+  br i1 %.not127, label %782, label %780
 
 780:                                              ; preds = %776
   %781 = fadd double %.0159253.i.i, 1.000000e+00
@@ -1887,8 +1887,8 @@ Io_NtkOrderingPads.exit.i.i:                      ; preds = %Extra_ProgressBarUp
   %801 = fptosi double %.2161256.i.i to i32
   %802 = fsub double %.2161256.i.i, %757
   %803 = fptosi double %802 to i32
-  %.not129 = icmp slt i32 %803, %801
-  br i1 %.not129, label %806, label %804
+  %.not128 = icmp slt i32 %803, %801
+  br i1 %.not128, label %806, label %804
 
 804:                                              ; preds = %800
   %805 = fadd double %.2161256.i.i, 1.000000e+00
@@ -2149,19 +2149,19 @@ declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #1
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #5
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Io_NtkWriteNodes(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc i32 @Io_NtkWriteNodes(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 40
   %.val46 = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val46, i64 4
@@ -2411,7 +2411,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %112, %116
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Io_NtkWriteNets(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @Io_NtkWriteNets(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
@@ -2920,15 +2920,15 @@ Io_NtkWriteIntNet.exit:                           ; preds = %242, %146, %38, %32
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @Extra_ProgressBarStart(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Io_NtkWriteIntNode(ptr nocapture noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc i32 @Io_NtkWriteIntNode(ptr noundef captures(none) %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr i8, ptr %4, i64 4
   %.val = load i32, ptr %5, align 4
@@ -3137,7 +3137,7 @@ declare i32 @Abc_NodeIsInv(ptr noundef) local_unnamed_addr #1
 declare i32 @Abc_NodeIsBuf(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsNand2(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsNand2(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 28
   %.val13 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %.val13, 2
@@ -3184,7 +3184,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsNand2(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsNor2(ptr nocapture noundef nonnull readonly %0) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsNor2(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #7 {
   %2 = getelementptr i8, ptr %0, i64 28
   %.val = load i32, ptr %2, align 4
   %.not = icmp eq i32 %.val, 2
@@ -3211,7 +3211,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsNor2(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Abc_NodeIsAnd2(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc i32 @Abc_NodeIsAnd2(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 28
   %.val8 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %.val8, 2
@@ -3247,7 +3247,7 @@ define internal fastcc i32 @Abc_NodeIsAnd2(ptr nocapture noundef nonnull readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsOr2(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsOr2(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 28
   %.val = load i32, ptr %2, align 4
   %.not = icmp eq i32 %.val, 2
@@ -3290,7 +3290,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsOr2(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsXor2(ptr nocapture noundef nonnull readonly %0) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsXor2(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #7 {
   %2 = getelementptr i8, ptr %0, i64 28
   %.val = load i32, ptr %2, align 4
   %.not = icmp eq i32 %.val, 2
@@ -3322,7 +3322,7 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsXor2(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsXnor2(ptr nocapture noundef nonnull readonly %0) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsXnor2(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #7 {
   %2 = getelementptr i8, ptr %0, i64 28
   %.val = load i32, ptr %2, align 4
   %.not = icmp eq i32 %.val, 2
@@ -3364,7 +3364,7 @@ declare ptr @Mio_GateReadName(ptr noundef) local_unnamed_addr #1
 declare double @Mio_GateReadArea(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @Mio_LibraryReadNand2(ptr noundef) local_unnamed_addr #1
 
@@ -3377,7 +3377,7 @@ declare ptr @Mio_LibraryReadAnd2(ptr noundef) local_unnamed_addr #1
 declare i32 @Abc_SopIsOrType(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #9
@@ -3389,10 +3389,10 @@ declare double @llvm.ceil.f64(double) #9
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Vec_PtrPushUnique(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -3489,13 +3489,13 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #14

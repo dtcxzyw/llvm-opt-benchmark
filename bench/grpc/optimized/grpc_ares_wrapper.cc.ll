@@ -258,7 +258,7 @@ if.end14:                                         ; preds = %_ZN19grpc_ares_ev_d
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z35grpc_ares_ev_driver_shutdown_lockedP19grpc_ares_ev_driver(ptr nocapture noundef initializes((32, 33)) %ev_driver) local_unnamed_addr #3 {
+define void @_Z35grpc_ares_ev_driver_shutdown_lockedP19grpc_ares_ev_driver(ptr noundef captures(none) initializes((32, 33)) %ev_driver) local_unnamed_addr #3 {
 entry:
   %shutting_down = getelementptr inbounds nuw i8, ptr %ev_driver, i64 32
   store i8 1, ptr %shutting_down, align 8
@@ -280,7 +280,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL23fd_node_shutdown_lockedP7fd_nodePKc(ptr nocapture noundef nonnull %fdn, ptr noundef %reason) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL23fd_node_shutdown_lockedP7fd_nodePKc(ptr noundef nonnull captures(none) %fdn, ptr noundef %reason) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp = alloca %"class.grpc_core::DebugLocation", align 1
@@ -296,7 +296,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %grpc_polled_fd, align 8
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %reason) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp3, i8 0, i64 24, i1 false)
-  invoke void @_ZN9grpc_core12StatusCreateEN4absl12lts_2023080210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKNS_13DebugLocationESt6vectorINS1_6StatusESaISB_EE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp, i32 noundef 2, i64 %call.i.i, ptr %reason, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull %agg.tmp3)
+  invoke void @_ZN9grpc_core12StatusCreateEN4absl12lts_2023080210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKNS_13DebugLocationESt6vectorINS1_6StatusESaISB_EE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp, i32 noundef 2, i64 %call.i.i, ptr nonnull %reason, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull %agg.tmp3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -1014,7 +1014,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit9:       ; preds = %ehcleanup
 declare void @_Z15grpc_timer_initP10grpc_timerN9grpc_core9TimestampEP12grpc_closure(ptr noundef, i64, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: uwtable
 define internal void @_ZL25on_ares_backup_poll_alarmPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr noundef %error) #4 personality ptr @__gxx_personality_v0 {
@@ -1259,13 +1259,13 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit36:      ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZL26noop_inject_channel_configPP16ares_channeldata(ptr nocapture readnone %0) #6 {
+define internal void @_ZL26noop_inject_channel_configPP16ares_channeldata(ptr readnone captures(none) %0) #6 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z33grpc_ares_ev_driver_create_lockedPP19grpc_ares_ev_driverP16grpc_pollset_setiP17grpc_ares_request(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr nocapture noundef initializes((0, 8)) %ev_driver, ptr noundef %pollset_set, i32 noundef %query_timeout_ms, ptr noundef %request) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z33grpc_ares_ev_driver_create_lockedPP19grpc_ares_ev_driverP16grpc_pollset_setiP17grpc_ares_request(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef captures(none) initializes((0, 8)) %ev_driver, ptr noundef %pollset_set, i32 noundef %query_timeout_ms, ptr noundef %request) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %opts = alloca %struct.ares_options, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1470,7 +1470,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare i32 @ares_init_options(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
@@ -1563,7 +1563,7 @@ declare void @gpr_ref_init(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare void @_ZN9grpc_core22NewGrpcPolledFdFactoryEPN4absl12lts_202308025MutexE(ptr sret(%"class.std::unique_ptr") align 8, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z39grpc_cares_wrapper_address_sorting_sortPK17grpc_ares_requestPSt6vectorIN9grpc_core17EndpointAddressesESaIS4_EE(ptr noundef %r, ptr nocapture noundef %addresses) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z39grpc_cares_wrapper_address_sorting_sortPK17grpc_ares_requestPSt6vectorIN9grpc_core17EndpointAddressesESaIS4_EE(ptr noundef %r, ptr noundef captures(none) %addresses) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %sorted = alloca %"class.std::vector.12", align 8
   %0 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_trace_cares_address_sorting, i64 16) monotonic, align 8
@@ -1789,7 +1789,7 @@ _ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EED2Ev.exit: ; preds = %invoke
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL24log_address_sorting_listPK17grpc_ares_requestRKSt6vectorIN9grpc_core17EndpointAddressesESaIS4_EEPKc(ptr noundef %r, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %addresses, ptr noundef %input_output_str) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL24log_address_sorting_listPK17grpc_ares_requestRKSt6vectorIN9grpc_core17EndpointAddressesESaIS4_EEPKc(ptr noundef %r, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %addresses, ptr noundef %input_output_str) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %addr_str = alloca %"class.absl::lts_20230802::StatusOr", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2263,7 +2263,7 @@ entry:
   %ref.tmp52 = alloca %"class.absl::lts_20230802::Status", align 8
   store i64 0, ptr %agg.result, align 8
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #24
-  %call = invoke noundef zeroext i1 @_ZN9grpc_core13SplitHostPortESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS2_SaIcEEES8_(i64 %call.i.i, ptr %name, ptr noundef %host, ptr noundef %port)
+  %call = invoke noundef zeroext i1 @_ZN9grpc_core13SplitHostPortESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS2_SaIcEEES8_(i64 %call.i.i, ptr nonnull %name, ptr noundef %host, ptr noundef %port)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -2277,7 +2277,7 @@ if.then:                                          ; preds = %invoke.cont
 
 invoke.cont8:                                     ; preds = %if.then
   %call.i.i18 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #24
-  invoke void @_Z18grpc_error_set_strN4absl12lts_202308026StatusEN9grpc_core17StatusStrPropertyESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp, ptr noundef nonnull %agg.tmp2, i32 noundef 4, i64 %call.i.i18, ptr %name)
+  invoke void @_Z18grpc_error_set_strN4absl12lts_202308026StatusEN9grpc_core17StatusStrPropertyESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp, ptr noundef nonnull %agg.tmp2, i32 noundef 4, i64 %call.i.i18, ptr nonnull %name)
           to label %invoke.cont11 unwind label %ehcleanup
 
 invoke.cont11:                                    ; preds = %invoke.cont8
@@ -2394,7 +2394,7 @@ if.then20:                                        ; preds = %lor.lhs.false, %if.
 
 invoke.cont28:                                    ; preds = %if.then20
   %call.i.i30 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #24
-  invoke void @_Z18grpc_error_set_strN4absl12lts_202308026StatusEN9grpc_core17StatusStrPropertyESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp21, ptr noundef nonnull %agg.tmp22, i32 noundef 4, i64 %call.i.i30, ptr %name)
+  invoke void @_Z18grpc_error_set_strN4absl12lts_202308026StatusEN9grpc_core17StatusStrPropertyESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp21, ptr noundef nonnull %agg.tmp22, i32 noundef 4, i64 %call.i.i30, ptr nonnull %name)
           to label %invoke.cont31 unwind label %ehcleanup36
 
 invoke.cont31:                                    ; preds = %invoke.cont28
@@ -2503,7 +2503,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit80:         ; preds = %invoke.cont43
 
 if.end51:                                         ; preds = %invoke.cont43
   %call.i.i81 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %dns_server) #24
-  invoke void @_Z22set_request_dns_serverP17grpc_ares_requestSt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp52, ptr noundef %r, i64 %call.i.i81, ptr %dns_server)
+  invoke void @_Z22set_request_dns_serverP17grpc_ares_requestSt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp52, ptr noundef %r, i64 %call.i.i81, ptr nonnull %dns_server)
           to label %invoke.cont54 unwind label %lpad
 
 invoke.cont54:                                    ; preds = %if.end51
@@ -2532,7 +2532,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare void @_Z18grpc_error_set_strN4absl12lts_202308026StatusEN9grpc_core17StatusStrPropertyESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8, ptr noundef, i32 noundef, i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -2825,7 +2825,7 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %host) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %port) #24
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #24
-  %call.i1 = invoke noundef zeroext i1 @_ZN9grpc_core13SplitHostPortESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS2_SaIcEEES8_(i64 %call.i.i.i, ptr %name, ptr noundef nonnull %host, ptr noundef nonnull %port)
+  %call.i1 = invoke noundef zeroext i1 @_ZN9grpc_core13SplitHostPortESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS2_SaIcEEES8_(i64 %call.i.i.i, ptr nonnull %name, ptr noundef nonnull %host, ptr noundef nonnull %port)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
@@ -4127,7 +4127,7 @@ do.end:                                           ; preds = %if.then, %invoke.co
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp28.i.i)
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #24
-  %call.i1.i = invoke noundef zeroext i1 @_ZN9grpc_core13SplitHostPortESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS2_SaIcEEES8_(i64 %call.i.i.i.i, ptr %name, ptr noundef nonnull %host.i, ptr noundef nonnull %port.i)
+  %call.i1.i = invoke noundef zeroext i1 @_ZN9grpc_core13SplitHostPortESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS2_SaIcEEES8_(i64 %call.i.i.i.i, ptr nonnull %name, ptr noundef nonnull %host.i, ptr noundef nonnull %port.i)
           to label %call.i.noexc.i unwind label %lpad.i
 
 call.i.noexc.i:                                   ; preds = %do.end
@@ -4170,7 +4170,7 @@ if.end8.i.i:                                      ; preds = %if.end6.i.i, %if.en
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #24
   %call15.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %hostport.i) #24
   %call.i.i13.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call15.i.i) #24
-  %call16.i5.i = invoke noundef zeroext i1 @_Z24grpc_parse_ipv4_hostportSt17basic_string_viewIcSt11char_traitsIcEEP21grpc_resolved_addressb(i64 %call.i.i13.i.i, ptr %call15.i.i, ptr noundef nonnull %addr.i.i, i1 noundef zeroext false)
+  %call16.i5.i = invoke noundef zeroext i1 @_Z24grpc_parse_ipv4_hostportSt17basic_string_viewIcSt11char_traitsIcEEP21grpc_resolved_addressb(i64 %call.i.i13.i.i, ptr nonnull %call15.i.i, ptr noundef nonnull %addr.i.i, i1 noundef zeroext false)
           to label %call16.i.noexc.i unwind label %lpad.i
 
 call16.i.noexc.i:                                 ; preds = %.noexc4.i
@@ -4179,7 +4179,7 @@ call16.i.noexc.i:                                 ; preds = %.noexc4.i
 lor.lhs.false17.i.i:                              ; preds = %call16.i.noexc.i
   %call19.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %hostport.i) #24
   %call.i.i15.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call19.i.i) #24
-  %call20.i6.i = invoke noundef zeroext i1 @_Z24grpc_parse_ipv6_hostportSt17basic_string_viewIcSt11char_traitsIcEEP21grpc_resolved_addressb(i64 %call.i.i15.i.i, ptr %call19.i.i, ptr noundef nonnull %addr.i.i, i1 noundef zeroext false)
+  %call20.i6.i = invoke noundef zeroext i1 @_Z24grpc_parse_ipv6_hostportSt17basic_string_viewIcSt11char_traitsIcEEP21grpc_resolved_addressb(i64 %call.i.i15.i.i, ptr nonnull %call19.i.i, ptr noundef nonnull %addr.i.i, i1 noundef zeroext false)
           to label %call20.i.noexc.i unwind label %lpad.i
 
 call20.i.noexc.i:                                 ; preds = %lor.lhs.false17.i.i
@@ -4273,7 +4273,7 @@ invoke.cont5:                                     ; preds = %call20.i.noexc.i, %
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %hostport.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %host) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %port) #24
-  invoke void @_Z30grpc_dns_lookup_ares_continuedP17grpc_ares_requestPKcS2_S2_P16grpc_pollset_setiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_b(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %error, ptr noundef nonnull %call, ptr noundef %dns_server, ptr noundef %name, ptr noundef %default_port, ptr noundef %interested_parties, i32 noundef %query_timeout_ms, ptr noundef nonnull %host, ptr noundef nonnull %port, i1 noundef zeroext true)
+  invoke void @_Z30grpc_dns_lookup_ares_continuedP17grpc_ares_requestPKcS2_S2_P16grpc_pollset_setiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_b(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %error, ptr noundef nonnull %call, ptr noundef %dns_server, ptr noundef nonnull %name, ptr noundef %default_port, ptr noundef %interested_parties, i32 noundef %query_timeout_ms, ptr noundef nonnull %host, ptr noundef nonnull %port, i1 noundef zeroext true)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont5
@@ -4606,7 +4606,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit7:       ; preds = %if.end10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z14grpc_ares_initv(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #12 {
+define void @_Z14grpc_ares_initv(ptr noalias writeonly sret(%"class.absl::lts_20230802::Status") align 8 captures(none) initializes((0, 8)) %agg.result) local_unnamed_addr #12 {
 entry:
   store i64 0, ptr %agg.result, align 8, !alias.scope !42
   ret void
@@ -4737,7 +4737,7 @@ eh.resume:                                        ; preds = %lpad15, %lpad
 declare i32 @ares_getsock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL11on_readablePvN4absl12lts_202308026StatusE(ptr nocapture noundef %arg, ptr nocapture noundef readonly %error) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL11on_readablePvN4absl12lts_202308026StatusE(ptr noundef captures(none) %arg, ptr noundef readonly captures(none) %error) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %arg, align 8
   %request = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4847,7 +4847,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit12:      ; preds = %invoke.cont29
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL11on_writablePvN4absl12lts_202308026StatusE(ptr nocapture noundef %arg, ptr nocapture noundef readonly %error) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL11on_writablePvN4absl12lts_202308026StatusE(ptr noundef captures(none) %arg, ptr noundef readonly captures(none) %error) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %arg, align 8
   %request = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -5180,7 +5180,7 @@ declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #16
 declare void @ares_gethostbyname(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL25on_hostbyname_done_lockedPviiP7hostent(ptr noundef %arg, i32 noundef %status, i32 %0, ptr nocapture noundef readonly %hostent) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL25on_hostbyname_done_lockedPviiP7hostent(ptr noundef %arg, i32 noundef %status, i32 %0, ptr noundef readonly captures(none) %hostent) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca [4 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %args = alloca %"class.grpc_core::ChannelArgs", align 8
@@ -5952,7 +5952,7 @@ declare noundef zeroext i16 @_Z13grpc_strhtonsPKc(ptr noundef) local_unnamed_add
 declare void @_ZN9grpc_core12JoinHostPortB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEi(ptr sret(%"class.std::__cxx11::basic_string") align 8, i64, ptr, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #17
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nounwind
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -6269,7 +6269,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #19
 declare extern_weak void @_ZTHN9grpc_core7ExecCtx9exec_ctx_E() #0
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21
@@ -6278,10 +6278,10 @@ declare i64 @llvm.umax.i64(i64, i64) #21
 declare i64 @llvm.umin.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #21

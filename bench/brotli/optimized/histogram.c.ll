@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_kBrotliContextLookupTable = external local_unnamed_addr constant [2048 x i8], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @BrotliBuildHistogramsWithContext(ptr nocapture noundef readonly %cmds, i64 noundef %num_commands, ptr nocapture noundef readonly %literal_split, ptr nocapture noundef readonly %insert_and_copy_split, ptr nocapture noundef readonly %dist_split, ptr nocapture noundef readonly %ringbuffer, i64 noundef %start_pos, i64 noundef %mask, i8 noundef zeroext %prev_byte, i8 noundef zeroext %prev_byte2, ptr noundef readonly %context_modes, ptr nocapture noundef %literal_histograms, ptr nocapture noundef %insert_and_copy_histograms, ptr nocapture noundef %copy_dist_histograms) local_unnamed_addr #0 {
+define hidden void @BrotliBuildHistogramsWithContext(ptr noundef readonly captures(none) %cmds, i64 noundef %num_commands, ptr noundef readonly captures(none) %literal_split, ptr noundef readonly captures(none) %insert_and_copy_split, ptr noundef readonly captures(none) %dist_split, ptr noundef readonly captures(none) %ringbuffer, i64 noundef %start_pos, i64 noundef %mask, i8 noundef zeroext %prev_byte, i8 noundef zeroext %prev_byte2, ptr noundef readonly %context_modes, ptr noundef captures(none) %literal_histograms, ptr noundef captures(none) %insert_and_copy_histograms, ptr noundef captures(none) %copy_dist_histograms) local_unnamed_addr #0 {
 entry:
   %lengths.i = getelementptr inbounds nuw i8, ptr %literal_split, i64 24
   %0 = load ptr, ptr %lengths.i, align 8

@@ -11,14 +11,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN4cvc58internal10RegExpLoopC1Ejj = hidden unnamed_addr alias void (ptr, i32, i32), ptr @_ZN4cvc58internal10RegExpLoopC2Ejj
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal12RegExpRepeatC2Ej(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, i32 noundef %repeatAmount) unnamed_addr #0 align 2 {
+define hidden void @_ZN4cvc58internal12RegExpRepeatC2Ej(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %this, i32 noundef %repeatAmount) unnamed_addr #0 align 2 {
 entry:
   store i32 %repeatAmount, ptr %this, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal12RegExpRepeateqERKS1_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %r) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal12RegExpRepeateqERKS1_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %r) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %1 = load i32, ptr %r, align 4
@@ -27,7 +27,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal10RegExpLoopC2Ejj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %this, i32 noundef %l, i32 noundef %h) unnamed_addr #0 align 2 {
+define hidden void @_ZN4cvc58internal10RegExpLoopC2Ejj(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %this, i32 noundef %l, i32 noundef %h) unnamed_addr #0 align 2 {
 entry:
   store i32 %l, ptr %this, align 4
   %d_loopMaxOcc = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -36,7 +36,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal10RegExpLoopeqERKS1_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %r) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal10RegExpLoopeqERKS1_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %r) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %1 = load i32, ptr %r, align 4
@@ -51,7 +51,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i64 0, 4294967296) i64 @_ZNK4cvc58internal24RegExpRepeatHashFunctionclERKNS0_12RegExpRepeatE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %r) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZNK4cvc58internal24RegExpRepeatHashFunctionclERKNS0_12RegExpRepeatE(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %r) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %r, align 4
   %conv = zext i32 %0 to i64
@@ -59,7 +59,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i64 0, 4294967296) i64 @_ZNK4cvc58internal22RegExpLoopHashFunctionclERKNS0_10RegExpLoopE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %r) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZNK4cvc58internal22RegExpLoopHashFunctionclERKNS0_10RegExpLoopE(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %r) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %r, align 4
   %d_loopMaxOcc = getelementptr inbounds nuw i8, ptr %r, i64 4
@@ -70,7 +70,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_12RegExpRepeatE(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %r) local_unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_12RegExpRepeatE(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %r) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %r, align 4
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %0)
@@ -80,7 +80,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_10RegExpLoopE(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %r) local_unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_10RegExpLoopE(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %r) local_unnamed_addr #2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str)
   %0 = load i32, ptr %r, align 4

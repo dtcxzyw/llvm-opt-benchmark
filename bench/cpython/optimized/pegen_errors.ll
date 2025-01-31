@@ -487,7 +487,7 @@ declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr nocapture noundef initializes((96, 100)) %p, ptr noundef %errtype, i64 noundef range(i64 -2147483648, 2147483648) %lineno, i64 noundef %col_offset, i64 noundef range(i64 -2147483648, 2147483648) %end_lineno, i64 noundef range(i64 -2147483648, 2147483648) %end_col_offset, ptr noundef %errmsg, ...) unnamed_addr #0 {
+define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr noundef captures(none) initializes((96, 100)) %p, ptr noundef %errtype, i64 noundef range(i64 -2147483648, 2147483648) %lineno, i64 noundef %col_offset, i64 noundef range(i64 -2147483648, 2147483648) %end_lineno, i64 noundef range(i64 -2147483648, 2147483648) %end_col_offset, ptr noundef %errmsg, ...) unnamed_addr #0 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)
@@ -621,7 +621,7 @@ if.end14:                                         ; preds = %if.then1.i.i26, %if
 declare void @PyErr_Clear() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @_PyPegen_raise_error_known_location(ptr nocapture noundef initializes((96, 100)) %p, ptr noundef %errtype, i64 noundef %lineno, i64 noundef %col_offset, i64 noundef %end_lineno, i64 noundef %end_col_offset, ptr noundef %errmsg, ptr noundef %va) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @_PyPegen_raise_error_known_location(ptr noundef captures(none) initializes((96, 100)) %p, ptr noundef %errtype, i64 noundef %lineno, i64 noundef %col_offset, i64 noundef %end_lineno, i64 noundef %end_col_offset, ptr noundef %errmsg, ptr noundef %va) local_unnamed_addr #0 {
 entry:
   %error_indicator = getelementptr inbounds nuw i8, ptr %p, i64 96
   store i32 1, ptr %error_indicator, align 8
@@ -871,7 +871,7 @@ declare i32 @_PyPegen_fill_token(ptr noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_FromFormatV(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_error_line_from_tokenizer_buffers(ptr nocapture noundef readonly %p, i64 noundef %lineno) unnamed_addr #0 {
+define internal fastcc ptr @get_error_line_from_tokenizer_buffers(ptr noundef readonly captures(none) %p, i64 noundef %lineno) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %p, align 8
   %fp_interactive = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -943,7 +943,7 @@ if.end42:                                         ; preds = %if.then39, %for.end
   %sub.ptr.lhs.cast = ptrtoint ptr %next_newline.0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %cur_line.0.lcssa to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call43 = tail call ptr @PyUnicode_DecodeUTF8(ptr noundef %cur_line.0.lcssa, i64 noundef %sub.ptr.sub, ptr noundef nonnull @.str.13) #5
+  %call43 = tail call ptr @PyUnicode_DecodeUTF8(ptr noundef nonnull %cur_line.0.lcssa, i64 noundef %sub.ptr.sub, ptr noundef nonnull @.str.13) #5
   br label %return
 
 return:                                           ; preds = %if.end42, %if.then
@@ -960,7 +960,7 @@ declare ptr @PyUnicode_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed
 declare i64 @_PyPegen_byte_offset_to_character_offset(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_Pypegen_set_syntax_error(ptr noundef %p, ptr nocapture noundef readonly %last_token) local_unnamed_addr #0 {
+define hidden void @_Pypegen_set_syntax_error(ptr noundef %p, ptr noundef readonly captures(none) %last_token) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyErr_Occurred() #5
   %tobool.not = icmp eq ptr %call, null
@@ -1073,7 +1073,7 @@ return:                                           ; preds = %if.then, %if.then22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_PyPegen_tokenize_full_source_to_check_for_errors(ptr nocapture noundef %p) unnamed_addr #0 {
+define internal fastcc void @_PyPegen_tokenize_full_source_to_check_for_errors(ptr noundef captures(none) %p) unnamed_addr #0 {
 entry:
   %type = alloca ptr, align 8
   %value = alloca ptr, align 8
@@ -1241,7 +1241,7 @@ return:                                           ; preds = %if.then1.i.i26, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_Pypegen_stack_overflow(ptr nocapture noundef writeonly initializes((96, 100)) %p) local_unnamed_addr #0 {
+define hidden void @_Pypegen_stack_overflow(ptr noundef writeonly captures(none) initializes((96, 100)) %p) local_unnamed_addr #0 {
 entry:
   %error_indicator = getelementptr inbounds nuw i8, ptr %p, i64 96
   store i32 1, ptr %error_indicator, align 8
@@ -1253,7 +1253,7 @@ entry:
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2

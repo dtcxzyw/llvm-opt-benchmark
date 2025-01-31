@@ -478,7 +478,7 @@ declare void @EvalPlanQualEnd(ptr noundef) local_unnamed_addr #1
 declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecReScanLockRows(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExecReScanLockRows(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
@@ -516,7 +516,7 @@ declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @EvalPlanQualBegin(ptr noundef) local_unnamed_addr #1
 

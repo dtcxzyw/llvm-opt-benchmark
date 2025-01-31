@@ -45,7 +45,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @base_ref_iterator_init(ptr nocapture noundef initializes((0, 8), (16, 36)) %iter, ptr noundef %vtable, i32 noundef %ordered) local_unnamed_addr #1 {
+define dso_local void @base_ref_iterator_init(ptr noundef captures(none) initializes((0, 8), (16, 36)) %iter, ptr noundef %vtable, i32 noundef %ordered) local_unnamed_addr #1 {
 entry:
   store ptr %vtable, ptr %iter, align 8
   %tobool = icmp ne i32 %ordered, 0
@@ -61,14 +61,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @base_ref_iterator_free(ptr nocapture noundef %iter) local_unnamed_addr #2 {
+define dso_local void @base_ref_iterator_free(ptr noundef captures(none) %iter) local_unnamed_addr #2 {
 entry:
   tail call void @free(ptr noundef %iter) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @empty_ref_iterator_begin() local_unnamed_addr #0 {
@@ -87,7 +87,7 @@ entry:
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @is_empty_ref_iterator(ptr nocapture noundef readonly %ref_iterator) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @is_empty_ref_iterator(ptr noundef readonly captures(none) %ref_iterator) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %ref_iterator, align 8
   %cmp = icmp eq ptr %0, @empty_ref_iterator_vtable
@@ -190,7 +190,7 @@ return:                                           ; preds = %if.end15, %if.then4
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 7) i32 @overlay_iterator_select(ptr noundef readonly %front, ptr noundef readonly %back, ptr nocapture readnone %cb_data) #7 {
+define internal range(i32 -1, 7) i32 @overlay_iterator_select(ptr noundef readonly %front, ptr noundef readonly %back, ptr readnone captures(none) %cb_data) #7 {
 entry:
   %tobool.not = icmp eq ptr %back, null
   %tobool1.not = icmp eq ptr %front, null
@@ -261,7 +261,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @do_for_each_repo_ref_iterator(ptr noundef %r, ptr noundef %iter, ptr nocapture noundef readonly %fn, ptr noundef %cb_data) local_unnamed_addr #0 {
+define dso_local i32 @do_for_each_repo_ref_iterator(ptr noundef %r, ptr noundef %iter, ptr noundef readonly captures(none) %fn, ptr noundef %cb_data) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @current_ref_iter, align 8
   store ptr %iter, ptr @current_ref_iter, align 8
@@ -314,14 +314,14 @@ entry:
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @empty_ref_iterator_peel(ptr nocapture readnone %ref_iterator, ptr nocapture readnone %peeled) #8 {
+define internal noundef i32 @empty_ref_iterator_peel(ptr readnone captures(none) %ref_iterator, ptr readnone captures(none) %peeled) #8 {
 entry:
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 57, ptr noundef nonnull @.str.2) #12
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @empty_ref_iterator_abort(ptr nocapture noundef %ref_iterator) #2 {
+define internal noundef i32 @empty_ref_iterator_abort(ptr noundef captures(none) %ref_iterator) #2 {
 entry:
   tail call void @free(ptr noundef %ref_iterator) #11
   ret i32 -1
@@ -469,7 +469,7 @@ return:                                           ; preds = %error, %if.then59, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @merge_ref_iterator_peel(ptr nocapture noundef readonly %ref_iterator, ptr noundef %peeled) #0 {
+define internal i32 @merge_ref_iterator_peel(ptr noundef readonly captures(none) %ref_iterator, ptr noundef %peeled) #0 {
 entry:
   %current = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 72
   %0 = load ptr, ptr %current, align 8
@@ -490,7 +490,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 0) i32 @merge_ref_iterator_abort(ptr nocapture noundef %ref_iterator) #0 {
+define internal range(i32 -2, 0) i32 @merge_ref_iterator_abort(ptr noundef captures(none) %ref_iterator) #0 {
 entry:
   %iter0 = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 40
   %0 = load ptr, ptr %iter0, align 8
@@ -529,7 +529,7 @@ if.end11:                                         ; preds = %if.then5, %if.end3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @prefix_ref_iterator_advance(ptr noundef %ref_iterator) #0 {
@@ -646,7 +646,7 @@ return:                                           ; preds = %while.end, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @prefix_ref_iterator_peel(ptr nocapture noundef readonly %ref_iterator, ptr noundef %peeled) #0 {
+define internal i32 @prefix_ref_iterator_peel(ptr noundef readonly captures(none) %ref_iterator, ptr noundef %peeled) #0 {
 entry:
   %iter0 = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 40
   %0 = load ptr, ptr %iter0, align 8
@@ -658,7 +658,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @prefix_ref_iterator_abort(ptr nocapture noundef %ref_iterator) #0 {
+define internal i32 @prefix_ref_iterator_abort(ptr noundef captures(none) %ref_iterator) #0 {
 entry:
   %iter0 = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 40
   %0 = load ptr, ptr %iter0, align 8
@@ -682,10 +682,10 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

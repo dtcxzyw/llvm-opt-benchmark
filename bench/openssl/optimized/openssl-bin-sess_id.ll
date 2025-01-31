@@ -326,7 +326,7 @@ declare i32 @opt_check_rest_arg(ptr noundef) local_unnamed_addr #1
 declare ptr @SSL_SESSION_get0_peer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @SSL_SESSION_set1_id_context(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 

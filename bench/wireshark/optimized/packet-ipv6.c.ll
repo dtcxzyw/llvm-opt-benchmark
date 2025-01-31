@@ -1439,7 +1439,7 @@ define hidden ptr @p_ipv6_pinfo_add_len(ptr noundef %0, i32 noundef %1) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @get_ipv6_conversation_data(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define ptr @get_ipv6_conversation_data(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %16, label %4
 
@@ -1693,7 +1693,7 @@ define internal ptr @ipv6_value(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ipv6_prompt(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal void @ipv6_prompt(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @proto_ipv6, align 4
@@ -1746,7 +1746,7 @@ declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local
 declare void @prefs_register_static_text_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @nat64_prefix_uat_fld_ip_chk_cb(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
+define internal noundef zeroext i1 @nat64_prefix_uat_fld_ip_chk_cb(ptr readnone captures(none) %0, ptr noundef %1, i32 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) #0 {
   %7 = alloca %struct.e_in6_addr, align 1
   %8 = call zeroext i1 @ws_inet_pton6(ptr noundef %1, ptr noundef nonnull %7) #13
   br i1 %8, label %11, label %9
@@ -1762,7 +1762,7 @@ define internal noundef zeroext i1 @nat64_prefix_uat_fld_ip_chk_cb(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nat64_prefix_uats_ipaddr_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @nat64_prefix_uats_ipaddr_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = load ptr, ptr %0, align 8
@@ -1772,7 +1772,7 @@ define internal void @nat64_prefix_uats_ipaddr_set_cb(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nat64_prefix_uats_ipaddr_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @nat64_prefix_uats_ipaddr_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -1799,7 +1799,7 @@ define internal void @nat64_prefix_uats_ipaddr_tostr_cb(ptr nocapture noundef re
 declare zeroext i1 @uat_fld_chk_enum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @nat64_prefix_uats_prefix_len_set_cb(ptr nocapture noundef writeonly initializes((8, 9)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @nat64_prefix_uats_prefix_len_set_cb(ptr noundef writeonly captures(none) initializes((8, 9)) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1842,7 +1842,7 @@ define internal void @nat64_prefix_uats_prefix_len_set_cb(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nat64_prefix_uats_prefix_len_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @nat64_prefix_uats_prefix_len_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
@@ -1891,7 +1891,7 @@ define internal void @nat64_prefix_uats_prefix_len_tostr_cb(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nat64_prefix_uats_prefix_wildcard_len_set_cb(ptr nocapture noundef writeonly initializes((12, 16)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @nat64_prefix_uats_prefix_wildcard_len_set_cb(ptr noundef writeonly captures(none) initializes((12, 16)) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1934,7 +1934,7 @@ define internal void @nat64_prefix_uats_prefix_wildcard_len_set_cb(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nat64_prefix_uats_prefix_wildcard_len_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @nat64_prefix_uats_prefix_wildcard_len_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
@@ -1984,7 +1984,7 @@ define internal void @nat64_prefix_uats_prefix_wildcard_len_tostr_cb(ptr nocaptu
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @nat64_prefix_copy_cb(ptr noundef returned writeonly initializes((0, 9), (12, 16)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @nat64_prefix_copy_cb(ptr noundef returned writeonly initializes((0, 9), (12, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #13
   store ptr %5, ptr %0, align 8
@@ -2000,7 +2000,7 @@ define internal noundef ptr @nat64_prefix_copy_cb(ptr noundef returned writeonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nat64_prefix_free_cb(ptr nocapture noundef readonly %0) #0 {
+define internal void @nat64_prefix_free_cb(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #13
   ret void
@@ -2019,7 +2019,7 @@ define internal void @ipv6_init() #2 {
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ipv6(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ipv6(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i8, align 1
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -2713,7 +2713,7 @@ declare void @register_decode_as(ptr noundef) local_unnamed_addr #1
 declare void @register_conversation_table(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ipv6_conversation_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #0 {
+define internal noundef i32 @ipv6_conversation_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2731,7 +2731,7 @@ define internal noundef i32 @ipv6_conversation_packet(ptr noundef initializes((2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ipv6_endpoint_packet(ptr noundef initializes((24, 28)) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #0 {
+define internal noundef i32 @ipv6_endpoint_packet(ptr noundef initializes((24, 28)) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2751,7 +2751,7 @@ define internal noundef i32 @ipv6_endpoint_packet(ptr noundef initializes((24, 2
 declare void @register_conversation_filter(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ipv6_filter_valid(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal i32 @ipv6_filter_valid(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @proto_is_frame_protocol(ptr noundef %4, ptr noundef nonnull @.str.682) #13
@@ -2759,7 +2759,7 @@ define internal i32 @ipv6_filter_valid(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @ipv6_build_filter(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal noalias ptr @ipv6_build_filter(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -3293,7 +3293,7 @@ define internal i32 @capture_ipv6_exthdr(ptr noundef %0, i32 noundef %1, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_routing6_rt0(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_routing6_rt0(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca %struct._address, align 8
   %6 = load i32, ptr @hf_ipv6_routing_src_reserved, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #13
@@ -3398,7 +3398,7 @@ define internal i32 @dissect_routing6_rt0(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_routing6_mipv6(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_routing6_mipv6(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca %struct._address, align 8
   %6 = load i32, ptr @hf_ipv6_routing_mipv6_reserved, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #13
@@ -3479,7 +3479,7 @@ define internal i32 @dissect_routing6_mipv6(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_routing6_rpl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_routing6_rpl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca %struct._address, align 8
   %6 = alloca %struct.e_in6_addr, align 1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 232
@@ -3765,7 +3765,7 @@ proto_item_set_generated.exit136:                 ; preds = %91, %104, %107
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_routing6_srh(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_routing6_srh(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca %struct._address, align 8
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_ipv6_routing_srh_last_entry, align 4
@@ -3850,7 +3850,7 @@ define internal i32 @dissect_routing6_srh(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_routing6_crh(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_routing6_crh(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %6 = load i8, ptr %5, align 2
   %7 = icmp eq i8 %6, 5
@@ -4022,7 +4022,7 @@ declare ptr @wmem_file_scope() local_unnamed_addr #1
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare zeroext i1 @ws_inet_pton6(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4035,7 +4035,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @g_str_equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -5023,7 +5023,7 @@ proto_item_set_hidden.exit46:                     ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_ipv6_address_slaac(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 8, 25) %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @add_ipv6_address_slaac(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 8, 25) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = add nuw nsw i32 %3, 8
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %6) #13
   %8 = and i8 %7, 2
@@ -5468,7 +5468,7 @@ declare i32 @tvb_get_bits32(ptr noundef, i32 noundef, i32 noundef, i32 noundef) 
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_geoip_info_entry(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @add_geoip_info_entry(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = tail call nonnull ptr @maxmind_db_lookup_ipv6(ptr noundef %3) #13
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
@@ -5940,7 +5940,7 @@ declare i32 @have_tap_listener(i32 noundef) local_unnamed_addr #1
 declare void @add_conversation_table_data_with_conv_id(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef nonnull ptr @ipv6_conv_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #7 {
+define internal noundef nonnull ptr @ipv6_conv_get_filter_type(ptr noundef readonly captures(none) %0, i32 noundef %1) #7 {
   switch i32 %1, label %15 [
     i32 0, label %3
     i32 1, label %7
@@ -5976,7 +5976,7 @@ define internal noundef nonnull ptr @ipv6_conv_get_filter_type(ptr nocapture nou
 declare void @add_endpoint_table_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef nonnull ptr @ipv6_endpoint_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #7 {
+define internal noundef nonnull ptr @ipv6_endpoint_get_filter_type(ptr noundef readonly captures(none) %0, i32 noundef %1) #7 {
   %3 = icmp eq i32 %1, 2
   br i1 %3, label %4, label %8
 
@@ -6225,7 +6225,7 @@ ipv6_opt_type_hdr.exit:                           ; preds = %105, %85
 
 ipv6_opt_type_hdr.exit.thread.sink.split:         ; preds = %110, %ipv6_opt_type_hdr.exit
   %.str.874.sink = phi ptr [ @.str.874, %ipv6_opt_type_hdr.exit ], [ @.str.875, %110 ]
-  %112 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %98, ptr noundef nonnull @ei_ipv6_opt_header_mismatch, ptr noundef nonnull %.str.874.sink, ptr noundef %90) #13
+  %112 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %98, ptr noundef nonnull @ei_ipv6_opt_header_mismatch, ptr noundef nonnull %.str.874.sink, ptr noundef %90) #13
   br label %ipv6_opt_type_hdr.exit.thread
 
 ipv6_opt_type_hdr.exit.thread:                    ; preds = %.lr.ph, %ipv6_opt_type_hdr.exit.thread.sink.split, %110
@@ -6283,7 +6283,7 @@ ipv6_opt_type_hdr.exit.thread:                    ; preds = %.lr.ph, %ipv6_opt_t
   store i32 0, ptr %12, align 4
   %130 = load ptr, ptr %20, align 8
   %131 = load i32, ptr @proto_ipv6, align 4
-  %132 = call ptr @p_get_proto_data(ptr noundef %130, ptr noundef %2, i32 noundef %131, i32 noundef 2) #13
+  %132 = call ptr @p_get_proto_data(ptr noundef %130, ptr noundef nonnull %2, i32 noundef %131, i32 noundef 2) #13
   %.not.i251 = icmp eq i8 %88, 4
   br i1 %.not.i251, label %135, label %133
 
@@ -6326,7 +6326,7 @@ dissect_opt_jumbo.exit:                           ; preds = %143, %146
   br i1 %150, label %151, label %dissect_opt_rpl.exit
 
 151:                                              ; preds = %149
-  %152 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.879, i32 noundef %92) #13
+  %152 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.879, i32 noundef %92) #13
   br label %dissect_opt_rpl.exit
 
 dissect_opt_rpl.exit:                             ; preds = %149, %151
@@ -6347,7 +6347,7 @@ dissect_opt_rpl.exit:                             ; preds = %149, %151
   br i1 %.not.i252, label %dissect_opt_tel.exit, label %164
 
 164:                                              ; preds = %163
-  %165 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.880, i32 noundef %92) #13
+  %165 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.880, i32 noundef %92) #13
   br label %dissect_opt_tel.exit
 
 dissect_opt_tel.exit:                             ; preds = %163, %164
@@ -6361,7 +6361,7 @@ dissect_opt_tel.exit:                             ; preds = %163, %164
   br i1 %.not.i253, label %dissect_opt_rtalert.exit, label %170
 
 170:                                              ; preds = %169
-  %171 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.881, i32 noundef %92) #13
+  %171 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.881, i32 noundef %92) #13
   br label %dissect_opt_rtalert.exit
 
 dissect_opt_rtalert.exit:                         ; preds = %169, %170
@@ -6375,7 +6375,7 @@ dissect_opt_rtalert.exit:                         ; preds = %169, %170
   br i1 %.not.i254, label %dissect_opt_pmtu.exit, label %176
 
 176:                                              ; preds = %175
-  %177 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.882, i32 noundef %92) #13
+  %177 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.882, i32 noundef %92) #13
   br label %dissect_opt_pmtu.exit
 
 dissect_opt_pmtu.exit:                            ; preds = %175, %176
@@ -6400,7 +6400,7 @@ dissect_opt_pmtu.exit:                            ; preds = %175, %176
   br i1 %193, label %194, label %196
 
 194:                                              ; preds = %192
-  %195 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.883, i32 noundef %92) #13
+  %195 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.883, i32 noundef %92) #13
   br label %196
 
 196:                                              ; preds = %194, %192
@@ -6415,7 +6415,7 @@ dissect_opt_pmtu.exit:                            ; preds = %175, %176
 
 203:                                              ; preds = %196
   %204 = zext i8 %198 to i32
-  %205 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %200, ptr noundef nonnull @ei_ipv6_opt_apn_invalid_id_type, ptr noundef nonnull @.str.885, i32 noundef %204) #13
+  %205 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %200, ptr noundef nonnull @ei_ipv6_opt_apn_invalid_id_type, ptr noundef nonnull @.str.885, i32 noundef %204) #13
   br label %206
 
 206:                                              ; preds = %203, %196
@@ -6441,7 +6441,7 @@ dissect_opt_pmtu.exit:                            ; preds = %175, %176
   br i1 %219, label %220, label %222
 
 220:                                              ; preds = %217
-  %221 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.886, i32 noundef %92, i32 noundef 8) #13
+  %221 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.886, i32 noundef %92, i32 noundef 8) #13
   br label %222
 
 222:                                              ; preds = %220, %217
@@ -6457,7 +6457,7 @@ dissect_opt_pmtu.exit:                            ; preds = %175, %176
   br i1 %229, label %230, label %232
 
 230:                                              ; preds = %227
-  %231 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.887, i32 noundef %92, i32 noundef 12) #13
+  %231 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.887, i32 noundef %92, i32 noundef 12) #13
   br label %232
 
 232:                                              ; preds = %230, %227
@@ -6477,7 +6477,7 @@ dissect_opt_pmtu.exit:                            ; preds = %175, %176
   br i1 %.not.i256, label %243, label %241
 
 241:                                              ; preds = %239
-  %242 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.888, i32 noundef %92) #13
+  %242 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.888, i32 noundef %92) #13
   br label %243
 
 243:                                              ; preds = %241, %239
@@ -6562,7 +6562,7 @@ dissect_opt_quickstart.exit:                      ; preds = %dissect_opt_quickst
   br i1 %286, label %287, label %289
 
 287:                                              ; preds = %285
-  %288 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.893, i32 noundef %92) #13
+  %288 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.893, i32 noundef %92) #13
   br label %289
 
 289:                                              ; preds = %287, %285
@@ -6586,7 +6586,7 @@ dissect_opt_quickstart.exit:                      ; preds = %dissect_opt_quickst
   br i1 %302, label %303, label %305
 
 303:                                              ; preds = %301
-  %304 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.893, i32 noundef %92) #13
+  %304 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.893, i32 noundef %92) #13
   br label %305
 
 305:                                              ; preds = %303, %301
@@ -6611,7 +6611,7 @@ dissect_opt_quickstart.exit:                      ; preds = %dissect_opt_quickst
   br i1 %323, label %324, label %326
 
 324:                                              ; preds = %305
-  %325 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %319, ptr noundef nonnull @ei_ipv6_opt_ioam_invalid_remlen, ptr noundef nonnull @.str.895, i32 noundef %321) #13
+  %325 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %319, ptr noundef nonnull @ei_ipv6_opt_ioam_invalid_remlen, ptr noundef nonnull @.str.895, i32 noundef %321) #13
   br label %326
 
 326:                                              ; preds = %324, %305
@@ -6631,7 +6631,7 @@ dissect_opt_quickstart.exit:                      ; preds = %dissect_opt_quickst
   br i1 %or.cond.i.i, label %339, label %341
 
 339:                                              ; preds = %326
-  %340 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %332, ptr noundef nonnull @ei_ipv6_opt_ioam_invalid_nodelen) #13
+  %340 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %332, ptr noundef nonnull @ei_ipv6_opt_ioam_invalid_nodelen) #13
   br label %dissect_opt_ioam_trace.exit.i
 
 341:                                              ; preds = %326
@@ -6958,7 +6958,7 @@ dissect_opt_ioam_trace_node.exit.i.i:             ; preds = %506, %505
   br i1 %.not133.i.i, label %513, label %511
 
 511:                                              ; preds = %dissect_opt_ioam_trace_node.exit.i.i
-  %512 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %332, ptr noundef nonnull @ei_ipv6_opt_ioam_invalid_trace_type) #13
+  %512 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %332, ptr noundef nonnull @ei_ipv6_opt_ioam_invalid_trace_type) #13
   br label %dissect_opt_ioam_trace.exit.i
 
 513:                                              ; preds = %dissect_opt_ioam_trace_node.exit.i.i
@@ -6970,7 +6970,7 @@ dissect_opt_ioam_trace_node.exit.i.i:             ; preds = %506, %505
   br i1 %516, label %517, label %519
 
 517:                                              ; preds = %515
-  %518 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.893, i32 noundef %92) #13
+  %518 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.893, i32 noundef %92) #13
   br label %dissect_opt_ioam_trace.exit.i
 
 519:                                              ; preds = %515
@@ -6991,7 +6991,7 @@ dissect_opt_ioam_trace_node.exit.i.i:             ; preds = %506, %505
   br i1 %533, label %534, label %536
 
 534:                                              ; preds = %519
-  %535 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.893, i32 noundef %92) #13
+  %535 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.893, i32 noundef %92) #13
   br label %dissect_opt_ioam_trace.exit.i
 
 536:                                              ; preds = %519
@@ -7022,7 +7022,7 @@ dissect_opt_ioam_trace_node.exit.i.i:             ; preds = %506, %505
   br i1 %.not132.i.i, label %dissect_opt_ioam_trace.exit.i, label %548
 
 548:                                              ; preds = %._crit_edge.i.i
-  %549 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.893, i32 noundef %92) #13
+  %549 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.893, i32 noundef %92) #13
   br label %dissect_opt_ioam_trace.exit.i
 
 dissect_opt_ioam_trace.exit.i:                    ; preds = %548, %._crit_edge.i.i, %534, %517, %511, %341, %339
@@ -7040,7 +7040,7 @@ dissect_opt_ioam.exit:                            ; preds = %289, %dissect_opt_i
   br i1 %.not.i260, label %dissect_opt_tpf.exit, label %551
 
 551:                                              ; preds = %550
-  %552 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.898, i32 noundef %92) #13
+  %552 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.898, i32 noundef %92) #13
   br label %dissect_opt_tpf.exit
 
 dissect_opt_tpf.exit:                             ; preds = %550, %551
@@ -7056,7 +7056,7 @@ dissect_opt_tpf.exit:                             ; preds = %550, %551
   br i1 %557, label %558, label %dissect_opt_calipso.exit
 
 558:                                              ; preds = %556
-  %559 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.899, i32 noundef %92) #13
+  %559 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.899, i32 noundef %92) #13
   br label %dissect_opt_calipso.exit
 
 dissect_opt_calipso.exit:                         ; preds = %556, %558
@@ -7070,7 +7070,7 @@ dissect_opt_calipso.exit:                         ; preds = %556, %558
   %567 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %566, ptr noundef %0, i32 noundef %565, i32 noundef 1, i32 noundef 0) #13
   %568 = add nsw i32 %.0293, 8
   %569 = load i32, ptr @hf_ipv6_opt_calipso_checksum, align 4
-  %570 = call ptr @proto_tree_add_checksum(ptr noundef %96, ptr noundef %0, i32 noundef %568, i32 noundef %569, i32 noundef -1, ptr noundef null, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
+  %570 = call ptr @proto_tree_add_checksum(ptr noundef %96, ptr noundef %0, i32 noundef %568, i32 noundef %569, i32 noundef -1, ptr noundef null, ptr noundef nonnull %2, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
   %571 = add nsw i32 %.0293, 10
   %572 = load i32, ptr @hf_ipv6_opt_calipso_cmpt_bitmap, align 4
   %573 = load i32, ptr %8, align 4
@@ -7132,7 +7132,7 @@ dissect_opt_calipso.exit:                         ; preds = %556, %558
   br i1 %.not.i263, label %dissect_opt_pdm.exit, label %608
 
 608:                                              ; preds = %607
-  %609 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.900, i32 noundef %92) #13
+  %609 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.900, i32 noundef %92) #13
   br label %dissect_opt_pdm.exit
 
 dissect_opt_pdm.exit:                             ; preds = %607, %608
@@ -7161,7 +7161,7 @@ dissect_opt_pdm.exit:                             ; preds = %607, %608
   br i1 %.not.i264, label %dissect_opt_home_address.exit, label %629
 
 629:                                              ; preds = %628
-  %630 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.901, i32 noundef %92) #13
+  %630 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.901, i32 noundef %92) #13
   br label %dissect_opt_home_address.exit
 
 dissect_opt_home_address.exit:                    ; preds = %628, %629
@@ -7233,7 +7233,7 @@ dissect_opt_lio.exit:                             ; preds = %641, %647
   br label %dissect_opt_apn6.exit
 
 673:                                              ; preds = %655
-  %674 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %98, ptr noundef nonnull @ei_ipv6_opt_mpl_ipv6_src_seed_id) #13
+  %674 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %98, ptr noundef nonnull @ei_ipv6_opt_mpl_ipv6_src_seed_id) #13
   br label %dissect_opt_apn6.exit
 
 675:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
@@ -7241,7 +7241,7 @@ dissect_opt_lio.exit:                             ; preds = %641, %647
   br i1 %.not.i267, label %dissect_opt_dff.exit, label %676
 
 676:                                              ; preds = %675
-  %677 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.902, i32 noundef %92) #13
+  %677 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.902, i32 noundef %92) #13
   br label %dissect_opt_dff.exit
 
 dissect_opt_dff.exit:                             ; preds = %675, %676
@@ -7257,9 +7257,9 @@ dissect_opt_dff.exit:                             ; preds = %675, %676
 685:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
   %686 = load i32, ptr @hf_ipv6_opt_unknown, align 4
   %687 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %686, ptr noundef %0, i32 noundef range(i32 -2147483646, 2050) %123, i32 noundef %92, i32 noundef 0) #13
-  %688 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %687, ptr noundef nonnull @ei_ipv6_opt_unknown_data) #13
+  %688 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %687, ptr noundef nonnull @ei_ipv6_opt_unknown_data) #13
   %689 = add nsw i32 %123, %92
-  %690 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %98, ptr noundef nonnull @ei_ipv6_opt_deprecated) #13
+  %690 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %98, ptr noundef nonnull @ei_ipv6_opt_deprecated) #13
   br label %dissect_opt_apn6.exit
 
 691:                                              ; preds = %ipv6_opt_type_hdr.exit.thread, %ipv6_opt_type_hdr.exit.thread, %ipv6_opt_type_hdr.exit.thread, %ipv6_opt_type_hdr.exit.thread, %ipv6_opt_type_hdr.exit.thread, %ipv6_opt_type_hdr.exit.thread, %ipv6_opt_type_hdr.exit.thread, %ipv6_opt_type_hdr.exit.thread
@@ -7271,7 +7271,7 @@ dissect_opt_dff.exit:                             ; preds = %675, %676
 695:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
   %696 = load i32, ptr @hf_ipv6_opt_unknown, align 4
   %697 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %696, ptr noundef %0, i32 noundef range(i32 -2147483646, 2050) %123, i32 noundef %92, i32 noundef 0) #13
-  %698 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %697, ptr noundef nonnull @ei_ipv6_opt_unknown_data) #13
+  %698 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %697, ptr noundef nonnull @ei_ipv6_opt_unknown_data) #13
   %699 = add nsw i32 %123, %92
   br label %dissect_opt_apn6.exit
 
@@ -7286,7 +7286,7 @@ dissect_opt_apn6.exit:                            ; preds = %673, %668, %603, %6
   %704 = load i32, ptr @hf_ipv6_opt_unknown_data, align 4
   %705 = sub i32 %701, %.1
   %706 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %704, ptr noundef %0, i32 noundef %.1, i32 noundef %705, i32 noundef 0) #13
-  %707 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %706, ptr noundef nonnull @ei_ipv6_opt_unknown_data) #13
+  %707 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %706, ptr noundef nonnull @ei_ipv6_opt_unknown_data) #13
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge
@@ -7301,11 +7301,11 @@ dissect_opt_apn6.exit:                            ; preds = %673, %668, %603, %6
   %714 = zext i8 %713 to i32
   %715 = shl nuw nsw i32 %714, 8
   %716 = or disjoint i32 %715, 1
-  call void @p_add_proto_data(ptr noundef %710, ptr noundef %2, i32 noundef %711, i32 noundef %716, ptr noundef %709) #13
+  call void @p_add_proto_data(ptr noundef %710, ptr noundef nonnull %2, i32 noundef %711, i32 noundef %716, ptr noundef %709) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   %717 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %19) #13
   %718 = zext i8 %15 to i32
-  call void @ipv6_dissect_next(i32 noundef %718, ptr noundef %717, ptr noundef %2, ptr noundef %1, ptr noundef %3)
+  call void @ipv6_dissect_next(i32 noundef %718, ptr noundef %717, ptr noundef nonnull %2, ptr noundef %1, ptr noundef %3)
   %719 = call i32 @tvb_captured_length(ptr noundef %0) #13
   ret i32 %719
 }
@@ -7341,7 +7341,7 @@ declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 nound
 declare noalias ptr @wmem_array_sized_new(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare i32 @wmem_array_get_count(ptr noundef) local_unnamed_addr #1
 
@@ -7355,7 +7355,7 @@ declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i
 declare i32 @llvm.fshl.i32(i32, i32, i32) #9
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
@@ -7364,16 +7364,16 @@ declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
 declare i32 @llvm.bswap.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

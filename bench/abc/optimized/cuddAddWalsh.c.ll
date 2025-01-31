@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_addWalsh(ptr noundef initializes((448, 452)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @Cudd_addWalsh(ptr noundef initializes((448, 452)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = icmp eq i32 %3, 0
@@ -131,13 +131,13 @@ define ptr @Cudd_addWalsh(ptr noundef initializes((448, 452)) %0, ptr nocapture 
   %.0126146.i = phi ptr [ %38, %.lr.ph.preheader.i ], [ %89, %119 ]
   %75 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
   %76 = load ptr, ptr %75, align 8
-  %77 = tail call ptr @Cudd_addIte(ptr noundef %0, ptr noundef %76, ptr noundef %.1147.i, ptr noundef nonnull %.0126146.i) #6
+  %77 = tail call ptr @Cudd_addIte(ptr noundef nonnull %0, ptr noundef %76, ptr noundef %.1147.i, ptr noundef nonnull %.0126146.i) #6
   %78 = icmp eq ptr %77, null
   br i1 %78, label %79, label %80
 
 79:                                               ; preds = %.lr.ph.i
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.0126146.i) #6
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1147.i) #6
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %.0126146.i) #6
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.1147.i) #6
   br label %addWalshInt.exit
 
 80:                                               ; preds = %.lr.ph.i
@@ -150,14 +150,14 @@ define ptr @Cudd_addWalsh(ptr noundef initializes((448, 452)) %0, ptr nocapture 
   store i32 %86, ptr %84, align 4
   %87 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
   %88 = load ptr, ptr %87, align 8
-  %89 = tail call ptr @Cudd_addIte(ptr noundef %0, ptr noundef %88, ptr noundef nonnull %77, ptr noundef nonnull %.0126146.i) #6
+  %89 = tail call ptr @Cudd_addIte(ptr noundef nonnull %0, ptr noundef %88, ptr noundef nonnull %77, ptr noundef nonnull %.0126146.i) #6
   %90 = icmp eq ptr %89, null
   br i1 %90, label %91, label %92
 
 91:                                               ; preds = %80
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.0126146.i) #6
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1147.i) #6
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %77) #6
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %.0126146.i) #6
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.1147.i) #6
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %77) #6
   br label %addWalshInt.exit
 
 92:                                               ; preds = %80
@@ -168,20 +168,20 @@ define ptr @Cudd_addWalsh(ptr noundef initializes((448, 452)) %0, ptr nocapture 
   %97 = load i32, ptr %96, align 4
   %98 = add i32 %97, 1
   store i32 %98, ptr %96, align 4
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %77) #6
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %77) #6
   %.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not.i, label %119, label %99
 
 99:                                               ; preds = %92
   %100 = load ptr, ptr %75, align 8
-  %101 = tail call ptr @Cudd_addIte(ptr noundef %0, ptr noundef %100, ptr noundef nonnull %.0126146.i, ptr noundef %.1147.i) #6
+  %101 = tail call ptr @Cudd_addIte(ptr noundef nonnull %0, ptr noundef %100, ptr noundef nonnull %.0126146.i, ptr noundef %.1147.i) #6
   %102 = icmp eq ptr %101, null
   br i1 %102, label %103, label %104
 
 103:                                              ; preds = %99
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.0126146.i) #6
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1147.i) #6
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %89) #6
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %.0126146.i) #6
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.1147.i) #6
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %89) #6
   br label %addWalshInt.exit
 
 104:                                              ; preds = %99
@@ -193,7 +193,7 @@ define ptr @Cudd_addWalsh(ptr noundef initializes((448, 452)) %0, ptr nocapture 
   %110 = add i32 %109, 1
   store i32 %110, ptr %108, align 4
   %111 = load ptr, ptr %87, align 8
-  %112 = tail call ptr @Cudd_addIte(ptr noundef %0, ptr noundef %111, ptr noundef nonnull %101, ptr noundef %.1147.i) #6
+  %112 = tail call ptr @Cudd_addIte(ptr noundef nonnull %0, ptr noundef %111, ptr noundef nonnull %101, ptr noundef %.1147.i) #6
   %113 = ptrtoint ptr %112 to i64
   %114 = and i64 %113, -2
   %115 = inttoptr i64 %114 to ptr
@@ -201,13 +201,13 @@ define ptr @Cudd_addWalsh(ptr noundef initializes((448, 452)) %0, ptr nocapture 
   %117 = load i32, ptr %116, align 4
   %118 = add i32 %117, 1
   store i32 %118, ptr %116, align 4
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %101) #6
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %101) #6
   br label %119
 
 119:                                              ; preds = %104, %92
   %.2.i = phi ptr [ %112, %104 ], [ %.1147.i, %92 ]
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.0126146.i) #6
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1147.i) #6
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %.0126146.i) #6
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.1147.i) #6
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %120 = icmp sgt i64 %indvars.iv.i, 0
   br i1 %120, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
@@ -546,7 +546,7 @@ define ptr @Cudd_addResidue(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @cuddUniqueConst(ptr noundef, double noundef) local_unnamed_addr #3
 
@@ -557,7 +557,7 @@ declare ptr @cuddUniqueInter(ptr noundef, i32 noundef, ptr noundef, ptr noundef)
 declare ptr @Cudd_addIte(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5

@@ -308,7 +308,7 @@ opal_obj_run_destructors.exit30:                  ; preds = %.lr.ph.i27, %opal_o
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -11, 1) i32 @opal_tsd_tracked_key_set(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -391,7 +391,7 @@ opal_obj_new.exit.thread:                         ; preds = %13, %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @opal_tsd_tracked_key_set_destructor(ptr nocapture noundef writeonly initializes((152, 160)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @opal_tsd_tracked_key_set_destructor(ptr noundef writeonly captures(none) initializes((152, 160)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %1, ptr %3, align 8
   ret void

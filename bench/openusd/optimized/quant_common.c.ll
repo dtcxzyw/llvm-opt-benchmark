@@ -74,7 +74,7 @@ define hidden signext i16 @av1_ac_quant_QTX(i32 noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @av1_get_qindex(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define hidden i32 @av1_get_qindex(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = load i8, ptr %0, align 4
   %.not.i = icmp eq i8 %4, 0
   br i1 %.not.i, label %segfeature_active.exit.thread, label %segfeature_active.exit
@@ -105,7 +105,7 @@ segfeature_active.exit.thread:                    ; preds = %3, %segfeature_acti
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden zeroext i1 @av1_use_qmatrix(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define hidden zeroext i1 @av1_use_qmatrix(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 18360
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -125,7 +125,7 @@ define hidden zeroext i1 @av1_use_qmatrix(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @av1_iqmatrix(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #1 {
+define hidden ptr @av1_iqmatrix(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = sext i32 %1 to i64
   %7 = sext i32 %2 to i64
@@ -136,7 +136,7 @@ define hidden ptr @av1_iqmatrix(ptr nocapture noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @av1_qmatrix(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #1 {
+define hidden ptr @av1_qmatrix(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 7416
   %6 = sext i32 %1 to i64
   %7 = sext i32 %2 to i64
@@ -147,7 +147,7 @@ define hidden ptr @av1_qmatrix(ptr nocapture noundef readonly %0, i32 noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @av1_get_iqmatrix(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4) local_unnamed_addr #2 {
+define hidden ptr @av1_get_iqmatrix(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4) local_unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 7864
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
@@ -198,7 +198,7 @@ av1_get_adjusted_tx_size.exit:                    ; preds = %5, %5, %5, %11, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @av1_get_qmatrix(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4) local_unnamed_addr #2 {
+define hidden ptr @av1_get_qmatrix(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4) local_unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 7864
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
@@ -249,7 +249,7 @@ av1_get_adjusted_tx_size.exit:                    ; preds = %5, %5, %5, %11, %12
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @av1_qm_init(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden void @av1_qm_init(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp sgt i32 %1, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7416
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120

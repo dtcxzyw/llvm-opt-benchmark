@@ -105,7 +105,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.79 = private unnamed_addr constant [5 x i8] c"mdat\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define hidden void @avifSetTileConfiguration(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) local_unnamed_addr #0 {
+define hidden void @avifSetTileConfiguration(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) local_unnamed_addr #0 {
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
   %6 = icmp sgt i32 %0, 1
@@ -200,7 +200,7 @@ avifCodecEncodeOutputDestroy.exit:                ; preds = %.lr.ph.i, %5
 declare ptr @avifAlloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @avifArrayCreate(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
@@ -371,7 +371,7 @@ avifEncoderDestroy.exit:                          ; preds = %32, %34
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @avifCodecSpecificOptionsCreate() local_unnamed_addr #2
 
@@ -476,7 +476,7 @@ avifCodecEncodeOutputDestroy.exit:                ; preds = %.lr.ph.i, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @avifEncoderSetCodecSpecificOption(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden i32 @avifEncoderSetCodecSpecificOption(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @avifCodecSpecificOptionsSet(ptr noundef %5, ptr noundef %1, ptr noundef %2) #13
@@ -498,7 +498,7 @@ define hidden i32 @avifEncoderAddImage(ptr noundef %0, ptr noundef %1, i64 nound
 declare void @avifDiagnosticsClearError(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @avifEncoderAddImageInternal(ptr noundef %0, i32 noundef range(i32 1, 257) %1, i32 noundef range(i32 1, 257) %2, ptr nocapture noundef readonly %3, i64 noundef %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc i32 @avifEncoderAddImageInternal(ptr noundef %0, i32 noundef range(i32 1, 257) %1, i32 noundef range(i32 1, 257) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i32 noundef %5) unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca i16, align 2
   %9 = alloca i16, align 2
@@ -1114,7 +1114,7 @@ avifValidateImageBasicProperties.exit.thread:     ; preds = %312, %289, %27, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @avifEncoderAddImageGrid(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden i32 @avifEncoderAddImageGrid(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @avifDiagnosticsClearError(ptr noundef nonnull %6) #13
   %7 = sub i32 256, %1
@@ -3088,7 +3088,7 @@ define internal fastcc ptr @avifItemPropertyDedupCreate() unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @avifRWStreamWriteProperties(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #1 {
+define internal fastcc i32 @avifRWStreamWriteProperties(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -3442,7 +3442,7 @@ define internal fastcc void @avifItemPropertyDedupDestroy(ptr noundef nonnull %0
 declare i32 @avifRWStreamWriteU8(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @avifWriteAltrGroup(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc i32 @avifWriteAltrGroup(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %0, ptr noundef nonnull @.str.69, i64 noundef 0, ptr noundef nonnull %3) #13
@@ -3503,7 +3503,7 @@ define internal fastcc i32 @avifWriteAltrGroup(ptr noundef nonnull %0, ptr nocap
 declare i32 @avifRWStreamWriteU64(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @avifEncoderWriteTrackMetaBox(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #1 {
+define internal fastcc i32 @avifEncoderWriteTrackMetaBox(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -3774,7 +3774,7 @@ define internal fastcc i32 @avifEncoderWriteTrackMetaBox(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @writeConfigBox(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @writeConfigBox(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca i64, align 8
   %5 = call i32 @avifRWStreamWriteBox(ptr noundef nonnull %0, ptr noundef %2, i64 noundef 0, ptr noundef nonnull %4) #13
   %.not = icmp eq i32 %5, 0
@@ -3887,7 +3887,7 @@ writeCodecConfig.exit.thread:                     ; preds = %56, %54, %49, %44, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @avifEncoderWriteColorProperties(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc i32 @avifEncoderWriteColorProperties(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -4307,7 +4307,7 @@ avifEncoderWriteExtendedColorProperties.exit:     ; preds = %70, %73, %77, %83, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @avifEncoderWriteHDRProperties(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc i32 @avifEncoderWriteHDRProperties(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4) unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 110
   %8 = load i16, ptr %7, align 2
@@ -4371,7 +4371,7 @@ declare i64 @avifRWStreamOffset(ptr noundef) local_unnamed_addr #2
 declare void @avifRWStreamSetOffset(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @avifEncoderWriteMediaDataBox(ptr nocapture noundef initializes((88, 104)) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #1 {
+define internal fastcc i32 @avifEncoderWriteMediaDataBox(ptr noundef captures(none) initializes((88, 104)) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -4833,7 +4833,7 @@ declare void @avifImageDestroy(ptr noundef) local_unnamed_addr #2
 declare ptr @avifCodecName(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 19) i32 @avifValidateGrid(i32 noundef range(i32 1, 257) %0, i32 noundef range(i32 1, 257) %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 19) i32 @avifValidateGrid(i32 noundef range(i32 1, 257) %0, i32 noundef range(i32 1, 257) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = mul nuw nsw i32 %1, %0
   %6 = load ptr, ptr %2, align 8
   %7 = zext nneg i32 %5 to i64
@@ -4992,7 +4992,7 @@ split:                                            ; preds = %42, %32
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @avifEncoderDetectChanges(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %1) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @avifEncoderDetectChanges(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %4 = load ptr, ptr %3, align 8
   store i32 0, ptr %1, align 4
@@ -5205,7 +5205,7 @@ define internal fastcc range(i32 0, 2) i32 @avifEncoderDetectChanges(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @avifEncoderBackupSettings(ptr nocapture noundef readonly %0) unnamed_addr #7 {
+define internal fastcc void @avifEncoderBackupSettings(ptr noundef readonly captures(none) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -5282,7 +5282,7 @@ define internal fastcc void @avifEncoderBackupSettings(ptr nocapture noundef rea
 declare i32 @avifImageCopy(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @avifEncoderAddImageItems(ptr noundef %0, i32 noundef range(i32 1, 257) %1, i32 noundef range(i32 1, 257) %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, ptr nocapture noundef nonnull %6) unnamed_addr #1 {
+define internal fastcc i32 @avifEncoderAddImageItems(ptr noundef %0, i32 noundef range(i32 1, 257) %1, i32 noundef range(i32 1, 257) %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, ptr noundef nonnull captures(none) %6) unnamed_addr #1 {
   %8 = alloca %struct.avifRWStream, align 8
   %9 = mul nuw nsw i32 %2, %1
   %.not = icmp eq i32 %5, 0
@@ -5459,7 +5459,7 @@ avifWriteGridPayload.exit.thread:                 ; preds = %13, %19, %22, %26, 
 declare i32 @avifImageIsOpaque(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @avifEncoderDataCreateExifItem(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc i32 @avifEncoderDataCreateExifItem(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5506,7 +5506,7 @@ define internal fastcc i32 @avifEncoderDataCreateExifItem(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @avifEncoderDataCreateXMPItem(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc i32 @avifEncoderDataCreateXMPItem(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = tail call fastcc ptr @avifEncoderDataCreateItem(ptr noundef %0, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, i64 noundef 4, i32 noundef 0)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %4
@@ -5578,10 +5578,10 @@ define internal fastcc ptr @avifImageCopyAndPad(ptr noundef %0, i32 noundef %1, 
 
 21:                                               ; preds = %18, %._crit_edge
   %.081109 = phi i32 [ 0, %18 ], [ %63, %._crit_edge ]
-  %22 = tail call ptr @avifImagePlane(ptr noundef %0, i32 noundef %.081109) #13
-  %23 = tail call i32 @avifImagePlaneRowBytes(ptr noundef %0, i32 noundef %.081109) #13
-  %24 = tail call i32 @avifImagePlaneWidth(ptr noundef %0, i32 noundef %.081109) #13
-  %25 = tail call i32 @avifImagePlaneHeight(ptr noundef %0, i32 noundef %.081109) #13
+  %22 = tail call ptr @avifImagePlane(ptr noundef nonnull %0, i32 noundef %.081109) #13
+  %23 = tail call i32 @avifImagePlaneRowBytes(ptr noundef nonnull %0, i32 noundef %.081109) #13
+  %24 = tail call i32 @avifImagePlaneWidth(ptr noundef nonnull %0, i32 noundef %.081109) #13
+  %25 = tail call i32 @avifImagePlaneHeight(ptr noundef nonnull %0, i32 noundef %.081109) #13
   %26 = zext i32 %24 to i64
   %27 = shl i64 %26, %20
   %28 = tail call ptr @avifImagePlane(ptr noundef nonnull %4, i32 noundef %.081109) #13
@@ -5691,7 +5691,7 @@ define internal fastcc ptr @avifImageCopyAndPad(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @avifEncoderDataShouldForceKeyframeForAlpha(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #8 {
+define internal fastcc i32 @avifEncoderDataShouldForceKeyframeForAlpha(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 508
   %5 = load i32, ptr %4, align 4
   %.not = icmp ne i32 %5, 0
@@ -5733,7 +5733,7 @@ declare void @avifCodecSpecificOptionsClear(ptr noundef) local_unnamed_addr #2
 declare i32 @avifAreGridDimensionsValid(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @avifEncoderDataCreateItem(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #1 {
+define internal fastcc ptr @avifEncoderDataCreateItem(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #1 {
   %6 = tail call ptr @avifArrayPush(ptr noundef %0) #13
   %7 = icmp eq ptr %6, null
   br i1 %7, label %46, label %8
@@ -5860,7 +5860,7 @@ declare i32 @avifImagePlaneHeight(ptr noundef, i32 noundef) local_unnamed_addr #
 declare i32 @avifCodecTypeFromChoice(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @avifItemPropertyDedupFinish(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
+define internal fastcc i32 @avifItemPropertyDedupFinish(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = tail call i64 @avifRWStreamOffset(ptr noundef nonnull %5) #13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -5968,7 +5968,7 @@ declare i64 @llvm.umax.i64(i64, i64) #9
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #9
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9
@@ -5977,10 +5977,10 @@ declare i32 @llvm.smin.i32(i32, i32) #9
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12

@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @aes_xts_known_settable_ctx_params = internal constant [2 x %struct.ossl_param_st] [%struct.ossl_param_st { ptr @.str.1, i32 2, ptr null, i64 8, i64 -1 }, %struct.ossl_param_st zeroinitializer], align 16
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @aes_256_xts_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @aes_256_xts_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 728, ptr noundef nonnull @.str, i32 noundef 114) #4
   %cmp.not.i = icmp eq ptr %call.i, null
@@ -49,7 +49,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aes_xts_stream_update(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #0 {
+define internal range(i32 0, 2) i32 @aes_xts_stream_update(ptr noundef %vctx, ptr noundef %out, ptr noundef writeonly captures(none) %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #0 {
 entry:
   %cmp = icmp ult i64 %outsize, %inl
   br i1 %cmp, label %return.sink.split, label %if.end
@@ -73,7 +73,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aes_xts_stream_final(ptr nocapture readnone %vctx, ptr nocapture readnone %out, ptr nocapture noundef writeonly %outl, i64 %outsize) #0 {
+define internal range(i32 0, 2) i32 @aes_xts_stream_final(ptr readnone captures(none) %vctx, ptr readnone captures(none) %out, ptr noundef writeonly captures(none) %outl, i64 %outsize) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -89,7 +89,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aes_xts_cipher(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 %outsize, ptr noundef %in, i64 noundef %inl) #0 {
+define internal range(i32 0, 2) i32 @aes_xts_cipher(ptr noundef %vctx, ptr noundef %out, ptr noundef writeonly captures(none) %outl, i64 %outsize, ptr noundef %in, i64 noundef %inl) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -223,7 +223,7 @@ declare i32 @ossl_cipher_generic_get_ctx_params(ptr noundef, ptr noundef) #1
 declare ptr @ossl_cipher_generic_gettable_ctx_params(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aes_xts_set_ctx_params(ptr nocapture noundef readonly %vctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @aes_xts_set_ctx_params(ptr noundef readonly captures(none) %vctx, ptr noundef %params) #0 {
 entry:
   %keylen = alloca i64, align 8
   %cmp = icmp eq ptr %params, null
@@ -261,13 +261,13 @@ return:                                           ; preds = %if.end5, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @aes_xts_settable_ctx_params(ptr nocapture readnone %cctx, ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @aes_xts_settable_ctx_params(ptr readnone captures(none) %cctx, ptr readnone captures(none) %provctx) #2 {
 entry:
   ret ptr @aes_xts_known_settable_ctx_params
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @aes_128_xts_newctx(ptr nocapture readnone %provctx) #0 {
+define internal ptr @aes_128_xts_newctx(ptr readnone captures(none) %provctx) #0 {
 entry:
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 728, ptr noundef nonnull @.str, i32 noundef 114) #4
   %cmp.not.i = icmp eq ptr %call.i, null
@@ -431,10 +431,10 @@ declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @OSSL_PARAM_get_size_t(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

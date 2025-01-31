@@ -154,7 +154,7 @@ define void @capture_dissector_add_uint(ptr noundef %0, i32 noundef %1, ptr noun
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #6
@@ -202,7 +202,7 @@ define i32 @call_capture_dissector(ptr noundef readonly %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @capture_dissector_get_count(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @capture_dissector_get_count(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = sext i32 %1 to i64
   %5 = inttoptr i64 %4 to ptr
@@ -220,7 +220,7 @@ define i32 @capture_dissector_get_count(ptr nocapture noundef readonly %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define void @capture_dissector_increment_count(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @capture_dissector_increment_count(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = sext i32 %1 to i64
   %5 = inttoptr i64 %4 to ptr

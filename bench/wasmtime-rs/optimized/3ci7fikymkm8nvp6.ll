@@ -125,12 +125,12 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN13wasmtime_wasi8preview1164_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from17h1803d6e4f44cc1a9E" = private unnamed_addr constant [37 x i8] c"\02\06\07\08\0A\10\13\14\16\19\1A\1B\1C\1D\1F \22#%+,.03678:;<=?@EFJK", align 1
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr41drop_in_place$LT$core..fmt..Arguments$GT$17h0eb8887cb2da4e03E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #0 {
+define internal void @"_ZN4core3ptr41drop_in_place$LT$core..fmt..Arguments$GT$17h0eb8887cb2da4e03E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h34c5759b3d334d26E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i32, ptr %0, align 8, !range !4, !noundef !5
   %cond = icmp eq i32 %2, 8
   br i1 %cond, label %4, label %3
@@ -157,57 +157,57 @@ define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..Gues
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr76drop_in_place$LT$$RF$wasmtime_wasi..preview1..types.._..InternalBitFlags$GT$17h052d181be7ab48e6E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #0 {
+define internal void @"_ZN4core3ptr76drop_in_place$LT$$RF$wasmtime_wasi..preview1..types.._..InternalBitFlags$GT$17h052d181be7ab48e6E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr76drop_in_place$LT$$RF$wasmtime_wasi..preview1..types.._..InternalBitFlags$GT$17h0a1dee353a3f3cdaE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #0 {
+define internal void @"_ZN4core3ptr76drop_in_place$LT$$RF$wasmtime_wasi..preview1..types.._..InternalBitFlags$GT$17h0a1dee353a3f3cdaE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr76drop_in_place$LT$$RF$wasmtime_wasi..preview1..types.._..InternalBitFlags$GT$17h3f2d411319894408E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #0 {
+define internal void @"_ZN4core3ptr76drop_in_place$LT$$RF$wasmtime_wasi..preview1..types.._..InternalBitFlags$GT$17h3f2d411319894408E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr76drop_in_place$LT$$RF$wasmtime_wasi..preview1..types.._..InternalBitFlags$GT$17h83229d245a41dbc3E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #0 {
+define internal void @"_ZN4core3ptr76drop_in_place$LT$$RF$wasmtime_wasi..preview1..types.._..InternalBitFlags$GT$17h83229d245a41dbc3E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr76drop_in_place$LT$$RF$wasmtime_wasi..preview1..types.._..InternalBitFlags$GT$17h9b07ba32f1dc58c7E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #0 {
+define internal void @"_ZN4core3ptr76drop_in_place$LT$$RF$wasmtime_wasi..preview1..types.._..InternalBitFlags$GT$17h9b07ba32f1dc58c7E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr76drop_in_place$LT$$RF$wasmtime_wasi..preview1..types.._..InternalBitFlags$GT$17hb386d22ddfa5374aE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #0 {
+define internal void @"_ZN4core3ptr76drop_in_place$LT$$RF$wasmtime_wasi..preview1..types.._..InternalBitFlags$GT$17hb386d22ddfa5374aE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr76drop_in_place$LT$$RF$wasmtime_wasi..preview1..types.._..InternalBitFlags$GT$17he46649aa35d3b5aaE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #0 {
+define internal void @"_ZN4core3ptr76drop_in_place$LT$$RF$wasmtime_wasi..preview1..types.._..InternalBitFlags$GT$17he46649aa35d3b5aaE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr76drop_in_place$LT$$RF$wasmtime_wasi..preview1..types.._..InternalBitFlags$GT$17he79edb352a7e42b4E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #0 {
+define internal void @"_ZN4core3ptr76drop_in_place$LT$$RF$wasmtime_wasi..preview1..types.._..InternalBitFlags$GT$17he79edb352a7e42b4E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr76drop_in_place$LT$$RF$wasmtime_wasi..preview1..types.._..InternalBitFlags$GT$17he7d5e1e99b0fe04eE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #0 {
+define internal void @"_ZN4core3ptr76drop_in_place$LT$$RF$wasmtime_wasi..preview1..types.._..InternalBitFlags$GT$17he7d5e1e99b0fe04eE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr76drop_in_place$LT$$RF$wasmtime_wasi..preview1..types.._..InternalBitFlags$GT$17hfe86299bb71b90e6E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #0 {
+define internal void @"_ZN4core3ptr76drop_in_place$LT$$RF$wasmtime_wasi..preview1..types.._..InternalBitFlags$GT$17hfe86299bb71b90e6E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h37b90f13d1a15271E.llvm.7876502211135180945"(ptr noalias nocapture noundef sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 1 %1, i64 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h37b90f13d1a15271E.llvm.7876502211135180945"(ptr noalias noundef sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %8
@@ -215,7 +215,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h37b90f13d1a
 7:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull readonly align 8 dereferenceable(48) %3, i64 48, i1 false), !noalias !19
-  call void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5), !noalias !20
+  call void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5), !noalias !20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !15
   br label %13
 
@@ -240,7 +240,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h37b90f13d1a
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i16 noundef %2) unnamed_addr #2 {
+define internal fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i16 noundef %2) unnamed_addr #2 {
   %.sroa.743 = alloca [8 x i32], align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -249,7 +249,7 @@ define internal fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..Guest
   %7 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !33, !noundef !5
-  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, i32 noundef %6, i32 noundef 1)
+  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, i32 noundef %6, i32 noundef 1)
   %10 = load i32, ptr %4, align 8, !range !34, !noundef !5
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %14
@@ -324,7 +324,7 @@ define internal fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..Guest
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h1dc336ba64d74f1fE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
+define internal fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h1dc336ba64d74f1fE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #2 {
   %.sroa.743 = alloca [8 x i32], align 8
   %3 = alloca { i32, [15 x i32] }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -333,7 +333,7 @@ define internal fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..Guest
   %6 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !align !33, !noundef !5
-  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i32 noundef %5, i32 noundef 1)
+  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %3, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i32 noundef %5, i32 noundef 1)
   %9 = load i32, ptr %3, align 8, !range !34, !noundef !5
   %10 = icmp eq i32 %9, 11
   br i1 %10, label %11, label %13
@@ -410,7 +410,7 @@ define internal fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..Guest
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hc89ff7fecb3becc8E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %2) unnamed_addr #2 {
+define internal fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hc89ff7fecb3becc8E"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i64 noundef %2) unnamed_addr #2 {
   %.sroa.743 = alloca [8 x i32], align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -419,7 +419,7 @@ define internal fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..Guest
   %7 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !33, !noundef !5
-  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, i32 noundef %6, i32 noundef 1)
+  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, i32 noundef %6, i32 noundef 1)
   %10 = load i32, ptr %4, align 8, !range !34, !noundef !5
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %14
@@ -494,7 +494,7 @@ define internal fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..Guest
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.7876502211135180945(ptr noalias nocapture noundef sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.7876502211135180945(ptr noalias noundef sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !align !33, !noundef !5
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -514,7 +514,7 @@ define hidden void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.78765022111351
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false), !noalias !45
-  call void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3), !noalias !46
+  call void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !46
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !39
   br label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h37b90f13d1a15271E.llvm.7876502211135180945.exit"
 
@@ -551,7 +551,7 @@ define hidden void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.78765022111351
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.7876502211135180945"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
+define hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.7876502211135180945"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
   %5 = icmp eq i64 %3, 0
   br i1 %5, label %9, label %6
 
@@ -567,7 +567,7 @@ define hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allo
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E.llvm.7876502211135180945(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E.llvm.7876502211135180945(ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %.sroa.7 = alloca { ptr, [1 x i64] }, align 8
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -618,10 +618,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.7876502211135180945.exit: ; preds 
   store i64 %8, ptr %.sroa.67.0..sroa_idx8, align 8, !noalias !69
   %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx10, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, i64 16, i1 false), !noalias !69
-  call void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !70
+  call void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2), !noalias !70
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !58
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7)
-  %19 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17hfed24cd5d3c00d54E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3)
+  %19 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17hfed24cd5d3c00d54E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %20
 
@@ -631,7 +631,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.7876502211135180945.exit: ; preds 
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h385f906aa139fd5cE.llvm.7876502211135180945"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #3 {
+define hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h385f906aa139fd5cE.llvm.7876502211135180945"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 64, i64 noundef 8) #18
   ret void
@@ -711,7 +711,7 @@ define noundef nonnull ptr @"_ZN13wasmtime_wasi8preview1129_$LT$impl$u20$core..c
 
 34:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !72
-  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hffde43a38bd676b2E.llvm.10377456559187600216(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %3, ptr noundef nonnull %25), !noalias !72
+  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hffde43a38bd676b2E.llvm.10377456559187600216(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull %25), !noalias !72
   %35 = load i8, ptr %3, align 8, !range !79, !alias.scope !80, !noalias !72, !noundef !5
   %switch.not.i.i.i.i.i = icmp eq i8 %35, 3
   br i1 %switch.not.i.i.i.i.i, label %36, label %"_ZN13wasmtime_wasi4host10filesystem148_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$4from17hfd7ae5913e7d408bE.exit"
@@ -896,7 +896,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   store i64 1, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %93, ptr %109, align 8
-  invoke void @_ZN7tracing15__macro_support13__tracing_log17h74e713885439cb21E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %76, ptr noundef nonnull align 1 %85, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %86, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  invoke void @_ZN7tracing15__macro_support13__tracing_log17h74e713885439cb21E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %76, ptr noundef nonnull align 1 %85, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %86, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
           to label %110 unwind label %42
 
 110:                                              ; preds = %102
@@ -953,7 +953,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   store i64 1, ptr %.sroa.49.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %61, ptr %.sroa.5.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN13wasmtime_wasi8preview1129_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..stream..StreamError$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17h2972c6c92c1cdf9cE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %16)
+  invoke fastcc void @"_ZN13wasmtime_wasi8preview1129_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..stream..StreamError$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17h2972c6c92c1cdf9cE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %16)
           to label %119 unwind label %42
 
 119:                                              ; preds = %113
@@ -1029,7 +1029,7 @@ switch.lookup:                                    ; preds = %7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN13wasmtime_wasi8preview1175_$LT$impl$u20$core..convert..TryFrom$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..DescriptorType$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Filetype$GT$8try_from17h2a1441585f448676E"(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, i8 noundef %1) unnamed_addr #1 {
+define void @"_ZN13wasmtime_wasi8preview1175_$LT$impl$u20$core..convert..TryFrom$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..DescriptorType$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Filetype$GT$8try_from17h2a1441585f448676E"(ptr noalias noundef writeonly sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #1 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   switch i8 %1, label %4 [
     i8 0, label %5
@@ -1091,7 +1091,7 @@ define void @"_ZN13wasmtime_wasi8preview1175_$LT$impl$u20$core..convert..TryFrom
   store ptr @anon.312a33bef36aafae82f68d87619b2eac.3.llvm.7876502211135180945, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %23, align 8
-  %24 = call noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E.llvm.7876502211135180945(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3)
+  %24 = call noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E.llvm.7876502211135180945(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %24, ptr %25, align 8
@@ -1125,7 +1125,7 @@ define noundef nonnull ptr @"_ZN13wasmtime_wasi8preview1128_$LT$impl$u20$core..c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull ptr @"_ZN13wasmtime_wasi8preview1120_$LT$impl$u20$core..convert..From$LT$wiggle..error..GuestError$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from17h0638ec5f10daca18E"(ptr noalias nocapture noundef align 8 dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define noundef nonnull ptr @"_ZN13wasmtime_wasi8preview1120_$LT$impl$u20$core..convert..From$LT$wiggle..error..GuestError$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from17h0638ec5f10daca18E"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { i32, [15 x i32] }, align 8
   %3 = load i32, ptr %0, align 8, !range !4, !noundef !5
   switch i32 %3, label %default.unreachable2 [
@@ -1154,7 +1154,7 @@ default.unreachable2:                             ; preds = %1
   br label %24
 
 8:                                                ; preds = %1, %1, %1
-  %9 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hcfd96fb9d5ddb0f1E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %0)
+  %9 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hcfd96fb9d5ddb0f1E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %0)
   br label %24
 
 10:                                               ; preds = %1
@@ -1174,7 +1174,7 @@ default.unreachable2:                             ; preds = %1
   %18 = load ptr, ptr %17, align 8, !nonnull !5, !align !33, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %18, i64 64, i1 false)
-  %19 = invoke noundef nonnull ptr @"_ZN13wasmtime_wasi8preview1120_$LT$impl$u20$core..convert..From$LT$wiggle..error..GuestError$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from17h0638ec5f10daca18E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %2)
+  %19 = invoke noundef nonnull ptr @"_ZN13wasmtime_wasi8preview1120_$LT$impl$u20$core..convert..From$LT$wiggle..error..GuestError$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from17h0638ec5f10daca18E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %2)
           to label %25 unwind label %26
 
 20:                                               ; preds = %1
@@ -1243,7 +1243,7 @@ define noundef range(i8 0, 31) i8 @"_ZN13wasmtime_wasi8preview0134_$LT$impl$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN13wasmtime_wasi8preview0156_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview0..types..SubscriptionClock$GT$$u20$for$u20$wasmtime_wasi..preview1..types..SubscriptionClock$GT$4from17hfdcf8d75ede712c7E"(ptr noalias nocapture noundef writeonly sret({ i64, i64, i16, i8, [5 x i8] }) align 8 dereferenceable(24) initializes((0, 19)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #7 {
+define void @"_ZN13wasmtime_wasi8preview0156_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview0..types..SubscriptionClock$GT$$u20$for$u20$wasmtime_wasi..preview1..types..SubscriptionClock$GT$4from17hfdcf8d75ede712c7E"(ptr noalias noundef writeonly sret({ i64, i64, i16, i8, [5 x i8] }) align 8 captures(none) dereferenceable(24) initializes((0, 19)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 26
   %4 = load i8, ptr %3, align 2, !range !79, !noundef !5
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1305,7 +1305,7 @@ define noundef range(i16 0, 2) i16 @"_ZN13wasmtime_wasi8preview0148_$LT$impl$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Clockid$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17ha271d5069f88736dE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Clockid$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17ha271d5069f88736dE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %.sroa.17 = alloca [8 x i32], align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
@@ -1314,7 +1314,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Clockid$u20$as$u20$wiggl
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !104
-  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %8, i32 noundef 1), !noalias !104
+  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %8, i32 noundef 1), !noalias !104
   %9 = load i32, ptr %3, align 8, !range !34, !noalias !104, !noundef !5
   %10 = icmp eq i32 %9, 11
   br i1 %10, label %11, label %13
@@ -1431,7 +1431,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Clockid$u20$as$u20$wiggl
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Clockid$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h0dd7f6573785d022E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i8 noundef %2) unnamed_addr #1 {
+define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Clockid$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h0dd7f6573785d022E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i8 noundef %2) unnamed_addr #1 {
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
   %6 = alloca { i32, [15 x i32] }, align 8
@@ -1457,7 +1457,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Clockid$u20$as$u20$wiggl
 
 14:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7), !noalias !108
-  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %7, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %12, i32 noundef 1), !noalias !108
+  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %7, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %12, i32 noundef 1), !noalias !108
   %15 = load i32, ptr %7, align 8, !range !34, !noalias !108, !noundef !5
   %16 = icmp eq i32 %15, 11
   br i1 %16, label %17, label %19
@@ -1508,7 +1508,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Clockid$u20$as$u20$wiggl
 
 27:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !112
-  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %6, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %12, i32 noundef 1), !noalias !112
+  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %6, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %12, i32 noundef 1), !noalias !112
   %28 = load i32, ptr %6, align 8, !range !34, !noalias !112, !noundef !5
   %29 = icmp eq i32 %28, 11
   br i1 %29, label %30, label %32
@@ -1559,7 +1559,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Clockid$u20$as$u20$wiggl
 
 40:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !116
-  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %5, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %12, i32 noundef 1), !noalias !116
+  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %5, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %12, i32 noundef 1), !noalias !116
   %41 = load i32, ptr %5, align 8, !range !34, !noalias !116, !noundef !5
   %42 = icmp eq i32 %41, 11
   br i1 %42, label %43, label %45
@@ -1610,7 +1610,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Clockid$u20$as$u20$wiggl
 
 53:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !120
-  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %12, i32 noundef 1), !noalias !120
+  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %12, i32 noundef 1), !noalias !120
   %54 = load i32, ptr %4, align 8, !range !34, !noalias !120, !noundef !5
   %55 = icmp eq i32 %54, 11
   br i1 %55, label %56, label %58
@@ -1791,14 +1791,14 @@ define noundef zeroext i1 @"_ZN76_$LT$wasmtime_wasi..preview1..types..Errno$u20$
   store ptr %3, ptr %9, align 8, !alias.scope !124, !noalias !127
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %10, align 8, !alias.scope !124, !noalias !127
-  %11 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
+  %11 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %11
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h8473118bf804daa1E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h8473118bf804daa1E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %.sroa.17 = alloca [8 x i32], align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
@@ -1807,7 +1807,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !130
-  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %8, i32 noundef 1), !noalias !130
+  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %8, i32 noundef 1), !noalias !130
   %9 = load i32, ptr %3, align 8, !range !34, !noalias !130, !noundef !5
   %10 = icmp eq i32 %9, 11
   br i1 %10, label %11, label %13
@@ -2440,7 +2440,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h0587303e3dc587d0E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i8 noundef %2) unnamed_addr #1 {
+define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h0587303e3dc587d0E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i8 noundef %2) unnamed_addr #1 {
   %.sroa.2920 = alloca [15 x i32], align 4
   %.sroa.2914 = alloca [15 x i32], align 4
   %.sroa.2908 = alloca [15 x i32], align 4
@@ -2768,7 +2768,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %163, ptr %165, align 8
   %166 = getelementptr inbounds nuw i8, ptr %156, i64 16
   store i32 %164, ptr %166, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %157, ptr noalias noundef readonly align 8 dereferenceable(24) %156, i16 noundef 0)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %157, ptr noalias noundef readonly align 8 dereferenceable(24) %156, i16 noundef 0)
   %167 = load i32, ptr %157, align 8, !range !34, !noundef !5
   %168 = icmp eq i32 %167, 11
   br i1 %168, label %777, label %778
@@ -2784,7 +2784,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %171, ptr %173, align 8
   %174 = getelementptr inbounds nuw i8, ptr %154, i64 16
   store i32 %172, ptr %174, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %155, ptr noalias noundef readonly align 8 dereferenceable(24) %154, i16 noundef 1)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %155, ptr noalias noundef readonly align 8 dereferenceable(24) %154, i16 noundef 1)
   %175 = load i32, ptr %155, align 8, !range !34, !noundef !5
   %176 = icmp eq i32 %175, 11
   br i1 %176, label %781, label %782
@@ -2800,7 +2800,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %179, ptr %181, align 8
   %182 = getelementptr inbounds nuw i8, ptr %152, i64 16
   store i32 %180, ptr %182, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %153, ptr noalias noundef readonly align 8 dereferenceable(24) %152, i16 noundef 2)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %153, ptr noalias noundef readonly align 8 dereferenceable(24) %152, i16 noundef 2)
   %183 = load i32, ptr %153, align 8, !range !34, !noundef !5
   %184 = icmp eq i32 %183, 11
   br i1 %184, label %783, label %784
@@ -2816,7 +2816,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %187, ptr %189, align 8
   %190 = getelementptr inbounds nuw i8, ptr %150, i64 16
   store i32 %188, ptr %190, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %151, ptr noalias noundef readonly align 8 dereferenceable(24) %150, i16 noundef 3)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %151, ptr noalias noundef readonly align 8 dereferenceable(24) %150, i16 noundef 3)
   %191 = load i32, ptr %151, align 8, !range !34, !noundef !5
   %192 = icmp eq i32 %191, 11
   br i1 %192, label %785, label %786
@@ -2832,7 +2832,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %195, ptr %197, align 8
   %198 = getelementptr inbounds nuw i8, ptr %148, i64 16
   store i32 %196, ptr %198, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %149, ptr noalias noundef readonly align 8 dereferenceable(24) %148, i16 noundef 4)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %149, ptr noalias noundef readonly align 8 dereferenceable(24) %148, i16 noundef 4)
   %199 = load i32, ptr %149, align 8, !range !34, !noundef !5
   %200 = icmp eq i32 %199, 11
   br i1 %200, label %787, label %788
@@ -2848,7 +2848,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %203, ptr %205, align 8
   %206 = getelementptr inbounds nuw i8, ptr %146, i64 16
   store i32 %204, ptr %206, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %147, ptr noalias noundef readonly align 8 dereferenceable(24) %146, i16 noundef 5)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %147, ptr noalias noundef readonly align 8 dereferenceable(24) %146, i16 noundef 5)
   %207 = load i32, ptr %147, align 8, !range !34, !noundef !5
   %208 = icmp eq i32 %207, 11
   br i1 %208, label %789, label %790
@@ -2864,7 +2864,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %211, ptr %213, align 8
   %214 = getelementptr inbounds nuw i8, ptr %144, i64 16
   store i32 %212, ptr %214, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %145, ptr noalias noundef readonly align 8 dereferenceable(24) %144, i16 noundef 6)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %145, ptr noalias noundef readonly align 8 dereferenceable(24) %144, i16 noundef 6)
   %215 = load i32, ptr %145, align 8, !range !34, !noundef !5
   %216 = icmp eq i32 %215, 11
   br i1 %216, label %791, label %792
@@ -2880,7 +2880,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %219, ptr %221, align 8
   %222 = getelementptr inbounds nuw i8, ptr %142, i64 16
   store i32 %220, ptr %222, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %143, ptr noalias noundef readonly align 8 dereferenceable(24) %142, i16 noundef 7)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %143, ptr noalias noundef readonly align 8 dereferenceable(24) %142, i16 noundef 7)
   %223 = load i32, ptr %143, align 8, !range !34, !noundef !5
   %224 = icmp eq i32 %223, 11
   br i1 %224, label %793, label %794
@@ -2896,7 +2896,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %227, ptr %229, align 8
   %230 = getelementptr inbounds nuw i8, ptr %140, i64 16
   store i32 %228, ptr %230, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %141, ptr noalias noundef readonly align 8 dereferenceable(24) %140, i16 noundef 8)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %141, ptr noalias noundef readonly align 8 dereferenceable(24) %140, i16 noundef 8)
   %231 = load i32, ptr %141, align 8, !range !34, !noundef !5
   %232 = icmp eq i32 %231, 11
   br i1 %232, label %795, label %796
@@ -2912,7 +2912,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %235, ptr %237, align 8
   %238 = getelementptr inbounds nuw i8, ptr %138, i64 16
   store i32 %236, ptr %238, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %139, ptr noalias noundef readonly align 8 dereferenceable(24) %138, i16 noundef 9)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %139, ptr noalias noundef readonly align 8 dereferenceable(24) %138, i16 noundef 9)
   %239 = load i32, ptr %139, align 8, !range !34, !noundef !5
   %240 = icmp eq i32 %239, 11
   br i1 %240, label %797, label %798
@@ -2928,7 +2928,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %243, ptr %245, align 8
   %246 = getelementptr inbounds nuw i8, ptr %136, i64 16
   store i32 %244, ptr %246, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %137, ptr noalias noundef readonly align 8 dereferenceable(24) %136, i16 noundef 10)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %137, ptr noalias noundef readonly align 8 dereferenceable(24) %136, i16 noundef 10)
   %247 = load i32, ptr %137, align 8, !range !34, !noundef !5
   %248 = icmp eq i32 %247, 11
   br i1 %248, label %799, label %800
@@ -2944,7 +2944,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %251, ptr %253, align 8
   %254 = getelementptr inbounds nuw i8, ptr %134, i64 16
   store i32 %252, ptr %254, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %135, ptr noalias noundef readonly align 8 dereferenceable(24) %134, i16 noundef 11)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %135, ptr noalias noundef readonly align 8 dereferenceable(24) %134, i16 noundef 11)
   %255 = load i32, ptr %135, align 8, !range !34, !noundef !5
   %256 = icmp eq i32 %255, 11
   br i1 %256, label %801, label %802
@@ -2960,7 +2960,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %259, ptr %261, align 8
   %262 = getelementptr inbounds nuw i8, ptr %132, i64 16
   store i32 %260, ptr %262, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %133, ptr noalias noundef readonly align 8 dereferenceable(24) %132, i16 noundef 12)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %133, ptr noalias noundef readonly align 8 dereferenceable(24) %132, i16 noundef 12)
   %263 = load i32, ptr %133, align 8, !range !34, !noundef !5
   %264 = icmp eq i32 %263, 11
   br i1 %264, label %803, label %804
@@ -2976,7 +2976,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %267, ptr %269, align 8
   %270 = getelementptr inbounds nuw i8, ptr %130, i64 16
   store i32 %268, ptr %270, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %131, ptr noalias noundef readonly align 8 dereferenceable(24) %130, i16 noundef 13)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %131, ptr noalias noundef readonly align 8 dereferenceable(24) %130, i16 noundef 13)
   %271 = load i32, ptr %131, align 8, !range !34, !noundef !5
   %272 = icmp eq i32 %271, 11
   br i1 %272, label %805, label %806
@@ -2992,7 +2992,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %275, ptr %277, align 8
   %278 = getelementptr inbounds nuw i8, ptr %128, i64 16
   store i32 %276, ptr %278, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %129, ptr noalias noundef readonly align 8 dereferenceable(24) %128, i16 noundef 14)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %129, ptr noalias noundef readonly align 8 dereferenceable(24) %128, i16 noundef 14)
   %279 = load i32, ptr %129, align 8, !range !34, !noundef !5
   %280 = icmp eq i32 %279, 11
   br i1 %280, label %807, label %808
@@ -3008,7 +3008,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %283, ptr %285, align 8
   %286 = getelementptr inbounds nuw i8, ptr %126, i64 16
   store i32 %284, ptr %286, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %127, ptr noalias noundef readonly align 8 dereferenceable(24) %126, i16 noundef 15)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %127, ptr noalias noundef readonly align 8 dereferenceable(24) %126, i16 noundef 15)
   %287 = load i32, ptr %127, align 8, !range !34, !noundef !5
   %288 = icmp eq i32 %287, 11
   br i1 %288, label %809, label %810
@@ -3024,7 +3024,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %291, ptr %293, align 8
   %294 = getelementptr inbounds nuw i8, ptr %124, i64 16
   store i32 %292, ptr %294, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %125, ptr noalias noundef readonly align 8 dereferenceable(24) %124, i16 noundef 16)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %125, ptr noalias noundef readonly align 8 dereferenceable(24) %124, i16 noundef 16)
   %295 = load i32, ptr %125, align 8, !range !34, !noundef !5
   %296 = icmp eq i32 %295, 11
   br i1 %296, label %811, label %812
@@ -3040,7 +3040,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %299, ptr %301, align 8
   %302 = getelementptr inbounds nuw i8, ptr %122, i64 16
   store i32 %300, ptr %302, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %123, ptr noalias noundef readonly align 8 dereferenceable(24) %122, i16 noundef 17)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %123, ptr noalias noundef readonly align 8 dereferenceable(24) %122, i16 noundef 17)
   %303 = load i32, ptr %123, align 8, !range !34, !noundef !5
   %304 = icmp eq i32 %303, 11
   br i1 %304, label %813, label %814
@@ -3056,7 +3056,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %307, ptr %309, align 8
   %310 = getelementptr inbounds nuw i8, ptr %120, i64 16
   store i32 %308, ptr %310, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %121, ptr noalias noundef readonly align 8 dereferenceable(24) %120, i16 noundef 18)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %121, ptr noalias noundef readonly align 8 dereferenceable(24) %120, i16 noundef 18)
   %311 = load i32, ptr %121, align 8, !range !34, !noundef !5
   %312 = icmp eq i32 %311, 11
   br i1 %312, label %815, label %816
@@ -3072,7 +3072,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %315, ptr %317, align 8
   %318 = getelementptr inbounds nuw i8, ptr %118, i64 16
   store i32 %316, ptr %318, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %119, ptr noalias noundef readonly align 8 dereferenceable(24) %118, i16 noundef 19)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %119, ptr noalias noundef readonly align 8 dereferenceable(24) %118, i16 noundef 19)
   %319 = load i32, ptr %119, align 8, !range !34, !noundef !5
   %320 = icmp eq i32 %319, 11
   br i1 %320, label %817, label %818
@@ -3088,7 +3088,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %323, ptr %325, align 8
   %326 = getelementptr inbounds nuw i8, ptr %116, i64 16
   store i32 %324, ptr %326, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %117, ptr noalias noundef readonly align 8 dereferenceable(24) %116, i16 noundef 20)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %117, ptr noalias noundef readonly align 8 dereferenceable(24) %116, i16 noundef 20)
   %327 = load i32, ptr %117, align 8, !range !34, !noundef !5
   %328 = icmp eq i32 %327, 11
   br i1 %328, label %819, label %820
@@ -3104,7 +3104,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %331, ptr %333, align 8
   %334 = getelementptr inbounds nuw i8, ptr %114, i64 16
   store i32 %332, ptr %334, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %115, ptr noalias noundef readonly align 8 dereferenceable(24) %114, i16 noundef 21)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %115, ptr noalias noundef readonly align 8 dereferenceable(24) %114, i16 noundef 21)
   %335 = load i32, ptr %115, align 8, !range !34, !noundef !5
   %336 = icmp eq i32 %335, 11
   br i1 %336, label %821, label %822
@@ -3120,7 +3120,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %339, ptr %341, align 8
   %342 = getelementptr inbounds nuw i8, ptr %112, i64 16
   store i32 %340, ptr %342, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %113, ptr noalias noundef readonly align 8 dereferenceable(24) %112, i16 noundef 22)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %113, ptr noalias noundef readonly align 8 dereferenceable(24) %112, i16 noundef 22)
   %343 = load i32, ptr %113, align 8, !range !34, !noundef !5
   %344 = icmp eq i32 %343, 11
   br i1 %344, label %823, label %824
@@ -3136,7 +3136,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %347, ptr %349, align 8
   %350 = getelementptr inbounds nuw i8, ptr %110, i64 16
   store i32 %348, ptr %350, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %111, ptr noalias noundef readonly align 8 dereferenceable(24) %110, i16 noundef 23)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %111, ptr noalias noundef readonly align 8 dereferenceable(24) %110, i16 noundef 23)
   %351 = load i32, ptr %111, align 8, !range !34, !noundef !5
   %352 = icmp eq i32 %351, 11
   br i1 %352, label %825, label %826
@@ -3152,7 +3152,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %355, ptr %357, align 8
   %358 = getelementptr inbounds nuw i8, ptr %108, i64 16
   store i32 %356, ptr %358, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %109, ptr noalias noundef readonly align 8 dereferenceable(24) %108, i16 noundef 24)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %109, ptr noalias noundef readonly align 8 dereferenceable(24) %108, i16 noundef 24)
   %359 = load i32, ptr %109, align 8, !range !34, !noundef !5
   %360 = icmp eq i32 %359, 11
   br i1 %360, label %827, label %828
@@ -3168,7 +3168,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %363, ptr %365, align 8
   %366 = getelementptr inbounds nuw i8, ptr %106, i64 16
   store i32 %364, ptr %366, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %107, ptr noalias noundef readonly align 8 dereferenceable(24) %106, i16 noundef 25)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %107, ptr noalias noundef readonly align 8 dereferenceable(24) %106, i16 noundef 25)
   %367 = load i32, ptr %107, align 8, !range !34, !noundef !5
   %368 = icmp eq i32 %367, 11
   br i1 %368, label %829, label %830
@@ -3184,7 +3184,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %371, ptr %373, align 8
   %374 = getelementptr inbounds nuw i8, ptr %104, i64 16
   store i32 %372, ptr %374, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %105, ptr noalias noundef readonly align 8 dereferenceable(24) %104, i16 noundef 26)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %105, ptr noalias noundef readonly align 8 dereferenceable(24) %104, i16 noundef 26)
   %375 = load i32, ptr %105, align 8, !range !34, !noundef !5
   %376 = icmp eq i32 %375, 11
   br i1 %376, label %831, label %832
@@ -3200,7 +3200,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %379, ptr %381, align 8
   %382 = getelementptr inbounds nuw i8, ptr %102, i64 16
   store i32 %380, ptr %382, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %103, ptr noalias noundef readonly align 8 dereferenceable(24) %102, i16 noundef 27)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %103, ptr noalias noundef readonly align 8 dereferenceable(24) %102, i16 noundef 27)
   %383 = load i32, ptr %103, align 8, !range !34, !noundef !5
   %384 = icmp eq i32 %383, 11
   br i1 %384, label %833, label %834
@@ -3216,7 +3216,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %387, ptr %389, align 8
   %390 = getelementptr inbounds nuw i8, ptr %100, i64 16
   store i32 %388, ptr %390, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %101, ptr noalias noundef readonly align 8 dereferenceable(24) %100, i16 noundef 28)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %101, ptr noalias noundef readonly align 8 dereferenceable(24) %100, i16 noundef 28)
   %391 = load i32, ptr %101, align 8, !range !34, !noundef !5
   %392 = icmp eq i32 %391, 11
   br i1 %392, label %835, label %836
@@ -3232,7 +3232,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %395, ptr %397, align 8
   %398 = getelementptr inbounds nuw i8, ptr %98, i64 16
   store i32 %396, ptr %398, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %99, ptr noalias noundef readonly align 8 dereferenceable(24) %98, i16 noundef 29)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %99, ptr noalias noundef readonly align 8 dereferenceable(24) %98, i16 noundef 29)
   %399 = load i32, ptr %99, align 8, !range !34, !noundef !5
   %400 = icmp eq i32 %399, 11
   br i1 %400, label %837, label %838
@@ -3248,7 +3248,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %403, ptr %405, align 8
   %406 = getelementptr inbounds nuw i8, ptr %96, i64 16
   store i32 %404, ptr %406, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %97, ptr noalias noundef readonly align 8 dereferenceable(24) %96, i16 noundef 30)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %97, ptr noalias noundef readonly align 8 dereferenceable(24) %96, i16 noundef 30)
   %407 = load i32, ptr %97, align 8, !range !34, !noundef !5
   %408 = icmp eq i32 %407, 11
   br i1 %408, label %839, label %840
@@ -3264,7 +3264,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %411, ptr %413, align 8
   %414 = getelementptr inbounds nuw i8, ptr %94, i64 16
   store i32 %412, ptr %414, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %95, ptr noalias noundef readonly align 8 dereferenceable(24) %94, i16 noundef 31)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %95, ptr noalias noundef readonly align 8 dereferenceable(24) %94, i16 noundef 31)
   %415 = load i32, ptr %95, align 8, !range !34, !noundef !5
   %416 = icmp eq i32 %415, 11
   br i1 %416, label %841, label %842
@@ -3280,7 +3280,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %419, ptr %421, align 8
   %422 = getelementptr inbounds nuw i8, ptr %92, i64 16
   store i32 %420, ptr %422, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %93, ptr noalias noundef readonly align 8 dereferenceable(24) %92, i16 noundef 32)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %93, ptr noalias noundef readonly align 8 dereferenceable(24) %92, i16 noundef 32)
   %423 = load i32, ptr %93, align 8, !range !34, !noundef !5
   %424 = icmp eq i32 %423, 11
   br i1 %424, label %843, label %844
@@ -3296,7 +3296,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %427, ptr %429, align 8
   %430 = getelementptr inbounds nuw i8, ptr %90, i64 16
   store i32 %428, ptr %430, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %91, ptr noalias noundef readonly align 8 dereferenceable(24) %90, i16 noundef 33)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %91, ptr noalias noundef readonly align 8 dereferenceable(24) %90, i16 noundef 33)
   %431 = load i32, ptr %91, align 8, !range !34, !noundef !5
   %432 = icmp eq i32 %431, 11
   br i1 %432, label %845, label %846
@@ -3312,7 +3312,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %435, ptr %437, align 8
   %438 = getelementptr inbounds nuw i8, ptr %88, i64 16
   store i32 %436, ptr %438, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %89, ptr noalias noundef readonly align 8 dereferenceable(24) %88, i16 noundef 34)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %89, ptr noalias noundef readonly align 8 dereferenceable(24) %88, i16 noundef 34)
   %439 = load i32, ptr %89, align 8, !range !34, !noundef !5
   %440 = icmp eq i32 %439, 11
   br i1 %440, label %847, label %848
@@ -3328,7 +3328,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %443, ptr %445, align 8
   %446 = getelementptr inbounds nuw i8, ptr %86, i64 16
   store i32 %444, ptr %446, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %87, ptr noalias noundef readonly align 8 dereferenceable(24) %86, i16 noundef 35)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %87, ptr noalias noundef readonly align 8 dereferenceable(24) %86, i16 noundef 35)
   %447 = load i32, ptr %87, align 8, !range !34, !noundef !5
   %448 = icmp eq i32 %447, 11
   br i1 %448, label %849, label %850
@@ -3344,7 +3344,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %451, ptr %453, align 8
   %454 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store i32 %452, ptr %454, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %85, ptr noalias noundef readonly align 8 dereferenceable(24) %84, i16 noundef 36)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %85, ptr noalias noundef readonly align 8 dereferenceable(24) %84, i16 noundef 36)
   %455 = load i32, ptr %85, align 8, !range !34, !noundef !5
   %456 = icmp eq i32 %455, 11
   br i1 %456, label %851, label %852
@@ -3360,7 +3360,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %459, ptr %461, align 8
   %462 = getelementptr inbounds nuw i8, ptr %82, i64 16
   store i32 %460, ptr %462, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %83, ptr noalias noundef readonly align 8 dereferenceable(24) %82, i16 noundef 37)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %83, ptr noalias noundef readonly align 8 dereferenceable(24) %82, i16 noundef 37)
   %463 = load i32, ptr %83, align 8, !range !34, !noundef !5
   %464 = icmp eq i32 %463, 11
   br i1 %464, label %853, label %854
@@ -3376,7 +3376,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %467, ptr %469, align 8
   %470 = getelementptr inbounds nuw i8, ptr %80, i64 16
   store i32 %468, ptr %470, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %81, ptr noalias noundef readonly align 8 dereferenceable(24) %80, i16 noundef 38)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %81, ptr noalias noundef readonly align 8 dereferenceable(24) %80, i16 noundef 38)
   %471 = load i32, ptr %81, align 8, !range !34, !noundef !5
   %472 = icmp eq i32 %471, 11
   br i1 %472, label %855, label %856
@@ -3392,7 +3392,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %475, ptr %477, align 8
   %478 = getelementptr inbounds nuw i8, ptr %78, i64 16
   store i32 %476, ptr %478, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %79, ptr noalias noundef readonly align 8 dereferenceable(24) %78, i16 noundef 39)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %79, ptr noalias noundef readonly align 8 dereferenceable(24) %78, i16 noundef 39)
   %479 = load i32, ptr %79, align 8, !range !34, !noundef !5
   %480 = icmp eq i32 %479, 11
   br i1 %480, label %857, label %858
@@ -3408,7 +3408,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %483, ptr %485, align 8
   %486 = getelementptr inbounds nuw i8, ptr %76, i64 16
   store i32 %484, ptr %486, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %77, ptr noalias noundef readonly align 8 dereferenceable(24) %76, i16 noundef 40)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %77, ptr noalias noundef readonly align 8 dereferenceable(24) %76, i16 noundef 40)
   %487 = load i32, ptr %77, align 8, !range !34, !noundef !5
   %488 = icmp eq i32 %487, 11
   br i1 %488, label %859, label %860
@@ -3424,7 +3424,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %491, ptr %493, align 8
   %494 = getelementptr inbounds nuw i8, ptr %74, i64 16
   store i32 %492, ptr %494, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %75, ptr noalias noundef readonly align 8 dereferenceable(24) %74, i16 noundef 41)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %75, ptr noalias noundef readonly align 8 dereferenceable(24) %74, i16 noundef 41)
   %495 = load i32, ptr %75, align 8, !range !34, !noundef !5
   %496 = icmp eq i32 %495, 11
   br i1 %496, label %861, label %862
@@ -3440,7 +3440,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %499, ptr %501, align 8
   %502 = getelementptr inbounds nuw i8, ptr %72, i64 16
   store i32 %500, ptr %502, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %73, ptr noalias noundef readonly align 8 dereferenceable(24) %72, i16 noundef 42)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %73, ptr noalias noundef readonly align 8 dereferenceable(24) %72, i16 noundef 42)
   %503 = load i32, ptr %73, align 8, !range !34, !noundef !5
   %504 = icmp eq i32 %503, 11
   br i1 %504, label %863, label %864
@@ -3456,7 +3456,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %507, ptr %509, align 8
   %510 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store i32 %508, ptr %510, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %71, ptr noalias noundef readonly align 8 dereferenceable(24) %70, i16 noundef 43)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %71, ptr noalias noundef readonly align 8 dereferenceable(24) %70, i16 noundef 43)
   %511 = load i32, ptr %71, align 8, !range !34, !noundef !5
   %512 = icmp eq i32 %511, 11
   br i1 %512, label %865, label %866
@@ -3472,7 +3472,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %515, ptr %517, align 8
   %518 = getelementptr inbounds nuw i8, ptr %68, i64 16
   store i32 %516, ptr %518, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %69, ptr noalias noundef readonly align 8 dereferenceable(24) %68, i16 noundef 44)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %69, ptr noalias noundef readonly align 8 dereferenceable(24) %68, i16 noundef 44)
   %519 = load i32, ptr %69, align 8, !range !34, !noundef !5
   %520 = icmp eq i32 %519, 11
   br i1 %520, label %867, label %868
@@ -3488,7 +3488,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %523, ptr %525, align 8
   %526 = getelementptr inbounds nuw i8, ptr %66, i64 16
   store i32 %524, ptr %526, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %67, ptr noalias noundef readonly align 8 dereferenceable(24) %66, i16 noundef 45)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %67, ptr noalias noundef readonly align 8 dereferenceable(24) %66, i16 noundef 45)
   %527 = load i32, ptr %67, align 8, !range !34, !noundef !5
   %528 = icmp eq i32 %527, 11
   br i1 %528, label %869, label %870
@@ -3504,7 +3504,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %531, ptr %533, align 8
   %534 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store i32 %532, ptr %534, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %65, ptr noalias noundef readonly align 8 dereferenceable(24) %64, i16 noundef 46)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %65, ptr noalias noundef readonly align 8 dereferenceable(24) %64, i16 noundef 46)
   %535 = load i32, ptr %65, align 8, !range !34, !noundef !5
   %536 = icmp eq i32 %535, 11
   br i1 %536, label %871, label %872
@@ -3520,7 +3520,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %539, ptr %541, align 8
   %542 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store i32 %540, ptr %542, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %63, ptr noalias noundef readonly align 8 dereferenceable(24) %62, i16 noundef 47)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %63, ptr noalias noundef readonly align 8 dereferenceable(24) %62, i16 noundef 47)
   %543 = load i32, ptr %63, align 8, !range !34, !noundef !5
   %544 = icmp eq i32 %543, 11
   br i1 %544, label %873, label %874
@@ -3536,7 +3536,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %547, ptr %549, align 8
   %550 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store i32 %548, ptr %550, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %61, ptr noalias noundef readonly align 8 dereferenceable(24) %60, i16 noundef 48)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %61, ptr noalias noundef readonly align 8 dereferenceable(24) %60, i16 noundef 48)
   %551 = load i32, ptr %61, align 8, !range !34, !noundef !5
   %552 = icmp eq i32 %551, 11
   br i1 %552, label %875, label %876
@@ -3552,7 +3552,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %555, ptr %557, align 8
   %558 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store i32 %556, ptr %558, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %59, ptr noalias noundef readonly align 8 dereferenceable(24) %58, i16 noundef 49)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %59, ptr noalias noundef readonly align 8 dereferenceable(24) %58, i16 noundef 49)
   %559 = load i32, ptr %59, align 8, !range !34, !noundef !5
   %560 = icmp eq i32 %559, 11
   br i1 %560, label %877, label %878
@@ -3568,7 +3568,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %563, ptr %565, align 8
   %566 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store i32 %564, ptr %566, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %57, ptr noalias noundef readonly align 8 dereferenceable(24) %56, i16 noundef 50)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %57, ptr noalias noundef readonly align 8 dereferenceable(24) %56, i16 noundef 50)
   %567 = load i32, ptr %57, align 8, !range !34, !noundef !5
   %568 = icmp eq i32 %567, 11
   br i1 %568, label %879, label %880
@@ -3584,7 +3584,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %571, ptr %573, align 8
   %574 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store i32 %572, ptr %574, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %55, ptr noalias noundef readonly align 8 dereferenceable(24) %54, i16 noundef 51)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %55, ptr noalias noundef readonly align 8 dereferenceable(24) %54, i16 noundef 51)
   %575 = load i32, ptr %55, align 8, !range !34, !noundef !5
   %576 = icmp eq i32 %575, 11
   br i1 %576, label %881, label %882
@@ -3600,7 +3600,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %579, ptr %581, align 8
   %582 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store i32 %580, ptr %582, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %53, ptr noalias noundef readonly align 8 dereferenceable(24) %52, i16 noundef 52)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %53, ptr noalias noundef readonly align 8 dereferenceable(24) %52, i16 noundef 52)
   %583 = load i32, ptr %53, align 8, !range !34, !noundef !5
   %584 = icmp eq i32 %583, 11
   br i1 %584, label %883, label %884
@@ -3616,7 +3616,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %587, ptr %589, align 8
   %590 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store i32 %588, ptr %590, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %51, ptr noalias noundef readonly align 8 dereferenceable(24) %50, i16 noundef 53)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %51, ptr noalias noundef readonly align 8 dereferenceable(24) %50, i16 noundef 53)
   %591 = load i32, ptr %51, align 8, !range !34, !noundef !5
   %592 = icmp eq i32 %591, 11
   br i1 %592, label %885, label %886
@@ -3632,7 +3632,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %595, ptr %597, align 8
   %598 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store i32 %596, ptr %598, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %49, ptr noalias noundef readonly align 8 dereferenceable(24) %48, i16 noundef 54)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %49, ptr noalias noundef readonly align 8 dereferenceable(24) %48, i16 noundef 54)
   %599 = load i32, ptr %49, align 8, !range !34, !noundef !5
   %600 = icmp eq i32 %599, 11
   br i1 %600, label %887, label %888
@@ -3648,7 +3648,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %603, ptr %605, align 8
   %606 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store i32 %604, ptr %606, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %47, ptr noalias noundef readonly align 8 dereferenceable(24) %46, i16 noundef 55)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %47, ptr noalias noundef readonly align 8 dereferenceable(24) %46, i16 noundef 55)
   %607 = load i32, ptr %47, align 8, !range !34, !noundef !5
   %608 = icmp eq i32 %607, 11
   br i1 %608, label %889, label %890
@@ -3664,7 +3664,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %611, ptr %613, align 8
   %614 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store i32 %612, ptr %614, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %45, ptr noalias noundef readonly align 8 dereferenceable(24) %44, i16 noundef 56)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %45, ptr noalias noundef readonly align 8 dereferenceable(24) %44, i16 noundef 56)
   %615 = load i32, ptr %45, align 8, !range !34, !noundef !5
   %616 = icmp eq i32 %615, 11
   br i1 %616, label %891, label %892
@@ -3680,7 +3680,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %619, ptr %621, align 8
   %622 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i32 %620, ptr %622, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %43, ptr noalias noundef readonly align 8 dereferenceable(24) %42, i16 noundef 57)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %43, ptr noalias noundef readonly align 8 dereferenceable(24) %42, i16 noundef 57)
   %623 = load i32, ptr %43, align 8, !range !34, !noundef !5
   %624 = icmp eq i32 %623, 11
   br i1 %624, label %893, label %894
@@ -3696,7 +3696,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %627, ptr %629, align 8
   %630 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i32 %628, ptr %630, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %41, ptr noalias noundef readonly align 8 dereferenceable(24) %40, i16 noundef 58)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %41, ptr noalias noundef readonly align 8 dereferenceable(24) %40, i16 noundef 58)
   %631 = load i32, ptr %41, align 8, !range !34, !noundef !5
   %632 = icmp eq i32 %631, 11
   br i1 %632, label %895, label %896
@@ -3712,7 +3712,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %635, ptr %637, align 8
   %638 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i32 %636, ptr %638, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %39, ptr noalias noundef readonly align 8 dereferenceable(24) %38, i16 noundef 59)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %39, ptr noalias noundef readonly align 8 dereferenceable(24) %38, i16 noundef 59)
   %639 = load i32, ptr %39, align 8, !range !34, !noundef !5
   %640 = icmp eq i32 %639, 11
   br i1 %640, label %897, label %898
@@ -3728,7 +3728,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %643, ptr %645, align 8
   %646 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i32 %644, ptr %646, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %37, ptr noalias noundef readonly align 8 dereferenceable(24) %36, i16 noundef 60)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %37, ptr noalias noundef readonly align 8 dereferenceable(24) %36, i16 noundef 60)
   %647 = load i32, ptr %37, align 8, !range !34, !noundef !5
   %648 = icmp eq i32 %647, 11
   br i1 %648, label %899, label %900
@@ -3744,7 +3744,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %651, ptr %653, align 8
   %654 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i32 %652, ptr %654, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %35, ptr noalias noundef readonly align 8 dereferenceable(24) %34, i16 noundef 61)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %35, ptr noalias noundef readonly align 8 dereferenceable(24) %34, i16 noundef 61)
   %655 = load i32, ptr %35, align 8, !range !34, !noundef !5
   %656 = icmp eq i32 %655, 11
   br i1 %656, label %901, label %902
@@ -3760,7 +3760,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %659, ptr %661, align 8
   %662 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i32 %660, ptr %662, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %33, ptr noalias noundef readonly align 8 dereferenceable(24) %32, i16 noundef 62)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %33, ptr noalias noundef readonly align 8 dereferenceable(24) %32, i16 noundef 62)
   %663 = load i32, ptr %33, align 8, !range !34, !noundef !5
   %664 = icmp eq i32 %663, 11
   br i1 %664, label %903, label %904
@@ -3776,7 +3776,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %667, ptr %669, align 8
   %670 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i32 %668, ptr %670, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %31, ptr noalias noundef readonly align 8 dereferenceable(24) %30, i16 noundef 63)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %31, ptr noalias noundef readonly align 8 dereferenceable(24) %30, i16 noundef 63)
   %671 = load i32, ptr %31, align 8, !range !34, !noundef !5
   %672 = icmp eq i32 %671, 11
   br i1 %672, label %905, label %906
@@ -3792,7 +3792,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %675, ptr %677, align 8
   %678 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i32 %676, ptr %678, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %29, ptr noalias noundef readonly align 8 dereferenceable(24) %28, i16 noundef 64)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %29, ptr noalias noundef readonly align 8 dereferenceable(24) %28, i16 noundef 64)
   %679 = load i32, ptr %29, align 8, !range !34, !noundef !5
   %680 = icmp eq i32 %679, 11
   br i1 %680, label %907, label %908
@@ -3808,7 +3808,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %683, ptr %685, align 8
   %686 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i32 %684, ptr %686, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %27, ptr noalias noundef readonly align 8 dereferenceable(24) %26, i16 noundef 65)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %27, ptr noalias noundef readonly align 8 dereferenceable(24) %26, i16 noundef 65)
   %687 = load i32, ptr %27, align 8, !range !34, !noundef !5
   %688 = icmp eq i32 %687, 11
   br i1 %688, label %909, label %910
@@ -3824,7 +3824,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %691, ptr %693, align 8
   %694 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i32 %692, ptr %694, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %25, ptr noalias noundef readonly align 8 dereferenceable(24) %24, i16 noundef 66)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %25, ptr noalias noundef readonly align 8 dereferenceable(24) %24, i16 noundef 66)
   %695 = load i32, ptr %25, align 8, !range !34, !noundef !5
   %696 = icmp eq i32 %695, 11
   br i1 %696, label %911, label %912
@@ -3840,7 +3840,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %699, ptr %701, align 8
   %702 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i32 %700, ptr %702, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %23, ptr noalias noundef readonly align 8 dereferenceable(24) %22, i16 noundef 67)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %23, ptr noalias noundef readonly align 8 dereferenceable(24) %22, i16 noundef 67)
   %703 = load i32, ptr %23, align 8, !range !34, !noundef !5
   %704 = icmp eq i32 %703, 11
   br i1 %704, label %913, label %914
@@ -3856,7 +3856,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %707, ptr %709, align 8
   %710 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 %708, ptr %710, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %21, ptr noalias noundef readonly align 8 dereferenceable(24) %20, i16 noundef 68)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %21, ptr noalias noundef readonly align 8 dereferenceable(24) %20, i16 noundef 68)
   %711 = load i32, ptr %21, align 8, !range !34, !noundef !5
   %712 = icmp eq i32 %711, 11
   br i1 %712, label %915, label %916
@@ -3872,7 +3872,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %715, ptr %717, align 8
   %718 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 %716, ptr %718, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %19, ptr noalias noundef readonly align 8 dereferenceable(24) %18, i16 noundef 69)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %19, ptr noalias noundef readonly align 8 dereferenceable(24) %18, i16 noundef 69)
   %719 = load i32, ptr %19, align 8, !range !34, !noundef !5
   %720 = icmp eq i32 %719, 11
   br i1 %720, label %917, label %918
@@ -3888,7 +3888,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %723, ptr %725, align 8
   %726 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 %724, ptr %726, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %17, ptr noalias noundef readonly align 8 dereferenceable(24) %16, i16 noundef 70)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %17, ptr noalias noundef readonly align 8 dereferenceable(24) %16, i16 noundef 70)
   %727 = load i32, ptr %17, align 8, !range !34, !noundef !5
   %728 = icmp eq i32 %727, 11
   br i1 %728, label %919, label %920
@@ -3904,7 +3904,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %731, ptr %733, align 8
   %734 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 %732, ptr %734, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %15, ptr noalias noundef readonly align 8 dereferenceable(24) %14, i16 noundef 71)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %15, ptr noalias noundef readonly align 8 dereferenceable(24) %14, i16 noundef 71)
   %735 = load i32, ptr %15, align 8, !range !34, !noundef !5
   %736 = icmp eq i32 %735, 11
   br i1 %736, label %921, label %922
@@ -3920,7 +3920,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %739, ptr %741, align 8
   %742 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 %740, ptr %742, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %13, ptr noalias noundef readonly align 8 dereferenceable(24) %12, i16 noundef 72)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %13, ptr noalias noundef readonly align 8 dereferenceable(24) %12, i16 noundef 72)
   %743 = load i32, ptr %13, align 8, !range !34, !noundef !5
   %744 = icmp eq i32 %743, 11
   br i1 %744, label %923, label %924
@@ -3936,7 +3936,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %747, ptr %749, align 8
   %750 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 %748, ptr %750, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %11, ptr noalias noundef readonly align 8 dereferenceable(24) %10, i16 noundef 73)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %11, ptr noalias noundef readonly align 8 dereferenceable(24) %10, i16 noundef 73)
   %751 = load i32, ptr %11, align 8, !range !34, !noundef !5
   %752 = icmp eq i32 %751, 11
   br i1 %752, label %925, label %926
@@ -3952,7 +3952,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %755, ptr %757, align 8
   %758 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %756, ptr %758, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %8, i16 noundef 74)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %8, i16 noundef 74)
   %759 = load i32, ptr %9, align 8, !range !34, !noundef !5
   %760 = icmp eq i32 %759, 11
   br i1 %760, label %927, label %928
@@ -3968,7 +3968,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %763, ptr %765, align 8
   %766 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %764, ptr %766, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %7, ptr noalias noundef readonly align 8 dereferenceable(24) %6, i16 noundef 75)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %7, ptr noalias noundef readonly align 8 dereferenceable(24) %6, i16 noundef 75)
   %767 = load i32, ptr %7, align 8, !range !34, !noundef !5
   %768 = icmp eq i32 %767, 11
   br i1 %768, label %929, label %930
@@ -3984,7 +3984,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle.
   store ptr %771, ptr %773, align 8
   %774 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %772, ptr %774, align 8
-  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %4, i16 noundef 76)
+  call fastcc void @"_ZN53_$LT$u16$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h37594574be7edd0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %4, i16 noundef 76)
   %775 = load i32, ptr %5, align 8, !range !34, !noundef !5
   %776 = icmp eq i32 %775, 11
   br i1 %776, label %931, label %932
@@ -5170,7 +5170,7 @@ define noundef zeroext i1 @"_ZN76_$LT$wasmtime_wasi..preview1..types..Error$u20$
   store ptr %3, ptr %8, align 8, !alias.scope !134, !noalias !137
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %9, align 8, !alias.scope !134, !noalias !137
-  %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
+  %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %10
@@ -5193,7 +5193,7 @@ define noundef nonnull ptr @_ZN13wasmtime_wasi8preview15types5Error4trap17h327e5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN13wasmtime_wasi8preview15types5Error8downcast17ha9a1cf051e54e44bE(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN13wasmtime_wasi8preview15types5Error8downcast17ha9a1cf051e54e44bE(ptr noalias noundef writeonly sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca ptr, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -5246,7 +5246,7 @@ define void @_ZN13wasmtime_wasi8preview15types5Error8downcast17ha9a1cf051e54e44b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef align 1 dereferenceable_or_null(1) ptr @_ZN13wasmtime_wasi8preview15types5Error12downcast_ref17h63829b04ca597124E(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
+define noundef align 1 dereferenceable_or_null(1) ptr @_ZN13wasmtime_wasi8preview15types5Error12downcast_ref17h63829b04ca597124E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
   %2 = load ptr, ptr %0, align 8, !alias.scope !144, !nonnull !5, !noundef !5
   %3 = load ptr, ptr %2, align 8, !noalias !144, !nonnull !5, !align !33, !noundef !5
@@ -5302,7 +5302,7 @@ define noundef zeroext i1 @"_ZN77_$LT$wasmtime_wasi..preview1..types..Rights$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Rights$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h9584264ea18aa61eE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Rights$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h9584264ea18aa61eE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %.sroa.444 = alloca [12 x i32], align 8
@@ -5313,7 +5313,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Rights$u20$as$u20$wiggle
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !147
-  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !147
+  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !147
   %10 = load i32, ptr %4, align 8, !range !34, !noalias !147, !noundef !5
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %14
@@ -5418,7 +5418,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Rights$u20$as$u20$wiggle
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Rights$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h8b7984ee1e2bf3e9E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2) unnamed_addr #1 {
+define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Rights$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h8b7984ee1e2bf3e9E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i64 noundef %2) unnamed_addr #1 {
   %.sroa.743.i = alloca [8 x i32], align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
@@ -5429,7 +5429,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Rights$u20$as$u20$wiggle
   tail call void @llvm.experimental.noalias.scope.decl(metadata !154)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.743.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !157
-  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !157
+  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !157
   %10 = load i32, ptr %4, align 8, !range !34, !noalias !157, !noundef !5
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %14
@@ -5522,7 +5522,7 @@ define noundef zeroext i1 @"_ZN73_$LT$wasmtime_wasi..preview1..types..Fd$u20$as$
   store ptr %3, ptr %8, align 8, !alias.scope !160, !noalias !163
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %9, align 8, !alias.scope !160, !noalias !163
-  %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
+  %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i1 %10
@@ -5539,7 +5539,7 @@ define noundef i32 @_ZN13wasmtime_wasi8preview15types5Iovec17offset_of_buf_len17
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Iovec$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h591f4c7244b93a7cE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Iovec$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h591f4c7244b93a7cE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %4 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
@@ -5557,7 +5557,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Iovec$u20$as$u20$wiggle.
   store ptr %8, ptr %11, align 8, !noalias !166
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %10, ptr %12, align 8, !noalias !166
-  call void @"_ZN53_$LT$u32$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h33f606294a43f9ddE.llvm.10298849200982743166"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4), !noalias !166
+  call void @"_ZN53_$LT$u32$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h33f606294a43f9ddE.llvm.10298849200982743166"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4), !noalias !166
   %13 = load i32, ptr %5, align 8, !range !34, !noalias !166, !noundef !5
   %14 = icmp eq i32 %13, 11
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -5602,7 +5602,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Iovec$u20$as$u20$wiggle.
 21:                                               ; preds = %17
   %22 = extractvalue { i32, i1 } %18, 0
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !170
-  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i32 noundef %22, i32 noundef 1), !noalias !170
+  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %3, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i32 noundef %22, i32 noundef 1), !noalias !170
   %23 = load i32, ptr %3, align 8, !range !34, !noalias !170, !noundef !5
   %24 = icmp eq i32 %23, 11
   br i1 %24, label %25, label %27
@@ -5699,7 +5699,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Iovec$u20$as$u20$wiggle.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Iovec$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h3fb6a031b76fc991E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Iovec$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h3fb6a031b76fc991E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
   %.sroa.346 = alloca [8 x i32], align 8
@@ -5713,7 +5713,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Iovec$u20$as$u20$wiggle.
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.325.0.copyload = load i32, ptr %.sroa.325.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !174
-  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %5, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i32 noundef %10, i32 noundef 1), !noalias !174
+  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %5, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i32 noundef %10, i32 noundef 1), !noalias !174
   %11 = load i32, ptr %5, align 8, !range !34, !noalias !174, !noundef !5
   %12 = icmp eq i32 %11, 11
   br i1 %12, label %13, label %15
@@ -5795,7 +5795,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Iovec$u20$as$u20$wiggle.
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %30 = load i32, ptr %29, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !178
-  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i32 noundef %28, i32 noundef 1), !noalias !178
+  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i32 noundef %28, i32 noundef 1), !noalias !178
   %31 = load i32, ptr %4, align 8, !range !34, !noalias !178, !noundef !5
   %32 = icmp eq i32 %31, 11
   br i1 %32, label %33, label %35
@@ -5896,7 +5896,7 @@ define noundef i32 @_ZN13wasmtime_wasi8preview15types6Ciovec17offset_of_buf_len1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Ciovec$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17he0e46ce40bb38c9eE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Ciovec$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17he0e46ce40bb38c9eE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %4 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
@@ -5914,7 +5914,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Ciovec$u20$as$u20$wiggle
   store ptr %8, ptr %11, align 8, !noalias !182
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %10, ptr %12, align 8, !noalias !182
-  call void @"_ZN53_$LT$u32$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h33f606294a43f9ddE.llvm.10298849200982743166"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4), !noalias !182
+  call void @"_ZN53_$LT$u32$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h33f606294a43f9ddE.llvm.10298849200982743166"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4), !noalias !182
   %13 = load i32, ptr %5, align 8, !range !34, !noalias !182, !noundef !5
   %14 = icmp eq i32 %13, 11
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -5959,7 +5959,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Ciovec$u20$as$u20$wiggle
 21:                                               ; preds = %17
   %22 = extractvalue { i32, i1 } %18, 0
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !186
-  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i32 noundef %22, i32 noundef 1), !noalias !186
+  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %3, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i32 noundef %22, i32 noundef 1), !noalias !186
   %23 = load i32, ptr %3, align 8, !range !34, !noalias !186, !noundef !5
   %24 = icmp eq i32 %23, 11
   br i1 %24, label %25, label %27
@@ -6056,7 +6056,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Ciovec$u20$as$u20$wiggle
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Ciovec$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h3b8578239ddb0b8aE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Ciovec$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h3b8578239ddb0b8aE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
   %.sroa.346 = alloca [8 x i32], align 8
@@ -6070,7 +6070,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Ciovec$u20$as$u20$wiggle
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.325.0.copyload = load i32, ptr %.sroa.325.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !190
-  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %5, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i32 noundef %10, i32 noundef 1), !noalias !190
+  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %5, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i32 noundef %10, i32 noundef 1), !noalias !190
   %11 = load i32, ptr %5, align 8, !range !34, !noalias !190, !noundef !5
   %12 = icmp eq i32 %11, 11
   br i1 %12, label %13, label %15
@@ -6152,7 +6152,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Ciovec$u20$as$u20$wiggle
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %30 = load i32, ptr %29, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !194
-  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i32 noundef %28, i32 noundef 1), !noalias !194
+  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i32 noundef %28, i32 noundef 1), !noalias !194
   %31 = load i32, ptr %4, align 8, !range !34, !noalias !194, !noundef !5
   %32 = icmp eq i32 %31, 11
   br i1 %32, label %33, label %35
@@ -6243,7 +6243,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Ciovec$u20$as$u20$wiggle
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Whence$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17hd282494c34911bfaE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Whence$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17hd282494c34911bfaE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %.sroa.17 = alloca [8 x i32], align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
@@ -6252,7 +6252,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Whence$u20$as$u20$wiggle
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !198
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %8, i32 noundef 1), !noalias !198
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %8, i32 noundef 1), !noalias !198
   %9 = load i32, ptr %3, align 8, !range !34, !noalias !198, !noundef !5
   %10 = icmp eq i32 %9, 11
   br i1 %10, label %11, label %13
@@ -6367,7 +6367,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Whence$u20$as$u20$wiggle
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Whence$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h16082d5434799f47E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i8 noundef %2) unnamed_addr #1 {
+define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Whence$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h16082d5434799f47E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i8 noundef %2) unnamed_addr #1 {
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
   %6 = alloca { i32, [15 x i32] }, align 8
@@ -6390,7 +6390,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Whence$u20$as$u20$wiggle
 
 13:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !202
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %6, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, i32 noundef %11, i32 noundef 1), !noalias !202
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %6, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, i32 noundef %11, i32 noundef 1), !noalias !202
   %14 = load i32, ptr %6, align 8, !range !34, !noalias !202, !noundef !5
   %15 = icmp eq i32 %14, 11
   br i1 %15, label %16, label %18
@@ -6441,7 +6441,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Whence$u20$as$u20$wiggle
 
 26:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !206
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %5, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, i32 noundef %11, i32 noundef 1), !noalias !206
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %5, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, i32 noundef %11, i32 noundef 1), !noalias !206
   %27 = load i32, ptr %5, align 8, !range !34, !noalias !206, !noundef !5
   %28 = icmp eq i32 %27, 11
   br i1 %28, label %29, label %31
@@ -6492,7 +6492,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Whence$u20$as$u20$wiggle
 
 39:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !210
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, i32 noundef %11, i32 noundef 1), !noalias !210
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, i32 noundef %11, i32 noundef 1), !noalias !210
   %40 = load i32, ptr %4, align 8, !range !34, !noalias !210, !noundef !5
   %41 = icmp eq i32 %40, 11
   br i1 %41, label %42, label %44
@@ -6628,7 +6628,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Whence$u20$as$u20$wiggle
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filetype$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17hb7dbd290c5ecd61eE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filetype$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17hb7dbd290c5ecd61eE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %.sroa.17 = alloca [8 x i32], align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
@@ -6637,7 +6637,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filetype$u20$as$u20$wigg
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !214
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %8, i32 noundef 1), !noalias !214
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %8, i32 noundef 1), !noalias !214
   %9 = load i32, ptr %3, align 8, !range !34, !noalias !214, !noundef !5
   %10 = icmp eq i32 %9, 11
   br i1 %10, label %11, label %13
@@ -6787,7 +6787,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filetype$u20$as$u20$wigg
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filetype$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h78f40db79d62f206E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i8 noundef %2) unnamed_addr #1 {
+define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filetype$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h78f40db79d62f206E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i8 noundef %2) unnamed_addr #1 {
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
   %6 = alloca { i32, [15 x i32] }, align 8
@@ -6825,7 +6825,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filetype$u20$as$u20$wigg
 
 18:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11), !noalias !218
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %11, ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14, i32 noundef %16, i32 noundef 1), !noalias !218
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %11, ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14, i32 noundef %16, i32 noundef 1), !noalias !218
   %19 = load i32, ptr %11, align 8, !range !34, !noalias !218, !noundef !5
   %20 = icmp eq i32 %19, 11
   br i1 %20, label %21, label %23
@@ -6876,7 +6876,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filetype$u20$as$u20$wigg
 
 31:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10), !noalias !222
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %10, ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14, i32 noundef %16, i32 noundef 1), !noalias !222
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %10, ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14, i32 noundef %16, i32 noundef 1), !noalias !222
   %32 = load i32, ptr %10, align 8, !range !34, !noalias !222, !noundef !5
   %33 = icmp eq i32 %32, 11
   br i1 %33, label %34, label %36
@@ -6927,7 +6927,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filetype$u20$as$u20$wigg
 
 44:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !226
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %9, ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14, i32 noundef %16, i32 noundef 1), !noalias !226
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %9, ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14, i32 noundef %16, i32 noundef 1), !noalias !226
   %45 = load i32, ptr %9, align 8, !range !34, !noalias !226, !noundef !5
   %46 = icmp eq i32 %45, 11
   br i1 %46, label %47, label %49
@@ -6978,7 +6978,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filetype$u20$as$u20$wigg
 
 57:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8), !noalias !230
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %8, ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14, i32 noundef %16, i32 noundef 1), !noalias !230
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %8, ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14, i32 noundef %16, i32 noundef 1), !noalias !230
   %58 = load i32, ptr %8, align 8, !range !34, !noalias !230, !noundef !5
   %59 = icmp eq i32 %58, 11
   br i1 %59, label %60, label %62
@@ -7029,7 +7029,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filetype$u20$as$u20$wigg
 
 70:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7), !noalias !234
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %7, ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14, i32 noundef %16, i32 noundef 1), !noalias !234
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %7, ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14, i32 noundef %16, i32 noundef 1), !noalias !234
   %71 = load i32, ptr %7, align 8, !range !34, !noalias !234, !noundef !5
   %72 = icmp eq i32 %71, 11
   br i1 %72, label %73, label %75
@@ -7080,7 +7080,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filetype$u20$as$u20$wigg
 
 83:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !238
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %6, ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14, i32 noundef %16, i32 noundef 1), !noalias !238
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %6, ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14, i32 noundef %16, i32 noundef 1), !noalias !238
   %84 = load i32, ptr %6, align 8, !range !34, !noalias !238, !noundef !5
   %85 = icmp eq i32 %84, 11
   br i1 %85, label %86, label %88
@@ -7131,7 +7131,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filetype$u20$as$u20$wigg
 
 96:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !242
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %5, ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14, i32 noundef %16, i32 noundef 1), !noalias !242
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %5, ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14, i32 noundef %16, i32 noundef 1), !noalias !242
   %97 = load i32, ptr %5, align 8, !range !34, !noalias !242, !noundef !5
   %98 = icmp eq i32 %97, 11
   br i1 %98, label %99, label %101
@@ -7182,7 +7182,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filetype$u20$as$u20$wigg
 
 109:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !246
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14, i32 noundef %16, i32 noundef 1), !noalias !246
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14, i32 noundef %16, i32 noundef 1), !noalias !246
   %110 = load i32, ptr %4, align 8, !range !34, !noalias !246, !noundef !5
   %111 = icmp eq i32 %110, 11
   br i1 %111, label %112, label %114
@@ -7468,7 +7468,7 @@ define noundef i32 @_ZN13wasmtime_wasi8preview15types6Dirent16offset_of_d_type17
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Dirent$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h39a1e95ff395fdceE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Dirent$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h39a1e95ff395fdceE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
@@ -7486,7 +7486,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Dirent$u20$as$u20$wiggle
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !250
-  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %5, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %12, i32 noundef 1), !noalias !250
+  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %5, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %12, i32 noundef 1), !noalias !250
   %13 = load i32, ptr %5, align 8, !range !34, !noalias !250, !noundef !5
   %14 = icmp eq i32 %13, 11
   br i1 %14, label %15, label %17
@@ -7566,7 +7566,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Dirent$u20$as$u20$wiggle
 30:                                               ; preds = %25
   %31 = extractvalue { i32, i1 } %27, 0
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !254
-  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %31, i32 noundef 1), !noalias !254
+  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %31, i32 noundef 1), !noalias !254
   %32 = load i32, ptr %4, align 8, !range !34, !noalias !254, !noundef !5
   %33 = icmp eq i32 %32, 11
   br i1 %33, label %34, label %36
@@ -7650,7 +7650,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Dirent$u20$as$u20$wiggle
 48:                                               ; preds = %43
   %49 = extractvalue { i32, i1 } %45, 0
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !258
-  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %49, i32 noundef 1), !noalias !258
+  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %3, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %49, i32 noundef 1), !noalias !258
   %50 = load i32, ptr %3, align 8, !range !34, !noalias !258, !noundef !5
   %51 = icmp eq i32 %50, 11
   br i1 %51, label %52, label %54
@@ -7740,7 +7740,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Dirent$u20$as$u20$wiggle
   store ptr %10, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %67, ptr %69, align 8
-  call void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filetype$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17hb7dbd290c5ecd61eE"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filetype$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17hb7dbd290c5ecd61eE"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %70 = load i32, ptr %7, align 8, !range !34, !noundef !5
   %71 = icmp eq i32 %70, 11
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -7802,7 +7802,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Dirent$u20$as$u20$wiggle
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Dirent$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h0ad99918c367fab0E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 {
+define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Dirent$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h0ad99918c367fab0E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #1 {
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
   %6 = alloca { i32, [15 x i32] }, align 8
@@ -7821,7 +7821,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Dirent$u20$as$u20$wiggle
   %13 = load i32, ptr %12, align 8, !noundef !5
   %14 = load i64, ptr %2, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !262
-  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %6, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11, i32 noundef %13, i32 noundef 1), !noalias !262
+  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %6, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11, i32 noundef %13, i32 noundef 1), !noalias !262
   %15 = load i32, ptr %6, align 8, !range !34, !noalias !262, !noundef !5
   %16 = icmp eq i32 %15, 11
   br i1 %16, label %17, label %19
@@ -7903,7 +7903,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Dirent$u20$as$u20$wiggle
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load i64, ptr %33, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !266
-  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %5, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11, i32 noundef %32, i32 noundef 1), !noalias !266
+  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %5, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11, i32 noundef %32, i32 noundef 1), !noalias !266
   %35 = load i32, ptr %5, align 8, !range !34, !noalias !266, !noundef !5
   %36 = icmp eq i32 %35, 11
   br i1 %36, label %37, label %39
@@ -7989,7 +7989,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Dirent$u20$as$u20$wiggle
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %53 = load i32, ptr %52, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !270
-  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11, i32 noundef %51, i32 noundef 1), !noalias !270
+  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11, i32 noundef %51, i32 noundef 1), !noalias !270
   %54 = load i32, ptr %4, align 8, !range !34, !noalias !270, !noundef !5
   %55 = icmp eq i32 %54, 11
   br i1 %55, label %56, label %58
@@ -8081,7 +8081,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Dirent$u20$as$u20$wiggle
   store i32 %70, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %74 = load i8, ptr %73, align 4, !range !274, !noundef !5
-  call void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filetype$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h78f40db79d62f206E"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i8 noundef %74)
+  call void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filetype$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h78f40db79d62f206E"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i8 noundef %74)
   %75 = load i32, ptr %8, align 8, !range !34, !noundef !5
   %76 = icmp eq i32 %75, 11
   br i1 %76, label %78, label %79
@@ -8131,7 +8131,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Dirent$u20$as$u20$wiggle
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Advice$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17ha9f5c7ac9dd32cbbE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Advice$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17ha9f5c7ac9dd32cbbE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %.sroa.17 = alloca [8 x i32], align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
@@ -8140,7 +8140,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Advice$u20$as$u20$wiggle
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !275
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %8, i32 noundef 1), !noalias !275
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %8, i32 noundef 1), !noalias !275
   %9 = load i32, ptr %3, align 8, !range !34, !noalias !275, !noundef !5
   %10 = icmp eq i32 %9, 11
   br i1 %10, label %11, label %13
@@ -8276,7 +8276,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Advice$u20$as$u20$wiggle
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Advice$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hb4affaa431a99c45E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i8 noundef %2) unnamed_addr #1 {
+define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Advice$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hb4affaa431a99c45E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i8 noundef %2) unnamed_addr #1 {
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
   %6 = alloca { i32, [15 x i32] }, align 8
@@ -8308,7 +8308,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Advice$u20$as$u20$wiggle
 
 16:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !279
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %9, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, i32 noundef %14, i32 noundef 1), !noalias !279
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %9, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, i32 noundef %14, i32 noundef 1), !noalias !279
   %17 = load i32, ptr %9, align 8, !range !34, !noalias !279, !noundef !5
   %18 = icmp eq i32 %17, 11
   br i1 %18, label %19, label %21
@@ -8359,7 +8359,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Advice$u20$as$u20$wiggle
 
 29:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8), !noalias !283
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %8, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, i32 noundef %14, i32 noundef 1), !noalias !283
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %8, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, i32 noundef %14, i32 noundef 1), !noalias !283
   %30 = load i32, ptr %8, align 8, !range !34, !noalias !283, !noundef !5
   %31 = icmp eq i32 %30, 11
   br i1 %31, label %32, label %34
@@ -8410,7 +8410,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Advice$u20$as$u20$wiggle
 
 42:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7), !noalias !287
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %7, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, i32 noundef %14, i32 noundef 1), !noalias !287
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %7, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, i32 noundef %14, i32 noundef 1), !noalias !287
   %43 = load i32, ptr %7, align 8, !range !34, !noalias !287, !noundef !5
   %44 = icmp eq i32 %43, 11
   br i1 %44, label %45, label %47
@@ -8461,7 +8461,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Advice$u20$as$u20$wiggle
 
 55:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !291
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %6, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, i32 noundef %14, i32 noundef 1), !noalias !291
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %6, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, i32 noundef %14, i32 noundef 1), !noalias !291
   %56 = load i32, ptr %6, align 8, !range !34, !noalias !291, !noundef !5
   %57 = icmp eq i32 %56, 11
   br i1 %57, label %58, label %60
@@ -8512,7 +8512,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Advice$u20$as$u20$wiggle
 
 68:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !295
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %5, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, i32 noundef %14, i32 noundef 1), !noalias !295
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %5, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, i32 noundef %14, i32 noundef 1), !noalias !295
   %69 = load i32, ptr %5, align 8, !range !34, !noalias !295, !noundef !5
   %70 = icmp eq i32 %69, 11
   br i1 %70, label %71, label %73
@@ -8563,7 +8563,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Advice$u20$as$u20$wiggle
 
 81:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !299
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, i32 noundef %14, i32 noundef 1), !noalias !299
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, i32 noundef %14, i32 noundef 1), !noalias !299
   %82 = load i32, ptr %4, align 8, !range !34, !noalias !299, !noundef !5
   %83 = icmp eq i32 %82, 11
   br i1 %83, label %84, label %86
@@ -8816,7 +8816,7 @@ define noundef zeroext i1 @"_ZN78_$LT$wasmtime_wasi..preview1..types..Fdflags$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Fdflags$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h7b5ffeb9100e2f75E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Fdflags$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h7b5ffeb9100e2f75E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %.sroa.331 = alloca [58 x i8], align 2
@@ -8827,7 +8827,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Fdflags$u20$as$u20$wiggl
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !303
-  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !303
+  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !303
   %10 = load i32, ptr %4, align 8, !range !34, !noalias !303, !noundef !5
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %14
@@ -8936,7 +8936,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Fdflags$u20$as$u20$wiggl
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Fdflags$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17ha163406077bf0e71E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i16 noundef %2) unnamed_addr #1 {
+define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Fdflags$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17ha163406077bf0e71E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i16 noundef %2) unnamed_addr #1 {
   %.sroa.743.i = alloca [8 x i32], align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
@@ -8947,7 +8947,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Fdflags$u20$as$u20$wiggl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !310)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.743.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !313
-  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !313
+  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !313
   %10 = load i32, ptr %4, align 8, !range !34, !noalias !313, !noundef !5
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %14
@@ -9043,7 +9043,7 @@ define noundef i32 @_ZN13wasmtime_wasi8preview15types6Fdstat30offset_of_fs_right
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Fdstat$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h861cf3e5498fc920E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) initializes((0, 4), (8, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Fdstat$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h861cf3e5498fc920E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) initializes((0, 4), (8, 24)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %.sroa.4278 = alloca [12 x i32], align 8
   %.sroa.4241 = alloca [12 x i32], align 8
   %.sroa.3204 = alloca [58 x i8], align 2
@@ -9068,7 +9068,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Fdstat$u20$as$u20$wiggle
   store ptr %13, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %15, ptr %17, align 8
-  call void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filetype$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17hb7dbd290c5ecd61eE"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  call void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filetype$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17hb7dbd290c5ecd61eE"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
   %18 = load i32, ptr %10, align 8, !range !34, !noundef !5
   %19 = icmp eq i32 %18, 11
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -9103,7 +9103,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Fdstat$u20$as$u20$wiggle
   store ptr %13, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %27, ptr %29, align 8
-  call void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Fdflags$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h7b5ffeb9100e2f75E"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
+  call void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Fdflags$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h7b5ffeb9100e2f75E"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
   %30 = load i32, ptr %8, align 8, !range !34, !noundef !5
   %31 = icmp eq i32 %30, 11
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -9146,7 +9146,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Fdstat$u20$as$u20$wiggle
   store ptr %13, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %40, ptr %42, align 8
-  call void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Rights$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h9584264ea18aa61eE"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Rights$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h9584264ea18aa61eE"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %43 = load i32, ptr %6, align 8, !range !34, !noundef !5
   %44 = icmp eq i32 %43, 11
   br i1 %44, label %46, label %51
@@ -9195,7 +9195,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Fdstat$u20$as$u20$wiggle
   store ptr %13, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %53, ptr %55, align 8
-  call void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Rights$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h9584264ea18aa61eE"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
+  call void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Rights$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h9584264ea18aa61eE"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
   %56 = load i32, ptr %4, align 8, !range !34, !noundef !5
   %57 = icmp eq i32 %56, 11
   br i1 %57, label %59, label %63
@@ -9259,7 +9259,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Fdstat$u20$as$u20$wiggle
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Fdstat$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hf87e6353e23e7c1bE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 {
+define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Fdstat$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hf87e6353e23e7c1bE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #1 {
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
   %.sroa.2231 = alloca [15 x i32], align 4
@@ -9285,7 +9285,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Fdstat$u20$as$u20$wiggle
   store i32 %14, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 18
   %18 = load i8, ptr %17, align 2, !range !274, !noundef !5
-  call void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filetype$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h78f40db79d62f206E"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i8 noundef %18)
+  call void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filetype$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h78f40db79d62f206E"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i8 noundef %18)
   %19 = load i32, ptr %9, align 8, !range !34, !noundef !5
   %20 = icmp eq i32 %19, 11
   br i1 %20, label %21, label %24
@@ -9312,7 +9312,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Fdstat$u20$as$u20$wiggle
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %28 = load i16, ptr %27, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !316
-  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %5, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, i32 noundef %26, i32 noundef 1), !noalias !316
+  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %5, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, i32 noundef %26, i32 noundef 1), !noalias !316
   %29 = load i32, ptr %5, align 8, !range !34, !noalias !316, !noundef !5
   %30 = icmp eq i32 %29, 11
   br i1 %30, label %31, label %33
@@ -9401,7 +9401,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Fdstat$u20$as$u20$wiggle
   %47 = extractvalue { i32, i1 } %43, 0
   %48 = load i64, ptr %2, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !323
-  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, i32 noundef %47, i32 noundef 1), !noalias !323
+  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, i32 noundef %47, i32 noundef 1), !noalias !323
   %49 = load i32, ptr %4, align 8, !range !34, !noalias !323, !noundef !5
   %50 = icmp eq i32 %49, 11
   br i1 %50, label %51, label %53
@@ -9493,7 +9493,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Fdstat$u20$as$u20$wiggle
   store i32 %65, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %69 = load i64, ptr %68, align 8, !noundef !5
-  call void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Rights$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h8b7984ee1e2bf3e9E"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i64 noundef %69)
+  call void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Rights$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h8b7984ee1e2bf3e9E"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i64 noundef %69)
   %70 = load i32, ptr %7, align 8, !range !34, !noundef !5
   %71 = icmp eq i32 %70, 11
   br i1 %71, label %73, label %74
@@ -9576,7 +9576,7 @@ define noundef zeroext i1 @"_ZN79_$LT$wasmtime_wasi..preview1..types..Fstflags$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Fstflags$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h612eb81c3124eed6E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Fstflags$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h612eb81c3124eed6E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %.sroa.331 = alloca [58 x i8], align 2
@@ -9587,7 +9587,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Fstflags$u20$as$u20$wigg
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !330
-  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !330
+  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !330
   %10 = load i32, ptr %4, align 8, !range !34, !noalias !330, !noundef !5
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %14
@@ -9696,7 +9696,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Fstflags$u20$as$u20$wigg
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Fstflags$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h97ebd1015d2c868fE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i16 noundef %2) unnamed_addr #1 {
+define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Fstflags$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h97ebd1015d2c868fE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i16 noundef %2) unnamed_addr #1 {
   %.sroa.743.i = alloca [8 x i32], align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
@@ -9707,7 +9707,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Fstflags$u20$as$u20$wigg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !337)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.743.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !340
-  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !340
+  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !340
   %10 = load i32, ptr %4, align 8, !range !34, !noalias !340, !noundef !5
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %14
@@ -9822,7 +9822,7 @@ define noundef zeroext i1 @"_ZN82_$LT$wasmtime_wasi..preview1..types..Lookupflag
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN93_$LT$wasmtime_wasi..preview1..types..Lookupflags$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h3253971d99e2d1a9E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN93_$LT$wasmtime_wasi..preview1..types..Lookupflags$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h3253971d99e2d1a9E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %.sroa.331 = alloca [14 x i32], align 8
@@ -9833,7 +9833,7 @@ define void @"_ZN93_$LT$wasmtime_wasi..preview1..types..Lookupflags$u20$as$u20$w
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !343
-  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !343
+  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !343
   %10 = load i32, ptr %4, align 8, !range !34, !noalias !343, !noundef !5
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %14
@@ -9936,7 +9936,7 @@ define void @"_ZN93_$LT$wasmtime_wasi..preview1..types..Lookupflags$u20$as$u20$w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN93_$LT$wasmtime_wasi..preview1..types..Lookupflags$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hd102a68afaf8bfc3E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #1 {
+define void @"_ZN93_$LT$wasmtime_wasi..preview1..types..Lookupflags$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hd102a68afaf8bfc3E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #1 {
   %.sroa.743.i = alloca [8 x i32], align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
@@ -9947,7 +9947,7 @@ define void @"_ZN93_$LT$wasmtime_wasi..preview1..types..Lookupflags$u20$as$u20$w
   tail call void @llvm.experimental.noalias.scope.decl(metadata !350)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.743.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !353
-  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !353
+  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !353
   %10 = load i32, ptr %4, align 8, !range !34, !noalias !353, !noundef !5
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %14
@@ -10062,7 +10062,7 @@ define noundef zeroext i1 @"_ZN77_$LT$wasmtime_wasi..preview1..types..Oflags$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Oflags$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h3252024c9614b533E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Oflags$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h3252024c9614b533E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %.sroa.331 = alloca [58 x i8], align 2
@@ -10073,7 +10073,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Oflags$u20$as$u20$wiggle
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !356
-  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !356
+  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !356
   %10 = load i32, ptr %4, align 8, !range !34, !noalias !356, !noundef !5
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %14
@@ -10182,7 +10182,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Oflags$u20$as$u20$wiggle
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Oflags$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17he401076910bf7c7cE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i16 noundef %2) unnamed_addr #1 {
+define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Oflags$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17he401076910bf7c7cE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i16 noundef %2) unnamed_addr #1 {
   %.sroa.743.i = alloca [8 x i32], align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
@@ -10193,7 +10193,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Oflags$u20$as$u20$wiggle
   tail call void @llvm.experimental.noalias.scope.decl(metadata !363)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.743.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !366
-  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !366
+  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !366
   %10 = load i32, ptr %4, align 8, !range !34, !noalias !366, !noundef !5
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %14
@@ -10309,7 +10309,7 @@ define noundef i32 @_ZN13wasmtime_wasi8preview15types8Filestat14offset_of_ctim17
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filestat$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17hcb36c835ae4122e5E"(ptr noalias nocapture noundef writeonly sret({ i64, [8 x i64] }) align 8 dereferenceable(72) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filestat$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17hcb36c835ae4122e5E"(ptr noalias noundef writeonly sret({ i64, [8 x i64] }) align 8 captures(none) dereferenceable(72) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %.sroa.4583 = alloca [12 x i32], align 8
@@ -10339,7 +10339,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filestat$u20$as$u20$wigg
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i32, ptr %20, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !369
-  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19, i32 noundef %21, i32 noundef 1), !noalias !369
+  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19, i32 noundef %21, i32 noundef 1), !noalias !369
   %22 = load i32, ptr %4, align 8, !range !34, !noalias !369, !noundef !5
   %23 = icmp eq i32 %22, 11
   br i1 %23, label %24, label %26
@@ -10421,7 +10421,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filestat$u20$as$u20$wigg
 40:                                               ; preds = %34
   %41 = extractvalue { i32, i1 } %36, 0
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !373
-  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19, i32 noundef %41, i32 noundef 1), !noalias !373
+  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %3, ptr noundef nonnull align 1 %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19, i32 noundef %41, i32 noundef 1), !noalias !373
   %42 = load i32, ptr %3, align 8, !range !34, !noalias !373, !noundef !5
   %43 = icmp eq i32 %42, 11
   br i1 %43, label %44, label %46
@@ -10513,7 +10513,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filestat$u20$as$u20$wigg
   store ptr %19, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 %61, ptr %63, align 8
-  call void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filetype$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17hb7dbd290c5ecd61eE"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
+  call void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filetype$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17hb7dbd290c5ecd61eE"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
   %64 = load i32, ptr %16, align 8, !range !34, !noundef !5
   %65 = icmp eq i32 %64, 11
   %66 = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -10560,7 +10560,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filestat$u20$as$u20$wigg
   store ptr %19, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 %76, ptr %78, align 8
-  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h1dc336ba64d74f1fE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %14, ptr noalias noundef readonly align 8 dereferenceable(24) %13)
+  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h1dc336ba64d74f1fE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %14, ptr noalias noundef readonly align 8 dereferenceable(24) %13)
   %79 = load i32, ptr %14, align 8, !range !34, !noundef !5
   %80 = icmp eq i32 %79, 11
   br i1 %80, label %83, label %88
@@ -10613,7 +10613,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filestat$u20$as$u20$wigg
   store ptr %19, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 %91, ptr %93, align 8
-  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h1dc336ba64d74f1fE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %12, ptr noalias noundef readonly align 8 dereferenceable(24) %11)
+  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h1dc336ba64d74f1fE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %12, ptr noalias noundef readonly align 8 dereferenceable(24) %11)
   %94 = load i32, ptr %12, align 8, !range !34, !noundef !5
   %95 = icmp eq i32 %94, 11
   br i1 %95, label %98, label %103
@@ -10666,7 +10666,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filestat$u20$as$u20$wigg
   store ptr %19, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %106, ptr %108, align 8
-  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h1dc336ba64d74f1fE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %10, ptr noalias noundef readonly align 8 dereferenceable(24) %9)
+  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h1dc336ba64d74f1fE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %10, ptr noalias noundef readonly align 8 dereferenceable(24) %9)
   %109 = load i32, ptr %10, align 8, !range !34, !noundef !5
   %110 = icmp eq i32 %109, 11
   br i1 %110, label %113, label %118
@@ -10719,7 +10719,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filestat$u20$as$u20$wigg
   store ptr %19, ptr %122, align 8
   %123 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %121, ptr %123, align 8
-  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h1dc336ba64d74f1fE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %8, ptr noalias noundef readonly align 8 dereferenceable(24) %7)
+  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h1dc336ba64d74f1fE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %8, ptr noalias noundef readonly align 8 dereferenceable(24) %7)
   %124 = load i32, ptr %8, align 8, !range !34, !noundef !5
   %125 = icmp eq i32 %124, 11
   br i1 %125, label %128, label %133
@@ -10772,7 +10772,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filestat$u20$as$u20$wigg
   store ptr %19, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %136, ptr %138, align 8
-  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h1dc336ba64d74f1fE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %5)
+  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h1dc336ba64d74f1fE"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %5)
   %139 = load i32, ptr %6, align 8, !range !34, !noundef !5
   %140 = icmp eq i32 %139, 11
   br i1 %140, label %143, label %147
@@ -10867,7 +10867,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filestat$u20$as$u20$wigg
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filestat$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hd2dcef15253758f2E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %2) unnamed_addr #1 {
+define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filestat$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hd2dcef15253758f2E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %2) unnamed_addr #1 {
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
   %.sroa.2471 = alloca [15 x i32], align 4
@@ -10898,7 +10898,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filestat$u20$as$u20$wigg
   %22 = load i32, ptr %21, align 8, !noundef !5
   %23 = load i64, ptr %2, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !377
-  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %5, ptr noundef nonnull align 1 %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, i32 noundef %22, i32 noundef 1), !noalias !377
+  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %5, ptr noundef nonnull align 1 %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, i32 noundef %22, i32 noundef 1), !noalias !377
   %24 = load i32, ptr %5, align 8, !range !34, !noalias !377, !noundef !5
   %25 = icmp eq i32 %24, 11
   br i1 %25, label %26, label %28
@@ -10980,7 +10980,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filestat$u20$as$u20$wigg
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %43 = load i64, ptr %42, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !381
-  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, i32 noundef %41, i32 noundef 1), !noalias !381
+  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20, i32 noundef %41, i32 noundef 1), !noalias !381
   %44 = load i32, ptr %4, align 8, !range !34, !noalias !381, !noundef !5
   %45 = icmp eq i32 %44, 11
   br i1 %45, label %46, label %48
@@ -11072,7 +11072,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filestat$u20$as$u20$wigg
   store i32 %60, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %64 = load i8, ptr %63, align 8, !range !274, !noundef !5
-  call void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filetype$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h78f40db79d62f206E"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16, i8 noundef %64)
+  call void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filetype$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h78f40db79d62f206E"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16, i8 noundef %64)
   %65 = load i32, ptr %17, align 8, !range !34, !noundef !5
   %66 = icmp eq i32 %65, 11
   br i1 %66, label %68, label %71
@@ -11113,7 +11113,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filestat$u20$as$u20$wigg
   store i32 %73, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %77 = load i64, ptr %76, align 8, !noundef !5
-  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hc89ff7fecb3becc8E"(ptr noalias nocapture noundef align 8 dereferenceable(64) %15, ptr noalias noundef readonly align 8 dereferenceable(24) %14, i64 noundef %77)
+  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hc89ff7fecb3becc8E"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %15, ptr noalias noundef readonly align 8 dereferenceable(24) %14, i64 noundef %77)
   %78 = load i32, ptr %15, align 8, !range !34, !noundef !5
   %79 = icmp eq i32 %78, 11
   br i1 %79, label %81, label %84
@@ -11154,7 +11154,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filestat$u20$as$u20$wigg
   store i32 %86, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %90 = load i64, ptr %89, align 8, !noundef !5
-  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hc89ff7fecb3becc8E"(ptr noalias nocapture noundef align 8 dereferenceable(64) %13, ptr noalias noundef readonly align 8 dereferenceable(24) %12, i64 noundef %90)
+  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hc89ff7fecb3becc8E"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %13, ptr noalias noundef readonly align 8 dereferenceable(24) %12, i64 noundef %90)
   %91 = load i32, ptr %13, align 8, !range !34, !noundef !5
   %92 = icmp eq i32 %91, 11
   br i1 %92, label %94, label %97
@@ -11195,7 +11195,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filestat$u20$as$u20$wigg
   store i32 %99, ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %103 = load i64, ptr %102, align 8, !noundef !5
-  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hc89ff7fecb3becc8E"(ptr noalias nocapture noundef align 8 dereferenceable(64) %11, ptr noalias noundef readonly align 8 dereferenceable(24) %10, i64 noundef %103)
+  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hc89ff7fecb3becc8E"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %11, ptr noalias noundef readonly align 8 dereferenceable(24) %10, i64 noundef %103)
   %104 = load i32, ptr %11, align 8, !range !34, !noundef !5
   %105 = icmp eq i32 %104, 11
   br i1 %105, label %107, label %110
@@ -11236,7 +11236,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filestat$u20$as$u20$wigg
   store i32 %112, ptr %114, align 8
   %115 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %116 = load i64, ptr %115, align 8, !noundef !5
-  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hc89ff7fecb3becc8E"(ptr noalias nocapture noundef align 8 dereferenceable(64) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %8, i64 noundef %116)
+  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hc89ff7fecb3becc8E"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %9, ptr noalias noundef readonly align 8 dereferenceable(24) %8, i64 noundef %116)
   %117 = load i32, ptr %9, align 8, !range !34, !noundef !5
   %118 = icmp eq i32 %117, 11
   br i1 %118, label %120, label %123
@@ -11277,7 +11277,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filestat$u20$as$u20$wigg
   store i32 %125, ptr %127, align 8
   %128 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %129 = load i64, ptr %128, align 8, !noundef !5
-  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hc89ff7fecb3becc8E"(ptr noalias nocapture noundef align 8 dereferenceable(64) %7, ptr noalias noundef readonly align 8 dereferenceable(24) %6, i64 noundef %129)
+  call fastcc void @"_ZN53_$LT$u64$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hc89ff7fecb3becc8E"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %7, ptr noalias noundef readonly align 8 dereferenceable(24) %6, i64 noundef %129)
   %130 = load i32, ptr %7, align 8, !range !34, !noundef !5
   %131 = icmp eq i32 %130, 11
   br i1 %131, label %133, label %134
@@ -11341,7 +11341,7 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Filestat$u20$as$u20$wigg
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN91_$LT$wasmtime_wasi..preview1..types..Eventtype$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17ha2e97aa5f9ed381bE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN91_$LT$wasmtime_wasi..preview1..types..Eventtype$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17ha2e97aa5f9ed381bE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %.sroa.17 = alloca [8 x i32], align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
@@ -11350,7 +11350,7 @@ define void @"_ZN91_$LT$wasmtime_wasi..preview1..types..Eventtype$u20$as$u20$wig
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !385
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %8, i32 noundef 1), !noalias !385
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %8, i32 noundef 1), !noalias !385
   %9 = load i32, ptr %3, align 8, !range !34, !noalias !385, !noundef !5
   %10 = icmp eq i32 %9, 11
   br i1 %10, label %11, label %13
@@ -11465,7 +11465,7 @@ define void @"_ZN91_$LT$wasmtime_wasi..preview1..types..Eventtype$u20$as$u20$wig
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN91_$LT$wasmtime_wasi..preview1..types..Eventtype$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h008e67d61394ce74E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i8 noundef %2) unnamed_addr #1 {
+define void @"_ZN91_$LT$wasmtime_wasi..preview1..types..Eventtype$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h008e67d61394ce74E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i8 noundef %2) unnamed_addr #1 {
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
   %6 = alloca { i32, [15 x i32] }, align 8
@@ -11488,7 +11488,7 @@ define void @"_ZN91_$LT$wasmtime_wasi..preview1..types..Eventtype$u20$as$u20$wig
 
 13:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !389
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %6, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, i32 noundef %11, i32 noundef 1), !noalias !389
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %6, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, i32 noundef %11, i32 noundef 1), !noalias !389
   %14 = load i32, ptr %6, align 8, !range !34, !noalias !389, !noundef !5
   %15 = icmp eq i32 %14, 11
   br i1 %15, label %16, label %18
@@ -11539,7 +11539,7 @@ define void @"_ZN91_$LT$wasmtime_wasi..preview1..types..Eventtype$u20$as$u20$wig
 
 26:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !393
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %5, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, i32 noundef %11, i32 noundef 1), !noalias !393
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %5, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, i32 noundef %11, i32 noundef 1), !noalias !393
   %27 = load i32, ptr %5, align 8, !range !34, !noalias !393, !noundef !5
   %28 = icmp eq i32 %27, 11
   br i1 %28, label %29, label %31
@@ -11590,7 +11590,7 @@ define void @"_ZN91_$LT$wasmtime_wasi..preview1..types..Eventtype$u20$as$u20$wig
 
 39:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !397
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, i32 noundef %11, i32 noundef 1), !noalias !397
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, i32 noundef %11, i32 noundef 1), !noalias !397
   %40 = load i32, ptr %4, align 8, !range !34, !noalias !397, !noundef !5
   %41 = icmp eq i32 %40, 11
   br i1 %41, label %42, label %44
@@ -11765,7 +11765,7 @@ define noundef zeroext i1 @"_ZN83_$LT$wasmtime_wasi..preview1..types..Eventrwfla
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN94_$LT$wasmtime_wasi..preview1..types..Eventrwflags$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h6d6cfd40c6b75da2E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN94_$LT$wasmtime_wasi..preview1..types..Eventrwflags$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h6d6cfd40c6b75da2E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %.sroa.331 = alloca [58 x i8], align 2
@@ -11776,7 +11776,7 @@ define void @"_ZN94_$LT$wasmtime_wasi..preview1..types..Eventrwflags$u20$as$u20$
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !401
-  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !401
+  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !401
   %10 = load i32, ptr %4, align 8, !range !34, !noalias !401, !noundef !5
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %14
@@ -11885,7 +11885,7 @@ define void @"_ZN94_$LT$wasmtime_wasi..preview1..types..Eventrwflags$u20$as$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN94_$LT$wasmtime_wasi..preview1..types..Eventrwflags$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h36b34434b097d700E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i16 noundef %2) unnamed_addr #1 {
+define void @"_ZN94_$LT$wasmtime_wasi..preview1..types..Eventrwflags$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h36b34434b097d700E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i16 noundef %2) unnamed_addr #1 {
   %.sroa.743.i = alloca [8 x i32], align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
@@ -11896,7 +11896,7 @@ define void @"_ZN94_$LT$wasmtime_wasi..preview1..types..Eventrwflags$u20$as$u20$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !408)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.743.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !411
-  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !411
+  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !411
   %10 = load i32, ptr %4, align 8, !range !34, !noalias !411, !noundef !5
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %14
@@ -11982,7 +11982,7 @@ define noundef i32 @_ZN13wasmtime_wasi8preview15types16EventFdReadwrite15offset_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN98_$LT$wasmtime_wasi..preview1..types..EventFdReadwrite$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h7c325aa9caf44bbdE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN98_$LT$wasmtime_wasi..preview1..types..EventFdReadwrite$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h7c325aa9caf44bbdE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %.sroa.3135 = alloca [58 x i8], align 2
   %4 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
@@ -11994,7 +11994,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview1..types..EventFdReadwrite$u20$as$
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i32, ptr %9, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !414
-  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i32 noundef %10, i32 noundef 1), !noalias !414
+  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %3, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i32 noundef %10, i32 noundef 1), !noalias !414
   %11 = load i32, ptr %3, align 8, !range !34, !noalias !414, !noundef !5
   %12 = icmp eq i32 %11, 11
   br i1 %12, label %13, label %15
@@ -12080,7 +12080,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview1..types..EventFdReadwrite$u20$as$
   store ptr %8, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %29, ptr %31, align 8
-  call void @"_ZN94_$LT$wasmtime_wasi..preview1..types..Eventrwflags$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h6d6cfd40c6b75da2E"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
+  call void @"_ZN94_$LT$wasmtime_wasi..preview1..types..Eventrwflags$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h6d6cfd40c6b75da2E"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
   %32 = load i32, ptr %5, align 8, !range !34, !noundef !5
   %33 = icmp eq i32 %32, 11
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -12126,7 +12126,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview1..types..EventFdReadwrite$u20$as$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN98_$LT$wasmtime_wasi..preview1..types..EventFdReadwrite$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h1424cb33076646c9E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i16 noundef %3) unnamed_addr #1 {
+define void @"_ZN98_$LT$wasmtime_wasi..preview1..types..EventFdReadwrite$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h1424cb33076646c9E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i64 noundef %2, i16 noundef %3) unnamed_addr #1 {
   %5 = alloca { i32, [15 x i32] }, align 8
   %6 = alloca { i32, [15 x i32] }, align 8
   %.sroa.339 = alloca [8 x i32], align 8
@@ -12138,7 +12138,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview1..types..EventFdReadwrite$u20$as$
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i32, ptr %10, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !418
-  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %6, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, i32 noundef %11, i32 noundef 1), !noalias !418
+  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %6, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, i32 noundef %11, i32 noundef 1), !noalias !418
   %12 = load i32, ptr %6, align 8, !range !34, !noalias !418, !noundef !5
   %13 = icmp eq i32 %12, 11
   br i1 %13, label %14, label %16
@@ -12218,7 +12218,7 @@ define void @"_ZN98_$LT$wasmtime_wasi..preview1..types..EventFdReadwrite$u20$as$
 28:                                               ; preds = %24
   %29 = extractvalue { i32, i1 } %25, 0
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !422
-  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %5, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, i32 noundef %29, i32 noundef 1), !noalias !422
+  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %5, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, i32 noundef %29, i32 noundef 1), !noalias !422
   %30 = load i32, ptr %5, align 8, !range !34, !noalias !422, !noundef !5
   %31 = icmp eq i32 %30, 11
   br i1 %31, label %32, label %34
@@ -12329,7 +12329,7 @@ define noundef i32 @_ZN13wasmtime_wasi8preview15types5Event22offset_of_fd_readwr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Event$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h0c7471c1cbc2d01fE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Event$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h0c7471c1cbc2d01fE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %.sroa.17.i = alloca [8 x i32], align 8
   %4 = alloca { i32, [15 x i32] }, align 8
@@ -12347,7 +12347,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Event$u20$as$u20$wiggle.
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i32, ptr %12, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !429
-  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11, i32 noundef %13, i32 noundef 1), !noalias !429
+  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11, i32 noundef %13, i32 noundef 1), !noalias !429
   %14 = load i32, ptr %4, align 8, !range !34, !noalias !429, !noundef !5
   %15 = icmp eq i32 %14, 11
   br i1 %15, label %16, label %18
@@ -12433,7 +12433,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Event$u20$as$u20$wiggle.
   store ptr %11, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %32, ptr %34, align 8
-  call void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h8473118bf804daa1E"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
+  call void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h8473118bf804daa1E"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
   %35 = load i32, ptr %8, align 8, !range !34, !noundef !5
   %36 = icmp eq i32 %35, 11
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -12470,7 +12470,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Event$u20$as$u20$wiggle.
 44:                                               ; preds = %40
   %45 = extractvalue { i32, i1 } %41, 0
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !433
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11, i32 noundef %45, i32 noundef 1), !noalias !433
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %3, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11, i32 noundef %45, i32 noundef 1), !noalias !433
   %46 = load i32, ptr %3, align 8, !range !34, !noalias !433, !noundef !5
   %47 = icmp eq i32 %46, 11
   br i1 %47, label %48, label %50
@@ -12579,7 +12579,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Event$u20$as$u20$wiggle.
   store ptr %11, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %65, ptr %67, align 8
-  call void @"_ZN98_$LT$wasmtime_wasi..preview1..types..EventFdReadwrite$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h7c325aa9caf44bbdE"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
+  call void @"_ZN98_$LT$wasmtime_wasi..preview1..types..EventFdReadwrite$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h7c325aa9caf44bbdE"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
   %68 = load i32, ptr %6, align 8, !range !34, !noundef !5
   %69 = icmp eq i32 %68, 11
   br i1 %69, label %71, label %77
@@ -12653,7 +12653,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Event$u20$as$u20$wiggle.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Event$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h7dd0fa08375fd30cE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Event$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h7dd0fa08375fd30cE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = alloca { i32, [15 x i32] }, align 8
   %.sroa.2231 = alloca [15 x i32], align 4
   %.sroa.2200 = alloca [15 x i32], align 4
@@ -12673,7 +12673,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Event$u20$as$u20$wiggle.
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !440
-  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13, i32 noundef %15, i32 noundef 1), !noalias !440
+  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13, i32 noundef %15, i32 noundef 1), !noalias !440
   %18 = load i32, ptr %4, align 8, !range !34, !noalias !440, !noundef !5
   %19 = icmp eq i32 %18, 11
   br i1 %19, label %20, label %22
@@ -12761,7 +12761,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Event$u20$as$u20$wiggle.
   store i32 %35, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %39 = load i8, ptr %38, align 8, !range !143, !noundef !5
-  call void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h0587303e3dc587d0E"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, i8 noundef %39)
+  call void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Errno$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h0587303e3dc587d0E"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, i8 noundef %39)
   %40 = load i32, ptr %10, align 8, !range !34, !noundef !5
   %41 = icmp eq i32 %40, 11
   br i1 %41, label %43, label %46
@@ -12802,7 +12802,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Event$u20$as$u20$wiggle.
   store i32 %48, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 25
   %52 = load i8, ptr %51, align 1, !range !444, !noundef !5
-  call void @"_ZN91_$LT$wasmtime_wasi..preview1..types..Eventtype$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h008e67d61394ce74E"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i8 noundef %52)
+  call void @"_ZN91_$LT$wasmtime_wasi..preview1..types..Eventtype$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h008e67d61394ce74E"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i8 noundef %52)
   %53 = load i32, ptr %8, align 8, !range !34, !noundef !5
   %54 = icmp eq i32 %53, 11
   br i1 %54, label %56, label %59
@@ -12844,7 +12844,7 @@ define void @"_ZN87_$LT$wasmtime_wasi..preview1..types..Event$u20$as$u20$wiggle.
   %64 = load i64, ptr %2, align 8, !noundef !5
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %66 = load i16, ptr %65, align 8, !noundef !5
-  call void @"_ZN98_$LT$wasmtime_wasi..preview1..types..EventFdReadwrite$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h1424cb33076646c9E"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5, i64 noundef %64, i16 noundef %66)
+  call void @"_ZN98_$LT$wasmtime_wasi..preview1..types..EventFdReadwrite$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h1424cb33076646c9E"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5, i64 noundef %64, i16 noundef %66)
   %67 = load i32, ptr %6, align 8, !range !34, !noundef !5
   %68 = icmp eq i32 %67, 11
   br i1 %68, label %70, label %71
@@ -12929,7 +12929,7 @@ define noundef zeroext i1 @"_ZN84_$LT$wasmtime_wasi..preview1..types..Subclockfl
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..Subclockflags$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h962ebcb2aeba3426E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..Subclockflags$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h962ebcb2aeba3426E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %.sroa.331 = alloca [58 x i8], align 2
@@ -12940,7 +12940,7 @@ define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..Subclockflags$u20$as$u20
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !445
-  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !445
+  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !445
   %10 = load i32, ptr %4, align 8, !range !34, !noalias !445, !noundef !5
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %14
@@ -13049,7 +13049,7 @@ define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..Subclockflags$u20$as$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..Subclockflags$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h357f10c95ca346aeE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i16 noundef %2) unnamed_addr #1 {
+define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..Subclockflags$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h357f10c95ca346aeE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i16 noundef %2) unnamed_addr #1 {
   %.sroa.743.i = alloca [8 x i32], align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
@@ -13060,7 +13060,7 @@ define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..Subclockflags$u20$as$u20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !452)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.743.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !455
-  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !455
+  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !455
   %10 = load i32, ptr %4, align 8, !range !34, !noalias !455, !noundef !5
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %14
@@ -13156,7 +13156,7 @@ define noundef i32 @_ZN13wasmtime_wasi8preview15types17SubscriptionClock15offset
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN99_$LT$wasmtime_wasi..preview1..types..SubscriptionClock$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h46151ee2ec5bc506E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN99_$LT$wasmtime_wasi..preview1..types..SubscriptionClock$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h46151ee2ec5bc506E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
@@ -13174,7 +13174,7 @@ define void @"_ZN99_$LT$wasmtime_wasi..preview1..types..SubscriptionClock$u20$as
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !458
-  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %5, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %12, i32 noundef 1), !noalias !458
+  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %5, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %12, i32 noundef 1), !noalias !458
   %13 = load i32, ptr %5, align 8, !range !34, !noalias !458, !noundef !5
   %14 = icmp eq i32 %13, 11
   br i1 %14, label %15, label %17
@@ -13274,7 +13274,7 @@ switch.lookup:                                    ; preds = %25
 32:                                               ; preds = %switch.lookup
   %33 = extractvalue { i32, i1 } %29, 0
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !465
-  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %33, i32 noundef 1), !noalias !465
+  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %33, i32 noundef 1), !noalias !465
   %34 = load i32, ptr %4, align 8, !range !34, !noalias !465, !noundef !5
   %35 = icmp eq i32 %34, 11
   br i1 %35, label %36, label %38
@@ -13358,7 +13358,7 @@ switch.lookup:                                    ; preds = %25
 50:                                               ; preds = %45
   %51 = extractvalue { i32, i1 } %47, 0
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !469
-  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %51, i32 noundef 1), !noalias !469
+  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %3, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %51, i32 noundef 1), !noalias !469
   %52 = load i32, ptr %3, align 8, !range !34, !noalias !469, !noundef !5
   %53 = icmp eq i32 %52, 11
   br i1 %53, label %54, label %56
@@ -13448,7 +13448,7 @@ switch.lookup:                                    ; preds = %25
   store ptr %10, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %69, ptr %71, align 8
-  call void @"_ZN95_$LT$wasmtime_wasi..preview1..types..Subclockflags$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h962ebcb2aeba3426E"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN95_$LT$wasmtime_wasi..preview1..types..Subclockflags$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h962ebcb2aeba3426E"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %72 = load i32, ptr %7, align 8, !range !34, !noundef !5
   %73 = icmp eq i32 %72, 11
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -13510,7 +13510,7 @@ switch.lookup:                                    ; preds = %25
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN99_$LT$wasmtime_wasi..preview1..types..SubscriptionClock$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hec2f395899cbe9d4E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 {
+define void @"_ZN99_$LT$wasmtime_wasi..preview1..types..SubscriptionClock$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hec2f395899cbe9d4E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #1 {
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
   %.sroa.2231 = alloca [15 x i32], align 4
@@ -13536,7 +13536,7 @@ define void @"_ZN99_$LT$wasmtime_wasi..preview1..types..SubscriptionClock$u20$as
   store i32 %14, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 18
   %18 = load i8, ptr %17, align 2, !range !79, !noundef !5
-  call void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Clockid$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h0dd7f6573785d022E"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i8 noundef %18)
+  call void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Clockid$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h0dd7f6573785d022E"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i8 noundef %18)
   %19 = load i32, ptr %9, align 8, !range !34, !noundef !5
   %20 = icmp eq i32 %19, 11
   br i1 %20, label %21, label %24
@@ -13562,7 +13562,7 @@ define void @"_ZN99_$LT$wasmtime_wasi..preview1..types..SubscriptionClock$u20$as
   %26 = extractvalue { i32, i1 } %22, 0
   %27 = load i64, ptr %2, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !473
-  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %5, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, i32 noundef %26, i32 noundef 1), !noalias !473
+  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %5, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, i32 noundef %26, i32 noundef 1), !noalias !473
   %28 = load i32, ptr %5, align 8, !range !34, !noalias !473, !noundef !5
   %29 = icmp eq i32 %28, 11
   br i1 %29, label %30, label %32
@@ -13652,7 +13652,7 @@ define void @"_ZN99_$LT$wasmtime_wasi..preview1..types..SubscriptionClock$u20$as
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %48 = load i64, ptr %47, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !477
-  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, i32 noundef %46, i32 noundef 1), !noalias !477
+  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12, i32 noundef %46, i32 noundef 1), !noalias !477
   %49 = load i32, ptr %4, align 8, !range !34, !noalias !477, !noundef !5
   %50 = icmp eq i32 %49, 11
   br i1 %50, label %51, label %53
@@ -13744,7 +13744,7 @@ define void @"_ZN99_$LT$wasmtime_wasi..preview1..types..SubscriptionClock$u20$as
   store i32 %65, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %69 = load i16, ptr %68, align 8, !noundef !5
-  call void @"_ZN95_$LT$wasmtime_wasi..preview1..types..Subclockflags$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h357f10c95ca346aeE"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i16 noundef %69)
+  call void @"_ZN95_$LT$wasmtime_wasi..preview1..types..Subclockflags$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h357f10c95ca346aeE"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i16 noundef %69)
   %70 = load i32, ptr %7, align 8, !range !34, !noundef !5
   %71 = icmp eq i32 %70, 11
   br i1 %71, label %73, label %74
@@ -13793,7 +13793,7 @@ define noundef i32 @_ZN13wasmtime_wasi8preview15types23SubscriptionFdReadwrite25
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN105_$LT$wasmtime_wasi..preview1..types..SubscriptionFdReadwrite$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h840e05b5087b0d96E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN105_$LT$wasmtime_wasi..preview1..types..SubscriptionFdReadwrite$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h840e05b5087b0d96E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %.sroa.17.i = alloca [8 x i32], align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
@@ -13802,7 +13802,7 @@ define void @"_ZN105_$LT$wasmtime_wasi..preview1..types..SubscriptionFdReadwrite
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !481
-  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %8, i32 noundef 1), !noalias !481
+  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %8, i32 noundef 1), !noalias !481
   %9 = load i32, ptr %3, align 8, !range !34, !noalias !481, !noundef !5
   %10 = icmp eq i32 %9, 11
   br i1 %10, label %11, label %13
@@ -13885,7 +13885,7 @@ define void @"_ZN105_$LT$wasmtime_wasi..preview1..types..SubscriptionFdReadwrite
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN105_$LT$wasmtime_wasi..preview1..types..SubscriptionFdReadwrite$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h0bb636aa4074dbcaE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #1 {
+define void @"_ZN105_$LT$wasmtime_wasi..preview1..types..SubscriptionFdReadwrite$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h0bb636aa4074dbcaE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #1 {
   %4 = alloca { i32, [15 x i32] }, align 8
   %.sroa.15 = alloca [8 x i32], align 8
   %5 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
@@ -13894,7 +13894,7 @@ define void @"_ZN105_$LT$wasmtime_wasi..preview1..types..SubscriptionFdReadwrite
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !488
-  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !488
+  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !488
   %10 = load i32, ptr %4, align 8, !range !34, !noalias !488, !noundef !5
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %14
@@ -13975,7 +13975,7 @@ define void @"_ZN105_$LT$wasmtime_wasi..preview1..types..SubscriptionFdReadwrite
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..SubscriptionU$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h82e651d60c82b523E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..SubscriptionU$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h82e651d60c82b523E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %.sroa.17.i.i241 = alloca [8 x i32], align 8
   %4 = alloca { i32, [15 x i32] }, align 8
@@ -13992,7 +13992,7 @@ define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..SubscriptionU$u20$as$u20
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !492
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %5, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %12, i32 noundef 1), !noalias !492
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %5, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %12, i32 noundef 1), !noalias !492
   %13 = load i32, ptr %5, align 8, !range !34, !noalias !492, !noundef !5
   %14 = icmp eq i32 %13, 11
   br i1 %14, label %15, label %17
@@ -14108,7 +14108,7 @@ define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..SubscriptionU$u20$as$u20
   store ptr %10, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %39, ptr %41, align 8
-  call void @"_ZN99_$LT$wasmtime_wasi..preview1..types..SubscriptionClock$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h46151ee2ec5bc506E"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
+  call void @"_ZN99_$LT$wasmtime_wasi..preview1..types..SubscriptionClock$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h46151ee2ec5bc506E"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
   %42 = load i32, ptr %7, align 8, !range !34, !noundef !5
   %43 = icmp eq i32 %42, 11
   br i1 %43, label %45, label %48
@@ -14152,7 +14152,7 @@ define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..SubscriptionU$u20$as$u20
 50:                                               ; preds = %32
   %51 = extractvalue { i32, i1 } %33, 0
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !496
-  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %51, i32 noundef 1), !noalias !496
+  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %51, i32 noundef 1), !noalias !496
   %52 = load i32, ptr %4, align 8, !range !34, !noalias !496, !noundef !5
   %53 = icmp eq i32 %52, 11
   br i1 %53, label %54, label %56
@@ -14241,7 +14241,7 @@ define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..SubscriptionU$u20$as$u20
 67:                                               ; preds = %35
   %68 = extractvalue { i32, i1 } %36, 0
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !506
-  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %68, i32 noundef 1), !noalias !506
+  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %3, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, i32 noundef %68, i32 noundef 1), !noalias !506
   %69 = load i32, ptr %3, align 8, !range !34, !noalias !506, !noundef !5
   %70 = icmp eq i32 %69, 11
   br i1 %70, label %71, label %73
@@ -14329,7 +14329,7 @@ define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..SubscriptionU$u20$as$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..SubscriptionU$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h7451e716e4053529E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 {
+define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..SubscriptionU$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h7451e716e4053529E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #1 {
   %4 = alloca { i32, [15 x i32] }, align 8
   %.sroa.15.i284 = alloca [8 x i32], align 8
   %5 = alloca { i32, [15 x i32] }, align 8
@@ -14366,7 +14366,7 @@ define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..SubscriptionU$u20$as$u20
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load i32, ptr %23, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8), !noalias !517
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %8, ptr noundef nonnull align 1 %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22, i32 noundef %24, i32 noundef 1), !noalias !517
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %8, ptr noundef nonnull align 1 %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22, i32 noundef %24, i32 noundef 1), !noalias !517
   %25 = load i32, ptr %8, align 8, !range !34, !noalias !517, !noundef !5
   %26 = icmp eq i32 %25, 11
   br i1 %26, label %27, label %29
@@ -14423,7 +14423,7 @@ define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..SubscriptionU$u20$as$u20
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %43 = load i32, ptr %42, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7), !noalias !521
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %7, ptr noundef nonnull align 1 %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %41, i32 noundef %43, i32 noundef 1), !noalias !521
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %7, ptr noundef nonnull align 1 %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %41, i32 noundef %43, i32 noundef 1), !noalias !521
   %44 = load i32, ptr %7, align 8, !range !34, !noalias !521, !noundef !5
   %45 = icmp eq i32 %44, 11
   br i1 %45, label %46, label %48
@@ -14480,7 +14480,7 @@ define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..SubscriptionU$u20$as$u20
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %62 = load i32, ptr %61, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !525
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %6, ptr noundef nonnull align 1 %58, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %60, i32 noundef %62, i32 noundef 1), !noalias !525
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %6, ptr noundef nonnull align 1 %58, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %60, i32 noundef %62, i32 noundef 1), !noalias !525
   %63 = load i32, ptr %6, align 8, !range !34, !noalias !525, !noundef !5
   %64 = icmp eq i32 %63, 11
   br i1 %64, label %65, label %67
@@ -14566,7 +14566,7 @@ define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..SubscriptionU$u20$as$u20
   store ptr %22, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %80, ptr %82, align 8
-  call void @"_ZN99_$LT$wasmtime_wasi..preview1..types..SubscriptionClock$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hec2f395899cbe9d4E"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2)
+  call void @"_ZN99_$LT$wasmtime_wasi..preview1..types..SubscriptionClock$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hec2f395899cbe9d4E"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2)
   %83 = load i32, ptr %10, align 8, !range !34, !noundef !5
   %84 = icmp eq i32 %83, 11
   br i1 %84, label %86, label %87
@@ -14632,7 +14632,7 @@ define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..SubscriptionU$u20$as$u20
 94:                                               ; preds = %90
   %95 = extractvalue { i32, i1 } %91, 0
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !529
-  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %5, ptr noundef nonnull align 1 %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %41, i32 noundef %95, i32 noundef 1), !noalias !529
+  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %5, ptr noundef nonnull align 1 %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %41, i32 noundef %95, i32 noundef 1), !noalias !529
   %96 = load i32, ptr %5, align 8, !range !34, !noalias !529, !noundef !5
   %97 = icmp eq i32 %96, 11
   br i1 %97, label %98, label %100
@@ -14744,7 +14744,7 @@ define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..SubscriptionU$u20$as$u20
 113:                                              ; preds = %109
   %114 = extractvalue { i32, i1 } %110, 0
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !536
-  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %58, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %60, i32 noundef %114, i32 noundef 1), !noalias !536
+  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %58, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %60, i32 noundef %114, i32 noundef 1), !noalias !536
   %115 = load i32, ptr %4, align 8, !range !34, !noalias !536, !noundef !5
   %116 = icmp eq i32 %115, 11
   br i1 %116, label %117, label %119
@@ -14837,7 +14837,7 @@ define noundef i32 @_ZN13wasmtime_wasi8preview15types12Subscription11offset_of_u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN94_$LT$wasmtime_wasi..preview1..types..Subscription$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h47756727fd2d35cbE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN94_$LT$wasmtime_wasi..preview1..types..Subscription$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h47756727fd2d35cbE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %.sroa.3134 = alloca [8 x i32], align 8
   %4 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
@@ -14850,7 +14850,7 @@ define void @"_ZN94_$LT$wasmtime_wasi..preview1..types..Subscription$u20$as$u20$
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i32, ptr %9, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !543
-  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i32 noundef %10, i32 noundef 1), !noalias !543
+  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %3, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i32 noundef %10, i32 noundef 1), !noalias !543
   %11 = load i32, ptr %3, align 8, !range !34, !noalias !543, !noundef !5
   %12 = icmp eq i32 %11, 11
   br i1 %12, label %13, label %15
@@ -14936,7 +14936,7 @@ define void @"_ZN94_$LT$wasmtime_wasi..preview1..types..Subscription$u20$as$u20$
   store ptr %8, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %29, ptr %31, align 8
-  call void @"_ZN95_$LT$wasmtime_wasi..preview1..types..SubscriptionU$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h82e651d60c82b523E"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
+  call void @"_ZN95_$LT$wasmtime_wasi..preview1..types..SubscriptionU$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h82e651d60c82b523E"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
   %32 = load i32, ptr %5, align 8, !range !34, !noundef !5
   %33 = icmp eq i32 %32, 11
   br i1 %33, label %35, label %38
@@ -14985,7 +14985,7 @@ define void @"_ZN94_$LT$wasmtime_wasi..preview1..types..Subscription$u20$as$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN94_$LT$wasmtime_wasi..preview1..types..Subscription$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17ha385209ec1b3d262E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define void @"_ZN94_$LT$wasmtime_wasi..preview1..types..Subscription$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17ha385209ec1b3d262E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
   %4 = alloca { i32, [15 x i32] }, align 8
   %.sroa.2111 = alloca [15 x i32], align 4
   %5 = alloca { { ptr, ptr }, i32, [1 x i32] }, align 8
@@ -14998,7 +14998,7 @@ define void @"_ZN94_$LT$wasmtime_wasi..preview1..types..Subscription$u20$as$u20$
   %11 = load i32, ptr %10, align 8, !noundef !5
   %12 = load i64, ptr %2, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !547
-  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, i32 noundef %11, i32 noundef 1), !noalias !547
+  call void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, i32 noundef %11, i32 noundef 1), !noalias !547
   %13 = load i32, ptr %4, align 8, !range !34, !noalias !547, !noundef !5
   %14 = icmp eq i32 %13, 11
   br i1 %14, label %15, label %17
@@ -15085,7 +15085,7 @@ define void @"_ZN94_$LT$wasmtime_wasi..preview1..types..Subscription$u20$as$u20$
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %30, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @"_ZN95_$LT$wasmtime_wasi..preview1..types..SubscriptionU$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h7451e716e4053529E"(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %33)
+  call void @"_ZN95_$LT$wasmtime_wasi..preview1..types..SubscriptionU$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h7451e716e4053529E"(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %33)
   %34 = load i32, ptr %6, align 8, !range !34, !noundef !5
   %35 = icmp eq i32 %34, 11
   br i1 %35, label %37, label %38
@@ -15123,7 +15123,7 @@ define void @"_ZN94_$LT$wasmtime_wasi..preview1..types..Subscription$u20$as$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h553ee47b77ef9e86E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h553ee47b77ef9e86E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %.sroa.17 = alloca [8 x i32], align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
@@ -15132,7 +15132,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !551
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %8, i32 noundef 1), !noalias !551
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %8, i32 noundef 1), !noalias !551
   %9 = load i32, ptr %3, align 8, !range !34, !noalias !551, !noundef !5
   %10 = icmp eq i32 %9, 11
   br i1 %10, label %11, label %13
@@ -15443,7 +15443,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h941fe8db3c741a3fE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i8 noundef %2) unnamed_addr #1 {
+define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h941fe8db3c741a3fE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i8 noundef %2) unnamed_addr #1 {
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
   %6 = alloca { i32, [15 x i32] }, align 8
@@ -15550,7 +15550,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 41:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %34), !noalias !555
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %34, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !555
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %34, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !555
   %42 = load i32, ptr %34, align 8, !range !34, !noalias !555, !noundef !5
   %43 = icmp eq i32 %42, 11
   br i1 %43, label %44, label %46
@@ -15601,7 +15601,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 54:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %33), !noalias !559
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %33, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !559
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %33, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !559
   %55 = load i32, ptr %33, align 8, !range !34, !noalias !559, !noundef !5
   %56 = icmp eq i32 %55, 11
   br i1 %56, label %57, label %59
@@ -15652,7 +15652,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 67:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %32), !noalias !563
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %32, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !563
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %32, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !563
   %68 = load i32, ptr %32, align 8, !range !34, !noalias !563, !noundef !5
   %69 = icmp eq i32 %68, 11
   br i1 %69, label %70, label %72
@@ -15703,7 +15703,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 80:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %31), !noalias !567
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %31, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !567
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %31, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !567
   %81 = load i32, ptr %31, align 8, !range !34, !noalias !567, !noundef !5
   %82 = icmp eq i32 %81, 11
   br i1 %82, label %83, label %85
@@ -15754,7 +15754,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 93:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %30), !noalias !571
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %30, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !571
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %30, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !571
   %94 = load i32, ptr %30, align 8, !range !34, !noalias !571, !noundef !5
   %95 = icmp eq i32 %94, 11
   br i1 %95, label %96, label %98
@@ -15805,7 +15805,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 106:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %29), !noalias !575
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %29, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !575
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %29, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !575
   %107 = load i32, ptr %29, align 8, !range !34, !noalias !575, !noundef !5
   %108 = icmp eq i32 %107, 11
   br i1 %108, label %109, label %111
@@ -15856,7 +15856,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 119:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %28), !noalias !579
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %28, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !579
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %28, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !579
   %120 = load i32, ptr %28, align 8, !range !34, !noalias !579, !noundef !5
   %121 = icmp eq i32 %120, 11
   br i1 %121, label %122, label %124
@@ -15907,7 +15907,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 132:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %27), !noalias !583
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %27, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !583
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %27, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !583
   %133 = load i32, ptr %27, align 8, !range !34, !noalias !583, !noundef !5
   %134 = icmp eq i32 %133, 11
   br i1 %134, label %135, label %137
@@ -15958,7 +15958,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 145:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %26), !noalias !587
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %26, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !587
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %26, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !587
   %146 = load i32, ptr %26, align 8, !range !34, !noalias !587, !noundef !5
   %147 = icmp eq i32 %146, 11
   br i1 %147, label %148, label %150
@@ -16009,7 +16009,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 158:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %25), !noalias !591
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %25, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !591
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %25, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !591
   %159 = load i32, ptr %25, align 8, !range !34, !noalias !591, !noundef !5
   %160 = icmp eq i32 %159, 11
   br i1 %160, label %161, label %163
@@ -16060,7 +16060,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 171:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %24), !noalias !595
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %24, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !595
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %24, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !595
   %172 = load i32, ptr %24, align 8, !range !34, !noalias !595, !noundef !5
   %173 = icmp eq i32 %172, 11
   br i1 %173, label %174, label %176
@@ -16111,7 +16111,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 184:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %23), !noalias !599
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %23, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !599
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %23, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !599
   %185 = load i32, ptr %23, align 8, !range !34, !noalias !599, !noundef !5
   %186 = icmp eq i32 %185, 11
   br i1 %186, label %187, label %189
@@ -16162,7 +16162,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 197:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22), !noalias !603
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %22, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !603
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %22, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !603
   %198 = load i32, ptr %22, align 8, !range !34, !noalias !603, !noundef !5
   %199 = icmp eq i32 %198, 11
   br i1 %199, label %200, label %202
@@ -16213,7 +16213,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 210:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %21), !noalias !607
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %21, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !607
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %21, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !607
   %211 = load i32, ptr %21, align 8, !range !34, !noalias !607, !noundef !5
   %212 = icmp eq i32 %211, 11
   br i1 %212, label %213, label %215
@@ -16264,7 +16264,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 223:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %20), !noalias !611
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %20, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !611
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %20, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !611
   %224 = load i32, ptr %20, align 8, !range !34, !noalias !611, !noundef !5
   %225 = icmp eq i32 %224, 11
   br i1 %225, label %226, label %228
@@ -16315,7 +16315,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 236:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %19), !noalias !615
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %19, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !615
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %19, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !615
   %237 = load i32, ptr %19, align 8, !range !34, !noalias !615, !noundef !5
   %238 = icmp eq i32 %237, 11
   br i1 %238, label %239, label %241
@@ -16366,7 +16366,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 249:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %18), !noalias !619
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %18, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !619
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %18, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !619
   %250 = load i32, ptr %18, align 8, !range !34, !noalias !619, !noundef !5
   %251 = icmp eq i32 %250, 11
   br i1 %251, label %252, label %254
@@ -16417,7 +16417,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 262:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17), !noalias !623
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %17, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !623
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %17, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !623
   %263 = load i32, ptr %17, align 8, !range !34, !noalias !623, !noundef !5
   %264 = icmp eq i32 %263, 11
   br i1 %264, label %265, label %267
@@ -16468,7 +16468,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 275:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16), !noalias !627
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %16, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !627
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %16, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !627
   %276 = load i32, ptr %16, align 8, !range !34, !noalias !627, !noundef !5
   %277 = icmp eq i32 %276, 11
   br i1 %277, label %278, label %280
@@ -16519,7 +16519,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 288:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15), !noalias !631
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %15, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !631
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %15, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !631
   %289 = load i32, ptr %15, align 8, !range !34, !noalias !631, !noundef !5
   %290 = icmp eq i32 %289, 11
   br i1 %290, label %291, label %293
@@ -16570,7 +16570,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 301:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14), !noalias !635
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %14, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !635
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %14, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !635
   %302 = load i32, ptr %14, align 8, !range !34, !noalias !635, !noundef !5
   %303 = icmp eq i32 %302, 11
   br i1 %303, label %304, label %306
@@ -16621,7 +16621,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 314:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13), !noalias !639
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %13, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !639
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %13, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !639
   %315 = load i32, ptr %13, align 8, !range !34, !noalias !639, !noundef !5
   %316 = icmp eq i32 %315, 11
   br i1 %316, label %317, label %319
@@ -16672,7 +16672,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 327:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12), !noalias !643
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %12, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !643
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %12, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !643
   %328 = load i32, ptr %12, align 8, !range !34, !noalias !643, !noundef !5
   %329 = icmp eq i32 %328, 11
   br i1 %329, label %330, label %332
@@ -16723,7 +16723,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 340:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11), !noalias !647
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %11, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !647
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %11, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !647
   %341 = load i32, ptr %11, align 8, !range !34, !noalias !647, !noundef !5
   %342 = icmp eq i32 %341, 11
   br i1 %342, label %343, label %345
@@ -16774,7 +16774,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 353:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10), !noalias !651
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %10, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !651
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %10, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !651
   %354 = load i32, ptr %10, align 8, !range !34, !noalias !651, !noundef !5
   %355 = icmp eq i32 %354, 11
   br i1 %355, label %356, label %358
@@ -16825,7 +16825,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 366:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !655
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %9, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !655
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %9, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !655
   %367 = load i32, ptr %9, align 8, !range !34, !noalias !655, !noundef !5
   %368 = icmp eq i32 %367, 11
   br i1 %368, label %369, label %371
@@ -16876,7 +16876,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 379:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8), !noalias !659
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %8, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !659
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %8, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !659
   %380 = load i32, ptr %8, align 8, !range !34, !noalias !659, !noundef !5
   %381 = icmp eq i32 %380, 11
   br i1 %381, label %382, label %384
@@ -16927,7 +16927,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 392:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7), !noalias !663
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %7, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !663
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %7, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !663
   %393 = load i32, ptr %7, align 8, !range !34, !noalias !663, !noundef !5
   %394 = icmp eq i32 %393, 11
   br i1 %394, label %395, label %397
@@ -16978,7 +16978,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 405:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !667
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %6, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !667
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %6, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !667
   %406 = load i32, ptr %6, align 8, !range !34, !noalias !667, !noundef !5
   %407 = icmp eq i32 %406, 11
   br i1 %407, label %408, label %410
@@ -17029,7 +17029,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 418:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !671
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %5, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !671
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %5, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !671
   %419 = load i32, ptr %5, align 8, !range !34, !noalias !671, !noundef !5
   %420 = icmp eq i32 %419, 11
   br i1 %420, label %421, label %423
@@ -17080,7 +17080,7 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Signal$u20$as$u20$wiggle
 
 431:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !675
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !675
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37, i32 noundef %39, i32 noundef 1), !noalias !675
   %432 = load i32, ptr %4, align 8, !range !34, !noalias !675, !noundef !5
   %433 = icmp eq i32 %432, 11
   br i1 %433, label %434, label %436
@@ -17983,7 +17983,7 @@ define noundef zeroext i1 @"_ZN78_$LT$wasmtime_wasi..preview1..types..Riflags$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Riflags$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17hc4a19b4fab7b5cc5E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Riflags$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17hc4a19b4fab7b5cc5E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %.sroa.331 = alloca [58 x i8], align 2
@@ -17994,7 +17994,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Riflags$u20$as$u20$wiggl
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !679
-  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !679
+  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !679
   %10 = load i32, ptr %4, align 8, !range !34, !noalias !679, !noundef !5
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %14
@@ -18103,7 +18103,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Riflags$u20$as$u20$wiggl
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Riflags$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h8fe8593418a1c87bE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i16 noundef %2) unnamed_addr #1 {
+define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Riflags$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h8fe8593418a1c87bE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i16 noundef %2) unnamed_addr #1 {
   %.sroa.743.i = alloca [8 x i32], align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
@@ -18114,7 +18114,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Riflags$u20$as$u20$wiggl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !686)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.743.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !689
-  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !689
+  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !689
   %10 = load i32, ptr %4, align 8, !range !34, !noalias !689, !noundef !5
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %14
@@ -18229,7 +18229,7 @@ define noundef zeroext i1 @"_ZN78_$LT$wasmtime_wasi..preview1..types..Roflags$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Roflags$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h23009f903ead8156E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Roflags$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h23009f903ead8156E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %.sroa.331 = alloca [58 x i8], align 2
@@ -18240,7 +18240,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Roflags$u20$as$u20$wiggl
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !692
-  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !692
+  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !692
   %10 = load i32, ptr %4, align 8, !range !34, !noalias !692, !noundef !5
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %14
@@ -18349,7 +18349,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Roflags$u20$as$u20$wiggl
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Roflags$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hd2cd092fafc30f9aE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i16 noundef %2) unnamed_addr #1 {
+define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Roflags$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hd2cd092fafc30f9aE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i16 noundef %2) unnamed_addr #1 {
   %.sroa.743.i = alloca [8 x i32], align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
@@ -18360,7 +18360,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Roflags$u20$as$u20$wiggl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !699)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.743.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !702
-  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !702
+  call void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !702
   %10 = load i32, ptr %4, align 8, !range !34, !noalias !702, !noundef !5
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %14
@@ -18475,7 +18475,7 @@ define noundef zeroext i1 @"_ZN78_$LT$wasmtime_wasi..preview1..types..Sdflags$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Sdflags$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h230b2e1aea53fbaeE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Sdflags$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h230b2e1aea53fbaeE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %.sroa.331 = alloca [59 x i8], align 1
@@ -18486,7 +18486,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Sdflags$u20$as$u20$wiggl
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !705
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !705
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !705
   %10 = load i32, ptr %4, align 8, !range !34, !noalias !705, !noundef !5
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %14
@@ -18595,7 +18595,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Sdflags$u20$as$u20$wiggl
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Sdflags$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h9b3d15e23fee6c09E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i8 noundef %2) unnamed_addr #1 {
+define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Sdflags$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h9b3d15e23fee6c09E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i8 noundef %2) unnamed_addr #1 {
   %.sroa.743.i = alloca [8 x i32], align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
@@ -18606,7 +18606,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Sdflags$u20$as$u20$wiggl
   tail call void @llvm.experimental.noalias.scope.decl(metadata !712)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.743.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !715
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !715
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !715
   %10 = load i32, ptr %4, align 8, !range !34, !noalias !715, !noundef !5
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %14
@@ -18682,7 +18682,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Sdflags$u20$as$u20$wiggl
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN93_$LT$wasmtime_wasi..preview1..types..Preopentype$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h9125e005cca6148cE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN93_$LT$wasmtime_wasi..preview1..types..Preopentype$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h9125e005cca6148cE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %.sroa.17 = alloca [8 x i32], align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
@@ -18691,7 +18691,7 @@ define void @"_ZN93_$LT$wasmtime_wasi..preview1..types..Preopentype$u20$as$u20$w
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !718
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %8, i32 noundef 1), !noalias !718
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %8, i32 noundef 1), !noalias !718
   %9 = load i32, ptr %3, align 8, !range !34, !noalias !718, !noundef !5
   %10 = icmp eq i32 %9, 11
   br i1 %10, label %11, label %13
@@ -18789,7 +18789,7 @@ define void @"_ZN93_$LT$wasmtime_wasi..preview1..types..Preopentype$u20$as$u20$w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN93_$LT$wasmtime_wasi..preview1..types..Preopentype$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hf89124e0130cdfccE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN93_$LT$wasmtime_wasi..preview1..types..Preopentype$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hf89124e0130cdfccE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %.sroa.14 = alloca [8 x i32], align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
@@ -18798,7 +18798,7 @@ define void @"_ZN93_$LT$wasmtime_wasi..preview1..types..Preopentype$u20$as$u20$w
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !722
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %8, i32 noundef 1), !noalias !722
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %8, i32 noundef 1), !noalias !722
   %9 = load i32, ptr %3, align 8, !range !34, !noalias !722, !noundef !5
   %10 = icmp eq i32 %9, 11
   br i1 %10, label %11, label %13
@@ -18884,7 +18884,7 @@ define noundef i32 @_ZN13wasmtime_wasi8preview15types10PrestatDir21offset_of_pr_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN92_$LT$wasmtime_wasi..preview1..types..PrestatDir$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h3d489d6f1dc5399eE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN92_$LT$wasmtime_wasi..preview1..types..PrestatDir$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h3d489d6f1dc5399eE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %.sroa.18 = alloca [8 x i32], align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
@@ -18893,7 +18893,7 @@ define void @"_ZN92_$LT$wasmtime_wasi..preview1..types..PrestatDir$u20$as$u20$wi
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !726
-  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %8, i32 noundef 1), !noalias !726
+  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %3, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6, i32 noundef %8, i32 noundef 1), !noalias !726
   %9 = load i32, ptr %3, align 8, !range !34, !noalias !726, !noundef !5
   %10 = icmp eq i32 %9, 11
   br i1 %10, label %11, label %13
@@ -18976,7 +18976,7 @@ define void @"_ZN92_$LT$wasmtime_wasi..preview1..types..PrestatDir$u20$as$u20$wi
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN92_$LT$wasmtime_wasi..preview1..types..PrestatDir$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hd010674c3c856661E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #1 {
+define void @"_ZN92_$LT$wasmtime_wasi..preview1..types..PrestatDir$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17hd010674c3c856661E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #1 {
   %4 = alloca { i32, [15 x i32] }, align 8
   %.sroa.15 = alloca [8 x i32], align 8
   %5 = load ptr, ptr %1, align 8, !nonnull !5, !align !32, !noundef !5
@@ -18985,7 +18985,7 @@ define void @"_ZN92_$LT$wasmtime_wasi..preview1..types..PrestatDir$u20$as$u20$wi
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !730
-  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !730
+  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !730
   %10 = load i32, ptr %4, align 8, !range !34, !noalias !730, !noundef !5
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %14
@@ -19066,7 +19066,7 @@ define void @"_ZN92_$LT$wasmtime_wasi..preview1..types..PrestatDir$u20$as$u20$wi
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Prestat$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17hefac0f948b3817dfE"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Prestat$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17hefac0f948b3817dfE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %.sroa.18.i = alloca [8 x i32], align 8
   %4 = alloca { i32, [15 x i32] }, align 8
@@ -19077,7 +19077,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Prestat$u20$as$u20$wiggl
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !734
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !734
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef 1), !noalias !734
   %10 = load i32, ptr %4, align 8, !range !34, !noalias !734, !noundef !5
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %14
@@ -19174,7 +19174,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Prestat$u20$as$u20$wiggl
 30:                                               ; preds = %26
   %31 = extractvalue { i32, i1 } %27, 0
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !738
-  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %3, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %31, i32 noundef 1), !noalias !738
+  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %3, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %31, i32 noundef 1), !noalias !738
   %32 = load i32, ptr %3, align 8, !range !34, !noalias !738, !noundef !5
   %33 = icmp eq i32 %32, 11
   br i1 %33, label %34, label %36
@@ -19263,7 +19263,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Prestat$u20$as$u20$wiggl
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Prestat$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h82c5d842992a5d46E"(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #1 {
+define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Prestat$u20$as$u20$wiggle..guest_type..GuestType$GT$5write17h82c5d842992a5d46E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #1 {
   %4 = alloca { i32, [15 x i32] }, align 8
   %.sroa.15.i = alloca [8 x i32], align 8
   %5 = alloca { i32, [15 x i32] }, align 8
@@ -19274,7 +19274,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Prestat$u20$as$u20$wiggl
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i32, ptr %9, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !745
-  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %5, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i32 noundef %10, i32 noundef 1), !noalias !745
+  call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %5, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i32 noundef %10, i32 noundef 1), !noalias !745
   %11 = load i32, ptr %5, align 8, !range !34, !noalias !745, !noundef !5
   %12 = icmp eq i32 %11, 11
   br i1 %12, label %13, label %15
@@ -19354,7 +19354,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Prestat$u20$as$u20$wiggl
 27:                                               ; preds = %23
   %28 = extractvalue { i32, i1 } %24, 0
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !749
-  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef nonnull sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %4, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i32 noundef %28, i32 noundef 1), !noalias !749
+  call void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, i32 noundef %28, i32 noundef 1), !noalias !749
   %29 = load i32, ptr %4, align 8, !range !34, !noalias !749, !noundef !5
   %30 = icmp eq i32 %29, 11
   br i1 %30, label %31, label %33
@@ -19441,7 +19441,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Prestat$u20$as$u20$wiggl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @"_ZN82_$LT$wasmtime_wasi..preview1..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$4bits17hac8a4fca99df46afE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #8 {
+define noundef i64 @"_ZN82_$LT$wasmtime_wasi..preview1..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$4bits17hac8a4fca99df46afE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #8 {
   %2 = load i64, ptr %0, align 8, !noundef !5
   ret i64 %2
 }
@@ -19452,7 +19452,7 @@ define noundef i64 @"_ZN82_$LT$wasmtime_wasi..preview1..types..Rights$u20$as$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Debug$GT$3fmt17hd6eec3c954622614E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Debug$GT$3fmt17hd6eec3c954622614E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca [1 x { { i64, [1 x i64] }, { i64, [1 x i64] }, i64, i32, i32, i8, [7 x i8] }], align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -19497,7 +19497,7 @@ define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..Interna
   store ptr %5, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %17, align 8
-  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -19509,7 +19509,7 @@ define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Display$GT$3fmt17h64e5e06e5b0f94a8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Display$GT$3fmt17h64e5e06e5b0f94a8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = load i64, ptr %0, align 8, !noundef !5
@@ -19520,10 +19520,10 @@ define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hcb96b6b98562111dE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 16)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hcb96b6b98562111dE"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 16)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @_ZN8bitflags6parser8from_str17h733a404250043726E(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
+  call void @_ZN8bitflags6parser8from_str17h733a404250043726E(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !761)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !764)
   %5 = load i64, ptr %4, align 8, !range !766, !alias.scope !764, !noalias !761, !noundef !5
@@ -19582,7 +19582,7 @@ define noundef zeroext i1 @"_ZN91_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN113_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h70b211652aa84759E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i64, i64 }, i8, [7 x i8] }) align 8 dereferenceable(48) initializes((0, 41)) %0, i64 noundef %1) unnamed_addr #9 {
+define void @"_ZN113_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h70b211652aa84759E"(ptr noalias noundef writeonly sret({ { { ptr, i64 }, i64, i64, i64 }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) initializes((0, 41)) %0, i64 noundef %1) unnamed_addr #9 {
   store ptr @anon.312a33bef36aafae82f68d87619b2eac.102, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 30, ptr %.sroa.4.0..sroa_idx, align 8
@@ -19622,7 +19622,7 @@ define noundef zeroext i1 @"_ZN13wasmtime_wasi8preview15types1_88_$LT$impl$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN13wasmtime_wasi8preview15types1_110_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview1..types..Rights$GT$9into_iter17h611b5a259480d3deE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i64, i64 }, i8, [7 x i8] }) align 8 dereferenceable(48) initializes((0, 41)) %0, i64 noundef %1) unnamed_addr #9 {
+define void @"_ZN13wasmtime_wasi8preview15types1_110_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview1..types..Rights$GT$9into_iter17h611b5a259480d3deE"(ptr noalias noundef writeonly sret({ { { ptr, i64 }, i64, i64, i64 }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) initializes((0, 41)) %0, i64 noundef %1) unnamed_addr #9 {
   store ptr @anon.312a33bef36aafae82f68d87619b2eac.102, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 30, ptr %.sroa.4.0..sroa_idx, align 8
@@ -19638,7 +19638,7 @@ define void @"_ZN13wasmtime_wasi8preview15types1_110_$LT$impl$u20$core..iter..tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i16 @"_ZN83_$LT$wasmtime_wasi..preview1..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h00b4a7839dda75c2E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #8 {
+define noundef i16 @"_ZN83_$LT$wasmtime_wasi..preview1..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h00b4a7839dda75c2E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0) unnamed_addr #8 {
   %2 = load i16, ptr %0, align 2, !noundef !5
   ret i16 %2
 }
@@ -19649,7 +19649,7 @@ define noundef i16 @"_ZN83_$LT$wasmtime_wasi..preview1..types..Fdflags$u20$as$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Debug$GT$3fmt17hfc7a901dc2e86cd0E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Debug$GT$3fmt17hfc7a901dc2e86cd0E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca i16, align 2
   %4 = alloca [1 x { { i64, [1 x i64] }, { i64, [1 x i64] }, i64, i32, i32, i8, [7 x i8] }], align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -19694,7 +19694,7 @@ define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..Interna
   store ptr %5, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %17, align 8
-  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -19706,7 +19706,7 @@ define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Display$GT$3fmt17h2d72442de469572eE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Display$GT$3fmt17h2d72442de469572eE"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
   %4 = load i16, ptr %0, align 2, !noundef !5
@@ -19717,10 +19717,10 @@ define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h2432959965c906ddE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 10)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h2432959965c906ddE"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 10)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @_ZN8bitflags6parser8from_str17h0e088895e951490bE(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
+  call void @_ZN8bitflags6parser8from_str17h0e088895e951490bE(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !773)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !776)
   %5 = load i64, ptr %4, align 8, !range !766, !alias.scope !776, !noalias !773, !noundef !5
@@ -19779,7 +19779,7 @@ define noundef zeroext i1 @"_ZN91_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN113_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7dd8f866bc181dd2E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
+define void @"_ZN113_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7dd8f866bc181dd2E"(ptr noalias noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
   store ptr @anon.312a33bef36aafae82f68d87619b2eac.109, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 5, ptr %.sroa.4.0..sroa_idx, align 8
@@ -19819,7 +19819,7 @@ define noundef zeroext i1 @"_ZN13wasmtime_wasi8preview15types1_89_$LT$impl$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN13wasmtime_wasi8preview15types1_111_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview1..types..Fdflags$GT$9into_iter17h65e3ecac0a1aea5eE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
+define void @"_ZN13wasmtime_wasi8preview15types1_111_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview1..types..Fdflags$GT$9into_iter17h65e3ecac0a1aea5eE"(ptr noalias noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
   store ptr @anon.312a33bef36aafae82f68d87619b2eac.109, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 5, ptr %.sroa.4.0..sroa_idx, align 8
@@ -19835,7 +19835,7 @@ define void @"_ZN13wasmtime_wasi8preview15types1_111_$LT$impl$u20$core..iter..tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i16 @"_ZN84_$LT$wasmtime_wasi..preview1..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h6b75ece4c765ee12E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #8 {
+define noundef i16 @"_ZN84_$LT$wasmtime_wasi..preview1..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h6b75ece4c765ee12E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0) unnamed_addr #8 {
   %2 = load i16, ptr %0, align 2, !noundef !5
   ret i16 %2
 }
@@ -19846,7 +19846,7 @@ define noundef i16 @"_ZN84_$LT$wasmtime_wasi..preview1..types..Fstflags$u20$as$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Debug$GT$3fmt17h09a41378a5ab1416E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Debug$GT$3fmt17h09a41378a5ab1416E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca i16, align 2
   %4 = alloca [1 x { { i64, [1 x i64] }, { i64, [1 x i64] }, i64, i32, i32, i8, [7 x i8] }], align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -19891,7 +19891,7 @@ define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..Interna
   store ptr %5, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %17, align 8
-  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -19903,7 +19903,7 @@ define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Display$GT$3fmt17h007927c91e2a98daE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Display$GT$3fmt17h007927c91e2a98daE"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
   %4 = load i16, ptr %0, align 2, !noundef !5
@@ -19914,10 +19914,10 @@ define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hc504c40b94040dccE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 10)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hc504c40b94040dccE"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 10)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @_ZN8bitflags6parser8from_str17ha11d54a0cabcc132E(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
+  call void @_ZN8bitflags6parser8from_str17ha11d54a0cabcc132E(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !784)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !787)
   %5 = load i64, ptr %4, align 8, !range !766, !alias.scope !787, !noalias !784, !noundef !5
@@ -19976,7 +19976,7 @@ define noundef zeroext i1 @"_ZN91_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN113_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h036d030436757a8bE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
+define void @"_ZN113_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h036d030436757a8bE"(ptr noalias noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
   store ptr @anon.312a33bef36aafae82f68d87619b2eac.114, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 4, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20016,7 +20016,7 @@ define noundef zeroext i1 @"_ZN13wasmtime_wasi8preview15types1_90_$LT$impl$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN13wasmtime_wasi8preview15types1_112_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview1..types..Fstflags$GT$9into_iter17h4730f663346b30b4E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
+define void @"_ZN13wasmtime_wasi8preview15types1_112_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview1..types..Fstflags$GT$9into_iter17h4730f663346b30b4E"(ptr noalias noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
   store ptr @anon.312a33bef36aafae82f68d87619b2eac.114, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 4, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20032,7 +20032,7 @@ define void @"_ZN13wasmtime_wasi8preview15types1_112_$LT$impl$u20$core..iter..tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i32 @"_ZN87_$LT$wasmtime_wasi..preview1..types..Lookupflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h5e4a85521d4beff4E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #8 {
+define noundef i32 @"_ZN87_$LT$wasmtime_wasi..preview1..types..Lookupflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h5e4a85521d4beff4E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0) unnamed_addr #8 {
   %2 = load i32, ptr %0, align 4, !noundef !5
   ret i32 %2
 }
@@ -20043,7 +20043,7 @@ define noundef i32 @"_ZN87_$LT$wasmtime_wasi..preview1..types..Lookupflags$u20$a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Debug$GT$3fmt17hec5dea2763f60fbfE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Debug$GT$3fmt17hec5dea2763f60fbfE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca [1 x { { i64, [1 x i64] }, { i64, [1 x i64] }, i64, i32, i32, i8, [7 x i8] }], align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -20088,7 +20088,7 @@ define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..Interna
   store ptr %5, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %17, align 8
-  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -20100,7 +20100,7 @@ define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Display$GT$3fmt17ha5ade77da8e0dd9fE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Display$GT$3fmt17ha5ade77da8e0dd9fE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %4 = load i32, ptr %0, align 4, !noundef !5
@@ -20111,10 +20111,10 @@ define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h5ba525d619af1b0cE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 12)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h5ba525d619af1b0cE"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 12)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @_ZN8bitflags6parser8from_str17h10e4dfb9e394a1a1E(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
+  call void @_ZN8bitflags6parser8from_str17h10e4dfb9e394a1a1E(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !795)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !798)
   %5 = load i64, ptr %4, align 8, !range !766, !alias.scope !798, !noalias !795, !noundef !5
@@ -20173,7 +20173,7 @@ define noundef zeroext i1 @"_ZN91_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN113_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h64f11db838759309E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i32, i32 }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 33)) %0, i32 noundef %1) unnamed_addr #9 {
+define void @"_ZN113_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h64f11db838759309E"(ptr noalias noundef writeonly sret({ { { ptr, i64 }, i64, i32, i32 }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) initializes((0, 33)) %0, i32 noundef %1) unnamed_addr #9 {
   store ptr @anon.312a33bef36aafae82f68d87619b2eac.117, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20213,7 +20213,7 @@ define noundef zeroext i1 @"_ZN13wasmtime_wasi8preview15types1_93_$LT$impl$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN13wasmtime_wasi8preview15types1_115_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview1..types..Lookupflags$GT$9into_iter17ha41763bc59930ff0E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i32, i32 }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 33)) %0, i32 noundef %1) unnamed_addr #9 {
+define void @"_ZN13wasmtime_wasi8preview15types1_115_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview1..types..Lookupflags$GT$9into_iter17ha41763bc59930ff0E"(ptr noalias noundef writeonly sret({ { { ptr, i64 }, i64, i32, i32 }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) initializes((0, 33)) %0, i32 noundef %1) unnamed_addr #9 {
   store ptr @anon.312a33bef36aafae82f68d87619b2eac.117, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20229,7 +20229,7 @@ define void @"_ZN13wasmtime_wasi8preview15types1_115_$LT$impl$u20$core..iter..tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i16 @"_ZN82_$LT$wasmtime_wasi..preview1..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hbca094efe93db6f2E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #8 {
+define noundef i16 @"_ZN82_$LT$wasmtime_wasi..preview1..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hbca094efe93db6f2E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0) unnamed_addr #8 {
   %2 = load i16, ptr %0, align 2, !noundef !5
   ret i16 %2
 }
@@ -20240,7 +20240,7 @@ define noundef i16 @"_ZN82_$LT$wasmtime_wasi..preview1..types..Oflags$u20$as$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Debug$GT$3fmt17h32d272adb4c7ce63E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Debug$GT$3fmt17h32d272adb4c7ce63E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca i16, align 2
   %4 = alloca [1 x { { i64, [1 x i64] }, { i64, [1 x i64] }, i64, i32, i32, i8, [7 x i8] }], align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -20285,7 +20285,7 @@ define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..Interna
   store ptr %5, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %17, align 8
-  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -20297,7 +20297,7 @@ define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Display$GT$3fmt17hd7788bc458dbbbddE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Display$GT$3fmt17hd7788bc458dbbbddE"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
   %4 = load i16, ptr %0, align 2, !noundef !5
@@ -20308,10 +20308,10 @@ define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17he5f9acb1046d1793E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 10)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17he5f9acb1046d1793E"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 10)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @_ZN8bitflags6parser8from_str17h27ff815fb2471fe0E(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
+  call void @_ZN8bitflags6parser8from_str17h27ff815fb2471fe0E(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !806)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !809)
   %5 = load i64, ptr %4, align 8, !range !766, !alias.scope !809, !noalias !806, !noundef !5
@@ -20370,7 +20370,7 @@ define noundef zeroext i1 @"_ZN91_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN113_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h71912214f6f45204E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
+define void @"_ZN113_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h71912214f6f45204E"(ptr noalias noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
   store ptr @anon.312a33bef36aafae82f68d87619b2eac.123, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 4, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20410,7 +20410,7 @@ define noundef zeroext i1 @"_ZN13wasmtime_wasi8preview15types1_88_$LT$impl$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN13wasmtime_wasi8preview15types1_110_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview1..types..Oflags$GT$9into_iter17h09060e0e42cb4117E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
+define void @"_ZN13wasmtime_wasi8preview15types1_110_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview1..types..Oflags$GT$9into_iter17h09060e0e42cb4117E"(ptr noalias noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
   store ptr @anon.312a33bef36aafae82f68d87619b2eac.123, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 4, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20426,7 +20426,7 @@ define void @"_ZN13wasmtime_wasi8preview15types1_110_$LT$impl$u20$core..iter..tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i16 @"_ZN88_$LT$wasmtime_wasi..preview1..types..Eventrwflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h71b9e1aa506c0ba4E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #8 {
+define noundef i16 @"_ZN88_$LT$wasmtime_wasi..preview1..types..Eventrwflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h71b9e1aa506c0ba4E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0) unnamed_addr #8 {
   %2 = load i16, ptr %0, align 2, !noundef !5
   ret i16 %2
 }
@@ -20437,7 +20437,7 @@ define noundef i16 @"_ZN88_$LT$wasmtime_wasi..preview1..types..Eventrwflags$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Debug$GT$3fmt17h76967879353e748fE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Debug$GT$3fmt17h76967879353e748fE"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca i16, align 2
   %4 = alloca [1 x { { i64, [1 x i64] }, { i64, [1 x i64] }, i64, i32, i32, i8, [7 x i8] }], align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -20482,7 +20482,7 @@ define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..Interna
   store ptr %5, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %17, align 8
-  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -20494,7 +20494,7 @@ define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Display$GT$3fmt17hd9307a8f60d24e74E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Display$GT$3fmt17hd9307a8f60d24e74E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
   %4 = load i16, ptr %0, align 2, !noundef !5
@@ -20505,10 +20505,10 @@ define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h5d7efa5b97eef5f8E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 10)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h5d7efa5b97eef5f8E"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 10)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @_ZN8bitflags6parser8from_str17hbf4a9c3560dff59fE(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
+  call void @_ZN8bitflags6parser8from_str17hbf4a9c3560dff59fE(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !817)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !820)
   %5 = load i64, ptr %4, align 8, !range !766, !alias.scope !820, !noalias !817, !noundef !5
@@ -20567,7 +20567,7 @@ define noundef zeroext i1 @"_ZN91_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN113_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h68394a0a76e0b056E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
+define void @"_ZN113_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h68394a0a76e0b056E"(ptr noalias noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
   store ptr @anon.312a33bef36aafae82f68d87619b2eac.125, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20607,7 +20607,7 @@ define noundef zeroext i1 @"_ZN13wasmtime_wasi8preview15types1_94_$LT$impl$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN13wasmtime_wasi8preview15types1_116_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview1..types..Eventrwflags$GT$9into_iter17h77bb60890b9dff86E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
+define void @"_ZN13wasmtime_wasi8preview15types1_116_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview1..types..Eventrwflags$GT$9into_iter17h77bb60890b9dff86E"(ptr noalias noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
   store ptr @anon.312a33bef36aafae82f68d87619b2eac.125, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20623,7 +20623,7 @@ define void @"_ZN13wasmtime_wasi8preview15types1_116_$LT$impl$u20$core..iter..tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i16 @"_ZN89_$LT$wasmtime_wasi..preview1..types..Subclockflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hcf40e70a86c191a5E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #8 {
+define noundef i16 @"_ZN89_$LT$wasmtime_wasi..preview1..types..Subclockflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hcf40e70a86c191a5E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0) unnamed_addr #8 {
   %2 = load i16, ptr %0, align 2, !noundef !5
   ret i16 %2
 }
@@ -20634,7 +20634,7 @@ define noundef i16 @"_ZN89_$LT$wasmtime_wasi..preview1..types..Subclockflags$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Debug$GT$3fmt17h58dba76c2a59a9d5E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Debug$GT$3fmt17h58dba76c2a59a9d5E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca i16, align 2
   %4 = alloca [1 x { { i64, [1 x i64] }, { i64, [1 x i64] }, i64, i32, i32, i8, [7 x i8] }], align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -20679,7 +20679,7 @@ define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..Interna
   store ptr %5, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %17, align 8
-  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -20691,7 +20691,7 @@ define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Display$GT$3fmt17h150e95685dd2bc57E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Display$GT$3fmt17h150e95685dd2bc57E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
   %4 = load i16, ptr %0, align 2, !noundef !5
@@ -20702,10 +20702,10 @@ define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h99c4698a2679d4b6E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 10)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h99c4698a2679d4b6E"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 10)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @_ZN8bitflags6parser8from_str17h2d7986ae6d1789cfE(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
+  call void @_ZN8bitflags6parser8from_str17h2d7986ae6d1789cfE(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !828)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !831)
   %5 = load i64, ptr %4, align 8, !range !766, !alias.scope !831, !noalias !828, !noundef !5
@@ -20764,7 +20764,7 @@ define noundef zeroext i1 @"_ZN91_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN113_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0cf80c3d78fbe670E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
+define void @"_ZN113_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0cf80c3d78fbe670E"(ptr noalias noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
   store ptr @anon.312a33bef36aafae82f68d87619b2eac.127, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20804,7 +20804,7 @@ define noundef zeroext i1 @"_ZN13wasmtime_wasi8preview15types1_95_$LT$impl$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN13wasmtime_wasi8preview15types1_117_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview1..types..Subclockflags$GT$9into_iter17hf42ede7beb176957E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
+define void @"_ZN13wasmtime_wasi8preview15types1_117_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview1..types..Subclockflags$GT$9into_iter17hf42ede7beb176957E"(ptr noalias noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
   store ptr @anon.312a33bef36aafae82f68d87619b2eac.127, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20820,7 +20820,7 @@ define void @"_ZN13wasmtime_wasi8preview15types1_117_$LT$impl$u20$core..iter..tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i16 @"_ZN83_$LT$wasmtime_wasi..preview1..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h093c9117714e7208E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #8 {
+define noundef i16 @"_ZN83_$LT$wasmtime_wasi..preview1..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h093c9117714e7208E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0) unnamed_addr #8 {
   %2 = load i16, ptr %0, align 2, !noundef !5
   ret i16 %2
 }
@@ -20831,7 +20831,7 @@ define noundef i16 @"_ZN83_$LT$wasmtime_wasi..preview1..types..Riflags$u20$as$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Debug$GT$3fmt17h58c762ced9d453f1E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Debug$GT$3fmt17h58c762ced9d453f1E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca i16, align 2
   %4 = alloca [1 x { { i64, [1 x i64] }, { i64, [1 x i64] }, i64, i32, i32, i8, [7 x i8] }], align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -20876,7 +20876,7 @@ define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..Interna
   store ptr %5, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %17, align 8
-  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -20888,7 +20888,7 @@ define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Display$GT$3fmt17h49855fda102be0f1E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Display$GT$3fmt17h49855fda102be0f1E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
   %4 = load i16, ptr %0, align 2, !noundef !5
@@ -20899,10 +20899,10 @@ define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h4467f0a6580b31faE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 10)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h4467f0a6580b31faE"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 10)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @_ZN8bitflags6parser8from_str17h9fa959f2f3c76947E(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
+  call void @_ZN8bitflags6parser8from_str17h9fa959f2f3c76947E(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !839)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !842)
   %5 = load i64, ptr %4, align 8, !range !766, !alias.scope !842, !noalias !839, !noundef !5
@@ -20961,7 +20961,7 @@ define noundef zeroext i1 @"_ZN91_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN113_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h29303d1ab288dd82E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
+define void @"_ZN113_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h29303d1ab288dd82E"(ptr noalias noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
   store ptr @anon.312a33bef36aafae82f68d87619b2eac.130, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 2, ptr %.sroa.4.0..sroa_idx, align 8
@@ -21001,7 +21001,7 @@ define noundef zeroext i1 @"_ZN13wasmtime_wasi8preview15types1_89_$LT$impl$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN13wasmtime_wasi8preview15types1_111_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview1..types..Riflags$GT$9into_iter17h5544024b498618ceE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
+define void @"_ZN13wasmtime_wasi8preview15types1_111_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview1..types..Riflags$GT$9into_iter17h5544024b498618ceE"(ptr noalias noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
   store ptr @anon.312a33bef36aafae82f68d87619b2eac.130, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 2, ptr %.sroa.4.0..sroa_idx, align 8
@@ -21017,7 +21017,7 @@ define void @"_ZN13wasmtime_wasi8preview15types1_111_$LT$impl$u20$core..iter..tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i16 @"_ZN83_$LT$wasmtime_wasi..preview1..types..Roflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h0d24765feeb9ceffE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #8 {
+define noundef i16 @"_ZN83_$LT$wasmtime_wasi..preview1..types..Roflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h0d24765feeb9ceffE"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0) unnamed_addr #8 {
   %2 = load i16, ptr %0, align 2, !noundef !5
   ret i16 %2
 }
@@ -21028,7 +21028,7 @@ define noundef i16 @"_ZN83_$LT$wasmtime_wasi..preview1..types..Roflags$u20$as$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Debug$GT$3fmt17hf93c3ebb3ebfe27aE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Debug$GT$3fmt17hf93c3ebb3ebfe27aE"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca i16, align 2
   %4 = alloca [1 x { { i64, [1 x i64] }, { i64, [1 x i64] }, i64, i32, i32, i8, [7 x i8] }], align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -21073,7 +21073,7 @@ define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..Interna
   store ptr %5, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %17, align 8
-  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -21085,7 +21085,7 @@ define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Display$GT$3fmt17h9ab246695afe1cb4E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Display$GT$3fmt17h9ab246695afe1cb4E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
   %4 = load i16, ptr %0, align 2, !noundef !5
@@ -21096,10 +21096,10 @@ define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hb92d0259f2922d3eE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 10)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hb92d0259f2922d3eE"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 10)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @_ZN8bitflags6parser8from_str17h94389cffa6679faaE(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
+  call void @_ZN8bitflags6parser8from_str17h94389cffa6679faaE(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !850)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !853)
   %5 = load i64, ptr %4, align 8, !range !766, !alias.scope !853, !noalias !850, !noundef !5
@@ -21158,7 +21158,7 @@ define noundef zeroext i1 @"_ZN91_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN113_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h39cf63a8207998e8E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
+define void @"_ZN113_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h39cf63a8207998e8E"(ptr noalias noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
   store ptr @anon.312a33bef36aafae82f68d87619b2eac.132, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -21198,7 +21198,7 @@ define noundef zeroext i1 @"_ZN13wasmtime_wasi8preview15types1_89_$LT$impl$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN13wasmtime_wasi8preview15types1_111_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview1..types..Roflags$GT$9into_iter17h4c3656e16eae52d0E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
+define void @"_ZN13wasmtime_wasi8preview15types1_111_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview1..types..Roflags$GT$9into_iter17h4c3656e16eae52d0E"(ptr noalias noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 33)) %0, i16 noundef %1) unnamed_addr #9 {
   store ptr @anon.312a33bef36aafae82f68d87619b2eac.132, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -21214,7 +21214,7 @@ define void @"_ZN13wasmtime_wasi8preview15types1_111_$LT$impl$u20$core..iter..tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i8 @"_ZN83_$LT$wasmtime_wasi..preview1..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc46cd112a59413e8E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #8 {
+define noundef i8 @"_ZN83_$LT$wasmtime_wasi..preview1..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc46cd112a59413e8E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #8 {
   %2 = load i8, ptr %0, align 1, !noundef !5
   ret i8 %2
 }
@@ -21225,7 +21225,7 @@ define noundef i8 @"_ZN83_$LT$wasmtime_wasi..preview1..types..Sdflags$u20$as$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Debug$GT$3fmt17h1c2faf8f86b8446eE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Debug$GT$3fmt17h1c2faf8f86b8446eE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca i8, align 1
   %4 = alloca [1 x { { i64, [1 x i64] }, { i64, [1 x i64] }, i64, i32, i32, i8, [7 x i8] }], align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -21270,7 +21270,7 @@ define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..Interna
   store ptr %5, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %17, align 8
-  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -21282,7 +21282,7 @@ define noundef zeroext i1 @"_ZN88_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Display$GT$3fmt17he7f54c85f621cde2E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..fmt..Display$GT$3fmt17he7f54c85f621cde2E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %4 = load i8, ptr %0, align 1, !noundef !5
@@ -21293,10 +21293,10 @@ define noundef zeroext i1 @"_ZN90_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h1c9439d424b36e89E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 9)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define void @"_ZN98_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h1c9439d424b36e89E"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 9)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @_ZN8bitflags6parser8from_str17hd68daeff03a6a88cE(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
+  call void @_ZN8bitflags6parser8from_str17hd68daeff03a6a88cE(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !861)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !864)
   %5 = load i64, ptr %4, align 8, !range !766, !alias.scope !864, !noalias !861, !noundef !5
@@ -21355,7 +21355,7 @@ define noundef zeroext i1 @"_ZN91_$LT$wasmtime_wasi..preview1..types.._..Interna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN113_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h1b3c4281baecc448E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 26), (32, 33)) %0, i8 noundef %1) unnamed_addr #9 {
+define void @"_ZN113_$LT$wasmtime_wasi..preview1..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h1b3c4281baecc448E"(ptr noalias noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) initializes((0, 26), (32, 33)) %0, i8 noundef %1) unnamed_addr #9 {
   store ptr @anon.312a33bef36aafae82f68d87619b2eac.136, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 2, ptr %.sroa.4.0..sroa_idx, align 8
@@ -21395,7 +21395,7 @@ define noundef zeroext i1 @"_ZN13wasmtime_wasi8preview15types1_89_$LT$impl$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN13wasmtime_wasi8preview15types1_111_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview1..types..Sdflags$GT$9into_iter17h114ae931afc073c3E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 26), (32, 33)) %0, i8 noundef %1) unnamed_addr #9 {
+define void @"_ZN13wasmtime_wasi8preview15types1_111_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview1..types..Sdflags$GT$9into_iter17h114ae931afc073c3E"(ptr noalias noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) initializes((0, 26), (32, 33)) %0, i8 noundef %1) unnamed_addr #9 {
   store ptr @anon.312a33bef36aafae82f68d87619b2eac.136, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 2, ptr %.sroa.4.0..sroa_idx, align 8
@@ -21411,7 +21411,7 @@ define void @"_ZN13wasmtime_wasi8preview15types1_111_$LT$impl$u20$core..iter..tr
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN13wasmtime_wasi8preview1129_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..stream..StreamError$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17h2972c6c92c1cdf9cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN13wasmtime_wasi8preview1129_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..stream..StreamError$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from28_$u7b$$u7b$closure$u7d$$u7d$17h2972c6c92c1cdf9cE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
   %2 = alloca { i64, { ptr, i64 } }, align 8
   %3 = alloca { i64, { ptr, i64 } }, align 8
   %4 = load ptr, ptr @"_ZN13wasmtime_wasi8preview1129_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..stream..StreamError$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Error$GT$4from8CALLSITE17h6fa781409f71bd03E", align 8, !nonnull !5, !align !33, !noundef !5
@@ -21453,7 +21453,7 @@ define internal fastcc void @"_ZN13wasmtime_wasi8preview1129_$LT$impl$u20$core..
 26:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @_ZN7tracing15__macro_support13__tracing_log17h74e713885439cb21E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %13, ptr noundef nonnull align 1 %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @_ZN7tracing15__macro_support13__tracing_log17h74e713885439cb21E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %13, ptr noundef nonnull align 1 %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   br label %27
 
@@ -21472,25 +21472,25 @@ declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, 
 declare void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef sret({ i32, [15 x i32] }) align 8 dereferenceable(64), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), i32 noundef, i32 noundef) unnamed_addr #1
+declare hidden void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), i32 noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #12
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias nocapture noundef sret({ i32, [15 x i32] }) align 8 dereferenceable(64), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), i32 noundef, i32 noundef) unnamed_addr #1
+declare hidden void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias noundef sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), i32 noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias nocapture noundef sret({ i32, [15 x i32] }) align 8 dereferenceable(64), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), i32 noundef, i32 noundef) unnamed_addr #1
+declare hidden void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noalias noundef sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), i32 noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias nocapture noundef sret({ i32, [15 x i32] }) align 8 dereferenceable(64), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), i32 noundef, i32 noundef) unnamed_addr #1
+declare hidden void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias noundef sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), i32 noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias nocapture noundef sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(48)) unnamed_addr #1
+declare void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias noundef sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hcf184696b5fab176E"(i64 noundef, i1 noundef zeroext) unnamed_addr #1
@@ -21520,13 +21520,13 @@ declare noundef zeroext i1 @"_ZN6anyhow5error60_$LT$impl$u20$core..fmt..Debug$u2
 declare void @"_ZN67_$LT$core..fmt..Arguments$u20$as$u20$tracing_core..field..Value$GT$6record17h171fdd81fc8391f2E"(ptr noalias noundef readonly align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(40), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN7tracing15__macro_support13__tracing_log17h74e713885439cb21E(ptr noalias noundef readonly align 8 dereferenceable(120), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #1
+declare void @_ZN7tracing15__macro_support13__tracing_log17h74e713885439cb21E(ptr noalias noundef readonly align 8 dereferenceable(120), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc3185559abbcc4aeE"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(48)) unnamed_addr #1
+declare noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef align 8 dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @"_ZN6anyhow5error62_$LT$impl$u20$core..fmt..Display$u20$for$u20$anyhow..Error$GT$3fmt17h372759101869a4c0E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #1
@@ -21589,7 +21589,7 @@ declare noundef zeroext i1 @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..LowerHex
 declare hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h606ec005fda8a91cE(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN8bitflags6parser8from_str17h733a404250043726E(ptr noalias nocapture noundef sret({ i64, [3 x i64] }) align 8 dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #1
+declare hidden void @_ZN8bitflags6parser8from_str17h733a404250043726E(ptr noalias noundef sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @"_ZN4core3fmt3num51_$LT$impl$u20$core..fmt..Binary$u20$for$u20$u64$GT$3fmt17h136552102ba53966E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #1
@@ -21604,7 +21604,7 @@ declare noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex
 declare hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h5399ea9efc1d038cE(ptr noalias noundef readonly align 2 dereferenceable(2), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN8bitflags6parser8from_str17h0e088895e951490bE(ptr noalias nocapture noundef sret({ i64, [3 x i64] }) align 8 dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #1
+declare hidden void @_ZN8bitflags6parser8from_str17h0e088895e951490bE(ptr noalias noundef sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @"_ZN4core3fmt3num51_$LT$impl$u20$core..fmt..Binary$u20$for$u20$u16$GT$3fmt17h47963334a919dad0E"(ptr noalias noundef readonly align 2 dereferenceable(2), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #1
@@ -21619,13 +21619,13 @@ declare noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex
 declare hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h140d3e2663f2b3f2E(ptr noalias noundef readonly align 2 dereferenceable(2), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN8bitflags6parser8from_str17ha11d54a0cabcc132E(ptr noalias nocapture noundef sret({ i64, [3 x i64] }) align 8 dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #1
+declare hidden void @_ZN8bitflags6parser8from_str17ha11d54a0cabcc132E(ptr noalias noundef sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h1acfd3d00fcf6d67E(ptr noalias noundef readonly align 4 dereferenceable(4), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN8bitflags6parser8from_str17h10e4dfb9e394a1a1E(ptr noalias nocapture noundef sret({ i64, [3 x i64] }) align 8 dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #1
+declare hidden void @_ZN8bitflags6parser8from_str17h10e4dfb9e394a1a1E(ptr noalias noundef sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @"_ZN4core3fmt3num51_$LT$impl$u20$core..fmt..Binary$u20$for$u20$u32$GT$3fmt17h4ce0a41697d12b78E"(ptr noalias noundef readonly align 4 dereferenceable(4), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #1
@@ -21640,37 +21640,37 @@ declare noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex
 declare hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h6b2108370d780bcfE(ptr noalias noundef readonly align 2 dereferenceable(2), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN8bitflags6parser8from_str17h27ff815fb2471fe0E(ptr noalias nocapture noundef sret({ i64, [3 x i64] }) align 8 dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #1
+declare hidden void @_ZN8bitflags6parser8from_str17h27ff815fb2471fe0E(ptr noalias noundef sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h427bdcc068d37ab0E(ptr noalias noundef readonly align 2 dereferenceable(2), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN8bitflags6parser8from_str17hbf4a9c3560dff59fE(ptr noalias nocapture noundef sret({ i64, [3 x i64] }) align 8 dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #1
+declare hidden void @_ZN8bitflags6parser8from_str17hbf4a9c3560dff59fE(ptr noalias noundef sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h5f3d3497a34278a7E(ptr noalias noundef readonly align 2 dereferenceable(2), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN8bitflags6parser8from_str17h2d7986ae6d1789cfE(ptr noalias nocapture noundef sret({ i64, [3 x i64] }) align 8 dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #1
+declare hidden void @_ZN8bitflags6parser8from_str17h2d7986ae6d1789cfE(ptr noalias noundef sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h711c1ffdb11028a9E(ptr noalias noundef readonly align 2 dereferenceable(2), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN8bitflags6parser8from_str17h9fa959f2f3c76947E(ptr noalias nocapture noundef sret({ i64, [3 x i64] }) align 8 dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #1
+declare hidden void @_ZN8bitflags6parser8from_str17h9fa959f2f3c76947E(ptr noalias noundef sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hc30d933d937f4707E(ptr noalias noundef readonly align 2 dereferenceable(2), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN8bitflags6parser8from_str17h94389cffa6679faaE(ptr noalias nocapture noundef sret({ i64, [3 x i64] }) align 8 dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #1
+declare hidden void @_ZN8bitflags6parser8from_str17h94389cffa6679faaE(ptr noalias noundef sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h89230e5ea800da6fE(ptr noalias noundef readonly align 1 dereferenceable(1), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN8bitflags6parser8from_str17hd68daeff03a6a88cE(ptr noalias nocapture noundef sret({ i64, [3 x i64] }) align 8 dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #1
+declare hidden void @_ZN8bitflags6parser8from_str17hd68daeff03a6a88cE(ptr noalias noundef sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Binary$u20$for$u20$u8$GT$3fmt17h1c11b7bee6696b0aE"(ptr noalias noundef readonly align 1 dereferenceable(1), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #1
@@ -21685,10 +21685,10 @@ declare noundef zeroext i1 @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..UpperHex
 declare void @_ZN12tracing_core5event5Event8dispatch17h82b4b9df6018d77cE(ptr noalias noundef readonly align 8 dereferenceable(120), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h0c8fa8172ae31aecE.llvm.10377456559187600216"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #1
@@ -21700,13 +21700,13 @@ declare void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20
 declare hidden void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17habe7f7bd14bd89feE"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @_ZN3std2io5error14repr_bitpacked11decode_repr17hffde43a38bd676b2E.llvm.10377456559187600216(ptr noalias nocapture noundef sret({ i8, [15 x i8] }) align 8 dereferenceable(16), ptr noundef nonnull) unnamed_addr #2
+declare hidden void @_ZN3std2io5error14repr_bitpacked11decode_repr17hffde43a38bd676b2E.llvm.10377456559187600216(ptr noalias noundef sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16), ptr noundef nonnull) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i32, i1 } @llvm.uadd.with.overflow.i32(i32, i32) #16
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @"_ZN53_$LT$u32$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h33f606294a43f9ddE.llvm.10298849200982743166"(ptr noalias nocapture noundef sret({ i32, [15 x i32] }) align 8 dereferenceable(64), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #2
+declare hidden void @"_ZN53_$LT$u32$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h33f606294a43f9ddE.llvm.10298849200982743166"(ptr noalias noundef sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef i8 @"_ZN13wasmtime_wasi4host10filesystem152_$LT$impl$u20$core..convert..From$LT$$RF$std..io..error..Error$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$4from17hdb744a42bf962d2cE"(ptr noalias noundef readonly align 8 dereferenceable(8)) unnamed_addr #1
@@ -21715,7 +21715,7 @@ declare noundef i8 @"_ZN13wasmtime_wasi4host10filesystem152_$LT$impl$u20$core..c
 declare hidden noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17h0af1be10a0fc1317E"(ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #6
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17hfed24cd5d3c00d54E"(ptr noalias nocapture noundef align 8 dereferenceable(24)) unnamed_addr #6
+declare hidden noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17hfed24cd5d3c00d54E"(ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #6
 
 ; Function Attrs: cold nonlazybind uwtable
 declare hidden noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h437debc8ba700dedE"(i8 noundef) unnamed_addr #6
@@ -21724,7 +21724,7 @@ declare hidden noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..conve
 declare hidden noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h4a8a882468c8d875E"(i8 noundef) unnamed_addr #6
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hcfd96fb9d5ddb0f1E"(ptr noalias nocapture noundef align 8 dereferenceable(64)) unnamed_addr #6
+declare hidden noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hcfd96fb9d5ddb0f1E"(ptr noalias noundef align 8 captures(none) dereferenceable(64)) unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17

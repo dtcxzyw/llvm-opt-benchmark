@@ -443,7 +443,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef range(i32 0, 26) i32 @_ZN6hermes17UnaryOperatorInst13parseOperatorEN4llvh9StringRefE(ptr nocapture readonly %op.coerce0, i64 %op.coerce1) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i32 0, 26) i32 @_ZN6hermes17UnaryOperatorInst13parseOperatorEN4llvh9StringRefE(ptr readonly captures(none) %op.coerce0, i64 %op.coerce1) local_unnamed_addr #2 align 2 {
 entry:
   %op.coerce1.fr = freeze i64 %op.coerce1
   %cmp.i9 = icmp eq i64 %op.coerce1.fr, 0
@@ -508,7 +508,7 @@ for.inc:                                          ; preds = %for.cond, %if.end.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, 4) i32 @_ZN6hermes17UnaryOperatorInst13getSideEffectEv(ptr noundef nonnull align 8 dereferenceable(136) %this) local_unnamed_addr #0 align 2 {
@@ -542,7 +542,7 @@ return:                                           ; preds = %if.end6, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef range(i32 -2147483648, 26) i32 @_ZN6hermes18BinaryOperatorInst13parseOperatorEN4llvh9StringRefE(ptr nocapture readonly %op.coerce0, i64 %op.coerce1) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i32 -2147483648, 26) i32 @_ZN6hermes18BinaryOperatorInst13parseOperatorEN4llvh9StringRefE(ptr readonly captures(none) %op.coerce0, i64 %op.coerce1) local_unnamed_addr #2 align 2 {
 entry:
   %op.coerce1.fr.i = freeze i64 %op.coerce1
   %cmp.i9.i = icmp eq i64 %op.coerce1.fr.i, 0
@@ -607,7 +607,7 @@ _ZL18parseOperator_implN4llvh9StringRefEPPKc.exit: ; preds = %entry.split.us.i, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef range(i32 -2147483648, 26) i32 @_ZN6hermes18BinaryOperatorInst23parseAssignmentOperatorEN4llvh9StringRefE(ptr nocapture readonly %op.coerce0, i64 %op.coerce1) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i32 -2147483648, 26) i32 @_ZN6hermes18BinaryOperatorInst23parseAssignmentOperatorEN4llvh9StringRefE(ptr readonly captures(none) %op.coerce0, i64 %op.coerce1) local_unnamed_addr #2 align 2 {
 entry:
   %op.coerce1.fr.i = freeze i64 %op.coerce1
   %cmp.i9.i = icmp eq i64 %op.coerce1.fr.i, 0
@@ -833,7 +833,7 @@ return:                                           ; preds = %if.end30, %lor.lhs.
 declare void @_ZN6hermes12hermes_fatalEPKc(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes10SwitchInstC2EPNS_5ValueEPNS_10BasicBlockERKN4llvh11SmallVectorIPNS_7LiteralELj8EEERKNS6_IS4_Lj8EEE(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 16), (18, 22)) %this, ptr noundef %input, ptr noundef %defaultBlock, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %values, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %blocks) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes10SwitchInstC2EPNS_5ValueEPNS_10BasicBlockERKN4llvh11SmallVectorIPNS_7LiteralELj8EEERKNS6_IS4_Lj8EEE(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 16), (18, 22)) %this, ptr noundef %input, ptr noundef %defaultBlock, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %values, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %blocks) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %this, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -946,7 +946,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes7PhiInstC2ERKN4llvh11SmallVectorIPNS_5ValueELj8EEERKNS2_IPNS_10BasicBlockELj8EEE(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 16), (18, 22)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %values, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %blocks) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes7PhiInstC2ERKN4llvh11SmallVectorIPNS_5ValueELj8EEERKNS2_IPNS_10BasicBlockELj8EEE(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 16), (18, 22)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %values, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %blocks) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %this, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1103,7 +1103,7 @@ while.end:                                        ; preds = %if.end, %if.then, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes13GetPNamesInstC2EPNS_10BasicBlockEPNS_5ValueES4_S4_S4_S2_S2_(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 16), (18, 22)) %this, ptr nocapture readnone %parent, ptr noundef %iteratorAddr, ptr noundef %baseAddr, ptr noundef %indexAddr, ptr noundef %sizeAddr, ptr noundef %onEmpty, ptr noundef %onSome) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes13GetPNamesInstC2EPNS_10BasicBlockEPNS_5ValueES4_S4_S4_S2_S2_(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 16), (18, 22)) %this, ptr readnone captures(none) %parent, ptr noundef %iteratorAddr, ptr noundef %baseAddr, ptr noundef %indexAddr, ptr noundef %sizeAddr, ptr noundef %onEmpty, ptr noundef %onSome) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %this, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1146,7 +1146,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes16GetNextPNameInstC2EPNS_10BasicBlockEPNS_5ValueES4_S4_S4_S4_S2_S2_(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 16), (18, 22)) %this, ptr nocapture readnone %parent, ptr noundef %propertyAddr, ptr noundef %baseAddr, ptr noundef %indexAddr, ptr noundef %sizeAddr, ptr noundef %iteratorAddr, ptr noundef %onLast, ptr noundef %onSome) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes16GetNextPNameInstC2EPNS_10BasicBlockEPNS_5ValueES4_S4_S4_S4_S2_S2_(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 16), (18, 22)) %this, ptr readnone captures(none) %parent, ptr noundef %propertyAddr, ptr noundef %baseAddr, ptr noundef %indexAddr, ptr noundef %sizeAddr, ptr noundef %iteratorAddr, ptr noundef %onLast, ptr noundef %onSome) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %this, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1190,7 +1190,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes13SwitchImmInstC2EPNS_5ValueEPNS_10BasicBlockEPNS_13LiteralNumberES6_RKN4llvh11SmallVectorIS6_Lj8EEERKNS8_IS4_Lj8EEE(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 16), (18, 22)) %this, ptr noundef %input, ptr noundef %defaultBlock, ptr noundef %minValue, ptr noundef %size, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %values, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %blocks) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes13SwitchImmInstC2EPNS_5ValueEPNS_10BasicBlockEPNS_13LiteralNumberES6_RKN4llvh11SmallVectorIS6_Lj8EEERKNS8_IS4_Lj8EEE(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 16), (18, 22)) %this, ptr noundef %input, ptr noundef %defaultBlock, ptr noundef %minValue, ptr noundef %size, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %values, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %blocks) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %this, i8 0, i64 16, i1 false)
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1252,7 +1252,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, -4294967040) i64 @_ZNK6hermes11Instruction10getVarietyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(132) %this) local_unnamed_addr #6 align 2 {
+define hidden range(i64 0, -4294967040) i64 @_ZNK6hermes11Instruction10getVarietyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(132) %this) local_unnamed_addr #6 align 2 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i8, ptr %add.ptr, align 8
@@ -1475,10 +1475,10 @@ _ZN4llvh12hash_combineIJNS_9hash_codeES1_EEES1_DpRKT_.exit: ; preds = %for.end, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden i64 @_ZN4llvh7hashing6detail29hash_combine_recursive_helper7combineIN6hermes11Instruction7VarietyEJjEEENS_9hash_codeEmPcS8_RKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %length, ptr noundef %buffer_ptr, ptr noundef %buffer_end, ptr noundef nonnull align 4 dereferenceable(8) %arg, ptr noundef nonnull align 4 dereferenceable(4) %args) local_unnamed_addr #0 comdat align 2 {
@@ -2471,13 +2471,13 @@ return:                                           ; preds = %for.end57, %for.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshr.i64(i64, i64, i64) #13
@@ -2486,10 +2486,10 @@ declare i64 @llvm.fshr.i64(i64, i64, i64) #13
 declare i64 @llvm.fshl.i64(i64, i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

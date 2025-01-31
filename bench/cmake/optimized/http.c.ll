@@ -220,7 +220,7 @@ define dso_local i32 @Curl_http_setup_conn(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_http(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) #0 {
+define dso_local i32 @Curl_http(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.dynbuf, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -806,14 +806,14 @@ define dso_local i32 @Curl_http_connect(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_http_getsock_do(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
+define dso_local noundef i32 @Curl_http_getsock_do(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #0 {
   %4 = tail call i32 @Curl_conn_get_socket(ptr noundef %0, i32 noundef 0) #12
   store i32 %4, ptr %2, align 4
   ret i32 65536
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_http_write_resp(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr nocapture noundef initializes((0, 1)) %4) #0 {
+define dso_local i32 @Curl_http_write_resp(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef captures(none) initializes((0, 1)) %4) #0 {
   %6 = alloca i64, align 8
   store i8 0, ptr %4, align 1
   %7 = call i32 @Curl_http_write_resp_hds(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %4)
@@ -853,7 +853,7 @@ declare void @Curl_conncontrol(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @Curl_conn_may_http3(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @Curl_checkProxyheaders(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @Curl_checkProxyheaders(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 672
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 32
@@ -1559,7 +1559,7 @@ switch.early.test:                                ; preds = %30
 declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_http_output_auth(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define dso_local i32 @Curl_http_output_auth(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 3488
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 3520
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 672
@@ -1716,7 +1716,7 @@ switch.early.test:                                ; preds = %64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @output_auth_headers(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc i32 @output_auth_headers(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2288,7 +2288,7 @@ declare zeroext i1 @Curl_auth_is_digest_supported() local_unnamed_addr #1
 declare i32 @Curl_input_digest(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_buffer_send(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local i32 @Curl_buffer_send(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8
@@ -2465,7 +2465,7 @@ declare i32 @Curl_get_upload_buffer(ptr noundef) local_unnamed_addr #1
 declare void @Curl_dyn_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @Curl_nwrite(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2474,7 +2474,7 @@ declare void @Curl_debug(ptr noundef, i32 noundef, ptr noundef, i64 noundef) loc
 declare void @Curl_pgrsSetUploadCounter(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i64 @readmoredata(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) #4 {
+define internal i64 @readmoredata(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %7 = load ptr, ptr %6, align 8
@@ -2631,7 +2631,7 @@ declare i32 @Curl_conn_get_socket(ptr noundef, i32 noundef) local_unnamed_addr #
 declare void @Curl_dyn_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @Curl_use_http_1_1plus(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define dso_local zeroext i1 @Curl_use_http_1_1plus(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4937
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 10
@@ -2693,7 +2693,7 @@ define dso_local i32 @Curl_http_compile_trailers(ptr noundef readonly %0, ptr no
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %15
-  %20 = tail call i32 @Curl_dyn_add(ptr noundef %1, ptr noundef %13) #12
+  %20 = tail call i32 @Curl_dyn_add(ptr noundef %1, ptr noundef nonnull %13) #12
   %.not33 = icmp eq i32 %20, 0
   br i1 %.not33, label %21, label %.loopexit
 
@@ -2878,7 +2878,7 @@ define dso_local i32 @Curl_dynhds_add_custom(ptr noundef %0, i1 noundef zeroext 
   br i1 %or.cond152, label %hd_name_eq.exit, label %hd_name_eq.exit.thread
 
 hd_name_eq.exit:                                  ; preds = %.critedge4.thread
-  %59 = tail call i32 @curl_strnequal(ptr noundef %37, ptr noundef nonnull @.str.15, i64 noundef 5) #12
+  %59 = tail call i32 @curl_strnequal(ptr noundef nonnull %37, ptr noundef nonnull @.str.15, i64 noundef 5) #12
   %.not157 = icmp eq i32 %59, 0
   br i1 %.not157, label %hd_name_eq.exit126.thread, label %.critedge.thread
 
@@ -2892,7 +2892,7 @@ hd_name_eq.exit.thread:                           ; preds = %.critedge4.thread
   br i1 %63, label %hd_name_eq.exit114, label %hd_name_eq.exit116.thread
 
 hd_name_eq.exit114:                               ; preds = %62
-  %64 = tail call i32 @curl_strnequal(ptr noundef %37, ptr noundef nonnull @.str.16, i64 noundef 13) #12
+  %64 = tail call i32 @curl_strnequal(ptr noundef nonnull %37, ptr noundef nonnull @.str.16, i64 noundef 13) #12
   %.not = icmp eq i32 %64, 0
   br i1 %.not, label %hd_name_eq.exit114.thread-pre-split_crit_edge, label %.critedge.thread
 
@@ -2908,7 +2908,7 @@ thread-pre-split:                                 ; preds = %hd_name_eq.exit114.
   br i1 %or.cond153, label %hd_name_eq.exit116, label %hd_name_eq.exit116.thread
 
 hd_name_eq.exit116:                               ; preds = %thread-pre-split
-  %68 = tail call i32 @curl_strnequal(ptr noundef %37, ptr noundef nonnull @.str.16, i64 noundef 13) #12
+  %68 = tail call i32 @curl_strnequal(ptr noundef nonnull %37, ptr noundef nonnull @.str.16, i64 noundef 13) #12
   %.not158 = icmp eq i32 %68, 0
   br i1 %.not158, label %hd_name_eq.exit126.thread, label %.critedge.thread
 
@@ -2921,7 +2921,7 @@ hd_name_eq.exit116.thread:                        ; preds = %62, %thread-pre-spl
   br i1 %or.cond154, label %hd_name_eq.exit118, label %hd_name_eq.exit118.thread
 
 hd_name_eq.exit118:                               ; preds = %hd_name_eq.exit116.thread
-  %72 = tail call i32 @curl_strnequal(ptr noundef %37, ptr noundef nonnull @.str.17, i64 noundef 15) #12
+  %72 = tail call i32 @curl_strnequal(ptr noundef nonnull %37, ptr noundef nonnull @.str.17, i64 noundef 15) #12
   %.not160 = icmp eq i32 %72, 0
   br i1 %.not160, label %hd_name_eq.exit126.thread, label %.critedge.thread
 
@@ -2933,7 +2933,7 @@ hd_name_eq.exit118.thread:                        ; preds = %hd_name_eq.exit116.
   br i1 %or.cond155, label %hd_name_eq.exit120, label %hd_name_eq.exit120.thread
 
 hd_name_eq.exit120:                               ; preds = %hd_name_eq.exit118.thread
-  %75 = tail call i32 @curl_strnequal(ptr noundef %37, ptr noundef nonnull @.str.18, i64 noundef 11) #12
+  %75 = tail call i32 @curl_strnequal(ptr noundef nonnull %37, ptr noundef nonnull @.str.18, i64 noundef 11) #12
   %.not159 = icmp eq i32 %75, 0
   br i1 %.not159, label %hd_name_eq.exit126.thread, label %.critedge.thread
 
@@ -2945,7 +2945,7 @@ hd_name_eq.exit120.thread:                        ; preds = %hd_name_eq.exit118.
   br i1 %or.cond156, label %hd_name_eq.exit122, label %hd_name_eq.exit122.thread
 
 hd_name_eq.exit122:                               ; preds = %hd_name_eq.exit120.thread
-  %79 = tail call i32 @curl_strnequal(ptr noundef %37, ptr noundef nonnull @.str.19, i64 noundef 18) #12
+  %79 = tail call i32 @curl_strnequal(ptr noundef nonnull %37, ptr noundef nonnull @.str.19, i64 noundef 18) #12
   %.not163 = icmp eq i32 %79, 0
   br i1 %.not163, label %hd_name_eq.exit126.thread, label %.critedge.thread
 
@@ -2956,12 +2956,12 @@ hd_name_eq.exit122.thread:                        ; preds = %hd_name_eq.exit120.
   ]
 
 hd_name_eq.exit124:                               ; preds = %hd_name_eq.exit122.thread
-  %80 = tail call i32 @curl_strnequal(ptr noundef %37, ptr noundef nonnull @.str.20, i64 noundef 14) #12
+  %80 = tail call i32 @curl_strnequal(ptr noundef nonnull %37, ptr noundef nonnull @.str.20, i64 noundef 14) #12
   %.not162 = icmp eq i32 %80, 0
   br i1 %.not162, label %hd_name_eq.exit126.thread, label %82
 
 hd_name_eq.exit126:                               ; preds = %hd_name_eq.exit122.thread
-  %81 = tail call i32 @curl_strnequal(ptr noundef %37, ptr noundef nonnull @.str.21, i64 noundef 7) #12
+  %81 = tail call i32 @curl_strnequal(ptr noundef nonnull %37, ptr noundef nonnull @.str.21, i64 noundef 7) #12
   %.not161 = icmp eq i32 %81, 0
   br i1 %.not161, label %hd_name_eq.exit126.thread, label %82
 
@@ -2970,7 +2970,7 @@ hd_name_eq.exit126:                               ; preds = %hd_name_eq.exit122.
   br i1 %83, label %hd_name_eq.exit126.thread, label %.critedge.thread
 
 hd_name_eq.exit126.thread:                        ; preds = %hd_name_eq.exit, %hd_name_eq.exit116, %hd_name_eq.exit118, %hd_name_eq.exit120, %hd_name_eq.exit122.thread, %hd_name_eq.exit124, %hd_name_eq.exit122, %82, %hd_name_eq.exit126
-  %84 = tail call i32 @Curl_dynhds_add(ptr noundef %2, ptr noundef %37, i64 noundef %.084, ptr noundef nonnull %.085, i64 noundef %.083) #12
+  %84 = tail call i32 @Curl_dynhds_add(ptr noundef %2, ptr noundef nonnull %37, i64 noundef %.084, ptr noundef nonnull %.085, i64 noundef %.083) #12
   %.not110 = icmp eq i32 %84, 0
   br i1 %.not110, label %.critedge.thread, label %.loopexit
 
@@ -2991,7 +2991,7 @@ hd_name_eq.exit126.thread:                        ; preds = %hd_name_eq.exit, %h
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @Curl_dynhds_add(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -3102,7 +3102,7 @@ define dso_local i32 @Curl_add_custom_headers(ptr noundef %0, i1 noundef zeroext
 
 46:                                               ; preds = %.critedge.thread
   %47 = load ptr, ptr @Curl_cstrdup, align 8
-  %48 = tail call ptr %47(ptr noundef %37) #12
+  %48 = tail call ptr %47(ptr noundef nonnull %37) #12
   %.not109 = icmp eq ptr %48, null
   br i1 %.not109, label %49, label %50
 
@@ -3346,7 +3346,7 @@ declare ptr @Curl_checkheaders(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @Curl_http_method(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #6 {
+define dso_local void @Curl_http_method(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #6 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4938
   %6 = load i8, ptr %5, align 2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 680
@@ -3417,7 +3417,7 @@ define dso_local noundef i32 @Curl_http_useragent(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 28) i32 @Curl_http_host(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 28) i32 @Curl_http_host(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4940
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 2
@@ -3594,12 +3594,12 @@ define dso_local range(i32 0, 28) i32 @Curl_http_host(ptr noundef %0, ptr nocapt
 declare i32 @curl_strequal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @curl_maprintf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_http_target(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @Curl_http_target(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4528
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4576
@@ -3766,12 +3766,12 @@ declare void @curl_url_cleanup(ptr noundef) local_unnamed_addr #1
 declare i32 @curl_url_get(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 declare signext i8 @Curl_raw_toupper(i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_http_body(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local i32 @Curl_http_body(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %6 = load ptr, ptr %5, align 8
   store i64 0, ptr %6, align 8
@@ -3879,7 +3879,7 @@ define dso_local i32 @Curl_http_body(ptr noundef %0, ptr nocapture noundef reado
   %51 = load ptr, ptr %50, align 8
   %52 = tail call i32 @curl_mime_headers(ptr noundef %49, ptr noundef %51, i32 noundef 0) #12
   %53 = load ptr, ptr %32, align 8
-  %54 = tail call i32 @Curl_mime_prepare_headers(ptr noundef %0, ptr noundef %53, ptr noundef %.1, ptr noundef null, i32 noundef 1) #12
+  %54 = tail call i32 @Curl_mime_prepare_headers(ptr noundef nonnull %0, ptr noundef %53, ptr noundef %.1, ptr noundef null, i32 noundef 1) #12
   %55 = load ptr, ptr %32, align 8
   %56 = tail call i32 @curl_mime_headers(ptr noundef %55, ptr noundef null, i32 noundef 0) #12
   %.not78 = icmp eq i32 %54, 0
@@ -4022,7 +4022,7 @@ declare i32 @Curl_mime_rewind(ptr noundef) local_unnamed_addr #1
 declare i64 @Curl_mime_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_http_bodysend(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @Curl_http_bodysend(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [16 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %7 = load ptr, ptr %6, align 8
@@ -4470,7 +4470,7 @@ define dso_local i32 @Curl_http_bodysend(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @addexpect(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @addexpect(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4940
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, -129
@@ -4568,7 +4568,7 @@ declare void @Curl_setup_transfer(ptr noundef, i32 noundef, i64 noundef, i1 noun
 declare i64 @Curl_mime_read(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_http_cookies(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @Curl_http_cookies(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1792
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -4590,7 +4590,7 @@ define dso_local i32 @Curl_http_cookies(ptr noundef %0, ptr nocapture noundef re
   %13 = icmp ne ptr %12, null
   %14 = icmp ne ptr %.071, null
   %or.cond = select i1 %13, i1 true, i1 %14
-  br i1 %or.cond, label %15, label %93
+  br i1 %or.cond, label %15, label %92
 
 15:                                               ; preds = %10
   br i1 %13, label %16, label %.thread
@@ -4649,14 +4649,14 @@ define dso_local i32 @Curl_http_cookies(ptr noundef %0, ptr nocapture noundef re
   %.not93 = icmp eq ptr %45, null
   br i1 %.not93, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %39, %76
-  %.068120 = phi i64 [ %.1, %76 ], [ 8, %39 ]
-  %.175119 = phi i32 [ %.276, %76 ], [ 0, %39 ]
-  %.179118 = phi ptr [ %77, %76 ], [ %45, %39 ]
+.preheader:                                       ; preds = %39, %75
+  %.068120 = phi i64 [ %.1, %75 ], [ 8, %39 ]
+  %.175119 = phi i32 [ %.276, %75 ], [ 0, %39 ]
+  %.179118 = phi ptr [ %76, %75 ], [ %45, %39 ]
   %47 = getelementptr inbounds nuw i8, ptr %.179118, i64 16
   %48 = load ptr, ptr %47, align 8
   %.not95 = icmp eq ptr %48, null
-  br i1 %.not95, label %76, label %49
+  br i1 %.not95, label %75, label %49
 
 49:                                               ; preds = %.preheader
   %.not96 = icmp eq i32 %.175119, 0
@@ -4681,47 +4681,43 @@ define dso_local i32 @Curl_http_cookies(ptr noundef %0, ptr nocapture noundef re
   %59 = add i64 %58, %57
   %60 = add i64 %59, %.068120
   %61 = icmp ugt i64 %60, 8189
-  br i1 %61, label %62, label %68
+  br i1 %61, label %62, label %67
 
 62:                                               ; preds = %52
-  %.not99 = icmp eq ptr %0, null
-  br i1 %.not99, label %.loopexit, label %63
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 2642
+  %64 = load i64, ptr %63, align 2
+  %65 = and i64 %64, 268435456
+  %.not100 = icmp eq i64 %65, 0
+  br i1 %.not100, label %.loopexit, label %66
 
-63:                                               ; preds = %62
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 2642
-  %65 = load i64, ptr %64, align 2
-  %66 = and i64 %65, 268435456
-  %.not100 = icmp eq i64 %66, 0
-  br i1 %.not100, label %.loopexit, label %67
-
-67:                                               ; preds = %63
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.65, ptr noundef %55) #12
+66:                                               ; preds = %62
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.65, ptr noundef nonnull %55) #12
   br label %.loopexit
 
-68:                                               ; preds = %52
-  %69 = select i1 %.not96, ptr @.str.14, ptr @.str.67
-  %70 = tail call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef %2, ptr noundef nonnull @.str.66, ptr noundef nonnull %69, ptr noundef %55, ptr noundef %53) #12
-  %.not98 = icmp eq i32 %70, 0
-  br i1 %.not98, label %71, label %.loopexit
+67:                                               ; preds = %52
+  %68 = select i1 %.not96, ptr @.str.14, ptr @.str.67
+  %69 = tail call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef %2, ptr noundef nonnull @.str.66, ptr noundef nonnull %68, ptr noundef nonnull %55, ptr noundef nonnull %53) #12
+  %.not98 = icmp eq i32 %69, 0
+  br i1 %.not98, label %70, label %.loopexit
 
-71:                                               ; preds = %68
-  %72 = select i1 %.not96, i64 0, i64 2
-  %73 = add i64 %72, %.068120
-  %74 = add i64 %73, %59
-  %75 = add nsw i32 %.175119, 1
-  br label %76
+70:                                               ; preds = %67
+  %71 = select i1 %.not96, i64 0, i64 2
+  %72 = add i64 %71, %.068120
+  %73 = add i64 %72, %59
+  %74 = add nsw i32 %.175119, 1
+  br label %75
 
-76:                                               ; preds = %71, %.preheader
-  %.276 = phi i32 [ %75, %71 ], [ %.175119, %.preheader ]
-  %.1 = phi i64 [ %74, %71 ], [ %.068120, %.preheader ]
-  %77 = load ptr, ptr %.179118, align 8
-  %.not94 = icmp eq ptr %77, null
+75:                                               ; preds = %70, %.preheader
+  %.276 = phi i32 [ %74, %70 ], [ %.175119, %.preheader ]
+  %.1 = phi i64 [ %73, %70 ], [ %.068120, %.preheader ]
+  %76 = load ptr, ptr %.179118, align 8
+  %.not94 = icmp eq ptr %76, null
   br i1 %.not94, label %.loopexit, label %.preheader, !llvm.loop !26
 
-.loopexit:                                        ; preds = %68, %50, %76, %67, %63, %62
-  %.175117 = phi i32 [ %.175119, %62 ], [ %.175119, %63 ], [ %.175119, %67 ], [ %.276, %76 ], [ 0, %50 ], [ %.175119, %68 ]
-  %.173 = phi i1 [ true, %62 ], [ true, %63 ], [ true, %67 ], [ false, %76 ], [ false, %50 ], [ false, %68 ]
-  %.3 = phi i32 [ 0, %62 ], [ 0, %63 ], [ 0, %67 ], [ 0, %76 ], [ %51, %50 ], [ %70, %68 ]
+.loopexit:                                        ; preds = %67, %50, %75, %66, %62
+  %.175117 = phi i32 [ %.175119, %62 ], [ %.175119, %66 ], [ %.276, %75 ], [ 0, %50 ], [ %.175119, %67 ]
+  %.173 = phi i1 [ true, %62 ], [ true, %66 ], [ false, %75 ], [ false, %50 ], [ false, %67 ]
+  %.3 = phi i32 [ 0, %62 ], [ 0, %66 ], [ 0, %75 ], [ %51, %50 ], [ %69, %67 ]
   tail call void @Curl_cookie_freelist(ptr noundef nonnull %45) #12
   br label %.thread
 
@@ -4729,54 +4725,54 @@ define dso_local i32 @Curl_http_cookies(ptr noundef %0, ptr nocapture noundef re
   %.074 = phi i32 [ %.175117, %.loopexit ], [ 0, %39 ], [ 0, %16 ], [ 0, %15 ]
   %.072 = phi i1 [ %.173, %.loopexit ], [ false, %39 ], [ false, %16 ], [ false, %15 ]
   %.170 = phi i32 [ %.3, %.loopexit ], [ 0, %39 ], [ 0, %16 ], [ 0, %15 ]
-  %78 = icmp eq ptr %.071, null
-  %79 = icmp ne i32 %.170, 0
-  %80 = or i1 %.072, %79
-  %brmerge = or i1 %78, %80
-  br i1 %brmerge, label %87, label %81
+  %77 = icmp eq ptr %.071, null
+  %78 = icmp ne i32 %.170, 0
+  %79 = or i1 %.072, %78
+  %brmerge = or i1 %77, %79
+  br i1 %brmerge, label %86, label %80
 
-81:                                               ; preds = %.thread
+80:                                               ; preds = %.thread
   %.not101 = icmp eq i32 %.074, 0
-  br i1 %.not101, label %82, label %.thread106
+  br i1 %.not101, label %81, label %.thread106
 
-82:                                               ; preds = %81
-  %83 = tail call i32 @Curl_dyn_addn(ptr noundef %2, ptr noundef nonnull @.str.64, i64 noundef 8) #12
-  %.not102 = icmp eq i32 %83, 0
+81:                                               ; preds = %80
+  %82 = tail call i32 @Curl_dyn_addn(ptr noundef %2, ptr noundef nonnull @.str.64, i64 noundef 8) #12
+  %.not102 = icmp eq i32 %82, 0
   br i1 %.not102, label %.thread106, label %.thread113
 
-.thread106:                                       ; preds = %81, %82
-  %84 = phi ptr [ @.str.67, %81 ], [ @.str.14, %82 ]
-  %85 = tail call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef %2, ptr noundef nonnull @.str.68, ptr noundef nonnull %84, ptr noundef nonnull %.071) #12
-  %86 = add nsw i32 %.074, 1
-  br label %87
+.thread106:                                       ; preds = %80, %81
+  %83 = phi ptr [ @.str.67, %80 ], [ @.str.14, %81 ]
+  %84 = tail call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef %2, ptr noundef nonnull @.str.68, ptr noundef nonnull %83, ptr noundef nonnull %.071) #12
+  %85 = add nsw i32 %.074, 1
+  br label %86
 
-87:                                               ; preds = %.thread, %.thread106
-  %.377 = phi i32 [ %.074, %.thread ], [ %86, %.thread106 ]
-  %.6 = phi i32 [ %.170, %.thread ], [ %85, %.thread106 ]
-  %88 = icmp eq i32 %.377, 0
-  %89 = icmp ne i32 %.6, 0
-  %or.cond5 = select i1 %88, i1 true, i1 %89
-  br i1 %or.cond5, label %92, label %90
+86:                                               ; preds = %.thread, %.thread106
+  %.377 = phi i32 [ %.074, %.thread ], [ %85, %.thread106 ]
+  %.6 = phi i32 [ %.170, %.thread ], [ %84, %.thread106 ]
+  %87 = icmp eq i32 %.377, 0
+  %88 = icmp ne i32 %.6, 0
+  %or.cond5 = select i1 %87, i1 true, i1 %88
+  br i1 %or.cond5, label %91, label %89
 
-90:                                               ; preds = %87
-  %91 = tail call i32 @Curl_dyn_addn(ptr noundef %2, ptr noundef nonnull @.str.12, i64 noundef 2) #12
-  br label %92
+89:                                               ; preds = %86
+  %90 = tail call i32 @Curl_dyn_addn(ptr noundef %2, ptr noundef nonnull @.str.12, i64 noundef 2) #12
+  br label %91
 
-92:                                               ; preds = %90, %87
-  %.8 = phi i32 [ %.6, %87 ], [ %91, %90 ]
+91:                                               ; preds = %89, %86
+  %.8 = phi i32 [ %.6, %86 ], [ %90, %89 ]
   %.not103 = icmp eq i32 %.8, 0
-  br i1 %.not103, label %93, label %.thread113
+  br i1 %.not103, label %92, label %.thread113
 
-93:                                               ; preds = %92, %10
+92:                                               ; preds = %91, %10
   br label %.thread113
 
-.thread113:                                       ; preds = %82, %92, %93
-  %.0 = phi i32 [ 0, %93 ], [ %.8, %92 ], [ %83, %82 ]
+.thread113:                                       ; preds = %81, %91, %92
+  %.0 = phi i32 [ 0, %92 ], [ %.8, %91 ], [ %82, %81 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @Curl_share_lock(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -4885,7 +4881,7 @@ define dso_local range(i32 0, 28) i32 @Curl_http_range(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 27) i32 @Curl_http_resume(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 27) i32 @Curl_http_resume(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4096 x i8], align 16
   switch i32 %2, label %50 [
     i32 4, label %5
@@ -4998,7 +4994,7 @@ declare void @Curl_set_in_callback(ptr noundef, i1 noundef zeroext) local_unname
 declare i64 @curlx_sotouz(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 34) i32 @Curl_http_firstwrite(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 34) i32 @Curl_http_firstwrite(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i8 0, ptr %2, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -6062,7 +6058,7 @@ select.unfold:                                    ; preds = %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_http_write_resp_hds(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 1)) %4) local_unnamed_addr #0 {
+define dso_local i32 @Curl_http_write_resp_hds(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) initializes((0, 1)) %4) local_unnamed_addr #0 {
   store i8 0, ptr %4, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 403
   %7 = load i16, ptr %6, align 1
@@ -6190,7 +6186,7 @@ define dso_local i32 @Curl_http_write_resp_hds(ptr noundef %0, ptr noundef %1, i
   %80 = load ptr, ptr %.022.i.i.i, align 8
   %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %80) #13
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %81, i64 %76)
-  %82 = tail call i32 @curl_strnequal(ptr noundef %80, ptr noundef %75, i64 noundef %..i.i.i.i) #12
+  %82 = tail call i32 @curl_strnequal(ptr noundef nonnull %80, ptr noundef %75, i64 noundef %..i.i.i.i) #12
   %.not18.i.i.i = icmp eq i32 %82, 0
   br i1 %.not18.i.i.i, label %78, label %83
 
@@ -7030,7 +7026,7 @@ thread-pre-split.i:                               ; preds = %433, %430, %422
   %444 = load ptr, ptr %.022.i503.i, align 8
   %445 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %444) #13
   %..i.i.i = tail call i64 @llvm.umin.i64(i64 %445, i64 %440)
-  %446 = tail call i32 @curl_strnequal(ptr noundef %444, ptr noundef %439, i64 noundef %..i.i.i) #12
+  %446 = tail call i32 @curl_strnequal(ptr noundef nonnull %444, ptr noundef %439, i64 noundef %..i.i.i) #12
   %.not18.i504.i = icmp eq i32 %446, 0
   br i1 %.not18.i504.i, label %442, label %447
 
@@ -7310,7 +7306,7 @@ http_rw_headers.exit.thread:                      ; preds = %62, %.thread.i, %.t
 declare i32 @Curl_client_write(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 44) i32 @Curl_http_decode_status(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #8 {
+define dso_local range(i32 0, 44) i32 @Curl_http_decode_status(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #8 {
   %.not = icmp eq i64 %2, 3
   br i1 %.not, label %.preheader, label %.loopexit
 
@@ -7340,7 +7336,7 @@ define dso_local range(i32 0, 44) i32 @Curl_http_decode_status(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 44) i32 @Curl_http_req_make(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8) local_unnamed_addr #0 {
+define dso_local range(i32 0, 44) i32 @Curl_http_req_make(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8) local_unnamed_addr #0 {
   %10 = add i64 %2, -24
   %11 = icmp ult i64 %10, -25
   br i1 %11, label %43, label %12
@@ -7457,7 +7453,7 @@ define dso_local void @Curl_http_req_free(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_http_req_make2(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local i32 @Curl_http_req_make2(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %struct.dynbuf, align 8
@@ -7955,7 +7951,7 @@ declare i64 @Curl_dynhds_count(ptr noundef) local_unnamed_addr #1
 declare ptr @Curl_dynhds_getn(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 28) i32 @Curl_http_resp_make(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 28) i32 @Curl_http_resp_make(ptr noundef writeonly captures(none) initializes((0, 8)) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @Curl_ccalloc, align 8
   %5 = tail call ptr %4(i64 noundef 1, i64 noundef 136) #12
   %.not25 = icmp eq ptr %5, null
@@ -8053,7 +8049,7 @@ define internal fastcc range(i32 0, 3) i32 @checkprotoprefix(ptr readonly %.1696
   %7 = load ptr, ptr %.022.i, align 8
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #13
   %..i.i = tail call i64 @llvm.umin.i64(i64 %8, i64 %1)
-  %9 = tail call i32 @curl_strnequal(ptr noundef %7, ptr noundef %0, i64 noundef %..i.i) #12
+  %9 = tail call i32 @curl_strnequal(ptr noundef nonnull %7, ptr noundef %0, i64 noundef %..i.i) #12
   %.not18.i = icmp eq i32 %9, 0
   br i1 %.not18.i, label %5, label %10
 
@@ -8080,19 +8076,19 @@ declare i32 @Curl_done_sending(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @Curl_http2_upgrade(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

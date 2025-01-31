@@ -478,7 +478,7 @@ declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_base64decoded_eps_ie(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #0 {
+define internal void @dissect_base64decoded_eps_ie(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #0 {
   %8 = tail call ptr @base64_tvb_to_new_tvb(ptr noundef %0, i32 noundef %3, i32 noundef %4) #5
   %9 = tail call i32 @tvb_reported_length(ptr noundef %8) #5
   tail call void @add_new_data_source(ptr noundef %2, ptr noundef %8, ptr noundef nonnull @.str.245) #5
@@ -491,7 +491,7 @@ define internal void @dissect_base64decoded_eps_ie(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_base64decoded_nas5g_ie(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 %6) #0 {
+define internal void @dissect_base64decoded_nas5g_ie(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i32 %6) #0 {
   %8 = tail call ptr @base64_tvb_to_new_tvb(ptr noundef %0, i32 noundef %3, i32 noundef %4) #5
   %9 = tail call i32 @tvb_reported_length(ptr noundef %8) #5
   tail call void @add_new_data_source(ptr noundef %2, ptr noundef %8, ptr noundef nonnull @.str.245) #5
@@ -521,7 +521,7 @@ define internal void @dissect_base64decoded_nas5g_ie(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 noundef %6) #0 {
+define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 noundef %6) #0 {
   %8 = tail call ptr @http2_get_header_value(ptr noundef %2, ptr noundef nonnull @.str.246, i32 noundef 0) #5
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %.thread
@@ -978,7 +978,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare void @dissect_gtpv2_ie_common(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare zeroext i16 @de_nas_5gs_sm_qos_rules(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1000,7 +1000,7 @@ declare i32 @g_ascii_xdigit_value(i8 noundef signext) local_unnamed_addr #4
 declare ptr @proto_tree_add_format_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 

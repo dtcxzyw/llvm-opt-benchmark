@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [44 x i8] c"Cannot allocate memory for children_ranks.\0A\00", align 1
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -1, 1) i32 @ompi_netpatterns_setup_narray_tree(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ompi_netpatterns_setup_narray_tree(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %0, 2
   br i1 %5, label %74, label %.preheader108
 
@@ -232,7 +232,7 @@ define void @ompi_netpatterns_cleanup_narray_knomial_tree(ptr noundef %0) local_
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @ompi_netpatterns_cleanup_recursive_knomial_tree_node(ptr noundef) local_unnamed_addr #4
 
@@ -441,7 +441,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_narray_knomial_tree(i32 noun
 declare i32 @ompi_netpatterns_setup_recursive_knomial_tree_node(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define i32 @ompi_roundup_to_power_radix(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 {
+define i32 @ompi_roundup_to_power_radix(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 {
   %4 = icmp slt i32 %1, 1
   br i1 %4, label %11, label %5
 
@@ -475,7 +475,7 @@ define i32 @ompi_roundup_to_power_radix(i32 noundef %0, i32 noundef %1, ptr noca
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -2, 1) i32 @ompi_netpatterns_setup_narray_tree_contigous_ranks(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #6 {
+define range(i32 -2, 1) i32 @ompi_netpatterns_setup_narray_tree_contigous_ranks(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #6 {
   %4 = sext i32 %1 to i64
   %5 = shl nsw i64 %4, 5
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #9
@@ -501,7 +501,7 @@ define range(i32 -2, 1) i32 @ompi_netpatterns_setup_narray_tree_contigous_ranks(
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -2, 1) i32 @fill_in_node_data(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #6 {
+define internal fastcc range(i32 -2, 1) i32 @fill_in_node_data(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) unnamed_addr #6 {
   %5 = sdiv i32 %1, %0
   %.not = icmp eq i32 %5, 0
   %6 = mul i32 %5, %0
@@ -623,7 +623,7 @@ define internal fastcc range(i32 -2, 1) i32 @fill_in_node_data(i32 noundef %0, i
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8

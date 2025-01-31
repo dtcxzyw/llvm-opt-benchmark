@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.wc_AesGetKeySize.1 = private unnamed_addr constant [5 x i32] [i32 0, i32 -173, i32 0, i32 -173, i32 0], align 4
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_AesSetKey(ptr noundef %aes, ptr nocapture noundef readonly %userKey, i32 noundef %keylen, ptr noundef readonly %iv, i32 noundef %dir) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_AesSetKey(ptr noundef %aes, ptr noundef readonly captures(none) %userKey, i32 noundef %keylen, ptr noundef readonly %iv, i32 noundef %dir) local_unnamed_addr #0 {
 entry:
   %temp.i.i = alloca i32, align 4
   %cmp = icmp eq ptr %aes, null
@@ -686,10 +686,10 @@ return:                                           ; preds = %if.then1, %if.else,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define range(i32 -226, 1) i32 @wc_AesCbcEncrypt(ptr noundef %aes, ptr noundef writeonly %out, ptr noundef %in, i32 noundef %sz) local_unnamed_addr #4 {
@@ -820,7 +820,7 @@ return:                                           ; preds = %xorbuf.exit, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -226, 1) i32 @wc_AesEncrypt(ptr noundef nonnull readonly %aes, ptr nocapture noundef nonnull readonly %inBlock, ptr nocapture noundef nonnull writeonly %outBlock) unnamed_addr #1 {
+define internal fastcc range(i32 -226, 1) i32 @wc_AesEncrypt(ptr noundef nonnull readonly %aes, ptr noundef nonnull readonly captures(none) %inBlock, ptr noundef nonnull writeonly captures(none) %outBlock) unnamed_addr #1 {
 entry:
   %rounds = getelementptr inbounds nuw i8, ptr %aes, i64 240
   %0 = load i32, ptr %rounds, align 16
@@ -4413,7 +4413,7 @@ for.end:                                          ; preds = %Shift4_M0.exit
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -226, 1) i32 @wc_AesGcmSetKey(ptr noundef %aes, ptr nocapture noundef readonly %key, i32 noundef %len) local_unnamed_addr #0 {
+define range(i32 -226, 1) i32 @wc_AesGcmSetKey(ptr noundef %aes, ptr noundef readonly captures(none) %key, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %iv = alloca [16 x i8], align 16
   switch i32 %len, label %return [
@@ -4448,7 +4448,7 @@ return:                                           ; preds = %if.end6, %if.end15,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @GHASH(ptr noundef readonly %gcm, ptr noundef %a, i32 noundef %aSz, ptr noundef %c, i32 noundef %cSz, ptr nocapture noundef writeonly %s, i32 noundef %sSz) local_unnamed_addr #4 {
+define void @GHASH(ptr noundef readonly %gcm, ptr noundef %a, i32 noundef %aSz, ptr noundef %c, i32 noundef %cSz, ptr noundef writeonly captures(none) %s, i32 noundef %sSz) local_unnamed_addr #4 {
 entry:
   %c190 = ptrtoint ptr %c to i64
   %a189 = ptrtoint ptr %a to i64
@@ -4710,7 +4710,7 @@ return:                                           ; preds = %entry, %xorbuf.exit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @GMULT(ptr nocapture noundef nonnull %x, ptr nocapture noundef nonnull readonly %m) unnamed_addr #4 {
+define internal fastcc void @GMULT(ptr noundef nonnull captures(none) %x, ptr noundef nonnull readonly captures(none) %m) unnamed_addr #4 {
 entry:
   br label %for.body
 
@@ -5735,7 +5735,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @wc_AesFree(ptr nocapture noundef readnone %aes) local_unnamed_addr #9 {
+define void @wc_AesFree(ptr noundef readnone captures(none) %aes) local_unnamed_addr #9 {
 entry:
   ret void
 }
@@ -5920,10 +5920,10 @@ declare i32 @llvm.bswap.i32(i32) #11
 declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

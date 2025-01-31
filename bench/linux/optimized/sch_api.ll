@@ -316,16 +316,16 @@ define dso_local range(i32 -22, 1) i32 @register_qdisc(ptr noundef %0) #0 align 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @_raw_write_lock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @_raw_write_unlock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
@@ -600,7 +600,7 @@ define dso_local void @qdisc_hash_del(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local ptr @qdisc_lookup(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 align 16 {
+define dso_local ptr @qdisc_lookup(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 align 16 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %.thread9, label %4
 
@@ -874,7 +874,7 @@ select.unfold:                                    ; preds = %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @qdisc_get_rtab(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef writeonly %2) #0 align 16 {
+define dso_local noundef ptr @qdisc_get_rtab(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef writeonly %2) #0 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %21, label %5
 
@@ -986,10 +986,10 @@ define dso_local noundef ptr @qdisc_get_rtab(ptr nocapture noundef %0, ptr nound
 declare dso_local void @do_trace_netlink_extack(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal fastcc noundef zeroext range(i8 1, 3) i8 @__detect_linklayer(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #6 align 16 {
+define internal fastcc noundef zeroext range(i8 1, 3) i8 @__detect_linklayer(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %4 = load i16, ptr %3, align 2
   %5 = freeze i16 %4
@@ -1125,7 +1125,7 @@ define dso_local void @qdisc_put_stab(ptr noundef %0) #0 align 16 {
 declare dso_local void @kvfree_call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @__qdisc_calculate_pkt_len(ptr nocapture noundef initializes((40, 44)) %0, ptr nocapture noundef readonly %1) #7 align 16 {
+define dso_local void @__qdisc_calculate_pkt_len(ptr noundef captures(none) initializes((40, 44)) %0, ptr noundef readonly captures(none) %1) #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1204,7 +1204,7 @@ define dso_local void @__qdisc_calculate_pkt_len(ptr nocapture noundef initializ
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @qdisc_warn_nonwc(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define dso_local void @qdisc_warn_nonwc(ptr noundef %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 16
   %5 = and i32 %4, 65536
@@ -1245,7 +1245,7 @@ define dso_local void @qdisc_watchdog_init_clockid(ptr noundef %0, ptr noundef %
 declare dso_local void @hrtimer_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @qdisc_watchdog(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef i32 @qdisc_watchdog(ptr noundef readonly captures(none) %0) #0 align 16 {
   tail call void @__rcu_read_lock() #19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
@@ -1319,7 +1319,7 @@ define dso_local void @qdisc_watchdog_cancel(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @hrtimer_cancel(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @qdisc_class_hash_grow(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define dso_local void @qdisc_class_hash_grow(ptr noundef %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = shl i32 %4, 2
@@ -1482,7 +1482,7 @@ define dso_local void @qdisc_class_hash_grow(ptr noundef %0, ptr nocapture nound
 declare dso_local void @kvfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @qdisc_class_hash_init(ptr nocapture noundef writeonly initializes((0, 8)) %0) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @qdisc_class_hash_init(ptr noundef writeonly captures(none) initializes((0, 8)) %0) #0 align 16 {
   %2 = tail call noalias dereferenceable_or_null(32) ptr @kvmalloc_node(i64 noundef 32, i32 noundef 3264, i32 noundef -1) #22
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.critedge, label %4
@@ -1504,14 +1504,14 @@ define dso_local noundef range(i32 -12, 1) i32 @qdisc_class_hash_init(ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @qdisc_class_hash_destroy(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @qdisc_class_hash_destroy(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   tail call void @kvfree(ptr noundef %2) #19
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local void @qdisc_class_hash_insert(ptr nocapture noundef %0, ptr noundef initializes((8, 24)) %1) #4 align 16 {
+define dso_local void @qdisc_class_hash_insert(ptr noundef captures(none) %0, ptr noundef initializes((8, 24)) %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = load i32, ptr %1, align 8
@@ -1547,7 +1547,7 @@ define dso_local void @qdisc_class_hash_insert(ptr nocapture noundef %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local void @qdisc_class_hash_remove(ptr nocapture noundef %0, ptr nocapture noundef %1) #4 align 16 {
+define dso_local void @qdisc_class_hash_remove(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1572,7 +1572,7 @@ define dso_local void @qdisc_class_hash_remove(ptr nocapture noundef %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @qdisc_tree_reduce_backlog(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local void @qdisc_tree_reduce_backlog(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 16
   %.fr7 = freeze i32 %5
@@ -1721,7 +1721,7 @@ define dso_local void @qdisc_tree_reduce_backlog(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @qdisc_offload_dump_helper(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local noundef i32 @qdisc_offload_dump_helper(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 64
   %6 = load ptr, ptr %5, align 64
@@ -1862,7 +1862,7 @@ define dso_local void @qdisc_offload_query_caps(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal i32 @pktsched_init() #10 section ".init.text" align 16 {
@@ -2825,7 +2825,7 @@ define internal i32 @tc_get_qdisc(ptr noundef %0, ptr noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @tc_dump_qdisc(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define internal i32 @tc_dump_qdisc(ptr noundef %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = alloca [17 x ptr], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -3817,7 +3817,7 @@ tc_dump_tclass_root.exit:                         ; preds = %198, %149, %70, %26
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -12, 1) i32 @psched_net_init(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 -12, 1) i32 @psched_net_init(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 32
   %4 = tail call ptr @proc_create_single_data(ptr noundef nonnull @.str.9, i16 noundef zeroext 0, ptr noundef %3, ptr noundef nonnull @psched_show, ptr noundef null) #19
@@ -3827,7 +3827,7 @@ define internal range(i32 -12, 1) i32 @psched_net_init(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @psched_net_exit(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @psched_net_exit(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 32
   tail call void @remove_proc_entry(ptr noundef nonnull @.str.9, ptr noundef %3) #19
@@ -3838,7 +3838,7 @@ define internal void @psched_net_exit(ptr nocapture noundef readonly %0) #0 alig
 declare dso_local ptr @proc_create_single_data(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @psched_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef i32 @psched_show(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = load i32, ptr @hrtimer_resolution, align 4
   %4 = udiv i32 1000000000, %3
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef 1000, i32 noundef 64, i32 noundef 1000000, i32 noundef %4) #19
@@ -3890,7 +3890,7 @@ define internal fastcc void @qdisc_refcount_inc(ptr noundef nonnull %0) unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @qdisc_notify(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc void @qdisc_notify(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 align 16 {
   %8 = icmp eq ptr %1, null
   br i1 %8, label %12, label %9
 
@@ -3978,7 +3978,7 @@ define internal fastcc void @qdisc_notify(ptr noundef %0, ptr noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @qdisc_create(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly %5, ptr noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc ptr @qdisc_create(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef %6) unnamed_addr #0 align 16 {
   %8 = alloca [16 x i8], align 16
   %9 = getelementptr i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -4390,7 +4390,7 @@ define internal fastcc ptr @qdisc_create(ptr noundef nonnull %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @qdisc_graft(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 align 16 {
+define internal fastcc i32 @qdisc_graft(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 align 16 {
   %9 = alloca %struct.tc_root_qopt_offload, align 4
   %10 = alloca ptr, align 8
   store ptr %6, ptr %10, align 8
@@ -4865,7 +4865,7 @@ declare dso_local void @qdisc_put(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @__nla_parse(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -40, 1) i32 @check_loop_fn(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal range(i32 -40, 1) i32 @check_loop_fn(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.check_loop_arg, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -5502,7 +5502,7 @@ declare dso_local ptr @__nlmsg_put(ptr noundef, i32 noundef, i32 noundef, i32 no
 declare dso_local i32 @nla_put(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @skb_trim(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -5604,7 +5604,7 @@ declare dso_local zeroext i1 @refcount_dec_if_one(ptr noundef) local_unnamed_add
 declare dso_local void @free_percpu(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tclass_del_notify(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef nonnull %4, i64 noundef range(i64 1, 0) %5, ptr noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc i32 @tclass_del_notify(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull %4, i64 noundef range(i64 1, 0) %5, ptr noundef %6) unnamed_addr #0 align 16 {
   %8 = icmp eq ptr %2, null
   br i1 %8, label %12, label %9
 
@@ -5678,7 +5678,7 @@ define internal fastcc i32 @tclass_del_notify(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tclass_get_notify(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3, i64 noundef range(i64 1, 0) %4, ptr noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @tclass_get_notify(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull %3, i64 noundef range(i64 1, 0) %4, ptr noundef %5) unnamed_addr #0 align 16 {
   %7 = icmp eq ptr %1, null
   br i1 %7, label %11, label %8
 
@@ -5718,7 +5718,7 @@ define internal fastcc i32 @tclass_get_notify(ptr noundef %0, ptr noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tclass_notify(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc void @tclass_notify(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 align 16 {
   %7 = icmp eq ptr %1, null
   br i1 %7, label %11, label %8
 
@@ -5931,7 +5931,7 @@ define internal fastcc i32 @tc_fill_tclass(ptr noundef %0, ptr noundef %1, i64 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tc_bind_class_walker(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef i32 @tc_bind_class_walker(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.tcf_bind_args, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -5999,7 +5999,7 @@ declare dso_local ptr @tcf_get_next_chain(ptr noundef, ptr noundef) local_unname
 declare dso_local ptr @tcf_get_next_proto(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tcf_node_bind(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef i32 @tcf_node_bind(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %65, label %5
 
@@ -6111,7 +6111,7 @@ define internal noundef i32 @tcf_node_bind(ptr nocapture noundef readonly %0, pt
 declare dso_local ptr @dev_get_by_index(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @qdisc_class_dump(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal i32 @qdisc_class_dump(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -6131,7 +6131,7 @@ define internal i32 @qdisc_class_dump(ptr noundef %0, i64 noundef %1, ptr nocapt
 declare dso_local void @static_key_enable(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #18

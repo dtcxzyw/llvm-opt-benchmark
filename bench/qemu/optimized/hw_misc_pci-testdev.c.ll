@@ -66,7 +66,7 @@ entry:
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pci_testdev_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @pci_testdev_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #6
@@ -95,7 +95,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pci_testdev_realize(ptr noundef %pci_dev, ptr nocapture readnone %errp) #0 {
+define internal void @pci_testdev_realize(ptr noundef %pci_dev, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.15, i32 noundef 98, ptr noundef nonnull @__func__.PCI_TEST_DEV) #6
   %config = getelementptr inbounds nuw i8, ptr %pci_dev, i64 168
@@ -153,8 +153,8 @@ for.body:                                         ; preds = %if.end, %for.inc
   %name21 = getelementptr inbounds nuw i8, ptr %call19, i64 16
   %call22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call13) #8
   %add23 = add i64 %call22, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %name21, ptr align 1 %call13, i64 %add23, i1 false)
-  tail call void @g_free(ptr noundef %call13) #6
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %name21, ptr nonnull align 1 %call13, i64 %add23, i1 false)
+  tail call void @g_free(ptr noundef nonnull %call13) #6
   %call27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(7) @.str.11) #8
   %tobool28.not = icmp eq i32 %call27, 0
   %cond = select i1 %tobool28.not, i32 128, i32 2048
@@ -354,15 +354,15 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #2
 declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @event_notifier_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -372,7 +372,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 -128, 128) i64 @pci_testdev_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal range(i64 -128, 128) i64 @pci_testdev_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %current = getelementptr inbounds nuw i8, ptr %opaque, i64 3160
   %0 = load i32, ptr %current, align 8
@@ -417,7 +417,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pci_testdev_mmio_write(ptr nocapture noundef %opaque, i64 noundef %addr, i64 noundef %val, i32 noundef %size) #0 {
+define internal void @pci_testdev_mmio_write(ptr noundef captures(none) %opaque, i64 noundef %addr, i64 noundef %val, i32 noundef %size) #0 {
 entry:
   tail call fastcc void @pci_testdev_write(ptr noundef %opaque, i64 noundef %addr, i64 noundef %val, i32 noundef %size, i32 noundef 0)
   ret void
@@ -426,7 +426,7 @@ entry:
 declare i32 @event_notifier_test_and_clear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pci_testdev_write(ptr nocapture noundef %opaque, i64 noundef %addr, i64 noundef %val, i32 noundef %size, i32 noundef range(i32 0, 2) %type) unnamed_addr #0 {
+define internal fastcc void @pci_testdev_write(ptr noundef captures(none) %opaque, i64 noundef %addr, i64 noundef %val, i32 noundef %size, i32 noundef range(i32 0, 2) %type) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %addr, 0
   %current.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3160
@@ -566,7 +566,7 @@ declare void @memory_region_del_eventfd(ptr noundef, i64 noundef, i32 noundef, i
 declare void @memory_region_add_eventfd(ptr noundef, i64 noundef, i32 noundef, i1 noundef zeroext, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pci_testdev_pio_write(ptr nocapture noundef %opaque, i64 noundef %addr, i64 noundef %val, i32 noundef %size) #0 {
+define internal void @pci_testdev_pio_write(ptr noundef captures(none) %opaque, i64 noundef %addr, i64 noundef %val, i32 noundef %size) #0 {
 entry:
   tail call fastcc void @pci_testdev_write(ptr noundef %opaque, i64 noundef %addr, i64 noundef %val, i32 noundef %size, i32 noundef 1)
   ret void

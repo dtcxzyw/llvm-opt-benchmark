@@ -17420,13 +17420,13 @@ _ZN6hermes7Context12allocateNodeEmm.exit:         ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly %jsObj, ptr nocapture readonly %name.coerce0, i64 %name.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %result) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull readonly captures(none) %jsObj, ptr readonly captures(none) %name.coerce0, i64 %name.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %result) unnamed_addr #0 align 2 {
 entry:
   %hiddenClass_.i = getelementptr inbounds nuw i8, ptr %jsObj, i64 8
   %0 = load ptr, ptr %hiddenClass_.i, align 8
@@ -17590,7 +17590,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly %jsObj, ptr nocapture readonly %name.coerce0, i64 %name.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull readonly captures(none) %jsObj, ptr readonly captures(none) %name.coerce0, i64 %name.coerce1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %result) unnamed_addr #0 align 2 {
 entry:
   %hiddenClass_.i = getelementptr inbounds nuw i8, ptr %jsObj, i64 8
   %0 = load ptr, ptr %hiddenClass_.i, align 8
@@ -17695,7 +17695,7 @@ return:                                           ; preds = %_ZSt11lower_boundIP
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr nocapture noundef nonnull readonly %jsObj, ptr nocapture readonly %name.coerce0, i64 %name.coerce1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull readonly captures(none) %jsObj, ptr readonly captures(none) %name.coerce0, i64 %name.coerce1, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %result) unnamed_addr #4 align 2 {
 entry:
   %hiddenClass_.i = getelementptr inbounds nuw i8, ptr %jsObj, i64 8
   %0 = load ptr, ptr %hiddenClass_.i, align 8
@@ -18094,7 +18094,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder17extractNodeNumberEPKNS_6parser10JSONObjectEN4llvh9StringRefERd(ptr nocapture noundef nonnull readonly %jsObj, i64 %name.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder17extractNodeNumberEPKNS_6parser10JSONObjectEN4llvh9StringRefERd(ptr noundef nonnull readonly captures(none) %jsObj, i64 %name.coerce1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %result) unnamed_addr #4 align 2 {
 entry:
   %hiddenClass_.i = getelementptr inbounds nuw i8, ptr %jsObj, i64 8
   %0 = load ptr, ptr %hiddenClass_.i, align 8
@@ -18192,7 +18192,7 @@ return:                                           ; preds = %_ZNK6hermes6parser1
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr nocapture noundef nonnull readonly %jsObj, ptr nocapture readonly %name.coerce0, i64 %name.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull readonly captures(none) %jsObj, ptr readonly captures(none) %name.coerce0, i64 %name.coerce1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %result) unnamed_addr #4 align 2 {
 entry:
   %hiddenClass_.i = getelementptr inbounds nuw i8, ptr %jsObj, i64 8
   %0 = load ptr, ptr %hiddenClass_.i, align 8
@@ -20812,10 +20812,10 @@ declare noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEm
 declare void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464), i32 noundef, ptr, ptr noundef nonnull align 8 dereferenceable(18), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree9EmptyNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree9EmptyNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -20856,7 +20856,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree12MetadataNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree12MetadataNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -21234,7 +21234,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree18WhileStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree18WhileStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this) unnamed_addr #1 align 2 {
 entry:
   %_body = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_body, align 8
@@ -21281,7 +21281,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree20DoWhileStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree20DoWhileStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this) unnamed_addr #1 align 2 {
 entry:
   %_body = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_body, align 8
@@ -21328,7 +21328,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree18ForInStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree18ForInStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this) unnamed_addr #1 align 2 {
 entry:
   %_left = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_left, align 8
@@ -21378,7 +21378,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree18ForOfStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(81) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree18ForOfStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %this) unnamed_addr #1 align 2 {
 entry:
   %_left = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_left, align 8
@@ -21428,7 +21428,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree16ForStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree16ForStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %this) unnamed_addr #1 align 2 {
 entry:
   %_init = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_init, align 8
@@ -21481,7 +21481,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree21DebuggerStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree21DebuggerStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -21522,7 +21522,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree18EmptyStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree18EmptyStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -21619,7 +21619,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree18BreakStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree18BreakStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_label = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_label, align 8
@@ -21663,7 +21663,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree21ContinueStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree21ContinueStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_label = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_label, align 8
@@ -21707,7 +21707,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree18ThrowStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree18ThrowStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_argument = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_argument, align 8
@@ -21751,7 +21751,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree19ReturnStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree19ReturnStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_argument = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_argument, align 8
@@ -21795,7 +21795,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree17WithStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree17WithStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_object = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_object, align 8
@@ -21901,7 +21901,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree20LabeledStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree20LabeledStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this) unnamed_addr #1 align 2 {
 entry:
   %_label = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_label, align 8
@@ -21948,7 +21948,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree23ExpressionStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree23ExpressionStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_expression = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_expression, align 8
@@ -21992,7 +21992,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree16TryStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree16TryStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this) unnamed_addr #1 align 2 {
 entry:
   %_block = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_block, align 8
@@ -22042,7 +22042,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree15IfStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree15IfStatementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this) unnamed_addr #1 align 2 {
 entry:
   %_test = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_test, align 8
@@ -22092,7 +22092,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree15NullLiteralNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree15NullLiteralNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -22133,7 +22133,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree18BooleanLiteralNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree18BooleanLiteralNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(49) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -22174,7 +22174,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree17StringLiteralNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree17StringLiteralNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -22215,7 +22215,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree18NumericLiteralNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree18NumericLiteralNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -22256,7 +22256,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree17RegExpLiteralNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree17RegExpLiteralNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -22297,7 +22297,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree17BigIntLiteralNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree17BigIntLiteralNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -22338,7 +22338,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree18ThisExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree18ThisExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -22379,7 +22379,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree9SuperNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree9SuperNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -22588,7 +22588,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree17SpreadElementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree17SpreadElementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_argument = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_argument, align 8
@@ -22694,7 +22694,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree19YieldExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree19YieldExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %this) unnamed_addr #1 align 2 {
 entry:
   %_argument = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_argument, align 8
@@ -22738,7 +22738,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree19AwaitExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree19AwaitExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_argument = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_argument, align 8
@@ -22782,7 +22782,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree20ImportExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree20ImportExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_source = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_source, align 8
@@ -22953,7 +22953,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree24AssignmentExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24AssignmentExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this) unnamed_addr #1 align 2 {
 entry:
   %_left = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_left, align 8
@@ -23000,7 +23000,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree19UnaryExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree19UnaryExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(65) %this) unnamed_addr #1 align 2 {
 entry:
   %_argument = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_argument, align 8
@@ -23044,7 +23044,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree20UpdateExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree20UpdateExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(65) %this) unnamed_addr #1 align 2 {
 entry:
   %_argument = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_argument, align 8
@@ -23086,7 +23086,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_20UpdateExp
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree20MemberExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree20MemberExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(65) %this) unnamed_addr #1 align 2 {
 entry:
   %_object = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_object, align 8
@@ -23133,7 +23133,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree28OptionalMemberExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(66) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree28OptionalMemberExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(66) %this) unnamed_addr #1 align 2 {
 entry:
   %_object = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_object, align 8
@@ -23180,7 +23180,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree21LogicalExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree21LogicalExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this) unnamed_addr #1 align 2 {
 entry:
   %_left = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_left, align 8
@@ -23227,7 +23227,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree25ConditionalExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree25ConditionalExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this) unnamed_addr #1 align 2 {
 entry:
   %_test = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_test, align 8
@@ -23277,7 +23277,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree20BinaryExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree20BinaryExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this) unnamed_addr #1 align 2 {
 entry:
   %_left = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_left, align 8
@@ -23324,7 +23324,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree13DirectiveNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree13DirectiveNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_value = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_value, align 8
@@ -23368,7 +23368,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree20DirectiveLiteralNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree20DirectiveLiteralNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -23409,7 +23409,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree14IdentifierNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree14IdentifierNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(65) %this) unnamed_addr #1 align 2 {
 entry:
   %_typeAnnotation = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_typeAnnotation, align 8
@@ -23453,7 +23453,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree15PrivateNameNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree15PrivateNameNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -23497,7 +23497,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree16MetaPropertyNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree16MetaPropertyNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_meta = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_meta, align 8
@@ -23603,7 +23603,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree15CatchClauseNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree15CatchClauseNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_param = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_param, align 8
@@ -23650,7 +23650,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree22VariableDeclaratorNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree22VariableDeclaratorNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_init = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_init, align 8
@@ -23824,7 +23824,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree28TaggedTemplateExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree28TaggedTemplateExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_tag = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_tag, align 8
@@ -23871,7 +23871,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree19TemplateElementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree19TemplateElementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -23912,7 +23912,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree12PropertyNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(75) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree12PropertyNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(75) %this) unnamed_addr #1 align 2 {
 entry:
   %_key = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_key, align 8
@@ -24187,7 +24187,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree17ClassPropertyNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree17ClassPropertyNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this) unnamed_addr #1 align 2 {
 entry:
   %_key = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_key, align 8
@@ -24243,7 +24243,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree24ClassPrivatePropertyNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24ClassPrivatePropertyNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this) unnamed_addr #1 align 2 {
 entry:
   %_key = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_key, align 8
@@ -24299,7 +24299,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree20MethodDefinitionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(74) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree20MethodDefinitionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(74) %this) unnamed_addr #1 align 2 {
 entry:
   %_key = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_key, align 8
@@ -24420,7 +24420,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree19ImportSpecifierNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree19ImportSpecifierNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this) unnamed_addr #1 align 2 {
 entry:
   %_imported = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_imported, align 8
@@ -24467,7 +24467,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree26ImportDefaultSpecifierNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree26ImportDefaultSpecifierNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_local = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_local, align 8
@@ -24511,7 +24511,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree28ImportNamespaceSpecifierNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree28ImportNamespaceSpecifierNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_local = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_local, align 8
@@ -24555,7 +24555,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree19ImportAttributeNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree19ImportAttributeNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_key = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_key, align 8
@@ -24664,7 +24664,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree19ExportSpecifierNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree19ExportSpecifierNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_exported = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_exported, align 8
@@ -24711,7 +24711,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree28ExportNamespaceSpecifierNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree28ExportNamespaceSpecifierNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_exported = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_exported, align 8
@@ -24755,7 +24755,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree28ExportDefaultDeclarationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree28ExportDefaultDeclarationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_declaration = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_declaration, align 8
@@ -24799,7 +24799,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree24ExportAllDeclarationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24ExportAllDeclarationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_source = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_source, align 8
@@ -24961,7 +24961,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree15RestElementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree15RestElementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_argument = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_argument, align 8
@@ -25005,7 +25005,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree21AssignmentPatternNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree21AssignmentPatternNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_left = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_left, align 8
@@ -25052,7 +25052,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree17JSXIdentifierNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree17JSXIdentifierNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -25093,7 +25093,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree23JSXMemberExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree23JSXMemberExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_object = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_object, align 8
@@ -25140,7 +25140,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree21JSXNamespacedNameNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree21JSXNamespacedNameNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_namespace = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_namespace, align 8
@@ -25187,7 +25187,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree22JSXEmptyExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree22JSXEmptyExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -25228,7 +25228,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree26JSXExpressionContainerNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree26JSXExpressionContainerNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_expression = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_expression, align 8
@@ -25272,7 +25272,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree18JSXSpreadChildNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree18JSXSpreadChildNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_expression = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_expression, align 8
@@ -25378,7 +25378,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree21JSXClosingElementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree21JSXClosingElementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_name = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_name, align 8
@@ -25422,7 +25422,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree16JSXAttributeNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree16JSXAttributeNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_name = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_name, align 8
@@ -25469,7 +25469,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree22JSXSpreadAttributeNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree22JSXSpreadAttributeNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_argument = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_argument, align 8
@@ -25513,7 +25513,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree20JSXStringLiteralNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree20JSXStringLiteralNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -25554,7 +25554,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree11JSXTextNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree11JSXTextNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -25719,7 +25719,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree22JSXOpeningFragmentNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree22JSXOpeningFragmentNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -25760,7 +25760,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree22JSXClosingFragmentNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree22JSXClosingFragmentNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -25801,7 +25801,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree24ExistsTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24ExistsTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -25842,7 +25842,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree23EmptyTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree23EmptyTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -25883,7 +25883,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree24StringTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24StringTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -25924,7 +25924,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree24NumberTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24NumberTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -25965,7 +25965,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree31StringLiteralTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree31StringLiteralTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -26006,7 +26006,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree31NumberLiteralTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree31NumberLiteralTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -26047,7 +26047,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree31BigIntLiteralTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree31BigIntLiteralTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -26088,7 +26088,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree25BooleanTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree25BooleanTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -26129,7 +26129,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree32BooleanLiteralTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree32BooleanLiteralTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -26170,7 +26170,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree29NullLiteralTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree29NullLiteralTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -26211,7 +26211,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree24SymbolTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24SymbolTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -26252,7 +26252,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree21AnyTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree21AnyTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -26293,7 +26293,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree23MixedTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree23MixedTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -26334,7 +26334,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree24BigIntTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24BigIntTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -26375,7 +26375,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree22VoidTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree22VoidTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -26484,7 +26484,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree21FunctionTypeParamNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree21FunctionTypeParamNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(65) %this) unnamed_addr #1 align 2 {
 entry:
   %_name = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_name, align 8
@@ -26596,7 +26596,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree26ComponentTypeParameterNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree26ComponentTypeParameterNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(65) %this) unnamed_addr #1 align 2 {
 entry:
   %_name = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_name, align 8
@@ -26643,7 +26643,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree26NullableTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree26NullableTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_typeAnnotation = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_typeAnnotation, align 8
@@ -26687,7 +26687,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree27QualifiedTypeIdentifierNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree27QualifiedTypeIdentifierNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_qualification = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_qualification, align 8
@@ -26734,7 +26734,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree24TypeofTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24TypeofTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_argument = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_argument, align 8
@@ -26778,7 +26778,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree23KeyofTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree23KeyofTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_argument = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_argument, align 8
@@ -26822,7 +26822,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree16TypeOperatorNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree16TypeOperatorNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_typeAnnotation = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_typeAnnotation, align 8
@@ -26866,7 +26866,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree29QualifiedTypeofIdentifierNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree29QualifiedTypeofIdentifierNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_qualification = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_qualification, align 8
@@ -26969,7 +26969,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree26TupleTypeSpreadElementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree26TupleTypeSpreadElementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_label = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_label, align 8
@@ -27016,7 +27016,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree27TupleTypeLabeledElementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree27TupleTypeLabeledElementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this) unnamed_addr #1 align 2 {
 entry:
   %_label = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_label, align 8
@@ -27066,7 +27066,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree23ArrayTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree23ArrayTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_elementType = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_elementType, align 8
@@ -27110,7 +27110,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree23InferTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree23InferTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_typeParameter = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_typeParameter, align 8
@@ -27266,7 +27266,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree25GenericTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree25GenericTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -27313,7 +27313,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree21IndexedAccessTypeNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree21IndexedAccessTypeNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_objectType = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_objectType, align 8
@@ -27360,7 +27360,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree29OptionalIndexedAccessTypeNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree29OptionalIndexedAccessTypeNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(65) %this) unnamed_addr #1 align 2 {
 entry:
   %_objectType = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_objectType, align 8
@@ -27407,7 +27407,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree29ConditionalTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree29ConditionalTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this) unnamed_addr #1 align 2 {
 entry:
   %_checkType = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_checkType, align 8
@@ -27460,7 +27460,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree17TypePredicateNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree17TypePredicateNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(65) %this) unnamed_addr #1 align 2 {
 entry:
   %_parameterName = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_parameterName, align 8
@@ -27566,7 +27566,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree13TypeAliasNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree13TypeAliasNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this) unnamed_addr #1 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -27616,7 +27616,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree14OpaqueTypeNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree14OpaqueTypeNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this) unnamed_addr #1 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -27734,7 +27734,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree20DeclareTypeAliasNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree20DeclareTypeAliasNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this) unnamed_addr #1 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -27784,7 +27784,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree21DeclareOpaqueTypeNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree21DeclareOpaqueTypeNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this) unnamed_addr #1 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -27997,7 +27997,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree19DeclareFunctionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree19DeclareFunctionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -28112,7 +28112,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree19DeclareVariableNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree19DeclareVariableNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -28156,7 +28156,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree15DeclareEnumNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree15DeclareEnumNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -28265,7 +28265,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree31DeclareExportAllDeclarationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree31DeclareExportAllDeclarationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_source = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_source, align 8
@@ -28309,7 +28309,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree17DeclareModuleNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree17DeclareModuleNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this) unnamed_addr #1 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -28356,7 +28356,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree24DeclareModuleExportsNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24DeclareModuleExportsNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_typeAnnotation = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_typeAnnotation, align 8
@@ -28400,7 +28400,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree20InterfaceExtendsNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree20InterfaceExtendsNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -28447,7 +28447,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree19ClassImplementsNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree19ClassImplementsNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -28494,7 +28494,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree18TypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree18TypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_typeAnnotation = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_typeAnnotation, align 8
@@ -28639,7 +28639,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree22ObjectTypePropertyNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree22ObjectTypePropertyNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %this) unnamed_addr #1 align 2 {
 entry:
   %_key = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_key, align 8
@@ -28689,7 +28689,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree28ObjectTypeSpreadPropertyNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree28ObjectTypeSpreadPropertyNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_argument = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_argument, align 8
@@ -28733,7 +28733,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree26ObjectTypeInternalSlotNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(67) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree26ObjectTypeInternalSlotNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(67) %this) unnamed_addr #1 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -28780,7 +28780,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree26ObjectTypeCallPropertyNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree26ObjectTypeCallPropertyNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %this) unnamed_addr #1 align 2 {
 entry:
   %_value = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_value, align 8
@@ -28824,7 +28824,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree21ObjectTypeIndexerNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree21ObjectTypeIndexerNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %this) unnamed_addr #1 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -28877,7 +28877,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree32ObjectTypeMappedTypePropertyNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree32ObjectTypeMappedTypePropertyNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %this) unnamed_addr #1 align 2 {
 entry:
   %_keyTparam = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_keyTparam, align 8
@@ -28930,7 +28930,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree12VarianceNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree12VarianceNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -29027,7 +29027,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree17TypeParameterNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(81) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree17TypeParameterNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(81) %this) unnamed_addr #1 align 2 {
 entry:
   %_bound = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_bound, align 8
@@ -29133,7 +29133,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree22TypeCastExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree22TypeCastExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_expression = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_expression, align 8
@@ -29180,7 +29180,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree16AsExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree16AsExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_expression = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_expression, align 8
@@ -29227,7 +29227,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree21InferredPredicateNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree21InferredPredicateNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -29268,7 +29268,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree21DeclaredPredicateNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree21DeclaredPredicateNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_value = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_value, align 8
@@ -29312,7 +29312,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree19EnumDeclarationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree19EnumDeclarationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -29583,7 +29583,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree23EnumDefaultedMemberNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree23EnumDefaultedMemberNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -29627,7 +29627,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree20EnumStringMemberNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree20EnumStringMemberNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -29674,7 +29674,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree20EnumNumberMemberNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree20EnumNumberMemberNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -29721,7 +29721,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree21EnumBooleanMemberNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree21EnumBooleanMemberNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -29768,7 +29768,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree22ComponentParameterNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree22ComponentParameterNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(65) %this) unnamed_addr #1 align 2 {
 entry:
   %_name = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_name, align 8
@@ -29815,7 +29815,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree20TSTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree20TSTypeAnnotationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_typeAnnotation = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_typeAnnotation, align 8
@@ -29859,7 +29859,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree16TSAnyKeywordNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree16TSAnyKeywordNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -29900,7 +29900,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree19TSNumberKeywordNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree19TSNumberKeywordNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -29941,7 +29941,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree20TSBooleanKeywordNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree20TSBooleanKeywordNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -29982,7 +29982,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree19TSStringKeywordNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree19TSStringKeywordNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -30023,7 +30023,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree19TSSymbolKeywordNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree19TSSymbolKeywordNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -30064,7 +30064,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree17TSVoidKeywordNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree17TSVoidKeywordNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -30105,7 +30105,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree22TSUndefinedKeywordNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree22TSUndefinedKeywordNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -30146,7 +30146,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree20TSUnknownKeywordNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree20TSUnknownKeywordNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -30187,7 +30187,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree18TSNeverKeywordNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree18TSNeverKeywordNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -30228,7 +30228,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree19TSBigIntKeywordNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree19TSBigIntKeywordNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -30269,7 +30269,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree14TSThisTypeNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree14TSThisTypeNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -30310,7 +30310,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree17TSLiteralTypeNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree17TSLiteralTypeNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_literal = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_literal, align 8
@@ -30354,7 +30354,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree23TSIndexedAccessTypeNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree23TSIndexedAccessTypeNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_objectType = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_objectType, align 8
@@ -30401,7 +30401,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree15TSArrayTypeNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree15TSArrayTypeNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_elementType = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_elementType, align 8
@@ -30445,7 +30445,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree19TSTypeReferenceNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree19TSTypeReferenceNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_typeName = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_typeName, align 8
@@ -30492,7 +30492,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree19TSQualifiedNameNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree19TSQualifiedNameNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_left = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_left, align 8
@@ -30663,7 +30663,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree19TSTypePredicateNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree19TSTypePredicateNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_parameterName = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_parameterName, align 8
@@ -30766,7 +30766,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree19TSTypeAssertionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree19TSTypeAssertionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_typeAnnotation = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_typeAnnotation, align 8
@@ -30813,7 +30813,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree18TSAsExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree18TSAsExpressionNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_expression = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_expression, align 8
@@ -30860,7 +30860,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree23TSParameterPropertyNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(67) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree23TSParameterPropertyNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(67) %this) unnamed_addr #1 align 2 {
 entry:
   %_parameter = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_parameter, align 8
@@ -30904,7 +30904,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree26TSTypeAliasDeclarationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree26TSTypeAliasDeclarationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this) unnamed_addr #1 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -31019,7 +31019,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree23TSInterfaceHeritageNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree23TSInterfaceHeritageNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_expression = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_expression, align 8
@@ -31181,7 +31181,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree16TSEnumMemberNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree16TSEnumMemberNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -31228,7 +31228,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree23TSModuleDeclarationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree23TSModuleDeclarationNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -31331,7 +31331,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree18TSModuleMemberNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree18TSModuleMemberNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   %_id = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_id, align 8
@@ -31434,7 +31434,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree19TSTypeParameterNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree19TSTypeParameterNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this) unnamed_addr #1 align 2 {
 entry:
   %_name = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_name, align 8
@@ -31652,7 +31652,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree15TSTypeQueryNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree15TSTypeQueryNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_exprName = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_exprName, align 8
@@ -31696,7 +31696,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree21TSConditionalTypeNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree21TSConditionalTypeNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %this) unnamed_addr #1 align 2 {
 entry:
   %_checkType = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_checkType, align 8
@@ -31805,7 +31805,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree23TSPropertySignatureNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(77) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree23TSPropertySignatureNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(77) %this) unnamed_addr #1 align 2 {
 entry:
   %_key = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_key, align 8
@@ -32035,7 +32035,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree15TSModifiersNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree15TSModifiersNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(57) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -32076,7 +32076,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree18CoverEmptyArgsNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree18CoverEmptyArgsNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -32117,7 +32117,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree22CoverTrailingCommaNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree22CoverTrailingCommaNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #7 align 2 {
 entry:
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i.i, align 8
@@ -32158,7 +32158,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree20CoverInitializerNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree20CoverInitializerNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_init = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_init, align 8
@@ -32202,7 +32202,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree20CoverRestElementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree20CoverRestElementNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %_rest = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_rest, align 8
@@ -32246,7 +32246,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN6hermes6ESTree24CoverTypedIdentifierNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr nocapture noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN6hermes6ESTree24CoverTypedIdentifierNode5visitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_(ptr noundef nonnull align 8 captures(none) dereferenceable(65) %this) unnamed_addr #1 align 2 {
 entry:
   %_left = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_left, align 8
@@ -32293,7 +32293,7 @@ _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9
@@ -32302,10 +32302,10 @@ declare i64 @llvm.umin.i64(i64, i64) #9
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12

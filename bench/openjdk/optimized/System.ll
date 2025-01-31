@@ -31,7 +31,7 @@ define void @Java_java_lang_System_registerNatives(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_java_lang_System_identityHashCode(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @Java_java_lang_System_identityHashCode(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @JVM_IHashCode(ptr noundef %0, ptr noundef %2) #2
   ret i32 %4
 }
@@ -39,7 +39,7 @@ define i32 @Java_java_lang_System_identityHashCode(ptr noundef %0, ptr nocapture
 declare i32 @JVM_IHashCode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_jdk_internal_util_SystemProps_00024Raw_platformProperties(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define ptr @Java_jdk_internal_util_SystemProps_00024Raw_platformProperties(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @GetJavaProperties(ptr noundef %0) #2
   %4 = icmp eq ptr %3, null
   br i1 %4, label %568, label %5
@@ -948,7 +948,7 @@ declare ptr @JNU_ClassString(ptr noundef) local_unnamed_addr #1
 declare ptr @GetStringPlatform(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_jdk_internal_util_SystemProps_00024Raw_vmProperties(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define ptr @Java_jdk_internal_util_SystemProps_00024Raw_vmProperties(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @JVM_GetProperties(ptr noundef %0) #2
   ret ptr %3
 }
@@ -1016,7 +1016,7 @@ define void @Java_java_lang_System_setErr0(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_java_lang_System_mapLibraryName(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Java_java_lang_System_mapLibraryName(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [256 x i16], align 16
   %5 = icmp eq ptr %2, null
   br i1 %5, label %6, label %7

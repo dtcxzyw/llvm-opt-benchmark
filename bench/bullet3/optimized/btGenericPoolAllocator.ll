@@ -33,7 +33,7 @@ $_ZTI22GIM_STANDARD_ALLOCATOR = comdat any
 @_ZN22btGenericPoolAllocatorD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN22btGenericPoolAllocatorD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN19btGenericMemoryPool24allocate_from_free_nodesEm(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %num_elements) local_unnamed_addr #0 align 2 {
+define dso_local noundef i64 @_ZN19btGenericMemoryPool24allocate_from_free_nodesEm(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, i64 noundef %num_elements) local_unnamed_addr #0 align 2 {
 entry:
   %m_free_nodes_count = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %m_free_nodes_count, align 8
@@ -103,7 +103,7 @@ return:                                           ; preds = %if.then18, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN19btGenericMemoryPool18allocate_from_poolEm(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %num_elements) local_unnamed_addr #1 align 2 {
+define dso_local noundef i64 @_ZN19btGenericMemoryPool18allocate_from_poolEm(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, i64 noundef %num_elements) local_unnamed_addr #1 align 2 {
 entry:
   %m_allocated_count = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %m_allocated_count, align 8
@@ -129,7 +129,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN19btGenericMemoryPool9init_poolEmm(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 56)) %this, i64 noundef %element_size, i64 noundef %element_count) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN19btGenericMemoryPool9init_poolEmm(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 56)) %this, i64 noundef %element_size, i64 noundef %element_count) local_unnamed_addr #2 align 2 {
 entry:
   %m_allocated_count = getelementptr inbounds nuw i8, ptr %this, i64 24
   %m_element_size = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -171,7 +171,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN19btGenericMemoryPool8end_poolEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((24, 40)) %this) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN19btGenericMemoryPool8end_poolEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((24, 40)) %this) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef %0)
@@ -189,7 +189,7 @@ entry:
 declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN19btGenericMemoryPool8allocateEm(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %size_bytes) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN19btGenericMemoryPool8allocateEm(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, i64 noundef %size_bytes) local_unnamed_addr #0 align 2 {
 entry:
   %m_element_size = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %m_element_size, align 8
@@ -304,7 +304,7 @@ return:                                           ; preds = %if.end6, %_ZN19btGe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN19btGenericMemoryPool10freeMemoryEPv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %pointer) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN19btGenericMemoryPool10freeMemoryEPv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noundef %pointer) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp = icmp ult ptr %pointer, %0
@@ -341,7 +341,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN22btGenericPoolAllocatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22btGenericPoolAllocatorD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV22btGenericPoolAllocator, i64 16), ptr %this, align 8
   %m_pool_count = getelementptr inbounds nuw i8, ptr %this, i64 152
@@ -473,7 +473,7 @@ _ZN22btGenericPoolAllocatorD2Ev.exit:             ; preds = %for.inc.i, %entry
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN22btGenericPoolAllocator13push_new_poolEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN22btGenericPoolAllocator13push_new_poolEv(ptr noundef nonnull align 8 captures(none) dereferenceable(160) %this) local_unnamed_addr #2 align 2 {
 entry:
   %m_pool_count = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load i64, ptr %m_pool_count, align 8
@@ -538,7 +538,7 @@ return:                                           ; preds = %entry, %_ZN19btGene
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN22btGenericPoolAllocator14failback_allocEm(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this, i64 noundef %size_bytes) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN22btGenericPoolAllocator14failback_allocEm(ptr noundef nonnull align 8 captures(none) dereferenceable(160) %this, i64 noundef %size_bytes) local_unnamed_addr #2 align 2 {
 entry:
   %m_pool_element_size.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %m_pool_element_size.i, align 8
@@ -567,14 +567,14 @@ return:                                           ; preds = %if.end6, %if.then4
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN22btGenericPoolAllocator13failback_freeEPv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(160) %this, ptr noundef %pointer) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN22btGenericPoolAllocator13failback_freeEPv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(160) %this, ptr noundef %pointer) local_unnamed_addr #2 align 2 {
 entry:
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef %pointer)
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN22btGenericPoolAllocator8allocateEm(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this, i64 noundef %size_bytes) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN22btGenericPoolAllocator8allocateEm(ptr noundef nonnull align 8 captures(none) dereferenceable(160) %this, i64 noundef %size_bytes) local_unnamed_addr #2 align 2 {
 entry:
   %m_pool_count = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load i64, ptr %m_pool_count, align 8
@@ -628,7 +628,7 @@ return:                                           ; preds = %if.end6.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN22btGenericPoolAllocator10freeMemoryEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef %pointer) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN22btGenericPoolAllocator10freeMemoryEPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, ptr noundef %pointer) local_unnamed_addr #2 align 2 {
 entry:
   %m_pool_count = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load i64, ptr %m_pool_count, align 8
@@ -892,7 +892,7 @@ _Z10btPoolFreePv.exit:                            ; preds = %while.end.thread.i.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z10btPoolFreePv(ptr noundef %ptr) local_unnamed_addr #2 {
@@ -1023,7 +1023,7 @@ entry:
 declare i64 @llvm.umin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

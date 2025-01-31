@@ -34,7 +34,7 @@ declare ptr @BIO_new(ptr noundef) local_unnamed_addr #2
 declare i32 @BIO_set_fd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sock_write(ptr noundef %b, ptr nocapture noundef readonly %in, i32 noundef %inl) #1 {
+define internal noundef i32 @sock_write(ptr noundef %b, ptr noundef readonly captures(none) %in, i32 noundef %inl) #1 {
 entry:
   tail call void @bio_clear_socket_error() #6
   %num = getelementptr inbounds nuw i8, ptr %b, i64 40
@@ -91,7 +91,7 @@ return:                                           ; preds = %if.end, %if.then6, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sock_puts(ptr noundef %bp, ptr nocapture noundef readonly %str) #1 {
+define internal noundef i32 @sock_puts(ptr noundef %bp, ptr noundef readonly captures(none) %str) #1 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #7
   tail call void @bio_clear_socket_error() #6
@@ -99,7 +99,7 @@ entry:
   %0 = load i32, ptr %num.i, align 8
   %sext = shl i64 %call, 32
   %conv.i = ashr exact i64 %sext, 32
-  %call.i = tail call i64 @write(i32 noundef %0, ptr noundef readonly %str, i64 noundef %conv.i) #6
+  %call.i = tail call i64 @write(i32 noundef %0, ptr noundef nonnull readonly %str, i64 noundef %conv.i) #6
   %conv1.i = trunc i64 %call.i to i32
   tail call void @BIO_clear_retry_flags(ptr noundef %bp) #6
   %cmp.i = icmp slt i32 %conv1.i, 1
@@ -209,7 +209,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb2, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @sock_new(ptr nocapture noundef writeonly initializes((24, 28), (32, 36), (40, 44), (48, 56)) %bio) #3 {
+define internal noundef i32 @sock_new(ptr noundef writeonly captures(none) initializes((24, 28), (32, 36), (40, 44), (48, 56)) %bio) #3 {
 entry:
   %init = getelementptr inbounds nuw i8, ptr %bio, i64 24
   store i32 0, ptr %init, align 8
@@ -260,7 +260,7 @@ return:                                           ; preds = %if.end, %if.end4, %
 declare void @bio_clear_socket_error() local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #4
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #4
 
 declare void @BIO_clear_retry_flags(ptr noundef) local_unnamed_addr #2
 
@@ -269,12 +269,12 @@ declare i32 @bio_fd_should_retry(i32 noundef) local_unnamed_addr #2
 declare void @BIO_set_retry_write(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare void @BIO_set_retry_read(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 

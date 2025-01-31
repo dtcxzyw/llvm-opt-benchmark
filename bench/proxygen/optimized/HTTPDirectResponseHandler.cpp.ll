@@ -231,7 +231,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8proxygen25HTTPDirectResponseHandler14setTransactionEPNS_15HTTPTransactionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(61) initializes((8, 16)) %this, ptr noundef %txn) unnamed_addr #6 align 2 {
+define void @_ZN8proxygen25HTTPDirectResponseHandler14setTransactionEPNS_15HTTPTransactionE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(61) initializes((8, 16)) %this, ptr noundef %txn) unnamed_addr #6 align 2 {
 entry:
   %txn_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %txn, ptr %txn_, align 8
@@ -249,7 +249,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen25HTTPDirectResponseHandler17onHeadersCompleteESt10unique_ptrINS_11HTTPMessageESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(61) %this, ptr nocapture readnone %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen25HTTPDirectResponseHandler17onHeadersCompleteESt10unique_ptrINS_11HTTPMessageESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(61) %this, ptr readnone captures(none) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.folly::Range", align 8
   %ref.tmp6 = alloca %"class.google::LogMessage", align 8
@@ -788,7 +788,7 @@ declare noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonn
 declare void @_ZN8proxygen11HTTPMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(616)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen25HTTPDirectResponseHandler6onBodyESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen25HTTPDirectResponseHandler6onBodyESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.google::LogMessage", align 8
   %1 = load ptr, ptr @_ZZN8proxygen25HTTPDirectResponseHandler6onBodyESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEE8vlocal__, align 8
@@ -835,7 +835,7 @@ terminate.lpad:                                   ; preds = %invoke.cont8, %invo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen25HTTPDirectResponseHandler10onTrailersESt10unique_ptrINS_11HTTPHeadersESt14default_deleteIS2_EE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen25HTTPDirectResponseHandler10onTrailersESt10unique_ptrINS_11HTTPHeadersESt14default_deleteIS2_EE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.google::LogMessage", align 8
   %1 = load ptr, ptr @_ZZN8proxygen25HTTPDirectResponseHandler10onTrailersESt10unique_ptrINS_11HTTPHeadersESt14default_deleteIS2_EEE8vlocal__, align 8
@@ -882,7 +882,7 @@ terminate.lpad:                                   ; preds = %invoke.cont8, %invo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen25HTTPDirectResponseHandler5onEOMEv(ptr nocapture noundef nonnull align 8 dereferenceable(61) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen25HTTPDirectResponseHandler5onEOMEv(ptr noundef nonnull align 8 captures(none) dereferenceable(61) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %eomSent_ = getelementptr inbounds nuw i8, ptr %this, i64 60
   %bf.load = load i8, ptr %eomSent_, align 4
@@ -908,13 +908,13 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN8proxygen25HTTPDirectResponseHandler9onUpgradeENS_15UpgradeProtocolE(ptr nocapture nonnull readnone align 8 %this, i32 %0) unnamed_addr #9 align 2 {
+define void @_ZN8proxygen25HTTPDirectResponseHandler9onUpgradeENS_15UpgradeProtocolE(ptr nonnull readnone align 8 captures(none) %this, i32 %0) unnamed_addr #9 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen25HTTPDirectResponseHandler7onErrorERKNS_13HTTPExceptionE(ptr noundef nonnull align 8 dereferenceable(61) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %error) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen25HTTPDirectResponseHandler7onErrorERKNS_13HTTPExceptionE(ptr noundef nonnull align 8 dereferenceable(61) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %error) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp13 = alloca %"class.google::LogMessage", align 8
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
@@ -1213,7 +1213,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare noundef ptr @_ZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeE(i8 noundef zeroext) local_unnamed_addr #0
 
@@ -1353,7 +1353,7 @@ lpad:                                             ; preds = %_ZN8proxygen11HTTPH
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
@@ -1704,10 +1704,10 @@ entry:
 declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

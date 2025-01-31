@@ -1967,7 +1967,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @GetSysCacheHashValue(i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2071,7 +2071,7 @@ define internal fastcc void @load_rangetype_info(ptr noundef %0) unnamed_addr #0
 declare i32 @getBaseTypeAndTypmod(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @load_domaintype_info(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @load_domaintype_info(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = alloca [1 x %struct.ScanKeyData], align 16
   %3 = load i32, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 456
@@ -2530,7 +2530,7 @@ prep_domain_constraints.exit:                     ; preds = %.lr.ph31.i, %24, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dccref_deletion_callback(ptr nocapture noundef %0) #0 {
+define internal void @dccref_deletion_callback(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2559,7 +2559,7 @@ decr_dcc_refcount.exit:                           ; preds = %9, %4, %1
 declare void @MemoryContextRegisterResetCallback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @UpdateDomainConstraintRef(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @UpdateDomainConstraintRef(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 464
@@ -3134,14 +3134,14 @@ ensure_record_cache_typmod_slot_exists.exit20:    ; preds = %72, %69, %ensure_re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @record_type_typmod_hash(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i32 @record_type_typmod_hash(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @hashTupleDesc(ptr noundef %3) #16
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @record_type_typmod_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal range(i32 0, 2) i32 @record_type_typmod_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = tail call zeroext i1 @equalTupleDescs(ptr noundef %4, ptr noundef %5) #16
@@ -3476,7 +3476,7 @@ declare void @dshash_release_lock(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @on_dsm_detach(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @shared_record_typmod_registry_detach(ptr nocapture readnone %0, i64 %1) #0 {
+define internal void @shared_record_typmod_registry_detach(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = load ptr, ptr @CurrentSession, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -3545,7 +3545,7 @@ define dso_local void @SharedRecordTypmodRegistryAttach(ptr noundef %0) local_un
 declare ptr @dshash_attach(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @compare_values_of_enum(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @compare_values_of_enum(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.EnumItem, align 4
   %5 = alloca %struct.EnumItem, align 4
   %6 = alloca %struct.EnumItem, align 4
@@ -3718,7 +3718,7 @@ find_enumitem.exit53.thread66:                    ; preds = %find_enumitem.exit5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @load_enum_cache_data(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @load_enum_cache_data(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = alloca %struct.ScanKeyData, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %4 = load i8, ptr %3, align 1
@@ -3934,7 +3934,7 @@ declare void @systable_endscan(ptr noundef) local_unnamed_addr #1
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @dcs_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal i32 @dcs_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -3956,7 +3956,7 @@ declare i64 @nocachegetattr(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @ExecInitExpr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4135,7 +4135,7 @@ load_typcache_tupdesc.exit:                       ; preds = %15
 declare void @DecrTupleDescRefCount(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cache_multirange_element_properties(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @cache_multirange_element_properties(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -4226,7 +4226,7 @@ declare ptr @repalloc0(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @shared_record_table_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @shared_record_table_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
@@ -4266,7 +4266,7 @@ define internal range(i32 0, 2) i32 @shared_record_table_compare(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @shared_record_table_hash(ptr nocapture noundef readonly %0, i64 %1, ptr noundef %2) #0 {
+define internal i32 @shared_record_table_hash(ptr noundef readonly captures(none) %0, i64 %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -4302,7 +4302,7 @@ declare void @FreeTupleDesc(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @enum_oid_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal range(i32 -1, 2) i32 @enum_oid_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %3, i32 %4)
@@ -4318,7 +4318,7 @@ declare void @bms_free(ptr noundef) local_unnamed_addr #1
 declare ptr @bms_copy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
@@ -4356,10 +4356,10 @@ declare i64 @llvm.umax.i64(i64, i64) #14
 declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

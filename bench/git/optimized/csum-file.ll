@@ -56,7 +56,7 @@ if.end6:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @flush(ptr nocapture noundef %f, ptr noundef %buf, i32 noundef %count) unnamed_addr #0 {
+define internal fastcc void @flush(ptr noundef captures(none) %f, ptr noundef %buf, i32 noundef %count) unnamed_addr #0 {
 entry:
   %check_fd = getelementptr inbounds nuw i8, ptr %f, i64 4
   %0 = load i32, ptr %check_fd, align 4
@@ -438,7 +438,7 @@ while.end:                                        ; preds = %if.end23, %entry
 declare i64 @crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @hashfd_check(ptr noundef %name) local_unnamed_addr #0 {
@@ -645,7 +645,7 @@ declare i32 @ftruncate64(i32 noundef, i64 noundef) local_unnamed_addr #4
 declare i64 @lseek64(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @crc32_begin(ptr nocapture noundef writeonly initializes((2440, 2448)) %f) local_unnamed_addr #0 {
+define dso_local void @crc32_begin(ptr noundef writeonly captures(none) initializes((2440, 2448)) %f) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @crc32(i64 noundef 0, ptr noundef null, i32 noundef 0) #11
   %conv = trunc i64 %call to i32
@@ -657,7 +657,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @crc32_end(ptr nocapture noundef initializes((2440, 2444)) %f) local_unnamed_addr #5 {
+define dso_local i32 @crc32_end(ptr noundef captures(none) initializes((2440, 2444)) %f) local_unnamed_addr #5 {
 entry:
   %do_crc = getelementptr inbounds nuw i8, ptr %f, i64 2440
   store i32 0, ptr %do_crc, align 8
@@ -722,16 +722,16 @@ declare ptr @__errno_location() local_unnamed_addr #6
 declare void @display_throughput(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

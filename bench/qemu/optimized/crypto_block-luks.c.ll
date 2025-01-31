@@ -106,7 +106,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.qcrypto_block_luks_decrypt = private unnamed_addr constant [86 x i8] c"int qcrypto_block_luks_decrypt(QCryptoBlock *, uint64_t, uint8_t *, size_t, Error **)\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @qcrypto_block_luks_to_disk_endian(ptr nocapture noundef %hdr) local_unnamed_addr #0 {
+define dso_local void @qcrypto_block_luks_to_disk_endian(ptr noundef captures(none) %hdr) local_unnamed_addr #0 {
 entry:
   %version = getelementptr inbounds nuw i8, ptr %hdr, i64 6
   %0 = load i16, ptr %version, align 2
@@ -154,7 +154,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @qcrypto_block_luks_from_disk_endian(ptr nocapture noundef %hdr) local_unnamed_addr #0 {
+define dso_local void @qcrypto_block_luks_from_disk_endian(ptr noundef captures(none) %hdr) local_unnamed_addr #0 {
 entry:
   %version = getelementptr inbounds nuw i8, ptr %hdr, i64 6
   %0 = load i16, ptr %version, align 2
@@ -202,7 +202,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @qcrypto_block_luks_open(ptr noundef %block, ptr nocapture noundef readonly %options, ptr noundef %optprefix, ptr nocapture noundef readonly %readfunc, ptr noundef %opaque, i32 noundef %flags, i64 noundef %n_threads, ptr noundef %errp) #1 {
+define internal range(i32 -1, 1) i32 @qcrypto_block_luks_open(ptr noundef %block, ptr noundef readonly captures(none) %options, ptr noundef %optprefix, ptr noundef readonly captures(none) %readfunc, ptr noundef %opaque, i32 noundef %flags, i64 noundef %n_threads, ptr noundef %errp) #1 {
 entry:
   %local_err.i = alloca ptr, align 8
   %and = and i32 %flags, 1
@@ -505,12 +505,12 @@ if.then13.i:                                      ; preds = %qcrypto_block_luks_
 
 if.end15.i:                                       ; preds = %qcrypto_block_luks_name_lookup.exit.i, %if.then8.i
   %ivhash_name.0.i = phi ptr [ %incdec.ptr9.i, %qcrypto_block_luks_name_lookup.exit.i ], [ null, %if.then8.i ]
-  %call.i38.i = call i32 @qapi_enum_parse(ptr noundef nonnull @QCryptoCipherMode_lookup, ptr noundef %call.i45, i32 noundef -1, ptr noundef null) #16
+  %call.i38.i = call i32 @qapi_enum_parse(ptr noundef nonnull @QCryptoCipherMode_lookup, ptr noundef nonnull %call.i45, i32 noundef -1, ptr noundef null) #16
   %cmp.i39.i = icmp slt i32 %call.i38.i, 0
   br i1 %cmp.i39.i, label %if.then.i41.i, label %qcrypto_block_luks_name_lookup.exit42.i
 
 if.then.i41.i:                                    ; preds = %if.end15.i
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err.i, ptr noundef nonnull @.str, i32 noundef 200, ptr noundef nonnull @__func__.qcrypto_block_luks_name_lookup, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.18, ptr noundef %call.i45) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err.i, ptr noundef nonnull @.str, i32 noundef 200, ptr noundef nonnull @__func__.qcrypto_block_luks_name_lookup, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.18, ptr noundef nonnull %call.i45) #16
   br label %qcrypto_block_luks_name_lookup.exit42.i
 
 qcrypto_block_luks_name_lookup.exit42.i:          ; preds = %if.then.i41.i, %if.end15.i
@@ -609,7 +609,7 @@ if.then33.i:                                      ; preds = %qcrypto_block_luks_
   br label %qcrypto_block_luks_parse_header.exit.thread
 
 if.end34.i:                                       ; preds = %qcrypto_block_luks_name_lookup.exit50.i
-  %call.i51.i = call i32 @qapi_enum_parse(ptr noundef nonnull @QCryptoIVGenAlgorithm_lookup, ptr noundef %incdec.ptr.i, i32 noundef -1, ptr noundef null) #16
+  %call.i51.i = call i32 @qapi_enum_parse(ptr noundef nonnull @QCryptoIVGenAlgorithm_lookup, ptr noundef nonnull %incdec.ptr.i, i32 noundef -1, ptr noundef null) #16
   %cmp.i52.i = icmp slt i32 %call.i51.i, 0
   br i1 %cmp.i52.i, label %qcrypto_block_luks_name_lookup.exit55.thread.i, label %qcrypto_block_luks_name_lookup.exit55.i
 
@@ -621,7 +621,7 @@ qcrypto_block_luks_name_lookup.exit55.i:          ; preds = %if.end34.i
   br i1 %tobool36.not.i, label %if.end38.i, label %if.then37.i
 
 qcrypto_block_luks_name_lookup.exit55.thread.i:   ; preds = %if.end34.i
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err.i, ptr noundef nonnull @.str, i32 noundef 200, ptr noundef nonnull @__func__.qcrypto_block_luks_name_lookup, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.19, ptr noundef %incdec.ptr.i) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err.i, ptr noundef nonnull @.str, i32 noundef 200, ptr noundef nonnull @__func__.qcrypto_block_luks_name_lookup, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.19, ptr noundef nonnull %incdec.ptr.i) #16
   %ivgen_alg57.i = getelementptr inbounds nuw i8, ptr %call10, i64 600
   store i32 0, ptr %ivgen_alg57.i, align 8
   %45 = load ptr, ptr %local_err.i, align 8
@@ -667,12 +667,12 @@ if.else50.i:                                      ; preds = %if.end38.i, %qcrypt
   br label %if.end25
 
 qcrypto_block_luks_parse_header.exit.thread:      ; preds = %if.then13.i, %if.then19.i, %if.then27.i, %if.then33.i, %if.then37.i, %if.then48.i, %if.then42.i, %if.then.i57
-  call void @g_free(ptr noundef %call.i45) #16
+  call void @g_free(ptr noundef nonnull %call.i45) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i)
   br label %fail
 
 if.end25:                                         ; preds = %if.else50.i, %if.end43.i
-  call void @g_free(ptr noundef %call.i45) #16
+  call void @g_free(ptr noundef nonnull %call.i45) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i)
   br i1 %tobool.not, label %if.then28, label %if.end54
 
@@ -765,7 +765,7 @@ cleanup:                                          ; preds = %if.end, %fail, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @qcrypto_block_luks_create(ptr noundef initializes((16, 24)) %block, ptr nocapture noundef readonly %options, ptr noundef %optprefix, ptr nocapture noundef readonly %initfunc, ptr nocapture noundef readonly %writefunc, ptr noundef %opaque, ptr noundef %errp) #1 {
+define internal range(i32 -1, 1) i32 @qcrypto_block_luks_create(ptr noundef initializes((16, 24)) %block, ptr noundef readonly captures(none) %options, ptr noundef %optprefix, ptr noundef readonly captures(none) %initfunc, ptr noundef readonly captures(none) %writefunc, ptr noundef %opaque, ptr noundef %errp) #1 {
 entry:
   %uuid.i = alloca %struct.QemuUUID, align 4
   %local_err = alloca ptr, align 8
@@ -925,7 +925,7 @@ if.end74:                                         ; preds = %if.end68
   br i1 %cmp76, label %if.then77, label %if.end78
 
 if.then77:                                        ; preds = %if.end74
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1390, ptr noundef nonnull @__func__.qcrypto_block_luks_create, ptr noundef nonnull @.str.36, ptr noundef %storemerge) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1390, ptr noundef nonnull @__func__.qcrypto_block_luks_create, ptr noundef nonnull @.str.36, ptr noundef nonnull %storemerge) #16
   br label %if.end245
 
 if.end78:                                         ; preds = %if.end74
@@ -934,7 +934,7 @@ if.end78:                                         ; preds = %if.end74
   br i1 %cmp80, label %if.then81, label %if.end82
 
 if.then81:                                        ; preds = %if.end78
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1395, ptr noundef nonnull @__func__.qcrypto_block_luks_create, ptr noundef nonnull @.str.37, ptr noundef %call70) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1395, ptr noundef nonnull @__func__.qcrypto_block_luks_create, ptr noundef nonnull @.str.37, ptr noundef nonnull %call70) #16
   br label %if.end245
 
 if.end82:                                         ; preds = %if.end78
@@ -1147,7 +1147,7 @@ cleanup:                                          ; preds = %if.end245, %if.end2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @qcrypto_block_luks_amend_options(ptr noundef %block, ptr nocapture noundef readonly %readfunc, ptr nocapture noundef readonly %writefunc, ptr noundef %opaque, ptr nocapture noundef readonly %options, i1 noundef zeroext %force, ptr noundef %errp) #1 {
+define internal range(i32 -1, 1) i32 @qcrypto_block_luks_amend_options(ptr noundef %block, ptr noundef readonly captures(none) %readfunc, ptr noundef readonly captures(none) %writefunc, ptr noundef %opaque, ptr noundef readonly captures(none) %options, i1 noundef zeroext %force, ptr noundef %errp) #1 {
 entry:
   %slots_to_erase_bitmap.i = alloca i64, align 8
   %u = getelementptr inbounds nuw i8, ptr %options, i64 8
@@ -1573,7 +1573,7 @@ sw.epilog:                                        ; preds = %qcrypto_block_luks_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qcrypto_block_luks_get_info(ptr nocapture noundef readonly %block, ptr nocapture noundef initializes((8, 20), (28, 56)) %info, ptr nocapture readnone %errp) #1 {
+define internal noundef i32 @qcrypto_block_luks_get_info(ptr noundef readonly captures(none) %block, ptr noundef captures(none) initializes((8, 20), (28, 56)) %info, ptr readnone captures(none) %errp) #1 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %block, i64 16
   %0 = load ptr, ptr %opaque, align 8
@@ -1672,7 +1672,7 @@ for.end:                                          ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qcrypto_block_luks_cleanup(ptr nocapture noundef readonly %block) #1 {
+define internal void @qcrypto_block_luks_cleanup(ptr noundef readonly captures(none) %block) #1 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %block, i64 16
   %0 = load ptr, ptr %opaque, align 8
@@ -1741,7 +1741,7 @@ if.end5:                                          ; preds = %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @qcrypto_block_luks_has_format(ptr nocapture noundef readonly %buf, i64 noundef %buf_size) #2 {
+define internal noundef zeroext i1 @qcrypto_block_luks_has_format(ptr noundef readonly captures(none) %buf, i64 noundef %buf_size) #2 {
 entry:
   %cmp = icmp ugt i64 %buf_size, 7
   br i1 %cmp, label %land.lhs.true, label %if.else
@@ -1899,7 +1899,7 @@ declare i64 @qcrypto_cipher_get_key_len(i32 noundef) local_unnamed_addr #4
 declare ptr @qapi_enum_lookup(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 2) i32 @qcrypto_block_luks_load_key(ptr noundef %block, i64 noundef range(i64 0, 8) %slot_idx, ptr noundef %password, ptr noundef %masterkey, ptr nocapture noundef readonly %readfunc, ptr noundef %opaque, ptr noundef %errp) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @qcrypto_block_luks_load_key(ptr noundef %block, i64 noundef range(i64 0, 8) %slot_idx, ptr noundef %password, ptr noundef %masterkey, ptr noundef readonly captures(none) %readfunc, ptr noundef %opaque, ptr noundef %errp) unnamed_addr #1 {
 entry:
   %keydigest = alloca [20 x i8], align 16
   %opaque1 = getelementptr inbounds nuw i8, ptr %block, i64 16
@@ -1930,7 +1930,7 @@ if.end4:                                          ; preds = %entry
   %conv11 = zext i32 %6 to i64
   %7 = load i32, ptr %master_key_len, align 4
   %conv14 = zext i32 %7 to i64
-  %call15 = tail call i32 @qcrypto_pbkdf2(i32 noundef %5, ptr noundef %password, i64 noundef %call10, ptr noundef nonnull %salt, i64 noundef 32, i64 noundef %conv11, ptr noundef %call9, i64 noundef %conv14, ptr noundef %errp) #16
+  %call15 = tail call i32 @qcrypto_pbkdf2(i32 noundef %5, ptr noundef nonnull %password, i64 noundef %call10, ptr noundef nonnull %salt, i64 noundef 32, i64 noundef %conv11, ptr noundef %call9, i64 noundef %conv14, ptr noundef %errp) #16
   %cmp16 = icmp slt i32 %call15, 0
   br i1 %cmp16, label %glib_autoptr_cleanup_QCryptoCipher.exit, label %if.end19
 
@@ -2028,7 +2028,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare i32 @qcrypto_pbkdf2(i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @qcrypto_cipher_new(i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
@@ -2039,12 +2039,12 @@ declare i32 @qcrypto_afsplit_decode(i32 noundef, i64 noundef, i32 noundef, ptr n
 declare void @qcrypto_cipher_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #9
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 declare i32 @qcrypto_random_bytes(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
@@ -2053,7 +2053,7 @@ declare i64 @qcrypto_pbkdf2_count_iters(i32 noundef, ptr noundef, i64 noundef, p
 declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @qcrypto_block_luks_store_key(ptr noundef %block, i32 noundef %slot_idx, ptr noundef %password, ptr noundef %masterkey, i64 noundef %iter_time, ptr nocapture noundef readonly %writefunc, ptr noundef %opaque, ptr noundef %errp) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @qcrypto_block_luks_store_key(ptr noundef %block, i32 noundef %slot_idx, ptr noundef %password, ptr noundef %masterkey, i64 noundef %iter_time, ptr noundef readonly captures(none) %writefunc, ptr noundef %opaque, ptr noundef %errp) unnamed_addr #1 {
 entry:
   %local_err = alloca ptr, align 8
   %opaque1 = getelementptr inbounds nuw i8, ptr %block, i64 16
@@ -2087,7 +2087,7 @@ if.end6:                                          ; preds = %if.end
   %call7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %password) #18
   %4 = load i32, ptr %master_key_len, align 4
   %conv12 = zext i32 %4 to i64
-  %call13 = call i64 @qcrypto_pbkdf2_count_iters(i32 noundef %3, ptr noundef %password, i64 noundef %call7, ptr noundef nonnull %salt, i64 noundef 32, i64 noundef %conv12, ptr noundef nonnull %local_err) #16
+  %call13 = call i64 @qcrypto_pbkdf2_count_iters(i32 noundef %3, ptr noundef nonnull %password, i64 noundef %call7, ptr noundef nonnull %salt, i64 noundef 32, i64 noundef %conv12, ptr noundef nonnull %local_err) #16
   %5 = load ptr, ptr %local_err, align 8
   %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %if.end15, label %if.then14
@@ -2129,7 +2129,7 @@ if.end25:                                         ; preds = %if.end19
   %conv38 = zext i32 %8 to i64
   %9 = load i32, ptr %master_key_len, align 4
   %conv41 = zext i32 %9 to i64
-  %call42 = call i32 @qcrypto_pbkdf2(i32 noundef %7, ptr noundef %password, i64 noundef %call34, ptr noundef nonnull %salt, i64 noundef 32, i64 noundef %conv38, ptr noundef %call32, i64 noundef %conv41, ptr noundef %errp) #16
+  %call42 = call i32 @qcrypto_pbkdf2(i32 noundef %7, ptr noundef nonnull %password, i64 noundef %call34, ptr noundef nonnull %salt, i64 noundef 32, i64 noundef %conv38, ptr noundef %call32, i64 noundef %conv41, ptr noundef %errp) #16
   %cmp43 = icmp slt i32 %call42, 0
   br i1 %cmp43, label %cleanup, label %if.end46
 
@@ -2236,7 +2236,7 @@ glib_autoptr_cleanup_QCryptoCipher.exit:          ; preds = %if.end, %if.then18,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare void @qemu_uuid_generate(ptr noundef) local_unnamed_addr #4
 
@@ -2247,7 +2247,7 @@ declare i32 @qcrypto_afsplit_encode(i32 noundef, i64 noundef, i32 noundef, ptr n
 declare i32 @qcrypto_block_cipher_encrypt_helper(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @qcrypto_block_luks_store_header(ptr noundef %block, ptr nocapture noundef readonly %writefunc, ptr noundef %opaque, ptr noundef %errp) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @qcrypto_block_luks_store_header(ptr noundef %block, ptr noundef readonly captures(none) %writefunc, ptr noundef %opaque, ptr noundef %errp) unnamed_addr #1 {
 entry:
   %local_err = alloca ptr, align 8
   %opaque1 = getelementptr inbounds nuw i8, ptr %block, i64 16
@@ -2318,7 +2318,7 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 declare void @error_append_hint(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @qcrypto_block_luks_erase_key(ptr noundef %block, i32 noundef range(i32 0, 8) %slot_idx, ptr nocapture noundef readonly %writefunc, ptr noundef %opaque, ptr noundef %errp) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @qcrypto_block_luks_erase_key(ptr noundef %block, i32 noundef range(i32 0, 8) %slot_idx, ptr noundef readonly captures(none) %writefunc, ptr noundef %opaque, ptr noundef %errp) unnamed_addr #1 {
 entry:
   %local_err = alloca ptr, align 8
   %opaque1 = getelementptr inbounds nuw i8, ptr %block, i64 16
@@ -2379,7 +2379,7 @@ if.end23:                                         ; preds = %if.then18, %for.bod
   %5 = load i32, ptr %key_offset_sector, align 4
   %conv24 = zext i32 %5 to i64
   %mul25 = shl nuw nsw i64 %conv24, 9
-  %call26 = call i32 %writefunc(ptr noundef %block, i64 noundef %mul25, ptr noundef %call, i64 noundef %conv, ptr noundef %opaque, ptr noundef nonnull %local_err) #16
+  %call26 = call i32 %writefunc(ptr noundef nonnull %block, i64 noundef %mul25, ptr noundef %call, i64 noundef %conv, ptr noundef %opaque, ptr noundef nonnull %local_err) #16
   %cmp27 = icmp slt i32 %call26, 0
   br i1 %cmp27, label %if.then29, label %for.cond
 
@@ -2415,13 +2415,13 @@ declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #13
 declare i64 @llvm.umax.i64(i64, i64) #13
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

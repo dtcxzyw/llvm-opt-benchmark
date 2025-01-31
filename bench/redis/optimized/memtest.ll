@@ -75,10 +75,10 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @memtest_progress_end() local_unnamed_addr #0 {
@@ -258,7 +258,7 @@ return:                                           ; preds = %for.inc19, %if.end1
 declare void @exit(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @memtest_fill_random(ptr nocapture noundef writeonly %l, i64 noundef %bytes, i32 noundef %interactive) local_unnamed_addr #3 {
+define dso_local void @memtest_fill_random(ptr noundef writeonly captures(none) %l, i64 noundef %bytes, i32 noundef %interactive) local_unnamed_addr #3 {
 entry:
   %div124 = lshr i64 %bytes, 4
   %div225 = lshr i64 %bytes, 13
@@ -383,7 +383,7 @@ declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @memtest_fill_value(ptr nocapture noundef writeonly %l, i64 noundef %bytes, i64 noundef %v1, i64 noundef %v2, i8 noundef signext %sym, i32 noundef %interactive) local_unnamed_addr #3 {
+define dso_local void @memtest_fill_value(ptr noundef writeonly captures(none) %l, i64 noundef %bytes, i64 noundef %v1, i64 noundef %v2, i8 noundef signext %sym, i32 noundef %interactive) local_unnamed_addr #3 {
 entry:
   %div122 = lshr i64 %bytes, 4
   %div223 = lshr i64 %bytes, 13
@@ -1323,7 +1323,7 @@ return:                                           ; preds = %while.cond, %while.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @memtest_alloc_and_test(i64 noundef %megabytes, i32 noundef %passes) local_unnamed_addr #3 {
@@ -1352,7 +1352,7 @@ if.end:                                           ; preds = %entry
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #8
@@ -1361,7 +1361,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #8
 declare ptr @__errno_location() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: noreturn nounwind uwtable
 define dso_local void @memtest(i64 noundef %megabytes, i32 noundef %passes) local_unnamed_addr #11 {
@@ -1389,7 +1389,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #12

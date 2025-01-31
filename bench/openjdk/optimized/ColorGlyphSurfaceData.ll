@@ -33,7 +33,7 @@ declare ptr @SurfaceData_InitOps(ptr noundef, ptr noundef, i32 noundef) local_un
 declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @Glyph_Lock(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @Glyph_Lock(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca %struct.SurfaceDataBounds, align 4
   %6 = and i32 %3, 30
   %.not = icmp eq i32 %6, 0
@@ -68,7 +68,7 @@ define internal range(i32 -1, 1) i32 @Glyph_Lock(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Glyph_GetRasInfo(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((16, 36)) %2) #2 {
+define internal void @Glyph_GetRasInfo(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((16, 36)) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32

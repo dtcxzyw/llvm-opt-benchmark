@@ -186,7 +186,7 @@ declare ptr @agget(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @agnnodes(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare double @atof(ptr nocapture noundef) local_unnamed_addr #2
+declare double @atof(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @rank(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -223,7 +223,7 @@ define void @dot_rank(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph21.i.i:                                     ; preds = %17, %._crit_edge.i.i
   %.01319.i.i = phi ptr [ %26, %._crit_edge.i.i ], [ %18, %17 ]
-  %19 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.01319.i.i) #14
+  %19 = tail call ptr @agfstout(ptr noundef nonnull %0, ptr noundef nonnull %.01319.i.i) #14
   %.not1516.i.i = icmp eq ptr %19, null
   br i1 %.not1516.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -235,12 +235,12 @@ define void @dot_rank(ptr noundef %0) local_unnamed_addr #0 {
   %23 = load i32, ptr %22, align 4
   %24 = shl nsw i32 %23, 1
   store i32 %24, ptr %22, align 4
-  %25 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.017.i.i) #14
+  %25 = tail call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.017.i.i) #14
   %.not15.i.i = icmp eq ptr %25, null
   br i1 %.not15.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph21.i.i
-  %26 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01319.i.i) #14
+  %26 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.01319.i.i) #14
   %.not14.i.i = icmp eq ptr %26, null
   br i1 %.not14.i.i, label %._crit_edge22.i.i, label %.lr.ph21.i.i
 
@@ -301,12 +301,12 @@ scale_clamp.exit.i:                               ; preds = %._crit_edge.i28.i, 
   br label %53
 
 53:                                               ; preds = %47, %.lr.ph.i29.i
-  %54 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.018.i.i) #14
+  %54 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.018.i.i) #14
   %.not.i30.i = icmp eq ptr %54, null
   br i1 %.not.i30.i, label %._crit_edge.i31.i, label %.lr.ph.i29.i
 
 ._crit_edge.i31.i:                                ; preds = %53, %scale_clamp.exit.i
-  %55 = tail call ptr @agfstnode(ptr noundef %0) #14
+  %55 = tail call ptr @agfstnode(ptr noundef nonnull %0) #14
   %.not1619.i.i = icmp eq ptr %55, null
   br i1 %.not1619.i.i, label %compile_nodes.exit.i, label %.lr.ph22.i.i
 
@@ -331,12 +331,12 @@ scale_clamp.exit.i:                               ; preds = %._crit_edge.i28.i, 
   br label %69
 
 69:                                               ; preds = %61, %.lr.ph22.i.i
-  %70 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.120.i.i) #14
+  %70 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.120.i.i) #14
   %.not16.i.i = icmp eq ptr %70, null
   br i1 %.not16.i.i, label %compile_nodes.exit.i, label %.lr.ph22.i.i
 
 compile_nodes.exit.i:                             ; preds = %69, %._crit_edge.i31.i
-  %71 = tail call ptr @agfstnode(ptr noundef %0) #14
+  %71 = tail call ptr @agfstnode(ptr noundef nonnull %0) #14
   %.not83.i.i = icmp eq ptr %71, null
   br i1 %.not83.i.i, label %compile_edges.exit.i, label %.lr.ph86.i.i
 
@@ -346,7 +346,7 @@ compile_nodes.exit.i:                             ; preds = %69, %._crit_edge.i3
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 200
   %75 = load ptr, ptr %74, align 8
-  %76 = call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.084.i.i) #14
+  %76 = call ptr @agfstout(ptr noundef nonnull %0, ptr noundef nonnull %.084.i.i) #14
   %.not6279.i.i = icmp eq ptr %76, null
   br i1 %.not6279.i.i, label %._crit_edge.i33.i, label %.lr.ph.i32.i
 
@@ -719,17 +719,17 @@ weak.exit.i.i:                                    ; preds = %203, %makeXnode.exi
 
 strong.exit.i.i:                                  ; preds = %296, %281, %weak.exit.i.i, %184, %169, %is_nonconstraint.exit.i.i, %82
   %.1.i.i = phi ptr [ %.05780.i.i, %is_nonconstraint.exit.i.i ], [ %.05780.i.i, %weak.exit.i.i ], [ %.2.i.i, %169 ], [ %.2.i.i, %184 ], [ %.05780.i.i, %281 ], [ %.05780.i.i, %296 ], [ %.05780.i.i, %82 ]
-  %300 = call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.05681.i.i) #14
+  %300 = call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.05681.i.i) #14
   %.not62.i.i = icmp eq ptr %300, null
   br i1 %.not62.i.i, label %._crit_edge.i33.i, label %.lr.ph.i32.i
 
 ._crit_edge.i33.i:                                ; preds = %strong.exit.i.i, %.lr.ph86.i.i
-  %301 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.084.i.i) #14
+  %301 = call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.084.i.i) #14
   %.not.i34.i = icmp eq ptr %301, null
   br i1 %.not.i34.i, label %compile_edges.exit.i, label %.lr.ph86.i.i
 
 compile_edges.exit.i:                             ; preds = %._crit_edge.i33.i, %compile_nodes.exit.i
-  call fastcc void @compile_clusters(ptr noundef %0, ptr noundef %11, ptr noundef null, ptr noundef null)
+  call fastcc void @compile_clusters(ptr noundef nonnull %0, ptr noundef %11, ptr noundef null, ptr noundef null)
   %302 = call ptr @agfstnode(ptr noundef %11) #14
   %.not13.i.i = icmp eq ptr %302, null
   br i1 %.not13.i.i, label %._crit_edge.i37.i, label %.lr.ph.i35.i
@@ -1024,7 +1024,7 @@ gv_recalloc.exit46.i.i:                           ; preds = %418, %416, %409
   br i1 %.not.i44.i, label %add_fast_edges.exit.i, label %.lr.ph61.i.i
 
 add_fast_edges.exit.i:                            ; preds = %._crit_edge.i43.i, %connect_components.exit.i
-  %459 = call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.13) #14
+  %459 = call ptr @agget(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #14
   %.not27.i = icmp eq ptr %459, null
   br i1 %.not27.i, label %462, label %460
 
@@ -1068,7 +1068,7 @@ gv_calloc.exit.i.i:                               ; preds = %469, %gv_calloc.exi
 
 .loopexit85.i.i:                                  ; preds = %gv_calloc.exit.i.i, %462
   %.071.i.i = phi ptr [ null, %462 ], [ %472, %gv_calloc.exit.i.i ]
-  %479 = call ptr @agfstnode(ptr noundef %0) #14
+  %479 = call ptr @agfstnode(ptr noundef nonnull %0) #14
   %.not7888.i.i = icmp eq ptr %479, null
   br i1 %.not7888.i.i, label %._crit_edge.i45.i, label %.lr.ph90.i.i
 
@@ -1152,7 +1152,7 @@ gv_calloc.exit.i.i:                               ; preds = %469, %gv_calloc.exi
   br i1 %.not79.i.i, label %538, label %525
 
 525:                                              ; preds = %._crit_edge.i45.i
-  %526 = call ptr @agfstnode(ptr noundef %0) #14
+  %526 = call ptr @agfstnode(ptr noundef nonnull %0) #14
   %.not8191.i.i = icmp eq ptr %526, null
   br i1 %.not8191.i.i, label %.loopexit.i.i, label %.lr.ph94.i.i
 
@@ -1169,7 +1169,7 @@ gv_calloc.exit.i.i:                               ; preds = %469, %gv_calloc.exi
   %535 = load i32, ptr %534, align 8
   %536 = sub nsw i32 %535, %533
   store i32 %536, ptr %534, align 8
-  %537 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.192.i.i) #14
+  %537 = call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.192.i.i) #14
   %.not81.i.i = icmp eq ptr %537, null
   br i1 %.not81.i.i, label %.loopexit.i.i, label %.lr.ph94.i.i
 
@@ -1193,7 +1193,7 @@ gv_calloc.exit.i.i:                               ; preds = %469, %gv_calloc.exi
   %548 = load i32, ptr %547, align 8
   %549 = sub nsw i32 %548, %541
   store i32 %549, ptr %547, align 8
-  %550 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.296.i.i) #14
+  %550 = call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.296.i.i) #14
   %.not80.i.i = icmp eq ptr %550, null
   br i1 %.not80.i.i, label %._crit_edge99.i.i, label %.lr.ph98.i.i
 
@@ -1212,7 +1212,7 @@ gv_calloc.exit.i.i:                               ; preds = %469, %gv_calloc.exi
 
 .loopexit.i.i:                                    ; preds = %.lr.ph94.i.i, %._crit_edge99.i.i, %538, %525
   %.070.i.i = phi i32 [ 0, %._crit_edge99.i.i ], [ 0, %538 ], [ 1, %525 ], [ 1, %.lr.ph94.i.i ]
-  call fastcc void @setMinMax(ptr noundef %0, i32 noundef %.070.i.i)
+  call fastcc void @setMinMax(ptr noundef nonnull %0, i32 noundef %.070.i.i)
   %559 = call ptr @agfstnode(ptr noundef %11) #14
   %.not82100.i.i = icmp eq ptr %559, null
   br i1 %.not82100.i.i, label %._crit_edge104.i.i, label %.lr.ph103.i.i
@@ -1233,13 +1233,13 @@ gv_calloc.exit.i.i:                               ; preds = %469, %gv_calloc.exi
   br i1 %.not82.i.i, label %._crit_edge104.i.i, label %.lr.ph103.i.i
 
 ._crit_edge104.i.i:                               ; preds = %.lr.ph103.i.i, %.loopexit.i.i
-  %568 = call ptr @agfstnode(ptr noundef %0) #14
+  %568 = call ptr @agfstnode(ptr noundef nonnull %0) #14
   %569 = getelementptr inbounds nuw i8, ptr %568, i64 16
   %570 = load ptr, ptr %569, align 8
   %571 = getelementptr inbounds nuw i8, ptr %570, i64 152
   %572 = load ptr, ptr %571, align 8
   call void @free(ptr noundef %572) #14
-  %573 = call ptr @agfstnode(ptr noundef %0) #14
+  %573 = call ptr @agfstnode(ptr noundef nonnull %0) #14
   %.not83105.i.i = icmp eq ptr %573, null
   br i1 %.not83105.i.i, label %dot2_rank.exit, label %.lr.ph108.i.i
 
@@ -1249,7 +1249,7 @@ gv_calloc.exit.i.i:                               ; preds = %469, %gv_calloc.exi
   %575 = load ptr, ptr %574, align 8
   %576 = getelementptr inbounds nuw i8, ptr %575, i64 152
   store ptr null, ptr %576, align 8
-  %577 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.4106.i.i) #14
+  %577 = call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.4106.i.i) #14
   %.not83.i46.i = icmp eq ptr %577, null
   br i1 %.not83.i46.i, label %dot2_rank.exit, label %.lr.ph108.i.i
 
@@ -1299,7 +1299,7 @@ define internal fastcc void @dot1_rank(ptr noundef %0) unnamed_addr #0 {
 
 .lr.ph21.i:                                       ; preds = %7, %._crit_edge.i
   %.01319.i = phi ptr [ %16, %._crit_edge.i ], [ %8, %7 ]
-  %9 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.01319.i) #14
+  %9 = tail call ptr @agfstout(ptr noundef nonnull %0, ptr noundef nonnull %.01319.i) #14
   %.not1516.i = icmp eq ptr %9, null
   br i1 %.not1516.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -1311,12 +1311,12 @@ define internal fastcc void @dot1_rank(ptr noundef %0) unnamed_addr #0 {
   %13 = load i32, ptr %12, align 4
   %14 = shl nsw i32 %13, 1
   store i32 %14, ptr %12, align 4
-  %15 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.017.i) #14
+  %15 = tail call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.017.i) #14
   %.not15.i = icmp eq ptr %15, null
   br i1 %.not15.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph21.i
-  %16 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01319.i) #14
+  %16 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.01319.i) #14
   %.not14.i = icmp eq ptr %16, null
   br i1 %.not14.i, label %._crit_edge22.i, label %.lr.ph21.i
 
@@ -1524,7 +1524,7 @@ minmax_edges.exit:                                ; preds = %29, %.loopexit.i
 
 112:                                              ; preds = %105, %101, %96, %.lr.ph.i15
   %.2.i = phi ptr [ %.138.i, %.lr.ph.i15 ], [ %106, %105 ], [ %.3.i, %101 ], [ %.3.i, %96 ]
-  %113 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.02537.i) #14
+  %113 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.02537.i) #14
   %.not29.i = icmp eq ptr %113, null
   br i1 %.not29.i, label %minmax_edges2.exit, label %.lr.ph.i15
 
@@ -1533,7 +1533,7 @@ minmax_edges2.exit:                               ; preds = %112
   br i1 %.not41, label %minmax_edges2.exit.thread, label %114
 
 114:                                              ; preds = %minmax_edges2.exit
-  tail call void @decompose(ptr noundef %0, i32 noundef 0) #14
+  tail call void @decompose(ptr noundef nonnull %0, i32 noundef 0) #14
   br label %minmax_edges2.exit.thread
 
 minmax_edges2.exit.thread:                        ; preds = %76, %73, %114, %minmax_edges2.exit
@@ -1677,7 +1677,7 @@ minmax_edges2.exit.thread:                        ; preds = %76, %73, %114, %min
 
 187:                                              ; preds = %184
   store ptr %0, ptr %185, align 8
-  tail call fastcc void @node_induce(ptr noundef %0, ptr noundef nonnull %.0.i2345)
+  tail call fastcc void @node_induce(ptr noundef nonnull %0, ptr noundef nonnull %.0.i2345)
   %188 = tail call ptr @agfstnode(ptr noundef nonnull %.0.i2345) #14
   %189 = icmp eq ptr %188, null
   br i1 %189, label %collapse_cluster.exit.i, label %190
@@ -1937,7 +1937,7 @@ renewlist.exit60.i:                               ; preds = %.lr.ph.i57.i, %rene
 
 .lr.ph76.i:                                       ; preds = %._crit_edge67.i, %._crit_edge72.i
   %.14674.i = phi ptr [ %325, %._crit_edge72.i ], [ %311, %._crit_edge67.i ]
-  %312 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.14674.i) #14
+  %312 = tail call ptr @agfstout(ptr noundef nonnull %0, ptr noundef nonnull %.14674.i) #14
   %.not5268.i = icmp eq ptr %312, null
   br i1 %.not5268.i, label %._crit_edge72.i, label %.lr.ph71.i
 
@@ -1963,23 +1963,23 @@ renewlist.exit60.i:                               ; preds = %.lr.ph.i57.i, %rene
   br label %323
 
 323:                                              ; preds = %322, %317, %.lr.ph71.i
-  %324 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.04469.i) #14
+  %324 = tail call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.04469.i) #14
   %.not52.i = icmp eq ptr %324, null
   br i1 %.not52.i, label %._crit_edge72.i, label %.lr.ph71.i
 
 ._crit_edge72.i:                                  ; preds = %323, %.lr.ph76.i
-  %325 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.14674.i) #14
+  %325 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.14674.i) #14
   %.not.i22 = icmp eq ptr %325, null
   br i1 %.not.i22, label %._crit_edge77.i, label %.lr.ph76.i
 
 ._crit_edge77.i:                                  ; preds = %._crit_edge72.i, %._crit_edge67.i
-  %326 = tail call ptr @agfstnode(ptr noundef %0) #14
+  %326 = tail call ptr @agfstnode(ptr noundef nonnull %0) #14
   %.not4983.i = icmp eq ptr %326, null
   br i1 %.not4983.i, label %cleanup1.exit, label %.lr.ph86.i
 
 .lr.ph86.i:                                       ; preds = %._crit_edge77.i, %._crit_edge82.i
   %.284.i = phi ptr [ %343, %._crit_edge82.i ], [ %326, %._crit_edge77.i ]
-  %327 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.284.i) #14
+  %327 = tail call ptr @agfstout(ptr noundef nonnull %0, ptr noundef nonnull %.284.i) #14
   %.not5078.i = icmp eq ptr %327, null
   br i1 %.not5078.i, label %._crit_edge82.i, label %.lr.ph81.i
 
@@ -2009,12 +2009,12 @@ renewlist.exit60.i:                               ; preds = %.lr.ph.i57.i, %rene
   br label %341
 
 341:                                              ; preds = %338, %332, %.lr.ph81.i
-  %342 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.179.i) #14
+  %342 = tail call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.179.i) #14
   %.not50.i = icmp eq ptr %342, null
   br i1 %.not50.i, label %._crit_edge82.i, label %.lr.ph81.i
 
 ._crit_edge82.i:                                  ; preds = %341, %.lr.ph86.i
-  %343 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.284.i) #14
+  %343 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.284.i) #14
   %.not49.i = icmp eq ptr %343, null
   br i1 %.not49.i, label %cleanup1.exit, label %.lr.ph86.i
 
@@ -2033,7 +2033,7 @@ cleanup1.exit:                                    ; preds = %._crit_edge82.i, %.
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @is_cluster(ptr noundef %0) local_unnamed_addr #0 {
@@ -2368,7 +2368,7 @@ declare ptr @agnxtsubg(ptr noundef) local_unnamed_addr #1
 declare i32 @maptoken(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @node_induce(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @node_induce(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @agfstnode(ptr noundef %1) #14
   %.not43 = icmp eq ptr %3, null
   br i1 %.not43, label %._crit_edge47, label %.lr.ph46
@@ -2502,7 +2502,7 @@ declare ptr @dot_root(ptr noundef) local_unnamed_addr #1
 declare ptr @agsubedge(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @gv_recalloc(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = icmp ugt i64 %2, 2305843009213693951
   br i1 %4, label %5, label %8
 
@@ -2560,13 +2560,13 @@ define internal fastcc void @graphviz_exit() unnamed_addr #4 {
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare ptr @UF_union(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2579,7 +2579,7 @@ declare ptr @virtual_edge(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare void @UF_singleton(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @set_minmax(ptr nocapture noundef readonly %0) unnamed_addr #9 {
+define internal fastcc void @set_minmax(ptr noundef readonly captures(none) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 384
@@ -2937,7 +2937,7 @@ union_one.exit.i78:                               ; preds = %143, %union_one.exi
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 208
   store ptr %147, ptr %151, align 8
-  %152 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %146) #14
+  %152 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %146) #14
   %.not13.i79 = icmp eq ptr %152, null
   br i1 %.not13.i79, label %union_all.exit81, label %union_one.exit.i78
 
@@ -3068,21 +3068,21 @@ define internal fastcc void @compile_clusters(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @rank2(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @agclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @my_init_graph(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @my_init_graph(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr %2, align 4
   %5 = tail call ptr @agbindrec(ptr noundef %1, ptr noundef nonnull @.str.12, i32 noundef %4, i32 noundef 1) #14
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @my_init_node(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @my_init_node(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = tail call ptr @agbindrec(ptr noundef %1, ptr noundef nonnull @.str.14, i32 noundef %5, i32 noundef 1) #14
@@ -3090,7 +3090,7 @@ define internal void @my_init_node(ptr nocapture readnone %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @my_init_edge(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @my_init_edge(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i32, ptr %4, align 4
   %6 = tail call ptr @agbindrec(ptr noundef %1, ptr noundef nonnull @.str.15, i32 noundef %5, i32 noundef 1) #14
@@ -3102,7 +3102,7 @@ declare i32 @agerr(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @agnameof(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc ptr @find(ptr noundef %0) unnamed_addr #9 {
@@ -3205,7 +3205,7 @@ declare ptr @agfstin(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @agnxtin(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dfs(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
@@ -3346,7 +3346,7 @@ define internal fastcc void @dfscc(ptr noundef %0, ptr noundef %1, i32 noundef r
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
-  %18 = tail call ptr @agfstin(ptr noundef %0, ptr noundef %1) #14
+  %18 = tail call ptr @agfstin(ptr noundef %0, ptr noundef nonnull %1) #14
   %.not2226 = icmp eq ptr %18, null
   br i1 %.not2226, label %.loopexit, label %.lr.ph29
 
@@ -3462,10 +3462,10 @@ define internal fastcc void @setMinMax(ptr noundef %0, i32 noundef range(i32 0, 
 declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #12

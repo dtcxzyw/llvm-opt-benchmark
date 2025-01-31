@@ -58,7 +58,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory9datatypes18DatatypesInferenceC2EPNS2_16InferenceManagerENS0_12NodeTemplateILb1EEES7_NS1_11InferenceIdE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %im, ptr nocapture noundef readonly %conc, ptr nocapture noundef readonly %exp, i32 noundef %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory9datatypes18DatatypesInferenceC2EPNS2_16InferenceManagerENS0_12NodeTemplateILb1EEES7_NS1_11InferenceIdE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %im, ptr noundef readonly captures(none) %conc, ptr noundef readonly captures(none) %exp, i32 noundef %i) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp2 = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -236,7 +236,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory9datatypes18DatatypesInference19mustCommunicateFactENS0_12NodeTemplateILb1EEES5_(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %exp) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory9datatypes18DatatypesInference19mustCommunicateFactENS0_12NodeTemplateILb1EEES5_(ptr noundef readonly captures(none) %n, ptr noundef readonly captures(none) %exp) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %0 = load ptr, ptr %n, align 8
   %d_kind.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -249,7 +249,7 @@ cond.end:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory9datatypes18DatatypesInference12processLemmaERNS1_13LemmaPropertyE(ptr noalias sret(%"class.cvc5::internal::TrustNode") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture nonnull readnone align 4 %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory9datatypes18DatatypesInference12processLemmaERNS1_13LemmaPropertyE(ptr noalias sret(%"class.cvc5::internal::TrustNode") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr nonnull readnone align 4 captures(none) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp2 = alloca %"class.cvc5::internal::NodeTemplate", align 8

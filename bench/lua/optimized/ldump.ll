@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [7 x i8] c"\19\93\0D\0A\1A\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @luaU_dump(ptr noundef %L, ptr nocapture noundef readonly %f, ptr noundef %w, ptr noundef %data, i32 noundef %strip) local_unnamed_addr #0 {
+define hidden i32 @luaU_dump(ptr noundef %L, ptr noundef readonly captures(none) %f, ptr noundef %w, ptr noundef %data, i32 noundef %strip) local_unnamed_addr #0 {
 dumpBlock.exit.i:
   %x.i = alloca i8, align 1
   %x.addr.i54.i = alloca double, align 8
@@ -163,7 +163,7 @@ dumpByte.exit:                                    ; preds = %dumpHeader.exit.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dumpFunction(ptr noundef nonnull %D, ptr nocapture noundef readonly %f, ptr noundef readnone %psource) unnamed_addr #0 {
+define internal fastcc void @dumpFunction(ptr noundef nonnull %D, ptr noundef readonly captures(none) %f, ptr noundef readnone %psource) unnamed_addr #0 {
 entry:
   %buff.i.i184 = alloca [10 x i8], align 1
   %buff.i.i181.i = alloca [10 x i8], align 1
@@ -1216,7 +1216,7 @@ dumpDebug.exit:                                   ; preds = %for.body41.i, %dump
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dumpString(ptr nocapture noundef nonnull %D, ptr noundef %s) unnamed_addr #0 {
+define internal fastcc void @dumpString(ptr noundef nonnull captures(none) %D, ptr noundef %s) unnamed_addr #0 {
 entry:
   %buff.i8 = alloca [10 x i8], align 1
   %buff.i = alloca [10 x i8], align 1
@@ -1327,10 +1327,10 @@ if.end:                                           ; preds = %dumpSize.exit29.thr
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

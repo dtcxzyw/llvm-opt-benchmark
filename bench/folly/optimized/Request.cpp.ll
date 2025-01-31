@@ -633,7 +633,7 @@ $_ZN5folly6detail30StaticSingletonManagerWithRtti5debugINS0_14UniqueInstance5Val
 @_ZN5folly14RequestContextC1ERKS0_NS0_3TagE = unnamed_addr alias void (ptr, ptr), ptr @_ZN5folly14RequestContextC2ERKS0_NS0_3TagE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly12RequestTokenC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, ptr noundef nonnull align 8 dereferenceable(32) %str) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly12RequestTokenC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %this, ptr noundef nonnull align 8 dereferenceable(32) %str) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i.i.i = alloca i32, align 4
   %rv.i.i = alloca %"struct.std::pair.21", align 8
@@ -1143,7 +1143,7 @@ cleanup52:                                        ; preds = %_ZN5folly9LockedPtr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef nonnull align 8 dereferenceable(28) ptr @_ZN5folly12RequestToken8getCacheB5cxx11Ev() local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
@@ -1170,7 +1170,7 @@ init.end:                                         ; preds = %init, %init.check, 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly9LockedPtrINS_12SynchronizedINS_10F14FastMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjNS_23HeterogeneousAccessHashIS8_vEENS_26HeterogeneousAccessEqualToIS8_vEESaISt4pairIKS8_jEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSN_22SynchronizedMutexLevelE2ELNSN_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1240,7 +1240,7 @@ _ZNSt11unique_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolic
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
@@ -1706,12 +1706,12 @@ declare void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDef
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 declare noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #14
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #11
@@ -3199,7 +3199,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly12RequestToken14getDebugStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly12RequestToken14getDebugStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %state.i.i.i.i.i.i = alloca i32, align 4
@@ -6268,7 +6268,7 @@ if.end:                                           ; preds = %invoke.cont.i.i.i, 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #25
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly14RequestContext5StateD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -6656,7 +6656,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #19
 declare void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE30cleanupTokenlessSharedDeferredERj(ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #7 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14RequestContext5State16clearContextDataERKNS_12RequestTokenE(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %token) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14RequestContext5State16clearContextDataERKNS_12RequestTokenE(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %token) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_result.i = alloca %"struct.google::CheckOpString", align 8
   %ref.tmp.i = alloca ptr, align 8
@@ -8332,7 +8332,7 @@ cleanup:                                          ; preds = %_ZN5folly17hazptr_o
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN5folly14RequestContext5State6expandEPNS1_8CombinedE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %c) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5folly14RequestContext5State6expandEPNS1_8CombinedE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %c) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %requestData_ = getelementptr inbounds nuw i8, ptr %c, i64 24
   %0 = load i64, ptr %requestData_, align 8, !tbaa !239
@@ -8613,7 +8613,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14RequestContext10copyAsRootERKS0_l(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %ctx, i64 noundef %rootid) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14RequestContext10copyAsRootERKS0_l(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::shared_ptr") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %ctx, i64 noundef %rootid) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !325)
   store ptr null, ptr %agg.result, align 8, !tbaa !328, !alias.scope !325
@@ -8708,10 +8708,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #25
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14RequestContext11copyAsChildERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %ctx) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14RequestContext11copyAsChildERKS0_(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::shared_ptr") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %ctx) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !337)
   store ptr null, ptr %agg.result, align 8, !tbaa !328, !alias.scope !337
@@ -8739,7 +8739,7 @@ _ZSt11make_sharedIN5folly14RequestContextEJRKS1_NS1_3TagEEESt10shared_ptrINSt9en
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14RequestContext14setContextDataERKNS_12RequestTokenESt10unique_ptrINS_11RequestDataESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %token, ptr nocapture noundef %data) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14RequestContext14setContextDataERKNS_12RequestTokenESt10unique_ptrINS_11RequestDataESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %token, ptr noundef captures(none) %data) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_result.i = alloca %"struct.google::CheckOpString", align 8
   %ref.tmp.i = alloca ptr, align 8
@@ -9596,7 +9596,7 @@ _ZN5folly14RequestContext5State16doSetContextDataERKNS_12RequestTokenERSt10uniqu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5folly14RequestContext22setContextDataIfAbsentERKNS_12RequestTokenESt10unique_ptrINS_11RequestDataESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %token, ptr nocapture noundef %data) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5folly14RequestContext22setContextDataIfAbsentERKNS_12RequestTokenESt10unique_ptrINS_11RequestDataESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %token, ptr noundef captures(none) %data) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_result.i = alloca %"struct.google::CheckOpString", align 8
   %ref.tmp.i = alloca ptr, align 8
@@ -10018,7 +10018,7 @@ _ZN5folly14RequestContext5State16doSetContextDataERKNS_12RequestTokenERSt10uniqu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14RequestContext20overwriteContextDataERKNS_12RequestTokenESt10unique_ptrINS_11RequestDataESt14default_deleteIS5_EEb(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %token, ptr nocapture noundef %data, i1 noundef zeroext %safe) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14RequestContext20overwriteContextDataERKNS_12RequestTokenESt10unique_ptrINS_11RequestDataESt14default_deleteIS5_EEb(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %token, ptr noundef captures(none) %data, i1 noundef zeroext %safe) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_result.i = alloca %"struct.google::CheckOpString", align 8
   %ref.tmp.i = alloca ptr, align 8
@@ -11188,7 +11188,7 @@ _ZN5folly14RequestContext5State16doSetContextDataERKNS_12RequestTokenERSt10uniqu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK5folly14RequestContext14hasContextDataERKNS_12RequestTokenE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %val) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK5folly14RequestContext14hasContextDataERKNS_12RequestTokenE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %val) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEvE5cache)
   %1 = load ptr, ptr %0, align 8, !tbaa !392
@@ -12133,7 +12133,7 @@ invoke.cont:                                      ; preds = %if.else.i.i, %if.th
   store i8 0, ptr %3, align 8, !tbaa !85
   call void @llvm.experimental.noalias.scope.decl(metadata !442)
   %call.i.i.i16 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__what) #27, !noalias !442
-  %call3.i.i.i28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i64 noundef 0, i64 noundef 0, ptr noundef %__what, i64 noundef %call.i.i.i16)
+  %call3.i.i.i28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %__what, i64 noundef %call.i.i.i16)
           to label %call3.i.i.i.noexc27 unwind label %lpad4
 
 call3.i.i.i.noexc27:                              ; preds = %invoke.cont
@@ -13031,7 +13031,7 @@ while.end71:                                      ; preds = %_ZN5folly13hazptr_d
 declare i32 @posix_memalign(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #29
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5folly14RequestContext14getContextDataERKNS_12RequestTokenE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %val) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN5folly14RequestContext14getContextDataERKNS_12RequestTokenE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %val) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEvE5cache)
   %1 = load ptr, ptr %0, align 8, !tbaa !392
@@ -13186,7 +13186,7 @@ cleanup.i:                                        ; preds = %while.body.i.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK5folly14RequestContext14getContextDataERKNS_12RequestTokenE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %val) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK5folly14RequestContext14getContextDataERKNS_12RequestTokenE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %val) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEvE5cache)
   %1 = load ptr, ptr %0, align 8, !tbaa !392
@@ -13341,7 +13341,7 @@ cleanup.i:                                        ; preds = %while.body.i.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14RequestContext5onSetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14RequestContext5onSetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEvE5cache)
   %1 = load ptr, ptr %0, align 8, !tbaa !392, !noalias !466
@@ -13613,7 +13613,7 @@ _ZN5folly13hazptr_holderISt6atomicED2Ev.exit:     ; preds = %if.then.i.i97, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14RequestContext7onUnsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14RequestContext7onUnsetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEvE5cache)
   %1 = load ptr, ptr %0, align 8, !tbaa !392, !noalias !474
@@ -13885,14 +13885,14 @@ _ZN5folly14RequestContext5State7onUnsetEv.exit:   ; preds = %if.then.i.i47, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14RequestContext16clearContextDataERKNS_12RequestTokenE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %val) local_unnamed_addr #7 align 2 {
+define void @_ZN5folly14RequestContext16clearContextDataERKNS_12RequestTokenE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %val) local_unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN5folly14RequestContext5State16clearContextDataERKNS_12RequestTokenE(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef nonnull align 4 dereferenceable(4) %val)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14RequestContext10setContextERKSt10shared_ptrIS0_E(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %newCtx) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14RequestContext10setContextERKSt10shared_ptrIS0_E(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %newCtx) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #27
@@ -13988,7 +13988,7 @@ lpad:                                             ; preds = %_ZN5folly4copyIRKSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14RequestContext10setContextEOSt10shared_ptrIS0_E(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %newCtx_) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14RequestContext10setContextEOSt10shared_ptrIS0_E(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %newCtx_) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newCtx = alloca %"class.std::shared_ptr", align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %newCtx) #27
@@ -16471,7 +16471,7 @@ cond.end:                                         ; preds = %cond.false.i, %cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14RequestContext16accessAllThreadsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::RequestContext::StaticContextAccessor") align 8 initializes((0, 28)) %agg.result) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14RequestContext16accessAllThreadsEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.folly::RequestContext::StaticContextAccessor") align 8 captures(none) initializes((0, 28)) %agg.result) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.folly::ThreadLocalPtr<folly::SingletonThreadLocal<folly::RequestContext::StaticContext, folly::RequestContext>::Wrapper, folly::RequestContext>::Accessor", align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
@@ -16592,7 +16592,7 @@ declare noundef i32 @_ZN5folly18threadlocal_detail14StaticMetaBase8allocateEPNS1
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14RequestContext24getRootIdsFromAllThreadsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.222") align 8 initializes((0, 24)) %agg.result) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14RequestContext24getRootIdsFromAllThreadsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.222") align 8 captures(none) initializes((0, 24)) %agg.result) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i.i.i.i = alloca i32, align 4
   %agg.tmp.i.i = alloca %"class.folly::ThreadLocalPtr<folly::SingletonThreadLocal<folly::RequestContext::StaticContext, folly::RequestContext>::Wrapper, folly::RequestContext>::Accessor", align 8
@@ -16923,7 +16923,7 @@ _ZN5folly20SingletonThreadLocalINS_14RequestContext13StaticContextES1_NS_6detail
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14RequestContext21setShallowCopyContextEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14RequestContext21setShallowCopyContextEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::shared_ptr") align 8 captures(none) initializes((0, 8)) %agg.result) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN5folly12_GLOBAL__N_122getStaticContextCalledE)
   store i8 1, ptr %0, align 1, !tbaa !101
@@ -17160,7 +17160,7 @@ declare i64 @llvm.umin.i64(i64, i64) #11
 declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #32
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #32
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11

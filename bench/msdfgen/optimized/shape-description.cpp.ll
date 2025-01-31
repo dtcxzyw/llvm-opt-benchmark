@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [13 x i8] c"%.12g, %.12g\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef range(i32 11, 9) i32 @_ZN7msdfgen9readCharFEP8_IO_FILE(ptr nocapture noundef %input) local_unnamed_addr #0 {
+define dso_local noundef range(i32 11, 9) i32 @_ZN7msdfgen9readCharFEP8_IO_FILE(ptr noundef captures(none) %input) local_unnamed_addr #0 {
 entry:
   br label %do.body
 
@@ -42,10 +42,10 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fgetc(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 -128, 128) i32 @_ZN7msdfgen9readCharSEPPKc(ptr nocapture noundef %input) local_unnamed_addr #2 {
+define dso_local noundef range(i32 -128, 128) i32 @_ZN7msdfgen9readCharSEPPKc(ptr noundef captures(none) %input) local_unnamed_addr #2 {
 entry:
   %input.promoted = load ptr, ptr %input, align 8
   br label %do.body
@@ -86,7 +86,7 @@ entry:
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef range(i32 0, 3) i32 @_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E(ptr nocapture noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %coord) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E(ptr noundef captures(none) %input, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 8)) %coord) local_unnamed_addr #0 {
 entry:
   %end = alloca ptr, align 8
   store ptr null, ptr %end, align 8
@@ -135,7 +135,7 @@ return:                                           ; preds = %while.cond, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN7msdfgen20readShapeDescriptionEP8_IO_FILERNS_5ShapeEPb(ptr noundef %input, ptr noundef nonnull align 8 dereferenceable(25) %output, ptr noundef writeonly %colorsSpecified) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
@@ -302,7 +302,7 @@ return:                                           ; preds = %for.body, %if.end33
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL11readContourI8_IO_FILETnPFiPT_EXadL_ZNS_9readCharFEPS1_EETnPFiS3_RNS_7Vector2EEXadL_ZNS_10readCoordFES6_S8_EEEEbS3_RNS_7ContourEPKS7_iRb(ptr noundef %input, ptr noundef nonnull align 8 dereferenceable(24) %output, ptr noundef readonly %first, i32 noundef range(i32 -1, 126) %terminator, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %colorsSpecified) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL11readContourI8_IO_FILETnPFiPT_EXadL_ZNS_9readCharFEPS1_EETnPFiS3_RNS_7Vector2EEXadL_ZNS_10readCoordFES6_S8_EEEEbS3_RNS_7ContourEPKS7_iRb(ptr noundef %input, ptr noundef nonnull align 8 dereferenceable(24) %output, ptr noundef readonly %first, i32 noundef range(i32 -1, 126) %terminator, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %colorsSpecified) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %p = alloca [4 x %"struct.msdfgen::Vector2"], align 16
   %ref.tmp = alloca %"class.msdfgen::EdgeHolder", align 8
@@ -656,7 +656,7 @@ eh.resume:                                        ; preds = %lpad104, %lpad90, %
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7msdfgen5Shape10addContourEv(ptr noundef nonnull align 8 dereferenceable(25)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN7msdfgen20readShapeDescriptionEPKcRNS_5ShapeEPb(ptr noundef %input, ptr noundef nonnull align 8 dereferenceable(25) %output, ptr noundef writeonly %colorsSpecified) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
@@ -877,7 +877,7 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL11readContourIPKcTnPFiPT_EXadL_ZNS_9readCharSEPS2_EETnPFiS4_RNS_7Vector2EEXadL_ZNS_10readCoordSES7_S9_EEEEbS4_RNS_7ContourEPKS8_iRb(ptr nocapture noundef nonnull %input, ptr noundef nonnull align 8 dereferenceable(24) %output, ptr noundef readonly %first, i32 noundef range(i32 -1, 126) %terminator, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %colorsSpecified) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL11readContourIPKcTnPFiPT_EXadL_ZNS_9readCharSEPS2_EETnPFiS4_RNS_7Vector2EEXadL_ZNS_10readCoordSES7_S9_EEEEbS4_RNS_7ContourEPKS8_iRb(ptr noundef nonnull captures(none) %input, ptr noundef nonnull align 8 dereferenceable(24) %output, ptr noundef readonly %first, i32 noundef range(i32 -1, 126) %terminator, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %colorsSpecified) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %end.i90 = alloca ptr, align 8
   %end.i10.i = alloca ptr, align 8
@@ -1496,7 +1496,7 @@ eh.resume:                                        ; preds = %lpad104, %lpad90, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN7msdfgen21writeShapeDescriptionEP8_IO_FILERKNS_5ShapeE(ptr nocapture noundef %output, ptr noundef nonnull align 8 dereferenceable(25) %shape) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN7msdfgen21writeShapeDescriptionEP8_IO_FILERKNS_5ShapeE(ptr noundef captures(none) %output, ptr noundef nonnull align 8 dereferenceable(25) %shape) local_unnamed_addr #3 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK7msdfgen5Shape8validateEv(ptr noundef nonnull align 8 dereferenceable(25) %shape)
   br i1 %call, label %if.end, label %return
@@ -1702,12 +1702,12 @@ return:                                           ; preds = %if.end89, %if.end4,
 declare noundef zeroext i1 @_ZNK7msdfgen5Shape8validateEv(ptr noundef nonnull align 8 dereferenceable(25)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -1726,19 +1726,19 @@ declare noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_NS_9EdgeC
 declare noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double, double, double, double, double, double, double, double, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

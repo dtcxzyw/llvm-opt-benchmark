@@ -735,8 +735,8 @@ detect_slim_file.exit:                            ; preds = %35, %39
   %75 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %76 = load i32, ptr %75, align 4
   %77 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %60, i64 noundef 64, ptr noundef nonnull @.str.621, i32 noundef 0, i64 noundef %64, i32 noundef %66, i32 noundef %68, ptr noundef %72, i32 noundef %74, i32 noundef %76) #17
-  %78 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.612, ptr noundef nonnull @.str.613, ptr noundef nonnull @.str.613, ptr noundef %60)
-  tail call void @_efree(ptr noundef %60) #17
+  %78 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.612, ptr noundef nonnull @.str.613, ptr noundef nonnull @.str.613, ptr noundef nonnull %60)
+  tail call void @_efree(ptr noundef nonnull %60) #17
   %79 = load i64, ptr %51, align 8
   %.not69 = icmp eq i64 %79, 0
   br i1 %.not69, label %.preheader, label %.lr.ph
@@ -803,9 +803,9 @@ detect_slim_file.exit:                            ; preds = %35, %39
   %126 = load ptr, ptr %80, align 8
   %127 = getelementptr inbounds nuw i64, ptr %126, i64 %86
   %128 = load i64, ptr %127, align 8
-  %129 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.614, ptr noundef %90, i64 noundef %128, ptr noundef %108)
-  tail call void @_efree(ptr noundef %90) #17
-  tail call void @_efree(ptr noundef %108) #17
+  %129 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.614, ptr noundef nonnull %90, i64 noundef %128, ptr noundef nonnull %108)
+  tail call void @_efree(ptr noundef nonnull %90) #17
+  tail call void @_efree(ptr noundef nonnull %108) #17
   %130 = add i32 %.066, 1
   %131 = zext i32 %130 to i64
   %132 = load i64, ptr %51, align 8
@@ -839,8 +839,8 @@ detect_slim_file.exit:                            ; preds = %35, %39
   %155 = load i64, ptr %154, align 8
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %157 = load i32, ptr %156, align 8
-  %158 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.615, ptr noundef %139, i64 noundef %155, i32 noundef %157)
-  tail call void @_efree(ptr noundef %139) #17
+  %158 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.615, ptr noundef nonnull %139, i64 noundef %155, i32 noundef %157)
+  tail call void @_efree(ptr noundef nonnull %139) #17
   %159 = add i32 %.167, 1
   %160 = zext i32 %159 to i64
   %161 = load i64, ptr %48, align 8
@@ -899,8 +899,8 @@ detect_slim_file.exit:                            ; preds = %35, %39
   %195 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %196 = load i32, ptr %195, align 4
   %197 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %180, i64 noundef 64, ptr noundef nonnull @.str.621, i32 noundef %179, i64 noundef %185, i32 noundef %187, i32 noundef %189, ptr noundef %192, i32 noundef %194, i32 noundef %196) #17
-  %198 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.619, ptr noundef nonnull @.str.613, ptr noundef %180)
-  tail call void @_efree(ptr noundef %180) #17
+  %198 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.619, ptr noundef nonnull @.str.613, ptr noundef nonnull %180)
+  tail call void @_efree(ptr noundef nonnull %180) #17
   %199 = load ptr, ptr %173, align 8
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 16
   %201 = load ptr, ptr %200, align 8
@@ -928,8 +928,8 @@ detect_slim_file.exit:                            ; preds = %35, %39
   %220 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %221 = load i32, ptr %220, align 4
   %222 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %205, i64 noundef 64, ptr noundef nonnull @.str.621, i32 noundef %204, i64 noundef %210, i32 noundef %212, i32 noundef %214, ptr noundef %217, i32 noundef %219, i32 noundef %221) #17
-  %223 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.620, ptr noundef nonnull @.str.613, ptr noundef %205)
-  tail call void @_efree(ptr noundef %205) #17
+  %223 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.620, ptr noundef nonnull @.str.613, ptr noundef nonnull %205)
+  tail call void @_efree(ptr noundef nonnull %205) #17
   br label %224
 
 224:                                              ; preds = %177, %202, %175, %171, %169, %165
@@ -937,12 +937,12 @@ detect_slim_file.exit:                            ; preds = %35, %39
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare void @_efree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull ptr @timelib_builtin_db() local_unnamed_addr #4 {
@@ -950,7 +950,7 @@ define hidden noundef nonnull ptr @timelib_builtin_db() local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden ptr @timelib_timezone_identifiers_list(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #5 {
+define hidden ptr @timelib_timezone_identifiers_list(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   store i32 %4, ptr %1, align 4
@@ -960,7 +960,7 @@ define hidden ptr @timelib_timezone_identifiers_list(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @timelib_timezone_id_is_valid(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @timelib_timezone_id_is_valid(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -1008,7 +1008,7 @@ seek_to_tz_position.exit:                         ; preds = %19, %22, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @timelib_parse_tzfile(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
+define hidden noundef ptr @timelib_parse_tzfile(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   store i32 0, ptr %2, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1735,7 +1735,7 @@ define hidden void @timelib_tzinfo_dtor(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @integrate_posix_string(ptr nocapture noundef initializes((168, 176)) %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @integrate_posix_string(ptr noundef captures(none) initializes((168, 176)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @timelib_parse_posix_str(ptr noundef %3) #17
@@ -1827,7 +1827,7 @@ find_ttinfo_index.exit:                           ; preds = %34, %6, %32
   store ptr %60, ptr %58, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 %54
   %62 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %45) #19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %61, ptr readonly align 1 %45, i64 %62, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %61, ptr nonnull readonly align 1 %45, i64 %62, i1 false)
   store i64 %57, ptr %53, align 8
   %63 = load ptr, ptr %58, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 %56
@@ -1942,7 +1942,7 @@ find_ttinfo_index.exit30:                         ; preds = %109, %83, %107
   store ptr %136, ptr %134, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 %130
   %138 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %121) #19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %137, ptr readonly align 1 %121, i64 %138, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %137, ptr nonnull readonly align 1 %121, i64 %138, i1 false)
   store i64 %133, ptr %129, align 8
   %139 = load ptr, ptr %134, align 8
   %140 = getelementptr inbounds i8, ptr %139, i64 %132
@@ -1975,7 +1975,7 @@ find_ttinfo_index.exit30:                         ; preds = %109, %83, %107
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_location(ptr nocapture noundef nonnull %0, ptr nocapture noundef writeonly initializes((136, 160)) %1) unnamed_addr #0 {
+define internal fastcc void @read_location(ptr noundef nonnull captures(none) %0, ptr noundef writeonly captures(none) initializes((136, 160)) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.sroa.0.0.copyload = load i32, ptr %3, align 1
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -2016,7 +2016,7 @@ define internal fastcc void @read_location(ptr nocapture noundef nonnull %0, ptr
 declare void @timelib_posix_str_dtor(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @timelib_tzinfo_clone(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @timelib_tzinfo_clone(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call noalias dereferenceable_or_null(176) ptr @_ecalloc(i64 noundef 1, i64 noundef 176) #16
   %4 = tail call noalias ptr @_estrdup(ptr noundef %2) #17
@@ -2149,7 +2149,7 @@ declare noalias ptr @_emalloc_8() local_unnamed_addr #2
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #2
 
@@ -2422,7 +2422,7 @@ define hidden range(i32 0, 2) i32 @timelib_get_time_zone_offset_info(i64 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 -2147483648, 2147483648) i64 @timelib_get_current_offset(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden range(i64 -2147483648, 2147483648) i64 @timelib_get_current_offset(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = load i32, ptr %3, align 8
@@ -2472,7 +2472,7 @@ timelib_get_time_zone_offset_info.exit:           ; preds = %13, %19, %21
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @timelib_same_timezone(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @timelib_same_timezone(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 232
@@ -2527,7 +2527,7 @@ define hidden range(i32 0, 2) i32 @timelib_same_timezone(ptr nocapture noundef r
 declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare ptr @timelib_time_ctor() local_unnamed_addr #2
 
@@ -2540,16 +2540,16 @@ declare i32 @timelib_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @timelib_parse_posix_str(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: allocsize(1)
 declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #13
@@ -2558,13 +2558,13 @@ declare i32 @llvm.bswap.i32(i32) #13
 declare i64 @llvm.bswap.i64(i64) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

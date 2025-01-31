@@ -347,7 +347,7 @@ define internal range(i32 -1, 1) i32 @H5Z__set_local_scaleoffset(i64 noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @H5Z__filter_scaleoffset(i32 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) #0 {
+define internal i64 @H5Z__filter_scaleoffset(i32 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
   store i32 0, ptr %7, align 4
@@ -810,7 +810,7 @@ declare i32 @H5T_get_order(ptr noundef) local_unnamed_addr #1
 declare ptr @H5P_object_verify(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @H5P_get_filter_by_id(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -900,7 +900,7 @@ switch.lookup30:                                  ; preds = %switch.hole_check29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5Z__scaleoffset_set_parms_fillval(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef range(i32 1, 13) %2, ptr nocapture noundef nonnull writeonly %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5Z__scaleoffset_set_parms_fillval(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef range(i32 1, 13) %2, ptr noundef nonnull writeonly captures(none) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca i16, align 2
   %8 = alloca i32, align 4
@@ -1574,7 +1574,7 @@ declare i32 @H5P_modify_filter(ptr noundef, i32 noundef, i32 noundef, i64 nounde
 declare i32 @H5P_get_fill_value(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
@@ -1582,7 +1582,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @H5Z__scaleoffset_decompress(ptr nocapture noundef nonnull writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 %3, i32 %4) unnamed_addr #5 {
+define internal fastcc void @H5Z__scaleoffset_decompress(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 %3, i32 %4) unnamed_addr #5 {
   %6 = zext i32 %1 to i64
   %7 = and i64 %3, 4294967295
   %8 = mul nuw i64 %7, %6
@@ -1773,7 +1773,7 @@ H5Z__scaleoffset_decompress_one_atomic.exit.loopexit32: ; preds = %H5Z__scaleoff
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr nocapture noundef nonnull %0, i32 noundef %1, i32 noundef range(i32 1, 13) %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6) unnamed_addr #6 {
+define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr noundef nonnull captures(none) %0, i32 noundef %1, i32 noundef range(i32 1, 13) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i64 noundef %6) unnamed_addr #6 {
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
   %10 = alloca i64, align 8
@@ -2464,7 +2464,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr nocapture nou
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @H5Z__scaleoffset_postdecompress_fd(ptr nocapture noundef nonnull %0, i32 noundef %1, i32 noundef range(i32 1, 13) %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6, double noundef %7) unnamed_addr #7 {
+define internal fastcc void @H5Z__scaleoffset_postdecompress_fd(ptr noundef nonnull captures(none) %0, i32 noundef %1, i32 noundef range(i32 1, 13) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i64 noundef %6, double noundef %7) unnamed_addr #7 {
   %9 = alloca double, align 8
   %10 = alloca i32, align 4
   switch i32 %2, label %.loopexit [
@@ -2644,7 +2644,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_fd(ptr nocapture no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @H5Z__scaleoffset_precompress_i(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #6 {
+define internal fastcc void @H5Z__scaleoffset_precompress_i(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef nonnull captures(none) %5, ptr noundef nonnull writeonly captures(none) %6) unnamed_addr #6 {
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
   %10 = alloca i64, align 8
@@ -5699,7 +5699,7 @@ thread-pre-split2262:                             ; preds = %.lr.ph, %H5Z__scale
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @H5Z__scaleoffset_precompress_fd(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull writeonly %6, double noundef %7) unnamed_addr #0 {
+define internal fastcc void @H5Z__scaleoffset_precompress_fd(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef nonnull captures(none) %5, ptr noundef nonnull writeonly captures(none) %6, double noundef %7) unnamed_addr #0 {
   %9 = alloca double, align 8
   %10 = alloca i32, align 4
   switch i32 %2, label %262 [
@@ -6303,7 +6303,7 @@ H5Z__scaleoffset_log2.exit362:                    ; preds = %.lr.ph.i354, %236
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @H5Z__scaleoffset_compress(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull %2, i64 noundef %3, i64 %4, i32 %5) unnamed_addr #5 {
+define internal fastcc void @H5Z__scaleoffset_compress(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2, i64 noundef %3, i64 %4, i32 %5) unnamed_addr #5 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %.preheader, label %.lr.ph.preheader
 

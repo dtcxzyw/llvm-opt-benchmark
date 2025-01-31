@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.gin_tsquery_consistent_6args = private unnamed_addr constant [29 x i8] c"gin_tsquery_consistent_6args\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_tslexeme(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_tslexeme(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -132,7 +132,7 @@ declare i32 @tsCompareString(ptr noundef, i32 noundef, ptr noundef, i32 noundef,
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_prefix(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_prefix(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -243,7 +243,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_prefix(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gin_extract_tsvector(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @gin_extract_tsvector(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -310,7 +310,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare ptr @cstring_to_text_with_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gin_extract_tsquery(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @gin_extract_tsquery(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -441,7 +441,7 @@ declare zeroext i1 @tsquery_requires_match(ptr noundef) local_unnamed_addr #1
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.GinChkVal, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -490,7 +490,7 @@ define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent(ptr nocapture nound
 declare i32 @TS_execute_ternary(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -128, 128) i32 @checkcondition_gin(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readnone %2) #2 {
+define internal range(i32 -128, 128) i32 @checkcondition_gin(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
@@ -524,7 +524,7 @@ define internal range(i32 -128, 128) i32 @checkcondition_gin(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -128, 128) i64 @gin_tsquery_triconsistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -128, 128) i64 @gin_tsquery_triconsistent(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.GinChkVal, align 8
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
@@ -560,7 +560,7 @@ define dso_local range(i64 -128, 128) i64 @gin_tsquery_triconsistent(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gin_extract_tsvector_2args(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @gin_extract_tsvector_2args(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %3 = load i16, ptr %2, align 2
   %4 = icmp slt i16 %3, 3
@@ -643,7 +643,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gin_extract_tsquery_5args(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @gin_extract_tsquery_5args(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %3 = load i16, ptr %2, align 2
   %4 = icmp slt i16 %3, 7
@@ -662,7 +662,7 @@ define dso_local i64 @gin_extract_tsquery_5args(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent_6args(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent_6args(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.GinChkVal, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %4 = load i16, ptr %3, align 2
@@ -724,13 +724,13 @@ gin_tsquery_consistent.exit:                      ; preds = %9, %23, %31, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gin_extract_tsquery_oldsig(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @gin_extract_tsquery_oldsig(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @gin_extract_tsquery(ptr noundef %0)
   ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent_oldsig(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent_oldsig(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.GinChkVal, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -784,10 +784,10 @@ declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

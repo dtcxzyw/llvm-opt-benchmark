@@ -2985,7 +2985,7 @@ declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 1, 257) i32 @get_r3_message_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 1, 257) i32 @get_r3_message_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = add i32 %2, 3
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %5) #5
   %7 = zext i8 %6 to i32
@@ -2994,7 +2994,7 @@ define internal range(i32 1, 257) i32 @get_r3_message_len(ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_r3_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_r3_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -3301,7 +3301,7 @@ define internal void @dissect_r3_cmd_response(ptr noundef %0, i32 noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmd_handshake(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmd_handshake(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %6
 
@@ -3318,7 +3318,7 @@ define internal void @dissect_r3_cmd_handshake(ptr noundef %0, i32 noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmd_killsession(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmd_killsession(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %6
 
@@ -3335,7 +3335,7 @@ define internal void @dissect_r3_cmd_killsession(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmd_queryserialnumber(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmd_queryserialnumber(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %6
 
@@ -3352,7 +3352,7 @@ define internal void @dissect_r3_cmd_queryserialnumber(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmd_queryversion(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmd_queryversion(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %6
 
@@ -3369,7 +3369,7 @@ define internal void @dissect_r3_cmd_queryversion(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmd_setdatetime(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmd_setdatetime(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %47, label %6
 
@@ -3421,7 +3421,7 @@ define internal void @dissect_r3_cmd_setdatetime(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmd_querydatetime(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmd_querydatetime(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %6
 
@@ -3550,7 +3550,7 @@ define internal void @dissect_r3_cmd_setconfig(ptr noundef %0, i32 noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmd_getconfig(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmd_getconfig(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %6
 
@@ -3755,7 +3755,7 @@ define internal void @dissect_r3_cmd_manageuser(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmd_deleteusers(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmd_deleteusers(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %19, label %6
 
@@ -3779,7 +3779,7 @@ define internal void @dissect_r3_cmd_deleteusers(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmd_defineexception(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmd_defineexception(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %55, label %6
 
@@ -3839,7 +3839,7 @@ define internal void @dissect_r3_cmd_defineexception(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmd_defineexceptiongroup(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmd_defineexceptiongroup(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %6
 
@@ -3892,7 +3892,7 @@ define internal void @dissect_r3_cmd_defineexceptiongroup(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmd_definecalendar(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmd_definecalendar(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit35, label %6
 
@@ -3947,7 +3947,7 @@ define internal void @dissect_r3_cmd_definecalendar(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmd_definetimezone(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmd_definetimezone(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %53, label %6
 
@@ -4006,7 +4006,7 @@ define internal void @dissect_r3_cmd_definetimezone(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmd_rmtauthretry(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmd_rmtauthretry(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %6
 
@@ -4032,7 +4032,7 @@ define internal void @dissect_r3_cmd_rmtauthretry(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmd_filters(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmd_filters(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %6
 
@@ -4161,7 +4161,7 @@ define internal void @dissect_r3_cmd_alarmconfigure(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmd_eventlogdump(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmd_eventlogdump(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %63, label %6
 
@@ -4229,7 +4229,7 @@ define internal void @dissect_r3_cmd_eventlogdump(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmd_declinedlogdump(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmd_declinedlogdump(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %61, label %6
 
@@ -4295,7 +4295,7 @@ define internal void @dissect_r3_cmd_declinedlogdump(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmd_alarmlogdump(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmd_alarmlogdump(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %61, label %6
 
@@ -4532,7 +4532,7 @@ define internal void @dissect_r3_cmd_downloadfirmwaretimeout(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmd_powertableselection(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmd_powertableselection(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %19, label %6
 
@@ -4556,7 +4556,7 @@ define internal void @dissect_r3_cmd_powertableselection(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmd_clearnvram(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmd_clearnvram(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %6 = load i32, ptr @hf_r3_commandlength, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef -2147483648) #5
   %8 = load i32, ptr @hf_r3_command, align 4
@@ -4570,7 +4570,7 @@ define internal void @dissect_r3_cmd_clearnvram(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmd_dpac(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmd_dpac(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %23, label %6
 
@@ -4598,7 +4598,7 @@ define internal void @dissect_r3_cmd_dpac(ptr noundef %0, i32 noundef %1, i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmd_selftest(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmd_selftest(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %6
 
@@ -4615,7 +4615,7 @@ define internal void @dissect_r3_cmd_selftest(ptr noundef %0, i32 noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmd_reset(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmd_reset(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %6
 
@@ -4632,7 +4632,7 @@ define internal void @dissect_r3_cmd_reset(ptr noundef %0, i32 noundef %1, i32 %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmd_logwrite(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmd_logwrite(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %6
 
@@ -4658,7 +4658,7 @@ define internal void @dissect_r3_cmd_logwrite(ptr noundef %0, i32 noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmd_mfgcommand(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmd_mfgcommand(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %6
 
@@ -4676,7 +4676,7 @@ define internal void @dissect_r3_cmd_mfgcommand(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmd_nvrambackup(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmd_nvrambackup(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %6
 
@@ -4693,7 +4693,7 @@ define internal void @dissect_r3_cmd_nvrambackup(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmd_extendedresponse(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmd_extendedresponse(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %6
 
@@ -4714,7 +4714,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_response_singlebyte(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_response_singlebyte(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %13, label %6
 
@@ -4813,7 +4813,7 @@ define internal void @dissect_r3_upstreamcommand_reserved(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_upstreamcommand_debugmsg(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_upstreamcommand_debugmsg(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %14, label %6
 
@@ -4910,7 +4910,7 @@ define internal void @dissect_r3_upstreamcommand_dumpeventlog(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_upstreamcommand_dumpnvram(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_upstreamcommand_dumpnvram(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %6 = icmp eq i32 %1, 0
   br i1 %6, label %8, label %7
 
@@ -5061,7 +5061,7 @@ define internal void @dissect_r3_upstreamcommand_rmteventlogrecord(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_upstreamcommand_dpac(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_upstreamcommand_dpac(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %16, label %6
 
@@ -5139,7 +5139,7 @@ define internal void @dissect_r3_upstreamcommand_eventlogwarning(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_upstreamcommand_dumpnvramrle(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_upstreamcommand_dumpnvramrle(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %18, label %6
 
@@ -5179,7 +5179,7 @@ define internal void @dissect_r3_upstreamcommand_declinedwarning(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_upstreamcommand_dumpdeclinedlog(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_upstreamcommand_dumpdeclinedlog(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %45, label %6
 
@@ -5246,7 +5246,7 @@ define internal void @dissect_r3_upstreamcommand_alarmwarning(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_upstreamcommand_dumpalarmlog(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_upstreamcommand_dumpalarmlog(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %32, label %6
 
@@ -5306,7 +5306,7 @@ define internal void @dissect_r3_upstreamcommand_commandalarm(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_upstreamcommand_dumpdebuglog(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_upstreamcommand_dumpdebuglog(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %20, label %6
 
@@ -5686,7 +5686,7 @@ define internal fastcc void @dissect_r3_upstreamfields(ptr noundef %0, i32 nound
 declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_serialnumber(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_serialnumber(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 16) #5
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %54, label %5
@@ -5866,7 +5866,7 @@ define internal void @dissect_r3_upstreammfgfield_adcs(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_upstreammfgfield_hardwareid(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_upstreammfgfield_hardwareid(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %16, label %6
 
@@ -5892,7 +5892,7 @@ define internal void @dissect_r3_upstreammfgfield_hardwareid(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_upstreammfgfield_checkpointlog(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_upstreammfgfield_checkpointlog(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %7
@@ -5972,7 +5972,7 @@ define internal void @dissect_r3_upstreammfgfield_checkpointlog(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_upstreammfgfield_cpuregisters(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_upstreammfgfield_cpuregisters(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %392, label %6
 
@@ -6374,7 +6374,7 @@ define internal void @dissect_r3_upstreammfgfield_cpuregisters(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_upstreammfgfield_taskflags(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_upstreammfgfield_taskflags(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %6 = icmp eq i32 %1, 0
   br i1 %6, label %8, label %7
 
@@ -6420,7 +6420,7 @@ define internal void @dissect_r3_upstreammfgfield_taskflags(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_upstreammfgfield_timerchain(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_upstreammfgfield_timerchain(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %6
 
@@ -6638,7 +6638,7 @@ define internal void @dissect_r3_upstreammfgfield_peekpoke(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_upstreammfgfield_lockstate(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_upstreammfgfield_lockstate(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %6 = icmp eq i32 %1, 0
   br i1 %6, label %8, label %7
 
@@ -6970,7 +6970,7 @@ define internal void @dissect_r3_upstreammfgfield_dumpm41t81(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_upstreammfgfield_nvramchecksumvalue(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_upstreammfgfield_nvramchecksumvalue(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %14, label %6
 
@@ -7099,7 +7099,7 @@ define internal void @dissect_r3_upstreammfgfield_checksumresults(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_upstreammfgfield_mortisestatelog(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_upstreammfgfield_mortisestatelog(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %6
 
@@ -7151,7 +7151,7 @@ define internal void @dissect_r3_upstreammfgfield_mortisestatelog(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_upstreammfgfield_mortisepins(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_upstreammfgfield_mortisepins(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %22, label %6
 
@@ -7183,7 +7183,7 @@ define internal void @dissect_r3_upstreammfgfield_mortisepins(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_upstreammfgfield_keypadchar(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_upstreammfgfield_keypadchar(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %14, label %6
 
@@ -7208,7 +7208,7 @@ define internal void @dissect_r3_upstreammfgfield_keypadchar(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_upstreammfgfield_magcard(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_upstreammfgfield_magcard(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %6 = icmp eq i32 %1, 0
   br i1 %6, label %8, label %7
 
@@ -7223,7 +7223,7 @@ define internal void @dissect_r3_upstreammfgfield_magcard(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_upstreammfgfield_proxcard(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_upstreammfgfield_proxcard(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %6 = icmp eq i32 %1, 0
   br i1 %6, label %8, label %7
 
@@ -7254,7 +7254,7 @@ declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32
 declare ptr @try_val_to_str_ext(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_setserialnumber(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture noundef readonly %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_setserialnumber(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(none) %3, ptr noundef %4) #0 {
   %6 = add i32 %1, 2
   %7 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %6, i32 noundef 16) #5
   %.not = icmp eq ptr %4, null
@@ -7279,7 +7279,7 @@ define internal void @dissect_r3_cmdmfg_setserialnumber(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_setcryptkey(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_setcryptkey(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %15, label %6
 
@@ -7299,7 +7299,7 @@ define internal void @dissect_r3_cmdmfg_setcryptkey(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_dumpnvram(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_dumpnvram(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %15, label %6
 
@@ -7319,7 +7319,7 @@ define internal void @dissect_r3_cmdmfg_dumpnvram(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_terminal(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_terminal(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %6
 
@@ -7336,7 +7336,7 @@ define internal void @dissect_r3_cmdmfg_terminal(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_remoteunlock(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_remoteunlock(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %15, label %6
 
@@ -7356,7 +7356,7 @@ define internal void @dissect_r3_cmdmfg_remoteunlock(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_auxctlrversion(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_auxctlrversion(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %6
 
@@ -7373,7 +7373,7 @@ define internal void @dissect_r3_cmdmfg_auxctlrversion(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_iopins(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_iopins(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %6
 
@@ -7390,7 +7390,7 @@ define internal void @dissect_r3_cmdmfg_iopins(ptr noundef %0, i32 noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_adcs(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_adcs(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %6
 
@@ -7407,7 +7407,7 @@ define internal void @dissect_r3_cmdmfg_adcs(ptr noundef %0, i32 noundef %1, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_hardwareid(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_hardwareid(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %6
 
@@ -7424,7 +7424,7 @@ define internal void @dissect_r3_cmdmfg_hardwareid(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_checkpointlogdump(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_checkpointlogdump(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %6
 
@@ -7441,7 +7441,7 @@ define internal void @dissect_r3_cmdmfg_checkpointlogdump(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_checkpointlogclear(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_checkpointlogclear(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %6
 
@@ -7458,7 +7458,7 @@ define internal void @dissect_r3_cmdmfg_checkpointlogclear(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_readregisters(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_readregisters(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %6
 
@@ -7536,7 +7536,7 @@ switch.lookup:                                    ; preds = %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_commuser(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_commuser(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %6
 
@@ -7553,7 +7553,7 @@ define internal void @dissect_r3_cmdmfg_commuser(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_dumpkeypad(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_dumpkeypad(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %6
 
@@ -7570,7 +7570,7 @@ define internal void @dissect_r3_cmdmfg_dumpkeypad(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_batterycheck(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_batterycheck(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %6
 
@@ -7587,7 +7587,7 @@ define internal void @dissect_r3_cmdmfg_batterycheck(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_ramrefresh(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_ramrefresh(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %6
 
@@ -7604,7 +7604,7 @@ define internal void @dissect_r3_cmdmfg_ramrefresh(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_taskflags(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_taskflags(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %6
 
@@ -7621,7 +7621,7 @@ define internal void @dissect_r3_cmdmfg_taskflags(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_timerchain(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_timerchain(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %6
 
@@ -7816,7 +7816,7 @@ define internal void @dissect_r3_cmdmfg_peekpoke(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_lockstate(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_lockstate(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %6 = load i32, ptr @hf_r3_commandmfglength, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef -2147483648) #5
   %8 = load i32, ptr @hf_r3_commandmfg, align 4
@@ -7826,7 +7826,7 @@ define internal void @dissect_r3_cmdmfg_lockstate(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_capabilities(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_capabilities(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %6 = load i32, ptr @hf_r3_commandmfglength, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef -2147483648) #5
   %8 = load i32, ptr @hf_r3_commandmfg, align 4
@@ -7836,7 +7836,7 @@ define internal void @dissect_r3_cmdmfg_capabilities(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_dumpm41t81(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_dumpm41t81(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %6 = load i32, ptr @hf_r3_commandmfglength, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef -2147483648) #5
   %8 = load i32, ptr @hf_r3_commandmfg, align 4
@@ -7846,7 +7846,7 @@ define internal void @dissect_r3_cmdmfg_dumpm41t81(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_debuglogdump(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_debuglogdump(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %6 = load i32, ptr @hf_r3_commandmfglength, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef -2147483648) #5
   %8 = load i32, ptr @hf_r3_commandmfg, align 4
@@ -7856,7 +7856,7 @@ define internal void @dissect_r3_cmdmfg_debuglogdump(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_debuglogclear(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_debuglogclear(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %6 = load i32, ptr @hf_r3_commandmfglength, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef -2147483648) #5
   %8 = load i32, ptr @hf_r3_commandmfg, align 4
@@ -7866,7 +7866,7 @@ define internal void @dissect_r3_cmdmfg_debuglogclear(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_testwdt(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_testwdt(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %6 = load i32, ptr @hf_r3_commandmfglength, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef -2147483648) #5
   %8 = load i32, ptr @hf_r3_commandmfg, align 4
@@ -7876,7 +7876,7 @@ define internal void @dissect_r3_cmdmfg_testwdt(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_querycksum(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_querycksum(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %6 = load i32, ptr @hf_r3_commandmfglength, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef -2147483648) #5
   %8 = load i32, ptr @hf_r3_commandmfg, align 4
@@ -7886,7 +7886,7 @@ define internal void @dissect_r3_cmdmfg_querycksum(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_validatechecksums(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_validatechecksums(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %6 = load i32, ptr @hf_r3_commandmfglength, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef -2147483648) #5
   %8 = load i32, ptr @hf_r3_commandmfg, align 4
@@ -7896,7 +7896,7 @@ define internal void @dissect_r3_cmdmfg_validatechecksums(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_rebuildlrucache(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_rebuildlrucache(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %6 = load i32, ptr @hf_r3_commandmfglength, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef -2147483648) #5
   %8 = load i32, ptr @hf_r3_commandmfg, align 4
@@ -7906,7 +7906,7 @@ define internal void @dissect_r3_cmdmfg_rebuildlrucache(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_tzupdate(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_tzupdate(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %6 = load i32, ptr @hf_r3_commandmfglength, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef -2147483648) #5
   %8 = load i32, ptr @hf_r3_commandmfg, align 4
@@ -7916,7 +7916,7 @@ define internal void @dissect_r3_cmdmfg_tzupdate(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_testpreserve(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_testpreserve(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %6 = load i32, ptr @hf_r3_commandmfglength, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef -2147483648) #5
   %8 = load i32, ptr @hf_r3_commandmfg, align 4
@@ -7929,7 +7929,7 @@ define internal void @dissect_r3_cmdmfg_testpreserve(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_mortisestatelogdump(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_mortisestatelogdump(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %6 = load i32, ptr @hf_r3_commandmfglength, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef -2147483648) #5
   %8 = load i32, ptr @hf_r3_commandmfg, align 4
@@ -7939,7 +7939,7 @@ define internal void @dissect_r3_cmdmfg_mortisestatelogdump(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_mortisestatelogclear(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_mortisestatelogclear(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %6 = load i32, ptr @hf_r3_commandmfglength, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef -2147483648) #5
   %8 = load i32, ptr @hf_r3_commandmfg, align 4
@@ -7949,7 +7949,7 @@ define internal void @dissect_r3_cmdmfg_mortisestatelogclear(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_mortisepins(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_mortisepins(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %6 = load i32, ptr @hf_r3_commandmfglength, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef -2147483648) #5
   %8 = load i32, ptr @hf_r3_commandmfg, align 4
@@ -7959,7 +7959,7 @@ define internal void @dissect_r3_cmdmfg_mortisepins(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_r3_cmdmfg_haltandcatchfire(ptr noundef %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @dissect_r3_cmdmfg_haltandcatchfire(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %6 = load i32, ptr @hf_r3_commandmfglength, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef -2147483648) #5
   %8 = load i32, ptr @hf_r3_commandmfg, align 4
@@ -7972,10 +7972,10 @@ define internal void @dissect_r3_cmdmfg_haltandcatchfire(ptr noundef %0, i32 nou
 declare i32 @llvm.umin.i32(i32, i32) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

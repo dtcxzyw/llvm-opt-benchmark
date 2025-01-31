@@ -19,12 +19,12 @@ $_ZN2cv3PtrINS_3reg3MapEED2Ev = comdat any
 @_ZN2cv3reg3MapD1Ev = unnamed_addr alias void (ptr), ptr @_ZN2cv3reg3MapD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN2cv3reg3MapD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define void @_ZN2cv3reg3MapD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN2cv3reg3MapD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define void @_ZN2cv3reg3MapD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #5
   unreachable
 }

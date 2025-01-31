@@ -69,7 +69,7 @@ _ZN4Luau18isFlagExperimentalEPKc.exit.thread:     ; preds = %6, %.lr.ph, %_ZN4Lu
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z12setLuauFlagsPKc(ptr noundef %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
@@ -187,7 +187,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br i1 %35, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, label %37
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %.lr.ph.split.i
-  %bcmp.i.i41 = tail call i32 @bcmp(ptr %.sroa.6.0179, ptr %33, i64 %.sroa.speculated.i28)
+  %bcmp.i.i41 = tail call i32 @bcmp(ptr %.sroa.6.0179, ptr nonnull %33, i64 %.sroa.speculated.i28)
   %36 = icmp eq i32 %bcmp.i.i41, 0
   br i1 %36, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i, label %37
 
@@ -250,7 +250,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br i1 %53, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i59, label %55
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i59: ; preds = %.lr.ph.split.i54
-  %bcmp.i.i60 = tail call i32 @bcmp(ptr %.sroa.6.0179, ptr %51, i64 %.sroa.speculated.i28)
+  %bcmp.i.i60 = tail call i32 @bcmp(ptr %.sroa.6.0179, ptr nonnull %51, i64 %.sroa.speculated.i28)
   %54 = icmp eq i32 %bcmp.i.i60, 0
   br i1 %54, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i61, label %55
 
@@ -392,7 +392,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br i1 %92, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i106, label %94
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i106: ; preds = %.lr.ph.split.i101
-  %bcmp.i.i107 = tail call i32 @bcmp(ptr %.sroa.6.0179, ptr %90, i64 %.fr11.i97205)
+  %bcmp.i.i107 = tail call i32 @bcmp(ptr %.sroa.6.0179, ptr nonnull %90, i64 %.fr11.i97205)
   %93 = icmp eq i32 %bcmp.i.i107, 0
   br i1 %93, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.i108, label %94
 
@@ -430,15 +430,15 @@ _ZL11setLuauFlagSt17basic_string_viewIcSt11char_traitsIcEEb.exit._crit_edge: ; p
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
@@ -447,7 +447,7 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #5
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6

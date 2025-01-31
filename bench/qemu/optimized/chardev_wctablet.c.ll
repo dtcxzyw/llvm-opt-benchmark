@@ -82,7 +82,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @wctablet_chr_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @wctablet_chr_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #8
   %open = getelementptr inbounds nuw i8, ptr %call.i, i64 112
@@ -101,7 +101,7 @@ declare void @qemu_input_handler_unregister(ptr noundef) local_unnamed_addr #1
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @wctablet_chr_open(ptr noundef %chr, ptr nocapture readnone %backend, ptr nocapture noundef writeonly initializes((0, 1)) %be_opened, ptr nocapture readnone %errp) #0 {
+define internal void @wctablet_chr_open(ptr noundef %chr, ptr readnone captures(none) %backend, ptr noundef writeonly captures(none) initializes((0, 1)) %be_opened, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 90, ptr noundef nonnull @__func__.WCTABLET_CHARDEV) #8
   store i8 1, ptr %be_opened, align 1
@@ -118,7 +118,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @wctablet_chr_write(ptr noundef %chr, ptr nocapture noundef readonly %buf, i32 noundef returned %len) #0 {
+define internal noundef i32 @wctablet_chr_write(ptr noundef %chr, ptr noundef readonly captures(none) %buf, i32 noundef returned %len) #0 {
 entry:
   %_now.i.i107 = alloca %struct.timeval, align 8
   %_now.i.i63 = alloca %struct.timeval, align 8
@@ -564,7 +564,7 @@ return:                                           ; preds = %if.then7.i.i102, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -95, 1) i32 @wctablet_chr_ioctl(ptr noundef %chr, i32 noundef %cmd, ptr nocapture noundef readonly %arg) #0 {
+define internal range(i32 -95, 1) i32 @wctablet_chr_ioctl(ptr noundef %chr, i32 noundef %cmd, ptr noundef readonly captures(none) %arg) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 90, ptr noundef nonnull @__func__.WCTABLET_CHARDEV) #8
@@ -662,12 +662,12 @@ if.end14:                                         ; preds = %if.then3, %if.then7
 declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @qemu_input_handler_register(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @wctablet_input_event(ptr nocapture noundef writeonly %dev, ptr nocapture readnone %src, ptr nocapture noundef readonly %evt) #3 {
+define internal void @wctablet_input_event(ptr noundef writeonly captures(none) %dev, ptr readnone captures(none) %src, ptr noundef readonly captures(none) %evt) #3 {
 entry:
   %0 = load i32, ptr %evt, align 8
   switch i32 %0, label %sw.epilog [
@@ -815,7 +815,7 @@ return:                                           ; preds = %if.then7.i.i, %if.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @wctablet_queue_output(ptr noundef %tablet, ptr nocapture noundef readonly %buf, i32 noundef range(i32 7, 19) %count) unnamed_addr #0 {
+define internal fastcc void @wctablet_queue_output(ptr noundef %tablet, ptr noundef readonly captures(none) %buf, i32 noundef range(i32 7, 19) %count) unnamed_addr #0 {
 entry:
   %outlen = getelementptr inbounds nuw i8, ptr %tablet, i64 776
   %0 = load i32, ptr %outlen, align 8
@@ -988,10 +988,10 @@ _nocheck__trace_wct_cmd_other.exit:               ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -1005,10 +1005,10 @@ declare void @qemu_chr_be_write(ptr noundef, ptr noundef, i32 noundef) local_unn
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

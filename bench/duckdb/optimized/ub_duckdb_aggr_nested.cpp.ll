@@ -923,7 +923,7 @@ declare void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 derefe
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb8ListType12GetChildTypeERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
@@ -933,7 +933,7 @@ declare void @_ZN6duckdb23GetSegmentDataFunctionsERNS_20ListSegmentFunctionsERKN
 declare void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb20ListSegmentFunctionsD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1014,7 +1014,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16ListBindFunctionERNS_13ClientContextERNS_17AggregateFunctionERNS_6vectorINS_10unique_ptrINS_10ExpressionESt14default_deleteIS6_ELb1EEELb1EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr nocapture nonnull readnone align 1 %context, ptr noundef nonnull align 8 dereferenceable(281) %function, ptr noundef nonnull align 8 dereferenceable(24) %arguments) #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb16ListBindFunctionERNS_13ClientContextERNS_17AggregateFunctionERNS_6vectorINS_10unique_ptrINS_10ExpressionESt14default_deleteIS6_ELb1EEELb1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr") align 8 captures(none) %agg.result, ptr nonnull readnone align 1 captures(none) %context, ptr noundef nonnull align 8 dereferenceable(281) %function, ptr noundef nonnull align 8 dereferenceable(24) %arguments) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::LogicalType", align 8
   %ref.tmp6 = alloca %"struct.duckdb::LogicalType", align 8
@@ -1763,7 +1763,7 @@ ehcleanup20:                                      ; preds = %ehcleanup18, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL19ListCombineFunctionERNS_6VectorES1_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %states_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL19ListCombineFunctionERNS_6VectorES1_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %states_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %states_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %states_data) #23
@@ -2255,7 +2255,7 @@ ehcleanup68:                                      ; preds = %lpad52, %lpad30, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL10ListWindowERNS_18AggregateInputDataERKNS_20WindowPartitionInputEPKhPhRKNS_6vectorINS_11FrameBoundsELb1EEERNS_6VectorEm(ptr noundef nonnull align 8 dereferenceable(16) %aggr_input_data, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %partition, ptr nocapture readnone %g_state, ptr nocapture readnone %l_state, ptr noundef nonnull align 8 dereferenceable(24) %frames, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %rid) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL10ListWindowERNS_18AggregateInputDataERKNS_20WindowPartitionInputEPKhPhRKNS_6vectorINS_11FrameBoundsELb1EEERNS_6VectorEm(ptr noundef nonnull align 8 dereferenceable(16) %aggr_input_data, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %partition, ptr readnone captures(none) %g_state, ptr readnone captures(none) %l_state, ptr noundef nonnull align 8 dereferenceable(24) %frames, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %rid) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %linked_list = alloca %"struct.duckdb::LinkedList", align 8
   %input_data = alloca %"struct.duckdb::RecursiveUnifiedVectorFormat", align 8
@@ -2453,7 +2453,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb21HistogramBindFunctionERNS_13ClientContextERNS_17AggregateFunctionERNS_6vectorINS_10unique_ptrINS_10ExpressionESt14default_deleteIS6_ELb1EEELb1EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %context, ptr noundef nonnull align 8 dereferenceable(281) %function, ptr noundef nonnull align 8 dereferenceable(24) %arguments) #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb21HistogramBindFunctionERNS_13ClientContextERNS_17AggregateFunctionERNS_6vectorINS_10unique_ptrINS_10ExpressionESt14default_deleteIS6_ELb1EEELb1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %context, ptr noundef nonnull align 8 dereferenceable(281) %function, ptr noundef nonnull align 8 dereferenceable(24) %arguments) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.duckdb::LogicalType", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4750,7 +4750,7 @@ for.end:                                          ; preds = %_ZN6duckdb20ListSeg
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: noreturn
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #12
@@ -5302,7 +5302,7 @@ declare void @_ZN6duckdb17InternalExceptionC1ERKNSt7__cxx1112basic_stringIcSt11c
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 declare noundef i64 @_ZN6duckdb10ListVector11GetListSizeERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #1
 
@@ -5486,7 +5486,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #13
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNK6duckdb6vectorINS_11FrameBoundsELb1EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -6447,7 +6447,7 @@ declare noundef zeroext i1 @_ZNK6duckdb11LogicalTypeeqERKS0_(ptr noundef nonnull
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb9Exception16ConstructMessageIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES7_RKS7_DpT_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %msg, ptr noundef %params) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -10945,7 +10945,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEbSt3mapIbmSt4lessIbESaISt4pairIKbmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSA_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEbSt3mapIbmSt4lessIbESaISt4pairIKbmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSA_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -11310,7 +11310,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionIbSt3mapIbmSt4lessIbESaISt4pairIKbmEEEEEvRNS_6VectorESA_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionIbSt3mapIbmSt4lessIbESaISt4pairIKbmEEEEEvRNS_6VectorESA_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -11741,7 +11741,7 @@ ehcleanup36:                                      ; preds = %lpad26, %lpad8, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEbSt3mapIbmSt4lessIbESaISt4pairIKbmEEEEEvRNS_6VectorERNS_18AggregateInputDataESB_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEbSt3mapIbmSt4lessIbESaISt4pairIKbmEEEEEvRNS_6VectorERNS_18AggregateInputDataESB_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i140 = alloca i64, align 8
@@ -13200,7 +13200,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEhSt3mapIhmSt4lessIhESaISt4pairIKhmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSA_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEhSt3mapIhmSt4lessIhESaISt4pairIKhmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSA_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -13565,7 +13565,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionIhSt3mapIhmSt4lessIhESaISt4pairIKhmEEEEEvRNS_6VectorESA_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionIhSt3mapIhmSt4lessIhESaISt4pairIKhmEEEEEvRNS_6VectorESA_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -13870,7 +13870,7 @@ ehcleanup36:                                      ; preds = %lpad26, %_ZNSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEhSt3mapIhmSt4lessIhESaISt4pairIKhmEEEEEvRNS_6VectorERNS_18AggregateInputDataESB_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEhSt3mapIhmSt4lessIhESaISt4pairIKhmEEEEEvRNS_6VectorERNS_18AggregateInputDataESB_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i139 = alloca i64, align 8
@@ -15076,7 +15076,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEtSt3mapItmSt4lessItESaISt4pairIKtmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSA_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEtSt3mapItmSt4lessItESaISt4pairIKtmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSA_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -15441,7 +15441,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionItSt3mapItmSt4lessItESaISt4pairIKtmEEEEEvRNS_6VectorESA_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionItSt3mapItmSt4lessItESaISt4pairIKtmEEEEEvRNS_6VectorESA_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -15746,7 +15746,7 @@ ehcleanup36:                                      ; preds = %lpad26, %_ZNSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEtSt3mapItmSt4lessItESaISt4pairIKtmEEEEEvRNS_6VectorERNS_18AggregateInputDataESB_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEtSt3mapItmSt4lessItESaISt4pairIKtmEEEEEvRNS_6VectorERNS_18AggregateInputDataESB_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i139 = alloca i64, align 8
@@ -16952,7 +16952,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEjSt3mapIjmSt4lessIjESaISt4pairIKjmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSA_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEjSt3mapIjmSt4lessIjESaISt4pairIKjmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSA_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -17317,7 +17317,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionIjSt3mapIjmSt4lessIjESaISt4pairIKjmEEEEEvRNS_6VectorESA_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionIjSt3mapIjmSt4lessIjESaISt4pairIKjmEEEEEvRNS_6VectorESA_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -17622,7 +17622,7 @@ ehcleanup36:                                      ; preds = %lpad26, %_ZNSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEjSt3mapIjmSt4lessIjESaISt4pairIKjmEEEEEvRNS_6VectorERNS_18AggregateInputDataESB_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEjSt3mapIjmSt4lessIjESaISt4pairIKjmEEEEEvRNS_6VectorERNS_18AggregateInputDataESB_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i139 = alloca i64, align 8
@@ -18828,7 +18828,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEmSt3mapImmSt4lessImESaISt4pairIKmmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSA_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEmSt3mapImmSt4lessImESaISt4pairIKmmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSA_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -19193,7 +19193,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionImSt3mapImmSt4lessImESaISt4pairIKmmEEEEEvRNS_6VectorESA_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionImSt3mapImmSt4lessImESaISt4pairIKmmEEEEEvRNS_6VectorESA_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -19498,7 +19498,7 @@ ehcleanup36:                                      ; preds = %lpad26, %_ZNSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEmSt3mapImmSt4lessImESaISt4pairIKmmEEEEEvRNS_6VectorERNS_18AggregateInputDataESB_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEmSt3mapImmSt4lessImESaISt4pairIKmmEEEEEvRNS_6VectorERNS_18AggregateInputDataESB_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i139 = alloca i64, align 8
@@ -20702,7 +20702,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEaSt3mapIamSt4lessIaESaISt4pairIKamEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSA_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEaSt3mapIamSt4lessIaESaISt4pairIKamEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSA_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -21067,7 +21067,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionIaSt3mapIamSt4lessIaESaISt4pairIKamEEEEEvRNS_6VectorESA_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionIaSt3mapIamSt4lessIaESaISt4pairIKamEEEEEvRNS_6VectorESA_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -21372,7 +21372,7 @@ ehcleanup36:                                      ; preds = %lpad26, %_ZNSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEaSt3mapIamSt4lessIaESaISt4pairIKamEEEEEvRNS_6VectorERNS_18AggregateInputDataESB_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEaSt3mapIamSt4lessIaESaISt4pairIKamEEEEEvRNS_6VectorERNS_18AggregateInputDataESB_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i139 = alloca i64, align 8
@@ -22578,7 +22578,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEsSt3mapIsmSt4lessIsESaISt4pairIKsmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSA_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEsSt3mapIsmSt4lessIsESaISt4pairIKsmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSA_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -22943,7 +22943,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionIsSt3mapIsmSt4lessIsESaISt4pairIKsmEEEEEvRNS_6VectorESA_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionIsSt3mapIsmSt4lessIsESaISt4pairIKsmEEEEEvRNS_6VectorESA_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -23248,7 +23248,7 @@ ehcleanup36:                                      ; preds = %lpad26, %_ZNSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEsSt3mapIsmSt4lessIsESaISt4pairIKsmEEEEEvRNS_6VectorERNS_18AggregateInputDataESB_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEsSt3mapIsmSt4lessIsESaISt4pairIKsmEEEEEvRNS_6VectorERNS_18AggregateInputDataESB_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i139 = alloca i64, align 8
@@ -24454,7 +24454,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEiSt3mapIimSt4lessIiESaISt4pairIKimEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSA_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEiSt3mapIimSt4lessIiESaISt4pairIKimEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSA_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -24819,7 +24819,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionIiSt3mapIimSt4lessIiESaISt4pairIKimEEEEEvRNS_6VectorESA_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionIiSt3mapIimSt4lessIiESaISt4pairIKimEEEEEvRNS_6VectorESA_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -25124,7 +25124,7 @@ ehcleanup36:                                      ; preds = %lpad26, %_ZNSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEiSt3mapIimSt4lessIiESaISt4pairIKimEEEEEvRNS_6VectorERNS_18AggregateInputDataESB_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEiSt3mapIimSt4lessIiESaISt4pairIKimEEEEEvRNS_6VectorERNS_18AggregateInputDataESB_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i139 = alloca i64, align 8
@@ -26330,7 +26330,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorElSt3mapIlmSt4lessIlESaISt4pairIKlmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSA_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorElSt3mapIlmSt4lessIlESaISt4pairIKlmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSA_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -26695,7 +26695,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionIlSt3mapIlmSt4lessIlESaISt4pairIKlmEEEEEvRNS_6VectorESA_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionIlSt3mapIlmSt4lessIlESaISt4pairIKlmEEEEEvRNS_6VectorESA_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -27000,7 +27000,7 @@ ehcleanup36:                                      ; preds = %lpad26, %_ZNSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorElSt3mapIlmSt4lessIlESaISt4pairIKlmEEEEEvRNS_6VectorERNS_18AggregateInputDataESB_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorElSt3mapIlmSt4lessIlESaISt4pairIKlmEEEEEvRNS_6VectorERNS_18AggregateInputDataESB_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i139 = alloca i64, align 8
@@ -28206,7 +28206,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEfSt3mapIfmSt4lessIfESaISt4pairIKfmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSA_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEfSt3mapIfmSt4lessIfESaISt4pairIKfmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSA_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -28571,7 +28571,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionIfSt3mapIfmSt4lessIfESaISt4pairIKfmEEEEEvRNS_6VectorESA_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionIfSt3mapIfmSt4lessIfESaISt4pairIKfmEEEEEvRNS_6VectorESA_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -28876,7 +28876,7 @@ ehcleanup36:                                      ; preds = %lpad26, %_ZNSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEfSt3mapIfmSt4lessIfESaISt4pairIKfmEEEEEvRNS_6VectorERNS_18AggregateInputDataESB_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEfSt3mapIfmSt4lessIfESaISt4pairIKfmEEEEEvRNS_6VectorERNS_18AggregateInputDataESB_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i139 = alloca i64, align 8
@@ -30085,7 +30085,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEdSt3mapIdmSt4lessIdESaISt4pairIKdmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSA_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEdSt3mapIdmSt4lessIdESaISt4pairIKdmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSA_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -30450,7 +30450,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionIdSt3mapIdmSt4lessIdESaISt4pairIKdmEEEEEvRNS_6VectorESA_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionIdSt3mapIdmSt4lessIdESaISt4pairIKdmEEEEEvRNS_6VectorESA_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -30755,7 +30755,7 @@ ehcleanup36:                                      ; preds = %lpad26, %_ZNSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEdSt3mapIdmSt4lessIdESaISt4pairIKdmEEEEEvRNS_6VectorERNS_18AggregateInputDataESB_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEdSt3mapIdmSt4lessIdESaISt4pairIKdmEEEEEvRNS_6VectorERNS_18AggregateInputDataESB_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i139 = alloca i64, align 8
@@ -31964,7 +31964,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_22HistogramStringFunctorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS7_mSt4lessIS7_ESaISt4pairIKS7_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSG_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_22HistogramStringFunctorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS7_mSt4lessIS7_ESaISt4pairIKS7_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSG_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -32218,7 +32218,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS6_mSt4lessIS6_ESaISt4pairIKS6_mEEEEEvRNS_6VectorESG_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS6_mSt4lessIS6_ESaISt4pairIKS6_mEEEEEvRNS_6VectorESG_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i.i.i = alloca i64, align 8
   %__z.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, unsigned long>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, unsigned long>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node", align 8
@@ -32687,7 +32687,7 @@ ehcleanup36:                                      ; preds = %lpad26, %lpad7.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_22HistogramStringFunctorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS7_mSt4lessIS7_ESaISt4pairIKS7_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESH_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_22HistogramStringFunctorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapIS7_mSt4lessIS7_ESaISt4pairIKS7_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESH_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i153 = alloca i64, align 8
@@ -34098,7 +34098,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_m
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #16
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -34501,7 +34501,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_11timestamp_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSB_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_11timestamp_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSB_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -34866,7 +34866,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_11timestamp_tESt3mapIS1_mSt4lessIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESB_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_11timestamp_tESt3mapIS1_mSt4lessIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESB_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -35171,7 +35171,7 @@ ehcleanup36:                                      ; preds = %lpad26, %_ZNSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_11timestamp_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESC_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_11timestamp_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESC_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i141 = alloca i64, align 8
@@ -36377,7 +36377,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_14timestamp_tz_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSB_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_14timestamp_tz_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSB_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -36742,7 +36742,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_14timestamp_tz_tESt3mapIS1_mSt4lessIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESB_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_14timestamp_tz_tESt3mapIS1_mSt4lessIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESB_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -37047,7 +37047,7 @@ ehcleanup36:                                      ; preds = %lpad26, %_ZNSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_14timestamp_tz_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESC_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_14timestamp_tz_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESC_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i142 = alloca i64, align 8
@@ -38253,7 +38253,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_15timestamp_sec_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSB_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_15timestamp_sec_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSB_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -38618,7 +38618,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_15timestamp_sec_tESt3mapIS1_mSt4lessIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESB_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_15timestamp_sec_tESt3mapIS1_mSt4lessIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESB_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -38923,7 +38923,7 @@ ehcleanup36:                                      ; preds = %lpad26, %_ZNSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_15timestamp_sec_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESC_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_15timestamp_sec_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESC_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i142 = alloca i64, align 8
@@ -40129,7 +40129,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_14timestamp_ms_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSB_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_14timestamp_ms_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSB_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -40494,7 +40494,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_14timestamp_ms_tESt3mapIS1_mSt4lessIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESB_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_14timestamp_ms_tESt3mapIS1_mSt4lessIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESB_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -40799,7 +40799,7 @@ ehcleanup36:                                      ; preds = %lpad26, %_ZNSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_14timestamp_ms_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESC_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_14timestamp_ms_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESC_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i142 = alloca i64, align 8
@@ -42005,7 +42005,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_14timestamp_ns_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSB_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_14timestamp_ns_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSB_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -42370,7 +42370,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_14timestamp_ns_tESt3mapIS1_mSt4lessIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESB_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_14timestamp_ns_tESt3mapIS1_mSt4lessIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESB_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -42675,7 +42675,7 @@ ehcleanup36:                                      ; preds = %lpad26, %_ZNSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_14timestamp_ns_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESC_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_14timestamp_ns_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESC_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i142 = alloca i64, align 8
@@ -43881,7 +43881,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_7dtime_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSB_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_7dtime_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSB_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -44246,7 +44246,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_7dtime_tESt3mapIS1_mSt4lessIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESB_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_7dtime_tESt3mapIS1_mSt4lessIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESB_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -44551,7 +44551,7 @@ ehcleanup36:                                      ; preds = %lpad26, %_ZNSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_7dtime_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESC_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_7dtime_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESC_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i141 = alloca i64, align 8
@@ -45757,7 +45757,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_10dtime_tz_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSB_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_10dtime_tz_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSB_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -46122,7 +46122,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_10dtime_tz_tESt3mapIS1_mSt4lessIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESB_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_10dtime_tz_tESt3mapIS1_mSt4lessIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESB_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -46427,7 +46427,7 @@ ehcleanup36:                                      ; preds = %lpad26, %_ZNSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_10dtime_tz_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESC_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_10dtime_tz_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESC_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i141 = alloca i64, align 8
@@ -47633,7 +47633,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_6date_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSB_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_6date_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSB_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -47998,7 +47998,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_6date_tESt3mapIS1_mSt4lessIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESB_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_6date_tESt3mapIS1_mSt4lessIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESB_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -48303,7 +48303,7 @@ ehcleanup36:                                      ; preds = %lpad26, %_ZNSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_6date_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESC_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_6date_tESt3mapIS2_mSt4lessIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESC_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i141 = alloca i64, align 8
@@ -53149,7 +53149,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEbSt13unordered_mapIbmSt4hashIbESt8equal_toIbESaISt4pairIKbmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSC_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEbSt13unordered_mapIbmSt4hashIbESt8equal_toIbESaISt4pairIKbmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSC_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -53403,7 +53403,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionIbSt13unordered_mapIbmSt4hashIbESt8equal_toIbESaISt4pairIKbmEEEEEvRNS_6VectorESC_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionIbSt13unordered_mapIbmSt4hashIbESt8equal_toIbESaISt4pairIKbmEEEEEvRNS_6VectorESC_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -53894,7 +53894,7 @@ ehcleanup38:                                      ; preds = %lpad28, %_ZNSt10_Ha
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEbSt13unordered_mapIbmSt4hashIbESt8equal_toIbESaISt4pairIKbmEEEEEvRNS_6VectorERNS_18AggregateInputDataESD_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEbSt13unordered_mapIbmSt4hashIbESt8equal_toIbESaISt4pairIKbmEEEEEvRNS_6VectorERNS_18AggregateInputDataESD_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i142 = alloca i64, align 8
@@ -55162,7 +55162,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEhSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSC_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEhSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSC_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -55416,7 +55416,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionIhSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEEEEvRNS_6VectorESC_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionIhSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEEEEvRNS_6VectorESC_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -55907,7 +55907,7 @@ ehcleanup38:                                      ; preds = %lpad28, %_ZNSt10_Ha
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEhSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEEEEvRNS_6VectorERNS_18AggregateInputDataESD_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEhSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEEEEvRNS_6VectorERNS_18AggregateInputDataESD_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i141 = alloca i64, align 8
@@ -57172,7 +57172,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEtSt13unordered_mapItmSt4hashItESt8equal_toItESaISt4pairIKtmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSC_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEtSt13unordered_mapItmSt4hashItESt8equal_toItESaISt4pairIKtmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSC_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -57426,7 +57426,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionItSt13unordered_mapItmSt4hashItESt8equal_toItESaISt4pairIKtmEEEEEvRNS_6VectorESC_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionItSt13unordered_mapItmSt4hashItESt8equal_toItESaISt4pairIKtmEEEEEvRNS_6VectorESC_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -57917,7 +57917,7 @@ ehcleanup38:                                      ; preds = %lpad28, %_ZNSt10_Ha
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEtSt13unordered_mapItmSt4hashItESt8equal_toItESaISt4pairIKtmEEEEEvRNS_6VectorERNS_18AggregateInputDataESD_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEtSt13unordered_mapItmSt4hashItESt8equal_toItESaISt4pairIKtmEEEEEvRNS_6VectorERNS_18AggregateInputDataESD_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i141 = alloca i64, align 8
@@ -59182,7 +59182,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEjSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSC_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEjSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSC_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -59436,7 +59436,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionIjSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEEEEvRNS_6VectorESC_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionIjSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEEEEvRNS_6VectorESC_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -59927,7 +59927,7 @@ ehcleanup38:                                      ; preds = %lpad28, %_ZNSt10_Ha
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEjSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEEEEvRNS_6VectorERNS_18AggregateInputDataESD_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEjSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEEEEvRNS_6VectorERNS_18AggregateInputDataESD_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i141 = alloca i64, align 8
@@ -61192,7 +61192,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEmSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSC_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEmSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSC_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -61446,7 +61446,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionImSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEEEEvRNS_6VectorESC_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionImSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEEEEvRNS_6VectorESC_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -61933,7 +61933,7 @@ ehcleanup38:                                      ; preds = %lpad28, %_ZNSt10_Ha
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEmSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEEEEvRNS_6VectorERNS_18AggregateInputDataESD_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEmSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEEEEvRNS_6VectorERNS_18AggregateInputDataESD_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i141 = alloca i64, align 8
@@ -63194,7 +63194,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEaSt13unordered_mapIamSt4hashIaESt8equal_toIaESaISt4pairIKamEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSC_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEaSt13unordered_mapIamSt4hashIaESt8equal_toIaESaISt4pairIKamEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSC_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -63448,7 +63448,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionIaSt13unordered_mapIamSt4hashIaESt8equal_toIaESaISt4pairIKamEEEEEvRNS_6VectorESC_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionIaSt13unordered_mapIamSt4hashIaESt8equal_toIaESaISt4pairIKamEEEEEvRNS_6VectorESC_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -63939,7 +63939,7 @@ ehcleanup38:                                      ; preds = %lpad28, %_ZNSt10_Ha
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEaSt13unordered_mapIamSt4hashIaESt8equal_toIaESaISt4pairIKamEEEEEvRNS_6VectorERNS_18AggregateInputDataESD_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEaSt13unordered_mapIamSt4hashIaESt8equal_toIaESaISt4pairIKamEEEEEvRNS_6VectorERNS_18AggregateInputDataESD_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i141 = alloca i64, align 8
@@ -65204,7 +65204,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEsSt13unordered_mapIsmSt4hashIsESt8equal_toIsESaISt4pairIKsmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSC_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEsSt13unordered_mapIsmSt4hashIsESt8equal_toIsESaISt4pairIKsmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSC_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -65458,7 +65458,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionIsSt13unordered_mapIsmSt4hashIsESt8equal_toIsESaISt4pairIKsmEEEEEvRNS_6VectorESC_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionIsSt13unordered_mapIsmSt4hashIsESt8equal_toIsESaISt4pairIKsmEEEEEvRNS_6VectorESC_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -65949,7 +65949,7 @@ ehcleanup38:                                      ; preds = %lpad28, %_ZNSt10_Ha
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEsSt13unordered_mapIsmSt4hashIsESt8equal_toIsESaISt4pairIKsmEEEEEvRNS_6VectorERNS_18AggregateInputDataESD_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEsSt13unordered_mapIsmSt4hashIsESt8equal_toIsESaISt4pairIKsmEEEEEvRNS_6VectorERNS_18AggregateInputDataESD_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i141 = alloca i64, align 8
@@ -67214,7 +67214,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEiSt13unordered_mapIimSt4hashIiESt8equal_toIiESaISt4pairIKimEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSC_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEiSt13unordered_mapIimSt4hashIiESt8equal_toIiESaISt4pairIKimEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSC_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -67468,7 +67468,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionIiSt13unordered_mapIimSt4hashIiESt8equal_toIiESaISt4pairIKimEEEEEvRNS_6VectorESC_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionIiSt13unordered_mapIimSt4hashIiESt8equal_toIiESaISt4pairIKimEEEEEvRNS_6VectorESC_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -67959,7 +67959,7 @@ ehcleanup38:                                      ; preds = %lpad28, %_ZNSt10_Ha
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEiSt13unordered_mapIimSt4hashIiESt8equal_toIiESaISt4pairIKimEEEEEvRNS_6VectorERNS_18AggregateInputDataESD_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEiSt13unordered_mapIimSt4hashIiESt8equal_toIiESaISt4pairIKimEEEEEvRNS_6VectorERNS_18AggregateInputDataESD_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i141 = alloca i64, align 8
@@ -69224,7 +69224,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorElSt13unordered_mapIlmSt4hashIlESt8equal_toIlESaISt4pairIKlmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSC_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorElSt13unordered_mapIlmSt4hashIlESt8equal_toIlESaISt4pairIKlmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSC_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -69478,7 +69478,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionIlSt13unordered_mapIlmSt4hashIlESt8equal_toIlESaISt4pairIKlmEEEEEvRNS_6VectorESC_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionIlSt13unordered_mapIlmSt4hashIlESt8equal_toIlESaISt4pairIKlmEEEEEvRNS_6VectorESC_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -69965,7 +69965,7 @@ ehcleanup38:                                      ; preds = %lpad28, %_ZNSt10_Ha
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorElSt13unordered_mapIlmSt4hashIlESt8equal_toIlESaISt4pairIKlmEEEEEvRNS_6VectorERNS_18AggregateInputDataESD_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorElSt13unordered_mapIlmSt4hashIlESt8equal_toIlESaISt4pairIKlmEEEEEvRNS_6VectorERNS_18AggregateInputDataESD_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i141 = alloca i64, align 8
@@ -71226,7 +71226,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEfSt13unordered_mapIfmSt4hashIfESt8equal_toIfESaISt4pairIKfmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSC_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEfSt13unordered_mapIfmSt4hashIfESt8equal_toIfESaISt4pairIKfmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSC_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -71594,7 +71594,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionIfSt13unordered_mapIfmSt4hashIfESt8equal_toIfESaISt4pairIKfmEEEEEvRNS_6VectorESC_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionIfSt13unordered_mapIfmSt4hashIfESt8equal_toIfESaISt4pairIKfmEEEEEvRNS_6VectorESC_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__val.addr.i.i.i.i = alloca float, align 4
   %__val.addr.i.i.i.i.i.i = alloca float, align 4
@@ -72160,7 +72160,7 @@ ehcleanup38:                                      ; preds = %lpad28, %_ZNSt10_Ha
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEfSt13unordered_mapIfmSt4hashIfESt8equal_toIfESaISt4pairIKfmEEEEEvRNS_6VectorERNS_18AggregateInputDataESD_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEfSt13unordered_mapIfmSt4hashIfESt8equal_toIfESaISt4pairIKfmEEEEEvRNS_6VectorERNS_18AggregateInputDataESD_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i141 = alloca i64, align 8
@@ -73399,7 +73399,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEdSt13unordered_mapIdmSt4hashIdESt8equal_toIdESaISt4pairIKdmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSC_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorEdSt13unordered_mapIdmSt4hashIdESt8equal_toIdESaISt4pairIKdmEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSC_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -73767,7 +73767,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionIdSt13unordered_mapIdmSt4hashIdESt8equal_toIdESaISt4pairIKdmEEEEEvRNS_6VectorESC_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionIdSt13unordered_mapIdmSt4hashIdESt8equal_toIdESaISt4pairIKdmEEEEEvRNS_6VectorESC_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__val.addr.i.i.i.i = alloca double, align 8
   %__val.addr.i.i.i.i.i.i = alloca double, align 8
@@ -74333,7 +74333,7 @@ ehcleanup38:                                      ; preds = %lpad28, %_ZNSt10_Ha
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEdSt13unordered_mapIdmSt4hashIdESt8equal_toIdESaISt4pairIKdmEEEEEvRNS_6VectorERNS_18AggregateInputDataESD_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorEdSt13unordered_mapIdmSt4hashIdESt8equal_toIdESaISt4pairIKdmEEEEEvRNS_6VectorERNS_18AggregateInputDataESD_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i141 = alloca i64, align 8
@@ -75570,7 +75570,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_22HistogramStringFunctorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt13unordered_mapIS7_mSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSI_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_22HistogramStringFunctorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt13unordered_mapIS7_mSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSI_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -75824,7 +75824,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt13unordered_mapIS6_mSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_mEEEEEvRNS_6VectorESI_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt13unordered_mapIS6_mSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_mEEEEEvRNS_6VectorESI_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i.i.i = alloca i64, align 8
   %__node5.i = alloca %"struct.std::_Hashtable<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, unsigned long>, std::allocator<std::pair<const std::__cxx11::basic_string<char>, unsigned long>>, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char>>, std::hash<string>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node", align 8
@@ -76445,7 +76445,7 @@ ehcleanup38:                                      ; preds = %lpad28, %lpad.i.bod
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_22HistogramStringFunctorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt13unordered_mapIS7_mSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESJ_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_22HistogramStringFunctorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt13unordered_mapIS7_mSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESJ_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i155 = alloca i64, align 8
@@ -78065,7 +78065,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_11timestamp_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSD_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_11timestamp_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSD_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -78319,7 +78319,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_11timestamp_tESt13unordered_mapIS1_mSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESD_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_11timestamp_tESt13unordered_mapIS1_mSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESD_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -78816,7 +78816,7 @@ ehcleanup38:                                      ; preds = %lpad28, %_ZNSt10_Ha
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_11timestamp_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESE_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_11timestamp_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESE_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i143 = alloca i64, align 8
@@ -80087,7 +80087,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_14timestamp_tz_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSD_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_14timestamp_tz_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSD_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -80341,7 +80341,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_14timestamp_tz_tESt13unordered_mapIS1_mSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESD_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_14timestamp_tz_tESt13unordered_mapIS1_mSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESD_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -80838,7 +80838,7 @@ ehcleanup38:                                      ; preds = %lpad28, %_ZNSt10_Ha
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_14timestamp_tz_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESE_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_14timestamp_tz_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESE_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i144 = alloca i64, align 8
@@ -82109,7 +82109,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_15timestamp_sec_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSD_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_15timestamp_sec_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSD_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -82363,7 +82363,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_15timestamp_sec_tESt13unordered_mapIS1_mSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESD_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_15timestamp_sec_tESt13unordered_mapIS1_mSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESD_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -82860,7 +82860,7 @@ ehcleanup38:                                      ; preds = %lpad28, %_ZNSt10_Ha
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_15timestamp_sec_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESE_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_15timestamp_sec_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESE_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i144 = alloca i64, align 8
@@ -84131,7 +84131,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_14timestamp_ms_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSD_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_14timestamp_ms_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSD_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -84385,7 +84385,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_14timestamp_ms_tESt13unordered_mapIS1_mSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESD_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_14timestamp_ms_tESt13unordered_mapIS1_mSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESD_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -84882,7 +84882,7 @@ ehcleanup38:                                      ; preds = %lpad28, %_ZNSt10_Ha
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_14timestamp_ms_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESE_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_14timestamp_ms_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESE_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i144 = alloca i64, align 8
@@ -86153,7 +86153,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_14timestamp_ns_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSD_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_14timestamp_ns_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSD_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -86407,7 +86407,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_14timestamp_ns_tESt13unordered_mapIS1_mSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESD_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_14timestamp_ns_tESt13unordered_mapIS1_mSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESD_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -86904,7 +86904,7 @@ ehcleanup38:                                      ; preds = %lpad28, %_ZNSt10_Ha
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_14timestamp_ns_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESE_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_14timestamp_ns_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESE_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i144 = alloca i64, align 8
@@ -88175,7 +88175,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_7dtime_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSD_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_7dtime_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSD_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -88429,7 +88429,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_7dtime_tESt13unordered_mapIS1_mSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESD_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_7dtime_tESt13unordered_mapIS1_mSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESD_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -88926,7 +88926,7 @@ ehcleanup38:                                      ; preds = %lpad28, %_ZNSt10_Ha
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_7dtime_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESE_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_7dtime_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESE_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i143 = alloca i64, align 8
@@ -90197,7 +90197,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_10dtime_tz_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSD_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_10dtime_tz_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSD_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -90451,7 +90451,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_10dtime_tz_tESt13unordered_mapIS1_mSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESD_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_10dtime_tz_tESt13unordered_mapIS1_mSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESD_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -90948,7 +90948,7 @@ ehcleanup38:                                      ; preds = %lpad28, %_ZNSt10_Ha
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_10dtime_tz_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESE_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_10dtime_tz_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESE_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i143 = alloca i64, align 8
@@ -92219,7 +92219,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_6date_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSD_m(ptr noundef %inputs, ptr nocapture nonnull readnone align 8 %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL23HistogramUpdateFunctionINS_16HistogramFunctorENS_6date_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvPNS_6VectorERNS_18AggregateInputDataEmRSD_m(ptr noundef %inputs, ptr nonnull readnone align 8 captures(none) %0, i64 %input_count, ptr noundef nonnull align 8 dereferenceable(104) %state_vector, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   %input_data = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
@@ -92473,7 +92473,7 @@ ehcleanup6:                                       ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_6date_tESt13unordered_mapIS1_mSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESD_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %combined, ptr nocapture nonnull readnone align 8 %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL24HistogramCombineFunctionINS_6date_tESt13unordered_mapIS1_mSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_mEEEEEvRNS_6VectorESD_RNS_18AggregateInputDataEm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %combined, ptr nonnull readnone align 8 captures(none) %0, i64 noundef %count) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sdata = alloca %"struct.duckdb::UnifiedVectorFormat", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %sdata) #23
@@ -92971,7 +92971,7 @@ ehcleanup38:                                      ; preds = %lpad28, %_ZNSt10_Ha
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_6date_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESE_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6duckdbL25HistogramFinalizeFunctionINS_16HistogramFunctorENS_6date_tESt13unordered_mapIS2_mSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_mEEEEEvRNS_6VectorERNS_18AggregateInputDataESE_mm(ptr noundef nonnull align 8 dereferenceable(104) %state_vector, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, i64 noundef %offset) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i143 = alloca i64, align 8
@@ -94256,7 +94256,7 @@ declare i64 @llvm.smax.i64(i64, i64) #21
 declare i64 @llvm.smin.i64(i64, i64) #21
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

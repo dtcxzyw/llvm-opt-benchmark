@@ -265,7 +265,7 @@ declare i32 @WPACKET_finish(ptr noundef) local_unnamed_addr #1
 declare void @WPACKET_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ossl_decode_der_length(ptr nocapture noundef %pkt, ptr nocapture noundef writeonly %subpkt) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_decode_der_length(ptr noundef captures(none) %pkt, ptr noundef writeonly captures(none) %subpkt) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %pkt, i64 8
   %pkt.val.i.i = load i64, ptr %0, align 8
@@ -360,7 +360,7 @@ return:                                           ; preds = %entry, %if.end.i18,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_decode_der_integer(ptr nocapture noundef %pkt, ptr noundef %n) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_decode_der_integer(ptr noundef captures(none) %pkt, ptr noundef %n) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %pkt, i64 8
   %pkt.val.i.i = load i64, ptr %0, align 8
@@ -486,7 +486,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 declare ptr @BN_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @ossl_decode_der_dsa_sig(ptr noundef %r, ptr noundef %s, ptr nocapture noundef %ppin, i64 noundef %len) local_unnamed_addr #0 {
+define i64 @ossl_decode_der_dsa_sig(ptr noundef %r, ptr noundef %s, ptr noundef captures(none) %ppin, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %contpkt = alloca %struct.PACKET, align 8
   %or.cond29 = icmp slt i64 %len, 1

@@ -1643,7 +1643,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit: ; pred
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN46ProxyLifetimeTests_TestDefaultConstrction_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN46ProxyLifetimeTests_TestDefaultConstrction_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit:
   ret void
 }
@@ -1696,13 +1696,13 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN43ProxyLifetimeTests_TestNullConstrction_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN43ProxyLifetimeTests_TestNullConstrction_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN53ProxyLifetimeTests_TestPolyConstrction_FromValue_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN53ProxyLifetimeTests_TestPolyConstrction_FromValue_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.utils::LifetimeTracker", align 8
   %3 = alloca %"class.pro::proxy", align 8
   %4 = alloca %"class.utils::LifetimeTracker::Session", align 8
@@ -2685,7 +2685,7 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJRiNS0_21Lifetime
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN63ProxyLifetimeTests_TestPolyConstrction_FromValue_Exception_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN63ProxyLifetimeTests_TestPolyConstrction_FromValue_Exception_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.utils::LifetimeTracker", align 8
   %3 = alloca %"class.utils::LifetimeTracker::Session", align 8
   %4 = alloca %"class.pro::proxy", align 8
@@ -3484,7 +3484,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN51ProxyLifetimeTests_TestPolyConstrction_InPlace_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN51ProxyLifetimeTests_TestPolyConstrction_InPlace_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.utils::LifetimeTracker", align 8
   %3 = alloca %"class.pro::proxy", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -4194,7 +4194,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit153:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN61ProxyLifetimeTests_TestPolyConstrction_InPlace_Exception_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN61ProxyLifetimeTests_TestPolyConstrction_InPlace_Exception_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.utils::LifetimeTracker", align 8
   %3 = alloca %"class.pro::proxy", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -4676,7 +4676,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit107:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN66ProxyLifetimeTests_TestPolyConstrction_InPlaceInitializerList_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN66ProxyLifetimeTests_TestPolyConstrction_InPlaceInitializerList_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.utils::LifetimeTracker", align 8
   %3 = alloca %"class.pro::proxy", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -5386,7 +5386,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit153:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN76ProxyLifetimeTests_TestPolyConstrction_InPlaceInitializerList_Exception_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN76ProxyLifetimeTests_TestPolyConstrction_InPlaceInitializerList_Exception_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.utils::LifetimeTracker", align 8
   %3 = alloca %"class.pro::proxy", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -5868,7 +5868,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit107:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN53ProxyLifetimeTests_TestCopyConstrction_FromValue_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN53ProxyLifetimeTests_TestCopyConstrction_FromValue_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.utils::LifetimeTracker", align 8
   %3 = alloca %"class.pro::proxy", align 8
   %4 = alloca %"class.pro::proxy", align 8
@@ -7154,7 +7154,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit274:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN63ProxyLifetimeTests_TestCopyConstrction_FromValue_Exception_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN63ProxyLifetimeTests_TestCopyConstrction_FromValue_Exception_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.utils::LifetimeTracker", align 8
   %3 = alloca %"class.pro::proxy", align 8
   %4 = alloca %"class.pro::proxy", align 8
@@ -8309,13 +8309,13 @@ _ZN5utils15LifetimeTrackerD2Ev.exit213:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN52ProxyLifetimeTests_TestCopyConstrction_FromNull_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN52ProxyLifetimeTests_TestCopyConstrction_FromNull_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit49:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN53ProxyLifetimeTests_TestMoveConstrction_FromValue_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN53ProxyLifetimeTests_TestMoveConstrction_FromValue_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.utils::LifetimeTracker", align 8
   %3 = alloca %"class.pro::proxy", align 8
   %4 = alloca %"class.pro::proxy", align 8
@@ -9252,7 +9252,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit229:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN61ProxyLifetimeTests_TestMoveConstrction_FromValue_Trivial_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN61ProxyLifetimeTests_TestMoveConstrction_FromValue_Trivial_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.utils::LifetimeTracker", align 8
   %3 = alloca %"class.utils::LifetimeTracker::Session", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -9927,13 +9927,13 @@ _ZN5utils15LifetimeTrackerD2Ev.exit212:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN52ProxyLifetimeTests_TestMoveConstrction_FromNull_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN52ProxyLifetimeTests_TestMoveConstrction_FromNull_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit47:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN50ProxyLifetimeTests_TestNullAssignment_ToValue_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN50ProxyLifetimeTests_TestNullAssignment_ToValue_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.utils::LifetimeTracker", align 8
   %3 = alloca %"class.pro::proxy", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -10432,13 +10432,13 @@ _ZN5utils15LifetimeTrackerD2Ev.exit121:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN49ProxyLifetimeTests_TestNullAssignment_ToNull_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN49ProxyLifetimeTests_TestNullAssignment_ToNull_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN50ProxyLifetimeTests_TestPolyAssignment_ToValue_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN50ProxyLifetimeTests_TestPolyAssignment_ToValue_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.utils::LifetimeTracker", align 8
   %3 = alloca %"class.pro::proxy", align 8
   %4 = alloca %"class.utils::LifetimeTracker::Session", align 8
@@ -11444,7 +11444,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit220:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN60ProxyLifetimeTests_TestPolyAssignment_ToValue_Exception_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN60ProxyLifetimeTests_TestPolyAssignment_ToValue_Exception_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pro::proxy", align 8
   %3 = alloca %"class.utils::LifetimeTracker", align 8
   %4 = alloca %"class.pro::proxy", align 8
@@ -12652,7 +12652,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit246:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN59ProxyLifetimeTests_TestPolyAssignment_FromValue_ToNull_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN59ProxyLifetimeTests_TestPolyAssignment_FromValue_ToNull_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.utils::LifetimeTracker", align 8
   %3 = alloca %"class.pro::proxy", align 8
   %4 = alloca %"class.utils::LifetimeTracker::Session", align 8
@@ -13546,7 +13546,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit185:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN69ProxyLifetimeTests_TestPolyAssignment_FromValue_ToNull_Exception_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN69ProxyLifetimeTests_TestPolyAssignment_FromValue_ToNull_Exception_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pro::proxy", align 8
   %3 = alloca %"class.utils::LifetimeTracker", align 8
   %4 = alloca %"class.utils::LifetimeTracker::Session", align 8
@@ -14521,7 +14521,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit177:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN58ProxyLifetimeTests_TestPolyAssignment_InPlace_ToValue_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN58ProxyLifetimeTests_TestPolyAssignment_InPlace_ToValue_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.utils::LifetimeTracker", align 8
   %3 = alloca %"class.pro::proxy", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -15253,7 +15253,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit189:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN68ProxyLifetimeTests_TestPolyAssignment_InPlace_ToValue_Exception_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN68ProxyLifetimeTests_TestPolyAssignment_InPlace_ToValue_Exception_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.utils::LifetimeTracker", align 8
   %3 = alloca %"class.pro::proxy", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -16190,7 +16190,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit177:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN57ProxyLifetimeTests_TestPolyAssignment_InPlace_ToNull_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN57ProxyLifetimeTests_TestPolyAssignment_InPlace_ToNull_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEE5resetEvQL_ZNS_5proxy13HasDestructorEE.exit.i:
   %1 = alloca %"class.utils::LifetimeTracker", align 8
   %2 = alloca %"class.pro::proxy", align 8
@@ -16896,7 +16896,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit154:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN67ProxyLifetimeTests_TestPolyAssignment_InPlace_ToNull_Exception_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN67ProxyLifetimeTests_TestPolyAssignment_InPlace_ToNull_Exception_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEE5resetEvQL_ZNS_5proxy13HasDestructorEE.exit.i:
   %1 = alloca %"class.utils::LifetimeTracker", align 8
   %2 = alloca %"class.pro::proxy", align 8
@@ -17553,7 +17553,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit154:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN73ProxyLifetimeTests_TestPolyAssignment_InPlaceInitializerList_ToValue_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN73ProxyLifetimeTests_TestPolyAssignment_InPlaceInitializerList_ToValue_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.utils::LifetimeTracker", align 8
   %3 = alloca %"class.pro::proxy", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -18285,7 +18285,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit189:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN83ProxyLifetimeTests_TestPolyAssignment_InPlaceInitializerList_ToValue_Exception_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN83ProxyLifetimeTests_TestPolyAssignment_InPlaceInitializerList_ToValue_Exception_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.utils::LifetimeTracker", align 8
   %3 = alloca %"class.pro::proxy", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -19222,7 +19222,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit177:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN72ProxyLifetimeTests_TestPolyAssignment_InPlaceInitializerList_ToNull_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN72ProxyLifetimeTests_TestPolyAssignment_InPlaceInitializerList_ToNull_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEE5resetEvQL_ZNS_5proxy13HasDestructorEE.exit.i:
   %1 = alloca %"class.utils::LifetimeTracker", align 8
   %2 = alloca %"class.pro::proxy", align 8
@@ -19928,7 +19928,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit154:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN82ProxyLifetimeTests_TestPolyAssignment_InPlaceInitializerList_ToNull_Exception_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN82ProxyLifetimeTests_TestPolyAssignment_InPlaceInitializerList_ToNull_Exception_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEE5resetEvQL_ZNS_5proxy13HasDestructorEE.exit.i:
   %1 = alloca %"class.utils::LifetimeTracker", align 8
   %2 = alloca %"class.pro::proxy", align 8
@@ -20585,7 +20585,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit154:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN60ProxyLifetimeTests_TestCopyAssignment_FromValue_ToValue_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN60ProxyLifetimeTests_TestCopyAssignment_FromValue_ToValue_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pro::proxy", align 8
   %3 = alloca %"class.utils::LifetimeTracker", align 8
   %4 = alloca %"class.pro::proxy", align 8
@@ -22135,7 +22135,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit342:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN70ProxyLifetimeTests_TestCopyAssignment_FromValue_ToValue_Exception_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN70ProxyLifetimeTests_TestCopyAssignment_FromValue_ToValue_Exception_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pro::proxy", align 8
   %3 = alloca %"class.utils::LifetimeTracker", align 8
   %4 = alloca %"class.pro::proxy", align 8
@@ -23742,7 +23742,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit333:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN59ProxyLifetimeTests_TestCopyAssignment_FromValue_ToSelf_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN59ProxyLifetimeTests_TestCopyAssignment_FromValue_ToSelf_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pro::proxy", align 8
   %3 = alloca %"class.utils::LifetimeTracker", align 8
   %4 = alloca %"class.pro::proxy", align 8
@@ -24672,7 +24672,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit221:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN59ProxyLifetimeTests_TestCopyAssignment_FromValue_ToNull_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN59ProxyLifetimeTests_TestCopyAssignment_FromValue_ToNull_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pro::proxy", align 8
   %3 = alloca %"class.utils::LifetimeTracker", align 8
   %4 = alloca %"class.pro::proxy", align 8
@@ -26008,7 +26008,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit307:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN69ProxyLifetimeTests_TestCopyAssignment_FromValue_ToNull_Exception_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN69ProxyLifetimeTests_TestCopyAssignment_FromValue_ToNull_Exception_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pro::proxy", align 8
   %3 = alloca %"class.utils::LifetimeTracker", align 8
   %4 = alloca %"class.pro::proxy", align 8
@@ -27381,7 +27381,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit254:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN59ProxyLifetimeTests_TestCopyAssignment_FromNull_ToValue_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN59ProxyLifetimeTests_TestCopyAssignment_FromNull_ToValue_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pro::proxy", align 8
   %3 = alloca %"class.utils::LifetimeTracker", align 8
   %4 = alloca %"class.pro::proxy", align 8
@@ -27930,19 +27930,19 @@ _ZN5utils15LifetimeTrackerD2Ev.exit94:            ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN58ProxyLifetimeTests_TestCopyAssignment_FromNull_ToSelf_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN58ProxyLifetimeTests_TestCopyAssignment_FromNull_ToSelf_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN58ProxyLifetimeTests_TestCopyAssignment_FromNull_ToNull_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN58ProxyLifetimeTests_TestCopyAssignment_FromNull_ToNull_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit47:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN60ProxyLifetimeTests_TestMoveAssignment_FromValue_ToValue_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN60ProxyLifetimeTests_TestMoveAssignment_FromValue_ToValue_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.utils::LifetimeTracker", align 8
   %3 = alloca %"class.pro::proxy", align 8
   %4 = alloca %"class.pro::proxy", align 8
@@ -29151,7 +29151,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit265:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN59ProxyLifetimeTests_TestMoveAssignment_FromValue_ToSelf_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN59ProxyLifetimeTests_TestMoveAssignment_FromValue_ToSelf_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.utils::LifetimeTracker", align 8
   %3 = alloca %"class.pro::proxy", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -29638,7 +29638,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit122:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN59ProxyLifetimeTests_TestMoveAssignment_FromValue_ToNull_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN59ProxyLifetimeTests_TestMoveAssignment_FromValue_ToNull_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.utils::LifetimeTracker", align 8
   %3 = alloca %"class.pro::proxy", align 8
   %4 = alloca %"class.pro::proxy", align 8
@@ -30734,7 +30734,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit230:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN59ProxyLifetimeTests_TestMoveAssignment_FromNull_ToValue_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN59ProxyLifetimeTests_TestMoveAssignment_FromNull_ToValue_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.utils::LifetimeTracker", align 8
   %3 = alloca %"class.pro::proxy", align 8
   %4 = alloca %"class.pro::proxy", align 8
@@ -31277,19 +31277,19 @@ _ZN5utils15LifetimeTrackerD2Ev.exit93:            ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN58ProxyLifetimeTests_TestMoveAssignment_FromNull_ToSelf_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN58ProxyLifetimeTests_TestMoveAssignment_FromNull_ToSelf_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN58ProxyLifetimeTests_TestMoveAssignment_FromNull_ToNull_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN58ProxyLifetimeTests_TestMoveAssignment_FromNull_ToNull_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit46:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN36ProxyLifetimeTests_TestHasValue_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN36ProxyLifetimeTests_TestHasValue_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEaSIPiEERS3_OT_Q24HasNothrowPolyAssignmentINSt5decayITL0__E4typeESA_E.exit:
   %1 = alloca i32, align 4
   %2 = alloca %"class.pro::proxy", align 8
@@ -31494,7 +31494,7 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN43ProxyLifetimeTests_TestReset_FromValue_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN43ProxyLifetimeTests_TestReset_FromValue_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.utils::LifetimeTracker", align 8
   %3 = alloca %"class.pro::proxy", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -31993,13 +31993,13 @@ _ZN5utils15LifetimeTrackerD2Ev.exit121:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN42ProxyLifetimeTests_TestReset_FromNull_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN42ProxyLifetimeTests_TestReset_FromNull_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN44ProxyLifetimeTests_TestSwap_Value_Value_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN44ProxyLifetimeTests_TestSwap_Value_Value_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pro::proxy", align 8
   %3 = alloca %"class.utils::LifetimeTracker", align 8
   %4 = alloca %"class.pro::proxy", align 8
@@ -33710,7 +33710,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit373:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN43ProxyLifetimeTests_TestSwap_Value_Self_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN43ProxyLifetimeTests_TestSwap_Value_Self_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pro::proxy", align 8
   %3 = alloca %"class.utils::LifetimeTracker", align 8
   %4 = alloca %"class.pro::proxy", align 8
@@ -34636,7 +34636,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit220:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN43ProxyLifetimeTests_TestSwap_Value_Null_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN43ProxyLifetimeTests_TestSwap_Value_Null_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.utils::LifetimeTracker", align 8
   %3 = alloca %"class.pro::proxy", align 8
   %4 = alloca %"class.pro::proxy", align 8
@@ -35379,7 +35379,7 @@ _ZN5utils15LifetimeTrackerD2Ev.exit189:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN43ProxyLifetimeTests_TestSwap_Null_Value_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN43ProxyLifetimeTests_TestSwap_Null_Value_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pro::proxy", align 8
   %3 = alloca %"class.utils::LifetimeTracker", align 8
   %4 = alloca %"class.pro::proxy", align 8
@@ -36324,13 +36324,13 @@ _ZN5utils15LifetimeTrackerD2Ev.exit189:           ; preds = %_ZNSt6vectorIN5util
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN42ProxyLifetimeTests_TestSwap_Null_Self_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN42ProxyLifetimeTests_TestSwap_Null_Self_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN42ProxyLifetimeTests_TestSwap_Null_Null_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN42ProxyLifetimeTests_TestSwap_Null_Null_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit47:
   ret void
 }
@@ -37014,7 +37014,7 @@ declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #11
 declare void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
@@ -37023,7 +37023,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
@@ -38682,7 +38682,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 declare void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3pro7details18copying_dispatcherIN5utils15LifetimeTracker7SessionEEEvPSt4bytePKS5_(ptr noundef %0, ptr noundef %1) #3 comdat {
@@ -39294,7 +39294,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 declare void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8) local_unnamed_addr #0
 
@@ -45072,13 +45072,13 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

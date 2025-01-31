@@ -130,7 +130,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.75 = private unnamed_addr constant [34 x i8] c"qemu_vfio_dma_unmap s %p host %p\0A\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qemu_vfio_pci_map_bar(ptr nocapture noundef readonly %s, i32 noundef %index, i64 noundef %offset, i64 noundef %size, i32 noundef %prot, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local ptr @qemu_vfio_pci_map_bar(ptr noundef readonly captures(none) %s, i32 noundef %index, i64 noundef %offset, i64 noundef %size, i32 noundef %prot, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call i32 @getpagesize() #14
@@ -227,7 +227,7 @@ declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, p
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_vfio_pci_unmap_bar(ptr nocapture noundef readonly %s, i32 noundef %index, ptr noundef %bar, i64 noundef %offset, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local void @qemu_vfio_pci_unmap_bar(ptr noundef readonly captures(none) %s, i32 noundef %index, ptr noundef %bar, i64 noundef %offset, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %bar, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -251,7 +251,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_vfio_pci_init_irq(ptr nocapture noundef readonly %s, ptr noundef %e, i32 noundef %irq_type, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local i32 @qemu_vfio_pci_init_irq(ptr noundef readonly captures(none) %s, ptr noundef %e, i32 noundef %irq_type, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %irq_info = alloca %struct.vfio_irq_info, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %irq_info, ptr noundef nonnull align 4 dereferenceable(16) @__const.qemu_vfio_pci_init_irq.irq_info, i64 16, i1 false)
@@ -317,7 +317,7 @@ return:                                           ; preds = %if.end5, %if.then14
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind
 declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #2
@@ -1143,7 +1143,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @qemu_vfio_find_mapping(ptr noundef %s, ptr noundef %host, ptr nocapture noundef nonnull writeonly %index) unnamed_addr #0 {
+define internal fastcc ptr @qemu_vfio_find_mapping(ptr noundef %s, ptr noundef %host, ptr noundef nonnull writeonly captures(none) %index) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %mappings = getelementptr inbounds nuw i8, ptr %s, i64 360
@@ -1374,7 +1374,7 @@ return:                                           ; preds = %trace_qemu_vfio_do_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @qemu_vfio_undo_mapping(ptr nocapture noundef %s, ptr noundef %mapping) unnamed_addr #0 {
+define internal fastcc void @qemu_vfio_undo_mapping(ptr noundef captures(none) %s, ptr noundef %mapping) unnamed_addr #0 {
 entry:
   %unmap = alloca %struct.vfio_iommu_type1_dma_unmap, align 8
   store i32 24, ptr %unmap, align 8
@@ -1682,19 +1682,19 @@ declare i32 @close(i32 noundef) local_unnamed_addr #3
 declare i32 @getpagesize() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #3
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #9
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #9
 
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @collect_usable_iova_ranges(ptr nocapture noundef %s, ptr nocapture noundef readonly %buf) unnamed_addr #0 {
+define internal fastcc void @collect_usable_iova_ranges(ptr noundef captures(none) %s, ptr noundef readonly captures(none) %buf) unnamed_addr #0 {
 entry:
   %cap_offset = getelementptr inbounds nuw i8, ptr %buf, i64 16
   %0 = load i32, ptr %cap_offset, align 8
@@ -1767,7 +1767,7 @@ for.end:                                          ; preds = %while.body, %for.bo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @trace_qemu_vfio_region_info(ptr noundef %desc, i64 noundef %region_ofs, i64 noundef %region_size, i32 noundef %cap_offset) unnamed_addr #0 {
@@ -1897,7 +1897,7 @@ cleanup:                                          ; preds = %trace_qemu_vfio_reg
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @qemu_vfio_pci_read_config(ptr nocapture noundef readonly %s, ptr noundef nonnull %buf) unnamed_addr #0 {
+define internal fastcc i32 @qemu_vfio_pci_read_config(ptr noundef readonly captures(none) %s, ptr noundef nonnull %buf) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %offset = getelementptr inbounds nuw i8, ptr %s, i64 128
@@ -1986,7 +1986,7 @@ cond.end:                                         ; preds = %do.end, %cond.false
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @qemu_vfio_pci_write_config(ptr nocapture noundef readonly %s, ptr noundef nonnull %buf) unnamed_addr #0 {
+define internal fastcc i32 @qemu_vfio_pci_write_config(ptr noundef readonly captures(none) %s, ptr noundef nonnull %buf) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %offset = getelementptr inbounds nuw i8, ptr %s, i64 128
@@ -2202,7 +2202,7 @@ declare void @error_reportf_err(ptr noundef, ptr noundef, ...) local_unnamed_add
 declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12
@@ -2211,10 +2211,10 @@ declare i64 @llvm.umin.i64(i64, i64) #12
 declare i64 @llvm.umax.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

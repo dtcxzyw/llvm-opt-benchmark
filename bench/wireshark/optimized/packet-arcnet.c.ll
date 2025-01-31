@@ -116,7 +116,7 @@ declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32
 declare i32 @address_type_dissector_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arcnet_to_str(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 2)) %1, i32 %2) #0 {
+define internal noundef i32 @arcnet_to_str(ptr noundef readonly captures(none) %0, ptr noundef initializes((0, 2)) %1, i32 %2) #0 {
   %4 = getelementptr i8, ptr %1, i64 1
   store i8 48, ptr %1, align 1
   %5 = getelementptr i8, ptr %1, i64 2
@@ -129,12 +129,12 @@ define internal noundef i32 @arcnet_to_str(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @arcnet_str_len(ptr nocapture readnone %0) #2 {
+define internal noundef i32 @arcnet_str_len(ptr readnone captures(none) %0) #2 {
   ret i32 5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @arcnet_col_filter_str(ptr nocapture readnone %0, i32 noundef %1) #2 {
+define internal noundef nonnull ptr @arcnet_col_filter_str(ptr readnone captures(none) %0, i32 noundef %1) #2 {
   %.not = icmp eq i32 %1, 0
   %.str.4..str.1 = select i1 %.not, ptr @.str.4, ptr @.str.1
   ret ptr %.str.4..str.1
@@ -148,14 +148,14 @@ define internal noundef i32 @arcnet_len() #2 {
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_arcnet(ptr noundef %0, ptr noundef initializes((112, 160), (208, 256)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_arcnet(ptr noundef %0, ptr noundef initializes((112, 160), (208, 256)) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call fastcc void @dissect_arcnet_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 1)
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_arcnet_linux(ptr noundef %0, ptr noundef initializes((112, 160), (208, 256)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_arcnet_linux(ptr noundef %0, ptr noundef initializes((112, 160), (208, 256)) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call fastcc void @dissect_arcnet_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 0)
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   ret i32 %5

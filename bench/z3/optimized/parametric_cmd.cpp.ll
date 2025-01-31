@@ -188,7 +188,7 @@ _ZN13string_bufferILj64EE6appendEPKc.exit:        ; preds = %entry.while.end_cri
   %8 = phi i64 [ %2, %entry.while.end_crit_edge.i ], [ %.pre5.i, %while.end.loopexit.i ]
   %9 = phi ptr [ %.pre.i, %entry.while.end_crit_edge.i ], [ %call.i.i, %while.end.loopexit.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %9, i64 %8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %call4, i64 %call.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 1 %call4, i64 %call.i, i1 false)
   %10 = load i64, ptr %m_pos.i, align 8
   %add4.i = add i64 %10, %call.i
   store i64 %add4.i, ptr %m_pos.i, align 8
@@ -633,7 +633,7 @@ eh.resume:                                        ; preds = %lpad9, %lpad
 declare void @_Z15norm_param_nameB5cxx11RK6symbol(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare noundef i32 @_ZNK12param_descrs8get_kindEPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
@@ -1065,7 +1065,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 

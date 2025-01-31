@@ -97,7 +97,7 @@ $_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
 @.str.2 = private unnamed_addr constant [10 x i8] c"warning: \00", align 1
 
 ; Function Attrs: mustprogress noreturn uwtable
-define dso_local void @_ZN5vcpkg40command_z_preregister_telemetry_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10FilesystemE(ptr noundef nonnull align 8 dereferenceable(1784) %0, ptr nocapture noundef nonnull readnone align 1 %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg40command_z_preregister_telemetry_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10FilesystemE(ptr noundef nonnull align 8 dereferenceable(1784) %0, ptr noundef nonnull readnone align 1 captures(none) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.vcpkg::ParsedArguments", align 8
   %4 = alloca %"struct.vcpkg::MetricsSubmission", align 8
   %5 = alloca %"struct.vcpkg::LocalizedString", align 8

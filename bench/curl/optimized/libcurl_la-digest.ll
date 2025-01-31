@@ -48,7 +48,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.34 = private unnamed_addr constant [18 x i8] c"%s, userhash=true\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @Curl_auth_digest_get_pair(ptr noundef %str, ptr nocapture noundef writeonly %value, ptr nocapture noundef writeonly %content, ptr nocapture noundef writeonly %endptr) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @Curl_auth_digest_get_pair(ptr noundef %str, ptr noundef writeonly captures(none) %value, ptr noundef writeonly captures(none) %content, ptr noundef writeonly captures(none) %endptr) local_unnamed_addr #0 {
 entry:
   br label %for.cond
 
@@ -449,7 +449,7 @@ if.end20:                                         ; preds = %if.end15
 if.end24:                                         ; preds = %if.end20
   %call25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %userp) #11
   %call26 = call i32 @curlx_uztoui(i64 noundef %call25) #10
-  %call27 = call i32 @Curl_MD5_update(ptr noundef nonnull %call21, ptr noundef %userp, i32 noundef %call26) #10
+  %call27 = call i32 @Curl_MD5_update(ptr noundef nonnull %call21, ptr noundef nonnull %userp, i32 noundef %call26) #10
   %call28 = call i32 @Curl_MD5_update(ptr noundef nonnull %call21, ptr noundef nonnull @.str.1, i32 noundef 1) #10
   %call31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %realm) #11
   %call32 = call i32 @curlx_uztoui(i64 noundef %call31) #10
@@ -457,7 +457,7 @@ if.end24:                                         ; preds = %if.end20
   %call34 = call i32 @Curl_MD5_update(ptr noundef nonnull %call21, ptr noundef nonnull @.str.1, i32 noundef 1) #10
   %call35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %passwdp) #11
   %call36 = call i32 @curlx_uztoui(i64 noundef %call35) #10
-  %call37 = call i32 @Curl_MD5_update(ptr noundef nonnull %call21, ptr noundef %passwdp, i32 noundef %call36) #10
+  %call37 = call i32 @Curl_MD5_update(ptr noundef nonnull %call21, ptr noundef nonnull %passwdp, i32 noundef %call36) #10
   %call39 = call i32 @Curl_MD5_final(ptr noundef nonnull %call21, ptr noundef nonnull %digest) #10
   %call40 = call ptr @Curl_MD5_init(ptr noundef nonnull @Curl_DIGEST_MD5) #10
   %tobool41.not = icmp eq ptr %call40, null
@@ -576,7 +576,7 @@ for.body132:                                      ; preds = %if.end97, %for.body
   br i1 %exitcond77.not, label %for.end140, label %for.body132, !llvm.loop !10
 
 for.end140:                                       ; preds = %for.body132
-  %call147 = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.3, ptr noundef %userp, ptr noundef nonnull %realm, ptr noundef nonnull %nonce, ptr noundef nonnull %cnonce, ptr noundef nonnull %nonceCount, ptr noundef nonnull %call63, ptr noundef nonnull %resp_hash_hex, ptr noundef nonnull %qop) #10
+  %call147 = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.3, ptr noundef nonnull %userp, ptr noundef nonnull %realm, ptr noundef nonnull %nonce, ptr noundef nonnull %cnonce, ptr noundef nonnull %nonceCount, ptr noundef nonnull %call63, ptr noundef nonnull %resp_hash_hex, ptr noundef nonnull %qop) #10
   %24 = load ptr, ptr @Curl_cfree, align 8
   call void %24(ptr noundef nonnull %call63) #10
   %tobool148.not = icmp eq ptr %call147, null
@@ -593,7 +593,7 @@ return:                                           ; preds = %if.end12.thread, %i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @Curl_rand_hex(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
@@ -604,7 +604,7 @@ declare i32 @Curl_MD5_update(ptr noundef, ptr noundef, i32 noundef) local_unname
 declare i32 @curlx_uztoui(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @Curl_MD5_final(ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -619,7 +619,7 @@ declare void @Curl_bufref_set(ptr noundef, ptr noundef, i64 noundef, ptr noundef
 declare void @curl_free(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 62) i32 @Curl_auth_decode_digest_http_message(ptr noundef %chlg, ptr nocapture noundef initializes((48, 53)) %digest) local_unnamed_addr #2 {
+define hidden range(i32 0, 62) i32 @Curl_auth_decode_digest_http_message(ptr noundef %chlg, ptr noundef captures(none) initializes((48, 53)) %digest) local_unnamed_addr #2 {
 entry:
   %chlg.addr = alloca ptr, align 8
   %value = alloca [256 x i8], align 16
@@ -981,7 +981,7 @@ return:                                           ; preds = %if.else155, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_auth_digest_cleanup(ptr nocapture noundef initializes((48, 53)) %digest) local_unnamed_addr #2 {
+define hidden void @Curl_auth_digest_cleanup(ptr noundef captures(none) initializes((48, 53)) %digest) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @Curl_cfree, align 8
   %1 = load ptr, ptr %digest, align 8
@@ -1026,10 +1026,10 @@ entry:
 declare i32 @curl_strequal(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_auth_create_digest_http_message(ptr noundef %data, ptr noundef %userp, ptr noundef %passwdp, ptr noundef %request, ptr noundef %uripath, ptr nocapture noundef %digest, ptr nocapture noundef writeonly %outptr, ptr nocapture noundef writeonly %outlen) local_unnamed_addr #2 {
+define hidden i32 @Curl_auth_create_digest_http_message(ptr noundef %data, ptr noundef %userp, ptr noundef %passwdp, ptr noundef %request, ptr noundef %uripath, ptr noundef captures(none) %digest, ptr noundef writeonly captures(none) %outptr, ptr noundef writeonly captures(none) %outlen) local_unnamed_addr #2 {
 entry:
   %hashbuf.i10 = alloca [32 x i8], align 16
   %request_digest.i11 = alloca [65 x i8], align 16
@@ -2143,15 +2143,15 @@ declare ptr @Curl_bufref_ptr(ptr noundef) local_unnamed_addr #4
 declare i64 @Curl_bufref_len(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare i32 @Curl_base64_encode(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @auth_digest_string_quoted(ptr nocapture noundef readonly %source) unnamed_addr #2 {
+define internal fastcc ptr @auth_digest_string_quoted(ptr noundef readonly captures(none) %source) unnamed_addr #2 {
 entry:
   br label %while.cond
 
@@ -2217,13 +2217,13 @@ if.end24:                                         ; preds = %while.end23, %while
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

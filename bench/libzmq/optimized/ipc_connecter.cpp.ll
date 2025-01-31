@@ -72,10 +72,10 @@ declare void @_ZN3zmq23stream_connecter_base_tC2EPNS_11io_thread_tEPNS_14session
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #1
 
@@ -116,7 +116,7 @@ lpad:                                             ; preds = %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq15ipc_connecter_t7connectEv(ptr nocapture noundef nonnull align 8 dereferenceable(1544) %this) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN3zmq15ipc_connecter_t7connectEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1544) %this) local_unnamed_addr #0 align 2 {
 entry:
   %err = alloca i32, align 4
   %len = alloca i32, align 4
@@ -338,7 +338,7 @@ if.end35:                                         ; preds = %invoke.cont14, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq15ipc_connecter_t4openEv(ptr nocapture noundef nonnull align 8 dereferenceable(1544) %this) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq15ipc_connecter_t4openEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1544) %this) local_unnamed_addr #0 align 2 {
 entry:
   %_s = getelementptr inbounds nuw i8, ptr %this, i64 1472
   %0 = load i32, ptr %_s, align 8

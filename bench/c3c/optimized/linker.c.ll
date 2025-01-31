@@ -275,7 +275,7 @@ define dso_local ptr @concat_string_parts(ptr noundef readonly %0) local_unnamed
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #13
   %20 = and i64 %19, 4294967295
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03339, ptr align 1 %18, i64 %20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03339, ptr nonnull align 1 %18, i64 %20, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %.03339, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store i8 32, ptr %21, align 1
@@ -292,15 +292,15 @@ define dso_local ptr @concat_string_parts(ptr noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @calloc_string(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @platform_linker(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @platform_linker(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 232), align 8
   %6 = icmp eq i32 %5, 2
@@ -473,7 +473,7 @@ switch.lookup:                                    ; preds = %29
   %88 = load ptr, ptr %87, align 8
   %89 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %88) #13
   %90 = and i64 %89, 4294967295
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03339.i, ptr align 1 %88, i64 %90, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03339.i, ptr nonnull align 1 %88, i64 %90, i1 false)
   %91 = getelementptr inbounds nuw i8, ptr %.03339.i, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 1
   store i8 32, ptr %91, align 1
@@ -541,10 +541,10 @@ concat_string_parts.exit:                         ; preds = %.lr.ph42.i, %.threa
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
   switch i32 %0, label %238 [
     i32 -1, label %3
     i32 0, label %4
@@ -996,7 +996,7 @@ define internal fastcc void @append_fpie_pic_options(i32 noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @linker_setup(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 6) %4) unnamed_addr #0 {
+define internal fastcc void @linker_setup(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 6) %4) unnamed_addr #0 {
   %6 = alloca %struct.glob_t, align 8
   %7 = alloca %struct.glob_t, align 8
   %8 = load i32, ptr @active_target, align 8
@@ -4815,7 +4815,7 @@ expand_.exit367.i:                                ; preds = %1758, %1754
 2046:                                             ; preds = %2043, %2037
   %2047 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2040) #13
   %2048 = add i64 %2047, -10
-  %2049 = call ptr @str_copy(ptr noundef %2040, i64 noundef %2048) #11
+  %2049 = call ptr @str_copy(ptr noundef nonnull %2040, i64 noundef %2048) #11
   call void @globfree(ptr noundef nonnull %7) #11
   br label %find_linux_crt_begin.exit.i
 
@@ -4863,7 +4863,7 @@ find_linux_crt_begin.exit.i:                      ; preds = %2053, %2050, %2046,
 2071:                                             ; preds = %2068, %2062
   %2072 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2065) #13
   %2073 = add i64 %2072, -6
-  %2074 = call ptr @str_copy(ptr noundef %2065, i64 noundef %2073) #11
+  %2074 = call ptr @str_copy(ptr noundef nonnull %2065, i64 noundef %2073) #11
   call void @globfree(ptr noundef nonnull %6) #11
   br label %find_linux_crt.exit.i
 
@@ -6479,10 +6479,10 @@ expand_.exit311:                                  ; preds = %2795, %2799
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree
-declare noundef i32 @system(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @system(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 declare zeroext i1 @os_is_apple(i32 noundef) local_unnamed_addr #1
 
@@ -6952,7 +6952,7 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
   %239 = load ptr, ptr %238, align 8
   %240 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %239) #13
   %241 = and i64 %240, 4294967295
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03339.i, ptr align 1 %239, i64 %241, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03339.i, ptr nonnull align 1 %239, i64 %241, i1 false)
   %242 = getelementptr inbounds nuw i8, ptr %.03339.i, i64 %241
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 1
   store i8 32, ptr %242, align 1
@@ -6984,10 +6984,10 @@ declare ptr @str_printf(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @get_object_extension() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @dynamic_lib_linker(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @dynamic_lib_linker(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = load i8, ptr @debug_log, align 1
@@ -7100,7 +7100,7 @@ define dso_local noundef zeroext i1 @dynamic_lib_linker(ptr noundef %0, ptr noca
   %55 = load ptr, ptr %54, align 8
   %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #13
   %57 = and i64 %56, 4294967295
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03339.i, ptr align 1 %55, i64 %57, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03339.i, ptr nonnull align 1 %55, i64 %57, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %.03339.i, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
   store i8 32, ptr %58, align 1
@@ -7270,7 +7270,7 @@ define dso_local zeroext i1 @static_lib_linker(ptr noundef %0, ptr noundef %1, i
 declare zeroext i1 @llvm_ar(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @linker(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @linker(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -7438,7 +7438,7 @@ declare ptr @calloc_arena(i64 noundef) local_unnamed_addr #1
 declare ptr @str_cat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_linked_libs(ptr nocapture noundef nonnull %0, ptr noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @add_linked_libs(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %4
 
@@ -7813,13 +7813,13 @@ declare zeroext i1 @str_has_suffix(ptr noundef, ptr noundef) local_unnamed_addr 
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

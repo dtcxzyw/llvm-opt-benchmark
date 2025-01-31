@@ -1013,7 +1013,7 @@ $_ZZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox9Tim
 @.str.12 = private unnamed_addr constant [16 x i8] c"vector::reserve\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox9functions12MapSubscript8applyMapERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaIS9_EERNS0_4exec7EvalCtxE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %args, ptr noundef nonnull align 8 dereferenceable(104) %context) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox9functions12MapSubscript8applyMapERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaIS9_EERNS0_4exec7EvalCtxE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %args, ptr noundef nonnull align 8 dereferenceable(104) %context) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp24.i.i.i.i = alloca %class.anon.1043, align 8
   %agg.tmp3.i.i.i.i = alloca %class.anon.1042, align 8
@@ -3984,7 +3984,7 @@ return:                                           ; preds = %if.end8.sink.split.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZNK8facebook5velox9functions12MapSubscript8applyMapERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaIS9_EERNS0_4exec7EvalCtxEENK3$_0clEv"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZNK8facebook5velox9functions12MapSubscript8applyMapERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaIS9_EERNS0_4exec7EvalCtxEENK3$_0clEv"(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %triggeCaching.addr.i7828 = alloca i8, align 1
   %indices.i7829 = alloca %"class.boost::intrusive_ptr", align 8
@@ -29324,7 +29324,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit: ; preds = %entry, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
@@ -29571,7 +29571,7 @@ for.end:                                          ; preds = %_ZNSt16allocator_tr
 declare void @llvm.assume(i1 noundef) #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIiNS_10F14FastMapIbiNS_23HeterogeneousAccessHashIbvEENS_26HeterogeneousAccessEqualToIbvEEN8facebook5velox6memory12StlAllocatorISt4pairIKbiEEEEEvvNSC_ISD_IKiSH_EEESt17integral_constantIbLb1EEEEE9clearImplILb1EEEvv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -29712,7 +29712,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #10
@@ -30424,7 +30424,7 @@ if.end94:                                         ; preds = %for.body.i.i.i58, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #18
@@ -30629,7 +30629,7 @@ entry:
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlibE_clEib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %row, i1 noundef zeroext %searchKey) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE0EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlibE_clEib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i32 noundef %row, i1 noundef zeroext %searchKey) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rv.i = alloca %"struct.std::pair.181", align 8
   %rv.i.i = alloca %"struct.std::pair.165", align 8
@@ -31301,7 +31301,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
 declare i64 @llvm.x86.sse42.crc32.64.64(i64, i64) #21
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #22
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #22
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
@@ -33340,7 +33340,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliiE_clEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %row, i32 noundef %searchKey) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE3EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliiE_clEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i32 noundef %row, i32 noundef %searchKey) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rv.i = alloca %"struct.std::pair.274", align 8
   %rv.i.i = alloca %"struct.std::pair.165", align 8
@@ -35622,7 +35622,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliaE_clEia(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %row, i8 noundef signext %searchKey) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE1EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliaE_clEia(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i32 noundef %row, i8 noundef signext %searchKey) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rv.i = alloca %"struct.std::pair.367", align 8
   %rv.i.i = alloca %"struct.std::pair.165", align 8
@@ -37904,7 +37904,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlisE_clEis(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %row, i16 noundef signext %searchKey) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE2EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlisE_clEis(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i32 noundef %row, i16 noundef signext %searchKey) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rv.i = alloca %"struct.std::pair.460", align 8
   %rv.i.i = alloca %"struct.std::pair.165", align 8
@@ -40298,7 +40298,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlilE_clEil(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %row, i64 noundef %searchKey) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE4EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlilE_clEil(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i32 noundef %row, i64 noundef %searchKey) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rv.i = alloca %"struct.std::pair.556", align 8
   %rv.i.i = alloca %"struct.std::pair.165", align 8
@@ -42558,7 +42558,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlinE_clEin(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %row, i64 noundef %searchKey.coerce0, i64 noundef %searchKey.coerce1) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE10EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlinE_clEin(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i32 noundef %row, i64 noundef %searchKey.coerce0, i64 noundef %searchKey.coerce1) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rv.i = alloca %"struct.std::pair.165", align 8
   %rv.i.i = alloca %"struct.std::pair.165", align 8
@@ -44938,7 +44938,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlifE_clEif(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %row, float noundef %searchKey) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE5EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlifE_clEif(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i32 noundef %row, float noundef %searchKey) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__val.addr.i.i = alloca float, align 4
   %__val.addr.i.i.i.i.i.i.i.i = alloca float, align 4
@@ -47391,7 +47391,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlidE_clEid(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %row, double noundef %searchKey) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE6EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUlidE_clEid(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i32 noundef %row, double noundef %searchKey) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__val.addr.i.i = alloca double, align 8
   %__val.addr.i.i.i.i.i.i.i.i = alloca double, align 8
@@ -49715,7 +49715,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %row, i64 %searchKey.coerce0, ptr %searchKey.coerce1) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE7EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i32 noundef %row, i64 %searchKey.coerce0, ptr %searchKey.coerce1) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %view.i.i = alloca %"struct.facebook::velox::StringView", align 8
   %view.i.i.i.i.i.i.i.i = alloca %"struct.facebook::velox::StringView", align 8
@@ -52183,7 +52183,7 @@ _ZN8facebook5velox9functions11LookupTableILNS0_8TypeKindE8EED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %row, i64 %searchKey.coerce0, ptr %searchKey.coerce1) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE8EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_10StringViewEE_clEiSJ_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i32 noundef %row, i64 %searchKey.coerce0, ptr %searchKey.coerce1) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %view.i.i = alloca %"struct.facebook::velox::StringView", align 8
   %view.i.i.i.i.i.i.i.i = alloca %"struct.facebook::velox::StringView", align 8
@@ -53085,7 +53085,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_9TimestampEE_clEiSJ_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %row, i64 %searchKey.coerce0, i64 %searchKey.coerce1) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox9functions12_GLOBAL__N_113applyMapTypedILNS0_8TypeKindE9EEESt10shared_ptrINS0_10BaseVectorEEbRS5_INS1_15LookupTableBaseEERKNS0_17SelectivityVectorERKS7_SF_RNS0_4exec7EvalCtxEENKUliNS0_9TimestampEE_clEiSJ_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i32 noundef %row, i64 %searchKey.coerce0, i64 %searchKey.coerce1) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rv.i = alloca %"struct.std::pair.165", align 8
   %rv.i.i = alloca %"struct.std::pair.165", align 8
@@ -55183,7 +55183,7 @@ terminate.lpad:                                   ; preds = %if.then2.i
 declare void @_ZNK8facebook5velox9MapVector16sortedKeyIndicesEi(ptr sret(%"class.std::vector.59") align 8, ptr noundef nonnull align 8 dereferenceable(169), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8facebook5velox9functions12_GLOBAL__N_119applyMapComplexTypeERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEESA_RNS0_4exec7EvalCtxEENK3$_0clEi"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %row) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN8facebook5velox9functions12_GLOBAL__N_119applyMapComplexTypeERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEESA_RNS0_4exec7EvalCtxEENK3$_0clEi"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, i32 noundef %row) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %0, align 8
@@ -55296,7 +55296,7 @@ if.end27:                                         ; preds = %if.then19, %if.then
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25
@@ -55308,10 +55308,10 @@ declare i64 @llvm.umax.i64(i64, i64) #26
 declare i64 @llvm.umin.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #26

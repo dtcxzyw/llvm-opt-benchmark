@@ -44,7 +44,7 @@ $__clang_call_terminate = comdat any
 @_ZN18btMultiSphereShapeC1EPK9btVector3PKfi = dso_local unnamed_addr alias void (ptr, ptr, ptr, i32), ptr @_ZN18btMultiSphereShapeC2EPK9btVector3PKfi
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18btMultiSphereShapeC2EPK9btVector3PKfi(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef readonly %positions, ptr nocapture noundef readonly %radi, i32 noundef %numSpheres) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18btMultiSphereShapeC2EPK9btVector3PKfi(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef readonly captures(none) %positions, ptr noundef readonly captures(none) %radi, i32 noundef %numSpheres) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   tail call void @_ZN32btConvexInternalAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(105) %this)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV18btMultiSphereShape, i64 16), ptr %this, align 8
@@ -230,7 +230,7 @@ declare void @_ZN32btConvexInternalAabbCachingShapeC2Ev(ptr noundef nonnull alig
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @_ZN32btConvexInternalAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(105)) local_unnamed_addr #1
 
@@ -307,7 +307,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK18btMultiSphereShape37localGetSupportingVertexWithoutMarginERK9btVector3(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %vec0) unnamed_addr #4 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK18btMultiSphereShape37localGetSupportingVertexWithoutMarginERK9btVector3(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %vec0) unnamed_addr #4 align 2 {
 entry:
   %temp = alloca [128 x %class.btVector3], align 16
   %vec.sroa.0.0.copyload = load float, ptr %vec0, align 4
@@ -469,7 +469,7 @@ for.end48:                                        ; preds = %for.inc47, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK18btMultiSphereShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef readonly %vectors, ptr nocapture noundef writeonly %supportVerticesOut, i32 noundef %numVectors) unnamed_addr #4 align 2 {
+define dso_local void @_ZNK18btMultiSphereShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef readonly captures(none) %vectors, ptr noundef writeonly captures(none) %supportVerticesOut, i32 noundef %numVectors) unnamed_addr #4 align 2 {
 entry:
   %temp = alloca [128 x %class.btVector3], align 16
   %cmp76 = icmp sgt i32 %numVectors, 0
@@ -637,7 +637,7 @@ for.end45:                                        ; preds = %for.inc43, %for.bod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK18btMultiSphereShape21calculateLocalInertiaEfR9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, float noundef %mass, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %inertia) unnamed_addr #5 align 2 {
+define dso_local void @_ZNK18btMultiSphereShape21calculateLocalInertiaEfR9btVector3(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, float noundef %mass, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %inertia) unnamed_addr #5 align 2 {
 entry:
   %m_localAabbMin.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %localAabbMin.sroa.0.0.copyload = load float, ptr %m_localAabbMin.i, align 8

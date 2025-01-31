@@ -901,7 +901,7 @@ define internal fastcc void @plpgsql_estate_setup(ptr noundef nonnull %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @plpgsql_exec_error_callback(ptr nocapture noundef readonly %0) #0 {
+define internal void @plpgsql_exec_error_callback(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -985,7 +985,7 @@ define internal void @plpgsql_exec_error_callback(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @copy_plpgsql_datums(ptr nocapture noundef nonnull initializes((112, 120)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @copy_plpgsql_datums(ptr noundef nonnull captures(none) initializes((112, 120)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load i32, ptr %3, align 4
   %5 = sext i32 %4 to i64
@@ -1052,7 +1052,7 @@ define internal fastcc void @copy_plpgsql_datums(ptr nocapture noundef nonnull i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @assign_simple_var(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((68, 72)) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @assign_simple_var(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((68, 72)) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 47
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
@@ -1165,7 +1165,7 @@ declare i64 @TransferExpandedObject(i64 noundef, ptr noundef) local_unnamed_addr
 declare i64 @expand_array(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exec_move_row_from_datum(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @exec_move_row_from_datum(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.HeapTupleData, align 8
   %5 = inttoptr i64 %2 to ptr
   %6 = load i8, ptr %5, align 1
@@ -1497,7 +1497,7 @@ assign_record_var.exit120:                        ; preds = %163, %176
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exec_move_row(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @exec_move_row(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca [64 x i64], align 16
   %6 = alloca [64 x i8], align 16
   %7 = load i32, ptr %1, align 8
@@ -1779,7 +1779,7 @@ declare i64 @SPI_datumTransfer(i64 noundef, i1 noundef zeroext, i32 noundef) loc
 declare i32 @get_call_result_type(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @coerce_function_result_tuple(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @coerce_function_result_tuple(ptr noundef nonnull captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.HeapTupleData, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
@@ -1909,7 +1909,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %14, %18
 declare void @domain_check(i64 noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @exec_cast_value(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
+define internal i64 @exec_cast_value(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
   %8 = alloca %struct.plpgsql_CastHashKey, align 4
   %9 = alloca i8, align 1
   %.not = icmp eq i32 %3, %5
@@ -2716,7 +2716,7 @@ exec_eval_cleanup.exit:                           ; preds = %48, %56, %57
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @plpgsql_exec_get_datum_type(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @plpgsql_exec_get_datum_type(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %1, align 4
   switch i32 %3, label %55 [
     i32 0, label %4
@@ -2822,7 +2822,7 @@ define i32 @plpgsql_exec_get_datum_type(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @instantiate_empty_record_variable(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @instantiate_empty_record_variable(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 2249
@@ -2853,7 +2853,7 @@ define internal fastcc void @instantiate_empty_record_variable(ptr nocapture nou
 declare zeroext i1 @expanded_record_lookup_field(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @plpgsql_exec_get_datum_type_info(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define hidden void @plpgsql_exec_get_datum_type_info(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr %1, align 4
   switch i32 %6, label %71 [
     i32 0, label %7
@@ -2982,7 +2982,7 @@ define hidden void @plpgsql_exec_get_datum_type_info(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @plpgsql_xact_cb(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden void @plpgsql_xact_cb(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   switch i32 %0, label %9 [
     i32 4, label %3
     i32 1, label %3
@@ -3032,7 +3032,7 @@ declare void @FreeExecutorState(ptr noundef) local_unnamed_addr #1
 declare void @ReleaseAllPlanCacheRefsInOwner(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @plpgsql_subxact_cb(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define hidden void @plpgsql_subxact_cb(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp eq i32 %0, 1
   %6 = add i32 %0, -1
   %or.cond = icmp ult i32 %6, 2
@@ -3086,12 +3086,12 @@ declare ptr @plpgsql_stmt_typename(ptr noundef) local_unnamed_addr #1
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @ProcessInterrupts() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exec_stmt_block(ptr noundef nonnull initializes((216, 232)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc i32 @exec_stmt_block(ptr noundef nonnull initializes((216, 232)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %5 = alloca i16, align 2
@@ -3523,7 +3523,7 @@ exception_matches_conditions.exit:                ; preds = %153, %161, %141
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @exec_assign_value(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5) #0 {
+define internal void @exec_assign_value(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = alloca i8, align 1
   %8 = zext i1 %3 to i8
   store i8 %8, ptr %7, align 1
@@ -3798,7 +3798,7 @@ define internal void @exec_assign_value(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @exec_assign_expr(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @exec_assign_expr(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -3863,7 +3863,7 @@ declare void @BeginInternalSubTransaction(ptr noundef) local_unnamed_addr #1
 declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @plpgsql_create_econtext(ptr nocapture noundef nonnull initializes((200, 208)) %0) unnamed_addr #0 {
+define internal fastcc void @plpgsql_create_econtext(ptr noundef nonnull captures(none) initializes((200, 208)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -8515,7 +8515,7 @@ declare void @RollbackAndReleaseCurrentSubTransaction() local_unnamed_addr #1
 declare void @MemoryContextDeleteChildren(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @assign_text_var(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((68, 72)) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @assign_text_var(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((68, 72)) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @cstring_to_text(ptr noundef %2) #11
   %5 = ptrtoint ptr %4 to i64
   tail call fastcc void @assign_simple_var(ptr noundef %0, ptr noundef %1, i64 noundef %5, i1 noundef zeroext false, i1 noundef zeroext true)
@@ -8530,12 +8530,12 @@ declare void @ReThrowError(ptr noundef) local_unnamed_addr #5
 declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare zeroext i1 @type_is_rowtype(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exec_prepare_plan(ptr nocapture noundef readonly %0, ptr noundef initializes((32, 40)) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @exec_prepare_plan(ptr noundef readonly captures(none) %0, ptr noundef initializes((32, 40)) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.SPIPrepareOptions, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -8770,7 +8770,7 @@ exec_simple_check_plan.exit:                      ; preds = %21, %list_length.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @exec_eval_expr(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc i64 @exec_eval_expr(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -9044,7 +9044,7 @@ define internal fastcc i64 @exec_eval_expr(ptr nocapture noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @plpgsql_parser_setup(ptr noundef, ptr noundef) #1
 
@@ -9061,7 +9061,7 @@ declare ptr @SPI_plan_get_cached_plan(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @CachedPlanAllowsSimpleValidityCheck(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exec_save_simple_expr(ptr nocapture noundef %0, ptr nocapture readonly %.8.val.16.val.0.val) unnamed_addr #0 {
+define internal fastcc void @exec_save_simple_expr(ptr noundef captures(none) %0, ptr readonly captures(none) %.8.val.16.val.0.val) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %.8.val.16.val.0.val, i64 32
   br label %3
 
@@ -9249,7 +9249,7 @@ declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #
 declare i32 @get_typsubscript(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 5, 11) i32 @exec_run_select(ptr nocapture noundef %0, ptr noundef %1, i64 noundef range(i64 0, 3) %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 5, 11) i32 @exec_run_select(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef range(i64 0, 3) %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -9403,7 +9403,7 @@ declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @GetCurrentSubTransactionId() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exec_stmt_execsql(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @exec_stmt_execsql(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @plpgsql_extra_errors, align 4
@@ -9801,7 +9801,7 @@ declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exec_check_assignable(ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @exec_check_assignable(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   br label %tailrecurse
@@ -9862,7 +9862,7 @@ declare ptr @plpgsql_build_datatype(i32 noundef, i32 noundef, i32 noundef, ptr n
 declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @exec_for_query(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @exec_for_query(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -10205,7 +10205,7 @@ declare ptr @array_create_iterator(ptr noundef, i32 noundef, ptr noundef) local_
 declare zeroext i1 @array_iterate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @plpgsql_fulfill_promise(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @plpgsql_fulfill_promise(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = alloca [1 x i32], align 4
   %4 = alloca [1 x i32], align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -10636,7 +10636,7 @@ assign_simple_var.exit:                           ; preds = %166, %189, %190
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @exec_eval_datum(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr noundef %5) #0 {
+define internal void @exec_eval_datum(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef %5) #0 {
   %7 = load i32, ptr %1, align 4
   switch i32 %7, label %133 [
     i32 4, label %8
@@ -10888,7 +10888,7 @@ declare ptr @GetCommandTagName(i32 noundef) local_unnamed_addr #1
 declare ptr @BlessTupleDesc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @make_tuple_from_row(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @make_tuple_from_row(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = load i32, ptr %2, align 8
@@ -10972,7 +10972,7 @@ declare i64 @HeapTupleHeaderGetDatum(ptr noundef) local_unnamed_addr #1
 declare i64 @expanded_record_fetch_field(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exec_init_tuple_store(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @exec_init_tuple_store(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -11067,7 +11067,7 @@ define internal fastcc ptr @convert_value_to_string(ptr %.200.val.40.val, i64 no
 declare ptr @MemoryContextStrdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @exec_eval_using_params(ptr nocapture noundef nonnull %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @exec_eval_using_params(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i16, align 2
   %5 = alloca i8, align 1
@@ -11217,7 +11217,7 @@ declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @err_generic_string(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @format_expr_params(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @format_expr_params(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i8, align 1
   %5 = alloca %struct.StringInfoData, align 8
@@ -11311,7 +11311,7 @@ declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr
 declare void @appendStringInfoStringQuoted(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @format_preparedparamsdata(ptr nocapture noundef nonnull readonly %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @format_preparedparamsdata(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i8, align 1
   %5 = alloca %struct.StringInfoData, align 8
@@ -11389,7 +11389,7 @@ define internal fastcc ptr @format_preparedparamsdata(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @exec_dynquery_with_params(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc nonnull ptr @exec_dynquery_with_params(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
@@ -11508,7 +11508,7 @@ declare void @SPI_rollback() local_unnamed_addr #1
 declare ptr @MemoryContextGetParent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @plpgsql_param_fetch(ptr nocapture noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef returned %3) #0 {
+define internal noundef ptr @plpgsql_param_fetch(ptr noundef readonly captures(none) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef returned %3) #0 {
   %5 = alloca i32, align 4
   %6 = add i32 %1, -1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11642,7 +11642,7 @@ define internal noundef ptr @plpgsql_param_fetch(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @plpgsql_param_compile(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal void @plpgsql_param_compile(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca %struct.ExprEvalStep, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -11731,7 +11731,7 @@ define internal void @plpgsql_param_compile(ptr nocapture noundef readonly %0, p
 declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @plpgsql_param_eval_var_ro(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @plpgsql_param_eval_var_ro(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, -1
@@ -11769,7 +11769,7 @@ define internal void @plpgsql_param_eval_var_ro(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @plpgsql_param_eval_var(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #8 {
+define internal void @plpgsql_param_eval_var(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #8 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, -1
@@ -11797,7 +11797,7 @@ define internal void @plpgsql_param_eval_var(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @plpgsql_param_eval_recfield(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @plpgsql_param_eval_recfield(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, -1
@@ -11925,7 +11925,7 @@ expanded_record_get_field.exit:                   ; preds = %57, %.critedge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @plpgsql_param_eval_generic_ro(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @plpgsql_param_eval_generic_ro(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -11984,7 +11984,7 @@ define internal void @plpgsql_param_eval_generic_ro(ptr nocapture readnone %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @plpgsql_param_eval_generic(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @plpgsql_param_eval_generic(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -12029,7 +12029,7 @@ define internal void @plpgsql_param_eval_generic(ptr nocapture readnone %0, ptr 
 declare void @ExprEvalPushStep(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @make_expanded_record_for_rec(ptr %.200.val.40.val, ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @make_expanded_record_for_rec(ptr %.200.val.40.val, ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 2249
@@ -12095,7 +12095,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %26, %23, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @assign_record_var(ptr %.120.val, ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @assign_record_var(ptr %.120.val, ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @MemoryContextSetParent(ptr noundef %4, ptr noundef %.120.val) #11
@@ -12120,7 +12120,7 @@ declare void @DeleteExpandedObject(i64 noundef) local_unnamed_addr #1
 declare void @heap_deform_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exec_move_row_from_fields(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @exec_move_row_from_fields(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5) unnamed_addr #0 {
   %7 = alloca [64 x i64], align 16
   %8 = alloca [64 x i8], align 16
   %9 = alloca i8, align 1
@@ -12488,7 +12488,7 @@ assign_record_var.exit:                           ; preds = %.critedge189, %114
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @revalidate_rectypeid(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @revalidate_rectypeid(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -12610,10 +12610,10 @@ declare ptr @detoast_external_attr(ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

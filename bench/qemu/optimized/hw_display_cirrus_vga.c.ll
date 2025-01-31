@@ -326,7 +326,7 @@ declare void @memory_region_add_subregion_overlap(ptr noundef, i64 noundef, ptr 
 declare void @memory_region_set_coalescing(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 33) i32 @cirrus_get_bpp(ptr nocapture noundef readonly %s1) #0 {
+define internal range(i32 0, 33) i32 @cirrus_get_bpp(ptr noundef readonly captures(none) %s1) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %s1, i64 600
   %0 = load i8, ptr %arrayidx, align 1
@@ -402,7 +402,7 @@ if.end:                                           ; preds = %if.then.i10, %do.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @cirrus_get_offsets(ptr nocapture noundef readonly %s1, ptr nocapture noundef writeonly initializes((0, 4)) %pline_offset, ptr nocapture noundef writeonly initializes((0, 4)) %pstart_addr, ptr nocapture noundef writeonly initializes((0, 4)) %pline_compare) #2 {
+define internal void @cirrus_get_offsets(ptr noundef readonly captures(none) %s1, ptr noundef writeonly captures(none) initializes((0, 4)) %pline_offset, ptr noundef writeonly captures(none) initializes((0, 4)) %pstart_addr, ptr noundef writeonly captures(none) initializes((0, 4)) %pline_compare) #2 {
 entry:
   %arrayidx = getelementptr i8, ptr %s1, i64 1408
   %0 = load i8, ptr %arrayidx, align 1
@@ -458,7 +458,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @cirrus_get_resolution(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly initializes((0, 4)) %pwidth, ptr nocapture noundef writeonly initializes((0, 4)) %pheight) #2 {
+define internal void @cirrus_get_resolution(ptr noundef readonly captures(none) %s, ptr noundef writeonly captures(none) initializes((0, 4)) %pwidth, ptr noundef writeonly captures(none) initializes((0, 4)) %pheight) #2 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1390
   %0 = load i8, ptr %arrayidx, align 1
@@ -644,7 +644,7 @@ if.end26:                                         ; preds = %if.then.i21, %cirru
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_cursor_draw_line(ptr nocapture noundef readonly %s1, ptr nocapture noundef %d1, i32 noundef %scr_y) #3 {
+define internal void @cirrus_cursor_draw_line(ptr noundef readonly captures(none) %s1, ptr noundef captures(none) %d1, i32 noundef %scr_y) #3 {
 entry:
   %arrayidx = getelementptr i8, ptr %s1, i64 611
   %0 = load i8, ptr %arrayidx, align 1
@@ -1916,7 +1916,7 @@ sw.epilog73:                                      ; preds = %if.then49.i, %do.bo
 declare i32 @vga_ioport_invalid(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 256) i32 @cirrus_vga_read_sr(ptr nocapture noundef readonly %s) unnamed_addr #0 {
+define internal fastcc range(i32 0, 256) i32 @cirrus_vga_read_sr(ptr noundef readonly captures(none) %s) unnamed_addr #0 {
 entry:
   %sr_index = getelementptr inbounds nuw i8, ptr %s, i64 592
   %0 = load i8, ptr %sr_index, align 16
@@ -2016,7 +2016,7 @@ return:                                           ; preds = %if.then, %do.body, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 256) i32 @cirrus_vga_read_palette(ptr nocapture noundef %s) unnamed_addr #2 {
+define internal fastcc range(i32 0, 256) i32 @cirrus_vga_read_palette(ptr noundef captures(none) %s) unnamed_addr #2 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 611
   %0 = load i8, ptr %arrayidx, align 1
@@ -2072,7 +2072,7 @@ if.end30:                                         ; preds = %if.then24, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 256) i32 @cirrus_vga_read_gr(ptr nocapture noundef readonly %s, i32 noundef range(i32 0, 256) %reg_index) unnamed_addr #0 {
+define internal fastcc range(i32 0, 256) i32 @cirrus_vga_read_gr(ptr noundef readonly captures(none) %s, i32 noundef range(i32 0, 256) %reg_index) unnamed_addr #0 {
 entry:
   %trunc = trunc nuw i32 %reg_index to i8
   switch i8 %trunc, label %sw.epilog [
@@ -2135,7 +2135,7 @@ return:                                           ; preds = %if.then15, %do.body
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
@@ -2479,7 +2479,7 @@ sw.epilog:                                        ; preds = %if.then16.i, %if.el
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @cirrus_bitblt_start(ptr noundef %s) unnamed_addr #0 {
@@ -3639,7 +3639,7 @@ return:                                           ; preds = %if.end.i243, %lor.r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @cirrus_bitblt_fgcol(ptr nocapture noundef initializes((70676, 70680)) %s) unnamed_addr #2 {
+define internal fastcc void @cirrus_bitblt_fgcol(ptr noundef captures(none) initializes((70676, 70680)) %s) unnamed_addr #2 {
 entry:
   %cirrus_blt_pixelwidth = getelementptr inbounds nuw i8, ptr %s, i64 70656
   %0 = load i32, ptr %cirrus_blt_pixelwidth, align 16
@@ -3699,7 +3699,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb24, %s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @cirrus_bitblt_bgcol(ptr nocapture noundef initializes((70680, 70684)) %s) unnamed_addr #2 {
+define internal fastcc void @cirrus_bitblt_bgcol(ptr noundef captures(none) initializes((70680, 70684)) %s) unnamed_addr #2 {
 entry:
   %cirrus_blt_pixelwidth = getelementptr inbounds nuw i8, ptr %s, i64 70656
   %0 = load i32, ptr %cirrus_blt_pixelwidth, align 16
@@ -3762,7 +3762,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb24, %s
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_0_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
+define internal void @cirrus_fill_0_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -3803,7 +3803,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_0_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
+define internal void @cirrus_fill_0_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -3845,7 +3845,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_0_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
+define internal void @cirrus_fill_0_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
 entry:
   %cmp26 = icmp sgt i32 %height, 0
   br i1 %cmp26, label %for.cond1.preheader.lr.ph, label %for.end12
@@ -3900,7 +3900,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_0_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
+define internal void @cirrus_fill_0_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -3942,7 +3942,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_src_and_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -3988,7 +3988,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_src_and_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -4035,7 +4035,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_src_and_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp28 = icmp sgt i32 %height, 0
   br i1 %cmp28, label %for.cond1.preheader.lr.ph, label %for.end12
@@ -4103,7 +4103,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_src_and_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
@@ -4149,13 +4149,13 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @cirrus_bitblt_fill_nop(ptr nocapture readnone %s, i32 %dstaddr, i32 %dstpitch, i32 %bltwidth, i32 %bltheight) #9 {
+define internal void @cirrus_bitblt_fill_nop(ptr readnone captures(none) %s, i32 %dstaddr, i32 %dstpitch, i32 %bltwidth, i32 %bltheight) #9 {
 entry:
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_src_and_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -4202,7 +4202,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_src_and_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -4250,7 +4250,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_src_and_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp30 = icmp sgt i32 %height, 0
   br i1 %cmp30, label %for.cond1.preheader.lr.ph, label %for.end12
@@ -4321,7 +4321,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_src_and_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
@@ -4368,7 +4368,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -4411,7 +4411,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -4455,7 +4455,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp28 = icmp sgt i32 %height, 0
   br i1 %cmp28, label %for.cond1.preheader.lr.ph, label %for.end12
@@ -4516,7 +4516,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -4560,7 +4560,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
+define internal void @cirrus_fill_src_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -4604,7 +4604,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
+define internal void @cirrus_fill_src_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -4649,7 +4649,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
+define internal void @cirrus_fill_src_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
 entry:
   %cmp26 = icmp sgt i32 %height, 0
   br i1 %cmp26, label %for.cond1.preheader.lr.ph, label %for.end12
@@ -4711,7 +4711,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
+define internal void @cirrus_fill_src_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
 entry:
   %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
@@ -4755,7 +4755,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_1_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
+define internal void @cirrus_fill_1_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -4796,7 +4796,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_1_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
+define internal void @cirrus_fill_1_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -4838,7 +4838,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_1_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
+define internal void @cirrus_fill_1_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
 entry:
   %cmp26 = icmp sgt i32 %height, 0
   br i1 %cmp26, label %for.cond1.preheader.lr.ph, label %for.end12
@@ -4893,7 +4893,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_1_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
+define internal void @cirrus_fill_1_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -4935,7 +4935,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_notsrc_and_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -4982,7 +4982,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_notsrc_and_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -5030,7 +5030,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_notsrc_and_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp30 = icmp sgt i32 %height, 0
   br i1 %cmp30, label %for.cond1.preheader.lr.ph, label %for.end12
@@ -5101,7 +5101,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_notsrc_and_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -5148,7 +5148,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_xor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_src_xor_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -5194,7 +5194,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_xor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_src_xor_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -5241,7 +5241,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_xor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_src_xor_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp28 = icmp sgt i32 %height, 0
   br i1 %cmp28, label %for.cond1.preheader.lr.ph, label %for.end12
@@ -5309,7 +5309,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_xor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_src_xor_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
@@ -5355,7 +5355,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_src_or_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -5401,7 +5401,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_src_or_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -5448,7 +5448,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_src_or_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp28 = icmp sgt i32 %height, 0
   br i1 %cmp28, label %for.cond1.preheader.lr.ph, label %for.end12
@@ -5516,7 +5516,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_src_or_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
@@ -5562,7 +5562,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_notsrc_or_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -5609,7 +5609,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_notsrc_or_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -5657,7 +5657,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_notsrc_or_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp30 = icmp sgt i32 %height, 0
   br i1 %cmp30, label %for.cond1.preheader.lr.ph, label %for.end12
@@ -5728,7 +5728,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_notsrc_or_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
@@ -5775,7 +5775,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_notxor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_src_notxor_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -5825,7 +5825,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_notxor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_src_notxor_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -5876,7 +5876,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_notxor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_src_notxor_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp28 = icmp sgt i32 %height, 0
   br i1 %cmp28, label %for.cond1.preheader.lr.ph, label %for.end12
@@ -5950,7 +5950,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_notxor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_src_notxor_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -6000,7 +6000,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_src_or_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -6047,7 +6047,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_src_or_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -6095,7 +6095,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_src_or_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp30 = icmp sgt i32 %height, 0
   br i1 %cmp30, label %for.cond1.preheader.lr.ph, label %for.end12
@@ -6166,7 +6166,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_src_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_src_or_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
@@ -6213,7 +6213,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
+define internal void @cirrus_fill_notsrc_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -6258,7 +6258,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
+define internal void @cirrus_fill_notsrc_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -6304,7 +6304,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
+define internal void @cirrus_fill_notsrc_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
 entry:
   %cmp28 = icmp sgt i32 %height, 0
   br i1 %cmp28, label %for.cond1.preheader.lr.ph, label %for.end12
@@ -6369,7 +6369,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
+define internal void @cirrus_fill_notsrc_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #7 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -6414,7 +6414,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_notsrc_or_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -6461,7 +6461,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_notsrc_or_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -6509,7 +6509,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_notsrc_or_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp30 = icmp sgt i32 %height, 0
   br i1 %cmp30, label %for.cond1.preheader.lr.ph, label %for.end12
@@ -6580,7 +6580,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_notsrc_or_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -6627,7 +6627,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_notsrc_and_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -6674,7 +6674,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_notsrc_and_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp10 = icmp sgt i32 %height, 0
   br i1 %cmp10, label %for.cond1.preheader.lr.ph, label %for.end7
@@ -6722,7 +6722,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_notsrc_and_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cmp30 = icmp sgt i32 %height, 0
   br i1 %cmp30, label %for.cond1.preheader.lr.ph, label %for.end12
@@ -6793,7 +6793,7 @@ for.end12:                                        ; preds = %for.cond1.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_fill_notsrc_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
+define internal void @cirrus_fill_notsrc_and_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %dst_pitch, i32 noundef %width, i32 noundef %height) #8 {
 entry:
   %cirrus_blt_fgcol = getelementptr inbounds nuw i8, ptr %s, i64 70676
   %0 = load i32, ptr %cirrus_blt_fgcol, align 4
@@ -6842,7 +6842,7 @@ for.end7:                                         ; preds = %for.cond1.for.end_c
 declare void @memory_region_set_dirty(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_0_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_0_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -6968,7 +6968,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_0_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_0_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -7096,7 +7096,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_0_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_0_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -7238,7 +7238,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_0_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_0_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -7366,7 +7366,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_and_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -7498,7 +7498,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_and_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -7632,7 +7632,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_and_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -7788,7 +7788,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_and_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -7921,13 +7921,13 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @cirrus_bitblt_rop_nop(ptr nocapture readnone %s, i32 %dstaddr, i32 %srcaddr, i32 %dstpitch, i32 %srcpitch, i32 %bltwidth, i32 %bltheight) #9 {
+define internal void @cirrus_bitblt_rop_nop(ptr readnone captures(none) %s, i32 %dstaddr, i32 %srcaddr, i32 %dstpitch, i32 %srcpitch, i32 %bltwidth, i32 %bltheight) #9 {
 entry:
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_and_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -8060,7 +8060,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_and_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -8195,7 +8195,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_and_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -8354,7 +8354,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_and_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -8488,7 +8488,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -8616,7 +8616,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -8746,7 +8746,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -8894,7 +8894,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -9024,7 +9024,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -9154,7 +9154,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -9286,7 +9286,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -9436,7 +9436,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -9567,7 +9567,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_1_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_1_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -9693,7 +9693,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_1_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_1_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -9821,7 +9821,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_1_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_1_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -9963,7 +9963,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_1_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_1_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -10091,7 +10091,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_notsrc_and_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -10224,7 +10224,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_notsrc_and_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -10359,7 +10359,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_notsrc_and_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -10518,7 +10518,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_notsrc_and_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -10652,7 +10652,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_xor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_xor_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -10784,7 +10784,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_xor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_xor_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -10918,7 +10918,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_xor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_xor_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -11074,7 +11074,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_xor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_xor_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -11207,7 +11207,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_or_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -11339,7 +11339,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_or_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -11473,7 +11473,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_or_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -11629,7 +11629,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_or_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -11762,7 +11762,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_notsrc_or_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -11895,7 +11895,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_notsrc_or_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -12030,7 +12030,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_notsrc_or_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -12189,7 +12189,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_notsrc_or_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -12323,7 +12323,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_notxor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_notxor_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -12459,7 +12459,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_notxor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_notxor_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -12597,7 +12597,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_notxor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_notxor_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -12759,7 +12759,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_notxor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_notxor_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -12896,7 +12896,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_or_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -13029,7 +13029,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_or_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -13164,7 +13164,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_or_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -13323,7 +13323,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_src_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_src_or_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -13457,7 +13457,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_notsrc_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -13588,7 +13588,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_notsrc_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -13721,7 +13721,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_notsrc_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -13874,7 +13874,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_notsrc_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -14006,7 +14006,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_notsrc_or_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -14139,7 +14139,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_notsrc_or_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -14274,7 +14274,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_notsrc_or_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -14433,7 +14433,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_notsrc_or_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -14567,7 +14567,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_notsrc_and_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -14700,7 +14700,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_notsrc_and_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -14835,7 +14835,7 @@ for.end29:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_notsrc_and_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -14994,7 +14994,7 @@ for.end35:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_transp_notsrc_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_transp_notsrc_and_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -15128,7 +15128,7 @@ for.end28:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_0_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_colorexpand_0_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -15174,7 +15174,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_0_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_colorexpand_0_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -15222,7 +15222,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_0_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_colorexpand_0_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -15283,7 +15283,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_0_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_colorexpand_0_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -15331,7 +15331,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_and_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -15458,7 +15458,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_and_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -15587,7 +15587,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_and_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -15737,7 +15737,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_and_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -15865,7 +15865,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_and_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -15993,7 +15993,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_and_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -16123,7 +16123,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_and_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -16276,7 +16276,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_and_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -16405,7 +16405,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -16453,7 +16453,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -16503,7 +16503,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -16570,7 +16570,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -16620,7 +16620,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -16745,7 +16745,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -16872,7 +16872,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -17016,7 +17016,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -17142,7 +17142,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_1_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_colorexpand_1_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -17188,7 +17188,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_1_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_colorexpand_1_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -17236,7 +17236,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_1_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_colorexpand_1_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -17297,7 +17297,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_1_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_colorexpand_1_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -17345,7 +17345,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_notsrc_and_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -17473,7 +17473,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_notsrc_and_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -17603,7 +17603,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_notsrc_and_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -17756,7 +17756,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_notsrc_and_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -17885,7 +17885,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_xor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_xor_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -18012,7 +18012,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_xor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_xor_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -18141,7 +18141,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_xor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_xor_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -18291,7 +18291,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_xor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_xor_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -18419,7 +18419,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_or_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -18546,7 +18546,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_or_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -18675,7 +18675,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_or_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -18825,7 +18825,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_or_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -18953,7 +18953,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_notsrc_or_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -19081,7 +19081,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_notsrc_or_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -19211,7 +19211,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_notsrc_or_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -19364,7 +19364,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_notsrc_or_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -19493,7 +19493,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_notxor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_notxor_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -19621,7 +19621,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_notxor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_notxor_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -19751,7 +19751,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_notxor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_notxor_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -19904,7 +19904,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_notxor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_notxor_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -20033,7 +20033,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_or_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -20161,7 +20161,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_or_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -20291,7 +20291,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_or_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -20444,7 +20444,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_src_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_src_or_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -20573,7 +20573,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_notsrc_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -20699,7 +20699,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_notsrc_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -20827,7 +20827,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_notsrc_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -20974,7 +20974,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_notsrc_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -21101,7 +21101,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_notsrc_or_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -21229,7 +21229,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_notsrc_or_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -21359,7 +21359,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_notsrc_or_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -21512,7 +21512,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_notsrc_or_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -21641,7 +21641,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_notsrc_and_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -21769,7 +21769,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_notsrc_and_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -21899,7 +21899,7 @@ for.end25:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_notsrc_and_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -22052,7 +22052,7 @@ for.end31:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_notsrc_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_notsrc_and_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -22181,7 +22181,7 @@ for.end24:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_0_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_0_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -22279,7 +22279,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_0_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_0_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -22379,7 +22379,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_0_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_0_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -22493,7 +22493,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_0_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_0_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -22593,7 +22593,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_and_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -22697,7 +22697,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_and_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -22803,7 +22803,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_and_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -22931,7 +22931,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_and_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -23036,7 +23036,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_and_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -23141,7 +23141,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_and_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -23248,7 +23248,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_and_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -23379,7 +23379,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_and_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -23485,7 +23485,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -23585,7 +23585,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -23687,7 +23687,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -23807,7 +23807,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -23909,7 +23909,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -24011,7 +24011,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -24115,7 +24115,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -24237,7 +24237,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -24340,7 +24340,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_1_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_1_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -24438,7 +24438,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_1_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_1_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -24538,7 +24538,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_1_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_1_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -24652,7 +24652,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_1_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_1_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -24752,7 +24752,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -24857,7 +24857,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -24964,7 +24964,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -25095,7 +25095,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -25201,7 +25201,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_xor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_xor_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -25305,7 +25305,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_xor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_xor_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -25411,7 +25411,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_xor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_xor_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -25539,7 +25539,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_xor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_xor_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -25644,7 +25644,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_or_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -25748,7 +25748,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_or_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -25854,7 +25854,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_or_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -25982,7 +25982,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_or_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -26087,7 +26087,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -26192,7 +26192,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -26299,7 +26299,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -26430,7 +26430,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -26536,7 +26536,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_notxor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_notxor_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -26641,7 +26641,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_notxor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_notxor_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -26748,7 +26748,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_notxor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_notxor_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -26879,7 +26879,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_notxor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_notxor_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -26985,7 +26985,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_or_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -27090,7 +27090,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_or_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -27197,7 +27197,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_or_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -27328,7 +27328,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_src_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_src_or_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -27434,7 +27434,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -27537,7 +27537,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -27642,7 +27642,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -27767,7 +27767,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -27871,7 +27871,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -27976,7 +27976,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -28083,7 +28083,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -28214,7 +28214,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_or_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -28320,7 +28320,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -28425,7 +28425,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -28532,7 +28532,7 @@ for.end24:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -28663,7 +28663,7 @@ for.end30:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_transp_notsrc_and_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -28769,7 +28769,7 @@ for.end23:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_0_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_colorexpand_pattern_0_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -28815,7 +28815,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_0_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_colorexpand_pattern_0_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -28863,7 +28863,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_0_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_colorexpand_pattern_0_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -28924,7 +28924,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_0_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_colorexpand_pattern_0_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -28972,7 +28972,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_and_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -29071,7 +29071,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_and_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -29172,7 +29172,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_and_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -29294,7 +29294,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_and_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -29394,7 +29394,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_and_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -29494,7 +29494,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_and_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -29596,7 +29596,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_and_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -29721,7 +29721,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_and_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -29822,7 +29822,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -29870,7 +29870,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -29920,7 +29920,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -29987,7 +29987,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -30037,7 +30037,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -30134,7 +30134,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -30233,7 +30233,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -30349,7 +30349,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -30447,7 +30447,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_1_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_colorexpand_pattern_1_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -30493,7 +30493,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_1_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_colorexpand_pattern_1_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -30541,7 +30541,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_1_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_colorexpand_pattern_1_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -30602,7 +30602,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_1_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_colorexpand_pattern_1_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -30650,7 +30650,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_notsrc_and_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -30750,7 +30750,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_notsrc_and_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -30852,7 +30852,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_notsrc_and_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -30977,7 +30977,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_notsrc_and_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -31078,7 +31078,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_xor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_xor_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -31177,7 +31177,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_xor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_xor_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -31278,7 +31278,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_xor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_xor_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -31400,7 +31400,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_xor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_xor_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -31500,7 +31500,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_or_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -31599,7 +31599,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_or_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -31700,7 +31700,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_or_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -31822,7 +31822,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_or_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -31922,7 +31922,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_notsrc_or_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -32022,7 +32022,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_notsrc_or_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -32124,7 +32124,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_notsrc_or_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -32249,7 +32249,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_notsrc_or_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -32350,7 +32350,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_notxor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_notxor_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -32450,7 +32450,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_notxor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_notxor_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -32552,7 +32552,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_notxor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_notxor_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -32677,7 +32677,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_notxor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_notxor_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -32778,7 +32778,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_or_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -32878,7 +32878,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_or_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -32980,7 +32980,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_or_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -33105,7 +33105,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_src_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_src_or_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -33206,7 +33206,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_notsrc_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -33304,7 +33304,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_notsrc_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -33404,7 +33404,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_notsrc_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -33523,7 +33523,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_notsrc_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -33622,7 +33622,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_notsrc_or_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -33722,7 +33722,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_notsrc_or_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -33824,7 +33824,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_notsrc_or_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -33949,7 +33949,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_notsrc_or_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -34050,7 +34050,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_notsrc_and_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -34150,7 +34150,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_notsrc_and_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -34252,7 +34252,7 @@ for.end22:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_notsrc_and_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -34377,7 +34377,7 @@ for.end28:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_colorexpand_pattern_notsrc_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_colorexpand_pattern_notsrc_and_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %colors = alloca [2 x i32], align 4
   %arrayidx = getelementptr i8, ptr %s, i64 1153
@@ -34478,7 +34478,7 @@ for.end21:                                        ; preds = %for.cond7.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_0_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_patternfill_0_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -34524,7 +34524,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_0_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_patternfill_0_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -34572,7 +34572,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_0_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_patternfill_0_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -34632,7 +34632,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_0_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_patternfill_0_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -34680,7 +34680,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_and_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -34767,7 +34767,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_and_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -34857,7 +34857,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_and_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -34983,7 +34983,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_and_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -35073,7 +35073,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_and_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -35161,7 +35161,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_and_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -35252,7 +35252,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_and_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -35381,7 +35381,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_and_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -35472,7 +35472,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -35520,7 +35520,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -35570,7 +35570,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -35636,7 +35636,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -35686,7 +35686,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -35771,7 +35771,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -35859,7 +35859,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -35979,7 +35979,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -36067,7 +36067,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_1_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_patternfill_1_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -36113,7 +36113,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_1_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_patternfill_1_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -36161,7 +36161,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_1_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_patternfill_1_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -36221,7 +36221,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_1_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_patternfill_1_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -36269,7 +36269,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_notsrc_and_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -36357,7 +36357,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_notsrc_and_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -36448,7 +36448,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_and_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_notsrc_and_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -36577,7 +36577,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_and_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_notsrc_and_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -36668,7 +36668,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_xor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_xor_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -36755,7 +36755,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_xor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_xor_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -36845,7 +36845,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_xor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_xor_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -36971,7 +36971,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_xor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_xor_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -37061,7 +37061,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_or_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -37148,7 +37148,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_or_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -37238,7 +37238,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_or_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -37364,7 +37364,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_or_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -37454,7 +37454,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_notsrc_or_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -37542,7 +37542,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_notsrc_or_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -37633,7 +37633,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_notsrc_or_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -37762,7 +37762,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_notsrc_or_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -37853,7 +37853,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_notxor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_notxor_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -37941,7 +37941,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_notxor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_notxor_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -38032,7 +38032,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_notxor_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_notxor_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -38161,7 +38161,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_notxor_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_notxor_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -38252,7 +38252,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_or_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -38340,7 +38340,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_or_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -38431,7 +38431,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_or_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_or_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -38560,7 +38560,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_src_or_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_src_or_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -38651,7 +38651,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_notsrc_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -38737,7 +38737,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_notsrc_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -38826,7 +38826,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_notsrc_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -38949,7 +38949,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_notsrc_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -39038,7 +39038,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_notsrc_or_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -39126,7 +39126,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_notsrc_or_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -39217,7 +39217,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_or_dst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_notsrc_or_dst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -39346,7 +39346,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_or_dst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_notsrc_or_dst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -39437,7 +39437,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_notsrc_and_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -39525,7 +39525,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_notsrc_and_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -39616,7 +39616,7 @@ for.end20:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_and_notdst_24(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_notsrc_and_notdst_24(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -39745,7 +39745,7 @@ for.end33:                                        ; preds = %for.cond4.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_patternfill_notsrc_and_notdst_32(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_patternfill_notsrc_and_notdst_32(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1153
   %0 = load i8, ptr %arrayidx, align 1
@@ -39836,7 +39836,7 @@ for.end18:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_0_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_0_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %cmp25 = icmp sgt i32 %bltheight, 0
@@ -39884,7 +39884,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_0_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_0_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %cmp26 = icmp sgt i32 %bltheight, 0
@@ -39934,7 +39934,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_and_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i8, ptr %arrayidx, align 2
@@ -40017,7 +40017,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_and_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i16, ptr %arrayidx, align 2
@@ -40104,7 +40104,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_and_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i8, ptr %arrayidx, align 2
@@ -40188,7 +40188,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_and_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i16, ptr %arrayidx, align 2
@@ -40276,7 +40276,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i8, ptr %arrayidx, align 2
@@ -40329,7 +40329,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i16, ptr %arrayidx, align 2
@@ -40384,7 +40384,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i8, ptr %arrayidx, align 2
@@ -40463,7 +40463,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i16, ptr %arrayidx, align 2
@@ -40546,7 +40546,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_1_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_1_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %cmp25 = icmp sgt i32 %bltheight, 0
@@ -40594,7 +40594,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_1_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_1_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %cmp26 = icmp sgt i32 %bltheight, 0
@@ -40644,7 +40644,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_and_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i8, ptr %arrayidx, align 2
@@ -40728,7 +40728,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_and_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i16, ptr %arrayidx, align 2
@@ -40816,7 +40816,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_xor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_xor_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i8, ptr %arrayidx, align 2
@@ -40899,7 +40899,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_xor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_xor_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i16, ptr %arrayidx, align 2
@@ -40986,7 +40986,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_or_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i8, ptr %arrayidx, align 2
@@ -41069,7 +41069,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_or_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i16, ptr %arrayidx, align 2
@@ -41156,7 +41156,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_or_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i8, ptr %arrayidx, align 2
@@ -41240,7 +41240,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_or_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i16, ptr %arrayidx, align 2
@@ -41328,7 +41328,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_notxor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_notxor_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i8, ptr %arrayidx, align 2
@@ -41412,7 +41412,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_notxor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_notxor_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i16, ptr %arrayidx, align 2
@@ -41500,7 +41500,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_or_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i8, ptr %arrayidx, align 2
@@ -41584,7 +41584,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_src_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_src_or_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i16, ptr %arrayidx, align 2
@@ -41672,7 +41672,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i8, ptr %arrayidx, align 2
@@ -41752,7 +41752,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i16, ptr %arrayidx, align 2
@@ -41836,7 +41836,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_or_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i8, ptr %arrayidx, align 2
@@ -41920,7 +41920,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_or_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i16, ptr %arrayidx, align 2
@@ -42008,7 +42008,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_and_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i8, ptr %arrayidx, align 2
@@ -42092,7 +42092,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_transp_notsrc_and_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i16, ptr %arrayidx, align 2
@@ -42180,7 +42180,7 @@ for.end20:                                        ; preds = %for.cond9.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_0_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_bitblt_rop_fwd_transp_0_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -42234,7 +42234,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_0_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_bitblt_rop_fwd_transp_0_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub7 = sub i32 %srcpitch, %bltwidth
@@ -42289,7 +42289,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_and_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i8, ptr %arrayidx, align 2
@@ -42377,7 +42377,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_and_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i16, ptr %arrayidx, align 2
@@ -42467,7 +42467,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_and_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i8, ptr %arrayidx, align 2
@@ -42556,7 +42556,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_and_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i16, ptr %arrayidx, align 2
@@ -42647,7 +42647,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_transp_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i8, ptr %arrayidx, align 2
@@ -42706,7 +42706,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_transp_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i16, ptr %arrayidx, align 2
@@ -42766,7 +42766,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i8, ptr %arrayidx, align 2
@@ -42850,7 +42850,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i16, ptr %arrayidx, align 2
@@ -42936,7 +42936,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_1_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_bitblt_rop_fwd_transp_1_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -42990,7 +42990,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_1_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_bitblt_rop_fwd_transp_1_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub7 = sub i32 %srcpitch, %bltwidth
@@ -43045,7 +43045,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_and_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_and_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i8, ptr %arrayidx, align 2
@@ -43134,7 +43134,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_and_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_and_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i16, ptr %arrayidx, align 2
@@ -43225,7 +43225,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_xor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_xor_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i8, ptr %arrayidx, align 2
@@ -43313,7 +43313,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_xor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_xor_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i16, ptr %arrayidx, align 2
@@ -43403,7 +43403,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_or_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i8, ptr %arrayidx, align 2
@@ -43491,7 +43491,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_or_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i16, ptr %arrayidx, align 2
@@ -43581,7 +43581,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_or_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i8, ptr %arrayidx, align 2
@@ -43670,7 +43670,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_or_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i16, ptr %arrayidx, align 2
@@ -43761,7 +43761,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_notxor_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_notxor_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i8, ptr %arrayidx, align 2
@@ -43850,7 +43850,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_notxor_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_notxor_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i16, ptr %arrayidx, align 2
@@ -43941,7 +43941,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_or_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_or_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i8, ptr %arrayidx, align 2
@@ -44030,7 +44030,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_src_or_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_transp_src_or_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i16, ptr %arrayidx, align 2
@@ -44121,7 +44121,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i8, ptr %arrayidx, align 2
@@ -44206,7 +44206,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i16, ptr %arrayidx, align 2
@@ -44293,7 +44293,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_or_dst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_or_dst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i8, ptr %arrayidx, align 2
@@ -44382,7 +44382,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_or_dst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_or_dst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i16, ptr %arrayidx, align 2
@@ -44473,7 +44473,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_and_notdst_8(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_and_notdst_8(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i8, ptr %arrayidx, align 2
@@ -44562,7 +44562,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_and_notdst_16(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_transp_notsrc_and_notdst_16(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1158
   %0 = load i16, ptr %arrayidx, align 2
@@ -44653,7 +44653,7 @@ for.end24:                                        ; preds = %for.cond15.for.end_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_0(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_bitblt_rop_bkwd_0(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %cmp21 = icmp sgt i32 %bltheight, 0
@@ -44695,7 +44695,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_src_and_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_src_and_dst(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %add1 = add i32 %bltwidth, %srcpitch
@@ -44769,7 +44769,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_src_and_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_src_and_notdst(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %add1 = add i32 %bltwidth, %srcpitch
@@ -44844,7 +44844,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_notdst(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %cmp21 = icmp sgt i32 %bltheight, 0
@@ -44888,7 +44888,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_src(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_src(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %add1 = add i32 %bltwidth, %srcpitch
@@ -44960,7 +44960,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_1(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_bitblt_rop_bkwd_1(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %cmp21 = icmp sgt i32 %bltheight, 0
@@ -45002,7 +45002,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_notsrc_and_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_notsrc_and_dst(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %add1 = add i32 %bltwidth, %srcpitch
@@ -45077,7 +45077,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_src_xor_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_src_xor_dst(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %add1 = add i32 %bltwidth, %srcpitch
@@ -45151,7 +45151,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_src_or_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_src_or_dst(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %add1 = add i32 %bltwidth, %srcpitch
@@ -45225,7 +45225,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_notsrc_or_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_notsrc_or_notdst(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %add1 = add i32 %bltwidth, %srcpitch
@@ -45300,7 +45300,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_src_notxor_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_src_notxor_dst(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %add1 = add i32 %bltwidth, %srcpitch
@@ -45375,7 +45375,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_src_or_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_src_or_notdst(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %add1 = add i32 %bltwidth, %srcpitch
@@ -45450,7 +45450,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_notsrc(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_notsrc(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %add1 = add i32 %bltwidth, %srcpitch
@@ -45523,7 +45523,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_notsrc_or_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_notsrc_or_dst(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %add1 = add i32 %bltwidth, %srcpitch
@@ -45598,7 +45598,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_bkwd_notsrc_and_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_bkwd_notsrc_and_notdst(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %add = add i32 %bltwidth, %dstpitch
   %add1 = add i32 %bltwidth, %srcpitch
@@ -45673,7 +45673,7 @@ for.end10:                                        ; preds = %for.cond2.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_0(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_bitblt_rop_fwd_0(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -45721,7 +45721,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_src_and_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_src_and_dst(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -45800,7 +45800,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_src_and_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_src_and_notdst(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -45880,7 +45880,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_notdst(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -45930,7 +45930,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_src(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_src(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -46007,7 +46007,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_1(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
+define internal void @cirrus_bitblt_rop_fwd_1(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #7 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -46055,7 +46055,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_notsrc_and_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_notsrc_and_dst(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -46135,7 +46135,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_src_xor_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_src_xor_dst(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -46214,7 +46214,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_src_or_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_src_or_dst(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -46293,7 +46293,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_notsrc_or_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_notsrc_or_notdst(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -46373,7 +46373,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_src_notxor_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_src_notxor_dst(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -46453,7 +46453,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_src_or_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_src_or_notdst(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -46533,7 +46533,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_notsrc(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_notsrc(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -46611,7 +46611,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_notsrc_or_dst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_notsrc_or_dst(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -46691,7 +46691,7 @@ for.end13:                                        ; preds = %for.cond5.for.end_c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cirrus_bitblt_rop_fwd_notsrc_and_notdst(ptr nocapture noundef readonly %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
+define internal void @cirrus_bitblt_rop_fwd_notsrc_and_notdst(ptr noundef readonly captures(none) %s, i32 noundef %dstaddr, i32 noundef %srcaddr, i32 noundef %dstpitch, i32 noundef %srcpitch, i32 noundef %bltwidth, i32 noundef %bltheight) #8 {
 entry:
   %sub = sub i32 %dstpitch, %bltwidth
   %sub1 = sub i32 %srcpitch, %bltwidth
@@ -47190,7 +47190,7 @@ if.end108:                                        ; preds = %if.then96, %if.then
 declare i32 @vga_mem_readb(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i8 @cirrus_mmio_blt_read(ptr nocapture noundef readonly %s, i32 noundef %address) unnamed_addr #0 {
+define internal fastcc zeroext i8 @cirrus_mmio_blt_read(ptr noundef readonly captures(none) %s, i32 noundef %address) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   switch i32 %address, label %do.body [
@@ -48965,10 +48965,10 @@ sw.epilog:                                        ; preds = %if.then, %do.body, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 256) i64 @cirrus_linear_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 0, 256) i64 @cirrus_linear_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %cirrus_addr_mask = getelementptr inbounds nuw i8, ptr %opaque, i64 70576
   %0 = load i32, ptr %cirrus_addr_mask, align 16
@@ -49251,7 +49251,7 @@ if.end82:                                         ; preds = %if.then22, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @cirrus_linear_bitblt_read(ptr nocapture readnone %opaque, i64 %addr, i32 %size) #0 {
+define internal noundef i64 @cirrus_linear_bitblt_read(ptr readnone captures(none) %opaque, i64 %addr, i32 %size) #0 {
 entry:
   %0 = load i32, ptr @qemu_loglevel, align 4
   %and.i = and i32 %0, 1024
@@ -49346,7 +49346,7 @@ declare void @vga_common_reset(ptr noundef) local_unnamed_addr #1
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @cirrus_vga_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @cirrus_vga_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #13
   %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.74, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #13
@@ -49462,10 +49462,10 @@ declare i32 @llvm.smin.i32(i32, i32) #10
 declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #10
@@ -49474,7 +49474,7 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #10
 declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -37,7 +37,7 @@ vm_locked.exit:                                   ; preds = %0, %4, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_vm_lock_enter_body(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 {
+define hidden void @rb_vm_lock_enter_body(ptr noundef writeonly captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %3 = getelementptr i8, ptr %2, i64 88
   %.val = load ptr, ptr %3, align 8
@@ -107,7 +107,7 @@ vm_lock_enter.exit:                               ; preds = %.lr.ph.i, %rb_curre
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_vm_lock_enter_body_nb(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #1 {
+define hidden void @rb_vm_lock_enter_body_nb(ptr noundef writeonly captures(none) initializes((0, 4)) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %3 = getelementptr i8, ptr %2, i64 88
   %.val = load ptr, ptr %3, align 8
@@ -159,7 +159,7 @@ rb_current_ractor.exit:                           ; preds = %vm_locked.exit, %vm
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_vm_lock_enter_body_cr(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @rb_vm_lock_enter_body_cr(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %4 = getelementptr i8, ptr %3, i64 88
   %.val = load ptr, ptr %4, align 8
@@ -219,7 +219,7 @@ vm_lock_enter.exit:                               ; preds = %vm_locked.exit, %.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_vm_lock_leave_body(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #1 {
+define hidden void @rb_vm_lock_leave_body(ptr noundef writeonly captures(none) initializes((0, 4)) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %4 = load i32, ptr %3, align 8
@@ -374,7 +374,7 @@ define hidden void @rb_vm_barrier() local_unnamed_addr #1 {
 declare void @rb_ractor_sched_barrier_start(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_ec_vm_lock_rec_release(ptr nocapture noundef readnone %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define hidden void @rb_ec_vm_lock_rec_release(ptr noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp ugt i32 %1, %2
   br i1 %4, label %10, label %.preheader
 

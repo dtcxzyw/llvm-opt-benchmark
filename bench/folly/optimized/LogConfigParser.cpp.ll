@@ -3553,13 +3553,13 @@ unreachable:                                      ; preds = %invoke.cont22
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly18parseLogConfigJsonENS_5RangeIPKcEE(ptr dead_on_unwind noalias writable sret(%"class.folly::LogConfig") align 8 %agg.result, ptr %value.coerce0, ptr %value.coerce1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -4318,12 +4318,12 @@ declare void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceab
 declare noundef ptr @_ZNKSt11logic_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare void @_ZN5folly17LogCategoryConfigC1ENS_8LogLevelEb(ptr noundef nonnull align 8 dereferenceable(48), i32 noundef, i1 noundef zeroext) unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA47_cNS_5RangeIPKcEEA36_cEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISE_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSH_EEEE5valueESE_E4typeEDpRKSG_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(47) %vs, ptr noundef nonnull align 8 dereferenceable(16) %vs1, ptr noundef nonnull align 1 dereferenceable(36) %vs3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -13470,7 +13470,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN5folly12_GLOBAL__N_114parseJsonLevelERKNS_7dynamicENS_5RangeIPKcEERNS_8LogLevelE(ptr noundef nonnull align 8 dereferenceable(40) %value, ptr %categoryName.coerce0, ptr %categoryName.coerce1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN5folly12_GLOBAL__N_114parseJsonLevelERKNS_7dynamicENS_5RangeIPKcEERNS_8LogLevelE(ptr noundef nonnull align 8 dereferenceable(40) %value, ptr %categoryName.coerce0, ptr %categoryName.coerce1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %categoryName = alloca %"class.folly::Range", align 8
   %levelString = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15798,7 +15798,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #20
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #20
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #21
@@ -16575,7 +16575,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly18logConfigToDynamicERKNS_9LogConfigE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.folly::dynamic") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %config) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly18logConfigToDynamicERKNS_9LogConfigE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.folly::dynamic") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %config) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %rv.i.i.i.i = alloca %"struct.std::pair.137", align 8
   %ref.tmp.i.i.i.i = alloca %"class.std::tuple.165", align 8
@@ -16906,7 +16906,7 @@ ehcleanup76:                                      ; preds = %ehcleanup74, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly18logConfigToDynamicERKNS_17LogCategoryConfigE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.folly::dynamic") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %config) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly18logConfigToDynamicERKNS_17LogCategoryConfigE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.folly::dynamic") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %config) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %rv.i.i.i.i222 = alloca %"struct.std::pair.137", align 8
   %ref.tmp.i.i.i.i223 = alloca %"class.std::tuple.165", align 8
@@ -17507,7 +17507,7 @@ ehcleanup77:                                      ; preds = %ehcleanup72, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly18logConfigToDynamicERKNS_16LogHandlerConfigE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.folly::dynamic") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %config) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly18logConfigToDynamicERKNS_16LogHandlerConfigE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.folly::dynamic") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %config) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %rv.i.i.i.i = alloca %"struct.std::pair.137", align 8
   %ref.tmp.i.i.i.i = alloca %"class.std::tuple.165", align 8
@@ -19501,7 +19501,7 @@ _ZNSt12_Vector_baseIN5folly7dynamicESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #22

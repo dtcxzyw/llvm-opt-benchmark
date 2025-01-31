@@ -689,7 +689,7 @@ opal_obj_run_destructors.exit297:                 ; preds = %.lr.ph.i294, %392
   %402 = load ptr, ptr %401, align 8
   %403 = getelementptr inbounds nuw i8, ptr %5, i64 720
   %404 = load ptr, ptr %403, align 8
-  %405 = tail call i32 %402(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %404) #4
+  %405 = tail call i32 %402(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %404) #4
   br label %599
 
 406:                                              ; preds = %352
@@ -1094,7 +1094,7 @@ init_task.exit329:                                ; preds = %.lr.ph.i.i326, %586
 declare i32 @mca_coll_han_comm_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @mca_coll_han_topo_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1102,7 +1102,7 @@ declare ptr @mca_coll_han_topo_init(ptr noundef, ptr noundef, i32 noundef) local
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_coll_han_bcast_t0_task(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @mca_coll_han_bcast_t0_task(ptr noundef captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i8, ptr @opal_uses_threads, align 1
@@ -1185,7 +1185,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_coll_han_bcast_t1_task(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @mca_coll_han_bcast_t1_task(ptr noundef captures(none) %0) #0 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40

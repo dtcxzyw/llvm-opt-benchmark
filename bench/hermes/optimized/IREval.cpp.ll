@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [5 x i8] c"null\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes17evalUnaryOperatorENS_17UnaryOperatorInst6OpKindERNS_9IRBuilderEPNS_7LiteralE(i32 noundef %kind, ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr nocapture noundef readonly %operand) local_unnamed_addr #0 {
+define hidden noundef ptr @_ZN6hermes17evalUnaryOperatorENS_17UnaryOperatorInst6OpKindERNS_9IRBuilderEPNS_7LiteralE(i32 noundef %kind, ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef readonly captures(none) %operand) local_unnamed_addr #0 {
 entry:
   switch i32 %kind, label %return [
     i32 4, label %sw.bb
@@ -310,7 +310,7 @@ declare noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnul
 declare noundef ptr @_ZN6hermes9IRBuilder13getLiteralNaNEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes10evalIsTrueERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr nocapture noundef readonly %operand) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_ZN6hermes10evalIsTrueERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef readonly captures(none) %operand) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %operand, align 8
   switch i8 %0, label %return [
@@ -365,7 +365,7 @@ declare noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(pt
 declare noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes11evalIsFalseERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr nocapture noundef readonly %operand) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_ZN6hermes11evalIsFalseERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef readonly captures(none) %operand) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %operand, align 8
   switch i8 %0, label %return [
@@ -1603,7 +1603,7 @@ return:                                           ; preds = %if.then180, %if.the
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %a.0.val, i64 %a.8.val, ptr nocapture readonly %b.0.val, i64 %b.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111buildStringERKN4llvh9StringRefES3_(ptr noalias nonnull align 8 %agg.result, ptr readonly captures(none) %a.0.val, i64 %a.8.val, ptr readonly captures(none) %b.0.val, i64 %b.8.val) unnamed_addr #0 {
 entry:
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %agg.result, align 8
@@ -1674,7 +1674,7 @@ _ZN4llvh11SmallStringILj256EE6appendENS_9StringRefE.exit19: ; preds = %if.end.i.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare noundef ptr @_ZN6hermes9IRBuilder22getLiteralPositiveZeroEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
@@ -1682,7 +1682,7 @@ declare noundef ptr @_ZN6hermes9IRBuilder22getLiteralPositiveZeroEv(ptr noundef 
 declare double @fmod(double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr nocapture noundef readonly %operand) local_unnamed_addr #0 {
+define hidden noundef ptr @_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef readonly captures(none) %operand) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %operand, align 8
   switch i8 %0, label %return [
@@ -1751,7 +1751,7 @@ return:                                           ; preds = %entry, %return.fold
 declare noundef i64 @_ZN6hermes14numberToStringEdPcm(double noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes11evalToInt32ERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr nocapture noundef readonly %operand) local_unnamed_addr #0 {
+define hidden noundef ptr @_ZN6hermes11evalToInt32ERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef readonly captures(none) %operand) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %operand, align 8
   switch i8 %0, label %if.end6.i [
@@ -1820,7 +1820,7 @@ return:                                           ; preds = %if.end6.i, %_ZN6her
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr nocapture noundef readonly %operand) local_unnamed_addr #0 {
+define hidden noundef ptr @_ZN6hermes13evalToBooleanERNS_9IRBuilderEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef readonly captures(none) %operand) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %operand, align 8
   %1 = add i8 %0, -120
@@ -1885,7 +1885,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #3

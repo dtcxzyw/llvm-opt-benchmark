@@ -721,7 +721,7 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt15dyn_ack_manager15reset_app_pairsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt15dyn_ack_manager15reset_app_pairsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_app_pairs = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_app_pairs, align 8
@@ -811,7 +811,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt15dyn_ack_manager17reset_app_triplesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt15dyn_ack_manager17reset_app_triplesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_apps = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %m_apps, align 8
@@ -1003,7 +1003,7 @@ _ZN14obj_triple_mapI3appS0_S0_jED2Ev.exit:        ; preds = %_ZN7svectorI6triple
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt15dyn_ack_manager14init_search_ehEv(ptr nocapture noundef nonnull align 8 dereferenceable(232) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt15dyn_ack_manager14init_search_ehEv(ptr noundef nonnull align 8 captures(none) dereferenceable(232) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_app_pair2num_occs = getelementptr inbounds nuw i8, ptr %this, i64 24
   %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
@@ -2199,7 +2199,7 @@ _ZN6vectorISt4pairIP3appS2_ELb0EjE3endEv.exit72:  ; preds = %_ZN6vectorISt4pairI
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3smt15dyn_ack_manager13del_clause_ehEPNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr noundef %cls) local_unnamed_addr #3 align 2 {
@@ -3103,17 +3103,17 @@ if.then:                                          ; preds = %invoke.cont22
 
 invoke.cont27:                                    ; preds = %if.then
   %27 = load ptr, ptr %m, align 8
-  %call2.i93 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %27, i32 noundef 0, i32 noundef 2, ptr noundef %n1, ptr noundef %r)
+  %call2.i93 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %27, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %n1, ptr noundef nonnull %r)
           to label %invoke.cont30 unwind label %lpad
 
 invoke.cont30:                                    ; preds = %invoke.cont27
   %28 = load ptr, ptr %m, align 8
-  %call2.i94 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %28, i32 noundef 0, i32 noundef 2, ptr noundef %n2, ptr noundef %r)
+  %call2.i94 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %28, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %n2, ptr noundef nonnull %r)
           to label %invoke.cont33 unwind label %lpad
 
 invoke.cont33:                                    ; preds = %invoke.cont30
   %29 = load ptr, ptr %m, align 8
-  %call2.i96 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %29, i32 noundef 0, i32 noundef 2, ptr noundef %n1, ptr noundef %n2)
+  %call2.i96 = invoke noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %29, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %n1, ptr noundef nonnull %n2)
           to label %invoke.cont36 unwind label %lpad
 
 invoke.cont36:                                    ; preds = %invoke.cont33
@@ -3200,7 +3200,7 @@ _ZN7sbufferIN3sat7literalELj16EED2Ev.exit:        ; preds = %cleanup, %if.end.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @_ZN3smt15dyn_ack_manager5mk_eqEP4exprS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %this, ptr noundef %n1, ptr noundef %n2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden i32 @_ZN3smt15dyn_ack_manager5mk_eqEP4exprS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %this, ptr noundef %n1, ptr noundef %n2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %eq = alloca %class.obj_ref.108, align 8
   %m = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3328,7 +3328,7 @@ _ZN6bufferIN3sat7literalELb0ELj16EED2Ev.exit:     ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt15dyn_ack_manager5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(232) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt15dyn_ack_manager5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(232) %this) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN3smt15dyn_ack_manager14init_search_ehEv(ptr noundef nonnull align 8 dereferenceable(232) %this)
   %m_instantiated = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -4082,7 +4082,7 @@ _ZN14core_hashtableIN14obj_triple_mapI3appS1_S1_jE5entryE8obj_hashINS2_8key_data
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare void @_ZN6memory10deallocateEPv(ptr noundef) local_unnamed_addr #0
 
@@ -5393,7 +5393,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -7107,7 +7107,7 @@ if.else.sink.split:                               ; preds = %_ZNSt17_Temporary_b
   %.sink = load ptr, ptr %.sink.in, align 8
   %second3.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first, i64 8
   store ptr %.sink, ptr %second3.i.i.i.i, align 8
-  invoke void @_ZSt22__stable_sort_adaptiveIPSt4pairIP3appS2_ES4_lN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt11app_pair_ltEEEEvT_SB_T0_T1_T2_(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull %call.i.i, i64 noundef %storemerge27.i.i, ptr %__comp.coerce)
+  invoke void @_ZSt22__stable_sort_adaptiveIPSt4pairIP3appS2_ES4_lN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt11app_pair_ltEEEEvT_SB_T0_T1_T2_(ptr noundef nonnull %__first, ptr noundef %__last, ptr noundef nonnull %call.i.i, i64 noundef %storemerge27.i.i, ptr %__comp.coerce)
           to label %if.end15 unwind label %lpad
 
 if.end15:                                         ; preds = %if.else.sink.split, %if.then3
@@ -12025,7 +12025,7 @@ return:                                           ; preds = %_ZNSt3_V26rotateIP6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt24__merge_sort_with_bufferIP6tripleIP3appS2_S2_ES4_N9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEEEvT_SB_T0_T1_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__buffer, ptr %__comp.coerce) local_unnamed_addr #3 comdat {
@@ -13065,10 +13065,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #17

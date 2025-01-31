@@ -1308,7 +1308,7 @@ $_ZTIZN5arrow7compute8internal22GetFunctionOptionsTypeINS0_12IndexOptionsEJNS_8i
 @_ZN5arrow7compute12IndexOptionsC1Ev = unnamed_addr alias void (ptr), ptr @_ZN5arrow7compute12IndexOptionsC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @_ZN5arrow7compute22ScalarAggregateOptionsC2Ebj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 17), (20, 24)) %this, i1 noundef zeroext %skip_nulls, i32 noundef %min_count) unnamed_addr #0 align 2 {
+define void @_ZN5arrow7compute22ScalarAggregateOptionsC2Ebj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 17), (20, 24)) %this, i1 noundef zeroext %skip_nulls, i32 noundef %min_count) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %skip_nulls to i8
   %0 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_127kScalarAggregateOptionsTypeE, align 8
@@ -1323,7 +1323,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @_ZN5arrow7compute12CountOptionsC2ENS1_9CountModeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this, i32 noundef %mode) unnamed_addr #0 align 2 {
+define void @_ZN5arrow7compute12CountOptionsC2ENS1_9CountModeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20) initializes((0, 20)) %this, i32 noundef %mode) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_117kCountOptionsTypeE, align 8
   %options_type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1335,7 +1335,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @_ZN5arrow7compute11ModeOptionsC2Elbj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 25), (28, 32)) %this, i64 noundef %n, i1 noundef zeroext %skip_nulls, i32 noundef %min_count) unnamed_addr #0 align 2 {
+define void @_ZN5arrow7compute11ModeOptionsC2Elbj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 25), (28, 32)) %this, i64 noundef %n, i1 noundef zeroext %skip_nulls, i32 noundef %min_count) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %skip_nulls to i8
   %0 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_116kModeOptionsTypeE, align 8
@@ -1352,7 +1352,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @_ZN5arrow7compute15VarianceOptionsC2Eibj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 21), (24, 28)) %this, i32 noundef %ddof, i1 noundef zeroext %skip_nulls, i32 noundef %min_count) unnamed_addr #0 align 2 {
+define void @_ZN5arrow7compute15VarianceOptionsC2Eibj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(28) initializes((0, 21), (24, 28)) %this, i32 noundef %ddof, i1 noundef zeroext %skip_nulls, i32 noundef %min_count) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %skip_nulls to i8
   %0 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_120kVarianceOptionsTypeE, align 8
@@ -1369,7 +1369,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute15QuantileOptionsC2EdNS1_13InterpolationEbj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((0, 45), (48, 52)) %this, double noundef %q, i32 noundef %interpolation, i1 noundef zeroext %skip_nulls, i32 noundef %min_count) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute15QuantileOptionsC2EdNS1_13InterpolationEbj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(52) initializes((0, 45), (48, 52)) %this, double noundef %q, i32 noundef %interpolation, i1 noundef zeroext %skip_nulls, i32 noundef %min_count) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_120kQuantileOptionsTypeE, align 8
   %options_type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1398,7 +1398,7 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow7compute15QuantileOptionsC2ESt6vectorIdSaIdEENS1_13InterpolationEbj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((0, 45), (48, 52)) %this, ptr nocapture noundef %q, i32 noundef %interpolation, i1 noundef zeroext %skip_nulls, i32 noundef %min_count) unnamed_addr #2 align 2 {
+define void @_ZN5arrow7compute15QuantileOptionsC2ESt6vectorIdSaIdEENS1_13InterpolationEbj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(52) initializes((0, 45), (48, 52)) %this, ptr noundef captures(none) %q, i32 noundef %interpolation, i1 noundef zeroext %skip_nulls, i32 noundef %min_count) unnamed_addr #2 align 2 {
 entry:
   %frombool = zext i1 %skip_nulls to i8
   %0 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_120kQuantileOptionsTypeE, align 8
@@ -1427,7 +1427,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute14TDigestOptionsC2Edjjbj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 49), (52, 56)) %this, double noundef %q, i32 noundef %delta, i32 noundef %buffer_size, i1 noundef zeroext %skip_nulls, i32 noundef %min_count) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute14TDigestOptionsC2Edjjbj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((0, 49), (52, 56)) %this, double noundef %q, i32 noundef %delta, i32 noundef %buffer_size, i1 noundef zeroext %skip_nulls, i32 noundef %min_count) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_119kTDigestOptionsTypeE, align 8
   %options_type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1456,7 +1456,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow7compute14TDigestOptionsC2ESt6vectorIdSaIdEEjjbj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 49), (52, 56)) %this, ptr nocapture noundef %q, i32 noundef %delta, i32 noundef %buffer_size, i1 noundef zeroext %skip_nulls, i32 noundef %min_count) unnamed_addr #2 align 2 {
+define void @_ZN5arrow7compute14TDigestOptionsC2ESt6vectorIdSaIdEEjjbj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((0, 49), (52, 56)) %this, ptr noundef captures(none) %q, i32 noundef %delta, i32 noundef %buffer_size, i1 noundef zeroext %skip_nulls, i32 noundef %min_count) unnamed_addr #2 align 2 {
 entry:
   %frombool = zext i1 %skip_nulls to i8
   %0 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_119kTDigestOptionsTypeE, align 8
@@ -1487,7 +1487,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow7compute12IndexOptionsC2ESt10shared_ptrINS_6ScalarEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr nocapture noundef %value) unnamed_addr #2 align 2 {
+define void @_ZN5arrow7compute12IndexOptionsC2ESt10shared_ptrINS_6ScalarEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %this, ptr noundef captures(none) %value) unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr @_ZN5arrow7compute8internal12_GLOBAL__N_117kIndexOptionsTypeE, align 8
   %options_type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1507,7 +1507,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute12IndexOptionsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute12IndexOptionsC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN5arrow10NullScalarEED2Ev.exit:
   %__a.i = alloca %"class.std::allocator.80", align 1
   %ref.tmp = alloca %"class.std::shared_ptr.16", align 8
@@ -5200,7 +5200,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
@@ -6659,7 +6659,7 @@ _ZN5arrow6ScalarD2Ev.exit:                        ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #12
@@ -10783,7 +10783,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIbEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %value.0.val) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIbEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %agg.result, ptr readonly captures(none) %value.0.val) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -11471,7 +11471,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %value.0.val) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %agg.result, ptr readonly captures(none) %value.0.val) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -23579,7 +23579,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internalL15GenericToStringIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISA_EE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %value) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internalL15GenericToStringIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISA_EE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %value) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -23852,7 +23852,7 @@ eh.resume:                                        ; preds = %lpad18, %lpad.i37, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow7compute8internal18ToStructScalarImplINS0_15QuantileOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorIdSaIdEEEEEEvRKT_m(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(24) %prop, i64 noundef %0) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -24636,7 +24636,7 @@ ehcleanup:                                        ; preds = %lpad20, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internalL15GenericToScalarIdEENS_6ResultISt10shared_ptrINS_6ScalarEEEERKSt6vectorIT_SaIS9_EE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %value) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internalL15GenericToScalarIdEENS_6ResultISt10shared_ptrINS_6ScalarEEEERKSt6vectorIT_SaIS9_EE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %value) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::shared_ptr", align 8
   %type = alloca %"class.std::shared_ptr.87", align 8
@@ -26419,7 +26419,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow10ListScalarESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 comdat align 2 {
@@ -28722,7 +28722,7 @@ eh.resume:                                        ; preds = %ehcleanup46, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarISt6vectorIdSaIdEEEENSt9enable_ifIXsr3std7is_sameINS_11CTypeTraitsIT_E9ArrowTypeENS_8ListTypeEEE5valueENS_6ResultIS8_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %value.0.val) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarISt6vectorIdSaIdEEEENSt9enable_ifIXsr3std7is_sameINS_11CTypeTraitsIT_E9ArrowTypeENS_8ListTypeEEE5valueENS_6ResultIS8_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %agg.result, ptr readonly captures(none) %value.0.val) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.arrow::Status", align 8
@@ -35705,10 +35705,10 @@ __cxx_global_var_init.14.exit:                    ; preds = %__cxx_global_var_in
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18

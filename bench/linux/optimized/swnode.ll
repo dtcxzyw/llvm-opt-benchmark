@@ -623,7 +623,7 @@ define dso_local ptr @software_node_find_by_name(ptr noundef readnone %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @kobject_get(ptr noundef) local_unnamed_addr #2
@@ -1608,7 +1608,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local noalias ptr @kstrdup(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -1659,7 +1659,7 @@ define internal void @software_node_put(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal zeroext i1 @software_node_property_present(ptr noundef readonly %0, ptr nocapture noundef readonly %1) #8 align 16 {
+define internal zeroext i1 @software_node_property_present(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) #8 align 16 {
   %3 = icmp eq ptr %0, null
   %4 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %5 = or i1 %3, %4
@@ -1712,7 +1712,7 @@ define internal zeroext i1 @software_node_property_present(ptr noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal i32 @software_node_read_int_array(ptr noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3, i64 noundef %4) #9 align 16 {
+define internal i32 @software_node_read_int_array(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly %3, i64 noundef %4) #9 align 16 {
   %6 = icmp eq ptr %0, null
   %7 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %8 = or i1 %6, %7
@@ -1851,7 +1851,7 @@ property_entry_read_int_array.exit:               ; preds = %30, %21, %23, %34, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal i32 @software_node_read_string_array(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2, i64 noundef %3) #9 align 16 {
+define internal i32 @software_node_read_string_array(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2, i64 noundef %3) #9 align 16 {
   %5 = icmp eq ptr %0, null
   %6 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %7 = or i1 %5, %6
@@ -2134,7 +2134,7 @@ define internal ptr @software_node_get_next_child(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @software_node_get_named_child_node(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal ptr @software_node_get_named_child_node(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = icmp eq ptr %0, null
   %4 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %5 = or i1 %3, %4
@@ -2180,7 +2180,7 @@ define internal ptr @software_node_get_named_child_node(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @software_node_get_reference_args(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5) #1 align 16 {
+define internal i32 @software_node_get_reference_args(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5) #1 align 16 {
   %7 = icmp eq ptr %0, null
   %8 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %9 = or i1 %7, %8
@@ -2949,10 +2949,10 @@ define internal fastcc ptr @swnode_graph_find_next_port(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @kstrtouint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2

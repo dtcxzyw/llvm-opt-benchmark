@@ -654,7 +654,7 @@ return:                                           ; preds = %if.end21, %if.then2
 declare void @addReply(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, 1) i32 @scriptSetResp(ptr nocapture noundef readonly %run_ctx, i32 noundef %resp) local_unnamed_addr #7 {
+define dso_local range(i32 -1, 1) i32 @scriptSetResp(ptr noundef readonly captures(none) %run_ctx, i32 noundef %resp) local_unnamed_addr #7 {
 entry:
   %0 = add i32 %resp, -4
   %or.cond = icmp ult i32 %0, -2
@@ -673,7 +673,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 -1, 1) i32 @scriptSetRepl(ptr nocapture noundef writeonly %run_ctx, i32 noundef %repl) local_unnamed_addr #8 {
+define dso_local range(i32 -1, 1) i32 @scriptSetRepl(ptr noundef writeonly captures(none) %run_ctx, i32 noundef %repl) local_unnamed_addr #8 {
 entry:
   %cmp.not = icmp ult i32 %repl, 4
   br i1 %cmp.not, label %if.end, label %return
@@ -689,7 +689,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @scriptCall(ptr nocapture noundef %run_ctx, ptr nocapture noundef %err) local_unnamed_addr #2 {
+define dso_local void @scriptCall(ptr noundef captures(none) %run_ctx, ptr noundef captures(none) %err) local_unnamed_addr #2 {
 entry:
   %acl_errpos.i = alloca i32, align 4
   %c1 = getelementptr inbounds nuw i8, ptr %run_ctx, i64 8
@@ -973,7 +973,7 @@ declare ptr @lookupCommand(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare ptr @sdsnew(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @scriptVerifyOOM(ptr nocapture noundef readonly %run_ctx, ptr nocapture noundef writeonly %err) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @scriptVerifyOOM(ptr noundef readonly captures(none) %run_ctx, ptr noundef writeonly captures(none) %err) unnamed_addr #2 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %run_ctx, i64 24
   %0 = load i32, ptr %flags, align 8
@@ -1025,7 +1025,7 @@ return:                                           ; preds = %land.lhs.true, %lan
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @scriptVerifyClusterState(ptr nocapture noundef readonly %run_ctx, ptr noundef %c, ptr noundef %original_c, ptr nocapture noundef writeonly %err) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @scriptVerifyClusterState(ptr noundef readonly captures(none) %run_ctx, ptr noundef %c, ptr noundef %original_c, ptr noundef writeonly captures(none) %err) unnamed_addr #2 {
 entry:
   %error_code = alloca i32, align 4
   %hashslot = alloca i32, align 4
@@ -1201,10 +1201,10 @@ declare ptr @sdscatfmt(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 declare ptr @sdsempty() local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

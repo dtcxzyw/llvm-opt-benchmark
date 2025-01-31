@@ -147,19 +147,19 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
   %82 = tail call i32 %81(ptr noundef %73, i32 42796, i1 noundef zeroext true) #6
   store i32 %82, ptr %.sroa.5, align 4
   %.promoted = load i8, ptr %61, align 8
-  %.promoted36 = load i16, ptr %62, align 8
-  %.promoted37 = load i8, ptr %63, align 2
+  %.promoted20 = load i16, ptr %62, align 8
+  %.promoted21 = load i8, ptr %63, align 2
   br label %83
 
 83:                                               ; preds = %114, %72
-  %84 = phi i8 [ %.promoted37, %72 ], [ %115, %114 ]
-  %85 = phi i16 [ %.promoted36, %72 ], [ %116, %114 ]
+  %84 = phi i8 [ %.promoted21, %72 ], [ %115, %114 ]
+  %85 = phi i16 [ %.promoted20, %72 ], [ %116, %114 ]
   %86 = phi i8 [ %.promoted, %72 ], [ %117, %114 ]
   %87 = phi i1 [ true, %72 ], [ false, %114 ]
   %.sroa.phi = phi ptr [ %.sroa.0, %72 ], [ %.sroa.5, %114 ]
-  %.sroa.phi25.sroa.speculated = phi i32 [ %76, %72 ], [ %78, %114 ]
+  %.sroa.phi32.sroa.speculated = phi i32 [ %76, %72 ], [ %78, %114 ]
   %88 = phi i8 [ 0, %72 ], [ 1, %114 ]
-  %89 = and i32 %.sroa.phi25.sroa.speculated, 2
+  %89 = and i32 %.sroa.phi32.sroa.speculated, 2
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %91, label %114
 
@@ -168,14 +168,14 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
   %92 = shl nuw nsw i8 1, %88
   %93 = or i8 %86, %92
   store i8 %93, ptr %61, align 8
-  %94 = lshr i32 %.sroa.phi25.sroa.speculated, 8
+  %94 = lshr i32 %.sroa.phi32.sroa.speculated, 8
   %95 = and i32 %94, 2
   %96 = xor i32 %95, 2
-  %97 = lshr i32 %.sroa.phi25.sroa.speculated, 16
+  %97 = lshr i32 %.sroa.phi32.sroa.speculated, 16
   %98 = and i32 %97, 2
   %99 = xor i32 %98, 2
   %100 = add nuw nsw i32 %96, %99
-  %101 = lshr i32 %.sroa.phi25.sroa.speculated, 24
+  %101 = lshr i32 %.sroa.phi32.sroa.speculated, 24
   %102 = and i32 %101, 2
   %103 = xor i32 %102, 2
   %104 = add nuw nsw i32 %100, %103
@@ -255,24 +255,24 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
   %150 = zext i8 %149 to i32
   %151 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %150, i32 -1) #9, !srcloc !11
   %152 = icmp ult i32 %151, 2147483647
-  br i1 %152, label %.lr.ph21, label %.loopexit18
+  br i1 %152, label %.lr.ph24, label %.loopexit18
 
-.lr.ph21:                                         ; preds = %._crit_edge, %.lr.ph21
-  %153 = phi i16 [ %160, %.lr.ph21 ], [ %148, %._crit_edge ]
-  %154 = phi i64 [ %161, %.lr.ph21 ], [ 0, %._crit_edge ]
-  %155 = getelementptr [3 x i8], ptr %66, i64 0, i64 %154
+.lr.ph24:                                         ; preds = %._crit_edge, %.lr.ph24
+  %153 = phi i64 [ %161, %.lr.ph24 ], [ 0, %._crit_edge ]
+  %154 = phi i16 [ %160, %.lr.ph24 ], [ %148, %._crit_edge ]
+  %155 = getelementptr [3 x i8], ptr %66, i64 0, i64 %153
   %156 = load i8, ptr %155, align 1
   %157 = zext i8 %156 to i32
   %158 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %157) #7, !srcloc !7
   %159 = trunc i32 %158 to i16
-  %160 = sub i16 %153, %159
+  %160 = sub i16 %154, %159
   store i16 %160, ptr %62, align 8
-  %161 = add nuw nsw i64 %154, 1
+  %161 = add nuw nsw i64 %153, 1
   %162 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %150, i32 -1) #9, !srcloc !11
   %163 = add i32 %162, 1
   %164 = sext i32 %163 to i64
   %165 = icmp slt i64 %161, %164
-  br i1 %165, label %.lr.ph21, label %.loopexit18, !llvm.loop !13
+  br i1 %165, label %.lr.ph24, label %.loopexit18, !llvm.loop !13
 
 166:                                              ; preds = %119
   %167 = load i8, ptr %10, align 8
@@ -328,11 +328,11 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
   br i1 %199, label %.loopexit15, label %200
 
 200:                                              ; preds = %198
-  %.promoted41 = load i8, ptr %48, align 8
+  %.promoted28 = load i8, ptr %48, align 8
   br label %201
 
 201:                                              ; preds = %.loopexit, %200
-  %202 = phi i8 [ %.promoted41, %200 ], [ %281, %.loopexit ]
+  %202 = phi i8 [ %.promoted28, %200 ], [ %281, %.loopexit ]
   %203 = phi i64 [ 0, %200 ], [ %282, %.loopexit ]
   %204 = getelementptr [3 x i32], ptr %6, i64 0, i64 %203
   %205 = load i32, ptr %204, align 4
@@ -516,11 +516,11 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
   br i1 %324, label %.loopexit17, label %325
 
 325:                                              ; preds = %323
-  %.promoted40 = load i8, ptr %48, align 8
+  %.promoted27 = load i8, ptr %48, align 8
   br label %326
 
 326:                                              ; preds = %.loopexit16, %325
-  %327 = phi i8 [ %.promoted40, %325 ], [ %401, %.loopexit16 ]
+  %327 = phi i8 [ %.promoted27, %325 ], [ %401, %.loopexit16 ]
   %328 = phi i64 [ 0, %325 ], [ %402, %.loopexit16 ]
   %329 = getelementptr [8 x i32], ptr %3, i64 0, i64 %328
   %330 = load i32, ptr %329, align 4
@@ -548,13 +548,13 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
   %346 = trunc i64 %328 to i32
   %347 = shl i32 %346, 1
   %348 = zext i8 %340 to i32
-  %.pre30 = load i16, ptr %62, align 8
-  %.pre31 = load i8, ptr %63, align 2
+  %.promoted25 = load i16, ptr %62, align 8
+  %.promoted26 = load i8, ptr %63, align 2
   br i1 %345, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %342, %.split.us
-  %349 = phi i8 [ %368, %.split.us ], [ %.pre31, %342 ]
-  %350 = phi i16 [ %365, %.split.us ], [ %.pre30, %342 ]
+  %349 = phi i8 [ %368, %.split.us ], [ %.promoted26, %342 ]
+  %350 = phi i16 [ %365, %.split.us ], [ %.promoted25, %342 ]
   %351 = phi i32 [ %369, %.split.us ], [ 0, %342 ]
   %352 = and i32 %351, 1
   %353 = zext nneg i32 %352 to i64
@@ -580,8 +580,8 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
   br i1 %370, label %.loopexit16, label %.split.us, !llvm.loop !19
 
 .split:                                           ; preds = %342, %396
-  %371 = phi i8 [ %397, %396 ], [ %.pre31, %342 ]
-  %372 = phi i16 [ %398, %396 ], [ %.pre30, %342 ]
+  %371 = phi i8 [ %397, %396 ], [ %.promoted26, %342 ]
+  %372 = phi i16 [ %398, %396 ], [ %.promoted25, %342 ]
   %373 = phi i32 [ %399, %396 ], [ 0, %342 ]
   %374 = shl nuw i32 %373, 1
   %375 = shl nuw i32 4, %374
@@ -630,7 +630,7 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #6
   br label %.loopexit18
 
-.loopexit18:                                      ; preds = %.lr.ph21, %._crit_edge, %.loopexit17, %284, %.loopexit15, %122, %118
+.loopexit18:                                      ; preds = %.lr.ph24, %._crit_edge, %.loopexit17, %284, %.loopexit15, %122, %118
   tail call void @intel_runtime_pm_put_unchecked(ptr noundef nonnull %57) #6
   br label %404
 
@@ -662,7 +662,7 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @seq_puts(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -677,7 +677,7 @@ declare dso_local i64 @intel_runtime_pm_get(ptr noundef) local_unnamed_addr #2
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_sseu_debugfs_register(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
@@ -701,7 +701,7 @@ declare dso_local void @intel_sseu_print_ss_info(ptr noundef, ptr noundef, ptr n
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @intel_runtime_pm_put_unchecked(ptr noundef) local_unnamed_addr #2
@@ -713,7 +713,7 @@ declare dso_local i64 @seq_lseek(ptr noundef, i64 noundef, i32 noundef) #2
 declare dso_local i64 @seq_read(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @sseu_status_open(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i32 @sseu_status_open(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @single_open(ptr noundef %1, ptr noundef nonnull @sseu_status_show, ptr noundef %4) #6
@@ -727,7 +727,7 @@ declare dso_local i32 @single_release(ptr noundef, ptr noundef) #2
 declare dso_local i32 @single_open(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -19, 1) i32 @sseu_status_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @sseu_status_show(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @intel_sseu_status(ptr noundef %0, ptr noundef %4), !range !21
@@ -735,7 +735,7 @@ define internal noundef range(i32 -19, 1) i32 @sseu_status_show(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @sseu_topology_open(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i32 @sseu_topology_open(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @single_open(ptr noundef %1, ptr noundef nonnull @sseu_topology_show, ptr noundef %4) #6
@@ -743,7 +743,7 @@ define internal i32 @sseu_topology_open(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @sseu_topology_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef i32 @sseu_topology_show(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = alloca %struct.drm_printer, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8

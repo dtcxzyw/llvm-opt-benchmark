@@ -231,7 +231,7 @@ define void @_ZN4LIEF2PE12ResourceDataC2Ev(ptr noundef nonnull align 8 dereferen
 declare void @_ZN4LIEF2PE12ResourceNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(76)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4LIEF2PE12ResourceDataC2ESt6vectorIhSaIhEEj(ptr noundef nonnull align 8 dereferenceable(116) %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #3 align 2 {
+define void @_ZN4LIEF2PE12ResourceDataC2ESt6vectorIhSaIhEEj(ptr noundef nonnull align 8 dereferenceable(116) %0, ptr noundef captures(none) %1, i32 noundef %2) unnamed_addr #3 align 2 {
   tail call void @_ZN4LIEF2PE12ResourceNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4LIEF2PE12ResourceDataE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -258,14 +258,14 @@ define void @_ZN4LIEF2PE12ResourceDataC2ESt6vectorIhSaIhEEj(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK4LIEF2PE12ResourceData9code_pageEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %0) local_unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK4LIEF2PE12ResourceData9code_pageEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(116) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { ptr, i64 } @_ZNK4LIEF2PE12ResourceData7contentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %0) local_unnamed_addr #5 align 2 {
+define { ptr, i64 } @_ZNK4LIEF2PE12ResourceData7contentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(116) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -279,7 +279,7 @@ define { ptr, i64 } @_ZNK4LIEF2PE12ResourceData7contentEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { ptr, i64 } @_ZN4LIEF2PE12ResourceData7contentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %0) local_unnamed_addr #5 align 2 {
+define { ptr, i64 } @_ZN4LIEF2PE12ResourceData7contentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(116) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -293,21 +293,21 @@ define { ptr, i64 } @_ZN4LIEF2PE12ResourceData7contentEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK4LIEF2PE12ResourceData8reservedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %0) local_unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK4LIEF2PE12ResourceData8reservedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(116) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK4LIEF2PE12ResourceData6offsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %0) local_unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK4LIEF2PE12ResourceData6offsetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(116) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE12ResourceData9code_pageEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(116) initializes((104, 108)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN4LIEF2PE12ResourceData9code_pageEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(116) initializes((104, 108)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %1, ptr %3, align 8
   ret void
@@ -431,7 +431,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEENS1_IPhS6_EEET0_T
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE12ResourceData8reservedEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(116) initializes((108, 112)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN4LIEF2PE12ResourceData8reservedEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(116) initializes((108, 112)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 %1, ptr %3, align 4
   ret void
@@ -574,13 +574,13 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

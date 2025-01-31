@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._zend_try_catch_element = type { i32, i32, i32, i32 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zend_optimizer_nop_removal(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden void @zend_optimizer_nop_removal(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
@@ -103,7 +103,7 @@ define hidden void @zend_optimizer_nop_removal(ptr noundef %0, ptr nocapture nou
   %51 = zext i32 %.0108122 to i64
   %52 = getelementptr inbounds nuw %struct._zend_op, ptr %50, i64 %51
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %.0107123, i64 32, i1 false)
-  tail call void @zend_optimizer_migrate_jump(ptr noundef %0, ptr noundef %52, ptr noundef nonnull %.0107123) #5
+  tail call void @zend_optimizer_migrate_jump(ptr noundef %0, ptr noundef nonnull %52, ptr noundef nonnull %.0107123) #5
   br label %53
 
 53:                                               ; preds = %49, %47
@@ -209,7 +209,7 @@ define hidden void @zend_optimizer_nop_removal(ptr noundef %0, ptr nocapture nou
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @zend_optimizer_migrate_jump(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 

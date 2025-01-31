@@ -52,7 +52,7 @@ define range(i32 0, 2) i32 @lv_image_cache_init(i32 noundef %0) local_unnamed_ad
 declare ptr @lv_cache_create(ptr noundef, i64 noundef, i64 noundef, ptr noundef byval(%struct._lv_cache_ops_t) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal signext range(i8 -1, 2) i8 @image_cache_compare_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal signext range(i8 -1, 2) i8 @image_cache_compare_cb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -100,7 +100,7 @@ image_cache_common_compare.exit:                  ; preds = %13, %17, %20, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @image_cache_free_cb(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal void @image_cache_free_cb(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !27
   %5 = tail call zeroext i1 @lv_draw_buf_has_flag(ptr noundef %4, i32 noundef 16) #4
@@ -182,17 +182,17 @@ declare void @lv_image_header_cache_drop(ptr noundef) local_unnamed_addr #1
 declare void @lv_cache_drop_all(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @lv_image_src_get_type(ptr noundef) local_unnamed_addr #1
 
 declare void @lv_cache_drop(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @lv_image_cache_is_enabled() local_unnamed_addr #0 {

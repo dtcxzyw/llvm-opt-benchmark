@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [50 x i8] c"Kit_PlaToTruth(): SOP is represented incorrectly.\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Kit_PlaIsConst0(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Kit_PlaIsConst0(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, 32
   br i1 %3, label %4, label %9
@@ -27,7 +27,7 @@ define range(i32 0, 2) i32 @Kit_PlaIsConst0(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Kit_PlaIsConst1(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Kit_PlaIsConst1(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, 32
   br i1 %3, label %4, label %9
@@ -45,7 +45,7 @@ define range(i32 0, 2) i32 @Kit_PlaIsConst1(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Kit_PlaIsBuf(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Kit_PlaIsBuf(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 1
   %.not = icmp eq i8 %3, 0
@@ -79,7 +79,7 @@ define range(i32 0, 2) i32 @Kit_PlaIsBuf(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Kit_PlaIsInv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Kit_PlaIsInv(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 1
   %.not = icmp eq i8 %3, 0
@@ -169,7 +169,7 @@ define i32 @Kit_PlaGetCubeNum(ptr noundef readonly %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Kit_PlaIsComplement(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Kit_PlaIsComplement(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   br label %2
 
 2:                                                ; preds = %10, %1
@@ -199,7 +199,7 @@ define range(i32 0, 2) i32 @Kit_PlaIsComplement(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Kit_PlaComplement(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @Kit_PlaComplement(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   br label %2
 
 2:                                                ; preds = %10, %1
@@ -282,10 +282,10 @@ define ptr @Kit_PlaStart(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_u
 declare ptr @Aig_MmFlexEntryFetch(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define ptr @Kit_PlaCreateFromIsop(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
+define ptr @Kit_PlaCreateFromIsop(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
   %4 = getelementptr i8, ptr %2, i64 4
   %.val = load i32, ptr %4, align 4
   %5 = icmp eq i32 %.val, 0
@@ -385,7 +385,7 @@ Kit_PlaStart.exit:                                ; preds = %16, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Kit_PlaToIsop(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
+define void @Kit_PlaToIsop(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
   br label %3
 
 3:                                                ; preds = %5, %2
@@ -618,7 +618,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Kit_PlaStoreSop(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define noundef ptr @Kit_PlaStoreSop(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
   %4 = trunc i64 %3 to i32
   %5 = add i32 %4, 1
@@ -628,10 +628,10 @@ define noundef ptr @Kit_PlaStoreSop(ptr noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define ptr @Kit_PlaFromTruth(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
@@ -818,7 +818,7 @@ Kit_PlaComplement.exit:                           ; preds = %.preheader, %Kit_Pl
 declare i32 @Kit_TruthIsop(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Kit_PlaFromIsop(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
+define ptr @Kit_PlaFromIsop(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
   %4 = getelementptr i8, ptr %2, i64 4
   %.val26 = load i32, ptr %4, align 4
   %5 = icmp eq i32 %.val26, 0
@@ -1307,7 +1307,7 @@ Vec_StrPush.exit70:                               ; preds = %.Vec_StrGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Kit_PlaFromTruthNew(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #3 {
+define ptr @Kit_PlaFromTruthNew(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #3 {
   %5 = tail call i32 @Kit_TruthIsop(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef 1) #12
   %6 = getelementptr i8, ptr %2, i64 4
   %.val20 = load i32, ptr %6, align 4
@@ -1513,7 +1513,7 @@ Kit_PlaComplement.exit:                           ; preds = %.preheader, %70, %V
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @Kit_PlaToTruth6(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define i64 @Kit_PlaToTruth6(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph.us.preheader, label %.preheader
 
@@ -1603,7 +1603,7 @@ Kit_PlaIsComplement.exit.thread:                  ; preds = %22, %Kit_PlaIsCompl
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Kit_PlaToTruth(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #8 {
+define void @Kit_PlaToTruth(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #8 {
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
   %7 = add nsw i32 %1, 3
   %8 = sext i32 %7 to i64
@@ -1807,13 +1807,13 @@ Kit_TruthNot.exit:                                ; preds = %select.unfold.i62, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

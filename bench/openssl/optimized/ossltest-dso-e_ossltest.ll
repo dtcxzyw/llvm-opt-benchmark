@@ -44,7 +44,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @bind_engine(ptr noundef %e, ptr noundef readonly %id, ptr nocapture noundef readonly %fns) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @bind_engine(ptr noundef %e, ptr noundef readonly %id, ptr noundef readonly captures(none) %fns) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @ENGINE_get_static_state() #8
   %0 = load ptr, ptr %fns, align 8
@@ -124,7 +124,7 @@ declare i32 @ENGINE_free(ptr noundef) local_unnamed_addr #2
 declare void @ERR_clear_error() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @bind_ossltest(ptr noundef %e) unnamed_addr #1 {
@@ -228,7 +228,7 @@ declare i32 @ENGINE_set_name(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @ENGINE_set_digests(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ossltest_digests(ptr nocapture readnone %e, ptr noundef writeonly %digest, ptr nocapture noundef writeonly %nids, i32 noundef %nid) #1 {
+define internal i32 @ossltest_digests(ptr readnone captures(none) %e, ptr noundef writeonly %digest, ptr noundef writeonly captures(none) %nids, i32 noundef %nid) #1 {
 entry:
   %tobool.not = icmp eq ptr %digest, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -379,7 +379,7 @@ return:                                           ; preds = %sw.bb, %sw.bb2, %sw
 declare i32 @ENGINE_set_ciphers(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 4) i32 @ossltest_ciphers(ptr nocapture readnone %e, ptr noundef writeonly %cipher, ptr nocapture noundef writeonly %nids, i32 noundef %nid) #1 {
+define internal range(i32 0, 4) i32 @ossltest_ciphers(ptr readnone captures(none) %e, ptr noundef writeonly %cipher, ptr noundef writeonly captures(none) %nids, i32 noundef %nid) #1 {
 entry:
   %tobool.not = icmp eq ptr %cipher, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -593,7 +593,7 @@ declare i32 @ENGINE_set_RAND(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @ENGINE_set_destroy_function(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ossltest_destroy(ptr nocapture readnone %e) #1 {
+define internal noundef i32 @ossltest_destroy(ptr readnone captures(none) %e) #1 {
 entry:
   %0 = load ptr, ptr @_hidden_md5_md, align 8
   tail call void @EVP_MD_meth_free(ptr noundef %0) #8
@@ -635,7 +635,7 @@ ERR_unload_OSSLTEST_strings.exit:                 ; preds = %entry, %if.then.i
 declare i32 @ENGINE_set_load_privkey_function(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ossltest_load_privkey(ptr nocapture readnone %eng, ptr noundef %key_id, ptr nocapture readnone %ui_method, ptr nocapture readnone %ui_data) #1 {
+define internal ptr @ossltest_load_privkey(ptr readnone captures(none) %eng, ptr noundef %key_id, ptr readnone captures(none) %ui_method, ptr readnone captures(none) %ui_data) #1 {
 entry:
   %call.i = tail call i32 @OPENSSL_strncasecmp(ptr noundef %key_id, ptr noundef nonnull @.str.4, i64 noundef 3) #8
   %cmp.i = icmp eq i32 %call.i, 0
@@ -662,7 +662,7 @@ load_key.exit:                                    ; preds = %entry, %cond.true.i
 declare i32 @ENGINE_set_load_pubkey_function(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ossltest_load_pubkey(ptr nocapture readnone %eng, ptr noundef %key_id, ptr nocapture readnone %ui_method, ptr nocapture readnone %ui_data) #1 {
+define internal ptr @ossltest_load_pubkey(ptr readnone captures(none) %eng, ptr noundef %key_id, ptr readnone captures(none) %ui_method, ptr readnone captures(none) %ui_data) #1 {
 entry:
   %call.i = tail call i32 @OPENSSL_strncasecmp(ptr noundef %key_id, ptr noundef nonnull @.str.4, i64 noundef 3) #8
   %cmp.i = icmp eq i32 %call.i, 0
@@ -689,7 +689,7 @@ load_key.exit:                                    ; preds = %entry, %cond.true.i
 declare i32 @ENGINE_set_init_function(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @ossltest_init(ptr nocapture readnone %e) #0 {
+define internal noundef i32 @ossltest_init(ptr readnone captures(none) %e) #0 {
 entry:
   ret i32 1
 }
@@ -697,7 +697,7 @@ entry:
 declare i32 @ENGINE_set_finish_function(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @ossltest_finish(ptr nocapture readnone %e) #0 {
+define internal noundef i32 @ossltest_finish(ptr readnone captures(none) %e) #0 {
 entry:
   ret i32 1
 }
@@ -1314,7 +1314,7 @@ declare ptr @EVP_CIPHER_meth_get_init(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @EVP_CIPHER_meth_get_do_cipher(ptr noundef) local_unnamed_addr #2
 
@@ -1397,10 +1397,10 @@ declare ptr @EVP_aes_128_gcm() local_unnamed_addr #2
 declare ptr @EVP_CIPHER_meth_get_ctrl(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ossltest_aes128_cbc_hmac_sha1_init_key(ptr noundef %ctx, ptr nocapture readnone %inkey, ptr nocapture readnone %iv, i32 %enc) #1 {
+define internal noundef i32 @ossltest_aes128_cbc_hmac_sha1_init_key(ptr noundef %ctx, ptr readnone captures(none) %inkey, ptr readnone captures(none) %iv, i32 %enc) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #8
   store i64 -1, ptr %call, align 8
@@ -1408,7 +1408,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ossltest_aes128_cbc_hmac_sha1_cipher(ptr noundef %ctx, ptr nocapture noundef %out, ptr nocapture noundef readonly %in, i64 noundef %len) #1 {
+define internal range(i32 0, 2) i32 @ossltest_aes128_cbc_hmac_sha1_cipher(ptr noundef %ctx, ptr noundef captures(none) %out, ptr noundef readonly captures(none) %in, i64 noundef %len) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #8
   %0 = load i64, ptr %call, align 8
@@ -1530,7 +1530,7 @@ return:                                           ; preds = %for.body54, %for.co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -65503, 65572) i32 @ossltest_aes128_cbc_hmac_sha1_ctrl(ptr noundef %ctx, i32 noundef %type, i32 noundef %arg, ptr nocapture noundef %ptr) #1 {
+define internal range(i32 -65503, 65572) i32 @ossltest_aes128_cbc_hmac_sha1_ctrl(ptr noundef %ctx, i32 noundef %type, i32 noundef %arg, ptr noundef captures(none) %ptr) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #8
   switch i32 %type, label %sw.default [
@@ -1617,10 +1617,10 @@ declare ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef) local_unnamed_addr #2
 declare i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal noundef i32 @ossltest_rand_bytes(ptr nocapture noundef writeonly %buf, i32 noundef %num) #6 {
+define internal noundef i32 @ossltest_rand_bytes(ptr noundef writeonly captures(none) %buf, i32 noundef %num) #6 {
 entry:
   %cmp1 = icmp sgt i32 %num, 0
   br i1 %cmp1, label %while.body, label %while.end
@@ -1651,7 +1651,7 @@ declare i32 @ERR_unload_strings(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @OPENSSL_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare ptr @BIO_new_file(ptr noundef, ptr noundef) local_unnamed_addr #2
 

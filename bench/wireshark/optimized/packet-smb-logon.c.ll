@@ -302,7 +302,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_smb_logon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_smb_logon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.143) #2
@@ -365,7 +365,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_smb_unknown(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal i32 @dissect_smb_unknown(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = load i32, ptr @hf_data, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef 0) #2
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #2
@@ -578,7 +578,7 @@ display_LMNT_token.exit:                          ; preds = %31, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_smb_pdc_failure(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal noundef i32 @dissect_smb_pdc_failure(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = load i32, ptr @hf_nt_version, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648) #2
   %7 = add i32 %3, 4
@@ -708,7 +708,7 @@ define internal i32 @dissect_smb_no_user(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_smb_relogon_resp(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal noundef i32 @dissect_smb_relogon_resp(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = load i32, ptr @hf_major_version, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef -2147483648) #2
   %7 = add i32 %3, 1
@@ -733,7 +733,7 @@ define internal noundef i32 @dissect_smb_relogon_resp(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_smb_inter_resp(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal noundef i32 @dissect_smb_inter_resp(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = load i32, ptr @hf_major_version, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef -2147483648) #2
   %7 = add i32 %3, 1

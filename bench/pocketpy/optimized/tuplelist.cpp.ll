@@ -55,7 +55,7 @@ define void @_ZN4pkpy5TupleC2Ei(ptr noundef nonnull align 8 dereferenceable(36) 
 declare noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4pkpy5TupleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1) unnamed_addr #3 align 2 {
+define void @_ZN4pkpy5TupleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp slt i32 %4, 4
@@ -144,7 +144,7 @@ define void @_ZN4pkpy5TupleC2EOS0_(ptr noundef nonnull align 8 dereferenceable(3
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4pkpy5TupleC2EONS_10pod_vectorIPNS_8PyObjectELi4EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 8), (32, 36)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy5TupleC2EONS_10pod_vectorIPNS_8PyObjectELi4EEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(36) initializes((0, 8), (32, 36)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %3, ptr %4, align 8
@@ -182,7 +182,7 @@ define void @_ZN4pkpy5TupleC2EPNS_8PyObjectES2_S2_(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4pkpy5TupleC2EPNS_8PyObjectES2_S2_S2_(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((0, 8), (32, 36)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #3 align 2 {
+define void @_ZN4pkpy5TupleC2EPNS_8PyObjectES2_S2_S2_(ptr noundef nonnull align 8 captures(none) dereferenceable(36) initializes((0, 8), (32, 36)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #3 align 2 {
   %6 = tail call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef 32) #10
   store ptr %6, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -219,7 +219,7 @@ define void @_ZN4pkpy5TupleD2Ev(ptr noundef nonnull readonly align 8 dereference
 declare void @_ZN4pkpy14pool64_deallocEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK4pkpy8ArgsView7to_listEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.pkpy::pod_vector") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4pkpy8ArgsView7to_listEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.pkpy::pod_vector") align 8 captures(none) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -270,7 +270,7 @@ define void @_ZNK4pkpy8ArgsView7to_listEv(ptr dead_on_unwind noalias nocapture w
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4pkpy8ArgsView8to_tupleEv(ptr dead_on_unwind noalias writable sret(%"struct.pkpy::Tuple") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4pkpy8ArgsView8to_tupleEv(ptr dead_on_unwind noalias writable sret(%"struct.pkpy::Tuple") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8

@@ -268,7 +268,7 @@ _ZN9relocInfo13finish_prefixEPs.exit:             ; preds = %10, %.sink.split.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef ptr @_ZN9relocInfo13finish_prefixEPs(ptr noundef nonnull align 2 dereferenceable(2) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
@@ -309,7 +309,7 @@ define hidden noundef ptr @_ZN9relocInfo13finish_prefixEPs(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN9relocInfo8set_typeENS_9relocTypeE(ptr nocapture noundef nonnull align 2 dereferenceable(2) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN9relocInfo8set_typeENS_9relocTypeE(ptr noundef nonnull align 2 captures(none) dereferenceable(2) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load i16, ptr %0, align 2
   %.tr = trunc i32 %1 to i16
   %4 = shl i16 %.tr, 11
@@ -519,7 +519,7 @@ define hidden void @_ZN13RelocIterator10initializeEP7nmethodPhS2_(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13RelocIterator15initialize_miscEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((56, 58), (64, 112)) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN13RelocIterator15initialize_miscEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(152) initializes((56, 58), (64, 112)) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i16 -1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -674,7 +674,7 @@ _ZN13RelocIterator19advance_over_prefixEv.exit.i: ; preds = %49, %43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN13RelocIteratorC2EP11CodeSectionPhS2_(ptr noundef nonnull align 8 dereferenceable(152) initializes((8, 40), (56, 58), (64, 132)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #7 align 2 {
+define hidden void @_ZN13RelocIteratorC2EP11CodeSectionPhS2_(ptr noundef nonnull align 8 dereferenceable(152) initializes((8, 40), (56, 58), (64, 132)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #7 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -725,7 +725,7 @@ define hidden void @_ZN13RelocIteratorC2EP11CodeSectionPhS2_(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK13RelocIterator13addr_in_constEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK13RelocIterator13addr_in_constEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1682,7 +1682,7 @@ _ZN13RelocIterator13barrier_relocEv.exit:         ; preds = %463, %466, %468
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK14oop_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 24)) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZNK14oop_Relocation9copy_intoER16RelocationHolder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 24)) %1) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1696,7 +1696,7 @@ define hidden void @_ZNK14oop_Relocation9copy_intoER16RelocationHolder(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK19metadata_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 24)) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZNK19metadata_Relocation9copy_intoER16RelocationHolder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 24)) %1) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1710,7 +1710,7 @@ define hidden void @_ZNK19metadata_Relocation9copy_intoER16RelocationHolder(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK23virtual_call_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20), (24, 36)) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZNK23virtual_call_Relocation9copy_intoER16RelocationHolder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 20), (24, 36)) %1) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1723,7 +1723,7 @@ define hidden void @_ZNK23virtual_call_Relocation9copy_intoER16RelocationHolder(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK27opt_virtual_call_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 24)) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZNK27opt_virtual_call_Relocation9copy_intoER16RelocationHolder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 24)) %1) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1737,7 +1737,7 @@ define hidden void @_ZNK27opt_virtual_call_Relocation9copy_intoER16RelocationHol
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK22static_call_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 24)) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZNK22static_call_Relocation9copy_intoER16RelocationHolder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 24)) %1) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1751,7 +1751,7 @@ define hidden void @_ZNK22static_call_Relocation9copy_intoER16RelocationHolder(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK22static_stub_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20), (24, 32)) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZNK22static_stub_Relocation9copy_intoER16RelocationHolder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 20), (24, 32)) %1) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1765,7 +1765,7 @@ define hidden void @_ZNK22static_stub_Relocation9copy_intoER16RelocationHolder(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK23runtime_call_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20)) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZNK23runtime_call_Relocation9copy_intoER16RelocationHolder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 20)) %1) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1775,7 +1775,7 @@ define hidden void @_ZNK23runtime_call_Relocation9copy_intoER16RelocationHolder(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK28runtime_call_w_cp_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 24)) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZNK28runtime_call_w_cp_Relocation9copy_intoER16RelocationHolder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 24)) %1) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1789,7 +1789,7 @@ define hidden void @_ZNK28runtime_call_w_cp_Relocation9copy_intoER16RelocationHo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK24external_word_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20), (24, 32)) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZNK24external_word_Relocation9copy_intoER16RelocationHolder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 20), (24, 32)) %1) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1803,7 +1803,7 @@ define hidden void @_ZNK24external_word_Relocation9copy_intoER16RelocationHolder
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK24internal_word_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20), (24, 36)) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZNK24internal_word_Relocation9copy_intoER16RelocationHolder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 20), (24, 36)) %1) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1816,7 +1816,7 @@ define hidden void @_ZNK24internal_word_Relocation9copy_intoER16RelocationHolder
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK15poll_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20)) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZNK15poll_Relocation9copy_intoER16RelocationHolder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 20)) %1) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1826,7 +1826,7 @@ define hidden void @_ZNK15poll_Relocation9copy_intoER16RelocationHolder(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK22poll_return_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20)) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZNK22poll_return_Relocation9copy_intoER16RelocationHolder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 20)) %1) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1836,7 +1836,7 @@ define hidden void @_ZNK22poll_return_Relocation9copy_intoER16RelocationHolder(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK23section_word_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20), (24, 36)) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZNK23section_word_Relocation9copy_intoER16RelocationHolder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 20), (24, 36)) %1) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1850,7 +1850,7 @@ define hidden void @_ZNK23section_word_Relocation9copy_intoER16RelocationHolder(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK26trampoline_stub_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20), (24, 32)) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZNK26trampoline_stub_Relocation9copy_intoER16RelocationHolder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 20), (24, 32)) %1) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1864,7 +1864,7 @@ define hidden void @_ZNK26trampoline_stub_Relocation9copy_intoER16RelocationHold
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK24post_call_nop_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20)) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZNK24post_call_nop_Relocation9copy_intoER16RelocationHolder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 20)) %1) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1874,7 +1874,7 @@ define hidden void @_ZNK24post_call_nop_Relocation9copy_intoER16RelocationHolder
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK22entry_guard_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20)) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZNK22entry_guard_Relocation9copy_intoER16RelocationHolder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 20)) %1) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1884,7 +1884,7 @@ define hidden void @_ZNK22entry_guard_Relocation9copy_intoER16RelocationHolder(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK18barrier_Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20)) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZNK18barrier_Relocation9copy_intoER16RelocationHolder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 20)) %1) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1894,7 +1894,7 @@ define hidden void @_ZNK18barrier_Relocation9copy_intoER16RelocationHolder(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK10Relocation9copy_intoER16RelocationHolder(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20)) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZNK10Relocation9copy_intoER16RelocationHolder(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 20)) %1) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1903,7 +1903,7 @@ define hidden void @_ZNK10Relocation9copy_intoER16RelocationHolder(ptr nocapture
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden noalias noundef nonnull ptr @_ZN10Relocation5valueEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #10 align 2 {
+define hidden noalias noundef nonnull ptr @_ZN10Relocation5valueEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 283) #20
@@ -1914,7 +1914,7 @@ define hidden noalias noundef nonnull ptr @_ZN10Relocation5valueEv(ptr nocapture
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZN10Relocation9set_valueEPh(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #10 align 2 {
+define hidden void @_ZN10Relocation9set_valueEPh(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #10 align 2 {
   %3 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %3, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 289) #20
@@ -1922,7 +1922,7 @@ define hidden void @_ZN10Relocation9set_valueEPh(ptr nocapture nonnull readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN10Relocation20const_set_data_valueEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr noundef %1) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN10Relocation20const_set_data_valueEPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1959,7 +1959,7 @@ define hidden void @_ZN10Relocation20const_set_data_valueEPh(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10Relocation23const_verify_data_valueEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10Relocation23const_verify_data_valueEPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2049,7 +2049,7 @@ define hidden void @_ZN10Relocation11spec_simpleEN9relocInfo9relocTypeE(ptr dead
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10Relocation12old_addr_forEPhPK10CodeBufferPS1_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(20) %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN10Relocation12old_addr_forEPhPK10CodeBufferPS1_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(20) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef i32 @_ZNK10CodeBuffer16section_index_ofEPh(ptr noundef nonnull align 8 dereferenceable(448) %3, ptr noundef %1) #19
   %.not = icmp eq i32 %5, -1
   br i1 %.not, label %6, label %8
@@ -2078,7 +2078,7 @@ define hidden noundef ptr @_ZN10Relocation12old_addr_forEPhPK10CodeBufferPS1_(pt
 declare noundef i32 @_ZNK10CodeBuffer16section_index_ofEPh(ptr noundef nonnull align 8 dereferenceable(448), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10Relocation12new_addr_forEPhPK10CodeBufferPS1_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(20) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN10Relocation12new_addr_forEPhPK10CodeBufferPS1_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(20) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %.not20 = icmp eq ptr %2, null
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
@@ -2116,7 +2116,7 @@ define hidden noundef ptr @_ZN10Relocation12new_addr_forEPhPK10CodeBufferPS1_(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10Relocation17normalize_addressERPhPK11CodeSectionb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10Relocation17normalize_addressERPhPK11CodeSectionb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(20) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr %1, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %32, label %7
@@ -2182,7 +2182,7 @@ define hidden void @_ZN14CallRelocation15set_destinationEPh(ptr noundef nonnull 
 declare void @_ZN10Relocation23pd_set_call_destinationEPh(ptr noundef nonnull align 8 dereferenceable(20), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14CallRelocation25fix_relocation_after_moveEPK10CodeBufferPS0_(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN14CallRelocation25fix_relocation_after_moveEPK10CodeBufferPS0_(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -2217,7 +2217,7 @@ _ZN10Relocation12old_addr_forEPhPK10CodeBufferPS1_.exit: ; preds = %3
 declare noundef ptr @_ZN10Relocation19pd_call_destinationEPh(ptr noundef nonnull align 8 dereferenceable(20), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN14oop_Relocation12pack_data_toEP11CodeSection(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef %1) unnamed_addr #12 align 2 {
+define hidden void @_ZN14oop_Relocation12pack_data_toEP11CodeSection(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(none) %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -2256,7 +2256,7 @@ _ZN10Relocation13pack_1_int_toEPsi.exit:          ; preds = %2, %_ZN10Relocation
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN14oop_Relocation11unpack_dataEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((20, 24)) %0) unnamed_addr #9 align 2 {
+define hidden void @_ZN14oop_Relocation11unpack_dataEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((20, 24)) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -2293,7 +2293,7 @@ _ZN10Relocation12unpack_1_intEv.exit:             ; preds = %9, %17, %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19metadata_Relocation12pack_data_toEP11CodeSection(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef %1) unnamed_addr #12 align 2 {
+define hidden void @_ZN19metadata_Relocation12pack_data_toEP11CodeSection(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(none) %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -2332,7 +2332,7 @@ _ZN10Relocation13pack_1_int_toEPsi.exit:          ; preds = %2, %_ZN10Relocation
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19metadata_Relocation11unpack_dataEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((20, 24)) %0) unnamed_addr #9 align 2 {
+define hidden void @_ZN19metadata_Relocation11unpack_dataEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((20, 24)) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -2369,7 +2369,7 @@ _ZN10Relocation12unpack_1_intEv.exit:             ; preds = %9, %17, %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23virtual_call_Relocation12pack_data_toEP11CodeSection(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN23virtual_call_Relocation12pack_data_toEP11CodeSection(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %0, ptr noundef captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -2514,7 +2514,7 @@ _ZN10Relocation14pack_2_ints_toEPsii.exit:        ; preds = %_ZN10Relocation17no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN23virtual_call_Relocation11unpack_dataEv(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((24, 36)) %0) unnamed_addr #9 align 2 {
+define hidden void @_ZN23virtual_call_Relocation11unpack_dataEv(ptr noundef nonnull align 8 captures(none) dereferenceable(36) initializes((24, 36)) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -2590,7 +2590,7 @@ _ZN10Relocation13unpack_2_intsERiS0_.exit:        ; preds = %_ZN9relocInfo13shor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN28runtime_call_w_cp_Relocation12pack_data_toEP11CodeSection(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef %1) unnamed_addr #12 align 2 {
+define hidden void @_ZN28runtime_call_w_cp_Relocation12pack_data_toEP11CodeSection(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(none) %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -2630,7 +2630,7 @@ _ZN10Relocation13pack_1_int_toEPsi.exit:          ; preds = %2, %_ZN10Relocation
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN28runtime_call_w_cp_Relocation11unpack_dataEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((20, 24)) %0) unnamed_addr #9 align 2 {
+define hidden void @_ZN28runtime_call_w_cp_Relocation11unpack_dataEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((20, 24)) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -2668,7 +2668,7 @@ _ZN10Relocation12unpack_1_intEv.exit:             ; preds = %9, %17, %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22static_stub_Relocation12pack_data_toEP11CodeSection(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN22static_stub_Relocation12pack_data_toEP11CodeSection(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -2769,7 +2769,7 @@ _ZN10Relocation13pack_1_int_toEPsi.exit:          ; preds = %_ZN10Relocation17no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN22static_stub_Relocation11unpack_dataEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((24, 32)) %0) unnamed_addr #9 align 2 {
+define hidden void @_ZN22static_stub_Relocation11unpack_dataEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((24, 32)) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -2811,7 +2811,7 @@ _ZN10Relocation12unpack_1_intEv.exit:             ; preds = %11, %19, %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN26trampoline_stub_Relocation12pack_data_toEP11CodeSection(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN26trampoline_stub_Relocation12pack_data_toEP11CodeSection(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -2912,7 +2912,7 @@ _ZN10Relocation13pack_1_int_toEPsi.exit:          ; preds = %_ZN10Relocation17no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN26trampoline_stub_Relocation11unpack_dataEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((24, 32)) %0) unnamed_addr #9 align 2 {
+define hidden void @_ZN26trampoline_stub_Relocation11unpack_dataEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((24, 32)) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -2954,7 +2954,7 @@ _ZN10Relocation12unpack_1_intEv.exit:             ; preds = %11, %19, %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24external_word_Relocation12pack_data_toEP11CodeSection(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN24external_word_Relocation12pack_data_toEP11CodeSection(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2996,7 +2996,7 @@ _ZN10Relocation13pack_1_int_toEPsi.exit:          ; preds = %2, %_ZN10Relocation
 declare noundef i32 @_ZN17ExternalsRecorder10find_indexEPh(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24external_word_Relocation11unpack_dataEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((24, 32)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN24external_word_Relocation11unpack_dataEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((24, 32)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -3036,7 +3036,7 @@ _ZN10Relocation12unpack_1_intEv.exit:             ; preds = %9, %17, %19
 declare noundef ptr @_ZN17ExternalsRecorder2atEi(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24internal_word_Relocation12pack_data_toEP11CodeSection(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN24internal_word_Relocation12pack_data_toEP11CodeSection(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %0, ptr noundef captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3235,7 +3235,7 @@ _ZN10Relocation13pack_1_int_toEPsi.exit:          ; preds = %_ZN10Relocation13pa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN24internal_word_Relocation11unpack_dataEv(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((24, 36)) %0) unnamed_addr #9 align 2 {
+define hidden void @_ZN24internal_word_Relocation11unpack_dataEv(ptr noundef nonnull align 8 captures(none) dereferenceable(36) initializes((24, 36)) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -3287,7 +3287,7 @@ _ZN10Relocation12unpack_1_intEv.exit.thread:      ; preds = %17, %_ZN10Relocatio
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN23section_word_Relocation11unpack_dataEv(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((24, 36)) %0) unnamed_addr #9 align 2 {
+define hidden void @_ZN23section_word_Relocation11unpack_dataEv(ptr noundef nonnull align 8 captures(none) dereferenceable(36) initializes((24, 36)) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -3631,14 +3631,14 @@ define hidden void @_ZN19metadata_Relocation23fix_metadata_relocationEv(ptr noun
 declare void @_ZN19metadata_Relocation12pd_fix_valueEPh(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN23virtual_call_Relocation12cached_valueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZN23virtual_call_Relocation12cached_valueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN23virtual_call_Relocation12method_valueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0) local_unnamed_addr #13 align 2 {
+define hidden noundef ptr @_ZN23virtual_call_Relocation12method_valueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -3717,7 +3717,7 @@ declare noundef ptr @_Z13CompiledIC_atP10Relocation(ptr noundef) local_unnamed_a
 declare void @_ZN10CompiledIC12set_to_cleanEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN27opt_virtual_call_Relocation12pack_data_toEP11CodeSection(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef %1) unnamed_addr #12 align 2 {
+define hidden void @_ZN27opt_virtual_call_Relocation12pack_data_toEP11CodeSection(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(none) %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -3756,7 +3756,7 @@ _ZN10Relocation13pack_1_int_toEPsi.exit:          ; preds = %2, %_ZN10Relocation
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN27opt_virtual_call_Relocation11unpack_dataEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((20, 24)) %0) unnamed_addr #9 align 2 {
+define hidden void @_ZN27opt_virtual_call_Relocation11unpack_dataEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((20, 24)) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -3793,7 +3793,7 @@ _ZN10Relocation12unpack_1_intEv.exit:             ; preds = %9, %17, %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN27opt_virtual_call_Relocation12method_valueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #13 align 2 {
+define hidden noundef ptr @_ZN27opt_virtual_call_Relocation12method_valueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -3828,7 +3828,7 @@ _ZNK7nmethod11metadata_atEi.exit:                 ; preds = %11, %7, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27opt_virtual_call_Relocation18clear_inline_cacheEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN27opt_virtual_call_Relocation18clear_inline_cacheEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 800
@@ -3875,7 +3875,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %21, %23
 declare void @_ZN18CompiledDirectCall12set_to_cleanEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN27opt_virtual_call_Relocation11static_stubEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN27opt_virtual_call_Relocation11static_stubEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.RelocIterator, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -4094,7 +4094,7 @@ _ZN13RelocIterator4nextEv.exit:                   ; preds = %115, %70, %_ZN13Rel
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN22static_call_Relocation12method_valueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #13 align 2 {
+define hidden noundef ptr @_ZN22static_call_Relocation12method_valueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -4129,7 +4129,7 @@ _ZNK7nmethod11metadata_atEi.exit:                 ; preds = %11, %7, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN22static_call_Relocation12pack_data_toEP11CodeSection(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef %1) unnamed_addr #12 align 2 {
+define hidden void @_ZN22static_call_Relocation12pack_data_toEP11CodeSection(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef captures(none) %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -4168,7 +4168,7 @@ _ZN10Relocation13pack_1_int_toEPsi.exit:          ; preds = %2, %_ZN10Relocation
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN22static_call_Relocation11unpack_dataEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((20, 24)) %0) unnamed_addr #9 align 2 {
+define hidden void @_ZN22static_call_Relocation11unpack_dataEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((20, 24)) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -4205,7 +4205,7 @@ _ZN10Relocation12unpack_1_intEv.exit:             ; preds = %9, %17, %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22static_call_Relocation18clear_inline_cacheEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN22static_call_Relocation18clear_inline_cacheEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 800
@@ -4250,7 +4250,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %21, %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN22static_call_Relocation11static_stubEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN22static_call_Relocation11static_stubEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.RelocIterator, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -4753,7 +4753,7 @@ define hidden void @_ZN22static_stub_Relocation18clear_inline_cacheEv(ptr nounde
 declare void @_ZN18CompiledDirectCall17set_stub_to_cleanEP22static_stub_Relocation(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24external_word_Relocation25fix_relocation_after_moveEPK10CodeBufferPS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN24external_word_Relocation25fix_relocation_after_moveEPK10CodeBufferPS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -4789,7 +4789,7 @@ define hidden noundef ptr @_ZN24external_word_Relocation6targetEv(ptr noundef no
 declare noundef ptr @_ZN10Relocation24pd_get_address_from_codeEv(ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24internal_word_Relocation25fix_relocation_after_moveEPK10CodeBufferPS0_(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN24internal_word_Relocation25fix_relocation_after_moveEPK10CodeBufferPS0_(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -5235,7 +5235,7 @@ define internal void @_GLOBAL__sub_I_relocInfo.cpp() #17 section ".text.startup"
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

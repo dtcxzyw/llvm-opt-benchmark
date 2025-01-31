@@ -298,7 +298,7 @@ return:                                           ; preds = %if.end76.i, %cond.f
 declare i32 @_PyUnicodeWriter_WriteStr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_internal_render_format_spec(ptr nocapture noundef readonly %obj, ptr noundef %format_spec, i64 noundef %start, i64 noundef %end, ptr nocapture noundef nonnull initializes((0, 20), (24, 36), (40, 52)) %format, i8 noundef signext range(i8 0, 116) %default_type, i8 noundef signext range(i8 60, 63) %default_align) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_internal_render_format_spec(ptr noundef readonly captures(none) %obj, ptr noundef %format_spec, i64 noundef %start, i64 noundef %end, ptr noundef nonnull captures(none) initializes((0, 20), (24, 36), (40, 52)) %format, i8 noundef signext range(i8 0, 116) %default_type, i8 noundef signext range(i8 60, 63) %default_align) unnamed_addr #0 {
 entry:
   %pos = alloca i64, align 8
   store i64 %start, ptr %pos, align 8
@@ -1468,7 +1468,7 @@ declare i32 @_PyLong_FormatWriter(ptr noundef, ptr noundef, i32 noundef, i32 nou
 declare ptr @PyNumber_Float(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @format_float_internal(ptr noundef %value, ptr nocapture noundef nonnull readonly %format, ptr noundef %writer) unnamed_addr #0 {
+define internal fastcc i32 @format_float_internal(ptr noundef %value, ptr noundef nonnull readonly captures(none) %format, ptr noundef %writer) unnamed_addr #0 {
 entry:
   %spec = alloca %struct.NumberFieldWidths, align 8
   %maxchar = alloca i32, align 4
@@ -2506,7 +2506,7 @@ declare ptr @PyObject_Str(ptr noundef) local_unnamed_addr #1
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_integer(ptr nocapture noundef readonly %str, ptr nocapture noundef nonnull %ppos, i64 noundef %end, ptr nocapture noundef nonnull writeonly %result) unnamed_addr #0 {
+define internal fastcc i32 @get_integer(ptr noundef readonly captures(none) %str, ptr noundef nonnull captures(none) %ppos, i64 noundef %end, ptr noundef nonnull writeonly captures(none) %result) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %ppos, align 8
   %state = getelementptr inbounds nuw i8, ptr %str, i64 32
@@ -2653,7 +2653,7 @@ declare i32 @_PyUnicode_FindMaxChar(ptr noundef, i64 noundef, i64 noundef) local
 declare i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fill_padding(ptr nocapture noundef %writer, i64 noundef %nchars, i32 noundef %fill_char, i64 noundef %n_lpadding, i64 noundef %n_rpadding) unnamed_addr #0 {
+define internal fastcc void @fill_padding(ptr noundef captures(none) %writer, i64 noundef %nchars, i32 noundef %fill_char, i64 noundef %n_lpadding, i64 noundef %n_rpadding) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i64 %n_lpadding, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -2691,7 +2691,7 @@ declare void @_PyUnicode_FastCopyCharacters(ptr noundef, i64 noundef, ptr nounde
 declare void @_PyUnicode_FastFill(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #1
 
@@ -2702,7 +2702,7 @@ declare ptr @PyUnicode_FromOrdinal(i32 noundef) local_unnamed_addr #1
 declare ptr @_PyLong_Format(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @PyUnicode_READ_CHAR(ptr nocapture noundef nonnull readonly %unicode) unnamed_addr #3 {
+define internal fastcc i32 @PyUnicode_READ_CHAR(ptr noundef nonnull readonly captures(none) %unicode) unnamed_addr #3 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %unicode, i64 32
   %bf.load = load i32, ptr %state, align 8
@@ -2868,7 +2868,7 @@ return:                                           ; preds = %entry, %if.end7, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @calc_number_widths(ptr nocapture noundef nonnull initializes((0, 33), (40, 88)) %spec, i64 noundef range(i64 0, 3) %n_prefix, i32 noundef range(i32 0, 46) %sign_char, i64 noundef range(i64 0, 4) %n_start, i64 noundef %n_end, i64 noundef %n_remainder, i32 noundef %has_decimal, ptr nocapture noundef nonnull readonly %locale, ptr nocapture noundef nonnull readonly %format, ptr nocapture noundef nonnull %maxchar) unnamed_addr #0 {
+define internal fastcc i64 @calc_number_widths(ptr noundef nonnull captures(none) initializes((0, 33), (40, 88)) %spec, i64 noundef range(i64 0, 3) %n_prefix, i32 noundef range(i32 0, 46) %sign_char, i64 noundef range(i64 0, 4) %n_start, i64 noundef %n_end, i64 noundef %n_remainder, i32 noundef %has_decimal, ptr noundef nonnull readonly captures(none) %locale, ptr noundef nonnull readonly captures(none) %format, ptr noundef nonnull captures(none) %maxchar) unnamed_addr #0 {
 entry:
   %grouping_maxchar = alloca i32, align 4
   %tobool.not = icmp ne i32 %has_decimal, 0
@@ -3107,7 +3107,7 @@ return:                                           ; preds = %if.else42, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @fill_number(ptr noundef %writer, ptr nocapture noundef nonnull readonly %spec, ptr noundef %digits, i64 noundef range(i64 0, 4) %d_start, ptr noundef %prefix, i64 noundef range(i64 0, 2) %p_start, i32 noundef %fill_char, ptr nocapture noundef nonnull readonly %locale, i32 noundef range(i32 0, 2) %toupper) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @fill_number(ptr noundef %writer, ptr noundef nonnull readonly captures(none) %spec, ptr noundef %digits, i64 noundef range(i64 0, 4) %d_start, ptr noundef %prefix, i64 noundef range(i64 0, 2) %p_start, i32 noundef %fill_char, ptr noundef nonnull readonly captures(none) %locale, i32 noundef range(i32 0, 2) %toupper) unnamed_addr #0 {
 entry:
   %kind1 = getelementptr inbounds nuw i8, ptr %writer, i64 16
   %0 = load i32, ptr %kind1, align 8
@@ -3449,14 +3449,14 @@ declare double @PyFloat_AsDouble(ptr noundef) local_unnamed_addr #1
 declare ptr @PyOS_double_to_string(double noundef, i8 noundef signext, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare ptr @_PyUnicode_FromASCII(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @parse_number(ptr nocapture noundef nonnull readonly %s, i64 noundef range(i64 0, 2) %pos, i64 noundef %end, ptr nocapture noundef nonnull writeonly %n_remainder, ptr nocapture noundef nonnull writeonly %has_decimal) unnamed_addr #6 {
+define internal fastcc void @parse_number(ptr noundef nonnull readonly captures(none) %s, i64 noundef range(i64 0, 2) %pos, i64 noundef %end, ptr noundef nonnull writeonly captures(none) %n_remainder, ptr noundef nonnull writeonly captures(none) %has_decimal) unnamed_addr #6 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %s, i64 32
   %bf.load = load i32, ptr %state, align 8
@@ -3586,7 +3586,7 @@ land.end9:                                        ; preds = %if.end6.i22, %if.th
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare double @PyComplex_RealAsDouble(ptr noundef) local_unnamed_addr #1
 
@@ -3608,10 +3608,10 @@ declare i64 @llvm.smax.i64(i64, i64) #10
 declare i64 @llvm.smin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

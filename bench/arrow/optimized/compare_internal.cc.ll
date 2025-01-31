@@ -32,7 +32,7 @@ $_ZN5arrow7compute10KeyCompare30CompareBinaryColumnToRowHelperILb1EZNS1_24Compar
 $_ZN5arrow7compute10KeyCompare30CompareBinaryColumnToRowHelperILb0EZNS1_24CompareBinaryColumnToRowILb0EEEvjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jjE4_EEvjjjS5_S7_S9_SC_SF_SG_T0_ = comdat any
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute10KeyCompare14AndByteVectorsEPNS0_12LightContextEjPhPKh(ptr nocapture noundef readonly %ctx, i32 noundef %num_elements, ptr noundef %bytevector_A, ptr noundef %bytevector_B) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow7compute10KeyCompare14AndByteVectorsEPNS0_12LightContextEjPhPKh(ptr noundef readonly captures(none) %ctx, i32 noundef %num_elements, ptr noundef %bytevector_A, ptr noundef %bytevector_B) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i64, ptr %ctx, align 8
   %and.i = and i64 %0, 32
@@ -78,7 +78,7 @@ for.end:                                          ; preds = %for.body, %if.end
 declare noundef i32 @_ZN5arrow7compute10KeyCompare19AndByteVectors_avx2EjPhPKh(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute10KeyCompare20CompareColumnsToRowsEjPKtPKjPNS0_12LightContextEPjPtRKSt6vectorINS0_14KeyColumnArrayESaISB_EERKNS0_12RowTableImplEbPh(i32 noundef %num_rows_to_compare, ptr noundef %sel_left_maybe_null, ptr noundef %left_to_right_map, ptr noundef %ctx, ptr nocapture noundef writeonly %out_num_rows, ptr noundef %out_sel_left_maybe_same, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %cols, ptr noundef nonnull align 8 dereferenceable(209) %rows, i1 noundef zeroext %are_cols_in_encoding_order, ptr noundef writeonly %out_match_bitvector_maybe_null) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute10KeyCompare20CompareColumnsToRowsEjPKtPKjPNS0_12LightContextEPjPtRKSt6vectorINS0_14KeyColumnArrayESaISB_EERKNS0_12RowTableImplEbPh(i32 noundef %num_rows_to_compare, ptr noundef %sel_left_maybe_null, ptr noundef %left_to_right_map, ptr noundef %ctx, ptr noundef writeonly captures(none) %out_num_rows, ptr noundef %out_sel_left_maybe_same, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %cols, ptr noundef nonnull align 8 dereferenceable(209) %rows, i1 noundef zeroext %are_cols_in_encoding_order, ptr noundef writeonly %out_match_bitvector_maybe_null) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bytevector_A_holder = alloca %"class.arrow::util::TempVectorHolder", align 8
   %bytevector_B_holder = alloca %"class.arrow::util::TempVectorHolder", align 8
@@ -589,7 +589,7 @@ ehcleanup164:                                     ; preds = %ehcleanup, %lpad
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow7compute10KeyCompare24CompareBinaryColumnToRowILb1EEEvjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPh(i32 noundef %offset_within_row, i32 noundef %num_rows_to_compare, ptr noundef %sel_left_maybe_null, ptr noundef %left_to_right_map, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(72) %col, ptr noundef nonnull align 8 dereferenceable(209) %rows, ptr noundef %match_bytevector) local_unnamed_addr #0 comdat align 2 {
@@ -2390,7 +2390,7 @@ _ZN5arrow7compute10KeyCompare33CompareVarBinaryColumnToRowHelperILb0ELb0EEEvjjjP
 declare void @_ZN5arrow4util8bit_util13bytes_to_bitsEliPKhPhi(i64 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @_ZN5arrow4util8bit_util19bits_filter_indexesEiliPKhPKtPiPti(i32 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2788,10 +2788,10 @@ declare noundef i32 @_ZN5arrow7compute10KeyCompare32CompareVarBinaryColumnToRow_
 declare i32 @llvm.umin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }

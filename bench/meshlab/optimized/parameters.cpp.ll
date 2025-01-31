@@ -124,7 +124,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -446,7 +446,7 @@ _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ParametersC2EbRN3vcg4ShotIfNS0_8Matrix44IfEEEEiiRNS0_4Box3IfEER6CMeshOi(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 56), (112, 114), (116, 288)) %0, i1 noundef zeroext %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(132) %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1196) %6, i32 noundef %7) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10ParametersC2EbRN3vcg4ShotIfNS0_8Matrix44IfEEEEiiRNS0_4Box3IfEER6CMeshOi(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 56), (112, 114), (116, 288)) %0, i1 noundef zeroext %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(132) %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1196) %6, i32 noundef %7) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %9 = zext i1 %1 to i8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i8 %9, ptr %10, align 8
@@ -475,7 +475,7 @@ define void @_ZN10ParametersC2EbRN3vcg4ShotIfNS0_8Matrix44IfEEEEiiRNS0_4Box3IfEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10Parameters9initScaleER6CMeshOi(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 56)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1196) %1, i32 noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10Parameters9initScaleER6CMeshOi(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 56)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1196) %1, i32 noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.vcg::Shot", align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %0, i8 0, i64 56, i1 false)
@@ -533,7 +533,7 @@ _ZN10Parameters5resetEv.exit:                     ; preds = %14, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ParametersC2EbRN3vcg4ShotIfNS0_8Matrix44IfEEEEiiRNS0_4Box3IfEE(ptr nocapture noundef nonnull align 8 dereferenceable(288) initializes((0, 56), (112, 114), (116, 288)) %0, i1 noundef zeroext %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(132) %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %5) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10ParametersC2EbRN3vcg4ShotIfNS0_8Matrix44IfEEEEiiRNS0_4Box3IfEE(ptr noundef nonnull align 8 captures(none) dereferenceable(288) initializes((0, 56), (112, 114), (116, 288)) %0, i1 noundef zeroext %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(132) %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %5) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %7 = zext i1 %1 to i8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i8 %7, ptr %8, align 8
@@ -562,7 +562,7 @@ define void @_ZN10ParametersC2EbRN3vcg4ShotIfNS0_8Matrix44IfEEEEiiRNS0_4Box3IfEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10Parameters9initScaleEv(ptr nocapture noundef nonnull align 8 dereferenceable(288) initializes((0, 56)) %0) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10Parameters9initScaleEv(ptr noundef nonnull align 8 captures(none) dereferenceable(288) initializes((0, 56)) %0) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.vcg::Shot", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %0, i8 0, i64 56, i1 false)
@@ -1028,7 +1028,7 @@ _ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEEE.exit: ; preds = %250,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 6, 8) i32 @_ZN10Parameters4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0) local_unnamed_addr #13 align 2 {
+define noundef range(i32 6, 8) i32 @_ZN10Parameters4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -1037,7 +1037,7 @@ define noundef range(i32 6, 8) i32 @_ZN10Parameters4sizeEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define noundef double @_ZN10Parameters4normEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0) local_unnamed_addr #14 align 2 {
+define noundef double @_ZN10Parameters4normEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %0) local_unnamed_addr #14 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %2
@@ -1062,7 +1062,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #15
 declare double @sqrt(double noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN10Parameters5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(288) initializes((0, 56)) %0) local_unnamed_addr #17 align 2 {
+define void @_ZN10Parameters5resetEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(288) initializes((0, 56)) %0) local_unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   br label %3
@@ -1080,7 +1080,7 @@ define void @_ZN10Parameters5resetEv(ptr nocapture noundef nonnull writeonly ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef double @_ZN10Parameters6randomEdd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(288) %0, double noundef %1, double noundef %2) local_unnamed_addr #4 align 2 {
+define noundef double @_ZN10Parameters6randomEdd(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(288) %0, double noundef %1, double noundef %2) local_unnamed_addr #4 align 2 {
   %4 = tail call i32 @rand() #26
   %5 = sitofp i32 %4 to double
   %6 = fmul double %5, 0x3E00000000000000
@@ -1093,7 +1093,7 @@ define noundef double @_ZN10Parameters6randomEdd(ptr nocapture noundef nonnull r
 declare i32 @rand() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN10Parameters9randomDirEiPdd(ptr nocapture noundef nonnull readnone align 8 dereferenceable(288) %0, i32 noundef %1, ptr nocapture noundef %2, double noundef %3) local_unnamed_addr #4 align 2 {
+define void @_ZN10Parameters9randomDirEiPdd(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(288) %0, i32 noundef %1, ptr noundef captures(none) %2, double noundef %3) local_unnamed_addr #4 align 2 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge26
 
@@ -1136,7 +1136,7 @@ define void @_ZN10Parameters9randomDirEiPdd(ptr nocapture noundef nonnull readno
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN10Parameters6rattleEd(ptr nocapture noundef nonnull align 8 dereferenceable(288) %0, double noundef %1) local_unnamed_addr #4 align 2 {
+define void @_ZN10Parameters6rattleEd(ptr noundef nonnull align 8 captures(none) dereferenceable(288) %0, double noundef %1) local_unnamed_addr #4 align 2 {
   %3 = alloca [7 x double], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load i8, ptr %4, align 8
@@ -1193,7 +1193,7 @@ _ZN10Parameters9randomDirEiPdd.exit:              ; preds = %.lr.ph25.i, %_ZN10P
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10Parameters6toShotEb(ptr dead_on_unwind noalias nocapture writable sret(%"class.vcg::Shot") align 4 initializes((0, 132)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %1, i1 noundef zeroext %2) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10Parameters6toShotEb(ptr dead_on_unwind noalias writable sret(%"class.vcg::Shot") align 4 captures(none) initializes((0, 132)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %1, i1 noundef zeroext %2) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [7 x double], align 16
   %5 = alloca %"class.vcg::Similarity", align 4
   %6 = alloca %"class.vcg::Matrix44", align 4
@@ -1597,7 +1597,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit61:              ; preds = %136
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEEER6CMeshOi(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 4 dereferenceable(132) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1196) %2, i32 noundef %3) local_unnamed_addr #12 align 2 {
+define noundef double @_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEEER6CMeshOi(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 4 dereferenceable(132) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1196) %2, i32 noundef %3) local_unnamed_addr #12 align 2 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -1763,7 +1763,7 @@ define noundef double @_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN10Parameters9pixelDiffER6CMeshOi(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1196) %1, i32 noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZN10Parameters9pixelDiffER6CMeshOi(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1196) %1, i32 noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.vcg::Shot", align 4
   call void @_ZN10Parameters6toShotEb(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Shot") align 4 %4, ptr noundef nonnull align 8 dereferenceable(288) %0, i1 noundef zeroext true)
   %5 = call noundef double @_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEEER6CMeshOi(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 4 dereferenceable(132) %4, ptr noundef nonnull align 8 dereferenceable(1196) %1, i32 noundef %2)
@@ -2264,7 +2264,7 @@ declare float @sinf(float noundef) local_unnamed_addr #16
 declare float @cosf(float noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN10Parameters8scrambleEPdb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0, ptr nocapture noundef %1, i1 noundef zeroext %2) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10Parameters8scrambleEPdb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %0, ptr noundef captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.vcg::Matrix44", align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br i1 %2, label %.preheader, label %.preheader130
@@ -4153,7 +4153,7 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #22
@@ -4162,10 +4162,10 @@ declare float @llvm.sqrt.f32(float) #22
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

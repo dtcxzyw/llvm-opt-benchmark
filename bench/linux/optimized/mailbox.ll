@@ -64,7 +64,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_devm_mbox_co
 @llvm.compiler.used = appending global [14 x ptr] [ptr @__UNIQUE_ID___addressable_devm_mbox_controller_register325, ptr @__UNIQUE_ID___addressable_devm_mbox_controller_unregister328, ptr @__UNIQUE_ID___addressable_mbox_bind_client317, ptr @__UNIQUE_ID___addressable_mbox_chan_received_data311, ptr @__UNIQUE_ID___addressable_mbox_chan_txdone312, ptr @__UNIQUE_ID___addressable_mbox_client_peek_data314, ptr @__UNIQUE_ID___addressable_mbox_client_txdone313, ptr @__UNIQUE_ID___addressable_mbox_controller_register321, ptr @__UNIQUE_ID___addressable_mbox_controller_unregister322, ptr @__UNIQUE_ID___addressable_mbox_flush316, ptr @__UNIQUE_ID___addressable_mbox_free_channel320, ptr @__UNIQUE_ID___addressable_mbox_request_channel318, ptr @__UNIQUE_ID___addressable_mbox_request_channel_byname319, ptr @__UNIQUE_ID___addressable_mbox_send_message315], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mbox_chan_received_data(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local void @mbox_chan_received_data(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -542,7 +542,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef nonnull ptr @mbox_request_channel(ptr nocapture noundef readonly %0, i32 %1) #0 align 16 {
+define dso_local noundef nonnull ptr @mbox_request_channel(ptr noundef readonly captures(none) %0, i32 %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %10, label %5
@@ -563,10 +563,10 @@ define dso_local noundef nonnull ptr @mbox_request_channel(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef nonnull ptr @mbox_request_channel_byname(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #4 align 16 {
+define dso_local noundef nonnull ptr @mbox_request_channel_byname(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #4 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 624
   %5 = load ptr, ptr %4, align 8
@@ -870,7 +870,7 @@ define internal noundef range(i32 0, 2) i32 @txdone_hrtimer(ptr noundef %0) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal ptr @of_mbox_index_xlate(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 align 16 {
+define internal ptr @of_mbox_index_xlate(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1027,7 +1027,7 @@ define dso_local noundef range(i32 -22, 1) i32 @devm_mbox_controller_register(pt
 declare dso_local noalias ptr @__devres_alloc_node(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @__devm_mbox_controller_unregister(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @__devm_mbox_controller_unregister(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   tail call void @mbox_controller_unregister(ptr noundef %3)
   ret void
@@ -1059,7 +1059,7 @@ define dso_local void @devm_mbox_controller_unregister(ptr noundef %0, ptr nound
 declare dso_local i32 @devres_release(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 2) i32 @devm_mbox_controller_match(ptr nocapture readnone %0, ptr noundef readonly %1, ptr noundef readnone %2) #0 align 16 {
+define internal range(i32 0, 2) i32 @devm_mbox_controller_match(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr noundef readnone %2) #0 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %8, label %5
 

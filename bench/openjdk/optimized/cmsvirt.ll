@@ -570,7 +570,7 @@ declare ptr @cmsStageAllocCLut16bit(ptr noundef, i32 noundef, i32 noundef, i32 n
 declare i32 @cmsStageSampleCLut16bit(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @InkLimitingSampler(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef readonly %2) #2 {
+define internal noundef i32 @InkLimitingSampler(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = load double, ptr %2, align 8
   %5 = fmul double %4, 6.553500e+02
   %6 = load i16, ptr %0, align 2
@@ -916,7 +916,7 @@ define hidden ptr @cmsCreate_sRGBProfileTHR(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @cmsFreeToneCurve(ptr noundef) local_unnamed_addr #1
 
@@ -1378,7 +1378,7 @@ define hidden ptr @cmsTransform2DeviceLink(ptr noundef %0, double noundef %1, i3
   %49 = load ptr, ptr %47, align 8
   %50 = zext i32 %storemerge32.i to i64
   %51 = getelementptr inbounds nuw %struct._cmsNAMEDCOLOR, ptr %49, i64 %50, i32 2
-  call void @cmsDoTransform(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %51, i32 noundef 1) #7
+  call void @cmsDoTransform(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %51, i32 noundef 1) #7
   %52 = load i32, ptr %4, align 4
   %53 = add i32 %52, 1
   store i32 %53, ptr %4, align 4
@@ -1956,10 +1956,10 @@ declare void @cmsDoTransform(ptr noundef, ptr noundef, ptr noundef, i32 noundef)
 declare void @cmsFreeNamedColorList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6

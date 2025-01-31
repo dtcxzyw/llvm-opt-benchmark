@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.make_scalar_key = private unnamed_addr constant [16 x i8] c"make_scalar_key\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @gin_compare_jsonb(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @gin_compare_jsonb(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -149,7 +149,7 @@ declare i32 @varstr_cmp(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gin_extract_jsonb(ptr nocapture noundef readonly %0) #0 {
+define dso_local i64 @gin_extract_jsonb(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.JsonbValue, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -280,7 +280,7 @@ declare ptr @JsonbIteratorInit(ptr noundef) local_unnamed_addr #1
 declare i32 @JsonbIteratorNext(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @make_scalar_key(ptr nocapture noundef nonnull readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc noundef i64 @make_scalar_key(ptr noundef nonnull readonly captures(none) %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca [10 x i8], align 1
   %4 = alloca [10 x i8], align 1
   %5 = load i32, ptr %0, align 8
@@ -322,7 +322,7 @@ define internal fastcc noundef i64 @make_scalar_key(ptr nocapture noundef nonnul
   br i1 %23, label %24, label %make_text_key.exit
 
 24:                                               ; preds = %17
-  %25 = tail call i32 @hash_bytes(ptr noundef %20, i32 noundef range(i32 126, -2147483648) %22) #8
+  %25 = tail call i32 @hash_bytes(ptr noundef nonnull %20, i32 noundef range(i32 126, -2147483648) %22) #8
   %26 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 10, ptr noundef nonnull @.str.5, i32 noundef %25) #8
   br label %make_text_key.exit
 
@@ -339,9 +339,9 @@ make_text_key.exit:                               ; preds = %17, %24
   store i8 %.0.i, ptr %31, align 4
   %32 = getelementptr i8, ptr %29, i64 5
   %33 = sext i32 %.014.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr align 1 %.013.i, i64 %33, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr nonnull align 1 %.013.i, i64 %33, i1 false)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4)
-  call void @pfree(ptr noundef %20) #8
+  call void @pfree(ptr noundef nonnull %20) #8
   br label %56
 
 34:                                               ; preds = %2
@@ -392,7 +392,7 @@ make_text_key.exit13:                             ; preds = %34, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gin_extract_jsonb_query(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @gin_extract_jsonb_query(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [10 x i8], align 1
   %3 = alloca [10 x i8], align 1
   %4 = alloca ptr, align 8
@@ -666,7 +666,7 @@ declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
 declare void @deconstruct_array_builtin(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @extract_jsp_query(ptr noundef %0, i16 noundef zeroext %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc ptr @extract_jsp_query(ptr noundef %0, i16 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca %struct.JsonPathGinContext, align 8
   %7 = alloca %struct.JsonPathItem, align 8
   %8 = alloca %struct.GinEntries, align 8
@@ -733,7 +733,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @gin_consistent_jsonb(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @gin_consistent_jsonb(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -838,7 +838,7 @@ define dso_local range(i64 0, 2) i64 @gin_consistent_jsonb(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext i8 @execute_jsp_gin_node(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc signext i8 @execute_jsp_gin_node(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   switch i32 %4, label %38 [
     i32 1, label %.preheader
@@ -934,7 +934,7 @@ define internal fastcc signext i8 @execute_jsp_gin_node(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -128, 128) i64 @gin_triconsistent_jsonb(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -128, 128) i64 @gin_triconsistent_jsonb(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1030,7 +1030,7 @@ define dso_local range(i64 -128, 128) i64 @gin_triconsistent_jsonb(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gin_extract_jsonb_path(ptr nocapture noundef readonly %0) #0 {
+define dso_local i64 @gin_extract_jsonb_path(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.JsonbValue, align 8
   %4 = alloca %struct.PathHashStack, align 8
@@ -1176,7 +1176,7 @@ add_gin_entry.exit:                               ; preds = %31, %35, %40
 declare void @JsonbHashScalarValue(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gin_extract_jsonb_query_path(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @gin_extract_jsonb_query_path(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
@@ -1235,7 +1235,7 @@ define dso_local i64 @gin_extract_jsonb_query_path(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @gin_consistent_jsonb_path(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @gin_consistent_jsonb_path(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1307,7 +1307,7 @@ define dso_local range(i64 0, 2) i64 @gin_consistent_jsonb_path(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -128, 128) i64 @gin_triconsistent_jsonb_path(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -128, 128) i64 @gin_triconsistent_jsonb_path(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1377,7 +1377,7 @@ define dso_local range(i64 -128, 128) i64 @gin_triconsistent_jsonb_path(ptr noca
 declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @jsonb_path_ops__add_path_item(ptr noundef %0, ptr noundef %1) #0 {
@@ -1412,7 +1412,7 @@ define internal noundef zeroext i1 @jsonb_path_ops__add_path_item(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @jsonb_path_ops__extract_nodes(ptr nocapture readnone %0, ptr %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal ptr @jsonb_path_ops__extract_nodes(ptr readnone captures(none) %0, ptr %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %13, label %6
@@ -1437,7 +1437,7 @@ define internal ptr @jsonb_path_ops__extract_nodes(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @jsonb_ops__add_path_item(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal noundef zeroext i1 @jsonb_ops__add_path_item(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca [10 x i8], align 1
   %4 = alloca i32, align 4
   %5 = load i32, ptr %1, align 8
@@ -1503,7 +1503,7 @@ make_text_key.exit:                               ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0, ptr readonly %1, ptr noundef readonly %2, ptr noundef %3) #0 {
+define internal ptr @jsonb_ops__extract_nodes(ptr noundef readonly captures(none) %0, ptr readonly %1, ptr noundef readonly %2, ptr noundef %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %48, label %.preheader
 
@@ -1851,7 +1851,7 @@ default.unreachable:                              ; preds = %42
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_jsp_gin_entries(ptr nocapture noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @emit_jsp_gin_entries(ptr noundef captures(none) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
   tail call void @check_stack_depth() #8
   %3 = load i32, ptr %0, align 8
   switch i32 %3, label %.loopexit [
@@ -1949,23 +1949,23 @@ declare void @jspGetRightArg(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @hash_bytes(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @numeric_normalize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

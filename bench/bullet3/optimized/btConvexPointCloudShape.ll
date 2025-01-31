@@ -39,7 +39,7 @@ $__clang_call_terminate = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btConvexPointCloudShape15setLocalScalingERK9btVector3(ptr noundef nonnull align 8 dereferenceable(132) initializes((32, 48)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %scaling) unnamed_addr #0 align 2 {
+define dso_local void @_ZN23btConvexPointCloudShape15setLocalScalingERK9btVector3(ptr noundef nonnull align 8 dereferenceable(132) initializes((32, 48)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %scaling) unnamed_addr #0 align 2 {
 entry:
   %m_localScaling = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_localScaling, ptr noundef nonnull align 4 dereferenceable(16) %scaling, i64 16, i1 false)
@@ -48,12 +48,12 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(113)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK23btConvexPointCloudShape37localGetSupportingVertexWithoutMarginERK9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(132) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %vec0) unnamed_addr #3 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK23btConvexPointCloudShape37localGetSupportingVertexWithoutMarginERK9btVector3(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(132) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %vec0) unnamed_addr #3 align 2 {
 entry:
   %vec.sroa.0.0.copyload = load float, ptr %vec0, align 4
   %vec.sroa.6.0.vec0.sroa_idx = getelementptr inbounds nuw i8, ptr %vec0, i64 4
@@ -140,7 +140,7 @@ return:                                           ; preds = %if.end, %_ZNK9btVec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK23btConvexPointCloudShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(132) %this, ptr nocapture noundef readonly %vectors, ptr nocapture noundef writeonly %supportVerticesOut, i32 noundef %numVectors) unnamed_addr #4 align 2 {
+define dso_local void @_ZNK23btConvexPointCloudShape49batchedUnitVectorGetSupportingVertexWithoutMarginEPK9btVector3PS0_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(132) %this, ptr noundef readonly captures(none) %vectors, ptr noundef writeonly captures(none) %supportVerticesOut, i32 noundef %numVectors) unnamed_addr #4 align 2 {
 entry:
   %cmp19 = icmp sgt i32 %numVectors, 0
   br i1 %cmp19, label %for.body.lr.ph, label %for.end
@@ -303,7 +303,7 @@ if.end19:                                         ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK23btConvexPointCloudShape14getNumVerticesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(132) %this) unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZNK23btConvexPointCloudShape14getNumVerticesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(132) %this) unnamed_addr #6 align 2 {
 entry:
   %m_numPoints = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load i32, ptr %m_numPoints, align 8
@@ -311,19 +311,19 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNK23btConvexPointCloudShape11getNumEdgesEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define dso_local noundef i32 @_ZNK23btConvexPointCloudShape11getNumEdgesEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZNK23btConvexPointCloudShape7getEdgeEiR9btVector3S1_(ptr nocapture nonnull readnone align 8 %this, i32 %i, ptr nocapture nonnull readnone align 4 %pa, ptr nocapture nonnull readnone align 4 %pb) unnamed_addr #7 align 2 {
+define dso_local void @_ZNK23btConvexPointCloudShape7getEdgeEiR9btVector3S1_(ptr nonnull readnone align 8 captures(none) %this, i32 %i, ptr nonnull readnone align 4 captures(none) %pa, ptr nonnull readnone align 4 captures(none) %pb) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK23btConvexPointCloudShape9getVertexEiR9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(132) %this, i32 noundef %i, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %vtx) unnamed_addr #8 align 2 {
+define dso_local void @_ZNK23btConvexPointCloudShape9getVertexEiR9btVector3(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(132) %this, i32 noundef %i, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %vtx) unnamed_addr #8 align 2 {
 entry:
   %m_unscaledPoints = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %m_unscaledPoints, align 8
@@ -353,19 +353,19 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNK23btConvexPointCloudShape12getNumPlanesEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define dso_local noundef i32 @_ZNK23btConvexPointCloudShape12getNumPlanesEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZNK23btConvexPointCloudShape8getPlaneER9btVector3S1_i(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 4 %0, ptr nocapture nonnull readnone align 4 %1, i32 %2) unnamed_addr #7 align 2 {
+define dso_local void @_ZNK23btConvexPointCloudShape8getPlaneER9btVector3S1_i(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 4 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, i32 %2) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK23btConvexPointCloudShape8isInsideERK9btVector3f(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 4 %0, float %1) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZNK23btConvexPointCloudShape8isInsideERK9btVector3f(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 4 captures(none) %0, float %1) unnamed_addr #7 align 2 {
 entry:
   ret i1 false
 }

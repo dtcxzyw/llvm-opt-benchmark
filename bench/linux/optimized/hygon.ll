@@ -643,7 +643,7 @@ define internal void @init_hygon(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @cpu_detect_tlb_hygon(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @cpu_detect_tlb_hygon(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp ult i32 %3, -2147483642

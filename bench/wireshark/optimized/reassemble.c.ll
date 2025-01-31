@@ -55,14 +55,14 @@ target triple = "x86_64-pc-linux-gnu"
 @create_streaming_reassembly_id.global_streaming_reassembly_id = internal unnamed_addr global i32 0, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fragment_addresses_hash(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @fragment_addresses_hash(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @fragment_addresses_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal range(i32 0, 2) i32 @fragment_addresses_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -137,7 +137,7 @@ addresses_equal.exit:                             ; preds = %48, %41, %39, %20, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @fragment_addresses_temporary_key(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture readnone %2) #2 {
+define internal noalias noundef ptr @fragment_addresses_temporary_key(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2) #2 {
   %4 = tail call noalias dereferenceable_or_null(56) ptr @g_slice_alloc(i64 noundef 56) #13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %6 = load i32, ptr %5, align 8
@@ -172,7 +172,7 @@ define internal noalias noundef ptr @fragment_addresses_temporary_key(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @fragment_addresses_persistent_key(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture readnone %2) #2 {
+define internal noalias noundef ptr @fragment_addresses_persistent_key(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2) #2 {
   %4 = tail call noalias dereferenceable_or_null(56) ptr @g_slice_alloc(i64 noundef 56) #13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %6 = load i32, ptr %5, align 8
@@ -291,14 +291,14 @@ free_address.exit7:                               ; preds = %free_address.exit, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fragment_addresses_ports_hash(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @fragment_addresses_ports_hash(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @fragment_addresses_ports_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal range(i32 0, 2) i32 @fragment_addresses_ports_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -387,7 +387,7 @@ addresses_equal.exit:                             ; preds = %41, %33, %27, %20, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @fragment_addresses_ports_temporary_key(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture readnone %2) #2 {
+define internal noalias noundef ptr @fragment_addresses_ports_temporary_key(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2) #2 {
   %4 = tail call noalias dereferenceable_or_null(64) ptr @g_slice_alloc(i64 noundef 64) #13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %6 = load i32, ptr %5, align 8
@@ -430,7 +430,7 @@ define internal noalias noundef ptr @fragment_addresses_ports_temporary_key(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @fragment_addresses_ports_persistent_key(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture readnone %2) #2 {
+define internal noalias noundef ptr @fragment_addresses_ports_persistent_key(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2) #2 {
   %4 = tail call noalias dereferenceable_or_null(64) ptr @g_slice_alloc(i64 noundef 64) #13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %6 = load i32, ptr %5, align 8
@@ -593,7 +593,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 declare ptr @g_list_prepend(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @reassembly_table_init(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @reassembly_table_init(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -670,7 +670,7 @@ define void @reassembly_table_init(ptr nocapture noundef %0, ptr nocapture nound
 declare i32 @g_hash_table_foreach_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @free_all_fragments(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #2 {
+define internal noundef i32 @free_all_fragments(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %4
 
@@ -730,14 +730,14 @@ declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare void @g_hash_table_remove_all(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @reassembled_hash(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @reassembled_hash(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @reassembled_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @reassembled_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -835,7 +835,7 @@ free_fd_head.exit:                                ; preds = %20, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define void @reassembly_table_destroy(ptr nocapture noundef initializes((16, 40)) %0) local_unnamed_addr #2 {
+define void @reassembly_table_destroy(ptr noundef captures(none) initializes((16, 40)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %0, align 8
@@ -869,7 +869,7 @@ define void @reassembly_table_destroy(ptr nocapture noundef initializes((16, 40)
 declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define ptr @fragment_delete(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define ptr @fragment_delete(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -944,7 +944,7 @@ declare void @g_slice_free1(i64 noundef, ptr noundef) local_unnamed_addr #5
 declare i32 @g_hash_table_remove(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define ptr @fragment_get(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define ptr @fragment_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -969,7 +969,7 @@ lookup_fd_head.exit:                              ; preds = %4, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @fragment_get_reassembled_id(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #2 {
+define ptr @fragment_get_reassembled_id(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct._reassembled_key, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
@@ -985,7 +985,7 @@ define ptr @fragment_get_reassembled_id(ptr nocapture noundef readonly %0, ptr n
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @fragment_add_seq_offset(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define void @fragment_add_seq_offset(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1024,7 +1024,7 @@ lookup_fd_head.exit:                              ; preds = %5, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define void @fragment_set_tot_len(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define void @fragment_set_tot_len(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1113,7 +1113,7 @@ lookup_fd_head.exit:                              ; preds = %5, %12
 declare void @except_throw(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @fragment_reset_tot_len(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define hidden void @fragment_reset_tot_len(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1216,7 +1216,7 @@ fragment_reset_defragmentation.exit:              ; preds = %.preheader.i, %._cr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @fragment_truncate(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define hidden void @fragment_truncate(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1485,7 +1485,7 @@ declare void @g_free(ptr noundef) #5
 declare void @tvb_add_to_chain(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @fragment_get_tot_len(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define i32 @fragment_get_tot_len(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1520,7 +1520,7 @@ lookup_fd_head.exit:                              ; preds = %4, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @fragment_set_partial_reassembly(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define void @fragment_set_partial_reassembly(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1556,7 +1556,7 @@ lookup_fd_head.exit:                              ; preds = %4, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @fragment_add(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #2 {
+define ptr @fragment_add(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #2 {
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %11 = load i32, ptr %10, align 4
   %12 = tail call fastcc ptr @fragment_add_common(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef 1, i32 noundef %11)
@@ -1564,7 +1564,7 @@ define ptr @fragment_add(ptr nocapture noundef readonly %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @fragment_add_common(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef range(i32 0, 2) %9, i32 noundef %10) unnamed_addr #2 {
+define internal fastcc ptr @fragment_add_common(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef range(i32 0, 2) %9, i32 noundef %10) unnamed_addr #2 {
   %12 = alloca ptr, align 8
   %13 = tail call i32 @tvb_bytes_exist(ptr noundef %1, i32 noundef %2, i32 noundef %7) #14
   %.not = icmp eq i32 %13, 0
@@ -1726,7 +1726,7 @@ lookup_fd_head.exit:                              ; preds = %15, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @fragment_add_multiple_ok(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #2 {
+define ptr @fragment_add_multiple_ok(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #2 {
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %11 = load i32, ptr %10, align 4
   %12 = tail call fastcc ptr @fragment_add_common(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef 0, i32 noundef %11)
@@ -1734,13 +1734,13 @@ define ptr @fragment_add_multiple_ok(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @fragment_add_out_of_order(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #2 {
+define ptr @fragment_add_out_of_order(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #2 {
   %11 = tail call fastcc ptr @fragment_add_common(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef 1, i32 noundef %9)
   ret ptr %11
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @fragment_add_check_with_fallback(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #2 {
+define ptr @fragment_add_check_with_fallback(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #2 {
   %11 = alloca ptr, align 8
   %12 = alloca %struct._reassembled_key, align 4
   %13 = alloca ptr, align 8
@@ -1894,7 +1894,7 @@ declare noalias ptr @g_slice_alloc(i64 noundef) local_unnamed_addr #6
 declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @fragment_add_work(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef range(i32 0, 2) %8) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @fragment_add_work(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef range(i32 0, 2) %8) unnamed_addr #2 {
   %10 = tail call noalias dereferenceable_or_null(32) ptr @g_slice_alloc(i64 noundef 32) #13
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 20
@@ -2538,7 +2538,7 @@ LINK_FRAG.exit:                                   ; preds = %._crit_edge.i.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fragment_reassembled(ptr nocapture noundef readonly %0, ptr noundef initializes((16, 20)) %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc void @fragment_reassembled(ptr noundef readonly captures(none) %0, ptr noundef initializes((16, 20)) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 0, ptr %5, align 8
   %6 = load ptr, ptr %1, align 8
@@ -2660,7 +2660,7 @@ reassembled_table_insert.exit27:                  ; preds = %33, %42, %52
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @fragment_add_check(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #2 {
+define ptr @fragment_add_check(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #2 {
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %11 = load i32, ptr %10, align 4
   %12 = tail call ptr @fragment_add_check_with_fallback(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %11)
@@ -2668,13 +2668,13 @@ define ptr @fragment_add_check(ptr nocapture noundef readonly %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @fragment_add_seq(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #2 {
+define ptr @fragment_add_seq(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #2 {
   %11 = tail call fastcc ptr @fragment_add_seq_common(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef null)
   ret ptr %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @fragment_add_seq_common(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef writeonly %10) unnamed_addr #2 {
+define internal fastcc ptr @fragment_add_seq_common(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef writeonly %10) unnamed_addr #2 {
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
@@ -3639,7 +3639,7 @@ fragment_add_seq_work.exit:                       ; preds = %._crit_edge.i.i231.
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @fragment_add_seq_check(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #2 {
+define ptr @fragment_add_seq_check(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #2 {
   %10 = alloca %struct._reassembled_key, align 4
   %11 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
@@ -3690,7 +3690,7 @@ fragment_add_seq_check_work.exit:                 ; preds = %17, %24, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @fragment_add_seq_802_11(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #2 {
+define ptr @fragment_add_seq_802_11(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #2 {
   %10 = alloca %struct._reassembled_key, align 4
   %11 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
@@ -3741,7 +3741,7 @@ fragment_add_seq_check_work.exit:                 ; preds = %17, %24, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @fragment_add_seq_next(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #2 {
+define ptr @fragment_add_seq_next(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #2 {
   %9 = alloca %struct._reassembled_key, align 4
   %10 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -3792,13 +3792,13 @@ fragment_add_seq_check_work.exit:                 ; preds = %16, %23, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @fragment_add_seq_single(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #2 {
+define ptr @fragment_add_seq_single(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #2 {
   %11 = tail call fastcc ptr @fragment_add_seq_single_work(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef 0, i32 noundef 0)
   ret ptr %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @fragment_add_seq_single_work(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef range(i32 0, 2) %11) unnamed_addr #2 {
+define internal fastcc ptr @fragment_add_seq_single_work(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef range(i32 0, 2) %11) unnamed_addr #2 {
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
@@ -3907,7 +3907,7 @@ lookup_fd_head.exit:                              ; preds = %37, %43
   %69 = sub i32 %4, %.0221368
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   %70 = load ptr, ptr %38, align 8
-  %71 = call ptr %70(ptr noundef %3, i32 noundef %69, ptr noundef %5) #14
+  %71 = call ptr %70(ptr noundef nonnull %3, i32 noundef %69, ptr noundef %5) #14
   %72 = load ptr, ptr %0, align 8
   %73 = call i32 @g_hash_table_lookup_extended(ptr noundef %72, ptr noundef %71, ptr noundef null, ptr noundef nonnull %15) #14
   %.not.i288 = icmp eq i32 %73, 0
@@ -4120,7 +4120,7 @@ fragment_items_removed.exit:                      ; preds = %.split240, %125, %.
   br i1 %159, label %160, label %fragment_items_removed.exit.thread
 
 160:                                              ; preds = %157
-  %161 = call ptr @fragment_delete(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %69, ptr noundef %5)
+  %161 = call ptr @fragment_delete(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef %69, ptr noundef %5)
   %.not273 = icmp eq ptr %161, null
   br i1 %.not273, label %fragment_items_removed.exit.thread, label %162
 
@@ -4630,13 +4630,13 @@ fragment_reassembled_single.exit:                 ; preds = %reassembled_table_i
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @fragment_add_seq_single_aging(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #2 {
+define ptr @fragment_add_seq_single_aging(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #2 {
   %12 = tail call fastcc ptr @fragment_add_seq_single_work(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef 1)
   ret ptr %12
 }
 
 ; Function Attrs: nounwind uwtable
-define void @fragment_start_seq_check(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define void @fragment_start_seq_check(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %8 = load ptr, ptr %7, align 8
@@ -4696,7 +4696,7 @@ lookup_fd_head.exit:                              ; preds = %12, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @fragment_end_seq_next(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define ptr @fragment_end_seq_next(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._reassembled_key, align 4
   %7 = alloca ptr, align 8
@@ -4765,11 +4765,11 @@ lookup_fd_head.exit:                              ; preds = %20, %26
   %34 = load i32, ptr %33, align 8
   %35 = or i32 %34, 1024
   store i32 %35, ptr %33, align 8
-  call fastcc void @fragment_defragment_and_free(ptr noundef nonnull %29, ptr noundef %1)
+  call fastcc void @fragment_defragment_and_free(ptr noundef nonnull %29, ptr noundef nonnull %1)
   %36 = load ptr, ptr %7, align 8
   %.val = load ptr, ptr %0, align 8
   %37 = call i32 @g_hash_table_remove(ptr noundef %.val, ptr noundef %36) #14
-  call fastcc void @fragment_reassembled(ptr noundef nonnull %0, ptr noundef nonnull %29, ptr noundef %1, i32 noundef %2)
+  call fastcc void @fragment_reassembled(ptr noundef nonnull %0, ptr noundef nonnull %29, ptr noundef nonnull %1, i32 noundef %2)
   %38 = load ptr, ptr %29, align 8
   %.not40 = icmp eq ptr %38, null
   br i1 %.not40, label %63, label %39
@@ -4827,7 +4827,7 @@ reassembled_table_insert.exit:                    ; preds = %39, %50, %61
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fragment_defragment_and_free(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
+define internal fastcc void @fragment_defragment_and_free(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 {
   %.078 = load ptr, ptr %0, align 8
   %.not79 = icmp eq ptr %.078, null
   br i1 %.not79, label %._crit_edge, label %.lr.ph
@@ -5013,7 +5013,7 @@ define internal fastcc void @fragment_defragment_and_free(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @process_reassembled_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef writeonly %6, ptr noundef %7) local_unnamed_addr #2 {
+define ptr @process_reassembled_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly %6, ptr noundef %7) local_unnamed_addr #2 {
   %9 = alloca ptr, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.critedge, label %10
@@ -5111,7 +5111,7 @@ declare ptr @tvb_new_chain(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @show_fragment_seq_tree(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef initializes((272, 276)) %3, ptr noundef %4, ptr nocapture noundef initializes((0, 8)) %5) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @show_fragment_seq_tree(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(none) initializes((272, 276)) %3, ptr noundef %4, ptr noundef captures(none) initializes((0, 8)) %5) local_unnamed_addr #2 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 272
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -5287,7 +5287,7 @@ show_fragment_errs_in_col.exit:                   ; preds = %proto_item_set_gene
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @show_fragment_tree(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef initializes((272, 276)) %3, ptr noundef %4, ptr nocapture noundef initializes((0, 8)) %5) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @show_fragment_tree(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef captures(none) initializes((272, 276)) %3, ptr noundef %4, ptr noundef captures(none) initializes((0, 8)) %5) local_unnamed_addr #2 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 272
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -5450,7 +5450,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_fragment(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6, ptr noundef %7, ptr nocapture noundef readonly %8) unnamed_addr #2 {
+define internal fastcc void @show_fragment(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6, ptr noundef %7, ptr noundef readonly captures(none) %8) unnamed_addr #2 {
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %21, label %10
 
@@ -5687,7 +5687,7 @@ define hidden void @reassembly_table_cleanup() local_unnamed_addr #2 {
 declare void @g_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @reassembly_table_free(ptr noundef %0, ptr nocapture readnone %1) #2 {
+define internal void @reassembly_table_free(ptr noundef %0, ptr readnone captures(none) %1) #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -5734,7 +5734,7 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #5
 declare ptr @wmem_file_scope() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @reassemble_streaming_data_and_call_subdissector(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef returned %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef readonly byval(%struct.reassembly_table) align 8 %6, ptr nocapture noundef %7, i64 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr nocapture noundef readonly %13, i32 noundef %14) local_unnamed_addr #2 {
+define noundef i32 @reassemble_streaming_data_and_call_subdissector(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef returned %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly byval(%struct.reassembly_table) align 8 captures(none) %6, ptr noundef captures(none) %7, i64 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef readonly captures(none) %13, i32 noundef %14) local_unnamed_addr #2 {
   %16 = alloca ptr, align 8
   %17 = alloca i64, align 8
   store i64 %8, ptr %17, align 8
@@ -6363,7 +6363,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare void @col_append_sep_fstr(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @additional_bytes_expected_to_complete_reassembly(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @additional_bytes_expected_to_complete_reassembly(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   ret i32 %3
@@ -6385,7 +6385,7 @@ declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) loca
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @LINK_FRAG(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #7 {
+define internal fastcc void @LINK_FRAG(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %5
@@ -6504,10 +6504,10 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #6
 declare ptr @tvb_new_real_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @MERGE_FRAG(ptr nocapture noundef %0, ptr noundef nonnull %1) unnamed_addr #7 {
+define internal fastcc void @MERGE_FRAG(ptr noundef captures(none) %0, ptr noundef nonnull %1) unnamed_addr #7 {
   %3 = load ptr, ptr %1, align 8
   %.not55 = icmp eq ptr %3, null
   %4 = load ptr, ptr %0, align 8
@@ -6703,7 +6703,7 @@ update_first_gap.exit:                            ; preds = %._crit_edge.i50, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fragment_add_seq_single_move(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #2 {
+define internal fastcc void @fragment_add_seq_single_move(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #2 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = icmp eq i32 %4, 0
@@ -6934,7 +6934,7 @@ declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 n
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @reassembly_table_init_reg_table(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 {
+define internal void @reassembly_table_init_reg_table(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -6943,7 +6943,7 @@ define internal void @reassembly_table_init_reg_table(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @reassembly_table_cleanup_reg_table(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 {
+define internal void @reassembly_table_cleanup_reg_table(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -6976,16 +6976,16 @@ reassembly_table_destroy.exit:                    ; preds = %9, %12
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #12

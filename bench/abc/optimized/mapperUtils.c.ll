@@ -77,7 +77,7 @@ declare i32 @Map_NodeIsAnd(ptr noundef) local_unnamed_addr #1
 declare void @Map_NodeVecPush(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Map_MappingDfs(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @Map_MappingDfs(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Map_NodeVecAlloc(i32 noundef 100) #14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
@@ -131,7 +131,7 @@ define ptr @Map_MappingDfs(ptr nocapture noundef readonly %0, i32 noundef %1) lo
 declare ptr @Map_NodeVecAlloc(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 65536) i32 @Map_MappingCountLevels(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 65536) i32 @Map_MappingCountLevels(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -283,7 +283,7 @@ tailrecurse:                                      ; preds = %9, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Map_MappingUnmark(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Map_MappingUnmark(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -353,7 +353,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Map_MappingPrintOutputArrivals(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @Map_MappingPrintOutputArrivals(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = alloca [5 x i32], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
@@ -530,13 +530,13 @@ Map_MappingFindLatest.exit:                       ; preds = %52, %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Map_MappingSetupTruthTables(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define void @Map_MappingSetupTruthTables(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   br label %.preheader17
 
 .preheader17:                                     ; preds = %1, %12
@@ -588,7 +588,7 @@ define void @Map_MappingSetupTruthTables(ptr nocapture noundef %0) local_unnamed
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Map_MappingSetupTruthTablesLarge(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define void @Map_MappingSetupTruthTablesLarge(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   br label %.preheader33
 
 .preheader33:                                     ; preds = %1, %4
@@ -666,7 +666,7 @@ define void @Map_MappingSetupTruthTablesLarge(ptr nocapture noundef %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_MappingSetupMask(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @Map_MappingSetupMask(ptr noundef writeonly captures(none) initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq i32 %1, 6
   %.neg = shl nsw i32 -1, %1
   %4 = add nsw i32 %.neg, 32
@@ -680,7 +680,7 @@ define void @Map_MappingSetupMask(ptr nocapture noundef writeonly initializes((0
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Map_ManCheckConsistency(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef i32 @Map_ManCheckConsistency(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @Map_NodeVecAlloc(i32 noundef 100) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
@@ -820,7 +820,7 @@ declare i32 @Map_NodeIsConst(ptr noundef) local_unnamed_addr #1
 declare void @Map_NodeVecFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Map_MappingNodeIsViolator(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @Map_MappingNodeIsViolator(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds [3 x i32], ptr %4, i64 0, i64 %5
@@ -839,7 +839,7 @@ define range(i32 0, 2) i32 @Map_MappingNodeIsViolator(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define float @Map_MappingGetAreaFlow(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define float @Map_MappingGetAreaFlow(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -897,7 +897,7 @@ define float @Map_MappingGetAreaFlow(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 2) i32 @Map_CompareNodesByLevel(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define range(i32 -1, 2) i32 @Map_CompareNodesByLevel(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, -2
@@ -919,7 +919,7 @@ define range(i32 -1, 2) i32 @Map_CompareNodesByLevel(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Map_MappingSortByLevel(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @Map_MappingSortByLevel(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
@@ -929,10 +929,10 @@ define void @Map_MappingSortByLevel(ptr nocapture noundef readnone %0, ptr nocap
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @Map_CompareNodesByPointer(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
+define range(i32 -1, 2) i32 @Map_CompareNodesByPointer(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %3, %4
@@ -943,7 +943,7 @@ define range(i32 -1, 2) i32 @Map_CompareNodesByPointer(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Map_MappingCountDoubles(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define i32 @Map_MappingCountDoubles(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -999,7 +999,7 @@ define i32 @Map_MappingCountDoubles(ptr nocapture noundef readnone %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Map_CreateTableGate2Super(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Map_CreateTableGate2Super(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @st__init_table(ptr noundef nonnull @strcmp, ptr noundef nonnull @st__strhash) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
@@ -1075,7 +1075,7 @@ define ptr @Map_CreateTableGate2Super(ptr nocapture noundef readonly %0) local_u
 declare ptr @st__init_table(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) #3
 
 declare i32 @st__strhash(ptr noundef, i32 noundef) #1
 
@@ -1084,7 +1084,7 @@ declare i32 @Mio_GateReadPinNum(ptr noundef) local_unnamed_addr #1
 declare i32 @st__insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Map_ManCleanData(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define void @Map_ManCleanData(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1119,7 +1119,7 @@ define void @Map_ManCleanData(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Map_MappingExpandTruth(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @Map_MappingExpandTruth(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp eq i32 %1, 6
   br i1 %3, label %18, label %4
 
@@ -1229,7 +1229,7 @@ declare float @Map_TimeCutComputeArrival(ptr noundef, ptr noundef, i32 noundef, 
 declare float @Map_TimeComputeArrivalMax(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 65536) i32 @Map_MappingGetMaxLevel(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define range(i32 0, 65536) i32 @Map_MappingGetMaxLevel(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0

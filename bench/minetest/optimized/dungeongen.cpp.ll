@@ -99,7 +99,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10DungeonGenC2EPK14NodeDefManagerP16GenerateNotifierP13DungeonParams(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((0, 24), (28, 38), (40, 44), (52, 78), (80, 92), (98, 122), (124, 130), (140, 152)) %this, ptr noundef %ndef, ptr noundef %gennotify, ptr noundef readonly %dparams) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10DungeonGenC2EPK14NodeDefManagerP16GenerateNotifierP13DungeonParams(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(152) initializes((0, 24), (28, 38), (40, 44), (52, 78), (80, 92), (98, 122), (124, 130), (140, 152)) %this, ptr noundef %ndef, ptr noundef %gennotify, ptr noundef readonly %dparams) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i92 = alloca i64, align 8
   %__dnew.i.i74 = alloca i64, align 8
@@ -366,12 +366,12 @@ eh.resume:                                        ; preds = %ehcleanup33, %ehcle
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare noundef zeroext i16 @_ZNK14NodeDefManager5getIdERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(65848), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -430,7 +430,7 @@ invoke.cont5:                                     ; preds = %if.end.i.i.i.i, %if
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN10DungeonGen8generateEP8MMVManipjN3irr4core8vector3dIsEES5_(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %vm, i32 noundef %bseed, i48 %nmin.coerce, i48 %nmax.coerce) local_unnamed_addr #3 align 2 {
@@ -1317,7 +1317,7 @@ unreachable:                                      ; preds = %invoke.cont14, %inv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10DungeonGen8makeRoomEN3irr4core8vector3dIsEES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, i48 %roomsize.coerce, i48 %roomplace.coerce) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN10DungeonGen8makeRoomEN3irr4core8vector3dIsEES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, i48 %roomsize.coerce, i48 %roomplace.coerce) local_unnamed_addr #7 align 2 {
 entry:
   %roomsize.sroa.0.0.extract.trunc = trunc i48 %roomsize.coerce to i16
   %roomsize.sroa.5.0.extract.shift = lshr i48 %roomsize.coerce, 16
@@ -2044,7 +2044,7 @@ for.cond.cleanup253:                              ; preds = %for.cond256.for.con
 declare noundef zeroext i1 @_ZN16GenerateNotifier8addEventE13GenNotifyTypeN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(104), i32 noundef, i48) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN10DungeonGen16findPlaceForDoorERN3irr4core8vector3dIsEES4_(ptr nocapture noundef nonnull align 8 dereferenceable(152) %this, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(6) %result_place, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(6) %result_dir) local_unnamed_addr #8 align 2 {
+define dso_local noundef zeroext i1 @_ZN10DungeonGen16findPlaceForDoorERN3irr4core8vector3dIsEES4_(ptr noundef nonnull align 8 captures(none) dereferenceable(152) %this, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(6) %result_place, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(6) %result_dir) local_unnamed_addr #8 align 2 {
 entry:
   %m_pos = getelementptr inbounds nuw i8, ptr %this, i64 140
   %m_dir = getelementptr inbounds nuw i8, ptr %this, i64 146
@@ -2737,7 +2737,7 @@ cleanup128:                                       ; preds = %for.inc, %cleanup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10DungeonGen8makeDoorEN3irr4core8vector3dIsEES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, i48 %doorplace.coerce, i48 %doordir.coerce) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN10DungeonGen8makeDoorEN3irr4core8vector3dIsEES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, i48 %doorplace.coerce, i48 %doordir.coerce) local_unnamed_addr #7 align 2 {
 entry:
   %holesize.i = getelementptr inbounds nuw i8, ptr %this, i64 124
   %agg.tmp2.sroa.0.0.copyload.i = load i48, ptr %holesize.i, align 4, !tbaa.struct !117
@@ -2746,7 +2746,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10DungeonGen12makeCorridorEN3irr4core8vector3dIsEES3_RS3_S4_(ptr noundef nonnull align 8 dereferenceable(152) %this, i48 %doorplace.coerce, i48 %doordir.coerce, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(6) %result_place, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(6) %result_dir) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10DungeonGen12makeCorridorEN3irr4core8vector3dIsEES3_RS3_S4_(ptr noundef nonnull align 8 dereferenceable(152) %this, i48 %doorplace.coerce, i48 %doordir.coerce, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(6) %result_place, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(6) %result_dir) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %holesize.i = getelementptr inbounds nuw i8, ptr %this, i64 124
   %agg.tmp2.sroa.0.0.copyload.i = load i48, ptr %holesize.i, align 4, !tbaa.struct !117
@@ -3275,7 +3275,7 @@ cleanup:                                          ; preds = %if.then256, %_Z11ra
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN10DungeonGen20findPlaceForRoomDoorEN3irr4core8vector3dIsEERS3_S4_S4_(ptr noundef nonnull align 8 dereferenceable(152) %this, i48 %roomsize.coerce, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(6) %result_doorplace, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(6) %result_doordir, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(6) %result_roomplace) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN10DungeonGen20findPlaceForRoomDoorEN3irr4core8vector3dIsEERS3_S4_S4_(ptr noundef nonnull align 8 dereferenceable(152) %this, i48 %roomsize.coerce, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(6) %result_doorplace, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(6) %result_doordir, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(6) %result_roomplace) local_unnamed_addr #3 align 2 {
 entry:
   %doorplace = alloca %"class.irr::core::vector3d", align 2
   %doordir = alloca %"class.irr::core::vector3d", align 2
@@ -3535,7 +3535,7 @@ cleanup124:                                       ; preds = %for.inc122, %cleanu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10DungeonGen8makeFillEN3irr4core8vector3dIsEES3_h7MapNodeh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, i48 %place.coerce, i48 %size.coerce, i8 noundef zeroext %avoid_flags, i32 %n.coerce, i8 noundef zeroext %or_flags) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN10DungeonGen8makeFillEN3irr4core8vector3dIsEES3_h7MapNodeh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, i48 %place.coerce, i48 %size.coerce, i8 noundef zeroext %avoid_flags, i32 %n.coerce, i8 noundef zeroext %or_flags) local_unnamed_addr #7 align 2 {
 entry:
   %place.sroa.0.0.extract.trunc = trunc i48 %place.coerce to i16
   %place.sroa.2.0.extract.shift = lshr i48 %place.coerce, 16
@@ -3678,7 +3678,7 @@ for.cond.cleanup:                                 ; preds = %for.cond4.for.cond.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10DungeonGen8makeHoleEN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, i48 %place.coerce) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN10DungeonGen8makeHoleEN3irr4core8vector3dIsEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %this, i48 %place.coerce) local_unnamed_addr #7 align 2 {
 entry:
   %holesize = getelementptr inbounds nuw i8, ptr %this, i64 124
   %agg.tmp2.sroa.0.0.copyload = load i48, ptr %holesize, align 4, !tbaa.struct !117
@@ -3727,7 +3727,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z11random_turnR12PseudoRandomRN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull align 4 dereferenceable(4) %random, ptr nocapture noundef nonnull align 2 dereferenceable(6) %dir) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z11random_turnR12PseudoRandomRN3irr4core8vector3dIsEE(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %random, ptr noundef nonnull align 2 captures(none) dereferenceable(6) %dir) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %random, align 4, !tbaa !53
   %mul.i.i = mul i32 %0, 1103515245
@@ -3776,7 +3776,7 @@ cleanup:                                          ; preds = %if.end9, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i48 0, -4294901760) i48 @_Z14rand_ortho_dirR12PseudoRandomb(ptr nocapture noundef nonnull align 4 dereferenceable(4) %random, i1 noundef zeroext %diagonal_dirs) local_unnamed_addr #11 {
+define dso_local range(i48 0, -4294901760) i48 @_Z14rand_ortho_dirR12PseudoRandomb(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %random, i1 noundef zeroext %diagonal_dirs) local_unnamed_addr #11 {
 entry:
   %.pre = load i32, ptr %random, align 4, !tbaa !53
   br i1 %diagonal_dirs, label %land.lhs.true, label %if.end
@@ -4030,7 +4030,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #20
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_dungeongen.cpp() #21 section ".text.startup" {
@@ -4044,7 +4044,7 @@ entry:
 declare void @llvm.assume(i1 noundef) #22
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #23
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #23
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.abs.i16(i16, i1 immarg) #12

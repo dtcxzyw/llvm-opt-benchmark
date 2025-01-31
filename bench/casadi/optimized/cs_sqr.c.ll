@@ -163,7 +163,7 @@ declare ptr @cs_counts(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local
 declare ptr @cs_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull initializes((0, 8), (32, 40)) %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull captures(none) initializes((0, 8), (32, 40)) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -433,7 +433,7 @@ declare ptr @cs_spfree(ptr noundef) local_unnamed_addr #1
 declare ptr @cs_malloc(i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

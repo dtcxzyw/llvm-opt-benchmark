@@ -159,7 +159,7 @@ return:                                           ; preds = %if.end13, %if.then2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @oss_audio_fini(ptr nocapture readnone %opaque) #2 {
+define internal void @oss_audio_fini(ptr readnone captures(none) %opaque) #2 {
 entry:
   ret void
 }
@@ -168,7 +168,7 @@ entry:
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #4
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #4
 
 declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -403,7 +403,7 @@ return:                                           ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @oss_fini_out(ptr nocapture noundef %hw) #0 {
+define internal void @oss_fini_out(ptr noundef captures(none) %hw) #0 {
 entry:
   %fd = getelementptr inbounds nuw i8, ptr %hw, i64 168
   %0 = load i32, ptr %fd, align 4
@@ -457,7 +457,7 @@ if.end9:                                          ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @oss_write(ptr nocapture noundef %hw, ptr nocapture noundef readonly %buf, i64 noundef %len) #0 {
+define internal i64 @oss_write(ptr noundef captures(none) %hw, ptr noundef readonly captures(none) %buf, i64 noundef %len) #0 {
 entry:
   %cntinfo.i = alloca %struct.count_info, align 4
   %mmapped = getelementptr inbounds nuw i8, ptr %hw, i64 180
@@ -940,7 +940,7 @@ return:                                           ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @oss_fini_in(ptr nocapture noundef %hw) #0 {
+define internal void @oss_fini_in(ptr noundef captures(none) %hw) #0 {
 entry:
   %fd = getelementptr inbounds nuw i8, ptr %hw, i64 168
   %0 = load i32, ptr %fd, align 4
@@ -963,7 +963,7 @@ oss_anal_close.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @oss_read(ptr nocapture noundef readonly %hw, ptr noundef %buf, i64 noundef %len) #0 {
+define internal i64 @oss_read(ptr noundef readonly captures(none) %hw, ptr noundef %buf, i64 noundef %len) #0 {
 entry:
   %tobool.not12 = icmp eq i64 %len, 0
   br i1 %tobool.not12, label %while.end, label %while.body.lr.ph
@@ -1009,7 +1009,7 @@ while.end:                                        ; preds = %if.end, %entry, %sw
 declare void @audio_generic_run_buffer_in(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @oss_enable_in(ptr nocapture noundef %hw, i1 noundef zeroext %enable) #0 {
+define internal void @oss_enable_in(ptr noundef captures(none) %hw, i1 noundef zeroext %enable) #0 {
 entry:
   br i1 %enable, label %if.then, label %if.else
 
@@ -1052,7 +1052,7 @@ if.end10:                                         ; preds = %if.else, %if.then7,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @oss_open(i32 noundef range(i32 0, 2) %in, ptr nocapture noundef nonnull %req, ptr noundef %as, ptr nocapture noundef nonnull writeonly %obt, ptr nocapture noundef nonnull writeonly %pfd, ptr nocapture noundef readonly %dev) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @oss_open(i32 noundef range(i32 0, 2) %in, ptr noundef nonnull captures(none) %req, ptr noundef %as, ptr noundef nonnull writeonly captures(none) %obt, ptr noundef nonnull writeonly captures(none) %pfd, ptr noundef readonly captures(none) %dev) unnamed_addr #0 {
 entry:
   %abinfo = alloca %struct.audio_buf_info, align 4
   %fmt = alloca i32, align 4
@@ -1286,7 +1286,7 @@ declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #6
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #7
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @oss_logerr2(i32 noundef %err, ptr noundef %typ, ptr noundef %fmt, ...) unnamed_addr #0 {
@@ -1316,10 +1316,10 @@ declare void @qemu_set_fd_handler(i32 noundef, ptr noundef, ptr noundef, ptr nou
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
 
 declare void @audio_generic_run_buffer_out(ptr noundef) local_unnamed_addr #1
 
@@ -1341,7 +1341,7 @@ entry:
 declare void @audio_run(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @oss_helper_poll_in(ptr noundef %opaque) #0 {
@@ -1360,10 +1360,10 @@ declare void @llvm.va_end.p0(ptr) #10
 declare i64 @llvm.umin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

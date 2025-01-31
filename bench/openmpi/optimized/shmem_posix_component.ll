@@ -33,7 +33,7 @@ define internal noundef i32 @posix_open() #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal noundef i32 @posix_query(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #1 {
+define internal noundef i32 @posix_query(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #1 {
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_shmem_posix_component, i64 272), align 8
   store i32 %3, ptr %1, align 4
   store ptr @opal_shmem_posix_module, ptr %0, align 8
@@ -48,7 +48,7 @@ define internal noundef i32 @posix_register() #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @posix_runtime_query(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr noundef readonly %2) #2 {
+define internal noundef i32 @posix_runtime_query(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef readonly %2) #2 {
   %4 = alloca [16 x i8], align 16
   store i32 0, ptr %1, align 4
   store ptr null, ptr %0, align 8
@@ -113,7 +113,7 @@ opal_gethostname.exit:                            ; preds = %15, %20
 declare i32 @mca_base_component_var_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @opal_shmem_posix_shm_open(ptr noundef, i64 noundef) local_unnamed_addr #3
 

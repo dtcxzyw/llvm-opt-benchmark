@@ -15,7 +15,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mpi_subm: ; 
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_mpi_add344, ptr @__UNIQUE_ID___addressable_mpi_addm346, ptr @__UNIQUE_ID___addressable_mpi_sub345, ptr @__UNIQUE_ID___addressable_mpi_subm347], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mpi_add_ui(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @mpi_add_ui(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -194,7 +194,7 @@ define dso_local void @mpi_add_ui(ptr noundef %0, ptr nocapture noundef readonly
 declare dso_local i32 @mpi_resize(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mpi_add(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define dso_local void @mpi_add(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -491,7 +491,7 @@ declare dso_local i32 @mpihelp_cmp(ptr noundef, ptr noundef, i32 noundef) local_
 declare dso_local i64 @mpihelp_sub_n(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mpi_sub(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define dso_local void @mpi_sub(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = tail call ptr @mpi_copy(ptr noundef %2) #2
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %6 = load i32, ptr %5, align 4
@@ -510,7 +510,7 @@ declare dso_local ptr @mpi_copy(ptr noundef) local_unnamed_addr #1
 declare dso_local void @mpi_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mpi_addm(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) #0 align 16 {
+define dso_local void @mpi_addm(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #0 align 16 {
   tail call void @mpi_add(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   tail call void @mpi_mod(ptr noundef %0, ptr noundef %0, ptr noundef %3) #2
   ret void
@@ -520,7 +520,7 @@ define dso_local void @mpi_addm(ptr noundef %0, ptr nocapture noundef readonly %
 declare dso_local void @mpi_mod(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mpi_subm(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local void @mpi_subm(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
   %5 = tail call ptr @mpi_copy(ptr noundef %2) #2
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %7 = load i32, ptr %6, align 4

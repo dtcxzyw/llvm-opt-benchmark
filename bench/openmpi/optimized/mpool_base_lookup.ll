@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @mca_mpool_base_default_priority = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nofree nounwind uwtable
-define ptr @mca_mpool_base_component_lookup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @mca_mpool_base_component_lookup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %.078 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_mpool_base_framework, i64 112), align 8
   %.not9 = icmp eq ptr %.078, getelementptr inbounds nuw (i8, ptr @opal_mpool_base_framework, i64 96)
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -39,7 +39,7 @@ define ptr @mca_mpool_base_component_lookup(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @mca_mpool_base_module_lookup(ptr noundef %0) local_unnamed_addr #2 {

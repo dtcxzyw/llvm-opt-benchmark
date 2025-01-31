@@ -67,7 +67,7 @@ define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$13shrink_to_fit17hc557266870
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8e5f1f85547dcc87E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((8, 16)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8e5f1f85547dcc87E"(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((8, 16)) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 {
   %3 = load i64, ptr %1, align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %9, label %5
@@ -89,7 +89,7 @@ define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8e5f1f855
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb2bc29d30fdd6a30E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((8, 16)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb2bc29d30fdd6a30E"(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((8, 16)) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 {
   %3 = load i64, ptr %1, align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %9, label %5
@@ -111,7 +111,7 @@ define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb2bc29d30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he44a06d2684a4fb7E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((8, 16)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he44a06d2684a4fb7E"(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((8, 16)) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 {
   %3 = load i64, ptr %1, align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %9, label %5
@@ -133,7 +133,7 @@ define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he44a06d26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he79f348c630224beE"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((8, 16)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he79f348c630224beE"(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((8, 16)) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 {
   %3 = load i64, ptr %1, align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %9, label %5
@@ -403,7 +403,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h7a4656a0fba222fcE"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 16)) %0, i64 %1, i1 zeroext %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h7a4656a0fba222fcE"(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 16)) %0, i64 %1, i1 zeroext %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [0 x i8], align 1
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %23, label %6

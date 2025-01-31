@@ -243,7 +243,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %50
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @prte_rml_compute_routing_tree() local_unnamed_addr #0 {
@@ -619,7 +619,7 @@ pmix_obj_new_tma.exit.us:                         ; preds = %.lr.ph.i.i.us, %18,
 .lr.ph.i.us:                                      ; preds = %42, %.lr.ph.i.us
   %48 = phi ptr [ %50, %.lr.ph.i.us ], [ %47, %42 ]
   %.07.i.us = phi ptr [ %49, %.lr.ph.i.us ], [ %46, %42 ]
-  tail call void %48(ptr noundef %13) #9
+  tail call void %48(ptr noundef nonnull %13) #9
   %49 = getelementptr inbounds nuw i8, ptr %.07.i.us, i64 8
   %50 = load ptr, ptr %49, align 8
   %.not.i46.us = icmp eq ptr %50, null
@@ -828,7 +828,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #3
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #6
@@ -847,7 +847,7 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -117,7 +117,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched29], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @lookup_power_well(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local ptr @lookup_power_well(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 3264
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
@@ -180,7 +180,7 @@ define dso_local ptr @lookup_power_well(ptr nocapture noundef readonly %0, i32 n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
@@ -189,7 +189,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_power_well_enable(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
@@ -227,7 +227,7 @@ define dso_local void @intel_power_well_enable(ptr noundef %0, ptr noundef %1) l
 declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local ptr @intel_power_well_name(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local ptr @intel_power_well_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -426,7 +426,7 @@ define dso_local zeroext i1 @intel_power_well_is_enabled(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local noundef zeroext i1 @intel_power_well_is_enabled_cached(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local noundef zeroext i1 @intel_power_well_is_enabled_cached(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i8, ptr %2, align 4, !range !19, !noundef !20
   %4 = icmp ne i8 %3, 0
@@ -503,7 +503,7 @@ lookup_power_well.exit:                           ; preds = %.preheader.i, %36
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local zeroext i1 @intel_power_well_is_always_on(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local zeroext i1 @intel_power_well_is_always_on(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i16, ptr %3, align 8
@@ -519,7 +519,7 @@ define dso_local nonnull ptr @intel_power_well_domains(ptr noundef readnone %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @intel_power_well_refcount(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local i32 @intel_power_well_refcount(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   ret i32 %3
@@ -1732,7 +1732,7 @@ lookup_power_well.exit10:                         ; preds = %.preheader.i9, %203
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @intel_cdclk_get_cdclk(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -2204,22 +2204,22 @@ declare dso_local i32 @vlv_dig_port_to_phy(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @vlv_dig_port_to_channel(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @i9xx_power_well_sync_hw_noop(ptr nocapture readnone %0, ptr nocapture readnone %1) #5 align 16 {
+define internal void @i9xx_power_well_sync_hw_noop(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #5 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @i9xx_always_on_power_well_noop(ptr nocapture readnone %0, ptr nocapture readnone %1) #5 align 16 {
+define internal void @i9xx_always_on_power_well_noop(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #5 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef zeroext i1 @i9xx_always_on_power_well_enabled(ptr nocapture readnone %0, ptr nocapture readnone %1) #5 align 16 {
+define internal noundef zeroext i1 @i9xx_always_on_power_well_enabled(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #5 align 16 {
   ret i1 true
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @chv_pipe_power_well_sync_hw(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @chv_pipe_power_well_sync_hw(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 3272
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 7368
@@ -2230,14 +2230,14 @@ define internal void @chv_pipe_power_well_sync_hw(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @chv_pipe_power_well_enable(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @chv_pipe_power_well_enable(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   tail call fastcc void @chv_set_pipe_power_well(ptr noundef %0, i1 noundef zeroext true)
   tail call fastcc void @vlv_display_power_well_init(ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @chv_pipe_power_well_disable(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @chv_pipe_power_well_disable(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 7932
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull %3) #9
   tail call void @valleyview_disable_display_irqs(ptr noundef %0) #9
@@ -2262,7 +2262,7 @@ define internal void @chv_pipe_power_well_disable(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @chv_pipe_power_well_enabled(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal zeroext i1 @chv_pipe_power_well_enabled(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   tail call void @vlv_iosf_sb_get(ptr noundef %0, i64 noundef 128) #9
   %3 = tail call i32 @vlv_punit_read(ptr noundef %0, i32 noundef 54) #9
   %4 = and i32 %3, 196608
@@ -2332,7 +2332,7 @@ define internal zeroext i1 @chv_pipe_power_well_enabled(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @chv_dpio_cmn_power_well_enable(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @chv_dpio_cmn_power_well_enable(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -2443,7 +2443,7 @@ define internal void @chv_dpio_cmn_power_well_enable(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @chv_dpio_cmn_power_well_disable(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @chv_dpio_cmn_power_well_disable(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -2537,7 +2537,7 @@ define internal void @chv_dpio_cmn_power_well_disable(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @vlv_power_well_enabled(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal zeroext i1 @vlv_power_well_enabled(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -2618,7 +2618,7 @@ define internal zeroext i1 @vlv_power_well_enabled(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i830_pipes_power_well_sync_hw(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @i830_pipes_power_well_sync_hw(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -2671,7 +2671,7 @@ define internal void @i830_pipes_power_well_sync_hw(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i830_pipes_power_well_enable(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @i830_pipes_power_well_enable(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2624
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -2713,14 +2713,14 @@ define internal void @i830_pipes_power_well_enable(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i830_pipes_power_well_disable(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @i830_pipes_power_well_disable(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   tail call void @i830_disable_pipe(ptr noundef %0, i32 noundef 1) #9
   tail call void @i830_disable_pipe(ptr noundef %0, i32 noundef 0) #9
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @i830_pipes_power_well_enabled(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal zeroext i1 @i830_pipes_power_well_enabled(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2624
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -2755,7 +2755,7 @@ define internal zeroext i1 @i830_pipes_power_well_enabled(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hsw_power_well_sync_hw(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @hsw_power_well_sync_hw(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -2810,7 +2810,7 @@ define internal void @hsw_power_well_sync_hw(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hsw_power_well_enable(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @hsw_power_well_enable(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -2971,7 +2971,7 @@ define internal void @hsw_power_well_enable(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hsw_power_well_disable(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @hsw_power_well_disable(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -3014,7 +3014,7 @@ define internal void @hsw_power_well_disable(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @hsw_power_well_enabled(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal zeroext i1 @hsw_power_well_enabled(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -3068,13 +3068,13 @@ define internal zeroext i1 @hsw_power_well_enabled(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gen9_dc_off_power_well_enable(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @gen9_dc_off_power_well_enable(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   tail call void @gen9_disable_dc_states(ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gen9_dc_off_power_well_disable(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @gen9_dc_off_power_well_disable(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = tail call zeroext i1 @intel_dmc_has_payload(ptr noundef %0) #9
   br i1 %3, label %4, label %16
 
@@ -3115,7 +3115,7 @@ define internal void @gen9_dc_off_power_well_disable(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @gen9_dc_off_power_well_enabled(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal zeroext i1 @gen9_dc_off_power_well_enabled(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 7368
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %5 = load ptr, ptr %4, align 8
@@ -3137,7 +3137,7 @@ define internal zeroext i1 @gen9_dc_off_power_well_enabled(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @bxt_dpio_cmn_power_well_enable(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @bxt_dpio_cmn_power_well_enable(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -3152,7 +3152,7 @@ define internal void @bxt_dpio_cmn_power_well_enable(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @bxt_dpio_cmn_power_well_disable(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @bxt_dpio_cmn_power_well_disable(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -3167,7 +3167,7 @@ define internal void @bxt_dpio_cmn_power_well_disable(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @bxt_dpio_cmn_power_well_enabled(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal zeroext i1 @bxt_dpio_cmn_power_well_enabled(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -3182,7 +3182,7 @@ define internal zeroext i1 @bxt_dpio_cmn_power_well_enabled(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vlv_display_power_well_enable(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @vlv_display_power_well_enable(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %1, i64 29
   %.val1 = load i8, ptr %3, align 1
@@ -3195,7 +3195,7 @@ define internal void @vlv_display_power_well_enable(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vlv_display_power_well_disable(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @vlv_display_power_well_disable(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 7932
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull %3) #9
   tail call void @valleyview_disable_display_irqs(ptr noundef %0) #9
@@ -3226,7 +3226,7 @@ define internal void @vlv_display_power_well_disable(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vlv_dpio_cmn_power_well_enable(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @vlv_dpio_cmn_power_well_enable(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   tail call void @__const_udelay(i64 noundef 4295) #9
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %1, i64 29
@@ -3247,7 +3247,7 @@ define internal void @vlv_dpio_cmn_power_well_enable(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vlv_dpio_cmn_power_well_disable(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @vlv_dpio_cmn_power_well_disable(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2638
   br label %4
 
@@ -3290,7 +3290,7 @@ define internal void @vlv_dpio_cmn_power_well_disable(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vlv_power_well_enable(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @vlv_power_well_enable(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %1, i64 29
   %.val1 = load i8, ptr %3, align 1
@@ -3302,7 +3302,7 @@ define internal void @vlv_power_well_enable(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vlv_power_well_disable(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @vlv_power_well_disable(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %1, i64 29
   %.val1 = load i8, ptr %3, align 1
@@ -3314,7 +3314,7 @@ define internal void @vlv_power_well_disable(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @icl_aux_power_well_enable(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @icl_aux_power_well_enable(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca [2 x i32], align 4
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3762,7 +3762,7 @@ define internal void @icl_aux_power_well_enable(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @icl_aux_power_well_disable(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @icl_aux_power_well_disable(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -4014,7 +4014,7 @@ define internal void @icl_aux_power_well_disable(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @tgl_tc_cold_off_power_well_sync_hw(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @tgl_tc_cold_off_power_well_sync_hw(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -4023,7 +4023,7 @@ define internal void @tgl_tc_cold_off_power_well_sync_hw(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @tgl_tc_cold_off_power_well_enable(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @tgl_tc_cold_off_power_well_enable(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 7368
@@ -4093,13 +4093,13 @@ tgl_tc_cold_request.exit:                         ; preds = %21, %27
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @tgl_tc_cold_off_power_well_disable(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @tgl_tc_cold_off_power_well_disable(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   tail call fastcc void @tgl_tc_cold_request(ptr noundef %0, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal zeroext i1 @tgl_tc_cold_off_power_well_is_enabled(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #4 align 16 {
+define internal zeroext i1 @tgl_tc_cold_off_power_well_is_enabled(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = icmp ne i32 %4, 0
@@ -4107,7 +4107,7 @@ define internal zeroext i1 @tgl_tc_cold_off_power_well_is_enabled(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @xelpdp_aux_power_well_enable(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @xelpdp_aux_power_well_enable(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -4203,7 +4203,7 @@ define internal void @xelpdp_aux_power_well_enable(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @xelpdp_aux_power_well_disable(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @xelpdp_aux_power_well_disable(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -4251,7 +4251,7 @@ define internal void @xelpdp_aux_power_well_disable(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @xelpdp_aux_power_well_enabled(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal zeroext i1 @xelpdp_aux_power_well_enabled(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -4296,7 +4296,7 @@ define internal zeroext i1 @xelpdp_aux_power_well_enabled(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @xe2lpd_pica_power_well_enable(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @xe2lpd_pica_power_well_enable(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 7368
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   %5 = load ptr, ptr %4, align 8
@@ -4345,7 +4345,7 @@ define internal void @xe2lpd_pica_power_well_enable(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @xe2lpd_pica_power_well_disable(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @xe2lpd_pica_power_well_disable(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 7368
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   %5 = load ptr, ptr %4, align 8
@@ -4394,7 +4394,7 @@ define internal void @xe2lpd_pica_power_well_disable(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @xe2lpd_pica_power_well_enabled(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal zeroext i1 @xe2lpd_pica_power_well_enabled(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 7368
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %5 = load ptr, ptr %4, align 8
@@ -4682,7 +4682,7 @@ declare dso_local void @intel_hpd_poll_enable(ptr noundef) local_unnamed_addr #2
 declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @vlv_set_power_well(ptr noundef %0, ptr nocapture readonly %.0.val.8.val.0.val, i8 %.29.val, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc void @vlv_set_power_well(ptr noundef %0, ptr readonly captures(none) %.0.val.8.val.0.val, i8 %.29.val, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = zext i8 %.29.val to i64
   %4 = getelementptr %struct.i915_power_well_instance, ptr %.0.val.8.val.0.val, i64 %3, i32 3
   %5 = load i8, ptr %4, align 4
@@ -4766,7 +4766,7 @@ declare dso_local void @i830_enable_pipe(ptr noundef, i32 noundef) local_unnamed
 declare dso_local void @i830_disable_pipe(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @hsw_wait_for_power_well_enable(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc void @hsw_wait_for_power_well_enable(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -4867,7 +4867,7 @@ declare dso_local void @intel_vga_reset_io_mem(ptr noundef) local_unnamed_addr #
 declare dso_local void @gen8_irq_power_well_post_enable(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @hsw_wait_for_power_well_disable(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @hsw_wait_for_power_well_disable(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8

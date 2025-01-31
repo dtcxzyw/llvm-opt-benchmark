@@ -222,12 +222,12 @@ define dso_local i64 @pg_create_logical_replication_slot(ptr noundef %0) local_u
 declare void @CheckLogicalDecodingRequirements() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @ReplicationSlotPersist() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_drop_replication_slot(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_drop_replication_slot(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -625,7 +625,7 @@ declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #
 declare i32 @s_lock(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #1
 
@@ -1033,7 +1033,7 @@ define internal fastcc i64 @copy_replication_slot(ptr noundef %0, i1 noundef zer
   call void @llvm.assume(i1 %63)
   %64 = call i32 @errcode(i32 noundef 1088) #11
   %.str.19..str.20 = select i1 %53, ptr @.str.19, ptr @.str.20
-  %65 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.19..str.20, ptr noundef %11) #11
+  %65 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.19..str.20, ptr noundef nonnull %11) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 760, ptr noundef nonnull @__func__.copy_replication_slot) #11
   unreachable
 
@@ -1141,7 +1141,7 @@ create_physical_replication_slot.exit:            ; preds = %.thread76
 117:                                              ; preds = %115, %111, %96
   %118 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   call void @llvm.assume(i1 %118)
-  %119 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef %11) #11
+  %119 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull %11) #11
   %120 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.23) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 854, ptr noundef nonnull @__func__.copy_replication_slot) #11
   unreachable
@@ -1155,7 +1155,7 @@ create_physical_replication_slot.exit:            ; preds = %.thread76
   %124 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   call void @llvm.assume(i1 %124)
   %125 = call i32 @errcode(i32 noundef 1088) #11
-  %126 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef %11) #11
+  %126 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef nonnull %11) #11
   %127 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.25) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 862, ptr noundef nonnull @__func__.copy_replication_slot) #11
   unreachable
@@ -1252,7 +1252,7 @@ define dso_local i64 @pg_copy_physical_replication_slot_b(ptr noundef %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_sync_replication_slots(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_sync_replication_slots(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.StringInfoData, align 8
   tail call void @CheckSlotPermissions() #11
@@ -1373,7 +1373,7 @@ declare void @LogicalConfirmReceivedLocation(i64 noundef) local_unnamed_addr #1
 declare void @pg_re_throw() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 
@@ -1384,10 +1384,10 @@ declare void @llvm.assume(i1 noundef) #8
 declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -220,7 +220,7 @@ generate_setop_grouplist.exit.i:                  ; preds = %99, %.lr.ph.i.i, %l
   %.0.i = phi ptr [ %72, %109 ], [ null, %34 ]
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %118 = load i32, ptr %117, align 8
-  %119 = tail call ptr @create_recursiveunion_path(ptr noundef %0, ptr noundef nonnull %63, ptr noundef %43, ptr noundef %51, ptr noundef %116, ptr noundef %.0.i, i32 noundef %118, double noundef %.047.i) #7
+  %119 = tail call ptr @create_recursiveunion_path(ptr noundef nonnull %0, ptr noundef nonnull %63, ptr noundef %43, ptr noundef %51, ptr noundef %116, ptr noundef %.0.i, i32 noundef %118, double noundef %.047.i) #7
   tail call void @add_path(ptr noundef nonnull %63, ptr noundef %119) #7
   %120 = load ptr, ptr @create_upper_paths_hook, align 8
   %.not.i48.i = icmp eq ptr %120, null
@@ -258,7 +258,7 @@ generate_recursion_path.exit:                     ; preds = %115, %121
 declare void @setup_simple_rel_arrays(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @recurse_set_operations(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef range(i32 -1, 2) %5, ptr noundef %6, ptr nocapture noundef nonnull %7, ptr noundef writeonly %8) unnamed_addr #0 {
+define internal fastcc ptr @recurse_set_operations(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef range(i32 -1, 2) %5, ptr noundef %6, ptr noundef nonnull captures(none) %7, ptr noundef writeonly %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
@@ -651,9 +651,9 @@ list_length.exit:                                 ; preds = %list_length.exit146
 228:                                              ; preds = %.thread162, %224, %213
   %229 = phi i1 [ true, %224 ], [ false, %213 ], [ false, %.thread162 ]
   %.183.i = phi i32 [ %227, %224 ], [ 0, %213 ], [ %.082.i.lcssa173, %.thread162 ]
-  %230 = tail call ptr @create_append_path(ptr noundef %1, ptr noundef %189, ptr noundef null, ptr noundef %.086.i.lcssa, ptr noundef null, ptr noundef null, i32 noundef %.183.i, i1 noundef zeroext %229, double noundef -1.000000e+00) #7
+  %230 = tail call ptr @create_append_path(ptr noundef %1, ptr noundef nonnull %189, ptr noundef null, ptr noundef %.086.i.lcssa, ptr noundef null, ptr noundef null, i32 noundef %.183.i, i1 noundef zeroext %229, double noundef -1.000000e+00) #7
   %231 = load ptr, ptr %192, align 8
-  %232 = tail call ptr @create_gather_path(ptr noundef %1, ptr noundef %189, ptr noundef %230, ptr noundef %231, ptr noundef null, ptr noundef null) #7
+  %232 = tail call ptr @create_gather_path(ptr noundef %1, ptr noundef nonnull %189, ptr noundef %230, ptr noundef %231, ptr noundef null, ptr noundef null) #7
   %233 = load i8, ptr %108, align 8
   %234 = trunc i8 %233 to i1
   br i1 %234, label %237, label %235
@@ -838,13 +838,13 @@ generate_setop_grouplist.exit:                    ; preds = %312, %list_head.exi
   %.090.i = phi double [ %318, %323 ], [ %318, %319 ], [ %329, %333 ], [ %329, %326 ]
   %340 = icmp eq i32 %316, 2
   %341 = select i1 %340, ptr @.str.8, ptr @.str.9
-  %342 = call fastcc zeroext i1 @choose_hashed_setop(ptr noundef %1, ptr noundef %285, ptr noundef %283, double noundef %.090.i, double noundef %.091.i140, ptr noundef nonnull %341)
+  %342 = call fastcc zeroext i1 @choose_hashed_setop(ptr noundef nonnull %1, ptr noundef %285, ptr noundef %283, double noundef %.090.i, double noundef %.091.i140, ptr noundef nonnull %341)
   %brmerge.i = select i1 %.not.i.i, i1 true, i1 %342
   br i1 %brmerge.i, label %346, label %343
 
 343:                                              ; preds = %339
-  %344 = call ptr @make_pathkeys_for_sortclauses(ptr noundef %1, ptr noundef nonnull %285, ptr noundef %273) #7
-  %345 = call ptr @create_sort_path(ptr noundef %1, ptr noundef %279, ptr noundef %283, ptr noundef %344, double noundef -1.000000e+00) #7
+  %344 = call ptr @make_pathkeys_for_sortclauses(ptr noundef nonnull %1, ptr noundef nonnull %285, ptr noundef %273) #7
+  %345 = call ptr @create_sort_path(ptr noundef nonnull %1, ptr noundef %279, ptr noundef %283, ptr noundef %344, double noundef -1.000000e+00) #7
   br label %346
 
 346:                                              ; preds = %343, %339
@@ -894,7 +894,7 @@ generate_nonunion_paths.exit:                     ; preds = %348, %353
 list_length.exit150:                              ; preds = %generate_nonunion_paths.exit, %364
   %369 = phi i16 [ %368, %364 ], [ 1, %generate_nonunion_paths.exit ]
   %370 = select i1 %342, i32 %.093.i, i32 -1
-  %371 = call ptr @create_setop_path(ptr noundef %1, ptr noundef %279, ptr noundef %.0.i142, i32 noundef %.092.i, i32 noundef %362, ptr noundef %285, i16 noundef signext %369, i32 noundef %370, double noundef %.090.i, double noundef %.091.i140) #7
+  %371 = call ptr @create_setop_path(ptr noundef nonnull %1, ptr noundef %279, ptr noundef %.0.i142, i32 noundef %.092.i, i32 noundef %362, ptr noundef %285, i16 noundef signext %369, i32 noundef %370, double noundef %.090.i, double noundef %.091.i140) #7
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 40
   %373 = load double, ptr %372, align 8
   %374 = getelementptr inbounds nuw i8, ptr %279, i64 16
@@ -1041,7 +1041,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @generate_setop_tlist(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef range(i32 -1, 2) %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef readonly %5, ptr noundef readonly %6, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %7) unnamed_addr #0 {
+define internal fastcc ptr @generate_setop_tlist(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef range(i32 -1, 2) %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef readonly %5, ptr noundef readonly %6, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %7) unnamed_addr #0 {
   store i8 1, ptr %7, align 1
   %.not = icmp eq ptr %0, null
   %.not84 = icmp eq ptr %1, null
@@ -1501,7 +1501,7 @@ declare ptr @bms_union(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @create_append_path(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @make_union_unique(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @make_union_unique(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call ptr @fetch_upper_rel(ptr noundef %3, i32 noundef 0, ptr noundef null) #7
   %6 = getelementptr i8, ptr %0, i64 56
   %.val = load ptr, ptr %6, align 8
@@ -1621,7 +1621,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @choose_hashed_setop(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, double noundef %3, double noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc zeroext i1 @choose_hashed_setop(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, double noundef %3, double noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.Path, align 8
   %8 = alloca %struct.Path, align 8
   %.not.i = icmp eq ptr %1, null
@@ -1763,10 +1763,10 @@ declare void @llvm.assume(i1 noundef) #4
 declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5

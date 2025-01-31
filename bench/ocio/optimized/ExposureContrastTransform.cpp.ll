@@ -87,7 +87,7 @@ $_ZTSPFvPN19OpenColorIO_v2_4dev25ExposureContrastTransformEE = comdat any
 @_ZTSPFvPN19OpenColorIO_v2_4dev25ExposureContrastTransformEE = linkonce_odr constant [56 x i8] c"PFvPN19OpenColorIO_v2_4dev25ExposureContrastTransformEE\00", comdat, align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev25ExposureContrastTransform6CreateEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev25ExposureContrastTransform6CreateEv(ptr noalias writeonly sret(%"class.std::shared_ptr") align 8 captures(none) %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %call, i8 0, i64 256, i1 false)
@@ -159,7 +159,7 @@ lpad:                                             ; preds = %entry
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -498,7 +498,7 @@ terminate.lpad:                                   ; preds = %if.end
 declare noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_22ExposureContrastOpDataES2_(ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(248)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev29ExposureContrastTransformImpl8getStyleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev29ExposureContrastTransformImpl8getStyleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this) unnamed_addr #0 align 2 {
 entry:
   %m_style.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load i32, ptr %m_style.i, align 8
@@ -524,7 +524,7 @@ entry:
 declare noundef i32 @_ZN19OpenColorIO_v2_4dev22ExposureContrastOpData12ConvertStyleENS_21ExposureContrastStyleENS_18TransformDirectionE(i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef double @_ZNK19OpenColorIO_v2_4dev29ExposureContrastTransformImpl11getExposureEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) unnamed_addr #0 align 2 {
+define hidden noundef double @_ZNK19OpenColorIO_v2_4dev29ExposureContrastTransformImpl11getExposureEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this) unnamed_addr #0 align 2 {
 entry:
   %m_exposure.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %m_exposure.i, align 8
@@ -536,7 +536,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl11setExposureEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this, double noundef %exposure) unnamed_addr #0 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl11setExposureEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this, double noundef %exposure) unnamed_addr #0 align 2 {
 entry:
   %m_exposure.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %m_exposure.i, align 8
@@ -548,7 +548,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl19makeExposureDynamicEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl19makeExposureDynamicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_exposure.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %m_exposure.i, align 8, !noalias !4
@@ -652,7 +652,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl22makeExposureNonDynamicEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl22makeExposureNonDynamicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_exposure.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %m_exposure.i, align 8, !noalias !7
@@ -756,7 +756,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev29ExposureContrastTransformImpl17isExposureDynamicEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev29ExposureContrastTransformImpl17isExposureDynamicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_exposure.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %m_exposure.i, align 8, !noalias !10
@@ -862,7 +862,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef double @_ZNK19OpenColorIO_v2_4dev29ExposureContrastTransformImpl11getContrastEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) unnamed_addr #0 align 2 {
+define hidden noundef double @_ZNK19OpenColorIO_v2_4dev29ExposureContrastTransformImpl11getContrastEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this) unnamed_addr #0 align 2 {
 entry:
   %m_contrast.i = getelementptr inbounds nuw i8, ptr %this, i64 200
   %0 = load ptr, ptr %m_contrast.i, align 8
@@ -874,7 +874,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl11setContrastEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this, double noundef %contrast) unnamed_addr #0 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl11setContrastEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this, double noundef %contrast) unnamed_addr #0 align 2 {
 entry:
   %m_contrast.i = getelementptr inbounds nuw i8, ptr %this, i64 200
   %0 = load ptr, ptr %m_contrast.i, align 8
@@ -886,7 +886,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl19makeContrastDynamicEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl19makeContrastDynamicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_contrast.i = getelementptr inbounds nuw i8, ptr %this, i64 200
   %0 = load ptr, ptr %m_contrast.i, align 8, !noalias !13
@@ -990,7 +990,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl22makeContrastNonDynamicEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl22makeContrastNonDynamicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_contrast.i = getelementptr inbounds nuw i8, ptr %this, i64 200
   %0 = load ptr, ptr %m_contrast.i, align 8, !noalias !16
@@ -1094,7 +1094,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev29ExposureContrastTransformImpl17isContrastDynamicEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev29ExposureContrastTransformImpl17isContrastDynamicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_contrast.i = getelementptr inbounds nuw i8, ptr %this, i64 200
   %0 = load ptr, ptr %m_contrast.i, align 8, !noalias !19
@@ -1200,7 +1200,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef double @_ZNK19OpenColorIO_v2_4dev29ExposureContrastTransformImpl8getGammaEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) unnamed_addr #0 align 2 {
+define hidden noundef double @_ZNK19OpenColorIO_v2_4dev29ExposureContrastTransformImpl8getGammaEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this) unnamed_addr #0 align 2 {
 entry:
   %m_gamma.i = getelementptr inbounds nuw i8, ptr %this, i64 216
   %0 = load ptr, ptr %m_gamma.i, align 8
@@ -1212,7 +1212,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl8setGammaEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this, double noundef %gamma) unnamed_addr #0 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl8setGammaEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this, double noundef %gamma) unnamed_addr #0 align 2 {
 entry:
   %m_gamma.i = getelementptr inbounds nuw i8, ptr %this, i64 216
   %0 = load ptr, ptr %m_gamma.i, align 8
@@ -1224,7 +1224,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl16makeGammaDynamicEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl16makeGammaDynamicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_gamma.i = getelementptr inbounds nuw i8, ptr %this, i64 216
   %0 = load ptr, ptr %m_gamma.i, align 8, !noalias !22
@@ -1328,7 +1328,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl19makeGammaNonDynamicEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl19makeGammaNonDynamicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_gamma.i = getelementptr inbounds nuw i8, ptr %this, i64 216
   %0 = load ptr, ptr %m_gamma.i, align 8, !noalias !25
@@ -1432,7 +1432,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev29ExposureContrastTransformImpl14isGammaDynamicEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev29ExposureContrastTransformImpl14isGammaDynamicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_gamma.i = getelementptr inbounds nuw i8, ptr %this, i64 216
   %0 = load ptr, ptr %m_gamma.i, align 8, !noalias !28
@@ -1538,7 +1538,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef double @_ZNK19OpenColorIO_v2_4dev29ExposureContrastTransformImpl8getPivotEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) unnamed_addr #12 align 2 {
+define hidden noundef double @_ZNK19OpenColorIO_v2_4dev29ExposureContrastTransformImpl8getPivotEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this) unnamed_addr #12 align 2 {
 entry:
   %m_pivot.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load double, ptr %m_pivot.i, align 8
@@ -1546,7 +1546,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl8setPivotEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((232, 240)) %this, double noundef %pivot) unnamed_addr #13 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl8setPivotEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(256) initializes((232, 240)) %this, double noundef %pivot) unnamed_addr #13 align 2 {
 entry:
   %m_pivot.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   store double %pivot, ptr %m_pivot.i, align 8
@@ -1554,7 +1554,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef double @_ZNK19OpenColorIO_v2_4dev29ExposureContrastTransformImpl18getLogExposureStepEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) unnamed_addr #12 align 2 {
+define hidden noundef double @_ZNK19OpenColorIO_v2_4dev29ExposureContrastTransformImpl18getLogExposureStepEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this) unnamed_addr #12 align 2 {
 entry:
   %m_logExposureStep.i = getelementptr inbounds nuw i8, ptr %this, i64 240
   %0 = load double, ptr %m_logExposureStep.i, align 8
@@ -1562,7 +1562,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl18setLogExposureStepEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((240, 248)) %this, double noundef %logExposureStep) unnamed_addr #13 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl18setLogExposureStepEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(256) initializes((240, 248)) %this, double noundef %logExposureStep) unnamed_addr #13 align 2 {
 entry:
   %m_logExposureStep.i = getelementptr inbounds nuw i8, ptr %this, i64 240
   store double %logExposureStep, ptr %m_logExposureStep.i, align 8
@@ -1570,7 +1570,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef double @_ZNK19OpenColorIO_v2_4dev29ExposureContrastTransformImpl13getLogMidGrayEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) unnamed_addr #12 align 2 {
+define hidden noundef double @_ZNK19OpenColorIO_v2_4dev29ExposureContrastTransformImpl13getLogMidGrayEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this) unnamed_addr #12 align 2 {
 entry:
   %m_logMidGray.i = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load double, ptr %m_logMidGray.i, align 8
@@ -1578,7 +1578,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl13setLogMidGrayEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((248, 256)) %this, double noundef %logMidGray) unnamed_addr #13 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl13setLogMidGrayEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(256) initializes((248, 256)) %this, double noundef %logMidGray) unnamed_addr #13 align 2 {
 entry:
   %m_logMidGray.i = getelementptr inbounds nuw i8, ptr %this, i64 248
   store double %logMidGray, ptr %m_logMidGray.i, align 8
@@ -1785,7 +1785,7 @@ cond.end:                                         ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nosync nounwind memory(none)
 declare i32 @llvm.eh.typeid.for.p0(ptr) #15

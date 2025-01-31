@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7msdfgen19msdfErrorCorrectionERKNS_9BitmapRefIfLi3EEERKNS_5ShapeERKNS_10ProjectionEdRKNS_19MSDFGeneratorConfigE(ptr noundef nonnull align 8 dereferenceable(16) %sdf, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %config) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7msdfgen19msdfErrorCorrectionERKNS_9BitmapRefIfLi3EEERKNS_5ShapeERKNS_10ProjectionEdRKNS_19MSDFGeneratorConfigE(ptr noundef nonnull align 8 dereferenceable(16) %sdf, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %config) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %stencil.i = alloca %"struct.msdfgen::BitmapRef.1", align 8
   %ec.i = alloca %"class.msdfgen::MSDFErrorCorrection", align 8
@@ -207,7 +207,7 @@ _ZN7msdfgenL24msdfErrorCorrectionInnerILi3EEEvRKNS_9BitmapRefIfXT_EEERKNS_5Shape
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7msdfgen19msdfErrorCorrectionERKNS_9BitmapRefIfLi4EEERKNS_5ShapeERKNS_10ProjectionEdRKNS_19MSDFGeneratorConfigE(ptr noundef nonnull align 8 dereferenceable(16) %sdf, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %config) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7msdfgen19msdfErrorCorrectionERKNS_9BitmapRefIfLi4EEERKNS_5ShapeERKNS_10ProjectionEdRKNS_19MSDFGeneratorConfigE(ptr noundef nonnull align 8 dereferenceable(16) %sdf, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %config) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %stencil.i = alloca %"struct.msdfgen::BitmapRef.1", align 8
   %ec.i = alloca %"class.msdfgen::MSDFErrorCorrection", align 8
@@ -550,7 +550,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7msdfgen26msdfErrorCorrection_legacyERKNS_9BitmapRefIfLi3EEERKNS_7Vector2E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %output, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %threshold) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7msdfgen26msdfErrorCorrection_legacyERKNS_9BitmapRefIfLi3EEERKNS_7Vector2E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %output, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %threshold) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %width.i = getelementptr inbounds nuw i8, ptr %output, i64 8
   %0 = load i32, ptr %width.i, align 8
@@ -1560,7 +1560,7 @@ _ZN7msdfgenL31msdfErrorCorrectionInner_legacyILi3EEEvRKNS_9BitmapRefIfXT_EEERKNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7msdfgen26msdfErrorCorrection_legacyERKNS_9BitmapRefIfLi4EEERKNS_7Vector2E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %output, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %threshold) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7msdfgen26msdfErrorCorrection_legacyERKNS_9BitmapRefIfLi4EEERKNS_7Vector2E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %output, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %threshold) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %width.i = getelementptr inbounds nuw i8, ptr %output, i64 8
   %0 = load i32, ptr %width.i, align 8
@@ -2620,10 +2620,10 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7

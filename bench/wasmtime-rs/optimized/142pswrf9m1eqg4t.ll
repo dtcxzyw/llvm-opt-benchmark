@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.4e1cc6541a8017bb5332795774be03f4.11 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.4e1cc6541a8017bb5332795774be03f4.10, [8 x i8] c"\17\00\00\00\00\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE(ptr nocapture writeonly sret({ i64, [9 x i64] }) align 16 %0, ptr align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE(ptr writeonly sret({ i64, [9 x i64] }) align 16 captures(none) %0, ptr align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %4 = alloca { i64, i64, i64, i64 }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 8
@@ -112,7 +112,7 @@ define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h1f24ac4ae2fc6e5cE
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h63c9ca06e4878ce4E(ptr nocapture writeonly sret({ i64, [9 x i64] }) align 16 %0, ptr align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h63c9ca06e4878ce4E(ptr writeonly sret({ i64, [9 x i64] }) align 16 captures(none) %0, ptr align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = alloca { i64, i64, i64, i64 }, align 8
@@ -208,7 +208,7 @@ define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h63c9ca06e4878ce4E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h8d3ed2a09c8a9ee5E(ptr nocapture writeonly sret({ i64, [9 x i64] }) align 16 %0, ptr align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h8d3ed2a09c8a9ee5E(ptr writeonly sret({ i64, [9 x i64] }) align 16 captures(none) %0, ptr align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = alloca { i64, i64, i64, i64 }, align 8
@@ -304,7 +304,7 @@ define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h8d3ed2a09c8a9ee5E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE(ptr nocapture writeonly sret({ i64, [9 x i64] }) align 16 %0, ptr align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE(ptr writeonly sret({ i64, [9 x i64] }) align 16 captures(none) %0, ptr align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %4 = alloca { i64, i64, i64, i64 }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 8
@@ -399,7 +399,7 @@ define hidden void @_ZN14cranelift_isle6parser6Parser6expect17h90f868990abdadfeE
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14cranelift_isle6parser6Parser6expect17hd6bbf0169dd0c065E(ptr nocapture writeonly sret({ i64, [9 x i64] }) align 16 %0, ptr align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN14cranelift_isle6parser6Parser6expect17hd6bbf0169dd0c065E(ptr writeonly sret({ i64, [9 x i64] }) align 16 captures(none) %0, ptr align 16 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %4 = alloca { i64, i64, i64, i64 }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 8
@@ -494,7 +494,7 @@ define hidden void @_ZN14cranelift_isle6parser6Parser6expect17hd6bbf0169dd0c065E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr nocapture writeonly sret({ i64, [9 x i64] }) align 16 %0, ptr align 16 %1, ptr readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(ptr writeonly sret({ i64, [9 x i64] }) align 16 captures(none) %0, ptr align 16 %1, ptr readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [9 x i64] }, align 16
   %5 = tail call align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr align 16 %1)
   %.not = icmp eq ptr %5, null
@@ -697,7 +697,7 @@ define hidden void @"_ZN14cranelift_isle6parser6Parser3pos28_$u7b$$u7b$closure$u
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN14cranelift_isle6parser6Parser3pos28_$u7b$$u7b$closure$u7d$$u7d$17h9a18dec272c42d26E"(ptr nocapture writeonly sret({ i64, i64, i64, i64 }) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 16 %1) unnamed_addr #2 {
+define hidden void @"_ZN14cranelift_isle6parser6Parser3pos28_$u7b$$u7b$closure$u7d$$u7d$17h9a18dec272c42d26E"(ptr writeonly sret({ i64, i64, i64, i64 }) align 8 captures(none) initializes((0, 32)) %0, ptr readonly align 16 captures(none) %1) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) %1, i64 32, i1 false)
   ret void
 }
@@ -729,7 +729,7 @@ define hidden noundef zeroext i1 @"_ZN14cranelift_isle6parser6Parser11eat_sym_st
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN14cranelift_isle6parser6Parser12str_to_ident28_$u7b$$u7b$closure$u7d$$u7d$17h5698020375a964f8E"(ptr sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %0, ptr align 16 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
+define hidden void @"_ZN14cranelift_isle6parser6Parser12str_to_ident28_$u7b$$u7b$closure$u7d$$u7d$17h5698020375a964f8E"(ptr sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %0, ptr align 16 %1, ptr readonly align 8 captures(none) %2) unnamed_addr #1 {
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = alloca { i64, i64, i64, i64 }, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
@@ -749,7 +749,7 @@ define hidden void @"_ZN14cranelift_isle6parser6Parser12str_to_ident28_$u7b$$u7b
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN14cranelift_isle6parser6Parser12str_to_ident28_$u7b$$u7b$closure$u7d$$u7d$17h0a6a8fee262dfb42E"(ptr nocapture readnone align 1 %0, i32 %1) unnamed_addr #1 {
+define hidden noundef zeroext i1 @"_ZN14cranelift_isle6parser6Parser12str_to_ident28_$u7b$$u7b$closure$u7d$$u7d$17h0a6a8fee262dfb42E"(ptr readnone align 1 captures(none) %0, i32 %1) unnamed_addr #1 {
   %3 = tail call zeroext i1 @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17h2963c9bdd805e5b2E"(i32 %1)
   %4 = freeze i1 %3
   br i1 %4, label %switch.edge, label %switch.early.test
@@ -778,7 +778,7 @@ define hidden zeroext i1 @"_ZN14cranelift_isle6parser6Parser10parse_type28_$u7b$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN14cranelift_isle6parser6Parser10parse_rule28_$u7b$$u7b$closure$u7d$$u7d$17h2ebb4eb2905c99e8E"(ptr sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %0, ptr align 16 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
+define hidden void @"_ZN14cranelift_isle6parser6Parser10parse_rule28_$u7b$$u7b$closure$u7d$$u7d$17h2ebb4eb2905c99e8E"(ptr sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %0, ptr align 16 %1, ptr readonly align 8 captures(none) %2) unnamed_addr #1 {
   %4 = alloca { {} }, align 1
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -801,7 +801,7 @@ declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #0
 declare align 16 ptr @_ZN14cranelift_isle5lexer5Lexer4peek17h55b8a4c077b35dfcE(ptr align 16) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nonlazybind uwtable
 declare zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h18125d82f4ff5aa0E"(ptr align 8, ptr align 8) unnamed_addr #0
@@ -864,10 +864,10 @@ declare zeroext i1 @"_ZN72_$LT$core..num..error..TryFromIntError$u20$as$u20$core
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

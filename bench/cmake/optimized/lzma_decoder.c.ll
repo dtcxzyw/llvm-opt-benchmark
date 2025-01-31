@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lzma_decode.next_state = internal unnamed_addr constant [12 x i32] [i32 0, i32 0, i32 0, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 4, i32 5], align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 6) i32 @lzma_lzma_decoder_create(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 6) i32 @lzma_lzma_decoder_create(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %14
@@ -49,7 +49,7 @@ define dso_local range(i32 0, 6) i32 @lzma_lzma_decoder_create(ptr nocapture nou
 declare noalias ptr @lzma_alloc(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal range(i32 0, 10) i32 @lzma_decode(ptr noundef %0, ptr noalias nocapture noundef %1, ptr noalias noundef readonly %2, ptr noalias nocapture noundef %3, i64 noundef %4) #2 {
+define internal range(i32 0, 10) i32 @lzma_decode(ptr noundef %0, ptr noalias noundef captures(none) %1, ptr noalias noundef readonly %2, ptr noalias noundef captures(none) %3, i64 noundef %4) #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28268
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
@@ -5683,7 +5683,7 @@ rc_read_init.exit:                                ; preds = %17, %8, %2631, %rc_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @lzma_decoder_reset(ptr nocapture noundef initializes((28300, 28304)) %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @lzma_decoder_reset(ptr noundef captures(none) initializes((28300, 28304)) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = load i32, ptr %3, align 4
   %notmask = shl nsw i32 -1, %4
@@ -5911,7 +5911,7 @@ literal_init.exit:                                ; preds = %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @lzma_decoder_uncompressed(ptr nocapture noundef writeonly initializes((28312, 28320)) %0, i64 noundef %1) #4 {
+define internal void @lzma_decoder_uncompressed(ptr noundef writeonly captures(none) initializes((28312, 28320)) %0, i64 noundef %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28312
   store i64 %1, ptr %3, align 8
   ret void
@@ -5926,7 +5926,7 @@ define dso_local i32 @lzma_lzma_decoder_init(ptr noundef %0, ptr noundef %1, ptr
 declare i32 @lzma_lz_decoder_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 12) i32 @lzma_decoder_init(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 0, 12) i32 @lzma_decoder_init(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = icmp ult i32 %6, 5
@@ -5993,7 +5993,7 @@ lzma_lzma_decoder_create.exit:                    ; preds = %4, %8, %20, %is_lcl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local zeroext i1 @lzma_lzma_lclppb_decode(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1) local_unnamed_addr #4 {
+define dso_local zeroext i1 @lzma_lzma_lclppb_decode(ptr noundef writeonly captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #4 {
   %3 = icmp ugt i8 %1, -32
   br i1 %3, label %17, label %4
 
@@ -6023,7 +6023,7 @@ define dso_local zeroext i1 @lzma_lzma_lclppb_decode(ptr nocapture noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @lzma_lzma_decoder_memusage_nocheck(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @lzma_lzma_decoder_memusage_nocheck(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = zext i32 %2 to i64
   %4 = tail call i64 @lzma_lz_decoder_memusage(i64 noundef %3) #9
@@ -6034,7 +6034,7 @@ define dso_local i64 @lzma_lzma_decoder_memusage_nocheck(ptr nocapture noundef r
 declare i64 @lzma_lz_decoder_memusage(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @lzma_lzma_decoder_memusage(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @lzma_lzma_decoder_memusage(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = icmp ult i32 %3, 5
@@ -6068,7 +6068,7 @@ is_lclppb_valid.exit.thread:                      ; preds = %1, %5, %is_lclppb_v
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 9) i32 @lzma_lzma_props_decode(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 9) i32 @lzma_lzma_props_decode(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq i64 %3, 5
   br i1 %.not, label %5, label %27
 
@@ -6125,16 +6125,16 @@ lzma_lzma_lclppb_decode.exit.thread:              ; preds = %8, %lzma_lzma_lclpp
 declare void @lzma_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6

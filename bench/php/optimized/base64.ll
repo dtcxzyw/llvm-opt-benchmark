@@ -83,7 +83,7 @@ define internal nonnull ptr @resolve_base64_decode() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @php_base64_encode_avx512_vbmi(ptr nocapture noundef readonly %0, i64 noundef %1) #1 {
+define noundef ptr @php_base64_encode_avx512_vbmi(ptr noundef readonly captures(none) %0, i64 noundef %1) #1 {
   %3 = add i64 %1, 2
   %4 = udiv i64 %3, 3
   %5 = tail call noalias ptr @_safe_emalloc(i64 noundef %4, i64 noundef 4, i64 noundef 32) #10
@@ -233,7 +233,7 @@ define noundef ptr @php_base64_encode_avx512_vbmi(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @php_base64_decode_ex_avx512_vbmi(ptr nocapture noundef readonly %0, i64 noundef %1, i1 noundef zeroext %2) #1 {
+define noundef ptr @php_base64_decode_ex_avx512_vbmi(ptr noundef readonly captures(none) %0, i64 noundef %1, i1 noundef zeroext %2) #1 {
   %4 = and i64 %1, -8
   %5 = add i64 %4, 32
   %6 = tail call noalias ptr @_emalloc(i64 noundef %5) #11
@@ -541,7 +541,7 @@ default.unreachable:                              ; preds = %.loopexit271
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @php_base64_encode_avx512(ptr nocapture noundef readonly %0, i64 noundef %1) #2 {
+define noundef ptr @php_base64_encode_avx512(ptr noundef readonly captures(none) %0, i64 noundef %1) #2 {
   %3 = add i64 %1, 2
   %4 = udiv i64 %3, 3
   %5 = tail call noalias ptr @_safe_emalloc(i64 noundef %4, i64 noundef 4, i64 noundef 32) #10
@@ -706,7 +706,7 @@ define noundef ptr @php_base64_encode_avx512(ptr nocapture noundef readonly %0, 
 declare <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32>, <16 x i32>, <16 x i32>, i32 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @php_base64_decode_ex_avx512(ptr nocapture noundef readonly %0, i64 noundef %1, i1 noundef zeroext %2) #2 {
+define noundef ptr @php_base64_decode_ex_avx512(ptr noundef readonly captures(none) %0, i64 noundef %1, i1 noundef zeroext %2) #2 {
   %4 = and i64 %1, -8
   %5 = add i64 %4, 32
   %6 = tail call noalias ptr @_emalloc(i64 noundef %5) #11
@@ -1027,7 +1027,7 @@ default.unreachable:                              ; preds = %.loopexit622
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @php_base64_encode_avx2(ptr nocapture noundef readonly %0, i64 noundef %1) #4 {
+define noundef ptr @php_base64_encode_avx2(ptr noundef readonly captures(none) %0, i64 noundef %1) #4 {
   %3 = add i64 %1, 2
   %4 = udiv i64 %3, 3
   %5 = tail call noalias ptr @_safe_emalloc(i64 noundef %4, i64 noundef 4, i64 noundef 32) #10
@@ -1214,7 +1214,7 @@ define noundef ptr @php_base64_encode_avx2(ptr nocapture noundef readonly %0, i6
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @php_base64_encode_ssse3(ptr nocapture noundef readonly %0, i64 noundef %1) #5 {
+define noundef ptr @php_base64_encode_ssse3(ptr noundef readonly captures(none) %0, i64 noundef %1) #5 {
   %3 = add i64 %1, 2
   %4 = udiv i64 %3, 3
   %5 = tail call noalias ptr @_safe_emalloc(i64 noundef %4, i64 noundef 4, i64 noundef 32) #10
@@ -1374,7 +1374,7 @@ define noundef ptr @php_base64_encode_ssse3(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @php_base64_decode_ex_avx2(ptr nocapture noundef readonly %0, i64 noundef %1, i1 noundef zeroext %2) #4 {
+define noundef ptr @php_base64_decode_ex_avx2(ptr noundef readonly captures(none) %0, i64 noundef %1, i1 noundef zeroext %2) #4 {
   %4 = and i64 %1, -8
   %5 = add i64 %4, 32
   %6 = tail call noalias ptr @_emalloc(i64 noundef %5) #11
@@ -1689,7 +1689,7 @@ default.unreachable:                              ; preds = %.loopexit601
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @php_base64_decode_ex_ssse3(ptr nocapture noundef readonly %0, i64 noundef %1, i1 noundef zeroext %2) #5 {
+define noundef ptr @php_base64_decode_ex_ssse3(ptr noundef readonly captures(none) %0, i64 noundef %1, i1 noundef zeroext %2) #5 {
   %4 = and i64 %1, -8
   %5 = add i64 %4, 32
   %6 = tail call noalias ptr @_emalloc(i64 noundef %5) #11
@@ -2002,7 +2002,7 @@ default.unreachable:                              ; preds = %.loopexit406
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @php_base64_encode_default(ptr nocapture noundef readonly %0, i64 noundef %1) #6 {
+define hidden noundef ptr @php_base64_encode_default(ptr noundef readonly captures(none) %0, i64 noundef %1) #6 {
   %3 = add i64 %1, 2
   %4 = udiv i64 %3, 3
   %5 = tail call noalias ptr @_safe_emalloc(i64 noundef %4, i64 noundef 4, i64 noundef 32) #10
@@ -2126,7 +2126,7 @@ define hidden noundef ptr @php_base64_encode_default(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @php_base64_decode_ex_default(ptr nocapture noundef readonly %0, i64 noundef %1, i1 noundef zeroext %2) #6 {
+define hidden noundef ptr @php_base64_decode_ex_default(ptr noundef readonly captures(none) %0, i64 noundef %1, i1 noundef zeroext %2) #6 {
   %4 = and i64 %1, -8
   %5 = add i64 %4, 32
   %6 = tail call noalias ptr @_emalloc(i64 noundef %5) #11
@@ -2391,7 +2391,7 @@ default.unreachable:                              ; preds = %.loopexit119
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_base64_encode(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
+define hidden void @zif_base64_encode(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #6 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -2455,7 +2455,7 @@ declare void @zend_wrong_parameters_count_error(i32 noundef, i32 noundef) local_
 declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_base64_decode(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
+define hidden void @zif_base64_decode(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #6 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
   store i8 0, ptr %4, align 1

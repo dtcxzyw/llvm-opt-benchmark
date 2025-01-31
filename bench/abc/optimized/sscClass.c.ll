@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Ssc_GiaSimHashKey.s_Primes = internal unnamed_addr constant [16 x i32] [i32 1291, i32 1699, i32 1999, i32 2357, i32 2953, i32 3313, i32 3907, i32 4177, i32 4831, i32 5147, i32 5647, i32 6343, i32 6899, i32 7103, i32 7873, i32 8147], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Ssc_GiaSimClassCreate(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @Ssc_GiaSimClassCreate(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val26 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val26, 0
@@ -74,7 +74,7 @@ define void @Ssc_GiaSimClassCreate(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Ssc_GiaSimClassRefineOneBit(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Ssc_GiaSimClassRefineOneBit(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -457,7 +457,7 @@ Ssc_GiaSimClassCreate.exit56:                     ; preds = %178, %Ssc_GiaSimCla
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @Ssc_GiaSimClassRefineOne(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -2147483647, -2147483648) i32 @Ssc_GiaSimClassRefineOne(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %5 = getelementptr i8, ptr %0, i64 200
@@ -908,7 +908,7 @@ Ssc_GiaSimClassCreate.exit63:                     ; preds = %191, %Ssc_GiaSimCla
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ssc_GiaSimProcessRefined(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define void @Ssc_GiaSimProcessRefined(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val50 = load i32, ptr %3, align 4
   %4 = icmp eq i32 %.val50, 0
@@ -1146,10 +1146,10 @@ Gia_ObjIsHead.exit.thread:                        ; preds = %94, %Gia_ObjIsHead.
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Ssc_GiaClassesInit(ptr nocapture noundef initializes((192, 208)) %0) local_unnamed_addr #4 {
+define void @Ssc_GiaClassesInit(ptr noundef captures(none) initializes((192, 208)) %0) local_unnamed_addr #4 {
   %2 = getelementptr i8, ptr %0, i64 24
   %.val18 = load i32, ptr %2, align 8
   %3 = sext i32 %.val18 to i64
@@ -1232,7 +1232,7 @@ define void @Ssc_GiaClassesInit(ptr nocapture noundef initializes((192, 208)) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ssc_GiaClassesRefine(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i32 @Ssc_GiaClassesRefine(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4
@@ -1453,7 +1453,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %85
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Ssc_GiaClassesCheckPairs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define void @Ssc_GiaClassesCheckPairs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val16 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val16, 1
@@ -1499,10 +1499,10 @@ define void @Ssc_GiaClassesCheckPairs(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7

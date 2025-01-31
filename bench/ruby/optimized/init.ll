@@ -138,7 +138,7 @@ declare i64 @rb_io_ascii8bit_binmode(i64 noundef) local_unnamed_addr #2
 declare void @rb_io_synchronized(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @rsock_sendto_blocking(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i64 @rsock_sendto_blocking(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = load i32, ptr %0, align 8
@@ -170,7 +170,7 @@ RSTRING_PTR.exit:                                 ; preds = %1, %9
 declare i64 @sendto(i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @rsock_send_blocking(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i64 @rsock_send_blocking(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = load i32, ptr %0, align 8
@@ -198,7 +198,7 @@ RSTRING_PTR.exit:                                 ; preds = %1, %9
 declare i64 @send(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @rsock_is_dgram(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @rsock_is_dgram(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   store i32 4, ptr %3, align 4
@@ -1125,7 +1125,7 @@ wait_connectable.exit:                            ; preds = %17, %23, %26, %29, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -2147483648, 2147483648) i64 @connect_blocking(ptr nocapture noundef readonly %0) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @connect_blocking(ptr noundef readonly captures(none) %0) #0 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1354,7 +1354,7 @@ rsock_init_sock.exit:                             ; preds = %32, %39
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -2147483648, 2147483648) i64 @accept_blocking(ptr nocapture noundef readonly %0) #0 {
+define internal range(i64 -2147483648, 2147483648) i64 @accept_blocking(ptr noundef readonly captures(none) %0) #0 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1391,7 +1391,7 @@ cloexec_accept.exit:                              ; preds = %.thread.i, %8, %12,
 declare void @rb_gc() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 65536) i32 @rsock_getfamily(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 65536) i32 @rsock_getfamily(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %union.union_sockaddr, align 8
   %3 = alloca i32, align 4
   store i32 2048, ptr %3, align 4
@@ -1577,7 +1577,7 @@ RSTRING_PTR.exit:                                 ; preds = %1, %11
 declare i64 @rb_num2long(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind
 declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
@@ -1595,10 +1595,10 @@ declare i64 @rb_attr_get(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #9

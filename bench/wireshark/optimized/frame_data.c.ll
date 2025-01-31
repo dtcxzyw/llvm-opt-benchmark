@@ -559,7 +559,7 @@ frame_delta_abs_time.exit25:                      ; preds = %16, %.thread.i24
 declare void @g_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @frame_data_init(ptr nocapture noundef initializes((0, 4), (16, 50), (56, 84), (88, 97)) %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define void @frame_data_init(ptr noundef captures(none) initializes((0, 4), (16, 50), (56, 84), (88, 97)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %6, align 8
   store i32 %1, ptr %0, align 8
@@ -705,10 +705,10 @@ define void @frame_data_init(ptr nocapture noundef initializes((0, 4), (16, 50),
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define void @frame_data_set_before_dissect(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define void @frame_data_set_before_dissect(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %7 = load i16, ptr %6, align 2
@@ -805,7 +805,7 @@ define void @frame_data_set_before_dissect(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @frame_data_set_after_dissect(ptr nocapture noundef initializes((12, 16)) %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define void @frame_data_set_after_dissect(ptr noundef captures(none) initializes((12, 16)) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, 32
@@ -828,7 +828,7 @@ define void @frame_data_set_after_dissect(ptr nocapture noundef initializes((12,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @frame_data_reset(ptr nocapture noundef initializes((48, 50)) %0) local_unnamed_addr #0 {
+define void @frame_data_reset(ptr noundef captures(none) initializes((48, 50)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %3 = load i16, ptr %2, align 2
   %4 = and i16 %3, -9
@@ -865,7 +865,7 @@ declare void @g_slist_free(ptr noundef) local_unnamed_addr #1
 declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @frame_data_destroy(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @frame_data_destroy(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

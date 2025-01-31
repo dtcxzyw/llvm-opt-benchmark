@@ -319,7 +319,7 @@ define dso_local nonnull ptr @MarkAsPreparing(i32 noundef %0, ptr noundef %1, i6
   %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   tail call void @llvm.assume(i1 %9)
   %10 = tail call i32 @errcode(i32 noundef 50856066) #15
-  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, ptr noundef %1) #15
+  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull %1) #15
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 372, ptr noundef nonnull @__func__.MarkAsPreparing) #15
   unreachable
 
@@ -379,7 +379,7 @@ define dso_local nonnull ptr @MarkAsPreparing(i32 noundef %0, ptr noundef %1, i6
   %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   tail call void @llvm.assume(i1 %39)
   %40 = tail call i32 @errcode(i32 noundef 290948) #15
-  %41 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %1) #15
+  %41 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %1) #15
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 399, ptr noundef nonnull @__func__.MarkAsPreparing) #15
   unreachable
 
@@ -401,7 +401,7 @@ define dso_local nonnull ptr @MarkAsPreparing(i32 noundef %0, ptr noundef %1, i6
 50:                                               ; preds = %._crit_edge
   %51 = load ptr, ptr %42, align 8
   store ptr %51, ptr %26, align 8
-  tail call fastcc void @MarkAsPreparingGuts(ptr noundef nonnull %42, i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4)
+  tail call fastcc void @MarkAsPreparingGuts(ptr noundef nonnull %42, i32 noundef %0, ptr noundef nonnull %1, i64 noundef %2, i32 noundef %3, i32 noundef %4)
   %52 = getelementptr inbounds nuw i8, ptr %42, i64 53
   store i8 0, ptr %52, align 1
   %53 = load ptr, ptr @TwoPhaseState, align 8
@@ -420,7 +420,7 @@ define dso_local nonnull ptr @MarkAsPreparing(i32 noundef %0, ptr noundef %1, i6
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: cold
 declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
@@ -444,10 +444,10 @@ define internal void @AtProcExit_Twophase(i32 %0, i64 %1) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @MarkAsPreparingGuts(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #4 {
+define internal fastcc void @MarkAsPreparingGuts(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #4 {
   %7 = load ptr, ptr @ProcGlobal, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
@@ -754,7 +754,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare ptr @per_MultiFuncCall(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #1
 
@@ -763,7 +763,7 @@ declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @end_MultiFuncCall(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @TwoPhaseGetXidByVirtualXID(i64 %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local i32 @TwoPhaseGetXidByVirtualXID(i64 %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %.sroa.010.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.211.0.extract.shift = lshr i64 %0, 32
   %.sroa.211.0.extract.trunc = trunc nuw i64 %.sroa.211.0.extract.shift to i32
@@ -932,7 +932,7 @@ define dso_local ptr @TwoPhaseGetDummyProc(i32 noundef %0, i1 noundef zeroext %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @StartPrepare(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @StartPrepare(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.xl_xact_prepare, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -1687,7 +1687,7 @@ RegisterTwoPhaseRecord.exit:                      ; preds = %._crit_edge.i.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RegisterTwoPhaseRecord(i8 noundef zeroext %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @RegisterTwoPhaseRecord(i8 noundef zeroext %0, i16 noundef zeroext %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load i32, ptr @records.3, align 4
   %6 = icmp ult i32 %5, 8
   br i1 %6, label %7, label %._crit_edge.i
@@ -2075,7 +2075,7 @@ define dso_local void @FinishPreparedTransaction(ptr noundef %0, i1 noundef zero
   %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   tail call void @llvm.assume(i1 %34)
   %35 = tail call i32 @errcode(i32 noundef 325) #15
-  %36 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.37, ptr noundef %0) #15
+  %36 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.37, ptr noundef nonnull %0) #15
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 584, ptr noundef nonnull @__func__.LockGXact) #15
   unreachable
 
@@ -2238,7 +2238,7 @@ LockGXact.exit:                                   ; preds = %47
   store i32 %149, ptr %147, align 8
   %150 = load i32, ptr @MyXactFlags, align 4
   %151 = or i32 %150, 2
-  %152 = tail call i64 @XactLogCommitRecord(i64 noundef %140, i32 noundef %132, ptr noundef %88, i32 noundef %134, ptr noundef %95, i32 noundef %135, ptr noundef %109, i32 noundef %136, ptr noundef %123, i1 noundef zeroext %139, i32 noundef %151, i32 noundef %71, ptr noundef %0) #15
+  %152 = tail call i64 @XactLogCommitRecord(i64 noundef %140, i32 noundef %132, ptr noundef %88, i32 noundef %134, ptr noundef %95, i32 noundef %135, ptr noundef %109, i32 noundef %136, ptr noundef %123, i1 noundef zeroext %139, i32 noundef %151, i32 noundef %71, ptr noundef nonnull %0) #15
   br i1 %143, label %.thread.i, label %153
 
 153:                                              ; preds = %133
@@ -2293,7 +2293,7 @@ RecordTransactionCommitPrepared.exit:             ; preds = %153, %.thread.i
   %179 = tail call i64 @GetCurrentTimestamp() #15
   %180 = load i32, ptr @MyXactFlags, align 4
   %181 = or i32 %180, 2
-  %182 = tail call i64 @XactLogAbortRecord(i64 noundef %179, i32 noundef %132, ptr noundef %88, i32 noundef %167, ptr noundef %102, i32 noundef %168, ptr noundef %116, i32 noundef %181, i32 noundef %71, ptr noundef %0) #15
+  %182 = tail call i64 @XactLogAbortRecord(i64 noundef %179, i32 noundef %132, ptr noundef %88, i32 noundef %167, ptr noundef %102, i32 noundef %168, ptr noundef %116, i32 noundef %181, i32 noundef %71, ptr noundef nonnull %0) #15
   br i1 %176, label %183, label %RecordTransactionAbortPrepared.exit
 
 183:                                              ; preds = %174
@@ -2486,7 +2486,7 @@ RemoveGXact.exit:                                 ; preds = %257
 declare i32 @GetUserId() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @XlogReadTwoPhaseData(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc void @XlogReadTwoPhaseData(i64 noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.XLogReaderRoutine, align 8
   %6 = load i32, ptr @wal_segment_size, align 4
@@ -2899,7 +2899,7 @@ define dso_local void @restoreTwoPhaseData() local_unnamed_addr #0 {
   br i1 %12, label %13, label %.backedge
 
 13:                                               ; preds = %10
-  %14 = tail call i64 @strtoul(ptr nocapture noundef nonnull %7, ptr noundef null, i32 noundef 16) #15
+  %14 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %7, ptr noundef null, i32 noundef 16) #15
   %15 = trunc i64 %14 to i32
   %16 = tail call fastcc ptr @ProcessTwoPhaseBuffer(i32 noundef %15, i64 noundef 0, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false)
   %17 = icmp eq ptr %16, null
@@ -2927,13 +2927,13 @@ declare ptr @AllocateDir(ptr noundef) local_unnamed_addr #1
 declare ptr @ReadDir(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @ProcessTwoPhaseBuffer(i32 noundef %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 {
@@ -3106,7 +3106,7 @@ define internal fastcc ptr @ProcessTwoPhaseBuffer(i32 noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PrepareRedoAdd(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local void @PrepareRedoAdd(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca [1024 x i8], align 16
   %6 = getelementptr i8, ptr %0, i64 72
   %7 = icmp eq i64 %1, 0
@@ -3249,7 +3249,7 @@ define dso_local void @PrepareRedoAdd(ptr nocapture noundef readonly %0, i64 nou
 declare i32 @FreeDir(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PrescanPreparedTransactions(ptr noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local i32 @PrescanPreparedTransactions(ptr noundef writeonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @TransamVariables, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.0.0.copyload = load i64, ptr %4, align 8
@@ -3654,7 +3654,7 @@ ProcessRecords.exit:                              ; preds = %114, %GXactLoadSubx
 declare void @StandbyReleaseLockTree(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #8
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #8
 
 declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 
@@ -3664,7 +3664,7 @@ declare ptr @__errno_location() local_unnamed_addr #9
 declare i32 @errcode_for_file_access() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #10
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #10
 
 declare void @replorigin_advance(i16 noundef zeroext, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -3765,7 +3765,7 @@ RemoveGXact.exit:                                 ; preds = %31
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @LookupGXact(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @LookupGXact(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr @MainLWLockArray, align 8
   %6 = getelementptr i8, ptr %5, i64 2304
@@ -3859,10 +3859,10 @@ declare void @ProcArrayAdd(ptr noundef) local_unnamed_addr #1
 declare i32 @OpenTransientFile(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 declare i32 @CloseTransientFile(i32 noundef) local_unnamed_addr #1
 
@@ -3883,10 +3883,10 @@ declare ptr @XLogReadRecord(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @XLogReaderFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #11
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #11
 
 declare i32 @pg_fsync(i32 noundef) local_unnamed_addr #1
 
@@ -3924,10 +3924,10 @@ declare i32 @llvm.umax.i32(i32, i32) #13
 declare i64 @llvm.umax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

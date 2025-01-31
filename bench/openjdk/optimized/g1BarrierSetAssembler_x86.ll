@@ -29,7 +29,7 @@ $_ZN19BarrierSetAssembler18barrier_stubs_initEv = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21G1BarrierSetAssembler31gen_write_ref_array_pre_barrierEP14MacroAssemblerm8RegisterS2_(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, i64 noundef %2, i32 %3, i32 %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN21G1BarrierSetAssembler31gen_write_ref_array_pre_barrierEP14MacroAssemblerm8RegisterS2_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, i64 noundef %2, i32 %3, i32 %4) unnamed_addr #0 align 2 {
   %6 = alloca %class.Label, align 8
   %7 = alloca %class.Address, align 8
   %8 = alloca %class.Address, align 8
@@ -104,7 +104,7 @@ define hidden void @_ZN21G1BarrierSetAssembler31gen_write_ref_array_pre_barrierE
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare void @_ZN9Assembler4cmpbE7Addressi(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -121,7 +121,7 @@ declare void @_ZN19G1BarrierSetRuntime29write_ref_array_pre_oop_entryEPP7oopDesc
 declare void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(33)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21G1BarrierSetAssembler32gen_write_ref_array_post_barrierEP14MacroAssemblerm8RegisterS2_S2_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull %1, i64 %2, i32 %3, i32 %4, i32 %5) unnamed_addr #0 align 2 {
+define hidden void @_ZN21G1BarrierSetAssembler32gen_write_ref_array_post_barrierEP14MacroAssemblerm8RegisterS2_S2_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull %1, i64 %2, i32 %3, i32 %4, i32 %5) unnamed_addr #0 align 2 {
   tail call void @_ZN14MacroAssembler36push_call_clobbered_registers_exceptE14AbstractRegSetI8RegisterEb(ptr noundef nonnull align 8 dereferenceable(40) %1, i64 0, i1 noundef zeroext false) #4
   %.not = icmp eq i32 %4, 7
   br i1 %.not, label %7, label %8
@@ -176,7 +176,7 @@ _Z17is_reference_type9BasicTypeb.exit:
 declare void @_ZN19BarrierSetAssembler7load_atEP14MacroAssemblerm9BasicType8Register7AddressS3_S3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef, i8 noundef zeroext, i32, ptr noundef, i32, i32) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21G1BarrierSetAssembler20g1_write_barrier_preEP14MacroAssembler8RegisterS2_S2_S2_bb(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, i32 %2, i32 %3, i32 %4, i32 %5, i1 zeroext %6, i1 noundef zeroext %7) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN21G1BarrierSetAssembler20g1_write_barrier_preEP14MacroAssembler8RegisterS2_S2_S2_bb(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, i32 %2, i32 %3, i32 %4, i32 %5, i1 zeroext %6, i1 noundef zeroext %7) local_unnamed_addr #0 align 2 {
   %9 = alloca %class.Address, align 8
   %10 = alloca %class.Label, align 8
   %11 = alloca %class.Label, align 8
@@ -383,7 +383,7 @@ declare void @_ZN19G1BarrierSetRuntime25write_ref_field_pre_entryEP7oopDescP10Ja
 declare void @_ZN14MacroAssembler12call_VM_leafEPh8RegisterS1_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32, i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21G1BarrierSetAssembler21g1_write_barrier_postEP14MacroAssembler8RegisterS2_S2_S2_S2_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN21G1BarrierSetAssembler21g1_write_barrier_postEP14MacroAssembler8RegisterS2_S2_S2_S2_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull %1, i32 %2, i32 %3, i32 %4, i32 %5, i32 %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %class.Address, align 8
   %9 = alloca %class.Address, align 8
   %10 = alloca %class.Address, align 8
@@ -733,7 +733,7 @@ define hidden void @_ZN21G1BarrierSetAssembler12oop_store_atEP14MacroAssemblerm9
 declare void @_ZN19BarrierSetAssembler8store_atEP14MacroAssemblerm9BasicType7Address8RegisterS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef, i8 noundef zeroext, ptr noundef, i32, i32, i32, i32) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21G1BarrierSetAssembler20gen_pre_barrier_stubEP13LIR_AssemblerP16G1PreBarrierStub(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN21G1BarrierSetAssembler20gen_pre_barrier_stubEP13LIR_AssemblerP16G1PreBarrierStub(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.LIR_Opr, align 8
   %5 = alloca %class.LIR_Opr, align 8
   %6 = alloca %class.AddressLiteral, align 8
@@ -806,7 +806,7 @@ declare void @_ZN13LIR_Assembler15store_parameterE8Registeri(ptr noundef nonnull
 declare void @_ZN14MacroAssembler4callE14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21G1BarrierSetAssembler21gen_post_barrier_stubEP13LIR_AssemblerP17G1PostBarrierStub(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN21G1BarrierSetAssembler21gen_post_barrier_stubEP13LIR_AssemblerP17G1PostBarrierStub(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.LIR_Opr, align 8
   %5 = alloca %class.LIR_Opr, align 8
   %6 = alloca %class.AddressLiteral, align 8
@@ -866,7 +866,7 @@ _ZN7LIR_Opr19as_pointer_registerEv.exit:          ; preds = %21, %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21G1BarrierSetAssembler36generate_c1_pre_barrier_runtime_stubEP13StubAssembler(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN21G1BarrierSetAssembler36generate_c1_pre_barrier_runtime_stubEP13StubAssembler(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
@@ -1021,7 +1021,7 @@ declare void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN13StubAssembler8epilogueEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21G1BarrierSetAssembler37generate_c1_post_barrier_runtime_stubEP13StubAssembler(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN21G1BarrierSetAssembler37generate_c1_post_barrier_runtime_stubEP13StubAssembler(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Label, align 8
   %5 = alloca %class.Label, align 8
@@ -1274,10 +1274,10 @@ declare void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull
 declare i32 @_ZNK7LIR_Opr14as_register_loEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

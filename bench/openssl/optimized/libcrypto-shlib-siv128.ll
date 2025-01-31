@@ -102,7 +102,7 @@ lor.lhs.false29:                                  ; preds = %lor.lhs.false23
 lor.lhs.false32:                                  ; preds = %lor.lhs.false29
   %3 = load ptr, ptr %cipher_ctx, align 8
   %add.ptr = getelementptr inbounds i8, ptr %key, i64 %conv
-  %call34 = call i32 @EVP_EncryptInit_ex(ptr noundef %3, ptr noundef nonnull %ctr, ptr noundef null, ptr noundef %add.ptr, ptr noundef null) #9
+  %call34 = call i32 @EVP_EncryptInit_ex(ptr noundef %3, ptr noundef nonnull %ctr, ptr noundef null, ptr noundef nonnull %add.ptr, ptr noundef null) #9
   %tobool35.not = icmp eq i32 %call34, 0
   br i1 %tobool35.not, label %if.then49, label %lor.lhs.false36
 
@@ -149,7 +149,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @EVP_CIPHER_CTX_free(ptr noundef) local_unnamed_addr #1
 
@@ -162,7 +162,7 @@ declare ptr @EVP_CIPHER_get0_name(ptr noundef) local_unnamed_addr #1
 declare void @OSSL_PARAM_construct_utf8_string(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @OSSL_PARAM_construct_octet_string(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -185,7 +185,7 @@ declare i32 @EVP_MAC_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 declare i32 @EVP_MAC_final(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_siv128_copy_ctx(ptr nocapture noundef initializes((0, 16)) %dest, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_siv128_copy_ctx(ptr noundef captures(none) initializes((0, 16)) %dest, ptr noundef readonly captures(none) %src) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dest, ptr noundef nonnull align 8 dereferenceable(16) %src, i64 16, i1 false)
   %cipher_ctx = getelementptr inbounds nuw i8, ptr %dest, i64 32
@@ -240,7 +240,7 @@ declare i32 @EVP_CIPHER_CTX_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_MAC_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_siv128_aad(ptr nocapture noundef %ctx, ptr noundef %aad, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_siv128_aad(ptr noundef captures(none) %ctx, ptr noundef %aad, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %mac_out = alloca %union.siv_block_u, align 8
   %out_len = alloca i64, align 8
@@ -301,7 +301,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_siv128_encrypt(ptr nocapture noundef %ctx, ptr noundef %in, ptr noundef %out, i64 noundef %len) local_unnamed_addr #0 {
+define noundef i32 @ossl_siv128_encrypt(ptr noundef captures(none) %ctx, ptr noundef %in, ptr noundef %out, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %out_len.i = alloca i32, align 4
   %q = alloca %union.siv_block_u, align 8
@@ -358,7 +358,7 @@ return:                                           ; preds = %siv128_do_encrypt.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @siv128_do_s2v_p(ptr nocapture noundef %ctx, ptr noundef nonnull %out, ptr noundef %in, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @siv128_do_s2v_p(ptr noundef captures(none) %ctx, ptr noundef nonnull %out, ptr noundef %in, i64 noundef %len) unnamed_addr #0 {
 entry:
   %t = alloca %union.siv_block_u, align 8
   %out_len = alloca i64, align 8
@@ -446,7 +446,7 @@ return:                                           ; preds = %entry, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_siv128_decrypt(ptr nocapture noundef %ctx, ptr noundef %in, ptr noundef %out, i64 noundef %len) local_unnamed_addr #0 {
+define noundef i32 @ossl_siv128_decrypt(ptr noundef captures(none) %ctx, ptr noundef %in, ptr noundef %out, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %out_len.i = alloca i32, align 4
   %t = alloca %union.siv_block_u, align 8
@@ -530,7 +530,7 @@ return:                                           ; preds = %siv128_do_encrypt.e
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_siv128_finish(ptr nocapture noundef readonly %ctx) local_unnamed_addr #4 {
+define i32 @ossl_siv128_finish(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #4 {
 entry:
   %final_ret = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   %0 = load i32, ptr %final_ret, align 8
@@ -538,7 +538,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_siv128_set_tag(ptr nocapture noundef writeonly %ctx, ptr nocapture noundef readonly %tag, i64 noundef %len) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_siv128_set_tag(ptr noundef writeonly captures(none) %ctx, ptr noundef readonly captures(none) %tag, i64 noundef %len) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq i64 %len, 16
   br i1 %cmp.not, label %if.end, label %return
@@ -554,7 +554,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_siv128_get_tag(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %tag, i64 noundef %len) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_siv128_get_tag(ptr noundef readonly captures(none) %ctx, ptr noundef writeonly captures(none) %tag, i64 noundef %len) local_unnamed_addr #5 {
 entry:
   %cmp.not = icmp eq i64 %len, 16
   br i1 %cmp.not, label %if.end, label %return
@@ -602,7 +602,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ossl_siv128_speed(ptr nocapture noundef writeonly initializes((60, 64)) %ctx, i32 noundef %arg) local_unnamed_addr #6 {
+define noundef i32 @ossl_siv128_speed(ptr noundef writeonly captures(none) initializes((60, 64)) %ctx, i32 noundef %arg) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq i32 %arg, 1
   %cond = select i1 %cmp, i32 -1, i32 1
@@ -622,10 +622,10 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #7
 declare i64 @llvm.bswap.i64(i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

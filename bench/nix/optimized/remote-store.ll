@@ -2083,7 +2083,7 @@ define internal void @__cxx_global_var_init.5() #4 section ".text.startup" comda
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11RemoteStoreC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(25) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11RemoteStoreC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(25) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::function", align 8
   %5 = alloca %"class.std::function.140", align 8
   %6 = alloca %"class.std::shared_ptr", align 8
@@ -3493,7 +3493,7 @@ _ZNSt19_Optional_base_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES
 declare i16 @_ZN3nix11WorkerProto9SerialiseISt8optionalINS_11TrustedFlagEEE4readERKNS_14StoreDirConfigENS0_8ReadConnE(ptr noundef nonnull align 8 dereferenceable(344), ptr, i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3nix11RemoteStore10Connection13processStderrEPNS_4SinkEPNS_6SourceEb(ptr dead_on_unwind noalias writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
@@ -4357,7 +4357,7 @@ _ZN3nix9BaseErrorC2IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEEER
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11RemoteStore10setOptionsERNS0_10ConnectionE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11RemoteStore10setOptionsERNS0_10ConnectionE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(224) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [8 x i8], align 1
   %4 = alloca [8 x i8], align 1
   %5 = alloca [8 x i8], align 1
@@ -5195,7 +5195,7 @@ _ZNSt10shared_ptrIN3nix11RemoteStore10ConnectionEED2Ev.exit: ; preds = %97, %116
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11RemoteStore16ConnectionHandle13processStderrEPNS_4SinkEPNS_6SourceEb(ptr nocapture noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11RemoteStore16ConnectionHandle13processStderrEPNS_4SinkEPNS_6SourceEb(ptr noundef nonnull align 8 captures(none) dereferenceable(33) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %6 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %7 = alloca i32, align 4
@@ -5554,7 +5554,7 @@ _ZN3nix9BaseErrorC2IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA19_cEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11RemoteStore13getConnectionEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.nix::RemoteStore::ConnectionHandle") align 8 initializes((0, 25), (32, 33)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11RemoteStore13getConnectionEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.nix::RemoteStore::ConnectionHandle") align 8 captures(none) initializes((0, 25), (32, 33)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.nix::Pool<nix::RemoteStore::Connection>::Handle", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -10902,7 +10902,7 @@ define void @_ZTv0_n136_N3nix11RemoteStore31queryPartialDerivationOutputMapB5cxx
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11RemoteStore21queryPathFromHashPartERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::optional.188") align 8 %0, ptr noundef nonnull align 8 dereferenceable(25) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11RemoteStore21queryPathFromHashPartERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::optional.188") align 8 %0, ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [8 x i8], align 1
   %5 = alloca %"struct.nix::RemoteStore::ConnectionHandle", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11041,7 +11041,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n152_N3nix11RemoteStore21queryPathFromHashPartERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::optional.188") align 8 %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #4 align 2 {
+define void @_ZTv0_n152_N3nix11RemoteStore21queryPathFromHashPartERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::optional.188") align 8 %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #4 align 2 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -152
   %6 = load i64, ptr %5, align 8
@@ -13978,7 +13978,7 @@ define void @_ZTv0_n176_N3nix11RemoteStore10addToStoreERKNS_13ValidPathInfoERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11RemoteStore18addMultipleToStoreERSt6vectorISt4pairINS_13ValidPathInfoESt10unique_ptrINS_6SourceESt14default_deleteIS5_EEESaIS9_EERNS_8ActivityENS_10RepairFlagENS_13CheckSigsFlagE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture nonnull readnone align 8 %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11RemoteStore18addMultipleToStoreERSt6vectorISt4pairINS_13ValidPathInfoESt10unique_ptrINS_6SourceESt14default_deleteIS5_EEESaIS9_EERNS_8ActivityENS_10RepairFlagENS_13CheckSigsFlagE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull readnone align 8 captures(none) %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::unique_ptr.246", align 8
   %7 = alloca %"class.std::function.239", align 8
   %8 = alloca %"class.std::function.254", align 8
@@ -14106,7 +14106,7 @@ _ZNSt8functionIFvRN3nix4SinkEEED2Ev.exit11:       ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n192_N3nix11RemoteStore18addMultipleToStoreERSt6vectorISt4pairINS_13ValidPathInfoESt10unique_ptrINS_6SourceESt14default_deleteIS5_EEESaIS9_EERNS_8ActivityENS_10RepairFlagENS_13CheckSigsFlagE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture nonnull readnone align 8 %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #4 align 2 {
+define void @_ZTv0_n192_N3nix11RemoteStore18addMultipleToStoreERSt6vectorISt4pairINS_13ValidPathInfoESt10unique_ptrINS_6SourceESt14default_deleteIS5_EEESaIS9_EERNS_8ActivityENS_10RepairFlagENS_13CheckSigsFlagE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull readnone align 8 captures(none) %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #4 align 2 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -192
   %8 = load i64, ptr %7, align 8
@@ -15736,7 +15736,7 @@ define void @_ZTv0_n104_N3nix11RemoteStore24queryRealisationUncachedERKNS_9DrvOu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11RemoteStore21copyDrvsFromEvalStoreERKSt6vectorINS_11DerivedPathESaIS2_EESt10shared_ptrINS_5StoreEE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11RemoteStore21copyDrvsFromEvalStoreERKSt6vectorINS_11DerivedPathESaIS2_EESt10shared_ptrINS_5StoreEE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Rb_tree<nix::RealisedPath, nix::RealisedPath, std::_Identity<nix::RealisedPath>, std::less<nix::RealisedPath>>::_Alloc_node", align 8
   %5 = alloca %"struct.nix::OpaquePath", align 8
   %6 = alloca %"struct.nix::RealisedPath", align 8
@@ -16006,7 +16006,7 @@ _ZNSt8_Rb_treeIN3nix12RealisedPathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EED2Ev.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11RemoteStore10buildPathsERKSt6vectorINS_11DerivedPathESaIS2_EENS_9BuildModeESt10shared_ptrINS_5StoreEE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11RemoteStore10buildPathsERKSt6vectorINS_11DerivedPathESaIS2_EENS_9BuildModeESt10shared_ptrINS_5StoreEE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
   %7 = alloca [8 x i8], align 1
@@ -16409,7 +16409,7 @@ _ZNSt12__shared_ptrIN3nix5StoreELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n240_N3nix11RemoteStore10buildPathsERKSt6vectorINS_11DerivedPathESaIS2_EENS_9BuildModeESt10shared_ptrINS_5StoreEE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #4 align 2 {
+define void @_ZTv0_n240_N3nix11RemoteStore10buildPathsERKSt6vectorINS_11DerivedPathESaIS2_EENS_9BuildModeESt10shared_ptrINS_5StoreEE(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #4 align 2 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 -240
   %7 = load i64, ptr %6, align 8
@@ -16419,7 +16419,7 @@ define void @_ZTv0_n240_N3nix11RemoteStore10buildPathsERKSt6vectorINS_11DerivedP
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11RemoteStore21buildPathsWithResultsERKSt6vectorINS_11DerivedPathESaIS2_EENS_9BuildModeESt10shared_ptrINS_5StoreEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.326") align 8 %0, ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11RemoteStore21buildPathsWithResultsERKSt6vectorINS_11DerivedPathESaIS2_EENS_9BuildModeESt10shared_ptrINS_5StoreEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.326") align 8 %0, ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::allocator", align 1
@@ -18370,7 +18370,7 @@ _ZNSt12_Vector_baseIN3nix16KeyedBuildResultESaIS1_EED2Ev.exit: ; preds = %_ZSt8_
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n248_N3nix11RemoteStore21buildPathsWithResultsERKSt6vectorINS_11DerivedPathESaIS2_EENS_9BuildModeESt10shared_ptrINS_5StoreEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.326") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #4 align 2 {
+define void @_ZTv0_n248_N3nix11RemoteStore21buildPathsWithResultsERKSt6vectorINS_11DerivedPathESaIS2_EENS_9BuildModeESt10shared_ptrINS_5StoreEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.326") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #4 align 2 {
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -248
   %8 = load i64, ptr %7, align 8
@@ -19410,7 +19410,7 @@ define void @_ZTv0_n48_N3nix11RemoteStore14collectGarbageERKNS_9GCOptionsERNS_9G
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11RemoteStore13optimiseStoreEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11RemoteStore13optimiseStoreEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [8 x i8], align 1
   %3 = alloca %"struct.nix::RemoteStore::ConnectionHandle", align 8
   call void @_ZN3nix11RemoteStore13getConnectionEv(ptr dead_on_unwind nonnull writable sret(%"struct.nix::RemoteStore::ConnectionHandle") align 8 %3, ptr noundef nonnull align 8 dereferenceable(25) %0)
@@ -19454,7 +19454,7 @@ _ZN3nix7readIntERNS_6SourceE.exit:                ; preds = %16
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n280_N3nix11RemoteStore13optimiseStoreEv(ptr nocapture noundef readonly %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZTv0_n280_N3nix11RemoteStore13optimiseStoreEv(ptr noundef readonly captures(none) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [8 x i8], align 1
   %3 = alloca %"struct.nix::RemoteStore::ConnectionHandle", align 8
   %4 = load ptr, ptr %0, align 8
@@ -19504,7 +19504,7 @@ _ZN3nix11RemoteStore13optimiseStoreEv.exit:       ; preds = %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3nix11RemoteStore11verifyStoreEbNS_10RepairFlagE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN3nix11RemoteStore11verifyStoreEbNS_10RepairFlagE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [8 x i8], align 1
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
@@ -19577,7 +19577,7 @@ _ZN3nix7readIntERNS_6SourceE.exit:                ; preds = %32
 }
 
 ; Function Attrs: uwtable
-define noundef zeroext i1 @_ZTv0_n288_N3nix11RemoteStore11verifyStoreEbNS_10RepairFlagE(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZTv0_n288_N3nix11RemoteStore11verifyStoreEbNS_10RepairFlagE(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -288
   %6 = load i64, ptr %5, align 8
@@ -20106,7 +20106,7 @@ define void @_ZTv0_n328_N3nix11RemoteStore12queryMissingERKSt6vectorINS_11Derive
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11RemoteStore11addBuildLogERKNS_9StorePathESt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i64 %2, ptr %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11RemoteStore11addBuildLogERKNS_9StorePathESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i64 %2, ptr %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [8 x i8], align 1
   %6 = alloca %"struct.nix::RemoteStore::ConnectionHandle", align 8
   %7 = alloca %"struct.nix::StringSource", align 8
@@ -20217,7 +20217,7 @@ _ZNSt8functionIFvRN3nix4SinkEEED2Ev.exit12:       ; preds = %53, %45, %48, %43
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix11RemoteStore11addBuildLogERKNS_9StorePathESt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i64 %2, ptr %3) unnamed_addr #4 align 2 {
+define void @_ZTv0_n48_N3nix11RemoteStore11addBuildLogERKNS_9StorePathESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i64 %2, ptr %3) unnamed_addr #4 align 2 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 -48
   %7 = load i64, ptr %6, align 8
@@ -20227,7 +20227,7 @@ define void @_ZTv0_n48_N3nix11RemoteStore11addBuildLogERKNS_9StorePathESt17basic
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11RemoteStore10getVersionB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::optional.67") align 8 initializes((32, 33)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11RemoteStore10getVersionB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::optional.67") align 8 initializes((32, 33)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.nix::RemoteStore::ConnectionHandle", align 8
   call void @_ZN3nix11RemoteStore13getConnectionEv(ptr dead_on_unwind nonnull writable sret(%"struct.nix::RemoteStore::ConnectionHandle") align 8 %3, ptr noundef nonnull align 8 dereferenceable(25) %1)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -20260,7 +20260,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exi
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n376_N3nix11RemoteStore10getVersionB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::optional.67") align 8 initializes((32, 33)) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZTv0_n376_N3nix11RemoteStore10getVersionB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::optional.67") align 8 initializes((32, 33)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.nix::RemoteStore::ConnectionHandle", align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -376
@@ -20300,7 +20300,7 @@ _ZN3nix11RemoteStore10getVersionB5cxx11Ev.exit:   ; preds = %2, %.noexc.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11RemoteStore7connectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0) unnamed_addr #5 align 2 {
+define void @_ZN3nix11RemoteStore7connectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0) unnamed_addr #5 align 2 {
   %2 = alloca %"struct.nix::RemoteStore::ConnectionHandle", align 8
   call void @_ZN3nix11RemoteStore13getConnectionEv(ptr dead_on_unwind nonnull writable sret(%"struct.nix::RemoteStore::ConnectionHandle") align 8 %2, ptr noundef nonnull align 8 dereferenceable(25) %0)
   call void @_ZN3nix11RemoteStore16ConnectionHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %2) #31
@@ -20308,7 +20308,7 @@ define void @_ZN3nix11RemoteStore7connectEv(ptr nocapture noundef nonnull readon
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n336_N3nix11RemoteStore7connectEv(ptr nocapture noundef readonly %0) unnamed_addr #4 align 2 {
+define void @_ZTv0_n336_N3nix11RemoteStore7connectEv(ptr noundef readonly captures(none) %0) unnamed_addr #4 align 2 {
   %2 = alloca %"struct.nix::RemoteStore::ConnectionHandle", align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -336
@@ -20322,7 +20322,7 @@ define void @_ZTv0_n336_N3nix11RemoteStore7connectEv(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3nix11RemoteStore11getProtocolEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN3nix11RemoteStore11getProtocolEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.nix::Pool<nix::RemoteStore::Connection>::Handle", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -20336,7 +20336,7 @@ define noundef i32 @_ZN3nix11RemoteStore11getProtocolEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZTv0_n344_N3nix11RemoteStore11getProtocolEv(ptr nocapture noundef readonly %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZTv0_n344_N3nix11RemoteStore11getProtocolEv(ptr noundef readonly captures(none) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.nix::Pool<nix::RemoteStore::Connection>::Handle", align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -344
@@ -20356,7 +20356,7 @@ define noundef i32 @_ZTv0_n344_N3nix11RemoteStore11getProtocolEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress uwtable
-define i16 @_ZN3nix11RemoteStore15isTrustedClientEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define i16 @_ZN3nix11RemoteStore15isTrustedClientEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.nix::RemoteStore::ConnectionHandle", align 8
   call void @_ZN3nix11RemoteStore13getConnectionEv(ptr dead_on_unwind nonnull writable sret(%"struct.nix::RemoteStore::ConnectionHandle") align 8 %2, ptr noundef nonnull align 8 dereferenceable(25) %0)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -20368,7 +20368,7 @@ define i16 @_ZN3nix11RemoteStore15isTrustedClientEv(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: uwtable
-define i16 @_ZTv0_n352_N3nix11RemoteStore15isTrustedClientEv(ptr nocapture noundef readonly %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define i16 @_ZTv0_n352_N3nix11RemoteStore15isTrustedClientEv(ptr noundef readonly captures(none) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.nix::RemoteStore::ConnectionHandle", align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -352
@@ -20386,7 +20386,7 @@ define i16 @_ZTv0_n352_N3nix11RemoteStore15isTrustedClientEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11RemoteStore19flushBadConnectionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0) local_unnamed_addr #5 align 2 {
+define void @_ZN3nix11RemoteStore19flushBadConnectionsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN3nix4PoolINS_11RemoteStore10ConnectionEE8flushBadEv(ptr noundef nonnull align 8 dereferenceable(192) %3)
@@ -20740,7 +20740,7 @@ declare void @_ZN3nix15ignoreExceptionENS_9VerbosityE(i32 noundef) local_unnamed
 declare void @_ZN3nix6FdSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(49)) unnamed_addr #3
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN3nix11RemoteStore10ConnectionD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #16 align 2 {
+define void @_ZN3nix11RemoteStore10ConnectionD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #16 align 2 {
   tail call void @llvm.trap() #35
   unreachable
 }
@@ -20856,7 +20856,7 @@ define void @_ZTv0_n232_N3nix11RemoteStore11narFromPathERKNS_9StorePathERNS_4Sin
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11RemoteStore13getFSAccessorEb(ptr dead_on_unwind noalias writable sret(%"class.nix::ref.381") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %1, i1 zeroext %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11RemoteStore13getFSAccessorEb(ptr dead_on_unwind noalias writable sret(%"class.nix::ref.381") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %1, i1 zeroext %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.nix::ref.385", align 8
   %5 = alloca %"class.nix::ref.389", align 8
   %6 = alloca %"class.std::shared_ptr.283", align 8
@@ -21693,7 +21693,7 @@ _ZNSt10shared_ptrIN3nix5StoreEED2Ev.exit:         ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n296_N3nix11RemoteStore13getFSAccessorEb(ptr dead_on_unwind noalias writable sret(%"class.nix::ref.381") align 8 %0, ptr nocapture noundef readonly %1, i1 zeroext %2) unnamed_addr #4 align 2 {
+define void @_ZTv0_n296_N3nix11RemoteStore13getFSAccessorEb(ptr dead_on_unwind noalias writable sret(%"class.nix::ref.381") align 8 %0, ptr noundef readonly captures(none) %1, i1 zeroext %2) unnamed_addr #4 align 2 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -296
   %6 = load i64, ptr %5, align 8
@@ -22142,7 +22142,7 @@ define linkonce_odr void @_ZN3nix10FramedSinkD1Ev(ptr noundef nonnull align 8 de
 declare void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN7FinallyIZN3nix11RemoteStore16ConnectionHandle14withFramedSinkESt8functionIFvRNS0_4SinkEEEE3$_1ED2Ev"(ptr %.0.val, ptr nocapture readonly %.8.val) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN7FinallyIZN3nix11RemoteStore16ConnectionHandle14withFramedSinkESt8functionIFvRNS0_4SinkEEEE3$_1ED2Ev"(ptr %.0.val, ptr readonly captures(none) %.8.val) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   %.sroa.0.0.copyload.i.i = load i64, ptr %.0.val, align 8
@@ -22928,7 +22928,7 @@ declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #12
 declare void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
@@ -23091,7 +23091,7 @@ define linkonce_odr noundef ptr @_ZNK3nix9BaseError4whatEv(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 ; Function Attrs: nounwind
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
@@ -26985,7 +26985,7 @@ _ZSt8_DestroyIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEEEvT_S9_.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -31605,7 +31605,7 @@ define linkonce_odr noundef ptr @_ZN5boost6detail18sp_counted_impl_pdIPNS_2io18b
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #17
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #17
 
 declare noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264), i8 noundef signext) local_unnamed_addr #2
 
@@ -32530,7 +32530,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #17
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3nix7HintFmtC2IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA19_cEEERKS7_DpRKT_(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 1 dereferenceable(19) %3) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -40228,7 +40228,7 @@ _ZN3nix4SyncINS_4PoolINS_11RemoteStore10ConnectionEE5StateESt5mutexE4LockD2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFN3nix3refINS0_11RemoteStore10ConnectionEEEvEZNS2_C1ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_St4lessISC_ESaISt4pairIKSC_SC_EEEE3$_0E9_M_invokeERKSt9_Any_data"(ptr dead_on_unwind noalias writable sret(%"class.nix::ref.40") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFN3nix3refINS0_11RemoteStore10ConnectionEEEvEZNS2_C1ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_St4lessISC_ESaISt4pairIKSC_SC_EEEE3$_0E9_M_invokeERKSt9_Any_data"(ptr dead_on_unwind noalias writable sret(%"class.nix::ref.40") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #5 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !231)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !234)
@@ -40273,7 +40273,7 @@ define internal void @"_ZNSt17_Function_handlerIFN3nix3refINS0_11RemoteStore10Co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN3nix3refINS0_11RemoteStore10ConnectionEEEvEZNS2_C1ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_St4lessISC_ESaISt4pairIKSC_SC_EEEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN3nix3refINS0_11RemoteStore10ConnectionEEEvEZNS2_C1ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_St4lessISC_ESaISt4pairIKSC_SC_EEEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix11RemoteStoreC1ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -40298,7 +40298,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN3nix3refINS0_11R
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN3nix3refINS0_11RemoteStore10ConnectionEEEEZNS2_C1ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_St4lessISE_ESaISt4pairIKSE_SE_EEEE3$_1E9_M_invokeERKSt9_Any_dataS6_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #5 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN3nix3refINS0_11RemoteStore10ConnectionEEEEZNS2_C1ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_St4lessISE_ESaISt4pairIKSE_SE_EEEE3$_1E9_M_invokeERKSt9_Any_dataS6_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #5 align 2 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -40334,7 +40334,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN3nix3refINS0_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN3nix3refINS0_11RemoteStore10ConnectionEEEEZNS2_C1ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_St4lessISE_ESaISt4pairIKSE_SE_EEEE3$_1E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN3nix3refINS0_11RemoteStore10ConnectionEEEEZNS2_C1ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_St4lessISE_ESaISt4pairIKSE_SE_EEEE3$_1E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix11RemoteStoreC1ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEEE3$_1E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -45083,14 +45083,14 @@ _ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_11RemoteStore12addCAToStoreERNS0_6SourceESt17basic_string_viewIcSt11char_traitsIcEENS0_20ContentAddressMethodENS0_13HashAlgorithmERKSt3setINS0_9StorePathESt4lessISE_ESaISE_EENS0_10RepairFlagEE3$_0E9_M_invokeERKSt9_Any_dataS2_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_11RemoteStore12addCAToStoreERNS0_6SourceESt17basic_string_viewIcSt11char_traitsIcEENS0_20ContentAddressMethodENS0_13HashAlgorithmERKSt3setINS0_9StorePathESt4lessISE_ESaISE_EENS0_10RepairFlagEE3$_0E9_M_invokeERKSt9_Any_dataS2_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
   %.val = load ptr, ptr %0, align 8
   tail call void @_ZN3nix6Source9drainIntoERNS_4SinkE(ptr noundef nonnull align 8 dereferenceable(8) %.val, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_11RemoteStore12addCAToStoreERNS0_6SourceESt17basic_string_viewIcSt11char_traitsIcEENS0_20ContentAddressMethodENS0_13HashAlgorithmERKSt3setINS0_9StorePathESt4lessISE_ESaISE_EENS0_10RepairFlagEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_11RemoteStore12addCAToStoreERNS0_6SourceESt17basic_string_viewIcSt11char_traitsIcEENS0_20ContentAddressMethodENS0_13HashAlgorithmERKSt3setINS0_9StorePathESt4lessISE_ESaISE_EENS0_10RepairFlagEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix11RemoteStore12addCAToStoreERNS1_6SourceESt17basic_string_viewIcSt11char_traitsIcEENS1_20ContentAddressMethodENS1_13HashAlgorithmERKSt3setINS1_9StorePathESt4lessISC_ESaISC_EENS1_10RepairFlagEE3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -45115,7 +45115,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_11RemoteStore10addToStoreERKNS0_13ValidPathInfoERNS0_6SourceENS0_10RepairFlagENS0_13CheckSigsFlagEE3$_0E9_M_invokeERKSt9_Any_dataS2_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_11RemoteStore10addToStoreERKNS0_13ValidPathInfoERNS0_6SourceENS0_10RepairFlagENS0_13CheckSigsFlagEE3$_0E9_M_invokeERKSt9_Any_dataS2_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
   %5 = alloca [8 x i8], align 1
@@ -45360,7 +45360,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25.i.i.i: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_11RemoteStore10addToStoreERKNS0_13ValidPathInfoERNS0_6SourceENS0_10RepairFlagENS0_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_11RemoteStore10addToStoreERKNS0_13ValidPathInfoERNS0_6SourceENS0_10RepairFlagENS0_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix11RemoteStore10addToStoreERKNS1_13ValidPathInfoERNS1_6SourceENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -45398,7 +45398,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @"_ZNSt17_Function_handlerIFvvEN3nix3$_0EE9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvvEN3nix3$_0EE9_M_invokeERKSt9_Any_data"(ptr nonnull readnone align 8 captures(none) %0) #15 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
@@ -45497,7 +45497,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEN3nix3$_0EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #24 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEN3nix3$_0EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #24 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIN3nix3$_0EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIN3nix3$_0EE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit.sink.split"
     i32 1, label %4
@@ -45593,14 +45593,14 @@ _ZN3nix9EndOfFileD2Ev.exit:                       ; preds = %1, %_ZNSt22_Optiona
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_11RemoteStore10addToStoreERKNS0_13ValidPathInfoERNS0_6SourceENS0_10RepairFlagENS0_13CheckSigsFlagEE3$_1E9_M_invokeERKSt9_Any_dataS2_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_11RemoteStore10addToStoreERKNS0_13ValidPathInfoERNS0_6SourceENS0_10RepairFlagENS0_13CheckSigsFlagEE3$_1E9_M_invokeERKSt9_Any_dataS2_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
   %.val = load ptr, ptr %0, align 8
   tail call void @_ZN3nix7copyNARERNS_6SourceERNS_4SinkE(ptr noundef nonnull align 8 dereferenceable(8) %.val, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_11RemoteStore10addToStoreERKNS0_13ValidPathInfoERNS0_6SourceENS0_10RepairFlagENS0_13CheckSigsFlagEE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_11RemoteStore10addToStoreERKNS0_13ValidPathInfoERNS0_6SourceENS0_10RepairFlagENS0_13CheckSigsFlagEE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix11RemoteStore10addToStoreERKNS1_13ValidPathInfoERNS1_6SourceENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -45625,7 +45625,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_11RemoteStore18addMultipleToStoreERSt6vectorISt4pairINS0_13ValidPathInfoESt10unique_ptrINS0_6SourceESt14default_deleteIS9_EEESaISD_EERNS0_8ActivityENS0_10RepairFlagENS0_13CheckSigsFlagEE3$_0E9_M_invokeERKSt9_Any_dataS2_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_11RemoteStore18addMultipleToStoreERSt6vectorISt4pairINS0_13ValidPathInfoESt10unique_ptrINS0_6SourceESt14default_deleteIS9_EEESaISD_EERNS0_8ActivityENS0_10RepairFlagENS0_13CheckSigsFlagEE3$_0E9_M_invokeERKSt9_Any_dataS2_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
   %3 = alloca [8 x i8], align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -45699,7 +45699,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_11RemoteStor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_11RemoteStore18addMultipleToStoreERSt6vectorISt4pairINS0_13ValidPathInfoESt10unique_ptrINS0_6SourceESt14default_deleteIS9_EEESaISD_EERNS0_8ActivityENS0_10RepairFlagENS0_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_11RemoteStore18addMultipleToStoreERSt6vectorISt4pairINS0_13ValidPathInfoESt10unique_ptrINS0_6SourceESt14default_deleteIS9_EEESaISD_EERNS0_8ActivityENS0_10RepairFlagENS0_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix11RemoteStore18addMultipleToStoreERSt6vectorISt4pairINS1_13ValidPathInfoESt10unique_ptrINS1_6SourceESt14default_deleteIS7_EEESaISB_EERNS1_8ActivityENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -45725,14 +45725,14 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS
 declare void @_ZN3nix11WorkerProto9SerialiseINS_13ValidPathInfoEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKS2_(ptr noundef nonnull align 8 dereferenceable(344), ptr, i32, ptr noundef nonnull align 8 dereferenceable(384)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_11RemoteStore18addMultipleToStoreERNS0_6SourceENS0_10RepairFlagENS0_13CheckSigsFlagEE3$_0E9_M_invokeERKSt9_Any_dataS2_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_11RemoteStore18addMultipleToStoreERNS0_6SourceENS0_10RepairFlagENS0_13CheckSigsFlagEE3$_0E9_M_invokeERKSt9_Any_dataS2_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
   %.val = load ptr, ptr %0, align 8
   tail call void @_ZN3nix6Source9drainIntoERNS_4SinkE(ptr noundef nonnull align 8 dereferenceable(8) %.val, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_11RemoteStore18addMultipleToStoreERNS0_6SourceENS0_10RepairFlagENS0_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_11RemoteStore18addMultipleToStoreERNS0_6SourceENS0_10RepairFlagENS0_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix11RemoteStore18addMultipleToStoreERNS1_6SourceENS1_10RepairFlagENS1_13CheckSigsFlagEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -47971,14 +47971,14 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_11RemoteStore11addBuildLogERKNS0_9StorePathESt17basic_string_viewIcSt11char_traitsIcEEE3$_0E9_M_invokeERKSt9_Any_dataS2_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_11RemoteStore11addBuildLogERKNS0_9StorePathESt17basic_string_viewIcSt11char_traitsIcEEE3$_0E9_M_invokeERKSt9_Any_dataS2_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #5 align 2 {
   %.val = load ptr, ptr %0, align 8
   tail call void @_ZN3nix6Source9drainIntoERNS_4SinkE(ptr noundef nonnull align 8 dereferenceable(8) %.val, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_11RemoteStore11addBuildLogERKNS0_9StorePathESt17basic_string_viewIcSt11char_traitsIcEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN3nix4SinkEEZNS0_11RemoteStore11addBuildLogERKNS0_9StorePathESt17basic_string_viewIcSt11char_traitsIcEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #21 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix11RemoteStore11addBuildLogERKNS1_9StorePathESt17basic_string_viewIcSt11char_traitsIcEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -48560,7 +48560,7 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3nix11
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3nix11RemoteStore16ConnectionHandle14withFramedSinkESt8functionIFvRNS3_4SinkEEEE3$_0EEEEE6_M_runEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3nix11RemoteStore16ConnectionHandle14withFramedSinkESt8functionIFvRNS3_4SinkEEEE3$_0EEEEE6_M_runEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %3 = alloca %"class.std::function.254", align 8
   %4 = alloca %"struct.nix::ReceiveInterrupts", align 8
@@ -48754,10 +48754,10 @@ declare i64 @llvm.umax.i64(i64, i64) #27
 declare i64 @llvm.umin.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #28
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #28
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #29
@@ -48772,7 +48772,7 @@ declare i64 @llvm.smax.i64(i64, i64) #27
 declare i64 @llvm.smin.i64(i64, i64) #27
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #30
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #30
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

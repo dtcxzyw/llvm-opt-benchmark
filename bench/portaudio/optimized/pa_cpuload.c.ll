@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PaUtil_InitializeCpuLoadMeasurer(ptr nocapture noundef writeonly initializes((0, 8), (16, 24)) %0, double noundef %1) local_unnamed_addr #0 {
+define void @PaUtil_InitializeCpuLoadMeasurer(ptr noundef writeonly captures(none) initializes((0, 8), (16, 24)) %0, double noundef %1) local_unnamed_addr #0 {
   %3 = fdiv double 1.000000e+00, %1
   store double %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13,14 +13,14 @@ define void @PaUtil_InitializeCpuLoadMeasurer(ptr nocapture noundef writeonly in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PaUtil_ResetCpuLoadMeasurer(ptr nocapture noundef writeonly initializes((16, 24)) %0) local_unnamed_addr #0 {
+define void @PaUtil_ResetCpuLoadMeasurer(ptr noundef writeonly captures(none) initializes((16, 24)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double 0.000000e+00, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PaUtil_BeginCpuLoadMeasurement(ptr nocapture noundef writeonly initializes((8, 16)) %0) local_unnamed_addr #1 {
+define void @PaUtil_BeginCpuLoadMeasurement(ptr noundef writeonly captures(none) initializes((8, 16)) %0) local_unnamed_addr #1 {
   %2 = tail call double @PaUtil_GetTime() #5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %2, ptr %3, align 8
@@ -30,7 +30,7 @@ define void @PaUtil_BeginCpuLoadMeasurement(ptr nocapture noundef writeonly init
 declare double @PaUtil_GetTime() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @PaUtil_EndCpuLoadMeasurement(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #1 {
+define void @PaUtil_EndCpuLoadMeasurement(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %16, label %3
 
@@ -58,7 +58,7 @@ define void @PaUtil_EndCpuLoadMeasurement(ptr nocapture noundef %0, i64 noundef 
 declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define double @PaUtil_GetCpuLoad(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define double @PaUtil_GetCpuLoad(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load double, ptr %2, align 8
   ret double %3

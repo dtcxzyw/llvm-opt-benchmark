@@ -626,7 +626,7 @@ declare void @_ZN3net23SpdyPinnableBufferPiece4SwapEPS0_(ptr noundef nonnull ali
 declare void @_ZN3net24SpdyPrefixedBufferReaderC1EPKcmS2_m(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef, i64 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE(ptr nocapture noundef nonnull align 8 dereferenceable(108) %this, ptr noundef nonnull %reader) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE(ptr noundef nonnull align 8 captures(none) dereferenceable(108) %this, ptr noundef nonnull %reader) local_unnamed_addr #0 align 2 {
 entry:
   %buffer.i = alloca [4 x i8], align 4
   %remaining_key_value_pairs_for_frame_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -683,7 +683,7 @@ if.end8:                                          ; preds = %_ZN3net22SpdyHeader
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net22SpdyHeadersBlockParser16ParseFieldLengthEPNS_24SpdyPrefixedBufferReaderE(ptr nocapture noundef nonnull align 8 dereferenceable(108) %this, ptr noundef nonnull %reader) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net22SpdyHeadersBlockParser16ParseFieldLengthEPNS_24SpdyPrefixedBufferReaderE(ptr noundef nonnull align 8 captures(none) dereferenceable(108) %this, ptr noundef nonnull %reader) local_unnamed_addr #0 align 2 {
 entry:
   %buffer.i = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buffer.i)
@@ -726,7 +726,7 @@ declare noundef i64 @_ZN3net24SpdyPrefixedBufferReader9AvailableEv(ptr noundef n
 declare void @_ZN3net23SpdyPinnableBufferPiece3PinEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(108) %this, ptr noundef nonnull %reader, ptr nocapture noundef writeonly %parsed_length) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(108) %this, ptr noundef nonnull %reader, ptr noundef writeonly captures(none) %parsed_length) local_unnamed_addr #0 align 2 {
 entry:
   %buffer = alloca [4 x i8], align 4
   store i32 0, ptr %buffer, align 4
@@ -756,10 +756,10 @@ declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_tra
 declare i32 @llvm.bswap.i32(i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

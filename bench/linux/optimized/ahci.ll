@@ -169,7 +169,7 @@ declare dso_local i64 @__modver_version_show(ptr noundef, ptr noundef, ptr nound
 declare dso_local i32 @__pci_register_driver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ahci_init_one(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal i32 @ahci_init_one(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -1206,16 +1206,16 @@ define internal void @ahci_shutdown_one(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @ata_print_version(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1429,7 +1429,7 @@ declare dso_local void @pci_set_master(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @ahci_host_activate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ahci_avn_hardreset(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #2 align 16 {
+define internal i32 @ahci_avn_hardreset(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #2 align 16 {
   %4 = alloca %struct.ata_taskfile, align 8
   %5 = alloca i8, align 1
   %6 = alloca i16, align 2
@@ -1599,7 +1599,7 @@ declare dso_local void @ata_msleep(ptr noundef, i32 noundef) local_unnamed_addr 
 declare dso_local i32 @ahci_dev_classify(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ahci_vt8251_hardreset(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #2 align 16 {
+define internal i32 @ahci_vt8251_hardreset(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #2 align 16 {
   %4 = alloca i8, align 1
   %5 = load ptr, ptr %0, align 64
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 14776
@@ -1643,13 +1643,13 @@ declare dso_local ptr @dmi_first_match(ptr noundef) local_unnamed_addr #1
 declare dso_local zeroext i1 @dmi_get_date(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @remapped_nvme_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @remapped_nvme_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -1677,7 +1677,7 @@ declare dso_local i32 @dmi_check_system(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @pci_alloc_irq_vectors(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ahci_get_irq_vector(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
+define internal i32 @ahci_get_irq_vector(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -184
@@ -1689,7 +1689,7 @@ define internal i32 @ahci_get_irq_vector(ptr nocapture noundef readonly %0, i32 
 declare dso_local void @pci_free_irq_vectors(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ahci_p5wdh_hardreset(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #2 align 16 {
+define internal i32 @ahci_p5wdh_hardreset(ptr noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #2 align 16 {
   %4 = alloca %struct.ata_taskfile, align 8
   %5 = alloca i8, align 1
   %6 = load ptr, ptr %0, align 64
@@ -1984,7 +1984,7 @@ ahci_pci_reset_controller.exit:                   ; preds = %26, %78
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ahci_pci_device_runtime_suspend(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef i32 @ahci_pci_device_runtime_suspend(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -2000,7 +2000,7 @@ define internal noundef i32 @ahci_pci_device_runtime_suspend(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ahci_pci_device_runtime_resume(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal i32 @ahci_pci_device_runtime_resume(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = alloca i16, align 2
   %3 = getelementptr i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8

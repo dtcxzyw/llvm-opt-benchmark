@@ -19,7 +19,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = co
 @_ZN12G1GCCountersC1EP15G1CollectedHeap = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN12G1GCCountersC2EP15G1CollectedHeap
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN12G1GCCountersC2EP15G1CollectedHeap(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN12G1GCCountersC2EP15G1CollectedHeap(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load i32, ptr %3, align 8
   store i32 %4, ptr %0, align 4

@@ -803,7 +803,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @socket_traverse(ptr nocapture noundef readonly %mod, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @socket_traverse(ptr noundef readonly captures(none) %mod, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %mod, i64 32
   %mod.val = load ptr, ptr %0, align 8
@@ -847,7 +847,7 @@ return:                                           ; preds = %if.then19, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @socket_clear(ptr nocapture noundef readonly %mod) #0 {
+define internal noundef i32 @socket_clear(ptr noundef readonly captures(none) %mod) #0 {
 entry:
   %0 = getelementptr i8, ptr %mod, i64 32
   %mod.val = load ptr, ptr %0, align 8
@@ -923,14 +923,14 @@ do.end14:                                         ; preds = %do.body8, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @socket_free(ptr nocapture noundef readonly %mod) #0 {
+define internal void @socket_free(ptr noundef readonly captures(none) %mod) #0 {
 entry:
   %call = tail call i32 @socket_clear(ptr noundef %mod)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @socket_gethostbyname(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal ptr @socket_gethostbyname(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %buf.i = alloca [16 x i8], align 16
   %name = alloca ptr, align 8
@@ -985,7 +985,7 @@ return:                                           ; preds = %entry, %finally
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @socket_gethostbyname_ex(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal ptr @socket_gethostbyname_ex(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %name = alloca ptr, align 8
   %h = alloca ptr, align 8
@@ -1033,7 +1033,7 @@ return:                                           ; preds = %entry, %finally
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @socket_gethostbyaddr(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal ptr @socket_gethostbyaddr(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %addr = alloca %union.sock_addr, align 8
   %ip_num = alloca ptr, align 8
@@ -1098,7 +1098,7 @@ return:                                           ; preds = %entry, %finally
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @socket_gethostname(ptr nocapture readnone %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @socket_gethostname(ptr readnone captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %buf = alloca [1024 x i8], align 16
   %call = tail call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.45, ptr noundef null) #12
@@ -1129,7 +1129,7 @@ return:                                           ; preds = %entry, %if.end6, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @socket_sethostname(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @socket_sethostname(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %hnobj = alloca ptr, align 8
   %buf = alloca %struct.Py_buffer, align 8
@@ -1199,7 +1199,7 @@ return:                                           ; preds = %if.end16, %if.end4,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @socket_getservbyname(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @socket_getservbyname(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %name = alloca ptr, align 8
   %proto = alloca ptr, align 8
@@ -1244,7 +1244,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @socket_getservbyport(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @socket_getservbyport(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %port = alloca i32, align 4
   %proto = alloca ptr, align 8
@@ -1297,7 +1297,7 @@ return:                                           ; preds = %if.end3, %entry, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @socket_getprotobyname(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @socket_getprotobyname(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %name = alloca ptr, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.59, ptr noundef nonnull %name) #12
@@ -1330,7 +1330,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @socket_close(ptr nocapture readnone %self, ptr noundef %fdobj) #0 {
+define internal ptr @socket_close(ptr readnone captures(none) %self, ptr noundef %fdobj) #0 {
 entry:
   %call = tail call i64 @PyLong_AsLong(ptr noundef %fdobj) #12
   %conv = trunc i64 %call to i32
@@ -1366,7 +1366,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @socket_dup(ptr nocapture readnone %self, ptr noundef %fdobj) #0 {
+define internal ptr @socket_dup(ptr readnone captures(none) %self, ptr noundef %fdobj) #0 {
 entry:
   %call = tail call i64 @PyLong_AsLong(ptr noundef %fdobj) #12
   %conv = trunc i64 %call to i32
@@ -1399,7 +1399,7 @@ return:                                           ; preds = %if.end7, %if.then12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @socket_socketpair(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal ptr @socket_socketpair(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %sv = alloca [2 x i32], align 4
   %family = alloca i32, align 4
@@ -1564,7 +1564,7 @@ return:                                           ; preds = %if.then1.i.i22, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_socket_socket_ntohs(ptr nocapture readnone %self, ptr noundef %arg) #0 {
+define internal ptr @_socket_socket_ntohs(ptr readnone captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #12
   %cmp = icmp eq i32 %call, -1
@@ -1611,7 +1611,7 @@ exit:                                             ; preds = %if.end3.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @socket_ntohl(ptr nocapture readnone %self, ptr noundef %arg) #0 {
+define internal ptr @socket_ntohl(ptr readnone captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %arg, i64 8
   %arg.val = load ptr, ptr %0, align 8
@@ -1660,7 +1660,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_socket_socket_htons(ptr nocapture readnone %self, ptr noundef %arg) #0 {
+define internal ptr @_socket_socket_htons(ptr readnone captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #12
   %cmp = icmp eq i32 %call, -1
@@ -1707,7 +1707,7 @@ exit:                                             ; preds = %if.end3.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @socket_htonl(ptr nocapture readnone %self, ptr noundef %arg) #0 {
+define internal ptr @socket_htonl(ptr readnone captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %arg, i64 8
   %arg.val = load ptr, ptr %0, align 8
@@ -1756,7 +1756,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_socket_socket_inet_aton(ptr nocapture readnone %self, ptr noundef %arg) #0 {
+define internal ptr @_socket_socket_inet_aton(ptr readnone captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %buf.i = alloca %struct.in_addr, align 4
   %ip_addr_length = alloca i64, align 8
@@ -1814,7 +1814,7 @@ exit:                                             ; preds = %if.end, %_socket_so
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_socket_socket_inet_ntoa(ptr nocapture readnone %self, ptr noundef %arg) #0 {
+define internal ptr @_socket_socket_inet_ntoa(ptr readnone captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %packed_ip = alloca %struct.Py_buffer, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %packed_ip, i8 0, i64 80, i1 false)
@@ -1858,7 +1858,7 @@ if.end3:                                          ; preds = %if.then2, %exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @socket_inet_pton(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @socket_inet_pton(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %af = alloca i32, align 4
   %ip = alloca ptr, align 8
@@ -1914,7 +1914,7 @@ return:                                           ; preds = %entry, %if.else17, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @socket_inet_ntop(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @socket_inet_ntop(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %af = alloca i32, align 4
   %packed_ip = alloca %struct.Py_buffer, align 8
@@ -1983,7 +1983,7 @@ return:                                           ; preds = %entry, %if.else20, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @socket_getaddrinfo(ptr nocapture noundef readonly %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal ptr @socket_getaddrinfo(ptr noundef readonly captures(none) %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %hints = alloca %struct.addrinfo, align 8
   %res0 = alloca ptr, align 8
@@ -2335,7 +2335,7 @@ return:                                           ; preds = %Py_XDECREF.exit77, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @socket_getnameinfo(ptr nocapture noundef readonly %self, ptr noundef %args) #0 {
+define internal ptr @socket_getnameinfo(ptr noundef readonly captures(none) %self, ptr noundef %args) #0 {
 entry:
   %sa = alloca ptr, align 8
   %flags = alloca i32, align 4
@@ -2531,7 +2531,7 @@ return:                                           ; preds = %fail, %if.then55, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @socket_getdefaulttimeout(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @socket_getdefaulttimeout(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 32
   %self.val = load ptr, ptr %0, align 8
@@ -2551,7 +2551,7 @@ return:                                           ; preds = %entry, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @socket_setdefaulttimeout(ptr nocapture noundef readonly %self, ptr noundef %arg) #0 {
+define internal noundef ptr @socket_setdefaulttimeout(ptr noundef readonly captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %timeout = alloca i64, align 8
   %cmp.i = icmp eq ptr %arg, @_Py_NoneStruct
@@ -2590,7 +2590,7 @@ return:                                           ; preds = %if.end.i, %if.then6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @socket_if_nameindex(ptr nocapture readnone %self, ptr nocapture readnone %arg) #0 {
+define internal ptr @socket_if_nameindex(ptr readnone captures(none) %self, ptr readnone captures(none) %arg) #0 {
 entry:
   %call = tail call ptr @PyList_New(i64 noundef 0) #12
   %cmp = icmp eq ptr %call, null
@@ -2706,7 +2706,7 @@ return:                                           ; preds = %if.end.i31, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_socket_socket_if_nametoindex(ptr nocapture readnone %self, ptr noundef %arg) #0 {
+define internal ptr @_socket_socket_if_nametoindex(ptr readnone captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %oname = alloca ptr, align 8
   %call = call i32 @PyUnicode_FSConverter(ptr noundef %arg, ptr noundef nonnull %oname) #12
@@ -2752,7 +2752,7 @@ exit:                                             ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @socket_if_indextoname(ptr nocapture readnone %self, ptr noundef %arg) #0 {
+define internal ptr @socket_if_indextoname(ptr readnone captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %name = alloca [17 x i8], align 16
   %call = tail call i64 @PyLong_AsUnsignedLong(ptr noundef %arg) #12
@@ -2794,7 +2794,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @socket_CMSG_LEN(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @socket_CMSG_LEN(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %length = alloca i64, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.119, ptr noundef nonnull %length) #12
@@ -2822,7 +2822,7 @@ return:                                           ; preds = %entry, %if.end5, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @socket_CMSG_SPACE(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @socket_CMSG_SPACE(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %length = alloca i64, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.121, ptr noundef nonnull %length) #12
@@ -2860,7 +2860,7 @@ declare i32 @PyArg_ParseTuple(ptr noundef, ptr noundef, ...) local_unnamed_addr 
 declare i32 @PySys_Audit(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 17) i32 @setipaddr(ptr nocapture noundef readonly %state, ptr noundef %name, ptr noundef nonnull initializes((0, 16)) %addr_ret, i64 noundef range(i64 16, 129) %addr_ret_size, i32 noundef range(i32 0, 11) %af) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 17) i32 @setipaddr(ptr noundef readonly captures(none) %state, ptr noundef %name, ptr noundef nonnull initializes((0, 16)) %addr_ret, i64 noundef range(i64 16, 129) %addr_ret_size, i32 noundef range(i32 0, 11) %af) unnamed_addr #0 {
 entry:
   %hints = alloca %struct.addrinfo, align 8
   %res = alloca ptr, align 8
@@ -3103,7 +3103,7 @@ return:                                           ; preds = %if.then1.i.i48, %if
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @PyEval_SaveThread() local_unnamed_addr #1
 
@@ -3112,7 +3112,7 @@ declare i32 @getaddrinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) loc
 declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_gaierror(ptr nocapture noundef readonly %state, i32 noundef range(i32 1, 0) %error) unnamed_addr #0 {
+define internal fastcc void @set_gaierror(ptr noundef readonly captures(none) %state, i32 noundef range(i32 1, 0) %error) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %error, -11
   br i1 %cmp, label %if.then, label %if.end
@@ -3157,10 +3157,10 @@ declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #3
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare i32 @inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -3195,7 +3195,7 @@ declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #1
 declare i32 @gethostbyname_r(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @gethost_common(ptr nocapture noundef readonly %state, ptr noundef readonly %h, ptr nocapture noundef nonnull writeonly %addr, i32 noundef range(i32 0, 65536) %af) unnamed_addr #0 {
+define internal fastcc ptr @gethost_common(ptr noundef readonly captures(none) %state, ptr noundef readonly %h, ptr noundef nonnull writeonly captures(none) %addr, i32 noundef range(i32 0, 65536) %af) unnamed_addr #0 {
 entry:
   %buf.i46 = alloca [46 x i8], align 16
   %buf.i = alloca [16 x i8], align 16
@@ -3688,7 +3688,7 @@ declare void @_PyArg_BadArgument(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare i32 @inet_aton(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -4090,7 +4090,7 @@ return:                                           ; preds = %make_ipv6_addr.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @makebdaddr(ptr nocapture noundef readonly %bdaddr) unnamed_addr #0 {
+define internal fastcc ptr @makebdaddr(ptr noundef readonly captures(none) %bdaddr) unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %bdaddr, i64 5
   %0 = load i8, ptr %arrayidx, align 1
@@ -4114,7 +4114,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strnlen(ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #1
 
@@ -6165,7 +6165,7 @@ declare ptr @PyType_FromMetaclass(ptr noundef, ptr noundef, ptr noundef, ptr nou
 declare i32 @PyModule_AddType(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sock_get_api(ptr nocapture noundef readonly %state) unnamed_addr #0 {
+define internal fastcc ptr @sock_get_api(ptr noundef readonly captures(none) %state) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyMem_Malloc(i64 noundef 24) #12
   %cmp = icmp eq ptr %call, null
@@ -6297,7 +6297,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit9, %i
 declare i32 @_PyCapsule_SetTraverse(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sock_capi_traverse(ptr noundef %capsule, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @sock_capi_traverse(ptr noundef %capsule, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %call = tail call ptr @PyCapsule_GetPointer(ptr noundef %capsule, ptr noundef nonnull @.str.131) #12
   %0 = load ptr, ptr %call, align 8
@@ -6386,7 +6386,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sock_traverse(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @sock_traverse(ptr noundef readonly captures(none) %s, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %s, i64 8
   %s.val3 = load ptr, ptr %0, align 8
@@ -6407,7 +6407,7 @@ return:                                           ; preds = %if.then, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sock_repr(ptr nocapture noundef readonly %s) #0 {
+define internal ptr @sock_repr(ptr noundef readonly captures(none) %s) #0 {
 entry:
   %sock_fd1 = getelementptr inbounds nuw i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd1, align 8
@@ -6791,7 +6791,7 @@ exit:                                             ; preds = %land.lhs.true57, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sock_new(ptr noundef %type, ptr nocapture readnone %args, ptr nocapture readnone %kwds) #0 {
+define internal ptr @sock_new(ptr noundef %type, ptr readnone captures(none) %args, ptr readnone captures(none) %kwds) #0 {
 entry:
   %tp_alloc = getelementptr inbounds nuw i8, ptr %type, i64 304
   %0 = load ptr, ptr %tp_alloc, align 8
@@ -6855,7 +6855,7 @@ declare i32 @PyObject_CallFinalizerFromDealloc(ptr noundef) local_unnamed_addr #
 declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sock_accept(ptr noundef %s, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @sock_accept(ptr noundef %s, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %addrbuf = alloca %union.sock_addr, align 8
   %addrlen = alloca i32, align 4
@@ -6998,7 +6998,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sock_close(ptr nocapture noundef %s, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @sock_close(ptr noundef captures(none) %s, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %sock_fd = getelementptr inbounds nuw i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8
@@ -7087,7 +7087,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sock_detach(ptr nocapture noundef %s, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @sock_detach(ptr noundef captures(none) %s, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %sock_fd = getelementptr inbounds nuw i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8
@@ -7098,7 +7098,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sock_fileno(ptr nocapture noundef readonly %s, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @sock_fileno(ptr noundef readonly captures(none) %s, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %sock_fd = getelementptr inbounds nuw i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8
@@ -7108,7 +7108,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sock_getpeername(ptr nocapture noundef readonly %s, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @sock_getpeername(ptr noundef readonly captures(none) %s, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %addrbuf = alloca %union.sock_addr, align 8
   %addrlen = alloca i32, align 4
@@ -7149,7 +7149,7 @@ return:                                           ; preds = %entry, %if.end6, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sock_getsockname(ptr nocapture noundef readonly %s, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @sock_getsockname(ptr noundef readonly captures(none) %s, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %addrbuf = alloca %union.sock_addr, align 8
   %addrlen = alloca i32, align 4
@@ -7190,7 +7190,7 @@ return:                                           ; preds = %entry, %if.end6, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sock_getsockopt(ptr nocapture noundef readonly %s, ptr noundef %args) #0 {
+define internal ptr @sock_getsockopt(ptr noundef readonly captures(none) %s, ptr noundef %args) #0 {
 entry:
   %level = alloca i32, align 4
   %optname = alloca i32, align 4
@@ -7329,7 +7329,7 @@ return:                                           ; preds = %if.end30, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sock_listen(ptr nocapture noundef readonly %s, ptr noundef %args) #0 {
+define internal ptr @sock_listen(ptr noundef readonly captures(none) %s, ptr noundef %args) #0 {
 entry:
   %backlog = alloca i32, align 4
   store i32 128, ptr %backlog, align 4
@@ -8068,7 +8068,7 @@ return:                                           ; preds = %if.end14, %if.end11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @sock_setblocking(ptr nocapture noundef %s, ptr noundef %arg) #0 {
+define internal noundef ptr @sock_setblocking(ptr noundef captures(none) %s, ptr noundef %arg) #0 {
 entry:
   %block.addr.i = alloca i32, align 4
   %call = tail call i32 @PyObject_IsTrue(ptr noundef %arg) #12
@@ -8109,7 +8109,7 @@ return:                                           ; preds = %internal_setblockin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal nonnull ptr @sock_getblocking(ptr nocapture noundef readonly %s, ptr nocapture readnone %_unused_ignored) #7 {
+define internal nonnull ptr @sock_getblocking(ptr noundef readonly captures(none) %s, ptr readnone captures(none) %_unused_ignored) #7 {
 entry:
   %sock_timeout = getelementptr inbounds nuw i8, ptr %s, i64 40
   %0 = load i64, ptr %sock_timeout, align 8
@@ -8119,7 +8119,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @sock_settimeout(ptr nocapture noundef %s, ptr noundef %arg) #0 {
+define internal noundef ptr @sock_settimeout(ptr noundef captures(none) %s, ptr noundef %arg) #0 {
 entry:
   %block.addr.i = alloca i32, align 4
   %timeout = alloca i64, align 8
@@ -8178,7 +8178,7 @@ return:                                           ; preds = %if.end.i, %if.then6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sock_gettimeout(ptr nocapture noundef readonly %s, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @sock_gettimeout(ptr noundef readonly captures(none) %s, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %sock_timeout = getelementptr inbounds nuw i8, ptr %s, i64 40
   %0 = load i64, ptr %sock_timeout, align 8
@@ -8196,7 +8196,7 @@ return:                                           ; preds = %entry, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sock_setsockopt(ptr nocapture noundef readonly %s, ptr noundef %args) #0 {
+define internal ptr @sock_setsockopt(ptr noundef readonly captures(none) %s, ptr noundef %args) #0 {
 entry:
   %level = alloca i32, align 4
   %optname = alloca i32, align 4
@@ -8288,7 +8288,7 @@ return:                                           ; preds = %done, %if.end16, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sock_shutdown(ptr nocapture noundef readonly %s, ptr noundef %arg) #0 {
+define internal ptr @sock_shutdown(ptr noundef readonly captures(none) %s, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #12
   %cmp = icmp eq i32 %call, -1
@@ -9142,7 +9142,7 @@ return:                                           ; preds = %if.end, %for.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @getsockaddrlen(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull writeonly %len_ret) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @getsockaddrlen(ptr noundef readonly captures(none) %s, ptr noundef nonnull writeonly captures(none) %len_ret) unnamed_addr #0 {
 entry:
   %sock_family = getelementptr inbounds nuw i8, ptr %s, i64 20
   %0 = load i32, ptr %sock_family, align 4
@@ -9243,7 +9243,7 @@ return:                                           ; preds = %sw.default15, %sw.b
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sock_accept_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef initializes((16, 20)) %data) #0 {
+define internal range(i32 0, 2) i32 @sock_accept_impl(ptr noundef readonly captures(none) %s, ptr noundef captures(none) initializes((16, 20)) %data) #0 {
 entry:
   %addrbuf = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load ptr, ptr %addrbuf, align 8
@@ -9312,7 +9312,7 @@ if.end24:                                         ; preds = %if.end14.if.end24_c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %s, i32 noundef range(i32 0, 2) %writing, ptr nocapture noundef readonly %sock_func, ptr noundef %data, i32 noundef range(i32 0, 2) %connect, ptr noundef writeonly %err, i64 noundef %timeout) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %s, i32 noundef range(i32 0, 2) %writing, ptr noundef readonly captures(none) %sock_func, ptr noundef %data, i32 noundef range(i32 0, 2) %connect, ptr noundef writeonly %err, i64 noundef %timeout) unnamed_addr #0 {
 entry:
   %pollfd.i30 = alloca %struct.pollfd, align 4
   %pollfd.i = alloca %struct.pollfd, align 4
@@ -9611,7 +9611,7 @@ declare i32 @accept4(i32 noundef, ptr, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @accept(i32 noundef, ptr, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @getsockaddrarg(ptr nocapture noundef readonly %s, ptr noundef %args, ptr noundef nonnull %addrbuf, ptr nocapture noundef nonnull writeonly %len_ret, ptr noundef %caller) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @getsockaddrarg(ptr noundef readonly captures(none) %s, ptr noundef %args, ptr noundef nonnull %addrbuf, ptr noundef nonnull writeonly captures(none) %len_ret, ptr noundef %caller) unnamed_addr #0 {
 entry:
   %path = alloca %struct.Py_buffer, align 8
   %pid = alloca i32, align 4
@@ -10782,7 +10782,7 @@ declare ptr @PyUnicode_EncodeFSDefault(ptr noundef) local_unnamed_addr #1
 declare i32 @PyArg_Parse(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 131073) i32 @idna_converter(ptr noundef %obj, ptr nocapture noundef %data) #0 {
+define internal range(i32 0, 131073) i32 @idna_converter(ptr noundef %obj, ptr noundef captures(none) %data) #0 {
 entry:
   %cmp = icmp eq ptr %obj, null
   br i1 %cmp, label %if.then, label %if.end
@@ -10934,7 +10934,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 7) i32 @setbdaddr(ptr nocapture noundef readonly %name, ptr nocapture noundef nonnull writeonly %bdaddr) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 7) i32 @setbdaddr(ptr noundef readonly captures(none) %name, ptr noundef nonnull writeonly captures(none) %bdaddr) unnamed_addr #0 {
 entry:
   %b0 = alloca i32, align 4
   %b1 = alloca i32, align 4
@@ -10993,7 +10993,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 declare i64 @PyBytes_Size(ptr noundef) local_unnamed_addr #1
 
@@ -11004,7 +11004,7 @@ declare i64 @PyByteArray_Size(ptr noundef) local_unnamed_addr #1
 declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @internal_connect(ptr noundef %s, ptr noundef nonnull %addr, i32 noundef %addrlen, i32 noundef range(i32 0, 2) %raise) unnamed_addr #0 {
@@ -11085,7 +11085,7 @@ return:                                           ; preds = %if.then18, %if.then
 declare i32 @connect(i32 noundef, ptr, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sock_connect_impl(ptr nocapture noundef readonly %s, ptr nocapture readnone %_unused_data) #0 {
+define internal range(i32 0, 2) i32 @sock_connect_impl(ptr noundef readonly captures(none) %s, ptr readnone captures(none) %_unused_data) #0 {
 entry:
   %err = alloca i32, align 4
   %size = alloca i32, align 4
@@ -11128,7 +11128,7 @@ declare i32 @_PyBytes_Resize(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sock_recv_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef initializes((24, 32)) %data) #0 {
+define internal range(i32 0, 2) i32 @sock_recv_impl(ptr noundef readonly captures(none) %s, ptr noundef captures(none) initializes((24, 32)) %data) #0 {
 entry:
   %sock_fd = getelementptr inbounds nuw i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8
@@ -11150,7 +11150,7 @@ declare i64 @recv(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unna
 declare ptr @PyLong_FromSsize_t(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sock_recvfrom_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef initializes((40, 48)) %data) #0 {
+define internal range(i32 0, 2) i32 @sock_recvfrom_impl(ptr noundef readonly captures(none) %s, ptr noundef captures(none) initializes((40, 48)) %data) #0 {
 entry:
   %addrbuf = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %addrbuf, align 8
@@ -11179,7 +11179,7 @@ entry:
 declare i64 @recvfrom(i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sock_send_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef initializes((24, 32)) %data) #0 {
+define internal range(i32 0, 2) i32 @sock_send_impl(ptr noundef readonly captures(none) %s, ptr noundef captures(none) initializes((24, 32)) %data) #0 {
 entry:
   %sock_fd = getelementptr inbounds nuw i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8
@@ -11201,7 +11201,7 @@ declare i64 @send(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unna
 declare i64 @PyTuple_Size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sock_sendto_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef initializes((32, 40)) %data) #0 {
+define internal range(i32 0, 2) i32 @sock_sendto_impl(ptr noundef readonly captures(none) %s, ptr noundef captures(none) initializes((32, 40)) %data) #0 {
 entry:
   %sock_fd = getelementptr inbounds nuw i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8
@@ -11233,7 +11233,7 @@ declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 
 declare i32 @shutdown(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sock_recvmsg_guts(ptr noundef %s, ptr noundef %iov, i32 noundef %iovlen, i32 noundef %flags, i64 noundef %controllen, ptr nocapture noundef readonly %makeval, ptr noundef %makeval_data) unnamed_addr #0 {
+define internal fastcc ptr @sock_recvmsg_guts(ptr noundef %s, ptr noundef %iov, i32 noundef %iovlen, i32 noundef %flags, i64 noundef %controllen, ptr noundef readonly captures(none) %makeval, ptr noundef %makeval_data) unnamed_addr #0 {
 entry:
   %addrbuf = alloca %union.sock_addr, align 8
   %addrbuflen = alloca i32, align 4
@@ -11582,7 +11582,7 @@ declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sock_recvmsg_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef initializes((16, 24)) %data) #0 {
+define internal range(i32 0, 2) i32 @sock_recvmsg_impl(ptr noundef readonly captures(none) %s, ptr noundef captures(none) initializes((16, 24)) %data) #0 {
 entry:
   %sock_fd = getelementptr inbounds nuw i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8
@@ -11607,14 +11607,14 @@ declare i64 @recvmsg(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 declare ptr @PySequence_Fast(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @makeval_recvmsg_into(i64 noundef %received, ptr nocapture readnone %data) #0 {
+define internal ptr @makeval_recvmsg_into(i64 noundef %received, ptr readnone captures(none) %data) #0 {
 entry:
   %call = tail call ptr @PyLong_FromSsize_t(i64 noundef %received) #12
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @sock_sendmsg_iovec(ptr noundef %data_arg, ptr nocapture noundef nonnull writeonly %msg, ptr nocapture noundef nonnull writeonly %databufsout, ptr nocapture noundef nonnull writeonly %ndatabufsout) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @sock_sendmsg_iovec(ptr noundef %data_arg, ptr noundef nonnull writeonly captures(none) %msg, ptr noundef nonnull writeonly captures(none) %databufsout, ptr noundef nonnull writeonly captures(none) %ndatabufsout) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PySequence_Fast(ptr noundef %data_arg, ptr noundef nonnull @.str.638) #12
   %cmp = icmp eq ptr %call, null
@@ -11734,7 +11734,7 @@ Py_XDECREF.exit:                                  ; preds = %finally, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sock_sendmsg_impl(ptr nocapture noundef readonly %s, ptr nocapture noundef initializes((16, 24)) %data) #0 {
+define internal range(i32 0, 2) i32 @sock_sendmsg_impl(ptr noundef readonly captures(none) %s, ptr noundef captures(none) initializes((16, 24)) %data) #0 {
 entry:
   %sock_fd = getelementptr inbounds nuw i8, ptr %s, i64 16
   %0 = load i32, ptr %sock_fd, align 8
@@ -11775,10 +11775,10 @@ declare i64 @llvm.smax.i64(i64, i64) #10
 declare i32 @llvm.umin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10

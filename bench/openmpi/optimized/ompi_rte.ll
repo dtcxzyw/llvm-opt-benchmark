@@ -315,7 +315,7 @@ declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @opal_strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @ompi_pmix_print_jobids(i32 noundef %0) unnamed_addr #0 {
@@ -542,7 +542,7 @@ define range(i32 -1, 2) i32 @ompi_rte_compare_name_fields(i8 noundef zeroext %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 1) i32 @ompi_rte_convert_string_to_process_name(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @ompi_rte_convert_string_to_process_name(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @pmix_name_invalid, align 4
   store i32 %3, ptr %0, align 4
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_name_invalid, i64 4), align 4
@@ -598,7 +598,7 @@ sub_0:                                            ; preds = %9
   br label %sub_030
 
 .tail25.thread:                                   ; preds = %sub_0, %.tail, %.tail25
-  %27 = tail call i64 @strtoul(ptr nocapture noundef nonnull %10, ptr noundef null, i32 noundef 10) #19
+  %27 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %10, ptr noundef null, i32 noundef 10) #19
   %28 = trunc i64 %27 to i32
   br label %sub_030
 
@@ -631,7 +631,7 @@ sub_030:                                          ; preds = %20, %.tail25.thread
   br label %42
 
 .tail33.thread:                                   ; preds = %sub_030, %.tail29, %.tail33
-  %40 = tail call i64 @strtoul(ptr nocapture noundef nonnull %15, ptr noundef null, i32 noundef 10) #19
+  %40 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %15, ptr noundef null, i32 noundef 10) #19
   %41 = trunc i64 %40 to i32
   br label %42
 
@@ -648,16 +648,16 @@ sub_030:                                          ; preds = %20, %.tail25.thread
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -5, 1) i32 @ompi_rte_convert_process_name_to_string(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
@@ -2111,7 +2111,7 @@ define i32 @ompi_rte_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 604:                                              ; preds = %.lr.ph, %600
   %605 = phi ptr [ %596, %.lr.ph ], [ %603, %600 ]
   %.0122531 = phi i64 [ 0, %.lr.ph ], [ %601, %600 ]
-  %606 = call i64 @strtoul(ptr nocapture noundef nonnull %605, ptr noundef null, i32 noundef 10) #19
+  %606 = call i64 @strtoul(ptr noundef nonnull captures(none) %605, ptr noundef null, i32 noundef 10) #19
   %607 = trunc i64 %606 to i32
   store i32 %607, ptr %131, align 4
   %608 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_process_info, i64 4), align 4
@@ -2350,7 +2350,7 @@ ompi_rte_compare_name_fields.exit:                ; preds = %8, %2, %4, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -5, 1) i32 @_convert_string_to_process_name(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1) #0 {
+define internal range(i32 -5, 1) i32 @_convert_string_to_process_name(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef %1) #0 {
   %3 = tail call i32 @ompi_rte_convert_string_to_process_name(ptr noundef %0, ptr noundef %1)
   ret i32 %3
 }
@@ -2385,7 +2385,7 @@ define internal range(i32 -1, 1) i32 @ompi_pmix_snprintf_jobid(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -5, 1) i32 @_convert_string_to_jobid(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr noundef readonly %1) #0 {
+define internal range(i32 -5, 1) i32 @_convert_string_to_jobid(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef readonly %1) #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %sub_0.i
 
@@ -2424,7 +2424,7 @@ sub_111.i:                                        ; preds = %.tail.i
   br i1 %17, label %ompi_pmix_convert_string_to_jobid.exit, label %.tail9.thread.i
 
 .tail9.thread.i:                                  ; preds = %.tail9.i, %.tail.thread.i
-  %18 = tail call i64 @strtoul(ptr nocapture noundef nonnull readonly %1, ptr noundef null, i32 noundef 10) #19
+  %18 = tail call i64 @strtoul(ptr noundef nonnull readonly captures(none) %1, ptr noundef null, i32 noundef 10) #19
   %19 = trunc i64 %18 to i32
   br label %ompi_pmix_convert_string_to_jobid.exit
 
@@ -2444,10 +2444,10 @@ declare i32 @PMIx_Initialized() local_unnamed_addr #1
 declare i32 @PMIx_Init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #1
 
@@ -2690,7 +2690,7 @@ define internal zeroext i1 @check_file(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %6, label %7, label %14
 
 7:                                                ; preds = %2
-  %8 = call noalias ptr (i32, ...) @opal_os_path(i32 noundef 0, ptr noundef nonnull %4, ptr noundef %0, ptr noundef %1, ptr noundef null) #19
+  %8 = call noalias ptr (i32, ...) @opal_os_path(i32 noundef 0, ptr noundef nonnull %4, ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #19
   store ptr %8, ptr %4, align 8
   %9 = call i32 @stat(ptr noundef %8, ptr noundef nonnull %3) #19
   %10 = load ptr, ptr %4, align 8
@@ -2743,7 +2743,7 @@ define void @ompi_rte_abort(i32 noundef %0, ptr noundef %1, ...) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 declare i32 @opal_vasprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2755,7 +2755,7 @@ declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @_exit(i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @ompi_rte_abort_peers(ptr nocapture noundef readnone %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define void @ompi_rte_abort_peers(ptr noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
   ret void
 }
 
@@ -2832,12 +2832,12 @@ define void @ompi_rte_breakpoint(ptr noundef readonly %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 declare i32 @PMIx_Register_event_handler(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @_release_fn(i64 %0, i32 %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i64 %4, ptr nocapture readnone %5, i64 %6, ptr noundef readonly %7, ptr noundef %8) #0 {
+define internal void @_release_fn(i64 %0, i32 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, i64 %4, ptr readnone captures(none) %5, i64 %6, ptr noundef readonly %7, ptr noundef %8) #0 {
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %11, label %10
 
@@ -2912,12 +2912,12 @@ declare ptr @pthread_getspecific(i32 noundef) local_unnamed_addr #17
 declare void @opal_string_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare noalias ptr @opal_os_path(i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare i32 @geteuid() local_unnamed_addr #17

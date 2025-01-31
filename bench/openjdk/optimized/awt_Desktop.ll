@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @gnome_url_show = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XDesktopPeer_init(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XDesktopPeer_init(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %.b = load i1, ptr @gtk_has_been_loaded, align 4
   %.b5 = load i1, ptr @gnome_has_been_loaded, align 4
   %or.cond = select i1 %.b, i1 true, i1 %.b5
@@ -49,7 +49,7 @@ declare i32 @gtk_load(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr 
 declare i32 @gnome_load(...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XDesktopPeer_gnome_1url_1show(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XDesktopPeer_gnome_1url_1show(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1472
   %6 = load ptr, ptr %5, align 8

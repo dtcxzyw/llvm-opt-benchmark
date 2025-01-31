@@ -307,12 +307,12 @@ if.end61.thread:                                  ; preds = %cond.end40
   store i8 92, ptr %filename, align 1
   %arrayidx60 = getelementptr inbounds nuw i8, ptr %filename, i64 1
   store i8 92, ptr %arrayidx60, align 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %cond57, ptr align 1 %add.ptr, i64 %add, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %cond57, ptr nonnull align 1 %add.ptr, i64 %add, i1 false)
   %call6339 = tail call ptr @uriUnescapeInPlaceExA(ptr noundef nonnull %filename, i32 noundef 0, i32 noundef 3) #5
   br label %while.cond.preheader
 
 if.end61:                                         ; preds = %cond.end40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %cond57, ptr align 1 %add.ptr, i64 %add, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %cond57, ptr nonnull align 1 %add.ptr, i64 %add, i1 false)
   %call63 = tail call ptr @uriUnescapeInPlaceExA(ptr noundef nonnull %filename, i32 noundef 0, i32 noundef 3) #5
   br i1 %cmp43, label %while.cond.preheader, label %return
 
@@ -631,7 +631,7 @@ cond.end40:                                       ; preds = %cond.false29, %cond
   %3 = phi i1 [ true, %cond.true ], [ false, %cond.false29 ], [ false, %cond.false25 ]
   %cond41 = phi i64 [ %cond24, %cond.true ], [ %cond37, %cond.false29 ], [ 5, %cond.false25 ]
   %add.ptr = getelementptr inbounds nuw i32, ptr %uriString, i64 %cond41
-  %call42 = tail call i64 @wcslen(ptr noundef %add.ptr) #6
+  %call42 = tail call i64 @wcslen(ptr noundef nonnull %add.ptr) #6
   %cmp43 = icmp eq i32 %toUnix, 0
   %or.cond3 = and i1 %cmp43, %3
   %4 = select i1 %or.cond3, i1 %lnot49, i1 false
@@ -648,7 +648,7 @@ if.then59:                                        ; preds = %cond.end40
 if.end61:                                         ; preds = %if.then59, %cond.end40
   %add = shl i64 %call42, 2
   %mul = add i64 %add, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %cond57, ptr align 4 %add.ptr, i64 %mul, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %cond57, ptr nonnull align 4 %add.ptr, i64 %mul, i1 false)
   %call63 = tail call ptr @uriUnescapeInPlaceExW(ptr noundef nonnull %filename, i32 noundef 0, i32 noundef 3) #5
   br i1 %cmp43, label %while.cond, label %return
 
@@ -681,20 +681,20 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @uriEscapeExA(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 declare ptr @uriUnescapeInPlaceExA(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @uriEscapeExW(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 

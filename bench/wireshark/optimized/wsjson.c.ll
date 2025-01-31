@@ -50,15 +50,15 @@ define i32 @json_parse(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unn
   %4 = alloca %struct.jsmn_parser, align 4
   call void @jsmn_init(ptr noundef nonnull %4) #10
   %5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
-  %6 = call i32 @jsmn_parse(ptr noundef nonnull %4, ptr noundef %0, i64 noundef %5, ptr noundef %1, i32 noundef %2) #10
+  %6 = call i32 @jsmn_parse(ptr noundef nonnull %4, ptr noundef nonnull %0, i64 noundef %5, ptr noundef %1, i32 noundef %2) #10
   ret i32 %6
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @json_get_object(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
+define noundef ptr @json_get_object(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
@@ -121,7 +121,7 @@ define noundef ptr @json_get_object(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc ptr @json_get_next_object(ptr noundef readonly %0) unnamed_addr #5 {
@@ -145,7 +145,7 @@ define internal fastcc ptr @json_get_next_object(ptr noundef readonly %0) unname
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @json_get_array(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
+define noundef ptr @json_get_array(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
@@ -208,7 +208,7 @@ define noundef ptr @json_get_array(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @json_get_array_len(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define i32 @json_get_array_len(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i32, ptr %0, align 4
   %.not = icmp eq i32 %2, 2
   br i1 %.not, label %3, label %6
@@ -256,7 +256,7 @@ define ptr @json_get_array_index(ptr noundef readonly %0, i32 noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @json_get_string(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define ptr @json_get_string(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
@@ -499,7 +499,7 @@ define noundef zeroext i1 @json_decode_string_inplace(ptr noundef %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @json_get_double(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define zeroext i1 @json_get_double(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
@@ -580,7 +580,7 @@ declare double @g_ascii_strtod(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @__errno_location() local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @json_get_boolean(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #8 {
+define noundef zeroext i1 @json_get_boolean(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #8 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0

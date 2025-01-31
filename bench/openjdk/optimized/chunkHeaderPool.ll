@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN9metaspace15ChunkHeaderPoolD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN9metaspace15ChunkHeaderPoolD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN9metaspace15ChunkHeaderPoolC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 4), (8, 28), (32, 44)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN9metaspace15ChunkHeaderPoolC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 4), (8, 28), (32, 44)) %0) unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -24,7 +24,7 @@ define hidden void @_ZN9metaspace15ChunkHeaderPoolC2Ev(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9metaspace15ChunkHeaderPoolD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN9metaspace15ChunkHeaderPoolD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not5 = icmp eq ptr %3, null
@@ -44,7 +44,7 @@ define hidden void @_ZN9metaspace15ChunkHeaderPoolD2Ev(ptr nocapture noundef non
 declare void @_ZN2os4freeEPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9metaspace15ChunkHeaderPool17allocate_new_slabEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN9metaspace15ChunkHeaderPool17allocate_new_slabEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 9232, i8 noundef zeroext 24, i32 noundef 0) #5
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -104,7 +104,7 @@ _ZN9metaspace15ChunkHeaderPool4SlabC2Ev.exit:     ; preds = %.preheader.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i64 0, 4956392258431) i64 @_ZNK9metaspace15ChunkHeaderPool22memory_footprint_wordsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i64 0, 4956392258431) i64 @_ZNK9metaspace15ChunkHeaderPool22memory_footprint_wordsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #3 align 2 {
   %2 = load i32, ptr %0, align 8
   %3 = zext i32 %2 to i64
   %4 = mul nuw nsw i64 %3, 1154
@@ -128,7 +128,7 @@ define hidden void @_ZN9metaspace15ChunkHeaderPool10initializeEv() local_unnamed
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

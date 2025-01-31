@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @stdout = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Ivy_ManIncrementTravId(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Ivy_ManIncrementTravId(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 1073740822
@@ -83,7 +83,7 @@ Ivy_ManCleanTravId.exit:                          ; preds = %Ivy_ManCleanTravId.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Ivy_ManCleanTravId(ptr nocapture noundef initializes((176, 180)) %0) local_unnamed_addr #0 {
+define void @Ivy_ManCleanTravId(ptr noundef captures(none) initializes((176, 180)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -123,7 +123,7 @@ define void @Ivy_ManCleanTravId(ptr nocapture noundef initializes((176, 180)) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ivy_ManCollectCut_rec(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define void @Ivy_ManCollectCut_rec(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 16
@@ -219,7 +219,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ivy_ManCollectCut(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr noundef initializes((4, 8)) %3) local_unnamed_addr #1 {
+define void @Ivy_ManCollectCut(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef initializes((4, 8)) %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr i8, ptr %2, i64 4
@@ -353,7 +353,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Ivy_ObjGetTruthStore(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define ptr @Ivy_ObjGetTruthStore(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %3, align 8
   %4 = shl nsw i32 %0, 3
@@ -363,7 +363,7 @@ define ptr @Ivy_ObjGetTruthStore(i32 noundef %0, ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Ivy_ManCutTruthOne(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Ivy_ManCutTruthOne(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr i8, ptr %2, i64 8
@@ -520,7 +520,7 @@ define void @Ivy_ManCutTruthOne(ptr nocapture readnone %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Ivy_ManCutTruth(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr noundef initializes((4, 8)) %3, ptr nocapture noundef %4) local_unnamed_addr #1 {
+define ptr @Ivy_ManCutTruth(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef initializes((4, 8)) %3, ptr noundef captures(none) %4) local_unnamed_addr #1 {
   tail call void @Ivy_ManCollectCut(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %6 = getelementptr i8, ptr %3, i64 4
   %.val4148 = load i32, ptr %6, align 4
@@ -648,10 +648,10 @@ Vec_IntGrow.exit:                                 ; preds = %.critedge, %33
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Ivy_ManLatches(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define noalias noundef ptr @Ivy_ManLatches(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 136
   %.val12 = load i32, ptr %2, align 8
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
@@ -778,7 +778,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2097152) i32 @Ivy_ManLevels(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2097152) i32 @Ivy_ManLevels(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -816,7 +816,7 @@ define range(i32 0, 2097152) i32 @Ivy_ManLevels(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2097152) i32 @Ivy_ManResetLevels_rec(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define range(i32 0, 2097152) i32 @Ivy_ManResetLevels_rec(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp ult i32 %3, 2048
@@ -900,7 +900,7 @@ common.ret23:                                     ; preds = %15, %7, %20
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Ivy_ManResetLevels(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define void @Ivy_ManResetLevels(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -982,7 +982,7 @@ define void @Ivy_ManResetLevels(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Ivy_ObjRefDeref(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define i32 @Ivy_ObjRefDeref(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   br label %tailrecurse113
 
 tailrecurse113:                                   ; preds = %94, %4
@@ -1185,7 +1185,7 @@ tailrecurse:                                      ; preds = %76
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Ivy_ObjMffcLabel(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #5 {
+define i32 @Ivy_ObjMffcLabel(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #5 {
   %3 = tail call i32 @Ivy_ObjRefDeref(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 1)
   %4 = tail call i32 @Ivy_ObjRefDeref(ptr noundef %0, ptr noundef %1, i32 noundef 1, i32 noundef 0)
   ret i32 %3
@@ -1347,7 +1347,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %.crited
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Ivy_ObjUpdateLevelR_rec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 {
+define void @Ivy_ObjUpdateLevelR_rec(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
   %.val3039 = load i32, ptr %1, align 8
   %.not40 = icmp eq i32 %.val3039, 0
   br i1 %.not40, label %._crit_edge, label %.lr.ph
@@ -1423,7 +1423,7 @@ tailrecurse:                                      ; preds = %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Ivy_ObjIsMuxType(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @Ivy_ObjIsMuxType(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val41 = load i32, ptr %2, align 8
   %3 = and i32 %.val41, 15
@@ -1618,7 +1618,7 @@ Ivy_ObjFaninId1.exit71:                           ; preds = %Ivy_ObjFaninId1.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @Ivy_ObjRecognizeMux(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #8 {
+define ptr @Ivy_ObjRecognizeMux(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #8 {
   %4 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %4, align 8
   %5 = ptrtoint ptr %.val to i64
@@ -1949,7 +1949,7 @@ common.ret9:                                      ; preds = %1, %3, %9
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Ivy_ObjPrintVerbose(ptr nocapture readnone %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #10 {
+define void @Ivy_ObjPrintVerbose(ptr readnone captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #10 {
   %.val79 = load i32, ptr %1, align 8
   %4 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.val79)
   %.val76 = load i32, ptr %1, align 8
@@ -2123,7 +2123,7 @@ define void @Ivy_ObjPrintVerbose(ptr nocapture readnone %0, ptr noundef readonly
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define void @Ivy_ManPrintVerbose(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
@@ -2279,7 +2279,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge6, %74
 declare ptr @Ivy_ManDfsSeq(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Ivy_CutTruthPrint2(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define noundef i32 @Ivy_CutTruthPrint2(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca i32, align 4
   store i32 %2, ptr %4, align 4
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24)
@@ -2316,7 +2316,7 @@ define noundef i32 @Ivy_CutTruthPrint2(ptr nocapture noundef readnone %0, ptr no
 declare void @Extra_PrintBinary(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2147483647) i32 @Ivy_CutTruthPrint(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 -2147483648, 2147483647) i32 @Ivy_CutTruthPrint(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i16, ptr %4, align 4
   %6 = icmp sgt i16 %5, 0
@@ -2417,13 +2417,13 @@ define range(i32 -2147483648, 2147483647) i32 @Ivy_CutTruthPrint(ptr noundef %0,
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #15

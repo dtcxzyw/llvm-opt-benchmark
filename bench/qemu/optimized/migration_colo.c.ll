@@ -426,7 +426,7 @@ declare void @replication_start_all(i32 noundef, ptr noundef) local_unnamed_addr
 declare void @replication_stop_all(i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias noundef ptr @qmp_query_xen_replication_status(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @qmp_query_xen_replication_status(ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
@@ -492,7 +492,7 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @colo_notify_filters_event(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias noundef ptr @qmp_query_colo_status(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @qmp_query_colo_status(ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(12) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 12) #7
   %call.i.i = tail call ptr @migrate_get_current() #6
@@ -1570,7 +1570,7 @@ declare void @failover_init_state() local_unnamed_addr #1
 declare ptr @qemu_file_get_return_path(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @colo_compare_notify_checkpoint(ptr nocapture readnone %notifier, ptr noundef %data) #0 {
+define internal void @colo_compare_notify_checkpoint(ptr readnone captures(none) %notifier, ptr noundef %data) #0 {
 entry:
   %colo_checkpoint_event.i = getelementptr inbounds nuw i8, ptr %data, i64 1456
   tail call void @qemu_event_set(ptr noundef nonnull %colo_checkpoint_event.i) #6
@@ -1749,7 +1749,7 @@ declare i32 @qemu_file_get_error(ptr noundef) local_unnamed_addr #1
 declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -1893,10 +1893,10 @@ declare i32 @qemu_load_device_state(ptr noundef) local_unnamed_addr #1
 declare i64 @qemu_get_be64(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

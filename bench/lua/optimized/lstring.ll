@@ -33,7 +33,7 @@ lor.end:                                          ; preds = %lor.rhs, %land.rhs,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i32 @luaS_hash(ptr nocapture noundef readonly %str, i64 noundef %l, i32 noundef %seed) local_unnamed_addr #1 {
+define hidden i32 @luaS_hash(ptr noundef readonly captures(none) %str, i64 noundef %l, i32 noundef %seed) local_unnamed_addr #1 {
 entry:
   %conv = trunc i64 %l to i32
   %xor = xor i32 %seed, %conv
@@ -62,7 +62,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i32 @luaS_hashlongstr(ptr nocapture noundef %ts) local_unnamed_addr #2 {
+define hidden i32 @luaS_hashlongstr(ptr noundef captures(none) %ts) local_unnamed_addr #2 {
 entry:
   %extra = getelementptr inbounds nuw i8, ptr %ts, i64 10
   %0 = load i8, ptr %extra, align 2
@@ -277,7 +277,7 @@ if.end21:                                         ; preds = %for.inc13.i64, %for
 declare hidden ptr @luaM_realloc_(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @luaS_clearcache(ptr nocapture noundef %g) local_unnamed_addr #5 {
+define hidden void @luaS_clearcache(ptr noundef captures(none) %g) local_unnamed_addr #5 {
 entry:
   %strcache = getelementptr inbounds nuw i8, ptr %g, i64 552
   %memerrmsg = getelementptr inbounds nuw i8, ptr %g, i64 272
@@ -353,7 +353,7 @@ for.end13:                                        ; preds = %for.cond5.preheader
 declare hidden ptr @luaM_malloc_(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @luaS_newlstr(ptr noundef %L, ptr nocapture noundef readonly %str, i64 noundef %l) local_unnamed_addr #3 {
+define hidden ptr @luaS_newlstr(ptr noundef %L, ptr noundef readonly captures(none) %str, i64 noundef %l) local_unnamed_addr #3 {
 entry:
   %cmp = icmp ult i64 %l, 41
   br i1 %cmp, label %if.then, label %if.else
@@ -561,7 +561,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @luaS_remove(ptr nocapture noundef readonly %L, ptr noundef readonly %ts) local_unnamed_addr #6 {
+define hidden void @luaS_remove(ptr noundef readonly captures(none) %L, ptr noundef readonly %ts) local_unnamed_addr #6 {
 entry:
   %l_G = getelementptr inbounds nuw i8, ptr %L, i64 24
   %0 = load ptr, ptr %l_G, align 8
@@ -598,7 +598,7 @@ while.end:                                        ; preds = %while.cond
 declare hidden void @luaM_toobig(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @luaS_new(ptr noundef %L, ptr noundef %str) local_unnamed_addr #3 {
@@ -631,7 +631,7 @@ for.body12:                                       ; preds = %for.cond
   %arrayidx16 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   store ptr %3, ptr %arrayidx16, align 8
   %call19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #14
-  %call20 = tail call ptr @luaS_newlstr(ptr noundef %L, ptr noundef %str, i64 noundef %call19)
+  %call20 = tail call ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull %str, i64 noundef %call19)
   store ptr %call20, ptr %arrayidx, align 8
   br label %return
 
@@ -641,10 +641,10 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @luaS_newudata(ptr noundef %L, i64 noundef %s, i32 noundef %nuvalue) local_unnamed_addr #3 {
@@ -701,10 +701,10 @@ declare hidden void @luaC_fullgc(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare hidden void @luaD_throw(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

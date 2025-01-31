@@ -78,7 +78,7 @@ define hidden void @_ZN27ShenandoahPassiveHeuristicsC2EP19ShenandoahSpaceInfo(pt
 declare void @_ZN20ShenandoahHeuristicsC2EP19ShenandoahSpaceInfo(ptr noundef nonnull align 8 dereferenceable(193), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN27ShenandoahPassiveHeuristics15should_start_gcEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN27ShenandoahPassiveHeuristics15should_start_gcEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
   ret i1 false
 }
 
@@ -92,14 +92,14 @@ define hidden noundef zeroext i1 @_ZN27ShenandoahPassiveHeuristics21should_unloa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN27ShenandoahPassiveHeuristics23should_degenerate_cycleEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN27ShenandoahPassiveHeuristics23should_degenerate_cycleEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = load i8, ptr @ShenandoahDegeneratedGC, align 1
   %3 = trunc i8 %2 to i1
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27ShenandoahPassiveHeuristics37choose_collection_set_from_regiondataEP23ShenandoahCollectionSetPN20ShenandoahHeuristics10RegionDataEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(193) %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN27ShenandoahPassiveHeuristics37choose_collection_set_from_regiondataEP23ShenandoahCollectionSetPN20ShenandoahHeuristics10RegionDataEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(193) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8

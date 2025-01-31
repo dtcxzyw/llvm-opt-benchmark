@@ -48,7 +48,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @OCSP_ONEREQ_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OCSP_request_set1_name(ptr nocapture noundef %req, ptr noundef %nm) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_request_set1_name(ptr noundef captures(none) %req, ptr noundef %nm) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @GENERAL_NAME_new() #7
   %cmp = icmp eq ptr %call, null
@@ -84,7 +84,7 @@ declare i32 @X509_NAME_set(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @GENERAL_NAME_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OCSP_request_add1_cert(ptr nocapture noundef %req, ptr noundef %cert) local_unnamed_addr #0 {
+define i32 @OCSP_request_add1_cert(ptr noundef captures(none) %req, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %optionalSignature = getelementptr inbounds nuw i8, ptr %req, i64 32
   %0 = load ptr, ptr %optionalSignature, align 8
@@ -244,7 +244,7 @@ declare i32 @X509_add_certs(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 declare void @OCSP_SIGNATURE_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OCSP_response_status(ptr nocapture noundef readonly %resp) local_unnamed_addr #0 {
+define i32 @OCSP_response_status(ptr noundef readonly captures(none) %resp) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %resp, align 8
   %call = tail call i64 @ASN1_ENUMERATED_get(ptr noundef %0) #7
@@ -255,7 +255,7 @@ entry:
 declare i64 @ASN1_ENUMERATED_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @OCSP_response_get1_basic(ptr nocapture noundef readonly %resp) local_unnamed_addr #0 {
+define ptr @OCSP_response_get1_basic(ptr noundef readonly captures(none) %resp) local_unnamed_addr #0 {
 entry:
   %responseBytes = getelementptr inbounds nuw i8, ptr %resp, i64 8
   %0 = load ptr, ptr %responseBytes, align 8
@@ -299,7 +299,7 @@ declare ptr @ASN1_item_unpack(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @OCSP_BASICRESP_it() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OCSP_resp_get0_signature(ptr nocapture noundef readonly %bs) local_unnamed_addr #2 {
+define ptr @OCSP_resp_get0_signature(ptr noundef readonly captures(none) %bs) local_unnamed_addr #2 {
 entry:
   %signature = getelementptr inbounds nuw i8, ptr %bs, i64 64
   %0 = load ptr, ptr %signature, align 8
@@ -358,7 +358,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OCSP_resp_get0_produced_at(ptr nocapture noundef readonly %bs) local_unnamed_addr #2 {
+define ptr @OCSP_resp_get0_produced_at(ptr noundef readonly captures(none) %bs) local_unnamed_addr #2 {
 entry:
   %producedAt = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %producedAt, align 8
@@ -366,7 +366,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OCSP_resp_get0_certs(ptr nocapture noundef readonly %bs) local_unnamed_addr #2 {
+define ptr @OCSP_resp_get0_certs(ptr noundef readonly captures(none) %bs) local_unnamed_addr #2 {
 entry:
   %certs = getelementptr inbounds nuw i8, ptr %bs, i64 72
   %0 = load ptr, ptr %certs, align 8
@@ -374,7 +374,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @OCSP_resp_get0_id(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %pid, ptr nocapture noundef writeonly %pname) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @OCSP_resp_get0_id(ptr noundef readonly captures(none) %bs, ptr noundef writeonly captures(none) %pid, ptr noundef writeonly captures(none) %pname) local_unnamed_addr #4 {
 entry:
   %responderId = getelementptr inbounds nuw i8, ptr %bs, i64 8
   %0 = load i32, ptr %responderId, align 8
@@ -401,7 +401,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OCSP_resp_get1_id(ptr nocapture noundef readonly %bs, ptr nocapture noundef %pid, ptr nocapture noundef %pname) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_resp_get1_id(ptr noundef readonly captures(none) %bs, ptr noundef captures(none) %pid, ptr noundef captures(none) %pname) local_unnamed_addr #0 {
 entry:
   %responderId = getelementptr inbounds nuw i8, ptr %bs, i64 8
   %0 = load i32, ptr %responderId, align 8
@@ -749,7 +749,7 @@ declare i32 @X509_cmp_time(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @ASN1_STRING_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OCSP_SINGLERESP_get0_id(ptr nocapture noundef readonly %single) local_unnamed_addr #2 {
+define ptr @OCSP_SINGLERESP_get0_id(ptr noundef readonly captures(none) %single) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %single, align 8
   ret ptr %0

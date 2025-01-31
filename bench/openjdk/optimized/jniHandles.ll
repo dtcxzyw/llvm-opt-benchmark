@@ -893,7 +893,7 @@ declare noundef i32 @_ZNK10OopStorage17allocation_statusEPKP7oopDesc(ptr noundef
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN10JNIHandles15is_local_handleEP10JavaThreadP8_jobject(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN10JNIHandles15is_local_handleEP10JavaThreadP8_jobject(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %.010 = load ptr, ptr %3, align 8
   %.not11.not = icmp eq ptr %.010, null
@@ -1214,7 +1214,7 @@ define hidden noundef ptr @_ZN14JNIHandleBlock14allocate_blockEP10JavaThreadN17A
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14JNIHandleBlock13release_blockEPS_P10JavaThread(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 align 2 {

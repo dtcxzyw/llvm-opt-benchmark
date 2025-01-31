@@ -32,7 +32,7 @@ $_ZNSt12out_of_rangeC2EOS_ = comdat any
 @_ZTVSt12out_of_range = external unnamed_addr constant { [5 x ptr] }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly2io8Appender6printfEPKcz(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #0 align 2 {
+define void @_ZN5folly2io8Appender6printfEPKcz(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef readonly captures(none) %fmt, ...) local_unnamed_addr #0 align 2 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ap) #10
@@ -44,13 +44,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly2io8Appender7vprintfEPKcP13__va_list_tag(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %fmt, ptr noundef %ap) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly2io8Appender7vprintfEPKcP13__va_list_tag(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef readonly captures(none) %fmt, ptr noundef %ap) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
   %apCopy = alloca [1 x %struct.__va_list_tag], align 16
@@ -258,13 +258,13 @@ unreachable:                                      ; preds = %invoke.cont6
 declare void @llvm.va_end.p0(ptr) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_copy.p0(ptr, ptr) #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
 declare i32 @__gxx_personality_v0(...)
 

@@ -43,7 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [25 x i8] c"Parameter dump complete.\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Prove_ParamsSetDefault(ptr nocapture noundef writeonly initializes((0, 88)) %0) local_unnamed_addr #0 {
+define void @Prove_ParamsSetDefault(ptr noundef writeonly captures(none) initializes((0, 88)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2, i8 0, i64 16, i1 false)
   store i32 1, ptr %0, align 8
@@ -77,10 +77,10 @@ define void @Prove_ParamsSetDefault(ptr nocapture noundef writeonly initializes(
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Prove_ParamsPrint(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @Prove_ParamsPrint(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %2 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %2, 0
@@ -149,10 +149,10 @@ define void @Prove_ParamsPrint(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Fraig_ParamsSetDefault(ptr nocapture noundef writeonly initializes((0, 64)) %0) local_unnamed_addr #0 {
+define void @Fraig_ParamsSetDefault(ptr noundef writeonly captures(none) initializes((0, 64)) %0) local_unnamed_addr #0 {
   store i32 2048, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 2048, ptr %2, align 4
@@ -178,7 +178,7 @@ define void @Fraig_ParamsSetDefault(ptr nocapture noundef writeonly initializes(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Fraig_ParamsSetDefaultFull(ptr nocapture noundef writeonly initializes((0, 64)) %0) local_unnamed_addr #0 {
+define void @Fraig_ParamsSetDefaultFull(ptr noundef writeonly captures(none) initializes((0, 64)) %0) local_unnamed_addr #0 {
   store i32 2048, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 2048, ptr %2, align 4
@@ -832,12 +832,12 @@ declare void @Msat_SolverFree(ptr noundef) local_unnamed_addr #5
 declare void @Msat_IntVecFree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @Fraig_MemFixedStop(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Fraig_ManCreateSolver(ptr nocapture noundef initializes((232, 240), (264, 288)) %0) local_unnamed_addr #4 {
+define void @Fraig_ManCreateSolver(ptr noundef captures(none) initializes((232, 240), (264, 288)) %0) local_unnamed_addr #4 {
   %2 = tail call ptr @Msat_SolverAlloc(i32 noundef 500, double noundef 1.000000e+00, double noundef 1.000000e+00, double noundef 1.000000e+00, double noundef 1.000000e+00, i32 noundef 0) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %2, ptr %3, align 8
@@ -874,7 +874,7 @@ declare i32 @Fraig_ManCountExors(ptr noundef) local_unnamed_addr #5
 declare void @Msat_SolverPrintStats(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @Fraig_UtilInfoAlloc(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
@@ -1121,7 +1121,7 @@ declare i32 @Fraig_ManReadPatternNumRandom(ptr noundef) local_unnamed_addr #5
 declare i32 @Fraig_ManReadPatternNumDynamic(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Fraig_ManCheckClauseUsingSimInfo(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @Fraig_ManCheckClauseUsingSimInfo(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
   %4 = ptrtoint ptr %1 to i64
   %5 = trunc i64 %4 to i32
   %6 = and i64 %4, -2
@@ -1391,7 +1391,7 @@ define range(i32 0, 2) i32 @Fraig_ManCheckClauseUsingSimInfo(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Fraig_ManAddClause(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #4 {
+define void @Fraig_ManAddClause(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1458,7 +1458,7 @@ declare void @Msat_IntVecPush(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare i32 @Msat_SolverAddClause(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10

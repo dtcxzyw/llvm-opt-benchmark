@@ -98,10 +98,10 @@ return:                                           ; preds = %if.end17, %if.then2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @internal_coding_fill_channel_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -431,7 +431,7 @@ return:                                           ; preds = %if.end244, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @read_uncompressed_direct(ptr nocapture noundef readonly %decode) #0 {
+define internal i32 @read_uncompressed_direct(ptr noundef readonly captures(none) %decode) #0 {
 entry:
   %dataoffset = alloca i64, align 8
   %context = getelementptr inbounds nuw i8, ptr %decode, i64 16
@@ -1158,7 +1158,7 @@ return:                                           ; preds = %if.then35, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @unpack_sample_table(ptr noundef nonnull %pctxt, ptr nocapture noundef nonnull readonly %decode) unnamed_addr #0 {
+define internal fastcc i32 @unpack_sample_table(ptr noundef nonnull %pctxt, ptr noundef nonnull readonly captures(none) %decode) unnamed_addr #0 {
 entry:
   %width = getelementptr inbounds nuw i8, ptr %decode, i64 40
   %0 = load i32, ptr %width, align 8

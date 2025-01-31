@@ -39,7 +39,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @transport_providers = internal unnamed_addr constant [3 x %struct.transport_provider] [%struct.transport_provider { i32 3, ptr @Curl_cf_tcp_create }, %struct.transport_provider { i32 4, ptr @Curl_cf_udp_create }, %struct.transport_provider { i32 6, ptr @Curl_cf_unix_create }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 -9223372036854775806, -9223372036854775808) i64 @Curl_timeleft(ptr nocapture noundef readonly %data, ptr noundef readonly %nowp, i1 noundef zeroext %duringconnect) local_unnamed_addr #0 {
+define hidden range(i64 -9223372036854775806, -9223372036854775808) i64 @Curl_timeleft(ptr noundef readonly captures(none) %data, ptr noundef readonly %nowp, i1 noundef zeroext %duringconnect) local_unnamed_addr #0 {
 entry:
   %now.sroa.0 = alloca i64, align 8
   %now.sroa.3 = alloca i32, align 8
@@ -121,12 +121,12 @@ return:                                           ; preds = %if.then19, %if.then
 declare { i64, i32 } @Curl_now() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i64 @Curl_timediff(i64, i32, i64, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @Curl_persistconninfo(ptr nocapture noundef writeonly initializes((5140, 5186), (5188, 5197), (5244, 5260)) %data, ptr nocapture noundef readonly %conn, ptr noundef readonly %local_ip, i32 noundef %local_port) local_unnamed_addr #3 {
+define hidden void @Curl_persistconninfo(ptr noundef writeonly captures(none) initializes((5140, 5186), (5188, 5197), (5244, 5260)) %data, ptr noundef readonly captures(none) %conn, ptr noundef readonly %local_ip, i32 noundef %local_port) local_unnamed_addr #3 {
 entry:
   %conn_primary_ip = getelementptr inbounds nuw i8, ptr %data, i64 5140
   %primary_ip = getelementptr inbounds nuw i8, ptr %conn, i64 256
@@ -175,7 +175,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @Curl_addr2string(ptr noundef %sa, i32 noundef %salen, ptr noundef %addr, ptr nocapture noundef writeonly initializes((0, 4)) %port) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @Curl_addr2string(ptr noundef %sa, i32 noundef %salen, ptr noundef %addr, ptr noundef writeonly captures(none) initializes((0, 4)) %port) local_unnamed_addr #0 {
 entry:
   %0 = load i16, ptr %sa, align 2
   switch i16 %0, label %sw.epilog [
@@ -338,7 +338,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare zeroext i1 @Curl_conncache_foreach(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @conn_is_conn(ptr nocapture readnone %data, ptr noundef %conn, ptr nocapture noundef %param) #6 {
+define internal range(i32 0, 2) i32 @conn_is_conn(ptr readnone captures(none) %data, ptr noundef %conn, ptr noundef captures(none) %param) #6 {
 entry:
   %connection_id = getelementptr inbounds nuw i8, ptr %conn, i64 40
   %0 = load i64, ptr %connection_id, align 8
@@ -1810,7 +1810,7 @@ if.end19:                                         ; preds = %if.then17, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @cf_he_data_pending(ptr nocapture noundef readonly %cf, ptr noundef %data) #0 {
+define internal zeroext i1 @cf_he_data_pending(ptr noundef readonly captures(none) %cf, ptr noundef %data) #0 {
 entry:
   %connected = getelementptr inbounds nuw i8, ptr %cf, i64 36
   %bf.load = load i8, ptr %connected, align 4
@@ -2527,7 +2527,7 @@ declare zeroext i1 @Curl_cf_def_data_pending(ptr noundef, ptr noundef) #1
 declare i32 @Curl_cf_def_query(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_cf_setup_insert_after(ptr noundef %cf_at, ptr nocapture noundef readnone %data, ptr noundef %remotehost, i32 noundef %transport, i32 noundef %ssl_mode) local_unnamed_addr #0 {
+define hidden noundef i32 @Curl_cf_setup_insert_after(ptr noundef %cf_at, ptr noundef readnone captures(none) %data, ptr noundef %remotehost, i32 noundef %transport, i32 noundef %ssl_mode) local_unnamed_addr #0 {
 entry:
   %cf.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cf.i)
@@ -2660,7 +2660,7 @@ declare void @Curl_verboseconnect(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @Curl_expire(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2910,10 +2910,10 @@ declare void @Curl_conn_cf_add(ptr noundef, ptr noundef, i32 noundef, ptr nounde
 declare i64 @llvm.smin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8

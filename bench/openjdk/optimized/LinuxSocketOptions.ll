@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.14 = private unnamed_addr constant [25 x i8] c"java/net/SocketException\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_jdk_net_LinuxSocketOptions_setQuickAck0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define void @Java_jdk_net_LinuxSocketOptions_setQuickAck0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %.not = icmp ne i8 %3, 0
   %6 = zext i1 %.not to i32
@@ -53,7 +53,7 @@ handleError.exit:                                 ; preds = %4, %13, %14
 declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_jdk_net_LinuxSocketOptions_getQuickAck0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_jdk_net_LinuxSocketOptions_getQuickAck0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   store i32 4, ptr %5, align 4
@@ -86,7 +86,7 @@ handleError.exit:                                 ; preds = %3, %12, %13
 declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_jdk_net_LinuxSocketOptions_quickAckSupported0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_jdk_net_LinuxSocketOptions_quickAckSupported0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc i32 @socketOptionSupported(i32 noundef 6, i32 noundef 12)
   %4 = trunc nuw nsw i32 %3 to i8
   ret i8 %4
@@ -140,7 +140,7 @@ define internal fastcc range(i32 0, 2) i32 @socketOptionSupported(i32 noundef ra
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_jdk_net_LinuxSocketOptions_getSoPeerCred0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define i64 @Java_jdk_net_LinuxSocketOptions_getSoPeerCred0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.ucred, align 4
   %5 = alloca i32, align 4
   store i32 12, ptr %5, align 4
@@ -201,7 +201,7 @@ handleError.exit:                                 ; preds = %13, %12, %14, %hand
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_jdk_net_LinuxSocketOptions_keepAliveOptionsSupported0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_jdk_net_LinuxSocketOptions_keepAliveOptionsSupported0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc i32 @socketOptionSupported(i32 noundef 6, i32 noundef 4)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %9, label %4
@@ -222,7 +222,7 @@ define zeroext range(i8 0, 2) i8 @Java_jdk_net_LinuxSocketOptions_keepAliveOptio
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_jdk_net_LinuxSocketOptions_setTcpKeepAliveProbes0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Java_jdk_net_LinuxSocketOptions_setTcpKeepAliveProbes0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 %3, ptr %5, align 4
   %6 = call i32 @setsockopt(i32 noundef %2, i32 noundef 6, i32 noundef 6, ptr noundef nonnull %5, i32 noundef 4) #4
@@ -248,7 +248,7 @@ handleError.exit:                                 ; preds = %4, %12, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_jdk_net_LinuxSocketOptions_setTcpKeepAliveTime0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Java_jdk_net_LinuxSocketOptions_setTcpKeepAliveTime0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 %3, ptr %5, align 4
   %6 = call i32 @setsockopt(i32 noundef %2, i32 noundef 6, i32 noundef 4, ptr noundef nonnull %5, i32 noundef 4) #4
@@ -274,7 +274,7 @@ handleError.exit:                                 ; preds = %4, %12, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_jdk_net_LinuxSocketOptions_setTcpKeepAliveIntvl0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Java_jdk_net_LinuxSocketOptions_setTcpKeepAliveIntvl0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 %3, ptr %5, align 4
   %6 = call i32 @setsockopt(i32 noundef %2, i32 noundef 6, i32 noundef 5, ptr noundef nonnull %5, i32 noundef 4) #4
@@ -300,7 +300,7 @@ handleError.exit:                                 ; preds = %4, %12, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_jdk_net_LinuxSocketOptions_getTcpKeepAliveProbes0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @Java_jdk_net_LinuxSocketOptions_getTcpKeepAliveProbes0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   store i32 4, ptr %5, align 4
@@ -328,7 +328,7 @@ handleError.exit:                                 ; preds = %3, %12, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_jdk_net_LinuxSocketOptions_getTcpKeepAliveTime0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @Java_jdk_net_LinuxSocketOptions_getTcpKeepAliveTime0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   store i32 4, ptr %5, align 4
@@ -356,7 +356,7 @@ handleError.exit:                                 ; preds = %3, %12, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_jdk_net_LinuxSocketOptions_getTcpKeepAliveIntvl0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @Java_jdk_net_LinuxSocketOptions_getTcpKeepAliveIntvl0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   store i32 4, ptr %5, align 4
@@ -384,14 +384,14 @@ handleError.exit:                                 ; preds = %3, %12, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_jdk_net_LinuxSocketOptions_incomingNapiIdSupported0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_jdk_net_LinuxSocketOptions_incomingNapiIdSupported0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc i32 @socketOptionSupported(i32 noundef 1, i32 noundef 56)
   %4 = trunc nuw nsw i32 %3 to i8
   ret i8 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_jdk_net_LinuxSocketOptions_getIncomingNapiId0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @Java_jdk_net_LinuxSocketOptions_getIncomingNapiId0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   store i32 4, ptr %5, align 4
@@ -419,7 +419,7 @@ handleError.exit:                                 ; preds = %3, %12, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_jdk_net_LinuxSocketOptions_setIpDontFragment0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
+define void @Java_jdk_net_LinuxSocketOptions_setIpDontFragment0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %.not = icmp eq i8 %3, 0
   %7 = select i1 %.not, i32 0, i32 2
@@ -459,7 +459,7 @@ handleError.exit:                                 ; preds = %12, %18, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_jdk_net_LinuxSocketOptions_getIpDontFragment0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_jdk_net_LinuxSocketOptions_getIpDontFragment0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %.not = icmp eq i8 %3, 0

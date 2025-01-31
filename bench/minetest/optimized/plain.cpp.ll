@@ -255,15 +255,15 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 384), align 16, !tbaa !4
   %cmp.i.i.i = icmp eq ptr %1, getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 400)
@@ -464,7 +464,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6Draw3D3runER15PipelineContext(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(47) %context) unnamed_addr #5 align 2 {
+define dso_local void @_ZN6Draw3D3runER15PipelineContext(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(47) %context) unnamed_addr #5 align 2 {
 entry:
   %m_target = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_target, align 8, !tbaa !12
@@ -519,7 +519,7 @@ declare void @_ZN3Hud15drawBlockBoundsEv(ptr noundef nonnull align 8 dereference
 declare void @_ZN3Hud17drawSelectionMeshEv(ptr noundef nonnull align 8 dereferenceable(828)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9DrawWield3runER15PipelineContext(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(47) %context) unnamed_addr #5 align 2 {
+define dso_local void @_ZN9DrawWield3runER15PipelineContext(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(47) %context) unnamed_addr #5 align 2 {
 entry:
   %m_target = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_target, align 8, !tbaa !27
@@ -554,7 +554,7 @@ if.end5:                                          ; preds = %if.then4, %if.end
 declare void @_ZN6Camera15drawWieldedToolEPN3irr4core8CMatrix4IfEE(ptr noundef nonnull align 8 dereferenceable(560), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7DrawHUD3runER15PipelineContext(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(47) %context) unnamed_addr #5 align 2 {
+define dso_local void @_ZN7DrawHUD3runER15PipelineContext(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(47) %context) unnamed_addr #5 align 2 {
 entry:
   %ref.tmp = alloca %"class.irr::core::vector3d", align 8
   %show_hud = getelementptr inbounds nuw i8, ptr %context, i64 44
@@ -634,12 +634,12 @@ declare void @_ZN3Hud10drawHotbarEt(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN3Hud15drawLuaElementsERKN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(828), ptr noundef nonnull align 2 dereferenceable(6)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @_ZN6Camera12drawNametagsEv(ptr noundef nonnull align 8 dereferenceable(560)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN13MapPostFxStep15setRenderTargetEP12RenderTarget(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((8, 16)) %this, ptr noundef %_target) unnamed_addr #7 align 2 {
+define dso_local void @_ZN13MapPostFxStep15setRenderTargetEP12RenderTarget(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((8, 16)) %this, ptr noundef %_target) unnamed_addr #7 align 2 {
 entry:
   %target = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %_target, ptr %target, align 8, !tbaa !167
@@ -647,7 +647,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13MapPostFxStep3runER15PipelineContext(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(47) %context) unnamed_addr #5 align 2 {
+define dso_local void @_ZN13MapPostFxStep3runER15PipelineContext(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(47) %context) unnamed_addr #5 align 2 {
 entry:
   %target = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target, align 8, !tbaa !167
@@ -680,7 +680,7 @@ declare noundef nonnull align 8 dereferenceable(648) ptr @_ZN17ClientEnvironment
 declare void @_ZN9ClientMap12renderPostFxE10CameraMode(ptr noundef nonnull align 8 dereferenceable(648), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN19RenderShadowMapStep3runER15PipelineContext(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(47) %context) unnamed_addr #5 align 2 {
+define dso_local void @_ZN19RenderShadowMapStep3runER15PipelineContext(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(47) %context) unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %context, align 8, !tbaa !17
   %vtable = load ptr, ptr %0, align 8, !tbaa !15
@@ -713,7 +713,7 @@ entry:
 declare void @_ZN14ShadowRenderer6updateEPN3irr5video8ITextureE(ptr noundef nonnull align 8 dereferenceable(216), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11UpscaleStep3runER15PipelineContext(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(47) %context) unnamed_addr #5 align 2 {
+define dso_local void @_ZN11UpscaleStep3runER15PipelineContext(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(47) %context) unnamed_addr #5 align 2 {
 entry:
   %ref.tmp = alloca %"class.irr::core::rect", align 4
   %ref.tmp8 = alloca %"class.irr::core::rect", align 4
@@ -760,7 +760,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z13create3DStageP6ClientN3irr4core8vector2dIfEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.305") align 8 %agg.result, ptr noundef %client, <2 x float> %scale.coerce) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z13create3DStageP6ClientN3irr4core8vector2dIfEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.305") align 8 captures(none) %agg.result, ptr noundef %client, <2 x float> %scale.coerce) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i72 = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1067,7 +1067,7 @@ ehcleanup57:                                      ; preds = %_ZNSt10unique_ptrI1
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare noundef zeroext i1 @_ZNK8Settings7getBoolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
@@ -2553,7 +2553,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 declare noundef zeroext i16 @_ZNK8Settings6getU16ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 

@@ -31,7 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__setup_pcie_pme_setup], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none)
-define internal noundef i32 @pcie_pme_setup(ptr nocapture noundef readonly %0) #0 section ".init.text" align 16 {
+define internal noundef i32 @pcie_pme_setup(ptr noundef readonly captures(none) %0) #0 section ".init.text" align 16 {
   %2 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull dereferenceable(6) @.str, i64 noundef 5) #9
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %5
@@ -70,7 +70,7 @@ define dso_local i32 @pcie_pme_init() local_unnamed_addr #2 section ".init.text"
 declare dso_local i32 @pcie_port_service_register(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @pcie_capability_clear_and_set_word_locked(ptr noundef, i32 noundef, i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #3
@@ -173,7 +173,7 @@ define internal void @pcie_pme_remove(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pcie_pme_suspend(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal noundef i32 @pcie_pme_suspend(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -220,7 +220,7 @@ define internal noundef i32 @pcie_pme_suspend(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pcie_pme_resume(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal noundef i32 @pcie_pme_resume(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @_raw_spin_lock_irq(ptr noundef %3) #9
@@ -248,7 +248,7 @@ define internal noundef i32 @pcie_pme_resume(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @pcie_pme_work_fn(ptr noundef %0) #1 align 16 {
@@ -498,7 +498,7 @@ define internal void @pcie_pme_work_fn(ptr noundef %0) #1 align 16 {
 declare dso_local void @pcie_clear_root_pme_status(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @pcie_pme_irq(i32 %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal noundef range(i32 0, 2) i32 @pcie_pme_irq(i32 %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
   store i32 0, ptr %3, align 4, !annotation !7
@@ -540,7 +540,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
@@ -656,7 +656,7 @@ declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) lo
 declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pcie_pme_can_wakeup(ptr noundef %0, ptr nocapture readnone %1) #1 align 16 {
+define internal noundef i32 @pcie_pme_can_wakeup(ptr noundef %0, ptr readnone captures(none) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   tail call void @device_set_wakeup_capable(ptr noundef nonnull %3, i1 noundef zeroext true) #9
   ret i32 0

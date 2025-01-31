@@ -246,7 +246,7 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %39
 
 Aig_ManObj.exit137:                               ; preds = %106, %110
   %116 = phi ptr [ %115, %110 ], [ null, %106 ]
-  tail call void @Saig_ManWindowOutline_rec(ptr noundef nonnull %0, ptr noundef %116, i32 noundef %87, ptr noundef %3, ptr noundef %4)
+  tail call void @Saig_ManWindowOutline_rec(ptr noundef nonnull %0, ptr noundef %116, i32 noundef %87, ptr noundef %3, ptr noundef nonnull %4)
   %117 = add nuw nsw i32 %.1170, 1
   %118 = load i64, ptr %37, align 8
   %119 = trunc i64 %118 to i32
@@ -259,7 +259,7 @@ Aig_ManObj.exit137:                               ; preds = %106, %110
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_PtrPush(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @Vec_PtrPush(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
@@ -376,10 +376,10 @@ declare void @Aig_ManIncrementTravId(ptr noundef) local_unnamed_addr #3
 declare i32 @Aig_ObjCompareIdIncrease(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @Saig_ObjHasUnlabeledFanout(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define ptr @Saig_ObjHasUnlabeledFanout(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
@@ -469,7 +469,7 @@ Saig_ObjIsPo.exit.thread:                         ; preds = %Aig_ManObj.exit, %S
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Saig_ManWindowCollectPis(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Saig_ManWindowCollectPis(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4
@@ -823,7 +823,7 @@ Vec_PtrGrow.exit.i70:                             ; preds = %140, %138
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Saig_ManWindowCollectPos(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define noalias noundef ptr @Saig_ManWindowCollectPos(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4
@@ -1089,7 +1089,7 @@ Saig_ObjHasUnlabeledFanout.exit.thread:           ; preds = %31, %.lr.ph.split.u
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Saig_ManWindowExtractNodes(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noundef ptr @Saig_ManWindowExtractNodes(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   tail call void @Aig_ManCleanData(ptr noundef %0) #18
   %3 = getelementptr i8, ptr %1, i64 4
   %.val83 = load i32, ptr %3, align 4
@@ -1381,7 +1381,7 @@ declare void @Aig_ManSetRegNum(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @Aig_ManCleanup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Saig_ManWindowInsertBig_rec(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define void @Saig_ManWindowInsertBig_rec(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -1483,7 +1483,7 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Saig_ManWindowInsertSmall_rec(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @Saig_ManWindowInsertSmall_rec(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -1568,7 +1568,7 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Saig_ManWindowInsertNodes(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Saig_ManWindowInsertNodes(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %2, i64 32
   %.val126 = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val126, i64 4
@@ -1705,7 +1705,7 @@ Vec_PtrStart.exit145:                             ; preds = %Vec_PtrFree.exit, %
 
 Vec_PtrFree.exit147:                              ; preds = %.critedge2, %.critedge2.thread
   tail call void @free(ptr noundef nonnull %45) #18
-  tail call void @Aig_ManCleanData(ptr noundef %0) #18
+  tail call void @Aig_ManCleanData(ptr noundef nonnull %0) #18
   tail call void @Aig_ManCleanData(ptr noundef nonnull %2) #18
   %.val124 = load ptr, ptr %32, align 8
   %60 = getelementptr i8, ptr %.val124, i64 4
@@ -2003,7 +2003,7 @@ Vec_PtrFree.exit162:                              ; preds = %Vec_PtrFree.exit160
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @Saig_ManFindPivot(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define ptr @Saig_ManFindPivot(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr i8, ptr %0, i64 104
   %.val37 = load i32, ptr %2, align 8
   %3 = icmp sgt i32 %.val37, 0
@@ -2294,7 +2294,7 @@ Saig_ManWindowExtract.exit:                       ; preds = %Saig_ManFindPivot.e
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Saig_ManCollectedDiffNodes(ptr noundef %0, ptr nocapture readnone %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Saig_ManCollectedDiffNodes(ptr noundef %0, ptr readnone captures(none) %1) local_unnamed_addr #0 {
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #18
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -2432,7 +2432,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Saig_ManWindowCreatePis(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define void @Saig_ManWindowCreatePis(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %3, i64 4
   %.val5569 = load i32, ptr %5, align 4
   %6 = icmp sgt i32 %.val5569, 0
@@ -2580,7 +2580,7 @@ Aig_ObjRepr.exit64:                               ; preds = %58
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Saig_ManWindowCreatePos(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) local_unnamed_addr #0 {
+define void @Saig_ManWindowCreatePos(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 4
@@ -3079,7 +3079,7 @@ Aig_ObjChild1Copy.exit210:                        ; preds = %Aig_ObjChild0Copy.e
   br i1 %exitcond279.not, label %.critedge10, label %142, !llvm.loop !31
 
 .critedge10:                                      ; preds = %.critedge8, %.critedge8.preheader
-  tail call void @Saig_ManWindowCreatePos(ptr noundef nonnull %76, ptr noundef %0, ptr poison)
+  tail call void @Saig_ManWindowCreatePos(ptr noundef nonnull %76, ptr noundef nonnull %0, ptr poison)
   br i1 %84, label %.lr.ph256, label %.critedge12.preheader
 
 .lr.ph256:                                        ; preds = %.critedge10
@@ -3245,25 +3245,25 @@ Vec_PtrFree.exit233:                              ; preds = %Vec_PtrFree.exit, %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #9
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #13

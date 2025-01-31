@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN8QuantLib21MarketModelDiscounterC1EdRKSt6vectorIdSaIdEE = unnamed_addr alias void (ptr, double, ptr), ptr @_ZN8QuantLib21MarketModelDiscounterC2EdRKSt6vectorIdSaIdEE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21MarketModelDiscounterC2EdRKSt6vectorIdSaIdEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, double noundef %paymentTime, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib21MarketModelDiscounterC2EdRKSt6vectorIdSaIdEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %this, double noundef %paymentTime, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN8QuantLib20checkIncreasingTimesERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(24) %rateTimes)
   %0 = load ptr, ptr %rateTimes, align 8, !tbaa !3
@@ -61,7 +61,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8
 declare void @_ZN8QuantLib20checkIncreasingTimesERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib21MarketModelDiscounter14numeraireBondsERKNS_10CurveStateEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(64) %curveState, i64 noundef %numeraire) local_unnamed_addr #0 align 2 {
+define noundef double @_ZNK8QuantLib21MarketModelDiscounter14numeraireBondsERKNS_10CurveStateEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(64) %curveState, i64 noundef %numeraire) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8, !tbaa !14
   %vtable = load ptr, ptr %curveState, align 8, !tbaa !15

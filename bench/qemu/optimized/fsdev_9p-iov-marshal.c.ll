@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.v9fs_iov_vmarshal = private unnamed_addr constant [18 x i8] c"v9fs_iov_vmarshal\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @v9fs_pack(ptr nocapture noundef readonly %in_sg, i32 noundef %in_num, i64 noundef %offset, ptr nocapture noundef readonly %src, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local i64 @v9fs_pack(ptr noundef readonly captures(none) %in_sg, i32 noundef %in_num, i64 noundef %offset, ptr noundef readonly captures(none) %src, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %tobool30.i = icmp ne i64 %size, 0
   %cmp31.i = icmp sgt i32 %in_num, 0
@@ -75,7 +75,7 @@ v9fs_packunpack.exit:                             ; preds = %for.inc.i, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @v9fs_iov_vunmarshal(ptr nocapture noundef readonly %out_sg, i32 noundef %out_num, i64 noundef %offset, i32 noundef %bswap, ptr nocapture noundef readonly %fmt, ptr nocapture noundef %ap) local_unnamed_addr #1 {
+define dso_local i64 @v9fs_iov_vunmarshal(ptr noundef readonly captures(none) %out_sg, i32 noundef %out_num, i64 noundef %offset, i32 noundef %bswap, ptr noundef readonly captures(none) %fmt, ptr noundef captures(none) %ap) local_unnamed_addr #1 {
 entry:
   %val = alloca i16, align 2
   %val20 = alloca i32, align 4
@@ -635,7 +635,7 @@ return:                                           ; preds = %v9fs_unpack.exit, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @v9fs_iov_unmarshal(ptr nocapture noundef readonly %out_sg, i32 noundef %out_num, i64 noundef %offset, i32 noundef %bswap, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #1 {
+define dso_local i64 @v9fs_iov_unmarshal(ptr noundef readonly captures(none) %out_sg, i32 noundef %out_num, i64 noundef %offset, i32 noundef %bswap, ptr noundef readonly captures(none) %fmt, ...) local_unnamed_addr #1 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -653,7 +653,7 @@ declare void @v9fs_string_free(ptr noundef) local_unnamed_addr #3
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @v9fs_iov_vmarshal(ptr nocapture noundef readonly %in_sg, i32 noundef %in_num, i64 noundef %offset, i32 noundef %bswap, ptr nocapture noundef readonly %fmt, ptr nocapture noundef %ap) local_unnamed_addr #1 {
+define dso_local i64 @v9fs_iov_vmarshal(ptr noundef readonly captures(none) %in_sg, i32 noundef %in_num, i64 noundef %offset, i32 noundef %bswap, ptr noundef readonly captures(none) %fmt, ptr noundef captures(none) %ap) local_unnamed_addr #1 {
 entry:
   %val = alloca i8, align 1
   %val5 = alloca i16, align 2
@@ -1222,7 +1222,7 @@ return:                                           ; preds = %v9fs_pack.exit222, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @v9fs_iov_marshal(ptr nocapture noundef readonly %in_sg, i32 noundef %in_num, i64 noundef %offset, i32 noundef %bswap, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #1 {
+define dso_local i64 @v9fs_iov_marshal(ptr noundef readonly captures(none) %in_sg, i32 noundef %in_num, i64 noundef %offset, i32 noundef %bswap, ptr noundef readonly captures(none) %fmt, ...) local_unnamed_addr #1 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -1232,7 +1232,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #6

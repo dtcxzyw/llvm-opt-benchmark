@@ -118,7 +118,7 @@ target triple = "x86_64-pc-linux-gnu"
 @postmaster_possibly_dead = external global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @check_vacuum_buffer_usage_limit(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @check_vacuum_buffer_usage_limit(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 4
   %5 = icmp eq i32 %4, 0
   %6 = add i32 %4, -128
@@ -146,7 +146,7 @@ declare ptr @__errno_location() local_unnamed_addr #2
 declare ptr @format_elog_string(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecVacuum(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local void @ExecVacuum(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.VacuumParams, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -714,7 +714,7 @@ define dso_local void @ExecVacuum(ptr noundef %0, ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare zeroext i1 @defGetBoolean(ptr noundef) local_unnamed_addr #1
 
@@ -1986,7 +1986,7 @@ declare ptr @try_relation_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare zeroext i1 @ConditionalLockRelationOid(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @vacuum_get_cutoffs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 24)) %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @vacuum_get_cutoffs(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 24)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -2150,7 +2150,7 @@ declare zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef, i32 noundef) loca
 declare zeroext i1 @MultiXactIdPrecedesOrEquals(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @vacuum_xid_failsafe_check(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local zeroext i1 @vacuum_xid_failsafe_check(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -2191,7 +2191,7 @@ define dso_local zeroext i1 @vacuum_xid_failsafe_check(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local double @vac_estimate_reltuples(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #7 {
+define dso_local double @vac_estimate_reltuples(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
@@ -2255,7 +2255,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #8
 declare double @llvm.floor.f64(double) #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @vac_update_relstats(ptr nocapture noundef readonly %0, i32 noundef %1, double noundef %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly %7, ptr noundef writeonly %8, i1 noundef zeroext %9) local_unnamed_addr #0 {
+define dso_local void @vac_update_relstats(ptr noundef readonly captures(none) %0, i32 noundef %1, double noundef %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly %7, ptr noundef writeonly %8, i1 noundef zeroext %9) local_unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load i32, ptr %11, align 8
   %13 = tail call ptr @table_open(i32 noundef 1259, i32 noundef 3) #16
@@ -2504,7 +2504,7 @@ declare void @heap_freetuple(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @ForceTransactionIdLimitUpdate() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @vac_open_indexes(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
+define dso_local void @vac_open_indexes(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = tail call ptr @RelationGetIndexList(ptr noundef %0) #16
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
@@ -2950,7 +2950,7 @@ declare void @SetMultiXactIdLimit(i32 noundef, i32 noundef, i1 noundef zeroext) 
 declare void @relation_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare void @LockRelationIdForSession(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2971,7 +2971,7 @@ declare zeroext i1 @PostmasterIsAliveInternal() local_unnamed_addr #1
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @vac_cmp_itemptr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
+define internal range(i32 -1, 2) i32 @vac_cmp_itemptr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 {
   %.val = load i16, ptr %0, align 2
   %3 = getelementptr i8, ptr %0, i64 2
   %.val16 = load i16, ptr %3, align 2

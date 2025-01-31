@@ -945,13 +945,13 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #0
 declare ptr @wmem_file_scope() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @fcels_hash(ptr nocapture noundef readonly %0) #2 {
+define internal i32 @fcels_hash(ptr noundef readonly captures(none) %0) #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @fcels_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @fcels_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -2122,7 +2122,7 @@ define internal fastcc void @dissect_fcels_rpsc(ptr noundef %0, ptr noundef read
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcels_cbind(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readnone %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_cbind(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %5
 
@@ -2175,7 +2175,7 @@ define internal fastcc void @dissect_fcels_cbind(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_fcels_unbind(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readnone %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_fcels_unbind(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2, ptr noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %5
 

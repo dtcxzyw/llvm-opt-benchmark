@@ -49,7 +49,7 @@ $_ZNK13b2DynamicTree7RayCastI21b2WorldRayCastWrapperEEvPT_RK14b2RayCastInput = c
 @_ZN7b2WorldD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7b2WorldD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7b2WorldC2ERK6b2Vec2(ptr noundef nonnull align 8 dereferenceable(103284) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %gravity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7b2WorldC2ERK6b2Vec2(ptr noundef nonnull align 8 dereferenceable(103284) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %gravity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN16b2BlockAllocatorC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %this)
   %m_stackAllocator = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -119,10 +119,10 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN16b2ContactManagerC1Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind
 declare void @_ZN16b2StackAllocatorD1Ev(ptr noundef nonnull align 8 dereferenceable(102932)) unnamed_addr #4
@@ -194,7 +194,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7b2World22SetDestructionListenerEP21b2DestructionListener(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(103284) initializes((103224, 103232)) %this, ptr noundef %listener) local_unnamed_addr #8 align 2 {
+define void @_ZN7b2World22SetDestructionListenerEP21b2DestructionListener(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(103284) initializes((103224, 103232)) %this, ptr noundef %listener) local_unnamed_addr #8 align 2 {
 entry:
   %m_destructionListener = getelementptr inbounds nuw i8, ptr %this, i64 103224
   store ptr %listener, ptr %m_destructionListener, align 8
@@ -202,7 +202,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7b2World16SetContactFilterEP15b2ContactFilter(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(103284) initializes((103160, 103168)) %this, ptr noundef %filter) local_unnamed_addr #8 align 2 {
+define void @_ZN7b2World16SetContactFilterEP15b2ContactFilter(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(103284) initializes((103160, 103168)) %this, ptr noundef %filter) local_unnamed_addr #8 align 2 {
 entry:
   %m_contactFilter = getelementptr inbounds nuw i8, ptr %this, i64 103160
   store ptr %filter, ptr %m_contactFilter, align 8
@@ -210,7 +210,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7b2World18SetContactListenerEP17b2ContactListener(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(103284) initializes((103168, 103176)) %this, ptr noundef %listener) local_unnamed_addr #8 align 2 {
+define void @_ZN7b2World18SetContactListenerEP17b2ContactListener(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(103284) initializes((103168, 103176)) %this, ptr noundef %listener) local_unnamed_addr #8 align 2 {
 entry:
   %m_contactListener = getelementptr inbounds nuw i8, ptr %this, i64 103168
   store ptr %listener, ptr %m_contactListener, align 8
@@ -218,7 +218,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7b2World12SetDebugDrawEP6b2Draw(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(103284) initializes((103232, 103240)) %this, ptr noundef %debugDraw) local_unnamed_addr #8 align 2 {
+define void @_ZN7b2World12SetDebugDrawEP6b2Draw(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(103284) initializes((103232, 103240)) %this, ptr noundef %debugDraw) local_unnamed_addr #8 align 2 {
 entry:
   %m_debugDraw = getelementptr inbounds nuw i8, ptr %this, i64 103232
   store ptr %debugDraw, ptr %m_debugDraw, align 8
@@ -751,7 +751,7 @@ declare noundef ptr @_ZN7b2Joint6CreateEPK10b2JointDefP16b2BlockAllocator(ptr no
 declare void @_ZN7b2Joint7DestroyEPS_P16b2BlockAllocator(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7b2World16SetAllowSleepingEb(ptr nocapture noundef nonnull align 8 dereferenceable(103284) %this, i1 noundef zeroext %flag) local_unnamed_addr #9 align 2 {
+define void @_ZN7b2World16SetAllowSleepingEb(ptr noundef nonnull align 8 captures(none) dereferenceable(103284) %this, i1 noundef zeroext %flag) local_unnamed_addr #9 align 2 {
 entry:
   %m_allowSleep = getelementptr inbounds nuw i8, ptr %this, i64 103216
   %0 = load i8, ptr %m_allowSleep, align 8
@@ -1212,7 +1212,7 @@ declare noundef float @_ZNK7b2Timer15GetMillisecondsEv(ptr noundef nonnull align
 declare void @_ZN8b2IslandD1Ev(ptr noundef nonnull align 8 dereferenceable(80)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7b2World8SolveTOIERK10b2TimeStep(ptr noundef nonnull align 8 dereferenceable(103284) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %step) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7b2World8SolveTOIERK10b2TimeStep(ptr noundef nonnull align 8 dereferenceable(103284) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %step) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %island = alloca %class.b2Island, align 8
   %input = alloca %struct.b2TOIInput, align 8
@@ -2297,7 +2297,7 @@ if.end36:                                         ; preds = %for.body.i, %if.end
 declare void @_ZN16b2ContactManager7CollideEv(ptr noundef nonnull align 8 dereferenceable(120)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7b2World11ClearForcesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(103284) %this) local_unnamed_addr #9 align 2 {
+define void @_ZN7b2World11ClearForcesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(103284) %this) local_unnamed_addr #9 align 2 {
 entry:
   %m_bodyList = getelementptr inbounds nuw i8, ptr %this, i64 103184
   %body.04 = load ptr, ptr %m_bodyList, align 8
@@ -2334,7 +2334,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7b2World7RayCastEP17b2RayCastCallbackRK6b2Vec2S4_(ptr noundef nonnull align 8 dereferenceable(103284) %this, ptr noundef %callback, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %point1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %point2) local_unnamed_addr #0 align 2 {
+define void @_ZNK7b2World7RayCastEP17b2RayCastCallbackRK6b2Vec2S4_(ptr noundef nonnull align 8 dereferenceable(103284) %this, ptr noundef %callback, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %point1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %point2) local_unnamed_addr #0 align 2 {
 entry:
   %wrapper = alloca %struct.b2WorldRayCastWrapper, align 8
   %input = alloca %struct.b2RayCastInput, align 8
@@ -2354,7 +2354,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7b2World9DrawShapeEP9b2FixtureRK11b2TransformRK7b2Color(ptr nocapture noundef nonnull readonly align 8 dereferenceable(103284) %this, ptr nocapture noundef readonly %fixture, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xf, ptr noundef nonnull align 4 dereferenceable(16) %color) local_unnamed_addr #10 align 2 {
+define void @_ZN7b2World9DrawShapeEP9b2FixtureRK11b2TransformRK7b2Color(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(103284) %this, ptr noundef readonly captures(none) %fixture, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %xf, ptr noundef nonnull align 4 dereferenceable(16) %color) local_unnamed_addr #10 align 2 {
 entry:
   %center = alloca %struct.b2Vec2, align 8
   %axis = alloca %struct.b2Vec2, align 8
@@ -2591,7 +2591,7 @@ sw.epilog:                                        ; preds = %for.body, %sw.bb18,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7b2World9DebugDrawEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(103284) %this) local_unnamed_addr #10 align 2 {
+define void @_ZN7b2World9DebugDrawEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(103284) %this) local_unnamed_addr #10 align 2 {
 entry:
   %ref.tmp = alloca %struct.b2Color, align 4
   %ref.tmp17 = alloca %struct.b2Color, align 4
@@ -2975,7 +2975,7 @@ if.end146:                                        ; preds = %for.body136, %entry
 declare noundef i32 @_ZNK6b2Draw8GetFlagsEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK7b2World13GetProxyCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(103284) %this) local_unnamed_addr #12 align 2 {
+define noundef i32 @_ZNK7b2World13GetProxyCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(103284) %this) local_unnamed_addr #12 align 2 {
 entry:
   %m_proxyCount.i = getelementptr inbounds nuw i8, ptr %this, i64 103096
   %0 = load i32, ptr %m_proxyCount.i, align 8
@@ -3088,7 +3088,7 @@ return:                                           ; preds = %entry, %for.end9
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7b2World4DumpEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(103284) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN7b2World4DumpEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(103284) %this) local_unnamed_addr #0 align 2 {
 entry:
   %m_locked = getelementptr inbounds nuw i8, ptr %this, i64 103245
   %0 = load i8, ptr %m_locked, align 1
@@ -3807,10 +3807,10 @@ _ZN15b2GrowableStackIiLi256EED2Ev.exit:           ; preds = %if.then.i170, %clea
 declare float @llvm.sqrt.f32(float) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -41,7 +41,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf8internal31MergePartialFromCodedStreamLiteEPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef %2) local_unnamed_addr #3 {
+define noundef zeroext i1 @_ZN6google8protobuf8internal31MergePartialFromCodedStreamLiteEPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamE(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = icmp slt i32 %5, 16
@@ -69,7 +69,7 @@ _ZN6google8protobuf8internal31MergePartialFromCodedStreamImplINS1_12_GLOBAL__N_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePartialFromCodedStreamInlinedINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELj127EEEbPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePartialFromCodedStreamInlinedINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELj127EEEbPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamE(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca double, align 8
   %6 = alloca double, align 8
@@ -5438,7 +5438,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2002: ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePartialFromCodedStreamInlinedINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELj16383EEEbPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePartialFromCodedStreamInlinedINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELj16383EEEbPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamE(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca double, align 8
   %6 = alloca double, align 8
@@ -10827,7 +10827,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2006: ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePartialFromCodedStreamInlinedINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELj4294967295EEEbPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePartialFromCodedStreamInlinedINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELj4294967295EEEbPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamE(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca double, align 8
   %6 = alloca double, align 8
@@ -16218,7 +16218,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2006: ; preds = %2
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal12_GLOBAL__N_123UnknownFieldHandlerLite14ParseExtensionEPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamEi(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal12_GLOBAL__N_123UnknownFieldHandlerLite14ParseExtensionEPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamEi(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.google::protobuf::io::StringOutputStream", align 8
   %6 = alloca %"class.google::protobuf::io::CodedOutputStream", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -16312,7 +16312,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11M
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal12_GLOBAL__N_123UnknownFieldHandlerLite4SkipEPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamEi(ptr nocapture noundef %0, i64 %.48.val, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal12_GLOBAL__N_123UnknownFieldHandlerLite4SkipEPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamEi(ptr noundef captures(none) %0, i64 %.48.val, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.google::protobuf::io::StringOutputStream", align 8
   %5 = alloca %"class.google::protobuf::io::CodedOutputStream", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 %.48.val
@@ -16389,7 +16389,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11M
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal10HandleEnumINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELNS1_11CardinalityE3EEEbRKNS1_10ParseTableEPNS0_2io16CodedInputStreamEPNS0_11MessageLiteEPjjlji(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i32 noundef %7) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal10HandleEnumINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELNS1_11CardinalityE3EEEbRKNS1_10ParseTableEPNS0_2io16CodedInputStreamEPNS0_11MessageLiteEPjjlji(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i32 noundef %7) unnamed_addr #3 {
   %9 = load ptr, ptr %1, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -16511,7 +16511,7 @@ declare noundef i32 @_ZNK6google8protobuf2io16CodedInputStream15BytesUntilLimitE
 declare void @_ZN6google8protobuf13RepeatedFieldIiE3AddERKi(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8internal12_GLOBAL__N_123UnknownFieldHandlerLite6VarintEPNS0_11MessageLiteERKNS1_10ParseTableEii(ptr nocapture noundef %0, i64 %.48.val, i32 noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8internal12_GLOBAL__N_123UnknownFieldHandlerLite6VarintEPNS0_11MessageLiteERKNS1_10ParseTableEii(ptr noundef captures(none) %0, i64 %.48.val, i32 noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.google::protobuf::io::StringOutputStream", align 8
   %5 = alloca %"class.google::protobuf::io::CodedOutputStream", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 %.48.val
@@ -16716,7 +16716,7 @@ declare void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull 
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1

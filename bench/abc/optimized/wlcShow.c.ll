@@ -1245,10 +1245,10 @@ Wlc_ObjFaninId.exit:                              ; preds = %516, %Wlc_ObjHasArr
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 declare i32 @Wlc_NtkCreateLevels(ptr noundef) local_unnamed_addr #2
 
@@ -1261,7 +1261,7 @@ declare ptr @Wlc_ObjName(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @Wlc_ObjTypeName(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @Wlc_NtkCleanMarks(ptr noundef) local_unnamed_addr #2
 
@@ -1291,53 +1291,51 @@ define void @Wlc_NtkShow(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 14:                                               ; preds = %10, %13
   %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(8) @.str.32) #8
-  %16 = icmp ne i32 %15, 0
-  %17 = icmp ne ptr %11, null
-  %or.cond = and i1 %17, %16
-  br i1 %or.cond, label %18, label %19
+  %.not18 = icmp eq i32 %15, 0
+  br i1 %.not18, label %17, label %16
 
-18:                                               ; preds = %14
-  tail call void @free(ptr noundef nonnull %11) #7
-  br label %19
+16:                                               ; preds = %14
+  tail call void @free(ptr noundef %11) #7
+  br label %17
 
-19:                                               ; preds = %18, %14
-  %20 = call noalias ptr @fopen(ptr noundef nonnull %3, ptr noundef nonnull @.str.1)
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %25
+17:                                               ; preds = %16, %14
+  %18 = call noalias ptr @fopen(ptr noundef nonnull %3, ptr noundef nonnull @.str.1)
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %23
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr @stdout, align 8
-  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.2, ptr noundef nonnull %3) #7
-  br label %27
+20:                                               ; preds = %17
+  %21 = load ptr, ptr @stdout, align 8
+  %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.2, ptr noundef nonnull %3) #7
+  br label %25
 
-25:                                               ; preds = %19
-  %26 = tail call i32 @fclose(ptr noundef nonnull %20)
+23:                                               ; preds = %17
+  %24 = tail call i32 @fclose(ptr noundef nonnull %18)
   call void @Wlc_NtkDumpDot(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %1)
   call void @Abc_ShowFile(ptr noundef nonnull %3, i32 noundef 0) #7
-  br label %27
+  br label %25
 
-27:                                               ; preds = %25, %22
+25:                                               ; preds = %23, %20
   ret void
 }
 
 declare ptr @Extra_FileDesignName(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @Abc_ShowFile(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #6

@@ -123,7 +123,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define ptr @name(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #9
   ret ptr %2
 }
@@ -132,17 +132,17 @@ define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
 declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @views(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @views(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @container(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @container(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 4
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
@@ -410,7 +410,7 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @dt_act_on_get_images_nb(i32 noundef, i32 noundef) local_unnamed_addr #4
 
@@ -438,12 +438,12 @@ declare i32 @sqlite3_prepare_v2(ptr noundef, ptr noundef, i32 noundef, ptr nound
 declare ptr @dt_database_get(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare ptr @sqlite3_errmsg(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @sqlite3_bind_int(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
@@ -454,7 +454,7 @@ declare i32 @sqlite3_column_int(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare i32 @sqlite3_finalize(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @position(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 700
 }
 
@@ -837,7 +837,7 @@ declare void @gtk_grid_set_column_homogeneous(ptr noundef, i32 noundef) local_un
 declare ptr @dt_action_button_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @button_clicked(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @button_clicked(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = ptrtoint ptr %1 to i64
@@ -1091,7 +1091,7 @@ declare i64 @gtk_toggle_button_get_type() local_unnamed_addr #5
 declare i32 @dt_conf_get_bool(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @ratings_flag_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @ratings_flag_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 152
@@ -1104,7 +1104,7 @@ define internal void @ratings_flag_callback(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @colors_flag_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @colors_flag_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 160
@@ -1117,7 +1117,7 @@ define internal void @colors_flag_callback(ptr nocapture readnone %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tags_flag_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @tags_flag_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 184
@@ -1130,7 +1130,7 @@ define internal void @tags_flag_callback(ptr nocapture readnone %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @geotags_flag_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @geotags_flag_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
@@ -1143,7 +1143,7 @@ define internal void @geotags_flag_callback(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @metadata_flag_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @metadata_flag_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
@@ -1156,7 +1156,7 @@ define internal void @metadata_flag_callback(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @copy_metadata_callback(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @copy_metadata_callback(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = tail call i32 (...) @dt_act_on_get_main_image() #9
@@ -1167,7 +1167,7 @@ define internal void @copy_metadata_callback(ptr nocapture readnone %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @paste_metadata_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @paste_metadata_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.59) #9
   %4 = icmp eq i32 %3, 0
   %5 = zext i1 %4 to i32
@@ -1178,7 +1178,7 @@ define internal void @paste_metadata_callback(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @clear_metadata_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @clear_metadata_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   tail call fastcc void @_execute_metadata(ptr %4, i32 noundef 2)
@@ -1190,20 +1190,20 @@ declare ptr @dt_bauhaus_combobox_new_full(ptr noundef, ptr noundef, ptr noundef,
 declare i32 @dt_conf_get_int(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @pastemode_combobox_changed(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal void @pastemode_combobox_changed(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #9
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.59, i32 noundef %3) #9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @set_monochrome_callback(ptr nocapture readnone %0, ptr nocapture readnone %1) #1 {
+define internal void @set_monochrome_callback(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #1 {
   tail call void @dt_control_monochrome_images(i32 noundef 2) #9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @set_color_callback(ptr nocapture readnone %0, ptr nocapture readnone %1) #1 {
+define internal void @set_color_callback(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #1 {
   tail call void @dt_control_monochrome_images(i32 noundef 0) #9
   ret void
 }
@@ -1211,7 +1211,7 @@ define internal void @set_color_callback(ptr nocapture readnone %0, ptr nocaptur
 declare void @dt_control_signal_connect(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_image_preference_changed(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_image_preference_changed(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.81) #9
@@ -1234,19 +1234,19 @@ define internal void @_image_preference_changed(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_image_selection_changed_callback(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @_image_selection_changed_callback(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   tail call void @dt_lib_gui_queue_update(ptr noundef %1) #9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_mouse_over_image_callback(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @_mouse_over_image_callback(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   tail call void @dt_lib_gui_queue_update(ptr noundef %1) #9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_collection_updated_callback(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture readnone %3, i32 %4, ptr noundef %5) #1 {
+define internal void @_collection_updated_callback(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr readnone captures(none) %3, i32 %4, ptr noundef %5) #1 {
   tail call void @dt_lib_gui_queue_update(ptr noundef %5) #9
   ret void
 }
@@ -1254,7 +1254,7 @@ define internal void @_collection_updated_callback(ptr nocapture readnone %0, i3
 declare ptr @dt_action_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_duplicate_virgin(ptr nocapture readnone %0) #1 {
+define internal void @_duplicate_virgin(ptr readnone captures(none) %0) #1 {
   tail call void @dt_control_duplicate_images(i32 noundef 1) #9
   ret void
 }
@@ -1355,7 +1355,7 @@ define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
 declare void @dt_control_signal_disconnect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @dt_control_remove_images(...) local_unnamed_addr #4
 
@@ -1396,7 +1396,7 @@ declare void @dt_conf_set_bool(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare ptr @dt_action_locate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_execute_metadata(ptr nocapture readonly %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #1 {
+define internal fastcc void @_execute_metadata(ptr readonly captures(none) %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #1 {
   %3 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.37) #9
   %4 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.40) #9
   %5 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.48) #9

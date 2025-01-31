@@ -890,7 +890,7 @@ declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr nound
 declare ptr @stats_tree_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ucp_stats_tree_per_packet(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal noundef i32 @ucp_stats_tree_per_packet(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @st_str_ucp, i32 noundef 0, i32 noundef 1, i32 noundef 1) #4
   %7 = load i32, ptr %3, align 4
   %8 = icmp eq i32 %7, 0
@@ -960,7 +960,7 @@ declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_ucp_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @get_ucp_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = add i32 %2, 4
   br label %6
 
@@ -984,7 +984,7 @@ define internal i32 @get_ucp_pdu_len(ptr nocapture readnone %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ucp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ucp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2299,7 +2299,7 @@ ucp_handle_string.exit19:                         ; preds = %36, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_00R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((8, 12)) %3) unnamed_addr #0 {
+define internal fastcc void @add_00R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((8, 12)) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_ucp_parm_ACK, align 4
   store i32 2, ptr %5, align 4
@@ -2565,7 +2565,7 @@ ucp_handle_string.exit22:                         ; preds = %39, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_01R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((8, 12)) %3) unnamed_addr #0 {
+define internal fastcc void @add_01R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((8, 12)) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_ucp_parm_ACK, align 4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef 1) #4
@@ -3167,7 +3167,7 @@ ucp_handle_string.exit28:                         ; preds = %50, %52
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_04R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @add_04R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_ucp_parm_ACK, align 4
   store i32 2, ptr %5, align 4
@@ -3527,7 +3527,7 @@ ucp_handle_string.exit10:                         ; preds = %22, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_06R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((8, 12)) %3) unnamed_addr #0 {
+define internal fastcc void @add_06R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((8, 12)) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_ucp_parm_ACK, align 4
   store i32 2, ptr %5, align 4
@@ -4012,7 +4012,7 @@ ucp_handle_string.exit10:                         ; preds = %22, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_09R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @add_09R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_ucp_parm_ACK, align 4
   store i32 2, ptr %5, align 4
@@ -4256,7 +4256,7 @@ ucp_handle_data.exit:                             ; preds = %63, %66
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_11R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @add_11R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_ucp_parm_ACK, align 4
   store i32 2, ptr %5, align 4
@@ -4564,7 +4564,7 @@ ucp_handle_byte.exit:                             ; preds = %ucp_handle_string.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_14R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @add_14R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_ucp_parm_ACK, align 4
   store i32 2, ptr %5, align 4
@@ -5041,7 +5041,7 @@ ucp_handle_byte.exit:                             ; preds = %ucp_handle_string.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_23R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @add_23R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_ucp_parm_ACK, align 4
   store i32 2, ptr %5, align 4
@@ -5193,7 +5193,7 @@ ucp_handle_byte.exit:                             ; preds = %ucp_handle_string.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_24R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @add_24R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_ucp_parm_ACK, align 4
   store i32 2, ptr %5, align 4
@@ -5652,7 +5652,7 @@ ucp_handle_byte.exit43:                           ; preds = %ucp_handle_string.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_30R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((8, 12)) %3) unnamed_addr #0 {
+define internal fastcc void @add_30R(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((8, 12)) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_ucp_parm_ACK, align 4
   store i32 2, ptr %5, align 4
@@ -5994,7 +5994,7 @@ declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare void @tvb_ensure_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull captures(none) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   store i32 0, ptr %6, align 4
   %7 = load i32, ptr %4, align 4
@@ -6050,7 +6050,7 @@ declare zeroext i1 @ws_strtou32(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ucp_handle_mt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @ucp_handle_mt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_ucp_parm_MT, align 4
   %6 = load i32, ptr %3, align 4
   %7 = add i32 %6, 1
@@ -6305,7 +6305,7 @@ ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ucp_handle_IRAstring(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @ucp_handle_IRAstring(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr %3, align 4
   %7 = tail call i32 @tvb_find_guint8(ptr noundef %1, i32 noundef %6, i32 noundef -1, i8 noundef zeroext 47) #4
@@ -6433,7 +6433,7 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare ptr @wmem_strbuf_finalize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = alloca %struct.tm, align 8
   %6 = alloca %struct.nstime_t, align 8
   %7 = load i32, ptr %3, align 4
@@ -6600,7 +6600,7 @@ ucp_mktime.exit:                                  ; preds = %.thread17.i, %77, %
 declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @proto_tree_move_item(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -6623,10 +6623,10 @@ declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed
 declare i32 @stats_tree_create_node(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

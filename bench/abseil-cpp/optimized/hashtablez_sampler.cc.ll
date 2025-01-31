@@ -124,7 +124,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #1
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl18container_internal14HashtablezInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(648) initializes((0, 24), (112, 124)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl18container_internal14HashtablezInfoC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(648) initializes((0, 24), (112, 124)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 24, i1 false)
   %create_time = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -137,7 +137,7 @@ invoke.cont:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4absl18container_internal14HashtablezInfoD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl18container_internal14HashtablezInfoD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   ret void
 }
@@ -188,7 +188,7 @@ declare { i64, i32 } @_ZN4absl3NowEv() local_unnamed_addr #6
 declare noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4absl18container_internal10SampleSlowERNS0_13SamplingStateEm(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %next_sample, i64 noundef %inline_element_size) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4absl18container_internal10SampleSlowERNS0_13SamplingStateEm(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %next_sample, i64 noundef %inline_element_size) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %inline_element_size.addr = alloca i64, align 8
   %old_stride = alloca i64, align 8
@@ -448,7 +448,7 @@ _ZN4absl18container_internal23GlobalHashtablezSamplerEv.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl18container_internal16RecordRehashSlowEPNS0_14HashtablezInfoEm(ptr nocapture noundef %info, i64 noundef %total_probe_length) local_unnamed_addr #7 {
+define dso_local void @_ZN4absl18container_internal16RecordRehashSlowEPNS0_14HashtablezInfoEm(ptr noundef captures(none) %info, i64 noundef %total_probe_length) local_unnamed_addr #7 {
 entry:
   %total_probe_length1 = getelementptr inbounds nuw i8, ptr %info, i64 72
   %div15 = lshr i64 %total_probe_length, 4
@@ -463,7 +463,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl18container_internal21RecordReservationSlowEPNS0_14HashtablezInfoEm(ptr nocapture noundef %info, i64 noundef %target_capacity) local_unnamed_addr #7 {
+define dso_local void @_ZN4absl18container_internal21RecordReservationSlowEPNS0_14HashtablezInfoEm(ptr noundef captures(none) %info, i64 noundef %target_capacity) local_unnamed_addr #7 {
 entry:
   %max_reserve = getelementptr inbounds nuw i8, ptr %info, i64 104
   %0 = load atomic i64, ptr %max_reserve monotonic, align 8
@@ -473,7 +473,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl18container_internal28RecordClearedReservationSlowEPNS0_14HashtablezInfoE(ptr nocapture noundef writeonly %info) local_unnamed_addr #7 {
+define dso_local void @_ZN4absl18container_internal28RecordClearedReservationSlowEPNS0_14HashtablezInfoE(ptr noundef writeonly captures(none) %info) local_unnamed_addr #7 {
 entry:
   %max_reserve = getelementptr inbounds nuw i8, ptr %info, i64 104
   store atomic i64 0, ptr %max_reserve monotonic, align 8
@@ -481,7 +481,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl18container_internal24RecordStorageChangedSlowEPNS0_14HashtablezInfoEmm(ptr nocapture noundef writeonly %info, i64 noundef %size, i64 noundef %capacity) local_unnamed_addr #7 {
+define dso_local void @_ZN4absl18container_internal24RecordStorageChangedSlowEPNS0_14HashtablezInfoEmm(ptr noundef writeonly captures(none) %info, i64 noundef %size, i64 noundef %capacity) local_unnamed_addr #7 {
 entry:
   %size1 = getelementptr inbounds nuw i8, ptr %info, i64 40
   store atomic i64 %size, ptr %size1 monotonic, align 8
@@ -502,7 +502,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl18container_internal16RecordInsertSlowEPNS0_14HashtablezInfoEmm(ptr nocapture noundef %info, i64 noundef %hash, i64 noundef %distance_from_desired) local_unnamed_addr #7 {
+define dso_local void @_ZN4absl18container_internal16RecordInsertSlowEPNS0_14HashtablezInfoEmm(ptr noundef captures(none) %info, i64 noundef %hash, i64 noundef %distance_from_desired) local_unnamed_addr #7 {
 entry:
   %div33 = lshr i64 %distance_from_desired, 4
   %hashes_bitwise_and = getelementptr inbounds nuw i8, ptr %info, i64 88
@@ -523,7 +523,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl18container_internal15RecordEraseSlowEPNS0_14HashtablezInfoE(ptr nocapture noundef %info) local_unnamed_addr #7 {
+define dso_local void @_ZN4absl18container_internal15RecordEraseSlowEPNS0_14HashtablezInfoE(ptr noundef captures(none) %info) local_unnamed_addr #7 {
 entry:
   %size = getelementptr inbounds nuw i8, ptr %info, i64 40
   %0 = atomicrmw sub ptr %size, i64 1 monotonic, align 8
@@ -963,7 +963,7 @@ _ZN4absl9MutexLockD2Ev.exit8:                     ; preds = %lpad
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12

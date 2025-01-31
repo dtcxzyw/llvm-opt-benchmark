@@ -79,7 +79,7 @@ define void @_ZN5Ipopt28RestoPenaltyConvergenceCheckD0Ev(ptr noundef nonnull ali
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define void @_ZN5Ipopt28RestoPenaltyConvergenceCheck17SetOrigLSAcceptorERKNS_22BacktrackingLSAcceptorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) initializes((224, 232)) %0, ptr noundef nonnull align 8 dereferenceable(49) %1) unnamed_addr #6 align 2 {
+define void @_ZN5Ipopt28RestoPenaltyConvergenceCheck17SetOrigLSAcceptorERKNS_22BacktrackingLSAcceptorE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(232) initializes((224, 232)) %0, ptr noundef nonnull align 8 dereferenceable(49) %1) unnamed_addr #6 align 2 {
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN5Ipopt22BacktrackingLSAcceptorE, ptr nonnull @_ZTIN5Ipopt17PenaltyLSAcceptorE, i64 0) #10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %3, ptr %4, align 8
@@ -90,7 +90,7 @@ define void @_ZN5Ipopt28RestoPenaltyConvergenceCheck17SetOrigLSAcceptorERKNS_22B
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN5Ipopt28RestoPenaltyConvergenceCheck15RegisterOptionsENS_8SmartPtrINS_17RegisteredOptionsEEE(ptr nocapture noundef readnone %0) local_unnamed_addr #8 align 2 {
+define void @_ZN5Ipopt28RestoPenaltyConvergenceCheck15RegisterOptionsENS_8SmartPtrINS_17RegisteredOptionsEEE(ptr noundef readnone captures(none) %0) local_unnamed_addr #8 align 2 {
   ret void
 }
 
@@ -103,7 +103,7 @@ define noundef zeroext i1 @_ZN5Ipopt28RestoPenaltyConvergenceCheck14InitializeIm
 declare noundef zeroext i1 @_ZN5Ipopt21RestoConvergenceCheck14InitializeImplERKNS_11OptionsListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224), ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN5Ipopt28RestoPenaltyConvergenceCheck16TestOrigProgressEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, double noundef %1, double noundef %2) unnamed_addr #3 align 2 {
+define noundef range(i32 0, 2) i32 @_ZN5Ipopt28RestoPenaltyConvergenceCheck16TestOrigProgressEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, double noundef %1, double noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 @_ZNK5Ipopt17PenaltyLSAcceptor28IsAcceptableToCurrentIterateEddb(ptr noundef nonnull align 8 dereferenceable(224) %5, double noundef %1, double noundef %2, i1 noundef zeroext true)

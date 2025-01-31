@@ -111,7 +111,7 @@ return:                                           ; preds = %entry, %while.end, 
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -157,7 +157,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ackm_on_tx_packet(ptr nocapture noundef %ackm, ptr noundef %pkt) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ackm_on_tx_packet(ptr noundef captures(none) %ackm, ptr noundef %pkt) local_unnamed_addr #0 {
 entry:
   %pkt_space = getelementptr inbounds nuw i8, ptr %pkt, i64 32
   %bf.load = load i8, ptr %pkt_space, align 8
@@ -299,7 +299,7 @@ return:                                           ; preds = %if.end.i.i, %land.r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ackm_set_loss_detection_timer(ptr nocapture noundef %ackm) unnamed_addr #0 {
+define internal fastcc void @ackm_set_loss_detection_timer(ptr noundef captures(none) %ackm) unnamed_addr #0 {
 entry:
   %space = alloca i32, align 4
   %loss_time.i = getelementptr inbounds nuw i8, ptr %ackm, i64 336
@@ -398,13 +398,13 @@ return:                                           ; preds = %if.then.i21, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @ossl_ackm_on_rx_datagram(ptr nocapture noundef readnone %ackm, i64 noundef %num_bytes) local_unnamed_addr #3 {
+define noundef i32 @ossl_ackm_on_rx_datagram(ptr noundef readnone captures(none) %ackm, i64 noundef %num_bytes) local_unnamed_addr #3 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %ackm, ptr nocapture noundef readonly %ack, i32 noundef %pkt_space, i64 %rx_time.coerce) local_unnamed_addr #0 {
+define noundef i32 @ossl_ackm_on_rx_ack_frame(ptr noundef %ackm, ptr noundef readonly captures(none) %ack, i32 noundef %pkt_space, i64 %rx_time.coerce) local_unnamed_addr #0 {
 entry:
   %space.i81 = alloca i32, align 4
   %r.i.i = alloca %struct.uint_range_st, align 8
@@ -1088,7 +1088,7 @@ return:                                           ; preds = %if.then20, %ackm_se
 declare void @ossl_statm_update_rtt(ptr noundef, i64, i64) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ackm_detect_and_remove_lost_pkts(ptr nocapture noundef %ackm, i32 noundef %pkt_space) unnamed_addr #0 {
+define internal fastcc ptr @ackm_detect_and_remove_lost_pkts(ptr noundef captures(none) %ackm, i32 noundef %pkt_space) unnamed_addr #0 {
 entry:
   %key.i.i = alloca %struct.ossl_ackm_tx_pkt_st, align 8
   %key.i = alloca %struct.ossl_ackm_tx_pkt_st, align 8
@@ -1445,7 +1445,7 @@ return:                                           ; preds = %entry, %ackm_set_lo
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ackm_on_handshake_confirmed(ptr nocapture noundef initializes((456, 458)) %ackm) local_unnamed_addr #0 {
+define noundef i32 @ossl_ackm_on_handshake_confirmed(ptr noundef captures(none) initializes((456, 458)) %ackm) local_unnamed_addr #0 {
 entry:
   %space.i = alloca i32, align 4
   %handshake_confirmed = getelementptr inbounds nuw i8, ptr %ackm, i64 456
@@ -1541,7 +1541,7 @@ ackm_set_loss_detection_timer.exit:               ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ackm_on_timeout(ptr nocapture noundef %ackm) local_unnamed_addr #0 {
+define noundef i32 @ossl_ackm_on_timeout(ptr noundef captures(none) %ackm) local_unnamed_addr #0 {
 entry:
   %space.i22 = alloca i32, align 4
   %space.i = alloca i32, align 4
@@ -1896,7 +1896,7 @@ return:                                           ; preds = %ackm_set_loss_detec
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ackm_get_pto_time_and_space(ptr nocapture noundef readonly %ackm, ptr nocapture noundef nonnull writeonly %space) unnamed_addr #0 {
+define internal fastcc i64 @ackm_get_pto_time_and_space(ptr noundef readonly captures(none) %ackm, ptr noundef nonnull writeonly captures(none) %space) unnamed_addr #0 {
 entry:
   %rtt = alloca %struct.ossl_rtt_info_st, align 8
   %statm = getelementptr inbounds nuw i8, ptr %ackm, i64 256
@@ -2019,7 +2019,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_ackm_get_loss_detection_deadline(ptr nocapture noundef readonly %ackm) local_unnamed_addr #4 {
+define i64 @ossl_ackm_get_loss_detection_deadline(ptr noundef readonly captures(none) %ackm) local_unnamed_addr #4 {
 entry:
   %loss_detection_deadline = getelementptr inbounds nuw i8, ptr %ackm, i64 360
   %retval.sroa.0.0.copyload = load i64, ptr %loss_detection_deadline, align 8
@@ -2034,7 +2034,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ossl_ackm_get_largest_unacked(ptr nocapture noundef readonly %ackm, i32 noundef %pkt_space, ptr nocapture noundef writeonly %pn) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_ackm_get_largest_unacked(ptr noundef readonly captures(none) %ackm, i32 noundef %pkt_space, ptr noundef writeonly captures(none) %pn) local_unnamed_addr #5 {
 entry:
   %idxprom.i = sext i32 %pkt_space to i64
   %0 = getelementptr [3 x %struct.tx_pkt_history_st], ptr %ackm, i64 0, i64 %idxprom.i, i32 0, i32 1
@@ -2053,7 +2053,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ackm_is_ack_desired(ptr nocapture noundef readonly %ackm, i32 noundef %pkt_space) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ackm_is_ack_desired(ptr noundef readonly captures(none) %ackm, i32 noundef %pkt_space) local_unnamed_addr #0 {
 entry:
   %rx_ack_desired = getelementptr inbounds nuw i8, ptr %ackm, i64 461
   %idxprom = sext i32 %pkt_space to i64
@@ -2086,7 +2086,7 @@ lor.end:                                          ; preds = %lor.rhs, %land.rhs,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ackm_on_rx_packet(ptr noundef %ackm, ptr nocapture noundef readonly %pkt) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ackm_on_rx_packet(ptr noundef %ackm, ptr noundef readonly captures(none) %pkt) local_unnamed_addr #0 {
 entry:
   %r.i.i.i = alloca %struct.uint_range_st, align 8
   %r.i.i = alloca %struct.uint_range_st, align 8
@@ -2561,7 +2561,7 @@ ackm_set_flush_deadline.exit:                     ; preds = %if.end, %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_ackm_get_ack_deadline(ptr nocapture noundef readonly %ackm, i32 noundef %pkt_space) local_unnamed_addr #4 {
+define i64 @ossl_ackm_get_ack_deadline(ptr noundef readonly captures(none) %ackm, i32 noundef %pkt_space) local_unnamed_addr #4 {
 entry:
   %rx_ack_desired = getelementptr inbounds nuw i8, ptr %ackm, i64 461
   %idxprom = sext i32 %pkt_space to i64
@@ -2584,7 +2584,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @ossl_uint_set_query(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_ackm_set_loss_detection_deadline_callback(ptr nocapture noundef writeonly initializes((2368, 2384)) %ackm, ptr noundef %fn, ptr noundef %arg) local_unnamed_addr #6 {
+define void @ossl_ackm_set_loss_detection_deadline_callback(ptr noundef writeonly captures(none) initializes((2368, 2384)) %ackm, ptr noundef %fn, ptr noundef %arg) local_unnamed_addr #6 {
 entry:
   %loss_detection_deadline_cb = getelementptr inbounds nuw i8, ptr %ackm, i64 2368
   store ptr %fn, ptr %loss_detection_deadline_cb, align 8
@@ -2594,7 +2594,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_ackm_set_ack_deadline_callback(ptr nocapture noundef writeonly initializes((2384, 2400)) %ackm, ptr noundef %fn, ptr noundef %arg) local_unnamed_addr #6 {
+define void @ossl_ackm_set_ack_deadline_callback(ptr noundef writeonly captures(none) initializes((2384, 2400)) %ackm, ptr noundef %fn, ptr noundef %arg) local_unnamed_addr #6 {
 entry:
   %ack_deadline_cb = getelementptr inbounds nuw i8, ptr %ackm, i64 2384
   store ptr %fn, ptr %ack_deadline_cb, align 8
@@ -2604,7 +2604,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ackm_mark_packet_pseudo_lost(ptr nocapture noundef %ackm, i32 noundef %pkt_space, i64 noundef %pn) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ackm_mark_packet_pseudo_lost(ptr noundef captures(none) %ackm, i32 noundef %pkt_space, i64 noundef %pn) local_unnamed_addr #0 {
 entry:
   %rtt.i = alloca %struct.ossl_rtt_info_st, align 8
   %key.i.i = alloca %struct.ossl_ackm_tx_pkt_st, align 8
@@ -2756,7 +2756,7 @@ return:                                           ; preds = %entry, %ackm_on_pkt
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 1000000, 0) i64 @ossl_ackm_get_pto_duration(ptr nocapture noundef readonly %ackm) local_unnamed_addr #0 {
+define range(i64 1000000, 0) i64 @ossl_ackm_get_pto_duration(ptr noundef readonly captures(none) %ackm) local_unnamed_addr #0 {
 entry:
   %rtt = alloca %struct.ossl_rtt_info_st, align 8
   %statm = getelementptr inbounds nuw i8, ptr %ackm, i64 256
@@ -2781,7 +2781,7 @@ entry:
 declare void @ossl_statm_get_rtt_info(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_ackm_get_largest_acked(ptr nocapture noundef readonly %ackm, i32 noundef %pkt_space) local_unnamed_addr #4 {
+define i64 @ossl_ackm_get_largest_acked(ptr noundef readonly captures(none) %ackm, i32 noundef %pkt_space) local_unnamed_addr #4 {
 entry:
   %largest_acked_pkt = getelementptr inbounds nuw i8, ptr %ackm, i64 288
   %idxprom = sext i32 %pkt_space to i64
@@ -2791,7 +2791,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_ackm_set_rx_max_ack_delay(ptr nocapture noundef writeonly initializes((2352, 2360)) %ackm, i64 %rx_max_ack_delay.coerce) local_unnamed_addr #6 {
+define void @ossl_ackm_set_rx_max_ack_delay(ptr noundef writeonly captures(none) initializes((2352, 2360)) %ackm, i64 %rx_max_ack_delay.coerce) local_unnamed_addr #6 {
 entry:
   %rx_max_ack_delay1 = getelementptr inbounds nuw i8, ptr %ackm, i64 2352
   store i64 %rx_max_ack_delay.coerce, ptr %rx_max_ack_delay1, align 8
@@ -2799,7 +2799,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_ackm_set_tx_max_ack_delay(ptr nocapture noundef writeonly initializes((2360, 2368)) %ackm, i64 %tx_max_ack_delay.coerce) local_unnamed_addr #6 {
+define void @ossl_ackm_set_tx_max_ack_delay(ptr noundef writeonly captures(none) initializes((2360, 2368)) %ackm, i64 %tx_max_ack_delay.coerce) local_unnamed_addr #6 {
 entry:
   %tx_max_ack_delay1 = getelementptr inbounds nuw i8, ptr %ackm, i64 2360
   store i64 %tx_max_ack_delay.coerce, ptr %tx_max_ack_delay1, align 8
@@ -2807,14 +2807,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @tx_pkt_info_hash(ptr nocapture noundef readonly %pkt) #4 {
+define internal i64 @tx_pkt_info_hash(ptr noundef readonly captures(none) %pkt) #4 {
 entry:
   %0 = load i64, ptr %pkt, align 8
   ret i64 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @tx_pkt_info_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #4 {
+define internal range(i32 -1, 2) i32 @tx_pkt_info_compare(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #4 {
 entry:
   %0 = load i64, ptr %a, align 8
   %1 = load i64, ptr %b, align 8
@@ -2823,7 +2823,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare ptr @OPENSSL_LH_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2862,10 +2862,10 @@ declare i64 @llvm.uadd.sat.i64(i64, i64) #9
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #9

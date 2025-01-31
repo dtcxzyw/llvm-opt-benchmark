@@ -3923,7 +3923,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_hbeat(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_hbeat(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4031,7 +4031,7 @@ define hidden void @proto_register_c15ch() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_clear(ptr noundef %6, i32 noundef 25) #3
@@ -4376,7 +4376,7 @@ define hidden void @proto_reg_handoff_c15ch() local_unnamed_addr #0 {
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_cp_state_ch(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_cp_state_ch(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_clear(ptr noundef %6, i32 noundef 25) #3
@@ -4428,7 +4428,7 @@ define internal i32 @dissect_c15ch_cp_state_ch(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_cp_event(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_cp_event(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %6 = icmp ult i32 %5, 28
   br i1 %6, label %78, label %7
@@ -4554,7 +4554,7 @@ define internal i32 @dissect_c15ch_cp_event(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_isup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_isup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -4629,7 +4629,7 @@ define internal i32 @dissect_c15ch_isup(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_nitnxlate(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_nitnxlate(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -5018,7 +5018,7 @@ add_string_field.exit148:                         ; preds = %211, %217, %219
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_route(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_route(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -5058,7 +5058,7 @@ define internal i32 @dissect_c15ch_route(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_sccp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_sccp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %48, label %6
@@ -5122,7 +5122,7 @@ define internal i32 @dissect_c15ch_sccp(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_orig(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_orig(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -5195,7 +5195,7 @@ define internal i32 @dissect_c15ch_orig(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_conn(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_conn(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %46, label %5
 
@@ -5248,7 +5248,7 @@ define internal i32 @dissect_c15ch_conn(ptr noundef %0, ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_ntwk_conn(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_ntwk_conn(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
@@ -5385,7 +5385,7 @@ add_string_field.exit82:                          ; preds = %add_string_field.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_mkbrk(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_mkbrk(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %20, label %5
 
@@ -5412,7 +5412,7 @@ define internal i32 @dissect_c15ch_mkbrk(ptr noundef %0, ptr nocapture readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_pathfind(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_pathfind(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
@@ -5529,7 +5529,7 @@ add_string_field.exit67:                          ; preds = %add_string_field.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_pathidle(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_pathidle(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
@@ -5646,7 +5646,7 @@ add_string_field.exit67:                          ; preds = %add_string_field.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_dest_digits(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_dest_digits(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -5670,7 +5670,7 @@ define internal i32 @dissect_c15ch_dest_digits(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_twc_rswch(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_twc_rswch(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %24, label %5
 
@@ -5701,7 +5701,7 @@ define internal i32 @dissect_c15ch_twc_rswch(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_srcedest(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_srcedest(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %16, label %5
 
@@ -5724,7 +5724,7 @@ define internal i32 @dissect_c15ch_srcedest(ptr noundef %0, ptr nocapture readno
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_inc_gwe(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_inc_gwe(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #3
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 9) #3
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 10) #3
@@ -5810,7 +5810,7 @@ define internal i32 @dissect_c15ch_inc_gwe(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_out_gwe(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_out_gwe(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #3
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 14) #3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5858,7 +5858,7 @@ define internal i32 @dissect_c15ch_out_gwe(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_outgwebc(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_outgwebc(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %32, label %5
 
@@ -5897,7 +5897,7 @@ define internal i32 @dissect_c15ch_outgwebc(ptr noundef %0, ptr nocapture readno
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_q931(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_q931(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %.not = icmp eq i8 %5, 0
   %. = select i1 %.not, i32 13, i32 10
@@ -5950,7 +5950,7 @@ define internal i32 @dissect_c15ch_q931(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_ama(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_ama(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 40) #3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -6060,7 +6060,7 @@ add_digits_string.exit:                           ; preds = %33
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_qos(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_qos(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 72) #3
   %7 = uitofp i32 %6 to float
@@ -6172,7 +6172,7 @@ add_string_field.exit:                            ; preds = %12, %66, %68
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_echo_cancel(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_echo_cancel(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #3
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 9) #3
   %7 = icmp ult i8 %5, 3
@@ -6274,7 +6274,7 @@ switch.lookup65:                                  ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_tone(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_tone(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -6306,7 +6306,7 @@ define internal i32 @dissect_c15ch_tone(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_encap_isup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_encap_isup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %17, label %5
 
@@ -6337,7 +6337,7 @@ define internal i32 @dissect_c15ch_encap_isup(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_tcap(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_tcap(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -6394,7 +6394,7 @@ define internal i32 @dissect_c15ch_tcap(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_clli(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_clli(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -6479,7 +6479,7 @@ add_string_field.exit24:                          ; preds = %add_string_field.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_c15_info(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_c15_info(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
@@ -6540,7 +6540,7 @@ add_string_field.exit12:                          ; preds = %add_string_field.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_tone_cot_control(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_tone_cot_control(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %20, label %5
 
@@ -6567,7 +6567,7 @@ define internal i32 @dissect_c15ch_tone_cot_control(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_tone_cpm(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_tone_cpm(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %16, label %5
 
@@ -6590,7 +6590,7 @@ define internal i32 @dissect_c15ch_tone_cpm(ptr noundef %0, ptr nocapture readno
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_tone_give_tone(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_tone_give_tone(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %5
 
@@ -6611,7 +6611,7 @@ define internal i32 @dissect_c15ch_tone_give_tone(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_tone_madn_ring(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_tone_madn_ring(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %5
 
@@ -6632,7 +6632,7 @@ define internal i32 @dissect_c15ch_tone_madn_ring(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_tone_opls(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_tone_opls(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #3
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %23, label %6
@@ -6663,7 +6663,7 @@ define internal i32 @dissect_c15ch_tone_opls(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_tone_rcvr(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_tone_rcvr(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %20, label %5
 
@@ -6690,7 +6690,7 @@ define internal i32 @dissect_c15ch_tone_rcvr(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_tone_timeout(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_tone_timeout(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %26, label %5
 
@@ -6723,7 +6723,7 @@ define internal i32 @dissect_c15ch_tone_timeout(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_tone_tone_control(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_tone_tone_control(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %5
 
@@ -6744,7 +6744,7 @@ define internal i32 @dissect_c15ch_tone_tone_control(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_inc_gwe_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_inc_gwe_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %24, label %5
 
@@ -6775,7 +6775,7 @@ define internal i32 @dissect_c15ch_inc_gwe_reply(ptr noundef %0, ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_inc_gwe_bc_pgi(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_inc_gwe_bc_pgi(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %24, label %5
 
@@ -6806,7 +6806,7 @@ define internal i32 @dissect_c15ch_inc_gwe_bc_pgi(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_inc_gwe_mgcp_dlcx(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_inc_gwe_mgcp_dlcx(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %5
 
@@ -6825,7 +6825,7 @@ define internal i32 @dissect_c15ch_inc_gwe_mgcp_dlcx(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_inc_gwe_h248_digit(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_inc_gwe_h248_digit(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %5
 
@@ -6846,7 +6846,7 @@ define internal i32 @dissect_c15ch_inc_gwe_h248_digit(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_inc_gwe_voip_cot(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_inc_gwe_voip_cot(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %5
 
@@ -6865,7 +6865,7 @@ define internal i32 @dissect_c15ch_inc_gwe_voip_cot(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_inc_gwe_notify(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_inc_gwe_notify(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #3
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %15, label %6
@@ -6888,7 +6888,7 @@ define internal i32 @dissect_c15ch_inc_gwe_notify(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_inc_gwe_admn_updt(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_inc_gwe_admn_updt(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %24, label %5
 
@@ -6919,7 +6919,7 @@ define internal i32 @dissect_c15ch_inc_gwe_admn_updt(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_inc_gwe_cl_setup(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_inc_gwe_cl_setup(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #3
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %19, label %6
@@ -6946,7 +6946,7 @@ define internal i32 @dissect_c15ch_inc_gwe_cl_setup(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_inc_gwe_ptrk_setup(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_inc_gwe_ptrk_setup(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %57, label %5
 
@@ -7017,7 +7017,7 @@ define internal i32 @dissect_c15ch_inc_gwe_ptrk_setup(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_inc_gwe_cl_prog(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_inc_gwe_cl_prog(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %22, label %5
 
@@ -7046,7 +7046,7 @@ define internal i32 @dissect_c15ch_inc_gwe_cl_prog(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_inc_gwe_cl_ans(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_inc_gwe_cl_ans(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %20, label %5
 
@@ -7073,7 +7073,7 @@ define internal i32 @dissect_c15ch_inc_gwe_cl_ans(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_inc_gwe_cl_rel(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_inc_gwe_cl_rel(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %18, label %5
 
@@ -7098,7 +7098,7 @@ define internal i32 @dissect_c15ch_inc_gwe_cl_rel(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_inc_gwe_ntwk_mod(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_inc_gwe_ntwk_mod(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %24, label %5
 
@@ -7129,7 +7129,7 @@ define internal i32 @dissect_c15ch_inc_gwe_ntwk_mod(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_inc_gwe_rv_avail(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_inc_gwe_rv_avail(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %16, label %5
 
@@ -7152,7 +7152,7 @@ define internal i32 @dissect_c15ch_inc_gwe_rv_avail(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_inc_gwe_cl_redir(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_inc_gwe_cl_redir(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %17, label %5
 
@@ -7177,7 +7177,7 @@ define internal i32 @dissect_c15ch_inc_gwe_cl_redir(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_inc_gwe_cl_refer(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_inc_gwe_cl_refer(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %25, label %5
 
@@ -7210,7 +7210,7 @@ define internal i32 @dissect_c15ch_inc_gwe_cl_refer(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_inc_gwe_chg_hndl(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_inc_gwe_chg_hndl(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %5
 
@@ -7231,7 +7231,7 @@ define internal i32 @dissect_c15ch_inc_gwe_chg_hndl(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_inc_gwe_subs_chg_hndl(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_inc_gwe_subs_chg_hndl(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %22, label %5
 
@@ -7260,7 +7260,7 @@ define internal i32 @dissect_c15ch_inc_gwe_subs_chg_hndl(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_inc_gwe_info(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_inc_gwe_info(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %18, label %5
 
@@ -7285,7 +7285,7 @@ define internal i32 @dissect_c15ch_inc_gwe_info(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_inc_gwe_inv_repl(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_inc_gwe_inv_repl(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %18, label %5
 
@@ -7310,7 +7310,7 @@ define internal i32 @dissect_c15ch_inc_gwe_inv_repl(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_inc_gwe_admn_dn(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_inc_gwe_admn_dn(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %15, label %5
 
@@ -7333,7 +7333,7 @@ define internal i32 @dissect_c15ch_inc_gwe_admn_dn(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_inc_gwe_sua_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_inc_gwe_sua_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %26, label %5
 
@@ -7366,7 +7366,7 @@ define internal i32 @dissect_c15ch_inc_gwe_sua_reply(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_inc_gwe_sua_hndl(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_inc_gwe_sua_hndl(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %5
 
@@ -7385,7 +7385,7 @@ define internal i32 @dissect_c15ch_inc_gwe_sua_hndl(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_inc_gwe_tgh_stat(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_inc_gwe_tgh_stat(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %5
 
@@ -7406,7 +7406,7 @@ define internal i32 @dissect_c15ch_inc_gwe_tgh_stat(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_out_gwe_digit_scan(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_out_gwe_digit_scan(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %31, label %6
@@ -7454,7 +7454,7 @@ add_string_field.exit:                            ; preds = %6, %18, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_out_gwe_conn_num(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_out_gwe_conn_num(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %5
 
@@ -7473,7 +7473,7 @@ define internal i32 @dissect_c15ch_out_gwe_conn_num(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_out_gwe_mk_conn(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_out_gwe_mk_conn(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %16, label %5
 
@@ -7496,7 +7496,7 @@ define internal i32 @dissect_c15ch_out_gwe_mk_conn(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_out_gwe_md_conn(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_out_gwe_md_conn(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %16, label %5
 
@@ -7519,7 +7519,7 @@ define internal i32 @dissect_c15ch_out_gwe_md_conn(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_out_gwe_call_ans(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_out_gwe_call_ans(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %18, label %5
 
@@ -7544,7 +7544,7 @@ define internal i32 @dissect_c15ch_out_gwe_call_ans(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_out_gwe_call_setup(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_out_gwe_call_setup(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %35, label %5
 
@@ -7589,7 +7589,7 @@ define internal i32 @dissect_c15ch_out_gwe_call_setup(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_out_gwe_call_prog(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_out_gwe_call_prog(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %16, label %5
 
@@ -7612,7 +7612,7 @@ define internal i32 @dissect_c15ch_out_gwe_call_prog(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_out_gwe_call_notify(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_out_gwe_call_notify(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %5
 
@@ -7633,7 +7633,7 @@ define internal i32 @dissect_c15ch_out_gwe_call_notify(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_out_gwe_call_rel(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_out_gwe_call_rel(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %5
 
@@ -7654,7 +7654,7 @@ define internal i32 @dissect_c15ch_out_gwe_call_rel(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_out_gwe_update_ni_tn(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_out_gwe_update_ni_tn(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %18, label %5
 
@@ -7679,7 +7679,7 @@ define internal i32 @dissect_c15ch_out_gwe_update_ni_tn(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_out_gwe_pcm_data(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_out_gwe_pcm_data(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %5
 
@@ -7700,7 +7700,7 @@ define internal i32 @dissect_c15ch_out_gwe_pcm_data(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_out_gwe_blf_data(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_out_gwe_blf_data(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %30, label %5
 
@@ -7737,7 +7737,7 @@ define internal i32 @dissect_c15ch_out_gwe_blf_data(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_out_gwe_out_cot(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_out_gwe_out_cot(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %18, label %5
 
@@ -7762,7 +7762,7 @@ define internal i32 @dissect_c15ch_out_gwe_out_cot(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_out_gwe_ring_line(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_out_gwe_ring_line(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %23, label %6
@@ -7802,7 +7802,7 @@ add_string_field.exit:                            ; preds = %6, %18, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_out_gwe_audit_conn(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_out_gwe_audit_conn(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %20, label %5
 
@@ -7829,7 +7829,7 @@ define internal i32 @dissect_c15ch_out_gwe_audit_conn(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_out_gwe_sac_sub_valid(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_out_gwe_sac_sub_valid(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %5
 
@@ -7850,7 +7850,7 @@ define internal i32 @dissect_c15ch_out_gwe_sac_sub_valid(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_out_gwe_sac_notify(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_out_gwe_sac_notify(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %5
 
@@ -7871,7 +7871,7 @@ define internal i32 @dissect_c15ch_out_gwe_sac_notify(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_out_gwe_sac_list_entry(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_out_gwe_sac_list_entry(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %21, label %6
@@ -7909,7 +7909,7 @@ add_string_field.exit:                            ; preds = %6, %16, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_out_gwe_rv_subs_data(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_out_gwe_rv_subs_data(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %18, label %5
 
@@ -7934,7 +7934,7 @@ define internal i32 @dissect_c15ch_out_gwe_rv_subs_data(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_out_gwe_update_rec_addr(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_out_gwe_update_rec_addr(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %5
 
@@ -7953,7 +7953,7 @@ define internal i32 @dissect_c15ch_out_gwe_update_rec_addr(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_out_gwe_del_subs_ua(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_out_gwe_del_subs_ua(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %5
 
@@ -7972,7 +7972,7 @@ define internal i32 @dissect_c15ch_out_gwe_del_subs_ua(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_out_gwe_line_sprvsn(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_out_gwe_line_sprvsn(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %16, label %5
 
@@ -7995,7 +7995,7 @@ define internal i32 @dissect_c15ch_out_gwe_line_sprvsn(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_out_gwe_sip_info(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_out_gwe_sip_info(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %5
 
@@ -8016,7 +8016,7 @@ define internal i32 @dissect_c15ch_out_gwe_sip_info(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_c15ch_out_gwe_sip_refer(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_c15ch_out_gwe_sip_refer(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %5
 
@@ -8089,7 +8089,7 @@ declare void @wmem_strbuf_append_printf(ptr noundef, ptr noundef, ...) local_unn
 declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_digits_string_info_col(ptr noundef %0, i32 noundef range(i32 4, 14) %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @add_digits_string_info_col(ptr noundef %0, i32 noundef range(i32 4, 14) %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %1, i32 noundef %2) #3
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %6 = load ptr, ptr %5, align 8
@@ -8254,10 +8254,10 @@ declare ptr @proto_tree_add_float(ptr noundef, i32 noundef, ptr noundef, i32 nou
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

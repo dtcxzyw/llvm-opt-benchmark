@@ -134,7 +134,7 @@ $_ZZN5folly3f146detail8F14ChunkISt4pairIKPvmEE8clearTagEmE30__folly_detail_safe_
 @_ZN8facebook5velox19HashStringAllocatorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN8facebook5velox19HashStringAllocatorD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox19HashStringAllocator6Header8toStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox19HashStringAllocator6Header8toStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %out = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %out)
@@ -860,10 +860,10 @@ if.end9:                                          ; preds = %if.end
 declare void @llvm.trap() #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox19HashStringAllocator11prepareReadEPKNS1_6HeaderE(ptr noalias nocapture writeonly sret(%"class.facebook::velox::ByteInputStream") align 8 %agg.result, ptr noundef %begin) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox19HashStringAllocator11prepareReadEPKNS1_6HeaderE(ptr noalias writeonly sret(%"class.facebook::velox::ByteInputStream") align 8 captures(none) %agg.result, ptr noundef %begin) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   br label %for.cond
 
@@ -1810,7 +1810,7 @@ do.end:                                           ; preds = %if.end66
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox19HashStringAllocator11finishWriteERNS0_16ByteOutputStreamEi(ptr noalias nocapture writeonly sret(%"struct.std::pair.44") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(37416) %this, ptr noundef nonnull align 8 dereferenceable(60) %stream, i32 noundef %numReserveBytes) local_unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox19HashStringAllocator11finishWriteERNS0_16ByteOutputStreamEi(ptr noalias writeonly sret(%"struct.std::pair.44") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(37416) %this, ptr noundef nonnull align 8 dereferenceable(60) %stream, i32 noundef %numReserveBytes) local_unnamed_addr #0 align 2 {
 entry:
   %currentHeader_ = getelementptr inbounds nuw i8, ptr %this, i64 37272
   %0 = load ptr, ptr %currentHeader_, align 8
@@ -2055,7 +2055,7 @@ if.end17:                                         ; preds = %if.end
 declare noundef ptr @_ZN8facebook5velox6memory14AllocationPool13allocateFixedEmi(ptr noundef nonnull align 8 dereferenceable(96), i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox19HashStringAllocator8newRangeEiPNS0_9ByteRangeES3_b(ptr noundef nonnull align 8 dereferenceable(37416) %this, i32 noundef %bytes, ptr noundef %lastRange, ptr nocapture noundef writeonly %range, i1 noundef zeroext %contiguous) local_unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox19HashStringAllocator8newRangeEiPNS0_9ByteRangeES3_b(ptr noundef nonnull align 8 dereferenceable(37416) %this, i32 noundef %bytes, ptr noundef %lastRange, ptr noundef writeonly captures(none) %range, i1 noundef zeroext %contiguous) local_unnamed_addr #0 align 2 {
 entry:
   %currentHeader_ = getelementptr inbounds nuw i8, ptr %this, i64 37272
   %0 = load ptr, ptr %currentHeader_, align 8
@@ -2113,7 +2113,7 @@ if.end14:                                         ; preds = %if.then9, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox19HashStringAllocator8newRangeEiPNS0_9ByteRangeES3_(ptr noundef nonnull align 8 dereferenceable(37416) %this, i32 noundef %bytes, ptr noundef %lastRange, ptr nocapture noundef writeonly %range) unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox19HashStringAllocator8newRangeEiPNS0_9ByteRangeES3_(ptr noundef nonnull align 8 dereferenceable(37416) %this, i32 noundef %bytes, ptr noundef %lastRange, ptr noundef writeonly captures(none) %range) unnamed_addr #0 align 2 {
 entry:
   %currentHeader_.i = getelementptr inbounds nuw i8, ptr %this, i64 37272
   %0 = load ptr, ptr %currentHeader_.i, align 8
@@ -2171,7 +2171,7 @@ _ZN8facebook5velox19HashStringAllocator8newRangeEiPNS0_9ByteRangeES3_b.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox19HashStringAllocator18newContiguousRangeEiPNS0_9ByteRangeE(ptr noundef nonnull align 8 dereferenceable(37416) %this, i32 noundef %bytes, ptr nocapture noundef writeonly %range) local_unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox19HashStringAllocator18newContiguousRangeEiPNS0_9ByteRangeE(ptr noundef nonnull align 8 dereferenceable(37416) %this, i32 noundef %bytes, ptr noundef writeonly captures(none) %range) local_unnamed_addr #0 align 2 {
 entry:
   %currentHeader_.i = getelementptr inbounds nuw i8, ptr %this, i64 37272
   %0 = load ptr, ptr %currentHeader_.i, align 8
@@ -2329,7 +2329,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -2147483648, 3058) i32 @_ZN8facebook5velox19HashStringAllocator13freeListIndexEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(37416) %this, i32 noundef %size) local_unnamed_addr #10 align 2 {
+define noundef range(i32 -2147483648, 3058) i32 @_ZN8facebook5velox19HashStringAllocator13freeListIndexEi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(37416) %this, i32 noundef %size) local_unnamed_addr #10 align 2 {
 entry:
   %0 = tail call i32 @llvm.smin.i32(i32 %size, i32 3073)
   %.sroa.speculated = add nsw i32 %0, -16
@@ -2907,7 +2907,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN8facebook5velox19HashStringAllocator9availableERKNS1_8PositionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %position) local_unnamed_addr #12 align 2 {
+define noundef i64 @_ZN8facebook5velox19HashStringAllocator9availableERKNS1_8PositionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %position) local_unnamed_addr #12 align 2 {
 entry:
   %0 = load ptr, ptr %position, align 8
   %position.i = getelementptr inbounds nuw i8, ptr %position, i64 8
@@ -2953,7 +2953,7 @@ if.end:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox19HashStringAllocator15ensureAvailableEiRNS1_8PositionE(ptr noundef nonnull align 8 dereferenceable(37416) %this, i32 noundef %bytes, ptr nocapture noundef nonnull align 8 dereferenceable(16) %position) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox19HashStringAllocator15ensureAvailableEiRNS1_8PositionE(ptr noundef nonnull align 8 dereferenceable(37416) %this, i32 noundef %bytes, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %position) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stream = alloca %"class.facebook::velox::ByteOutputStream", align 8
   %ref.tmp11 = alloca %"struct.std::pair.44", align 8
@@ -4334,7 +4334,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #15
@@ -4463,7 +4463,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #16
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
@@ -4478,7 +4478,7 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #18
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #19
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #18
@@ -5376,10 +5376,10 @@ declare i64 @llvm.umax.i64(i64, i64) #24
 declare i16 @llvm.cttz.i16(i16, i1 immarg) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #24

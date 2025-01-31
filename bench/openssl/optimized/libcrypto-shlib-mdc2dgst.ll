@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { [2 x i32] }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @MDC2_Init(ptr nocapture noundef writeonly initializes((0, 4), (12, 32)) %c) local_unnamed_addr #0 {
+define noundef i32 @MDC2_Init(ptr noundef writeonly captures(none) initializes((0, 4), (12, 32)) %c) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %c, align 4
   %pad_type = getelementptr inbounds nuw i8, ptr %c, i64 28
@@ -20,10 +20,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MDC2_Update(ptr noundef %c, ptr nocapture noundef readonly %in, i64 noundef %len) local_unnamed_addr #2 {
+define noundef i32 @MDC2_Update(ptr noundef %c, ptr noundef readonly captures(none) %in, i64 noundef %len) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %c, align 4
   %cmp.not = icmp eq i32 %0, 0
@@ -84,10 +84,10 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mdc2_body(ptr noundef %c, ptr nocapture noundef readonly %in, i64 noundef range(i64 1, -7) %len) unnamed_addr #2 {
+define internal fastcc void @mdc2_body(ptr noundef %c, ptr noundef readonly captures(none) %in, i64 noundef range(i64 1, -7) %len) unnamed_addr #2 {
 entry:
   %d = alloca [2 x i32], align 4
   %dd = alloca [2 x i32], align 4
@@ -222,7 +222,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MDC2_Final(ptr nocapture noundef writeonly initializes((0, 16)) %md, ptr noundef %c) local_unnamed_addr #2 {
+define noundef i32 @MDC2_Final(ptr noundef writeonly captures(none) initializes((0, 16)) %md, ptr noundef %c) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %c, align 4
   %pad_type = getelementptr inbounds nuw i8, ptr %c, i64 28

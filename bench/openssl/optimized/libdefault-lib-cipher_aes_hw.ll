@@ -184,7 +184,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @cipher_hw_aes_copyctx(ptr noundef initializes((0, 448)) %dst, ptr nocapture noundef readonly %src) #2 {
+define internal void @cipher_hw_aes_copyctx(ptr noundef initializes((0, 448)) %dst, ptr noundef readonly captures(none) %src) #2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(448) %dst, ptr noundef nonnull align 8 dereferenceable(448) %src, i64 448, i1 false)
   %ks = getelementptr inbounds nuw i8, ptr %dst, i64 192
@@ -212,7 +212,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @cipher_hw_aes_initkey(ptr noundef %dat, ptr noundef %key, i64 noundef %keylen) #1 {
@@ -351,7 +351,7 @@ declare i32 @vpaes_set_encrypt_key(ptr noundef, i32 noundef, ptr noundef) local_
 declare void @vpaes_encrypt(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cipher_hw_aesni_ecb(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
+define internal noundef i32 @cipher_hw_aesni_ecb(ptr noundef readonly captures(none) %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
   %blocksize = getelementptr inbounds nuw i8, ptr %ctx, i64 88
   %0 = load i64, ptr %blocksize, align 8

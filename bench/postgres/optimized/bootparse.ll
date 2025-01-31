@@ -962,7 +962,7 @@ do_start.exit372:                                 ; preds = %367, %370
 
 445:                                              ; preds = %83
   %446 = load ptr, ptr %.2305, align 8
-  %447 = call i64 @strtoul(ptr nocapture noundef %446, ptr noundef null, i32 noundef 10) #11
+  %447 = call i64 @strtoul(ptr noundef captures(none) %446, ptr noundef null, i32 noundef 10) #11
   %448 = ptrtoint ptr %.sroa.0115.0.copyload to i64
   %.sroa.0115.0.insert.ext141 = and i64 %447, 4294967295
   %.sroa.0115.0.insert.mask142 = and i64 %448, -4294967296
@@ -1185,7 +1185,7 @@ do_end.exit:                                      ; preds = %380, %378, %363, %3
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
@@ -1231,7 +1231,7 @@ declare ptr @makeString(ptr noundef) local_unnamed_addr #1
 declare void @DefineAttr(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 declare void @InsertOneValue(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1254,7 +1254,7 @@ declare i32 @isatty(i32 noundef) local_unnamed_addr #6
 declare i32 @pg_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
@@ -1268,7 +1268,7 @@ declare i64 @llvm.smin.i64(i64, i64) #9
 declare i32 @llvm.usub.sat.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

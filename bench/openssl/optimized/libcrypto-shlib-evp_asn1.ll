@@ -56,7 +56,7 @@ declare void @ASN1_OCTET_STRING_free(ptr noundef) local_unnamed_addr #1
 declare void @ASN1_TYPE_set(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ASN1_TYPE_get_octetstring(ptr nocapture noundef readonly %a, ptr noundef writeonly %data, i32 noundef %max_len) local_unnamed_addr #0 {
+define i32 @ASN1_TYPE_get_octetstring(ptr noundef readonly captures(none) %a, ptr noundef writeonly %data, i32 noundef %max_len) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %a, align 8
   %cmp.not = icmp eq i32 %0, 4
@@ -105,7 +105,7 @@ declare ptr @ASN1_STRING_get0_data(ptr noundef) local_unnamed_addr #1
 declare i32 @ASN1_STRING_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ASN1_TYPE_set_int_octetstring(ptr noundef %a, i64 noundef %num, ptr noundef %data, i32 noundef %len) local_unnamed_addr #0 {

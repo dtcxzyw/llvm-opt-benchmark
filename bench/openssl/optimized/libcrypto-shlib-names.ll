@@ -157,7 +157,7 @@ declare i32 @ossl_namemap_name2num(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @ossl_namemap_doall_names(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @cipher_from_name(ptr noundef %name, ptr nocapture noundef %data) #0 {
+define internal void @cipher_from_name(ptr noundef %name, ptr noundef captures(none) %data) #0 {
 entry:
   %0 = load ptr, ptr %data, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -239,7 +239,7 @@ return:                                           ; preds = %if.end8, %if.end3, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @digest_from_name(ptr noundef %name, ptr nocapture noundef %data) #0 {
+define internal void @digest_from_name(ptr noundef %name, ptr noundef captures(none) %data) #0 {
 entry:
   %0 = load ptr, ptr %data, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -290,7 +290,7 @@ entry:
 declare void @OBJ_NAME_do_all(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @do_all_cipher_fn(ptr nocapture noundef readonly %nm, ptr nocapture noundef readonly %arg) #0 {
+define internal void @do_all_cipher_fn(ptr noundef readonly captures(none) %nm, ptr noundef readonly captures(none) %arg) #0 {
 entry:
   %alias = getelementptr inbounds nuw i8, ptr %nm, i64 4
   %0 = load i32, ptr %alias, align 4
@@ -347,7 +347,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @do_all_md_fn(ptr nocapture noundef readonly %nm, ptr nocapture noundef readonly %arg) #0 {
+define internal void @do_all_md_fn(ptr noundef readonly captures(none) %nm, ptr noundef readonly captures(none) %arg) #0 {
 entry:
   %alias = getelementptr inbounds nuw i8, ptr %nm, i64 4
   %0 = load i32, ptr %alias, align 4
@@ -390,10 +390,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

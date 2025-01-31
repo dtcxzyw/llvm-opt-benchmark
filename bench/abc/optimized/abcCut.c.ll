@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [42 x i8] c"Total nodes = %d. Total MFFC nodes = %d.\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkCutsSubtractFanunt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Abc_NtkCutsSubtractFanunt(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -97,10 +97,10 @@ declare ptr @Abc_NodeRecognizeMux(ptr noundef, ptr noundef, ptr noundef) local_u
 declare i32 @Abc_NodeIsExorType(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkCutsAddFanunt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Abc_NtkCutsAddFanunt(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -385,9 +385,9 @@ Abc_NtkGetNodeAttributes.exit:                    ; preds = %79, %Vec_IntStart.e
   br i1 %93, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %90, %102
-  %.val89120 = phi ptr [ %.val89, %102 ], [ %.val89104, %90 ]
+  %.val89118 = phi ptr [ %.val89, %102 ], [ %.val89104, %90 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %102 ], [ 0, %90 ]
-  %94 = getelementptr i8, ptr %.val89120, i64 8
+  %94 = getelementptr i8, ptr %.val89118, i64 8
   %.val90.val = load ptr, ptr %94, align 8
   %95 = getelementptr inbounds nuw ptr, ptr %.val90.val, i64 %indvars.iv
   %96 = load ptr, ptr %95, align 8
@@ -404,7 +404,7 @@ Abc_NtkGetNodeAttributes.exit:                    ; preds = %79, %Vec_IntStart.e
   br label %102
 
 102:                                              ; preds = %.lr.ph, %99
-  %.val89 = phi ptr [ %.val89120, %.lr.ph ], [ %.val89.pre, %99 ]
+  %.val89 = phi ptr [ %.val89118, %.lr.ph ], [ %.val89.pre, %99 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %103 = getelementptr i8, ptr %.val89, i64 4
   %.val89.val = load i32, ptr %103, align 4
@@ -425,11 +425,11 @@ Abc_NtkGetNodeAttributes.exit:                    ; preds = %79, %Vec_IntStart.e
   %112 = getelementptr i8, ptr %106, i64 4
   %.val84 = load i32, ptr %112, align 4
   %113 = call ptr @Extra_ProgressBarStart(ptr noundef %111, i32 noundef %.val84) #12
-  %.val112 = load i32, ptr %112, align 4
-  %114 = icmp sgt i32 %.val112, 0
-  br i1 %114, label %.lr.ph115, label %.critedge2
+  %.val110 = load i32, ptr %112, align 4
+  %114 = icmp sgt i32 %.val110, 0
+  br i1 %114, label %.lr.ph113, label %.critedge2
 
-.lr.ph115:                                        ; preds = %.critedge
+.lr.ph113:                                        ; preds = %.critedge
   %115 = getelementptr i8, ptr %106, i64 8
   %.not.i94 = icmp eq ptr %113, null
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -437,10 +437,10 @@ Abc_NtkGetNodeAttributes.exit:                    ; preds = %79, %Vec_IntStart.e
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 72
   br label %119
 
-119:                                              ; preds = %.lr.ph115, %Abc_AigNodeIsChoice.exit.thread
-  %indvars.iv117 = phi i64 [ 0, %.lr.ph115 ], [ %indvars.iv.next118, %Abc_AigNodeIsChoice.exit.thread ]
+119:                                              ; preds = %.lr.ph113, %Abc_AigNodeIsChoice.exit.thread
+  %indvars.iv115 = phi i64 [ 0, %.lr.ph113 ], [ %indvars.iv.next116, %Abc_AigNodeIsChoice.exit.thread ]
   %.val85 = load ptr, ptr %115, align 8
-  %120 = getelementptr inbounds nuw ptr, ptr %.val85, i64 %indvars.iv117
+  %120 = getelementptr inbounds nuw ptr, ptr %.val85, i64 %indvars.iv115
   %121 = load ptr, ptr %120, align 8
   %122 = getelementptr i8, ptr %121, i64 20
   %.val87 = load i32, ptr %122, align 4
@@ -467,11 +467,11 @@ Abc_NtkGetNodeAttributes.exit:                    ; preds = %79, %Vec_IntStart.e
 130:                                              ; preds = %129
   %131 = load i32, ptr %113, align 4
   %132 = sext i32 %131 to i64
-  %133 = icmp slt i64 %indvars.iv117, %132
+  %133 = icmp slt i64 %indvars.iv115, %132
   br i1 %133, label %Extra_ProgressBarUpdate.exit, label %134
 
 134:                                              ; preds = %130, %129
-  %135 = trunc nuw nsw i64 %indvars.iv117 to i32
+  %135 = trunc nuw nsw i64 %indvars.iv115 to i32
   call void @Extra_ProgressBarUpdate_int(ptr noundef %113, i32 noundef %135, ptr noundef null) #12
   br label %Extra_ProgressBarUpdate.exit
 
@@ -533,166 +533,166 @@ Abc_AigNodeIsChoice.exit:                         ; preds = %158
   %161 = getelementptr i8, ptr %121, i64 44
   %.val.i96 = load i32, ptr %161, align 4
   %162 = icmp slt i32 %.val.i96, 1
-  br i1 %162, label %Abc_AigNodeIsChoice.exit.thread, label %.lr.ph111.preheader
+  br i1 %162, label %Abc_AigNodeIsChoice.exit.thread, label %163
 
-.lr.ph111.preheader:                              ; preds = %Abc_AigNodeIsChoice.exit
+163:                                              ; preds = %Abc_AigNodeIsChoice.exit
   store i32 0, ptr %108, align 4
-  br label %.lr.ph111
+  br label %164
 
-.lr.ph111thread-pre-split:                        ; preds = %Vec_IntPush.exit
+thread-pre-split:                                 ; preds = %Vec_IntPush.exit
   %.pr = load i32, ptr %108, align 4
-  br label %.lr.ph111
+  br label %164
 
-.lr.ph111:                                        ; preds = %.lr.ph111thread-pre-split, %.lr.ph111.preheader
-  %163 = phi i32 [ %.pr, %.lr.ph111thread-pre-split ], [ 0, %.lr.ph111.preheader ]
-  %.070110 = phi ptr [ %194, %.lr.ph111thread-pre-split ], [ %121, %.lr.ph111.preheader ]
-  %164 = getelementptr inbounds nuw i8, ptr %.070110, i64 16
-  %165 = load i32, ptr %164, align 8
-  %166 = load i32, ptr %107, align 8
-  %167 = icmp eq i32 %163, %166
-  br i1 %167, label %168, label %.Vec_IntGrow.exit10_crit_edge.i
+164:                                              ; preds = %thread-pre-split, %163
+  %165 = phi i32 [ %.pr, %thread-pre-split ], [ 0, %163 ]
+  %.070109 = phi ptr [ %196, %thread-pre-split ], [ %121, %163 ]
+  %166 = getelementptr inbounds nuw i8, ptr %.070109, i64 16
+  %167 = load i32, ptr %166, align 8
+  %168 = load i32, ptr %107, align 8
+  %169 = icmp eq i32 %165, %168
+  br i1 %169, label %170, label %.Vec_IntGrow.exit10_crit_edge.i
 
-.Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %.lr.ph111
+.Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %164
   %.pre.i = load ptr, ptr %110, align 8
   br label %Vec_IntPush.exit
 
-168:                                              ; preds = %.lr.ph111
-  %169 = icmp slt i32 %163, 16
-  br i1 %169, label %170, label %177
-
-170:                                              ; preds = %168
-  %171 = load ptr, ptr %110, align 8
-  %.not9.i.i = icmp eq ptr %171, null
-  br i1 %.not9.i.i, label %174, label %172
+170:                                              ; preds = %164
+  %171 = icmp slt i32 %165, 16
+  br i1 %171, label %172, label %179
 
 172:                                              ; preds = %170
-  %173 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %171, i64 noundef 64) #14
+  %173 = load ptr, ptr %110, align 8
+  %.not9.i.i = icmp eq ptr %173, null
+  br i1 %.not9.i.i, label %176, label %174
+
+174:                                              ; preds = %172
+  %175 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %173, i64 noundef 64) #14
   br label %Vec_IntGrow.exit.i
 
-174:                                              ; preds = %170
-  %175 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #13
+176:                                              ; preds = %172
+  %177 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #13
   br label %Vec_IntGrow.exit.i
 
-Vec_IntGrow.exit.i:                               ; preds = %174, %172
-  %176 = phi ptr [ %173, %172 ], [ %175, %174 ]
-  store ptr %176, ptr %110, align 8
+Vec_IntGrow.exit.i:                               ; preds = %176, %174
+  %178 = phi ptr [ %175, %174 ], [ %177, %176 ]
+  store ptr %178, ptr %110, align 8
   store i32 16, ptr %107, align 8
   br label %Vec_IntPush.exit
 
-177:                                              ; preds = %168
-  %178 = shl nuw nsw i32 %163, 1
-  %179 = load ptr, ptr %110, align 8
-  %.not9.i9.i = icmp eq ptr %179, null
-  %180 = zext nneg i32 %178 to i64
-  %181 = shl nuw nsw i64 %180, 2
-  br i1 %.not9.i9.i, label %184, label %182
+179:                                              ; preds = %170
+  %180 = shl nuw nsw i32 %165, 1
+  %181 = load ptr, ptr %110, align 8
+  %.not9.i9.i = icmp eq ptr %181, null
+  %182 = zext nneg i32 %180 to i64
+  %183 = shl nuw nsw i64 %182, 2
+  br i1 %.not9.i9.i, label %186, label %184
 
-182:                                              ; preds = %177
-  %183 = call ptr @realloc(ptr noundef nonnull %179, i64 noundef %181) #14
-  br label %186
+184:                                              ; preds = %179
+  %185 = call ptr @realloc(ptr noundef nonnull %181, i64 noundef %183) #14
+  br label %188
 
-184:                                              ; preds = %177
-  %185 = call noalias ptr @malloc(i64 noundef %181) #13
-  br label %186
+186:                                              ; preds = %179
+  %187 = call noalias ptr @malloc(i64 noundef %183) #13
+  br label %188
 
-186:                                              ; preds = %184, %182
-  %187 = phi ptr [ %183, %182 ], [ %185, %184 ]
-  store ptr %187, ptr %110, align 8
-  store i32 %178, ptr %107, align 8
+188:                                              ; preds = %186, %184
+  %189 = phi ptr [ %185, %184 ], [ %187, %186 ]
+  store ptr %189, ptr %110, align 8
+  store i32 %180, ptr %107, align 8
   br label %Vec_IntPush.exit
 
-Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %186
-  %188 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %187, %186 ], [ %176, %Vec_IntGrow.exit.i ]
-  %189 = load i32, ptr %108, align 4
-  %190 = add nsw i32 %189, 1
-  store i32 %190, ptr %108, align 4
-  %191 = sext i32 %189 to i64
-  %192 = getelementptr inbounds i32, ptr %188, i64 %191
-  store i32 %165, ptr %192, align 4
-  %193 = getelementptr inbounds nuw i8, ptr %.070110, i64 56
-  %194 = load ptr, ptr %193, align 8
-  %.not82 = icmp eq ptr %194, null
-  br i1 %.not82, label %._crit_edge, label %.lr.ph111thread-pre-split, !llvm.loop !10
+Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %188
+  %190 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %189, %188 ], [ %178, %Vec_IntGrow.exit.i ]
+  %191 = load i32, ptr %108, align 4
+  %192 = add nsw i32 %191, 1
+  store i32 %192, ptr %108, align 4
+  %193 = sext i32 %191 to i64
+  %194 = getelementptr inbounds i32, ptr %190, i64 %193
+  store i32 %167, ptr %194, align 4
+  %195 = getelementptr inbounds nuw i8, ptr %.070109, i64 56
+  %196 = load ptr, ptr %195, align 8
+  %.not82 = icmp eq ptr %196, null
+  br i1 %.not82, label %197, label %thread-pre-split, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %Vec_IntPush.exit
-  %195 = call ptr @Cut_NodeUnionCuts(ptr noundef %18, ptr noundef nonnull %107) #12
+197:                                              ; preds = %Vec_IntPush.exit
+  %198 = call ptr @Cut_NodeUnionCuts(ptr noundef %18, ptr noundef nonnull %107) #12
   br label %Abc_AigNodeIsChoice.exit.thread
 
-Abc_AigNodeIsChoice.exit.thread:                  ; preds = %158, %Abc_AigNodeIsChoice.exit, %._crit_edge, %125, %127
-  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
+Abc_AigNodeIsChoice.exit.thread:                  ; preds = %158, %Abc_AigNodeIsChoice.exit, %197, %125, %127
+  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %.val = load i32, ptr %112, align 4
-  %196 = sext i32 %.val to i64
-  %197 = icmp slt i64 %indvars.iv.next118, %196
-  br i1 %197, label %119, label %.critedge2, !llvm.loop !11
+  %199 = sext i32 %.val to i64
+  %200 = icmp slt i64 %indvars.iv.next116, %199
+  br i1 %200, label %119, label %.critedge2, !llvm.loop !11
 
 .critedge2:                                       ; preds = %Abc_AigNodeIsChoice.exit.thread, %.critedge
   call void @Extra_ProgressBarStop(ptr noundef %113) #12
-  %198 = getelementptr inbounds nuw i8, ptr %106, i64 8
-  %199 = load ptr, ptr %198, align 8
-  %.not.i97 = icmp eq ptr %199, null
-  br i1 %.not.i97, label %Vec_PtrFree.exit, label %200
+  %201 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %202 = load ptr, ptr %201, align 8
+  %.not.i97 = icmp eq ptr %202, null
+  br i1 %.not.i97, label %Vec_PtrFree.exit, label %203
 
-200:                                              ; preds = %.critedge2
-  call void @free(ptr noundef nonnull %199) #12
+203:                                              ; preds = %.critedge2
+  call void @free(ptr noundef nonnull %202) #12
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %.critedge2, %200
+Vec_PtrFree.exit:                                 ; preds = %.critedge2, %203
   call void @free(ptr noundef nonnull %106) #12
-  %201 = load ptr, ptr %110, align 8
-  %.not.i98 = icmp eq ptr %201, null
-  br i1 %.not.i98, label %Vec_IntFree.exit, label %202
+  %204 = load ptr, ptr %110, align 8
+  %.not.i98 = icmp eq ptr %204, null
+  br i1 %.not.i98, label %Vec_IntFree.exit, label %205
 
-202:                                              ; preds = %Vec_PtrFree.exit
-  call void @free(ptr noundef nonnull %201) #12
+205:                                              ; preds = %Vec_PtrFree.exit
+  call void @free(ptr noundef nonnull %204) #12
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %Vec_PtrFree.exit, %202
+Vec_IntFree.exit:                                 ; preds = %Vec_PtrFree.exit, %205
   call void @free(ptr noundef nonnull %107) #12
   call void @Cut_ManPrintStats(ptr noundef %18) #12
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %203 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #12
-  %204 = icmp slt i32 %203, 0
-  br i1 %204, label %Abc_Clock.exit100, label %205
+  %206 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #12
+  %207 = icmp slt i32 %206, 0
+  br i1 %207, label %Abc_Clock.exit100, label %208
 
-205:                                              ; preds = %Vec_IntFree.exit
-  %206 = load i64, ptr %3, align 8
-  %207 = mul nsw i64 %206, 1000000
-  %208 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %209 = load i64, ptr %208, align 8
-  %210 = sdiv i64 %209, 1000
-  %211 = add nsw i64 %210, %207
+208:                                              ; preds = %Vec_IntFree.exit
+  %209 = load i64, ptr %3, align 8
+  %210 = mul nsw i64 %209, 1000000
+  %211 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %212 = load i64, ptr %211, align 8
+  %213 = sdiv i64 %212, 1000
+  %214 = add nsw i64 %213, %210
   br label %Abc_Clock.exit100
 
-Abc_Clock.exit100:                                ; preds = %Vec_IntFree.exit, %205
-  %.0.i99 = phi i64 [ %211, %205 ], [ -1, %Vec_IntFree.exit ]
+Abc_Clock.exit100:                                ; preds = %Vec_IntFree.exit, %208
+  %.0.i99 = phi i64 [ %214, %208 ], [ -1, %Vec_IntFree.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %212 = add i64 %.0.i99, %.0.i.neg
-  %213 = sitofp i64 %212 to double
-  %214 = fdiv double %213, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, double noundef %214)
-  %215 = load i32, ptr @nTotal, align 4
-  %.not76 = icmp eq i32 %215, 0
-  br i1 %.not76, label %222, label %216
+  %215 = add i64 %.0.i99, %.0.i.neg
+  %216 = sitofp i64 %215 to double
+  %217 = fdiv double %216, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, double noundef %217)
+  %218 = load i32, ptr @nTotal, align 4
+  %.not76 = icmp eq i32 %218, 0
+  br i1 %.not76, label %225, label %219
 
-216:                                              ; preds = %Abc_Clock.exit100
-  %217 = load i32, ptr @nGood, align 4
-  %218 = sitofp i32 %217 to double
-  %219 = sitofp i32 %215 to double
-  %220 = fdiv double %218, %219
-  %221 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %215, i32 noundef %217, double noundef %220)
-  br label %222
-
-222:                                              ; preds = %216, %Abc_Clock.exit100
-  %223 = load i32, ptr %11, align 4
-  %.not77 = icmp eq i32 %223, 0
-  br i1 %.not77, label %225, label %224
-
-224:                                              ; preds = %222
-  call void @Abc_NtkCutsAddFanunt(ptr noundef %0)
+219:                                              ; preds = %Abc_Clock.exit100
+  %220 = load i32, ptr @nGood, align 4
+  %221 = sitofp i32 %220 to double
+  %222 = sitofp i32 %218 to double
+  %223 = fdiv double %221, %222
+  %224 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %218, i32 noundef %220, double noundef %223)
   br label %225
 
-225:                                              ; preds = %224, %222
+225:                                              ; preds = %219, %Abc_Clock.exit100
+  %226 = load i32, ptr %11, align 4
+  %.not77 = icmp eq i32 %226, 0
+  br i1 %.not77, label %228, label %227
+
+227:                                              ; preds = %225
+  call void @Abc_NtkCutsAddFanunt(ptr noundef nonnull %0)
+  br label %228
+
+228:                                              ; preds = %227, %225
   ret ptr %18
 }
 
@@ -907,7 +907,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #15
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #12
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #12
   call void @free(ptr noundef %9) #12
   br label %16
 
@@ -1090,7 +1090,7 @@ declare void @Cut_OracleTryDroppingCuts(ptr noundef, i32 noundef) local_unnamed_
 declare ptr @Cut_OracleComputeCuts(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noalias noundef ptr @Abc_NtkSeqCuts(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 {
+define noalias noundef ptr @Abc_NtkSeqCuts(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 {
   ret ptr null
 }
 
@@ -1136,7 +1136,7 @@ common.ret19:                                     ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NodeReadCuts(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define ptr @Abc_NodeReadCuts(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = tail call ptr @Cut_NodeReadCutsNew(ptr noundef %0, i32 noundef %4) #12
@@ -1154,14 +1154,14 @@ declare ptr @Cut_ManReadNodeAttrs(ptr noundef) local_unnamed_addr #1
 declare ptr @Cut_NodeComputeCuts(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Abc_NodeGetCutsSeq(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #3 {
+define void @Abc_NodeGetCutsSeq(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   ret void
 }
 
 declare ptr @Cut_NodeReadCutsNew(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NodeFreeCuts(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @Abc_NodeFreeCuts(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   tail call void @Cut_NodeFreeCuts(ptr noundef %0, i32 noundef %4) #12
@@ -1171,7 +1171,7 @@ define void @Abc_NodeFreeCuts(ptr noundef %0, ptr nocapture noundef readonly %1)
 declare void @Cut_NodeFreeCuts(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkSubDagSize_rec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define i32 @Abc_NtkSubDagSize_rec(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.val2.i22 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %0, i64 16
   %.val3.i23 = load i32, ptr %3, align 8
@@ -1280,7 +1280,7 @@ tailrecurse:                                      ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Abc_NtkGetNodeAttributes2(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define noalias noundef ptr @Abc_NtkGetNodeAttributes2(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 32
   %.val20 = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %.val20, i64 4
@@ -1442,10 +1442,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 declare void @Extra_ProgressBarUpdate_int(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
@@ -1454,15 +1454,15 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #2
 
 declare i32 @Abc_NodeMffcSize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr noundef captures(none) %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -1557,7 +1557,7 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.si
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #10
@@ -1566,10 +1566,10 @@ declare void @llvm.va_start.p0(ptr) #10
 declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

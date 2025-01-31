@@ -60,7 +60,7 @@ entry:
 declare noundef i32 @_ZNK4base7Process11GetPriorityEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base7Process22SetProcessBackgroundedEb(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this, i1 noundef zeroext %background) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4base7Process22SetProcessBackgroundedEb(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this, i1 noundef zeroext %background) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rlim.i.i.i.i.i = alloca %struct.rlimit, align 8
   %0 = load atomic volatile i64, ptr @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission acquire, align 8
@@ -131,10 +131,10 @@ declare i32 @__gxx_personality_v0(...)
 declare i32 @getrlimit(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

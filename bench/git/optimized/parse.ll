@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @git_gettext_enabled = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @git_parse_signed(ptr noundef %value, ptr nocapture noundef writeonly %ret, i64 noundef %max) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @git_parse_signed(ptr noundef %value, ptr noundef writeonly captures(none) %ret, i64 noundef %max) local_unnamed_addr #0 {
 entry:
   %end = alloca ptr, align 8
   %tobool.not = icmp eq ptr %value, null
@@ -131,7 +131,7 @@ declare ptr @__errno_location() local_unnamed_addr #2
 declare i64 @strtoimax(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @git_parse_int(ptr noundef %value, ptr nocapture noundef writeonly %ret) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @git_parse_int(ptr noundef %value, ptr noundef writeonly captures(none) %ret) local_unnamed_addr #0 {
 entry:
   %tmp = alloca i64, align 8
   %call = call i32 @git_parse_signed(ptr noundef %value, ptr noundef nonnull %tmp, i64 noundef 2147483647)
@@ -150,7 +150,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @git_parse_int64(ptr noundef %value, ptr nocapture noundef writeonly %ret) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @git_parse_int64(ptr noundef %value, ptr noundef writeonly captures(none) %ret) local_unnamed_addr #0 {
 entry:
   %tmp = alloca i64, align 8
   %call = call i32 @git_parse_signed(ptr noundef %value, ptr noundef nonnull %tmp, i64 noundef 9223372036854775807)
@@ -168,7 +168,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @git_parse_ulong(ptr noundef %value, ptr nocapture noundef writeonly %ret) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @git_parse_ulong(ptr noundef %value, ptr noundef writeonly captures(none) %ret) local_unnamed_addr #0 {
 entry:
   %end.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
@@ -261,7 +261,7 @@ return:                                           ; preds = %git_parse_unsigned.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @git_parse_ssize_t(ptr noundef %value, ptr nocapture noundef writeonly %ret) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @git_parse_ssize_t(ptr noundef %value, ptr noundef writeonly captures(none) %ret) local_unnamed_addr #0 {
 entry:
   %tmp = alloca i64, align 8
   %call = call i32 @git_parse_signed(ptr noundef %value, ptr noundef nonnull %tmp, i64 noundef 9223372036854775807)
@@ -326,7 +326,7 @@ return:                                           ; preds = %lor.lhs.false17, %i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 2) i32 @git_parse_maybe_bool(ptr noundef %value) local_unnamed_addr #0 {
@@ -398,7 +398,7 @@ return:                                           ; preds = %if.end, %if.then2.i
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: noreturn
 declare void @die(ptr noundef, ...) local_unnamed_addr #1
@@ -468,10 +468,10 @@ declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #8
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

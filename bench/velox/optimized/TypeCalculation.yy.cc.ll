@@ -164,7 +164,7 @@ _ZN8facebook5velox10expression9calculate6Parser5stackINS3_17stack_symbol_typeESt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8facebook5velox10expression9calculate6ParserD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox10expression9calculate6ParserD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox10expression9calculate6ParserE, i64 16), ptr %this, align 8
   %yystack_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -245,14 +245,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook5velox10expression9calculate6Parser7by_kindC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this) unnamed_addr #5 align 2 {
+define void @_ZN8facebook5velox10expression9calculate6Parser7by_kindC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %this) unnamed_addr #5 align 2 {
 entry:
   store i32 -2, ptr %this, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8facebook5velox10expression9calculate6Parser7by_kindC2EOS4_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %that) unnamed_addr #6 align 2 {
+define void @_ZN8facebook5velox10expression9calculate6Parser7by_kindC2EOS4_(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %that) unnamed_addr #6 align 2 {
 entry:
   %0 = load i32, ptr %that, align 4
   store i32 %0, ptr %this, align 4
@@ -261,14 +261,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook5velox10expression9calculate6Parser7by_kind5clearEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this) local_unnamed_addr #5 align 2 {
+define void @_ZN8facebook5velox10expression9calculate6Parser7by_kind5clearEv(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %this) local_unnamed_addr #5 align 2 {
 entry:
   store i32 -2, ptr %this, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8facebook5velox10expression9calculate6Parser7by_kindC2ERKS4_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %that) unnamed_addr #6 align 2 {
+define void @_ZN8facebook5velox10expression9calculate6Parser7by_kindC2ERKS4_(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %that) unnamed_addr #6 align 2 {
 entry:
   %0 = load i32, ptr %that, align 4
   store i32 %0, ptr %this, align 4
@@ -276,7 +276,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook5velox10expression9calculate6Parser7by_kindC2ENS3_5token15token_kind_typeE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, i32 noundef %t) unnamed_addr #5 align 2 {
+define void @_ZN8facebook5velox10expression9calculate6Parser7by_kindC2ENS3_5token15token_kind_typeE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %this, i32 noundef %t) unnamed_addr #5 align 2 {
 entry:
   %cmp.i = icmp slt i32 %t, 1
   br i1 %cmp.i, label %_ZN8facebook5velox10expression9calculate6Parser12yytranslate_Ei.exit, label %if.else.i
@@ -321,7 +321,7 @@ return:                                           ; preds = %if.else, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8facebook5velox10expression9calculate6Parser7by_kind4moveERS4_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %that) local_unnamed_addr #6 align 2 {
+define void @_ZN8facebook5velox10expression9calculate6Parser7by_kind4moveERS4_(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %that) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i32, ptr %that, align 4
   store i32 %0, ptr %this, align 4
@@ -330,28 +330,28 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK8facebook5velox10expression9calculate6Parser7by_kind4kindEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK8facebook5velox10expression9calculate6Parser7by_kind4kindEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK8facebook5velox10expression9calculate6Parser7by_kind8type_getEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK8facebook5velox10expression9calculate6Parser7by_kind8type_getEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook5velox10expression9calculate6Parser8by_stateC2Ev(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %this) unnamed_addr #5 align 2 {
+define void @_ZN8facebook5velox10expression9calculate6Parser8by_stateC2Ev(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %this) unnamed_addr #5 align 2 {
 entry:
   store i8 0, ptr %this, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8facebook5velox10expression9calculate6Parser8by_stateC2ERKS4_(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %that) unnamed_addr #6 align 2 {
+define void @_ZN8facebook5velox10expression9calculate6Parser8by_stateC2ERKS4_(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %this, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %that) unnamed_addr #6 align 2 {
 entry:
   %0 = load i8, ptr %that, align 1
   store i8 %0, ptr %this, align 1
@@ -359,14 +359,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook5velox10expression9calculate6Parser8by_state5clearEv(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %this) local_unnamed_addr #5 align 2 {
+define void @_ZN8facebook5velox10expression9calculate6Parser8by_state5clearEv(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %this) local_unnamed_addr #5 align 2 {
 entry:
   store i8 0, ptr %this, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8facebook5velox10expression9calculate6Parser8by_state4moveERS4_(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %this, ptr nocapture noundef nonnull align 1 dereferenceable(1) %that) local_unnamed_addr #6 align 2 {
+define void @_ZN8facebook5velox10expression9calculate6Parser8by_state4moveERS4_(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %this, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %that) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i8, ptr %that, align 1
   store i8 %0, ptr %this, align 1
@@ -375,14 +375,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook5velox10expression9calculate6Parser8by_stateC2Ea(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %this, i8 noundef signext %s) unnamed_addr #5 align 2 {
+define void @_ZN8facebook5velox10expression9calculate6Parser8by_stateC2Ea(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %this, i8 noundef signext %s) unnamed_addr #5 align 2 {
 entry:
   store i8 %s, ptr %this, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 -128, 128) i32 @_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %this) local_unnamed_addr #8 align 2 {
+define noundef range(i32 -128, 128) i32 @_ZNK8facebook5velox10expression9calculate6Parser8by_state4kindEv(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load i8, ptr %this, align 1
   %cmp = icmp eq i8 %0, 0
@@ -401,7 +401,7 @@ return:                                           ; preds = %entry, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeC2Ev(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(48) initializes((0, 1), (16, 48)) %this) unnamed_addr #5 align 2 {
+define void @_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeC2Ev(ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(48) initializes((0, 1), (16, 48)) %this) unnamed_addr #5 align 2 {
 entry:
   store i8 0, ptr %this, align 16
   %value.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -480,7 +480,7 @@ sw.epilog:                                        ; preds = %sw.bb3, %sw.bb, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox10expression9calculate6Parser7yypush_EPKcONS3_17stack_symbol_typeE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef readnone %m, ptr noundef nonnull align 16 dereferenceable(48) %sym) local_unnamed_addr #9 align 2 {
+define void @_ZN8facebook5velox10expression9calculate6Parser7yypush_EPKcONS3_17stack_symbol_typeE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef readnone captures(none) %m, ptr noundef nonnull align 16 dereferenceable(48) %sym) local_unnamed_addr #9 align 2 {
 entry:
   %yystack_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN8facebook5velox10expression9calculate6Parser5stackINS3_17stack_symbol_typeESt6vectorIS5_SaIS5_EEE4pushEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %yystack_, ptr noundef nonnull align 16 dereferenceable(48) %sym)
@@ -597,7 +597,7 @@ _ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit9: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox10expression9calculate6Parser7yypush_EPKcaONS3_11symbol_typeE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef readnone %m, i8 noundef signext %s, ptr noundef nonnull align 16 dereferenceable(48) %sym) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox10expression9calculate6Parser7yypush_EPKcaONS3_11symbol_typeE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef readnone captures(none) %m, i8 noundef signext %s, ptr noundef nonnull align 16 dereferenceable(48) %sym) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.facebook::velox::expression::calculate::Parser::stack_symbol_type", align 16
   call void @_ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeC1EaONS3_11symbol_typeE(ptr noundef nonnull align 16 dereferenceable(48) %ref.tmp, i8 noundef signext %s, ptr noundef nonnull align 16 dereferenceable(48) %sym)
@@ -649,7 +649,7 @@ _ZN8facebook5velox10expression9calculate6Parser17stack_symbol_typeD2Ev.exit8: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8facebook5velox10expression9calculate6Parser6yypop_Ei(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox10expression9calculate6Parser6yypop_Ei(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, i32 noundef %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp2.i = icmp sgt i32 %n, 0
   br i1 %cmp2.i, label %for.body.lr.ph.i, label %_ZN8facebook5velox10expression9calculate6Parser5stackINS3_17stack_symbol_typeESt6vectorIS5_SaIS5_EEE3popEl.exit
@@ -2164,7 +2164,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook5velox10expression9calculate6Parser7contextC2ERKS3_RKNS3_11symbol_typeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(40) %yyparser, ptr noundef nonnull align 16 dereferenceable(48) %yyla) unnamed_addr #5 align 2 {
+define void @_ZN8facebook5velox10expression9calculate6Parser7contextC2ERKS3_RKNS3_11symbol_typeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(40) %yyparser, ptr noundef nonnull align 16 dereferenceable(48) %yyla) unnamed_addr #5 align 2 {
 entry:
   store ptr %yyparser, ptr %this, align 8
   %yyla_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2173,7 +2173,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK8facebook5velox10expression9calculate6Parser7context15expected_tokensEPNS3_11symbol_kind16symbol_kind_typeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef writeonly %yyarg, i32 noundef %yyargn) local_unnamed_addr #13 align 2 {
+define noundef i32 @_ZNK8facebook5velox10expression9calculate6Parser7context15expected_tokensEPNS3_11symbol_kind16symbol_kind_typeEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef writeonly %yyarg, i32 noundef %yyargn) local_unnamed_addr #13 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %yystack_ = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2290,7 +2290,7 @@ return:                                           ; preds = %if.then23, %if.end3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK8facebook5velox10expression9calculate6Parser26yy_syntax_error_arguments_ERKNS3_7contextEPNS3_11symbol_kind16symbol_kind_typeEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %yyctx, ptr noundef %yyarg, i32 noundef %yyargn) local_unnamed_addr #14 align 2 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK8facebook5velox10expression9calculate6Parser26yy_syntax_error_arguments_ERKNS3_7contextEPNS3_11symbol_kind16symbol_kind_typeEi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %yyctx, ptr noundef %yyarg, i32 noundef %yyargn) local_unnamed_addr #14 align 2 {
 entry:
   %yyla_.i = getelementptr inbounds nuw i8, ptr %yyctx, i64 8
   %0 = load ptr, ptr %yyla_.i, align 8
@@ -2320,7 +2320,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox10expression9calculate6Parser15yysyntax_error_B5cxx11ERKNS3_7contextE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %yyctx) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox10expression9calculate6Parser15yysyntax_error_B5cxx11ERKNS3_7contextE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %yyctx) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %yyarg = alloca [5 x i32], align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2498,7 +2498,7 @@ ehcleanup:                                        ; preds = %lpad14, %lpad
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN8facebook5velox10expression9calculate6Parser5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %msg) unnamed_addr #15 align 2 {
+define void @_ZN8facebook5velox10expression9calculate6Parser5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %msg) unnamed_addr #15 align 2 {
 entry:
   tail call void @llvm.trap()
   unreachable
@@ -2576,7 +2576,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPN8facebook5velox10expression9calculate6Pars
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_iESaIS9_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3167,7 +3167,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #19
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #19
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -3558,13 +3558,13 @@ declare i64 @llvm.umin.i64(i64, i64) #22
 declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #22

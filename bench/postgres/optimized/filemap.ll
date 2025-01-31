@@ -86,23 +86,23 @@ define dso_local void @process_source_file(ptr noundef %0, i32 noundef %1, i64 n
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %4
-  %9 = tail call fastcc zeroext i1 @isRelDataFile(ptr noundef %0)
+  %9 = tail call fastcc zeroext i1 @isRelDataFile(ptr noundef nonnull %0)
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %0) #11
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull %0) #11
   tail call void @exit(i32 noundef 1) #13
   unreachable
 
 11:                                               ; preds = %8, %4
-  %12 = tail call fastcc ptr @insert_filehash_entry(ptr noundef %0)
+  %12 = tail call fastcc ptr @insert_filehash_entry(ptr noundef nonnull %0)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %11
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %0) #11
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull %0) #11
   tail call void @exit(i32 noundef 1) #13
   unreachable
 
@@ -127,10 +127,10 @@ define dso_local void @process_source_file(ptr noundef %0, i32 noundef %1, i64 n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @isRelDataFile(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc zeroext i1 @isRelDataFile(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca %struct.RelFileLocator, align 8
   %3 = alloca i32, align 4
   store i32 0, ptr %2, align 8
@@ -185,7 +185,7 @@ datasegpath.exit:                                 ; preds = %.thread, %18
   %.0.i = phi ptr [ %19, %18 ], [ %17, %.thread ]
   %20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0.i, ptr noundef nonnull dereferenceable(1) %0) #12
   %.not = icmp eq i32 %20, 0
-  call void @pfree(ptr noundef %.0.i) #11
+  call void @pfree(ptr noundef nonnull %.0.i) #11
   br label %21
 
 21:                                               ; preds = %datasegpath.exit, %13
@@ -203,7 +203,7 @@ define internal fastcc noundef ptr @insert_filehash_entry(ptr noundef %0) unname
   %2 = load ptr, ptr @filehash, align 8
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
   %4 = trunc i64 %3 to i32
-  %5 = tail call i32 @hash_bytes(ptr noundef %0, i32 noundef %4) #11
+  %5 = tail call i32 @hash_bytes(ptr noundef nonnull %0, i32 noundef %4) #11
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -292,7 +292,7 @@ filehash_update_parameters.exit.i.i.i:            ; preds = %filehash_compute_si
   %.val.i.i.i = load ptr, ptr %48, align 8
   %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val.i.i.i) #12
   %50 = trunc i64 %49 to i32
-  %51 = tail call i32 @hash_bytes(ptr noundef %.val.i.i.i, i32 noundef %50) #11
+  %51 = tail call i32 @hash_bytes(ptr noundef nonnull %.val.i.i.i, i32 noundef %50) #11
   %.val54.i.i.i = load i32, ptr %9, align 4
   %52 = and i32 %.val54.i.i.i, %51
   %53 = icmp eq i32 %52, %.057.i.i.i
@@ -322,7 +322,7 @@ filehash_update_parameters.exit.i.i.i:            ; preds = %filehash_compute_si
   %.val53.i.i.i = load ptr, ptr %63, align 8
   %64 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val53.i.i.i) #12
   %65 = trunc i64 %64 to i32
-  %66 = tail call i32 @hash_bytes(ptr noundef %.val53.i.i.i, i32 noundef %65) #11
+  %66 = tail call i32 @hash_bytes(ptr noundef nonnull %.val53.i.i.i, i32 noundef %65) #11
   %.val55.i.i.i = load i32, ptr %9, align 4
   br label %67
 
@@ -386,7 +386,7 @@ filehash_grow.exit.i.i:                           ; preds = %74, %filehash_updat
 95:                                               ; preds = %.lr.ph.i.i
   %96 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #12
   %97 = trunc i64 %96 to i32
-  %98 = tail call i32 @hash_bytes(ptr noundef %92, i32 noundef %97) #11
+  %98 = tail call i32 @hash_bytes(ptr noundef nonnull %92, i32 noundef %97) #11
   %.val77.i.i = load i32, ptr %9, align 4
   %99 = and i32 %.val77.i.i, %98
   %.not.i81.i.i = icmp ugt i32 %99, %.069113.i.i
@@ -493,10 +493,10 @@ filehash_distance.exit.i.i:                       ; preds = %100, %95
 151:                                              ; preds = %._crit_edge141.i.i, %._crit_edge.i.i
   %.lcssa215.lcssa.sink.sink.i.i = phi ptr [ %90, %._crit_edge141.i.i ], [ %.lcssa84.i.i, %._crit_edge.i.i ]
   store i32 1, ptr %.lcssa215.lcssa.sink.sink.i.i, align 8
-  %152 = tail call ptr @pg_strdup(ptr noundef %0) #11
+  %152 = tail call ptr @pg_strdup(ptr noundef nonnull %0) #11
   %153 = getelementptr inbounds nuw i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 8
   store ptr %152, ptr %153, align 8
-  %154 = tail call fastcc zeroext i1 @isRelDataFile(ptr noundef %0)
+  %154 = tail call fastcc zeroext i1 @isRelDataFile(ptr noundef nonnull %0)
   %155 = getelementptr inbounds nuw i8, ptr %.lcssa215.lcssa.sink.sink.i.i, i64 16
   %156 = zext i1 %154 to i8
   store i8 %156, ptr %155, align 8
@@ -520,14 +520,14 @@ declare ptr @pg_strdup(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @process_target_file(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str) #12
-  %6 = tail call fastcc ptr @insert_filehash_entry(ptr noundef %0)
+  %6 = tail call fastcc ptr @insert_filehash_entry(ptr noundef nonnull %0)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 17
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %4
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %0) #11
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull %0) #11
   tail call void @exit(i32 noundef 1) #13
   unreachable
 
@@ -576,7 +576,7 @@ datasegpath.exit:                                 ; preds = %4, %7
   %10 = load ptr, ptr @filehash, align 8
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #12
   %12 = trunc i64 %11 to i32
-  %13 = tail call i32 @hash_bytes(ptr noundef %.0.i, i32 noundef %12) #11
+  %13 = tail call i32 @hash_bytes(ptr noundef nonnull %.0.i, i32 noundef %12) #11
   %14 = getelementptr i8, ptr %10, i64 12
   %.val.i.i.i = load i32, ptr %14, align 4
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -607,11 +607,11 @@ datasegpath.exit:                                 ; preds = %4, %7
   br i1 %31, label %32, label %21
 
 lookup_filehash_entry.exit.thread:                ; preds = %21, %datasegpath.exit
-  tail call void @pfree(ptr noundef %.0.i) #11
+  tail call void @pfree(ptr noundef nonnull %.0.i) #11
   br label %57
 
 32:                                               ; preds = %.lr.ph.i.i.i
-  tail call void @pfree(ptr noundef %.0.i) #11
+  tail call void @pfree(ptr noundef nonnull %.0.i) #11
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 17
   %34 = load i8, ptr %33, align 1
   %35 = trunc i8 %34 to i1
@@ -661,14 +661,14 @@ lookup_filehash_entry.exit.thread:                ; preds = %21, %datasegpath.ex
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 declare void @datapagemap_add(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @calculate_totals(ptr nocapture noundef initializes((0, 16)) %0) local_unnamed_addr #0 {
+define dso_local void @calculate_totals(ptr noundef captures(none) initializes((0, 16)) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -763,7 +763,7 @@ declare zeroext i1 @datapagemap_next(ptr noundef, ptr noundef) local_unnamed_add
 declare void @pg_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @print_filemap(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @print_filemap(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -838,7 +838,7 @@ action_to_str.exit:                               ; preds = %18, %switch.lookup
 declare void @datapagemap_print(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @decide_file_actions() local_unnamed_addr #0 {
@@ -935,7 +935,7 @@ filehash_iterate.exit:                            ; preds = %20
   %45 = phi ptr [ %44, %42 ], [ @.str.29, %40 ]
   %46 = phi ptr [ %43, %42 ], [ @excludeFiles, %40 ]
   %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #12
-  %48 = call ptr @last_dir_separator(ptr noundef %33) #11
+  %48 = call ptr @last_dir_separator(ptr noundef nonnull %33) #11
   %49 = icmp eq ptr %48, null
   %50 = getelementptr i8, ptr %48, i64 1
   %.025.i.i = select i1 %49, ptr %33, ptr %50
@@ -967,7 +967,7 @@ filehash_iterate.exit:                            ; preds = %20
   %64 = load ptr, ptr %63, align 8
   %65 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1024, ptr noundef nonnull @.str.28, ptr noundef %64) #11
   %strlen.i.i = call i64 @strlen(ptr nonnull dereferenceable(1) %1)
-  %strncmp.i.i = call i32 @strncmp(ptr %33, ptr nonnull %1, i64 %strlen.i.i)
+  %strncmp.i.i = call i32 @strncmp(ptr nonnull %33, ptr nonnull %1, i64 %strlen.i.i)
   %cmp.i.i = icmp eq i32 %strncmp.i.i, 0
   br i1 %cmp.i.i, label %66, label %62
 
@@ -977,7 +977,7 @@ filehash_iterate.exit:                            ; preds = %20
   br i1 %68, label %.sink.split, label %69
 
 .sink.split:                                      ; preds = %66, %59
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.26, ptr noundef %33) #11
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.26, ptr noundef nonnull %33) #11
   br label %69
 
 69:                                               ; preds = %.sink.split, %66, %59, %40, %38
@@ -1075,12 +1075,12 @@ filehash_iterate.exit:                            ; preds = %20
   br label %decide_file_action.exit
 
 110:                                              ; preds = %96
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.20, ptr noundef %33) #11
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.20, ptr noundef nonnull %33) #11
   call void @exit(i32 noundef 1) #13
   unreachable
 
 111:                                              ; preds = %96
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.23, ptr noundef %33) #11
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.23, ptr noundef nonnull %33) #11
   call void @exit(i32 noundef 1) #13
   unreachable
 
@@ -1179,7 +1179,7 @@ declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #2
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @final_filemap_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal i32 @final_filemap_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -1217,24 +1217,24 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #7
 declare i32 @hash_bytes(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare ptr @GetRelationPath(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 declare zeroext i1 @pg_str_endswith(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare ptr @last_dir_separator(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -1245,13 +1245,13 @@ declare i64 @llvm.umax.i64(i64, i64) #8
 declare i64 @llvm.ctpop.i64(i64) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

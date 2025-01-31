@@ -14,7 +14,7 @@ define dso_local i32 @lzma_lzma2_encoder_init(ptr noundef %0, ptr noundef %1, pt
 declare i32 @lzma_lz_encoder_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lzma2_encoder_init(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) #0 {
+define internal i32 @lzma2_encoder_init(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) #0 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %42, label %6
 
@@ -100,7 +100,7 @@ define dso_local range(i64 65704, 65703) i64 @lzma_lzma2_encoder_memusage(ptr no
 declare i64 @lzma_lzma_encoder_memusage(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @lzma_lzma2_props_encode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #2 {
+define dso_local noundef i32 @lzma_lzma2_props_encode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) local_unnamed_addr #2 {
   %3 = load i32, ptr %0, align 8
   %4 = tail call i32 @llvm.umax.i32(i32 %3, i32 4096)
   %spec.select = add i32 %4, -1
@@ -160,7 +160,7 @@ get_dist_slot.exit:                               ; preds = %19, %25, %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i64 1048576, 12884901886) i64 @lzma_lzma2_block_size(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i64 1048576, 12884901886) i64 @lzma_lzma2_block_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp ugt i32 %2, 349525
   %4 = zext i32 %2 to i64
@@ -454,7 +454,7 @@ define internal void @lzma2_encoder_end(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 12) i32 @lzma2_encoder_options_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 0, 12) i32 @lzma2_encoder_options_update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -528,7 +528,7 @@ define internal range(i32 0, 12) i32 @lzma2_encoder_options_update(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @lzma_lzma_encoder_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -546,7 +546,7 @@ declare void @lzma_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @llvm.umin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #6

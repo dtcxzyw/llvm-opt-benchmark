@@ -164,7 +164,7 @@ define dso_local void @_ZN4Luau7CodeGen13initFunctionsERNS0_13NativeContextE(ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare hidden noundef i32 @_Z13luaV_lessthanP9lua_StatePK10lua_TValueS3_(ptr noundef, ptr noundef, ptr noundef) #2
 
@@ -253,10 +253,10 @@ declare double @ldexp(double noundef, i32 noundef) #4
 declare double @round(double noundef) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @frexp(double noundef, ptr nocapture noundef) #6
+declare double @frexp(double noundef, ptr noundef captures(none)) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @modf(double noundef, ptr nocapture noundef) #6
+declare double @modf(double noundef, ptr noundef captures(none)) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @asin(double noundef) #3

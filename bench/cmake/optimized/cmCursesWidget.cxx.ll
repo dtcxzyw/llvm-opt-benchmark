@@ -103,7 +103,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN14cmCursesWidgetD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #6 align 2 {
+define dso_local void @_ZN14cmCursesWidgetD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
   tail call void @llvm.trap() #9
   unreachable
 }
@@ -112,7 +112,7 @@ define dso_local void @_ZN14cmCursesWidgetD0Ev(ptr nocapture nonnull readnone al
 declare void @llvm.trap() #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14cmCursesWidget4MoveEiib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN14cmCursesWidget4MoveEiib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null

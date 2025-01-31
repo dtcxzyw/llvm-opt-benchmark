@@ -493,7 +493,7 @@ return:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3nla9divisions5checkEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3nla9divisions5checkEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i.i466 = alloca i32, align 4
   %__args.addr.i.i318 = alloca i32, align 4
@@ -2115,7 +2115,7 @@ terminate.lpad:                                   ; preds = %.noexc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN3nla9divisions5checkEvENK3$_3clIj8rationaljS3_KjS3_jS3_jS3_S4_S3_EEDaT_RT0_T1_RT2_RT3_RT4_T5_RT6_T7_RT8_RT9_RT10_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %x1, ptr noundef nonnull align 8 dereferenceable(32) %x1val, i32 noundef %y1, ptr noundef nonnull align 8 dereferenceable(32) %y1val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %q1, ptr noundef nonnull align 8 dereferenceable(32) %q1val, i32 noundef %x2, ptr noundef nonnull align 8 dereferenceable(32) %x2val, i32 noundef %y2, ptr noundef nonnull align 8 dereferenceable(32) %y2val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %q2, ptr noundef nonnull align 8 dereferenceable(32) %q2val) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN3nla9divisions5checkEvENK3$_3clIj8rationaljS3_KjS3_jS3_jS3_S4_S3_EEDaT_RT0_T1_RT2_RT3_RT4_T5_RT6_T7_RT8_RT9_RT10_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i32 noundef %x1, ptr noundef nonnull align 8 dereferenceable(32) %x1val, i32 noundef %y1, ptr noundef nonnull align 8 dereferenceable(32) %y1val, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %q1, ptr noundef nonnull align 8 dereferenceable(32) %q1val, i32 noundef %x2, ptr noundef nonnull align 8 dereferenceable(32) %x2val, i32 noundef %y2, ptr noundef nonnull align 8 dereferenceable(32) %y2val, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %q2, ptr noundef nonnull align 8 dereferenceable(32) %q2val) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call fastcc noundef zeroext i1 @"_ZZN3nla9divisions5checkEvENK3$_0clIj8rationaljS3_KjS3_jS3_jS3_S4_S3_EEDaT_RT0_T1_RT2_RT3_RT4_T5_RT6_T7_RT8_RT9_RT10_"(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %x1, ptr noundef nonnull align 8 dereferenceable(32) %x1val, i32 noundef %y1, ptr noundef nonnull align 8 dereferenceable(32) %y1val, ptr noundef nonnull align 4 dereferenceable(4) %q1, ptr noundef nonnull align 8 dereferenceable(32) %q1val, i32 noundef %x2, ptr noundef nonnull align 8 dereferenceable(32) %x2val, i32 noundef %y2, ptr noundef nonnull align 8 dereferenceable(32) %y2val, ptr noundef nonnull align 4 dereferenceable(4) %q2, ptr noundef nonnull align 8 dereferenceable(32) %q2val)
@@ -2287,7 +2287,7 @@ lpad:                                             ; preds = %if.else.i.i7.i.i21,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3nla9divisions23check_bounded_divisionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3nla9divisions23check_bounded_divisionsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i.i = alloca i32, align 4
   %xv = alloca %class.rational, align 8
@@ -3970,7 +3970,7 @@ declare void @_ZN11mpz_managerILb1EE3divERK3mpzS3_RS1_(ptr noundef nonnull align
 declare void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN3nla9divisions5checkEvENK3$_0clIj8rationaljS3_KjS3_jS3_jS3_S4_S3_EEDaT_RT0_T1_RT2_RT3_RT4_T5_RT6_T7_RT8_RT9_RT10_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %x1, ptr noundef nonnull align 8 dereferenceable(32) %x1val, i32 noundef %y1, ptr noundef nonnull align 8 dereferenceable(32) %y1val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %q1, ptr noundef nonnull align 8 dereferenceable(32) %q1val, i32 noundef %x2, ptr noundef nonnull align 8 dereferenceable(32) %x2val, i32 noundef %y2, ptr noundef nonnull align 8 dereferenceable(32) %y2val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %q2, ptr noundef nonnull align 8 dereferenceable(32) %q2val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZN3nla9divisions5checkEvENK3$_0clIj8rationaljS3_KjS3_jS3_jS3_S4_S3_EEDaT_RT0_T1_RT2_RT3_RT4_T5_RT6_T7_RT8_RT9_RT10_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %x1, ptr noundef nonnull align 8 dereferenceable(32) %x1val, i32 noundef %y1, ptr noundef nonnull align 8 dereferenceable(32) %y1val, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %q1, ptr noundef nonnull align 8 dereferenceable(32) %q1val, i32 noundef %x2, ptr noundef nonnull align 8 dereferenceable(32) %x2val, i32 noundef %y2, ptr noundef nonnull align 8 dereferenceable(32) %y2val, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %q2, ptr noundef nonnull align 8 dereferenceable(32) %q2val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lemma = alloca %"class.nla::new_lemma", align 8
   %ref.tmp = alloca %"class.nla::ineq", align 8
@@ -4675,7 +4675,7 @@ return:                                           ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN3nla9divisions5checkEvENK3$_1clIj8rationaljS3_KjS3_jS3_jS3_S4_S3_EEDaT_RT0_T1_RT2_RT3_RT4_T5_RT6_T7_RT8_RT9_RT10_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %x1, ptr noundef nonnull align 8 dereferenceable(32) %x1val, i32 noundef %y1, ptr noundef nonnull align 8 dereferenceable(32) %y1val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %q1, ptr noundef nonnull align 8 dereferenceable(32) %q1val, i32 noundef %x2, ptr noundef nonnull align 8 dereferenceable(32) %x2val, i32 noundef %y2, ptr noundef nonnull align 8 dereferenceable(32) %y2val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %q2, ptr noundef nonnull align 8 dereferenceable(32) %q2val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZN3nla9divisions5checkEvENK3$_1clIj8rationaljS3_KjS3_jS3_jS3_S4_S3_EEDaT_RT0_T1_RT2_RT3_RT4_T5_RT6_T7_RT8_RT9_RT10_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %x1, ptr noundef nonnull align 8 dereferenceable(32) %x1val, i32 noundef %y1, ptr noundef nonnull align 8 dereferenceable(32) %y1val, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %q1, ptr noundef nonnull align 8 dereferenceable(32) %q1val, i32 noundef %x2, ptr noundef nonnull align 8 dereferenceable(32) %x2val, i32 noundef %y2, ptr noundef nonnull align 8 dereferenceable(32) %y2val, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %q2, ptr noundef nonnull align 8 dereferenceable(32) %q2val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lemma = alloca %"class.nla::new_lemma", align 8
   %ref.tmp = alloca %"class.nla::ineq", align 8
@@ -5380,7 +5380,7 @@ return:                                           ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN3nla9divisions5checkEvENK3$_2clIj8rationaljS3_KjS3_jS3_jS3_S4_S3_EEDaT_RT0_T1_RT2_RT3_RT4_T5_RT6_T7_RT8_RT9_RT10_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %x1, ptr noundef nonnull align 8 dereferenceable(32) %x1val, i32 noundef %y1, ptr noundef nonnull align 8 dereferenceable(32) %y1val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %q1, ptr noundef nonnull align 8 dereferenceable(32) %q1val, i32 noundef %x2, ptr noundef nonnull align 8 dereferenceable(32) %x2val, i32 noundef %y2, ptr noundef nonnull align 8 dereferenceable(32) %y2val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %q2, ptr noundef nonnull align 8 dereferenceable(32) %q2val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZN3nla9divisions5checkEvENK3$_2clIj8rationaljS3_KjS3_jS3_jS3_S4_S3_EEDaT_RT0_T1_RT2_RT3_RT4_T5_RT6_T7_RT8_RT9_RT10_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %x1, ptr noundef nonnull align 8 dereferenceable(32) %x1val, i32 noundef %y1, ptr noundef nonnull align 8 dereferenceable(32) %y1val, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %q1, ptr noundef nonnull align 8 dereferenceable(32) %q1val, i32 noundef %x2, ptr noundef nonnull align 8 dereferenceable(32) %x2val, i32 noundef %y2, ptr noundef nonnull align 8 dereferenceable(32) %y2val, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %q2, ptr noundef nonnull align 8 dereferenceable(32) %q2val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lemma = alloca %"class.nla::new_lemma", align 8
   %ref.tmp = alloca %"class.nla::ineq", align 8
@@ -6604,7 +6604,7 @@ _ZN3mapIj8rational6u_hash4u_eqED2Ev.exit:         ; preds = %entry, %for.end.i.i
 declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNK9table2mapI17default_map_entryIj8rationalE6u_hash4u_eqE9find_coreERKj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %k) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8665,7 +8665,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -8827,10 +8827,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15

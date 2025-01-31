@@ -1115,7 +1115,7 @@ _ZN2cv3dnn14dnn4_v202405216detail17readNetDiagnosticINS1_12_GLOBAL__N_110TFImpor
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3dnn14dnn4_v2024052121readNetFromTensorflowERKSt6vectorIhSaIhEES6_(ptr dead_on_unwind noalias writable sret(%"class.cv::dnn::dnn4_v20240521::Net") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 {
+define void @_ZN2cv3dnn14dnn4_v2024052121readNetFromTensorflowERKSt6vectorIhSaIhEES6_(ptr dead_on_unwind noalias writable sret(%"class.cv::dnn::dnn4_v20240521::Net") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #3 {
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1427,7 +1427,7 @@ declare void @_ZN2cv3dnn34ReadTFNetParamsFromBinaryFileOrDieEPKcPN17opencv_tenso
 declare void @_ZN2cv3dnn14dnn4_v2024052120sortByExecutionOrderERN17opencv_tensorflow8GraphDefE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE2atIS7_EERS9_RKS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1715,7 +1715,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv3dnn14dnn4_v202405216detail7readNetINS1_12_GLOBAL__N_110TFImporterEJPKcS7_EEENS1_3NetEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3dnn14dnn4_v202405216detail7readNetINS1_12_GLOBAL__N_110TFImporterEJPKcS7_EEENS1_3NetEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -6047,7 +6047,7 @@ _ZNK17opencv_tensorflow7NodeDef10input_sizeEv.exit294: ; preds = %626
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEMN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporterEFvRN17opencv_tensorflow8GraphDefERKNSB_7NodeDefERNS8_11LayerParamsEESt4lessIS5_ESaISt4pairIKS5_SK_EEED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEMN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporterEFvRN17opencv_tensorflow8GraphDefERKNSB_7NodeDefERNS8_11LayerParamsEESt4lessIS5_ESaISt4pairIKS5_SK_EEED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val = load ptr, ptr %2, align 8
   tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_MN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporterEFvRN17opencv_tensorflow8GraphDefERKNSD_7NodeDefERNSA_11LayerParamsEEESt10_Select1stISN_ESt4lessIS5_ESaISN_EE8_M_eraseEPSt13_Rb_tree_nodeISN_E(ptr noundef %.val)
@@ -6199,7 +6199,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10unique_ptrIN2cv3dnn14dnn4_v2024052112_GLOBAL__N_114TFLayerHandlerESt14default_deleteIS4_EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10unique_ptrIN2cv3dnn14dnn4_v2024052112_GLOBAL__N_114TFLayerHandlerESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %3
@@ -6233,7 +6233,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter16parseConvolutionERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter16parseConvolutionERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %6 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %7 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
@@ -10750,7 +10750,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_M
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter9parseBiasERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter9parseBiasERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::_OutputArray", align 8
   %6 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %7 = alloca %"struct.cv::dnn::dnn4_v20240521::(anonymous namespace)::Pin", align 8
@@ -11543,7 +11543,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter11parseMatMulERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter11parseMatMulERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::Range", align 4
   %6 = alloca %"class.cv::Range", align 8
   %7 = alloca %"class.cv::Range", align 4
@@ -12812,7 +12812,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiESaIS7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter12parseReshapeERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter12parseReshapeERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %6 = alloca %"struct.cv::dnn::dnn4_v20240521::(anonymous namespace)::Pin", align 8
   %7 = alloca %"class.cv::Mat", align 8
@@ -13566,7 +13566,7 @@ _ZNK17opencv_tensorflow7NodeDef5inputB5cxx11Ei.exit96: ; preds = %288
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter12parseFlattenERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter12parseFlattenERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.cv::dnn::dnn4_v20240521::(anonymous namespace)::Pin", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -14304,7 +14304,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit89:                  ; preds = %.thread, %153, %266
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter14parseTransposeERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter14parseTransposeERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %6 = alloca %"class.cv::Mat", align 8
   %7 = alloca %"class.std::map.35", align 8
@@ -14997,12 +14997,12 @@ _ZNK17opencv_tensorflow7NodeDef5inputB5cxx11Ei.exit98: ; preds = %251
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter13parseConstantERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3) #11 align 2 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter13parseConstantERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) #11 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter8parseLrnERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter8parseLrnERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15531,7 +15531,7 @@ _ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter17connectToAllBlobsERKSt3map
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter11parseConcatERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter11parseConcatERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -16246,7 +16246,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter12parseMaxPoolERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter12parseMaxPoolERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -16415,7 +16415,7 @@ _ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter17connectToAllBlobsERKSt3map
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter12parseAvgPoolERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter12parseAvgPoolERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16560,7 +16560,7 @@ _ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter17connectToAllBlobsERKSt3map
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter16parseMaxPoolGradERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter16parseMaxPoolGradERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca i32, align 4
@@ -16875,7 +16875,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter16parsePlaceholderERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nocapture nonnull readnone align 8 %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter16parsePlaceholderERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nonnull readnone align 8 captures(none) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -17417,7 +17417,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %164, %161, %159, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter10parseSplitERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter10parseSplitERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::map.35", align 8
@@ -17713,7 +17713,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter10parseSliceERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter10parseSliceERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %6 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %7 = alloca %"class.cv::Mat", align 8
@@ -18345,7 +18345,7 @@ _ZNK17opencv_tensorflow7NodeDef5inputB5cxx11Ei.exit: ; preds = %232
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter17parseStridedSliceERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter17parseStridedSliceERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %6 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %7 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
@@ -19858,7 +19858,7 @@ _ZNK17opencv_tensorflow7NodeDef5inputB5cxx11Ei.exit153: ; preds = %699
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter8parseMulERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter8parseMulERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %6 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %7 = alloca %"struct.cv::dnn::dnn4_v20240521::(anonymous namespace)::Pin", align 8
@@ -21662,7 +21662,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit329:                 ; preds = %648, %.loopexit.spl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter19parseFusedBatchNormERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter19parseFusedBatchNormERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %6 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %7 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
@@ -22832,7 +22832,7 @@ _ZN2cv3dnn14dnn4_v2024052111LayerParamsD2Ev.exit: ; preds = %388, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter24parseConv2DBackpropInputERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter24parseConv2DBackpropInputERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %6 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %7 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
@@ -24231,7 +24231,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiESaIS7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter14parseBlockLSTMERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter14parseBlockLSTMERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %6 = alloca %"class.cv::Range", align 4
   %7 = alloca %"class.cv::Range", align 8
@@ -25419,7 +25419,7 @@ _ZNK17opencv_tensorflow7NodeDef5inputB5cxx11Ei.exit: ; preds = %454
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter11parseResizeERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter11parseResizeERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
@@ -26727,7 +26727,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %453,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter16parseL2NormalizeERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter16parseL2NormalizeERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %6 = alloca %"class.cv::Mat", align 8
   %7 = alloca %"class.std::map.35", align 8
@@ -27450,7 +27450,7 @@ _ZNK17opencv_tensorflow7NodeDef5inputB5cxx11Ei.exit: ; preds = %340
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter13parsePriorBoxERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter13parsePriorBoxERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -28371,7 +28371,7 @@ _ZNK17opencv_tensorflow7NodeDef5inputB5cxx11Ei.exit143: ; preds = %330
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter12parseSoftmaxERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter12parseSoftmaxERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -28630,7 +28630,7 @@ _ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter17connectToAllBlobsERKSt3map
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter18parseCropAndResizeERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter18parseCropAndResizeERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %6 = alloca %"class.cv::Mat", align 8
   %7 = alloca %"class.std::map.35", align 8
@@ -28970,7 +28970,7 @@ _ZNK17opencv_tensorflow7NodeDef5inputB5cxx11Ei.exit34: ; preds = %126
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter9parseMeanERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter9parseMeanERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.cv::Mat", align 8
@@ -32765,7 +32765,7 @@ _ZN2cv3dnn14dnn4_v2024052111LayerParamsD2Ev.exit493: ; preds = %_ZN2cv3dnn14dnn4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter9parsePackERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter9parsePackERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -33560,7 +33560,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit100:                 ; preds = %.loopexit.split-lp,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter16parseClipByValueERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter16parseClipByValueERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %6 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %7 = alloca %"class.cv::Mat", align 8
@@ -33935,7 +33935,7 @@ _ZNK17opencv_tensorflow7NodeDef5inputB5cxx11Ei.exit: ; preds = %122
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter14parseLeakyReluERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter14parseLeakyReluERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -34146,7 +34146,7 @@ _ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter17connectToAllBlobsERKSt3map
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter10parsePReLUERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter10parsePReLUERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %6 = alloca %"class.cv::Mat", align 8
   %7 = alloca %"class.std::map.35", align 8
@@ -34414,7 +34414,7 @@ _ZNK17opencv_tensorflow7NodeDef5inputB5cxx11Ei.exit: ; preds = %97
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter15parseActivationERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter15parseActivationERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"struct.cv::dnn::dnn4_v20240521::(anonymous namespace)::Pin", align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 160
@@ -34521,7 +34521,7 @@ _ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter17connectToAllBlobsERKSt3map
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter15parseExpandDimsERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter15parseExpandDimsERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -35422,7 +35422,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit148:                 ; preds = %304, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter11parseSquareERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter11parseSquareERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -35529,7 +35529,7 @@ define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter11pars
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter8parseArgERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter8parseArgERN17opencv_tensorflow8GraphDefERKNS4_7NodeDefERNS1_11LayerParamsE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(136) %3) #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -35879,7 +35879,7 @@ define linkonce_odr hidden noundef i32 @_ZNK17opencv_tensorflow7NodeDef10input_s
 declare void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_113getNextLayersERKN17opencv_tensorflow8GraphDefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_113getNextLayersERKN17opencv_tensorflow8GraphDefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"struct.cv::dnn::dnn4_v20240521::(anonymous namespace)::Pin", align 8
   %7 = alloca %"struct.std::pair.73", align 8
@@ -36163,7 +36163,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(224) ptr @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter12getConstBlobERKN17opencv_tensorflow7NodeDefESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessISE_ESaISt4pairIKSE_iEEEiPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(544) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef writeonly %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(224) ptr @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter12getConstBlobERKN17opencv_tensorflow7NodeDefESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessISE_ESaISt4pairIKSE_iEEEiPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(544) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef writeonly %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.cv::dnn::dnn4_v20240521::(anonymous namespace)::Pin", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
@@ -37440,7 +37440,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter7connectERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessISA_ESaISt4pairIKSA_iEEERNS1_3NetERKNS2_3PinEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(544) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef %4, i32 noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter7connectERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessISA_ESaISt4pairIKSA_iEEERNS1_3NetERKNS2_3PinEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(544) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef %4, i32 noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -38708,7 +38708,7 @@ _ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_111parseTensorIdEEvRKN17opencv_tensorflow
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_112ExcludeLayerERN17opencv_tensorflow8GraphDefEiib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_112ExcludeLayerERN17opencv_tensorflow8GraphDefEiib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::vector.55", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -40568,7 +40568,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -40763,7 +40763,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
           to label %9 unwind label %13
 
 9:                                                ; preds = %3
-  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %6)
+  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, i64 noundef %6)
           to label %11 unwind label %13
 
 11:                                               ; preds = %9
@@ -40855,7 +40855,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(pt
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
@@ -41912,10 +41912,10 @@ _ZNK2cv3dnn14dnn4_v202405219DictValue4sizeEv.exit29: ; preds = %26, %26, %26
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @modf(double noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare double @modf(double noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @_ZN2cv3Mat6createERKSt6vectorIiSaIiEEi(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
 
@@ -43399,7 +43399,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 declare noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -44925,7 +44925,7 @@ define internal fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110setPadMod
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_118getExplicitPaddingERNS1_11LayerParamsERKN17opencv_tensorflow7NodeDefERA8_l(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr nocapture noundef nonnull align 8 dereferenceable(64) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_118getExplicitPaddingERNS1_11LayerParamsERKN17opencv_tensorflow7NodeDefERA8_l(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(64) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -46835,7 +46835,7 @@ define linkonce_odr hidden void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 
 declare void @_ZN2cv3MatC1ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter15addPermuteLayerEPKiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_3PinEi(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef range(i32 3, 6) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter15addPermuteLayerEPKiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS2_3PinEi(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(36) %3, i32 noundef range(i32 3, 6) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cv::dnn::dnn4_v20240521::LayerParams", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
@@ -50916,7 +50916,7 @@ declare void @_ZN2cv3dnn14dnn4_v2024052119removePhaseSwitchesERN17opencv_tensorf
 declare void @_ZN2cv3dnn14dnn4_v2024052117simplifySubgraphsERN17opencv_tensorflow8GraphDefE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_113addConstNodesERN17opencv_tensorflow8GraphDefERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessISC_ESaISt4pairIKSC_iEEERSt3setISC_SE_SaISC_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_113addConstNodesERN17opencv_tensorflow8GraphDefERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessISC_ESaISt4pairIKSC_iEEERSt3setISC_SE_SaISC_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::pair", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -52393,7 +52393,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_
 declare noundef zeroext i1 @_ZN2cv7details23restoreFPDenormalsStateERKNS0_20FPDenormalsModeStateE(ptr noundef nonnull align 4 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv3dnn14dnn4_v202405216detail7readNetINS1_12_GLOBAL__N_110TFImporterEJRPKcRmS8_S9_EEENS1_3NetEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3dnn14dnn4_v202405216detail7readNetINS1_12_GLOBAL__N_110TFImporterEJRPKcRmS8_S9_EEENS1_3NetEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -52778,13 +52778,13 @@ declare void @llvm.assume(i1 noundef) #21
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #25

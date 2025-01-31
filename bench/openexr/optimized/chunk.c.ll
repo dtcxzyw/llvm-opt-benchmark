@@ -454,7 +454,7 @@ return:                                           ; preds = %if.end268, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extract_chunk_table(ptr noundef nonnull %ctxt, ptr noundef %part, ptr nocapture noundef nonnull writeonly %chunktable, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %chunkminoffset) unnamed_addr #0 {
+define internal fastcc i32 @extract_chunk_table(ptr noundef nonnull %ctxt, ptr noundef %part, ptr noundef nonnull writeonly captures(none) %chunktable, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %chunkminoffset) unnamed_addr #0 {
 entry:
   %chunkoff = alloca i64, align 8
   %nread = alloca i64, align 8
@@ -610,7 +610,7 @@ return:                                           ; preds = %if.end73, %if.then5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i64 @compute_chunk_unpack_size(i32 noundef %y, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 -32768, 32768) %lpc, ptr nocapture noundef readonly %part) unnamed_addr #1 {
+define internal fastcc i64 @compute_chunk_unpack_size(i32 noundef %y, i32 noundef %width, i32 noundef %height, i32 noundef range(i32 -32768, 32768) %lpc, ptr noundef readonly captures(none) %part) unnamed_addr #1 {
 entry:
   %chan_has_line_sampling = getelementptr inbounds nuw i8, ptr %part, i64 242
   %0 = load i16, ptr %chan_has_line_sampling, align 2
@@ -942,7 +942,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body, %if.end77
   %unpacksize.0.lcssa = phi i64 [ 0, %if.end77 ], [ %add89, %for.body ]
-  %call90 = call fastcc i32 @extract_chunk_table(ptr noundef %ctxt, ptr noundef %5, ptr noundef %ctable, ptr noundef %chunkmin)
+  %call90 = call fastcc i32 @extract_chunk_table(ptr noundef %ctxt, ptr noundef nonnull %5, ptr noundef %ctable, ptr noundef %chunkmin)
   %cmp91.not = icmp eq i32 %call90, 0
   br i1 %cmp91.not, label %if.end94, label %return
 
@@ -1229,7 +1229,7 @@ return:                                           ; preds = %if.end321, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @validate_and_compute_tile_chunk_off(ptr noundef %ctxt, ptr nocapture noundef readonly %part, i32 noundef %tilex, i32 noundef %tiley, i32 noundef %levelx, i32 noundef %levely, ptr nocapture noundef nonnull writeonly %chunkoffout) unnamed_addr #0 {
+define internal fastcc i32 @validate_and_compute_tile_chunk_off(ptr noundef %ctxt, ptr noundef readonly captures(none) %part, i32 noundef %tilex, i32 noundef %tiley, i32 noundef %levelx, i32 noundef %levely, ptr noundef nonnull writeonly captures(none) %chunkoffout) unnamed_addr #0 {
 entry:
   %tiles = getelementptr inbounds nuw i8, ptr %part, i64 96
   %0 = load ptr, ptr %tiles, align 8
@@ -1629,7 +1629,7 @@ return:                                           ; preds = %if.then78, %land.lh
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_read_deep_chunk(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef readonly %cinfo, ptr noundef %packed_data, ptr noundef %sample_data) local_unnamed_addr #0 {
@@ -2282,7 +2282,7 @@ return:                                           ; preds = %entry, %if.end7, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @write_scan_chunk(ptr noundef nonnull %pctxt, i32 noundef range(i32 0, -2147483648) %part_index, ptr nocapture noundef %part, i32 noundef %y, ptr noundef %packed_data, i64 noundef %packed_size, i64 noundef %unpacked_size, ptr noundef %sample_data, i64 noundef %sample_data_size) unnamed_addr #0 {
+define internal fastcc i32 @write_scan_chunk(ptr noundef nonnull %pctxt, i32 noundef range(i32 0, -2147483648) %part_index, ptr noundef captures(none) %part, i32 noundef %y, ptr noundef %packed_data, i64 noundef %packed_size, i64 noundef %unpacked_size, ptr noundef %sample_data, i64 noundef %sample_data_size) unnamed_addr #0 {
 entry:
   %data = alloca [3 x i32], align 4
   %ctable = alloca ptr, align 8
@@ -2681,7 +2681,7 @@ return:                                           ; preds = %entry, %if.end7, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @write_tile_chunk(ptr noundef nonnull %pctxt, i32 noundef range(i32 0, -2147483648) %part_index, ptr nocapture noundef %part, i32 noundef %tilex, i32 noundef %tiley, i32 noundef %levelx, i32 noundef %levely, ptr noundef %packed_data, i64 noundef %packed_size, i64 noundef %unpacked_size, ptr noundef %sample_data, i64 noundef %sample_data_size) unnamed_addr #0 {
+define internal fastcc i32 @write_tile_chunk(ptr noundef nonnull %pctxt, i32 noundef range(i32 0, -2147483648) %part_index, ptr noundef captures(none) %part, i32 noundef %tilex, i32 noundef %tiley, i32 noundef %levelx, i32 noundef %levely, ptr noundef %packed_data, i64 noundef %packed_size, i64 noundef %unpacked_size, ptr noundef %sample_data, i64 noundef %sample_data_size) unnamed_addr #0 {
 entry:
   %data = alloca [6 x i32], align 16
   %cidx = alloca i32, align 4
@@ -3001,7 +3001,7 @@ return:                                           ; preds = %entry, %if.end7, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @internal_validate_next_chunk(ptr nocapture noundef readonly %encode, ptr noundef %pctxt, ptr nocapture noundef readonly %part) local_unnamed_addr #0 {
+define hidden i32 @internal_validate_next_chunk(ptr noundef readonly captures(none) %encode, ptr noundef %pctxt, ptr noundef readonly captures(none) %part) local_unnamed_addr #0 {
 entry:
   %cidx = alloca i32, align 4
   %cur_output_part = getelementptr inbounds nuw i8, ptr %pctxt, i64 184
@@ -3103,7 +3103,7 @@ return:                                           ; preds = %if.end17, %if.else3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @reconstruct_chunk_table(ptr noundef nonnull %ctxt, ptr noundef readonly %part, ptr nocapture noundef nonnull %chunktable) unnamed_addr #0 {
+define internal fastcc i32 @reconstruct_chunk_table(ptr noundef nonnull %ctxt, ptr noundef readonly %part, ptr noundef nonnull captures(none) %chunktable) unnamed_addr #0 {
 entry:
   %leader.i49 = alloca %struct.priv_chunk_leader, align 8
   %cidx.i = alloca i32, align 4
@@ -3319,7 +3319,7 @@ return:                                           ; preds = %read_and_validate_c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extract_chunk_leader(ptr noundef nonnull %ctxt, ptr nocapture noundef readonly %part, i32 noundef %partnum, i64 noundef %offset, ptr nocapture noundef nonnull writeonly %next_offset, ptr noundef nonnull %leaderdata) unnamed_addr #0 {
+define internal fastcc i32 @extract_chunk_leader(ptr noundef nonnull %ctxt, ptr noundef readonly captures(none) %part, i32 noundef %partnum, i64 noundef %offset, ptr noundef nonnull writeonly captures(none) %next_offset, ptr noundef nonnull %leaderdata) unnamed_addr #0 {
 entry:
   %data = alloca [6 x i32], align 16
   %nextoffset = alloca i64, align 8
@@ -3489,7 +3489,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #3
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @alloc_chunk_table(ptr noundef nonnull %ctxt, ptr nocapture noundef %part, ptr nocapture noundef nonnull writeonly %chunktable) unnamed_addr #0 {
+define internal fastcc i32 @alloc_chunk_table(ptr noundef nonnull %ctxt, ptr noundef captures(none) %part, ptr noundef nonnull writeonly captures(none) %chunktable) unnamed_addr #0 {
 entry:
   %chunk_table = getelementptr inbounds nuw i8, ptr %part, i64 256
   %0 = load atomic i64, ptr %chunk_table seq_cst, align 8
@@ -3540,10 +3540,10 @@ return:                                           ; preds = %if.end14, %if.then3
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #5

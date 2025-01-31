@@ -72,7 +72,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.nghttp2_http2_strerror = private unnamed_addr constant [14 x ptr] [ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr @.str.52, ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.57], align 8
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @nghttp2_put_uint16be(ptr nocapture noundef writeonly initializes((0, 2)) %buf, i16 noundef zeroext %n) local_unnamed_addr #0 {
+define hidden void @nghttp2_put_uint16be(ptr noundef writeonly captures(none) initializes((0, 2)) %buf, i16 noundef zeroext %n) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i16 @htons(i16 noundef zeroext %n) #11
   store i16 %call, ptr %buf, align 1
@@ -83,10 +83,10 @@ entry:
 declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @nghttp2_put_uint32be(ptr nocapture noundef writeonly initializes((0, 4)) %buf, i32 noundef %n) local_unnamed_addr #0 {
+define hidden void @nghttp2_put_uint32be(ptr noundef writeonly captures(none) initializes((0, 4)) %buf, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @htonl(i32 noundef %n) #11
   store i32 %call, ptr %buf, align 1
@@ -97,7 +97,7 @@ entry:
 declare i32 @htonl(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden zeroext i16 @nghttp2_get_uint16(ptr nocapture noundef readonly %data) local_unnamed_addr #3 {
+define hidden zeroext i16 @nghttp2_get_uint16(ptr noundef readonly captures(none) %data) local_unnamed_addr #3 {
 entry:
   %n.0.copyload = load i16, ptr %data, align 1
   %call = tail call zeroext i16 @ntohs(i16 noundef zeroext %n.0.copyload) #11
@@ -108,7 +108,7 @@ entry:
 declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @nghttp2_get_uint32(ptr nocapture noundef readonly %data) local_unnamed_addr #3 {
+define hidden i32 @nghttp2_get_uint32(ptr noundef readonly captures(none) %data) local_unnamed_addr #3 {
 entry:
   %n.0.copyload = load i32, ptr %data, align 1
   %call = tail call i32 @ntohl(i32 noundef %n.0.copyload) #11
@@ -119,7 +119,7 @@ entry:
 declare i32 @ntohl(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @nghttp2_downcase(ptr nocapture noundef %s, i64 noundef %len) local_unnamed_addr #4 {
+define hidden void @nghttp2_downcase(ptr noundef captures(none) %s, i64 noundef %len) local_unnamed_addr #4 {
 entry:
   %cmp5.not = icmp eq i64 %len, 0
   br i1 %cmp5.not, label %for.end, label %for.body
@@ -141,7 +141,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -524, 1) i32 @nghttp2_adjust_local_window_size(ptr nocapture noundef %local_window_size_ptr, ptr nocapture noundef %recv_window_size_ptr, ptr nocapture noundef %recv_reduction_ptr, ptr nocapture noundef %delta_ptr) local_unnamed_addr #5 {
+define hidden range(i32 -524, 1) i32 @nghttp2_adjust_local_window_size(ptr noundef captures(none) %local_window_size_ptr, ptr noundef captures(none) %recv_window_size_ptr, ptr noundef captures(none) %recv_reduction_ptr, ptr noundef captures(none) %delta_ptr) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %delta_ptr, align 4
   %cmp = icmp sgt i32 %0, 0
@@ -218,7 +218,7 @@ return:                                           ; preds = %if.end20, %lor.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -524, 1) i32 @nghttp2_increase_local_window_size(ptr nocapture noundef %local_window_size_ptr, ptr nocapture noundef %recv_window_size_ptr, ptr nocapture noundef %recv_reduction_ptr, ptr nocapture noundef %delta_ptr) local_unnamed_addr #6 {
+define hidden range(i32 -524, 1) i32 @nghttp2_increase_local_window_size(ptr noundef captures(none) %local_window_size_ptr, ptr noundef captures(none) %recv_window_size_ptr, ptr noundef captures(none) %recv_reduction_ptr, ptr noundef captures(none) %delta_ptr) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %delta_ptr, align 4
   %cmp = icmp sgt i32 %0, -1
@@ -643,7 +643,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden ptr @nghttp2_cpymem(ptr noundef writeonly %dest, ptr nocapture noundef readonly %src, i64 noundef %len) local_unnamed_addr #5 {
+define hidden ptr @nghttp2_cpymem(ptr noundef writeonly %dest, ptr noundef readonly captures(none) %src, i64 noundef %len) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %return, label %if.end

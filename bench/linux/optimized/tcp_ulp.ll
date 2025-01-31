@@ -64,7 +64,7 @@ define dso_local noundef range(i32 -17, 1) i32 @tcp_register_ulp(ptr noundef %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_unregister_ulp(ptr nocapture noundef %0) #0 align 16 {
+define dso_local void @tcp_unregister_ulp(ptr noundef captures(none) %0) #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @tcp_ulp_list_lock) #4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -82,7 +82,7 @@ define dso_local void @tcp_unregister_ulp(ptr nocapture noundef %0) #0 align 16 
 declare dso_local void @synchronize_rcu() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_get_available_ulp(ptr nocapture noundef writeonly initializes((0, 1)) %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @tcp_get_available_ulp(ptr noundef writeonly captures(none) initializes((0, 1)) %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   store i8 0, ptr %0, align 1
   tail call void @__rcu_read_lock() #4
   br label %3
@@ -118,7 +118,7 @@ define dso_local void @tcp_get_available_ulp(ptr nocapture noundef writeonly ini
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @tcp_update_ulp(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
@@ -284,7 +284,7 @@ define dso_local i32 @tcp_set_ulp(ptr noundef %0, ptr noundef %1) local_unnamed_
 declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"

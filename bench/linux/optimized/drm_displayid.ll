@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [53 x i8] c"\015[drm] DisplayID checksum invalid, remainder is %d\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @displayid_iter_edid_begin(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) local_unnamed_addr #0 align 16 {
+define dso_local void @displayid_iter_edid_begin(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 32)) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   store ptr %0, ptr %1, align 8
@@ -16,7 +16,7 @@ define dso_local void @displayid_iter_edid_begin(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @__displayid_iter_next(ptr noundef %0) local_unnamed_addr #2 align 16 {
@@ -207,20 +207,20 @@ define dso_local ptr @__displayid_iter_next(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @displayid_iter_end(ptr nocapture noundef writeonly initializes((0, 32)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @displayid_iter_end(ptr noundef writeonly captures(none) initializes((0, 32)) %0) local_unnamed_addr #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i8 @displayid_version(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local zeroext i8 @displayid_version(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i8, ptr %2, align 4
   ret i8 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i8 @displayid_primary_use(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local zeroext i8 @displayid_primary_use(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 29
   %3 = load i8, ptr %2, align 1
   ret i8 %3

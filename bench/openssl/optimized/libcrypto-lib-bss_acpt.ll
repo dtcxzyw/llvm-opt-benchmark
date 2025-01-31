@@ -130,7 +130,7 @@ while.body.i:                                     ; preds = %while.cond.i
   br i1 %cmp1.i, label %acpt_write.exit, label %while.cond.i, !llvm.loop !4
 
 while.end.i:                                      ; preds = %while.cond.i
-  %call3.i = tail call i32 @BIO_write(ptr noundef nonnull %1, ptr noundef %str, i32 noundef %conv) #6
+  %call3.i = tail call i32 @BIO_write(ptr noundef nonnull %1, ptr noundef nonnull %str, i32 noundef %conv) #6
   tail call void @BIO_copy_next_retry(ptr noundef nonnull %bp) #6
   br label %acpt_write.exit
 
@@ -459,7 +459,7 @@ sw.epilog169:                                     ; preds = %sw.bb160, %sw.bb97,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @acpt_new(ptr nocapture noundef writeonly initializes((40, 44), (48, 52), (56, 60)) %bi) #1 {
+define internal range(i32 0, 2) i32 @acpt_new(ptr noundef writeonly captures(none) initializes((40, 44), (48, 52), (56, 60)) %bi) #1 {
 entry:
   %init = getelementptr inbounds nuw i8, ptr %bi, i64 40
   store i32 0, ptr %init, align 8
@@ -919,7 +919,7 @@ declare ptr @BIO_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @BIO_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @BIO_ADDRINFO_free(ptr noundef) local_unnamed_addr #2
 

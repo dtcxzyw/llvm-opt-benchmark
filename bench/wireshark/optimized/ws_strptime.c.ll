@@ -80,7 +80,7 @@ define ptr @ws_strptime_p(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
 declare ptr @strptime(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ws_strptime(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @ws_strptime(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
@@ -271,7 +271,7 @@ define ptr @ws_strptime(ptr noundef %0, ptr nocapture noundef readonly %1, ptr n
   %.119.i = phi ptr [ %.01523.i, %.preheader.i ], [ %63, %61 ]
   %55 = load ptr, ptr %.119.i, align 8
   %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #5
-  %57 = call i32 @g_ascii_strncasecmp(ptr noundef %55, ptr noundef nonnull %.0277878, i64 noundef %56) #4
+  %57 = call i32 @g_ascii_strncasecmp(ptr noundef nonnull %55, ptr noundef nonnull %.0277878, i64 noundef %56) #4
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %59, label %61
 
@@ -318,7 +318,7 @@ select.unfold.backedge:                           ; preds = %.preheader621, %.pr
   %.119.i395 = phi ptr [ %.01523.i392, %.preheader.i391 ], [ %75, %73 ]
   %67 = load ptr, ptr %.119.i395, align 8
   %68 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #5
-  %69 = call i32 @g_ascii_strncasecmp(ptr noundef %67, ptr noundef nonnull %.0277878, i64 noundef %68) #4
+  %69 = call i32 @g_ascii_strncasecmp(ptr noundef nonnull %67, ptr noundef nonnull %.0277878, i64 noundef %68) #4
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %73
 
@@ -704,7 +704,7 @@ conv_num.exit473:                                 ; preds = %209, %.critedge.i47
   %.119.i478 = phi ptr [ %239, %237 ], [ @cloc_am_pm, %.preheader615 ]
   %231 = load ptr, ptr %.119.i478, align 8
   %232 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %231) #5
-  %233 = call i32 @g_ascii_strncasecmp(ptr noundef %231, ptr noundef nonnull %.0277878, i64 noundef %232) #4
+  %233 = call i32 @g_ascii_strncasecmp(ptr noundef nonnull %231, ptr noundef nonnull %.0277878, i64 noundef %232) #4
   %234 = icmp eq i32 %233, 0
   br i1 %234, label %235, label %237
 
@@ -1746,7 +1746,7 @@ first_wday_of.exit587:                            ; preds = %695, %702, %703
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @find_string(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2, ptr noundef readonly %3, i32 noundef range(i32 2, 13) %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @find_string(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3, i32 noundef range(i32 2, 13) %4) unnamed_addr #0 {
   %.not21 = icmp eq ptr %2, null
   br i1 %.not21, label %.loopexit17, label %.preheader
 
@@ -1764,7 +1764,7 @@ define internal fastcc noundef ptr @find_string(ptr noundef %0, ptr nocapture no
   %.119 = phi ptr [ %.01523, %.preheader ], [ %15, %13 ]
   %7 = load ptr, ptr %.119, align 8
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #5
-  %9 = tail call i32 @g_ascii_strncasecmp(ptr noundef %7, ptr noundef %0, i64 noundef %8) #4
+  %9 = tail call i32 @g_ascii_strncasecmp(ptr noundef nonnull %7, ptr noundef %0, i64 noundef %8) #4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %13
 
@@ -1792,7 +1792,7 @@ declare ptr @ws_localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @tzset() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @g_ascii_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 

@@ -32,7 +32,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_check_early_ioremap_leak421, ptr @__setup_early_ioremap_debug_setup], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @early_ioremap_debug_setup(ptr nocapture readnone %0) #0 section ".init.text" align 16 {
+define internal noundef i32 @early_ioremap_debug_setup(ptr readnone captures(none) %0) #0 section ".init.text" align 16 {
   store i1 true, ptr @early_ioremap_debug, align 4
   ret i32 0
 }
@@ -43,7 +43,7 @@ define weak dso_local i64 @early_memremap_pgprot_adjust(i64 noundef %0, i64 noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
 define dso_local void @early_ioremap_reset() local_unnamed_addr #0 section ".init.text" align 16 {
@@ -410,7 +410,7 @@ define dso_local ptr @early_memremap_prot(i64 noundef %0, i64 noundef %1, i64 no
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local void @copy_from_early_mem(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 section ".init.text" align 16 {
+define dso_local void @copy_from_early_mem(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 section ".init.text" align 16 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.loopexit, label %.preheader
 

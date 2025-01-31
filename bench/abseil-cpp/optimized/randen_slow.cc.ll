@@ -18,7 +18,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl15random_internal10RandenSlow6AbsorbEPKvPv(ptr nocapture noundef readonly %seed_void, ptr nocapture noundef %state_void) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4absl15random_internal10RandenSlow6AbsorbEPKvPv(ptr noundef readonly captures(none) %seed_void, ptr noundef captures(none) %state_void) local_unnamed_addr #1 align 2 {
 entry:
   %invariant.gep = getelementptr i8, ptr %seed_void, i64 -16
   br label %for.body
@@ -40,7 +40,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr nocapture noundef readonly %keys_void, ptr nocapture noundef %state_void) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef readonly captures(none) %keys_void, ptr noundef captures(none) %state_void) local_unnamed_addr #1 align 2 {
 entry:
   %v6.i = alloca %"class.absl::uint128", align 16
   %v7.i = alloca %"class.absl::uint128", align 16
@@ -528,7 +528,7 @@ _ZN12_GLOBAL__N_17PermuteEPN4absl7uint128EPKS1_.exit: ; preds = %_ZN12_GLOBAL__N
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

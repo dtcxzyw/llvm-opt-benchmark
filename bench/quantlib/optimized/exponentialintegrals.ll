@@ -67,13 +67,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef double @_ZN8QuantLib28exponential_integrals_helper1gEd(double noundef %x) local_unnamed_addr #0 {
@@ -585,7 +585,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare double @log(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZN8QuantLib19ExponentialIntegral2EiERKSt7complexIdES4_(ptr noundef nonnull align 8 dereferenceable(16) %z, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %acc) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define { double, double } @_ZN8QuantLib19ExponentialIntegral2EiERKSt7complexIdES4_(ptr noundef nonnull align 8 dereferenceable(16) %z, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %acc) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1417,7 +1417,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIdcSt11char_traits
 declare double @llvm.floor.f64(double) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define { double, double } @_ZN8QuantLib19ExponentialIntegral2EiERKSt7complexIdE(ptr noundef nonnull align 8 dereferenceable(16) %z) local_unnamed_addr #5 {
@@ -1431,7 +1431,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZN8QuantLib19ExponentialIntegral2E1ERKSt7complexIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %z) local_unnamed_addr #5 {
+define { double, double } @_ZN8QuantLib19ExponentialIntegral2E1ERKSt7complexIdE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %z) local_unnamed_addr #5 {
 entry:
   %ref.tmp.i = alloca %"class.std::complex", align 8
   %ref.tmp1 = alloca %"class.std::complex", align 8
@@ -1899,7 +1899,7 @@ unreachable:                                      ; preds = %invoke.cont47
 }
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZN8QuantLib19ExponentialIntegral2CiERKSt7complexIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %z) local_unnamed_addr #5 {
+define { double, double } @_ZN8QuantLib19ExponentialIntegral2CiERKSt7complexIdE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %z) local_unnamed_addr #5 {
 entry:
   %ref.tmp13 = alloca %"class.std::complex", align 8
   %ref.tmp21 = alloca %"class.std::complex", align 8
@@ -2016,7 +2016,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #14
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
 
@@ -2039,7 +2039,7 @@ declare { double, double } @clog(double noundef, double noundef) local_unnamed_a
 declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.copysign.f64(double, double) #20

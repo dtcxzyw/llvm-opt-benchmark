@@ -14,14 +14,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [17 x i8] c"0123456789abcdef\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @curl_escape(ptr nocapture noundef readonly %string, i32 noundef %inlength) local_unnamed_addr #0 {
+define ptr @curl_escape(ptr noundef readonly captures(none) %string, i32 noundef %inlength) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @curl_easy_escape(ptr poison, ptr noundef %string, i32 noundef %inlength)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @curl_easy_escape(ptr nocapture readnone %data, ptr nocapture noundef readonly %string, i32 noundef %inlength) local_unnamed_addr #0 {
+define ptr @curl_easy_escape(ptr readnone captures(none) %data, ptr noundef readonly captures(none) %string, i32 noundef %inlength) local_unnamed_addr #0 {
 entry:
   %d = alloca %struct.dynbuf, align 8
   %in = alloca i8, align 1
@@ -113,7 +113,7 @@ return:                                           ; preds = %if.else, %if.then43
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @curl_unescape(ptr nocapture noundef readonly %string, i32 noundef %length) local_unnamed_addr #0 {
+define ptr @curl_unescape(ptr noundef readonly captures(none) %string, i32 noundef %length) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp sgt i32 %length, -1
   br i1 %cmp.i, label %if.then.i, label %curl_easy_unescape.exit
@@ -232,7 +232,7 @@ curl_easy_unescape.exit:                          ; preds = %entry, %cond.end.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @curl_easy_unescape(ptr nocapture noundef readnone %data, ptr nocapture noundef readonly %string, i32 noundef %length, ptr noundef writeonly %olen) local_unnamed_addr #0 {
+define ptr @curl_easy_unescape(ptr noundef readnone captures(none) %data, ptr noundef readonly captures(none) %string, i32 noundef %length, ptr noundef writeonly %olen) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %length, -1
   br i1 %cmp, label %if.then, label %return
@@ -371,14 +371,14 @@ return:                                           ; preds = %entry, %if.then6, %
 declare void @Curl_dyn_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @Curl_dyn_addn(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare ptr @Curl_dyn_ptr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 28) i32 @Curl_urldecode(ptr nocapture noundef readonly %string, i64 noundef %length, ptr nocapture noundef %ostring, ptr noundef writeonly %olen, i32 noundef %ctrl) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_urldecode(ptr noundef readonly captures(none) %string, i64 noundef %length, ptr noundef captures(none) %ostring, ptr noundef writeonly %olen, i32 noundef %ctrl) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i64 %length, 0
   br i1 %tobool.not, label %cond.false, label %cond.end
@@ -697,7 +697,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @Curl_hexencode(ptr noundef readonly %src, i64 noundef %len, ptr nocapture noundef writeonly %out, i64 noundef %olen) local_unnamed_addr #3 {
+define hidden void @Curl_hexencode(ptr noundef readonly %src, i64 noundef %len, ptr noundef writeonly captures(none) %out, i64 noundef %olen) local_unnamed_addr #3 {
 entry:
   %tobool = icmp ne ptr %src, null
   %tobool1 = icmp ne i64 %len, 0

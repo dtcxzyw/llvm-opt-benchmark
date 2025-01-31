@@ -50,7 +50,7 @@ define void @textDestroy(ptr noundef %0) local_unnamed_addr #0 {
 declare ptr @lineUnlink(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -411,7 +411,7 @@ textIterate.exit:                                 ; preds = %getLength.exit
 27:                                               ; preds = %.preheader18.i
   %28 = tail call ptr @lineGetData(ptr noundef nonnull %26) #7
   %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #10
-  %30 = tail call i32 @blobAddData(ptr noundef nonnull %.018, ptr noundef %28, i64 noundef %29) #7
+  %30 = tail call i32 @blobAddData(ptr noundef nonnull %.018, ptr noundef nonnull %28, i64 noundef %29) #7
   br label %addToBlob.exit33
 
 addToBlob.exit33:                                 ; preds = %.preheader18.i, %27
@@ -440,7 +440,7 @@ addToBlob.exit33:                                 ; preds = %.preheader18.i, %27
 39:                                               ; preds = %.preheader.i25
   %40 = tail call ptr @lineGetData(ptr noundef nonnull %38) #7
   %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #10
-  %42 = tail call i32 @blobAddData(ptr noundef nonnull %.018, ptr noundef %40, i64 noundef %41) #7
+  %42 = tail call i32 @blobAddData(ptr noundef nonnull %.018, ptr noundef nonnull %40, i64 noundef %41) #7
   br label %addToBlob.exit
 
 addToBlob.exit:                                   ; preds = %.preheader.i25, %39
@@ -533,7 +533,7 @@ define nonnull ptr @textToFileblob(ptr noundef %0, ptr noundef returned %1, i32 
 11:                                               ; preds = %.preheader18.i
   %12 = tail call ptr @lineGetData(ptr noundef nonnull %10) #7
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #10
-  %14 = tail call i32 @fileblobAddData(ptr noundef nonnull %1, ptr noundef %12, i64 noundef %13) #7
+  %14 = tail call i32 @fileblobAddData(ptr noundef nonnull %1, ptr noundef nonnull %12, i64 noundef %13) #7
   br label %addToFileblob.exit27
 
 addToFileblob.exit27:                             ; preds = %.preheader18.i, %11
@@ -562,7 +562,7 @@ addToFileblob.exit27:                             ; preds = %.preheader18.i, %11
 23:                                               ; preds = %.preheader.i
   %24 = tail call ptr @lineGetData(ptr noundef nonnull %22) #7
   %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #10
-  %26 = tail call i32 @fileblobAddData(ptr noundef nonnull %1, ptr noundef %24, i64 noundef %25) #7
+  %26 = tail call i32 @fileblobAddData(ptr noundef nonnull %1, ptr noundef nonnull %24, i64 noundef %25) #7
   br label %addToFileblob.exit
 
 addToFileblob.exit:                               ; preds = %.preheader.i, %23
@@ -613,7 +613,7 @@ declare ptr @fileblobGetFilename(ptr noundef) local_unnamed_addr #1
 declare ptr @lineLink(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @lineGetData(ptr noundef) local_unnamed_addr #1
 
@@ -622,7 +622,7 @@ declare i32 @blobAddData(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare i32 @fileblobAddData(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

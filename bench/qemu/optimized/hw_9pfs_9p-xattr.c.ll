@@ -32,7 +32,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %h.addr.0.i = getelementptr i8, ptr %xops.0.in.i, i64 8
   %1 = load ptr, ptr %xops.0.i, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
-  %call3.i = tail call i32 @strncmp(ptr noundef readonly %name, ptr noundef %1, i64 noundef %call.i) #9
+  %call3.i = tail call i32 @strncmp(ptr noundef readonly %name, ptr noundef nonnull %1, i64 noundef %call.i) #9
   %tobool.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i, label %if.then, label %for.cond.i, !llvm.loop !5
 
@@ -56,7 +56,7 @@ return:                                           ; preds = %if.end, %if.then
 declare ptr @__errno_location() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @pt_listxattr(ptr nocapture noundef readnone %ctx, ptr nocapture noundef readnone %path, ptr nocapture noundef readonly %name, ptr noundef writeonly %value, i64 noundef %size) local_unnamed_addr #2 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @pt_listxattr(ptr noundef readnone captures(none) %ctx, ptr noundef readnone captures(none) %path, ptr noundef readonly captures(none) %name, ptr noundef writeonly %value, i64 noundef %size) local_unnamed_addr #2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #9
   %tobool.not = icmp eq ptr %value, null
@@ -75,7 +75,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %value, ptr align 1 %name, i64 %conv1, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %value, ptr nonnull align 1 %name, i64 %conv1, i1 false)
   br label %return
 
 return:                                           ; preds = %entry, %if.end6, %if.then4
@@ -84,10 +84,10 @@ return:                                           ; preds = %entry, %if.end6, %i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @v9fs_list_xattr(ptr noundef %ctx, ptr noundef %path, ptr noundef %value, i64 noundef %vsize) local_unnamed_addr #0 {
@@ -154,7 +154,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %h.addr.0.i = getelementptr i8, ptr %xops.0.in.i, i64 8
   %3 = load ptr, ptr %xops.0.i, align 8
   %call.i46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #9
-  %call3.i = tail call i32 @strncmp(ptr noundef readonly %orig_value.051, ptr noundef %3, i64 noundef %call.i46) #9
+  %call3.i = tail call i32 @strncmp(ptr noundef readonly %orig_value.051, ptr noundef nonnull %3, i64 noundef %call.i46) #9
   %tobool.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i, label %if.end16, label %for.cond.i, !llvm.loop !5
 
@@ -242,7 +242,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %h.addr.0.i = getelementptr i8, ptr %xops.0.in.i, i64 8
   %1 = load ptr, ptr %xops.0.i, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
-  %call3.i = tail call i32 @strncmp(ptr noundef readonly %name, ptr noundef %1, i64 noundef %call.i) #9
+  %call3.i = tail call i32 @strncmp(ptr noundef readonly %name, ptr noundef nonnull %1, i64 noundef %call.i) #9
   %tobool.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i, label %if.then, label %for.cond.i, !llvm.loop !5
 
@@ -279,7 +279,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %h.addr.0.i = getelementptr i8, ptr %xops.0.in.i, i64 8
   %1 = load ptr, ptr %xops.0.i, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
-  %call3.i = tail call i32 @strncmp(ptr noundef readonly %name, ptr noundef %1, i64 noundef %call.i) #9
+  %call3.i = tail call i32 @strncmp(ptr noundef readonly %name, ptr noundef nonnull %1, i64 noundef %call.i) #9
   %tobool.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i, label %if.then, label %for.cond.i, !llvm.loop !5
 
@@ -402,7 +402,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @notsup_getxattr(ptr nocapture noundef readnone %ctx, ptr nocapture noundef readnone %path, ptr nocapture noundef readnone %name, ptr nocapture noundef readnone %value, i64 noundef %size) local_unnamed_addr #7 {
+define dso_local noundef i64 @notsup_getxattr(ptr noundef readnone captures(none) %ctx, ptr noundef readnone captures(none) %path, ptr noundef readnone captures(none) %name, ptr noundef readnone captures(none) %value, i64 noundef %size) local_unnamed_addr #7 {
 entry:
   %call = tail call ptr @__errno_location() #11
   store i32 95, ptr %call, align 4
@@ -410,7 +410,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @notsup_setxattr(ptr nocapture noundef readnone %ctx, ptr nocapture noundef readnone %path, ptr nocapture noundef readnone %name, ptr nocapture noundef readnone %value, i64 noundef %size, i32 noundef %flags) local_unnamed_addr #7 {
+define dso_local noundef i32 @notsup_setxattr(ptr noundef readnone captures(none) %ctx, ptr noundef readnone captures(none) %path, ptr noundef readnone captures(none) %name, ptr noundef readnone captures(none) %value, i64 noundef %size, i32 noundef %flags) local_unnamed_addr #7 {
 entry:
   %call = tail call ptr @__errno_location() #11
   store i32 95, ptr %call, align 4
@@ -418,13 +418,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i64 @notsup_listxattr(ptr nocapture noundef readnone %ctx, ptr nocapture noundef readnone %path, ptr nocapture noundef readnone %name, ptr nocapture noundef readnone %value, i64 noundef %size) local_unnamed_addr #8 {
+define dso_local noundef i64 @notsup_listxattr(ptr noundef readnone captures(none) %ctx, ptr noundef readnone captures(none) %path, ptr noundef readnone captures(none) %name, ptr noundef readnone captures(none) %value, i64 noundef %size) local_unnamed_addr #8 {
 entry:
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(write, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @notsup_removexattr(ptr nocapture noundef readnone %ctx, ptr nocapture noundef readnone %path, ptr nocapture noundef readnone %name) local_unnamed_addr #7 {
+define dso_local noundef i32 @notsup_removexattr(ptr noundef readnone captures(none) %ctx, ptr noundef readnone captures(none) %path, ptr noundef readnone captures(none) %name) local_unnamed_addr #7 {
 entry:
   %call = tail call ptr @__errno_location() #11
   store i32 95, ptr %call, align 4
@@ -432,7 +432,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare i32 @close(i32 noundef) local_unnamed_addr #5
 

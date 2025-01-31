@@ -40,7 +40,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = co
 @_ZN11ZMountPointD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN11ZMountPointD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ZMountPointC2EPKcPS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN11ZMountPointC2EPKcPS1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr @AllocateHeapAt, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -62,7 +62,7 @@ define hidden void @_ZN11ZMountPointC2EPKcPS1_(ptr nocapture noundef nonnull wri
 declare noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK11ZMountPoint15find_mountpointEPKcPS1_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK11ZMountPoint15find_mountpointEPKcPS1_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.GrowableArrayCHeap, align 8
   %5 = alloca %class.GCLogPreciousHandle, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
@@ -135,7 +135,7 @@ _ZN18GrowableArrayCHeapIPcL8MEMFLAGS5EED2Ev.exit: ; preds = %.loopexit.i.i.i, %.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ZMountPointD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN11ZMountPointD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   tail call void @_ZN2os4freeEPv(ptr noundef %2) #12
   store ptr null, ptr %0, align 8
@@ -145,7 +145,7 @@ define hidden void @_ZN11ZMountPointD2Ev(ptr nocapture noundef nonnull align 8 d
 declare void @_ZN2os4freeEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK11ZMountPoint14get_mountpointEPKcS1_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK11ZMountPoint14get_mountpointEPKcS1_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -180,19 +180,19 @@ define hidden noundef ptr @_ZNK11ZMountPoint14get_mountpointEPKcS1_(ptr nocaptur
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #2
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK11ZMountPoint15get_mountpointsEPKcP18GrowableArrayCHeapIPcL8MEMFLAGS5EE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK11ZMountPoint15get_mountpointsEPKcP18GrowableArrayCHeapIPcL8MEMFLAGS5EE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %class.ZErrno, align 4
@@ -395,10 +395,10 @@ _ZN26GrowableArrayWithAllocatorIPc18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE4growEi.
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK11ZMountPoint16free_mountpointsEP18GrowableArrayCHeapIPcL8MEMFLAGS5EE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK11ZMountPoint16free_mountpointsEP18GrowableArrayCHeapIPcL8MEMFLAGS5EE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %_ZN18ZArrayIteratorImplIPcLb0EE4nextEPS0_.exit, label %.lr.ph.preheader
@@ -424,7 +424,7 @@ _ZN18ZArrayIteratorImplIPcLb0EE4nextEPS0_.exit:   ; preds = %.lr.ph, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK11ZMountPoint25find_preferred_mountpointEPKcP18GrowableArrayCHeapIPcL8MEMFLAGS5EEPS1_(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK11ZMountPoint25find_preferred_mountpointEPKcP18GrowableArrayCHeapIPcL8MEMFLAGS5EEPS1_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.GCLogPreciousHandle, align 8
   %6 = alloca %class.GCLogPreciousHandle, align 8
   %7 = load i32, ptr %2, align 4
@@ -464,7 +464,7 @@ _ZN18ZArrayIteratorImplIPcLb0EE4nextEPS0_.exit:   ; preds = %_ZN18ZArrayIterator
   br i1 %.not12, label %22, label %16
 
 22:                                               ; preds = %19
-  %23 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %15, i8 noundef zeroext 5) #12
+  %23 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef nonnull %15, i8 noundef zeroext 5) #12
   br label %_ZN18ZArrayIteratorImplIPcLb0EE4nextEPS0_.exit14
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge, %4, %_ZN18ZArrayIteratorImplIPcLb0EE4nextEPS0_.exit.lr.ph
@@ -500,7 +500,7 @@ _ZN18ZArrayIteratorImplIPcLb0EE4nextEPS0_.exit14: ; preds = %29, %._crit_edge, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK11ZMountPoint3getEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef ptr @_ZNK11ZMountPoint3getEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #5 align 2 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
@@ -549,13 +549,13 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8
 declare i32 @llvm.ctpop.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

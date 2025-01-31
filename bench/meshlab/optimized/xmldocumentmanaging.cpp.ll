@@ -43,7 +43,7 @@ $_ZN7QVectorIP7XMLNodeEC2ERKS2_ = comdat any
 @_ZN15XMLInteriorNodeD1Ev = unnamed_addr alias void (ptr), ptr @_ZN15XMLInteriorNodeD2Ev
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN7XMLNodeD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define void @_ZN7XMLNodeD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.trap() #11
   unreachable
 }
@@ -82,7 +82,7 @@ define void @_ZN15XMLInteriorNode14applyProcedureER10XMLVisitor(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7XMLNodeC2EP6XMLTag(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define void @_ZN7XMLNodeC2EP6XMLTag(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7XMLNode, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -90,7 +90,7 @@ define void @_ZN7XMLNodeC2EP6XMLTag(ptr nocapture noundef nonnull writeonly alig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7XMLNodeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define void @_ZN7XMLNodeD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7XMLNode, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -112,7 +112,7 @@ define void @_ZN7XMLNodeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceab
 declare void @llvm.trap() #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11XMLLeafNodeC2EP10XMLLeafTag(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define void @_ZN11XMLLeafNodeC2EP10XMLLeafTag(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11XMLLeafNode, i64 16), ptr %0, align 8
@@ -120,7 +120,7 @@ define void @_ZN11XMLLeafNodeC2EP10XMLLeafTag(ptr nocapture noundef nonnull writ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN11XMLLeafNodeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define void @_ZN11XMLLeafNodeD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7XMLNode, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -142,7 +142,7 @@ _ZN7XMLNodeD2Ev.exit:                             ; preds = %1, %5
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN15XMLInteriorNodeC2EP6XMLTag(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define void @_ZN15XMLInteriorNodeC2EP6XMLTag(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15XMLInteriorNode, i64 16), ptr %0, align 8
@@ -295,7 +295,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #7
 declare noundef ptr @_ZN10QArrayData8allocateEmmm6QFlagsINS_16AllocationOptionEE(i64 noundef, i64 noundef, i64 noundef, i32) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: cold
 declare void @_Z9qBadAllocv() local_unnamed_addr #10

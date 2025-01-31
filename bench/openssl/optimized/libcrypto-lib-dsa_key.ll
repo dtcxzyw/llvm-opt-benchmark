@@ -120,7 +120,7 @@ return:                                           ; preds = %dsa_keygen.exit, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_dsa_generate_public_key(ptr noundef %ctx, ptr nocapture noundef readonly %dsa, ptr noundef %priv_key, ptr noundef %pub_key) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_dsa_generate_public_key(ptr noundef %ctx, ptr noundef readonly captures(none) %dsa, ptr noundef %priv_key, ptr noundef %pub_key) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BN_new() #2
   %cmp = icmp eq ptr %call, null

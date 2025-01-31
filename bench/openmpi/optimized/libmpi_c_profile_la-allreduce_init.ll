@@ -370,7 +370,7 @@ ompi_errcode_get_mpi_code.exit101:                ; preds = %145, %141, %.prehea
 declare i32 @ompi_errhandler_invoke(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @ompi_request_persistent_noop_create(ptr noundef) local_unnamed_addr #1
 

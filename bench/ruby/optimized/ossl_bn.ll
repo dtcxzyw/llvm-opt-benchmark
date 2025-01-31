@@ -2209,7 +2209,7 @@ rb_num2int_inline.exit:                           ; preds = %11, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 0, 21) i64 @ossl_bn_is_prime(i32 noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define internal range(i64 0, 21) i64 @ossl_bn_is_prime(i32 noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %or.cond.i = icmp ugt i32 %0, 1
   br i1 %or.cond.i, label %4, label %rb_check_arity.exit
 
@@ -2266,7 +2266,7 @@ ossl_bn_ctx_get.exit:                             ; preds = %8, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 0, 21) i64 @ossl_bn_is_prime_fasttest(i32 noundef %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
+define internal range(i64 0, 21) i64 @ossl_bn_is_prime_fasttest(i32 noundef %0, ptr readnone captures(none) %1, i64 noundef %2) #0 {
   %or.cond.i = icmp ugt i32 %0, 2
   br i1 %or.cond.i, label %4, label %rb_check_arity.exit
 
@@ -3248,7 +3248,7 @@ declare ptr @BN_bn2dec(ptr noundef) local_unnamed_addr #1
 declare i64 @ossl_buf2str(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @BN_bn2hex(ptr noundef) local_unnamed_addr #1
 

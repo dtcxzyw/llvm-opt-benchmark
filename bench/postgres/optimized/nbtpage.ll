@@ -103,7 +103,7 @@ define dso_local void @_bt_pageinit(ptr noundef %0, i64 noundef %1) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_bt_upgrademetapage(ptr nocapture noundef writeonly initializes((12, 14), (28, 32), (48, 52), (56, 65)) %0) local_unnamed_addr #1 {
+define dso_local void @_bt_upgrademetapage(ptr noundef writeonly captures(none) initializes((12, 14), (28, 32), (48, 52), (56, 65)) %0) local_unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 28
   store i32 3, ptr %2, align 4
   %3 = getelementptr i8, ptr %0, i64 48
@@ -184,7 +184,7 @@ define dso_local noundef i32 @_bt_getbuf(ptr noundef %0, i32 noundef %1, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_bt_relbuf(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @_bt_relbuf(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @LockBuffer(i32 noundef %1, i32 noundef 0) #9
   tail call void @ReleaseBuffer(i32 noundef %1) #9
   ret void
@@ -334,13 +334,13 @@ BufferGetPage.exit:                               ; preds = %6, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_bt_unlockbuf(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @_bt_unlockbuf(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @LockBuffer(i32 noundef %1, i32 noundef 0) #9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_bt_lockbuf(ptr nocapture noundef readnone %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @_bt_lockbuf(ptr noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @LockBuffer(i32 noundef %1, i32 noundef %2) #9
   ret void
 }
@@ -656,9 +656,9 @@ BufferGetPage.exit117:                            ; preds = %86, %92
   br label %_bt_relandgetbuf.exit
 
 _bt_relandgetbuf.exit:                            ; preds = %160, %161
-  %162 = tail call i32 @ReleaseAndReadBuffer(i32 noundef %.1, ptr noundef %0, i32 noundef %.0103) #9
+  %162 = tail call i32 @ReleaseAndReadBuffer(i32 noundef %.1, ptr noundef nonnull %0, i32 noundef %.0103) #9
   tail call void @LockBuffer(i32 noundef %162, i32 noundef 1) #9
-  tail call void @_bt_checkpage(ptr noundef %0, i32 noundef %162)
+  tail call void @_bt_checkpage(ptr noundef nonnull %0, i32 noundef %162)
   %163 = icmp slt i32 %162, 0
   br i1 %163, label %164, label %170
 
@@ -731,7 +731,7 @@ BufferGetPage.exit119:                            ; preds = %164, %170
 declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_bt_getmeta(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @_bt_getmeta(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %4, label %10
 
@@ -1028,7 +1028,7 @@ declare void @XLogRegisterData(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @_bt_relandgetbuf(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -1165,9 +1165,9 @@ BufferGetPage.exit:                               ; preds = %8, %14
   br label %_bt_relandgetbuf.exit
 
 _bt_relandgetbuf.exit:                            ; preds = %57, %58
-  %59 = tail call i32 @ReleaseAndReadBuffer(i32 noundef %.036, ptr noundef %0, i32 noundef %.037) #9
+  %59 = tail call i32 @ReleaseAndReadBuffer(i32 noundef %.036, ptr noundef nonnull %0, i32 noundef %.037) #9
   tail call void @LockBuffer(i32 noundef %59, i32 noundef 1) #9
-  tail call void @_bt_checkpage(ptr noundef %0, i32 noundef %59)
+  tail call void @_bt_checkpage(ptr noundef nonnull %0, i32 noundef %59)
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %61, label %67
 
@@ -1286,7 +1286,7 @@ define dso_local i32 @_bt_getrootheight(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_bt_metaversion(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #0 {
+define dso_local void @_bt_metaversion(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1345,7 +1345,7 @@ define dso_local void @_bt_metaversion(ptr noundef %0, ptr nocapture noundef wri
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_bt_checkpage(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @_bt_checkpage(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %4, label %10
 
@@ -1419,7 +1419,7 @@ declare i32 @ReadBuffer(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @GetFreeIndexPage(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @_bt_conditionallockbuf(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @_bt_conditionallockbuf(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call zeroext i1 @ConditionalLockBuffer(i32 noundef %1) #9
   ret i1 %3
 }
@@ -1437,7 +1437,7 @@ declare void @LockBuffer(i32 noundef, i32 noundef) local_unnamed_addr #2
 declare zeroext i1 @ConditionalLockBuffer(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_bt_upgradelockbufcleanup(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @_bt_upgradelockbufcleanup(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @LockBuffer(i32 noundef %1, i32 noundef 0) #9
   tail call void @LockBufferForCleanup(i32 noundef %1) #9
   ret void
@@ -1448,7 +1448,7 @@ declare void @LockBufferForCleanup(i32 noundef) local_unnamed_addr #2
 declare void @PageInit(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_bt_delitems_vacuum(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local void @_bt_delitems_vacuum(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca [408 x i16], align 16
   %8 = alloca %struct.xl_btree_vacuum, align 2
   %9 = icmp slt i32 %1, 0
@@ -1698,7 +1698,7 @@ declare zeroext i1 @PageIndexTupleOverwrite(ptr noundef, i16 noundef zeroext, pt
 declare void @PageIndexMultiDelete(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_bt_delitems_delete_check(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local void @_bt_delitems_delete_check(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [408 x i16], align 16
   %6 = alloca %struct.xl_btree_delete, align 4
   %7 = alloca [408 x i16], align 16
@@ -2261,7 +2261,7 @@ _bt_delitems_delete.exit:                         ; preds = %.lr.ph57.i
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -65535, 65536) i32 @_bt_delitems_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -65535, 65536) i32 @_bt_delitems_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %4 = load i16, ptr %3, align 2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 6
@@ -2277,7 +2277,7 @@ declare i32 @ItemPointerCompare(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_bt_pagedel(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define dso_local void @_bt_pagedel(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.xl_btree_unlink_page, align 8
   %5 = alloca %struct.xl_btree_metadata, align 4
   %6 = alloca %struct.IndexTupleData, align 2
@@ -4023,7 +4023,7 @@ declare ptr @_bt_search(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 
 declare void @ProcessInterrupts() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_bt_pendingfsm_init(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local void @_bt_pendingfsm_init(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   br i1 %2, label %17, label %4
 
 4:                                                ; preds = %3
@@ -4050,7 +4050,7 @@ define dso_local void @_bt_pendingfsm_init(ptr nocapture noundef readnone %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_bt_pendingfsm_finalize(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @_bt_pendingfsm_finalize(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -4138,10 +4138,10 @@ declare void @llvm.assume(i1 noundef) #6
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7

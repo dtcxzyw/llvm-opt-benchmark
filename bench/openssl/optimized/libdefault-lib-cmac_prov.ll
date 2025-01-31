@@ -161,7 +161,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cmac_update(ptr nocapture noundef readonly %vmacctx, ptr noundef %data, i64 noundef %datalen) #0 {
+define internal i32 @cmac_update(ptr noundef readonly captures(none) %vmacctx, ptr noundef %data, i64 noundef %datalen) #0 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %vmacctx, i64 8
   %0 = load ptr, ptr %ctx, align 8
@@ -170,7 +170,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cmac_final(ptr nocapture noundef readonly %vmacctx, ptr noundef %out, ptr noundef %outl, i64 %outsize) #0 {
+define internal i32 @cmac_final(ptr noundef readonly captures(none) %vmacctx, ptr noundef %out, ptr noundef %outl, i64 %outsize) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -188,13 +188,13 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @cmac_gettable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @cmac_gettable_ctx_params(ptr readnone captures(none) %ctx, ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @known_gettable_ctx_params
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @cmac_get_ctx_params(ptr nocapture noundef readonly %vmacctx, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @cmac_get_ctx_params(ptr noundef readonly captures(none) %vmacctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.1) #3
   %cmp.not = icmp eq ptr %call, null
@@ -252,7 +252,7 @@ return:                                           ; preds = %cmac_size.exit12, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @cmac_settable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @cmac_settable_ctx_params(ptr readnone captures(none) %ctx, ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @known_settable_ctx_params
 }

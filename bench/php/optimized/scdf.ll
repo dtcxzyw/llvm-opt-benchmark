@@ -130,7 +130,7 @@ scdf_edge.exit:                                   ; preds = %17
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @scdf_init(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 16), (56, 68)) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @scdf_init(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 16), (56, 68)) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   store ptr %2, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %3, ptr %5, align 8
@@ -245,7 +245,7 @@ define hidden void @scdf_init(ptr nocapture noundef %0, ptr nocapture noundef in
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @scdf_solve(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden void @scdf_solve(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -990,7 +990,7 @@ scdf_mark_edge_feasible.exit168:                  ; preds = %.lr.ph.i176, %.lr.p
 declare void @llvm.assume(i1 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @scdf_remove_unreachable_blocks(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden i32 @scdf_remove_unreachable_blocks(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
@@ -1291,7 +1291,7 @@ declare void @zend_ssa_remove_block(ptr noundef, ptr noundef, i32 noundef) local
 declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #5

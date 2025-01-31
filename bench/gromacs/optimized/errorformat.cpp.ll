@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [154 x i8] c"For more information and tips for troubleshooting, please check the GROMACS\0Awebsite at https://manual.gromacs.org/current/user-guide/run-time-errors.html\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx8internal21printFatalErrorHeaderEP8_IO_FILEPKcS4_S4_i(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx8internal21printFatalErrorHeaderEP8_IO_FILEPKcS4_S4_i(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx17getProgramContextEv()
           to label %8 unwind label %13
@@ -100,7 +100,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare noundef ptr @_Z11gmx_versionv() local_unnamed_addr #1
 
@@ -117,7 +117,7 @@ declare noundef i32 @_Z12gmx_node_numv() local_unnamed_addr #1
 declare noundef i32 @_Z13gmx_node_rankv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx8internal26printFatalErrorMessageLineEP8_IO_FILEPKci(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @_ZN3gmx8internal26printFatalErrorMessageLineEP8_IO_FILEPKci(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %"class.gmx::TextLineWrapper", align 4
   call void @_ZN3gmx23TextLineWrapperSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(16) %4)
   %5 = sub nsw i32 78, %2
@@ -129,7 +129,7 @@ define void @_ZN3gmx8internal26printFatalErrorMessageLineEP8_IO_FILEPKci(ptr noc
 
 .lr.ph25:                                         ; preds = %3, %.critedge
   %.01824 = phi i64 [ %7, %.critedge ], [ 0, %3 ]
-  %7 = call noundef i64 @_ZNK3gmx15TextLineWrapper12findNextLineEPKcm(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef %1, i64 noundef %.01824)
+  %7 = call noundef i64 @_ZNK3gmx15TextLineWrapper12findNextLineEPKcm(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull %1, i64 noundef %.01824)
   %8 = sub i64 %7, %.01824
   %9 = trunc i64 %8 to i32
   %10 = icmp sgt i32 %9, 0
@@ -161,7 +161,7 @@ define void @_ZN3gmx8internal26printFatalErrorMessageLineEP8_IO_FILEPKci(ptr noc
 .critedge:                                        ; preds = %16, %.critedge.loopexit.split.loop.exit28, %.lr.ph25
   %.0.lcssa = phi i32 [ %9, %.lr.ph25 ], [ %18, %.critedge.loopexit.split.loop.exit28 ], [ 0, %16 ]
   %19 = getelementptr inbounds i8, ptr %1, i64 %.01824
-  %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %2, ptr noundef nonnull @.str.9, i32 noundef %.0.lcssa, ptr noundef %19) #9
+  %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %2, ptr noundef nonnull @.str.9, i32 noundef %.0.lcssa, ptr noundef nonnull %19) #9
   %21 = icmp ult i64 %7, %6
   br i1 %21, label %.lr.ph25, label %._crit_edge, !llvm.loop !7
 
@@ -170,7 +170,7 @@ define void @_ZN3gmx8internal26printFatalErrorMessageLineEP8_IO_FILEPKci(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare noundef i64 @_ZNK3gmx15TextLineWrapper12findNextLineEPKcm(ptr noundef nonnull align 4 dereferenceable(16), ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -180,7 +180,7 @@ declare i32 @isspace(i32 noundef) local_unnamed_addr #5
 declare void @_ZN3gmx23TextLineWrapperSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(14)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN3gmx8internal21printFatalErrorFooterEP8_IO_FILE(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define void @_ZN3gmx8internal21printFatalErrorFooterEP8_IO_FILE(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
   %2 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 153, i64 1, ptr %0)
   %3 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 57, i64 1, ptr %0)
@@ -191,10 +191,10 @@ define void @_ZN3gmx8internal21printFatalErrorFooterEP8_IO_FILE(ptr nocapture no
 declare i32 @llvm.eh.typeid.for.p0(ptr) #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

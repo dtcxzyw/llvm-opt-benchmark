@@ -833,7 +833,7 @@ declare void @dissect_spc_inquiry(ptr noundef, ptr noundef, ptr noundef, i32 nou
 declare void @dissect_sbc_startstopunit(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_mmc_preventallowmediaremoval(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_mmc_preventallowmediaremoval(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr readnone captures(none) %7) #1 {
   %9 = icmp ne i32 %4, 0
   %10 = icmp ne i32 %5, 0
   %or.cond = and i1 %9, %10
@@ -880,7 +880,7 @@ declare void @dissect_sbc_read10(ptr noundef, ptr noundef, ptr noundef, i32 noun
 declare void @dissect_sbc_write10(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_mmc4_synchronizecache(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_mmc4_synchronizecache(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr readnone captures(none) %7) #1 {
   %9 = icmp ne ptr %2, null
   %10 = icmp ne i32 %4, 0
   %or.cond = and i1 %9, %10
@@ -912,7 +912,7 @@ define internal void @dissect_mmc4_synchronizecache(ptr noundef %0, ptr nocaptur
 declare void @dissect_spc_writebuffer(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_mmc4_readtocpmaatip(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @dissect_mmc4_readtocpmaatip(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
@@ -1675,7 +1675,7 @@ define internal void @dissect_mmc4_getconfiguration(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_mmc4_geteventstatusnotification(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_mmc4_geteventstatusnotification(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr readnone captures(none) %7) #1 {
   %9 = icmp ne ptr %2, null
   %10 = icmp ne i32 %4, 0
   %or.cond = and i1 %9, %10
@@ -1704,7 +1704,7 @@ define internal void @dissect_mmc4_geteventstatusnotification(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_mmc4_readdiscinformation(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef readonly %7) #1 {
+define internal void @dissect_mmc4_readdiscinformation(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef readonly %7) #1 {
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
@@ -1970,7 +1970,7 @@ define internal void @dissect_mmc4_readdiscinformation(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_mmc4_readtrackinformation(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef readonly %7) #1 {
+define internal void @dissect_mmc4_readtrackinformation(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef readonly %7) #1 {
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
@@ -2274,7 +2274,7 @@ default.unreachable:                              ; preds = %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_mmc4_reservetrack(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_mmc4_reservetrack(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr readnone captures(none) %7) #1 {
   %9 = icmp ne ptr %2, null
   %10 = icmp ne i32 %4, 0
   %or.cond = and i1 %9, %10
@@ -2301,7 +2301,7 @@ declare void @dissect_spc_modeselect10(ptr noundef, ptr noundef, ptr noundef, i3
 declare void @dissect_spc_modesense10(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_mmc4_close_track(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_mmc4_close_track(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr readnone captures(none) %7) #1 {
   %9 = icmp ne ptr %2, null
   %10 = icmp ne i32 %4, 0
   %or.cond = and i1 %9, %10
@@ -2329,7 +2329,7 @@ define internal void @dissect_mmc4_close_track(ptr noundef %0, ptr nocapture rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_mmc4_readbuffercapacity(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @dissect_mmc4_readbuffercapacity(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = icmp ne ptr %2, null
   %10 = icmp ne i32 %4, 0
   %11 = icmp ne i32 %5, 0
@@ -2405,7 +2405,7 @@ declare void @dissect_spc_reportluns(ptr noundef, ptr noundef, ptr noundef, i32 
 declare void @dissect_spc_mgmt_protocol_in(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_mmc4_reportkey(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @dissect_mmc4_reportkey(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = icmp ne ptr %2, null
   %10 = icmp ne i32 %4, 0
   %11 = icmp ne i32 %5, 0
@@ -2507,7 +2507,7 @@ declare void @dissect_sbc_read12(ptr noundef, ptr noundef, ptr noundef, i32 noun
 declare void @dissect_sbc_write12(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_mmc4_getperformance(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_mmc4_getperformance(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr readnone captures(none) %7) #1 {
   %9 = icmp ne ptr %2, null
   %10 = icmp ne i32 %4, 0
   %or.cond = and i1 %9, %10
@@ -2538,7 +2538,7 @@ define internal void @dissect_mmc4_getperformance(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_mmc4_readdiscstructure(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @dissect_mmc4_readdiscstructure(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = icmp ne ptr %2, null
   %10 = icmp ne i32 %4, 0
   %11 = icmp ne i32 %5, 0
@@ -2703,7 +2703,7 @@ proto_item_set_generated.exit:                    ; preds = %43, %51, %54
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_mmc4_setstreaming(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @dissect_mmc4_setstreaming(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = icmp ne ptr %2, null
   %10 = icmp ne i32 %4, 0
   %or.cond = and i1 %9, %10
@@ -2782,7 +2782,7 @@ define internal void @dissect_mmc4_setstreaming(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_mmc4_setcdspeed(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_mmc4_setcdspeed(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr readnone captures(none) %7) #1 {
   %9 = icmp ne ptr %2, null
   %10 = icmp ne i32 %4, 0
   %or.cond = and i1 %9, %10

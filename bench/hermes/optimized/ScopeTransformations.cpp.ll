@@ -19,7 +19,7 @@ $_ZN4llvh8DenseMapIPN6hermes9ScopeDescES3_NS_12DenseMapInfoIS3_EENS_6detail12Den
 @_ZTVN6hermes11ScopeMergerE = hidden unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr null, ptr @_ZN6hermes11ScopeMergerD2Ev, ptr @_ZN6hermes11ScopeMergerD0Ev, ptr @_ZN6hermes11ScopeMerger13runOnFunctionEPNS_8FunctionE] }, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture readnone %F, ptr noundef %parent, ptr noundef %child) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes11ScopeMerger9mergeIntoEPNS_8FunctionEPNS_9ScopeDescES4_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr readnone captures(none) %F, ptr noundef %parent, ptr noundef %child) local_unnamed_addr #0 align 2 {
 entry:
   %child.addr = alloca ptr, align 8
   store ptr %child, ptr %child.addr, align 8
@@ -492,7 +492,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %_ZN6hermesL24hasAtL
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN6hermes11ScopeMerger11mergedScopeEPNS_9ScopeDescE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef %scopeDesc) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN6hermes11ScopeMerger11mergedScopeEPNS_9ScopeDescE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef %scopeDesc) local_unnamed_addr #2 align 2 {
 entry:
   %mergedMap_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %mergedMap_, align 8
@@ -557,7 +557,7 @@ if.end:                                           ; preds = %_ZN4llvh12DenseMapB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes11ScopeMerger23updateSourceLevelScopesEPNS_8FunctionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef readonly %F) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes11ScopeMerger23updateSourceLevelScopesEPNS_8FunctionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef readonly %F) local_unnamed_addr #0 align 2 {
 entry:
   %Next.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %F, i64 88
   %BasicBlockList.i = getelementptr inbounds nuw i8, ptr %F, i64 80
@@ -1046,7 +1046,7 @@ return:                                           ; preds = %for.body.i, %if.the
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh8DenseMapIPN6hermes9ScopeDescES3_NS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S3_EEE16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(20) %this) local_unnamed_addr #0 comdat align 2 {

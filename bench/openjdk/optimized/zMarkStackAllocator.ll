@@ -104,7 +104,7 @@ _ZN15ZMarkStackSpace12expand_spaceEv.exit:        ; preds = %23, %25
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare noundef ptr @_ZN2os14reserve_memoryEmb8MEMFLAGS(i64 noundef, i1 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
 
@@ -159,7 +159,7 @@ define hidden noundef i64 @_ZN15ZMarkStackSpace12expand_spaceEv(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK15ZMarkStackSpace14is_initializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK15ZMarkStackSpace14is_initializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = icmp ne i64 %3, 0
@@ -167,7 +167,7 @@ define hidden noundef zeroext i1 @_ZNK15ZMarkStackSpace14is_initializedEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK15ZMarkStackSpace5startEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef i64 @_ZNK15ZMarkStackSpace5startEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   ret i64 %3
@@ -432,7 +432,7 @@ define hidden void @_ZN19ZMarkStackAllocatorC2Ev(ptr noundef nonnull align 64 de
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK19ZMarkStackAllocator14is_initializedEv(ptr nocapture noundef nonnull readonly align 64 dereferenceable(257) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK19ZMarkStackAllocator14is_initializedEv(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(257) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i64, ptr %2, align 8
   %4 = icmp ne i64 %3, 0
@@ -440,7 +440,7 @@ define hidden noundef zeroext i1 @_ZNK19ZMarkStackAllocator14is_initializedEv(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK19ZMarkStackAllocator5startEv(ptr nocapture noundef nonnull readonly align 64 dereferenceable(257) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef i64 @_ZNK19ZMarkStackAllocator5startEv(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(257) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i64, ptr %2, align 8
   ret i64 %3
@@ -457,7 +457,7 @@ define hidden noundef i64 @_ZNK19ZMarkStackAllocator4sizeEv(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN19ZMarkStackAllocator26create_magazine_from_spaceEmm(ptr nocapture noundef nonnull readnone align 64 dereferenceable(257) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN19ZMarkStackAllocator26create_magazine_from_spaceEmm(ptr noundef nonnull readnone align 64 captures(none) dereferenceable(257) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = inttoptr i64 %1 to ptr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4, i8 0, i64 16, i1 false)
   %5 = icmp ugt i64 %2, 2048

@@ -74,7 +74,7 @@ for.end:                                          ; preds = %if.end, %entry
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_net_queue_append_iov(ptr nocapture noundef %queue, ptr noundef %sender, i32 noundef %flags, ptr nocapture noundef readonly %iov, i32 noundef %iovcnt, ptr noundef %sent_cb) local_unnamed_addr #0 {
+define dso_local void @qemu_net_queue_append_iov(ptr noundef captures(none) %queue, ptr noundef %sender, i32 noundef %flags, ptr noundef readonly captures(none) %iov, i32 noundef %iovcnt, ptr noundef %sent_cb) local_unnamed_addr #0 {
 entry:
   %nq_count = getelementptr inbounds nuw i8, ptr %queue, i64 12
   %0 = load i32, ptr %nq_count, align 4
@@ -164,10 +164,10 @@ do.end:                                           ; preds = %entry, %for.end20
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @qemu_net_queue_receive(ptr nocapture noundef %queue, ptr noundef %data, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local i64 @qemu_net_queue_receive(ptr noundef captures(none) %queue, ptr noundef %data, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %iov.i = alloca %struct.iovec, align 8
   %delivering = getelementptr inbounds nuw i8, ptr %queue, i64 40
@@ -199,7 +199,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @qemu_net_queue_receive_iov(ptr nocapture noundef %queue, ptr noundef %iov, i32 noundef %iovcnt) local_unnamed_addr #0 {
+define dso_local i64 @qemu_net_queue_receive_iov(ptr noundef captures(none) %queue, ptr noundef %iov, i32 noundef %iovcnt) local_unnamed_addr #0 {
 entry:
   %delivering = getelementptr inbounds nuw i8, ptr %queue, i64 40
   %bf.load = load i8, ptr %delivering, align 8
@@ -661,7 +661,7 @@ return:                                           ; preds = %for.end20.i31, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_net_queue_purge(ptr nocapture noundef %queue, ptr noundef readnone %from) local_unnamed_addr #0 {
+define dso_local void @qemu_net_queue_purge(ptr noundef captures(none) %queue, ptr noundef readnone %from) local_unnamed_addr #0 {
 entry:
   %packets = getelementptr inbounds nuw i8, ptr %queue, i64 24
   %0 = load ptr, ptr %packets, align 8
@@ -726,13 +726,13 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

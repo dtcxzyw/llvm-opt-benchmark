@@ -43,7 +43,7 @@ declare hidden void @lj_trace_err(ptr noundef, i32 noundef) local_unnamed_addr #
 declare hidden ptr @lj_mem_grow(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_snap_grow_map_(ptr nocapture noundef initializes((56, 64)) %J, i32 noundef %need) local_unnamed_addr #0 {
+define hidden void @lj_snap_grow_map_(ptr noundef captures(none) initializes((56, 64)) %J, i32 noundef %need) local_unnamed_addr #0 {
 entry:
   %sizesnapmap = getelementptr inbounds nuw i8, ptr %J, i64 368
   %0 = load i32, ptr %sizesnapmap, align 8
@@ -477,7 +477,7 @@ snapshot_stack.exit:                              ; preds = %if.end35.i.i, %if.e
 declare hidden i32 @lj_ir_emit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @lj_snap_purge(ptr nocapture noundef readonly %J) local_unnamed_addr #3 {
+define hidden void @lj_snap_purge(ptr noundef readonly captures(none) %J) local_unnamed_addr #3 {
 entry:
   %udf = alloca [258 x i8], align 16
   %maxslot1 = getelementptr inbounds nuw i8, ptr %J, i64 172
@@ -603,7 +603,7 @@ if.end22:                                         ; preds = %for.inc, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @snap_usedef(ptr nocapture noundef readonly %J, ptr nocapture noundef nonnull %udf, ptr nocapture noundef readonly %pc, i32 noundef %maxslot) unnamed_addr #4 {
+define internal fastcc i32 @snap_usedef(ptr noundef readonly captures(none) %J, ptr noundef nonnull captures(none) %udf, ptr noundef readonly captures(none) %pc, i32 noundef %maxslot) unnamed_addr #4 {
 entry:
   %cmp = icmp eq i32 %maxslot, 0
   br i1 %cmp, label %return, label %if.end
@@ -1076,7 +1076,7 @@ return:                                           ; preds = %if.else283, %sw.epi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @lj_snap_shrink(ptr nocapture noundef %J) local_unnamed_addr #3 {
+define hidden void @lj_snap_shrink(ptr noundef captures(none) %J) local_unnamed_addr #3 {
 entry:
   %udf = alloca [258 x i8], align 16
   %snap1 = getelementptr inbounds nuw i8, ptr %J, i64 48
@@ -1276,7 +1276,7 @@ while.end:                                        ; preds = %while.end.loopexit,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @lj_snap_regspmap(ptr nocapture noundef readnone %J, ptr nocapture noundef readonly %T, i32 noundef %snapno, ptr noundef %ir) local_unnamed_addr #4 {
+define hidden ptr @lj_snap_regspmap(ptr noundef readnone captures(none) %J, ptr noundef readonly captures(none) %T, i32 noundef %snapno, ptr noundef %ir) local_unnamed_addr #4 {
 entry:
   %snap1 = getelementptr inbounds nuw i8, ptr %T, i64 48
   %0 = load ptr, ptr %snap1, align 8
@@ -1434,7 +1434,7 @@ for.end43:                                        ; preds = %for.cond, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_snap_replay(ptr noundef initializes((252, 256)) %J, ptr nocapture noundef readonly %T) local_unnamed_addr #0 {
+define hidden void @lj_snap_replay(ptr noundef initializes((252, 256)) %J, ptr noundef readonly captures(none) %T) local_unnamed_addr #0 {
 entry:
   %snap1 = getelementptr inbounds nuw i8, ptr %T, i64 48
   %0 = load ptr, ptr %snap1, align 8
@@ -2654,7 +2654,7 @@ if.end420:                                        ; preds = %if.then418, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @snap_replay_const(ptr noundef %J, ptr nocapture noundef readonly %ir) unnamed_addr #0 {
+define internal fastcc i32 @snap_replay_const(ptr noundef %J, ptr noundef readonly captures(none) %ir) unnamed_addr #0 {
 entry:
   %o = getelementptr inbounds nuw i8, ptr %ir, i64 5
   %0 = load i8, ptr %o, align 1
@@ -2715,7 +2715,7 @@ declare hidden i32 @lj_opt_fold(ptr noundef) local_unnamed_addr #2
 declare hidden i32 @lj_ir_kslot(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_snap_restore(ptr nocapture noundef readonly %J, ptr nocapture noundef readonly %exptr) local_unnamed_addr #0 {
+define hidden ptr @lj_snap_restore(ptr noundef readonly captures(none) %J, ptr noundef readonly captures(none) %exptr) local_unnamed_addr #0 {
 entry:
   %sz.i = alloca i32, align 4
   %tmp.i = alloca %union.TValue, align 8
@@ -3307,7 +3307,7 @@ sw.epilog:                                        ; preds = %sw.bb, %if.then96
 declare hidden void @lj_state_growstack(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @snap_restoreval(ptr nocapture noundef readonly %J, ptr nocapture noundef readonly %T, ptr nocapture noundef readonly %ex, i32 noundef %snapno, i64 noundef %rfilt, i32 noundef range(i32 0, 65536) %ref, ptr noundef %o) unnamed_addr #0 {
+define internal fastcc void @snap_restoreval(ptr noundef readonly captures(none) %J, ptr noundef readonly captures(none) %T, ptr noundef readonly captures(none) %ex, i32 noundef %snapno, i64 noundef %rfilt, i32 noundef range(i32 0, 65536) %ref, ptr noundef %o) unnamed_addr #0 {
 entry:
   %ir1 = getelementptr inbounds nuw i8, ptr %T, i64 32
   %0 = load ptr, ptr %ir1, align 8
@@ -3503,7 +3503,7 @@ if.end100:                                        ; preds = %if.then68, %if.else
 declare hidden i32 @lj_ir_k64(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare hidden i32 @lj_ir_kint(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -3516,7 +3516,7 @@ declare hidden i32 @lj_ctype_info(ptr noundef, i32 noundef, ptr noundef) local_u
 declare hidden ptr @lj_cdata_newx(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @snap_restoredata(ptr nocapture noundef readonly %T, ptr nocapture noundef readonly %ex, i32 noundef %snapno, i64 noundef %rfilt, i32 noundef range(i32 0, 65536) %ref, ptr nocapture noundef %dst, i32 noundef %sz) unnamed_addr #6 {
+define internal fastcc void @snap_restoredata(ptr noundef readonly captures(none) %T, ptr noundef readonly captures(none) %ex, i32 noundef %snapno, i64 noundef %rfilt, i32 noundef range(i32 0, 65536) %ref, ptr noundef captures(none) %dst, i32 noundef %sz) unnamed_addr #6 {
 entry:
   %tmp = alloca i64, align 8
   %ir1 = getelementptr inbounds nuw i8, ptr %T, i64 32
@@ -3704,10 +3704,10 @@ declare i32 @llvm.umax.i32(i32, i32) #7
 declare i32 @llvm.umin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

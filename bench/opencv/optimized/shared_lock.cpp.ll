@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN2cv4gapi3wip6onevpl10SharedLockC1Ev = unnamed_addr alias void (ptr), ptr @_ZN2cv4gapi3wip6onevpl10SharedLockC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN2cv4gapi3wip6onevpl10SharedLockC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi3wip6onevpl10SharedLockC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store atomic i8 0, ptr %0 seq_cst, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store atomic i64 0, ptr %2 seq_cst, align 8
@@ -14,7 +14,7 @@ define void @_ZN2cv4gapi3wip6onevpl10SharedLockC2Ev(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN2cv4gapi3wip6onevpl10SharedLock11shared_lockEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN2cv4gapi3wip6onevpl10SharedLock11shared_lockEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr %0 seq_cst, align 8
   %3 = trunc i8 %2 to i1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -58,14 +58,14 @@ define noundef i64 @_ZN2cv4gapi3wip6onevpl10SharedLock11shared_lockEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN2cv4gapi3wip6onevpl10SharedLock13unlock_sharedEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define noundef i64 @_ZN2cv4gapi3wip6onevpl10SharedLock13unlock_sharedEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = atomicrmw sub ptr %2, i64 1 seq_cst, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv4gapi3wip6onevpl10SharedLock4lockEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi3wip6onevpl10SharedLock4lockEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load atomic i64, ptr %2 seq_cst, align 8
   br label %4
@@ -113,7 +113,7 @@ _ZNSt6atomicIbE23compare_exchange_strongERbbSt12memory_order.exit.thread: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN2cv4gapi3wip6onevpl10SharedLock8try_lockEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN2cv4gapi3wip6onevpl10SharedLock8try_lockEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load atomic i64, ptr %2 seq_cst, align 8
   %.not = icmp eq i64 %3, 0
@@ -139,13 +139,13 @@ _ZNSt6atomicIbE23compare_exchange_strongERbbSt12memory_order.exit: ; preds = %4,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN2cv4gapi3wip6onevpl10SharedLock6unlockEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi3wip6onevpl10SharedLock6unlockEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store atomic i8 0, ptr %0 seq_cst, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK2cv4gapi3wip6onevpl10SharedLock4ownsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK2cv4gapi3wip6onevpl10SharedLock4ownsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = load atomic i8, ptr %0 seq_cst, align 8
   %3 = trunc i8 %2 to i1
   ret i1 %3

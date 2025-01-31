@@ -63,7 +63,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb19VerifyBlockChecksumERKNS_6FooterEPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(53) %footer, ptr noundef %data, i64 noundef %block_size, ptr noundef nonnull align 8 dereferenceable(32) %file_name, i64 noundef %offset) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb19VerifyBlockChecksumERKNS_6FooterEPKcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(53) %footer, ptr noundef %data, i64 noundef %block_size, ptr noundef nonnull align 8 dereferenceable(32) %file_name, i64 noundef %offset) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %perf_step_timer_block_checksum_time = alloca %"class.rocksdb::PerfStepTimer", align 8
   %ref.tmp = alloca %"class.rocksdb::Slice", align 8
@@ -1159,7 +1159,7 @@ terminate.lpad:                                   ; preds = %_ZN7rocksdb10Record
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN7rocksdb11SystemClock7DefaultEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {

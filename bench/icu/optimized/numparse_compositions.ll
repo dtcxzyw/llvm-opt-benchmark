@@ -381,7 +381,7 @@ _ZN6icu_7515MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EEC2EOS6_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_758numparse4impl18ArraySeriesMatcher6lengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK6icu_758numparse4impl18ArraySeriesMatcher6lengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this) unnamed_addr #5 align 2 {
 entry:
   %fMatchersLen = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load i32, ptr %fMatchersLen, align 8
@@ -389,7 +389,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK6icu_758numparse4impl18ArraySeriesMatcher5beginEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) unnamed_addr #5 align 2 {
+define noundef ptr @_ZNK6icu_758numparse4impl18ArraySeriesMatcher5beginEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this) unnamed_addr #5 align 2 {
 entry:
   %fMatchers = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %fMatchers, align 8
@@ -397,7 +397,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK6icu_758numparse4impl18ArraySeriesMatcher3endEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this) unnamed_addr #5 align 2 {
+define noundef ptr @_ZNK6icu_758numparse4impl18ArraySeriesMatcher3endEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this) unnamed_addr #5 align 2 {
 entry:
   %fMatchers = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %fMatchers, align 8
@@ -409,7 +409,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_758numparse4impl18ArraySeriesMatcher8toStringEv(ptr noalias nonnull sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define void @_ZNK6icu_758numparse4impl18ArraySeriesMatcher8toStringEv(ptr noalias nonnull sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull @.str)
   ret void
@@ -497,7 +497,7 @@ _ZN6icu_758numparse4impl18ArraySeriesMatcherD2Ev.exit: ; preds = %entry, %if.the
 declare void @_ZN6icu_756number4impl15DecimalQuantityC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(66), ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
 

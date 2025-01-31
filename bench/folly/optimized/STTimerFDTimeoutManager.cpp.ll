@@ -67,7 +67,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN5folly23STTimerFDTimeoutManager20attachTimeoutManagerEPNS_12AsyncTimeoutENS_14TimeoutManager12InternalEnumE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0, i32 %1) unnamed_addr #1 align 2 {
+define void @_ZN5folly23STTimerFDTimeoutManager20attachTimeoutManagerEPNS_12AsyncTimeoutENS_14TimeoutManager12InternalEnumE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0, i32 %1) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
@@ -192,7 +192,7 @@ if.end:                                           ; preds = %_ZN5folly23STTimerF
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN5folly23STTimerFDTimeoutManager16bumpHandlingTimeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZN5folly23STTimerFDTimeoutManager16bumpHandlingTimeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
@@ -222,7 +222,7 @@ _ZNK5folly9EventBase19isInEventBaseThreadEv.exit: ; preds = %lor.rhs.i, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly23STTimerFDTimeoutManager9onTimeoutEv(ptr nocapture noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly23STTimerFDTimeoutManager9onTimeoutEv(ptr noundef nonnull align 8 captures(none) dereferenceable(248) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %obj_ = getelementptr inbounds nuw i8, ptr %this, i64 240
   %0 = load ptr, ptr %obj_, align 8, !tbaa !7
@@ -266,7 +266,7 @@ entry:
 declare void @_ZN5folly7TimerFD12handlerReadyEt(ptr noundef nonnull align 8 dereferenceable(212), i16 noundef zeroext) unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn16_N5folly23STTimerFDTimeoutManager9onTimeoutEv(ptr nocapture noundef %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn16_N5folly23STTimerFDTimeoutManager9onTimeoutEv(ptr noundef captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %obj_.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load ptr, ptr %obj_.i, align 8, !tbaa !7
@@ -560,7 +560,7 @@ if.end14:                                         ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 declare void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef) unnamed_addr #5
 

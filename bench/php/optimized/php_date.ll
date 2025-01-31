@@ -654,7 +654,7 @@ define i64 @php_time() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
 declare i64 @time(ptr noundef) local_unnamed_addr #2
@@ -2884,7 +2884,7 @@ guess_timezone.exit:                              ; preds = %11, %27, %30, %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @zm_globals_ctor_date(ptr nocapture noundef writeonly initializes((0, 24)) %0) #4 {
+define internal void @zm_globals_ctor_date(ptr noundef writeonly captures(none) initializes((0, 24)) %0) #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
@@ -3044,7 +3044,7 @@ define internal fastcc ptr @php_date_parse_tzfile(ptr noundef %0, ptr noundef %1
 8:                                                ; preds = %6, %2
   %9 = phi ptr [ %.pre, %6 ], [ %5, %2 ]
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
-  %11 = tail call ptr @zend_hash_str_find(ptr noundef %9, ptr noundef %0, i64 noundef %10) #25
+  %11 = tail call ptr @zend_hash_str_find(ptr noundef %9, ptr noundef nonnull %0, i64 noundef %10) #25
   %.not28 = icmp eq ptr %11, null
   br i1 %.not28, label %14, label %12
 
@@ -3053,7 +3053,7 @@ define internal fastcc ptr @php_date_parse_tzfile(ptr noundef %0, ptr noundef %1
   br label %24
 
 14:                                               ; preds = %8
-  %15 = call ptr @timelib_parse_tzfile(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4) #25
+  %15 = call ptr @timelib_parse_tzfile(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4) #25
   %.not30 = icmp eq ptr %15, null
   br i1 %.not30, label %24, label %16
 
@@ -3063,7 +3063,7 @@ define internal fastcc ptr @php_date_parse_tzfile(ptr noundef %0, ptr noundef %1
   store ptr %15, ptr %3, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 13, ptr %19, align 8
-  %20 = call ptr @zend_hash_str_add(ptr noundef %17, ptr noundef %0, i64 noundef %18, ptr noundef nonnull %3) #25
+  %20 = call ptr @zend_hash_str_add(ptr noundef %17, ptr noundef nonnull %0, i64 noundef %18, ptr noundef nonnull %3) #25
   %.not31 = icmp eq ptr %20, null
   br i1 %.not31, label %24, label %21
 
@@ -3081,7 +3081,7 @@ define internal fastcc ptr @php_date_parse_tzfile(ptr noundef %0, ptr noundef %1
 declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define ptr @php_format_date_obj(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define ptr @php_format_date_obj(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
@@ -3099,7 +3099,7 @@ define ptr @php_format_date_obj(ptr nocapture noundef readonly %0, i64 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @date_format(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc ptr @date_format(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.smart_str, align 8
   %6 = alloca [97 x i8], align 16
   %7 = alloca i64, align 8
@@ -3837,7 +3837,7 @@ php_date_short_day_name.exit206:                  ; preds = %363, %369
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @php_format_date(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define ptr @php_format_date(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = tail call ptr @timelib_time_ctor() #25
   br i1 %3, label %6, label %10
 
@@ -4169,13 +4169,13 @@ declare i64 @timelib_days_in_month(i64 noundef, i64 noundef) local_unnamed_addr 
 declare void @timelib_time_offset_dtor(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_date(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_date(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   tail call fastcc void @php_date(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_date(ptr noundef %0, ptr nocapture noundef writeonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @php_date(ptr noundef %0, ptr noundef writeonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %struct.timeval, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -4300,13 +4300,13 @@ php_format_date.exit:                             ; preds = %40, %44
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_gmdate(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_gmdate(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   tail call fastcc void @php_date(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_idate(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_idate(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct.timeval, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -4478,7 +4478,7 @@ define void @php_date_set_tzdb(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @php_version_compare(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i64 @php_parse_date(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @php_parse_date(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr null, ptr %3, align 8
@@ -4493,7 +4493,7 @@ define i64 @php_parse_date(ptr noundef %0, ptr nocapture noundef readnone %1) lo
 
 9:                                                ; preds = %2, %7
   %10 = phi ptr [ %8, %7 ], [ %6, %2 ]
-  %11 = call ptr @timelib_strtotime(ptr noundef %0, i64 noundef %5, ptr noundef nonnull %3, ptr noundef %10, ptr noundef nonnull @php_date_parse_tzfile_wrapper) #25
+  %11 = call ptr @timelib_strtotime(ptr noundef nonnull %0, i64 noundef %5, ptr noundef nonnull %3, ptr noundef %10, ptr noundef nonnull @php_date_parse_tzfile_wrapper) #25
   %12 = load ptr, ptr %3, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8
@@ -4524,10 +4524,10 @@ define i64 @php_parse_date(ptr noundef %0, ptr nocapture noundef readnone %1) lo
 declare ptr @timelib_strtotime(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @php_date_parse_tzfile_wrapper(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal ptr @php_date_parse_tzfile_wrapper(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call fastcc ptr @php_date_parse_tzfile(ptr noundef %0, ptr noundef %1)
   ret ptr %4
 }
@@ -4537,7 +4537,7 @@ declare void @timelib_update_ts(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare i64 @timelib_date_to_int(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_strtotime(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_strtotime(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct.timeval, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -4714,7 +4714,7 @@ php_time.exit:                                    ; preds = %46, %48
 declare void @timelib_fill_holes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @php_mktime(ptr noundef %0, ptr nocapture noundef writeonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define void @php_mktime(ptr noundef %0, ptr noundef writeonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.timeval, align 8
   %5 = alloca %struct.timeval, align 8
   %6 = alloca i64, align 8
@@ -5044,19 +5044,19 @@ php_time.exit327:                                 ; preds = %87, %89
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_mktime(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_mktime(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   tail call void @php_mktime(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_gmmktime(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_gmmktime(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   tail call void @php_mktime(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_checkdate(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_checkdate(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -5159,7 +5159,7 @@ define hidden void @zif_checkdate(ptr noundef %0, ptr nocapture noundef writeonl
 declare i32 @timelib_valid_date(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @php_strftime(ptr noundef %0, ptr nocapture noundef writeonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define void @php_strftime(ptr noundef %0, ptr noundef writeonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.timeval, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -5547,19 +5547,19 @@ php_time.exit:                                    ; preds = %43, %45
 declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_strftime(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_strftime(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   tail call void @php_strftime(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_gmstrftime(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_gmstrftime(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   tail call void @php_strftime(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_time(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_time(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct.timeval, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -5958,7 +5958,7 @@ define noundef ptr @php_date_instantiate(ptr noundef %0, ptr noundef returned %1
 declare i32 @object_init_ex(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @php_date_initialize(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define noundef zeroext i1 @php_date_initialize(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.timeval, align 8
   %8 = alloca ptr, align 8
   store ptr null, ptr %8, align 8
@@ -6238,7 +6238,7 @@ declare ptr @zend_throw_exception_ex(ptr noundef, i64 noundef, ptr noundef, ...)
 declare void @timelib_update_from_sse(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @php_date_initialize_from_ts_long(ptr nocapture noundef initializes((0, 8)) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @php_date_initialize_from_ts_long(ptr noundef captures(none) initializes((0, 8)) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @timelib_time_ctor() #25
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 232
@@ -6255,7 +6255,7 @@ define void @php_date_initialize_from_ts_long(ptr nocapture noundef initializes(
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @php_date_initialize_from_ts_double(ptr nocapture noundef %0, double noundef %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @php_date_initialize_from_ts_double(ptr noundef captures(none) %0, double noundef %1) local_unnamed_addr #0 {
   %3 = tail call double @llvm.trunc.f64(double %1)
   %4 = fcmp uno double %3, 0.000000e+00
   br i1 %4, label %.critedge, label %5
@@ -6862,7 +6862,7 @@ thread-pre-split:                                 ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTime___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_DateTime___construct(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -6972,7 +6972,7 @@ define hidden void @zim_DateTime___construct(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTimeImmutable___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_DateTimeImmutable___construct(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -7366,7 +7366,7 @@ date_throw_uninitialized_error.exit:              ; preds = %36, %49
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTime_createFromTimestamp(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DateTime_createFromTimestamp(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -7739,7 +7739,7 @@ date_throw_uninitialized_error.exit:              ; preds = %36, %49
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTimeImmutable_createFromTimestamp(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DateTimeImmutable_createFromTimestamp(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -7876,7 +7876,7 @@ define hidden void @zim_DateTime___set_state(ptr noundef %0, ptr noundef %1) #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @php_date_initialize_from_hash(ptr nocapture %.0.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @php_date_initialize_from_hash(ptr captures(none) %.0.val, ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = tail call ptr @zend_hash_str_find(ptr noundef %0, ptr noundef nonnull @.str, i64 noundef 4) #25
   %.not = icmp eq ptr %3, null
@@ -8047,7 +8047,7 @@ define hidden void @zim_DateTimeImmutable___set_state(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTime___serialize(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DateTime___serialize(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -8189,7 +8189,7 @@ add_common_properties.exit:                       ; preds = %71, %39, %date_thro
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @date_object_to_hash(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @date_object_to_hash(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = tail call fastcc ptr @date_format(ptr noundef nonnull @.str.387, i64 noundef 13, ptr noundef %4, i1 noundef zeroext true)
@@ -8240,7 +8240,7 @@ define internal fastcc void @date_object_to_hash(ptr nocapture noundef readonly 
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i64 %27, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %34, ptr align 1 %26, i64 %27, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull align 1 %26, i64 %27, i1 false)
   %35 = getelementptr inbounds [1 x i8], ptr %34, i64 0, i64 %27
   store i8 0, ptr %35, align 1
   br label %.sink.split
@@ -8287,7 +8287,7 @@ define internal fastcc void @date_object_to_hash(ptr nocapture noundef readonly 
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store i64 %58, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %65, ptr align 1 %57, i64 %58, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %65, ptr nonnull align 1 %57, i64 %58, i1 false)
   %66 = getelementptr inbounds [1 x i8], ptr %65, i64 0, i64 %58
   store i8 0, ptr %66, align 1
   br label %.sink.split
@@ -8307,7 +8307,7 @@ define internal fastcc void @date_object_to_hash(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTimeImmutable___serialize(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DateTimeImmutable___serialize(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -8449,7 +8449,7 @@ add_common_properties.exit:                       ; preds = %71, %39, %date_thro
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTime___unserialize(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_DateTime___unserialize(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -8498,7 +8498,7 @@ define hidden void @zim_DateTime___unserialize(ptr noundef %0, ptr nocapture rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @restore_custom_datetime_properties(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @restore_custom_datetime_properties(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -8570,7 +8570,7 @@ date_time_is_internal_property.exit.thread:       ; preds = %22, %24, %26, %15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTimeImmutable___unserialize(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_DateTimeImmutable___unserialize(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -8619,7 +8619,7 @@ define hidden void @zim_DateTimeImmutable___unserialize(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTime___wakeup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_DateTime___wakeup(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -8650,7 +8650,7 @@ define hidden void @zim_DateTime___wakeup(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTimeImmutable___wakeup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_DateTimeImmutable___wakeup(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -8681,7 +8681,7 @@ define hidden void @zim_DateTimeImmutable___wakeup(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_date_get_last_errors(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zif_date_get_last_errors(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -8715,7 +8715,7 @@ define hidden void @zif_date_get_last_errors(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zval_from_error_container(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @zval_from_error_container(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
@@ -9237,7 +9237,7 @@ thread-pre-split:                                 ; preds = %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_date_format(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_date_format(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -9345,7 +9345,7 @@ date_throw_uninitialized_error.exit:              ; preds = %29, %42
 declare i32 @zend_parse_method_parameters(i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_date_modify(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_date_modify(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -9396,7 +9396,7 @@ define hidden void @zif_date_modify(ptr noundef %0, ptr nocapture noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @php_date_modify(ptr nocapture readonly %.0.val, ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @php_date_modify(ptr readonly captures(none) %.0.val, ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %.0.val, i64 -8
@@ -9702,7 +9702,7 @@ date_throw_uninitialized_error.exit:              ; preds = %24, %11, %152, %54
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTime_modify(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DateTime_modify(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.zend_error_handling, align 8
@@ -9756,7 +9756,7 @@ declare void @zend_replace_error_handling(i32 noundef, ptr noundef, ptr noundef)
 declare void @zend_restore_error_handling(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTimeImmutable_modify(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DateTimeImmutable_modify(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -9807,7 +9807,7 @@ define hidden void @zim_DateTimeImmutable_modify(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_date_add(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_date_add(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -9849,7 +9849,7 @@ define hidden void @zif_date_add(ptr noundef %0, ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_date_add(ptr nocapture %.0.val, ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @php_date_add(ptr captures(none) %.0.val, ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 -8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -9998,7 +9998,7 @@ date_throw_uninitialized_error.exit21:            ; preds = %42, %55
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTimeImmutable_add(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DateTimeImmutable_add(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -10029,7 +10029,7 @@ define hidden void @zim_DateTimeImmutable_add(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_date_sub(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_date_sub(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -10071,7 +10071,7 @@ define hidden void @zif_date_sub(ptr noundef %0, ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_date_sub(ptr nocapture %.0.val, ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @php_date_sub(ptr captures(none) %.0.val, ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 -8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -10236,7 +10236,7 @@ date_throw_uninitialized_error.exit25:            ; preds = %42, %55
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTime_sub(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DateTime_sub(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct.zend_error_handling, align 8
@@ -10282,7 +10282,7 @@ define hidden void @zim_DateTime_sub(ptr noundef %0, ptr nocapture noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTimeImmutable_sub(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DateTimeImmutable_sub(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.zend_error_handling, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -10481,7 +10481,7 @@ set_timezone_from_timelib_time.exit:              ; preds = %81, %76, %72, %68, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_date_timezone_set(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_date_timezone_set(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -10523,7 +10523,7 @@ define hidden void @zif_date_timezone_set(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_date_timezone_set(ptr nocapture readonly %.0.val, ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @php_date_timezone_set(ptr readonly captures(none) %.0.val, ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 -8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -10622,7 +10622,7 @@ date_throw_uninitialized_error.exit:              ; preds = %9, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTimeImmutable_setTimezone(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DateTimeImmutable_setTimezone(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -10653,7 +10653,7 @@ define hidden void @zim_DateTimeImmutable_setTimezone(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_date_offset_get(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_date_offset_get(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -10797,7 +10797,7 @@ date_throw_uninitialized_error.exit:              ; preds = %27, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_date_time_set(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_date_time_set(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -10846,7 +10846,7 @@ define hidden void @zif_date_time_set(ptr noundef %0, ptr nocapture noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_date_time_set(ptr nocapture readonly %.0.val, i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @php_date_time_set(ptr readonly captures(none) %.0.val, i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %.0.val, i64 -8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -10929,7 +10929,7 @@ date_throw_uninitialized_error.exit:              ; preds = %12, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTimeImmutable_setTime(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DateTimeImmutable_setTime(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -10967,7 +10967,7 @@ define hidden void @zim_DateTimeImmutable_setTime(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_date_date_set(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_date_date_set(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -11012,7 +11012,7 @@ define hidden void @zif_date_date_set(ptr noundef %0, ptr nocapture noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_date_date_set(ptr nocapture readonly %.0.val, i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @php_date_date_set(ptr readonly captures(none) %.0.val, i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %.0.val, i64 -8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -11089,7 +11089,7 @@ date_throw_uninitialized_error.exit:              ; preds = %11, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTimeImmutable_setDate(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DateTimeImmutable_setDate(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -11123,7 +11123,7 @@ define hidden void @zim_DateTimeImmutable_setDate(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_date_isodate_set(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_date_isodate_set(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -11169,7 +11169,7 @@ define hidden void @zif_date_isodate_set(ptr noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_date_isodate_set(ptr nocapture readonly %.0.val, i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @php_date_isodate_set(ptr readonly captures(none) %.0.val, i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %.0.val, i64 -8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -11256,7 +11256,7 @@ date_throw_uninitialized_error.exit:              ; preds = %11, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTimeImmutable_setISODate(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DateTimeImmutable_setISODate(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -11291,7 +11291,7 @@ define hidden void @zim_DateTimeImmutable_setISODate(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_date_timestamp_set(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_date_timestamp_set(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -11332,7 +11332,7 @@ define hidden void @zif_date_timestamp_set(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_date_timestamp_set(ptr nocapture readonly %.0.val, i64 noundef %0) unnamed_addr #0 {
+define internal fastcc void @php_date_timestamp_set(ptr readonly captures(none) %.0.val, i64 noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %.0.val, i64 -8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -11406,7 +11406,7 @@ date_throw_uninitialized_error.exit:              ; preds = %9, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTimeImmutable_setTimestamp(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DateTimeImmutable_setTimestamp(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -11436,7 +11436,7 @@ define hidden void @zim_DateTimeImmutable_setTimestamp(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTimeImmutable_setMicroseconds(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DateTimeImmutable_setMicroseconds(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -11544,7 +11544,7 @@ date_throw_uninitialized_error.exit:              ; preds = %28, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTime_setMicroseconds(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DateTime_setMicroseconds(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -11650,7 +11650,7 @@ date_throw_uninitialized_error.exit:              ; preds = %28, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_date_timestamp_get(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_date_timestamp_get(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -11770,7 +11770,7 @@ date_throw_uninitialized_error.exit:              ; preds = %28, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTime_getMicroseconds(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DateTime_getMicroseconds(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -12114,7 +12114,7 @@ thread-pre-split:                                 ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @timezone_initialize(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @timezone_initialize(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -12160,7 +12160,7 @@ define internal fastcc noundef zeroext i1 @timezone_initialize(ptr nocapture nou
   br i1 %.not36, label %27, label %25
 
 25:                                               ; preds = %24
-  %26 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %3, i64 noundef 0, ptr noundef nonnull @.str.405, ptr noundef %1) #25
+  %26 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %3, i64 noundef 0, ptr noundef nonnull @.str.405, ptr noundef nonnull %1) #25
   br label %27
 
 27:                                               ; preds = %25, %24
@@ -12189,7 +12189,7 @@ define internal fastcc noundef zeroext i1 @timezone_initialize(ptr nocapture nou
   br i1 %.not33, label %40, label %38
 
 38:                                               ; preds = %37
-  %39 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %3, i64 noundef 0, ptr noundef nonnull @.str.406, ptr noundef %1) #25
+  %39 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %3, i64 noundef 0, ptr noundef nonnull @.str.406, ptr noundef nonnull %1) #25
   br label %40
 
 40:                                               ; preds = %38, %37
@@ -12204,7 +12204,7 @@ define internal fastcc noundef zeroext i1 @timezone_initialize(ptr nocapture nou
   br i1 %.not35, label %46, label %44
 
 44:                                               ; preds = %43
-  %45 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %3, i64 noundef 0, ptr noundef nonnull @.str.406, ptr noundef %1) #25
+  %45 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %3, i64 noundef 0, ptr noundef nonnull @.str.406, ptr noundef nonnull %1) #25
   br label %46
 
 46:                                               ; preds = %44, %43
@@ -12282,7 +12282,7 @@ set_timezone_from_timelib_time.exit:              ; preds = %57, %61, %65, %69
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTimeZone___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_DateTimeZone___construct(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -12436,7 +12436,7 @@ php_date_timezone_initialize_from_hash.exit.thread: ; preds = %28, %25, %22, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTimeZone___wakeup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_DateTimeZone___wakeup(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -12499,7 +12499,7 @@ php_date_timezone_initialize_from_hash.exit.thread: ; preds = %26, %23, %20, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTimeZone___serialize(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DateTimeZone___serialize(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -12652,7 +12652,7 @@ add_common_properties.exit:                       ; preds = %79, %41, %date_thro
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateTimeZone___unserialize(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_DateTimeZone___unserialize(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -12786,7 +12786,7 @@ restore_custom_datetimezone_properties.exit:      ; preds = %date_timezone_is_in
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_timezone_name_get(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_timezone_name_get(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -12877,7 +12877,7 @@ date_throw_uninitialized_error.exit:              ; preds = %28, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_timezone_to_string(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc void @php_timezone_to_string(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %57 [
@@ -12902,7 +12902,7 @@ define internal fastcc void @php_timezone_to_string(ptr nocapture noundef readon
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 %9, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr align 1 %8, i64 %9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr nonnull align 1 %8, i64 %9, i1 false)
   %17 = getelementptr inbounds [1 x i8], ptr %16, i64 0, i64 %9
   store i8 0, ptr %17, align 1
   br label %.sink.split
@@ -12958,7 +12958,7 @@ define internal fastcc void @php_timezone_to_string(ptr nocapture noundef readon
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store i64 %47, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %54, ptr align 1 %46, i64 %47, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %54, ptr nonnull align 1 %46, i64 %47, i1 false)
   %55 = getelementptr inbounds [1 x i8], ptr %54, i64 0, i64 %47
   store i8 0, ptr %55, align 1
   br label %.sink.split
@@ -12975,7 +12975,7 @@ define internal fastcc void @php_timezone_to_string(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_timezone_name_from_abbr(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_timezone_name_from_abbr(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -13099,7 +13099,7 @@ define hidden void @zif_timezone_name_from_abbr(ptr noundef %0, ptr nocapture no
 declare ptr @timelib_timezone_id_from_abbr(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_timezone_offset_get(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_timezone_offset_get(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -13294,7 +13294,7 @@ date_throw_uninitialized_error.exit30:            ; preds = %63, %76
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_timezone_transitions_get(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define hidden void @zif_timezone_transitions_get(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca i64, align 8
@@ -13922,7 +13922,7 @@ date_throw_uninitialized_error.exit:              ; preds = %36, %49
 declare void @timelib_unixtime2date(i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare void @timelib_get_transitions_for_year(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
@@ -14048,7 +14048,7 @@ date_throw_uninitialized_error.exit:              ; preds = %28, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateInterval___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_DateInterval___construct(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -14230,7 +14230,7 @@ define hidden void @zim_DateInterval___set_state(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_date_interval_initialize_from_hash(ptr nocapture initializes((8, 12), (24, 25)) %.0.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @php_date_interval_initialize_from_hash(ptr captures(none) initializes((8, 12), (24, 25)) %.0.val, ptr noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = load ptr, ptr %.0.val, align 8
   %.not = icmp eq ptr %3, null
@@ -14705,7 +14705,7 @@ define internal fastcc void @php_date_interval_initialize_from_hash(ptr nocaptur
 252:                                              ; preds = %242, %247, %250
   %253 = phi ptr [ %251, %250 ], [ %243, %247 ], [ %243, %242 ]
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 24
-  %255 = tail call i64 @strtoll(ptr nocapture noundef nonnull %254, ptr noundef null, i32 noundef 10) #25
+  %255 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %254, ptr noundef null, i32 noundef 10) #25
   %256 = load ptr, ptr %.0.val, align 8
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 72
   store i64 %255, ptr %257, align 8
@@ -14802,7 +14802,7 @@ define internal fastcc void @php_date_interval_initialize_from_hash(ptr nocaptur
   %.0249 = phi ptr [ null, %297 ], [ %300, %299 ]
   %.0 = phi ptr [ %298, %297 ], [ %300, %299 ]
   %302 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %303 = tail call i64 @strtoll(ptr nocapture noundef nonnull %302, ptr noundef null, i32 noundef 10) #25
+  %303 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %302, ptr noundef null, i32 noundef 10) #25
   %304 = load ptr, ptr %.0.val, align 8
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 88
   store i64 %303, ptr %305, align 8
@@ -14936,7 +14936,7 @@ define internal fastcc void @php_date_interval_initialize_from_hash(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateInterval___serialize(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DateInterval___serialize(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -15079,7 +15079,7 @@ add_common_properties.exit:                       ; preds = %73, %40, %date_thro
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @date_interval_object_to_hash(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @date_interval_object_to_hash(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i8, ptr %4, align 4
@@ -15189,7 +15189,7 @@ define internal fastcc void @date_interval_object_to_hash(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateInterval___unserialize(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_DateInterval___unserialize(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -15310,7 +15310,7 @@ restore_custom_dateinterval_properties.exit:      ; preds = %date_interval_is_in
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DateInterval___wakeup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_DateInterval___wakeup(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -15618,7 +15618,7 @@ define hidden void @zim_DateInterval_createFromDateString(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_date_interval_format(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_date_interval_format(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct.smart_str, align 8
   %4 = alloca [33 x i8], align 16
   %5 = alloca ptr, align 8
@@ -15998,7 +15998,7 @@ date_interval_format.exit:                        ; preds = %71, %187
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DatePeriod_createFromISO8601String(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_DatePeriod_createFromISO8601String(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -16047,7 +16047,7 @@ define hidden void @zim_DatePeriod_createFromISO8601String(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @date_period_init_iso8601_string(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @date_period_init_iso8601_string(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -16290,7 +16290,7 @@ define internal fastcc noundef zeroext i1 @date_period_init_finish(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DatePeriod___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_DatePeriod___construct(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -16546,12 +16546,12 @@ declare void @zend_type_error(ptr noundef, ...) local_unnamed_addr #5
 declare void @zend_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare ptr @timelib_rel_time_clone(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DatePeriod_getStartDate(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_DatePeriod_getStartDate(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -16665,7 +16665,7 @@ date_throw_uninitialized_error.exit:              ; preds = %16, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DatePeriod_getEndDate(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_DatePeriod_getEndDate(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -16725,7 +16725,7 @@ define hidden void @zim_DatePeriod_getEndDate(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DatePeriod_getDateInterval(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_DatePeriod_getDateInterval(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -16814,7 +16814,7 @@ date_throw_uninitialized_error.exit:              ; preds = %16, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DatePeriod_getRecurrences(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DatePeriod_getRecurrences(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -17192,7 +17192,7 @@ declare ptr @timelib_timezone_identifiers_list(ptr noundef, ptr noundef) local_u
 declare i32 @add_next_index_string(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_timezone_version_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_timezone_version_get(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -17226,7 +17226,7 @@ define hidden void @zif_timezone_version_get(ptr nocapture noundef readonly %0, 
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 %13, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr align 1 %12, i64 %13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr nonnull align 1 %12, i64 %13, i1 false)
   %21 = getelementptr inbounds [1 x i8], ptr %20, i64 0, i64 %13
   store i8 0, ptr %21, align 1
   store ptr %16, ptr %1, align 8
@@ -17239,7 +17239,7 @@ define hidden void @zif_timezone_version_get(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_timezone_abbreviations_list(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zif_timezone_abbreviations_list(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -17291,7 +17291,7 @@ define hidden void @zif_timezone_abbreviations_list(ptr nocapture noundef readon
   %27 = load ptr, ptr %1, align 8
   %28 = load ptr, ptr %.0, align 8
   %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #27
-  %30 = call ptr @zend_hash_str_find(ptr noundef %27, ptr noundef %28, i64 noundef %29) #25
+  %30 = call ptr @zend_hash_str_find(ptr noundef %27, ptr noundef nonnull %28, i64 noundef %29) #25
   %.not39 = icmp eq ptr %30, null
   br i1 %.not39, label %31, label %35
 
@@ -17301,7 +17301,7 @@ define hidden void @zif_timezone_abbreviations_list(ptr nocapture noundef readon
   store i32 775, ptr %13, align 8
   %33 = load ptr, ptr %.0, align 8
   %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #27
-  call void @add_assoc_zval_ex(ptr noundef nonnull %1, ptr noundef %33, i64 noundef %34, ptr noundef nonnull %4) #25
+  call void @add_assoc_zval_ex(ptr noundef nonnull %1, ptr noundef nonnull %33, i64 noundef %34, ptr noundef nonnull %4) #25
   %.pre = load ptr, ptr %4, align 8
   br label %39
 
@@ -17338,7 +17338,7 @@ declare void @add_assoc_null_ex(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_date_default_timezone_set(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_date_default_timezone_set(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -17428,7 +17428,7 @@ declare i32 @timelib_timezone_id_is_valid(ptr noundef, ptr noundef) local_unname
 declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_date_default_timezone_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_date_default_timezone_get(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -17463,7 +17463,7 @@ define hidden void @zif_date_default_timezone_get(ptr nocapture noundef readonly
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 %13, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr align 1 %12, i64 %13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr nonnull align 1 %12, i64 %13, i1 false)
   %21 = getelementptr inbounds [1 x i8], ptr %20, i64 0, i64 %13
   store i8 0, ptr %21, align 1
   store ptr %16, ptr %1, align 8
@@ -17476,13 +17476,13 @@ define hidden void @zif_date_default_timezone_get(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_date_sunrise(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_date_sunrise(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   tail call fastcc void @php_do_date_sunrise_sunset(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_do_date_sunrise_sunset(ptr noundef %0, ptr nocapture noundef writeonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @php_do_date_sunrise_sunset(ptr noundef %0, ptr noundef writeonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca double, align 8
   %5 = alloca double, align 8
   %6 = alloca double, align 8
@@ -17825,7 +17825,7 @@ define internal fastcc void @php_do_date_sunrise_sunset(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_date_sunset(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_date_sunset(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   tail call fastcc void @php_do_date_sunrise_sunset(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
   ret void
 }
@@ -18396,7 +18396,7 @@ thread-pre-split137:                              ; preds = %69
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DatePeriod___serialize(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_DatePeriod___serialize(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -18645,7 +18645,7 @@ add_common_properties.exit:                       ; preds = %132, %date_period_o
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DatePeriod___unserialize(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_DatePeriod___unserialize(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -18731,7 +18731,7 @@ restore_custom_dateperiod_properties.exit:        ; preds = %39, %18, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DatePeriod___wakeup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_DatePeriod___wakeup(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -18813,7 +18813,7 @@ declare noalias ptr @_emalloc_56() local_unnamed_addr #5
 declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_php_date_tzinfo_dtor(ptr nocapture noundef readonly %0) #0 {
+define internal void @_php_date_tzinfo_dtor(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @timelib_tzinfo_dtor(ptr noundef %2) #25
   ret void
@@ -18831,7 +18831,7 @@ declare i32 @ap_php_slprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_u
 declare double @llvm.floor.f64(double) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @smart_str_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #5
 
@@ -18861,7 +18861,7 @@ declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #13
 declare zeroext i1 @zend_parse_arg_bool_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @implement_date_interface_handler(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal noundef i32 @implement_date_interface_handler(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = load i8, ptr %1, align 8
   %4 = icmp eq i8 %3, 2
   br i1 %4, label %5, label %.critedge
@@ -19104,7 +19104,7 @@ define internal ptr @date_object_get_properties_for(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @date_object_get_gc(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
+define internal ptr @date_object_get_gc(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #0 {
   store ptr null, ptr %1, align 8
   store i32 0, ptr %2, align 4
   %4 = tail call ptr @zend_std_get_properties(ptr noundef %0) #25
@@ -19260,7 +19260,7 @@ define internal ptr @date_object_get_properties_for_timezone(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @date_object_get_gc_timezone(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
+define internal ptr @date_object_get_gc_timezone(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #0 {
   store ptr null, ptr %1, align 8
   store i32 0, ptr %2, align 4
   %4 = tail call ptr @zend_std_get_properties(ptr noundef %0) #25
@@ -19268,7 +19268,7 @@ define internal ptr @date_object_get_gc_timezone(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @date_object_get_debug_info_timezone(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 {
+define internal noundef ptr @date_object_get_debug_info_timezone(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 -32
   %5 = tail call ptr @zend_std_get_properties(ptr noundef %0) #25
@@ -20016,7 +20016,7 @@ define internal ptr @date_interval_get_property_ptr_ptr(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @date_object_get_gc_interval(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
+define internal ptr @date_object_get_gc_interval(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #0 {
   store ptr null, ptr %1, align 8
   store i32 0, ptr %2, align 4
   %4 = tail call ptr @zend_std_get_properties(ptr noundef %0) #25
@@ -20085,7 +20085,7 @@ define internal noundef nonnull ptr @date_object_new_period(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @date_object_period_get_iterator(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal noundef ptr @date_object_period_get_iterator(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %4
 
@@ -20253,7 +20253,7 @@ define internal noundef nonnull ptr @date_object_clone_period(ptr noundef %0) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @date_object_get_gc_period(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
+define internal ptr @date_object_get_gc_period(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #0 {
   store ptr null, ptr %1, align 8
   store i32 0, ptr %2, align 4
   %4 = tail call ptr @zend_std_get_properties(ptr noundef %0) #25
@@ -20328,7 +20328,7 @@ declare ptr @zend_register_internal_interface(ptr noundef) local_unnamed_addr #5
 declare ptr @zend_declare_class_constant_ex(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: noreturn
 declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #15
@@ -20401,7 +20401,7 @@ date_period_it_invalidate_current.exit:           ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 1) i32 @date_period_it_has_more(ptr nocapture noundef readonly %0) #16 {
+define internal range(i32 -1, 1) i32 @date_period_it_has_more(ptr noundef readonly captures(none) %0) #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -24
@@ -20505,7 +20505,7 @@ get_base_date_class.exit:                         ; preds = %10, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @date_period_it_current_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) #17 {
+define internal void @date_period_it_current_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1) #17 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
@@ -20754,7 +20754,7 @@ define internal void @date_period_it_invalidate_current(ptr noundef %0) #0 {
 declare void @rebuild_object_properties(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @date_period_is_internal_property(ptr nocapture noundef readonly %0) unnamed_addr #18 {
+define internal fastcc noundef zeroext i1 @date_period_is_internal_property(ptr noundef readonly captures(none) %0) unnamed_addr #18 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   switch i64 %3, label %.critedge12 [
@@ -20956,7 +20956,7 @@ declare void @timelib_strtointerval(ptr noundef, i64 noundef, ptr noundef, ptr n
 declare ptr @timelib_rel_time_ctor() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #20
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #20
 
 declare ptr @zval_get_string_func(ptr noundef) local_unnamed_addr #5
 
@@ -21372,7 +21372,7 @@ write_date_period_property.exit44:                ; preds = %write_date_period_p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #21
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #21
 
 declare void @add_assoc_zval_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
@@ -21388,7 +21388,7 @@ declare ptr @zend_strpprintf(i64 noundef, ptr noundef, ...) local_unnamed_addr #
 declare zeroext i1 @zend_parse_arg_double_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #23
@@ -21400,10 +21400,10 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #23
 declare i16 @llvm.abs.i16(i16, i1 immarg) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

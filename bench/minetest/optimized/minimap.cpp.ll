@@ -302,15 +302,15 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 384), align 16, !tbaa !4
   %cmp.i.i.i = icmp eq ptr %1, getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 400)
@@ -776,10 +776,10 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit51:          ; preds = %invoke.cont18, %cle
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN19MinimapUpdateThread14popBlockUpdateEP19QueuedMinimapUpdate(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr nocapture noundef writeonly %update) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN19MinimapUpdateThread14popBlockUpdateEP19QueuedMinimapUpdate(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr noundef writeonly captures(none) %update) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_queue_mutex = getelementptr inbounds nuw i8, ptr %this, i64 184
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_queue_mutex) #34
@@ -2845,7 +2845,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit63:          ; preds = %lpad7, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZN7Minimap20getMinimapMeshBufferEv(ptr nocapture nonnull readnone align 8 %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZN7Minimap20getMinimapMeshBufferEv(ptr nonnull readnone align 8 captures(none) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN3irr4core5arrayINS_5video9S3DVertexEE8set_usedEj.exit:
   %call = tail call noalias noundef nonnull dereferenceable(336) ptr @_Znwm(i64 noundef 336) #36
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 312
@@ -3488,7 +3488,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #12
 declare noundef zeroext i1 @_ZN6Thread4waitEv(ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7Minimap8addBlockEN3irr4core8vector3dIsEEP15MinimapMapblock(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, i48 %pos.coerce, ptr noundef %data) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN7Minimap8addBlockEN3irr4core8vector3dIsEEP15MinimapMapblock(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, i48 %pos.coerce, ptr noundef %data) local_unnamed_addr #7 align 2 {
 entry:
   %m_minimap_update_thread = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_minimap_update_thread, align 8, !tbaa !102
@@ -3739,7 +3739,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit39:          ; preds = %lpad14, %ehcleanup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 0, 2) i32 @_ZN7Minimap15getMinimapShapeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) local_unnamed_addr #13 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN7Minimap15getMinimapShapeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this) local_unnamed_addr #13 align 2 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %data, align 8, !tbaa !139
@@ -4039,14 +4039,14 @@ sw.bb:                                            ; preds = %if.then9
   %call11 = tail call ptr @gettext(ptr noundef nonnull @.str.17) #34
   %4 = load i64, ptr %_M_string_length.i.i51, align 8, !tbaa !11
   %call.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call11) #34
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %label, i64 noundef 0, i64 noundef %4, ptr noundef %call11, i64 noundef %call.i.i.i)
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %label, i64 noundef 0, i64 noundef %4, ptr noundef nonnull %call11, i64 noundef %call.i.i.i)
   br label %if.end49
 
 sw.bb14:                                          ; preds = %if.then9
   %call15 = tail call ptr @gettext(ptr noundef nonnull @.str.18) #34
   %5 = load i64, ptr %_M_string_length.i.i51, align 8, !tbaa !11
   %call.i.i.i54 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call15) #34
-  %call3.i.i55 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %label, i64 noundef 0, i64 noundef %5, ptr noundef %call15, i64 noundef %call.i.i.i54)
+  %call3.i.i55 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %label, i64 noundef 0, i64 noundef %5, ptr noundef nonnull %call15, i64 noundef %call.i.i.i54)
   %map_size = getelementptr inbounds nuw i8, ptr %mode, i64 42
   %6 = load i16, ptr %map_size, align 2, !tbaa !145
   %cmp19.not = icmp eq i16 %6, 0
@@ -4060,7 +4060,7 @@ sw.bb24:                                          ; preds = %if.then9
   %call25 = tail call ptr @gettext(ptr noundef nonnull @.str.19) #34
   %8 = load i64, ptr %_M_string_length.i.i51, align 8, !tbaa !11
   %call.i.i.i57 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call25) #34
-  %call3.i.i58 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %label, i64 noundef 0, i64 noundef %8, ptr noundef %call25, i64 noundef %call.i.i.i57)
+  %call3.i.i58 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %label, i64 noundef 0, i64 noundef %8, ptr noundef nonnull %call25, i64 noundef %call.i.i.i57)
   %map_size28 = getelementptr inbounds nuw i8, ptr %mode, i64 42
   %9 = load i16, ptr %map_size28, align 2, !tbaa !145
   %cmp30.not = icmp eq i16 %9, 0
@@ -4074,7 +4074,7 @@ sw.bb36:                                          ; preds = %if.then9
   %call37 = tail call ptr @gettext(ptr noundef nonnull @.str.20) #34
   %11 = load i64, ptr %_M_string_length.i.i51, align 8, !tbaa !11
   %call.i.i.i60 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call37) #34
-  %call3.i.i61 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %label, i64 noundef 0, i64 noundef %11, ptr noundef %call37, i64 noundef %call.i.i.i60)
+  %call3.i.i61 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %label, i64 noundef 0, i64 noundef %11, ptr noundef nonnull %call37, i64 noundef %call.i.i.i60)
   br label %if.end49
 
 if.then42:                                        ; preds = %if.then31, %if.then20
@@ -4333,7 +4333,7 @@ if.end9:                                          ; preds = %_ZNSt11unique_lockI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7Minimap8setAngleEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) initializes((108, 112)) %this, float noundef %angle) local_unnamed_addr #16 align 2 {
+define dso_local void @_ZN7Minimap8setAngleEf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(200) initializes((108, 112)) %this, float noundef %angle) local_unnamed_addr #16 align 2 {
 entry:
   %m_angle = getelementptr inbounds nuw i8, ptr %this, i64 108
   store float %angle, ptr %m_angle, align 4, !tbaa !133
@@ -4341,7 +4341,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7Minimap29blitMinimapPixelsToImageRadarEPN3irr5video6IImageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, ptr noundef %map_image) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN7Minimap29blitMinimapPixelsToImageRadarEPN3irr5video6IImageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef %map_image) local_unnamed_addr #7 align 2 {
 entry:
   %c = alloca %"class.irr::video::SColor", align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %c) #34
@@ -4434,7 +4434,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7Minimap31blitMinimapPixelsToImageSurfaceEPN3irr5video6IImageES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, ptr noundef %map_image, ptr noundef %heightmap_image) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN7Minimap31blitMinimapPixelsToImageSurfaceEPN3irr5video6IImageES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef %map_image, ptr noundef %heightmap_image) local_unnamed_addr #7 align 2 {
 entry:
   %tilecolor = alloca %"class.irr::video::SColor", align 4
   %ref.tmp = alloca %"class.irr::video::SColor", align 4
@@ -4605,7 +4605,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare void @_ZNK7MapNode8getColorERK15ContentFeaturesPN3irr5video6SColorE(ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 8 dereferenceable(3706), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN7Minimap14getMinimapMaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN7Minimap14getMinimapMaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i83 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -4871,7 +4871,7 @@ eh.resume:                                        ; preds = %ehcleanup62, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN7Minimap17getMinimapTextureEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN7Minimap17getMinimapTextureEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %c.i = alloca %"class.irr::video::SColor", align 4
   %dim = alloca %"class.irr::core::dimension2d", align 4
@@ -5468,7 +5468,7 @@ return:                                           ; preds = %_ZNK3irr17IReferenc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { <2 x float>, float } @_ZN7Minimap9getYawVecEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) local_unnamed_addr #13 align 2 {
+define dso_local { <2 x float>, float } @_ZN7Minimap9getYawVecEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this) local_unnamed_addr #13 align 2 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %data, align 8, !tbaa !139
@@ -6515,7 +6515,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN7Minimap12removeMarkerEPP13MinimapMarker(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef %m) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7Minimap12removeMarkerEPP13MinimapMarker(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef captures(none) %m) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__to_destroy.i = alloca %"class.std::__cxx11::list", align 8
   %m_markers = getelementptr inbounds nuw i8, ptr %this, i64 152
@@ -6591,7 +6591,7 @@ delete.end:                                       ; preds = %delete.notnull, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15MinimapMapblock15getMinimapNodesEP16VoxelManipulatorRKN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(2048) %this, ptr noundef %vmanip, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %pos) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN15MinimapMapblock15getMinimapNodesEP16VoxelManipulatorRKN3irr4core8vector3dIsEE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(2048) %this, ptr noundef %vmanip, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(6) %pos) local_unnamed_addr #7 align 2 {
 entry:
   %voxel_area.i = alloca %class.VoxelArea, align 8
   %Y.i50 = getelementptr inbounds nuw i8, ptr %pos, i64 2
@@ -6965,7 +6965,7 @@ declare void @llvm.trap() #20
 declare void @_ZN9Semaphore4postEj(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 ; Function Attrs: noreturn
 declare void @_Z15sanity_check_fnPKcS0_jS0_(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #22
@@ -7121,7 +7121,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #23
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #23
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #22
@@ -7550,7 +7550,7 @@ if.end65:                                         ; preds = %_ZSt4copyIPP19Queue
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIN3irr4core8vector3dIsEESt4pairIKS3_P15MinimapMapblockESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE22_M_emplace_hint_uniqueIJS4_IS3_S7_EEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__args) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {

@@ -61,7 +61,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [8 x ptr] [ptr @__UNIQUE_ID___addressable_net_failover_create627, ptr @__UNIQUE_ID___addressable_net_failover_destroy630, ptr @__UNIQUE_ID___addressable_net_failover_init632, ptr @__UNIQUE_ID_description633, ptr @__UNIQUE_ID_file634, ptr @__UNIQUE_ID_license635, ptr @__exitcall_net_failover_exit, ptr @net_failover_exit], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @net_failover_create(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local ptr @net_failover_create(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1400
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @alloc_etherdev_mqs(i32 noundef 624, i32 noundef 16, i32 noundef 16) #11
@@ -141,7 +141,7 @@ define dso_local ptr @net_failover_create(ptr nocapture noundef readonly %0) #0 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @alloc_etherdev_mqs(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -165,7 +165,7 @@ declare dso_local void @unregister_netdev(ptr noundef) local_unnamed_addr #2
 declare dso_local void @free_netdev(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @net_failover_destroy(ptr noundef %0) #0 align 16 {
@@ -574,7 +574,7 @@ define internal void @net_failover_set_rx_mode(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @eth_validate_addr(ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @net_failover_change_mtu(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
+define internal i32 @net_failover_change_mtu(ptr noundef captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2304
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -616,7 +616,7 @@ define internal i32 @net_failover_change_mtu(ptr nocapture noundef %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @net_failover_get_stats(ptr noundef %0, ptr nocapture noundef initializes((0, 200)) %1) #0 align 16 {
+define internal void @net_failover_get_stats(ptr noundef %0, ptr noundef captures(none) initializes((0, 200)) %1) #0 align 16 {
   %3 = alloca %struct.rtnl_link_stats64, align 8
   %4 = getelementptr i8, ptr %0, i64 2304
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #11
@@ -783,16 +783,16 @@ declare dso_local void @__rcu_read_unlock() local_unnamed_addr #2
 declare dso_local i32 @dev_set_mtu(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @dev_get_stats(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfo_ethtool_get_drvinfo(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal void @nfo_ethtool_get_drvinfo(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = tail call i64 @strscpy(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 32) #11
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -804,7 +804,7 @@ define internal void @nfo_ethtool_get_drvinfo(ptr nocapture readnone %0, ptr nou
 declare dso_local i32 @ethtool_op_get_link(ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nfo_ethtool_get_link_ksettings(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i32 @nfo_ethtool_get_link_ksettings(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2304
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1064,7 +1064,7 @@ define internal i32 @net_failover_slave_register(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal noundef range(i32 -19, 1) i32 @net_failover_slave_pre_unregister(ptr noundef readnone %0, ptr nocapture noundef readonly %1) #8 align 16 {
+define internal noundef range(i32 -19, 1) i32 @net_failover_slave_pre_unregister(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) #8 align 16 {
   %3 = getelementptr i8, ptr %1, i64 2304
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %0
@@ -1272,7 +1272,7 @@ define internal noundef range(i32 -19, 1) i32 @net_failover_slave_link_change(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -19, 1) i32 @net_failover_slave_name_change(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @net_failover_slave_name_change(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr i8, ptr %1, i64 2304
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %0
@@ -1294,7 +1294,7 @@ define internal noundef range(i32 -19, 1) i32 @net_failover_slave_name_change(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal noundef range(i32 1, 3) i32 @net_failover_handle_frame(ptr nocapture noundef readonly %0) #9 align 16 {
+define internal noundef range(i32 1, 3) i32 @net_failover_handle_frame(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8

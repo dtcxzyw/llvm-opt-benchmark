@@ -31,7 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.net_stream_server_listening = private unnamed_addr constant [28 x i8] c"net_stream_server_listening\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @net_init_stream(ptr nocapture noundef readonly %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @net_init_stream(ptr noundef readonly captures(none) %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %netdev, i64 8
   %0 = load i32, ptr %type, align 8
@@ -132,7 +132,7 @@ declare zeroext i1 @visit_type_SocketAddress(ptr noundef, ptr noundef, ptr nound
 declare void @qio_channel_socket_connect_async(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @net_stream_client_connected(ptr nocapture readnone %task, ptr noundef %opaque) #0 {
+define internal void @net_stream_client_connected(ptr readnone captures(none) %task, ptr noundef %opaque) #0 {
 entry:
   %ioc = getelementptr inbounds nuw i8, ptr %opaque, i64 392
   %0 = load ptr, ptr %ioc, align 8
@@ -288,7 +288,7 @@ return:                                           ; preds = %if.end31, %if.then2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @net_stream_cleanup(ptr nocapture noundef %nc) #0 {
+define internal void @net_stream_cleanup(ptr noundef captures(none) %nc) #0 {
 entry:
   %timer_tag = getelementptr inbounds nuw i8, ptr %nc, i64 70080
   %0 = load i32, ptr %timer_tag, align 8
@@ -397,7 +397,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 declare i32 @qio_channel_add_watch(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @net_stream_writable(ptr nocapture readnone %ioc, i32 %condition, ptr noundef initializes((404, 408)) %data) #0 {
+define internal noundef i32 @net_stream_writable(ptr readnone captures(none) %ioc, i32 %condition, ptr noundef initializes((404, 408)) %data) #0 {
 entry:
   %ioc_write_tag = getelementptr inbounds nuw i8, ptr %data, i64 404
   store i32 0, ptr %ioc_write_tag, align 4
@@ -461,7 +461,7 @@ if.end5:                                          ; preds = %if.then, %if.then1,
 declare void @qio_channel_set_delay(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 2) i32 @net_stream_send(ptr nocapture readnone %ioc, i32 %condition, ptr noundef %data) #0 {
+define internal range(i32 0, 2) i32 @net_stream_send(ptr readnone captures(none) %ioc, i32 %condition, ptr noundef %data) #0 {
 entry:
   %buf1 = alloca [69632 x i8], align 16
   %ioc1 = getelementptr inbounds nuw i8, ptr %data, i64 392
@@ -571,7 +571,7 @@ declare i64 @qio_channel_read(ptr noundef, ptr noundef, i64 noundef, ptr noundef
 declare void @qio_net_listener_set_client_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @net_stream_listen(ptr nocapture readnone %listener, ptr noundef %cioc, ptr noundef %opaque) #0 {
+define internal void @net_stream_listen(ptr readnone captures(none) %listener, ptr noundef %cioc, ptr noundef %opaque) #0 {
 entry:
   %call = tail call ptr @object_ref(ptr noundef %cioc) #6
   %listener1 = getelementptr inbounds nuw i8, ptr %opaque, i64 384
@@ -650,7 +650,7 @@ entry:
 declare void @qio_channel_socket_listen_async(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @net_stream_server_listening(ptr nocapture readnone %task, ptr noundef %opaque) #0 {
+define internal void @net_stream_server_listening(ptr readnone captures(none) %task, ptr noundef %opaque) #0 {
 entry:
   %listen_ioc = getelementptr inbounds nuw i8, ptr %opaque, i64 376
   %0 = load ptr, ptr %listen_ioc, align 8

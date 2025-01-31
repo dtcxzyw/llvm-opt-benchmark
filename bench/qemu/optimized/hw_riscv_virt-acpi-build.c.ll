@@ -93,7 +93,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #1
 declare void @acpi_build_tables_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @virt_acpi_build(ptr noundef %s, ptr nocapture noundef nonnull readonly %tables) unnamed_addr #0 {
+define internal fastcc void @virt_acpi_build(ptr noundef %s, ptr noundef nonnull readonly captures(none) %tables) unnamed_addr #0 {
 entry:
   %table.i44 = alloca %struct.AcpiTable, align 8
   %table.i34 = alloca %struct.AcpiTable, align 8
@@ -336,7 +336,7 @@ build_madt.exit:                                  ; preds = %for.body.i, %build_
   %call15.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call8.i) #12
   %38 = trunc i64 %call15.i to i32
   %conv17.i = add i32 %38, 1
-  %call18.i = call ptr @g_array_append_vals(ptr noundef %0, ptr noundef %call8.i, i32 noundef %conv17.i) #10
+  %call18.i = call ptr @g_array_append_vals(ptr noundef %0, ptr noundef nonnull %call8.i, i32 noundef %conv17.i) #10
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %build_madt.exit
@@ -471,7 +471,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare void @qemu_register_reset(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @virt_acpi_build_reset(ptr nocapture noundef writeonly initializes((24, 25)) %build_opaque) #4 {
+define internal void @virt_acpi_build_reset(ptr noundef writeonly captures(none) initializes((24, 25)) %build_opaque) #4 {
 entry:
   %patched = getelementptr inbounds nuw i8, ptr %build_opaque, i64 24
   store i8 0, ptr %patched, align 8
@@ -533,14 +533,14 @@ declare ptr @aml_resource_template() local_unnamed_addr #2
 declare ptr @aml_memory32_fixed(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @build_fadt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare ptr @riscv_isa_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @g_array_set_size(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -553,17 +553,17 @@ declare void @memory_region_ram_resize(ptr noundef, i64 noundef, ptr noundef) lo
 declare ptr @memory_region_get_ram_ptr(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @memory_region_set_dirty(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 declare i32 @vmstate_register_with_alias_id(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

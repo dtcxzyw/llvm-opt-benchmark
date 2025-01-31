@@ -179,7 +179,7 @@ define hidden void @rb_yjit_icache_invalidate(ptr noundef %0, ptr noundef %1) lo
 declare void @llvm.clear_cache(ptr, ptr) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_yjit_exit_locations_dict(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden i64 @rb_yjit_exit_locations_dict(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i64 @rb_hash_new() #5
   %5 = sext i32 %2 to i64
   %6 = tail call i64 @rb_ary_new_capa(i64 noundef %5) #5
@@ -581,13 +581,13 @@ define hidden ptr @rb_yjit_reserve_addr_space(i32 noundef %0) #0 {
 declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @rb_c_method_tracing_currently_enabled(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden zeroext i1 @rb_c_method_tracing_currently_enabled(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %9, label %3
@@ -757,7 +757,7 @@ declare void @rb_vm_pop_frame(ptr noundef) local_unnamed_addr #3
 declare i32 @rb_dtrace_setup(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @rb_iseq_encoded_size(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden i32 @rb_iseq_encoded_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -920,7 +920,7 @@ imemo_type_p.exit.thread:                         ; preds = %2, %imemo_type_p.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @rb_iseq_opcode_at_pc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden i32 @rb_iseq_opcode_at_pc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8
   %4 = and i64 %3, 524288
   %.not = icmp eq i64 %4, 0
@@ -1068,13 +1068,13 @@ vm_ci_kwarg.exit:                                 ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden i32 @rb_get_cikw_keyword_len(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden i32 @rb_get_cikw_keyword_len(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = load i32, ptr %0, align 8
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden i64 @rb_get_cikw_keywords_idx(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #9 {
+define hidden i64 @rb_get_cikw_keywords_idx(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = sext i32 %1 to i64
   %5 = getelementptr [0 x i64], ptr %3, i64 0, i64 %4
@@ -1083,7 +1083,7 @@ define hidden i64 @rb_get_cikw_keywords_idx(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 4) i32 @rb_METHOD_ENTRY_VISI(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden range(i32 0, 4) i32 @rb_METHOD_ENTRY_VISI(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = load i64, ptr %0, align 8
   %3 = trunc i64 %2 to i32
   %4 = lshr i32 %3, 16
@@ -1114,7 +1114,7 @@ define hidden range(i32 0, 16) i32 @rb_get_cme_def_type(ptr noundef readonly %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @rb_get_cme_def_body_attr_id(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden i64 @rb_get_cme_def_body_attr_id(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1123,7 +1123,7 @@ define hidden i64 @rb_get_cme_def_body_attr_id(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @rb_get_cme_def_body_optimized_type(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden i32 @rb_get_cme_def_body_optimized_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1132,7 +1132,7 @@ define hidden i32 @rb_get_cme_def_body_optimized_type(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @rb_get_cme_def_body_optimized_index(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden i32 @rb_get_cme_def_body_optimized_index(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -1141,7 +1141,7 @@ define hidden i32 @rb_get_cme_def_body_optimized_index(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden nonnull ptr @rb_get_cme_def_body_cfunc(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden nonnull ptr @rb_get_cme_def_body_cfunc(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1149,48 +1149,48 @@ define hidden nonnull ptr @rb_get_cme_def_body_cfunc(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden i64 @rb_get_def_method_serial(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden i64 @rb_get_def_method_serial(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden i64 @rb_get_def_original_id(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden i64 @rb_get_def_original_id(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden i32 @rb_get_mct_argc(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden i32 @rb_get_mct_argc(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden ptr @rb_get_mct_func(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden ptr @rb_get_mct_func(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden ptr @rb_get_def_iseq_ptr(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden ptr @rb_get_def_iseq_ptr(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   ret ptr %.val
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden i64 @rb_get_def_bmethod_proc(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden i64 @rb_get_def_bmethod_proc(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @rb_get_iseq_body_local_iseq(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden ptr @rb_get_iseq_body_local_iseq(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
@@ -1199,7 +1199,7 @@ define hidden ptr @rb_get_iseq_body_local_iseq(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @rb_get_iseq_body_parent_iseq(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden ptr @rb_get_iseq_body_parent_iseq(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
@@ -1208,7 +1208,7 @@ define hidden ptr @rb_get_iseq_body_parent_iseq(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @rb_get_iseq_body_local_table_size(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden i32 @rb_get_iseq_body_local_table_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 232
@@ -1217,7 +1217,7 @@ define hidden i32 @rb_get_iseq_body_local_table_size(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @rb_get_iseq_body_iseq_encoded(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden ptr @rb_get_iseq_body_iseq_encoded(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1226,7 +1226,7 @@ define hidden ptr @rb_get_iseq_body_iseq_encoded(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @rb_get_iseq_body_stack_max(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden i32 @rb_get_iseq_body_stack_max(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 256
@@ -1235,7 +1235,7 @@ define hidden i32 @rb_get_iseq_body_stack_max(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @rb_get_iseq_flags_has_lead(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden zeroext i1 @rb_get_iseq_flags_has_lead(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1246,7 +1246,7 @@ define hidden zeroext i1 @rb_get_iseq_flags_has_lead(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @rb_get_iseq_flags_has_opt(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden zeroext i1 @rb_get_iseq_flags_has_opt(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1257,7 +1257,7 @@ define hidden zeroext i1 @rb_get_iseq_flags_has_opt(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @rb_get_iseq_flags_has_kw(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden zeroext i1 @rb_get_iseq_flags_has_kw(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1268,7 +1268,7 @@ define hidden zeroext i1 @rb_get_iseq_flags_has_kw(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @rb_get_iseq_flags_has_post(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden zeroext i1 @rb_get_iseq_flags_has_post(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1279,7 +1279,7 @@ define hidden zeroext i1 @rb_get_iseq_flags_has_post(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @rb_get_iseq_flags_has_kwrest(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden zeroext i1 @rb_get_iseq_flags_has_kwrest(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1290,7 +1290,7 @@ define hidden zeroext i1 @rb_get_iseq_flags_has_kwrest(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @rb_get_iseq_flags_anon_kwrest(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden zeroext i1 @rb_get_iseq_flags_anon_kwrest(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1301,7 +1301,7 @@ define hidden zeroext i1 @rb_get_iseq_flags_anon_kwrest(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @rb_get_iseq_flags_has_rest(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden zeroext i1 @rb_get_iseq_flags_has_rest(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1312,7 +1312,7 @@ define hidden zeroext i1 @rb_get_iseq_flags_has_rest(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @rb_get_iseq_flags_ruby2_keywords(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden zeroext i1 @rb_get_iseq_flags_ruby2_keywords(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1323,7 +1323,7 @@ define hidden zeroext i1 @rb_get_iseq_flags_ruby2_keywords(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @rb_get_iseq_flags_has_block(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden zeroext i1 @rb_get_iseq_flags_has_block(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1334,7 +1334,7 @@ define hidden zeroext i1 @rb_get_iseq_flags_has_block(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @rb_get_iseq_flags_ambiguous_param0(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden zeroext i1 @rb_get_iseq_flags_ambiguous_param0(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1345,7 +1345,7 @@ define hidden zeroext i1 @rb_get_iseq_flags_ambiguous_param0(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @rb_get_iseq_flags_accepts_no_kwarg(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden zeroext i1 @rb_get_iseq_flags_accepts_no_kwarg(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1356,7 +1356,7 @@ define hidden zeroext i1 @rb_get_iseq_flags_accepts_no_kwarg(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @rb_get_iseq_body_param_keyword(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden ptr @rb_get_iseq_body_param_keyword(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -1365,7 +1365,7 @@ define hidden ptr @rb_get_iseq_body_param_keyword(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @rb_get_iseq_body_param_size(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden i32 @rb_get_iseq_body_param_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -1374,7 +1374,7 @@ define hidden i32 @rb_get_iseq_body_param_size(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @rb_get_iseq_body_param_lead_num(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden i32 @rb_get_iseq_body_param_lead_num(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1383,7 +1383,7 @@ define hidden i32 @rb_get_iseq_body_param_lead_num(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @rb_get_iseq_body_param_opt_num(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden i32 @rb_get_iseq_body_param_opt_num(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -1392,7 +1392,7 @@ define hidden i32 @rb_get_iseq_body_param_opt_num(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @rb_get_iseq_body_param_opt_table(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden ptr @rb_get_iseq_body_param_opt_table(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -1401,7 +1401,7 @@ define hidden ptr @rb_get_iseq_body_param_opt_table(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_optimized_call(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define hidden i64 @rb_optimized_call(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @rb_vm_invoke_proc(ptr noundef %1, ptr noundef %8, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5) #5
@@ -1411,7 +1411,7 @@ define hidden i64 @rb_optimized_call(ptr nocapture noundef readonly %0, ptr noun
 declare i64 @rb_vm_invoke_proc(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @rb_yjit_iseq_builtin_attrs(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden i32 @rb_yjit_iseq_builtin_attrs(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 260
@@ -1420,7 +1420,7 @@ define hidden i32 @rb_yjit_iseq_builtin_attrs(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden ptr @rb_yjit_builtin_function(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden ptr @rb_yjit_builtin_function(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1493,61 +1493,61 @@ RSTRING_PTR.exit:                                 ; preds = %2, %7
 declare i64 @rb_str_cat(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden ptr @rb_get_ec_cfp(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden ptr @rb_get_ec_cfp(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden ptr @rb_get_cfp_iseq(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden ptr @rb_get_cfp_iseq(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden ptr @rb_get_cfp_pc(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden ptr @rb_get_cfp_pc(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden ptr @rb_get_cfp_sp(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden ptr @rb_get_cfp_sp(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @rb_set_cfp_pc(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #10 {
+define hidden void @rb_set_cfp_pc(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #10 {
   store ptr %1, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @rb_set_cfp_sp(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #10 {
+define hidden void @rb_set_cfp_sp(ptr noundef writeonly captures(none) initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden i64 @rb_get_cfp_self(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden i64 @rb_get_cfp_self(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden ptr @rb_get_cfp_ep(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden ptr @rb_get_cfp_ep(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @rb_get_cfp_ep_level(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #11 {
+define hidden ptr @rb_get_cfp_ep_level(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq i32 %1, 0
@@ -2017,7 +2017,7 @@ RARRAY_AREF.exit:                                 ; preds = %18, %20
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @rb_yjit_splat_varg_cfunc(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden i32 @rb_yjit_splat_varg_cfunc(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8
   %3 = inttoptr i64 %2 to ptr
   %4 = load i64, ptr %3, align 8
@@ -2093,7 +2093,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %2, %8
 declare i64 @rb_iseq_path(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare i32 @rb_iseq_line_no(ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -2158,7 +2158,7 @@ num_digits.exit:                                  ; preds = %num_digits.exit.loo
   %26 = add i64 %25, %21
   %27 = add i64 %26, %.0.lcssa.i
   %28 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %27, i64 noundef 1) #27
-  %29 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef %.sroa.2.0.i, ptr noundef %.sroa.2.0.i12, i32 noundef %19) #5
+  %29 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull %.sroa.2.0.i, ptr noundef nonnull %.sroa.2.0.i12, i32 noundef %19) #5
   ret ptr %28
 }
 
@@ -2166,10 +2166,10 @@ num_digits.exit:                                  ; preds = %num_digits.exit.loo
 declare noalias nonnull ptr @ruby_xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i64 @rb_FL_TEST(i64 noundef %0, i64 noundef %1) local_unnamed_addr #4 {
@@ -2279,7 +2279,7 @@ define hidden void @rb_RSTRUCT_SET(i64 noundef %0, i32 noundef %1, i64 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden ptr @rb_get_call_data_ci(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden ptr @rb_get_call_data_ci(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
@@ -2432,7 +2432,7 @@ define hidden void @rb_yjit_for_each_iseq(ptr noundef %0, ptr noundef %1) local_
 declare void @rb_objspace_each_objects(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @for_each_iseq_i(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @for_each_iseq_i(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = ptrtoint ptr %1 to i64
   %.not16 = icmp eq ptr %0, %1
   br i1 %.not16, label %._crit_edge, label %.lr.ph
@@ -2473,7 +2473,7 @@ rb_obj_is_iseq.exit.thread:                       ; preds = %8, %rb_obj_is_iseq.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_yjit_obj_written(i64 noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden void @rb_yjit_obj_written(i64 noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = and i64 %1, 7
   %6 = icmp ne i64 %5, 0
   %7 = icmp eq i64 %1, 0
@@ -2489,7 +2489,7 @@ rb_obj_written.exit:                              ; preds = %4, %9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_yjit_vm_lock_then_barrier(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @rb_yjit_vm_lock_then_barrier(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %5, label %rb_vm_lock_enter.exit
@@ -2506,7 +2506,7 @@ rb_vm_lock_enter.exit:                            ; preds = %3, %5
 declare void @rb_vm_barrier() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_yjit_vm_unlock(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @rb_yjit_vm_unlock(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %5, label %rb_vm_lock_leave.exit
@@ -2631,7 +2631,7 @@ sp_inc_of_invokeblock.exit:                       ; preds = %4, %9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @rb_yjit_set_exception_return(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #15 {
+define hidden void @rb_yjit_set_exception_return(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #15 {
   %4 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %4, align 8
   %.val.val = load i64, ptr %.val, align 8
@@ -2685,7 +2685,7 @@ define hidden void @Init_builtin_yjit() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal range(i64 0, 21) i64 @builtin_inline_class_13(ptr nocapture readnone %0, i64 %1) #14 {
+define internal range(i64 0, 21) i64 @builtin_inline_class_13(ptr readnone captures(none) %0, i64 %1) #14 {
   %3 = load i8, ptr @rb_yjit_enabled_p, align 1
   %4 = trunc i8 %3 to i1
   %5 = select i1 %4, i64 20, i64 0
@@ -2705,7 +2705,7 @@ declare i64 @rb_yjit_get_exit_locations(ptr noundef, i64 noundef) #3
 declare i64 @rb_yjit_get_stats(ptr noundef, i64 noundef, i64 noundef) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i64 1, 8589934592) i64 @object_shape_count(ptr nocapture readnone %0, i64 %1) #4 {
+define internal range(i64 1, 8589934592) i64 @object_shape_count(ptr readnone captures(none) %0, i64 %1) #4 {
   %3 = load ptr, ptr @rb_shape_tree_ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %4, align 8
@@ -2765,7 +2765,7 @@ declare void @rb_exec_event_hooks(ptr noundef, ptr noundef, i32 noundef) local_u
 declare i32 @rb_str_comparable(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
 ; Function Attrs: noreturn
 declare void @ruby_malloc_size_overflow(i64 noundef, i64 noundef) local_unnamed_addr #18
@@ -2787,31 +2787,31 @@ declare void @rb_vm_lock_leave_body(ptr noundef) local_unnamed_addr #3
 declare void @rb_yjit_root_mark(ptr noundef) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @yjit_root_free(ptr nocapture readnone %0) #8 {
+define internal void @yjit_root_free(ptr readnone captures(none) %0) #8 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @yjit_root_memsize(ptr nocapture readnone %0) #8 {
+define internal noundef i64 @yjit_root_memsize(ptr readnone captures(none) %0) #8 {
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @yjit_root_update_references(ptr nocapture readnone %0) #8 {
+define internal void @yjit_root_update_references(ptr readnone captures(none) %0) #8 {
   ret void
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

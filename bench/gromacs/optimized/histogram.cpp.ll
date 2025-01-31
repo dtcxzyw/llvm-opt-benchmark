@@ -398,7 +398,7 @@ _ZN3gmx8internal27BasicAverageHistogramModuleD2Ev.exit: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK3gmx8internal27BasicAverageHistogramModule5flagsEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
+define noundef i32 @_ZNK3gmx8internal27BasicAverageHistogramModule5flagsEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
   ret i32 20
 }
 
@@ -489,12 +489,12 @@ _ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EE6resizeEm.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3gmx8internal27BasicAverageHistogramModule12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 4 %1) unnamed_addr #2 align 2 {
+define void @_ZN3gmx8internal27BasicAverageHistogramModule12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1) unnamed_addr #2 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx8internal27BasicAverageHistogramModule11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 {
+define void @_ZN3gmx8internal27BasicAverageHistogramModule11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4
@@ -506,7 +506,7 @@ define void @_ZN3gmx8internal27BasicAverageHistogramModule11pointsAddedERKNS_23A
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3gmx8internal27BasicAverageHistogramModule13frameFinishedERKNS_23AnalysisDataFrameHeaderE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 4 %1) unnamed_addr #2 align 2 {
+define void @_ZN3gmx8internal27BasicAverageHistogramModule13frameFinishedERKNS_23AnalysisDataFrameHeaderE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1) unnamed_addr #2 align 2 {
   ret void
 }
 
@@ -684,7 +684,7 @@ _ZN3gmx8internal27BasicAverageHistogramModuleD0Ev.exit: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZThn120_NK3gmx8internal27BasicAverageHistogramModule5flagsEv(ptr nocapture readnone %0) unnamed_addr #2 align 2 {
+define noundef i32 @_ZThn120_NK3gmx8internal27BasicAverageHistogramModule5flagsEv(ptr readnone captures(none) %0) unnamed_addr #2 align 2 {
   ret i32 20
 }
 
@@ -698,12 +698,12 @@ define void @_ZThn120_N3gmx8internal27BasicAverageHistogramModule11dataStartedEP
 declare noundef zeroext i1 @_ZN3gmx24AnalysisDataModuleSerial19parallelDataStartedEPNS_20AbstractAnalysisDataERKNS_27AnalysisDataParallelOptionsE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZThn120_N3gmx8internal27BasicAverageHistogramModule12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr nocapture readnone %0, ptr nocapture nonnull readnone align 4 %1) unnamed_addr #2 align 2 {
+define void @_ZThn120_N3gmx8internal27BasicAverageHistogramModule12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr readnone captures(none) %0, ptr nonnull readnone align 4 captures(none) %1) unnamed_addr #2 align 2 {
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn120_N3gmx8internal27BasicAverageHistogramModule11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr nocapture noundef readonly %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #5 align 2 {
+define void @_ZThn120_N3gmx8internal27BasicAverageHistogramModule11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4
@@ -715,7 +715,7 @@ define void @_ZThn120_N3gmx8internal27BasicAverageHistogramModule11pointsAddedER
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZThn120_N3gmx8internal27BasicAverageHistogramModule13frameFinishedERKNS_23AnalysisDataFrameHeaderE(ptr nocapture readnone %0, ptr nocapture nonnull readnone align 4 %1) unnamed_addr #2 align 2 {
+define void @_ZThn120_N3gmx8internal27BasicAverageHistogramModule13frameFinishedERKNS_23AnalysisDataFrameHeaderE(ptr readnone captures(none) %0, ptr nonnull readnone align 4 captures(none) %1) unnamed_addr #2 align 2 {
   ret void
 }
 
@@ -746,7 +746,7 @@ define void @_ZN3gmx33AnalysisDataSimpleHistogramModuleD0Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK3gmx33AnalysisDataSimpleHistogramModule10frameCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK3gmx33AnalysisDataSimpleHistogramModule10frameCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -755,7 +755,7 @@ define noundef i32 @_ZNK3gmx33AnalysisDataSimpleHistogramModule10frameCountEv(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3gmx33AnalysisDataSimpleHistogramModule23tryGetDataFrameInternalEi(ptr dead_on_unwind noalias writable sret(%"class.gmx::AnalysisDataFrameRef") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #3 align 2 {
+define void @_ZNK3gmx33AnalysisDataSimpleHistogramModule23tryGetDataFrameInternalEi(ptr dead_on_unwind noalias writable sret(%"class.gmx::AnalysisDataFrameRef") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -764,7 +764,7 @@ define void @_ZNK3gmx33AnalysisDataSimpleHistogramModule23tryGetDataFrameInterna
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3gmx33AnalysisDataSimpleHistogramModule22requestStorageInternalEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN3gmx33AnalysisDataSimpleHistogramModule22requestStorageInternalEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -773,7 +773,7 @@ define noundef zeroext i1 @_ZN3gmx33AnalysisDataSimpleHistogramModule22requestSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK3gmx33AnalysisDataSimpleHistogramModule5flagsEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
+define noundef i32 @_ZNK3gmx33AnalysisDataSimpleHistogramModule5flagsEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
   ret i32 29
 }
 
@@ -1043,7 +1043,7 @@ _ZN3gmx26AnalysisDataFrameLocalDataIlE14setColumnCountEii.exit.us: ; preds = %97
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3gmx33AnalysisDataSimpleHistogramModule12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) unnamed_addr #6 align 2 {
+define void @_ZN3gmx33AnalysisDataSimpleHistogramModule12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %1, align 4
@@ -1077,7 +1077,7 @@ _ZN3gmx32AnalysisDataFrameLocalDataHandleIlE5clearEv.exit: ; preds = %2, %.lr.ph
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3gmx33AnalysisDataSimpleHistogramModule11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #7 align 2 {
+define void @_ZN3gmx33AnalysisDataSimpleHistogramModule11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -1283,7 +1283,7 @@ define void @_ZN3gmx33AnalysisDataSimpleHistogramModule13frameFinishedERKNS_23An
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx33AnalysisDataSimpleHistogramModule19frameFinishedSerialEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define void @_ZN3gmx33AnalysisDataSimpleHistogramModule19frameFinishedSerialEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1292,7 +1292,7 @@ define void @_ZN3gmx33AnalysisDataSimpleHistogramModule19frameFinishedSerialEi(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx33AnalysisDataSimpleHistogramModule12dataFinishedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 {
+define void @_ZN3gmx33AnalysisDataSimpleHistogramModule12dataFinishedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1316,7 +1316,7 @@ define void @_ZThn16_N3gmx33AnalysisDataSimpleHistogramModuleD0Ev(ptr noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZThn16_NK3gmx33AnalysisDataSimpleHistogramModule5flagsEv(ptr nocapture readnone %0) unnamed_addr #2 align 2 {
+define noundef i32 @_ZThn16_NK3gmx33AnalysisDataSimpleHistogramModule5flagsEv(ptr readnone captures(none) %0) unnamed_addr #2 align 2 {
   ret i32 29
 }
 
@@ -1330,7 +1330,7 @@ define noundef zeroext i1 @_ZThn16_N3gmx33AnalysisDataSimpleHistogramModule19par
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZThn16_N3gmx33AnalysisDataSimpleHistogramModule12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) unnamed_addr #6 align 2 {
+define void @_ZThn16_N3gmx33AnalysisDataSimpleHistogramModule12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %1, align 4
@@ -1364,7 +1364,7 @@ _ZN3gmx33AnalysisDataSimpleHistogramModule12frameStartedERKNS_23AnalysisDataFram
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZThn16_N3gmx33AnalysisDataSimpleHistogramModule11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #8 align 2 {
+define void @_ZThn16_N3gmx33AnalysisDataSimpleHistogramModule11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN3gmx33AnalysisDataSimpleHistogramModule11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
@@ -1378,7 +1378,7 @@ define void @_ZThn16_N3gmx33AnalysisDataSimpleHistogramModule13frameFinishedERKN
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N3gmx33AnalysisDataSimpleHistogramModule19frameFinishedSerialEi(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #5 align 2 {
+define void @_ZThn16_N3gmx33AnalysisDataSimpleHistogramModule19frameFinishedSerialEi(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1387,7 +1387,7 @@ define void @_ZThn16_N3gmx33AnalysisDataSimpleHistogramModule19frameFinishedSeri
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N3gmx33AnalysisDataSimpleHistogramModule12dataFinishedEv(ptr nocapture noundef readonly %0) unnamed_addr #5 align 2 {
+define void @_ZThn16_N3gmx33AnalysisDataSimpleHistogramModule12dataFinishedEv(ptr noundef readonly captures(none) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1403,7 +1403,7 @@ define void @_ZN3gmx35AnalysisDataWeightedHistogramModuleD0Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK3gmx35AnalysisDataWeightedHistogramModule10frameCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK3gmx35AnalysisDataWeightedHistogramModule10frameCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1412,7 +1412,7 @@ define noundef i32 @_ZNK3gmx35AnalysisDataWeightedHistogramModule10frameCountEv(
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3gmx35AnalysisDataWeightedHistogramModule23tryGetDataFrameInternalEi(ptr dead_on_unwind noalias writable sret(%"class.gmx::AnalysisDataFrameRef") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #3 align 2 {
+define void @_ZNK3gmx35AnalysisDataWeightedHistogramModule23tryGetDataFrameInternalEi(ptr dead_on_unwind noalias writable sret(%"class.gmx::AnalysisDataFrameRef") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1421,7 +1421,7 @@ define void @_ZNK3gmx35AnalysisDataWeightedHistogramModule23tryGetDataFrameInter
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3gmx35AnalysisDataWeightedHistogramModule22requestStorageInternalEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN3gmx35AnalysisDataWeightedHistogramModule22requestStorageInternalEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1430,7 +1430,7 @@ define noundef zeroext i1 @_ZN3gmx35AnalysisDataWeightedHistogramModule22request
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK3gmx35AnalysisDataWeightedHistogramModule5flagsEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
+define noundef i32 @_ZNK3gmx35AnalysisDataWeightedHistogramModule5flagsEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
   ret i32 21
 }
 
@@ -1700,7 +1700,7 @@ _ZN3gmx26AnalysisDataFrameLocalDataIdE14setColumnCountEii.exit.us: ; preds = %97
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3gmx35AnalysisDataWeightedHistogramModule12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) unnamed_addr #6 align 2 {
+define void @_ZN3gmx35AnalysisDataWeightedHistogramModule12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %1, align 4
@@ -1734,7 +1734,7 @@ _ZN3gmx32AnalysisDataFrameLocalDataHandleIdE5clearEv.exit: ; preds = %2, %.lr.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx35AnalysisDataWeightedHistogramModule11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx35AnalysisDataWeightedHistogramModule11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.gmx::APIError", align 8
   %4 = alloca %"class.gmx::ExceptionInitializer", align 8
   %5 = alloca %"class.gmx::ExceptionInfo", align 8
@@ -1998,7 +1998,7 @@ define void @_ZN3gmx35AnalysisDataWeightedHistogramModule13frameFinishedERKNS_23
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx35AnalysisDataWeightedHistogramModule19frameFinishedSerialEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define void @_ZN3gmx35AnalysisDataWeightedHistogramModule19frameFinishedSerialEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2007,7 +2007,7 @@ define void @_ZN3gmx35AnalysisDataWeightedHistogramModule19frameFinishedSerialEi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx35AnalysisDataWeightedHistogramModule12dataFinishedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 {
+define void @_ZN3gmx35AnalysisDataWeightedHistogramModule12dataFinishedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2031,7 +2031,7 @@ define void @_ZThn16_N3gmx35AnalysisDataWeightedHistogramModuleD0Ev(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZThn16_NK3gmx35AnalysisDataWeightedHistogramModule5flagsEv(ptr nocapture readnone %0) unnamed_addr #2 align 2 {
+define noundef i32 @_ZThn16_NK3gmx35AnalysisDataWeightedHistogramModule5flagsEv(ptr readnone captures(none) %0) unnamed_addr #2 align 2 {
   ret i32 21
 }
 
@@ -2043,7 +2043,7 @@ define noundef zeroext i1 @_ZThn16_N3gmx35AnalysisDataWeightedHistogramModule19p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZThn16_N3gmx35AnalysisDataWeightedHistogramModule12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) unnamed_addr #6 align 2 {
+define void @_ZThn16_N3gmx35AnalysisDataWeightedHistogramModule12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %1, align 4
@@ -2077,7 +2077,7 @@ _ZN3gmx35AnalysisDataWeightedHistogramModule12frameStartedERKNS_23AnalysisDataFr
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N3gmx35AnalysisDataWeightedHistogramModule11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #5 align 2 {
+define void @_ZThn16_N3gmx35AnalysisDataWeightedHistogramModule11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN3gmx35AnalysisDataWeightedHistogramModule11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
@@ -2091,7 +2091,7 @@ define void @_ZThn16_N3gmx35AnalysisDataWeightedHistogramModule13frameFinishedER
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N3gmx35AnalysisDataWeightedHistogramModule19frameFinishedSerialEi(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #5 align 2 {
+define void @_ZThn16_N3gmx35AnalysisDataWeightedHistogramModule19frameFinishedSerialEi(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2100,7 +2100,7 @@ define void @_ZThn16_N3gmx35AnalysisDataWeightedHistogramModule19frameFinishedSe
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N3gmx35AnalysisDataWeightedHistogramModule12dataFinishedEv(ptr nocapture noundef readonly %0) unnamed_addr #5 align 2 {
+define void @_ZThn16_N3gmx35AnalysisDataWeightedHistogramModule12dataFinishedEv(ptr noundef readonly captures(none) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2116,7 +2116,7 @@ define void @_ZN3gmx28AnalysisDataBinAverageModuleD0Ev(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK3gmx28AnalysisDataBinAverageModule5flagsEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
+define noundef i32 @_ZNK3gmx28AnalysisDataBinAverageModule5flagsEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
   ret i32 21
 }
 
@@ -2200,12 +2200,12 @@ _ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EE6resizeEm.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3gmx28AnalysisDataBinAverageModule12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 4 %1) unnamed_addr #2 align 2 {
+define void @_ZN3gmx28AnalysisDataBinAverageModule12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1) unnamed_addr #2 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx28AnalysisDataBinAverageModule11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx28AnalysisDataBinAverageModule11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.gmx::APIError", align 8
   %4 = alloca %"class.gmx::ExceptionInitializer", align 8
   %5 = alloca %"class.gmx::ExceptionInfo", align 8
@@ -2355,7 +2355,7 @@ _ZNK3gmx25AnalysisHistogramSettings7findBinEf.exit.thread: ; preds = %.lr.ph, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3gmx28AnalysisDataBinAverageModule13frameFinishedERKNS_23AnalysisDataFrameHeaderE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 4 %1) unnamed_addr #2 align 2 {
+define void @_ZN3gmx28AnalysisDataBinAverageModule13frameFinishedERKNS_23AnalysisDataFrameHeaderE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1) unnamed_addr #2 align 2 {
   ret void
 }
 
@@ -2458,7 +2458,7 @@ define void @_ZThn96_N3gmx28AnalysisDataBinAverageModuleD0Ev(ptr noundef %0) unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZThn96_NK3gmx28AnalysisDataBinAverageModule5flagsEv(ptr nocapture readnone %0) unnamed_addr #2 align 2 {
+define noundef i32 @_ZThn96_NK3gmx28AnalysisDataBinAverageModule5flagsEv(ptr readnone captures(none) %0) unnamed_addr #2 align 2 {
   ret i32 21
 }
 
@@ -2470,19 +2470,19 @@ define void @_ZThn96_N3gmx28AnalysisDataBinAverageModule11dataStartedEPNS_20Abst
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZThn96_N3gmx28AnalysisDataBinAverageModule12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr nocapture readnone %0, ptr nocapture nonnull readnone align 4 %1) unnamed_addr #2 align 2 {
+define void @_ZThn96_N3gmx28AnalysisDataBinAverageModule12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr readnone captures(none) %0, ptr nonnull readnone align 4 captures(none) %1) unnamed_addr #2 align 2 {
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn96_N3gmx28AnalysisDataBinAverageModule11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #5 align 2 {
+define void @_ZThn96_N3gmx28AnalysisDataBinAverageModule11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -96
   tail call void @_ZN3gmx28AnalysisDataBinAverageModule11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZThn96_N3gmx28AnalysisDataBinAverageModule13frameFinishedERKNS_23AnalysisDataFrameHeaderE(ptr nocapture readnone %0, ptr nocapture nonnull readnone align 4 %1) unnamed_addr #2 align 2 {
+define void @_ZThn96_N3gmx28AnalysisDataBinAverageModule13frameFinishedERKNS_23AnalysisDataFrameHeaderE(ptr readnone captures(none) %0, ptr nonnull readnone align 4 captures(none) %1) unnamed_addr #2 align 2 {
   ret void
 }
 
@@ -2494,7 +2494,7 @@ define void @_ZThn96_N3gmx28AnalysisDataBinAverageModule12dataFinishedEv(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx36AnalysisHistogramSettingsInitializerC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(19) initializes((0, 19)) %0) unnamed_addr #9 align 2 {
+define void @_ZN3gmx36AnalysisHistogramSettingsInitializerC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(19) initializes((0, 19)) %0) unnamed_addr #9 align 2 {
   store float 0x47EFFFFFE0000000, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float 0x47EFFFFFE0000000, ptr %2, align 4
@@ -2506,13 +2506,13 @@ define void @_ZN3gmx36AnalysisHistogramSettingsInitializerC2Ev(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx25AnalysisHistogramSettingsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(21) initializes((0, 21)) %0) unnamed_addr #9 align 2 {
+define void @_ZN3gmx25AnalysisHistogramSettingsC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(21) initializes((0, 21)) %0) unnamed_addr #9 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %0, i8 0, i64 21, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx25AnalysisHistogramSettingsC2ERKNS_36AnalysisHistogramSettingsInitializerE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(21) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(19) %1) unnamed_addr #3 align 2 {
+define void @_ZN3gmx25AnalysisHistogramSettingsC2ERKNS_36AnalysisHistogramSettingsInitializerE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(21) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(19) %1) unnamed_addr #3 align 2 {
   %3 = load float, ptr %1, align 4
   %4 = fcmp une float %3, 0x47EFFFFFE0000000
   br i1 %4, label %6, label %5
@@ -2783,7 +2783,7 @@ declare float @llvm.ceil.f32(float) #10
 declare float @llvm.rint.f32(float) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK3gmx25AnalysisHistogramSettings7findBinEf(ptr nocapture noundef nonnull readonly align 4 dereferenceable(21) %0, float noundef %1) local_unnamed_addr #12 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK3gmx25AnalysisHistogramSettings7findBinEf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(21) %0, float noundef %1) local_unnamed_addr #12 align 2 {
   %3 = load float, ptr %0, align 4
   %4 = fcmp olt float %1, %3
   br i1 %4, label %5, label %12
@@ -2847,7 +2847,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8 dereferenceable(94)) unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx24AbstractAverageHistogramC2ERKNS_25AnalysisHistogramSettingsE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(21) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx24AbstractAverageHistogramC2ERKNS_25AnalysisHistogramSettingsE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(21) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3gmx25AbstractAnalysisArrayDataC2Ev(ptr noundef nonnull align 8 dereferenceable(94) %0)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx24AbstractAverageHistogramE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -2879,7 +2879,7 @@ define void @_ZN3gmx24AbstractAverageHistogramC2ERKNS_25AnalysisHistogramSetting
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 declare void @_ZN3gmx25AbstractAnalysisArrayData11setRowCountEi(ptr noundef nonnull align 8 dereferenceable(94), i32 noundef) local_unnamed_addr #1
 
@@ -2895,7 +2895,7 @@ define void @_ZN3gmx24AbstractAverageHistogramD2Ev(ptr noundef nonnull align 8 d
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx24AbstractAverageHistogram4initERKNS_25AnalysisHistogramSettingsE(ptr noundef nonnull align 8 dereferenceable(120) initializes((96, 117)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(21) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN3gmx24AbstractAverageHistogram4initERKNS_25AnalysisHistogramSettingsE(ptr noundef nonnull align 8 dereferenceable(120) initializes((96, 117)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(21) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %3, ptr noundef nonnull align 4 dereferenceable(21) %1, i64 21, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2913,7 +2913,7 @@ define void @_ZN3gmx24AbstractAverageHistogram4initERKNS_25AnalysisHistogramSett
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3gmx24AbstractAverageHistogram22resampleDoubleBinWidthEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.30") align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3gmx24AbstractAverageHistogram22resampleDoubleBinWidthEb(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.30") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.gmx::AnalysisHistogramSettingsInitializer", align 4
   %5 = alloca %"class.gmx::AnalysisHistogramSettings", align 4
   %6 = alloca %"class.gmx::AnalysisHistogramSettingsInitializer", align 4
@@ -3211,7 +3211,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #18
 declare float @sqrtf(float noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3gmx24AbstractAverageHistogram5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.30") align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3gmx24AbstractAverageHistogram5cloneEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.30") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(120) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #31
   invoke void @_ZN3gmx25AbstractAnalysisArrayDataC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %3)
           to label %.noexc unwind label %10
@@ -3511,7 +3511,7 @@ _ZN3gmx24AbstractAverageHistogram11scaleSingleEif.exit: ; preds = %.lr.ph.i, %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx24AbstractAverageHistogram16scaleAllByVectorEPKf(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
+define void @_ZN3gmx24AbstractAverageHistogram16scaleAllByVectorEPKf(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.preheader.lr.ph, label %._crit_edge15
@@ -3591,7 +3591,7 @@ _ZN3gmx24AbstractAverageHistogramC2Ev.exit:       ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx8internal27BasicAverageHistogramModuleC2ERKNS_25AnalysisHistogramSettingsE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(21) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx8internal27BasicAverageHistogramModuleC2ERKNS_25AnalysisHistogramSettingsE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(21) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3gmx25AbstractAnalysisArrayDataC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx24AbstractAverageHistogramE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -4046,7 +4046,7 @@ _ZNSt10shared_ptrIN3gmx8internal27BasicAverageHistogramModuleEED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx8internal18BasicHistogramImpl4initERKNS_25AnalysisHistogramSettingsE(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((16, 37)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(21) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN3gmx8internal18BasicHistogramImpl4initERKNS_25AnalysisHistogramSettingsE(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((16, 37)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(21) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %3, ptr noundef nonnull align 4 dereferenceable(21) %1, i64 21, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4419,7 +4419,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35: ; preds = %_ZNSt6vectorIi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx33AnalysisDataSimpleHistogramModuleC2ERKNS_25AnalysisHistogramSettingsE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(21) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -4517,7 +4517,7 @@ _ZNSt10unique_ptrIN3gmx33AnalysisDataSimpleHistogramModule4ImplESt14default_dele
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx33AnalysisDataSimpleHistogramModule4initERKNS_25AnalysisHistogramSettingsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(21) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN3gmx33AnalysisDataSimpleHistogramModule4initERKNS_25AnalysisHistogramSettingsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(21) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -4541,7 +4541,7 @@ define void @_ZN3gmx33AnalysisDataSimpleHistogramModule4initERKNS_25AnalysisHist
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(120) ptr @_ZN3gmx33AnalysisDataSimpleHistogramModule8averagerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #20 align 2 {
+define noundef nonnull align 8 dereferenceable(120) ptr @_ZN3gmx33AnalysisDataSimpleHistogramModule8averagerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -4550,7 +4550,7 @@ define noundef nonnull align 8 dereferenceable(120) ptr @_ZN3gmx33AnalysisDataSi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(21) ptr @_ZNK3gmx33AnalysisDataSimpleHistogramModule8settingsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #12 align 2 {
+define noundef nonnull align 4 dereferenceable(21) ptr @_ZNK3gmx33AnalysisDataSimpleHistogramModule8settingsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4885,7 +4885,7 @@ _ZNSt12_Vector_baseISt6vectorIlSaIlEESaIS2_EE13_M_deallocateEPS2_m.exit37: ; pre
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5343,7 +5343,7 @@ _ZNSt10unique_ptrIN3gmx35AnalysisDataWeightedHistogramModule4ImplESt14default_de
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx35AnalysisDataWeightedHistogramModule4initERKNS_25AnalysisHistogramSettingsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(21) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN3gmx35AnalysisDataWeightedHistogramModule4initERKNS_25AnalysisHistogramSettingsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(21) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -5367,7 +5367,7 @@ define void @_ZN3gmx35AnalysisDataWeightedHistogramModule4initERKNS_25AnalysisHi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(120) ptr @_ZN3gmx35AnalysisDataWeightedHistogramModule8averagerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #20 align 2 {
+define noundef nonnull align 8 dereferenceable(120) ptr @_ZN3gmx35AnalysisDataWeightedHistogramModule8averagerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -5376,7 +5376,7 @@ define noundef nonnull align 8 dereferenceable(120) ptr @_ZN3gmx35AnalysisDataWe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(21) ptr @_ZNK3gmx35AnalysisDataWeightedHistogramModule8settingsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #12 align 2 {
+define noundef nonnull align 4 dereferenceable(21) ptr @_ZNK3gmx35AnalysisDataWeightedHistogramModule8settingsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -6040,7 +6040,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #23
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #23
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
@@ -6194,7 +6194,7 @@ _ZNKSt14default_deleteIN3gmx28AnalysisDataBinAverageModule4ImplEEclEPS2_.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx28AnalysisDataBinAverageModuleC2ERKNS_25AnalysisHistogramSettingsE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(21) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx28AnalysisDataBinAverageModuleC2ERKNS_25AnalysisHistogramSettingsE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(21) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3gmx25AbstractAnalysisArrayDataC2Ev(ptr noundef nonnull align 8 dereferenceable(94) %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx28AnalysisDataBinAverageModuleE, i64 16), ptr %0, align 8
@@ -6301,7 +6301,7 @@ _ZNSt10unique_ptrIN3gmx28AnalysisDataBinAverageModule4ImplESt14default_deleteIS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx28AnalysisDataBinAverageModule4initERKNS_25AnalysisHistogramSettingsE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(21) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN3gmx28AnalysisDataBinAverageModule4initERKNS_25AnalysisHistogramSettingsE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(21) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %4, ptr noundef nonnull align 4 dereferenceable(21) %1, i64 21, i1 false)
@@ -6320,7 +6320,7 @@ define void @_ZN3gmx28AnalysisDataBinAverageModule4initERKNS_25AnalysisHistogram
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(21) ptr @_ZNK3gmx28AnalysisDataBinAverageModule8settingsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) local_unnamed_addr #12 align 2 {
+define noundef nonnull align 4 dereferenceable(21) ptr @_ZNK3gmx28AnalysisDataBinAverageModule8settingsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -6343,10 +6343,10 @@ declare i64 @llvm.umin.i64(i64, i64) #25
 declare void @llvm.experimental.noalias.scope.decl(metadata) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #25

@@ -64,7 +64,7 @@ define dso_local i32 @sacctmgr_list_instance(i32 noundef %0, ptr noundef %1) loc
   %22 = trunc i64 %21 to i32
   %23 = tail call i32 @llvm.smax.i32(i32 %22, i32 5)
   %24 = zext nneg i32 %23 to i64
-  %25 = tail call i32 @xstrncasecmp(ptr noundef %20, ptr noundef nonnull @.str.1, i64 noundef %24) #9
+  %25 = tail call i32 @xstrncasecmp(ptr noundef nonnull %20, ptr noundef nonnull @.str.1, i64 noundef %24) #9
   %.not157 = icmp eq i32 %25, 0
   br i1 %.not157, label %31, label %26
 
@@ -652,7 +652,7 @@ declare ptr @list_create(ptr noundef) local_unnamed_addr #1
 declare void @xfree_ptr(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -663,7 +663,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #3
 declare ptr @localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare void @slurmdb_destroy_instance_cond(ptr noundef) local_unnamed_addr #1
 
@@ -713,7 +713,7 @@ declare i32 @parse_option_end(ptr noundef) local_unnamed_addr #1
 declare i64 @parse_time(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 

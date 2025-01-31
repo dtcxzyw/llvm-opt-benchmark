@@ -904,7 +904,7 @@ _ZN4llvm12StringSwitchINS_3omp9DirectiveES2_E4CaseENS_13StringLiteralES2_.exit89
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm3omp22getOpenMPDirectiveNameENS0_9DirectiveE(i32 noundef %0) local_unnamed_addr #2 {
@@ -1535,7 +1535,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 1, 6) i32 @_ZN4llvm3omp28getCancellationConstructTypeENS_9StringRefE(ptr nocapture readonly %0, i64 %1) local_unnamed_addr #0 {
+define dso_local noundef range(i32 1, 6) i32 @_ZN4llvm3omp28getCancellationConstructTypeENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #0 {
   switch i64 %1, label %_ZN4llvm12StringSwitchINS_3omp25CancellationConstructTypeES2_E4CaseENS_13StringLiteralES2_.exit34 [
     i64 8, label %_ZN4llvmeqENS_9StringRefES0_.exit.i
     i64 4, label %_ZN4llvmeqENS_9StringRefES0_.exit.i7
@@ -1587,7 +1587,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm3omp16getGrainsizeTypeENS_9StringRefE(ptr nocapture readonly %0, i64 %1) local_unnamed_addr #0 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm3omp16getGrainsizeTypeENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #0 {
   %cond = icmp eq i64 %1, 6
   br i1 %cond, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvm12StringSwitchINS_3omp13GrainsizeTypeES2_E4CaseENS_13StringLiteralES2_.exit10
 
@@ -1613,7 +1613,7 @@ define dso_local { ptr, i64 } @_ZN4llvm3omp26getOpenMPGrainsizeTypeNameENS0_13Gr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 1, 7) i32 @_ZN4llvm3omp18getMemoryOrderKindENS_9StringRefE(ptr nocapture readonly %0, i64 %1) local_unnamed_addr #0 {
+define dso_local noundef range(i32 1, 7) i32 @_ZN4llvm3omp18getMemoryOrderKindENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #0 {
   %.not.i.i = icmp eq i64 %1, 7
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvm12StringSwitchINS_3omp15MemoryOrderKindES2_E4CaseENS_13StringLiteralES2_.exit42
 
@@ -1661,7 +1661,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm3omp15getNumTasksTypeENS_9StringRefE(ptr nocapture readonly %0, i64 %1) local_unnamed_addr #0 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm3omp15getNumTasksTypeENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #0 {
   %cond = icmp eq i64 %1, 6
   br i1 %cond, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvm12StringSwitchINS_3omp12NumTasksTypeES2_E4CaseENS_13StringLiteralES2_.exit10
 
@@ -1687,7 +1687,7 @@ define dso_local { ptr, i64 } @_ZN4llvm3omp25getOpenMPNumTasksTypeNameENS0_12Num
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm3omp12getOrderKindENS_9StringRefE(ptr nocapture readonly %0, i64 %1) local_unnamed_addr #0 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm3omp12getOrderKindENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #0 {
   %cond = icmp eq i64 %1, 10
   br i1 %cond, label %_ZN4llvmeqENS_9StringRefES0_.exit.i7, label %_ZN4llvm12StringSwitchINS_3omp9OrderKindES2_E4CaseENS_13StringLiteralES2_.exit10
 
@@ -1713,7 +1713,7 @@ define dso_local { ptr, i64 } @_ZN4llvm3omp22getOpenMPOrderKindNameENS0_9OrderKi
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 2, 8) i32 @_ZN4llvm3omp15getProcBindKindENS_9StringRefE(ptr nocapture readonly %0, i64 %1) local_unnamed_addr #0 {
+define dso_local noundef range(i32 2, 8) i32 @_ZN4llvm3omp15getProcBindKindENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #0 {
   switch i64 %1, label %_ZN4llvm12StringSwitchINS_3omp12ProcBindKindES2_E4CaseENS_13StringLiteralES2_.exit42 [
     i64 7, label %_ZN4llvmeqENS_9StringRefES0_.exit.i
     i64 6, label %_ZN4llvmeqENS_9StringRefES0_.exit.i7
@@ -1770,7 +1770,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 2, 8) i32 @_ZN4llvm3omp15getScheduleKindENS_9StringRefE(ptr nocapture readonly %0, i64 %1) local_unnamed_addr #0 {
+define dso_local noundef range(i32 2, 8) i32 @_ZN4llvm3omp15getScheduleKindENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #0 {
   switch i64 %1, label %_ZN4llvm12StringSwitchINS_3omp12ScheduleKindES2_E4CaseENS_13StringLiteralES2_.exit42 [
     i64 6, label %_ZN4llvmeqENS_9StringRefES0_.exit.i
     i64 7, label %_ZN4llvmeqENS_9StringRefES0_.exit.i7
@@ -9342,7 +9342,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit19:                ; preds = %45, %43
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3omp27deconstructOpenMPKernelNameB5cxx11ENS_9StringRefERj(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr %1, i64 %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) local_unnamed_addr #3 {
+define dso_local void @_ZN4llvm3omp27deconstructOpenMPKernelNameB5cxx11ENS_9StringRefERj(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr %1, i64 %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #3 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.llvm::StringRef", align 8
@@ -9696,7 +9696,7 @@ _ZN4llvm15SmallVectorImplINS_3omp9DirectiveEE7reserveEm.exit: ; preds = %10, %13
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #5
 
@@ -9716,19 +9716,19 @@ declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 declare noundef zeroext i1 @_ZN4llvm22consumeUnsignedIntegerERNS_9StringRefEjRy(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

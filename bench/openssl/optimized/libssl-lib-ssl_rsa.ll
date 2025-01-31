@@ -90,7 +90,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i32 @ssl_security_cert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_set_cert(ptr nocapture noundef %c, ptr noundef nonnull %x, ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_set_cert(ptr noundef captures(none) %c, ptr noundef nonnull %x, ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %i = alloca i64, align 8
   %call = tail call ptr @X509_get0_pubkey(ptr noundef nonnull %x) #6
@@ -408,7 +408,7 @@ return:                                           ; preds = %cond.false, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_set_pkey(ptr nocapture noundef %c, ptr noundef nonnull %pkey, ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_set_pkey(ptr noundef captures(none) %c, ptr noundef nonnull %pkey, ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %i = alloca i64, align 8
   %call = call ptr @ssl_cert_lookup_by_pkey(ptr noundef nonnull %pkey, ptr noundef nonnull %i, ptr noundef %ctx) #6
@@ -592,7 +592,7 @@ declare ptr @d2i_PrivateKey_ex_bio(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_use_PrivateKey_ASN1(i32 noundef %type, ptr nocapture noundef readonly %ssl, ptr noundef %d, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_use_PrivateKey_ASN1(i32 noundef %type, ptr noundef readonly captures(none) %ssl, ptr noundef %d, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   store ptr %d, ptr %p, align 8
@@ -1386,7 +1386,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @SSL_CTX_use_serverinfo(ptr noundef %ctx, ptr noundef %serverinfo, i64 noundef %serverinfo_length) local_unnamed_addr #0 {
@@ -1616,10 +1616,10 @@ end:                                              ; preds = %if.end72, %for.end,
 declare i32 @PEM_read_bio(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @SSL_use_cert_and_key(ptr noundef %ssl, ptr noundef %x509, ptr noundef %privatekey, ptr noundef %chain, i32 noundef %override) local_unnamed_addr #0 {
@@ -1897,7 +1897,7 @@ declare i64 @ERR_peek_last_error() local_unnamed_addr #1
 declare i32 @SSL_CTX_add_server_custom_ext(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @serverinfo_srv_add_cb(ptr noundef %s, i32 noundef %ext_type, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture noundef writeonly %al, ptr nocapture readnone %arg) #0 {
+define internal range(i32 -1, 2) i32 @serverinfo_srv_add_cb(ptr noundef %s, i32 noundef %ext_type, ptr noundef writeonly captures(none) %out, ptr noundef writeonly captures(none) %outlen, ptr noundef writeonly captures(none) %al, ptr readnone captures(none) %arg) #0 {
 entry:
   %serverinfo.i = alloca ptr, align 8
   %serverinfo_length.i = alloca i64, align 8
@@ -2003,7 +2003,7 @@ serverinfoex_srv_add_cb.exit:                     ; preds = %for.cond.i.i, %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal range(i32 0, 2) i32 @serverinfo_srv_parse_cb(ptr nocapture readnone %s, i32 %ext_type, ptr nocapture readnone %in, i64 noundef %inlen, ptr nocapture noundef writeonly %al, ptr nocapture readnone %arg) #4 {
+define internal range(i32 0, 2) i32 @serverinfo_srv_parse_cb(ptr readnone captures(none) %s, i32 %ext_type, ptr readnone captures(none) %in, i64 noundef %inlen, ptr noundef writeonly captures(none) %al, ptr readnone captures(none) %arg) #4 {
 entry:
   %cmp.not.i = icmp eq i64 %inlen, 0
   br i1 %cmp.not.i, label %serverinfoex_srv_parse_cb.exit, label %if.then.i
@@ -2020,7 +2020,7 @@ serverinfoex_srv_parse_cb.exit:                   ; preds = %entry, %if.then.i
 declare i32 @SSL_CTX_add_custom_ext(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @serverinfoex_srv_add_cb(ptr noundef %s, i32 noundef %ext_type, i32 noundef %context, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %x, i64 noundef %chainidx, ptr nocapture noundef writeonly %al, ptr nocapture readnone %arg) #0 {
+define internal range(i32 -1, 2) i32 @serverinfoex_srv_add_cb(ptr noundef %s, i32 noundef %ext_type, i32 noundef %context, ptr noundef writeonly captures(none) %out, ptr noundef writeonly captures(none) %outlen, ptr readnone captures(none) %x, i64 noundef %chainidx, ptr noundef writeonly captures(none) %al, ptr readnone captures(none) %arg) #0 {
 entry:
   %serverinfo = alloca ptr, align 8
   %serverinfo_length = alloca i64, align 8
@@ -2129,7 +2129,7 @@ return:                                           ; preds = %for.cond.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal range(i32 0, 2) i32 @serverinfoex_srv_parse_cb(ptr nocapture readnone %s, i32 %ext_type, i32 %context, ptr nocapture readnone %in, i64 noundef %inlen, ptr nocapture readnone %x, i64 %chainidx, ptr nocapture noundef writeonly %al, ptr nocapture readnone %arg) #4 {
+define internal range(i32 0, 2) i32 @serverinfoex_srv_parse_cb(ptr readnone captures(none) %s, i32 %ext_type, i32 %context, ptr readnone captures(none) %in, i64 noundef %inlen, ptr readnone captures(none) %x, i64 %chainidx, ptr noundef writeonly captures(none) %al, ptr readnone captures(none) %arg) #4 {
 entry:
   %cmp.not = icmp eq i64 %inlen, 0
   br i1 %cmp.not, label %return, label %if.then
@@ -2160,10 +2160,10 @@ declare ptr @X509_chain_up_ref(ptr noundef) local_unnamed_addr #1
 declare void @OSSL_STACK_OF_X509_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [53 x i8] c"unknown literal type (%s) passed to negative_numeric\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_str_new_parser_string(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @rb_str_new_parser_string(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -24,7 +24,7 @@ define dso_local i64 @rb_str_new_parser_string(ptr nocapture noundef readonly %0
 declare i64 @rb_enc_str_new(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_node_integer_literal_val(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @rb_node_integer_literal_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -213,10 +213,10 @@ rb_float_new_inline.exit:                         ; preds = %84, %82, %78, %68, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_node_float_literal_val(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @rb_node_float_literal_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call double @strtod(ptr nocapture noundef %3, ptr noundef null) #10
+  %4 = tail call double @strtod(ptr noundef captures(none) %3, ptr noundef null) #10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
@@ -254,10 +254,10 @@ rb_float_new_inline.exit:                         ; preds = %14, %18, %20
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #2
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_node_rational_literal_val(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @rb_node_rational_literal_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -280,7 +280,7 @@ define dso_local i64 @rb_node_rational_literal_val(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @rational_value(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @rational_value(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call noalias ptr @strdup(ptr noundef %0) #10
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %6, label %19
@@ -296,7 +296,7 @@ define internal fastcc i64 @rational_value(ptr nocapture noundef readonly %0, i3
   %14 = getelementptr i8, ptr %10, i64 1
   %15 = add nsw i64 %13, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %10, ptr align 1 %14, i64 %15, i1 false)
-  %16 = tail call i64 @rb_cstr_to_inum(ptr noundef %4, i32 noundef %1, i32 noundef 0) #10
+  %16 = tail call i64 @rb_cstr_to_inum(ptr noundef nonnull %4, i32 noundef %1, i32 noundef 0) #10
   %17 = tail call i64 @rb_int_positive_pow(i64 noundef 10, i64 noundef %13) #10
   %18 = tail call i64 @rb_rational_new(i64 noundef %16, i64 noundef %17) #10
   br label %22
@@ -313,7 +313,7 @@ define internal fastcc i64 @rational_value(ptr nocapture noundef readonly %0, i3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_node_imaginary_literal_val(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @rb_node_imaginary_literal_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %36 [
@@ -333,7 +333,7 @@ define dso_local i64 @rb_node_imaginary_literal_val(ptr nocapture noundef readon
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call double @strtod(ptr nocapture noundef %12, ptr noundef null) #10
+  %13 = tail call double @strtod(ptr noundef captures(none) %12, ptr noundef null) #10
   %14 = bitcast double %13 to i64
   %cond.i = icmp eq i64 %14, 3458764513820540928
   br i1 %cond.i, label %26, label %15
@@ -397,7 +397,7 @@ declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #3
 declare i64 @rb_complex_raw(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_node_str_string_val(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @rb_node_str_string_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -411,7 +411,7 @@ define dso_local i64 @rb_node_str_string_val(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_node_sym_string_val(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @rb_node_sym_string_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -430,7 +430,7 @@ declare i64 @rb_id2sym(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_intern3(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_node_dstr_string_val(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @rb_node_dstr_string_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -452,7 +452,7 @@ define dso_local i64 @rb_node_dstr_string_val(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_node_dregx_string_val(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @rb_node_dregx_string_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -466,7 +466,7 @@ define dso_local i64 @rb_node_dregx_string_val(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_node_regx_string_val(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @rb_node_regx_string_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -485,7 +485,7 @@ define dso_local i64 @rb_node_regx_string_val(ptr nocapture noundef readonly %0)
 declare i64 @rb_reg_compile(i64 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local range(i64 1, 0) i64 @rb_node_line_lineno_val(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local range(i64 1, 0) i64 @rb_node_line_lineno_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
@@ -495,7 +495,7 @@ define dso_local range(i64 1, 0) i64 @rb_node_line_lineno_val(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_node_file_path_val(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @rb_node_file_path_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -509,7 +509,7 @@ define dso_local i64 @rb_node_file_path_val(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_node_encoding_val(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @rb_node_encoding_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @rb_enc_from_encoding(ptr noundef %3) #10
@@ -519,7 +519,7 @@ define dso_local i64 @rb_node_encoding_val(ptr nocapture noundef readonly %0) lo
 declare i64 @rb_enc_from_encoding(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_node_const_decl_val(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @rb_node_const_decl_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8
   %3 = trunc i64 %2 to i32
   %4 = lshr i32 %3, 8
@@ -655,13 +655,13 @@ declare i64 @rb_float_new_in_heap(double noundef) local_unnamed_addr #1
 declare i64 @llvm.fshl.i64(i64, i64, i64) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 declare i64 @rb_rational_new(i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -670,7 +670,7 @@ declare i64 @rb_int_positive_pow(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @rb_rational_raw(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

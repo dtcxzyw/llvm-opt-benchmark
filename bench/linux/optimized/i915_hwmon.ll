@@ -57,7 +57,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.compoundliteral.15 = internal global %struct.hwmon_channel_info { i32 5, ptr @.compoundliteral.14 }, align 8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i915_hwmon_power_max_disable(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @i915_hwmon_power_max_disable(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 9296
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -96,7 +96,7 @@ define dso_local void @i915_hwmon_power_max_disable(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
@@ -105,10 +105,10 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i915_hwmon_power_max_restore(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local void @i915_hwmon_power_max_restore(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 9296
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -465,7 +465,7 @@ hwm_energy.exit5:                                 ; preds = %136, %152
 declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__init_waitqueue_head(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -474,7 +474,7 @@ declare dso_local void @__init_waitqueue_head(ptr noundef, ptr noundef, ptr noun
 declare dso_local ptr @devm_hwmon_device_register_with_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal zeroext range(i16 0, 293) i16 @hwm_gt_is_visible(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 %3) #4 align 16 {
+define internal zeroext range(i16 0, 293) i16 @hwm_gt_is_visible(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 %3) #4 align 16 {
   %5 = icmp eq i32 %1, 5
   %6 = icmp eq i32 %2, 1
   %7 = and i1 %5, %6
@@ -498,7 +498,7 @@ define internal zeroext range(i16 0, 293) i16 @hwm_gt_is_visible(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @i915_hwmon_unregister(ptr nocapture noundef writeonly initializes((9296, 9304)) %0) local_unnamed_addr #5 align 16 {
+define dso_local void @i915_hwmon_unregister(ptr noundef writeonly captures(none) initializes((9296, 9304)) %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 9296
   store ptr null, ptr %2, align 8
   ret void
@@ -511,7 +511,7 @@ declare dso_local noalias ptr @devm_kmalloc(ptr noundef, i64 noundef, i32 nounde
 declare dso_local i64 @intel_runtime_pm_get(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @hwm_energy(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @hwm_energy(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -568,10 +568,10 @@ define internal fastcc void @hwm_energy(ptr nocapture noundef %0, ptr nocapture 
 declare dso_local void @intel_runtime_pm_put_unchecked(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext range(i16 0, 437) i16 @hwm_is_visible(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 %3) #0 align 16 {
+define internal zeroext range(i16 0, 437) i16 @hwm_is_visible(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 %3) #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   switch i32 %1, label %85 [
@@ -707,7 +707,7 @@ define internal zeroext range(i16 0, 437) i16 @hwm_is_visible(ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @hwm_read(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 %3, ptr nocapture noundef %4) #0 align 16 {
+define internal i32 @hwm_read(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 %3, ptr noundef captures(none) %4) #0 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -992,7 +992,7 @@ define internal i32 @hwm_read(ptr nocapture noundef readonly %0, i32 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @hwm_write(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 %3, i64 noundef %4) #0 align 16 {
+define internal i32 @hwm_write(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 %3, i64 noundef %4) #0 align 16 {
   %6 = alloca %struct.wait_queue_entry, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load ptr, ptr %7, align 8
@@ -1177,7 +1177,7 @@ declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr
 declare dso_local i32 @snb_pcode_write_p(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal zeroext i16 @hwm_attributes_visible(ptr nocapture noundef readonly %0, ptr noundef readnone %1, i32 %2) #4 align 16 {
+define internal zeroext i16 @hwm_attributes_visible(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 %2) #4 align 16 {
   %4 = icmp eq ptr %1, @sensor_dev_attr_power1_max_interval
   br i1 %4, label %5, label %14
 
@@ -1198,7 +1198,7 @@ define internal zeroext i16 @hwm_attributes_visible(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @hwm_power1_max_interval_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @hwm_power1_max_interval_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -1247,7 +1247,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hwm_power1_max_interval_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @hwm_power1_max_interval_store(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define internal i64 @hwm_power1_max_interval_store(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %7 = load ptr, ptr %6, align 8
@@ -1342,7 +1342,7 @@ declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local i32 @kstrtoull(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -95, 1) i32 @hwm_gt_read(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 %3, ptr nocapture noundef writeonly %4) #0 align 16 {
+define internal noundef range(i32 -95, 1) i32 @hwm_gt_read(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 %3, ptr noundef writeonly captures(none) %4) #0 align 16 {
   %6 = icmp eq i32 %1, 5
   %7 = icmp eq i32 %2, 1
   %8 = and i1 %6, %7
@@ -1360,7 +1360,7 @@ define internal noundef range(i32 -95, 1) i32 @hwm_gt_read(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #9

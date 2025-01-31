@@ -89,7 +89,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @grabbag__cuesheet_frame_to_msf(i32 noundef %frame, ptr nocapture noundef writeonly initializes((0, 4)) %minutes, ptr nocapture noundef writeonly initializes((0, 4)) %seconds, ptr nocapture noundef writeonly initializes((0, 4)) %frames) local_unnamed_addr #1 {
+define dso_local void @grabbag__cuesheet_frame_to_msf(i32 noundef %frame, ptr noundef writeonly captures(none) initializes((0, 4)) %minutes, ptr noundef writeonly captures(none) initializes((0, 4)) %seconds, ptr noundef writeonly captures(none) initializes((0, 4)) %frames) local_unnamed_addr #1 {
 entry:
   %rem = urem i32 %frame, 75
   store i32 %rem, ptr %frames, align 4
@@ -102,7 +102,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @grabbag__cuesheet_parse(ptr nocapture noundef %file, ptr nocapture noundef writeonly %error_message, ptr nocapture noundef initializes((0, 4)) %last_line_read, i32 noundef %sample_rate, i32 noundef %is_cdda, i64 noundef %lead_out_offset) local_unnamed_addr #2 {
+define dso_local ptr @grabbag__cuesheet_parse(ptr noundef captures(none) %file, ptr noundef writeonly captures(none) %error_message, ptr noundef captures(none) initializes((0, 4)) %last_line_read, i32 noundef %sample_rate, i32 noundef %is_cdda, i64 noundef %lead_out_offset) local_unnamed_addr #2 {
 entry:
   %end.i.i = alloca ptr, align 8
   %buffer.i = alloca [4096 x i8], align 16
@@ -1727,7 +1727,7 @@ declare ptr @FLAC__metadata_object_new(i32 noundef) local_unnamed_addr #3
 declare void @FLAC__metadata_object_delete(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local void @grabbag__cuesheet_emit(ptr nocapture noundef %file, ptr noundef %cuesheet, ptr noundef %file_reference) local_unnamed_addr #4 {
+define dso_local void @grabbag__cuesheet_emit(ptr noundef captures(none) %file, ptr noundef %cuesheet, ptr noundef %file_reference) local_unnamed_addr #4 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %cuesheet, i64 16
   %0 = load i8, ptr %data, align 8
@@ -1857,16 +1857,16 @@ for.end43:                                        ; preds = %for.end43.loopexit,
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @local__get_field_(ptr nocapture noundef nonnull %s, i32 noundef range(i32 0, 2) %allow_quotes) unnamed_addr #7 {
+define internal fastcc ptr @local__get_field_(ptr noundef nonnull captures(none) %s, i32 noundef range(i32 0, 2) %allow_quotes) unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %s, align 8
   %cmp = icmp eq ptr %0, null
@@ -1952,13 +1952,13 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @local__parse_int_(ptr nocapture noundef nonnull readonly %s) unnamed_addr #9 {
+define internal fastcc range(i32 -1, -2147483648) i32 @local__parse_int_(ptr noundef nonnull readonly captures(none) %s) unnamed_addr #9 {
 entry:
   %0 = load i8, ptr %s, align 1
   %cmp.i = icmp eq i8 %0, 0
@@ -2002,28 +2002,28 @@ declare i32 @FLAC__metadata_object_cuesheet_track_insert_blank_index(ptr noundef
 declare i32 @FLAC__metadata_object_cuesheet_insert_blank_track(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #10
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #11
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

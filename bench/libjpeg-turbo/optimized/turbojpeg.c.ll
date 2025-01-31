@@ -267,7 +267,7 @@ default.unreachable:                              ; preds = %10
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #2
@@ -276,10 +276,10 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #2
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @_tjInitCompress(ptr noundef nonnull %0) unnamed_addr #0 {
@@ -1439,7 +1439,7 @@ declare void @jpeg_destroy_compress(ptr noundef) local_unnamed_addr #11
 declare void @jpeg_destroy_decompress(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @tjDestroy(ptr noundef %0) local_unnamed_addr #0 {
@@ -1465,13 +1465,13 @@ define range(i32 -1, 1) i32 @tjDestroy(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @tj3Free(ptr nocapture noundef %0) local_unnamed_addr #13 {
+define void @tj3Free(ptr noundef captures(none) %0) local_unnamed_addr #13 {
   tail call void @free(ptr noundef %0) #26
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @tjFree(ptr nocapture noundef %0) local_unnamed_addr #13 {
+define void @tjFree(ptr noundef captures(none) %0) local_unnamed_addr #13 {
   tail call void @free(ptr noundef %0) #26
   ret void
 }
@@ -3142,7 +3142,7 @@ setDecompParameters.exit:                         ; preds = %61, %switch.lookup
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @my_progress_monitor(ptr nocapture noundef readonly %0) #0 {
+define internal void @my_progress_monitor(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
@@ -3619,7 +3619,7 @@ tj3Init.exit:                                     ; preds = %33
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #15
@@ -3628,17 +3628,17 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #15
 declare ptr @__errno_location() local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @ungetc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @ungetc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @jinit_read_bmp(ptr noundef, i32 noundef) local_unnamed_addr #11
 
 declare ptr @jinit_read_ppm(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @tj3SaveImage8(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
@@ -3914,7 +3914,7 @@ tj3Init.exit:                                     ; preds = %25
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #18
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #18
 
 declare ptr @jinit_write_bmp(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #11
 
@@ -8911,7 +8911,7 @@ tjPlaneHeight.exit:                               ; preds = %tj3YUVPlaneHeight.e
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @tjCompressFromYUV(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @tjCompressFromYUV(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = alloca i64, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %15
@@ -9728,7 +9728,7 @@ processFlags.exit:                                ; preds = %60, %72
   br i1 %81, label %93, label %82
 
 82:                                               ; preds = %79
-  %83 = call i32 @tj3Decompress8(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %5, i32 noundef %7)
+  %83 = call i32 @tj3Decompress8(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %3, i32 noundef %5, i32 noundef %7)
   br label %93
 
 .sink.split:                                      ; preds = %50, %21, %13
@@ -10489,12 +10489,12 @@ define internal fastcc void @setDecodeDefaults(ptr noundef nonnull initializes((
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @my_read_markers(ptr nocapture readnone %0) #9 {
+define internal noundef i32 @my_read_markers(ptr readnone captures(none) %0) #9 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @my_reset_marker_reader(ptr nocapture readnone %0) #9 {
+define internal void @my_reset_marker_reader(ptr readnone captures(none) %0) #9 {
   ret void
 }
 
@@ -11829,7 +11829,7 @@ processFlags.exit:                                ; preds = %59, %71
   br i1 %77, label %89, label %78
 
 78:                                               ; preds = %processFlags.exit
-  %79 = call i32 @tj3DecompressToYUVPlanes8(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %5)
+  %79 = call i32 @tj3DecompressToYUVPlanes8(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %3, ptr noundef %5)
   br label %89
 
 .sink.split:                                      ; preds = %49, %20, %12
@@ -12328,7 +12328,7 @@ processFlags.exit:                                ; preds = %59, %71
   br i1 %77, label %89, label %78
 
 78:                                               ; preds = %processFlags.exit
-  %79 = call i32 @tj3DecompressToYUV8(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %5)
+  %79 = call i32 @tj3DecompressToYUV8(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %3, i32 noundef %5)
   br label %89
 
 .sink.split:                                      ; preds = %49, %20, %12
@@ -13041,7 +13041,7 @@ split:                                            ; preds = %166, %._crit_edge39
 declare void @jcopy_markers_setup(ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @getSubsamp(ptr nocapture noundef nonnull readonly %0) unnamed_addr #19 {
+define internal fastcc i32 @getSubsamp(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #19 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1
@@ -13723,7 +13723,7 @@ declare void @jpeg_CreateDecompress(ptr noundef, i32 noundef, i64 noundef) local
 declare ptr @jpeg_alloc_quant_table(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #23
@@ -13735,10 +13735,10 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare i32 @llvm.smin.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

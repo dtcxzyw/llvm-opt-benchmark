@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PaUtil_InitializeTriangularDitherState(ptr nocapture noundef writeonly initializes((0, 12)) %0) local_unnamed_addr #0 {
+define void @PaUtil_InitializeTriangularDitherState(ptr noundef writeonly captures(none) initializes((0, 12)) %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 22222, ptr %2, align 4
@@ -14,7 +14,7 @@ define void @PaUtil_InitializeTriangularDitherState(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @PaUtil_Generate16BitTriangularDither(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define i32 @PaUtil_Generate16BitTriangularDither(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = mul i32 %3, 196314165
@@ -35,7 +35,7 @@ define i32 @PaUtil_Generate16BitTriangularDither(ptr nocapture noundef %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define float @PaUtil_GenerateFloatTriangularDither(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define float @PaUtil_GenerateFloatTriangularDither(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = mul i32 %3, 196314165

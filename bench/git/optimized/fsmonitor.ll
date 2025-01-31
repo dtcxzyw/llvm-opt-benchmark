@@ -52,7 +52,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.initialize_fsmonitor_last_update.last_update = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @read_fsmonitor_extension(ptr nocapture noundef %istate, ptr noundef %data, i64 noundef %sz) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @read_fsmonitor_extension(ptr noundef captures(none) %istate, ptr noundef %data, i64 noundef %sz) local_unnamed_addr #0 {
 entry:
   %last_update = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_update, ptr noundef nonnull align 8 dereferenceable(24) @__const.initialize_fsmonitor_last_update.last_update, i64 24, i1 false)
@@ -220,7 +220,7 @@ return:                                           ; preds = %if.then34, %if.end3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 
@@ -239,7 +239,7 @@ declare void @trace2_data_string_fl(ptr noundef, i32 noundef, ptr noundef, ptr n
 declare void @trace_printf_key_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fill_fsmonitor_bitmap(ptr nocapture noundef initializes((216, 224)) %istate) local_unnamed_addr #0 {
+define dso_local void @fill_fsmonitor_bitmap(ptr noundef captures(none) initializes((216, 224)) %istate) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ewah_new() #7
   %fsmonitor_dirty = getelementptr inbounds nuw i8, ptr %istate, i64 216
@@ -295,7 +295,7 @@ for.end:                                          ; preds = %for.inc, %entry
 declare void @ewah_set(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @write_fsmonitor_extension(ptr noundef %sb, ptr nocapture noundef %istate) local_unnamed_addr #0 {
+define dso_local void @write_fsmonitor_extension(ptr noundef %sb, ptr noundef captures(none) %istate) local_unnamed_addr #0 {
 entry:
   %hdr_version = alloca i32, align 4
   %ewah_size = alloca i32, align 4
@@ -332,7 +332,7 @@ if.end:                                           ; preds = %if.then, %entry
   %fsmonitor_last_update = getelementptr inbounds nuw i8, ptr %istate, i64 208
   %4 = load ptr, ptr %fsmonitor_last_update, align 8
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
-  call void @strbuf_add(ptr noundef %sb, ptr noundef %4, i64 noundef %call.i) #7
+  call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull %4, i64 noundef %call.i) #7
   %5 = load i64, ptr %sb, align 8
   %tobool.not.i.i = icmp eq i64 %5, 0
   br i1 %tobool.not.i.i, label %if.then.i19, label %strbuf_avail.exit.i
@@ -485,7 +485,7 @@ if.then21:                                        ; preds = %if.then15
   %buf22 = getelementptr inbounds nuw i8, ptr %query_result, i64 16
   %3 = load ptr, ptr %buf22, align 8
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #8
-  call void @strbuf_add(ptr noundef nonnull %last_update_token, ptr noundef %3, i64 noundef %call.i) #7
+  call void @strbuf_add(ptr noundef nonnull %last_update_token, ptr noundef nonnull %3, i64 noundef %call.i) #7
   %len = getelementptr inbounds nuw i8, ptr %last_update_token, i64 8
   %4 = load i64, ptr %len, align 8
   %add = add i64 %4, 1
@@ -559,7 +559,7 @@ if.then52:                                        ; preds = %if.then45
   %buf57 = getelementptr inbounds nuw i8, ptr %query_result, i64 16
   %10 = load ptr, ptr %buf57, align 8
   %call.i80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #8
-  call void @strbuf_add(ptr noundef nonnull %last_update_token, ptr noundef %10, i64 noundef %call.i80) #7
+  call void @strbuf_add(ptr noundef nonnull %last_update_token, ptr noundef nonnull %10, i64 noundef %call.i80) #7
   %len58 = getelementptr inbounds nuw i8, ptr %last_update_token, i64 8
   %11 = load i64, ptr %len58, align 8
   %tobool59.not = icmp eq i64 %11, 0
@@ -845,7 +845,7 @@ declare ptr @fsm_settings__get_incompatible_msg(ptr noundef, i32 noundef) local_
 declare void @warning(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @fsmonitor_ipc__send_query(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -910,7 +910,7 @@ define internal fastcc void @fsmonitor_refresh_callback(ptr noundef %istate, ptr
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #8
   %conv = trunc i64 %call to i32
-  %call1 = tail call i32 @index_name_pos(ptr noundef %istate, ptr noundef %name, i32 noundef %conv) #7
+  %call1 = tail call i32 @index_name_pos(ptr noundef %istate, ptr noundef nonnull %name, i32 noundef %conv) #7
   %trace_fsmonitor.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8
   %trace_fsmonitor.val39 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
   %tobool.not.i = icmp eq i32 %trace_fsmonitor.val, 0
@@ -920,7 +920,7 @@ entry:
   br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 193, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.34, ptr noundef %name, i32 noundef %call1) #7
+  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.5, i32 noundef 193, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.34, ptr noundef nonnull %name, i32 noundef %call1) #7
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
@@ -950,7 +950,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx15 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv46
   %4 = load ptr, ptr %arrayidx15, align 8
   %name16 = getelementptr inbounds nuw i8, ptr %4, i64 108
-  %call17 = tail call i32 @starts_with(ptr noundef nonnull %name16, ptr noundef %name) #7
+  %call17 = tail call i32 @starts_with(ptr noundef nonnull %name16, ptr noundef nonnull %name) #7
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %for.end, label %if.end20
 
@@ -1005,7 +1005,7 @@ for.body42:                                       ; preds = %for.body42.lr.ph, %
   %arrayidx45 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %16 = load ptr, ptr %arrayidx45, align 8
   %name46 = getelementptr inbounds nuw i8, ptr %16, i64 108
-  %call48 = tail call i32 @starts_with(ptr noundef nonnull %name46, ptr noundef %name) #7
+  %call48 = tail call i32 @starts_with(ptr noundef nonnull %name46, ptr noundef nonnull %name) #7
   %tobool49.not = icmp eq i32 %call48, 0
   br i1 %tobool49.not, label %if.end83, label %if.end51
 
@@ -1038,7 +1038,7 @@ for.inc79:                                        ; preds = %if.end62, %if.then7
   br i1 %cmp40, label %for.body42, label %if.end83, !llvm.loop !10
 
 if.end83:                                         ; preds = %for.inc79, %for.body42, %if.end51, %if.else35, %if.then29, %for.end
-  tail call void @untracked_cache_invalidate_path(ptr noundef nonnull %istate, ptr noundef %name, i32 noundef 0) #7
+  tail call void @untracked_cache_invalidate_path(ptr noundef nonnull %istate, ptr noundef nonnull %name, i32 noundef 0) #7
   ret void
 }
 
@@ -1126,7 +1126,7 @@ if.end7:                                          ; preds = %if.end6, %entry
 declare void @add_untracked_cache(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @remove_fsmonitor(ptr nocapture noundef %istate) local_unnamed_addr #0 {
+define dso_local void @remove_fsmonitor(ptr noundef captures(none) %istate) local_unnamed_addr #0 {
 entry:
   %fsmonitor_last_update = getelementptr inbounds nuw i8, ptr %istate, i64 208
   %0 = load ptr, ptr %fsmonitor_last_update, align 8
@@ -1282,7 +1282,7 @@ if.end19:                                         ; preds = %do.end.i, %if.else,
 declare void @ewah_each_bit(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @fsmonitor_ewah_callback(i64 noundef %pos, ptr nocapture noundef readonly %is) #0 {
+define internal void @fsmonitor_ewah_callback(i64 noundef %pos, ptr noundef readonly captures(none) %is) #0 {
 entry:
   %add = add i64 %pos, 1
   %0 = getelementptr i8, ptr %is, i64 12
@@ -1307,7 +1307,7 @@ assert_index_minimum.exit:                        ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
@@ -1331,10 +1331,10 @@ declare i32 @starts_with(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @untracked_cache_invalidate_path(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

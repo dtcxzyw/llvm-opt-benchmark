@@ -162,7 +162,7 @@ define internal ptr @opal_get_proc_hostname_using_pmix(ptr noundef readonly %0) 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 declare ptr @opal_proc_local_get() local_unnamed_addr #1
 

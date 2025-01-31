@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lexbor_str_res_map_uppercase = internal unnamed_addr constant [256 x i8] c"\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16\17\18\19\1A\1B\1C\1D\1E\1F !\22#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`ABCDEFGHIJKLMNOPQRSTUVWXYZ{|}~\7F\80\81\82\83\84\85\86\87\88\89\8A\8B\8C\8D\8E\8F\90\91\92\93\94\95\96\97\98\99\9A\9B\9C\9D\9E\9F\A0\A1\A2\A3\A4\A5\A6\A7\A8\A9\AA\AB\AC\AD\AE\AF\B0\B1\B2\B3\B4\B5\B6\B7\B8\B9\BA\BB\BC\BD\BE\BF\C0\C1\C2\C3\C4\C5\C6\C7\C8\C9\CA\CB\CC\CD\CE\CF\D0\D1\D2\D3\D4\D5\D6\D7\D8\D9\DA\DB\DC\DD\DE\DF\E0\E1\E2\E3\E4\E5\E6\E7\E8\E9\EA\EB\EC\ED\EE\EF\F0\F1\F2\F3\F4\F5\F6\F7\F8\F9\FA\FB\FC\FD\FE\FF", align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i32 @lexbor_hash_make_id(ptr nocapture noundef readonly %0, i64 noundef %1) #0 {
+define hidden i32 @lexbor_hash_make_id(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -55,7 +55,7 @@ define hidden i32 @lexbor_hash_make_id(ptr nocapture noundef readonly %0, i64 no
 declare zeroext i1 @lexbor_str_data_ncmp(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @lexbor_hash_copy(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i64 noundef %3) #2 {
+define hidden range(i32 0, 3) i32 @lexbor_hash_copy(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 {
   %5 = icmp ult i64 %3, 17
   br i1 %5, label %12, label %6
 
@@ -81,7 +81,7 @@ define hidden range(i32 0, 3) i32 @lexbor_hash_copy(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i32 @lexbor_hash_make_id_lower(ptr nocapture noundef readonly %0, i64 noundef %1) #0 {
+define hidden i32 @lexbor_hash_make_id_lower(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -117,7 +117,7 @@ define hidden i32 @lexbor_hash_make_id_lower(ptr nocapture noundef readonly %0, 
 declare zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @lexbor_hash_copy_lower(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i64 noundef %3) #2 {
+define hidden range(i32 0, 3) i32 @lexbor_hash_copy_lower(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 {
   %5 = icmp ult i64 %3, 17
   br i1 %5, label %12, label %6
 
@@ -163,7 +163,7 @@ define hidden range(i32 0, 3) i32 @lexbor_hash_copy_lower(ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i32 @lexbor_hash_make_id_upper(ptr nocapture noundef readonly %0, i64 noundef %1) #0 {
+define hidden i32 @lexbor_hash_make_id_upper(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -199,7 +199,7 @@ define hidden i32 @lexbor_hash_make_id_upper(ptr nocapture noundef readonly %0, 
 declare zeroext i1 @lexbor_str_data_nupcmp_right(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @lexbor_hash_copy_upper(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i64 noundef %3) #2 {
+define hidden range(i32 0, 3) i32 @lexbor_hash_copy_upper(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 {
   %5 = icmp ult i64 %3, 17
   br i1 %5, label %12, label %6
 
@@ -304,7 +304,7 @@ declare ptr @lexbor_mraw_create() local_unnamed_addr #1
 declare i32 @lexbor_mraw_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lexbor_hash_clean(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden void @lexbor_hash_clean(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   tail call void @lexbor_dobject_clean(ptr noundef %2) #6
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -366,7 +366,7 @@ declare ptr @lexbor_mraw_destroy(ptr noundef, i1 noundef zeroext) local_unnamed_
 declare ptr @lexbor_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_hash_insert(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #2 {
+define hidden ptr @lexbor_hash_insert(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = load ptr, ptr %1, align 8
   %6 = tail call i32 %5(ptr noundef %2, i64 noundef %3) #6
   %7 = zext i32 %6 to i64
@@ -470,7 +470,7 @@ _lexbor_hash_entry_create.exit39:                 ; preds = %45, %52, %55
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_hash_insert_by_entry(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
+define hidden ptr @lexbor_hash_insert_by_entry(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = load ptr, ptr %2, align 8
   %7 = tail call i32 %6(ptr noundef %3, i64 noundef %4) #6
   %8 = zext i32 %7 to i64
@@ -530,7 +530,7 @@ lexbor_hash_entry_str.exit:                       ; preds = %19, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lexbor_hash_remove(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #2 {
+define hidden void @lexbor_hash_remove(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = load ptr, ptr %1, align 8
   %6 = tail call i32 %5(ptr noundef %2, i64 noundef %3) #6
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -611,7 +611,7 @@ lexbor_hash_remove_by_hash_id.exit:               ; preds = %43, %4, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lexbor_hash_remove_by_hash_id(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #2 {
+define hidden void @lexbor_hash_remove_by_hash_id(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 {
   %6 = zext i32 %1 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
@@ -688,7 +688,7 @@ lexbor_hash_entry_str.exit:                       ; preds = %.lr.ph, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_hash_search(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #2 {
+define hidden ptr @lexbor_hash_search(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = load ptr, ptr %1, align 8
   %6 = tail call i32 %5(ptr noundef %2, i64 noundef %3) #6
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -736,7 +736,7 @@ lexbor_hash_search_by_hash_id.exit:               ; preds = %22, %24, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_hash_search_by_hash_id(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #2 {
+define hidden ptr @lexbor_hash_search_by_hash_id(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %1 to i64
@@ -786,10 +786,10 @@ declare ptr @lexbor_dobject_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @lexbor_mraw_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @lexbor_dobject_calloc(ptr noundef) local_unnamed_addr #1
 

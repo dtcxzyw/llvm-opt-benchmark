@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Sum = type { i8, i32 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden range(i32 -1073741824, 1073741824) i32 @SearchColorNoIdx(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -1073741824, 1073741824) i32 @SearchColorNoIdx(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 4
   %5 = icmp eq i32 %4, %1
   br i1 %5, label %.loopexit, label %.preheader
@@ -41,7 +41,7 @@ define hidden range(i32 -1073741824, 1073741824) i32 @SearchColorNoIdx(ptr nocap
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @PrepareMapToPalette(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 {
+define hidden void @PrepareMapToPalette(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #1 {
   %5 = zext i32 %1 to i64
   %6 = shl nuw nsw i64 %5, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %2, ptr align 4 %0, i64 %6, i1 false)
@@ -99,13 +99,13 @@ SearchColorNoIdx.exit:                            ; preds = %.lr.ph.i, %10, %.pr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @PaletteCompareColorsForQsort(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -1, 2) i32 @PaletteCompareColorsForQsort(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %.val = load i32, ptr %0, align 1
   %.val3 = load i32, ptr %1, align 1
   %3 = icmp ult i32 %.val, %.val3
@@ -114,7 +114,7 @@ define internal range(i32 -1, 2) i32 @PaletteCompareColorsForQsort(ptr nocapture
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden i32 @GetColorPalette(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define hidden i32 @GetColorPalette(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca [1024 x i8], align 16
   %4 = alloca [1024 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %3, i8 0, i64 1024, i1 false)
@@ -245,10 +245,10 @@ define hidden i32 @GetColorPalette(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @PaletteSort(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @PaletteSort(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #6 {
   %6 = alloca [256 x i32], align 16
   %7 = alloca [256 x i32], align 16
   %8 = alloca [256 x i8], align 16
@@ -995,10 +995,10 @@ declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8

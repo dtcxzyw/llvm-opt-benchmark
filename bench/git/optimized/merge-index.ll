@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [22 x i8] c"builtin/merge-index.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cmd_merge_index(i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr nocapture noundef readnone %prefix) local_unnamed_addr #0 {
+define dso_local i32 @cmd_merge_index(i32 noundef %argc, ptr noundef readonly captures(none) %argv, ptr noundef readnone captures(none) %prefix) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @signal(i32 noundef 17, ptr noundef null) #7
   %cmp = icmp slt i32 %argc, 3
@@ -190,13 +190,13 @@ if.end29:                                         ; preds = %sub_128, %if.end25.
 if.end30:                                         ; preds = %land.lhs.true, %for.body
   %call.i16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #9
   %conv.i = trunc i64 %call.i16 to i32
-  %call1.i = tail call i32 @index_name_pos(ptr noundef nonnull @the_index, ptr noundef %17, i32 noundef %conv.i) #7
+  %call1.i = tail call i32 @index_name_pos(ptr noundef nonnull @the_index, ptr noundef nonnull %17, i32 noundef %conv.i) #7
   %cmp.i17 = icmp slt i32 %call1.i, 0
   br i1 %cmp.i17, label %if.then.i, label %for.inc
 
 if.then.i:                                        ; preds = %if.end30
   %sub3.i = xor i32 %call1.i, -1
-  %call4.i = tail call fastcc i32 @merge_entry(i32 noundef %sub3.i, ptr noundef %17)
+  %call4.i = tail call fastcc i32 @merge_entry(i32 noundef %sub3.i, ptr noundef nonnull %17)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.i, %if.then.i, %if.end30, %if.then28, %if.then21.tail
@@ -231,7 +231,7 @@ declare i32 @repo_read_index(ptr noundef) local_unnamed_addr #3
 declare void @ensure_full_index(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
 declare void @die(ptr noundef, ...) local_unnamed_addr #2
@@ -316,7 +316,7 @@ do.end:                                           ; preds = %do.body
   br i1 %tobool30.not, label %if.then31, label %if.end32
 
 if.then31:                                        ; preds = %do.end
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.8, ptr noundef %path) #8
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.8, ptr noundef nonnull %path) #8
   unreachable
 
 if.end32:                                         ; preds = %if.end9, %do.end
@@ -354,7 +354,7 @@ if.end45:                                         ; preds = %if.then38, %if.end3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @oid_to_hex_r(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -372,7 +372,7 @@ declare i32 @common_exit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_ad
 declare i32 @index_name_pos(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

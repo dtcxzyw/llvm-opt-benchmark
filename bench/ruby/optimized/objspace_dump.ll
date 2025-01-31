@@ -552,7 +552,7 @@ dump_result.exit:                                 ; preds = %dump_flush.exit.i, 
 declare i64 @rb_obj_gc_flags(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i64 @rb_gc_obj_slot_size(i64 noundef) local_unnamed_addr #1
 
@@ -1862,7 +1862,7 @@ RB_FL_TEST.exit303:                               ; preds = %568, %RB_FL_TEST.ex
 RB_FL_TEST.exit319.sink.split:                    ; preds = %605, %600, %595, %590
   %.sroa.2.0.i315.sink561 = phi ptr [ %.sroa.2.0.copyload.i, %595 ], [ %594, %590 ], [ %.sroa.2.0.copyload.i310, %605 ], [ %604, %600 ]
   %606 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.2.0.i315.sink561) #12
-  tail call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef %.sroa.2.0.i315.sink561, i64 noundef %606)
+  tail call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull %.sroa.2.0.i315.sink561, i64 noundef %606)
   tail call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.5, i64 noundef 1)
   br label %RB_FL_TEST.exit319
 
@@ -1892,7 +1892,7 @@ RB_FL_TEST.exit319:                               ; preds = %RB_FL_TEST.exit319.
   %619 = load ptr, ptr %618, align 8
   %620 = load ptr, ptr %619, align 8
   %621 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %620) #12
-  tail call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef %620, i64 noundef %621)
+  tail call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull %620, i64 noundef %621)
   tail call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.5, i64 noundef 1)
   br label %640
 
@@ -2126,7 +2126,7 @@ dump_flush.exit.i.i345:                           ; preds = %.sink.split.i.i.i34
 ruby_nonempty_memcpy.exit.i340:                   ; preds = %dump_flush.exit.i.i345, %698
   %721 = phi i64 [ %695, %698 ], [ %716, %dump_flush.exit.i.i345 ]
   %722 = getelementptr inbounds i8, ptr %251, i64 %721
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %722, ptr readonly align 1 %696, i64 %697, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %722, ptr nonnull readonly align 1 %696, i64 %697, i1 false)
   %723 = load i64, ptr %228, align 8
   %724 = add i64 %723, %697
   store i64 %724, ptr %228, align 8
@@ -2838,7 +2838,7 @@ declare i64 @rb_num2ull(i64 noundef) local_unnamed_addr #1
 declare ptr @objspace_lookup_allocation_info(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @buffer_append(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @buffer_append(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %37, label %4
 
@@ -3032,7 +3032,7 @@ dump_append_ptr.exit:                             ; preds = %._crit_edge.i, %rub
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @rb_shape_get_shape_id(i64 noundef) local_unnamed_addr #1
 
@@ -4667,12 +4667,12 @@ declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #5
 declare i64 @rb_io_bufwrite(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 declare i64 @rb_str_cat(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @ruby_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -4890,7 +4890,7 @@ dump_flush.exit.i.i35:                            ; preds = %.sink.split.i.i.i33
 ruby_nonempty_memcpy.exit.i:                      ; preds = %dump_flush.exit.i.i35, %70
   %94 = phi i64 [ %68, %70 ], [ %89, %dump_flush.exit.i.i35 ]
   %95 = getelementptr inbounds i8, ptr %65, i64 %94
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %95, ptr readonly align 1 %0, i64 %69, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %95, ptr nonnull readonly align 1 %0, i64 %69, i1 false)
   %96 = load i64, ptr %39, align 8
   %97 = add i64 %96, %69
   store i64 %97, ptr %39, align 8
@@ -5868,10 +5868,10 @@ declare i64 @rb_shape_edges_count(ptr noundef) local_unnamed_addr #1
 declare i64 @rb_shape_memsize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

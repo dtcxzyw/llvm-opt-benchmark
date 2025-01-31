@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [11 x i8] c"^$*+?.([%-\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i32 @lj_str_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
+define hidden i32 @lj_str_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #0 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %a, i64 20
   %0 = load i32, ptr %len, align 4
@@ -71,7 +71,7 @@ return:                                           ; preds = %for.end, %if.end18
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @lj_str_find(ptr noundef %s, ptr nocapture noundef readonly %p, i32 noundef %slen, i32 noundef %plen) local_unnamed_addr #1 {
+define hidden ptr @lj_str_find(ptr noundef %s, ptr noundef readonly captures(none) %p, i32 noundef %slen, i32 noundef %plen) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp ugt i32 %plen, %slen
   br i1 %cmp.not, label %return, label %if.then
@@ -573,7 +573,7 @@ return:                                           ; preds = %entry, %for.end133
 declare hidden ptr @lj_mem_realloc(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lj_str_new(ptr noundef %L, ptr noundef readonly %str, i64 noundef %lenx) local_unnamed_addr #4 {
@@ -1049,7 +1049,7 @@ return:                                           ; preds = %if.then38.i, %if.en
 declare hidden void @lj_err_msg(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_str_free(ptr nocapture noundef %g, ptr noundef %s) local_unnamed_addr #4 {
+define hidden void @lj_str_free(ptr noundef captures(none) %g, ptr noundef %s) local_unnamed_addr #4 {
 entry:
   %num = getelementptr inbounds nuw i8, ptr %g, i64 164
   %0 = load i32, ptr %num, align 4
@@ -1092,10 +1092,10 @@ declare hidden i64 @lj_prng_u64(ptr noundef) local_unnamed_addr #5
 declare i32 @llvm.bswap.i32(i32) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #11

@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Session_get_nth_pset = weak alias i32 (ptr, ptr, i32, ptr, ptr), ptr @PMPI_Session_get_nth_pset
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMPI_Session_get_nth_pset(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define i32 @PMPI_Session_get_nth_pset(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = load i8, ptr @ompi_mpi_param_check, align 1
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %33

@@ -141,7 +141,7 @@ AddPendingSync.exit:                              ; preds = %38, %40
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: cold
 declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -155,7 +155,7 @@ declare ptr @smgropen(i64, i32, i32 noundef) local_unnamed_addr #3
 declare void @smgrcreate(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @log_smgrcreate(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @log_smgrcreate(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.xl_smgr_create, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -177,7 +177,7 @@ declare void @XLogRegisterData(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationDropStorage(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @RelationDropStorage(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @TopMemoryContext, align 8
   %3 = tail call ptr @MemoryContextAlloc(ptr noundef %2, i64 noundef 32) #8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %0, i64 12, i1 false)
@@ -496,7 +496,7 @@ declare i32 @FreeSpaceMapPrepareTruncateRel(ptr noundef, i32 noundef) local_unna
 declare i32 @visibilitymap_prepare_truncate(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationPreTruncate(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @RelationPreTruncate(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @pendingSyncHash, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %15, label %3
@@ -672,7 +672,7 @@ declare i64 @hash_get_num_entries(ptr noundef) local_unnamed_addr #3
 declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SerializePendingSyncs(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local void @SerializePendingSyncs(i64 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.HASHCTL, align 8
   %4 = alloca %struct.HASH_SEQ_STATUS, align 8
   %5 = load ptr, ptr @pendingSyncHash, align 8
@@ -759,7 +759,7 @@ declare ptr @hash_seq_search(ptr noundef) local_unnamed_addr #3
 declare void @hash_destroy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @RestorePendingSyncs(ptr noundef %0) local_unnamed_addr #0 {
@@ -1127,7 +1127,7 @@ declare void @FreeFakeRelcacheEntry(ptr noundef) local_unnamed_addr #3
 declare void @smgrdosyncall(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @smgrGetPendingDeletes(i1 noundef zeroext %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local i32 @smgrGetPendingDeletes(i1 noundef zeroext %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @GetCurrentTransactionNestLevel() #8
   %.032 = load ptr, ptr @pendingDeletes, align 8
   %.not33 = icmp eq ptr %.032, null
@@ -1276,7 +1276,7 @@ define dso_local void @AtSubAbort_smgr() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @smgr_redo(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @smgr_redo(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [3 x i32], align 4
   %3 = alloca [3 x i32], align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1429,10 +1429,10 @@ declare void @smgrreadv(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

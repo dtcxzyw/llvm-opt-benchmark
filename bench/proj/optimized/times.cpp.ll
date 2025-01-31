@@ -58,7 +58,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_timesP8PJconsts(ptr 
 declare noundef ptr @_Z6pj_newv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define internal { double, double } @_ZL15times_s_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr nocapture readnone %2) #3 {
+define internal { double, double } @_ZL15times_s_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr readnone captures(none) %2) #3 {
   %4 = fdiv double %1, 1.707110e+00
   %5 = fmul double %4, 0x3FE921FB54442D18
   %6 = tail call double @sin(double noundef %5) #6
@@ -73,7 +73,7 @@ define internal { double, double } @_ZL15times_s_inverse5PJ_XYP8PJconsts(double 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define internal { double, double } @_ZL15times_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture readnone %2) #3 {
+define internal { double, double } @_ZL15times_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr readnone captures(none) %2) #3 {
   %4 = fmul double %1, 5.000000e-01
   %5 = tail call double @tan(double noundef %4) #6
   %6 = fmul double %5, 0x3FE921FB54442D18

@@ -170,10 +170,10 @@ define dso_local noundef range(i32 -19, 1) i32 @intel_pasid_alloc_table(ptr noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @pci_max_pasids(ptr noundef) local_unnamed_addr #2
@@ -185,7 +185,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 declare dso_local void @clflush_cache_range(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_pasid_free_table(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_pasid_free_table(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -269,7 +269,7 @@ declare dso_local void @free_pgtable_page(ptr noundef) local_unnamed_addr #2
 declare dso_local void @free_pages(i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local ptr @intel_pasid_get_table(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local ptr @intel_pasid_get_table(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -292,7 +292,7 @@ define dso_local ptr @intel_pasid_get_table(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_pasid_tear_down_entry(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_pasid_tear_down_entry(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.qi_desc, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @_raw_spin_lock(ptr noundef nonnull %6) #8
@@ -586,7 +586,7 @@ define internal fastcc ptr @intel_pasid_get_entry(ptr readonly %.704.val, i32 no
 declare dso_local void @qi_flush_piotlb(ptr noundef, i16 noundef zeroext, i32 noundef, i64 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @intel_pasid_setup_first_level(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @intel_pasid_setup_first_level(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
   %7 = alloca %struct.qi_desc, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
@@ -1107,7 +1107,7 @@ define dso_local noundef range(i32 -95, 1) i32 @intel_pasid_setup_dirty_tracking
 declare dso_local i32 @___ratelimit(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -19, 1) i32 @intel_pasid_setup_pass_through(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @intel_pasid_setup_pass_through(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.qi_desc, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @_raw_spin_lock(ptr noundef nonnull %5) #8
@@ -1217,7 +1217,7 @@ define dso_local noundef range(i32 -19, 1) i32 @intel_pasid_setup_pass_through(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_pasid_setup_page_snoop_control(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_pasid_setup_page_snoop_control(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.qi_desc, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @_raw_spin_lock(ptr noundef nonnull %5) #8
@@ -1637,7 +1637,7 @@ declare dso_local ptr @alloc_pgtable_page(i32 noundef, i32 noundef) local_unname
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @qi_submit_sync(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2

@@ -24,7 +24,7 @@ define hidden range(i64 -2147483648000, 2147483647001) i64 @av1_max_level_bitrat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @av1_set_aom_dec_model_info(ptr nocapture noundef writeonly initializes((4, 16)) %0) local_unnamed_addr #1 {
+define hidden void @av1_set_aom_dec_model_info(ptr noundef writeonly captures(none) initializes((4, 16)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 16, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -35,7 +35,7 @@ define hidden void @av1_set_aom_dec_model_info(ptr nocapture noundef writeonly i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @av1_set_dec_model_op_parameters(ptr nocapture noundef writeonly initializes((0, 4), (24, 44)) %0) local_unnamed_addr #1 {
+define hidden void @av1_set_dec_model_op_parameters(ptr noundef writeonly captures(none) initializes((0, 4), (24, 44)) %0) local_unnamed_addr #1 {
   store i32 1, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 45000, ptr %2, align 8
@@ -51,7 +51,7 @@ define hidden void @av1_set_dec_model_op_parameters(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @av1_set_resource_availability_parameters(ptr nocapture noundef writeonly initializes((0, 4), (24, 44)) %0) local_unnamed_addr #1 {
+define hidden void @av1_set_resource_availability_parameters(ptr noundef writeonly captures(none) initializes((0, 4), (24, 44)) %0) local_unnamed_addr #1 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 70000, ptr %2, align 8

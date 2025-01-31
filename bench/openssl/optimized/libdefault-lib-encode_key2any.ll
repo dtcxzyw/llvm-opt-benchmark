@@ -289,7 +289,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @key2any_settable_ctx_params(ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @key2any_settable_ctx_params(ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @key2any_settable_ctx_params.settables
 }
@@ -362,7 +362,7 @@ return:                                           ; preds = %if.then25, %land.lh
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @rsa_to_type_specific_keypair_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsa_to_type_specific_keypair_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -391,7 +391,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rsa_to_type_specific_keypair_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @rsa_to_type_specific_keypair_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_rsa_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -447,7 +447,7 @@ return:                                           ; preds = %if.end8, %if.then6,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dh_to_type_specific_params_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dh_to_type_specific_params_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -476,7 +476,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dh_to_type_specific_params_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dh_to_type_specific_params_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dh_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -491,7 +491,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh_to_type_specific_params_der_encode(ptr nocapture noundef readonly %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr nocapture readnone %cb, ptr nocapture readnone %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dh_to_type_specific_params_der_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %der.i = alloca ptr, align 8
   %cmp.not = icmp eq ptr %key_abstract, null
@@ -592,7 +592,7 @@ return:                                           ; preds = %if.else14.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dhx_to_type_specific_params_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dhx_to_type_specific_params_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -621,7 +621,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dhx_to_type_specific_params_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dhx_to_type_specific_params_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dhx_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -636,7 +636,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dhx_to_type_specific_params_der_encode(ptr nocapture noundef readonly %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr nocapture readnone %cb, ptr nocapture readnone %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dhx_to_type_specific_params_der_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %der.i = alloca ptr, align 8
   %cmp.not = icmp eq ptr %key_abstract, null
@@ -737,7 +737,7 @@ return:                                           ; preds = %if.else14.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dsa_to_type_specific_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dsa_to_type_specific_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -761,7 +761,7 @@ key2any_check_selection.exit:                     ; preds = %for.body.i, %for.co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dsa_to_type_specific_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dsa_to_type_specific_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dsa_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -981,7 +981,7 @@ return:                                           ; preds = %if.end.i36, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @ec_to_type_specific_no_pub_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ec_to_type_specific_no_pub_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -1011,7 +1011,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ec_to_type_specific_no_pub_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @ec_to_type_specific_no_pub_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_ec_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -1167,7 +1167,7 @@ return:                                           ; preds = %if.end.i12, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @sm2_to_type_specific_no_pub_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @sm2_to_type_specific_no_pub_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -1197,7 +1197,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sm2_to_type_specific_no_pub_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @sm2_to_type_specific_no_pub_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_sm2_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -1353,7 +1353,7 @@ return:                                           ; preds = %if.end.i12, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @rsa_to_type_specific_keypair_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsa_to_type_specific_keypair_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -1382,7 +1382,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rsa_to_type_specific_keypair_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @rsa_to_type_specific_keypair_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_rsa_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -1531,7 +1531,7 @@ return:                                           ; preds = %if.else14.i26, %if.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dh_to_type_specific_params_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dh_to_type_specific_params_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -1560,7 +1560,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dh_to_type_specific_params_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dh_to_type_specific_params_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dh_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -1575,7 +1575,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh_to_type_specific_params_pem_encode(ptr nocapture noundef readonly %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr nocapture readnone %cb, ptr nocapture readnone %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dh_to_type_specific_params_pem_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1643,7 +1643,7 @@ return:                                           ; preds = %if.else14.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dhx_to_type_specific_params_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dhx_to_type_specific_params_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -1672,7 +1672,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dhx_to_type_specific_params_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dhx_to_type_specific_params_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dhx_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -1687,7 +1687,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dhx_to_type_specific_params_pem_encode(ptr nocapture noundef readonly %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr nocapture readnone %cb, ptr nocapture readnone %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dhx_to_type_specific_params_pem_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1755,7 +1755,7 @@ return:                                           ; preds = %if.else14.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dsa_to_type_specific_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dsa_to_type_specific_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -1779,7 +1779,7 @@ key2any_check_selection.exit:                     ; preds = %for.body.i, %for.co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dsa_to_type_specific_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dsa_to_type_specific_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dsa_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -1940,7 +1940,7 @@ return:                                           ; preds = %if.end.i36, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @ec_to_type_specific_no_pub_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ec_to_type_specific_no_pub_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -1970,7 +1970,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ec_to_type_specific_no_pub_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @ec_to_type_specific_no_pub_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_ec_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -2087,7 +2087,7 @@ return:                                           ; preds = %if.end.i12, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @sm2_to_type_specific_no_pub_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @sm2_to_type_specific_no_pub_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -2117,7 +2117,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sm2_to_type_specific_no_pub_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @sm2_to_type_specific_no_pub_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_sm2_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -2234,7 +2234,7 @@ return:                                           ; preds = %if.end.i12, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @rsa_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsa_to_EncryptedPrivateKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -2263,7 +2263,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rsa_to_EncryptedPrivateKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @rsa_to_EncryptedPrivateKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_rsa_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -2310,7 +2310,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @rsa_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsa_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -2339,7 +2339,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rsa_to_EncryptedPrivateKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @rsa_to_EncryptedPrivateKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_rsa_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -2386,7 +2386,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @rsa_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsa_to_PrivateKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -2415,7 +2415,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rsa_to_PrivateKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @rsa_to_PrivateKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_rsa_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -2462,7 +2462,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @rsa_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsa_to_PrivateKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -2491,7 +2491,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rsa_to_PrivateKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @rsa_to_PrivateKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_rsa_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -2538,7 +2538,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @rsa_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsa_to_SubjectPublicKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -2567,7 +2567,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rsa_to_SubjectPublicKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @rsa_to_SubjectPublicKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_rsa_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -2614,7 +2614,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @rsa_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsa_to_SubjectPublicKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -2643,7 +2643,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rsa_to_SubjectPublicKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @rsa_to_SubjectPublicKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_rsa_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -2690,7 +2690,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @rsapss_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsapss_to_EncryptedPrivateKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -2719,7 +2719,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rsapss_to_EncryptedPrivateKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @rsapss_to_EncryptedPrivateKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_rsapss_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -2766,7 +2766,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @rsapss_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsapss_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -2795,7 +2795,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rsapss_to_EncryptedPrivateKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @rsapss_to_EncryptedPrivateKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_rsapss_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -2842,7 +2842,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @rsapss_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsapss_to_PrivateKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -2871,7 +2871,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rsapss_to_PrivateKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @rsapss_to_PrivateKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_rsapss_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -2918,7 +2918,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @rsapss_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsapss_to_PrivateKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -2947,7 +2947,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rsapss_to_PrivateKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @rsapss_to_PrivateKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_rsapss_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -2994,7 +2994,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @rsapss_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsapss_to_SubjectPublicKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3023,7 +3023,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rsapss_to_SubjectPublicKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @rsapss_to_SubjectPublicKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_rsapss_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -3070,7 +3070,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @rsapss_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsapss_to_SubjectPublicKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3099,7 +3099,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rsapss_to_SubjectPublicKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @rsapss_to_SubjectPublicKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_rsapss_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -3146,7 +3146,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dh_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dh_to_EncryptedPrivateKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3175,7 +3175,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dh_to_EncryptedPrivateKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dh_to_EncryptedPrivateKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dh_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -3222,7 +3222,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dh_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dh_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3251,7 +3251,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dh_to_EncryptedPrivateKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dh_to_EncryptedPrivateKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dh_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -3298,7 +3298,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dh_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dh_to_PrivateKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3327,7 +3327,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dh_to_PrivateKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dh_to_PrivateKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dh_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -3374,7 +3374,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dh_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dh_to_PrivateKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3403,7 +3403,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dh_to_PrivateKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dh_to_PrivateKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dh_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -3450,7 +3450,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dh_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dh_to_SubjectPublicKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3479,7 +3479,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dh_to_SubjectPublicKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dh_to_SubjectPublicKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dh_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -3526,7 +3526,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dh_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dh_to_SubjectPublicKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3555,7 +3555,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dh_to_SubjectPublicKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dh_to_SubjectPublicKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dh_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -3602,7 +3602,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dhx_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dhx_to_EncryptedPrivateKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3631,7 +3631,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dhx_to_EncryptedPrivateKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dhx_to_EncryptedPrivateKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dhx_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -3678,7 +3678,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dhx_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dhx_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3707,7 +3707,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dhx_to_EncryptedPrivateKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dhx_to_EncryptedPrivateKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dhx_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -3754,7 +3754,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dhx_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dhx_to_PrivateKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3783,7 +3783,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dhx_to_PrivateKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dhx_to_PrivateKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dhx_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -3830,7 +3830,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dhx_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dhx_to_PrivateKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3859,7 +3859,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dhx_to_PrivateKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dhx_to_PrivateKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dhx_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -3906,7 +3906,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dhx_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dhx_to_SubjectPublicKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -3935,7 +3935,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dhx_to_SubjectPublicKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dhx_to_SubjectPublicKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dhx_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -3982,7 +3982,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dhx_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dhx_to_SubjectPublicKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -4011,7 +4011,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dhx_to_SubjectPublicKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dhx_to_SubjectPublicKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dhx_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -4058,7 +4058,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dsa_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dsa_to_EncryptedPrivateKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -4087,7 +4087,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dsa_to_EncryptedPrivateKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dsa_to_EncryptedPrivateKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dsa_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -4202,7 +4202,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dsa_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dsa_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -4231,7 +4231,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dsa_to_EncryptedPrivateKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dsa_to_EncryptedPrivateKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dsa_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -4346,7 +4346,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dsa_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dsa_to_PrivateKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -4375,7 +4375,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dsa_to_PrivateKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dsa_to_PrivateKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dsa_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -4453,7 +4453,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dsa_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dsa_to_PrivateKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -4482,7 +4482,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dsa_to_PrivateKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dsa_to_PrivateKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dsa_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -4560,7 +4560,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dsa_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dsa_to_SubjectPublicKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -4589,7 +4589,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dsa_to_SubjectPublicKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dsa_to_SubjectPublicKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dsa_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -4698,7 +4698,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dsa_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dsa_to_SubjectPublicKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -4727,7 +4727,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dsa_to_SubjectPublicKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dsa_to_SubjectPublicKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dsa_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -4805,7 +4805,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @ec_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ec_to_EncryptedPrivateKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -4834,7 +4834,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ec_to_EncryptedPrivateKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @ec_to_EncryptedPrivateKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_ec_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -4947,7 +4947,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @ec_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ec_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -4976,7 +4976,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ec_to_EncryptedPrivateKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @ec_to_EncryptedPrivateKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_ec_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -5089,7 +5089,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @ec_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ec_to_PrivateKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -5118,7 +5118,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ec_to_PrivateKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @ec_to_PrivateKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_ec_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -5196,7 +5196,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @ec_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ec_to_PrivateKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -5225,7 +5225,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ec_to_PrivateKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @ec_to_PrivateKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_ec_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -5303,7 +5303,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @ec_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ec_to_SubjectPublicKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -5332,7 +5332,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ec_to_SubjectPublicKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @ec_to_SubjectPublicKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_ec_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -5439,7 +5439,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @ec_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ec_to_SubjectPublicKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -5468,7 +5468,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ec_to_SubjectPublicKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @ec_to_SubjectPublicKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_ec_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -5546,7 +5546,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @sm2_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @sm2_to_EncryptedPrivateKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -5575,7 +5575,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sm2_to_EncryptedPrivateKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @sm2_to_EncryptedPrivateKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_sm2_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -5688,7 +5688,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @sm2_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @sm2_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -5717,7 +5717,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sm2_to_EncryptedPrivateKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @sm2_to_EncryptedPrivateKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_sm2_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -5830,7 +5830,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @sm2_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @sm2_to_PrivateKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -5859,7 +5859,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sm2_to_PrivateKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @sm2_to_PrivateKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_sm2_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -5937,7 +5937,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @sm2_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @sm2_to_PrivateKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -5966,7 +5966,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sm2_to_PrivateKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @sm2_to_PrivateKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_sm2_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -6044,7 +6044,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @sm2_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @sm2_to_SubjectPublicKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -6073,7 +6073,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sm2_to_SubjectPublicKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @sm2_to_SubjectPublicKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_sm2_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -6180,7 +6180,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @sm2_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @sm2_to_SubjectPublicKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -6209,7 +6209,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sm2_to_SubjectPublicKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @sm2_to_SubjectPublicKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_sm2_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -6287,7 +6287,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @ed25519_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ed25519_to_EncryptedPrivateKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -6316,7 +6316,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ed25519_to_EncryptedPrivateKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @ed25519_to_EncryptedPrivateKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_ed25519_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -6410,7 +6410,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @ed25519_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ed25519_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -6439,7 +6439,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ed25519_to_EncryptedPrivateKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @ed25519_to_EncryptedPrivateKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_ed25519_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -6533,7 +6533,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @ed25519_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ed25519_to_PrivateKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -6562,7 +6562,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ed25519_to_PrivateKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @ed25519_to_PrivateKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_ed25519_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -6640,7 +6640,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @ed25519_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ed25519_to_PrivateKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -6669,7 +6669,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ed25519_to_PrivateKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @ed25519_to_PrivateKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_ed25519_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -6747,7 +6747,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @ed25519_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ed25519_to_SubjectPublicKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -6776,7 +6776,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ed25519_to_SubjectPublicKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @ed25519_to_SubjectPublicKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_ed25519_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -6864,7 +6864,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @ed25519_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ed25519_to_SubjectPublicKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -6893,7 +6893,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ed25519_to_SubjectPublicKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @ed25519_to_SubjectPublicKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_ed25519_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -6981,7 +6981,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @ed448_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ed448_to_EncryptedPrivateKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -7010,7 +7010,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ed448_to_EncryptedPrivateKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @ed448_to_EncryptedPrivateKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_ed448_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -7104,7 +7104,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @ed448_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ed448_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -7133,7 +7133,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ed448_to_EncryptedPrivateKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @ed448_to_EncryptedPrivateKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_ed448_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -7227,7 +7227,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @ed448_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ed448_to_PrivateKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -7256,7 +7256,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ed448_to_PrivateKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @ed448_to_PrivateKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_ed448_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -7334,7 +7334,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @ed448_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ed448_to_PrivateKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -7363,7 +7363,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ed448_to_PrivateKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @ed448_to_PrivateKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_ed448_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -7441,7 +7441,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @ed448_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ed448_to_SubjectPublicKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -7470,7 +7470,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ed448_to_SubjectPublicKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @ed448_to_SubjectPublicKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_ed448_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -7558,7 +7558,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @ed448_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ed448_to_SubjectPublicKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -7587,7 +7587,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ed448_to_SubjectPublicKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @ed448_to_SubjectPublicKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_ed448_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -7675,7 +7675,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @x25519_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @x25519_to_EncryptedPrivateKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -7704,7 +7704,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @x25519_to_EncryptedPrivateKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @x25519_to_EncryptedPrivateKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_x25519_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -7798,7 +7798,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @x25519_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @x25519_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -7827,7 +7827,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @x25519_to_EncryptedPrivateKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @x25519_to_EncryptedPrivateKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_x25519_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -7921,7 +7921,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @x25519_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @x25519_to_PrivateKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -7950,7 +7950,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @x25519_to_PrivateKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @x25519_to_PrivateKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_x25519_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -8028,7 +8028,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @x25519_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @x25519_to_PrivateKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -8057,7 +8057,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @x25519_to_PrivateKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @x25519_to_PrivateKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_x25519_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -8135,7 +8135,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @x25519_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @x25519_to_SubjectPublicKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -8164,7 +8164,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @x25519_to_SubjectPublicKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @x25519_to_SubjectPublicKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_x25519_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -8252,7 +8252,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @x25519_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @x25519_to_SubjectPublicKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -8281,7 +8281,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @x25519_to_SubjectPublicKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @x25519_to_SubjectPublicKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_x25519_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -8369,7 +8369,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @x448_to_EncryptedPrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @x448_to_EncryptedPrivateKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -8398,7 +8398,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @x448_to_EncryptedPrivateKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @x448_to_EncryptedPrivateKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_x448_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -8492,7 +8492,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @x448_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @x448_to_EncryptedPrivateKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -8521,7 +8521,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @x448_to_EncryptedPrivateKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @x448_to_EncryptedPrivateKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_x448_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -8615,7 +8615,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @x448_to_PrivateKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @x448_to_PrivateKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -8644,7 +8644,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @x448_to_PrivateKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @x448_to_PrivateKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_x448_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -8722,7 +8722,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @x448_to_PrivateKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @x448_to_PrivateKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -8751,7 +8751,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @x448_to_PrivateKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @x448_to_PrivateKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_x448_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -8829,7 +8829,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @x448_to_SubjectPublicKeyInfo_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @x448_to_SubjectPublicKeyInfo_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -8858,7 +8858,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @x448_to_SubjectPublicKeyInfo_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @x448_to_SubjectPublicKeyInfo_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_x448_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -8946,7 +8946,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @x448_to_SubjectPublicKeyInfo_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @x448_to_SubjectPublicKeyInfo_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -8975,7 +8975,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @x448_to_SubjectPublicKeyInfo_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @x448_to_SubjectPublicKeyInfo_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_x448_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -9063,7 +9063,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @rsa_to_RSA_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsa_to_RSA_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -9092,7 +9092,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rsa_to_RSA_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @rsa_to_RSA_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_rsa_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -9148,7 +9148,7 @@ return:                                           ; preds = %if.end8, %if.then6,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @rsa_to_RSA_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsa_to_RSA_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -9177,7 +9177,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rsa_to_RSA_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @rsa_to_RSA_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_rsa_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -9326,7 +9326,7 @@ return:                                           ; preds = %if.else14.i26, %if.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dh_to_DH_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dh_to_DH_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -9355,7 +9355,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dh_to_DH_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dh_to_DH_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dh_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -9370,7 +9370,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh_to_DH_der_encode(ptr nocapture noundef readonly %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr nocapture readnone %cb, ptr nocapture readnone %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dh_to_DH_der_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %der.i = alloca ptr, align 8
   %cmp.not = icmp eq ptr %key_abstract, null
@@ -9471,7 +9471,7 @@ return:                                           ; preds = %if.else14.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dh_to_DH_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dh_to_DH_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -9500,7 +9500,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dh_to_DH_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dh_to_DH_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dh_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -9515,7 +9515,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh_to_DH_pem_encode(ptr nocapture noundef readonly %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr nocapture readnone %cb, ptr nocapture readnone %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dh_to_DH_pem_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -9583,7 +9583,7 @@ return:                                           ; preds = %if.else14.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dhx_to_DHX_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dhx_to_DHX_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -9612,7 +9612,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dhx_to_DHX_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dhx_to_DHX_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dhx_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -9627,7 +9627,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dhx_to_DHX_der_encode(ptr nocapture noundef readonly %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr nocapture readnone %cb, ptr nocapture readnone %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dhx_to_DHX_der_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %der.i = alloca ptr, align 8
   %cmp.not = icmp eq ptr %key_abstract, null
@@ -9728,7 +9728,7 @@ return:                                           ; preds = %if.else14.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dhx_to_DHX_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dhx_to_DHX_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -9757,7 +9757,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dhx_to_DHX_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dhx_to_DHX_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dhx_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -9772,7 +9772,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dhx_to_DHX_pem_encode(ptr nocapture noundef readonly %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr nocapture readnone %cb, ptr nocapture readnone %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dhx_to_DHX_pem_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -9840,7 +9840,7 @@ return:                                           ; preds = %if.else14.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dsa_to_DSA_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dsa_to_DSA_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -9864,7 +9864,7 @@ key2any_check_selection.exit:                     ; preds = %for.body.i, %for.co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dsa_to_DSA_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dsa_to_DSA_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dsa_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -10084,7 +10084,7 @@ return:                                           ; preds = %if.end.i36, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dsa_to_DSA_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dsa_to_DSA_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -10108,7 +10108,7 @@ key2any_check_selection.exit:                     ; preds = %for.body.i, %for.co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dsa_to_DSA_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dsa_to_DSA_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dsa_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -10269,7 +10269,7 @@ return:                                           ; preds = %if.end.i36, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @ec_to_EC_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ec_to_EC_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -10299,7 +10299,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ec_to_EC_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @ec_to_EC_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_ec_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -10455,7 +10455,7 @@ return:                                           ; preds = %if.end.i12, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @ec_to_EC_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ec_to_EC_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -10485,7 +10485,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ec_to_EC_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @ec_to_EC_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_ec_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -10602,7 +10602,7 @@ return:                                           ; preds = %if.end.i12, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @sm2_to_SM2_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @sm2_to_SM2_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -10632,7 +10632,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sm2_to_SM2_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @sm2_to_SM2_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_sm2_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -10788,7 +10788,7 @@ return:                                           ; preds = %if.end.i12, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @sm2_to_SM2_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @sm2_to_SM2_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -10818,7 +10818,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sm2_to_SM2_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @sm2_to_SM2_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_sm2_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -10935,7 +10935,7 @@ return:                                           ; preds = %if.end.i12, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @rsa_to_PKCS1_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsa_to_PKCS1_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -10964,7 +10964,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rsa_to_PKCS1_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @rsa_to_PKCS1_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_rsa_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -11020,7 +11020,7 @@ return:                                           ; preds = %if.end8, %if.then6,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @rsa_to_PKCS1_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsa_to_PKCS1_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -11049,7 +11049,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rsa_to_PKCS1_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @rsa_to_PKCS1_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_rsa_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -11198,7 +11198,7 @@ return:                                           ; preds = %if.else14.i26, %if.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @rsapss_to_PKCS1_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsapss_to_PKCS1_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -11227,7 +11227,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rsapss_to_PKCS1_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @rsapss_to_PKCS1_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_rsapss_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -11283,7 +11283,7 @@ return:                                           ; preds = %if.end8, %if.then6,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @rsapss_to_PKCS1_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @rsapss_to_PKCS1_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -11312,7 +11312,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rsapss_to_PKCS1_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @rsapss_to_PKCS1_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_rsapss_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -11461,7 +11461,7 @@ return:                                           ; preds = %if.else14.i26, %if.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dh_to_PKCS3_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dh_to_PKCS3_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -11490,7 +11490,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dh_to_PKCS3_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dh_to_PKCS3_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dh_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -11505,7 +11505,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh_to_PKCS3_der_encode(ptr nocapture noundef readonly %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr nocapture readnone %cb, ptr nocapture readnone %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dh_to_PKCS3_der_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %der.i = alloca ptr, align 8
   %cmp.not = icmp eq ptr %key_abstract, null
@@ -11606,7 +11606,7 @@ return:                                           ; preds = %if.else14.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dh_to_PKCS3_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dh_to_PKCS3_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -11635,7 +11635,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dh_to_PKCS3_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dh_to_PKCS3_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dh_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -11650,7 +11650,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh_to_PKCS3_pem_encode(ptr nocapture noundef readonly %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr nocapture readnone %cb, ptr nocapture readnone %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dh_to_PKCS3_pem_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -11718,7 +11718,7 @@ return:                                           ; preds = %if.else14.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dhx_to_X9_42_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dhx_to_X9_42_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -11747,7 +11747,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dhx_to_X9_42_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dhx_to_X9_42_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dhx_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -11762,7 +11762,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dhx_to_X9_42_der_encode(ptr nocapture noundef readonly %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr nocapture readnone %cb, ptr nocapture readnone %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dhx_to_X9_42_der_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %der.i = alloca ptr, align 8
   %cmp.not = icmp eq ptr %key_abstract, null
@@ -11863,7 +11863,7 @@ return:                                           ; preds = %if.else14.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @dhx_to_X9_42_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @dhx_to_X9_42_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -11892,7 +11892,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dhx_to_X9_42_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @dhx_to_X9_42_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_dhx_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -11907,7 +11907,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dhx_to_X9_42_pem_encode(ptr nocapture noundef readonly %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr nocapture readnone %cb, ptr nocapture readnone %cbarg) #0 {
+define internal range(i32 0, 2) i32 @dhx_to_X9_42_pem_encode(ptr noundef readonly captures(none) %ctx, ptr noundef %cout, ptr noundef %key, ptr noundef readnone %key_abstract, i32 noundef %selection, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %cmp.not = icmp eq ptr %key_abstract, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -11975,7 +11975,7 @@ return:                                           ; preds = %if.else14.i, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @ec_to_X9_62_der_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ec_to_X9_62_der_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -12005,7 +12005,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ec_to_X9_62_der_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @ec_to_X9_62_der_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_ec_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -12161,7 +12161,7 @@ return:                                           ; preds = %if.end.i12, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal range(i32 0, 2) i32 @ec_to_X9_62_pem_does_selection(ptr nocapture readnone %ctx, i32 noundef %selection) #2 {
+define internal range(i32 0, 2) i32 @ec_to_X9_62_pem_does_selection(ptr readnone captures(none) %ctx, i32 noundef %selection) #2 {
 entry:
   %cmp.i = icmp eq i32 %selection, 0
   br i1 %cmp.i, label %key2any_check_selection.exit, label %for.body.i
@@ -12191,7 +12191,7 @@ key2any_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ec_to_X9_62_pem_import_object(ptr nocapture noundef readonly %vctx, i32 noundef %selection, ptr noundef %params) #0 {
+define internal ptr @ec_to_X9_62_pem_import_object(ptr noundef readonly captures(none) %vctx, i32 noundef %selection, ptr noundef %params) #0 {
 entry:
   %0 = load ptr, ptr %vctx, align 8
   %call = tail call ptr @ossl_prov_import_key(ptr noundef nonnull @ossl_ec_keymgmt_functions, ptr noundef %0, i32 noundef %selection, ptr noundef %params) #5
@@ -12420,7 +12420,7 @@ return:                                           ; preds = %entry, %sw.bb1, %sw
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @key_to_type_specific_der_bio(ptr noundef %out, ptr noundef %key, i32 %key_nid, ptr nocapture readnone %pemname, ptr nocapture readnone %p2s, ptr nocapture noundef readonly %k2d, ptr nocapture readnone %ctx) #0 {
+define internal range(i32 0, 2) i32 @key_to_type_specific_der_bio(ptr noundef %out, ptr noundef %key, i32 %key_nid, ptr readnone captures(none) %pemname, ptr readnone captures(none) %p2s, ptr noundef readonly captures(none) %k2d, ptr readnone captures(none) %ctx) #0 {
 entry:
   %der = alloca ptr, align 8
   store ptr null, ptr %der, align 8
@@ -12449,7 +12449,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @prepare_rsa_params(ptr noundef %rsa, i32 %nid, i32 %save, ptr nocapture noundef writeonly initializes((0, 8)) %pstr, ptr nocapture noundef writeonly %pstrtype) #0 {
+define internal range(i32 0, 2) i32 @prepare_rsa_params(ptr noundef %rsa, i32 %nid, i32 %save, ptr noundef writeonly captures(none) initializes((0, 8)) %pstr, ptr noundef writeonly captures(none) %pstrtype) #0 {
 entry:
   %pkt = alloca %struct.wpacket_st, align 8
   %str_sz = alloca i64, align 8
@@ -12626,7 +12626,7 @@ declare i32 @i2d_DHxparams(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @i2d_DHparams(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @prepare_dsa_params(ptr noundef %dsa, i32 %nid, i32 noundef %save, ptr nocapture noundef writeonly %pstr, ptr nocapture noundef writeonly %pstrtype) #0 {
+define internal range(i32 0, 2) i32 @prepare_dsa_params(ptr noundef %dsa, i32 %nid, i32 noundef %save, ptr noundef writeonly captures(none) %pstr, ptr noundef writeonly captures(none) %pstrtype) #0 {
 entry:
   %call = tail call ptr @DSA_get0_p(ptr noundef %dsa) #5
   %call1 = tail call ptr @DSA_get0_q(ptr noundef %dsa) #5
@@ -12695,7 +12695,7 @@ declare ptr @DSA_get0_g(ptr noundef) local_unnamed_addr #3
 declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @prepare_ec_params(ptr noundef %eckey, i32 %nid, i32 %save, ptr nocapture noundef writeonly %pstr, ptr nocapture noundef writeonly %pstrtype) #0 {
+define internal range(i32 0, 2) i32 @prepare_ec_params(ptr noundef %eckey, i32 %nid, i32 %save, ptr noundef writeonly captures(none) %pstr, ptr noundef writeonly captures(none) %pstrtype) #0 {
 entry:
   %call = tail call ptr @EC_KEY_get0_group(ptr noundef %eckey) #5
   %cmp = icmp eq ptr %call, null
@@ -12790,7 +12790,7 @@ declare i32 @ossl_pw_pem_password(ptr noundef, i32 noundef, i32 noundef, ptr nou
 declare i32 @PEM_ASN1_write_bio(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @key_to_epki_der_priv_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr nocapture readnone %pemname, ptr noundef readonly %p2s, ptr nocapture noundef readonly %k2d, ptr noundef %ctx) #0 {
+define internal i32 @key_to_epki_der_priv_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr readnone captures(none) %pemname, ptr noundef readonly %p2s, ptr noundef readonly captures(none) %k2d, ptr noundef %ctx) #0 {
 entry:
   %str = alloca ptr, align 8
   %strtype = alloca i32, align 4
@@ -12839,7 +12839,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @key_to_encp8(ptr noundef %key, i32 noundef %key_nid, ptr noundef %params, i32 noundef %params_type, ptr nocapture noundef readonly %k2d, ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc ptr @key_to_encp8(ptr noundef %key, i32 noundef %key_nid, ptr noundef %params, i32 noundef %params_type, ptr noundef readonly captures(none) %k2d, ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %kstr.i = alloca [1024 x i8], align 16
   %klen.i = alloca i64, align 8
@@ -12910,7 +12910,7 @@ declare i32 @i2d_PKCS8_bio(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @X509_SIG_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @key_to_p8info(ptr noundef %key, i32 noundef %key_nid, ptr noundef %params, i32 noundef %params_type, ptr nocapture noundef readonly %k2d) unnamed_addr #0 {
+define internal fastcc ptr @key_to_p8info(ptr noundef %key, i32 noundef %key_nid, ptr noundef %params, i32 noundef %params_type, ptr noundef readonly captures(none) %k2d) unnamed_addr #0 {
 entry:
   %der = alloca ptr, align 8
   store ptr null, ptr %der, align 8
@@ -12957,7 +12957,7 @@ declare ptr @PKCS8_encrypt_ex(i32 noundef, ptr noundef, ptr noundef, i32 noundef
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @key_to_epki_pem_priv_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr nocapture readnone %pemname, ptr noundef readonly %p2s, ptr nocapture noundef readonly %k2d, ptr noundef %ctx) #0 {
+define internal i32 @key_to_epki_pem_priv_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr readnone captures(none) %pemname, ptr noundef readonly %p2s, ptr noundef readonly captures(none) %k2d, ptr noundef %ctx) #0 {
 entry:
   %str = alloca ptr, align 8
   %strtype = alloca i32, align 4
@@ -13008,7 +13008,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 declare i32 @PEM_write_bio_PKCS8(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @key_to_pki_der_priv_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr nocapture readnone %pemname, ptr noundef readonly %p2s, ptr nocapture noundef readonly %k2d, ptr noundef %ctx) #0 {
+define internal i32 @key_to_pki_der_priv_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr readnone captures(none) %pemname, ptr noundef readonly %p2s, ptr noundef readonly captures(none) %k2d, ptr noundef %ctx) #0 {
 entry:
   %str.i = alloca ptr, align 8
   %strtype.i = alloca i32, align 4
@@ -13119,7 +13119,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 declare i32 @i2d_PKCS8_PRIV_KEY_INFO_bio(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @key_to_pki_pem_priv_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr nocapture readnone %pemname, ptr noundef readonly %p2s, ptr nocapture noundef readonly %k2d, ptr noundef %ctx) #0 {
+define internal i32 @key_to_pki_pem_priv_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr readnone captures(none) %pemname, ptr noundef readonly %p2s, ptr noundef readonly captures(none) %k2d, ptr noundef %ctx) #0 {
 entry:
   %str.i = alloca ptr, align 8
   %strtype.i = alloca i32, align 4
@@ -13230,7 +13230,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 declare i32 @PEM_write_bio_PKCS8_PRIV_KEY_INFO(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @key_to_spki_der_pub_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr nocapture readnone %pemname, ptr noundef readonly %p2s, ptr nocapture noundef readonly %k2d, ptr nocapture noundef readonly %ctx) #0 {
+define internal i32 @key_to_spki_der_pub_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr readnone captures(none) %pemname, ptr noundef readonly %p2s, ptr noundef readonly captures(none) %k2d, ptr noundef readonly captures(none) %ctx) #0 {
 entry:
   %str = alloca ptr, align 8
   %strtype = alloca i32, align 4
@@ -13273,7 +13273,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @key_to_pubkey(ptr noundef %key, i32 noundef %key_nid, ptr noundef %params, i32 noundef %params_type, ptr nocapture noundef readonly %k2d) unnamed_addr #0 {
+define internal fastcc ptr @key_to_pubkey(ptr noundef %key, i32 noundef %key_nid, ptr noundef %params, i32 noundef %params_type, ptr noundef readonly captures(none) %k2d) unnamed_addr #0 {
 entry:
   %der = alloca ptr, align 8
   store ptr null, ptr %der, align 8
@@ -13316,7 +13316,7 @@ declare ptr @X509_PUBKEY_new() local_unnamed_addr #3
 declare i32 @X509_PUBKEY_set0_param(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @key_to_spki_pem_pub_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr nocapture readnone %pemname, ptr noundef readonly %p2s, ptr nocapture noundef readonly %k2d, ptr nocapture noundef readonly %ctx) #0 {
+define internal i32 @key_to_spki_pem_pub_bio(ptr noundef %out, ptr noundef %key, i32 noundef %key_nid, ptr readnone captures(none) %pemname, ptr noundef readonly %p2s, ptr noundef readonly captures(none) %k2d, ptr noundef readonly captures(none) %ctx) #0 {
 entry:
   %str = alloca ptr, align 8
   %strtype = alloca i32, align 4
@@ -13377,7 +13377,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 declare i32 @PEM_write_bio_X509_PUBKEY(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @prepare_dh_params(ptr noundef %dh, i32 noundef %nid, i32 %save, ptr nocapture noundef writeonly %pstr, ptr nocapture noundef writeonly %pstrtype) #0 {
+define internal range(i32 0, 2) i32 @prepare_dh_params(ptr noundef %dh, i32 noundef %nid, i32 %save, ptr noundef writeonly captures(none) %pstr, ptr noundef writeonly captures(none) %pstrtype) #0 {
 entry:
   %call = tail call ptr @ASN1_STRING_new() #5
   %cmp = icmp eq ptr %call, null
@@ -13664,7 +13664,7 @@ return:                                           ; preds = %if.end, %if.then5, 
 declare i32 @i2d_ASN1_OCTET_STRING(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ecx_spki_pub_to_der(ptr noundef %vecxkey, ptr nocapture noundef writeonly %pder) #0 {
+define internal i32 @ecx_spki_pub_to_der(ptr noundef %vecxkey, ptr noundef writeonly captures(none) %pder) #0 {
 entry:
   %cmp = icmp eq ptr %vecxkey, null
   br i1 %cmp, label %if.then, label %if.end
@@ -13697,10 +13697,10 @@ return:                                           ; preds = %if.end, %if.end3, %
 declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

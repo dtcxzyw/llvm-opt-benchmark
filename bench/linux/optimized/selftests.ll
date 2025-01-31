@@ -32,7 +32,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_net_selftest
 @llvm.compiler.used = appending global [8 x ptr] [ptr @__UNIQUE_ID___addressable_net_selftest907, ptr @__UNIQUE_ID___addressable_net_selftest_get_count908, ptr @__UNIQUE_ID___addressable_net_selftest_get_strings909, ptr @__UNIQUE_ID_author913, ptr @__UNIQUE_ID_description910, ptr @__UNIQUE_ID_file911, ptr @__UNIQUE_ID_license912, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched5], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @net_selftest(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 56)) %2) #0 align 16 {
+define dso_local void @net_selftest(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 56)) %2) #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
   store i8 0, ptr @net_test_next_id, align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -76,7 +76,7 @@ define dso_local void @net_selftest(ptr noundef %0, ptr nocapture noundef %1, pt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define dso_local noundef i32 @net_selftest_get_count() #2 align 16 {
@@ -84,13 +84,13 @@ define dso_local noundef i32 @net_selftest_get_count() #2 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local void @netdev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @net_selftest_get_strings(ptr noundef %0) #0 align 16 {
@@ -125,7 +125,7 @@ define internal range(i32 -67, 1) i32 @net_test_netif_carrier(ptr noundef %0) #6
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 -95, 1) i32 @net_test_phy_phydev(ptr nocapture noundef readonly %0) #7 align 16 {
+define internal range(i32 -95, 1) i32 @net_test_phy_phydev(ptr noundef readonly captures(none) %0) #7 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2144
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -134,7 +134,7 @@ define internal range(i32 -95, 1) i32 @net_test_phy_phydev(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @net_test_phy_loopback_enable(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal i32 @net_test_phy_loopback_enable(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2144
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -198,7 +198,7 @@ define internal range(i32 -2147483648, 1) i32 @net_test_phy_loopback_tcp(ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @net_test_phy_loopback_disable(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal i32 @net_test_phy_loopback_disable(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2144
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -556,7 +556,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__net_test_loopback(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @net_test_loopback_validate(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #0 align 16 {
+define internal noundef i32 @net_test_loopback_validate(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8

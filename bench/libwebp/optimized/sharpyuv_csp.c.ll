@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.SharpYuvGetConversionMatrix = private unnamed_addr constant [5 x ptr] [ptr @kWebpMatrix, ptr @kRec601LimitedMatrix, ptr @kRec601FullMatrix, ptr @kRec709LimitedMatrix, ptr @kRec709FullMatrix], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @SharpYuvComputeConversionMatrix(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 48)) %1) local_unnamed_addr #0 {
+define void @SharpYuvComputeConversionMatrix(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 48)) %1) local_unnamed_addr #0 {
   %3 = load float, ptr %0, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load float, ptr %4, align 4

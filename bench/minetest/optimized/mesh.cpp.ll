@@ -383,7 +383,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z17applyFacesShadingRN3irr5video6SColorERKNS_4core8vector3dIfEE(ptr nocapture noundef nonnull align 4 dereferenceable(4) %color, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %normal) local_unnamed_addr #3 {
+define dso_local void @_Z17applyFacesShadingRN3irr5video6SColorERKNS_4core8vector3dIfEE(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %color, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %normal) local_unnamed_addr #3 {
 entry:
   %0 = load float, ptr %normal, align 4, !tbaa !4
   %mul = fmul nsz float %0, %0
@@ -453,13 +453,13 @@ if.end17:                                         ; preds = %if.end17.sink.split
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull ptr @_Z14createCubeMeshN3irr4core8vector3dIfEE(<2 x float> %scale.coerce0, float %scale.coerce1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
@@ -940,7 +940,7 @@ lpad86.body:                                      ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
@@ -1461,7 +1461,7 @@ return:                                           ; preds = %for.cond.cleanup, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z18setMeshBufferColorPN3irr5scene11IMeshBufferERKNS_5video6SColorE(ptr noundef %buf, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %color) local_unnamed_addr #10 {
+define dso_local void @_Z18setMeshBufferColorPN3irr5scene11IMeshBufferERKNS_5video6SColorE(ptr noundef %buf, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %color) local_unnamed_addr #10 {
 entry:
   %vtable = load ptr, ptr %buf, align 8, !tbaa !20
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
@@ -1541,7 +1541,7 @@ for.body:                                         ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z20setAnimatedMeshColorPN3irr5scene22IAnimatedMeshSceneNodeERKNS_5video6SColorE(ptr noundef %node, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %color) local_unnamed_addr #10 {
+define dso_local void @_Z20setAnimatedMeshColorPN3irr5scene22IAnimatedMeshSceneNodeERKNS_5video6SColorE(ptr noundef %node, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %color) local_unnamed_addr #10 {
 entry:
   %vtable7 = load ptr, ptr %node, align 8, !tbaa !20
   %vfn8 = getelementptr inbounds nuw i8, ptr %vtable7, i64 176
@@ -1572,7 +1572,7 @@ for.body:                                         ; preds = %entry, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z12setMeshColorPN3irr5scene5IMeshERKNS_5video6SColorE(ptr noundef %mesh, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %color) local_unnamed_addr #10 {
+define dso_local void @_Z12setMeshColorPN3irr5scene5IMeshERKNS_5video6SColorE(ptr noundef %mesh, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %color) local_unnamed_addr #10 {
 entry:
   %cmp = icmp eq ptr %mesh, null
   br i1 %cmp, label %return, label %if.end
@@ -1673,7 +1673,7 @@ return:                                           ; preds = %_Z18setMeshBufferCo
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z26setMeshBufferTextureCoordsPN3irr5scene11IMeshBufferEPKNS_4core8vector2dIfEEj(ptr noundef %buf, ptr nocapture noundef readonly %uv, i32 noundef %count) local_unnamed_addr #10 {
+define dso_local void @_Z26setMeshBufferTextureCoordsPN3irr5scene11IMeshBufferEPKNS_4core8vector2dIfEEj(ptr noundef %buf, ptr noundef readonly captures(none) %uv, i32 noundef %count) local_unnamed_addr #10 {
 entry:
   %vtable = load ptr, ptr %buf, align 8, !tbaa !20
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
@@ -1758,7 +1758,7 @@ for.body:                                         ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z18colorizeMeshBufferPN3irr5scene11IMeshBufferEPKNS_5video6SColorE(ptr noundef %buf, ptr nocapture noundef readonly %buffercolor) local_unnamed_addr #10 {
+define dso_local void @_Z18colorizeMeshBufferPN3irr5scene11IMeshBufferEPKNS_5video6SColorE(ptr noundef %buf, ptr noundef readonly captures(none) %buffercolor) local_unnamed_addr #10 {
 entry:
   %vtable = load ptr, ptr %buf, align 8, !tbaa !20
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
@@ -1864,7 +1864,7 @@ _Z17applyFacesShadingRN3irr5video6SColorERKNS_4core8vector3dIfEE.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z23setMeshColorByNormalXYZPN3irr5scene5IMeshERKNS_5video6SColorES6_S6_(ptr noundef %mesh, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %colorX, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %colorY, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %colorZ) local_unnamed_addr #10 {
+define dso_local void @_Z23setMeshColorByNormalXYZPN3irr5scene5IMeshERKNS_5video6SColorES6_S6_(ptr noundef %mesh, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %colorX, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %colorY, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %colorZ) local_unnamed_addr #10 {
 entry:
   %colorizator = alloca %class.anon.37, align 4
   %tobool.not = icmp eq ptr %mesh, null
@@ -1957,7 +1957,7 @@ return:                                           ; preds = %"_ZL11applyToMeshIZ
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z20setMeshColorByNormalPN3irr5scene5IMeshERKNS_4core8vector3dIfEERKNS_5video6SColorE(ptr noundef %mesh, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %normal, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %color) local_unnamed_addr #10 {
+define dso_local void @_Z20setMeshColorByNormalPN3irr5scene5IMeshERKNS_4core8vector3dIfEERKNS_5video6SColorE(ptr noundef %mesh, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %normal, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %color) local_unnamed_addr #10 {
 entry:
   %tobool.not = icmp eq ptr %mesh, null
   br i1 %tobool.not, label %return, label %if.end
@@ -3844,7 +3844,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_Z22convertNodeboxesToMeshRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPKff(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %boxes, ptr noundef readonly %uv_coords, float noundef %expand) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_Z22convertNodeboxesToMeshRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPKff(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %boxes, ptr noundef readonly %uv_coords, float noundef %expand) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
 entry:
   %vertices = alloca [24 x %"struct.irr::video::S3DVertex"], align 16
   %indices = alloca [6 x i16], align 2
@@ -4692,7 +4692,7 @@ _ZN3irr4core8aabbox3dIfE6repairEv.exit.cont:      ; preds = %_ZN3irr4core8aabbox
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_Z18setMaterialFiltersRN3irr5video14SMaterialLayerEbbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((12, 21)) %tex, i1 noundef zeroext %bilinear, i1 noundef zeroext %trilinear, i1 noundef zeroext %anisotropic) local_unnamed_addr #12 {
+define dso_local void @_Z18setMaterialFiltersRN3irr5video14SMaterialLayerEbbb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((12, 21)) %tex, i1 noundef zeroext %bilinear, i1 noundef zeroext %trilinear, i1 noundef zeroext %anisotropic) local_unnamed_addr #12 {
 entry:
   %MinFilter = getelementptr inbounds nuw i8, ptr %tex, i64 12
   %. = zext i1 %bilinear to i32
@@ -5233,7 +5233,7 @@ _ZN3irr5scene5SMeshD0Ev.exit:                     ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK3irr5video9SMaterialneERKS1_(ptr noundef nonnull align 8 dereferenceable(178) %this, ptr noundef nonnull align 8 dereferenceable(178) %b) local_unnamed_addr #16 comdat align 2 {
@@ -5589,7 +5589,7 @@ cleanup:                                          ; preds = %for.cond.15, %for.c
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3irr5scene13SAnimatedMesh22recalculateBoundingBoxEv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #10 comdat align 2 {

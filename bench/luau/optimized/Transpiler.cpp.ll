@@ -1478,7 +1478,7 @@ define dso_local void @_ZN4Luau8toStringB5cxx11EPNS_7AstNodeE(ptr dead_on_unwind
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4Luau7Printer9visualizeERNS_7AstStatE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(29) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1837,7 +1837,7 @@ _ZN4Luau7Printer14visualizeBlockERNS_12AstStatBlockE.exit322: ; preds = %.lr.ph5
   %209 = load ptr, ptr %206, align 8
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 56
   %211 = load ptr, ptr %210, align 8
-  tail call void %211(ptr noundef nonnull align 8 dereferenceable(8) %206, i64 %208, ptr %207)
+  tail call void %211(ptr noundef nonnull align 8 dereferenceable(8) %206, i64 %208, ptr nonnull %207)
   %212 = load i8, ptr %0, align 8
   %213 = trunc i8 %212 to i1
   br i1 %213, label %214, label %_ZN4Luau7Printer9visualizeERKNS_8AstLocalE.exit
@@ -2328,7 +2328,7 @@ _ZN4Luau7Printer9visualizeERKNS_8AstLocalE.exit:  ; preds = %199, %214, %217
   %500 = load ptr, ptr %496, align 8
   %501 = getelementptr inbounds nuw i8, ptr %500, i64 56
   %502 = load ptr, ptr %501, align 8
-  tail call void %502(ptr noundef nonnull align 8 dereferenceable(8) %496, i64 %499, ptr %498)
+  tail call void %502(ptr noundef nonnull align 8 dereferenceable(8) %496, i64 %499, ptr nonnull %498)
   %503 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %504 = load ptr, ptr %503, align 8
   tail call void @_ZN4Luau7Printer21visualizeFunctionBodyERNS_15AstExprFunctionE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(212) %504)
@@ -2372,7 +2372,7 @@ _ZN4Luau7Printer9visualizeERKNS_8AstLocalE.exit:  ; preds = %199, %214, %217
   %528 = load ptr, ptr %524, align 8
   %529 = getelementptr inbounds nuw i8, ptr %528, i64 56
   %530 = load ptr, ptr %529, align 8
-  tail call void %530(ptr noundef nonnull align 8 dereferenceable(8) %524, i64 %527, ptr %526)
+  tail call void %530(ptr noundef nonnull align 8 dereferenceable(8) %524, i64 %527, ptr nonnull %526)
   %531 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %532 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %533 = load i64, ptr %532, align 8
@@ -2430,7 +2430,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit:        ; preds = %548, %550
   %561 = load ptr, ptr %558, align 8
   %562 = getelementptr inbounds nuw i8, ptr %561, i64 56
   %563 = load ptr, ptr %562, align 8
-  call void %563(ptr noundef nonnull align 8 dereferenceable(8) %558, i64 %560, ptr %559)
+  call void %563(ptr noundef nonnull align 8 dereferenceable(8) %558, i64 %560, ptr nonnull %559)
   %564 = load ptr, ptr %547, align 8
   %.not306 = icmp eq ptr %564, null
   br i1 %.not306, label %576, label %565
@@ -2498,7 +2498,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit333:     ; preds = %585, %587
   %598 = load ptr, ptr %595, align 8
   %599 = getelementptr inbounds nuw i8, ptr %598, i64 56
   %600 = load ptr, ptr %599, align 8
-  call void %600(ptr noundef nonnull align 8 dereferenceable(8) %595, i64 %597, ptr %596)
+  call void %600(ptr noundef nonnull align 8 dereferenceable(8) %595, i64 %597, ptr nonnull %596)
   %601 = load ptr, ptr %9, align 8
   %602 = load ptr, ptr %601, align 8
   %603 = getelementptr inbounds nuw i8, ptr %602, i64 72
@@ -2860,7 +2860,7 @@ _ZN4Luau7Printer12isIntegerishEd.exit.thread:     ; preds = %80, %73, %76
   %119 = load ptr, ptr %114, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 56
   %121 = load ptr, ptr %120, align 8
-  tail call void %121(ptr noundef nonnull align 8 dereferenceable(8) %114, i64 %118, ptr %117)
+  tail call void %121(ptr noundef nonnull align 8 dereferenceable(8) %114, i64 %118, ptr nonnull %117)
   br label %common.ret
 
 122:                                              ; preds = %111
@@ -2876,7 +2876,7 @@ _ZN4Luau7Printer12isIntegerishEd.exit.thread:     ; preds = %80, %73, %76
   %129 = load ptr, ptr %125, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 56
   %131 = load ptr, ptr %130, align 8
-  tail call void %131(ptr noundef nonnull align 8 dereferenceable(8) %125, i64 %128, ptr %127)
+  tail call void %131(ptr noundef nonnull align 8 dereferenceable(8) %125, i64 %128, ptr nonnull %127)
   br label %common.ret
 
 132:                                              ; preds = %122
@@ -2992,7 +2992,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %188 = load ptr, ptr %184, align 8
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 48
   %190 = load ptr, ptr %189, align 8
-  call void %190(ptr noundef nonnull align 8 dereferenceable(8) %184, i64 %187, ptr %186)
+  call void %190(ptr noundef nonnull align 8 dereferenceable(8) %184, i64 %187, ptr nonnull %186)
   br label %common.ret
 
 191:                                              ; preds = %.noexc, %168
@@ -3593,7 +3593,7 @@ define linkonce_odr dso_local void @_ZN4Luau7Printer23visualizeTypeAnnotationERK
   %21 = load ptr, ptr %18, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %23 = load ptr, ptr %22, align 8
-  tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %18, i64 %20, ptr %19)
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %18, i64 %20, ptr nonnull %19)
   %24 = load ptr, ptr %4, align 8
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 72
@@ -3609,7 +3609,7 @@ define linkonce_odr dso_local void @_ZN4Luau7Printer23visualizeTypeAnnotationERK
   %33 = load ptr, ptr %29, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(8) %29, i64 %32, ptr %31)
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(8) %29, i64 %32, ptr nonnull %31)
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %38 = load i64, ptr %37, align 8
@@ -3732,7 +3732,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit213:     ; preds = %.lr.ph351, %81
   %93 = load ptr, ptr %90, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 56
   %95 = load ptr, ptr %94, align 8
-  tail call void %95(ptr noundef nonnull align 8 dereferenceable(8) %90, i64 %92, ptr %91)
+  tail call void %95(ptr noundef nonnull align 8 dereferenceable(8) %90, i64 %92, ptr nonnull %91)
   %96 = getelementptr inbounds nuw i8, ptr %.0115349, i64 32
   %.not197 = icmp eq ptr %96, %79
   br i1 %.not197, label %._crit_edge352, label %.lr.ph351
@@ -3774,7 +3774,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit214:     ; preds = %.lr.ph358, %103
   %115 = load ptr, ptr %112, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 56
   %117 = load ptr, ptr %116, align 8
-  tail call void %117(ptr noundef nonnull align 8 dereferenceable(8) %112, i64 %114, ptr %113)
+  tail call void %117(ptr noundef nonnull align 8 dereferenceable(8) %112, i64 %114, ptr nonnull %113)
   %118 = load ptr, ptr %4, align 8
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 72
@@ -3905,7 +3905,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit217:     ; preds = %.lr.ph346, %174
   %189 = load ptr, ptr %184, align 8
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 56
   %191 = load ptr, ptr %190, align 8
-  tail call void %191(ptr noundef nonnull align 8 dereferenceable(8) %184, i64 %188, ptr %187)
+  tail call void %191(ptr noundef nonnull align 8 dereferenceable(8) %184, i64 %188, ptr nonnull %187)
   %192 = load ptr, ptr %167, align 8
   %193 = getelementptr inbounds %"struct.Luau::AstTableProp", ptr %192, i64 %.0118345, i32 2
   %194 = load ptr, ptr %193, align 8
@@ -5568,7 +5568,7 @@ define linkonce_odr dso_local void @_ZN4Luau7Printer9visualizeERKNS_8AstLocalE(p
   %12 = load ptr, ptr %9, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load ptr, ptr %13, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 %11, ptr %10)
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 %11, ptr nonnull %10)
   %15 = load i8, ptr %0, align 8
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %26
@@ -5646,7 +5646,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit:        ; preds = %.lr.ph, %19
   %31 = load ptr, ptr %28, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef nonnull align 8 dereferenceable(8) %28, i64 %30, ptr %29)
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(8) %28, i64 %30, ptr nonnull %29)
   %34 = getelementptr inbounds nuw i8, ptr %.079, i64 32
   %.not40 = icmp eq ptr %34, %17
   br i1 %.not40, label %._crit_edge, label %.lr.ph
@@ -5687,7 +5687,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit45:      ; preds = %.lr.ph84, %40
   %52 = load ptr, ptr %49, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 56
   %54 = load ptr, ptr %53, align 8
-  tail call void %54(ptr noundef nonnull align 8 dereferenceable(8) %49, i64 %51, ptr %50)
+  tail call void %54(ptr noundef nonnull align 8 dereferenceable(8) %49, i64 %51, ptr nonnull %50)
   %55 = load ptr, ptr %10, align 8
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 72
@@ -5752,7 +5752,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit46:      ; preds = %74, %79
   %91 = load ptr, ptr %88, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 56
   %93 = load ptr, ptr %92, align 8
-  tail call void %93(ptr noundef nonnull align 8 dereferenceable(8) %88, i64 %90, ptr %89)
+  tail call void %93(ptr noundef nonnull align 8 dereferenceable(8) %88, i64 %90, ptr nonnull %89)
   %94 = load i8, ptr %0, align 8
   %95 = trunc i8 %94 to i1
   br i1 %95, label %96, label %105
@@ -5961,7 +5961,7 @@ define linkonce_odr dso_local void @_ZN4Luau7Printer27visualizeTypePackAnnotatio
   %29 = load ptr, ptr %25, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 72
   %31 = load ptr, ptr %30, align 8
-  tail call void %31(ptr noundef nonnull align 8 dereferenceable(8) %25, i64 %28, ptr %27)
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(8) %25, i64 %28, ptr nonnull %27)
   %32 = load ptr, ptr %5, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 72
@@ -5984,7 +5984,7 @@ define linkonce_odr dso_local void @_ZN4Luau7Printer27visualizeTypePackAnnotatio
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4Luau7Printer17visualizeTypeListERKNS_11AstTypeListEb(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -6247,14 +6247,14 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %49, %59
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 declare void @_ZN4Luau8toStringB5cxx11ENS_13AstExprBinary2OpE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, i32 noundef) local_unnamed_addr #6
 
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
@@ -7723,7 +7723,7 @@ __cxx_global_var_init.52.exit:                    ; preds = %_ZNSt6vectorINSt7__
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #15
@@ -7732,13 +7732,13 @@ declare double @llvm.fabs.f64(double) #15
 declare i32 @llvm.abs.i32(i32, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

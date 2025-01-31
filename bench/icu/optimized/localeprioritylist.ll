@@ -252,7 +252,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -489,7 +489,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7518LocalePriorityListC2ENS_11StringPieceER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 17), (24, 32)) %this, ptr %s.coerce0, i32 %s.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7518LocalePriorityListC2ENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 17), (24, 32)) %this, ptr %s.coerce0, i32 %s.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p = alloca ptr, align 8
   %tag = alloca %"class.icu_75::CharString", align 8
@@ -863,7 +863,7 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
 declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #7
@@ -871,7 +871,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #7
 declare void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZN6icu_7512_GLOBAL__N_111parseWeightERPKcS2_(ptr nocapture noundef nonnull align 8 dereferenceable(8) %p, ptr noundef %limit) unnamed_addr #9 {
+define internal fastcc noundef i32 @_ZN6icu_7512_GLOBAL__N_111parseWeightERPKcS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %p, ptr noundef %limit) unnamed_addr #9 {
 entry:
   %0 = load ptr, ptr %p, align 8
   %cmp4.i = icmp ult ptr %0, %limit
@@ -977,7 +977,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6icu_7518LocalePriorityList3addERKNS_6LocaleEiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, i32 noundef %weight, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6icu_7518LocalePriorityList3addERKNS_6LocaleEiR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, i32 noundef %weight, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %found = alloca i8, align 1
   %0 = load i32, ptr %errorCode, align 4
@@ -1197,7 +1197,7 @@ return:                                           ; preds = %if.end23, %if.end82
 declare void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7518LocalePriorityList4sortER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7518LocalePriorityList4sortER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1229,7 +1229,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7518LocalePriorityListD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7518LocalePriorityListD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -1314,7 +1314,7 @@ terminate.lpad:                                   ; preds = %if.end
 declare void @uhash_close_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK6icu_7518LocalePriorityList8localeAtEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %i) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZNK6icu_7518LocalePriorityList8localeAtEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i32 noundef %i) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %conv = sext i32 %i to i64
@@ -1325,7 +1325,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN6icu_7518LocalePriorityList14orphanLocaleAtEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %i) local_unnamed_addr #11 align 2 {
+define noundef ptr @_ZN6icu_7518LocalePriorityList14orphanLocaleAtEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i32 noundef %i) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp = icmp eq ptr %0, null
@@ -1374,7 +1374,7 @@ declare i32 @uhash_putiAllowZero_75(ptr noundef, ptr noundef, i32 noundef, ptr n
 declare void @uprv_sortArray_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZN6icu_7512_GLOBAL__N_122compareLocaleAndWeightEPKvS2_S2_(ptr nocapture readnone %0, ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) #12 {
+define internal noundef i32 @_ZN6icu_7512_GLOBAL__N_122compareLocaleAndWeightEPKvS2_S2_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %left, ptr noundef readonly captures(none) %right) #12 {
 entry:
   %1 = getelementptr i8, ptr %left, i64 8
   %left.val = load i32, ptr %1, align 8

@@ -149,7 +149,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE0EE11_
 @_ZN10WeakHandleC1EP10OopStorageP7oopDesc = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN10WeakHandleC2EP10OopStorageP7oopDesc
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10WeakHandleC2EP10OopStorage6Handle(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1, ptr readonly %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN10WeakHandleC2EP10OopStorage6Handle(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1, ptr readonly %2) unnamed_addr #0 align 2 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %_ZNK6HandleclEv.exit, label %5
 
@@ -176,7 +176,7 @@ _ZN10WeakHandleC2EP10OopStorageP7oopDesc.exit:    ; preds = %_ZNK6HandleclEv.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10WeakHandleC2EP10OopStorageP7oopDesc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN10WeakHandleC2EP10OopStorageP7oopDesc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZN10OopStorage8allocateEv(ptr noundef nonnull align 8 dereferenceable(126) %1) #5
   store ptr %4, ptr %0, align 8
   %5 = icmp eq ptr %4, null
@@ -201,7 +201,7 @@ declare void @_Z23report_vm_out_of_memoryPKcim11VMErrorTypeS0_z(ptr noundef, i32
 declare noundef ptr @_ZNK10OopStorage4nameEv(ptr noundef nonnull align 8 dereferenceable(126)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10WeakHandle7releaseEP10OopStorage(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10WeakHandle7releaseEP10OopStorage(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
@@ -221,7 +221,7 @@ define hidden void @_ZN10WeakHandle7releaseEP10OopStorage(ptr nocapture noundef 
 declare void @_ZN10OopStorage7releaseEPKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(126), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK10WeakHandle5printEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK10WeakHandle5printEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @tty, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm593988EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
@@ -232,7 +232,7 @@ define hidden void @_ZNK10WeakHandle5printEv(ptr nocapture noundef nonnull reado
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK10WeakHandle8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK10WeakHandle8print_onEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm593988EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %5 = tail call noundef ptr %4(ptr noundef %3) #5

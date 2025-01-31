@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @ZSTD_fillHashTable(ptr nocapture noundef readonly %ms, ptr noundef readnone %end, i32 noundef %dtlm, i32 noundef %tfp) local_unnamed_addr #0 {
+define void @ZSTD_fillHashTable(ptr noundef readonly captures(none) %ms, ptr noundef readnone %end, i32 noundef %dtlm, i32 noundef %tfp) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %tfp, 1
   %hashTable2.i = getelementptr inbounds nuw i8, ptr %ms, i64 112
@@ -539,7 +539,7 @@ if.end:                                           ; preds = %for.inc22.loopexit.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define i64 @ZSTD_compressBlock_fast(ptr nocapture noundef readonly %ms, ptr noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_fast(ptr noundef readonly captures(none) %ms, ptr noundef %seqStore, ptr noundef captures(none) %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %minMatch = getelementptr inbounds nuw i8, ptr %ms, i64 272
   %0 = load i32, ptr %minMatch, align 8
@@ -6501,7 +6501,7 @@ return:                                           ; preds = %ZSTD_compressBlock_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define i64 @ZSTD_compressBlock_fast_dictMatchState(ptr nocapture noundef readonly %ms, ptr noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
+define i64 @ZSTD_compressBlock_fast_dictMatchState(ptr noundef readonly captures(none) %ms, ptr noundef %seqStore, ptr noundef captures(none) %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #1 {
 entry:
   %minMatch = getelementptr inbounds nuw i8, ptr %ms, i64 272
   %0 = load i32, ptr %minMatch, align 8
@@ -9914,7 +9914,7 @@ return:                                           ; preds = %if.end272.i.i810, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define i64 @ZSTD_compressBlock_fast_extDict(ptr nocapture noundef readonly %ms, ptr noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTD_compressBlock_fast_extDict(ptr noundef readonly captures(none) %ms, ptr noundef %seqStore, ptr noundef captures(none) %rep, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
 entry:
   %minMatch = getelementptr inbounds nuw i8, ptr %ms, i64 272
   %0 = load i32, ptr %minMatch, align 8
@@ -9926,13 +9926,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #3
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i64 @ZSTD_count_2segments(ptr noundef %ip, ptr noundef %match, ptr noundef readnone %iEnd, ptr noundef %mEnd, ptr nocapture noundef readonly %iStart) unnamed_addr #5 {
+define internal fastcc i64 @ZSTD_count_2segments(ptr noundef %ip, ptr noundef %match, ptr noundef readnone %iEnd, ptr noundef %mEnd, ptr noundef readonly captures(none) %iStart) unnamed_addr #5 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %mEnd to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %match to i64
@@ -10153,7 +10153,7 @@ return:                                           ; preds = %ZSTD_count.exit, %Z
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal fastcc i64 @ZSTD_compressBlock_fast_extDict_generic(ptr nocapture noundef readonly %ms, ptr noundef %seqStore, ptr nocapture noundef %rep, ptr noundef %src, i64 noundef %srcSize, i32 noundef range(i32 4, 8) %mls) unnamed_addr #1 {
+define internal fastcc i64 @ZSTD_compressBlock_fast_extDict_generic(ptr noundef readonly captures(none) %ms, ptr noundef %seqStore, ptr noundef captures(none) %rep, ptr noundef %src, i64 noundef %srcSize, i32 noundef range(i32 4, 8) %mls) unnamed_addr #1 {
 entry:
   %cParams1 = getelementptr inbounds nuw i8, ptr %ms, i64 256
   %hashTable2 = getelementptr inbounds nuw i8, ptr %ms, i64 112

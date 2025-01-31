@@ -157,7 +157,7 @@ return:                                           ; preds = %for.inc, %for.body,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vfio_block_multiple_devices_migration(ptr nocapture noundef readonly %vbasedev, ptr noundef %errp) local_unnamed_addr #1 {
+define dso_local i32 @vfio_block_multiple_devices_migration(ptr noundef readonly captures(none) %vbasedev, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %vbasedev.05.i = load ptr, ptr @vfio_device_list, align 8
   %tobool.not6.i = icmp eq ptr %vbasedev.05.i, null
@@ -275,7 +275,7 @@ return:                                           ; preds = %entry, %vfio_multip
 declare void @migrate_del_blocker(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @vfio_viommu_preset(ptr nocapture noundef readonly %vbasedev) local_unnamed_addr #3 {
+define dso_local zeroext i1 @vfio_viommu_preset(ptr noundef readonly captures(none) %vbasedev) local_unnamed_addr #3 {
 entry:
   %container = getelementptr inbounds nuw i8, ptr %vbasedev, i64 56
   %0 = load ptr, ptr %container, align 8
@@ -286,7 +286,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @vfio_device_state_is_running(ptr nocapture noundef readonly %vbasedev) local_unnamed_addr #3 {
+define dso_local zeroext i1 @vfio_device_state_is_running(ptr noundef readonly captures(none) %vbasedev) local_unnamed_addr #3 {
 entry:
   %migration1 = getelementptr inbounds nuw i8, ptr %vbasedev, i64 128
   %0 = load ptr, ptr %migration1, align 8
@@ -299,7 +299,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @vfio_device_state_is_precopy(ptr nocapture noundef readonly %vbasedev) local_unnamed_addr #3 {
+define dso_local zeroext i1 @vfio_device_state_is_precopy(ptr noundef readonly captures(none) %vbasedev) local_unnamed_addr #3 {
 entry:
   %migration1 = getelementptr inbounds nuw i8, ptr %vbasedev, i64 128
   %0 = load ptr, ptr %migration1, align 8
@@ -311,7 +311,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @vfio_devices_all_device_dirty_tracking(ptr nocapture noundef readonly %container) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @vfio_devices_all_device_dirty_tracking(ptr noundef readonly captures(none) %container) local_unnamed_addr #0 {
 entry:
   %device_list = getelementptr inbounds nuw i8, ptr %container, i64 504
   %vbasedev.03 = load ptr, ptr %device_list, align 8
@@ -337,7 +337,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @vfio_devices_all_running_and_mig_active(ptr nocapture noundef readonly %container) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @vfio_devices_all_running_and_mig_active(ptr noundef readonly captures(none) %container) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @migrate_get_current() #17
   %call1 = tail call zeroext i1 @migration_is_active(ptr noundef %call) #17
@@ -385,7 +385,7 @@ declare zeroext i1 @migration_is_active(ptr noundef) local_unnamed_addr #2
 declare ptr @migrate_get_current() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vfio_devices_query_dirty_bitmap(ptr nocapture noundef readonly %container, ptr nocapture noundef readonly %vbmap, i64 noundef %iova, i64 noundef %size) local_unnamed_addr #1 {
+define dso_local i32 @vfio_devices_query_dirty_bitmap(ptr noundef readonly captures(none) %container, ptr noundef readonly captures(none) %vbmap, i64 noundef %iova, i64 noundef %size) local_unnamed_addr #1 {
 entry:
   %buf.i = alloca [5 x i64], align 16
   %device_list = getelementptr inbounds nuw i8, ptr %container, i64 504
@@ -2538,7 +2538,7 @@ if.end4:                                          ; preds = %qemu_lockable_auto_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vfio_reset_handler(ptr nocapture readnone %opaque) #1 {
+define dso_local void @vfio_reset_handler(ptr readnone captures(none) %opaque) #1 {
 entry:
   %vbasedev.011 = load ptr, ptr @vfio_device_list, align 8
   %tobool.not12 = icmp eq ptr %vbasedev.011, null
@@ -2603,13 +2603,13 @@ for.end15:                                        ; preds = %for.inc12, %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i32 @vfio_kvm_device_add_fd(i32 noundef %fd, ptr nocapture noundef readnone %errp) local_unnamed_addr #5 {
+define dso_local noundef i32 @vfio_kvm_device_add_fd(i32 noundef %fd, ptr noundef readnone captures(none) %errp) local_unnamed_addr #5 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i32 @vfio_kvm_device_del_fd(i32 noundef %fd, ptr nocapture noundef readnone %errp) local_unnamed_addr #5 {
+define dso_local noundef i32 @vfio_kvm_device_del_fd(i32 noundef %fd, ptr noundef readnone captures(none) %errp) local_unnamed_addr #5 {
 entry:
   ret i32 0
 }
@@ -2762,7 +2762,7 @@ declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #4
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #8
@@ -2789,14 +2789,14 @@ declare i64 @llvm.ctpop.i64(i64) #11
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @vfio_listener_valid_section(ptr nocapture noundef readonly %section, ptr noundef %name) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @vfio_listener_valid_section(ptr noundef readonly captures(none) %section, ptr noundef %name) unnamed_addr #1 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -3005,7 +3005,7 @@ declare void @memory_region_ref(ptr noundef) local_unnamed_addr #2
 declare i32 @memory_region_iommu_attrs_to_index(ptr noundef, i32) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_iommu_map_notify(ptr nocapture noundef readonly %n, ptr noundef %iotlb) #1 {
+define internal void @vfio_iommu_map_notify(ptr noundef readonly captures(none) %n, ptr noundef %iotlb) #1 {
 entry:
   %mr_has_discard_manager.i = alloca i8, align 1
   %_now.i.i = alloca %struct.timeval, align 8
@@ -3481,7 +3481,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @ram_discard_manager_get_min_granularity(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vfio_ram_discard_notify_populate(ptr nocapture noundef readonly %rdl, ptr nocapture noundef readonly %section) #1 {
+define internal i32 @vfio_ram_discard_notify_populate(ptr noundef readonly captures(none) %rdl, ptr noundef readonly captures(none) %section) #1 {
 entry:
   %add.ptr = getelementptr i8, ptr %rdl, i64 -40
   %offset_within_region = getelementptr inbounds nuw i8, ptr %section, i64 32
@@ -3558,7 +3558,7 @@ return:                                           ; preds = %for.cond, %if.then.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_ram_discard_notify_discard(ptr nocapture noundef readonly %rdl, ptr nocapture noundef readonly %section) #1 {
+define internal void @vfio_ram_discard_notify_discard(ptr noundef readonly captures(none) %rdl, ptr noundef readonly captures(none) %section) #1 {
 entry:
   %0 = load i128, ptr %section, align 16
   %cmp.i = icmp ult i128 %0, 18446744073709551616
@@ -3601,7 +3601,7 @@ declare void @vfio_container_del_section_window(ptr noundef, ptr noundef) local_
 declare void @ram_discard_manager_unregister_listener(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_iommu_map_dirty_notify(ptr nocapture noundef readonly %n, ptr noundef %iotlb) #1 {
+define internal void @vfio_iommu_map_dirty_notify(ptr noundef readonly captures(none) %n, ptr noundef %iotlb) #1 {
 entry:
   %mr_has_discard_manager.i = alloca i8, align 1
   %_now.i.i = alloca %struct.timeval, align 8
@@ -3786,7 +3786,7 @@ declare i64 @memory_region_get_ram_addr(ptr noundef) local_unnamed_addr #2
 declare i32 @ram_discard_manager_replay_populated(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vfio_ram_discard_get_dirty_bitmap(ptr nocapture noundef readonly %section, ptr nocapture noundef readonly %opaque) #1 {
+define internal i32 @vfio_ram_discard_get_dirty_bitmap(ptr noundef readonly captures(none) %section, ptr noundef readonly captures(none) %opaque) #1 {
 entry:
   %0 = load i128, ptr %section, align 16
   %cmp.i = icmp ult i128 %0, 18446744073709551616
@@ -3814,14 +3814,14 @@ int128_get64.exit:                                ; preds = %entry
 declare i32 @vfio_set_dirty_page_tracking(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 declare void @memory_listener_register(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @memory_listener_unregister(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vfio_dirty_tracking_update(ptr nocapture noundef %listener, ptr nocapture noundef readonly %section) #1 {
+define internal void @vfio_dirty_tracking_update(ptr noundef captures(none) %listener, ptr noundef readonly captures(none) %section) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %add.ptr = getelementptr i8, ptr %listener, i64 -56
@@ -3977,10 +3977,10 @@ declare noalias ptr @g_try_malloc0_n(i64 noundef, i64 noundef) local_unnamed_add
 declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

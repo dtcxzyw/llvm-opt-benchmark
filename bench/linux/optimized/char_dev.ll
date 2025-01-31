@@ -94,7 +94,7 @@ define dso_local void @chrdev_show(ptr noundef %0, i64 noundef %1) local_unnamed
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
@@ -106,7 +106,7 @@ declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @register_chrdev_region(i32 noundef %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
@@ -357,7 +357,7 @@ define internal fastcc ptr @__register_chrdev_region(i32 noundef %0, i32 noundef
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @alloc_chrdev_region(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local i32 @alloc_chrdev_region(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = tail call fastcc ptr @__register_chrdev_region(i32 noundef 0, i32 noundef %1, i32 noundef %2, ptr noundef %3)
   %6 = icmp ugt ptr %5, inttoptr (i64 -4096 to ptr)
   br i1 %6, label %7, label %10
@@ -639,7 +639,7 @@ define dso_local void @unregister_chrdev_region(i32 noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__unregister_chrdev(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define dso_local void @__unregister_chrdev(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = urem i32 %0, 255
   tail call void @mutex_lock(ptr noundef nonnull @chrdevs_lock) #9
   %6 = zext nneg i32 %5 to i64
@@ -912,7 +912,7 @@ define internal i32 @chrdev_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
 declare dso_local i32 @kobj_map(ptr noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef ptr @exact_match(i32 %0, ptr nocapture readnone %1, ptr noundef readnone returned %2) #3 align 16 {
+define internal noundef ptr @exact_match(i32 %0, ptr readnone captures(none) %1, ptr noundef readnone returned %2) #3 align 16 {
   ret ptr %2
 }
 
@@ -944,7 +944,7 @@ declare dso_local ptr @kobject_get(ptr noundef) local_unnamed_addr #2
 declare dso_local void @kfree_const(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cdev_set_parent(ptr nocapture noundef writeonly initializes((24, 32)) %0, ptr noundef %1) #0 align 16 {
+define dso_local void @cdev_set_parent(ptr noundef writeonly captures(none) initializes((24, 32)) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %4 = load i8, ptr %3, align 4
   %5 = and i8 %4, 1
@@ -1090,7 +1090,7 @@ define dso_local void @cdev_init(ptr noundef initializes((0, 104)) %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @chrdev_init() local_unnamed_addr #5 section ".init.text" align 16 {
@@ -1103,7 +1103,7 @@ define dso_local void @chrdev_init() local_unnamed_addr #5 section ".init.text" 
 declare dso_local ptr @kobj_map_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noalias noundef ptr @base_probe(i32 noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 align 16 {
+define internal noalias noundef ptr @base_probe(i32 noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = lshr i32 %0, 20
   %5 = and i32 %0, 1048575
   %6 = tail call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext true, ptr noundef nonnull @.str.7, i32 noundef %4, i32 noundef %5) #9

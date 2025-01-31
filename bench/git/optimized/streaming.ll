@@ -22,7 +22,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @read_istream(ptr noundef %st, ptr noundef %buf, i64 noundef %sz) local_unnamed_addr #0 {
@@ -34,7 +34,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @open_istream(ptr noundef %r, ptr noundef %oid, ptr noundef %type, ptr nocapture noundef writeonly %size, ptr noundef %filter) local_unnamed_addr #0 {
+define dso_local ptr @open_istream(ptr noundef %r, ptr noundef %oid, ptr noundef %type, ptr noundef writeonly captures(none) %size, ptr noundef %filter) local_unnamed_addr #0 {
 entry:
   %oi.i25 = alloca %struct.object_info, align 8
   %size.i = alloca i64, align 8
@@ -355,7 +355,7 @@ declare i32 @replace_refs_enabled(ptr noundef) local_unnamed_addr #2
 declare ptr @do_lookup_replace_object(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @oid_object_info_extended(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -427,7 +427,7 @@ return:                                           ; preds = %entry, %error, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @open_istream_pack_non_delta(ptr noundef %st, ptr nocapture readnone %r, ptr nocapture readnone %oid, ptr nocapture readnone %type) #0 {
+define internal range(i32 -1, 1) i32 @open_istream_pack_non_delta(ptr noundef %st, ptr readnone captures(none) %r, ptr readnone captures(none) %oid, ptr readnone captures(none) %type) #0 {
 entry:
   %window = alloca ptr, align 8
   store ptr null, ptr %window, align 8
@@ -462,7 +462,7 @@ declare i32 @unpack_loose_header(ptr noundef, ptr noundef, i64 noundef, ptr noun
 declare i32 @parse_loose_header(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @close_istream_loose(ptr noundef %st) #0 {
@@ -578,7 +578,7 @@ declare void @git_inflate_end(ptr noundef) local_unnamed_addr #2
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @git_inflate(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -693,7 +693,7 @@ declare void @git_inflate_init(ptr noundef) local_unnamed_addr #2
 declare ptr @use_pack(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @close_istream_incore(ptr nocapture noundef readonly %st) #7 {
+define internal noundef i32 @close_istream_incore(ptr noundef readonly captures(none) %st) #7 {
 entry:
   %u = getelementptr inbounds nuw i8, ptr %st, i64 200
   %0 = load ptr, ptr %u, align 8
@@ -702,7 +702,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i64 @read_istream_incore(ptr nocapture noundef %st, ptr nocapture noundef writeonly %buf, i64 noundef %sz) #8 {
+define internal i64 @read_istream_incore(ptr noundef captures(none) %st, ptr noundef writeonly captures(none) %buf, i64 noundef %sz) #8 {
 entry:
   %size = getelementptr inbounds nuw i8, ptr %st, i64 24
   %0 = load i64, ptr %size, align 8
@@ -728,7 +728,7 @@ if.end8:                                          ; preds = %if.then1, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @close_istream_filtered(ptr nocapture noundef readonly %st) #0 {
+define internal i32 @close_istream_filtered(ptr noundef readonly captures(none) %st) #0 {
 entry:
   %u = getelementptr inbounds nuw i8, ptr %st, i64 200
   %filter = getelementptr inbounds nuw i8, ptr %st, i64 208
@@ -743,7 +743,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @read_istream_filtered(ptr noundef %st, ptr nocapture noundef writeonly %buf, i64 noundef %sz) #0 {
+define internal i64 @read_istream_filtered(ptr noundef %st, ptr noundef writeonly captures(none) %buf, i64 noundef %sz) #0 {
 entry:
   %to_feed = alloca i64, align 8
   %to_receive = alloca i64, align 8
@@ -881,10 +881,10 @@ declare i32 @stream_filter(ptr noundef, ptr noundef, ptr noundef, ptr noundef, p
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

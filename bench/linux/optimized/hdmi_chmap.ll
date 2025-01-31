@@ -85,13 +85,13 @@ define dso_local void @snd_hdac_print_channel_allocation(i32 noundef %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @scnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(none)
 define dso_local i32 @snd_hdac_chmap_to_spk_mask(i8 noundef zeroext %0) #3 align 16 {
@@ -147,7 +147,7 @@ define dso_local range(i32 0, 256) i32 @snd_hdac_spk_to_chmap(i32 noundef %0) #3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @snd_hdac_setup_channel_mapping(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5, i1 noundef zeroext %6) #0 align 16 {
+define dso_local void @snd_hdac_setup_channel_mapping(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5, i1 noundef zeroext %6) #0 align 16 {
   %8 = alloca [8 x i32], align 16
   %9 = alloca [8 x i32], align 16
   %10 = xor i1 %6, true
@@ -591,7 +591,7 @@ define dso_local nonnull ptr @snd_hdac_get_ch_alloc_from_ca(i32 noundef %0) #4 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, -2147483648) i32 @snd_hdac_channel_allocation(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr nocapture noundef readonly %5) #0 align 16 {
+define dso_local range(i32 0, -2147483648) i32 @snd_hdac_channel_allocation(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef readonly captures(none) %5) #0 align 16 {
   %7 = alloca [80 x i8], align 16
   %8 = xor i1 %3, true
   %9 = or i1 %4, %8
@@ -785,7 +785,7 @@ define dso_local range(i32 0, -2147483648) i32 @snd_hdac_channel_allocation(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @snd_hdac_register_chmap_ops(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 96)) %1) #5 align 16 {
+define dso_local void @snd_hdac_register_chmap_ops(ptr noundef %0, ptr noundef writeonly captures(none) initializes((8, 96)) %1) #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) @chmap_ops, i64 80, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -836,7 +836,7 @@ define dso_local void @snd_hdac_register_chmap_ops(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_add_chmap_ctls(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
@@ -896,7 +896,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_add_chmap_ctls(ptr noun
 declare dso_local i32 @snd_pcm_add_chmap_ctls(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @hdmi_chmap_ctl_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((64, 68), (72, 76), (80, 96)) %1) #7 align 16 {
+define internal noundef i32 @hdmi_chmap_ctl_info(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((64, 68), (72, 76), (80, 96)) %1) #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -914,7 +914,7 @@ define internal noundef i32 @hdmi_chmap_ctl_info(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @hdmi_chmap_ctl_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal noundef i32 @hdmi_chmap_ctl_get(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = alloca [8 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
@@ -950,7 +950,7 @@ define internal noundef i32 @hdmi_chmap_ctl_get(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @hdmi_chmap_ctl_put(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal i32 @hdmi_chmap_ctl_put(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1139,7 +1139,7 @@ define internal i32 @hdmi_chmap_ctl_put(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -19, 1) i32 @hdmi_chmap_ctl_tlv(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
+define internal range(i32 -19, 1) i32 @hdmi_chmap_ctl_tlv(ptr noundef readonly captures(none) %0, i32 %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = alloca [8 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
@@ -1336,10 +1336,10 @@ define internal range(i32 -19, 1) i32 @hdmi_chmap_ctl_tlv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 -1, 259) i32 @hdmi_chmap_cea_alloc_validate_get_type(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2) #9 align 16 {
+define internal range(i32 -1, 259) i32 @hdmi_chmap_cea_alloc_validate_get_type(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #9 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, %2
@@ -1348,7 +1348,7 @@ define internal range(i32 -1, 259) i32 @hdmi_chmap_cea_alloc_validate_get_type(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hdmi_cea_alloc_to_tlv_chmap(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #0 align 16 {
+define internal void @hdmi_cea_alloc_to_tlv_chmap(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %6
 

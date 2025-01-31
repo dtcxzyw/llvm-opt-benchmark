@@ -30,7 +30,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6cineon8InStreamC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN6cineon8InStreamC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6cineon8InStreamE, i64 16), ptr %this, align 8
   %fp = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -39,7 +39,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN6cineon8InStreamD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN6cineon8InStreamD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
@@ -93,7 +93,7 @@ _ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit: ; pr
 declare noundef ptr @_ZN18OpenImageIO_v2_6_010Filesystem5fopenENS_17basic_string_viewIcSt11char_traitsIcEEES4_(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden void @_ZN6cineon8InStream5CloseEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #8 align 2 {
+define hidden void @_ZN6cineon8InStream5CloseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this) unnamed_addr #8 align 2 {
 entry:
   %fp = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %fp, align 8
@@ -110,10 +110,10 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden void @_ZN6cineon8InStream6RewindEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #8 align 2 {
+define hidden void @_ZN6cineon8InStream6RewindEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #8 align 2 {
 entry:
   %fp = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %fp, align 8
@@ -129,10 +129,10 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare void @rewind(ptr nocapture noundef) local_unnamed_addr #9
+declare void @rewind(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6cineon8InStream4SeekElNS0_6OriginE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %offset, i32 noundef %origin) unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZN6cineon8InStream4SeekElNS0_6OriginE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %offset, i32 noundef %origin) unnamed_addr #8 align 2 {
 entry:
   %fp = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %fp, align 8
@@ -154,10 +154,10 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #9
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef i64 @_ZN6cineon8InStream4ReadEPvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef %buf, i64 noundef %size) unnamed_addr #8 align 2 {
+define hidden noundef i64 @_ZN6cineon8InStream4ReadEPvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef captures(none) %buf, i64 noundef %size) unnamed_addr #8 align 2 {
 entry:
   %fp = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %fp, align 8
@@ -174,7 +174,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i64 @_ZN6cineon8InStream10ReadDirectEPvm(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %buf, i64 noundef %size) unnamed_addr #7 align 2 {
@@ -187,7 +187,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK6cineon8InStream9EndOfFileEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK6cineon8InStream9EndOfFileEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #8 align 2 {
 entry:
   %fp = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %fp, align 8
@@ -205,12 +205,12 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_InStream.cpp() #11 section ".text.startup" {

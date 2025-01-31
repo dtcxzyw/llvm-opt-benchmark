@@ -2731,7 +2731,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @read_input(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @read_input(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -2791,7 +2791,7 @@ define internal fastcc range(i32 0, 4) i32 @read_input(ptr nocapture noundef non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @qtmd_update_model(ptr nocapture noundef nonnull %0) unnamed_addr #1 {
+define internal fastcc void @qtmd_update_model(ptr noundef nonnull captures(none) %0) unnamed_addr #1 {
   %2 = load i32, ptr %0, align 8
   %3 = add nsw i32 %2, -1
   store i32 %3, ptr %0, align 8

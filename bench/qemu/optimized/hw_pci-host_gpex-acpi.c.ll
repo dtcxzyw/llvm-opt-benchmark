@@ -47,7 +47,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.37 = private unnamed_addr constant [37 x i8] c"E5C937D0-3553-4D7A-9117-EA4D19C3434D\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @acpi_dsdt_add_gpex(ptr noundef %scope, ptr nocapture noundef readonly %cfg) local_unnamed_addr #0 {
+define dso_local void @acpi_dsdt_add_gpex(ptr noundef %scope, ptr noundef readonly captures(none) %cfg) local_unnamed_addr #0 {
 entry:
   %crs_range_set = alloca %struct.CrsRangeSet, align 8
   %size = getelementptr inbounds nuw i8, ptr %cfg, i64 8

@@ -2430,7 +2430,7 @@ declare noundef ptr @_ZN15RtpPlayerDialog15addPlayerButtonEP16QDialogButtonBoxP7
 declare void @_ZN15QAbstractButton7toggledEb(ptr noundef nonnull align 8 dereferenceable(40), i1 noundef zeroext) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15VoipCallsDialog15switchTimeOfDayEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0) #0 align 2 {
+define void @_ZN15VoipCallsDialog15switchTimeOfDayEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(480) %0) #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef zeroext i1 @_ZNK18VoipCallsInfoModel9timeOfDayEv(ptr noundef nonnull align 8 dereferenceable(41) %3)
@@ -2460,10 +2460,10 @@ declare noundef ptr @_ZN5QMenu9addActionERK7QString(ptr noundef nonnull align 8 
 declare void @_ZN11QPushButton7setMenuEP5QMenu(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN15VoipCallsDialog9tapPacketEPvP12_packet_infoP12epan_dissectPKvj(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 %4) #6 align 2 {
+define noundef i32 @_ZN15VoipCallsDialog9tapPacketEPvP12_packet_infoP12epan_dissectPKvj(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, i32 %4) #6 align 2 {
   ret i32 0
 }
 
@@ -2601,7 +2601,7 @@ declare noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull alig
 declare void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(40), i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15VoipCallsDialog28displayFilterCheckBoxToggledEb(ptr nocapture noundef nonnull align 8 dereferenceable(480) %0, i1 noundef zeroext %1) #0 align 2 {
+define void @_ZN15VoipCallsDialog28displayFilterCheckBoxToggledEb(ptr noundef nonnull align 8 captures(none) dereferenceable(480) %0, i1 noundef zeroext %1) #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull align 8 dereferenceable(48) %4)
@@ -2686,7 +2686,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN5QListIPvED2Ev.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN15VoipCallsDialog11eventFilterEP7QObjectP6QEvent(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr nocapture noundef readnone %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN15VoipCallsDialog11eventFilterEP7QObjectP6QEvent(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef readnone captures(none) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 80
@@ -2764,13 +2764,13 @@ declare noundef zeroext i1 @_ZNK7QWidget8hasFocusEv(ptr noundef nonnull align 8 
 declare i32 @_ZNK9QKeyEvent9modifiersEv(ptr noundef nonnull align 8 dereferenceable(82)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15VoipCallsDialog31on_actionSelectInvert_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15VoipCallsDialog31on_actionSelectInvert_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(480) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN15VoipCallsDialog15invertSelectionEv(ptr noundef nonnull align 8 dereferenceable(480) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15VoipCallsDialog28on_actionSelectAll_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15VoipCallsDialog28on_actionSelectAll_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(480) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -2783,7 +2783,7 @@ define void @_ZN15VoipCallsDialog28on_actionSelectAll_triggeredEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15VoipCallsDialog29on_actionSelectNone_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15VoipCallsDialog29on_actionSelectNone_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(480) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -4651,7 +4651,7 @@ _ZN7QStringD2Ev.exit106:                          ; preds = %_ZN7QStringD2Ev.exi
 declare void @_ZN7QWidget11changeEventEP6QEvent(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15VoipCallsDialog12captureEventE12CaptureEvent(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define void @_ZN15VoipCallsDialog12captureEventE12CaptureEvent(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(480) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef i32 @_ZNK12CaptureEvent14captureContextEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
   %4 = icmp eq i32 %3, 2050
   br i1 %4, label %5, label %12
@@ -4784,7 +4784,7 @@ define void @_ZN15VoipCallsDialog11updateCallsEv(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 2) i32 @_ZN15VoipCallsDialog15compareCallNumsEPKvS1_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #11 align 2 {
+define noundef range(i32 0, 2) i32 @_ZN15VoipCallsDialog15compareCallNumsEPKvS1_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i16, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -5535,7 +5535,7 @@ _ZN7QStringD2Ev.exit104:                          ; preds = %_ZN7QStringD2Ev.exi
 declare void @_ZNK19QItemSelectionModel15selectedIndexesEv(ptr dead_on_unwind writable sret(%class.QList.8) align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 declare noundef ptr @_ZN18VoipCallsInfoModel15indexToCallInfoERK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
@@ -5612,7 +5612,7 @@ _ZN5QHashIt15QHashDummyValueED2Ev.exit:           ; preds = %1, %3, %_ZN9QtPriva
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15VoipCallsDialog12showSequenceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15VoipCallsDialog12showSequenceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(480) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i16, align 2
   %3 = alloca %struct.QHashDummyValue, align 1
   %4 = alloca %class.QSet, align 8
@@ -5995,7 +5995,7 @@ declare void @_ZN14SequenceDialog18enableVoIPFeaturesEv(ptr noundef nonnull alig
 declare void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15VoipCallsDialog17getSelectedRtpIdsEv(ptr dead_on_unwind noalias writable sret(%class.QList.12) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15VoipCallsDialog17getSelectedRtpIdsEv(ptr dead_on_unwind noalias writable sret(%class.QList.12) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(480) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList.8, align 8
   %4 = alloca %class.QModelIndex, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -6535,7 +6535,7 @@ _ZN5QListIP13_rtpstream_idED2Ev.exit7:            ; preds = %22, %_ZN17QArrayDat
 declare void @_ZN15VoipCallsDialog31rtpPlayerDialogRemoveRtpStreamsE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(480), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK15VoipCallsDialog13streamRowDataEi(ptr dead_on_unwind noalias writable sret(%class.QList.16) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK15VoipCallsDialog13streamRowDataEi(ptr dead_on_unwind noalias writable sret(%class.QList.16) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(480) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QModelIndex, align 8
   %5 = alloca %class.QModelIndex, align 8
   %6 = alloca %class.QVariant, align 8
@@ -6756,7 +6756,7 @@ define void @_ZN15VoipCallsDialog25on_callTreeView_activatedERK11QModelIndex(ptr
 declare void @_ZN15VoipCallsDialog10goToPacketEi(ptr noundef nonnull align 8 dereferenceable(480), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15VoipCallsDialog9selectAllEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15VoipCallsDialog9selectAllEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(480) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -6769,7 +6769,7 @@ define void @_ZN15VoipCallsDialog9selectAllEv(ptr nocapture noundef nonnull read
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15VoipCallsDialog10selectNoneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15VoipCallsDialog10selectNoneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(480) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -6781,7 +6781,7 @@ define void @_ZN15VoipCallsDialog10selectNoneEv(ptr nocapture noundef nonnull re
 declare void @_ZN17QAbstractItemView14clearSelectionEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15VoipCallsDialog9copyAsCSVEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15VoipCallsDialog9copyAsCSVEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(480) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
@@ -7579,7 +7579,7 @@ declare void @_ZN11QTextStream7readAllEv(ptr dead_on_unwind writable sret(%class
 declare void @_ZN11QTextStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15VoipCallsDialog10copyAsYAMLEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15VoipCallsDialog10copyAsYAMLEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(480) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = alloca %class.QTextStream, align 8
   %4 = alloca %class.QModelIndex, align 8
@@ -7909,7 +7909,7 @@ define void @_ZN15VoipCallsDialog20on_buttonBox_clickedEP15QAbstractButton(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15VoipCallsDialog14removeAllCallsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15VoipCallsDialog14removeAllCallsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(480) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN18VoipCallsInfoModel14removeAllCallsEv(ptr noundef nonnull align 8 dereferenceable(41) %3)
@@ -7941,7 +7941,7 @@ declare void @g_queue_clear(ptr noundef) local_unnamed_addr #3
 declare void @_ZN11CaptureFile12retapPacketsEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15VoipCallsDialog26on_buttonBox_helpRequestedEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(480) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15VoipCallsDialog26on_buttonBox_helpRequestedEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(480) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @mainApp, align 8
   tail call void @_ZN15MainApplication15helpTopicActionE14topic_action_e(ptr noundef nonnull align 8 dereferenceable(216) %2, i32 noundef 248)
   ret void
@@ -7952,7 +7952,7 @@ declare void @_ZN15MainApplication15helpTopicActionE14topic_action_e(ptr noundef
 declare void @_ZN18VoipCallsInfoModel12setTimeOfDayEb(ptr noundef nonnull align 8 dereferenceable(41), i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15VoipCallsDialog20displayFilterSuccessEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN15VoipCallsDialog20displayFilterSuccessEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(480) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   br i1 %1, label %3, label %21
 
 3:                                                ; preds = %2
@@ -7997,7 +7997,7 @@ _ZN15VoipCallsDialog14removeAllCallsEv.exit:      ; preds = %.lr.ph.i, %9
 declare noundef zeroext i1 @_ZNK15QAbstractButton9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15VoipCallsDialog15invertSelectionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15VoipCallsDialog15invertSelectionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(480) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QModelIndex, align 8
   %3 = alloca %class.QModelIndex, align 8
   %4 = alloca %class.QModelIndex, align 8
@@ -10229,7 +10229,7 @@ _ZN17QArrayDataPointerIiED2Ev.exit35:             ; preds = %76, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN17QArrayDataPointerIiE12allocateGrowERKS0_xN10QArrayData14GrowthPositionE(ptr dead_on_unwind noalias writable sret(%struct.QArrayDataPointer.7) align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 comdat align 2 {
@@ -11727,10 +11727,10 @@ _ZNK17QArrayDataPointerI7QStringE5flagsEv.exit:   ; preds = %37, %_ZNK17QArrayDa
 declare i64 @llvm.smax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19

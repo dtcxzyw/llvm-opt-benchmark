@@ -106,7 +106,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory18SubsolverSetupInfoC2ERKNS0_7OptionsERKNS0_9LogicInfoENS0_8TypeNodeES9_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(392) %opts, ptr noundef nonnull align 8 dereferenceable(88) %logicInfo, ptr nocapture noundef readonly %sepLocType, ptr nocapture noundef readonly %sepDataType) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory18SubsolverSetupInfoC2ERKNS0_7OptionsERKNS0_9LogicInfoENS0_8TypeNodeES9_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(392) %opts, ptr noundef nonnull align 8 dereferenceable(88) %logicInfo, ptr noundef readonly captures(none) %sepLocType, ptr noundef readonly captures(none) %sepDataType) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %opts, ptr %this, align 8
   %d_logicInfo = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -419,7 +419,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZN4cvc58internal6ResultC1ENS1_6StatusENS_18UnknownExplanationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, i32 noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory19initializeSubsolverERSt10unique_ptrINS0_12SolverEngineESt14default_deleteIS3_EERKNS1_18SubsolverSetupInfoEbm(ptr nocapture noundef nonnull align 8 dereferenceable(8) %smte, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %info, i1 noundef zeroext %needsTimeout, i64 noundef %timeout) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory19initializeSubsolverERSt10unique_ptrINS0_12SolverEngineESt14default_deleteIS3_EERKNS1_18SubsolverSetupInfoEbm(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %smte, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %info, i1 noundef zeroext %needsTimeout, i64 noundef %timeout) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::TypeNode", align 8
   %agg.tmp9 = alloca %"class.cvc5::internal::TypeNode", align 8
@@ -690,7 +690,7 @@ declare void @_ZN4cvc58internal12SolverEngine12setTimeLimitEm(ptr noundef nonnul
 declare void @_ZN4cvc58internal12SolverEngine14declareSepHeapENS0_8TypeNodeES2_(ptr noundef nonnull align 8 dereferenceable(224), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory19initializeSubsolverERSt10unique_ptrINS0_12SolverEngineESt14default_deleteIS3_EERKNS0_3EnvEbm(ptr nocapture noundef nonnull align 8 dereferenceable(8) %smte, ptr noundef nonnull align 8 dereferenceable(576) %env, i1 noundef zeroext %needsTimeout, i64 noundef %timeout) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory19initializeSubsolverERSt10unique_ptrINS0_12SolverEngineESt14default_deleteIS3_EERKNS0_3EnvEbm(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %smte, ptr noundef nonnull align 8 dereferenceable(576) %env, i1 noundef zeroext %needsTimeout, i64 noundef %timeout) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ssi = alloca %"struct.cvc5::internal::theory::SubsolverSetupInfo", align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal3Env10getOptionsEv(ptr noundef nonnull align 8 dereferenceable(576) %env)
@@ -845,7 +845,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit11:            ; preds = %_ZN4cvc58internal8T
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory18checkWithSubsolverERSt10unique_ptrINS0_12SolverEngineESt14default_deleteIS3_EENS0_12NodeTemplateILb1EEERKNS1_18SubsolverSetupInfoEbm(ptr noalias sret(%"class.cvc5::internal::Result") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(8) %smte, ptr noundef nonnull %query, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %info, i1 noundef zeroext %needsTimeout, i64 noundef %timeout) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory18checkWithSubsolverERSt10unique_ptrINS0_12SolverEngineESt14default_deleteIS3_EENS0_12NodeTemplateILb1EEERKNS1_18SubsolverSetupInfoEbm(ptr noalias sret(%"class.cvc5::internal::Result") align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %smte, ptr noundef nonnull %query, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %info, i1 noundef zeroext %needsTimeout, i64 noundef %timeout) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %r = alloca %"class.cvc5::internal::Result", align 8
   call void @_ZN4cvc58internal6theory10quickCheckERNS0_12NodeTemplateILb1EEE(ptr nonnull sret(%"class.cvc5::internal::Result") align 8 %r, ptr noundef nonnull align 8 dereferenceable(8) %query)
@@ -893,7 +893,7 @@ declare void @_ZN4cvc58internal12SolverEngine13assertFormulaERKNS0_12NodeTemplat
 declare void @_ZN4cvc58internal12SolverEngine8checkSatEv(ptr sret(%"class.cvc5::internal::Result") align 8, ptr noundef nonnull align 8 dereferenceable(224)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory18checkWithSubsolverENS0_12NodeTemplateILb1EEERKNS1_18SubsolverSetupInfoEbm(ptr noalias sret(%"class.cvc5::internal::Result") align 8 %agg.result, ptr nocapture noundef readonly %query, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %info, i1 noundef zeroext %needsTimeout, i64 noundef %timeout) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory18checkWithSubsolverENS0_12NodeTemplateILb1EEERKNS1_18SubsolverSetupInfoEbm(ptr noalias sret(%"class.cvc5::internal::Result") align 8 %agg.result, ptr noundef readonly captures(none) %query, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %info, i1 noundef zeroext %needsTimeout, i64 noundef %timeout) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %vars = alloca %"class.std::vector.381", align 8
   %modelVals = alloca %"class.std::vector.381", align 8
@@ -1033,7 +1033,7 @@ ehcleanup:                                        ; preds = %lpad1, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory18checkWithSubsolverENS0_12NodeTemplateILb1EEERKSt6vectorIS3_SaIS3_EERS6_RKNS1_18SubsolverSetupInfoEbm(ptr noalias sret(%"class.cvc5::internal::Result") align 8 %agg.result, ptr noundef %query, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vars, ptr noundef nonnull align 8 dereferenceable(24) %modelVals, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %info, i1 noundef zeroext %needsTimeout, i64 noundef %timeout) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory18checkWithSubsolverENS0_12NodeTemplateILb1EEERKSt6vectorIS3_SaIS3_EERS6_RKNS1_18SubsolverSetupInfoEbm(ptr noalias sret(%"class.cvc5::internal::Result") align 8 %agg.result, ptr noundef %query, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %vars, ptr noundef nonnull align 8 dereferenceable(24) %modelVals, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %info, i1 noundef zeroext %needsTimeout, i64 noundef %timeout) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp11 = alloca %"class.cvc5::internal::TypeNode", align 8
@@ -1657,7 +1657,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory17assertToSubsolverERNS0_12SolverEngineERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EERKSt13unordered_setIS6_St4hashIS6_ESt8equal_toIS6_ES7_ESI_(ptr noundef nonnull align 8 dereferenceable(224) %subsolver, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %core, ptr noundef nonnull align 8 dereferenceable(56) %defs, ptr noundef nonnull align 8 dereferenceable(56) %removed) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory17assertToSubsolverERNS0_12SolverEngineERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EERKSt13unordered_setIS6_St4hashIS6_ESt8equal_toIS6_ES7_ESI_(ptr noundef nonnull align 8 dereferenceable(224) %subsolver, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %core, ptr noundef nonnull align 8 dereferenceable(56) %defs, ptr noundef nonnull align 8 dereferenceable(56) %removed) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp24 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -2067,7 +2067,7 @@ eh.resume:                                        ; preds = %lpad31, %lpad33, %l
 declare void @_ZN4cvc58internal12SolverEngine14defineFunctionENS0_12NodeTemplateILb1EEES3_b(ptr noundef nonnull align 8 dereferenceable(224), ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory21getModelFromSubsolverERNS0_12SolverEngineERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EERS8_(ptr noundef nonnull align 8 dereferenceable(224) %smt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vars, ptr noundef nonnull align 8 dereferenceable(24) %vals) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory21getModelFromSubsolverERNS0_12SolverEngineERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EERS8_(ptr noundef nonnull align 8 dereferenceable(224) %smt, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %vars, ptr noundef nonnull align 8 dereferenceable(24) %vals) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %mv = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %0 = load ptr, ptr %vars, align 8
@@ -2660,7 +2660,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1

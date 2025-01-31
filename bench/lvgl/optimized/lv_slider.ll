@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_slider_class = constant { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, [5 x i8] } { ptr @lv_bar_class, ptr @lv_slider_constructor, ptr null, ptr @lv_slider_event, ptr null, ptr @.str, i32 0, i32 0, i8 -123, i8 13, i8 0, [5 x i8] zeroinitializer }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_slider_constructor(ptr nocapture readnone %0, ptr noundef initializes((200, 208)) %1) #0 {
+define internal void @lv_slider_constructor(ptr readnone captures(none) %0, ptr noundef initializes((200, 208)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store ptr null, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 208
@@ -45,7 +45,7 @@ define internal void @lv_slider_constructor(ptr nocapture readnone %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_slider_event(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_slider_event(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.lv_area_t, align 4
   %4 = tail call i32 @lv_obj_event_base(ptr noundef nonnull @lv_slider_class, ptr noundef %1) #5
   %.not = icmp eq i32 %4, 1
@@ -386,17 +386,17 @@ define noundef ptr @lv_slider_create(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_slider_is_dragged(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define zeroext i1 @lv_slider_is_dragged(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 1
@@ -1093,7 +1093,7 @@ declare void @lv_draw_rect_dsc_init(ptr noundef) local_unnamed_addr #2
 declare void @lv_obj_init_draw_rect_dsc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @position_knob(ptr noundef %0, ptr nocapture noundef nonnull initializes((8, 16)) %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @position_knob(ptr noundef %0, ptr noundef nonnull captures(none) initializes((8, 16)) %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = ashr i32 %2, 1
   br i1 %3, label %6, label %17
 

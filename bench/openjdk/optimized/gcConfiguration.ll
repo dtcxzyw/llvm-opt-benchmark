@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 2, 12) i32 @_ZNK15GCConfiguration15young_collectorEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 2, 12) i32 @_ZNK15GCConfiguration15young_collectorEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i8, ptr @UseG1GC, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %16, label %4
@@ -65,7 +65,7 @@ define hidden noundef range(i32 2, 12) i32 @_ZNK15GCConfiguration15young_collect
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 0, 11) i32 @_ZNK15GCConfiguration13old_collectorEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 11) i32 @_ZNK15GCConfiguration13old_collectorEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i8, ptr @UseG1GC, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %16, label %4
@@ -98,40 +98,40 @@ define hidden noundef range(i32 0, 11) i32 @_ZNK15GCConfiguration13old_collector
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK15GCConfiguration23num_parallel_gc_threadsEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZNK15GCConfiguration23num_parallel_gc_threadsEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr @ParallelGCThreads, align 4
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK15GCConfiguration25num_concurrent_gc_threadsEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZNK15GCConfiguration25num_concurrent_gc_threadsEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr @ConcGCThreads, align 4
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK15GCConfiguration23uses_dynamic_gc_threadsEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK15GCConfiguration23uses_dynamic_gc_threadsEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i8, ptr @UseDynamicNumberOfGCThreads, align 1
   %3 = trunc i8 %2 to i1
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK15GCConfiguration25is_explicit_gc_concurrentEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK15GCConfiguration25is_explicit_gc_concurrentEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i8, ptr @ExplicitGCInvokesConcurrent, align 1
   %3 = trunc i8 %2 to i1
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK15GCConfiguration23is_explicit_gc_disabledEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK15GCConfiguration23is_explicit_gc_disabledEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i8, ptr @DisableExplicitGC, align 1
   %3 = trunc i8 %2 to i1
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK15GCConfiguration30has_pause_target_default_valueEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK15GCConfiguration30has_pause_target_default_valueEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1158) #3
   ret i1 %2
 }
@@ -139,79 +139,79 @@ define hidden noundef zeroext i1 @_ZNK15GCConfiguration30has_pause_target_defaul
 declare noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK15GCConfiguration12pause_targetEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK15GCConfiguration12pause_targetEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i64, ptr @MaxGCPauseMillis, align 8
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef range(i64 0, 4294967296) i64 @_ZNK15GCConfiguration13gc_time_ratioEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZNK15GCConfiguration13gc_time_ratioEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr @GCTimeRatio, align 4
   %3 = zext i32 %2 to i64
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK19GCTLABConfiguration10uses_tlabsEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK19GCTLABConfiguration10uses_tlabsEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i8, ptr @UseTLAB, align 1
   %3 = trunc i8 %2 to i1
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK19GCTLABConfiguration13min_tlab_sizeEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK19GCTLABConfiguration13min_tlab_sizeEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i64, ptr @MinTLABSize, align 8
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK19GCTLABConfiguration23tlab_refill_waste_limitEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZNK19GCTLABConfiguration23tlab_refill_waste_limitEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i64, ptr @TLABRefillWasteFraction, align 8
   %3 = trunc i64 %2 to i32
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef range(i64 0, 4294967296) i64 @_ZNK23GCSurvivorConfiguration22max_tenuring_thresholdEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZNK23GCSurvivorConfiguration22max_tenuring_thresholdEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr @MaxTenuringThreshold, align 4
   %3 = zext i32 %2 to i64
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef range(i64 0, 4294967296) i64 @_ZNK23GCSurvivorConfiguration26initial_tenuring_thresholdEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZNK23GCSurvivorConfiguration26initial_tenuring_thresholdEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr @InitialTenuringThreshold, align 4
   %3 = zext i32 %2 to i64
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK19GCHeapConfiguration8max_sizeEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK19GCHeapConfiguration8max_sizeEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i64, ptr @MaxHeapSize, align 8
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK19GCHeapConfiguration8min_sizeEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK19GCHeapConfiguration8min_sizeEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i64, ptr @MinHeapSize, align 8
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK19GCHeapConfiguration12initial_sizeEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK19GCHeapConfiguration12initial_sizeEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i64, ptr @InitialHeapSize, align 8
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK19GCHeapConfiguration20uses_compressed_oopsEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK19GCHeapConfiguration20uses_compressed_oopsEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i8, ptr @UseCompressedOops, align 1
   %3 = trunc i8 %2 to i1
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK19GCHeapConfiguration15narrow_oop_modeEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef i32 @_ZNK19GCHeapConfiguration15narrow_oop_modeEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call noundef i32 @_ZN14CompressedOops4modeEv() #3
   ret i32 %2
 }
@@ -219,37 +219,37 @@ define hidden noundef i32 @_ZNK19GCHeapConfiguration15narrow_oop_modeEv(ptr noca
 declare noundef i32 @_ZN14CompressedOops4modeEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK19GCHeapConfiguration25object_alignment_in_bytesEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZNK19GCHeapConfiguration25object_alignment_in_bytesEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr @ObjectAlignmentInBytes, align 4
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK19GCHeapConfiguration25heap_address_size_in_bitsEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZNK19GCHeapConfiguration25heap_address_size_in_bitsEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr @BitsPerHeapOop, align 4
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK30GCYoungGenerationConfiguration26has_max_size_default_valueEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK30GCYoungGenerationConfiguration26has_max_size_default_valueEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 1196) #3
   ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK30GCYoungGenerationConfiguration8max_sizeEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK30GCYoungGenerationConfiguration8max_sizeEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i64, ptr @MaxNewSize, align 8
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK30GCYoungGenerationConfiguration8min_sizeEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK30GCYoungGenerationConfiguration8min_sizeEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i64, ptr @NewSize, align 8
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK30GCYoungGenerationConfiguration9new_ratioEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK30GCYoungGenerationConfiguration9new_ratioEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load i64, ptr @NewRatio, align 8
   ret i64 %2
 }

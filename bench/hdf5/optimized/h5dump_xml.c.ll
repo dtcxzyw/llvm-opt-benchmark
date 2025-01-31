@@ -399,10 +399,10 @@ define dso_local void @xml_dump_datatype(i64 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @H5Tcommitted(i64 noundef) local_unnamed_addr #3
 
@@ -414,7 +414,7 @@ declare ptr @search_obj(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca %struct.H5O_token_t, align 1
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
@@ -584,7 +584,7 @@ define internal fastcc ptr @xml_escape_the_name(ptr noundef readonly %0) unnamed
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @xml_print_datatype(i64 noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
@@ -1581,7 +1581,7 @@ declare i32 @H5Sget_simple_extent_dims(i64 noundef, ptr noundef, ptr noundef) lo
 declare i32 @H5Sget_simple_extent_type(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @xml_dump_data(i64 noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @xml_dump_data(i64 noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca %struct.h5tools_str_t, align 8
   %7 = alloca %struct.h5tools_context_t, align 8
@@ -2283,7 +2283,7 @@ declare i32 @h5tools_dump_mem(ptr noundef, ptr noundef, ptr noundef, i64 noundef
 declare i32 @H5Sclose(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @xml_dump_attr(i64 noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @xml_dump_attr(i64 noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca %struct.h5tools_str_t, align 8
   %7 = alloca %struct.h5tools_context_t, align 8
@@ -2725,7 +2725,7 @@ define dso_local void @xml_dump_named_datatype(i64 noundef %0, ptr noundef %1) l
   %41 = tail call fastcc ptr @xml_escape_the_name(ptr noundef nonnull %14)
   %42 = load ptr, ptr @prefix, align 8
   %43 = tail call fastcc ptr @xml_escape_the_name(ptr noundef %42)
-  %44 = tail call fastcc ptr @xml_escape_the_name(ptr noundef %1)
+  %44 = tail call fastcc ptr @xml_escape_the_name(ptr noundef nonnull %1)
   tail call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef nonnull %14, ptr noundef %39, i32 noundef 1)
   %45 = load ptr, ptr @prefix, align 8
   tail call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %45, ptr noundef %40, i32 noundef 1)
@@ -2886,17 +2886,17 @@ define dso_local void @xml_dump_named_datatype(i64 noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @indentation(i32 noundef) local_unnamed_addr #3
 
 declare void @error_msg(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #8
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #8
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @xml_dump_group(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3501,7 +3501,7 @@ declare i32 @H5Pget_link_creation_order(i64 noundef, ptr noundef) local_unnamed_
 declare i32 @H5Pclose(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #7
@@ -3515,7 +3515,7 @@ declare i64 @H5Dopen2(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr 
 declare i32 @H5Otoken_to_str(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 declare i32 @H5free_memory(ptr noundef) local_unnamed_addr #3
 
@@ -3524,7 +3524,7 @@ declare i32 @H5Dclose(i64 noundef) local_unnamed_addr #3
 declare i32 @H5Literate2(i64 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.H5O_token_t, align 1
   %6 = alloca ptr, align 8
   %7 = alloca %struct.h5tools_str_t, align 8
@@ -3606,12 +3606,12 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   ]
 
 52:                                               ; preds = %48
-  %53 = call i32 @H5Oget_info_by_name3(i64 noundef %0, ptr noundef %1, ptr noundef nonnull %11, i32 noundef 1, i64 noundef 0) #14
+  %53 = call i32 @H5Oget_info_by_name3(i64 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %11, i32 noundef 1, i64 noundef 0) #14
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %52
-  call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.155, ptr noundef %1) #14
+  call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.155, ptr noundef nonnull %1) #14
   call void @h5tools_setstatus(i32 noundef 1) #14
   br label %304
 
@@ -3625,12 +3625,12 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   ]
 
 59:                                               ; preds = %56
-  %60 = call i64 @H5Gopen2(i64 noundef %0, ptr noundef %1, i64 noundef 0) #14
+  %60 = call i64 @H5Gopen2(i64 noundef %0, ptr noundef nonnull %1, i64 noundef 0) #14
   %61 = icmp slt i64 %60, 0
   br i1 %61, label %62, label %63
 
 62:                                               ; preds = %59
-  call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.156, ptr noundef %1) #14
+  call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.156, ptr noundef nonnull %1) #14
   call void @h5tools_setstatus(i32 noundef 1) #14
   br label %304
 
@@ -3646,10 +3646,10 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   br label %73
 
 68:                                               ; preds = %63
-  call void @add_prefix(ptr noundef nonnull @prefix, ptr noundef nonnull @prefix_len, ptr noundef %1) #14
+  call void @add_prefix(ptr noundef nonnull @prefix, ptr noundef nonnull @prefix_len, ptr noundef nonnull %1) #14
   %69 = load ptr, ptr @dump_function_table, align 8
   %70 = load ptr, ptr %69, align 8
-  call void %70(i64 noundef %60, ptr noundef %1) #14
+  call void %70(i64 noundef %60, ptr noundef nonnull %1) #14
   %71 = load ptr, ptr @prefix, align 8
   %72 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(1) %65) #14
   call void @free(ptr noundef nonnull %65) #14
@@ -3661,7 +3661,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   br label %304
 
 75:                                               ; preds = %56
-  %76 = call i64 @H5Dopen2(i64 noundef %0, ptr noundef %1, i64 noundef 0) #14
+  %76 = call i64 @H5Dopen2(i64 noundef %0, ptr noundef nonnull %1, i64 noundef 0) #14
   %77 = icmp sgt i64 %76, -1
   br i1 %77, label %78, label %179
 
@@ -3695,7 +3695,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 312
   %99 = load ptr, ptr %98, align 8
-  %100 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %7, ptr noundef nonnull @.str.158, ptr noundef %97, ptr noundef %1, ptr noundef %99) #14
+  %100 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %7, ptr noundef nonnull @.str.158, ptr noundef %97, ptr noundef nonnull %1, ptr noundef %99) #14
   %101 = load ptr, ptr @rawoutstream, align 8
   %102 = load i32, ptr %39, align 8
   %103 = zext i32 %102 to i64
@@ -3761,7 +3761,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   %.not165 = icmp eq i8 %strcmpload164, 0
   %137 = select i1 %.not165, ptr @.str.34, ptr %136
   %138 = call fastcc ptr @xml_escape_the_name(ptr noundef nonnull %137)
-  %139 = call fastcc ptr @xml_escape_the_name(ptr noundef %1)
+  %139 = call fastcc ptr @xml_escape_the_name(ptr noundef nonnull %1)
   %140 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %141 = load ptr, ptr %140, align 8
   %142 = call fastcc ptr @xml_escape_the_name(ptr noundef %141)
@@ -3817,22 +3817,22 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   %175 = load ptr, ptr @dump_function_table, align 8
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 16
   %177 = load ptr, ptr %176, align 8
-  call void %177(i64 noundef %76, ptr noundef %1, ptr noundef null) #14
+  call void %177(i64 noundef %76, ptr noundef nonnull %1, ptr noundef null) #14
   %178 = call i32 @H5Dclose(i64 noundef %76) #14
   br label %304
 
 179:                                              ; preds = %75
-  call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.161, ptr noundef %1) #14
+  call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.161, ptr noundef nonnull %1) #14
   call void @h5tools_setstatus(i32 noundef 1) #14
   br label %304
 
 180:                                              ; preds = %56
-  %181 = call i64 @H5Topen2(i64 noundef %0, ptr noundef %1, i64 noundef 0) #14
+  %181 = call i64 @H5Topen2(i64 noundef %0, ptr noundef nonnull %1, i64 noundef 0) #14
   %182 = icmp slt i64 %181, 0
   br i1 %182, label %183, label %184
 
 183:                                              ; preds = %180
-  call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.162, ptr noundef %1) #14
+  call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.162, ptr noundef nonnull %1) #14
   call void @h5tools_setstatus(i32 noundef 1) #14
   br label %304
 
@@ -3840,12 +3840,12 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   %185 = load ptr, ptr @dump_function_table, align 8
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %187 = load ptr, ptr %186, align 8
-  call void %187(i64 noundef %181, ptr noundef %1) #14
+  call void %187(i64 noundef %181, ptr noundef nonnull %1) #14
   %188 = call i32 @H5Tclose(i64 noundef %181) #14
   br label %304
 
 189:                                              ; preds = %56
-  call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.163, ptr noundef %1) #14
+  call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.163, ptr noundef nonnull %1) #14
   call void @h5tools_setstatus(i32 noundef 1) #14
   br label %304
 
@@ -3862,7 +3862,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   br label %304
 
 196:                                              ; preds = %190
-  %197 = tail call i32 @H5Lget_val(i64 noundef %0, ptr noundef %1, ptr noundef nonnull %193, i64 noundef %192, i64 noundef 0) #14
+  %197 = tail call i32 @H5Lget_val(i64 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %193, i64 noundef %192, i64 noundef 0) #14
   %198 = icmp slt i32 %197, 0
   br i1 %198, label %199, label %200
 
@@ -3877,7 +3877,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   %.not159 = icmp eq i8 %strcmpload158, 0
   %202 = select i1 %.not159, ptr @.str.34, ptr %201
   %203 = tail call fastcc ptr @xml_escape_the_name(ptr noundef nonnull %202)
-  %204 = tail call fastcc ptr @xml_escape_the_name(ptr noundef %1)
+  %204 = tail call fastcc ptr @xml_escape_the_name(ptr noundef nonnull %1)
   %205 = tail call fastcc ptr @xml_escape_the_name(ptr noundef nonnull %193)
   %206 = tail call fastcc ptr @xml_escape_the_name(ptr noundef nonnull %47)
   %207 = load ptr, ptr @prefix, align 8
@@ -3978,7 +3978,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   br label %304
 
 256:                                              ; preds = %250
-  %257 = tail call i32 @H5Lget_val(i64 noundef %0, ptr noundef %1, ptr noundef nonnull %253, i64 noundef %252, i64 noundef 0) #14
+  %257 = tail call i32 @H5Lget_val(i64 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %253, i64 noundef %252, i64 noundef 0) #14
   %258 = icmp slt i32 %257, 0
   br i1 %258, label %259, label %260
 
@@ -3999,7 +3999,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   br label %286
 
 265:                                              ; preds = %260
-  %266 = call fastcc ptr @xml_escape_the_name(ptr noundef %1)
+  %266 = call fastcc ptr @xml_escape_the_name(ptr noundef nonnull %1)
   %267 = load ptr, ptr @prefix, align 8
   %strcmpload = load i8, ptr %267, align 1
   %.not157 = icmp eq i8 %strcmpload, 0
@@ -4037,7 +4037,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   br label %304
 
 287:                                              ; preds = %48
-  %288 = tail call fastcc ptr @xml_escape_the_name(ptr noundef %1)
+  %288 = tail call fastcc ptr @xml_escape_the_name(ptr noundef nonnull %1)
   %289 = load ptr, ptr @prefix, align 8
   %strcmpload162 = load i8, ptr %289, align 1
   %.not163 = icmp eq i8 %strcmpload162, 0
@@ -4078,7 +4078,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.h5tools_str_t, align 8
   %5 = alloca %struct.h5tools_context_t, align 8
   %6 = alloca %struct.h5tool_format_t, align 8
@@ -4133,7 +4133,7 @@ define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef %1, ptr noca
   store i32 %39, ptr %40, align 8
   %41 = zext i32 %38 to i64
   store i64 %41, ptr %21, align 8
-  %42 = tail call fastcc ptr @xml_escape_the_name(ptr noundef %1)
+  %42 = tail call fastcc ptr @xml_escape_the_name(ptr noundef nonnull %1)
   %43 = tail call fastcc ptr @xml_escape_the_name(ptr noundef nonnull %31)
   %44 = load ptr, ptr @prefix, align 8
   %45 = tail call fastcc ptr @xml_escape_the_name(ptr noundef %44)
@@ -5546,7 +5546,7 @@ declare i32 @ref_path_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @ref_path_table_gen_fake(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 declare i32 @H5Tget_order(i64 noundef) local_unnamed_addr #3
 
@@ -5883,7 +5883,7 @@ declare i32 @H5Aread(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #
 declare ptr @lookup_ref_path(ptr noundef byval(%struct.H5R_ref_t) align 8) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc noundef ptr @xml_escape_the_string(ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #12 {
+define internal fastcc noundef ptr @xml_escape_the_string(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1) unnamed_addr #12 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %4, label %6
 
@@ -6048,10 +6048,10 @@ declare i32 @H5Pget_filter2(i64 noundef, i32 noundef, ptr noundef, ptr noundef, 
 declare i32 @H5Pget_fill_value(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

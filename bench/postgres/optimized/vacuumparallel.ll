@@ -478,24 +478,24 @@ declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @vac_max_items_to_alloc_size(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @InitializeParallelDSM(ptr noundef) local_unnamed_addr #1
 
 declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @GetAccessStrategyBufferCount(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @parallel_vacuum_end(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local void @parallel_vacuum_end(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -550,14 +550,14 @@ declare void @DestroyParallelContext(ptr noundef) local_unnamed_addr #1
 declare void @ExitParallelMode() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @parallel_vacuum_get_dead_items(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local ptr @parallel_vacuum_get_dead_items(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @parallel_vacuum_bulkdel_all_indexes(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @parallel_vacuum_bulkdel_all_indexes(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = sitofp i64 %1 to double
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -571,7 +571,7 @@ define dso_local void @parallel_vacuum_bulkdel_all_indexes(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parallel_vacuum_process_all_indexes(ptr nocapture noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @parallel_vacuum_process_all_indexes(ptr noundef captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   br i1 %2, label %4, label %7
 
 4:                                                ; preds = %3
@@ -1042,7 +1042,7 @@ parallel_vacuum_process_safe_indexes.exit106:     ; preds = %161, %parallel_vacu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @parallel_vacuum_cleanup_all_indexes(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local void @parallel_vacuum_cleanup_all_indexes(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = zext i1 %3 to i8
   %6 = sitofp i64 %1 to double
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1057,7 +1057,7 @@ define dso_local void @parallel_vacuum_cleanup_all_indexes(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @parallel_vacuum_main(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @parallel_vacuum_main(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ParallelVacuumState, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -1239,7 +1239,7 @@ declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 declare ptr @GetAccessStrategyWithSize(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @parallel_vacuum_error_callback(ptr nocapture noundef readonly %0) #0 {
+define internal void @parallel_vacuum_error_callback(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %13 [
@@ -1291,7 +1291,7 @@ declare void @WaitForParallelWorkersToFinish(ptr noundef) local_unnamed_addr #1
 declare void @InstrAccumParallelQuery(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parallel_vacuum_process_one_index(ptr nocapture noundef initializes((120, 132)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @parallel_vacuum_process_one_index(ptr noundef captures(none) initializes((120, 132)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.IndexVacuumInfo, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 5
   %6 = load i8, ptr %5, align 1

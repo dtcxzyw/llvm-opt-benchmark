@@ -72,7 +72,7 @@ $_ZN4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE15delete_internalEPNS_12omt_inter
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku8locktree6createEPNS_16locktree_managerE13DICTIONARY_IDRKNS_10comparatorESt10shared_ptrIN7rocksdb25TransactionDBMutexFactoryEE(ptr noundef nonnull align 8 dereferenceable(400) initializes((0, 20), (24, 41), (64, 80)) %this, ptr noundef %mgr, i64 %dict_id.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %cmp, ptr nocapture noundef readonly %mutex_factory) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4toku8locktree6createEPNS_16locktree_managerE13DICTIONARY_IDRKNS_10comparatorESt10shared_ptrIN7rocksdb25TransactionDBMutexFactoryEE(ptr noundef nonnull align 8 dereferenceable(400) initializes((0, 20), (24, 41), (64, 80)) %this, ptr noundef %mgr, i64 %dict_id.coerce, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %cmp, ptr noundef readonly captures(none) %mutex_factory) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr", align 8
   store ptr %mgr, ptr %this, align 8
@@ -221,7 +221,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare noundef ptr @_Z12toku_xcallocmm(i64 noundef, i64 noundef) local_unnamed_addr #2
 
@@ -230,7 +230,7 @@ declare void @_ZN4toku15concurrent_tree6createEPKNS_10comparatorE(ptr noundef no
 declare void @_ZN4toku12range_buffer6createEv(ptr noundef nonnull align 8 dereferenceable(60)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku20lt_lock_request_info4initESt10shared_ptrIN7rocksdb25TransactionDBMutexFactoryEE(ptr noundef nonnull align 8 dereferenceable(217) initializes((0, 1), (4, 24)) %this, ptr nocapture noundef readonly %mutex_factory) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4toku20lt_lock_request_info4initESt10shared_ptrIN7rocksdb25TransactionDBMutexFactoryEE(ptr noundef nonnull align 8 dereferenceable(217) initializes((0, 1), (4, 24)) %this, ptr noundef readonly captures(none) %mutex_factory) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr", align 8
   store i8 1, ptr %this, align 8
@@ -452,7 +452,7 @@ _ZNSt12__shared_ptrIN7rocksdb25TransactionDBMutexFactoryELN9__gnu_cxx12_Lock_pol
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4toku8locktree27set_escalation_barrier_funcEPFbPK10__toku_dbtS3_PvES4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(400) initializes((48, 64)) %this, ptr noundef %func, ptr noundef %extra) local_unnamed_addr #4 align 2 {
+define void @_ZN4toku8locktree27set_escalation_barrier_funcEPFbPK10__toku_dbtS3_PvES4_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(400) initializes((48, 64)) %this, ptr noundef %func, ptr noundef %extra) local_unnamed_addr #4 align 2 {
 entry:
   %m_escalation_barrier = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %func, ptr %m_escalation_barrier, align 8
@@ -627,7 +627,7 @@ _ZNSt10shared_ptrIN7rocksdb18TransactionDBMutexEED2Ev.exit: ; preds = %_ZNSt10sh
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4toku8locktree7destroyEv(ptr noundef nonnull align 8 dereferenceable(400) %this) local_unnamed_addr #0 align 2 {
@@ -769,7 +769,7 @@ _Z27toku_external_mutex_destroyPSt10shared_ptrIN7rocksdb18TransactionDBMutexEE.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4toku8locktree13add_referenceEv(ptr nocapture noundef nonnull align 8 dereferenceable(400) %this) local_unnamed_addr #6 align 2 {
+define void @_ZN4toku8locktree13add_referenceEv(ptr noundef nonnull align 8 captures(none) dereferenceable(400) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_reference_count = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = atomicrmw add ptr %m_reference_count, i32 1 seq_cst, align 4
@@ -777,7 +777,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN4toku8locktree17release_referenceEv(ptr nocapture noundef nonnull align 8 dereferenceable(400) %this) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZN4toku8locktree17release_referenceEv(ptr noundef nonnull align 8 captures(none) dereferenceable(400) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_reference_count = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = atomicrmw sub ptr %m_reference_count, i32 1 seq_cst, align 4
@@ -786,7 +786,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN4toku8locktree19get_reference_countEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %this) local_unnamed_addr #7 align 2 {
+define noundef i32 @_ZN4toku8locktree19get_reference_countEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_reference_count = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %m_reference_count, align 8
@@ -1505,7 +1505,7 @@ _ZN4toku8locktree16try_acquire_lockEbmPK10__toku_dbtS3_PNS_9txnid_setEb.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku8locktree10dump_locksEPvPFvS1_PK10__toku_dbtS4_mbP11TxnidVectorE(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef %cdata, ptr nocapture noundef readonly %cb) local_unnamed_addr #0 align 2 {
+define void @_ZN4toku8locktree10dump_locksEPvPFvS1_PK10__toku_dbtS4_mbP11TxnidVectorE(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef %cdata, ptr noundef readonly captures(none) %cb) local_unnamed_addr #0 align 2 {
 entry:
   %copy_fn.i = alloca %struct.copy_fn_obj, align 8
   %lkr = alloca %"class.toku::concurrent_tree::locked_keyrange", align 8
@@ -1612,7 +1612,7 @@ declare noundef ptr @_ZNK4toku8keyrange12get_left_keyEv(ptr noundef nonnull alig
 declare noundef ptr @_ZNK4toku8keyrange13get_right_keyEv(ptr noundef nonnull align 8 dereferenceable(81)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku8locktree13get_conflictsEbmPK10__toku_dbtS3_PNS_9txnid_setE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %this, i1 noundef zeroext %is_write_request, i64 noundef %txnid, ptr noundef %left_key, ptr noundef %right_key, ptr noundef %conflicts) local_unnamed_addr #0 align 2 {
+define void @_ZN4toku8locktree13get_conflictsEbmPK10__toku_dbtS3_PNS_9txnid_setE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %this, i1 noundef zeroext %is_write_request, i64 noundef %txnid, ptr noundef %left_key, ptr noundef %right_key, ptr noundef %conflicts) local_unnamed_addr #0 align 2 {
 entry:
   %copy_fn.i = alloca %struct.copy_fn_obj, align 8
   %range = alloca %"class.toku::keyrange", align 8
@@ -1703,7 +1703,7 @@ _ZN4tokuL28determine_conflicting_txnidsERKNS_13GrowableArrayINS_8row_lockEEERKmP
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku8locktree34remove_overlapping_locks_for_txnidEmPK10__toku_dbtS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %this, i64 noundef %txnid, ptr noundef %left_key, ptr noundef %right_key) local_unnamed_addr #0 align 2 {
+define void @_ZN4toku8locktree34remove_overlapping_locks_for_txnidEmPK10__toku_dbtS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %this, i64 noundef %txnid, ptr noundef %left_key, ptr noundef %right_key) local_unnamed_addr #0 align 2 {
 entry:
   %copy_fn.i = alloca %struct.copy_fn_obj, align 8
   %release_range = alloca %"class.toku::keyrange", align 8
@@ -1813,7 +1813,7 @@ for.end:                                          ; preds = %for.inc, %_ZN4tokuL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4toku8locktree25sto_txnid_is_valid_unsafeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %this) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZNK4toku8locktree25sto_txnid_is_valid_unsafeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_sto_txnid = getelementptr inbounds nuw i8, ptr %this, i64 304
   %0 = load i64, ptr %m_sto_txnid, align 8
@@ -1822,7 +1822,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK4toku8locktree20sto_get_score_unsafeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %this) local_unnamed_addr #7 align 2 {
+define noundef i32 @_ZNK4toku8locktree20sto_get_score_unsafeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_sto_score = getelementptr inbounds nuw i8, ptr %this, i64 376
   %0 = load i32, ptr %m_sto_score, align 8
@@ -3207,7 +3207,7 @@ declare noundef ptr @_Z12toku_xmallocm(i64 noundef) local_unnamed_addr #2
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK4toku8locktree12get_userdataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %this) local_unnamed_addr #7 align 2 {
+define noundef ptr @_ZNK4toku8locktree12get_userdataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_userdata = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_userdata, align 8
@@ -3215,7 +3215,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4toku8locktree12set_userdataEPv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(400) initializes((72, 80)) %this, ptr noundef %userdata) local_unnamed_addr #4 align 2 {
+define void @_ZN4toku8locktree12set_userdataEPv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(400) initializes((72, 80)) %this, ptr noundef %userdata) local_unnamed_addr #4 align 2 {
 entry:
   %m_userdata = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %userdata, ptr %m_userdata, align 8
@@ -3230,7 +3230,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4toku8locktree14set_comparatorERKNS_10comparatorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(400) initializes((24, 41)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %cmp) local_unnamed_addr #10 align 2 {
+define void @_ZN4toku8locktree14set_comparatorERKNS_10comparatorE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(400) initializes((24, 41)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %cmp) local_unnamed_addr #10 align 2 {
 entry:
   %m_cmp = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %cmp, align 8
@@ -3247,14 +3247,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK4toku8locktree11get_managerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %this) local_unnamed_addr #7 align 2 {
+define noundef ptr @_ZNK4toku8locktree11get_managerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %this) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 -1, 2) i32 @_ZNK4toku8locktree7compareEPKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %this, ptr nocapture noundef readonly %lt) local_unnamed_addr #7 align 2 {
+define noundef range(i32 -1, 2) i32 @_ZNK4toku8locktree7compareEPKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %this, ptr noundef readonly captures(none) %lt) local_unnamed_addr #7 align 2 {
 entry:
   %m_dict_id = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %m_dict_id, align 8
@@ -3265,7 +3265,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @_ZNK4toku8locktree11get_dict_idEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %this) local_unnamed_addr #7 align 2 {
+define i64 @_ZNK4toku8locktree11get_dict_idEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_dict_id = getelementptr inbounds nuw i8, ptr %this, i64 8
   %retval.sroa.0.0.copyload = load i64, ptr %m_dict_id, align 8
@@ -3273,7 +3273,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @"_ZZN4toku8locktree6createEPNS_16locktree_managerE13DICTIONARY_IDRKNS_10comparatorESt10shared_ptrIN7rocksdb25TransactionDBMutexFactoryEEEN3$_08__invokeEPK10__toku_dbtSE_Pv"(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #9 align 2 {
+define internal noundef zeroext i1 @"_ZZN4toku8locktree6createEPNS_16locktree_managerE13DICTIONARY_IDRKNS_10comparatorESt10shared_ptrIN7rocksdb25TransactionDBMutexFactoryEEEN3$_08__invokeEPK10__toku_dbtSE_Pv"(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #9 align 2 {
 entry:
   ret i1 false
 }
@@ -3547,7 +3547,7 @@ if.end29:                                         ; preds = %if.end22.thread, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN4tokuL38iterate_and_get_overlapping_row_locks2EPKNS_15concurrent_tree15locked_keyrangeEPK10__toku_dbtS6_PNS_10comparatorEmPNS_13GrowableArrayINS_8row_lockEEEEN11copy_fn_obj2fnERKNS_8keyrangeEmbP11TxnidVector(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(81) %range, i64 noundef %txnid, i1 noundef zeroext %is_shared, ptr noundef %owners) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN4tokuL38iterate_and_get_overlapping_row_locks2EPKNS_15concurrent_tree15locked_keyrangeEPK10__toku_dbtS6_PNS_10comparatorEmPNS_13GrowableArrayINS_8row_lockEEEEN11copy_fn_obj2fnERKNS_8keyrangeEmbP11TxnidVector(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(81) %range, i64 noundef %txnid, i1 noundef zeroext %is_shared, ptr noundef %owners) unnamed_addr #0 align 2 {
 entry:
   %agg.tmp26.sroa.0 = alloca %"class.toku::keyrange", align 8
   %first_call = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3812,7 +3812,7 @@ if.end29:                                         ; preds = %if.end22.thread, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZZN4tokuL25extract_first_n_row_locksEPNS_15concurrent_tree15locked_keyrangeEPNS_16locktree_managerEPNS_8row_lockEiEN14extract_fn_obj2fnERKNS_8keyrangeEmbP11TxnidVector(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(81) %range, i64 noundef %txnid, i1 noundef zeroext %is_shared, ptr noundef readonly %owners) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZZN4tokuL25extract_first_n_row_locksEPNS_15concurrent_tree15locked_keyrangeEPNS_16locktree_managerEPNS_8row_lockEiEN14extract_fn_obj2fnERKNS_8keyrangeEmbP11TxnidVector(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(81) %range, i64 noundef %txnid, i1 noundef zeroext %is_shared, ptr noundef readonly %owners) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i.i = alloca %"struct.std::_Rb_tree<unsigned long, unsigned long, std::_Identity<unsigned long>, std::less<unsigned long>>::_Alloc_node", align 8
   %lock = alloca %"struct.toku::row_lock", align 8
@@ -4898,10 +4898,10 @@ if.end51:                                         ; preds = %if.end51.sink.split
 declare i32 @llvm.umax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i64(i64, i64) #16

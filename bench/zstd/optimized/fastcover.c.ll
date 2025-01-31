@@ -50,7 +50,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.26 = private unnamed_addr constant [29 x i8] c"Failed to select dictionary\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZDICT_trainFromBuffer_fastCover(ptr noundef %dictBuffer, i64 noundef %dictBufferCapacity, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, ptr nocapture noundef readonly byval(%struct.ZDICT_fastCover_params_t) align 8 %parameters) local_unnamed_addr #0 {
+define i64 @ZDICT_trainFromBuffer_fastCover(ptr noundef %dictBuffer, i64 noundef %dictBufferCapacity, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, ptr noundef readonly byval(%struct.ZDICT_fastCover_params_t) align 8 captures(none) %parameters) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.FASTCOVER_ctx_t, align 8
   %coverParams = alloca %struct.ZDICT_cover_params_t, align 8
@@ -235,19 +235,19 @@ return:                                           ; preds = %if.then39, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -72, 1) i64 @FASTCOVER_ctx_init(ptr nocapture noundef nonnull %ctx, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef range(i32 1, 0) %nbSamples, i32 noundef %d, double noundef %splitPoint, i32 noundef %f, i64 %accelParams.coerce) unnamed_addr #0 {
+define internal fastcc range(i64 -72, 1) i64 @FASTCOVER_ctx_init(ptr noundef nonnull captures(none) %ctx, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef range(i32 1, 0) %nbSamples, i32 noundef %d, double noundef %splitPoint, i32 noundef %f, i64 %accelParams.coerce) unnamed_addr #0 {
 entry:
   %call = tail call i64 @COVER_sum(ptr noundef %samplesSizes, i32 noundef %nbSamples) #12
   %cmp = fcmp olt double %splitPoint, 1.000000e+00
@@ -533,7 +533,7 @@ declare void @COVER_warnOnSmallCorpus(i64 noundef, i64 noundef, i32 noundef) loc
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @FASTCOVER_buildDictionary(ptr nocapture noundef readonly %ctx, ptr nocapture noundef %freqs, ptr nocapture noundef writeonly %dictBuffer, i64 noundef %dictBufferCapacity, i32 %parameters.0.val, i32 %parameters.4.val, ptr nocapture noundef %segmentFreqs) unnamed_addr #0 {
+define internal fastcc i64 @FASTCOVER_buildDictionary(ptr noundef readonly captures(none) %ctx, ptr noundef captures(none) %freqs, ptr noundef writeonly captures(none) %dictBuffer, i64 noundef %dictBufferCapacity, i32 %parameters.0.val, i32 %parameters.4.val, ptr noundef captures(none) %segmentFreqs) unnamed_addr #0 {
 entry:
   %conv = trunc i64 %dictBufferCapacity to i32
   %nbDmers = getelementptr inbounds nuw i8, ptr %ctx, i64 48
@@ -790,10 +790,10 @@ if.end67:                                         ; preds = %if.then64, %for.end
 declare i64 @ZDICT_finalizeDictionary(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef byval(%struct.ZDICT_params_t) align 8) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr nocapture noundef writeonly %dictBuffer, i64 noundef %dictBufferCapacity, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, ptr nocapture noundef %parameters) local_unnamed_addr #0 {
+define i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr noundef writeonly captures(none) %dictBuffer, i64 noundef %dictBufferCapacity, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, ptr noundef captures(none) %parameters) local_unnamed_addr #0 {
 entry:
   %coverParams.sroa.8.sroa.2 = alloca [12 x i8], align 4
   %best = alloca %struct.COVER_best_s, align 8
@@ -1237,7 +1237,7 @@ declare void @COVER_best_start(ptr noundef) local_unnamed_addr #4
 declare void @POOL_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @FASTCOVER_tryParameters(ptr nocapture noundef %opaque) #0 {
+define internal void @FASTCOVER_tryParameters(ptr noundef captures(none) %opaque) #0 {
 entry:
   %parameters = alloca %struct.ZDICT_cover_params_t, align 8
   %selection = alloca %struct.COVER_dictSelection, align 8
@@ -1354,7 +1354,7 @@ declare void @COVER_dictSelectionFree(ptr noundef byval(%struct.COVER_dictSelect
 declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #9

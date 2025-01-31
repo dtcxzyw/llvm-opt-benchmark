@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_vertexcodec.cpp, ptr null }]
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @meshopt_encodeVertexBuffer(ptr noundef %buffer, i64 noundef %buffer_size, ptr nocapture noundef readonly %vertices, i64 noundef %vertex_count, i64 noundef %vertex_size) local_unnamed_addr #0 {
+define dso_local i64 @meshopt_encodeVertexBuffer(ptr noundef %buffer, i64 noundef %buffer_size, ptr noundef readonly captures(none) %vertices, i64 noundef %vertex_count, i64 noundef %vertex_size) local_unnamed_addr #0 {
 entry:
   %buffer.i = alloca [256 x i8], align 16
   %first_vertex = alloca [256 x i8], align 16
@@ -389,10 +389,10 @@ return:                                           ; preds = %_ZN7meshoptL17encod
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local i64 @meshopt_encodeVertexBufferBound(i64 noundef %vertex_count, i64 noundef %vertex_size) local_unnamed_addr #3 {
@@ -487,7 +487,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN7meshoptL21decodeVertexBlockSimdEPKhS1_PhmmS2_(ptr noundef %data, ptr noundef %data_end, ptr nocapture noundef writeonly %vertex_data, i64 noundef %vertex_count, i64 noundef %vertex_size, ptr nocapture noundef %last_vertex) unnamed_addr #6 {
+define internal noundef ptr @_ZN7meshoptL21decodeVertexBlockSimdEPKhS1_PhmmS2_(ptr noundef %data, ptr noundef %data_end, ptr noundef writeonly captures(none) %vertex_data, i64 noundef %vertex_count, i64 noundef %vertex_size, ptr noundef captures(none) %last_vertex) unnamed_addr #6 {
 entry:
   %buffer = alloca [1024 x i8], align 16
   %transposed = alloca [8192 x i8], align 16
@@ -1425,7 +1425,7 @@ return:                                           ; preds = %for.body3, %_ZN7mes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN7meshoptL17decodeVertexBlockEPKhS1_PhmmS2_(ptr noundef %data, ptr noundef %data_end, ptr nocapture noundef writeonly %vertex_data, i64 noundef %vertex_count, i64 noundef %vertex_size, ptr nocapture noundef %last_vertex) unnamed_addr #0 {
+define internal noundef ptr @_ZN7meshoptL17decodeVertexBlockEPKhS1_PhmmS2_(ptr noundef %data, ptr noundef %data_end, ptr noundef writeonly captures(none) %vertex_data, i64 noundef %vertex_count, i64 noundef %vertex_size, ptr noundef captures(none) %last_vertex) unnamed_addr #0 {
 entry:
   %buffer = alloca [256 x i8], align 16
   %transposed = alloca [8192 x i8], align 16
@@ -1962,10 +1962,10 @@ declare i8 @llvm.umin.i8(i8, i8) #9
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

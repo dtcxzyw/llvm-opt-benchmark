@@ -18,7 +18,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4absl15random_internal11RandenHwAes6AbsorbEPKvPv(ptr nocapture noundef readonly %seed_void, ptr nocapture noundef %state_void) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4absl15random_internal11RandenHwAes6AbsorbEPKvPv(ptr noundef readonly captures(none) %seed_void, ptr noundef captures(none) %state_void) local_unnamed_addr #1 align 2 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %state_void, i64 16
   %add.ptr.val = load <2 x i64>, ptr %add.ptr, align 16
@@ -113,7 +113,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr nocapture noundef readonly %keys_void, ptr nocapture noundef %state_void) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef readonly captures(none) %keys_void, ptr noundef captures(none) %state_void) local_unnamed_addr #2 align 2 {
 entry:
   %state_void.val6 = load <2 x i64>, ptr %state_void, align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)

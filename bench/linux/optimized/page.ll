@@ -637,7 +637,7 @@ declare void @llvm.assume(i1 noundef) #3
 declare dso_local ptr @proc_create(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @kpagecount_read(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal i64 @kpagecount_read(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = load i64, ptr %3, align 8
   %6 = lshr i64 %5, 3
   %7 = or i64 %5, %2
@@ -966,7 +966,7 @@ declare void @llvm.write_register.i64(metadata, i64) #5
 declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @kpageflags_read(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal i64 @kpageflags_read(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = load i64, ptr %3, align 8
   %6 = lshr i64 %5, 3
   %7 = or i64 %5, %2

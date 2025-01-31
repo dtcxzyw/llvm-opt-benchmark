@@ -435,7 +435,7 @@ define internal nonnull ptr @alloc_sarray(ptr noundef %0, i32 noundef %1, i32 no
   %45 = zext nneg i32 %44 to i64
   %46 = mul nuw nsw i64 %26, %45
   %47 = shl nuw nsw i64 %46, %27
-  %48 = tail call ptr @alloc_large(ptr noundef %0, i32 noundef %1, i64 noundef %47)
+  %48 = tail call ptr @alloc_large(ptr noundef nonnull %0, i32 noundef %1, i64 noundef %47)
   %.not118141 = icmp eq i32 %44, 0
   br i1 %.not118141, label %.loopexit, label %.lr.ph145
 
@@ -471,7 +471,7 @@ define internal nonnull ptr @alloc_sarray(ptr noundef %0, i32 noundef %1, i32 no
   %59 = zext nneg i32 %58 to i64
   %60 = mul nuw nsw i64 %26, %59
   %61 = shl nuw nsw i64 %60, %27
-  %62 = tail call ptr @alloc_large(ptr noundef %0, i32 noundef %1, i64 noundef %61)
+  %62 = tail call ptr @alloc_large(ptr noundef nonnull %0, i32 noundef %1, i64 noundef %61)
   %.not117132 = icmp eq i32 %58, 0
   br i1 %.not117132, label %.loopexit121, label %.lr.ph136
 
@@ -504,7 +504,7 @@ define internal nonnull ptr @alloc_sarray(ptr noundef %0, i32 noundef %1, i32 no
   %72 = zext nneg i32 %71 to i64
   %73 = mul nuw nsw i64 %26, %72
   %74 = shl nuw nsw i64 %73, %27
-  %75 = tail call ptr @alloc_large(ptr noundef %0, i32 noundef %1, i64 noundef %74)
+  %75 = tail call ptr @alloc_large(ptr noundef nonnull %0, i32 noundef %1, i64 noundef %74)
   %.not116125 = icmp eq i32 %71, 0
   br i1 %.not116125, label %.loopexit123, label %.lr.ph
 
@@ -567,7 +567,7 @@ define internal nonnull ptr @alloc_barray(ptr noundef %0, i32 noundef %1, i32 no
   %23 = tail call i32 @llvm.umin.i32(i32 %.13846, i32 %22)
   %24 = zext nneg i32 %23 to i64
   %25 = mul i64 %8, %24
-  %26 = tail call ptr @alloc_large(ptr noundef %0, i32 noundef %1, i64 noundef %25)
+  %26 = tail call ptr @alloc_large(ptr noundef nonnull %0, i32 noundef %1, i64 noundef %25)
   %.not42 = icmp eq i32 %23, 0
   br i1 %.not42, label %.loopexit, label %.lr.ph
 
@@ -1769,13 +1769,13 @@ define internal void @self_destruct(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare ptr @jpeg_get_large(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1997,10 +1997,10 @@ declare void @jpeg_free_large(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare void @jpeg_free_small(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #6
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7

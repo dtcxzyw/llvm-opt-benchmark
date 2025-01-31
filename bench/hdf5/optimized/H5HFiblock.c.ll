@@ -828,7 +828,7 @@ H5HF__iblock_dirty.exit:                          ; preds = %175
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF__man_iblock_create(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5HF__man_iblock_create(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   %7 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5HF_indirect_t_reg_free_list) #6
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %13
@@ -1117,7 +1117,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_create(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @H5HF__man_iblock_protect(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
+define ptr @H5HF__man_iblock_protect(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca %struct.H5HF_parent_t, align 8
   %11 = alloca %struct.H5HF_iblock_cache_ud_t, align 8
@@ -1954,7 +1954,7 @@ declare i32 @H5HF__man_dblock_create(ptr noundef, ptr noundef, i32 noundef, ptr 
 declare noalias ptr @H5FL_reg_malloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @H5HF__hdr_incr(ptr noundef) local_unnamed_addr #1
 
@@ -2871,7 +2871,7 @@ H5HF__iblock_dirty.exit:                          ; preds = %183
 declare i32 @H5HF__hdr_empty(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5HF__man_iblock_entry_addr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #3 {
+define noundef i32 @H5HF__man_iblock_entry_addr(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
@@ -3119,7 +3119,7 @@ declare i32 @H5HF__man_dblock_delete(ptr noundef, i64 noundef, i64 noundef) loca
 declare i32 @H5HF__dtable_size_to_rows(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF__man_iblock_size(ptr nocapture noundef readnone %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr nocapture noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5HF__man_iblock_size(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca i8, align 1
   %9 = call ptr @H5HF__man_iblock_protect(ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext false, i32 noundef 128, ptr noundef nonnull %8)
   %10 = icmp eq ptr %9, null
@@ -3382,7 +3382,7 @@ H5HF__man_iblock_unprotect.exit.thread:           ; preds = %146, %.preheader.th
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF__man_iblock_parent_info(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5HF__man_iblock_parent_info(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -3479,10 +3479,10 @@ declare i32 @llvm.umin.i32(i32, i32) #4
 declare i32 @llvm.usub.sat.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #4

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @TYPE_ALPHA = dso_local local_unnamed_addr global ptr @typeALPHA, align 8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal noalias noundef ptr @Make_Alpha_Type(ptr nocapture noundef %0) #0 {
+define internal noalias noundef ptr @Make_Alpha_Type(ptr noundef captures(none) %0) #0 {
   %2 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #9
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %19, label %3
@@ -46,7 +46,7 @@ define internal noalias noundef ptr @Make_Alpha_Type(ptr nocapture noundef %0) #
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: read, inaccessiblemem: readwrite) uwtable
-define internal noalias noundef ptr @Copy_Alpha_Type(ptr nocapture noundef readonly %0) #1 {
+define internal noalias noundef ptr @Copy_Alpha_Type(ptr noundef readonly captures(none) %0) #1 {
   %2 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #9
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
@@ -74,7 +74,7 @@ define internal void @Free_Alpha_Type(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @Check_Alpha_Field(ptr noundef %0, ptr nocapture noundef readonly %1) #3 {
+define internal zeroext i1 @Check_Alpha_Field(ptr noundef %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i32, ptr %1, align 4
   %4 = tail call ptr @field_buffer(ptr noundef %0, i32 noundef 0) #10
   br label %5
@@ -140,7 +140,7 @@ define internal zeroext i1 @Check_Alpha_Field(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal zeroext i1 @Check_Alpha_Character(i32 noundef %0, ptr nocapture readnone %1) #4 {
+define internal zeroext i1 @Check_Alpha_Character(i32 noundef %0, ptr readnone captures(none) %1) #4 {
   %3 = tail call ptr @__ctype_b_loc() #11
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %0 to i64
@@ -155,7 +155,7 @@ define internal zeroext i1 @Check_Alpha_Character(i32 noundef %0, ptr nocapture 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @field_buffer(ptr noundef, i32 noundef) local_unnamed_addr #7
 

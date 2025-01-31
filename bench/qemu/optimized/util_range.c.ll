@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.range_lob = private unnamed_addr constant [28 x i8] c"uint64_t range_lob(Range *)\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 2) i32 @range_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @range_compare(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #0 {
 entry:
   %a.val = load i64, ptr %a, align 8
   %0 = getelementptr i8, ptr %a, i64 8
@@ -178,7 +178,7 @@ return:                                           ; preds = %land.rhs13, %while.
 declare ptr @g_list_insert_before(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @range_extend(ptr nocapture noundef %range, ptr nocapture noundef readonly %extend_by) unnamed_addr #0 {
+define internal fastcc void @range_extend(ptr noundef captures(none) %range, ptr noundef readonly captures(none) %extend_by) unnamed_addr #0 {
 entry:
   %extend_by.val = load i64, ptr %extend_by, align 8
   %0 = getelementptr i8, ptr %extend_by, i64 8
@@ -260,7 +260,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 declare ptr @g_list_delete_link(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @range_inverse_array(ptr noundef readonly %in, ptr nocapture noundef %rev, i64 noundef %low, i64 noundef %high) local_unnamed_addr #0 {
+define dso_local void @range_inverse_array(ptr noundef readonly %in, ptr noundef captures(none) %rev, i64 noundef %low, i64 noundef %high) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %rev, align 8
   %tobool.not171 = icmp eq ptr %in, null
@@ -535,7 +535,7 @@ exit:                                             ; preds = %range_lob.exit87, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: allocsize(0,1)
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #4

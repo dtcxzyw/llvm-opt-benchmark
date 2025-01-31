@@ -54,7 +54,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3zmq8object_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq8object_tD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq8object_tC2EPNS_5ctx_tEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this, ptr noundef %ctx_, i32 noundef %tid_) unnamed_addr #0 align 2 {
+define void @_ZN3zmq8object_tC2EPNS_5ctx_tEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20) initializes((0, 20)) %this, ptr noundef %ctx_, i32 noundef %tid_) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq8object_tE, i64 16), ptr %this, align 8
   %_ctx = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -65,7 +65,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3zmq8object_tC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this, ptr nocapture noundef readonly %parent_) unnamed_addr #1 align 2 {
+define void @_ZN3zmq8object_tC2EPS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20) initializes((0, 20)) %this, ptr noundef readonly captures(none) %parent_) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3zmq8object_tE, i64 16), ptr %this, align 8
   %_ctx = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -80,7 +80,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3zmq8object_tD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define void @_ZN3zmq8object_tD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret void
 }
@@ -97,7 +97,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3zmq8object_t7get_tidEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) local_unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK3zmq8object_t7get_tidEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this) local_unnamed_addr #5 align 2 {
 entry:
   %_tid = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %_tid, align 8
@@ -105,7 +105,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq8object_t7set_tidEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((16, 20)) %this, i32 noundef %id_) local_unnamed_addr #0 align 2 {
+define void @_ZN3zmq8object_t7set_tidEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20) initializes((16, 20)) %this, i32 noundef %id_) local_unnamed_addr #0 align 2 {
 entry:
   %_tid = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %id_, ptr %_tid, align 8
@@ -113,7 +113,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK3zmq8object_t7get_ctxEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) local_unnamed_addr #5 align 2 {
+define noundef ptr @_ZNK3zmq8object_t7get_ctxEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this) local_unnamed_addr #5 align 2 {
 entry:
   %_ctx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_ctx, align 8
@@ -121,7 +121,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t15process_commandERKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull readonly align 64 dereferenceable(64) %cmd_) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t15process_commandERKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull readonly align 64 captures(none) dereferenceable(64) %cmd_) local_unnamed_addr #6 align 2 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %cmd_, i64 8
   %0 = load i32, ptr %type, align 8
@@ -359,15 +359,15 @@ sw.epilog:                                        ; preds = %do.body, %sw.bb86, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq8object_t17register_endpointEPKcRKNS_10endpoint_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %addr_, ptr noundef nonnull align 8 dereferenceable(1344) %endpoint_) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZN3zmq8object_t17register_endpointEPKcRKNS_10endpoint_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %addr_, ptr noundef nonnull align 8 dereferenceable(1344) %endpoint_) local_unnamed_addr #6 align 2 {
 entry:
   %_ctx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_ctx, align 8
@@ -378,7 +378,7 @@ entry:
 declare noundef i32 @_ZN3zmq5ctx_t17register_endpointEPKcRKNS_10endpoint_tE(ptr noundef nonnull align 8 dereferenceable(648), ptr noundef, ptr noundef nonnull align 8 dereferenceable(1344)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq8object_t19unregister_endpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13socket_base_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(32) %addr_, ptr noundef %socket_) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZN3zmq8object_t19unregister_endpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13socket_base_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(32) %addr_, ptr noundef %socket_) local_unnamed_addr #6 align 2 {
 entry:
   %_ctx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_ctx, align 8
@@ -389,7 +389,7 @@ entry:
 declare noundef i32 @_ZN3zmq5ctx_t19unregister_endpointERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_13socket_base_tE(ptr noundef nonnull align 8 dereferenceable(648), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t20unregister_endpointsEPNS_13socket_base_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %socket_) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t20unregister_endpointsEPNS_13socket_base_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %socket_) local_unnamed_addr #6 align 2 {
 entry:
   %_ctx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_ctx, align 8
@@ -400,7 +400,7 @@ entry:
 declare void @_ZN3zmq5ctx_t20unregister_endpointsEPKNS_13socket_base_tE(ptr noundef nonnull align 8 dereferenceable(648), ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3zmq8object_t13find_endpointEPKc(ptr noalias sret(%"struct.zmq::endpoint_t") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %addr_) local_unnamed_addr #6 align 2 {
+define void @_ZNK3zmq8object_t13find_endpointEPKc(ptr noalias sret(%"struct.zmq::endpoint_t") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %addr_) local_unnamed_addr #6 align 2 {
 entry:
   %_ctx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_ctx, align 8
@@ -411,7 +411,7 @@ entry:
 declare void @_ZN3zmq5ctx_t13find_endpointEPKc(ptr sret(%"struct.zmq::endpoint_t") align 8, ptr noundef nonnull align 8 dereferenceable(648), ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t15pend_connectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_10endpoint_tEPPNS_6pipe_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(32) %addr_, ptr noundef nonnull align 8 dereferenceable(1344) %endpoint_, ptr noundef %pipes_) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t15pend_connectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_10endpoint_tEPPNS_6pipe_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(32) %addr_, ptr noundef nonnull align 8 dereferenceable(1344) %endpoint_, ptr noundef %pipes_) local_unnamed_addr #6 align 2 {
 entry:
   %_ctx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_ctx, align 8
@@ -422,7 +422,7 @@ entry:
 declare void @_ZN3zmq5ctx_t15pend_connectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_10endpoint_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(648), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(1344), ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t15connect_pendingEPKcPNS_13socket_base_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %addr_, ptr noundef %bind_socket_) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t15connect_pendingEPKcPNS_13socket_base_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %addr_, ptr noundef %bind_socket_) local_unnamed_addr #6 align 2 {
 entry:
   %_ctx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_ctx, align 8
@@ -433,7 +433,7 @@ entry:
 declare void @_ZN3zmq5ctx_t15connect_pendingEPKcPNS_13socket_base_tE(ptr noundef nonnull align 8 dereferenceable(648), ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t14destroy_socketEPNS_13socket_base_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %socket_) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t14destroy_socketEPNS_13socket_base_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %socket_) local_unnamed_addr #6 align 2 {
 entry:
   %_ctx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_ctx, align 8
@@ -444,7 +444,7 @@ entry:
 declare void @_ZN3zmq5ctx_t14destroy_socketEPNS_13socket_base_tE(ptr noundef nonnull align 8 dereferenceable(648), ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK3zmq8object_t16choose_io_threadEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, i64 noundef %affinity_) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZNK3zmq8object_t16choose_io_threadEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, i64 noundef %affinity_) local_unnamed_addr #6 align 2 {
 entry:
   %_ctx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_ctx, align 8
@@ -472,7 +472,7 @@ entry:
 declare void @_ZN3zmq5ctx_t12send_commandEjRKNS_9command_tE(ptr noundef nonnull align 8 dereferenceable(648), i32 noundef, ptr noundef nonnull align 64 dereferenceable(64)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t9send_plugEPNS_5own_tEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %destination_, i1 noundef zeroext %inc_seqnum_) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t9send_plugEPNS_5own_tEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %destination_, i1 noundef zeroext %inc_seqnum_) local_unnamed_addr #6 align 2 {
 entry:
   %cmd = alloca %"struct.zmq::command_t", align 64
   br i1 %inc_seqnum_, label %if.then, label %if.end
@@ -496,7 +496,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @_ZN3zmq5own_t10inc_seqnumEv(ptr noundef nonnull align 8 dereferenceable(1444)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t12send_commandERKNS_9command_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 64 dereferenceable(64) %cmd_) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t12send_commandERKNS_9command_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull align 64 dereferenceable(64) %cmd_) local_unnamed_addr #6 align 2 {
 entry:
   %_ctx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_ctx, align 8
@@ -508,7 +508,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t8send_ownEPNS_5own_tES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull %destination_, ptr noundef %object_) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t8send_ownEPNS_5own_tES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull %destination_, ptr noundef %object_) local_unnamed_addr #6 align 2 {
 entry:
   %cmd = alloca %"struct.zmq::command_t", align 64
   tail call void @_ZN3zmq5own_t10inc_seqnumEv(ptr noundef nonnull align 8 dereferenceable(1444) %destination_)
@@ -526,7 +526,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t11send_attachEPNS_14session_base_tEPNS_8i_engineEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %destination_, ptr noundef %engine_, i1 noundef zeroext %inc_seqnum_) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t11send_attachEPNS_14session_base_tEPNS_8i_engineEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %destination_, ptr noundef %engine_, i1 noundef zeroext %inc_seqnum_) local_unnamed_addr #6 align 2 {
 entry:
   %cmd = alloca %"struct.zmq::command_t", align 64
   br i1 %inc_seqnum_, label %if.then, label %if.end
@@ -550,7 +550,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t16send_conn_failedEPNS_14session_base_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %destination_) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t16send_conn_failedEPNS_14session_base_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %destination_) local_unnamed_addr #6 align 2 {
 entry:
   %cmd = alloca %"struct.zmq::command_t", align 64
   store ptr %destination_, ptr %cmd, align 64
@@ -565,7 +565,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t9send_bindEPNS_5own_tEPNS_6pipe_tEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %destination_, ptr noundef %pipe_, i1 noundef zeroext %inc_seqnum_) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t9send_bindEPNS_5own_tEPNS_6pipe_tEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %destination_, ptr noundef %pipe_, i1 noundef zeroext %inc_seqnum_) local_unnamed_addr #6 align 2 {
 entry:
   %cmd = alloca %"struct.zmq::command_t", align 64
   br i1 %inc_seqnum_, label %if.then, label %if.end
@@ -589,7 +589,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t18send_activate_readEPNS_6pipe_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %destination_) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t18send_activate_readEPNS_6pipe_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %destination_) local_unnamed_addr #6 align 2 {
 entry:
   %cmd = alloca %"struct.zmq::command_t", align 64
   store ptr %destination_, ptr %cmd, align 64
@@ -604,7 +604,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t19send_activate_writeEPNS_6pipe_tEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %destination_, i64 noundef %msgs_read_) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t19send_activate_writeEPNS_6pipe_tEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %destination_, i64 noundef %msgs_read_) local_unnamed_addr #6 align 2 {
 entry:
   %cmd = alloca %"struct.zmq::command_t", align 64
   store ptr %destination_, ptr %cmd, align 64
@@ -621,7 +621,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t11send_hiccupEPNS_6pipe_tEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %destination_, ptr noundef %pipe_) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t11send_hiccupEPNS_6pipe_tEPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %destination_, ptr noundef %pipe_) local_unnamed_addr #6 align 2 {
 entry:
   %cmd = alloca %"struct.zmq::command_t", align 64
   store ptr %destination_, ptr %cmd, align 64
@@ -638,7 +638,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t20send_pipe_peer_statsEPNS_6pipe_tEmPNS_5own_tEPNS_19endpoint_uri_pair_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %destination_, i64 noundef %queue_count_, ptr noundef %socket_base_, ptr noundef %endpoint_pair_) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t20send_pipe_peer_statsEPNS_6pipe_tEmPNS_5own_tEPNS_19endpoint_uri_pair_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %destination_, i64 noundef %queue_count_, ptr noundef %socket_base_, ptr noundef %endpoint_pair_) local_unnamed_addr #6 align 2 {
 entry:
   %cmd = alloca %"struct.zmq::command_t", align 64
   store ptr %destination_, ptr %cmd, align 64
@@ -659,7 +659,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t23send_pipe_stats_publishEPNS_5own_tEmmPNS_19endpoint_uri_pair_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %destination_, i64 noundef %outbound_queue_count_, i64 noundef %inbound_queue_count_, ptr noundef %endpoint_pair_) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t23send_pipe_stats_publishEPNS_5own_tEmmPNS_19endpoint_uri_pair_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %destination_, i64 noundef %outbound_queue_count_, i64 noundef %inbound_queue_count_, ptr noundef %endpoint_pair_) local_unnamed_addr #6 align 2 {
 entry:
   %cmd = alloca %"struct.zmq::command_t", align 64
   store ptr %destination_, ptr %cmd, align 64
@@ -680,7 +680,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t14send_pipe_termEPNS_6pipe_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %destination_) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t14send_pipe_termEPNS_6pipe_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %destination_) local_unnamed_addr #6 align 2 {
 entry:
   %cmd = alloca %"struct.zmq::command_t", align 64
   store ptr %destination_, ptr %cmd, align 64
@@ -695,7 +695,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t18send_pipe_term_ackEPNS_6pipe_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %destination_) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t18send_pipe_term_ackEPNS_6pipe_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %destination_) local_unnamed_addr #6 align 2 {
 entry:
   %cmd = alloca %"struct.zmq::command_t", align 64
   store ptr %destination_, ptr %cmd, align 64
@@ -710,7 +710,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t13send_pipe_hwmEPNS_6pipe_tEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %destination_, i32 noundef %inhwm_, i32 noundef %outhwm_) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t13send_pipe_hwmEPNS_6pipe_tEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %destination_, i32 noundef %inhwm_, i32 noundef %outhwm_) local_unnamed_addr #6 align 2 {
 entry:
   %cmd = alloca %"struct.zmq::command_t", align 64
   store ptr %destination_, ptr %cmd, align 64
@@ -729,7 +729,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t13send_term_reqEPNS_5own_tES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %destination_, ptr noundef %object_) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t13send_term_reqEPNS_5own_tES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %destination_, ptr noundef %object_) local_unnamed_addr #6 align 2 {
 entry:
   %cmd = alloca %"struct.zmq::command_t", align 64
   store ptr %destination_, ptr %cmd, align 64
@@ -746,7 +746,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t9send_termEPNS_5own_tEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %destination_, i32 noundef %linger_) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t9send_termEPNS_5own_tEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %destination_, i32 noundef %linger_) local_unnamed_addr #6 align 2 {
 entry:
   %cmd = alloca %"struct.zmq::command_t", align 64
   store ptr %destination_, ptr %cmd, align 64
@@ -763,7 +763,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t13send_term_ackEPNS_5own_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %destination_) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t13send_term_ackEPNS_5own_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %destination_) local_unnamed_addr #6 align 2 {
 entry:
   %cmd = alloca %"struct.zmq::command_t", align 64
   store ptr %destination_, ptr %cmd, align 64
@@ -778,7 +778,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t18send_term_endpointEPNS_5own_tEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %destination_, ptr noundef %endpoint_) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t18send_term_endpointEPNS_5own_tEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %destination_, ptr noundef %endpoint_) local_unnamed_addr #6 align 2 {
 entry:
   %cmd = alloca %"struct.zmq::command_t", align 64
   store ptr %destination_, ptr %cmd, align 64
@@ -795,7 +795,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t9send_reapEPNS_13socket_base_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %socket_) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t9send_reapEPNS_13socket_base_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %socket_) local_unnamed_addr #6 align 2 {
 entry:
   %cmd = alloca %"struct.zmq::command_t", align 64
   %_ctx = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -816,7 +816,7 @@ entry:
 declare noundef ptr @_ZNK3zmq5ctx_t10get_reaperEv(ptr noundef nonnull align 8 dereferenceable(648)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t11send_reapedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t11send_reapedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this) local_unnamed_addr #6 align 2 {
 entry:
   %cmd = alloca %"struct.zmq::command_t", align 64
   %_ctx = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -833,7 +833,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t21send_inproc_connectedEPNS_13socket_base_tE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %socket_) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t21send_inproc_connectedEPNS_13socket_base_tE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef %socket_) local_unnamed_addr #6 align 2 {
 entry:
   %cmd = alloca %"struct.zmq::command_t", align 64
   store ptr %socket_, ptr %cmd, align 64
@@ -848,7 +848,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8object_t9send_doneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) local_unnamed_addr #6 align 2 {
+define void @_ZN3zmq8object_t9send_doneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this) local_unnamed_addr #6 align 2 {
 entry:
   %cmd = alloca %"struct.zmq::command_t", align 64
   store ptr null, ptr %cmd, align 64
@@ -861,7 +861,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t12process_stopEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
+define void @_ZN3zmq8object_t12process_stopEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 413) #12
@@ -872,7 +872,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t12process_plugEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
+define void @_ZN3zmq8object_t12process_plugEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 418) #12
@@ -883,7 +883,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t11process_ownEPNS_5own_tE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #9 align 2 {
+define void @_ZN3zmq8object_t11process_ownEPNS_5own_tE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #9 align 2 {
 entry:
   %1 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 423) #12
@@ -894,7 +894,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t14process_attachEPNS_8i_engineE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #9 align 2 {
+define void @_ZN3zmq8object_t14process_attachEPNS_8i_engineE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #9 align 2 {
 entry:
   %1 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 428) #12
@@ -905,7 +905,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t12process_bindEPNS_6pipe_tE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #9 align 2 {
+define void @_ZN3zmq8object_t12process_bindEPNS_6pipe_tE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #9 align 2 {
 entry:
   %1 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 433) #12
@@ -916,7 +916,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t21process_activate_readEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
+define void @_ZN3zmq8object_t21process_activate_readEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 438) #12
@@ -927,7 +927,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t22process_activate_writeEm(ptr nocapture nonnull readnone align 8 %this, i64 %0) unnamed_addr #9 align 2 {
+define void @_ZN3zmq8object_t22process_activate_writeEm(ptr nonnull readnone align 8 captures(none) %this, i64 %0) unnamed_addr #9 align 2 {
 entry:
   %1 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 443) #12
@@ -938,7 +938,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t14process_hiccupEPv(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #9 align 2 {
+define void @_ZN3zmq8object_t14process_hiccupEPv(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #9 align 2 {
 entry:
   %1 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 448) #12
@@ -949,7 +949,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t23process_pipe_peer_statsEmPNS_5own_tEPNS_19endpoint_uri_pair_tE(ptr nocapture nonnull readnone align 8 %this, i64 %0, ptr nocapture readnone %1, ptr nocapture readnone %2) unnamed_addr #9 align 2 {
+define void @_ZN3zmq8object_t23process_pipe_peer_statsEmPNS_5own_tEPNS_19endpoint_uri_pair_tE(ptr nonnull readnone align 8 captures(none) %this, i64 %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) unnamed_addr #9 align 2 {
 entry:
   %3 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 455) #12
@@ -960,7 +960,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t26process_pipe_stats_publishEmmPNS_19endpoint_uri_pair_tE(ptr nocapture nonnull readnone align 8 %this, i64 %0, i64 %1, ptr nocapture readnone %2) unnamed_addr #9 align 2 {
+define void @_ZN3zmq8object_t26process_pipe_stats_publishEmmPNS_19endpoint_uri_pair_tE(ptr nonnull readnone align 8 captures(none) %this, i64 %0, i64 %1, ptr readnone captures(none) %2) unnamed_addr #9 align 2 {
 entry:
   %3 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 462) #12
@@ -971,7 +971,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t17process_pipe_termEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
+define void @_ZN3zmq8object_t17process_pipe_termEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 467) #12
@@ -982,7 +982,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t21process_pipe_term_ackEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
+define void @_ZN3zmq8object_t21process_pipe_term_ackEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 472) #12
@@ -993,7 +993,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t16process_pipe_hwmEii(ptr nocapture nonnull readnone align 8 %this, i32 %0, i32 %1) unnamed_addr #9 align 2 {
+define void @_ZN3zmq8object_t16process_pipe_hwmEii(ptr nonnull readnone align 8 captures(none) %this, i32 %0, i32 %1) unnamed_addr #9 align 2 {
 entry:
   %2 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 477) #12
@@ -1004,7 +1004,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t16process_term_reqEPNS_5own_tE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #9 align 2 {
+define void @_ZN3zmq8object_t16process_term_reqEPNS_5own_tE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #9 align 2 {
 entry:
   %1 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 482) #12
@@ -1015,7 +1015,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t12process_termEi(ptr nocapture nonnull readnone align 8 %this, i32 %0) unnamed_addr #9 align 2 {
+define void @_ZN3zmq8object_t12process_termEi(ptr nonnull readnone align 8 captures(none) %this, i32 %0) unnamed_addr #9 align 2 {
 entry:
   %1 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 487) #12
@@ -1026,7 +1026,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t16process_term_ackEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
+define void @_ZN3zmq8object_t16process_term_ackEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 492) #12
@@ -1037,7 +1037,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t21process_term_endpointEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #9 align 2 {
+define void @_ZN3zmq8object_t21process_term_endpointEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #9 align 2 {
 entry:
   %1 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 497) #12
@@ -1048,7 +1048,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t12process_reapEPNS_13socket_base_tE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #9 align 2 {
+define void @_ZN3zmq8object_t12process_reapEPNS_13socket_base_tE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #9 align 2 {
 entry:
   %1 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 502) #12
@@ -1059,7 +1059,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t14process_reapedEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
+define void @_ZN3zmq8object_t14process_reapedEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 507) #12
@@ -1070,7 +1070,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t14process_seqnumEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
+define void @_ZN3zmq8object_t14process_seqnumEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 512) #12
@@ -1081,7 +1081,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq8object_t19process_conn_failedEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
+define void @_ZN3zmq8object_t19process_conn_failedEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 517) #12

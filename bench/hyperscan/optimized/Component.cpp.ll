@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3ue29ComponentD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN3ue29ComponentD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3ue29ComponentC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue29ComponentE, i64 16), ptr %this, align 8
   %pos_begin = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -24,13 +24,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue29ComponentD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define hidden void @_ZN3ue29ComponentD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define hidden void @_ZN3ue29ComponentD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN3ue29ComponentD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @llvm.trap() #4
   unreachable
@@ -40,13 +40,13 @@ entry:
 declare void @llvm.trap() #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK3ue29Component10repeatableEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK3ue29Component10repeatableEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3ue29Component15recordPosBoundsEjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((8, 16)) %this, i32 noundef %b, i32 noundef %e) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue29Component15recordPosBoundsEjj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((8, 16)) %this, i32 noundef %b, i32 noundef %e) local_unnamed_addr #0 align 2 {
 entry:
   %pos_begin = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %b, ptr %pos_begin, align 8
@@ -56,25 +56,25 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3ue29Component8optimiseEb(ptr nocapture nonnull readnone align 8 %this, i1 zeroext %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN3ue29Component8optimiseEb(ptr nonnull readnone align 8 captures(none) %this, i1 zeroext %0) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK3ue29Component18vacuous_everywhereEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK3ue29Component18vacuous_everywhereEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK3ue29Component24checkEmbeddedStartAnchorEb(ptr nocapture nonnull readnone align 8 %this, i1 zeroext %0) unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK3ue29Component24checkEmbeddedStartAnchorEb(ptr nonnull readnone align 8 captures(none) %this, i1 zeroext %0) unnamed_addr #1 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK3ue29Component22checkEmbeddedEndAnchorEb(ptr nocapture nonnull readnone align 8 %this, i1 zeroext %0) unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK3ue29Component22checkEmbeddedEndAnchorEb(ptr nonnull readnone align 8 captures(none) %this, i1 zeroext %0) unnamed_addr #1 align 2 {
 entry:
   ret i1 false
 }

@@ -336,7 +336,7 @@ declare ptr @CONF_get1_default_config_file() local_unnamed_addr #1
 declare void @app_bail_out(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @opt_appname(ptr noundef) local_unnamed_addr #1
 
@@ -412,7 +412,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
 
 if.then6.i:                                       ; preds = %if.end.i
   %8 = load ptr, ptr @bio_err, align 8
-  %call8.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %8, ptr noundef nonnull @.str.37, ptr noundef %7) #10
+  %call8.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %8, ptr noundef nonnull @.str.37, ptr noundef nonnull %7) #10
   br label %warn_deprecated.exit
 
 warn_deprecated.exit:                             ; preds = %if.end.i, %if.then6.i
@@ -708,7 +708,7 @@ declare i32 @setup_ui_method() local_unnamed_addr #1
 declare i32 @setup_engine_loader() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @app_create_libctx() local_unnamed_addr #1
 
@@ -727,7 +727,7 @@ declare void @destroy_engine_loader() local_unnamed_addr #1
 declare void @destroy_ui_method() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare ptr @EVP_get_digestbyname(ptr noundef) local_unnamed_addr #1
 
@@ -738,13 +738,13 @@ declare ptr @EVP_get_cipherbyname(ptr noundef) local_unnamed_addr #1
 declare i32 @enc_main(i32 noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @SortFnByName(ptr nocapture noundef readonly %_f1, ptr nocapture noundef readonly %_f2) #9 {
+define internal i32 @SortFnByName(ptr noundef readonly captures(none) %_f1, ptr noundef readonly captures(none) %_f2) #9 {
 entry:
   %0 = load i32, ptr %_f1, align 8
   %1 = load i32, ptr %_f2, align 8
@@ -769,7 +769,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @function_hash(ptr nocapture noundef readonly %a) #3 {
+define internal i64 @function_hash(ptr noundef readonly captures(none) %a) #3 {
 entry:
   %name = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load ptr, ptr %name, align 8
@@ -778,7 +778,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @function_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #9 {
+define internal i32 @function_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #9 {
 entry:
   %name = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load ptr, ptr %name, align 8

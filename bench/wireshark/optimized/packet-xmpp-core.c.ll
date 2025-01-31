@@ -705,7 +705,7 @@ proto_item_set_generated.exit106:                 ; preds = %259, %256, %253, %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @xmpp_name_attr_struct(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -815,14 +815,14 @@ xmpp_error_text.exit:                             ; preds = %.lr.ph, %42
 50:                                               ; preds = %xmpp_error_text.exit, %48
   %51 = phi ptr [ %49, %48 ], [ @.str.49, %xmpp_error_text.exit ]
   %52 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %46, ptr noundef nonnull @.str.122, ptr noundef %.142, ptr noundef %51) #4
-  %53 = call ptr @xmpp_steal_element_by_name(ptr noundef %3, ptr noundef nonnull @.str.102) #4
+  %53 = call ptr @xmpp_steal_element_by_name(ptr noundef nonnull %3, ptr noundef nonnull @.str.102) #4
   %.not39 = icmp eq ptr %53, null
   br i1 %.not39, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %50, %32
   %.1.lcssa = phi ptr [ %.0, %32 ], [ %52, %50 ]
   %54 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %14, ptr noundef nonnull @ei_xmpp_response, ptr noundef nonnull @.str.123, ptr noundef %.1.lcssa) #4
-  call void @xmpp_unknown(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3) #4
+  call void @xmpp_unknown(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #4
   ret void
 }
 
@@ -1094,7 +1094,7 @@ declare ptr @xmpp_ep_init_array_t(ptr noundef, ptr noundef, i32 noundef) local_u
 declare void @xmpp_val_enum_list(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @xmpp_presence_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -1606,7 +1606,7 @@ xmpp_failure_text.exit:                           ; preds = %49, %52
 declare ptr @xmpp_steal_element_by_names(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @xmpp_xml_header(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @xmpp_xml_header(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %6, i32 noundef 25, ptr noundef nonnull @.str.103) #4
@@ -1640,7 +1640,7 @@ define hidden void @xmpp_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @xmpp_stream_close(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @xmpp_stream_close(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @want_ignore, align 8
@@ -1709,7 +1709,7 @@ define internal void @xmpp_features_mechanisms(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @xmpp_starttls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define hidden void @xmpp_starttls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca [1 x %struct._xmpp_attr_info], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %6, ptr noundef nonnull align 16 dereferenceable(40) @__const.xmpp_features_mechanisms.attrs_info, i64 40, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1752,7 +1752,7 @@ define hidden void @xmpp_starttls(ptr noundef %0, ptr noundef %1, ptr noundef %2
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @xmpp_proceed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define hidden void @xmpp_proceed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca [1 x %struct._xmpp_attr_info], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %6, ptr noundef nonnull align 16 dereferenceable(40) @__const.xmpp_features_mechanisms.attrs_info, i64 40, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8

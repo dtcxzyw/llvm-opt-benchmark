@@ -22,14 +22,14 @@ $_ZTVSt15_Sp_counted_ptrIPN6hermes3hbc14BackendContextELN9__gnu_cxx12_Lock_polic
 @_ZN6hermes3hbc14BackendContextD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6hermes3hbc14BackendContextD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6hermes3hbc14BackendContextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3hbc14BackendContextC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc14BackendContextD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes3hbc14BackendContextD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #1 align 2 {
 entry:
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
@@ -109,7 +109,7 @@ _ZNSt10shared_ptrIN6hermes3hbc24LowerBuiltinCallsContextEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN6hermes3hbc14BackendContext3getERNS_7ContextE(ptr nocapture noundef nonnull align 8 dereferenceable(656) %ctx) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN6hermes3hbc14BackendContext3getERNS_7ContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(656) %ctx) local_unnamed_addr #1 align 2 {
 entry:
   %hbcBackendContext_.i = getelementptr inbounds nuw i8, ptr %ctx, i64 640
   %0 = load ptr, ptr %hbcBackendContext_.i, align 8
@@ -330,7 +330,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

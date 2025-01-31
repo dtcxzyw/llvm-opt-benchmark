@@ -187,7 +187,7 @@ define dso_local void @mpi_free_limb_space(ptr noundef %0) local_unnamed_addr #1
 declare dso_local void @kfree_sensitive(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mpi_assign_limb_space(ptr nocapture noundef initializes((0, 4)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local void @mpi_assign_limb_space(ptr noundef captures(none) initializes((0, 4)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -204,7 +204,7 @@ define dso_local void @mpi_assign_limb_space(ptr nocapture noundef initializes((
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @mpi_resize(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @mpi_resize(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp ult i32 %3, %1
   br i1 %4, label %5, label %22
@@ -247,7 +247,7 @@ define dso_local noundef range(i32 -12, 1) i32 @mpi_resize(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define dso_local void @mpi_clear(ptr noundef writeonly %0) #5 align 16 {
@@ -517,7 +517,7 @@ define dso_local void @mpi_snatch(ptr noundef %0, ptr noundef %1) local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @mpi_set(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define dso_local noundef ptr @mpi_set(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -755,7 +755,7 @@ define dso_local noundef ptr @mpi_alloc_set_ui(i64 noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @mpi_swap_cond(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #6 align 16 {
+define dso_local void @mpi_swap_cond(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #6 align 16 {
   %4 = sub i64 0, %2
   %5 = load i32, ptr %0, align 8
   %6 = load i32, ptr %1, align 8
@@ -842,7 +842,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10

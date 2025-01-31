@@ -53,7 +53,7 @@ _ZN3net12_GLOBAL__N_113DefaultRandom11GetInstanceEv.exit: ; preds = %if.then.i.i
 declare void @_ZN4base13AtExitManager16RegisterCallbackEPFvPvES1_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4base9SingletonIN3net12_GLOBAL__N_113DefaultRandomENS_22DefaultSingletonTraitsIS3_EES3_E6OnExitEPv(ptr nocapture readnone %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4base9SingletonIN3net12_GLOBAL__N_113DefaultRandomENS_22DefaultSingletonTraitsIS3_EES3_E6OnExitEPv(ptr readnone captures(none) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load atomic volatile i64, ptr @_ZN4base9SingletonIN3net12_GLOBAL__N_113DefaultRandomENS_22DefaultSingletonTraitsIS3_EES3_E9instance_E monotonic, align 8
   %isnull.i = icmp eq i64 %1, 0
@@ -83,7 +83,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN3net12_GLOBAL__N_113DefaultRandomD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define internal void @_ZN3net12_GLOBAL__N_113DefaultRandomD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret void
 }
@@ -96,7 +96,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3net12_GLOBAL__N_113DefaultRandom9RandBytesEPvm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %data, i64 noundef %len) unnamed_addr #0 align 2 {
+define internal void @_ZN3net12_GLOBAL__N_113DefaultRandom9RandBytesEPvm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %data, i64 noundef %len) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6crypto9RandBytesEPvm(ptr noundef %data, i64 noundef %len)
   ret void
@@ -115,7 +115,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN3net12_GLOBAL__N_113DefaultRandom6ReseedEPKvm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %additional_entropy, i64 %entropy_len) unnamed_addr #4 align 2 {
+define internal void @_ZN3net12_GLOBAL__N_113DefaultRandom6ReseedEPKvm(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %additional_entropy, i64 %entropy_len) unnamed_addr #4 align 2 {
 entry:
   ret void
 }

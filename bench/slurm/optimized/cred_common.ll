@@ -251,7 +251,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
   %131 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %127) #6
   %132 = trunc i64 %131 to i32
   %133 = add i32 %132, 1
-  tail call void @packmem(ptr noundef %127, i32 noundef %133, ptr noundef %9) #5
+  tail call void @packmem(ptr noundef nonnull %127, i32 noundef %133, ptr noundef %9) #5
   call void @slurm_xfree(ptr noundef nonnull %3) #5
   br label %135
 
@@ -275,7 +275,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
   %143 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %139) #6
   %144 = trunc i64 %143 to i32
   %145 = add i32 %144, 1
-  call void @packmem(ptr noundef %139, i32 noundef %145, ptr noundef %9) #5
+  call void @packmem(ptr noundef nonnull %139, i32 noundef %145, ptr noundef %9) #5
   call void @slurm_xfree(ptr noundef nonnull %4) #5
   br label %147
 
@@ -629,7 +629,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
   %332 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %328) #6
   %333 = trunc i64 %332 to i32
   %334 = add i32 %333, 1
-  tail call void @packmem(ptr noundef %328, i32 noundef %334, ptr noundef %9) #5
+  tail call void @packmem(ptr noundef nonnull %328, i32 noundef %334, ptr noundef %9) #5
   call void @slurm_xfree(ptr noundef nonnull %5) #5
   br label %336
 
@@ -653,7 +653,7 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_ad
   %344 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %340) #6
   %345 = trunc i64 %344 to i32
   %346 = add i32 %345, 1
-  call void @packmem(ptr noundef %340, i32 noundef %346, ptr noundef %9) #5
+  call void @packmem(ptr noundef nonnull %340, i32 noundef %346, ptr noundef %9) #5
   call void @slurm_xfree(ptr noundef nonnull %6) #5
   br label %348
 
@@ -813,7 +813,7 @@ declare i32 @gres_step_state_pack(ptr noundef, ptr noundef, ptr noundef, i16 nou
 declare void @pack16(i16 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @packmem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -836,7 +836,7 @@ declare void @pack32_array(ptr noundef, i32 noundef, ptr noundef) local_unnamed_
 declare void @pack64_array(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @cred_unpack(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @cred_unpack(ptr noundef writeonly captures(none) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -1899,10 +1899,10 @@ define ptr @cred_unpack_with_signature(ptr noundef %0, i16 noundef zeroext %1) l
 declare zeroext i1 @running_in_slurmstepd() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @sbcast_cred_pack(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
+define ptr @sbcast_cred_pack(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = tail call ptr @init_buf(i32 noundef 4096) #5
   %4 = tail call i64 @time(ptr noundef null) #5
   %5 = icmp ugt i16 %1, 10239
@@ -2007,7 +2007,7 @@ define ptr @sbcast_cred_pack(ptr nocapture noundef readonly %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @sbcast_cred_unpack(ptr noundef %0, ptr nocapture noundef writeonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define ptr @sbcast_cred_unpack(ptr noundef %0, ptr noundef writeonly captures(none) %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4

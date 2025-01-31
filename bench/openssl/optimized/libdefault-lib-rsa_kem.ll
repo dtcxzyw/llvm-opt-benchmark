@@ -41,7 +41,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 2) i32 @rsakem_generate(ptr nocapture noundef readonly %vprsactx, ptr noundef %out, ptr noundef writeonly %outlen, ptr noundef %secret, ptr noundef writeonly %secretlen) #0 {
+define internal range(i32 -2, 2) i32 @rsakem_generate(ptr noundef readonly captures(none) %vprsactx, ptr noundef %out, ptr noundef writeonly %outlen, ptr noundef %secret, ptr noundef writeonly %secretlen) #0 {
 entry:
   %op = getelementptr inbounds nuw i8, ptr %vprsactx, i64 16
   %0 = load i32, ptr %op, align 8
@@ -172,7 +172,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 2) i32 @rsakem_recover(ptr nocapture noundef readonly %vprsactx, ptr noundef %out, ptr nocapture noundef writeonly %outlen, ptr noundef %in, i64 noundef %inlen) #0 {
+define internal range(i32 -2, 2) i32 @rsakem_recover(ptr noundef readonly captures(none) %vprsactx, ptr noundef %out, ptr noundef writeonly captures(none) %outlen, ptr noundef %in, i64 noundef %inlen) #0 {
 entry:
   %op = getelementptr inbounds nuw i8, ptr %vprsactx, i64 16
   %0 = load i32, ptr %op, align 8
@@ -235,7 +235,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @rsakem_dupctx(ptr nocapture noundef readonly %vprsactx) #0 {
+define internal ptr @rsakem_dupctx(ptr noundef readonly captures(none) %vprsactx) #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 109) #4
   %cmp = icmp eq ptr %call, null
@@ -263,7 +263,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 0, 2) i32 @rsakem_get_ctx_params(ptr noundef readnone %vprsactx, ptr nocapture readnone %params) #1 {
+define internal range(i32 0, 2) i32 @rsakem_get_ctx_params(ptr noundef readnone %vprsactx, ptr readnone captures(none) %params) #1 {
 entry:
   %cmp = icmp ne ptr %vprsactx, null
   %conv = zext i1 %cmp to i32
@@ -271,7 +271,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @rsakem_gettable_ctx_params(ptr nocapture readnone %vprsactx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @rsakem_gettable_ctx_params(ptr readnone captures(none) %vprsactx, ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @known_gettable_rsakem_ctx_params
 }
@@ -319,7 +319,7 @@ return:                                           ; preds = %if.end8, %if.end3, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @rsakem_settable_ctx_params(ptr nocapture readnone %vprsactx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @rsakem_settable_ctx_params(ptr readnone captures(none) %vprsactx, ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @known_settable_rsakem_ctx_params
 }
@@ -434,7 +434,7 @@ declare i32 @RSA_private_decrypt(i32 noundef, ptr noundef, ptr noundef, ptr noun
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_addr #2
 

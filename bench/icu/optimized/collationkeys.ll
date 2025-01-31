@@ -270,7 +270,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -517,7 +517,7 @@ entry:
 declare void @_ZN6icu_758ByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7515SortKeyByteSinkD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define void @_ZN6icu_7515SortKeyByteSinkD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @llvm.trap() #14
   unreachable
@@ -594,7 +594,7 @@ if.end27:                                         ; preds = %if.end13, %entry, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7515SortKeyByteSink15GetAppendBufferEiiPciPi(ptr noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %min_capacity, i32 noundef %desired_capacity_hint, ptr noundef readnone %scratch, i32 noundef %scratch_capacity, ptr nocapture noundef writeonly initializes((0, 4)) %result_capacity) unnamed_addr #1 align 2 {
+define noundef ptr @_ZN6icu_7515SortKeyByteSink15GetAppendBufferEiiPciPi(ptr noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %min_capacity, i32 noundef %desired_capacity_hint, ptr noundef readnone %scratch, i32 noundef %scratch_capacity, ptr noundef writeonly captures(none) initializes((0, 4)) %result_capacity) unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp slt i32 %min_capacity, 1
   %cmp2 = icmp slt i32 %scratch_capacity, %min_capacity
@@ -663,7 +663,7 @@ return:                                           ; preds = %if.else18, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6icu_7513CollationKeys13LevelCallbackD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define void @_ZN6icu_7513CollationKeys13LevelCallbackD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 {
 entry:
   ret void
 }
@@ -680,13 +680,13 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_ZN6icu_7513CollationKeys13LevelCallback11needToWriteENS_9Collation5LevelE(ptr nocapture nonnull readnone align 8 %this, i32 %0) unnamed_addr #10 align 2 {
+define noundef signext i8 @_ZN6icu_7513CollationKeys13LevelCallback11needToWriteENS_9Collation5LevelE(ptr nonnull readnone align 8 captures(none) %this, i32 %0) unnamed_addr #10 align 2 {
 entry:
   ret i8 1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513CollationKeys26writeSortKeyUpToQuaternaryERNS_17CollationIteratorEPKaRKNS_17CollationSettingsERNS_15SortKeyByteSinkENS_9Collation5LevelERNS0_13LevelCallbackEaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %iter, ptr nocapture noundef readonly %compressibleBytes, ptr noundef nonnull align 8 dereferenceable(852) %settings, ptr noundef nonnull align 8 dereferenceable(28) %sink, i32 noundef %minLevel, ptr noundef nonnull align 8 dereferenceable(8) %callback, i8 noundef signext %preflight, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7513CollationKeys26writeSortKeyUpToQuaternaryERNS_17CollationIteratorEPKaRKNS_17CollationSettingsERNS_15SortKeyByteSinkENS_9Collation5LevelERNS0_13LevelCallbackEaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %iter, ptr noundef readonly captures(none) %compressibleBytes, ptr noundef nonnull align 8 dereferenceable(852) %settings, ptr noundef nonnull align 8 dereferenceable(28) %sink, i32 noundef %minLevel, ptr noundef nonnull align 8 dereferenceable(8) %callback, i8 noundef signext %preflight, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cases = alloca %"class.icu_75::(anonymous namespace)::SortKeyLevel", align 8
   %secondaries = alloca %"class.icu_75::(anonymous namespace)::SortKeyLevel", align 8

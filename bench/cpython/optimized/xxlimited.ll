@@ -56,7 +56,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @xx_traverse(ptr noundef %module, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @xx_traverse(ptr noundef %module, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %call = tail call ptr @PyModule_GetState(ptr noundef %module) #4
   %0 = load ptr, ptr %call, align 8
@@ -116,7 +116,7 @@ do.end7:                                          ; preds = %do.body1, %if.then5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xx_foo(ptr nocapture readnone %module, ptr noundef %args) #0 {
+define internal ptr @xx_foo(ptr readnone captures(none) %module, ptr noundef %args) #0 {
 entry:
   %i = alloca i64, align 8
   %j = alloca i64, align 8
@@ -137,7 +137,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xx_new(ptr noundef %module, ptr nocapture readnone %_unused_unused) #0 {
+define internal ptr @xx_new(ptr noundef %module, ptr readnone captures(none) %_unused_unused) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #4
   %cmp.i = icmp eq ptr %call.i, null
@@ -170,7 +170,7 @@ declare ptr @PyModule_GetState(ptr noundef) local_unnamed_addr #1
 declare ptr @_PyObject_GC_New(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @xx_modexec(ptr noundef %m) #0 {
@@ -224,7 +224,7 @@ declare i32 @PyModule_AddType(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PyType_FromModuleAndSpec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @Xxo_traverse(ptr nocapture noundef readonly %self_obj, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @Xxo_traverse(ptr noundef readonly captures(none) %self_obj, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %self_obj, i64 8
   %self_obj.val = load ptr, ptr %0, align 8
@@ -256,7 +256,7 @@ return:                                           ; preds = %if.then8, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Xxo_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @Xxo_clear(ptr noundef captures(none) %self) #0 {
 entry:
   %x_attr = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %x_attr, align 8
@@ -273,7 +273,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Xxo_finalize(ptr nocapture noundef %self_obj) #0 {
+define internal void @Xxo_finalize(ptr noundef captures(none) %self_obj) #0 {
 entry:
   %x_attr = getelementptr inbounds nuw i8, ptr %self_obj, i64 16
   %0 = load ptr, ptr %x_attr, align 8
@@ -344,7 +344,7 @@ return:                                           ; preds = %if.else, %if.end8, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @Xxo_setattro(ptr nocapture noundef %self, ptr noundef %name, ptr noundef %v) #0 {
+define internal i32 @Xxo_setattro(ptr noundef captures(none) %self, ptr noundef %name, ptr noundef %v) #0 {
 entry:
   %x_attr = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %x_attr, align 8
@@ -407,7 +407,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @Xxo_releasebuffer(ptr nocapture noundef %self, ptr nocapture readnone %view) #3 {
+define internal void @Xxo_releasebuffer(ptr noundef captures(none) %self, ptr readnone captures(none) %view) #3 {
 entry:
   %x_exports = getelementptr inbounds nuw i8, ptr %self, i64 40
   %0 = load i64, ptr %x_exports, align 8
@@ -439,7 +439,7 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PyDict_SetItem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Xxo_demo(ptr nocapture readnone %self, ptr noundef %defining_class, ptr nocapture noundef readonly %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @Xxo_demo(ptr readnone captures(none) %self, ptr noundef %defining_class, ptr noundef readonly captures(none) %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %cmp.not = icmp eq ptr %kwnames, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -508,7 +508,7 @@ declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PyBuffer_FillInfo(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @Xxo_get_x_exports(ptr nocapture noundef readonly %self, ptr nocapture readnone %c) #0 {
+define internal ptr @Xxo_get_x_exports(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %c) #0 {
 entry:
   %x_exports = getelementptr inbounds nuw i8, ptr %self, i64 40
   %0 = load i64, ptr %x_exports, align 8

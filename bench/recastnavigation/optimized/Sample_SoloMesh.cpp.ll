@@ -166,7 +166,7 @@ define dso_local void @_ZN15Sample_SoloMeshD2Ev(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15Sample_SoloMesh7cleanupEv(ptr nocapture noundef nonnull align 8 dereferenceable(356) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN15Sample_SoloMesh7cleanupEv(ptr noundef nonnull align 8 captures(none) dereferenceable(356) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -327,7 +327,7 @@ declare noundef i32 @_ZN14dtNavMeshQuery4initEPK9dtNavMeshi(ptr noundef nonnull 
 declare void @_Z13imguiUnindentv() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 declare void @_Z10imguiLabelPKc(ptr noundef) local_unnamed_addr #1
 
@@ -477,7 +477,7 @@ declare void @_ZN9CrowdToolC1Ev(ptr noundef nonnull align 8 dereferenceable(28))
 declare void @_Z18imguiSeparatorLinev() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15Sample_SoloMesh15handleDebugModeEv(ptr nocapture noundef nonnull align 8 dereferenceable(356) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN15Sample_SoloMesh15handleDebugModeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(356) %0) unnamed_addr #0 align 2 {
   %2 = alloca [17 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %2, i8 0, i64 17, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2067,7 +2067,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit65: ; preds = %_ZNK9rcCont
 declare void @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10), i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.ceil.f32(float) #10

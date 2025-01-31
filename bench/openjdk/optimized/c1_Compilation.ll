@@ -222,7 +222,7 @@ $_ZTV9Assembler = comdat any
 @_ZN11CompilationD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN11CompilationD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK11Compilation19debug_info_recorderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(704) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK11Compilation19debug_info_recorderEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(704) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -231,7 +231,7 @@ define hidden noundef ptr @_ZNK11Compilation19debug_info_recorderEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK11Compilation19dependency_recorderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(704) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK11Compilation19dependency_recorderEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(704) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -240,7 +240,7 @@ define hidden noundef ptr @_ZNK11Compilation19dependency_recorderEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11Compilation10initializeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(704) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11Compilation10initializeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(704) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 88, i32 noundef 0) #8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -606,7 +606,7 @@ declare void @_ZN2IRC1EP11CompilationP8ciMethodi(ptr noundef nonnull align 8 der
 declare void @_ZN9xmlStream4doneEPKcz(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11Compilation7bailoutEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(704) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(704) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2532,7 +2532,7 @@ declare void @_ZN22CompilationFailureInfoD1Ev(ptr noundef nonnull align 8 derefe
 declare void @_ZN10CodeBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(448)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11Compilation30add_exception_handlers_for_pcoEiP9XHandlers(ptr nocapture noundef nonnull readonly align 8 dereferenceable(704) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11Compilation30add_exception_handlers_for_pcoEiP9XHandlers(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(704) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -2606,7 +2606,7 @@ _ZN26GrowableArrayWithAllocatorIP13ExceptionInfo13GrowableArrayIS1_EE4pushERKS1_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11Compilation21notice_inlined_methodEP8ciMethod(ptr nocapture noundef nonnull readonly align 8 dereferenceable(704) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11Compilation21notice_inlined_methodEP8ciMethod(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(704) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN5ciEnv21notice_inlined_methodEP8ciMethod(ptr noundef nonnull align 8 dereferenceable(1265) %4, ptr noundef %1) #8
@@ -2620,7 +2620,7 @@ declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 derefe
 declare void @_ZN22CompilationFailureInfoC1EPKc(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11Compilation14cha_exact_typeEP6ciType(ptr nocapture noundef nonnull readonly align 8 dereferenceable(704) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN11Compilation14cha_exact_typeEP6ciType(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(704) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread, label %3
 
@@ -3784,7 +3784,7 @@ __cxx_global_var_init.4.exit:                     ; preds = %1
 declare i32 @llvm.ctpop.i32(i32) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

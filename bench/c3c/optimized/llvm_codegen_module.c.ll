@@ -80,7 +80,7 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #7
-  tail call void @LLVMSetSourceFileName(ptr noundef %28, ptr noundef %32, i64 noundef %33) #6
+  tail call void @LLVMSetSourceFileName(ptr noundef %28, ptr noundef nonnull %32, i64 noundef %33) #6
   %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 220), align 4
   switch i32 %34, label %62 [
     i32 4, label %35
@@ -429,7 +429,7 @@ declare void @LLVMSetModuleDataLayout(ptr noundef, ptr noundef) local_unnamed_ad
 declare void @LLVMSetSourceFileName(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @LLVMSetTarget(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -458,7 +458,7 @@ declare zeroext i1 @os_supports_stacktrace(i32 noundef) local_unnamed_addr #1
 declare ptr @LLVMCreateBuilder() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @gencontext_init_file_emit(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @gencontext_init_file_emit(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 216), align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %23, label %4
@@ -502,12 +502,12 @@ declare ptr @llvm_get_debug_file(ptr noundef, i16 noundef zeroext) local_unnamed
 declare ptr @LLVMDIBuilderCreateCompileUnit(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @gencontext_end_file_emit(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 {
+define dso_local void @gencontext_end_file_emit(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @gencontext_end_module(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @gencontext_end_module(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @LLVMDisposeModule(ptr noundef %3) #6
@@ -533,13 +533,13 @@ declare ptr @LLVMArrayType(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @LLVMStructSetBody(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

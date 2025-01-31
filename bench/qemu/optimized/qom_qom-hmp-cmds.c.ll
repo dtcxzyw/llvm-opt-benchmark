@@ -331,7 +331,7 @@ while.body:                                       ; preds = %if.end, %if.end6
   br i1 %tobool4.not, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %while.body
-  tail call void @readline_add_completion_of(ptr noundef %rs, ptr noundef %str, ptr noundef %call2) #4
+  tail call void @readline_add_completion_of(ptr noundef %rs, ptr noundef nonnull %str, ptr noundef nonnull %call2) #4
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then5, %while.body
@@ -349,7 +349,7 @@ return:                                           ; preds = %entry, %while.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @readline_set_completion_index(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -358,7 +358,7 @@ declare ptr @object_class_get_list(ptr noundef, i1 noundef zeroext) local_unname
 declare ptr @object_class_get_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @readline_add_completion_of(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -390,7 +390,7 @@ while.body:                                       ; preds = %if.end, %if.end5
 
 if.then4:                                         ; preds = %while.body
   %2 = load ptr, ptr %0, align 8
-  tail call void @readline_add_completion_of(ptr noundef %rs, ptr noundef %str, ptr noundef %2) #4
+  tail call void @readline_add_completion_of(ptr noundef %rs, ptr noundef nonnull %str, ptr noundef %2) #4
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then4, %while.body
@@ -407,7 +407,7 @@ return:                                           ; preds = %entry, %while.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
@@ -436,7 +436,7 @@ entry:
 declare void @g_array_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qom_composition_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal i32 @qom_composition_compare(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %call = tail call ptr @object_get_canonical_path_component(ptr noundef %0) #4

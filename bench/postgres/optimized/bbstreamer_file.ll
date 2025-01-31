@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [43 x i8] c"could not set permissions on file \22%s\22: %m\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @bbstreamer_plain_writer_content(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef %2, i32 noundef %3, i32 %4) #0 {
+define internal void @bbstreamer_plain_writer_content(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, i32 %4) #0 {
   %6 = icmp eq i32 %3, 0
   br i1 %6, label %20, label %7
 
@@ -62,7 +62,7 @@ define internal void @bbstreamer_plain_writer_content(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bbstreamer_plain_writer_finalize(ptr nocapture noundef %0) #0 {
+define internal void @bbstreamer_plain_writer_finalize(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -99,7 +99,7 @@ define internal void @bbstreamer_plain_writer_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bbstreamer_extractor_content(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @bbstreamer_extractor_content(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #0 {
   switch i32 %4, label %107 [
     i32 1, label %6
     i32 2, label %84
@@ -173,7 +173,7 @@ define internal void @bbstreamer_extractor_content(ptr noundef %0, ptr noundef %
   br i1 %46, label %should_allow_existing_directory.exit.thread.i, label %47
 
 47:                                               ; preds = %44
-  %48 = tail call i64 @strspn(ptr noundef %32, ptr noundef nonnull @.str.13) #11
+  %48 = tail call i64 @strspn(ptr noundef nonnull %32, ptr noundef nonnull @.str.13) #11
   %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #11
   %50 = icmp eq i64 %48, %49
   br i1 %50, label %should_allow_existing_directory.exit.i, label %should_allow_existing_directory.exit.thread8.i
@@ -321,7 +321,7 @@ extract_directory.exit:                           ; preds = %68, %should_allow_e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @bbstreamer_extractor_finalize(ptr nocapture readnone %0) #1 {
+define internal void @bbstreamer_extractor_finalize(ptr readnone captures(none) %0) #1 {
   ret void
 }
 
@@ -371,7 +371,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -396,34 +396,34 @@ define dso_local noundef ptr @bbstreamer_extractor_new(ptr noundef %0, ptr nound
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #3
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #3
+declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #3
 
 declare ptr @last_dir_separator(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare i32 @symlink(ptr noundef, ptr noundef) local_unnamed_addr #7

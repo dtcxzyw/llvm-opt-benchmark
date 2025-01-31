@@ -545,7 +545,7 @@ define hidden noundef zeroext i1 @_Z18register_jfr_dcmdsv() local_unnamed_addr #
 declare noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7JfrDCmdC2EP12outputStreambi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) initializes((0, 17), (24, 37)) %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3) unnamed_addr #2 align 2 {
+define hidden void @_ZN7JfrDCmdC2EP12outputStreambi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(37) initializes((0, 17), (24, 37)) %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3) unnamed_addr #2 align 2 {
   %5 = zext i1 %2 to i8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
@@ -649,7 +649,7 @@ declare void @_ZN16JfrJavaArguments9set_klassEPKcP10JavaThread(ptr noundef nonnu
 declare void @_ZN16JfrJavaArguments12set_receiverE6Handle(ptr noundef nonnull align 8 dereferenceable(300), ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @_ZN14JfrJavaSupport12call_virtualEP16JfrJavaArgumentsP10JavaThread(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -657,7 +657,7 @@ declare void @_ZN14JfrJavaSupport12call_virtualEP16JfrJavaArgumentsP10JavaThread
 declare void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN7JfrDCmd5parseEP7CmdLinecP10JavaThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) initializes((24, 32), (36, 37)) %0, ptr nocapture noundef readonly %1, i8 noundef signext %2, ptr nocapture readnone %3) unnamed_addr #5 align 2 {
+define hidden void @_ZN7JfrDCmd5parseEP7CmdLinecP10JavaThread(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(37) initializes((24, 32), (36, 37)) %0, ptr noundef readonly captures(none) %1, i8 noundef signext %2, ptr readnone captures(none) %3) unnamed_addr #5 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -867,7 +867,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %32, %30, %7, %5
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK7JfrDCmd15print_java_helpEPKc(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
@@ -1031,7 +1031,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %54, %56
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK7JfrDCmd10print_helpEPKc(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr nocapture readnone %1) unnamed_addr #0 align 2 {
+define hidden void @_ZNK7JfrDCmd10print_helpEPKc(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr readnone captures(none) %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.JavaValue, align 8
   %4 = alloca %class.JfrJavaArguments, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -1528,7 +1528,7 @@ define hidden void @_ZN30JfrConfigureFlightRecorderDCmdC2EP12outputStreamb(ptr n
 declare void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK30JfrConfigureFlightRecorderDCmd10print_helpEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(729) %0, ptr nocapture readnone %1) unnamed_addr #0 align 2 {
+define hidden void @_ZNK30JfrConfigureFlightRecorderDCmd10print_helpEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(729) %0, ptr readnone captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.44) #14
@@ -1595,7 +1595,7 @@ define hidden void @_ZNK30JfrConfigureFlightRecorderDCmd10print_helpEPKc(ptr noc
 declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN30JfrConfigureFlightRecorderDCmd7executeE10DCmdSourceP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(729) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN30JfrConfigureFlightRecorderDCmd7executeE10DCmdSourceP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(729) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %class.HandleMark, align 8
   %5 = alloca %class.JavaValue, align 8
   %6 = alloca %class.JfrJavaArguments, align 8
@@ -3886,13 +3886,13 @@ declare void @_ZNK15GenDCmdArgument9to_stringEbPcm(ptr noundef nonnull align 8 d
 declare i32 @llvm.ctpop.i32(i32) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

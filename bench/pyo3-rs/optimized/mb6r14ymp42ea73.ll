@@ -219,7 +219,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_104_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..annotation$GT$9to_tokens17h5fd02315748d21c6E"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_104_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..annotation$GT$9to_tokens17h5fd02315748d21c6E"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.0, i64 10, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.4)
@@ -228,19 +228,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_104_$LT$impl$u20$quote..t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..annotation$GT$5clone17h538b3ed3da1b040cE"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..annotation$GT$5clone17h538b3ed3da1b040cE"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..annotation$GT$3fmt17h48bdbba62183a827E"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..annotation$GT$3fmt17h48bdbba62183a827E"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.5, i64 20)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..annotation$GT$2eq17h5ee6ad5933ee8aceE"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..annotation$GT$2eq17h5ee6ad5933ee8aceE"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -303,7 +303,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_103_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..attribute$GT$9to_tokens17h9aa79130e35907fcE"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_103_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..attribute$GT$9to_tokens17h9aa79130e35907fcE"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.6, i64 9, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.9)
@@ -312,19 +312,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_103_$LT$impl$u20$quote..t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..attribute$GT$5clone17hd14b7057c9f48225E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..attribute$GT$5clone17hd14b7057c9f48225E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..attribute$GT$3fmt17h5fdf2cb034ab5586E"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..attribute$GT$3fmt17h5fdf2cb034ab5586E"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.10, i64 19)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..attribute$GT$2eq17hce326a4980ab955fE"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..attribute$GT$2eq17hce326a4980ab955fE"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -387,7 +387,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_107_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..cancel_handle$GT$9to_tokens17h73cfd684f1123bc9E"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_107_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..cancel_handle$GT$9to_tokens17h73cfd684f1123bc9E"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.11, i64 13, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.14)
@@ -396,19 +396,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_107_$LT$impl$u20$quote..t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_99_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..cancel_handle$GT$5clone17he3045cecdf9396ebE"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_99_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..cancel_handle$GT$5clone17he3045cecdf9396ebE"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..cancel_handle$GT$3fmt17hc9a009c8bba265c3E"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..cancel_handle$GT$3fmt17hc9a009c8bba265c3E"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.15, i64 23)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_101_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..cancel_handle$GT$2eq17hea9d0a226fd2b640E"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_101_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..cancel_handle$GT$2eq17hea9d0a226fd2b640E"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -471,7 +471,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_105_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..constructor$GT$9to_tokens17he1095b0eba63767cE"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_105_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..constructor$GT$9to_tokens17he1095b0eba63767cE"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.16, i64 11, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.19)
@@ -480,19 +480,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_105_$LT$impl$u20$quote..t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..constructor$GT$5clone17h30d3b8d35b5981b0E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..constructor$GT$5clone17h30d3b8d35b5981b0E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..constructor$GT$3fmt17hb7650ef45482879aE"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..constructor$GT$3fmt17hb7650ef45482879aE"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.20, i64 21)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_99_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..constructor$GT$2eq17h6dd9bef5b802b5a4E"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_99_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..constructor$GT$2eq17h6dd9bef5b802b5a4E"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -555,7 +555,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_89_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..dict$GT$9to_tokens17h8064d5f764513fdcE"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..dict$GT$9to_tokens17h8064d5f764513fdcE"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.21, i64 4, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.24)
@@ -564,19 +564,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$quote..to
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_90_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..dict$GT$5clone17hd14c2358d18ad16aE"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_90_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..dict$GT$5clone17hd14c2358d18ad16aE"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_88_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..dict$GT$3fmt17hb7831fd0b57497c2E"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_88_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..dict$GT$3fmt17hb7831fd0b57497c2E"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.25, i64 14)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..dict$GT$2eq17h275bcae53196badcE"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..dict$GT$2eq17h275bcae53196badcE"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -639,7 +639,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_87_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..eq$GT$9to_tokens17h95efb8e165a2cabaE"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..eq$GT$9to_tokens17h95efb8e165a2cabaE"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.26, i64 2, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.29)
@@ -648,19 +648,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$quote..to
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_88_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..eq$GT$5clone17h25424ea9eedb950fE"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_88_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..eq$GT$5clone17h25424ea9eedb950fE"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_86_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..eq$GT$3fmt17ha4314dec195cb93aE"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_86_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..eq$GT$3fmt17ha4314dec195cb93aE"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.30, i64 12)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_90_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..eq$GT$2eq17h8a5e02188ef12b4cE"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_90_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..eq$GT$2eq17h8a5e02188ef12b4cE"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -723,7 +723,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_100_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..eq_int$GT$9to_tokens17hb6fb2217035d1f22E"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_100_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..eq_int$GT$9to_tokens17hb6fb2217035d1f22E"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.31, i64 6, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.34)
@@ -732,19 +732,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_100_$LT$impl$u20$quote..t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..eq_int$GT$5clone17hd618dc552456e002E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..eq_int$GT$5clone17hd618dc552456e002E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_90_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..eq_int$GT$3fmt17hdba46bacb656338eE"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_90_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..eq_int$GT$3fmt17hdba46bacb656338eE"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.35, i64 16)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..eq_int$GT$2eq17he72ea5a41ed07f38E"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..eq_int$GT$2eq17he72ea5a41ed07f38E"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -807,7 +807,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_101_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..extends$GT$9to_tokens17hd62930249dbc63b7E"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_101_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..extends$GT$9to_tokens17hd62930249dbc63b7E"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.36, i64 7, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.39)
@@ -816,19 +816,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_101_$LT$impl$u20$quote..t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..extends$GT$5clone17h4904127a50bfc69dE"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..extends$GT$5clone17h4904127a50bfc69dE"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..extends$GT$3fmt17h18f39ce50632bdd5E"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..extends$GT$3fmt17h18f39ce50632bdd5E"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.40, i64 17)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..extends$GT$2eq17h5f1cd49bbd3f6c81E"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..extends$GT$2eq17h5f1cd49bbd3f6c81E"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -891,7 +891,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_102_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..freelist$GT$9to_tokens17h5e1a2638f523f2faE"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_102_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..freelist$GT$9to_tokens17h5e1a2638f523f2faE"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.41, i64 8, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.44)
@@ -900,19 +900,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_102_$LT$impl$u20$quote..t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..freelist$GT$5clone17h25da115eb26db130E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..freelist$GT$5clone17h25da115eb26db130E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..freelist$GT$3fmt17h02da79d6d0149475E"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..freelist$GT$3fmt17h02da79d6d0149475E"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.45, i64 18)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..freelist$GT$2eq17h8ba5bfe06c7c95c8E"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..freelist$GT$2eq17h8ba5bfe06c7c95c8E"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -975,7 +975,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_106_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..from_py_with$GT$9to_tokens17h1589439b2e0b7cf9E"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_106_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..from_py_with$GT$9to_tokens17h1589439b2e0b7cf9E"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.46, i64 12, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.49)
@@ -984,19 +984,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_106_$LT$impl$u20$quote..t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..from_py_with$GT$5clone17h7b45db9620c9a334E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..from_py_with$GT$5clone17h7b45db9620c9a334E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..from_py_with$GT$3fmt17h715a3b8e3e3b415fE"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..from_py_with$GT$3fmt17h715a3b8e3e3b415fE"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.50, i64 22)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_100_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..from_py_with$GT$2eq17hc9979f68ea83f227E"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_100_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..from_py_with$GT$2eq17hc9979f68ea83f227E"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -1059,7 +1059,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_100_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..frozen$GT$9to_tokens17h08fda0603edc7a8cE"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_100_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..frozen$GT$9to_tokens17h08fda0603edc7a8cE"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.51, i64 6, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.54)
@@ -1068,19 +1068,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_100_$LT$impl$u20$quote..t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..frozen$GT$5clone17h8f3d10afffe231d1E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..frozen$GT$5clone17h8f3d10afffe231d1E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_90_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..frozen$GT$3fmt17h3b06248ec3b13f1eE"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_90_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..frozen$GT$3fmt17h3b06248ec3b13f1eE"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.55, i64 16)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..frozen$GT$2eq17h8ae518d44d1b8e52E"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..frozen$GT$2eq17h8ae518d44d1b8e52E"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -1143,7 +1143,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_88_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..get$GT$9to_tokens17h991bcd55ab8aa095E"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..get$GT$9to_tokens17h991bcd55ab8aa095E"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.56, i64 3, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.59)
@@ -1152,19 +1152,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$quote..to
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_89_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..get$GT$5clone17h0624e2fa24ee1687E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_89_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..get$GT$5clone17h0624e2fa24ee1687E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_87_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..get$GT$3fmt17hdd50a5b8697ab857E"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_87_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..get$GT$3fmt17hdd50a5b8697ab857E"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.60, i64 13)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..get$GT$2eq17h5924d63172fc32f5E"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..get$GT$2eq17h5924d63172fc32f5E"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -1227,7 +1227,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_101_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..get_all$GT$9to_tokens17hcd5ba9658a640b46E"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_101_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..get_all$GT$9to_tokens17hcd5ba9658a640b46E"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.61, i64 7, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.64)
@@ -1236,19 +1236,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_101_$LT$impl$u20$quote..t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..get_all$GT$5clone17hf345131254b3c739E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..get_all$GT$5clone17hf345131254b3c739E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..get_all$GT$3fmt17h4133576c780ed8a2E"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..get_all$GT$3fmt17h4133576c780ed8a2E"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.65, i64 17)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..get_all$GT$2eq17h4721b116973323ecE"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..get_all$GT$2eq17h4721b116973323ecE"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -1311,7 +1311,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_89_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..hash$GT$9to_tokens17hb0f9416de4791c4eE"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..hash$GT$9to_tokens17hb0f9416de4791c4eE"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.66, i64 4, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.69)
@@ -1320,19 +1320,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$quote..to
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_90_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..hash$GT$5clone17h8491c380374ed2adE"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_90_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..hash$GT$5clone17h8491c380374ed2adE"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_88_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..hash$GT$3fmt17hdc9117f15d91f126E"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_88_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..hash$GT$3fmt17hdc9117f15d91f126E"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.70, i64 14)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..hash$GT$2eq17h9cd70f74132a2e12E"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..hash$GT$2eq17h9cd70f74132a2e12E"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -1395,7 +1395,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_89_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..item$GT$9to_tokens17h9b7d5e9ba135ac4eE"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..item$GT$9to_tokens17h9b7d5e9ba135ac4eE"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.71, i64 4, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.74)
@@ -1404,19 +1404,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$quote..to
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_90_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..item$GT$5clone17hac6e6db77b8e0655E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_90_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..item$GT$5clone17hac6e6db77b8e0655E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_88_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..item$GT$3fmt17h3ffff729299229edE"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_88_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..item$GT$3fmt17h3ffff729299229edE"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.75, i64 14)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..item$GT$2eq17h681386d8e97e51baE"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..item$GT$2eq17h681386d8e97e51baE"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -1479,7 +1479,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_107_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..from_item_all$GT$9to_tokens17ha501247c4372eeb3E"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_107_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..from_item_all$GT$9to_tokens17ha501247c4372eeb3E"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.76, i64 13, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.79)
@@ -1488,19 +1488,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_107_$LT$impl$u20$quote..t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_99_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..from_item_all$GT$5clone17hde61cf12749d745bE"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_99_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..from_item_all$GT$5clone17hde61cf12749d745bE"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..from_item_all$GT$3fmt17h1465fc5e6f5bc52aE"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..from_item_all$GT$3fmt17h1465fc5e6f5bc52aE"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.80, i64 23)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_101_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..from_item_all$GT$2eq17h90915fa3c064c37dE"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_101_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..from_item_all$GT$2eq17h90915fa3c064c37dE"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -1563,7 +1563,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_101_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..mapping$GT$9to_tokens17hdccccc804e1cef3eE"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_101_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..mapping$GT$9to_tokens17hdccccc804e1cef3eE"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.81, i64 7, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.84)
@@ -1572,19 +1572,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_101_$LT$impl$u20$quote..t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..mapping$GT$5clone17h493b2124f6cca1b6E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..mapping$GT$5clone17h493b2124f6cca1b6E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..mapping$GT$3fmt17h4e7eb80c581d4d9cE"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..mapping$GT$3fmt17h4e7eb80c581d4d9cE"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.85, i64 17)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..mapping$GT$2eq17ha41005ea039439caE"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..mapping$GT$2eq17ha41005ea039439caE"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -1647,7 +1647,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_100_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..module$GT$9to_tokens17hb2bfd6e362ab1166E"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_100_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..module$GT$9to_tokens17hb2bfd6e362ab1166E"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.86, i64 6, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.89)
@@ -1656,19 +1656,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_100_$LT$impl$u20$quote..t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..module$GT$5clone17hc02b5a63ab482100E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..module$GT$5clone17hc02b5a63ab482100E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_90_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..module$GT$3fmt17h14e10e82e374f5fbE"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_90_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..module$GT$3fmt17h14e10e82e374f5fbE"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.90, i64 16)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..module$GT$2eq17h7057c0a050577821E"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..module$GT$2eq17h7057c0a050577821E"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -1731,7 +1731,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_89_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..name$GT$9to_tokens17h994ef0ecd93c2163E"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..name$GT$9to_tokens17h994ef0ecd93c2163E"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.91, i64 4, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.94)
@@ -1740,19 +1740,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$quote..to
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_90_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..name$GT$5clone17h5fabe060cd0ea65fE"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_90_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..name$GT$5clone17h5fabe060cd0ea65fE"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_88_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..name$GT$3fmt17h17e3853b67d09575E"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_88_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..name$GT$3fmt17h17e3853b67d09575E"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.95, i64 14)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..name$GT$2eq17hfccd41286811f4adE"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..name$GT$2eq17hfccd41286811f4adE"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -1815,7 +1815,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_88_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..ord$GT$9to_tokens17hf61a16e64c46dae9E"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..ord$GT$9to_tokens17hf61a16e64c46dae9E"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.96, i64 3, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.99)
@@ -1824,19 +1824,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$quote..to
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_89_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..ord$GT$5clone17h61d478129a6c5dd6E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_89_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..ord$GT$5clone17h61d478129a6c5dd6E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_87_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..ord$GT$3fmt17hcb156e1d7c0d1baeE"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_87_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..ord$GT$3fmt17hcb156e1d7c0d1baeE"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.100, i64 13)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..ord$GT$2eq17hb4b0adedf6fe5e6fE"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..ord$GT$2eq17hb4b0adedf6fe5e6fE"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -1899,7 +1899,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_105_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..pass_module$GT$9to_tokens17h261a18d8f2d4258bE"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_105_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..pass_module$GT$9to_tokens17h261a18d8f2d4258bE"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.101, i64 11, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.104)
@@ -1908,19 +1908,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_105_$LT$impl$u20$quote..t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..pass_module$GT$5clone17h73aa605a4fdb9b99E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..pass_module$GT$5clone17h73aa605a4fdb9b99E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..pass_module$GT$3fmt17h6127b4a9643203abE"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..pass_module$GT$3fmt17h6127b4a9643203abE"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.105, i64 21)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_99_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..pass_module$GT$2eq17h8a254de40d7c949dE"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_99_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..pass_module$GT$2eq17h8a254de40d7c949dE"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -1983,7 +1983,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_104_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..rename_all$GT$9to_tokens17h36f0cc3095ee560fE"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_104_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..rename_all$GT$9to_tokens17h36f0cc3095ee560fE"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.106, i64 10, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.109)
@@ -1992,19 +1992,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_104_$LT$impl$u20$quote..t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..rename_all$GT$5clone17h8eae4e3799f57ee3E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..rename_all$GT$5clone17h8eae4e3799f57ee3E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..rename_all$GT$3fmt17h059c13001cf30c2bE"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..rename_all$GT$3fmt17h059c13001cf30c2bE"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.110, i64 20)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..rename_all$GT$2eq17ha1668e0d7188c9e5E"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..rename_all$GT$2eq17ha1668e0d7188c9e5E"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -2067,7 +2067,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_102_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..sequence$GT$9to_tokens17h106caafec8d6cedeE"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_102_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..sequence$GT$9to_tokens17h106caafec8d6cedeE"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.111, i64 8, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.114)
@@ -2076,19 +2076,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_102_$LT$impl$u20$quote..t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..sequence$GT$5clone17h958410684dad3069E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..sequence$GT$5clone17h958410684dad3069E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..sequence$GT$3fmt17hd3f6a536d5db77a4E"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..sequence$GT$3fmt17hd3f6a536d5db77a4E"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.115, i64 18)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..sequence$GT$2eq17h0394949180ae1767E"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..sequence$GT$2eq17h0394949180ae1767E"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -2151,7 +2151,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_88_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..set$GT$9to_tokens17h30dec4be9a0ed905E"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..set$GT$9to_tokens17h30dec4be9a0ed905E"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.116, i64 3, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.119)
@@ -2160,19 +2160,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$quote..to
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_89_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..set$GT$5clone17h1bf0729db7f8191aE"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_89_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..set$GT$5clone17h1bf0729db7f8191aE"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_87_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..set$GT$3fmt17h0109b13ea70e98deE"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_87_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..set$GT$3fmt17h0109b13ea70e98deE"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.120, i64 13)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..set$GT$2eq17h8ee339bfb8b467aaE"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..set$GT$2eq17h8ee339bfb8b467aaE"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -2235,7 +2235,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_101_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..set_all$GT$9to_tokens17hcb40f1468752a769E"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_101_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..set_all$GT$9to_tokens17hcb40f1468752a769E"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.121, i64 7, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.124)
@@ -2244,19 +2244,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_101_$LT$impl$u20$quote..t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..set_all$GT$5clone17h4dbdedbfcce923b1E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..set_all$GT$5clone17h4dbdedbfcce923b1E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..set_all$GT$3fmt17h63cb4349e42df553E"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..set_all$GT$3fmt17h63cb4349e42df553E"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.125, i64 17)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..set_all$GT$2eq17h03adc2d3d08005d5E"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..set_all$GT$2eq17h03adc2d3d08005d5E"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -2319,7 +2319,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_103_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..signature$GT$9to_tokens17h170e25a1a4fe1682E"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_103_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..signature$GT$9to_tokens17h170e25a1a4fe1682E"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.126, i64 9, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.129)
@@ -2328,19 +2328,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_103_$LT$impl$u20$quote..t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..signature$GT$5clone17hc2a62c359e2d2ce1E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..signature$GT$5clone17hc2a62c359e2d2ce1E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..signature$GT$3fmt17h6a051e54c2308c3dE"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..signature$GT$3fmt17h6a051e54c2308c3dE"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.130, i64 19)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..signature$GT$2eq17hfe89e67fd0db5f52E"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..signature$GT$2eq17hfe89e67fd0db5f52E"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -2403,7 +2403,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_102_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..subclass$GT$9to_tokens17hb7fa99c99cbf2495E"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_102_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..subclass$GT$9to_tokens17hb7fa99c99cbf2495E"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.131, i64 8, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.134)
@@ -2412,19 +2412,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_102_$LT$impl$u20$quote..t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..subclass$GT$5clone17ha113948d4b816f56E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..subclass$GT$5clone17ha113948d4b816f56E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..subclass$GT$3fmt17hcc8791dbc413e704E"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..subclass$GT$3fmt17hcc8791dbc413e704E"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.135, i64 18)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..subclass$GT$2eq17h707c2f536eab35a8E"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..subclass$GT$2eq17h707c2f536eab35a8E"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -2487,7 +2487,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_99_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_108_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..text_signature$GT$9to_tokens17he1e51a8ec0b7dfa2E"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_108_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..text_signature$GT$9to_tokens17he1e51a8ec0b7dfa2E"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.136, i64 14, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.139)
@@ -2496,19 +2496,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_108_$LT$impl$u20$quote..t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_100_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..text_signature$GT$5clone17h1ae1fb066ff63279E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_100_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..text_signature$GT$5clone17h1ae1fb066ff63279E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..text_signature$GT$3fmt17h7cb1c057d7b0607eE"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..text_signature$GT$3fmt17h7cb1c057d7b0607eE"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.140, i64 24)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_102_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..text_signature$GT$2eq17h1831c30f05e557b9E"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_102_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..text_signature$GT$2eq17h1831c30f05e557b9E"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -2571,7 +2571,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_105_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..transparent$GT$9to_tokens17h5132923d1737b367E"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_105_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..transparent$GT$9to_tokens17h5132923d1737b367E"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.141, i64 11, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.144)
@@ -2580,19 +2580,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_105_$LT$impl$u20$quote..t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..transparent$GT$5clone17h79ea5c87b41e5a62E"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..transparent$GT$5clone17h79ea5c87b41e5a62E"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..transparent$GT$3fmt17h4f85e7a8bc46711dE"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..transparent$GT$3fmt17h4f85e7a8bc46711dE"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.145, i64 21)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_99_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..transparent$GT$2eq17h1a177b1c5c0fd871E"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_99_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..transparent$GT$2eq17h1a177b1c5c0fd871E"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -2655,7 +2655,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_104_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..unsendable$GT$9to_tokens17hbe1993ca217faaf9E"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_104_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..unsendable$GT$9to_tokens17hbe1993ca217faaf9E"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.146, i64 10, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.149)
@@ -2664,19 +2664,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_104_$LT$impl$u20$quote..t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..unsendable$GT$5clone17h340502ae8f5ba83dE"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..unsendable$GT$5clone17h340502ae8f5ba83dE"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..unsendable$GT$3fmt17hfab4b7a4543c033eE"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..unsendable$GT$3fmt17hfab4b7a4543c033eE"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.150, i64 20)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..unsendable$GT$2eq17h80b016e917311832E"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..unsendable$GT$2eq17h80b016e917311832E"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -2739,7 +2739,7 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$syn..pars
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN19pyo3_macros_backend10attributes2kw1_101_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..weakref$GT$9to_tokens17hd4e39f0258ed3ceeE"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN19pyo3_macros_backend10attributes2kw1_101_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..weakref$GT$9to_tokens17hd4e39f0258ed3ceeE"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = load i32, ptr %0, align 4
   call void @_ZN11proc_macro25Ident3new17h223c9bbdc8ed4ba9E(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.151, i64 7, i32 %4, ptr nonnull align 8 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.154)
@@ -2748,19 +2748,19 @@ define void @"_ZN19pyo3_macros_backend10attributes2kw1_101_$LT$impl$u20$quote..t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..weakref$GT$5clone17hbf68b3a031973efcE"(ptr nocapture readonly align 4 %0) unnamed_addr #2 {
+define i32 @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..weakref$GT$5clone17hbf68b3a031973efcE"(ptr readonly align 4 captures(none) %0) unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..weakref$GT$3fmt17h2acecc85c13a143aE"(ptr nocapture readnone align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$core..fmt..Debug$u20$for$u20$pyo3_macros_backend..attributes..kw..weakref$GT$3fmt17h2acecc85c13a143aE"(ptr readnone align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha0e23c75b4556cf5E(ptr align 8 %1, ptr nonnull align 1 @anon.70ed084ef8be7af6fcfe692dfeffcb2e.155, i64 17)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..weakref$GT$2eq17h8fcfc02f53ef6e24E"(ptr nocapture readnone align 4 %0, ptr nocapture readnone align 4 %1) unnamed_addr #1 {
+define noundef zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$pyo3_macros_backend..attributes..kw..weakref$GT$2eq17h8fcfc02f53ef6e24E"(ptr readnone align 4 captures(none) %0, ptr readnone align 4 captures(none) %1) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -2774,7 +2774,7 @@ declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #0
 declare void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr sret([40 x i8]) align 8, ptr, ptr) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nonlazybind uwtable
 declare zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr align 8, ptr align 8) unnamed_addr #0

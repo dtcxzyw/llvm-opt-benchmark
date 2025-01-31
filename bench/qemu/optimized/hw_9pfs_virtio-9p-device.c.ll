@@ -62,7 +62,7 @@ entry:
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_9p_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @virtio_9p_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   %call.i8 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #6
@@ -147,14 +147,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef range(i64 1, 0) i64 @virtio_9p_get_features(ptr nocapture readnone %vdev, i64 noundef %features, ptr nocapture readnone %errp) #2 {
+define internal noundef range(i64 1, 0) i64 @virtio_9p_get_features(ptr readnone captures(none) %vdev, i64 noundef %features, ptr readnone captures(none) %errp) #2 {
 entry:
   %or.i = or i64 %features, 1
   ret i64 %or.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_9p_get_config(ptr noundef %vdev, ptr nocapture noundef writeonly %config) #0 {
+define internal void @virtio_9p_get_config(ptr noundef %vdev, ptr noundef writeonly captures(none) %config) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 18, ptr noundef nonnull @__func__.VIRTIO_9P) #6
   %tag = getelementptr inbounds nuw i8, ptr %call.i, i64 1656
@@ -191,7 +191,7 @@ declare ptr @get_fsdev_fsentry(ptr noundef) local_unnamed_addr #1
 declare i32 @v9fs_device_realize_common(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @virtio_init(ptr noundef, i16 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
@@ -284,7 +284,7 @@ return:                                           ; preds = %if.end9, %entry, %o
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @virtio_pdu_vmarshal(ptr nocapture noundef readonly %pdu, i64 noundef %offset, ptr noundef %fmt, ptr noundef %ap) #0 {
+define internal i64 @virtio_pdu_vmarshal(ptr noundef readonly captures(none) %pdu, i64 noundef %offset, ptr noundef %fmt, ptr noundef %ap) #0 {
 entry:
   %s1 = getelementptr inbounds nuw i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
@@ -317,7 +317,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @virtio_pdu_vunmarshal(ptr nocapture noundef readonly %pdu, i64 noundef %offset, ptr noundef %fmt, ptr noundef %ap) #0 {
+define internal i64 @virtio_pdu_vunmarshal(ptr noundef readonly captures(none) %pdu, i64 noundef %offset, ptr noundef %fmt, ptr noundef %ap) #0 {
 entry:
   %s1 = getelementptr inbounds nuw i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
@@ -349,7 +349,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_init_in_iov_from_pdu(ptr nocapture noundef readonly %pdu, ptr nocapture noundef writeonly initializes((0, 8)) %piov, ptr nocapture noundef writeonly initializes((0, 4)) %pniov, i64 noundef %size) #0 {
+define internal void @virtio_init_in_iov_from_pdu(ptr noundef readonly captures(none) %pdu, ptr noundef writeonly captures(none) initializes((0, 8)) %piov, ptr noundef writeonly captures(none) initializes((0, 4)) %pniov, i64 noundef %size) #0 {
 entry:
   %s1 = getelementptr inbounds nuw i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
@@ -386,7 +386,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_init_out_iov_from_pdu(ptr nocapture noundef readonly %pdu, ptr nocapture noundef writeonly initializes((0, 8)) %piov, ptr nocapture noundef writeonly initializes((0, 4)) %pniov, i64 noundef %size) #0 {
+define internal void @virtio_init_out_iov_from_pdu(ptr noundef readonly captures(none) %pdu, ptr noundef writeonly captures(none) initializes((0, 8)) %piov, ptr noundef writeonly captures(none) initializes((0, 4)) %pniov, i64 noundef %size) #0 {
 entry:
   %s1 = getelementptr inbounds nuw i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
@@ -422,7 +422,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_9p_push_and_notify(ptr nocapture noundef readonly %pdu) #0 {
+define internal void @virtio_9p_push_and_notify(ptr noundef readonly captures(none) %pdu) #0 {
 entry:
   %s1 = getelementptr inbounds nuw i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
@@ -473,7 +473,7 @@ declare void @virtqueue_detach_element(ptr noundef, ptr noundef, i32 noundef) lo
 declare void @pdu_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i64 @iov_to_buf_full(ptr noundef, i32 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 

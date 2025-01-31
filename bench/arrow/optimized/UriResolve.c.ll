@@ -444,7 +444,7 @@ declare void @uriResetUriA(ptr noundef) local_unnamed_addr #1
 declare i32 @uriCompareRangeA(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @uriCopyAuthorityA(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -501,7 +501,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriMergePathA(ptr nocapture noundef nonnull %absWork, ptr nocapture noundef nonnull readonly %relAppend, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriMergePathA(ptr noundef nonnull captures(none) %absWork, ptr noundef nonnull readonly captures(none) %relAppend, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %pathHead = getelementptr inbounds nuw i8, ptr %relAppend, i64 96
   %0 = load ptr, ptr %pathHead, align 8
@@ -653,7 +653,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriMergePathW(ptr nocapture noundef nonnull %absWork, ptr nocapture noundef nonnull readonly %relAppend, ptr noundef %memory) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @uriMergePathW(ptr noundef nonnull captures(none) %absWork, ptr noundef nonnull readonly captures(none) %relAppend, ptr noundef %memory) unnamed_addr #0 {
 entry:
   %pathHead = getelementptr inbounds nuw i8, ptr %relAppend, i64 96
   %0 = load ptr, ptr %pathHead, align 8

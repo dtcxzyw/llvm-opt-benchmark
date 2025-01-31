@@ -74,7 +74,7 @@ define hidden void @_ZN19InstanceMirrorKlassC2Ev(ptr noundef nonnull align 8 der
 declare void @_ZN13InstanceKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(464)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef range(i64 -2147483648, 2147483648) i64 @_ZN19InstanceMirrorKlass13instance_sizeEP5Klass(ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %0, ptr noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i64 -2147483648, 2147483648) i64 @_ZN19InstanceMirrorKlass13instance_sizeEP5Klass(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(464) %0, ptr noundef readonly %1) local_unnamed_addr #2 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %19, label %3
 
@@ -159,7 +159,7 @@ _ZN19InstanceMirrorKlass13instance_sizeEP5Klass.exit: ; preds = %9, %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef range(i64 -2147483648, 2147483648) i64 @_ZNK19InstanceMirrorKlass8oop_sizeEP7oopDesc(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define hidden noundef range(i64 -2147483648, 2147483648) i64 @_ZNK19InstanceMirrorKlass8oop_sizeEP7oopDesc(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = load i32, ptr @_ZN15java_lang_Class16_oop_size_offsetE, align 4
   %4 = ptrtoint ptr %1 to i64
   %5 = sext i32 %3 to i64
@@ -171,7 +171,7 @@ define hidden noundef range(i64 -2147483648, 2147483648) i64 @_ZNK19InstanceMirr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 65536) i32 @_ZN19InstanceMirrorKlass30compute_static_oop_field_countEP7oopDesc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(464) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 65536) i32 @_ZN19InstanceMirrorKlass30compute_static_oop_field_countEP7oopDesc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(464) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
   %4 = tail call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %3) #5
   %.not = icmp eq ptr %4, null
@@ -424,10 +424,10 @@ declare noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

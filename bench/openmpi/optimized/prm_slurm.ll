@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [2 x i8] c"r\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1366, 1) i32 @get_remaining_time(ptr nocapture noundef writeonly initializes((0, 4)) %0) #0 {
+define internal range(i32 -1366, 1) i32 @get_remaining_time(ptr noundef writeonly captures(none) initializes((0, 4)) %0) #0 {
   %2 = alloca [256 x i8], align 16
   %3 = alloca ptr, align 8
   store i32 -1, ptr %0, align 4
@@ -51,14 +51,14 @@ define internal range(i32 -1366, 1) i32 @get_remaining_time(ptr nocapture nounde
   %24 = getelementptr ptr, ptr %21, i64 %23
   %25 = getelementptr i8, ptr %24, i64 -8
   %26 = load ptr, ptr %25, align 8
-  %27 = call i64 @strtol(ptr nocapture noundef %26, ptr noundef null, i32 noundef 10) #6
+  %27 = call i64 @strtol(ptr noundef captures(none) %26, ptr noundef null, i32 noundef 10) #6
   %28 = icmp ugt i32 %22, 1
   br i1 %28, label %29, label %.thread32
 
 29:                                               ; preds = %20
   %30 = getelementptr i8, ptr %24, i64 -16
   %31 = load ptr, ptr %30, align 8
-  %32 = call i64 @strtol(ptr nocapture noundef %31, ptr noundef null, i32 noundef 10) #6
+  %32 = call i64 @strtol(ptr noundef captures(none) %31, ptr noundef null, i32 noundef 10) #6
   %33 = mul nsw i64 %32, 60
   %34 = add i64 %33, %27
   %.not = icmp eq i32 %22, 2
@@ -67,7 +67,7 @@ define internal range(i32 -1366, 1) i32 @get_remaining_time(ptr nocapture nounde
 35:                                               ; preds = %29
   %36 = getelementptr i8, ptr %24, i64 -24
   %37 = load ptr, ptr %36, align 8
-  %38 = call i64 @strtol(ptr nocapture noundef %37, ptr noundef null, i32 noundef 10) #6
+  %38 = call i64 @strtol(ptr noundef captures(none) %37, ptr noundef null, i32 noundef 10) #6
   %39 = mul nsw i64 %38, 3600
   %40 = add i64 %39, %34
   %41 = icmp ugt i32 %22, 3
@@ -76,7 +76,7 @@ define internal range(i32 -1366, 1) i32 @get_remaining_time(ptr nocapture nounde
 42:                                               ; preds = %35
   %43 = getelementptr i8, ptr %24, i64 -32
   %44 = load ptr, ptr %43, align 8
-  %45 = call i64 @strtol(ptr nocapture noundef %44, ptr noundef null, i32 noundef 10) #6
+  %45 = call i64 @strtol(ptr noundef captures(none) %44, ptr noundef null, i32 noundef 10) #6
   %46 = mul nsw i64 %45, 86400
   %47 = add i64 %46, %40
   br label %.thread32
@@ -96,28 +96,28 @@ define internal range(i32 -1366, 1) i32 @get_remaining_time(ptr nocapture nounde
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @pmix_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @popen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @popen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @pclose(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @pclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @PMIx_Argv_split(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare i32 @PMIx_Argv_count(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
 declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #2
 

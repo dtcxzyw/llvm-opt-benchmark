@@ -289,7 +289,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @termiosmodule_traverse(ptr noundef %m, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @termiosmodule_traverse(ptr noundef %m, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %m) #4
   %0 = load ptr, ptr %call.i, align 8
@@ -632,7 +632,7 @@ exit:                                             ; preds = %entry, %termios_tcg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @termios_tcsetattr(ptr noundef %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @termios_tcsetattr(ptr noundef %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %fd = alloca i32, align 4
   %or.cond = icmp eq i64 %nargs, 3
@@ -675,7 +675,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @termios_tcsendbreak(ptr noundef %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @termios_tcsendbreak(ptr noundef %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %fd = alloca i32, align 4
   %or.cond = icmp eq i64 %nargs, 2
@@ -761,7 +761,7 @@ exit:                                             ; preds = %if.then.i, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @termios_tcflush(ptr noundef %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @termios_tcflush(ptr noundef %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %fd = alloca i32, align 4
   %or.cond = icmp eq i64 %nargs, 2
@@ -820,7 +820,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @termios_tcflow(ptr noundef %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @termios_tcflow(ptr noundef %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %fd = alloca i32, align 4
   %or.cond = icmp eq i64 %nargs, 2
@@ -948,7 +948,7 @@ exit:                                             ; preds = %entry, %termios_tcg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @termios_tcsetwinsize(ptr noundef %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @termios_tcsetwinsize(ptr noundef %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %w.i = alloca %struct.winsize, align 2
   %fd = alloca i32, align 4
@@ -1324,7 +1324,7 @@ if.then100:                                       ; preds = %lor.lhs.false96, %i
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %call106 = call ptr @PyList_GetItem(ptr noundef %18, i64 noundef %indvars.iv) #4
+  %call106 = call ptr @PyList_GetItem(ptr noundef nonnull %18, i64 noundef %indvars.iv) #4
   %23 = getelementptr i8, ptr %call106, i64 8
   %call106.val = load ptr, ptr %23, align 8
   %24 = getelementptr i8, ptr %call106.val, i64 168
@@ -1503,10 +1503,10 @@ declare i32 @PyModule_AddObjectRef(ptr noundef, ptr noundef, ptr noundef) local_
 declare i32 @PyModule_AddIntConstant(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

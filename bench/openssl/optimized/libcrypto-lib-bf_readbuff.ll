@@ -18,7 +18,7 @@ entry:
 declare i32 @bwrite_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @readbuffer_write(ptr nocapture readnone %b, ptr nocapture readnone %in, i32 %inl) #0 {
+define internal noundef i32 @readbuffer_write(ptr readnone captures(none) %b, ptr readnone captures(none) %in, i32 %inl) #0 {
 entry:
   ret i32 0
 }
@@ -140,13 +140,13 @@ return:                                           ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @readbuffer_puts(ptr nocapture readnone %b, ptr nocapture readnone %str) #0 {
+define internal noundef i32 @readbuffer_puts(ptr readnone captures(none) %b, ptr readnone captures(none) %str) #0 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @readbuffer_gets(ptr noundef %b, ptr nocapture noundef writeonly %buf, i32 noundef %size) #2 {
+define internal i32 @readbuffer_gets(ptr noundef %b, ptr noundef writeonly captures(none) %buf, i32 noundef %size) #2 {
 entry:
   %cmp = icmp eq i32 %size, 0
   br i1 %cmp, label %return, label %if.end
@@ -313,7 +313,7 @@ return:                                           ; preds = %if.then.i, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @readbuffer_ctrl(ptr nocapture noundef readonly %b, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #2 {
+define internal i64 @readbuffer_ctrl(ptr noundef readonly captures(none) %b, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #2 {
 entry:
   %ptr1 = getelementptr inbounds nuw i8, ptr %b, i64 64
   %0 = load ptr, ptr %ptr1, align 8
@@ -395,7 +395,7 @@ return:                                           ; preds = %if.end4, %if.end13,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @readbuffer_new(ptr nocapture noundef writeonly %bi) #2 {
+define internal range(i32 0, 2) i32 @readbuffer_new(ptr noundef writeonly captures(none) %bi) #2 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 40, ptr noundef nonnull @.str.1, i32 noundef 55) #5
   %cmp = icmp eq ptr %call, null
@@ -454,7 +454,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @readbuffer_callback_ctrl(ptr nocapture noundef readonly %b, i32 noundef %cmd, ptr noundef %fp) #2 {
+define internal i64 @readbuffer_callback_ctrl(ptr noundef readonly captures(none) %b, i32 noundef %cmd, ptr noundef %fp) #2 {
 entry:
   %next_bio = getelementptr inbounds nuw i8, ptr %b, i64 72
   %0 = load ptr, ptr %next_bio, align 8
@@ -473,7 +473,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @BIO_clear_flags(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @BIO_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 

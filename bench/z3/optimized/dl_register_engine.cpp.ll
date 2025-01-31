@@ -39,7 +39,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7datalog15register_engineC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN7datalog15register_engineC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7datalog15register_engineE, i64 16), ptr %this, align 8
   %m_ctx = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -48,7 +48,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog15register_engine9mk_engineENS_9DL_ENGINEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %engine_type) unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN7datalog15register_engine9mk_engineENS_9DL_ENGINEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %engine_type) unnamed_addr #4 align 2 {
 entry:
   switch i32 %engine_type, label %sw.epilog [
     i32 1, label %sw.bb

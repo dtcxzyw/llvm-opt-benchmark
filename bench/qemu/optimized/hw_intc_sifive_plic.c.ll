@@ -205,7 +205,7 @@ declare ptr @qdev_get_gpio_in(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @sifive_plic_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @sifive_plic_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #9
   %reset = getelementptr inbounds nuw i8, ptr %call.i, i64 136
@@ -543,7 +543,7 @@ return:                                           ; preds = %for.end, %if.then40
 declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @qemu_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -562,7 +562,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 declare void @qdev_init_gpio_in(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @sifive_plic_irq_request(ptr nocapture noundef readonly %opaque, i32 noundef %irq, i32 noundef %level) #0 {
+define internal void @sifive_plic_irq_request(ptr noundef readonly captures(none) %opaque, i32 noundef %irq, i32 noundef %level) #0 {
 entry:
   %cmp = icmp sgt i32 %level, 0
   %pending.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1128
@@ -599,7 +599,7 @@ declare void @qdev_init_gpio_out(ptr noundef, ptr noundef, i32 noundef) local_un
 declare i32 @riscv_cpu_claim_interrupts(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 4294967296) i64 @sifive_plic_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #0 {
+define internal range(i64 0, 4294967296) i64 @sifive_plic_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
   %conv = trunc i64 %addr to i32
   %priority_base = getelementptr inbounds nuw i8, ptr %opaque, i64 1172
@@ -862,7 +862,7 @@ return:                                           ; preds = %if.then84, %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @sifive_plic_write(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i64 noundef %value, i32 %size) #0 {
+define internal void @sifive_plic_write(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i64 noundef %value, i32 %size) #0 {
 entry:
   %conv = trunc i64 %addr to i32
   %priority_base = getelementptr inbounds nuw i8, ptr %opaque, i64 1172
@@ -1100,7 +1100,7 @@ if.end159:                                        ; preds = %do.body, %if.then31
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @sifive_plic_update(ptr nocapture noundef readonly %plic) unnamed_addr #0 {
+define internal fastcc void @sifive_plic_update(ptr noundef readonly captures(none) %plic) unnamed_addr #0 {
 entry:
   %num_addrs = getelementptr inbounds nuw i8, ptr %plic, i64 1088
   %0 = load i32, ptr %num_addrs, align 16

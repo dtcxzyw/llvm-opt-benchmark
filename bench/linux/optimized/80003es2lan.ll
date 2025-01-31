@@ -136,10 +136,10 @@ define internal i32 @e1000_get_variants_80003es2lan(ptr noundef initializes((151
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @e1000e_check_for_serdes_link(ptr noundef) #2
@@ -272,7 +272,7 @@ define internal fastcc noundef range(i32 -13, 1) i32 @e1000_write_kmrn_reg_80003
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -13, 1) i32 @e1000_read_kmrn_reg_80003es2lan(ptr noundef %0, i32 noundef range(i32 2, 32) %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -13, 1) i32 @e1000_read_kmrn_reg_80003es2lan(ptr noundef %0, i32 noundef range(i32 2, 32) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %5
 
@@ -1339,7 +1339,7 @@ define internal i32 @e1000_phy_force_speed_duplex_80003es2lan(ptr noundef %0) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -9, 1) i32 @e1000_get_cfg_done_80003es2lan(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef range(i32 -9, 1) i32 @e1000_get_cfg_done_80003es2lan(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1156
   %3 = load i16, ptr %2, align 4
   %4 = icmp eq i16 %3, 1

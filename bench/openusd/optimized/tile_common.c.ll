@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.AV1PixelRect = type { i32, i32, i32, i32 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @av1_tile_init(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden void @av1_tile_init(ptr noundef writeonly captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 27456
   %6 = sext i32 %2 to i64
   %7 = getelementptr inbounds [65 x i32], ptr %5, i64 0, i64 %6
@@ -52,7 +52,7 @@ define hidden void @av1_tile_init(ptr nocapture noundef writeonly initializes((0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @av1_tile_set_row(ptr nocapture noundef writeonly initializes((0, 8), (16, 20)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @av1_tile_set_row(ptr noundef writeonly captures(none) initializes((0, 8), (16, 20)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 27456
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds [65 x i32], ptr %4, i64 0, i64 %5
@@ -77,7 +77,7 @@ define hidden void @av1_tile_set_row(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @av1_tile_set_col(ptr nocapture noundef writeonly initializes((8, 16), (20, 24)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @av1_tile_set_col(ptr noundef writeonly captures(none) initializes((8, 16), (20, 24)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 27196
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds [65 x i32], ptr %4, i64 0, i64 %5
@@ -103,7 +103,7 @@ define hidden void @av1_tile_set_col(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @av1_get_tile_limits(ptr nocapture noundef initializes((27144, 27148)) %0) local_unnamed_addr #1 {
+define hidden void @av1_get_tile_limits(ptr noundef captures(none) initializes((27144, 27148)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 25220
@@ -180,7 +180,7 @@ tile_log2.exit39:                                 ; preds = %38
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @av1_calculate_tile_cols(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef initializes((16, 20)) %3) local_unnamed_addr #1 {
+define hidden void @av1_calculate_tile_cols(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) initializes((16, 20)) %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4
   %notmask = shl nsw i32 -1, %6
@@ -324,7 +324,7 @@ tile_log2.exit:                                   ; preds = %47
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @av1_calculate_tile_rows(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define hidden void @av1_calculate_tile_rows(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %5 = load i32, ptr %4, align 4
   %notmask = shl nsw i32 -1, %5
@@ -403,7 +403,7 @@ tile_log2.exit:                                   ; preds = %36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @av1_get_sb_rows_in_tile(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly byval(%struct.TileInfo) align 8 %1) local_unnamed_addr #2 {
+define hidden i32 @av1_get_sb_rows_in_tile(ptr noundef readonly captures(none) %0, ptr noundef readonly byval(%struct.TileInfo) align 8 captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %1, align 8
@@ -419,7 +419,7 @@ define hidden i32 @av1_get_sb_rows_in_tile(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @av1_get_sb_cols_in_tile(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly byval(%struct.TileInfo) align 8 %1) local_unnamed_addr #2 {
+define hidden i32 @av1_get_sb_cols_in_tile(ptr noundef readonly captures(none) %0, ptr noundef readonly byval(%struct.TileInfo) align 8 captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -436,7 +436,7 @@ define hidden i32 @av1_get_sb_cols_in_tile(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden { i64, i64 } @av1_get_tile_rect(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 {
+define hidden { i64, i64 } @av1_get_tile_rect(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca %struct.AV1PixelRect, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 4
@@ -529,7 +529,7 @@ define hidden { i64, i64 } @av1_get_tile_rect(ptr nocapture noundef readonly %0,
 declare void @av1_calculate_unscaled_superres_size(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @av1_get_uniform_tile_size(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define hidden void @av1_get_uniform_tile_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 27136
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 27156
   %6 = load i32, ptr %5, align 4
@@ -603,7 +603,7 @@ define hidden void @av1_get_uniform_tile_size(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @av1_is_min_tile_width_satisfied(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @av1_is_min_tile_width_satisfied(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 27136
   %3 = load i32, ptr %2, align 16
   %4 = icmp eq i32 %3, 1

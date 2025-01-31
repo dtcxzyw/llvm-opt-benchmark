@@ -558,7 +558,7 @@ define internal void @fiddle_handle_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @fiddle_handle_memsize(ptr nocapture readnone %0) #2 {
+define internal noundef i64 @fiddle_handle_memsize(ptr readnone captures(none) %0) #2 {
   ret i64 16
 }
 
@@ -587,7 +587,7 @@ define internal fastcc ptr @fiddle_handle_find_func(ptr noundef %0, i64 noundef 
   %11 = ashr exact i64 %sext, 32
   %12 = call noalias nonnull ptr @ruby_xmalloc(i64 noundef %11) #15
   %13 = ashr exact i64 %10, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr align 1 %4, i64 %13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull align 1 %4, i64 %13, i1 false)
   %14 = getelementptr inbounds i8, ptr %12, i64 %13
   store i8 64, ptr %14, align 1
   %15 = shl i64 %9, 32
@@ -656,16 +656,16 @@ declare ptr @dlerror() local_unnamed_addr #3
 declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: allocsize(0)
 declare noalias nonnull ptr @ruby_xmalloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 declare i64 @rb_int2big(i64 noundef) local_unnamed_addr #1
 
@@ -699,7 +699,7 @@ declare i32 @dlinfo(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 declare i64 @rb_str_new_cstr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

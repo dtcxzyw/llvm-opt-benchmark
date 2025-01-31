@@ -47,7 +47,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_pingv6_prot:
 declare dso_local void @ping_close(ptr noundef, i64 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef range(i32 -22, 1) i32 @ping_v6_pre_connect(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 noundef %2) #1 align 16 {
+define internal noundef range(i32 -22, 1) i32 @ping_v6_pre_connect(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2) #1 align 16 {
   %4 = icmp slt i32 %2, 24
   %5 = select i1 %4, i32 -22, i32 0
   ret i32 %5
@@ -487,7 +487,7 @@ define dso_local i32 @pingv6_init() local_unnamed_addr #3 section ".init.text" a
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @register_pernet_subsys(ptr noundef) local_unnamed_addr #0
@@ -514,7 +514,7 @@ declare dso_local i32 @ipv6_chk_addr(ptr noundef, ptr noundef, ptr noundef, i32 
 declare dso_local i32 @inet6_register_protosw(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pingv6_exit() local_unnamed_addr #2 align 16 {
@@ -530,27 +530,27 @@ define dso_local void @pingv6_exit() local_unnamed_addr #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @dummy_ipv6_recv_error(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3) #1 align 16 {
+define internal noundef i32 @dummy_ipv6_recv_error(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3) #1 align 16 {
   ret i32 -97
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @dummy_ip6_datagram_recv_ctl(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #1 align 16 {
+define internal void @dummy_ip6_datagram_recv_ctl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #1 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @dummy_icmpv6_err_convert(i8 zeroext %0, i8 zeroext %1, ptr nocapture readnone %2) #1 align 16 {
+define internal noundef i32 @dummy_icmpv6_err_convert(i8 zeroext %0, i8 zeroext %1, ptr readnone captures(none) %2) #1 align 16 {
   ret i32 -97
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @dummy_ipv6_icmp_error(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i16 zeroext %3, i32 %4, ptr nocapture readnone %5) #1 align 16 {
+define internal void @dummy_ipv6_icmp_error(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i16 zeroext %3, i32 %4, ptr readnone captures(none) %5) #1 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @dummy_ipv6_chk_addr(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 %3) #1 align 16 {
+define internal noundef i32 @dummy_ipv6_chk_addr(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 %3) #1 align 16 {
   ret i32 0
 }
 
@@ -561,7 +561,7 @@ declare dso_local void @unregister_pernet_subsys(ptr noundef) local_unnamed_addr
 declare dso_local void @inet6_unregister_protosw(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @ping_common_sendmsg(i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
@@ -570,7 +570,7 @@ declare dso_local i32 @ping_common_sendmsg(i32 noundef, ptr noundef, i64 noundef
 declare dso_local i32 @ip6_datagram_send_ctl(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @security_sk_classify_flow(ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -609,7 +609,7 @@ declare dso_local i32 @ip6_dst_hoplimit(ptr noundef) local_unnamed_addr #0
 declare dso_local void @lock_sock_nested(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -12, 1) i32 @ping_v6_proc_init_net(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal range(i32 -12, 1) i32 @ping_v6_proc_init_net(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 32
   %4 = tail call ptr @proc_create_net_data(ptr noundef nonnull @.str, i16 noundef zeroext 292, ptr noundef %3, ptr noundef nonnull @ping_v6_seq_ops, i32 noundef 16, ptr noundef null) #8
@@ -619,7 +619,7 @@ define internal range(i32 -12, 1) i32 @ping_v6_proc_init_net(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ping_v6_proc_exit_net(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @ping_v6_proc_exit_net(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 32
   tail call void @remove_proc_entry(ptr noundef nonnull @.str, ptr noundef %3) #8

@@ -418,12 +418,12 @@ Vec_PtrAllocSimInfo.exit19:                       ; preds = %.lr.ph.i15
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @Cloud_Init(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Kit_DsdManFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Kit_DsdManFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @Cloud_Quit(ptr noundef %3) #27
@@ -486,10 +486,10 @@ Vec_PtrFree.exit9:                                ; preds = %Vec_PtrFree.exit, %
 declare void @Cloud_Quit(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef ptr @Kit_DsdObjAlloc(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define noundef ptr @Kit_DsdObjAlloc(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = ashr i32 %2, 1
   %5 = and i32 %2, 1
   %6 = add nsw i32 %4, %5
@@ -570,10 +570,10 @@ define noundef ptr @Kit_DsdObjAlloc(ptr nocapture noundef %0, i32 noundef %1, i3
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @Kit_DsdObjFree(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #7 {
+define void @Kit_DsdObjFree(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 
@@ -612,7 +612,7 @@ define noalias noundef ptr @Kit_DsdNtkAlloc(i32 noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Kit_DsdNtkFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Kit_DsdNtkFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i16, ptr %3, align 4
@@ -672,7 +672,7 @@ define void @Kit_DsdNtkFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Kit_DsdPrintHex(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 {
+define void @Kit_DsdPrintHex(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = shl nuw i32 1, %2
   %5 = icmp sgt i32 %4, 3
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
@@ -713,10 +713,10 @@ define void @Kit_DsdPrintHex(ptr nocapture noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @Kit_DsdWriteHex(ptr noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #11 {
+define ptr @Kit_DsdWriteHex(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #11 {
   %4 = shl nuw i32 1, %2
   %5 = icmp sgt i32 %4, 3
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
@@ -753,7 +753,7 @@ define ptr @Kit_DsdWriteHex(ptr noundef writeonly %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Kit_DsdPrint2_rec(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 {
+define void @Kit_DsdPrint2_rec(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = load i16, ptr %1, align 8
   %5 = zext i16 %4 to i32
   %6 = icmp slt i32 %2, %5
@@ -864,7 +864,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %3, %Kit_DsdNtkObj.e
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Kit_DsdPrint2(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
+define void @Kit_DsdPrint2(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, 1
@@ -885,7 +885,7 @@ define void @Kit_DsdPrint2(ptr nocapture noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Kit_DsdPrint_rec(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 {
+define void @Kit_DsdPrint_rec(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = load i16, ptr %1, align 8
   %5 = zext i16 %4 to i32
   %6 = icmp slt i32 %2, %5
@@ -1029,7 +1029,7 @@ Kit_DsdPrintHex.exit:                             ; preds = %49, %26, %23
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Kit_DsdPrint(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
+define void @Kit_DsdPrint(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 4, i64 1, ptr %0)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %5 = load i16, ptr %4, align 2
@@ -1051,7 +1051,7 @@ define void @Kit_DsdPrint(ptr nocapture noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define nonnull ptr @Kit_DsdWrite_rec(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #12 {
+define nonnull ptr @Kit_DsdWrite_rec(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #12 {
   %4 = load i16, ptr %1, align 8
   %5 = zext i16 %4 to i32
   %6 = icmp slt i32 %2, %5
@@ -1203,7 +1203,7 @@ Kit_DsdWriteHex.exit:                             ; preds = %.lr.ph.i, %28, %25
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Kit_DsdWrite(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #12 {
+define void @Kit_DsdWrite(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, 1
@@ -1433,7 +1433,7 @@ define noundef ptr @Kit_DsdDecomposeMux(ptr noundef %0, i32 noundef %1, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Kit_DsdVerify(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Kit_DsdVerify(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %.val = load i16, ptr %0, align 8
   %4 = getelementptr i8, ptr %0, i64 4
   %.val8 = load i16, ptr %4, align 4
@@ -1562,7 +1562,7 @@ Extra_TruthIsEqual.exit:                          ; preds = %select.unfold.i, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Kit_DsdPrintFromTruth2(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Kit_DsdPrintFromTruth2(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @Kit_DsdDecomposeInt(ptr noundef %1, i32 noundef %2, i32 noundef 0)
   %5 = tail call ptr @Kit_DsdExpand(ptr noundef %4)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 6
@@ -2893,7 +2893,7 @@ Kit_TruthNot.exit:                                ; preds = %select.unfold.i22, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @Kit_DsdGetSupports(ptr nocapture noundef initializes((16, 24)) %0) local_unnamed_addr #9 {
+define i32 @Kit_DsdGetSupports(ptr noundef captures(none) initializes((16, 24)) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = zext i16 %3 to i64
@@ -2974,7 +2974,7 @@ Kit_DsdLitSupport.exit:                           ; preds = %28, %35, %37
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Kit_DsdTruthComputeNodeTwo_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define ptr @Kit_DsdTruthComputeNodeTwo_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca [16 x i32], align 16
   %8 = alloca [16 x ptr], align 16
   %9 = load i16, ptr %1, align 8
@@ -3954,7 +3954,7 @@ select.unfold.i319:                               ; preds = %select.unfold.i319,
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Kit_DsdTruthComputeTwo(ptr noundef %0, ptr noundef initializes((16, 24)) %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define ptr @Kit_DsdTruthComputeTwo(ptr noundef %0, ptr noundef initializes((16, 24)) %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i16, ptr %6, align 4
   %8 = zext i16 %7 to i64
@@ -4413,7 +4413,7 @@ Kit_DsdTruthCompute.exit:                         ; preds = %select.unfold.i81, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Kit_DsdTruth(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define void @Kit_DsdTruth(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i16, ptr %0, align 8
   %4 = zext i16 %3 to i32
   %5 = getelementptr i8, ptr %0, i64 4
@@ -4542,7 +4542,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %K
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Kit_DsdTruthPartialTwo(ptr noundef %0, ptr noundef initializes((16, 24)) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define void @Kit_DsdTruthPartialTwo(ptr noundef %0, ptr noundef initializes((16, 24)) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   %7 = tail call ptr @Kit_DsdTruthComputeTwo(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %5)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %Kit_TruthCopy.exit, label %8
@@ -4576,7 +4576,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Kit_DsdTruthPartial(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Kit_DsdTruthPartial(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @Kit_DsdTruthComputeOne(ptr noundef %0, ptr noundef %1, i32 noundef %3)
   %6 = load i16, ptr %1, align 8
   %7 = zext i16 %6 to i32
@@ -4750,7 +4750,7 @@ Kit_DsdNtkRoot.exit.thread:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 64) i32 @Kit_DsdNonDsdSizeMax(ptr nocapture noundef readonly %0) local_unnamed_addr #15 {
+define range(i32 0, 64) i32 @Kit_DsdNonDsdSizeMax(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %.not17 = icmp eq i16 %3, 0
@@ -4787,7 +4787,7 @@ define range(i32 0, 64) i32 @Kit_DsdNonDsdSizeMax(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @Kit_DsdNonDsdPrimeMax(ptr nocapture noundef readonly %0) local_unnamed_addr #15 {
+define ptr @Kit_DsdNonDsdPrimeMax(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %.not22 = icmp eq i16 %3, 0
@@ -4828,7 +4828,7 @@ define ptr @Kit_DsdNonDsdPrimeMax(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @Kit_DsdNonDsdSupports(ptr nocapture noundef initializes((16, 24)) %0) local_unnamed_addr #9 {
+define i32 @Kit_DsdNonDsdSupports(ptr noundef captures(none) initializes((16, 24)) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = zext i16 %3 to i64
@@ -4969,7 +4969,7 @@ Kit_DsdLitSupport.exit:                           ; preds = %54, %61, %63
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Kit_DsdExpandCollectAnd_rec(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #13 {
+define void @Kit_DsdExpandCollectAnd_rec(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #13 {
   %5 = ashr i32 %1, 1
   %6 = load i16, ptr %0, align 8
   %7 = zext i16 %6 to i32
@@ -5028,7 +5028,7 @@ Kit_DsdNtkObj.exit:                               ; preds = %4, %Kit_DsdNtkObj.e
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Kit_DsdExpandCollectXor_rec(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #13 {
+define void @Kit_DsdExpandCollectXor_rec(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #13 {
   %5 = ashr i32 %1, 1
   %6 = load i16, ptr %0, align 8
   %7 = zext i16 %6 to i32
@@ -5414,7 +5414,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %3, %Kit_DsdNtkObj.e
 declare void @Kit_TruthChangePhase(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Kit_DsdCompSort(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define void @Kit_DsdCompSort(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca [16 x i32], align 16
   %7 = alloca [16 x i32], align 16
   %8 = alloca [16 x i32], align 16
@@ -6159,7 +6159,7 @@ Kit_DsdObjAlloc.exit32:                           ; preds = %47, %57
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Kit_DsdRotate(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @Kit_DsdRotate(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [16 x i32], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -6355,7 +6355,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %5
 declare void @Kit_TruthSwapAdjacentVars(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Kit_DsdGetSupports_rec(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #12 {
+define i32 @Kit_DsdGetSupports_rec(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = ashr i32 %1, 1
   %4 = load i16, ptr %0, align 8
   %5 = zext i16 %4 to i32
@@ -6439,7 +6439,7 @@ Kit_DsdLitSupport.exit:                           ; preds = %Kit_DsdNtkObj.exit.
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Kit_DsdFindLargeBox_rec(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @Kit_DsdFindLargeBox_rec(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #16 {
   %4 = load i16, ptr %0, align 8
   %5 = zext i16 %4 to i32
   %6 = icmp slt i32 %1, %5
@@ -6492,7 +6492,7 @@ Kit_DsdNtkObj.exit:                               ; preds = %3
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Kit_DsdFindLargeBox(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @Kit_DsdFindLargeBox(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %4 = load i16, ptr %3, align 2
   %5 = lshr i16 %4, 1
@@ -6502,7 +6502,7 @@ define range(i32 0, 2) i32 @Kit_DsdFindLargeBox(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Kit_DsdCountAigNodes_rec(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #16 {
+define i32 @Kit_DsdCountAigNodes_rec(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #16 {
   %3 = load i16, ptr %0, align 8
   %4 = zext i16 %3 to i32
   %5 = icmp slt i32 %1, %4
@@ -6576,7 +6576,7 @@ Kit_DsdNtkObj.exit:                               ; preds = %2
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Kit_DsdCountAigNodes2(ptr nocapture noundef readonly %0) local_unnamed_addr #16 {
+define i32 @Kit_DsdCountAigNodes2(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %3 = load i16, ptr %2, align 2
   %4 = lshr i16 %3, 1
@@ -6586,7 +6586,7 @@ define i32 @Kit_DsdCountAigNodes2(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Kit_DsdCountAigNodes(ptr nocapture noundef readonly %0) local_unnamed_addr #15 {
+define i32 @Kit_DsdCountAigNodes(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %.not = icmp eq i16 %3, 0
@@ -6641,7 +6641,7 @@ define i32 @Kit_DsdCountAigNodes(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Kit_DsdRootNodeHasCommonVars(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #17 {
+define range(i32 0, 2) i32 @Kit_DsdRootNodeHasCommonVars(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #17 {
   %3 = load i32, ptr %0, align 4
   %.not = icmp ult i32 %3, 67108864
   br i1 %.not, label %.loopexit14, label %.lr.ph18
@@ -6694,7 +6694,7 @@ define range(i32 0, 2) i32 @Kit_DsdRootNodeHasCommonVars(ptr nocapture noundef r
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Kit_DsdCheckVar4Dec2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @Kit_DsdCheckVar4Dec2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %4 = load i16, ptr %3, align 2
   %5 = lshr i16 %4, 1
@@ -6795,7 +6795,7 @@ Kit_DsdRootNodeHasCommonVars.exit:                ; preds = %.loopexit.i, %.lr.p
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Kit_DsdDecompose_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @Kit_DsdDecompose_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -8387,7 +8387,7 @@ define noundef ptr @Kit_DsdDecomposeExpand(ptr noundef %0, i32 noundef %1) local
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Kit_DsdTestCofs(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i32 @Kit_DsdTestCofs(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i16, ptr %0, align 8
@@ -8502,7 +8502,7 @@ Kit_DsdPrint.exit46:                              ; preds = %Kit_DsdPrint.exit42
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 declare void @Extra_PrintHexadecimal(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -9012,18 +9012,18 @@ Extra_TruthIsEqual.exit:                          ; preds = %select.unfold.i, %8
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 declare i32 @Extra_ReadHexadecimal(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @Kit_DsdCofactoringGetVars(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #18 {
+define i32 @Kit_DsdCofactoringGetVars(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #18 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.preheader42.preheader, label %._crit_edge58
 
@@ -9152,7 +9152,7 @@ define i32 @Kit_DsdCofactoringGetVars(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Kit_DsdCofactoring(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define i32 @Kit_DsdCofactoring(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [5 x [16 x ptr]], align 16
   %7 = alloca [5 x [16 x ptr]], align 16
   %8 = alloca [16 x i32], align 16
@@ -11059,19 +11059,19 @@ define noundef nonnull ptr @Kit_DsdNpn4ClassNames() local_unnamed_addr #19 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #20
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #21
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #21
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #21
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #21
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #22
@@ -11089,10 +11089,10 @@ declare void @llvm.assume(i1 noundef) #24
 declare i32 @llvm.smin.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

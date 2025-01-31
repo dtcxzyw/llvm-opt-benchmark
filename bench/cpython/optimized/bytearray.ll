@@ -40,7 +40,7 @@ entry:
 declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytearray_check(ptr nocapture readnone %_unused_module, ptr noundef readonly %obj) #0 {
+define internal ptr @bytearray_check(ptr readnone captures(none) %_unused_module, ptr noundef readonly %obj) #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %obj
@@ -62,7 +62,7 @@ PyObject_TypeCheck.exit:                          ; preds = %entry, %lor.rhs.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytearray_checkexact(ptr nocapture readnone %_unused_module, ptr noundef readonly %obj) #0 {
+define internal ptr @bytearray_checkexact(ptr readnone captures(none) %_unused_module, ptr noundef readonly %obj) #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %obj
@@ -75,7 +75,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytearray_fromstringandsize(ptr nocapture readnone %_unused_module, ptr noundef %args) #0 {
+define internal ptr @bytearray_fromstringandsize(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
 entry:
   %s = alloca ptr, align 8
   %bsize = alloca i64, align 8
@@ -107,7 +107,7 @@ return:                                           ; preds = %entry, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytearray_fromobject(ptr nocapture readnone %_unused_module, ptr noundef %arg) #0 {
+define internal ptr @bytearray_fromobject(ptr readnone captures(none) %_unused_module, ptr noundef %arg) #0 {
 entry:
   %cmp = icmp eq ptr %arg, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %arg
@@ -116,7 +116,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytearray_size(ptr nocapture readnone %_unused_module, ptr noundef %arg) #0 {
+define internal ptr @bytearray_size(ptr readnone captures(none) %_unused_module, ptr noundef %arg) #0 {
 entry:
   %cmp = icmp eq ptr %arg, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %arg
@@ -150,7 +150,7 @@ do.end12:                                         ; preds = %if.then3, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytearray_asstring(ptr nocapture readnone %_unused_module, ptr noundef %args) #0 {
+define internal ptr @bytearray_asstring(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
 entry:
   %obj = alloca ptr, align 8
   %buflen = alloca i64, align 8
@@ -184,7 +184,7 @@ return:                                           ; preds = %do.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytearray_concat(ptr nocapture readnone %_unused_module, ptr noundef %args) #0 {
+define internal ptr @bytearray_concat(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
 entry:
   %left = alloca ptr, align 8
   %right = alloca ptr, align 8
@@ -222,7 +222,7 @@ return:                                           ; preds = %entry, %do.end7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytearray_resize(ptr nocapture readnone %_unused_module, ptr noundef %args) #0 {
+define internal ptr @bytearray_resize(ptr readnone captures(none) %_unused_module, ptr noundef %args) #0 {
 entry:
   %obj = alloca ptr, align 8
   %size = alloca i64, align 8

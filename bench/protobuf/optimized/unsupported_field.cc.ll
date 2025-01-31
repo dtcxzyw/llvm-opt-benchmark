@@ -88,7 +88,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6google8protobuf8compiler4rust16UnsupportedField9InMsgImplENS2_7ContextINS0_15FieldDescriptorEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef readonly byval(%"class.google::protobuf::compiler::rust::Context") align 8 %field) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6google8protobuf8compiler4rust16UnsupportedField9InMsgImplENS2_7ContextINS0_15FieldDescriptorEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef readonly byval(%"class.google::protobuf::compiler::rust::Context") align 8 captures(none) %field) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca [1 x %"class.google::protobuf::io::Printer::Sub"], align 8
   %agg.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -354,7 +354,7 @@ define hidden noundef range(i32 -1, 2) i32 @_Z19compare_malloc_sizeRK10MallocSit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 -1, 2) i32 @_Z27compare_virtual_memory_sizeRK27VirtualMemoryAllocationSiteS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #1 {
+define hidden noundef range(i32 -1, 2) i32 @_Z27compare_virtual_memory_sizeRK27VirtualMemoryAllocationSiteS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -364,13 +364,13 @@ define hidden noundef range(i32 -1, 2) i32 @_Z27compare_virtual_memory_sizeRK27V
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_Z19compare_malloc_siteRK10MallocSiteS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #2 {
+define hidden noundef i32 @_Z19compare_malloc_siteRK10MallocSiteS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) local_unnamed_addr #2 {
   %3 = tail call noundef i32 @memcmp(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 32) #14
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_Z28compare_malloc_site_and_typeRK10MallocSiteS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #2 {
+define hidden noundef i32 @_Z28compare_malloc_site_and_typeRK10MallocSiteS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) local_unnamed_addr #2 {
   %3 = tail call noundef i32 @memcmp(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1, i64 noundef 32) #14
   %4 = icmp eq i32 %3, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -385,7 +385,7 @@ define hidden noundef i32 @_Z28compare_malloc_site_and_typeRK10MallocSiteS1_(ptr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_Z27compare_virtual_memory_siteRK27VirtualMemoryAllocationSiteS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #2 {
+define hidden noundef i32 @_Z27compare_virtual_memory_siteRK27VirtualMemoryAllocationSiteS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) local_unnamed_addr #2 {
   %3 = tail call noundef i32 @memcmp(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 32) #14
   ret i32 %3
 }
@@ -419,10 +419,10 @@ declare void @_ZN17MemoryFileTracker8Instance6LockerD1Ev(ptr noundef nonnull ali
 declare void @_ZN14MetaspaceUtils23get_combined_statisticsEv(ptr dead_on_unwind writable sret(%class.MetaspaceCombinedStats) align 8) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN11MemBaseline25baseline_allocation_sitesEv(ptr nocapture noundef nonnull align 8 dereferenceable(2676) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN11MemBaseline25baseline_allocation_sitesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(2676) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %class.MallocAllocationSiteWalker, align 8
   %3 = alloca %class.VirtualMemoryAllocationWalker, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV26MallocAllocationSiteWalker, i64 16), ptr %2, align 8
@@ -643,7 +643,7 @@ define linkonce_odr hidden void @_ZN14LinkedListImplI20ReservedMemoryRegionLN6An
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN11MemBaseline41aggregate_virtual_memory_allocation_sitesEv(ptr nocapture noundef nonnull align 8 dereferenceable(2676) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN11MemBaseline41aggregate_virtual_memory_allocation_sitesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(2676) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %class.SortedLinkedList.4, align 8
   %3 = alloca %class.VirtualMemoryAllocationSite, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -873,7 +873,7 @@ _ZN14LinkedListImplI20ReservedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAG
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_Z23compare_allocation_siteRK27VirtualMemoryAllocationSiteS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #2 {
+define hidden noundef i32 @_Z23compare_allocation_siteRK27VirtualMemoryAllocationSiteS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) local_unnamed_addr #2 {
   %3 = tail call noundef i32 @memcmp(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 32) #14
   ret i32 %3
 }
@@ -967,7 +967,7 @@ _ZN14LinkedListImplI27VirtualMemoryAllocationSiteLN6AnyObj15allocation_typeE2EL8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @_ZN11MemBaseline12malloc_sitesENS_12SortingOrderE(ptr nocapture noundef nonnull align 8 dereferenceable(2676) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define hidden ptr @_ZN11MemBaseline12malloc_sitesENS_12SortingOrderE(ptr noundef nonnull align 8 captures(none) dereferenceable(2676) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %class.SortedLinkedList.11, align 8
   %4 = alloca %class.SortedLinkedList.10, align 8
   %5 = alloca %class.SortedLinkedList, align 8
@@ -1120,7 +1120,7 @@ _ZN11MemBaseline46malloc_sites_to_allocation_site_and_type_orderEv.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11MemBaseline26malloc_sites_to_size_orderEv(ptr nocapture noundef nonnull align 8 dereferenceable(2676) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11MemBaseline26malloc_sites_to_size_orderEv(ptr noundef nonnull align 8 captures(none) dereferenceable(2676) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %class.SortedLinkedList, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2664
   %4 = load i32, ptr %3, align 8
@@ -1164,7 +1164,7 @@ _ZN16SortedLinkedListI10MallocSiteXadL_Z19compare_malloc_sizeRKS0_S2_EELN6AnyObj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11MemBaseline37malloc_sites_to_allocation_site_orderEv(ptr nocapture noundef nonnull align 8 dereferenceable(2676) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11MemBaseline37malloc_sites_to_allocation_site_orderEv(ptr noundef nonnull align 8 captures(none) dereferenceable(2676) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %class.SortedLinkedList.10, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2664
   %4 = load i32, ptr %3, align 8
@@ -1209,7 +1209,7 @@ _ZN16SortedLinkedListI10MallocSiteXadL_Z19compare_malloc_siteRKS0_S2_EELN6AnyObj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11MemBaseline46malloc_sites_to_allocation_site_and_type_orderEv(ptr nocapture noundef nonnull align 8 dereferenceable(2676) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11MemBaseline46malloc_sites_to_allocation_site_and_type_orderEv(ptr noundef nonnull align 8 captures(none) dereferenceable(2676) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %class.SortedLinkedList.11, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2664
   %4 = load i32, ptr %3, align 8
@@ -1256,7 +1256,7 @@ _ZN16SortedLinkedListI10MallocSiteXadL_Z28compare_malloc_site_and_typeRKS0_S2_EE
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @_ZN11MemBaseline20virtual_memory_sitesENS_12SortingOrderE(ptr nocapture noundef nonnull align 8 dereferenceable(2676) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define hidden ptr @_ZN11MemBaseline20virtual_memory_sitesENS_12SortingOrderE(ptr noundef nonnull align 8 captures(none) dereferenceable(2676) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %class.SortedLinkedList.13, align 8
   %4 = alloca %class.SortedLinkedList.12, align 8
   switch i32 %1, label %35 [
@@ -1363,7 +1363,7 @@ _ZN11MemBaseline46virtual_memory_sites_to_reservation_site_orderEv.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11MemBaseline34virtual_memory_sites_to_size_orderEv(ptr nocapture noundef nonnull align 8 dereferenceable(2676) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11MemBaseline34virtual_memory_sites_to_size_orderEv(ptr noundef nonnull align 8 captures(none) dereferenceable(2676) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %class.SortedLinkedList.12, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2668
   %4 = load i32, ptr %3, align 4
@@ -1407,7 +1407,7 @@ _ZN16SortedLinkedListI27VirtualMemoryAllocationSiteXadL_Z27compare_virtual_memor
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11MemBaseline46virtual_memory_sites_to_reservation_site_orderEv(ptr nocapture noundef nonnull align 8 dereferenceable(2676) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11MemBaseline46virtual_memory_sites_to_reservation_site_orderEv(ptr noundef nonnull align 8 captures(none) dereferenceable(2676) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %class.SortedLinkedList.13, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2668
   %4 = load i32, ptr %3, align 4
@@ -1762,7 +1762,7 @@ define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80EL
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 declare void @_ZN20MallocMemorySnapshot7copy_toEPS_(ptr noundef nonnull align 8 dereferenceable(1824), ptr noundef) local_unnamed_addr #4
 
@@ -3232,7 +3232,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplI21CommittedMemoryReg
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14LinkedListImplI10MallocSiteLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 {
@@ -4875,13 +4875,13 @@ define linkonce_odr hidden noundef ptr @_ZN16SortedLinkedListI27VirtualMemoryAll
 declare i32 @llvm.ucmp.i32.i64(i64, i64) #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

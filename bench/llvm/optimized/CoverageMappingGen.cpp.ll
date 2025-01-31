@@ -719,7 +719,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 declare void @_ZN5clang12Preprocessor17addCommentHandlerEPNS_14CommentHandlerE(ptr noundef nonnull align 8 dereferenceable(3288), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang18CoverageSourceInfo15AddSkippedRangeENS_11SourceRangeENS_12SkippedRange4KindE(ptr nocapture noundef nonnull align 8 dereferenceable(60) %0, i64 %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang18CoverageSourceInfo15AddSkippedRangeENS_11SourceRangeENS_12SkippedRange4KindE(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %0, i64 %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %.sroa.015.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.316.0.extract.shift = lshr i64 %1, 32
   %.sroa.316.0.extract.trunc = trunc nuw i64 %.sroa.316.0.extract.shift to i32
@@ -966,45 +966,45 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit13: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang18CoverageSourceInfo18SourceRangeSkippedENS_11SourceRangeENS_14SourceLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(60) %0, i64 %1, i32 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang18CoverageSourceInfo18SourceRangeSkippedENS_11SourceRangeENS_14SourceLocationE(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %0, i64 %1, i32 %2) unnamed_addr #0 align 2 {
   tail call void @_ZN5clang18CoverageSourceInfo15AddSkippedRangeENS_11SourceRangeENS_12SkippedRange4KindE(ptr noundef nonnull align 8 dereferenceable(60) %0, i64 %1, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang18CoverageSourceInfo15HandleEmptylineENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(60) %0, i64 %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang18CoverageSourceInfo15HandleEmptylineENS_11SourceRangeE(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %0, i64 %1) unnamed_addr #0 align 2 {
   tail call void @_ZN5clang18CoverageSourceInfo15AddSkippedRangeENS_11SourceRangeENS_12SkippedRange4KindE(ptr noundef nonnull align 8 dereferenceable(60) %0, i64 %1, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn16_N5clang18CoverageSourceInfo15HandleEmptylineENS_11SourceRangeE(ptr nocapture noundef %0, i64 %1) unnamed_addr #6 align 2 {
+define dso_local void @_ZThn16_N5clang18CoverageSourceInfo15HandleEmptylineENS_11SourceRangeE(ptr noundef captures(none) %0, i64 %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN5clang18CoverageSourceInfo15AddSkippedRangeENS_11SourceRangeENS_12SkippedRange4KindE(ptr noundef nonnull align 8 dereferenceable(60) %3, i64 %1, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang18CoverageSourceInfo13HandleCommentERNS_12PreprocessorENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(60) %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang18CoverageSourceInfo13HandleCommentERNS_12PreprocessorENS_11SourceRangeE(ptr noundef nonnull align 8 captures(none) dereferenceable(60) %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #0 align 2 {
   tail call void @_ZN5clang18CoverageSourceInfo15AddSkippedRangeENS_11SourceRangeENS_12SkippedRange4KindE(ptr noundef nonnull align 8 dereferenceable(60) %0, i64 %2, i32 noundef 2)
   ret i1 false
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @_ZThn8_N5clang18CoverageSourceInfo13HandleCommentERNS_12PreprocessorENS_11SourceRangeE(ptr nocapture noundef %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZThn8_N5clang18CoverageSourceInfo13HandleCommentERNS_12PreprocessorENS_11SourceRangeE(ptr noundef captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN5clang18CoverageSourceInfo15AddSkippedRangeENS_11SourceRangeENS_12SkippedRange4KindE(ptr noundef nonnull align 8 dereferenceable(60) %4, i64 %2, i32 noundef 2)
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5clang18CoverageSourceInfo16updateNextTokLocENS_14SourceLocationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %0, i32 %1) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN5clang18CoverageSourceInfo16updateNextTokLocENS_14SourceLocationE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0, i32 %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1027,7 +1027,7 @@ define dso_local void @_ZN5clang18CoverageSourceInfo16updateNextTokLocENS_14Sour
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local void @_ZN5clang7CodeGen24CoverageMappingModuleGenC2ERNS0_13CodeGenModuleERNS_18CoverageSourceInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(3600) %1, ptr noundef nonnull align 8 dereferenceable(60) %2) unnamed_addr #8 align 2 {
+define dso_local void @_ZN5clang7CodeGen24CoverageMappingModuleGenC2ERNS0_13CodeGenModuleERNS_18CoverageSourceInfoE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(200) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(3600) %1, ptr noundef nonnull align 8 dereferenceable(60) %2) unnamed_addr #8 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -1052,7 +1052,7 @@ _ZN4llvm13SmallDenseMapIN5clang12FileEntryRefEjLj8ENS_12DenseMapInfoIS2_vEENS_6d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen24CoverageMappingModuleGen17getCurrentDirnameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen24CoverageMappingModuleGen17getCurrentDirnameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::allocator.40", align 1
   %4 = alloca %"class.llvm::SmallString", align 8
   %5 = load ptr, ptr %1, align 8
@@ -1113,7 +1113,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare { i32, ptr } @_ZN4llvm3sys2fs12current_pathERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen24CoverageMappingModuleGen17normalizeFilenameB5cxx11EN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen24CoverageMappingModuleGen17normalizeFilenameB5cxx11EN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::allocator.40", align 1
   %6 = alloca %"class.llvm::SmallString", align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 %3
@@ -1183,7 +1183,7 @@ declare noundef zeroext i1 @_ZN4llvm3sys4path11remove_dotsERNS_15SmallVectorImpl
 declare noundef zeroext i1 @_ZN4llvm3sys4path19replace_path_prefixERNS_15SmallVectorImplIcEENS_9StringRefES5_NS1_5StyleE(ptr noundef nonnull align 8 dereferenceable(24), ptr, i64, ptr, i64, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen24CoverageMappingModuleGen25emitFunctionMappingRecordERKNS1_12FunctionInfoEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(49) %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen24CoverageMappingModuleGen25emitFunctionMappingRecordERKNS1_12FunctionInfoEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(49) %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca [17 x i8], align 16
   %5 = alloca %"class.std::allocator.40", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2768,7 +2768,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang12FileEntryRefEjLj8ENS_12DenseM
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen18CoverageMappingGen18emitCounterMappingEPKNS_4DeclERN4llvm11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen18CoverageMappingGen18emitCounterMappingEPKNS_4DeclERN4llvm11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallVector.1791", align 8
   %5 = alloca %"struct.llvm::coverage::CounterMappingRegion", align 4
   %6 = alloca %"struct.std::pair.1768", align 8
@@ -3638,7 +3638,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilderD2Ev.exit: ; preds = %_ZN4llvm11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen18CoverageMappingGen16emitEmptyMappingEPKNS_4DeclERN4llvm11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen18CoverageMappingGen16emitEmptyMappingEPKNS_4DeclERN4llvm11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallVector.1810", align 8
   %5 = alloca %"class.llvm::SmallSet.1712", align 8
   %6 = alloca %"class.llvm::coverage::CoverageMappingWriter", align 8
@@ -4609,10 +4609,10 @@ _ZN5clang18CoverageSourceInfoD0Ev.exit:           ; preds = %1, %6
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
@@ -4959,7 +4959,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt5arrayIsLm2EELb1EE13growAndAssignEmS2_.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i32 @_ZN12_GLOBAL__N_122CoverageMappingBuilder8getStartEPKN5clang4StmtE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1960) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define internal fastcc i32 @_ZN12_GLOBAL__N_122CoverageMappingBuilder8getStartEPKN5clang4StmtE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1960) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %5
@@ -5004,7 +5004,7 @@ _ZN12_GLOBAL__N_122CoverageMappingBuilder11isInBuiltinEN5clang14SourceLocationE.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i32 @_ZN12_GLOBAL__N_122CoverageMappingBuilder6getEndEPKN5clang4StmtE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1960) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define internal fastcc i32 @_ZN12_GLOBAL__N_122CoverageMappingBuilder6getEndEPKN5clang4StmtE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1960) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %5
@@ -5418,7 +5418,7 @@ declare i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereference
 declare noundef i32 @_ZN5clang5Lexer18MeasureTokenLengthENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsE(i32, ptr noundef nonnull align 8 dereferenceable(696), ptr noundef nonnull align 8 dereferenceable(841)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i64 @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder10pushRegionEN4llvm8coverage7CounterESt8optionalIN5clang14SourceLocationEES7_S4_IS3_ERKSt7variantIJSt9monostateNS2_4mcdc18DecisionParametersENSB_16BranchParametersEEE(ptr noundef nonnull align 8 dereferenceable(2376) %0, i64 %1, i64 %2, i64 %3, i64 %4, i8 %5, ptr nocapture noundef nonnull readonly align 4 dereferenceable(9) %6) unnamed_addr #0 align 2 {
+define internal fastcc noundef i64 @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder10pushRegionEN4llvm8coverage7CounterESt8optionalIN5clang14SourceLocationEES7_S4_IS3_ERKSt7variantIJSt9monostateNS2_4mcdc18DecisionParametersENSB_16BranchParametersEEE(ptr noundef nonnull align 8 dereferenceable(2376) %0, i64 %1, i64 %2, i64 %3, i64 %4, i8 %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(9) %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.(anonymous namespace)::SourceMappingRegion", align 8
   %.sroa.020.0.extract.trunc = trunc i64 %2 to i32
   %.sroa.5.0.extract.shift = lshr i64 %2, 32
@@ -14201,7 +14201,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14V
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_129CounterCoverageMappingBuilder20isExprInSystemHeaderEPKN5clang14BinaryOperatorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2376) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_129CounterCoverageMappingBuilder20isExprInSystemHeaderEPKN5clang14BinaryOperatorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2376) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm8coverage21SystemHeadersCoverageE, i64 128), align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit16, label %5
@@ -16678,7 +16678,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen4MCDC5State6Branc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122CoverageMappingBuilder10isNestedInEN5clang14SourceLocationENS1_6FileIDE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1960) %0, i32 %1, i32 %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_122CoverageMappingBuilder10isNestedInEN5clang14SourceLocationENS1_6FileIDE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1960) %0, i32 %1, i32 %2) unnamed_addr #0 align 2 {
   %.fr26 = freeze i32 %2
   %4 = tail call fastcc i32 @_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb(ptr noundef nonnull align 8 dereferenceable(1960) %0, i32 %1, i1 noundef zeroext true)
   %.not = icmp eq i32 %4, 0
@@ -16794,7 +16794,7 @@ _ZNK5clang13SourceManager10isInFileIDENS_14SourceLocationENS_6FileIDEPj.exit.thr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i32 @_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1960) %0, i32 %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define internal fastcc i32 @_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1960) %0, i32 %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = alloca i8, align 1
   %5 = icmp slt i32 %1, 0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17200,7 +17200,7 @@ _ZNSt3setIN5clang14SourceLocationESt4lessIS1_ESaIS1_EE6insertERKS1_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i32 @_ZN12_GLOBAL__N_122CoverageMappingBuilder19getEndOfFileOrMacroEN5clang14SourceLocationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1960) %0, i32 %1) unnamed_addr #0 align 2 {
+define internal fastcc i32 @_ZN12_GLOBAL__N_122CoverageMappingBuilder19getEndOfFileOrMacroEN5clang14SourceLocationE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1960) %0, i32 %1) unnamed_addr #0 align 2 {
   %3 = alloca i8, align 1
   %4 = icmp slt i32 %1, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17461,7 +17461,7 @@ _ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit: ; preds = %38,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, i8 } @_ZN12_GLOBAL__N_122CoverageMappingBuilder25getNonScratchExpansionLocEN5clang14SourceLocationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1960) %0, i32 %1) unnamed_addr #0 align 2 {
+define internal fastcc { i64, i8 } @_ZN12_GLOBAL__N_122CoverageMappingBuilder25getNonScratchExpansionLocEN5clang14SourceLocationE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1960) %0, i32 %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.std::pair.1630", align 8
   %4 = alloca %"class.clang::PresumedLoc", align 8
   %5 = icmp slt i32 %1, 0
@@ -17852,7 +17852,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt5arrayIiLm2EELb1EE18uninitialized_moveIPS2_S
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen4MCDC5State8DecisionENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S9_EEEES5_S9_SB_SE_E20InsertIntoBucketImplIS5_EEPSE_RKS5_RKT_SI_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #0 comdat align 2 {
@@ -18474,7 +18474,7 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20isRegionAlreadyAddedEN5clang14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, i8 } @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder18findGapAreaBetweenEN5clang14SourceLocationES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2376) %0, i32 %1, i32 %2) unnamed_addr #0 align 2 {
+define internal fastcc { i64, i8 } @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder18findGapAreaBetweenEN5clang14SourceLocationES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2376) %0, i32 %1, i32 %2) unnamed_addr #0 align 2 {
   %4 = icmp eq i32 %1, 0
   %5 = icmp eq i32 %2, 0
   %or.cond = select i1 %4, i1 true, i1 %5
@@ -20075,7 +20075,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_129CounterCoverageMappingBuilder
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRKN4llvm8coverage7CounterERN5clang14SourceLocationESC_EEERS1_DpOT_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 %.0.val, i32 %.0.val1, i32 %.0.val3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_119SourceMappingRegionESaIS1_EE12emplace_backIJRKN4llvm8coverage7CounterERN5clang14SourceLocationESC_EEERS1_DpOT_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, i64 %.0.val, i32 %.0.val1, i32 %.0.val3) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -24627,7 +24627,7 @@ declare void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull al
 declare void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEE15setInitialValueERKb(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZN4llvm6detail18UniqueFunctionBaseIvJRKN5clang5TokenEEE8CallImplIZNS2_7CodeGen24CoverageMappingModuleGen22setUpCoverageCallbacksERNS2_12PreprocessorEE3$_0EEvPvS5_"(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1) #7 align 2 {
+define internal void @"_ZN4llvm6detail18UniqueFunctionBaseIvJRKN5clang5TokenEEE8CallImplIZNS2_7CodeGen24CoverageMappingModuleGen22setUpCoverageCallbacksERNS2_12PreprocessorEE3$_0EEvPvS5_"(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %1) #7 align 2 {
   %.sroa.0.0.copyload = load i32, ptr %1, align 8
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.24.0.copyload = load i16, ptr %.sroa.24.0..sroa_idx, align 8
@@ -25616,7 +25616,7 @@ define internal void @_GLOBAL__sub_I_CoverageMappingGen.cpp() #6 section ".text.
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #19
@@ -25631,10 +25631,10 @@ declare i64 @llvm.umax.i64(i64, i64) #19
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #19

@@ -583,7 +583,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare void @_ZN7rocksdb17BijectiveHash2x64EmmPmS0_(i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1260,7 +1260,7 @@ return:                                           ; preds = %if.end8.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN7rocksdb11clock_cache20FixedHyperClockTable6LookupERKSt5arrayImLm2EE(ptr nocapture noundef nonnull readonly align 64 dereferenceable(192) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %hashed_key) local_unnamed_addr #5 align 2 {
+define noundef ptr @_ZN7rocksdb11clock_cache20FixedHyperClockTable6LookupERKSt5arrayImLm2EE(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(192) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %hashed_key) local_unnamed_addr #5 align 2 {
 entry:
   %hashed_key.val = load i64, ptr %hashed_key, align 8
   %0 = getelementptr inbounds nuw i8, ptr %hashed_key, i64 8
@@ -1341,7 +1341,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb11clock_cache20FixedHyperClockTable7ReleaseEPNS1_10HandleImplEbb(ptr nocapture noundef nonnull align 64 dereferenceable(192) %this, ptr noundef %h, i1 noundef zeroext %useful, i1 noundef zeroext %erase_if_last_ref) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb11clock_cache20FixedHyperClockTable7ReleaseEPNS1_10HandleImplEbb(ptr noundef nonnull align 64 captures(none) dereferenceable(192) %this, ptr noundef %h, i1 noundef zeroext %useful, i1 noundef zeroext %erase_if_last_ref) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %meta = getelementptr inbounds nuw i8, ptr %h, i64 40
   br i1 %useful, label %if.then, label %if.else
@@ -1531,7 +1531,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7rocksdb11clock_cache14BaseClockTable3RefERNS0_11ClockHandleE(ptr nocapture noundef nonnull readnone align 64 dereferenceable(160) %this, ptr nocapture noundef nonnull align 8 dereferenceable(48) %h) local_unnamed_addr #6 align 2 {
+define void @_ZN7rocksdb11clock_cache14BaseClockTable3RefERNS0_11ClockHandleE(ptr noundef nonnull readnone align 64 captures(none) dereferenceable(160) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(48) %h) local_unnamed_addr #6 align 2 {
 entry:
   %meta = getelementptr inbounds nuw i8, ptr %h, i64 40
   %0 = atomicrmw add ptr %meta, i64 1 acq_rel, align 8
@@ -1556,7 +1556,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11clock_cache20FixedHyperClockTable5EraseERKSt5arrayImLm2EE(ptr nocapture noundef nonnull align 64 dereferenceable(192) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %hashed_key) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11clock_cache20FixedHyperClockTable5EraseERKSt5arrayImLm2EE(ptr noundef nonnull align 64 captures(none) dereferenceable(192) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %hashed_key) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hashed_key.val = load i64, ptr %hashed_key, align 8
   %0 = getelementptr inbounds nuw i8, ptr %hashed_key, i64 8
@@ -2131,7 +2131,7 @@ _ZN7rocksdb11clock_cache20FixedHyperClockTable17EraseUnRefEntriesEv.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11clock_cache20FixedHyperClockTable17EraseUnRefEntriesEv(ptr nocapture noundef nonnull align 64 dereferenceable(192) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11clock_cache20FixedHyperClockTable17EraseUnRefEntriesEv(ptr noundef nonnull align 64 captures(none) dereferenceable(192) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %length_bits_mask_ = getelementptr inbounds nuw i8, ptr %this, i64 168
   %array_ = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -2851,7 +2851,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef ptr @_ZN7rocksdb11clock_cache19AutoHyperClockTable6LookupERKSt5arrayImLm2EE(ptr nocapture noundef nonnull readonly align 64 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %hashed_key) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN7rocksdb11clock_cache19AutoHyperClockTable6LookupERKSt5arrayImLm2EE(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %hashed_key) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %length_info_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load atomic i64, ptr %length_info_ monotonic, align 16
@@ -3249,7 +3249,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11clock_cache19AutoHyperClockTable5EraseERKSt5arrayImLm2EE(ptr noundef nonnull align 64 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %hashed_key) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11clock_cache19AutoHyperClockTable5EraseERKSt5arrayImLm2EE(ptr noundef nonnull align 64 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %hashed_key) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call4 = tail call noundef ptr @_ZN7rocksdb11clock_cache19AutoHyperClockTable6LookupERKSt5arrayImLm2EE(ptr noundef nonnull align 64 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(16) %hashed_key)
   %tobool.not5 = icmp eq ptr %call4, null
@@ -3482,7 +3482,7 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_19AutoHyper
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i64 1, -9151314442816847872) i64 @_ZNK7rocksdb11clock_cache19AutoHyperClockTable12GetTableSizeEv(ptr nocapture noundef nonnull readonly align 64 dereferenceable(208) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 1, -9151314442816847872) i64 @_ZNK7rocksdb11clock_cache19AutoHyperClockTable12GetTableSizeEv(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(208) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %length_info_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load atomic i64, ptr %length_info_ acquire, align 16
@@ -3510,7 +3510,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZNK7rocksdb11clock_cache19AutoHyperClockTable17GetOccupancyLimitEv(ptr nocapture noundef nonnull readonly align 64 dereferenceable(208) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK7rocksdb11clock_cache19AutoHyperClockTable17GetOccupancyLimitEv(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(208) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %occupancy_limit_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load atomic i64, ptr %occupancy_limit_ monotonic, align 8
@@ -3914,7 +3914,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %allocator) local_unnamed_addr #0 align 2 {
+define void @_ZNK7rocksdb11clock_cache20ClockHandleBasicData8FreeDataEPNS_15MemoryAllocatorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %allocator) local_unnamed_addr #0 align 2 {
 entry:
   %helper = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %helper, align 8
@@ -3932,7 +3932,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11clock_cache14BaseClockTable27TrackAndReleaseEvictedEntryEPNS0_11ClockHandleE(ptr nocapture noundef nonnull readonly align 64 dereferenceable(160) %this, ptr noundef %h) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11clock_cache14BaseClockTable27TrackAndReleaseEvictedEntryEPNS0_11ClockHandleE(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(160) %this, ptr noundef %h) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr2.i = alloca ptr, align 8
   %__args.addr4.i = alloca i8, align 1
@@ -4008,7 +4008,7 @@ if.end9:                                          ; preds = %if.then.i7, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN7rocksdb11clock_cache24IsEvictionEffortExceededERKNS0_14BaseClockTable12EvictionDataEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %data, i32 noundef %eviction_effort_cap) local_unnamed_addr #8 {
+define noundef zeroext i1 @_ZN7rocksdb11clock_cache24IsEvictionEffortExceededERKNS0_14BaseClockTable12EvictionDataEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %data, i32 noundef %eviction_effort_cap) local_unnamed_addr #8 {
 entry:
   %freed_count = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load i64, ptr %freed_count, align 8
@@ -4022,7 +4022,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11clock_cache20FixedHyperClockTableC2EmNS_25CacheMetadataChargePolicyEPNS_15MemoryAllocatorEPKSt8functionIFbRKNS_5SliceEPNS_5Cache6HandleEbEEPKjRKNS1_4OptsE(ptr nocapture noundef nonnull align 64 dereferenceable(192) initializes((0, 24), (64, 88), (128, 132), (136, 160)) %this, i64 noundef %capacity, i32 noundef %metadata_charge_policy, ptr noundef %allocator, ptr noundef %eviction_callback, ptr noundef %hash_seed, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %opts) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11clock_cache20FixedHyperClockTableC2EmNS_25CacheMetadataChargePolicyEPNS_15MemoryAllocatorEPKSt8functionIFbRKNS_5SliceEPNS_5Cache6HandleEbEEPKjRKNS1_4OptsE(ptr noundef nonnull align 64 captures(none) dereferenceable(192) initializes((0, 24), (64, 88), (128, 132), (136, 160)) %this, i64 noundef %capacity, i32 noundef %metadata_charge_policy, ptr noundef %allocator, ptr noundef %eviction_callback, ptr noundef %hash_seed, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %opts) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %occupancy_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %metadata_charge_policy_.i = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -4152,7 +4152,7 @@ declare noalias noundef nonnull ptr @_ZnamSt11align_val_t(i64 noundef, i64 nound
 declare void @_ZdaPvSt11align_val_t(ptr noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb11clock_cache20FixedHyperClockTableD2Ev(ptr nocapture noundef nonnull align 64 dereferenceable(192) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11clock_cache20FixedHyperClockTableD2Ev(ptr noundef nonnull align 64 captures(none) dereferenceable(192) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %length_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   %array_ = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -4223,13 +4223,13 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN7rocksdb11clock_cache20FixedHyperClockTable11StartInsertERNS1_11InsertStateE(ptr nocapture noundef nonnull readnone align 64 dereferenceable(192) %this, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #9 align 2 {
+define void @_ZN7rocksdb11clock_cache20FixedHyperClockTable11StartInsertERNS1_11InsertStateE(ptr noundef nonnull readnone align 64 captures(none) dereferenceable(192) %this, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #9 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN7rocksdb11clock_cache20FixedHyperClockTable12GrowIfNeededEmRNS1_11InsertStateE(ptr nocapture noundef nonnull readonly align 64 dereferenceable(192) %this, i64 noundef %new_occupancy, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb11clock_cache20FixedHyperClockTable12GrowIfNeededEmRNS1_11InsertStateE(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(192) %this, i64 noundef %new_occupancy, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #8 align 2 {
 entry:
   %occupancy_limit_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   %1 = load i64, ptr %occupancy_limit_, align 16
@@ -4238,7 +4238,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateE(ptr nocapture noundef nonnull readonly align 64 dereferenceable(192) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %proto, i64 noundef %initial_countdown, i1 noundef zeroext %keep_ref, ptr nocapture nonnull readnone align 1 %0) local_unnamed_addr #5 align 2 {
+define noundef ptr @_ZN7rocksdb11clock_cache20FixedHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateE(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(192) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %proto, i64 noundef %initial_countdown, i1 noundef zeroext %keep_ref, ptr nonnull readnone align 1 captures(none) %0) local_unnamed_addr #5 align 2 {
 entry:
   %hashed_key = getelementptr inbounds nuw i8, ptr %proto, i64 16
   %hashed_key.val = load i64, ptr %hashed_key, align 8
@@ -4780,7 +4780,7 @@ declare noundef ptr @_ZN7rocksdb6Random14GetTLSInstanceEv() local_unnamed_addr #
 declare void @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11clock_cache19AutoHyperClockTableC2EmNS_25CacheMetadataChargePolicyEPNS_15MemoryAllocatorEPKSt8functionIFbRKNS_5SliceEPNS_5Cache6HandleEbEEPKjRKNS1_4OptsE(ptr noundef nonnull align 64 dereferenceable(208) initializes((0, 24), (64, 88), (128, 132), (136, 160)) %this, i64 noundef %capacity, i32 noundef %metadata_charge_policy, ptr noundef %allocator, ptr noundef %eviction_callback, ptr noundef %hash_seed, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %opts) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11clock_cache19AutoHyperClockTableC2EmNS_25CacheMetadataChargePolicyEPNS_15MemoryAllocatorEPKSt8functionIFbRKNS_5SliceEPNS_5Cache6HandleEbEEPKjRKNS1_4OptsE(ptr noundef nonnull align 64 dereferenceable(208) initializes((0, 24), (64, 88), (128, 132), (136, 160)) %this, i64 noundef %capacity, i32 noundef %metadata_charge_policy, ptr noundef %allocator, ptr noundef %eviction_callback, ptr noundef %hash_seed, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %opts) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont22:
   %ref.tmp = alloca %"class.rocksdb::MemMapping", align 8
   %occupancy_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -5015,7 +5015,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7rocksdb11clock_cache19AutoHyperClockTable11StartInsertERNS1_11InsertStateE(ptr nocapture noundef nonnull readonly align 64 dereferenceable(208) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %state) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11clock_cache19AutoHyperClockTable11StartInsertERNS1_11InsertStateE(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(208) %this, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 8)) %state) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %length_info_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load atomic i64, ptr %length_info_ acquire, align 16
@@ -5024,7 +5024,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN7rocksdb11clock_cache19AutoHyperClockTable12GrowIfNeededEmRNS1_11InsertStateE(ptr nocapture noundef nonnull align 64 dereferenceable(208) %this, i64 noundef %new_occupancy, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %state) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb11clock_cache19AutoHyperClockTable12GrowIfNeededEmRNS1_11InsertStateE(ptr noundef nonnull align 64 captures(none) dereferenceable(208) %this, i64 noundef %new_occupancy, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %state) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %occupancy_limit_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   br label %while.cond
@@ -5043,7 +5043,7 @@ return:                                           ; preds = %while.cond, %while.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN7rocksdb11clock_cache19AutoHyperClockTable4GrowERNS1_11InsertStateE(ptr nocapture noundef nonnull align 64 dereferenceable(208) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %state) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb11clock_cache19AutoHyperClockTable4GrowERNS1_11InsertStateE(ptr noundef nonnull align 64 captures(none) dereferenceable(208) %this, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %state) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %grow_frontier_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = atomicrmw add ptr %grow_frontier_, i64 1 monotonic, align 8
@@ -5193,7 +5193,7 @@ return:                                           ; preds = %_ZN7rocksdb11clock_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb11clock_cache19AutoHyperClockTable12SplitForGrowEmmi(ptr nocapture noundef nonnull align 64 dereferenceable(208) %this, i64 noundef %grow_home, i64 noundef %old_home, i32 noundef %old_shift) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11clock_cache19AutoHyperClockTable12SplitForGrowEmmi(ptr noundef nonnull align 64 captures(none) dereferenceable(208) %this, i64 noundef %grow_home, i64 noundef %old_home, i32 noundef %old_shift) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add = add nsw i32 %old_shift, 1
   %array_ = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -5600,7 +5600,7 @@ _ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockD2Ev.exit158: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb11clock_cache19AutoHyperClockTable23CatchUpLengthInfoNoWaitEm(ptr nocapture noundef nonnull align 64 dereferenceable(208) %this, i64 noundef %known_usable_grow_home) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11clock_cache19AutoHyperClockTable23CatchUpLengthInfoNoWaitEm(ptr noundef nonnull align 64 captures(none) dereferenceable(208) %this, i64 noundef %known_usable_grow_home) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %length_info_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load atomic i64, ptr %length_info_ acquire, align 16
@@ -5694,7 +5694,7 @@ while.end31:                                      ; preds = %while.body26, %whil
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef ptr @_ZN7rocksdb11clock_cache19AutoHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateE(ptr nocapture noundef nonnull align 64 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %proto, i64 noundef %initial_countdown, i1 noundef zeroext %take_ref, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %state) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN7rocksdb11clock_cache19AutoHyperClockTable8DoInsertERKNS0_20ClockHandleBasicDataEmbRNS1_11InsertStateE(ptr noundef nonnull align 64 captures(none) dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %proto, i64 noundef %initial_countdown, i1 noundef zeroext %take_ref, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %state) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %state, align 8
   %hashed_key = getelementptr inbounds nuw i8, ptr %proto, i64 16
@@ -6458,7 +6458,7 @@ return:                                           ; preds = %_ZN7rocksdb12AcqRel
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11clock_cache19AutoHyperClockTable5EvictEmRNS1_11InsertStateEPNS0_14BaseClockTable12EvictionDataEj(ptr nocapture noundef nonnull align 64 dereferenceable(208) %this, i64 noundef %requested_charge, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %state, ptr nocapture noundef %data, i32 noundef %eviction_effort_cap) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11clock_cache19AutoHyperClockTable5EvictEmRNS1_11InsertStateEPNS0_14BaseClockTable12EvictionDataEj(ptr noundef nonnull align 64 captures(none) dereferenceable(208) %this, i64 noundef %requested_charge, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %state, ptr noundef captures(none) %data, i32 noundef %eviction_effort_cap) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr2.i.i = alloca ptr, align 8
   %__args.addr4.i.i = alloca i8, align 1
@@ -8036,7 +8036,7 @@ _ZNSt12__shared_ptrIN7rocksdb15MemoryAllocatorELN9__gnu_cxx12_Lock_policyE2EED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb22HyperClockCacheOptions15MakeSharedCacheEv(ptr noalias sret(%"class.std::shared_ptr.58") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb22HyperClockCacheOptions15MakeSharedCacheEv(ptr noalias sret(%"class.std::shared_ptr.58") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(92) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %opts = alloca %"struct.rocksdb::HyperClockCacheOptions", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7rocksdb19ShardedCacheOptionsE, i64 16), ptr %opts, align 8
@@ -10108,7 +10108,7 @@ declare void @_ZN7rocksdb10MemMappingD2Ev(ptr noundef nonnull align 8 dereferenc
 declare i32 @sched_yield() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 declare void @_ZNK7rocksdb15LRUCacheOptions15MakeSharedCacheEv(ptr sret(%"class.std::shared_ptr.58") align 8, ptr noundef nonnull align 8 dereferenceable(89)) local_unnamed_addr #2
 
@@ -11744,7 +11744,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 declare i64 @llvm.ctpop.i64(i64) #15
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNKS1_20FixedHyperClockCache14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEE3$_0E9_M_invokeERKSt9_Any_dataOS6_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNKS1_20FixedHyperClockCache14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEE3$_0E9_M_invokeERKSt9_Any_dataOS6_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %__args, align 8
   %1 = load ptr, ptr %__functor, align 8
@@ -11855,7 +11855,7 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit.i.i.i.i:  ; preds = %_ZNSt6vectorIdSaIdE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNKS1_20FixedHyperClockCache14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_20FixedHyperClockTableEEEEZNKS1_20FixedHyperClockCache14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 1, label %sw.bb
@@ -11886,7 +11886,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #17
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_(ptr %__first.coerce, ptr %__last.coerce) local_unnamed_addr #0 comdat {
@@ -12514,7 +12514,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNKS1_19AutoHyperClockCache14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEE3$_0E9_M_invokeERKSt9_Any_dataOS6_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNKS1_19AutoHyperClockCache14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEE3$_0E9_M_invokeERKSt9_Any_dataOS6_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args) #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__functor.val = load ptr, ptr %__functor, align 8
   %0 = load ptr, ptr %__args, align 8
@@ -12661,7 +12661,7 @@ _ZN7rocksdb11clock_cache12_GLOBAL__N_113IsEntryAtHomeERKNS0_19AutoHyperClockTabl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNKS1_19AutoHyperClockCache14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNKS1_19AutoHyperClockCache14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #0 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 1, label %sw.bb
@@ -14416,13 +14416,13 @@ declare i32 @llvm.smax.i32(i32, i32) #21
 declare i64 @llvm.umin.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21

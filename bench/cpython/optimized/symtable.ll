@@ -1079,7 +1079,7 @@ Py_XDECREF.exit47:                                ; preds = %Py_XDECREF.exit39, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ste_repr(ptr nocapture noundef readonly %ste) #0 {
+define internal ptr @ste_repr(ptr noundef readonly captures(none) %ste) #0 {
 entry:
   %ste_name = getelementptr inbounds nuw i8, ptr %ste, i64 32
   %0 = load ptr, ptr %ste_name, align 8
@@ -5157,7 +5157,7 @@ return:                                           ; preds = %sw.epilog, %if.then
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @symtable_exit_block(ptr nocapture noundef nonnull initializes((8, 16)) %st) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @symtable_exit_block(ptr noundef nonnull captures(none) initializes((8, 16)) %st) unnamed_addr #0 {
 entry:
   %st_cur = getelementptr inbounds nuw i8, ptr %st, i64 8
   store ptr null, ptr %st_cur, align 8
@@ -5198,7 +5198,7 @@ declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PySymtable_Lookup(ptr nocapture noundef readonly %st, ptr noundef %key) local_unnamed_addr #0 {
+define hidden ptr @_PySymtable_Lookup(ptr noundef readonly captures(none) %st, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %v = alloca ptr, align 8
   %call = tail call ptr @PyLong_FromVoidPtr(ptr noundef %key) #7
@@ -5247,7 +5247,7 @@ declare ptr @PyLong_FromVoidPtr(ptr noundef) local_unnamed_addr #1
 declare i32 @PyDict_GetItemRef(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @_PyST_GetSymbol(ptr nocapture noundef readonly %ste, ptr noundef %name) local_unnamed_addr #0 {
+define hidden i64 @_PyST_GetSymbol(ptr noundef readonly captures(none) %ste, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %ste_symbols = getelementptr inbounds nuw i8, ptr %ste, i64 24
   %0 = load ptr, ptr %ste_symbols, align 8
@@ -5269,7 +5269,7 @@ declare ptr @PyDict_GetItemWithError(ptr noundef, ptr noundef) local_unnamed_add
 declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 16) i32 @_PyST_GetScope(ptr nocapture noundef readonly %ste, ptr noundef %name) local_unnamed_addr #0 {
+define hidden range(i32 0, 16) i32 @_PyST_GetScope(ptr noundef readonly captures(none) %ste, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %ste_symbols.i = getelementptr inbounds nuw i8, ptr %ste, i64 24
   %0 = load ptr, ptr %ste_symbols.i, align 8
@@ -5290,7 +5290,7 @@ _PyST_GetSymbol.exit:                             ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @_PyST_IsFunctionLike(ptr nocapture noundef readonly %ste) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @_PyST_IsFunctionLike(ptr noundef readonly captures(none) %ste) local_unnamed_addr #2 {
 entry:
   %ste_type = getelementptr inbounds nuw i8, ptr %ste, i64 64
   %0 = load i32, ptr %ste_type, align 8
@@ -7420,7 +7420,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @drop_class_free(ptr nocapture noundef %ste, ptr noundef nonnull %free) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @drop_class_free(ptr noundef captures(none) %ste, ptr noundef nonnull %free) unnamed_addr #0 {
 entry:
   %call = tail call i32 @PySet_Discard(ptr noundef nonnull %free, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 27608)) #7
   %cmp = icmp slt i32 %call, 0
@@ -7776,7 +7776,7 @@ return:                                           ; preds = %if.end, %while.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @error_at_directive(ptr nocapture noundef readonly %ste, ptr noundef %name) unnamed_addr #0 {
+define internal fastcc void @error_at_directive(ptr noundef readonly captures(none) %ste, ptr noundef %name) unnamed_addr #0 {
 entry:
   %ste_directives = getelementptr inbounds nuw i8, ptr %ste, i64 56
   %0 = load ptr, ptr %ste_directives, align 8
@@ -8115,7 +8115,7 @@ return:                                           ; preds = %sw.bb71, %sw.bb58, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @symtable_visit_annotations(ptr noundef nonnull %st, ptr noundef %o, ptr nocapture noundef readonly %a, ptr noundef %returns) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @symtable_visit_annotations(ptr noundef nonnull %st, ptr noundef %o, ptr noundef readonly captures(none) %a, ptr noundef %returns) unnamed_addr #0 {
 entry:
   %st_future = getelementptr inbounds nuw i8, ptr %st, i64 64
   %0 = load ptr, ptr %st_future, align 8
@@ -8351,7 +8351,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @symtable_visit_arguments(ptr nocapture noundef nonnull readonly %st, ptr nocapture noundef readonly %a) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @symtable_visit_arguments(ptr noundef nonnull readonly captures(none) %st, ptr noundef readonly captures(none) %a) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -8543,7 +8543,7 @@ return:                                           ; preds = %for.body.i, %for.bo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @symtable_lookup(ptr nocapture noundef nonnull readonly %st, ptr noundef %name) unnamed_addr #0 {
+define internal fastcc i64 @symtable_lookup(ptr noundef nonnull readonly captures(none) %st, ptr noundef %name) unnamed_addr #0 {
 entry:
   %st_private = getelementptr inbounds nuw i8, ptr %st, i64 56
   %0 = load ptr, ptr %st_private, align 8
@@ -8676,7 +8676,7 @@ return:                                           ; preds = %land.lhs.true9, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @symtable_visit_excepthandler(ptr noundef nonnull %st, ptr nocapture noundef readonly %eh) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @symtable_visit_excepthandler(ptr noundef nonnull %st, ptr noundef readonly captures(none) %eh) unnamed_addr #0 {
 entry:
   %v = getelementptr inbounds nuw i8, ptr %eh, i64 8
   %0 = load ptr, ptr %v, align 8
@@ -8744,7 +8744,7 @@ return:                                           ; preds = %for.cond, %return.s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @symtable_visit_alias(ptr nocapture noundef nonnull readonly %st, ptr nocapture noundef readonly %a) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @symtable_visit_alias(ptr noundef nonnull readonly captures(none) %st, ptr noundef readonly captures(none) %a) unnamed_addr #0 {
 entry:
   %asname = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load ptr, ptr %asname, align 8
@@ -8864,7 +8864,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @symtable_record_directive(ptr nocapture noundef nonnull readonly %st, ptr noundef %name, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @symtable_record_directive(ptr noundef nonnull readonly captures(none) %st, ptr noundef %name, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset) unnamed_addr #0 {
 entry:
   %st_cur = getelementptr inbounds nuw i8, ptr %st, i64 8
   %0 = load ptr, ptr %st_cur, align 8
@@ -8927,7 +8927,7 @@ return:                                           ; preds = %if.end11, %if.end7,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr nocapture noundef nonnull readonly %st, ptr noundef %name, i32 noundef range(i32 1, 1027) %flag, ptr nocapture noundef readonly %ste, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly captures(none) %st, ptr noundef %name, i32 noundef range(i32 1, 1027) %flag, ptr noundef readonly captures(none) %ste, i32 noundef %lineno, i32 noundef %col_offset, i32 noundef %end_lineno, i32 noundef %end_col_offset) unnamed_addr #0 {
 entry:
   %st_private = getelementptr inbounds nuw i8, ptr %st, i64 56
   %0 = load ptr, ptr %st_private, align 8
@@ -9167,7 +9167,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @symtable_visit_pattern(ptr noundef nonnull %st, ptr nocapture noundef readonly %p) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @symtable_visit_pattern(ptr noundef nonnull %st, ptr noundef readonly captures(none) %p) unnamed_addr #0 {
 entry:
   %recursion_depth = getelementptr inbounds nuw i8, ptr %st, i64 72
   %0 = load i32, ptr %recursion_depth, align 8
@@ -9417,7 +9417,7 @@ declare i32 @_PyUnicode_EqualToASCIIString(ptr noundef, ptr noundef) local_unnam
 declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @symtable_raise_if_annotation_block(ptr nocapture noundef nonnull readonly %st, ptr noundef %name, ptr nocapture noundef readonly %e) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @symtable_raise_if_annotation_block(ptr noundef nonnull readonly captures(none) %st, ptr noundef %name, ptr noundef readonly captures(none) %e) unnamed_addr #0 {
 entry:
   %st_cur = getelementptr inbounds nuw i8, ptr %st, i64 8
   %0 = load ptr, ptr %st_cur, align 8
@@ -9453,7 +9453,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @symtable_handle_namedexpr(ptr noundef nonnull %st, ptr nocapture noundef readonly %e) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @symtable_handle_namedexpr(ptr noundef nonnull %st, ptr noundef readonly captures(none) %e) unnamed_addr #0 {
 entry:
   %st_cur = getelementptr inbounds nuw i8, ptr %st, i64 8
   %0 = load ptr, ptr %st_cur, align 8
@@ -9757,7 +9757,7 @@ return:                                           ; preds = %sw.epilog.i, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @symtable_raise_if_comprehension_block(ptr nocapture noundef nonnull %st, ptr nocapture noundef readonly %e) unnamed_addr #0 {
+define internal fastcc void @symtable_raise_if_comprehension_block(ptr noundef nonnull captures(none) %st, ptr noundef readonly captures(none) %e) unnamed_addr #0 {
 entry:
   %st_cur = getelementptr inbounds nuw i8, ptr %st, i64 8
   %0 = load ptr, ptr %st_cur, align 8
@@ -10186,16 +10186,16 @@ return:                                           ; preds = %if.then5.i60, %if.t
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

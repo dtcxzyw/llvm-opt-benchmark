@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ZSTD_ldm_gearTab = internal unnamed_addr constant [256 x i64] [i64 -740570368750160036, i64 -8893660220509993966, i64 -5312086290702594868, i64 -5735972619299081762, i64 3771850993348288464, i64 5663242980927105797, i64 4180421565056919044, i64 -3545172778422107057, i64 8565414132019635614, i64 -7168278193325086006, i64 -8766759121928489687, i64 2955002781598341257, i64 -5786234267245351962, i64 -3591879250321086919, i64 152752410645948062, i64 980088017434152, i64 331732851626658549, i64 -8838640746785046208, i64 357946512872856607, i64 -9034488908246861280, i64 5763983574984628126, i64 -8902527927300804837, i64 5836814799640872626, i64 7626666828866112607, i64 -8314407865459583812, i64 -4338073698025259005, i64 -3427841724570307695, i64 -4735281124383641554, i64 3783546168938607943, i64 -5997679262622952944, i64 7335087386897913548, i64 -8164338418464644131, i64 -4068556904131095362, i64 -7831782995437506261, i64 6793784568496124290, i64 2174722154453825146, i64 2984138818416736892, i64 -7113741742226294226, i64 -2281435508835450325, i64 -7721633399858986080, i64 -3643393691544233469, i64 4998707500772197108, i64 -8746917044558380703, i64 4094234931541430821, i64 -5443419906114852421, i64 -6623610566688024079, i64 8857814660316604090, i64 -3400738594147523822, i64 -8919821665358523128, i64 -6282918144253290562, i64 2432827404989958913, i64 -7394112240096411410, i64 -6121261480113539237, i64 5984878076832140732, i64 3384046157297573234, i64 -4595246024994827002, i64 5291253059634137447, i64 8671685973221512352, i64 2826049182810801527, i64 7403797093788988755, i64 5165094797103512198, i64 3882952073790264921, i64 5144544719191608175, i64 7834774775704163346, i64 -2473432571472174399, i64 8174605543888266482, i64 -2355378437650417609, i64 -8592654940661990135, i64 6401049270349998237, i64 1690663705589720305, i64 -325991306605533225, i64 3162055811205276826, i64 7360403718927882347, i64 4149314189569060432, i64 242631106765699956, i64 4800188873694292702, i64 -4240136128533032951, i64 7695287510285100531, i64 -838191446823566789, i64 -8426618797363772681, i64 4318197351340892641, i64 1149634524221210890, i64 -7114863459094900121, i64 6598639596032476539, i64 -6839639621591231422, i64 -4468079783678231221, i64 7415306797865260392, i64 -8387907088140799907, i64 -1258625276876293193, i64 -8475030331983742166, i64 -4522295019934803305, i64 7907118757495767932, i64 -4069547487456468751, i64 -2916501145698388069, i64 -713064998698898503, i64 3241772581917522649, i64 -8751519476800664287, i64 2730958776012430807, i64 -5042858452473121693, i64 5670495071248203466, i64 -4753026106883975734, i64 8596907927398544058, i64 5161444109349651405, i64 5785732034315264735, i64 -2307004377459233095, i64 5101781436946662964, i64 -959555898603366205, i64 3854890476374695265, i64 2640596163920942051, i64 612531917322106041, i64 2943830675960290284, i64 5689027370104560298, i64 -8631226724040007757, i64 -4511209064617679402, i64 -4894469369141432134, i64 476493605933034202, i64 -4884230169516457813, i64 5170495216195818230, i64 5692683294927132859, i64 8144723081244076501, i64 -8597519866247633570, i64 -880939249453910632, i64 -4429072432866837671, i64 -9094346755688061955, i64 -8586012847855474869, i64 938274653391260135, i64 -1919596203828456659, i64 -4685062728154955610, i64 -7589917696820385588, i64 -4644676758005663535, i64 7411488509093422598, i64 -8990486576947324933, i64 -5153218641461172124, i64 -2632799881851607396, i64 -8546249320962975810, i64 -3973672932846999028, i64 8549157441122500270, i64 -6599514505156005102, i64 -6129339347647600276, i64 5601198583872550840, i64 448237196439497921, i64 4429298985553249414, i64 1710925370934130233, i64 649627535685727708, i64 7473286985276266860, i64 -6451688405355166991, i64 5916903098106068381, i64 4015692238528745986, i64 -8870599050489169071, i64 723755141375996997, i64 585701537146942606, i64 1762095187648923356, i64 -7499075263319252708, i64 -5534672106163518806, i64 2150778153372540978, i64 -6551385365357708843, i64 2851098796233701843, i64 8892087314106251931, i64 8629034505480888229, i64 -2056021433480337670, i64 -5504367576396503223, i64 -7836592892958478552, i64 -5799392812474758156, i64 1034405184557968969, i64 6802162732334632298, i64 2989737911373486958, i64 -8778167736429364826, i64 -1835460623793774935, i64 -7486017181440748174, i64 -429617951838635019, i64 3508842189232906005, i64 8135704789603646339, i64 6514020828226693353, i64 -3613195514473760017, i64 -2970174223312647786, i64 -1563248340095853661, i64 6024843996518658034, i64 718621336730405080, i64 -6679302967219244155, i64 3328034870986208117, i64 1672684744619306689, i64 -5162658619115609223, i64 -8970545856075756829, i64 -5111708603220227731, i64 8965210182149532773, i64 8555535473824159125, i64 4111651333356154152, i64 -4330767061174003086, i64 -4239562835870723191, i64 -2914198924640402128, i64 3999682325075695998, i64 8341500896009323972, i64 297956889220308695, i64 -7099292734868670191, i64 -8152361012580292778, i64 6806741856855634849, i64 5498675928299174173, i64 -5725270285902950948, i64 8841901128597221836, i64 8452800421686628345, i64 8170466794247151429, i64 3418145686321779422, i64 -7629649436654009993, i64 -885980405828750614, i64 -1279615140145250661, i64 -3645584372000451097, i64 -1959380958373714385, i64 -7401854505386743612, i64 2726709086420568843, i64 56600323866146812, i64 2432711764059673306, i64 6875692401370490017, i64 -2525618730407733492, i64 7150469517113480430, i64 -4524184818551573686, i64 6398633964089323354, i64 6824119869706748626, i64 7124491435314367896, i64 -5413128683141149161, i64 1648863654502257127, i64 -8159518228174467393, i64 7114119705011199411, i64 -3748695836744730090, i64 8708228644950752452, i64 -1200969192612019724, i64 -8253548825649809075, i64 -6218007400084108795, i64 4090442791415205777, i64 7208173716382451811, i64 -9156885958826744472, i64 4175721917217417792, i64 -1595983873127263617, i64 -7915925144243690988, i64 -4991676479780784319, i64 3502286560157455023, i64 -6532203062862126574, i64 4777171913562308143, i64 4711368926514029619, i64 -5148279762458990696, i64 -3276523506038921052, i64 -7330618301729952061, i64 8867750111338937128, i64 5817503254400830125, i64 7843308076737921667, i64 -8540058046490989581, i64 2422652698756804679, i64 4252262198383740502, i64 -2659446422212208921, i64 -8298729576016271950, i64 -382681700768530275, i64 4672201502568865753, i64 -5821590899938985698, i64 -1473505948212511144, i64 -4914601613263338112, i64 934305549654010667, i64 3120327478150945012], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ZSTD_ldm_adjustParameters(ptr nocapture noundef initializes((20, 24)) %params, ptr nocapture noundef readonly %cParams) local_unnamed_addr #0 {
+define void @ZSTD_ldm_adjustParameters(ptr noundef captures(none) initializes((20, 24)) %params, ptr noundef readonly captures(none) %cParams) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %cParams, align 4
   %windowLog1 = getelementptr inbounds nuw i8, ptr %params, i64 20
@@ -61,7 +61,7 @@ if.end27:                                         ; preds = %if.then15, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ZSTD_ldm_getTableSize(ptr nocapture noundef readonly byval(%struct.ldmParams_t) align 8 %params) local_unnamed_addr #1 {
+define i64 @ZSTD_ldm_getTableSize(ptr noundef readonly byval(%struct.ldmParams_t) align 8 captures(none) %params) local_unnamed_addr #1 {
 entry:
   %hashLog = getelementptr inbounds nuw i8, ptr %params, i64 4
   %0 = load i32, ptr %hashLog, align 4
@@ -81,7 +81,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ZSTD_ldm_getMaxNbSeq(ptr nocapture noundef readonly byval(%struct.ldmParams_t) align 8 %params, i64 noundef %maxChunkSize) local_unnamed_addr #1 {
+define i64 @ZSTD_ldm_getMaxNbSeq(ptr noundef readonly byval(%struct.ldmParams_t) align 8 captures(none) %params, i64 noundef %maxChunkSize) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %params, align 8
   %cmp = icmp eq i32 %0, 1
@@ -100,7 +100,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define void @ZSTD_ldm_fillHashTable(ptr nocapture noundef %ldmState, ptr noundef %ip, ptr noundef %iend, ptr nocapture noundef readonly %params) local_unnamed_addr #2 {
+define void @ZSTD_ldm_fillHashTable(ptr noundef captures(none) %ldmState, ptr noundef %ip, ptr noundef %iend, ptr noundef readonly captures(none) %params) local_unnamed_addr #2 {
 entry:
   %hashState = alloca %struct.ldmRollingHashState_t, align 8
   %numSplits = alloca i32, align 4
@@ -169,7 +169,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then:                                          ; preds = %for.body
   %add.ptr10 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
-  %call11 = tail call i64 @ZSTD_XXH64(ptr nocapture noundef %add.ptr10, i64 noundef %idx.ext, i64 noundef 0) #14
+  %call11 = tail call i64 @ZSTD_XXH64(ptr noundef captures(none) %add.ptr10, i64 noundef %idx.ext, i64 noundef 0) #14
   %11 = trunc i64 %call11 to i32
   %conv14 = and i32 %11, %sub12
   %sub.ptr.lhs.cast16 = ptrtoint ptr %add.ptr10 to i64
@@ -213,7 +213,7 @@ while.end:                                        ; preds = %for.end, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i64 @ZSTD_ldm_gear_feed(ptr nocapture noundef nonnull %state, ptr nocapture noundef readonly %data, i64 noundef %size, ptr nocapture noundef writeonly %splits, ptr nocapture noundef nonnull %numSplits) unnamed_addr #3 {
+define internal fastcc i64 @ZSTD_ldm_gear_feed(ptr noundef nonnull captures(none) %state, ptr noundef readonly captures(none) %data, i64 noundef %size, ptr noundef writeonly captures(none) %splits, ptr noundef nonnull captures(none) %numSplits) unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %state, align 8
   %stopMask = getelementptr inbounds nuw i8, ptr %state, i64 8
@@ -373,10 +373,10 @@ done:                                             ; preds = %if.then77, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @ZSTD_XXH64(ptr nocapture noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @ZSTD_XXH64(ptr noundef captures(none), i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i64 -119, 1) i64 @ZSTD_ldm_generateSequences(ptr nocapture noundef %ldmState, ptr nocapture noundef %sequences, ptr nocapture noundef readonly %params, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #5 {
+define range(i64 -119, 1) i64 @ZSTD_ldm_generateSequences(ptr noundef captures(none) %ldmState, ptr noundef captures(none) %sequences, ptr noundef readonly captures(none) %params, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #5 {
 entry:
   %hashState.i = alloca %struct.ldmRollingHashState_t, align 8
   %numSplits.i = alloca i32, align 4
@@ -622,7 +622,7 @@ for.body.i55:                                     ; preds = %for.body.i55, %for.
   %arrayidx.i57 = getelementptr inbounds nuw i64, ptr %splitIndices.i, i64 %indvars.iv.i56
   %25 = load i64, ptr %arrayidx.i57, align 8
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %25
-  %call48.i = tail call i64 @ZSTD_XXH64(ptr nocapture noundef %gep.i, i64 noundef %conv.i51, i64 noundef 0) #14
+  %call48.i = tail call i64 @ZSTD_XXH64(ptr noundef captures(none) %gep.i, i64 noundef %conv.i51, i64 noundef 0) #14
   %26 = trunc i64 %call48.i to i32
   %conv52.i = and i32 %26, %sub50.i
   %arrayidx54.i = getelementptr inbounds nuw %struct.ldmMatchCandidate_t, ptr %matchCandidates.i, i64 %indvars.iv.i56
@@ -1292,7 +1292,7 @@ return:                                           ; preds = %ZSTD_ldm_generateSe
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @ZSTD_ldm_skipSequences(ptr nocapture noundef %rawSeqStore, i64 noundef %srcSize, i32 noundef %minMatch) local_unnamed_addr #6 {
+define void @ZSTD_ldm_skipSequences(ptr noundef captures(none) %rawSeqStore, i64 noundef %srcSize, i32 noundef %minMatch) local_unnamed_addr #6 {
 entry:
   %cmp.not32 = icmp eq i64 %srcSize, 0
   br i1 %cmp.not32, label %while.end, label %land.rhs.lr.ph
@@ -1376,7 +1376,7 @@ while.end:                                        ; preds = %land.rhs, %if.end35
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ZSTD_ldm_skipRawSeqStoreBytes(ptr nocapture noundef %rawSeqStore, i64 noundef %nbBytes) local_unnamed_addr #7 {
+define void @ZSTD_ldm_skipRawSeqStoreBytes(ptr noundef captures(none) %rawSeqStore, i64 noundef %nbBytes) local_unnamed_addr #7 {
 entry:
   %posInSequence = getelementptr inbounds nuw i8, ptr %rawSeqStore, i64 16
   %0 = load i64, ptr %posInSequence, align 8
@@ -1898,7 +1898,7 @@ return:                                           ; preds = %if.then18.i, %lor.l
 declare ptr @ZSTD_selectBlockCompressor(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #10
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #11
@@ -1917,10 +1917,10 @@ declare i32 @llvm.umax.i32(i32, i32) #12
 declare i32 @llvm.usub.sat.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

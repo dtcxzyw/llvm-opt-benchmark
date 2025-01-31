@@ -90,7 +90,7 @@ png_process_some_data.exit:                       ; preds = %18, %19, %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @png_push_restore_buffer(ptr noalias nocapture noundef initializes((824, 840), (864, 880)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define void @png_push_restore_buffer(ptr noalias noundef captures(none) initializes((824, 840), (864, 880)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 832
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 872
@@ -1212,7 +1212,7 @@ png_push_fill_buffer.exit:                        ; preds = %16, %.thread, %27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @png_push_fill_buffer(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #3 {
+define void @png_push_fill_buffer(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #3 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %34, label %5
 
@@ -1368,7 +1368,7 @@ declare void @png_handle_zTXt(ptr noundef, ptr noundef, i32 noundef) local_unnam
 declare void @png_handle_iTXt(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare noalias ptr @png_malloc_warn(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -2210,7 +2210,7 @@ define void @png_push_have_row(ptr noalias noundef %0, ptr noundef %1) local_unn
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @png_read_push_finish_row(ptr noalias nocapture noundef %0) local_unnamed_addr #6 {
+define void @png_read_push_finish_row(ptr noalias noundef captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 532
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, 1
@@ -2331,7 +2331,7 @@ define void @png_read_push_finish_row(ptr noalias nocapture noundef %0) local_un
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define void @png_progressive_combine_row(ptr noalias noundef %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {

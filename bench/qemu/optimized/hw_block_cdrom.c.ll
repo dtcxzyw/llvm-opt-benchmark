@@ -116,7 +116,7 @@ return:                                           ; preds = %entry, %if.end25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @cdrom_read_toc_raw(i32 noundef %nb_sectors, ptr nocapture noundef writeonly initializes((0, 48)) %buf, i32 noundef %msf, i32 noundef %session_num) local_unnamed_addr #0 {
+define dso_local noundef i32 @cdrom_read_toc_raw(i32 noundef %nb_sectors, ptr noundef writeonly captures(none) initializes((0, 48)) %buf, i32 noundef %msf, i32 noundef %session_num) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %buf, i64 2
   %incdec.ptr = getelementptr i8, ptr %buf, i64 3

@@ -74,7 +74,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_drbg_hmac_generate(ptr noundef %hmac, ptr noundef %out, i64 noundef %outlen, ptr noundef %adin, i64 noundef %adin_len) local_unnamed_addr #0 {
@@ -167,7 +167,7 @@ declare i32 @EVP_MAC_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 declare i32 @EVP_MAC_final(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @drbg_hmac_new_wrapper(ptr noundef %provctx, ptr noundef %parent, ptr noundef %parent_dispatch) #0 {
@@ -296,7 +296,7 @@ declare i32 @ossl_drbg_lock(ptr noundef) #1
 declare void @ossl_drbg_unlock(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @drbg_hmac_settable_ctx_params(ptr nocapture readnone %vctx, ptr nocapture readnone %p_ctx) #4 {
+define internal noundef nonnull ptr @drbg_hmac_settable_ctx_params(ptr readnone captures(none) %vctx, ptr readnone captures(none) %p_ctx) #4 {
 entry:
   ret ptr @drbg_hmac_settable_ctx_params.known_settable_ctx_params
 }
@@ -329,7 +329,7 @@ return:                                           ; preds = %if.end, %if.then5, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @drbg_hmac_gettable_ctx_params(ptr nocapture readnone %vctx, ptr nocapture readnone %p_ctx) #4 {
+define internal noundef nonnull ptr @drbg_hmac_gettable_ctx_params(ptr readnone captures(none) %vctx, ptr readnone captures(none) %p_ctx) #4 {
 entry:
   ret ptr @drbg_hmac_gettable_ctx_params.known_gettable_ctx_params
 }
@@ -414,7 +414,7 @@ return:                                           ; preds = %err, %if.then37, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @drbg_hmac_verify_zeroization(ptr nocapture noundef readonly %vdrbg) #0 {
+define internal range(i32 0, 2) i32 @drbg_hmac_verify_zeroization(ptr noundef readonly captures(none) %vdrbg) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %vdrbg, i64 248
   %0 = load ptr, ptr %data, align 8
@@ -567,7 +567,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
 declare ptr @ossl_rand_drbg_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @drbg_hmac_new(ptr nocapture noundef writeonly %drbg) #0 {
+define internal range(i32 0, 2) i32 @drbg_hmac_new(ptr noundef writeonly captures(none) %drbg) #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_secure_zalloc(i64 noundef 168, ptr noundef nonnull @.str, i32 noundef 315) #6
   %cmp = icmp eq ptr %call, null
@@ -594,7 +594,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @drbg_hmac_instantiate(ptr nocapture noundef readonly %drbg, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %pstr, i64 noundef %pstr_len) #0 {
+define internal range(i32 0, 2) i32 @drbg_hmac_instantiate(ptr noundef readonly captures(none) %drbg, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %nonce, i64 noundef %nonce_len, ptr noundef %pstr, i64 noundef %pstr_len) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %drbg, i64 248
   %0 = load ptr, ptr %data, align 8
@@ -616,7 +616,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @drbg_hmac_reseed(ptr nocapture noundef readonly %drbg, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %adin, i64 noundef %adin_len) #0 {
+define internal range(i32 0, 2) i32 @drbg_hmac_reseed(ptr noundef readonly captures(none) %drbg, ptr noundef %ent, i64 noundef %ent_len, ptr noundef %adin, i64 noundef %adin_len) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %drbg, i64 248
   %0 = load ptr, ptr %data, align 8
@@ -639,7 +639,7 @@ drbg_hmac_update.exit:                            ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @drbg_hmac_generate(ptr nocapture noundef readonly %drbg, ptr noundef %out, i64 noundef %outlen, ptr noundef %adin, i64 noundef %adin_len) #0 {
+define internal range(i32 0, 2) i32 @drbg_hmac_generate(ptr noundef readonly captures(none) %drbg, ptr noundef %out, i64 noundef %outlen, ptr noundef %adin, i64 noundef %adin_len) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %drbg, i64 248
   %0 = load ptr, ptr %data, align 8

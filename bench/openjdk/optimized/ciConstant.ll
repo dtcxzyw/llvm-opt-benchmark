@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK10ciConstant15is_null_or_zeroEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK10ciConstant15is_null_or_zeroEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = load i8, ptr %0, align 8
   %3 = add i8 %2, -4
   %4 = icmp ult i8 %3, 8
@@ -60,7 +60,7 @@ define hidden noundef zeroext i1 @_ZNK10ciConstant15is_null_or_zeroEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK10ciConstant9is_loadedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK10ciConstant9is_loadedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = load i8, ptr %0, align 8
   %.not = icmp eq i8 %2, 99
   br i1 %.not, label %_Z17is_reference_type9BasicTypeb.exit, label %3
@@ -91,7 +91,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %10, %5, %3, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ciConstant5printEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10ciConstant5printEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @tty, align 8
   %3 = load i8, ptr %0, align 8
   %4 = tail call noundef ptr @_Z16basictype_to_str9BasicType(i8 noundef zeroext %3) #2

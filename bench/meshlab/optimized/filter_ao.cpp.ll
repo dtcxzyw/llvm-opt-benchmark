@@ -604,7 +604,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -644,7 +644,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
@@ -1621,13 +1621,13 @@ define linkonce_odr void @_ZNK13MeshLabPlugin6vendorEv(ptr dead_on_unwind noalia
 declare noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN22AmbientOcclusionPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(185) initializes((0, 8), (16, 24)) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22AmbientOcclusionPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(185) initializes((0, 8), (16, 24)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1777,14 +1777,14 @@ define void @_ZTv0_n24_N22AmbientOcclusionPluginD0Ev(ptr noundef %0) unnamed_add
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK22AmbientOcclusionPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(185) %1) unnamed_addr #10 align 2 {
+define void @_ZNK22AmbientOcclusionPlugin10pluginNameEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(185) %1) unnamed_addr #10 align 2 {
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.7, i32 noundef 22)
   store ptr %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n40_NK22AmbientOcclusionPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #15 align 2 {
+define void @_ZTv0_n40_NK22AmbientOcclusionPlugin10pluginNameEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #15 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.7, i32 noundef 22), !noalias !14
   store ptr %3, ptr %0, align 8, !alias.scope !14
@@ -1792,7 +1792,7 @@ define void @_ZTv0_n40_NK22AmbientOcclusionPlugin10pluginNameEv(ptr dead_on_unwi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK22AmbientOcclusionPlugin10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(185) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK22AmbientOcclusionPlugin10filterNameEi(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(185) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   %cond = icmp eq i32 %2, 0
   br i1 %cond, label %4, label %6
 
@@ -1807,7 +1807,7 @@ define void @_ZNK22AmbientOcclusionPlugin10filterNameEi(ptr dead_on_unwind noali
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK22AmbientOcclusionPlugin10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #15 align 2 {
+define void @_ZThn16_NK22AmbientOcclusionPlugin10filterNameEi(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) unnamed_addr #15 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %cond.i = icmp eq i32 %2, 0
   br i1 %cond.i, label %4, label %_ZNK22AmbientOcclusionPlugin10filterNameEi.exit
@@ -1823,7 +1823,7 @@ _ZNK22AmbientOcclusionPlugin10filterNameEi.exit:  ; preds = %3, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK22AmbientOcclusionPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(185) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK22AmbientOcclusionPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(185) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   %cond = icmp eq i32 %2, 0
   br i1 %cond, label %4, label %6
 
@@ -1838,7 +1838,7 @@ define void @_ZNK22AmbientOcclusionPlugin16pythonFilterNameEi(ptr dead_on_unwind
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK22AmbientOcclusionPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #15 align 2 {
+define void @_ZThn16_NK22AmbientOcclusionPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) unnamed_addr #15 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %cond.i = icmp eq i32 %2, 0
   br i1 %cond.i, label %4, label %_ZNK22AmbientOcclusionPlugin16pythonFilterNameEi.exit
@@ -1854,7 +1854,7 @@ _ZNK22AmbientOcclusionPlugin16pythonFilterNameEi.exit: ; preds = %3, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK22AmbientOcclusionPlugin10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(185) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK22AmbientOcclusionPlugin10filterInfoEi(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(185) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   %cond = icmp eq i32 %2, 0
   br i1 %cond, label %4, label %6
 
@@ -1873,7 +1873,7 @@ define void @_ZNK22AmbientOcclusionPlugin10filterInfoEi(ptr dead_on_unwind noali
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK22AmbientOcclusionPlugin10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #15 align 2 {
+define void @_ZThn16_NK22AmbientOcclusionPlugin10filterInfoEi(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) unnamed_addr #15 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %cond.i = icmp eq i32 %2, 0
   br i1 %cond.i, label %4, label %6
@@ -1893,12 +1893,12 @@ _ZNK22AmbientOcclusionPlugin10filterInfoEi.exit:  ; preds = %4, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN22AmbientOcclusionPlugin15getRequirementsEPK7QAction(ptr nocapture noundef nonnull readnone align 8 dereferenceable(185) %0, ptr nocapture noundef readnone %1) unnamed_addr #16 align 2 {
+define noundef i32 @_ZN22AmbientOcclusionPlugin15getRequirementsEPK7QAction(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(185) %0, ptr noundef readnone captures(none) %1) unnamed_addr #16 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZThn16_N22AmbientOcclusionPlugin15getRequirementsEPK7QAction(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) unnamed_addr #16 align 2 {
+define noundef i32 @_ZThn16_N22AmbientOcclusionPlugin15getRequirementsEPK7QAction(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) unnamed_addr #16 align 2 {
   ret i32 0
 }
 
@@ -1924,27 +1924,27 @@ define noundef zeroext i1 @_ZThn16_NK22AmbientOcclusionPlugin17requiresGLContext
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK22AmbientOcclusionPlugin11filterArityEPK7QAction(ptr nocapture noundef nonnull readnone align 8 dereferenceable(185) %0, ptr nocapture noundef readnone %1) unnamed_addr #16 align 2 {
+define noundef i32 @_ZNK22AmbientOcclusionPlugin11filterArityEPK7QAction(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(185) %0, ptr noundef readnone captures(none) %1) unnamed_addr #16 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZThn16_NK22AmbientOcclusionPlugin11filterArityEPK7QAction(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) unnamed_addr #16 align 2 {
+define noundef i32 @_ZThn16_NK22AmbientOcclusionPlugin11filterArityEPK7QAction(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) unnamed_addr #16 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK22AmbientOcclusionPlugin8getClassEPK7QAction(ptr nocapture noundef nonnull readnone align 8 dereferenceable(185) %0, ptr nocapture noundef readnone %1) unnamed_addr #16 align 2 {
+define noundef i32 @_ZNK22AmbientOcclusionPlugin8getClassEPK7QAction(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(185) %0, ptr noundef readnone captures(none) %1) unnamed_addr #16 align 2 {
   ret i32 16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZThn16_NK22AmbientOcclusionPlugin8getClassEPK7QAction(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) unnamed_addr #16 align 2 {
+define noundef i32 @_ZThn16_NK22AmbientOcclusionPlugin8getClassEPK7QAction(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) unnamed_addr #16 align 2 {
   ret i32 16
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22AmbientOcclusionPlugin17initParameterListEPK7QActionRK9MeshModel(ptr dead_on_unwind noalias nonnull writable sret(%class.RichParameterList) align 8 %0, ptr noundef nonnull align 8 dereferenceable(185) %1, ptr noundef %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22AmbientOcclusionPlugin17initParameterListEPK7QActionRK9MeshModel(ptr dead_on_unwind noalias nonnull writable sret(%class.RichParameterList) align 8 %0, ptr noundef nonnull align 8 dereferenceable(185) %1, ptr noundef %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.RichEnum, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QStringList, align 8
@@ -3331,7 +3331,7 @@ declare void @_ZN8RichBoolD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) 
 declare void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N22AmbientOcclusionPlugin17initParameterListEPK7QActionRK9MeshModel(ptr dead_on_unwind noalias writable sret(%class.RichParameterList) align 8 %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1288) %3) unnamed_addr #15 align 2 {
+define void @_ZThn16_N22AmbientOcclusionPlugin17initParameterListEPK7QActionRK9MeshModel(ptr dead_on_unwind noalias writable sret(%class.RichParameterList) align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1288) %3) unnamed_addr #15 align 2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 -16
   tail call void @_ZN22AmbientOcclusionPlugin17initParameterListEPK7QActionRK9MeshModel(ptr dead_on_unwind writable sret(%class.RichParameterList) align 8 %0, ptr noundef nonnull align 8 dereferenceable(185) %5, ptr noundef %2, ptr nonnull align 8 poison)
   ret void
@@ -3612,7 +3612,7 @@ declare void @_ZN9QListData7disposeEPNS_4DataE(ptr noundef) local_unnamed_addr #
 declare void @_ZNK11QMetaObject2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22AmbientOcclusionPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::map.43") align 8 %0, ptr noundef nonnull align 8 dereferenceable(185) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr nocapture nonnull readnone align 4 %5, ptr nocapture noundef readonly %6) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22AmbientOcclusionPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::map.43") align 8 %0, ptr noundef nonnull align 8 dereferenceable(185) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr nonnull readnone align 4 captures(none) %5, ptr noundef readonly captures(none) %6) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %class.QString, align 8
   %9 = alloca %class.QString, align 8
   %10 = alloca %class.QString, align 8
@@ -4808,7 +4808,7 @@ define linkonce_odr void @_ZSt7shuffleIN9__gnu_cxx17__normal_iteratorIPN3vcg6Poi
 declare double @llvm.floor.f64(double) #18
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22AmbientOcclusionPlugin6initGLEPFbiPKcEj(ptr noundef nonnull align 8 dereferenceable(185) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22AmbientOcclusionPlugin6initGLEPFbiPKcEj(ptr noundef nonnull align 8 dereferenceable(185) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [4096 x i8], align 16
   %5 = alloca i32, align 4
   %6 = alloca %class.QString, align 8
@@ -5259,7 +5259,7 @@ declare void @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 derefe
 declare noundef zeroext i1 @_ZN20QGLFramebufferObject4bindEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN22AmbientOcclusionPlugin9processGLER9MeshModelRSt6vectorIN3vcg6Point3IfEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(185) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN22AmbientOcclusionPlugin9processGLER9MeshModelRSt6vectorIN3vcg6Point3IfEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(185) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [4096 x i8], align 16
   %5 = alloca %"class.vcg::tri::Allocator<CMeshO>::PointerUpdater.284", align 8
   %6 = alloca %"class.vcg::tri::Allocator<CMeshO>::PointerUpdater", align 8
@@ -6699,10 +6699,10 @@ declare void @_ZN26QGLFramebufferObjectFormatD1Ev(ptr noundef nonnull align 8 de
 declare void @_ZN12FilterPlugin17wrongActionCalledEPK7QAction(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N22AmbientOcclusionPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::map.43") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %5, ptr nocapture noundef readonly %6) unnamed_addr #15 align 2 {
+define void @_ZThn16_N22AmbientOcclusionPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::map.43") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %5, ptr noundef readonly captures(none) %6) unnamed_addr #15 align 2 {
   %8 = getelementptr inbounds i8, ptr %1, i64 -16
   tail call void @_ZN22AmbientOcclusionPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE(ptr dead_on_unwind writable sret(%"class.std::map.43") align 8 %0, ptr noundef nonnull align 8 dereferenceable(185) %8, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr nonnull align 4 poison, ptr noundef %6)
   ret void
@@ -6814,7 +6814,7 @@ declare float @cosf(float noundef) local_unnamed_addr #21
 declare float @sinf(float noundef) local_unnamed_addr #21
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #22
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #22
 
 declare void @_ZNSt13random_device7_M_initERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(5000), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
@@ -7521,7 +7521,7 @@ declare void @glDepthFunc(i32 noundef) local_unnamed_addr #0
 declare void @glClearColor(float noundef, float noundef, float noundef, float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22AmbientOcclusionPlugin21vertexCoordsToTextureER9MeshModel(ptr nocapture noundef nonnull readonly align 8 dereferenceable(185) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1288) %1) local_unnamed_addr #10 align 2 {
+define void @_ZN22AmbientOcclusionPlugin21vertexCoordsToTextureER9MeshModel(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(185) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1288) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -7612,7 +7612,7 @@ declare void @glBlendFunc(i32 noundef, i32 noundef) local_unnamed_addr #0
 declare noundef i64 @_ZNK13QElapsedTimer7elapsedEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22AmbientOcclusionPlugin9setCameraEN3vcg6Point3IfEERNS0_4Box3IfEE(ptr nocapture noundef nonnull align 8 dereferenceable(185) initializes((104, 116)) %0, <2 x float> %1, float %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %3) local_unnamed_addr #17 align 2 {
+define void @_ZN22AmbientOcclusionPlugin9setCameraEN3vcg6Point3IfEERNS0_4Box3IfEE(ptr noundef nonnull align 8 captures(none) dereferenceable(185) initializes((104, 116)) %0, <2 x float> %1, float %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %3) local_unnamed_addr #17 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.sroa.069.0.vec.extract = extractelement <2 x float> %1, i64 0
   store float %.sroa.069.0.vec.extract, ptr %5, align 8
@@ -7709,7 +7709,7 @@ declare void @_ZNK17MLPluginGLContext13drawMeshModelEi(ptr noundef nonnull align
 declare void @glDisable(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22AmbientOcclusionPlugin19generateOcclusionHWEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(185) %0) local_unnamed_addr #10 align 2 {
+define void @_ZN22AmbientOcclusionPlugin19generateOcclusionHWEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(185) %0) local_unnamed_addr #10 align 2 {
   %2 = alloca [16 x float], align 16
   call void @glGetFloatv(i32 noundef 2982, ptr noundef nonnull %2)
   call void @glMatrixMode(i32 noundef 5889)
@@ -7847,7 +7847,7 @@ _ZN3vcg11PerViewDataI18MLPerViewGLOptionsED2Ev.exit: ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22AmbientOcclusionPlugin23generateFaceOcclusionSWER9MeshModelRSt6vectorIN3vcg6Point3IfEESaIS5_EE(ptr nocapture noundef nonnull align 8 dereferenceable(185) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22AmbientOcclusionPlugin23generateFaceOcclusionSWER9MeshModelRSt6vectorIN3vcg6Point3IfEESaIS5_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(185) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [3 x double], align 16
   %5 = alloca [16 x double], align 16
   %6 = alloca [16 x double], align 16
@@ -8034,7 +8034,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %3, %27
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22AmbientOcclusionPlugin19generateOcclusionSWER9MeshModel(ptr nocapture noundef nonnull align 8 dereferenceable(185) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22AmbientOcclusionPlugin19generateOcclusionSWER9MeshModel(ptr noundef nonnull align 8 captures(none) dereferenceable(185) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [3 x double], align 16
   %4 = alloca [16 x double], align 16
   %5 = alloca [16 x double], align 16
@@ -8206,7 +8206,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %2, %26
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22AmbientOcclusionPlugin16applyOcclusionHWER9MeshModel(ptr nocapture noundef nonnull readonly align 8 dereferenceable(185) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1288) %1) local_unnamed_addr #10 align 2 {
+define void @_ZN22AmbientOcclusionPlugin16applyOcclusionHWER9MeshModel(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(185) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1288) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %4 = load i32, ptr %3, align 4
   %5 = mul i32 %4, %4
@@ -14961,7 +14961,7 @@ define linkonce_odr void @_ZN3vcg3tri19RequirePerFaceColorI6CMeshOEEvRKT_(ptr no
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #22
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #22
 
 declare void @_ZN11GLLogStream3logEiPKc(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -14974,7 +14974,7 @@ declare void @glGetIntegerv(i32 noundef, ptr noundef) local_unnamed_addr #0
 declare zeroext i8 @glewIsSupported(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22AmbientOcclusionPlugin11set_shadersEPcRjS1_S1_(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22AmbientOcclusionPlugin11set_shadersEPcRjS1_S1_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %3, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %4) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
   %8 = alloca %class.QString, align 8
@@ -15807,7 +15807,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QString6appendE5QCha
 declare void @_ZN5QFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22AmbientOcclusionPlugin16dumpFloatTextureE7QStringPfi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(185) %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22AmbientOcclusionPlugin16dumpFloatTextureE7QStringPfi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(185) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QByteArray, align 8
   %6 = sext i32 %3 to i64
   %7 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #31
@@ -15867,13 +15867,13 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %._crit_edge, %_ZN9Q
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #22
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #22
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #22
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #22
 
 declare void @_ZN7QString13toUtf8_helperERKS_(ptr dead_on_unwind writable sret(%class.QByteArray) align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
@@ -17439,10 +17439,10 @@ declare i64 @llvm.umin.i64(i64, i64) #24
 declare float @llvm.sqrt.f32(float) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #24

@@ -9,7 +9,7 @@ define hidden noundef i8 @_ZN22cranelift_codegen_meta6shared5types11IntIterator3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define range(i8 7, -127) i8 @"_ZN109_$LT$cranelift_codegen_meta..shared..types..IntIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c219c12bc1b8097E"(ptr nocapture align 1 %0) unnamed_addr #1 {
+define range(i8 7, -127) i8 @"_ZN109_$LT$cranelift_codegen_meta..shared..types..IntIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c219c12bc1b8097E"(ptr align 1 captures(none) %0) unnamed_addr #1 {
   %2 = load i8, ptr %0, align 1, !noundef !3
   %3 = icmp ult i8 %2, 5
   br i1 %3, label %switch.lookup, label %6
@@ -34,7 +34,7 @@ define hidden noundef i8 @_ZN22cranelift_codegen_meta6shared5types13FloatIterato
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define range(i8 31, 65) i8 @"_ZN111_$LT$cranelift_codegen_meta..shared..types..FloatIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6afc9fbb10ee1fe3E"(ptr nocapture align 1 %0) unnamed_addr #1 {
+define range(i8 31, 65) i8 @"_ZN111_$LT$cranelift_codegen_meta..shared..types..FloatIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6afc9fbb10ee1fe3E"(ptr align 1 captures(none) %0) unnamed_addr #1 {
   %2 = load i8, ptr %0, align 1, !noundef !3
   switch i8 %2, label %6 [
     i8 0, label %4
@@ -61,7 +61,7 @@ define hidden noundef i8 @_ZN22cranelift_codegen_meta6shared5types17ReferenceIte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define range(i8 31, 65) i8 @"_ZN115_$LT$cranelift_codegen_meta..shared..types..ReferenceIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1f78f95d70c84d9aE"(ptr nocapture align 1 %0) unnamed_addr #1 {
+define range(i8 31, 65) i8 @"_ZN115_$LT$cranelift_codegen_meta..shared..types..ReferenceIterator$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1f78f95d70c84d9aE"(ptr align 1 captures(none) %0) unnamed_addr #1 {
   %2 = load i8, ptr %0, align 1, !noundef !3
   switch i8 %2, label %6 [
     i8 0, label %4

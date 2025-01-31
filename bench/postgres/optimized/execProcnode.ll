@@ -391,7 +391,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @ExecSetExecProcNode(ptr nocapture noundef writeonly initializes((24, 40)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define dso_local void @ExecSetExecProcNode(ptr noundef writeonly captures(none) initializes((24, 40)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -893,7 +893,7 @@ define internal noundef zeroext i1 @ExecShutdownNode_walker(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @ExecSetTupleBound(i64 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
+define dso_local void @ExecSetTupleBound(i64 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %2

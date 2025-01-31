@@ -165,7 +165,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lzma_traverse(ptr noundef %module, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @lzma_traverse(ptr noundef %module, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #9
   %0 = load ptr, ptr %call.i, align 8
@@ -324,7 +324,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_lzma_is_check_supported(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @_lzma_is_check_supported(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #9
   %cmp = icmp eq i32 %call, -1
@@ -426,7 +426,7 @@ if.end4:                                          ; preds = %if.then3, %exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_lzma__decode_filter_properties(ptr noundef %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_lzma__decode_filter_properties(ptr noundef %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %filter.i = alloca %struct.lzma_filter, align 8
   %encoded_props = alloca %struct.Py_buffer, align 8
@@ -609,10 +609,10 @@ declare ptr @PyBool_FromLong(i64 noundef) local_unnamed_addr #1
 declare zeroext i8 @lzma_check_is_supported(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @lzma_filter_converter(ptr nocapture noundef readonly %state, ptr noundef %spec, ptr nocapture noundef %ptr) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @lzma_filter_converter(ptr noundef readonly captures(none) %state, ptr noundef %spec, ptr noundef captures(none) %ptr) unnamed_addr #0 {
 entry:
   %id.i = alloca ptr, align 8
   %start_offset.i = alloca i32, align 4
@@ -757,7 +757,7 @@ declare i32 @PyMapping_GetOptionalItemString(ptr noundef, ptr noundef, ptr nound
 declare i64 @PyLong_AsUnsignedLongLong(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @parse_filter_spec_lzma(ptr nocapture noundef readonly %state, ptr noundef %spec) unnamed_addr #0 {
+define internal fastcc ptr @parse_filter_spec_lzma(ptr noundef readonly captures(none) %state, ptr noundef %spec) unnamed_addr #0 {
 entry:
   %id = alloca ptr, align 8
   %preset_obj = alloca ptr, align 8
@@ -899,7 +899,7 @@ declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @uint32_converter(ptr noundef %obj, ptr nocapture noundef writeonly %ptr) #0 {
+define internal range(i32 0, 2) i32 @uint32_converter(ptr noundef %obj, ptr noundef writeonly captures(none) %ptr) #0 {
 entry:
   %call = tail call i64 @PyLong_AsUnsignedLongLong(ptr noundef %obj) #9
   %call1 = tail call ptr @PyErr_Occurred() #9
@@ -935,7 +935,7 @@ declare zeroext i8 @lzma_lzma_preset(ptr noundef, i32 noundef) local_unnamed_add
 declare i32 @PyArg_ParseTupleAndKeywords(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @lzma_mode_converter(ptr noundef %obj, ptr nocapture noundef writeonly %ptr) #0 {
+define internal range(i32 0, 2) i32 @lzma_mode_converter(ptr noundef %obj, ptr noundef writeonly captures(none) %ptr) #0 {
 entry:
   %call = tail call i64 @PyLong_AsUnsignedLongLong(ptr noundef %obj) #9
   %call1 = tail call ptr @PyErr_Occurred() #9
@@ -962,7 +962,7 @@ return:                                           ; preds = %entry, %if.end5, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @lzma_mf_converter(ptr noundef %obj, ptr nocapture noundef writeonly %ptr) #0 {
+define internal range(i32 0, 2) i32 @lzma_mf_converter(ptr noundef %obj, ptr noundef writeonly captures(none) %ptr) #0 {
 entry:
   %call = tail call i64 @PyLong_AsUnsignedLongLong(ptr noundef %obj) #9
   %call1 = tail call ptr @PyErr_Occurred() #9
@@ -992,7 +992,7 @@ return:                                           ; preds = %entry, %if.end5, %i
 declare i32 @lzma_properties_size(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @catch_lzma_error(ptr nocapture noundef readonly %state, i32 noundef %lzret) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @catch_lzma_error(ptr noundef readonly captures(none) %state, i32 noundef %lzret) unnamed_addr #0 {
 entry:
   switch i32 %lzret, label %sw.default [
     i32 0, label %return
@@ -1072,7 +1072,7 @@ declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @lzma_properties_encode(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1084,7 +1084,7 @@ declare void @PyBuffer_Release(ptr noundef) local_unnamed_addr #1
 declare i32 @lzma_properties_decode(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @PyDict_New() local_unnamed_addr #1
 
@@ -1599,7 +1599,7 @@ return:                                           ; preds = %land.lhs.true13, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @Compressor_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @Compressor_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -1687,7 +1687,7 @@ if.end3:                                          ; preds = %if.then2, %exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_lzma_LZMACompressor_flush(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_lzma_LZMACompressor_flush(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %lock.i = getelementptr inbounds nuw i8, ptr %self, i64 184
   %0 = load ptr, ptr %lock.i, align 8
@@ -1995,7 +1995,7 @@ declare ptr @PyType_GetModuleState(ptr noundef) local_unnamed_addr #1
 declare i32 @lzma_code(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @OutputBuffer_Grow(ptr nocapture noundef nonnull %buffer, ptr nocapture noundef writeonly %next_out, ptr nocapture noundef %avail_out) unnamed_addr #0 {
+define internal fastcc i64 @OutputBuffer_Grow(ptr noundef nonnull captures(none) %buffer, ptr noundef writeonly captures(none) %next_out, ptr noundef captures(none) %avail_out) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %avail_out, align 8
   %1 = load ptr, ptr %buffer, align 8
@@ -2097,7 +2097,7 @@ _BlocksOutputBuffer_Grow.exit:                    ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @OutputBuffer_Finish(ptr nocapture noundef nonnull %buffer, i64 noundef %avail_out) unnamed_addr #0 {
+define internal fastcc ptr @OutputBuffer_Finish(ptr noundef nonnull captures(none) %buffer, i64 noundef %avail_out) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %buffer, align 8
   %1 = getelementptr i8, ptr %0, i64 16
@@ -2245,7 +2245,7 @@ declare ptr @PyList_New(i64 noundef) local_unnamed_addr #1
 declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @PyLzma_Malloc(ptr nocapture readnone %opaque, i64 noundef %items, i64 noundef %size) #0 {
+define internal ptr @PyLzma_Malloc(ptr readnone captures(none) %opaque, i64 noundef %items, i64 noundef %size) #0 {
 entry:
   %cmp.not = icmp eq i64 %size, 0
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -2266,7 +2266,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PyLzma_Free(ptr nocapture readnone %opaque, ptr noundef %ptr) #0 {
+define internal void @PyLzma_Free(ptr readnone captures(none) %opaque, ptr noundef %ptr) #0 {
 entry:
   tail call void @PyMem_RawFree(ptr noundef %ptr) #9
   ret void
@@ -2275,7 +2275,7 @@ entry:
 declare ptr @PyThread_allocate_lock() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @Compressor_init_xz(ptr nocapture noundef readonly %state, ptr noundef nonnull %lzs, i32 noundef %check, i32 noundef %preset, ptr noundef %filterspecs) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @Compressor_init_xz(ptr noundef readonly captures(none) %state, ptr noundef nonnull %lzs, i32 noundef %check, i32 noundef %preset, ptr noundef %filterspecs) unnamed_addr #0 {
 entry:
   %filters = alloca [5 x %struct.lzma_filter], align 16
   %cmp = icmp eq ptr %filterspecs, @_Py_NoneStruct
@@ -2321,7 +2321,7 @@ return:                                           ; preds = %if.end7, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @Compressor_init_alone(ptr nocapture noundef readonly %state, ptr noundef nonnull %lzs, i32 noundef %preset, ptr noundef %filterspecs) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @Compressor_init_alone(ptr noundef readonly captures(none) %state, ptr noundef nonnull %lzs, i32 noundef %preset, ptr noundef %filterspecs) unnamed_addr #0 {
 entry:
   %options = alloca %struct.lzma_options_lzma, align 8
   %filters = alloca [5 x %struct.lzma_filter], align 16
@@ -2403,7 +2403,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @Compressor_init_raw(ptr nocapture noundef readonly %state, ptr noundef nonnull %lzs, ptr noundef %filterspecs) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @Compressor_init_raw(ptr noundef readonly captures(none) %state, ptr noundef nonnull %lzs, ptr noundef %filterspecs) unnamed_addr #0 {
 entry:
   %filters = alloca [5 x %struct.lzma_filter], align 16
   %cmp = icmp eq ptr %filterspecs, @_Py_NoneStruct
@@ -2456,7 +2456,7 @@ declare void @PyMem_RawFree(ptr noundef) local_unnamed_addr #1
 declare i32 @lzma_easy_encoder(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @parse_filter_chain_spec(ptr nocapture noundef readonly %state, ptr nocapture noundef nonnull %filters, ptr noundef %filterspecs) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parse_filter_chain_spec(ptr noundef readonly captures(none) %state, ptr noundef nonnull captures(none) %filters, ptr noundef %filterspecs) unnamed_addr #0 {
 entry:
   %call = tail call i64 @PySequence_Size(ptr noundef %filterspecs) #9
   %cmp = icmp eq i64 %call, -1
@@ -2909,7 +2909,7 @@ exit:                                             ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @Decompressor_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @Decompressor_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val3 = load ptr, ptr %0, align 8
@@ -3421,7 +3421,7 @@ declare ptr @PyMem_Realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @PyErr_SetNone(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 
@@ -3438,7 +3438,7 @@ declare i32 @lzma_stream_decoder(ptr noundef, i64 noundef, i32 noundef) local_un
 declare i32 @lzma_alone_decoder(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @Decompressor_init_raw(ptr nocapture noundef readonly %state, ptr noundef nonnull %lzs, ptr noundef %filterspecs) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @Decompressor_init_raw(ptr noundef readonly captures(none) %state, ptr noundef nonnull %lzs, ptr noundef %filterspecs) unnamed_addr #0 {
 entry:
   %filters = alloca [5 x %struct.lzma_filter], align 16
   %call = call fastcc i32 @parse_filter_chain_spec(ptr noundef %state, ptr noundef %filters, ptr noundef %filterspecs)
@@ -3478,10 +3478,10 @@ return:                                           ; preds = %free_filter_chain.e
 declare i32 @lzma_raw_decoder(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8

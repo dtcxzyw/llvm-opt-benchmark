@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN7JfrBlobD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN7JfrBlobD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7JfrBlobC2EPKhm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN7JfrBlobC2EPKhm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(25) initializes((0, 25)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZN11JfrCHeapObj23allocate_array_noinlineEmm(i64 noundef %2, i64 noundef 1) #6
   tail call void @_ZN11JfrCHeapObj20on_memory_allocationEPKvm(ptr noundef %4, i64 noundef %2) #6
   store ptr %4, ptr %0, align 8
@@ -26,10 +26,10 @@ define hidden void @_ZN7JfrBlobC2EPKhm(ptr nocapture noundef nonnull writeonly a
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7JfrBlobD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN7JfrBlobD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(25) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
@@ -71,7 +71,7 @@ _ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.ex
 declare void @_ZN11JfrCHeapObj4freeEPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK7JfrBlob17reset_write_stateEv(ptr nocapture noundef nonnull align 8 dereferenceable(25) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK7JfrBlob17reset_write_stateEv(ptr noundef nonnull align 8 captures(none) dereferenceable(25) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -98,7 +98,7 @@ tailrecurse._crit_edge:                           ; preds = %.lr.ph, %tailrecurs
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7JfrBlob8set_nextERK14RefCountHandleI15RefCountPointerIS_23MultiThreadedRefCounterEE(ptr nocapture noundef nonnull align 8 dereferenceable(25) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN7JfrBlob8set_nextERK14RefCountHandleI15RefCountPointerIS_23MultiThreadedRefCounterEE(ptr noundef nonnull align 8 captures(none) dereferenceable(25) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -165,7 +165,7 @@ _ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7JfrBlob4makeEPKhm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.RefCountHandle) align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN7JfrBlob4makeEPKhm(ptr dead_on_unwind noalias writable writeonly sret(%class.RefCountHandle) align 8 captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef 32) #6
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6

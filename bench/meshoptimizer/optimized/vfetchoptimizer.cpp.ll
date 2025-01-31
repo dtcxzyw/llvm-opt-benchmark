@@ -17,7 +17,7 @@ $_ZN17meshopt_Allocator8StorageTIvE8allocateE = comdat any
 @_ZN17meshopt_Allocator8StorageTIvE8allocateE = linkonce_odr dso_local local_unnamed_addr global ptr @_Znwm, comdat, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i64 0, 4294967296) i64 @meshopt_optimizeVertexFetchRemap(ptr nocapture noundef %destination, ptr nocapture noundef readonly %indices, i64 noundef %index_count, i64 noundef %vertex_count) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @meshopt_optimizeVertexFetchRemap(ptr noundef captures(none) %destination, ptr noundef readonly captures(none) %indices, i64 noundef %index_count, i64 noundef %vertex_count) local_unnamed_addr #0 {
 entry:
   %mul = shl i64 %vertex_count, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %destination, i8 -1, i64 %mul, i1 false)
@@ -56,10 +56,10 @@ for.end:                                          ; preds = %for.end.loopexit, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 0, 4294967296) i64 @meshopt_optimizeVertexFetch(ptr noundef writeonly %destination, ptr nocapture noundef %indices, i64 noundef %index_count, ptr noundef readonly %vertices, i64 noundef %vertex_count, i64 noundef %vertex_size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, 4294967296) i64 @meshopt_optimizeVertexFetch(ptr noundef writeonly %destination, ptr noundef captures(none) %indices, i64 noundef %index_count, ptr noundef readonly %vertices, i64 noundef %vertex_count, i64 noundef %vertex_size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %allocator = alloca %class.meshopt_Allocator, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %allocator, i8 0, i64 200, i1 false)
@@ -170,7 +170,7 @@ _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %for.cond.i
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {

@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.cms_add1_signingTime = private unnamed_addr constant [21 x i8] c"cms_add1_signingTime\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CMS_SignedData_init(ptr nocapture noundef %cms) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_SignedData_init(ptr noundef captures(none) %cms) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @cms_signed_data_init(ptr noundef %cms)
   %tobool.not = icmp ne ptr %call, null
@@ -33,7 +33,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cms_signed_data_init(ptr nocapture noundef %cms) unnamed_addr #0 {
+define internal fastcc ptr @cms_signed_data_init(ptr noundef captures(none) %cms) unnamed_addr #0 {
 entry:
   %d = getelementptr inbounds nuw i8, ptr %cms, i64 8
   %0 = load ptr, ptr %d, align 8
@@ -94,7 +94,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cms_set1_SignerIdentifier(ptr noundef %sid, ptr noundef %cert, i32 noundef %type, ptr nocapture noundef readnone %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_set1_SignerIdentifier(ptr noundef %sid, ptr noundef %cert, i32 noundef %type, ptr noundef readnone captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   switch i32 %type, label %sw.default [
     i32 0, label %sw.bb
@@ -139,7 +139,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ossl_cms_SignerIdentifier_get0_signer_id(ptr nocapture noundef readonly %sid, ptr noundef writeonly %keyid, ptr noundef writeonly %issuer, ptr noundef writeonly %sno) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_cms_SignerIdentifier_get0_signer_id(ptr noundef readonly captures(none) %sid, ptr noundef writeonly %keyid, ptr noundef writeonly %issuer, ptr noundef writeonly %sno) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %sid, align 8
   switch i32 %0, label %return [
@@ -185,7 +185,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cms_SignerIdentifier_cert_cmp(ptr nocapture noundef readonly %sid, ptr noundef %cert) local_unnamed_addr #0 {
+define i32 @ossl_cms_SignerIdentifier_cert_cmp(ptr noundef readonly captures(none) %sid, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %sid, align 8
   switch i32 %0, label %return [
@@ -742,7 +742,7 @@ return:                                           ; preds = %if.end33, %if.then3
 declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CMS_add_standard_smimecap(ptr nocapture noundef %smcap) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_add_standard_smimecap(ptr noundef captures(none) %smcap) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @OBJ_nid2sn(i32 noundef 427) #7
   %call1.i = tail call ptr @EVP_get_cipherbyname(ptr noundef %call.i) #7
@@ -1084,7 +1084,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare void @ESS_SIGNING_CERT_V2_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cms_copy_messageDigest(ptr nocapture noundef readonly %cms, ptr noundef nonnull %si) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cms_copy_messageDigest(ptr noundef readonly captures(none) %cms, ptr noundef nonnull %si) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %cms, align 8
   %call.i.i = tail call i32 @OBJ_obj2nid(ptr noundef %0) #7
@@ -1385,7 +1385,7 @@ for.end:                                          ; preds = %for.inc, %CMS_get0_
 declare i32 @ERR_set_mark() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @CMS_get0_SignerInfos(ptr nocapture noundef readonly %cms) local_unnamed_addr #0 {
+define ptr @CMS_get0_SignerInfos(ptr noundef readonly captures(none) %cms) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %cms, align 8
   %call.i = tail call i32 @OBJ_obj2nid(ptr noundef %0) #7
@@ -1417,7 +1417,7 @@ cond.end:                                         ; preds = %cms_get0_signed.exi
 declare i32 @ERR_pop_to_mark() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @CMS_SignerInfo_get0_pkey_ctx(ptr nocapture noundef readonly %si) local_unnamed_addr #3 {
+define ptr @CMS_SignerInfo_get0_pkey_ctx(ptr noundef readonly captures(none) %si) local_unnamed_addr #3 {
 entry:
   %pctx = getelementptr inbounds nuw i8, ptr %si, i64 80
   %0 = load ptr, ptr %pctx, align 8
@@ -1425,7 +1425,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @CMS_SignerInfo_get0_md_ctx(ptr nocapture noundef readonly %si) local_unnamed_addr #3 {
+define ptr @CMS_SignerInfo_get0_md_ctx(ptr noundef readonly captures(none) %si) local_unnamed_addr #3 {
 entry:
   %mctx = getelementptr inbounds nuw i8, ptr %si, i64 72
   %0 = load ptr, ptr %mctx, align 8
@@ -1433,7 +1433,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @CMS_get0_signers(ptr nocapture noundef readonly %cms) local_unnamed_addr #0 {
+define ptr @CMS_get0_signers(ptr noundef readonly captures(none) %cms) local_unnamed_addr #0 {
 entry:
   %signers = alloca ptr, align 8
   store ptr null, ptr %signers, align 8
@@ -1503,7 +1503,7 @@ declare i32 @ossl_x509_add_cert_new(ptr noundef, ptr noundef, i32 noundef) local
 declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @CMS_SignerInfo_set1_signer_cert(ptr nocapture noundef %si, ptr noundef %signer) local_unnamed_addr #0 {
+define void @CMS_SignerInfo_set1_signer_cert(ptr noundef captures(none) %si, ptr noundef %signer) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %signer, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1532,7 +1532,7 @@ declare ptr @X509_get_pubkey(ptr noundef) local_unnamed_addr #1
 declare void @X509_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @CMS_SignerInfo_get0_signer_id(ptr nocapture noundef readonly %si, ptr noundef writeonly %keyid, ptr noundef writeonly %issuer, ptr noundef writeonly %sno) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @CMS_SignerInfo_get0_signer_id(ptr noundef readonly captures(none) %si, ptr noundef writeonly %keyid, ptr noundef writeonly %issuer, ptr noundef writeonly %sno) local_unnamed_addr #2 {
 entry:
   %sid = getelementptr inbounds nuw i8, ptr %si, i64 8
   %0 = load ptr, ptr %sid, align 8
@@ -1580,7 +1580,7 @@ ossl_cms_SignerIdentifier_get0_signer_id.exit:    ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_SignerInfo_cert_cmp(ptr nocapture noundef readonly %si, ptr noundef %cert) local_unnamed_addr #0 {
+define i32 @CMS_SignerInfo_cert_cmp(ptr noundef readonly captures(none) %si, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %sid = getelementptr inbounds nuw i8, ptr %si, i64 8
   %0 = load ptr, ptr %sid, align 8
@@ -1608,7 +1608,7 @@ ossl_cms_SignerIdentifier_cert_cmp.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @CMS_set1_signers_certs(ptr nocapture noundef readonly %cms, ptr noundef %scerts, i32 noundef %flags) local_unnamed_addr #0 {
+define i32 @CMS_set1_signers_certs(ptr noundef readonly captures(none) %cms, ptr noundef %scerts, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %cms, align 8
   %call.i = tail call i32 @OBJ_obj2nid(ptr noundef %0) #7
@@ -1803,7 +1803,7 @@ return:                                           ; preds = %for.inc42, %if.end,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @CMS_SignerInfo_get0_algs(ptr nocapture noundef readonly %si, ptr noundef writeonly %pk, ptr noundef writeonly %signer, ptr noundef writeonly %pdig, ptr noundef writeonly %psig) local_unnamed_addr #4 {
+define void @CMS_SignerInfo_get0_algs(ptr noundef readonly captures(none) %si, ptr noundef writeonly %pk, ptr noundef writeonly %signer, ptr noundef writeonly %pdig, ptr noundef writeonly %psig) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %pk, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1849,7 +1849,7 @@ if.end10:                                         ; preds = %if.then9, %if.end7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @CMS_SignerInfo_get0_signature(ptr nocapture noundef readonly %si) local_unnamed_addr #3 {
+define ptr @CMS_SignerInfo_get0_signature(ptr noundef readonly captures(none) %si) local_unnamed_addr #3 {
 entry:
   %signature = getelementptr inbounds nuw i8, ptr %si, i64 40
   %0 = load ptr, ptr %signature, align 8
@@ -2784,7 +2784,7 @@ declare i32 @i2d_X509_ALGORS(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @CMS_signed_add1_attr_by_NID(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CMS_add_simple_smimecap(ptr nocapture noundef %algs, i32 noundef %algnid, i32 noundef %keysize) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_add_simple_smimecap(ptr noundef captures(none) %algs, i32 noundef %algnid, i32 noundef %keysize) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %keysize, 0
   br i1 %cmp, label %if.then, label %if.end4
@@ -2851,7 +2851,7 @@ declare void @ASN1_INTEGER_free(ptr noundef) local_unnamed_addr #1
 declare ptr @ossl_X509_ALGOR_from_nid(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cms_add_cipher_smcap(ptr nocapture noundef %sk, i32 noundef range(i32 31, 814) %nid, i32 noundef range(i32 -1, 129) %arg) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cms_add_cipher_smcap(ptr noundef captures(none) %sk, i32 noundef range(i32 31, 814) %nid, i32 noundef range(i32 -1, 129) %arg) unnamed_addr #0 {
 entry:
   %call = tail call ptr @OBJ_nid2sn(i32 noundef %nid) #7
   %call1 = tail call ptr @EVP_get_cipherbyname(ptr noundef %call) #7
@@ -2868,7 +2868,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cms_add_digest_smcap(ptr nocapture noundef %sk, i32 noundef range(i32 809, 984) %nid) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cms_add_digest_smcap(ptr noundef captures(none) %sk, i32 noundef range(i32 809, 984) %nid) unnamed_addr #0 {
 entry:
   %call = tail call ptr @OBJ_nid2sn(i32 noundef %nid) #7
   %call1 = tail call ptr @EVP_get_digestbyname(ptr noundef %call) #7
@@ -2917,7 +2917,7 @@ declare void @ASN1_OBJECT_free(ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_PKEY_is_a(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cms_generic_sign(ptr nocapture noundef readonly %si, i32 noundef range(i32 0, 2) %verify) unnamed_addr #0 {
+define internal fastcc i32 @cms_generic_sign(ptr noundef readonly captures(none) %si, i32 noundef range(i32 0, 2) %verify) unnamed_addr #0 {
 entry:
   %snid = alloca i32, align 4
   %tobool4.not = icmp eq i32 %verify, 0
@@ -3009,13 +3009,13 @@ declare void @ASN1_TIME_free(ptr noundef) local_unnamed_addr #1
 declare ptr @EVP_get_cipherbyname(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #5
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

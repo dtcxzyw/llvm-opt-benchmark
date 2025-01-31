@@ -158,7 +158,7 @@ declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @get_call_expr_argtype(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -178,7 +178,7 @@ declare i64 @SysCacheGetAttr(i32 noundef, ptr noundef, i16 noundef signext, ptr 
 declare i32 @get_func_input_arg_names(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @sql_fn_parser_setup(ptr nocapture noundef writeonly initializes((184, 208), (216, 224)) %0, ptr noundef %1) #4 {
+define dso_local void @sql_fn_parser_setup(ptr noundef writeonly captures(none) initializes((184, 208), (216, 224)) %0, ptr noundef %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -191,7 +191,7 @@ define dso_local void @sql_fn_parser_setup(ptr nocapture noundef writeonly initi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @sql_fn_post_column_ref(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readnone %2) #0 {
+define internal ptr @sql_fn_post_column_ref(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %2, null
@@ -405,7 +405,7 @@ sql_fn_resolve_param_name.exit:                   ; preds = %66, %34, %.preheade
   br i1 %exitcond.not.i64, label %.loopexit, label %.lr.ph.i60, !llvm.loop !7
 
 .loopexit:                                        ; preds = %107, %75, %.preheader.i56
-  %108 = tail call fastcc ptr @sql_fn_resolve_param_name(ptr noundef nonnull %5, ptr noundef %23, i32 noundef %77)
+  %108 = tail call fastcc ptr @sql_fn_resolve_param_name(ptr noundef nonnull %5, ptr noundef nonnull %23, i32 noundef %77)
   br label %sql_fn_resolve_param_name.exit68
 
 109:                                              ; preds = %30, %71
@@ -504,7 +504,7 @@ sql_fn_resolve_param_name.exit68.thread92:        ; preds = %141, %89, %106, %.p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @sql_fn_param_ref(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef ptr @sql_fn_param_ref(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1776,7 +1776,7 @@ postquel_get_single_result.exit186:               ; preds = %571, %slot_getattr.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sql_exec_error_callback(ptr nocapture noundef readonly %0) #0 {
+define internal void @sql_exec_error_callback(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2619,7 +2619,7 @@ declare i32 @ExecCleanTargetListLength(ptr noundef) local_unnamed_addr #1
 declare signext i8 @get_typtype(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @coerce_fn_result_column(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @coerce_fn_result_column(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #0 {
   br i1 %3, label %7, label %19
 
 7:                                                ; preds = %6
@@ -2719,7 +2719,7 @@ define dso_local noundef ptr @CreateSQLFunctionDestReceiver() local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @sqlfunction_receive(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef zeroext i1 @sqlfunction_receive(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @ExecFilterJunk(ptr noundef %4, ptr noundef %0) #10
@@ -2730,12 +2730,12 @@ define internal noundef zeroext i1 @sqlfunction_receive(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @sqlfunction_startup(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2) #5 {
+define internal void @sqlfunction_startup(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #5 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @sqlfunction_shutdown(ptr nocapture readnone %0) #5 {
+define internal void @sqlfunction_shutdown(ptr readnone captures(none) %0) #5 {
   ret void
 }
 
@@ -2746,10 +2746,10 @@ define internal void @sqlfunction_destroy(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @sql_fn_resolve_param_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @sql_fn_resolve_param_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -2937,13 +2937,13 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

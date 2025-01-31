@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK8QuantLib17FdmLinearOpLayout13neighbourhoodERKNS_19FdmLinearOpIteratorEmi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %iterator, i64 noundef %i, i32 noundef %offset) local_unnamed_addr #0 align 2 {
+define noundef i64 @_ZNK8QuantLib17FdmLinearOpLayout13neighbourhoodERKNS_19FdmLinearOpIteratorEmi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %iterator, i64 noundef %i, i32 noundef %offset) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i64, ptr %iterator, align 8, !tbaa !3
   %coordinates_.i = getelementptr inbounds nuw i8, ptr %iterator, i64 32
@@ -53,7 +53,7 @@ if.end19:                                         ; preds = %entry, %if.else, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK8QuantLib17FdmLinearOpLayout13neighbourhoodERKNS_19FdmLinearOpIteratorEmimi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %iterator, i64 noundef %i1, i32 noundef %offset1, i64 noundef %i2, i32 noundef %offset2) local_unnamed_addr #0 align 2 {
+define noundef i64 @_ZNK8QuantLib17FdmLinearOpLayout13neighbourhoodERKNS_19FdmLinearOpIteratorEmimi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %iterator, i64 noundef %i1, i32 noundef %offset1, i64 noundef %i2, i32 noundef %offset2) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i64, ptr %iterator, align 8, !tbaa !3
   %coordinates_.i = getelementptr inbounds nuw i8, ptr %iterator, i64 32
@@ -128,7 +128,7 @@ if.end47:                                         ; preds = %if.end25, %if.else3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib17FdmLinearOpLayout18iter_neighbourhoodERKNS_19FdmLinearOpIteratorEmi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::FdmLinearOpIterator") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %iterator, i64 noundef %i, i32 noundef %offset) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib17FdmLinearOpLayout18iter_neighbourhoodERKNS_19FdmLinearOpIteratorEmi(ptr dead_on_unwind noalias writable writeonly sret(%"class.QuantLib::FdmLinearOpIterator") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %iterator, i64 noundef %i, i32 noundef %offset) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %coordinates_.i = getelementptr inbounds nuw i8, ptr %iterator, i64 32
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %iterator, i64 40
@@ -302,10 +302,10 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #3
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

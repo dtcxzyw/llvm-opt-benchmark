@@ -42,7 +42,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7517GregorianCalendar17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7517GregorianCalendar17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret ptr @_ZZN6icu_7517GregorianCalendar16getStaticClassIDEvE7classID
 }
@@ -662,7 +662,7 @@ declare noundef nonnull align 8 dereferenceable(72) ptr @_ZNK6icu_758Calendar11g
 declare noundef i32 @_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7517GregorianCalendar19handleComputeFieldsEiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %julianDay, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7517GregorianCalendar19handleComputeFieldsEiR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(654) %this, i32 noundef %julianDay, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %unusedRemainder = alloca i32, align 4
   %0 = load i32, ptr %status, align 4
@@ -804,7 +804,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #5
 declare noundef i32 @_ZN6icu_759ClockMath11floorDivideEii(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK6icu_7517GregorianCalendar18getGregorianChangeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(654) %this) local_unnamed_addr #6 align 2 {
+define noundef double @_ZNK6icu_7517GregorianCalendar18getGregorianChangeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(654) %this) local_unnamed_addr #6 align 2 {
 entry:
   %fGregorianCutover = getelementptr inbounds nuw i8, ptr %this, i64 624
   %0 = load double, ptr %fGregorianCutover, align 8
@@ -812,7 +812,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517GregorianCalendar10isLeapYearEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(654) %this, i32 noundef %year) local_unnamed_addr #6 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517GregorianCalendar10isLeapYearEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(654) %this, i32 noundef %year) local_unnamed_addr #6 align 2 {
 entry:
   %fGregorianCutoverYear = getelementptr inbounds nuw i8, ptr %this, i64 648
   %0 = load i32, ptr %fGregorianCutoverYear, align 8
@@ -940,7 +940,7 @@ return:                                           ; preds = %if.end22, %land.lhs
 declare noundef i32 @_ZN6icu_758Calendar22handleComputeJulianDayE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7517GregorianCalendar23handleComputeMonthStartEiia(ptr nocapture noundef nonnull align 8 dereferenceable(654) initializes((652, 653)) %this, i32 noundef %eyear, i32 noundef %month, i8 signext %0) unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK6icu_7517GregorianCalendar23handleComputeMonthStartEiia(ptr noundef nonnull align 8 captures(none) dereferenceable(654) initializes((652, 653)) %this, i32 noundef %eyear, i32 noundef %month, i8 signext %0) unnamed_addr #1 align 2 {
 entry:
   %month.addr = alloca i32, align 4
   store i32 %month, ptr %month.addr, align 4
@@ -1036,7 +1036,7 @@ declare noundef i32 @_ZN6icu_759ClockMath11floorDivideEiiPi(i32 noundef, i32 nou
 declare noundef i64 @_ZN6icu_759ClockMath11floorDivideEll(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -128, 128) i32 @_ZNK6icu_7517GregorianCalendar20handleGetMonthLengthEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(654) %this, i32 noundef %extendedYear, i32 noundef %month) unnamed_addr #1 align 2 {
+define noundef range(i32 -128, 128) i32 @_ZNK6icu_7517GregorianCalendar20handleGetMonthLengthEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(654) %this, i32 noundef %extendedYear, i32 noundef %month) unnamed_addr #1 align 2 {
 entry:
   %month.addr = alloca i32, align 4
   store i32 %month, ptr %month.addr, align 4
@@ -1100,7 +1100,7 @@ _ZNK6icu_7517GregorianCalendar10isLeapYearEi.exit: ; preds = %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 365, 367) i32 @_ZNK6icu_7517GregorianCalendar19handleGetYearLengthEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(654) %this, i32 noundef %eyear) unnamed_addr #6 align 2 {
+define noundef range(i32 365, 367) i32 @_ZNK6icu_7517GregorianCalendar19handleGetYearLengthEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(654) %this, i32 noundef %eyear) unnamed_addr #6 align 2 {
 entry:
   %fGregorianCutoverYear.i = getelementptr inbounds nuw i8, ptr %this, i64 648
   %0 = load i32, ptr %fGregorianCutoverYear.i, align 8
@@ -1145,7 +1145,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 -128, 128) i32 @_ZNK6icu_7517GregorianCalendar11monthLengthEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(654) %this, i32 noundef %month, i32 noundef %year) unnamed_addr #6 align 2 {
+define noundef range(i32 -128, 128) i32 @_ZNK6icu_7517GregorianCalendar11monthLengthEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(654) %this, i32 noundef %month, i32 noundef %year) unnamed_addr #6 align 2 {
 entry:
   %fGregorianCutoverYear.i = getelementptr inbounds nuw i8, ptr %this, i64 648
   %0 = load i32, ptr %fGregorianCutoverYear.i, align 8
@@ -1194,7 +1194,7 @@ _ZNK6icu_7517GregorianCalendar10isLeapYearEi.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 365, 367) i32 @_ZNK6icu_7517GregorianCalendar10yearLengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(654) %this) local_unnamed_addr #6 align 2 {
+define noundef range(i32 365, 367) i32 @_ZNK6icu_7517GregorianCalendar10yearLengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(654) %this) local_unnamed_addr #6 align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %arrayidx.i, align 8
@@ -1407,7 +1407,7 @@ entry:
 declare void @_ZN6icu_758Calendar8completeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN6icu_7517GregorianCalendar22computeJulianDayOfYearEaiRa(i8 noundef signext %isGregorian, i32 noundef %year, ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((0, 1)) %isLeap) local_unnamed_addr #1 align 2 {
+define noundef double @_ZN6icu_7517GregorianCalendar22computeJulianDayOfYearEaiRa(i8 noundef signext %isGregorian, i32 noundef %year, ptr noundef nonnull align 1 captures(none) dereferenceable(1) initializes((0, 1)) %isLeap) local_unnamed_addr #1 align 2 {
 entry:
   %0 = and i32 %year, 3
   %cmp = icmp eq i32 %0, 0
@@ -1475,7 +1475,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7517GregorianCalendar14aggregateStampEii(ptr nocapture noundef nonnull readnone align 8 dereferenceable(654) %this, i32 noundef %stamp_a, i32 noundef %stamp_b) local_unnamed_addr #1 align 2 {
+define noundef i32 @_ZN6icu_7517GregorianCalendar14aggregateStampEii(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(654) %this, i32 noundef %stamp_a, i32 noundef %stamp_b) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp ne i32 %stamp_a, 0
   %cmp2 = icmp ne i32 %stamp_b, 0
@@ -1746,7 +1746,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7517GregorianCalendar16getActualMinimumENS_8Calendar11EDateFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %field, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK6icu_7517GregorianCalendar16getActualMinimumENS_8Calendar11EDateFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %field, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 112
@@ -1756,7 +1756,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7517GregorianCalendar16getActualMinimumE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %field, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK6icu_7517GregorianCalendar16getActualMinimumE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %field, ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 112
@@ -1766,7 +1766,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK6icu_7517GregorianCalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE(ptr nocapture nonnull readnone align 8 %this, i32 noundef %field, i32 noundef %limitType) unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK6icu_7517GregorianCalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %field, i32 noundef %limitType) unnamed_addr #0 align 2 {
 entry:
   %idxprom = zext i32 %field to i64
   %idxprom2 = zext i32 %limitType to i64
@@ -1961,19 +1961,19 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7517GregorianCalendar7getTypeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7517GregorianCalendar7getTypeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret ptr @.str
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_ZNK6icu_7517GregorianCalendar18haveDefaultCenturyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define noundef signext i8 @_ZNK6icu_7517GregorianCalendar18haveDefaultCenturyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret i8 1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK6icu_7517GregorianCalendar19defaultCenturyStartEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK6icu_7517GregorianCalendar19defaultCenturyStartEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i32, ptr @_ZN6icu_75L25gSystemDefaultCenturyInitE acquire, align 4
   %cmp.i = icmp eq i32 %0, 2
@@ -2042,7 +2042,7 @@ if.end:                                           ; preds = %invoke.cont7, %entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7517GregorianCalendar23defaultCenturyStartYearEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK6icu_7517GregorianCalendar23defaultCenturyStartYearEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i32, ptr @_ZN6icu_75L25gSystemDefaultCenturyInitE acquire, align 4
   %cmp.i = icmp eq i32 %0, 2

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_mi_bitmap_try_find_claim_field(ptr nocapture noundef %bitmap, i64 noundef %idx, i64 noundef %count, ptr nocapture noundef writeonly %bitmap_idx) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_mi_bitmap_try_find_claim_field(ptr noundef captures(none) %bitmap, i64 noundef %idx, i64 noundef %count, ptr noundef writeonly captures(none) %bitmap_idx) local_unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr inbounds i64, ptr %bitmap, i64 %idx
   %0 = load atomic i64, ptr %arrayidx monotonic, align 8
@@ -103,7 +103,7 @@ return:                                           ; preds = %if.else7, %if.else7
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_mi_bitmap_try_find_from_claim(ptr nocapture noundef %bitmap, i64 noundef %bitmap_fields, i64 noundef %start_field_idx, i64 noundef %count, ptr nocapture noundef writeonly %bitmap_idx) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_mi_bitmap_try_find_from_claim(ptr noundef captures(none) %bitmap, i64 noundef %bitmap_fields, i64 noundef %start_field_idx, i64 noundef %count, ptr noundef writeonly captures(none) %bitmap_idx) local_unnamed_addr #0 {
 entry:
   %cmp20.not = icmp eq i64 %bitmap_fields, 0
   br i1 %cmp20.not, label %return, label %for.body.lr.ph
@@ -329,7 +329,7 @@ return:                                           ; preds = %for.inc, %for.inc.u
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @_mi_bitmap_try_find_from_claim_pred(ptr nocapture noundef %bitmap, i64 noundef %bitmap_fields, i64 noundef %start_field_idx, i64 noundef %count, ptr noundef readonly %pred_fun, ptr noundef %pred_arg, ptr nocapture noundef %bitmap_idx) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @_mi_bitmap_try_find_from_claim_pred(ptr noundef captures(none) %bitmap, i64 noundef %bitmap_fields, i64 noundef %start_field_idx, i64 noundef %count, ptr noundef readonly %pred_fun, ptr noundef %pred_arg, ptr noundef captures(none) %bitmap_idx) local_unnamed_addr #1 {
 entry:
   %cmp32.not = icmp eq i64 %bitmap_fields, 0
   br i1 %cmp32.not, label %return, label %for.body.lr.ph
@@ -622,7 +622,7 @@ return:                                           ; preds = %if.then2.loopexit25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden zeroext i1 @_mi_bitmap_unclaim(ptr nocapture noundef %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #2 {
+define hidden zeroext i1 @_mi_bitmap_unclaim(ptr noundef captures(none) %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #2 {
 entry:
   %rem.i = and i64 %bitmap_idx, 63
   %cmp.i = icmp ugt i64 %count, 63
@@ -650,7 +650,7 @@ mi_bitmap_mask_.exit:                             ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden zeroext i1 @_mi_bitmap_claim(ptr nocapture noundef %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx, ptr noundef writeonly %any_zero) local_unnamed_addr #2 {
+define hidden zeroext i1 @_mi_bitmap_claim(ptr noundef captures(none) %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx, ptr noundef writeonly %any_zero) local_unnamed_addr #2 {
 entry:
   %div1.i = lshr i64 %bitmap_idx, 6
   %rem.i = and i64 %bitmap_idx, 63
@@ -687,7 +687,7 @@ if.end:                                           ; preds = %mi_bitmap_mask_.exi
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_mi_bitmap_try_claim(ptr nocapture noundef %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_mi_bitmap_try_claim(ptr noundef captures(none) %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #0 {
 entry:
   %div1.i = lshr i64 %bitmap_idx, 6
   %rem.i = and i64 %bitmap_idx, 63
@@ -728,7 +728,7 @@ return:                                           ; preds = %do.cond, %do.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden zeroext i1 @_mi_bitmap_is_claimed(ptr nocapture noundef readonly %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #2 {
+define hidden zeroext i1 @_mi_bitmap_is_claimed(ptr noundef readonly captures(none) %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #2 {
 entry:
   %rem.i.i = and i64 %bitmap_idx, 63
   %cmp.i.i = icmp ugt i64 %count, 63
@@ -755,7 +755,7 @@ mi_bitmap_is_claimedx.exit:                       ; preds = %entry, %if.end.i.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden zeroext i1 @_mi_bitmap_is_any_claimed(ptr nocapture noundef readonly %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #2 {
+define hidden zeroext i1 @_mi_bitmap_is_any_claimed(ptr noundef readonly captures(none) %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #2 {
 entry:
   %rem.i.i = and i64 %bitmap_idx, 63
   %cmp.i.i = icmp ugt i64 %count, 63
@@ -782,7 +782,7 @@ mi_bitmap_is_claimedx.exit:                       ; preds = %entry, %if.end.i.i,
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_mi_bitmap_try_find_from_claim_across(ptr noundef %bitmap, i64 noundef %bitmap_fields, i64 noundef %start_field_idx, i64 noundef %count, ptr nocapture noundef writeonly %bitmap_idx) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_mi_bitmap_try_find_from_claim_across(ptr noundef %bitmap, i64 noundef %bitmap_fields, i64 noundef %start_field_idx, i64 noundef %count, ptr noundef writeonly captures(none) %bitmap_idx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %count, 3
   br i1 %cmp, label %if.then, label %for.cond.preheader
@@ -1075,7 +1075,7 @@ return:                                           ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden zeroext i1 @_mi_bitmap_unclaim_across(ptr nocapture noundef %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #0 {
+define hidden zeroext i1 @_mi_bitmap_unclaim_across(ptr noundef captures(none) %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #0 {
 entry:
   %div1.i = lshr i64 %bitmap_idx, 6
   %rem.i.i = and i64 %bitmap_idx, 63
@@ -1160,7 +1160,7 @@ if.end20:                                         ; preds = %while.end.thread, %
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden zeroext i1 @_mi_bitmap_claim_across(ptr nocapture noundef %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx, ptr noundef writeonly %pany_zero) local_unnamed_addr #0 {
+define hidden zeroext i1 @_mi_bitmap_claim_across(ptr noundef captures(none) %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx, ptr noundef writeonly %pany_zero) local_unnamed_addr #0 {
 entry:
   %div1.i = lshr i64 %bitmap_idx, 6
   %rem.i.i = and i64 %bitmap_idx, 63
@@ -1264,7 +1264,7 @@ if.end33:                                         ; preds = %if.then32, %if.end3
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden zeroext i1 @_mi_bitmap_is_claimed_across(ptr nocapture noundef readonly %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #0 {
+define hidden zeroext i1 @_mi_bitmap_is_claimed_across(ptr noundef readonly captures(none) %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #0 {
 entry:
   %div1.i.i = lshr i64 %bitmap_idx, 6
   %rem.i.i.i = and i64 %bitmap_idx, 63
@@ -1347,7 +1347,7 @@ mi_bitmap_is_claimedx_across.exit:                ; preds = %while.end.thread.i,
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden zeroext i1 @_mi_bitmap_is_any_claimed_across(ptr nocapture noundef readonly %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #0 {
+define hidden zeroext i1 @_mi_bitmap_is_any_claimed_across(ptr noundef readonly captures(none) %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #0 {
 entry:
   %div1.i.i = lshr i64 %bitmap_idx, 6
   %rem.i.i.i = and i64 %bitmap_idx, 63

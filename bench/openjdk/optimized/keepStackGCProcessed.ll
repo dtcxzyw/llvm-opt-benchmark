@@ -39,7 +39,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN24KeepStackGCProcessedMarkD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN24KeepStackGCProcessedMarkD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24KeepStackGCProcessedMarkC2EP10JavaThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 1), (8, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN24KeepStackGCProcessedMarkC2EP10JavaThread(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 1), (8, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store i8 1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -107,7 +107,7 @@ _ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit11: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24KeepStackGCProcessedMark17finish_processingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN24KeepStackGCProcessedMark17finish_processingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN17StackWatermarkSet17finish_processingEP10JavaThreadPv18StackWatermarkKind(ptr noundef %3, ptr noundef null, i32 noundef 0) #5
@@ -117,7 +117,7 @@ define hidden void @_ZN24KeepStackGCProcessedMark17finish_processingEv(ptr nocap
 declare void @_ZN14StackWatermark21push_linked_watermarkEPS_(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24KeepStackGCProcessedMarkD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN24KeepStackGCProcessedMarkD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 align 2 {
   %2 = load i8, ptr %0, align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %16

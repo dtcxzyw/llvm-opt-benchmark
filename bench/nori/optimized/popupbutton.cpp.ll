@@ -451,7 +451,7 @@ common.ret:                                       ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN7nanogui11PopupButton8set_sideENS_5Popup4SideE(ptr nocapture noundef nonnull align 8 dereferenceable(324) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN7nanogui11PopupButton8set_sideENS_5Popup4SideE(ptr noundef nonnull align 8 captures(none) dereferenceable(324) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 216

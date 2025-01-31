@@ -443,7 +443,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm22LoopIdiomVectorizePass3runERNS_4LoopERNS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEES5_RNS_10LPMUpdaterE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(152) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %4, ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm22LoopIdiomVectorizePass3runERNS_4LoopERNS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEES5_RNS_10LPMUpdaterE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %4, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"struct.llvm::PatternMatch::BinaryOp_match", align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -1170,10 +1170,10 @@ declare noundef ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE9getHeaderEv(p
 declare noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm10BasicBlock13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
@@ -1520,7 +1520,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvmeqENS_9Stri
 declare noundef zeroext i1 @_ZN4llvm2cl6Option5errorERKNS_5TwineENS_9StringRefERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(34), ptr, i64, ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() local_unnamed_addr #2
 
@@ -3826,7 +3826,7 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit172.i: ; preds = 
   %842 = getelementptr inbounds nuw %"class.llvm::Use", ptr %840, i64 %841
   %843 = load ptr, ptr %842, align 8
   %.not.i.i.i.i.i173.i = icmp eq ptr %843, null
-  br i1 %.not.i.i.i.i.i173.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i175.i, label %844
+  br i1 %.not.i.i.i.i.i173.i, label %852, label %844
 
 844:                                              ; preds = %832
   %845 = getelementptr inbounds nuw i8, ptr %842, i64 8
@@ -3835,39 +3835,32 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit172.i: ; preds = 
   %848 = load ptr, ptr %847, align 8
   store ptr %846, ptr %848, align 8
   %.not.i.i.i.i.i.i174.i = icmp eq ptr %846, null
-  br i1 %.not.i.i.i.i.i.i174.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i175.i, label %849
+  br i1 %.not.i.i.i.i.i.i174.i, label %852, label %849
 
 849:                                              ; preds = %844
   %850 = load ptr, ptr %847, align 8
   %851 = getelementptr inbounds nuw i8, ptr %846, i64 16
   store ptr %850, ptr %851, align 8
-  br label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i175.i
+  br label %852
 
-_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i175.i: ; preds = %849, %844, %832
+852:                                              ; preds = %849, %844, %832
   store ptr %517, ptr %842, align 8
-  %.not4.i.i.i.i.i176.i = icmp eq ptr %517, null
-  br i1 %.not4.i.i.i.i.i176.i, label %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit180.i, label %852
-
-852:                                              ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i175.i
   %853 = getelementptr inbounds nuw i8, ptr %517, i64 16
   %854 = load ptr, ptr %853, align 8
   %855 = getelementptr inbounds nuw i8, ptr %842, i64 8
   store ptr %854, ptr %855, align 8
   %.not.i.i.i.i.i.i.i177.i = icmp eq ptr %854, null
-  br i1 %.not.i.i.i.i.i.i.i177.i, label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i178.i, label %856
+  br i1 %.not.i.i.i.i.i.i.i177.i, label %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit180.i, label %856
 
 856:                                              ; preds = %852
   %857 = getelementptr inbounds nuw i8, ptr %854, i64 16
   store ptr %855, ptr %857, align 8
-  br label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i178.i
+  br label %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit180.i
 
-_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i178.i: ; preds = %856, %852
+_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit180.i: ; preds = %856, %852
   %858 = getelementptr inbounds nuw i8, ptr %842, i64 16
   store ptr %853, ptr %858, align 8
   store ptr %842, ptr %853, align 8
-  br label %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit180.i
-
-_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit180.i: ; preds = %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i178.i, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i175.i
   %859 = load i32, ptr %825, align 4
   %860 = and i32 %859, 134217727
   %861 = add nsw i32 %860, -1
@@ -3912,7 +3905,7 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit180.i: ; preds = 
   %889 = getelementptr inbounds nuw %"class.llvm::Use", ptr %887, i64 %888
   %890 = load ptr, ptr %889, align 8
   %.not.i.i.i.i.i181.i = icmp eq ptr %890, null
-  br i1 %.not.i.i.i.i.i181.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i183.i, label %891
+  br i1 %.not.i.i.i.i.i181.i, label %899, label %891
 
 891:                                              ; preds = %879
   %892 = getelementptr inbounds nuw i8, ptr %889, i64 8
@@ -3921,39 +3914,32 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit180.i: ; preds = 
   %895 = load ptr, ptr %894, align 8
   store ptr %893, ptr %895, align 8
   %.not.i.i.i.i.i.i182.i = icmp eq ptr %893, null
-  br i1 %.not.i.i.i.i.i.i182.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i183.i, label %896
+  br i1 %.not.i.i.i.i.i.i182.i, label %899, label %896
 
 896:                                              ; preds = %891
   %897 = load ptr, ptr %894, align 8
   %898 = getelementptr inbounds nuw i8, ptr %893, i64 16
   store ptr %897, ptr %898, align 8
-  br label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i183.i
+  br label %899
 
-_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i183.i: ; preds = %896, %891, %879
+899:                                              ; preds = %896, %891, %879
   store ptr %564, ptr %889, align 8
-  %.not4.i.i.i.i.i184.i = icmp eq ptr %564, null
-  br i1 %.not4.i.i.i.i.i184.i, label %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit188.i, label %899
-
-899:                                              ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i183.i
   %900 = getelementptr inbounds nuw i8, ptr %564, i64 16
   %901 = load ptr, ptr %900, align 8
   %902 = getelementptr inbounds nuw i8, ptr %889, i64 8
   store ptr %901, ptr %902, align 8
   %.not.i.i.i.i.i.i.i185.i = icmp eq ptr %901, null
-  br i1 %.not.i.i.i.i.i.i.i185.i, label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i186.i, label %903
+  br i1 %.not.i.i.i.i.i.i.i185.i, label %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit188.i, label %903
 
 903:                                              ; preds = %899
   %904 = getelementptr inbounds nuw i8, ptr %901, i64 16
   store ptr %902, ptr %904, align 8
-  br label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i186.i
+  br label %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit188.i
 
-_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i186.i: ; preds = %903, %899
+_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit188.i: ; preds = %903, %899
   %905 = getelementptr inbounds nuw i8, ptr %889, i64 16
   store ptr %900, ptr %905, align 8
   store ptr %889, ptr %900, align 8
-  br label %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit188.i
-
-_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit188.i: ; preds = %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i186.i, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i183.i
   %906 = load i32, ptr %872, align 4
   %907 = and i32 %906, 134217727
   %908 = add nsw i32 %907, -1
@@ -5274,7 +5260,7 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit332: ; preds = %_
   %1574 = getelementptr inbounds nuw %"class.llvm::Use", ptr %1572, i64 %1573
   %1575 = load ptr, ptr %1574, align 8
   %.not.i.i.i.i.i333 = icmp eq ptr %1575, null
-  br i1 %.not.i.i.i.i.i333, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i335, label %1576
+  br i1 %.not.i.i.i.i.i333, label %1584, label %1576
 
 1576:                                             ; preds = %1565
   %1577 = getelementptr inbounds nuw i8, ptr %1574, i64 8
@@ -5283,39 +5269,32 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit332: ; preds = %_
   %1580 = load ptr, ptr %1579, align 8
   store ptr %1578, ptr %1580, align 8
   %.not.i.i.i.i.i.i334 = icmp eq ptr %1578, null
-  br i1 %.not.i.i.i.i.i.i334, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i335, label %1581
+  br i1 %.not.i.i.i.i.i.i334, label %1584, label %1581
 
 1581:                                             ; preds = %1576
   %1582 = load ptr, ptr %1579, align 8
   %1583 = getelementptr inbounds nuw i8, ptr %1578, i64 16
   store ptr %1582, ptr %1583, align 8
-  br label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i335
+  br label %1584
 
-_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i335: ; preds = %1581, %1576, %1565
+1584:                                             ; preds = %1565, %1576, %1581
   store ptr %1366, ptr %1574, align 8
-  %.not4.i.i.i.i.i336 = icmp eq ptr %1366, null
-  br i1 %.not4.i.i.i.i.i336, label %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit340, label %1584
-
-1584:                                             ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i335
   %1585 = getelementptr inbounds nuw i8, ptr %1366, i64 16
   %1586 = load ptr, ptr %1585, align 8
   %1587 = getelementptr inbounds nuw i8, ptr %1574, i64 8
   store ptr %1586, ptr %1587, align 8
   %.not.i.i.i.i.i.i.i337 = icmp eq ptr %1586, null
-  br i1 %.not.i.i.i.i.i.i.i337, label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i338, label %1588
+  br i1 %.not.i.i.i.i.i.i.i337, label %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit340, label %1588
 
 1588:                                             ; preds = %1584
   %1589 = getelementptr inbounds nuw i8, ptr %1586, i64 16
   store ptr %1587, ptr %1589, align 8
-  br label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i338
+  br label %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit340
 
-_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i338: ; preds = %1588, %1584
+_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit340: ; preds = %1584, %1588
   %1590 = getelementptr inbounds nuw i8, ptr %1574, i64 16
   store ptr %1585, ptr %1590, align 8
   store ptr %1574, ptr %1585, align 8
-  br label %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit340
-
-_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit340: ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i335, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i338
   %1591 = load i32, ptr %1517, align 4
   %1592 = and i32 %1591, 134217727
   %1593 = add nsw i32 %1592, -1
@@ -5523,7 +5502,7 @@ declare void @_ZN4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13Dominator
 declare void @_ZN4llvm3cfg6UpdateIPNS_10BasicBlockEEC1ENS0_10UpdateKindES3_S3_(ptr noundef nonnull align 8 dereferenceable(16), i8 noundef zeroext, ptr noundef, ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_118LoopIdiomVectorize20transformByteCompareEPN4llvm17GetElementPtrInstES3_PNS1_7PHINodeEPNS1_5ValueEPNS1_11InstructionES7_bPNS1_10BasicBlockESB_ENK3$_0clESB_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_118LoopIdiomVectorize20transformByteCompareEPN4llvm17GetElementPtrInstES3_PNS1_7PHINodeEPNS1_5ValueEPNS1_11InstructionES7_bPNS1_10BasicBlockESB_ENK3$_0clESB_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call { ptr, ptr } @_ZN4llvm10BasicBlock4phisEv(ptr noundef nonnull align 8 dereferenceable(80) %1) #19
@@ -7708,13 +7687,13 @@ __cxx_global_var_init.2.exit:                     ; preds = %0, %20
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #17

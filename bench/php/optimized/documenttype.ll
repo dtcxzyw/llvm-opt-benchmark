@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @zend_empty_string = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @dom_documenttype_name_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_documenttype_name_read(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #9
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -53,7 +53,7 @@ declare ptr @dom_object_get_node(ptr noundef) local_unnamed_addr #1
 declare void @php_dom_throw_error(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @dom_documenttype_entities_read(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -108,7 +108,7 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_notations_read(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @dom_documenttype_public_id_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_documenttype_public_id_read(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #9
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -157,7 +157,7 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_public_id_read(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @dom_documenttype_system_id_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_documenttype_system_id_read(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #9
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -206,7 +206,7 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_system_id_read(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @dom_documenttype_internal_subset_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_documenttype_internal_subset_read(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.smart_str, align 8
   %4 = tail call ptr @dom_object_get_node(ptr noundef %0) #9
   %5 = icmp eq ptr %4, null
@@ -398,7 +398,7 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_internal_subset_read(ptr no
 declare ptr @xmlGetIntSubset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @xmlAllocOutputBuffer(ptr noundef) local_unnamed_addr #1
 
@@ -413,7 +413,7 @@ declare i64 @xmlOutputBufferGetSize(ptr noundef) local_unnamed_addr #1
 declare i32 @xmlOutputBufferClose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #5

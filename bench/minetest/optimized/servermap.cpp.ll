@@ -464,7 +464,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -523,10 +523,10 @@ invoke.cont4:                                     ; preds = %if.end.i.i.i.i, %if
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #5 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #5 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 384), align 16, !tbaa !11
   %cmp.i.i.i = icmp eq ptr %1, getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 400)
@@ -727,7 +727,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.20(ptr nocapture readnone %0) #5 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor.20(ptr readnone captures(none) %0) #5 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL16emergeActionStrsB5cxx11, i64 128), align 16, !tbaa !11
   %cmp.i.i.i = icmp eq ptr %1, getelementptr inbounds nuw (i8, ptr @_ZL16emergeActionStrsB5cxx11, i64 144)
@@ -3674,7 +3674,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %entry
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef %__rhs, i64 noundef %call.i.i)
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef nonnull %__rhs, i64 noundef %call.i.i)
   %1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %1, ptr %agg.result, align 8, !tbaa !4
   %2 = load ptr, ptr %call2.i, align 8, !tbaa !11
@@ -3724,7 +3724,7 @@ declare noundef zeroext i1 @_ZN8Settings3setERKNSt7__cxx1112basic_stringIcSt11ch
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8Settings3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZN9ServerMap14createDatabaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_R8Settings(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %savedir, ptr nocapture nonnull readnone align 8 %conf) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZN9ServerMap14createDatabaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_R8Settings(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %savedir, ptr nonnull readnone align 8 captures(none) %conf) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4861,7 +4861,7 @@ _ZN11StreamProxylsIRA34_KcEERS_OT_.exit:          ; preds = %if.then.i, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN9ServerMap20deleteDetachedBlocksEv(ptr nocapture noundef nonnull align 8 dereferenceable(560) %this) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9ServerMap20deleteDetachedBlocksEv(ptr noundef nonnull align 8 captures(none) dereferenceable(560) %this) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_detached_blocks = getelementptr inbounds nuw i8, ptr %this, i64 320
   %0 = load ptr, ptr %m_detached_blocks, align 8, !tbaa !152
@@ -4907,7 +4907,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN9ServerMap15getMapgenParamsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(560) %this) local_unnamed_addr #14 align 2 {
+define dso_local noundef ptr @_ZN9ServerMap15getMapgenParamsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(560) %this) local_unnamed_addr #14 align 2 {
 entry:
   %settings_mgr = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %settings_mgr, align 8, !tbaa !177
@@ -4915,7 +4915,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN9ServerMap7getSeedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(560) %this) local_unnamed_addr #15 align 2 {
+define dso_local noundef i64 @_ZN9ServerMap7getSeedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(560) %this) local_unnamed_addr #15 align 2 {
 entry:
   %settings_mgr.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %settings_mgr.i, align 8, !tbaa !177
@@ -4925,7 +4925,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN9ServerMap26blockpos_over_mapgen_limitEN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(560) %this, i48 %p.coerce) local_unnamed_addr #15 align 2 {
+define dso_local noundef zeroext i1 @_ZN9ServerMap26blockpos_over_mapgen_limitEN3irr4core8vector3dIsEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(560) %this, i48 %p.coerce) local_unnamed_addr #15 align 2 {
 entry:
   %p.sroa.0.0.extract.trunc = trunc i48 %p.coerce to i32
   %settings_mgr.i = getelementptr inbounds nuw i8, ptr %this, i64 144
@@ -4976,10 +4976,10 @@ lor.end:                                          ; preds = %lor.lhs.false31, %l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZN9ServerMap13initBlockMakeEN3irr4core8vector3dIsEEP13BlockMakeData(ptr noundef nonnull align 8 dereferenceable(560) %this, i48 %blockpos.coerce, ptr nocapture noundef writeonly %data) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN9ServerMap13initBlockMakeEN3irr4core8vector3dIsEEP13BlockMakeData(ptr noundef nonnull align 8 dereferenceable(560) %this, i48 %blockpos.coerce, ptr noundef writeonly captures(none) %data) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bpmin = alloca %"class.irr::core::vector3d", align 8
   %bpmax = alloca %"class.irr::core::vector3d", align 8
@@ -6871,7 +6871,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare noundef zeroext i1 @_ZN13EmergeManager18enqueueBlockEmergeEtN3irr4core8vector3dIsEEbb(ptr noundef nonnull align 8 dereferenceable(464), i16 noundef zeroext, i48, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN9ServerMap14isBlockInQueueEN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(560) %this, i48 %pos.coerce) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN9ServerMap14isBlockInQueueEN3irr4core8vector3dIsEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(560) %this, i48 %pos.coerce) local_unnamed_addr #4 align 2 {
 entry:
   %m_emerge = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load ptr, ptr %m_emerge, align 8, !tbaa !23
@@ -7104,7 +7104,7 @@ cleanup17:                                        ; preds = %if.end8, %_ZNK9Voxe
 declare noundef ptr @_ZN13EmergeManager16getCurrentMapgenEv(ptr noundef nonnull align 8 dereferenceable(464)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9ServerMap13reportMetricsEmjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(560) %this, i64 noundef %save_time_us, i32 noundef %saved_blocks, i32 noundef %all_blocks) unnamed_addr #4 align 2 {
+define dso_local void @_ZN9ServerMap13reportMetricsEmjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(560) %this, i64 noundef %save_time_us, i32 noundef %saved_blocks, i32 noundef %all_blocks) unnamed_addr #4 align 2 {
 entry:
   %m_loaded_blocks_gauge = getelementptr inbounds nuw i8, ptr %this, i64 512
   %0 = load ptr, ptr %m_loaded_blocks_gauge, align 8, !tbaa !334
@@ -7899,7 +7899,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfSt4lessIS5_ESaISt
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9ServerMap21listAllLoadableBlocksERSt6vectorIN3irr4core8vector3dIsEESaIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(560) %this, ptr noundef nonnull align 8 dereferenceable(24) %dst) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN9ServerMap21listAllLoadableBlocksERSt6vectorIN3irr4core8vector3dIsEESaIS4_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(560) %this, ptr noundef nonnull align 8 dereferenceable(24) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %dbase = getelementptr inbounds nuw i8, ptr %this, i64 496
   %0 = load ptr, ptr %dbase, align 8, !tbaa !143
@@ -7924,7 +7924,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9ServerMap19listAllLoadedBlocksERSt6vectorIN3irr4core8vector3dIsEESaIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(560) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %dst) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9ServerMap19listAllLoadedBlocksERSt6vectorIN3irr4core8vector3dIsEESaIS4_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(560) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %dst) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %blocks = alloca %"class.std::vector.296", align 8
   %_M_before_begin.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -8095,7 +8095,7 @@ _ZNSt6vectorIP8MapBlockSaIS1_EED2Ev.exit43:       ; preds = %if.then.i.i.i42, %e
 declare void @_ZN18MapDatabaseSQLite3C1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef nonnull align 8 dereferenceable(32) %__rhs) local_unnamed_addr #7 comdat personality ptr @__gxx_personality_v0 {
@@ -8211,7 +8211,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9ServerMap9beginSaveEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(560) %this) unnamed_addr #4 align 2 {
+define dso_local void @_ZN9ServerMap9beginSaveEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(560) %this) unnamed_addr #4 align 2 {
 entry:
   %dbase = getelementptr inbounds nuw i8, ptr %this, i64 496
   %0 = load ptr, ptr %dbase, align 8, !tbaa !143
@@ -8222,7 +8222,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9ServerMap7endSaveEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(560) %this) unnamed_addr #4 align 2 {
+define dso_local void @_ZN9ServerMap7endSaveEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(560) %this) unnamed_addr #4 align 2 {
 entry:
   %dbase = getelementptr inbounds nuw i8, ptr %this, i64 496
   %0 = load ptr, ptr %dbase, align 8, !tbaa !143
@@ -8234,7 +8234,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN9ServerMap9saveBlockEP8MapBlock(ptr nocapture noundef nonnull readonly align 8 dereferenceable(560) %this, ptr noundef %block) unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN9ServerMap9saveBlockEP8MapBlock(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(560) %this, ptr noundef %block) unnamed_addr #4 align 2 {
 entry:
   %dbase = getelementptr inbounds nuw i8, ptr %this, i64 496
   %0 = load ptr, ptr %dbase, align 8, !tbaa !143
@@ -9674,7 +9674,7 @@ return:                                           ; preds = %_ZNSt10unique_ptrI8
 declare void @_ZN9MapSector11detachBlockEP8MapBlock(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(98), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN9ServerMap4stepEv(ptr nocapture noundef nonnull align 8 dereferenceable(560) %this) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9ServerMap4stepEv(ptr noundef nonnull align 8 captures(none) dereferenceable(560) %this) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_detached_blocks.i = getelementptr inbounds nuw i8, ptr %this, i64 320
   %0 = load ptr, ptr %m_detached_blocks.i, align 8, !tbaa !152
@@ -9709,7 +9709,7 @@ _ZN9ServerMap20deleteDetachedBlocksEv.exit:       ; preds = %invoke.cont.i.i.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9ServerMap9PrintInfoERSo(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(8) %out) unnamed_addr #4 align 2 {
+define dso_local void @_ZN9ServerMap9PrintInfoERSo(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) unnamed_addr #4 align 2 {
 entry:
   %call1.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.77, i64 noundef 11)
   ret void
@@ -9780,7 +9780,7 @@ _ZN11UniqueQueueIN3irr4core8vector3dIsEEE9push_backERKS3_.exit: ; preds = %if.el
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN9ServerMap16transformLiquidsERSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS4_ESaISt4pairIKS4_S6_EEEP17ServerEnvironment(ptr noundef nonnull align 8 dereferenceable(560) %this, ptr noundef nonnull align 8 dereferenceable(48) %modified_blocks, ptr nocapture noundef readonly %env) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9ServerMap16transformLiquidsERSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS4_ESaISt4pairIKS4_S6_EEEP17ServerEnvironment(ptr noundef nonnull align 8 dereferenceable(560) %this, ptr noundef nonnull align 8 dereferenceable(48) %modified_blocks, ptr noundef readonly captures(none) %env) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ts.i = alloca %struct.timespec, align 8
   %__dnew.i.i1376 = alloca i64, align 8
@@ -13729,7 +13729,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #21
 declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #22
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: noreturn
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #21
@@ -16277,7 +16277,7 @@ if.end65:                                         ; preds = %_ZSt4copyIPPN3irr4c
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #23

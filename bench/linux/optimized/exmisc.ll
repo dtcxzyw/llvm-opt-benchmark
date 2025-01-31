@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [30 x i8] c"Invalid comparison opcode: %X\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 12292) i32 @acpi_ex_get_object_reference(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 12292) i32 @acpi_ex_get_object_reference(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 16 {
   store ptr null, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8
@@ -71,7 +71,7 @@ define dso_local noundef range(i32 0, 12292) i32 @acpi_ex_get_object_reference(p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @acpi_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
@@ -80,7 +80,7 @@ declare dso_local void @acpi_error(ptr noundef, i32 noundef, ptr noundef, ...) l
 declare dso_local ptr @acpi_ut_create_internal_object_dbg(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
 define dso_local i64 @acpi_ex_do_math_op(i16 noundef zeroext %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 16 {
@@ -153,7 +153,7 @@ define dso_local i64 @acpi_ex_do_math_op(i16 noundef zeroext %0, i64 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 12304) i32 @acpi_ex_do_logical_numeric_op(i16 noundef zeroext %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 12304) i32 @acpi_ex_do_logical_numeric_op(i16 noundef zeroext %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3) local_unnamed_addr #0 align 16 {
   switch i16 %0, label %12 [
     i16 144, label %5
     i16 145, label %9
@@ -184,7 +184,7 @@ define dso_local noundef range(i32 0, 12304) i32 @acpi_ex_do_logical_numeric_op(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_ex_do_logical_op(i16 noundef zeroext %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) local_unnamed_addr #0 align 16 {
+define dso_local i32 @acpi_ex_do_logical_op(i16 noundef zeroext %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3) local_unnamed_addr #0 align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
   store ptr %2, ptr %5, align 8
@@ -329,7 +329,7 @@ declare dso_local i32 @acpi_ex_convert_to_string(ptr noundef, ptr noundef, i32 n
 declare dso_local i32 @acpi_ex_convert_to_buffer(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare dso_local i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @acpi_ut_remove_reference(ptr noundef) local_unnamed_addr #2

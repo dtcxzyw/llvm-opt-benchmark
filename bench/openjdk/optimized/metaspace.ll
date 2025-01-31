@@ -240,7 +240,7 @@ declare noundef i64 @_ZN9metaspace15RunningCounters21committed_words_classEv() l
 declare noundef i64 @_ZN9metaspace15RunningCounters24committed_words_nonclassEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14MetaspaceUtils14get_statisticsEN9Metaspace12MetadataTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MetaspaceStats) align 8 %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14MetaspaceUtils14get_statisticsEN9Metaspace12MetadataTypeE(ptr dead_on_unwind noalias writable writeonly sret(%class.MetaspaceStats) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit, label %_ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit.thread
 
@@ -336,7 +336,7 @@ _ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14: ; preds = %_ZL14ge
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14MetaspaceUtils23get_combined_statisticsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MetaspaceCombinedStats) align 8 initializes((0, 72)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14MetaspaceUtils23get_combined_statisticsEv(ptr dead_on_unwind noalias writable writeonly sret(%class.MetaspaceCombinedStats) align 8 captures(none) initializes((0, 72)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.MetaspaceStats, align 8
   %3 = alloca %class.MetaspaceStats, align 8
   call void @_ZN14MetaspaceUtils14get_statisticsEN9Metaspace12MetadataTypeE(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceStats) align 8 %2, i32 noundef 0)
@@ -367,7 +367,7 @@ define hidden void @_ZN14MetaspaceUtils23get_combined_statisticsEv(ptr dead_on_u
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14MetaspaceUtils22print_metaspace_changeERK22MetaspaceCombinedStats(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14MetaspaceUtils22print_metaspace_changeERK22MetaspaceCombinedStats(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.MetaspaceStats, align 8
   %3 = alloca %class.MetaspaceStats, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
@@ -988,7 +988,7 @@ declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferen
 declare void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Metaspace22initialize_class_spaceE13ReservedSpace(ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Metaspace22initialize_class_spaceE13ReservedSpace(ptr noundef readonly byval(%class.ReservedSpace) align 8 captures(none) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN9metaspace16MetaspaceContext30initialize_class_space_contextE13ReservedSpace(ptr noundef nonnull byval(%class.ReservedSpace) align 8 %0) #14
   ret void
 }
@@ -996,7 +996,7 @@ define hidden void @_ZN9Metaspace22initialize_class_spaceE13ReservedSpace(ptr no
 declare void @_ZN9metaspace16MetaspaceContext30initialize_class_space_contextE13ReservedSpace(ptr noundef byval(%class.ReservedSpace) align 8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9Metaspace44reserve_address_space_for_compressed_classesEmb(ptr dead_on_unwind noalias writable sret(%class.ReservedSpace) align 8 %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
@@ -2056,13 +2056,13 @@ declare i64 @llvm.umin.i64(i64, i64) #11
 declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

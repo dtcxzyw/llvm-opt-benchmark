@@ -391,7 +391,7 @@ define hidden void @proto_register_zbee_zcl_illum_meas() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_illum_meas_value(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+define internal void @decode_illum_meas_value(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #1 {
   switch i16 %1, label %5 [
     i16 0, label %3
     i16 -32768, label %4
@@ -419,7 +419,7 @@ define internal void @decode_illum_meas_value(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_illum_meas_min_value(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+define internal void @decode_illum_meas_min_value(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #1 {
   %3 = add i16 %1, 2
   %or.cond = icmp ult i16 %3, 4
   br i1 %or.cond, label %4, label %5
@@ -442,7 +442,7 @@ define internal void @decode_illum_meas_min_value(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_illum_meas_max_value(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+define internal void @decode_illum_meas_max_value(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #1 {
   %3 = add i16 %1, 1
   %or.cond = icmp ult i16 %3, 2
   br i1 %or.cond, label %4, label %5
@@ -465,7 +465,7 @@ define internal void @decode_illum_meas_max_value(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_illum_meas_tolerance(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+define internal void @decode_illum_meas_tolerance(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #1 {
   %3 = icmp ugt i16 %1, 2048
   br i1 %3, label %4, label %5
 
@@ -483,7 +483,7 @@ define internal void @decode_illum_meas_tolerance(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -494,7 +494,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_illum_meas(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_zbee_zcl_illum_meas(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
   ret i32 %5
 }
@@ -587,7 +587,7 @@ define hidden void @proto_register_zbee_zcl_illum_level_sen() local_unnamed_addr
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_illum_level_sen_target_level(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+define internal void @decode_illum_level_sen_target_level(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #1 {
   switch i16 %1, label %5 [
     i16 0, label %3
     i16 -32768, label %4
@@ -615,7 +615,7 @@ define internal void @decode_illum_level_sen_target_level(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_illum_level_sen(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_zbee_zcl_illum_level_sen(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
   ret i32 %5
 }
@@ -686,7 +686,7 @@ define hidden void @proto_register_zbee_zcl_temp_meas() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_temp_meas_value(ptr nocapture noundef writeonly %0, i16 noundef signext %1) #1 {
+define internal void @decode_temp_meas_value(ptr noundef writeonly captures(none) %0, i16 noundef signext %1) #1 {
   %3 = icmp eq i16 %1, -32768
   br i1 %3, label %4, label %5
 
@@ -705,7 +705,7 @@ define internal void @decode_temp_meas_value(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_temp_meas_min_value(ptr nocapture noundef writeonly %0, i16 noundef signext %1) #1 {
+define internal void @decode_temp_meas_min_value(ptr noundef writeonly captures(none) %0, i16 noundef signext %1) #1 {
   %3 = add i16 %1, -32767
   %or.cond = icmp ult i16 %3, 5454
   br i1 %or.cond, label %4, label %5
@@ -725,7 +725,7 @@ define internal void @decode_temp_meas_min_value(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_temp_meas_max_value(ptr nocapture noundef writeonly %0, i16 noundef signext %1) #1 {
+define internal void @decode_temp_meas_max_value(ptr noundef writeonly captures(none) %0, i16 noundef signext %1) #1 {
   %3 = icmp slt i16 %1, -27314
   br i1 %3, label %4, label %5
 
@@ -744,7 +744,7 @@ define internal void @decode_temp_meas_max_value(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_temp_meas_tolerance(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+define internal void @decode_temp_meas_tolerance(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #1 {
   %3 = icmp ugt i16 %1, 2048
   br i1 %3, label %4, label %5
 
@@ -765,7 +765,7 @@ define internal void @decode_temp_meas_tolerance(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_temp_meas(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_zbee_zcl_temp_meas(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
   ret i32 %5
 }
@@ -846,7 +846,7 @@ define hidden void @proto_register_zbee_zcl_press_meas() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_press_meas_value(ptr nocapture noundef writeonly %0, i16 noundef signext %1) #1 {
+define internal void @decode_press_meas_value(ptr noundef writeonly captures(none) %0, i16 noundef signext %1) #1 {
   %cond = icmp eq i16 %1, -32768
   br i1 %cond, label %3, label %4
 
@@ -868,7 +868,7 @@ define internal void @decode_press_meas_value(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_press_meas_min_value(ptr nocapture noundef writeonly %0, i16 noundef signext %1) #1 {
+define internal void @decode_press_meas_min_value(ptr noundef writeonly captures(none) %0, i16 noundef signext %1) #1 {
   %3 = icmp eq i16 %1, 32767
   br i1 %3, label %4, label %5
 
@@ -889,7 +889,7 @@ define internal void @decode_press_meas_min_value(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_press_meas_max_value(ptr nocapture noundef writeonly %0, i16 noundef signext %1) #1 {
+define internal void @decode_press_meas_max_value(ptr noundef writeonly captures(none) %0, i16 noundef signext %1) #1 {
   %3 = icmp slt i16 %1, -32766
   br i1 %3, label %4, label %5
 
@@ -910,7 +910,7 @@ define internal void @decode_press_meas_max_value(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_press_meas_tolerance(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+define internal void @decode_press_meas_tolerance(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #1 {
   %3 = icmp ugt i16 %1, 2048
   br i1 %3, label %4, label %5
 
@@ -931,7 +931,7 @@ define internal void @decode_press_meas_tolerance(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_press_meas(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_zbee_zcl_press_meas(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
   ret i32 %5
 }
@@ -1062,7 +1062,7 @@ define hidden void @proto_register_zbee_zcl_flow_meas() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_flow_meas_value(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+define internal void @decode_flow_meas_value(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #1 {
   switch i16 %1, label %5 [
     i16 0, label %3
     i16 -1, label %4
@@ -1088,7 +1088,7 @@ define internal void @decode_flow_meas_value(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_flow_meas_min_value(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+define internal void @decode_flow_meas_min_value(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #1 {
   %3 = icmp ugt i16 %1, -3
   br i1 %3, label %4, label %5
 
@@ -1108,7 +1108,7 @@ define internal void @decode_flow_meas_min_value(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_flow_meas_max_value(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+define internal void @decode_flow_meas_max_value(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #1 {
   %3 = add i16 %1, 1
   %or.cond = icmp ult i16 %3, 2
   br i1 %or.cond, label %4, label %5
@@ -1129,7 +1129,7 @@ define internal void @decode_flow_meas_max_value(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_flow_meas_tolerance(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+define internal void @decode_flow_meas_tolerance(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #1 {
   %3 = icmp ugt i16 %1, 2048
   br i1 %3, label %4, label %5
 
@@ -1147,7 +1147,7 @@ define internal void @decode_flow_meas_tolerance(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_flow_meas(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_zbee_zcl_flow_meas(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
   ret i32 %5
 }
@@ -1228,7 +1228,7 @@ define hidden void @proto_register_zbee_zcl_relhum_meas() local_unnamed_addr #0 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_relhum_meas_value(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+define internal void @decode_relhum_meas_value(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #1 {
   %3 = icmp eq i16 %1, -1
   br i1 %3, label %4, label %5
 
@@ -1249,7 +1249,7 @@ define internal void @decode_relhum_meas_value(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_relhum_meas_min_value(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+define internal void @decode_relhum_meas_min_value(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #1 {
   %3 = icmp ugt i16 %1, 9999
   br i1 %3, label %4, label %5
 
@@ -1270,7 +1270,7 @@ define internal void @decode_relhum_meas_min_value(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_relhum_meas_max_value(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+define internal void @decode_relhum_meas_max_value(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #1 {
   %3 = icmp ugt i16 %1, 10000
   br i1 %3, label %4, label %5
 
@@ -1291,7 +1291,7 @@ define internal void @decode_relhum_meas_max_value(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_relhum_meas_tolerance(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+define internal void @decode_relhum_meas_tolerance(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #1 {
   %3 = icmp ugt i16 %1, 2048
   br i1 %3, label %4, label %5
 
@@ -1312,7 +1312,7 @@ define internal void @decode_relhum_meas_tolerance(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_relhum_meas(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_zbee_zcl_relhum_meas(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
   ret i32 %5
 }
@@ -1393,7 +1393,7 @@ define hidden void @proto_register_zbee_zcl_occ_sen() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_occ_sen(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_zbee_zcl_occ_sen(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
   ret i32 %5
 }
@@ -1454,7 +1454,7 @@ define hidden void @proto_register_zbee_zcl_elec_mes() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_zcl_elec_mes(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_zbee_zcl_elec_mes(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca %struct.nstime_t, align 8
   %7 = icmp eq ptr %3, null
@@ -1596,7 +1596,7 @@ define internal void @dissect_zcl_elec_mes_attr_data(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #5
@@ -1626,10 +1626,10 @@ declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

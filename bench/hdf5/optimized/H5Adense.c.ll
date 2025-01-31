@@ -293,7 +293,7 @@ define range(i32 -1, 1) i32 @H5A__dense_create(ptr noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare ptr @H5HF_create(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -310,7 +310,7 @@ declare i32 @H5HF_close(ptr noundef) local_unnamed_addr #2
 declare i32 @H5B2_close(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @H5A__dense_open(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @H5A__dense_open(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.H5A_bt2_ud_common_t, align 8
   %5 = alloca i8, align 1
   %6 = alloca ptr, align 8
@@ -387,7 +387,7 @@ define ptr @H5A__dense_open(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %2, ptr %48, align 8
   %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
-  %50 = call i32 @H5_checksum_lookup3(ptr noundef %2, i64 noundef %49, i32 noundef 0) #6
+  %50 = call i32 @H5_checksum_lookup3(ptr noundef nonnull %2, i64 noundef %49, i32 noundef 0) #6
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %50, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 36
@@ -499,10 +499,10 @@ declare ptr @H5B2_open(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr
 declare i32 @H5_checksum_lookup3(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5A__dense_fnd_cb(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5A__dense_fnd_cb(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2) #0 {
   %4 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %17, label %5
@@ -541,7 +541,7 @@ define internal range(i32 -1, 1) i32 @H5A__dense_fnd_cb(ptr noundef %0, ptr noca
 declare i32 @H5B2_find(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5A__dense_insert(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5A__dense_insert(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.H5A_bt2_ud_ins_t, align 8
   %5 = alloca [128 x i8], align 16
   %6 = alloca i32, align 4
@@ -728,7 +728,7 @@ define range(i32 -1, 1) i32 @H5A__dense_insert(ptr noundef %0, ptr nocapture nou
   %115 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %114, ptr %115, align 8
   %116 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %114) #7
-  %117 = call i32 @H5_checksum_lookup3(ptr noundef %114, i64 noundef %116, i32 noundef 0) #6
+  %117 = call i32 @H5_checksum_lookup3(ptr noundef nonnull %114, i64 noundef %116, i32 noundef 0) #6
   %118 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %117, ptr %118, align 8
   %119 = load i32, ptr %6, align 4
@@ -874,7 +874,7 @@ declare i32 @H5O_msg_is_shared(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @H5SM_try_share(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i64 @H5O_msg_raw_size(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
@@ -891,7 +891,7 @@ declare i32 @H5B2_insert(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @H5WB_unwrap(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5A__dense_write(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5A__dense_write(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.H5A_bt2_ud_common_t, align 8
   %5 = alloca %struct.H5A_bt2_od_wrt_t, align 8
   %6 = alloca i64, align 8
@@ -976,7 +976,7 @@ define range(i32 -1, 1) i32 @H5A__dense_write(ptr noundef %0, ptr nocapture noun
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %54, ptr %55, align 8
   %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #7
-  %57 = call i32 @H5_checksum_lookup3(ptr noundef %54, i64 noundef %56, i32 noundef 0) #6
+  %57 = call i32 @H5_checksum_lookup3(ptr noundef nonnull %54, i64 noundef %56, i32 noundef 0) #6
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %57, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 36
@@ -1062,7 +1062,7 @@ define range(i32 -1, 1) i32 @H5A__dense_write(ptr noundef %0, ptr nocapture noun
 declare i32 @H5B2_modify(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5A__dense_write_bt2_cb(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5A__dense_write_bt2_cb(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca [128 x i8], align 16
   %5 = alloca %struct.H5A_bt2_ud_common_t, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1229,7 +1229,7 @@ define internal range(i32 -1, 1) i32 @H5A__dense_write_bt2_cb(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5A__dense_rename(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5A__dense_rename(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.H5A_bt2_ud_common_t, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i8, align 1
@@ -1317,7 +1317,7 @@ define range(i32 -1, 1) i32 @H5A__dense_rename(ptr noundef %0, ptr nocapture nou
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %2, ptr %57, align 8
   %58 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
-  %59 = call i32 @H5_checksum_lookup3(ptr noundef %2, i64 noundef %58, i32 noundef 0) #6
+  %59 = call i32 @H5_checksum_lookup3(ptr noundef nonnull %2, i64 noundef %58, i32 noundef 0) #6
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %59, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 36
@@ -1528,7 +1528,7 @@ define range(i32 -1, 1) i32 @H5A__dense_rename(ptr noundef %0, ptr nocapture nou
 194:                                              ; preds = %182, %169, %172
   %195 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 -1, ptr %195, align 8
-  %196 = call i32 @H5A__dense_remove(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %2)
+  %196 = call i32 @H5A__dense_remove(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %2)
   %197 = icmp slt i32 %196, 0
   br i1 %197, label %198, label %202
 
@@ -1630,7 +1630,7 @@ declare i32 @H5SM_get_refcount(ptr noundef, i32 noundef, ptr noundef, ptr nounde
 declare i32 @H5O__attr_link(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5A__dense_remove(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5A__dense_remove(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.H5A_bt2_ud_rm_t, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -1706,7 +1706,7 @@ define range(i32 -1, 1) i32 @H5A__dense_remove(ptr noundef %0, ptr nocapture nou
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %2, ptr %47, align 8
   %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
-  %49 = call i32 @H5_checksum_lookup3(ptr noundef %2, i64 noundef %48, i32 noundef 0) #6
+  %49 = call i32 @H5_checksum_lookup3(ptr noundef nonnull %2, i64 noundef %48, i32 noundef 0) #6
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %49, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -2011,7 +2011,7 @@ define i32 @H5A__dense_iterate(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
 declare i32 @H5B2_iterate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5A__dense_iterate_bt2_cb(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal i32 @H5A__dense_iterate_bt2_cb(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca %struct.H5A_fh_ud_cp_t, align 8
   %4 = alloca %struct.H5A_info_t, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -2478,7 +2478,7 @@ define range(i32 -1, 1) i32 @H5A__dense_remove_by_idx(ptr noundef %0, ptr nounde
 declare i32 @H5B2_remove_by_idx(ptr noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5A__dense_remove_by_idx_bt2_cb(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @H5A__dense_remove_by_idx_bt2_cb(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca %struct.H5A_fh_ud_cp_t, align 8
   %4 = alloca %struct.H5O_shared_t, align 8
   %5 = alloca %struct.H5A_bt2_ud_common_t, align 8
@@ -2556,7 +2556,7 @@ define internal range(i32 -1, 1) i32 @H5A__dense_remove_by_idx_bt2_cb(ptr nounde
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %49, ptr %50, align 8
   %51 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #7
-  %52 = call i32 @H5_checksum_lookup3(ptr noundef %49, i64 noundef %51, i32 noundef 0) #6
+  %52 = call i32 @H5_checksum_lookup3(ptr noundef nonnull %49, i64 noundef %51, i32 noundef 0) #6
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %52, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -2666,7 +2666,7 @@ define internal range(i32 -1, 1) i32 @H5A__dense_remove_by_idx_bt2_cb(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5A__dense_exists(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5A__dense_exists(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.H5A_bt2_ud_common_t, align 8
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2740,7 +2740,7 @@ define range(i32 -1, 1) i32 @H5A__dense_exists(ptr noundef %0, ptr nocapture nou
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %2, ptr %47, align 8
   %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
-  %49 = call i32 @H5_checksum_lookup3(ptr noundef %2, i64 noundef %48, i32 noundef 0) #6
+  %49 = call i32 @H5_checksum_lookup3(ptr noundef nonnull %2, i64 noundef %48, i32 noundef 0) #6
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %49, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 36
@@ -2816,7 +2816,7 @@ define range(i32 -1, 1) i32 @H5A__dense_exists(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5A__dense_delete(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5A__dense_delete(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.H5A_bt2_ud_common_t, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8
@@ -2918,7 +2918,7 @@ define range(i32 -1, 1) i32 @H5A__dense_delete(ptr noundef %0, ptr nocapture nou
 declare i32 @H5B2_delete(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5A__dense_delete_bt2_cb(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @H5A__dense_delete_bt2_cb(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca %struct.H5O_shared_t, align 8
   %4 = alloca %struct.H5A_fh_ud_cp_t, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2996,7 +2996,7 @@ declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @H5O__attr_update_shared(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5A__dense_write_bt2_cb2(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) #5 {
+define internal noundef i32 @H5A__dense_write_bt2_cb2(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) #5 {
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %0, align 8
   store i8 1, ptr %2, align 1
@@ -3008,7 +3008,7 @@ declare i32 @H5HF_write(ptr noundef, ptr noundef, ptr noundef, ptr noundef) loca
 declare i32 @H5HF_op(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5A__dense_copy_fh_cb(ptr noundef %0, i64 noundef %1, ptr nocapture noundef initializes((16, 24)) %2) #0 {
+define internal range(i32 -1, 1) i32 @H5A__dense_copy_fh_cb(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) initializes((16, 24)) %2) #0 {
   %4 = load ptr, ptr %2, align 8
   %5 = tail call ptr @H5O_msg_decode(ptr noundef %4, ptr noundef null, i32 noundef 12, i64 noundef %1, ptr noundef %0) #6
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16

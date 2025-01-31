@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @VP8GetCPUInfo = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @WebPRescalerImportRowExpand_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define hidden void @WebPRescalerImportRowExpand_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -111,7 +111,7 @@ define hidden void @WebPRescalerImportRowExpand_C(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @WebPRescalerImportRowShrink_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define hidden void @WebPRescalerImportRowShrink_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -201,7 +201,7 @@ define hidden void @WebPRescalerImportRowShrink_C(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @WebPRescalerExportRowExpand_C(ptr nocapture noundef readonly %0) #1 {
+define hidden void @WebPRescalerExportRowExpand_C(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -299,7 +299,7 @@ define hidden void @WebPRescalerExportRowExpand_C(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @WebPRescalerExportRowShrink_C(ptr nocapture noundef readonly %0) #1 {
+define hidden void @WebPRescalerExportRowShrink_C(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88

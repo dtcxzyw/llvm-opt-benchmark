@@ -327,14 +327,14 @@ declare noalias ptr @g_key_file_get_string(ptr noundef, ptr noundef, ptr noundef
 declare noalias ptr @wmem_strndup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @g_free(ptr noundef) #1
 
 declare ptr @g_key_file_get_groups(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare zeroext i1 @ws_hexstrtou16(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -399,7 +399,7 @@ declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare ptr @epl_profile_object_lookup_or_add(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @subobject_equal(ptr noundef %0, ptr noundef %1) #0 {
@@ -436,7 +436,7 @@ declare void @g_strfreev(ptr noundef) local_unnamed_addr #1
 declare void @wmem_map_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @sort_subindices(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 {
+define internal void @sort_subindices(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -590,7 +590,7 @@ declare void @xmlXPathFreeContext(ptr noundef) local_unnamed_addr #1
 declare void @xmlFreeDoc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @epl_wmem_iarray_is_empty(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @epl_wmem_iarray_is_empty(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -601,7 +601,7 @@ define hidden range(i32 0, 2) i32 @epl_wmem_iarray_is_empty(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @epl_wmem_iarray_is_sorted(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @epl_wmem_iarray_is_sorted(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, 1
@@ -610,7 +610,7 @@ define hidden range(i32 0, 2) i32 @epl_wmem_iarray_is_sorted(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @epl_wmem_iarray_find(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden ptr @epl_wmem_iarray_find(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.range_admin_tag, align 4
   tail call fastcc void @epl_wmem_iarray_sort_and_compact(ptr noundef %0)
   store i32 %1, ptr %3, align 4
@@ -629,7 +629,7 @@ define hidden ptr @epl_wmem_iarray_find(ptr nocapture noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @epl_wmem_iarray_sort_and_compact(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @epl_wmem_iarray_sort_and_compact(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i8, ptr %3, align 4
@@ -704,7 +704,7 @@ define internal fastcc void @epl_wmem_iarray_sort_and_compact(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @find_in_range(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 -1, 2) i32 @find_in_range(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load i32, ptr %0, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -735,7 +735,7 @@ declare signext i8 @g_ascii_tolower(i8 noundef signext) local_unnamed_addr #2
 declare i32 @g_str_equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @populate_profile_name(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @populate_profile_name(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %5, label %22
@@ -771,7 +771,7 @@ define internal range(i32 -1, 1) i32 @populate_profile_name(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @populate_datatype_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @populate_datatype_list(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -890,7 +890,7 @@ define internal range(i32 -1, 1) i32 @populate_datatype_list(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @populate_object_list(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal noundef i32 @populate_object_list(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.od_entry, align 8
   %4 = alloca %struct.subobject, align 8
   %5 = load i32, ptr %0, align 8
@@ -1055,7 +1055,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #8
 declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_obj_tag(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_obj_tag(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i16, align 2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1198,7 +1198,7 @@ declare ptr @g_array_new(i32 noundef, i32 noundef, i32 noundef) local_unnamed_ad
 declare i32 @wmem_register_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @free_garray(ptr nocapture readnone %0, i32 %1, ptr noundef %2) #0 {
+define internal noundef zeroext i1 @free_garray(ptr readnone captures(none) %0, i32 %1, ptr noundef %2) #0 {
   %4 = tail call ptr @g_array_free(ptr noundef %2, i32 noundef 1) #10
   ret i1 false
 }
@@ -1210,7 +1210,7 @@ declare ptr @g_array_append_vals(ptr noundef, ptr noundef, i32 noundef) local_un
 declare void @g_array_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @epl_wmem_iarray_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 -1, 2) i32 @epl_wmem_iarray_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %3, i32 %4)

@@ -68,7 +68,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_print_re
 @llvm.compiler.used = appending global [19 x ptr] [ptr @__UNIQUE_ID___addressable____drm_dbg337, ptr @__UNIQUE_ID___addressable___drm_debug316, ptr @__UNIQUE_ID___addressable___drm_dev_dbg336, ptr @__UNIQUE_ID___addressable___drm_err338, ptr @__UNIQUE_ID___addressable___drm_printfn_coredump322, ptr @__UNIQUE_ID___addressable___drm_printfn_debug326, ptr @__UNIQUE_ID___addressable___drm_printfn_err327, ptr @__UNIQUE_ID___addressable___drm_printfn_info325, ptr @__UNIQUE_ID___addressable___drm_printfn_seq_file324, ptr @__UNIQUE_ID___addressable___drm_puts_coredump321, ptr @__UNIQUE_ID___addressable___drm_puts_seq_file323, ptr @__UNIQUE_ID___addressable_drm_dev_printk335, ptr @__UNIQUE_ID___addressable_drm_print_bits334, ptr @__UNIQUE_ID___addressable_drm_print_regset32341, ptr @__UNIQUE_ID___addressable_drm_printf329, ptr @__UNIQUE_ID___addressable_drm_puts328, ptr @__UNIQUE_ID_debug317, ptr @__UNIQUE_ID_debugtype318, ptr @__param_debug], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local void @__drm_puts_coredump(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local void @__drm_puts_coredump(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -130,19 +130,19 @@ define dso_local void @__drm_puts_coredump(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__drm_printfn_coredump(ptr nocapture noundef readonly %0, ptr noundef %1) #4 align 16 {
+define dso_local void @__drm_printfn_coredump(ptr noundef readonly captures(none) %0, ptr noundef %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -259,13 +259,13 @@ define dso_local void @__drm_printfn_coredump(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__drm_puts_seq_file(ptr nocapture noundef readonly %0, ptr noundef %1) #4 align 16 {
+define dso_local void @__drm_puts_seq_file(ptr noundef readonly captures(none) %0, ptr noundef %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @seq_puts(ptr noundef %4, ptr noundef %1) #14
@@ -276,7 +276,7 @@ define dso_local void @__drm_puts_seq_file(ptr nocapture noundef readonly %0, pt
 declare dso_local void @seq_puts(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__drm_printfn_seq_file(ptr nocapture noundef readonly %0, ptr noundef %1) #4 align 16 {
+define dso_local void @__drm_printfn_seq_file(ptr noundef readonly captures(none) %0, ptr noundef %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef %1) #14
@@ -287,7 +287,7 @@ define dso_local void @__drm_printfn_seq_file(ptr nocapture noundef readonly %0,
 declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__drm_printfn_info(ptr nocapture noundef readonly %0, ptr noundef %1) #7 align 16 {
+define dso_local void @__drm_printfn_info(ptr noundef readonly captures(none) %0, ptr noundef %1) #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %4, ptr noundef nonnull @.str.1, ptr noundef %1) #16
@@ -298,7 +298,7 @@ define dso_local void @__drm_printfn_info(ptr nocapture noundef readonly %0, ptr
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__drm_printfn_debug(ptr nocapture noundef readonly %0, ptr noundef %1) #7 align 16 {
+define dso_local void @__drm_printfn_debug(ptr noundef readonly captures(none) %0, ptr noundef %1) #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef %4, ptr noundef %1) #16
@@ -309,7 +309,7 @@ define dso_local void @__drm_printfn_debug(ptr nocapture noundef readonly %0, pt
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__drm_printfn_err(ptr nocapture noundef readonly %0, ptr noundef %1) #7 align 16 {
+define dso_local void @__drm_printfn_err(ptr noundef readonly captures(none) %0, ptr noundef %1) #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %4, ptr noundef %1) #16
@@ -355,10 +355,10 @@ define dso_local void @drm_printf(ptr noundef %0, ptr noundef %1, ...) #4 align 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_print_bits(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) #4 align 16 {
+define dso_local void @drm_print_bits(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #4 align 16 {
   %5 = alloca i64, align 8
   store i64 %1, ptr %5, align 8
   %6 = icmp ugt i32 %3, 64
@@ -457,7 +457,7 @@ declare dso_local void @_dev_printk(ptr noundef, ptr noundef, ptr noundef, ...) 
 declare ptr @llvm.returnaddress(i32 immarg) #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__drm_dev_dbg(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ...) #4 align 16 {
+define dso_local void @__drm_dev_dbg(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ...) #4 align 16 {
   %5 = alloca %struct.va_format, align 8
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
@@ -498,7 +498,7 @@ define dso_local void @__drm_dev_dbg(ptr nocapture readnone %0, ptr noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @___drm_dbg(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2, ...) #4 align 16 {
+define dso_local void @___drm_dbg(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2, ...) #4 align 16 {
   %4 = alloca %struct.va_format, align 8
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
@@ -547,7 +547,7 @@ define dso_local void @__drm_err(ptr noundef %0, ...) #7 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_print_regset32(ptr noundef %0, ptr nocapture noundef readonly %1) #4 align 16 {
+define dso_local void @drm_print_regset32(ptr noundef %0, ptr noundef readonly captures(none) %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0

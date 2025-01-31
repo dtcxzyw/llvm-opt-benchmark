@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @BrotliIsMostlyUTF8(ptr nocapture noundef readonly %data, i64 noundef %pos, i64 noundef %mask, i64 noundef %length, double noundef %min_fraction) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BrotliIsMostlyUTF8(ptr noundef readonly captures(none) %data, i64 noundef %pos, i64 noundef %mask, i64 noundef %length, double noundef %min_fraction) local_unnamed_addr #0 {
 entry:
   %cmp9.not = icmp eq i64 %length, 0
   br i1 %cmp9.not, label %while.end, label %while.body

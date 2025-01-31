@@ -79,24 +79,24 @@ for.body:                                         ; preds = %if.end7, %for.inc
   br i1 %cmp17, label %if.end20, label %for.inc
 
 if.end20:                                         ; preds = %for.body
-  %call21 = tail call fastcc i32 @mtu_test(ptr noundef %call1, ptr noundef %call15, i32 noundef 0)
+  %call21 = tail call fastcc i32 @mtu_test(ptr noundef %call1, ptr noundef nonnull %call15, i32 noundef 0)
   %call22 = tail call i32 @test_int_gt(ptr noundef nonnull @.str.2, i32 noundef 177, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef %call21, i32 noundef 0) #6
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %end, label %if.end25
 
 if.end25:                                         ; preds = %if.end20
-  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 179, ptr noundef nonnull @.str.9, ptr noundef %call15) #6
+  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 179, ptr noundef nonnull @.str.9, ptr noundef nonnull %call15) #6
   %cmp26 = icmp eq i32 %call21, 1
   br i1 %cmp26, label %for.inc, label %if.end29
 
 if.end29:                                         ; preds = %if.end25
-  %call30 = tail call fastcc i32 @mtu_test(ptr noundef %call1, ptr noundef %call15, i32 noundef 1)
+  %call30 = tail call fastcc i32 @mtu_test(ptr noundef %call1, ptr noundef nonnull %call15, i32 noundef 1)
   %call31 = tail call i32 @test_int_gt(ptr noundef nonnull @.str.2, i32 noundef 184, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.8, i32 noundef %call30, i32 noundef 0) #6
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %end, label %if.end34
 
 if.end34:                                         ; preds = %if.end29
-  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 186, ptr noundef nonnull @.str.11, ptr noundef %call15) #6
+  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 186, ptr noundef nonnull @.str.11, ptr noundef nonnull %call15) #6
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end25, %for.body, %if.end34
@@ -195,7 +195,7 @@ declare ptr @DTLS_method() local_unnamed_addr #1
 declare void @SSL_CTX_set_psk_server_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef range(i32 0, 21) i32 @srvr_psk_callback(ptr nocapture readnone %ssl, ptr nocapture readnone %identity, ptr nocapture noundef writeonly %psk, i32 noundef %max_psk_len) #2 {
+define internal noundef range(i32 0, 21) i32 @srvr_psk_callback(ptr readnone captures(none) %ssl, ptr readnone captures(none) %identity, ptr noundef writeonly captures(none) %psk, i32 noundef %max_psk_len) #2 {
 entry:
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %max_psk_len, i32 20)
   %conv = zext nneg i32 %spec.store.select to i64
@@ -206,7 +206,7 @@ entry:
 declare void @SSL_CTX_set_psk_client_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef range(i32 0, 21) i32 @clnt_psk_callback(ptr nocapture readnone %ssl, ptr nocapture readnone %hint, ptr noundef %ident, i32 noundef %max_ident_len, ptr nocapture noundef writeonly %psk, i32 noundef %max_psk_len) #0 {
+define internal noundef range(i32 0, 21) i32 @clnt_psk_callback(ptr readnone captures(none) %ssl, ptr readnone captures(none) %hint, ptr noundef %ident, i32 noundef %max_ident_len, ptr noundef writeonly captures(none) %psk, i32 noundef %max_psk_len) #0 {
 entry:
   %conv = zext i32 %max_ident_len to i64
   %call = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %ident, i64 noundef %conv, ptr noundef nonnull @.str.12) #6
@@ -231,7 +231,7 @@ declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @SSL_CIPHER_get_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare i32 @test_int_gt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -425,7 +425,7 @@ declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unname
 declare void @SSL_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 

@@ -98,7 +98,7 @@ define dso_local noundef ptr @I_BDEV(ptr noundef readnone %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @invalidate_bdev(ptr nocapture noundef readonly %0) #1 align 16 {
+define dso_local void @invalidate_bdev(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -119,7 +119,7 @@ define dso_local void @invalidate_bdev(ptr nocapture noundef readonly %0) #1 ali
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @invalidate_bh_lrus() local_unnamed_addr #3
@@ -131,7 +131,7 @@ declare dso_local void @lru_add_drain_all() local_unnamed_addr #3
 declare dso_local i64 @invalidate_mapping_pages(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @truncate_bdev_range(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
@@ -292,7 +292,7 @@ define dso_local noundef range(i32 -22, 1) i32 @bd_prepare_to_claim(ptr noundef 
 declare dso_local void @truncate_inode_pages_range(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bd_abort_claiming(ptr nocapture noundef readonly %0, ptr noundef readnone %1) #1 align 16 {
+define dso_local void @bd_abort_claiming(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #1 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @bdev_lock) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -430,7 +430,7 @@ define dso_local i32 @sync_blockdev(ptr noundef readonly %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @sb_set_blocksize(ptr nocapture noundef %0, i32 noundef %1) #1 align 16 {
+define dso_local noundef i32 @sb_set_blocksize(ptr noundef captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @set_blocksize(ptr noundef %4, i32 noundef %1), !range !5
@@ -465,7 +465,7 @@ define dso_local noundef i32 @sb_set_blocksize(ptr nocapture noundef %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @sb_min_blocksize(ptr nocapture noundef %0, i32 noundef %1) #1 align 16 {
+define dso_local noundef i32 @sb_min_blocksize(ptr noundef captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -536,7 +536,7 @@ define dso_local i32 @sync_blockdev_nowait(ptr noundef readonly %0) #1 align 16 
 declare dso_local i32 @filemap_flush(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sync_blockdev_range(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) #1 align 16 {
+define dso_local i32 @sync_blockdev_range(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -813,7 +813,7 @@ define dso_local void @bdev_set_nr_sectors(ptr noundef %0, i64 noundef %1) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bdev_add(ptr nocapture noundef initializes((52, 56)) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local void @bdev_add(ptr noundef captures(none) initializes((52, 56)) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -930,7 +930,7 @@ define internal noundef zeroext i1 @bd_may_claim(ptr noundef readonly %0, ptr no
 declare dso_local ptr @bit_waitqueue(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @autoremove_wake_function(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #3
@@ -1658,7 +1658,7 @@ define dso_local ptr @bdev_open_by_path(ptr noundef %0, i32 noundef %1, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @lookup_bdev(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 align 16 {
+define dso_local i32 @lookup_bdev(ptr noundef %0, ptr noundef writeonly captures(none) %1) #1 align 16 {
   %3 = alloca %struct.path, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
   %4 = icmp eq ptr %0, null
@@ -2154,7 +2154,7 @@ declare dso_local i32 @filemap_fdatawait_keep_errors(ptr noundef) local_unnamed_
 declare dso_local i32 @filemap_fdatawrite(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bdev_statx_dioalign(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local void @bdev_statx_dioalign(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
   %5 = tail call ptr @blkdev_get_no_open(i32 noundef %4)

@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.PackDoublesFromFloat = private unnamed_addr constant [25 x double] [double 1.000000e+02, double 1.000000e+02, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+02, double 1.000000e+02, double 1.000000e+02, double 1.000000e+02, double 1.000000e+02, double 1.000000e+02, double 1.000000e+02, double 1.000000e+02, double 1.000000e+02, double 1.000000e+02, double 1.000000e+02], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocFormattersPluginChunk(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @_cmsAllocFormattersPluginChunk(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cmsFormattersPluginChunkType, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %4
@@ -314,7 +314,7 @@ define hidden i32 @cmsFormatterForPCSOfProfile(ptr noundef %0, i32 noundef %1, i
 declare i32 @cmsGetPCS(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @UnrollLabDoubleTo16(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal nonnull ptr @UnrollLabDoubleTo16(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca %struct.cmsCIELab, align 8
   %6 = load i32, ptr %0, align 8
   %7 = and i32 %6, 4096
@@ -355,7 +355,7 @@ define internal nonnull ptr @UnrollLabDoubleTo16(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @UnrollXYZDoubleTo16(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal nonnull ptr @UnrollXYZDoubleTo16(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca %struct.cmsCIEXYZ, align 8
   %6 = load i32, ptr %0, align 8
   %7 = and i32 %6, 4096
@@ -396,7 +396,7 @@ define internal nonnull ptr @UnrollXYZDoubleTo16(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @UnrollLabFloatTo16(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) #0 {
+define internal nonnull ptr @UnrollLabFloatTo16(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) #0 {
   %5 = alloca %struct.cmsCIELab, align 8
   %6 = load i32, ptr %0, align 8
   %7 = and i32 %6, 4096
@@ -453,7 +453,7 @@ define internal nonnull ptr @UnrollLabFloatTo16(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @UnrollXYZFloatTo16(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) #0 {
+define internal nonnull ptr @UnrollXYZFloatTo16(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) #0 {
   %5 = alloca %struct.cmsCIEXYZ, align 8
   %6 = alloca %struct.cmsCIEXYZ, align 8
   %7 = load i32, ptr %0, align 8
@@ -511,7 +511,7 @@ define internal nonnull ptr @UnrollXYZFloatTo16(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @UnrollDouble1Chan(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @UnrollDouble1Chan(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load double, ptr %2, align 8
   %6 = fmul double %5, 6.553500e+04
   %7 = fadd double %6, 5.000000e-01
@@ -542,7 +542,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %4, %9, %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal ptr @UnrollDoubleTo16(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3) #4 {
+define internal ptr @UnrollDoubleTo16(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly %2, i32 noundef %3) #4 {
   %5 = load i32, ptr %0, align 8
   %.fr = freeze i32 %5
   %6 = lshr i32 %.fr, 3
@@ -693,7 +693,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph.split, %48, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal ptr @UnrollFloatTo16(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3) #4 {
+define internal ptr @UnrollFloatTo16(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly %2, i32 noundef %3) #4 {
   %5 = load i32, ptr %0, align 8
   %.fr = freeze i32 %5
   %6 = lshr i32 %.fr, 3
@@ -842,7 +842,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph.split, %50, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll1Byte(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll1Byte(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i8, ptr %2, align 1
   %6 = zext i8 %5 to i16
   %7 = shl nuw i16 %6, 8
@@ -857,7 +857,7 @@ define internal nonnull ptr @Unroll1Byte(ptr nocapture readnone %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll1ByteSkip1(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll1ByteSkip1(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i8, ptr %2, align 1
   %6 = zext i8 %5 to i16
   %7 = shl nuw i16 %6, 8
@@ -872,7 +872,7 @@ define internal nonnull ptr @Unroll1ByteSkip1(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll1ByteSkip2(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll1ByteSkip2(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i8, ptr %2, align 1
   %6 = zext i8 %5 to i16
   %7 = shl nuw i16 %6, 8
@@ -887,7 +887,7 @@ define internal nonnull ptr @Unroll1ByteSkip2(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll1ByteReversed(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll1ByteReversed(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i8, ptr %2, align 1
   %6 = zext i8 %5 to i16
   %7 = shl nuw i16 %6, 8
@@ -903,7 +903,7 @@ define internal nonnull ptr @Unroll1ByteReversed(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll2Bytes(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll2Bytes(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i8, ptr %2, align 1
   %6 = zext i8 %5 to i16
   %7 = shl nuw i16 %6, 8
@@ -921,7 +921,7 @@ define internal nonnull ptr @Unroll2Bytes(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @UnrollLabV2_8(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @UnrollLabV2_8(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i8, ptr %2, align 1
   %6 = zext i8 %5 to i16
   %7 = shl nuw i16 %6, 8
@@ -946,7 +946,7 @@ define internal nonnull ptr @UnrollLabV2_8(ptr nocapture readnone %0, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @UnrollALabV2_8(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @UnrollALabV2_8(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i16
@@ -972,7 +972,7 @@ define internal nonnull ptr @UnrollALabV2_8(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @UnrollLabV2_16(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @UnrollLabV2_16(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i16, ptr %2, align 2
   %6 = lshr i16 %5, 8
   %7 = or i16 %6, %5
@@ -994,7 +994,7 @@ define internal nonnull ptr @UnrollLabV2_16(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll3Bytes(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll3Bytes(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i8, ptr %2, align 1
   %6 = zext i8 %5 to i16
   %7 = shl nuw i16 %6, 8
@@ -1019,7 +1019,7 @@ define internal nonnull ptr @Unroll3Bytes(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll3BytesSwap(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll3BytesSwap(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i8, ptr %2, align 1
   %6 = zext i8 %5 to i16
   %7 = shl nuw i16 %6, 8
@@ -1044,7 +1044,7 @@ define internal nonnull ptr @Unroll3BytesSwap(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll3BytesSkip1Swap(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll3BytesSkip1Swap(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i16
@@ -1070,7 +1070,7 @@ define internal nonnull ptr @Unroll3BytesSkip1Swap(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll3BytesSkip1SwapFirst(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll3BytesSkip1SwapFirst(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i16
@@ -1096,7 +1096,7 @@ define internal nonnull ptr @Unroll3BytesSkip1SwapFirst(ptr nocapture readnone %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll3BytesSkip1SwapSwapFirst(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll3BytesSkip1SwapSwapFirst(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i8, ptr %2, align 1
   %6 = zext i8 %5 to i16
   %7 = shl nuw i16 %6, 8
@@ -1121,7 +1121,7 @@ define internal nonnull ptr @Unroll3BytesSkip1SwapSwapFirst(ptr nocapture readno
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll4Bytes(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll4Bytes(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i8, ptr %2, align 1
   %6 = zext i8 %5 to i16
   %7 = shl nuw i16 %6, 8
@@ -1153,7 +1153,7 @@ define internal nonnull ptr @Unroll4Bytes(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll4BytesReverse(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll4BytesReverse(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i8, ptr %2, align 1
   %6 = xor i8 %5, -1
   %7 = zext i8 %6 to i16
@@ -1185,7 +1185,7 @@ define internal nonnull ptr @Unroll4BytesReverse(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll4BytesSwapFirst(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll4BytesSwapFirst(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i8, ptr %2, align 1
   %6 = zext i8 %5 to i16
   %7 = shl nuw i16 %6, 8
@@ -1217,7 +1217,7 @@ define internal nonnull ptr @Unroll4BytesSwapFirst(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll4BytesSwap(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll4BytesSwap(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i8, ptr %2, align 1
   %6 = zext i8 %5 to i16
   %7 = shl nuw i16 %6, 8
@@ -1249,7 +1249,7 @@ define internal nonnull ptr @Unroll4BytesSwap(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll4BytesSwapSwapFirst(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll4BytesSwapSwapFirst(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i8, ptr %2, align 1
   %6 = zext i8 %5 to i16
   %7 = shl nuw i16 %6, 8
@@ -1281,7 +1281,7 @@ define internal nonnull ptr @Unroll4BytesSwapSwapFirst(ptr nocapture readnone %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal nonnull ptr @UnrollPlanarBytes(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2, i32 noundef %3) #4 {
+define internal nonnull ptr @UnrollPlanarBytes(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly %2, i32 noundef %3) #4 {
   %5 = load i32, ptr %0, align 8
   %.fr71 = freeze i32 %5
   %6 = lshr i32 %.fr71, 3
@@ -1486,7 +1486,7 @@ define internal nonnull ptr @UnrollPlanarBytes(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal ptr @UnrollChunkyBytes(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 %3) #4 {
+define internal ptr @UnrollChunkyBytes(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly %2, i32 %3) #4 {
   %5 = load i32, ptr %0, align 8
   %.fr = freeze i32 %5
   %6 = lshr i32 %.fr, 3
@@ -1707,7 +1707,7 @@ define internal ptr @UnrollChunkyBytes(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll1Word(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll1Word(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i16, ptr %2, align 2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i16 %5, ptr %6, align 2
@@ -1719,7 +1719,7 @@ define internal nonnull ptr @Unroll1Word(ptr nocapture readnone %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll1WordReversed(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll1WordReversed(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i16, ptr %2, align 2
   %6 = xor i16 %5, -1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1732,7 +1732,7 @@ define internal nonnull ptr @Unroll1WordReversed(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll1WordSkip3(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll1WordSkip3(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i16, ptr %2, align 2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i16 %5, ptr %6, align 2
@@ -1744,7 +1744,7 @@ define internal nonnull ptr @Unroll1WordSkip3(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll2Words(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll2Words(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i16, ptr %2, align 2
   store i16 %5, ptr %1, align 2
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 2
@@ -1756,7 +1756,7 @@ define internal nonnull ptr @Unroll2Words(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll3Words(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll3Words(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i16, ptr %2, align 2
   store i16 %5, ptr %1, align 2
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 2
@@ -1772,7 +1772,7 @@ define internal nonnull ptr @Unroll3Words(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll4Words(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll4Words(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i16, ptr %2, align 2
   store i16 %5, ptr %1, align 2
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 2
@@ -1792,7 +1792,7 @@ define internal nonnull ptr @Unroll4Words(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll3WordsSwap(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll3WordsSwap(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i16, ptr %2, align 2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i16 %5, ptr %6, align 2
@@ -1808,7 +1808,7 @@ define internal nonnull ptr @Unroll3WordsSwap(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll3WordsSkip1SwapFirst(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll3WordsSkip1SwapFirst(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %6 = load i16, ptr %5, align 2
   store i16 %6, ptr %1, align 2
@@ -1825,7 +1825,7 @@ define internal nonnull ptr @Unroll3WordsSkip1SwapFirst(ptr nocapture readnone %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll3WordsSkip1Swap(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll3WordsSkip1Swap(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 6)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %6 = load i16, ptr %5, align 2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1842,7 +1842,7 @@ define internal nonnull ptr @Unroll3WordsSkip1Swap(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll4WordsReverse(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll4WordsReverse(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i16, ptr %2, align 2
   %6 = xor i16 %5, -1
   store i16 %6, ptr %1, align 2
@@ -1866,7 +1866,7 @@ define internal nonnull ptr @Unroll4WordsReverse(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll4WordsSwapFirst(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll4WordsSwapFirst(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i16, ptr %2, align 2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i16 %5, ptr %6, align 2
@@ -1886,7 +1886,7 @@ define internal nonnull ptr @Unroll4WordsSwapFirst(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll4WordsSwap(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll4WordsSwap(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i16, ptr %2, align 2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i16 %5, ptr %6, align 2
@@ -1906,7 +1906,7 @@ define internal nonnull ptr @Unroll4WordsSwap(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Unroll4WordsSwapSwapFirst(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @Unroll4WordsSwapSwapFirst(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i16, ptr %2, align 2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i16 %5, ptr %6, align 2
@@ -1926,7 +1926,7 @@ define internal nonnull ptr @Unroll4WordsSwapSwapFirst(ptr nocapture readnone %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal nonnull ptr @UnrollPlanarWords(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2, i32 noundef %3) #4 {
+define internal nonnull ptr @UnrollPlanarWords(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly %2, i32 noundef %3) #4 {
   %5 = load i32, ptr %0, align 8
   %.fr41 = freeze i32 %5
   %6 = lshr i32 %.fr41, 3
@@ -2022,7 +2022,7 @@ define internal nonnull ptr @UnrollPlanarWords(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal ptr @UnrollAnyWords(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 %3) #4 {
+define internal ptr @UnrollAnyWords(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly %2, i32 %3) #4 {
   %5 = load i32, ptr %0, align 8
   %.fr = freeze i32 %5
   %6 = lshr i32 %.fr, 3
@@ -2140,7 +2140,7 @@ define internal ptr @UnrollAnyWords(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal nonnull ptr @UnrollPlanarWordsPremul(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2, i32 noundef %3) #4 {
+define internal nonnull ptr @UnrollPlanarWordsPremul(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly %2, i32 noundef %3) #4 {
   %5 = load i32, ptr %0, align 8
   %.fr72 = freeze i32 %5
   %6 = lshr i32 %.fr72, 3
@@ -2340,7 +2340,7 @@ define internal nonnull ptr @UnrollPlanarWordsPremul(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal ptr @UnrollAnyWordsPremul(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2, i32 %3) #4 {
+define internal ptr @UnrollAnyWordsPremul(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly %2, i32 %3) #4 {
   %5 = load i32, ptr %0, align 8
   %.fr79 = freeze i32 %5
   %6 = lshr i32 %.fr79, 3
@@ -2549,10 +2549,10 @@ declare void @cmsFloat2XYZEncoded(ptr noundef, ptr noundef) local_unnamed_addr #
 declare double @llvm.floor.f64(double) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @UnrollLabDoubleToFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, ptr noundef readonly %2, i32 noundef %3) #3 {
+define internal nonnull ptr @UnrollLabDoubleToFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr noundef readonly %2, i32 noundef %3) #3 {
   %5 = load i32, ptr %0, align 8
   %6 = and i32 %5, 4096
   %.not = icmp eq i32 %6, 0
@@ -2620,7 +2620,7 @@ define internal nonnull ptr @UnrollLabDoubleToFloat(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @UnrollLabFloatToFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, ptr noundef readonly %2, i32 noundef %3) #3 {
+define internal nonnull ptr @UnrollLabFloatToFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr noundef readonly %2, i32 noundef %3) #3 {
   %5 = load i32, ptr %0, align 8
   %6 = and i32 %5, 4096
   %.not = icmp eq i32 %6, 0
@@ -2682,7 +2682,7 @@ define internal nonnull ptr @UnrollLabFloatToFloat(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @UnrollXYZDoubleToFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, ptr noundef readonly %2, i32 noundef %3) #3 {
+define internal nonnull ptr @UnrollXYZDoubleToFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr noundef readonly %2, i32 noundef %3) #3 {
   %5 = load i32, ptr %0, align 8
   %6 = and i32 %5, 4096
   %.not = icmp eq i32 %6, 0
@@ -2746,7 +2746,7 @@ define internal nonnull ptr @UnrollXYZDoubleToFloat(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @UnrollXYZFloatToFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, ptr noundef readonly %2, i32 noundef %3) #3 {
+define internal nonnull ptr @UnrollXYZFloatToFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr noundef readonly %2, i32 noundef %3) #3 {
   %5 = load i32, ptr %0, align 8
   %6 = and i32 %5, 4096
   %.not = icmp eq i32 %6, 0
@@ -2804,7 +2804,7 @@ define internal nonnull ptr @UnrollXYZFloatToFloat(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal ptr @UnrollFloatsToFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3) #4 {
+define internal ptr @UnrollFloatsToFloat(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly %2, i32 noundef %3) #4 {
   %5 = load i32, ptr %0, align 8
   %.fr = freeze i32 %5
   %6 = lshr i32 %.fr, 3
@@ -3064,7 +3064,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal ptr @UnrollDoublesToFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3) #4 {
+define internal ptr @UnrollDoublesToFloat(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly %2, i32 noundef %3) #4 {
   %5 = load i32, ptr %0, align 8
   %.fr = freeze i32 %5
   %6 = lshr i32 %.fr, 3
@@ -3332,7 +3332,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @UnrollLabV2_8ToFloat(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @UnrollLabV2_8ToFloat(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i8, ptr %2, align 1
   %6 = zext i8 %5 to i16
   %7 = shl nuw i16 %6, 8
@@ -3370,7 +3370,7 @@ define internal nonnull ptr @UnrollLabV2_8ToFloat(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @UnrollALabV2_8ToFloat(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @UnrollALabV2_8ToFloat(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i16
@@ -3409,7 +3409,7 @@ define internal nonnull ptr @UnrollALabV2_8ToFloat(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @UnrollLabV2_16ToFloat(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, ptr noundef readonly %2, i32 %3) #3 {
+define internal nonnull ptr @UnrollLabV2_16ToFloat(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr noundef readonly %2, i32 %3) #3 {
   %5 = load i16, ptr %2, align 2
   %6 = lshr i16 %5, 8
   %7 = or i16 %6, %5
@@ -3444,7 +3444,7 @@ define internal nonnull ptr @UnrollLabV2_16ToFloat(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal ptr @Unroll8ToFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3) #4 {
+define internal ptr @Unroll8ToFloat(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly %2, i32 noundef %3) #4 {
   %5 = load i32, ptr %0, align 8
   %.fr = freeze i32 %5
   %6 = lshr i32 %.fr, 3
@@ -3583,7 +3583,7 @@ define internal ptr @Unroll8ToFloat(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal ptr @Unroll16ToFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, i32 noundef %3) #4 {
+define internal ptr @Unroll16ToFloat(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly %2, i32 noundef %3) #4 {
   %5 = load i32, ptr %0, align 8
   %.fr = freeze i32 %5
   %6 = lshr i32 %.fr, 3
@@ -3723,7 +3723,7 @@ define internal ptr @Unroll16ToFloat(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @PackLabDoubleFrom16(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal nonnull ptr @PackLabDoubleFrom16(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca %struct.cmsCIELab, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
@@ -3765,7 +3765,7 @@ define internal nonnull ptr @PackLabDoubleFrom16(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @PackXYZDoubleFrom16(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal nonnull ptr @PackXYZDoubleFrom16(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca %struct.cmsCIEXYZ, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
@@ -3812,7 +3812,7 @@ define internal nonnull ptr @PackXYZDoubleFrom16(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @PackLabFloatFrom16(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #0 {
+define internal nonnull ptr @PackLabFloatFrom16(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #0 {
   %5 = alloca %struct.cmsCIELab, align 8
   call void @cmsLabEncoded2Float(ptr noundef nonnull %5, ptr noundef %1) #9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3873,7 +3873,7 @@ define internal nonnull ptr @PackLabFloatFrom16(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @PackXYZFloatFrom16(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #0 {
+define internal nonnull ptr @PackXYZFloatFrom16(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #0 {
   %5 = alloca %struct.cmsCIEXYZ, align 8
   %6 = alloca %struct.cmsCIEXYZ, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3937,7 +3937,7 @@ define internal nonnull ptr @PackXYZFloatFrom16(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal ptr @PackDoubleFrom16(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #4 {
+define internal ptr @PackDoubleFrom16(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %.fr = freeze i32 %6
@@ -4163,7 +4163,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal ptr @PackFloatFrom16(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #4 {
+define internal ptr @PackFloatFrom16(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %.fr = freeze i32 %6
@@ -4398,7 +4398,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack1Byte(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 1)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack1Byte(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 1)) %2, i32 %3) #3 {
   %5 = load i16, ptr %1, align 2
   %6 = zext i16 %5 to i32
   %7 = mul nuw i32 %6, 65281
@@ -4411,7 +4411,7 @@ define internal nonnull ptr @Pack1Byte(ptr nocapture readnone %0, ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack1ByteSkip1(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 1)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack1ByteSkip1(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 1)) %2, i32 %3) #3 {
   %5 = load i16, ptr %1, align 2
   %6 = zext i16 %5 to i32
   %7 = mul nuw i32 %6, 65281
@@ -4424,7 +4424,7 @@ define internal nonnull ptr @Pack1ByteSkip1(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack1ByteSkip1SwapFirst(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((1, 2)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack1ByteSkip1SwapFirst(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((1, 2)) %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i16, ptr %1, align 2
   %7 = zext i16 %6 to i32
@@ -4438,7 +4438,7 @@ define internal nonnull ptr @Pack1ByteSkip1SwapFirst(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack1ByteReversed(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 1)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack1ByteReversed(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 1)) %2, i32 %3) #3 {
   %5 = load i16, ptr %1, align 2
   %6 = xor i16 %5, -1
   %7 = zext i16 %6 to i32
@@ -4452,7 +4452,7 @@ define internal nonnull ptr @Pack1ByteReversed(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @PackLabV2_8(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 3)) %2, i32 %3) #3 {
+define internal nonnull ptr @PackLabV2_8(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 3)) %2, i32 %3) #3 {
   %5 = load i16, ptr %1, align 2
   %6 = zext i16 %5 to i32
   %7 = shl nuw nsw i32 %6, 8
@@ -4492,7 +4492,7 @@ define internal nonnull ptr @PackLabV2_8(ptr nocapture readnone %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @PackALabV2_8(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((1, 4)) %2, i32 %3) #3 {
+define internal nonnull ptr @PackALabV2_8(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((1, 4)) %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i16, ptr %1, align 2
   %7 = zext i16 %6 to i32
@@ -4533,7 +4533,7 @@ define internal nonnull ptr @PackALabV2_8(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @PackLabV2_16(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 6)) %2, i32 %3) #3 {
+define internal nonnull ptr @PackLabV2_16(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 6)) %2, i32 %3) #3 {
   %5 = load i16, ptr %1, align 2
   %6 = zext i16 %5 to i32
   %7 = shl nuw nsw i32 %6, 8
@@ -4564,7 +4564,7 @@ define internal nonnull ptr @PackLabV2_16(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack3BytesOptimized(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 3)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack3BytesOptimized(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 3)) %2, i32 %3) #3 {
   %5 = load i16, ptr %1, align 2
   %6 = trunc i16 %5 to i8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 1
@@ -4583,7 +4583,7 @@ define internal nonnull ptr @Pack3BytesOptimized(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack3BytesAndSkip1Optimized(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 3)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack3BytesAndSkip1Optimized(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 3)) %2, i32 %3) #3 {
   %5 = load i16, ptr %1, align 2
   %6 = trunc i16 %5 to i8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 1
@@ -4602,7 +4602,7 @@ define internal nonnull ptr @Pack3BytesAndSkip1Optimized(ptr nocapture readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack3BytesAndSkip1SwapFirstOptimized(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((1, 4)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack3BytesAndSkip1SwapFirstOptimized(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((1, 4)) %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i16, ptr %1, align 2
   %7 = trunc i16 %6 to i8
@@ -4622,7 +4622,7 @@ define internal nonnull ptr @Pack3BytesAndSkip1SwapFirstOptimized(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack3BytesAndSkip1SwapSwapFirstOptimized(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 3)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack3BytesAndSkip1SwapSwapFirstOptimized(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 3)) %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i16, ptr %5, align 2
   %7 = trunc i16 %6 to i8
@@ -4641,7 +4641,7 @@ define internal nonnull ptr @Pack3BytesAndSkip1SwapSwapFirstOptimized(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack3BytesAndSkip1SwapOptimized(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((1, 4)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack3BytesAndSkip1SwapOptimized(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((1, 4)) %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i16, ptr %6, align 2
@@ -4661,7 +4661,7 @@ define internal nonnull ptr @Pack3BytesAndSkip1SwapOptimized(ptr nocapture readn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack3BytesSwapOptimized(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 3)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack3BytesSwapOptimized(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 3)) %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i16, ptr %5, align 2
   %7 = trunc i16 %6 to i8
@@ -4680,7 +4680,7 @@ define internal nonnull ptr @Pack3BytesSwapOptimized(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack3Bytes(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 3)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack3Bytes(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 3)) %2, i32 %3) #3 {
   %5 = load i16, ptr %1, align 2
   %6 = zext i16 %5 to i32
   %7 = mul nuw i32 %6, 65281
@@ -4711,7 +4711,7 @@ define internal nonnull ptr @Pack3Bytes(ptr nocapture readnone %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack3BytesAndSkip1(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 3)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack3BytesAndSkip1(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 3)) %2, i32 %3) #3 {
   %5 = load i16, ptr %1, align 2
   %6 = zext i16 %5 to i32
   %7 = mul nuw i32 %6, 65281
@@ -4742,7 +4742,7 @@ define internal nonnull ptr @Pack3BytesAndSkip1(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack3BytesAndSkip1SwapFirst(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((1, 4)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack3BytesAndSkip1SwapFirst(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((1, 4)) %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i16, ptr %1, align 2
   %7 = zext i16 %6 to i32
@@ -4774,7 +4774,7 @@ define internal nonnull ptr @Pack3BytesAndSkip1SwapFirst(ptr nocapture readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack3BytesAndSkip1SwapSwapFirst(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 3)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack3BytesAndSkip1SwapSwapFirst(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 3)) %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i32
@@ -4805,7 +4805,7 @@ define internal nonnull ptr @Pack3BytesAndSkip1SwapSwapFirst(ptr nocapture readn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack3BytesAndSkip1Swap(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((1, 4)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack3BytesAndSkip1Swap(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((1, 4)) %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i16, ptr %6, align 2
@@ -4837,7 +4837,7 @@ define internal nonnull ptr @Pack3BytesAndSkip1Swap(ptr nocapture readnone %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack3BytesSwap(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 3)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack3BytesSwap(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 3)) %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i32
@@ -4868,7 +4868,7 @@ define internal nonnull ptr @Pack3BytesSwap(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack4Bytes(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 4)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack4Bytes(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 4)) %2, i32 %3) #3 {
   %5 = load i16, ptr %1, align 2
   %6 = zext i16 %5 to i32
   %7 = mul nuw i32 %6, 65281
@@ -4908,7 +4908,7 @@ define internal nonnull ptr @Pack4Bytes(ptr nocapture readnone %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack4BytesReverse(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 4)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack4BytesReverse(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 4)) %2, i32 %3) #3 {
   %5 = load i16, ptr %1, align 2
   %6 = zext i16 %5 to i32
   %.neg = mul i32 %6, -65281
@@ -4948,7 +4948,7 @@ define internal nonnull ptr @Pack4BytesReverse(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack4BytesSwapFirst(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 4)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack4BytesSwapFirst(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 4)) %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i32
@@ -4988,7 +4988,7 @@ define internal nonnull ptr @Pack4BytesSwapFirst(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack4BytesSwap(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 4)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack4BytesSwap(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 4)) %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i32
@@ -5028,7 +5028,7 @@ define internal nonnull ptr @Pack4BytesSwap(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack4BytesSwapSwapFirst(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 4)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack4BytesSwapSwapFirst(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 4)) %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i32
@@ -5068,7 +5068,7 @@ define internal nonnull ptr @Pack4BytesSwapSwapFirst(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack6Bytes(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 6)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack6Bytes(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 6)) %2, i32 %3) #3 {
   %5 = load i16, ptr %1, align 2
   %6 = zext i16 %5 to i32
   %7 = mul nuw i32 %6, 65281
@@ -5126,7 +5126,7 @@ define internal nonnull ptr @Pack6Bytes(ptr nocapture readnone %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack6BytesSwap(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 6)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack6BytesSwap(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 6)) %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i32
@@ -5184,7 +5184,7 @@ define internal nonnull ptr @Pack6BytesSwap(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal ptr @PackChunkyBytes(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 %3) #4 {
+define internal ptr @PackChunkyBytes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %.fr = freeze i32 %6
@@ -5378,7 +5378,7 @@ define internal ptr @PackChunkyBytes(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal nonnull ptr @PackPlanarBytes(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #4 {
+define internal nonnull ptr @PackPlanarBytes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %.fr65 = freeze i32 %6
@@ -5545,7 +5545,7 @@ define internal nonnull ptr @PackPlanarBytes(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack1Word(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 2)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack1Word(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 2)) %2, i32 %3) #3 {
   %5 = load i16, ptr %1, align 2
   store i16 %5, ptr %2, align 2
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 2
@@ -5553,7 +5553,7 @@ define internal nonnull ptr @Pack1Word(ptr nocapture readnone %0, ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack1WordSkip1(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 2)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack1WordSkip1(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 2)) %2, i32 %3) #3 {
   %5 = load i16, ptr %1, align 2
   store i16 %5, ptr %2, align 2
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -5561,7 +5561,7 @@ define internal nonnull ptr @Pack1WordSkip1(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack1WordSkip1SwapFirst(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((2, 4)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack1WordSkip1SwapFirst(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((2, 4)) %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %6 = load i16, ptr %1, align 2
   store i16 %6, ptr %5, align 2
@@ -5570,7 +5570,7 @@ define internal nonnull ptr @Pack1WordSkip1SwapFirst(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack1WordReversed(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 2)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack1WordReversed(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 2)) %2, i32 %3) #3 {
   %5 = load i16, ptr %1, align 2
   %6 = xor i16 %5, -1
   store i16 %6, ptr %2, align 2
@@ -5579,7 +5579,7 @@ define internal nonnull ptr @Pack1WordReversed(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack1WordBigEndian(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 2)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack1WordBigEndian(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 2)) %2, i32 %3) #3 {
   %5 = load i16, ptr %1, align 2
   %rev = tail call i16 @llvm.bswap.i16(i16 %5)
   store i16 %rev, ptr %2, align 2
@@ -5588,7 +5588,7 @@ define internal nonnull ptr @Pack1WordBigEndian(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack3Words(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 6)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack3Words(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 6)) %2, i32 %3) #3 {
   %5 = load i16, ptr %1, align 2
   store i16 %5, ptr %2, align 2
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 2
@@ -5604,7 +5604,7 @@ define internal nonnull ptr @Pack3Words(ptr nocapture readnone %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack3WordsSwap(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 6)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack3WordsSwap(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 6)) %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i16, ptr %5, align 2
   store i16 %6, ptr %2, align 2
@@ -5620,7 +5620,7 @@ define internal nonnull ptr @Pack3WordsSwap(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack3WordsBigEndian(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 6)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack3WordsBigEndian(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 6)) %2, i32 %3) #3 {
   %5 = load i16, ptr %1, align 2
   %rev = tail call i16 @llvm.bswap.i16(i16 %5)
   store i16 %rev, ptr %2, align 2
@@ -5639,7 +5639,7 @@ define internal nonnull ptr @Pack3WordsBigEndian(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack3WordsAndSkip1(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 6)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack3WordsAndSkip1(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 6)) %2, i32 %3) #3 {
   %5 = load i16, ptr %1, align 2
   store i16 %5, ptr %2, align 2
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 2
@@ -5655,7 +5655,7 @@ define internal nonnull ptr @Pack3WordsAndSkip1(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack3WordsAndSkip1Swap(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((2, 8)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack3WordsAndSkip1Swap(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((2, 8)) %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i16, ptr %6, align 2
@@ -5672,7 +5672,7 @@ define internal nonnull ptr @Pack3WordsAndSkip1Swap(ptr nocapture readnone %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack3WordsAndSkip1SwapFirst(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((2, 8)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack3WordsAndSkip1SwapFirst(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((2, 8)) %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %6 = load i16, ptr %1, align 2
   store i16 %6, ptr %5, align 2
@@ -5689,7 +5689,7 @@ define internal nonnull ptr @Pack3WordsAndSkip1SwapFirst(ptr nocapture readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack3WordsAndSkip1SwapSwapFirst(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 6)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack3WordsAndSkip1SwapSwapFirst(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 6)) %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i16, ptr %5, align 2
   store i16 %6, ptr %2, align 2
@@ -5705,7 +5705,7 @@ define internal nonnull ptr @Pack3WordsAndSkip1SwapSwapFirst(ptr nocapture readn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack4Words(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 8)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack4Words(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 8)) %2, i32 %3) #3 {
   %5 = load i16, ptr %1, align 2
   store i16 %5, ptr %2, align 2
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 2
@@ -5725,7 +5725,7 @@ define internal nonnull ptr @Pack4Words(ptr nocapture readnone %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack4WordsReverse(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 8)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack4WordsReverse(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 8)) %2, i32 %3) #3 {
   %5 = load i16, ptr %1, align 2
   %6 = xor i16 %5, -1
   store i16 %6, ptr %2, align 2
@@ -5749,7 +5749,7 @@ define internal nonnull ptr @Pack4WordsReverse(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack4WordsSwap(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 8)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack4WordsSwap(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 8)) %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %6 = load i16, ptr %5, align 2
   store i16 %6, ptr %2, align 2
@@ -5769,7 +5769,7 @@ define internal nonnull ptr @Pack4WordsSwap(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack4WordsBigEndian(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 8)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack4WordsBigEndian(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 8)) %2, i32 %3) #3 {
   %5 = load i16, ptr %1, align 2
   %rev = tail call i16 @llvm.bswap.i16(i16 %5)
   store i16 %rev, ptr %2, align 2
@@ -5793,7 +5793,7 @@ define internal nonnull ptr @Pack4WordsBigEndian(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack6Words(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 12)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack6Words(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 12)) %2, i32 %3) #3 {
   %5 = load i16, ptr %1, align 2
   store i16 %5, ptr %2, align 2
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 2
@@ -5821,7 +5821,7 @@ define internal nonnull ptr @Pack6Words(ptr nocapture readnone %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @Pack6WordsSwap(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 12)) %2, i32 %3) #3 {
+define internal nonnull ptr @Pack6WordsSwap(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 12)) %2, i32 %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %6 = load i16, ptr %5, align 2
   store i16 %6, ptr %2, align 2
@@ -5849,7 +5849,7 @@ define internal nonnull ptr @Pack6WordsSwap(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal ptr @PackChunkyWords(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 %3) #4 {
+define internal ptr @PackChunkyWords(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %.fr = freeze i32 %6
@@ -6097,7 +6097,7 @@ define internal ptr @PackChunkyWords(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal nonnull ptr @PackPlanarWords(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #4 {
+define internal nonnull ptr @PackPlanarWords(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %.fr82 = freeze i32 %6
@@ -6332,7 +6332,7 @@ declare void @cmsLabEncoded2Float(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @cmsXYZEncoded2Float(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @PackLabFloatFromFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #3 {
+define internal nonnull ptr @PackLabFloatFromFloat(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 4096
@@ -6399,7 +6399,7 @@ define internal nonnull ptr @PackLabFloatFromFloat(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @PackXYZFloatFromFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #3 {
+define internal nonnull ptr @PackXYZFloatFromFloat(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 4)) %2, i32 noundef %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 4096
@@ -6458,7 +6458,7 @@ define internal nonnull ptr @PackXYZFloatFromFloat(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @PackLabDoubleFromFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 8)) %2, i32 noundef %3) #3 {
+define internal nonnull ptr @PackLabDoubleFromFloat(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 8)) %2, i32 noundef %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 4096
@@ -6523,7 +6523,7 @@ define internal nonnull ptr @PackLabDoubleFromFloat(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal nonnull ptr @PackXYZDoubleFromFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 8)) %2, i32 noundef %3) #3 {
+define internal nonnull ptr @PackXYZDoubleFromFloat(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 8)) %2, i32 noundef %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 4096
@@ -6588,7 +6588,7 @@ define internal nonnull ptr @PackXYZDoubleFromFloat(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @PackEncodedBytesLabV2FromFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 1)) %2, i32 noundef %3) #0 {
+define internal nonnull ptr @PackEncodedBytesLabV2FromFloat(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 1)) %2, i32 noundef %3) #0 {
   %5 = alloca %struct.cmsCIELab, align 8
   %6 = alloca [3 x i16], align 2
   %7 = load float, ptr %1, align 4
@@ -6672,7 +6672,7 @@ define internal nonnull ptr @PackEncodedBytesLabV2FromFloat(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @PackEncodedWordsLabV2FromFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef writeonly initializes((0, 2)) %2, i32 noundef %3) #0 {
+define internal nonnull ptr @PackEncodedWordsLabV2FromFloat(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 2)) %2, i32 noundef %3) #0 {
   %5 = alloca %struct.cmsCIELab, align 8
   %6 = alloca [3 x i16], align 2
   %7 = load float, ptr %1, align 4
@@ -6744,7 +6744,7 @@ define internal nonnull ptr @PackEncodedWordsLabV2FromFloat(ptr nocapture nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal ptr @PackFloatsFromFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #4 {
+define internal ptr @PackFloatsFromFloat(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %.fr = freeze i32 %6
@@ -6979,7 +6979,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal ptr @PackDoublesFromFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #4 {
+define internal ptr @PackDoublesFromFloat(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %.fr = freeze i32 %6
@@ -7205,7 +7205,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal ptr @PackWordsFromFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #4 {
+define internal ptr @PackWordsFromFloat(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %.fr = freeze i32 %6
@@ -7422,7 +7422,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph.split.split.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal ptr @PackBytesFromFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) #4 {
+define internal ptr @PackBytesFromFloat(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %.fr = freeze i32 %6
@@ -7664,10 +7664,10 @@ declare i32 @llvm.umin.i32(i32, i32) #7
 declare i16 @llvm.bswap.i16(i16) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

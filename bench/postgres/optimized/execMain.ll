@@ -115,7 +115,7 @@ define dso_local void @ExecutorStart(ptr noundef %0, i32 noundef %1) local_unnam
 declare void @pgstat_report_query_id(i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @standard_ExecutorStart(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @standard_ExecutorStart(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @XactReadOnly, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %8, label %5
@@ -631,7 +631,7 @@ CheckValidRowMarkRel.exit.i:                      ; preds = %199, %190, %164, %1
   br i1 %290, label %.split.i, label %284
 
 .split.i:                                         ; preds = %285
-  %291 = tail call ptr @ExecInitExtraTupleSlot(ptr noundef %118, ptr noundef null, ptr noundef nonnull @TTSOpsVirtual) #10
+  %291 = tail call ptr @ExecInitExtraTupleSlot(ptr noundef nonnull %118, ptr noundef null, ptr noundef nonnull @TTSOpsVirtual) #10
   %292 = getelementptr inbounds nuw i8, ptr %273, i64 8
   %293 = load ptr, ptr %292, align 8
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 48
@@ -691,7 +691,7 @@ define dso_local void @ExecutorRun(ptr noundef %0, i32 noundef %1, i64 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @standard_ExecutorRun(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local void @standard_ExecutorRun(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 160
@@ -1181,7 +1181,7 @@ define dso_local void @ExecutorFinish(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @standard_ExecutorFinish(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @standard_ExecutorFinish(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
@@ -1310,7 +1310,7 @@ define dso_local void @ExecutorEnd(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @standard_ExecutorEnd(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @standard_ExecutorEnd(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
@@ -1400,7 +1400,7 @@ declare void @UnregisterSnapshot(ptr noundef) local_unnamed_addr #1
 declare void @FreeExecutorState(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecutorRewind(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExecutorRewind(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
@@ -1571,7 +1571,7 @@ declare signext i8 @get_rel_relkind(i32 noundef) local_unnamed_addr #1
 declare ptr @get_rel_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @CheckValidResultRel(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @CheckValidResultRel(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -1908,7 +1908,7 @@ define dso_local void @InitResultRelInfo(ptr noundef %0, ptr noundef %1, i32 nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @CopyTriggerDesc(ptr noundef) local_unnamed_addr #1
 
@@ -1917,7 +1917,7 @@ declare ptr @InstrAlloc(i32 noundef, i32 noundef, i1 noundef zeroext) local_unna
 declare ptr @GetFdwRoutineForRelation(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ExecGetTriggerResultRel(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @ExecGetTriggerResultRel(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -2046,7 +2046,7 @@ declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ExecGetAncestorResultRels(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @ExecGetAncestorResultRels(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2126,7 +2126,7 @@ define dso_local ptr @ExecGetAncestorResultRels(ptr nocapture noundef readonly %
 declare ptr @get_partition_ancestors(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecCloseResultRelations(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExecCloseResultRelations(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -2225,7 +2225,7 @@ declare void @ExecCloseIndices(ptr noundef) local_unnamed_addr #1
 declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecCloseRangeTableRelations(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExecCloseRangeTableRelations(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %.not8 = icmp eq i32 %3, 0
@@ -2488,13 +2488,13 @@ slot_getallattrs.exit:                            ; preds = %15, %23
   br i1 %51, label %54, label %52
 
 52:                                               ; preds = %48
-  %53 = call i32 @pg_mbcliplen(ptr noundef %.039.us, i32 noundef %50, i32 noundef 64) #10
-  call void @appendBinaryStringInfo(ptr noundef nonnull %5, ptr noundef %.039.us, i32 noundef %53) #10
+  %53 = call i32 @pg_mbcliplen(ptr noundef nonnull %.039.us, i32 noundef %50, i32 noundef 64) #10
+  call void @appendBinaryStringInfo(ptr noundef nonnull %5, ptr noundef nonnull %.039.us, i32 noundef %53) #10
   call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef nonnull @.str.45) #10
   br label %55
 
 54:                                               ; preds = %48
-  call void @appendBinaryStringInfo(ptr noundef nonnull %5, ptr noundef %.039.us, i32 noundef %50) #10
+  call void @appendBinaryStringInfo(ptr noundef nonnull %5, ptr noundef nonnull %.039.us, i32 noundef %50) #10
   br label %55
 
 55:                                               ; preds = %54, %52, %.lr.ph.split.us
@@ -2571,12 +2571,12 @@ slot_getallattrs.exit:                            ; preds = %15, %23
   br i1 %93, label %94, label %95
 
 94:                                               ; preds = %90
-  call void @appendBinaryStringInfo(ptr noundef nonnull %5, ptr noundef %.039, i32 noundef %92) #10
+  call void @appendBinaryStringInfo(ptr noundef nonnull %5, ptr noundef nonnull %.039, i32 noundef %92) #10
   br label %97
 
 95:                                               ; preds = %90
-  %96 = call i32 @pg_mbcliplen(ptr noundef %.039, i32 noundef %92, i32 noundef 64) #10
-  call void @appendBinaryStringInfo(ptr noundef nonnull %5, ptr noundef %.039, i32 noundef %96) #10
+  %96 = call i32 @pg_mbcliplen(ptr noundef nonnull %.039, i32 noundef %92, i32 noundef 64) #10
+  call void @appendBinaryStringInfo(ptr noundef nonnull %5, ptr noundef nonnull %.039, i32 noundef %96) #10
   call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef nonnull @.str.45) #10
   br label %97
 
@@ -3193,7 +3193,7 @@ declare ptr @RelationGetIndexAttrBitmap(ptr noundef, i32 noundef) local_unnamed_
 declare zeroext i1 @bms_overlap(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ExecFindRowMark(ptr nocapture noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local ptr @ExecFindRowMark(ptr noundef readonly captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %15, label %4
 
@@ -3786,7 +3786,7 @@ define dso_local ptr @EvalPlanQualSlot(ptr noundef %0, ptr noundef %1, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @EvalPlanQualNext(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @EvalPlanQualNext(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
@@ -3813,7 +3813,7 @@ ExecProcNode.exit:                                ; preds = %1, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @EvalPlanQualInit(ptr nocapture noundef writeonly initializes((0, 12), (16, 104)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local void @EvalPlanQualInit(ptr noundef writeonly captures(none) initializes((0, 12), (16, 104)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load i32, ptr %7, align 8
   store ptr %1, ptr %0, align 8
@@ -3838,7 +3838,7 @@ define dso_local void @EvalPlanQualInit(ptr nocapture noundef writeonly initiali
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @EvalPlanQualSetPlan(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @EvalPlanQualSetPlan(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   tail call void @EvalPlanQualEnd(ptr noundef %0)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %4, align 8
@@ -3848,7 +3848,7 @@ define dso_local void @EvalPlanQualSetPlan(ptr nocapture noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @EvalPlanQualEnd(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @EvalPlanQualEnd(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3924,7 +3924,7 @@ define dso_local void @EvalPlanQualEnd(ptr nocapture noundef %0) local_unnamed_a
 declare ptr @table_slot_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @EvalPlanQualFetchRowMark(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @EvalPlanQualFetchRowMark(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
@@ -4145,7 +4145,7 @@ ExecGetJunkAttribute.exit39:                      ; preds = %118, %slot_getsomea
 declare void @ExecStoreHeapTupleDatum(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @ExecSetParamPlanMulti(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4266,7 +4266,7 @@ declare void @getTypeOutputInfo(i32 noundef, ptr noundef, ptr noundef) local_unn
 declare ptr @OidOutputFunctionCall(i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @appendBinaryStringInfo(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -4279,10 +4279,10 @@ declare void @llvm.assume(i1 noundef) #7
 declare i64 @llvm.umax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

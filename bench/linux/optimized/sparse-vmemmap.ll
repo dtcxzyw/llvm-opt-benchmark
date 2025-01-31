@@ -125,13 +125,13 @@ define dso_local ptr @vmemmap_alloc_block(i64 noundef %0, i32 noundef %1) local_
 declare dso_local zeroext i1 @slab_is_available() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @warn_alloc(i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local ptr @vmemmap_alloc_block_buf(i64 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 section ".meminit.text" align 16 {
@@ -157,7 +157,7 @@ define dso_local ptr @vmemmap_alloc_block_buf(i64 noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc ptr @altmap_alloc_block_buf(i64 noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 section ".meminit.text" align 16 {
+define internal fastcc ptr @altmap_alloc_block_buf(i64 noundef %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 section ".meminit.text" align 16 {
   %3 = and i64 %0, 4095
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %9, label %5
@@ -267,7 +267,7 @@ declare dso_local i32 @__node_distance(i32 noundef, i32 noundef) local_unnamed_a
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef ptr @vmemmap_pte_populate(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 section ".meminit.text" align 16 {
+define dso_local noundef ptr @vmemmap_pte_populate(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 section ".meminit.text" align 16 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = load i64, ptr %0, align 8
@@ -391,10 +391,10 @@ define dso_local noundef ptr @vmemmap_pte_populate(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef ptr @vmemmap_pmd_populate(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 section ".meminit.text" align 16 {
+define dso_local noundef ptr @vmemmap_pmd_populate(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 section ".meminit.text" align 16 {
   %4 = alloca i64, align 8
   %5 = load i64, ptr %0, align 8
   %6 = and i64 %5, 128
@@ -446,7 +446,7 @@ define weak dso_local void @pmd_init(ptr noundef %0) local_unnamed_addr #0 secti
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef ptr @vmemmap_pud_populate(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 section ".meminit.text" align 16 {
+define dso_local noundef ptr @vmemmap_pud_populate(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 section ".meminit.text" align 16 {
   %4 = alloca i64, align 8
   %5 = load i64, ptr %0, align 8
   %6 = and i64 %5, 4503599627366400
@@ -827,7 +827,7 @@ define dso_local ptr @__populate_section_memmap(i64 noundef %0, i64 noundef %1, 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -12, 1) i32 @vmemmap_populate_compound_pages(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 section ".meminit.text" align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @vmemmap_populate_compound_pages(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #0 section ".meminit.text" align 16 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 104

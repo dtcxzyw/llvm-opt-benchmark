@@ -121,7 +121,7 @@ define internal noundef i32 @mca_pml_ob1_component_register() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @mca_pml_ob1_component_init(ptr nocapture noundef writeonly initializes((0, 4)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
+define internal noundef ptr @mca_pml_ob1_component_init(ptr noundef writeonly captures(none) initializes((0, 4)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
   %4 = load i32, ptr @mca_pml_ob1_output, align 4
   %5 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %4) #8
   br i1 %5, label %6, label %9
@@ -594,7 +594,7 @@ opal_obj_run_destructors.exit73:                  ; preds = %.lr.ph.i70, %opal_o
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read, inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @mca_pml_ob1_seg_alloc(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
+define noalias noundef ptr @mca_pml_ob1_seg_alloc(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = load i64, ptr %1, align 8
   %4 = tail call noalias ptr @malloc(i64 noundef %3) #9
   ret ptr %4
@@ -604,20 +604,20 @@ define noalias noundef ptr @mca_pml_ob1_seg_alloc(ptr nocapture readnone %0, ptr
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @mca_pml_ob1_seg_free(ptr nocapture readnone %0, ptr nocapture noundef %1) #3 {
+define void @mca_pml_ob1_seg_free(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #3 {
   tail call void @free(ptr noundef %1) #8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @mca_base_component_var_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 declare i32 @mca_base_component_pvar_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal noundef i32 @mca_pml_ob1_get_unex_msgq_size(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #6 {
+define internal noundef i32 @mca_pml_ob1_get_unex_msgq_size(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #6 {
   %4 = getelementptr i8, ptr %2, i64 248
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 16
@@ -659,7 +659,7 @@ define internal noundef i32 @mca_pml_ob1_get_unex_msgq_size(ptr nocapture readno
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @mca_pml_ob1_comm_size_notify(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #7 {
+define internal noundef i32 @mca_pml_ob1_comm_size_notify(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) #7 {
   %5 = icmp eq i32 %1, 0
   br i1 %5, label %6, label %9
 
@@ -676,7 +676,7 @@ define internal noundef i32 @mca_pml_ob1_comm_size_notify(ptr nocapture readnone
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal noundef i32 @mca_pml_ob1_get_posted_recvq_size(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #6 {
+define internal noundef i32 @mca_pml_ob1_get_posted_recvq_size(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #6 {
   %4 = getelementptr i8, ptr %2, i64 248
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 16

@@ -1069,7 +1069,7 @@ lor.lhs.false9:                                   ; preds = %lor.lhs.false
   br i1 %tobool12.not, label %end, label %lor.lhs.false13
 
 lor.lhs.false13:                                  ; preds = %lor.lhs.false9
-  %call15 = call i32 @test_strn_eq(ptr noundef nonnull @.str.25, i32 noundef 255, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.98, ptr noundef %call1.i, i64 noundef 10, ptr noundef nonnull %buf1, i64 noundef 10) #5
+  %call15 = call i32 @test_strn_eq(ptr noundef nonnull @.str.25, i32 noundef 255, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.98, ptr noundef nonnull %call1.i, i64 noundef 10, ptr noundef nonnull %buf1, i64 noundef 10) #5
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %end, label %lor.lhs.false17
 
@@ -1079,7 +1079,7 @@ lor.lhs.false17:                                  ; preds = %lor.lhs.false13
   br i1 %tobool23.not, label %end, label %lor.lhs.false24
 
 lor.lhs.false24:                                  ; preds = %lor.lhs.false17
-  call void @CRYPTO_free(ptr noundef %call1.i, ptr noundef nonnull @.str.93, i32 noundef 483) #5
+  call void @CRYPTO_free(ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.93, i32 noundef 483) #5
   %call1.i5 = call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %buf2, i64 noundef 10, ptr noundef nonnull @.str.93, i32 noundef 486) #5
   %cmp.i6 = icmp ne ptr %call1.i5, null
   %conv.i7 = zext i1 %cmp.i6 to i32
@@ -1094,7 +1094,7 @@ lor.lhs.false30:                                  ; preds = %lor.lhs.false24
   br i1 %tobool33.not, label %end, label %lor.lhs.false34
 
 lor.lhs.false34:                                  ; preds = %lor.lhs.false30
-  %call36 = call i32 @test_str_eq(ptr noundef nonnull @.str.25, i32 noundef 259, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.101, ptr noundef %call1.i5, ptr noundef nonnull %buf2) #5
+  %call36 = call i32 @test_str_eq(ptr noundef nonnull @.str.25, i32 noundef 259, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.101, ptr noundef nonnull %call1.i5, ptr noundef nonnull %buf2) #5
   %tobool37.not = icmp ne i32 %call36, 0
   %spec.select = zext i1 %tobool37.not to i32
   br label %end
@@ -1728,7 +1728,7 @@ return:                                           ; preds = %PACKET_get_quic_len
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1749,7 +1749,7 @@ declare i32 @test_uchar_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i
 declare i32 @test_char_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef signext, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1758,7 +1758,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @test_strn_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 

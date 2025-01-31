@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [28 x i8] c"Packeted BIO was truncated\0A\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z17PacketedBioCreateP7timeval(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef %out_timeout) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z17PacketedBioCreateP7timeval(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef %out_timeout) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call ptr @BIO_new(ptr noundef nonnull @_ZN12_GLOBAL__N_121g_packeted_bio_methodE)
   %cmp.i.not = icmp eq ptr %call, null
@@ -92,7 +92,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN12_GLOBAL__N_112PacketedReadEP6bio_stPci(ptr noundef %bio, ptr nocapture noundef writeonly %out, i32 noundef %outl) #0 {
+define internal noundef i32 @_ZN12_GLOBAL__N_112PacketedReadEP6bio_stPci(ptr noundef %bio, ptr noundef writeonly captures(none) %out, i32 noundef %outl) #0 {
 entry:
   %opcode = alloca i8, align 1
   %buf = alloca [8 x i8], align 1
@@ -125,7 +125,7 @@ if.end4.i:                                        ; preds = %while.body.i
   br i1 %cmp.not.i, label %if.end4, label %while.body.i, !llvm.loop !7
 
 if.then3:                                         ; preds = %while.body.i
-  call void @BIO_copy_next_retry(ptr noundef %bio)
+  call void @BIO_copy_next_retry(ptr noundef nonnull %bio)
   br label %return
 
 if.end4:                                          ; preds = %if.end4.i
@@ -157,7 +157,7 @@ if.end4.i39:                                      ; preds = %while.body.i31
   br i1 %cmp.not.i43, label %if.end11, label %while.body.i31, !llvm.loop !7
 
 if.then10:                                        ; preds = %while.body.i31
-  call void @BIO_copy_next_retry(ptr noundef %bio)
+  call void @BIO_copy_next_retry(ptr noundef nonnull %bio)
   br label %return
 
 if.end11:                                         ; preds = %if.end4.i39
@@ -243,7 +243,7 @@ if.end4.i54:                                      ; preds = %while.body.i46
   br i1 %cmp.not.i58, label %if.end57, label %while.body.i46, !llvm.loop !7
 
 if.then56:                                        ; preds = %while.body.i46
-  call void @BIO_copy_next_retry(ptr noundef %bio)
+  call void @BIO_copy_next_retry(ptr noundef nonnull %bio)
   br label %return
 
 if.end57:                                         ; preds = %if.end4.i54
@@ -331,7 +331,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZN12_GLOBAL__N_111PacketedNewEP6bio_st(ptr nocapture noundef writeonly initializes((24, 28)) %bio) #2 {
+define internal noundef i32 @_ZN12_GLOBAL__N_111PacketedNewEP6bio_st(ptr noundef writeonly captures(none) initializes((24, 28)) %bio) #2 {
 entry:
   %init = getelementptr inbounds nuw i8, ptr %bio, i64 24
   store i32 1, ptr %init, align 8
@@ -355,7 +355,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZN12_GLOBAL__N_120PacketedCallbackCtrlEP6bio_stiPFlS1_iPKcillE(ptr nocapture noundef readonly %bio, i32 noundef %cmd, ptr noundef %fp) #0 {
+define internal noundef i64 @_ZN12_GLOBAL__N_120PacketedCallbackCtrlEP6bio_stiPFlS1_iPKcillE(ptr noundef readonly captures(none) %bio, i32 noundef %cmd, ptr noundef %fp) #0 {
 entry:
   %next_bio = getelementptr inbounds nuw i8, ptr %bio, i64 56
   %0 = load ptr, ptr %next_bio, align 8
@@ -380,16 +380,16 @@ declare void @BIO_copy_next_retry(ptr noundef) local_unnamed_addr #1
 declare void @BIO_set_retry_read(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @BIO_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -400,7 +400,7 @@ declare i64 @BIO_callback_ctrl(ptr noundef, i32 noundef, ptr noundef) local_unna
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8

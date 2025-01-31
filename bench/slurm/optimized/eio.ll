@@ -569,7 +569,7 @@ _poll_dispatch.exit:                              ; preds = %_poll_handle_event.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @eio_message_socket_readable(ptr nocapture noundef %0) #0 {
+define noundef zeroext i1 @eio_message_socket_readable(ptr noundef captures(none) %0) #0 {
   %2 = tail call i32 @get_log_level() #10
   %3 = icmp sgt i32 %2, 6
   br i1 %3, label %4, label %10
@@ -622,7 +622,7 @@ define noundef zeroext i1 @eio_message_socket_readable(ptr nocapture noundef %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @eio_message_socket_accept(ptr nocapture noundef %0, ptr nocapture readnone %1) #0 {
+define noundef i32 @eio_message_socket_accept(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct.sockaddr_storage, align 8
   %4 = tail call i32 @get_log_level() #10
   %5 = icmp sgt i32 %4, 6
@@ -779,7 +779,7 @@ define noundef i32 @eio_message_socket_accept(ptr nocapture noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define void @eio_new_obj(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define void @eio_new_obj(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
@@ -802,7 +802,7 @@ eio_signal_wakeup.exit:                           ; preds = %2, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define void @eio_new_initial_obj(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define void @eio_new_initial_obj(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   tail call void @list_enqueue(ptr noundef %4, ptr noundef %1) #10
@@ -810,7 +810,7 @@ define void @eio_new_initial_obj(ptr nocapture noundef readonly %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @eio_obj_create(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define noundef ptr @eio_obj_create(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 514, ptr noundef nonnull @__func__.eio_obj_create) #10
   store i32 %0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -894,7 +894,7 @@ define i32 @eio_signal_shutdown(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @eio_signal_wakeup(ptr nocapture noundef readonly %0) #0 {
+define i32 @eio_signal_wakeup(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca i8, align 1
   store i8 0, ptr %2, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -954,7 +954,7 @@ declare i32 @net_set_keep_alive(i32 noundef) local_unnamed_addr #1
 declare void @fd_set_blocking(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @slurm_msg_t_init(ptr noundef) local_unnamed_addr #1
 
@@ -972,7 +972,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #2
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #6
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 declare i32 @list_count(ptr noundef) local_unnamed_addr #1
 
@@ -986,12 +986,12 @@ declare void @list_enqueue(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @list_delete_ptr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_mark_shutdown_true(ptr nocapture noundef writeonly initializes((24, 25)) %0, ptr nocapture readnone %1) #7 {
+define internal noundef i32 @_mark_shutdown_true(ptr noundef writeonly captures(none) initializes((24, 25)) %0, ptr readnone captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %3, align 8
   ret i32 0
@@ -1002,7 +1002,7 @@ declare i32 @list_transfer(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_foreach_helper_setup_pollfds(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @_foreach_helper_setup_pollfds(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -1059,13 +1059,13 @@ _is_readable.exit:                                ; preds = %_is_writable.exit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

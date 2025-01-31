@@ -110,7 +110,7 @@ declare i32 @Curl_share_lock(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare i32 @Curl_share_unlock(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @Curl_conncache_find_bundle(ptr noundef %data, ptr nocapture noundef readonly %conn, ptr noundef %connc) local_unnamed_addr #0 {
+define hidden ptr @Curl_conncache_find_bundle(ptr noundef %data, ptr noundef readonly captures(none) %conn, ptr noundef %connc) local_unnamed_addr #0 {
 entry:
   %key = alloca [128 x i8], align 16
   %share = getelementptr inbounds nuw i8, ptr %data, i64 208
@@ -175,7 +175,7 @@ if.end7:                                          ; preds = %hashkey.exit, %if.e
 declare ptr @Curl_hash_pick(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 28) i32 @Curl_conncache_add_conn(ptr noundef %data) local_unnamed_addr #0 {
@@ -408,7 +408,7 @@ if.end22:                                         ; preds = %if.end13, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @Curl_conncache_foreach(ptr noundef %data, ptr noundef %connc, ptr noundef %param, ptr nocapture noundef readonly %func) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @Curl_conncache_foreach(ptr noundef %data, ptr noundef %connc, ptr noundef %param, ptr noundef readonly captures(none) %func) local_unnamed_addr #0 {
 entry:
   %iter = alloca %struct.Curl_hash_iterator, align 8
   %tobool.not = icmp eq ptr %connc, null
@@ -584,7 +584,7 @@ if.end24:                                         ; preds = %do.end, %if.then14,
 declare { i64, i32 } @Curl_now() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @Curl_infof(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -733,7 +733,7 @@ if.end27:                                         ; preds = %if.then25, %if.end2
 declare void @Curl_disconnect(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @Curl_conncache_extract_bundle(ptr nocapture noundef readonly %data, ptr noundef %bundle) local_unnamed_addr #0 {
+define hidden ptr @Curl_conncache_extract_bundle(ptr noundef readonly captures(none) %data, ptr noundef %bundle) local_unnamed_addr #0 {
 entry:
   %call = tail call { i64, i32 } @Curl_now() #7
   %0 = extractvalue { i64, i32 } %call, 0
@@ -1008,10 +1008,10 @@ declare i32 @Curl_hash_delete(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #6

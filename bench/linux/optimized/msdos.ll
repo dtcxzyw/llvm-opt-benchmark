@@ -727,10 +727,10 @@ switch.edge:                                      ; preds = %71, %64
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @read_part_sector(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
@@ -739,7 +739,7 @@ declare dso_local ptr @read_part_sector(ptr noundef, i64 noundef, ptr noundef) l
 declare dso_local i64 @strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__folio_put(ptr noundef) local_unnamed_addr #3
@@ -748,35 +748,35 @@ declare dso_local void @__folio_put(ptr noundef) local_unnamed_addr #3
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @parse_freebsd(ptr nocapture readnone %0, i64 %1, i64 %2, i32 %3) #7 align 16 {
+define internal void @parse_freebsd(ptr readnone captures(none) %0, i64 %1, i64 %2, i32 %3) #7 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @parse_netbsd(ptr nocapture readnone %0, i64 %1, i64 %2, i32 %3) #7 align 16 {
+define internal void @parse_netbsd(ptr readnone captures(none) %0, i64 %1, i64 %2, i32 %3) #7 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @parse_openbsd(ptr nocapture readnone %0, i64 %1, i64 %2, i32 %3) #7 align 16 {
+define internal void @parse_openbsd(ptr readnone captures(none) %0, i64 %1, i64 %2, i32 %3) #7 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @parse_minix(ptr nocapture readnone %0, i64 %1, i64 %2, i32 %3) #7 align 16 {
+define internal void @parse_minix(ptr readnone captures(none) %0, i64 %1, i64 %2, i32 %3) #7 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @parse_unixware(ptr nocapture readnone %0, i64 %1, i64 %2, i32 %3) #7 align 16 {
+define internal void @parse_unixware(ptr readnone captures(none) %0, i64 %1, i64 %2, i32 %3) #7 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @parse_solaris_x86(ptr nocapture readnone %0, i64 %1, i64 %2, i32 %3) #7 align 16 {
+define internal void @parse_solaris_x86(ptr readnone captures(none) %0, i64 %1, i64 %2, i32 %3) #7 align 16 {
   ret void
 }
 

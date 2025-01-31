@@ -19,7 +19,7 @@ declare i32 @Msat_ClauseVecReadSize(ptr noundef) local_unnamed_addr #1
 declare ptr @Msat_ClauseVecReadArray(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Msat_SolverSort(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Msat_SolverSort(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp slt i32 %1, 16
   br i1 %3, label %tailrecurse._crit_edge, label %.lr.ph
 
@@ -139,7 +139,7 @@ Msat_SolverSortSelection.exit:                    ; preds = %._crit_edge.i, %tai
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Msat_SolverSortSelection(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Msat_SolverSortSelection(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp sgt i32 %1, 1
   br i1 %3, label %.lr.ph27.preheader, label %._crit_edge28
 

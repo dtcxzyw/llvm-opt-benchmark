@@ -36,7 +36,7 @@ define hidden void @ftype_register_tvbuff() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @value_new(ptr nocapture noundef writeonly initializes((8, 20), (24, 33)) %0) #1 {
+define internal void @value_new(ptr noundef writeonly captures(none) initializes((8, 20), (24, 33)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -49,7 +49,7 @@ define internal void @value_new(ptr nocapture noundef writeonly initializes((8, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @value_copy(ptr nocapture noundef writeonly initializes((8, 20), (24, 33)) %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @value_copy(ptr noundef writeonly captures(none) initializes((8, 20), (24, 33)) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @tvb_clone(ptr noundef %4) #9
@@ -70,7 +70,7 @@ define internal void @value_copy(ptr nocapture noundef writeonly initializes((8,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @value_free(ptr nocapture noundef readonly %0) #0 {
+define internal void @value_free(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -94,7 +94,7 @@ define internal void @value_free(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @val_from_literal(ptr nocapture noundef initializes((16, 20)) %0, ptr noundef %1, i1 zeroext %2, ptr noundef %3) #0 {
+define internal noundef zeroext i1 @val_from_literal(ptr noundef captures(none) initializes((16, 20)) %0, ptr noundef %1, i1 zeroext %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
@@ -141,7 +141,7 @@ value_free.exit:                                  ; preds = %4, %7, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @val_from_string(ptr nocapture noundef initializes((16, 20)) %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef zeroext i1 @val_from_string(ptr noundef captures(none) initializes((16, 20)) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
@@ -186,7 +186,7 @@ value_free.exit:                                  ; preds = %4, %7, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @val_from_charconst(ptr nocapture noundef initializes((16, 20)) %0, i64 noundef %1, ptr noundef %2) #0 {
+define internal noundef zeroext i1 @val_from_charconst(ptr noundef captures(none) initializes((16, 20)) %0, i64 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
@@ -233,7 +233,7 @@ value_free.exit:                                  ; preds = %3, %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @val_to_repr(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 %3) #0 {
+define internal ptr @val_to_repr(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -347,7 +347,7 @@ define internal ptr @val_to_repr(ptr noundef %0, ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @value_set(ptr nocapture noundef initializes((16, 20)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal void @value_set(ptr noundef captures(none) initializes((16, 20)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %16, label %5
 
@@ -383,7 +383,7 @@ value_free.exit:                                  ; preds = %5, %8, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @value_get(ptr nocapture noundef readonly %0) #0 {
+define internal ptr @value_get(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
@@ -401,7 +401,7 @@ define internal ptr @value_get(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cmp_order(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #0 {
+define internal noundef i32 @cmp_order(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -549,7 +549,7 @@ define internal noundef i32 @cmp_order(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cmp_contains(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #0 {
+define internal noundef i32 @cmp_contains(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = alloca i8, align 1
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -667,7 +667,7 @@ define internal noundef i32 @cmp_contains(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @cmp_matches(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
+define internal range(i32 0, 3) i32 @cmp_matches(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = alloca i8, align 1
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -800,7 +800,7 @@ define internal i32 @val_hash(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @is_zero(ptr nocapture noundef readonly %0) #2 {
+define internal zeroext i1 @is_zero(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -818,7 +818,7 @@ define internal zeroext i1 @is_zero(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @len(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @len(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -920,7 +920,7 @@ define internal i32 @len(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @slice(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+define internal void @slice(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1058,7 +1058,7 @@ declare void @tvb_set_free_cb(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @g_byte_array_free(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: allocsize(1)
 declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #5
@@ -1086,15 +1086,15 @@ declare ptr @except_pop() local_unnamed_addr #3
 declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare i32 @tvb_find_tvb(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 declare zeroext i1 @ws_regex_matches_length(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 

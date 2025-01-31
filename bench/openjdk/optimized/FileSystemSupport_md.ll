@@ -36,7 +36,7 @@ define hidden noundef ptr @basePath(ptr noundef %0) local_unnamed_addr #0 {
 
 18:                                               ; preds = %15
   %19 = and i64 %7, 2147483647
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr align 1 %0, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr nonnull align 1 %0, i64 %19, i1 false)
   br label %20
 
 20:                                               ; preds = %18, %15
@@ -57,10 +57,10 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @isAbsolute(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @isAbsolute(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, 47
   %4 = zext i1 %3 to i32
@@ -113,7 +113,7 @@ define hidden noundef ptr @normalize_path(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc noundef ptr @normalizePath(ptr noundef readonly %0, i32 noundef %1, i32 noundef range(i32 -2147483648, 2147483647) %2) unnamed_addr #0 {
@@ -161,7 +161,7 @@ define internal fastcc noundef ptr @normalizePath(ptr noundef readonly %0, i32 n
 
 23:                                               ; preds = %21
   %24 = zext nneg i32 %2 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %0, i64 %24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %0, i64 %24, i1 false)
   br label %25
 
 25:                                               ; preds = %23, %21
@@ -205,7 +205,7 @@ define internal fastcc noundef ptr @normalizePath(ptr noundef readonly %0, i32 n
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noalias noundef ptr @resolve(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @resolve(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
   %4 = trunc i64 %3 to i32
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
@@ -248,7 +248,7 @@ define hidden noalias noundef ptr @resolve(ptr nocapture noundef readonly %0, pt
 
 29:                                               ; preds = %27
   %30 = zext nneg i32 %.0 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr align 1 %0, i64 %30, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull align 1 %0, i64 %30, i1 false)
   br label %31
 
 31:                                               ; preds = %29, %27
@@ -286,7 +286,7 @@ define hidden noalias noundef ptr @resolve(ptr nocapture noundef readonly %0, pt
 
 50:                                               ; preds = %48
   %51 = zext nneg i32 %.0 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr align 1 %0, i64 %51, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr nonnull align 1 %0, i64 %51, i1 false)
   br label %52
 
 52:                                               ; preds = %50, %48
@@ -352,10 +352,10 @@ define hidden noundef ptr @fromURIPath(ptr noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

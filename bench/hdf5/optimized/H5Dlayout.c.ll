@@ -79,7 +79,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.35 = private unnamed_addr constant [32 x i8] c"unable to update layout message\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5D__layout_set_io_ops(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5D__layout_set_io_ops(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 248
@@ -181,7 +181,7 @@ define range(i32 -1, 1) i32 @H5D__layout_set_io_ops(ptr nocapture noundef readon
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @H5D__layout_meta_size(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define i64 @H5D__layout_meta_size(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 8
   switch i32 %4, label %72 [
     i32 0, label %5
@@ -312,7 +312,7 @@ declare zeroext i8 @H5F_sizeof_addr(ptr noundef) local_unnamed_addr #1
 declare zeroext i8 @H5F_sizeof_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5D__layout_set_version(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5D__layout_set_version(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = tail call i32 @H5F_get_low_bound(ptr noundef %0) #3
@@ -358,7 +358,7 @@ declare i32 @H5F_get_low_bound(ptr noundef) local_unnamed_addr #1
 declare i32 @H5F_get_high_bound(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5D__layout_set_latest_indexing(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5D__layout_set_latest_indexing(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [33 x i64], align 16
   %5 = alloca [33 x i64], align 16
   %6 = load i32, ptr %0, align 8
@@ -666,7 +666,7 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_create(ptr noundef %0, ptr noundef %
   %90 = load ptr, ptr %89, align 8
   %91 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %90) #4
   %92 = add i64 %91, 1
-  %93 = call i32 @H5HL_insert(ptr noundef %0, ptr noundef nonnull %73, i64 noundef %92, ptr noundef %90, ptr noundef nonnull %6) #3
+  %93 = call i32 @H5HL_insert(ptr noundef %0, ptr noundef nonnull %73, i64 noundef %92, ptr noundef nonnull %90, ptr noundef nonnull %6) #3
   %94 = icmp slt i32 %93, 0
   br i1 %94, label %95, label %100
 
@@ -798,7 +798,7 @@ declare i32 @H5O_msg_append_oh(ptr noundef, ptr noundef, i32 noundef, i32 nounde
 declare i32 @H5D__alloc_storage(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @H5HL_create(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1061,7 +1061,7 @@ declare i32 @H5D__chunk_set_sizes(ptr noundef) local_unnamed_addr #1
 declare i32 @H5O_msg_reset(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5D__layout_oh_write(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5D__layout_oh_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @H5O_msg_exists_oh(ptr noundef %1, i32 noundef 8) #3
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %10

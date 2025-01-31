@@ -5295,7 +5295,7 @@ declare ptr @EVP_MD_CTX_get_pkey_ctx(ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_PKEY_CTX_set1_id(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @ECDSA_sign(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -5320,7 +5320,7 @@ declare void @fake_rand_set_callback(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @RAND_get0_private(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fbytes(ptr noundef %buf, i64 noundef %num, ptr nocapture readnone %name, ptr noundef %ctx) #0 {
+define internal range(i32 0, 2) i32 @fbytes(ptr noundef %buf, i64 noundef %num, ptr readnone captures(none) %name, ptr noundef %ctx) #0 {
 entry:
   %tmp = alloca ptr, align 8
   tail call void @fake_rand_set_callback(ptr noundef %ctx, ptr noundef null) #4

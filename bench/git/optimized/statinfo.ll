@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @check_stat = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @fill_stat_data(ptr nocapture noundef writeonly initializes((0, 36)) %sd, ptr nocapture noundef readonly %st) local_unnamed_addr #0 {
+define dso_local void @fill_stat_data(ptr noundef writeonly captures(none) initializes((0, 36)) %sd, ptr noundef readonly captures(none) %st) local_unnamed_addr #0 {
 entry:
   %st_ctim = getelementptr inbounds nuw i8, ptr %st, i64 104
   %0 = load i64, ptr %st_ctim, align 8
@@ -61,7 +61,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @fake_lstat_data(ptr nocapture noundef readonly %sd, ptr nocapture noundef writeonly initializes((0, 16), (28, 36), (48, 56), (88, 120)) %st) local_unnamed_addr #0 {
+define dso_local void @fake_lstat_data(ptr noundef readonly captures(none) %sd, ptr noundef writeonly captures(none) initializes((0, 16), (28, 36), (48, 56), (88, 120)) %st) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %sd, align 4
   %conv.i = zext i32 %0 to i64
@@ -108,7 +108,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 64) i32 @match_stat_data(ptr nocapture noundef readonly %sd, ptr nocapture noundef readonly %st) local_unnamed_addr #1 {
+define dso_local range(i32 0, 64) i32 @match_stat_data(ptr noundef readonly captures(none) %sd, ptr noundef readonly captures(none) %st) local_unnamed_addr #1 {
 entry:
   %sd_mtime = getelementptr inbounds nuw i8, ptr %sd, i64 8
   %0 = load i32, ptr %sd_mtime, align 4
@@ -189,7 +189,7 @@ if.end27:                                         ; preds = %if.end20, %if.end11
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @stat_validity_clear(ptr nocapture noundef %sv) local_unnamed_addr #2 {
+define dso_local void @stat_validity_clear(ptr noundef captures(none) %sv) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %sv, align 8
   tail call void @free(ptr noundef %0) #8
@@ -198,10 +198,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local range(i32 0, 2) i32 @stat_validity_check(ptr nocapture noundef readonly %sv, ptr nocapture noundef readonly %path) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @stat_validity_check(ptr noundef readonly captures(none) %sv, ptr noundef readonly captures(none) %path) local_unnamed_addr #4 {
 entry:
   %st = alloca %struct.stat, align 8
   %call = call i32 @stat64(ptr noundef %path, ptr noundef nonnull %st) #8
@@ -304,10 +304,10 @@ return:                                           ; preds = %entry, %if.end4, %m
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @stat_validity_update(ptr nocapture noundef %sv, i32 noundef %fd) local_unnamed_addr #6 {
+define dso_local void @stat_validity_update(ptr noundef captures(none) %sv, i32 noundef %fd) local_unnamed_addr #6 {
 entry:
   %st = alloca %struct.stat, align 8
   %call = call i32 @fstat64(i32 noundef %fd, ptr noundef nonnull %st) #8
@@ -391,7 +391,7 @@ if.end6:                                          ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 

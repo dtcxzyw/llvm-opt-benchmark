@@ -134,17 +134,17 @@ declare void @OGLSD_Dispose(ptr noundef, ptr noundef) #1
 declare i64 @JNU_CallMethodByName(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @JNU_ThrowNullPointerException(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @OGLSD_DestroyOGLSurface(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #4 {
+define hidden void @OGLSD_DestroyOGLSurface(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #4 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @OGLSD_SetScratchSurface(ptr nocapture noundef readnone %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden ptr @OGLSD_SetScratchSurface(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %4, label %5
 
@@ -195,7 +195,7 @@ GLXSD_MakeCurrentToScratch.exit:                  ; preds = %10
 declare void @J2dTraceImpl(i32 noundef, i8 noundef zeroext, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @OGLSD_MakeOGLContextCurrent(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define hidden ptr @OGLSD_MakeOGLContextCurrent(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -287,7 +287,7 @@ GLXSD_MakeCurrentToScratch.exit:                  ; preds = %20, %18
 declare ptr @OGLRenderQueue_GetCurrentContext(...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @OGLSD_InitOGLWindow(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @OGLSD_InitOGLWindow(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.XWindowAttributes, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %6
@@ -348,7 +348,7 @@ define hidden zeroext range(i8 0, 2) i8 @OGLSD_InitOGLWindow(ptr nocapture nound
 declare i32 @XGetWindowAttributes(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLSD_SwapBuffers(ptr nocapture noundef readnone %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden void @OGLSD_SwapBuffers(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %4, label %5
 
@@ -367,7 +367,7 @@ define hidden void @OGLSD_SwapBuffers(ptr nocapture noundef readnone %0, i64 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @OGLSD_Flush(ptr nocapture noundef readnone %0) local_unnamed_addr #4 {
+define hidden void @OGLSD_Flush(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
   ret void
 }
 

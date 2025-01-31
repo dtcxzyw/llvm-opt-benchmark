@@ -29,7 +29,7 @@ define hidden void @register_tap_listener_credentials() local_unnamed_addr #0 {
 declare void @register_stat_tap_ui(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @credentials_init(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define internal void @credentials_init(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call ptr @register_tap_listener(ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull @credentials_reset, ptr noundef nonnull @credentials_packet, ptr noundef nonnull @credentials_draw, ptr noundef null) #5
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
@@ -70,7 +70,7 @@ define internal void @credentials_reset(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @credentials_packet(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal noundef i32 @credentials_packet(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = tail call noalias ptr @wmem_alloc0(ptr noundef null, i64 noundef 40) #5
   %7 = load i32, ptr %3, align 8
   store i32 %7, ptr %6, align 8
@@ -116,7 +116,7 @@ tap_credential_clone.exit:                        ; preds = %19, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @credentials_draw(ptr nocapture readnone %0) #0 {
+define internal void @credentials_draw(ptr readnone captures(none) %0) #0 {
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   %2 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
   %puts8 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
@@ -170,14 +170,14 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare i32 @wmem_array_get_count(ptr noundef) local_unnamed_addr #1
 
 declare ptr @wmem_array_index(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

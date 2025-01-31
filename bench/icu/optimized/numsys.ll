@@ -54,7 +54,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7515NumberingSystem17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7515NumberingSystem17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret ptr @_ZZN6icu_7515NumberingSystem16getStaticClassIDEvE7classID
 }
@@ -66,7 +66,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7521NumsysNameEnumeration17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7521NumsysNameEnumeration17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret ptr @_ZZN6icu_7521NumsysNameEnumeration16getStaticClassIDEvE7classID
 }
@@ -158,7 +158,7 @@ lpad2:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7515NumberingSystem14createInstanceEiaRKNS_13UnicodeStringER10UErrorCode(i32 noundef %radix_in, i8 noundef signext %isAlgorithmic_in, ptr noundef nonnull align 8 dereferenceable(64) %desc_in, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN6icu_7515NumberingSystem14createInstanceEiaRKNS_13UnicodeStringER10UErrorCode(i32 noundef %radix_in, i8 noundef signext %isAlgorithmic_in, ptr noundef nonnull align 8 dereferenceable(64) %desc_in, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -262,7 +262,7 @@ declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #3
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7515NumberingSystem8setRadixEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(86) initializes((72, 76)) %this, i32 noundef %r) local_unnamed_addr #4 align 2 {
+define void @_ZN6icu_7515NumberingSystem8setRadixEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(86) initializes((72, 76)) %this, i32 noundef %r) local_unnamed_addr #4 align 2 {
 entry:
   %radix = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 %r, ptr %radix, align 8
@@ -278,7 +278,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7515NumberingSystem14setAlgorithmicEa(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(86) initializes((76, 77)) %this, i8 noundef signext %c) local_unnamed_addr #4 align 2 {
+define void @_ZN6icu_7515NumberingSystem14setAlgorithmicEa(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(86) initializes((76, 77)) %this, i8 noundef signext %c) local_unnamed_addr #4 align 2 {
 entry:
   %algorithmic = getelementptr inbounds nuw i8, ptr %this, i64 76
   store i8 %c, ptr %algorithmic, align 4
@@ -533,7 +533,7 @@ eh.resume:                                        ; preds = %lpad85, %ehcleanup
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare noundef i32 @_ZNK6icu_756Locale15getKeywordValueEPKcPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
@@ -824,7 +824,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7515NumberingSystem8getRadixEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(86) %this) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK6icu_7515NumberingSystem8getRadixEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(86) %this) local_unnamed_addr #8 align 2 {
 entry:
   %radix = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load i32, ptr %radix, align 8
@@ -849,10 +849,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i8 @_ZNK6icu_7515NumberingSystem13isAlgorithmicEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(86) %this) local_unnamed_addr #8 align 2 {
+define noundef signext i8 @_ZNK6icu_7515NumberingSystem13isAlgorithmicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(86) %this) local_unnamed_addr #8 align 2 {
 entry:
   %algorithmic = getelementptr inbounds nuw i8, ptr %this, i64 76
   %0 = load i8, ptr %algorithmic, align 4
@@ -1150,7 +1150,7 @@ lpad:                                             ; preds = %new.notnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7521NumsysNameEnumerationC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture nonnull readnone align 4 %status) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7521NumsysNameEnumerationC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nonnull readnone align 4 captures(none) %status) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7521NumsysNameEnumerationE, i64 16), ptr %this, align 8
@@ -1162,7 +1162,7 @@ entry:
 declare void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7521NumsysNameEnumeration5snextER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define noundef ptr @_ZN6icu_7521NumsysNameEnumeration5snextER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1193,7 +1193,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 declare noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7521NumsysNameEnumeration5resetER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((116, 120)) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #4 align 2 {
+define void @_ZN6icu_7521NumsysNameEnumeration5resetER10UErrorCode(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(120) initializes((116, 120)) %this, ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #4 align 2 {
 entry:
   %pos = getelementptr inbounds nuw i8, ptr %this, i64 116
   store i32 0, ptr %pos, align 4
@@ -1201,7 +1201,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7521NumsysNameEnumeration5countER10UErrorCode(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #10 align 2 {
+define noundef i32 @_ZNK6icu_7521NumsysNameEnumeration5countER10UErrorCode(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #10 align 2 {
 entry:
   %1 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_112gNumsysNamesE, align 8
   %cmp = icmp eq ptr %1, null
@@ -1250,7 +1250,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {
@@ -1275,16 +1275,16 @@ declare noundef signext i8 @_ZN6icu_7520umtx_initImplPreInitERNS_9UInitOnceE(ptr
 declare void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

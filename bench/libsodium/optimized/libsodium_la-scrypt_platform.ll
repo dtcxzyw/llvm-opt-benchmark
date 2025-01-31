@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden ptr @_sodium_escrypt_alloc_region(ptr nocapture noundef writeonly initializes((0, 24)) %region, i64 noundef %size) local_unnamed_addr #0 {
+define hidden ptr @_sodium_escrypt_alloc_region(ptr noundef writeonly captures(none) initializes((0, 24)) %region, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @mmap(ptr noundef null, i64 noundef %size, i32 noundef 3, i32 noundef 32802, i32 noundef -1, i64 noundef 0) #4
   %cmp = icmp eq ptr %call, inttoptr (i64 -1 to ptr)
@@ -23,7 +23,7 @@ entry:
 declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden range(i32 -1, 1) i32 @_sodium_escrypt_free_region(ptr nocapture noundef %region) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_sodium_escrypt_free_region(ptr noundef captures(none) %region) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %region, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -49,14 +49,14 @@ return:                                           ; preds = %if.then, %if.end4
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @_sodium_escrypt_init_local(ptr nocapture noundef writeonly initializes((0, 24)) %local) local_unnamed_addr #2 {
+define hidden noundef i32 @_sodium_escrypt_init_local(ptr noundef writeonly captures(none) initializes((0, 24)) %local) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %local, i8 0, i64 24, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden range(i32 -1, 1) i32 @_sodium_escrypt_free_local(ptr nocapture noundef %local) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @_sodium_escrypt_free_local(ptr noundef captures(none) %local) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %local, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -79,7 +79,7 @@ _sodium_escrypt_free_region.exit:                 ; preds = %if.then.i, %if.end4
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 attributes #0 = { nounwind ssp uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

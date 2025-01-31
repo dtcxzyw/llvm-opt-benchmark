@@ -264,7 +264,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -640,7 +640,7 @@ entry:
 declare void @_ZN6icu_7513FormattedListD1Ev(ptr noundef nonnull align 8 dereferenceable(20)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ulistfmt_openResult_75(ptr nocapture noundef %ec) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef ptr @ulistfmt_openResult_75(ptr noundef captures(none) %ec) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -677,7 +677,7 @@ declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #7
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @ulistfmt_resultAsValue_75(ptr noundef readonly %uresult, ptr nocapture noundef %ec) local_unnamed_addr #9 {
+define ptr @ulistfmt_resultAsValue_75(ptr noundef readonly %uresult, ptr noundef captures(none) %ec) local_unnamed_addr #9 {
 entry:
   %0 = load i32, ptr %ec, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -886,7 +886,7 @@ eh.resume:                                        ; preds = %arraydestroy.body39
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL17getUnicodeStringsPKPKDsPKiiPN6icu_7513UnicodeStringERNS5_10LocalArrayIS6_EER10UErrorCode(ptr noundef readonly %strings, ptr noundef readonly %stringLengths, i32 noundef %stringCount, ptr noundef nonnull %length4StackBuffer, ptr nocapture noundef nonnull align 8 dereferenceable(8) %maybeOwner, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL17getUnicodeStringsPKPKDsPKiiPN6icu_7513UnicodeStringERNS5_10LocalArrayIS6_EER10UErrorCode(ptr noundef readonly %strings, ptr noundef readonly %stringLengths, i32 noundef %stringCount, ptr noundef nonnull %length4StackBuffer, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %maybeOwner, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %agg.tmp35 = alloca %"class.icu_75::ConstChar16Ptr", align 8

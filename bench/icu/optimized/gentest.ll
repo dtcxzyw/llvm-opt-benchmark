@@ -143,34 +143,34 @@ if.end18.i:                                       ; preds = %if.end.i
 for.body.i:                                       ; preds = %for.body.i, %if.end18.i
   %t.082.i = phi i32 [ 0, %if.end18.i ], [ %inc.i, %for.body.i ]
   %call28.i = call ptr @udbg_enumName(i32 noundef 0, i32 noundef %t.082.i) #9
-  %call29.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call10.i, ptr noundef nonnull @.str.25, ptr noundef %call28.i, i32 noundef %t.082.i)
+  %call29.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call10.i, ptr noundef nonnull @.str.25, ptr noundef %call28.i, i32 noundef %t.082.i)
   %inc.i = add nuw nsw i32 %t.082.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 6
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.body.i
-  %18 = call i64 @fwrite(ptr nonnull @.str.26, i64 45, i64 1, ptr %call10.i)
+  %18 = call i64 @fwrite(ptr nonnull @.str.26, i64 45, i64 1, ptr nonnull %call10.i)
   br label %for.body34.i
 
 for.body34.i:                                     ; preds = %for.body34.i, %for.end.i
   %t.183.i = phi i32 [ 0, %for.end.i ], [ %inc38.i, %for.body34.i ]
   %call35.i = call ptr @udbg_enumName(i32 noundef 0, i32 noundef %t.183.i) #9
-  %call36.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call10.i, ptr noundef nonnull @.str.27, ptr noundef %call35.i, i32 noundef %t.183.i)
+  %call36.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call10.i, ptr noundef nonnull @.str.27, ptr noundef %call35.i, i32 noundef %t.183.i)
   %inc38.i = add nuw nsw i32 %t.183.i, 1
   %exitcond94.not.i = icmp eq i32 %inc38.i, 6
   br i1 %exitcond94.not.i, label %for.end39.i, label %for.body34.i, !llvm.loop !7
 
 for.end39.i:                                      ; preds = %for.body34.i
-  %19 = call i64 @fwrite(ptr nonnull @.str.28, i64 8, i64 1, ptr %call10.i)
-  %20 = call i64 @fwrite(ptr nonnull @.str.29, i64 47, i64 1, ptr %call10.i)
+  %19 = call i64 @fwrite(ptr nonnull @.str.28, i64 8, i64 1, ptr nonnull %call10.i)
+  %20 = call i64 @fwrite(ptr nonnull @.str.29, i64 47, i64 1, ptr nonnull %call10.i)
   br label %for.body45.i
 
 for.body45.i:                                     ; preds = %for.end67.i, %for.end39.i
   %t.286.i = phi i32 [ 0, %for.end39.i ], [ %inc70.i, %for.end67.i ]
   %call46.i = call i32 @udbg_enumCount(i32 noundef %t.286.i) #9
   %call47.i = call ptr @udbg_enumName(i32 noundef 0, i32 noundef %t.286.i) #9
-  %call48.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call10.i, ptr noundef nonnull @.str.30, ptr noundef %call47.i, i32 noundef %t.286.i)
-  %21 = call i64 @fwrite(ptr nonnull @.str.31, i64 11, i64 1, ptr %call10.i)
+  %call48.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call10.i, ptr noundef nonnull @.str.30, ptr noundef %call47.i, i32 noundef %t.286.i)
+  %21 = call i64 @fwrite(ptr nonnull @.str.31, i64 11, i64 1, ptr nonnull %call10.i)
   %cmp5184.i = icmp sgt i32 %call46.i, 0
   br i1 %cmp5184.i, label %for.body53.lr.ph.i, label %for.end67.i
 
@@ -180,47 +180,47 @@ for.body53.lr.ph.i:                               ; preds = %for.body45.i
 
 for.body53.us.i:                                  ; preds = %for.body53.lr.ph.i, %for.body53.us.i
   %i.085.us.i = phi i32 [ %inc66.us.i, %for.body53.us.i ], [ 0, %for.body53.lr.ph.i ]
-  %22 = call i64 @fwrite(ptr nonnull @.str.32, i64 11, i64 1, ptr %call10.i)
+  %22 = call i64 @fwrite(ptr nonnull @.str.32, i64 11, i64 1, ptr nonnull %call10.i)
   %call63.us.i = call ptr @udbg_enumName(i32 noundef %t.286.i, i32 noundef %i.085.us.i) #9
-  %call64.us.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call10.i, ptr noundef nonnull @.str.34, ptr noundef %call63.us.i, i32 noundef %i.085.us.i)
+  %call64.us.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call10.i, ptr noundef nonnull @.str.34, ptr noundef %call63.us.i, i32 noundef %i.085.us.i)
   %inc66.us.i = add nuw nsw i32 %i.085.us.i, 1
   %exitcond95.not.i = icmp eq i32 %inc66.us.i, %call46.i
   br i1 %exitcond95.not.i, label %for.end67.i, label %for.body53.us.i, !llvm.loop !8
 
 for.body53.i:                                     ; preds = %for.body53.lr.ph.i, %if.end62.i
   %i.085.i = phi i32 [ %inc66.i, %if.end62.i ], [ 0, %for.body53.lr.ph.i ]
-  %23 = call i64 @fwrite(ptr nonnull @.str.32, i64 11, i64 1, ptr %call10.i)
+  %23 = call i64 @fwrite(ptr nonnull @.str.32, i64 11, i64 1, ptr nonnull %call10.i)
   %cmp58.i = icmp eq i32 %i.085.i, 23
   br i1 %cmp58.i, label %if.then60.i, label %if.end62.i
 
 if.then60.i:                                      ; preds = %for.body53.i
-  %24 = call i64 @fwrite(ptr nonnull @.str.33, i64 2, i64 1, ptr %call10.i)
+  %24 = call i64 @fwrite(ptr nonnull @.str.33, i64 2, i64 1, ptr nonnull %call10.i)
   br label %if.end62.i
 
 if.end62.i:                                       ; preds = %if.then60.i, %for.body53.i
   %call63.i = call ptr @udbg_enumName(i32 noundef 1, i32 noundef %i.085.i) #9
-  %call64.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call10.i, ptr noundef nonnull @.str.34, ptr noundef %call63.i, i32 noundef %i.085.i)
+  %call64.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call10.i, ptr noundef nonnull @.str.34, ptr noundef %call63.i, i32 noundef %i.085.i)
   %inc66.i = add nuw nsw i32 %i.085.i, 1
   %exitcond96.not.i = icmp eq i32 %inc66.i, %call46.i
   br i1 %exitcond96.not.i, label %for.end67.i, label %for.body53.i, !llvm.loop !8
 
 for.end67.i:                                      ; preds = %for.body53.us.i, %if.end62.i, %for.body45.i
-  %25 = call i64 @fwrite(ptr nonnull @.str.35, i64 11, i64 1, ptr %call10.i)
+  %25 = call i64 @fwrite(ptr nonnull @.str.35, i64 11, i64 1, ptr nonnull %call10.i)
   %inc70.i = add nuw nsw i32 %t.286.i, 1
   %exitcond97.not.i = icmp eq i32 %inc70.i, 6
   br i1 %exitcond97.not.i, label %for.end71.i, label %for.body45.i, !llvm.loop !9
 
 for.end71.i:                                      ; preds = %for.end67.i
-  %26 = call i64 @fwrite(ptr nonnull @.str.28, i64 8, i64 1, ptr %call10.i)
-  %27 = call i64 @fwrite(ptr nonnull @.str.36, i64 45, i64 1, ptr %call10.i)
+  %26 = call i64 @fwrite(ptr nonnull @.str.28, i64 8, i64 1, ptr nonnull %call10.i)
+  %27 = call i64 @fwrite(ptr nonnull @.str.36, i64 45, i64 1, ptr nonnull %call10.i)
   br label %for.body77.i
 
 for.body77.i:                                     ; preds = %for.end114.i, %for.end71.i
   %t.390.i = phi i32 [ 0, %for.end71.i ], [ %inc117.i, %for.end114.i ]
   %call78.i = call i32 @udbg_enumCount(i32 noundef %t.390.i) #9
   %call79.i = call ptr @udbg_enumName(i32 noundef 0, i32 noundef %t.390.i) #9
-  %call80.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call10.i, ptr noundef nonnull @.str.30, ptr noundef %call79.i, i32 noundef %t.390.i)
-  %28 = call i64 @fwrite(ptr nonnull @.str.31, i64 11, i64 1, ptr %call10.i)
+  %call80.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call10.i, ptr noundef nonnull @.str.30, ptr noundef %call79.i, i32 noundef %t.390.i)
+  %28 = call i64 @fwrite(ptr nonnull @.str.31, i64 11, i64 1, ptr nonnull %call10.i)
   %cmp8388.i = icmp sgt i32 %call78.i, 0
   br i1 %cmp8388.i, label %for.body85.lr.ph.i, label %for.end114.i
 
@@ -232,7 +232,7 @@ for.body85.lr.ph.i:                               ; preds = %for.body77.i
 
 for.body85.us.i:                                  ; preds = %for.body85.lr.ph.i, %sw.epilog.us.i
   %i.189.us.i = phi i32 [ %inc113.us.i, %sw.epilog.us.i ], [ 0, %for.body85.lr.ph.i ]
-  %29 = call i64 @fwrite(ptr nonnull @.str.32, i64 11, i64 1, ptr %call10.i)
+  %29 = call i64 @fwrite(ptr nonnull @.str.32, i64 11, i64 1, ptr nonnull %call10.i)
   %cmp90.us.i = icmp eq i32 %i.189.us.i, 22
   %or.cond1.us.i = and i1 %cmp87.i, %cmp90.us.i
   br i1 %or.cond1.us.i, label %if.then92.us.i, label %if.else.us.i
@@ -244,45 +244,45 @@ if.else.us.i:                                     ; preds = %for.body85.us.i
 
 if.else103.us.i:                                  ; preds = %if.else.us.i
   %call104.us.i = call ptr @udbg_enumName(i32 noundef %t.390.i, i32 noundef %i.189.us.i) #9
-  %call105.us.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call10.i, ptr noundef nonnull @.str.39, ptr noundef %call104.us.i, i32 noundef %i.189.us.i)
+  %call105.us.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call10.i, ptr noundef nonnull @.str.39, ptr noundef %call104.us.i, i32 noundef %i.189.us.i)
   br label %sw.epilog.us.i
 
 if.then100.us.i:                                  ; preds = %if.else.us.i
   %call101.us.i = call ptr @udbg_enumName(i32 noundef 1, i32 noundef 23) #9
-  %call102.us.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call10.i, ptr noundef nonnull @.str.38, ptr noundef %call101.us.i, i32 noundef 23)
+  %call102.us.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call10.i, ptr noundef nonnull @.str.38, ptr noundef %call101.us.i, i32 noundef 23)
   br label %sw.epilog.us.i
 
 if.then92.us.i:                                   ; preds = %for.body85.us.i
   %call93.us.i = call ptr @udbg_enumName(i32 noundef 1, i32 noundef 22) #9
-  %call94.us.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call10.i, ptr noundef nonnull @.str.37, ptr noundef %call93.us.i, i32 noundef 22)
+  %call94.us.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call10.i, ptr noundef nonnull @.str.37, ptr noundef %call93.us.i, i32 noundef 22)
   br label %sw.epilog.us.i
 
 sw.epilog.us.i:                                   ; preds = %if.then92.us.i, %if.then100.us.i, %if.else103.us.i
-  %fputc.us.i = call i32 @fputc(i32 10, ptr %call10.i)
+  %fputc.us.i = call i32 @fputc(i32 10, ptr nonnull %call10.i)
   %inc113.us.i = add nuw nsw i32 %i.189.us.i, 1
   %exitcond99.not.i = icmp eq i32 %inc113.us.i, %call78.i
   br i1 %exitcond99.not.i, label %for.end114.i, label %for.body85.us.i, !llvm.loop !10
 
 for.body85.i:                                     ; preds = %for.body85.lr.ph.i, %for.body85.i
   %i.189.i = phi i32 [ %inc113.i, %for.body85.i ], [ 0, %for.body85.lr.ph.i ]
-  %30 = call i64 @fwrite(ptr nonnull @.str.32, i64 11, i64 1, ptr %call10.i)
+  %30 = call i64 @fwrite(ptr nonnull @.str.32, i64 11, i64 1, ptr nonnull %call10.i)
   %call109.i = call ptr @udbg_enumName(i32 noundef %t.390.i, i32 noundef %i.189.i) #9
-  %call110.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call10.i, ptr noundef nonnull @.str.40, i32 noundef %i.189.i, ptr noundef %call109.i)
-  %fputc.i = call i32 @fputc(i32 10, ptr %call10.i)
+  %call110.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call10.i, ptr noundef nonnull @.str.40, i32 noundef %i.189.i, ptr noundef %call109.i)
+  %fputc.i = call i32 @fputc(i32 10, ptr nonnull %call10.i)
   %inc113.i = add nuw nsw i32 %i.189.i, 1
   %exitcond98.not.i = icmp eq i32 %inc113.i, %call78.i
   br i1 %exitcond98.not.i, label %for.end114.i, label %for.body85.i, !llvm.loop !10
 
 for.end114.i:                                     ; preds = %for.body85.i, %sw.epilog.us.i, %for.body77.i
-  %31 = call i64 @fwrite(ptr nonnull @.str.35, i64 11, i64 1, ptr %call10.i)
+  %31 = call i64 @fwrite(ptr nonnull @.str.35, i64 11, i64 1, ptr nonnull %call10.i)
   %inc117.i = add nuw nsw i32 %t.390.i, 1
   %exitcond100.not.i = icmp eq i32 %inc117.i, 6
   br i1 %exitcond100.not.i, label %for.end118.i, label %for.body77.i, !llvm.loop !11
 
 for.end118.i:                                     ; preds = %for.end114.i
-  %32 = call i64 @fwrite(ptr nonnull @.str.28, i64 8, i64 1, ptr %call10.i)
-  %33 = call i64 @fwrite(ptr nonnull @.str.42, i64 2, i64 1, ptr %call10.i)
-  %call121.i = call i32 @fclose(ptr noundef %call10.i)
+  %32 = call i64 @fwrite(ptr nonnull @.str.28, i64 8, i64 1, ptr nonnull %call10.i)
+  %33 = call i64 @fwrite(ptr nonnull @.str.42, i64 2, i64 1, ptr nonnull %call10.i)
+  %call121.i = call i32 @fclose(ptr noundef nonnull %call10.i)
   br label %outputJavaStuff.exit
 
 outputJavaStuff.exit:                             ; preds = %if.then15.i, %for.end118.i
@@ -358,12 +358,12 @@ declare ptr @u_getDataDirectory_75() local_unnamed_addr #1
 declare i32 @u_parseArgs(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare i32 @genres32(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @udata_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -379,35 +379,35 @@ declare void @udata_writeString(ptr noundef, ptr noundef, i32 noundef) local_unn
 declare i32 @udata_finish(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #5
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @udbg_enumName(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @udbg_enumCount(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

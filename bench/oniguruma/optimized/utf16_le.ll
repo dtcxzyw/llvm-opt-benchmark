@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [9 x i8] c"C\00M\00P\00\00\00\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @utf16le_mbc_enc_len(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @utf16le_mbc_enc_len(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i64
@@ -54,7 +54,7 @@ define internal range(i32 0, 2) i32 @utf16le_is_mbc_newline(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 10559488) i32 @utf16le_mbc_to_code(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 10559488) i32 @utf16le_mbc_to_code(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = load i8, ptr %0, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1
@@ -107,7 +107,7 @@ define internal noundef range(i32 -400, 5) i32 @utf16le_code_to_mbclen(i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal range(i32 2, 5) i32 @utf16le_code_to_mbc(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 2)) %1) #2 {
+define internal range(i32 2, 5) i32 @utf16le_code_to_mbc(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 2)) %1) #2 {
   %3 = icmp ugt i32 %0, 65535
   br i1 %3, label %4, label %21
 

@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [37 x i8] c"could not open synonym file \22%s\22: %m\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @dsynonym_init(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @dsynonym_init(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.tsearch_readline_state, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -318,7 +318,7 @@ findwrd.exit.thread:                              ; preds = %53, %.lr.ph128, %69
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @defGetString(ptr noundef) local_unnamed_addr #2
 
@@ -350,7 +350,7 @@ declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
 declare ptr @lowerstr(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @pfree(ptr noundef) local_unnamed_addr #2
 
@@ -359,7 +359,7 @@ declare void @tsearch_readline_end(ptr noundef) local_unnamed_addr #2
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @compareSyn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal i32 @compareSyn(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #6
@@ -367,7 +367,7 @@ define internal i32 @compareSyn(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @dsynonym_lexize(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @dsynonym_lexize(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.Syn, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8

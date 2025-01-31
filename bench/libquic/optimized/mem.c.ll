@@ -42,7 +42,7 @@ return:                                           ; preds = %if.end6, %if.end, %
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @OPENSSL_cleanse(ptr noundef %ptr, i64 noundef %len) local_unnamed_addr #0 {
@@ -53,13 +53,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden range(i32 0, 256) i32 @CRYPTO_memcmp(ptr nocapture noundef readonly %in_a, ptr nocapture noundef readonly %in_b, i64 noundef %len) local_unnamed_addr #5 {
+define hidden range(i32 0, 256) i32 @CRYPTO_memcmp(ptr noundef readonly captures(none) %in_a, ptr noundef readonly captures(none) %in_b, i64 noundef %len) local_unnamed_addr #5 {
 entry:
   %cmp7.not = icmp eq i64 %len, 0
   br i1 %cmp7.not, label %for.end, label %for.body
@@ -87,7 +87,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i32 @OPENSSL_hash32(ptr nocapture noundef readonly %ptr, i64 noundef %len) local_unnamed_addr #5 {
+define hidden i32 @OPENSSL_hash32(ptr noundef readonly captures(none) %ptr, i64 noundef %len) local_unnamed_addr #5 {
 entry:
   %cmp5.not = icmp eq i64 %len, 0
   br i1 %cmp5.not, label %for.end, label %for.body
@@ -110,17 +110,17 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noalias ptr @OPENSSL_strdup(ptr nocapture noundef readonly %s) local_unnamed_addr #6 {
+define hidden noalias ptr @OPENSSL_strdup(ptr noundef readonly captures(none) %s) local_unnamed_addr #6 {
 entry:
   %call = tail call noalias ptr @strdup(ptr noundef %s) #14
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i64 @OPENSSL_strnlen(ptr nocapture noundef readonly %s, i64 noundef %len) local_unnamed_addr #5 {
+define hidden i64 @OPENSSL_strnlen(ptr noundef readonly captures(none) %s, i64 noundef %len) local_unnamed_addr #5 {
 entry:
   %cmp5.not = icmp eq i64 %len, 0
   br i1 %cmp5.not, label %return, label %for.body
@@ -143,27 +143,27 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden i32 @OPENSSL_strcasecmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #8 {
+define hidden i32 @OPENSSL_strcasecmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #8 {
 entry:
   %call = tail call i32 @strcasecmp(ptr noundef %a, ptr noundef %b) #15
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden i32 @OPENSSL_strncasecmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i64 noundef %n) local_unnamed_addr #8 {
+define hidden i32 @OPENSSL_strncasecmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, i64 noundef %n) local_unnamed_addr #8 {
 entry:
   %call = tail call i32 @strncasecmp(ptr noundef %a, ptr noundef %b, i64 noundef %n) #15
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef i32 @BIO_snprintf(ptr nocapture noundef %buf, i64 noundef %n, ptr nocapture noundef readonly %format, ...) local_unnamed_addr #10 {
+define hidden noundef i32 @BIO_snprintf(ptr noundef captures(none) %buf, i64 noundef %n, ptr noundef readonly captures(none) %format, ...) local_unnamed_addr #10 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)
@@ -173,14 +173,14 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef i32 @BIO_vsnprintf(ptr nocapture noundef %buf, i64 noundef %n, ptr nocapture noundef readonly %format, ptr noundef %args) local_unnamed_addr #10 {
+define hidden noundef i32 @BIO_vsnprintf(ptr noundef captures(none) %buf, i64 noundef %n, ptr noundef readonly captures(none) %format, ptr noundef %args) local_unnamed_addr #10 {
 entry:
   %call = tail call i32 @vsnprintf(ptr noundef %buf, i64 noundef %n, ptr noundef %format, ptr noundef %args) #14
   ret i32 %call
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #11
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #12

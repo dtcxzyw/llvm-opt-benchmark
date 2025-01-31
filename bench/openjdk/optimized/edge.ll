@@ -169,7 +169,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm282692EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN4EdgeC1EPKS_13UnifiedOopRef = hidden unnamed_addr alias void (ptr, ptr, i64), ptr @_ZN4EdgeC2EPKS_13UnifiedOopRef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1, i64 %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1, i64 %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
@@ -177,7 +177,7 @@ define hidden void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK4Edge7pointeeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK4Edge7pointeeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 2
@@ -256,7 +256,7 @@ _ZNK13UnifiedOopRef11dereferenceEv.exit:          ; preds = %10, %22, %29, %34, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK4Edge15reference_ownerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK4Edge15reference_ownerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %_ZNK4Edge7pointeeEv.exit, label %4
@@ -340,7 +340,7 @@ _ZNK4Edge7pointeeEv.exit:                         ; preds = %47, %42, %37, %32, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK4Edge16distance_to_rootEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef i64 @_ZNK4Edge16distance_to_rootEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
   br label %2
 
 2:                                                ; preds = %2, %1

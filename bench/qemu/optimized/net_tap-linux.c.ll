@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.19 = private unnamed_addr constant [68 x i8] c"Issue while setting TUNSETSTEERINGEBPF: %s with fd: %d, prog_fd: %d\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, -2147483648) i32 @tap_open(ptr noundef %ifname, i32 noundef %ifname_size, ptr nocapture noundef %vnet_hdr, i32 noundef %vnet_hdr_required, i32 noundef %mq_required, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @tap_open(ptr noundef %ifname, i32 noundef %ifname_size, ptr noundef captures(none) %vnet_hdr, i32 noundef %vnet_hdr_required, i32 noundef %mq_required, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %ifr = alloca %struct.ifreq, align 8
   %len = alloca i32, align 4
@@ -186,7 +186,7 @@ return:                                           ; preds = %if.end69, %if.end67
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #1
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #2
@@ -194,7 +194,7 @@ declare ptr @__errno_location() local_unnamed_addr #2
 declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind
 declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #5
@@ -213,7 +213,7 @@ declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr 
 declare i32 @g_unix_set_fd_nonblocking(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tap_set_sndbuf(i32 noundef %fd, ptr nocapture noundef readonly %tap, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @tap_set_sndbuf(i32 noundef %fd, ptr noundef readonly captures(none) %tap, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %sndbuf = alloca i32, align 4
   %has_sndbuf = getelementptr inbounds nuw i8, ptr %tap, i64 56
@@ -338,7 +338,7 @@ return:                                           ; preds = %if.end4, %if.end, %
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #7

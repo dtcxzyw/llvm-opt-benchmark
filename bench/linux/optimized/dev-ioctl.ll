@@ -58,7 +58,7 @@ define dso_local i32 @autofs_dev_ioctl_init() local_unnamed_addr #0 section ".in
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @misc_register(ptr noundef) local_unnamed_addr #2
@@ -67,7 +67,7 @@ declare dso_local i32 @misc_register(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @autofs_dev_ioctl_exit() local_unnamed_addr #4 align 16 {
@@ -82,7 +82,7 @@ declare dso_local void @misc_deregister(ptr noundef) local_unnamed_addr #2
 declare dso_local i64 @noop_llseek(ptr noundef, i64 noundef, i32 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr nocapture readnone %0, i32 noundef %1, i64 noundef %2) #4 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr readnone captures(none) %0, i32 noundef %1, i64 noundef %2) #4 align 16 {
   %4 = alloca %struct.autofs_dev_ioctl, align 8
   %5 = inttoptr i64 %2 to ptr
   %6 = and i32 %1, 255
@@ -310,7 +310,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl_compat(ptr nocapture readnone %0, i32 noundef %1, i64 noundef %2) #4 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl_compat(ptr readnone captures(none) %0, i32 noundef %1, i64 noundef %2) #4 align 16 {
   %4 = and i64 %2, 4294967295
   %5 = tail call i64 @autofs_dev_ioctl(ptr poison, i32 noundef %1, i64 noundef %4), !range !8
   ret i64 %5
@@ -326,7 +326,7 @@ declare dso_local ptr @fget(i32 noundef) local_unnamed_addr #2
 declare dso_local void @fput(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @memdup_user(ptr noundef, i64 noundef) local_unnamed_addr #2
@@ -341,7 +341,7 @@ declare dso_local ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnam
 declare dso_local ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @autofs_dev_ioctl_version(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #7 align 16 {
+define internal noundef i32 @autofs_dev_ioctl_version(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #7 align 16 {
   store i32 1, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 1, ptr %4, align 4
@@ -349,7 +349,7 @@ define internal noundef i32 @autofs_dev_ioctl_version(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @autofs_dev_ioctl_protover(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((16, 20)) %2) #8 align 16 {
+define internal noundef i32 @autofs_dev_ioctl_protover(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((16, 20)) %2) #8 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -358,7 +358,7 @@ define internal noundef i32 @autofs_dev_ioctl_protover(ptr nocapture readnone %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @autofs_dev_ioctl_protosubver(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((16, 20)) %2) #8 align 16 {
+define internal noundef i32 @autofs_dev_ioctl_protosubver(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((16, 20)) %2) #8 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -367,7 +367,7 @@ define internal noundef i32 @autofs_dev_ioctl_protosubver(ptr nocapture readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 1) i32 @autofs_dev_ioctl_openmount(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #4 align 16 {
+define internal range(i32 -2147483648, 1) i32 @autofs_dev_ioctl_openmount(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #4 align 16 {
   %4 = alloca %struct.path, align 8
   %5 = alloca %struct.path, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -482,7 +482,7 @@ define internal range(i32 -2147483648, 1) i32 @autofs_dev_ioctl_openmount(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @autofs_dev_ioctl_closemount(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #4 align 16 {
+define internal i32 @autofs_dev_ioctl_closemount(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #4 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = tail call i32 @close_fd(i32 noundef %5) #10
@@ -490,7 +490,7 @@ define internal i32 @autofs_dev_ioctl_closemount(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @autofs_dev_ioctl_ready(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #4 align 16 {
+define internal i32 @autofs_dev_ioctl_ready(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #4 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 @autofs_wait_release(ptr noundef %1, i32 noundef %5, i32 noundef 0) #10
@@ -498,7 +498,7 @@ define internal i32 @autofs_dev_ioctl_ready(ptr nocapture readnone %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @autofs_dev_ioctl_fail(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #4 align 16 {
+define internal i32 @autofs_dev_ioctl_fail(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #4 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -510,7 +510,7 @@ define internal i32 @autofs_dev_ioctl_fail(ptr nocapture readnone %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -32, 1) i32 @autofs_dev_ioctl_setpipefd(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #4 align 16 {
+define internal noundef range(i32 -32, 1) i32 @autofs_dev_ioctl_setpipefd(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #4 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, -1
@@ -628,13 +628,13 @@ define internal noundef range(i32 -32, 1) i32 @autofs_dev_ioctl_setpipefd(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @autofs_dev_ioctl_catatonic(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #4 align 16 {
+define internal noundef i32 @autofs_dev_ioctl_catatonic(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #4 align 16 {
   tail call void @autofs_catatonic_mode(ptr noundef %1) #10
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @autofs_dev_ioctl_timeout(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #8 align 16 {
+define internal noundef i32 @autofs_dev_ioctl_timeout(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) #8 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -647,7 +647,7 @@ define internal noundef i32 @autofs_dev_ioctl_timeout(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @autofs_dev_ioctl_requester(ptr nocapture readnone %0, ptr noundef %1, ptr noundef initializes((16, 24)) %2) #4 align 16 {
+define internal i32 @autofs_dev_ioctl_requester(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef initializes((16, 24)) %2) #4 align 16 {
   %4 = alloca %struct.path, align 8
   %5 = alloca %struct.path, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
@@ -747,7 +747,7 @@ define internal i32 @autofs_dev_ioctl_requester(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @autofs_dev_ioctl_expire(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #4 align 16 {
+define internal i32 @autofs_dev_ioctl_expire(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #4 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -759,7 +759,7 @@ define internal i32 @autofs_dev_ioctl_expire(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @autofs_dev_ioctl_askumount(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((16, 20)) %2) #4 align 16 {
+define internal noundef i32 @autofs_dev_ioctl_askumount(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((16, 20)) %2) #4 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -777,7 +777,7 @@ define internal noundef i32 @autofs_dev_ioctl_askumount(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef initializes((20, 24)) %2) #4 align 16 {
+define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone %0, ptr noundef readonly captures(none) %1, ptr noundef initializes((20, 24)) %2) #4 align 16 {
   %4 = alloca %struct.path, align 8
   %5 = alloca %struct.path, align 8
   %6 = alloca %struct.path, align 8
@@ -1011,7 +1011,7 @@ declare dso_local i32 @kern_path(ptr noundef, i32 noundef, ptr noundef) local_un
 declare dso_local void @path_get(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @follow_up(ptr noundef) local_unnamed_addr #2

@@ -636,7 +636,7 @@ declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @choose_next_subplan_locally(ptr nocapture noundef %0) #0 {
+define internal noundef zeroext i1 @choose_next_subplan_locally(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %4 = load i8, ptr %3, align 4
@@ -712,7 +712,7 @@ define internal noundef zeroext i1 @choose_next_subplan_locally(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecEndAppend(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExecEndAppend(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -740,7 +740,7 @@ define dso_local void @ExecEndAppend(ptr nocapture noundef readonly %0) local_un
 declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecReScanAppend(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ExecReScanAppend(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -871,7 +871,7 @@ declare void @UpdateChangedParamSet(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @ExecReScan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecAppendEstimate(ptr nocapture noundef initializes((304, 312)) %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @ExecAppendEstimate(ptr noundef captures(none) initializes((304, 312)) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
@@ -894,7 +894,7 @@ define dso_local void @ExecAppendEstimate(ptr nocapture noundef initializes((304
 declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecAppendInitializeDSM(ptr nocapture noundef initializes((296, 304), (344, 352)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExecAppendInitializeDSM(ptr noundef captures(none) initializes((296, 304), (344, 352)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -920,14 +920,14 @@ define dso_local void @ExecAppendInitializeDSM(ptr nocapture noundef initializes
 declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @LWLockInitialize(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @choose_next_subplan_for_leader(ptr nocapture noundef %0) #0 {
+define internal noundef zeroext i1 @choose_next_subplan_for_leader(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %3 = load ptr, ptr %2, align 8
   %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef %3, i32 noundef 0) #5
@@ -1040,7 +1040,7 @@ mark_invalid_subplans_as_finished.exit:           ; preds = %35, %19, %12, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @ExecAppendReInitializeDSM(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 {
+define dso_local void @ExecAppendReInitializeDSM(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1054,7 +1054,7 @@ define dso_local void @ExecAppendReInitializeDSM(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecAppendInitializeWorker(ptr nocapture noundef initializes((296, 304), (344, 352)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExecAppendInitializeWorker(ptr noundef captures(none) initializes((296, 304), (344, 352)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1073,7 +1073,7 @@ define dso_local void @ExecAppendInitializeWorker(ptr nocapture noundef initiali
 declare ptr @shm_toc_lookup(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @choose_next_subplan_for_worker(ptr nocapture noundef %0) #0 {
+define internal noundef zeroext i1 @choose_next_subplan_for_worker(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %3 = load ptr, ptr %2, align 8
   %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef %3, i32 noundef 0) #5
@@ -1227,7 +1227,7 @@ mark_invalid_subplans_as_finished.exit:           ; preds = %33, %16, %12, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecAsyncAppendResponse(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExecAsyncAppendResponse(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -1279,7 +1279,7 @@ define dso_local void @ExecAsyncAppendResponse(ptr nocapture noundef readonly %0
 declare void @ProcessInterrupts() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExecAppendAsyncEventWait(ptr nocapture noundef initializes((280, 288)) %0) unnamed_addr #0 {
+define internal fastcc void @ExecAppendAsyncEventWait(ptr noundef captures(none) initializes((280, 288)) %0) unnamed_addr #0 {
   %2 = alloca [16 x %struct.WaitEvent], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = load i32, ptr %3, align 8

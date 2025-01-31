@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.get_policies_for_relation = private unnamed_addr constant [26 x i8] c"get_policies_for_relation\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @get_row_security_policies(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef initializes((0, 8)) %3, ptr nocapture noundef initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 1)) %5, ptr nocapture noundef initializes((0, 1)) %6) local_unnamed_addr #0 {
+define dso_local void @get_row_security_policies(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) initializes((0, 8)) %3, ptr noundef captures(none) initializes((0, 8)) %4, ptr noundef writeonly captures(none) initializes((0, 1)) %5, ptr noundef captures(none) initializes((0, 1)) %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
@@ -267,7 +267,7 @@ declare i32 @check_enable_rls(i32 noundef, i32 noundef, i1 noundef zeroext) loca
 declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull initializes((0, 8)) %3, ptr nocapture noundef nonnull initializes((0, 8)) %4) unnamed_addr #0 {
+define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull captures(none) initializes((0, 8)) %3, ptr noundef nonnull captures(none) initializes((0, 8)) %4) unnamed_addr #0 {
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -567,7 +567,7 @@ check_role_for_policy.exit88:                     ; preds = %143, %.preheader.i8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_security_quals(i32 noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc void @add_security_quals(i32 noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
@@ -694,7 +694,7 @@ define internal fastcc void @add_security_quals(i32 noundef %0, ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_with_check_options(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef range(i32 1, 6) %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr nocapture noundef %5, ptr nocapture noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @add_with_check_options(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 1, 6) %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, i1 noundef zeroext %7) unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
@@ -993,7 +993,7 @@ declare zeroext i1 @has_privs_of_role(i32 noundef, i32 noundef) local_unnamed_ad
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @row_security_policy_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal i32 @row_security_policy_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %3, align 8
@@ -1020,7 +1020,7 @@ define internal i32 @row_security_policy_cmp(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #1
 

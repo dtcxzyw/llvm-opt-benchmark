@@ -68,13 +68,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local { i64, i16 } @floatx80_default_nan(ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local { i64, i16 } @floatx80_default_nan(ptr noundef readnone captures(none) %status) local_unnamed_addr #0 {
 entry:
   ret { i64, i16 } { i64 -4611686018427387904, i16 -1 }
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @float16_is_quiet_nan(i16 noundef zeroext %a_, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @float16_is_quiet_nan(i16 noundef zeroext %a_, ptr noundef readnone captures(none) %status) local_unnamed_addr #0 {
 entry:
   %0 = and i16 %a_, 32256
   %cmp11 = icmp eq i16 %0, 32256
@@ -82,7 +82,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @bfloat16_is_quiet_nan(i16 noundef zeroext %a_, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @bfloat16_is_quiet_nan(i16 noundef zeroext %a_, ptr noundef readnone captures(none) %status) local_unnamed_addr #0 {
 entry:
   %0 = and i16 %a_, 32704
   %cmp11 = icmp eq i16 %0, 32704
@@ -90,7 +90,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @float16_is_signaling_nan(i16 noundef zeroext %a_, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @float16_is_signaling_nan(i16 noundef zeroext %a_, ptr noundef readnone captures(none) %status) local_unnamed_addr #0 {
 entry:
   %conv5 = zext i16 %a_ to i32
   %0 = and i32 %conv5, 32256
@@ -102,7 +102,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @bfloat16_is_signaling_nan(i16 noundef zeroext %a_, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @bfloat16_is_signaling_nan(i16 noundef zeroext %a_, ptr noundef readnone captures(none) %status) local_unnamed_addr #0 {
 entry:
   %conv5 = zext i16 %a_ to i32
   %0 = and i32 %conv5, 32704
@@ -114,7 +114,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @float32_is_quiet_nan(i32 noundef %a_, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @float32_is_quiet_nan(i32 noundef %a_, ptr noundef readnone captures(none) %status) local_unnamed_addr #0 {
 entry:
   %shl = shl i32 %a_, 1
   %cmp6 = icmp ugt i32 %shl, -8388609
@@ -122,7 +122,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @float32_is_signaling_nan(i32 noundef %a_, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @float32_is_signaling_nan(i32 noundef %a_, ptr noundef readnone captures(none) %status) local_unnamed_addr #0 {
 entry:
   %0 = and i32 %a_, 2143289344
   %cmp4 = icmp eq i32 %0, 2139095040
@@ -133,7 +133,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @float64_is_quiet_nan(i64 noundef %a_, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @float64_is_quiet_nan(i64 noundef %a_, ptr noundef readnone captures(none) %status) local_unnamed_addr #0 {
 entry:
   %shl = shl i64 %a_, 1
   %cmp6 = icmp ugt i64 %shl, -4503599627370497
@@ -141,7 +141,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @float64_is_signaling_nan(i64 noundef %a_, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @float64_is_signaling_nan(i64 noundef %a_, ptr noundef readnone captures(none) %status) local_unnamed_addr #0 {
 entry:
   %0 = and i64 %a_, 9221120237041090560
   %cmp4 = icmp eq i64 %0, 9218868437227405312
@@ -152,7 +152,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local range(i32 0, 2) i32 @floatx80_is_quiet_nan(i64 %a.coerce0, i16 %a.coerce1, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @floatx80_is_quiet_nan(i64 %a.coerce0, i16 %a.coerce1, ptr noundef readnone captures(none) %status) local_unnamed_addr #0 {
 entry:
   %0 = and i16 %a.coerce1, 32767
   %cmp14 = icmp eq i16 %0, 32767
@@ -164,7 +164,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local range(i32 0, 2) i32 @floatx80_is_signaling_nan(i64 %a.coerce0, i16 %a.coerce1, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @floatx80_is_signaling_nan(i64 %a.coerce0, i16 %a.coerce1, ptr noundef readnone captures(none) %status) local_unnamed_addr #0 {
 entry:
   %0 = and i16 %a.coerce1, 32767
   %cmp12 = icmp eq i16 %0, 32767
@@ -179,7 +179,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local { i64, i16 } @floatx80_silence_nan(i64 %a.coerce0, i16 %a.coerce1, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local { i64, i16 } @floatx80_silence_nan(i64 %a.coerce0, i16 %a.coerce1, ptr noundef readnone captures(none) %status) local_unnamed_addr #0 {
 entry:
   %or = or i64 %a.coerce0, -4611686018427387904
   %.fca.0.insert = insertvalue { i64, i16 } poison, i64 %or, 0
@@ -188,10 +188,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local { i64, i16 } @propagateFloatx80NaN(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, ptr nocapture noundef %status) local_unnamed_addr #2 {
+define dso_local { i64, i16 } @propagateFloatx80NaN(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, ptr noundef captures(none) %status) local_unnamed_addr #2 {
 entry:
   %0 = and i16 %a.coerce1, 32767
   %cmp.i = icmp eq i16 %0, 32767
@@ -306,7 +306,7 @@ return:                                           ; preds = %if.else46, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @float128_is_quiet_nan(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local zeroext i1 @float128_is_quiet_nan(i64 %a.coerce0, i64 %a.coerce1, ptr noundef readnone captures(none) %status) local_unnamed_addr #0 {
 entry:
   %shl = shl i64 %a.coerce1, 1
   %cmp9 = icmp ugt i64 %shl, -281474976710657
@@ -318,7 +318,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @float128_is_signaling_nan(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local zeroext i1 @float128_is_signaling_nan(i64 %a.coerce0, i64 %a.coerce1, ptr noundef readnone captures(none) %status) local_unnamed_addr #0 {
 entry:
   %0 = and i64 %a.coerce1, 9223231299366420480
   %cmp8 = icmp eq i64 %0, 9223090561878065152
@@ -330,14 +330,14 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float16_add(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float16_add(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc zeroext i16 @float16_addsub(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef %status, i1 noundef zeroext false)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @float16_addsub(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %status, i1 noundef zeroext %subtract) unnamed_addr #3 {
+define internal fastcc zeroext i16 @float16_addsub(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %status, i1 noundef zeroext %subtract) unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts64, align 8
   %pb = alloca %struct.FloatParts64, align 8
@@ -818,14 +818,14 @@ parts64_addsub.exit:                              ; preds = %.thread132, %if.the
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float16_sub(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float16_sub(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc zeroext i16 @float16_addsub(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef %status, i1 noundef zeroext true)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float32_add(i32 noundef %a, i32 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float32_add(i32 noundef %a, i32 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %0 = load i16, ptr %s, align 2
   %1 = and i16 %0, 16
@@ -926,7 +926,7 @@ float32_gen2.exit:                                ; preds = %if.then24.i, %if.el
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float32_sub(i32 noundef %a, i32 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float32_sub(i32 noundef %a, i32 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %0 = load i16, ptr %s, align 2
   %1 = and i16 %0, 16
@@ -1027,7 +1027,7 @@ float32_gen2.exit:                                ; preds = %if.then24.i, %if.el
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64_add(i64 noundef %a, i64 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float64_add(i64 noundef %a, i64 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %0 = load i16, ptr %s, align 2
   %1 = and i16 %0, 16
@@ -1133,7 +1133,7 @@ float64_gen2.exit:                                ; preds = %if.then24.i, %if.el
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64_sub(i64 noundef %a, i64 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float64_sub(i64 noundef %a, i64 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %0 = load i16, ptr %s, align 2
   %1 = and i16 %0, 16
@@ -1239,14 +1239,14 @@ float64_gen2.exit:                                ; preds = %if.then24.i, %if.el
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64r32_add(i64 noundef %a, i64 noundef %b, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i64 @float64r32_add(i64 noundef %a, i64 noundef %b, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i64 @float64r32_addsub(i64 noundef %a, i64 noundef %b, ptr noundef %status, i1 noundef zeroext false)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @float64r32_addsub(i64 noundef %a, i64 noundef %b, ptr nocapture noundef %status, i1 noundef zeroext %subtract) unnamed_addr #3 {
+define internal fastcc i64 @float64r32_addsub(i64 noundef %a, i64 noundef %b, ptr noundef captures(none) %status, i1 noundef zeroext %subtract) unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts64, align 8
   %pb = alloca %struct.FloatParts64, align 8
@@ -1761,21 +1761,21 @@ parts64_addsub.exit:                              ; preds = %parts64_sub_normal.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64r32_sub(i64 noundef %a, i64 noundef %b, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i64 @float64r32_sub(i64 noundef %a, i64 noundef %b, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i64 @float64r32_addsub(i64 noundef %a, i64 noundef %b, ptr noundef %status, i1 noundef zeroext true)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @bfloat16_add(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @bfloat16_add(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc zeroext i16 @bfloat16_addsub(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef %status, i1 noundef zeroext false)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @bfloat16_addsub(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %status, i1 noundef zeroext %subtract) unnamed_addr #3 {
+define internal fastcc zeroext i16 @bfloat16_addsub(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %status, i1 noundef zeroext %subtract) unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts64, align 8
   %pb = alloca %struct.FloatParts64, align 8
@@ -2310,21 +2310,21 @@ parts64_addsub.exit:                              ; preds = %.thread149, %if.the
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @bfloat16_sub(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @bfloat16_sub(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc zeroext i16 @bfloat16_addsub(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef %status, i1 noundef zeroext true)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @float128_add(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @float128_add(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc { i64, i64 } @float128_addsub(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef %status, i1 noundef zeroext false)
   ret { i64, i64 } %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc { i64, i64 } @float128_addsub(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr nocapture noundef %status, i1 noundef zeroext %subtract) unnamed_addr #3 {
+define internal fastcc { i64, i64 } @float128_addsub(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef captures(none) %status, i1 noundef zeroext %subtract) unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts128, align 8
   %pb = alloca %struct.FloatParts128, align 8
@@ -2635,21 +2635,21 @@ parts128_uncanon.exit:                            ; preds = %if.then.i63, %sw.bb
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @float128_sub(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @float128_sub(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc { i64, i64 } @float128_addsub(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef %status, i1 noundef zeroext true)
   ret { i64, i64 } %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i16 } @floatx80_add(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i16 } @floatx80_add(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc { i64, i16 } @floatx80_addsub(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, ptr noundef %status, i1 noundef zeroext false)
   ret { i64, i16 } %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc { i64, i16 } @floatx80_addsub(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, ptr nocapture noundef %status, i1 noundef zeroext %subtract) unnamed_addr #3 {
+define internal fastcc { i64, i16 } @floatx80_addsub(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, ptr noundef captures(none) %status, i1 noundef zeroext %subtract) unnamed_addr #3 {
 entry:
   %p64.i = alloca %struct.FloatParts64, align 8
   %pa = alloca %struct.FloatParts128, align 8
@@ -3093,14 +3093,14 @@ return:                                           ; preds = %floatx80_unpack_can
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i16 } @floatx80_sub(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i16 } @floatx80_sub(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc { i64, i16 } @floatx80_addsub(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, ptr noundef %status, i1 noundef zeroext true)
   ret { i64, i16 } %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float16_mul(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float16_mul(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts64, align 8
   %pb = alloca %struct.FloatParts64, align 8
@@ -3431,7 +3431,7 @@ parts64_mul.exit:                                 ; preds = %.thread100, %if.the
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc nonnull ptr @parts64_mul(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc nonnull ptr @parts64_mul(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef captures(none) %s) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext nneg i8 %0 to i32
@@ -3621,7 +3621,7 @@ return:                                           ; preds = %.thread45, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float32_mul(i32 noundef %a, i32 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float32_mul(i32 noundef %a, i32 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %pa.i = alloca %struct.FloatParts64, align 8
   %pb.i = alloca %struct.FloatParts64, align 8
@@ -4050,7 +4050,7 @@ float32_gen2.exit:                                ; preds = %if.then24.i, %land.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64_mul(i64 noundef %a, i64 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float64_mul(i64 noundef %a, i64 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %pa.i = alloca %struct.FloatParts64, align 8
   %pb.i = alloca %struct.FloatParts64, align 8
@@ -4482,7 +4482,7 @@ float64_gen2.exit:                                ; preds = %if.then24.i, %land.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64r32_mul(i64 noundef %a, i64 noundef %b, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i64 @float64r32_mul(i64 noundef %a, i64 noundef %b, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts64, align 8
   %pb = alloca %struct.FloatParts64, align 8
@@ -4642,7 +4642,7 @@ float64_unpack_canonical.exit35:                  ; preds = %if.then8.i.i30, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @float64r32_round_pack_canonical(ptr nocapture noundef nonnull %p, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc i64 @float64r32_round_pack_canonical(ptr noundef nonnull captures(none) %p, ptr noundef captures(none) %s) unnamed_addr #3 {
 entry:
   tail call fastcc void @parts64_uncanon(ptr noundef %p, ptr noundef %s, ptr noundef nonnull @float32_params)
   %0 = load i8, ptr %p, align 8
@@ -4730,7 +4730,7 @@ sw.epilog:                                        ; preds = %entry.sw.epilog_cri
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @bfloat16_mul(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @bfloat16_mul(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts64, align 8
   %pb = alloca %struct.FloatParts64, align 8
@@ -5063,7 +5063,7 @@ parts64_mul.exit:                                 ; preds = %.thread116, %if.the
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @float128_mul(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @float128_mul(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts128, align 8
   %pb = alloca %struct.FloatParts128, align 8
@@ -5391,7 +5391,7 @@ parts128_uncanon.exit:                            ; preds = %if.then.i71, %sw.bb
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc { i64, i64 } @float128_round_pack_canonical(ptr nocapture noundef nonnull %p, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc { i64, i64 } @float128_round_pack_canonical(ptr noundef nonnull captures(none) %p, ptr noundef captures(none) %s) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %p, align 8
   switch i8 %0, label %do.body21.i [
@@ -5462,7 +5462,7 @@ parts128_uncanon.exit:                            ; preds = %if.then.i, %sw.bb.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i16 } @floatx80_mul(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i16 } @floatx80_mul(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p64.i = alloca %struct.FloatParts64, align 8
   %pa = alloca %struct.FloatParts128, align 8
@@ -5931,7 +5931,7 @@ return:                                           ; preds = %floatx80_unpack_can
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr nocapture noundef nonnull %p, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc { i64, i16 } @floatx80_round_pack_canonical(ptr noundef nonnull captures(none) %p, ptr noundef captures(none) %s) unnamed_addr #3 {
 entry:
   %p64 = alloca %struct.FloatParts64, align 8
   %floatx80_rounding_precision = getelementptr inbounds nuw i8, ptr %s, i64 3
@@ -6023,7 +6023,7 @@ sw.epilog:                                        ; preds = %if.end, %sw.epilog.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float16_muladd(i16 noundef zeroext %a, i16 noundef zeroext %b, i16 noundef zeroext %c, i32 noundef %flags, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float16_muladd(i16 noundef zeroext %a, i16 noundef zeroext %b, i16 noundef zeroext %c, i32 noundef %flags, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p_widen.i = alloca %struct.FloatParts128, align 8
   %c_widen.i = alloca %struct.FloatParts128, align 8
@@ -6455,7 +6455,7 @@ parts64_muladd.exit:                              ; preds = %finish_sign.i, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef nonnull ptr @parts64_muladd(ptr noundef nonnull returned %a, ptr nocapture noundef nonnull readonly %b, ptr nocapture noundef nonnull %c, i32 noundef %flags, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc noundef nonnull ptr @parts64_muladd(ptr noundef nonnull returned %a, ptr noundef nonnull readonly captures(none) %b, ptr noundef nonnull captures(none) %c, i32 noundef %flags, ptr noundef captures(none) %s) unnamed_addr #3 {
 entry:
   %p_widen = alloca %struct.FloatParts128, align 8
   %c_widen = alloca %struct.FloatParts128, align 8
@@ -6739,7 +6739,7 @@ return:                                           ; preds = %finish_sign, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float32_muladd(i32 noundef %xa, i32 noundef %xb, i32 noundef %xc, i32 noundef %flags, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float32_muladd(i32 noundef %xa, i32 noundef %xb, i32 noundef %xc, i32 noundef %flags, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p_widen.i.i = alloca %struct.FloatParts128, align 8
   %c_widen.i.i = alloca %struct.FloatParts128, align 8
@@ -7334,7 +7334,7 @@ declare float @llvm.fma.f32(float, float, float) #4
 declare float @llvm.fabs.f32(float) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64_muladd(i64 noundef %xa, i64 noundef %xb, i64 noundef %xc, i32 noundef %flags, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float64_muladd(i64 noundef %xa, i64 noundef %xb, i64 noundef %xc, i32 noundef %flags, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p_widen.i.i = alloca %struct.FloatParts128, align 8
   %c_widen.i.i = alloca %struct.FloatParts128, align 8
@@ -7936,7 +7936,7 @@ declare double @llvm.fma.f64(double, double, double) #4
 declare double @llvm.fabs.f64(double) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64r32_muladd(i64 noundef %a, i64 noundef %b, i64 noundef %c, i32 noundef %flags, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i64 @float64r32_muladd(i64 noundef %a, i64 noundef %b, i64 noundef %c, i32 noundef %flags, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts64, align 8
   %pb = alloca %struct.FloatParts64, align 8
@@ -8172,7 +8172,7 @@ float64_unpack_canonical.exit68:                  ; preds = %if.then8.i.i63, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @bfloat16_muladd(i16 noundef zeroext %a, i16 noundef zeroext %b, i16 noundef zeroext %c, i32 noundef %flags, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @bfloat16_muladd(i16 noundef zeroext %a, i16 noundef zeroext %b, i16 noundef zeroext %c, i32 noundef %flags, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p_widen.i = alloca %struct.FloatParts128, align 8
   %c_widen.i = alloca %struct.FloatParts128, align 8
@@ -8607,7 +8607,7 @@ parts64_muladd.exit:                              ; preds = %finish_sign.i, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @float128_muladd(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, i64 %c.coerce0, i64 %c.coerce1, i32 noundef %flags, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @float128_muladd(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, i64 %c.coerce0, i64 %c.coerce1, i32 noundef %flags, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p_widen.i = alloca %struct.FloatParts256, align 8
   %c_widen.i = alloca %struct.FloatParts256, align 8
@@ -9023,7 +9023,7 @@ parts128_uncanon.exit:                            ; preds = %parts128_muladd.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float16_div(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float16_div(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts64, align 8
   %pb = alloca %struct.FloatParts64, align 8
@@ -9200,7 +9200,7 @@ float16_unpack_canonical.exit34:                  ; preds = %if.then8.i.i.i29, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc nonnull ptr @parts64_div(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc nonnull ptr @parts64_div(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef captures(none) %s) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext nneg i8 %0 to i32
@@ -9394,7 +9394,7 @@ return:                                           ; preds = %.thread44, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float32_div(i32 noundef %a, i32 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float32_div(i32 noundef %a, i32 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %pa.i = alloca %struct.FloatParts64, align 8
   %pb.i = alloca %struct.FloatParts64, align 8
@@ -9818,7 +9818,7 @@ float32_gen2.exit:                                ; preds = %if.then24.i, %if.el
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64_div(i64 noundef %a, i64 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float64_div(i64 noundef %a, i64 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %pa.i = alloca %struct.FloatParts64, align 8
   %pb.i = alloca %struct.FloatParts64, align 8
@@ -10244,7 +10244,7 @@ float64_gen2.exit:                                ; preds = %if.then24.i, %if.el
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64r32_div(i64 noundef %a, i64 noundef %b, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i64 @float64r32_div(i64 noundef %a, i64 noundef %b, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts64, align 8
   %pb = alloca %struct.FloatParts64, align 8
@@ -10404,7 +10404,7 @@ float64_unpack_canonical.exit35:                  ; preds = %if.then8.i.i30, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @bfloat16_div(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @bfloat16_div(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts64, align 8
   %pb = alloca %struct.FloatParts64, align 8
@@ -10740,7 +10740,7 @@ parts64_div.exit:                                 ; preds = %.thread114, %if.the
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @float128_div(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @float128_div(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts128, align 8
   %pb = alloca %struct.FloatParts128, align 8
@@ -11008,7 +11008,7 @@ parts128_uncanon.exit:                            ; preds = %if.then.i61, %sw.bb
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i16 } @floatx80_div(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i16 } @floatx80_div(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts128, align 8
   %pb = alloca %struct.FloatParts128, align 8
@@ -11303,7 +11303,7 @@ return:                                           ; preds = %floatx80_unpack_can
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float32_rem(i32 noundef %a, i32 noundef %b, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i32 @float32_rem(i32 noundef %a, i32 noundef %b, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts64, align 8
   %pb = alloca %struct.FloatParts64, align 8
@@ -11480,7 +11480,7 @@ float32_unpack_canonical.exit36:                  ; preds = %if.then8.i.i31, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc nonnull ptr @parts64_modrem(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc nonnull ptr @parts64_modrem(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef captures(none) %s) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext nneg i8 %0 to i32
@@ -11966,7 +11966,7 @@ return:                                           ; preds = %.thread11, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64_rem(i64 noundef %a, i64 noundef %b, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i64 @float64_rem(i64 noundef %a, i64 noundef %b, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts64, align 8
   %pb = alloca %struct.FloatParts64, align 8
@@ -12141,7 +12141,7 @@ float64_unpack_canonical.exit35:                  ; preds = %if.then8.i.i30, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @float128_rem(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @float128_rem(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts128, align 8
   %pb = alloca %struct.FloatParts128, align 8
@@ -12181,7 +12181,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc nonnull ptr @parts128_modrem(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef writeonly %mod_quot, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc nonnull ptr @parts128_modrem(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef writeonly %mod_quot, ptr noundef captures(none) %s) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext nneg i8 %0 to i32
@@ -12865,7 +12865,7 @@ return:                                           ; preds = %lor.lhs.false.i.i, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i16 } @floatx80_modrem(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, i1 noundef zeroext %mod, ptr noundef initializes((0, 8)) %quotient, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i16 } @floatx80_modrem(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, i1 noundef zeroext %mod, ptr noundef initializes((0, 8)) %quotient, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts128, align 8
   %pb = alloca %struct.FloatParts128, align 8
@@ -12988,7 +12988,7 @@ return:                                           ; preds = %floatx80_unpack_can
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i16 } @floatx80_rem(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i16 } @floatx80_rem(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %quotient = alloca i64, align 8
   %call = call { i64, i16 } @floatx80_modrem(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, i1 noundef zeroext false, ptr noundef nonnull %quotient, ptr noundef %status)
@@ -12996,7 +12996,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i16 } @floatx80_mod(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i16 } @floatx80_mod(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %quotient = alloca i64, align 8
   %call = call { i64, i16 } @floatx80_modrem(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, i1 noundef zeroext true, ptr noundef nonnull %quotient, ptr noundef %status)
@@ -13004,7 +13004,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float16_to_float32(i16 noundef zeroext %a, i1 noundef zeroext %ieee, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float16_to_float32(i16 noundef zeroext %a, i1 noundef zeroext %ieee, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i16 %a, 15
@@ -13138,7 +13138,7 @@ parts64_float_to_float.exit:                      ; preds = %if.then33.i.i, %fra
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float16_to_float64(i16 noundef zeroext %a, i1 noundef zeroext %ieee, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float16_to_float64(i16 noundef zeroext %a, i1 noundef zeroext %ieee, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i16 %a, 15
@@ -13272,7 +13272,7 @@ parts64_float_to_float.exit:                      ; preds = %if.then33.i.i, %fra
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float32_to_float16(i32 noundef %a, i1 noundef zeroext %ieee, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float32_to_float16(i32 noundef %a, i1 noundef zeroext %ieee, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i32 %a, 31
@@ -13454,7 +13454,7 @@ if.end:                                           ; preds = %sw.bb3.i, %sw.bb1.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float32_to_float64(i32 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float32_to_float64(i32 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %shr.i = lshr i32 %a, 23
@@ -13614,7 +13614,7 @@ return:                                           ; preds = %soft_float32_to_flo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float64_to_float16(i64 noundef %a, i1 noundef zeroext %ieee, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float64_to_float16(i64 noundef %a, i1 noundef zeroext %ieee, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i64 %a, 63
@@ -13795,7 +13795,7 @@ if.end:                                           ; preds = %sw.bb3.i, %sw.bb1.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float64_to_float32(i64 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float64_to_float32(i64 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i64 %a, 63
@@ -13925,7 +13925,7 @@ parts64_float_to_float.exit:                      ; preds = %float64_unpack_cano
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @bfloat16_to_float32(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @bfloat16_to_float32(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i16 %a, 15
@@ -14057,7 +14057,7 @@ parts64_float_to_float.exit:                      ; preds = %bfloat16_unpack_can
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @bfloat16_to_float64(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @bfloat16_to_float64(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i16 %a, 15
@@ -14189,7 +14189,7 @@ parts64_float_to_float.exit:                      ; preds = %bfloat16_unpack_can
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float32_to_bfloat16(i32 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float32_to_bfloat16(i32 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i32 %a, 31
@@ -14320,7 +14320,7 @@ parts64_float_to_float.exit:                      ; preds = %float32_unpack_cano
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float64_to_bfloat16(i64 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float64_to_bfloat16(i64 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i64 %a, 63
@@ -14450,7 +14450,7 @@ parts64_float_to_float.exit:                      ; preds = %float64_unpack_cano
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float128_to_float32(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float128_to_float32(i64 %a.coerce0, i64 %a.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p64 = alloca %struct.FloatParts64, align 8
   %p128 = alloca %struct.FloatParts128, align 8
@@ -14562,7 +14562,7 @@ parts_float_to_float_narrow.exit:                 ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float128_to_float64(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float128_to_float64(i64 %a.coerce0, i64 %a.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p64 = alloca %struct.FloatParts64, align 8
   %p128 = alloca %struct.FloatParts128, align 8
@@ -14674,7 +14674,7 @@ parts_float_to_float_narrow.exit:                 ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @float32_to_float128(i32 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @float32_to_float128(i32 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p128 = alloca %struct.FloatParts128, align 8
   %f.lobit.i.i = lshr i32 %a, 31
@@ -14793,7 +14793,7 @@ parts_float_to_float_widen.exit:                  ; preds = %float32_unpack_cano
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @float64_to_float128(i64 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @float64_to_float128(i64 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p128 = alloca %struct.FloatParts128, align 8
   %f.lobit.i.i = lshr i64 %a, 63
@@ -14911,7 +14911,7 @@ parts_float_to_float_widen.exit:                  ; preds = %float64_unpack_cano
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @floatx80_to_float32(i64 %a.coerce0, i16 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @floatx80_to_float32(i64 %a.coerce0, i16 %a.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p64 = alloca %struct.FloatParts64, align 8
   %p128 = alloca %struct.FloatParts128, align 8
@@ -15074,7 +15074,7 @@ if.end:                                           ; preds = %if.then4.i.i, %sw.b
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @floatx80_to_float64(i64 %a.coerce0, i16 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @floatx80_to_float64(i64 %a.coerce0, i16 %a.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p64 = alloca %struct.FloatParts64, align 8
   %p128 = alloca %struct.FloatParts128, align 8
@@ -15237,7 +15237,7 @@ if.end:                                           ; preds = %if.then4.i.i, %sw.b
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @floatx80_to_float128(i64 %a.coerce0, i16 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @floatx80_to_float128(i64 %a.coerce0, i16 %a.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
   %floatx80_rounding_precision.i = getelementptr inbounds nuw i8, ptr %s, i64 3
@@ -15361,7 +15361,7 @@ if.end:                                           ; preds = %if.then4.i.i, %sw.b
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i16 } @float32_to_floatx80(i32 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local { i64, i16 } @float32_to_floatx80(i32 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p128 = alloca %struct.FloatParts128, align 8
   %f.lobit.i.i = lshr i32 %a, 31
@@ -15480,7 +15480,7 @@ parts_float_to_float_widen.exit:                  ; preds = %float32_unpack_cano
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i16 } @float64_to_floatx80(i64 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local { i64, i16 } @float64_to_floatx80(i64 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p128 = alloca %struct.FloatParts128, align 8
   %f.lobit.i.i = lshr i64 %a, 63
@@ -15598,7 +15598,7 @@ parts_float_to_float_widen.exit:                  ; preds = %float64_unpack_cano
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i16 } @float128_to_floatx80(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local { i64, i16 } @float128_to_floatx80(i64 %a.coerce0, i64 %a.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
   %shr.i16.i.i = lshr i64 %a.coerce1, 48
@@ -15674,7 +15674,7 @@ parts128_float_to_float.exit:                     ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float16_round_to_int(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float16_round_to_int(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i.i = lshr i16 %a, 15
@@ -15817,7 +15817,7 @@ parts64_round_to_int.exit:                        ; preds = %if.then47.i.i.i, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float32_round_to_int(i32 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float32_round_to_int(i32 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i32 %a, 31
@@ -15960,7 +15960,7 @@ parts64_round_to_int.exit:                        ; preds = %if.then47.i.i, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64_round_to_int(i64 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float64_round_to_int(i64 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i64 %a, 63
@@ -16102,7 +16102,7 @@ parts64_round_to_int.exit:                        ; preds = %if.then47.i.i, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @bfloat16_round_to_int(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @bfloat16_round_to_int(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i16 %a, 15
@@ -16246,7 +16246,7 @@ parts64_round_to_int.exit:                        ; preds = %if.then47.i.i, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @float128_round_to_int(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @float128_round_to_int(i64 %a.coerce0, i64 %a.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
   %shr.i16.i.i = lshr i64 %a.coerce1, 48
@@ -16333,7 +16333,7 @@ parts128_round_to_int.exit:                       ; preds = %entry, %entry, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i16 } @floatx80_round_to_int(i64 %a.coerce0, i16 %a.coerce1, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i16 } @floatx80_round_to_int(i64 %a.coerce0, i16 %a.coerce1, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
   %floatx80_rounding_precision.i = getelementptr inbounds nuw i8, ptr %status, i64 3
@@ -16472,7 +16472,7 @@ return:                                           ; preds = %parts128_round_to_i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local signext i8 @float16_to_int8_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local signext i8 @float16_to_int8_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i.i = lshr i16 %a, 15
@@ -16582,7 +16582,7 @@ parts64_float_to_sint.exit:                       ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local signext i16 @float16_to_int16_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local signext i16 @float16_to_int16_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i.i = lshr i16 %a, 15
@@ -16692,7 +16692,7 @@ parts64_float_to_sint.exit:                       ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float16_to_int32_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float16_to_int32_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i.i = lshr i16 %a, 15
@@ -16802,7 +16802,7 @@ parts64_float_to_sint.exit:                       ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float16_to_int64_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float16_to_int64_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i.i = lshr i16 %a, 15
@@ -16905,7 +16905,7 @@ parts64_float_to_sint.exit:                       ; preds = %parts64_float_to_si
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local signext i16 @float32_to_int16_scalbn(i32 noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local signext i16 @float32_to_int16_scalbn(i32 noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i32 %a, 31
@@ -17015,7 +17015,7 @@ parts64_float_to_sint.exit:                       ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float32_to_int32_scalbn(i32 noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float32_to_int32_scalbn(i32 noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i32 %a, 31
@@ -17125,7 +17125,7 @@ parts64_float_to_sint.exit:                       ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float32_to_int64_scalbn(i32 noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float32_to_int64_scalbn(i32 noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i32 %a, 31
@@ -17228,7 +17228,7 @@ parts64_float_to_sint.exit:                       ; preds = %parts64_float_to_si
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local signext i16 @float64_to_int16_scalbn(i64 noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local signext i16 @float64_to_int16_scalbn(i64 noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i64 %a, 63
@@ -17337,7 +17337,7 @@ parts64_float_to_sint.exit:                       ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float64_to_int32_scalbn(i64 noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float64_to_int32_scalbn(i64 noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i64 %a, 63
@@ -17446,7 +17446,7 @@ parts64_float_to_sint.exit:                       ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64_to_int64_scalbn(i64 noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float64_to_int64_scalbn(i64 noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i64 %a, 63
@@ -17548,7 +17548,7 @@ parts64_float_to_sint.exit:                       ; preds = %parts64_float_to_si
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local signext i8 @bfloat16_to_int8_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local signext i8 @bfloat16_to_int8_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i16 %a, 15
@@ -17659,7 +17659,7 @@ parts64_float_to_sint.exit:                       ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local signext i16 @bfloat16_to_int16_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local signext i16 @bfloat16_to_int16_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i16 %a, 15
@@ -17770,7 +17770,7 @@ parts64_float_to_sint.exit:                       ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @bfloat16_to_int32_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @bfloat16_to_int32_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i16 %a, 15
@@ -17881,7 +17881,7 @@ parts64_float_to_sint.exit:                       ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @bfloat16_to_int64_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @bfloat16_to_int64_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i16 %a, 15
@@ -17985,7 +17985,7 @@ parts64_float_to_sint.exit:                       ; preds = %parts64_float_to_si
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local signext i8 @float16_to_int8(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local signext i8 @float16_to_int8(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -17994,7 +17994,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local signext i16 @float16_to_int16(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local signext i16 @float16_to_int16(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -18003,7 +18003,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float16_to_int32(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float16_to_int32(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -18012,7 +18012,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float16_to_int64(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float16_to_int64(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -18021,7 +18021,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local signext i16 @float32_to_int16(i32 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local signext i16 @float32_to_int16(i32 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -18030,7 +18030,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float32_to_int32(i32 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float32_to_int32(i32 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -18039,7 +18039,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float32_to_int64(i32 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float32_to_int64(i32 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -18048,7 +18048,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local signext i16 @float64_to_int16(i64 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local signext i16 @float64_to_int16(i64 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -18057,7 +18057,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float64_to_int32(i64 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float64_to_int32(i64 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -18066,7 +18066,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64_to_int64(i64 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float64_to_int64(i64 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -18075,7 +18075,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float128_to_int32(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float128_to_int32(i64 %a.coerce0, i64 %a.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -18084,7 +18084,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @float128_to_int32_scalbn(i64 %a.coerce0, i64 %a.coerce1, i8 noundef zeroext %rmode, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc i32 @float128_to_int32_scalbn(i64 %a.coerce0, i64 %a.coerce1, i8 noundef zeroext %rmode, ptr noundef captures(none) %s) unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
   %shr.i16.i.i = lshr i64 %a.coerce1, 48
@@ -18166,7 +18166,7 @@ parts128_float_to_sint.exit:                      ; preds = %entry, %sw.epilog.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float128_to_int64(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float128_to_int64(i64 %a.coerce0, i64 %a.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -18175,7 +18175,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @float128_to_int64_scalbn(i64 %a.coerce0, i64 %a.coerce1, i8 noundef zeroext %rmode, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc i64 @float128_to_int64_scalbn(i64 %a.coerce0, i64 %a.coerce1, i8 noundef zeroext %rmode, ptr noundef captures(none) %s) unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
   %shr.i16.i.i = lshr i64 %a.coerce1, 48
@@ -18256,7 +18256,7 @@ parts128_float_to_sint.exit:                      ; preds = %entry, %sw.epilog.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @float128_to_int128(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @float128_to_int128(i64 %a.coerce0, i64 %a.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -18265,7 +18265,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc { i64, i64 } @float128_to_int128_scalbn(i64 %a.coerce0, i64 %a.coerce1, i8 noundef zeroext %rmode, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc { i64, i64 } @float128_to_int128_scalbn(i64 %a.coerce0, i64 %a.coerce1, i8 noundef zeroext %rmode, ptr noundef captures(none) %s) unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
   %shr.i16.i.i = lshr i64 %a.coerce1, 48
@@ -18381,7 +18381,7 @@ return:                                           ; preds = %entry, %sw.epilog
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @floatx80_to_int32(i64 %a.coerce0, i16 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @floatx80_to_int32(i64 %a.coerce0, i16 %a.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -18390,7 +18390,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @floatx80_to_int32_scalbn(i64 %a.coerce0, i16 %a.coerce1, i8 noundef zeroext %rmode, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc i32 @floatx80_to_int32_scalbn(i64 %a.coerce0, i16 %a.coerce1, i8 noundef zeroext %rmode, ptr noundef captures(none) %s) unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
   %floatx80_rounding_precision.i = getelementptr inbounds nuw i8, ptr %s, i64 3
@@ -18515,7 +18515,7 @@ parts128_float_to_sint.exit:                      ; preds = %if.end, %sw.epilog.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @floatx80_to_int64(i64 %a.coerce0, i16 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @floatx80_to_int64(i64 %a.coerce0, i16 %a.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -18524,7 +18524,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @floatx80_to_int64_scalbn(i64 %a.coerce0, i16 %a.coerce1, i8 noundef zeroext %rmode, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc i64 @floatx80_to_int64_scalbn(i64 %a.coerce0, i16 %a.coerce1, i8 noundef zeroext %rmode, ptr noundef captures(none) %s) unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
   %floatx80_rounding_precision.i = getelementptr inbounds nuw i8, ptr %s, i64 3
@@ -18648,105 +18648,105 @@ parts128_float_to_sint.exit:                      ; preds = %if.end, %sw.epilog.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local signext i16 @float16_to_int16_round_to_zero(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local signext i16 @float16_to_int16_round_to_zero(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call signext i16 @float16_to_int16_scalbn(i16 noundef zeroext %a, i8 noundef zeroext 3, i32 noundef 0, ptr noundef %s)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float16_to_int32_round_to_zero(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float16_to_int32_round_to_zero(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call i32 @float16_to_int32_scalbn(i16 noundef zeroext %a, i8 noundef zeroext 3, i32 noundef 0, ptr noundef %s)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float16_to_int64_round_to_zero(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float16_to_int64_round_to_zero(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @float16_to_int64_scalbn(i16 noundef zeroext %a, i8 noundef zeroext 3, i32 noundef 0, ptr noundef %s)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local signext i16 @float32_to_int16_round_to_zero(i32 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local signext i16 @float32_to_int16_round_to_zero(i32 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call signext i16 @float32_to_int16_scalbn(i32 noundef %a, i8 noundef zeroext 3, i32 noundef 0, ptr noundef %s)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float32_to_int32_round_to_zero(i32 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float32_to_int32_round_to_zero(i32 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call i32 @float32_to_int32_scalbn(i32 noundef %a, i8 noundef zeroext 3, i32 noundef 0, ptr noundef %s)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float32_to_int64_round_to_zero(i32 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float32_to_int64_round_to_zero(i32 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @float32_to_int64_scalbn(i32 noundef %a, i8 noundef zeroext 3, i32 noundef 0, ptr noundef %s)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local signext i16 @float64_to_int16_round_to_zero(i64 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local signext i16 @float64_to_int16_round_to_zero(i64 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call signext i16 @float64_to_int16_scalbn(i64 noundef %a, i8 noundef zeroext 3, i32 noundef 0, ptr noundef %s)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float64_to_int32_round_to_zero(i64 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float64_to_int32_round_to_zero(i64 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call i32 @float64_to_int32_scalbn(i64 noundef %a, i8 noundef zeroext 3, i32 noundef 0, ptr noundef %s)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64_to_int64_round_to_zero(i64 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float64_to_int64_round_to_zero(i64 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @float64_to_int64_scalbn(i64 noundef %a, i8 noundef zeroext 3, i32 noundef 0, ptr noundef %s)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float128_to_int32_round_to_zero(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float128_to_int32_round_to_zero(i64 %a.coerce0, i64 %a.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i32 @float128_to_int32_scalbn(i64 %a.coerce0, i64 %a.coerce1, i8 noundef zeroext 3, ptr noundef %s)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float128_to_int64_round_to_zero(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float128_to_int64_round_to_zero(i64 %a.coerce0, i64 %a.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i64 @float128_to_int64_scalbn(i64 %a.coerce0, i64 %a.coerce1, i8 noundef zeroext 3, ptr noundef %s)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @float128_to_int128_round_to_zero(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @float128_to_int128_round_to_zero(i64 %a.coerce0, i64 %a.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc { i64, i64 } @float128_to_int128_scalbn(i64 %a.coerce0, i64 %a.coerce1, i8 noundef zeroext 3, ptr noundef %s)
   ret { i64, i64 } %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @floatx80_to_int32_round_to_zero(i64 %a.coerce0, i16 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @floatx80_to_int32_round_to_zero(i64 %a.coerce0, i16 %a.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i32 @floatx80_to_int32_scalbn(i64 %a.coerce0, i16 %a.coerce1, i8 noundef zeroext 3, ptr noundef %s)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @floatx80_to_int64_round_to_zero(i64 %a.coerce0, i16 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @floatx80_to_int64_round_to_zero(i64 %a.coerce0, i16 %a.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i64 @floatx80_to_int64_scalbn(i64 %a.coerce0, i16 %a.coerce1, i8 noundef zeroext 3, ptr noundef %s)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local signext i8 @bfloat16_to_int8(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local signext i8 @bfloat16_to_int8(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -18755,7 +18755,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local signext i16 @bfloat16_to_int16(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local signext i16 @bfloat16_to_int16(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -18764,7 +18764,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @bfloat16_to_int32(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @bfloat16_to_int32(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -18773,7 +18773,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @bfloat16_to_int64(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @bfloat16_to_int64(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -18782,35 +18782,35 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local signext i8 @bfloat16_to_int8_round_to_zero(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local signext i8 @bfloat16_to_int8_round_to_zero(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call signext i8 @bfloat16_to_int8_scalbn(i16 noundef zeroext %a, i8 noundef zeroext 3, i32 noundef 0, ptr noundef %s)
   ret i8 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local signext i16 @bfloat16_to_int16_round_to_zero(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local signext i16 @bfloat16_to_int16_round_to_zero(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call signext i16 @bfloat16_to_int16_scalbn(i16 noundef zeroext %a, i8 noundef zeroext 3, i32 noundef 0, ptr noundef %s)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @bfloat16_to_int32_round_to_zero(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @bfloat16_to_int32_round_to_zero(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call i32 @bfloat16_to_int32_scalbn(i16 noundef zeroext %a, i8 noundef zeroext 3, i32 noundef 0, ptr noundef %s)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @bfloat16_to_int64_round_to_zero(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @bfloat16_to_int64_round_to_zero(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @bfloat16_to_int64_scalbn(i16 noundef zeroext %a, i8 noundef zeroext 3, i32 noundef 0, ptr noundef %s)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float64_to_int32_modulo(i64 noundef %a, i8 noundef zeroext %rmode, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float64_to_int32_modulo(i64 noundef %a, i8 noundef zeroext %rmode, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i64 %a, 63
@@ -18928,7 +18928,7 @@ parts64_float_to_sint_modulo.exit:                ; preds = %parts64_float_to_si
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64_to_int64_modulo(i64 noundef %a, i8 noundef zeroext %rmode, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float64_to_int64_modulo(i64 noundef %a, i8 noundef zeroext %rmode, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i64 %a, 63
@@ -19041,7 +19041,7 @@ parts64_float_to_sint_modulo.exit:                ; preds = %parts64_float_to_si
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i8 @float16_to_uint8_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i8 @float16_to_uint8_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i.i = lshr i16 %a, 15
@@ -19154,7 +19154,7 @@ parts64_float_to_uint.exit:                       ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float16_to_uint16_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float16_to_uint16_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i.i = lshr i16 %a, 15
@@ -19267,7 +19267,7 @@ parts64_float_to_uint.exit:                       ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float16_to_uint32_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float16_to_uint32_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i.i = lshr i16 %a, 15
@@ -19380,7 +19380,7 @@ parts64_float_to_uint.exit:                       ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float16_to_uint64_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float16_to_uint64_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i.i = lshr i16 %a, 15
@@ -19484,7 +19484,7 @@ parts64_float_to_uint.exit:                       ; preds = %parts64_float_to_ui
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float32_to_uint16_scalbn(i32 noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float32_to_uint16_scalbn(i32 noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i32 %a, 31
@@ -19597,7 +19597,7 @@ parts64_float_to_uint.exit:                       ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float32_to_uint32_scalbn(i32 noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float32_to_uint32_scalbn(i32 noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i32 %a, 31
@@ -19710,7 +19710,7 @@ parts64_float_to_uint.exit:                       ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float32_to_uint64_scalbn(i32 noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float32_to_uint64_scalbn(i32 noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i32 %a, 31
@@ -19814,7 +19814,7 @@ parts64_float_to_uint.exit:                       ; preds = %parts64_float_to_ui
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float64_to_uint16_scalbn(i64 noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float64_to_uint16_scalbn(i64 noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i64 %a, 63
@@ -19926,7 +19926,7 @@ parts64_float_to_uint.exit:                       ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float64_to_uint32_scalbn(i64 noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float64_to_uint32_scalbn(i64 noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i64 %a, 63
@@ -20038,7 +20038,7 @@ parts64_float_to_uint.exit:                       ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64_to_uint64_scalbn(i64 noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float64_to_uint64_scalbn(i64 noundef %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i64 %a, 63
@@ -20139,7 +20139,7 @@ parts64_float_to_uint.exit:                       ; preds = %parts64_float_to_ui
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i8 @bfloat16_to_uint8_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i8 @bfloat16_to_uint8_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i16 %a, 15
@@ -20253,7 +20253,7 @@ parts64_float_to_uint.exit:                       ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @bfloat16_to_uint16_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @bfloat16_to_uint16_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i16 %a, 15
@@ -20367,7 +20367,7 @@ parts64_float_to_uint.exit:                       ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @bfloat16_to_uint32_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @bfloat16_to_uint32_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i16 %a, 15
@@ -20481,7 +20481,7 @@ parts64_float_to_uint.exit:                       ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @bfloat16_to_uint64_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @bfloat16_to_uint64_scalbn(i16 noundef zeroext %a, i8 noundef zeroext %rmode, i32 noundef %scale, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i16 %a, 15
@@ -20586,7 +20586,7 @@ parts64_float_to_uint.exit:                       ; preds = %parts64_float_to_ui
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i8 @float16_to_uint8(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i8 @float16_to_uint8(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -20595,7 +20595,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float16_to_uint16(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float16_to_uint16(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -20604,7 +20604,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float16_to_uint32(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float16_to_uint32(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -20613,7 +20613,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float16_to_uint64(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float16_to_uint64(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -20622,7 +20622,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float32_to_uint16(i32 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float32_to_uint16(i32 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -20631,7 +20631,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float32_to_uint32(i32 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float32_to_uint32(i32 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -20640,7 +20640,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float32_to_uint64(i32 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float32_to_uint64(i32 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
@@ -20748,7 +20748,7 @@ float32_to_uint64_scalbn.exit:                    ; preds = %if.then.i.i.i, %par
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float64_to_uint16(i64 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float64_to_uint16(i64 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -20757,7 +20757,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float64_to_uint32(i64 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float64_to_uint32(i64 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -20766,7 +20766,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64_to_uint64(i64 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float64_to_uint64(i64 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
@@ -20871,7 +20871,7 @@ float64_to_uint64_scalbn.exit:                    ; preds = %if.then.i.i.i, %par
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float128_to_uint32(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float128_to_uint32(i64 %a.coerce0, i64 %a.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -20880,7 +20880,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @float128_to_uint32_scalbn(i64 %a.coerce0, i64 %a.coerce1, i8 noundef zeroext %rmode, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc i32 @float128_to_uint32_scalbn(i64 %a.coerce0, i64 %a.coerce1, i8 noundef zeroext %rmode, ptr noundef captures(none) %s) unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
   %shr.i16.i.i = lshr i64 %a.coerce1, 48
@@ -20965,7 +20965,7 @@ parts128_float_to_uint.exit:                      ; preds = %entry, %sw.epilog.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float128_to_uint64(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float128_to_uint64(i64 %a.coerce0, i64 %a.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -20974,7 +20974,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @float128_to_uint64_scalbn(i64 %a.coerce0, i64 %a.coerce1, i8 noundef zeroext %rmode, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc i64 @float128_to_uint64_scalbn(i64 %a.coerce0, i64 %a.coerce1, i8 noundef zeroext %rmode, ptr noundef captures(none) %s) unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
   %shr.i16.i.i = lshr i64 %a.coerce1, 48
@@ -21057,7 +21057,7 @@ parts128_float_to_uint.exit:                      ; preds = %entry, %sw.epilog.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @float128_to_uint128(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @float128_to_uint128(i64 %a.coerce0, i64 %a.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -21066,7 +21066,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc { i64, i64 } @float128_to_uint128_scalbn(i64 %a.coerce0, i64 %a.coerce1, i8 noundef zeroext %rmode, ptr nocapture noundef %s) unnamed_addr #3 {
+define internal fastcc { i64, i64 } @float128_to_uint128_scalbn(i64 %a.coerce0, i64 %a.coerce1, i8 noundef zeroext %rmode, ptr noundef captures(none) %s) unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
   %shr.i16.i.i = lshr i64 %a.coerce1, 48
@@ -21161,42 +21161,42 @@ return:                                           ; preds = %entry, %sw.epilog
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float16_to_uint16_round_to_zero(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float16_to_uint16_round_to_zero(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call zeroext i16 @float16_to_uint16_scalbn(i16 noundef zeroext %a, i8 noundef zeroext 3, i32 noundef 0, ptr noundef %s)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float16_to_uint32_round_to_zero(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float16_to_uint32_round_to_zero(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call i32 @float16_to_uint32_scalbn(i16 noundef zeroext %a, i8 noundef zeroext 3, i32 noundef 0, ptr noundef %s)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float16_to_uint64_round_to_zero(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float16_to_uint64_round_to_zero(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @float16_to_uint64_scalbn(i16 noundef zeroext %a, i8 noundef zeroext 3, i32 noundef 0, ptr noundef %s)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float32_to_uint16_round_to_zero(i32 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float32_to_uint16_round_to_zero(i32 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call zeroext i16 @float32_to_uint16_scalbn(i32 noundef %a, i8 noundef zeroext 3, i32 noundef 0, ptr noundef %s)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float32_to_uint32_round_to_zero(i32 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float32_to_uint32_round_to_zero(i32 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call i32 @float32_to_uint32_scalbn(i32 noundef %a, i8 noundef zeroext 3, i32 noundef 0, ptr noundef %s)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local i64 @float32_to_uint64_round_to_zero(i32 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #2 {
+define dso_local i64 @float32_to_uint64_round_to_zero(i32 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #2 {
 entry:
   %f.lobit.i.i.i = lshr i32 %a, 31
   %shr.i8.i.i.i = lshr i32 %a, 23
@@ -21291,21 +21291,21 @@ float32_to_uint64_scalbn.exit:                    ; preds = %if.then.i.i.i, %par
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float64_to_uint16_round_to_zero(i64 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float64_to_uint16_round_to_zero(i64 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call zeroext i16 @float64_to_uint16_scalbn(i64 noundef %a, i8 noundef zeroext 3, i32 noundef 0, ptr noundef %s)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float64_to_uint32_round_to_zero(i64 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float64_to_uint32_round_to_zero(i64 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call i32 @float64_to_uint32_scalbn(i64 noundef %a, i8 noundef zeroext 3, i32 noundef 0, ptr noundef %s)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local i64 @float64_to_uint64_round_to_zero(i64 noundef %a, ptr nocapture noundef %s) local_unnamed_addr #2 {
+define dso_local i64 @float64_to_uint64_round_to_zero(i64 noundef %a, ptr noundef captures(none) %s) local_unnamed_addr #2 {
 entry:
   %f.lobit.i.i.i = lshr i64 %a, 63
   %shr.i8.i.i.i = lshr i64 %a, 52
@@ -21397,28 +21397,28 @@ float64_to_uint64_scalbn.exit:                    ; preds = %if.then.i.i.i, %par
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float128_to_uint32_round_to_zero(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float128_to_uint32_round_to_zero(i64 %a.coerce0, i64 %a.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i32 @float128_to_uint32_scalbn(i64 %a.coerce0, i64 %a.coerce1, i8 noundef zeroext 3, ptr noundef %s)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float128_to_uint64_round_to_zero(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float128_to_uint64_round_to_zero(i64 %a.coerce0, i64 %a.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i64 @float128_to_uint64_scalbn(i64 %a.coerce0, i64 %a.coerce1, i8 noundef zeroext 3, ptr noundef %s)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @float128_to_uint128_round_to_zero(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @float128_to_uint128_round_to_zero(i64 %a.coerce0, i64 %a.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc { i64, i64 } @float128_to_uint128_scalbn(i64 %a.coerce0, i64 %a.coerce1, i8 noundef zeroext 3, ptr noundef %s)
   ret { i64, i64 } %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i8 @bfloat16_to_uint8(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i8 @bfloat16_to_uint8(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -21427,7 +21427,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @bfloat16_to_uint16(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @bfloat16_to_uint16(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -21436,7 +21436,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @bfloat16_to_uint32(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @bfloat16_to_uint32(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -21445,7 +21445,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @bfloat16_to_uint64(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @bfloat16_to_uint64(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %s, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -21454,35 +21454,35 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i8 @bfloat16_to_uint8_round_to_zero(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i8 @bfloat16_to_uint8_round_to_zero(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call zeroext i8 @bfloat16_to_uint8_scalbn(i16 noundef zeroext %a, i8 noundef zeroext 3, i32 noundef 0, ptr noundef %s)
   ret i8 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @bfloat16_to_uint16_round_to_zero(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @bfloat16_to_uint16_round_to_zero(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call zeroext i16 @bfloat16_to_uint16_scalbn(i16 noundef zeroext %a, i8 noundef zeroext 3, i32 noundef 0, ptr noundef %s)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @bfloat16_to_uint32_round_to_zero(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @bfloat16_to_uint32_round_to_zero(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call i32 @bfloat16_to_uint32_scalbn(i16 noundef zeroext %a, i8 noundef zeroext 3, i32 noundef 0, ptr noundef %s)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @bfloat16_to_uint64_round_to_zero(i16 noundef zeroext %a, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @bfloat16_to_uint64_round_to_zero(i16 noundef zeroext %a, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @bfloat16_to_uint64_scalbn(i16 noundef zeroext %a, i8 noundef zeroext 3, i32 noundef 0, ptr noundef %s)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @int64_to_float16_scalbn(i64 noundef %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @int64_to_float16_scalbn(i64 noundef %a, i32 noundef %scale, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
@@ -21540,7 +21540,7 @@ parts64_sint_to_float.exit:                       ; preds = %if.then.i, %if.end4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @int32_to_float16_scalbn(i32 noundef %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @int32_to_float16_scalbn(i32 noundef %a, i32 noundef %scale, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = sext i32 %a to i64
@@ -21601,7 +21601,7 @@ int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @int16_to_float16_scalbn(i16 noundef signext %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @int16_to_float16_scalbn(i16 noundef signext %a, i32 noundef %scale, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = sext i16 %a to i64
@@ -21662,7 +21662,7 @@ int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @int64_to_float16(i64 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @int64_to_float16(i64 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
@@ -21719,7 +21719,7 @@ int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @int32_to_float16(i32 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @int32_to_float16(i32 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = sext i32 %a to i64
@@ -21777,7 +21777,7 @@ int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @int16_to_float16(i16 noundef signext %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @int16_to_float16(i16 noundef signext %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = sext i16 %a to i64
@@ -21835,7 +21835,7 @@ int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @int8_to_float16(i8 noundef signext %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @int8_to_float16(i8 noundef signext %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = sext i8 %a to i64
@@ -21893,7 +21893,7 @@ int64_to_float16_scalbn.exit:                     ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @int64_to_float32_scalbn(i64 noundef %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i32 @int64_to_float32_scalbn(i64 noundef %a, i32 noundef %scale, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %cmp = icmp eq i32 %scale, 0
@@ -22008,7 +22008,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @int32_to_float32_scalbn(i32 noundef %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i32 @int32_to_float32_scalbn(i32 noundef %a, i32 noundef %scale, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %conv = sext i32 %a to i64
   %call = tail call i32 @int64_to_float32_scalbn(i64 noundef %conv, i32 noundef %scale, ptr noundef %status)
@@ -22016,7 +22016,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @int16_to_float32_scalbn(i16 noundef signext %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i32 @int16_to_float32_scalbn(i16 noundef signext %a, i32 noundef %scale, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %conv = sext i16 %a to i64
   %call = tail call i32 @int64_to_float32_scalbn(i64 noundef %conv, i32 noundef %scale, ptr noundef %status)
@@ -22024,7 +22024,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @int64_to_float32(i64 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i32 @int64_to_float32(i64 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
@@ -22102,7 +22102,7 @@ int64_to_float32_scalbn.exit:                     ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @int32_to_float32(i32 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i32 @int32_to_float32(i32 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = sext i32 %a to i64
@@ -22181,7 +22181,7 @@ int64_to_float32_scalbn.exit:                     ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @int16_to_float32(i16 noundef signext %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i32 @int16_to_float32(i16 noundef signext %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = sext i16 %a to i64
@@ -22260,7 +22260,7 @@ int64_to_float32_scalbn.exit:                     ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @int64_to_float64_scalbn(i64 noundef %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i64 @int64_to_float64_scalbn(i64 noundef %a, i32 noundef %scale, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %cmp = icmp eq i32 %scale, 0
@@ -22375,7 +22375,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @int32_to_float64_scalbn(i32 noundef %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i64 @int32_to_float64_scalbn(i32 noundef %a, i32 noundef %scale, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %conv = sext i32 %a to i64
   %call = tail call i64 @int64_to_float64_scalbn(i64 noundef %conv, i32 noundef %scale, ptr noundef %status)
@@ -22383,7 +22383,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @int16_to_float64_scalbn(i16 noundef signext %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i64 @int16_to_float64_scalbn(i16 noundef signext %a, i32 noundef %scale, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %conv = sext i16 %a to i64
   %call = tail call i64 @int64_to_float64_scalbn(i64 noundef %conv, i32 noundef %scale, ptr noundef %status)
@@ -22391,7 +22391,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @int64_to_float64(i64 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i64 @int64_to_float64(i64 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
@@ -22469,7 +22469,7 @@ int64_to_float64_scalbn.exit:                     ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @int32_to_float64(i32 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i64 @int32_to_float64(i32 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = sext i32 %a to i64
@@ -22548,7 +22548,7 @@ int64_to_float64_scalbn.exit:                     ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @int16_to_float64(i16 noundef signext %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i64 @int16_to_float64(i16 noundef signext %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = sext i16 %a to i64
@@ -22627,7 +22627,7 @@ int64_to_float64_scalbn.exit:                     ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @int64_to_bfloat16_scalbn(i64 noundef %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @int64_to_bfloat16_scalbn(i64 noundef %a, i32 noundef %scale, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
@@ -22685,7 +22685,7 @@ parts64_sint_to_float.exit:                       ; preds = %if.then.i, %if.end4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @int32_to_bfloat16_scalbn(i32 noundef %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @int32_to_bfloat16_scalbn(i32 noundef %a, i32 noundef %scale, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = sext i32 %a to i64
@@ -22746,7 +22746,7 @@ int64_to_bfloat16_scalbn.exit:                    ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @int16_to_bfloat16_scalbn(i16 noundef signext %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @int16_to_bfloat16_scalbn(i16 noundef signext %a, i32 noundef %scale, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = sext i16 %a to i64
@@ -22807,7 +22807,7 @@ int64_to_bfloat16_scalbn.exit:                    ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @int8_to_bfloat16_scalbn(i8 noundef signext %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @int8_to_bfloat16_scalbn(i8 noundef signext %a, i32 noundef %scale, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = sext i8 %a to i64
@@ -22868,7 +22868,7 @@ int64_to_bfloat16_scalbn.exit:                    ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @int64_to_bfloat16(i64 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @int64_to_bfloat16(i64 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
@@ -22925,7 +22925,7 @@ int64_to_bfloat16_scalbn.exit:                    ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @int32_to_bfloat16(i32 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @int32_to_bfloat16(i32 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = sext i32 %a to i64
@@ -22983,7 +22983,7 @@ int64_to_bfloat16_scalbn.exit:                    ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @int16_to_bfloat16(i16 noundef signext %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @int16_to_bfloat16(i16 noundef signext %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = sext i16 %a to i64
@@ -23041,7 +23041,7 @@ int64_to_bfloat16_scalbn.exit:                    ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @int8_to_bfloat16(i8 noundef signext %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @int8_to_bfloat16(i8 noundef signext %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = sext i8 %a to i64
@@ -23099,7 +23099,7 @@ int64_to_bfloat16_scalbn.exit:                    ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @int128_to_float128(i64 noundef %a.coerce0, i64 noundef %a.coerce1, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @int128_to_float128(i64 noundef %a.coerce0, i64 noundef %a.coerce1, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %p, i8 0, i64 24, i1 false)
@@ -23162,10 +23162,10 @@ if.end24:                                         ; preds = %if.else, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @int64_to_float128(i64 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @int64_to_float128(i64 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %p, i8 0, i64 24, i1 false)
@@ -23205,7 +23205,7 @@ parts128_sint_to_float.exit:                      ; preds = %if.then.i, %if.end4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @int32_to_float128(i32 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @int32_to_float128(i32 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts128, align 8
   %conv = sext i32 %a to i64
@@ -23248,7 +23248,7 @@ int64_to_float128.exit:                           ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i16 } @int64_to_floatx80(i64 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i16 } @int64_to_floatx80(i64 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %p, i8 0, i64 24, i1 false)
@@ -23288,7 +23288,7 @@ parts128_sint_to_float.exit:                      ; preds = %if.then.i, %if.end4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i16 } @int32_to_floatx80(i32 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i16 } @int32_to_floatx80(i32 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts128, align 8
   %conv = sext i32 %a to i64
@@ -23331,7 +23331,7 @@ int64_to_floatx80.exit:                           ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @uint64_to_float16_scalbn(i64 noundef %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @uint64_to_float16_scalbn(i64 noundef %a, i32 noundef %scale, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
@@ -23375,7 +23375,7 @@ parts64_uint_to_float.exit:                       ; preds = %entry, %if.else.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @uint32_to_float16_scalbn(i32 noundef %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @uint32_to_float16_scalbn(i32 noundef %a, i32 noundef %scale, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
@@ -23422,7 +23422,7 @@ uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @uint16_to_float16_scalbn(i16 noundef zeroext %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @uint16_to_float16_scalbn(i16 noundef zeroext %a, i32 noundef %scale, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
@@ -23469,7 +23469,7 @@ uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @uint64_to_float16(i64 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @uint64_to_float16(i64 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
@@ -23512,7 +23512,7 @@ uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @uint32_to_float16(i32 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @uint32_to_float16(i32 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
@@ -23556,7 +23556,7 @@ uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @uint16_to_float16(i16 noundef zeroext %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @uint16_to_float16(i16 noundef zeroext %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
@@ -23600,7 +23600,7 @@ uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @uint8_to_float16(i8 noundef zeroext %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @uint8_to_float16(i8 noundef zeroext %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
@@ -23644,7 +23644,7 @@ uint64_to_float16_scalbn.exit:                    ; preds = %entry, %if.else.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @uint64_to_float32_scalbn(i64 noundef %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i32 @uint64_to_float32_scalbn(i64 noundef %a, i32 noundef %scale, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %cmp = icmp eq i32 %scale, 0
@@ -23729,7 +23729,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @uint32_to_float32_scalbn(i32 noundef %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i32 @uint32_to_float32_scalbn(i32 noundef %a, i32 noundef %scale, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = zext i32 %a to i64
@@ -23817,7 +23817,7 @@ uint64_to_float32_scalbn.exit:                    ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @uint16_to_float32_scalbn(i16 noundef zeroext %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i32 @uint16_to_float32_scalbn(i16 noundef zeroext %a, i32 noundef %scale, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = zext i16 %a to i64
@@ -23905,7 +23905,7 @@ uint64_to_float32_scalbn.exit:                    ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @uint64_to_float32(i64 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i32 @uint64_to_float32(i64 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
@@ -23969,7 +23969,7 @@ uint64_to_float32_scalbn.exit:                    ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @uint32_to_float32(i32 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i32 @uint32_to_float32(i32 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = zext i32 %a to i64
@@ -24034,7 +24034,7 @@ uint64_to_float32_scalbn.exit:                    ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @uint16_to_float32(i16 noundef zeroext %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i32 @uint16_to_float32(i16 noundef zeroext %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = zext i16 %a to i64
@@ -24099,7 +24099,7 @@ uint64_to_float32_scalbn.exit:                    ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @uint64_to_float64_scalbn(i64 noundef %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i64 @uint64_to_float64_scalbn(i64 noundef %a, i32 noundef %scale, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %cmp = icmp eq i32 %scale, 0
@@ -24184,7 +24184,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @uint32_to_float64_scalbn(i32 noundef %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i64 @uint32_to_float64_scalbn(i32 noundef %a, i32 noundef %scale, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = zext i32 %a to i64
@@ -24272,7 +24272,7 @@ uint64_to_float64_scalbn.exit:                    ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @uint16_to_float64_scalbn(i16 noundef zeroext %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i64 @uint16_to_float64_scalbn(i16 noundef zeroext %a, i32 noundef %scale, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = zext i16 %a to i64
@@ -24360,7 +24360,7 @@ uint64_to_float64_scalbn.exit:                    ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @uint64_to_float64(i64 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i64 @uint64_to_float64(i64 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
@@ -24424,7 +24424,7 @@ uint64_to_float64_scalbn.exit:                    ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @uint32_to_float64(i32 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i64 @uint32_to_float64(i32 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = zext i32 %a to i64
@@ -24489,7 +24489,7 @@ uint64_to_float64_scalbn.exit:                    ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @uint16_to_float64(i16 noundef zeroext %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i64 @uint16_to_float64(i16 noundef zeroext %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %conv = zext i16 %a to i64
@@ -24554,7 +24554,7 @@ uint64_to_float64_scalbn.exit:                    ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @uint64_to_bfloat16_scalbn(i64 noundef %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @uint64_to_bfloat16_scalbn(i64 noundef %a, i32 noundef %scale, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
@@ -24598,7 +24598,7 @@ parts64_uint_to_float.exit:                       ; preds = %entry, %if.else.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @uint32_to_bfloat16_scalbn(i32 noundef %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @uint32_to_bfloat16_scalbn(i32 noundef %a, i32 noundef %scale, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
@@ -24645,7 +24645,7 @@ uint64_to_bfloat16_scalbn.exit:                   ; preds = %entry, %if.else.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @uint16_to_bfloat16_scalbn(i16 noundef zeroext %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @uint16_to_bfloat16_scalbn(i16 noundef zeroext %a, i32 noundef %scale, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
@@ -24692,7 +24692,7 @@ uint64_to_bfloat16_scalbn.exit:                   ; preds = %entry, %if.else.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @uint8_to_bfloat16_scalbn(i8 noundef zeroext %a, i32 noundef %scale, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @uint8_to_bfloat16_scalbn(i8 noundef zeroext %a, i32 noundef %scale, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
@@ -24739,7 +24739,7 @@ uint64_to_bfloat16_scalbn.exit:                   ; preds = %entry, %if.else.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @uint64_to_bfloat16(i64 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @uint64_to_bfloat16(i64 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
@@ -24782,7 +24782,7 @@ uint64_to_bfloat16_scalbn.exit:                   ; preds = %entry, %if.else.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @uint32_to_bfloat16(i32 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @uint32_to_bfloat16(i32 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
@@ -24826,7 +24826,7 @@ uint64_to_bfloat16_scalbn.exit:                   ; preds = %entry, %if.else.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @uint16_to_bfloat16(i16 noundef zeroext %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @uint16_to_bfloat16(i16 noundef zeroext %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
@@ -24870,7 +24870,7 @@ uint64_to_bfloat16_scalbn.exit:                   ; preds = %entry, %if.else.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @uint8_to_bfloat16(i8 noundef zeroext %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @uint8_to_bfloat16(i8 noundef zeroext %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
@@ -24914,7 +24914,7 @@ uint64_to_bfloat16_scalbn.exit:                   ; preds = %entry, %if.else.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @uint64_to_float128(i64 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @uint64_to_float128(i64 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %p, i8 0, i64 24, i1 false)
@@ -24940,7 +24940,7 @@ parts128_uint_to_float.exit:                      ; preds = %entry, %if.else.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @uint128_to_float128(i64 noundef %a.coerce0, i64 noundef %a.coerce1, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @uint128_to_float128(i64 noundef %a.coerce0, i64 noundef %a.coerce1, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %p, i8 0, i64 24, i1 false)
@@ -24981,14 +24981,14 @@ if.end17:                                         ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float16_max(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float16_max(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc zeroext i16 @float16_minmax(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef %s, i32 noundef 0)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @float16_minmax(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s, i32 noundef range(i32 0, 10) %flags) unnamed_addr #3 {
+define internal fastcc zeroext i16 @float16_minmax(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %s, i32 noundef range(i32 0, 10) %flags) unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts64, align 8
   %pb = alloca %struct.FloatParts64, align 8
@@ -25165,63 +25165,63 @@ float16_unpack_canonical.exit34:                  ; preds = %if.then8.i.i.i29, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float16_maxnum(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float16_maxnum(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc zeroext i16 @float16_minmax(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef %s, i32 noundef 2)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float16_maxnummag(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float16_maxnummag(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc zeroext i16 @float16_minmax(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef %s, i32 noundef 6)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float16_maximum_number(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float16_maximum_number(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc zeroext i16 @float16_minmax(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef %s, i32 noundef 8)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float16_min(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float16_min(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc zeroext i16 @float16_minmax(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef %s, i32 noundef 1)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float16_minnum(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float16_minnum(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc zeroext i16 @float16_minmax(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef %s, i32 noundef 3)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float16_minnummag(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float16_minnummag(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc zeroext i16 @float16_minmax(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef %s, i32 noundef 7)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float16_minimum_number(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float16_minimum_number(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc zeroext i16 @float16_minmax(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef %s, i32 noundef 9)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @bfloat16_max(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @bfloat16_max(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc zeroext i16 @bfloat16_minmax(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef %s, i32 noundef 0)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @bfloat16_minmax(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s, i32 noundef range(i32 0, 10) %flags) unnamed_addr #3 {
+define internal fastcc zeroext i16 @bfloat16_minmax(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %s, i32 noundef range(i32 0, 10) %flags) unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts64, align 8
   %pb = alloca %struct.FloatParts64, align 8
@@ -25400,63 +25400,63 @@ bfloat16_unpack_canonical.exit35:                 ; preds = %if.then8.i.i30, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @bfloat16_maxnum(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @bfloat16_maxnum(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc zeroext i16 @bfloat16_minmax(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef %s, i32 noundef 2)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @bfloat16_maxnummag(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @bfloat16_maxnummag(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc zeroext i16 @bfloat16_minmax(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef %s, i32 noundef 6)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @bfloat16_maximum_number(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @bfloat16_maximum_number(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc zeroext i16 @bfloat16_minmax(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef %s, i32 noundef 8)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @bfloat16_min(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @bfloat16_min(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc zeroext i16 @bfloat16_minmax(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef %s, i32 noundef 1)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @bfloat16_minnum(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @bfloat16_minnum(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc zeroext i16 @bfloat16_minmax(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef %s, i32 noundef 3)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @bfloat16_minnummag(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @bfloat16_minnummag(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc zeroext i16 @bfloat16_minmax(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef %s, i32 noundef 7)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @bfloat16_minimum_number(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local zeroext i16 @bfloat16_minimum_number(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc zeroext i16 @bfloat16_minmax(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef %s, i32 noundef 9)
   ret i16 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float32_max(i32 noundef %a, i32 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float32_max(i32 noundef %a, i32 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i32 @float32_minmax(i32 noundef %a, i32 noundef %b, ptr noundef %s, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @float32_minmax(i32 noundef %a, i32 noundef %b, ptr nocapture noundef %s, i32 noundef range(i32 0, 10) %flags) unnamed_addr #3 {
+define internal fastcc i32 @float32_minmax(i32 noundef %a, i32 noundef %b, ptr noundef captures(none) %s, i32 noundef range(i32 0, 10) %flags) unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts64, align 8
   %pb = alloca %struct.FloatParts64, align 8
@@ -25633,63 +25633,63 @@ float32_unpack_canonical.exit36:                  ; preds = %if.then8.i.i31, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float32_maxnum(i32 noundef %a, i32 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float32_maxnum(i32 noundef %a, i32 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i32 @float32_minmax(i32 noundef %a, i32 noundef %b, ptr noundef %s, i32 noundef 2)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float32_maxnummag(i32 noundef %a, i32 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float32_maxnummag(i32 noundef %a, i32 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i32 @float32_minmax(i32 noundef %a, i32 noundef %b, ptr noundef %s, i32 noundef 6)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float32_maximum_number(i32 noundef %a, i32 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float32_maximum_number(i32 noundef %a, i32 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i32 @float32_minmax(i32 noundef %a, i32 noundef %b, ptr noundef %s, i32 noundef 8)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float32_min(i32 noundef %a, i32 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float32_min(i32 noundef %a, i32 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i32 @float32_minmax(i32 noundef %a, i32 noundef %b, ptr noundef %s, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float32_minnum(i32 noundef %a, i32 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float32_minnum(i32 noundef %a, i32 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i32 @float32_minmax(i32 noundef %a, i32 noundef %b, ptr noundef %s, i32 noundef 3)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float32_minnummag(i32 noundef %a, i32 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float32_minnummag(i32 noundef %a, i32 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i32 @float32_minmax(i32 noundef %a, i32 noundef %b, ptr noundef %s, i32 noundef 7)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float32_minimum_number(i32 noundef %a, i32 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float32_minimum_number(i32 noundef %a, i32 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i32 @float32_minmax(i32 noundef %a, i32 noundef %b, ptr noundef %s, i32 noundef 9)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64_max(i64 noundef %a, i64 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float64_max(i64 noundef %a, i64 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i64 @float64_minmax(i64 noundef %a, i64 noundef %b, ptr noundef %s, i32 noundef 0)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @float64_minmax(i64 noundef %a, i64 noundef %b, ptr nocapture noundef %s, i32 noundef range(i32 0, 10) %flags) unnamed_addr #3 {
+define internal fastcc i64 @float64_minmax(i64 noundef %a, i64 noundef %b, ptr noundef captures(none) %s, i32 noundef range(i32 0, 10) %flags) unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts64, align 8
   %pb = alloca %struct.FloatParts64, align 8
@@ -25864,63 +25864,63 @@ float64_unpack_canonical.exit35:                  ; preds = %if.then8.i.i30, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64_maxnum(i64 noundef %a, i64 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float64_maxnum(i64 noundef %a, i64 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i64 @float64_minmax(i64 noundef %a, i64 noundef %b, ptr noundef %s, i32 noundef 2)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64_maxnummag(i64 noundef %a, i64 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float64_maxnummag(i64 noundef %a, i64 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i64 @float64_minmax(i64 noundef %a, i64 noundef %b, ptr noundef %s, i32 noundef 6)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64_maximum_number(i64 noundef %a, i64 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float64_maximum_number(i64 noundef %a, i64 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i64 @float64_minmax(i64 noundef %a, i64 noundef %b, ptr noundef %s, i32 noundef 8)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64_min(i64 noundef %a, i64 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float64_min(i64 noundef %a, i64 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i64 @float64_minmax(i64 noundef %a, i64 noundef %b, ptr noundef %s, i32 noundef 1)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64_minnum(i64 noundef %a, i64 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float64_minnum(i64 noundef %a, i64 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i64 @float64_minmax(i64 noundef %a, i64 noundef %b, ptr noundef %s, i32 noundef 3)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64_minnummag(i64 noundef %a, i64 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float64_minnummag(i64 noundef %a, i64 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i64 @float64_minmax(i64 noundef %a, i64 noundef %b, ptr noundef %s, i32 noundef 7)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64_minimum_number(i64 noundef %a, i64 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float64_minimum_number(i64 noundef %a, i64 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i64 @float64_minmax(i64 noundef %a, i64 noundef %b, ptr noundef %s, i32 noundef 9)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @float128_max(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @float128_max(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc { i64, i64 } @float128_minmax(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef %s, i32 noundef 0)
   ret { i64, i64 } %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc { i64, i64 } @float128_minmax(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr nocapture noundef %s, i32 noundef range(i32 0, 10) %flags) unnamed_addr #3 {
+define internal fastcc { i64, i64 } @float128_minmax(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef captures(none) %s, i32 noundef range(i32 0, 10) %flags) unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts128, align 8
   %pb = alloca %struct.FloatParts128, align 8
@@ -26200,63 +26200,63 @@ parts128_minmax.exit:                             ; preds = %pickNaN.exit.i.i, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @float128_maxnum(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @float128_maxnum(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc { i64, i64 } @float128_minmax(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef %s, i32 noundef 2)
   ret { i64, i64 } %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @float128_maxnummag(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @float128_maxnummag(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc { i64, i64 } @float128_minmax(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef %s, i32 noundef 6)
   ret { i64, i64 } %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @float128_maximum_number(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @float128_maximum_number(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc { i64, i64 } @float128_minmax(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef %s, i32 noundef 8)
   ret { i64, i64 } %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @float128_min(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @float128_min(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc { i64, i64 } @float128_minmax(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef %s, i32 noundef 1)
   ret { i64, i64 } %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @float128_minnum(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @float128_minnum(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc { i64, i64 } @float128_minmax(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef %s, i32 noundef 3)
   ret { i64, i64 } %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @float128_minnummag(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @float128_minnummag(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc { i64, i64 } @float128_minmax(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef %s, i32 noundef 7)
   ret { i64, i64 } %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @float128_minimum_number(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @float128_minimum_number(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc { i64, i64 } @float128_minmax(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef %s, i32 noundef 9)
   ret { i64, i64 } %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 3) i32 @float16_compare(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 3) i32 @float16_compare(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i32 @float16_do_compare(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef %s, i1 noundef zeroext false)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 3) i32 @float16_do_compare(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s, i1 noundef zeroext %is_quiet) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 3) i32 @float16_do_compare(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %s, i1 noundef zeroext %is_quiet) unnamed_addr #3 {
 entry:
   %f.lobit.i.i = lshr i16 %a, 15
   %0 = lshr i16 %a, 10
@@ -26472,21 +26472,21 @@ parts64_compare.exit:                             ; preds = %if.then66.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 3) i32 @float16_compare_quiet(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 3) i32 @float16_compare_quiet(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i32 @float16_do_compare(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef %s, i1 noundef zeroext true)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 3) i32 @float32_compare(i32 noundef %a, i32 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 3) i32 @float32_compare(i32 noundef %a, i32 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i32 @float32_hs_compare(i32 noundef %a, i32 noundef %b, ptr noundef %s, i1 noundef zeroext false)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 3) i32 @float32_hs_compare(i32 noundef %xa, i32 noundef %xb, ptr nocapture noundef %s, i1 noundef zeroext %is_quiet) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 3) i32 @float32_hs_compare(i32 noundef %xa, i32 noundef %xb, ptr noundef captures(none) %s, i1 noundef zeroext %is_quiet) unnamed_addr #3 {
 entry:
   %flush_inputs_to_zero.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %0 = load i8, ptr %flush_inputs_to_zero.i, align 2
@@ -26750,21 +26750,21 @@ return:                                           ; preds = %b_sign.i.i, %a_sign
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 3) i32 @float32_compare_quiet(i32 noundef %a, i32 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 3) i32 @float32_compare_quiet(i32 noundef %a, i32 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i32 @float32_hs_compare(i32 noundef %a, i32 noundef %b, ptr noundef %s, i1 noundef zeroext true)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 3) i32 @float64_compare(i64 noundef %a, i64 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 3) i32 @float64_compare(i64 noundef %a, i64 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i32 @float64_hs_compare(i64 noundef %a, i64 noundef %b, ptr noundef %s, i1 noundef zeroext false)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 3) i32 @float64_hs_compare(i64 noundef %xa, i64 noundef %xb, ptr nocapture noundef %s, i1 noundef zeroext %is_quiet) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 3) i32 @float64_hs_compare(i64 noundef %xa, i64 noundef %xb, ptr noundef captures(none) %s, i1 noundef zeroext %is_quiet) unnamed_addr #3 {
 entry:
   %flush_inputs_to_zero.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   %0 = load i8, ptr %flush_inputs_to_zero.i, align 2
@@ -27026,21 +27026,21 @@ return:                                           ; preds = %b_sign.i.i, %a_sign
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 3) i32 @float64_compare_quiet(i64 noundef %a, i64 noundef %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 3) i32 @float64_compare_quiet(i64 noundef %a, i64 noundef %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i32 @float64_hs_compare(i64 noundef %a, i64 noundef %b, ptr noundef %s, i1 noundef zeroext true)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 3) i32 @bfloat16_compare(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 3) i32 @bfloat16_compare(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i32 @bfloat16_do_compare(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef %s, i1 noundef zeroext false)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 3) i32 @bfloat16_do_compare(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s, i1 noundef zeroext %is_quiet) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 3) i32 @bfloat16_do_compare(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %s, i1 noundef zeroext %is_quiet) unnamed_addr #3 {
 entry:
   %f.lobit.i = lshr i16 %a, 15
   %0 = lshr i16 %a, 7
@@ -27258,21 +27258,21 @@ parts64_compare.exit:                             ; preds = %if.then66.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 3) i32 @bfloat16_compare_quiet(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 3) i32 @bfloat16_compare_quiet(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i32 @bfloat16_do_compare(i16 noundef zeroext %a, i16 noundef zeroext %b, ptr noundef %s, i1 noundef zeroext true)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 3) i32 @float128_compare(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 3) i32 @float128_compare(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i32 @float128_do_compare(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef %s, i1 noundef zeroext false)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 3) i32 @float128_do_compare(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr nocapture noundef %s, i1 noundef zeroext %is_quiet) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 3) i32 @float128_do_compare(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef captures(none) %s, i1 noundef zeroext %is_quiet) unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts128, align 8
   %pb = alloca %struct.FloatParts128, align 8
@@ -27441,21 +27441,21 @@ parts128_compare.exit:                            ; preds = %if.then66.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 3) i32 @float128_compare_quiet(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 3) i32 @float128_compare_quiet(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i32 @float128_do_compare(i64 %a.coerce0, i64 %a.coerce1, i64 %b.coerce0, i64 %b.coerce1, ptr noundef %s, i1 noundef zeroext true)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 3) i32 @floatx80_compare(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 3) i32 @floatx80_compare(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i32 @floatx80_do_compare(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, ptr noundef %s, i1 noundef zeroext false)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 3) i32 @floatx80_do_compare(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, ptr nocapture noundef %s, i1 noundef zeroext %is_quiet) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 3) i32 @floatx80_do_compare(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, ptr noundef captures(none) %s, i1 noundef zeroext %is_quiet) unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts128, align 8
   %pb = alloca %struct.FloatParts128, align 8
@@ -27696,14 +27696,14 @@ return:                                           ; preds = %floatx80_unpack_can
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 3) i32 @floatx80_compare_quiet(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 3) i32 @floatx80_compare_quiet(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc i32 @floatx80_do_compare(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, ptr noundef %s, i1 noundef zeroext true)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float16_scalbn(i16 noundef zeroext %a, i32 noundef %n, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float16_scalbn(i16 noundef zeroext %a, i32 noundef %n, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i.i = lshr i16 %a, 15
@@ -27840,7 +27840,7 @@ parts64_scalbn.exit:                              ; preds = %if.then47.i.i.i, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float32_scalbn(i32 noundef %a, i32 noundef %n, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i32 @float32_scalbn(i32 noundef %a, i32 noundef %n, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i32 %a, 31
@@ -27977,7 +27977,7 @@ parts64_scalbn.exit:                              ; preds = %if.then47.i.i, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64_scalbn(i64 noundef %a, i32 noundef %n, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i64 @float64_scalbn(i64 noundef %a, i32 noundef %n, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i64 %a, 63
@@ -28113,7 +28113,7 @@ parts64_scalbn.exit:                              ; preds = %if.then47.i.i, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @bfloat16_scalbn(i16 noundef zeroext %a, i32 noundef %n, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @bfloat16_scalbn(i16 noundef zeroext %a, i32 noundef %n, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i16 %a, 15
@@ -28251,7 +28251,7 @@ parts64_scalbn.exit:                              ; preds = %if.then47.i.i, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @float128_scalbn(i64 %a.coerce0, i64 %a.coerce1, i32 noundef %n, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @float128_scalbn(i64 %a.coerce0, i64 %a.coerce1, i32 noundef %n, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
   %shr.i16.i.i = lshr i64 %a.coerce1, 48
@@ -28334,7 +28334,7 @@ parts128_scalbn.exit:                             ; preds = %entry, %entry, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i16 } @floatx80_scalbn(i64 %a.coerce0, i16 %a.coerce1, i32 noundef %n, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i16 } @floatx80_scalbn(i64 %a.coerce0, i16 %a.coerce1, i32 noundef %n, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
   %floatx80_rounding_precision.i = getelementptr inbounds nuw i8, ptr %status, i64 3
@@ -28465,7 +28465,7 @@ return:                                           ; preds = %parts128_scalbn.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @float16_sqrt(i16 noundef zeroext %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @float16_sqrt(i16 noundef zeroext %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i16 %a, 15
@@ -28678,7 +28678,7 @@ parts64_sqrt.exit:                                ; preds = %if.then10.i.i, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float32_sqrt(i32 noundef %xa, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i32 @float32_sqrt(i32 noundef %xa, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %0 = load i16, ptr %s, align 2
@@ -28954,7 +28954,7 @@ return:                                           ; preds = %soft_f32_sqrt.exit,
 declare float @sqrtf(float noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64_sqrt(i64 noundef %xa, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local i64 @float64_sqrt(i64 noundef %xa, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p.i = alloca %struct.FloatParts64, align 8
   %0 = load i16, ptr %s, align 2
@@ -29240,7 +29240,7 @@ return:                                           ; preds = %soft_f64_sqrt.exit,
 declare double @sqrt(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64r32_sqrt(i64 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i64 @float64r32_sqrt(i64 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i64 %a, 63
@@ -29449,7 +29449,7 @@ parts64_sqrt.exit:                                ; preds = %if.then10.i.i, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @bfloat16_sqrt(i16 noundef zeroext %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local zeroext i16 @bfloat16_sqrt(i16 noundef zeroext %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i = lshr i16 %a, 15
@@ -29663,7 +29663,7 @@ parts64_sqrt.exit:                                ; preds = %if.then10.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i64 } @float128_sqrt(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i64 } @float128_sqrt(i64 %a.coerce0, i64 %a.coerce1, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
   %shr.i16.i = lshr i64 %a.coerce1, 48
@@ -30088,7 +30088,7 @@ parts128_uncanon.exit:                            ; preds = %parts128_sqrt.exit,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i16 } @floatx80_sqrt(i64 %a.coerce0, i16 %a.coerce1, ptr nocapture noundef %s) local_unnamed_addr #3 {
+define dso_local { i64, i16 } @floatx80_sqrt(i64 %a.coerce0, i16 %a.coerce1, ptr noundef captures(none) %s) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
   %floatx80_rounding_precision.i = getelementptr inbounds nuw i8, ptr %s, i64 3
@@ -30523,7 +30523,7 @@ return:                                           ; preds = %parts128_sqrt.exit,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float32_log2(i32 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i32 @float32_log2(i32 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i32 %a, 31
@@ -30620,7 +30620,7 @@ float32_unpack_canonical.exit:                    ; preds = %if.then8.i.i, %if.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parts64_log2(ptr nocapture noundef nonnull %a, ptr nocapture noundef %s, i32 %fmt.16.val) unnamed_addr #3 {
+define internal fastcc void @parts64_log2(ptr noundef nonnull captures(none) %a, ptr noundef captures(none) %s, i32 %fmt.16.val) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %a, align 8
   switch i8 %0, label %do.body [
@@ -31094,7 +31094,7 @@ return:                                           ; preds = %if.then8.i, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @float64_log2(i64 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i64 @float64_log2(i64 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts64, align 8
   %f.lobit.i.i = lshr i64 %a, 63
@@ -31190,25 +31190,25 @@ float64_unpack_canonical.exit:                    ; preds = %if.then8.i.i, %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef zeroext i16 @float16_default_nan(ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef zeroext i16 @float16_default_nan(ptr noundef readnone captures(none) %status) local_unnamed_addr #0 {
 entry:
   ret i16 32256
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i32 @float32_default_nan(ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef i32 @float32_default_nan(ptr noundef readnone captures(none) %status) local_unnamed_addr #0 {
 entry:
   ret i32 2143289344
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i64 @float64_default_nan(ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef i64 @float64_default_nan(ptr noundef readnone captures(none) %status) local_unnamed_addr #0 {
 entry:
   ret i64 9221120237041090560
 }
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(none) uwtable
-define dso_local { i64, i64 } @float128_default_nan(ptr nocapture noundef readnone %status) local_unnamed_addr #7 {
+define dso_local { i64, i64 } @float128_default_nan(ptr noundef readnone captures(none) %status) local_unnamed_addr #7 {
 entry:
   %0 = tail call i64 asm "shrd ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 4611686018427387904, i32 range(i32 1, -2147483646) 15, i64 0) #14, !srcloc !5
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %0, 0
@@ -31217,41 +31217,41 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef zeroext i16 @bfloat16_default_nan(ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef zeroext i16 @bfloat16_default_nan(ptr noundef readnone captures(none) %status) local_unnamed_addr #0 {
 entry:
   ret i16 32704
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef zeroext range(i16 512, 0) i16 @float16_silence_nan(i16 noundef zeroext %a, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef zeroext range(i16 512, 0) i16 @float16_silence_nan(i16 noundef zeroext %a, ptr noundef readnone captures(none) %status) local_unnamed_addr #0 {
 entry:
   %or.i11.i6 = or i16 %a, 512
   ret i16 %or.i11.i6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef range(i32 4194304, 0) i32 @float32_silence_nan(i32 noundef %a, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef range(i32 4194304, 0) i32 @float32_silence_nan(i32 noundef %a, ptr noundef readnone captures(none) %status) local_unnamed_addr #0 {
 entry:
   %or.i11.i5 = or i32 %a, 4194304
   ret i32 %or.i11.i5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef range(i64 2251799813685248, 0) i64 @float64_silence_nan(i64 noundef %a, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef range(i64 2251799813685248, 0) i64 @float64_silence_nan(i64 noundef %a, ptr noundef readnone captures(none) %status) local_unnamed_addr #0 {
 entry:
   %or.i11.i = or i64 %a, 2251799813685248
   ret i64 %or.i11.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef zeroext range(i16 64, 0) i16 @bfloat16_silence_nan(i16 noundef zeroext %a, ptr nocapture noundef readnone %status) local_unnamed_addr #0 {
+define dso_local noundef zeroext range(i16 64, 0) i16 @bfloat16_silence_nan(i16 noundef zeroext %a, ptr noundef readnone captures(none) %status) local_unnamed_addr #0 {
 entry:
   %or.i11.i6 = or i16 %a, 64
   ret i16 %or.i11.i6
 }
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(none) uwtable
-define dso_local { i64, i64 } @float128_silence_nan(i64 %a.coerce0, i64 %a.coerce1, ptr nocapture noundef readnone %status) local_unnamed_addr #7 {
+define dso_local { i64, i64 } @float128_silence_nan(i64 %a.coerce0, i64 %a.coerce1, ptr noundef readnone captures(none) %status) local_unnamed_addr #7 {
 entry:
   %and.i.i = and i64 %a.coerce1, 281474976710655
   %0 = tail call i64 asm "shld ${2:b}, $1, $0", "=r,r,{cx}i,0,~{dirflag},~{fpsr},~{flags}"(i64 %a.coerce0, i32 range(i32 0, 65) 15, i64 %and.i.i) #14, !srcloc !14
@@ -31268,7 +31268,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i16 @float16_squash_input_denormal(i16 noundef zeroext %a, ptr nocapture noundef %status) local_unnamed_addr #2 {
+define dso_local noundef zeroext i16 @float16_squash_input_denormal(i16 noundef zeroext %a, ptr noundef captures(none) %status) local_unnamed_addr #2 {
 entry:
   %flush_inputs_to_zero = getelementptr inbounds nuw i8, ptr %status, i64 6
   %0 = load i8, ptr %flush_inputs_to_zero, align 2
@@ -31296,7 +31296,7 @@ return:                                           ; preds = %if.then, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @float32_squash_input_denormal(i32 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #2 {
+define dso_local noundef i32 @float32_squash_input_denormal(i32 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #2 {
 entry:
   %flush_inputs_to_zero = getelementptr inbounds nuw i8, ptr %status, i64 6
   %0 = load i8, ptr %flush_inputs_to_zero, align 2
@@ -31324,7 +31324,7 @@ return:                                           ; preds = %if.then, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @float64_squash_input_denormal(i64 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #2 {
+define dso_local noundef i64 @float64_squash_input_denormal(i64 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #2 {
 entry:
   %flush_inputs_to_zero = getelementptr inbounds nuw i8, ptr %status, i64 6
   %0 = load i8, ptr %flush_inputs_to_zero, align 2
@@ -31352,7 +31352,7 @@ return:                                           ; preds = %if.then, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i16 @bfloat16_squash_input_denormal(i16 noundef zeroext %a, ptr nocapture noundef %status) local_unnamed_addr #2 {
+define dso_local noundef zeroext i16 @bfloat16_squash_input_denormal(i16 noundef zeroext %a, ptr noundef captures(none) %status) local_unnamed_addr #2 {
 entry:
   %flush_inputs_to_zero = getelementptr inbounds nuw i8, ptr %status, i64 6
   %0 = load i8, ptr %flush_inputs_to_zero, align 2
@@ -31380,7 +31380,7 @@ return:                                           ; preds = %if.then, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @normalizeFloatx80Subnormal(i64 noundef %aSig, ptr nocapture noundef writeonly initializes((0, 4)) %zExpPtr, ptr nocapture noundef writeonly initializes((0, 8)) %zSigPtr) local_unnamed_addr #8 {
+define dso_local void @normalizeFloatx80Subnormal(i64 noundef %aSig, ptr noundef writeonly captures(none) initializes((0, 4)) %zExpPtr, ptr noundef writeonly captures(none) initializes((0, 8)) %zSigPtr) local_unnamed_addr #8 {
 entry:
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %aSig, i1 false)
   %cast.i = trunc nuw nsw i64 %0 to i32
@@ -31392,7 +31392,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i16 } @roundAndPackFloatx80(i8 noundef zeroext %roundingPrecision, i1 noundef zeroext %zSign, i32 noundef %zExp, i64 noundef %zSig0, i64 noundef %zSig1, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i16 } @roundAndPackFloatx80(i8 noundef zeroext %roundingPrecision, i1 noundef zeroext %zSign, i32 noundef %zExp, i64 noundef %zSig0, i64 noundef %zSig1, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %float_rounding_mode = getelementptr inbounds nuw i8, ptr %status, i64 2
   %0 = load i8, ptr %float_rounding_mode, align 2
@@ -31829,7 +31829,7 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 declare void @abort() local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i16 } @normalizeRoundAndPackFloatx80(i8 noundef zeroext %roundingPrecision, i1 noundef zeroext %zSign, i32 noundef %zExp, i64 noundef %zSig0, i64 noundef %zSig1, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i16 } @normalizeRoundAndPackFloatx80(i8 noundef zeroext %roundingPrecision, i1 noundef zeroext %zSign, i32 noundef %zExp, i64 noundef %zSig0, i64 noundef %zSig1, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq i64 %zSig0, 0
   %zSig0.addr.0 = select i1 %cmp, i64 %zSig1, i64 %zSig0
@@ -31858,7 +31858,7 @@ shortShift128Left.exit:                           ; preds = %entry, %cond.false.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @float32_exp2(i32 noundef %a, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local i32 @float32_exp2(i32 noundef %a, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %xp = alloca %struct.FloatParts64, align 8
   %xnp = alloca %struct.FloatParts64, align 8
@@ -32115,7 +32115,7 @@ return:                                           ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i16 } @floatx80_round(i64 %a.coerce0, i16 %a.coerce1, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i16 } @floatx80_round(i64 %a.coerce0, i16 %a.coerce1, ptr noundef captures(none) %status) local_unnamed_addr #3 {
 entry:
   %p = alloca %struct.FloatParts128, align 8
   %floatx80_rounding_precision.i = getelementptr inbounds nuw i8, ptr %status, i64 3
@@ -32191,7 +32191,7 @@ declare { i64, i1 } @llvm.usub.with.overflow.i64(i64, i64) #4
 declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @soft_f32_addsub(i32 noundef %a, i32 noundef %b, ptr nocapture noundef %status, i1 noundef zeroext %subtract) unnamed_addr #3 {
+define internal fastcc i32 @soft_f32_addsub(i32 noundef %a, i32 noundef %b, ptr noundef captures(none) %status, i1 noundef zeroext %subtract) unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts64, align 8
   %pb = alloca %struct.FloatParts64, align 8
@@ -32724,7 +32724,7 @@ parts64_addsub.exit:                              ; preds = %.thread149, %if.the
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @soft_f64_addsub(i64 noundef %a, i64 noundef %b, ptr nocapture noundef %status, i1 noundef zeroext %subtract) unnamed_addr #3 {
+define internal fastcc i64 @soft_f64_addsub(i64 noundef %a, i64 noundef %b, ptr noundef captures(none) %status, i1 noundef zeroext %subtract) unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts64, align 8
   %pb = alloca %struct.FloatParts64, align 8
@@ -33255,7 +33255,7 @@ parts64_addsub.exit:                              ; preds = %.thread148, %if.the
 }
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @parts128_sub_normal(ptr nocapture noundef nonnull %a, ptr nocapture noundef nonnull %b) unnamed_addr #11 {
+define internal fastcc noundef zeroext i1 @parts128_sub_normal(ptr noundef nonnull captures(none) %a, ptr noundef nonnull captures(none) %b) unnamed_addr #11 {
 entry:
   %exp = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load i32, ptr %exp, align 4
@@ -33476,7 +33476,7 @@ return:                                           ; preds = %if.end29, %if.then2
 }
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc void @parts128_add_normal(ptr nocapture noundef nonnull %a, ptr nocapture noundef nonnull %b) unnamed_addr #11 {
+define internal fastcc void @parts128_add_normal(ptr noundef nonnull captures(none) %a, ptr noundef nonnull captures(none) %b) unnamed_addr #11 {
 entry:
   %exp = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load i32, ptr %exp, align 4
@@ -33625,7 +33625,7 @@ if.end10:                                         ; preds = %if.then8, %if.end7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parts64_uncanon(ptr nocapture noundef nonnull %p, ptr nocapture noundef %s, ptr nocapture noundef readonly %fmt) unnamed_addr #3 {
+define internal fastcc void @parts64_uncanon(ptr noundef nonnull captures(none) %p, ptr noundef captures(none) %s, ptr noundef readonly captures(none) %fmt) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %p, align 8
   switch i8 %0, label %do.body21 [
@@ -33699,7 +33699,7 @@ if.end23:                                         ; preds = %do.end18, %do.end, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parts64_uncanon_normal(ptr nocapture noundef nonnull %p, ptr nocapture noundef %s, ptr nocapture noundef readonly %fmt) unnamed_addr #3 {
+define internal fastcc void @parts64_uncanon_normal(ptr noundef nonnull captures(none) %p, ptr noundef captures(none) %s, ptr noundef readonly captures(none) %fmt) unnamed_addr #3 {
 entry:
   %exp_max1 = getelementptr inbounds nuw i8, ptr %fmt, i64 12
   %0 = load i32, ptr %exp_max1, align 4
@@ -34032,7 +34032,7 @@ if.end186:                                        ; preds = %land.end, %if.end11
 }
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc void @parts128_canonicalize(ptr nocapture noundef nonnull initializes((0, 1)) %p, ptr nocapture noundef %status, ptr nocapture noundef readonly %fmt) unnamed_addr #11 {
+define internal fastcc void @parts128_canonicalize(ptr noundef nonnull captures(none) initializes((0, 1)) %p, ptr noundef captures(none) %status, ptr noundef readonly captures(none) %fmt) unnamed_addr #11 {
 entry:
   %exp = getelementptr inbounds nuw i8, ptr %p, i64 4
   %0 = load i32, ptr %exp, align 4
@@ -34202,7 +34202,7 @@ if.end58:                                         ; preds = %frac128_shl.exit, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parts128_uncanon_normal(ptr nocapture noundef nonnull %p, ptr nocapture noundef %s, ptr nocapture noundef readonly %fmt) unnamed_addr #3 {
+define internal fastcc void @parts128_uncanon_normal(ptr noundef nonnull captures(none) %p, ptr noundef captures(none) %s, ptr noundef readonly captures(none) %fmt) unnamed_addr #3 {
 entry:
   %exp_max1 = getelementptr inbounds nuw i8, ptr %fmt, i64 12
   %0 = load i32, ptr %exp_max1, align 4
@@ -34718,7 +34718,7 @@ if.end256:                                        ; preds = %frac128_shr.exit161
 }
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc void @parts256_add_normal(ptr nocapture noundef nonnull %a, ptr nocapture noundef nonnull %b) unnamed_addr #11 {
+define internal fastcc void @parts256_add_normal(ptr noundef nonnull captures(none) %a, ptr noundef nonnull captures(none) %b) unnamed_addr #11 {
 entry:
   %exp = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load i32, ptr %exp, align 4
@@ -34979,7 +34979,7 @@ if.end10:                                         ; preds = %if.then8, %if.end7
 }
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @parts256_sub_normal(ptr nocapture noundef nonnull %a, ptr nocapture noundef nonnull %b) unnamed_addr #11 {
+define internal fastcc noundef zeroext i1 @parts256_sub_normal(ptr noundef nonnull captures(none) %a, ptr noundef nonnull captures(none) %b) unnamed_addr #11 {
 entry:
   %exp = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load i32, ptr %exp, align 4
@@ -35412,7 +35412,7 @@ return:                                           ; preds = %if.end29, %if.then2
 }
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @frac128_div(ptr nocapture noundef nonnull %a, i64 %b.8.val, i64 %b.16.val) unnamed_addr #11 {
+define internal fastcc noundef zeroext i1 @frac128_div(ptr noundef nonnull captures(none) %a, i64 %b.8.val, i64 %b.16.val) unnamed_addr #11 {
 entry:
   %frac_hi = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i64, ptr %frac_hi, align 8
@@ -35706,7 +35706,7 @@ while.end10:                                      ; preds = %while.body8, %estim
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @parts64_round_to_int_normal(ptr nocapture noundef nonnull %a, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef %frac_size) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @parts64_round_to_int_normal(ptr noundef nonnull captures(none) %a, i8 noundef zeroext %rmode, i32 noundef %scale, i32 noundef %frac_size) unnamed_addr #3 {
 entry:
   %cond = tail call i32 @llvm.smax.i32(i32 %scale, i32 -65536)
   %cond6 = tail call i32 @llvm.smin.i32(i32 %cond, i32 65536)
@@ -35874,7 +35874,7 @@ return:                                           ; preds = %if.end38, %if.end33
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @parts128_round_to_int_normal(ptr nocapture noundef nonnull %a, i8 noundef zeroext %rmode, i32 noundef %frac_size) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @parts128_round_to_int_normal(ptr noundef nonnull captures(none) %a, i8 noundef zeroext %rmode, i32 noundef %frac_size) unnamed_addr #3 {
 entry:
   %exp = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load i32, ptr %exp, align 4
@@ -36169,7 +36169,7 @@ return:                                           ; preds = %if.end103, %if.else
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc nonnull ptr @parts64_minmax(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr nocapture noundef %s, i32 noundef range(i32 0, 10) %flags) unnamed_addr #3 {
+define internal fastcc nonnull ptr @parts64_minmax(ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef captures(none) %s, i32 noundef range(i32 0, 10) %flags) unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %a, align 8
   %conv = zext nneg i8 %0 to i32
@@ -36425,10 +36425,10 @@ declare i32 @llvm.ucmp.i32.i64(i64, i64) #12
 declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12

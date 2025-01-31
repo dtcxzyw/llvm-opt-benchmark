@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.3 = private unnamed_addr constant [30 x i8] c"The network is combinational.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Aig_ManRemap(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define ptr @Aig_ManRemap(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 32
   %.val127 = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val127, i64 4
@@ -683,10 +683,10 @@ declare void @Aig_ManSetRegNum(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @Aig_ManCheck(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Aig_ManSeqCleanup_rec(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define void @Aig_ManSeqCleanup_rec(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 312
   %.val2435 = load i32, ptr %4, align 8
   %5 = getelementptr i8, ptr %1, i64 32
@@ -1813,7 +1813,7 @@ define noundef i32 @Aig_ManCountMergeRegs(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Aig_ManReduceLachesCount(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @Aig_ManReduceLachesCount(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
 .critedge:
   %1 = getelementptr i8, ptr %0, i64 140
   %.val55 = load i32, ptr %1, align 4
@@ -1935,7 +1935,7 @@ define i32 @Aig_ManReduceLachesCount(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Aig_ManReduceLachesOnce(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @Aig_ManReduceLachesOnce(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 136
   %.val67 = load i32, ptr %2, align 8
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
@@ -2435,10 +2435,10 @@ Vec_PtrPush.exit87:                               ; preds = %215, %Vec_PtrGrow.e
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define ptr @Aig_ManReduceLaches(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -3553,7 +3553,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.0.val45.us = load ptr, ptr %70, align 8
   %71 = getelementptr inbounds nuw ptr, ptr %.0.val45.us, i64 %indvars.iv64
   %72 = load ptr, ptr %71, align 8
-  %73 = call ptr @Aig_ManRegCreatePart(ptr noundef %0, ptr noundef %72, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #14
+  %73 = call ptr @Aig_ManRegCreatePart(ptr noundef nonnull %0, ptr noundef %72, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #14
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 104
   %75 = load i32, ptr %74, align 8
   call void @Aig_ManSetRegNum(ptr noundef %73, i32 noundef %75) #14
@@ -3564,7 +3564,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 78:                                               ; preds = %.lr.ph58.split.us
   %79 = call ptr @Aig_ManScl(ptr noundef nonnull %73, i32 noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef -1, i32 noundef -1, i32 noundef 0, i32 noundef 0)
   %80 = load ptr, ptr %7, align 8
-  %81 = call i32 @Aig_TransferMappedClasses(ptr noundef %0, ptr noundef nonnull %73, ptr noundef %80) #14
+  %81 = call i32 @Aig_TransferMappedClasses(ptr noundef nonnull %0, ptr noundef nonnull %73, ptr noundef %80) #14
   call void @Aig_ManStop(ptr noundef %79) #14
   br label %82
 
@@ -3591,7 +3591,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.0.val45 = load ptr, ptr %70, align 8
   %88 = getelementptr inbounds nuw ptr, ptr %.0.val45, i64 %indvars.iv61
   %89 = load ptr, ptr %88, align 8
-  %90 = call ptr @Aig_ManRegCreatePart(ptr noundef %0, ptr noundef %89, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #14
+  %90 = call ptr @Aig_ManRegCreatePart(ptr noundef nonnull %0, ptr noundef %89, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #14
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 104
   %92 = load i32, ptr %91, align 8
   call void @Aig_ManSetRegNum(ptr noundef %90, i32 noundef %92) #14
@@ -3602,7 +3602,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 95:                                               ; preds = %.lr.ph58.split
   %96 = call ptr @Aig_ManScl(ptr noundef nonnull %90, i32 noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef -1, i32 noundef -1, i32 noundef %3, i32 noundef 0)
   %97 = load ptr, ptr %7, align 8
-  %98 = call i32 @Aig_TransferMappedClasses(ptr noundef %0, ptr noundef nonnull %90, ptr noundef %97) #14
+  %98 = call i32 @Aig_TransferMappedClasses(ptr noundef nonnull %0, ptr noundef nonnull %90, ptr noundef %97) #14
   %99 = getelementptr i8, ptr %89, i64 4
   %.val49 = load i32, ptr %99, align 4
   %100 = getelementptr i8, ptr %90, i64 136
@@ -3639,7 +3639,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %114, label %.lr.ph58.split, label %.critedge2, !llvm.loop !43
 
 .critedge2:                                       ; preds = %112, %85, %.critedge
-  %115 = call ptr @Aig_ManDupRepr(ptr noundef %0, i32 noundef 0) #14
+  %115 = call ptr @Aig_ManDupRepr(ptr noundef nonnull %0, i32 noundef 0) #14
   %116 = call i32 @Aig_ManSeqCleanup(ptr noundef %115)
   %.val11.i = load i32, ptr %68, align 4
   %117 = icmp sgt i32 %.val11.i, 0
@@ -3809,7 +3809,7 @@ Vec_IntStartNatural.exit:                         ; preds = %30, %Vec_IntAlloc.e
   %.val = load ptr, ptr %54, align 8
   %55 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %55, align 4
-  tail call void @Aig_ManReprStart(ptr noundef %0, i32 noundef %.val.val) #14
+  tail call void @Aig_ManReprStart(ptr noundef nonnull %0, i32 noundef %.val.val) #14
   %56 = getelementptr inbounds nuw i8, ptr %.1, i64 400
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr i8, ptr %57, i64 4
@@ -3885,19 +3885,19 @@ declare ptr @Aig_ManDupSimple(ptr noundef) local_unnamed_addr #1
 declare ptr @Aig_ManConstReduce(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #12

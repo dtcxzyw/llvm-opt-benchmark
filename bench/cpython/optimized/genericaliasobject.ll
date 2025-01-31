@@ -934,7 +934,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.38 = private unnamed_addr constant [13 x i8] c"GenericAlias\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_make_parameters(ptr nocapture noundef readonly %args) local_unnamed_addr #0 {
+define hidden ptr @_Py_make_parameters(ptr noundef readonly captures(none) %args) local_unnamed_addr #0 {
 entry:
   %parameters = alloca ptr, align 8
   %subparams = alloca ptr, align 8
@@ -1247,7 +1247,7 @@ declare i32 @PyObject_GetOptionalAttr(ptr noundef, ptr noundef, ptr noundef) loc
 declare i32 @_PyTuple_Resize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_subs_parameters(ptr noundef %self, ptr nocapture noundef readonly %args, ptr nocapture noundef readonly %parameters, ptr noundef %item) local_unnamed_addr #0 {
+define hidden ptr @_Py_subs_parameters(ptr noundef %self, ptr noundef readonly captures(none) %args, ptr noundef readonly captures(none) %parameters, ptr noundef %item) local_unnamed_addr #0 {
 entry:
   %subparams.i = alloca ptr, align 8
   %subargs.i = alloca ptr, align 8
@@ -2065,7 +2065,7 @@ for.end.loopexit.i:                               ; preds = %for.inc.us.i
 
 for.end.i:                                        ; preds = %_Py_NewRef.exit.i, %for.end.loopexit.i, %for.cond.preheader.i
   %110 = phi ptr [ %.pre.i, %for.end.loopexit.i ], [ %call10.i, %for.cond.preheader.i ], [ %call10.i, %_Py_NewRef.exit.i ]
-  %call39.i = call ptr @PyObject_GetItem(ptr noundef %55, ptr noundef %110) #5
+  %call39.i = call ptr @PyObject_GetItem(ptr noundef nonnull %55, ptr noundef %110) #5
   %111 = load ptr, ptr %subargs.i, align 8
   %112 = load i64, ptr %111, align 8
   %113 = and i64 %112, 2147483648
@@ -2333,7 +2333,7 @@ Py_XDECREF.exit:                                  ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ga_iter_traverse(ptr nocapture noundef readonly %gi, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @ga_iter_traverse(ptr noundef readonly captures(none) %gi, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %obj = getelementptr inbounds nuw i8, ptr %gi, i64 16
   %0 = load ptr, ptr %obj, align 8
@@ -2354,7 +2354,7 @@ return:                                           ; preds = %if.then, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ga_iter_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @ga_iter_clear(ptr noundef captures(none) %self) #0 {
 entry:
   %obj = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %obj, align 8
@@ -2385,7 +2385,7 @@ do.end:                                           ; preds = %entry, %if.then, %i
 declare ptr @PyObject_SelfIter(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ga_iternext(ptr nocapture noundef %gi) #0 {
+define internal ptr @ga_iternext(ptr noundef captures(none) %gi) #0 {
 entry:
   %obj = getelementptr inbounds nuw i8, ptr %gi, i64 16
   %0 = load ptr, ptr %obj, align 8
@@ -2536,7 +2536,7 @@ Py_XDECREF.exit23:                                ; preds = %Py_XDECREF.exit15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ga_repr(ptr nocapture noundef readonly %self) #0 {
+define internal ptr @ga_repr(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %writer = alloca %struct._PyUnicodeWriter, align 8
   %args = getelementptr inbounds nuw i8, ptr %self, i64 24
@@ -2671,7 +2671,7 @@ return:                                           ; preds = %error, %if.end43
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ga_hash(ptr nocapture noundef readonly %self) #0 {
+define internal i64 @ga_hash(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %origin = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %origin, align 8
@@ -2784,7 +2784,7 @@ return:                                           ; preds = %if.end8, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ga_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @ga_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %origin = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %origin, align 8
@@ -2827,7 +2827,7 @@ return:                                           ; preds = %if.then18, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ga_richcompare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %op) #0 {
+define internal ptr @ga_richcompare(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, i32 noundef %op) #0 {
 entry:
   %0 = getelementptr i8, ptr %b, i64 8
   %b.val = load ptr, ptr %0, align 8
@@ -2980,7 +2980,7 @@ return:                                           ; preds = %entry, %_Py_NewRef.
 declare ptr @PyType_GenericAlloc(ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ga_new(ptr noundef %type, ptr nocapture noundef readonly %args, ptr noundef %kwds) #0 {
+define internal ptr @ga_new(ptr noundef %type, ptr noundef readonly captures(none) %args, ptr noundef %kwds) #0 {
 entry:
   %cmp = icmp eq ptr %kwds, null
   br i1 %cmp, label %if.end, label %lor.lhs.false
@@ -3184,7 +3184,7 @@ declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #1
 declare void @PyErr_SetNone(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ga_iter_reduce(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @ga_iter_reduce(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49176)) #5
   %obj = getelementptr inbounds nuw i8, ptr %self, i64 16
@@ -3463,7 +3463,7 @@ declare ptr @_PyObject_GC_New(ptr noundef) local_unnamed_addr #1
 declare void @PyObject_GC_Track(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ga_mro_entries(ptr nocapture noundef readonly %self, ptr nocapture readnone %args) #0 {
+define internal ptr @ga_mro_entries(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %args) #0 {
 entry:
   %origin = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %origin, align 8
@@ -3472,7 +3472,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @ga_instancecheck(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noalias noundef ptr @ga_instancecheck(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = load ptr, ptr @PyExc_TypeError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.33) #5
@@ -3480,7 +3480,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @ga_subclasscheck(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noalias noundef ptr @ga_subclasscheck(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = load ptr, ptr @PyExc_TypeError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.34) #5
@@ -3488,7 +3488,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ga_reduce(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @ga_reduce(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %starred = getelementptr inbounds nuw i8, ptr %self, i64 48
   %0 = load i8, ptr %starred, align 8
@@ -3546,7 +3546,7 @@ return:                                           ; preds = %if.then, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ga_dir(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @ga_dir(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %origin = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %origin, align 8
@@ -3648,7 +3648,7 @@ declare ptr @PyObject_Dir(ptr noundef) local_unnamed_addr #1
 declare i32 @PySequence_Contains(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @ga_parameters(ptr nocapture noundef %self, ptr nocapture readnone %unused) #0 {
+define internal noundef ptr @ga_parameters(ptr noundef captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %parameters = getelementptr inbounds nuw i8, ptr %self, i64 32
   %0 = load ptr, ptr %parameters, align 8
@@ -3680,7 +3680,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @ga_unpacked_tuple_args(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #2 {
+define internal noundef ptr @ga_unpacked_tuple_args(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %unused) #2 {
 entry:
   %starred = getelementptr inbounds nuw i8, ptr %self, i64 48
   %0 = load i8, ptr %starred, align 8
@@ -3770,13 +3770,13 @@ set_orig_class.exit:                              ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

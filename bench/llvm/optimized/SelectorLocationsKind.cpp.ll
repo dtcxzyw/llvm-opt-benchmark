@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 3) i32 @_ZN5clang23hasStandardSelectorLocsENS_8SelectorEN4llvm8ArrayRefINS_14SourceLocationEEENS2_IPNS_4ExprEEES3_(i64 %0, ptr nocapture readonly %1, i64 %2, ptr nocapture readonly %3, i64 %4, i32 %5) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN5clang23hasStandardSelectorLocsENS_8SelectorEN4llvm8ArrayRefINS_14SourceLocationEEENS2_IPNS_4ExprEEES3_(i64 %0, ptr readonly captures(none) %1, i64 %2, ptr readonly captures(none) %3, i64 %4, i32 %5) local_unnamed_addr #0 {
   %7 = alloca %"class.clang::Selector", align 8
   %8 = alloca %"class.clang::Selector", align 8
   %.fr48.i = freeze i32 %5
@@ -288,7 +288,7 @@ _ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang4ExprEEENS1_21SelectorLocationsKind
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE(i32 noundef %0, i64 %1, i1 noundef zeroext %2, ptr nocapture readonly %3, i64 %4, i32 %5) local_unnamed_addr #0 {
+define dso_local i32 @_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_14SourceLocationE(i32 noundef %0, i64 %1, i1 noundef zeroext %2, ptr readonly captures(none) %3, i64 %4, i32 %5) local_unnamed_addr #0 {
   %7 = alloca %"class.clang::Selector", align 8
   %8 = zext i32 %0 to i64
   %9 = icmp ugt i64 %4, %8
@@ -360,7 +360,7 @@ _ZL17getStandardSelLocjN5clang8SelectorEbNS_14SourceLocationES1_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 3) i32 @_ZN5clang23hasStandardSelectorLocsENS_8SelectorEN4llvm8ArrayRefINS_14SourceLocationEEENS2_IPNS_11ParmVarDeclEEES3_(i64 %0, ptr nocapture readonly %1, i64 %2, ptr nocapture readonly %3, i64 %4, i32 %5) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN5clang23hasStandardSelectorLocsENS_8SelectorEN4llvm8ArrayRefINS_14SourceLocationEEENS2_IPNS_11ParmVarDeclEEES3_(i64 %0, ptr readonly captures(none) %1, i64 %2, ptr readonly captures(none) %3, i64 %4, i32 %5) local_unnamed_addr #0 {
   %7 = alloca %"class.clang::Selector", align 8
   %8 = alloca %"class.clang::Selector", align 8
   %.fr49.i = freeze i32 %5
@@ -640,7 +640,7 @@ _ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang11ParmVarDeclEEENS1_21SelectorLocat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS_14SourceLocationE(i32 noundef %0, i64 %1, i1 noundef zeroext %2, ptr nocapture readonly %3, i64 %4, i32 %5) local_unnamed_addr #0 {
+define dso_local i32 @_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDeclEEENS_14SourceLocationE(i32 noundef %0, i64 %1, i1 noundef zeroext %2, ptr readonly captures(none) %3, i64 %4, i32 %5) local_unnamed_addr #0 {
   %7 = alloca %"class.clang::Selector", align 8
   %8 = zext i32 %0 to i64
   %9 = icmp ugt i64 %4, %8
@@ -722,10 +722,10 @@ declare i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 derefere
 declare i32 @_ZNK5clang14DeclaratorDecl16getOuterLocStartEv(ptr noundef nonnull align 8 dereferenceable(68)) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #4

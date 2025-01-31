@@ -277,7 +277,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 65536) i32 @dissect_ecpri(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 65536) i32 @dissect_ecpri(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -759,7 +759,7 @@ define internal range(i32 0, 65536) i32 @dissect_ecpri(ptr noundef %0, ptr nound
   br i1 %or.cond439, label %311, label %309
 
 309:                                              ; preds = %.lr.ph
-  %310 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %302, ptr noundef nonnull @ei_fault_notif, ptr noundef nonnull @.str.159, i32 noundef 0) #2
+  %310 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %302, ptr noundef nonnull @ei_fault_notif, ptr noundef nonnull @.str.159, i32 noundef 0) #2
   br label %317
 
 311:                                              ; preds = %.lr.ph
@@ -773,7 +773,7 @@ define internal range(i32 0, 65536) i32 @dissect_ecpri(ptr noundef %0, ptr nound
   br i1 %or.cond440, label %317, label %315
 
 315:                                              ; preds = %313
-  %316 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %302, ptr noundef nonnull @ei_fault_notif, ptr noundef nonnull @.str.160, i32 noundef 2) #2
+  %316 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %302, ptr noundef nonnull @ei_fault_notif, ptr noundef nonnull @.str.160, i32 noundef 2) #2
   br label %317
 
 317:                                              ; preds = %311, %315, %313, %309

@@ -49,7 +49,7 @@ define hidden void @ir_consistency_check() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden zeroext i1 @ir_check(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden zeroext i1 @ir_check(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 1
@@ -893,7 +893,7 @@ ir_check_input_list.exit:                         ; preds = %.lr.ph.i327, %.loop
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #3

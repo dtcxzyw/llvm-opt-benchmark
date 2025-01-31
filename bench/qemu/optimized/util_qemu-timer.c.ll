@@ -109,7 +109,7 @@ if.end17:                                         ; preds = %if.end8, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local zeroext i1 @timerlist_has_timers(ptr nocapture noundef readonly %timer_list) local_unnamed_addr #3 {
+define dso_local zeroext i1 @timerlist_has_timers(ptr noundef readonly captures(none) %timer_list) local_unnamed_addr #3 {
 entry:
   %active_timers = getelementptr inbounds nuw i8, ptr %timer_list, i64 56
   %0 = load atomic i64, ptr %active_timers monotonic, align 8
@@ -174,7 +174,7 @@ for.end:                                          ; preds = %timerlist_notify.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @timerlist_notify(ptr nocapture noundef readonly %timer_list) local_unnamed_addr #0 {
+define dso_local void @timerlist_notify(ptr noundef readonly captures(none) %timer_list) local_unnamed_addr #0 {
 entry:
   %notify_cb = getelementptr inbounds nuw i8, ptr %timer_list, i64 80
   %0 = load ptr, ptr %notify_cb, align 8
@@ -591,7 +591,7 @@ return:                                           ; preds = %for.inc, %for.cond.
 declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @timerlist_get_clock(ptr nocapture noundef readonly %timer_list) local_unnamed_addr #7 {
+define dso_local i32 @timerlist_get_clock(ptr noundef readonly captures(none) %timer_list) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %timer_list, align 8
   %type = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -663,7 +663,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @ppoll(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @timer_init_full(ptr nocapture noundef writeonly initializes((0, 32), (40, 48)) %ts, ptr noundef readonly %timer_list_group, i32 noundef %type, i32 noundef %scale, i32 noundef %attributes, ptr noundef %cb, ptr noundef %opaque) local_unnamed_addr #9 {
+define dso_local void @timer_init_full(ptr noundef writeonly captures(none) initializes((0, 32), (40, 48)) %ts, ptr noundef readonly %timer_list_group, i32 noundef %type, i32 noundef %scale, i32 noundef %attributes, ptr noundef %cb, ptr noundef %opaque) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %timer_list_group, null
   %spec.store.select = select i1 %tobool.not, ptr @main_loop_tlg, ptr %timer_list_group
@@ -685,7 +685,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @timer_deinit(ptr nocapture noundef %ts) local_unnamed_addr #0 {
+define dso_local void @timer_deinit(ptr noundef captures(none) %ts) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %ts, align 8
   %cmp = icmp eq i64 %0, -1
@@ -1036,7 +1036,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @timer_pending(ptr nocapture noundef readonly %ts) local_unnamed_addr #10 {
+define dso_local zeroext i1 @timer_pending(ptr noundef readonly captures(none) %ts) local_unnamed_addr #10 {
 entry:
   %0 = load i64, ptr %ts, align 8
   %cmp = icmp sgt i64 %0, -1
@@ -1044,7 +1044,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @timer_expired(ptr nocapture noundef readonly %timer_head, i64 noundef %current_time) local_unnamed_addr #10 {
+define dso_local zeroext i1 @timer_expired(ptr noundef readonly captures(none) %timer_head, i64 noundef %current_time) local_unnamed_addr #10 {
 timer_expired_ns.exit:
   %scale = getelementptr inbounds nuw i8, ptr %timer_head, i64 44
   %0 = load i32, ptr %scale, align 4
@@ -1188,7 +1188,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @timerlistgroup_init(ptr nocapture noundef writeonly %tlg, ptr noundef %cb, ptr noundef %opaque) local_unnamed_addr #0 {
+define dso_local void @timerlistgroup_init(ptr noundef writeonly captures(none) %tlg, ptr noundef %cb, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   br label %for.body
 
@@ -1231,7 +1231,7 @@ for.end:                                          ; preds = %timerlist_new.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @timerlistgroup_deinit(ptr nocapture noundef readonly %tlg) local_unnamed_addr #0 {
+define dso_local void @timerlistgroup_deinit(ptr noundef readonly captures(none) %tlg) local_unnamed_addr #0 {
 entry:
   br label %for.body
 
@@ -1286,7 +1286,7 @@ for.end:                                          ; preds = %timerlist_free.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @timerlistgroup_run_timers(ptr nocapture noundef readonly %tlg) local_unnamed_addr #0 {
+define dso_local zeroext i1 @timerlistgroup_run_timers(ptr noundef readonly captures(none) %tlg) local_unnamed_addr #0 {
 entry:
   br label %for.body
 
@@ -1306,7 +1306,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 -1, -9223372036854775808) i64 @timerlistgroup_deadline_ns(ptr nocapture noundef readonly %tlg) local_unnamed_addr #0 {
+define dso_local range(i64 -1, -9223372036854775808) i64 @timerlistgroup_deadline_ns(ptr noundef readonly captures(none) %tlg) local_unnamed_addr #0 {
 entry:
   br label %for.body
 
@@ -1448,7 +1448,7 @@ for.end:                                          ; preds = %qemu_clock_init.exi
 declare i32 @prctl(i32 noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local range(i64 -1, -9223372036854775808) i64 @timer_expire_time_ns(ptr nocapture noundef readonly %ts) local_unnamed_addr #10 {
+define dso_local range(i64 -1, -9223372036854775808) i64 @timer_expire_time_ns(ptr noundef readonly captures(none) %ts) local_unnamed_addr #10 {
 entry:
   %0 = load i64, ptr %ts, align 8
   %spec.select = tail call i64 @llvm.smax.i64(i64 %0, i64 -1)
@@ -1495,7 +1495,7 @@ declare void @icount_start_warp_timer() local_unnamed_addr #2
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #13
@@ -1507,13 +1507,13 @@ declare i64 @llvm.umin.i64(i64, i64) #13
 declare i64 @llvm.smin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

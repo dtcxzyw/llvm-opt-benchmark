@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @lj_obj_itypename = external hidden local_unnamed_addr constant [14 x ptr], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @lj_cconv_compatptr(ptr nocapture noundef readonly %cts, ptr noundef readonly %d, ptr noundef readonly %s, i32 noundef %flags) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @lj_cconv_compatptr(ptr noundef readonly captures(none) %cts, ptr noundef readonly %d, ptr noundef readonly %s, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %and61 = and i32 %flags, 1
   %tobool.not62 = icmp ne i32 %and61, 0
@@ -806,13 +806,13 @@ sw.epilog:                                        ; preds = %for.body278, %sw.bb
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @cconv_err_conv(ptr nocapture noundef readonly %cts, ptr noundef %d, ptr noundef %s, i32 noundef %flags) unnamed_addr #4 {
+define internal fastcc void @cconv_err_conv(ptr noundef readonly captures(none) %cts, ptr noundef %d, ptr noundef %s, i32 noundef %flags) unnamed_addr #4 {
 entry:
   %L = getelementptr inbounds nuw i8, ptr %cts, i64 16
   %0 = load ptr, ptr %L, align 8
@@ -973,7 +973,7 @@ return:                                           ; preds = %if.end, %cond.end, 
 declare hidden ptr @lj_cdata_newref(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @lj_cconv_tv_bf(ptr nocapture noundef readonly %cts, ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %o, ptr nocapture noundef readonly %sp) local_unnamed_addr #1 {
+define hidden noundef i32 @lj_cconv_tv_bf(ptr noundef readonly captures(none) %cts, ptr noundef readonly captures(none) %s, ptr noundef writeonly captures(none) %o, ptr noundef readonly captures(none) %sp) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %s, align 8
   %shr = lshr i32 %0, 16
@@ -1470,7 +1470,7 @@ declare hidden ptr @lj_ctype_getfieldq(ptr noundef, ptr noundef, ptr noundef, pt
 declare hidden ptr @lj_ccallback_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @cconv_err_convtv(ptr nocapture noundef readonly %cts, ptr noundef %d, ptr nocapture noundef readonly %o, i32 noundef %flags) unnamed_addr #4 {
+define internal fastcc void @cconv_err_convtv(ptr noundef readonly captures(none) %cts, ptr noundef %d, ptr noundef readonly captures(none) %o, i32 noundef %flags) unnamed_addr #4 {
 entry:
   %L = getelementptr inbounds nuw i8, ptr %cts, i64 16
   %0 = load ptr, ptr %L, align 8
@@ -1504,7 +1504,7 @@ if.else:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_cconv_bf_tv(ptr noundef %cts, ptr nocapture noundef readonly %d, ptr nocapture noundef %dp, ptr noundef %o) local_unnamed_addr #1 {
+define hidden void @lj_cconv_bf_tv(ptr noundef %cts, ptr noundef readonly captures(none) %d, ptr noundef captures(none) %dp, ptr noundef %o) local_unnamed_addr #1 {
 entry:
   %val = alloca i32, align 4
   %tmpbool = alloca i8, align 1
@@ -1594,7 +1594,7 @@ sw.epilog:                                        ; preds = %if.end12, %sw.bb27,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @lj_cconv_multi_init(ptr noundef %cts, ptr noundef readonly %d, ptr nocapture noundef readonly %o) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @lj_cconv_multi_init(ptr noundef %cts, ptr noundef readonly %d, ptr noundef readonly captures(none) %o) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %d, align 8
   %and = and i32 %0, -67108864
@@ -1797,7 +1797,7 @@ if.end17:                                         ; preds = %for.body8.i, %if.el
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @cconv_err_initov(ptr nocapture noundef readonly %cts, ptr noundef %d) unnamed_addr #4 {
+define internal fastcc void @cconv_err_initov(ptr noundef readonly captures(none) %cts, ptr noundef %d) unnamed_addr #4 {
 entry:
   %L = getelementptr inbounds nuw i8, ptr %cts, i64 16
   %0 = load ptr, ptr %L, align 8
@@ -1827,7 +1827,7 @@ declare hidden ptr @lj_mem_newgco(ptr noundef, i64 noundef) local_unnamed_addr #
 declare hidden ptr @lj_tab_getinth(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cconv_substruct_tab(ptr noundef %cts, ptr nocapture noundef readonly %d, ptr noundef %dp, ptr noundef %t, ptr nocapture noundef nonnull %ip, i32 noundef %flags) unnamed_addr #1 {
+define internal fastcc void @cconv_substruct_tab(ptr noundef %cts, ptr noundef readonly captures(none) %d, ptr noundef %dp, ptr noundef %t, ptr noundef nonnull captures(none) %ip, i32 noundef %flags) unnamed_addr #1 {
 entry:
   %sib = getelementptr inbounds nuw i8, ptr %d, i64 8
   %0 = load i16, ptr %sib, align 8
@@ -2000,7 +2000,7 @@ while.end:                                        ; preds = %while.cond.backedge
 declare hidden ptr @lj_tab_getstr(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cconv_substruct_init(ptr noundef %cts, ptr nocapture noundef readonly %d, ptr noundef %dp, ptr noundef %o, i32 noundef range(i32 1, 0) %len, ptr nocapture noundef nonnull %ip) unnamed_addr #1 {
+define internal fastcc void @cconv_substruct_init(ptr noundef %cts, ptr noundef readonly captures(none) %d, ptr noundef %dp, ptr noundef %o, i32 noundef range(i32 1, 0) %len, ptr noundef nonnull captures(none) %ip) unnamed_addr #1 {
 entry:
   %sib = getelementptr inbounds nuw i8, ptr %d, i64 8
   %0 = load i16, ptr %sib, align 8
@@ -2122,10 +2122,10 @@ while.end:                                        ; preds = %while.cond.backedge
 declare i64 @llvm.umax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7

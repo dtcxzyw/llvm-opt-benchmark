@@ -311,7 +311,7 @@ define hidden range(i32 -135, 1) i32 @psa_validate_unstructured_key_bit_size(i16
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden range(i32 -141, 1) i32 @psa_allocate_buffer_to_slot(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 -141, 1) i32 @psa_allocate_buffer_to_slot(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -337,7 +337,7 @@ define hidden range(i32 -141, 1) i32 @psa_allocate_buffer_to_slot(ptr nocapture 
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden range(i32 -141, 1) i32 @psa_copy_key_material_into_slot(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #3 {
+define hidden range(i32 -141, 1) i32 @psa_copy_key_material_into_slot(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
@@ -361,7 +361,7 @@ psa_allocate_buffer_to_slot.exit.thread:          ; preds = %6, %3, %9
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @psa_import_key_into_slot(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #5 {
@@ -462,7 +462,7 @@ declare i32 @mbedtls_psa_ecp_import_key(ptr noundef, ptr noundef, i64 noundef, p
 declare i32 @mbedtls_psa_rsa_import_key(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @psa_remove_key_data_from_memory(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define hidden noundef i32 @psa_remove_key_data_from_memory(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -485,10 +485,10 @@ define hidden noundef i32 @psa_remove_key_data_from_memory(ptr nocapture noundef
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -151, 1) i32 @psa_wipe_key_slot(ptr nocapture noundef initializes((0, 32)) %0) local_unnamed_addr #5 {
+define hidden range(i32 -151, 1) i32 @psa_wipe_key_slot(ptr noundef captures(none) initializes((0, 32)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -513,7 +513,7 @@ psa_remove_key_data_from_memory.exit:             ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @psa_destroy_key(i32 noundef %0) local_unnamed_addr #5 {
@@ -821,7 +821,7 @@ declare i32 @mbedtls_psa_rsa_load_representation(i16 noundef zeroext, ptr nounde
 declare void @mbedtls_rsa_free(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -138, 1) i32 @psa_export_key_internal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3, i64 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #9 {
+define hidden range(i32 -138, 1) i32 @psa_export_key_internal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) %3, i64 noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #9 {
   %7 = load i16, ptr %0, align 8
   %8 = and i16 %7, 28672
   %9 = icmp eq i16 %8, 4096
@@ -1000,7 +1000,7 @@ psa_get_and_lock_key_slot_with_policy.exit:       ; preds = %15, %.thread, %8, %
 declare i32 @psa_driver_wrapper_export_public_key(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_import_key(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #5 {
+define hidden i32 @psa_import_key(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #5 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
@@ -1153,7 +1153,7 @@ psa_fail_key_creation.exit:                       ; preds = %psa_wipe_key_slot.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @psa_start_key_creation(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr noundef nonnull initializes((0, 8)) %2) unnamed_addr #5 {
+define internal fastcc i32 @psa_start_key_creation(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull initializes((0, 8)) %2) unnamed_addr #5 {
   %4 = alloca i32, align 4
   store ptr null, ptr %2, align 8
   %5 = getelementptr i8, ptr %0, i64 4
@@ -1240,7 +1240,7 @@ declare i32 @psa_driver_wrapper_get_key_buffer_size_from_key_data(ptr noundef, p
 declare i32 @psa_driver_wrapper_import_key(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @psa_validate_optional_attributes(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
+define internal fastcc i32 @psa_validate_optional_attributes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.mbedtls_mpi, align 8
   %5 = alloca %struct.mbedtls_mpi, align 8
@@ -1333,7 +1333,7 @@ select.unfold:                                    ; preds = %32, %27, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @psa_finish_key_creation(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #5 {
+define internal fastcc i32 @psa_finish_key_creation(ptr noundef %0, ptr noundef writeonly captures(none) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 255
@@ -1367,7 +1367,7 @@ define internal fastcc i32 @psa_finish_key_creation(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_copy_key(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #5 {
+define hidden i32 @psa_copy_key(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #5 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct.psa_key_attributes_s, align 8
@@ -1687,7 +1687,7 @@ psa_hash_abort.exit:                              ; preds = %11, %7, %4
 declare i32 @psa_driver_wrapper_hash_finish(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_hash_verify(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #5 {
+define hidden i32 @psa_hash_verify(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = alloca [64 x i8], align 16
   %5 = alloca i64, align 8
   store i64 0, ptr %5, align 8
@@ -1777,7 +1777,7 @@ define hidden i32 @psa_hash_compute(i32 noundef %0, ptr noundef %1, i64 noundef 
 declare i32 @psa_driver_wrapper_hash_compute(i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_hash_compare(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4) local_unnamed_addr #5 {
+define hidden i32 @psa_hash_compare(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #5 {
   %6 = alloca [64 x i8], align 16
   %7 = alloca i64, align 8
   %8 = and i32 %0, 2130706432
@@ -2223,7 +2223,7 @@ define internal fastcc i32 @psa_mac_compute_internal(i32 noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_mac_verify(i32 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, i64 noundef %5) local_unnamed_addr #5 {
+define hidden i32 @psa_mac_verify(i32 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5) local_unnamed_addr #5 {
   %7 = alloca [64 x i8], align 16
   %8 = alloca i64, align 8
   %9 = call fastcc i32 @psa_mac_compute_internal(i32 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %7, i64 noundef 64, ptr noundef nonnull %8, i32 noundef 0)
@@ -2953,7 +2953,7 @@ define hidden i32 @psa_cipher_decrypt_setup(ptr noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_cipher_generate_iv(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 {
+define hidden i32 @psa_cipher_generate_iv(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 {
   %5 = alloca [16 x i8], align 16
   %6 = load i32, ptr %0, align 8
   %7 = icmp eq i32 %6, 0
@@ -3767,7 +3767,7 @@ define hidden i32 @psa_aead_decrypt_setup(ptr noundef %0, i32 noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_aead_generate_nonce(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #5 {
+define hidden i32 @psa_aead_generate_nonce(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #5 {
   %5 = alloca [13 x i8], align 1
   store i64 0, ptr %3, align 8
   %6 = load i32, ptr %0, align 8
@@ -4459,7 +4459,7 @@ psa_mac_abort.exit:                               ; preds = %15, %9, %6, %42, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -137, 1) i32 @psa_key_derivation_get_capacity(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #9 {
+define hidden range(i32 -137, 1) i32 @psa_key_derivation_get_capacity(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #9 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %8, label %5
@@ -4476,7 +4476,7 @@ define hidden range(i32 -137, 1) i32 @psa_key_derivation_get_capacity(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -137, 1) i32 @psa_key_derivation_set_capacity(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #9 {
+define hidden range(i32 -137, 1) i32 @psa_key_derivation_set_capacity(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #9 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %10, label %5
@@ -4497,7 +4497,7 @@ define hidden range(i32 -137, 1) i32 @psa_key_derivation_set_capacity(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_key_derivation_output_bytes(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #5 {
+define hidden i32 @psa_key_derivation_output_bytes(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = alloca %struct.psa_key_attributes_s, align 8
   %5 = alloca %struct.psa_key_attributes_s, align 8
   %6 = alloca %struct.psa_mac_operation_s, align 8
@@ -5271,7 +5271,7 @@ psa_key_derivation_tls12_prf_read.exit.thread46:  ; preds = %.outer.i, %146, %ps
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_key_derivation_output_key(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #5 {
+define hidden i32 @psa_key_derivation_output_key(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #5 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.mbedtls_mpi, align 8
   %6 = alloca %struct.mbedtls_mpi, align 8
@@ -5728,7 +5728,7 @@ psa_finish_key_creation.exit:                     ; preds = %psa_wipe_key_slot.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_key_derivation_setup(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #5 {
+define hidden i32 @psa_key_derivation_setup(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %16
@@ -5767,7 +5767,7 @@ define hidden i32 @psa_key_derivation_setup(ptr nocapture noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @psa_key_derivation_setup_kdf(ptr nocapture noundef writeonly initializes((16, 552)) %0, i32 noundef %1) unnamed_addr #5 {
+define internal fastcc i32 @psa_key_derivation_setup_kdf(ptr noundef writeonly captures(none) initializes((16, 552)) %0, i32 noundef %1) unnamed_addr #5 {
   %3 = alloca %struct.psa_hash_operation_s, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(536) %4, i8 0, i64 536, i1 false)
@@ -6634,7 +6634,7 @@ psa_get_and_lock_transparent_key_slot_with_policy.exit: ; preds = %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @psa_key_agreement_raw_internal(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) unnamed_addr #5 {
+define internal fastcc i32 @psa_key_agreement_raw_internal(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) unnamed_addr #5 {
   %8 = alloca ptr, align 8
   %9 = alloca %struct.mbedtls_ecdh_context, align 8
   %10 = alloca ptr, align 8
@@ -6864,7 +6864,7 @@ declare i32 @mbedtls_psa_rsa_generate_key(ptr noundef, ptr noundef, i64 noundef,
 declare i32 @mbedtls_psa_ecp_generate_key(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @psa_generate_key(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #5 {
+define hidden i32 @psa_generate_key(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #5 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -7890,7 +7890,7 @@ psa_mac_key_can_do.exit:                          ; preds = %59, %.thread, %48, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc range(i32 -135, 1) i32 @psa_mac_finalize_alg_and_key_validation(i32 noundef %0, i16 %.0.val, ptr nocapture noundef writeonly %1) unnamed_addr #11 {
+define internal fastcc range(i32 -135, 1) i32 @psa_mac_finalize_alg_and_key_validation(i32 noundef %0, i16 %.0.val, ptr noundef writeonly captures(none) %1) unnamed_addr #11 {
   %3 = and i32 %0, 2130706432
   %4 = icmp eq i32 %3, 50331648
   br i1 %4, label %5, label %psa_mac_key_can_do.exit
@@ -8233,7 +8233,7 @@ declare i32 @mbedtls_mpi_lt_mpi_ct(ptr noundef, ptr noundef, ptr noundef) local_
 declare i32 @mbedtls_mpi_add_int(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc range(i32 -141, 1) i32 @psa_tls12_prf_input(ptr nocapture noundef %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #3 {
+define internal fastcc range(i32 -141, 1) i32 @psa_tls12_prf_input(ptr noundef captures(none) %0, i16 noundef zeroext %1, ptr noundef readonly captures(none) %2, i64 noundef %3) unnamed_addr #3 {
   switch i16 %1, label %psa_tls12_prf_set_seed.exit [
     i16 516, label %5
     i16 257, label %16
@@ -8360,10 +8360,10 @@ declare i64 @llvm.umin.i64(i64, i64) #12
 declare i32 @llvm.umax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

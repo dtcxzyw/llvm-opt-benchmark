@@ -296,7 +296,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h1e2ce1c12b6b74d7E.1" = private unnamed_addr constant [273 x ptr] [ptr @anon.106a141a87b8083f160a970ca42b60b8.9, ptr @anon.106a141a87b8083f160a970ca42b60b8.10, ptr @anon.106a141a87b8083f160a970ca42b60b8.11, ptr @anon.106a141a87b8083f160a970ca42b60b8.12, ptr @anon.106a141a87b8083f160a970ca42b60b8.13, ptr @anon.106a141a87b8083f160a970ca42b60b8.14, ptr @anon.106a141a87b8083f160a970ca42b60b8.15, ptr @anon.106a141a87b8083f160a970ca42b60b8.16, ptr @anon.106a141a87b8083f160a970ca42b60b8.17, ptr @anon.106a141a87b8083f160a970ca42b60b8.18, ptr @anon.106a141a87b8083f160a970ca42b60b8.19, ptr @anon.106a141a87b8083f160a970ca42b60b8.20, ptr @anon.106a141a87b8083f160a970ca42b60b8.21, ptr @anon.106a141a87b8083f160a970ca42b60b8.22, ptr @anon.106a141a87b8083f160a970ca42b60b8.23, ptr @anon.106a141a87b8083f160a970ca42b60b8.24, ptr @anon.106a141a87b8083f160a970ca42b60b8.25, ptr @anon.106a141a87b8083f160a970ca42b60b8.26, ptr @anon.106a141a87b8083f160a970ca42b60b8.27, ptr @anon.106a141a87b8083f160a970ca42b60b8.28, ptr @anon.106a141a87b8083f160a970ca42b60b8.29, ptr @anon.106a141a87b8083f160a970ca42b60b8.30, ptr @anon.106a141a87b8083f160a970ca42b60b8.31, ptr @anon.106a141a87b8083f160a970ca42b60b8.32, ptr @anon.106a141a87b8083f160a970ca42b60b8.33, ptr @anon.106a141a87b8083f160a970ca42b60b8.34, ptr @anon.106a141a87b8083f160a970ca42b60b8.35, ptr @anon.106a141a87b8083f160a970ca42b60b8.36, ptr @anon.106a141a87b8083f160a970ca42b60b8.37, ptr @anon.106a141a87b8083f160a970ca42b60b8.38, ptr @anon.106a141a87b8083f160a970ca42b60b8.39, ptr @anon.106a141a87b8083f160a970ca42b60b8.40, ptr @anon.106a141a87b8083f160a970ca42b60b8.41, ptr @anon.106a141a87b8083f160a970ca42b60b8.42, ptr @anon.106a141a87b8083f160a970ca42b60b8.43, ptr @anon.106a141a87b8083f160a970ca42b60b8.44, ptr @anon.106a141a87b8083f160a970ca42b60b8.45, ptr @anon.106a141a87b8083f160a970ca42b60b8.46, ptr @anon.106a141a87b8083f160a970ca42b60b8.47, ptr @anon.106a141a87b8083f160a970ca42b60b8.48, ptr @anon.106a141a87b8083f160a970ca42b60b8.49, ptr @anon.106a141a87b8083f160a970ca42b60b8.50, ptr @anon.106a141a87b8083f160a970ca42b60b8.51, ptr @anon.106a141a87b8083f160a970ca42b60b8.52, ptr @anon.106a141a87b8083f160a970ca42b60b8.53, ptr @anon.106a141a87b8083f160a970ca42b60b8.54, ptr @anon.106a141a87b8083f160a970ca42b60b8.55, ptr @anon.106a141a87b8083f160a970ca42b60b8.56, ptr @anon.106a141a87b8083f160a970ca42b60b8.57, ptr @anon.106a141a87b8083f160a970ca42b60b8.58, ptr @anon.106a141a87b8083f160a970ca42b60b8.59, ptr @anon.106a141a87b8083f160a970ca42b60b8.60, ptr @anon.106a141a87b8083f160a970ca42b60b8.61, ptr @anon.106a141a87b8083f160a970ca42b60b8.62, ptr @anon.106a141a87b8083f160a970ca42b60b8.63, ptr @anon.106a141a87b8083f160a970ca42b60b8.64, ptr @anon.106a141a87b8083f160a970ca42b60b8.65, ptr @anon.106a141a87b8083f160a970ca42b60b8.66, ptr @anon.106a141a87b8083f160a970ca42b60b8.67, ptr @anon.106a141a87b8083f160a970ca42b60b8.68, ptr @anon.106a141a87b8083f160a970ca42b60b8.69, ptr @anon.106a141a87b8083f160a970ca42b60b8.70, ptr @anon.106a141a87b8083f160a970ca42b60b8.71, ptr @anon.106a141a87b8083f160a970ca42b60b8.72, ptr @anon.106a141a87b8083f160a970ca42b60b8.73, ptr @anon.106a141a87b8083f160a970ca42b60b8.74, ptr @anon.106a141a87b8083f160a970ca42b60b8.75, ptr @anon.106a141a87b8083f160a970ca42b60b8.76, ptr @anon.106a141a87b8083f160a970ca42b60b8.77, ptr @anon.106a141a87b8083f160a970ca42b60b8.78, ptr @anon.106a141a87b8083f160a970ca42b60b8.79, ptr @anon.106a141a87b8083f160a970ca42b60b8.80, ptr @anon.106a141a87b8083f160a970ca42b60b8.81, ptr @anon.106a141a87b8083f160a970ca42b60b8.82, ptr @anon.106a141a87b8083f160a970ca42b60b8.83, ptr @anon.106a141a87b8083f160a970ca42b60b8.84, ptr @anon.106a141a87b8083f160a970ca42b60b8.85, ptr @anon.106a141a87b8083f160a970ca42b60b8.86, ptr @anon.106a141a87b8083f160a970ca42b60b8.87, ptr @anon.106a141a87b8083f160a970ca42b60b8.88, ptr @anon.106a141a87b8083f160a970ca42b60b8.89, ptr @anon.106a141a87b8083f160a970ca42b60b8.90, ptr @anon.106a141a87b8083f160a970ca42b60b8.91, ptr @anon.106a141a87b8083f160a970ca42b60b8.92, ptr @anon.106a141a87b8083f160a970ca42b60b8.93, ptr @anon.106a141a87b8083f160a970ca42b60b8.94, ptr @anon.106a141a87b8083f160a970ca42b60b8.95, ptr @anon.106a141a87b8083f160a970ca42b60b8.96, ptr @anon.106a141a87b8083f160a970ca42b60b8.97, ptr @anon.106a141a87b8083f160a970ca42b60b8.98, ptr @anon.106a141a87b8083f160a970ca42b60b8.99, ptr @anon.106a141a87b8083f160a970ca42b60b8.100, ptr @anon.106a141a87b8083f160a970ca42b60b8.101, ptr @anon.106a141a87b8083f160a970ca42b60b8.102, ptr @anon.106a141a87b8083f160a970ca42b60b8.103, ptr @anon.106a141a87b8083f160a970ca42b60b8.104, ptr @anon.106a141a87b8083f160a970ca42b60b8.105, ptr @anon.106a141a87b8083f160a970ca42b60b8.106, ptr @anon.106a141a87b8083f160a970ca42b60b8.107, ptr @anon.106a141a87b8083f160a970ca42b60b8.108, ptr @anon.106a141a87b8083f160a970ca42b60b8.109, ptr @anon.106a141a87b8083f160a970ca42b60b8.110, ptr @anon.106a141a87b8083f160a970ca42b60b8.111, ptr @anon.106a141a87b8083f160a970ca42b60b8.112, ptr @anon.106a141a87b8083f160a970ca42b60b8.113, ptr @anon.106a141a87b8083f160a970ca42b60b8.114, ptr @anon.106a141a87b8083f160a970ca42b60b8.115, ptr @anon.106a141a87b8083f160a970ca42b60b8.116, ptr @anon.106a141a87b8083f160a970ca42b60b8.117, ptr @anon.106a141a87b8083f160a970ca42b60b8.118, ptr @anon.106a141a87b8083f160a970ca42b60b8.119, ptr @anon.106a141a87b8083f160a970ca42b60b8.120, ptr @anon.106a141a87b8083f160a970ca42b60b8.121, ptr @anon.106a141a87b8083f160a970ca42b60b8.122, ptr @anon.106a141a87b8083f160a970ca42b60b8.123, ptr @anon.106a141a87b8083f160a970ca42b60b8.124, ptr @anon.106a141a87b8083f160a970ca42b60b8.125, ptr @anon.106a141a87b8083f160a970ca42b60b8.126, ptr @anon.106a141a87b8083f160a970ca42b60b8.127, ptr @anon.106a141a87b8083f160a970ca42b60b8.128, ptr @anon.106a141a87b8083f160a970ca42b60b8.129, ptr @anon.106a141a87b8083f160a970ca42b60b8.130, ptr @anon.106a141a87b8083f160a970ca42b60b8.131, ptr @anon.106a141a87b8083f160a970ca42b60b8.132, ptr @anon.106a141a87b8083f160a970ca42b60b8.133, ptr @anon.106a141a87b8083f160a970ca42b60b8.134, ptr @anon.106a141a87b8083f160a970ca42b60b8.135, ptr @anon.106a141a87b8083f160a970ca42b60b8.136, ptr @anon.106a141a87b8083f160a970ca42b60b8.137, ptr @anon.106a141a87b8083f160a970ca42b60b8.138, ptr @anon.106a141a87b8083f160a970ca42b60b8.139, ptr @anon.106a141a87b8083f160a970ca42b60b8.140, ptr @anon.106a141a87b8083f160a970ca42b60b8.141, ptr @anon.106a141a87b8083f160a970ca42b60b8.142, ptr @anon.106a141a87b8083f160a970ca42b60b8.143, ptr @anon.106a141a87b8083f160a970ca42b60b8.144, ptr @anon.106a141a87b8083f160a970ca42b60b8.145, ptr @anon.106a141a87b8083f160a970ca42b60b8.146, ptr @anon.106a141a87b8083f160a970ca42b60b8.147, ptr @anon.106a141a87b8083f160a970ca42b60b8.148, ptr @anon.106a141a87b8083f160a970ca42b60b8.149, ptr @anon.106a141a87b8083f160a970ca42b60b8.150, ptr @anon.106a141a87b8083f160a970ca42b60b8.151, ptr @anon.106a141a87b8083f160a970ca42b60b8.152, ptr @anon.106a141a87b8083f160a970ca42b60b8.153, ptr @anon.106a141a87b8083f160a970ca42b60b8.154, ptr @anon.106a141a87b8083f160a970ca42b60b8.155, ptr @anon.106a141a87b8083f160a970ca42b60b8.156, ptr @anon.106a141a87b8083f160a970ca42b60b8.157, ptr @anon.106a141a87b8083f160a970ca42b60b8.158, ptr @anon.106a141a87b8083f160a970ca42b60b8.159, ptr @anon.106a141a87b8083f160a970ca42b60b8.160, ptr @anon.106a141a87b8083f160a970ca42b60b8.161, ptr @anon.106a141a87b8083f160a970ca42b60b8.162, ptr @anon.106a141a87b8083f160a970ca42b60b8.163, ptr @anon.106a141a87b8083f160a970ca42b60b8.164, ptr @anon.106a141a87b8083f160a970ca42b60b8.165, ptr @anon.106a141a87b8083f160a970ca42b60b8.166, ptr @anon.106a141a87b8083f160a970ca42b60b8.167, ptr @anon.106a141a87b8083f160a970ca42b60b8.168, ptr @anon.106a141a87b8083f160a970ca42b60b8.169, ptr @anon.106a141a87b8083f160a970ca42b60b8.170, ptr @anon.106a141a87b8083f160a970ca42b60b8.171, ptr @anon.106a141a87b8083f160a970ca42b60b8.172, ptr @anon.106a141a87b8083f160a970ca42b60b8.173, ptr @anon.106a141a87b8083f160a970ca42b60b8.174, ptr @anon.106a141a87b8083f160a970ca42b60b8.175, ptr @anon.106a141a87b8083f160a970ca42b60b8.176, ptr @anon.106a141a87b8083f160a970ca42b60b8.177, ptr @anon.106a141a87b8083f160a970ca42b60b8.178, ptr @anon.106a141a87b8083f160a970ca42b60b8.179, ptr @anon.106a141a87b8083f160a970ca42b60b8.180, ptr @anon.106a141a87b8083f160a970ca42b60b8.181, ptr @anon.106a141a87b8083f160a970ca42b60b8.182, ptr @anon.106a141a87b8083f160a970ca42b60b8.183, ptr @anon.106a141a87b8083f160a970ca42b60b8.184, ptr @anon.106a141a87b8083f160a970ca42b60b8.185, ptr @anon.106a141a87b8083f160a970ca42b60b8.186, ptr @anon.106a141a87b8083f160a970ca42b60b8.187, ptr @anon.106a141a87b8083f160a970ca42b60b8.188, ptr @anon.106a141a87b8083f160a970ca42b60b8.189, ptr @anon.106a141a87b8083f160a970ca42b60b8.190, ptr @anon.106a141a87b8083f160a970ca42b60b8.191, ptr @anon.106a141a87b8083f160a970ca42b60b8.192, ptr @anon.106a141a87b8083f160a970ca42b60b8.193, ptr @anon.106a141a87b8083f160a970ca42b60b8.194, ptr @anon.106a141a87b8083f160a970ca42b60b8.195, ptr @anon.106a141a87b8083f160a970ca42b60b8.196, ptr @anon.106a141a87b8083f160a970ca42b60b8.197, ptr @anon.106a141a87b8083f160a970ca42b60b8.198, ptr @anon.106a141a87b8083f160a970ca42b60b8.199, ptr @anon.106a141a87b8083f160a970ca42b60b8.200, ptr @anon.106a141a87b8083f160a970ca42b60b8.201, ptr @anon.106a141a87b8083f160a970ca42b60b8.202, ptr @anon.106a141a87b8083f160a970ca42b60b8.203, ptr @anon.106a141a87b8083f160a970ca42b60b8.204, ptr @anon.106a141a87b8083f160a970ca42b60b8.205, ptr @anon.106a141a87b8083f160a970ca42b60b8.206, ptr @anon.106a141a87b8083f160a970ca42b60b8.207, ptr @anon.106a141a87b8083f160a970ca42b60b8.208, ptr @anon.106a141a87b8083f160a970ca42b60b8.209, ptr @anon.106a141a87b8083f160a970ca42b60b8.210, ptr @anon.106a141a87b8083f160a970ca42b60b8.211, ptr @anon.106a141a87b8083f160a970ca42b60b8.212, ptr @anon.106a141a87b8083f160a970ca42b60b8.213, ptr @anon.106a141a87b8083f160a970ca42b60b8.214, ptr @anon.106a141a87b8083f160a970ca42b60b8.215, ptr @anon.106a141a87b8083f160a970ca42b60b8.216, ptr @anon.106a141a87b8083f160a970ca42b60b8.217, ptr @anon.106a141a87b8083f160a970ca42b60b8.218, ptr @anon.106a141a87b8083f160a970ca42b60b8.219, ptr @anon.106a141a87b8083f160a970ca42b60b8.220, ptr @anon.106a141a87b8083f160a970ca42b60b8.221, ptr @anon.106a141a87b8083f160a970ca42b60b8.222, ptr @anon.106a141a87b8083f160a970ca42b60b8.223, ptr @anon.106a141a87b8083f160a970ca42b60b8.224, ptr @anon.106a141a87b8083f160a970ca42b60b8.225, ptr @anon.106a141a87b8083f160a970ca42b60b8.226, ptr @anon.106a141a87b8083f160a970ca42b60b8.227, ptr @anon.106a141a87b8083f160a970ca42b60b8.228, ptr @anon.106a141a87b8083f160a970ca42b60b8.229, ptr @anon.106a141a87b8083f160a970ca42b60b8.230, ptr @anon.106a141a87b8083f160a970ca42b60b8.231, ptr @anon.106a141a87b8083f160a970ca42b60b8.232, ptr @anon.106a141a87b8083f160a970ca42b60b8.233, ptr @anon.106a141a87b8083f160a970ca42b60b8.234, ptr @anon.106a141a87b8083f160a970ca42b60b8.235, ptr @anon.106a141a87b8083f160a970ca42b60b8.236, ptr @anon.106a141a87b8083f160a970ca42b60b8.237, ptr @anon.106a141a87b8083f160a970ca42b60b8.238, ptr @anon.106a141a87b8083f160a970ca42b60b8.239, ptr @anon.106a141a87b8083f160a970ca42b60b8.240, ptr @anon.106a141a87b8083f160a970ca42b60b8.241, ptr @anon.106a141a87b8083f160a970ca42b60b8.242, ptr @anon.106a141a87b8083f160a970ca42b60b8.243, ptr @anon.106a141a87b8083f160a970ca42b60b8.244, ptr @anon.106a141a87b8083f160a970ca42b60b8.245, ptr @anon.106a141a87b8083f160a970ca42b60b8.246, ptr @anon.106a141a87b8083f160a970ca42b60b8.247, ptr @anon.106a141a87b8083f160a970ca42b60b8.248, ptr @anon.106a141a87b8083f160a970ca42b60b8.249, ptr @anon.106a141a87b8083f160a970ca42b60b8.250, ptr @anon.106a141a87b8083f160a970ca42b60b8.251, ptr @anon.106a141a87b8083f160a970ca42b60b8.252, ptr @anon.106a141a87b8083f160a970ca42b60b8.253, ptr @anon.106a141a87b8083f160a970ca42b60b8.254, ptr @anon.106a141a87b8083f160a970ca42b60b8.255, ptr @anon.106a141a87b8083f160a970ca42b60b8.256, ptr @anon.106a141a87b8083f160a970ca42b60b8.257, ptr @anon.106a141a87b8083f160a970ca42b60b8.258, ptr @anon.106a141a87b8083f160a970ca42b60b8.259, ptr @anon.106a141a87b8083f160a970ca42b60b8.260, ptr @anon.106a141a87b8083f160a970ca42b60b8.261, ptr @anon.106a141a87b8083f160a970ca42b60b8.262, ptr @anon.106a141a87b8083f160a970ca42b60b8.263, ptr @anon.106a141a87b8083f160a970ca42b60b8.264, ptr @anon.106a141a87b8083f160a970ca42b60b8.265, ptr @anon.106a141a87b8083f160a970ca42b60b8.266, ptr @anon.106a141a87b8083f160a970ca42b60b8.267, ptr @anon.106a141a87b8083f160a970ca42b60b8.268, ptr @anon.106a141a87b8083f160a970ca42b60b8.269, ptr @anon.106a141a87b8083f160a970ca42b60b8.270, ptr @anon.106a141a87b8083f160a970ca42b60b8.271, ptr @anon.106a141a87b8083f160a970ca42b60b8.272, ptr @anon.106a141a87b8083f160a970ca42b60b8.273, ptr @anon.106a141a87b8083f160a970ca42b60b8.274, ptr @anon.106a141a87b8083f160a970ca42b60b8.275, ptr @anon.106a141a87b8083f160a970ca42b60b8.276, ptr @anon.106a141a87b8083f160a970ca42b60b8.277, ptr @anon.106a141a87b8083f160a970ca42b60b8.278, ptr @anon.106a141a87b8083f160a970ca42b60b8.279, ptr @anon.106a141a87b8083f160a970ca42b60b8.280, ptr @anon.106a141a87b8083f160a970ca42b60b8.281], align 8
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h3909bfb13110fb3cE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
+define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h3909bfb13110fb3cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
@@ -310,7 +310,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17ha72b7dd75f4e3b0aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
+define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17ha72b7dd75f4e3b0aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !11, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -326,7 +326,7 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %4 = alloca ptr, align 8
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias nocapture noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
+  call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
   %6 = getelementptr inbounds ptr, ptr %0, i64 %1
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17h64130fb5fa1b18b3E.exit, label %.lr.ph.i
@@ -352,7 +352,7 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %4 = alloca ptr, align 8
   %5 = alloca { { ptr, i8, i8, [6 x i8] } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias nocapture noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
+  call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
   %6 = getelementptr inbounds { { i32, i32 }, i16, [1 x i16] }, ptr %0, i64 %1
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN4core3fmt8builders9DebugList7entries17hbc4bae20561bc64fE.exit, label %.lr.ph.i
@@ -380,7 +380,7 @@ define hidden noundef i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$G
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
-define hidden noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17h9e8e2dd6337635b7E.llvm.9397937700280594456(ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #2 {
+define hidden noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17h9e8e2dd6337635b7E.llvm.9397937700280594456(ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -412,17 +412,17 @@ define hidden noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17h9e8e2dd6337635b7E.
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr52drop_in_place$LT$$RF$text_size..range..TextRange$GT$17h2f809a4393ef04e2E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr52drop_in_place$LT$$RF$text_size..range..TextRange$GT$17h2f809a4393ef04e2E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr63drop_in_place$LT$parser..syntax_kind..generated..SyntaxKind$GT$17h93d6e04b80735a88E"(ptr noalias nocapture readnone align 2 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr63drop_in_place$LT$parser..syntax_kind..generated..SyntaxKind$GT$17h93d6e04b80735a88E"(ptr noalias readnone align 2 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5rowan3ast22SyntaxNodePtr$LT$L$GT$3new17h9283286ce304d74cE"(ptr noalias nocapture noundef writeonly sret({ { i32, i32 }, i16, [1 x i16] }) align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5rowan3ast22SyntaxNodePtr$LT$L$GT$3new17h9283286ce304d74cE"(ptr noalias noundef writeonly sret({ { i32, i32 }, i16, [1 x i16] }) align 4 captures(none) dereferenceable(12) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { {} }, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   %4 = load ptr, ptr %1, align 8, !alias.scope !39, !nonnull !4, !noundef !4
@@ -497,7 +497,7 @@ define hidden void @"_ZN5rowan3ast22SyntaxNodePtr$LT$L$GT$3new17h9283286ce304d74
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i16 @_ZN5rowan6cursor10SyntaxNode4kind17hd8562337a2a58c83E.llvm.9397937700280594456(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #3 {
+define hidden noundef i16 @_ZN5rowan6cursor10SyntaxNode4kind17hd8562337a2a58c83E.llvm.9397937700280594456(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = load i64, ptr %2, align 8, !range !42, !noundef !4
   %.sroa.3.0.in.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -510,7 +510,7 @@ define hidden noundef i16 @_ZN5rowan6cursor10SyntaxNode4kind17hd8562337a2a58c83E
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { i64, ptr } @_ZN5rowan6cursor8NodeData5green17h942c2960d71e6ad6E.llvm.9397937700280594456(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #4 {
+define hidden { i64, ptr } @_ZN5rowan6cursor8NodeData5green17h942c2960d71e6ad6E.llvm.9397937700280594456(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8, !range !42, !noundef !4
   %.sroa.3.0.in = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.3.0 = load ptr, ptr %.sroa.3.0.in, align 8, !nonnull !4, !noundef !4
@@ -520,7 +520,7 @@ define hidden { i64, ptr } @_ZN5rowan6cursor8NodeData5green17h942c2960d71e6ad6E.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: readwrite) uwtable
-define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h230f1d1f08983808E"(ptr noalias nocapture noundef nonnull readonly align 4 %0, i64 noundef %1, ptr noalias nocapture noundef nonnull readonly align 4 %2, i64 noundef %3) unnamed_addr #5 {
+define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h230f1d1f08983808E"(ptr noalias noundef nonnull readonly align 4 captures(none) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 4 captures(none) %2, i64 noundef %3) unnamed_addr #5 {
   %.not = icmp eq i64 %1, %3
   br i1 %.not, label %.preheader.split, label %.thread
 
@@ -566,7 +566,7 @@ _ZN4core3cmp9PartialEq2ne17h9e8e2dd6337635b7E.llvm.9397937700280594456.exit: ; p
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN75_$LT$rowan..ast..SyntaxNodePtr$LT$L$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0d241e19de673923E.llvm.9397937700280594456"(ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #2 {
+define hidden noundef zeroext i1 @"_ZN75_$LT$rowan..ast..SyntaxNodePtr$LT$L$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0d241e19de673923E.llvm.9397937700280594456"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
@@ -596,7 +596,7 @@ define hidden noundef zeroext i1 @"_ZN75_$LT$rowan..ast..SyntaxNodePtr$LT$L$GT$$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef zeroext i1 @"_ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h1e2ce1c12b6b74d7E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #6 {
+define internal noundef zeroext i1 @"_ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h1e2ce1c12b6b74d7E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #6 {
 switch.lookup:
   %2 = load i16, ptr %0, align 2, !range !36, !noundef !4
   %3 = zext nneg i16 %2 to i64
@@ -610,7 +610,7 @@ switch.lookup:
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN83_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h89e8a0d4849e0608E.llvm.9397937700280594456"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1) unnamed_addr #4 {
+define hidden noundef zeroext i1 @"_ZN83_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h89e8a0d4849e0608E.llvm.9397937700280594456"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %1) unnamed_addr #4 {
   %3 = load i16, ptr %0, align 2, !range !36, !noundef !4
   %4 = load i16, ptr %1, align 2, !range !36, !noundef !4
   %5 = icmp eq i16 %3, %4
@@ -618,7 +618,7 @@ define hidden noundef zeroext i1 @"_ZN83_$LT$parser..syntax_kind..generated..Syn
 }
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias nocapture noundef sret({ { ptr, i8, i8, [6 x i8] } }) align 8 dereferenceable(16), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
+declare void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hf81be2358cd42e32E(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #0
@@ -636,10 +636,10 @@ declare noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17
 declare noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef align 8 dereferenceable(64), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #0

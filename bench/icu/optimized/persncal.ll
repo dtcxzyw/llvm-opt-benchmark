@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6icu_7515PersianCalendarD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7515PersianCalendarD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7515PersianCalendar7getTypeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7515PersianCalendar7getTypeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret ptr @.str
 }
@@ -123,7 +123,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK6icu_7515PersianCalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE(ptr nocapture nonnull readnone align 8 %this, i32 noundef %field, i32 noundef %limitType) unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK6icu_7515PersianCalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %field, i32 noundef %limitType) unnamed_addr #0 align 2 {
 entry:
   %idxprom = zext i32 %field to i64
   %idxprom2 = zext i32 %limitType to i64
@@ -168,7 +168,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -128, 128) i32 @_ZNK6icu_7515PersianCalendar20handleGetMonthLengthEii(ptr nocapture nonnull readnone align 8 %this, i32 noundef %extendedYear, i32 noundef %month) unnamed_addr #1 align 2 {
+define noundef range(i32 -128, 128) i32 @_ZNK6icu_7515PersianCalendar20handleGetMonthLengthEii(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %extendedYear, i32 noundef %month) unnamed_addr #1 align 2 {
 entry:
   %remainder.i = alloca i32, align 4
   %month.addr = alloca i32, align 4
@@ -201,7 +201,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 365, 367) i32 @_ZNK6icu_7515PersianCalendar19handleGetYearLengthEi(ptr nocapture nonnull readnone align 8 %this, i32 noundef %extendedYear) unnamed_addr #1 align 2 {
+define noundef range(i32 365, 367) i32 @_ZNK6icu_7515PersianCalendar19handleGetYearLengthEi(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %extendedYear) unnamed_addr #1 align 2 {
 entry:
   %remainder.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %remainder.i)
@@ -216,7 +216,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7515PersianCalendar23handleComputeMonthStartEiia(ptr nocapture nonnull readnone align 8 %this, i32 noundef %eyear, i32 noundef %month, i8 signext %0) unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK6icu_7515PersianCalendar23handleComputeMonthStartEiia(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %eyear, i32 noundef %month, i8 signext %0) unnamed_addr #1 align 2 {
 entry:
   %month.addr = alloca i32, align 4
   store i32 %month, ptr %month.addr, align 4
@@ -292,7 +292,7 @@ if.end:                                           ; preds = %cond.true.i5, %if.e
 declare noundef i32 @_ZNK6icu_758Calendar10newerFieldE19UCalendarDateFieldsS1_(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7515PersianCalendar19handleComputeFieldsEiR10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(618) initializes((12, 24), (32, 40), (88, 92), (104, 111), (113, 115), (127, 128), (131, 144), (152, 160), (208, 212), (224, 228)) %this, i32 noundef %julianDay, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7515PersianCalendar19handleComputeFieldsEiR10UErrorCode(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(618) initializes((12, 24), (32, 40), (88, 92), (104, 111), (113, 115), (127, 128), (131, 144), (152, 160), (208, 212), (224, 228)) %this, i32 noundef %julianDay, ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #1 align 2 {
 entry:
   %sub = add nsw i32 %julianDay, -1948320
   %conv = sext i32 %sub to i64
@@ -398,13 +398,13 @@ entry:
 declare void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_ZNK6icu_7515PersianCalendar18haveDefaultCenturyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define noundef signext i8 @_ZNK6icu_7515PersianCalendar18haveDefaultCenturyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret i8 1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK6icu_7515PersianCalendar19defaultCenturyStartEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK6icu_7515PersianCalendar19defaultCenturyStartEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i32, ptr @_ZN6icu_75L25gSystemDefaultCenturyInitE acquire, align 4
   %cmp.i = icmp eq i32 %0, 2
@@ -489,7 +489,7 @@ eh.resume:                                        ; preds = %lpad1, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7515PersianCalendar23defaultCenturyStartYearEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK6icu_7515PersianCalendar23defaultCenturyStartYearEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i32, ptr @_ZN6icu_75L25gSystemDefaultCenturyInitE acquire, align 4
   %cmp.i = icmp eq i32 %0, 2
@@ -517,7 +517,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7515PersianCalendar17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7515PersianCalendar17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret ptr @_ZZN6icu_7515PersianCalendar16getStaticClassIDEvE7classID
 }
@@ -612,10 +612,10 @@ declare void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare noundef double @_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

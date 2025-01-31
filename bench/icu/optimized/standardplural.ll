@@ -34,7 +34,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 -1, 8) i32 @_ZN6icu_7514StandardPlural25indexOrNegativeFromStringEPKc(ptr nocapture noundef readonly %keyword) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -1, 8) i32 @_ZN6icu_7514StandardPlural25indexOrNegativeFromStringEPKc(ptr noundef readonly captures(none) %keyword) local_unnamed_addr #1 align 2 {
 entry:
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %keyword, i64 1
   %0 = load i8, ptr %keyword, align 1
@@ -153,7 +153,7 @@ return:                                           ; preds = %sw.bb40, %sw.bb35, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 -1, 8) i32 @_ZN6icu_7514StandardPlural25indexOrNegativeFromStringERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64) %keyword) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -347,7 +347,7 @@ eh.resume:                                        ; preds = %lpad69, %lpad59, %l
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 8) i32 @_ZN6icu_7514StandardPlural15indexFromStringEPKcR10UErrorCode(ptr nocapture noundef readonly %keyword, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #4 align 2 {
+define noundef range(i32 0, 8) i32 @_ZN6icu_7514StandardPlural15indexFromStringEPKcR10UErrorCode(ptr noundef readonly captures(none) %keyword, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -368,7 +368,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 8) i32 @_ZN6icu_7514StandardPlural15indexFromStringERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %keyword, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #3 align 2 {
+define noundef range(i32 0, 8) i32 @_ZN6icu_7514StandardPlural15indexFromStringERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %keyword, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1

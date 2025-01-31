@@ -108,7 +108,7 @@ define hidden noundef i32 @phpdbg_do_list_lines(ptr noundef %0) #0 {
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 %13, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr align 1 %12, i64 %13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr nonnull align 1 %12, i64 %13, i1 false)
   %21 = getelementptr inbounds [1 x i8], ptr %20, i64 0, i64 %13
   store i8 0, ptr %21, align 1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -143,7 +143,7 @@ define hidden noundef i32 @phpdbg_do_list_lines(ptr noundef %0) #0 {
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i64 %36, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %43, ptr align 1 %spec.select, i64 %36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %43, ptr nonnull align 1 %spec.select, i64 %36, i1 false)
   %44 = getelementptr inbounds [1 x i8], ptr %43, i64 0, i64 %36
   store i8 0, ptr %44, align 1
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -242,7 +242,7 @@ phpdbg_list_file.exit:                            ; preds = %77, %48, %51
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_do_list_class(ptr nocapture noundef readonly %0) #0 {
+define hidden noundef i32 @phpdbg_do_list_class(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -302,13 +302,13 @@ define hidden noundef i32 @phpdbg_do_list_class(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_do_list_method(ptr nocapture noundef readonly %0) #0 {
+define hidden noundef i32 @phpdbg_do_list_method(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #12
   %6 = trunc i64 %5 to i32
-  %7 = call i32 @phpdbg_safe_class_lookup(ptr noundef %4, i32 noundef %6, ptr noundef nonnull %2) #11
+  %7 = call i32 @phpdbg_safe_class_lookup(ptr noundef nonnull %4, i32 noundef %6, ptr noundef nonnull %2) #11
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %41
 
@@ -316,11 +316,11 @@ define hidden noundef i32 @phpdbg_do_list_method(ptr nocapture noundef readonly 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #12
-  %13 = call ptr @zend_str_tolower_dup(ptr noundef %11, i64 noundef %12) #11
+  %13 = call ptr @zend_str_tolower_dup(ptr noundef nonnull %11, i64 noundef %12) #11
   %14 = load ptr, ptr %2, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #12
-  %17 = call ptr @zend_hash_str_find(ptr noundef nonnull %15, ptr noundef %13, i64 noundef %16) #11
+  %17 = call ptr @zend_hash_str_find(ptr noundef nonnull %15, ptr noundef nonnull %13, i64 noundef %16) #11
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %36, label %18
 
@@ -358,7 +358,7 @@ define hidden noundef i32 @phpdbg_do_list_method(ptr nocapture noundef readonly 
   br label %phpdbg_list_function.exit
 
 phpdbg_list_function.exit:                        ; preds = %27, %21, %36
-  call void @_efree(ptr noundef %13) #11
+  call void @_efree(ptr noundef nonnull %13) #11
   br label %45
 
 41:                                               ; preds = %1
@@ -372,7 +372,7 @@ phpdbg_list_function.exit:                        ; preds = %27, %21, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @phpdbg_do_list_func(ptr nocapture noundef readonly %0) #0 {
+define hidden noundef i32 @phpdbg_do_list_func(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -388,7 +388,7 @@ declare i32 @phpdbg_print(i32 noundef, i32 noundef, ptr noundef, ...) local_unna
 declare ptr @phpdbg_current_file() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @phpdbg_list_file(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -615,7 +615,7 @@ declare i32 @phpdbg_safe_class_lookup(ptr noundef, i32 noundef, ptr noundef) loc
 declare ptr @zend_str_tolower_dup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @phpdbg_list_function(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @phpdbg_list_function(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 8
   %.not = icmp eq i8 %2, 2
   br i1 %.not, label %9, label %3
@@ -787,7 +787,7 @@ declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: allocsize(1)
 declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #6
@@ -1110,7 +1110,7 @@ define hidden void @phpdbg_list_update() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 

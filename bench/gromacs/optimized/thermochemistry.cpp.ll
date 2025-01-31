@@ -137,7 +137,7 @@ define noundef double @_Z29calcVibrationalInternalEnergyN3gmx8ArrayRefIKfEEfbf(p
 declare double @expm1(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef double @_Z27calcVibrationalHeatCapacityN3gmx8ArrayRefIKfEEfbf(ptr %0, ptr %1, float noundef %2, i1 noundef zeroext %3, float noundef %4) local_unnamed_addr #3 {
@@ -267,7 +267,7 @@ declare double @log(double noundef) local_unnamed_addr #2
 declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_Z21calcRotationalEntropyfibPKff(float noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef readonly %3, float noundef %4) local_unnamed_addr #5 {
+define noundef double @_Z21calcRotationalEntropyfibPKff(float noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef readonly captures(none) %3, float noundef %4) local_unnamed_addr #5 {
   %6 = fcmp ogt float %4, 0.000000e+00
   br i1 %6, label %8, label %7
 

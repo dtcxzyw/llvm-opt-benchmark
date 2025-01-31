@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.bloom_init = private unnamed_addr constant [11 x i8] c"bloom_init\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @brin_bloom_opcinfo(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @brin_bloom_opcinfo(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @palloc0(i64 noundef 80) #7
   store i16 1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2
@@ -45,7 +45,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 declare ptr @lookup_type_cache(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @brin_bloom_add_value(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @brin_bloom_add_value(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -287,7 +287,7 @@ declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
 declare i64 @FunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @brin_bloom_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @brin_bloom_consistent(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -436,7 +436,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @brin_bloom_union(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @brin_bloom_union(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -482,7 +482,7 @@ define dso_local noundef i64 @brin_bloom_union(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @brin_bloom_options(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @brin_bloom_options(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -497,7 +497,7 @@ declare void @init_local_reloptions(ptr noundef, i64 noundef) local_unnamed_addr
 declare void @add_local_real_reloption(ptr noundef, ptr noundef, ptr noundef, double noundef, double noundef, double noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef i64 @brin_bloom_summary_in(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
+define dso_local noundef i64 @brin_bloom_summary_in(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #7
@@ -511,7 +511,7 @@ declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @brin_bloom_summary_out(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @brin_bloom_summary_out(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -542,7 +542,7 @@ declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unname
 declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noundef i64 @brin_bloom_summary_recv(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
+define dso_local noundef i64 @brin_bloom_summary_recv(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 @errcode(i32 noundef 1088) #7

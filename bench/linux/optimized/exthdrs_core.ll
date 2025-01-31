@@ -42,7 +42,7 @@ define dso_local noundef zeroext i1 @ipv6_ext_hdr(i8 noundef zeroext %0) #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ipv6_skip_exthdr(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly initializes((0, 2)) %3) #1 align 16 {
+define dso_local i32 @ipv6_skip_exthdr(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 2)) %3) #1 align 16 {
   %5 = alloca %struct.ipv6_opt_hdr, align 2
   %6 = alloca i16, align 2
   %7 = load i8, ptr %2, align 1
@@ -178,19 +178,19 @@ define dso_local i32 @ipv6_skip_exthdr(ptr noundef %0, i32 noundef %1, ptr nocap
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @ipv6_find_tlv(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #5 align 16 {
+define dso_local i32 @ipv6_find_tlv(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #5 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 180
@@ -262,7 +262,7 @@ define dso_local i32 @ipv6_find_tlv(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -74, 256) i32 @ipv6_find_hdr(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef %4) #1 align 16 {
+define dso_local range(i32 -74, 256) i32 @ipv6_find_hdr(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef %4) #1 align 16 {
   %6 = alloca %struct.ipv6hdr, align 4
   %7 = alloca %struct.ipv6_opt_hdr, align 2
   %8 = alloca %struct.ipv6_rt_hdr, align 4

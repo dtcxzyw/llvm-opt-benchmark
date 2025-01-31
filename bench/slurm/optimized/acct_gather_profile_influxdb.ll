@@ -200,7 +200,7 @@ define void @acct_gather_profile_p_conf_options(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @slurm_transfer_s_p_options(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -321,7 +321,7 @@ declare void @slurm_fatal(ptr noundef, ...) local_unnamed_addr #3
 declare i32 @slurm_s_p_get_uint32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @acct_gather_profile_p_get(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define void @acct_gather_profile_p_get(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @slurm_get_log_level() #8
   %4 = icmp sgt i32 %3, 6
   br i1 %4, label %5, label %6
@@ -738,7 +738,7 @@ define internal fastcc void @_send_data(ptr noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @acct_gather_profile_p_create_group(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i64 @acct_gather_profile_p_create_group(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @slurm_get_log_level() #8
   %3 = icmp sgt i32 %2, 6
   br i1 %3, label %4, label %5
@@ -861,7 +861,7 @@ define i32 @acct_gather_profile_p_create_dataset(ptr noundef %0, i64 noundef %1,
 declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @acct_gather_profile_p_add_sample_data(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define noundef i32 @acct_gather_profile_p_add_sample_data(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr @tables, align 8
   %6 = sext i32 %0 to i64
@@ -950,7 +950,7 @@ define noundef i32 @acct_gather_profile_p_add_sample_data(i32 noundef %0, ptr no
 declare void @slurm_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @acct_gather_profile_p_conf_values(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @acct_gather_profile_p_conf_values(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @slurm_get_log_level() #8
   %3 = icmp sgt i32 %2, 6
   br i1 %3, label %4, label %5
@@ -1059,15 +1059,15 @@ define zeroext i1 @acct_gather_profile_p_is_active(i32 noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @slurm_xstrcat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @curl_global_init(i64 noundef) local_unnamed_addr #1
 
@@ -1078,7 +1078,7 @@ declare ptr @curl_easy_init() local_unnamed_addr #1
 declare i32 @curl_easy_setopt(ptr noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @_write_callback(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal noundef i64 @_write_callback(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @slurm_get_log_level() #8
   %6 = icmp sgt i32 %5, 6
   br i1 %6, label %7, label %8

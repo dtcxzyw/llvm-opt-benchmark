@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [32 x i8] c"../openssl/crypto/err/err_prn.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @ERR_print_errors_cb(ptr nocapture noundef readonly %cb, ptr noundef %u) local_unnamed_addr #0 {
+define void @ERR_print_errors_cb(ptr noundef readonly captures(none) %cb, ptr noundef %u) local_unnamed_addr #0 {
 entry:
   %tid = alloca i64, align 8
   %file = alloca ptr, align 8
@@ -76,14 +76,14 @@ declare i64 @CRYPTO_THREAD_get_current_id() local_unnamed_addr #1
 declare i64 @ERR_get_error_all(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @ossl_buf2hexstr_sep(ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #1
 
 declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @ossl_err_string_int(i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -169,11 +169,15 @@ while.cond.preheader:                             ; preds = %if.end17
 if.then20:                                        ; preds = %if.end17
   %call21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %txt.addr.0) #5
   %cmp22.not = icmp ugt i64 %call21, %available_len.0
-  br i1 %cmp22.not, label %if.end54, label %if.else72.thread
+  br i1 %cmp22.not, label %if.else25, label %if.else72.thread
 
 if.else72.thread:                                 ; preds = %if.then20
   %add.ptr = getelementptr inbounds i8, ptr %txt.addr.0, i64 %call21
   br label %if.else84
+
+if.else25:                                        ; preds = %if.then20
+  %add.ptr26 = getelementptr inbounds i8, ptr %txt.addr.0, i64 %available_len.0
+  br label %if.end54
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end46
   %trailing_separator.164 = phi i32 [ %trailing_separator.2, %if.end46 ], [ 0, %while.cond.preheader ]
@@ -208,20 +212,15 @@ if.end46:                                         ; preds = %if.else43, %if.then
   br i1 %or.cond, label %while.end, label %while.body, !llvm.loop !6
 
 while.end:                                        ; preds = %if.end46
-  br i1 %cmp32.not, label %if.then57, label %if.else72
+  br i1 %cmp32.not, label %if.end54, label %if.else72
 
-if.end54:                                         ; preds = %if.then20
-  %add.ptr26 = getelementptr inbounds i8, ptr %txt.addr.0, i64 %available_len.0
-  %cmp55.not = icmp eq ptr %txt.addr.0, null
-  br i1 %cmp55.not, label %if.else84, label %if.then57
-
-if.then57:                                        ; preds = %while.end, %if.end54
-  %curr.078 = phi ptr [ %add.ptr26, %if.end54 ], [ %next.163, %while.end ]
-  %cmp58.not = icmp eq ptr %curr.078, %txt.addr.0
+if.end54:                                         ; preds = %while.end, %if.else25
+  %curr.0 = phi ptr [ %add.ptr26, %if.else25 ], [ %next.163, %while.end ]
+  %cmp58.not = icmp eq ptr %curr.0, %txt.addr.0
   br i1 %cmp58.not, label %if.end69, label %if.then60
 
-if.then60:                                        ; preds = %if.then57
-  %sub.ptr.lhs.cast61 = ptrtoint ptr %curr.078 to i64
+if.then60:                                        ; preds = %if.end54
+  %sub.ptr.lhs.cast61 = ptrtoint ptr %curr.0 to i64
   %sub.ptr.rhs.cast62 = ptrtoint ptr %txt.addr.0 to i64
   %sub.ptr.sub63 = sub i64 %sub.ptr.lhs.cast61, %sub.ptr.rhs.cast62
   %call64 = call noalias ptr @CRYPTO_strndup(ptr noundef %txt.addr.0, i64 noundef %sub.ptr.sub63, ptr noundef nonnull @.str.4, i32 noundef 123) #4
@@ -233,7 +232,7 @@ if.end68:                                         ; preds = %if.then60
   call void @CRYPTO_free(ptr noundef nonnull %call64, ptr noundef nonnull @.str.4, i32 noundef 127) #4
   br label %if.end69
 
-if.end69:                                         ; preds = %if.end68, %if.then57
+if.end69:                                         ; preds = %if.end68, %if.end54
   %9 = load ptr, ptr %func, align 8
   %10 = load ptr, ptr %file, align 8
   %11 = load i32, ptr %line, align 4
@@ -243,16 +242,15 @@ if.end69:                                         ; preds = %if.end68, %if.then5
   br label %do.cond
 
 if.else72:                                        ; preds = %while.end
-  %tobool.not = icmp eq i32 %trailing_separator.2, 0
-  br i1 %tobool.not, label %if.else84, label %if.then73
+  %12 = icmp eq i32 %trailing_separator.2, 0
+  br i1 %12, label %if.else84, label %if.then73
 
 if.then73:                                        ; preds = %if.else72
   %call74 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #5
   %idx.neg = sub i64 0, %call74
   %add.ptr75 = getelementptr inbounds i8, ptr %next.2, i64 %idx.neg
   %sub.ptr.lhs.cast76 = ptrtoint ptr %add.ptr75 to i64
-  %sub.ptr.rhs.cast77 = ptrtoint ptr %txt.addr.0 to i64
-  %sub.ptr.sub78 = sub i64 %sub.ptr.lhs.cast76, %sub.ptr.rhs.cast77
+  %sub.ptr.sub78 = sub i64 %sub.ptr.lhs.cast76, %sub.ptr.rhs.cast
   %call79 = call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %txt.addr.0, i64 noundef %sub.ptr.sub78, ptr noundef nonnull @.str.4, i32 noundef 133) #4
   %cmp80 = icmp eq ptr %call79, null
   br i1 %cmp80, label %do.end, label %if.end83
@@ -262,15 +260,15 @@ if.end83:                                         ; preds = %if.then73
   call void @CRYPTO_free(ptr noundef nonnull %call79, ptr noundef nonnull @.str.4, i32 noundef 138) #4
   br label %do.cond
 
-if.else84:                                        ; preds = %while.cond.preheader, %if.end54, %if.else72.thread, %if.else72
-  %next.05560 = phi ptr [ %add.ptr, %if.else72.thread ], [ %next.2, %if.else72 ], [ null, %if.end54 ], [ %txt.addr.0, %while.cond.preheader ]
+if.else84:                                        ; preds = %while.cond.preheader, %if.else72.thread, %if.else72
+  %next.05560 = phi ptr [ %add.ptr, %if.else72.thread ], [ %next.2, %if.else72 ], [ %txt.addr.0, %while.cond.preheader ]
   call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull %leading_separator.0, ptr noundef %txt.addr.0) #4
   br label %do.cond
 
 do.cond:                                          ; preds = %if.end83, %if.else84, %if.end69
-  %txt.addr.1 = phi ptr [ %curr.078, %if.end69 ], [ %next.05560, %if.else84 ], [ %next.2, %if.end83 ]
-  %12 = load i8, ptr %txt.addr.1, align 1
-  %cmp88.not = icmp eq i8 %12, 0
+  %txt.addr.1 = phi ptr [ %curr.0, %if.end69 ], [ %next.05560, %if.else84 ], [ %next.2, %if.end83 ]
+  %13 = load i8, ptr %txt.addr.1, align 1
+  %cmp88.not = icmp eq i8 %13, 0
   br i1 %cmp88.not, label %do.end, label %do.body, !llvm.loop !7
 
 do.end:                                           ; preds = %if.then73, %if.then60, %do.cond
@@ -282,7 +280,7 @@ declare i64 @ERR_peek_last_error() local_unnamed_addr #1
 declare i64 @ERR_peek_last_error_all(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 declare noalias ptr @CRYPTO_strndup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 

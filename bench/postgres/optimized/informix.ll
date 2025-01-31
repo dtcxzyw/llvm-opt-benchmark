@@ -41,7 +41,7 @@ define range(i32 -1201, 1) i32 @decadd(ptr noundef %0, ptr noundef %1, ptr nound
 declare ptr @__errno_location() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @deccall3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc i32 @deccall3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = tail call zeroext i1 @ECPGis_noind_null(i32 noundef 17, ptr noundef %0) #16
   br i1 %5, label %26, label %6
 
@@ -156,13 +156,13 @@ deccall2.exit:                                    ; preds = %2, %.sink.split.i
 declare i32 @PGTYPESnumeric_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @deccopy(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 52)) %1) local_unnamed_addr #3 {
+define void @deccopy(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 52)) %1) local_unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %1, ptr noundef nonnull align 4 dereferenceable(52) %0, i64 52, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1216, 1) i32 @deccvasc(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -230,7 +230,7 @@ declare i32 @PGTYPESnumeric_to_decimal(ptr noundef, ptr noundef) local_unnamed_a
 declare void @PGTYPESnumeric_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define i32 @deccvdbl(double noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -476,10 +476,10 @@ declare i32 @PGTYPESnumeric_from_decimal(ptr noundef, ptr noundef) local_unnamed
 declare ptr @PGTYPESnumeric_to_asc(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define i32 @dectodbl(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -643,7 +643,7 @@ define void @rtoday(ptr noundef %0) local_unnamed_addr #0 {
 declare void @PGTYPESdate_today(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @rjulmdy(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 6)) %1) local_unnamed_addr #0 {
+define noundef i32 @rjulmdy(i64 noundef %0, ptr noundef writeonly captures(none) initializes((0, 6)) %1) local_unnamed_addr #0 {
   %3 = alloca [3 x i32], align 4
   call void @PGTYPESdate_julmdy(i64 noundef %0, ptr noundef nonnull %3) #16
   %4 = load i32, ptr %3, align 4
@@ -688,7 +688,7 @@ define range(i32 -1211, 1) i32 @rfmtdate(i64 noundef %0, ptr noundef %1, ptr nou
 declare i32 @PGTYPESdate_fmt_asc(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @rmdyjul(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i32 @rmdyjul(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [3 x i32], align 4
   %4 = load i16, ptr %0, align 2
   %5 = sext i16 %4 to i32
@@ -726,7 +726,7 @@ define void @dtcurrent(ptr noundef %0) local_unnamed_addr #0 {
 declare void @PGTYPEStimestamp_current(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @dtcvasc(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define i32 @dtcvasc(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = tail call ptr @__errno_location() #15
@@ -770,7 +770,7 @@ define i32 @dtsub(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_
 declare i32 @PGTYPEStimestamp_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @dttoasc(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i32 @dttoasc(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8
   %4 = tail call ptr @PGTYPEStimestamp_to_asc(i64 noundef %3) #16
   %5 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %4) #16
@@ -1280,10 +1280,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define void @rupshift(ptr nocapture noundef %0) local_unnamed_addr #9 {
+define void @rupshift(ptr noundef captures(none) %0) local_unnamed_addr #9 {
   %2 = load i8, ptr %0, align 1
   %.not6 = icmp eq i8 %2, 0
   br i1 %.not6, label %._crit_edge, label %.lr.ph
@@ -1327,7 +1327,7 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #1
 declare i32 @toupper(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @byleng(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #11 {
+define i32 @byleng(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -1344,7 +1344,7 @@ define i32 @byleng(ptr nocapture noundef readonly %0, i32 noundef %1) local_unna
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ldchar(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #12 {
+define void @ldchar(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #12 {
   br label %4
 
 4:                                                ; preds = %4, %3
@@ -1365,10 +1365,10 @@ byleng.exit:                                      ; preds = %4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @rgetmsg(i32 noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #13 {
+define noundef i32 @rgetmsg(i32 noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #13 {
   ret i32 0
 }
 

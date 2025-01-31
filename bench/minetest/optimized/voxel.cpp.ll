@@ -81,7 +81,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN16VoxelManipulatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 26)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16VoxelManipulatorD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 26)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16VoxelManipulator, i64 16), ptr %this, align 8, !tbaa !4
   %m_area.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -172,7 +172,7 @@ _ZN16VoxelManipulatorD2Ev.exit:                   ; preds = %delete.notnull4.i.i
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN16VoxelManipulator5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((8, 26)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN16VoxelManipulator5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((8, 26)) %this) unnamed_addr #3 align 2 {
 entry:
   %m_area = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 1, ptr %m_area, align 8, !tbaa !7
@@ -208,22 +208,22 @@ delete.end5:                                      ; preds = %delete.notnull4, %d
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16VoxelManipulator5printERSoPK14NodeDefManager14VoxelPrintMode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %o, ptr nocapture noundef readonly %ndef, i32 noundef %mode) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN16VoxelManipulator5printERSoPK14NodeDefManager14VoxelPrintMode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %o, ptr noundef readonly captures(none) %ndef, i32 noundef %mode) local_unnamed_addr #10 align 2 {
 entry:
   %__c.addr.i280 = alloca i8, align 1
   %__c.addr.i = alloca i8, align 1
@@ -623,7 +623,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit292: ; preds = %if.end
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEs(ptr noundef nonnull align 8 dereferenceable(8), i16 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16VoxelManipulator7addAreaERK9VoxelArea(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 2 dereferenceable(18) %area) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16VoxelManipulator7addAreaERK9VoxelArea(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(18) %area) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %timer = alloca %class.TimeTaker, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1008,7 +1008,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN16VoxelManipulator8copyFromEP7MapNodeRK9VoxelAreaN3irr4core8vector3dIsEES8_RKS8_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %src, ptr nocapture noundef nonnull readonly align 2 dereferenceable(18) %src_area, i48 %from_pos.coerce, i48 %to_pos.coerce, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %size) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN16VoxelManipulator8copyFromEP7MapNodeRK9VoxelAreaN3irr4core8vector3dIsEES8_RKS8_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly captures(none) %src, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(18) %src_area, i48 %from_pos.coerce, i48 %to_pos.coerce, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(6) %size) local_unnamed_addr #12 align 2 {
 entry:
   %to_pos.sroa.0.0.extract.trunc = trunc i48 %to_pos.coerce to i32
   %to_pos.sroa.7.0.extract.shift = lshr i48 %to_pos.coerce, 32
@@ -1152,7 +1152,7 @@ for.body37:                                       ; preds = %for.body37, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN16VoxelManipulator6copyToEP7MapNodeRK9VoxelAreaN3irr4core8vector3dIsEES8_RKS8_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef writeonly %dst, ptr nocapture noundef nonnull readonly align 2 dereferenceable(18) %dst_area, i48 %dst_pos.coerce, i48 %from_pos.coerce, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %size) local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN16VoxelManipulator6copyToEP7MapNodeRK9VoxelAreaN3irr4core8vector3dIsEES8_RKS8_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef writeonly captures(none) %dst, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(18) %dst_area, i48 %dst_pos.coerce, i48 %from_pos.coerce, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(6) %size) local_unnamed_addr #13 align 2 {
 entry:
   %Z = getelementptr inbounds nuw i8, ptr %size, i64 4
   %0 = load i16, ptr %Z, align 2, !tbaa !18
@@ -1323,7 +1323,7 @@ if.end:                                           ; preds = %if.then, %for.body3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16VoxelManipulator9clearFlagEh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i8 noundef zeroext %flags) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16VoxelManipulator9clearFlagEh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i8 noundef zeroext %flags) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %timer = alloca %class.TimeTaker, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1485,7 +1485,7 @@ for.body:                                         ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #7
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #7
 
 declare noundef i64 @_ZN9TimeTaker4stopEb(ptr noundef nonnull align 8 dereferenceable(56), i1 noundef zeroext) local_unnamed_addr #0
 

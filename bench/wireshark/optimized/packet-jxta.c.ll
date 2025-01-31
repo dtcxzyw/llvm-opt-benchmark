@@ -345,7 +345,7 @@ declare i32 @register_tap(ptr noundef) local_unnamed_addr #1
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_jxta_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_jxta_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
@@ -463,7 +463,7 @@ define internal i32 @dissect_jxta_udp(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_jxta_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_jxta_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #12
@@ -876,7 +876,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare i32 @address_type_dissector_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @uri_to_str(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #2 {
+define internal i32 @uri_to_str(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = add i32 %2, -1
@@ -892,7 +892,7 @@ define internal i32 @uri_to_str(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @uri_str_len(ptr nocapture noundef readonly %0) #3 {
+define internal i32 @uri_str_len(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, 1
@@ -900,7 +900,7 @@ define internal i32 @uri_str_len(ptr nocapture noundef readonly %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @uri_col_filter_str(ptr nocapture readnone %0, i32 noundef %1) #4 {
+define internal noundef nonnull ptr @uri_col_filter_str(ptr readnone captures(none) %0, i32 noundef %1) #4 {
   %.not = icmp eq i32 %1, 0
   %.str.185..str.184 = select i1 %.not, ptr @.str.185, ptr @.str.184
   ret ptr %.str.185..str.184
@@ -971,7 +971,7 @@ declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local
 declare void @register_conversation_table(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @jxta_conversation_packet(ptr noundef initializes((24, 28)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #0 {
+define internal noundef i32 @jxta_conversation_packet(ptr noundef initializes((24, 28)) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -982,7 +982,7 @@ define internal noundef i32 @jxta_conversation_packet(ptr noundef initializes((2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @jxta_endpoint_packet(ptr noundef initializes((24, 28)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #0 {
+define internal noundef i32 @jxta_endpoint_packet(ptr noundef initializes((24, 28)) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -997,7 +997,7 @@ define internal noundef i32 @jxta_endpoint_packet(ptr noundef initializes((24, 2
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_jxta_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_jxta_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #12
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 232
@@ -1649,7 +1649,7 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_jxta_UDP_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_jxta_UDP_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_strneql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @JXTA_UDP_SIG, i64 noundef 4) #12
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %12
@@ -1674,7 +1674,7 @@ define internal range(i32 0, 2) i32 @dissect_jxta_UDP_heur(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_jxta_TCP_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_jxta_TCP_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 332
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 336
@@ -1694,7 +1694,7 @@ define internal range(i32 0, 2) i32 @dissect_jxta_TCP_heur(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_jxta_SCTP_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_jxta_SCTP_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 332
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 336
@@ -1728,7 +1728,7 @@ declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) loca
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_jxta_message_framing(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_jxta_message_framing(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #12
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.loopexit, label %.lr.ph
@@ -1939,9 +1939,9 @@ define internal fastcc i32 @dissect_media(ptr noundef %0, ptr noundef %1, ptr no
 
 18:                                               ; preds = %13, %6
   %19 = load ptr, ptr %7, align 8
-  %20 = tail call noalias ptr @wmem_strdup(ptr noundef %19, ptr noundef %9) #12
+  %20 = tail call noalias ptr @wmem_strdup(ptr noundef %19, ptr noundef nonnull %9) #12
   store ptr %20, ptr %11, align 8
-  %21 = tail call ptr @ascii_strdown_inplace(ptr noundef %9) #12
+  %21 = tail call ptr @ascii_strdown_inplace(ptr noundef nonnull %9) #12
   %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(29) @.str.173, ptr noundef nonnull dereferenceable(1) %9) #14
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %28
@@ -1980,7 +1980,7 @@ define internal fastcc i32 @dissect_media(ptr noundef %0, ptr noundef %1, ptr no
 
 39:                                               ; preds = %28
   %40 = load ptr, ptr @media_type_dissector_table, align 8
-  %41 = call i32 @dissector_try_string(ptr noundef %40, ptr noundef %9, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %5) #12
+  %41 = call i32 @dissector_try_string(ptr noundef %40, ptr noundef nonnull %9, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %5) #12
   %.not61 = icmp eq i32 %41, 0
   br i1 %.not61, label %44, label %42
 
@@ -2068,12 +2068,12 @@ declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare ptr @ascii_strdown_inplace(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2187,7 +2187,7 @@ copy_address_wmem.exit22:                         ; preds = %copy_address_wmem.e
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_jxta_welcome(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef writeonly %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_jxta_welcome(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #12
   %8 = icmp ult i32 %7, 10
@@ -2549,7 +2549,7 @@ declare ptr @wmem_strsplit(ptr noundef, ptr noundef, ptr noundef, i32 noundef) l
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2562,7 +2562,7 @@ declare nonnull ptr @conversation_new(i32 noundef, ptr noundef, ptr noundef, i32
 declare void @add_conversation_table_data(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @jxta_conv_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #8 {
+define internal noundef nonnull ptr @jxta_conv_get_filter_type(ptr noundef readonly captures(none) %0, i32 noundef %1) #8 {
   switch i32 %1, label %18 [
     i32 0, label %3
     i32 1, label %8
@@ -2601,7 +2601,7 @@ define internal noundef nonnull ptr @jxta_conv_get_filter_type(ptr nocapture nou
 declare void @add_endpoint_table_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @jxta_endpoint_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #8 {
+define internal noundef nonnull ptr @jxta_endpoint_get_filter_type(ptr noundef readonly captures(none) %0, i32 noundef %1) #8 {
   %3 = icmp eq i32 %1, 2
   br i1 %3, label %4, label %9
 
@@ -2621,7 +2621,7 @@ define internal noundef nonnull ptr @jxta_endpoint_get_filter_type(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_jxta_message_element_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65538) %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_jxta_message_element_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65538) %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #12
   %spec.select = tail call i32 @llvm.usub.sat.i32(i32 4, i32 %6)
   %7 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @JXTA_MSGELEM_SIG, i64 noundef 4) #12
@@ -2895,7 +2895,7 @@ define internal fastcc i32 @dissect_jxta_message_element_1(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_jxta_message_element_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65538) %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_jxta_message_element_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 65538) %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #12
   %spec.select = tail call i32 @llvm.usub.sat.i32(i32 4, i32 %6)
   %7 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @JXTA_MSGELEM_SIG, i64 noundef 4) #12
@@ -3295,10 +3295,10 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @tvb_strneql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11

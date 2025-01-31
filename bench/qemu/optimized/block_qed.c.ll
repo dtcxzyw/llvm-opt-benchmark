@@ -161,7 +161,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [69 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @qed_need_check_timer, ptr @.str.82, ptr @.str.83, i32 286, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_qed_co_check, ptr @.str.82, ptr @.str.83, i32 1597, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_read_string, ptr @.str.82, ptr @.str.83, i32 199, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_plug_allocating_write_reqs, ptr @.str.82, ptr @.str.83, i32 258, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_write_l1_table, ptr @.str.82, ptr @.str.84, i32 206, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_qed_co_create_opts, ptr @.str.82, ptr @.str.83, i32 764, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_qed_co_get_info, ptr @.str.82, ptr @.str.83, i32 1497, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_aio_write_data, ptr @.str.82, ptr @.str.83, i32 1277, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_read_backing_file, ptr @.str.82, ptr @.str.83, i32 891, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_qed_co_writev, ptr @.str.82, ptr @.str.83, i32 1419, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @graph_lockable_auto_unlock, ptr @.str.82, ptr @.str.85, i32 237, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pread, ptr @.str.82, ptr @.str.86, i32 60, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_qed_co_change_backing_file, ptr @.str.82, ptr @.str.83, i32 1508, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_qed_open, ptr @.str.87, ptr @.str.83, i32 573, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_need_check_timer_entry, ptr @.str.82, ptr @.str.83, i32 314, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_unplug_allocating_write_reqs, ptr @.str.82, ptr @.str.83, i32 277, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_qed_co_invalidate_cache, ptr @.str.82, ptr @.str.83, i32 1580, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_aio_write_l1_update, ptr @.str.82, ptr @.str.83, i32 1004, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_open_blockdev_ref, ptr @.str.82, ptr @.str.88, i32 102, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_aio_complete, ptr @.str.82, ptr @.str.83, i32 969, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_aio_write_inplace, ptr @.str.82, ptr @.str.83, i32 1234, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_co_request, ptr @.str.82, ptr @.str.83, i32 1393, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_debug_event, ptr @.str.82, ptr @.str.89, i32 243, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @graph_lockable_auto_lock, ptr @.str.82, ptr @.str.85, i32 230, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwritev, ptr @.str.82, ptr @.str.86, i32 53, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_write_header, ptr @.str.82, ptr @.str.83, i32 103, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_queue_wait_impl, ptr @.str.82, ptr @.str.90, i32 119, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_aio_read_data, ptr @.str.82, ptr @.str.83, i32 1310, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_new_with_bs, ptr @.str.82, ptr @.str.91, i32 32, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_unref, ptr @.str.82, ptr @.str.88, i32 239, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite, ptr @.str.92, ptr @.str.89, i32 56, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite, ptr @.str.87, ptr @.str.89, i32 56, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_flush, ptr @.str.82, ptr @.str.89, i32 111, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_qed_co_truncate, ptr @.str.82, ptr @.str.83, i32 1455, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @aio_poll, ptr @.str.92, ptr @.str.93, i32 470, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_qed_co_getlength, ptr @.str.82, ptr @.str.83, i32 1490, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_flush, ptr @.str.92, ptr @.str.89, i32 372, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_flush, ptr @.str.87, ptr @.str.89, i32 372, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_qed_co_create, ptr @.str.82, ptr @.str.83, i32 643, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwrite_sync, ptr @.str.82, ptr @.str.89, i32 64, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_qed_co_pwrite_zeroes, ptr @.str.82, ptr @.str.83, i32 1426, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_qed_open_entry, ptr @.str.82, ptr @.str.83, i32 561, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_unlock, ptr @.str.82, ptr @.str.94, i32 152, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_create_file, ptr @.str.82, ptr @.str.88, i32 69, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_graph_co_rdlock, ptr @.str.82, ptr @.str.85, i32 165, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_aio_write_l2_update, ptr @.str.82, ptr @.str.83, i32 1035, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_open, ptr @.str.82, ptr @.str.88, i32 118, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_graph_co_rdunlock, ptr @.str.82, ptr @.str.85, i32 174, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_unref, ptr @.str.82, ptr @.str.91, i32 47, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_find_cluster, ptr @.str.82, ptr @.str.84, i32 229, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_check, ptr @.str.82, ptr @.str.84, i32 236, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_copy_from_backing_file, ptr @.str.82, ptr @.str.83, i32 910, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_qed_do_open, ptr @.str.82, ptr @.str.83, i32 400, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_aio_write_cow, ptr @.str.82, ptr @.str.83, i32 1091, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_aio_next_io, ptr @.str.82, ptr @.str.83, i32 1347, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_aio_write_alloc, ptr @.str.82, ptr @.str.83, i32 1170, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_qed_co_readv, ptr @.str.82, ptr @.str.83, i32 1412, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwrite, ptr @.str.82, ptr @.str.86, i32 70, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_getlength, ptr @.str.82, ptr @.str.89, i32 84, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_read_l1_table_sync, ptr @.str.82, ptr @.str.84, i32 203, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_queue_next, ptr @.str.82, ptr @.str.90, i32 128, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_pwrite, ptr @.str.82, ptr @.str.95, i32 162, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_qed_co_block_status, ptr @.str.82, ptr @.str.83, i32 835, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_aio_write_main, ptr @.str.82, ptr @.str.83, i32 1073, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_lock, ptr @.str.82, ptr @.str.94, i32 146, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_preadv, ptr @.str.82, ptr @.str.86, i32 47, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_update_l2_table, ptr @.str.82, ptr @.str.83, i32 954, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_co_truncate, ptr @.str.82, ptr @.str.95, i32 226, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qed_write_l2_table, ptr @.str.82, ptr @.str.84, i32 218, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qed_write_header_sync(ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
+define dso_local i32 @qed_write_header_sync(ptr noundef readonly captures(none) %s) local_unnamed_addr #0 {
 entry:
   %le = alloca %struct.QEDHeader, align 4
   %header = getelementptr inbounds nuw i8, ptr %s, i64 8
@@ -217,7 +217,7 @@ entry:
 declare i32 @bdrv_pwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qed_alloc_table(ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
+define dso_local ptr @qed_alloc_table(ptr noundef readonly captures(none) %s) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %s, align 8
   %cluster_size = getelementptr inbounds nuw i8, ptr %s, i64 12
@@ -251,7 +251,7 @@ entry:
 declare void @bdrv_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @bdrv_qed_reopen_prepare(ptr nocapture readnone %state, ptr nocapture readnone %queue, ptr nocapture readnone %errp) #2 {
+define internal noundef i32 @bdrv_qed_reopen_prepare(ptr readnone captures(none) %state, ptr readnone captures(none) %queue, ptr readnone captures(none) %errp) #2 {
 entry:
   ret i32 0
 }
@@ -379,7 +379,7 @@ return:                                           ; preds = %entry, %if.end42
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_qed_close(ptr nocapture noundef readonly %bs) #0 {
+define internal void @bdrv_qed_close(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #18
   br i1 %call, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.else
@@ -396,7 +396,7 @@ glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @bdrv_qed_co_create(ptr nocapture noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @bdrv_qed_co_create(ptr noundef captures(none) %opts, ptr noundef %errp) #0 {
 entry:
   %le_header = alloca %struct.QEDHeader, align 4
   %0 = load i32, ptr %opts, align 8
@@ -584,7 +584,7 @@ return:                                           ; preds = %if.end25, %out, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @bdrv_qed_co_create_opts(ptr nocapture readnone %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @bdrv_qed_co_create_opts(ptr readnone captures(none) %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
   %create_options = alloca ptr, align 8
   store ptr null, ptr %create_options, align 8
@@ -669,7 +669,7 @@ qobject_unref_impl.exit:                          ; preds = %fail, %land.lhs.tru
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @bdrv_qed_co_change_backing_file(ptr nocapture noundef readonly %bs, ptr noundef readonly %backing_file, ptr noundef readonly %backing_fmt) #0 {
+define internal i32 @bdrv_qed_co_change_backing_file(ptr noundef readonly captures(none) %bs, ptr noundef readonly %backing_file, ptr noundef readonly %backing_fmt) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -792,7 +792,7 @@ return:                                           ; preds = %if.end25, %if.then2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @bdrv_qed_refresh_limits(ptr nocapture noundef initializes((16488, 16500)) %bs, ptr nocapture readnone %errp) #3 {
+define internal void @bdrv_qed_refresh_limits(ptr noundef captures(none) initializes((16488, 16500)) %bs, ptr readnone captures(none) %errp) #3 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -811,7 +811,7 @@ entry:
 declare i32 @bdrv_has_zero_init_1(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_qed_detach_aio_context(ptr nocapture noundef readonly %bs) #0 {
+define internal void @bdrv_qed_detach_aio_context(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -867,7 +867,7 @@ timer_free.exit:                                  ; preds = %qed_cancel_need_che
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_qed_attach_aio_context(ptr nocapture noundef readonly %bs, ptr noundef %new_context) #0 {
+define internal void @bdrv_qed_attach_aio_context(ptr noundef readonly captures(none) %bs, ptr noundef %new_context) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -955,7 +955,7 @@ if.end:                                           ; preds = %qed_cancel_need_che
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 101) i32 @bdrv_qed_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #4 {
+define internal range(i32 0, 101) i32 @bdrv_qed_probe(ptr noundef readonly captures(none) %buf, i32 noundef %buf_size, ptr readnone captures(none) %filename) #4 {
 entry:
   %cmp = icmp ult i32 %buf_size, 64
   br i1 %cmp, label %return, label %if.end
@@ -1030,7 +1030,7 @@ return:                                           ; preds = %if.end, %if.end5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 6) i32 @bdrv_qed_co_block_status(ptr nocapture noundef readonly %bs, i1 zeroext %want_zero, i64 noundef %pos, i64 noundef %bytes, ptr nocapture noundef writeonly initializes((0, 8)) %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #0 {
+define internal range(i32 -2147483648, 6) i32 @bdrv_qed_co_block_status(ptr noundef readonly captures(none) %bs, i1 zeroext %want_zero, i64 noundef %pos, i64 noundef %bytes, ptr noundef writeonly captures(none) initializes((0, 8)) %pnum, ptr noundef writeonly captures(none) %map, ptr noundef writeonly captures(none) %file) #0 {
 entry:
   %len = alloca i64, align 8
   %request = alloca %struct.QEDRequest, align 8
@@ -1116,7 +1116,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @bdrv_qed_co_truncate(ptr nocapture noundef readonly %bs, i64 noundef %offset, i1 zeroext %exact, i32 noundef %prealloc, i32 %flags, ptr noundef %errp) #0 {
+define internal i32 @bdrv_qed_co_truncate(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i1 zeroext %exact, i32 noundef %prealloc, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %le.i = alloca %struct.QEDHeader, align 4
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -1222,7 +1222,7 @@ return:                                           ; preds = %if.end8, %if.then15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @bdrv_qed_co_getlength(ptr nocapture noundef readonly %bs) #5 {
+define internal i64 @bdrv_qed_co_getlength(ptr noundef readonly captures(none) %bs) #5 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1232,7 +1232,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @bdrv_qed_co_get_info(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly initializes((0, 24)) %bdi) #3 {
+define internal noundef i32 @bdrv_qed_co_get_info(ptr noundef readonly captures(none) %bs, ptr noundef writeonly captures(none) initializes((0, 24)) %bdi) #3 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1251,7 +1251,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @bdrv_qed_co_check(ptr nocapture noundef readonly %bs, ptr noundef %result, i32 noundef %fix) #0 {
+define internal i32 @bdrv_qed_co_check(ptr noundef readonly captures(none) %bs, ptr noundef %result, i32 noundef %fix) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1279,7 +1279,7 @@ declare void @qemu_coroutine_enter(ptr noundef) local_unnamed_addr #1
 declare ptr @qemu_coroutine_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_qed_open_entry(ptr nocapture noundef initializes((32, 36)) %opaque) #0 {
+define internal void @bdrv_qed_open_entry(ptr noundef captures(none) initializes((32, 36)) %opaque) #0 {
 glib_autoptr_cleanup_GraphLockable.exit:
   %0 = load ptr, ptr %opaque, align 8
   %opaque1 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1309,7 +1309,7 @@ declare void @aio_context_release(ptr noundef) local_unnamed_addr #1
 declare void @aio_context_acquire(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @qemu_co_mutex_init(ptr noundef) local_unnamed_addr #1
 
@@ -1325,7 +1325,7 @@ entry:
 declare void @qemu_co_mutex_lock(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @bdrv_qed_do_open(ptr noundef %bs, ptr nocapture readnone %options, i32 noundef %flags, ptr noundef %errp) #0 {
+define internal i32 @bdrv_qed_do_open(ptr noundef %bs, ptr readnone captures(none) %options, i32 noundef %flags, ptr noundef %errp) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   %le_header = alloca %struct.QEDHeader, align 4
@@ -1679,7 +1679,7 @@ declare void @qemu_co_mutex_unlock(ptr noundef) #1
 declare void @bdrv_graph_co_rdlock() #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @graph_lockable_auto_unlock(ptr nocapture readnone %x) #0 {
+define internal void @graph_lockable_auto_unlock(ptr readnone captures(none) %x) #0 {
 entry:
   tail call void @bdrv_graph_co_rdunlock() #18
   ret void
@@ -1710,7 +1710,7 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare i64 @bdrv_co_getlength(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal fastcc zeroext i1 @qed_check_table_offset(ptr nocapture noundef readonly %s, i64 noundef %offset) unnamed_addr #4 {
+define internal fastcc zeroext i1 @qed_check_table_offset(ptr noundef readonly captures(none) %s, i64 noundef %offset) unnamed_addr #4 {
 entry:
   %table_size = getelementptr inbounds nuw i8, ptr %s, i64 16
   %0 = load i32, ptr %table_size, align 8
@@ -1826,7 +1826,7 @@ declare zeroext i1 @qemu_mutex_iothread_locked() local_unnamed_addr #1
 declare zeroext i1 @qemu_in_main_thread() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @bdrv_qed_do_close(ptr nocapture noundef readonly %bs) unnamed_addr #0 {
+define internal fastcc void @bdrv_qed_do_close(ptr noundef readonly captures(none) %bs) unnamed_addr #0 {
 entry:
   %le.i = alloca %struct.QEDHeader, align 4
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -1916,12 +1916,12 @@ declare ptr @blk_co_new_with_bs(ptr noundef, i64 noundef, i64 noundef, ptr nound
 declare void @blk_set_allow_write_beyond_eof(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare i32 @blk_co_truncate(ptr noundef, i64 noundef, i1 noundef zeroext, i32 noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare ptr @qapi_enum_lookup(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1935,7 +1935,7 @@ declare void @blk_co_unref(ptr noundef) #1
 declare void @bdrv_co_unref(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 declare ptr @qemu_opts_to_qdict_filtered(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -1962,7 +1962,7 @@ declare i32 @bdrv_co_pwrite_sync(ptr noundef, i64 noundef, i64 noundef, ptr noun
 declare void @timer_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -2212,7 +2212,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @qed_write_header(ptr nocapture noundef readonly %s) #0 {
+define internal range(i32 -2147483648, 1) i32 @qed_write_header(ptr noundef readonly captures(none) %s) #0 {
 entry:
   %qiov.i13 = alloca %struct.QEMUIOVector, align 8
   %qiov.i = alloca %struct.QEMUIOVector, align 8
@@ -3427,7 +3427,7 @@ return:                                           ; preds = %if.end13, %if.else,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qed_copy_from_backing_file(ptr nocapture noundef readonly %s, i64 noundef %pos, i64 noundef %len, i64 noundef %offset) #0 {
+define internal i32 @qed_copy_from_backing_file(ptr noundef readonly captures(none) %s, i64 noundef %pos, i64 noundef %len, i64 noundef %offset) #0 {
 entry:
   %qiov = alloca %struct.QEMUIOVector, align 8
   %cmp = icmp eq i64 %len, 0
@@ -3523,7 +3523,7 @@ return:                                           ; preds = %entry, %qemu_iovec_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qed_read_backing_file(ptr nocapture noundef readonly %s, i64 noundef %pos, ptr noundef %qiov) #0 {
+define internal i32 @qed_read_backing_file(ptr noundef readonly captures(none) %s, i64 noundef %pos, ptr noundef %qiov) #0 {
 entry:
   %0 = load ptr, ptr %s, align 8
   %backing = getelementptr inbounds nuw i8, ptr %0, i64 16832
@@ -3568,7 +3568,7 @@ declare i64 @qemu_iovec_memset(ptr noundef, i64 noundef, i32 noundef, i64 nounde
 declare void @qed_unref_l2_cache_entry(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal void @qed_update_l2_table(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %table, i32 noundef %index, i32 noundef %n, i64 noundef %cluster) #15 {
+define internal void @qed_update_l2_table(ptr noundef readonly captures(none) %s, ptr noundef writeonly captures(none) %table, i32 noundef %index, i32 noundef %n, i64 noundef %cluster) #15 {
 entry:
   %add = add i32 %n, %index
   %cmp8 = icmp ult i32 %index, %add
@@ -3606,7 +3606,7 @@ for.end:                                          ; preds = %for.inc, %entry
 declare i32 @qed_write_l2_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qed_aio_write_l1_update(ptr nocapture noundef %acb) #0 {
+define internal i32 @qed_aio_write_l1_update(ptr noundef captures(none) %acb) #0 {
 entry:
   %acb.val = load ptr, ptr %acb, align 8
   %0 = getelementptr i8, ptr %acb.val, i64 24
@@ -3670,10 +3670,10 @@ declare { i32, i1 } @llvm.umul.with.overflow.i32(i32, i32) #16
 declare i32 @llvm.ctpop.i32(i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

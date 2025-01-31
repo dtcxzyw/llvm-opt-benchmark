@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN6FilterD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN6FilterD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN6FilterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN6FilterC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6Filter, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 3, ptr %2, align 8
@@ -21,7 +21,7 @@ define dso_local void @_ZN6FilterC2Ev(ptr nocapture noundef nonnull writeonly al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN6FilterD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN6FilterD2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV6Filter, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
@@ -29,7 +29,7 @@ define dso_local void @_ZN6FilterD2Ev(ptr nocapture noundef nonnull writeonly al
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN6FilterD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN6FilterD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #7
   unreachable
 }
@@ -38,7 +38,7 @@ define dso_local void @_ZN6FilterD0Ev(ptr nocapture nonnull readnone align 8 %0)
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN6Filter6enableE10FilterKind(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN6Filter6enableE10FilterKind(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = and i32 %1, 63
   %5 = zext nneg i32 %4 to i64
@@ -50,7 +50,7 @@ define dso_local void @_ZN6Filter6enableE10FilterKind(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN6Filter7disableE10FilterKind(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN6Filter7disableE10FilterKind(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = and i32 %1, 63
   %5 = zext nneg i32 %4 to i64
@@ -63,7 +63,7 @@ define dso_local void @_ZN6Filter7disableE10FilterKind(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 3) i32 @_ZNK6Filter12current_kindEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZNK6Filter12current_kindEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #4 align 2 {
   %2 = tail call noundef zeroext i1 @_ZN9CGOptions12random_basedEv()
   br i1 %2, label %5, label %3
 
@@ -82,7 +82,7 @@ declare noundef zeroext i1 @_ZN9CGOptions12random_basedEv() local_unnamed_addr #
 declare noundef zeroext i1 @_ZN9CGOptions14dfs_exhaustiveEv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK6Filter12valid_filterEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK6Filter12valid_filterEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #4 align 2 {
   %2 = tail call noundef zeroext i1 @_ZN9CGOptions12random_basedEv()
   br i1 %2, label %_ZNKSt6bitsetILm2EE4testEm.exit, label %_ZNK6Filter12current_kindEv.exit
 

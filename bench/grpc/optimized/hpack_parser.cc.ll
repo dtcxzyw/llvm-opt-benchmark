@@ -982,7 +982,7 @@ return:                                           ; preds = %if.then15, %if.then
 declare void @gpr_unreachable_code(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN9grpc_core11HPackParser6String17ParseUncompressedEPNS0_5InputEjj(ptr noalias nocapture writeonly sret(%"struct.grpc_core::HPackParser::String::StringResult") align 8 initializes((0, 1), (8, 32), (48, 49)) %agg.result, ptr nocapture noundef %input, i32 noundef %length, i32 noundef %wire_size) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11HPackParser6String17ParseUncompressedEPNS0_5InputEjj(ptr noalias writeonly sret(%"struct.grpc_core::HPackParser::String::StringResult") align 8 captures(none) initializes((0, 1), (8, 32), (48, 49)) %agg.result, ptr noundef captures(none) %input, i32 noundef %length, i32 noundef %wire_size) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %end_.i = getelementptr inbounds nuw i8, ptr %input, i64 16
   %0 = load ptr, ptr %end_.i, align 8
@@ -1139,7 +1139,7 @@ _ZNSt7variantIJN9grpc_core5SliceEN4absl12lts_202308024SpanIKhEESt6vectorIhSaIhEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11HPackParser6String12Unbase64LoopEPKhS3_(ptr noalias nocapture writeonly sret(%"class.std::optional") align 8 %agg.result, ptr noundef %cur, ptr noundef %end) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11HPackParser6String12Unbase64LoopEPKhS3_(ptr noalias writeonly sret(%"class.std::optional") align 8 captures(none) %agg.result, ptr noundef %cur, ptr noundef %end) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %end101 = ptrtoint ptr %end to i64
   %cur100 = ptrtoint ptr %cur to i64
@@ -1539,7 +1539,7 @@ _ZNSt6vectorIhSaIhEE12emplace_backIJhEEERhDpOT_.exit: ; preds = %if.then.i, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11HPackParser6String8Unbase64ES1_(ptr noalias nocapture writeonly sret(%"struct.grpc_core::HPackParser::String::StringResult") align 8 %agg.result, ptr noundef %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11HPackParser6String8Unbase64ES1_(ptr noalias writeonly sret(%"struct.grpc_core::HPackParser::String::StringResult") align 8 captures(none) %agg.result, ptr noundef %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::optional", align 8
   %ref.tmp11 = alloca %"class.std::optional", align 8
@@ -1843,7 +1843,7 @@ _ZNSt8optionalISt6vectorIhSaIhEEED2Ev.exit134:    ; preds = %if.then.i.i.i.i131,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbm(ptr noalias nocapture writeonly sret(%"struct.grpc_core::HPackParser::String::StringResult") align 8 %agg.result, ptr nocapture noundef %input, i1 noundef zeroext %is_huff, i64 noundef %length) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbm(ptr noalias writeonly sret(%"struct.grpc_core::HPackParser::String::StringResult") align 8 captures(none) %agg.result, ptr noundef captures(none) %input, i1 noundef zeroext %is_huff, i64 noundef %length) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.grpc_core::HuffDecoder", align 8
   %output = alloca %"class.std::vector", align 8
@@ -2053,7 +2053,7 @@ return:                                           ; preds = %_ZNSt6vectorIhSaIhE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbm(ptr noalias nocapture writeonly sret(%"struct.grpc_core::HPackParser::String::StringResult") align 8 %agg.result, ptr nocapture noundef %input, i1 noundef zeroext %is_huff, i64 noundef %length) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbm(ptr noalias writeonly sret(%"struct.grpc_core::HPackParser::String::StringResult") align 8 captures(none) %agg.result, ptr noundef captures(none) %input, i1 noundef zeroext %is_huff, i64 noundef %length) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i67 = alloca %"class.grpc_core::HuffDecoder.378", align 8
   %base64 = alloca %"struct.grpc_core::HPackParser::String::StringResult", align 8
@@ -2686,7 +2686,7 @@ _ZN9grpc_core11HPackParser6StringD2Ev.exit:       ; preds = %entry, %_ZSt10__do_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11HPackParser6String4TakeEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::Slice") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core11HPackParser6String4TakeEv(ptr noalias writeonly sret(%"class.grpc_core::Slice") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i.i10 = alloca %struct.grpc_slice, align 8
   %ref.tmp.i.i = alloca %struct.grpc_slice, align 8
@@ -2975,7 +2975,7 @@ _ZN9grpc_core10HPackTableD2Ev.exit:               ; preds = %invoke.cont.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core11HPackParser10BeginFrameEP19grpc_metadata_batchjjNS0_8BoundaryENS0_8PriorityENS0_7LogInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) initializes((0, 8), (40, 42), (44, 52), (136, 152), (155, 156)) %this, ptr noundef %metadata_buffer, i32 noundef %metadata_size_soft_limit, i32 noundef %metadata_size_hard_limit, i8 noundef zeroext %boundary, i8 noundef zeroext %priority, i64 %log_info.coerce) local_unnamed_addr #7 align 2 {
+define void @_ZN9grpc_core11HPackParser10BeginFrameEP19grpc_metadata_batchjjNS0_8BoundaryENS0_8PriorityENS0_7LogInfoE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(200) initializes((0, 8), (40, 42), (44, 52), (136, 152), (155, 156)) %this, ptr noundef %metadata_buffer, i32 noundef %metadata_size_soft_limit, i32 noundef %metadata_size_hard_limit, i8 noundef zeroext %boundary, i8 noundef zeroext %priority, i64 %log_info.coerce) local_unnamed_addr #7 align 2 {
 entry:
   store ptr %metadata_buffer, ptr %this, align 8
   %cmp.not = icmp eq ptr %metadata_buffer, null
@@ -3009,10 +3009,10 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11HPackParser5ParseERK10grpc_slicebN4absl12lts_202308029BitGenRefEPNS_29CallTracerAnnotationInterfaceE(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(32) %slice, i1 noundef zeroext %is_last, ptr nocapture noundef readonly byval(%"class.absl::lts_20230802::BitGenRef") align 8 %bitsrc, ptr noundef %call_tracer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11HPackParser5ParseERK10grpc_slicebN4absl12lts_202308029BitGenRefEPNS_29CallTracerAnnotationInterfaceE(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(32) %slice, i1 noundef zeroext %is_last, ptr noundef readonly byval(%"class.absl::lts_20230802::BitGenRef") align 8 captures(none) %bitsrc, ptr noundef %call_tracer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp37 = alloca %"class.grpc_core::HPackParser::Input", align 8
   %agg.tmp46 = alloca %"class.grpc_core::HPackParser::Input", align 8
@@ -3581,7 +3581,7 @@ while.end:                                        ; preds = %if.end8, %while.bod
 declare noundef zeroext i1 @_ZNK9grpc_core20RandomEarlyDetection6RejectEmN4absl12lts_202308029BitGenRefE(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, ptr noundef byval(%"class.absl::lts_20230802::BitGenRef") align 8) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11HPackParser35HandleMetadataSoftSizeLimitExceededEPNS0_5InputE(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef readonly %input) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11HPackParser35HandleMetadataSoftSizeLimitExceededEPNS0_5InputE(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %this, ptr noundef readonly captures(none) %input) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   store ptr null, ptr %this, align 8
@@ -3819,7 +3819,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9grpc_core11HPackParser11FinishFrameEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) initializes((0, 8)) %this) local_unnamed_addr #9 align 2 {
+define void @_ZN9grpc_core11HPackParser11FinishFrameEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(200) initializes((0, 8)) %this) local_unnamed_addr #9 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   ret void
@@ -3927,7 +3927,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
@@ -4349,7 +4349,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZN4absl12lts_2023080216strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr, i64) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 declare noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -17972,7 +17972,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #19
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPhS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef %__first, ptr noundef %__last) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -22857,7 +22857,7 @@ while.end:                                        ; preds = %sw.epilog, %entry, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh"(ptr nocapture %this.0.val, i8 noundef zeroext %c) unnamed_addr #3 align 2 {
+define internal fastcc void @"_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh"(ptr captures(none) %this.0.val, i8 noundef zeroext %c) unnamed_addr #3 align 2 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this.0.val, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -22930,7 +22930,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit:          ; preds = %if.then.i, %_ZNSt6v
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String5ParseEPNS1_5InputEbmE3$_0E13Read1to7BytesEv"(ptr nocapture noundef nonnull align 8 dereferenceable(38) %this) unnamed_addr #21 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String5ParseEPNS1_5InputEbmE3$_0E13Read1to7BytesEv"(ptr noundef nonnull align 8 captures(none) dereferenceable(38) %this) unnamed_addr #21 align 2 {
 entry:
   %end_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %end_, align 8
@@ -23141,7 +23141,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String5ParseEPNS1_5InputEbmE3$_0E13Read1to8BytesEv"(ptr nocapture noundef nonnull align 8 dereferenceable(38) %this) unnamed_addr #21 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String5ParseEPNS1_5InputEbmE3$_0E13Read1to8BytesEv"(ptr noundef nonnull align 8 captures(none) dereferenceable(38) %this) unnamed_addr #21 align 2 {
 entry:
   %end_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %end_, align 8
@@ -28689,7 +28689,7 @@ while.end:                                        ; preds = %sw.epilog, %entry, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i8 noundef zeroext %c) unnamed_addr #3 align 2 {
+define internal fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i8 noundef zeroext %c) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
@@ -28782,7 +28782,7 @@ return:                                           ; preds = %_ZNSt6vectorIhSaIhE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String11ParseBinaryEPNS1_5InputEbmE3$_0E13Read1to7BytesEv"(ptr nocapture noundef nonnull align 8 dereferenceable(46) %this) unnamed_addr #21 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String11ParseBinaryEPNS1_5InputEbmE3$_0E13Read1to7BytesEv"(ptr noundef nonnull align 8 captures(none) dereferenceable(46) %this) unnamed_addr #21 align 2 {
 entry:
   %end_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %end_, align 8
@@ -28993,7 +28993,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String11ParseBinaryEPNS1_5InputEbmE3$_0E13Read1to8BytesEv"(ptr nocapture noundef nonnull align 8 dereferenceable(46) %this) unnamed_addr #21 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String11ParseBinaryEPNS1_5InputEbmE3$_0E13Read1to8BytesEv"(ptr noundef nonnull align 8 captures(none) dereferenceable(46) %this) unnamed_addr #21 align 2 {
 entry:
   %end_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %end_, align 8
@@ -29261,7 +29261,7 @@ declare extern_weak void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E() #0
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #20
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #23
@@ -29270,10 +29270,10 @@ declare i64 @llvm.umin.i64(i64, i64) #23
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23

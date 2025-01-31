@@ -254,7 +254,7 @@ define hidden void @tvb_add_to_chain(ptr noundef %0, ptr noundef %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @tvb_check_offset_length(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden void @tvb_check_offset_length(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i32 @check_offset_length_no_exception(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %check_offset_length.exit, label %7
@@ -1006,7 +1006,7 @@ check_offset_length_no_exception.exit:            ; preds = %26, %15, %12, %21, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @check_offset_length_no_exception(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 5) i32 @check_offset_length_no_exception(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %7
 
@@ -1831,7 +1831,7 @@ check_offset_length.exit:                         ; preds = %49
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define ptr @tvb_memdup(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
@@ -4053,10 +4053,10 @@ parse_month_name.exit.thread:                     ; preds = %22, %116, %28, %32,
 declare ptr @iso8601_to_nstime(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare i64 @time(ptr noundef) local_unnamed_addr #7
@@ -4081,7 +4081,7 @@ define i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @tvb_get_ipv6(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define void @tvb_get_ipv6(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %4, align 4
@@ -4149,7 +4149,7 @@ define hidden range(i32 -1, 17) i32 @tvb_get_ipv6_addr_with_prefix_len(ptr nound
   %8 = lshr i32 %7, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %9 = zext nneg i32 %8 to i64
-  %10 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %2, i32 noundef %1, i64 noundef %9)
+  %10 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %2, i32 noundef %1, i64 noundef %9)
   %11 = and i32 %3, 7
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %20, label %12
@@ -4171,7 +4171,7 @@ define hidden range(i32 -1, 17) i32 @tvb_get_ipv6_addr_with_prefix_len(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define void @tvb_get_ntohguid(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define void @tvb_get_ntohguid(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %4, align 4
@@ -4241,7 +4241,7 @@ ensure_contiguous.exit:                           ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @tvb_get_letohguid(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define void @tvb_get_letohguid(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %4, align 4
@@ -4283,7 +4283,7 @@ ensure_contiguous.exit:                           ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @tvb_get_guid(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @tvb_get_guid(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %23, label %6
@@ -4336,7 +4336,7 @@ tvb_get_letohguid.exit:                           ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @tvb_get_bits_array(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4, i32 noundef %5) local_unnamed_addr #0 {
+define ptr @tvb_get_bits_array(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i32 noundef %5) local_unnamed_addr #0 {
   %.not = icmp sgt i32 %5, -1
   %7 = trunc i64 %3 to i32
   br i1 %.not, label %10, label %8
@@ -5463,7 +5463,7 @@ check_offset_length.exit:                         ; preds = %39
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @tvb_strneql(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @tvb_strneql(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = trunc i64 %3 to i32
   %6 = tail call fastcc ptr @ensure_contiguous_no_exception(ptr noundef %0, i32 noundef %1, i32 noundef %5, ptr noundef null)
   %.not = icmp eq ptr %6, null
@@ -5626,7 +5626,7 @@ check_offset_length_no_exception.exit:            ; preds = %44
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
@@ -5647,7 +5647,7 @@ define range(i32 -1, 1) i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @tvb_memeql(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @tvb_memeql(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = trunc i64 %3 to i32
   %6 = tail call fastcc ptr @ensure_contiguous_no_exception(ptr noundef %0, i32 noundef %1, i32 noundef %5, ptr noundef null)
   %.not = icmp eq ptr %6, null
@@ -7285,7 +7285,7 @@ tvb_get_dect_standard_8bits_string.exit:          ; preds = %490
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @tvb_get_bcd_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define ptr @tvb_get_bcd_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %13, label %10
@@ -10295,7 +10295,7 @@ tvb_offset_from_real_beginning.exit:              ; preds = %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @tvb_set_fragment(ptr nocapture noundef %0) local_unnamed_addr #10 {
+define void @tvb_set_fragment(ptr noundef captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = or i32 %3, 1
@@ -10304,14 +10304,14 @@ define void @tvb_set_fragment(ptr nocapture noundef %0) local_unnamed_addr #10 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @tvb_get_ds_tvb(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define ptr @tvb_get_ds_tvb(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @tvb_get_varint(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef initializes((0, 8)) %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 11) i32 @tvb_get_varint(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) initializes((0, 8)) %3, i32 noundef %4) local_unnamed_addr #0 {
   store i64 0, ptr %3, align 8
   %6 = and i32 %4, 30
   %7 = add nsw i32 %6, -2
@@ -10577,7 +10577,7 @@ declare ptr @wmem_strbuf_finalize(ptr noundef) local_unnamed_addr #3
 declare ptr @get_dect_standard_8bits_string(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13
@@ -10586,10 +10586,10 @@ declare i32 @llvm.smin.i32(i32, i32) #13
 declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #13

@@ -722,7 +722,7 @@ test_drbd_header.exit.thread9:                    ; preds = %4, %test_drbd_heade
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_drbd_ib(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_drbd_ib(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i16, align 2
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
@@ -969,14 +969,14 @@ test_drbd_header.exit.thread9:                    ; preds = %4, %test_drbd_heade
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_drbd_pdu_len(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @get_drbd_pdu_len(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call fastcc i32 @read_drbd_packet_len(ptr noundef %1, i32 noundef %2)
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #8
   %7 = icmp slt i32 %6, 16
@@ -995,7 +995,7 @@ define internal i32 @get_drbd_pdu_len(ptr noundef %0, ptr noundef %1, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_drbd_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_drbd_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call fastcc void @dissect_drbd_message(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
   ret i32 %5
@@ -1248,7 +1248,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @decode_header(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc ptr @decode_header(ptr noundef %0, ptr noundef %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #8
   %5 = icmp eq i32 %4, -2089549209
   br i1 %5, label %6, label %12
@@ -1323,13 +1323,13 @@ declare ptr @wmem_file_scope() local_unnamed_addr #1
 declare noalias ptr @wmem_map_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @drbd_twopc_key_hash(ptr nocapture noundef readonly %0) #4 {
+define internal i32 @drbd_twopc_key_hash(ptr noundef readonly captures(none) %0) #4 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @drbd_twopc_key_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 0, 2) i32 @drbd_twopc_key_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -1360,10 +1360,10 @@ declare ptr @find_conversation(i32 noundef, ptr noundef, ptr noundef, i32 nounde
 declare nonnull ptr @conversation_new(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_connection_features(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_connection_features(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_protocol_min, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #8
   %6 = load i32, ptr @hf_drbd_feature_flags, align 4
@@ -1378,21 +1378,21 @@ define internal void @decode_payload_connection_features(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_auth_challenge(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_auth_challenge(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_auth_challenge_nonce, align 4
   %5 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 64, ptr noundef null, ptr noundef nonnull @.str.6) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_auth_response(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_auth_response(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_auth_response_hash, align 4
   %5 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef nonnull @.str.8) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_data(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_data(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_sector, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #8
   %6 = load i32, ptr @hf_drbd_block_id, align 4
@@ -1422,14 +1422,14 @@ define internal void @decode_payload_data(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_barrier(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_barrier(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_barrier, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_data_request(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_data_request(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_sector, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #8
   %6 = load i32, ptr @hf_drbd_block_id, align 4
@@ -1440,7 +1440,7 @@ define internal void @decode_payload_data_request(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_sync_param(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_sync_param(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
   %5 = load i32, ptr @hf_drbd_resync_rate, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #8
@@ -1479,7 +1479,7 @@ define internal void @decode_payload_sync_param(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_protocol(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_protocol(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_protocol, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #8
   %6 = load i32, ptr @hf_drbd_after_sb_0p, align 4
@@ -1498,7 +1498,7 @@ define internal void @decode_payload_protocol(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_uuids(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_uuids(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_current_uuid, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #8
   %6 = load i32, ptr @hf_drbd_bitmap_uuid, align 4
@@ -1516,7 +1516,7 @@ define internal void @decode_payload_uuids(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_sizes(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_sizes(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_d_size, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #8
   %6 = load i32, ptr @hf_drbd_u_size, align 4
@@ -1549,7 +1549,7 @@ define internal void @decode_payload_sizes(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_state(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_state(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_state, align 4
   %5 = load i32, ptr @ett_drbd_state, align 4
   %6 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %0, i32 noundef 0, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @state_fields, i32 noundef 0) #8
@@ -1557,20 +1557,20 @@ define internal void @decode_payload_state(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_req_state(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_req_state(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   tail call fastcc void @decode_state_change(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_sync_uuid(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_sync_uuid(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_uuid, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_skip(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_skip(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_seq_num, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #8
   %6 = load i32, ptr @hf_drbd_offset, align 4
@@ -1579,7 +1579,7 @@ define internal void @decode_payload_skip(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_out_of_sync(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_out_of_sync(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_sector, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #8
   %6 = load i32, ptr @hf_drbd_size, align 4
@@ -1588,13 +1588,13 @@ define internal void @decode_payload_out_of_sync(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @read_state_twopc_prepare(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @read_state_twopc_prepare(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   tail call fastcc void @insert_twopc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 46)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_twopc_prepare(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_twopc_prepare(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call fastcc i32 @decode_twopc_request_common(ptr noundef %0, ptr noundef %1, ptr noundef null)
   %.not = icmp sgt i32 %4, -1
   br i1 %.not, label %5, label %8
@@ -1610,13 +1610,13 @@ define internal void @decode_payload_twopc_prepare(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @read_state_twopc_prep_rsz(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @read_state_twopc_prep_rsz(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   tail call fastcc void @insert_twopc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 53)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_twopc_prep_rsz(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_twopc_prep_rsz(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call fastcc i32 @decode_twopc_request_common(ptr noundef %0, ptr noundef %1, ptr noundef null)
   %5 = load i32, ptr @hf_drbd_user_size, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 20, i32 noundef 8, i32 noundef 0) #8
@@ -1698,14 +1698,14 @@ proto_item_set_generated.exit:                    ; preds = %9, %13, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_dagtag(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_dagtag(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_dagtag, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_uuids110(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_uuids110(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca i64, align 8
   %5 = load i32, ptr @hf_drbd_current_uuid, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #8
@@ -1765,7 +1765,7 @@ define internal void @decode_payload_uuids110(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_peer_dagtag(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_peer_dagtag(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_dagtag, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #8
   %6 = load i32, ptr @hf_drbd_dagtag_node_id, align 4
@@ -1774,7 +1774,7 @@ define internal void @decode_payload_peer_dagtag(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_current_uuid(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_current_uuid(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_uuid, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #8
   %6 = load i32, ptr @hf_drbd_weak_nodes, align 4
@@ -1783,7 +1783,7 @@ define internal void @decode_payload_current_uuid(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_data_size(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_data_size(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_sector, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #8
   %6 = load i32, ptr @hf_drbd_block_id, align 4
@@ -1799,7 +1799,7 @@ define internal void @decode_payload_data_size(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_rs_deallocated(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_rs_deallocated(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_sector, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #8
   %6 = load i32, ptr @hf_drbd_size, align 4
@@ -1808,7 +1808,7 @@ define internal void @decode_payload_rs_deallocated(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_block_ack(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_block_ack(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_sector, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #8
   %6 = load i32, ptr @hf_drbd_block_id, align 4
@@ -1821,7 +1821,7 @@ define internal void @decode_payload_block_ack(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_data_wsame(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_data_wsame(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_sector, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #8
   %6 = load i32, ptr @hf_drbd_block_id, align 4
@@ -1851,7 +1851,7 @@ define internal void @decode_payload_data_wsame(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_dagtag_data_request(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_dagtag_data_request(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_sector, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #8
   %6 = load i32, ptr @hf_drbd_block_id, align 4
@@ -1866,7 +1866,7 @@ define internal void @decode_payload_dagtag_data_request(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_ov_result(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_ov_result(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_sector, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #8
   %6 = load i32, ptr @hf_drbd_block_id, align 4
@@ -1881,7 +1881,7 @@ define internal void @decode_payload_ov_result(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_barrier_ack(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_barrier_ack(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_barrier, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #8
   %6 = load i32, ptr @hf_drbd_set_size, align 4
@@ -1890,7 +1890,7 @@ define internal void @decode_payload_barrier_ack(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_confirm_stable(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_confirm_stable(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_oldest_block_id, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef -2147483648) #8
   %6 = load i32, ptr @hf_drbd_youngest_block_id, align 4
@@ -1901,14 +1901,14 @@ define internal void @decode_payload_confirm_stable(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_rq_s_reply(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_rq_s_reply(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_retcode, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_peer_ack(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_peer_ack(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_node_mask, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #8
   %6 = load i32, ptr @hf_drbd_dagtag, align 4
@@ -1917,7 +1917,7 @@ define internal void @decode_payload_peer_ack(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_payload_peers_in_sync(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @decode_payload_peers_in_sync(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr @hf_drbd_sector, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #8
   %6 = load i32, ptr @hf_drbd_node_mask, align 4
@@ -2064,7 +2064,7 @@ mask_fields.exit:                                 ; preds = %19
 declare ptr @proto_registrar_get_nth(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @insert_twopc(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 46, 54) %3) unnamed_addr #0 {
+define internal fastcc void @insert_twopc(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 46, 54) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #8
   %6 = tail call ptr @wmem_file_scope() #8
   %7 = tail call noalias ptr @wmem_alloc0(ptr noundef %6, i64 noundef 8) #8
@@ -2154,7 +2154,7 @@ declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_uint64_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_drbd_lb_tcp_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @get_drbd_lb_tcp_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = add i32 %2, 4
   %6 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %5) #8
   %7 = add i32 %6, 8
@@ -2162,7 +2162,7 @@ define internal i32 @get_drbd_lb_tcp_pdu_len(ptr nocapture readnone %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_drbd_lb_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_drbd_lb_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @proto_drbd_lb_tcp, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #8
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %6, ptr noundef nonnull @.str.378) #8
@@ -2236,10 +2236,10 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

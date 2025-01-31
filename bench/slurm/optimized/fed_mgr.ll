@@ -380,7 +380,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table._fed_job_update_thread = private unnamed_addr constant [12 x ptr] [ptr @.str.201, ptr @.str.200, ptr @.str.202, ptr @.str.203, ptr @.str.204, ptr @.str.205, ptr @.str.206, ptr @.str.207, ptr @.str.208, ptr @.str.209, ptr @.str.210, ptr @.str.211], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_fed_job_info(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @add_fed_job_info(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 792, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1245, ptr noundef nonnull @__func__.add_fed_job_info) #17
   store ptr %3, ptr %2, align 8
@@ -496,7 +496,7 @@ define dso_local void @fed_mgr_remove_fed_job_info(i32 noundef %0) local_unnamed
 declare i32 @list_delete_all(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @_delete_fed_job_info_by_id(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 0, 2) i32 @_delete_fed_job_info_by_id(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -519,7 +519,7 @@ define dso_local ptr @fed_mgr_get_cluster_by_id(i32 noundef %0) local_unnamed_ad
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @_find_sibling_by_id(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 0, 2) i32 @_find_sibling_by_id(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load i32, ptr %4, align 8
@@ -548,7 +548,7 @@ define dso_local ptr @fed_mgr_get_cluster_by_name(ptr noundef %0) local_unnamed_
 declare i32 @slurmdb_find_cluster_in_list(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_parse_resp_ctld_mult(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @_parse_resp_ctld_mult(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.slurm_msg, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
@@ -1882,7 +1882,7 @@ declare void @list_destroy(ptr noundef) local_unnamed_addr #1
 declare ptr @list_pop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_join_federation(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @_join_federation(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca %union.pthread_attr_t, align 8
   %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
@@ -2267,7 +2267,7 @@ _open_persist_sends.exit:                         ; preds = %133, %136, %139, %.
 declare void @lock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_handle_removed_clusters(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @_handle_removed_clusters(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
   %3 = load ptr, ptr @fed_mgr_fed_rec, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -3227,7 +3227,7 @@ declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #2
 declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @fed_mgr_update_feds(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i32 @fed_mgr_update_feds(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.depend_spec, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
@@ -3881,10 +3881,10 @@ _dump_remote_dep_job_list.exit:                   ; preds = %87
 declare ptr @init_buf(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @pack16(i16 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
@@ -3900,14 +3900,14 @@ declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @creat(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 declare i32 @fsync(i32 noundef) local_unnamed_addr #1
 
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare i32 @link(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -3947,7 +3947,7 @@ define dso_local noundef range(i32 0, 64) i32 @fed_mgr_get_cluster_id(i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @fed_mgr_add_sibling_conn(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @fed_mgr_add_sibling_conn(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   tail call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._join_federation.fed_read_lock) #17
   %3 = load ptr, ptr @fed_mgr_fed_rec, align 8
   %.not = icmp eq ptr %3, null
@@ -4392,7 +4392,7 @@ _is_fed_job.exit.thread:                          ; preds = %9, %12, %1, %_is_fe
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_add_to_send_list(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @_add_to_send_list(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i16, ptr %3, align 4
   %5 = icmp eq i16 %4, 5
@@ -4480,7 +4480,7 @@ _get_all_sibling_bits.exit:                       ; preds = %9, %11, %._crit_edg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_queue_rpc(ptr nocapture noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_queue_rpc(ptr noundef captures(none) %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -4562,7 +4562,7 @@ define internal fastcc range(i32 -1, 1) i32 @_queue_rpc(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @fed_mgr_job_allocate(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @fed_mgr_job_allocate(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   store i64 0, ptr %7, align 8
@@ -5187,7 +5187,7 @@ declare void @job_state_set_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @update_job_fed_details(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_submit_sibling_jobs(ptr nocapture noundef %0, ptr noundef %1, i1 noundef zeroext %2, i64 noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc i32 @_submit_sibling_jobs(ptr noundef captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, i64 noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %struct.sib_msg_t, align 8
   %7 = alloca %struct.slurm_msg, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %6, i8 0, i64 96, i1 false)
@@ -5984,7 +5984,7 @@ _job_has_pending_updates.exit:                    ; preds = %55
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @fed_mgr_job_is_self_owned(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define dso_local zeroext i1 @fed_mgr_job_is_self_owned(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = load ptr, ptr @fed_mgr_cluster_rec, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %11, label %3
@@ -6008,7 +6008,7 @@ define dso_local zeroext i1 @fed_mgr_job_is_self_owned(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @fed_mgr_job_is_locked(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define dso_local zeroext i1 @fed_mgr_job_is_locked(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -6291,7 +6291,7 @@ _is_fed_job.exit.thread:                          ; preds = %14, %17, %1, %.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_job_unlock_spec_sibs(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_job_unlock_spec_sibs(ptr noundef readonly captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.slurm_msg, align 8
   %4 = alloca %struct.slurm_msg, align 8
   %5 = alloca %struct.sib_msg_t, align 8
@@ -6755,7 +6755,7 @@ _persist_fed_job_revoke.exit:                     ; preds = %31, %34, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_fed_job_start_revoke(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_fed_job_start_revoke(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
@@ -7405,7 +7405,7 @@ _is_fed_job.exit.thread:                          ; preds = %17, %20, %2, %71, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_persist_fed_job_cancel(ptr nocapture noundef nonnull %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_persist_fed_job_cancel(ptr noundef nonnull captures(none) %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.slurm_msg, align 8
   %7 = alloca %struct.slurm_msg, align 8
   %8 = alloca %struct.sib_msg_t, align 8
@@ -8116,7 +8116,7 @@ define dso_local zeroext i1 @fed_mgr_is_origin_job_id(i32 noundef %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @fed_mgr_is_singleton_satisfied(ptr noundef %0, ptr nocapture noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @fed_mgr_is_singleton_satisfied(ptr noundef %0, ptr noundef captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @fed_mgr_cluster_rec, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %_is_fed_job.exit.thread, label %5
@@ -8902,7 +8902,7 @@ _is_fed_job.exit.thread:                          ; preds = %17, %12, %15, %4, %
 declare ptr @find_job_record(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @fed_mgr_q_update_origin_dep_msg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i32 @fed_mgr_q_update_origin_dep_msg(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
@@ -8975,7 +8975,7 @@ define dso_local noundef i32 @fed_mgr_q_update_origin_dep_msg(ptr nocapture noun
 declare i32 @pthread_cond_broadcast(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @fed_mgr_q_dep_msg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i32 @fed_mgr_q_dep_msg(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
@@ -9067,7 +9067,7 @@ define dso_local noundef i32 @fed_mgr_q_dep_msg(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @fed_mgr_q_sib_msg(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @fed_mgr_q_sib_msg(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
@@ -9466,7 +9466,7 @@ define dso_local noundef zeroext i1 @fed_mgr_sibs_synced() local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @_list_find_not_synced_sib(ptr noundef readonly %0, ptr nocapture readnone %1) #9 {
+define internal range(i32 0, 2) i32 @_list_find_not_synced_sib(ptr noundef readonly %0, ptr readnone captures(none) %1) #9 {
   %3 = load ptr, ptr @fed_mgr_cluster_rec, align 8
   %.not = icmp eq ptr %0, %3
   br i1 %.not, label %15, label %4
@@ -9790,7 +9790,7 @@ declare i32 @pthread_attr_setstacksize(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_agent_thread(ptr nocapture readnone %0) #0 {
+define internal noalias noundef ptr @_agent_thread(ptr readnone captures(none) %0) #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.slurm_msg, align 8
   %4 = alloca %struct.slurm_msg, align 8
@@ -10240,7 +10240,7 @@ _comm_fail_log.exit:                              ; preds = %125
 declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_fed_job_update_thread(ptr nocapture readnone %0) #0 {
+define internal noalias noundef ptr @_fed_job_update_thread(ptr readnone captures(none) %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.slurm_msg, align 8
   %4 = alloca %struct.slurm_msg, align 8
@@ -12191,7 +12191,7 @@ _destroy_fed_job_update_info.exit:                ; preds = %76, %79, %_handle_f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_remote_dep_recv_thread(ptr nocapture readnone %0) #0 {
+define internal noalias noundef ptr @_remote_dep_recv_thread(ptr readnone captures(none) %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca %struct.timespec, align 8
@@ -12471,7 +12471,7 @@ _handle_recv_remote_dep.exit:                     ; preds = %_destroy_dep_job.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_test_dep_job_thread(ptr nocapture readnone %0) #0 {
+define internal noalias noundef ptr @_test_dep_job_thread(ptr readnone captures(none) %0) #0 {
   %2 = alloca %struct.timespec, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = tail call i32 (i32, ...) @prctl(i32 noundef 15, ptr noundef nonnull @.str.153, ptr noundef null, ptr noundef null, ptr noundef null) #17
@@ -12552,7 +12552,7 @@ define internal noalias noundef ptr @_test_dep_job_thread(ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_origin_dep_update_thread(ptr nocapture readnone %0) #0 {
+define internal noalias noundef ptr @_origin_dep_update_thread(ptr readnone captures(none) %0) #0 {
   %2 = alloca %struct.timespec, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = tail call i32 (i32, ...) @prctl(i32 noundef 15, ptr noundef nonnull @.str.154, ptr noundef null, ptr noundef null, ptr noundef null) #17
@@ -13089,7 +13089,7 @@ declare i32 @job_requeue(i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroe
 declare void @delete_job_desc_files(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @_list_find_jobid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 0, 2) i32 @_list_find_jobid(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -13120,7 +13120,7 @@ declare i32 @pack_msg(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @update_job_dependency(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @_find_local_dep(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #5 {
+define internal range(i32 0, 2) i32 @_find_local_dep(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, 2
@@ -13132,7 +13132,7 @@ define internal range(i32 0, 2) i32 @_find_local_dep(ptr nocapture noundef reado
 declare zeroext i1 @update_job_dependency_list(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @_find_job_by_id(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 0, 2) i32 @_find_job_by_id(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %5 = load i32, ptr %4, align 8
@@ -13146,7 +13146,7 @@ declare i32 @handle_job_dependency_updates(ptr noundef, ptr noundef) #1
 declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_clear_recv_conns(ptr nocapture noundef writeonly initializes((200, 208)) %0, ptr nocapture readnone %1) #11 {
+define internal noundef i32 @_clear_recv_conns(ptr noundef writeonly captures(none) initializes((200, 208)) %0, ptr readnone captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr null, ptr %3, align 8
   ret i32 0
@@ -13156,7 +13156,7 @@ define internal noundef i32 @_clear_recv_conns(ptr nocapture noundef writeonly i
 declare i32 @pthread_attr_setdetachstate(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_job_watch_thread(ptr nocapture readnone %0) #0 {
+define internal noalias noundef ptr @_job_watch_thread(ptr readnone captures(none) %0) #0 {
   %2 = alloca %struct.slurmdb_cluster_cond_t, align 8
   %3 = alloca %struct.slurmdb_cluster_rec, align 8
   %4 = alloca %struct.slurmdb_federation_cond_t, align 8
@@ -13493,7 +13493,7 @@ _mark_self_as_drained.exit:                       ; preds = %130, %131
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 1) i32 @_foreach_job_completed(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #5 {
+define internal range(i32 -1, 1) i32 @_foreach_job_completed(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 255
@@ -13506,7 +13506,7 @@ define internal range(i32 -1, 1) i32 @_foreach_job_completed(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_foreach_job_no_requeue(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #12 {
+define internal noundef i32 @_foreach_job_no_requeue(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -13589,7 +13589,7 @@ declare void @pack64(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare void @pack_dep_list(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @packmem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -13846,7 +13846,7 @@ declare i32 @unpackstr_xmalloc_chooser(ptr noundef, ptr noundef, ptr noundef) lo
 declare i32 @unpackbool(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @_list_find_fed_job_info_by_jobid(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 0, 2) i32 @_list_find_fed_job_info_by_jobid(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -13889,7 +13889,7 @@ declare i32 @slurm_find_char_in_list(ptr noundef, ptr noundef) #1
 declare void @list_iterator_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @_remove_inactive_sibs(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #14 {
+define internal noundef i32 @_remove_inactive_sibs(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #14 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 15
@@ -13966,10 +13966,10 @@ define internal fastcc void @_append_job_update(ptr noundef %0) unnamed_addr #0 
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #16

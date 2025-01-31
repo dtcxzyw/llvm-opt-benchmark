@@ -68,7 +68,7 @@ $_ZTIN8QuantLib19StochasticProcess1D14discretizationE = comdat any
 @_ZTVN8QuantLib5ErrorE = external unnamed_addr constant { [5 x ptr] }, align 8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -85,10 +85,10 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib19EulerDiscretization5driftERKNS_17StochasticProcessEdRKNS_5ArrayEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(128) %process, double noundef %t0, ptr noundef nonnull align 8 dereferenceable(16) %x0, double noundef %dt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib19EulerDiscretization5driftERKNS_17StochasticProcessEdRKNS_5ArrayEd(ptr dead_on_unwind noalias writable writeonly sret(%"class.QuantLib::Array") align 8 captures(none) initializes((0, 16)) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(128) %process, double noundef %t0, ptr noundef nonnull align 8 dereferenceable(16) %x0, double noundef %dt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Array", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #22
@@ -122,7 +122,7 @@ _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %for.body.i.i, %entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib19EulerDiscretization5driftERKNS_19StochasticProcess1DEddd(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %t0, double noundef %x0, double noundef %dt) unnamed_addr #3 align 2 {
+define noundef double @_ZNK8QuantLib19EulerDiscretization5driftERKNS_19StochasticProcess1DEddd(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %t0, double noundef %x0, double noundef %dt) unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %process, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 128
@@ -133,7 +133,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define noundef double @_ZThn8_NK8QuantLib19EulerDiscretization5driftERKNS_19StochasticProcess1DEddd(ptr nocapture readnone %this, ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %t0, double noundef %x0, double noundef %dt) unnamed_addr #4 align 2 {
+define noundef double @_ZThn8_NK8QuantLib19EulerDiscretization5driftERKNS_19StochasticProcess1DEddd(ptr readnone captures(none) %this, ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %t0, double noundef %x0, double noundef %dt) unnamed_addr #4 align 2 {
 entry:
   %vtable.i = load ptr, ptr %process, align 8, !tbaa !3
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 128
@@ -144,7 +144,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib19EulerDiscretization9diffusionERKNS_17StochasticProcessEdRKNS_5ArrayEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(128) %process, double noundef %t0, ptr noundef nonnull align 8 dereferenceable(16) %x0, double noundef %dt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib19EulerDiscretization9diffusionERKNS_17StochasticProcessEdRKNS_5ArrayEd(ptr dead_on_unwind noalias writable writeonly sret(%"class.QuantLib::Matrix") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(128) %process, double noundef %t0, ptr noundef nonnull align 8 dereferenceable(16) %x0, double noundef %dt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Matrix", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #22
@@ -187,7 +187,7 @@ _ZN8QuantLib6MatrixD2Ev.exit:                     ; preds = %for.body.i.i, %entr
 declare double @sqrt(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib19EulerDiscretization9diffusionERKNS_19StochasticProcess1DEddd(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %t0, double noundef %x0, double noundef %dt) unnamed_addr #3 align 2 {
+define noundef double @_ZNK8QuantLib19EulerDiscretization9diffusionERKNS_19StochasticProcess1DEddd(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %t0, double noundef %x0, double noundef %dt) unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %process, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 136
@@ -199,7 +199,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define noundef double @_ZThn8_NK8QuantLib19EulerDiscretization9diffusionERKNS_19StochasticProcess1DEddd(ptr nocapture readnone %this, ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %t0, double noundef %x0, double noundef %dt) unnamed_addr #4 align 2 {
+define noundef double @_ZThn8_NK8QuantLib19EulerDiscretization9diffusionERKNS_19StochasticProcess1DEddd(ptr readnone captures(none) %this, ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %t0, double noundef %x0, double noundef %dt) unnamed_addr #4 align 2 {
 entry:
   %vtable.i = load ptr, ptr %process, align 8, !tbaa !3
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 136
@@ -211,7 +211,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib19EulerDiscretization10covarianceERKNS_17StochasticProcessEdRKNS_5ArrayEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(128) %process, double noundef %t0, ptr noundef nonnull align 8 dereferenceable(16) %x0, double noundef %dt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib19EulerDiscretization10covarianceERKNS_17StochasticProcessEdRKNS_5ArrayEd(ptr dead_on_unwind noalias writable writeonly sret(%"class.QuantLib::Matrix") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(128) %process, double noundef %t0, ptr noundef nonnull align 8 dereferenceable(16) %x0, double noundef %dt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sigma = alloca %"class.QuantLib::Matrix", align 8
   %ref.tmp = alloca %"class.QuantLib::Matrix", align 8
@@ -669,7 +669,7 @@ unreachable:                                      ; preds = %invoke.cont38
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib19EulerDiscretization8varianceERKNS_19StochasticProcess1DEddd(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %t0, double noundef %x0, double noundef %dt) unnamed_addr #3 align 2 {
+define noundef double @_ZNK8QuantLib19EulerDiscretization8varianceERKNS_19StochasticProcess1DEddd(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %t0, double noundef %x0, double noundef %dt) unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %process, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 136
@@ -681,7 +681,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define noundef double @_ZThn8_NK8QuantLib19EulerDiscretization8varianceERKNS_19StochasticProcess1DEddd(ptr nocapture readnone %this, ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %t0, double noundef %x0, double noundef %dt) unnamed_addr #4 align 2 {
+define noundef double @_ZThn8_NK8QuantLib19EulerDiscretization8varianceERKNS_19StochasticProcess1DEddd(ptr readnone captures(none) %this, ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %t0, double noundef %x0, double noundef %dt) unnamed_addr #4 align 2 {
 entry:
   %vtable.i = load ptr, ptr %process, align 8, !tbaa !3
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 136
@@ -723,7 +723,7 @@ entry:
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
@@ -853,7 +853,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #14
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #11
 
@@ -872,7 +872,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #18
 declare void @llvm.assume(i1 noundef) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21

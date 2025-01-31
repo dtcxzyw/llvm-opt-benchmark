@@ -12,7 +12,7 @@ define hidden void @WebPInitAlphaProcessingSSE41() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @ExtractAlpha_SSE41(ptr noalias nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias nocapture noundef writeonly %4, i32 noundef %5) #1 {
+define internal range(i32 0, 2) i32 @ExtractAlpha_SSE41(ptr noalias noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noalias noundef writeonly captures(none) %4, i32 noundef %5) #1 {
   %7 = add nsw i32 %2, -1
   %8 = and i32 %7, -16
   %9 = icmp sgt i32 %3, 0

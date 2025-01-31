@@ -67,7 +67,7 @@ lv_fs_get_drv.exit.thread:                        ; preds = %6, %1, %lv_fs_get_d
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @lv_fs_get_drv(i8 noundef signext %0) local_unnamed_addr #0 {
@@ -93,7 +93,7 @@ define noundef ptr @lv_fs_get_drv(i8 noundef signext %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 13) i32 @lv_fs_open(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -218,7 +218,7 @@ lv_fs_get_drv.exit.thread:                        ; preds = %16, %lv_fs_get_drv.
 declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_fs_make_path_from_buffer(ptr nocapture noundef writeonly initializes((0, 3), (8, 20)) %0, i8 noundef signext %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define void @lv_fs_make_path_from_buffer(ptr noundef writeonly captures(none) initializes((0, 3), (8, 20)) %0, i8 noundef signext %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   store i8 %1, ptr %0, align 8, !tbaa !13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 58, ptr %5, align 1, !tbaa !13
@@ -232,7 +232,7 @@ define void @lv_fs_make_path_from_buffer(ptr nocapture noundef writeonly initial
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_fs_close(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define i32 @lv_fs_close(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %4 = icmp eq ptr %3, null
@@ -291,7 +291,7 @@ define i32 @lv_fs_close(ptr nocapture noundef %0) local_unnamed_addr #0 {
 declare void @lv_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_fs_read(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define i32 @lv_fs_read(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -516,7 +516,7 @@ lv_fs_read_cached.exit:                           ; preds = %117, %115, %123
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_fs_write(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define i32 @lv_fs_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %6
@@ -682,7 +682,7 @@ lv_fs_write_cached.exit:                          ; preds = %81, %30, %23, %87
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_fs_seek(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @lv_fs_seek(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !15
@@ -772,7 +772,7 @@ lv_fs_seek_cached.exit:                           ; preds = %47, %31, %25, %21, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_fs_tell(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @lv_fs_tell(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !15
   %5 = icmp eq ptr %4, null
@@ -817,7 +817,7 @@ define i32 @lv_fs_tell(ptr nocapture noundef readonly %0, ptr noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 13) i32 @lv_fs_dir_open(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 13) i32 @lv_fs_dir_open(ptr noundef writeonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %lv_fs_get_drv.exit.thread, label %4
 
@@ -888,7 +888,7 @@ lv_fs_get_drv.exit.thread:                        ; preds = %15, %lv_fs_resolve_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_fs_dir_read(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @lv_fs_dir_read(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %20, label %5
 
@@ -927,7 +927,7 @@ define i32 @lv_fs_dir_read(ptr nocapture noundef readonly %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_fs_dir_close(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define i32 @lv_fs_dir_close(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !35
   %4 = icmp eq ptr %3, null
@@ -1149,7 +1149,7 @@ declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #1
 declare i32 @llvm.umin.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

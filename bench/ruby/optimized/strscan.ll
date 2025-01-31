@@ -2010,7 +2010,7 @@ extract_range.exit:                               ; preds = %RSTRING_PTR.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @strscan_values_at(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal i64 @strscan_values_at(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @strscanner_type) #7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -2390,7 +2390,7 @@ declare i64 @rb_data_typed_object_zalloc(i64 noundef, i64 noundef, ptr noundef) 
 declare void @onig_region_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @strscan_mark(ptr nocapture noundef readonly %0) #0 {
+define internal void @strscan_mark(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   tail call void @rb_gc_mark(i64 noundef %3) #7
@@ -2696,7 +2696,7 @@ extract_beg_len.exit:                             ; preds = %RSTRING_PTR.exit.i,
 declare i64 @rb_reg_onig_match(i64 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @strscan_match(ptr noundef %0, i64 %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i64 @strscan_match(ptr noundef %0, i64 %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
@@ -2746,7 +2746,7 @@ RSTRING_PTR.exit13:                               ; preds = %match_target.exit.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @strscan_search(ptr noundef %0, i64 %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i64 @strscan_search(ptr noundef %0, i64 %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
@@ -2882,7 +2882,7 @@ declare i64 @rb_hash_new() local_unnamed_addr #1
 declare i32 @onig_foreach_name(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @named_captures_iter(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, ptr nocapture noundef readonly %5) #0 {
+define internal noundef i32 @named_captures_iter(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef readonly captures(none) %5) #0 {
   %7 = ptrtoint ptr %1 to i64
   %8 = ptrtoint ptr %0 to i64
   %9 = sub i64 %7, %8
@@ -2918,7 +2918,7 @@ define internal noundef i32 @named_captures_iter(ptr noundef %0, ptr noundef %1,
 declare i64 @rb_hash_aset(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #5
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #6

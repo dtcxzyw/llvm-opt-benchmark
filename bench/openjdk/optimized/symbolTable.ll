@@ -879,14 +879,14 @@ _ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11SymbolTable14lookup_dynamicEPKcij(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN11SymbolTable14lookup_dynamicEPKcij(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = zext i32 %2 to i64
   %5 = tail call noundef ptr @_ZN11SymbolTable9do_lookupEPKcim(ptr noundef %0, i32 noundef %1, i64 noundef %4)
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11SymbolTable9do_lookupEPKcim(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN11SymbolTable9do_lookupEPKcim(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @_ZL12_local_table, align 8
@@ -1042,7 +1042,7 @@ _ZN11SymbolTable19update_needs_rehashEb.exit:     ; preds = %57, %_ZN19Concurren
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, argmem: read) uwtable
-define hidden noundef ptr @_ZN11SymbolTable13lookup_sharedEPKcij(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN11SymbolTable13lookup_sharedEPKcij(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL13_shared_table, i64 12), align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %_ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_ET_PhjEEXadL_Z37symbol_equals_compact_hashtable_entryS3_S1_iEEE6lookupES1_ji.exit24, label %6
@@ -1239,7 +1239,7 @@ _ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_value_from_compact_hashtableIS3_E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11SymbolTable13lookup_commonEPKcij(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN11SymbolTable13lookup_commonEPKcij(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZL20_lookup_shared_first)
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
@@ -1801,7 +1801,7 @@ _ZN11SymbolTable13lookup_commonEPKcij.exit.thread: ; preds = %29, %35, %26, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef %0, i32 noundef %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #0 align 2 {
   %4 = load volatile i8, ptr @_ZL9_alt_hash, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %9
@@ -1929,7 +1929,7 @@ declare void @_ZN7UNICODE15convert_to_utf8EPKtiPc(ptr noundef, i32 noundef, ptr 
 declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11SymbolTable19lookup_only_unicodeEPKtiRj(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN11SymbolTable19lookup_only_unicodeEPKtiRj(ptr noundef %0, i32 noundef %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca [128 x i8], align 16
   %5 = tail call noundef i32 @_ZN7UNICODE11utf8_lengthItEEiPKT_i(ptr noundef %0, i32 noundef %1) #18
   %6 = icmp slt i32 %5, 128
@@ -1984,7 +1984,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %30, %28, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11SymbolTable11new_symbolsEP15ClassLoaderDataRK18constantPoolHandleiPPKcPiS8_Pj(ptr noundef readnone %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11SymbolTable11new_symbolsEP15ClassLoaderDataRK18constantPoolHandleiPPKcPiS8_Pj(ptr noundef readnone %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 align 2 {
   %8 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
   %9 = icmp eq ptr %0, %8
   %10 = icmp sgt i32 %2, 0
@@ -2102,14 +2102,14 @@ define hidden noundef ptr @_ZN11SymbolTable20new_permanent_symbolEPKc(ptr nounde
   store i32 0, ptr %2, align 4
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
   %4 = trunc i64 %3 to i32
-  %5 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef %0, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %5 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %0, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
   %8 = load i32, ptr %2, align 4
   %9 = zext i32 %8 to i64
-  %10 = tail call noundef ptr @_ZN11SymbolTable16do_add_if_neededEPKcimb(ptr noundef %0, i32 noundef %4, i64 noundef %9, i1 noundef zeroext true)
+  %10 = tail call noundef ptr @_ZN11SymbolTable16do_add_if_neededEPKcimb(ptr noundef nonnull %0, i32 noundef %4, i64 noundef %9, i1 noundef zeroext true)
   br label %11
 
 11:                                               ; preds = %7, %1
@@ -2128,12 +2128,12 @@ define hidden noundef ptr @_ZN11SymbolTable20new_permanent_symbolEPKc(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @_ZN6Symbol14make_permanentEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11SymbolTable20get_table_statisticsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.TableStatistics) align 8 initializes((0, 96)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11SymbolTable20get_table_statisticsEv(ptr dead_on_unwind noalias writable writeonly sret(%class.TableStatistics) align 8 captures(none) initializes((0, 96)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %struct.SizeFunc, align 1
   %3 = alloca %class.TableStatistics, align 8
   %4 = alloca %class.TableStatistics, align 8
@@ -2210,7 +2210,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #7
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11SymbolTable22print_table_statisticsEP12outputStream(ptr noundef %0) local_unnamed_addr #0 align 2 {
@@ -2696,7 +2696,7 @@ define linkonce_odr hidden void @_ZNK16CompactHashtableIPKcP6SymbolXadL_Z33read_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11SymbolTable24copy_shared_symbol_tableEP13GrowableArrayIP6SymbolEP22CompactHashtableWriter(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11SymbolTable24copy_shared_symbol_tableEP13GrowableArrayIP6SymbolEP22CompactHashtableWriter(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
   %4 = load i32, ptr %0, align 4
   %5 = icmp sgt i32 %4, 0
@@ -2791,7 +2791,7 @@ declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i3
 declare noundef i64 @_ZN22CompactHashtableWriter13estimate_sizeEi(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11SymbolTable16write_to_archiveEP13GrowableArrayIP6SymbolE(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11SymbolTable16write_to_archiveEP13GrowableArrayIP6SymbolE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.CompactHashtableWriter, align 8
   %3 = load volatile i64, ptr @_ZL12_items_count, align 8
   %4 = trunc i64 %3 to i32
@@ -3763,7 +3763,7 @@ define hidden void @_ZN15SymboltableDCmdC2EP12outputStreamb(ptr noundef nonnull 
 declare void @_ZN10DCmdParser15add_dcmd_optionEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15SymboltableDCmd7executeE10DCmdSourceP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i32 %1, ptr nocapture readnone %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN15SymboltableDCmd7executeE10DCmdSourceP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i32 %1, ptr readnone captures(none) %2) unnamed_addr #0 align 2 {
   %4 = alloca %class.VM_DumpHashtable, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -6014,7 +6014,7 @@ declare void @_ZNK15GenDCmdArgument9to_stringEbPcm(ptr noundef nonnull align 8 d
 declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14
@@ -6023,13 +6023,13 @@ declare i64 @llvm.umin.i64(i64, i64) #14
 declare i32 @llvm.ctpop.i32(i32) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #14

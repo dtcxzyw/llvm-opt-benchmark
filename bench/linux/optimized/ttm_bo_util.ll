@@ -224,10 +224,10 @@ define dso_local void @ttm_move_memcpy(i1 noundef zeroext %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @memset_io(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
@@ -236,7 +236,7 @@ declare dso_local void @memset_io(ptr noundef, i32 noundef, i64 noundef) local_u
 declare dso_local void @drm_memcpy_from_wc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @ttm_bo_move_memcpy(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
@@ -498,7 +498,7 @@ define dso_local void @ttm_bo_move_sync_cleanup(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @ttm_io_prot(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 align 16 {
+define dso_local i64 @ttm_io_prot(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -533,7 +533,7 @@ define dso_local i64 @ttm_io_prot(ptr nocapture noundef readonly %0, ptr nocaptu
 declare dso_local i64 @ttm_prot_from_caching(i32 noundef, i64) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ttm_bo_kmap(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8), (24, 32)) %3) #0 align 16 {
+define dso_local i32 @ttm_bo_kmap(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8), (24, 32)) %3) #0 align 16 {
   %5 = alloca %struct.ttm_operation_ctx, align 8
   store ptr null, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -736,7 +736,7 @@ define dso_local i32 @ttm_bo_kmap(ptr noundef %0, i64 noundef %1, i64 noundef %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ttm_bo_kunmap(ptr nocapture noundef %0) #0 align 16 {
+define dso_local void @ttm_bo_kunmap(ptr noundef captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %35, label %4
@@ -817,7 +817,7 @@ declare dso_local void @iounmap(ptr noundef) local_unnamed_addr #3
 declare dso_local void @vunmap(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ttm_bo_vmap(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local i32 @ttm_bo_vmap(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = alloca %struct.ttm_operation_ctx, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %5 = load ptr, ptr %4, align 8
@@ -968,13 +968,13 @@ declare dso_local ptr @ioremap_cache(i64 noundef, i64 noundef) local_unnamed_add
 declare dso_local ptr @ioremap(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @vmap(ptr noundef, i32 noundef, i64 noundef, i64) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ttm_bo_vunmap(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 align 16 {
+define dso_local void @ttm_bo_vunmap(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -1356,7 +1356,7 @@ declare dso_local void @ttm_tt_unpopulate(ptr noundef, ptr noundef) local_unname
 declare dso_local void @ttm_resource_free(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ttm_buffer_object_transfer(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ttm_buffer_object_transfer(ptr noundef %0, ptr noundef writeonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 72), align 8
   %4 = tail call noalias align 8 dereferenceable_or_null(472) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 472) #7
   %5 = icmp eq ptr %4, null

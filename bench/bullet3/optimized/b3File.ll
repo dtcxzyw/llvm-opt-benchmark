@@ -82,7 +82,7 @@ $_ZN20b3AlignedObjectArrayIiE7reserveEi = comdat any
 @_ZN6bParse5bFileD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN6bParse5bFileD2Ev
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_Z12getCleanNamePKcPc(ptr nocapture noundef readonly %memName, ptr noundef returned writeonly %buffer) local_unnamed_addr #0 {
+define dso_local noundef ptr @_Z12getCleanNamePKcPc(ptr noundef readonly captures(none) %memName, ptr noundef returned writeonly %buffer) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %memName) #29
   %conv = trunc i64 %call to i32
@@ -123,10 +123,10 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6bParse5bFileC2EPKcS2_(ptr noundef nonnull align 8 dereferenceable(540) initializes((0, 8), (15, 32), (36, 44), (48, 57), (68, 76), (80, 89), (100, 108), (112, 121), (132, 140), (144, 153), (160, 164), (168, 184), (188, 196), (200, 209), (220, 228), (232, 241), (252, 260), (264, 273), (284, 292), (296, 305), (316, 324), (328, 337), (348, 356), (360, 369), (380, 388), (392, 401), (412, 420), (424, 433), (444, 452), (456, 465), (476, 484), (488, 497), (508, 516), (520, 529), (536, 540)) %this, ptr nocapture noundef readonly %filename, ptr nocapture noundef readonly %headerString) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6bParse5bFileC2EPKcS2_(ptr noundef nonnull align 8 dereferenceable(540) initializes((0, 8), (15, 32), (36, 44), (48, 57), (68, 76), (80, 89), (100, 108), (112, 121), (132, 140), (144, 153), (160, 164), (168, 184), (188, 196), (200, 209), (220, 228), (232, 241), (252, 260), (264, 273), (284, 292), (296, 305), (316, 324), (328, 337), (348, 356), (360, 369), (380, 388), (392, 401), (412, 420), (424, 433), (444, 452), (456, 465), (476, 484), (488, 497), (508, 516), (520, 529), (536, 540)) %this, ptr noundef readonly captures(none) %filename, ptr noundef readonly captures(none) %headerString) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont9:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6bParse5bFileE, i64 16), ptr %this, align 8
   %mOwnsBuffer = getelementptr inbounds nuw i8, ptr %this, i64 15
@@ -321,22 +321,22 @@ if.end:                                           ; preds = %if.then, %for.end
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -663,7 +663,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define dso_local void @_ZN6bParse5bFileC2EPciPKc(ptr noundef nonnull align 8 dereferenceable(540) initializes((0, 8), (15, 32), (36, 44), (48, 57), (68, 76), (80, 89), (100, 108), (112, 121), (132, 140), (144, 153), (160, 164), (168, 184), (188, 196), (200, 209), (220, 228), (232, 241), (252, 260), (264, 273), (284, 292), (296, 305), (316, 324), (328, 337), (348, 356), (360, 369), (380, 388), (392, 401), (412, 420), (424, 433), (444, 452), (456, 465), (476, 484), (488, 497), (508, 516), (520, 529), (536, 540)) %this, ptr noundef %memoryBuffer, i32 noundef %len, ptr nocapture noundef readonly %headerString) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6bParse5bFileC2EPciPKc(ptr noundef nonnull align 8 dereferenceable(540) initializes((0, 8), (15, 32), (36, 44), (48, 57), (68, 76), (80, 89), (100, 108), (112, 121), (132, 140), (144, 153), (160, 164), (168, 184), (188, 196), (200, 209), (220, 228), (232, 241), (252, 260), (264, 273), (284, 292), (296, 305), (316, 324), (328, 337), (348, 356), (360, 369), (380, 388), (392, 401), (412, 420), (424, 433), (444, 452), (456, 465), (476, 484), (488, 497), (508, 516), (520, 529), (536, 540)) %this, ptr noundef %memoryBuffer, i32 noundef %len, ptr noundef readonly captures(none) %headerString) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont9:
   %header.i = alloca [13 x i8], align 1
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6bParse5bFileE, i64 16), ptr %this, align 8
@@ -1007,7 +1007,7 @@ _ZN20b3AlignedObjectArrayIPcED2Ev.exit23:         ; preds = %_ZN20b3AlignedObjec
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare void @_ZN6bParse4bDNAD1Ev(ptr noundef nonnull align 8 dereferenceable(420)) unnamed_addr #8
@@ -1016,7 +1016,7 @@ declare void @_ZN6bParse4bDNAD1Ev(ptr noundef nonnull align 8 dereferenceable(42
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN6bParse5bFileD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define dso_local void @_ZN6bParse5bFileD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 {
 entry:
   tail call void @llvm.trap() #32
   unreachable
@@ -1026,7 +1026,7 @@ entry:
 declare void @llvm.trap() #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: read) uwtable
-define dso_local void @_ZN6bParse5bFile11parseHeaderEv(ptr nocapture noundef nonnull align 8 dereferenceable(540) %this) unnamed_addr #12 align 2 {
+define dso_local void @_ZN6bParse5bFile11parseHeaderEv(ptr noundef nonnull align 8 captures(none) dereferenceable(540) %this) unnamed_addr #12 align 2 {
 entry:
   %header = alloca [13 x i8], align 1
   %mFileLen = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1089,16 +1089,16 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #14
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN6bParse5bFile2okEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this) local_unnamed_addr #15 align 2 {
+define dso_local noundef zeroext i1 @_ZN6bParse5bFile2okEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %this) local_unnamed_addr #15 align 2 {
 entry:
   %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 536
   %0 = load i32, ptr %mFlags, align 8
@@ -1159,7 +1159,7 @@ if.end6:                                          ; preds = %if.then4, %land.lhs
 
 if.then9:                                         ; preds = %if.end6
   %7 = load i32, ptr %mFlags, align 8
-  %call11 = call noundef i32 @_ZN6bParse5bFile12getNextBlockEPNS_9bChunkIndEPKci(ptr nonnull align 8 poison, ptr noundef nonnull %dna, ptr noundef %tempBuffer.024, i32 noundef %7)
+  %call11 = call noundef i32 @_ZN6bParse5bFile12getNextBlockEPNS_9bChunkIndEPKci(ptr nonnull align 8 poison, ptr noundef nonnull %dna, ptr noundef nonnull %tempBuffer.024, i32 noundef %7)
   %cmp12 = icmp sgt i32 %call11, 0
   br i1 %cmp12, label %if.then13, label %if.end41.thread
 
@@ -1434,7 +1434,7 @@ eh.resume:                                        ; preds = %lpad95, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN6bParse5bFile12getNextBlockEPNS_9bChunkIndEPKci(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef initializes((0, 24)) %dataChunk, ptr nocapture noundef readonly %dataPtr, i32 noundef %flags) local_unnamed_addr #2 align 2 {
+define dso_local noundef i32 @_ZN6bParse5bFile12getNextBlockEPNS_9bChunkIndEPKci(ptr nonnull readnone align 8 captures(none) %this, ptr noundef captures(none) initializes((0, 24)) %dataChunk, ptr noundef readonly captures(none) %dataPtr, i32 noundef %flags) local_unnamed_addr #2 align 2 {
 entry:
   %and = and i32 %flags, 4
   %tobool.not.not = icmp eq i32 %and, 0
@@ -1616,7 +1616,7 @@ declare void @_ZN6bParse4bDNAC1Ev(ptr noundef nonnull align 8 dereferenceable(42
 declare void @_ZN6bParse4bDNA4initEPcib(ptr noundef nonnull align 8 dereferenceable(420), ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 declare noundef ptr @_ZN6bParse4bDNA7getNameEi(ptr noundef nonnull align 8 dereferenceable(420), i32 noundef) local_unnamed_addr #16
 
@@ -1742,7 +1742,7 @@ if.end33:                                         ; preds = %if.then31, %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN6bParse5bFile17updateOldPointersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this) local_unnamed_addr #18 align 2 {
+define dso_local void @_ZN6bParse5bFile17updateOldPointersEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %this) local_unnamed_addr #18 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 252
   %0 = load i32, ptr %m_size.i, align 4
@@ -1840,7 +1840,7 @@ for.end:                                          ; preds = %_ZN6bParse5bFile14f
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6bParse5bFile4swapEPcRNS_9bChunkIndEb(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %head, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dataChunk, i1 noundef zeroext %ignoreEndianFlag) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN6bParse5bFile4swapEPcRNS_9bChunkIndEb(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %head, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %dataChunk, i1 noundef zeroext %ignoreEndianFlag) local_unnamed_addr #2 align 2 {
 entry:
   %mFileDNA = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = load ptr, ptr %mFileDNA, align 8
@@ -2076,7 +2076,7 @@ for.end53:                                        ; preds = %if.end47, %if.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN6bParse5bFile7swapLenEPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr nocapture noundef %dataPtr) local_unnamed_addr #19 align 2 {
+define dso_local void @_ZN6bParse5bFile7swapLenEPc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %this, ptr noundef captures(none) %dataPtr) local_unnamed_addr #19 align 2 {
 entry:
   %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 536
   %0 = load i32, ptr %mFlags, align 8
@@ -2155,7 +2155,7 @@ if.end73:                                         ; preds = %if.else, %if.then36
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6bParse5bFile7swapDNAEPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr noundef %ptr) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN6bParse5bFile7swapDNAEPc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %this, ptr noundef %ptr) local_unnamed_addr #2 align 2 {
 entry:
   %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 536
   %0 = load i32, ptr %mFlags, align 8
@@ -2341,7 +2341,7 @@ declare noundef i32 @_ZN6bParse10ChunkUtils7swapIntEi(i32 noundef) local_unnamed
 declare noundef signext i16 @_ZN6bParse10ChunkUtils9swapShortEs(i16 noundef signext) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_ZN6bParse5bFile9writeFileEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr nocapture noundef readonly %fileName) local_unnamed_addr #20 align 2 {
+define dso_local void @_ZN6bParse5bFile9writeFileEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %this, ptr noundef readonly captures(none) %fileName) local_unnamed_addr #20 align 2 {
 entry:
   %call = tail call noalias ptr @fopen(ptr noundef %fileName, ptr noundef nonnull @.str.7)
   %mFileBuffer = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2355,7 +2355,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6bParse5bFile7preSwapEv(ptr noundef nonnull align 8 dereferenceable(540) initializes((160, 164)) %this) local_unnamed_addr #2 align 2 {
@@ -2495,7 +2495,7 @@ while.end:                                        ; preds = %if.end33, %if.then2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN6bParse5bFile10readStructEPcRNS_9bChunkIndE(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %head, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dataChunk) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN6bParse5bFile10readStructEPcRNS_9bChunkIndE(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %head, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %dataChunk) local_unnamed_addr #2 align 2 {
 entry:
   %ref.tmp = alloca %class.b3HashPtr, align 8
   %ref.tmp84 = alloca ptr, align 8
@@ -2602,7 +2602,7 @@ if.end48:                                         ; preds = %if.end21, %if.then3
 if.then51:                                        ; preds = %if.end48
   %mMemoryDNA = getelementptr inbounds nuw i8, ptr %this, i64 176
   %18 = load ptr, ptr %mMemoryDNA, align 8
-  %call52 = tail call noundef i32 @_ZN6bParse4bDNA14getReverseTypeEPKc(ptr noundef nonnull align 8 dereferenceable(420) %18, ptr noundef %call8)
+  %call52 = tail call noundef i32 @_ZN6bParse4bDNA14getReverseTypeEPKc(ptr noundef nonnull align 8 dereferenceable(420) %18, ptr noundef nonnull %call8)
   %cmp53.not = icmp eq i32 %call52, -1
   br i1 %cmp53.not, label %if.end93, label %if.then54
 
@@ -2683,7 +2683,7 @@ declare noundef zeroext i1 @_ZN6bParse4bDNA9flagEqualEi(ptr noundef nonnull alig
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 declare noundef i32 @_ZN6bParse4bDNA14getReverseTypeEPKc(ptr noundef nonnull align 8 dereferenceable(420), ptr noundef) local_unnamed_addr #16
 
@@ -2860,7 +2860,7 @@ if.then36:                                        ; preds = %if.then.i
   %m_dim1.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 16
   %37 = load i32, ptr %m_dim1.i, align 8
   %mul.i = mul i32 %37, %36
-  %call41 = tail call noundef i32 @_ZN6bParse4bDNA14getReverseTypeEPKc(ptr noundef nonnull align 8 dereferenceable(420) %26, ptr noundef %call13)
+  %call41 = tail call noundef i32 @_ZN6bParse4bDNA14getReverseTypeEPKc(ptr noundef nonnull align 8 dereferenceable(420) %26, ptr noundef nonnull %call13)
   %38 = load ptr, ptr %mFileDNA, align 8
   %39 = load i16, ptr %arrayidx5.i.le, align 2
   %m_data.i.i45 = getelementptr inbounds nuw i8, ptr %38, i64 48
@@ -3108,7 +3108,7 @@ return:                                           ; preds = %if.end20, %if.then
 declare noundef i32 @_ZN6bParse4bDNA14getReverseTypeEs(ptr noundef nonnull align 8 dereferenceable(420), i16 noundef signext) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN6bParse5bFile14getFileElementEPsPcS2_S2_PS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr noundef %firstStruct, ptr nocapture noundef readonly %lookupName, ptr nocapture noundef readonly %lookupType, ptr noundef readnone %data, ptr noundef writeonly %foundPos) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN6bParse5bFile14getFileElementEPsPcS2_S2_PS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %this, ptr noundef %firstStruct, ptr noundef readonly captures(none) %lookupName, ptr noundef readonly captures(none) %lookupType, ptr noundef readnone %data, ptr noundef writeonly %foundPos) local_unnamed_addr #2 align 2 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %firstStruct, i64 2
   %0 = load i16, ptr %arrayidx, align 2
@@ -3199,7 +3199,7 @@ return:                                           ; preds = %if.end19, %entry, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6bParse5bFile18getMatchingFileDNAEPsPKcS3_PcS4_b(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr nocapture noundef readonly %dna_addr, ptr nocapture noundef readonly %lookupName, ptr nocapture noundef readonly %lookupType, ptr noundef %strcData, ptr noundef %data, i1 noundef zeroext %fixupPointers) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN6bParse5bFile18getMatchingFileDNAEPsPKcS3_PcS4_b(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef readonly captures(none) %dna_addr, ptr noundef readonly captures(none) %lookupName, ptr noundef readonly captures(none) %lookupType, ptr noundef %strcData, ptr noundef %data, i1 noundef zeroext %fixupPointers) local_unnamed_addr #2 align 2 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %dna_addr, i64 2
   %0 = load i16, ptr %arrayidx, align 2
@@ -3417,7 +3417,7 @@ if.then54:                                        ; preds = %if.else51
   br label %for.end65
 
 if.else56:                                        ; preds = %if.else51
-  tail call fastcc void @_ZL10getElementiPKcS0_PcS1_(i32 noundef %mul7.i, ptr noundef %lookupType, ptr noundef %call, ptr noundef %data.addr.067, ptr noundef %strcData)
+  tail call fastcc void @_ZL10getElementiPKcS0_PcS1_(i32 noundef %mul7.i, ptr noundef nonnull %lookupType, ptr noundef nonnull %call, ptr noundef %data.addr.067, ptr noundef %strcData)
   br label %for.end65
 
 if.end59:                                         ; preds = %if.end18
@@ -3432,7 +3432,7 @@ for.end65:                                        ; preds = %if.end59, %_ZN20b3A
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6bParse5bFile8swapDataEPcsib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr nocapture noundef %data, i16 noundef signext %type, i32 noundef %arraySize, i1 noundef zeroext %ignoreEndianFlag) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN6bParse5bFile8swapDataEPcsib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %this, ptr noundef captures(none) %data, i16 noundef signext %type, i32 noundef %arraySize, i1 noundef zeroext %ignoreEndianFlag) local_unnamed_addr #2 align 2 {
 entry:
   br i1 %ignoreEndianFlag, label %if.then, label %lor.lhs.false
 
@@ -3491,7 +3491,7 @@ if.end30:                                         ; preds = %for.body17, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6bParse5bFile11safeSwapPtrEPcPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr noundef writeonly %dst, ptr noundef readonly %src) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN6bParse5bFile11safeSwapPtrEPcPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %this, ptr noundef writeonly %dst, ptr noundef readonly %src) local_unnamed_addr #2 align 2 {
 entry:
   %tobool = icmp ne ptr %src, null
   %tobool2 = icmp ne ptr %dst, null
@@ -3610,10 +3610,10 @@ if.end56:                                         ; preds = %if.end32, %if.then1
 declare noundef i32 @_ZN6bParse4bDNA14getPointerSizeEv(ptr noundef nonnull align 8 dereferenceable(420)) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL10getElementiPKcS0_PcS1_(i32 noundef %arrayLen, ptr nocapture noundef readonly %cur, ptr nocapture noundef readonly %old, ptr nocapture noundef readonly %oldPtr, ptr nocapture noundef writeonly %curData) unnamed_addr #22 {
+define internal fastcc void @_ZL10getElementiPKcS0_PcS1_(i32 noundef %arrayLen, ptr noundef readonly captures(none) %cur, ptr noundef readonly captures(none) %old, ptr noundef readonly captures(none) %oldPtr, ptr noundef writeonly captures(none) %curData) unnamed_addr #22 {
 entry:
   %cmp46 = icmp sgt i32 %arrayLen, 0
   br i1 %cmp46, label %for.body, label %for.end
@@ -4279,7 +4279,7 @@ for.end34:                                        ; preds = %for.inc32, %for.con
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN6bParse5bFile14findLibPointerEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr noundef %ptr) local_unnamed_addr #23 align 2 {
+define dso_local noundef ptr @_ZN6bParse5bFile14findLibPointerEPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %this, ptr noundef %ptr) local_unnamed_addr #23 align 2 {
 entry:
   %0 = ptrtoint ptr %ptr to i64
   %ref.tmp.sroa.0.0.extract.trunc = trunc i64 %0 to i32
@@ -4355,7 +4355,7 @@ return:                                           ; preds = %while.body.i.i, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6bParse5bFile20resolvePointersChunkERKNS_9bChunkIndEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dataChunk, i32 noundef %verboseMode) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN6bParse5bFile20resolvePointersChunkERKNS_9bChunkIndEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %dataChunk, i32 noundef %verboseMode) local_unnamed_addr #2 align 2 {
 entry:
   %mFileDNA = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = load ptr, ptr %mFileDNA, align 8
@@ -4466,7 +4466,7 @@ for.end:                                          ; preds = %for.body, %_ZN6bPar
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN6bParse5bFile30resolvePointersStructRecursiveEPciii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr nocapture noundef %strcPtr, i32 noundef %dna_nr, i32 noundef %verboseMode, i32 noundef %recursion) local_unnamed_addr #2 align 2 {
+define dso_local noundef i32 @_ZN6bParse5bFile30resolvePointersStructRecursiveEPciii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %this, ptr noundef captures(none) %strcPtr, i32 noundef %dna_nr, i32 noundef %verboseMode, i32 noundef %recursion) local_unnamed_addr #2 align 2 {
 entry:
   %cleanName = alloca [1024 x i8], align 16
   %dbarray = alloca [512 x i32], align 16
@@ -4975,7 +4975,7 @@ _Z12getCleanNamePKcPc.exit223:                    ; preds = %for.inc.i217, %if.t
   %idxprom14.i209 = sext i32 %.sroa.speculated.i207 to i64
   %arrayidx15.i210 = getelementptr inbounds i8, ptr %cleanName159, i64 %idxprom14.i209
   store i8 0, ptr %arrayidx15.i210, align 1
-  call fastcc void @_ZL10getElementiPKcS0_PcS1_(i32 noundef %mul.i, ptr noundef nonnull @.str.4, ptr noundef %call7, ptr noundef %elemPtr.0283, ptr noundef nonnull %dbarray)
+  call fastcc void @_ZL10getElementiPKcS0_PcS1_(i32 noundef %mul.i, ptr noundef nonnull @.str.4, ptr noundef nonnull %call7, ptr noundef %elemPtr.0283, ptr noundef nonnull %dbarray)
   br i1 %cmp101256, label %for.body165, label %for.end169
 
 for.body165:                                      ; preds = %_Z12getCleanNamePKcPc.exit223, %for.body165
@@ -4990,11 +4990,11 @@ for.end169:                                       ; preds = %for.body165, %_Z12g
   br i1 %cmp170, label %if.end177.thread, label %if.end177
 
 if.end177.thread:                                 ; preds = %for.end169
-  %call173 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, ptr noundef nonnull %cleanName159, ptr noundef %call7)
+  %call173 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, ptr noundef nonnull %cleanName159, ptr noundef nonnull %call7)
   br label %for.body180.preheader
 
 if.end177:                                        ; preds = %for.end169
-  %call176 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, ptr noundef nonnull %cleanName159, ptr noundef %call7, i32 noundef %mul.i)
+  %call176 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, ptr noundef nonnull %cleanName159, ptr noundef nonnull %call7, i32 noundef %mul.i)
   %cmp179269 = icmp sgt i32 %mul.i, 0
   br i1 %cmp179269, label %for.body180.preheader, label %for.end186
 
@@ -5016,7 +5016,7 @@ for.end186:                                       ; preds = %for.body180, %if.en
   br label %if.end232
 
 if.then197:                                       ; preds = %lor.rhs
-  call fastcc void @_ZL10getElementiPKcS0_PcS1_(i32 noundef %mul.i, ptr noundef nonnull @.str.24, ptr noundef %call7, ptr noundef %elemPtr.0283, ptr noundef nonnull %dbarray192)
+  call fastcc void @_ZL10getElementiPKcS0_PcS1_(i32 noundef %mul.i, ptr noundef nonnull @.str.24, ptr noundef nonnull %call7, ptr noundef %elemPtr.0283, ptr noundef nonnull %dbarray192)
   br i1 %cmp101256, label %for.body201, label %for.end205
 
 for.body201:                                      ; preds = %if.then197, %for.body201
@@ -5066,11 +5066,11 @@ _Z12getCleanNamePKcPc.exit242:                    ; preds = %for.inc.i236, %for.
   br i1 %cmp209, label %if.end215.thread, label %if.end215
 
 if.end215.thread:                                 ; preds = %_Z12getCleanNamePKcPc.exit242
-  %call211 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, ptr noundef nonnull %call10, ptr noundef %call7)
+  %call211 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, ptr noundef nonnull %call10, ptr noundef nonnull %call7)
   br label %for.body218.preheader
 
 if.end215:                                        ; preds = %_Z12getCleanNamePKcPc.exit242
-  %call214 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, ptr noundef nonnull %cleanName206, ptr noundef %call7, i32 noundef %mul.i)
+  %call214 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, ptr noundef nonnull %cleanName206, ptr noundef nonnull %call7, i32 noundef %mul.i)
   %cmp217265 = icmp sgt i32 %mul.i, 0
   br i1 %cmp217265, label %for.body218.preheader, label %for.end224
 
@@ -5135,7 +5135,7 @@ for.end242:                                       ; preds = %_ZN6bParse4bDNA14ge
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6bParse5bFile10dumpChunksEPNS_4bDNAE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr noundef %dna) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN6bParse5bFile10dumpChunksEPNS_4bDNAE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %this, ptr noundef %dna) local_unnamed_addr #2 align 2 {
 entry:
   %codestr = alloca [5 x i8], align 1
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 252
@@ -5206,7 +5206,7 @@ for.end:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6bParse5bFile11writeChunksEP8_IO_FILEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr nocapture noundef %fp, i1 noundef zeroext %fixupPointers) unnamed_addr #2 align 2 {
+define dso_local void @_ZN6bParse5bFile11writeChunksEP8_IO_FILEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %this, ptr noundef captures(none) %fp, i1 noundef zeroext %fixupPointers) unnamed_addr #2 align 2 {
 entry:
   %mFileDNA = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = load ptr, ptr %mFileDNA, align 8
@@ -5830,7 +5830,7 @@ if.end7:                                          ; preds = %_ZN20b3AlignedObjec
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #26
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #26
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #26
@@ -5842,10 +5842,10 @@ declare i32 @llvm.smin.i32(i32, i32) #27
 declare i32 @llvm.smax.i32(i32, i32) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #28
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #28
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #27

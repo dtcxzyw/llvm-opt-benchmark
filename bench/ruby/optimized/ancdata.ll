@@ -2521,7 +2521,7 @@ RSTRING_PTR.exit:                                 ; preds = %12, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ancillary_s_unix_rights(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal i64 @ancillary_s_unix_rights(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = tail call i64 @rb_ary_new() #11
@@ -3246,7 +3246,7 @@ declare i32 @rsock_cmsg_type_arg(i32 noundef, i32 noundef, i64 noundef) local_un
 declare i64 @rb_str_resize(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i64 @rsock_sockaddr_string_value(ptr noundef) local_unnamed_addr #1
 
@@ -3268,7 +3268,7 @@ declare void @rb_out_of_int(i64 noundef) local_unnamed_addr #6
 declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #1
 
@@ -3277,7 +3277,7 @@ declare i64 @rb_num2int(i64 noundef) local_unnamed_addr #1
 declare ptr @rb_thread_call_without_gvl(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @nogvl_sendmsg_func(ptr nocapture noundef readonly %0) #0 {
+define internal ptr @nogvl_sendmsg_func(ptr noundef readonly captures(none) %0) #0 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -3318,7 +3318,7 @@ declare i64 @rb_ary_push(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @rb_num2ull(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @nogvl_recvmsg_func(ptr nocapture noundef readonly %0) #0 {
+define internal ptr @nogvl_recvmsg_func(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr %0, align 8
@@ -3350,7 +3350,7 @@ declare i64 @rb_obj_alloc(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_ivar_set(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @rb_maygvl_fd_fix_cloexec(i32 noundef) local_unnamed_addr #1
 
@@ -3419,7 +3419,7 @@ declare i64 @rb_num2uint(i64 noundef) local_unnamed_addr #1
 declare i64 @rsock_addrinfo_new(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @extract_ipv6_pktinfo(i64 noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @extract_ipv6_pktinfo(i64 noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %.pr.i.i = load i64, ptr @ancillary_level.rbimpl_id, align 8
   %.not4.i.i = icmp eq i64 %.pr.i.i, 0
@@ -3553,10 +3553,10 @@ RSTRING_PTR.exit:                                 ; preds = %33, %37
 declare i32 @htonl(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

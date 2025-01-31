@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [6 x i8] c"write\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_tools_attach_VirtualMachineImpl_socket(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i32 @Java_sun_tools_attach_VirtualMachineImpl_socket(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @socket(i32 noundef 1, i32 noundef 1, i32 noundef 0) #11
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %6
@@ -37,7 +37,7 @@ declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 declare void @JNU_ThrowIOExceptionWithLastError(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_tools_attach_VirtualMachineImpl_connect(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_tools_attach_VirtualMachineImpl_connect(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca %struct.sockaddr_un, align 2
   %7 = call ptr @GetStringPlatformChars(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %5) #11
@@ -97,10 +97,10 @@ define void @Java_sun_tools_attach_VirtualMachineImpl_connect(ptr noundef %0, pt
 declare ptr @GetStringPlatformChars(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #4
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #4
 
 declare i32 @connect(i32 noundef, ptr, i32 noundef) local_unnamed_addr #2
 
@@ -112,7 +112,7 @@ declare void @JNU_ReleaseStringPlatformChars(ptr noundef, ptr noundef, ptr nound
 declare void @JNU_ThrowByName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #1
@@ -120,10 +120,10 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #1
 declare void @JNU_ThrowIOException(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_tools_attach_VirtualMachineImpl_sendQuitTo(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_tools_attach_VirtualMachineImpl_sendQuitTo(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @kill(i32 noundef %2, i32 noundef 3) #11
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -140,7 +140,7 @@ define void @Java_sun_tools_attach_VirtualMachineImpl_sendQuitTo(ptr noundef %0,
 declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_tools_attach_VirtualMachineImpl_checkPermissions(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_tools_attach_VirtualMachineImpl_checkPermissions(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca %struct.stat, align 8
   %6 = alloca [100 x i8], align 16
@@ -234,13 +234,13 @@ declare i32 @geteuid() local_unnamed_addr #1
 declare i32 @getegid() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_tools_attach_VirtualMachineImpl_close(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_tools_attach_VirtualMachineImpl_close(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @shutdown(i32 noundef %2, i32 noundef 2) #11
   %5 = tail call i32 @close(i32 noundef %2) #11
   ret void
@@ -252,7 +252,7 @@ declare i32 @shutdown(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Java_sun_tools_attach_VirtualMachineImpl_read(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define noundef i32 @Java_sun_tools_attach_VirtualMachineImpl_read(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca [128 x i8], align 16
   %8 = sub nsw i32 %5, %4
   %narrow = tail call i32 @llvm.umin.i32(i32 %8, i32 128)
@@ -290,10 +290,10 @@ define noundef i32 @Java_sun_tools_attach_VirtualMachineImpl_read(ptr noundef %0
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_tools_attach_VirtualMachineImpl_write(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define void @Java_sun_tools_attach_VirtualMachineImpl_write(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca [128 x i8], align 16
   %8 = sext i32 %5 to i64
   br label %9
@@ -341,7 +341,7 @@ define void @Java_sun_tools_attach_VirtualMachineImpl_write(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10

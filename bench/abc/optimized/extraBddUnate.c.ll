@@ -619,10 +619,10 @@ define noalias noundef ptr @Extra_UnateInfoAllocate(i32 noundef %0) local_unname
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Extra_UnateInfoDissolve(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define void @Extra_UnateInfoDissolve(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -638,10 +638,10 @@ define void @Extra_UnateInfoDissolve(ptr nocapture noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @Extra_UnateInfoPrint(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Extra_UnateInfoPrint(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, 1
@@ -665,12 +665,12 @@ define void @Extra_UnateInfoPrint(ptr nocapture noundef readonly %0) local_unnam
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw %struct.Extra_UnateVar_t_, ptr %12, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
-  %.not24 = icmp sgt i32 %15, -1
-  %.not25 = icmp samesign ult i32 %15, 1073741824
-  %spec.select31 = select i1 %.not25, i8 46, i8 112
-  %.sink = select i1 %.not24, i8 %spec.select31, i8 110
-  %.sink30 = and i32 %15, 1073741823
-  %16 = zext nneg i32 %.sink30 to i64
+  %.not = icmp sgt i32 %15, -1
+  %.not24 = icmp samesign ult i32 %15, 1073741824
+  %spec.select30 = select i1 %.not24, i8 46, i8 112
+  %.sink = select i1 %.not, i8 %spec.select30, i8 110
+  %.sink29 = and i32 %15, 1073741823
+  %16 = zext nneg i32 %.sink29 to i64
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 %16
   store i8 %.sink, ptr %17, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -807,7 +807,7 @@ declare ptr @cuddCacheLookup1Zdd(ptr noundef, ptr noundef, ptr noundef) local_un
 declare void @cuddCacheInsert1(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8

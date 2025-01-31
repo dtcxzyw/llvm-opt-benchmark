@@ -56,7 +56,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_i2c_bit_add_
 @llvm.compiler.used = appending global [10 x ptr] [ptr @__UNIQUE_ID___addressable_i2c_bit_add_bus415, ptr @__UNIQUE_ID___addressable_i2c_bit_add_numbered_bus416, ptr @__UNIQUE_ID___addressable_i2c_bit_algo414, ptr @__UNIQUE_ID_author417, ptr @__UNIQUE_ID_bit_test413, ptr @__UNIQUE_ID_bit_testtype412, ptr @__UNIQUE_ID_description418, ptr @__UNIQUE_ID_file419, ptr @__UNIQUE_ID_license420, ptr @__param_bit_test], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @bit_xfer(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) #0 align 16 {
+define internal i32 @bit_xfer(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -471,7 +471,7 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr nocapture noundef %1, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @bit_xfer_atomic(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) #0 align 16 {
+define internal i32 @bit_xfer_atomic(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -490,7 +490,7 @@ define internal i32 @bit_xfer_atomic(ptr noundef %0, ptr nocapture noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @bit_func(ptr nocapture readnone %0) #1 align 16 {
+define internal noundef i32 @bit_func(ptr readnone captures(none) %0) #1 align 16 {
   ret i32 268402719
 }
 
@@ -501,7 +501,7 @@ define dso_local range(i32 -2147483648, 1) i32 @i2c_bit_add_bus(ptr noundef %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @__i2c_bit_add_bus(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @__i2c_bit_add_bus(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @bit_test, align 4
@@ -882,7 +882,7 @@ define dso_local range(i32 -2147483648, 1) i32 @i2c_bit_add_numbered_bus(ptr nou
 declare dso_local i32 @i2c_add_numbered_adapter(ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @i2c_stop(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @i2c_stop(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -954,7 +954,7 @@ define internal fastcc void @i2c_stop(ptr nocapture noundef readonly %0) unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @i2c_repstart(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @i2c_repstart(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -1036,7 +1036,7 @@ define internal fastcc void @i2c_repstart(ptr nocapture noundef readonly %0) unn
 declare dso_local void @__udelay(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @sclhi(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @sclhi(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -1093,7 +1093,7 @@ define internal fastcc void @sclhi(ptr nocapture noundef readonly %0) unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -110, 2) i32 @try_address(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -110, 2) i32 @try_address(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp slt i32 %2, 0
@@ -1148,7 +1148,7 @@ define internal fastcc range(i32 -110, 2) i32 @try_address(ptr nocapture noundef
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -110, 2) i32 @i2c_outb(ptr nocapture readonly %.24.val, i8 noundef zeroext %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -110, 2) i32 @i2c_outb(ptr readonly captures(none) %.24.val, i8 noundef zeroext %0) unnamed_addr #0 align 16 {
   %2 = zext i8 %0 to i32
   %3 = getelementptr inbounds nuw i8, ptr %.24.val, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %.24.val, i64 56

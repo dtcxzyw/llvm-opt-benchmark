@@ -98,7 +98,7 @@ declare ptr @PyType_FromModuleAndSpec(ptr noundef, ptr noundef, ptr noundef) loc
 declare i32 @PyModule_AddType(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @test_gc_control(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @test_gc_control(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call i32 @PyGC_IsEnabled() #7
   %call1 = tail call i32 @PyGC_Enable() #7
@@ -170,7 +170,7 @@ return:                                           ; preds = %if.end20, %if.end26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @test_gc_visit_objects_basic(ptr nocapture readnone %_unused_self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @test_gc_visit_objects_basic(ptr readnone captures(none) %_unused_self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %state = alloca %struct.gc_visit_state_basic, align 8
   %call = tail call ptr @PyList_New(i64 noundef 0) #7
@@ -213,7 +213,7 @@ return:                                           ; preds = %Py_DECREF.exit, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @test_gc_visit_objects_exit_early(ptr nocapture readnone %_unused_self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @test_gc_visit_objects_exit_early(ptr readnone captures(none) %_unused_self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %visited_i = alloca i32, align 4
   store i32 0, ptr %visited_i, align 4
@@ -232,7 +232,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @without_gc(ptr nocapture readnone %_unused_self, ptr noundef %obj) #0 {
+define internal ptr @without_gc(ptr readnone captures(none) %_unused_self, ptr noundef %obj) #0 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val12 = load ptr, ptr %0, align 8
@@ -294,7 +294,7 @@ return:                                           ; preds = %if.end.i.i, %cond.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @with_tp_del(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @with_tp_del(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %obj = alloca ptr, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.20, ptr noundef nonnull %obj) #7
@@ -353,7 +353,7 @@ declare ptr @PyList_New(i64 noundef) local_unnamed_addr #1
 declare void @PyUnstable_GC_VisitObjects(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @gc_visit_callback_basic(ptr noundef readnone %obj, ptr nocapture noundef %arg) #2 {
+define internal range(i32 0, 2) i32 @gc_visit_callback_basic(ptr noundef readnone %obj, ptr noundef captures(none) %arg) #2 {
 entry:
   %0 = load ptr, ptr %arg, align 8
   %cmp = icmp eq ptr %obj, %0
@@ -372,7 +372,7 @@ return:                                           ; preds = %entry, %if.then
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @gc_visit_callback_exit_early(ptr nocapture readnone %obj, ptr nocapture noundef %arg) #2 {
+define internal range(i32 0, 2) i32 @gc_visit_callback_exit_early(ptr readnone captures(none) %obj, ptr noundef captures(none) %arg) #2 {
 entry:
   %0 = load i32, ptr %arg, align 4
   %inc = add i32 %0, 1
@@ -585,7 +585,7 @@ Py_DECREF.exit:                                   ; preds = %obj_extra_data_clea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @obj_extra_data_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @obj_extra_data_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %0, align 8
@@ -610,7 +610,7 @@ return:                                           ; preds = %if.then, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @obj_extra_data_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @obj_extra_data_clear(ptr noundef captures(none) %self) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %0, align 8
@@ -643,7 +643,7 @@ do.end:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @obj_extra_data_new(ptr noundef %type, ptr nocapture readnone %args, ptr nocapture readnone %kwds) #0 {
+define internal ptr @obj_extra_data_new(ptr noundef %type, ptr readnone captures(none) %args, ptr readnone captures(none) %kwds) #0 {
 entry:
   %call = tail call ptr @PyUnstable_Object_GC_NewWithExtraData(ptr noundef %type, i64 noundef 8) #7
   %cmp = icmp eq ptr %call, null
@@ -665,7 +665,7 @@ return:                                           ; preds = %if.end, %if.then
 declare void @PyObject_GC_Del(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal ptr @obj_extra_data_get(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #4 {
+define internal ptr @obj_extra_data_get(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #4 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %0, align 8
@@ -692,7 +692,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @obj_extra_data_set(ptr nocapture noundef %self, ptr noundef %newval, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef i32 @obj_extra_data_set(ptr noundef captures(none) %self, ptr noundef %newval, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %0, align 8
@@ -753,7 +753,7 @@ declare void @PyObject_GC_Track(ptr noundef) local_unnamed_addr #1
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6

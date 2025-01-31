@@ -222,7 +222,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.194 = private unnamed_addr constant [4 x i8] c"\E2\80\A6\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local void @html_escaped_print(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @html_escaped_print(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %22, %2
@@ -287,10 +287,10 @@ define dso_local void @html_escaped_print(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @disable_sigpipe_trap() local_unnamed_addr #2 {
@@ -417,25 +417,25 @@ define dso_local ptr @PageOutput(i32 noundef %0, ptr noundef readonly %1) local_
 declare i32 @isatty(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
 declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @popen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @popen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ClosePager(ptr noundef %0) local_unnamed_addr #2 {
@@ -469,10 +469,10 @@ define dso_local void @ClosePager(ptr noundef %0) local_unnamed_addr #2 {
 declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @pclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @pclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @printTableInit(ptr nocapture noundef initializes((0, 32)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define dso_local void @printTableInit(ptr noundef captures(none) initializes((0, 32)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %6, align 8
@@ -532,7 +532,7 @@ declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #3
 declare void @exit(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @printTableAddHeader(ptr nocapture noundef %0, ptr noundef %1, i1 noundef zeroext %2, i8 noundef signext %3) local_unnamed_addr #2 {
+define dso_local void @printTableAddHeader(ptr noundef captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, i8 noundef signext %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -572,7 +572,7 @@ define dso_local void @printTableAddHeader(ptr nocapture noundef %0, ptr noundef
 declare ptr @mbvalidate(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @printTableAddCell(ptr nocapture noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #2 {
+define dso_local void @printTableAddCell(ptr noundef captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
@@ -631,7 +631,7 @@ define dso_local void @printTableAddCell(ptr nocapture noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @printTableAddFooter(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @printTableAddFooter(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call ptr @pg_malloc0(i64 noundef 16) #18
   %4 = tail call ptr @pg_strdup(ptr noundef %1) #18
   store ptr %4, ptr %3, align 8
@@ -660,7 +660,7 @@ define dso_local void @printTableAddFooter(ptr nocapture noundef %0, ptr noundef
 declare ptr @pg_strdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @printTableSetFooter(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @printTableSetFooter(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -705,10 +705,10 @@ printTableAddFooter.exit:                         ; preds = %16, %17
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @printTableCleanup(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define dso_local void @printTableCleanup(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -800,7 +800,7 @@ define dso_local void @printTableCleanup(ptr nocapture noundef %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @printTable(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #2 {
+define dso_local void @printTable(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = load volatile i32, ptr @cancel_pressed, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %ClosePager.exit
@@ -1057,10 +1057,10 @@ ClosePager.exit:                                  ; preds = %102, %96, %6, %4, %
 }
 
 ; Function Attrs: nofree nounwind
-declare void @clearerr(ptr nocapture noundef) local_unnamed_addr #1
+declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 {
+define internal fastcc void @print_aligned_text(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1124,7 +1124,7 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
   %50 = getelementptr ptr, ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8
   %52 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #19
-  call void @pg_wcssize(ptr noundef %51, i64 noundef %52, i32 noundef %21, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #18
+  call void @pg_wcssize(ptr noundef nonnull %51, i64 noundef %52, i32 noundef %21, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #18
   %53 = load i32, ptr %4, align 4
   %54 = getelementptr i32, ptr %36, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4
@@ -1662,7 +1662,7 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
   %287 = load ptr, ptr %286, align 8
   %288 = getelementptr i32, ptr %.0490805, i64 %indvars.iv762
   %289 = load i32, ptr %288, align 4
-  call void @pg_wcsformat(ptr noundef %284, i64 noundef %285, i32 noundef %21, ptr noundef %287, i32 noundef %289) #18
+  call void @pg_wcsformat(ptr noundef nonnull %284, i64 noundef %285, i32 noundef %21, ptr noundef %287, i32 noundef %289) #18
   %indvars.iv.next763 = add nuw nsw i64 %indvars.iv762, 1
   %exitcond766.not = icmp eq i64 %indvars.iv.next763, %wide.trip.count765
   br i1 %exitcond766.not, label %._crit_edge684, label %281, !llvm.loop !19
@@ -1870,7 +1870,7 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
   %392 = load ptr, ptr %391, align 8
   %393 = getelementptr i32, ptr %.0490805, i64 %indvars.iv770
   %394 = load i32, ptr %393, align 4
-  call void @pg_wcsformat(ptr noundef %389, i64 noundef %390, i32 noundef %21, ptr noundef %392, i32 noundef %394) #18
+  call void @pg_wcsformat(ptr noundef nonnull %389, i64 noundef %390, i32 noundef %21, ptr noundef %392, i32 noundef %394) #18
   %395 = getelementptr i32, ptr %.0489806, i64 %indvars.iv770
   store i32 0, ptr %395, align 4
   %indvars.iv.next771 = add nuw nsw i64 %indvars.iv770, 1
@@ -2306,7 +2306,7 @@ ClosePager.exit:                                  ; preds = %582, %576, %3, %._c
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @print_unaligned_vertical(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @print_unaligned_vertical(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i8, ptr %4, align 8
@@ -2562,7 +2562,7 @@ print_separator.exit64:                           ; preds = %114, %116, %117
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_unaligned_text(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #2 {
+define internal fastcc void @print_unaligned_text(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i8, ptr %4, align 8
@@ -2835,7 +2835,7 @@ footers_with_default.exit.thread.thread:          ; preds = %print_separator.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_aligned_vertical(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 {
+define internal fastcc void @print_aligned_vertical(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -2992,7 +2992,7 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
   %86 = getelementptr ptr, ptr %85, i64 %indvars.iv
   %87 = load ptr, ptr %86, align 8
   %88 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %87) #19
-  call void @pg_wcssize(ptr noundef %87, i64 noundef %88, i32 noundef %20, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #18
+  call void @pg_wcssize(ptr noundef nonnull %87, i64 noundef %88, i32 noundef %20, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #18
   %89 = load i32, ptr %4, align 4
   %spec.select = call i32 @llvm.umax.i32(i32 %89, i32 %.0341500)
   %90 = load i32, ptr %5, align 4
@@ -3367,10 +3367,10 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
   %253 = getelementptr ptr, ptr %249, i64 %252
   %254 = load ptr, ptr %253, align 8
   %255 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %254) #19
-  call void @pg_wcsformat(ptr noundef %254, i64 noundef %255, i32 noundef %20, ptr noundef nonnull %115, i32 noundef %.0336.lcssa) #18
+  call void @pg_wcsformat(ptr noundef nonnull %254, i64 noundef %255, i32 noundef %20, ptr noundef nonnull %115, i32 noundef %.0336.lcssa) #18
   %256 = load ptr, ptr %.1327540, align 8
   %257 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %256) #19
-  call void @pg_wcsformat(ptr noundef %256, i64 noundef %257, i32 noundef %20, ptr noundef nonnull %111, i32 noundef %.0334.lcssa) #18
+  call void @pg_wcsformat(ptr noundef nonnull %256, i64 noundef %257, i32 noundef %20, ptr noundef nonnull %111, i32 noundef %.0334.lcssa) #18
   %258 = load i32, ptr %218, align 8
   br label %259
 
@@ -3773,7 +3773,7 @@ ClosePager.exit:                                  ; preds = %423, %417, %3, %414
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @print_csv_vertical(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @print_csv_vertical(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -3825,7 +3825,7 @@ define internal fastcc void @print_csv_vertical(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @print_csv_text(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @print_csv_text(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = load volatile i32, ptr @cancel_pressed, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %.loopexit
@@ -3927,7 +3927,7 @@ define internal fastcc void @print_csv_text(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_html_vertical(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @print_html_vertical(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i8, ptr %4, align 8
@@ -4109,7 +4109,7 @@ define internal fastcc void @print_html_vertical(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_html_text(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @print_html_text(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i8, ptr %4, align 8
@@ -4323,7 +4323,7 @@ footers_with_default.exit:                        ; preds = %85, %94
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_asciidoc_vertical(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @print_asciidoc_vertical(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i8, ptr %4, align 8
@@ -4552,7 +4552,7 @@ asciidoc_escaped_print.exit70:                    ; preds = %.preheader, %85
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_asciidoc_text(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @print_asciidoc_text(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i8, ptr %4, align 8
@@ -4856,7 +4856,7 @@ footers_with_default.exit.thread:                 ; preds = %118, %footers_with_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_latex_vertical(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @print_latex_vertical(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i8, ptr %4, align 8
@@ -5103,7 +5103,7 @@ define internal fastcc void @print_latex_vertical(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_latex_text(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #2 {
+define internal fastcc void @print_latex_text(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i8, ptr %4, align 8
@@ -5363,7 +5363,7 @@ footers_with_default.exit:                        ; preds = %102, %106, %110
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @print_latex_longtable_text(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @print_latex_longtable_text(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i8, ptr %4, align 8
@@ -5734,7 +5734,7 @@ define internal fastcc void @print_latex_longtable_text(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_troff_ms_vertical(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @print_troff_ms_vertical(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i8, ptr %4, align 8
@@ -6039,7 +6039,7 @@ troff_ms_escaped_print.exit89:                    ; preds = %126
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_troff_ms_text(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #2 {
+define internal fastcc void @print_troff_ms_text(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i8, ptr %4, align 8
@@ -6550,7 +6550,7 @@ printTableAddHeader.exit:                         ; preds = %column_type_alignme
   br i1 %.not.i53, label %88, label %86
 
 86:                                               ; preds = %83
-  %87 = tail call ptr @pg_strdup(ptr noundef %75) #18
+  %87 = tail call ptr @pg_strdup(ptr noundef nonnull %75) #18
   br label %format_numeric_locale.exit
 
 88:                                               ; preds = %83
@@ -6910,7 +6910,7 @@ sub_0:                                            ; preds = %6
 declare ptr @localeconv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local nonnull ptr @get_line_style(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define dso_local nonnull ptr @get_line_style(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -6919,7 +6919,7 @@ define dso_local nonnull ptr @get_line_style(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define dso_local void @refresh_utf8format(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define dso_local void @refresh_utf8format(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   store ptr @.str.27, ptr @pg_utf8format, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %3 = load i32, ptr %2, align 4
@@ -6998,7 +6998,7 @@ declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #3
 declare double @llvm.fmuladd.f64(double, double, double) #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_print_horizontal_line(i32 noundef range(i32 0, -2147483648) %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i32 noundef range(i32 0, 3) %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #2 {
+define internal fastcc void @_print_horizontal_line(i32 noundef range(i32 0, -2147483648) %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext %2, i32 noundef range(i32 0, 3) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) unnamed_addr #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = zext nneg i32 %3 to i64
   %9 = getelementptr [4 x %struct.printTextLineFormat], ptr %7, i64 0, i64 %8
@@ -7120,10 +7120,10 @@ define internal fastcc void @_print_horizontal_line(i32 noundef range(i32 0, -21
 declare void @pg_wcsformat(ptr noundef, i64 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @PQdsplen(ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -7135,7 +7135,7 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 declare double @log10(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_aligned_vertical_line(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, -2147483648) %4, i32 noundef range(i32 0, 3) %5, ptr noundef %6) unnamed_addr #2 {
+define internal fastcc void @print_aligned_vertical_line(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, -2147483648) %4, i32 noundef range(i32 0, 3) %5, ptr noundef %6) unnamed_addr #2 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
@@ -7376,14 +7376,14 @@ define internal fastcc void @print_aligned_vertical_line(ptr nocapture noundef r
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @csv_print_field(ptr noundef readonly %0, ptr nocapture noundef %1, i8 noundef signext %2) unnamed_addr #0 {
+define internal fastcc void @csv_print_field(ptr noundef readonly %0, ptr noundef captures(none) %1, i8 noundef signext %2) unnamed_addr #0 {
   %4 = sext i8 %2 to i32
   %5 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef %4) #19
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %15
 
 6:                                                ; preds = %3
-  %7 = tail call i64 @strcspn(ptr noundef %0, ptr noundef nonnull @.str.42) #19
+  %7 = tail call i64 @strcspn(ptr noundef nonnull %0, ptr noundef nonnull @.str.42) #19
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
   %.not15 = icmp eq i64 %7, %8
   br i1 %.not15, label %sub_0, label %15
@@ -7452,10 +7452,10 @@ csv_escaped_print.exit:                           ; preds = %17
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @latex_escaped_print(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @latex_escaped_print(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %36, %2
@@ -7549,7 +7549,7 @@ define internal fastcc void @latex_escaped_print(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #16
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #17

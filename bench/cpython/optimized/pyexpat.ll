@@ -314,7 +314,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pyexpat_traverse(ptr noundef %module, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @pyexpat_traverse(ptr noundef %module, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #8
   %0 = load ptr, ptr %call.i, align 8
@@ -775,7 +775,7 @@ exit:                                             ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pyexpat_ErrorString(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @pyexpat_ErrorString(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i64 @PyLong_AsLong(ptr noundef %arg) #8
   %cmp = icmp eq i64 %call, -1
@@ -813,7 +813,7 @@ declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr no
 declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -834,7 +834,7 @@ declare void @PyExpat_XML_SetUserData(ptr noundef, ptr noundef) #1
 declare void @PyExpat_XML_SetUnknownEncodingHandler(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @PyUnknownEncodingHandler(ptr nocapture readnone %encodingHandlerData, ptr noundef %name, ptr nocapture noundef writeonly %info) #0 {
+define internal range(i32 0, 2) i32 @PyUnknownEncodingHandler(ptr readnone captures(none) %encodingHandlerData, ptr noundef %name, ptr noundef writeonly captures(none) %info) #0 {
 entry:
   %call = tail call ptr @PyErr_Occurred() #8
   %tobool.not = icmp eq ptr %call, null
@@ -978,7 +978,7 @@ declare ptr @PyUnicode_Decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef
 declare void @PyExpat_XML_SetStartElementHandler(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @my_StartElementHandler(ptr nocapture noundef %userData, ptr noundef %name, ptr nocapture noundef readonly %atts) #0 {
+define internal void @my_StartElementHandler(ptr noundef captures(none) %userData, ptr noundef %name, ptr noundef readonly captures(none) %atts) #0 {
 entry:
   %0 = getelementptr i8, ptr %userData, i64 64
   %userData.val = load ptr, ptr %0, align 8
@@ -1471,7 +1471,7 @@ if.end70:                                         ; preds = %if.end.i, %if.then1
 declare void @PyExpat_XML_SetEndElementHandler(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @my_EndElementHandler(ptr nocapture noundef %userData, ptr noundef %name) #0 {
+define internal void @my_EndElementHandler(ptr noundef captures(none) %userData, ptr noundef %name) #0 {
 entry:
   %0 = getelementptr i8, ptr %userData, i64 64
   %userData.val = load ptr, ptr %0, align 8
@@ -1677,7 +1677,7 @@ return:                                           ; preds = %entry, %if.end16, %
 declare void @PyExpat_XML_SetProcessingInstructionHandler(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @my_ProcessingInstructionHandler(ptr nocapture noundef %userData, ptr noundef %target, ptr noundef %data) #0 {
+define internal void @my_ProcessingInstructionHandler(ptr noundef captures(none) %userData, ptr noundef %target, ptr noundef %data) #0 {
 entry:
   %0 = getelementptr i8, ptr %userData, i64 64
   %userData.val = load ptr, ptr %0, align 8
@@ -1883,7 +1883,7 @@ return:                                           ; preds = %entry, %if.end16, %
 declare void @PyExpat_XML_SetCharacterDataHandler(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @my_CharacterDataHandler(ptr nocapture noundef %userData, ptr noundef %data, i32 noundef %len) #0 {
+define internal void @my_CharacterDataHandler(ptr noundef captures(none) %userData, ptr noundef %data, i32 noundef %len) #0 {
 entry:
   %call = tail call ptr @PyErr_Occurred() #8
   %tobool.not = icmp eq ptr %call, null
@@ -1959,7 +1959,7 @@ if.end25:                                         ; preds = %if.then16, %if.else
 declare void @PyExpat_XML_SetUnparsedEntityDeclHandler(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @my_UnparsedEntityDeclHandler(ptr nocapture noundef %userData, ptr noundef %entityName, ptr noundef %base, ptr noundef %systemId, ptr noundef %publicId, ptr noundef %notationName) #0 {
+define internal void @my_UnparsedEntityDeclHandler(ptr noundef captures(none) %userData, ptr noundef %entityName, ptr noundef %base, ptr noundef %systemId, ptr noundef %publicId, ptr noundef %notationName) #0 {
 entry:
   %0 = getelementptr i8, ptr %userData, i64 64
   %userData.val = load ptr, ptr %0, align 8
@@ -2169,7 +2169,7 @@ return:                                           ; preds = %entry, %if.end20, %
 declare void @PyExpat_XML_SetNotationDeclHandler(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @my_NotationDeclHandler(ptr nocapture noundef %userData, ptr noundef %notationName, ptr noundef %base, ptr noundef %systemId, ptr noundef %publicId) #0 {
+define internal void @my_NotationDeclHandler(ptr noundef captures(none) %userData, ptr noundef %notationName, ptr noundef %base, ptr noundef %systemId, ptr noundef %publicId) #0 {
 entry:
   %0 = getelementptr i8, ptr %userData, i64 64
   %userData.val = load ptr, ptr %0, align 8
@@ -2378,7 +2378,7 @@ return:                                           ; preds = %entry, %if.end19, %
 declare void @PyExpat_XML_SetStartNamespaceDeclHandler(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @my_StartNamespaceDeclHandler(ptr nocapture noundef %userData, ptr noundef %prefix, ptr noundef %uri) #0 {
+define internal void @my_StartNamespaceDeclHandler(ptr noundef captures(none) %userData, ptr noundef %prefix, ptr noundef %uri) #0 {
 entry:
   %0 = getelementptr i8, ptr %userData, i64 64
   %userData.val = load ptr, ptr %0, align 8
@@ -2585,7 +2585,7 @@ return:                                           ; preds = %entry, %if.end17, %
 declare void @PyExpat_XML_SetEndNamespaceDeclHandler(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @my_EndNamespaceDeclHandler(ptr nocapture noundef %userData, ptr noundef %prefix) #0 {
+define internal void @my_EndNamespaceDeclHandler(ptr noundef captures(none) %userData, ptr noundef %prefix) #0 {
 entry:
   %0 = getelementptr i8, ptr %userData, i64 64
   %userData.val = load ptr, ptr %0, align 8
@@ -2791,7 +2791,7 @@ return:                                           ; preds = %entry, %if.end16, %
 declare void @PyExpat_XML_SetCommentHandler(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @my_CommentHandler(ptr nocapture noundef %userData, ptr noundef %data) #0 {
+define internal void @my_CommentHandler(ptr noundef captures(none) %userData, ptr noundef %data) #0 {
 entry:
   %0 = getelementptr i8, ptr %userData, i64 64
   %userData.val = load ptr, ptr %0, align 8
@@ -2996,7 +2996,7 @@ return:                                           ; preds = %entry, %if.end15, %
 declare void @PyExpat_XML_SetStartCdataSectionHandler(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @my_StartCdataSectionHandler(ptr nocapture noundef %userData) #0 {
+define internal void @my_StartCdataSectionHandler(ptr noundef captures(none) %userData) #0 {
 entry:
   %0 = getelementptr i8, ptr %userData, i64 64
   %userData.val = load ptr, ptr %0, align 8
@@ -3201,7 +3201,7 @@ return:                                           ; preds = %entry, %if.end15, %
 declare void @PyExpat_XML_SetEndCdataSectionHandler(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @my_EndCdataSectionHandler(ptr nocapture noundef %userData) #0 {
+define internal void @my_EndCdataSectionHandler(ptr noundef captures(none) %userData) #0 {
 entry:
   %0 = getelementptr i8, ptr %userData, i64 64
   %userData.val = load ptr, ptr %0, align 8
@@ -3406,7 +3406,7 @@ return:                                           ; preds = %entry, %if.end15, %
 declare void @PyExpat_XML_SetDefaultHandler(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @my_DefaultHandler(ptr nocapture noundef %userData, ptr noundef %s, i32 noundef %len) #0 {
+define internal void @my_DefaultHandler(ptr noundef captures(none) %userData, ptr noundef %s, i32 noundef %len) #0 {
 entry:
   %0 = getelementptr i8, ptr %userData, i64 64
   %userData.val = load ptr, ptr %0, align 8
@@ -3621,7 +3621,7 @@ return:                                           ; preds = %entry, %if.end16, %
 declare void @PyExpat_XML_SetDefaultHandlerExpand(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @my_DefaultHandlerExpandHandler(ptr nocapture noundef %userData, ptr noundef %s, i32 noundef %len) #0 {
+define internal void @my_DefaultHandlerExpandHandler(ptr noundef captures(none) %userData, ptr noundef %s, i32 noundef %len) #0 {
 entry:
   %0 = getelementptr i8, ptr %userData, i64 64
   %userData.val = load ptr, ptr %0, align 8
@@ -3836,7 +3836,7 @@ return:                                           ; preds = %entry, %if.end16, %
 declare void @PyExpat_XML_SetNotStandaloneHandler(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @my_NotStandaloneHandler(ptr nocapture noundef %userData) #0 {
+define internal i32 @my_NotStandaloneHandler(ptr noundef captures(none) %userData) #0 {
 entry:
   %0 = getelementptr i8, ptr %userData, i64 64
   %userData.val = load ptr, ptr %0, align 8
@@ -4044,7 +4044,7 @@ return:                                           ; preds = %entry, %if.end15, %
 declare void @PyExpat_XML_SetExternalEntityRefHandler(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @my_ExternalEntityRefHandler(ptr nocapture noundef readonly %parser, ptr noundef %context, ptr noundef %base, ptr noundef %systemId, ptr noundef %publicId) #0 {
+define internal i32 @my_ExternalEntityRefHandler(ptr noundef readonly captures(none) %parser, ptr noundef %context, ptr noundef %base, ptr noundef %systemId, ptr noundef %publicId) #0 {
 entry:
   %0 = load ptr, ptr %parser, align 8
   %1 = getelementptr i8, ptr %0, i64 64
@@ -4256,7 +4256,7 @@ return:                                           ; preds = %entry, %if.end18, %
 declare void @PyExpat_XML_SetStartDoctypeDeclHandler(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @my_StartDoctypeDeclHandler(ptr nocapture noundef %userData, ptr noundef %doctypeName, ptr noundef %sysid, ptr noundef %pubid, i32 noundef %has_internal_subset) #0 {
+define internal void @my_StartDoctypeDeclHandler(ptr noundef captures(none) %userData, ptr noundef %doctypeName, ptr noundef %sysid, ptr noundef %pubid, i32 noundef %has_internal_subset) #0 {
 entry:
   %0 = getelementptr i8, ptr %userData, i64 64
   %userData.val = load ptr, ptr %0, align 8
@@ -4464,7 +4464,7 @@ return:                                           ; preds = %entry, %if.end18, %
 declare void @PyExpat_XML_SetEndDoctypeDeclHandler(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @my_EndDoctypeDeclHandler(ptr nocapture noundef %userData) #0 {
+define internal void @my_EndDoctypeDeclHandler(ptr noundef captures(none) %userData) #0 {
 entry:
   %0 = getelementptr i8, ptr %userData, i64 64
   %userData.val = load ptr, ptr %0, align 8
@@ -4669,7 +4669,7 @@ return:                                           ; preds = %entry, %if.end15, %
 declare void @PyExpat_XML_SetEntityDeclHandler(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @my_EntityDeclHandler(ptr nocapture noundef %userData, ptr noundef %entityName, i32 noundef %is_parameter_entity, ptr noundef %value, i32 noundef %value_length, ptr noundef %base, ptr noundef %systemId, ptr noundef %publicId, ptr noundef %notationName) #0 {
+define internal void @my_EntityDeclHandler(ptr noundef captures(none) %userData, ptr noundef %entityName, i32 noundef %is_parameter_entity, ptr noundef %value, i32 noundef %value_length, ptr noundef %base, ptr noundef %systemId, ptr noundef %publicId, ptr noundef %notationName) #0 {
 entry:
   %0 = getelementptr i8, ptr %userData, i64 64
   %userData.val = load ptr, ptr %0, align 8
@@ -4889,7 +4889,7 @@ return:                                           ; preds = %entry, %if.end21, %
 declare void @PyExpat_XML_SetXmlDeclHandler(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @my_XmlDeclHandler(ptr nocapture noundef %userData, ptr noundef %version, ptr noundef %encoding, i32 noundef %standalone) #0 {
+define internal void @my_XmlDeclHandler(ptr noundef captures(none) %userData, ptr noundef %version, ptr noundef %encoding, i32 noundef %standalone) #0 {
 entry:
   %0 = getelementptr i8, ptr %userData, i64 64
   %userData.val = load ptr, ptr %0, align 8
@@ -5094,7 +5094,7 @@ return:                                           ; preds = %entry, %if.end15, %
 declare void @PyExpat_XML_SetElementDeclHandler(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @my_ElementDeclHandler(ptr nocapture noundef %userData, ptr noundef %name, ptr noundef %model) #0 {
+define internal void @my_ElementDeclHandler(ptr noundef captures(none) %userData, ptr noundef %name, ptr noundef %model) #0 {
 entry:
   %0 = getelementptr i8, ptr %userData, i64 64
   %userData.val = load ptr, ptr %0, align 8
@@ -5384,7 +5384,7 @@ return:                                           ; preds = %if.then, %Py_XDECRE
 declare void @PyExpat_XML_SetAttlistDeclHandler(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @my_AttlistDeclHandler(ptr nocapture noundef %userData, ptr noundef %elname, ptr noundef %attname, ptr noundef %att_type, ptr noundef %dflt, i32 noundef %isrequired) #0 {
+define internal void @my_AttlistDeclHandler(ptr noundef captures(none) %userData, ptr noundef %elname, ptr noundef %attname, ptr noundef %att_type, ptr noundef %dflt, i32 noundef %isrequired) #0 {
 entry:
   %0 = getelementptr i8, ptr %userData, i64 64
   %userData.val = load ptr, ptr %0, align 8
@@ -5591,7 +5591,7 @@ return:                                           ; preds = %entry, %if.end17, %
 declare void @PyExpat_XML_SetSkippedEntityHandler(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @my_SkippedEntityHandler(ptr nocapture noundef %userData, ptr noundef %entityName, i32 noundef %is_parameter_entity) #0 {
+define internal void @my_SkippedEntityHandler(ptr noundef captures(none) %userData, ptr noundef %entityName, i32 noundef %is_parameter_entity) #0 {
 entry:
   %0 = getelementptr i8, ptr %userData, i64 64
   %userData.val = load ptr, ptr %0, align 8
@@ -5799,7 +5799,7 @@ declare i32 @PyExpat_XML_GetSpecifiedAttributeCount(ptr noundef) local_unnamed_a
 declare ptr @PyList_New(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @flag_error(ptr nocapture noundef readonly %self) unnamed_addr #0 {
+define internal fastcc void @flag_error(ptr noundef readonly captures(none) %self) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @handler_info, align 16
   %cmp.not11.i = icmp eq ptr %0, null
@@ -5857,7 +5857,7 @@ clear_handlers.exit:                              ; preds = %do.end.us.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @string_intern(ptr nocapture noundef readonly %self, ptr noundef %str) unnamed_addr #0 {
+define internal fastcc ptr @string_intern(ptr noundef readonly captures(none) %self, ptr noundef %str) unnamed_addr #0 {
 entry:
   %value = alloca ptr, align 8
   %cmp.i12 = icmp eq ptr %str, null
@@ -5933,7 +5933,7 @@ declare i32 @PyDict_SetItem(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @call_with_frame(ptr noundef %funcname, i32 noundef range(i32 279, 681) %lineno, ptr noundef %func, ptr noundef nonnull %args, ptr nocapture noundef readonly %self) unnamed_addr #0 {
+define internal fastcc ptr @call_with_frame(ptr noundef %funcname, i32 noundef range(i32 279, 681) %lineno, ptr noundef %func, ptr noundef nonnull %args, ptr noundef readonly captures(none) %self) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyObject_Call(ptr noundef %func, ptr noundef nonnull %args, ptr noundef null) #8
   %cmp = icmp eq ptr %call, null
@@ -5951,7 +5951,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @call_character_handler(ptr nocapture noundef %self, ptr noundef %buffer, i32 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @call_character_handler(ptr noundef captures(none) %self, ptr noundef %buffer, i32 noundef %len) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 64
   %self.val = load ptr, ptr %0, align 8
@@ -6167,7 +6167,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 declare ptr @PyTuple_New(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @noop_character_data_handler(ptr nocapture readnone %userData, ptr nocapture readnone %data, i32 %len) #3 {
+define internal void @noop_character_data_handler(ptr readnone captures(none) %userData, ptr readnone captures(none) %data, i32 %len) #3 {
 entry:
   ret void
 }
@@ -6175,7 +6175,7 @@ entry:
 declare ptr @PyUnicode_DecodeUTF8(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @error_external_entity_ref_handler(ptr nocapture readnone %parser, ptr nocapture readnone %context, ptr nocapture readnone %base, ptr nocapture readnone %systemId, ptr nocapture readnone %publicId) #3 {
+define internal noundef i32 @error_external_entity_ref_handler(ptr readnone captures(none) %parser, ptr readnone captures(none) %context, ptr readnone captures(none) %base, ptr readnone captures(none) %systemId, ptr readnone captures(none) %publicId) #3 {
 entry:
   ret i32 0
 }
@@ -6189,12 +6189,12 @@ declare void @_PyTraceback_Add(ptr noundef, ptr noundef, i32 noundef) local_unna
 declare i32 @PyExpat_XML_StopParser(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @conv_content_model(ptr nocapture noundef readonly %model) unnamed_addr #0 {
+define internal fastcc ptr @conv_content_model(ptr noundef readonly captures(none) %model) unnamed_addr #0 {
 entry:
   %numchildren = getelementptr inbounds nuw i8, ptr %model, i64 16
   %0 = load i32, ptr %numchildren, align 8
@@ -7033,7 +7033,7 @@ Py_DECREF.exit:                                   ; preds = %if.end12, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @xmlparse_traverse(ptr nocapture noundef readonly %op, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @xmlparse_traverse(ptr noundef readonly captures(none) %op, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = load ptr, ptr @handler_info, align 16
   %cmp.not12 = icmp eq ptr %0, null
@@ -7085,7 +7085,7 @@ return:                                           ; preds = %if.then, %if.then12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @xmlparse_clear(ptr nocapture noundef %op) #0 {
+define internal noundef i32 @xmlparse_clear(ptr noundef captures(none) %op) #0 {
 entry:
   %0 = load ptr, ptr @handler_info, align 16
   %cmp.not11.i = icmp eq ptr %0, null
@@ -7167,7 +7167,7 @@ declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #1
 declare void @PyObject_GC_Del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pyexpat_xmlparser_Parse(ptr nocapture noundef %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @pyexpat_xmlparser_Parse(ptr noundef captures(none) %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %slen.i = alloca i64, align 8
   %view.i = alloca %struct.Py_buffer, align 8
@@ -7332,7 +7332,7 @@ exit:                                             ; preds = %if.end8, %cond.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pyexpat_xmlparser_ParseFile(ptr nocapture noundef %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @pyexpat_xmlparser_ParseFile(ptr noundef captures(none) %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %readmethod.i = alloca ptr, align 8
   %argsbuf = alloca [1 x ptr], align 8
@@ -7635,7 +7635,7 @@ exit:                                             ; preds = %cond.end, %pyexpat_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pyexpat_xmlparser_SetBase(ptr nocapture noundef readonly %self, ptr noundef %arg) #0 {
+define internal ptr @pyexpat_xmlparser_SetBase(ptr noundef readonly captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %base_length = alloca i64, align 8
   %0 = getelementptr i8, ptr %arg, i64 8
@@ -7683,7 +7683,7 @@ exit:                                             ; preds = %if.then.i, %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pyexpat_xmlparser_GetBase(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @pyexpat_xmlparser_GetBase(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load ptr, ptr %0, align 8
@@ -7702,7 +7702,7 @@ pyexpat_xmlparser_GetBase_impl.exit:              ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pyexpat_xmlparser_GetInputContext(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @pyexpat_xmlparser_GetInputContext(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %offset.i = alloca i32, align 4
   %size.i = alloca i32, align 4
@@ -7738,7 +7738,7 @@ pyexpat_xmlparser_GetInputContext_impl.exit:      ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pyexpat_xmlparser_ExternalEntityParserCreate(ptr nocapture noundef readonly %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @pyexpat_xmlparser_ExternalEntityParserCreate(ptr noundef readonly captures(none) %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %context_length = alloca i64, align 8
@@ -8057,7 +8057,7 @@ for.inc65.i:                                      ; preds = %_Py_NewRef.exit.i, 
   br i1 %cmp45.not.i, label %for.end67.i, label %for.body47.i, !llvm.loop !17
 
 for.end67.i:                                      ; preds = %for.inc65.i, %clear_handlers.exit.i, %if.end40.i
-  call void @PyObject_GC_Track(ptr noundef %call1.i) #8
+  call void @PyObject_GC_Track(ptr noundef nonnull %call1.i) #8
   br label %exit
 
 exit:                                             ; preds = %for.end67.i, %Py_DECREF.exit.i, %Py_DECREF.exit76.i, %Py_DECREF.exit85.i, %skip_optional_posonly, %if.end35, %if.then12, %cond.end, %if.then43, %if.then33, %if.else22, %if.then20
@@ -8066,7 +8066,7 @@ exit:                                             ; preds = %for.end67.i, %Py_DE
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pyexpat_xmlparser_SetParamEntityParsing(ptr nocapture noundef readonly %self, ptr noundef %arg) #0 {
+define internal ptr @pyexpat_xmlparser_SetParamEntityParsing(ptr noundef readonly captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #8
   %cmp = icmp eq i32 %call, -1
@@ -8092,7 +8092,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @pyexpat_xmlparser_UseForeignDTD(ptr nocapture noundef readonly %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @pyexpat_xmlparser_UseForeignDTD(ptr noundef readonly captures(none) %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -8148,7 +8148,7 @@ declare i32 @PyObject_GetBuffer(ptr noundef, ptr noundef, i32 noundef) local_unn
 declare void @PyBuffer_Release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_error(ptr nocapture noundef readonly %state, ptr %self.16.val, i32 noundef %code) unnamed_addr #0 {
+define internal fastcc void @set_error(ptr noundef readonly captures(none) %state, ptr %self.16.val, i32 noundef %code) unnamed_addr #0 {
 entry:
   %call = tail call i64 @PyExpat_XML_GetCurrentLineNumber(ptr noundef %self.16.val) #8
   %conv = trunc i64 %call to i32
@@ -8368,7 +8368,7 @@ declare i32 @PyExpat_XML_SetParamEntityParsing(ptr noundef, i32 noundef) local_u
 declare i32 @PyExpat_XML_UseForeignDTD(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xmlparse_ErrorCode_getter(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @xmlparse_ErrorCode_getter(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %itself = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %itself, align 8
@@ -8379,7 +8379,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xmlparse_ErrorLineNumber_getter(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @xmlparse_ErrorLineNumber_getter(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %itself = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %itself, align 8
@@ -8389,7 +8389,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xmlparse_ErrorColumnNumber_getter(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @xmlparse_ErrorColumnNumber_getter(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %itself = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %itself, align 8
@@ -8399,7 +8399,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xmlparse_ErrorByteIndex_getter(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @xmlparse_ErrorByteIndex_getter(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %itself = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %itself, align 8
@@ -8409,7 +8409,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xmlparse_CurrentLineNumber_getter(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @xmlparse_CurrentLineNumber_getter(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %itself = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %itself, align 8
@@ -8419,7 +8419,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xmlparse_CurrentColumnNumber_getter(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @xmlparse_CurrentColumnNumber_getter(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %itself = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %itself, align 8
@@ -8429,7 +8429,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xmlparse_CurrentByteIndex_getter(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @xmlparse_CurrentByteIndex_getter(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %itself = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %itself, align 8
@@ -8439,7 +8439,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xmlparse_buffer_size_getter(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @xmlparse_buffer_size_getter(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %buffer_size = getelementptr inbounds nuw i8, ptr %self, i64 48
   %0 = load i32, ptr %buffer_size, align 8
@@ -8449,7 +8449,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @xmlparse_buffer_size_setter(ptr nocapture noundef %self, ptr noundef %v, ptr nocapture readnone %closure) #0 {
+define internal range(i32 -1, 1) i32 @xmlparse_buffer_size_setter(ptr noundef captures(none) %self, ptr noundef %v, ptr readnone captures(none) %closure) #0 {
 entry:
   %cmp = icmp eq ptr %v, null
   br i1 %cmp, label %if.then, label %if.end
@@ -8552,7 +8552,7 @@ return:                                           ; preds = %flush_character_buf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xmlparse_buffer_text_getter(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @xmlparse_buffer_text_getter(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %buffer = getelementptr inbounds nuw i8, ptr %self, i64 40
   %0 = load ptr, ptr %buffer, align 8
@@ -8563,7 +8563,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @xmlparse_buffer_text_setter(ptr nocapture noundef %self, ptr noundef %v, ptr nocapture readnone %closure) #0 {
+define internal range(i32 -1, 1) i32 @xmlparse_buffer_text_setter(ptr noundef captures(none) %self, ptr noundef %v, ptr readnone captures(none) %closure) #0 {
 entry:
   %cmp = icmp eq ptr %v, null
   br i1 %cmp, label %if.then, label %if.end
@@ -8637,7 +8637,7 @@ return:                                           ; preds = %if.end14, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xmlparse_buffer_used_getter(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @xmlparse_buffer_used_getter(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %buffer_used = getelementptr inbounds nuw i8, ptr %self, i64 52
   %0 = load i32, ptr %buffer_used, align 4
@@ -8647,7 +8647,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xmlparse_namespace_prefixes_getter(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @xmlparse_namespace_prefixes_getter(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %ns_prefixes = getelementptr inbounds nuw i8, ptr %self, i64 36
   %0 = load i32, ptr %ns_prefixes, align 4
@@ -8657,7 +8657,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @xmlparse_namespace_prefixes_setter(ptr nocapture noundef %self, ptr noundef %v, ptr nocapture readnone %closure) #0 {
+define internal range(i32 -1, 1) i32 @xmlparse_namespace_prefixes_setter(ptr noundef captures(none) %self, ptr noundef %v, ptr readnone captures(none) %closure) #0 {
 entry:
   %cmp = icmp eq ptr %v, null
   br i1 %cmp, label %if.then, label %if.end
@@ -8686,7 +8686,7 @@ return:                                           ; preds = %if.end, %if.end3, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xmlparse_ordered_attributes_getter(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @xmlparse_ordered_attributes_getter(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %ordered_attributes = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i32, ptr %ordered_attributes, align 8
@@ -8696,7 +8696,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @xmlparse_ordered_attributes_setter(ptr nocapture noundef writeonly %self, ptr noundef %v, ptr nocapture readnone %closure) #0 {
+define internal range(i32 -1, 1) i32 @xmlparse_ordered_attributes_setter(ptr noundef writeonly captures(none) %self, ptr noundef %v, ptr readnone captures(none) %closure) #0 {
 entry:
   %cmp = icmp eq ptr %v, null
   br i1 %cmp, label %if.then, label %if.end
@@ -8722,7 +8722,7 @@ return:                                           ; preds = %if.end, %if.end3, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xmlparse_specified_attributes_getter(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @xmlparse_specified_attributes_getter(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %specified_attributes = getelementptr inbounds nuw i8, ptr %self, i64 28
   %0 = load i32, ptr %specified_attributes, align 4
@@ -8732,7 +8732,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @xmlparse_specified_attributes_setter(ptr nocapture noundef writeonly %self, ptr noundef %v, ptr nocapture readnone %closure) #0 {
+define internal range(i32 -1, 1) i32 @xmlparse_specified_attributes_setter(ptr noundef writeonly captures(none) %self, ptr noundef %v, ptr readnone captures(none) %closure) #0 {
 entry:
   %cmp = icmp eq ptr %v, null
   br i1 %cmp, label %if.then, label %if.end
@@ -8764,7 +8764,7 @@ declare ptr @PyBool_FromLong(i64 noundef) local_unnamed_addr #1
 declare void @PyExpat_XML_SetReturnNSTriplet(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @xmlparse_handler_getter(ptr nocapture noundef readonly %self, ptr noundef %hi) #5 {
+define internal noundef nonnull ptr @xmlparse_handler_getter(ptr noundef readonly captures(none) %self, ptr noundef %hi) #5 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %hi to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @handler_info to i64)
@@ -8790,7 +8790,7 @@ _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @xmlparse_handler_setter(ptr nocapture noundef %self, ptr noundef %v, ptr noundef %hi) #0 {
+define internal range(i32 -1, 1) i32 @xmlparse_handler_setter(ptr noundef captures(none) %self, ptr noundef %v, ptr noundef %hi) #0 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %hi to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, ptrtoint (ptr @handler_info to i64)
@@ -8908,12 +8908,12 @@ define internal fastcc ptr @add_submodule(ptr noundef %mod, ptr noundef %fullnam
 entry:
   %call = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %fullname, i32 noundef 46) #9
   %add.ptr = getelementptr i8, ptr %call, i64 1
-  %call1 = tail call ptr @PyModule_New(ptr noundef %fullname) #8
+  %call1 = tail call ptr @PyModule_New(ptr noundef nonnull %fullname) #8
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call ptr @PyUnicode_FromString(ptr noundef %fullname) #8
+  %call2 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull %fullname) #8
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %if.then4, label %if.end5
 
@@ -9017,13 +9017,13 @@ declare ptr @PyCapsule_GetPointer(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @PyErr_WriteUnraisable(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

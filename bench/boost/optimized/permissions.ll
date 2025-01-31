@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN5boost3log11v2_mt_posix11permissionsC1ERKNS_12interprocess11permissionsE = unnamed_addr alias void (ptr, ptr), ptr @_ZN5boost3log11v2_mt_posix11permissionsC2ERKNS_12interprocess11permissionsE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5boost3log11v2_mt_posix11permissionsC2ERKNS_12interprocess11permissionsE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) unnamed_addr #0 align 2 {
+define void @_ZN5boost3log11v2_mt_posix11permissionsC2ERKNS_12interprocess11permissionsE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 4, !tbaa !3
   store i32 %3, ptr %0, align 4, !tbaa !8
   ret void

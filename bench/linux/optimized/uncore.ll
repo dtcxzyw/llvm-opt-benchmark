@@ -125,7 +125,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [8 x ptr] [ptr @__UNIQUE_ID___addressable_intel_uncore_init415, ptr @__UNIQUE_ID_file392, ptr @__UNIQUE_ID_license393, ptr @__UNIQUE_ID_uncore_no_discover391, ptr @__UNIQUE_ID_uncore_no_discovertype390, ptr @__exitcall_intel_uncore_exit, ptr @__param_uncore_no_discover, ptr @intel_uncore_exit], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @uncore_pcibus_to_dieid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @uncore_pcibus_to_dieid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @pci2phy_map_lock) #19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   br label %3
@@ -160,13 +160,13 @@ define dso_local i32 @uncore_pcibus_to_dieid(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
@@ -229,7 +229,7 @@ define dso_local i32 @uncore_die_to_segment(i32 noundef %0) local_unnamed_addr #
 declare dso_local ptr @pci_find_next_bus(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define dso_local i32 @uncore_device_to_die(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local i32 @uncore_device_to_die(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 200
@@ -351,7 +351,7 @@ define dso_local ptr @__find_pci2phy_map(i32 noundef %0) local_unnamed_addr #0 a
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local range(i64 -2147483648, 2147483648) i64 @uncore_event_show(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #4 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @uncore_event_show(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #4 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @stpcpy(ptr %2, ptr %5)
@@ -364,10 +364,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @uncore_event_show(ptr n
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local ptr @uncore_pmu_to_box(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 align 16 {
+define dso_local ptr @uncore_pmu_to_box(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 align 16 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %3
   %5 = load i64, ptr %4, align 8
@@ -393,7 +393,7 @@ define dso_local ptr @uncore_pmu_to_box(ptr nocapture noundef readonly %0, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @uncore_msr_read_counter(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local i64 @uncore_msr_read_counter(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
@@ -414,7 +414,7 @@ define dso_local i64 @uncore_msr_read_counter(ptr nocapture noundef readnone %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @uncore_mmio_exit_box(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @uncore_mmio_exit_box(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -432,7 +432,7 @@ define dso_local void @uncore_mmio_exit_box(ptr nocapture noundef readonly %0) l
 declare dso_local void @iounmap(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @uncore_mmio_read_counter(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local i64 @uncore_mmio_read_counter(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -472,7 +472,7 @@ define dso_local i64 @uncore_mmio_read_counter(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @uncore_get_constraint(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef ptr @uncore_get_constraint(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 432
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 424
@@ -549,7 +549,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @uncore_put_constraint(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @uncore_put_constraint(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %15, label %5
@@ -1533,7 +1533,7 @@ define dso_local range(i32 -2147483648, 1) i32 @uncore_pmu_event_add(ptr noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 -22, 1) i32 @uncore_assign_events(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 0, -2147483648) %2) unnamed_addr #0 align 16 {
@@ -1951,7 +1951,7 @@ define dso_local void @uncore_pmu_event_read(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local void @uncore_get_alias_name(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 align 16 {
+define dso_local void @uncore_get_alias_name(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -2116,7 +2116,7 @@ define internal void @intel_uncore_exit() #9 section ".exit.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @uncore_types_exit(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @uncore_types_exit(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit8, label %.preheader7
@@ -2559,7 +2559,7 @@ uncore_pci_pmus_register.exit:                    ; preds = %.loopexit6.i, %25
   %165 = icmp eq i32 %164, 0
   %166 = select i1 %165, i8 1, i8 %119
   %167 = load i32, ptr %111, align 4
-  %168 = tail call ptr @pci_get_device(i32 noundef 32902, i32 noundef %167, ptr noundef %121) #19
+  %168 = tail call ptr @pci_get_device(i32 noundef 32902, i32 noundef %167, ptr noundef nonnull %121) #19
   %169 = icmp eq ptr %168, null
   br i1 %169, label %.loopexit.i7, label %117, !llvm.loop !55
 
@@ -3326,7 +3326,7 @@ declare dso_local i32 @intel_uncore_generic_uncore_pci_init() #2
 declare dso_local void @intel_uncore_generic_uncore_mmio_init() #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @uncore_pci_probe(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal i32 @uncore_pci_probe(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @_raw_spin_lock(ptr noundef nonnull @pci2phy_map_lock) #19
@@ -3718,13 +3718,13 @@ define internal fastcc range(i32 -12, 1) i32 @uncore_type_init(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #15
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @uncore_get_attr_cpumask(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @uncore_get_attr_cpumask(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = load i32, ptr @nr_cpu_ids, align 4
   %5 = tail call i32 @bitmap_print_to_pagebuf(i1 noundef zeroext true, ptr noundef %2, ptr noundef nonnull @uncore_cpu_mask, i32 noundef %4) #19
   %6 = sext i32 %5 to i64
@@ -3735,7 +3735,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @uncore_get_attr_cpumask(
 declare dso_local i32 @bitmap_print_to_pagebuf(i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal fastcc ptr @uncore_pci_find_dev_pmu(ptr nocapture noundef readonly %0, ptr noundef readonly %1) unnamed_addr #16 align 16 {
+define internal fastcc ptr @uncore_pci_find_dev_pmu(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #16 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %8, label %4
 
@@ -3894,7 +3894,7 @@ define internal fastcc ptr @uncore_pci_find_dev_pmu(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @uncore_pci_pmu_register(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @uncore_pci_pmu_register(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 360
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %3 to i64
@@ -4443,7 +4443,7 @@ define internal noundef range(i32 0, 2) i32 @uncore_pmu_hrtimer(ptr noundef %0) 
 declare dso_local i64 @hrtimer_forward(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @uncore_pmu_enable(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @uncore_pmu_enable(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !95
   %3 = sext i32 %2 to i64
   %4 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %3
@@ -4484,7 +4484,7 @@ define internal void @uncore_pmu_enable(ptr nocapture noundef readonly %0) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @uncore_pmu_disable(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @uncore_pmu_disable(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !96
   %3 = sext i32 %2 to i64
   %4 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %3
@@ -4709,7 +4709,7 @@ define internal i32 @uncore_pmu_event_init(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @perf_pmu_register(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal fastcc i32 @uncore_freerunning_counter(ptr nocapture readonly %.368.val, i64 %.360.val) unnamed_addr #17 align 16 {
+define internal fastcc i32 @uncore_freerunning_counter(ptr readonly captures(none) %.368.val, i64 %.360.val) unnamed_addr #17 align 16 {
   %1 = trunc i64 %.360.val to i32
   %2 = lshr i32 %1, 8
   %3 = add nuw nsw i32 %2, 240
@@ -4946,13 +4946,13 @@ declare dso_local ptr @pci_get_domain_bus_and_slot(i32 noundef, i32 noundef, i32
 declare dso_local i32 @bus_register_notifier(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @uncore_pci_bus_notify(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @uncore_pci_bus_notify(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = tail call fastcc i32 @uncore_bus_notify(i64 noundef %1, ptr noundef %2, ptr noundef null)
   ret i32 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @uncore_bus_notify(i64 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @uncore_bus_notify(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = icmp eq i64 %0, 1
   br i1 %4, label %5, label %62
 
@@ -5058,7 +5058,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @uncore_bus_notify(i64 nounde
 declare dso_local ptr @pci_get_device(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @uncore_pci_sub_bus_notify(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @uncore_pci_sub_bus_notify(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = load ptr, ptr @uncore_pci_sub_driver, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -5092,7 +5092,7 @@ define internal fastcc i32 @uncore_msr_pmus_register() unnamed_addr #9 section "
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @type_pmu_register(ptr nocapture noundef nonnull readonly %0) unnamed_addr #9 section ".init.text" align 16 {
+define internal fastcc i32 @type_pmu_register(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #9 section ".init.text" align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
@@ -5123,7 +5123,7 @@ define internal fastcc i32 @type_pmu_register(ptr nocapture noundef nonnull read
 declare dso_local i32 @__cpuhp_setup_state(i32 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @uncore_box_ref(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @uncore_box_ref(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
   store ptr %4, ptr %4, align 8
@@ -5371,7 +5371,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @uncore_box_ref(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @uncore_change_context(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @uncore_change_context(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit6, label %6
@@ -5588,7 +5588,7 @@ declare dso_local i32 @bus_unregister_notifier(ptr noundef, ptr noundef) local_u
 declare dso_local void @pci_unregister_driver(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @stpcpy(ptr noalias writeonly, ptr noalias nocapture readonly) local_unnamed_addr #18
+declare ptr @stpcpy(ptr noalias writeonly, ptr noalias readonly captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #15

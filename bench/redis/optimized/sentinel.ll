@@ -499,7 +499,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.addReplySentinelRedisInstance = private unnamed_addr constant [7 x ptr] [ptr @.str.220, ptr @.str.221, ptr @.str.222, ptr @.str.223, ptr @.str.224, ptr @.str.225, ptr @.str.226], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @dictInstancesValDestructor(ptr nocapture readnone %d, ptr noundef %obj) #0 {
+define dso_local void @dictInstancesValDestructor(ptr readnone captures(none) %d, ptr noundef %obj) #0 {
 entry:
   tail call void @releaseSentinelRedisInstance(ptr noundef %obj)
   ret void
@@ -624,7 +624,7 @@ declare i64 @mstime() local_unnamed_addr #1
 declare ptr @listCreate() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @sentinelCheckConfigFile() local_unnamed_addr #0 {
@@ -678,7 +678,7 @@ declare void @_serverLog(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #5
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #6
@@ -895,7 +895,7 @@ declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #8
 declare ptr @sdsnew(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @dupSentinelAddr(ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @dupSentinelAddr(ptr noundef readonly captures(none) %src) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #32
   %0 = load ptr, ptr %src, align 8
@@ -930,7 +930,7 @@ declare void @sdsfree(ptr noundef) local_unnamed_addr #1
 declare void @zfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local range(i32 0, 2) i32 @sentinelAddrOrHostnameEqual(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #9 {
+define dso_local range(i32 0, 2) i32 @sentinelAddrOrHostnameEqual(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #9 {
 entry:
   %port = getelementptr inbounds nuw i8, ptr %a, i64 16
   %0 = load i32, ptr %port, align 8
@@ -962,13 +962,13 @@ land.end:                                         ; preds = %land.rhs, %lor.rhs,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @sentinelAddrEqualsHostname(ptr nocapture noundef readonly %a, ptr noundef %hostname) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @sentinelAddrEqualsHostname(ptr noundef readonly captures(none) %a, ptr noundef %hostname) local_unnamed_addr #0 {
 entry:
   %ip = alloca [46 x i8], align 16
   %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 144), align 8
@@ -990,7 +990,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @announceSentinelAddr(ptr nocapture noundef readonly %a) local_unnamed_addr #12 {
+define dso_local ptr @announceSentinelAddr(ptr noundef readonly captures(none) %a) local_unnamed_addr #12 {
 entry:
   %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 148), align 4
   %tobool.not = icmp eq i32 %0, 0
@@ -1001,7 +1001,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @announceSentinelAddrAndPort(ptr nocapture noundef readonly %a) local_unnamed_addr #0 {
+define dso_local ptr @announceSentinelAddrAndPort(ptr noundef readonly captures(none) %a) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 148), align 4
   %tobool.not.i = icmp eq i32 %0, 0
@@ -1014,7 +1014,7 @@ entry:
   %port5 = getelementptr inbounds nuw i8, ptr %a, i64 16
   %1 = load i32, ptr %port5, align 8
   %.str.14..str.13 = select i1 %cmp.not, ptr @.str.14, ptr @.str.13
-  %call6 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call4, ptr noundef nonnull %.str.14..str.13, ptr noundef %cond.i, i32 noundef %1) #29
+  %call6 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call4, ptr noundef nonnull %.str.14..str.13, ptr noundef nonnull %cond.i, i32 noundef %1) #29
   ret ptr %call6
 }
 
@@ -1026,7 +1026,7 @@ declare ptr @sdscatprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @sdsempty() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sentinelEvent(i32 noundef %level, ptr noundef %type, ptr noundef readonly %ri, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #0 {
+define dso_local void @sentinelEvent(i32 noundef %level, ptr noundef %type, ptr noundef readonly %ri, ptr noundef readonly captures(none) %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %msg = alloca [1024 x i8], align 16
@@ -1148,7 +1148,7 @@ if.end53:                                         ; preds = %if.end51, %if.end43
 
 if.end64:                                         ; preds = %if.end53
   %call57 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %type) #33
-  %call58 = call ptr @createStringObject(ptr noundef %type, i64 noundef %call57) #29
+  %call58 = call ptr @createStringObject(ptr noundef nonnull %type, i64 noundef %call57) #29
   %call61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %msg) #33
   %call62 = call ptr @createStringObject(ptr noundef nonnull %msg, i64 noundef %call61) #29
   %call63 = call i32 @pubsubPublishMessage(ptr noundef %call58, ptr noundef %call62, i32 noundef 0) #29
@@ -1179,7 +1179,7 @@ land.lhs.true81:                                  ; preds = %if.then70, %cond.en
   br i1 %tobool82.not, label %if.end87, label %if.then83
 
 if.then83:                                        ; preds = %land.lhs.true81
-  call void (ptr, ...) @sentinelScheduleScriptExecution(ptr noundef nonnull %19, ptr noundef %type, ptr noundef nonnull %msg, ptr noundef null)
+  call void (ptr, ...) @sentinelScheduleScriptExecution(ptr noundef nonnull %19, ptr noundef nonnull %type, ptr noundef nonnull %msg, ptr noundef null)
   br label %if.end87
 
 if.end87:                                         ; preds = %if.end53, %cond.end78, %land.lhs.true81, %if.then83, %if.end64
@@ -1187,10 +1187,10 @@ if.end87:                                         ; preds = %if.end53, %cond.end
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local nonnull ptr @sentinelRedisInstanceTypeStr(ptr nocapture noundef readonly %ri) local_unnamed_addr #13 {
+define dso_local nonnull ptr @sentinelRedisInstanceTypeStr(ptr noundef readonly captures(none) %ri) local_unnamed_addr #13 {
 entry:
   %0 = load i32, ptr %ri, align 8
   %and = and i32 %0, 1
@@ -1217,10 +1217,10 @@ return:                                           ; preds = %if.else5, %if.else,
 declare void @llvm.va_start.p0(ptr) #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #14
@@ -1400,7 +1400,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 declare ptr @listAddNodeTail(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1891,7 +1891,7 @@ declare void @addReplyBulkCString(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @addReplyBulkLongLong(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sentinelCallClientReconfScript(ptr nocapture noundef readonly %master, i32 noundef %role, ptr noundef %state, ptr nocapture noundef readonly %from, ptr nocapture noundef readonly %to) local_unnamed_addr #0 {
+define dso_local void @sentinelCallClientReconfScript(ptr noundef readonly captures(none) %master, i32 noundef %role, ptr noundef %state, ptr noundef readonly captures(none) %from, ptr noundef readonly captures(none) %to) local_unnamed_addr #0 {
 entry:
   %fromport = alloca [32 x i8], align 16
   %toport = alloca [32 x i8], align 16
@@ -1958,7 +1958,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @instanceLinkCloseConnection(ptr nocapture noundef %link, ptr noundef %c) local_unnamed_addr #0 {
+define dso_local void @instanceLinkCloseConnection(ptr noundef captures(none) %link, ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %c, null
   br i1 %cmp, label %return, label %if.end
@@ -2118,7 +2118,7 @@ return:                                           ; preds = %if.end, %if.then9, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @sentinelDiscardReplyCallback(ptr nocapture noundef readonly %c, ptr nocapture readnone %reply, ptr nocapture readnone %privdata) #19 {
+define dso_local void @sentinelDiscardReplyCallback(ptr noundef readonly captures(none) %c, ptr readnone captures(none) %reply, ptr readnone captures(none) %privdata) #19 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %c, i64 288
   %0 = load ptr, ptr %data, align 8
@@ -2378,7 +2378,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @dropInstanceConnections(ptr nocapture noundef readonly %ri) local_unnamed_addr #0 {
+define dso_local void @dropInstanceConnections(ptr noundef readonly captures(none) %ri) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ri, align 8
   %and = and i32 %0, 1
@@ -2944,7 +2944,7 @@ if.end22.thread:                                  ; preds = %if.end
   %port5.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   %2 = load i32, ptr %port5.i, align 8
   %.str.14..str.13.i = select i1 %cmp.not.i, ptr @.str.14, ptr @.str.13
-  %call6.i = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call4.i, ptr noundef nonnull %.str.14..str.13.i, ptr noundef %cond.i.i, i32 noundef %2) #29
+  %call6.i = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call4.i, ptr noundef nonnull %.str.14..str.13.i, ptr noundef nonnull %cond.i.i, i32 noundef %2) #29
   br i1 %tobool4, label %if.then25, label %if.then29
 
 if.then25:                                        ; preds = %if.end22.thread, %if.end22
@@ -3104,7 +3104,7 @@ declare i32 @dictAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @dictRelease(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sentinelRedisInstanceLookupSlave(ptr nocapture noundef readonly %ri, ptr noundef %slave_addr, i32 noundef %port) local_unnamed_addr #0 {
+define dso_local ptr @sentinelRedisInstanceLookupSlave(ptr noundef readonly captures(none) %ri, ptr noundef %slave_addr, i32 noundef %port) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ri, align 8
   %and = and i32 %0, 1
@@ -3133,7 +3133,7 @@ if.end:                                           ; preds = %cond.end
   %port5.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   %2 = load i32, ptr %port5.i, align 8
   %.str.14..str.13.i = select i1 %cmp.not.i, ptr @.str.14, ptr @.str.13
-  %call6.i = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call4.i, ptr noundef nonnull %.str.14..str.13.i, ptr noundef %cond.i.i, i32 noundef %2) #29
+  %call6.i = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call4.i, ptr noundef nonnull %.str.14..str.13.i, ptr noundef nonnull %cond.i.i, i32 noundef %2) #29
   %3 = load ptr, ptr %call, align 8
   tail call void @sdsfree(ptr noundef %3) #29
   %ip.i = getelementptr inbounds nuw i8, ptr %call, i64 8
@@ -3154,7 +3154,7 @@ return:                                           ; preds = %cond.end, %if.end
 declare ptr @dictFetchValue(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @removeMatchingSentinelFromMaster(ptr nocapture noundef readonly %master, ptr noundef readonly %runid) local_unnamed_addr #0 {
+define dso_local i32 @removeMatchingSentinelFromMaster(ptr noundef readonly captures(none) %master, ptr noundef readonly %runid) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %runid, null
   br i1 %cmp, label %return, label %if.end
@@ -3636,7 +3636,7 @@ return:                                           ; preds = %if.end8.i, %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @sentinelRedisInstanceNoDownFor(ptr nocapture noundef readonly %ri, i64 noundef %ms) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @sentinelRedisInstanceNoDownFor(ptr noundef readonly captures(none) %ri, i64 noundef %ms) local_unnamed_addr #0 {
 entry:
   %s_down_since_time = getelementptr inbounds nuw i8, ptr %ri, i64 72
   %0 = load i64, ptr %s_down_since_time, align 8
@@ -3659,7 +3659,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @sentinelGetCurrentMasterAddress(ptr nocapture noundef readonly %master) local_unnamed_addr #12 {
+define dso_local ptr @sentinelGetCurrentMasterAddress(ptr noundef readonly captures(none) %master) local_unnamed_addr #12 {
 entry:
   %0 = load i32, ptr %master, align 8
   %and = and i32 %0, 64
@@ -3689,7 +3689,7 @@ return:                                           ; preds = %land.lhs.true2, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sentinelPropagateDownAfterPeriod(ptr nocapture noundef readonly %master) local_unnamed_addr #0 {
+define dso_local void @sentinelPropagateDownAfterPeriod(ptr noundef readonly captures(none) %master) local_unnamed_addr #0 {
 entry:
   %d = alloca [3 x ptr], align 16
   %slaves = getelementptr inbounds nuw i8, ptr %master, i64 160
@@ -3738,7 +3738,7 @@ for.end:                                          ; preds = %while.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sentinelInstanceMapCommand(ptr nocapture noundef readonly %ri, ptr noundef %command) local_unnamed_addr #0 {
+define dso_local ptr @sentinelInstanceMapCommand(ptr noundef readonly captures(none) %ri, ptr noundef %command) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @sdsnew(ptr noundef %command) #29
   %master = getelementptr inbounds nuw i8, ptr %ri, i64 216
@@ -3864,7 +3864,7 @@ entry:
 declare void @listRelease(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define dso_local range(i32 0, 2) i32 @searchPreMonitorCfgName(ptr nocapture noundef readonly %name) local_unnamed_addr #20 {
+define dso_local range(i32 0, 2) i32 @searchPreMonitorCfgName(ptr noundef readonly captures(none) %name) local_unnamed_addr #20 {
 entry:
   br label %for.body
 
@@ -3889,7 +3889,7 @@ return:                                           ; preds = %for.cond, %for.body
 declare void @sdsfreesplitres(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @queueSentinelConfig(ptr nocapture noundef readonly %argv, i32 noundef %argc, i32 noundef %linenum, ptr noundef %line) local_unnamed_addr #0 {
+define dso_local void @queueSentinelConfig(ptr noundef readonly captures(none) %argv, i32 noundef %argc, i32 noundef %linenum, ptr noundef %line) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5608), align 8
   %cmp = icmp eq ptr %0, null
@@ -4085,7 +4085,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @sentinelHandleConfiguration(ptr nocapture noundef readonly %argv, i32 noundef %argc) local_unnamed_addr #0 {
+define dso_local noundef ptr @sentinelHandleConfiguration(ptr noundef readonly captures(none) %argv, i32 noundef %argc) local_unnamed_addr #0 {
 entry:
   %d.i = alloca [3 x ptr], align 16
   %0 = load ptr, ptr %argv, align 8
@@ -4361,7 +4361,7 @@ if.else140:                                       ; preds = %if.else125
 if.then147:                                       ; preds = %if.else140
   %arrayidx148 = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %31 = load ptr, ptr %arrayidx148, align 8
-  %call149 = tail call i64 @strtoull(ptr nocapture noundef %31, ptr noundef null, i32 noundef 10) #29
+  %call149 = tail call i64 @strtoull(ptr noundef captures(none) %31, ptr noundef null, i32 noundef 10) #29
   %32 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 48), align 8
   %cmp150 = icmp ugt i64 %call149, %32
   br i1 %cmp150, label %if.then152, label %if.end428
@@ -4403,7 +4403,7 @@ if.then176:                                       ; preds = %if.else169
 if.end181:                                        ; preds = %if.then176
   %arrayidx182 = getelementptr inbounds nuw i8, ptr %argv, i64 16
   %35 = load ptr, ptr %arrayidx182, align 8
-  %call183 = tail call i64 @strtoull(ptr nocapture noundef %35, ptr noundef null, i32 noundef 10) #29
+  %call183 = tail call i64 @strtoull(ptr noundef captures(none) %35, ptr noundef null, i32 noundef 10) #29
   %config_epoch = getelementptr inbounds nuw i8, ptr %call178, i64 24
   store i64 %call183, ptr %config_epoch, align 8
   %36 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 48), align 8
@@ -4430,7 +4430,7 @@ if.then197:                                       ; preds = %if.else190
 if.end202:                                        ; preds = %if.then197
   %arrayidx203 = getelementptr inbounds nuw i8, ptr %argv, i64 16
   %38 = load ptr, ptr %arrayidx203, align 8
-  %call204 = tail call i64 @strtoull(ptr nocapture noundef %38, ptr noundef null, i32 noundef 10) #29
+  %call204 = tail call i64 @strtoull(ptr noundef captures(none) %38, ptr noundef null, i32 noundef 10) #29
   %leader_epoch = getelementptr inbounds nuw i8, ptr %call199, i64 256
   store i64 %call204, ptr %leader_epoch, align 8
   br label %if.end428
@@ -4719,13 +4719,13 @@ return:                                           ; preds = %sw.default6.i190, %
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #21
+declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #21
 
 declare i32 @yesnotoi(ptr noundef) local_unnamed_addr #1
 
@@ -5209,7 +5209,7 @@ declare ptr @dictGetKey(ptr noundef) local_unnamed_addr #1
 declare ptr @sdscatrepr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i64 @sdslen(ptr nocapture noundef readonly %s) unnamed_addr #13 {
+define internal fastcc i64 @sdslen(ptr noundef readonly captures(none) %s) unnamed_addr #13 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %s, i64 -1
   %0 = load i8, ptr %arrayidx, align 1
@@ -5755,7 +5755,7 @@ return:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sentinelReceiveHelloMessages(ptr nocapture readnone %c, ptr noundef readonly %reply, ptr noundef readonly %privdata) #0 {
+define dso_local void @sentinelReceiveHelloMessages(ptr readnone captures(none) %c, ptr noundef readonly %reply, ptr noundef readonly %privdata) #0 {
 entry:
   %tobool = icmp ne ptr %reply, null
   %tobool1 = icmp ne ptr %privdata, null
@@ -5820,7 +5820,7 @@ if.end32:                                         ; preds = %if.end25
   %len = getelementptr inbounds nuw i8, ptr %8, i64 24
   %12 = load i64, ptr %len, align 8
   %conv = trunc i64 %12 to i32
-  tail call void @sentinelProcessHelloMessage(ptr noundef %11, i32 noundef %conv)
+  tail call void @sentinelProcessHelloMessage(ptr noundef nonnull %11, i32 noundef %conv)
   br label %return
 
 return:                                           ; preds = %if.end, %if.end25, %lor.lhs.false4, %lor.lhs.false6, %lor.lhs.false9, %lor.lhs.false14, %lor.lhs.false19, %entry, %if.end32
@@ -5828,7 +5828,7 @@ return:                                           ; preds = %if.end, %if.end25, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @sentinelMasterLooksSane(ptr nocapture noundef readonly %master) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @sentinelMasterLooksSane(ptr noundef readonly captures(none) %master) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %master, align 8
   %and = and i32 %0, 1
@@ -5876,7 +5876,7 @@ entry:
   %master_link_down_time = getelementptr inbounds nuw i8, ptr %ri, i64 192
   store i64 0, ptr %master_link_down_time, align 8
   %call3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %info) #33
-  %call4 = call ptr @sdssplitlen(ptr noundef %info, i64 noundef %call3, ptr noundef nonnull @.str.160, i32 noundef 2, ptr noundef nonnull %numlines) #29
+  %call4 = call ptr @sdssplitlen(ptr noundef nonnull %info, i64 noundef %call3, ptr noundef nonnull @.str.160, i32 noundef 2, ptr noundef nonnull %numlines) #29
   %1 = load i32, ptr %numlines, align 4
   %cmp472 = icmp sgt i32 %1, 0
   br i1 %cmp472, label %for.body.lr.ph, label %for.end
@@ -6192,7 +6192,7 @@ land.lhs.true102:                                 ; preds = %sdslen.exit214
 
 if.then105:                                       ; preds = %land.lhs.true102
   %add.ptr106 = getelementptr inbounds nuw i8, ptr %2, i64 31
-  %call107 = call i64 @strtoll(ptr nocapture noundef nonnull %add.ptr106, ptr noundef null, i32 noundef 10) #29
+  %call107 = call i64 @strtoll(ptr noundef nonnull captures(none) %add.ptr106, ptr noundef null, i32 noundef 10) #29
   %mul = mul nsw i64 %call107, 1000
   store i64 %mul, ptr %master_link_down_time, align 8
   %.pre = load i8, ptr %arrayidx.i, align 1
@@ -6604,7 +6604,7 @@ land.lhs.true194:                                 ; preds = %sdslen.exit347
 
 if.then197:                                       ; preds = %land.lhs.true194
   %add.ptr198 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  %call199 = call i64 @strtoull(ptr nocapture noundef nonnull %add.ptr198, ptr noundef null, i32 noundef 10) #29
+  %call199 = call i64 @strtoull(ptr noundef nonnull captures(none) %add.ptr198, ptr noundef null, i32 noundef 10) #29
   store i64 %call199, ptr %slave_repl_offset, align 8
   %.pre480 = load i8, ptr %arrayidx.i, align 1
   %.pre487 = zext i8 %.pre480 to i32
@@ -7101,16 +7101,16 @@ declare ptr @sdssplitlen(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr
 declare ptr @sdsnewlen(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #21
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #21
 
 ; Function Attrs: noreturn nounwind uwtable
 define dso_local void @sentinelSimFailureCrash() local_unnamed_addr #22 {
@@ -7129,7 +7129,7 @@ do.end:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @sentinelForceHelloUpdateForMaster(ptr nocapture noundef %master) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @sentinelForceHelloUpdateForMaster(ptr noundef captures(none) %master) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %master, align 8
   %and = and i32 %0, 1
@@ -7373,7 +7373,7 @@ return:                                           ; preds = %for.body, %for.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sentinelInfoReplyCallback(ptr nocapture noundef readonly %c, ptr noundef readonly %reply, ptr noundef %privdata) #0 {
+define dso_local void @sentinelInfoReplyCallback(ptr noundef readonly captures(none) %c, ptr noundef readonly %reply, ptr noundef %privdata) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %c, i64 288
   %0 = load ptr, ptr %data, align 8
@@ -7404,7 +7404,7 @@ if.end6:                                          ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sentinelPingReplyCallback(ptr nocapture noundef readonly %c, ptr noundef readonly %reply, ptr noundef %privdata) #0 {
+define dso_local void @sentinelPingReplyCallback(ptr noundef readonly captures(none) %c, ptr noundef readonly %reply, ptr noundef %privdata) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %c, i64 288
   %0 = load ptr, ptr %data, align 8
@@ -7511,7 +7511,7 @@ return:                                           ; preds = %entry, %if.end48
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sentinelPublishReplyCallback(ptr nocapture noundef readonly %c, ptr noundef readonly %reply, ptr nocapture noundef writeonly %privdata) #0 {
+define dso_local void @sentinelPublishReplyCallback(ptr noundef readonly captures(none) %c, ptr noundef readonly %reply, ptr noundef writeonly captures(none) %privdata) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %c, i64 288
   %0 = load ptr, ptr %data, align 8
@@ -7577,10 +7577,10 @@ if.end:                                           ; preds = %if.then
   %call10 = call ptr @getSentinelRedisInstanceByAddrAndRunID(ptr noundef %5, ptr noundef %6, i32 noundef %call5, ptr noundef %7)
   %arrayidx11 = getelementptr inbounds nuw i8, ptr %call, i64 24
   %8 = load ptr, ptr %arrayidx11, align 8
-  %call12 = call i64 @strtoull(ptr nocapture noundef %8, ptr noundef null, i32 noundef 10) #29
+  %call12 = call i64 @strtoull(ptr noundef captures(none) %8, ptr noundef null, i32 noundef 10) #29
   %arrayidx13 = getelementptr inbounds nuw i8, ptr %call, i64 56
   %9 = load ptr, ptr %arrayidx13, align 8
-  %call14 = call i64 @strtoull(ptr nocapture noundef %9, ptr noundef null, i32 noundef 10) #29
+  %call14 = call i64 @strtoull(ptr noundef captures(none) %9, ptr noundef null, i32 noundef 10) #29
   %tobool15.not = icmp eq ptr %call10, null
   br i1 %tobool15.not, label %if.then16, label %if.end56
 
@@ -8904,7 +8904,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 declare ptr @addReplyDeferredLen(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @setDeferredMapLen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -8926,7 +8926,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @addReplySentinelRedisInstance(ptr noundef %c, ptr nocapture noundef readonly %ri) local_unnamed_addr #0 {
+define dso_local void @addReplySentinelRedisInstance(ptr noundef %c, ptr noundef readonly captures(none) %ri) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @sdsempty() #29
   %call1 = tail call ptr @addReplyDeferredLen(ptr noundef %c) #29
@@ -9919,7 +9919,7 @@ while.end:                                        ; preds = %while.cond
 declare void @setDeferredArrayLen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sentinelGetMasterByNameOrReplyError(ptr noundef %c, ptr nocapture noundef readonly %name) local_unnamed_addr #0 {
+define dso_local ptr @sentinelGetMasterByNameOrReplyError(ptr noundef %c, ptr noundef readonly captures(none) %name) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 56), align 8
   %ptr = getelementptr inbounds nuw i8, ptr %name, i64 8
@@ -9939,7 +9939,7 @@ return:                                           ; preds = %entry, %if.then
 declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 4) i32 @sentinelIsQuorumReachable(ptr nocapture noundef readonly %master, ptr noundef writeonly %usableptr) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @sentinelIsQuorumReachable(ptr noundef readonly captures(none) %master, ptr noundef writeonly %usableptr) local_unnamed_addr #0 {
 entry:
   %sentinels = getelementptr inbounds nuw i8, ptr %master, i64 152
   %0 = load ptr, ptr %sentinels, align 8
@@ -10708,7 +10708,7 @@ while.body:                                       ; preds = %if.end446, %while.e
   %name456 = getelementptr inbounds nuw i8, ptr %call455, i64 8
   %86 = load ptr, ptr %name456, align 8
   %call458 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %86) #33
-  call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef %86, i64 noundef %call458) #29
+  call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef nonnull %86, i64 noundef %call458) #29
   %slaves459 = getelementptr inbounds nuw i8, ptr %call455, i64 160
   %87 = load ptr, ptr %slaves459, align 8
   %ht_used460 = getelementptr inbounds nuw i8, ptr %87, i64 24
@@ -10951,7 +10951,7 @@ declare i32 @getLongFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr
 declare i32 @getLongLongFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sentinelVoteLeader(ptr noundef %master, i64 noundef %req_epoch, ptr noundef %req_runid, ptr nocapture noundef writeonly initializes((0, 8)) %leader_epoch) local_unnamed_addr #0 {
+define dso_local ptr @sentinelVoteLeader(ptr noundef %master, i64 noundef %req_epoch, ptr noundef %req_runid, ptr noundef writeonly captures(none) initializes((0, 8)) %leader_epoch) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 48), align 8
   %cmp = icmp ugt i64 %req_epoch, %0
@@ -11079,7 +11079,7 @@ declare void @addReplyLongLong(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @addReplyNullArray(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sentinelSelectSlave(ptr nocapture noundef readonly %master) local_unnamed_addr #0 {
+define dso_local ptr @sentinelSelectSlave(ptr noundef readonly captures(none) %master) local_unnamed_addr #0 {
 entry:
   %slaves = getelementptr inbounds nuw i8, ptr %master, i64 160
   %0 = load ptr, ptr %slaves, align 8
@@ -12451,7 +12451,7 @@ if.end29:                                         ; preds = %if.else, %if.then25
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sentinelReceiveIsMasterDownReply(ptr nocapture noundef readonly %c, ptr noundef readonly %reply, ptr nocapture noundef %privdata) #0 {
+define dso_local void @sentinelReceiveIsMasterDownReply(ptr noundef readonly captures(none) %c, ptr noundef readonly %reply, ptr noundef captures(none) %privdata) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %c, i64 288
   %0 = load ptr, ptr %data, align 8
@@ -12575,7 +12575,7 @@ if.end53:                                         ; preds = %if.end22.tail, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sentinelAskMasterStateToOtherSentinels(ptr nocapture noundef readonly %master, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local void @sentinelAskMasterStateToOtherSentinels(ptr noundef readonly captures(none) %master, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %port = alloca [32 x i8], align 16
   %sentinels = getelementptr inbounds nuw i8, ptr %master, i64 152
@@ -12993,7 +12993,7 @@ return:                                           ; preds = %if.then6, %if.then9
 declare ptr @ctime_r(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local i32 @compareSlavesForPromotion(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #9 {
+define dso_local i32 @compareSlavesForPromotion(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #9 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %slave_priority = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -13044,7 +13044,7 @@ return:                                           ; preds = %if.end12, %if.else,
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #25
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @sentinelFailoverWaitStart(ptr noundef %ri) local_unnamed_addr #0 {
@@ -13159,7 +13159,7 @@ return:                                           ; preds = %if.then.i, %cond.en
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sentinelAbortFailover(ptr nocapture noundef %ri) local_unnamed_addr #0 {
+define dso_local void @sentinelAbortFailover(ptr noundef captures(none) %ri) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ri, align 8
   %and = and i32 %0, 64
@@ -14000,7 +14000,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @redisAeDelRead(ptr nocapture noundef %privdata) #0 {
+define internal void @redisAeDelRead(ptr noundef captures(none) %privdata) #0 {
 entry:
   %reading = getelementptr inbounds nuw i8, ptr %privdata, i64 20
   %0 = load i32, ptr %reading, align 4
@@ -14042,7 +14042,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @redisAeDelWrite(ptr nocapture noundef %privdata) #0 {
+define internal void @redisAeDelWrite(ptr noundef captures(none) %privdata) #0 {
 entry:
   %writing = getelementptr inbounds nuw i8, ptr %privdata, i64 24
   %0 = load i32, ptr %writing, align 8
@@ -14102,7 +14102,7 @@ redisAeDelWrite.exit:                             ; preds = %redisAeDelRead.exit
 declare i32 @aeCreateFileEvent(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @redisAeReadEvent(ptr nocapture readnone %el, i32 %fd, ptr nocapture noundef readonly %privdata, i32 %mask) #0 {
+define internal void @redisAeReadEvent(ptr readnone captures(none) %el, i32 %fd, ptr noundef readonly captures(none) %privdata, i32 %mask) #0 {
 entry:
   %0 = load ptr, ptr %privdata, align 8
   tail call void @redisAsyncHandleRead(ptr noundef %0) #29
@@ -14114,7 +14114,7 @@ declare void @redisAsyncHandleRead(ptr noundef) local_unnamed_addr #1
 declare void @aeDeleteFileEvent(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @redisAeWriteEvent(ptr nocapture readnone %el, i32 %fd, ptr nocapture noundef readonly %privdata, i32 %mask) #0 {
+define internal void @redisAeWriteEvent(ptr readnone captures(none) %el, i32 %fd, ptr noundef readonly captures(none) %privdata, i32 %mask) #0 {
 entry:
   %0 = load ptr, ptr %privdata, align 8
   tail call void @redisAsyncHandleWrite(ptr noundef %0) #29
@@ -14127,13 +14127,13 @@ declare void @redisAsyncHandleWrite(ptr noundef) local_unnamed_addr #1
 declare i64 @llvm.smax.i64(i64, i64) #26
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #27
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #28
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #28
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #26

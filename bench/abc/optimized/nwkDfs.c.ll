@@ -160,7 +160,7 @@ define range(i32 0, 2) i32 @Nwk_ManVerifyTopoOrder(ptr noundef %0) local_unnamed
 declare void @Nwk_ManIncrementTravId(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare i32 @Tim_ManBoxForCi(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -169,7 +169,7 @@ declare i32 @Tim_ManBoxInputFirst(ptr noundef, i32 noundef) local_unnamed_addr #
 declare i32 @Tim_ManBoxInputNum(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, -2147483648) i32 @Nwk_ManLevelBackup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @Nwk_ManLevelBackup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -354,7 +354,7 @@ declare void @Tim_ManSetCoArrival(ptr noundef, i32 noundef, float noundef) local
 declare void @Tim_ManStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Nwk_ManLevel_rec(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Nwk_ManLevel_rec(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8
@@ -609,7 +609,7 @@ Nwk_ObjIsPo.exit.thread:                          ; preds = %Nwk_ObjIsPo.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, -2147483648) i32 @Nwk_ManLevelMax(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @Nwk_ManLevelMax(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -666,7 +666,7 @@ Nwk_ObjIsPo.exit.thread:                          ; preds = %Nwk_ObjIsPo.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Nwk_ManLevelize(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @Nwk_ManLevelize(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -940,7 +940,7 @@ Vec_VecPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Nwk_ManDfs_rec(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @Nwk_ManDfs_rec(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %0, i64 40
   %.val12 = load i32, ptr %3, align 8
@@ -1169,7 +1169,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Nwk_ManDfsNodes_rec(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @Nwk_ManDfsNodes_rec(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %0, i64 40
   %.val14 = load i32, ptr %3, align 8
@@ -1283,7 +1283,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Nwk_ManDfsNodes(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define noalias noundef ptr @Nwk_ManDfsNodes(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @Nwk_ManIncrementTravId(ptr noundef %0) #9
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -1675,7 +1675,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Nwk_ManSupportNodes_rec(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @Nwk_ManSupportNodes_rec(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %0, i64 40
   %.val14 = load i32, ptr %3, align 8
@@ -1789,7 +1789,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Nwk_ManSupportNodes(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define noalias noundef ptr @Nwk_ManSupportNodes(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @Nwk_ManIncrementTravId(ptr noundef %0) #9
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -1899,7 +1899,7 @@ Vec_PtrFree.exit:                                 ; preds = %Nwk_ManSupportNodes
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Nwk_ObjDeref_rec(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @Nwk_ObjDeref_rec(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr i8, ptr %0, i64 32
   %.val = load i32, ptr %2, align 8
   %3 = and i32 %.val, 7
@@ -1949,7 +1949,7 @@ define i32 @Nwk_ObjDeref_rec(ptr nocapture noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Nwk_ObjRef_rec(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @Nwk_ObjRef_rec(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr i8, ptr %0, i64 32
   %.val = load i32, ptr %2, align 8
   %3 = and i32 %.val, 7
@@ -1999,7 +1999,7 @@ define i32 @Nwk_ObjRef_rec(ptr nocapture noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Nwk_ObjMffcLabel_rec(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define void @Nwk_ObjMffcLabel_rec(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %3, label %10
 
@@ -2054,7 +2054,7 @@ define void @Nwk_ObjMffcLabel_rec(ptr nocapture noundef %0, i32 noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Nwk_ObjMffcLabel(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define i32 @Nwk_ObjMffcLabel(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @Nwk_ObjDeref_rec(ptr noundef %0)
   %3 = load ptr, ptr %0, align 8
   tail call void @Nwk_ManIncrementTravId(ptr noundef %3) #9
@@ -2067,10 +2067,10 @@ define i32 @Nwk_ObjMffcLabel(ptr nocapture noundef %0) local_unnamed_addr #0 {
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7

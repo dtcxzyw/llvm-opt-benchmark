@@ -166,7 +166,7 @@ declare ptr @BIO_ADDR_new() local_unnamed_addr #1
 declare void @SSL_CTX_set_cookie_generate_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal noundef i32 @cookie_gen(ptr nocapture readnone %ssl, ptr nocapture noundef writeonly %cookie, ptr nocapture noundef writeonly %cookie_len) #2 {
+define internal noundef i32 @cookie_gen(ptr readnone captures(none) %ssl, ptr noundef writeonly captures(none) %cookie, ptr noundef writeonly captures(none) %cookie_len) #2 {
 entry:
   br label %for.body
 
@@ -188,7 +188,7 @@ for.end:                                          ; preds = %for.body
 declare void @SSL_CTX_set_cookie_verify_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @cookie_verify(ptr nocapture readnone %ssl, ptr nocapture noundef readonly %cookie, i32 noundef %cookie_len) #3 {
+define internal range(i32 0, 2) i32 @cookie_verify(ptr readnone captures(none) %ssl, ptr noundef readonly captures(none) %cookie, i32 noundef %cookie_len) #3 {
 entry:
   %cmp.not = icmp eq i32 %cookie_len, 20
   br i1 %cmp.not, label %for.body, label %return

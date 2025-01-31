@@ -153,7 +153,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_fp_hint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_fp_hint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.atm_phdr, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -433,7 +433,7 @@ assign_fph_pch.exit.i:                            ; preds = %44, %switch.lookup
 
 175:                                              ; preds = %174
   %176 = and i32 %indvars.iv.next.i.i, 65535
-  %177 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0, ptr noundef %1, ptr noundef nonnull @ei_fph_fp_channels, ptr noundef %0, i32 noundef %176, i32 noundef -1, ptr noundef nonnull @.str.75, i32 noundef 64) #3
+  %177 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0, ptr noundef nonnull %1, ptr noundef nonnull @ei_fph_fp_channels, ptr noundef %0, i32 noundef %176, i32 noundef -1, ptr noundef nonnull @.str.75, i32 noundef 64) #3
   br label %attach_info.exit
 
 ._crit_edge.loopexit.i.i:                         ; preds = %128
@@ -449,7 +449,7 @@ assign_fph_pch.exit.i:                            ; preds = %44, %switch.lookup
 
 181:                                              ; preds = %._crit_edge.i.i
   %182 = add i16 %.0.lcssa.i.i, 1
-  tail call fastcc void @assign_rb_info(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %182, i8 noundef zeroext %180, ptr noundef %.0)
+  tail call fastcc void @assign_rb_info(ptr noundef %0, ptr noundef nonnull %1, i16 noundef zeroext %182, i8 noundef zeroext %180, ptr noundef %.0)
   br label %attach_info.exit
 
 183:                                              ; preds = %32
@@ -569,7 +569,7 @@ assign_fph_pch.exit.i:                            ; preds = %44, %switch.lookup
 .split67.us.i.i:                                  ; preds = %222, %213
   %.us-phi68.in.i.i = phi i32 [ %indvars.iv.next81.i.i, %213 ], [ %indvars.iv.next75.i55.i, %222 ]
   %243 = and i32 %.us-phi68.in.i.i, 65535
-  %244 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0, ptr noundef %1, ptr noundef nonnull @ei_fph_fp_channels, ptr noundef %0, i32 noundef %243, i32 noundef -1, ptr noundef nonnull @.str.75, i32 noundef 64) #3
+  %244 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0, ptr noundef nonnull %1, ptr noundef nonnull @ei_fph_fp_channels, ptr noundef %0, i32 noundef %243, i32 noundef -1, ptr noundef nonnull @.str.75, i32 noundef 64) #3
   br label %attach_info.exit
 
 .split65.us.i.i:                                  ; preds = %.split.i.i, %.split.us.i.i
@@ -582,7 +582,7 @@ assign_fph_pch.exit.i:                            ; preds = %44, %switch.lookup
 247:                                              ; preds = %.split65.us.i.i
   %.us-phi.i.i = trunc i32 %.us-phi.in.i.i to i16
   %248 = or disjoint i16 %.us-phi.i.i, 1
-  tail call fastcc void @assign_rb_info(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %248, i8 noundef zeroext %246, ptr noundef %.0)
+  tail call fastcc void @assign_rb_info(ptr noundef %0, ptr noundef nonnull %1, i16 noundef zeroext %248, i8 noundef zeroext %246, ptr noundef %.0)
   br label %attach_info.exit
 
 249:                                              ; preds = %32
@@ -634,7 +634,7 @@ attach_info.exit:                                 ; preds = %assign_fph_pch.exit
   %.039 = load ptr, ptr %.039.in, align 8
   %272 = zext i16 %.037 to i32
   %273 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %272) #3
-  %274 = call i32 @call_dissector_with_data(ptr noundef %.039, ptr noundef %273, ptr noundef %1, ptr noundef %2, ptr noundef %.038) #3
+  %274 = call i32 @call_dissector_with_data(ptr noundef %.039, ptr noundef %273, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %.038) #3
   %275 = call i32 @tvb_captured_length(ptr noundef %0) #3
   ret i32 %275
 }
@@ -679,7 +679,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 

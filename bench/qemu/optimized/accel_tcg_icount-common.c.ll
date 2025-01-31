@@ -32,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @qtest_allowed = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @icount_update(ptr nocapture noundef %cpu) local_unnamed_addr #0 {
+define dso_local void @icount_update(ptr noundef captures(none) %cpu) local_unnamed_addr #0 {
 entry:
   %0 = atomicrmw xchg ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 20), i32 1 seq_cst, align 4
   %tobool.not3.i = icmp eq i32 %0, 0
@@ -788,19 +788,19 @@ declare zeroext i1 @qemu_opt_get_bool(ptr noundef, ptr noundef, i1 noundef zeroe
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @qemu_strtol(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @icount_timer_cb(ptr nocapture readnone %opaque) #0 {
+define internal void @icount_timer_cb(ptr readnone captures(none) %opaque) #0 {
 entry:
   tail call fastcc void @icount_warp_rt()
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @icount_adjust_rt(ptr nocapture readnone %opaque) #0 {
+define internal void @icount_adjust_rt(ptr readnone captures(none) %opaque) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 72), align 8
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 3) #9
@@ -814,7 +814,7 @@ entry:
 declare void @timer_mod(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @icount_adjust_vm(ptr nocapture readnone %opaque) #0 {
+define internal void @icount_adjust_vm(ptr readnone captures(none) %opaque) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @timers_state, i64 80), align 8
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #9

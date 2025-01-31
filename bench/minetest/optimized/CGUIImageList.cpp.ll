@@ -40,7 +40,7 @@ $_ZTIN3irr3gui13IGUIImageListE = comdat any
 @_ZTIN3irr3gui13CGUIImageListE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3irr3gui13CGUIImageListE, ptr @_ZTIN3irr3gui13IGUIImageListE }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr3gui13CGUIImageListC2EPNS_5video12IVideoDriverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 41)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %driver) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui13CGUIImageListC2EPNS_5video12IVideoDriverE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((0, 41)) %this, ptr noundef readonly captures(none) %vtt, ptr noundef %driver) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -82,13 +82,13 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr3gui13CGUIImageListC1EPNS_5video12IVideoDriverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 41), (48, 68)) %this, ptr noundef %driver) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui13CGUIImageListC1EPNS_5video12IVideoDriverE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((0, 41), (48, 68)) %this, ptr noundef %driver) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %DebugName.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -120,7 +120,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui13CGUIImageListD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #2 align 2 {
+define void @_ZN3irr3gui13CGUIImageListD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(41) initializes((0, 8)) %this, ptr noundef readonly captures(none) %vtt) unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -184,7 +184,7 @@ if.end16:                                         ; preds = %delete.notnull.i21,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui13CGUIImageListD1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((0, 8), (48, 56)) %this) unnamed_addr #2 align 2 {
+define void @_ZN3irr3gui13CGUIImageListD1Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(41) initializes((0, 8), (48, 56)) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -243,7 +243,7 @@ _ZN3irr3gui13CGUIImageListD2Ev.exit:              ; preds = %delete.notnull.i21.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N3irr3gui13CGUIImageListD1Ev(ptr nocapture noundef %this) unnamed_addr #3 align 2 {
+define void @_ZTv0_n24_N3irr3gui13CGUIImageListD1Ev(ptr noundef captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
@@ -433,7 +433,7 @@ _ZN3irr3gui13CGUIImageListD0Ev.exit:              ; preds = %delete.notnull.i21.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN3irr3gui13CGUIImageList15createImageListEPNS_5video8ITextureENS_4core11dimension2dIiEEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %this, ptr noundef %texture, i64 %imageSize.coerce, i1 noundef zeroext %useAlphaChannel) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN3irr3gui13CGUIImageList15createImageListEPNS_5video8ITextureENS_4core11dimension2dIiEEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) %this, ptr noundef %texture, i64 %imageSize.coerce, i1 noundef zeroext %useAlphaChannel) local_unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp ne ptr %texture, null
   br i1 %tobool.not, label %if.end, label %return
@@ -475,7 +475,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui13CGUIImageList4drawEiRKNS_4core8vector2dIiEEPKNS2_4rectIiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %this, i32 noundef %index, ptr noundef nonnull align 4 dereferenceable(8) %destPos, ptr noundef %clip) unnamed_addr #2 align 2 {
+define void @_ZN3irr3gui13CGUIImageList4drawEiRKNS_4core8vector2dIiEEPKNS2_4rectIiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %this, i32 noundef %index, ptr noundef nonnull align 4 dereferenceable(8) %destPos, ptr noundef %clip) unnamed_addr #2 align 2 {
 entry:
   %sourceRect = alloca %"class.irr::core::rect", align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %sourceRect) #7
@@ -576,7 +576,7 @@ entry:
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

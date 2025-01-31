@@ -84,7 +84,7 @@ $_ZGVZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEv
 @_ZN8QuantLib13SavedSettingsD1Ev = unnamed_addr alias void (ptr), ptr @_ZN8QuantLib13SavedSettingsD2Ev
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -101,7 +101,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8QuantLib8Settings9DateProxyC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
@@ -185,7 +185,7 @@ _ZN5boost10shared_ptrIN8QuantLib10ObservableEEC2IS2_EEPT_.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLiblsERSoRKNS_8Settings9DateProxyE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %p) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLiblsERSoRKNS_8Settings9DateProxyE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %p) local_unnamed_addr #3 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %ref.tmp = alloca %"class.QuantLib::Date", align 8
@@ -226,7 +226,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib8Settings20anchorEvaluationDateEv(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this) local_unnamed_addr #3 align 2 {
+define void @_ZN8QuantLib8Settings20anchorEvaluationDateEv(ptr noundef nonnull align 8 captures(none) dereferenceable(28) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Date", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #10
@@ -267,7 +267,7 @@ if.end:                                           ; preds = %_ZN8QuantLib15Obser
 declare i64 @_ZN8QuantLib4Date10todaysDateEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib8Settings19resetEvaluationDateEv(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this) local_unnamed_addr #3 align 2 {
+define void @_ZN8QuantLib8Settings19resetEvaluationDateEv(ptr noundef nonnull align 8 captures(none) dereferenceable(28) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Date", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #10
@@ -300,7 +300,7 @@ _ZN8QuantLib8Settings9DateProxyaSERKNS_4DateE.exit: ; preds = %entry, %_ZN8Quant
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13SavedSettingsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13SavedSettingsC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %0 = load atomic i8, ptr @_ZGVZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance acquire, align 8
@@ -435,7 +435,7 @@ _ZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEv.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8QuantLib13SavedSettingsD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13SavedSettingsD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %0 = load atomic i8, ptr @_ZGVZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEvE8instance acquire, align 8

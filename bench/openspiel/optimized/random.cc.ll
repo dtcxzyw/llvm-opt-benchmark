@@ -85,7 +85,7 @@ _ZNSt25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm32ELm624ELm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef double @_ZN10open_spiel19RandomFixedSequence13RandomUniformEv(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #4 align 2 {
+define noundef double @_ZN10open_spiel19RandomFixedSequence13RandomUniformEv(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8

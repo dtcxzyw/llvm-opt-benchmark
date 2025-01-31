@@ -31,10 +31,10 @@ define dso_local void @intel_gt_init_timelines(ptr noundef initializes((3144, 31
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @__intel_timeline_create(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
@@ -313,7 +313,7 @@ declare dso_local i32 @i915_active_acquire(ptr noundef) local_unnamed_addr #3
 declare dso_local void @i915_active_release(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_timeline_reset_seqno(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local void @intel_timeline_reset_seqno(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -446,7 +446,7 @@ define dso_local void @intel_timeline_exit(ptr noundef %0) local_unnamed_addr #2
 declare dso_local void @i915_syncmap_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_timeline_get_seqno(ptr nocapture noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #2 align 16 {
+define dso_local noundef i32 @intel_timeline_get_seqno(ptr noundef captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %5 = load i8, ptr %4, align 4, !range !20, !noundef !21
   %6 = add nuw nsw i8 %5, 1
@@ -473,7 +473,7 @@ define dso_local noundef i32 @intel_timeline_get_seqno(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__intel_timeline_get_seqno(ptr nocapture noundef initializes((64, 72)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) unnamed_addr #2 align 16 {
+define internal fastcc void @__intel_timeline_get_seqno(ptr noundef captures(none) initializes((64, 72)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, 8
@@ -517,7 +517,7 @@ define internal fastcc void @__intel_timeline_get_seqno(ptr nocapture noundef in
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_timeline_read_hwsp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 align 16 {
+define dso_local i32 @intel_timeline_read_hwsp(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 align 16 {
   tail call void @__rcu_read_lock() #8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load volatile ptr, ptr %4, align 8
@@ -675,7 +675,7 @@ define internal void @intel_timeline_fini(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @intel_gt_fini_timelines(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 16 {
+define dso_local void @intel_gt_fini_timelines(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 16 {
   ret void
 }
 

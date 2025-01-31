@@ -195,7 +195,7 @@ _ZN10z3_log_ctxD2Ev.exit19:                       ; preds = %invoke.cont3, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @mk_quantifier_ex_core(ptr noundef initializes((1560, 1564)) %c, i1 noundef zeroext %is_forall, i32 noundef %weight, ptr noundef %quantifier_id, ptr noundef %skolem_id, i32 noundef %num_patterns, ptr noundef %patterns, i32 noundef %num_no_patterns, ptr noundef %no_patterns, i32 noundef %num_decls, ptr noundef %sorts, ptr nocapture noundef readonly %decl_names, ptr noundef %body) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @mk_quantifier_ex_core(ptr noundef initializes((1560, 1564)) %c, i1 noundef zeroext %is_forall, i32 noundef %weight, ptr noundef %quantifier_id, ptr noundef %skolem_id, i32 noundef %num_patterns, ptr noundef %patterns, i32 noundef %num_no_patterns, ptr noundef %no_patterns, i32 noundef %num_decls, ptr noundef %sorts, ptr noundef readonly captures(none) %decl_names, ptr noundef %body) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 invoke.cont4:
   %qid = alloca %class.symbol, align 8
   %v = alloca %class.pattern_validator, align 4
@@ -4249,7 +4249,7 @@ terminate.lpad:                                   ; preds = %lpad38
 declare void @_Z18log_Z3_get_patternP11_Z3_contextP11_Z3_patternj(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @Z3_pattern_to_ast(ptr nocapture noundef writeonly initializes((1560, 1564)) %c, ptr noundef readnone returned %p) local_unnamed_addr #7 {
+define noundef ptr @Z3_pattern_to_ast(ptr noundef writeonly captures(none) initializes((1560, 1564)) %c, ptr noundef readnone returned %p) local_unnamed_addr #7 {
 entry:
   %m_error_code.i = getelementptr inbounds nuw i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
@@ -4472,7 +4472,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 

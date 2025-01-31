@@ -186,10 +186,10 @@ define dso_local void @exc_divide_error(ptr noundef %0) local_unnamed_addr #2 se
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i8 @irqentry_enter(ptr noundef) local_unnamed_addr #5 section ".noinstr.text"
@@ -198,7 +198,7 @@ declare dso_local i8 @irqentry_enter(ptr noundef) local_unnamed_addr #5 section 
 declare dso_local void @irqentry_exit(ptr noundef, i8) local_unnamed_addr #5 section ".noinstr.text"
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
 define dso_local void @exc_overflow(ptr noundef %0) local_unnamed_addr #2 section ".noinstr.text" align 16 {
@@ -282,7 +282,7 @@ handle_bug.exit.thread:                           ; preds = %6, %11, %handle_bug
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc void @handle_invalid_op(ptr noundef %0) unnamed_addr #7 align 16 {
@@ -397,7 +397,7 @@ define dso_local void @exc_alignment_check(ptr noundef %0, i64 noundef %1) local
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern noreturn nounwind null_pointer_is_valid
-define dso_local void @handle_stack_overflow(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #8 align 16 {
+define dso_local void @handle_stack_overflow(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #8 align 16 {
   %4 = load i32, ptr %2, align 8
   %5 = tail call ptr @stack_type_name(i32 noundef %4) #18
   %6 = inttoptr i64 %1 to ptr
@@ -1237,7 +1237,7 @@ define internal fastcc noundef zeroext i1 @fixup_iopl_exception(ptr noundef %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @gp_user_force_sig_segv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc void @gp_user_force_sig_segv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #1 align 16 {
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #19, !srcloc !7
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2936
@@ -1326,10 +1326,10 @@ define internal fastcc zeroext i1 @gp_try_fixup_and_notify(ptr noundef %0, i64 n
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 3) i32 @get_kernel_gp_address(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 0, 3) i32 @get_kernel_gp_address(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #1 align 16 {
   %3 = alloca [15 x i8], align 1
   %4 = alloca %struct.insn, align 8
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %3) #18

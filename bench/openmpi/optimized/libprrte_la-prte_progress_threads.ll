@@ -184,7 +184,7 @@ pmix_obj_new_tma.exit.thread108:                  ; preds = %.lr.ph.i.i, %32
 .lr.ph.i87:                                       ; preds = %58, %.lr.ph.i87
   %63 = phi ptr [ %65, %.lr.ph.i87 ], [ %62, %58 ]
   %.07.i88 = phi ptr [ %64, %.lr.ph.i87 ], [ %61, %58 ]
-  tail call void %63(ptr noundef %27) #13
+  tail call void %63(ptr noundef nonnull %27) #13
   %64 = getelementptr inbounds nuw i8, ptr %.07.i88, i64 8
   %65 = load ptr, ptr %64, align 8
   %.not.i89 = icmp eq ptr %65, null
@@ -384,17 +384,17 @@ pmix_obj_run_destructors.exit106:                 ; preds = %.lr.ph.i103, %126
 declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare ptr @prte_strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @event_base_new() local_unnamed_addr #1
 
@@ -471,7 +471,7 @@ define internal fastcc noundef i32 @start_progress_engine(ptr noundef %0) unname
   %31 = trunc i64 %17 to i32
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 1
   store ptr %32, ptr %3, align 8
-  %33 = tail call i64 @strtoul(ptr nocapture noundef nonnull %32, ptr noundef null, i32 noundef 10) #13
+  %33 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %32, ptr noundef null, i32 noundef 10) #13
   %34 = trunc i64 %33 to i32
   %35 = icmp slt i32 %31, %34
   br i1 %35, label %.lr.ph, label %.loopexit
@@ -818,7 +818,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #5
 declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #10
@@ -827,7 +827,7 @@ declare void @abort() local_unnamed_addr #10
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @progress_engine(ptr nocapture noundef readonly %0) #0 {
+define internal noundef nonnull ptr @progress_engine(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
@@ -853,12 +853,12 @@ define internal noundef nonnull ptr @progress_engine(ptr nocapture noundef reado
 declare i32 @pmix_thread_start(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare ptr @PMIx_Argv_split(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #12
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare i32 @pthread_setaffinity_np(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #5

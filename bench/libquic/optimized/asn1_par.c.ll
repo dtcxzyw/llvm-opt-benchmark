@@ -71,7 +71,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 0, 3) i32 @asn1_parse2(ptr noundef %bp, ptr nocapture noundef nonnull %pp, i64 noundef %length, i32 noundef %offset, i32 noundef %depth, i32 noundef %indent, i32 noundef %dump) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 3) i32 @asn1_parse2(ptr noundef %bp, ptr noundef nonnull captures(none) %pp, i64 noundef %length, i32 noundef %offset, i32 noundef %depth, i32 noundef %indent, i32 noundef %dump) unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %opp = alloca ptr, align 8

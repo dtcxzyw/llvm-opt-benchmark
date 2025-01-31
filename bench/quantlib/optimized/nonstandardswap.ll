@@ -500,7 +500,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib10RedemptionEEE = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -585,7 +585,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -5874,7 +5874,7 @@ ehcleanup99:                                      ; preds = %ehcleanup98, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15NonstandardSwapC2ENS_4Swap4TypeESt6vectorIdSaIdEERKS5_NS_8ScheduleES5_NS_10DayCounterES8_N5boost10shared_ptrINS_9IborIndexEEEddS9_bbNSA_8optionalINS_21BusinessDayConventionEEE(ptr noundef nonnull align 8 dereferenceable(718) %this, ptr noundef %vtt, i32 noundef %type, ptr nocapture noundef %fixedNominal, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %floatingNominal, ptr nocapture noundef %fixedSchedule, ptr nocapture noundef %fixedRate, ptr nocapture noundef %fixedDayCount, ptr nocapture noundef %floatingSchedule, ptr nocapture noundef %iborIndex, double noundef %gearing, double noundef %spread, ptr nocapture noundef %floatingDayCount, i1 noundef zeroext %intermediateCapitalExchange, i1 noundef zeroext %finalCapitalExchange, i64 %paymentConvention.coerce) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15NonstandardSwapC2ENS_4Swap4TypeESt6vectorIdSaIdEERKS5_NS_8ScheduleES5_NS_10DayCounterES8_N5boost10shared_ptrINS_9IborIndexEEEddS9_bbNSA_8optionalINS_21BusinessDayConventionEEE(ptr noundef nonnull align 8 dereferenceable(718) %this, ptr noundef %vtt, i32 noundef %type, ptr noundef captures(none) %fixedNominal, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %floatingNominal, ptr noundef captures(none) %fixedSchedule, ptr noundef captures(none) %fixedRate, ptr noundef captures(none) %fixedDayCount, ptr noundef captures(none) %floatingSchedule, ptr noundef captures(none) %iborIndex, double noundef %gearing, double noundef %spread, ptr noundef captures(none) %floatingDayCount, i1 noundef zeroext %intermediateCapitalExchange, i1 noundef zeroext %finalCapitalExchange, i64 %paymentConvention.coerce) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %paymentConvention.sroa.3106.0.extract.shift = lshr i64 %paymentConvention.coerce, 32
   %paymentConvention.sroa.3106.0.extract.trunc = trunc nuw i64 %paymentConvention.sroa.3106.0.extract.shift to i32
@@ -6301,7 +6301,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit104:                 ; preds = %ehcleanup32, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15NonstandardSwapC1ENS_4Swap4TypeESt6vectorIdSaIdEERKS5_NS_8ScheduleES5_NS_10DayCounterES8_N5boost10shared_ptrINS_9IborIndexEEEddS9_bbNSA_8optionalINS_21BusinessDayConventionEEE(ptr noundef nonnull align 8 dereferenceable(718) initializes((720, 728), (736, 740), (744, 752)) %this, i32 noundef %type, ptr nocapture noundef %fixedNominal, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %floatingNominal, ptr nocapture noundef %fixedSchedule, ptr nocapture noundef %fixedRate, ptr nocapture noundef %fixedDayCount, ptr nocapture noundef %floatingSchedule, ptr nocapture noundef %iborIndex, double noundef %gearing, double noundef %spread, ptr nocapture noundef %floatingDayCount, i1 noundef zeroext %intermediateCapitalExchange, i1 noundef zeroext %finalCapitalExchange, i64 %paymentConvention.coerce) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15NonstandardSwapC1ENS_4Swap4TypeESt6vectorIdSaIdEERKS5_NS_8ScheduleES5_NS_10DayCounterES8_N5boost10shared_ptrINS_9IborIndexEEEddS9_bbNSA_8optionalINS_21BusinessDayConventionEEE(ptr noundef nonnull align 8 dereferenceable(718) initializes((720, 728), (736, 740), (744, 752)) %this, i32 noundef %type, ptr noundef captures(none) %fixedNominal, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %floatingNominal, ptr noundef captures(none) %fixedSchedule, ptr noundef captures(none) %fixedRate, ptr noundef captures(none) %fixedDayCount, ptr noundef captures(none) %floatingSchedule, ptr noundef captures(none) %iborIndex, double noundef %gearing, double noundef %spread, ptr noundef captures(none) %floatingDayCount, i1 noundef zeroext %intermediateCapitalExchange, i1 noundef zeroext %finalCapitalExchange, i64 %paymentConvention.coerce) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %paymentConvention.sroa.3111.0.extract.shift = lshr i64 %paymentConvention.coerce, 32
   %paymentConvention.sroa.3111.0.extract.trunc = trunc nuw i64 %paymentConvention.sroa.3111.0.extract.shift to i32
@@ -6753,7 +6753,7 @@ ehcleanup32:                                      ; preds = %_ZNSt6vectorIdSaIdE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15NonstandardSwapC2ENS_4Swap4TypeESt6vectorIdSaIdEES5_NS_8ScheduleES5_NS_10DayCounterES6_N5boost10shared_ptrINS_9IborIndexEEES5_S5_S7_bbNS8_8optionalINS_21BusinessDayConventionEEE(ptr noundef nonnull align 8 dereferenceable(718) %this, ptr noundef %vtt, i32 noundef %type, ptr nocapture noundef %fixedNominal, ptr nocapture noundef %floatingNominal, ptr nocapture noundef %fixedSchedule, ptr nocapture noundef %fixedRate, ptr nocapture noundef %fixedDayCount, ptr nocapture noundef %floatingSchedule, ptr nocapture noundef %iborIndex, ptr nocapture noundef %gearing, ptr nocapture noundef %spread, ptr nocapture noundef %floatingDayCount, i1 noundef zeroext %intermediateCapitalExchange, i1 noundef zeroext %finalCapitalExchange, i64 %paymentConvention.coerce) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15NonstandardSwapC2ENS_4Swap4TypeESt6vectorIdSaIdEES5_NS_8ScheduleES5_NS_10DayCounterES6_N5boost10shared_ptrINS_9IborIndexEEES5_S5_S7_bbNS8_8optionalINS_21BusinessDayConventionEEE(ptr noundef nonnull align 8 dereferenceable(718) %this, ptr noundef %vtt, i32 noundef %type, ptr noundef captures(none) %fixedNominal, ptr noundef captures(none) %floatingNominal, ptr noundef captures(none) %fixedSchedule, ptr noundef captures(none) %fixedRate, ptr noundef captures(none) %fixedDayCount, ptr noundef captures(none) %floatingSchedule, ptr noundef captures(none) %iborIndex, ptr noundef captures(none) %gearing, ptr noundef captures(none) %spread, ptr noundef captures(none) %floatingDayCount, i1 noundef zeroext %intermediateCapitalExchange, i1 noundef zeroext %finalCapitalExchange, i64 %paymentConvention.coerce) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %paymentConvention.sroa.373.0.extract.shift = lshr i64 %paymentConvention.coerce, 32
   %paymentConvention.sroa.373.0.extract.trunc = trunc nuw i64 %paymentConvention.sroa.373.0.extract.shift to i32
@@ -7061,7 +7061,7 @@ invoke.cont16:                                    ; preds = %_ZN8QuantLib8Schedu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15NonstandardSwapC1ENS_4Swap4TypeESt6vectorIdSaIdEES5_NS_8ScheduleES5_NS_10DayCounterES6_N5boost10shared_ptrINS_9IborIndexEEES5_S5_S7_bbNS8_8optionalINS_21BusinessDayConventionEEE(ptr noundef nonnull align 8 dereferenceable(718) initializes((720, 728), (736, 740), (744, 752)) %this, i32 noundef %type, ptr nocapture noundef %fixedNominal, ptr nocapture noundef %floatingNominal, ptr nocapture noundef %fixedSchedule, ptr nocapture noundef %fixedRate, ptr nocapture noundef %fixedDayCount, ptr nocapture noundef %floatingSchedule, ptr nocapture noundef %iborIndex, ptr nocapture noundef %gearing, ptr nocapture noundef %spread, ptr nocapture noundef %floatingDayCount, i1 noundef zeroext %intermediateCapitalExchange, i1 noundef zeroext %finalCapitalExchange, i64 %paymentConvention.coerce) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15NonstandardSwapC1ENS_4Swap4TypeESt6vectorIdSaIdEES5_NS_8ScheduleES5_NS_10DayCounterES6_N5boost10shared_ptrINS_9IborIndexEEES5_S5_S7_bbNS8_8optionalINS_21BusinessDayConventionEEE(ptr noundef nonnull align 8 dereferenceable(718) initializes((720, 728), (736, 740), (744, 752)) %this, i32 noundef %type, ptr noundef captures(none) %fixedNominal, ptr noundef captures(none) %floatingNominal, ptr noundef captures(none) %fixedSchedule, ptr noundef captures(none) %fixedRate, ptr noundef captures(none) %fixedDayCount, ptr noundef captures(none) %floatingSchedule, ptr noundef captures(none) %iborIndex, ptr noundef captures(none) %gearing, ptr noundef captures(none) %spread, ptr noundef captures(none) %floatingDayCount, i1 noundef zeroext %intermediateCapitalExchange, i1 noundef zeroext %finalCapitalExchange, i64 %paymentConvention.coerce) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %paymentConvention.sroa.378.0.extract.shift = lshr i64 %paymentConvention.coerce, 32
   %paymentConvention.sroa.378.0.extract.trunc = trunc nuw i64 %paymentConvention.sroa.378.0.extract.shift to i32
@@ -10580,7 +10580,7 @@ invoke.cont:                                      ; preds = %if.then.i, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10shared_ptrIN8QuantLib15FixedRateCouponEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -14484,7 +14484,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #22
 declare void @__cxa_rethrow() local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIS_IN5boost10shared_ptrIN8QuantLib8CashFlowEEESaIS4_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -15983,7 +15983,7 @@ _ZN8QuantLib10Instrument7resultsD2Ev.exit:        ; preds = %_ZNSt6vectorIdSaIdE
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #24
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #24
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
 
@@ -16399,7 +16399,7 @@ if.end29:                                         ; preds = %if.then9, %_ZNSt6ve
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #25
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #26

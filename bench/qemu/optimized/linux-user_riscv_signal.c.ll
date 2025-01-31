@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [43 x i8] c"user_do_sigreturn env=%p frame_addr=0x%lx\0A\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @setup_rt_frame(i32 noundef %sig, ptr noundef %ka, ptr noundef %info, ptr nocapture noundef readonly %set, ptr noundef %env) local_unnamed_addr #0 {
+define dso_local void @setup_rt_frame(i32 noundef %sig, ptr noundef %ka, ptr noundef %info, ptr noundef readonly captures(none) %set, ptr noundef %env) local_unnamed_addr #0 {
 entry:
   %val.i.i.i = alloca i64, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -309,7 +309,7 @@ declare i32 @on_sig_stack(i64 noundef) local_unnamed_addr #1
 declare i64 @target_sigsp(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -324,13 +324,13 @@ declare void @target_to_host_sigset_internal(ptr noundef, ptr noundef) local_unn
 declare void @set_sigmask(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [34 x i8] c"java/net/PortUnreachableException\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_DatagramChannelImpl_disconnect0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define void @Java_sun_nio_ch_DatagramChannelImpl_disconnect0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca %union.SOCKETADDRESS, align 4
   %6 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #5
   %.not = icmp eq i8 %3, 0
@@ -34,7 +34,7 @@ define void @Java_sun_nio_ch_DatagramChannelImpl_disconnect0(ptr noundef %0, ptr
 declare i32 @fdval(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @connect(i32 noundef, ptr, i32 noundef) local_unnamed_addr #1
 
@@ -44,7 +44,7 @@ declare i32 @handleSocketError(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_DatagramChannelImpl_receive0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i8 noundef zeroext %6) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_ch_DatagramChannelImpl_receive0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i8 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #5
   %10 = inttoptr i64 %3 to ptr
@@ -116,7 +116,7 @@ declare i64 @recvfrom(i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr, p
 declare void @JNU_ThrowByName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_DatagramChannelImpl_send0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define i32 @Java_sun_nio_ch_DatagramChannelImpl_send0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #5
   %9 = inttoptr i64 %3 to ptr
   %10 = inttoptr i64 %5 to ptr

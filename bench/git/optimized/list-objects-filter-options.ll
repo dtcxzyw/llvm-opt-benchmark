@@ -162,7 +162,7 @@ if.end3.i:                                        ; preds = %if.then19
 _.exit:                                           ; preds = %if.then19, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.11, %if.then19 ]
   %call.i36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #13
-  tail call void @strbuf_add(ptr noundef %errbuf, ptr noundef %retval.0.i, i64 noundef %call.i36) #14
+  tail call void @strbuf_add(ptr noundef %errbuf, ptr noundef nonnull %retval.0.i, i64 noundef %call.i36) #14
   br label %return
 
 if.end21:                                         ; preds = %if.then16
@@ -226,7 +226,7 @@ if.end3.i58:                                      ; preds = %if.then32
 _.exit61:                                         ; preds = %if.then32, %if.end3.i58
   %retval.0.i60 = phi ptr [ %call.i59, %if.end3.i58 ], [ @.str.14, %if.then32 ]
   %call.i62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i60) #13
-  tail call void @strbuf_add(ptr noundef nonnull %errbuf, ptr noundef %retval.0.i60, i64 noundef %call.i62) #14
+  tail call void @strbuf_add(ptr noundef nonnull %errbuf, ptr noundef nonnull %retval.0.i60, i64 noundef %call.i62) #14
   br label %return
 
 do.body.i63:                                      ; preds = %do.body.i63.preheader, %do.cond.i67
@@ -314,7 +314,7 @@ return:                                           ; preds = %if.then30, %_.exit6
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @git_parse_ulong(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -344,7 +344,7 @@ declare ptr @xstrdup(ptr noundef) local_unnamed_addr #3
 declare i32 @type_from_string_gently(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
@@ -352,7 +352,7 @@ declare void @strbuf_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 define internal fastcc range(i32 0, 2) i32 @parse_combine_filter(ptr noundef %filter_options, ptr noundef %arg, ptr noundef %errbuf) unnamed_addr #0 {
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arg) #13
-  %call1.i = tail call ptr @strbuf_split_buf(ptr noundef %arg, i64 noundef %call.i, i32 noundef 43, i32 noundef 0) #14
+  %call1.i = tail call ptr @strbuf_split_buf(ptr noundef nonnull %arg, i64 noundef %call.i, i32 noundef 43, i32 noundef 0) #14
   %0 = load ptr, ptr %call1.i, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %for.body.lr.ph
@@ -375,7 +375,7 @@ if.end3.i:                                        ; preds = %if.then
 cleanup.thread:                                   ; preds = %if.end3.i, %if.then
   %retval.0.i = phi ptr [ %call.i17, %if.end3.i ], [ @.str.30, %if.then ]
   %call.i18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #13
-  tail call void @strbuf_add(ptr noundef %errbuf, ptr noundef %retval.0.i, i64 noundef %call.i18) #14
+  tail call void @strbuf_add(ptr noundef %errbuf, ptr noundef nonnull %retval.0.i, i64 noundef %call.i18) #14
   tail call void @strbuf_list_free(ptr noundef nonnull %call1.i) #14
   br label %if.then15
 
@@ -521,14 +521,14 @@ if.end16:                                         ; preds = %if.then15, %cleanup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @list_objects_filter_init(ptr nocapture noundef writeonly initializes((0, 88)) %filter_options) local_unnamed_addr #4 {
+define dso_local void @list_objects_filter_init(ptr noundef writeonly captures(none) initializes((0, 88)) %filter_options) local_unnamed_addr #4 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %filter_options, ptr noundef nonnull align 8 dereferenceable(88) @__const.list_objects_filter_init.blank, i64 88, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @list_objects_filter_die_if_populated(ptr nocapture noundef readonly %filter_options) local_unnamed_addr #0 {
+define dso_local void @list_objects_filter_die_if_populated(ptr noundef readonly captures(none) %filter_options) local_unnamed_addr #0 {
 entry:
   %choice = getelementptr inbounds nuw i8, ptr %filter_options, i64 24
   %0 = load i32, ptr %choice, align 8
@@ -571,7 +571,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arg) #13
-  tail call void @strbuf_add(ptr noundef nonnull %filter_options, ptr noundef %arg, i64 noundef %call.i) #14
+  tail call void @strbuf_add(ptr noundef nonnull %filter_options, ptr noundef nonnull %arg, i64 noundef %call.i) #14
   br label %if.end37
 
 if.end.i:                                         ; preds = %if.end
@@ -726,7 +726,7 @@ do.end:                                           ; preds = %do.body8.do.end_cri
 
 if.end37:                                         ; preds = %do.end, %if.then2
   %arrayidx.sink = phi ptr [ %arrayidx, %do.end ], [ %filter_options, %if.then2 ]
-  %call36 = call i32 @gently_parse_list_objects_filter(ptr noundef %arrayidx.sink, ptr noundef %arg, ptr noundef nonnull %errbuf)
+  %call36 = call i32 @gently_parse_list_objects_filter(ptr noundef nonnull %arrayidx.sink, ptr noundef %arg, ptr noundef nonnull %errbuf)
   %tobool38.not = icmp eq i32 %call36, 0
   br i1 %tobool38.not, label %if.end41, label %if.then39
 
@@ -741,15 +741,15 @@ if.end41:                                         ; preds = %if.end37
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @opt_parse_list_objects_filter(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) local_unnamed_addr #0 {
+define dso_local noundef i32 @opt_parse_list_objects_filter(ptr noundef readonly captures(none) %opt, ptr noundef %arg, i32 noundef %unset) local_unnamed_addr #0 {
 entry:
   %value = getelementptr inbounds nuw i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
@@ -775,7 +775,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @list_objects_filter_spec(ptr nocapture noundef readonly %filter) local_unnamed_addr #0 {
+define dso_local ptr @list_objects_filter_spec(ptr noundef readonly captures(none) %filter) local_unnamed_addr #0 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %filter, i64 8
   %0 = load i64, ptr %len, align 8
@@ -867,7 +867,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @partial_clone_register(ptr noundef %remote, ptr noundef %filter_options) local_unnamed_addr #0 {
@@ -978,8 +978,8 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 define dso_local void @list_objects_filter_copy(ptr noundef initializes((0, 88)) %dest, ptr noundef %src) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %dest, ptr noundef nonnull align 8 dereferenceable(88) %src, i64 88, i1 false)
-  tail call void @strbuf_init(ptr noundef %dest, i64 noundef 0) #14
-  tail call void @strbuf_addbuf(ptr noundef %dest, ptr noundef %src) #14
+  tail call void @strbuf_init(ptr noundef nonnull %dest, i64 noundef 0) #14
+  tail call void @strbuf_addbuf(ptr noundef nonnull %dest, ptr noundef nonnull %src) #14
   %sparse_oid_name = getelementptr inbounds nuw i8, ptr %src, i64 32
   %0 = load ptr, ptr %sparse_oid_name, align 8
   %tobool.not.i = icmp eq ptr %0, null

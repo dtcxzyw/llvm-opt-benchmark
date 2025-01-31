@@ -131,13 +131,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3net14CommonCertSetsD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net14CommonCertSetsD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN3net14CommonCertSetsD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net14CommonCertSetsD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN3net14CommonCertSetsD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN3net14CommonCertSetsD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @llvm.trap() #11
   unreachable
@@ -185,7 +185,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 declare void @_ZN4base13AtExitManager16RegisterCallbackEPFvPvES1_(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4base9SingletonIN3net12_GLOBAL__N_118CommonCertSetsQUICENS_22DefaultSingletonTraitsIS3_EES3_E6OnExitEPv(ptr nocapture readnone %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4base9SingletonIN3net12_GLOBAL__N_118CommonCertSetsQUICENS_22DefaultSingletonTraitsIS3_EES3_E6OnExitEPv(ptr readnone captures(none) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load atomic volatile i64, ptr @_ZN4base9SingletonIN3net12_GLOBAL__N_118CommonCertSetsQUICENS_22DefaultSingletonTraitsIS3_EES3_E9instance_E monotonic, align 8
   %isnull.i = icmp eq i64 %1, 0
@@ -215,7 +215,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN3net12_GLOBAL__N_118CommonCertSetsQUICD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define internal void @_ZN3net12_GLOBAL__N_118CommonCertSetsQUICD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
@@ -228,7 +228,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal { ptr, i64 } @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC15GetCommonHashesB5cxx11Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define internal { ptr, i64 } @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC15GetCommonHashesB5cxx11Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   %retval = alloca %"class.base::BasicStringPiece", align 8
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull @_ZN3net12_GLOBAL__N_110kSetHashesE, i64 noundef 16)
@@ -241,7 +241,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal { ptr, i64 } @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC7GetCertB5cxx11Emj(ptr nocapture nonnull readnone align 8 %this, i64 noundef %hash, i32 noundef %index) unnamed_addr #3 align 2 {
+define internal { ptr, i64 } @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC7GetCertB5cxx11Emj(ptr nonnull readnone align 8 captures(none) %this, i64 noundef %hash, i32 noundef %index) unnamed_addr #3 align 2 {
 entry:
   %retval = alloca %"class.base::BasicStringPiece", align 8
   br label %for.body
@@ -290,7 +290,7 @@ return:                                           ; preds = %for.end, %if.then6
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC9MatchCertEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_PmPj(ptr nocapture nonnull readnone align 8 %this, ptr %cert.coerce0, i64 %cert.coerce1, ptr %common_set_hashes.coerce0, i64 %common_set_hashes.coerce1, ptr nocapture noundef writeonly %out_hash, ptr nocapture noundef writeonly %out_index) unnamed_addr #3 align 2 {
+define internal noundef zeroext i1 @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC9MatchCertEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_PmPj(ptr nonnull readnone align 8 captures(none) %this, ptr %cert.coerce0, i64 %cert.coerce1, ptr %common_set_hashes.coerce0, i64 %common_set_hashes.coerce1, ptr noundef writeonly captures(none) %out_hash, ptr noundef writeonly captures(none) %out_index) unnamed_addr #3 align 2 {
 entry:
   %a.i = alloca %"class.base::BasicStringPiece", align 8
   %common_set_hashes = alloca %"class.base::BasicStringPiece", align 8
@@ -429,16 +429,16 @@ declare noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11
 declare noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -51,7 +51,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table._ZN16duckdb_nanoarrow23ArrowSchemaInitDateTimeEP11ArrowSchemaNS_9ArrowTypeENS_13ArrowTimeUnitEPKc = private unnamed_addr constant [4 x ptr] [ptr @.str.5, ptr @.str.37, ptr @.str.13, ptr @.str], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN16duckdb_nanoarrow23ArrowMetadataReaderInitEPNS_19ArrowMetadataReaderEPKc(ptr nocapture noundef writeonly initializes((0, 20)) %reader, ptr noundef %metadata) local_unnamed_addr #0 {
+define noundef i32 @_ZN16duckdb_nanoarrow23ArrowMetadataReaderInitEPNS_19ArrowMetadataReaderEPKc(ptr noundef writeonly captures(none) initializes((0, 20)) %reader, ptr noundef %metadata) local_unnamed_addr #0 {
 entry:
   store ptr %metadata, ptr %reader, align 8, !tbaa !3
   %cmp = icmp eq ptr %metadata, null
@@ -72,10 +72,10 @@ if.end:                                           ; preds = %if.else, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 23) i32 @_ZN16duckdb_nanoarrow23ArrowMetadataReaderReadEPNS_19ArrowMetadataReaderEPNS_15ArrowStringViewES3_(ptr nocapture noundef %reader, ptr nocapture noundef writeonly %key_out, ptr nocapture noundef writeonly %value_out) local_unnamed_addr #2 {
+define noundef range(i32 0, 23) i32 @_ZN16duckdb_nanoarrow23ArrowMetadataReaderReadEPNS_19ArrowMetadataReaderEPNS_15ArrowStringViewES3_(ptr noundef captures(none) %reader, ptr noundef writeonly captures(none) %key_out, ptr noundef writeonly captures(none) %value_out) local_unnamed_addr #2 {
 entry:
   %remaining_keys = getelementptr inbounds nuw i8, ptr %reader, i64 16
   %0 = load i32, ptr %remaining_keys, align 8, !tbaa !10
@@ -115,10 +115,10 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZN16duckdb_nanoarrow19ArrowMetadataSizeOfEPKc(ptr noundef readonly %metadata) local_unnamed_addr #4 {
@@ -198,7 +198,7 @@ return:                                           ; preds = %while.body.epil, %r
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN16duckdb_nanoarrow21ArrowMetadataGetValueEPKcS1_S1_PNS_15ArrowStringViewE(ptr noundef %metadata, ptr nocapture noundef readonly %key, ptr noundef %default_value, ptr nocapture noundef writeonly initializes((0, 16)) %value_out) local_unnamed_addr #5 {
+define noundef i32 @_ZN16duckdb_nanoarrow21ArrowMetadataGetValueEPKcS1_S1_PNS_15ArrowStringViewE(ptr noundef %metadata, ptr noundef readonly captures(none) %key, ptr noundef %default_value, ptr noundef writeonly captures(none) initializes((0, 16)) %value_out) local_unnamed_addr #5 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #26
   store ptr %default_value, ptr %value_out, align 8, !tbaa !12
@@ -240,7 +240,7 @@ while.body:                                       ; preds = %_ZN16duckdb_nanoarr
 
 land.rhs:                                         ; preds = %while.body
   %add.ptr5.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
-  %call14 = tail call i32 @strncmp(ptr noundef %key, ptr noundef nonnull %add.ptr5.i, i64 noundef %call) #26
+  %call14 = tail call i32 @strncmp(ptr noundef nonnull %key, ptr noundef nonnull %add.ptr5.i, i64 noundef %call) #26
   %cmp15 = icmp eq i32 %call14, 0
   br i1 %cmp15, label %cleanup.thread, label %cleanup
 
@@ -259,13 +259,13 @@ while.end:                                        ; preds = %cleanup, %cleanup.t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN16duckdb_nanoarrow19ArrowMetadataHasKeyEPKcS1_(ptr noundef readonly %metadata, ptr nocapture noundef readonly %key) local_unnamed_addr #7 {
+define noundef signext range(i8 0, 2) i8 @_ZN16duckdb_nanoarrow19ArrowMetadataHasKeyEPKcS1_(ptr noundef readonly %metadata, ptr noundef readonly captures(none) %key) local_unnamed_addr #7 {
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #26
   %cmp.i.i = icmp eq ptr %metadata, null
@@ -295,7 +295,7 @@ while.body.i:                                     ; preds = %_ZN16duckdb_nanoarr
 
 land.rhs.i:                                       ; preds = %while.body.i
   %add.ptr5.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 4
-  %call14.i = tail call i32 @strncmp(ptr noundef %key, ptr noundef nonnull %add.ptr5.i.i, i64 noundef %call.i) #26
+  %call14.i = tail call i32 @strncmp(ptr noundef nonnull %key, ptr noundef nonnull %add.ptr5.i.i, i64 noundef %call.i) #26
   %cmp15.i = icmp eq i32 %call14.i, 0
   br i1 %cmp15.i, label %_ZN16duckdb_nanoarrow21ArrowMetadataGetValueEPKcS1_S1_PNS_15ArrowStringViewE.exit, label %cleanup.i
 
@@ -309,7 +309,7 @@ _ZN16duckdb_nanoarrow21ArrowMetadataGetValueEPKcS1_S1_PNS_15ArrowStringViewE.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16duckdb_nanoarrow18ArrowSchemaReleaseEP11ArrowSchema(ptr nocapture noundef %schema) #8 {
+define void @_ZN16duckdb_nanoarrow18ArrowSchemaReleaseEP11ArrowSchema(ptr noundef captures(none) %schema) #8 {
 entry:
   %0 = load ptr, ptr %schema, align 8, !tbaa !17
   %cmp.not = icmp eq ptr %0, null
@@ -433,7 +433,7 @@ if.end46:                                         ; preds = %if.then44, %if.end4
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN16duckdb_nanoarrow9ArrowFreeEPv(ptr nocapture noundef %ptr) local_unnamed_addr #9 {
+define void @_ZN16duckdb_nanoarrow9ArrowFreeEPv(ptr noundef captures(none) %ptr) local_unnamed_addr #9 {
 entry:
   tail call void @free(ptr noundef %ptr) #27
   ret void
@@ -458,7 +458,7 @@ return:                                           ; preds = %switch.lookup, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 23) i32 @_ZN16duckdb_nanoarrow15ArrowSchemaInitEP11ArrowSchemaNS_9ArrowTypeE(ptr nocapture noundef initializes((0, 72)) %schema, i32 noundef %data_type) local_unnamed_addr #8 {
+define noundef range(i32 0, 23) i32 @_ZN16duckdb_nanoarrow15ArrowSchemaInitEP11ArrowSchemaNS_9ArrowTypeE(ptr noundef captures(none) initializes((0, 72)) %schema, i32 noundef %data_type) local_unnamed_addr #8 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %schema, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %schema, i8 0, i64 24, i1 false)
@@ -601,7 +601,7 @@ cleanup8:                                         ; preds = %if.then5, %cleanup.
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef range(i32 0, 13) i32 @_ZN16duckdb_nanoarrow20ArrowSchemaSetFormatEP11ArrowSchemaPKc(ptr nocapture noundef %schema, ptr noundef readonly %format) local_unnamed_addr #11 {
+define noundef range(i32 0, 13) i32 @_ZN16duckdb_nanoarrow20ArrowSchemaSetFormatEP11ArrowSchemaPKc(ptr noundef captures(none) %schema, ptr noundef readonly %format) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %schema, align 8, !tbaa !17
   %cmp.not = icmp eq ptr %0, null
@@ -712,7 +712,7 @@ cleanup16:                                        ; preds = %cleanup, %if.then2
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 23) i32 @_ZN16duckdb_nanoarrow22ArrowSchemaInitDecimalEP11ArrowSchemaNS_9ArrowTypeEii(ptr noundef initializes((0, 72)) %schema, i32 noundef %data_type, i32 noundef %decimal_precision, i32 noundef %decimal_scale) local_unnamed_addr #8 {
@@ -912,7 +912,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef range(i32 0, 13) i32 @_ZN16duckdb_nanoarrow18ArrowSchemaSetNameEP11ArrowSchemaPKc(ptr nocapture noundef %schema, ptr noundef readonly %name) local_unnamed_addr #11 {
+define noundef range(i32 0, 13) i32 @_ZN16duckdb_nanoarrow18ArrowSchemaSetNameEP11ArrowSchemaPKc(ptr noundef captures(none) %schema, ptr noundef readonly %name) local_unnamed_addr #11 {
 entry:
   %name1 = getelementptr inbounds nuw i8, ptr %schema, i64 8
   %0 = load ptr, ptr %name1, align 8, !tbaa !19
@@ -949,7 +949,7 @@ return:                                           ; preds = %if.else, %cleanup.t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 0, 13) i32 @_ZN16duckdb_nanoarrow22ArrowSchemaSetMetadataEP11ArrowSchemaPKc(ptr nocapture noundef %schema, ptr noundef readonly %metadata) local_unnamed_addr #14 {
+define noundef range(i32 0, 13) i32 @_ZN16duckdb_nanoarrow22ArrowSchemaSetMetadataEP11ArrowSchemaPKc(ptr noundef captures(none) %schema, ptr noundef readonly %metadata) local_unnamed_addr #14 {
 entry:
   %metadata1 = getelementptr inbounds nuw i8, ptr %schema, i64 16
   %0 = load ptr, ptr %metadata1, align 8, !tbaa !20
@@ -1049,7 +1049,7 @@ return:                                           ; preds = %if.else, %cleanup.t
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef range(i32 0, 18) i32 @_ZN16duckdb_nanoarrow27ArrowSchemaAllocateChildrenEP11ArrowSchemal(ptr nocapture noundef %schema, i64 noundef %n_children) local_unnamed_addr #15 {
+define noundef range(i32 0, 18) i32 @_ZN16duckdb_nanoarrow27ArrowSchemaAllocateChildrenEP11ArrowSchemal(ptr noundef captures(none) %schema, i64 noundef %n_children) local_unnamed_addr #15 {
 entry:
   %children = getelementptr inbounds nuw i8, ptr %schema, i64 40
   %0 = load ptr, ptr %children, align 8, !tbaa !21
@@ -1097,10 +1097,10 @@ return:                                           ; preds = %if.end18, %for.body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef range(i32 0, 18) i32 @_ZN16duckdb_nanoarrow29ArrowSchemaAllocateDictionaryEP11ArrowSchema(ptr nocapture noundef %schema) local_unnamed_addr #17 {
+define noundef range(i32 0, 18) i32 @_ZN16duckdb_nanoarrow29ArrowSchemaAllocateDictionaryEP11ArrowSchema(ptr noundef captures(none) %schema) local_unnamed_addr #17 {
 entry:
   %dictionary = getelementptr inbounds nuw i8, ptr %schema, i64 48
   %0 = load ptr, ptr %dictionary, align 8, !tbaa !26
@@ -1124,7 +1124,7 @@ return:                                           ; preds = %if.end5, %if.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 18) i32 @_ZN16duckdb_nanoarrow19ArrowSchemaDeepCopyEP11ArrowSchemaS1_(ptr nocapture noundef readonly %schema, ptr noundef initializes((0, 72)) %schema_out) local_unnamed_addr #8 {
+define noundef range(i32 0, 18) i32 @_ZN16duckdb_nanoarrow19ArrowSchemaDeepCopyEP11ArrowSchemaS1_(ptr noundef readonly captures(none) %schema, ptr noundef initializes((0, 72)) %schema_out) local_unnamed_addr #8 {
 entry:
   %flags.i = getelementptr inbounds nuw i8, ptr %schema_out, i64 24
   %0 = getelementptr inbounds nuw i8, ptr %schema_out, i64 8
@@ -1410,17 +1410,17 @@ cleanup44:                                        ; preds = %if.then40, %if.end3
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @_ZN16duckdb_nanoarrow12ArrowReallocEPvl(ptr nocapture noundef %ptr, i64 noundef %size) local_unnamed_addr #9 {
+define noalias noundef ptr @_ZN16duckdb_nanoarrow12ArrowReallocEPvl(ptr noundef captures(none) %ptr, i64 noundef %size) local_unnamed_addr #9 {
 entry:
   %call = tail call ptr @realloc(ptr noundef %ptr, i64 noundef %size) #29
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #19
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #20
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @_ZN16duckdb_nanoarrow27ArrowBufferAllocatorDefaultEv() local_unnamed_addr #10 {
@@ -1429,7 +1429,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc18BatchToArrayStreamEP10ArrowArrayP11ArrowSchemaP16ArrowArrayStreamP9AdbcError(ptr nocapture noundef %values, ptr nocapture noundef %schema, ptr nocapture noundef %stream, ptr noundef %error) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc18BatchToArrayStreamEP10ArrowArrayP11ArrowSchemaP16ArrowArrayStreamP9AdbcError(ptr noundef captures(none) %values, ptr noundef captures(none) %schema, ptr noundef captures(none) %stream, ptr noundef %error) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i89 = alloca i64, align 8
   %__dnew.i.i65 = alloca i64, align 8
@@ -1691,13 +1691,13 @@ declare void @_Z8SetErrorP9AdbcErrorRKNSt7__cxx1112basic_stringIcSt11char_traits
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noalias noundef ptr @_ZN11duckdb_adbcL34SingleBatchArrayStreamGetLastErrorEP16ArrowArrayStream(ptr nocapture readnone %stream) #10 {
+define internal noalias noundef ptr @_ZN11duckdb_adbcL34SingleBatchArrayStreamGetLastErrorEP16ArrowArrayStream(ptr readnone captures(none) %stream) #10 {
 entry:
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef range(i32 0, 23) i32 @_ZN11duckdb_adbcL29SingleBatchArrayStreamGetNextEP16ArrowArrayStreamP10ArrowArray(ptr noundef readonly %stream, ptr nocapture noundef writeonly %batch) #22 {
+define internal noundef range(i32 0, 23) i32 @_ZN11duckdb_adbcL29SingleBatchArrayStreamGetNextEP16ArrowArrayStreamP10ArrowArray(ptr noundef readonly %stream, ptr noundef writeonly captures(none) %batch) #22 {
 entry:
   %tobool.not = icmp eq ptr %stream, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -1776,21 +1776,21 @@ return:                                           ; preds = %if.end10, %lor.lhs.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define internal noalias noundef ptr @_ZN16duckdb_nanoarrowL34ArrowBufferAllocatorMallocAllocateEPNS_20ArrowBufferAllocatorEl(ptr nocapture readnone %allocator, i64 noundef %size) #13 {
+define internal noalias noundef ptr @_ZN16duckdb_nanoarrowL34ArrowBufferAllocatorMallocAllocateEPNS_20ArrowBufferAllocatorEl(ptr readnone captures(none) %allocator, i64 noundef %size) #13 {
 entry:
   %call.i = tail call noalias noundef ptr @malloc(i64 noundef %size) #28
   ret ptr %call.i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noalias noundef ptr @_ZN16duckdb_nanoarrowL36ArrowBufferAllocatorMallocReallocateEPNS_20ArrowBufferAllocatorEPhll(ptr nocapture readnone %allocator, ptr nocapture noundef %ptr, i64 %old_size, i64 noundef %new_size) #9 {
+define internal noalias noundef ptr @_ZN16duckdb_nanoarrowL36ArrowBufferAllocatorMallocReallocateEPNS_20ArrowBufferAllocatorEPhll(ptr readnone captures(none) %allocator, ptr noundef captures(none) %ptr, i64 %old_size, i64 noundef %new_size) #9 {
 entry:
   %call.i = tail call noalias noundef ptr @realloc(ptr noundef %ptr, i64 noundef %new_size) #29
   ret ptr %call.i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZN16duckdb_nanoarrowL30ArrowBufferAllocatorMallocFreeEPNS_20ArrowBufferAllocatorEPhl(ptr nocapture readnone %allocator, ptr nocapture noundef %ptr, i64 %size) #9 {
+define internal void @_ZN16duckdb_nanoarrowL30ArrowBufferAllocatorMallocFreeEPNS_20ArrowBufferAllocatorEPhl(ptr readnone captures(none) %allocator, ptr noundef captures(none) %ptr, i64 %size) #9 {
 entry:
   tail call void @free(ptr noundef %ptr) #27
   ret void

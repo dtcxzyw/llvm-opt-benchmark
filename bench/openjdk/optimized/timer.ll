@@ -73,7 +73,7 @@ define hidden noundef i64 @_ZN10TimeHelper17micros_to_counterEl(i64 noundef %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12elapsedTimer3addES_(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0, ptr nocapture noundef readonly byval(%class.elapsedTimer) align 8 %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN12elapsedTimer3addES_(ptr noundef nonnull align 8 captures(none) dereferenceable(17) %0, ptr noundef readonly byval(%class.elapsedTimer) align 8 captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = load i64, ptr %1, align 8
   %4 = load i64, ptr %0, align 8
   %5 = add nsw i64 %4, %3
@@ -82,7 +82,7 @@ define hidden void @_ZN12elapsedTimer3addES_(ptr nocapture noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12elapsedTimer15add_nanosecondsEl(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12elapsedTimer15add_nanosecondsEl(ptr noundef nonnull align 8 captures(none) dereferenceable(17) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef i64 @_ZN2os17elapsed_frequencyEv() #6
   %4 = sdiv i64 %3, 1000000000
   %5 = mul nsw i64 %4, %1
@@ -93,7 +93,7 @@ define hidden void @_ZN12elapsedTimer15add_nanosecondsEl(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12elapsedTimer5startEv(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12elapsedTimer5startEv(ptr noundef nonnull align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -113,7 +113,7 @@ define hidden void @_ZN12elapsedTimer5startEv(ptr nocapture noundef nonnull alig
 declare noundef i64 @_ZN2os15elapsed_counterEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12elapsedTimer4stopEv(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -135,7 +135,7 @@ define hidden void @_ZN12elapsedTimer4stopEv(ptr nocapture noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef double @_ZNK12elapsedTimer7secondsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #0 align 2 {
   %2 = load i64, ptr %0, align 8
   %3 = tail call noundef i64 @_ZN2os17elapsed_frequencyEv() #6
   %4 = sitofp i64 %3 to double
@@ -145,7 +145,7 @@ define hidden noundef double @_ZNK12elapsedTimer7secondsEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK12elapsedTimer12millisecondsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK12elapsedTimer12millisecondsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #0 align 2 {
   %2 = load i64, ptr %0, align 8
   %3 = tail call noundef i64 @_ZN2os17elapsed_frequencyEv() #6
   %4 = sitofp i64 %3 to double
@@ -157,7 +157,7 @@ define hidden noundef i64 @_ZNK12elapsedTimer12millisecondsEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK12elapsedTimer12active_ticksEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK12elapsedTimer12active_ticksEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -178,14 +178,14 @@ define hidden noundef i64 @_ZNK12elapsedTimer12active_ticksEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN9TimeStamp9update_toEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN9TimeStamp9update_toEl(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %spec.select = tail call i64 @llvm.umax.i64(i64 %1, i64 1)
   store i64 %spec.select, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9TimeStamp6updateEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9TimeStamp6updateEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #6
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %2, i64 1)
   store i64 %spec.select.i, ptr %0, align 8
@@ -193,7 +193,7 @@ define hidden void @_ZN9TimeStamp6updateEv(ptr nocapture noundef nonnull writeon
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef double @_ZNK9TimeStamp7secondsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef double @_ZNK9TimeStamp7secondsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #6
   %3 = load i64, ptr %0, align 8
   %4 = sub nsw i64 %2, %3
@@ -205,7 +205,7 @@ define hidden noundef double @_ZNK9TimeStamp7secondsEv(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK9TimeStamp12millisecondsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK9TimeStamp12millisecondsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #6
   %3 = load i64, ptr %0, align 8
   %4 = sub nsw i64 %2, %3
@@ -219,7 +219,7 @@ define hidden noundef i64 @_ZNK9TimeStamp12millisecondsEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK9TimeStamp18ticks_since_updateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK9TimeStamp18ticks_since_updateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #6
   %3 = load i64, ptr %0, align 8
   %4 = sub nsw i64 %2, %3

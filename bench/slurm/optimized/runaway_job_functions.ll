@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [117 x i8] c"NOTE: Runaway jobs are jobs that don't exist in the controller but have a start time and no end time in the database\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @sacctmgr_list_runaway_jobs(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local i32 @sacctmgr_list_runaway_jobs(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [34 x i8], align 16
   %4 = alloca ptr, align 8
   %5 = alloca %struct.slurmdb_cluster_cond_t, align 8
@@ -62,7 +62,7 @@ define dso_local i32 @sacctmgr_list_runaway_jobs(i32 noundef %0, ptr nocapture n
   %17 = trunc i64 %16 to i32
   %18 = tail call i32 @llvm.smax.i32(i32 %17, i32 5)
   %19 = zext nneg i32 %18 to i64
-  %20 = tail call i32 @xstrncasecmp(ptr noundef %15, ptr noundef nonnull @.str.2, i64 noundef %19) #8
+  %20 = tail call i32 @xstrncasecmp(ptr noundef nonnull %15, ptr noundef nonnull @.str.2, i64 noundef %19) #8
   %.not48 = icmp eq i32 %20, 0
   br i1 %.not48, label %26, label %21
 
@@ -567,7 +567,7 @@ declare void @xfree_ptr(ptr noundef) #1
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -580,7 +580,7 @@ declare void @slurmdb_destroy_job_cond(ptr noundef) local_unnamed_addr #1
 declare i32 @list_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare i32 @slurm_addto_char_list(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -605,7 +605,7 @@ declare void @list_destroy(ptr noundef) local_unnamed_addr #1
 declare i32 @parse_option_end(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare ptr @slurmdb_jobs_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -621,7 +621,7 @@ declare i32 @slurm_load_jobs(i64 noundef, ptr noundef, i16 noundef zeroext) loca
 declare i32 @list_delete_all(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_purge_known_jobs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @_purge_known_jobs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -708,7 +708,7 @@ declare ptr @list_iterator_create(ptr noundef) local_unnamed_addr #1
 declare ptr @list_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare ptr @job_state_string(i32 noundef) local_unnamed_addr #1
 
@@ -717,7 +717,7 @@ declare void @list_iterator_reset(ptr noundef) local_unnamed_addr #1
 declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6
@@ -726,10 +726,10 @@ declare i32 @llvm.smax.i32(i32, i32) #6
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

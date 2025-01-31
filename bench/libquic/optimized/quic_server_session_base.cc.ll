@@ -144,7 +144,7 @@ _ZNSt10unique_ptrIN3net26QuicCryptoServerStreamBaseESt14default_deleteIS1_EED2Ev
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN3net21QuicServerSessionBaseD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define dso_local void @_ZN3net21QuicServerSessionBaseD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.trap() #16
   unreachable
@@ -394,7 +394,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @_ZN3net11QuicSession18OnConnectionClosedENS_13QuicErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_21ConnectionCloseSourceE(ptr noundef nonnull align 8 dereferenceable(2044), i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net21QuicServerSessionBase14OnWriteBlockedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2169) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net21QuicServerSessionBase14OnWriteBlockedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2169) %this) unnamed_addr #0 align 2 {
 entry:
   %visitor_ = getelementptr inbounds nuw i8, ptr %this, i64 2088
   %0 = load ptr, ptr %visitor_, align 8
@@ -654,7 +654,7 @@ declare noundef zeroext i1 @_ZNK3net11QuicSession14HasDataToWriteEv(ptr noundef 
 declare noundef i64 @_ZNK3net13QuicBandwidth15ToBitsPerSecondEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3net21QuicServerSessionBase40BandwidthToCachedParameterBytesPerSecondERKNS_13QuicBandwidthE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2169) %this, ptr noundef nonnull align 8 dereferenceable(8) %bandwidth) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN3net21QuicServerSessionBase40BandwidthToCachedParameterBytesPerSecondERKNS_13QuicBandwidthE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2169) %this, ptr noundef nonnull align 8 dereferenceable(8) %bandwidth) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef i64 @_ZNK3net13QuicBandwidth16ToBytesPerSecondEv(ptr noundef nonnull align 8 dereferenceable(8) %bandwidth)
   %cond2 = tail call i64 @llvm.smin.i64(i64 %call, i64 2147483647)
@@ -716,7 +716,7 @@ _ZN6google8protobuf8internal14ArenaStringPtr10SetNoArenaEPKNSt7__cxx1112basic_st
 declare void @_ZN3net23CachedNetworkParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net21QuicServerSessionBase33ShouldCreateIncomingDynamicStreamEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2169) %this, i32 noundef %id) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net21QuicServerSessionBase33ShouldCreateIncomingDynamicStreamEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2169) %this, i32 noundef %id) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp4 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp14 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -932,7 +932,7 @@ eh.resume:                                        ; preds = %lpad45, %lpad21, %l
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN3net21QuicServerSessionBase15GetCryptoStreamEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2169) %this) unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN3net21QuicServerSessionBase15GetCryptoStreamEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2169) %this) unnamed_addr #6 align 2 {
 entry:
   %crypto_stream_ = getelementptr inbounds nuw i8, ptr %this, i64 2080
   %0 = load ptr, ptr %crypto_stream_, align 8
@@ -1030,7 +1030,7 @@ declare void @_ZN3net15QuicSpdySession27OnHeadersHeadOfLineBlockingENS_8QuicTime
 declare void @_ZN3net15QuicSpdySession17OnStreamFrameDataEjPKcmb(ptr noundef nonnull align 8 dereferenceable(2057), i32 noundef, ptr noundef, i64 noundef, i1 noundef zeroext) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
@@ -1165,7 +1165,7 @@ declare noundef i32 @_ZN7logging18GetVlogLevelHelperEPKcm(ptr noundef, i64 nound
 declare i64 @llvm.smin.i64(i64, i64) #13
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.md4_ctx = type { i32, i32, i32, i32, i32, i32, [64 x i8], [16 x i32] }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_md4it(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef i32 @Curl_md4it(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.md4_ctx, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1732584193, ptr %5, align 4
@@ -226,10 +226,10 @@ MD4_Final.exit:                                   ; preds = %MD4_Update.exit, %2
 declare i32 @curlx_uztoui(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc nonnull ptr @body(ptr nocapture noundef nonnull %0, ptr noundef readonly %1, i64 noundef range(i64 0, -63) %2) unnamed_addr #3 {
+define internal fastcc nonnull ptr @body(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, i64 noundef range(i64 0, -63) %2) unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -615,7 +615,7 @@ define internal fastcc nonnull ptr @body(ptr nocapture noundef nonnull %0, ptr n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare zeroext i8 @curlx_ultouc(i64 noundef) local_unnamed_addr #1
 

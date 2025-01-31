@@ -316,7 +316,7 @@ _ZN26GrowableArrayWithAllocatorIP23jvmtiExtensionEventInfo13GrowableArrayIS1_EE6
 declare noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn uwtable
-define internal noundef range(i32 0, 101) i32 @_ZL23IsClassUnloadingEnabledPK9_jvmtiEnvz(ptr nocapture readnone %0, ...) #2 {
+define internal noundef range(i32 0, 101) i32 @_ZL23IsClassUnloadingEnabledPK9_jvmtiEnvz(ptr readnone captures(none) %0, ...) #2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = load i32, ptr %2, align 16
@@ -358,7 +358,7 @@ define internal noundef range(i32 0, 101) i32 @_ZL23IsClassUnloadingEnabledPK9_j
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZL16GetVirtualThreadPK9_jvmtiEnvz(ptr nocapture noundef readonly %0, ...) #0 {
+define internal noundef i32 @_ZL16GetVirtualThreadPK9_jvmtiEnvz(ptr noundef readonly captures(none) %0, ...) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca [1 x %struct.__va_list_tag], align 16
@@ -575,7 +575,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %101, %99, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZL16GetCarrierThreadPK9_jvmtiEnvz(ptr nocapture noundef readonly %0, ...) #0 {
+define internal noundef i32 @_ZL16GetCarrierThreadPK9_jvmtiEnvz(ptr noundef readonly captures(none) %0, ...) #0 {
   %2 = alloca %class.HandleMark, align 8
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca %class.JvmtiVTMSTransitionDisabler, align 8
@@ -742,7 +742,7 @@ _ZN12JvmtiEnvBase25get_vthread_or_thread_oopEP10JavaThread.exit: ; preds = %60, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN15JvmtiExtensions13get_functionsEP8JvmtiEnvPiPP26jvmtiExtensionFunctionInfo(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN15JvmtiExtensions13get_functionsEP8JvmtiEnvPiPP26jvmtiExtensionFunctionInfo(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.ResourceTracker, align 8
   %5 = alloca ptr, align 8
   %6 = load ptr, ptr @_ZN15JvmtiExtensions14_ext_functionsE, align 8
@@ -971,19 +971,19 @@ declare void @_ZN15ResourceTrackerC1EP8JvmtiEnv(ptr noundef nonnull align 8 dere
 declare noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr noundef nonnull align 8 dereferenceable(17), i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #6
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind
 declare void @_ZN15ResourceTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(17)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN15JvmtiExtensions10get_eventsEP8JvmtiEnvPiPP23jvmtiExtensionEventInfo(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN15JvmtiExtensions10get_eventsEP8JvmtiEnvPiPP23jvmtiExtensionEventInfo(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.ResourceTracker, align 8
   %5 = alloca ptr, align 8
   %6 = load ptr, ptr @_ZN15JvmtiExtensions11_ext_eventsE, align 8

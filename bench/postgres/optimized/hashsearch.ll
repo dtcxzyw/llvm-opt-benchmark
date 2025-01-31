@@ -216,7 +216,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %45
-  tail call void @_hash_kill_items(ptr noundef %0) #5
+  tail call void @_hash_kill_items(ptr noundef nonnull %0) #5
   br label %49
 
 49:                                               ; preds = %48, %45
@@ -237,7 +237,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
 
 59:                                               ; preds = %49, %53, %56
   %.063 = phi i32 [ %58, %56 ], [ -1, %53 ], [ -1, %49 ]
-  call fastcc void @_hash_readnext(ptr noundef %0, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  call fastcc void @_hash_readnext(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %60 = load i32, ptr %3, align 4
   %.not2 = icmp eq i32 %60, 0
   br i1 %.not2, label %68, label %61
@@ -249,7 +249,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
   %63 = load ptr, ptr %4, align 8
   %64 = load i32, ptr %9, align 8
   %65 = tail call zeroext i16 @_hash_binsearch(ptr noundef %63, i32 noundef %64) #5
-  %66 = tail call fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr noundef %63, i16 noundef zeroext %65, i32 noundef 1)
+  %66 = tail call fastcc i32 @_hash_load_qualified_items(ptr noundef nonnull %0, ptr noundef %63, i16 noundef zeroext %65, i32 noundef 1)
   %67 = and i32 %66, 65535
   %.not72 = icmp eq i32 %67, 0
   br i1 %.not72, label %45, label %._crit_edge13
@@ -278,7 +278,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
   br i1 %77, label %78, label %79
 
 78:                                               ; preds = %73
-  tail call void @_hash_kill_items(ptr noundef %0) #5
+  tail call void @_hash_kill_items(ptr noundef nonnull %0) #5
   br label %79
 
 79:                                               ; preds = %78, %73
@@ -427,7 +427,7 @@ BufferGetPage.exit42.i:                           ; preds = %149, %143
   br i1 %.not4344.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %BufferGetPage.exit42.i, %.lr.ph.i
-  call fastcc void @_hash_readnext(ptr noundef readonly %0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @_hash_readnext(ptr noundef nonnull readonly %0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %161 = load ptr, ptr %5, align 8
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 4
   %163 = load i32, ptr %162, align 4
@@ -457,7 +457,7 @@ _hash_readprev.exit:                              ; preds = %127, %131, %._crit_
   %169 = load ptr, ptr %4, align 8
   %170 = load i32, ptr %9, align 8
   %171 = tail call zeroext i16 @_hash_binsearch_last(ptr noundef %169, i32 noundef %170) #5
-  %172 = tail call fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr noundef %169, i16 noundef zeroext %171, i32 noundef %1)
+  %172 = tail call fastcc i32 @_hash_load_qualified_items(ptr noundef nonnull %0, ptr noundef %169, i16 noundef zeroext %171, i32 noundef %1)
   %173 = and i32 %172, 65535
   %.not = icmp eq i32 %173, 408
   br i1 %.not, label %73, label %._crit_edge
@@ -533,7 +533,7 @@ declare void @_hash_dropbuf(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @_hash_dropscanbuf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @_hash_first(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -792,7 +792,7 @@ declare i32 @_hash_get_oldblock_from_newbucket(ptr noundef, i32 noundef) local_u
 declare void @LockBuffer(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_hash_readnext(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @_hash_readnext(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56

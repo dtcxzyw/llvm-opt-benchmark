@@ -59,7 +59,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pmix_bfrops_globals = external local_unnamed_addr global %struct.pmix_bfrops_globals_t, align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @PMIx_Load_key(ptr nocapture noundef writeonly initializes((0, 512)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @PMIx_Load_key(ptr noundef writeonly captures(none) initializes((0, 512)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %0, i8 0, i64 512, i1 false)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %pmix_bfrops_base_tma_load_key.exit, label %.lr.ph.i.i
@@ -90,14 +90,14 @@ pmix_bfrops_base_tma_load_key.exit:               ; preds = %2, %pmix_strncpy.ex
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @PMIx_Check_key(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define zeroext i1 @PMIx_Check_key(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %1, i64 noundef 511) #36
   %4 = icmp eq i32 %3, 0
   ret i1 %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @PMIx_Load_nspace(ptr nocapture noundef writeonly initializes((0, 256)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @PMIx_Load_nspace(ptr noundef writeonly captures(none) initializes((0, 256)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %0, i8 0, i64 256, i1 false)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %pmix_bfrops_base_tma_load_nspace.exit, label %.lr.ph.i.i
@@ -214,14 +214,14 @@ pmix_bfrops_base_tma_nspace_invalid.exit:         ; preds = %1, %pmix_nslen.exit
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @PMIx_Check_reserved_key(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define zeroext i1 @PMIx_Check_reserved_key(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str, i64 noundef 4) #36
   %3 = icmp eq i32 %2, 0
   ret i1 %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @PMIx_Load_procid(ptr nocapture noundef writeonly initializes((0, 256)) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @PMIx_Load_procid(ptr noundef writeonly captures(none) initializes((0, 256)) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %0, i8 0, i64 256, i1 false)
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %pmix_bfrops_base_tma_load_procid.exit, label %.lr.ph.i.i.i
@@ -254,7 +254,7 @@ pmix_bfrops_base_tma_load_procid.exit:            ; preds = %3, %pmix_strncpy.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PMIx_Xfer_procid(ptr nocapture noundef writeonly initializes((0, 260)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define void @PMIx_Xfer_procid(ptr noundef writeonly captures(none) initializes((0, 260)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(260) %0, ptr noundef nonnull readonly align 4 dereferenceable(260) %1, i64 260, i1 false)
   ret void
 }
@@ -405,7 +405,7 @@ pmix_bfrops_base_tma_argv_count.exit:             ; preds = %.lr.ph.i, %1, %.pre
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -29, 1) i32 @PMIx_Argv_append_nosize(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define range(i32 -29, 1) i32 @PMIx_Argv_append_nosize(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %.preheader.i.i
@@ -461,7 +461,7 @@ pmix_bfrops_base_tma_argv_append_nosize.exit:     ; preds = %5, %pmix_bfrops_bas
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -29, 1) i32 @PMIx_Argv_prepend_nosize(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define range(i32 -29, 1) i32 @PMIx_Argv_prepend_nosize(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %.preheader.i.i
@@ -542,7 +542,7 @@ pmix_bfrops_base_tma_argv_prepend_nosize.exit:    ; preds = %5, %8, %pmix_bfrops
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -29, 1) i32 @PMIx_Argv_append_unique_nosize(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define range(i32 -29, 1) i32 @PMIx_Argv_append_unique_nosize(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %.preheader.i
@@ -1303,19 +1303,19 @@ pmix_bfrops_base_tma_setenv.exit:                 ; preds = %4, %14, %16, %25, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PMIx_Value_construct(ptr nocapture noundef writeonly initializes((0, 32)) %0) local_unnamed_addr #8 {
+define void @PMIx_Value_construct(ptr noundef writeonly captures(none) initializes((0, 32)) %0) local_unnamed_addr #8 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PMIx_Value_destruct(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define void @PMIx_Value_destruct(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pmix_bfrops_base_tma_value_destruct(ptr nocapture noundef %0) unnamed_addr #6 {
+define internal fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef captures(none) %0) unnamed_addr #6 {
   %2 = load i16, ptr %0, align 8
   switch i16 %2, label %132 [
     i16 3, label %3
@@ -1821,13 +1821,13 @@ define internal fastcc void @pmix_bfrops_base_tma_value_free(ptr noundef %0, i64
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define range(i32 0, 3) i32 @PMIx_Value_true(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define range(i32 0, 3) i32 @PMIx_Value_true(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = tail call fastcc i32 @pmix_bfrops_base_tma_value_true(ptr noundef %0)
   ret i32 %2
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define internal fastcc range(i32 0, 3) i32 @pmix_bfrops_base_tma_value_true(ptr nocapture noundef readonly %0) unnamed_addr #10 {
+define internal fastcc range(i32 0, 3) i32 @pmix_bfrops_base_tma_value_true(ptr noundef readonly captures(none) %0) unnamed_addr #10 {
   %2 = load i16, ptr %0, align 8
   switch i16 %2, label %41 [
     i16 0, label %42
@@ -2467,7 +2467,7 @@ define i32 @PMIx_Value_compare(ptr noundef %0, ptr noundef %1) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PMIx_Info_construct(ptr nocapture noundef writeonly initializes((0, 516), (520, 552)) %0) local_unnamed_addr #8 {
+define void @PMIx_Info_construct(ptr noundef writeonly captures(none) initializes((0, 516), (520, 552)) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 520
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(516) %0, i8 0, i64 516, i1 false)
@@ -2475,7 +2475,7 @@ define void @PMIx_Info_construct(ptr nocapture noundef writeonly initializes((0,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PMIx_Info_destruct(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define void @PMIx_Info_destruct(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr i8, ptr %0, i64 512
   %.val.i = load i32, ptr %2, align 8
   %3 = and i32 %.val.i, 16
@@ -2580,7 +2580,7 @@ pmix_bfrops_base_tma_info_free.exit:              ; preds = %2, %._crit_edge.i
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define range(i32 0, 3) i32 @PMIx_Info_true(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define range(i32 0, 3) i32 @PMIx_Info_true(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %3 = tail call fastcc range(i32 0, 3) i32 @pmix_bfrops_base_tma_value_true(ptr noundef nonnull readonly %2)
   ret i32 %3
@@ -2626,7 +2626,7 @@ pmix_bfrops_base_tma_info_load.exit:              ; preds = %4, %pmix_bfrops_bas
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PMIx_Info_required(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @PMIx_Info_required(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %3 = load i32, ptr %2, align 8
   %4 = or i32 %3, 1
@@ -2635,7 +2635,7 @@ define void @PMIx_Info_required(ptr nocapture noundef %0) local_unnamed_addr #4 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @PMIx_Info_is_required(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define zeroext i1 @PMIx_Info_is_required(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr i8, ptr %0, i64 512
   %.val = load i32, ptr %2, align 8
   %3 = and i32 %.val, 1
@@ -2644,7 +2644,7 @@ define zeroext i1 @PMIx_Info_is_required(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PMIx_Info_optional(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @PMIx_Info_optional(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, -2
@@ -2653,7 +2653,7 @@ define void @PMIx_Info_optional(ptr nocapture noundef %0) local_unnamed_addr #4 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @PMIx_Info_is_optional(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define zeroext i1 @PMIx_Info_is_optional(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr i8, ptr %0, i64 512
   %.val = load i32, ptr %2, align 8
   %3 = and i32 %.val, 1
@@ -2662,7 +2662,7 @@ define zeroext i1 @PMIx_Info_is_optional(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PMIx_Info_processed(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @PMIx_Info_processed(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %3 = load i32, ptr %2, align 8
   %4 = or i32 %3, 4
@@ -2671,7 +2671,7 @@ define void @PMIx_Info_processed(ptr nocapture noundef %0) local_unnamed_addr #4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @PMIx_Info_was_processed(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define zeroext i1 @PMIx_Info_was_processed(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr i8, ptr %0, i64 512
   %.val = load i32, ptr %2, align 8
   %3 = and i32 %.val, 4
@@ -2680,7 +2680,7 @@ define zeroext i1 @PMIx_Info_was_processed(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PMIx_Info_set_end(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @PMIx_Info_set_end(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %3 = load i32, ptr %2, align 8
   %4 = or i32 %3, 2
@@ -2689,7 +2689,7 @@ define void @PMIx_Info_set_end(ptr nocapture noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @PMIx_Info_is_end(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define zeroext i1 @PMIx_Info_is_end(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr i8, ptr %0, i64 512
   %.val = load i32, ptr %2, align 8
   %3 = and i32 %.val, 2
@@ -2698,7 +2698,7 @@ define zeroext i1 @PMIx_Info_is_end(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PMIx_Info_qualifier(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @PMIx_Info_qualifier(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %3 = load i32, ptr %2, align 8
   %4 = or i32 %3, 8
@@ -2707,7 +2707,7 @@ define void @PMIx_Info_qualifier(ptr nocapture noundef %0) local_unnamed_addr #4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @PMIx_Info_is_qualifier(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define zeroext i1 @PMIx_Info_is_qualifier(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr i8, ptr %0, i64 512
   %.val = load i32, ptr %2, align 8
   %3 = and i32 %.val, 8
@@ -2716,7 +2716,7 @@ define zeroext i1 @PMIx_Info_is_qualifier(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PMIx_Info_persistent(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @PMIx_Info_persistent(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %3 = load i32, ptr %2, align 8
   %4 = or i32 %3, 16
@@ -2725,7 +2725,7 @@ define void @PMIx_Info_persistent(ptr nocapture noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @PMIx_Info_is_persistent(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define zeroext i1 @PMIx_Info_is_persistent(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr i8, ptr %0, i64 512
   %.val = load i32, ptr %2, align 8
   %3 = and i32 %.val, 16
@@ -2929,7 +2929,7 @@ pmix_bfrops_base_tma_coord_destruct.exit:         ; preds = %.lr.ph, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PMIx_Topology_construct(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #8 {
+define void @PMIx_Topology_construct(ptr noundef writeonly captures(none) initializes((0, 16)) %0) local_unnamed_addr #8 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
@@ -2981,7 +2981,7 @@ pmix_bfrops_base_tma_topology_free.exit:          ; preds = %2, %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PMIx_Cpuset_construct(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #8 {
+define void @PMIx_Cpuset_construct(ptr noundef writeonly captures(none) initializes((0, 16)) %0) local_unnamed_addr #8 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
@@ -3033,13 +3033,13 @@ pmix_bfrops_base_tma_cpuset_free.exit:            ; preds = %2, %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PMIx_Geometry_construct(ptr nocapture noundef writeonly initializes((0, 40)) %0) local_unnamed_addr #8 {
+define void @PMIx_Geometry_construct(ptr noundef writeonly captures(none) initializes((0, 40)) %0) local_unnamed_addr #8 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PMIx_Geometry_destruct(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define void @PMIx_Geometry_destruct(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -3203,13 +3203,13 @@ pmix_bfrops_base_tma_geometry_destruct.exit:      ; preds = %11, %pmix_bfrops_ba
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PMIx_Device_construct(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #8 {
+define void @PMIx_Device_construct(ptr noundef writeonly captures(none) initializes((0, 24)) %0) local_unnamed_addr #8 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @PMIx_Device_destruct(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define void @PMIx_Device_destruct(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %4, label %3
@@ -3291,13 +3291,13 @@ pmix_bfrops_base_tma_device_free.exit:            ; preds = %2, %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PMIx_Resource_unit_construct(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #8 {
+define void @PMIx_Resource_unit_construct(ptr noundef writeonly captures(none) initializes((0, 16)) %0) local_unnamed_addr #8 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @PMIx_Resource_unit_destruct(ptr nocapture noundef readnone %0) local_unnamed_addr #5 {
+define void @PMIx_Resource_unit_destruct(ptr noundef readnone captures(none) %0) local_unnamed_addr #5 {
   ret void
 }
 
@@ -3330,7 +3330,7 @@ pmix_bfrops_base_tma_resource_unit_free.exit:     ; preds = %2, %.preheader.preh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PMIx_Device_distance_construct(ptr nocapture noundef writeonly initializes((0, 32)) %0) local_unnamed_addr #8 {
+define void @PMIx_Device_distance_construct(ptr noundef writeonly captures(none) initializes((0, 32)) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   store i16 -1, ptr %2, align 8
@@ -3340,7 +3340,7 @@ define void @PMIx_Device_distance_construct(ptr nocapture noundef writeonly init
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @PMIx_Device_distance_destruct(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define void @PMIx_Device_distance_destruct(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %4, label %3
@@ -3463,13 +3463,13 @@ pmix_bfrops_base_tma_device_distance_free.exit:   ; preds = %2, %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PMIx_Byte_object_construct(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #8 {
+define void @PMIx_Byte_object_construct(ptr noundef writeonly captures(none) initializes((0, 16)) %0) local_unnamed_addr #8 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @PMIx_Byte_object_destruct(ptr nocapture noundef initializes((8, 16)) %0) local_unnamed_addr #13 {
+define void @PMIx_Byte_object_destruct(ptr noundef captures(none) initializes((8, 16)) %0) local_unnamed_addr #13 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %pmix_bfrops_base_tma_byte_object_destruct.exit, label %3
@@ -3533,13 +3533,13 @@ pmix_bfrops_base_tma_byte_object_free.exit:       ; preds = %2, %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PMIx_Endpoint_construct(ptr nocapture noundef writeonly initializes((0, 32)) %0) local_unnamed_addr #8 {
+define void @PMIx_Endpoint_construct(ptr noundef writeonly captures(none) initializes((0, 32)) %0) local_unnamed_addr #8 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @PMIx_Endpoint_destruct(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define void @PMIx_Endpoint_destruct(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %4, label %3
@@ -3641,13 +3641,13 @@ pmix_bfrops_base_tma_endpoint_free.exit:          ; preds = %2, %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PMIx_Envar_construct(ptr nocapture noundef writeonly initializes((0, 17)) %0) local_unnamed_addr #8 {
+define void @PMIx_Envar_construct(ptr noundef writeonly captures(none) initializes((0, 17)) %0) local_unnamed_addr #8 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %0, i8 0, i64 17, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @PMIx_Envar_destruct(ptr nocapture noundef %0) local_unnamed_addr #13 {
+define void @PMIx_Envar_destruct(ptr noundef captures(none) %0) local_unnamed_addr #13 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %4, label %3
@@ -3766,7 +3766,7 @@ pmix_bfrops_base_tma_envar_free.exit:             ; preds = %2, %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @PMIx_Envar_load(ptr nocapture noundef writeonly initializes((16, 17)) %0, ptr noundef readonly %1, ptr noundef readonly %2, i8 noundef signext %3) local_unnamed_addr #16 {
+define void @PMIx_Envar_load(ptr noundef writeonly captures(none) initializes((16, 17)) %0, ptr noundef readonly %1, ptr noundef readonly %2, i8 noundef signext %3) local_unnamed_addr #16 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %7, label %5
 
@@ -3792,13 +3792,13 @@ pmix_bfrops_base_tma_envar_load.exit:             ; preds = %7, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PMIx_Data_buffer_construct(ptr nocapture noundef writeonly initializes((0, 40)) %0) local_unnamed_addr #8 {
+define void @PMIx_Data_buffer_construct(ptr noundef writeonly captures(none) initializes((0, 40)) %0) local_unnamed_addr #8 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @PMIx_Data_buffer_destruct(ptr nocapture noundef initializes((8, 40)) %0) local_unnamed_addr #13 {
+define void @PMIx_Data_buffer_destruct(ptr noundef captures(none) initializes((8, 40)) %0) local_unnamed_addr #13 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %pmix_bfrops_base_tma_data_buffer_destruct.exit, label %3
@@ -3855,7 +3855,7 @@ define void @PMIx_Data_buffer_load(ptr noundef %0, ptr noundef %1, i64 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PMIx_Data_buffer_unload(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #6 {
+define void @PMIx_Data_buffer_unload(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #6 {
   %4 = alloca %struct.pmix_byte_object, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %5 = call i32 @PMIx_Data_unload(ptr noundef %0, ptr noundef nonnull %4) #38
@@ -3872,7 +3872,7 @@ define void @PMIx_Data_buffer_unload(ptr noundef %0, ptr nocapture noundef write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PMIx_Proc_construct(ptr nocapture noundef writeonly initializes((0, 260)) %0) local_unnamed_addr #8 {
+define void @PMIx_Proc_construct(ptr noundef writeonly captures(none) initializes((0, 260)) %0) local_unnamed_addr #8 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(260) %0, i8 0, i64 256, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i32 -1, ptr %2, align 4
@@ -3880,7 +3880,7 @@ define void @PMIx_Proc_construct(ptr nocapture noundef writeonly initializes((0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PMIx_Proc_destruct(ptr nocapture noundef writeonly initializes((0, 260)) %0) local_unnamed_addr #8 {
+define void @PMIx_Proc_destruct(ptr noundef writeonly captures(none) initializes((0, 260)) %0) local_unnamed_addr #8 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(260) %0, i8 0, i64 256, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i32 -1, ptr %2, align 4
@@ -3967,7 +3967,7 @@ pmix_bfrops_base_tma_proc_free.exit:              ; preds = %2, %._crit_edge.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @PMIx_Proc_load(ptr nocapture noundef writeonly initializes((0, 260)) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @PMIx_Proc_load(ptr noundef writeonly captures(none) initializes((0, 260)) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i32 -1, ptr %4, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %0, i8 0, i64 256, i1 false)
@@ -4001,7 +4001,7 @@ pmix_bfrops_base_tma_proc_load.exit:              ; preds = %3, %pmix_strncpy.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @PMIx_Multicluster_nspace_construct(ptr nocapture noundef writeonly initializes((0, 256)) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define void @PMIx_Multicluster_nspace_construct(ptr noundef writeonly captures(none) initializes((0, 256)) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %0, i8 0, i64 256, i1 false)
   %4 = icmp eq ptr %1, null
   br i1 %4, label %pmix_nslen.exit.i, label %.preheader.i.i
@@ -4094,7 +4094,7 @@ pmix_bfrops_base_tma_multicluster_nspace_construct.exit: ; preds = %pmix_nslen.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @PMIx_Multicluster_nspace_parse(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 256)) %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define void @PMIx_Multicluster_nspace_parse(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 256)) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %1, i8 0, i64 256, i1 false)
   %4 = load i8, ptr %0, align 1
   %.not1.i = icmp eq i8 %4, 0
@@ -4148,13 +4148,13 @@ pmix_bfrops_base_tma_multicluster_nspace_parse.exit: ; preds = %.lr.ph8.i, %17, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PMIx_Proc_info_construct(ptr nocapture noundef writeonly initializes((0, 296)) %0) local_unnamed_addr #8 {
+define void @PMIx_Proc_info_construct(ptr noundef writeonly captures(none) initializes((0, 296)) %0) local_unnamed_addr #8 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %0, i8 0, i64 296, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @PMIx_Proc_info_destruct(ptr nocapture noundef initializes((0, 264), (280, 296)) %0) local_unnamed_addr #13 {
+define void @PMIx_Proc_info_destruct(ptr noundef captures(none) initializes((0, 264), (280, 296)) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -4240,13 +4240,13 @@ pmix_bfrops_base_tma_proc_info_free.exit:         ; preds = %2, %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PMIx_Proc_stats_construct(ptr nocapture noundef writeonly initializes((0, 352)) %0) local_unnamed_addr #8 {
+define void @PMIx_Proc_stats_construct(ptr noundef writeonly captures(none) initializes((0, 352)) %0) local_unnamed_addr #8 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %0, i8 0, i64 352, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @PMIx_Proc_stats_destruct(ptr nocapture noundef %0) local_unnamed_addr #13 {
+define void @PMIx_Proc_stats_destruct(ptr noundef captures(none) %0) local_unnamed_addr #13 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %4, label %3
@@ -4332,13 +4332,13 @@ pmix_bfrops_base_tma_proc_stats_free.exit:        ; preds = %2, %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PMIx_Disk_stats_construct(ptr nocapture noundef writeonly initializes((0, 96)) %0) local_unnamed_addr #8 {
+define void @PMIx_Disk_stats_construct(ptr noundef writeonly captures(none) initializes((0, 96)) %0) local_unnamed_addr #8 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @PMIx_Disk_stats_destruct(ptr nocapture noundef %0) local_unnamed_addr #13 {
+define void @PMIx_Disk_stats_destruct(ptr noundef captures(none) %0) local_unnamed_addr #13 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %pmix_bfrops_base_tma_disk_stats_destruct.exit, label %3
@@ -4402,13 +4402,13 @@ pmix_bfrops_base_tma_disk_stats_free.exit:        ; preds = %2, %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PMIx_Net_stats_construct(ptr nocapture noundef writeonly initializes((0, 56)) %0) local_unnamed_addr #8 {
+define void @PMIx_Net_stats_construct(ptr noundef writeonly captures(none) initializes((0, 56)) %0) local_unnamed_addr #8 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @PMIx_Net_stats_destruct(ptr nocapture noundef %0) local_unnamed_addr #13 {
+define void @PMIx_Net_stats_destruct(ptr noundef captures(none) %0) local_unnamed_addr #13 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %pmix_bfrops_base_tma_net_stats_destruct.exit, label %3
@@ -4472,19 +4472,19 @@ pmix_bfrops_base_tma_net_stats_free.exit:         ; preds = %2, %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PMIx_Node_stats_construct(ptr nocapture noundef writeonly initializes((0, 104)) %0) local_unnamed_addr #8 {
+define void @PMIx_Node_stats_construct(ptr noundef writeonly captures(none) initializes((0, 104)) %0) local_unnamed_addr #8 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 104, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PMIx_Node_stats_destruct(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define void @PMIx_Node_stats_destruct(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   tail call fastcc void @pmix_bfrops_base_tma_node_stats_destruct(ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pmix_bfrops_base_tma_node_stats_destruct(ptr nocapture noundef %0) unnamed_addr #6 {
+define internal fastcc void @pmix_bfrops_base_tma_node_stats_destruct(ptr noundef captures(none) %0) unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -4607,13 +4607,13 @@ pmix_bfrops_base_tma_node_stats_free.exit:        ; preds = %2, %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PMIx_Pdata_construct(ptr nocapture noundef writeonly initializes((0, 808)) %0) local_unnamed_addr #8 {
+define void @PMIx_Pdata_construct(ptr noundef writeonly captures(none) initializes((0, 808)) %0) local_unnamed_addr #8 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(808) %0, i8 0, i64 808, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PMIx_Pdata_destruct(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define void @PMIx_Pdata_destruct(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 776
   tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef nonnull %2)
   ret void
@@ -4660,19 +4660,19 @@ pmix_bfrops_base_tma_pdata_free.exit:             ; preds = %2, %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PMIx_App_construct(ptr nocapture noundef writeonly initializes((0, 56)) %0) local_unnamed_addr #8 {
+define void @PMIx_App_construct(ptr noundef writeonly captures(none) initializes((0, 56)) %0) local_unnamed_addr #8 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PMIx_App_destruct(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define void @PMIx_App_destruct(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   tail call fastcc void @pmix_bfrops_base_tma_app_destruct(ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pmix_bfrops_base_tma_app_destruct(ptr nocapture noundef %0) unnamed_addr #6 {
+define internal fastcc void @pmix_bfrops_base_tma_app_destruct(ptr noundef captures(none) %0) unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -4799,7 +4799,7 @@ pmix_bfrops_base_tma_app_create.exit:             ; preds = %1, %3
 }
 
 ; Function Attrs: nofree nounwind memory(write, inaccessiblemem: readwrite) uwtable
-define void @PMIx_App_info_create(ptr nocapture noundef writeonly initializes((48, 56)) %0, i64 noundef %1) local_unnamed_addr #18 {
+define void @PMIx_App_info_create(ptr noundef writeonly captures(none) initializes((48, 56)) %0, i64 noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %1, ptr %3, align 8
   %4 = icmp eq i64 %1, 0
@@ -4893,13 +4893,13 @@ pmix_bfrops_base_tma_app_release.exit:            ; preds = %1, %.lr.ph.i.prehea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PMIx_Query_construct(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #8 {
+define void @PMIx_Query_construct(ptr noundef writeonly captures(none) initializes((0, 24)) %0) local_unnamed_addr #8 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PMIx_Query_destruct(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define void @PMIx_Query_destruct(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %7, label %.preheader.i.i
@@ -4979,7 +4979,7 @@ pmix_bfrops_base_tma_query_create.exit:           ; preds = %1, %3
 }
 
 ; Function Attrs: nofree nounwind memory(write, inaccessiblemem: readwrite) uwtable
-define void @PMIx_Query_qualifiers_create(ptr nocapture noundef writeonly initializes((16, 24)) %0, i64 noundef %1) local_unnamed_addr #18 {
+define void @PMIx_Query_qualifiers_create(ptr noundef writeonly captures(none) initializes((16, 24)) %0, i64 noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %3, align 8
   %4 = icmp eq i64 %1, 0
@@ -5105,7 +5105,7 @@ define void @PMIx_Query_release(ptr noundef %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PMIx_Regattr_construct(ptr nocapture noundef writeonly initializes((0, 522), (528, 536)) %0) local_unnamed_addr #8 {
+define void @PMIx_Regattr_construct(ptr noundef writeonly captures(none) initializes((0, 522), (528, 536)) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store ptr null, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %0, i8 0, i64 522, i1 false)
@@ -5268,7 +5268,7 @@ pmix_bfrops_base_tma_regattr_free.exit:           ; preds = %2, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PMIx_Regattr_load(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i16 noundef zeroext %3, ptr noundef readonly %4) local_unnamed_addr #6 {
+define void @PMIx_Regattr_load(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, i16 noundef zeroext %3, ptr noundef readonly %4) local_unnamed_addr #6 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %8, label %6
 
@@ -5369,7 +5369,7 @@ pmix_bfrops_base_tma_regattr_load.exit:           ; preds = %17, %23, %pmix_bfro
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PMIx_Regattr_xfer(ptr nocapture noundef writeonly initializes((0, 522), (528, 536)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define void @PMIx_Regattr_xfer(ptr noundef writeonly captures(none) initializes((0, 522), (528, 536)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store ptr null, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %0, i8 0, i64 522, i1 false)
@@ -5426,7 +5426,7 @@ pmix_bfrops_base_tma_regattr_xfer.exit:           ; preds = %pmix_bfrops_base_tm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PMIx_Data_array_init(ptr nocapture noundef writeonly initializes((0, 2), (8, 24)) %0, i16 noundef zeroext %1) local_unnamed_addr #8 {
+define void @PMIx_Data_array_init(ptr noundef writeonly captures(none) initializes((0, 2), (8, 24)) %0, i16 noundef zeroext %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %3, align 8
   store i16 %1, ptr %0, align 8
@@ -5436,13 +5436,13 @@ define void @PMIx_Data_array_init(ptr nocapture noundef writeonly initializes((0
 }
 
 ; Function Attrs: nofree nounwind memory(write, inaccessiblemem: readwrite) uwtable
-define void @PMIx_Data_array_construct(ptr nocapture noundef writeonly initializes((0, 2), (8, 24)) %0, i64 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #18 {
+define void @PMIx_Data_array_construct(ptr noundef writeonly captures(none) initializes((0, 2), (8, 24)) %0, i64 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #18 {
   tail call fastcc void @pmix_bfrops_base_tma_data_array_construct(ptr noundef %0, i64 noundef %1, i16 noundef zeroext %2)
   ret void
 }
 
 ; Function Attrs: nofree nounwind memory(write, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @pmix_bfrops_base_tma_data_array_construct(ptr nocapture noundef writeonly initializes((0, 2), (8, 24)) %0, i64 noundef %1, i16 noundef zeroext %2) unnamed_addr #18 {
+define internal fastcc void @pmix_bfrops_base_tma_data_array_construct(ptr noundef writeonly captures(none) initializes((0, 2), (8, 24)) %0, i64 noundef %1, i16 noundef zeroext %2) unnamed_addr #18 {
   store i16 %2, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
@@ -6777,34 +6777,34 @@ pmix_bfrops_base_tma_data_array_free.exit:        ; preds = %1, %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #20
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #21
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #21
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #23
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #24
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #20
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #25
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #20
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unsetenv(ptr nocapture noundef readonly) local_unnamed_addr #26
+declare noundef i32 @unsetenv(ptr noundef readonly captures(none)) local_unnamed_addr #26
 
 ; Function Attrs: nounwind
 declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #27
@@ -6817,17 +6817,17 @@ declare void @pmix_hwloc_release_cpuset(ptr noundef, i64 noundef) local_unnamed_
 declare ptr @__ctype_b_loc() local_unnamed_addr #29
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #30
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #30
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #30
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #30
 
 declare void @pmix_bfrops_base_value_load(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #28
 
 declare i32 @pmix_bfrops_base_value_unload(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #28
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_nspace(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) unnamed_addr #31 {
+define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_nspace(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #31 {
   %calloc = tail call dereferenceable_or_null(256) ptr @calloc(i64 1, i64 256)
   %3 = icmp eq ptr %calloc, null
   br i1 %3, label %11, label %4
@@ -6867,7 +6867,7 @@ pmix_bfrops_base_tma_load_nspace.exit:            ; preds = %4, %pmix_strncpy.ex
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_pinfo(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #32 {
+define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_pinfo(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #32 {
   %calloc.i = tail call dereferenceable_or_null(296) ptr @calloc(i64 1, i64 296)
   %3 = icmp eq ptr %calloc.i, null
   br i1 %3, label %26, label %4
@@ -6919,7 +6919,7 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_pinfo(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pmix_bfrops_base_tma_copy_darray(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #6 {
+define internal fastcc noundef i32 @pmix_bfrops_base_tma_copy_darray(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 {
   store ptr null, ptr %0, align 8
   %3 = tail call noalias noundef dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #41
   %4 = icmp eq ptr %3, null
@@ -8865,7 +8865,7 @@ pmix_bfrops_base_tma_node_stats_create.exit:      ; preds = %15
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_coord(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #13 {
+define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_coord(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #13 {
   %3 = tail call noalias noundef dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #39
   %4 = icmp eq ptr %3, null
   br i1 %4, label %18, label %pmix_bfrops_base_tma_coord_construct.exit
@@ -8909,7 +8909,7 @@ pmix_bfrops_base_tma_coord_destruct.exit:         ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pmix_bfrops_base_tma_copy_topology(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 {
+define internal fastcc i32 @pmix_bfrops_base_tma_copy_topology(ptr noundef writeonly captures(none) %0, ptr noundef %1) unnamed_addr #6 {
   %calloc.i = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %3 = icmp eq ptr %calloc.i, null
   br i1 %3, label %9, label %4
@@ -8933,7 +8933,7 @@ define internal fastcc i32 @pmix_bfrops_base_tma_copy_topology(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pmix_bfrops_base_tma_copy_cpuset(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 {
+define internal fastcc i32 @pmix_bfrops_base_tma_copy_cpuset(ptr noundef writeonly captures(none) %0, ptr noundef %1) unnamed_addr #6 {
   %calloc.i = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %3 = icmp eq ptr %calloc.i, null
   br i1 %3, label %9, label %4
@@ -8957,7 +8957,7 @@ define internal fastcc i32 @pmix_bfrops_base_tma_copy_cpuset(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_geometry(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #6 {
+define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_geometry(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 {
   %calloc.i = tail call dereferenceable_or_null(40) ptr @calloc(i64 1, i64 40)
   %3 = icmp eq ptr %calloc.i, null
   br i1 %3, label %46, label %4
@@ -9054,7 +9054,7 @@ pmix_bfrops_base_tma_fill_coord.exit:             ; preds = %34
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_device(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #32 {
+define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_device(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #32 {
   %calloc.i = tail call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
   %3 = icmp eq ptr %calloc.i, null
   br i1 %3, label %18, label %4
@@ -9095,7 +9095,7 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_device(p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_devdist(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #32 {
+define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_devdist(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #32 {
   %calloc = tail call dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
   %.not.i = icmp eq ptr %calloc, null
   br i1 %.not.i, label %pmix_bfrops_base_tma_device_distance_create.exit.thread, label %.preheader.i.preheader
@@ -9144,7 +9144,7 @@ pmix_bfrops_base_tma_device_distance_create.exit.thread: ; preds = %2, %14
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_endpoint(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #32 {
+define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_endpoint(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #32 {
   %calloc.i = tail call dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
   %3 = icmp eq ptr %calloc.i, null
   br i1 %3, label %24, label %4
@@ -9198,7 +9198,7 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_endpoint
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_regattr(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #6 {
+define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_regattr(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 {
   %3 = tail call noalias noundef dereferenceable_or_null(536) ptr @malloc(i64 noundef 536) #39
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %pmix_bfrops_base_tma_regattr_create.exit.thread, label %.preheader.i.preheader
@@ -9265,7 +9265,7 @@ pmix_bfrops_base_tma_load_key.exit:               ; preds = %.lr.ph.i.i, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pmix_bfrops_base_tma_copy_dbuf(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #6 {
+define internal fastcc i32 @pmix_bfrops_base_tma_copy_dbuf(ptr noundef writeonly captures(none) %0, ptr noundef %1) unnamed_addr #6 {
   %calloc.i = tail call noalias noundef dereferenceable_or_null(40) ptr @calloc(i64 1, i64 40)
   %3 = icmp eq ptr %calloc.i, null
   br i1 %3, label %6, label %4
@@ -9281,7 +9281,7 @@ define internal fastcc i32 @pmix_bfrops_base_tma_copy_dbuf(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_pstats(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #32 {
+define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_pstats(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #32 {
   %calloc.i = tail call dereferenceable_or_null(352) ptr @calloc(i64 1, i64 352)
   %3 = icmp eq ptr %calloc.i, null
   br i1 %3, label %51, label %4
@@ -9368,7 +9368,7 @@ pmix_bfrops_base_tma_populate_pstats.exit:        ; preds = %8, %16
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_dkstats(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #32 {
+define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_dkstats(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #32 {
   %calloc.i = tail call dereferenceable_or_null(96) ptr @calloc(i64 1, i64 96)
   %3 = icmp eq ptr %calloc.i, null
   br i1 %3, label %41, label %4
@@ -9437,7 +9437,7 @@ pmix_bfrops_base_tma_populate_dkstats.exit:       ; preds = %4, %6
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_netstats(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #32 {
+define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_netstats(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #32 {
   %calloc.i = tail call dereferenceable_or_null(56) ptr @calloc(i64 1, i64 56)
   %3 = icmp eq ptr %calloc.i, null
   br i1 %3, label %26, label %4
@@ -9486,7 +9486,7 @@ pmix_bfrops_base_tma_populate_netstats.exit:      ; preds = %4, %6
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_ndstats(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #33 {
+define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_ndstats(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #33 {
   %calloc.i = tail call dereferenceable_or_null(104) ptr @calloc(i64 1, i64 104)
   %3 = icmp eq ptr %calloc.i, null
   br i1 %3, label %5, label %4
@@ -9510,7 +9510,7 @@ declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #28
 declare i32 @pmix_hwloc_copy_cpuset(ptr noundef, ptr noundef) local_unnamed_addr #28
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @pmix_bfrops_base_tma_populate_ndstats(ptr nocapture noundef nonnull initializes((8, 52), (56, 72), (80, 88)) %0, ptr nocapture noundef readonly %1) unnamed_addr #33 {
+define internal fastcc void @pmix_bfrops_base_tma_populate_ndstats(ptr noundef nonnull captures(none) initializes((8, 52), (56, 72), (80, 88)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #33 {
   %3 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -9740,10 +9740,10 @@ declare i32 @PMIx_Data_unload(ptr noundef, ptr noundef) local_unnamed_addr #28
 declare void @pmix_hwloc_release_topology(ptr noundef, i64 noundef) local_unnamed_addr #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #35
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #35
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #35
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -71,7 +71,7 @@ declare dso_local void @phy_drivers_unregister(ptr noundef, i32 noundef) local_u
 declare dso_local i32 @phy_drivers_register(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @rtl821x_read_page(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal i32 @rtl821x_read_page(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 792
@@ -81,7 +81,7 @@ define internal i32 @rtl821x_read_page(ptr nocapture noundef readonly %0) #2 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @rtl821x_write_page(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
+define internal i32 @rtl821x_write_page(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 align 16 {
   %3 = trunc i32 %1 to i16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %5 = load ptr, ptr %4, align 8
@@ -234,7 +234,7 @@ define internal i32 @rtl8211b_resume(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @rtl8211b_config_intr(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal i32 @rtl8211b_config_intr(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 988
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 65536
@@ -319,7 +319,7 @@ define internal i32 @rtl8211c_config_init(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @rtl8211e_config_intr(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal i32 @rtl8211e_config_intr(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 988
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 65536
@@ -705,7 +705,7 @@ define internal i32 @rtlgen_resume(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 2) i32 @rtlgen_match_phy_device(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal range(i32 0, 2) i32 @rtlgen_match_phy_device(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1886208
@@ -734,7 +734,7 @@ define internal range(i32 0, 2) i32 @rtlgen_match_phy_device(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @rtlgen_read_mmd(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2) #2 align 16 {
+define internal i32 @rtlgen_read_mmd(ptr noundef readonly captures(none) %0, i32 noundef %1, i16 noundef zeroext %2) #2 align 16 {
   %4 = icmp eq i32 %1, 3
   %5 = icmp eq i16 %2, 20
   %6 = and i1 %4, %5
@@ -773,7 +773,7 @@ define internal i32 @rtlgen_read_mmd(ptr nocapture noundef readonly %0, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @rtlgen_write_mmd(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3) #2 align 16 {
+define internal i32 @rtlgen_write_mmd(ptr noundef readonly captures(none) %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3) #2 align 16 {
   %5 = icmp eq i32 %1, 7
   %6 = icmp eq i16 %2, 60
   %7 = and i1 %5, %6
@@ -989,7 +989,7 @@ define internal range(i32 -2147483648, 1) i32 @rtl822x_read_status(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 2) i32 @rtl8226_match_phy_device(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal range(i32 0, 2) i32 @rtl8226_match_phy_device(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1886208
@@ -1018,7 +1018,7 @@ define internal range(i32 0, 2) i32 @rtl8226_match_phy_device(ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @rtl822x_read_mmd(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2) #2 align 16 {
+define internal i32 @rtl822x_read_mmd(ptr noundef readonly captures(none) %0, i32 noundef %1, i16 noundef zeroext %2) #2 align 16 {
   %4 = icmp eq i32 %1, 3
   %5 = icmp eq i16 %2, 20
   %6 = and i1 %4, %5
@@ -1090,7 +1090,7 @@ rtlgen_read_mmd.exit.thread:                      ; preds = %11, %rtlgen_read_mm
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @rtl822x_write_mmd(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3) #2 align 16 {
+define internal i32 @rtl822x_write_mmd(ptr noundef readonly captures(none) %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3) #2 align 16 {
   %5 = icmp eq i32 %1, 7
   %6 = icmp eq i16 %2, 60
   %7 = and i1 %5, %6
@@ -1137,7 +1137,7 @@ define internal i32 @rtl8366rb_config_init(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @genphy_no_config_intr(ptr nocapture readnone %0) #3 align 16 {
+define internal noundef i32 @genphy_no_config_intr(ptr readnone captures(none) %0) #3 align 16 {
   ret i32 0
 }
 
@@ -1145,7 +1145,7 @@ define internal noundef i32 @genphy_no_config_intr(ptr nocapture readnone %0) #3
 declare dso_local i32 @genphy_handle_interrupt_no_ack(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @rtl9000a_config_init(ptr nocapture noundef initializes((1016, 1024)) %0) #4 align 16 {
+define internal noundef i32 @rtl9000a_config_init(ptr noundef captures(none) initializes((1016, 1024)) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 988
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, -8193

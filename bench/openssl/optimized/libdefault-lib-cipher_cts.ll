@@ -69,7 +69,7 @@ return:                                           ; preds = %for.cond, %if.then
 declare i32 @OPENSSL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cipher_cbc_cts_block_update(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_cipher_cbc_cts_block_update(ptr noundef %vctx, ptr noundef %out, ptr noundef writeonly captures(none) %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ult i64 %inl, 16
   %cmp1 = icmp ult i64 %outsize, %inl
@@ -492,7 +492,7 @@ if.end16:                                         ; preds = %if.end14, %if.end3
   %4 = load ptr, ptr %hw21, align 8
   %cipher22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %cipher22, align 8
-  %call24 = call i32 %5(ptr noundef %ctx, ptr noundef nonnull %pt_last, ptr noundef %in.addr.0, i64 noundef 16) #7
+  %call24 = call i32 %5(ptr noundef %ctx, ptr noundef nonnull %pt_last, ptr noundef nonnull %in.addr.0, i64 noundef 16) #7
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %return, label %if.end27
 
@@ -558,23 +558,23 @@ return:                                           ; preds = %if.end37, %if.end16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ossl_cipher_cbc_cts_block_final(ptr nocapture noundef readnone %vctx, ptr nocapture noundef readnone %out, ptr nocapture noundef writeonly initializes((0, 8)) %outl, i64 noundef %outsize) local_unnamed_addr #3 {
+define noundef i32 @ossl_cipher_cbc_cts_block_final(ptr noundef readnone captures(none) %vctx, ptr noundef readnone captures(none) %out, ptr noundef writeonly captures(none) initializes((0, 8)) %outl, i64 noundef %outsize) local_unnamed_addr #3 {
 entry:
   store i64 0, ptr %outl, align 8
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -294,7 +294,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_Z43_glyf_get_leading_bearing_with_var_unscaledP9hb_font_tjbPi(ptr noundef %font, i32 noundef %glyph, i1 noundef zeroext %is_vertical, ptr nocapture noundef writeonly %lsb) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_Z43_glyf_get_leading_bearing_with_var_unscaledP9hb_font_tjbPi(ptr noundef %font, i32 noundef %glyph, i1 noundef zeroext %is_vertical, ptr noundef writeonly captures(none) %lsb) local_unnamed_addr #0 {
 entry:
   %extents.i = alloca %struct.hb_glyph_extents_t, align 4
   %phantoms.i = alloca [4 x %struct.contour_point_t], align 16
@@ -618,7 +618,7 @@ return:                                           ; preds = %if.then5.i13, %if.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_Z46_glyf_get_leading_bearing_without_var_unscaledP9hb_face_tjbPi(ptr nocapture noundef %face, i32 noundef %gid, i1 noundef zeroext %is_vertical, ptr nocapture noundef writeonly %lsb) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_Z46_glyf_get_leading_bearing_without_var_unscaledP9hb_face_tjbPi(ptr noundef captures(none) %face, i32 noundef %gid, i1 noundef zeroext %is_vertical, ptr noundef writeonly captures(none) %lsb) local_unnamed_addr #0 {
 entry:
   %ref.tmp.i = alloca %"struct.OT::glyf_impl::Glyph", align 8
   %glyf = getelementptr inbounds nuw i8, ptr %face, i64 200
@@ -2917,10 +2917,10 @@ return:                                           ; preds = %if.then.i.i.i553, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { ptr, i64 } @_ZNK2OT9glyf_impl5Glyph12trim_paddingEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
@@ -3377,11 +3377,11 @@ if.end20.i:                                       ; preds = %for.body14.i, %if.e
   br i1 %cmp.not.i61, label %for.body.i, label %land.lhs.true, !llvm.loop !22
 
 land.lhs.true:                                    ; preds = %if.end20.i, %if.end48
-  %call51 = call noundef zeroext i1 @_ZN2OT9glyf_impl11SimpleGlyph11read_pointsERPKNS_7IntTypeIhLj1EEE10hb_array_tI15contour_point_tES5_MS8_fNS1_19simple_glyph_flag_tESB_(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr %retval.sroa.0.0.i, i64 %points_.sroa.6.8.insert.ext66, ptr noundef nonnull %add.ptr, i64 0, i32 noundef 2, i32 noundef 16)
+  %call51 = call noundef zeroext i1 @_ZN2OT9glyf_impl11SimpleGlyph11read_pointsERPKNS_7IntTypeIhLj1EEE10hb_array_tI15contour_point_tES5_MS8_fNS1_19simple_glyph_flag_tESB_(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr nonnull %retval.sroa.0.0.i, i64 %points_.sroa.6.8.insert.ext66, ptr noundef nonnull %add.ptr, i64 0, i32 noundef 2, i32 noundef 16)
   br i1 %call51, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %call53 = call noundef zeroext i1 @_ZN2OT9glyf_impl11SimpleGlyph11read_pointsERPKNS_7IntTypeIhLj1EEE10hb_array_tI15contour_point_tES5_MS8_fNS1_19simple_glyph_flag_tESB_(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr %retval.sroa.0.0.i, i64 %points_.sroa.6.8.insert.ext66, ptr noundef nonnull %add.ptr, i64 4, i32 noundef 4, i32 noundef 32)
+  %call53 = call noundef zeroext i1 @_ZN2OT9glyf_impl11SimpleGlyph11read_pointsERPKNS_7IntTypeIhLj1EEE10hb_array_tI15contour_point_tES5_MS8_fNS1_19simple_glyph_flag_tESB_(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr nonnull %retval.sroa.0.0.i, i64 %points_.sroa.6.8.insert.ext66, ptr noundef nonnull %add.ptr, i64 4, i32 noundef 4, i32 noundef 32)
   br label %return
 
 return:                                           ; preds = %if.then4.i, %for.body.i, %if.end, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit, %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread18.i, %entry, %land.lhs.true.i, %_ZNK10hb_array_tI15contour_point_tE9sub_arrayEjPj.exit, %land.lhs.true, %land.rhs, %if.end41, %for.end
@@ -5770,10 +5770,10 @@ return:                                           ; preds = %if.then, %if.then15
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local { ptr, i64 } @_ZNK2OT4gvar24get_glyph_var_data_bytesEP9hb_blob_tjj(ptr noundef nonnull align 1 dereferenceable(21) %this, ptr noundef %blob, i32 noundef %glyph_count, i32 noundef %glyph) local_unnamed_addr #0 comdat align 2 {
@@ -10163,10 +10163,10 @@ declare i32 @llvm.umax.i32(i32, i32) #10
 declare i32 @llvm.umin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #10

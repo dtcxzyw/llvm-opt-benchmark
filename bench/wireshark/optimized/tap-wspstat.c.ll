@@ -36,7 +36,7 @@ define hidden void @register_tap_listener_wspstat() local_unnamed_addr #0 {
 declare void @register_stat_tap_ui(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @wspstat_init(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @wspstat_init(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.1, i64 noundef 9) #11
   %.not = icmp eq i32 %3, 0
   %4 = getelementptr i8, ptr %0, i64 9
@@ -138,7 +138,7 @@ index2pdut.exit:                                  ; preds = %.lr.ph46, %32, %34
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0,1)
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
@@ -160,7 +160,7 @@ declare ptr @try_val_to_str_ext(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @wspstat_reset(ptr nocapture noundef readonly %0) #0 {
+define internal void @wspstat_reset(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %.not6 = icmp eq i32 %3, 0
@@ -189,7 +189,7 @@ define internal void @wspstat_reset(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @wspstat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @wspstat_packet(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %7 = load i8, ptr %6, align 4
   %8 = zext i8 %7 to i32
@@ -270,7 +270,7 @@ pdut2index.exit:                                  ; preds = %5, %10, %14, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @wspstat_draw(ptr nocapture noundef readonly %0) #0 {
+define internal void @wspstat_draw(ptr noundef readonly captures(none) %0) #0 {
   %putchar = tail call i32 @putchar(i32 10)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
   %puts17 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
@@ -340,7 +340,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @wsp_free_hash_table(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @wsp_free_hash_table(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   tail call void @g_free(ptr noundef %0) #10
   tail call void @g_free(ptr noundef %1) #10
   ret void
@@ -356,7 +356,7 @@ declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @wsp_reset_hash(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((8, 12)) %1, ptr nocapture readnone %2) #6 {
+define internal void @wsp_reset_hash(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((8, 12)) %1, ptr readnone captures(none) %2) #6 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %4, align 8
   ret void
@@ -365,10 +365,10 @@ define internal void @wsp_reset_hash(ptr nocapture readnone %0, ptr nocapture no
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @wsp_print_statuscode(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) #8 {
+define internal void @wsp_print_statuscode(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) #8 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %4
 
@@ -393,7 +393,7 @@ define internal void @wsp_print_statuscode(ptr noundef %0, ptr noundef readonly 
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

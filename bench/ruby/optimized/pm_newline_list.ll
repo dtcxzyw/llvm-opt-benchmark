@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define hidden noundef zeroext i1 @pm_newline_list_init(ptr nocapture noundef writeonly initializes((24, 32)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @pm_newline_list_init(ptr noundef writeonly captures(none) initializes((24, 32)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias ptr @calloc(i64 noundef %2, i64 noundef 8) #6
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %4, ptr %5, align 8
@@ -27,7 +27,7 @@ define hidden noundef zeroext i1 @pm_newline_list_init(ptr nocapture noundef wri
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden noundef zeroext i1 @pm_newline_list_append(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define hidden noundef zeroext i1 @pm_newline_list_append(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -74,13 +74,13 @@ define hidden noundef zeroext i1 @pm_newline_list_append(ptr nocapture noundef %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @pm_newline_list_line_column(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define hidden i64 @pm_newline_list_line_column(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = load ptr, ptr %0, align 8
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %4 to i64
@@ -137,7 +137,7 @@ define hidden i64 @pm_newline_list_line_column(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden void @pm_newline_list_free(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden void @pm_newline_list_free(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #7

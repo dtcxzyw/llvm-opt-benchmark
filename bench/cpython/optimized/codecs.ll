@@ -4217,10 +4217,10 @@ return:                                           ; preds = %if.end.i, %if.then1
 declare ptr @_PyUnicode_GetNameCAPI() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #3
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
@@ -4254,7 +4254,7 @@ declare ptr @PyTuple_New(i64 noundef) local_unnamed_addr #1
 declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @strict_errors(ptr nocapture readnone %self, ptr noundef %exc) #0 {
+define internal noalias noundef ptr @strict_errors(ptr readnone captures(none) %self, ptr noundef %exc) #0 {
 entry:
   %0 = getelementptr i8, ptr %exc, i64 8
   %exc.val3.i = load ptr, ptr %0, align 8
@@ -4278,42 +4278,42 @@ PyCodec_StrictErrors.exit:                        ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ignore_errors(ptr nocapture readnone %self, ptr noundef %exc) #0 {
+define internal ptr @ignore_errors(ptr readnone captures(none) %self, ptr noundef %exc) #0 {
 entry:
   %call = tail call ptr @PyCodec_IgnoreErrors(ptr noundef %exc)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @replace_errors(ptr nocapture readnone %self, ptr noundef %exc) #0 {
+define internal ptr @replace_errors(ptr readnone captures(none) %self, ptr noundef %exc) #0 {
 entry:
   %call = tail call ptr @PyCodec_ReplaceErrors(ptr noundef %exc)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xmlcharrefreplace_errors(ptr nocapture readnone %self, ptr noundef %exc) #0 {
+define internal ptr @xmlcharrefreplace_errors(ptr readnone captures(none) %self, ptr noundef %exc) #0 {
 entry:
   %call = tail call ptr @PyCodec_XMLCharRefReplaceErrors(ptr noundef %exc)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @backslashreplace_errors(ptr nocapture readnone %self, ptr noundef %exc) #0 {
+define internal ptr @backslashreplace_errors(ptr readnone captures(none) %self, ptr noundef %exc) #0 {
 entry:
   %call = tail call ptr @PyCodec_BackslashReplaceErrors(ptr noundef %exc)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @namereplace_errors(ptr nocapture readnone %self, ptr noundef %exc) #0 {
+define internal ptr @namereplace_errors(ptr readnone captures(none) %self, ptr noundef %exc) #0 {
 entry:
   %call = tail call ptr @PyCodec_NameReplaceErrors(ptr noundef %exc)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @surrogatepass_errors(ptr nocapture readnone %self, ptr noundef %exc) #0 {
+define internal ptr @surrogatepass_errors(ptr readnone captures(none) %self, ptr noundef %exc) #0 {
 entry:
   %bytelength.i = alloca i32, align 4
   %start.i = alloca i64, align 8
@@ -4577,7 +4577,7 @@ PyUnicode_READ_CHAR.exit.i:                       ; preds = %PyUnicode_DATA.exit
 
 if.then42.i:                                      ; preds = %PyUnicode_READ_CHAR.exit.i
   %exc.val129.i = load ptr, ptr %1, align 8
-  call void @PyErr_SetObject(ptr noundef %exc.val129.i, ptr noundef %exc) #9
+  call void @PyErr_SetObject(ptr noundef %exc.val129.i, ptr noundef nonnull %exc) #9
   %28 = load i64, ptr %call32.i, align 8
   %29 = and i64 %28, 2147483648
   %cmp.i377.not.i = icmp eq i64 %29, 0
@@ -5000,7 +5000,7 @@ PyCodec_SurrogatePassErrors.exit:                 ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @surrogateescape_errors(ptr nocapture readnone %self, ptr noundef %exc) #0 {
+define internal ptr @surrogateescape_errors(ptr readnone captures(none) %self, ptr noundef %exc) #0 {
 entry:
   %start.i = alloca i64, align 8
   %end.i = alloca i64, align 8
@@ -5153,7 +5153,7 @@ PyUnicode_READ_CHAR.exit.i:                       ; preds = %PyUnicode_DATA.exit
 
 if.then20.i:                                      ; preds = %PyUnicode_READ_CHAR.exit.i
   %exc.val48.i = load ptr, ptr %1, align 8
-  call void @PyErr_SetObject(ptr noundef %exc.val48.i, ptr noundef %exc) #9
+  call void @PyErr_SetObject(ptr noundef %exc.val48.i, ptr noundef nonnull %exc) #9
   %17 = load i64, ptr %call12.i, align 8
   %18 = and i64 %17, 2147483648
   %cmp.i125.not.i = icmp eq i64 %18, 0
@@ -5311,7 +5311,7 @@ Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.e
 
 if.then63.i:                                      ; preds = %Py_DECREF.exit.i
   %exc.val.i = load ptr, ptr %1, align 8
-  call void @PyErr_SetObject(ptr noundef %exc.val.i, ptr noundef %exc) #9
+  call void @PyErr_SetObject(ptr noundef %exc.val.i, ptr noundef nonnull %exc) #9
   br label %PyCodec_SurrogateEscapeErrors.exit
 
 if.end65.i:                                       ; preds = %Py_DECREF.exit.i
@@ -5355,7 +5355,7 @@ declare ptr @PyUnicodeEncodeError_GetEncoding(ptr noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -1, 5) i32 @get_standard_encoding(ptr nocapture noundef nonnull readonly %encoding, ptr nocapture noundef nonnull writeonly %bytelength) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 5) i32 @get_standard_encoding(ptr noundef nonnull readonly captures(none) %encoding, ptr noundef nonnull writeonly captures(none) %bytelength) unnamed_addr #5 {
 entry:
   %0 = load i8, ptr %encoding, align 1
   %idxprom = zext i8 %0 to i64
@@ -5531,7 +5531,7 @@ declare ptr @PyUnicodeDecodeError_GetEncoding(ptr noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_FromOrdinal(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @PyUnicode_FromKindAndData(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -5539,13 +5539,13 @@ declare ptr @PyUnicode_FromKindAndData(i32 noundef, ptr noundef, i64 noundef) lo
 declare i64 @llvm.smax.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

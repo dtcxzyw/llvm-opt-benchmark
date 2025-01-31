@@ -1105,7 +1105,7 @@ opal_free_list_return.exit:                       ; preds = %._crit_edge254, %op
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
-define internal range(i32 -1, 1) i32 @mca_part_persist_precv_init(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture readnone %7, ptr nocapture noundef writeonly %8) #0 {
+define internal range(i32 -1, 1) i32 @mca_part_persist_precv_init(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr readnone captures(none) %7, ptr noundef writeonly captures(none) %8) #0 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %.sroa.22.i.i.i.i = alloca i64, align 8
@@ -1417,7 +1417,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %111, %
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
-define internal range(i32 -1, 1) i32 @mca_part_persist_psend_init(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture readnone %7, ptr nocapture noundef writeonly %8) #0 {
+define internal range(i32 -1, 1) i32 @mca_part_persist_psend_init(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr readnone captures(none) %7, ptr noundef writeonly captures(none) %8) #0 {
   %10 = alloca ptr, align 8
   %.sroa.22.i.i.i7.i.i = alloca i64, align 8
   %11 = alloca ptr, align 8
@@ -2073,7 +2073,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i100, %238
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
-define internal i32 @mca_part_persist_start(i64 noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal i32 @mca_part_persist_start(i64 noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph38
 
@@ -2182,7 +2182,7 @@ opal_thread_swap_ptr.exit:                        ; preds = %44, %46
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
-define internal noundef i32 @mca_part_persist_pready(i64 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal noundef i32 @mca_part_persist_pready(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 588
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 1
@@ -2240,7 +2240,7 @@ define internal noundef i32 @mca_part_persist_pready(i64 noundef %0, i64 noundef
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
-define internal noundef i32 @mca_part_persist_parrived(i64 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @mca_part_persist_parrived(i64 noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 608
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -2347,7 +2347,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #5
 declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @opal_pointer_array_set_item(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2361,7 +2361,7 @@ declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #5
 declare i32 @opal_progress() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.floor.f32(float) #8
@@ -2370,10 +2370,10 @@ declare float @llvm.floor.f32(float) #8
 declare float @llvm.ceil.f32(float) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { alwaysinline nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

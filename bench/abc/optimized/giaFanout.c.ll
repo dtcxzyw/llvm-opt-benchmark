@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [5 x i8] c"%5d \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManFanoutStart(ptr nocapture noundef initializes((232, 244)) %0) local_unnamed_addr #0 {
+define void @Gia_ManFanoutStart(ptr noundef captures(none) initializes((232, 244)) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -83,10 +83,10 @@ define void @Gia_ManFanoutStart(ptr nocapture noundef initializes((232, 244)) %0
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Gia_ObjAddFanout(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @Gia_ObjAddFanout(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %4, align 8
   %5 = ptrtoint ptr %1 to i64
@@ -251,7 +251,7 @@ Gia_ObjWhatFanin.exit:                            ; preds = %36, %42, %Gia_ObjFa
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Gia_ManFanoutStop(ptr nocapture noundef initializes((240, 244)) %0) local_unnamed_addr #3 {
+define void @Gia_ManFanoutStop(ptr noundef captures(none) initializes((240, 244)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -269,13 +269,13 @@ define void @Gia_ManFanoutStop(ptr nocapture noundef initializes((240, 244)) %0)
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @Gia_ObjRemoveFanout(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define void @Gia_ObjRemoveFanout(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr i8, ptr %0, i64 32
   %.val33 = load ptr, ptr %4, align 8
   %5 = ptrtoint ptr %2 to i64
@@ -393,7 +393,7 @@ Gia_ObjWhatFanin.exit:                            ; preds = %3, %15, %Gia_ObjFan
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Gia_ManStartFanoutMap(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
+define noalias noundef ptr @Gia_ManStartFanoutMap(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 52
@@ -721,7 +721,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %124
 declare void @Gia_ManCreateRefs(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Gia_ManStartMappingFanoutMap(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Gia_ManStartMappingFanoutMap(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %3, align 8
   %4 = shl nsw i32 %.val, 1
@@ -885,7 +885,7 @@ Vec_IntFillExtra.exit:                            ; preds = %._crit_edge.i, %46,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Gia_ObjCheckDupMappingFanins(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #9 {
+define void @Gia_ObjCheckDupMappingFanins(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
 ._crit_edge:
   ret void
 }
@@ -1242,7 +1242,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge4, %172
 declare void @Gia_ManSetLutRefs(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Gia_ManStaticFanoutStop(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define void @Gia_ManStaticFanoutStop(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1436,7 +1436,7 @@ Gia_ManStaticFanoutStop.exit:                     ; preds = %Vec_IntFreeP.exit.i
 declare void @Gia_ObjPrint(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11

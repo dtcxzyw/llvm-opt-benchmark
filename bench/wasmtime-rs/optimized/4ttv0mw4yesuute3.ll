@@ -4,13 +4,13 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h01dc8c48f320ca64E"(ptr nocapture writeonly sret({ i64, [15 x i64] }) align 16 initializes((0, 128)) %0, ptr nocapture readonly align 16 %1) unnamed_addr #0 {
+define void @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h01dc8c48f320ca64E"(ptr writeonly sret({ i64, [15 x i64] }) align 16 captures(none) initializes((0, 128)) %0, ptr readonly align 16 captures(none) %1) unnamed_addr #0 {
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %0, ptr noundef nonnull align 16 dereferenceable(128) %1, i64 128, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h057830a68ae5008bE"(ptr nocapture writeonly sret({ i64, [5 x i64] }) align 16 initializes((0, 48)) %0, ptr nocapture readonly align 16 %1) unnamed_addr #0 {
+define void @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h057830a68ae5008bE"(ptr writeonly sret({ i64, [5 x i64] }) align 16 captures(none) initializes((0, 48)) %0, ptr readonly align 16 captures(none) %1) unnamed_addr #0 {
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %0, ptr noundef nonnull align 16 dereferenceable(48) %1, i64 48, i1 false)
   ret void
 }
@@ -35,7 +35,7 @@ define { i64, i64 } @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$G
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h9179a464ed93cd63E"(ptr nocapture writeonly sret({ i64, [15 x i64] }) align 16 initializes((0, 128)) %0, ptr nocapture readonly align 16 %1) unnamed_addr #0 {
+define void @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h9179a464ed93cd63E"(ptr writeonly sret({ i64, [15 x i64] }) align 16 captures(none) initializes((0, 128)) %0, ptr readonly align 16 captures(none) %1) unnamed_addr #0 {
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %0, ptr noundef nonnull align 16 dereferenceable(128) %1, i64 128, i1 false)
   ret void
 }
@@ -53,7 +53,7 @@ define { i64, i64 } @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$G
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hb3f3791bf9c24e85E"(ptr nocapture writeonly sret({ i64, [5 x i64] }) align 16 initializes((0, 48)) %0, ptr nocapture readonly align 16 %1) unnamed_addr #0 {
+define void @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hb3f3791bf9c24e85E"(ptr writeonly sret({ i64, [5 x i64] }) align 16 captures(none) initializes((0, 48)) %0, ptr readonly align 16 captures(none) %1) unnamed_addr #0 {
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %0, ptr noundef nonnull align 16 dereferenceable(48) %1, i64 48, i1 false)
   ret void
 }
@@ -65,7 +65,7 @@ define { i64, i64 } @_ZN4core3ops12control_flow11ControlFlow5Break17h0e2178c6839
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4core3ops12control_flow11ControlFlow5Break17h265f5b0c43086cd7E(ptr nocapture writeonly sret({ i64, [15 x i64] }) align 16 initializes((0, 128)) %0, ptr nocapture readonly align 16 %1) unnamed_addr #0 {
+define void @_ZN4core3ops12control_flow11ControlFlow5Break17h265f5b0c43086cd7E(ptr writeonly sret({ i64, [15 x i64] }) align 16 captures(none) initializes((0, 128)) %0, ptr readonly align 16 captures(none) %1) unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %0, ptr noundef nonnull align 16 dereferenceable(128) %1, i64 128, i1 false)
   ret void
 }
@@ -98,13 +98,13 @@ define zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h0485e5a2ef6f5c8eE"(ptr nocapture writeonly sret({ i64, [5 x i64] }) align 16 initializes((0, 8)) %0) unnamed_addr #4 {
+define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h0485e5a2ef6f5c8eE"(ptr writeonly sret({ i64, [5 x i64] }) align 16 captures(none) initializes((0, 8)) %0) unnamed_addr #4 {
   store i64 7, ptr %0, align 16
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h334d9f3bd21f5541E"(ptr nocapture writeonly sret({ i64, [15 x i64] }) align 16 initializes((0, 8)) %0) unnamed_addr #4 {
+define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h334d9f3bd21f5541E"(ptr writeonly sret({ i64, [15 x i64] }) align 16 captures(none) initializes((0, 8)) %0) unnamed_addr #4 {
   store i64 8, ptr %0, align 16
   ret void
 }
@@ -115,7 +115,7 @@ define noundef zeroext i1 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h44460fdd2b503a31E"(ptr nocapture writeonly sret({ i64, [15 x i64] }) align 16 initializes((0, 8)) %0) unnamed_addr #4 {
+define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h44460fdd2b503a31E"(ptr writeonly sret({ i64, [15 x i64] }) align 16 captures(none) initializes((0, 8)) %0) unnamed_addr #4 {
   store i64 9, ptr %0, align 16
   ret void
 }
@@ -126,7 +126,7 @@ define { i64, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h80afff71604e4d68E"(ptr nocapture writeonly sret({ i64, [5 x i64] }) align 16 initializes((0, 8)) %0) unnamed_addr #4 {
+define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h80afff71604e4d68E"(ptr writeonly sret({ i64, [5 x i64] }) align 16 captures(none) initializes((0, 8)) %0) unnamed_addr #4 {
   store i64 5, ptr %0, align 16
   ret void
 }
@@ -156,7 +156,7 @@ define { i64, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h33f993f7216e6c3bE"(ptr nocapture writeonly sret({ i64, [5 x i64] }) align 16 initializes((0, 8)) %0, ptr nocapture readonly align 16 %1) unnamed_addr #0 {
+define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h33f993f7216e6c3bE"(ptr writeonly sret({ i64, [5 x i64] }) align 16 captures(none) initializes((0, 8)) %0, ptr readonly align 16 captures(none) %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 16, !range !5, !noundef !4
   %4 = icmp eq i64 %3, 7
   br i1 %4, label %5, label %6
@@ -174,7 +174,7 @@ define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h4c143e915f33b3b5E"(ptr nocapture writeonly sret({ i64, [15 x i64] }) align 16 initializes((0, 8)) %0, ptr nocapture readonly align 16 %1) unnamed_addr #0 {
+define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h4c143e915f33b3b5E"(ptr writeonly sret({ i64, [15 x i64] }) align 16 captures(none) initializes((0, 8)) %0, ptr readonly align 16 captures(none) %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 16, !range !6, !noundef !4
   %4 = icmp eq i64 %3, 8
   br i1 %4, label %5, label %6
@@ -202,7 +202,7 @@ define { i64, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h9e4fc2acf8953d3bE"(ptr nocapture writeonly sret({ i64, [15 x i64] }) align 16 initializes((0, 8)) %0, ptr nocapture readonly align 16 %1) unnamed_addr #0 {
+define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h9e4fc2acf8953d3bE"(ptr writeonly sret({ i64, [15 x i64] }) align 16 captures(none) initializes((0, 8)) %0, ptr readonly align 16 captures(none) %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 16, !range !7, !noundef !4
   %4 = icmp eq i64 %3, 9
   br i1 %4, label %5, label %6
@@ -240,7 +240,7 @@ define align 8 ptr @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hfdc17e63e4f0e447E"(ptr nocapture writeonly sret({ i64, [5 x i64] }) align 16 initializes((0, 8)) %0, ptr nocapture readonly align 16 %1) unnamed_addr #0 {
+define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hfdc17e63e4f0e447E"(ptr writeonly sret({ i64, [5 x i64] }) align 16 captures(none) initializes((0, 8)) %0, ptr readonly align 16 captures(none) %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 16, !range !8, !noundef !4
   %4 = icmp eq i64 %3, 5
   br i1 %4, label %5, label %6
@@ -258,7 +258,7 @@ define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
@@ -267,7 +267,7 @@ declare void @llvm.assume(i1 noundef) #6
 declare hidden zeroext i1 @"_ZN4core3cmp5impls59_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$$RP$$GT$2eq17hee9cd93b6a0348ebE"(ptr align 1, ptr align 1) unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

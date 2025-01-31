@@ -116,7 +116,7 @@ define internal void @flex_align_track_event_handler(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @flex_loader_obj_update(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @flex_loader_obj_update(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 125) #2
   %4 = ptrtoint ptr %3 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %4 to i32

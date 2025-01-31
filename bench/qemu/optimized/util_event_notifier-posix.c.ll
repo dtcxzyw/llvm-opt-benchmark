@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @event_notifier_set.value = internal constant i64 1, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @event_notifier_init_fd(ptr nocapture noundef writeonly initializes((0, 9)) %e, i32 noundef %fd) local_unnamed_addr #0 {
+define dso_local void @event_notifier_init_fd(ptr noundef writeonly captures(none) initializes((0, 9)) %e, i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   store i32 %fd, ptr %e, align 4
   %wfd = getelementptr inbounds nuw i8, ptr %e, i64 4
@@ -17,7 +17,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @event_notifier_init(ptr nocapture noundef %e, i32 noundef %active) local_unnamed_addr #1 {
+define dso_local i32 @event_notifier_init(ptr noundef captures(none) %e, i32 noundef %active) local_unnamed_addr #1 {
 entry:
   %fds = alloca [2 x i32], align 4
   %call = tail call i32 @eventfd(i32 noundef 0, i32 noundef 526336) #8
@@ -119,7 +119,7 @@ declare i32 @g_unix_open_pipe(ptr noundef, i32 noundef, ptr noundef) local_unnam
 declare i32 @g_unix_set_fd_nonblocking(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local range(i32 -10, -11) i32 @event_notifier_set(ptr nocapture noundef readonly %e) local_unnamed_addr #5 {
+define dso_local range(i32 -10, -11) i32 @event_notifier_set(ptr noundef readonly captures(none) %e) local_unnamed_addr #5 {
 entry:
   %initialized = getelementptr inbounds nuw i8, ptr %e, i64 8
   %0 = load i8, ptr %initialized, align 4
@@ -156,7 +156,7 @@ return:                                           ; preds = %do.body, %land.lhs.
 declare i32 @close(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @event_notifier_cleanup(ptr nocapture noundef %e) local_unnamed_addr #1 {
+define dso_local void @event_notifier_cleanup(ptr noundef captures(none) %e) local_unnamed_addr #1 {
 entry:
   %initialized = getelementptr inbounds nuw i8, ptr %e, i64 8
   %0 = load i8, ptr %initialized, align 4
@@ -188,14 +188,14 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @event_notifier_get_fd(ptr nocapture noundef readonly %e) local_unnamed_addr #6 {
+define dso_local i32 @event_notifier_get_fd(ptr noundef readonly captures(none) %e) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %e, align 4
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @event_notifier_get_wfd(ptr nocapture noundef readonly %e) local_unnamed_addr #6 {
+define dso_local i32 @event_notifier_get_wfd(ptr noundef readonly captures(none) %e) local_unnamed_addr #6 {
 entry:
   %wfd = getelementptr inbounds nuw i8, ptr %e, i64 4
   %0 = load i32, ptr %wfd, align 4
@@ -203,10 +203,10 @@ entry:
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @event_notifier_test_and_clear(ptr nocapture noundef readonly %e) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @event_notifier_test_and_clear(ptr noundef readonly captures(none) %e) local_unnamed_addr #5 {
 entry:
   %buffer = alloca [512 x i8], align 16
   %initialized = getelementptr inbounds nuw i8, ptr %e, i64 8
@@ -241,7 +241,7 @@ return:                                           ; preds = %land.lhs.true, %do.
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

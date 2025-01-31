@@ -497,7 +497,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit7:                   ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN9Scheduler5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(43416) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9Scheduler5ResetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(43416) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   br label %2
 
 2:                                                ; preds = %1, %2
@@ -565,7 +565,7 @@ define void @_ZN9Scheduler5ResetEv(ptr nocapture noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN9Scheduler11RegisterRunE7RunModeRK6boardsRK13playTracesBin(ptr noundef nonnull align 8 dereferenceable(43416) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(21604) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(84004) %3) local_unnamed_addr #6 align 2 {
+define void @_ZN9Scheduler11RegisterRunE7RunModeRK6boardsRK13playTracesBin(ptr noundef nonnull align 8 dereferenceable(43416) %0, i32 noundef %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(21604) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(84004) %3) local_unnamed_addr #6 align 2 {
   %5 = load i32, ptr %2, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -592,7 +592,7 @@ define void @_ZN9Scheduler11RegisterRunE7RunModeRK6boardsRK13playTracesBin(ptr n
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN9Scheduler11RegisterRunE7RunModeRK6boards(ptr noundef nonnull align 8 dereferenceable(43416) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(21604) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9Scheduler11RegisterRunE7RunModeRK6boards(ptr noundef nonnull align 8 dereferenceable(43416) %0, i32 noundef %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(21604) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   br label %4
 
 4:                                                ; preds = %4, %3
@@ -684,7 +684,7 @@ _ZN9Scheduler9SortHandsE7RunMode.exit:            ; preds = %_ZN9Scheduler5Reset
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN9Scheduler10MakeGroupsERK6boards(ptr nocapture noundef nonnull align 8 dereferenceable(43416) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(21604) %1) local_unnamed_addr #7 align 2 {
+define void @_ZN9Scheduler10MakeGroupsERK6boards(ptr noundef nonnull align 8 captures(none) dereferenceable(43416) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(21604) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 43292
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -1229,7 +1229,7 @@ _ZNK9Scheduler8SameHandEii.exit122:               ; preds = %132
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN9Scheduler9SortHandsE7RunMode(ptr nocapture noundef nonnull align 8 dereferenceable(43416) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN9Scheduler9SortHandsE7RunMode(ptr noundef nonnull align 8 captures(none) dereferenceable(43416) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   switch i32 %1, label %6 [
     i32 0, label %3
     i32 1, label %4
@@ -1253,7 +1253,7 @@ define void @_ZN9Scheduler9SortHandsE7RunMode(ptr nocapture noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN9Scheduler9SortSolveEv(ptr nocapture noundef nonnull align 8 dereferenceable(43416) %0) local_unnamed_addr #6 align 2 {
+define void @_ZN9Scheduler9SortSolveEv(ptr noundef nonnull align 8 captures(none) dereferenceable(43416) %0) local_unnamed_addr #6 align 2 {
   %.sroa.3 = alloca { i32, i32, i32 }, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 27200
   %3 = load i32, ptr %2, align 8
@@ -1425,7 +1425,7 @@ define void @_ZN9Scheduler9SortSolveEv(ptr nocapture noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN9Scheduler8SortCalcEv(ptr nocapture noundef nonnull align 8 dereferenceable(43416) %0) local_unnamed_addr #6 align 2 {
+define void @_ZN9Scheduler8SortCalcEv(ptr noundef nonnull align 8 captures(none) dereferenceable(43416) %0) local_unnamed_addr #6 align 2 {
   %.sroa.3 = alloca { i32, i32, i32 }, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 27200
   %3 = load i32, ptr %2, align 8
@@ -1561,7 +1561,7 @@ define void @_ZN9Scheduler8SortCalcEv(ptr nocapture noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN9Scheduler9SortTraceEv(ptr nocapture noundef nonnull align 8 dereferenceable(43416) %0) local_unnamed_addr #6 align 2 {
+define void @_ZN9Scheduler9SortTraceEv(ptr noundef nonnull align 8 captures(none) dereferenceable(43416) %0) local_unnamed_addr #6 align 2 {
   %.sroa.3 = alloca { i32, i32, i32 }, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 27200
   %3 = load i32, ptr %2, align 8
@@ -1779,7 +1779,7 @@ define void @_ZN9Scheduler9SortTraceEv(ptr nocapture noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK9Scheduler6FanoutERK4deal(ptr nocapture noundef nonnull readnone align 8 dereferenceable(43416) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(96) %1) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK9Scheduler6FanoutERK4deal(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(43416) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(96) %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %.preheader
 
@@ -1820,10 +1820,10 @@ define noundef i32 @_ZNK9Scheduler6FanoutERK4deal(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK9Scheduler8SameHandEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(43416) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 align 2 {
+define noundef zeroext i1 @_ZNK9Scheduler8SameHandEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(43416) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 align 2 {
   %4 = sext i32 %1 to i64
   %5 = sext i32 %2 to i64
   br label %.preheader
@@ -1862,7 +1862,7 @@ declare double @exp(double noundef) local_unnamed_addr #12
 declare double @llvm.fmuladd.f64(double, double, double) #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -2147483648, 50) i32 @_ZNK9Scheduler8StrengthERK4deal(ptr nocapture noundef nonnull readonly align 8 dereferenceable(43416) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(96) %1) local_unnamed_addr #9 align 2 {
+define noundef range(i32 -2147483648, 50) i32 @_ZNK9Scheduler8StrengthERK4deal(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(43416) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(96) %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -1925,7 +1925,7 @@ define noundef range(i32 -2147483648, 50) i32 @_ZNK9Scheduler8StrengthERK4deal(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i64 @_ZN9Scheduler9GetNumberEi(ptr nocapture noundef nonnull align 8 dereferenceable(43416) %0, i32 noundef %1) local_unnamed_addr #14 align 2 {
+define i64 @_ZN9Scheduler9GetNumberEi(ptr noundef nonnull align 8 captures(none) dereferenceable(43416) %0, i32 noundef %1) local_unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 43216
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
@@ -2064,14 +2064,14 @@ define i64 @_ZN9Scheduler9GetNumberEi(ptr nocapture noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK9Scheduler9NumGroupsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(43416) %0) local_unnamed_addr #11 align 2 {
+define noundef i32 @_ZNK9Scheduler9NumGroupsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(43416) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 27200
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define noundef i32 @_ZNK9Scheduler13PredictedTimeER4deali(ptr nocapture noundef nonnull readonly align 8 dereferenceable(43416) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #15 align 2 {
+define noundef i32 @_ZNK9Scheduler13PredictedTimeER4deali(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(43416) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #15 align 2 {
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %4, 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2287,7 +2287,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #17
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_Scheduler.cpp() #19 section ".text.startup" {
@@ -2303,7 +2303,7 @@ declare void @llvm.assume(i1 noundef) #20
 declare i32 @llvm.smin.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #22
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21

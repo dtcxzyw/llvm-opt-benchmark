@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @storecompressed32(ptr nocapture noundef writeonly %ptr, ptr nocapture noundef readonly %x, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #0 {
+define hidden void @storecompressed32(ptr noundef writeonly captures(none) %ptr, ptr noundef readonly captures(none) %x, ptr noundef readonly captures(none) %m, i32 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %x, align 4
   %1 = load i32, ptr %m, align 4
@@ -84,7 +84,7 @@ partial_store_u32.exit:                           ; preds = %sw.bb5.i, %sw.bb3.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @loadcompressed32(ptr nocapture noundef writeonly %x, ptr nocapture noundef readonly %ptr, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #0 {
+define hidden void @loadcompressed32(ptr noundef writeonly captures(none) %x, ptr noundef readonly captures(none) %ptr, ptr noundef readonly captures(none) %m, i32 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %array.i = alloca [5 x i32], align 16
   switch i32 %bytes, label %expand32.exit [
@@ -186,7 +186,7 @@ expand32.exit:                                    ; preds = %entry, %partial_loa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @storecompressed64(ptr nocapture noundef writeonly %ptr, ptr nocapture noundef readonly %x, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #0 {
+define hidden void @storecompressed64(ptr noundef writeonly captures(none) %ptr, ptr noundef readonly captures(none) %x, ptr noundef readonly captures(none) %m, i32 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %x, align 8
   %1 = load i64, ptr %m, align 8
@@ -309,7 +309,7 @@ partial_store_u64a.exit:                          ; preds = %sw.bb25.i, %sw.bb23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @loadcompressed64(ptr nocapture noundef writeonly %x, ptr nocapture noundef readonly %ptr, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #0 {
+define hidden void @loadcompressed64(ptr noundef writeonly captures(none) %x, ptr noundef readonly captures(none) %ptr, ptr noundef readonly captures(none) %m, i32 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %array.i = alloca [6 x i64], align 16
   switch i32 %bytes, label %expand64.exit [
@@ -459,7 +459,7 @@ expand64.exit:                                    ; preds = %entry, %partial_loa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @storecompressed128(ptr nocapture noundef writeonly %ptr, ptr nocapture noundef readonly %x, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #1 {
+define hidden void @storecompressed128(ptr noundef writeonly captures(none) %ptr, ptr noundef readonly captures(none) %x, ptr noundef readonly captures(none) %m, i32 noundef %bytes) local_unnamed_addr #1 {
 entry:
   %bits.i.sroa.0 = alloca i32, align 4
   %bits.i.sroa.2 = alloca i32, align 4
@@ -684,7 +684,7 @@ pack_bits_64.exit:                                ; preds = %sw.bb25.i.i, %sw.bb
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @loadcompressed128(ptr nocapture noundef writeonly %x, ptr nocapture noundef readonly %ptr, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #1 {
+define hidden void @loadcompressed128(ptr noundef writeonly captures(none) %x, ptr noundef readonly captures(none) %ptr, ptr noundef readonly captures(none) %m, i32 noundef %bytes) local_unnamed_addr #1 {
 entry:
   %array.i28.i = alloca [6 x i64], align 16
   %array.i.i = alloca [6 x i64], align 16
@@ -901,7 +901,7 @@ loadcompressed128_64bit.exit:                     ; preds = %expand64.exit80.i, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @storecompressed256(ptr nocapture noundef writeonly %ptr, ptr nocapture noundef readonly %x, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #0 {
+define hidden void @storecompressed256(ptr noundef writeonly captures(none) %ptr, ptr noundef readonly captures(none) %x, ptr noundef readonly captures(none) %m, i32 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %bits.i = alloca [4 x i32], align 16
   %v.i = alloca [4 x i64], align 16
@@ -1236,7 +1236,7 @@ pack_bits_64.exit:                                ; preds = %sw.bb25.i.i, %sw.bb
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @loadcompressed256(ptr nocapture noundef writeonly %x, ptr nocapture noundef readonly %ptr, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #1 {
+define hidden void @loadcompressed256(ptr noundef writeonly captures(none) %x, ptr noundef readonly captures(none) %ptr, ptr noundef readonly captures(none) %m, i32 noundef %bytes) local_unnamed_addr #1 {
 entry:
   %array.i163.i = alloca [6 x i64], align 16
   %array.i102.i = alloca [6 x i64], align 16
@@ -1611,7 +1611,7 @@ loadcompressed256_64bit.exit:                     ; preds = %expand64.exit93.i, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @storecompressed384(ptr nocapture noundef writeonly %ptr, ptr nocapture noundef readonly %x, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #0 {
+define hidden void @storecompressed384(ptr noundef writeonly captures(none) %ptr, ptr noundef readonly captures(none) %x, ptr noundef readonly captures(none) %m, i32 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %bits.i = alloca [6 x i32], align 16
   %v.i = alloca [6 x i64], align 16
@@ -2054,7 +2054,7 @@ pack_bits_64.exit:                                ; preds = %sw.bb25.i.i, %sw.bb
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @loadcompressed384(ptr nocapture noundef writeonly %x, ptr nocapture noundef readonly %ptr, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #1 {
+define hidden void @loadcompressed384(ptr noundef writeonly captures(none) %x, ptr noundef readonly captures(none) %ptr, ptr noundef readonly captures(none) %m, i32 noundef %bytes) local_unnamed_addr #1 {
 entry:
   %array.i302.i = alloca [6 x i64], align 16
   %array.i241.i = alloca [6 x i64], align 16
@@ -2579,7 +2579,7 @@ loadcompressed384_64bit.exit:                     ; preds = %expand64.exit110.i,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @storecompressed512(ptr nocapture noundef writeonly %ptr, ptr nocapture noundef readonly %x, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #0 {
+define hidden void @storecompressed512(ptr noundef writeonly captures(none) %ptr, ptr noundef readonly captures(none) %x, ptr noundef readonly captures(none) %m, i32 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %bits.i = alloca [8 x i32], align 16
   %v.i = alloca [8 x i64], align 16
@@ -3130,7 +3130,7 @@ pack_bits_64.exit:                                ; preds = %sw.bb25.i.i, %sw.bb
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @loadcompressed512(ptr nocapture noundef writeonly %x, ptr nocapture noundef readonly %ptr, ptr nocapture noundef readonly %m, i32 noundef %bytes) local_unnamed_addr #1 {
+define hidden void @loadcompressed512(ptr noundef writeonly captures(none) %x, ptr noundef readonly captures(none) %ptr, ptr noundef readonly captures(none) %m, i32 noundef %bytes) local_unnamed_addr #1 {
 entry:
   %array.i445.i = alloca [6 x i64], align 16
   %array.i384.i = alloca [6 x i64], align 16

@@ -612,10 +612,10 @@ thread-pre-split:                                 ; preds = %206, %194
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
@@ -660,7 +660,7 @@ declare dso_local i32 @pci_set_mwi(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @ehci_resume(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ehci_pci_probe(ptr noundef %0, ptr nocapture readnone %1) #2 align 16 {
+define internal i32 @ehci_pci_probe(ptr noundef %0, ptr readnone captures(none) %1) #2 align 16 {
   %3 = tail call ptr @pci_match_id(ptr noundef nonnull @bypass_pci_id_table, ptr noundef %0) #5
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7

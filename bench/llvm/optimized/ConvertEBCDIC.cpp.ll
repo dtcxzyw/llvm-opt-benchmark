@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZL17IBM1047ToISO88591 = internal unnamed_addr constant [256 x i8] c"\00\01\02\03\9C\09\86\7F\97\8D\8E\0B\0C\0D\0E\0F\10\11\12\13\9D\0A\08\87\18\19\92\8F\1C\1D\1E\1F\80\81\82\83\84\85\17\1B\88\89\8A\8B\8C\05\06\07\90\91\16\93\94\95\96\04\98\99\9A\9B\14\15\9E\1A \A0\E2\E4\E0\E1\E3\E5\E7\F1\A2.<(+|&\E9\EA\EB\E8\ED\EE\EF\EC\DF!$*);^-/\C2\C4\C0\C1\C3\C5\C7\D1\A6,%_>?\F8\C9\CA\CB\C8\CD\CE\CF\CC`:#@'=\22\D8abcdefghi\AB\BB\F0\FD\FE\B1\B0jklmnopqr\AA\BA\E6\B8\C6\A4\B5~stuvwxyz\A1\BF\D0[\DE\AE\AC\A3\A5\B7\A9\A7\B6\BC\BD\BE\DD\A8\AF]\B4\D7{ABCDEFGHI\AD\F4\F6\F2\F3\F5}JKLMNOPQR\B9\FB\FC\F9\FA\FF\\\F7STUVWXYZ\B2\D4\D6\D2\D3\D50123456789\B3\DB\DC\D9\DA\9F", align 16
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i32, ptr } @_ZN4llvm15ConverterEBCDIC15convertToEBCDICENS_9StringRefERNS_15SmallVectorImplIcEE(ptr nocapture readonly %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 {
+define dso_local { i32, ptr } @_ZN4llvm15ConverterEBCDIC15convertToEBCDICENS_9StringRefERNS_15SmallVectorImplIcEE(ptr readonly captures(none) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 {
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #3
   %5 = icmp ult i64 %4, %1
   br i1 %5, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.thread, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
@@ -108,7 +108,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit: ; preds = %29, %36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15ConverterEBCDIC13convertToUTF8ENS_9StringRefERNS_15SmallVectorImplIcEE(ptr nocapture readonly %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm15ConverterEBCDIC13convertToUTF8ENS_9StringRefERNS_15SmallVectorImplIcEE(ptr readonly captures(none) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 {
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE8capacityEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #3
   %5 = icmp ult i64 %4, %1
   br i1 %5, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.thread, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit

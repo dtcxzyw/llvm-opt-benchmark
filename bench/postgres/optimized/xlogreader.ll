@@ -46,7 +46,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.34 = private unnamed_addr constant [13 x i8] c"%08X%08X%08X\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XLogReaderSetDecodeBuffer(ptr nocapture noundef writeonly initializes((112, 128), (136, 152)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @XLogReaderSetDecodeBuffer(ptr noundef writeonly captures(none) initializes((112, 128), (136, 152)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -59,7 +59,7 @@ define dso_local void @XLogReaderSetDecodeBuffer(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @XLogReaderAllocate(i32 noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #1 {
+define dso_local ptr @XLogReaderAllocate(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = tail call ptr @palloc_extended(i64 noundef 1320, i32 noundef 6) #15
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %29, label %6
@@ -134,7 +134,7 @@ allocate_recordbuf.exit:                          ; preds = %23, %26
 declare ptr @palloc_extended(i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @pfree(ptr noundef) local_unnamed_addr #2
 
@@ -189,7 +189,7 @@ define dso_local void @XLogReaderFree(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @XLogBeginRead(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #1 {
+define dso_local void @XLogBeginRead(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
   %.not14.i = icmp eq ptr %4, null
@@ -242,7 +242,7 @@ ResetDecoder.exit:                                ; preds = %12, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @XLogReleasePreviousRecord(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define dso_local i64 @XLogReleasePreviousRecord(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -313,7 +313,7 @@ define dso_local i64 @XLogReleasePreviousRecord(ptr nocapture noundef %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @XLogNextRecord(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define dso_local ptr @XLogNextRecord(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -424,7 +424,7 @@ XLogReleasePreviousRecord.exit:                   ; preds = %2, %17, %.critedge.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @XLogReadRecord(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define dso_local ptr @XLogReadRecord(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -1221,7 +1221,7 @@ XLogReadRecordAlloc.exit268.i:                    ; preds = %283, %278, %274, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @XLogReaderValidatePageHeader(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @XLogReaderValidatePageHeader(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca [64 x i8], align 16
   %5 = alloca [64 x i8], align 16
   %6 = alloca [64 x i8], align 16
@@ -1405,7 +1405,7 @@ define dso_local noundef zeroext i1 @XLogReaderValidatePageHeader(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @report_invalid_record(ptr nocapture noundef initializes((1312, 1313)) %0, ptr noundef %1, ...) unnamed_addr #1 {
+define internal void @report_invalid_record(ptr noundef captures(none) initializes((1312, 1313)) %0, ptr noundef %1, ...) unnamed_addr #1 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1304
@@ -1418,7 +1418,7 @@ define internal void @report_invalid_record(ptr nocapture noundef initializes((1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @XLogReaderResetError(ptr nocapture noundef initializes((1312, 1313)) %0) local_unnamed_addr #4 {
+define dso_local void @XLogReaderResetError(ptr noundef captures(none) initializes((1312, 1313)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %3 = load ptr, ptr %2, align 8
   store i8 0, ptr %3, align 1
@@ -1723,7 +1723,7 @@ define internal fastcc i32 @ReadPageInternal(ptr noundef %0, i64 noundef %1, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @WALRead(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @WALRead(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #1 {
   %7 = alloca i32, align 4
   store i32 %4, ptr %7, align 4
   %.not60 = icmp eq i64 %3, 0
@@ -1828,7 +1828,7 @@ define dso_local noundef zeroext i1 @WALRead(ptr noundef %0, ptr nocapture nound
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nofree
-declare noundef i64 @pread(i32 noundef, ptr nocapture noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
+declare noundef i64 @pread(i32 noundef, ptr noundef captures(none), i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef i64 @DecodeXLogRecordRequiredSpace(i64 noundef %0) local_unnamed_addr #7 {
@@ -1837,7 +1837,7 @@ define dso_local noundef i64 @DecodeXLogRecordRequiredSpace(i64 noundef %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, ptr noundef initializes((16, 32), (40, 66), (68, 88)) %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr noundef captures(none) %0, ptr noundef initializes((16, 32), (40, 66), (68, 88)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2381,7 +2381,7 @@ define dso_local noundef zeroext i1 @DecodeXLogRecord(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @XLogRecGetBlockTag(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #1 {
+define dso_local void @XLogRecGetBlockTag(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 84
@@ -2437,7 +2437,7 @@ XLogRecGetBlockTagExtended.exit:                  ; preds = %11, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @XLogRecGetBlockTagExtended(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #8 {
+define dso_local noundef zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #8 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 84
@@ -2504,7 +2504,7 @@ declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_u
 declare void @exit(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @XLogRecGetBlockData(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, ptr noundef writeonly %2) local_unnamed_addr #10 {
+define dso_local ptr @XLogRecGetBlockData(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, ptr noundef writeonly %2) local_unnamed_addr #10 {
   %4 = zext i8 %1 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
@@ -2556,7 +2556,7 @@ define dso_local ptr @XLogRecGetBlockData(ptr nocapture noundef readonly %0, i8 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @RestoreBlockImage(ptr nocapture noundef %0, i8 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @RestoreBlockImage(ptr noundef captures(none) %0, i8 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = ptrtoint ptr %2 to i64
   %5 = alloca %union.PGAlignedBlock, align 8
   %6 = zext i8 %1 to i32
@@ -2745,14 +2745,14 @@ define dso_local noundef zeroext i1 @RestoreBlockImage(ptr nocapture noundef %0,
 declare i32 @pglz_decompress(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @ValidXLogRecordHeader(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @ValidXLogRecordHeader(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4) unnamed_addr #1 {
   %6 = load i32, ptr %3, align 8
   %7 = icmp ult i32 %6, 24
   br i1 %7, label %8, label %12
@@ -2817,7 +2817,7 @@ define internal fastcc noundef zeroext i1 @ValidXLogRecordHeader(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @ValidXLogRecord(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @ValidXLogRecord(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 {
   %4 = load ptr, ptr @pg_comp_crc32c, align 8
   %5 = getelementptr i8, ptr %1, i64 24
   %6 = load i32, ptr %1, align 8
@@ -2864,10 +2864,10 @@ declare i32 @llvm.umin.i32(i32, i32) #13
 declare i64 @llvm.umax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [8 x i8] c"_LOADED\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_lib_register(ptr noundef %L, ptr noundef %libname, ptr noundef %p, ptr nocapture noundef readonly %cf) local_unnamed_addr #0 {
+define hidden void @lj_lib_register(ptr noundef %L, ptr noundef %libname, ptr noundef %p, ptr noundef readonly captures(none) %cf) local_unnamed_addr #0 {
 entry:
   %ls.i = alloca %struct.LexState, align 8
   %env1 = getelementptr inbounds nuw i8, ptr %L, i64 72
@@ -349,7 +349,7 @@ sw.default:                                       ; preds = %if.else61
 declare hidden ptr @lj_func_newC(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare hidden ptr @lj_tab_setstr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -433,7 +433,7 @@ entry:
   %8 = load i64, ptr %env, align 8
   %9 = inttoptr i64 %8 to ptr
   %call2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #10
-  %call3 = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef %name, i64 noundef %call2) #8
+  %call3 = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull %name, i64 noundef %call2) #8
   %call4 = tail call ptr @lj_tab_setstr(ptr noundef %L, ptr noundef %9, ptr noundef %call3) #8
   %or.i27 = or disjoint i64 %and.i17, -1266637395197952
   store i64 %or.i27, ptr %call4, align 8
@@ -464,7 +464,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden nonnull ptr @lj_lib_checkany(ptr noundef %L, i32 noundef %narg) local_unnamed_addr #0 {
@@ -827,7 +827,7 @@ return:                                           ; preds = %if.else, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lj_lib_checkopt(ptr noundef %L, i32 noundef %narg, i32 noundef %def, ptr nocapture noundef readonly %lst) local_unnamed_addr #0 {
+define hidden i32 @lj_lib_checkopt(ptr noundef %L, i32 noundef %narg, i32 noundef %def, ptr noundef readonly captures(none) %lst) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %def, -1
   %base.i = getelementptr inbounds nuw i8, ptr %L, i64 32
@@ -1075,20 +1075,20 @@ declare hidden void @lj_err_callerv(ptr noundef, i32 noundef, ...) local_unnamed
 declare void @lua_createtable(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare hidden ptr @lj_bcread_proto(ptr noundef) local_unnamed_addr #1
 
 declare hidden ptr @lj_func_newL_empty(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

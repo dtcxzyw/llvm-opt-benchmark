@@ -57,7 +57,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp14random_updaterC2ERNS_10lar_solverERK6vectorIjLb1EjE(ptr noundef nonnull align 8 dereferenceable(36) initializes((0, 4), (8, 36)) %this, ptr noundef nonnull align 8 dereferenceable(1888) %lar_solver, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %column_indices) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2lp14random_updaterC2ERNS_10lar_solverERK6vectorIjLb1EjE(ptr noundef nonnull align 8 dereferenceable(36) initializes((0, 4), (8, 36)) %this, ptr noundef nonnull align 8 dereferenceable(1888) %lar_solver, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %column_indices) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %this, align 8
   %m_elems.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -175,7 +175,7 @@ _ZN7svectorIjjED2Ev.exit5:                        ; preds = %_ZN7svectorIjjED2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2lp14random_updater9shift_varEj(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %j) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN2lp14random_updater9shift_varEj(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %this, i32 noundef %j) local_unnamed_addr #3 align 2 {
 entry:
   %m_lar_solver = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_lar_solver, align 8
@@ -286,7 +286,7 @@ if.end15:                                         ; preds = %for.inc, %if.then, 
 declare noundef zeroext i1 @_ZN2lp10int_solver9shift_varEjj(ptr noundef nonnull align 8 dereferenceable(504), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp14random_updater6updateEv(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2lp14random_updater6updateEv(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %columns = alloca %class.svector, align 8
   store ptr null, ptr %columns, align 8
@@ -864,7 +864,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -924,7 +924,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 declare void @_ZN6memory10deallocateEPv(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_random_updater.cpp() #11 section ".text.startup" {

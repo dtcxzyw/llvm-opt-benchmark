@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: cold nofree noreturn nounwind sspstrong uwtable
-define dso_local void @luring_detach_aio_context(ptr nocapture noundef readnone %s, ptr nocapture noundef readnone %old_context) local_unnamed_addr #0 {
+define dso_local void @luring_detach_aio_context(ptr noundef readnone captures(none) %s, ptr noundef readnone captures(none) %old_context) local_unnamed_addr #0 {
 entry:
   tail call void @abort() #2
   unreachable
@@ -14,21 +14,21 @@ entry:
 declare void @abort() local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind sspstrong uwtable
-define dso_local void @luring_attach_aio_context(ptr nocapture noundef readnone %s, ptr nocapture noundef readnone %new_context) local_unnamed_addr #0 {
+define dso_local void @luring_attach_aio_context(ptr noundef readnone captures(none) %s, ptr noundef readnone captures(none) %new_context) local_unnamed_addr #0 {
 entry:
   tail call void @abort() #2
   unreachable
 }
 
 ; Function Attrs: cold nofree noreturn nounwind sspstrong uwtable
-define dso_local noalias noundef nonnull ptr @luring_init(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @luring_init(ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   tail call void @abort() #2
   unreachable
 }
 
 ; Function Attrs: cold nofree noreturn nounwind sspstrong uwtable
-define dso_local void @luring_cleanup(ptr nocapture noundef readnone %s) local_unnamed_addr #0 {
+define dso_local void @luring_cleanup(ptr noundef readnone captures(none) %s) local_unnamed_addr #0 {
 entry:
   tail call void @abort() #2
   unreachable

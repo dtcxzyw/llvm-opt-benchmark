@@ -129,7 +129,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_usb_register_types, ptr null }]
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @usb_device_post_load(ptr nocapture noundef initializes((264, 265)) %opaque, i32 %version_id) #0 {
+define internal noundef i32 @usb_device_post_load(ptr noundef captures(none) initializes((264, 265)) %opaque, i32 %version_id) #0 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %opaque, i64 268
   %0 = load i32, ptr %state, align 4
@@ -176,7 +176,7 @@ declare void @qbus_init(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr 
 declare void @qbus_set_bus_hotplug_handler(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @usb_bus_release(ptr nocapture noundef %bus) local_unnamed_addr #1 {
+define dso_local void @usb_bus_release(ptr noundef captures(none) %bus) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr @next_usb_bus, align 4
   %cmp = icmp sgt i32 %0, 0
@@ -529,7 +529,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local void @usb_register_port(ptr nocapture noundef %bus, ptr noundef initializes((8, 12), (32, 52)) %port, ptr noundef %opaque, i32 noundef %index, ptr noundef %ops, i32 noundef %speedmask) local_unnamed_addr #6 {
+define dso_local void @usb_register_port(ptr noundef captures(none) %bus, ptr noundef initializes((8, 12), (32, 52)) %port, ptr noundef %opaque, i32 noundef %index, ptr noundef %ops, i32 noundef %speedmask) local_unnamed_addr #6 {
 entry:
   %opaque1.i = getelementptr inbounds nuw i8, ptr %port, i64 40
   store ptr %opaque, ptr %opaque1.i, align 8
@@ -596,7 +596,7 @@ for.cond8.preheader:                              ; preds = %if.end3
   br i1 %cmp920.not, label %for.end12, label %for.body10
 
 if.then6:                                         ; preds = %if.end3
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.10, i32 noundef 394, ptr noundef nonnull @__func__.usb_register_companion, ptr noundef nonnull @.str.12, ptr noundef %masterbus) #12
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.10, i32 noundef 394, ptr noundef nonnull @__func__.usb_register_companion, ptr noundef nonnull @.str.12, ptr noundef nonnull %masterbus) #12
   br label %return
 
 for.body10:                                       ; preds = %for.cond8.preheader, %for.body10
@@ -635,12 +635,12 @@ return:                                           ; preds = %for.end12, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @usb_port_location(ptr nocapture noundef writeonly %downstream, ptr noundef %upstream, i32 noundef %portnr) local_unnamed_addr #1 {
+define dso_local void @usb_port_location(ptr noundef writeonly captures(none) %downstream, ptr noundef %upstream, i32 noundef %portnr) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %upstream, null
   %path7 = getelementptr inbounds nuw i8, ptr %downstream, i64 16
@@ -674,10 +674,10 @@ if.end11:                                         ; preds = %if.else6, %if.end
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @usb_unregister_port(ptr nocapture noundef %bus, ptr nocapture noundef %port) local_unnamed_addr #1 {
+define dso_local void @usb_unregister_port(ptr noundef captures(none) %bus, ptr noundef captures(none) %port) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %port, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -891,7 +891,7 @@ return:                                           ; preds = %if.end46, %if.then2
 declare ptr @object_get_typename(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @usb_release_port(ptr nocapture noundef %dev) local_unnamed_addr #1 {
+define dso_local void @usb_release_port(ptr noundef captures(none) %dev) local_unnamed_addr #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = getelementptr i8, ptr %dev, i64 88
@@ -1177,7 +1177,7 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @usb_attach(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @usb_device_detach(ptr nocapture noundef %dev) local_unnamed_addr #1 {
+define dso_local noundef i32 @usb_device_detach(ptr noundef captures(none) %dev) local_unnamed_addr #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = getelementptr i8, ptr %dev, i64 88
@@ -1377,7 +1377,7 @@ if.end8:                                          ; preds = %for.body
   br i1 %tobool9.not, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %if.end8
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.29, ptr noundef %driver) #12
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.29, ptr noundef nonnull %driver) #12
   br label %return
 
 if.end11:                                         ; preds = %if.end8
@@ -1455,7 +1455,7 @@ declare ptr @object_get_class(ptr noundef) local_unnamed_addr #2
 declare ptr @qdev_try_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
@@ -1466,7 +1466,7 @@ declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @usb_bus_class_init(ptr noundef %klass, ptr nocapture readnone %data) #1 {
+define internal void @usb_bus_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #1 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 316, ptr noundef nonnull @__func__.BUS_CLASS) #12
   %call.i4 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.57, i32 noundef 21, ptr noundef nonnull @__func__.HOTPLUG_HANDLER_CLASS) #12
@@ -1609,13 +1609,13 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #9
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
 
 declare ptr @qdev_fw_name(ptr noundef) local_unnamed_addr #2
 
@@ -1634,7 +1634,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @usb_device_class_init(ptr noundef %klass, ptr nocapture readnone %data) #1 {
+define internal void @usb_device_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #1 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.33, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #12
   %bus_type = getelementptr inbounds nuw i8, ptr %call.i, i64 168
@@ -1650,7 +1650,7 @@ entry:
 declare ptr @object_property_add_bool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @usb_get_attached(ptr noundef %obj, ptr nocapture readnone %errp) #1 {
+define internal zeroext i1 @usb_get_attached(ptr noundef %obj, ptr readnone captures(none) %errp) #1 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE) #12
   %attached = getelementptr inbounds nuw i8, ptr %call.i, i64 264
@@ -1924,21 +1924,21 @@ declare void @usb_ep_init(ptr noundef) local_unnamed_addr #2
 declare i32 @qemu_open_old(ptr noundef, i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fdopen(i32 noundef, ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noalias noundef ptr @fdopen(i32 noundef, ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 declare void @usb_pcap_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

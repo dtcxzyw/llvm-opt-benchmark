@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @main_auth_entries = dso_local local_unnamed_addr global [8 x %struct.auth_entry] zeroinitializer, align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @authfile_load(ptr nocapture noundef readonly %file) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @authfile_load(ptr noundef readonly captures(none) %file) local_unnamed_addr #0 {
 entry:
   %sb = alloca %struct.stat, align 8
   %auth_entries = alloca [8 x %struct.auth_entry], align 16
@@ -153,28 +153,28 @@ return:                                           ; preds = %entry, %if.end79, %
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @authfile_check(ptr noundef %user, ptr noundef %pass) local_unnamed_addr #0 {
@@ -201,14 +201,14 @@ land.lhs.true:                                    ; preds = %for.body
 
 land.lhs.true6:                                   ; preds = %land.lhs.true
   %3 = load ptr, ptr %arrayidx, align 16
-  %call9 = tail call zeroext i1 @safe_memcmp(ptr noundef %user, ptr noundef %3, i64 noundef %call) #8
+  %call9 = tail call zeroext i1 @safe_memcmp(ptr noundef nonnull %user, ptr noundef %3, i64 noundef %call) #8
   br i1 %call9, label %land.lhs.true10, label %for.inc
 
 land.lhs.true10:                                  ; preds = %land.lhs.true6
   %pass11 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %4 = load ptr, ptr %pass11, align 16
   %5 = load i64, ptr %plen4, align 8
-  %call13 = tail call zeroext i1 @safe_memcmp(ptr noundef %pass, ptr noundef %4, i64 noundef %5) #8
+  %call13 = tail call zeroext i1 @safe_memcmp(ptr noundef nonnull %pass, ptr noundef %4, i64 noundef %5) #8
   br i1 %call13, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %land.lhs.true6, %land.lhs.true10
@@ -224,7 +224,7 @@ return:                                           ; preds = %land.lhs.true10, %f
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare zeroext i1 @safe_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 

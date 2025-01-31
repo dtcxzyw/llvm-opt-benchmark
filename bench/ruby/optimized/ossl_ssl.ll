@@ -3526,7 +3526,7 @@ declare i64 @rb_sym2str(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_string_value(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
 declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
@@ -3798,7 +3798,7 @@ declare i32 @X509_STORE_up_ref(ptr noundef) local_unnamed_addr #1
 declare i64 @rb_block_call(i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ossl_sslctx_add_extra_chain_cert_i(i64 noundef returned %0, i64 noundef %1, i32 %2, ptr nocapture readnone %3, i64 %4) #0 {
+define internal noundef i64 @ossl_sslctx_add_extra_chain_cert_i(i64 noundef returned %0, i64 noundef %1, i32 %2, ptr readnone captures(none) %3, i64 %4) #0 {
   %6 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @ossl_sslctx_type) #10
   %7 = tail call ptr @DupX509CertPtr(i64 noundef %0) #10
   %8 = tail call i64 @SSL_CTX_ctrl(ptr noundef %6, i32 noundef 14, i64 noundef 0, ptr noundef %7) #10
@@ -3893,7 +3893,7 @@ define internal i32 @ossl_ssl_verify_callback(i32 noundef %0, ptr noundef %1) #0
 declare void @SSL_CTX_set_client_cert_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ossl_client_cert_cb(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #0 {
+define internal range(i32 0, 2) i32 @ossl_client_cert_cb(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = load i32, ptr @ossl_ssl_ex_ptr_idx, align 4
   %5 = tail call ptr @SSL_get_ex_data(ptr noundef %0, i32 noundef %4) #10
   %6 = ptrtoint ptr %5 to i64
@@ -3958,7 +3958,7 @@ declare i64 @rb_ivar_set(i64 noundef, i64 noundef, i64 noundef) local_unnamed_ad
 declare void @SSL_CTX_set_next_protos_advertised_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ssl_npn_advertise_cb(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly %2, ptr noundef %3) #0 {
+define internal noundef i32 @ssl_npn_advertise_cb(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) %2, ptr noundef %3) #0 {
   %5 = ptrtoint ptr %3 to i64
   %6 = load i64, ptr @id_npn_protocols_encoded, align 8
   %7 = tail call i64 @rb_attr_get(i64 noundef %5, i64 noundef %6) #10
@@ -3993,12 +3993,12 @@ RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare void @SSL_CTX_set_next_proto_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @ssl_npn_select_cb(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 3) i32 @ssl_npn_select_cb(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.npn_select_cb_common_args, align 8
   %9 = ptrtoint ptr %5 to i64
@@ -4062,7 +4062,7 @@ declare i32 @SSL_CTX_set_alpn_protos(ptr noundef, ptr noundef, i32 noundef) loca
 declare void @SSL_CTX_set_alpn_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @ssl_alpn_select_cb(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 3) i32 @ssl_alpn_select_cb(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.npn_select_cb_common_args, align 8
   %9 = ptrtoint ptr %5 to i64
@@ -4128,7 +4128,7 @@ declare i32 @SSL_CTX_set_session_id_context(ptr noundef, ptr noundef, i32 nounde
 declare void @SSL_CTX_sess_set_get_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ossl_sslctx_session_get_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #0 {
+define internal ptr @ossl_sslctx_session_get_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = load i64, ptr @dOSSL, align 8
@@ -4287,7 +4287,7 @@ define internal void @ossl_sslctx_session_remove_cb(ptr noundef %0, ptr noundef 
 declare i64 @SSL_CTX_callback_ctrl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @ssl_servername_cb(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 3) i32 @ssl_servername_cb(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca i32, align 4
   store i32 0, ptr %4, align 4
   %5 = tail call ptr @SSL_get_servername(ptr noundef %0, i32 noundef 0) #10
@@ -4527,7 +4527,7 @@ declare void @rb_unexpected_type(i64 noundef, i32 noundef) local_unnamed_addr #6
 declare i64 @rb_num2long(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @ssl_npn_encode_protocol_i(i64 noundef %0, i64 noundef %1, i32 %2, ptr nocapture readnone %3, i64 %4) #0 {
+define internal noundef i64 @ssl_npn_encode_protocol_i(i64 noundef %0, i64 noundef %1, i32 %2, ptr readnone captures(none) %3, i64 %4) #0 {
   %6 = alloca i8, align 1
   %7 = inttoptr i64 %0 to ptr
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -4983,7 +4983,7 @@ define internal fastcc void @ossl_ssl_setup(i64 noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ossl_start_ssl(i64 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @ossl_start_ssl(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
   %.not57 = icmp eq i64 %3, 0
   %5 = load i64, ptr @ID_callback_state, align 8
   %6 = tail call i64 @rb_ivar_set(i64 noundef %0, i64 noundef %5, i64 noundef 4) #10
@@ -5895,13 +5895,13 @@ declare void @SSL_get0_next_proto_negotiated(ptr noundef, ptr noundef, ptr nound
 declare i64 @rb_uint2big(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

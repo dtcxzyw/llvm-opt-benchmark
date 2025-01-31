@@ -287,7 +287,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare void @g_string_append_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias noundef ptr @error_copy(ptr nocapture noundef readonly %err) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @error_copy(ptr noundef readonly captures(none) %err) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #13
   %0 = load ptr, ptr %err, align 8
@@ -331,7 +331,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #5
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @error_get_class(ptr nocapture noundef readonly %err) local_unnamed_addr #6 {
+define dso_local i32 @error_get_class(ptr noundef readonly captures(none) %err) local_unnamed_addr #6 {
 entry:
   %err_class = getelementptr inbounds nuw i8, ptr %err, i64 8
   %0 = load i32, ptr %err_class, align 8
@@ -339,7 +339,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @error_get_pretty(ptr nocapture noundef readonly %err) local_unnamed_addr #6 {
+define dso_local ptr @error_get_pretty(ptr noundef readonly captures(none) %err) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %err, align 8
   ret ptr %0
@@ -721,7 +721,7 @@ declare noalias ptr @g_strdup_vprintf(ptr noundef, ptr noundef) local_unnamed_ad
 declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #8

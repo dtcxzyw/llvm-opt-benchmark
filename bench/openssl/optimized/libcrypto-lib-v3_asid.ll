@@ -371,7 +371,7 @@ return:                                           ; preds = %if.end46, %if.end18
 declare ptr @OPENSSL_sk_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ASIdOrRange_cmp(ptr nocapture noundef readonly %a_, ptr nocapture noundef readonly %b_) #1 {
+define internal i32 @ASIdOrRange_cmp(ptr noundef readonly captures(none) %a_, ptr noundef readonly captures(none) %b_) #1 {
 entry:
   %0 = load ptr, ptr %a_, align 8
   %1 = load ptr, ptr %b_, align 8
@@ -952,7 +952,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @v2i_ASIdentifiers(ptr nocapture readnone %method, ptr nocapture readnone %ctx, ptr noundef %values) #1 {
+define internal ptr @v2i_ASIdentifiers(ptr readnone captures(none) %method, ptr readnone captures(none) %ctx, ptr noundef %values) #1 {
 entry:
   %min = alloca ptr, align 8
   store ptr null, ptr %min, align 8
@@ -1053,7 +1053,7 @@ if.end23:                                         ; preds = %if.then3.i, %X509v3
   br label %err
 
 if.end26:                                         ; preds = %if.end15
-  %call28 = call i64 @strspn(ptr noundef %4, ptr noundef nonnull @.str.18) #6
+  %call28 = call i64 @strspn(ptr noundef nonnull %4, ptr noundef nonnull @.str.18) #6
   %sext = shl i64 %call28, 32
   %idxprom = ashr exact i64 %sext, 32
   %arrayidx = getelementptr inbounds i8, ptr %4, i64 %idxprom
@@ -1085,12 +1085,12 @@ if.end48:                                         ; preds = %if.else34
   %sext45 = add i64 %sext44, 4294967296
   %conv49 = ashr exact i64 %sext45, 32
   %add.ptr52 = getelementptr inbounds i8, ptr %4, i64 %conv49
-  %call53 = call i64 @strspn(ptr noundef %add.ptr52, ptr noundef nonnull @.str.19) #6
+  %call53 = call i64 @strspn(ptr noundef nonnull %add.ptr52, ptr noundef nonnull @.str.19) #6
   %add54 = add i64 %call53, %conv49
   %sext46 = shl i64 %add54, 32
   %conv56 = ashr exact i64 %sext46, 32
   %add.ptr59 = getelementptr inbounds i8, ptr %4, i64 %conv56
-  %call60 = call i64 @strspn(ptr noundef %add.ptr59, ptr noundef nonnull @.str.18) #6
+  %call60 = call i64 @strspn(ptr noundef nonnull %add.ptr59, ptr noundef nonnull @.str.18) #6
   %add61 = add i64 %add54, %call60
   %sext47 = shl i64 %add61, 32
   %idxprom64 = ashr exact i64 %sext47, 32
@@ -1206,7 +1206,7 @@ return:                                           ; preds = %X509v3_asid_canoniz
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @i2r_ASIdentifiers(ptr nocapture readnone %method, ptr nocapture noundef readonly %ext, ptr noundef %out, i32 noundef %indent) #1 {
+define internal range(i32 0, 2) i32 @i2r_ASIdentifiers(ptr readnone captures(none) %method, ptr noundef readonly captures(none) %ext, ptr noundef %out, i32 noundef %indent) #1 {
 entry:
   %0 = load ptr, ptr %ext, align 8
   %call = tail call fastcc i32 @i2r_ASIdentifierChoice(ptr noundef %out, ptr noundef %0, i32 noundef %indent, ptr noundef nonnull @.str.20)
@@ -1372,14 +1372,14 @@ for.cond.preheader:                               ; preds = %if.end
 
 for.cond:                                         ; preds = %if.end27
   %inc33 = add nuw nsw i32 %c.038, 1
-  %call5 = tail call i32 @OPENSSL_sk_num(ptr noundef %child) #5
+  %call5 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %child) #5
   %cmp6 = icmp slt i32 %inc33, %call5
   br i1 %cmp6, label %for.body, label %return, !llvm.loop !8
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %c.038 = phi i32 [ %inc33, %for.cond ], [ 0, %for.cond.preheader ]
   %p.037 = phi i32 [ %p.134, %for.cond ], [ 0, %for.cond.preheader ]
-  %call8 = tail call ptr @OPENSSL_sk_value(ptr noundef %child, i32 noundef %c.038) #5
+  %call8 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %child, i32 noundef %c.038) #5
   %cmp.not.i = icmp eq ptr %call8, null
   br i1 %cmp.not.i, label %return, label %if.end.i
 
@@ -2049,10 +2049,10 @@ declare i32 @ossl_v3_name_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @X509V3_get_value_int(ptr noundef, ptr noundef) local_unnamed_addr #2
 

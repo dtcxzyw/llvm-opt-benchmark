@@ -70,7 +70,7 @@ $_ZNK4Node7get_intEv = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State12_sub_Op_RegNEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((236, 240), (248, 252), (1378, 1380), (1384, 1386)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State12_sub_Op_RegNEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((236, 240), (248, 252), (1378, 1380), (1384, 1386)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1384
@@ -83,7 +83,7 @@ define hidden void @_ZN5State12_sub_Op_RegNEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State12_sub_Op_RegIEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((196, 228), (420, 424), (1358, 1374), (1470, 1472)) %0, ptr nocapture readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State12_sub_Op_RegIEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((196, 228), (420, 424), (1358, 1374), (1470, 1472)) %0, ptr readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1372
@@ -124,7 +124,7 @@ define hidden void @_ZN5State12_sub_Op_RegIEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State12_sub_Op_RegPEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((228, 236), (240, 248), (252, 272), (336, 340), (416, 420), (504, 512), (1374, 1378), (1380, 1384), (1386, 1396), (1428, 1430), (1468, 1470), (1512, 1516)) %0, ptr nocapture readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State12_sub_Op_RegPEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((228, 236), (240, 248), (252, 272), (336, 340), (416, 420), (504, 512), (1374, 1378), (1380, 1384), (1386, 1396), (1428, 1430), (1468, 1470), (1512, 1516)) %0, ptr readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 504
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1512
@@ -181,7 +181,7 @@ define hidden void @_ZN5State12_sub_Op_RegPEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State12_sub_Op_RegFEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((312, 324), (424, 428), (1416, 1422), (1472, 1474)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State12_sub_Op_RegFEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((312, 324), (424, 428), (1416, 1422), (1472, 1474)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1420
@@ -202,7 +202,7 @@ define hidden void @_ZN5State12_sub_Op_RegFEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State12_sub_Op_RegDEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((324, 336), (428, 432), (1422, 1428), (1474, 1476)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State12_sub_Op_RegDEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((324, 336), (428, 432), (1422, 1428), (1474, 1476)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 332
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1426
@@ -223,7 +223,7 @@ define hidden void @_ZN5State12_sub_Op_RegDEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State12_sub_Op_RegLEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((272, 300), (432, 436), (1396, 1410), (1476, 1478)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State12_sub_Op_RegLEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((272, 300), (432, 436), (1396, 1410), (1476, 1478)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1408
@@ -260,7 +260,7 @@ define hidden void @_ZN5State12_sub_Op_RegLEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State12_sub_Op_VecSEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((456, 472), (1488, 1496)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State12_sub_Op_VecSEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((456, 472), (1488, 1496)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 468
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1494
@@ -281,7 +281,7 @@ define hidden void @_ZN5State12_sub_Op_VecSEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State12_sub_Op_VecDEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((456, 464), (472, 480), (1488, 1492), (1496, 1500)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State12_sub_Op_VecDEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((456, 464), (472, 480), (1488, 1492), (1496, 1500)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 476
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1498
@@ -302,7 +302,7 @@ define hidden void @_ZN5State12_sub_Op_VecDEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State12_sub_Op_VecXEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((452, 464), (480, 488), (1486, 1492), (1500, 1504)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State12_sub_Op_VecXEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((452, 464), (480, 488), (1486, 1492), (1500, 1504)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 484
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1502
@@ -327,7 +327,7 @@ define hidden void @_ZN5State12_sub_Op_VecXEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State12_sub_Op_VecYEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((456, 464), (488, 496), (1488, 1492), (1504, 1508)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State12_sub_Op_VecYEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((456, 464), (488, 496), (1488, 1492), (1504, 1508)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 492
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1506
@@ -348,7 +348,7 @@ define hidden void @_ZN5State12_sub_Op_VecYEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State12_sub_Op_VecZEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((456, 464), (496, 504), (1488, 1492), (1508, 1512)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State12_sub_Op_VecZEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((456, 464), (496, 504), (1488, 1492), (1508, 1512)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 500
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1510
@@ -369,7 +369,7 @@ define hidden void @_ZN5State12_sub_Op_VecZEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State19_sub_Op_RegVectMaskEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((192, 196), (1356, 1358)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State19_sub_Op_RegVectMaskEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((192, 196), (1356, 1358)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1356
@@ -378,7 +378,7 @@ define hidden void @_ZN5State19_sub_Op_RegVectMaskEPK4Node(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State16_sub_Op_RegFlagsEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((300, 308), (1410, 1414)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State16_sub_Op_RegFlagsEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((300, 308), (1410, 1414)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1412
@@ -391,7 +391,7 @@ define hidden void @_ZN5State16_sub_Op_RegFlagsEPK4Node(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_AbsDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_AbsDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -543,7 +543,7 @@ define hidden void @_ZN5State12_sub_Op_AbsDEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_AbsFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_AbsFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -695,7 +695,7 @@ define hidden void @_ZN5State12_sub_Op_AbsFEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_AbsIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_AbsIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -756,7 +756,7 @@ define hidden void @_ZN5State12_sub_Op_AbsIEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_AbsLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_AbsLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -813,7 +813,7 @@ define hidden void @_ZN5State12_sub_Op_AbsLEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_AddDEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_AddDEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1720,7 +1720,7 @@ define hidden void @_ZN5State12_sub_Op_AddDEPK4Node(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_AddFEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_AddFEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2627,7 +2627,7 @@ define hidden void @_ZN5State12_sub_Op_AddFEPK4Node(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_AddIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_AddIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -6064,7 +6064,7 @@ _ZN10VM_Version21supports_fast_2op_leaEv.exit843.thread: ; preds = %1150, %1238,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_AddLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_AddLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -8424,7 +8424,7 @@ _ZN10VM_Version21supports_fast_2op_leaEv.exit570.thread: ; preds = %604, %607, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_AddPEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_AddPEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -15222,7 +15222,7 @@ define hidden void @_ZN5State12_sub_Op_AddPEPK4Node(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_AndIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_AndIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -19811,7 +19811,7 @@ define hidden void @_ZN5State12_sub_Op_AndIEPK4Node(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_AndLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_AndLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -23533,7 +23533,7 @@ define hidden void @_ZN5State12_sub_Op_AndLEPK4Node(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_AryEqEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State13_sub_Op_AryEqEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -24189,7 +24189,7 @@ define hidden void @_ZN5State13_sub_Op_AryEqEPK4Node(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State14_sub_Op_BinaryEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State14_sub_Op_BinaryEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -25996,7 +25996,7 @@ define hidden void @_ZN5State14_sub_Op_BinaryEPK4Node(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_BoolEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((436, 444), (1478, 1482)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_BoolEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((436, 444), (1478, 1482)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %thread-pre-split [
@@ -26069,7 +26069,7 @@ thread-pre-split:                                 ; preds = %16, %5, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State21_sub_Op_ReverseBytesIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State21_sub_Op_ReverseBytesIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -26130,7 +26130,7 @@ define hidden void @_ZN5State21_sub_Op_ReverseBytesIEPK4Node(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State21_sub_Op_ReverseBytesLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State21_sub_Op_ReverseBytesLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -26187,7 +26187,7 @@ define hidden void @_ZN5State21_sub_Op_ReverseBytesLEPK4Node(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State22_sub_Op_ReverseBytesUSEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State22_sub_Op_ReverseBytesUSEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -26248,7 +26248,7 @@ define hidden void @_ZN5State22_sub_Op_ReverseBytesUSEPK4Node(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State21_sub_Op_ReverseBytesSEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State21_sub_Op_ReverseBytesSEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -26309,7 +26309,7 @@ define hidden void @_ZN5State21_sub_Op_ReverseBytesSEPK4Node(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State21_sub_Op_ReverseBytesVEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State21_sub_Op_ReverseBytesVEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -26435,7 +26435,7 @@ define hidden void @_ZN5State21_sub_Op_ReverseBytesVEPK4Node(ptr nocapture nound
 declare noundef i32 @_ZN7Matcher22vector_length_in_bytesEPK4Node(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_CacheWBEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_CacheWBEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -26465,7 +26465,7 @@ define hidden void @_ZN5State15_sub_Op_CacheWBEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State22_sub_Op_CacheWBPreSyncEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN5State22_sub_Op_CacheWBPreSyncEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #4 align 2 {
   %3 = load i32, ptr @_ZN19Abstract_VM_Version27_data_cache_line_flush_sizeE, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
@@ -26481,7 +26481,7 @@ define hidden void @_ZN5State22_sub_Op_CacheWBPreSyncEPK4Node(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State23_sub_Op_CacheWBPostSyncEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN5State23_sub_Op_CacheWBPostSyncEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #4 align 2 {
   %3 = load i32, ptr @_ZN19Abstract_VM_Version27_data_cache_line_flush_sizeE, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
@@ -26497,7 +26497,7 @@ define hidden void @_ZN5State23_sub_Op_CacheWBPostSyncEPK4Node(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State23_sub_Op_CallDynamicJavaEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State23_sub_Op_CallDynamicJavaEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   store i32 300, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1260
   store i16 2149, ptr %3, align 4
@@ -26505,7 +26505,7 @@ define hidden void @_ZN5State23_sub_Op_CallDynamicJavaEPK4Node(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State16_sub_Op_CallLeafEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State16_sub_Op_CallLeafEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   store i32 300, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1260
   store i16 2153, ptr %3, align 4
@@ -26513,7 +26513,7 @@ define hidden void @_ZN5State16_sub_Op_CallLeafEPK4Node(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State20_sub_Op_CallLeafNoFPEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State20_sub_Op_CallLeafNoFPEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   store i32 300, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1260
   store i16 2157, ptr %3, align 4
@@ -26521,7 +26521,7 @@ define hidden void @_ZN5State20_sub_Op_CallLeafNoFPEPK4Node(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State22_sub_Op_CallLeafVectorEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State22_sub_Op_CallLeafVectorEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   store i32 300, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1260
   store i16 2155, ptr %3, align 4
@@ -26529,7 +26529,7 @@ define hidden void @_ZN5State22_sub_Op_CallLeafVectorEPK4Node(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State19_sub_Op_CallRuntimeEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State19_sub_Op_CallRuntimeEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   store i32 300, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1260
   store i16 2151, ptr %3, align 4
@@ -26537,7 +26537,7 @@ define hidden void @_ZN5State19_sub_Op_CallRuntimeEPK4Node(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State22_sub_Op_CallStaticJavaEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State22_sub_Op_CallStaticJavaEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   store i32 300, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1260
   store i16 2147, ptr %3, align 4
@@ -26545,7 +26545,7 @@ define hidden void @_ZN5State22_sub_Op_CallStaticJavaEPK4Node(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State14_sub_Op_CastDDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State14_sub_Op_CastDDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -26586,7 +26586,7 @@ define hidden void @_ZN5State14_sub_Op_CastDDEPK4Node(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State14_sub_Op_CastFFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State14_sub_Op_CastFFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -26627,7 +26627,7 @@ define hidden void @_ZN5State14_sub_Op_CastFFEPK4Node(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State14_sub_Op_CastIIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State14_sub_Op_CastIIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -26687,7 +26687,7 @@ define hidden void @_ZN5State14_sub_Op_CastIIEPK4Node(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State14_sub_Op_CastLLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State14_sub_Op_CastLLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -26743,7 +26743,7 @@ define hidden void @_ZN5State14_sub_Op_CastLLEPK4Node(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State14_sub_Op_CastVVEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State14_sub_Op_CastVVEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -26841,7 +26841,7 @@ define hidden void @_ZN5State14_sub_Op_CastVVEPK4Node(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_CastX2PEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_CastX2PEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -26918,7 +26918,7 @@ define hidden void @_ZN5State15_sub_Op_CastX2PEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_CastP2XEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_CastP2XEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -27019,7 +27019,7 @@ define hidden void @_ZN5State15_sub_Op_CastP2XEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State14_sub_Op_CastPPEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State14_sub_Op_CastPPEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -27096,7 +27096,7 @@ define hidden void @_ZN5State14_sub_Op_CastPPEPK4Node(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State19_sub_Op_CheckCastPPEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State19_sub_Op_CheckCastPPEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -27173,7 +27173,7 @@ define hidden void @_ZN5State19_sub_Op_CheckCastPPEPK4Node(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State18_sub_Op_ClearArrayEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State18_sub_Op_ClearArrayEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not34 = icmp eq ptr %4, null
@@ -28523,7 +28523,7 @@ define hidden void @_ZN5State18_sub_Op_ExpandBitsEPK4Node(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State14_sub_Op_CMoveDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State14_sub_Op_CMoveDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -28815,7 +28815,7 @@ define hidden void @_ZN5State14_sub_Op_CMoveDEPK4Node(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State14_sub_Op_CMoveFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State14_sub_Op_CMoveFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -29107,7 +29107,7 @@ define hidden void @_ZN5State14_sub_Op_CMoveFEPK4Node(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State14_sub_Op_CMoveIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State14_sub_Op_CMoveIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -31127,7 +31127,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4Node7get_intEv(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State14_sub_Op_CMoveLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State14_sub_Op_CMoveLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -32964,7 +32964,7 @@ _ZNK4Node8get_longEv.exit452:                     ; preds = %949
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State14_sub_Op_CMovePEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State14_sub_Op_CMovePEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -34053,7 +34053,7 @@ define hidden void @_ZN5State14_sub_Op_CMovePEPK4Node(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State14_sub_Op_CMoveNEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State14_sub_Op_CMoveNEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -34357,7 +34357,7 @@ define hidden void @_ZN5State14_sub_Op_CMoveNEPK4Node(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_CmpNEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_CmpNEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -34720,7 +34720,7 @@ define hidden void @_ZN5State12_sub_Op_CmpNEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_CmpDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_CmpDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -34869,7 +34869,7 @@ define hidden void @_ZN5State12_sub_Op_CmpDEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_CmpD3EPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State13_sub_Op_CmpD3EPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -35299,7 +35299,7 @@ define hidden void @_ZN5State13_sub_Op_CmpD3EPK4Node(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_CmpFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_CmpFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -35448,7 +35448,7 @@ define hidden void @_ZN5State12_sub_Op_CmpFEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_CmpF3EPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State13_sub_Op_CmpF3EPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -35878,7 +35878,7 @@ define hidden void @_ZN5State13_sub_Op_CmpF3EPK4Node(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_CmpIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_CmpIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -36330,7 +36330,7 @@ define hidden void @_ZN5State12_sub_Op_CmpIEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_CmpLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_CmpLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -36740,7 +36740,7 @@ define hidden void @_ZN5State12_sub_Op_CmpLEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_CmpL3EPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State13_sub_Op_CmpL3EPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -36817,7 +36817,7 @@ define hidden void @_ZN5State13_sub_Op_CmpL3EPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State17_sub_Op_CmpLTMaskEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State17_sub_Op_CmpLTMaskEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -37097,7 +37097,7 @@ define hidden void @_ZN5State17_sub_Op_CmpLTMaskEPK4Node(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State12_sub_Op_CmpPEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State12_sub_Op_CmpPEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -37521,7 +37521,7 @@ define hidden void @_ZN5State12_sub_Op_CmpPEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_CmpUEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_CmpUEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -37679,7 +37679,7 @@ define hidden void @_ZN5State12_sub_Op_CmpUEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_CmpU3EPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State13_sub_Op_CmpU3EPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -37756,7 +37756,7 @@ define hidden void @_ZN5State13_sub_Op_CmpU3EPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_CmpULEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State13_sub_Op_CmpULEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -37914,7 +37914,7 @@ define hidden void @_ZN5State13_sub_Op_CmpULEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State14_sub_Op_CmpUL3EPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State14_sub_Op_CmpUL3EPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -37991,7 +37991,7 @@ define hidden void @_ZN5State14_sub_Op_CmpUL3EPK4Node(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State23_sub_Op_CompareAndSwapBEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State23_sub_Op_CompareAndSwapBEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -38068,7 +38068,7 @@ define hidden void @_ZN5State23_sub_Op_CompareAndSwapBEPK4Node(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State23_sub_Op_CompareAndSwapSEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State23_sub_Op_CompareAndSwapSEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -38145,7 +38145,7 @@ define hidden void @_ZN5State23_sub_Op_CompareAndSwapSEPK4Node(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State23_sub_Op_CompareAndSwapIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State23_sub_Op_CompareAndSwapIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -38222,7 +38222,7 @@ define hidden void @_ZN5State23_sub_Op_CompareAndSwapIEPK4Node(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State23_sub_Op_CompareAndSwapLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State23_sub_Op_CompareAndSwapLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -38299,7 +38299,7 @@ define hidden void @_ZN5State23_sub_Op_CompareAndSwapLEPK4Node(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State23_sub_Op_CompareAndSwapPEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State23_sub_Op_CompareAndSwapPEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -38768,7 +38768,7 @@ define hidden void @_ZN5State23_sub_Op_CompareAndSwapPEPK4Node(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State23_sub_Op_CompareAndSwapNEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State23_sub_Op_CompareAndSwapNEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -38845,7 +38845,7 @@ define hidden void @_ZN5State23_sub_Op_CompareAndSwapNEPK4Node(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State27_sub_Op_WeakCompareAndSwapBEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State27_sub_Op_WeakCompareAndSwapBEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -38922,7 +38922,7 @@ define hidden void @_ZN5State27_sub_Op_WeakCompareAndSwapBEPK4Node(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State27_sub_Op_WeakCompareAndSwapSEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State27_sub_Op_WeakCompareAndSwapSEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -38999,7 +38999,7 @@ define hidden void @_ZN5State27_sub_Op_WeakCompareAndSwapSEPK4Node(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State27_sub_Op_WeakCompareAndSwapIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State27_sub_Op_WeakCompareAndSwapIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -39076,7 +39076,7 @@ define hidden void @_ZN5State27_sub_Op_WeakCompareAndSwapIEPK4Node(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State27_sub_Op_WeakCompareAndSwapLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State27_sub_Op_WeakCompareAndSwapLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -39153,7 +39153,7 @@ define hidden void @_ZN5State27_sub_Op_WeakCompareAndSwapLEPK4Node(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State27_sub_Op_WeakCompareAndSwapPEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State27_sub_Op_WeakCompareAndSwapPEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -39622,7 +39622,7 @@ define hidden void @_ZN5State27_sub_Op_WeakCompareAndSwapPEPK4Node(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State27_sub_Op_WeakCompareAndSwapNEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State27_sub_Op_WeakCompareAndSwapNEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -39699,7 +39699,7 @@ define hidden void @_ZN5State27_sub_Op_WeakCompareAndSwapNEPK4Node(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State27_sub_Op_CompareAndExchangeBEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State27_sub_Op_CompareAndExchangeBEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -39776,7 +39776,7 @@ define hidden void @_ZN5State27_sub_Op_CompareAndExchangeBEPK4Node(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State27_sub_Op_CompareAndExchangeSEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State27_sub_Op_CompareAndExchangeSEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -39853,7 +39853,7 @@ define hidden void @_ZN5State27_sub_Op_CompareAndExchangeSEPK4Node(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State27_sub_Op_CompareAndExchangeIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State27_sub_Op_CompareAndExchangeIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -39930,7 +39930,7 @@ define hidden void @_ZN5State27_sub_Op_CompareAndExchangeIEPK4Node(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State27_sub_Op_CompareAndExchangeLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State27_sub_Op_CompareAndExchangeLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -40003,7 +40003,7 @@ define hidden void @_ZN5State27_sub_Op_CompareAndExchangeLEPK4Node(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State27_sub_Op_CompareAndExchangePEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State27_sub_Op_CompareAndExchangePEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -40616,7 +40616,7 @@ define hidden void @_ZN5State27_sub_Op_CompareAndExchangePEPK4Node(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State27_sub_Op_CompareAndExchangeNEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State27_sub_Op_CompareAndExchangeNEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -40660,7 +40660,7 @@ define hidden void @_ZN5State27_sub_Op_CompareAndExchangeNEPK4Node(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State18_sub_Op_GetAndAddBEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State18_sub_Op_GetAndAddBEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -40840,7 +40840,7 @@ define hidden void @_ZN5State18_sub_Op_GetAndAddBEPK4Node(ptr nocapture noundef 
 declare noundef zeroext i1 @_ZNK13LoadStoreNode15result_not_usedEv(ptr noundef nonnull align 8 dereferenceable(73)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State18_sub_Op_GetAndAddSEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State18_sub_Op_GetAndAddSEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -41023,7 +41023,7 @@ define hidden void @_ZN5State18_sub_Op_GetAndAddSEPK4Node(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State18_sub_Op_GetAndAddIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State18_sub_Op_GetAndAddIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -41201,7 +41201,7 @@ define hidden void @_ZN5State18_sub_Op_GetAndAddIEPK4Node(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State18_sub_Op_GetAndAddLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State18_sub_Op_GetAndAddLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -41375,7 +41375,7 @@ define hidden void @_ZN5State18_sub_Op_GetAndAddLEPK4Node(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State18_sub_Op_GetAndSetBEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State18_sub_Op_GetAndSetBEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -41452,7 +41452,7 @@ define hidden void @_ZN5State18_sub_Op_GetAndSetBEPK4Node(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State18_sub_Op_GetAndSetSEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State18_sub_Op_GetAndSetSEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -41529,7 +41529,7 @@ define hidden void @_ZN5State18_sub_Op_GetAndSetSEPK4Node(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State18_sub_Op_GetAndSetIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State18_sub_Op_GetAndSetIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -41606,7 +41606,7 @@ define hidden void @_ZN5State18_sub_Op_GetAndSetIEPK4Node(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State18_sub_Op_GetAndSetLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State18_sub_Op_GetAndSetLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -41679,7 +41679,7 @@ define hidden void @_ZN5State18_sub_Op_GetAndSetLEPK4Node(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State18_sub_Op_GetAndSetPEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State18_sub_Op_GetAndSetPEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -42292,7 +42292,7 @@ define hidden void @_ZN5State18_sub_Op_GetAndSetPEPK4Node(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State18_sub_Op_GetAndSetNEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State18_sub_Op_GetAndSetNEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -42340,7 +42340,7 @@ define hidden void @_ZN5State18_sub_Op_GetAndSetNEPK4Node(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State12_sub_Op_ConNEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) initializes((92, 96), (1306, 1308)) %0, ptr noundef nonnull %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State12_sub_Op_ConNEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) initializes((92, 96), (1306, 1308)) %0, ptr noundef nonnull %1) local_unnamed_addr #2 align 2 {
   %3 = tail call noundef i64 @_ZNK4Node13get_narrowconEv(ptr noundef nonnull align 8 dereferenceable(52) %1) #8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %.thread, label %15
@@ -42433,7 +42433,7 @@ define hidden void @_ZN5State12_sub_Op_ConNEPK4Node(ptr nocapture noundef nonnul
 declare noundef i64 @_ZNK4Node13get_narrowconEv(ptr noundef nonnull align 8 dereferenceable(52)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State17_sub_Op_ConNKlassEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((96, 100), (236, 240), (248, 252), (1308, 1310), (1378, 1380), (1384, 1386)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State17_sub_Op_ConNKlassEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((96, 100), (236, 240), (248, 252), (1308, 1310), (1378, 1380), (1384, 1386)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 10, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1308
@@ -42450,7 +42450,7 @@ define hidden void @_ZN5State17_sub_Op_ConNKlassEPK4Node(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State12_sub_Op_ConDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) initializes((164, 168), (324, 336), (428, 432), (1342, 1344), (1422, 1428), (1474, 1476)) %0, ptr noundef nonnull %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State12_sub_Op_ConDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) initializes((164, 168), (324, 336), (428, 432), (1342, 1344), (1422, 1428), (1474, 1476)) %0, ptr noundef nonnull %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store i32 15, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1342
@@ -42537,7 +42537,7 @@ define hidden void @_ZN5State12_sub_Op_ConDEPK4Node(ptr nocapture noundef nonnul
 declare noundef double @_ZNK4Node4getdEv(ptr noundef nonnull align 8 dereferenceable(52)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State12_sub_Op_ConFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) initializes((156, 160), (312, 324), (424, 428), (1338, 1340), (1416, 1422), (1472, 1474)) %0, ptr noundef nonnull %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State12_sub_Op_ConFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) initializes((156, 160), (312, 324), (424, 428), (1338, 1340), (1416, 1422), (1472, 1474)) %0, ptr noundef nonnull %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 15, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1338
@@ -44400,7 +44400,7 @@ define hidden void @_ZN5State12_sub_Op_ConPEPK4Node(ptr noundef nonnull align 8 
 declare noundef i64 @_ZNK4Node7get_ptrEv(ptr noundef nonnull align 8 dereferenceable(52)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_ConvD2FEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_ConvD2FEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -44546,7 +44546,7 @@ define hidden void @_ZN5State15_sub_Op_ConvD2FEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_ConvD2IEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_ConvD2IEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -44607,7 +44607,7 @@ define hidden void @_ZN5State15_sub_Op_ConvD2IEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_ConvD2LEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_ConvD2LEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -44664,7 +44664,7 @@ define hidden void @_ZN5State15_sub_Op_ConvD2LEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_ConvF2DEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_ConvF2DEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -44810,7 +44810,7 @@ define hidden void @_ZN5State15_sub_Op_ConvF2DEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_ConvF2IEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_ConvF2IEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -44871,7 +44871,7 @@ define hidden void @_ZN5State15_sub_Op_ConvF2IEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_ConvF2LEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_ConvF2LEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -44928,7 +44928,7 @@ define hidden void @_ZN5State15_sub_Op_ConvF2LEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_ConvI2DEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_ConvI2DEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -45184,7 +45184,7 @@ define hidden void @_ZN5State15_sub_Op_ConvI2DEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_ConvI2FEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_ConvI2FEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -45440,7 +45440,7 @@ define hidden void @_ZN5State15_sub_Op_ConvI2FEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_ConvI2LEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_ConvI2LEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -47597,7 +47597,7 @@ define hidden void @_ZN5State15_sub_Op_ConvI2LEPK4Node(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_ConvL2DEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_ConvL2DEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -47743,7 +47743,7 @@ define hidden void @_ZN5State15_sub_Op_ConvL2DEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_ConvL2FEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_ConvL2FEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -47889,7 +47889,7 @@ define hidden void @_ZN5State15_sub_Op_ConvL2FEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_ConvL2IEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_ConvL2IEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -48279,7 +48279,7 @@ define hidden void @_ZN5State15_sub_Op_ConvL2IEPK4Node(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State16_sub_Op_ConvF2HFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State16_sub_Op_ConvF2HFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -48356,7 +48356,7 @@ define hidden void @_ZN5State16_sub_Op_ConvF2HFEPK4Node(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State16_sub_Op_ConvHF2FEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State16_sub_Op_ConvHF2FEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -48399,7 +48399,7 @@ define hidden void @_ZN5State16_sub_Op_ConvHF2FEPK4Node(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State22_sub_Op_CountedLoopEndEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State22_sub_Op_CountedLoopEndEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -48442,7 +48442,7 @@ define hidden void @_ZN5State22_sub_Op_CountedLoopEndEPK4Node(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State26_sub_Op_CountLeadingZerosIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State26_sub_Op_CountLeadingZerosIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -48843,7 +48843,7 @@ define hidden void @_ZN5State26_sub_Op_CountLeadingZerosIEPK4Node(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State26_sub_Op_CountLeadingZerosLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State26_sub_Op_CountLeadingZerosLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -49244,7 +49244,7 @@ define hidden void @_ZN5State26_sub_Op_CountLeadingZerosLEPK4Node(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State26_sub_Op_CountLeadingZerosVEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State26_sub_Op_CountLeadingZerosVEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -49742,7 +49742,7 @@ _ZL33is_clz_non_subword_predicate_evex9BasicTypei.exit83: ; preds = %249
 declare noundef zeroext i8 @_ZN7Matcher25vector_element_basic_typeEPK4Node(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State27_sub_Op_CountTrailingZerosIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State27_sub_Op_CountTrailingZerosIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -50143,7 +50143,7 @@ define hidden void @_ZN5State27_sub_Op_CountTrailingZerosIEPK4Node(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State27_sub_Op_CountTrailingZerosLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State27_sub_Op_CountTrailingZerosLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -50544,7 +50544,7 @@ define hidden void @_ZN5State27_sub_Op_CountTrailingZerosLEPK4Node(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State27_sub_Op_CountTrailingZerosVEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State27_sub_Op_CountTrailingZerosVEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -50849,7 +50849,7 @@ _ZL33is_clz_non_subword_predicate_evex9BasicTypei.exit: ; preds = %136
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State16_sub_Op_CreateExEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((228, 236), (240, 248), (252, 272), (336, 340), (416, 420), (504, 512), (1374, 1378), (1380, 1384), (1386, 1396), (1428, 1430), (1468, 1470), (1512, 1516)) %0, ptr nocapture readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State16_sub_Op_CreateExEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((228, 236), (240, 248), (252, 272), (336, 340), (416, 420), (504, 512), (1374, 1378), (1380, 1384), (1386, 1396), (1428, 1430), (1468, 1470), (1512, 1516)) %0, ptr readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 244
   store i32 100, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1382
@@ -51315,7 +51315,7 @@ define hidden void @_ZN5State15_sub_Op_DecodeNEPK4Node(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State20_sub_Op_DecodeNKlassEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State20_sub_Op_DecodeNKlassEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -51392,7 +51392,7 @@ define hidden void @_ZN5State20_sub_Op_DecodeNKlassEPK4Node(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_DivDEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_DivDEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -52054,7 +52054,7 @@ define hidden void @_ZN5State12_sub_Op_DivDEPK4Node(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_DivFEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_DivFEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -52716,7 +52716,7 @@ define hidden void @_ZN5State12_sub_Op_DivFEPK4Node(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_DivIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_DivIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -52793,7 +52793,7 @@ define hidden void @_ZN5State12_sub_Op_DivIEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_DivLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_DivLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -52866,7 +52866,7 @@ define hidden void @_ZN5State12_sub_Op_DivLEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_UDivIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State13_sub_Op_UDivIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -52943,7 +52943,7 @@ define hidden void @_ZN5State13_sub_Op_UDivIEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_UDivLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State13_sub_Op_UDivLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -53016,7 +53016,7 @@ define hidden void @_ZN5State13_sub_Op_UDivLEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_DivModIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_DivModIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -53059,7 +53059,7 @@ define hidden void @_ZN5State15_sub_Op_DivModIEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_DivModLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_DivModLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -53102,7 +53102,7 @@ define hidden void @_ZN5State15_sub_Op_DivModLEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State16_sub_Op_UDivModIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State16_sub_Op_UDivModIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -53145,7 +53145,7 @@ define hidden void @_ZN5State16_sub_Op_UDivModIEPK4Node(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State16_sub_Op_UDivModLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State16_sub_Op_UDivModLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -53188,7 +53188,7 @@ define hidden void @_ZN5State16_sub_Op_UDivModLEPK4Node(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State22_sub_Op_EncodeISOArrayEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State22_sub_Op_EncodeISOArrayEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -53452,7 +53452,7 @@ define hidden void @_ZN5State22_sub_Op_EncodeISOArrayEPK4Node(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State15_sub_Op_EncodePEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State15_sub_Op_EncodePEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -53603,7 +53603,7 @@ _ZNK4Type8make_ptrEv.exit19:                      ; preds = %48, %51, %54
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State20_sub_Op_EncodePKlassEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State20_sub_Op_EncodePKlassEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -53635,7 +53635,7 @@ define hidden void @_ZN5State20_sub_Op_EncodePKlassEPK4Node(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State16_sub_Op_FastLockEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State16_sub_Op_FastLockEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -53723,7 +53723,7 @@ define hidden void @_ZN5State16_sub_Op_FastLockEPK4Node(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State18_sub_Op_FastUnlockEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State18_sub_Op_FastUnlockEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -53811,7 +53811,7 @@ define hidden void @_ZN5State18_sub_Op_FastUnlockEPK4Node(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_FmaDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_FmaDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -53869,7 +53869,7 @@ define hidden void @_ZN5State12_sub_Op_FmaDEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_FmaFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_FmaFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -53927,7 +53927,7 @@ define hidden void @_ZN5State12_sub_Op_FmaFEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State12_sub_Op_GotoEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State12_sub_Op_GotoEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   store i32 300, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1260
   store i16 2113, ptr %3, align 4
@@ -53935,7 +53935,7 @@ define hidden void @_ZN5State12_sub_Op_GotoEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State12_sub_Op_HaltEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State12_sub_Op_HaltEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   store i32 100, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1260
   store i16 2181, ptr %3, align 4
@@ -53943,7 +53943,7 @@ define hidden void @_ZN5State12_sub_Op_HaltEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State22_sub_Op_CountPositivesEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State22_sub_Op_CountPositivesEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -54207,7 +54207,7 @@ define hidden void @_ZN5State22_sub_Op_CountPositivesEPK4Node(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State10_sub_Op_IfEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State10_sub_Op_IfEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -54373,7 +54373,7 @@ define hidden void @_ZN5State10_sub_Op_IfEPK4Node(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_JumpEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_JumpEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -54425,7 +54425,7 @@ define hidden void @_ZN5State12_sub_Op_JumpEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_LShiftIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_LShiftIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -55621,7 +55621,7 @@ define hidden void @_ZN5State15_sub_Op_LShiftIEPK4Node(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_LShiftLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_LShiftLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -56587,7 +56587,7 @@ define hidden void @_ZN5State15_sub_Op_LShiftLEPK4Node(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_LoadBEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State13_sub_Op_LoadBEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -56660,7 +56660,7 @@ define hidden void @_ZN5State13_sub_Op_LoadBEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State14_sub_Op_LoadUBEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State14_sub_Op_LoadUBEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -56733,7 +56733,7 @@ define hidden void @_ZN5State14_sub_Op_LoadUBEPK4Node(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State14_sub_Op_LoadUSEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State14_sub_Op_LoadUSEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -56806,7 +56806,7 @@ define hidden void @_ZN5State14_sub_Op_LoadUSEPK4Node(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_LoadDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State13_sub_Op_LoadDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -56967,7 +56967,7 @@ define hidden void @_ZN5State13_sub_Op_LoadDEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_LoadFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State13_sub_Op_LoadFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -57021,7 +57021,7 @@ define hidden void @_ZN5State13_sub_Op_LoadFEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_LoadIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State13_sub_Op_LoadIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -57094,7 +57094,7 @@ define hidden void @_ZN5State13_sub_Op_LoadIEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State17_sub_Op_LoadKlassEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State17_sub_Op_LoadKlassEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -57171,7 +57171,7 @@ define hidden void @_ZN5State17_sub_Op_LoadKlassEPK4Node(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State18_sub_Op_LoadNKlassEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State18_sub_Op_LoadNKlassEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -57215,7 +57215,7 @@ define hidden void @_ZN5State18_sub_Op_LoadNKlassEPK4Node(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_LoadLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State13_sub_Op_LoadLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -57284,7 +57284,7 @@ define hidden void @_ZN5State13_sub_Op_LoadLEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_LoadPEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State13_sub_Op_LoadPEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -57860,7 +57860,7 @@ define hidden void @_ZN5State13_sub_Op_LoadPEPK4Node(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_LoadNEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State13_sub_Op_LoadNEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -57904,7 +57904,7 @@ define hidden void @_ZN5State13_sub_Op_LoadNEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State17_sub_Op_LoadRangeEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State17_sub_Op_LoadRangeEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -57965,7 +57965,7 @@ define hidden void @_ZN5State17_sub_Op_LoadRangeEPK4Node(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_LoadSEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State13_sub_Op_LoadSEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -58038,7 +58038,7 @@ define hidden void @_ZN5State13_sub_Op_LoadSEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State17_sub_Op_MulAddS2IEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State17_sub_Op_MulAddS2IEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -58115,7 +58115,7 @@ define hidden void @_ZN5State17_sub_Op_MulAddS2IEPK4Node(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_MaxIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_MaxIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -58192,7 +58192,7 @@ define hidden void @_ZN5State12_sub_Op_MaxIEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State12_sub_Op_MaxDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State12_sub_Op_MaxDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -58393,7 +58393,7 @@ define hidden void @_ZN5State12_sub_Op_MaxDEPK4Node(ptr nocapture noundef nonnul
 declare noundef zeroext i1 @_ZN15VLoopReductions12is_reductionEPK4Node(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State12_sub_Op_MaxFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State12_sub_Op_MaxFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -58592,7 +58592,7 @@ define hidden void @_ZN5State12_sub_Op_MaxFEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State21_sub_Op_MemBarAcquireEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State21_sub_Op_MemBarAcquireEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1260
   store i16 1295, ptr %3, align 4
@@ -58600,7 +58600,7 @@ define hidden void @_ZN5State21_sub_Op_MemBarAcquireEPK4Node(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State17_sub_Op_LoadFenceEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State17_sub_Op_LoadFenceEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1260
   store i16 1297, ptr %3, align 4
@@ -58608,7 +58608,7 @@ define hidden void @_ZN5State17_sub_Op_LoadFenceEPK4Node(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State25_sub_Op_MemBarAcquireLockEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State25_sub_Op_MemBarAcquireLockEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1260
   store i16 1299, ptr %3, align 4
@@ -58616,7 +58616,7 @@ define hidden void @_ZN5State25_sub_Op_MemBarAcquireLockEPK4Node(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State21_sub_Op_MemBarReleaseEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State21_sub_Op_MemBarReleaseEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1260
   store i16 1301, ptr %3, align 4
@@ -58624,7 +58624,7 @@ define hidden void @_ZN5State21_sub_Op_MemBarReleaseEPK4Node(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State18_sub_Op_StoreFenceEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State18_sub_Op_StoreFenceEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1260
   store i16 1303, ptr %3, align 4
@@ -58632,7 +58632,7 @@ define hidden void @_ZN5State18_sub_Op_StoreFenceEPK4Node(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State23_sub_Op_StoreStoreFenceEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State23_sub_Op_StoreStoreFenceEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1260
   store i16 1311, ptr %3, align 4
@@ -58640,7 +58640,7 @@ define hidden void @_ZN5State23_sub_Op_StoreStoreFenceEPK4Node(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State25_sub_Op_MemBarReleaseLockEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State25_sub_Op_MemBarReleaseLockEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1260
   store i16 1305, ptr %3, align 4
@@ -58648,7 +58648,7 @@ define hidden void @_ZN5State25_sub_Op_MemBarReleaseLockEPK4Node(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State22_sub_Op_MemBarVolatileEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State22_sub_Op_MemBarVolatileEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = tail call noundef zeroext i1 @_ZN7Matcher23post_store_load_barrierEPK4Node(ptr noundef %1) #8
   br i1 %3, label %.thread, label %5
 
@@ -58681,7 +58681,7 @@ define hidden void @_ZN5State22_sub_Op_MemBarVolatileEPK4Node(ptr nocapture noun
 declare noundef zeroext i1 @_ZN7Matcher23post_store_load_barrierEPK4Node(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State24_sub_Op_MemBarStoreStoreEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State24_sub_Op_MemBarStoreStoreEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1260
   store i16 1309, ptr %3, align 4
@@ -58689,7 +58689,7 @@ define hidden void @_ZN5State24_sub_Op_MemBarStoreStoreEPK4Node(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_MinIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_MinIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -58766,7 +58766,7 @@ define hidden void @_ZN5State12_sub_Op_MinIEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State12_sub_Op_MinFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State12_sub_Op_MinFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -58965,7 +58965,7 @@ define hidden void @_ZN5State12_sub_Op_MinFEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State12_sub_Op_MinDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State12_sub_Op_MinDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -59164,7 +59164,7 @@ define hidden void @_ZN5State12_sub_Op_MinDEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_ModIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_ModIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -59241,7 +59241,7 @@ define hidden void @_ZN5State12_sub_Op_ModIEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_ModLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_ModLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -59314,7 +59314,7 @@ define hidden void @_ZN5State12_sub_Op_ModLEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_UModIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State13_sub_Op_UModIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -59391,7 +59391,7 @@ define hidden void @_ZN5State13_sub_Op_UModIEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_UModLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State13_sub_Op_UModLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -59464,7 +59464,7 @@ define hidden void @_ZN5State13_sub_Op_UModLEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_MoveI2FEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_MoveI2FEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -59704,7 +59704,7 @@ define hidden void @_ZN5State15_sub_Op_MoveI2FEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_MoveF2IEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_MoveF2IEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -60150,7 +60150,7 @@ define hidden void @_ZN5State15_sub_Op_MoveF2IEPK4Node(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_MoveL2DEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_MoveL2DEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -60500,7 +60500,7 @@ define hidden void @_ZN5State15_sub_Op_MoveL2DEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_MoveD2LEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_MoveD2LEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -60901,7 +60901,7 @@ define hidden void @_ZN5State15_sub_Op_MoveD2LEPK4Node(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State19_sub_Op_IsInfiniteFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State19_sub_Op_IsInfiniteFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -60962,7 +60962,7 @@ define hidden void @_ZN5State19_sub_Op_IsInfiniteFEPK4Node(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State19_sub_Op_IsInfiniteDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State19_sub_Op_IsInfiniteDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -61023,7 +61023,7 @@ define hidden void @_ZN5State19_sub_Op_IsInfiniteDEPK4Node(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_MulDEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_MulDEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -61930,7 +61930,7 @@ define hidden void @_ZN5State12_sub_Op_MulDEPK4Node(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_MulFEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_MulFEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -62837,7 +62837,7 @@ define hidden void @_ZN5State12_sub_Op_MulFEPK4Node(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State14_sub_Op_MulHiLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State14_sub_Op_MulHiLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -62910,7 +62910,7 @@ define hidden void @_ZN5State14_sub_Op_MulHiLEPK4Node(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_UMulHiLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_UMulHiLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -62983,7 +62983,7 @@ define hidden void @_ZN5State15_sub_Op_UMulHiLEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_MulIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_MulIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -63770,7 +63770,7 @@ define hidden void @_ZN5State12_sub_Op_MulIEPK4Node(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_MulLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_MulLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -64489,7 +64489,7 @@ define hidden void @_ZN5State12_sub_Op_MulLEPK4Node(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_NegIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_NegIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -64550,7 +64550,7 @@ define hidden void @_ZN5State12_sub_Op_NegIEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_NegLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_NegLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -64607,7 +64607,7 @@ define hidden void @_ZN5State12_sub_Op_NegLEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_NegDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_NegDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -64759,7 +64759,7 @@ define hidden void @_ZN5State12_sub_Op_NegDEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_NegFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_NegFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -64911,7 +64911,7 @@ define hidden void @_ZN5State12_sub_Op_NegFEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State18_sub_Op_OnSpinWaitEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State18_sub_Op_OnSpinWaitEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   store i32 200, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1260
   store i16 2325, ptr %3, align 4
@@ -64919,7 +64919,7 @@ define hidden void @_ZN5State18_sub_Op_OnSpinWaitEPK4Node(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State11_sub_Op_OrIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State11_sub_Op_OrIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -65687,7 +65687,7 @@ define hidden void @_ZN5State11_sub_Op_OrIEPK4Node(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State11_sub_Op_OrLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State11_sub_Op_OrLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -66690,7 +66690,7 @@ define hidden void @_ZN5State11_sub_Op_OrLEPK4Node(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State20_sub_Op_OverflowAddIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State20_sub_Op_OverflowAddIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -66772,7 +66772,7 @@ define hidden void @_ZN5State20_sub_Op_OverflowAddIEPK4Node(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State20_sub_Op_OverflowSubIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State20_sub_Op_OverflowSubIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -66896,7 +66896,7 @@ define hidden void @_ZN5State20_sub_Op_OverflowSubIEPK4Node(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State20_sub_Op_OverflowMulIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State20_sub_Op_OverflowMulIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -66982,7 +66982,7 @@ define hidden void @_ZN5State20_sub_Op_OverflowMulIEPK4Node(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State20_sub_Op_OverflowAddLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State20_sub_Op_OverflowAddLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -67064,7 +67064,7 @@ define hidden void @_ZN5State20_sub_Op_OverflowAddLEPK4Node(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State20_sub_Op_OverflowSubLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State20_sub_Op_OverflowSubLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -67188,7 +67188,7 @@ define hidden void @_ZN5State20_sub_Op_OverflowSubLEPK4Node(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State20_sub_Op_OverflowMulLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State20_sub_Op_OverflowMulLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -67274,7 +67274,7 @@ define hidden void @_ZN5State20_sub_Op_OverflowMulLEPK4Node(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State27_sub_Op_PartialSubtypeCheckEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State27_sub_Op_PartialSubtypeCheckEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -67639,7 +67639,7 @@ define hidden void @_ZN5State27_sub_Op_PartialSubtypeCheckEPK4Node(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State17_sub_Op_PopCountIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State17_sub_Op_PopCountIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -67873,7 +67873,7 @@ define hidden void @_ZN5State17_sub_Op_PopCountIEPK4Node(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State17_sub_Op_PopCountLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State17_sub_Op_PopCountLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -68107,7 +68107,7 @@ define hidden void @_ZN5State17_sub_Op_PopCountLEPK4Node(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State18_sub_Op_PopCountVIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State18_sub_Op_PopCountVIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -68362,7 +68362,7 @@ _ZL28is_vector_popcount_predicate9BasicType.exit41.thread: ; preds = %102, %_ZL2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State18_sub_Op_PopCountVLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State18_sub_Op_PopCountVLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -68617,7 +68617,7 @@ _ZL28is_vector_popcount_predicate9BasicType.exit41.thread: ; preds = %102, %_ZL2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State21_sub_Op_PopulateIndexEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State21_sub_Op_PopulateIndexEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -68733,7 +68733,7 @@ define hidden void @_ZN5State21_sub_Op_PopulateIndexEPK4Node(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State26_sub_Op_PrefetchAllocationEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State26_sub_Op_PrefetchAllocationEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -68850,7 +68850,7 @@ define hidden void @_ZN5State26_sub_Op_PrefetchAllocationEPK4Node(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_RShiftIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_RShiftIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -70676,7 +70676,7 @@ define hidden void @_ZN5State15_sub_Op_RShiftIEPK4Node(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_RShiftLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_RShiftLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -71316,7 +71316,7 @@ define hidden void @_ZN5State15_sub_Op_RShiftLEPK4Node(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State15_sub_Op_RethrowEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State15_sub_Op_RethrowEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   store i32 100, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1260
   store i16 2167, ptr %3, align 4
@@ -71324,7 +71324,7 @@ define hidden void @_ZN5State15_sub_Op_RethrowEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State14_sub_Op_ReturnEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State14_sub_Op_ReturnEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((0, 4), (1260, 1262)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   store i32 100, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1260
   store i16 2159, ptr %3, align 4
@@ -71332,7 +71332,7 @@ define hidden void @_ZN5State14_sub_Op_ReturnEPK4Node(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State16_sub_Op_ReverseIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State16_sub_Op_ReverseIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -71564,7 +71564,7 @@ define hidden void @_ZN5State16_sub_Op_ReverseIEPK4Node(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State16_sub_Op_ReverseLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State16_sub_Op_ReverseLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -71776,7 +71776,7 @@ define hidden void @_ZN5State16_sub_Op_ReverseLEPK4Node(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State16_sub_Op_ReverseVEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State16_sub_Op_ReverseVEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -71877,7 +71877,7 @@ define hidden void @_ZN5State16_sub_Op_ReverseVEPK4Node(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State23_sub_Op_RoundDoubleModeEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State23_sub_Op_RoundDoubleModeEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -72053,7 +72053,7 @@ define hidden void @_ZN5State23_sub_Op_RoundDoubleModeEPK4Node(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State24_sub_Op_RoundDoubleModeVEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State24_sub_Op_RoundDoubleModeVEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -73704,7 +73704,7 @@ define hidden void @_ZN5State18_sub_Op_RotateLeftEPK4Node(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State19_sub_Op_RotateLeftVEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State19_sub_Op_RotateLeftVEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -75309,7 +75309,7 @@ define hidden void @_ZN5State19_sub_Op_RotateRightEPK4Node(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State20_sub_Op_RotateRightVEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State20_sub_Op_RotateRightVEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -75558,7 +75558,7 @@ define hidden void @_ZN5State20_sub_Op_RotateRightVEPK4Node(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State17_sub_Op_SafePointEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State17_sub_Op_SafePointEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -75585,7 +75585,7 @@ define hidden void @_ZN5State17_sub_Op_SafePointEPK4Node(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State37_sub_Op_ShenandoahCompareAndExchangePEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State37_sub_Op_ShenandoahCompareAndExchangePEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -75678,7 +75678,7 @@ define hidden void @_ZN5State37_sub_Op_ShenandoahCompareAndExchangePEPK4Node(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State37_sub_Op_ShenandoahCompareAndExchangeNEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State37_sub_Op_ShenandoahCompareAndExchangeNEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -75722,7 +75722,7 @@ define hidden void @_ZN5State37_sub_Op_ShenandoahCompareAndExchangeNEPK4Node(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State33_sub_Op_ShenandoahCompareAndSwapNEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State33_sub_Op_ShenandoahCompareAndSwapNEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -75799,7 +75799,7 @@ define hidden void @_ZN5State33_sub_Op_ShenandoahCompareAndSwapNEPK4Node(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State33_sub_Op_ShenandoahCompareAndSwapPEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State33_sub_Op_ShenandoahCompareAndSwapPEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -75876,7 +75876,7 @@ define hidden void @_ZN5State33_sub_Op_ShenandoahCompareAndSwapPEPK4Node(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State37_sub_Op_ShenandoahWeakCompareAndSwapNEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State37_sub_Op_ShenandoahWeakCompareAndSwapNEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -75953,7 +75953,7 @@ define hidden void @_ZN5State37_sub_Op_ShenandoahWeakCompareAndSwapNEPK4Node(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State37_sub_Op_ShenandoahWeakCompareAndSwapPEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State37_sub_Op_ShenandoahWeakCompareAndSwapPEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -76030,7 +76030,7 @@ define hidden void @_ZN5State37_sub_Op_ShenandoahWeakCompareAndSwapPEPK4Node(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State17_sub_Op_CopySignDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State17_sub_Op_CopySignDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -76088,7 +76088,7 @@ define hidden void @_ZN5State17_sub_Op_CopySignDEPK4Node(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State17_sub_Op_CopySignFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State17_sub_Op_CopySignFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -76146,7 +76146,7 @@ define hidden void @_ZN5State17_sub_Op_CopySignFEPK4Node(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_SignumDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_SignumDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -76204,7 +76204,7 @@ define hidden void @_ZN5State15_sub_Op_SignumDEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_SignumFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_SignumFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -76262,7 +76262,7 @@ define hidden void @_ZN5State15_sub_Op_SignumFEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State16_sub_Op_SignumVFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State16_sub_Op_SignumVFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -76414,7 +76414,7 @@ define hidden void @_ZN5State16_sub_Op_SignumVFEPK4Node(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State16_sub_Op_SignumVDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State16_sub_Op_SignumVDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -76566,7 +76566,7 @@ define hidden void @_ZN5State16_sub_Op_SignumVDEPK4Node(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_SqrtDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State13_sub_Op_SqrtDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -76611,7 +76611,7 @@ define hidden void @_ZN5State13_sub_Op_SqrtDEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_SqrtFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State13_sub_Op_SqrtFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -76656,7 +76656,7 @@ define hidden void @_ZN5State13_sub_Op_SqrtFEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State14_sub_Op_RoundFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State14_sub_Op_RoundFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -76717,7 +76717,7 @@ define hidden void @_ZN5State14_sub_Op_RoundFEPK4Node(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State14_sub_Op_RoundDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State14_sub_Op_RoundDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -76774,7 +76774,7 @@ define hidden void @_ZN5State14_sub_Op_RoundDEPK4Node(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State14_sub_Op_StoreBEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State14_sub_Op_StoreBEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -77193,7 +77193,7 @@ define hidden void @_ZN5State14_sub_Op_StoreBEPK4Node(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State14_sub_Op_StoreCEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State14_sub_Op_StoreCEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -77369,7 +77369,7 @@ define hidden void @_ZN5State14_sub_Op_StoreCEPK4Node(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_StoreCMEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_StoreCMEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -77457,7 +77457,7 @@ define hidden void @_ZN5State15_sub_Op_StoreCMEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State14_sub_Op_StoreDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State14_sub_Op_StoreDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -77590,7 +77590,7 @@ define hidden void @_ZN5State14_sub_Op_StoreDEPK4Node(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State14_sub_Op_StoreFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State14_sub_Op_StoreFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -77715,7 +77715,7 @@ define hidden void @_ZN5State14_sub_Op_StoreFEPK4Node(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State14_sub_Op_StoreIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State14_sub_Op_StoreIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -78946,7 +78946,7 @@ define hidden void @_ZN5State14_sub_Op_StoreIEPK4Node(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State14_sub_Op_StoreLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State14_sub_Op_StoreLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -80358,7 +80358,7 @@ _ZNK4Node8get_longEv.exit267:                     ; preds = %252
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State14_sub_Op_StorePEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State14_sub_Op_StorePEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -80607,7 +80607,7 @@ define hidden void @_ZN5State14_sub_Op_StorePEPK4Node(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State14_sub_Op_StoreNEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State14_sub_Op_StoreNEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -80727,7 +80727,7 @@ define hidden void @_ZN5State14_sub_Op_StoreNEPK4Node(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State19_sub_Op_StoreNKlassEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State19_sub_Op_StoreNKlassEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -80807,7 +80807,7 @@ define hidden void @_ZN5State19_sub_Op_StoreNKlassEPK4Node(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_StrCompEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_StrCompEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -82224,7 +82224,7 @@ define hidden void @_ZN5State15_sub_Op_StrCompEPK4Node(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State25_sub_Op_StrCompressedCopyEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State25_sub_Op_StrCompressedCopyEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -82488,7 +82488,7 @@ define hidden void @_ZN5State25_sub_Op_StrCompressedCopyEPK4Node(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State17_sub_Op_StrEqualsEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State17_sub_Op_StrEqualsEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -82752,7 +82752,7 @@ define hidden void @_ZN5State17_sub_Op_StrEqualsEPK4Node(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State18_sub_Op_StrIndexOfEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State18_sub_Op_StrIndexOfEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -83782,7 +83782,7 @@ define hidden void @_ZN5State18_sub_Op_StrIndexOfEPK4Node(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State22_sub_Op_StrIndexOfCharEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State22_sub_Op_StrIndexOfCharEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -84056,7 +84056,7 @@ define hidden void @_ZN5State22_sub_Op_StrIndexOfCharEPK4Node(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State23_sub_Op_StrInflatedCopyEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State23_sub_Op_StrInflatedCopyEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -84148,7 +84148,7 @@ define hidden void @_ZN5State23_sub_Op_StrInflatedCopyEPK4Node(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_SubDEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_SubDEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -84810,7 +84810,7 @@ define hidden void @_ZN5State12_sub_Op_SubDEPK4Node(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_SubFEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_SubFEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -85472,7 +85472,7 @@ define hidden void @_ZN5State12_sub_Op_SubFEPK4Node(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_SubIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_SubIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -86025,7 +86025,7 @@ define hidden void @_ZN5State12_sub_Op_SubIEPK4Node(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_SubLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_SubLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -86511,7 +86511,7 @@ define hidden void @_ZN5State12_sub_Op_SubLEPK4Node(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State16_sub_Op_TailCallEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State16_sub_Op_TailCallEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -86554,7 +86554,7 @@ define hidden void @_ZN5State16_sub_Op_TailCallEPK4Node(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State16_sub_Op_TailJumpEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State16_sub_Op_TailJumpEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -86597,7 +86597,7 @@ define hidden void @_ZN5State16_sub_Op_TailJumpEPK4Node(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State19_sub_Op_MacroLogicVEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State19_sub_Op_MacroLogicVEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -86863,7 +86863,7 @@ define hidden void @_ZN5State19_sub_Op_MacroLogicVEPK4Node(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5State19_sub_Op_ThreadLocalEPK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((228, 236), (240, 248), (252, 272), (336, 340), (416, 420), (504, 512), (1374, 1378), (1380, 1384), (1386, 1396), (1428, 1430), (1468, 1470), (1512, 1516)) %0, ptr nocapture readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5State19_sub_Op_ThreadLocalEPK4Node(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1920) initializes((228, 236), (240, 248), (252, 272), (336, 340), (416, 420), (504, 512), (1374, 1378), (1380, 1384), (1386, 1396), (1428, 1430), (1468, 1470), (1512, 1516)) %0, ptr readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 268
   store i32 100, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1394
@@ -86920,7 +86920,7 @@ define hidden void @_ZN5State19_sub_Op_ThreadLocalEPK4Node(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State16_sub_Op_URShiftIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State16_sub_Op_URShiftIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -87612,7 +87612,7 @@ define hidden void @_ZN5State16_sub_Op_URShiftIEPK4Node(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State16_sub_Op_URShiftLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State16_sub_Op_URShiftLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -88252,7 +88252,7 @@ define hidden void @_ZN5State16_sub_Op_URShiftLEPK4Node(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_XorIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_XorIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -90011,7 +90011,7 @@ define hidden void @_ZN5State12_sub_Op_XorIEPK4Node(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State12_sub_Op_XorLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State12_sub_Op_XorLEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -91572,7 +91572,7 @@ define hidden void @_ZN5State12_sub_Op_XorLEPK4Node(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State13_sub_Op_AddVBEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State13_sub_Op_AddVBEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -91999,7 +91999,7 @@ define hidden void @_ZN5State13_sub_Op_AddVBEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State13_sub_Op_AddVSEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State13_sub_Op_AddVSEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -92426,7 +92426,7 @@ define hidden void @_ZN5State13_sub_Op_AddVSEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State13_sub_Op_AddVIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State13_sub_Op_AddVIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -92999,7 +92999,7 @@ define hidden void @_ZN5State13_sub_Op_AddVIEPK4Node(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State22_sub_Op_AddReductionVIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State22_sub_Op_AddReductionVIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -93694,7 +93694,7 @@ define hidden void @_ZN5State22_sub_Op_AddReductionVIEPK4Node(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State13_sub_Op_AddVLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State13_sub_Op_AddVLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -94121,7 +94121,7 @@ define hidden void @_ZN5State13_sub_Op_AddVLEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State22_sub_Op_AddReductionVLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State22_sub_Op_AddReductionVLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -94401,7 +94401,7 @@ define hidden void @_ZN5State22_sub_Op_AddReductionVLEPK4Node(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State13_sub_Op_AddVFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State13_sub_Op_AddVFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -94828,7 +94828,7 @@ define hidden void @_ZN5State13_sub_Op_AddVFEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State22_sub_Op_AddReductionVFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State22_sub_Op_AddReductionVFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -95163,7 +95163,7 @@ define hidden void @_ZN5State22_sub_Op_AddReductionVFEPK4Node(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State13_sub_Op_AddVDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State13_sub_Op_AddVDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -95590,7 +95590,7 @@ define hidden void @_ZN5State13_sub_Op_AddVDEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State22_sub_Op_AddReductionVDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State22_sub_Op_AddReductionVDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -95925,7 +95925,7 @@ define hidden void @_ZN5State22_sub_Op_AddReductionVDEPK4Node(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State13_sub_Op_SubVBEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State13_sub_Op_SubVBEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -96266,7 +96266,7 @@ define hidden void @_ZN5State13_sub_Op_SubVBEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State13_sub_Op_SubVSEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State13_sub_Op_SubVSEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -96607,7 +96607,7 @@ define hidden void @_ZN5State13_sub_Op_SubVSEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State13_sub_Op_SubVIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State13_sub_Op_SubVIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -96948,7 +96948,7 @@ define hidden void @_ZN5State13_sub_Op_SubVIEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State13_sub_Op_SubVLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State13_sub_Op_SubVLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -97289,7 +97289,7 @@ define hidden void @_ZN5State13_sub_Op_SubVLEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State13_sub_Op_SubVFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State13_sub_Op_SubVFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -97630,7 +97630,7 @@ define hidden void @_ZN5State13_sub_Op_SubVFEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State13_sub_Op_SubVDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State13_sub_Op_SubVDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -97971,7 +97971,7 @@ define hidden void @_ZN5State13_sub_Op_SubVDEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State13_sub_Op_MulVBEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State13_sub_Op_MulVBEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -98191,7 +98191,7 @@ define hidden void @_ZN5State13_sub_Op_MulVBEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State13_sub_Op_MulVSEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State13_sub_Op_MulVSEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -98618,7 +98618,7 @@ define hidden void @_ZN5State13_sub_Op_MulVSEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State13_sub_Op_MulVIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State13_sub_Op_MulVIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -99045,7 +99045,7 @@ define hidden void @_ZN5State13_sub_Op_MulVIEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State22_sub_Op_MulReductionVIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State22_sub_Op_MulReductionVIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -100302,7 +100302,7 @@ define hidden void @_ZN5State13_sub_Op_MulVLEPK4Node(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State22_sub_Op_MulReductionVLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State22_sub_Op_MulReductionVLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -100582,7 +100582,7 @@ define hidden void @_ZN5State22_sub_Op_MulReductionVLEPK4Node(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State13_sub_Op_MulVFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State13_sub_Op_MulVFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -101009,7 +101009,7 @@ define hidden void @_ZN5State13_sub_Op_MulVFEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State22_sub_Op_MulReductionVFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State22_sub_Op_MulReductionVFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -101344,7 +101344,7 @@ define hidden void @_ZN5State22_sub_Op_MulReductionVFEPK4Node(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State13_sub_Op_MulVDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State13_sub_Op_MulVDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -101771,7 +101771,7 @@ define hidden void @_ZN5State13_sub_Op_MulVDEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State22_sub_Op_MulReductionVDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State22_sub_Op_MulReductionVDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -102106,7 +102106,7 @@ define hidden void @_ZN5State22_sub_Op_MulReductionVDEPK4Node(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State19_sub_Op_MulAddVS2VIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State19_sub_Op_MulAddVS2VIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -102252,7 +102252,7 @@ define hidden void @_ZN5State19_sub_Op_MulAddVS2VIEPK4Node(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State13_sub_Op_FmaVDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State13_sub_Op_FmaVDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -102514,7 +102514,7 @@ define hidden void @_ZN5State13_sub_Op_FmaVDEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State13_sub_Op_FmaVFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State13_sub_Op_FmaVFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -102776,7 +102776,7 @@ define hidden void @_ZN5State13_sub_Op_FmaVFEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State13_sub_Op_DivVFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State13_sub_Op_DivVFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -103117,7 +103117,7 @@ define hidden void @_ZN5State13_sub_Op_DivVFEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State13_sub_Op_DivVDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State13_sub_Op_DivVDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -103458,7 +103458,7 @@ define hidden void @_ZN5State13_sub_Op_DivVDEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_AbsVBEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State13_sub_Op_AbsVBEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -103551,7 +103551,7 @@ define hidden void @_ZN5State13_sub_Op_AbsVBEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_AbsVSEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State13_sub_Op_AbsVSEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -103644,7 +103644,7 @@ define hidden void @_ZN5State13_sub_Op_AbsVSEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_AbsVIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State13_sub_Op_AbsVIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -103737,7 +103737,7 @@ define hidden void @_ZN5State13_sub_Op_AbsVIEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_AbsVLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State13_sub_Op_AbsVLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -103830,7 +103830,7 @@ define hidden void @_ZN5State13_sub_Op_AbsVLEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State13_sub_Op_AbsVFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State13_sub_Op_AbsVFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -103938,7 +103938,7 @@ define hidden void @_ZN5State13_sub_Op_AbsVFEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_AbsVDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State13_sub_Op_AbsVDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -103975,7 +103975,7 @@ define hidden void @_ZN5State13_sub_Op_AbsVDEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State13_sub_Op_NegVFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State13_sub_Op_NegVFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -104083,7 +104083,7 @@ define hidden void @_ZN5State13_sub_Op_NegVFEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State13_sub_Op_NegVDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State13_sub_Op_NegVDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -104120,7 +104120,7 @@ define hidden void @_ZN5State13_sub_Op_NegVDEPK4Node(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State14_sub_Op_SqrtVDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State14_sub_Op_SqrtVDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -104291,7 +104291,7 @@ define hidden void @_ZN5State14_sub_Op_SqrtVDEPK4Node(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State14_sub_Op_SqrtVFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State14_sub_Op_SqrtVFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -104462,7 +104462,7 @@ define hidden void @_ZN5State14_sub_Op_SqrtVFEPK4Node(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State18_sub_Op_LShiftCntVEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State18_sub_Op_LShiftCntVEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -104511,7 +104511,7 @@ define hidden void @_ZN5State18_sub_Op_LShiftCntVEPK4Node(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State18_sub_Op_RShiftCntVEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State18_sub_Op_RShiftCntVEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -105967,7 +105967,7 @@ define hidden void @_ZN5State16_sub_Op_LShiftVSEPK4Node(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State16_sub_Op_LShiftVIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State16_sub_Op_LShiftVIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -106369,7 +106369,7 @@ define hidden void @_ZN5State16_sub_Op_LShiftVIEPK4Node(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State16_sub_Op_LShiftVLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State16_sub_Op_LShiftVLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -108178,7 +108178,7 @@ define hidden void @_ZN5State16_sub_Op_RShiftVSEPK4Node(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State16_sub_Op_RShiftVIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State16_sub_Op_RShiftVIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -110497,7 +110497,7 @@ define hidden void @_ZN5State17_sub_Op_URShiftVSEPK4Node(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State17_sub_Op_URShiftVIEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State17_sub_Op_URShiftVIEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -110899,7 +110899,7 @@ define hidden void @_ZN5State17_sub_Op_URShiftVIEPK4Node(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State17_sub_Op_URShiftVLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State17_sub_Op_URShiftVLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -111301,7 +111301,7 @@ define hidden void @_ZN5State17_sub_Op_URShiftVLEPK4Node(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State12_sub_Op_AndVEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State12_sub_Op_AndVEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -111728,7 +111728,7 @@ define hidden void @_ZN5State12_sub_Op_AndVEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State21_sub_Op_AndReductionVEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State21_sub_Op_AndReductionVEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -112702,7 +112702,7 @@ define hidden void @_ZN5State21_sub_Op_AndReductionVEPK4Node(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State11_sub_Op_OrVEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State11_sub_Op_OrVEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -113129,7 +113129,7 @@ define hidden void @_ZN5State11_sub_Op_OrVEPK4Node(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State20_sub_Op_OrReductionVEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State20_sub_Op_OrReductionVEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -114103,7 +114103,7 @@ define hidden void @_ZN5State20_sub_Op_OrReductionVEPK4Node(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State12_sub_Op_XorVEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State12_sub_Op_XorVEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -114530,7 +114530,7 @@ define hidden void @_ZN5State12_sub_Op_XorVEPK4Node(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State21_sub_Op_XorReductionVEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State21_sub_Op_XorReductionVEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -121302,7 +121302,7 @@ define hidden void @_ZN5State21_sub_Op_MaxReductionVEPK4Node(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State17_sub_Op_CompressVEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State17_sub_Op_CompressVEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -121454,7 +121454,7 @@ define hidden void @_ZN5State17_sub_Op_CompressVEPK4Node(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State17_sub_Op_CompressMEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State17_sub_Op_CompressMEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -121482,7 +121482,7 @@ define hidden void @_ZN5State17_sub_Op_CompressMEPK4Node(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State15_sub_Op_ExpandVEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State15_sub_Op_ExpandVEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -121634,7 +121634,7 @@ define hidden void @_ZN5State15_sub_Op_ExpandVEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State18_sub_Op_LoadVectorEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State18_sub_Op_LoadVectorEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -123054,7 +123054,7 @@ define hidden void @_ZN5State30_sub_Op_LoadVectorGatherMaskedEPK4Node(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State19_sub_Op_StoreVectorEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State19_sub_Op_StoreVectorEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -123134,7 +123134,7 @@ define hidden void @_ZN5State19_sub_Op_StoreVectorEPK4Node(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State26_sub_Op_StoreVectorScatterEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State26_sub_Op_StoreVectorScatterEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -123180,7 +123180,7 @@ define hidden void @_ZN5State26_sub_Op_StoreVectorScatterEPK4Node(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State32_sub_Op_StoreVectorScatterMaskedEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State32_sub_Op_StoreVectorScatterMaskedEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -123223,7 +123223,7 @@ define hidden void @_ZN5State32_sub_Op_StoreVectorScatterMaskedEPK4Node(ptr noca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State24_sub_Op_LoadVectorMaskedEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State24_sub_Op_LoadVectorMaskedEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -123380,7 +123380,7 @@ define hidden void @_ZN5State24_sub_Op_LoadVectorMaskedEPK4Node(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State25_sub_Op_StoreVectorMaskedEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State25_sub_Op_StoreVectorMaskedEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -123513,7 +123513,7 @@ define hidden void @_ZN5State25_sub_Op_StoreVectorMaskedEPK4Node(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State29_sub_Op_VerifyVectorAlignmentEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State29_sub_Op_VerifyVectorAlignmentEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -123606,7 +123606,7 @@ define hidden void @_ZN5State29_sub_Op_VerifyVectorAlignmentEPK4Node(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State23_sub_Op_VectorCmpMaskedEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State23_sub_Op_VectorCmpMaskedEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -123683,7 +123683,7 @@ define hidden void @_ZN5State23_sub_Op_VectorCmpMaskedEPK4Node(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State21_sub_Op_VectorMaskGenEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State21_sub_Op_VectorMaskGenEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -123737,7 +123737,7 @@ define hidden void @_ZN5State21_sub_Op_VectorMaskGenEPK4Node(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State27_sub_Op_VectorMaskTrueCountEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State27_sub_Op_VectorMaskTrueCountEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -124189,7 +124189,7 @@ define hidden void @_ZN5State27_sub_Op_VectorMaskTrueCountEPK4Node(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State27_sub_Op_VectorMaskFirstTrueEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State27_sub_Op_VectorMaskFirstTrueEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -124651,7 +124651,7 @@ define hidden void @_ZN5State27_sub_Op_VectorMaskFirstTrueEPK4Node(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State26_sub_Op_VectorMaskLastTrueEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State26_sub_Op_VectorMaskLastTrueEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -125103,7 +125103,7 @@ define hidden void @_ZN5State26_sub_Op_VectorMaskLastTrueEPK4Node(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State24_sub_Op_VectorMaskToLongEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State24_sub_Op_VectorMaskToLongEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -125519,7 +125519,7 @@ define hidden void @_ZN5State24_sub_Op_VectorMaskToLongEPK4Node(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State24_sub_Op_VectorLongToMaskEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State24_sub_Op_VectorLongToMaskEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -127178,7 +127178,7 @@ define hidden void @_ZN5State17_sub_Op_ReplicateEPK4Node(ptr noundef nonnull ali
 declare noundef zeroext i1 @_ZN7Matcher27is_non_long_integral_vectorEPK4Node(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State15_sub_Op_RoundVFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State15_sub_Op_RoundVFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -127306,7 +127306,7 @@ define hidden void @_ZN5State15_sub_Op_RoundVFEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State15_sub_Op_RoundVDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State15_sub_Op_RoundVDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -127345,7 +127345,7 @@ define hidden void @_ZN5State15_sub_Op_RoundVDEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State16_sub_Op_ExtractBEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State16_sub_Op_ExtractBEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -127637,7 +127637,7 @@ define hidden void @_ZN5State16_sub_Op_ExtractBEPK4Node(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State16_sub_Op_ExtractSEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State16_sub_Op_ExtractSEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -127929,7 +127929,7 @@ define hidden void @_ZN5State16_sub_Op_ExtractSEPK4Node(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State16_sub_Op_ExtractIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State16_sub_Op_ExtractIEPK4Node(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -128221,7 +128221,7 @@ define hidden void @_ZN5State16_sub_Op_ExtractIEPK4Node(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State16_sub_Op_ExtractLEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State16_sub_Op_ExtractLEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -128493,7 +128493,7 @@ define hidden void @_ZN5State16_sub_Op_ExtractLEPK4Node(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State16_sub_Op_ExtractFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State16_sub_Op_ExtractFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -128705,7 +128705,7 @@ define hidden void @_ZN5State16_sub_Op_ExtractFEPK4Node(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State16_sub_Op_ExtractDEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State16_sub_Op_ExtractDEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -129934,7 +129934,7 @@ _ZNK4Node7get_intEv.exit152:                      ; preds = %354
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State22_sub_Op_VectorMaskCastEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State22_sub_Op_VectorMaskCastEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -130065,7 +130065,7 @@ define hidden void @_ZN5State22_sub_Op_VectorMaskCastEPK4Node(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State18_sub_Op_VectorTestEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State18_sub_Op_VectorTestEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -132031,7 +132031,7 @@ define hidden void @_ZN5State23_sub_Op_VectorRearrangeEPK4Node(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State22_sub_Op_VectorLoadMaskEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State22_sub_Op_VectorLoadMaskEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -132684,7 +132684,7 @@ define hidden void @_ZN5State25_sub_Op_VectorLoadShuffleEPK4Node(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State23_sub_Op_VectorLoadConstEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State23_sub_Op_VectorLoadConstEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -133576,7 +133576,7 @@ define hidden void @_ZN5State23_sub_Op_VectorStoreMaskEPK4Node(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -134335,7 +134335,7 @@ define hidden void @_ZN5State25_sub_Op_VectorReinterpretEPK4Node(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State21_sub_Op_VectorCastB2XEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State21_sub_Op_VectorCastB2XEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -134452,7 +134452,7 @@ define hidden void @_ZN5State21_sub_Op_VectorCastB2XEPK4Node(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State21_sub_Op_VectorCastS2XEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State21_sub_Op_VectorCastS2XEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -134677,7 +134677,7 @@ define hidden void @_ZN5State21_sub_Op_VectorCastS2XEPK4Node(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State21_sub_Op_VectorCastI2XEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State21_sub_Op_VectorCastI2XEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -134888,7 +134888,7 @@ define hidden void @_ZN5State21_sub_Op_VectorCastI2XEPK4Node(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State21_sub_Op_VectorCastL2XEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State21_sub_Op_VectorCastL2XEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -135018,7 +135018,7 @@ define hidden void @_ZN5State21_sub_Op_VectorCastL2XEPK4Node(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State21_sub_Op_VectorCastF2XEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State21_sub_Op_VectorCastF2XEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -135229,7 +135229,7 @@ define hidden void @_ZN5State21_sub_Op_VectorCastF2XEPK4Node(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State21_sub_Op_VectorCastD2XEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State21_sub_Op_VectorCastD2XEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -135442,7 +135442,7 @@ define hidden void @_ZN5State21_sub_Op_VectorCastD2XEPK4Node(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State22_sub_Op_VectorCastF2HFEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State22_sub_Op_VectorCastF2HFEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -135487,7 +135487,7 @@ define hidden void @_ZN5State22_sub_Op_VectorCastF2HFEPK4Node(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State22_sub_Op_VectorCastHF2FEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State22_sub_Op_VectorCastHF2FEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -135571,7 +135571,7 @@ define hidden void @_ZN5State22_sub_Op_VectorCastHF2FEPK4Node(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State22_sub_Op_VectorUCastB2XEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State22_sub_Op_VectorUCastB2XEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -135604,7 +135604,7 @@ define hidden void @_ZN5State22_sub_Op_VectorUCastB2XEPK4Node(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State22_sub_Op_VectorUCastS2XEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State22_sub_Op_VectorUCastS2XEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -135637,7 +135637,7 @@ define hidden void @_ZN5State22_sub_Op_VectorUCastS2XEPK4Node(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State22_sub_Op_VectorUCastI2XEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State22_sub_Op_VectorUCastI2XEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -135670,7 +135670,7 @@ define hidden void @_ZN5State22_sub_Op_VectorUCastI2XEPK4Node(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State26_sub_Op_VectorizedHashCodeEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State26_sub_Op_VectorizedHashCodeEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -136596,7 +136596,7 @@ define hidden void @_ZN5State20_sub_Op_VectorInsertEPK4Node(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State15_sub_Op_MaskAllEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State15_sub_Op_MaskAllEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -136725,7 +136725,7 @@ define hidden void @_ZN5State15_sub_Op_MaskAllEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State16_sub_Op_AndVMaskEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State16_sub_Op_AndVMaskEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -136769,7 +136769,7 @@ define hidden void @_ZN5State16_sub_Op_AndVMaskEPK4Node(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5State15_sub_Op_OrVMaskEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr nocapture readnone %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5State15_sub_Op_OrVMaskEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -136813,7 +136813,7 @@ define hidden void @_ZN5State15_sub_Op_OrVMaskEPK4Node(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5State16_sub_Op_XorVMaskEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5State16_sub_Op_XorVMaskEPK4Node(ptr noundef nonnull align 8 captures(none) dereferenceable(1920) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null

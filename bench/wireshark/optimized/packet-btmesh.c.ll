@@ -3383,7 +3383,7 @@ target triple = "x86_64-pc-linux-gnu"
 @upper_transport_reassembly_table_functions = internal constant %struct.reassembly_table_functions { ptr @upper_transport_fragment_hash, ptr @upper_transport_fragment_equal, ptr @upper_transport_fragment_temporary_key, ptr @upper_transport_fragment_persistent_key, ptr @upper_transport_fragment_free_temporary_key, ptr @upper_transport_fragment_free_persistent_key }, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @btmesh_network_find_key_and_decrypt(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define hidden ptr @btmesh_network_find_key_and_decrypt(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca [16 x i8], align 16
   %7 = alloca ptr, align 8
   %8 = alloca [16 x i8], align 16
@@ -3637,7 +3637,7 @@ declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @gcry_cipher_open(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -3688,7 +3688,7 @@ define hidden void @proto_register_btmesh() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_dual_key_index(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_dual_key_index(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = and i32 %1, 4095
   %4 = lshr i32 %1, 12
   %5 = and i32 %4, 4095
@@ -3697,14 +3697,14 @@ define internal void @format_dual_key_index(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_key_index(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_key_index(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = and i32 %1, 4095
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1716, i32 noundef %3, i32 noundef %3) #16
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @format_vendor_model(ptr nocapture noundef writeonly %0, i32 noundef %1) #0 {
+define internal void @format_vendor_model(ptr noundef writeonly captures(none) %0, i32 noundef %1) #0 {
   %3 = lshr i32 %1, 16
   %4 = and i32 %1, 65535
   %5 = tail call ptr @val_to_str_ext_const(i32 noundef %4, ptr noundef nonnull @bluetooth_company_id_vals_ext, ptr noundef nonnull @.str.1774) #16
@@ -3713,7 +3713,7 @@ define internal void @format_vendor_model(ptr nocapture noundef writeonly %0, i3
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_publish_appkeyindex_model(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_publish_appkeyindex_model(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = and i32 %1, 4095
   %4 = and i32 %1, 4096
   %.not = icmp eq i32 %4, 0
@@ -3723,7 +3723,7 @@ define internal void @format_publish_appkeyindex_model(ptr nocapture noundef wri
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_publish_period(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_publish_period(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = lshr i32 %1, 6
   %4 = and i32 %3, 3
   %5 = and i32 %1, 63
@@ -3738,7 +3738,7 @@ define internal void @format_publish_period(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_retransmit(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_retransmit(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = lshr i32 %1, 3
   %4 = and i32 %3, 31
   %5 = mul nuw nsw i32 %4, 10
@@ -3766,7 +3766,7 @@ define internal void @format_retransmit(ptr nocapture noundef writeonly %0, i32 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_interval_steps(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_interval_steps(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = mul i32 %1, 10
   %4 = add i32 %3, 10
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1791, i32 noundef %4, i32 noundef %1) #16
@@ -3774,7 +3774,7 @@ define internal void @format_interval_steps(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_key_index_rfu(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_key_index_rfu(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = lshr i32 %1, 12
   %4 = and i32 %3, 15
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1861, i32 noundef %4) #16
@@ -3782,7 +3782,7 @@ define internal void @format_key_index_rfu(ptr nocapture noundef writeonly %0, i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_transmit(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_transmit(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = and i32 %1, 7
   %cond = icmp eq i32 %3, 0
   br i1 %cond, label %4, label %5
@@ -3804,7 +3804,7 @@ define internal void @format_transmit(ptr nocapture noundef writeonly %0, i32 no
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_global_latitude(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_global_latitude(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp eq i32 %1, -2147483648
   br i1 %3, label %4, label %5
 
@@ -3823,7 +3823,7 @@ define internal void @format_global_latitude(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_global_longitude(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_global_longitude(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp eq i32 %1, -2147483648
   br i1 %3, label %4, label %5
 
@@ -3842,7 +3842,7 @@ define internal void @format_global_longitude(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_global_altitude(ptr nocapture noundef writeonly %0, i16 noundef signext %1) #3 {
+define internal void @format_global_altitude(ptr noundef writeonly captures(none) %0, i16 noundef signext %1) #3 {
   switch i16 %1, label %5 [
     i16 32767, label %3
     i16 32766, label %4
@@ -3866,14 +3866,14 @@ define internal void @format_global_altitude(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_delay_ms(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_delay_ms(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = mul i32 %1, 5
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1887, i32 noundef %3) #16
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_power(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_power(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = uitofp i32 %1 to double
   %4 = fdiv double %3, 6.553500e+02
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1890, double noundef %4) #16
@@ -3881,7 +3881,7 @@ define internal void @format_power(ptr nocapture noundef writeonly %0, i32 nound
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_battery_level(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_battery_level(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp eq i32 %1, 255
   br i1 %3, label %4, label %5
 
@@ -3906,7 +3906,7 @@ define internal void @format_battery_level(ptr nocapture noundef writeonly %0, i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_battery_time(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_battery_time(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp eq i32 %1, 16777215
   br i1 %3, label %4, label %5
 
@@ -3923,7 +3923,7 @@ define internal void @format_battery_time(ptr nocapture noundef writeonly %0, i3
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_local_north(ptr nocapture noundef writeonly %0, i16 noundef signext %1) #3 {
+define internal void @format_local_north(ptr noundef writeonly captures(none) %0, i16 noundef signext %1) #3 {
   %3 = icmp eq i16 %1, -32768
   br i1 %3, label %4, label %5
 
@@ -3942,7 +3942,7 @@ define internal void @format_local_north(ptr nocapture noundef writeonly %0, i16
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_local_east(ptr nocapture noundef writeonly %0, i16 noundef signext %1) #3 {
+define internal void @format_local_east(ptr noundef writeonly captures(none) %0, i16 noundef signext %1) #3 {
   %3 = icmp eq i16 %1, -32768
   br i1 %3, label %4, label %5
 
@@ -3961,7 +3961,7 @@ define internal void @format_local_east(ptr nocapture noundef writeonly %0, i16 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_local_altitude(ptr nocapture noundef writeonly %0, i16 noundef signext %1) #3 {
+define internal void @format_local_altitude(ptr noundef writeonly captures(none) %0, i16 noundef signext %1) #3 {
   switch i16 %1, label %5 [
     i16 32767, label %3
     i16 32766, label %4
@@ -3986,7 +3986,7 @@ define internal void @format_local_altitude(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_floor_number(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1) #3 {
+define internal void @format_floor_number(ptr noundef writeonly captures(none) %0, i8 noundef zeroext %1) #3 {
   switch i8 %1, label %8 [
     i8 0, label %3
     i8 -4, label %4
@@ -4026,7 +4026,7 @@ define internal void @format_floor_number(ptr nocapture noundef writeonly %0, i8
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_update_time(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #3 {
+define internal void @format_update_time(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #3 {
   %3 = zext i16 %1 to i32
   %4 = add nsw i32 %3, -3
   %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %4) #16
@@ -4038,7 +4038,7 @@ define internal void @format_update_time(ptr nocapture noundef writeonly %0, i16
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_precision(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #3 {
+define internal void @format_precision(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #3 {
   %3 = zext i16 %1 to i32
   %4 = add nsw i32 %3, -3
   %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %4) #16
@@ -4050,7 +4050,7 @@ define internal void @format_precision(ptr nocapture noundef writeonly %0, i16 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @format_tai_to_utc_date(ptr nocapture noundef writeonly %0, i64 noundef %1) #0 {
+define internal void @format_tai_to_utc_date(ptr noundef writeonly captures(none) %0, i64 noundef %1) #0 {
   %3 = alloca [5 x i64], align 16
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %5, label %6
@@ -4096,7 +4096,7 @@ define internal void @format_tai_to_utc_date(ptr nocapture noundef writeonly %0,
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_subsecond_ms(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_subsecond_ms(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = uitofp i32 %1 to double
   %4 = fdiv double %3, 2.560000e-01
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1930, double noundef %4) #16
@@ -4104,21 +4104,21 @@ define internal void @format_subsecond_ms(ptr nocapture noundef writeonly %0, i3
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_uncertainty_ms(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_uncertainty_ms(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = mul i32 %1, 10
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1887, i32 noundef %3) #16
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_tai_utc_delta_s(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_tai_utc_delta_s(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = add i32 %1, -255
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1932, i32 noundef %3) #16
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_time_zone_offset_h(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_time_zone_offset_h(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = add i32 %1, -64
   %4 = icmp sgt i32 %3, -1
   br i1 %4, label %5, label %10
@@ -4143,7 +4143,7 @@ define internal void @format_time_zone_offset_h(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_scheduler_year(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_scheduler_year(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp slt i32 %1, 100
   br i1 %3, label %4, label %7
 
@@ -4209,7 +4209,7 @@ define internal void @format_scheduler_month(ptr noundef initializes((0, 1)) %0,
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_scheduler_day(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_scheduler_day(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %4, label %6
 
@@ -4226,7 +4226,7 @@ define internal void @format_scheduler_day(ptr nocapture noundef writeonly %0, i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_scheduler_hour(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_scheduler_hour(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp slt i32 %1, 24
   br i1 %3, label %4, label %6
 
@@ -4257,7 +4257,7 @@ define internal void @format_scheduler_hour(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_scheduler_minute(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_scheduler_minute(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   switch i32 %1, label %7 [
     i32 60, label %3
     i32 61, label %4
@@ -4290,7 +4290,7 @@ define internal void @format_scheduler_minute(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_scheduler_second(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_scheduler_second(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   switch i32 %1, label %7 [
     i32 60, label %3
     i32 61, label %4
@@ -4363,7 +4363,7 @@ define internal void @format_scheduler_day_of_week(ptr noundef initializes((0, 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @format_scheduler_action(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 noundef %1) #4 {
+define internal void @format_scheduler_action(ptr noundef writeonly captures(none) initializes((0, 8)) %0, i32 noundef %1) #4 {
   switch i32 %1, label %7 [
     i32 0, label %3
     i32 1, label %4
@@ -4396,7 +4396,7 @@ define internal void @format_scheduler_action(ptr nocapture noundef writeonly in
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_light_lightness_prohibited(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_light_lightness_prohibited(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %6
 
@@ -4413,7 +4413,7 @@ define internal void @format_light_lightness_prohibited(ptr nocapture noundef wr
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_light_lightness_default(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_light_lightness_default(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %5
 
@@ -4430,7 +4430,7 @@ define internal void @format_light_lightness_default(ptr nocapture noundef write
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_temperature_kelvin(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_temperature_kelvin(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = add i32 %1, -20001
   %4 = icmp ult i32 %3, -19201
   %.str.2135.sink = select i1 %4, ptr @.str.2135, ptr @.str.2137
@@ -4439,7 +4439,7 @@ define internal void @format_temperature_kelvin(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_temperature_kelvin_unknown(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_temperature_kelvin_unknown(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp ult i32 %1, 800
   br i1 %3, label %4, label %6
 
@@ -4474,7 +4474,7 @@ define internal void @format_temperature_kelvin_unknown(ptr nocapture noundef wr
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_hsl_hue(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_hsl_hue(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = uitofp i32 %1 to double
   %4 = fmul double %3, 0x3F76800000000000
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.2138, double noundef %4) #16
@@ -4482,7 +4482,7 @@ define internal void @format_hsl_hue(ptr nocapture noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_xyl_coordinate(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_xyl_coordinate(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = uitofp i32 %1 to double
   %4 = fdiv double %3, 6.553500e+04
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.2139, double noundef %4) #16
@@ -4490,7 +4490,7 @@ define internal void @format_xyl_coordinate(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @format_manufacturer_user_access(ptr nocapture noundef writeonly initializes((0, 11)) %0, i32 noundef %1) #4 {
+define internal void @format_manufacturer_user_access(ptr noundef writeonly captures(none) initializes((0, 11)) %0, i32 noundef %1) #4 {
   switch i32 %1, label %5 [
     i32 0, label %3
     i32 1, label %4
@@ -4513,7 +4513,7 @@ define internal void @format_manufacturer_user_access(ptr nocapture noundef writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @format_admin_user_access(ptr nocapture noundef writeonly initializes((0, 11)) %0, i32 noundef %1) #4 {
+define internal void @format_admin_user_access(ptr noundef writeonly captures(none) initializes((0, 11)) %0, i32 noundef %1) #4 {
   switch i32 %1, label %7 [
     i32 0, label %3
     i32 1, label %4
@@ -4546,7 +4546,7 @@ define internal void @format_admin_user_access(ptr nocapture noundef writeonly i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @format_user_access(ptr nocapture noundef writeonly initializes((0, 11)) %0, i32 noundef %1) #4 {
+define internal void @format_user_access(ptr noundef writeonly captures(none) initializes((0, 11)) %0, i32 noundef %1) #4 {
   switch i32 %1, label %6 [
     i32 1, label %3
     i32 2, label %4
@@ -4574,7 +4574,7 @@ define internal void @format_user_access(ptr nocapture noundef writeonly initial
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_sensor_descriptor_tolerance(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_sensor_descriptor_tolerance(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %5
 
@@ -4593,7 +4593,7 @@ define internal void @format_sensor_descriptor_tolerance(ptr nocapture noundef w
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_sensor_period(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_sensor_period(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %5
 
@@ -4655,7 +4655,7 @@ define internal void @format_sensor_period(ptr nocapture noundef writeonly %0, i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_fast_cadence_period_divisor(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_fast_cadence_period_divisor(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp ugt i32 %1, 15
   br i1 %3, label %4, label %5
 
@@ -4673,7 +4673,7 @@ define internal void @format_fast_cadence_period_divisor(ptr nocapture noundef w
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_status_min_interval(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_status_min_interval(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp ugt i32 %1, 26
   br i1 %3, label %4, label %5
 
@@ -4691,7 +4691,7 @@ define internal void @format_status_min_interval(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @format_sensor_setting_access(ptr nocapture noundef writeonly initializes((0, 11)) %0, i32 noundef %1) #4 {
+define internal void @format_sensor_setting_access(ptr noundef writeonly captures(none) initializes((0, 11)) %0, i32 noundef %1) #4 {
   switch i32 %1, label %5 [
     i32 1, label %3
     i32 3, label %4
@@ -4714,7 +4714,7 @@ define internal void @format_sensor_setting_access(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_illuminance(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_illuminance(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp eq i32 %1, 16777215
   br i1 %3, label %4, label %5
 
@@ -4733,7 +4733,7 @@ define internal void @format_illuminance(ptr nocapture noundef writeonly %0, i32
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_percentage_8(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_percentage_8(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp eq i32 %1, 255
   br i1 %3, label %4, label %5
 
@@ -4760,7 +4760,7 @@ define internal void @format_percentage_8(ptr nocapture noundef writeonly %0, i3
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_time_millisecond_24(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_time_millisecond_24(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp eq i32 %1, 16777215
   br i1 %3, label %4, label %5
 
@@ -4779,7 +4779,7 @@ define internal void @format_time_millisecond_24(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_count_16(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_count_16(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp eq i32 %1, 65535
   br i1 %3, label %4, label %5
 
@@ -4796,7 +4796,7 @@ define internal void @format_count_16(ptr nocapture noundef writeonly %0, i32 no
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_percentage_change_16(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_percentage_change_16(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = uitofp i32 %1 to double
   %4 = fdiv double %3, 1.000000e+02
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.2166, double noundef %4) #16
@@ -4804,7 +4804,7 @@ define internal void @format_percentage_change_16(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_decihour_8(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_decihour_8(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp eq i32 %1, 255
   br i1 %3, label %4, label %5
 
@@ -4831,7 +4831,7 @@ define internal void @format_decihour_8(ptr nocapture noundef writeonly %0, i32 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_temperature_8(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_temperature_8(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp eq i32 %1, 127
   br i1 %3, label %4, label %5
 
@@ -4850,7 +4850,7 @@ define internal void @format_temperature_8(ptr nocapture noundef writeonly %0, i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_temperature(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_temperature(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp eq i32 %1, -32768
   br i1 %3, label %4, label %5
 
@@ -4877,7 +4877,7 @@ define internal void @format_temperature(ptr nocapture noundef writeonly %0, i32
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_electric_current(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_electric_current(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp eq i32 %1, 65535
   br i1 %3, label %4, label %5
 
@@ -4896,7 +4896,7 @@ define internal void @format_electric_current(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_energy(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_energy(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp eq i32 %1, 16777215
   br i1 %3, label %4, label %5
 
@@ -4913,7 +4913,7 @@ define internal void @format_energy(ptr nocapture noundef writeonly %0, i32 noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_boolean(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_boolean(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   switch i32 %1, label %5 [
     i32 0, label %3
     i32 1, label %4
@@ -4936,7 +4936,7 @@ define internal void @format_boolean(ptr nocapture noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_time_second_16(ptr nocapture noundef writeonly %0, i32 noundef %1) #3 {
+define internal void @format_time_second_16(ptr noundef writeonly captures(none) %0, i32 noundef %1) #3 {
   %3 = icmp eq i32 %1, 65535
   br i1 %3, label %4, label %5
 
@@ -4955,7 +4955,7 @@ define internal void @format_time_second_16(ptr nocapture noundef writeonly %0, 
 declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_btmesh_records_network_key_string_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_btmesh_records_network_key_string_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #16
   %8 = load ptr, ptr %0, align 8
@@ -4965,7 +4965,7 @@ define internal void @uat_btmesh_records_network_key_string_set_cb(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_btmesh_records_network_key_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_btmesh_records_network_key_string_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -4990,7 +4990,7 @@ define internal void @uat_btmesh_records_network_key_string_tostr_cb(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_btmesh_records_application_key_string_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_btmesh_records_application_key_string_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -5001,7 +5001,7 @@ define internal void @uat_btmesh_records_application_key_string_set_cb(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_btmesh_records_application_key_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_btmesh_records_application_key_string_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -5027,7 +5027,7 @@ define internal void @uat_btmesh_records_application_key_string_tostr_cb(ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_btmesh_records_ivindex_string_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_btmesh_records_ivindex_string_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5038,7 +5038,7 @@ define internal void @uat_btmesh_records_ivindex_string_set_cb(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_btmesh_records_ivindex_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_btmesh_records_ivindex_string_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -5064,7 +5064,7 @@ define internal void @uat_btmesh_records_ivindex_string_tostr_cb(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_btmesh_dev_key_records_device_key_string_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_btmesh_dev_key_records_device_key_string_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #16
   %8 = load ptr, ptr %0, align 8
@@ -5074,7 +5074,7 @@ define internal void @uat_btmesh_dev_key_records_device_key_string_set_cb(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_btmesh_dev_key_records_device_key_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_btmesh_dev_key_records_device_key_string_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -5099,7 +5099,7 @@ define internal void @uat_btmesh_dev_key_records_device_key_string_tostr_cb(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_btmesh_dev_key_records_src_string_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_btmesh_dev_key_records_src_string_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5110,7 +5110,7 @@ define internal void @uat_btmesh_dev_key_records_src_string_set_cb(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_btmesh_dev_key_records_src_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_btmesh_dev_key_records_src_string_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -5136,7 +5136,7 @@ define internal void @uat_btmesh_dev_key_records_src_string_tostr_cb(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_btmesh_label_uuid_records_label_uuid_string_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_btmesh_label_uuid_records_label_uuid_string_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #16
   %8 = load ptr, ptr %0, align 8
@@ -5146,7 +5146,7 @@ define internal void @uat_btmesh_label_uuid_records_label_uuid_string_set_cb(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_btmesh_label_uuid_records_label_uuid_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_btmesh_label_uuid_records_label_uuid_string_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -5187,7 +5187,7 @@ declare void @prefs_register_static_text_preference(ptr noundef, ptr noundef, pt
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @uat_btmesh_record_copy_cb(ptr noundef returned initializes((0, 104)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @uat_btmesh_record_copy_cb(ptr noundef returned initializes((0, 104)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 104, i1 false)
   %5 = load ptr, ptr %1, align 8
@@ -5218,7 +5218,7 @@ define internal noundef ptr @uat_btmesh_record_copy_cb(ptr noundef returned init
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @uat_btmesh_record_update_cb(ptr nocapture noundef initializes((93, 94)) %0, ptr nocapture noundef %1) #0 {
+define internal zeroext i1 @uat_btmesh_record_update_cb(ptr noundef captures(none) initializes((93, 94)) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [4 x i8], align 4
   %5 = alloca [4 x i8], align 4
@@ -5642,10 +5642,10 @@ thread-pre-split66:                               ; preds = %113, %161, %163, %1
   %186 = load ptr, ptr %185, align 8
   %187 = load i32, ptr %186, align 1
   store i32 %187, ptr %184, align 1
-  %188 = call i32 @wmem_strong_hash(ptr noundef %181, i64 noundef 20) #16
+  %188 = call i32 @wmem_strong_hash(ptr noundef nonnull %181, i64 noundef 20) #16
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %188, ptr %189, align 8
-  call void @g_free(ptr noundef %181) #16
+  call void @g_free(ptr noundef nonnull %181) #16
   %190 = load i8, ptr %19, align 1
   %191 = add i8 %190, 1
   store i8 %191, ptr %19, align 1
@@ -5658,7 +5658,7 @@ thread-pre-split66:                               ; preds = %113, %161, %163, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_btmesh_record_free_cb(ptr nocapture noundef readonly %0) #0 {
+define internal void @uat_btmesh_record_free_cb(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5688,7 +5688,7 @@ define internal void @uat_btmesh_record_free_cb(ptr nocapture noundef readonly %
 declare void @prefs_register_uat_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @uat_btmesh_dev_key_record_copy_cb(ptr noundef returned initializes((0, 56)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @uat_btmesh_dev_key_record_copy_cb(ptr noundef returned initializes((0, 56)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   %5 = load ptr, ptr %1, align 8
@@ -5714,7 +5714,7 @@ define internal noundef ptr @uat_btmesh_dev_key_record_copy_cb(ptr noundef retur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @uat_btmesh_dev_key_record_update_cb(ptr nocapture noundef initializes((48, 49)) %0, ptr nocapture noundef %1) #0 {
+define internal zeroext i1 @uat_btmesh_dev_key_record_update_cb(ptr noundef captures(none) initializes((48, 49)) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
@@ -5791,7 +5791,7 @@ define internal zeroext i1 @uat_btmesh_dev_key_record_update_cb(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_btmesh_dev_key_record_free_cb(ptr nocapture noundef readonly %0) #0 {
+define internal void @uat_btmesh_dev_key_record_free_cb(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5807,7 +5807,7 @@ define internal void @uat_btmesh_dev_key_record_free_cb(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @uat_btmesh_label_uuid_record_copy_cb(ptr noundef returned initializes((0, 24)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @uat_btmesh_label_uuid_record_copy_cb(ptr noundef returned initializes((0, 24)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = load ptr, ptr %1, align 8
@@ -5828,7 +5828,7 @@ define internal noundef ptr @uat_btmesh_label_uuid_record_copy_cb(ptr noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @uat_btmesh_label_uuid_record_update_cb(ptr nocapture noundef initializes((22, 23)) %0, ptr nocapture noundef %1) #0 {
+define internal zeroext i1 @uat_btmesh_label_uuid_record_update_cb(ptr noundef captures(none) initializes((22, 23)) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [4 x i8], align 4
   %5 = alloca [16 x i8], align 16
@@ -5953,7 +5953,7 @@ label_uuid_hash.exit.thread18:                    ; preds = %34, %24, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_btmesh_label_uuid_record_free_cb(ptr nocapture noundef readonly %0) #0 {
+define internal void @uat_btmesh_label_uuid_record_free_cb(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5967,7 +5967,7 @@ declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_btmesh_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_btmesh_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -6429,14 +6429,14 @@ define internal void @upper_transport_init_routine() #0 {
 declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @gcry_cipher_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -6454,10 +6454,10 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @compute_ascii_key(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 2, 17) %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @compute_ascii_key(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 2, 17) %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %87, label %6
 
@@ -6863,7 +6863,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_btmesh_transport_access_message(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 7) %3, ptr nocapture noundef initializes((32, 36)) %4) unnamed_addr #0 {
+define internal fastcc void @dissect_btmesh_transport_access_message(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 7) %3, ptr noundef captures(none) initializes((32, 36)) %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3) #16
   %7 = load i32, ptr @ett_btmesh_upper_transp_acc_pdu, align 4
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef null, ptr noundef nonnull @.str.2190) #16
@@ -7225,7 +7225,7 @@ declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @try_access_decrypt(ptr noundef nonnull %0, i32 noundef range(i32 0, 7) %1, ptr noundef %2, i32 noundef range(i32 1, -2147483648) %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @try_access_decrypt(ptr noundef nonnull %0, i32 noundef range(i32 0, 7) %1, ptr noundef %2, i32 noundef range(i32 1, -2147483648) %3, ptr noundef %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca [13 x i8], align 1
   %8 = alloca ptr, align 8
   %9 = alloca [3 x i64], align 16
@@ -11983,7 +11983,7 @@ find_btmesh_property_characteristic_idx.exit.thread: ; preds = %.lr.ph.i, %22, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 262144) i32 @dissect_sensor_cadence(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 4, 7) %2, i16 noundef zeroext %3, i8 noundef zeroext range(i8 0, 2) %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 262144) i32 @dissect_sensor_cadence(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 4, 7) %2, i16 noundef zeroext %3, i8 noundef zeroext range(i8 0, 2) %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 {
   %7 = icmp eq i8 %4, 0
   %8 = icmp eq i16 %3, -1
   br i1 %7, label %9, label %29
@@ -12159,7 +12159,7 @@ find_btmesh_property_length.exit.thread:          ; preds = %.lr.ph.i, %20, %fin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_columns_raw_value(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 3, 6) %2, i16 noundef zeroext %3, ptr nocapture readonly %.0.val, ptr readonly %.8.val) unnamed_addr #0 {
+define internal fastcc i32 @dissect_columns_raw_value(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 3, 6) %2, i16 noundef zeroext %3, ptr readonly captures(none) %.0.val, ptr readonly %.8.val) unnamed_addr #0 {
   %5 = icmp eq i16 %3, -1
   br i1 %5, label %find_characteristic_id.exit.preheader.i, label %.lr.ph.i
 
@@ -12329,7 +12329,7 @@ find_column_properties_idx.exit.thread:           ; preds = %45, %54, %find_char
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_property_raw_value_entry(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i16 noundef zeroext %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_property_raw_value_entry(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i16 noundef zeroext %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = icmp eq i16 %3, -1
   br i1 %6, label %find_characteristic_id.exit.preheader.i, label %.lr.ph.i
 
@@ -12740,7 +12740,7 @@ proto_item_set_generated.exit:                    ; preds = %32, %42, %63, %prot
 declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @upper_transport_fragment_hash(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @upper_transport_fragment_hash(ptr noundef readonly captures(none) %0) #0 {
   %2 = tail call ptr @wmem_packet_scope() #16
   %3 = tail call noalias ptr @wmem_alloc(ptr noundef %2, i64 noundef 14) #16
   %4 = load i16, ptr %0, align 4
@@ -12762,7 +12762,7 @@ define internal i32 @upper_transport_fragment_hash(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @upper_transport_fragment_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
+define internal range(i32 0, 2) i32 @upper_transport_fragment_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 {
   %3 = load i16, ptr %0, align 4
   %4 = load i16, ptr %1, align 4
   %5 = icmp eq i16 %3, %4
@@ -12799,7 +12799,7 @@ define internal range(i32 0, 2) i32 @upper_transport_fragment_equal(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @upper_transport_fragment_temporary_key(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2) #0 {
+define internal noalias noundef ptr @upper_transport_fragment_temporary_key(ptr readnone captures(none) %0, i32 %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @g_slice_alloc(i64 noundef 16) #19
   %5 = load i16, ptr %2, align 4
   store i16 %5, ptr %4, align 4
@@ -12819,7 +12819,7 @@ define internal noalias noundef ptr @upper_transport_fragment_temporary_key(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @upper_transport_fragment_persistent_key(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2) #0 {
+define internal noalias noundef ptr @upper_transport_fragment_persistent_key(ptr readnone captures(none) %0, i32 %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @g_slice_alloc(i64 noundef 16) #19
   %5 = load i16, ptr %2, align 4
   store i16 %5, ptr %4, align 4
@@ -12863,16 +12863,16 @@ declare noalias ptr @g_slice_alloc(i64 noundef) local_unnamed_addr #10
 declare void @g_slice_free1(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nofree willreturn
 declare double @ldexp(double, i32) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

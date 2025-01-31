@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @arenas = external local_unnamed_addr global [0 x %struct.atomic_p_t], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @buf_writer_init(ptr noundef %tsdn, ptr nocapture noundef writeonly initializes((0, 41)) %buf_writer, ptr noundef %write_cb, ptr noundef %cbopaque, ptr noundef %buf, i64 noundef %buf_len) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @buf_writer_init(ptr noundef %tsdn, ptr noundef writeonly captures(none) initializes((0, 41)) %buf_writer, ptr noundef %write_cb, ptr noundef %cbopaque, ptr noundef %buf, i64 noundef %buf_len) local_unnamed_addr #0 {
 entry:
   %rtree_ctx_fallback.i269.i = alloca %struct.rtree_ctx_s, align 8
   %rtree_ctx_fallback.i.i = alloca %struct.rtree_ctx_s, align 8
@@ -177,7 +177,7 @@ if.end17:                                         ; preds = %if.else15, %if.then
 declare void @wrtmessage(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @buf_writer_flush(ptr nocapture noundef %buf_writer) local_unnamed_addr #0 {
+define hidden void @buf_writer_flush(ptr noundef captures(none) %buf_writer) local_unnamed_addr #0 {
 entry:
   %buf = getelementptr inbounds nuw i8, ptr %buf_writer, i64 16
   %0 = load ptr, ptr %buf, align 8
@@ -202,7 +202,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @buf_writer_cb(ptr nocapture noundef %buf_writer_arg, ptr noundef %s) local_unnamed_addr #0 {
+define hidden void @buf_writer_cb(ptr noundef captures(none) %buf_writer_arg, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %buf = getelementptr inbounds nuw i8, ptr %buf_writer_arg, i64 16
   %0 = load ptr, ptr %buf, align 8
@@ -261,7 +261,7 @@ if.end4:                                          ; preds = %if.end.i, %if.then3
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %sub7)
   %add.ptr = getelementptr inbounds i8, ptr %8, i64 %9
   %add.ptr11 = getelementptr inbounds i8, ptr %s, i64 %i.024
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %add.ptr11, i64 %cond, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 1 %add.ptr11, i64 %cond, i1 false)
   %11 = load i64, ptr %buf_end, align 8
   %add = add i64 %11, %cond
   store i64 %add, ptr %buf_end, align 8
@@ -274,13 +274,13 @@ do.end:                                           ; preds = %if.end4, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @buf_writer_terminate(ptr noundef %tsdn, ptr nocapture noundef %buf_writer) local_unnamed_addr #0 {
+define hidden void @buf_writer_terminate(ptr noundef %tsdn, ptr noundef captures(none) %buf_writer) local_unnamed_addr #0 {
 entry:
   %rtree_ctx_fallback.i.i.i.i = alloca %struct.rtree_ctx_s, align 8
   %tmp.i.i.i.i = alloca %struct.rtree_contents_s, align 8
@@ -412,7 +412,7 @@ if.end:                                           ; preds = %buf_writer_free_int
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @buf_writer_pipe(ptr nocapture noundef %buf_writer, ptr nocapture noundef readonly %read_cb, ptr noundef %read_cbopaque) local_unnamed_addr #0 {
+define hidden void @buf_writer_pipe(ptr noundef captures(none) %buf_writer, ptr noundef readonly captures(none) %read_cb, ptr noundef %read_cbopaque) local_unnamed_addr #0 {
 entry:
   %buf = getelementptr inbounds nuw i8, ptr %buf_writer, i64 16
   %0 = load ptr, ptr %buf, align 8
@@ -506,7 +506,7 @@ declare ptr @arena_malloc_hard(ptr noundef, ptr noundef, i64 noundef, i32 nounde
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr noundef %tsdn, ptr noundef nonnull %rtree_ctx, i64 noundef %key) unnamed_addr #0 {
+define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %agg.result, ptr noundef %tsdn, ptr noundef nonnull %rtree_ctx, i64 noundef %key) unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %key, 30
   %and.i = and i64 %shr.i, 15
@@ -717,10 +717,10 @@ declare void @large_dalloc(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @llvm.umin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

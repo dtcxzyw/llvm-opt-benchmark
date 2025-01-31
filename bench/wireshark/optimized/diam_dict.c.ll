@@ -1267,7 +1267,7 @@ DiamDict__delete_buffer.exit:                     ; preds = %553, %555, %564
 
 581:                                              ; preds = %139
   %582 = load ptr, ptr %76, align 8
-  %583 = tail call i64 @strtoul(ptr nocapture noundef %582, ptr noundef null, i32 noundef 10) #31
+  %583 = tail call i64 @strtoul(ptr noundef captures(none) %582, ptr noundef null, i32 noundef 10) #31
   %584 = trunc i64 %583 to i32
   %585 = load ptr, ptr %0, align 8
   %586 = getelementptr inbounds nuw i8, ptr %585, i64 192
@@ -3617,13 +3617,13 @@ default.unreachable1055:                          ; preds = %yy_get_next_buffer.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @DiamDict_get_extra(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden ptr @DiamDict_get_extra(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden nonnull ptr @DiamDict__create_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
+define hidden nonnull ptr @DiamDict__create_buffer(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
   %4 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #27
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
@@ -3734,7 +3734,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ddict_debug(ptr nocapture noundef readonly %0, ...) unnamed_addr #2 {
+define internal void @ddict_debug(ptr noundef readonly captures(none) %0, ...) unnamed_addr #2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = load i32, ptr @debugging, align 4
@@ -3754,10 +3754,10 @@ define internal void @ddict_debug(ptr nocapture noundef readonly %0, ...) unname
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #7
@@ -3766,7 +3766,7 @@ declare ptr @__errno_location() local_unnamed_addr #7
 declare ptr @g_strerror(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden void @DiamDict__switch_to_buffer(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden void @DiamDict__switch_to_buffer(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -3892,7 +3892,7 @@ define hidden void @DiamDict__switch_to_buffer(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @DiamDict__delete_buffer(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
+define hidden void @DiamDict__delete_buffer(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %3
 
@@ -3935,7 +3935,7 @@ define hidden void @DiamDict__delete_buffer(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #9
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #10 {
@@ -3946,7 +3946,7 @@ define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #10 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @DiamDict_restart(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden void @DiamDict_restart(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -4141,10 +4141,10 @@ DiamDict__init_buffer.exit:                       ; preds = %80, %.thread.i
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @DiamDict__flush_buffer(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #13 {
+define hidden void @DiamDict__flush_buffer(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %3
 
@@ -4203,7 +4203,7 @@ define hidden void @DiamDict__flush_buffer(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @DiamDict_push_buffer_state(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden void @DiamDict_push_buffer_state(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %73, label %4
 
@@ -4338,7 +4338,7 @@ DiamDict_ensure_buffer_stack.exit:                ; preds = %10, %13, %24
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @DiamDict_pop_buffer_state(ptr nocapture noundef %0) local_unnamed_addr #8 {
+define hidden void @DiamDict_pop_buffer_state(ptr noundef captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -4420,7 +4420,7 @@ DiamDict__delete_buffer.exit:                     ; preds = %.thread.i, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @DiamDict__scan_buffer(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define hidden noundef ptr @DiamDict__scan_buffer(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp ult i64 %1, 2
   br i1 %4, label %27, label %5
 
@@ -4477,15 +4477,15 @@ define hidden noundef ptr @DiamDict__scan_buffer(ptr noundef %0, i64 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden nonnull ptr @DiamDict__scan_string(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden nonnull ptr @DiamDict__scan_string(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #33
   %4 = trunc i64 %3 to i32
-  %5 = tail call ptr @DiamDict__scan_bytes(ptr noundef %0, i32 noundef %4, ptr noundef %1)
+  %5 = tail call ptr @DiamDict__scan_bytes(ptr noundef nonnull %0, i32 noundef %4, ptr noundef %1)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden nonnull ptr @DiamDict__scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define hidden nonnull ptr @DiamDict__scan_bytes(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = add i32 %1, 2
   %5 = sext i32 %4 to i64
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #27
@@ -4577,10 +4577,10 @@ define hidden nonnull ptr @DiamDict__scan_bytes(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @DiamDict_get_lineno(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
+define hidden i32 @DiamDict_get_lineno(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -4605,7 +4605,7 @@ define hidden i32 @DiamDict_get_lineno(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @DiamDict_get_column(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
+define hidden i32 @DiamDict_get_column(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -4630,41 +4630,41 @@ define hidden i32 @DiamDict_get_column(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @DiamDict_get_in(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden ptr @DiamDict_get_in(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @DiamDict_get_out(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden ptr @DiamDict_get_out(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @DiamDict_get_leng(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden i32 @DiamDict_get_leng(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @DiamDict_get_text(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden ptr @DiamDict_get_text(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @DiamDict_set_extra(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #15 {
+define hidden void @DiamDict_set_extra(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #15 {
   store ptr %0, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @DiamDict_set_lineno(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define hidden void @DiamDict_set_lineno(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -4689,7 +4689,7 @@ define hidden void @DiamDict_set_lineno(i32 noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @DiamDict_set_column(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define hidden void @DiamDict_set_column(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -4714,28 +4714,28 @@ define hidden void @DiamDict_set_column(i32 noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @DiamDict_set_in(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) local_unnamed_addr #15 {
+define hidden void @DiamDict_set_in(ptr noundef %0, ptr noundef writeonly captures(none) initializes((8, 16)) %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @DiamDict_set_out(ptr noundef %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #15 {
+define hidden void @DiamDict_set_out(ptr noundef %0, ptr noundef writeonly captures(none) initializes((16, 24)) %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @DiamDict_get_debug(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden i32 @DiamDict_get_debug(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @DiamDict_set_debug(i32 noundef %0, ptr nocapture noundef writeonly initializes((124, 128)) %1) local_unnamed_addr #15 {
+define hidden void @DiamDict_set_debug(i32 noundef %0, ptr noundef writeonly captures(none) initializes((124, 128)) %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 124
   store i32 %0, ptr %3, align 4
   ret void
@@ -4764,7 +4764,7 @@ define hidden range(i32 0, 2) i32 @DiamDict_lex_init(ptr noundef writeonly %0) l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
 define hidden range(i32 0, 2) i32 @DiamDict_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
@@ -4797,7 +4797,7 @@ define hidden range(i32 0, 2) i32 @DiamDict_lex_init_extra(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @DiamDict_lex_destroy(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden noundef i32 @DiamDict_lex_destroy(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -4926,7 +4926,7 @@ DiamDict_pop_buffer_state.exit:                   ; preds = %26, %44, %47
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @ddict_unused(ptr nocapture noundef readonly %0) local_unnamed_addr #18 {
+define hidden void @ddict_unused(ptr noundef readonly captures(none) %0) local_unnamed_addr #18 {
   ret void
 }
 
@@ -5058,7 +5058,7 @@ ddict_open.exit:                                  ; preds = %16, %18
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @file_input(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #2 {
+define internal noundef i64 @file_input(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @fread(ptr noundef %0, i64 noundef 1, i64 noundef %1, ptr noundef %5)
@@ -5066,12 +5066,12 @@ define internal noundef i64 @file_input(ptr nocapture noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) #5
+declare noundef i32 @fclose(ptr noundef captures(none)) #5
 
 declare void @g_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i64 @string_input(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2) #13 {
+define internal i64 @string_input(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #13 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -5099,7 +5099,7 @@ define internal i64 @string_input(ptr nocapture noundef writeonly %0, i64 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @string_close(ptr nocapture readnone %0) #18 {
+define internal noundef i32 @string_close(ptr readnone captures(none) %0) #18 {
   ret i32 0
 }
 
@@ -5261,7 +5261,7 @@ define hidden void @ddict_free(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @ddict_print(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define hidden void @ddict_print(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %.06095 = load ptr, ptr %1, align 8
   %.not96 = icmp eq ptr %.06095, null
   br i1 %.not96, label %._crit_edge, label %.lr.ph
@@ -5410,16 +5410,16 @@ define hidden void @ddict_print(ptr nocapture noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #19
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #21
@@ -5427,15 +5427,15 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #21
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #22
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #22
 
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #23
@@ -5444,7 +5444,7 @@ declare void @llvm.va_start.p0(ptr) #23
 declare void @llvm.va_end.p0(ptr) #23
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #24
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #25

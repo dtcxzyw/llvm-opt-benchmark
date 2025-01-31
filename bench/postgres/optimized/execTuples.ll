@@ -40,17 +40,17 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.tts_buffer_heap_getsysattr = private unnamed_addr constant [27 x i8] c"tts_buffer_heap_getsysattr\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @tts_virtual_init(ptr nocapture readnone %0) #0 {
+define internal void @tts_virtual_init(ptr readnone captures(none) %0) #0 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @tts_virtual_release(ptr nocapture readnone %0) #0 {
+define internal void @tts_virtual_release(ptr readnone captures(none) %0) #0 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tts_virtual_clear(ptr nocapture noundef initializes((6, 8), (48, 54)) %0) #1 {
+define internal void @tts_virtual_clear(ptr noundef captures(none) initializes((6, 8), (48, 54)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = and i16 %3, 4
@@ -82,7 +82,7 @@ define internal void @tts_virtual_clear(ptr nocapture noundef initializes((6, 8)
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal void @tts_virtual_getsomeattrs(ptr nocapture readnone %0, i32 %1) #2 {
+define internal void @tts_virtual_getsomeattrs(ptr readnone captures(none) %0, i32 %1) #2 {
   %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %3)
   %4 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #13
@@ -91,7 +91,7 @@ define internal void @tts_virtual_getsomeattrs(ptr nocapture readnone %0, i32 %1
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal noundef i64 @tts_virtual_getsysattr(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2) #2 {
+define internal noundef i64 @tts_virtual_getsysattr(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #2 {
   %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %4)
   %5 = tail call i32 @errcode(i32 noundef 1088) #13
@@ -101,7 +101,7 @@ define internal noundef i64 @tts_virtual_getsysattr(ptr nocapture readnone %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tts_virtual_materialize(ptr nocapture noundef %0) #1 {
+define internal void @tts_virtual_materialize(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -487,7 +487,7 @@ define internal void @tts_virtual_materialize(ptr nocapture noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tts_virtual_copyslot(ptr nocapture noundef initializes((6, 8), (48, 54)) %0, ptr noundef %1) #1 {
+define internal void @tts_virtual_copyslot(ptr noundef captures(none) initializes((6, 8), (48, 54)) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -574,7 +574,7 @@ slot_getallattrs.exit:                            ; preds = %tts_virtual_clear.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tts_virtual_copy_heap_tuple(ptr nocapture noundef readonly %0) #1 {
+define internal ptr @tts_virtual_copy_heap_tuple(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -586,7 +586,7 @@ define internal ptr @tts_virtual_copy_heap_tuple(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tts_virtual_copy_minimal_tuple(ptr nocapture noundef readonly %0) #1 {
+define internal ptr @tts_virtual_copy_minimal_tuple(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -598,17 +598,17 @@ define internal ptr @tts_virtual_copy_minimal_tuple(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @tts_heap_init(ptr nocapture readnone %0) #0 {
+define internal void @tts_heap_init(ptr readnone captures(none) %0) #0 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @tts_heap_release(ptr nocapture readnone %0) #0 {
+define internal void @tts_heap_release(ptr readnone captures(none) %0) #0 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tts_heap_clear(ptr nocapture noundef initializes((6, 8), (48, 54), (72, 76)) %0) #1 {
+define internal void @tts_heap_clear(ptr noundef captures(none) initializes((6, 8), (48, 54), (72, 76)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = and i16 %3, 4
@@ -643,7 +643,7 @@ define internal void @tts_heap_clear(ptr nocapture noundef initializes((6, 8), (
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tts_heap_getsomeattrs(ptr nocapture noundef %0, i32 noundef %1) #1 {
+define internal void @tts_heap_getsomeattrs(ptr noundef captures(none) %0, i32 noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -654,7 +654,7 @@ define internal void @tts_heap_getsomeattrs(ptr nocapture noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @tts_heap_getsysattr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #1 {
+define internal i64 @tts_heap_getsysattr(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -676,7 +676,7 @@ define internal i64 @tts_heap_getsysattr(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tts_heap_materialize(ptr nocapture noundef %0) #1 {
+define internal void @tts_heap_materialize(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = and i16 %3, 4
@@ -725,7 +725,7 @@ define internal void @tts_heap_materialize(ptr nocapture noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tts_heap_copyslot(ptr nocapture noundef %0, ptr noundef %1) #1 {
+define internal void @tts_heap_copyslot(ptr noundef captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -790,7 +790,7 @@ ExecStoreHeapTuple.exit:                          ; preds = %16, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tts_heap_get_heap_tuple(ptr nocapture noundef %0) #1 {
+define internal ptr @tts_heap_get_heap_tuple(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -832,7 +832,7 @@ tts_heap_materialize.exit:                        ; preds = %8, %4, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tts_heap_copy_heap_tuple(ptr nocapture noundef %0) #1 {
+define internal ptr @tts_heap_copy_heap_tuple(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -875,7 +875,7 @@ tts_heap_materialize.exit:                        ; preds = %8, %4, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tts_heap_copy_minimal_tuple(ptr nocapture noundef %0) #1 {
+define internal ptr @tts_heap_copy_minimal_tuple(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -926,12 +926,12 @@ define internal void @tts_minimal_init(ptr noundef %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @tts_minimal_release(ptr nocapture readnone %0) #0 {
+define internal void @tts_minimal_release(ptr readnone captures(none) %0) #0 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tts_minimal_clear(ptr nocapture noundef initializes((6, 8), (48, 54), (104, 108)) %0) #1 {
+define internal void @tts_minimal_clear(ptr noundef captures(none) initializes((6, 8), (48, 54), (104, 108)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = and i16 %3, 4
@@ -966,7 +966,7 @@ define internal void @tts_minimal_clear(ptr nocapture noundef initializes((6, 8)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tts_minimal_getsomeattrs(ptr nocapture noundef %0, i32 noundef %1) #1 {
+define internal void @tts_minimal_getsomeattrs(ptr noundef captures(none) %0, i32 noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -977,7 +977,7 @@ define internal void @tts_minimal_getsomeattrs(ptr nocapture noundef %0, i32 nou
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal noundef i64 @tts_minimal_getsysattr(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2) #2 {
+define internal noundef i64 @tts_minimal_getsysattr(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #2 {
   %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %4)
   %5 = tail call i32 @errcode(i32 noundef 1088) #13
@@ -987,7 +987,7 @@ define internal noundef i64 @tts_minimal_getsysattr(ptr nocapture readnone %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tts_minimal_materialize(ptr nocapture noundef %0) #1 {
+define internal void @tts_minimal_materialize(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = and i16 %3, 4
@@ -1043,7 +1043,7 @@ define internal void @tts_minimal_materialize(ptr nocapture noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tts_minimal_copyslot(ptr nocapture noundef %0, ptr noundef %1) #1 {
+define internal void @tts_minimal_copyslot(ptr noundef captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -1110,7 +1110,7 @@ ExecStoreMinimalTuple.exit:                       ; preds = %16, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tts_minimal_get_minimal_tuple(ptr nocapture noundef %0) #1 {
+define internal ptr @tts_minimal_get_minimal_tuple(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1159,7 +1159,7 @@ tts_minimal_materialize.exit:                     ; preds = %8, %4, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tts_minimal_copy_heap_tuple(ptr nocapture noundef %0) #1 {
+define internal ptr @tts_minimal_copy_heap_tuple(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1209,7 +1209,7 @@ tts_minimal_materialize.exit:                     ; preds = %8, %4, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tts_minimal_copy_minimal_tuple(ptr nocapture noundef %0) #1 {
+define internal ptr @tts_minimal_copy_minimal_tuple(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1259,17 +1259,17 @@ tts_minimal_materialize.exit:                     ; preds = %8, %4, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @tts_buffer_heap_init(ptr nocapture readnone %0) #0 {
+define internal void @tts_buffer_heap_init(ptr readnone captures(none) %0) #0 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @tts_buffer_heap_release(ptr nocapture readnone %0) #0 {
+define internal void @tts_buffer_heap_release(ptr readnone captures(none) %0) #0 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tts_buffer_heap_clear(ptr nocapture noundef initializes((6, 8), (48, 54), (72, 76)) %0) #1 {
+define internal void @tts_buffer_heap_clear(ptr noundef captures(none) initializes((6, 8), (48, 54), (72, 76)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = and i16 %3, 4
@@ -1318,7 +1318,7 @@ define internal void @tts_buffer_heap_clear(ptr nocapture noundef initializes((6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tts_buffer_heap_getsomeattrs(ptr nocapture noundef %0, i32 noundef %1) #1 {
+define internal void @tts_buffer_heap_getsomeattrs(ptr noundef captures(none) %0, i32 noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1329,7 +1329,7 @@ define internal void @tts_buffer_heap_getsomeattrs(ptr nocapture noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @tts_buffer_heap_getsysattr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #1 {
+define internal i64 @tts_buffer_heap_getsysattr(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -1351,7 +1351,7 @@ define internal i64 @tts_buffer_heap_getsysattr(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tts_buffer_heap_materialize(ptr nocapture noundef %0) #1 {
+define internal void @tts_buffer_heap_materialize(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = and i16 %3, 4
@@ -1520,7 +1520,7 @@ tts_buffer_heap_store_tuple.exit:                 ; preds = %41, %53, %55
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tts_buffer_heap_get_heap_tuple(ptr nocapture noundef %0) #1 {
+define internal ptr @tts_buffer_heap_get_heap_tuple(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1562,7 +1562,7 @@ tts_buffer_heap_materialize.exit:                 ; preds = %8, %4, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tts_buffer_heap_copy_heap_tuple(ptr nocapture noundef %0) #1 {
+define internal ptr @tts_buffer_heap_copy_heap_tuple(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1605,7 +1605,7 @@ tts_buffer_heap_materialize.exit:                 ; preds = %8, %4, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tts_buffer_heap_copy_minimal_tuple(ptr nocapture noundef %0) #1 {
+define internal ptr @tts_buffer_heap_copy_minimal_tuple(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1720,7 +1720,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #4
 declare void @IncrTupleDescRefCount(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ExecAllocTableSlot(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local noundef ptr @ExecAllocTableSlot(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = load i64, ptr %2, align 8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %15, label %5
@@ -2735,7 +2735,7 @@ define dso_local noundef ptr @ExecStoreAllNullTuple(ptr noundef returned %0) loc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecStoreHeapTupleDatum(i64 noundef %0, ptr noundef %1) local_unnamed_addr #1 {
@@ -2779,7 +2779,7 @@ define dso_local void @ExecStoreHeapTupleDatum(i64 noundef %0, ptr noundef %1) l
 declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ExecFetchSlotHeapTuple(ptr noundef %0, i1 noundef zeroext %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
@@ -2905,7 +2905,7 @@ ExecFetchSlotHeapTuple.exit:                      ; preds = %1, %7
 declare i64 @heap_copy_tuple_as_datum(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecInitResultTypeTL(ptr nocapture noundef initializes((112, 120)) %0) local_unnamed_addr #1 {
+define dso_local void @ExecInitResultTypeTL(ptr noundef captures(none) initializes((112, 120)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -2923,7 +2923,7 @@ define dso_local ptr @ExecTypeFromTL(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecInitResultSlot(ptr nocapture noundef initializes((120, 128), (184, 192), (195, 196), (199, 200)) %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local void @ExecInitResultSlot(ptr noundef captures(none) initializes((120, 128), (184, 192), (195, 196), (199, 200)) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -3010,7 +3010,7 @@ ExecAllocTableSlot.exit:                          ; preds = %18, %27, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecInitResultTupleSlotTL(ptr nocapture noundef initializes((112, 128), (184, 192), (195, 196), (199, 200)) %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local void @ExecInitResultTupleSlotTL(ptr noundef captures(none) initializes((112, 128), (184, 192), (195, 196), (199, 200)) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -3023,7 +3023,7 @@ define dso_local void @ExecInitResultTupleSlotTL(ptr nocapture noundef initializ
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecInitScanTupleSlot(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((152, 168), (192, 193), (196, 197), (216, 224)) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define dso_local void @ExecInitScanTupleSlot(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((152, 168), (192, 193), (196, 197), (216, 224)) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = load i64, ptr %3, align 8
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %16, label %6
@@ -3107,7 +3107,7 @@ ExecAllocTableSlot.exit:                          ; preds = %16, %25, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ExecInitExtraTupleSlot(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local noundef ptr @ExecInitExtraTupleSlot(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = load i64, ptr %2, align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %15, label %5
@@ -3179,7 +3179,7 @@ ExecAllocTableSlot.exit:                          ; preds = %15, %24, %37
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ExecInitNullTupleSlot(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local noundef ptr @ExecInitNullTupleSlot(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = load i64, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i.i, label %15, label %5
@@ -3302,7 +3302,7 @@ ExecStoreAllNullTuple.exit:                       ; preds = %ExecStoreAllNullTup
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @slot_getmissingattrs(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 {
+define dso_local void @slot_getmissingattrs(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3766,7 +3766,7 @@ declare void @getTypeInputInfo(i32 noundef, ptr noundef, ptr noundef) local_unna
 declare void @fmgr_info(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @BuildTupleFromCStrings(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define dso_local ptr @BuildTupleFromCStrings(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
@@ -3957,7 +3957,7 @@ MakeSingleTupleTableSlot.exit:                    ; preds = %16, %25, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @do_tup_output(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define dso_local void @do_tup_output(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -3996,7 +3996,7 @@ define dso_local void @do_tup_output(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @do_text_output_multiline(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local void @do_text_output_multiline(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %.sroa.016 = alloca i64, align 8
   %.sroa.0 = alloca i8, align 1
   store i8 0, ptr %.sroa.0, align 1
@@ -4081,7 +4081,7 @@ define dso_local void @do_text_output_multiline(ptr nocapture noundef readonly %
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare ptr @cstring_to_text_with_len(ptr noundef, i32 noundef) local_unnamed_addr #4
 
@@ -4165,7 +4165,7 @@ declare ptr @heap_form_minimal_tuple(ptr noundef, ptr noundef, ptr noundef) loca
 declare void @heap_freetuple(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @slot_deform_heap_tuple(ptr nocapture noundef %0, ptr %.16.val, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @slot_deform_heap_tuple(ptr noundef captures(none) %0, ptr %.16.val, ptr noundef captures(none) %1, i32 noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24

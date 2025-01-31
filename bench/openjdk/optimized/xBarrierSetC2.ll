@@ -208,7 +208,7 @@ _ZN26GrowableArrayWithAllocatorIP18XLoadBarrierStubC213GrowableArrayIS1_EE6appen
 declare noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18XLoadBarrierStubC2C2EPK8MachNode7Address8RegisterS4_h(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 29)) %0, ptr noundef %1, ptr noundef %2, i32 %3, i32 %4, i8 noundef zeroext %5) unnamed_addr #0 align 2 {
@@ -260,21 +260,21 @@ define hidden void @_ZNK18XLoadBarrierStubC28ref_addrEv(ptr dead_on_unwind noali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @_ZNK18XLoadBarrierStubC23refEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0) local_unnamed_addr #3 align 2 {
+define hidden i32 @_ZNK18XLoadBarrierStubC23refEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.0.0.copyload = load i32, ptr %2, align 8
   ret i32 %.sroa.0.0.copyload
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @_ZNK18XLoadBarrierStubC23tmpEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0) local_unnamed_addr #3 align 2 {
+define hidden i32 @_ZNK18XLoadBarrierStubC23tmpEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %.sroa.0.0.copyload = load i32, ptr %2, align 4
   ret i32 %.sroa.0.0.copyload
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK18XLoadBarrierStubC29slow_pathEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK18XLoadBarrierStubC29slow_pathEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i8, ptr %2, align 8
   %.11011 = and i8 %3, 7
@@ -291,7 +291,7 @@ define hidden noundef ptr @_ZNK18XLoadBarrierStubC29slow_pathEv(ptr nocapture no
 declare noundef ptr @_ZN18XBarrierSetRuntime40load_barrier_on_oop_field_preloaded_addrEm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18XLoadBarrierStubC24liveEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK18XLoadBarrierStubC24liveEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
@@ -402,7 +402,7 @@ define hidden noundef nonnull ptr @_ZN18XLoadBarrierStubC212continuationEv(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK13XBarrierSetC220create_barrier_stateEP5Arena(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK13XBarrierSetC220create_barrier_stateEP5Arena(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 32, ptr noundef %1) #12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %29, label %5
@@ -468,7 +468,7 @@ define hidden void @_ZNK13XBarrierSetC221late_barrier_analysisEv(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK13XBarrierSetC227analyze_dominating_barriersEv(ptr nocapture nonnull readnone align 8 %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK13XBarrierSetC227analyze_dominating_barriersEv(ptr nonnull readnone align 8 captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.Node_List, align 8
   %3 = alloca %class.Node_List, align 8
   %4 = alloca ptr, align 8
@@ -1248,7 +1248,7 @@ _ZN12ResourceMarkD2Ev.exit152:                    ; preds = %375, %377
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK13XBarrierSetC210emit_stubsER10CodeBuffer(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(448) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZNK13XBarrierSetC210emit_stubsER10CodeBuffer(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(448) %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.MacroAssembler, align 8
   call void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %1) #12
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV9Assembler, i64 16), ptr %3, align 8
@@ -1330,7 +1330,7 @@ declare void @_ZNK20XBarrierSetAssembler29generate_c2_load_barrier_stubEP14Macro
 declare void @_ZN17AbstractAssembler5flushEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK13XBarrierSetC218estimate_stub_sizeEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZNK13XBarrierSetC218estimate_stub_sizeEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.CodeBuffer, align 8
   %3 = alloca %class.MacroAssembler, align 8
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -1579,7 +1579,7 @@ _ZL16set_barrier_dataR8C2Access.exit:             ; preds = %4, %10
 declare noundef ptr @_ZNK12BarrierSetC223atomic_xchg_at_resolvedER19C2AtomicParseAccessP4NodePK4Type(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(76), ptr noundef, ptr noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK13XBarrierSetC231array_copy_requires_gc_barriersEb9BasicTypebbN12BarrierSetC214ArrayCopyPhaseE(ptr nocapture nonnull readnone align 8 %0, i1 zeroext %1, i8 noundef zeroext %2, i1 zeroext %3, i1 noundef zeroext %4, i32 noundef %5) unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZNK13XBarrierSetC231array_copy_requires_gc_barriersEb9BasicTypebbN12BarrierSetC214ArrayCopyPhaseE(ptr nonnull readnone align 8 captures(none) %0, i1 zeroext %1, i8 noundef zeroext %2, i1 zeroext %3, i1 noundef zeroext %4, i32 noundef %5) unnamed_addr #6 align 2 {
   switch i32 %5, label %8 [
     i32 0, label %11
     i32 1, label %7
@@ -1599,7 +1599,7 @@ define hidden noundef zeroext i1 @_ZNK13XBarrierSetC231array_copy_requires_gc_ba
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK13XBarrierSetC218clone_at_expansionEP16PhaseMacroExpandP13ArrayCopyNode(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZNK13XBarrierSetC218clone_at_expansionEP16PhaseMacroExpandP13ArrayCopyNode(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1949,7 +1949,7 @@ declare noundef ptr @_ZNK8MachNode17get_base_and_dispERlRPK7TypePtr(ptr noundef 
 declare void @_ZN9VectorSetC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK13XBarrierSetC225compute_liveness_at_stubsEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZNK13XBarrierSetC225compute_liveness_at_stubsEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.Block_List, align 8
   %3 = alloca %class.RegMask, align 8
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -2763,7 +2763,7 @@ declare noundef ptr @_ZN6AnyObjnwEmP5Arena(i64 noundef, ptr noundef) local_unnam
 declare noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #4
 

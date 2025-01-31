@@ -676,7 +676,7 @@ $_ZTIN8QuantLib3Gsr17ReversionObserverE = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1 align 2
@@ -795,7 +795,7 @@ _ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
@@ -1182,7 +1182,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib3GsrC2ERKNS_6HandleINS_18YieldTermStructureEEESt6vectorINS_4DateESaIS7_EERKS6_IdSaIdEEdd(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(16) %termStructure, ptr nocapture noundef %volstepdates, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %volatilities, double noundef %reversion, double noundef %T) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib3GsrC2ERKNS_6HandleINS_18YieldTermStructureEEESt6vectorINS_4DateESaIS7_EERKS6_IdSaIdEEdd(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(16) %termStructure, ptr noundef captures(none) %volstepdates, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %volatilities, double noundef %reversion, double noundef %T) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %reversion.addr = alloca double, align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -5665,7 +5665,7 @@ _ZN8QuantLib28TermStructureConsistentModelD2Ev.exit: ; preds = %_ZNSt13unordered
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib3GsrC1ERKNS_6HandleINS_18YieldTermStructureEEESt6vectorINS_4DateESaIS7_EERKS6_IdSaIdEEdd(ptr noundef nonnull align 8 dereferenceable(368) initializes((368, 376), (384, 388), (392, 400)) %this, ptr noundef nonnull align 8 dereferenceable(16) %termStructure, ptr nocapture noundef %volstepdates, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %volatilities, double noundef %reversion, double noundef %T) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib3GsrC1ERKNS_6HandleINS_18YieldTermStructureEEESt6vectorINS_4DateESaIS7_EERKS6_IdSaIdEEdd(ptr noundef nonnull align 8 dereferenceable(368) initializes((368, 376), (384, 388), (392, 400)) %this, ptr noundef nonnull align 8 dereferenceable(16) %termStructure, ptr noundef captures(none) %volstepdates, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %volatilities, double noundef %reversion, double noundef %T) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %reversion.addr = alloca double, align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -6597,7 +6597,7 @@ unreachable:                                      ; preds = %invoke.cont32
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib3GsrC2ERKNS_6HandleINS_18YieldTermStructureEEESt6vectorINS_4DateESaIS7_EERKS6_IdSaIdEESD_d(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(16) %termStructure, ptr nocapture noundef %volstepdates, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %volatilities, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %reversions, double noundef %T) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib3GsrC2ERKNS_6HandleINS_18YieldTermStructureEEESt6vectorINS_4DateESaIS7_EERKS6_IdSaIdEESD_d(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(16) %termStructure, ptr noundef captures(none) %volstepdates, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %volatilities, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %reversions, double noundef %T) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7538,7 +7538,7 @@ unreachable:                                      ; preds = %invoke.cont34
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib3GsrC1ERKNS_6HandleINS_18YieldTermStructureEEESt6vectorINS_4DateESaIS7_EERKS6_IdSaIdEESD_d(ptr noundef nonnull align 8 dereferenceable(368) initializes((368, 376), (384, 388), (392, 400)) %this, ptr noundef nonnull align 8 dereferenceable(16) %termStructure, ptr nocapture noundef %volstepdates, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %volatilities, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %reversions, double noundef %T) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib3GsrC1ERKNS_6HandleINS_18YieldTermStructureEEESt6vectorINS_4DateESaIS7_EERKS6_IdSaIdEESD_d(ptr noundef nonnull align 8 dereferenceable(368) initializes((368, 376), (384, 388), (392, 400)) %this, ptr noundef nonnull align 8 dereferenceable(16) %termStructure, ptr noundef captures(none) %volstepdates, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %volatilities, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %reversions, double noundef %T) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8499,7 +8499,7 @@ unreachable:                                      ; preds = %invoke.cont32
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib3GsrC2ERKNS_6HandleINS_18YieldTermStructureEEESt6vectorINS_4DateESaIS7_EES6_INS1_INS_5QuoteEEESaISB_EERKSB_d(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(16) %termStructure, ptr nocapture noundef %volstepdates, ptr nocapture noundef %volatilities, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %reversion, double noundef %T) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib3GsrC2ERKNS_6HandleINS_18YieldTermStructureEEESt6vectorINS_4DateESaIS7_EES6_INS1_INS_5QuoteEEESaISB_EERKSB_d(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(16) %termStructure, ptr noundef captures(none) %volstepdates, ptr noundef captures(none) %volatilities, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %reversion, double noundef %T) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp25 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8874,7 +8874,7 @@ unreachable:                                      ; preds = %invoke.cont37
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib3GsrC1ERKNS_6HandleINS_18YieldTermStructureEEESt6vectorINS_4DateESaIS7_EES6_INS1_INS_5QuoteEEESaISB_EERKSB_d(ptr noundef nonnull align 8 dereferenceable(368) initializes((368, 376), (384, 388), (392, 400)) %this, ptr noundef nonnull align 8 dereferenceable(16) %termStructure, ptr nocapture noundef %volstepdates, ptr nocapture noundef %volatilities, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %reversion, double noundef %T) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib3GsrC1ERKNS_6HandleINS_18YieldTermStructureEEESt6vectorINS_4DateESaIS7_EES6_INS1_INS_5QuoteEEESaISB_EERKSB_d(ptr noundef nonnull align 8 dereferenceable(368) initializes((368, 376), (384, 388), (392, 400)) %this, ptr noundef nonnull align 8 dereferenceable(16) %termStructure, ptr noundef captures(none) %volstepdates, ptr noundef captures(none) %volatilities, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %reversion, double noundef %T) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp23 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9269,7 +9269,7 @@ unreachable:                                      ; preds = %invoke.cont35
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib3GsrC2ERKNS_6HandleINS_18YieldTermStructureEEESt6vectorINS_4DateESaIS7_EES6_INS1_INS_5QuoteEEESaISB_EESD_d(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(16) %termStructure, ptr nocapture noundef %volstepdates, ptr nocapture noundef %volatilities, ptr nocapture noundef %reversions, double noundef %T) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib3GsrC2ERKNS_6HandleINS_18YieldTermStructureEEESt6vectorINS_4DateESaIS7_EES6_INS1_INS_5QuoteEEESaISB_EESD_d(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(16) %termStructure, ptr noundef captures(none) %volstepdates, ptr noundef captures(none) %volatilities, ptr noundef captures(none) %reversions, double noundef %T) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9615,7 +9615,7 @@ unreachable:                                      ; preds = %invoke.cont34
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib3GsrC1ERKNS_6HandleINS_18YieldTermStructureEEESt6vectorINS_4DateESaIS7_EES6_INS1_INS_5QuoteEEESaISB_EESD_d(ptr noundef nonnull align 8 dereferenceable(368) initializes((368, 376), (384, 388), (392, 400)) %this, ptr noundef nonnull align 8 dereferenceable(16) %termStructure, ptr nocapture noundef %volstepdates, ptr nocapture noundef %volatilities, ptr nocapture noundef %reversions, double noundef %T) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib3GsrC1ERKNS_6HandleINS_18YieldTermStructureEEESt6vectorINS_4DateESaIS7_EES6_INS1_INS_5QuoteEEESaISB_EESD_d(ptr noundef nonnull align 8 dereferenceable(368) initializes((368, 376), (384, 388), (392, 400)) %this, ptr noundef nonnull align 8 dereferenceable(16) %termStructure, ptr noundef captures(none) %volstepdates, ptr noundef captures(none) %volatilities, ptr noundef captures(none) %reversions, double noundef %T) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14283,7 +14283,7 @@ _ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #21
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #21
 
 ; Function Attrs: nounwind
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #17
@@ -14549,7 +14549,7 @@ _ZN8QuantLib15ObservableValueINS_4DateEED2Ev.exit: ; preds = %entry, %if.then.i.
 declare void @__cxa_guard_abort(ptr) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #23
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #23
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN8QuantLib15Gaussian1dModel13CachedSwapKeyEN5boost10shared_ptrINS3_11VanillaSwapEEEELb1EEEEE18_M_deallocate_nodeEPSC_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__n) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -15316,7 +15316,7 @@ entry:
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #21
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #21
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib26PiecewiseConstantParameter4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -15797,7 +15797,7 @@ _ZNSt6vectorIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EED2Ev.exit61: ; preds = %invo
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #25
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #25
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
@@ -17034,7 +17034,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #25
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #25
 
 declare void @_ZN8QuantLib10GsrProcessC1ERKNS_5ArrayES3_S3_dRKNS_4DateENS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(536), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), double noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #2
 

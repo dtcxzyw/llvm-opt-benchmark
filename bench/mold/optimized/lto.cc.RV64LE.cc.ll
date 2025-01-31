@@ -1130,7 +1130,7 @@ _ZN4mold3elfL10to_elf_symINS0_6RV64LEEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit
   %call96 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %52) #30
   %53 = load ptr, ptr %strtab, align 8
   %add.ptr = getelementptr inbounds i8, ptr %53, i64 %strtab_offset.0123
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %52, i64 %call96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 1 %52, i64 %call96, i1 false)
   %add99 = add i64 %strtab_offset.0123, 1
   %add100 = add i64 %add99, %call96
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4mold3elfL14plugin_symbolsE, i64 8), align 8
@@ -1382,10 +1382,10 @@ entry:
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #8
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(400) ptr @_ZN4mold5FatalINS_3elf7ContextINS1_6RV64LEEEEElsIRA13_KcEERS5_OT_(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull align 1 dereferenceable(13) %val) local_unnamed_addr #4 comdat align 2 {
@@ -1510,7 +1510,7 @@ _ZN4mold7SyncOutINS_3elf7ContextINS1_6RV64LEEEEElsIRA35_KcEERS5_OT_.exit: ; pred
 declare i32 @close(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
@@ -1519,7 +1519,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare void @_ZN4mold3elf10ObjectFileINS0_6RV64LEEE18initialize_symbolsERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(744), ptr noundef nonnull align 8 dereferenceable(4576)) local_unnamed_addr #0
 
@@ -3258,7 +3258,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #13
 declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZNSt6vectorIN4mold3elf6ElfSymINS1_6RV64LEEEESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #4 comdat align 2 {
@@ -3826,11 +3826,11 @@ if.then.i.i.i:                                    ; preds = %if.then3.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
 
 if.end.i.i.i.i:                                   ; preds = %if.then3.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %__rhs, i64 %call.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr nonnull align 1 %__rhs, i64 %call.i.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
 
 if.else.i.i:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, i64 noundef %0, i64 noundef 0, ptr noundef %__rhs, i64 noundef %call.i.i)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, i64 noundef %0, i64 noundef 0, ptr noundef nonnull %__rhs, i64 noundef %call.i.i)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %if.then.i4.i, %if.then.i.i.i, %if.end.i.i.i.i, %if.else.i.i
@@ -3995,11 +3995,11 @@ if.then.i.i.i12:                                  ; preds = %if.then3.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
 
 if.end.i.i.i.i11:                                 ; preds = %if.then3.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %__lhs, i64 %call.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr nonnull align 1 %__lhs, i64 %call.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
 
 if.else.i.i:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %9, i64 noundef 0, ptr noundef %__lhs, i64 noundef %call.i)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %9, i64 noundef 0, ptr noundef nonnull %__lhs, i64 noundef %call.i)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds = %if.then.i3.i, %if.then.i.i.i12, %if.end.i.i.i.i11, %if.else.i.i
@@ -6074,7 +6074,7 @@ _ZN4mold7SyncOutINS_3elf7ContextINS1_6RV64LEEEEElsIRA23_KcEERS5_OT_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4mold3elfL7messageINS0_6RV64LEEEENS_12PluginStatusENS_11PluginLevelEPKcz(i32 noundef %level, ptr nocapture noundef readonly %fmt, ...) #4 {
+define internal noundef i32 @_ZN4mold3elfL7messageINS0_6RV64LEEEENS_12PluginStatusENS_11PluginLevelEPKcz(i32 noundef %level, ptr noundef readonly captures(none) %fmt, ...) #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %buf = alloca [1000 x i8], align 16
@@ -6252,7 +6252,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4mold3elfL11add_symbolsEPviPKNS_12PluginSymbolE(ptr nocapture readnone %handle, i32 noundef %nsyms, ptr nocapture noundef readonly %psyms) #4 {
+define internal noundef i32 @_ZN4mold3elfL11add_symbolsEPviPKNS_12PluginSymbolE(ptr readnone captures(none) %handle, i32 noundef %nsyms, ptr noundef readonly captures(none) %psyms) #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp) #18
@@ -6297,7 +6297,7 @@ _ZNSt6vectorIN4mold12PluginSymbolESaIS1_EED2Ev.exit: ; preds = %if.then.i.i.i.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none)
-define internal noundef i32 @_ZN4mold3elfL14get_symbols_v1EPKviPNS_12PluginSymbolE(ptr nocapture readnone %handle, i32 %nsyms, ptr nocapture readnone %psyms) #15 {
+define internal noundef i32 @_ZN4mold3elfL14get_symbols_v1EPKviPNS_12PluginSymbolE(ptr readnone captures(none) %handle, i32 %nsyms, ptr readnone captures(none) %psyms) #15 {
 entry:
   unreachable
 }
@@ -6456,7 +6456,7 @@ _ZNSt6vectorIPN4mold3elf10ObjectFileINS1_6RV64LEEEESaIS5_EE9push_backERKS5_.exit
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4mold3elfL14get_input_fileEPKvPNS_15PluginInputFileE(ptr nocapture readnone %handle, ptr nocapture readnone %file) #4 {
+define internal noundef i32 @_ZN4mold3elfL14get_input_fileEPKvPNS_15PluginInputFileE(ptr readnone captures(none) %handle, ptr readnone captures(none) %file) #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp) #18
@@ -6466,7 +6466,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4mold3elfL18release_input_fileINS0_6RV64LEEEENS_12PluginStatusEPKv(ptr nocapture noundef readonly %handle) #4 {
+define internal noundef i32 @_ZN4mold3elfL18release_input_fileINS0_6RV64LEEEENS_12PluginStatusEPKv(ptr noundef readonly captures(none) %handle) #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp) #18
@@ -6491,7 +6491,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4mold3elfL17add_input_libraryEPKc(ptr nocapture readnone %path) #4 {
+define internal noundef i32 @_ZN4mold3elfL17add_input_libraryEPKc(ptr readnone captures(none) %path) #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp) #18
@@ -6501,7 +6501,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4mold3elfL22set_extra_library_pathEPKc(ptr nocapture readnone %path) #4 {
+define internal noundef i32 @_ZN4mold3elfL22set_extra_library_pathEPKc(ptr readnone captures(none) %path) #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp) #18
@@ -6511,7 +6511,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4mold3elfL8get_viewINS0_6RV64LEEEENS_12PluginStatusEPKvPS5_(ptr nocapture noundef readonly %handle, ptr nocapture noundef writeonly initializes((0, 8)) %view) #4 {
+define internal noundef i32 @_ZN4mold3elfL8get_viewINS0_6RV64LEEEENS_12PluginStatusEPKvPS5_(ptr noundef readonly captures(none) %handle, ptr noundef writeonly captures(none) initializes((0, 8)) %view) #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp) #18
@@ -6526,7 +6526,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4mold3elfL23get_input_section_countEPKvPi(ptr nocapture readnone %handle, ptr nocapture readnone %count) #4 {
+define internal noundef i32 @_ZN4mold3elfL23get_input_section_countEPKvPi(ptr readnone captures(none) %handle, ptr readnone captures(none) %count) #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp) #18
@@ -6536,7 +6536,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4mold3elfL22get_input_section_typeENS_13PluginSectionEPi(ptr nocapture readnone %section.coerce0, i32 %section.coerce1, ptr nocapture readnone %type) #4 {
+define internal noundef i32 @_ZN4mold3elfL22get_input_section_typeENS_13PluginSectionEPi(ptr readnone captures(none) %section.coerce0, i32 %section.coerce1, ptr readnone captures(none) %type) #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp) #18
@@ -6546,7 +6546,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4mold3elfL22get_input_section_nameENS_13PluginSectionEPPc(ptr nocapture readnone %section.coerce0, i32 %section.coerce1, ptr nocapture readnone %section_name) #4 {
+define internal noundef i32 @_ZN4mold3elfL22get_input_section_nameENS_13PluginSectionEPPc(ptr readnone captures(none) %section.coerce0, i32 %section.coerce1, ptr readnone captures(none) %section_name) #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp) #18
@@ -6556,7 +6556,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4mold3elfL26get_input_section_contentsENS_13PluginSectionEPPKcPm(ptr nocapture readnone %section.coerce0, i32 %section.coerce1, ptr nocapture readnone %section_contents, ptr nocapture readnone %len) #4 {
+define internal noundef i32 @_ZN4mold3elfL26get_input_section_contentsENS_13PluginSectionEPPKcPm(ptr readnone captures(none) %section.coerce0, i32 %section.coerce1, ptr readnone captures(none) %section_contents, ptr readnone captures(none) %len) #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp) #18
@@ -6566,7 +6566,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4mold3elfL20update_section_orderEPKNS_13PluginSectionEi(ptr nocapture readnone %section_list, i32 %num_sections) #4 {
+define internal noundef i32 @_ZN4mold3elfL20update_section_orderEPKNS_13PluginSectionEi(ptr readnone captures(none) %section_list, i32 %num_sections) #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp) #18
@@ -6586,7 +6586,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef range(i32 0, 2) i32 @_ZN4mold3elfL14get_symbols_v2INS0_6RV64LEEEENS_12PluginStatusEPKviPNS_12PluginSymbolE(ptr noundef readonly %handle, i32 noundef %nsyms, ptr nocapture noundef writeonly %psyms) #4 {
+define internal noundef range(i32 0, 2) i32 @_ZN4mold3elfL14get_symbols_v2INS0_6RV64LEEEENS_12PluginStatusEPKviPNS_12PluginSymbolE(ptr noundef readonly %handle, i32 noundef %nsyms, ptr noundef writeonly captures(none) %psyms) #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp) #18
@@ -6700,7 +6700,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4mold3elfL27unique_segment_for_sectionsEPKcmmPKNS_13PluginSectionEi(ptr nocapture readnone %segment_name, i64 %flags, i64 %align, ptr nocapture readnone %section_list, i32 %num_sections) #4 {
+define internal noundef i32 @_ZN4mold3elfL27unique_segment_for_sectionsEPKcmmPKNS_13PluginSectionEi(ptr readnone captures(none) %segment_name, i64 %flags, i64 %align, ptr readnone captures(none) %section_list, i32 %num_sections) #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp) #18
@@ -6710,7 +6710,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef range(i32 0, 2) i32 @_ZN4mold3elfL14get_symbols_v3INS0_6RV64LEEEENS_12PluginStatusEPKviPNS_12PluginSymbolE(ptr noundef readonly %handle, i32 noundef %nsyms, ptr nocapture noundef writeonly %psyms) #4 {
+define internal noundef range(i32 0, 2) i32 @_ZN4mold3elfL14get_symbols_v3INS0_6RV64LEEEENS_12PluginStatusEPKviPNS_12PluginSymbolE(ptr noundef readonly %handle, i32 noundef %nsyms, ptr noundef writeonly captures(none) %psyms) #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp) #18
@@ -6814,7 +6814,7 @@ _ZN4mold3elfL11get_symbolsINS0_6RV64LEEEENS_12PluginStatusEPKviPNS_12PluginSymbo
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4mold3elfL27get_input_section_alignmentENS_13PluginSectionEPi(ptr nocapture readnone %section.coerce0, i32 %section.coerce1, ptr nocapture readnone %addralign) #4 {
+define internal noundef i32 @_ZN4mold3elfL27get_input_section_alignmentENS_13PluginSectionEPi(ptr readnone captures(none) %section.coerce0, i32 %section.coerce1, ptr readnone captures(none) %addralign) #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp) #18
@@ -6824,7 +6824,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4mold3elfL22get_input_section_sizeENS_13PluginSectionEPm(ptr nocapture readnone %section.coerce0, i32 %section.coerce1, ptr nocapture readnone %size) #4 {
+define internal noundef i32 @_ZN4mold3elfL22get_input_section_sizeENS_13PluginSectionEPm(ptr readnone captures(none) %section.coerce0, i32 %section.coerce1, ptr readnone captures(none) %size) #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp) #18
@@ -6834,7 +6834,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4mold3elfL23register_new_input_hookINS0_6RV64LEEEENS_12PluginStatusEPFS3_PKNS_15PluginInputFileEE(ptr nocapture readnone %fn) #4 {
+define internal noundef i32 @_ZN4mold3elfL23register_new_input_hookINS0_6RV64LEEEENS_12PluginStatusEPFS3_PKNS_15PluginInputFileEE(ptr readnone captures(none) %fn) #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp) #18
@@ -6844,7 +6844,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4mold3elfL16get_wrap_symbolsEPmPPPKc(ptr nocapture readnone %num_symbols, ptr nocapture readnone %wrap_symbols) #4 {
+define internal noundef i32 @_ZN4mold3elfL16get_wrap_symbolsEPmPPPKc(ptr readnone captures(none) %num_symbols, ptr readnone captures(none) %wrap_symbols) #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp) #18
@@ -6854,7 +6854,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef range(i32 0, 2) i32 @_ZN4mold3elfL15get_api_versionINS0_6RV64LEEEENS_22PluginLinkerAPIVersionEPKcjiiPS5_S6_(ptr nocapture readnone %plugin_identifier, i32 %plugin_version, i32 noundef %minimal_api_supported, i32 noundef %maximal_api_supported, ptr nocapture noundef writeonly %linker_identifier, ptr nocapture noundef writeonly %linker_version) #4 {
+define internal noundef range(i32 0, 2) i32 @_ZN4mold3elfL15get_api_versionINS0_6RV64LEEEENS_22PluginLinkerAPIVersionEPKcjiiPS5_S6_(ptr readnone captures(none) %plugin_identifier, i32 %plugin_version, i32 noundef %minimal_api_supported, i32 noundef %maximal_api_supported, ptr noundef writeonly captures(none) %linker_identifier, ptr noundef writeonly captures(none) %linker_version) #4 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %ref.tmp = alloca %"class.mold::Fatal", align 8
@@ -6968,7 +6968,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %_ZNK
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #16
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold4WarnINS_3elf7ContextINS1_6RV64LEEEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull align 8 dereferenceable(4576) %ctx) unnamed_addr #4 comdat align 2 {
@@ -7777,7 +7777,7 @@ _ZN4mold7SyncOutINS_3elf7ContextINS1_6RV64LEEEEElsIRA10_KcEERS5_OT_.exit: ; pred
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(400) ptr @_ZN4mold5FatalINS_3elf7ContextINS1_6RV64LEEEEElsIRA17_KcEERS5_OT_(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull align 1 dereferenceable(17) %val) local_unnamed_addr #4 comdat align 2 {
@@ -9706,7 +9706,7 @@ _ZNSt6vectorIPKcSaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit: ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #19
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZNK4mold10MappedFileINS_3elf7ContextINS1_6RV64LEEEEE14get_identifierB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(76) %this) local_unnamed_addr #4 comdat align 2 {
@@ -11137,13 +11137,13 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 declare i64 @llvm.umax.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #26
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #23

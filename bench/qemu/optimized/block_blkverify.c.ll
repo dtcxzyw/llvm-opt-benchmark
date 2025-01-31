@@ -69,7 +69,7 @@ entry:
 declare void @bdrv_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @blkverify_recurse_can_replace(ptr nocapture noundef readonly %bs, ptr noundef %to_replace) #0 {
+define internal zeroext i1 @blkverify_recurse_can_replace(ptr noundef readonly captures(none) %bs, ptr noundef %to_replace) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -117,7 +117,7 @@ if.end3:                                          ; preds = %if.end
   %sub.ptr.lhs.cast = ptrtoint ptr %call1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call4 = call ptr @qstring_from_substr(ptr noundef %0, i64 noundef 0, i64 noundef %sub.ptr.sub) #9
+  %call4 = call ptr @qstring_from_substr(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %sub.ptr.sub) #9
   call void @qdict_put_obj(ptr noundef %options, ptr noundef nonnull @.str.5, ptr noundef %call4) #9
   %add.ptr7 = getelementptr i8, ptr %call1, i64 1
   store ptr %add.ptr7, ptr %filename.addr, align 8
@@ -177,7 +177,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal void @blkverify_refresh_filename(ptr nocapture noundef %bs) #2 {
+define internal void @blkverify_refresh_filename(ptr noundef captures(none) %bs) #2 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -212,7 +212,7 @@ if.end21:                                         ; preds = %if.then, %if.then18
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias noundef ptr @blkverify_dirname(ptr nocapture readnone %bs, ptr noundef %errp) #0 {
+define internal noalias noundef ptr @blkverify_dirname(ptr readnone captures(none) %bs, ptr noundef %errp) #0 {
 entry:
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 314, ptr noundef nonnull @__func__.blkverify_dirname, ptr noundef nonnull @.str.11) #9
   ret ptr null
@@ -261,7 +261,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @blkverify_co_flush(ptr nocapture noundef readonly %bs) #0 {
+define internal i32 @blkverify_co_flush(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -272,7 +272,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @blkverify_co_getlength(ptr nocapture noundef readonly %bs) #0 {
+define internal i64 @blkverify_co_getlength(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -316,7 +316,7 @@ declare void @bdrv_unref_child(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @bdrv_graph_wrunlock(ptr noundef) #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare ptr @qemu_blockalign(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -384,7 +384,7 @@ if.end:                                           ; preds = %while.end
 declare i64 @qemu_iovec_compare(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind sspstrong uwtable
-define internal void @blkverify_err(ptr nocapture noundef readonly %r, ptr nocapture noundef readonly %fmt, ...) unnamed_addr #5 {
+define internal void @blkverify_err(ptr noundef readonly captures(none) %r, ptr noundef readonly captures(none) %fmt, ...) unnamed_addr #5 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -420,7 +420,7 @@ declare i32 @bdrv_co_preadv(ptr noundef, i64 noundef, i64 noundef, ptr noundef, 
 declare ptr @qemu_coroutine_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blkverify_do_test_req(ptr nocapture noundef initializes((56, 60)) %opaque) #0 {
+define internal void @blkverify_do_test_req(ptr noundef captures(none) initializes((56, 60)) %opaque) #0 {
 entry:
   %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %bs, align 8
@@ -452,7 +452,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blkverify_do_raw_req(ptr nocapture noundef initializes((60, 64)) %opaque) #0 {
+define internal void @blkverify_do_raw_req(ptr noundef captures(none) initializes((60, 64)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #9
   %request_fn = getelementptr inbounds nuw i8, ptr %opaque, i64 48
@@ -493,10 +493,10 @@ declare void @bdrv_graph_co_rdunlock() #1
 declare void @qemu_coroutine_enter_if_inactive(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #6
@@ -512,7 +512,7 @@ declare void @llvm.va_start.p0(ptr) #7
 declare void @llvm.va_end.p0(ptr) #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

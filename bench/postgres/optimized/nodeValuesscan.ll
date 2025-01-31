@@ -168,7 +168,7 @@ declare void @ExecScanReScan(ptr noundef) local_unnamed_addr #1
 declare ptr @ExecScan(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ValuesNext(ptr nocapture noundef %0) #0 {
+define internal ptr @ValuesNext(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -298,7 +298,7 @@ define internal ptr @ValuesNext(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @ValuesRecheck(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 {
+define internal noundef zeroext i1 @ValuesRecheck(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 {
   ret i1 true
 }
 

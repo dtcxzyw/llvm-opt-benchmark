@@ -1324,7 +1324,7 @@ find_partition_scheme.exit.i:                     ; preds = %678, %._crit_edge85
   %726 = load i32, ptr %646, align 8
   %727 = getelementptr inbounds nuw i8, ptr %3, i64 376
   store i32 %726, ptr %727, align 8
-  %728 = call ptr @RelationGetPartitionKey(ptr noundef %13) #10
+  %728 = call ptr @RelationGetPartitionKey(ptr noundef nonnull %13) #10
   %729 = load i32, ptr %11, align 8
   %730 = getelementptr inbounds nuw i8, ptr %728, i64 4
   %731 = load i16, ptr %730, align 4
@@ -1424,7 +1424,7 @@ set_baserel_partition_key_exprs.exit.i:           ; preds = %775, %list_head.exi
   br i1 %.not.i22.i, label %783, label %set_relation_partition_info.exit
 
 783:                                              ; preds = %set_baserel_partition_key_exprs.exit.i
-  %784 = call ptr @RelationGetPartitionQual(ptr noundef %13) #10
+  %784 = call ptr @RelationGetPartitionQual(ptr noundef nonnull %13) #10
   %.not10.i.i = icmp eq ptr %784, null
   br i1 %.not10.i.i, label %set_relation_partition_info.exit, label %785
 
@@ -1624,7 +1624,7 @@ declare ptr @GetFdwRoutineForRelation(ptr noundef, i1 noundef zeroext) local_unn
 declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @infer_arbiter_indexes(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @infer_arbiter_indexes(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
@@ -1936,7 +1936,7 @@ define dso_local ptr @infer_arbiter_indexes(ptr nocapture noundef readonly %0) l
   br i1 %.not113.us, label %168, label %infer_collation_opclass_match.exit.us
 
 168:                                              ; preds = %._crit_edge158.us
-  %169 = tail call ptr @RelationGetIndexPredicate(ptr noundef %76) #10
+  %169 = tail call ptr @RelationGetIndexPredicate(ptr noundef nonnull %76) #10
   %170 = load ptr, ptr %69, align 8
   %171 = tail call zeroext i1 @predicate_implied_by(ptr noundef %169, ptr noundef %170, i1 noundef zeroext false) #10
   br i1 %171, label %172, label %infer_collation_opclass_match.exit.us
@@ -2095,7 +2095,7 @@ declare ptr @list_difference(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @predicate_implied_by(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_rel_data_width(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @get_rel_data_width(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 116
@@ -2235,7 +2235,7 @@ define dso_local i32 @get_relation_data_width(i32 noundef %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @relation_excluded_by_constraints(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @relation_excluded_by_constraints(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -2640,7 +2640,7 @@ declare zeroext i1 @contain_mutable_functions(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @predicate_refuted_by(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @build_physical_tlist(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @build_physical_tlist(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %5 = load i32, ptr %4, align 8
@@ -2959,7 +2959,7 @@ declare i32 @get_func_support(i32 noundef) local_unnamed_addr #1
 declare i64 @OidFunctionCall1Coll(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_function_cost(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define dso_local void @add_function_cost(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.SupportRequestCost, align 8
   %6 = zext i32 %1 to i64
   %7 = tail call ptr @SearchSysCache1(i32 noundef 45, i64 noundef %6) #10
@@ -3098,7 +3098,7 @@ define dso_local double @get_function_rows(ptr noundef %0, i32 noundef %1, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @has_unique_index(ptr nocapture noundef readonly %0, i16 noundef signext %1) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @has_unique_index(ptr noundef readonly captures(none) %0, i16 noundef signext %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3162,7 +3162,7 @@ define dso_local noundef zeroext i1 @has_unique_index(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @has_row_triggers(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @has_row_triggers(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -3271,7 +3271,7 @@ define dso_local noundef zeroext i1 @has_row_triggers(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @has_stored_generated_columns(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @has_stored_generated_columns(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3320,7 +3320,7 @@ define dso_local zeroext i1 @has_stored_generated_columns(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_dependent_generated_columns(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @get_dependent_generated_columns(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
@@ -3426,10 +3426,10 @@ declare zeroext i1 @bms_overlap(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @RelationGetFKeyList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @get_opclass_family(i32 noundef) local_unnamed_addr #1
 
@@ -3450,7 +3450,7 @@ declare ptr @eval_const_expressions(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @fix_opfuncids(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_relation_statistics_worker(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @get_relation_statistics_worker(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = zext i32 %2 to i64
   %8 = zext i1 %3 to i64
   %9 = tail call ptr @SearchSysCache2(i32 noundef 60, i64 noundef %7, i64 noundef %8) #10
@@ -3619,13 +3619,13 @@ declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

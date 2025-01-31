@@ -2732,7 +2732,7 @@ define hidden void @proto_register_lustre() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @lustre_fmt_ver(ptr nocapture noundef writeonly %0, i32 noundef %1) #2 {
+define internal void @lustre_fmt_ver(ptr noundef writeonly captures(none) %0, i32 noundef %1) #2 {
   %3 = and i32 %1, 255
   %4 = lshr i32 %1, 8
   %5 = and i32 %4, 255
@@ -2756,7 +2756,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_lustre(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal noundef i32 @dissect_lustre(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -3108,7 +3108,7 @@ dissect_struct_msg_v2.exit:                       ; preds = %213, %221
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -5868,7 +5868,7 @@ define internal fastcc noundef i32 @process_opcode_quota(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @process_opcode_seq(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @process_opcode_seq(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr %4, align 8
   %cond = icmp eq i32 %7, 700
   br i1 %cond, label %8, label %24
@@ -5915,7 +5915,7 @@ add_extra_padding.exit:                           ; preds = %.split, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @process_opcode_fld(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @process_opcode_fld(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr %4, align 8
   switch i32 %7, label %28 [
     i32 900, label %8
@@ -8295,7 +8295,7 @@ define internal fastcc noundef i32 @dissect_struct_llog_cookie_array(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @process_opcode_reint_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef initializes((8, 16)) %4) unnamed_addr #0 {
+define internal fastcc i32 @process_opcode_reint_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) initializes((8, 16)) %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1) #8
   %7 = zext i32 %6 to i64
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -8392,7 +8392,7 @@ define internal fastcc i32 @process_opcode_reint_req(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @process_opcode_reint_rep(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @process_opcode_reint_rep(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
@@ -9350,10 +9350,10 @@ define internal fastcc noundef i32 @dissect_struct_lfsck_request(ptr noundef %0,
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7

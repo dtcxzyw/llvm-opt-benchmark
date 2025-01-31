@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.11 = private unnamed_addr constant [49 x i8] c"Password of user \22%s\22 is in unrecognized format.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_role_password(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local ptr @get_role_password(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = ptrtoint ptr %0 to i64
   %5 = tail call ptr @SearchSysCache1(i32 noundef 10, i64 noundef %4) #6
@@ -130,10 +130,10 @@ sub_1:                                            ; preds = %sub_0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare zeroext i1 @parse_scram_secret(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -211,7 +211,7 @@ select.unfold:                                    ; preds = %.tail.thread.i, %20
 27:                                               ; preds = %26
   %28 = call ptr @palloc(i64 noundef 36) #6
   %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
-  %30 = call zeroext i1 @pg_md5_encrypt(ptr noundef nonnull %2, ptr noundef %1, i64 noundef %29, ptr noundef %28, ptr noundef nonnull %10) #6
+  %30 = call zeroext i1 @pg_md5_encrypt(ptr noundef nonnull %2, ptr noundef nonnull %1, i64 noundef %29, ptr noundef %28, ptr noundef nonnull %10) #6
   br i1 %30, label %43, label %31
 
 31:                                               ; preds = %27
@@ -261,7 +261,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @pg_be_scram_build_secret(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @md5_crypt_verify(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @md5_crypt_verify(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -351,10 +351,10 @@ get_password_type.exit:                           ; preds = %6, %sub_1.i, %.tail
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @plain_crypt_verify(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @plain_crypt_verify(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -424,7 +424,7 @@ sub_1.i:                                          ; preds = %4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
-  %33 = call zeroext i1 @pg_md5_encrypt(ptr noundef %2, ptr noundef %0, i64 noundef %32, ptr noundef nonnull %11, ptr noundef nonnull %12) #6
+  %33 = call zeroext i1 @pg_md5_encrypt(ptr noundef %2, ptr noundef nonnull %0, i64 noundef %32, ptr noundef nonnull %11, ptr noundef nonnull %12) #6
   br i1 %33, label %36, label %34
 
 34:                                               ; preds = %31
@@ -437,7 +437,7 @@ sub_1.i:                                          ; preds = %4
   br i1 %38, label %43, label %39
 
 39:                                               ; preds = %36
-  %40 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.10, ptr noundef %0) #6
+  %40 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.10, ptr noundef nonnull %0) #6
   br label %.sink.split
 
 41:                                               ; preds = %.tail.thread.i
@@ -460,10 +460,10 @@ declare zeroext i1 @scram_verify_plain_password(ptr noundef, ptr noundef, ptr no
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -101,7 +101,7 @@ define dso_local void @usb_init_urb(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @usb_alloc_urb(i32 noundef %0, i32 noundef %1) #2 align 16 {
@@ -132,10 +132,10 @@ define dso_local ptr @usb_alloc_urb(i32 noundef %0, i32 noundef %1) #2 align 16 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @usb_free_urb(ptr noundef %0) #2 align 16 {
@@ -353,7 +353,7 @@ define internal fastcc void @__usb_unanchor_urb(ptr noundef initializes((56, 64)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local range(i32 -22, 1) i32 @usb_pipe_type_check(ptr nocapture noundef readonly %0, i32 noundef %1) #5 align 16 {
+define dso_local range(i32 -22, 1) i32 @usb_pipe_type_check(ptr noundef readonly captures(none) %0, i32 noundef %1) #5 align 16 {
   %3 = and i32 %1, 128
   %4 = icmp eq i32 %3, 0
   %5 = select i1 %4, i64 1072, i64 944
@@ -384,7 +384,7 @@ define dso_local range(i32 -22, 1) i32 @usb_pipe_type_check(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local range(i32 -22, 1) i32 @usb_urb_ep_type_check(ptr nocapture noundef readonly %0) #5 align 16 {
+define dso_local range(i32 -22, 1) i32 @usb_urb_ep_type_check(ptr noundef readonly captures(none) %0) #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80

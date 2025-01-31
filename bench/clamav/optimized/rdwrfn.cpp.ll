@@ -143,7 +143,7 @@ declare void @_ZN9CryptDataC1Ev(ptr noundef nonnull align 8 dereferenceable(2516
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11ComprDataIO4InitEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(266) initializes((0, 1), (24, 25), (48, 84), (88, 128), (144, 155), (160, 216), (264, 266)) %0) local_unnamed_addr #4 align 2 {
+define void @_ZN11ComprDataIO4InitEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(266) initializes((0, 1), (24, 25), (48, 84), (88, 128), (144, 155), (160, 216), (264, 266)) %0) local_unnamed_addr #4 align 2 {
   store i8 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %2, align 8
@@ -523,14 +523,14 @@ _ZN11ComprDataIO11ShowUnpReadEll.exit:            ; preds = %116, %113, %96, %90
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @_ZN8DataHash6UpdateEPKvm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare noundef zeroext i1 @_Z12MergeArchiveR7ArchiveP11ComprDataIObw(ptr noundef nonnull align 8 dereferenceable(57108), ptr noundef, i1 noundef zeroext, i32 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11ComprDataIO11ShowUnpReadEll(ptr nocapture noundef nonnull align 8 dereferenceable(266) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN11ComprDataIO11ShowUnpReadEll(ptr noundef nonnull align 8 captures(none) dereferenceable(266) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -687,7 +687,7 @@ declare void @_ZN12ErrorHandler4ExitE8RAR_EXIT(ptr noundef nonnull align 4 deref
 declare noundef zeroext i1 @_ZN4File5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8256), ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN11ComprDataIO12ShowUnpWriteEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(266) %0) local_unnamed_addr #8 align 2 {
+define void @_ZN11ComprDataIO12ShowUnpWriteEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(266) %0) local_unnamed_addr #8 align 2 {
   ret void
 }
 
@@ -696,7 +696,7 @@ declare noundef i32 @_Z9ToPercentll(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @_Z17uiExtractProgressllll(i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11ComprDataIO8SetFilesEP4FileS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(266) initializes((144, 148)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 {
+define void @_ZN11ComprDataIO8SetFilesEP4FileS1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(266) initializes((144, 148)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
 
@@ -721,7 +721,7 @@ define void @_ZN11ComprDataIO8SetFilesEP4FileS1_(ptr nocapture noundef nonnull w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11ComprDataIO15GetUnpackedDataEPPhPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(266) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #9 align 2 {
+define void @_ZN11ComprDataIO15GetUnpackedDataEPPhPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(266) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %1, align 8
@@ -732,7 +732,7 @@ define void @_ZN11ComprDataIO15GetUnpackedDataEPPhPm(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11ComprDataIO13SetEncryptionEb12CRYPT_METHODP11SecPasswordPKhS4_jPhS5_(ptr nocapture noundef nonnull align 8 dereferenceable(266) %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 align 2 {
+define void @_ZN11ComprDataIO13SetEncryptionEb12CRYPT_METHODP11SecPasswordPKhS4_jPhS5_(ptr noundef nonnull align 8 captures(none) dereferenceable(266) %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 align 2 {
   br i1 %1, label %10, label %16
 
 10:                                               ; preds = %9
@@ -760,7 +760,7 @@ define void @_ZN11ComprDataIO13SetEncryptionEb12CRYPT_METHODP11SecPasswordPKhS4_
 declare noundef zeroext i1 @_ZN9CryptData12SetCryptKeysEb12CRYPT_METHODP11SecPasswordPKhS4_jPhS5_(ptr noundef nonnull align 8 dereferenceable(2516), i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11ComprDataIO17SetAV15EncryptionEv(ptr nocapture noundef nonnull align 8 dereferenceable(266) initializes((265, 266)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN11ComprDataIO17SetAV15EncryptionEv(ptr noundef nonnull align 8 captures(none) dereferenceable(266) initializes((265, 266)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 265
   store i8 1, ptr %2, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -772,7 +772,7 @@ define void @_ZN11ComprDataIO17SetAV15EncryptionEv(ptr nocapture noundef nonnull
 declare void @_ZN9CryptData17SetAV15EncryptionEv(ptr noundef nonnull align 8 dereferenceable(2516)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11ComprDataIO18SetCmt13EncryptionEv(ptr nocapture noundef nonnull align 8 dereferenceable(266) initializes((265, 266)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN11ComprDataIO18SetCmt13EncryptionEv(ptr noundef nonnull align 8 captures(none) dereferenceable(266) initializes((265, 266)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 265
   store i8 1, ptr %2, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -784,7 +784,7 @@ define void @_ZN11ComprDataIO18SetCmt13EncryptionEv(ptr nocapture noundef nonnul
 declare void @_ZN9CryptData18SetCmt13EncryptionEv(ptr noundef nonnull align 8 dereferenceable(2516)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11ComprDataIO17SetUnpackToMemoryEPhj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(266) initializes((24, 25), (32, 48)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
+define void @_ZN11ComprDataIO17SetUnpackToMemoryEPhj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(266) initializes((24, 25), (32, 48)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -796,7 +796,7 @@ define void @_ZN11ComprDataIO17SetUnpackToMemoryEPhj(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11ComprDataIO18AdjustTotalArcSizeEP7Archive(ptr nocapture noundef nonnull align 8 dereferenceable(266) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN11ComprDataIO18AdjustTotalArcSizeEP7Archive(ptr noundef nonnull align 8 captures(none) dereferenceable(266) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4
   %.not12 = icmp eq i32 %4, 1
@@ -874,7 +874,7 @@ declare void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(2
 declare void @_Z9cleandataPvm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #13

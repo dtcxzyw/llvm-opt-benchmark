@@ -42,7 +42,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %state, i8 0, i64 104, i1 false)
   call void @json_message_parser_init(ptr noundef nonnull %state, ptr noundef nonnull @consume_json, ptr noundef nonnull %state, ptr noundef %ap) #8
   %call = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %string) #9
-  call void @json_message_parser_feed(ptr noundef nonnull %state, ptr noundef %string, i64 noundef %call) #8
+  call void @json_message_parser_feed(ptr noundef nonnull %state, ptr noundef nonnull %string, i64 noundef %call) #8
   call void @json_message_parser_flush(ptr noundef nonnull %state) #8
   call void @json_message_parser_destroy(ptr noundef nonnull %state) #8
   %result = getelementptr inbounds nuw i8, ptr %state, i64 88
@@ -325,7 +325,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @json_message_parser_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -427,7 +427,7 @@ return:                                           ; preds = %if.end32, %qobject_
 declare void @json_message_parser_feed(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @json_message_parser_flush(ptr noundef) local_unnamed_addr #2
 
@@ -486,10 +486,10 @@ declare void @llvm.va_end.p0(ptr) #6
 declare void @llvm.va_start.p0(ptr) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

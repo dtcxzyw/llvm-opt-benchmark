@@ -185,7 +185,7 @@ entry:
 declare void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK6Assimp20PretransformVertices8IsActiveEj(ptr nocapture nonnull readnone align 8 %this, i32 noundef %pFlags) unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZNK6Assimp20PretransformVertices8IsActiveEj(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %pFlags) unnamed_addr #2 align 2 {
 entry:
   %and = and i32 %pFlags, 256
   %cmp = icmp ne i32 %and, 0
@@ -193,7 +193,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp20PretransformVertices15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(93) initializes((24, 27), (28, 93)) %this, ptr noundef nonnull %pImp) unnamed_addr #3 align 2 {
+define void @_ZN6Assimp20PretransformVertices15SetupPropertiesEPKNS_8ImporterE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(93) initializes((24, 27), (28, 93)) %this, ptr noundef nonnull %pImp) unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %class.aiMatrix4x4t, align 4
   %ref.tmp8 = alloca %class.aiMatrix4x4t, align 4
@@ -241,10 +241,10 @@ declare noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef n
 declare void @_ZNK6Assimp8Importer17GetPropertyMatrixEPKcRK12aiMatrix4x4tIfE(ptr sret(%class.aiMatrix4x4t) align 4, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 4 dereferenceable(64)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6Assimp20PretransformVertices10CountNodesEPK6aiNode(ptr nocapture noundef nonnull readnone align 8 dereferenceable(93) %this, ptr nocapture noundef readonly %pcNode) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK6Assimp20PretransformVertices10CountNodesEPK6aiNode(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(93) %this, ptr noundef readonly captures(none) %pcNode) local_unnamed_addr #6 align 2 {
 entry:
   %mNumChildren = getelementptr inbounds nuw i8, ptr %pcNode, i64 1104
   %0 = load i32, ptr %mNumChildren, align 8
@@ -274,7 +274,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6Assimp20PretransformVertices21CountVerticesAndFacesEPK7aiScenePK6aiNodejjPjS7_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(93) %this, ptr nocapture noundef readonly %pcScene, ptr nocapture noundef readonly %pcNode, i32 noundef %iMat, i32 noundef %iVFormat, ptr nocapture noundef %piFaces, ptr nocapture noundef %piVertices) local_unnamed_addr #3 align 2 {
+define void @_ZNK6Assimp20PretransformVertices21CountVerticesAndFacesEPK7aiScenePK6aiNodejjPjS7_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(93) %this, ptr noundef readonly captures(none) %pcScene, ptr noundef readonly captures(none) %pcNode, i32 noundef %iMat, i32 noundef %iVFormat, ptr noundef captures(none) %piFaces, ptr noundef captures(none) %piVertices) local_unnamed_addr #3 align 2 {
 entry:
   %mNumMeshes = getelementptr inbounds nuw i8, ptr %pcNode, i64 1120
   %0 = load i32, ptr %mNumMeshes, align 8
@@ -370,7 +370,7 @@ for.end16:                                        ; preds = %for.body11, %for.co
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6Assimp20PretransformVertices11CollectDataEPK7aiScenePK6aiNodejjP6aiMeshPjS9_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(93) %this, ptr nocapture noundef readonly %pcScene, ptr noundef %pcNode, i32 noundef %iMat, i32 noundef %iVFormat, ptr noundef %pcMeshOut, ptr nocapture noundef %aiCurrent, ptr nocapture noundef %num_refs) local_unnamed_addr #7 align 2 {
+define void @_ZNK6Assimp20PretransformVertices11CollectDataEPK7aiScenePK6aiNodejjP6aiMeshPjS9_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(93) %this, ptr noundef readonly captures(none) %pcScene, ptr noundef %pcNode, i32 noundef %iMat, i32 noundef %iVFormat, ptr noundef %pcMeshOut, ptr noundef captures(none) %aiCurrent, ptr noundef captures(none) %num_refs) local_unnamed_addr #7 align 2 {
 entry:
   %mWorldIT = alloca %class.aiMatrix4x4t, align 4
   %mTransformation = getelementptr inbounds nuw i8, ptr %pcNode, i64 1028
@@ -1413,7 +1413,7 @@ return:                                           ; preds = %entry, %if.end
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6Assimp20PretransformVertices24ComputeAbsoluteTransformEP6aiNode(ptr nocapture noundef nonnull readnone align 8 dereferenceable(93) %this, ptr nocapture noundef %pcNode) local_unnamed_addr #9 align 2 {
+define void @_ZN6Assimp20PretransformVertices24ComputeAbsoluteTransformEP6aiNode(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(93) %this, ptr noundef captures(none) %pcNode) local_unnamed_addr #9 align 2 {
 entry:
   %mParent = getelementptr inbounds nuw i8, ptr %pcNode, i64 1096
   %0 = load ptr, ptr %mParent, align 8
@@ -1594,7 +1594,7 @@ for.end:                                          ; preds = %for.body, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6Assimp20PretransformVertices14ApplyTransformEP6aiMeshRK12aiMatrix4x4tIfE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %mesh, ptr noundef nonnull align 4 dereferenceable(64) %mat) local_unnamed_addr #7 align 2 {
+define void @_ZNK6Assimp20PretransformVertices14ApplyTransformEP6aiMeshRK12aiMatrix4x4tIfE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %mesh, ptr noundef nonnull align 4 dereferenceable(64) %mat) local_unnamed_addr #7 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK12aiMatrix4x4tIfE10IsIdentityEv(ptr noundef nonnull align 4 dereferenceable(64) %mat)
   br i1 %call, label %if.end69, label %if.end
@@ -2032,7 +2032,7 @@ if.end69:                                         ; preds = %_ZN10aiVector3tIfE9
 declare void @_ZN6Assimp23FlipWindingOrderProcess11ProcessMeshEP6aiMesh(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6Assimp20PretransformVertices14BuildWCSMeshesERSt6vectorIP6aiMeshSaIS3_EEPS3_jP6aiNode(ptr nocapture noundef nonnull readnone align 8 dereferenceable(93) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %out, ptr nocapture noundef readonly %in, i32 noundef %numIn, ptr noundef %node) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6Assimp20PretransformVertices14BuildWCSMeshesERSt6vectorIP6aiMeshSaIS3_EEPS3_jP6aiNode(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(93) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %out, ptr noundef readonly captures(none) %in, i32 noundef %numIn, ptr noundef %node) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ntz = alloca ptr, align 8
   %mNumMeshes = getelementptr inbounds nuw i8, ptr %node, i64 1120
@@ -2510,7 +2510,7 @@ declare void @_ZN6Assimp6Logger4infoEPKc(ptr noundef nonnull align 8 dereference
 declare void @_ZN6Assimp13SceneCombiner4CopyEPP6aiMeshPKS1_(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6Assimp20PretransformVertices21MakeIdentityTransformEP6aiNode(ptr nocapture noundef nonnull readnone align 8 dereferenceable(93) %this, ptr nocapture noundef initializes((1028, 1092)) %nd) local_unnamed_addr #9 align 2 {
+define void @_ZNK6Assimp20PretransformVertices21MakeIdentityTransformEP6aiNode(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(93) %this, ptr noundef captures(none) initializes((1028, 1092)) %nd) local_unnamed_addr #9 align 2 {
 entry:
   %mTransformation = getelementptr inbounds nuw i8, ptr %nd, i64 1028
   store float 1.000000e+00, ptr %mTransformation, align 4
@@ -2552,7 +2552,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6Assimp20PretransformVertices22BuildMeshRefCountArrayEPK6aiNodePj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(93) %this, ptr nocapture noundef readonly %nd, ptr nocapture noundef %refs) local_unnamed_addr #9 align 2 {
+define void @_ZNK6Assimp20PretransformVertices22BuildMeshRefCountArrayEPK6aiNodePj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(93) %this, ptr noundef readonly captures(none) %nd, ptr noundef captures(none) %refs) local_unnamed_addr #9 align 2 {
 entry:
   %mNumMeshes = getelementptr inbounds nuw i8, ptr %nd, i64 1120
   %0 = load i32, ptr %mNumMeshes, align 8
@@ -2606,7 +2606,7 @@ for.end13:                                        ; preds = %for.body8, %for.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp20PretransformVertices7ExecuteEP7aiScene(ptr nocapture noundef nonnull readonly align 8 dereferenceable(93) %this, ptr noundef %pScene) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp20PretransformVertices7ExecuteEP7aiScene(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(93) %this, ptr noundef %pScene) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__to_destroy.i = alloca %"class.std::__cxx11::list", align 8
   %oldMeshes = alloca i32, align 4
@@ -3584,7 +3584,7 @@ for.end247:                                       ; preds = %delete.end244, %for
   %conv249 = trunc i64 %sub.ptr.div.i to i32
   store i32 %conv249, ptr %mNumMeshes, align 8
   %cmp254658.not = icmp eq i32 %conv249, 0
-  br i1 %cmp254658.not, label %if.then.i.i.i, label %for.body255.lr.ph
+  br i1 %cmp254658.not, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %for.body255.lr.ph
 
 for.body255.lr.ph:                                ; preds = %for.end247
   %mMeshes258 = getelementptr inbounds nuw i8, ptr %pScene, i64 24
@@ -3601,16 +3601,16 @@ for.body255:                                      ; preds = %for.body255.lr.ph, 
   %174 = load i32, ptr %mNumMeshes, align 8
   %175 = zext i32 %174 to i64
   %cmp254 = icmp samesign ult i64 %indvars.iv.next737, %175
-  br i1 %cmp254, label %for.body255, label %if.then.i.i.i, !llvm.loop !40
+  br i1 %cmp254, label %for.body255, label %_ZNSt6vectorIjSaIjEED2Ev.exit, !llvm.loop !40
 
-if.then.i.i.i:                                    ; preds = %for.body255, %for.end247
+_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %for.body255, %for.end247
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i204) #24
   %176 = load ptr, ptr %aiVFormats, align 8
   %cmp.not4.i.i.i = icmp eq ptr %176, %aiVFormats
   br i1 %cmp.not4.i.i.i, label %if.end266, label %while.body.i.i.i
 
-while.body.i.i.i:                                 ; preds = %if.then.i.i.i, %while.body.i.i.i
-  %__cur.05.i.i.i = phi ptr [ %177, %while.body.i.i.i ], [ %176, %if.then.i.i.i ]
+while.body.i.i.i:                                 ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit, %while.body.i.i.i
+  %__cur.05.i.i.i = phi ptr [ %177, %while.body.i.i.i ], [ %176, %_ZNSt6vectorIjSaIjEED2Ev.exit ]
   %177 = load ptr, ptr %__cur.05.i.i.i, align 8
   call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #24
   %cmp.not.i.i.i = icmp eq ptr %177, %aiVFormats
@@ -3630,7 +3630,7 @@ while.body.i.i.i254:                              ; preds = %ehcleanup265, %whil
   %cmp.not.i.i.i256 = icmp eq ptr %178, %aiVFormats
   br i1 %cmp.not.i.i.i256, label %ehcleanup603, label %while.body.i.i.i254, !llvm.loop !31
 
-if.end266:                                        ; preds = %while.body.i.i.i, %invoke.cont43, %_ZL22appendNewMeshesToSceneP7aiSceneRSt6vectorIP6aiMeshSaIS3_EE.exit, %if.then.i.i.i
+if.end266:                                        ; preds = %while.body.i.i.i, %invoke.cont43, %_ZL22appendNewMeshesToSceneP7aiSceneRSt6vectorIP6aiMeshSaIS3_EE.exit, %_ZNSt6vectorIjSaIjEED2Ev.exit
   %179 = load i32, ptr %mNumAnimations, align 8
   %cmp270662.not = icmp eq i32 %179, 0
   br i1 %cmp270662.not, label %for.end279, label %for.body271.lr.ph
@@ -4627,7 +4627,7 @@ if.end55:                                         ; preds = %for.end32, %land.lh
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
@@ -5221,7 +5221,7 @@ declare void @_ZN6aiNodeC1Ev(ptr noundef nonnull align 8 dereferenceable(1144)) 
 declare void @_ZN6aiNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(1144)) unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 declare noundef zeroext i1 @_ZN6Assimp13DefaultLogger12isNullLoggerEv() local_unnamed_addr #4
 
@@ -5876,7 +5876,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #17
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind
 declare void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -6573,10 +6573,10 @@ declare float @llvm.sqrt.f32(float) #18
 declare i32 @llvm.umin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

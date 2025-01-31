@@ -74,7 +74,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @snapshot_access_child_perm(ptr nocapture readnone %bs, ptr nocapture readnone %c, i32 %role, ptr nocapture readnone %reopen_queue, i64 %perm, i64 %shared, ptr nocapture noundef writeonly initializes((0, 8)) %nperm, ptr nocapture noundef writeonly initializes((0, 8)) %nshared) #2 {
+define internal void @snapshot_access_child_perm(ptr readnone captures(none) %bs, ptr readnone captures(none) %c, i32 %role, ptr readnone captures(none) %reopen_queue, i64 %perm, i64 %shared, ptr noundef writeonly captures(none) initializes((0, 8)) %nperm, ptr noundef writeonly captures(none) initializes((0, 8)) %nshared) #2 {
 entry:
   store i64 0, ptr %nperm, align 8
   store i64 15, ptr %nshared, align 8
@@ -82,7 +82,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @snapshot_access_co_preadv_part(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #0 {
+define internal i32 @snapshot_access_co_preadv_part(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #0 {
 entry:
   %tobool.not = icmp eq i32 %flags, 0
   br i1 %tobool.not, label %if.end, label %return
@@ -99,19 +99,19 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @snapshot_access_co_pwritev_part(ptr nocapture readnone %bs, i64 %offset, i64 %bytes, ptr nocapture readnone %qiov, i64 %qiov_offset, i32 %flags) #3 {
+define internal noundef i32 @snapshot_access_co_pwritev_part(ptr readnone captures(none) %bs, i64 %offset, i64 %bytes, ptr readnone captures(none) %qiov, i64 %qiov_offset, i32 %flags) #3 {
 entry:
   ret i32 -95
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @snapshot_access_co_pwrite_zeroes(ptr nocapture readnone %bs, i64 %offset, i64 %bytes, i32 %flags) #3 {
+define internal noundef i32 @snapshot_access_co_pwrite_zeroes(ptr readnone captures(none) %bs, i64 %offset, i64 %bytes, i32 %flags) #3 {
 entry:
   ret i32 -95
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @snapshot_access_co_pdiscard(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes) #0 {
+define internal i32 @snapshot_access_co_pdiscard(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes) #0 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -121,7 +121,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @snapshot_access_co_block_status(ptr nocapture noundef readonly %bs, i1 noundef zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr noundef %pnum, ptr noundef %map, ptr noundef %file) #0 {
+define internal i32 @snapshot_access_co_block_status(ptr noundef readonly captures(none) %bs, i1 noundef zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr noundef %pnum, ptr noundef %map, ptr noundef %file) #0 {
 entry:
   %file1 = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file1, align 8

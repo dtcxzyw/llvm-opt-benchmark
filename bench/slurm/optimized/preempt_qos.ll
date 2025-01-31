@@ -38,7 +38,7 @@ define void @fini() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @preempt_p_job_preempt_check(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define zeroext i1 @preempt_p_job_preempt_check(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -99,7 +99,7 @@ preempt_p_preemptable.exit:                       ; preds = %2, %23, %26, %32, %
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @preempt_p_preemptable(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define zeroext i1 @preempt_p_preemptable(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 760
@@ -158,7 +158,7 @@ define zeroext i1 @preempt_p_preemptable(ptr nocapture noundef readonly %0, ptr 
 declare i32 @bit_test(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @preempt_p_get_data(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @preempt_p_get_data(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   switch i32 %1, label %30 [
     i32 0, label %4
     i32 1, label %8

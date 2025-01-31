@@ -3441,7 +3441,7 @@ return:                                           ; preds = %entry, %if.end324, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @u_strToJavaModifiedUTF8_75(ptr noundef %dest, i32 noundef %destCapacity, ptr noundef writeonly %pDestLength, ptr noundef %src, i32 noundef %srcLength, ptr noundef %pErrorCode) local_unnamed_addr #0 {

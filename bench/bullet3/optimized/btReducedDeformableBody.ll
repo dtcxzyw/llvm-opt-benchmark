@@ -1262,7 +1262,7 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %if.then4.i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN23btReducedDeformableBody12setMassPropsERK20btAlignedObjectArrayIfE(ptr nocapture noundef nonnull align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %mass_array) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody12setMassPropsERK20btAlignedObjectArrayIfE(ptr noundef nonnull align 8 captures(none) dereferenceable(3176) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %mass_array) local_unnamed_addr #5 align 2 {
 entry:
   %m_nFull = getelementptr inbounds nuw i8, ptr %this, i64 2716
   %0 = load i32, ptr %m_nFull, align 4
@@ -1360,10 +1360,10 @@ for.end:                                          ; preds = %for.body, %entry
 declare float @llvm.fmuladd.f32(float, float, float) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN23btReducedDeformableBody15setInertiaPropsEv(ptr nocapture noundef nonnull align 8 dereferenceable(3176) %this) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody15setInertiaPropsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(3176) %this) local_unnamed_addr #8 align 2 {
 entry:
   %m_rigidTransformWorld = getelementptr inbounds nuw i8, ptr %this, i64 2480
   %m_initialCoM = getelementptr inbounds nuw i8, ptr %this, i64 2688
@@ -1478,7 +1478,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN23btReducedDeformableBody33updateLocalInertiaTensorFromNodesEv(ptr nocapture noundef nonnull align 8 dereferenceable(3176) %this) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody33updateLocalInertiaTensorFromNodesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(3176) %this) local_unnamed_addr #9 align 2 {
 entry:
   %m_nFull = getelementptr inbounds nuw i8, ptr %this, i64 2716
   %0 = load i32, ptr %m_nFull, align 4
@@ -1624,7 +1624,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN23btReducedDeformableBody26updateInitialInertiaTensorERK11btMatrix3x3(ptr nocapture noundef nonnull align 8 dereferenceable(3176) initializes((2544, 2592)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %rotation) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody26updateInitialInertiaTensorERK11btMatrix3x3(ptr noundef nonnull align 8 captures(none) dereferenceable(3176) initializes((2544, 2592)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %rotation) local_unnamed_addr #10 align 2 {
 entry:
   %m_invInertiaLocal = getelementptr inbounds nuw i8, ptr %this, i64 2432
   %0 = load float, ptr %m_invInertiaLocal, align 8, !noalias !14
@@ -1743,7 +1743,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN23btReducedDeformableBody19updateInertiaTensorEv(ptr nocapture noundef nonnull align 8 dereferenceable(3176) initializes((2592, 2640)) %this) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody19updateInertiaTensorEv(ptr noundef nonnull align 8 captures(none) dereferenceable(3176) initializes((2592, 2640)) %this) local_unnamed_addr #10 align 2 {
 entry:
   %m_rigidTransformWorld = getelementptr inbounds nuw i8, ptr %this, i64 2480
   %m_invInertiaTensorWorldInitial = getelementptr inbounds nuw i8, ptr %this, i64 2544
@@ -1863,7 +1863,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN23btReducedDeformableBody16setRigidVelocityERK9btVector3(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3176) initializes((2360, 2376)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %v) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody16setRigidVelocityERK9btVector3(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(3176) initializes((2360, 2376)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %v) local_unnamed_addr #10 align 2 {
 entry:
   %m_linearVelocity = getelementptr inbounds nuw i8, ptr %this, i64 2360
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_linearVelocity, ptr noundef nonnull align 4 dereferenceable(16) %v, i64 16, i1 false)
@@ -1871,7 +1871,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN23btReducedDeformableBody23setRigidAngularVelocityERK9btVector3(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3176) initializes((2376, 2392)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %omega) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody23setRigidAngularVelocityERK9btVector3(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(3176) initializes((2376, 2392)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %omega) local_unnamed_addr #10 align 2 {
 entry:
   %m_angularVelocity = getelementptr inbounds nuw i8, ptr %this, i64 2376
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_angularVelocity, ptr noundef nonnull align 4 dereferenceable(16) %omega, i64 16, i1 false)
@@ -1879,7 +1879,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN23btReducedDeformableBody17setStiffnessScaleEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3176) initializes((2072, 2076)) %this, float noundef %ks) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody17setStiffnessScaleEf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(3176) initializes((2072, 2076)) %this, float noundef %ks) local_unnamed_addr #11 align 2 {
 entry:
   %m_ksScale = getelementptr inbounds nuw i8, ptr %this, i64 2072
   store float %ks, ptr %m_ksScale, align 8
@@ -1887,7 +1887,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN23btReducedDeformableBody12setMassScaleEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3176) initializes((2068, 2072)) %this, float noundef %rho) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody12setMassScaleEf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(3176) initializes((2068, 2072)) %this, float noundef %rho) local_unnamed_addr #11 align 2 {
 entry:
   %m_rhoScale = getelementptr inbounds nuw i8, ptr %this, i64 2068
   store float %rho, ptr %m_rhoScale, align 4
@@ -1895,7 +1895,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btReducedDeformableBody13setFixedNodesEi(ptr nocapture noundef nonnull align 8 dereferenceable(3176) %this, i32 noundef %n_node) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody13setFixedNodesEi(ptr noundef nonnull align 8 captures(none) dereferenceable(3176) %this, i32 noundef %n_node) local_unnamed_addr #3 align 2 {
 entry:
   %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 3108
   %0 = load i32, ptr %m_size.i.i, align 4
@@ -1987,7 +1987,7 @@ _ZN20btAlignedObjectArrayIiE9push_backERKi.exit:  ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN23btReducedDeformableBody10setDampingEff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3176) initializes((2704, 2712)) %this, float noundef %alpha, float noundef %beta) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody10setDampingEff(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(3176) initializes((2704, 2712)) %this, float noundef %alpha, float noundef %beta) local_unnamed_addr #11 align 2 {
 entry:
   %m_dampingAlpha = getelementptr inbounds nuw i8, ptr %this, i64 2704
   store float %alpha, ptr %m_dampingAlpha, align 8
@@ -2148,7 +2148,7 @@ _ZN23btReducedDeformableBody24updateRestNodalPositionsEv.exit: ; preds = %for.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN23btReducedDeformableBody20endOfTimeStepZeroingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody20endOfTimeStepZeroingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3176) %this) local_unnamed_addr #12 align 2 {
 entry:
   %m_nReduced = getelementptr inbounds nuw i8, ptr %this, i64 2712
   %0 = load i32, ptr %m_nReduced, align 8
@@ -2203,7 +2203,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btReducedDeformableBody24updateRestNodalPositionsEv(ptr nocapture noundef nonnull align 8 dereferenceable(3176) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody24updateRestNodalPositionsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(3176) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_nFull = getelementptr inbounds nuw i8, ptr %this, i64 2716
   %0 = load i32, ptr %m_nFull, align 4
@@ -2303,7 +2303,7 @@ for.end:                                          ; preds = %for.body, %_ZN20btA
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btReducedDeformableBody20updateLocalMomentArmEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23btReducedDeformableBody20updateLocalMomentArmEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3176) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %delta_x = alloca %class.btAlignedObjectArray.8, align 8
   %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %delta_x, i64 24
@@ -3333,7 +3333,7 @@ if.end15:                                         ; preds = %_ZN20btAlignedObjec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN23btReducedDeformableBody28applyInternalVelocityChangesEv(ptr nocapture noundef nonnull align 8 dereferenceable(3176) initializes((2252, 2256), (2268, 2272)) %this) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody28applyInternalVelocityChangesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(3176) initializes((2252, 2256), (2268, 2272)) %this) local_unnamed_addr #12 align 2 {
 entry:
   %m_internalDeltaLinearVelocity = getelementptr inbounds nuw i8, ptr %this, i64 2240
   %m_linearVelocity = getelementptr inbounds nuw i8, ptr %this, i64 2360
@@ -3628,7 +3628,7 @@ if.end50:                                         ; preds = %if.else48, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN23btReducedDeformableBody17updateReducedDofsEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this, float noundef %solverdt) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody17updateReducedDofsEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3176) %this, float noundef %solverdt) local_unnamed_addr #12 align 2 {
 entry:
   %m_nReduced = getelementptr inbounds nuw i8, ptr %this, i64 2712
   %0 = load i32, ptr %m_nReduced, align 8
@@ -3664,7 +3664,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN23btReducedDeformableBody17mapToFullPositionERK11btTransform(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %ref_trans) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody17mapToFullPositionERK11btTransform(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3176) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %ref_trans) local_unnamed_addr #5 align 2 {
 entry:
   %m_origin.i = getelementptr inbounds nuw i8, ptr %ref_trans, i64 48
   %origin.sroa.0.0.copyload = load float, ptr %m_origin.i, align 4
@@ -3745,7 +3745,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN23btReducedDeformableBody21updateReducedVelocityEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this, float noundef %solverdt) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody21updateReducedVelocityEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3176) %this, float noundef %solverdt) local_unnamed_addr #12 align 2 {
 entry:
   %m_nReduced = getelementptr inbounds nuw i8, ptr %this, i64 2712
   %0 = load i32, ptr %m_nReduced, align 8
@@ -3787,7 +3787,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN23btReducedDeformableBody17mapToFullVelocityERK11btTransform(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %ref_trans) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody17mapToFullVelocityERK11btTransform(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3176) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %ref_trans) local_unnamed_addr #5 align 2 {
 entry:
   %m_nFull = getelementptr inbounds nuw i8, ptr %this, i64 2716
   %0 = load i32, ptr %m_nFull, align 4
@@ -3821,7 +3821,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK23btReducedDeformableBody23computeNodeFullVelocityERK11btTransformi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %ref_trans, i32 noundef %n_node) local_unnamed_addr #14 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK23btReducedDeformableBody23computeNodeFullVelocityERK11btTransformi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3176) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %ref_trans, i32 noundef %n_node) local_unnamed_addr #14 align 2 {
 entry:
   %v_from_reduced = alloca %class.btVector3, align 4
   %arrayidx3.i = getelementptr inbounds nuw i8, ptr %v_from_reduced, i64 4
@@ -3959,7 +3959,7 @@ for.end16:                                        ; preds = %entry, %for.end16.l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK23btReducedDeformableBody27computeTotalAngularMomentumEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this) local_unnamed_addr #14 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK23btReducedDeformableBody27computeTotalAngularMomentumEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3176) %this) local_unnamed_addr #14 align 2 {
 entry:
   %v_from_reduced = alloca %class.btVector3, align 4
   %m_invInertiaTensorWorld = getelementptr inbounds nuw i8, ptr %this, i64 2592
@@ -4207,7 +4207,7 @@ for.end47:                                        ; preds = %for.end25, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK23btReducedDeformableBody32internalComputeNodeDeltaVelocityERK11btTransformi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %ref_trans, i32 noundef %n_node) local_unnamed_addr #14 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK23btReducedDeformableBody32internalComputeNodeDeltaVelocityERK11btTransformi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3176) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %ref_trans, i32 noundef %n_node) local_unnamed_addr #14 align 2 {
 entry:
   %deltaV_from_reduced = alloca %class.btVector3, align 4
   %arrayidx3.i = getelementptr inbounds nuw i8, ptr %deltaV_from_reduced, i64 4
@@ -4376,7 +4376,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btReducedDeformableBody11transformToERK11btTransform(ptr noundef nonnull align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %trs) unnamed_addr #13 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody11transformToERK11btTransform(ptr noundef nonnull align 8 dereferenceable(3176) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %trs) unnamed_addr #13 align 2 {
 entry:
   %new_transform = alloca %class.btTransform, align 4
   %m_rigidTransformWorld.i = getelementptr inbounds nuw i8, ptr %this, i64 2480
@@ -4501,7 +4501,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btReducedDeformableBody9transformERK11btTransform(ptr noundef nonnull align 8 dereferenceable(3176) initializes((2065, 2066)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %trs) unnamed_addr #13 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody9transformERK11btTransform(ptr noundef nonnull align 8 dereferenceable(3176) initializes((2065, 2066)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %trs) unnamed_addr #13 align 2 {
 entry:
   %nodal_disp.i = alloca %class.btVector3, align 8
   %vol = alloca %struct.btDbvtAabbMm, align 8
@@ -4812,7 +4812,7 @@ declare void @_ZN10btSoftBody12updateBoundsEv(ptr noundef nonnull align 8 derefe
 declare void @_ZN10btSoftBody15updateConstantsEv(ptr noundef nonnull align 8 dereferenceable(2064)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN23btReducedDeformableBody21updateModesByRotationERK11btMatrix3x3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %rotation) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody21updateModesByRotationERK11btMatrix3x3(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3176) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %rotation) local_unnamed_addr #5 align 2 {
 entry:
   %nodal_disp = alloca %class.btVector3, align 8
   %m_nReduced = getelementptr inbounds nuw i8, ptr %this, i64 2712
@@ -4918,7 +4918,7 @@ for.end30:                                        ; preds = %for.inc28, %for.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btReducedDeformableBody5scaleERK9btVector3(ptr noundef nonnull align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %scl) unnamed_addr #13 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody5scaleERK9btVector3(ptr noundef nonnull align 8 dereferenceable(3176) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %scl) unnamed_addr #13 align 2 {
 entry:
   %vol = alloca %struct.btDbvtAabbMm, align 8
   %m_collisionShape.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -5264,7 +5264,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN23btReducedDeformableBody12applyDampingEf(ptr nocapture noundef nonnull align 8 dereferenceable(3176) %this, float noundef %timeStep) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody12applyDampingEf(ptr noundef nonnull align 8 captures(none) dereferenceable(3176) %this, float noundef %timeStep) local_unnamed_addr #10 align 2 {
 entry:
   %m_linearDamping = getelementptr inbounds nuw i8, ptr %this, i64 2392
   %0 = load float, ptr %m_linearDamping, align 8
@@ -5290,7 +5290,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN23btReducedDeformableBody19applyCentralImpulseERK9btVector3(ptr nocapture noundef nonnull align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %impulse) local_unnamed_addr #16 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody19applyCentralImpulseERK9btVector3(ptr noundef nonnull align 8 captures(none) dereferenceable(3176) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %impulse) local_unnamed_addr #16 align 2 {
 entry:
   %m_linearFactor = getelementptr inbounds nuw i8, ptr %this, i64 2400
   %0 = load float, ptr %impulse, align 4
@@ -5327,7 +5327,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN23btReducedDeformableBody18applyTorqueImpulseERK9btVector3(ptr nocapture noundef nonnull align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %torque) local_unnamed_addr #16 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody18applyTorqueImpulseERK9btVector3(ptr noundef nonnull align 8 captures(none) dereferenceable(3176) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %torque) local_unnamed_addr #16 align 2 {
 entry:
   %m_interpolateInvInertiaTensorWorld = getelementptr inbounds nuw i8, ptr %this, i64 2640
   %0 = load float, ptr %m_interpolateInvInertiaTensorWorld, align 8
@@ -5386,7 +5386,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btReducedDeformableBody25internalApplyRigidImpulseERK9btVector3S2_(ptr nocapture noundef nonnull align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %impulse, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rel_pos) local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody25internalApplyRigidImpulseERK9btVector3S2_(ptr noundef nonnull align 8 captures(none) dereferenceable(3176) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %impulse, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %rel_pos) local_unnamed_addr #13 align 2 {
 entry:
   %m_inverseMass = getelementptr inbounds nuw i8, ptr %this, i64 2356
   %0 = load float, ptr %m_inverseMass, align 4
@@ -5503,7 +5503,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZN23btReducedDeformableBody14getRelativePosEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this, i32 noundef %n_node) local_unnamed_addr #14 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZN23btReducedDeformableBody14getRelativePosEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3176) %this, i32 noundef %n_node) local_unnamed_addr #14 align 2 {
 entry:
   %m_interpolationWorldTransform = getelementptr inbounds nuw i8, ptr %this, i64 72
   %rotation.sroa.0.0.copyload = load float, ptr %m_interpolationWorldTransform, align 8
@@ -5550,7 +5550,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btReducedDeformableBody16getImpulseFactorEi(ptr noalias nocapture writeonly sret(%class.btMatrix3x3) align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this, i32 noundef %n_node) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23btReducedDeformableBody16getImpulseFactorEi(ptr noalias writeonly sret(%class.btMatrix3x3) align 4 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3176) %this, i32 noundef %n_node) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %SA = alloca %class.btMatrix3x3, align 4
   %omega_helper = alloca %class.btAlignedObjectArray.8, align 8
@@ -6274,7 +6274,7 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %cond.end165, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btReducedDeformableBody29internalApplyFullSpaceImpulseERK9btVector3S2_if(ptr nocapture noundef nonnull align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %impulse, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rel_pos, i32 noundef %n_node, float noundef %dt) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23btReducedDeformableBody29internalApplyFullSpaceImpulseERK9btVector3S2_if(ptr noundef nonnull align 8 captures(none) dereferenceable(3176) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %impulse, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %rel_pos, i32 noundef %n_node, float noundef %dt) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.btVector3, align 8
   %reduced_vel_tmp = alloca %class.btAlignedObjectArray.12, align 8
@@ -6444,7 +6444,7 @@ if.end:                                           ; preds = %if.then3.i.i.i38, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btReducedDeformableBody24applyFullSpaceNodalForceERK9btVector3i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %f_ext, i32 noundef %n_node) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23btReducedDeformableBody24applyFullSpaceNodalForceERK9btVector3i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3176) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %f_ext, i32 noundef %n_node) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %f_local = alloca %class.btVector3, align 8
   %f_ext_r = alloca %class.btAlignedObjectArray.12, align 8
@@ -6592,7 +6592,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %entry, %if.then3.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN23btReducedDeformableBody24applyReducedDampingForceERK20btAlignedObjectArrayIfE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %reduce_vel) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody24applyReducedDampingForceERK20btAlignedObjectArrayIfE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3176) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %reduce_vel) local_unnamed_addr #12 align 2 {
 entry:
   %m_nReduced = getelementptr inbounds nuw i8, ptr %this, i64 2712
   %0 = load i32, ptr %m_nReduced, align 8
@@ -6635,7 +6635,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN23btReducedDeformableBody17applyRigidGravityERK9btVector3f(ptr nocapture noundef nonnull align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %gravity, float noundef %dt) local_unnamed_addr #16 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody17applyRigidGravityERK9btVector3f(ptr noundef nonnull align 8 captures(none) dereferenceable(3176) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %gravity, float noundef %dt) local_unnamed_addr #16 align 2 {
 entry:
   %0 = load float, ptr %gravity, align 4
   %mul.i.i = fmul float %dt, %0
@@ -6661,7 +6661,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN23btReducedDeformableBody24applyReducedElasticForceERK20btAlignedObjectArrayIfE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %reduce_dofs) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody24applyReducedElasticForceERK20btAlignedObjectArrayIfE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3176) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %reduce_dofs) local_unnamed_addr #12 align 2 {
 entry:
   %m_nReduced = getelementptr inbounds nuw i8, ptr %this, i64 2712
   %0 = load i32, ptr %m_nReduced, align 8
@@ -6701,7 +6701,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZNK23btReducedDeformableBody12getTotalMassEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this) local_unnamed_addr #17 align 2 {
+define dso_local noundef float @_ZNK23btReducedDeformableBody12getTotalMassEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3176) %this) local_unnamed_addr #17 align 2 {
 entry:
   %m_mass = getelementptr inbounds nuw i8, ptr %this, i64 2352
   %0 = load float, ptr %m_mass, align 8
@@ -6723,7 +6723,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN23btReducedDeformableBody19disableReducedModesEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3176) initializes((2064, 2065)) %this, i1 noundef zeroext %rigid_only) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN23btReducedDeformableBody19disableReducedModesEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(3176) initializes((2064, 2065)) %this, i1 noundef zeroext %rigid_only) local_unnamed_addr #11 align 2 {
 entry:
   %frombool = zext i1 %rigid_only to i8
   %m_rigidOnly = getelementptr inbounds nuw i8, ptr %this, i64 2064
@@ -6732,7 +6732,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK23btReducedDeformableBody17isReducedModesOFFEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3176) %this) local_unnamed_addr #17 align 2 {
+define dso_local noundef zeroext i1 @_ZNK23btReducedDeformableBody17isReducedModesOFFEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3176) %this) local_unnamed_addr #17 align 2 {
 entry:
   %m_rigidOnly = getelementptr inbounds nuw i8, ptr %this, i64 2064
   %0 = load i8, ptr %m_rigidOnly, align 8
@@ -7934,13 +7934,13 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #22
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #24

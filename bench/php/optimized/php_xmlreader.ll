@@ -427,7 +427,7 @@ declare ptr @xmlURIEscapeStr(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @xmlParseURIReference(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare ptr @tsrm_realpath(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2606,7 +2606,7 @@ define hidden noundef i32 @zm_shutdown_xmlreader(i32 %0, i32 %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zm_info_xmlreader(ptr nocapture readnone %0) #0 {
+define hidden void @zm_info_xmlreader(ptr readnone captures(none) %0) #0 {
   tail call void @php_info_print_table_start() #11
   tail call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59) #11
   tail call void @php_info_print_table_end() #11
@@ -2682,7 +2682,7 @@ declare void @zend_object_std_init(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @object_properties_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_XMLReader_close(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_XMLReader_close(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2745,7 +2745,7 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_XMLReader_getAttribute(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_XMLReader_getAttribute(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -2826,7 +2826,7 @@ php_xmlreader_string_arg.exit:                    ; preds = %10, %15, %25, %.thr
 declare ptr @xmlTextReaderGetAttribute(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_XMLReader_getAttributeNo(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_XMLReader_getAttributeNo(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -2887,10 +2887,10 @@ declare i32 @zend_parse_parameters(i32 noundef, ptr noundef, ...) local_unnamed_
 declare ptr @xmlTextReaderGetAttributeNo(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_XMLReader_getAttributeNs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_XMLReader_getAttributeNs(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -2980,7 +2980,7 @@ declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unn
 declare ptr @xmlTextReaderGetAttributeNs(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_XMLReader_getParserProperty(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_XMLReader_getParserProperty(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -3037,7 +3037,7 @@ define hidden void @zim_XMLReader_getParserProperty(ptr nocapture noundef readon
 declare i32 @xmlTextReaderGetParserProp(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_XMLReader_isValid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_XMLReader_isValid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -3080,7 +3080,7 @@ php_xmlreader_no_arg.exit:                        ; preds = %5, %15, %17
 declare i32 @xmlTextReaderIsValid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_XMLReader_lookupNamespace(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_XMLReader_lookupNamespace(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -3161,7 +3161,7 @@ php_xmlreader_string_arg.exit:                    ; preds = %10, %15, %25, %.thr
 declare ptr @xmlTextReaderLookupNamespace(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_XMLReader_moveToAttribute(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_XMLReader_moveToAttribute(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   store i64 0, ptr %3, align 8
@@ -3220,7 +3220,7 @@ define hidden void @zim_XMLReader_moveToAttribute(ptr nocapture noundef readonly
 declare i32 @xmlTextReaderMoveToAttribute(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_XMLReader_moveToAttributeNo(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_XMLReader_moveToAttributeNo(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -3266,7 +3266,7 @@ define hidden void @zim_XMLReader_moveToAttributeNo(ptr nocapture noundef readon
 declare i32 @xmlTextReaderMoveToAttributeNo(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_XMLReader_moveToAttributeNs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_XMLReader_moveToAttributeNs(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -3341,7 +3341,7 @@ define hidden void @zim_XMLReader_moveToAttributeNs(ptr nocapture noundef readon
 declare i32 @xmlTextReaderMoveToAttributeNs(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_XMLReader_moveToElement(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_XMLReader_moveToElement(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -3384,7 +3384,7 @@ php_xmlreader_no_arg.exit:                        ; preds = %5, %15, %17
 declare i32 @xmlTextReaderMoveToElement(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_XMLReader_moveToFirstAttribute(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_XMLReader_moveToFirstAttribute(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -3427,7 +3427,7 @@ php_xmlreader_no_arg.exit:                        ; preds = %5, %15, %17
 declare i32 @xmlTextReaderMoveToFirstAttribute(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_XMLReader_moveToNextAttribute(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_XMLReader_moveToNextAttribute(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -3470,7 +3470,7 @@ php_xmlreader_no_arg.exit:                        ; preds = %5, %15, %17
 declare i32 @xmlTextReaderMoveToNextAttribute(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_XMLReader_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_XMLReader_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -3522,7 +3522,7 @@ define hidden void @zim_XMLReader_read(ptr nocapture noundef readonly %0, ptr no
 declare i32 @xmlTextReaderRead(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_XMLReader_next(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_XMLReader_next(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   store i64 0, ptr %3, align 8
@@ -3609,7 +3609,7 @@ declare i32 @xmlStrEqual(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @xmlTextReaderConstLocalName(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_XMLReader_open(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_XMLReader_open(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -3783,7 +3783,7 @@ declare ptr @xmlReaderForFile(ptr noundef, ptr noundef, i32 noundef) local_unnam
 declare i32 @object_init_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_XMLReader_readInnerXml(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_XMLReader_readInnerXml(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -3846,7 +3846,7 @@ php_xmlreader_no_arg_string.exit:                 ; preds = %5, %14, %.thread.i
 declare ptr @xmlTextReaderReadInnerXml(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_XMLReader_readOuterXml(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_XMLReader_readOuterXml(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -3909,7 +3909,7 @@ php_xmlreader_no_arg_string.exit:                 ; preds = %5, %14, %.thread.i
 declare ptr @xmlTextReaderReadOuterXml(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_XMLReader_readString(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_XMLReader_readString(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
@@ -3972,7 +3972,7 @@ php_xmlreader_no_arg_string.exit:                 ; preds = %5, %14, %.thread.i
 declare ptr @xmlTextReaderReadString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_XMLReader_setSchema(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_XMLReader_setSchema(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   store i64 0, ptr %3, align 8
@@ -4063,7 +4063,7 @@ define hidden void @zim_XMLReader_setSchema(ptr nocapture noundef readonly %0, p
 declare i32 @xmlTextReaderSchemaValidate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_XMLReader_setParserProperty(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_XMLReader_setParserProperty(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -4122,13 +4122,13 @@ define hidden void @zim_XMLReader_setParserProperty(ptr nocapture noundef readon
 declare i32 @xmlTextReaderSetParserProp(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_XMLReader_setRelaxNGSchema(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_XMLReader_setRelaxNGSchema(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   tail call fastcc void @php_xmlreader_set_relaxng_schema(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_xmlreader_set_relaxng_schema(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc void @php_xmlreader_set_relaxng_schema(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca [4097 x i8], align 16
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
@@ -4275,13 +4275,13 @@ _xmlreader_get_relaxNG.exit:                      ; preds = %36
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_XMLReader_setRelaxNGSchemaSource(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_XMLReader_setRelaxNGSchemaSource(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   tail call fastcc void @php_xmlreader_set_relaxng_schema(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_XMLReader_XML(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_XMLReader_XML(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -4521,7 +4521,7 @@ declare i32 @xmlTextReaderSetup(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare void @xmlFreeParserInputBuffer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_XMLReader_expand(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_XMLReader_expand(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4625,7 +4625,7 @@ declare ptr @xmlDocCopyNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 declare zeroext i1 @php_dom_create_object(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @xmlreader_get_method(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -4739,7 +4739,7 @@ declare void @xmlRelaxNGFree(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #7
@@ -4765,7 +4765,7 @@ declare ptr @zend_declare_class_constant_ex(ptr noundef, ptr noundef, ptr nounde
 declare ptr @zend_declare_typed_property(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef byval(%struct.zend_type) align 8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @_efree(ptr noundef) local_unnamed_addr #1
 
@@ -4774,10 +4774,10 @@ declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare ptr @zend_hash_add_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

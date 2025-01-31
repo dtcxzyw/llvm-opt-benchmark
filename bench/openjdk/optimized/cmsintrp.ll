@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [44 x i8] c"Unsupported interpolation (%d->%d channels)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocInterpPluginChunk(ptr nocapture noundef initializes((56, 64)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @_cmsAllocInterpPluginChunk(ptr noundef captures(none) initializes((56, 64)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -54,7 +54,7 @@ define hidden noundef i32 @_cmsRegisterInterpPlugin(ptr noundef %0, ptr noundef 
 declare ptr @_cmsContextGetClientChunk(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_cmsSetInterpolationRoutine(ptr noundef %0, ptr nocapture noundef initializes((208, 216)) %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_cmsSetInterpolationRoutine(ptr noundef %0, ptr noundef captures(none) initializes((208, 216)) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 5) #8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store ptr null, ptr %4, align 8
@@ -211,10 +211,10 @@ DefaultInterpolatorsFactory.exit:                 ; preds = %.thread, %25, %28, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_cmsComputeInterpParamsEx(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden ptr @_cmsComputeInterpParamsEx(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = icmp ugt i32 %2, 15
   br i1 %7, label %8, label %9
 
@@ -341,7 +341,7 @@ define hidden void @_cmsFreeInterpParams(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @LinLerp1Dfloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef readonly %2) #3 {
+define internal void @LinLerp1Dfloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = load float, ptr %0, align 4
@@ -397,7 +397,7 @@ define internal void @LinLerp1Dfloat(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @LinLerp1D(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 2)) %1, ptr nocapture noundef readonly %2) #3 {
+define internal void @LinLerp1D(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 2)) %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = load i16, ptr %0, align 2
@@ -450,7 +450,7 @@ define internal void @LinLerp1D(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Eval1InputFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @Eval1InputFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = load float, ptr %0, align 4
@@ -539,7 +539,7 @@ define internal void @Eval1InputFloat(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Eval1Input(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @Eval1Input(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = load i16, ptr %0, align 2
@@ -627,7 +627,7 @@ define internal void @Eval1Input(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @BilinearInterpFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @BilinearInterpFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = load float, ptr %0, align 4
@@ -721,7 +721,7 @@ define internal void @BilinearInterpFloat(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @BilinearInterp16(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @BilinearInterp16(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = load i16, ptr %0, align 2
@@ -823,7 +823,7 @@ define internal void @BilinearInterp16(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @TrilinearInterpFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @TrilinearInterpFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = load float, ptr %0, align 4
@@ -971,7 +971,7 @@ define internal void @TrilinearInterpFloat(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @TrilinearInterp16(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @TrilinearInterp16(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = load i16, ptr %0, align 2
@@ -1146,7 +1146,7 @@ define internal void @TrilinearInterp16(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @TetrahedralInterpFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @TetrahedralInterpFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1488,7 +1488,7 @@ define internal void @TetrahedralInterpFloat(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @TetrahedralInterp16(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @TetrahedralInterp16(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1854,7 +1854,7 @@ define internal void @TetrahedralInterp16(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Eval4InputsFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @Eval4InputsFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca [128 x float], align 16
   %5 = alloca [128 x float], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
@@ -1921,7 +1921,7 @@ define internal void @Eval4InputsFloat(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @Eval4Inputs(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca [128 x i16], align 16
   %5 = alloca [128 x i16], align 16
   %6 = load i16, ptr %0, align 2
@@ -2509,7 +2509,7 @@ define internal void @Eval4Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Eval5InputsFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @Eval5InputsFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca [128 x float], align 16
   %5 = alloca [128 x float], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
@@ -2709,7 +2709,7 @@ Eval4InputsFloat.exit37:                          ; preds = %.lr.ph.i34
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Eval5Inputs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @Eval5Inputs(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca [128 x i16], align 16
   %5 = alloca [128 x i16], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
@@ -2778,7 +2778,7 @@ define internal void @Eval5Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Eval6InputsFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @Eval6InputsFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca [128 x float], align 16
   %5 = alloca [128 x float], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
@@ -2845,7 +2845,7 @@ define internal void @Eval6InputsFloat(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Eval6Inputs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @Eval6Inputs(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca [128 x i16], align 16
   %5 = alloca [128 x i16], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
@@ -3055,7 +3055,7 @@ Eval5Inputs.exit32:                               ; preds = %.lr.ph.i29
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Eval7InputsFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @Eval7InputsFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca [128 x float], align 16
   %5 = alloca [128 x float], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
@@ -3255,7 +3255,7 @@ Eval6InputsFloat.exit37:                          ; preds = %.lr.ph.i34
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Eval7Inputs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @Eval7Inputs(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca [128 x i16], align 16
   %5 = alloca [128 x i16], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
@@ -3324,7 +3324,7 @@ define internal void @Eval7Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Eval8InputsFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @Eval8InputsFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca [128 x float], align 16
   %5 = alloca [128 x float], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
@@ -3391,7 +3391,7 @@ define internal void @Eval8InputsFloat(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Eval8Inputs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @Eval8Inputs(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca [128 x i16], align 16
   %5 = alloca [128 x i16], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
@@ -3601,7 +3601,7 @@ Eval7Inputs.exit32:                               ; preds = %.lr.ph.i29
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Eval9InputsFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @Eval9InputsFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca [128 x float], align 16
   %5 = alloca [128 x float], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
@@ -3801,7 +3801,7 @@ Eval8InputsFloat.exit37:                          ; preds = %.lr.ph.i34
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Eval9Inputs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @Eval9Inputs(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca [128 x i16], align 16
   %5 = alloca [128 x i16], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
@@ -3870,7 +3870,7 @@ define internal void @Eval9Inputs(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Eval10InputsFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @Eval10InputsFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca [128 x float], align 16
   %5 = alloca [128 x float], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
@@ -3937,7 +3937,7 @@ define internal void @Eval10InputsFloat(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Eval10Inputs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @Eval10Inputs(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca [128 x i16], align 16
   %5 = alloca [128 x i16], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
@@ -4147,7 +4147,7 @@ Eval9Inputs.exit32:                               ; preds = %.lr.ph.i29
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Eval11InputsFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @Eval11InputsFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca [128 x float], align 16
   %5 = alloca [128 x float], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
@@ -4347,7 +4347,7 @@ Eval10InputsFloat.exit37:                         ; preds = %.lr.ph.i34
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Eval11Inputs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @Eval11Inputs(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca [128 x i16], align 16
   %5 = alloca [128 x i16], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
@@ -4416,7 +4416,7 @@ define internal void @Eval11Inputs(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Eval12InputsFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @Eval12InputsFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca [128 x float], align 16
   %5 = alloca [128 x float], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
@@ -4483,7 +4483,7 @@ define internal void @Eval12InputsFloat(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Eval12Inputs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @Eval12Inputs(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca [128 x i16], align 16
   %5 = alloca [128 x i16], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
@@ -4693,7 +4693,7 @@ Eval11Inputs.exit32:                              ; preds = %.lr.ph.i29
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Eval13InputsFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @Eval13InputsFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca [128 x float], align 16
   %5 = alloca [128 x float], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
@@ -4893,7 +4893,7 @@ Eval12InputsFloat.exit37:                         ; preds = %.lr.ph.i34
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Eval13Inputs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @Eval13Inputs(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca [128 x i16], align 16
   %5 = alloca [128 x i16], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
@@ -4962,7 +4962,7 @@ define internal void @Eval13Inputs(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Eval14InputsFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @Eval14InputsFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca [128 x float], align 16
   %5 = alloca [128 x float], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
@@ -5029,7 +5029,7 @@ define internal void @Eval14InputsFloat(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Eval14Inputs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @Eval14Inputs(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca [128 x i16], align 16
   %5 = alloca [128 x i16], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
@@ -5240,7 +5240,7 @@ Eval13Inputs.exit32:                              ; preds = %.lr.ph.i29
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Eval15InputsFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @Eval15InputsFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca [128 x float], align 16
   %5 = alloca [128 x float], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
@@ -5440,7 +5440,7 @@ Eval14InputsFloat.exit37:                         ; preds = %.lr.ph.i34
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Eval15Inputs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal void @Eval15Inputs(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = alloca [128 x i16], align 16
   %5 = alloca [128 x i16], align 16
   %6 = alloca %struct._cms_interp_struc, align 8
@@ -5521,10 +5521,10 @@ declare float @llvm.fmuladd.f32(float, float, float) #5
 declare float @llvm.floor.f32(float) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -161,7 +161,7 @@ glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %cpu_get_free_index.
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @cpu_list_remove(ptr nocapture noundef %cpu) local_unnamed_addr #0 {
+define dso_local void @cpu_list_remove(ptr noundef captures(none) %cpu) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
@@ -447,7 +447,7 @@ return:                                           ; preds = %entry, %while.end
 declare void @qemu_cond_broadcast(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @cpu_exec_start(ptr nocapture noundef %cpu) local_unnamed_addr #0 {
+define dso_local void @cpu_exec_start(ptr noundef captures(none) %cpu) local_unnamed_addr #0 {
 entry:
   %running = getelementptr inbounds nuw i8, ptr %cpu, i64 188
   store atomic i8 1, ptr %running monotonic, align 4
@@ -493,7 +493,7 @@ if.end34:                                         ; preds = %glib_autoptr_cleanu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @cpu_exec_end(ptr nocapture noundef %cpu) local_unnamed_addr #0 {
+define dso_local void @cpu_exec_end(ptr noundef captures(none) %cpu) local_unnamed_addr #0 {
 entry:
   %running = getelementptr inbounds nuw i8, ptr %cpu, i64 188
   store atomic i8 0, ptr %running monotonic, align 4
@@ -837,7 +837,7 @@ return:                                           ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @cpu_breakpoint_remove_by_ref(ptr nocapture noundef %cpu, ptr noundef %bp) local_unnamed_addr #0 {
+define dso_local void @cpu_breakpoint_remove_by_ref(ptr noundef captures(none) %cpu, ptr noundef %bp) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %entry1 = getelementptr inbounds nuw i8, ptr %bp, i64 16
@@ -905,7 +905,7 @@ trace_breakpoint_remove.exit:                     ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @cpu_breakpoint_remove_all(ptr nocapture noundef %cpu, i32 noundef %mask) local_unnamed_addr #0 {
+define dso_local void @cpu_breakpoint_remove_all(ptr noundef captures(none) %cpu, i32 noundef %mask) local_unnamed_addr #0 {
 entry:
   %breakpoints = getelementptr inbounds nuw i8, ptr %cpu, i64 584
   %0 = load ptr, ptr %breakpoints, align 8
@@ -939,20 +939,20 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 declare ptr @object_get_class(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -196,7 +196,7 @@ while.end:                                        ; preds = %while.body, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN6icu_7512PatternProps14skipWhiteSpaceERKNS_13UnicodeStringEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %s, i32 noundef %start) local_unnamed_addr #2 align 2 {
+define noundef i32 @_ZN6icu_7512PatternProps14skipWhiteSpaceERKNS_13UnicodeStringEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %s, i32 noundef %start) local_unnamed_addr #2 align 2 {
 entry:
   %fUnion.i.i = getelementptr inbounds nuw i8, ptr %s, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
@@ -273,7 +273,7 @@ while.end:                                        ; preds = %while.body, %while.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN6icu_7512PatternProps14trimWhiteSpaceEPKDsRi(ptr noundef readonly %s, ptr nocapture noundef nonnull align 4 dereferenceable(4) %length) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZN6icu_7512PatternProps14trimWhiteSpaceEPKDsRi(ptr noundef readonly %s, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %length) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %length, align 4
   %cmp = icmp slt i32 %0, 1

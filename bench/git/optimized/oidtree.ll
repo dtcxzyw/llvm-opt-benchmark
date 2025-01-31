@@ -43,7 +43,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @mem_pool_discard(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @oidtree_insert(ptr noundef %ot, ptr nocapture noundef readonly %oid) local_unnamed_addr #0 {
+define dso_local void @oidtree_insert(ptr noundef %ot, ptr noundef readonly captures(none) %oid) local_unnamed_addr #0 {
 entry:
   %k = alloca %struct.object_id, align 4
   %algo = getelementptr inbounds nuw i8, ptr %oid, i64 32
@@ -95,12 +95,12 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 declare ptr @mem_pool_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @cb_insert(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @oidtree_contains(ptr noundef %ot, ptr nocapture noundef readonly %oid) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @oidtree_contains(ptr noundef %ot, ptr noundef readonly captures(none) %oid) local_unnamed_addr #0 {
 entry:
   %k = alloca %struct.object_id, align 4
   %algo.i = getelementptr inbounds nuw i8, ptr %oid, i64 32
@@ -173,12 +173,12 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @cb_each(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @iter(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %arg) #0 {
+define internal i32 @iter(ptr noundef readonly captures(none) %n, ptr noundef readonly captures(none) %arg) #0 {
 entry:
   %k = alloca %struct.object_id, align 4
   %k1 = getelementptr inbounds nuw i8, ptr %n, i64 21

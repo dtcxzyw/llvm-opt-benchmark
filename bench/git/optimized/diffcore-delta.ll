@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @diffcore_count_changes(ptr noundef %r, ptr noundef %src, ptr noundef %dst, ptr noundef %src_count_p, ptr noundef %dst_count_p, ptr nocapture noundef writeonly %src_copied, ptr nocapture noundef writeonly %literal_added) local_unnamed_addr #0 {
+define dso_local noundef i32 @diffcore_count_changes(ptr noundef %r, ptr noundef %src, ptr noundef %dst, ptr noundef %src_count_p, ptr noundef %dst_count_p, ptr noundef writeonly captures(none) %src_copied, ptr noundef writeonly captures(none) %literal_added) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %src_count_p, null
   br i1 %tobool.not, label %if.then2.thread, label %if.end
@@ -413,17 +413,17 @@ sane_qsort.exit:                                  ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @diff_filespec_is_binary(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @spanhash_cmp(ptr nocapture noundef readonly %a_, ptr nocapture noundef readonly %b_) #4 {
+define internal range(i32 -1, 2) i32 @spanhash_cmp(ptr noundef readonly captures(none) %a_, ptr noundef readonly captures(none) %b_) #4 {
 entry:
   %cnt = getelementptr inbounds nuw i8, ptr %a_, i64 4
   %0 = load i32, ptr %cnt, align 4
@@ -456,7 +456,7 @@ return:                                           ; preds = %if.end, %if.end6, %
 declare void @die(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #7

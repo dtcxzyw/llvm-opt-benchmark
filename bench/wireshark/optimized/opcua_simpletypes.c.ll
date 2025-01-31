@@ -490,7 +490,7 @@ declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @parseBoolean(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef %3, i32 noundef %4) #0 {
+define hidden ptr @parseBoolean(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 1, i32 noundef -2147483648) #4
   %8 = load i32, ptr %3, align 4
@@ -502,7 +502,7 @@ define hidden ptr @parseBoolean(ptr noundef %0, ptr noundef %1, ptr nocapture re
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @parseByte(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef %3, i32 noundef %4) #0 {
+define hidden ptr @parseByte(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 1, i32 noundef -2147483648) #4
   %8 = load i32, ptr %3, align 4
@@ -512,7 +512,7 @@ define hidden ptr @parseByte(ptr noundef %0, ptr noundef %1, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @parseSByte(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef %3, i32 noundef %4) #0 {
+define hidden ptr @parseSByte(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 1, i32 noundef -2147483648) #4
   %8 = load i32, ptr %3, align 4
@@ -522,7 +522,7 @@ define hidden ptr @parseSByte(ptr noundef %0, ptr noundef %1, ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @parseUInt16(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef %3, i32 noundef %4) #0 {
+define hidden ptr @parseUInt16(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 2, i32 noundef -2147483648) #4
   %8 = load i32, ptr %3, align 4
@@ -532,7 +532,7 @@ define hidden ptr @parseUInt16(ptr noundef %0, ptr noundef %1, ptr nocapture rea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @parseInt16(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef %3, i32 noundef %4) #0 {
+define hidden ptr @parseInt16(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 2, i32 noundef -2147483648) #4
   %8 = load i32, ptr %3, align 4
@@ -542,7 +542,7 @@ define hidden ptr @parseInt16(ptr noundef %0, ptr noundef %1, ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @parseUInt32(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef %3, i32 noundef %4) #0 {
+define hidden ptr @parseUInt32(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 4, i32 noundef -2147483648) #4
   %8 = load i32, ptr %3, align 4
@@ -552,7 +552,7 @@ define hidden ptr @parseUInt32(ptr noundef %0, ptr noundef %1, ptr nocapture rea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @parseInt32(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef %3, i32 noundef %4) #0 {
+define hidden ptr @parseInt32(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 4, i32 noundef -2147483648) #4
   %8 = load i32, ptr %3, align 4
@@ -562,7 +562,7 @@ define hidden ptr @parseInt32(ptr noundef %0, ptr noundef %1, ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @parseUInt64(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef %3, i32 noundef %4) #0 {
+define hidden ptr @parseUInt64(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 8, i32 noundef -2147483648) #4
   %8 = load i32, ptr %3, align 4
@@ -572,7 +572,7 @@ define hidden ptr @parseUInt64(ptr noundef %0, ptr noundef %1, ptr nocapture rea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @parseInt64(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef %3, i32 noundef %4) #0 {
+define hidden ptr @parseInt64(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 8, i32 noundef -2147483648) #4
   %8 = load i32, ptr %3, align 4
@@ -582,7 +582,7 @@ define hidden ptr @parseInt64(ptr noundef %0, ptr noundef %1, ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @parseString(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4) #0 {
+define hidden ptr @parseString(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
   %7 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %6) #4
   %8 = add i32 %6, 4
@@ -646,7 +646,7 @@ declare void @proto_item_set_end(ptr noundef, ptr noundef, i32 noundef) local_un
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @parseString_ret_string_and_length(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define hidden ptr @parseString_ret_string_and_length(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = load i32, ptr %3, align 4
   %9 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %8) #4
   %10 = add i32 %8, 4
@@ -720,7 +720,7 @@ define hidden ptr @parseString_ret_string_and_length(ptr noundef %0, ptr noundef
 declare ptr @proto_tree_add_item_ret_string_and_length(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @parseStatusCode(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef %3, i32 noundef %4) #0 {
+define hidden ptr @parseStatusCode(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 4, i32 noundef -2147483648) #4
   %8 = load i32, ptr %3, align 4
@@ -775,7 +775,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @parseLocalizedText(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr noundef %4) #0 {
+define hidden void @parseLocalizedText(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %3, align 4
@@ -822,7 +822,7 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @parseGuid(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef %3, i32 noundef %4) #0 {
+define hidden ptr @parseGuid(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 16, i32 noundef -2147483648) #4
   %8 = load i32, ptr %3, align 4
@@ -832,7 +832,7 @@ define hidden ptr @parseGuid(ptr noundef %0, ptr noundef %1, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @parseByteString(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4) #0 {
+define hidden ptr @parseByteString(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
   %7 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %6) #4
   %8 = add i32 %6, 4
@@ -888,13 +888,13 @@ define hidden ptr @parseByteString(ptr noundef %0, ptr noundef %1, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @parseXmlElement(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4) #0 {
+define hidden ptr @parseXmlElement(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = tail call ptr @parseByteString(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @parseFloat(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef %3, i32 noundef %4) #0 {
+define hidden ptr @parseFloat(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 4, i32 noundef -2147483648) #4
   %8 = load i32, ptr %3, align 4
@@ -904,7 +904,7 @@ define hidden ptr @parseFloat(ptr noundef %0, ptr noundef %1, ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @parseDouble(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef %3, i32 noundef %4) #0 {
+define hidden ptr @parseDouble(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 8, i32 noundef -2147483648) #4
   %8 = load i32, ptr %3, align 4
@@ -914,7 +914,7 @@ define hidden ptr @parseDouble(ptr noundef %0, ptr noundef %1, ptr nocapture rea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @parseDateTime(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef %3, i32 noundef %4) #0 {
+define hidden ptr @parseDateTime(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %7 = load i32, ptr %3, align 4
@@ -927,7 +927,7 @@ define hidden ptr @parseDateTime(ptr noundef %0, ptr noundef %1, ptr nocapture r
 declare i32 @dissect_nt_64bit_time_ex(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @parseDiagnosticInfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4) #0 {
+define hidden void @parseDiagnosticInfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %3, align 4
@@ -1063,7 +1063,7 @@ declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @parseQualifiedName(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr noundef %4) #0 {
+define hidden void @parseQualifiedName(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr @ett_opcua_qualifiedname, align 4
@@ -1083,7 +1083,7 @@ define hidden void @parseQualifiedName(ptr noundef %0, ptr noundef %1, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @parseCertificate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @parseCertificate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct._asn1_ctx_t, align 8
   %7 = load i32, ptr %3, align 4
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %7) #4
@@ -1137,7 +1137,7 @@ declare void @asn1_ctx_init(ptr noundef, i32 noundef, i1 noundef zeroext, ptr no
 declare i32 @dissect_x509af_Certificate(i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @parseDataValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4) #0 {
+define hidden void @parseDataValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1232,7 +1232,7 @@ define hidden void @parseDataValue(ptr noundef %0, ptr noundef %1, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @parseVariant(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4) #0 {
+define hidden void @parseVariant(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1689,7 +1689,7 @@ define hidden void @parseVariant(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %222 = load i32, ptr @proto_opcua, align 4
   %223 = and i64 %18, 127
   %224 = inttoptr i64 %223 to ptr
-  call void @p_add_proto_data(ptr noundef %221, ptr noundef %2, i32 noundef %222, i32 noundef 0, ptr noundef %224) #4
+  call void @p_add_proto_data(ptr noundef %221, ptr noundef nonnull %2, i32 noundef %222, i32 noundef 0, ptr noundef %224) #4
   br label %225
 
 225:                                              ; preds = %217, %120, %21
@@ -1697,7 +1697,7 @@ define hidden void @parseVariant(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @parseArraySimple(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, i32 noundef %8) local_unnamed_addr #0 {
+define hidden void @parseArraySimple(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef readonly captures(none) %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = load i32, ptr %3, align 4
   %12 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %11, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %10, ptr noundef nonnull @.str.209, ptr noundef %4, ptr noundef %5) #4
@@ -1750,7 +1750,7 @@ define hidden void @parseArraySimple(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @parseArrayComplex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef readonly %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden void @parseArrayComplex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca [20 x i8], align 16
   %11 = load i32, ptr %3, align 4
@@ -1797,7 +1797,7 @@ define hidden void @parseArrayComplex(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @parseNodeId(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr noundef %4) #0 {
+define hidden void @parseNodeId(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = load i32, ptr %3, align 4
@@ -1882,7 +1882,7 @@ define hidden void @parseNodeId(ptr noundef %0, ptr noundef %1, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @parseExpandedNodeId(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr noundef %4) #0 {
+define hidden void @parseExpandedNodeId(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = load i32, ptr %3, align 4
@@ -1991,7 +1991,7 @@ define hidden void @parseExpandedNodeId(ptr noundef %0, ptr noundef %1, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @parseExtensionObject(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4) #0 {
+define hidden void @parseExtensionObject(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %3, align 4
@@ -2086,7 +2086,7 @@ declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef,
 declare void @proto_item_prepend_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @parseArrayEnum(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef readonly %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden void @parseArrayEnum(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = load i32, ptr %3, align 4
   %11 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %9, ptr noundef nonnull @.str.209, ptr noundef %4, ptr noundef %5) #4
@@ -2131,10 +2131,10 @@ define hidden void @parseArrayEnum(ptr noundef %0, ptr noundef %1, ptr noundef %
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @getExtensionObjectType(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden i32 @getExtensionObjectType(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %1, align 4
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #4
   switch i8 %4, label %16 [
@@ -2170,7 +2170,7 @@ declare void @dispatchExtensionObjectType(ptr noundef, ptr noundef, ptr noundef,
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @parseNodeClassMask(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define hidden void @parseNodeClassMask(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %5) #4
   %7 = icmp eq i8 %6, 0
@@ -2197,7 +2197,7 @@ define hidden void @parseNodeClassMask(ptr noundef %0, ptr noundef %1, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @parseResultMask(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define hidden void @parseResultMask(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %5) #4
   %7 = icmp eq i8 %6, 63
@@ -2224,10 +2224,10 @@ define hidden void @parseResultMask(ptr noundef %0, ptr noundef %1, ptr nocaptur
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

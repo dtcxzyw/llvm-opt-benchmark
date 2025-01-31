@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.hmp_info_mem.3 = private unnamed_addr constant [10 x i32] [i32 2, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 3, i32 4, i32 5], align 4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @hmp_info_mem(ptr noundef %mon, ptr nocapture noundef readnone %qdict) local_unnamed_addr #0 {
+define dso_local void @hmp_info_mem(ptr noundef %mon, ptr noundef readnone captures(none) %qdict) local_unnamed_addr #0 {
 entry:
   %vbase.i = alloca i64, align 8
   %pbase.i = alloca i64, align 8
@@ -182,7 +182,7 @@ declare i32 @monitor_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @walk_pte(ptr noundef %mon, i64 noundef range(i64 0, -4095) %base, i64 noundef %start, i32 noundef range(i32 -1, 5) %level, i32 noundef range(i32 9, 11) %ptidxbits, i32 noundef range(i32 4, 9) %ptesize, i32 noundef range(i32 30, 63) %va_bits, ptr nocapture noundef nonnull %vbase, ptr nocapture noundef nonnull %pbase, ptr nocapture noundef nonnull %last_paddr, ptr nocapture noundef nonnull %last_size, ptr nocapture noundef nonnull %last_attr) unnamed_addr #0 {
+define internal fastcc void @walk_pte(ptr noundef %mon, i64 noundef range(i64 0, -4095) %base, i64 noundef %start, i32 noundef range(i32 -1, 5) %level, i32 noundef range(i32 9, 11) %ptidxbits, i32 noundef range(i32 4, 9) %ptesize, i32 noundef range(i32 30, 63) %va_bits, ptr noundef nonnull captures(none) %vbase, ptr noundef nonnull captures(none) %pbase, ptr noundef nonnull captures(none) %last_paddr, ptr noundef nonnull captures(none) %last_size, ptr noundef nonnull captures(none) %last_attr) unnamed_addr #0 {
 entry:
   %pte = alloca i64, align 8
   %cmp = icmp slt i32 %level, 0
@@ -310,10 +310,10 @@ for.end:                                          ; preds = %if.end30, %entry
 declare void @cpu_physical_memory_rw(i64 noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

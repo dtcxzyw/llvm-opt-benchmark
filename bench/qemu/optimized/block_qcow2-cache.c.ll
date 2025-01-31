@@ -55,7 +55,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [8 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @bdrv_flush, ptr @.str.26, ptr @.str.27, i32 372, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_flush, ptr @.str.28, ptr @.str.27, i32 372, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_debug_event, ptr @.str.26, ptr @.str.27, i32 246, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_debug_event, ptr @.str.28, ptr @.str.27, i32 246, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite, ptr @.str.26, ptr @.str.27, i32 56, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite, ptr @.str.28, ptr @.str.27, i32 56, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pread, ptr @.str.26, ptr @.str.27, i32 52, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pread, ptr @.str.28, ptr @.str.27, i32 52, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qcow2_cache_clean_unused(ptr nocapture noundef %c) local_unnamed_addr #0 {
+define dso_local void @qcow2_cache_clean_unused(ptr noundef captures(none) %c) local_unnamed_addr #0 {
 entry:
   %size = getelementptr inbounds nuw i8, ptr %c, i64 16
   %0 = load i32, ptr %size, align 8
@@ -221,7 +221,7 @@ while.end19:                                      ; preds = %if.end, %while.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @qcow2_cache_create(ptr nocapture noundef readonly %bs, i32 noundef %num_tables, i32 noundef %table_size) local_unnamed_addr #0 {
+define dso_local noundef ptr @qcow2_cache_create(ptr noundef readonly captures(none) %bs, i32 noundef %num_tables, i32 noundef %table_size) local_unnamed_addr #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -637,7 +637,7 @@ if.end5:                                          ; preds = %if.then, %entry
 declare i32 @bdrv_flush(ptr noundef) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @qcow2_cache_set_dependency(ptr noundef %bs, ptr nocapture noundef %c, ptr noundef %dependency) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_cache_set_dependency(ptr noundef %bs, ptr noundef captures(none) %c, ptr noundef %dependency) local_unnamed_addr #0 {
 entry:
   %depends = getelementptr inbounds nuw i8, ptr %dependency, i64 8
   %0 = load ptr, ptr %depends, align 8
@@ -699,7 +699,7 @@ return:                                           ; preds = %if.then7, %qcow2_ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @qcow2_cache_depends_on_flush(ptr nocapture noundef writeonly initializes((24, 25)) %c) local_unnamed_addr #4 {
+define dso_local void @qcow2_cache_depends_on_flush(ptr noundef writeonly captures(none) initializes((24, 25)) %c) local_unnamed_addr #4 {
 entry:
   %depends_on_flush = getelementptr inbounds nuw i8, ptr %c, i64 24
   store i8 1, ptr %depends_on_flush, align 8
@@ -797,14 +797,14 @@ return:                                           ; preds = %entry, %qcow2_cache
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @qcow2_cache_get(ptr noundef %bs, ptr noundef %c, i64 noundef %offset, ptr nocapture noundef writeonly %table) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_cache_get(ptr noundef %bs, ptr noundef %c, i64 noundef %offset, ptr noundef writeonly captures(none) %table) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @qcow2_cache_do_get(ptr noundef %bs, ptr noundef %c, i64 noundef %offset, ptr noundef %table, i1 noundef zeroext true)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @qcow2_cache_do_get(ptr noundef %bs, ptr noundef %c, i64 noundef %offset, ptr nocapture noundef writeonly %table, i1 noundef zeroext %read_from_disk) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @qcow2_cache_do_get(ptr noundef %bs, ptr noundef %c, i64 noundef %offset, ptr noundef writeonly captures(none) %table, i1 noundef zeroext %read_from_disk) unnamed_addr #0 {
 entry:
   %_now.i.i92 = alloca %struct.timeval, align 8
   %_now.i.i74 = alloca %struct.timeval, align 8
@@ -1122,14 +1122,14 @@ return:                                           ; preds = %if.end67, %trace_qc
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @qcow2_cache_get_empty(ptr noundef %bs, ptr noundef %c, i64 noundef %offset, ptr nocapture noundef writeonly %table) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_cache_get_empty(ptr noundef %bs, ptr noundef %c, i64 noundef %offset, ptr noundef writeonly captures(none) %table) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @qcow2_cache_do_get(ptr noundef %bs, ptr noundef %c, i64 noundef %offset, ptr noundef %table, i1 noundef zeroext false)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qcow2_cache_put(ptr nocapture noundef %c, ptr nocapture noundef %table) local_unnamed_addr #0 {
+define dso_local void @qcow2_cache_put(ptr noundef captures(none) %c, ptr noundef captures(none) %table) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %table, align 8
   %table_array.i = getelementptr inbounds nuw i8, ptr %c, i64 32
@@ -1198,7 +1198,7 @@ if.end15:                                         ; preds = %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qcow2_cache_entry_mark_dirty(ptr nocapture noundef readonly %c, ptr noundef %table) local_unnamed_addr #0 {
+define dso_local void @qcow2_cache_entry_mark_dirty(ptr noundef readonly captures(none) %c, ptr noundef %table) local_unnamed_addr #0 {
 entry:
   %table_array.i = getelementptr inbounds nuw i8, ptr %c, i64 32
   %0 = load ptr, ptr %table_array.i, align 8
@@ -1245,7 +1245,7 @@ if.end:                                           ; preds = %qcow2_cache_get_tab
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @qcow2_cache_is_table_offset(ptr nocapture noundef readonly %c, i64 noundef %offset) local_unnamed_addr #5 {
+define dso_local ptr @qcow2_cache_is_table_offset(ptr noundef readonly captures(none) %c, i64 noundef %offset) local_unnamed_addr #5 {
 entry:
   %size = getelementptr inbounds nuw i8, ptr %c, i64 16
   %0 = load i32, ptr %size, align 8
@@ -1285,7 +1285,7 @@ return:                                           ; preds = %for.cond, %entry, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qcow2_cache_discard(ptr nocapture noundef readonly %c, ptr noundef %table) local_unnamed_addr #0 {
+define dso_local void @qcow2_cache_discard(ptr noundef readonly captures(none) %c, ptr noundef %table) local_unnamed_addr #0 {
 entry:
   %table_array.i = getelementptr inbounds nuw i8, ptr %c, i64 32
   %0 = load ptr, ptr %table_array.i, align 8
@@ -1373,7 +1373,7 @@ declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #
 declare i32 @getpagesize() local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #3
 
@@ -1396,10 +1396,10 @@ declare i32 @bdrv_pread(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 
 declare i32 @llvm.ctpop.i32(i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10

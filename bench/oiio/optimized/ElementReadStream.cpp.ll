@@ -28,7 +28,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6cineon17ElementReadStreamC2EPNS_8InStreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %fd) unnamed_addr #4 align 2 {
+define hidden void @_ZN6cineon17ElementReadStreamC2EPNS_8InStreamE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef %fd) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6cineon17ElementReadStreamE, i64 16), ptr %this, align 8
   %fd2 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -37,7 +37,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN6cineon17ElementReadStreamD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN6cineon17ElementReadStreamD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
@@ -50,13 +50,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN6cineon17ElementReadStream5ResetEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN6cineon17ElementReadStream5ResetEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6cineon17ElementReadStream4ReadERKNS_6HeaderElPvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %offset, ptr noundef %buf, i64 noundef %size) unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZN6cineon17ElementReadStream4ReadERKNS_6HeaderElPvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %offset, ptr noundef %buf, i64 noundef %size) unnamed_addr #7 align 2 {
 entry:
   %imageOffset.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 4
   %0 = load i32, ptr %imageOffset.i, align 4
@@ -89,7 +89,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6cineon17ElementReadStream15EndianDataCheckERKNS_6HeaderEPvm(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr nocapture noundef %buf, i64 noundef %size) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6cineon17ElementReadStream15EndianDataCheckERKNS_6HeaderEPvm(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, ptr noundef captures(none) %buf, i64 noundef %size) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %dpxHeader, align 4
   %call.i = tail call noundef zeroext i1 @_ZNK6cineon6Header17DetermineByteSwapEj(ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i32 noundef %0)
@@ -229,7 +229,7 @@ if.end14:                                         ; preds = %for.body.i.i24, %fo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6cineon17ElementReadStream10ReadDirectERKNS_6HeaderElPvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %offset, ptr noundef %buf, i64 noundef %size) unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZN6cineon17ElementReadStream10ReadDirectERKNS_6HeaderElPvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(2048) %dpxHeader, i64 noundef %offset, ptr noundef %buf, i64 noundef %size) unnamed_addr #7 align 2 {
 entry:
   %imageOffset.i = getelementptr inbounds nuw i8, ptr %dpxHeader, i64 4
   %0 = load i32, ptr %imageOffset.i, align 4

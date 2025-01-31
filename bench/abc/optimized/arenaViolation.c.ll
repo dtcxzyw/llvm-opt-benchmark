@@ -111,7 +111,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 declare ptr @Aig_ObjCreateCi(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @createArenaLi(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define noalias noundef ptr @createArenaLi(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.loopexit, label %5
 
@@ -312,7 +312,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @driverToPoNew(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define ptr @driverToPoNew(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %3, align 8
   %4 = ptrtoint ptr %.val to i64
@@ -341,7 +341,7 @@ define ptr @driverToPoNew(ptr nocapture noundef readnone %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @collectBarrierDisjunctions(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define noalias noundef ptr @collectBarrierDisjunctions(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %.loopexit, label %5
 
@@ -520,7 +520,7 @@ define ptr @Aig_Xor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unname
 declare ptr @Aig_And(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @createArenaViolation(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6, ptr nocapture noundef %7) local_unnamed_addr #0 {
+define ptr @createArenaViolation(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7) local_unnamed_addr #0 {
   %9 = getelementptr i8, ptr %1, i64 48
   %.val45 = load ptr, ptr %9, align 8
   %10 = ptrtoint ptr %.val45 to i64
@@ -729,7 +729,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %105
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @createConstrained0LiveConeWithDSC(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define ptr @createConstrained0LiveConeWithDSC(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val = load i32, ptr %3, align 4
   %4 = add nsw i32 %.val, -1
@@ -786,7 +786,7 @@ define ptr @createConstrained0LiveConeWithDSC(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @collectCSSignalsWithDSC(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noalias noundef ptr @collectCSSignalsWithDSC(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4
@@ -982,12 +982,12 @@ Vec_PtrPush.exit31:                               ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @Abc_ObjName(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2147483647) i32 @collectWindowBeginSignalWithDSC(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483647) i32 @collectWindowBeginSignalWithDSC(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 112
   %.val911 = load i32, ptr %3, align 8
   %4 = icmp sgt i32 %.val911, 0
@@ -1026,7 +1026,7 @@ define range(i32 -2147483648, 2147483647) i32 @collectWindowBeginSignalWithDSC(p
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2147483647) i32 @collectWithinWindowSignalWithDSC(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483647) i32 @collectWithinWindowSignalWithDSC(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 112
   %.val911 = load i32, ptr %3, align 8
   %4 = icmp sgt i32 %.val911, 0
@@ -1065,7 +1065,7 @@ define range(i32 -2147483648, 2147483647) i32 @collectWithinWindowSignalWithDSC(
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2147483647) i32 @collectPendingSignalWithDSC(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483647) i32 @collectPendingSignalWithDSC(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 112
   %.val911 = load i32, ptr %3, align 8
   %4 = icmp sgt i32 %.val911, 0
@@ -1104,7 +1104,7 @@ define range(i32 -2147483648, 2147483647) i32 @collectPendingSignalWithDSC(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @createAndGateForMonotonicityVerification(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define ptr @createAndGateForMonotonicityVerification(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 48
   %.val22 = load ptr, ptr %6, align 8
   %7 = tail call ptr @Aig_And(ptr noundef %0, ptr noundef %3, ptr noundef %4) #10
@@ -1145,7 +1145,7 @@ define ptr @createAndGateForMonotonicityVerification(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @createNewAigWith0LivePoWithDSC(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define noundef ptr @createNewAigWith0LivePoWithDSC(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr i8, ptr %0, i64 32
   %.val187 = load ptr, ptr %8, align 8
   %9 = getelementptr i8, ptr %.val187, i64 4
@@ -1616,7 +1616,7 @@ Aig_ObjChild0Copy.exit214:                        ; preds = %.lr.ph247, %257
   br i1 %269, label %.lr.ph247, label %.critedge10, !llvm.loop !23
 
 .critedge10:                                      ; preds = %Aig_ObjChild0Copy.exit214, %createConstrained0LiveConeWithDSC.exit
-  %270 = tail call ptr @createArenaLi(ptr noundef nonnull %10, ptr noundef %6, ptr noundef nonnull %137)
+  %270 = tail call ptr @createArenaLi(ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef nonnull %137)
   %271 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %10, ptr noundef %155) #10
   %272 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %10, ptr noundef %174) #10
   br i1 %176, label %.lr.ph249, label %.critedge12
@@ -1702,17 +1702,17 @@ declare ptr @Aig_ManStart(i32 noundef) local_unnamed_addr #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare void @Aig_ManSetRegNum(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @Aig_ManCleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @generateWorkingAigWithDSC(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define noundef ptr @generateWorkingAigWithDSC(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @collectCSSignalsWithDSC(ptr noundef %1, ptr noundef %0)
   %6 = getelementptr i8, ptr %0, i64 112
   %.val911.i = load i32, ptr %6, align 8
@@ -1822,10 +1822,10 @@ Vec_PtrFree.exit:                                 ; preds = %collectPendingSigna
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8

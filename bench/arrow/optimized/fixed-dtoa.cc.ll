@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN14arrow_vendored17double_conversion13FastFixedDtoaEdiNS0_6VectorIcEEPiS3_(double noundef %v, i32 noundef %fractional_count, ptr nocapture %buffer.coerce0, i32 %buffer.coerce1, ptr nocapture noundef %length, ptr nocapture noundef %decimal_point) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN14arrow_vendored17double_conversion13FastFixedDtoaEdiNS0_6VectorIcEEPiS3_(double noundef %v, i32 noundef %fractional_count, ptr captures(none) %buffer.coerce0, i32 %buffer.coerce1, ptr noundef captures(none) %length, ptr noundef captures(none) %decimal_point) local_unnamed_addr #0 {
 entry:
   %0 = bitcast double %v to i64
   %and.i = and i64 %0, 4503599627370495
@@ -415,7 +415,7 @@ return:                                           ; preds = %_ZN14arrow_vendored
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN14arrow_vendored17double_conversionL12FillDigits64EmNS0_6VectorIcEEPi(i64 noundef %number, ptr nocapture %buffer.coerce0, ptr nocapture noundef %length) unnamed_addr #0 {
+define internal fastcc void @_ZN14arrow_vendored17double_conversionL12FillDigits64EmNS0_6VectorIcEEPi(i64 noundef %number, ptr captures(none) %buffer.coerce0, ptr noundef captures(none) %length) unnamed_addr #0 {
 entry:
   %rem = urem i64 %number, 10000000
   %conv = trunc nuw nsw i64 %rem to i32
@@ -650,7 +650,7 @@ if.end13:                                         ; preds = %if.end13.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN14arrow_vendored17double_conversionL15FillFractionalsEmiiNS0_6VectorIcEEPiS3_(i64 noundef %fractionals, i32 noundef range(i32 -128, 0) %exponent, i32 noundef range(i32 -2147483648, 21) %fractional_count, ptr nocapture %buffer.coerce0, ptr nocapture noundef %length, ptr nocapture noundef %decimal_point) unnamed_addr #0 {
+define internal fastcc void @_ZN14arrow_vendored17double_conversionL15FillFractionalsEmiiNS0_6VectorIcEEPiS3_(i64 noundef %fractionals, i32 noundef range(i32 -128, 0) %exponent, i32 noundef range(i32 -2147483648, 21) %fractional_count, ptr captures(none) %buffer.coerce0, ptr noundef captures(none) %length, ptr noundef captures(none) %decimal_point) unnamed_addr #0 {
 entry:
   %sub = sub nsw i32 0, %exponent
   %cmp = icmp samesign ult i32 %sub, 65

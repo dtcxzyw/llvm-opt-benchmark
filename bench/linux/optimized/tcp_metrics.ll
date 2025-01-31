@@ -334,13 +334,13 @@ define dso_local void @tcp_update_metrics(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @tcp_get_metrics(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc ptr @tcp_get_metrics(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.inetpeer_addr, align 4
   %5 = alloca %struct.inetpeer_addr, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #11
@@ -825,7 +825,7 @@ define dso_local void @tcp_init_metrics(ptr noundef %0) local_unnamed_addr #0 al
 declare dso_local i32 @jiffies_to_usecs(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @tcp_peer_is_proven(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext i1 @tcp_peer_is_proven(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.inetpeer_addr, align 4
   %4 = alloca %struct.inetpeer_addr, align 4
   %5 = icmp eq ptr %1, null
@@ -996,7 +996,7 @@ define dso_local noundef zeroext i1 @tcp_peer_is_proven(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_fastopen_cache_get(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @tcp_fastopen_cache_get(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 align 16 {
   tail call void @__rcu_read_lock() #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %5 = load volatile ptr, ptr %4, align 8
@@ -1064,7 +1064,7 @@ define dso_local void @tcp_fastopen_cache_get(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @tcp_fastopen_cache_set(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readonly %2, i1 noundef zeroext %3, i16 noundef zeroext %4) local_unnamed_addr #0 align 16 {
@@ -1267,10 +1267,10 @@ declare dso_local i32 @genl_register_family(ptr noundef) local_unnamed_addr #2
 declare dso_local void @__rcu_read_lock() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tcpm_suck_dst(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc void @tcpm_suck_dst(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = load volatile i64, ptr @jiffies, align 64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store volatile i64 %4, ptr %5, align 8
@@ -1380,7 +1380,7 @@ declare dso_local i32 @kstrtouint(ptr noundef, i32 noundef, ptr noundef) local_u
 declare dso_local noalias ptr @kvmalloc_node(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @tcp_net_metrics_exit_batch(ptr nocapture readnone %0) #0 align 16 {
+define internal void @tcp_net_metrics_exit_batch(ptr readnone captures(none) %0) #0 align 16 {
   %2 = load i32, ptr @tcp_metrics_hash_log, align 4
   %3 = load ptr, ptr @tcp_metrics_hash, align 8
   br label %4
@@ -1445,7 +1445,7 @@ declare dso_local void @kvfree_call_rcu(ptr noundef, ptr noundef) local_unnamed_
 declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 1) i32 @tcp_metrics_nl_cmd_get(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @tcp_metrics_nl_cmd_get(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca %struct.in6_addr, align 8
   %4 = alloca %struct.in6_addr, align 8
   %5 = alloca %struct.inetpeer_addr, align 8
@@ -1727,7 +1727,7 @@ define internal range(i32 -2147483648, 1) i32 @tcp_metrics_nl_cmd_get(ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @tcp_metrics_nl_dump(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define internal i32 @tcp_metrics_nl_dump(ptr noundef %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1856,7 +1856,7 @@ define internal i32 @tcp_metrics_nl_dump(ptr noundef %0, ptr nocapture noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -22, 1) i32 @tcp_metrics_nl_cmd_del(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 -22, 1) i32 @tcp_metrics_nl_cmd_del(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca %struct.in6_addr, align 8
   %4 = alloca %struct.in6_addr, align 8
   %5 = alloca %struct.inetpeer_addr, align 8

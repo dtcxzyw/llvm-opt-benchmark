@@ -186,7 +186,7 @@ opal_obj_new.exit.thread117:                      ; preds = %.lr.ph.i.i, %57
   store i16 2, ptr %66, align 2
   %67 = getelementptr inbounds nuw i8, ptr %52, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, i8 0, i64 32, i1 false)
-  call void @opal_string_copy(ptr noundef nonnull %67, ptr noundef %.083127, i64 noundef 32) #9
+  call void @opal_string_copy(ptr noundef nonnull %67, ptr noundef nonnull %.083127, i64 noundef 32) #9
   %68 = load i16, ptr %38, align 8
   %69 = sext i16 %68 to i32
   %70 = getelementptr inbounds nuw i8, ptr %52, i64 80
@@ -441,7 +441,7 @@ prefix.exit:                                      ; preds = %176, %.preheader.i,
   %.0.i115 = phi i32 [ 0, %176 ], [ 32, %.preheader.i ], [ %187, %.loopexit.loopexit.i ]
   %188 = getelementptr inbounds nuw i8, ptr %52, i64 216
   store i32 %.0.i115, ptr %188, align 8
-  %189 = call i32 (i32, i64, ...) @ioctl(i32 noundef %2, i64 noundef 35111, ptr noundef %.083127) #9
+  %189 = call i32 (i32, i64, ...) @ioctl(i32 noundef %2, i64 noundef 35111, ptr noundef nonnull %.083127) #9
   %190 = icmp slt i32 %189, 0
   br i1 %190, label %191, label %194
 
@@ -455,7 +455,7 @@ prefix.exit:                                      ; preds = %176, %.preheader.i,
   %195 = getelementptr inbounds nuw i8, ptr %52, i64 224
   %196 = getelementptr inbounds nuw i8, ptr %.083127, i64 18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %195, ptr noundef nonnull align 2 dereferenceable(6) %196, i64 6, i1 false)
-  %197 = call i32 (i32, i64, ...) @ioctl(i32 noundef %2, i64 noundef 35105, ptr noundef %.083127) #9
+  %197 = call i32 (i32, i64, ...) @ioctl(i32 noundef %2, i64 noundef 35105, ptr noundef nonnull %.083127) #9
   %198 = icmp slt i32 %197, 0
   br i1 %198, label %199, label %202
 
@@ -508,20 +508,20 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind
 declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @opal_string_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 declare zeroext i1 @opal_output_check_verbosity(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #2
 

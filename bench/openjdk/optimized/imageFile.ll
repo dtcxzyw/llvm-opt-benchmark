@@ -28,7 +28,7 @@ $_ZN15ImageFileReader10index_sizeEv = comdat any
 @_ZN15ImageFileReaderD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN15ImageFileReaderD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 0, -2147483648) i32 @_ZN12ImageStrings9hash_codeEPKci(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -2147483648) i32 @_ZN12ImageStrings9hash_codeEPKci(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %.09 = load i8, ptr %0, align 1
   %.not10 = icmp eq i8 %.09, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
@@ -52,7 +52,7 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZN12ImageStrings9hash_code
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 -1, -2147483648) i32 @_ZN12ImageStrings4findEP6EndianPKcPij(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 -1, -2147483648) i32 @_ZN12ImageStrings4findEP6EndianPKcPij(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = icmp ne ptr %2, null
   %6 = icmp ne i32 %3, 0
   %or.cond = and i1 %5, %6
@@ -125,7 +125,7 @@ _ZN12ImageStrings9hash_codeEPKci.exit:            ; preds = %.lr.ph.i, %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN12ImageStrings11starts_withEPKcS1_(ptr noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN12ImageStrings11starts_withEPKcS1_(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = load i8, ptr %0, align 1
   %.not13 = icmp eq i8 %3, 0
   br i1 %.not13, label %.critedge, label %.lr.ph
@@ -155,7 +155,7 @@ define hidden noundef ptr @_ZN12ImageStrings11starts_withEPKcS1_(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN13ImageLocation8set_dataEPh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN13ImageLocation8set_dataEPh(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %0, ptr noundef readonly %1) local_unnamed_addr #2 align 2 {
   %.not12 = icmp eq ptr %1, null
   br i1 %.not12, label %.critedge, label %.lr.ph.preheader
 
@@ -205,16 +205,16 @@ _ZN13ImageLocation15attribute_valueEPhh.exit:     ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13ImageLocation10clear_dataEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN13ImageLocation10clear_dataEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((0, 64)) %0) local_unnamed_addr #3 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN15ImageModuleDataC2EPK15ImageFileReader(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define hidden void @_ZN15ImageModuleDataC2EPK15ImageFileReader(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -224,12 +224,12 @@ define hidden void @_ZN15ImageModuleDataC2EPK15ImageFileReader(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN15ImageModuleDataD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #6 align 2 {
+define hidden void @_ZN15ImageModuleDataD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN15ImageModuleData17package_to_moduleEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN15ImageModuleData17package_to_moduleEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.ImageLocation, align 8
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
   %5 = shl i64 %4, 32
@@ -340,19 +340,19 @@ define hidden noundef ptr @_ZN15ImageModuleData17package_to_moduleEPKc(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #9
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK15ImageFileReader13find_locationEPKcR13ImageLocation(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK15ImageFileReader13find_locationEPKcR13ImageLocation(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(64) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -502,7 +502,7 @@ _ZN12ImageStrings4findEP6EndianPKcPij.exit.thread: ; preds = %3, %_ZN12ImageStri
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK15ImageFileReader12get_resourceER13ImageLocationPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK15ImageFileReader12get_resourceER13ImageLocationPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.ImageStrings, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load i64, ptr %5, align 8
@@ -578,7 +578,7 @@ define hidden void @_ZNK15ImageFileReader12get_resourceER13ImageLocationPh(ptr n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN20ImageFileReaderTableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #11 align 2 {
+define hidden void @_ZN20ImageFileReaderTableC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #11 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 8, ptr %2, align 4
@@ -592,7 +592,7 @@ define hidden void @_ZN20ImageFileReaderTableC2Ev(ptr nocapture noundef nonnull 
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @_ZN20ImageFileReaderTable3addEP15ImageFileReader(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #13 align 2 {
+define hidden void @_ZN20ImageFileReaderTable3addEP15ImageFileReader(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #13 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -628,10 +628,10 @@ define hidden void @_ZN20ImageFileReaderTable3addEP15ImageFileReader(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #14
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ImageFileReaderTable6removeEP15ImageFileReader(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef readnone %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN20ImageFileReaderTable6removeEP15ImageFileReader(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef readnone %1) local_unnamed_addr #15 align 2 {
   %3 = load i32, ptr %0, align 8
   %.not14 = icmp eq i32 %3, 0
   br i1 %.not14, label %.loopexit.thread, label %.lr.ph
@@ -692,7 +692,7 @@ define hidden void @_ZN20ImageFileReaderTable6removeEP15ImageFileReader(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN20ImageFileReaderTable8containsEP15ImageFileReader(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef readnone %1) local_unnamed_addr #16 align 2 {
+define hidden noundef zeroext i1 @_ZN20ImageFileReaderTable8containsEP15ImageFileReader(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readnone %1) local_unnamed_addr #16 align 2 {
   %3 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -721,7 +721,7 @@ define hidden noundef zeroext i1 @_ZN20ImageFileReaderTable8containsEP15ImageFil
 declare void @_ZN21SimpleCriticalSectionC1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN15ImageFileReader10find_imageEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN15ImageFileReader10find_imageEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN21SimpleCriticalSection5enterEv(ptr noundef nonnull align 8 dereferenceable(40) @_reader_table_lock)
   %2 = load i32, ptr @_ZN15ImageFileReader13_reader_tableE, align 8
   %.not = icmp eq i32 %2, 0
@@ -772,10 +772,10 @@ _ZN25SimpleCriticalSectionLockD2Ev.exit:          ; preds = %.loopexit
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN15ImageFileReader4openEPKcb(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN15ImageFileReader4openEPKcb(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN21SimpleCriticalSection5enterEv(ptr noundef nonnull align 8 dereferenceable(40) @_reader_table_lock)
   %3 = load i32, ptr @_ZN15ImageFileReader13_reader_tableE, align 8
   %.not.i = icmp eq i32 %3, 0
@@ -836,7 +836,7 @@ _ZN15ImageFileReader10find_imageEPKc.exit:        ; preds = %.loopexit.i
 
 .noexc:                                           ; preds = %19
   store ptr %25, ptr %20, align 8
-  %26 = tail call ptr @strncpy(ptr noundef nonnull %25, ptr noundef readonly %0, i64 noundef %24) #24
+  %26 = tail call ptr @strncpy(ptr noundef nonnull %25, ptr noundef nonnull readonly %0, i64 noundef %24) #24
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 12
   store i32 -1, ptr %27, align 4
   %28 = invoke noundef ptr @_ZN6Endian11get_handlerEb(i1 noundef zeroext %1)
@@ -1173,7 +1173,7 @@ _ZN15ImageFileReader5closeEv.exit:                ; preds = %55, %52, %56, %1, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN15ImageFileReader5closeEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN15ImageFileReader5closeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1350,7 +1350,7 @@ define hidden noundef ptr @_ZN15ImageFileReader12id_to_readerEy(i64 noundef %0) 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN15ImageFileReaderC2EPKcb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((0, 8), (12, 24), (72, 80), (112, 120)) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN15ImageFileReaderC2EPKcb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(120) initializes((0, 8), (12, 24), (72, 80), (112, 120)) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr null, ptr %4, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
@@ -1359,7 +1359,7 @@ define hidden void @_ZN15ImageFileReaderC2EPKcb(ptr nocapture noundef nonnull wr
   %7 = ashr exact i64 %sext, 32
   %8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #23
   store ptr %8, ptr %0, align 8
-  %9 = tail call ptr @strncpy(ptr noundef nonnull %8, ptr noundef %1, i64 noundef %7) #24
+  %9 = tail call ptr @strncpy(ptr noundef nonnull %8, ptr noundef nonnull %1, i64 noundef %7) #24
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 -1, ptr %10, align 4
   %11 = tail call noundef ptr @_ZN6Endian11get_handlerEb(i1 noundef zeroext %2)
@@ -1371,12 +1371,12 @@ define hidden void @_ZN15ImageFileReaderC2EPKcb(ptr nocapture noundef nonnull wr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
 
 declare noundef ptr @_ZN6Endian11get_handlerEb(i1 noundef zeroext) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ImageFileReaderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN15ImageFileReaderD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %0) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -1464,7 +1464,7 @@ declare noundef i32 @_ZN9osSupport12openReadOnlyEPKc(ptr noundef) local_unnamed_
 declare noundef i64 @_ZN9osSupport4sizeEPKc(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK15ImageFileReader7read_atEPhyy(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK15ImageFileReader7read_atEPhyy(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = tail call noundef i64 @_ZN9osSupport4readEiPcll(i32 noundef %6, ptr noundef %1, i64 noundef %2, i64 noundef %3)
@@ -1515,7 +1515,7 @@ declare noundef i32 @_ZN9osSupport5closeEi(i32 noundef) local_unnamed_addr #17
 declare noundef i64 @_ZN9osSupport4readEiPcll(i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK15ImageFileReader15verify_locationER13ImageLocationPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK15ImageFileReader15verify_locationER13ImageLocationPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1692,7 +1692,7 @@ _ZN12ImageStrings11starts_withEPKcS1_.exit:       ; preds = %26, %25, %43, %.lr.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK15ImageFileReader19find_location_indexEPKcPy(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 align 2 {
+define hidden noundef i32 @_ZNK15ImageFileReader19find_location_indexEPKcPy(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.ImageLocation, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -1850,7 +1850,7 @@ _ZN12ImageStrings4findEP6EndianPKcPij.exit.thread: ; preds = %3, %_ZN12ImageStri
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK15ImageFileReader12get_resourceEjPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK15ImageFileReader12get_resourceEjPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.ImageLocation, align 8
   %.not.i = icmp eq i32 %1, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1911,7 +1911,7 @@ _ZN13ImageLocationC2EPh.exit:                     ; preds = %.lr.ph.i, %_ZN13Ima
 declare void @_ZN17ImageDecompressor19decompress_resourceEPhS0_yPK12ImageStringsP6Endian(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN15ImageFileReader21get_image_module_dataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN15ImageFileReader21get_image_module_dataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -1932,7 +1932,7 @@ define internal void @_GLOBAL__sub_I_imageFile.cpp() #20 section ".text.startup"
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #21
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #21
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

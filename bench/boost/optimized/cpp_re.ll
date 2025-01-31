@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC1EPhm = unnamed_addr alias void (ptr, ptr, i64), ptr @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC2EPhm
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN5boost4wave8cpplexer7re2clex12is_backslashEPhS3_Ri(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN5boost4wave8cpplexer7re2clex12is_backslashEPhS3_Ri(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #0 {
   %4 = load i8, ptr %0, align 1, !tbaa !3
   switch i8 %4, label %15 [
     i8 92, label %.sink.split
@@ -40,7 +40,7 @@ define noundef zeroext i1 @_ZN5boost4wave8cpplexer7re2clex12is_backslashEPhS3_Ri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC2EPhm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 align 2 {
+define void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC2EPhm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8, !tbaa !8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8, !tbaa !12
@@ -72,20 +72,20 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5boost4wave8cpplexer7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i8 @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrapperdeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
+define noundef zeroext i8 @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrapperdeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !8
   %3 = load i8, ptr %2, align 1, !tbaa !3
   ret i8 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZNK5boost4wave8cpplexer7re2clex13uchar_wrappercvPhEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5boost4wave8cpplexer7re2clexmiERKNS2_13uchar_wrapperES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 {
+define noundef i64 @_ZN5boost4wave8cpplexer7re2clexmiERKNS2_13uchar_wrapperES5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8, !tbaa !8
   %4 = load ptr, ptr %1, align 8, !tbaa !8
   %5 = ptrtoint ptr %3 to i64

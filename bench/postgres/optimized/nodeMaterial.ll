@@ -43,7 +43,7 @@ define dso_local noundef ptr @ExecInitMaterial(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ExecMaterial(ptr nocapture noundef %0) #0 {
+define internal ptr @ExecMaterial(ptr noundef captures(none) %0) #0 {
   %2 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %4, label %3
@@ -202,7 +202,7 @@ declare void @ExecInitResultTupleSlotTL(ptr noundef, ptr noundef) local_unnamed_
 declare void @ExecCreateScanSlotFromOuterPlan(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecEndMaterial(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ExecEndMaterial(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -225,7 +225,7 @@ declare void @tuplestore_end(ptr noundef) local_unnamed_addr #1
 declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecMaterialMarkPos(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExecMaterialMarkPos(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -246,7 +246,7 @@ declare void @tuplestore_copy_read_pointer(ptr noundef, i32 noundef, i32 noundef
 declare void @tuplestore_trim(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecMaterialRestrPos(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExecMaterialRestrPos(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -261,7 +261,7 @@ define dso_local void @ExecMaterialRestrPos(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecReScanMaterial(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ExecReScanMaterial(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120

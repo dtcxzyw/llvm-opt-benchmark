@@ -68,7 +68,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_cache_ap_register363], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @cache_get_priv_group(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef ptr @cache_get_priv_group(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -131,13 +131,13 @@ define dso_local noundef ptr @cache_get_priv_group(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cacheinfo_amd_init_llc_id(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @cacheinfo_amd_init_llc_id(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -2147483642, i32 0) #13, !srcloc !5
   %3 = extractvalue { i32, i32, i32, i32 } %2, 3
   %4 = icmp eq i32 %3, 0
@@ -214,7 +214,7 @@ define dso_local void @cacheinfo_amd_init_llc_id(ptr nocapture noundef %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cacheinfo_hygon_init_llc_id(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @cacheinfo_hygon_init_llc_id(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -2147483642, i32 0) #13, !srcloc !5
   %3 = extractvalue { i32, i32, i32, i32 } %2, 3
   %4 = icmp eq i32 %3, 0
@@ -233,7 +233,7 @@ define dso_local void @cacheinfo_hygon_init_llc_id(ptr nocapture noundef %0) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @init_amd_cacheinfo(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @init_amd_cacheinfo(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
   %3 = and i64 %2, 4194304
   %4 = icmp eq i64 %3, 0
@@ -285,7 +285,7 @@ define dso_local void @init_amd_cacheinfo(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @init_hygon_cacheinfo(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @init_hygon_cacheinfo(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = icmp eq i8 %3, 2
@@ -688,10 +688,10 @@ thread-pre-split:                                 ; preds = %7
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @cpuid4_cache_lookup_regs(i32 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @cpuid4_cache_lookup_regs(i32 noundef %0, ptr noundef writeonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 1), align 1
   switch i8 %3, label %114 [
     i8 2, label %4
@@ -1483,7 +1483,7 @@ define dso_local void @cache_aps_init() local_unnamed_addr #0 align 16 {
 declare dso_local i32 @stop_machine(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @cache_rendezvous_handler(ptr nocapture readnone %0) #0 align 16 {
+define internal noundef i32 @cache_rendezvous_handler(ptr readnone captures(none) %0) #0 align 16 {
   %2 = load i8, ptr @cache_aps_delayed_init, align 1, !range !32, !noundef !33
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10
@@ -1522,7 +1522,7 @@ declare dso_local zeroext i1 @amd_nb_has_feature(i32 noundef) local_unnamed_addr
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @cache_disable_0_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @cache_disable_0_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8
@@ -1554,7 +1554,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @cache_disable_0_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @cache_disable_0_store(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define internal noundef i64 @cache_disable_0_store(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8
   %7 = tail call fastcc i64 @store_cache_disable(ptr noundef %6, ptr noundef %2, i64 noundef %3, i32 noundef 0)
@@ -1562,13 +1562,13 @@ define internal noundef i64 @cache_disable_0_store(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @pci_read_config_dword(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i64 @store_cache_disable(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef i64 @store_cache_disable(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
@@ -1690,7 +1690,7 @@ declare dso_local i32 @pci_write_config_dword(ptr noundef, i32 noundef, i32 noun
 declare dso_local void @wbinvd_on_cpu(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @cache_disable_1_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @cache_disable_1_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8
@@ -1722,7 +1722,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @cache_disable_1_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @cache_disable_1_store(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define internal noundef i64 @cache_disable_1_store(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8
   %7 = tail call fastcc i64 @store_cache_disable(ptr noundef %6, ptr noundef %2, i64 noundef %3, i32 noundef 1)
@@ -1730,7 +1730,7 @@ define internal noundef i64 @cache_disable_1_store(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @subcaches_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @subcaches_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -1752,7 +1752,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @subcaches_show(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @subcaches_store(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define internal i64 @subcaches_store(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %7 = load ptr, ptr %6, align 8
@@ -1798,7 +1798,7 @@ declare dso_local i32 @amd_get_subcaches(i32 noundef) local_unnamed_addr #3
 declare dso_local i32 @amd_set_subcaches(i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i16 @cache_private_attrs_is_visible(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 %2) #0 align 16 {
+define internal zeroext i16 @cache_private_attrs_is_visible(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1838,7 +1838,7 @@ define internal zeroext i16 @cache_private_attrs_is_visible(ptr nocapture nounde
 declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @amd_init_l3_cache(ptr nocapture noundef writeonly %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @amd_init_l3_cache(ptr noundef writeonly captures(none) %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = icmp slt i32 %1, 3
   br i1 %4, label %75, label %5
@@ -1939,7 +1939,7 @@ define internal fastcc void @amd_init_l3_cache(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @node_to_amd_nb(i32 noundef) local_unnamed_addr #3

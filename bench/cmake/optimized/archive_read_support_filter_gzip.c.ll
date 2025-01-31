@@ -40,7 +40,7 @@ define dso_local range(i32 -30, 1) i32 @archive_read_support_filter_gzip(ptr nou
 declare i32 @__archive_read_register_bidder(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gzip_bidder_bid(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal i32 @gzip_bidder_bid(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = call fastcc i64 @peek_at_header(ptr noundef %1, ptr noundef nonnull %3, ptr noundef null)
   %.not = icmp eq i64 %4, 0
@@ -50,7 +50,7 @@ define internal i32 @gzip_bidder_bid(ptr nocapture readnone %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @gzip_bidder_init(ptr nocapture noundef initializes((48, 60)) %0) #0 {
+define internal range(i32 -30, 1) i32 @gzip_bidder_init(ptr noundef captures(none) initializes((48, 60)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -230,10 +230,10 @@ define internal fastcc range(i64 -9223372036854775807, -9223372036854775808) i64
 declare ptr @__archive_read_filter_ahead(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
@@ -244,7 +244,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @gzip_filter_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define internal i64 @gzip_filter_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -460,7 +460,7 @@ consume_trailer.exit:                             ; preds = %90
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @gzip_filter_close(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -30, 1) i32 @gzip_filter_close(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
@@ -492,7 +492,7 @@ define internal range(i32 -30, 1) i32 @gzip_filter_close(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @gzip_read_header(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal noundef i32 @gzip_read_header(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 152
@@ -534,13 +534,13 @@ declare void @archive_entry_set_mtime(ptr noundef, i64 noundef, i64 noundef) loc
 declare void @archive_entry_set_pathname(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

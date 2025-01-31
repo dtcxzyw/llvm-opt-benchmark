@@ -755,7 +755,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.547 = private unnamed_addr constant [8 x i8] c"HTTP/1.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @http_add_path_components_to_tree(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @http_add_path_components_to_tree(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = add i32 %4, %3
   %7 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %3, i32 noundef %4, i8 noundef zeroext 63) #14
   %8 = icmp eq i32 %7, -1
@@ -904,7 +904,7 @@ define hidden void @proto_register_http() local_unnamed_addr #0 {
 declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @header_fields_header_name_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @header_fields_header_name_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #14
   %8 = load ptr, ptr %0, align 8
@@ -914,7 +914,7 @@ define internal void @header_fields_header_name_set_cb(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @header_fields_header_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @header_fields_header_name_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -939,7 +939,7 @@ define internal void @header_fields_header_name_tostr_cb(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @header_fields_header_desc_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @header_fields_header_desc_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #14
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -950,7 +950,7 @@ define internal void @header_fields_header_desc_set_cb(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @header_fields_header_desc_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @header_fields_header_desc_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -988,7 +988,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_http(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_http(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = call fastcc ptr @get_http_conversation_data(ptr noundef %1, ptr noundef %5)
   tail call fastcc void @dissect_http_on_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %6, i32 noundef 0, ptr noundef null)
@@ -1179,7 +1179,7 @@ addresses_equal.exit.i:                           ; preds = %83, %76, %74, %55
 proto_item_set_generated.exit.i:                  ; preds = %107, %104, %96
   %111 = load i32, ptr @hf_http_proxy_connect_port, align 4
   %112 = load ptr, ptr %93, align 8
-  %113 = tail call i64 @strtol(ptr nocapture noundef %112, ptr noundef null, i32 noundef 10) #14
+  %113 = tail call i64 @strtol(ptr noundef captures(none) %112, ptr noundef null, i32 noundef 10) #14
   %114 = trunc i64 %113 to i32
   %115 = tail call ptr @proto_tree_add_uint(ptr noundef %100, i32 noundef %111, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %114) #14
   %.not.i60.i = icmp eq ptr %115, null
@@ -1200,7 +1200,7 @@ proto_item_set_generated.exit.i:                  ; preds = %107, %104, %96
 
 proto_item_set_generated.exit62.i:                ; preds = %119, %116, %proto_item_set_generated.exit.i, %95
   %123 = load ptr, ptr %93, align 8
-  %124 = tail call i64 @strtol(ptr nocapture noundef %123, ptr noundef null, i32 noundef 10) #14
+  %124 = tail call i64 @strtol(ptr noundef captures(none) %123, ptr noundef null, i32 noundef 10) #14
   %125 = trunc i64 %124 to i32
   br i1 %84, label %128, label %126
 
@@ -1322,7 +1322,7 @@ define internal i32 @dissect_http_tls(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_http_sctp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_http_sctp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = call fastcc ptr @get_http_conversation_data(ptr noundef %1, ptr noundef %5)
   tail call fastcc void @dissect_http_on_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %6, i32 noundef 0, ptr noundef null)
@@ -1366,7 +1366,7 @@ declare void @prefs_register_range_preference(ptr noundef, ptr noundef, ptr noun
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @header_fields_copy_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @header_fields_copy_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #14
   store ptr %5, ptr %0, align 8
@@ -1379,7 +1379,7 @@ define internal noundef ptr @header_fields_copy_cb(ptr noundef returned writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @header_fields_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef zeroext i1 @header_fields_update_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
@@ -1418,7 +1418,7 @@ define internal noundef zeroext i1 @header_fields_update_cb(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @header_fields_free_cb(ptr nocapture noundef readonly %0) #0 {
+define internal void @header_fields_free_cb(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1635,7 +1635,7 @@ declare i32 @get_tcp_stream_count() #1
 declare i32 @register_export_object(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @http_eo_packet(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @http_eo_packet(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly %3, i32 %4) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %35, label %6
 
@@ -1762,7 +1762,7 @@ declare ptr @find_dissector(ptr noundef) local_unnamed_addr #1
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ssdp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ssdp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = call fastcc ptr @get_http_conversation_data(ptr noundef %1, ptr noundef %5)
   %7 = load i32, ptr @proto_ssdp, align 4
@@ -1778,7 +1778,7 @@ declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_
 declare ptr @stats_tree_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @http_stats_tree_packet(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal noundef i32 @http_stats_tree_packet(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = alloca [64 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load i32, ptr %7, align 8
@@ -1876,7 +1876,7 @@ define internal void @http_stats_tree_init(ptr noundef %0) #0 {
 declare void @stats_tree_set_first_column_name(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @http_req_stats_tree_packet(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @http_req_stats_tree_packet(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -1914,7 +1914,7 @@ define internal void @http_req_stats_tree_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @http_reqs_stats_tree_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @http_reqs_stats_tree_packet(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1986,7 +1986,7 @@ define internal void @http_reqs_stats_tree_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @http_seq_stats_tree_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal noundef i32 @http_seq_stats_tree_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -2063,14 +2063,14 @@ define internal noundef i32 @http_seq_stats_tree_packet(ptr noundef %0, ptr noca
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
-  %46 = tail call noalias ptr @wmem_strdup(ptr noundef %15, ptr noundef %.064.i) #14
+  %46 = tail call noalias ptr @wmem_strdup(ptr noundef %15, ptr noundef nonnull %.064.i) #14
   br label %52
 
 47:                                               ; preds = %43
   %48 = ptrtoint ptr %strchr72.i to i64
   %49 = ptrtoint ptr %.064.i to i64
   %50 = sub i64 %48, %49
-  %51 = tail call noalias ptr @wmem_strndup(ptr noundef %15, ptr noundef %.064.i, i64 noundef %50) #14
+  %51 = tail call noalias ptr @wmem_strndup(ptr noundef %15, ptr noundef nonnull %.064.i, i64 noundef %50) #14
   br label %52
 
 52:                                               ; preds = %47, %45
@@ -2105,7 +2105,7 @@ define internal noundef i32 @http_seq_stats_tree_packet(ptr noundef %0, ptr noca
   %67 = ptrtoint ptr %.065.i to i64
   %68 = sub i64 %66, %67
   %69 = trunc i64 %68 to i32
-  %70 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %15, ptr noundef nonnull @.str.542, i32 noundef %69, ptr noundef %.065.i, ptr noundef nonnull %9) #14
+  %70 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %15, ptr noundef nonnull @.str.542, i32 noundef %69, ptr noundef nonnull %.065.i, ptr noundef nonnull %9) #14
   br label %determine_http_location_target.exit
 
 71:                                               ; preds = %56
@@ -2118,11 +2118,11 @@ define internal noundef i32 @http_seq_stats_tree_packet(ptr noundef %0, ptr noca
   %75 = ptrtoint ptr %.065.i to i64
   %76 = sub i64 %74, %75
   %77 = trunc i64 %76 to i32
-  %78 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %15, ptr noundef nonnull @.str.543, i32 noundef %77, ptr noundef %.065.i, ptr noundef nonnull %9) #14
+  %78 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %15, ptr noundef nonnull @.str.543, i32 noundef %77, ptr noundef nonnull %.065.i, ptr noundef nonnull %9) #14
   br label %determine_http_location_target.exit
 
 79:                                               ; preds = %71
-  %80 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %15, ptr noundef nonnull @.str.544, ptr noundef %.065.i, ptr noundef nonnull %9) #14
+  %80 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %15, ptr noundef nonnull @.str.544, ptr noundef nonnull %.065.i, ptr noundef nonnull %9) #14
   br label %determine_http_location_target.exit
 
 determine_http_location_target.exit:              ; preds = %21, %28, %32, %54, %65, %73, %79
@@ -2269,7 +2269,7 @@ define hidden void @proto_reg_handoff_message_http() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_message_http(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_message_http(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -2434,10 +2434,10 @@ declare void @g_free(ptr noundef) #1
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_http_conversation_data(ptr noundef %0, ptr nocapture noundef nonnull initializes((0, 8)) %1) unnamed_addr #0 {
+define internal fastcc ptr @get_http_conversation_data(ptr noundef %0, ptr noundef nonnull captures(none) initializes((0, 8)) %1) unnamed_addr #0 {
   %3 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %0) #14
   store ptr %3, ptr %1, align 8
   %4 = load i32, ptr @proto_http, align 4
@@ -3272,7 +3272,7 @@ switch.early.test:                                ; preds = %226, %229
   %366 = zext nneg i32 %362 to i64
   %367 = getelementptr i8, ptr %365, i64 %366
   store ptr null, ptr %20, align 8
-  %368 = call fastcc i32 @is_http_request_or_reply(ptr noundef %2, ptr noundef %365, i32 noundef %362, ptr noundef %18, ptr noundef nonnull %20)
+  %368 = call fastcc i32 @is_http_request_or_reply(ptr noundef nonnull %2, ptr noundef %365, i32 noundef %362, ptr noundef %18, ptr noundef nonnull %20)
   %369 = icmp ne i32 %368, 0
   %370 = icmp eq i32 %362, 0
   %or.cond61 = or i1 %370, %369
@@ -3353,7 +3353,7 @@ valid_header_name.exit.thread:                    ; preds = %371
   br i1 %.not801, label %402, label %400
 
 400:                                              ; preds = %396
-  %401 = call ptr @proto_tree_add_expert(ptr noundef %399, ptr noundef %2, ptr noundef nonnull @ei_http_leading_crlf, ptr noundef %0, i32 noundef %353, i32 noundef 2) #14
+  %401 = call ptr @proto_tree_add_expert(ptr noundef %399, ptr noundef nonnull %2, ptr noundef nonnull @ei_http_leading_crlf, ptr noundef %0, i32 noundef %353, i32 noundef 2) #14
   br label %402
 
 402:                                              ; preds = %396, %400, %394
@@ -3403,7 +3403,7 @@ valid_header_name.exit.thread:                    ; preds = %371
   %428 = load i32, ptr @ett_http_request, align 4
   %429 = call ptr @proto_tree_add_subtree(ptr noundef %.4670, ptr noundef %0, i32 noundef %.26651116, i32 noundef %427, i32 noundef %428, ptr noundef nonnull %19, ptr noundef %425) #14
   %430 = load ptr, ptr %19, align 8
-  %431 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %430, ptr noundef nonnull @ei_http_chat, ptr noundef nonnull @.str.411, ptr noundef %425) #14
+  %431 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %430, ptr noundef nonnull @ei_http_chat, ptr noundef nonnull @.str.411, ptr noundef %425) #14
   %432 = load ptr, ptr %126, align 8
   %433 = getelementptr inbounds nuw i8, ptr %432, i64 50
   %434 = load i16, ptr %433, align 2
@@ -3532,7 +3532,7 @@ push_res.exit:                                    ; preds = %462, %465, %push_re
 491:                                              ; preds = %420
   %492 = load i32, ptr %17, align 4
   %493 = load i32, ptr %18, align 4
-  call fastcc void @process_header(ptr noundef %0, i32 noundef %.26651116, i32 noundef %492, ptr noundef %365, i32 noundef %362, i32 noundef %.0680, ptr noundef %2, ptr noundef %.4670, ptr noundef %.2712, ptr noundef %4, i32 noundef %493, ptr noundef %.1703, i32 noundef %.2700)
+  call fastcc void @process_header(ptr noundef %0, i32 noundef %.26651116, i32 noundef %492, ptr noundef %365, i32 noundef %362, i32 noundef %.0680, ptr noundef nonnull %2, ptr noundef %.4670, ptr noundef %.2712, ptr noundef %4, i32 noundef %493, ptr noundef %.1703, i32 noundef %.2700)
   br label %494
 
 494:                                              ; preds = %488, %490, %491
@@ -4054,7 +4054,7 @@ proto_item_set_hidden.exit:                       ; preds = %proto_item_set_hidd
   %738 = load i32, ptr @http_follow_tap, align 4
   %739 = sub i32 %.3, %1
   %740 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %1, i32 noundef %739) #14
-  call void @tap_queue_packet(i32 noundef %738, ptr noundef %2, ptr noundef %740) #14
+  call void @tap_queue_packet(i32 noundef %738, ptr noundef nonnull %2, ptr noundef %740) #14
   br label %741
 
 741:                                              ; preds = %737, %proto_item_set_hidden.exit
@@ -4290,7 +4290,7 @@ chunked_encoding_dissector.exit.thread:           ; preds = %824
   br label %845
 
 845:                                              ; preds = %844, %842
-  %846 = call i64 @strtol(ptr nocapture noundef nonnull %840, ptr noundef null, i32 noundef 16) #14
+  %846 = call i64 @strtol(ptr noundef nonnull captures(none) %840, ptr noundef null, i32 noundef 16) #14
   %847 = trunc i64 %846 to i32
   %spec.select.i941 = call i32 @llvm.umin.i32(i32 %.0116.i, i32 %847)
   %848 = add i32 %spec.select.i941, %.0119.i
@@ -4442,7 +4442,7 @@ chunked_encoding_dissector.exit:                  ; preds = %913, %915, %922
   br i1 %926, label %1083, label %927
 
 927:                                              ; preds = %chunked_encoding_dissector.exit
-  call void @add_new_data_source(ptr noundef %2, ptr noundef %.2, ptr noundef nonnull @.str.420) #14
+  call void @add_new_data_source(ptr noundef nonnull %2, ptr noundef %.2, ptr noundef nonnull @.str.420) #14
   br label %928
 
 928:                                              ; preds = %927, %.thread993
@@ -4455,7 +4455,7 @@ chunked_encoding_dissector.exit:                  ; preds = %913, %915, %922
   br i1 %switch, label %931, label %933
 
 931:                                              ; preds = %928
-  %932 = call i32 @call_data_dissector(ptr noundef %.0960, ptr noundef %2, ptr noundef %.16671019) #14
+  %932 = call i32 @call_data_dissector(ptr noundef %.0960, ptr noundef nonnull %2, ptr noundef %.16671019) #14
   br label %1083
 
 933:                                              ; preds = %928
@@ -4535,7 +4535,7 @@ chunked_encoding_dissector.exit:                  ; preds = %913, %915, %922
   %973 = load ptr, ptr %25, align 8
   %974 = call i32 @tvb_captured_length(ptr noundef nonnull %.1662) #14
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %973, ptr noundef nonnull @.str.428, i32 noundef %974) #14
-  call void @add_new_data_source(ptr noundef %2, ptr noundef nonnull %.1662, ptr noundef nonnull @.str.429) #14
+  call void @add_new_data_source(ptr noundef nonnull %2, ptr noundef nonnull %.1662, ptr noundef nonnull @.str.429) #14
   br label %980
 
 975:                                              ; preds = %.thread1024
@@ -4543,8 +4543,8 @@ chunked_encoding_dissector.exit:                  ; preds = %913, %915, %922
   %.not848 = icmp eq i32 %976, 0
   %977 = load ptr, ptr %25, align 8
   %ei_http_decompression_disabled.ei_http_decompression_failed = select i1 %.not848, ptr @ei_http_decompression_disabled, ptr @ei_http_decompression_failed
-  %978 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %977, ptr noundef nonnull %ei_http_decompression_disabled.ei_http_decompression_failed) #14
-  %979 = call i32 @call_data_dissector(ptr noundef %.0960, ptr noundef %2, ptr noundef %971) #14
+  %978 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %977, ptr noundef nonnull %ei_http_decompression_disabled.ei_http_decompression_failed) #14
+  %979 = call i32 @call_data_dissector(ptr noundef %.0960, ptr noundef nonnull %2, ptr noundef %971) #14
   br label %1083
 
 980:                                              ; preds = %972, %936, %933
@@ -4589,7 +4589,7 @@ chunked_encoding_dissector.exit:                  ; preds = %913, %915, %922
 
 1001:                                             ; preds = %998
   %1002 = load i32, ptr @http_follow_tap, align 4
-  call void @tap_queue_packet(i32 noundef %1002, ptr noundef %2, ptr noundef %.1961) #14
+  call void @tap_queue_packet(i32 noundef %1002, ptr noundef nonnull %2, ptr noundef %.1961) #14
   br label %1003
 
 1003:                                             ; preds = %1001, %998
@@ -4697,11 +4697,11 @@ thread-pre-split1030:                             ; preds = %1039, %thread-pre-s
   %1063 = load ptr, ptr %21, align 8
   %1064 = call ptr @proto_tree_get_parent_tree(ptr noundef %3) #14
   %1065 = load i32, ptr @hf_http_body_segment, align 4
-  %1066 = call i32 @reassemble_streaming_data_and_call_subdissector(ptr noundef %.1961, ptr noundef %2, i32 noundef 0, i32 noundef %1048, ptr noundef %.16671019, ptr noundef %1049, ptr noundef nonnull byval(%struct.reassembly_table) align 8 @http_streaming_reassembly_table, ptr noundef %1050, i64 noundef %1062, ptr noundef %1063, ptr noundef %1064, ptr noundef %.17051011, ptr noundef nonnull @.str.322, ptr noundef nonnull @http_body_fragment_items, i32 noundef %1065) #14
+  %1066 = call i32 @reassemble_streaming_data_and_call_subdissector(ptr noundef %.1961, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %1048, ptr noundef %.16671019, ptr noundef %1049, ptr noundef nonnull byval(%struct.reassembly_table) align 8 @http_streaming_reassembly_table, ptr noundef %1050, i64 noundef %1062, ptr noundef %1063, ptr noundef %1064, ptr noundef %.17051011, ptr noundef nonnull @.str.322, ptr noundef nonnull @http_body_fragment_items, i32 noundef %1065) #14
   br label %1069
 
 1067:                                             ; preds = %.thread1032
-  %1068 = call i32 @call_dissector_only(ptr noundef nonnull %1044, ptr noundef %.1961, ptr noundef %2, ptr noundef %3, ptr noundef %.17051011) #14
+  %1068 = call i32 @call_dissector_only(ptr noundef nonnull %1044, ptr noundef %.1961, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %.17051011) #14
   br label %1069
 
 1069:                                             ; preds = %1067, %1045
@@ -4710,12 +4710,12 @@ thread-pre-split1030:                             ; preds = %1039, %thread-pre-s
   br i1 %.not853, label %1070, label %.critedge879
 
 1070:                                             ; preds = %1069
-  %1071 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %.16671019, ptr noundef nonnull @ei_http_subdissector_failed) #14
+  %1071 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %.16671019, ptr noundef nonnull @ei_http_subdissector_failed) #14
   br label %.critedge878
 
 .critedge878:                                     ; preds = %1039, %thread-pre-split1030, %1070
   %1072 = load ptr, ptr @heur_subdissector_list, align 8
-  %1073 = call i32 @dissector_try_heuristic(ptr noundef %1072, ptr noundef %.1961, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %22, ptr noundef %.17051011) #14
+  %1073 = call i32 @dissector_try_heuristic(ptr noundef %1072, ptr noundef %.1961, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %22, ptr noundef %.17051011) #14
   %1074 = icmp eq i32 %1073, 0
   br i1 %1074, label %1076, label %.critedge879
 
@@ -4734,11 +4734,11 @@ thread-pre-split1030:                             ; preds = %1039, %thread-pre-s
 
 1078:                                             ; preds = %1076
   %1079 = load ptr, ptr @media_handle, align 8
-  %1080 = call i32 @call_dissector_with_data(ptr noundef %1079, ptr noundef %.1961, ptr noundef %2, ptr noundef %3, ptr noundef %.17051011) #14
+  %1080 = call i32 @call_dissector_with_data(ptr noundef %1079, ptr noundef %.1961, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %.17051011) #14
   br label %1083
 
 1081:                                             ; preds = %1076
-  %1082 = call i32 @call_data_dissector(ptr noundef %.1961, ptr noundef %2, ptr noundef %.16671019) #14
+  %1082 = call i32 @call_data_dissector(ptr noundef %.1961, ptr noundef nonnull %2, ptr noundef %.16671019) #14
   br label %1083
 
 1083:                                             ; preds = %chunked_encoding_dissector.exit.thread, %1075, %.critedge879, %1081, %1078, %1003, %chunked_encoding_dissector.exit, %975, %931, %822
@@ -4817,7 +4817,7 @@ thread-pre-split1030:                             ; preds = %1039, %thread-pre-s
   %1124 = ptrtoint ptr %1119 to i64
   %1125 = ptrtoint ptr %1118 to i64
   %1126 = sub i64 %1124, %1125
-  %1127 = call noalias ptr @wmem_strndup(ptr noundef %1123, ptr noundef %1118, i64 noundef %1126) #14
+  %1127 = call noalias ptr @wmem_strndup(ptr noundef %1123, ptr noundef nonnull %1118, i64 noundef %1126) #14
   %1128 = call ptr @dissector_get_string_handle(ptr noundef %1121, ptr noundef %1127) #14
   br label %.thread1035
 
@@ -4858,7 +4858,7 @@ thread-pre-split1030:                             ; preds = %1039, %thread-pre-s
 
 1147:                                             ; preds = %1146
   %1148 = load i32, ptr @http_tap, align 4
-  call void @tap_queue_packet(i32 noundef %1148, ptr noundef %2, ptr noundef nonnull %.06871016) #14
+  call void @tap_queue_packet(i32 noundef %1148, ptr noundef nonnull %2, ptr noundef nonnull %.06871016) #14
   br label %1149
 
 1149:                                             ; preds = %1147, %1146
@@ -4899,7 +4899,7 @@ declare i32 @req_resp_hdrs_do_reassembly(ptr noundef, i32 noundef, ptr noundef, 
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @is_http_request_or_reply(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_http_request_or_reply(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @proto_http, align 4
@@ -5301,7 +5301,7 @@ declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_header(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 1, -2147483648) %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef %8, ptr nocapture noundef writeonly %9, i32 noundef %10, ptr noundef %11, i32 noundef range(i32 0, 2) %12) unnamed_addr #0 {
+define internal fastcc void @process_header(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 1, -2147483648) %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef captures(none) %8, ptr noundef writeonly captures(none) %9, i32 noundef %10, ptr noundef %11, i32 noundef range(i32 0, 2) %12) unnamed_addr #0 {
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
   %16 = alloca i32, align 4
@@ -5417,7 +5417,7 @@ valid_header_name.exit:                           ; preds = %is_token_char.exit.
   br i1 %70, label %71, label %74
 
 71:                                               ; preds = %66
-  %72 = call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %1, ptr noundef %68, i64 noundef %.pre-phi) #14
+  %72 = call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %68, i64 noundef %.pre-phi) #14
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %.split.loop.exit14.i, label %74
 
@@ -5551,7 +5551,7 @@ get_hf_for_header.exit.thread:                    ; preds = %109
   %130 = load ptr, ptr %22, align 8
   %131 = sext i32 %42 to i64
   %132 = call ptr @format_text(ptr noundef %130, ptr noundef %3, i64 noundef %131) #14
-  %133 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef nonnull %7, i32 noundef %129, ptr noundef %0, i32 noundef %1, i32 noundef %42, ptr noundef %98, ptr noundef nonnull @.str.411, ptr noundef %132) #14
+  %133 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef nonnull %7, i32 noundef %129, ptr noundef %0, i32 noundef %1, i32 noundef %42, ptr noundef nonnull %98, ptr noundef nonnull @.str.411, ptr noundef %132) #14
   %or.cond7 = icmp ult i32 %10, 2
   br i1 %or.cond7, label %134, label %proto_item_set_hidden.exit
 
@@ -5604,7 +5604,7 @@ get_hf_for_header.exit.thread:                    ; preds = %109
   ]
 
 157:                                              ; preds = %150, %150, %150, %150, %150, %150, %150, %150
-  %158 = call i64 @strtol(ptr nocapture noundef %98, ptr noundef null, i32 noundef 10) #14
+  %158 = call i64 @strtol(ptr noundef nonnull captures(none) %98, ptr noundef null, i32 noundef 10) #14
   %159 = trunc i64 %158 to i32
   %160 = load i32, ptr %152, align 4
   %161 = call ptr @proto_tree_add_uint(ptr noundef nonnull %7, i32 noundef %160, ptr noundef %0, i32 noundef %1, i32 noundef %42, i32 noundef %159) #14
@@ -5632,7 +5632,7 @@ get_hf_for_header.exit.thread:                    ; preds = %109
   %173 = load ptr, ptr %22, align 8
   %174 = sext i32 %42 to i64
   %175 = call ptr @format_text(ptr noundef %173, ptr noundef %3, i64 noundef %174) #14
-  %176 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef nonnull %7, i32 noundef %172, ptr noundef %0, i32 noundef %1, i32 noundef %42, ptr noundef %98, ptr noundef nonnull @.str.411, ptr noundef %175) #14
+  %176 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef nonnull %7, i32 noundef %172, ptr noundef %0, i32 noundef %1, i32 noundef %42, ptr noundef nonnull %98, ptr noundef nonnull @.str.411, ptr noundef %175) #14
   %or.cond11 = icmp ult i32 %10, 2
   br i1 %or.cond11, label %177, label %proto_item_set_hidden.exit429
 
@@ -5686,27 +5686,27 @@ proto_item_set_hidden.exit429:                    ; preds = %proto_item_set_hidd
   ]
 
 194:                                              ; preds = %proto_item_set_hidden.exit429
-  %195 = call fastcc i32 @check_auth_ntlmssp(ptr noundef %.0367, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %98)
+  %195 = call fastcc i32 @check_auth_ntlmssp(ptr noundef %.0367, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %98)
   %.not410 = icmp eq i32 %195, 0
   br i1 %.not410, label %196, label %proto_item_set_hidden.exit
 
 196:                                              ; preds = %194
-  %197 = call fastcc i32 @check_auth_basic(ptr noundef %.0367, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %98)
+  %197 = call fastcc i32 @check_auth_basic(ptr noundef %.0367, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %98)
   %.not411 = icmp eq i32 %197, 0
   br i1 %.not411, label %198, label %proto_item_set_hidden.exit
 
 198:                                              ; preds = %196
-  %199 = call fastcc i32 @check_auth_citrixbasic(ptr noundef %.0367, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %98, i32 noundef %1)
+  %199 = call fastcc i32 @check_auth_citrixbasic(ptr noundef %.0367, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %98, i32 noundef %1)
   %.not412 = icmp eq i32 %199, 0
   br i1 %.not412, label %200, label %proto_item_set_hidden.exit
 
 200:                                              ; preds = %198
-  %201 = call fastcc i32 @check_auth_kerberos(ptr noundef %.0367, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %98)
+  %201 = call fastcc i32 @check_auth_kerberos(ptr noundef %.0367, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %98)
   %.not413 = icmp eq i32 %201, 0
   br i1 %.not413, label %202, label %proto_item_set_hidden.exit
 
 202:                                              ; preds = %200
-  %203 = call fastcc i32 @check_auth_digest(ptr noundef %.0367, ptr noundef %0, ptr noundef %98, i32 noundef %1, i32 noundef %100)
+  %203 = call fastcc i32 @check_auth_digest(ptr noundef %.0367, ptr noundef %0, ptr noundef nonnull %98, i32 noundef %1, i32 noundef %100)
   %.not414 = icmp eq i32 %203, 0
   br i1 %.not414, label %204, label %proto_item_set_hidden.exit
 
@@ -5732,19 +5732,19 @@ proto_item_set_hidden.exit429:                    ; preds = %proto_item_set_hidd
   br label %proto_item_set_hidden.exit
 
 218:                                              ; preds = %proto_item_set_hidden.exit429
-  %219 = call fastcc i32 @check_auth_ntlmssp(ptr noundef %.0367, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %98)
+  %219 = call fastcc i32 @check_auth_ntlmssp(ptr noundef %.0367, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %98)
   %.not409 = icmp eq i32 %219, 0
   br i1 %.not409, label %220, label %proto_item_set_hidden.exit
 
 220:                                              ; preds = %218
-  %221 = call fastcc i32 @check_auth_kerberos(ptr noundef %.0367, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %98)
+  %221 = call fastcc i32 @check_auth_kerberos(ptr noundef %.0367, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %98)
   br label %proto_item_set_hidden.exit
 
 222:                                              ; preds = %proto_item_set_hidden.exit429
   br i1 %.not383, label %proto_item_set_hidden.exit, label %223
 
 223:                                              ; preds = %222
-  %224 = call noalias ptr @wmem_strdup(ptr noundef nonnull %41, ptr noundef %98) #14
+  %224 = call noalias ptr @wmem_strdup(ptr noundef nonnull %41, ptr noundef nonnull %98) #14
   store ptr %224, ptr %8, align 8
   %225 = icmp sgt i32 %100, 0
   br i1 %225, label %.lr.ph464, label %._crit_edge
@@ -5850,7 +5850,7 @@ proto_item_set_hidden.exit429:                    ; preds = %proto_item_set_hidd
 266:                                              ; preds = %264
   %267 = call ptr @__errno_location() #18
   store i32 0, ptr %267, align 4
-  %268 = call i64 @g_ascii_strtoll(ptr noundef %98, ptr noundef nonnull %14, i32 noundef 10) #14
+  %268 = call i64 @g_ascii_strtoll(ptr noundef nonnull %98, ptr noundef nonnull %14, i32 noundef 10) #14
   %269 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 %268, ptr %269, align 8
   %270 = load ptr, ptr %14, align 8
@@ -5923,7 +5923,7 @@ proto_item_set_generated.exit:                    ; preds = %286, %293, %296
 305:                                              ; preds = %304
   %sext403 = shl i64 %99, 32
   %306 = ashr exact i64 %sext403, 32
-  %307 = call noalias ptr @wmem_strndup(ptr noundef nonnull %41, ptr noundef %98, i64 noundef %306) #14
+  %307 = call noalias ptr @wmem_strndup(ptr noundef nonnull %41, ptr noundef nonnull %98, i64 noundef %306) #14
   %308 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %307, ptr %308, align 8
   br label %proto_item_set_hidden.exit
@@ -6054,7 +6054,7 @@ http_parse_transfer_coding.exit.thread:           ; preds = %340, %326, %http_pa
   %346 = load ptr, ptr %22, align 8
   %sext400 = shl i64 %99, 32
   %347 = ashr exact i64 %sext400, 32
-  %348 = call noalias ptr @wmem_strndup(ptr noundef %346, ptr noundef %98, i64 noundef %347) #14
+  %348 = call noalias ptr @wmem_strndup(ptr noundef %346, ptr noundef nonnull %98, i64 noundef %347) #14
   %349 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %348, ptr %349, align 8
   %350 = load ptr, ptr %26, align 8
@@ -6068,7 +6068,7 @@ http_parse_transfer_coding.exit.thread:           ; preds = %340, %326, %http_pa
 
 356:                                              ; preds = %345
   %357 = call ptr @wmem_file_scope() #14
-  %358 = call noalias ptr @wmem_strndup(ptr noundef %357, ptr noundef %98, i64 noundef %347) #14
+  %358 = call noalias ptr @wmem_strndup(ptr noundef %357, ptr noundef nonnull %98, i64 noundef %347) #14
   %359 = getelementptr inbounds nuw i8, ptr %21, i64 48
   store ptr %358, ptr %359, align 8
   br label %proto_item_set_hidden.exit
@@ -6079,7 +6079,7 @@ http_parse_transfer_coding.exit.thread:           ; preds = %340, %326, %http_pa
 361:                                              ; preds = %360
   %sext399 = shl i64 %99, 32
   %362 = ashr exact i64 %sext399, 32
-  %363 = call ptr @wmem_ascii_strdown(ptr noundef nonnull %41, ptr noundef %98, i64 noundef %362) #14
+  %363 = call ptr @wmem_ascii_strdown(ptr noundef nonnull %41, ptr noundef nonnull %98, i64 noundef %362) #14
   %364 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %363, ptr %364, align 8
   br label %proto_item_set_hidden.exit
@@ -6152,7 +6152,7 @@ http_parse_transfer_coding.exit.thread:           ; preds = %340, %326, %http_pa
   %395 = call ptr @wmem_file_scope() #14
   %sext394 = shl i64 %99, 32
   %396 = ashr exact i64 %sext394, 32
-  %397 = call noalias ptr @wmem_strndup(ptr noundef %395, ptr noundef %98, i64 noundef %396) #14
+  %397 = call noalias ptr @wmem_strndup(ptr noundef %395, ptr noundef nonnull %98, i64 noundef %396) #14
   %398 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %397, ptr %398, align 8
   br label %proto_item_set_hidden.exit
@@ -6165,7 +6165,7 @@ http_parse_transfer_coding.exit.thread:           ; preds = %340, %326, %http_pa
   %402 = call ptr @wmem_file_scope() #14
   %sext393 = shl i64 %99, 32
   %403 = ashr exact i64 %sext393, 32
-  %404 = call noalias ptr @wmem_strndup(ptr noundef %402, ptr noundef %98, i64 noundef %403) #14
+  %404 = call noalias ptr @wmem_strndup(ptr noundef %402, ptr noundef nonnull %98, i64 noundef %403) #14
   %405 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %404, ptr %405, align 8
   br label %proto_item_set_hidden.exit
@@ -6174,7 +6174,7 @@ http_parse_transfer_coding.exit.thread:           ; preds = %340, %326, %http_pa
   %407 = load ptr, ptr %22, align 8
   %sext392 = shl i64 %99, 32
   %408 = ashr exact i64 %sext392, 32
-  %409 = call noalias ptr @wmem_strndup(ptr noundef %407, ptr noundef %98, i64 noundef %408) #14
+  %409 = call noalias ptr @wmem_strndup(ptr noundef %407, ptr noundef nonnull %98, i64 noundef %408) #14
   %410 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store ptr %409, ptr %410, align 8
   br label %proto_item_set_hidden.exit
@@ -6193,7 +6193,7 @@ http_parse_transfer_coding.exit.thread:           ; preds = %340, %326, %http_pa
   %416 = load ptr, ptr %22, align 8
   %sext = shl i64 %99, 32
   %417 = ashr exact i64 %sext, 32
-  %418 = call noalias ptr @wmem_strndup(ptr noundef %416, ptr noundef %98, i64 noundef %417) #14
+  %418 = call noalias ptr @wmem_strndup(ptr noundef %416, ptr noundef nonnull %98, i64 noundef %417) #14
   %419 = getelementptr inbounds nuw i8, ptr %25, i64 64
   store ptr %418, ptr %419, align 8
   %420 = load ptr, ptr %22, align 8
@@ -6338,7 +6338,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare ptr @dissector_get_string_handle(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare ptr @dissector_get_uint_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -6358,7 +6358,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare noalias ptr @wmem_strndup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @copy_address_wmem(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 24)) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @copy_address_wmem(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 24)) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = load i32, ptr %5, align 4
@@ -6385,17 +6385,17 @@ alloc_address_wmem.exit:                          ; preds = %3, %10
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 declare zeroext i1 @ws_hexstrtou32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @basic_response_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture readnone %6, ptr noundef writeonly %7) #0 {
+define internal void @basic_response_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr readnone captures(none) %6, ptr noundef writeonly %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca [4 x i8], align 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -6423,7 +6423,7 @@ define internal void @basic_response_dissector(ptr noundef %0, ptr noundef %1, p
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %10, ptr noundef nonnull align 1 dereferenceable(3) %20, i64 3, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 3
   store i8 0, ptr %29, align 1
-  %30 = call i64 @strtoul(ptr nocapture noundef nonnull %10, ptr noundef null, i32 noundef 10) #14
+  %30 = call i64 @strtoul(ptr noundef nonnull captures(none) %10, ptr noundef null, i32 noundef 10) #14
   %31 = trunc i64 %30 to i32
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 %31, ptr %32, align 8
@@ -6482,7 +6482,7 @@ proto_item_set_generated.exit:                    ; preds = %35, %43, %46
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @basic_request_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture readnone %6, ptr noundef writeonly %7) #0 {
+define internal void @basic_request_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr readnone captures(none) %6, ptr noundef writeonly %7) #0 {
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %11 = load ptr, ptr %10, align 8
@@ -6573,10 +6573,10 @@ define internal void @basic_request_dissector(ptr noundef %0, ptr noundef %1, pt
 declare i32 @get_token_len(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -6595,7 +6595,7 @@ declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef,
 declare ptr @proto_registrar_get_nth(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @check_auth_ntlmssp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
@@ -7057,7 +7057,7 @@ define internal fastcc range(i32 0, 2) i32 @check_auth_kerberos(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_auth_digest(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_auth_digest(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str.503, i64 noundef 6) #15
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %.loopexit
@@ -7178,7 +7178,7 @@ declare ptr @prefs_get_range_value(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @range_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @range_delete_http_tls_callback(i32 noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @range_delete_http_tls_callback(i32 noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load ptr, ptr @http_tls_handle, align 8
   tail call void @ssl_dissector_delete(i32 noundef %0, ptr noundef %3) #14
   ret void
@@ -7189,7 +7189,7 @@ declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @range_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @range_add_http_tls_callback(i32 noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @range_add_http_tls_callback(i32 noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load ptr, ptr @http_tls_handle, align 8
   tail call void @ssl_dissector_add(i32 noundef %0, ptr noundef %3) #14
   ret void
@@ -7226,7 +7226,7 @@ declare ptr @tvb_memdup(ptr noundef, ptr noundef, i32 noundef, i64 noundef) loca
 declare i32 @stats_tree_manip_node_int(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 declare i32 @stats_tree_tick_pivot(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -7313,7 +7313,7 @@ define internal fastcc void @http_seq_stats_tick_request(ptr noundef %0, ptr nou
 declare zeroext i1 @wmem_map_lookup_extended(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @g_uri_parse_scheme(ptr noundef) local_unnamed_addr #1
 
@@ -7326,19 +7326,19 @@ declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unname
 declare void @conversation_set_dissector_from_frame_number(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #12

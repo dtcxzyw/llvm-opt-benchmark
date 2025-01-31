@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.16 = private unnamed_addr constant [26 x i8] c"TFP410_V_RES: 0x%02X%02X\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef zeroext i1 @tfp410_init(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef zeroext i1 @tfp410_init(ptr noundef captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 24), align 8
   %4 = tail call noalias noundef align 8 dereferenceable_or_null(1) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 1) #6
   %5 = icmp eq ptr %4, null
@@ -75,7 +75,7 @@ define internal noundef zeroext i1 @tfp410_init(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @tfp410_dpms(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 align 16 {
+define internal void @tfp410_dpms(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) #0 align 16 {
   %3 = alloca [2 x i8], align 2
   %4 = alloca %struct.i2c_msg, align 8
   %5 = alloca [2 x i8], align 2
@@ -176,17 +176,17 @@ define internal void @tfp410_dpms(ptr nocapture noundef readonly %0, i1 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @tfp410_mode_valid(ptr nocapture readnone %0, ptr nocapture readnone %1) #1 align 16 {
+define internal noundef i32 @tfp410_mode_valid(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #1 align 16 {
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @tfp410_mode_set(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #1 align 16 {
+define internal void @tfp410_mode_set(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #1 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 1, 3) i32 @tfp410_detect(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 1, 3) i32 @tfp410_detect(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = alloca [2 x i8], align 2
   %3 = alloca [2 x i8], align 2
   %4 = alloca [2 x %struct.i2c_msg], align 16
@@ -247,7 +247,7 @@ define internal range(i32 1, 3) i32 @tfp410_detect(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @tfp410_get_hw_state(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal zeroext i1 @tfp410_get_hw_state(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = alloca [2 x i8], align 2
   %3 = alloca [2 x i8], align 2
   %4 = alloca [2 x %struct.i2c_msg], align 16
@@ -307,7 +307,7 @@ define internal zeroext i1 @tfp410_get_hw_state(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @tfp410_destroy(ptr nocapture noundef %0) #0 align 16 {
+define internal void @tfp410_destroy(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -323,7 +323,7 @@ define internal void @tfp410_destroy(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @tfp410_dump_regs(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @tfp410_dump_regs(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = alloca [2 x i8], align 2
   %3 = alloca [2 x i8], align 2
   %4 = alloca [2 x %struct.i2c_msg], align 16
@@ -1166,10 +1166,10 @@ define internal void @tfp410_dump_regs(ptr nocapture noundef readonly %0) #0 ali
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -1, 65536) i32 @tfp410_getid(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -1, 65536) i32 @tfp410_getid(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #0 align 16 {
   %3 = alloca [2 x i8], align 2
   %4 = alloca [2 x i8], align 2
   %5 = alloca [2 x %struct.i2c_msg], align 16
@@ -1302,13 +1302,13 @@ declare dso_local void @___drm_dbg(ptr noundef, i32 noundef, ptr noundef, ...) l
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @i2c_transfer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3

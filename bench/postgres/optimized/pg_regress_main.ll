@@ -33,13 +33,13 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 declare i32 @regression_main(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @psql_init(i32 %0, ptr nocapture readnone %1) #0 {
+define internal void @psql_init(i32 %0, ptr readnone captures(none) %1) #0 {
   tail call void @add_stringlist_item(ptr noundef nonnull @dblist, ptr noundef nonnull @.str) #6
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, -1) i32 @psql_start_test(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, -1) i32 @psql_start_test(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca [1024 x i8], align 16
   %6 = alloca [1024 x i8], align 16
   %7 = alloca [1024 x i8], align 16
@@ -124,7 +124,7 @@ declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @spawn_process(ptr noundef) local_unnamed_addr #1
 
@@ -134,7 +134,7 @@ declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unsetenv(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @unsetenv(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 

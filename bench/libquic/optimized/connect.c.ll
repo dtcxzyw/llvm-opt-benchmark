@@ -177,7 +177,7 @@ if.end3.i:                                        ; preds = %if.then.i, %entry
   %2 = load i32, ptr %num.i, align 8
   %sext = shl i64 %call, 32
   %conv.i = ashr exact i64 %sext, 32
-  %call4.i = tail call i64 @send(i32 noundef %2, ptr noundef %str, i64 noundef %conv.i, i32 noundef 0) #9
+  %call4.i = tail call i64 @send(i32 noundef %2, ptr noundef nonnull %str, i64 noundef %conv.i, i32 noundef 0) #9
   %conv5.i = trunc i64 %call4.i to i32
   tail call void @BIO_clear_retry_flags(ptr noundef nonnull %bp) #9
   %cmp6.i = icmp slt i32 %conv5.i, 1
@@ -338,7 +338,7 @@ sw.epilog:                                        ; preds = %if.then21, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @conn_new(ptr nocapture noundef writeonly initializes((24, 28), (32, 36), (40, 44), (48, 56)) %bio) #3 {
+define internal range(i32 0, 2) i32 @conn_new(ptr noundef writeonly captures(none) initializes((24, 28), (32, 36), (40, 44), (48, 56)) %bio) #3 {
 entry:
   %init = getelementptr inbounds nuw i8, ptr %bio, i64 24
   store i32 0, ptr %init, align 8
@@ -412,7 +412,7 @@ return:                                           ; preds = %if.end.i5, %if.end2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i64 0, 2) i64 @conn_callback_ctrl(ptr nocapture noundef readonly %bio, i32 noundef %cmd, ptr noundef %fp) #4 {
+define internal range(i64 0, 2) i64 @conn_callback_ctrl(ptr noundef readonly captures(none) %bio, i32 noundef %cmd, ptr noundef %fp) #4 {
 entry:
   %cond = icmp eq i32 %cmd, 14
   br i1 %cond, label %sw.bb, label %sw.epilog
@@ -726,7 +726,7 @@ declare void @BIO_set_retry_write(ptr noundef) local_unnamed_addr #1
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #1
 
@@ -747,7 +747,7 @@ declare i32 @bio_sock_error(i32 noundef) local_unnamed_addr #1
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @BUF_strndup(ptr noundef, i64 noundef) local_unnamed_addr #1
 

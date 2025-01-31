@@ -2048,7 +2048,7 @@ declare void @llvm.trap() #8
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3g2o12_GLOBAL__N_114AllocateSolverILin1ELin1ELb1EEESt10unique_ptrINS_15BlockSolverBaseESt14default_deleteIS3_EEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) #7 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3g2o12_GLOBAL__N_114AllocateSolverILin1ELin1ELb1EEESt10unique_ptrINS_15BlockSolverBaseESt14default_deleteIS3_EEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0) #7 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #32, !noalias !16
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 1, ptr %3, align 8, !noalias !16
@@ -2189,7 +2189,7 @@ _ZNSt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS2_EEvE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3g2o12_GLOBAL__N_114AllocateSolverILi3ELi2ELb1EEESt10unique_ptrINS_15BlockSolverBaseESt14default_deleteIS3_EEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) #7 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3g2o12_GLOBAL__N_114AllocateSolverILi3ELi2ELb1EEESt10unique_ptrINS_15BlockSolverBaseESt14default_deleteIS3_EEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0) #7 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #32, !noalias !22
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 1, ptr %3, align 8, !noalias !22
@@ -2330,7 +2330,7 @@ _ZNSt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS2_EEvE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3g2o12_GLOBAL__N_114AllocateSolverILi6ELi3ELb1EEESt10unique_ptrINS_15BlockSolverBaseESt14default_deleteIS3_EEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) #7 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3g2o12_GLOBAL__N_114AllocateSolverILi6ELi3ELb1EEESt10unique_ptrINS_15BlockSolverBaseESt14default_deleteIS3_EEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0) #7 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #32, !noalias !28
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 1, ptr %3, align 8, !noalias !28
@@ -2418,7 +2418,7 @@ _ZNKSt14default_deleteIN3g2o19LinearSolverCSparseIN5Eigen6MatrixIdLi6ELi6ELi0ELi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3g2o12_GLOBAL__N_114AllocateSolverILi7ELi3ELb1EEESt10unique_ptrINS_15BlockSolverBaseESt14default_deleteIS3_EEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) #7 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3g2o12_GLOBAL__N_114AllocateSolverILi7ELi3ELb1EEESt10unique_ptrINS_15BlockSolverBaseESt14default_deleteIS3_EEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0) #7 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #32, !noalias !34
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 1, ptr %3, align 8, !noalias !34
@@ -2506,7 +2506,7 @@ _ZNKSt14default_deleteIN3g2o19LinearSolverCSparseIN5Eigen6MatrixIdLi7ELi7ELi0ELi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3g2o12_GLOBAL__N_114AllocateSolverILi3ELi2ELb0EEESt10unique_ptrINS_15BlockSolverBaseESt14default_deleteIS3_EEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) #7 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3g2o12_GLOBAL__N_114AllocateSolverILi3ELi2ELb0EEESt10unique_ptrINS_15BlockSolverBaseESt14default_deleteIS3_EEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0) #7 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #32, !noalias !40
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 1, ptr %3, align 8, !noalias !40
@@ -2647,7 +2647,7 @@ _ZNSt8functionIFSt10unique_ptrIN3g2o15BlockSolverBaseESt14default_deleteIS2_EEvE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3g2o12_GLOBAL__N_114AllocateSolverILi6ELi3ELb0EEESt10unique_ptrINS_15BlockSolverBaseESt14default_deleteIS3_EEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) #7 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3g2o12_GLOBAL__N_114AllocateSolverILi6ELi3ELb0EEESt10unique_ptrINS_15BlockSolverBaseESt14default_deleteIS3_EEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0) #7 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #32, !noalias !46
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 1, ptr %3, align 8, !noalias !46
@@ -2735,7 +2735,7 @@ _ZNKSt14default_deleteIN3g2o19LinearSolverCSparseIN5Eigen6MatrixIdLi6ELi6ELi0ELi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3g2o12_GLOBAL__N_114AllocateSolverILi7ELi3ELb0EEESt10unique_ptrINS_15BlockSolverBaseESt14default_deleteIS3_EEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) #7 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3g2o12_GLOBAL__N_114AllocateSolverILi7ELi3ELb0EEESt10unique_ptrINS_15BlockSolverBaseESt14default_deleteIS3_EEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0) #7 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #32, !noalias !52
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 1, ptr %3, align 8, !noalias !52
@@ -4594,7 +4594,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
@@ -4606,7 +4606,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #12
 declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #14
@@ -4865,7 +4865,7 @@ declare noundef zeroext i1 @_ZN3g2o7csparse7CSparse9analyze_pEPi(ptr noundef non
 declare void @_ZN3g2o15MatrixStructure5allocEii(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #15
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5Eigen12DenseStorageIiLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #7 comdat align 2 {
@@ -11249,7 +11249,7 @@ _ZNSt12_Vector_baseISt3mapIiPN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESt4lessIi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEESt10_Select1stIS6_ESt4lessIiESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #7 comdat align 2 {
@@ -17952,7 +17952,7 @@ define linkonce_odr void @_ZN5Eigen8internal22lhs_process_one_packetILi4ELl2ELl1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #21
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #21
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5Eigen8internal20generic_product_implINS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEES7_NS_10DenseShapeES8_Li8EE13scaleAndAddToIS7_EEvRT_RKS7_SE_RKd(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -62464,7 +62464,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #22
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #22
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -64615,10 +64615,10 @@ declare i64 @llvm.smin.i64(i64, i64) #25
 declare void @llvm.experimental.noalias.scope.decl(metadata) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #25

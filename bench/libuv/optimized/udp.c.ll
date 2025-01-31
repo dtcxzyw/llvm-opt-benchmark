@@ -227,7 +227,7 @@ if.end45:                                         ; preds = %if.then19, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @uv__udp_bind(ptr nocapture noundef %handle, ptr noundef %addr, i32 noundef %addrlen, i32 noundef %flags) local_unnamed_addr #0 {
+define hidden i32 @uv__udp_bind(ptr noundef captures(none) %handle, ptr noundef %addr, i32 noundef %addrlen, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %yes.i25 = alloca i32, align 4
   %yes.i = alloca i32, align 4
@@ -380,7 +380,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @uv__udp_connect(ptr nocapture noundef %handle, ptr noundef %addr, i32 noundef %addrlen) local_unnamed_addr #0 {
+define hidden i32 @uv__udp_connect(ptr noundef captures(none) %handle, ptr noundef %addr, i32 noundef %addrlen) local_unnamed_addr #0 {
 entry:
   %taddr.i = alloca %union.uv__sockaddr, align 4
   %0 = load i16, ptr %addr, align 2
@@ -499,7 +499,7 @@ return:                                           ; preds = %uv__udp_maybe_defer
 declare i32 @connect(i32 noundef, ptr, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483647, -2147483648) i32 @uv__udp_disconnect(ptr nocapture noundef %handle) local_unnamed_addr #0 {
+define hidden range(i32 -2147483647, -2147483648) i32 @uv__udp_disconnect(ptr noundef captures(none) %handle) local_unnamed_addr #0 {
 entry:
   %addr = alloca %struct.sockaddr, align 2
   %call = tail call ptr @__errno_location() #11
@@ -536,10 +536,10 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @uv__udp_send(ptr noundef %req, ptr noundef %handle, ptr nocapture noundef readonly %bufs, i32 noundef %nbufs, ptr noundef readonly %addr, i32 noundef %addrlen, ptr noundef %send_cb) local_unnamed_addr #0 {
+define hidden i32 @uv__udp_send(ptr noundef %req, ptr noundef %handle, ptr noundef readonly captures(none) %bufs, i32 noundef %nbufs, ptr noundef readonly %addr, i32 noundef %addrlen, ptr noundef %send_cb) local_unnamed_addr #0 {
 entry:
   %taddr.i = alloca %union.uv__sockaddr, align 4
   %tobool.not = icmp eq ptr %addr, null
@@ -749,7 +749,7 @@ return:                                           ; preds = %uv__udp_maybe_defer
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @uv__malloc(i64 noundef) local_unnamed_addr #1
 
@@ -948,7 +948,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @uv__io_start(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @uv__udp_try_send(ptr nocapture noundef %handle, ptr noundef %bufs, i32 noundef %nbufs, ptr noundef %addr, i32 noundef %addrlen) local_unnamed_addr #0 {
+define hidden i32 @uv__udp_try_send(ptr noundef captures(none) %handle, ptr noundef %bufs, i32 noundef %nbufs, ptr noundef %addr, i32 noundef %addrlen) local_unnamed_addr #0 {
 entry:
   %taddr.i = alloca %union.uv__sockaddr, align 4
   %h = alloca %struct.msghdr, align 8
@@ -1132,7 +1132,7 @@ return:                                           ; preds = %if.then, %do.body
 declare void @uv__io_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @uv__udp_io(ptr nocapture readnone %loop, ptr noundef %w, i32 noundef %revents) #0 {
+define internal void @uv__udp_io(ptr readnone captures(none) %loop, ptr noundef %w, i32 noundef %revents) #0 {
 entry:
   %peers.i.i = alloca [20 x %struct.sockaddr_in6], align 16
   %iov.i.i = alloca [20 x %struct.iovec], align 16
@@ -1408,7 +1408,7 @@ if.end4:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @uv_udp_using_recvmmsg(ptr nocapture noundef readonly %handle) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @uv_udp_using_recvmmsg(ptr noundef readonly captures(none) %handle) local_unnamed_addr #6 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %0 = load i32, ptr %flags, align 8
@@ -1482,7 +1482,7 @@ declare i32 @uv__nonblock_ioctl(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @uv__udp_is_connected(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_udp_set_membership(ptr nocapture noundef %handle, ptr noundef %multicast_addr, ptr noundef %interface_addr, i32 noundef %membership) local_unnamed_addr #0 {
+define i32 @uv_udp_set_membership(ptr noundef captures(none) %handle, ptr noundef %multicast_addr, ptr noundef %interface_addr, i32 noundef %membership) local_unnamed_addr #0 {
 entry:
   %mreq.i19 = alloca %struct.ipv6_mreq, align 4
   %addr6.i = alloca %struct.sockaddr_in6, align 4
@@ -1647,7 +1647,7 @@ declare i32 @uv_ip4_addr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_ad
 declare i32 @uv_ip6_addr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_udp_set_source_membership(ptr nocapture noundef %handle, ptr noundef %multicast_addr, ptr noundef %interface_addr, ptr noundef %source_addr, i32 noundef %membership) local_unnamed_addr #0 {
+define i32 @uv_udp_set_source_membership(ptr noundef captures(none) %handle, ptr noundef %multicast_addr, ptr noundef %interface_addr, ptr noundef %source_addr, i32 noundef %membership) local_unnamed_addr #0 {
 entry:
   %taddr.i.i12 = alloca %union.uv__sockaddr, align 4
   %mreq.i13 = alloca %struct.ip_mreq_source, align 4
@@ -1824,7 +1824,7 @@ return:                                           ; preds = %if.end9, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @uv_udp_set_broadcast(ptr nocapture noundef readonly %handle, i32 noundef %on) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_udp_set_broadcast(ptr noundef readonly captures(none) %handle, i32 noundef %on) local_unnamed_addr #0 {
 entry:
   %on.addr = alloca i32, align 4
   store i32 %on, ptr %on.addr, align 4
@@ -1846,7 +1846,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @uv_udp_set_ttl(ptr nocapture noundef readonly %handle, i32 noundef %ttl) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_udp_set_ttl(ptr noundef readonly captures(none) %handle, i32 noundef %ttl) local_unnamed_addr #0 {
 entry:
   %arg.i = alloca i32, align 4
   %0 = add i32 %ttl, -256
@@ -1894,7 +1894,7 @@ return:                                           ; preds = %entry, %uv__setsock
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @uv_udp_set_multicast_ttl(ptr nocapture noundef readonly %handle, i32 noundef %ttl) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_udp_set_multicast_ttl(ptr noundef readonly captures(none) %handle, i32 noundef %ttl) local_unnamed_addr #0 {
 entry:
   %arg.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %arg.i)
@@ -1937,7 +1937,7 @@ uv__setsockopt_maybe_char.exit:                   ; preds = %entry, %if.end.i.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @uv_udp_set_multicast_loop(ptr nocapture noundef readonly %handle, i32 noundef %on) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_udp_set_multicast_loop(ptr noundef readonly captures(none) %handle, i32 noundef %on) local_unnamed_addr #0 {
 entry:
   %arg.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %arg.i)
@@ -1980,7 +1980,7 @@ uv__setsockopt_maybe_char.exit:                   ; preds = %entry, %if.end.i.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @uv_udp_set_multicast_interface(ptr nocapture noundef readonly %handle, ptr noundef %interface_addr) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_udp_set_multicast_interface(ptr noundef readonly captures(none) %handle, ptr noundef %interface_addr) local_unnamed_addr #0 {
 entry:
   %addr_st = alloca %struct.sockaddr_storage, align 8
   %tobool.not = icmp eq ptr %interface_addr, null
@@ -2243,10 +2243,10 @@ declare i32 @uv_inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8

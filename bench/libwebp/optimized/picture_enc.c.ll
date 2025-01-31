@@ -30,10 +30,10 @@ define range(i32 0, 2) i32 @WebPPictureInitInternal(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @DummyWriter(ptr nocapture readnone %0, i64 %1, ptr nocapture readnone %2) #2 {
+define internal noundef i32 @DummyWriter(ptr readnone captures(none) %0, i64 %1, ptr readnone captures(none) %2) #2 {
   ret i32 1
 }
 
@@ -75,7 +75,7 @@ define hidden i32 @WebPValidatePicture(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @WebPPictureResetBuffers(ptr nocapture noundef writeonly initializes((16, 60), (72, 84), (224, 240)) %0) local_unnamed_addr #4 {
+define hidden void @WebPPictureResetBuffers(ptr noundef writeonly captures(none) initializes((16, 60), (72, 84), (224, 240)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -316,13 +316,13 @@ define void @WebPPictureFree(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @WebPMemoryWriterInit(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #4 {
+define void @WebPMemoryWriterInit(ptr noundef writeonly captures(none) initializes((0, 24)) %0) local_unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WebPMemoryWrite(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 {
+define range(i32 0, 2) i32 @WebPMemoryWrite(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -382,7 +382,7 @@ define range(i32 0, 2) i32 @WebPMemoryWrite(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define void @WebPMemoryWriterClear(ptr noundef %0) local_unnamed_addr #0 {
@@ -1135,10 +1135,10 @@ declare i32 @WebPConfigInitInternal(ptr noundef, i32 noundef, float noundef, i32
 declare i64 @llvm.umax.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

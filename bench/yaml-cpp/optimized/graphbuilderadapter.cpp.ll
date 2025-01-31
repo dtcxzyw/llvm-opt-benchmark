@@ -173,7 +173,7 @@ _ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit: ; preds = %if.then.i13, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #1 align 2 {
+define noundef ptr @_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %this) local_unnamed_addr #1 align 2 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %_M_start.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -243,7 +243,7 @@ if.end:                                           ; preds = %_ZN4YAML10AnchorDic
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this, ptr noundef %pNode) local_unnamed_addr #0 align 2 {
+define void @_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %this, ptr noundef %pNode) local_unnamed_addr #0 align 2 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %_M_start.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -319,7 +319,7 @@ if.end18:                                         ; preds = %if.then9, %if.else,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML19GraphBuilderAdapter7OnAliasERKNS_4MarkEm(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark, i64 noundef %anchor) unnamed_addr #0 align 2 {
+define void @_ZN4YAML19GraphBuilderAdapter7OnAliasERKNS_4MarkEm(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark, i64 noundef %anchor) unnamed_addr #0 align 2 {
 entry:
   %m_anchors = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_anchors, align 8
@@ -634,7 +634,7 @@ _ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit: ; preds = %_ZNSt5stackIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML19GraphBuilderAdapter13OnSequenceEndEv(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML19GraphBuilderAdapter13OnSequenceEndEv(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !28
@@ -839,7 +839,7 @@ _ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit: ; preds = %_ZNSt5stackIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML19GraphBuilderAdapter8OnMapEndEv(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((128, 136)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML19GraphBuilderAdapter8OnMapEndEv(ptr noundef nonnull align 8 captures(none) dereferenceable(136) initializes((128, 136)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !37
@@ -1152,7 +1152,7 @@ _ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE22_M_reserve_map
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #5
@@ -1276,7 +1276,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: noreturn
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #5
@@ -1390,7 +1390,7 @@ if.end44:                                         ; preds = %_ZSt27__uninitializ
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #9

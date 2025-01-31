@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_line_class = constant { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, [5 x i8] } { ptr @lv_obj_class, ptr @lv_line_constructor, ptr null, ptr @lv_line_event, ptr null, ptr @.str, i32 1073741823, i32 1073741823, i8 0, i8 5, i8 0, [5 x i8] zeroinitializer }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_line_constructor(ptr nocapture readnone %0, ptr noundef initializes((64, 76)) %1) #0 {
+define internal void @lv_line_constructor(ptr readnone captures(none) %0, ptr noundef initializes((64, 76)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 0, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -29,7 +29,7 @@ define internal void @lv_line_constructor(ptr nocapture readnone %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_line_event(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_line_event(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.lv_area_t, align 4
   %4 = alloca %struct.lv_draw_line_dsc_t, align 8
   %5 = tail call i32 @lv_obj_event_base(ptr noundef nonnull @lv_line_class, ptr noundef %1) #5
@@ -326,14 +326,14 @@ define noundef ptr @lv_line_create(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_line_set_points(ptr noundef initializes((64, 76)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -388,21 +388,21 @@ define void @lv_line_set_y_invert(ptr noundef %0, i1 noundef zeroext %1) local_u
 declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_line_get_points(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_line_get_points(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_line_get_point_count(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_line_get_point_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8, !tbaa !3
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_line_is_point_array_mutable(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define zeroext i1 @lv_line_is_point_array_mutable(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, 2
@@ -411,7 +411,7 @@ define zeroext i1 @lv_line_is_point_array_mutable(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_line_get_points_mutable(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_line_get_points_mutable(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, 2
@@ -429,7 +429,7 @@ define ptr @lv_line_get_points_mutable(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_line_get_y_invert(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define zeroext i1 @lv_line_get_y_invert(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, 1

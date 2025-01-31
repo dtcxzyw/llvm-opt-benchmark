@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_image_class = constant { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, [5 x i8] } { ptr @lv_obj_class, ptr @lv_image_constructor, ptr @lv_image_destructor, ptr @lv_image_event, ptr null, ptr @.str, i32 1073741823, i32 1073741823, i8 -128, i8 7, i8 0, [5 x i8] zeroinitializer }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_image_constructor(ptr nocapture readnone %0, ptr noundef initializes((64, 72)) %1) #0 {
+define internal void @lv_image_constructor(ptr readnone captures(none) %0, ptr noundef initializes((64, 72)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr null, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 116
@@ -54,7 +54,7 @@ define internal void @lv_image_constructor(ptr nocapture readnone %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_image_destructor(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 {
+define internal void @lv_image_destructor(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %4 = load i16, ptr %3, align 4
   %5 = and i16 %4, 3
@@ -77,7 +77,7 @@ define internal void @lv_image_destructor(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_image_event(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_image_event(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.lv_area_t, align 4
   %4 = alloca %struct.lv_point_t, align 4
   %5 = alloca %struct._lv_draw_image_dsc_t, align 8
@@ -629,14 +629,14 @@ define noundef ptr @lv_image_create(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_image_set_src(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1022,7 +1022,7 @@ declare i32 @lv_obj_get_width(ptr noundef) local_unnamed_addr #2
 declare i32 @lv_obj_get_height(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_image_get_pivot(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define void @lv_image_get_pivot(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load i32, ptr %3, align 4, !tbaa !18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1431,28 +1431,28 @@ define void @lv_image_set_bitmap_map_src(ptr noundef initializes((72, 80)) %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_image_get_src(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_image_get_src(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_image_get_offset_x(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_image_get_offset_x(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8, !tbaa !49
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_image_get_offset_y(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_image_get_offset_y(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %3 = load i32, ptr %2, align 4, !tbaa !50
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_image_get_rotation(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_image_get_rotation(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8, !tbaa !15
   ret i32 %3
@@ -1461,28 +1461,28 @@ define i32 @lv_image_get_rotation(ptr nocapture noundef readonly %0) local_unnam
 declare i32 @lv_pct_to_px(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_image_get_scale(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_image_get_scale(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %3 = load i32, ptr %2, align 4, !tbaa !16
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_image_get_scale_x(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_image_get_scale_x(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %3 = load i32, ptr %2, align 4, !tbaa !16
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_image_get_scale_y(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_image_get_scale_y(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i32, ptr %2, align 8, !tbaa !17
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 16) i32 @lv_image_get_blend_mode(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define range(i32 0, 16) i32 @lv_image_get_blend_mode(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %3 = load i16, ptr %2, align 4
   %4 = lshr i16 %3, 12
@@ -1491,7 +1491,7 @@ define range(i32 0, 16) i32 @lv_image_get_blend_mode(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_image_get_antialias(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define zeroext i1 @lv_image_get_antialias(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %3 = load i16, ptr %2, align 4
   %4 = and i16 %3, 128
@@ -1500,7 +1500,7 @@ define zeroext i1 @lv_image_get_antialias(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 16) i32 @lv_image_get_inner_align(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define range(i32 0, 16) i32 @lv_image_get_inner_align(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %3 = load i16, ptr %2, align 4
   %4 = lshr i16 %3, 8
@@ -1510,7 +1510,7 @@ define range(i32 0, 16) i32 @lv_image_get_inner_align(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_image_get_bitmap_map_src(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_image_get_bitmap_map_src(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !36
   ret ptr %3
@@ -1545,7 +1545,7 @@ declare void @lv_draw_image_dsc_init(ptr noundef) local_unnamed_addr #2
 declare void @lv_obj_init_draw_image_dsc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @lv_area_set(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 

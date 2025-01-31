@@ -346,7 +346,7 @@ define hidden void @_ZN14XPageAllocatorC2EP8XWorkersmmm(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @_ZN10XPageCacheC1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #0
 
@@ -650,7 +650,7 @@ _ZN7XLockerI5XLockED2Ev.exit:                     ; preds = %39, %42, %_ZN14XPag
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK14XPageAllocator14is_initializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(609) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK14XPageAllocator14is_initializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(609) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -658,14 +658,14 @@ define hidden noundef zeroext i1 @_ZNK14XPageAllocator14is_initializedEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK14XPageAllocator12min_capacityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(609) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef i64 @_ZNK14XPageAllocator12min_capacityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(609) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK14XPageAllocator12max_capacityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(609) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef i64 @_ZNK14XPageAllocator12max_capacityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(609) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %3 = load i64, ptr %2, align 8
   ret i64 %3
@@ -709,7 +709,7 @@ define hidden noundef range(i64 0, -9223372036854775808) i64 @_ZNK14XPageAllocat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14XPageAllocator5statsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.XPageAllocatorStats) align 8 initializes((0, 24), (32, 72)) %0, ptr noundef nonnull align 8 dereferenceable(609) %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK14XPageAllocator5statsEv(ptr dead_on_unwind noalias writable writeonly sret(%class.XPageAllocatorStats) align 8 captures(none) initializes((0, 24), (32, 72)) %0, ptr noundef nonnull align 8 dereferenceable(609) %1) local_unnamed_addr #1 align 2 {
 _ZN7XLockerI5XLockED2Ev.exit:
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #14
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 392
@@ -925,7 +925,7 @@ define hidden void @_ZNK14XPageAllocator8map_pageEPK5XPage(ptr noundef nonnull a
 declare void @_ZNK22XPhysicalMemoryManager3mapEmRK15XPhysicalMemory(ptr noundef nonnull align 8 dereferenceable(160), i64 noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14XPageAllocator10unmap_pageEPK5XPage(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK14XPageAllocator10unmap_pageEPK5XPage(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
@@ -1467,7 +1467,7 @@ _ZN7XLockerI5XLockED2Ev.exit.thread:              ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14XPageAllocator17alloc_page_createEP15XPageAllocation(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr nocapture noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN14XPageAllocator17alloc_page_createEP15XPageAllocation(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.XVirtualMemory, align 8
   %4 = alloca %class.XPhysicalMemory, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1641,7 +1641,7 @@ declare void @_ZN22XPhysicalMemoryManager5allocER15XPhysicalMemorym(ptr noundef 
 declare void @_ZN5XPageC1EhRK14XVirtualMemoryRK15XPhysicalMemory(ptr noundef nonnull align 8 dereferenceable(136), i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK14XPageAllocator17should_defragmentEPK5XPage(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK14XPageAllocator17should_defragmentEPK5XPage(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = load i8, ptr %1, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %15
@@ -1667,7 +1667,7 @@ define hidden noundef zeroext i1 @_ZNK14XPageAllocator17should_defragmentEPK5XPa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK14XPageAllocator18is_alloc_satisfiedEP15XPageAllocation(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK14XPageAllocator18is_alloc_satisfiedEP15XPageAllocation(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 1
@@ -1722,7 +1722,7 @@ _ZNK14XPageAllocator17should_defragmentEPK5XPage.exit.thread: ; preds = %21, %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14XPageAllocator19alloc_page_finalizeEP15XPageAllocation(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr nocapture noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN14XPageAllocator19alloc_page_finalizeEP15XPageAllocation(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %4, 1
@@ -1856,7 +1856,7 @@ _ZN5XListI5XPageE12remove_firstEv.exit:           ; preds = %33, %_ZNK14XPageAll
 declare noundef ptr @_ZN5XPage15split_committedEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14XPageAllocator17alloc_page_failedEP15XPageAllocation(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr nocapture noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14XPageAllocator17alloc_page_failedEP15XPageAllocation(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.GCLogPreciousHandle, align 8
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -2289,7 +2289,7 @@ _ZN8JfrEventI20EventZPageAllocationE6commitEv.exit: ; preds = %7, %65, %_ZN8JfrE
 declare void @_ZN10XPageCache9free_pageEP5XPage(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14XPageAllocator10free_pagesEPK18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EEb(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14XPageAllocator10free_pagesEPK18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EEb(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   %5 = load i32, ptr %1, align 4
   %6 = icmp eq i32 %5, 0
@@ -2596,7 +2596,7 @@ _ZN26SuspendibleThreadSetJoinerD2Ev.exit23:       ; preds = %_ZN26SuspendibleThr
 declare noundef i64 @_ZN10XPageCache18flush_for_uncommitEmP5XListI5XPageEPm(ptr noundef nonnull align 8 dereferenceable(64), i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14XPageAllocator22enable_deferred_deleteEv(ptr nocapture noundef nonnull align 8 dereferenceable(609) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK14XPageAllocator22enable_deferred_deleteEv(ptr noundef nonnull align 8 captures(none) dereferenceable(609) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -2719,7 +2719,7 @@ define hidden void @_ZNK14XPageAllocator14debug_map_pageEPK5XPage(ptr noundef no
 declare void @_ZNK22XPhysicalMemoryManager9debug_mapEmRK15XPhysicalMemory(ptr noundef nonnull align 8 dereferenceable(160), i64 noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14XPageAllocator16debug_unmap_pageEPK5XPage(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK14XPageAllocator16debug_unmap_pageEPK5XPage(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
@@ -2880,7 +2880,7 @@ _ZN7XLockerI5XLockED2Ev.exit:                     ; preds = %select.unfold, %1, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14XPageAllocator10threads_doEP13ThreadClosure(ptr nocapture noundef nonnull readonly align 8 dereferenceable(609) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK14XPageAllocator10threads_doEP13ThreadClosure(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(609) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -4823,10 +4823,10 @@ declare i64 @llvm.umax.i64(i64, i64) #12
 declare i32 @llvm.ctpop.i32(i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

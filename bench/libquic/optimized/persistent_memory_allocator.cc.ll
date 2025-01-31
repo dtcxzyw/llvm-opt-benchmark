@@ -62,7 +62,7 @@ $__clang_call_terminate = comdat any
 @_ZN4base29FilePersistentMemoryAllocatorD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4base29FilePersistentMemoryAllocatorD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base25PersistentMemoryAllocator8IteratorC2EPKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %allocator) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base25PersistentMemoryAllocator8IteratorC2EPKS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef %allocator) unnamed_addr #0 align 2 {
 entry:
   store ptr %allocator, ptr %this, align 8
   %last_record_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -73,7 +73,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local void @_ZN4base25PersistentMemoryAllocator8IteratorC2EPKS0_j(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %allocator, i32 noundef %starting_after) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4base25PersistentMemoryAllocator8IteratorC2EPKS0_j(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef %allocator, i32 noundef %starting_after) unnamed_addr #1 align 2 {
 entry:
   store ptr %allocator, ptr %this, align 8
   %last_record_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -138,7 +138,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local noundef ptr @_ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %ref, i32 noundef %type_id, i32 noundef %size, i1 noundef zeroext %queue_ok, i1 noundef zeroext %free_ok) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i32 noundef %ref, i32 noundef %type_id, i32 noundef %size, i1 noundef zeroext %queue_ok, i1 noundef zeroext %free_ok) local_unnamed_addr #1 align 2 {
 entry:
   %rem = and i32 %ref, 7
   %cmp.not = icmp eq i32 %rem, 0
@@ -212,7 +212,7 @@ return:                                           ; preds = %land.lhs.true36, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 56, 1) i32 @_ZN4base25PersistentMemoryAllocator8Iterator7GetNextEPj(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef writeonly %type_return) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 56, 1) i32 @_ZN4base25PersistentMemoryAllocator8Iterator7GetNextEPj(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef writeonly captures(none) %type_return) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i80 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp2.i = alloca %"class.logging::LogMessage", align 8
@@ -454,7 +454,7 @@ return:                                           ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4base25PersistentMemoryAllocator10SetCorruptEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4base25PersistentMemoryAllocator10SetCorruptEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.logging::LogMessage", align 8
   %call = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
@@ -504,7 +504,7 @@ if.end:                                           ; preds = %_ZNVSt13__atomic_ba
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 56, 1) i32 @_ZN4base25PersistentMemoryAllocator8Iterator13GetNextOfTypeEj(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %type_match) local_unnamed_addr #2 align 2 {
+define dso_local noundef range(i32 56, 1) i32 @_ZN4base25PersistentMemoryAllocator8Iterator13GetNextOfTypeEj(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, i32 noundef %type_match) local_unnamed_addr #2 align 2 {
 entry:
   %type_found = alloca i32, align 4
   br label %while.cond
@@ -558,7 +558,7 @@ land.end:                                         ; preds = %lor.lhs.false10, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base25PersistentMemoryAllocatorC2EPvmmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEb(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 26), (32, 48)) %this, ptr noundef %base, i64 noundef %size, i64 noundef %page_size, i64 noundef %id, ptr noundef byval(%"class.base::BasicStringPiece") align 8 %name, i1 noundef zeroext %readonly) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base25PersistentMemoryAllocatorC2EPvmmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEb(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 26), (32, 48)) %this, ptr noundef %base, i64 noundef %size, i64 noundef %page_size, i64 noundef %id, ptr noundef byval(%"class.base::BasicStringPiece") align 8 %name, i1 noundef zeroext %readonly) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i127 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp2.i90 = alloca %"class.logging::LogMessage", align 8
@@ -1170,7 +1170,7 @@ declare noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_strin
 declare noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 56, 1) i32 @_ZN4base25PersistentMemoryAllocator8AllocateEmj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %req_size, i32 noundef %type_id) local_unnamed_addr #2 align 2 {
+define dso_local noundef range(i32 56, 1) i32 @_ZN4base25PersistentMemoryAllocator8AllocateEmj(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, i64 noundef %req_size, i32 noundef %type_id) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN4base25PersistentMemoryAllocator12AllocateImplEmj(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %req_size, i32 noundef %type_id)
   %tobool.not = icmp eq i32 %call, 0
@@ -1204,10 +1204,10 @@ if.end12:                                         ; preds = %if.end12.sink.split
 declare noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4base25PersistentMemoryAllocatorD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4base25PersistentMemoryAllocatorD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   ret void
 }
@@ -1223,7 +1223,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK4base25PersistentMemoryAllocator2IdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #9 align 2 {
+define dso_local noundef i64 @_ZNK4base25PersistentMemoryAllocator2IdEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #9 align 2 {
 entry:
   %mem_base_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mem_base_.i, align 8
@@ -1233,7 +1233,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZNK4base25PersistentMemoryAllocator4NameEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZNK4base25PersistentMemoryAllocator4NameEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.logging::LogMessage", align 8
   %mem_base_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1343,7 +1343,7 @@ return:                                           ; preds = %land.lhs.true.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i64 0, 4294967280) i64 @_ZNK4base25PersistentMemoryAllocator12GetAllocSizeEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %ref) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i64 0, 4294967280) i64 @_ZNK4base25PersistentMemoryAllocator12GetAllocSizeEj(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, i32 noundef %ref) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.logging::LogMessage", align 8
   %rem.i = and i32 %ref, 7
@@ -1455,7 +1455,7 @@ return:                                           ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base25PersistentMemoryAllocator24CreateTrackingHistogramsENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr %name.coerce0, i64 %name.coerce1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base25PersistentMemoryAllocator24CreateTrackingHistogramsENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, ptr %name.coerce0, i64 %name.coerce1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %name = alloca %"class.base::BasicStringPiece", align 8
   %name_string = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1581,7 +1581,7 @@ invoke.cont:
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %__lhs, i64 noundef %call.i)
+  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %__lhs, i64 noundef %call.i)
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %invoke.cont4
@@ -1604,7 +1604,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare noundef ptr @_ZN4base9Histogram10FactoryGetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiji(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local noundef range(i64 0, 4294967296) i64 @_ZNK4base25PersistentMemoryAllocator4usedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i64 0, 4294967296) i64 @_ZNK4base25PersistentMemoryAllocator4usedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #1 align 2 {
 entry:
   %mem_base_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mem_base_.i, align 8
@@ -1618,7 +1618,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local noundef i32 @_ZNK4base25PersistentMemoryAllocator7GetTypeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %ref) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK4base25PersistentMemoryAllocator7GetTypeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i32 noundef %ref) local_unnamed_addr #1 align 2 {
 entry:
   %rem.i = and i32 %ref, 7
   %cmp.not.i = icmp eq i32 %rem.i, 0
@@ -1674,7 +1674,7 @@ return:                                           ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local noundef zeroext i1 @_ZN4base25PersistentMemoryAllocator10ChangeTypeEjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %ref, i32 noundef %to_type_id, i32 noundef %from_type_id) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4base25PersistentMemoryAllocator10ChangeTypeEjjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i32 noundef %ref, i32 noundef %to_type_id, i32 noundef %from_type_id) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rem.i.i = and i32 %ref, 7
   %cmp.not.i.i = icmp eq i32 %rem.i.i, 0
@@ -1731,7 +1731,7 @@ return:                                           ; preds = %land.lhs.true.i.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 56, 1) i32 @_ZN4base25PersistentMemoryAllocator12AllocateImplEmj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %req_size, i32 noundef %type_id) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 56, 1) i32 @_ZN4base25PersistentMemoryAllocator12AllocateImplEmj(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, i64 noundef %req_size, i32 noundef %type_id) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.logging::LogMessage", align 8
   %cmp = icmp ugt i64 %req_size, 1073741808
@@ -1942,7 +1942,7 @@ return:                                           ; preds = %for.cond.outer, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK4base25PersistentMemoryAllocator9IsCorruptEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK4base25PersistentMemoryAllocator9IsCorruptEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.logging::LogMessage", align 8
   %corrupt_ = getelementptr inbounds nuw i8, ptr %this, i64 25
@@ -2012,7 +2012,7 @@ return:                                           ; preds = %lor.lhs.false, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4base25PersistentMemoryAllocator13GetMemoryInfoEPNS0_10MemoryInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef writeonly initializes((0, 16)) %meminfo) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZNK4base25PersistentMemoryAllocator13GetMemoryInfoEPNS0_10MemoryInfoE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, ptr noundef writeonly captures(none) initializes((0, 16)) %meminfo) local_unnamed_addr #2 align 2 {
 entry:
   %mem_size_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %mem_size_, align 8
@@ -2034,7 +2034,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base25PersistentMemoryAllocator12MakeIterableEj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %ref) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base25PersistentMemoryAllocator12MakeIterableEj(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, i32 noundef %ref) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.logging::LogMessage", align 8
   %call = tail call noundef zeroext i1 @_ZNK4base25PersistentMemoryAllocator9IsCorruptEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
@@ -2219,7 +2219,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local noundef zeroext i1 @_ZNK4base25PersistentMemoryAllocator6IsFullEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base25PersistentMemoryAllocator6IsFullEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #1 align 2 {
 entry:
   %mem_base_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mem_base_.i, align 8
@@ -2231,7 +2231,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %ref, i32 noundef %type_id, i32 noundef %size) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, i32 noundef %ref, i32 noundef %type_id, i32 noundef %size) local_unnamed_addr #1 align 2 {
 entry:
   %rem.i = and i32 %ref, 7
   %cmp.not.i = icmp eq i32 %rem.i, 0
@@ -2299,7 +2299,7 @@ _ZNK4base25PersistentMemoryAllocator8GetBlockEjjjbb.exit: ; preds = %entry, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base25PersistentMemoryAllocator24UpdateTrackingHistogramsEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4base25PersistentMemoryAllocator24UpdateTrackingHistogramsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #2 align 2 {
 entry:
   %used_histogram_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %used_histogram_, align 8
@@ -2336,7 +2336,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base30LocalPersistentMemoryAllocatorC2EmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 26), (32, 48)) %this, i64 noundef %size, i64 noundef %id, ptr %name.coerce0, i64 %name.coerce1) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4base30LocalPersistentMemoryAllocatorC2EmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 26), (32, 48)) %this, i64 noundef %size, i64 noundef %id, ptr %name.coerce0, i64 %name.coerce1) unnamed_addr #2 align 2 {
 entry:
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
   %call.i = tail call noundef ptr @mmap(ptr noundef null, i64 noundef %size, i32 noundef 3, i32 noundef 33, i32 noundef -1, i64 noundef 0) #17
@@ -2356,7 +2356,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base30LocalPersistentMemoryAllocatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base30LocalPersistentMemoryAllocatorD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base30LocalPersistentMemoryAllocatorE, i64 16), ptr %this, align 8
   %mem_base_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2408,7 +2408,7 @@ declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 nounde
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base31SharedPersistentMemoryAllocatorC2ESt10unique_ptrINS_12SharedMemoryESt14default_deleteIS2_EEmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEb(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 26), (32, 48)) %this, ptr nocapture noundef %memory, i64 noundef %id, ptr %name.coerce0, i64 %name.coerce1, i1 noundef zeroext %read_only) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4base31SharedPersistentMemoryAllocatorC2ESt10unique_ptrINS_12SharedMemoryESt14default_deleteIS2_EEmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEb(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 26), (32, 48)) %this, ptr noundef captures(none) %memory, i64 noundef %id, ptr %name.coerce0, i64 %name.coerce1, i1 noundef zeroext %read_only) unnamed_addr #2 align 2 {
 entry:
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
   %0 = load ptr, ptr %memory, align 8
@@ -2429,7 +2429,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base31SharedPersistentMemoryAllocatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base31SharedPersistentMemoryAllocatorD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base31SharedPersistentMemoryAllocatorE, i64 16), ptr %this, align 8
   %shared_memory_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -2467,7 +2467,7 @@ _ZN4base31SharedPersistentMemoryAllocatorD2Ev.exit: ; preds = %entry, %_ZNKSt14d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4base31SharedPersistentMemoryAllocator24IsSharedMemoryAcceptableERKNS_12SharedMemoryE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %memory) local_unnamed_addr #12 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base31SharedPersistentMemoryAllocator24IsSharedMemoryAcceptableERKNS_12SharedMemoryE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %memory) local_unnamed_addr #12 align 2 {
 entry:
   %memory_.i = getelementptr inbounds nuw i8, ptr %memory, i64 16
   %0 = load ptr, ptr %memory_.i, align 8
@@ -2494,7 +2494,7 @@ _ZN4base25PersistentMemoryAllocator18IsMemoryAcceptableEPKvmmb.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base29FilePersistentMemoryAllocatorC2ESt10unique_ptrINS_16MemoryMappedFileESt14default_deleteIS2_EEmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEb(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 26), (32, 48)) %this, ptr nocapture noundef %file, i64 noundef %max_size, i64 noundef %id, ptr %name.coerce0, i64 %name.coerce1, i1 noundef zeroext %read_only) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4base29FilePersistentMemoryAllocatorC2ESt10unique_ptrINS_16MemoryMappedFileESt14default_deleteIS2_EEmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEb(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 26), (32, 48)) %this, ptr noundef captures(none) %file, i64 noundef %max_size, i64 noundef %id, ptr %name.coerce0, i64 %name.coerce1, i1 noundef zeroext %read_only) unnamed_addr #2 align 2 {
 entry:
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
   %0 = load ptr, ptr %file, align 8
@@ -2523,7 +2523,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base29FilePersistentMemoryAllocatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base29FilePersistentMemoryAllocatorD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4base29FilePersistentMemoryAllocatorE, i64 16), ptr %this, align 8
   %mapped_file_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -2561,7 +2561,7 @@ _ZN4base29FilePersistentMemoryAllocatorD2Ev.exit: ; preds = %entry, %_ZNKSt14def
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4base29FilePersistentMemoryAllocator16IsFileAcceptableERKNS_16MemoryMappedFileEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %file, i1 noundef zeroext %read_only) local_unnamed_addr #12 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base29FilePersistentMemoryAllocator16IsFileAcceptableERKNS_16MemoryMappedFileEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %file, i1 noundef zeroext %read_only) local_unnamed_addr #12 align 2 {
 entry:
   %data_.i = getelementptr inbounds nuw i8, ptr %file, i64 56
   %0 = load ptr, ptr %data_.i, align 8
@@ -2611,7 +2611,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
@@ -2631,13 +2631,13 @@ declare void @_ZN4base16MemoryMappedFileD1Ev(ptr noundef nonnull align 8 derefer
 declare i32 @llvm.umin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #14

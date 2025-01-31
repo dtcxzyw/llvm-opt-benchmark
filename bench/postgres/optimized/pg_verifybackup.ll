@@ -944,10 +944,10 @@ declare void @set_pglocale_pgservice(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @get_progname(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @usage() unnamed_addr #0 {
@@ -975,7 +975,7 @@ define internal fastcc void @usage() unnamed_addr #0 {
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 declare void @simple_string_list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1146,7 +1146,7 @@ define internal fastcc void @verify_backup_directory(ptr noundef nonnull %0, ptr
   %54 = load ptr, ptr %0, align 8
   %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #17
   %56 = trunc i64 %55 to i32
-  %57 = tail call i32 @hash_bytes(ptr noundef %.0, i32 noundef %56) #16
+  %57 = tail call i32 @hash_bytes(ptr noundef nonnull %.0, i32 noundef %56) #16
   %58 = getelementptr i8, ptr %54, i64 12
   %.val.i.i = load i32, ptr %58, align 4
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 24
@@ -1177,7 +1177,7 @@ define internal fastcc void @verify_backup_directory(ptr noundef nonnull %0, ptr
   br i1 %75, label %manifest_files_lookup.exit, label %65
 
 .loopexit:                                        ; preds = %65, %53
-  tail call void (ptr, ptr, ...) @report_backup_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.47, ptr noundef %.0)
+  tail call void (ptr, ptr, ...) @report_backup_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.47, ptr noundef nonnull %.0)
   br label %verify_backup_file.exit
 
 manifest_files_lookup.exit:                       ; preds = %.lr.ph.i.i
@@ -1190,7 +1190,7 @@ manifest_files_lookup.exit:                       ; preds = %.lr.ph.i.i
   br i1 %.not29.i, label %82, label %80
 
 80:                                               ; preds = %manifest_files_lookup.exit
-  tail call void (ptr, ptr, ...) @report_backup_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %.0, i64 noundef %79, i64 noundef %78)
+  tail call void (ptr, ptr, ...) @report_backup_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef nonnull %.0, i64 noundef %79, i64 noundef %78)
   %81 = getelementptr inbounds nuw i8, ptr %71, i64 41
   store i8 1, ptr %81, align 1
   br label %82
@@ -1252,7 +1252,7 @@ should_ignore_relpath.exit:                       ; preds = %._crit_edge.i, %._c
 declare i32 @pg_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #7
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define internal void @report_fatal_error(ptr noalias noundef %0, ...) unnamed_addr #8 {
@@ -1265,20 +1265,20 @@ define internal void @report_fatal_error(ptr noalias noundef %0, ...) unnamed_ad
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @verifybackup_per_file_cb(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #0 {
+define internal void @verifybackup_per_file_cb(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %10 = trunc i64 %9 to i32
-  %11 = tail call i32 @hash_bytes(ptr noundef %1, i32 noundef %10) #16
+  %11 = tail call i32 @hash_bytes(ptr noundef nonnull %1, i32 noundef %10) #16
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1367,7 +1367,7 @@ manifest_files_update_parameters.exit.i.i.i:      ; preds = %manifest_files_comp
   %.val.i.i.i = load ptr, ptr %54, align 8
   %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val.i.i.i) #17
   %56 = trunc i64 %55 to i32
-  %57 = tail call i32 @hash_bytes(ptr noundef %.val.i.i.i, i32 noundef %56) #16
+  %57 = tail call i32 @hash_bytes(ptr noundef nonnull %.val.i.i.i, i32 noundef %56) #16
   %.val54.i.i.i = load i32, ptr %15, align 4
   %58 = and i32 %.val54.i.i.i, %57
   %59 = icmp eq i32 %58, %.057.i.i.i
@@ -1397,7 +1397,7 @@ manifest_files_update_parameters.exit.i.i.i:      ; preds = %manifest_files_comp
   %.val53.i.i.i = load ptr, ptr %69, align 8
   %70 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val53.i.i.i) #17
   %71 = trunc i64 %70 to i32
-  %72 = tail call i32 @hash_bytes(ptr noundef %.val53.i.i.i, i32 noundef %71) #16
+  %72 = tail call i32 @hash_bytes(ptr noundef nonnull %.val53.i.i.i, i32 noundef %71) #16
   %.val55.i.i.i = load i32, ptr %15, align 4
   br label %73
 
@@ -1461,7 +1461,7 @@ manifest_files_grow.exit.i.i:                     ; preds = %80, %manifest_files
 101:                                              ; preds = %.lr.ph.i.i
   %102 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %98) #17
   %103 = trunc i64 %102 to i32
-  %104 = tail call i32 @hash_bytes(ptr noundef %98, i32 noundef %103) #16
+  %104 = tail call i32 @hash_bytes(ptr noundef nonnull %98, i32 noundef %103) #16
   %.val77.i.i = load i32, ptr %15, align 4
   %105 = and i32 %.val77.i.i, %104
   %.not.i81.i.i = icmp ugt i32 %105, %.069113.i.i
@@ -1566,7 +1566,7 @@ manifest_files_distance.exit.i.i:                 ; preds = %106, %101
   br i1 %156, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 157:                                              ; preds = %.lr.ph.i.i
-  tail call void (ptr, ...) @report_fatal_error(ptr noundef nonnull @.str.39, ptr noundef %1) #20
+  tail call void (ptr, ...) @report_fatal_error(ptr noundef nonnull @.str.39, ptr noundef nonnull %1) #20
   unreachable
 
 158:                                              ; preds = %._crit_edge141.i.i, %._crit_edge.i.i
@@ -1588,7 +1588,7 @@ manifest_files_distance.exit.i.i:                 ; preds = %106, %101
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @verifybackup_per_wal_range_cb(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+define internal void @verifybackup_per_wal_range_cb(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = tail call ptr @palloc(i64 noundef 40) #16
   store i32 %1, ptr %6, align 8
@@ -1623,7 +1623,7 @@ define internal void @verifybackup_per_wal_range_cb(ptr nocapture noundef readon
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal void @report_manifest_error(ptr nocapture readnone %0, ptr noundef %1, ...) #8 {
+define internal void @report_manifest_error(ptr readnone captures(none) %0, ptr noundef %1, ...) #8 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   call void @pg_log_generic_v(i32 noundef 4, i32 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #16
@@ -1646,18 +1646,18 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #9
 declare i32 @hash_bytes(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @report_backup_error(ptr nocapture noundef nonnull initializes((33, 34)) %0, ptr noalias noundef %1, ...) unnamed_addr #0 {
+define internal void @report_backup_error(ptr noundef nonnull captures(none) initializes((33, 34)) %0, ptr noalias noundef %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   call void @pg_log_generic_v(i32 noundef 4, i32 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #16
@@ -1683,10 +1683,10 @@ declare ptr @__errno_location() local_unnamed_addr #11
 declare ptr @readdir(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @progress_report(i1 noundef zeroext %0) unnamed_addr #0 {
@@ -1754,13 +1754,13 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare i32 @isatty(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @pg_checksum_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1769,10 +1769,10 @@ declare i32 @pg_checksum_update(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare i32 @pg_checksum_final(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree
-declare noundef i32 @system(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @system(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #12
@@ -1793,13 +1793,13 @@ declare i64 @llvm.umax.i64(i64, i64) #13
 declare i64 @llvm.ctpop.i64(i64) #13
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

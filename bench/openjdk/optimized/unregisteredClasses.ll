@@ -214,7 +214,7 @@ define hidden noundef ptr @_ZN19UnregisteredClasses10load_classEP6SymbolPKcP10Ja
   call void @_ZN18PerfClassTraceTime10initializeEv(ptr noundef nonnull align 8 dereferenceable(72) %4) #8
   %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
   %17 = trunc i64 %16 to i32
-  %18 = call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef %1, i32 noundef %17) #8
+  %18 = call noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef nonnull %1, i32 noundef %17) #8
   %19 = call ptr @_ZN19UnregisteredClasses19get_url_classloaderEP6SymbolP10JavaThread(ptr noundef %18, ptr noundef nonnull %2)
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load ptr, ptr %20, align 8
@@ -563,7 +563,7 @@ declare ptr @_ZN9JavaCalls22construct_new_instanceEP13InstanceKlassP6Symbol6Hand
 declare noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare noundef ptr @_ZN8Universe9vm_globalEv() local_unnamed_addr #1
 
@@ -680,7 +680,7 @@ declare void @_ZN18PerfClassTraceTime10initializeEv(ptr noundef nonnull align 8 
 declare noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #1
 

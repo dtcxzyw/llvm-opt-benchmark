@@ -704,19 +704,19 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN18OpenImageIO_v2_6_03pvt12use_char_ptrEPVKc(ptr nocapture noundef readnone %0) local_unnamed_addr #5 {
+define void @_ZN18OpenImageIO_v2_6_03pvt12use_char_ptrEPVKc(ptr noundef readnone captures(none) %0) local_unnamed_addr #5 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN18OpenImageIO_v2_6_07clobberEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #5 {
+define void @_ZN18OpenImageIO_v2_6_07clobberEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #5 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN18OpenImageIO_v2_6_011Benchmarker18iteration_overheadEv(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZN18OpenImageIO_v2_6_011Benchmarker18iteration_overheadEv(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i.i.i.i.i = alloca %struct.timespec, align 8
   %t.i.i.i.i = alloca %struct.timespec, align 8
@@ -799,7 +799,7 @@ if.end:                                           ; preds = %_ZNSt6vectorIdSaIdE
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_011Benchmarker13compute_statsERSt6vectorIdSaIdEEm(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %times, i64 noundef %iterations) local_unnamed_addr #6 align 2 {
+define void @_ZN18OpenImageIO_v2_6_011Benchmarker13compute_statsERSt6vectorIdSaIdEEm(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %times, i64 noundef %iterations) local_unnamed_addr #6 align 2 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %times, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -950,7 +950,7 @@ if.end78:                                         ; preds = %if.end62, %if.else6
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #8
@@ -1300,7 +1300,7 @@ declare void @_ZN18OpenImageIO_v2_6_07Strutil18timeintervalformatB5cxx11Edi(ptr 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_018timed_thread_wedgeENS_13function_viewIFviEEENS0_IFvvEEES4_PSoiiiNS_4spanIKiLln1EEE(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 %agg.result, ptr %task.coerce0, i64 %task.coerce1, ptr nocapture readonly %pretask.coerce0, i64 %pretask.coerce1, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::function_view.5") align 8 %posttask, ptr noundef %out, i32 noundef %maxthreads, i32 noundef %total_iterations, i32 noundef %ntrials, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::span") align 8 %threadcounts) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_018timed_thread_wedgeENS_13function_viewIFviEEENS0_IFvvEEES4_PSoiiiNS_4spanIKiLln1EEE(ptr noalias writeonly sret(%"class.std::vector") align 8 captures(none) %agg.result, ptr %task.coerce0, i64 %task.coerce1, ptr readonly captures(none) %pretask.coerce0, i64 %pretask.coerce1, ptr noundef readonly byval(%"class.OpenImageIO_v2_6_0::function_view.5") align 8 captures(none) %posttask, ptr noundef %out, i32 noundef %maxthreads, i32 noundef %total_iterations, i32 noundef %ntrials, ptr noundef readonly byval(%"class.OpenImageIO_v2_6_0::span") align 8 captures(none) %threadcounts) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i24 = alloca %"class.fmt::v8::format_arg_store.169", align 16
   %agg.tmp.i.i.i.i = alloca %"class.std::unique_ptr", align 8
@@ -1904,7 +1904,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_018timed_thread_wedgeENS_13function_viewIFviEEEiiiNS_4spanIKiLln1EEE(ptr %task.coerce0, i64 %task.coerce1, i32 noundef %maxthreads, i32 noundef %total_iterations, i32 noundef %ntrials, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::span") align 8 %threadcounts) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_018timed_thread_wedgeENS_13function_viewIFviEEEiiiNS_4spanIKiLln1EEE(ptr %task.coerce0, i64 %task.coerce1, i32 noundef %maxthreads, i32 noundef %total_iterations, i32 noundef %ntrials, ptr noundef readonly byval(%"class.OpenImageIO_v2_6_0::span") align 8 captures(none) %threadcounts) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured = alloca %"class.std::vector", align 8
   %ref.tmp = alloca %class.anon.7, align 1
@@ -1929,7 +1929,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
@@ -2523,7 +2523,7 @@ if.end16:                                         ; preds = %if.then14, %_ZSt18u
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 declare void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #0
 
@@ -8068,10 +8068,10 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden i64 @_ZN3fmt2v86detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %x) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
@@ -15818,7 +15818,7 @@ return:                                           ; preds = %if.end74, %if.end30
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_11write_bytesILS4_2EcS5_EET1_S7_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EEEUlS5_E_EESB_SB_RKNSA_IS7_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(16) %f) local_unnamed_addr #6 comdat {
@@ -23519,7 +23519,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %cmp.i.i.i.i.i, label %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %for.body.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr %5, ptr %id.coerce0, i64 %.other.coerce1.i.i.i.i)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %5, ptr %id.coerce0, i64 %.other.coerce1.i.i.i.i)
   %cmp6.i.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   %6 = icmp eq i64 %call.i8.i.i, %id.coerce1
   %or.cond.i.i = select i1 %cmp6.i.i.i.i, i1 %6, i1 false
@@ -24665,7 +24665,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp.i.i.i.i, label %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %for.body.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr %5, ptr %name.coerce0, i64 %.other.coerce1.i.i.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %5, ptr %name.coerce0, i64 %.other.coerce1.i.i.i)
   %cmp6.i.i.i = icmp eq i32 %bcmp.i.i, 0
   %6 = icmp eq i64 %call.i8.i, %name.coerce1
   %or.cond.i = select i1 %cmp6.i.i.i, i1 %6, i1 false
@@ -32669,7 +32669,7 @@ if.then.i.i:                                      ; preds = %cond.true
   br label %_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewINS0_13type_identityIT_E4typeEEERKNS0_18basic_format_specsIS7_EENS1_10locale_refE.exit
 
 _ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewINS0_13type_identityIT_E4typeEEERKNS0_18basic_format_specsIS7_EENS1_10locale_refE.exit: ; preds = %cond.true, %if.then.i.i
-  %call.i = call ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS6_EE(ptr %out.coerce, ptr %s, i64 %call.i5, ptr noundef nonnull align 4 dereferenceable(16) %specs)
+  %call.i = call ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS6_EE(ptr %out.coerce, ptr nonnull %s, i64 %call.i5, ptr noundef nonnull align 4 dereferenceable(16) %specs)
   br label %cond.end
 
 cond.false:                                       ; preds = %_ZN3fmt2v86detail23check_cstring_type_specINS1_13error_handlerEEEbNS0_17presentation_typeEOT_.exit
@@ -37018,7 +37018,7 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #19
@@ -37042,10 +37042,10 @@ declare i32 @llvm.smin.i32(i32, i32) #19
 declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #19

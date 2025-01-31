@@ -221,7 +221,7 @@ declare i32 @mca_sharedfp_sm_get_position(ptr noundef, ptr noundef) local_unname
 declare i32 @mca_common_ompio_file_get_size(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @sem_wait(ptr noundef) local_unnamed_addr #1
 

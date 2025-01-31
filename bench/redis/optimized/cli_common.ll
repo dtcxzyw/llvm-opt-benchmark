@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [35 x i8] c"Illegal character in URI encoding\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @cliSecureConnection(ptr nocapture noundef readnone %c, ptr nocapture noundef readnone byval(%struct.cliSSLconfig) align 8 %config, ptr nocapture noundef readnone %err) local_unnamed_addr #0 {
+define dso_local noundef i32 @cliSecureConnection(ptr noundef readnone captures(none) %c, ptr noundef readnone byval(%struct.cliSSLconfig) align 8 captures(none) %config, ptr noundef readnone captures(none) %err) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
@@ -277,19 +277,19 @@ while.end:                                        ; preds = %while.body
 declare ptr @hi_sdsempty() local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getSdsArrayFromArgv(i32 noundef %argc, ptr nocapture noundef readonly %argv, i32 noundef %quoted) local_unnamed_addr #1 {
+define dso_local ptr @getSdsArrayFromArgv(i32 noundef %argc, ptr noundef readonly captures(none) %argv, i32 noundef %quoted) local_unnamed_addr #1 {
 entry:
   %count.i = alloca i32, align 4
   %conv = sext i32 %argc to i64
@@ -416,11 +416,11 @@ declare ptr @hi_sdssplitargs(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @hi_sdsfreesplitres(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @parseRedisUri(ptr noundef %uri, ptr noundef %tool_name, ptr nocapture noundef %connInfo, ptr nocapture noundef readnone %tls_flag) local_unnamed_addr #1 {
+define dso_local void @parseRedisUri(ptr noundef %uri, ptr noundef %tool_name, ptr noundef captures(none) %connInfo, ptr noundef readnone captures(none) %tls_flag) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %uri) #15
   %add.ptr = getelementptr inbounds i8, ptr %uri, i64 %call
-  %call2 = tail call i32 @strncasecmp(ptr noundef nonnull @.str.2, ptr noundef %uri, i64 noundef 9) #15
+  %call2 = tail call i32 @strncasecmp(ptr noundef nonnull @.str.2, ptr noundef nonnull %uri, i64 noundef 9) #15
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %if.then, label %if.else
 
@@ -431,7 +431,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.else:                                          ; preds = %entry
-  %call5 = tail call i32 @strncasecmp(ptr noundef nonnull @.str.1, ptr noundef %uri, i64 noundef 8) #15
+  %call5 = tail call i32 @strncasecmp(ptr noundef nonnull @.str.1, ptr noundef nonnull %uri, i64 noundef 8) #15
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.then7, label %if.else10
 
@@ -564,13 +564,13 @@ return:                                           ; preds = %if.end73, %if.end30
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
@@ -681,12 +681,12 @@ while.end:                                        ; preds = %if.end74, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @hi_sdsnewlen(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @freeCliConnInfo(ptr nocapture noundef readonly byval(%struct.cliConnInfo) align 8 %connInfo) local_unnamed_addr #1 {
+define dso_local void @freeCliConnInfo(ptr noundef readonly byval(%struct.cliConnInfo) align 8 captures(none) %connInfo) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %connInfo, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -721,7 +721,7 @@ if.end9:                                          ; preds = %if.then7, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @escapeJsonString(ptr noundef %s, ptr nocapture noundef readonly %p, i64 noundef %len) local_unnamed_addr #1 {
+define dso_local ptr @escapeJsonString(ptr noundef %s, ptr noundef readonly captures(none) %p, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @hi_sdscatlen(ptr noundef %s, ptr noundef nonnull @.str.5, i64 noundef 1) #11
   %tobool.not14 = icmp eq i64 %len, 0
@@ -796,13 +796,13 @@ declare i32 @tolower(i32 noundef) local_unnamed_addr #8
 declare ptr @__ctype_b_loc() local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

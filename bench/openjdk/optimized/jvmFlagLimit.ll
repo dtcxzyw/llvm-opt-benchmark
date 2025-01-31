@@ -363,7 +363,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK12JVMFlagLimit15constraint_funcEv(ptr nocapture noundef nonnull readonly align 2 dereferenceable(4) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK12JVMFlagLimit15constraint_funcEv(ptr noundef nonnull readonly align 2 captures(none) dereferenceable(4) %0) local_unnamed_addr #0 align 2 {
   %2 = load i16, ptr %0, align 2
   %3 = sext i16 %2 to i64
   %4 = getelementptr inbounds [62 x ptr], ptr @_ZL19flagConstraintTable, i64 0, i64 %3

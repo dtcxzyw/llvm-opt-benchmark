@@ -36,10 +36,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @BN_init(ptr nocapture noundef writeonly initializes((0, 24)) %bn) local_unnamed_addr #4 {
+define hidden void @BN_init(ptr noundef writeonly captures(none) initializes((0, 24)) %bn) local_unnamed_addr #4 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %bn, i8 0, i64 24, i1 false)
   ret void
@@ -83,7 +83,7 @@ if.end8:                                          ; preds = %entry, %if.else, %i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define hidden void @BN_clear_free(ptr noundef %bn) local_unnamed_addr #0 {
@@ -299,10 +299,10 @@ return:                                           ; preds = %entry, %if.end11, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @BN_clear(ptr nocapture noundef initializes((8, 12), (16, 20)) %bn) local_unnamed_addr #8 {
+define hidden void @BN_clear(ptr noundef captures(none) initializes((8, 12), (16, 20)) %bn) local_unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr %bn, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -331,7 +331,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @BN_with_flags(ptr nocapture noundef initializes((0, 24)) %out, ptr nocapture noundef readonly %in, i32 noundef %flags) local_unnamed_addr #10 {
+define hidden void @BN_with_flags(ptr noundef captures(none) initializes((0, 24)) %out, ptr noundef readonly captures(none) %in, i32 noundef %flags) local_unnamed_addr #10 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 8 dereferenceable(24) %in, i64 24, i1 false)
   %flags1 = getelementptr inbounds nuw i8, ptr %out, i64 20
@@ -675,7 +675,7 @@ BN_num_bits.exit:                                 ; preds = %entry, %BN_num_bits
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @BN_zero(ptr nocapture noundef writeonly initializes((8, 12), (16, 20)) %bn) local_unnamed_addr #4 {
+define hidden void @BN_zero(ptr noundef writeonly captures(none) initializes((8, 12), (16, 20)) %bn) local_unnamed_addr #4 {
 entry:
   %neg = getelementptr inbounds nuw i8, ptr %bn, i64 16
   store i32 0, ptr %neg, align 8
@@ -685,7 +685,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @BN_one(ptr nocapture noundef %bn) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_one(ptr noundef captures(none) %bn) local_unnamed_addr #0 {
 entry:
   %dmax.i.i = getelementptr inbounds nuw i8, ptr %bn, i64 12
   %0 = load i32, ptr %dmax.i.i, align 4
@@ -743,7 +743,7 @@ BN_set_word.exit:                                 ; preds = %if.then6.i.i, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @BN_set_word(ptr nocapture noundef %bn, i64 noundef %value) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_set_word(ptr noundef captures(none) %bn, i64 noundef %value) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %value, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -812,7 +812,7 @@ return:                                           ; preds = %if.then10.i, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @bn_set_words(ptr noundef %bn, ptr nocapture noundef readonly %words, i64 noundef %num) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @bn_set_words(ptr noundef %bn, ptr noundef readonly captures(none) %words, i64 noundef %num) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @bn_wexpand(ptr noundef %bn, i64 noundef %num)
   %cmp = icmp eq ptr %call, null
@@ -863,10 +863,10 @@ return:                                           ; preds = %entry, %bn_correct_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @bn_correct_top(ptr nocapture noundef %bn) local_unnamed_addr #11 {
+define hidden void @bn_correct_top(ptr noundef captures(none) %bn) local_unnamed_addr #11 {
 entry:
   %top = getelementptr inbounds nuw i8, ptr %bn, i64 8
   %0 = load i32, ptr %top, align 8
@@ -902,7 +902,7 @@ if.end4:                                          ; preds = %for.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @BN_is_negative(ptr nocapture noundef readonly %bn) local_unnamed_addr #12 {
+define hidden range(i32 0, 2) i32 @BN_is_negative(ptr noundef readonly captures(none) %bn) local_unnamed_addr #12 {
 entry:
   %neg = getelementptr inbounds nuw i8, ptr %bn, i64 16
   %0 = load i32, ptr %neg, align 8
@@ -954,7 +954,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @BN_get_flags(ptr nocapture noundef readonly %bn, i32 noundef %flags) local_unnamed_addr #12 {
+define hidden i32 @BN_get_flags(ptr noundef readonly captures(none) %bn, i32 noundef %flags) local_unnamed_addr #12 {
 entry:
   %flags1 = getelementptr inbounds nuw i8, ptr %bn, i64 20
   %0 = load i32, ptr %flags1, align 4
@@ -963,7 +963,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @BN_set_flags(ptr nocapture noundef %bn, i32 noundef %flags) local_unnamed_addr #10 {
+define hidden void @BN_set_flags(ptr noundef captures(none) %bn, i32 noundef %flags) local_unnamed_addr #10 {
 entry:
   %flags1 = getelementptr inbounds nuw i8, ptr %bn, i64 20
   %0 = load i32, ptr %flags1, align 4

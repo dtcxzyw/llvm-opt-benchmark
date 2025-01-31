@@ -53,7 +53,7 @@ define hidden void @MateParserInit(ptr noundef initializes((8, 12)) %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @MateParserAlloc(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden ptr @MateParserAlloc(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call ptr %0(i64 noundef 1632) #14
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %3
@@ -109,7 +109,7 @@ yy_pop_parser_stack.exit:                         ; preds = %.lr.ph, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @MateParserFree(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define hidden void @MateParserFree(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %17, label %4
 
@@ -426,7 +426,7 @@ yyStackOverflow.exit:                             ; preds = %yy_pop_parser_stack
   tail call void @g_free(ptr noundef %86) #14
   %87 = getelementptr i8, ptr %52, i64 -8
   %88 = load ptr, ptr %87, align 8
-  %89 = tail call i64 @strtol(ptr nocapture noundef %88, ptr noundef null, i32 noundef 10) #14
+  %89 = tail call i64 @strtol(ptr noundef captures(none) %88, ptr noundef null, i32 noundef 10) #14
   %90 = trunc i64 %89 to i32
   %91 = getelementptr inbounds nuw i8, ptr %53, i64 184
   store i32 %90, ptr %91, align 8
@@ -441,7 +441,7 @@ yyStackOverflow.exit:                             ; preds = %yy_pop_parser_stack
   tail call void @g_free(ptr noundef %96) #14
   %97 = getelementptr i8, ptr %52, i64 -8
   %98 = load ptr, ptr %97, align 8
-  %99 = tail call i64 @strtol(ptr nocapture noundef %98, ptr noundef null, i32 noundef 10) #14
+  %99 = tail call i64 @strtol(ptr noundef captures(none) %98, ptr noundef null, i32 noundef 10) #14
   %100 = trunc i64 %99 to i32
   %101 = getelementptr inbounds nuw i8, ptr %53, i64 188
   store i32 %100, ptr %101, align 4
@@ -459,7 +459,7 @@ yyStackOverflow.exit:                             ; preds = %yy_pop_parser_stack
   tail call void @g_free(ptr noundef %108) #14
   %109 = getelementptr i8, ptr %52, i64 -8
   %110 = load ptr, ptr %109, align 8
-  %111 = tail call i64 @strtol(ptr nocapture noundef %110, ptr noundef null, i32 noundef 10) #14
+  %111 = tail call i64 @strtol(ptr noundef captures(none) %110, ptr noundef null, i32 noundef 10) #14
   %112 = trunc i64 %111 to i32
   %113 = getelementptr inbounds nuw i8, ptr %53, i64 192
   store i32 %112, ptr %113, align 8
@@ -477,7 +477,7 @@ yyStackOverflow.exit:                             ; preds = %yy_pop_parser_stack
   tail call void @g_free(ptr noundef %120) #14
   %121 = getelementptr i8, ptr %52, i64 -8
   %122 = load ptr, ptr %121, align 8
-  %123 = tail call i64 @strtol(ptr nocapture noundef %122, ptr noundef null, i32 noundef 10) #14
+  %123 = tail call i64 @strtol(ptr noundef captures(none) %122, ptr noundef null, i32 noundef 10) #14
   %124 = trunc i64 %123 to i32
   %125 = getelementptr inbounds nuw i8, ptr %53, i64 196
   store i32 %124, ptr %125, align 4
@@ -2153,7 +2153,7 @@ define hidden noundef i32 @MateParserFallback(i32 noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 declare void @report_open_failure(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #4
 
@@ -2161,12 +2161,12 @@ declare void @report_open_failure(ptr noundef, i32 noundef, i1 noundef zeroext) 
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal void @configuration_error(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #7 {
+define internal void @configuration_error(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ...) unnamed_addr #7 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call i32 @vsnprintf(ptr noundef nonnull @configuration_error.error_buffer, i64 noundef 256, ptr noundef %1, ptr noundef nonnull %3) #14
@@ -2265,7 +2265,7 @@ declare ptr @new_avp(ptr noundef, ptr noundef, i8 noundef signext) local_unnamed
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
 declare void @g_string_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
@@ -2279,7 +2279,7 @@ declare ptr @g_strsplit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_add
 declare ptr @ascii_strdown_inplace(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @g_strfreev(ptr noundef) local_unnamed_addr #4
 
@@ -2294,7 +2294,7 @@ declare void @llvm.va_start.p0(ptr) #12
 declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

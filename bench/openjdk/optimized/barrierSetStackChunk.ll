@@ -62,7 +62,7 @@ $_ZTV24UncompressOopsOopClosure = comdat any
 @llvm.used = appending global [4 x ptr] [ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20BarrierSetStackChunk14encode_gc_modeEP17stackChunkOopDescP11OopIterator(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN20BarrierSetStackChunk14encode_gc_modeEP17stackChunkOopDescP11OopIterator(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %class.CompressOopsOopClosure, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22CompressOopsOopClosure, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -97,7 +97,7 @@ define hidden void @_ZN20BarrierSetStackChunk14encode_gc_modeEP17stackChunkOopDe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20BarrierSetStackChunk14decode_gc_modeEP17stackChunkOopDescP11OopIterator(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN20BarrierSetStackChunk14decode_gc_modeEP17stackChunkOopDescP11OopIterator(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %class.UncompressOopsOopClosure, align 8
   %5 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk13_flags_offsetE, align 4
   %6 = ptrtoint ptr %1 to i64
@@ -126,13 +126,13 @@ define hidden void @_ZN20BarrierSetStackChunk14decode_gc_modeEP17stackChunkOopDe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN20BarrierSetStackChunk8load_oopEP17stackChunkOopDescPP7oopDesc(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN20BarrierSetStackChunk8load_oopEP17stackChunkOopDescPP7oopDesc(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #1 align 2 {
   %4 = load ptr, ptr %2, align 8
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN20BarrierSetStackChunk8load_oopEP17stackChunkOopDescP9narrowOop(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN20BarrierSetStackChunk8load_oopEP17stackChunkOopDescP9narrowOop(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #2 align 2 {
   %4 = load i32, ptr %2, align 4
   %5 = icmp eq i32 %4, 0
   %6 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8

@@ -329,7 +329,7 @@ declare void @rpc_init_prog(i32 noundef, i32 noundef, i32 noundef, i64 noundef, 
 declare i32 @dissect_rpc_void(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_mount_dirpath_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_mount_dirpath_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -371,7 +371,7 @@ define internal i32 @dissect_mount_dirpath_call(ptr noundef %0, ptr noundef %1, 
   %32 = add i32 %31, %30
   %33 = load ptr, ptr %25, align 8
   %34 = sext i32 %32 to i64
-  %35 = tail call noalias ptr @wmem_realloc(ptr noundef %33, ptr noundef %28, i64 noundef %34) #3
+  %35 = tail call noalias ptr @wmem_realloc(ptr noundef %33, ptr noundef nonnull %28, i64 noundef %34) #3
   %sext = shl i64 %29, 32
   %36 = ashr exact i64 %sext, 32
   %37 = getelementptr i8, ptr %35, i64 %36
@@ -421,13 +421,13 @@ dissect_fhstatus.exit:                            ; preds = %8, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_mount_dump_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_mount_dump_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @dissect_rpc_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull @dissect_mountlist, ptr noundef null) #3
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_mount_export_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_mount_export_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @dissect_rpc_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull @dissect_exportlist, ptr noundef null) #3
   ret i32 %5
 }
@@ -437,7 +437,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @address_to_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare noalias ptr @wmem_realloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -458,7 +458,7 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @dissect_rpc_list(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_mountlist(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal i32 @dissect_mountlist(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = load i32, ptr @hf_mount_mountlist, align 4
@@ -493,7 +493,7 @@ declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_exportlist(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal i32 @dissect_exportlist(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca ptr, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %7
@@ -543,10 +543,10 @@ define internal i32 @dissect_exportlist(ptr noundef %0, i32 noundef %1, ptr noun
   %31 = load ptr, ptr %19, align 8
   %32 = load ptr, ptr %6, align 8
   %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #4
-  %34 = call ptr @format_text(ptr noundef %31, ptr noundef %32, i64 noundef %33) #3
+  %34 = call ptr @format_text(ptr noundef %31, ptr noundef nonnull %32, i64 noundef %33) #3
   %35 = load ptr, ptr %19, align 8
   %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #4
-  %37 = call ptr @format_text(ptr noundef %35, ptr noundef %29, i64 noundef %36) #3
+  %37 = call ptr @format_text(ptr noundef %35, ptr noundef nonnull %29, i64 noundef %36) #3
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef nonnull %.0, ptr noundef nonnull @.str.187, ptr noundef %34, ptr noundef %37) #3
   %38 = sub i32 %22, %1
   call void @proto_item_set_len(ptr noundef nonnull %.0, i32 noundef %38) #3
@@ -559,7 +559,7 @@ define internal i32 @dissect_exportlist(ptr noundef %0, i32 noundef %1, ptr noun
 declare noalias ptr @wmem_strbuf_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_group(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal i32 @dissect_group(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @hf_mount_groups_group, align 4
   %8 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %3, i32 noundef %7, i32 noundef %1, ptr noundef nonnull %6) #3
@@ -588,7 +588,7 @@ declare void @wmem_strbuf_append_c(ptr noundef, i8 noundef signext) local_unname
 declare void @wmem_strbuf_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_mount_pathconf_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_mount_pathconf_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 32) #3
   %6 = and i32 %5, 3
   %.not = icmp eq i32 %6, 0
@@ -728,13 +728,13 @@ declare i32 @dissect_nfs3_fh(ptr noundef, i32 noundef, ptr noundef, ptr noundef,
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_mount_exportlist_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_mount_exportlist_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @dissect_rpc_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull @dissect_sgi_exportlist, ptr noundef null) #3
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_mount_statvfs_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_mount_statvfs_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_mount_statvfs_bsize, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = load i32, ptr @hf_mount_statvfs_frsize, align 4
@@ -766,7 +766,7 @@ define internal noundef i32 @dissect_mount_statvfs_reply(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_sgi_exportlist(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal i32 @dissect_sgi_exportlist(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %.not = icmp eq ptr %3, null

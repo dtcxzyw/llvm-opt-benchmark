@@ -46,7 +46,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.23 = private unnamed_addr constant [27 x i8] c"Could not find PC in DWARF\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @Java_sun_jvm_hotspot_debugger_linux_amd64_DwarfParser_init0(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_sun_jvm_hotspot_debugger_linux_amd64_DwarfParser_init0(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -487,7 +487,7 @@ define void @Java_sun_jvm_hotspot_debugger_linux_amd64_DwarfParser_init0(ptr nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @Java_sun_jvm_hotspot_debugger_linux_amd64_DwarfParser_createDwarfContext(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i64 @Java_sun_jvm_hotspot_debugger_linux_amd64_DwarfParser_createDwarfContext(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #6
   %5 = inttoptr i64 %2 to ptr
   store ptr %5, ptr %4, align 8
@@ -551,7 +551,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @Java_sun_jvm_hotspot_debugger_linux_amd64_DwarfParser_destroyDwarfContext(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #3 {
+define void @Java_sun_jvm_hotspot_debugger_linux_amd64_DwarfParser_destroyDwarfContext(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %7, label %5
 
@@ -778,7 +778,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_jvm_hotspot_debugger_linux_amd64_Dwar
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

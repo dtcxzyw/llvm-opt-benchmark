@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.partial_update_val = private unnamed_addr constant [19 x i8] c"partial_update_val\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 0, 2) i32 @tm_try_add_edge(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @tm_try_add_edge(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   switch i32 %2, label %105 [
     i32 2, label %7
     i32 3, label %24
@@ -220,7 +220,7 @@ add_edge_3.exit:                                  ; preds = %102, %.thread.i, %7
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #2
@@ -1006,14 +1006,14 @@ free_bucket_list.exit:                            ; preds = %.lr.ph.i.i124, %.th
 declare hidden i32 @tm_get_verbose_level() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare hidden void @tm_get_time() local_unnamed_addr #4
 
 declare hidden double @tm_time_diff() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @next_bucket_elem(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc void @next_bucket_elem(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4
@@ -1125,7 +1125,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare hidden ptr @tm_create_work(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @partial_update_val(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #3 {
+define internal void @partial_update_val(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 4
@@ -1185,7 +1185,7 @@ declare hidden i32 @tm_submit_work(ptr noundef, i32 noundef) local_unnamed_addr 
 declare hidden void @tm_wait_work_completion(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare hidden void @tm_destroy_work(ptr noundef) local_unnamed_addr #4
 
@@ -1194,10 +1194,10 @@ declare hidden void @tm_update_val(ptr noundef, ptr noundef) local_unnamed_addr 
 declare hidden i64 @tm_genrand_int32() local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @tab_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal range(i32 -1, 2) i32 @tab_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
   %3 = load ptr, ptr @global_bl, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -1245,7 +1245,7 @@ define internal range(i32 -1, 2) i32 @tab_cmp(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @dfs(i32 noundef %0, i32 noundef range(i32 -1073741823, 1073741825) %1, i32 noundef range(i32 -2147483648, 2147483647) %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5, i32 noundef range(i32 -2147483648, 2147483647) %6) unnamed_addr #10 {
+define internal fastcc void @dfs(i32 noundef %0, i32 noundef range(i32 -1073741823, 1073741825) %1, i32 noundef range(i32 -2147483648, 2147483647) %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, i32 noundef %5, i32 noundef range(i32 -2147483648, 2147483647) %6) unnamed_addr #10 {
   %8 = icmp eq i32 %5, %6
   br i1 %8, label %tailrecurse._crit_edge, label %tailrecurse
 
@@ -1275,7 +1275,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #12

@@ -175,7 +175,7 @@ declare dso_local zeroext i8 @pci_find_capability(ptr noundef, i32 noundef) loca
 declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal zeroext i16 @vpd_attr_is_visible(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 %2) #2 align 16 {
+define internal zeroext i16 @vpd_attr_is_visible(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2) #2 align 16 {
   %4 = getelementptr i8, ptr %0, i64 1820
   %5 = load i8, ptr %4, align 4
   %6 = icmp eq i8 %5, 0
@@ -254,7 +254,7 @@ define dso_local ptr @pci_vpd_alloc(ptr noundef %0, ptr noundef writeonly %1) #0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef zeroext i1 @pci_vpd_available(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
@@ -437,7 +437,7 @@ split:                                            ; preds = %73
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @pci_read_vpd(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) #0 align 16 {
+define dso_local i64 @pci_read_vpd(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1694
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, 256
@@ -472,10 +472,10 @@ define dso_local i64 @pci_read_vpd(ptr noundef %0, i64 noundef %1, i64 noundef %
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local i32 @pci_vpd_find_id_string(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) #4 align 16 {
+define dso_local i32 @pci_vpd_find_id_string(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) #4 align 16 {
   %4 = icmp eq ptr %2, null
   %5 = icmp ult i32 %1, 3
   br i1 %5, label %.thread, label %.lr.ph
@@ -519,7 +519,7 @@ define dso_local i32 @pci_vpd_find_id_string(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @pci_read_vpd_any(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) #0 align 16 {
+define dso_local i64 @pci_read_vpd_any(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1694
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, 256
@@ -551,7 +551,7 @@ define dso_local i64 @pci_read_vpd_any(ptr noundef %0, i64 noundef %1, i64 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @pci_write_vpd(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
+define dso_local i64 @pci_write_vpd(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1694
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, 256
@@ -583,7 +583,7 @@ define dso_local i64 @pci_write_vpd(ptr noundef %0, i64 noundef %1, i64 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @pci_write_vpd_any(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
+define dso_local i64 @pci_write_vpd_any(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1694
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, 256
@@ -615,7 +615,7 @@ define dso_local i64 @pci_write_vpd_any(ptr noundef %0, i64 noundef %1, i64 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local range(i32 3, 0) i32 @pci_vpd_find_ro_info_keyword(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3) #4 align 16 {
+define dso_local range(i32 3, 0) i32 @pci_vpd_find_ro_info_keyword(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3) #4 align 16 {
   br label %5
 
 5:                                                ; preds = %14, %4
@@ -713,7 +713,7 @@ define dso_local range(i32 3, 0) i32 @pci_vpd_find_ro_info_keyword(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local i32 @pci_vpd_check_csum(ptr nocapture noundef readonly %0, i32 noundef %1) #5 align 16 {
+define dso_local i32 @pci_vpd_check_csum(ptr noundef readonly captures(none) %0, i32 noundef %1) #5 align 16 {
   br label %3
 
 3:                                                ; preds = %12, %2
@@ -831,7 +831,7 @@ define dso_local i32 @pci_vpd_check_csum(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @quirk_f0_vpd_link(ptr nocapture noundef %0) #0 align 16 {
+define internal void @quirk_f0_vpd_link(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 7
@@ -901,7 +901,7 @@ define internal void @quirk_blacklist_vpd(ptr noundef initializes((2000, 2004)) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @quirk_chelsio_extend_vpd(ptr nocapture noundef %0) #7 align 16 {
+define internal void @quirk_chelsio_extend_vpd(ptr noundef captures(none) %0) #7 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %3 = load i16, ptr %2, align 2
   %4 = zext i16 %3 to i32
@@ -929,7 +929,7 @@ define internal void @quirk_chelsio_extend_vpd(ptr nocapture noundef %0) #7 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @vpd_read(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3, i64 noundef %4, i64 noundef %5) #0 align 16 {
+define internal i64 @vpd_read(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef writeonly captures(none) %3, i64 noundef %4, i64 noundef %5) #0 align 16 {
   %7 = getelementptr i8, ptr %1, i64 -184
   %8 = getelementptr i8, ptr %1, i64 1510
   %9 = load i16, ptr %8, align 2
@@ -993,7 +993,7 @@ define internal i64 @vpd_read(ptr nocapture readnone %0, ptr noundef %1, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @vpd_write(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i64 noundef %4, i64 noundef %5) #0 align 16 {
+define internal i64 @vpd_write(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5) #0 align 16 {
   %7 = getelementptr i8, ptr %1, i64 -184
   %8 = getelementptr i8, ptr %1, i64 1510
   %9 = load i16, ptr %8, align 2
@@ -1069,7 +1069,7 @@ declare dso_local void @pci_dev_put(ptr noundef) local_unnamed_addr #1
 declare dso_local ptr @pci_get_slot(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #9
@@ -1081,7 +1081,7 @@ declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
+define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1968
   %8 = add i64 %2, %1
@@ -1306,7 +1306,7 @@ declare dso_local i32 @pci_user_read_config_word(ptr noundef, i32 noundef, ptr n
 declare dso_local void @usleep_range_state(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @pci_vpd_write(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
+define internal fastcc i64 @pci_vpd_write(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
   %6 = alloca i16, align 2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1968
   %8 = add i64 %2, %1

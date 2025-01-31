@@ -137,7 +137,7 @@ entry:
 declare void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(576)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory13QuantPhaseReqC2ENS0_12NodeTemplateILb1EEEb(ptr noundef nonnull align 8 dereferenceable(144) initializes((8, 12), (16, 24)) %this, ptr nocapture noundef readonly %n, i1 noundef zeroext %computeEq) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory13QuantPhaseReqC2ENS0_12NodeTemplateILb1EEEb(ptr noundef nonnull align 8 dereferenceable(144) initializes((8, 12), (16, 24)) %this, ptr noundef readonly captures(none) %n, i1 noundef zeroext %computeEq) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -252,7 +252,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory13QuantPhaseReq10initializeENS0_12NodeTemplateILb1EEEb(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture noundef readonly %n, i1 noundef zeroext %computeEq) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory13QuantPhaseReq10initializeENS0_12NodeTemplateILb1EEEb(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef readonly captures(none) %n, i1 noundef zeroext %computeEq) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i1002 = alloca %"class.std::tuple.290", align 8
   %ref.tmp10.i1003 = alloca %"class.std::tuple.283", align 1
@@ -2110,7 +2110,7 @@ if.end:                                           ; preds = %if.then, %lor.rhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN4cvc58internal6theory13QuantPhaseReq11getPolarityENS0_12NodeTemplateILb1EEEmbbRbS5_(ptr nocapture noundef readonly %n, i64 noundef %child, i1 noundef zeroext %hasPol, i1 noundef zeroext %pol, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %newHasPol, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %newPol) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN4cvc58internal6theory13QuantPhaseReq11getPolarityENS0_12NodeTemplateILb1EEEmbbRbS5_(ptr noundef readonly captures(none) %n, i64 noundef %child, i1 noundef zeroext %hasPol, i1 noundef zeroext %pol, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %newHasPol, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %newPol) local_unnamed_addr #5 align 2 {
 entry:
   %frombool = zext i1 %hasPol to i8
   %0 = load ptr, ptr %n, align 8
@@ -2168,7 +2168,7 @@ if.end52:                                         ; preds = %if.then12, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN4cvc58internal6theory13QuantPhaseReq17getEntailPolarityENS0_12NodeTemplateILb1EEEmbbRbS5_(ptr nocapture noundef readonly %n, i64 noundef %child, i1 noundef zeroext %hasPol, i1 noundef zeroext %pol, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %newHasPol, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %newPol) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN4cvc58internal6theory13QuantPhaseReq17getEntailPolarityENS0_12NodeTemplateILb1EEEmbbRbS5_(ptr noundef readonly captures(none) %n, i64 noundef %child, i1 noundef zeroext %hasPol, i1 noundef zeroext %pol, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %newHasPol, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %newPol) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %n, align 8
   %d_kind.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4011,10 +4011,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14

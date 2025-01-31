@@ -118,7 +118,7 @@ define void @opal_convertor_destroy_masters() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @opal_convertor_find_or_create_master(i32 noundef %0) local_unnamed_addr #2 {
@@ -284,7 +284,7 @@ define ptr @opal_convertor_find_or_create_master(i32 noundef %0) local_unnamed_a
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @opal_arch_checkmask(ptr noundef, i32 noundef) local_unnamed_addr #6
 
@@ -756,7 +756,7 @@ opal_convertor_create_stack_at_begining.exit:     ; preds = %74, %79
 declare i32 @opal_convertor_generic_simple_position(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define i64 @opal_convertor_compute_remote_size(ptr nocapture noundef initializes((32, 40)) %0) local_unnamed_addr #2 {
+define i64 @opal_convertor_compute_remote_size(ptr noundef captures(none) initializes((32, 40)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -814,7 +814,7 @@ define i64 @opal_convertor_compute_remote_size(ptr nocapture noundef initializes
 declare i64 @opal_datatype_compute_remote_size(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_convertor_prepare_for_recv(ptr nocapture noundef initializes((24, 64), (72, 80), (120, 128)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define noundef i32 @opal_convertor_prepare_for_recv(ptr noundef captures(none) initializes((24, 64), (72, 80), (120, 128)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -1081,7 +1081,7 @@ declare i32 @opal_unpack_homogeneous_contig(ptr noundef, ptr noundef, ptr nounde
 declare i32 @opal_generic_simple_unpack(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_convertor_prepare_for_send(ptr nocapture noundef initializes((24, 64), (72, 80), (120, 128)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define noundef i32 @opal_convertor_prepare_for_send(ptr noundef captures(none) initializes((24, 64), (72, 80), (120, 128)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -1369,7 +1369,7 @@ declare i32 @opal_pack_homogeneous_contig_with_gaps(ptr noundef, ptr noundef, pt
 declare i32 @opal_generic_simple_pack(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef i32 @opal_convertor_clone(ptr nocapture noundef readonly %0, ptr noundef initializes((16, 64), (72, 80), (88, 104)) %1, i32 noundef %2) local_unnamed_addr #7 {
+define noundef i32 @opal_convertor_clone(ptr noundef readonly captures(none) %0, ptr noundef initializes((16, 64), (72, 80), (88, 104)) %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1618,7 +1618,7 @@ define void @opal_convertor_dump(ptr noundef %0) local_unnamed_addr #2 {
 declare void @opal_datatype_dump(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @opal_datatype_dump_stack(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #2 {
+define void @opal_datatype_dump_stack(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #2 {
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.14, ptr noundef %0, i32 noundef %1, ptr noundef %3) #11
   %5 = icmp sgt i32 %1, -1
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
@@ -1670,7 +1670,7 @@ define void @opal_datatype_dump_stack(ptr noundef %0, i32 noundef %1, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @opal_convertor_accelerator_memcpy(ptr noundef returned %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) #2 {
+define internal noundef ptr @opal_convertor_accelerator_memcpy(ptr noundef returned %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 4194304
@@ -1702,13 +1702,13 @@ declare void @abort() local_unnamed_addr #8
 declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

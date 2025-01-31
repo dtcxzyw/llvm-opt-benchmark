@@ -18,7 +18,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN2cv3dnn12forwardVkComERSt6vectorINS_3PtrINS0_14dnn4_v2024052114BackendWrapperEEESaIS5_EERKNS2_INS3_11BackendNodeEEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readnone align 1 %1) local_unnamed_addr #3 {
+define hidden void @_ZN2cv3dnn12forwardVkComERSt6vectorINS_3PtrINS0_14dnn4_v2024052114BackendWrapperEEESaIS5_EERKNS2_INS3_11BackendNodeEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readnone align 1 captures(none) %1) local_unnamed_addr #3 {
   ret void
 }
 

@@ -11,14 +11,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.try_provided_check = private unnamed_addr constant [19 x i8] c"try_provided_check\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_public_check(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define i32 @EVP_PKEY_public_check(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @evp_pkey_public_check_combined(ptr noundef %ctx, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @evp_pkey_public_check_combined(ptr nocapture noundef readonly %ctx, i32 noundef range(i32 0, 2) %checktype) unnamed_addr #0 {
+define internal fastcc i32 @evp_pkey_public_check_combined(ptr noundef readonly captures(none) %ctx, i32 noundef range(i32 0, 2) %checktype) unnamed_addr #0 {
 entry:
   %keymgmt.i = alloca ptr, align 8
   %pkey1 = getelementptr inbounds nuw i8, ptr %ctx, i64 136
@@ -112,21 +112,21 @@ return:                                           ; preds = %try_provided_check.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_public_check_quick(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define i32 @EVP_PKEY_public_check_quick(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @evp_pkey_public_check_combined(ptr noundef %ctx, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_param_check(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define i32 @EVP_PKEY_param_check(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @evp_pkey_param_check_combined(ptr noundef %ctx, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @evp_pkey_param_check_combined(ptr nocapture noundef readonly %ctx, i32 noundef range(i32 0, 2) %checktype) unnamed_addr #0 {
+define internal fastcc i32 @evp_pkey_param_check_combined(ptr noundef readonly captures(none) %ctx, i32 noundef range(i32 0, 2) %checktype) unnamed_addr #0 {
 entry:
   %keymgmt.i = alloca ptr, align 8
   %pkey1 = getelementptr inbounds nuw i8, ptr %ctx, i64 136
@@ -220,14 +220,14 @@ return:                                           ; preds = %try_provided_check.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_param_check_quick(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define i32 @EVP_PKEY_param_check_quick(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @evp_pkey_param_check_combined(ptr noundef %ctx, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, -1) i32 @EVP_PKEY_private_check(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define range(i32 0, -1) i32 @EVP_PKEY_private_check(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %keymgmt.i = alloca ptr, align 8
   %pkey1 = getelementptr inbounds nuw i8, ptr %ctx, i64 136
@@ -294,14 +294,14 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_check(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define i32 @EVP_PKEY_check(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @EVP_PKEY_pairwise_check(ptr noundef %ctx)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_pairwise_check(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define i32 @EVP_PKEY_pairwise_check(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %keymgmt.i = alloca ptr, align 8
   %pkey1 = getelementptr inbounds nuw i8, ptr %ctx, i64 136
@@ -399,10 +399,10 @@ declare ptr @evp_pkey_export_to_provider(ptr noundef, ptr noundef, ptr noundef, 
 declare i32 @evp_keymgmt_validate(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -137,7 +137,7 @@ define hidden void @errHandle(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @validateToken(ptr noundef %0) local_unnamed_addr #0 {
@@ -284,10 +284,10 @@ define hidden range(i32 0, 2) i32 @rebuildScreenData(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @checkVersion() local_unnamed_addr #0 {
@@ -673,7 +673,7 @@ unregisterScreenCastCallback.exit:                ; preds = %errHandle.exit, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @callbackScreenCastCreateSession(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr noundef %5, ptr nocapture noundef initializes((16, 20)) %6) #0 {
+define internal void @callbackScreenCastCreateSession(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr noundef %5, ptr noundef captures(none) initializes((16, 20)) %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   store ptr null, ptr %9, align 8
@@ -706,7 +706,7 @@ define internal void @callbackScreenCastCreateSession(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @portalScreenCastSelectSources(ptr noundef %0) local_unnamed_addr #0 {
@@ -903,7 +903,7 @@ unregisterScreenCastCallback.exit:                ; preds = %errHandle.exit, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @callbackScreenCastSelectSources(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr noundef %5, ptr nocapture noundef writeonly initializes((8, 20)) %6) #0 {
+define internal void @callbackScreenCastSelectSources(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr noundef %5, ptr noundef writeonly captures(none) initializes((8, 20)) %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1097,7 +1097,7 @@ unregisterScreenCastCallback.exit:                ; preds = %errHandle.exit, %91
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @callbackScreenCastStart(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr noundef %5, ptr nocapture noundef initializes((16, 20)) %6) #0 {
+define internal void @callbackScreenCastStart(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr noundef %5, ptr noundef captures(none) initializes((16, 20)) %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca %struct._GVariantIter, align 8
@@ -1395,7 +1395,7 @@ define hidden range(i32 0, 2) i32 @rectanglesEqual(i64 %0, i64 %1, i64 %2, i64 %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @checkCanCaptureAllRequiredScreens(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @checkCanCaptureAllRequiredScreens(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
   %4 = icmp sgt i32 %1, %3
   br i1 %4, label %6, label %.preheader
@@ -1468,7 +1468,7 @@ define hidden range(i32 0, 2) i32 @checkCanCaptureAllRequiredScreens(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @getPipewireFd(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden i32 @getPipewireFd(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @portalScreenCastCreateSession()
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %6

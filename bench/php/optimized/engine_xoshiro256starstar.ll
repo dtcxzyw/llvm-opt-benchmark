@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [35 x i8] c"must be a 32 byte (256 bit) string\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_random_xoshiro256starstar_seed256(ptr nocapture noundef writeonly initializes((0, 32)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define void @php_random_xoshiro256starstar_seed256(ptr noundef writeonly captures(none) initializes((0, 32)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   store i64 %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %6, align 8
@@ -47,7 +47,7 @@ define void @php_random_xoshiro256starstar_seed256(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_random_xoshiro256starstar_seed64(ptr nocapture noundef writeonly initializes((0, 32)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define void @php_random_xoshiro256starstar_seed64(ptr noundef writeonly captures(none) initializes((0, 32)) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = add i64 %1, -7046029254386353131
   %4 = lshr i64 %3, 30
   %5 = xor i64 %4, %3
@@ -95,7 +95,7 @@ define void @php_random_xoshiro256starstar_seed64(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal { i64, i64 } @generate(ptr nocapture noundef %0) #1 {
+define internal { i64, i64 } @generate(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = mul i64 %3, 5
@@ -198,7 +198,7 @@ define internal noundef zeroext i1 @unserialize(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @php_random_xoshiro256starstar_jump(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define void @php_random_xoshiro256starstar_jump(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -274,7 +274,7 @@ jump.exit:                                        ; preds = %31
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @php_random_xoshiro256starstar_jump_long(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define void @php_random_xoshiro256starstar_jump_long(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -350,7 +350,7 @@ jump.exit:                                        ; preds = %31
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Random_Engine_Xoshiro256StarStar_jump(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
+define hidden void @zim_Random_Engine_Xoshiro256StarStar_jump(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -445,7 +445,7 @@ php_random_xoshiro256starstar_jump.exit:          ; preds = %38
 declare void @zend_wrong_parameters_none_error() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Random_Engine_Xoshiro256StarStar_jumpLong(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
+define hidden void @zim_Random_Engine_Xoshiro256StarStar_jumpLong(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -538,7 +538,7 @@ php_random_xoshiro256starstar_jump_long.exit:     ; preds = %38
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
+define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca [4 x i64], align 16

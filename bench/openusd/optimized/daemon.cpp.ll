@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.rlimit = type { i64, i64 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__17ArchCloseAllFilesEiPKi(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__17ArchCloseAllFilesEiPKi(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.rlimit, align 8
   %4 = call i32 @getrlimit(i32 noundef 7, ptr noundef nonnull %3) #5
   %5 = load i64, ptr %3, align 8

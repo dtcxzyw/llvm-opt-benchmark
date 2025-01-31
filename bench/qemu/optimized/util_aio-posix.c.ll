@@ -47,7 +47,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [1 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @aio_poll, ptr @.str.19, ptr @.str.20, i32 602, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local zeroext i1 @aio_poll_disabled(ptr nocapture noundef readonly %ctx) #0 {
+define dso_local zeroext i1 @aio_poll_disabled(ptr noundef readonly captures(none) %ctx) #0 {
 entry:
   %poll_disable_cnt = getelementptr inbounds nuw i8, ptr %ctx, i64 512
   %0 = load atomic i32, ptr %poll_disable_cnt monotonic, align 8
@@ -361,7 +361,7 @@ entry:
 declare i32 @event_notifier_get_fd(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @aio_set_event_notifier_poll(ptr nocapture noundef readonly %ctx, ptr noundef %notifier, ptr noundef %io_poll_begin, ptr noundef %io_poll_end) local_unnamed_addr #2 {
+define dso_local void @aio_set_event_notifier_poll(ptr noundef readonly captures(none) %ctx, ptr noundef %notifier, ptr noundef %io_poll_begin, ptr noundef %io_poll_end) local_unnamed_addr #2 {
 entry:
   %call = tail call i32 @event_notifier_get_fd(ptr noundef %notifier) #10
   %0 = getelementptr i8, ptr %ctx, i64 152
@@ -502,7 +502,7 @@ poll_set_started.exit:                            ; preds = %entry, %for.end.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @aio_pending(ptr noundef %ctx) local_unnamed_addr #2 {
@@ -848,11 +848,11 @@ if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %13 = load i64, ptr %_now.i.i.i.i, align 8
   %tv_usec.i.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i.i.i, i64 noundef %13, i64 noundef %14, ptr noundef %ctx, i64 noundef range(i64 1, 0) %cond.i.i, i64 noundef %cond11) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i.i.i, i64 noundef %13, i64 noundef %14, ptr noundef nonnull %ctx, i64 noundef range(i64 1, 0) %cond.i.i, i64 noundef %cond11) #10
   br label %trace_run_poll_handlers_begin.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, ptr noundef %ctx, i64 noundef range(i64 1, 0) %cond.i.i, i64 noundef %cond11) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, ptr noundef nonnull %ctx, i64 noundef range(i64 1, 0) %cond.i.i, i64 noundef %cond11) #10
   br label %trace_run_poll_handlers_begin.exit.i.i
 
 trace_run_poll_handlers_begin.exit.i.i:           ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %if.end.i10.i
@@ -975,7 +975,7 @@ land.rhs.i.i:                                     ; preds = %do.cond.i.i
   %27 = load ptr, ptr %fdmon_ops.i, align 8
   %need_wait.i.i = getelementptr inbounds nuw i8, ptr %27, i64 16
   %28 = load ptr, ptr %need_wait.i.i, align 8
-  %call11.i.i = call zeroext i1 %28(ptr noundef %ctx) #10
+  %call11.i.i = call zeroext i1 %28(ptr noundef nonnull %ctx) #10
   br i1 %call11.i.i, label %do.end.i.i, label %do.body.i.i, !llvm.loop !18
 
 do.end.i.i:                                       ; preds = %land.rhs.i.i, %do.cond.i.i
@@ -1043,11 +1043,11 @@ if.then8.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i
   %call10.i.i.i.i.i = call i32 @qemu_get_thread_id() #10
   %38 = load i64, ptr %_now.i.i.i.i.i, align 8
   %39 = load i64, ptr %tv_usec.i.i.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i.i.i, i64 noundef %38, i64 noundef %39, ptr noundef %ctx, ptr noundef nonnull %node.030.i.i.i, i32 noundef %33) #10
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i.i.i, i64 noundef %38, i64 noundef %39, ptr noundef nonnull %ctx, ptr noundef nonnull %node.030.i.i.i, i32 noundef %33) #10
   br label %trace_poll_remove.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef %ctx, ptr noundef nonnull %node.030.i.i.i, i32 noundef %33) #10
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ctx, ptr noundef nonnull %node.030.i.i.i, i32 noundef %33) #10
   br label %trace_poll_remove.exit.i.i.i
 
 trace_poll_remove.exit.i.i.i:                     ; preds = %if.else.i.i.i.i.i, %if.then8.i.i.i.i.i, %land.lhs.true5.i.i.i.i.i, %if.then5.i.i.i
@@ -1189,12 +1189,12 @@ if.then8.i.i65.i.i:                               ; preds = %if.then.i.i62.i.i
   %tv_usec.i.i68.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i55.i.i, i64 8
   %60 = load i64, ptr %tv_usec.i.i68.i.i, align 8
   %conv12.i.i.i.i = zext i1 %progress.074.i.i to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i67.i.i, i64 noundef %59, i64 noundef %60, ptr noundef %ctx, i32 noundef %conv12.i.i.i.i, i64 noundef %timeout.6) #10
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i67.i.i, i64 noundef %59, i64 noundef %60, ptr noundef nonnull %ctx, i32 noundef %conv12.i.i.i.i, i64 noundef %timeout.6) #10
   br label %if.then.i.i69.i.i
 
 if.else.i.i64.i.i:                                ; preds = %if.then.i.i62.i.i
   %conv14.i.i.i.i = zext i1 %progress.074.i.i to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, ptr noundef %ctx, i32 noundef %conv14.i.i.i.i, i64 noundef %timeout.6) #10
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, ptr noundef nonnull %ctx, i32 noundef %conv14.i.i.i.i, i64 noundef %timeout.6) #10
   br label %if.then.i.i69.i.i
 
 if.then.i.i69.i.i:                                ; preds = %if.else.i.i64.i.i, %if.then8.i.i65.i.i, %land.lhs.true5.i.i59.i.i, %if.end19.i.i
@@ -1624,7 +1624,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @aio_context_set_poll_params(ptr noundef initializes((520, 552)) %ctx, i64 noundef %max_ns, i64 noundef %grow, i64 noundef %shrink, ptr nocapture noundef readnone %errp) local_unnamed_addr #2 {
+define dso_local void @aio_context_set_poll_params(ptr noundef initializes((520, 552)) %ctx, i64 noundef %max_ns, i64 noundef %grow, i64 noundef %shrink, ptr noundef readnone captures(none) %errp) local_unnamed_addr #2 {
 entry:
   %poll_max_ns = getelementptr inbounds nuw i8, ptr %ctx, i64 528
   store i64 %max_ns, ptr %poll_max_ns, align 8
@@ -1639,7 +1639,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @aio_context_set_aio_params(ptr noundef initializes((552, 560)) %ctx, i64 noundef %max_batch, ptr nocapture noundef readnone %errp) local_unnamed_addr #2 {
+define dso_local void @aio_context_set_aio_params(ptr noundef initializes((552, 560)) %ctx, i64 noundef %max_batch, ptr noundef readnone captures(none) %errp) local_unnamed_addr #2 {
 entry:
   %aio_max_batch = getelementptr inbounds nuw i8, ptr %ctx, i64 552
   store i64 %max_batch, ptr %aio_max_batch, align 8
@@ -1880,7 +1880,7 @@ return:                                           ; preds = %entry, %if.end132, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #3
 
@@ -1905,10 +1905,10 @@ declare i64 @llvm.umin.i64(i64, i64) #8
 declare i64 @llvm.smin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -1004,7 +1004,7 @@ for.end:                                          ; preds = %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyGC_Init(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, ptr nocapture noundef writeonly initializes((1208, 1216)) %interp) local_unnamed_addr #1 {
+define hidden void @_PyGC_Init(ptr noalias writeonly sret(%struct.PyStatus) align 8 captures(none) initializes((0, 4), (8, 28)) %agg.result, ptr noundef writeonly captures(none) initializes((1208, 1216)) %interp) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @PyList_New(i64 noundef 0) #14
   %garbage = getelementptr inbounds nuw i8, ptr %interp, i64 1208
@@ -1050,7 +1050,7 @@ return:                                           ; preds = %if.end10, %if.then5
 declare ptr @PyList_New(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @PyInit_gc() local_unnamed_addr #1 {
@@ -2291,7 +2291,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyGC_DumpShutdownStats(ptr nocapture noundef readonly %interp) local_unnamed_addr #1 {
+define hidden void @_PyGC_DumpShutdownStats(ptr noundef readonly captures(none) %interp) local_unnamed_addr #1 {
 entry:
   %debug = getelementptr inbounds nuw i8, ptr %interp, i64 1016
   %0 = load i32, ptr %debug, align 8
@@ -2413,7 +2413,7 @@ declare ptr @PyUnicode_EncodeFSDefault(ptr noundef) local_unnamed_addr #2
 declare void @PySys_WriteStderr(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyGC_Fini(ptr nocapture noundef %interp) local_unnamed_addr #1 {
+define hidden void @_PyGC_Fini(ptr noundef captures(none) %interp) local_unnamed_addr #1 {
 entry:
   %garbage = getelementptr inbounds nuw i8, ptr %interp, i64 1208
   %0 = load ptr, ptr %garbage, align 8
@@ -2513,7 +2513,7 @@ if.end:                                           ; preds = %entry
 declare void @_PyObject_AssertFailed(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @PyObject_GC_UnTrack(ptr nocapture noundef %op_raw) local_unnamed_addr #4 {
+define dso_local void @PyObject_GC_UnTrack(ptr noundef captures(none) %op_raw) local_unnamed_addr #4 {
 entry:
   %0 = getelementptr i8, ptr %op_raw, i64 -16
   %op_raw.val = load i64, ptr %0, align 8
@@ -2571,7 +2571,7 @@ _PyObject_IS_GC.exit:                             ; preds = %entry, %land.rhs.i,
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden void @_Py_ScheduleGC(ptr nocapture noundef %interp) local_unnamed_addr #7 {
+define hidden void @_Py_ScheduleGC(ptr noundef captures(none) %interp) local_unnamed_addr #7 {
 entry:
   %0 = load atomic i64, ptr %interp seq_cst, align 8
   %and.i = and i64 %0, 16
@@ -2597,7 +2597,7 @@ _Py_set_eval_breaker_bit.exit:                    ; preds = %_Py_atomic_compare_
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_PyObject_GC_Link(ptr nocapture noundef writeonly initializes((-16, 0)) %op) local_unnamed_addr #8 {
+define hidden void @_PyObject_GC_Link(ptr noundef writeonly captures(none) initializes((-16, 0)) %op) local_unnamed_addr #8 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %op, i64 -16
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
@@ -3258,7 +3258,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PyUnstable_GC_VisitObjects(ptr nocapture noundef readonly %callback, ptr noundef %arg) local_unnamed_addr #1 {
+define dso_local void @PyUnstable_GC_VisitObjects(ptr noundef readonly captures(none) %callback, ptr noundef %arg) local_unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -3325,7 +3325,7 @@ done:                                             ; preds = %for.inc9, %Py_DECRE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @gc_enable(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #4 {
+define internal noundef nonnull ptr @gc_enable(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #4 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -3337,7 +3337,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @gc_disable(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #4 {
+define internal noundef nonnull ptr @gc_disable(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #4 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -3349,7 +3349,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @gc_isenabled(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #1 {
+define internal ptr @gc_isenabled(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -3376,7 +3376,7 @@ exit:                                             ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @gc_set_debug(ptr nocapture readnone %module, ptr noundef %arg) #1 {
+define internal noundef ptr @gc_set_debug(ptr readnone captures(none) %module, ptr noundef %arg) #1 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #14
   %cmp = icmp eq i32 %call, -1
@@ -3403,7 +3403,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @gc_get_debug(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #1 {
+define internal ptr @gc_get_debug(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -3430,7 +3430,7 @@ exit:                                             ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @gc_get_count(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #1 {
+define internal ptr @gc_get_count(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -3447,7 +3447,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @gc_set_threshold(ptr nocapture readnone %self, ptr noundef %args) #1 {
+define internal ptr @gc_set_threshold(ptr readnone captures(none) %self, ptr noundef %args) #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -3463,7 +3463,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @gc_get_threshold(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #1 {
+define internal ptr @gc_get_threshold(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -3480,7 +3480,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @gc_collect(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #1 {
+define internal ptr @gc_collect(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #1 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %tobool.not = icmp eq ptr %kwnames, null
@@ -3566,7 +3566,7 @@ exit:                                             ; preds = %land.lhs.true24, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @gc_get_objects(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #1 {
+define internal ptr @gc_get_objects(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #1 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %generation = alloca i64, align 8
@@ -3727,7 +3727,7 @@ exit:                                             ; preds = %for.inc.i.i, %for.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @gc_get_stats(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #1 {
+define internal ptr @gc_get_stats(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #1 {
 entry:
   %stats.i = alloca [3 x %struct.gc_generation_stats], align 16
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %stats.i)
@@ -3815,7 +3815,7 @@ gc_get_stats_impl.exit:                           ; preds = %for.inc17.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @gc_is_tracked(ptr nocapture readnone %module, ptr noundef %obj) #1 {
+define internal noundef ptr @gc_is_tracked(ptr readnone captures(none) %module, ptr noundef %obj) #1 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val.i = load ptr, ptr %0, align 8
@@ -3868,7 +3868,7 @@ if.end:                                           ; preds = %if.end.i.i7, %if.el
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @gc_is_finalized(ptr nocapture readnone %module, ptr noundef %obj) #1 {
+define internal noundef ptr @gc_is_finalized(ptr readnone captures(none) %module, ptr noundef %obj) #1 {
 entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val.i = load ptr, ptr %0, align 8
@@ -3905,7 +3905,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @gc_get_referrers(ptr nocapture readnone %self, ptr noundef %args) #1 {
+define internal ptr @gc_get_referrers(ptr readnone captures(none) %self, ptr noundef %args) #1 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, ptr noundef %args) #14
   %cmp = icmp slt i32 %call, 0
@@ -3987,7 +3987,7 @@ return:                                           ; preds = %for.inc, %if.end.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @gc_get_referents(ptr nocapture readnone %self, ptr noundef %args) #1 {
+define internal ptr @gc_get_referents(ptr readnone captures(none) %self, ptr noundef %args) #1 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.38, ptr noundef %args) #14
   %cmp = icmp slt i32 %call, 0
@@ -4075,7 +4075,7 @@ return:                                           ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @gc_freeze(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #9 {
+define internal noundef nonnull ptr @gc_freeze(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #9 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -4132,7 +4132,7 @@ gc_freeze_impl.exit:                              ; preds = %gc_list_merge.exit.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @gc_unfreeze(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #4 {
+define internal noundef nonnull ptr @gc_unfreeze(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #4 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -4177,7 +4177,7 @@ gc_unfreeze_impl.exit:                            ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @gc_get_freeze_count(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #1 {
+define internal ptr @gc_get_freeze_count(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -4240,10 +4240,10 @@ declare ptr @_PyErr_Format(ptr noundef, ptr noundef, ptr noundef, ...) local_unn
 declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @referrersvisit(ptr noundef readnone %obj, ptr nocapture noundef readonly %arg) #11 {
+define internal range(i32 0, 2) i32 @referrersvisit(ptr noundef readnone %obj, ptr noundef readonly captures(none) %arg) #11 {
 entry:
   %ob_item = getelementptr inbounds nuw i8, ptr %arg, i64 24
   %0 = getelementptr i8, ptr %arg, i64 16
@@ -4334,7 +4334,7 @@ declare i32 @PyModule_AddIntConstant(ptr noundef, ptr noundef, i64 noundef) loca
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @invoke_gc_callback(ptr nocapture readonly %tstate.16.val, ptr noundef %phase, i32 noundef range(i32 0, -2147483648) %generation, i64 noundef %collected, i64 noundef %uncollectable) unnamed_addr #1 {
+define internal fastcc void @invoke_gc_callback(ptr readonly captures(none) %tstate.16.val, ptr noundef %phase, i32 noundef range(i32 0, -2147483648) %generation, i64 noundef %collected, i64 noundef %uncollectable) unnamed_addr #1 {
 entry:
   %stack = alloca [2 x ptr], align 16
   %callbacks = getelementptr inbounds nuw i8, ptr %tstate.16.val, i64 1216
@@ -4681,7 +4681,7 @@ declare i32 @PyOS_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unn
 declare void @PySys_FormatStderr(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @visit_decref(ptr noundef %op, ptr nocapture readnone %parent) #1 {
+define internal noundef i32 @visit_decref(ptr noundef %op, ptr readnone captures(none) %parent) #1 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %obj.val.i = load ptr, ptr %0, align 8
@@ -4888,10 +4888,10 @@ declare ptr @PyObject_Malloc(i64 noundef) local_unnamed_addr #2
 declare void @_Py_NewReference(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

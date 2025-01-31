@@ -35,14 +35,14 @@ define hidden void @ftype_register_ieee_11073_float() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @sfloat_ieee_11073_fvalue_new(ptr nocapture noundef writeonly initializes((8, 10)) %0) #1 {
+define internal void @sfloat_ieee_11073_fvalue_new(ptr noundef writeonly captures(none) initializes((8, 10)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr nocapture noundef writeonly %0, ptr noundef %1, i1 zeroext %2, ptr nocapture readnone %3) #0 {
+define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr noundef writeonly captures(none) %0, ptr noundef %1, i1 zeroext %2, ptr readnone captures(none) %3) #0 {
   %5 = load i8, ptr %1, align 1
   switch i8 %5, label %6 [
     i8 0, label %.loopexit147
@@ -277,25 +277,25 @@ define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_uinteger64(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 %2, ptr nocapture readnone %3) #0 {
+define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr noundef %0, ptr noundef %1, i1 zeroext poison, ptr poison)
   ret i1 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_sinteger64(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 %2, ptr nocapture readnone %3) #0 {
+define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr noundef %0, ptr noundef %1, i1 zeroext poison, ptr poison)
   ret i1 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_double(ptr nocapture noundef writeonly %0, ptr noundef %1, double %2, ptr nocapture readnone %3) #0 {
+define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_double(ptr noundef writeonly captures(none) %0, ptr noundef %1, double %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr noundef %0, ptr noundef %1, i1 zeroext poison, ptr poison)
   ret i1 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @sfloat_ieee_11073_val_to_repr(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2, i32 %3) #0 {
+define internal noalias ptr @sfloat_ieee_11073_val_to_repr(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 %2, i32 %3) #0 {
   %5 = alloca [5 x i8], align 1
   %6 = alloca [13 x i8], align 1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -444,7 +444,7 @@ switch.lookup:                                    ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @sfloat_ieee_11073_value_set(ptr nocapture noundef writeonly initializes((8, 10)) %0, i32 noundef %1) #1 {
+define internal void @sfloat_ieee_11073_value_set(ptr noundef writeonly captures(none) initializes((8, 10)) %0, i32 noundef %1) #1 {
   %3 = trunc i32 %1 to i16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %3, ptr %4, align 8
@@ -452,7 +452,7 @@ define internal void @sfloat_ieee_11073_value_set(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @sfloat_ieee_11073_value_get(ptr nocapture noundef readonly %0) #2 {
+define internal range(i32 0, 65536) i32 @sfloat_ieee_11073_value_get(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i16, ptr %2, align 8
   %4 = zext i16 %3 to i32
@@ -460,7 +460,7 @@ define internal range(i32 0, 65536) i32 @sfloat_ieee_11073_value_get(ptr nocaptu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @sfloat_ieee_11073_cmp_order(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #3 {
+define internal noundef i32 @sfloat_ieee_11073_cmp_order(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #3 {
   %4 = getelementptr i8, ptr %0, i64 8
   %.val = load i16, ptr %4, align 8
   %5 = add i16 %.val, -2046
@@ -773,7 +773,7 @@ sfloat_ieee_11073_cmp_lt.exit.thread:             ; preds = %82, %78, %65, %63, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sfloat_ieee_11073_hash(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @sfloat_ieee_11073_hash(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i16, ptr %3, align 8
@@ -784,7 +784,7 @@ define internal i32 @sfloat_ieee_11073_hash(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @sfloat_ieee_11073_is_zero(ptr nocapture noundef readonly %0) #2 {
+define internal zeroext i1 @sfloat_ieee_11073_is_zero(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i16, ptr %2, align 8
   %4 = icmp eq i16 %3, 0
@@ -792,14 +792,14 @@ define internal zeroext i1 @sfloat_ieee_11073_is_zero(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @float_ieee_11073_fvalue_new(ptr nocapture noundef writeonly initializes((8, 12)) %0) #1 {
+define internal void @float_ieee_11073_fvalue_new(ptr noundef writeonly captures(none) initializes((8, 12)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @float_ieee_11073_val_from_literal(ptr nocapture noundef writeonly %0, ptr noundef %1, i1 zeroext %2, ptr nocapture readnone %3) #0 {
+define internal noundef zeroext i1 @float_ieee_11073_val_from_literal(ptr noundef writeonly captures(none) %0, ptr noundef %1, i1 zeroext %2, ptr readnone captures(none) %3) #0 {
   %5 = load i8, ptr %1, align 1
   switch i8 %5, label %6 [
     i8 0, label %.loopexit148
@@ -1035,25 +1035,25 @@ define internal noundef zeroext i1 @float_ieee_11073_val_from_literal(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @float_ieee_11073_val_from_uinteger64(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 %2, ptr nocapture readnone %3) #0 {
+define internal noundef zeroext i1 @float_ieee_11073_val_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i1 @float_ieee_11073_val_from_literal(ptr noundef %0, ptr noundef %1, i1 zeroext poison, ptr poison)
   ret i1 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @float_ieee_11073_val_from_sinteger64(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 %2, ptr nocapture readnone %3) #0 {
+define internal noundef zeroext i1 @float_ieee_11073_val_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i1 @float_ieee_11073_val_from_literal(ptr noundef %0, ptr noundef %1, i1 zeroext poison, ptr poison)
   ret i1 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @float_ieee_11073_val_from_double(ptr nocapture noundef writeonly %0, ptr noundef %1, double %2, ptr nocapture readnone %3) #0 {
+define internal noundef zeroext i1 @float_ieee_11073_val_from_double(ptr noundef writeonly captures(none) %0, ptr noundef %1, double %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i1 @float_ieee_11073_val_from_literal(ptr noundef %0, ptr noundef %1, i1 zeroext poison, ptr poison)
   ret i1 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @float_ieee_11073_val_to_repr(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2, i32 %3) #0 {
+define internal noalias ptr @float_ieee_11073_val_to_repr(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 %2, i32 %3) #0 {
   %5 = alloca [8 x i8], align 1
   %6 = alloca [136 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1198,21 +1198,21 @@ switch.lookup:                                    ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @float_ieee_11073_value_set(ptr nocapture noundef writeonly initializes((8, 12)) %0, i32 noundef %1) #1 {
+define internal void @float_ieee_11073_value_set(ptr noundef writeonly captures(none) initializes((8, 12)) %0, i32 noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @float_ieee_11073_value_get(ptr nocapture noundef readonly %0) #2 {
+define internal i32 @float_ieee_11073_value_get(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @float_ieee_11073_cmp_order(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #3 {
+define internal noundef i32 @float_ieee_11073_cmp_order(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #3 {
   %4 = getelementptr i8, ptr %0, i64 8
   %.val = load i32, ptr %4, align 8
   %5 = add i32 %.val, -8388606
@@ -1493,7 +1493,7 @@ float_ieee_11073_cmp_lt.exit.thread:              ; preds = %51, %63, %._crit_ed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @float_ieee_11073_hash(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @float_ieee_11073_hash(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -1504,7 +1504,7 @@ define internal i32 @float_ieee_11073_hash(ptr nocapture noundef readonly %0) #0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @float_ieee_11073_is_zero(ptr nocapture noundef readonly %0) #2 {
+define internal zeroext i1 @float_ieee_11073_is_zero(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -1526,13 +1526,13 @@ declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare i32 @g_int64_hash(ptr noundef) local_unnamed_addr #4
 

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [24 x i8] c"adio/common/ad_darray.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ADIO_Type_create_darray(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, i32 noundef %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #0 {
+define noundef i32 @ADIO_Type_create_darray(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #0 {
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %13 = alloca [1 x ptr], align 8
@@ -301,7 +301,7 @@ declare i32 @PMPI_Type_get_extent(ptr noundef, ptr noundef, ptr noundef) local_u
 declare ptr @ADIOI_Malloc_fn(i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @MPIOI_Type_block(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7, ptr noundef %8, ptr noundef nonnull %9, ptr nocapture noundef writeonly %10) unnamed_addr #0 {
+define internal fastcc void @MPIOI_Type_block(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef writeonly captures(none) %10) unnamed_addr #0 {
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
   %14 = alloca ptr, align 8
@@ -422,7 +422,7 @@ define internal fastcc void @MPIOI_Type_block(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @MPIOI_Type_cyclic(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7, ptr noundef %8, ptr noundef nonnull %9, ptr nocapture noundef writeonly %10) unnamed_addr #0 {
+define internal fastcc void @MPIOI_Type_cyclic(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 noundef %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef writeonly captures(none) %10) unnamed_addr #0 {
   %12 = alloca [3 x i32], align 4
   %13 = alloca [3 x i64], align 16
   %14 = alloca ptr, align 8

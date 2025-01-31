@@ -82,7 +82,7 @@ WebPInitUpsamplers_body.exit:                     ; preds = %12, %9, %5, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @WebPYuv444ToRgba_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) #1 {
+define hidden void @WebPYuv444ToRgba_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) #1 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -154,7 +154,7 @@ define hidden void @WebPYuv444ToRgba_C(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @WebPYuv444ToBgra_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) #1 {
+define hidden void @WebPYuv444ToBgra_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) #1 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -226,7 +226,7 @@ define hidden void @WebPYuv444ToBgra_C(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @WebPYuv444ToRgb_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) #1 {
+define hidden void @WebPYuv444ToRgb_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) #1 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -296,7 +296,7 @@ define hidden void @WebPYuv444ToRgb_C(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @WebPYuv444ToBgr_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) #1 {
+define hidden void @WebPYuv444ToBgr_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) #1 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -366,7 +366,7 @@ define hidden void @WebPYuv444ToBgr_C(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @WebPYuv444ToArgb_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) #1 {
+define hidden void @WebPYuv444ToArgb_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) #1 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -438,7 +438,7 @@ define hidden void @WebPYuv444ToArgb_C(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @WebPYuv444ToRgba4444_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) #1 {
+define hidden void @WebPYuv444ToRgba4444_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) #1 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -508,7 +508,7 @@ define hidden void @WebPYuv444ToRgba4444_C(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @WebPYuv444ToRgb565_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) #1 {
+define hidden void @WebPYuv444ToRgb565_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) #1 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -647,7 +647,7 @@ declare void @WebPInitYUV444ConvertersSSE2() local_unnamed_addr #3
 declare void @WebPInitYUV444ConvertersSSE41() local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly initializes((0, 4)) %6, ptr nocapture noundef writeonly %7, i32 noundef %8) #1 {
+define internal void @UpsampleRgbaLinePair_C(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) initializes((0, 4)) %6, ptr noundef writeonly captures(none) %7, i32 noundef %8) #1 {
   %10 = add nsw i32 %8, -1
   %11 = ashr i32 %10, 1
   %12 = load i8, ptr %2, align 1
@@ -1148,7 +1148,7 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly initializes((0, 4)) %6, ptr nocapture noundef writeonly %7, i32 noundef %8) #1 {
+define internal void @UpsampleBgraLinePair_C(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) initializes((0, 4)) %6, ptr noundef writeonly captures(none) %7, i32 noundef %8) #1 {
   %10 = add nsw i32 %8, -1
   %11 = ashr i32 %10, 1
   %12 = load i8, ptr %2, align 1
@@ -1649,7 +1649,7 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly initializes((0, 3)) %6, ptr nocapture noundef writeonly %7, i32 noundef %8) #1 {
+define internal void @UpsampleRgbLinePair_C(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) initializes((0, 3)) %6, ptr noundef writeonly captures(none) %7, i32 noundef %8) #1 {
   %10 = add nsw i32 %8, -1
   %11 = ashr i32 %10, 1
   %12 = load i8, ptr %2, align 1
@@ -2134,7 +2134,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly initializes((0, 3)) %6, ptr nocapture noundef writeonly %7, i32 noundef %8) #1 {
+define internal void @UpsampleBgrLinePair_C(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) initializes((0, 3)) %6, ptr noundef writeonly captures(none) %7, i32 noundef %8) #1 {
   %10 = add nsw i32 %8, -1
   %11 = ashr i32 %10, 1
   %12 = load i8, ptr %2, align 1
@@ -2619,7 +2619,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly initializes((0, 4)) %6, ptr nocapture noundef writeonly %7, i32 noundef %8) #1 {
+define internal void @UpsampleArgbLinePair_C(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) initializes((0, 4)) %6, ptr noundef writeonly captures(none) %7, i32 noundef %8) #1 {
   %10 = add nsw i32 %8, -1
   %11 = ashr i32 %10, 1
   %12 = load i8, ptr %2, align 1
@@ -3120,7 +3120,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly initializes((0, 2)) %6, ptr nocapture noundef writeonly %7, i32 noundef %8) #1 {
+define internal void @UpsampleRgba4444LinePair_C(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) initializes((0, 2)) %6, ptr noundef writeonly captures(none) %7, i32 noundef %8) #1 {
   %10 = add nsw i32 %8, -1
   %11 = ashr i32 %10, 1
   %12 = load i8, ptr %2, align 1
@@ -3605,7 +3605,7 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly initializes((0, 2)) %6, ptr nocapture noundef writeonly %7, i32 noundef %8) #1 {
+define internal void @UpsampleRgb565LinePair_C(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) initializes((0, 2)) %6, ptr noundef writeonly captures(none) %7, i32 noundef %8) #1 {
   %10 = add nsw i32 %8, -1
   %11 = ashr i32 %10, 1
   %12 = load i8, ptr %2, align 1

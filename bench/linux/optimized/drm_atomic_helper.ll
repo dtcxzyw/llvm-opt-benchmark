@@ -1673,10 +1673,10 @@ mode_fixup.exit:                                  ; preds = %622, %606, %673, %6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @drm_mode_equal(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -1998,7 +1998,7 @@ declare dso_local i32 @drm_atomic_add_affected_planes(ptr noundef, ptr noundef) 
 declare dso_local i32 @drm_atomic_add_encoder_bridges(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @drm_atomic_helper_check_wb_connector_state(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_atomic_helper_check_wb_connector_state(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -2307,10 +2307,10 @@ define dso_local noundef range(i32 -34, 1) i32 @drm_atomic_helper_check_plane_st
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @drm_rect_rotate(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -2334,7 +2334,7 @@ declare dso_local zeroext i1 @drm_rect_clip_scaled(ptr noundef, ptr noundef, ptr
 declare dso_local void @drm_rect_rotate_inv(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @drm_atomic_helper_check_crtc_primary_plane(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_atomic_helper_check_crtc_primary_plane(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 712
@@ -2391,7 +2391,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_atomic_helper_check_crtc_pri
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_atomic_helper_check_planes(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define dso_local i32 @drm_atomic_helper_check_planes(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 704
@@ -2896,7 +2896,7 @@ define dso_local i32 @drm_atomic_helper_async_check(ptr noundef readonly %0, ptr
 declare dso_local void @drm_self_refresh_helper_alter_state(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_atomic_helper_update_legacy_modeset_state(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local void @drm_atomic_helper_update_legacy_modeset_state(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -3107,7 +3107,7 @@ define dso_local void @drm_atomic_helper_update_legacy_modeset_state(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_atomic_helper_calc_timestamping_constants(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @drm_atomic_helper_calc_timestamping_constants(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 728
@@ -4101,7 +4101,7 @@ declare dso_local void @drm_atomic_bridge_chain_pre_enable(ptr noundef, ptr noun
 declare dso_local void @drm_atomic_bridge_chain_enable(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_atomic_helper_wait_for_fences(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) #0 align 16 {
+define dso_local i32 @drm_atomic_helper_wait_for_fences(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -4307,7 +4307,7 @@ define dso_local i32 @drm_atomic_helper_wait_for_fences(ptr nocapture readnone %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_atomic_helper_wait_for_vblanks(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local void @drm_atomic_helper_wait_for_vblanks(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca %struct.wait_queue_entry, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i8, ptr %4, align 8
@@ -4497,7 +4497,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 declare dso_local void @drm_crtc_vblank_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_atomic_helper_wait_for_flip_done(ptr noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local void @drm_atomic_helper_wait_for_flip_done(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -4717,7 +4717,7 @@ define dso_local void @drm_atomic_helper_commit_tail(ptr noundef %0) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_atomic_helper_commit_planes(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local void @drm_atomic_helper_commit_planes(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = zext i32 %2 to i64
   %5 = and i64 %4, 1
   %6 = icmp eq i64 %5, 0
@@ -5109,7 +5109,7 @@ define dso_local void @drm_atomic_helper_commit_planes(ptr nocapture readnone %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_atomic_helper_fake_vblank(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @drm_atomic_helper_fake_vblank(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 728
@@ -5173,7 +5173,7 @@ define dso_local void @drm_atomic_helper_fake_vblank(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_atomic_helper_commit_hw_done(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @drm_atomic_helper_commit_hw_done(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 728
@@ -5293,7 +5293,7 @@ define dso_local void @drm_atomic_helper_commit_hw_done(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_atomic_helper_cleanup_planes(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local void @drm_atomic_helper_cleanup_planes(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 704
@@ -5460,7 +5460,7 @@ define dso_local void @drm_atomic_helper_commit_tail_rpm(ptr noundef %0) #0 alig
 declare dso_local zeroext i1 @try_wait_for_completion(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_atomic_helper_async_commit(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define dso_local void @drm_atomic_helper_async_commit(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 704
@@ -5595,7 +5595,7 @@ define dso_local void @drm_atomic_helper_async_commit(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_atomic_helper_commit(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) #0 align 16 {
+define dso_local i32 @drm_atomic_helper_commit(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i8, ptr %4, align 8
   %6 = and i8 %5, 4
@@ -5831,7 +5831,7 @@ define dso_local i32 @drm_atomic_helper_commit(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_atomic_helper_prepare_planes(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local i32 @drm_atomic_helper_prepare_planes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -6098,7 +6098,7 @@ define dso_local i32 @drm_atomic_helper_prepare_planes(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_atomic_helper_unprepare_planes(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local void @drm_atomic_helper_unprepare_planes(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 704
@@ -7358,7 +7358,7 @@ define internal void @release_crtc_commit(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_atomic_helper_wait_for_dependencies(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @drm_atomic_helper_wait_for_dependencies(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 728
@@ -7543,7 +7543,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2
 declare dso_local void @drm_crtc_send_vblank_event(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_atomic_helper_commit_cleanup_done(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @drm_atomic_helper_commit_cleanup_done(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 728
@@ -7645,7 +7645,7 @@ declare dso_local i32 @drm_writeback_prepare_job(ptr noundef) local_unnamed_addr
 declare dso_local i32 @drm_gem_plane_helper_prepare_fb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_atomic_helper_commit_planes_on_crtc(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @drm_atomic_helper_commit_planes_on_crtc(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %4 = load ptr, ptr %3, align 8
@@ -7834,7 +7834,7 @@ define dso_local void @drm_atomic_helper_commit_planes_on_crtc(ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_atomic_helper_disable_planes_on_crtc(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 align 16 {
+define dso_local void @drm_atomic_helper_disable_planes_on_crtc(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 432
   %5 = load ptr, ptr %4, align 8
@@ -9201,7 +9201,7 @@ define dso_local i32 @drm_atomic_helper_page_flip_target(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noalias noundef ptr @drm_atomic_helper_bridge_propagate_bus_fmt(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) #0 align 16 {
+define dso_local noalias noundef ptr @drm_atomic_helper_bridge_propagate_bus_fmt(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) #0 align 16 {
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 24), align 8
   %8 = tail call noalias align 8 dereferenceable_or_null(4) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 4) #11
   %9 = icmp eq ptr %8, null

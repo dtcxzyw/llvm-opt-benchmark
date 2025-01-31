@@ -208,7 +208,7 @@ $_ZTV2If = comdat any
 @_ZN9OptimizerC1EP2IR = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN9OptimizerC2EP2IR
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN9OptimizerC2EP2IR(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN9OptimizerC2EP2IR(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }
@@ -1044,7 +1044,7 @@ define linkonce_odr hidden void @_ZN8ConstantC2EP9ValueType(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13CE_Eliminator9make_ifopEP11InstructionNS0_9ConditionES1_S1_S1_(ptr nocapture noundef nonnull align 8 dereferenceable(28) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN13CE_Eliminator9make_ifopEP11InstructionNS0_9ConditionES1_S1_S1_(ptr noundef nonnull align 8 captures(none) dereferenceable(28) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 align 2 {
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %tailrecurse.i, %6
@@ -1824,7 +1824,7 @@ declare void @_ZN10BlockBegin7set_endEP8BlockEnd(ptr noundef nonnull align 8 der
 declare noundef i32 @_ZNK3Phi13operand_countEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Optimizer33eliminate_conditional_expressionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN9Optimizer33eliminate_conditional_expressionsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.SubstitutionResolver, align 8
   %3 = alloca %class.CE_Eliminator, align 8
   %4 = load ptr, ptr %0, align 8
@@ -1884,7 +1884,7 @@ _ZN13CE_EliminatorD2Ev.exit:                      ; preds = %_ZN13CE_EliminatorC
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Optimizer16eliminate_blocksEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN9Optimizer16eliminate_blocksEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.BlockMerger, align 8
   %3 = load ptr, ptr %0, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV11BlockMerger, i64 16), ptr %2, align 8
@@ -1924,7 +1924,7 @@ _ZN11BlockMergerD2Ev.exit:                        ; preds = %_ZN11BlockMergerC2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16NullCheckVisitor6do_PhiEP3Phi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN16NullCheckVisitor6do_PhiEP3Phi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN19NullCheckEliminator10handle_PhiEP3Phi(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef %1)
@@ -1932,7 +1932,7 @@ define hidden void @_ZN16NullCheckVisitor6do_PhiEP3Phi(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19NullCheckEliminator10handle_PhiEP3Phi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN19NullCheckEliminator10handle_PhiEP3Phi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -2008,12 +2008,12 @@ define hidden void @_ZN19NullCheckEliminator10handle_PhiEP3Phi(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN16NullCheckVisitor8do_LocalEP5Local(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16NullCheckVisitor8do_LocalEP5Local(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16NullCheckVisitor11do_ConstantEP8Constant(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN16NullCheckVisitor11do_ConstantEP8Constant(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2067,7 +2067,7 @@ _ZN19NullCheckEliminator15handle_ConstantEP8Constant.exit: ; preds = %2, %11, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19NullCheckEliminator15handle_ConstantEP8Constant(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN19NullCheckEliminator15handle_ConstantEP8Constant(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -2119,7 +2119,7 @@ define hidden void @_ZN19NullCheckEliminator15handle_ConstantEP8Constant(ptr noc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16NullCheckVisitor12do_LoadFieldEP9LoadField(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN16NullCheckVisitor12do_LoadFieldEP9LoadField(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN19NullCheckEliminator18handle_AccessFieldEP11AccessField(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef %1)
@@ -2127,7 +2127,7 @@ define hidden void @_ZN16NullCheckVisitor12do_LoadFieldEP9LoadField(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19NullCheckEliminator18handle_AccessFieldEP11AccessField(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN19NullCheckEliminator18handle_AccessFieldEP11AccessField(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 32
@@ -2261,7 +2261,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %81, %78, %66, %6, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16NullCheckVisitor13do_StoreFieldEP10StoreField(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN16NullCheckVisitor13do_StoreFieldEP10StoreField(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN19NullCheckEliminator18handle_AccessFieldEP11AccessField(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef %1)
@@ -2269,7 +2269,7 @@ define hidden void @_ZN16NullCheckVisitor13do_StoreFieldEP10StoreField(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16NullCheckVisitor14do_ArrayLengthEP11ArrayLength(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef initializes((104, 112)) %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN16NullCheckVisitor14do_ArrayLengthEP11ArrayLength(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(none) initializes((104, 112)) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -2351,7 +2351,7 @@ _ZN19NullCheckEliminator18handle_ArrayLengthEP11ArrayLength.exit: ; preds = %27,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19NullCheckEliminator18handle_ArrayLengthEP11ArrayLength(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef initializes((104, 112)) %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN19NullCheckEliminator18handle_ArrayLengthEP11ArrayLength(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef captures(none) initializes((104, 112)) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2431,7 +2431,7 @@ _ZN19NullCheckEliminator28last_explicit_null_check_objEv.exit: ; preds = %17, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16NullCheckVisitor14do_LoadIndexedEP11LoadIndexed(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef initializes((128, 136)) %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN16NullCheckVisitor14do_LoadIndexedEP11LoadIndexed(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(none) initializes((128, 136)) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -2513,7 +2513,7 @@ _ZN19NullCheckEliminator18handle_LoadIndexedEP11LoadIndexed.exit: ; preds = %27,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19NullCheckEliminator18handle_LoadIndexedEP11LoadIndexed(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef initializes((128, 136)) %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN19NullCheckEliminator18handle_LoadIndexedEP11LoadIndexed(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef captures(none) initializes((128, 136)) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2593,7 +2593,7 @@ _ZN19NullCheckEliminator28last_explicit_null_check_objEv.exit: ; preds = %17, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16NullCheckVisitor15do_StoreIndexedEP12StoreIndexed(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN16NullCheckVisitor15do_StoreIndexedEP12StoreIndexed(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -2636,7 +2636,7 @@ _ZN19NullCheckEliminator19handle_StoreIndexedEP12StoreIndexed.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19NullCheckEliminator19handle_StoreIndexedEP12StoreIndexed(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((80, 88)) %0, ptr nocapture noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN19NullCheckEliminator19handle_StoreIndexedEP12StoreIndexed(ptr noundef nonnull align 8 captures(none) dereferenceable(88) initializes((80, 88)) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2677,12 +2677,12 @@ define hidden void @_ZN19NullCheckEliminator19handle_StoreIndexedEP12StoreIndexe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN16NullCheckVisitor11do_NegateOpEP8NegateOp(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16NullCheckVisitor11do_NegateOpEP8NegateOp(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16NullCheckVisitor15do_ArithmeticOpEP12ArithmeticOp(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN16NullCheckVisitor15do_ArithmeticOpEP12ArithmeticOp(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 424
   %5 = load ptr, ptr %4, align 8
@@ -2701,22 +2701,22 @@ define hidden void @_ZN16NullCheckVisitor15do_ArithmeticOpEP12ArithmeticOp(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN16NullCheckVisitor10do_ShiftOpEP7ShiftOp(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16NullCheckVisitor10do_ShiftOpEP7ShiftOp(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN16NullCheckVisitor10do_LogicOpEP7LogicOp(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16NullCheckVisitor10do_LogicOpEP7LogicOp(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN16NullCheckVisitor12do_CompareOpEP9CompareOp(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16NullCheckVisitor12do_CompareOpEP9CompareOp(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16NullCheckVisitor7do_IfOpEP4IfOp(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN16NullCheckVisitor7do_IfOpEP4IfOp(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2779,7 +2779,7 @@ _ZN19NullCheckEliminator11handle_IfOpEP4IfOp.exit: ; preds = %2, %11, %26, %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19NullCheckEliminator11handle_IfOpEP4IfOp(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN19NullCheckEliminator11handle_IfOpEP4IfOp(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -2840,12 +2840,12 @@ define hidden void @_ZN19NullCheckEliminator11handle_IfOpEP4IfOp(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN16NullCheckVisitor10do_ConvertEP7Convert(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16NullCheckVisitor10do_ConvertEP7Convert(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16NullCheckVisitor12do_NullCheckEP9NullCheck(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN16NullCheckVisitor12do_NullCheckEP9NullCheck(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -2899,7 +2899,7 @@ _ZN19NullCheckEliminator16handle_NullCheckEP9NullCheck.exit: ; preds = %21, %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19NullCheckEliminator16handle_NullCheckEP9NullCheck(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN19NullCheckEliminator16handle_NullCheckEP9NullCheck(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2951,12 +2951,12 @@ define hidden void @_ZN19NullCheckEliminator16handle_NullCheckEP9NullCheck(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN16NullCheckVisitor11do_TypeCastEP8TypeCast(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16NullCheckVisitor11do_TypeCastEP8TypeCast(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16NullCheckVisitor9do_InvokeEP6Invoke(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN16NullCheckVisitor9do_InvokeEP6Invoke(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -2992,7 +2992,7 @@ _ZN19NullCheckEliminator13handle_InvokeEP6Invoke.exit: ; preds = %2, %7, %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19NullCheckEliminator13handle_InvokeEP6Invoke(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((80, 88)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN19NullCheckEliminator13handle_InvokeEP6Invoke(ptr noundef nonnull align 8 captures(none) dereferenceable(88) initializes((80, 88)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3026,7 +3026,7 @@ define hidden void @_ZN19NullCheckEliminator13handle_InvokeEP6Invoke(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16NullCheckVisitor14do_NewInstanceEP11NewInstance(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN16NullCheckVisitor14do_NewInstanceEP11NewInstance(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -3046,7 +3046,7 @@ define hidden void @_ZN16NullCheckVisitor14do_NewInstanceEP11NewInstance(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19NullCheckEliminator18handle_NewInstanceEP11NewInstance(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN19NullCheckEliminator18handle_NewInstanceEP11NewInstance(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3064,7 +3064,7 @@ define hidden void @_ZN19NullCheckEliminator18handle_NewInstanceEP11NewInstance(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16NullCheckVisitor15do_NewTypeArrayEP12NewTypeArray(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN16NullCheckVisitor15do_NewTypeArrayEP12NewTypeArray(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -3084,7 +3084,7 @@ define hidden void @_ZN16NullCheckVisitor15do_NewTypeArrayEP12NewTypeArray(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19NullCheckEliminator15handle_NewArrayEP8NewArray(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN19NullCheckEliminator15handle_NewArrayEP8NewArray(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3102,7 +3102,7 @@ define hidden void @_ZN19NullCheckEliminator15handle_NewArrayEP8NewArray(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16NullCheckVisitor17do_NewObjectArrayEP14NewObjectArray(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN16NullCheckVisitor17do_NewObjectArrayEP14NewObjectArray(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -3122,7 +3122,7 @@ define hidden void @_ZN16NullCheckVisitor17do_NewObjectArrayEP14NewObjectArray(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16NullCheckVisitor16do_NewMultiArrayEP13NewMultiArray(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN16NullCheckVisitor16do_NewMultiArrayEP13NewMultiArray(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -3142,7 +3142,7 @@ define hidden void @_ZN16NullCheckVisitor16do_NewMultiArrayEP13NewMultiArray(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16NullCheckVisitor12do_CheckCastEP9CheckCast(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture readnone %1) unnamed_addr #5 align 2 {
+define hidden void @_ZN16NullCheckVisitor12do_CheckCastEP9CheckCast(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readnone captures(none) %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -3151,12 +3151,12 @@ define hidden void @_ZN16NullCheckVisitor12do_CheckCastEP9CheckCast(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN16NullCheckVisitor13do_InstanceOfEP10InstanceOf(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16NullCheckVisitor13do_InstanceOfEP10InstanceOf(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16NullCheckVisitor15do_MonitorEnterEP12MonitorEnter(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN16NullCheckVisitor15do_MonitorEnterEP12MonitorEnter(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -3199,7 +3199,7 @@ _ZN19NullCheckEliminator20handle_AccessMonitorEP13AccessMonitor.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19NullCheckEliminator20handle_AccessMonitorEP13AccessMonitor(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((80, 88)) %0, ptr nocapture noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN19NullCheckEliminator20handle_AccessMonitorEP13AccessMonitor(ptr noundef nonnull align 8 captures(none) dereferenceable(88) initializes((80, 88)) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3240,7 +3240,7 @@ define hidden void @_ZN19NullCheckEliminator20handle_AccessMonitorEP13AccessMoni
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16NullCheckVisitor14do_MonitorExitEP11MonitorExit(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN16NullCheckVisitor14do_MonitorExitEP11MonitorExit(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -3283,7 +3283,7 @@ _ZN19NullCheckEliminator20handle_AccessMonitorEP13AccessMonitor.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16NullCheckVisitor12do_IntrinsicEP9Intrinsic(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef %1) unnamed_addr #6 align 2 {
+define hidden void @_ZN16NullCheckVisitor12do_IntrinsicEP9Intrinsic(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(none) %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -3399,7 +3399,7 @@ _ZN19NullCheckEliminator16handle_IntrinsicEP9Intrinsic.exit: ; preds = %_ZN9Intr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19NullCheckEliminator16handle_IntrinsicEP9Intrinsic(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef %1) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN19NullCheckEliminator16handle_IntrinsicEP9Intrinsic(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3513,37 +3513,37 @@ _ZN9Intrinsic24set_arg_needs_null_checkEib.exit:  ; preds = %16, %.sink.split.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN16NullCheckVisitor13do_BlockBeginEP10BlockBegin(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16NullCheckVisitor13do_BlockBeginEP10BlockBegin(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN16NullCheckVisitor7do_GotoEP4Goto(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16NullCheckVisitor7do_GotoEP4Goto(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN16NullCheckVisitor5do_IfEP2If(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16NullCheckVisitor5do_IfEP2If(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN16NullCheckVisitor14do_TableSwitchEP11TableSwitch(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16NullCheckVisitor14do_TableSwitchEP11TableSwitch(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN16NullCheckVisitor15do_LookupSwitchEP12LookupSwitch(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16NullCheckVisitor15do_LookupSwitchEP12LookupSwitch(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN16NullCheckVisitor9do_ReturnEP6Return(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16NullCheckVisitor9do_ReturnEP6Return(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16NullCheckVisitor8do_ThrowEP5Throw(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture readnone %1) unnamed_addr #5 align 2 {
+define hidden void @_ZN16NullCheckVisitor8do_ThrowEP5Throw(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readnone captures(none) %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -3552,17 +3552,17 @@ define hidden void @_ZN16NullCheckVisitor8do_ThrowEP5Throw(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN16NullCheckVisitor7do_BaseEP4Base(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16NullCheckVisitor7do_BaseEP4Base(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN16NullCheckVisitor11do_OsrEntryEP8OsrEntry(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16NullCheckVisitor11do_OsrEntryEP8OsrEntry(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16NullCheckVisitor18do_ExceptionObjectEP15ExceptionObject(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN16NullCheckVisitor18do_ExceptionObjectEP15ExceptionObject(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -3582,7 +3582,7 @@ define hidden void @_ZN16NullCheckVisitor18do_ExceptionObjectEP15ExceptionObject
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19NullCheckEliminator22handle_ExceptionObjectEP15ExceptionObject(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN19NullCheckEliminator22handle_ExceptionObjectEP15ExceptionObject(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3600,27 +3600,27 @@ define hidden void @_ZN19NullCheckEliminator22handle_ExceptionObjectEP15Exceptio
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN16NullCheckVisitor10do_RoundFPEP7RoundFP(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16NullCheckVisitor10do_RoundFPEP7RoundFP(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN16NullCheckVisitor12do_UnsafeGetEP9UnsafeGet(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16NullCheckVisitor12do_UnsafeGetEP9UnsafeGet(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN16NullCheckVisitor12do_UnsafePutEP9UnsafePut(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16NullCheckVisitor12do_UnsafePutEP9UnsafePut(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN16NullCheckVisitor18do_UnsafeGetAndSetEP15UnsafeGetAndSet(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16NullCheckVisitor18do_UnsafeGetAndSetEP15UnsafeGetAndSet(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16NullCheckVisitor14do_ProfileCallEP11ProfileCall(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef %1) unnamed_addr #6 align 2 {
+define hidden void @_ZN16NullCheckVisitor14do_ProfileCallEP11ProfileCall(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(none) %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -3694,7 +3694,7 @@ _ZN19NullCheckEliminator18handle_ProfileCallEP11ProfileCall.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19NullCheckEliminator18handle_ProfileCallEP11ProfileCall(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr nocapture noundef %1) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN19NullCheckEliminator18handle_ProfileCallEP11ProfileCall(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef captures(none) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -3763,7 +3763,7 @@ _ZN11ProfileCall24set_arg_needs_null_checkEib.exit: ; preds = %.lr.ph, %.sink.sp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16NullCheckVisitor20do_ProfileReturnTypeEP17ProfileReturnType(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef %1) unnamed_addr #8 align 2 {
+define hidden void @_ZN16NullCheckVisitor20do_ProfileReturnTypeEP17ProfileReturnType(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(none) %1) unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -3791,7 +3791,7 @@ define hidden void @_ZN16NullCheckVisitor20do_ProfileReturnTypeEP17ProfileReturn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19NullCheckEliminator24handle_ProfileReturnTypeEP17ProfileReturnType(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr nocapture noundef %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN19NullCheckEliminator24handle_ProfileReturnTypeEP17ProfileReturnType(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef captures(none) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3817,27 +3817,27 @@ define hidden void @_ZN19NullCheckEliminator24handle_ProfileReturnTypeEP17Profil
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN16NullCheckVisitor16do_ProfileInvokeEP13ProfileInvoke(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16NullCheckVisitor16do_ProfileInvokeEP13ProfileInvoke(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN16NullCheckVisitor14do_RuntimeCallEP11RuntimeCall(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16NullCheckVisitor14do_RuntimeCallEP11RuntimeCall(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN16NullCheckVisitor9do_MemBarEP6MemBar(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16NullCheckVisitor9do_MemBarEP6MemBar(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN16NullCheckVisitor22do_RangeCheckPredicateEP19RangeCheckPredicate(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN16NullCheckVisitor22do_RangeCheckPredicateEP19RangeCheckPredicate(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19NullCheckEliminator5visitEPP11Instruction(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN19NullCheckEliminator5visitEPP11Instruction(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -3871,7 +3871,7 @@ define hidden void @_ZN19NullCheckEliminator5visitEPP11Instruction(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN19NullCheckEliminator15merge_state_forEP10BlockBeginP8ValueSet(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN19NullCheckEliminator15merge_state_forEP10BlockBeginP8ValueSet(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6616,13 +6616,13 @@ declare void @llvm.assume(i1 noundef) #11
 declare i32 @llvm.ctpop.i32(i32) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

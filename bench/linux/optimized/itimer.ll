@@ -38,7 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [4 x ptr] [ptr @trace_itimer_expire.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace559, ptr @trace_itimer_expire.__UNIQUE_ID___addressable___SCK__tp_func_itimer_expire558, ptr @trace_itimer_state.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace545, ptr @trace_itimer_state.__UNIQUE_ID___addressable___SCK__tp_func_itimer_state544], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -22, 1) i64 @__x64_sys_getitimer(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -22, 1) i64 @__x64_sys_getitimer(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.__kernel_old_itimerval, align 8
   %3 = alloca %struct.itimerspec64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -85,7 +85,7 @@ define dso_local range(i64 -22, 1) i64 @__x64_sys_getitimer(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -22, 1) i64 @__ia32_sys_getitimer(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -22, 1) i64 @__ia32_sys_getitimer(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.__kernel_old_itimerval, align 8
   %3 = alloca %struct.itimerspec64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -133,7 +133,7 @@ define dso_local range(i64 -22, 1) i64 @__ia32_sys_getitimer(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -22, 1) i64 @__ia32_compat_sys_getitimer(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -22, 1) i64 @__ia32_compat_sys_getitimer(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.old_itimerval32, align 4
   %3 = alloca %struct.itimerspec64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -185,7 +185,7 @@ define dso_local range(i64 -22, 1) i64 @__ia32_compat_sys_getitimer(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @it_real_fn(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @it_real_fn(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 216
   %3 = load ptr, ptr %2, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_itimer_expire, i64 8), i32 2) #8
@@ -233,10 +233,10 @@ define dso_local noundef i32 @it_real_fn(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @kill_pid_info(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -261,7 +261,7 @@ define dso_local void @clear_itimer() local_unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -22, 1) i32 @do_setitimer(i32 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
@@ -428,7 +428,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @do_setitimer(i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 0, 4294967296) i64 @__x64_sys_alarm(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @__x64_sys_alarm(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.itimerspec64, align 8
   %3 = alloca %struct.itimerspec64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -461,7 +461,7 @@ define dso_local range(i64 0, 4294967296) i64 @__x64_sys_alarm(ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 0, 4294967296) i64 @__ia32_sys_alarm(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @__ia32_sys_alarm(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.itimerspec64, align 8
   %3 = alloca %struct.itimerspec64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -494,7 +494,7 @@ define dso_local range(i64 0, 4294967296) i64 @__ia32_sys_alarm(ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -22, 1) i64 @__x64_sys_setitimer(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -22, 1) i64 @__x64_sys_setitimer(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -619,7 +619,7 @@ define internal fastcc range(i64 -22, 1) i64 @__se_sys_setitimer(i64 noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -22, 1) i64 @__ia32_sys_setitimer(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -22, 1) i64 @__ia32_sys_setitimer(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -634,7 +634,7 @@ define dso_local range(i64 -22, 1) i64 @__ia32_sys_setitimer(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -22, 1) i64 @__ia32_compat_sys_setitimer(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -22, 1) i64 @__ia32_compat_sys_setitimer(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.old_itimerval32, align 4
   %3 = alloca %struct.old_itimerval32, align 4
   %4 = alloca %struct.itimerspec64, align 8
@@ -763,7 +763,7 @@ define dso_local range(i64 -22, 1) i64 @__ia32_compat_sys_setitimer(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @do_getitimer(i32 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @do_getitimer(i32 noundef %0, ptr noundef writeonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = alloca [3 x i64], align 16
   %4 = alloca [3 x i64], align 16
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !20

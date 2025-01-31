@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZNK11btWheelInfo23getSuspensionRestLengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef float @_ZNK11btWheelInfo23getSuspensionRestLengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this) local_unnamed_addr #0 align 2 {
 entry:
   %m_suspensionRestLength1 = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load float, ptr %m_suspensionRestLength1, align 8
@@ -14,7 +14,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN11btWheelInfo11updateWheelERK11btRigidBodyRNS_11RaycastInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(296) initializes((280, 288)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(744) %chassis, ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %raycastInfo) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN11btWheelInfo11updateWheelERK11btRigidBodyRNS_11RaycastInfoE(ptr noundef nonnull align 8 captures(none) dereferenceable(296) initializes((280, 288)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(744) %chassis, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %raycastInfo) local_unnamed_addr #1 align 2 {
 entry:
   %m_isInContact = getelementptr inbounds nuw i8, ptr %this, i64 84
   %0 = load i8, ptr %m_isInContact, align 4

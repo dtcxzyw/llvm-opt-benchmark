@@ -125,7 +125,7 @@ declare ptr @RegisterSnapshot(ptr noundef) local_unnamed_addr #1
 declare ptr @GetCatalogSnapshot(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @table_scan_update_snapshot(ptr nocapture noundef initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @table_scan_update_snapshot(ptr noundef captures(none) initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @RegisterSnapshot(ptr noundef %1) #9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -462,7 +462,7 @@ define dso_local void @simple_table_tuple_update(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @table_block_parallelscan_estimate(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
+define dso_local noundef i64 @table_block_parallelscan_estimate(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
   ret i64 40
 }
 
@@ -510,14 +510,14 @@ define dso_local noundef i64 @table_block_parallelscan_initialize(ptr noundef %0
 declare i32 @RelationGetNumberOfBlocksInFork(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @table_block_parallelscan_reinitialize(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #4 {
+define dso_local void @table_block_parallelscan_reinitialize(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store volatile i64 0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @table_block_parallelscan_startblock_init(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @table_block_parallelscan_startblock_init(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1, ptr noundef %2) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
@@ -580,14 +580,14 @@ define dso_local void @table_block_parallelscan_startblock_init(ptr noundef %0, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @s_lock(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @ss_get_location(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @table_block_parallelscan_nextpage(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @table_block_parallelscan_nextpage(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -678,7 +678,7 @@ define dso_local i32 @table_block_parallelscan_nextpage(ptr noundef %0, ptr noca
 declare void @ss_report_location(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, -8191) i64 @table_block_relation_size(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i64 0, -8191) i64 @table_block_relation_size(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq i32 %1, -1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %3, label %.preheader, label %17
@@ -746,7 +746,7 @@ RelationGetSmgr.exit14:                           ; preds = %17, %20
 declare i32 @smgrnblocks(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @table_block_relation_estimate_size(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 {
+define dso_local void @table_block_relation_estimate_size(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = tail call i32 @RelationGetNumberOfBlocksInFork(ptr noundef %0, i32 noundef 0) #9
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8

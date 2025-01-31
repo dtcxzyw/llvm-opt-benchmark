@@ -29,7 +29,7 @@ define i32 @mca_coll_ftagree_init_query(i1 noundef zeroext %0, i1 noundef zeroex
 declare i32 @mca_coll_ftagree_era_init() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @mca_coll_ftagree_comm_query(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define noundef ptr @mca_coll_ftagree_comm_query(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @ompi_ftmpi_enabled, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %opal_obj_new.exit.thread
@@ -155,7 +155,7 @@ opal_obj_new.exit.thread:                         ; preds = %11, %33, %47, %46, 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @mca_coll_ftagree_module_enable(ptr nocapture readnone %0, ptr nocapture readnone %1) #3 {
+define noundef i32 @mca_coll_ftagree_module_enable(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #3 {
   ret i32 0
 }
 

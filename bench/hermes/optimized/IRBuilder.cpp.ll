@@ -47,7 +47,7 @@ $_ZN4llvh8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS1_EE
 @.str.2 = private unnamed_addr constant [5 x i8] c"this\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %this, ptr noundef %Parent) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %this, ptr noundef %Parent) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #14
   tail call void @_ZN6hermes10BasicBlockC1EPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(80) %call, ptr noundef %Parent) #15
@@ -60,7 +60,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 declare void @_ZN6hermes10BasicBlockC1EPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder14createFunctionEPNS_9ScopeDescENS_10IdentifierENS_8Function14DefinitionKindEbNS_16SourceVisibilityEN4llvh7SMRangeEbPS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %scopeDesc, ptr %OriginalName.coerce, i32 noundef %definitionKind, i1 noundef zeroext %strictMode, i32 noundef %sourceVisibility, ptr nocapture noundef readonly byval(%"class.llvh::SMRange") align 8 %sourceRange, i1 noundef zeroext %isGlobal, ptr noundef %insertBefore) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder14createFunctionEPNS_9ScopeDescENS_10IdentifierENS_8Function14DefinitionKindEbNS_16SourceVisibilityEN4llvh7SMRangeEbPS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %scopeDesc, ptr %OriginalName.coerce, i32 noundef %definitionKind, i1 noundef zeroext %strictMode, i32 noundef %sourceVisibility, ptr noundef readonly byval(%"class.llvh::SMRange") align 8 captures(none) %sourceRange, i1 noundef zeroext %isGlobal, ptr noundef %insertBefore) local_unnamed_addr #0 align 2 {
 entry:
   %cmp.i.not = icmp eq ptr %OriginalName.coerce, null
   br i1 %cmp.i.not, label %_ZN4llvh9StringRefC2EPKc.exit, label %if.end
@@ -82,7 +82,7 @@ if.end:                                           ; preds = %_ZN4llvh9StringRefC
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes9IRBuilder16createIdentifierEN4llvh9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %str.coerce0, i64 %str.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN6hermes9IRBuilder16createIdentifierEN4llvh9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr %str.coerce0, i64 %str.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %Ctx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -93,10 +93,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder23createGeneratorFunctionEPNS_9ScopeDescENS_10IdentifierENS_8Function14DefinitionKindEbNS_16SourceVisibilityEN4llvh7SMRangeEPS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %scopeDesc, ptr %OriginalName.coerce, i32 noundef %definitionKind, i1 noundef zeroext %strictMode, i32 noundef %sourceVisibility, ptr nocapture noundef readonly byval(%"class.llvh::SMRange") align 8 %sourceRange, ptr noundef %insertBefore) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder23createGeneratorFunctionEPNS_9ScopeDescENS_10IdentifierENS_8Function14DefinitionKindEbNS_16SourceVisibilityEN4llvh7SMRangeEPS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %scopeDesc, ptr %OriginalName.coerce, i32 noundef %definitionKind, i1 noundef zeroext %strictMode, i32 noundef %sourceVisibility, ptr noundef readonly byval(%"class.llvh::SMRange") align 8 captures(none) %sourceRange, ptr noundef %insertBefore) local_unnamed_addr #0 align 2 {
 entry:
   %cmp.i.not = icmp eq ptr %OriginalName.coerce, null
   br i1 %cmp.i.not, label %_ZN4llvh9StringRefC2EPKc.exit, label %if.end
@@ -118,7 +118,7 @@ if.end:                                           ; preds = %_ZN4llvh9StringRefC
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder28createGeneratorInnerFunctionEPNS_9ScopeDescENS_10IdentifierENS_8Function14DefinitionKindEbN4llvh7SMRangeEPS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %scopeDesc, ptr %OriginalName.coerce, i32 noundef %definitionKind, i1 noundef zeroext %strictMode, ptr nocapture noundef readonly byval(%"class.llvh::SMRange") align 8 %sourceRange, ptr noundef %insertBefore) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder28createGeneratorInnerFunctionEPNS_9ScopeDescENS_10IdentifierENS_8Function14DefinitionKindEbN4llvh7SMRangeEPS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %scopeDesc, ptr %OriginalName.coerce, i32 noundef %definitionKind, i1 noundef zeroext %strictMode, ptr noundef readonly byval(%"class.llvh::SMRange") align 8 captures(none) %sourceRange, ptr noundef %insertBefore) local_unnamed_addr #0 align 2 {
 entry:
   %cmp.i.not = icmp eq ptr %OriginalName.coerce, null
   br i1 %cmp.i.not, label %_ZN4llvh9StringRefC2EPKc.exit, label %if.end
@@ -142,7 +142,7 @@ if.end:                                           ; preds = %_ZN4llvh9StringRefC
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createTopLevelFunctionEPNS_9ScopeDescEbNS_16SourceVisibilityEN4llvh7SMRangeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %scopeDesc, i1 noundef zeroext %strictMode, i32 noundef %sourceVisibility, ptr %sourceRange.coerce0, ptr %sourceRange.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createTopLevelFunctionEPNS_9ScopeDescEbNS_16SourceVisibilityEN4llvh7SMRangeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %scopeDesc, i1 noundef zeroext %strictMode, i32 noundef %sourceVisibility, ptr %sourceRange.coerce0, ptr %sourceRange.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp52.i = alloca %"class.llvh::SMRange", align 8
   %0 = load ptr, ptr %this, align 8
@@ -175,7 +175,7 @@ _ZN6hermes9IRBuilder14createFunctionEPNS_9ScopeDescEN4llvh9StringRefENS_8Functio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder14createFunctionEPNS_9ScopeDescEN4llvh9StringRefENS_8Function14DefinitionKindEbNS_16SourceVisibilityENS3_7SMRangeEbPS5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %scopeDesc, ptr %OriginalName.coerce0, i64 %OriginalName.coerce1, i32 noundef %definitionKind, i1 noundef zeroext %strictMode, i32 noundef %sourceVisibility, ptr nocapture noundef readonly byval(%"class.llvh::SMRange") align 8 %sourceRange, i1 noundef zeroext %isGlobal, ptr noundef %insertBefore) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder14createFunctionEPNS_9ScopeDescEN4llvh9StringRefENS_8Function14DefinitionKindEbNS_16SourceVisibilityENS3_7SMRangeEbPS5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %scopeDesc, ptr %OriginalName.coerce0, i64 %OriginalName.coerce1, i32 noundef %definitionKind, i1 noundef zeroext %strictMode, i32 noundef %sourceVisibility, ptr noundef readonly byval(%"class.llvh::SMRange") align 8 captures(none) %sourceRange, i1 noundef zeroext %isGlobal, ptr noundef %insertBefore) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp52 = alloca %"class.llvh::SMRange", align 8
   %cmp.i = icmp eq i64 %OriginalName.coerce1, 0
@@ -215,10 +215,10 @@ _ZN6hermes9IRBuilder14createFunctionEPNS_9ScopeDescENS_10IdentifierENS_8Function
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder19createAsyncFunctionEPNS_9ScopeDescENS_10IdentifierENS_8Function14DefinitionKindEbNS_16SourceVisibilityEN4llvh7SMRangeEPS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %scopeDesc, ptr %OriginalName.coerce, i32 noundef %definitionKind, i1 noundef zeroext %strictMode, i32 noundef %sourceVisibility, ptr nocapture noundef readonly byval(%"class.llvh::SMRange") align 8 %sourceRange, ptr noundef %insertBefore) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder19createAsyncFunctionEPNS_9ScopeDescENS_10IdentifierENS_8Function14DefinitionKindEbNS_16SourceVisibilityEN4llvh7SMRangeEPS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %scopeDesc, ptr %OriginalName.coerce, i32 noundef %definitionKind, i1 noundef zeroext %strictMode, i32 noundef %sourceVisibility, ptr noundef readonly byval(%"class.llvh::SMRange") align 8 captures(none) %sourceRange, ptr noundef %insertBefore) local_unnamed_addr #0 align 2 {
 entry:
   %cmp.i.not = icmp eq ptr %OriginalName.coerce, null
   br i1 %cmp.i.not, label %_ZN4llvh9StringRefC2EPKc.exit, label %if.end
@@ -240,7 +240,7 @@ if.end:                                           ; preds = %_ZN4llvh9StringRefC
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes9IRBuilder26createGlobalObjectPropertyENS_10IdentifierEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %name.coerce, i1 noundef zeroext %declared) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN6hermes9IRBuilder26createGlobalObjectPropertyENS_10IdentifierEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr %name.coerce, i1 noundef zeroext %declared) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef ptr @_ZN6hermes6Module17addGlobalPropertyENS_10IdentifierEb(ptr noundef nonnull align 8 dereferenceable(1033) %0, ptr %name.coerce, i1 noundef zeroext %declared) #15
@@ -250,7 +250,7 @@ entry:
 declare noundef ptr @_ZN6hermes6Module17addGlobalPropertyENS_10IdentifierEb(ptr noundef nonnull align 8 dereferenceable(1033), ptr, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes9IRBuilder26createGlobalObjectPropertyEN4llvh9StringRefEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %name.coerce0, i64 %name.coerce1, i1 noundef zeroext %declared) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN6hermes9IRBuilder26createGlobalObjectPropertyEN4llvh9StringRefEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr %name.coerce0, i64 %name.coerce1, i1 noundef zeroext %declared) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %Ctx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -263,7 +263,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder15createParameterEPNS_8FunctionENS_10IdentifierE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %this, ptr noundef %Parent, ptr %Name.coerce) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder15createParameterEPNS_8FunctionENS_10IdentifierE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %this, ptr noundef %Parent, ptr %Name.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   tail call void @_ZN6hermes9ParameterC1EPNS_8FunctionENS_10IdentifierEb(ptr noundef nonnull align 8 dereferenceable(56) %call, ptr noundef %Parent, ptr %Name.coerce, i1 noundef zeroext false) #15
@@ -273,7 +273,7 @@ entry:
 declare void @_ZN6hermes9ParameterC1EPNS_8FunctionENS_10IdentifierEb(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ptr, i1 noundef zeroext) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder15createParameterEPNS_8FunctionEN4llvh9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %Parent, ptr %Name.coerce0, i64 %Name.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder15createParameterEPNS_8FunctionEN4llvh9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %Parent, ptr %Name.coerce0, i64 %Name.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %Ctx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -286,7 +286,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder19createThisParameterEPNS_8FunctionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %Parent) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder19createThisParameterEPNS_8FunctionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %Parent) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   %0 = load ptr, ptr %this, align 8
@@ -299,7 +299,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder14createVariableEPNS_9ScopeDescENS_18JavaScriptDeclKindENS_10IdentifierE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %this, ptr noundef %Parent, i8 noundef zeroext %declKind, ptr %Name.coerce) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder14createVariableEPNS_9ScopeDescENS_18JavaScriptDeclKindENS_10IdentifierE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %this, ptr noundef %Parent, i8 noundef zeroext %declKind, ptr %Name.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #14
   tail call void @_ZN6hermes8VariableC2ENS_9ValueKindEPNS_9ScopeDescENS_18JavaScriptDeclKindENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(65) %call, i8 noundef zeroext 124, ptr noundef %Parent, i8 noundef zeroext %declKind, ptr %Name.coerce) #15
@@ -307,7 +307,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder14createVariableEPNS_9ScopeDescENS_18JavaScriptDeclKindEN4llvh9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %Parent, i8 noundef zeroext %declKind, ptr %Name.coerce0, i64 %Name.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder14createVariableEPNS_9ScopeDescENS_18JavaScriptDeclKindEN4llvh9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %Parent, i8 noundef zeroext %declKind, ptr %Name.coerce0, i64 %Name.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %Ctx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -320,7 +320,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, double noundef %value) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, double noundef %value) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef ptr @_ZN6hermes6Module16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(1033) %0, double noundef %value) #15
@@ -330,7 +330,7 @@ entry:
 declare noundef ptr @_ZN6hermes6Module16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(1033), double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes9IRBuilder22getLiteralPositiveZeroEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN6hermes9IRBuilder22getLiteralPositiveZeroEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef ptr @_ZN6hermes6Module16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(1033) %0, double noundef 0.000000e+00) #15
@@ -338,7 +338,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes9IRBuilder22getLiteralNegativeZeroEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN6hermes9IRBuilder22getLiteralNegativeZeroEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef ptr @_ZN6hermes6Module16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(1033) %0, double noundef -0.000000e+00) #15
@@ -346,7 +346,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes9IRBuilder13getLiteralNaNEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN6hermes9IRBuilder13getLiteralNaNEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call2 = tail call noundef ptr @_ZN6hermes6Module16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(1033) %0, double noundef 0x7FF8000000000000) #15
@@ -354,7 +354,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes9IRBuilder16getLiteralBigIntEPNS_12UniqueStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %value) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN6hermes9IRBuilder16getLiteralBigIntEPNS_12UniqueStringE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %value) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef ptr @_ZN6hermes6Module16getLiteralBigIntEPNS_12UniqueStringE(ptr noundef nonnull align 8 dereferenceable(1033) %0, ptr noundef %value) #15
@@ -364,7 +364,7 @@ entry:
 declare noundef ptr @_ZN6hermes6Module16getLiteralBigIntEPNS_12UniqueStringE(ptr noundef nonnull align 8 dereferenceable(1033), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %value.coerce0, i64 %value.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringEN4llvh9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr %value.coerce0, i64 %value.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %Ctx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -377,7 +377,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringENS_10IdentifierE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %value.coerce) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN6hermes9IRBuilder16getLiteralStringENS_10IdentifierE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr %value.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef ptr @_ZN6hermes6Module16getLiteralStringENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(1033) %0, ptr %value.coerce) #15
@@ -387,7 +387,7 @@ entry:
 declare noundef ptr @_ZN6hermes6Module16getLiteralStringENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(1033), ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i1 noundef zeroext %value) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i1 noundef zeroext %value) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef ptr @_ZN6hermes6Module14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(1033) %0, i1 noundef zeroext %value) #15
@@ -397,7 +397,7 @@ entry:
 declare noundef ptr @_ZN6hermes6Module14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(1033), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder15getLiteralEmptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder15getLiteralEmptyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %literalEmpty.i = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -405,7 +405,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder19getLiteralUndefinedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder19getLiteralUndefinedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %literalUndefined.i = getelementptr inbounds nuw i8, ptr %0, i64 448
@@ -413,7 +413,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder14getLiteralNullEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder14getLiteralNullEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %literalNull.i = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -421,7 +421,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder15getGlobalObjectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder15getGlobalObjectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %globalObject_.i = getelementptr inbounds nuw i8, ptr %0, i64 368
@@ -429,7 +429,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder16getEmptySentinelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder16getEmptySentinelEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %emptySentinel_.i = getelementptr inbounds nuw i8, ptr %0, i64 624
@@ -437,7 +437,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10BasicBlockE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %Destination) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10BasicBlockE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %Destination) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %Block.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -521,7 +521,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN6hermes9IRBuilder17getInsertionBlockEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef ptr @_ZN6hermes9IRBuilder17getInsertionBlockEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #5 align 2 {
 entry:
   %Block = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %Block, align 8
@@ -529,7 +529,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6hermes9IRBuilder6insertEPNS_11InstructionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef initializes((0, 16), (56, 64), (112, 132)) %Inst) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN6hermes9IRBuilder6insertEPNS_11InstructionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef initializes((0, 16), (56, 64), (112, 132)) %Inst) local_unnamed_addr #6 align 2 {
 entry:
   %Block.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %Block.i, align 8
@@ -582,7 +582,7 @@ if.end:                                           ; preds = %entry, %cond.true, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder20createCondBranchInstEPNS_5ValueEPNS_10BasicBlockES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %Cond, ptr noundef %T, ptr noundef %F) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder20createCondBranchInstEPNS_5ValueEPNS_10BasicBlockES4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %Cond, ptr noundef %T, ptr noundef %F) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %Block.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -671,7 +671,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder16createReturnInstEPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %Val) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder16createReturnInstEPNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %Val) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -752,7 +752,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder15createCatchInstEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder15createCatchInstEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -832,7 +832,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder15createThrowInstEPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %thrownValue) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder15createThrowInstEPNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %thrownValue) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -913,7 +913,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder26createCheckHasInstanceInstEPNS_14AllocStackInstEPNS_5ValueES4_PNS_10BasicBlockES6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %result, ptr noundef %left, ptr noundef %right, ptr noundef %onTrue, ptr noundef %onFalse) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder26createCheckHasInstanceInstEPNS_14AllocStackInstEPNS_5ValueES4_PNS_10BasicBlockES6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %result, ptr noundef %left, ptr noundef %right, ptr noundef %onTrue, ptr noundef %onFalse) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -1007,7 +1007,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder18createTryStartInstEPNS_10BasicBlockES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %tryBodyBlock, ptr noundef %catchTargetBlock) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder18createTryStartInstEPNS_10BasicBlockES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %tryBodyBlock, ptr noundef %catchTargetBlock) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -1095,7 +1095,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder16createTryEndInstEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder16createTryEndInstEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -1175,7 +1175,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder20createAllocStackInstEN4llvh9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %varName.coerce0, i64 %varName.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder20createAllocStackInstEN4llvh9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr %varName.coerce0, i64 %varName.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %Ctx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1276,7 +1276,7 @@ _ZN6hermes9IRBuilder20createAllocStackInstENS_10IdentifierE.exit: ; preds = %ent
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder20createAllocStackInstENS_10IdentifierE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %varName.coerce) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder20createAllocStackInstENS_10IdentifierE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr %varName.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %call, i8 0, i64 16, i1 false)
@@ -1372,7 +1372,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder18createAsNumberInstEPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %val) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder18createAsNumberInstEPNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %val) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -1454,7 +1454,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder19createAsNumericInstEPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %val) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder19createAsNumericInstEPNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %val) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -1536,7 +1536,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder17createAsInt32InstEPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %val) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder17createAsInt32InstEPNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %val) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -1618,7 +1618,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder24createAddEmptyStringInstEPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %val) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder24createAddEmptyStringInstEPNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %val) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -1700,7 +1700,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder44createThrowIfHasRestrictedGlobalPropertyInstEN4llvh9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %property.coerce0, i64 %property.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder44createThrowIfHasRestrictedGlobalPropertyInstEN4llvh9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr %property.coerce0, i64 %property.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %0 = load ptr, ptr %this, align 8
@@ -1786,7 +1786,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder21createCreateScopeInstEPNS_9ScopeDescE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %scopeDesc) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder21createCreateScopeInstEPNS_9ScopeDescE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %scopeDesc) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -1867,7 +1867,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder26createCreateInnerScopeInstEPNS_17ScopeCreationInstEPNS_9ScopeDescE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %parentScope, ptr noundef %scopeDesc) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder26createCreateInnerScopeInstEPNS_17ScopeCreationInstEPNS_9ScopeDescE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %parentScope, ptr noundef %scopeDesc) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -1952,7 +1952,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder24createCreateFunctionInstEPNS_8FunctionEPNS_17ScopeCreationInstE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %code, ptr noundef %environment) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder24createCreateFunctionInstEPNS_8FunctionEPNS_17ScopeCreationInstE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %code, ptr noundef %environment) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %0 = icmp eq ptr %environment, null
@@ -2038,7 +2038,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder19createLoadFrameInstEPNS_8VariableEPNS_17ScopeCreationInstE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %ptr, ptr noundef %scope) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder19createLoadFrameInstEPNS_8VariableEPNS_17ScopeCreationInstE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %ptr, ptr noundef %scope) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -2123,7 +2123,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder19createLoadStackInstEPNS_14AllocStackInstE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %ptr) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder19createLoadStackInstEPNS_14AllocStackInstE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %ptr) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %0 = icmp eq ptr %ptr, null
@@ -2207,7 +2207,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder20createStoreFrameInstEPNS_5ValueEPNS_8VariableEPNS_17ScopeCreationInstE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %storedValue, ptr noundef %ptr, ptr noundef %scope) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder20createStoreFrameInstEPNS_5ValueEPNS_8VariableEPNS_17ScopeCreationInstE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %storedValue, ptr noundef %ptr, ptr noundef %scope) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -2293,7 +2293,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder20createStoreStackInstEPNS_5ValueEPNS_14AllocStackInstE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %storedValue, ptr noundef %ptr) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder20createStoreStackInstEPNS_5ValueEPNS_14AllocStackInstE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %storedValue, ptr noundef %ptr) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -2376,7 +2376,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder14createCallInstEPNS_13LiteralStringEPNS_5ValueES4_N4llvh8ArrayRefIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %textifiedCallee, ptr noundef %callee, ptr noundef %thisValue, ptr readonly %args.coerce0, i64 %args.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder14createCallInstEPNS_13LiteralStringEPNS_5ValueES4_N4llvh8ArrayRefIS4_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %textifiedCallee, ptr noundef %callee, ptr noundef %thisValue, ptr readonly %args.coerce0, i64 %args.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %literalUndefined.i.i = getelementptr inbounds nuw i8, ptr %0, i64 448
@@ -2476,7 +2476,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes8CallI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder18createHBCCallNInstEPNS_13LiteralStringEPNS_5ValueES4_N4llvh8ArrayRefIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %textifiedCallee, ptr noundef %callee, ptr noundef %thisValue, ptr readonly %args.coerce0, i64 %args.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder18createHBCCallNInstEPNS_13LiteralStringEPNS_5ValueES4_N4llvh8ArrayRefIS4_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %textifiedCallee, ptr noundef %callee, ptr noundef %thisValue, ptr readonly %args.coerce0, i64 %args.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %literalUndefined.i.i = getelementptr inbounds nuw i8, ptr %0, i64 448
@@ -2576,7 +2576,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes12HBCC
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder19createConstructInstEPNS_5ValueES2_N4llvh8ArrayRefIS2_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %constructor, ptr noundef %newTarget, ptr readonly %args.coerce0, i64 %args.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder19createConstructInstEPNS_5ValueES2_N4llvh8ArrayRefIS2_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %constructor, ptr noundef %newTarget, ptr readonly %args.coerce0, i64 %args.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %literalUndefined.i.i = getelementptr inbounds nuw i8, ptr %0, i64 448
@@ -2677,7 +2677,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes13Cons
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %object, ptr noundef %property) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %object, ptr noundef %property) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -2759,7 +2759,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder31createTryLoadGlobalPropertyInstEPNS_13LiteralStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %property) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder31createTryLoadGlobalPropertyInstEPNS_13LiteralStringE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %property) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %0 = load ptr, ptr %this, align 8
@@ -2843,7 +2843,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder31createTryLoadGlobalPropertyInstEPNS_20GlobalObjectPropertyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef readonly %property) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder31createTryLoadGlobalPropertyInstEPNS_20GlobalObjectPropertyE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef readonly captures(none) %property) local_unnamed_addr #0 align 2 {
 entry:
   %name_.i = getelementptr inbounds nuw i8, ptr %property, i64 48
   %0 = load ptr, ptr %name_.i, align 8
@@ -2852,7 +2852,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder24createDeletePropertyInstEPNS_5ValueES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %object, ptr noundef %property) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder24createDeletePropertyInstEPNS_5ValueES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %object, ptr noundef %property) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -2934,7 +2934,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %storedValue, ptr noundef %object, ptr noundef %property) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %storedValue, ptr noundef %object, ptr noundef %property) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -3015,7 +3015,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder32createTryStoreGlobalPropertyInstEPNS_5ValueEPNS_13LiteralStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %storedValue, ptr noundef %property) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder32createTryStoreGlobalPropertyInstEPNS_5ValueEPNS_13LiteralStringE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %storedValue, ptr noundef %property) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %0 = load ptr, ptr %this, align 8
@@ -3098,7 +3098,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder32createTryStoreGlobalPropertyInstEPNS_5ValueEPNS_20GlobalObjectPropertyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %storedValue, ptr nocapture noundef readonly %property) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder32createTryStoreGlobalPropertyInstEPNS_5ValueEPNS_20GlobalObjectPropertyE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %storedValue, ptr noundef readonly captures(none) %property) local_unnamed_addr #0 align 2 {
 entry:
   %name_.i = getelementptr inbounds nuw i8, ptr %property, i64 48
   %0 = load ptr, ptr %name_.i, align 8
@@ -3107,7 +3107,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder26createStoreOwnPropertyInstEPNS_5ValueES2_S2_NS0_14PropEnumerableE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %storedValue, ptr noundef %object, ptr noundef %property, i32 noundef %isEnumerable) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder26createStoreOwnPropertyInstEPNS_5ValueES2_S2_NS0_14PropEnumerableE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %storedValue, ptr noundef %object, ptr noundef %property, i32 noundef %isEnumerable) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %cmp = icmp eq i32 %isEnumerable, 1
@@ -3192,7 +3192,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder29createStoreNewOwnPropertyInstEPNS_5ValueES2_PNS_7LiteralENS0_14PropEnumerableE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %storedValue, ptr noundef %object, ptr noundef %property, i32 noundef %isEnumerable) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder29createStoreNewOwnPropertyInstEPNS_5ValueES2_PNS_7LiteralENS0_14PropEnumerableE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %storedValue, ptr noundef %object, ptr noundef %property, i32 noundef %isEnumerable) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %cmp = icmp eq i32 %isEnumerable, 1
@@ -3277,7 +3277,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder27createStoreGetterSetterInstEPNS_5ValueES2_S2_S2_NS0_14PropEnumerableE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %storedGetter, ptr noundef %storedSetter, ptr noundef %object, ptr noundef %property, i32 noundef %isEnumerable) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder27createStoreGetterSetterInstEPNS_5ValueES2_S2_S2_NS0_14PropEnumerableE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %storedGetter, ptr noundef %storedSetter, ptr noundef %object, ptr noundef %property, i32 noundef %isEnumerable) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %cmp = icmp eq i32 %isEnumerable, 1
@@ -3363,7 +3363,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder24createDeletePropertyInstEPNS_5ValueEN4llvh9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %object, ptr %property.coerce0, i64 %property.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder24createDeletePropertyInstEPNS_5ValueEN4llvh9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %object, ptr %property.coerce0, i64 %property.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %Ctx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3375,7 +3375,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder24createDeletePropertyInstEPNS_5ValueENS_10IdentifierE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %object, ptr %property.coerce) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder24createDeletePropertyInstEPNS_5ValueENS_10IdentifierE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %object, ptr %property.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call.i = tail call noundef ptr @_ZN6hermes6Module16getLiteralStringENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(1033) %0, ptr %property.coerce) #15
@@ -3459,7 +3459,7 @@ _ZN6hermes9IRBuilder24createDeletePropertyInstEPNS_5ValueES2_.exit: ; preds = %e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueEN4llvh9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %object, ptr %property.coerce0, i64 %property.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueEN4llvh9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %object, ptr %property.coerce0, i64 %property.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %Ctx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3471,7 +3471,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueENS_10IdentifierE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %object, ptr %property.coerce) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueENS_10IdentifierE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %object, ptr %property.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call.i = tail call noundef ptr @_ZN6hermes6Module16getLiteralStringENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(1033) %0, ptr %property.coerce) #15
@@ -3555,7 +3555,7 @@ _ZN6hermes9IRBuilder22createLoadPropertyInstEPNS_5ValueES2_.exit: ; preds = %ent
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder31createTryLoadGlobalPropertyInstEN4llvh9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %property.coerce0, i64 %property.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder31createTryLoadGlobalPropertyInstEN4llvh9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr %property.coerce0, i64 %property.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %Ctx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3567,7 +3567,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder31createTryLoadGlobalPropertyInstENS_10IdentifierE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %property.coerce) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder31createTryLoadGlobalPropertyInstENS_10IdentifierE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr %property.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %0 = load ptr, ptr %this, align 8
@@ -3652,7 +3652,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_N4llvh9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %storedValue, ptr noundef %object, ptr %property.coerce0, i64 %property.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_N4llvh9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %storedValue, ptr noundef %object, ptr %property.coerce0, i64 %property.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %Ctx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3666,7 +3666,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_NS_10IdentifierE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %storedValue, ptr noundef %object, ptr %property.coerce) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder23createStorePropertyInstEPNS_5ValueES2_NS_10IdentifierE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %storedValue, ptr noundef %object, ptr %property.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call.i = tail call noundef ptr @_ZN6hermes6Module16getLiteralStringENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(1033) %0, ptr %property.coerce) #15
@@ -3675,7 +3675,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder32createTryStoreGlobalPropertyInstEPNS_5ValueENS_10IdentifierE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %storedValue, ptr %property.coerce) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder32createTryStoreGlobalPropertyInstEPNS_5ValueENS_10IdentifierE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %storedValue, ptr %property.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %0 = load ptr, ptr %this, align 8
@@ -3759,7 +3759,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder21createAllocObjectInstEjPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %size, ptr noundef %parent) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder21createAllocObjectInstEjPNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i32 noundef %size, ptr noundef %parent) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %0 = load ptr, ptr %this, align 8
@@ -3846,7 +3846,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder20createAllocArrayInstEPNS_13LiteralNumberEN4llvh11SmallVectorIPNS_5ValueELj4EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %sizeHint, ptr nocapture noundef readonly %val_list) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder20createAllocArrayInstEPNS_13LiteralNumberEN4llvh11SmallVectorIPNS_5ValueELj4EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %sizeHint, ptr noundef readonly captures(none) %val_list) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -3942,7 +3942,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes14Allo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder20createAllocArrayInstEN4llvh11SmallVectorIPNS_5ValueELj4EEEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef readonly %val_list, i32 noundef %sizeHint) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder20createAllocArrayInstEN4llvh11SmallVectorIPNS_5ValueELj4EEEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef readonly %val_list, i32 noundef %sizeHint) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp = alloca %"class.llvh::SmallVector.132", align 8
   %conv = uitofp i32 %sizeHint to double
@@ -4004,7 +4004,7 @@ _ZN4llvh11SmallVectorIPN6hermes5ValueELj4EED2Ev.exit: ; preds = %_ZN4llvh11Small
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder25createCreateArgumentsInstEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder25createCreateArgumentsInstEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -4082,7 +4082,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createGetNewTargetInstEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createGetNewTargetInstEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -4162,7 +4162,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createThrowIfEmptyInstEPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %checkedValue) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createThrowIfEmptyInstEPNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %checkedValue) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -4243,7 +4243,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder28createHBCGetGlobalObjectInstEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder28createHBCGetGlobalObjectInstEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -4321,7 +4321,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder16createRegExpInstENS_10IdentifierES1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %pattern.coerce, ptr %flags.coerce) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder16createRegExpInstENS_10IdentifierES1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr %pattern.coerce, ptr %flags.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %0 = load ptr, ptr %this, align 8
@@ -4405,7 +4405,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder23createUnaryOperatorInstEPNS_5ValueENS_17UnaryOperatorInst6OpKindE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %value, i32 noundef %opKind) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder23createUnaryOperatorInstEPNS_5ValueENS_17UnaryOperatorInst6OpKindE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %value, i32 noundef %opKind) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %call, i8 0, i64 16, i1 false)
@@ -4488,7 +4488,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder24createBinaryOperatorInstEPNS_5ValueES2_NS_18BinaryOperatorInst6OpKindE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %left, ptr noundef %right, i32 noundef %opKind) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder24createBinaryOperatorInstEPNS_5ValueES2_NS_18BinaryOperatorInst6OpKindE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %left, ptr noundef %right, i32 noundef %opKind) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %call, i8 0, i64 16, i1 false)
@@ -4572,7 +4572,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder16createSwitchInstEPNS_5ValueEPNS_10BasicBlockERKN4llvh11SmallVectorIPNS_7LiteralELj8EEERKNS6_IS4_Lj8EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %input, ptr noundef %defaultBlock, ptr noundef nonnull align 1 %values, ptr noundef nonnull align 1 %blocks) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder16createSwitchInstEPNS_5ValueEPNS_10BasicBlockERKN4llvh11SmallVectorIPNS_7LiteralELj8EEERKNS6_IS4_Lj8EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %input, ptr noundef %defaultBlock, ptr noundef nonnull align 1 %values, ptr noundef nonnull align 1 %blocks) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @_ZN6hermes10SwitchInstC1EPNS_5ValueEPNS_10BasicBlockERKN4llvh11SmallVectorIPNS_7LiteralELj8EEERKNS6_IS4_Lj8EEE(ptr noundef nonnull align 8 dereferenceable(132) %call, ptr noundef %input, ptr noundef %defaultBlock, ptr noundef nonnull align 1 %values, ptr noundef nonnull align 1 %blocks) #15
@@ -4632,7 +4632,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 declare void @_ZN6hermes10SwitchInstC1EPNS_5ValueEPNS_10BasicBlockERKN4llvh11SmallVectorIPNS_7LiteralELj8EEERKNS6_IS4_Lj8EEE(ptr noundef nonnull align 8 dereferenceable(132), ptr noundef, ptr noundef, ptr noundef nonnull align 1, ptr noundef nonnull align 1) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder13createPhiInstEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder13createPhiInstEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %values = alloca %"class.llvh::SmallVector.145", align 8
   %blocks = alloca %"class.llvh::SmallVector.139", align 8
@@ -4722,7 +4722,7 @@ _ZN4llvh11SmallVectorIPN6hermes5ValueELj8EED2Ev.exit: ; preds = %_ZN4llvh11Small
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder13createPhiInstERKN4llvh11SmallVectorIPNS_5ValueELj8EEERKNS2_IPNS_10BasicBlockELj8EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(80) %values, ptr noundef nonnull align 8 dereferenceable(80) %blocks) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder13createPhiInstERKN4llvh11SmallVectorIPNS_5ValueELj8EEERKNS2_IPNS_10BasicBlockELj8EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(80) %values, ptr noundef nonnull align 8 dereferenceable(80) %blocks) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @_ZN6hermes7PhiInstC1ERKN4llvh11SmallVectorIPNS_5ValueELj8EEERKNS2_IPNS_10BasicBlockELj8EEE(ptr noundef nonnull align 8 dereferenceable(132) %call, ptr noundef nonnull align 8 dereferenceable(80) %values, ptr noundef nonnull align 8 dereferenceable(80) %blocks) #15
@@ -4782,7 +4782,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 declare void @_ZN6hermes7PhiInstC1ERKN4llvh11SmallVectorIPNS_5ValueELj8EEERKNS2_IPNS_10BasicBlockELj8EEE(ptr noundef nonnull align 8 dereferenceable(132), ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(80)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder19createGetPNamesInstEPNS_5ValueES2_S2_S2_PNS_10BasicBlockES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %iteratorAddr, ptr noundef %baseAddr, ptr noundef %indexAddr, ptr noundef %sizeAddr, ptr noundef %onEmpty, ptr noundef %onSome) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder19createGetPNamesInstEPNS_5ValueES2_S2_S2_PNS_10BasicBlockES4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %iteratorAddr, ptr noundef %baseAddr, ptr noundef %indexAddr, ptr noundef %sizeAddr, ptr noundef %onEmpty, ptr noundef %onSome) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %Block.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -4843,7 +4843,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 declare void @_ZN6hermes13GetPNamesInstC1EPNS_10BasicBlockEPNS_5ValueES4_S4_S4_S2_S2_(ptr noundef nonnull align 8 dereferenceable(132), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createGetNextPNameInstEPNS_5ValueES2_S2_S2_S2_PNS_10BasicBlockES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %propertyAddr, ptr noundef %baseAddr, ptr noundef %indexAddr, ptr noundef %sizeAddr, ptr noundef %iteratorAddr, ptr noundef %onLast, ptr noundef %onSome) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createGetNextPNameInstEPNS_5ValueES2_S2_S2_S2_PNS_10BasicBlockES4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %propertyAddr, ptr noundef %baseAddr, ptr noundef %indexAddr, ptr noundef %sizeAddr, ptr noundef %iteratorAddr, ptr noundef %onLast, ptr noundef %onSome) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %Block.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -4904,7 +4904,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 declare void @_ZN6hermes16GetNextPNameInstC1EPNS_10BasicBlockEPNS_5ValueES4_S4_S4_S4_S2_S2_(ptr noundef nonnull align 8 dereferenceable(132), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder13createMovInstEPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %input) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder13createMovInstEPNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %input) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -4988,7 +4988,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder21createImplicitMovInstEPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %input) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder21createImplicitMovInstEPNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %input) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -5072,7 +5072,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createCoerceThisNSInstEPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %input) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createCoerceThisNSInstEPNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %input) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -5156,7 +5156,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder18createDebuggerInstEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder18createDebuggerInstEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -5234,7 +5234,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createSaveAndYieldInstEPNS_5ValueEPNS_10BasicBlockE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %result, ptr noundef %nextBlock) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createSaveAndYieldInstEPNS_5ValueEPNS_10BasicBlockE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %result, ptr noundef %nextBlock) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -5319,7 +5319,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder25createCreateGeneratorInstEPNS_8FunctionEPNS_17ScopeCreationInstE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %innerFn, ptr noundef %environment) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder25createCreateGeneratorInstEPNS_8FunctionEPNS_17ScopeCreationInstE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %innerFn, ptr noundef %environment) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %0 = icmp eq ptr %environment, null
@@ -5406,7 +5406,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder24createStartGeneratorInstEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder24createStartGeneratorInstEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -5486,7 +5486,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder25createResumeGeneratorInstEPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %isReturn) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder25createResumeGeneratorInstEPNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %isReturn) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -5567,7 +5567,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder27createHBCResolveEnvironmentEPNS_9ScopeDescES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %originScopeDesc, ptr noundef %targetScopeDesc) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder27createHBCResolveEnvironmentEPNS_9ScopeDescES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %originScopeDesc, ptr noundef %targetScopeDesc) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -5649,7 +5649,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder31createHBCStoreToEnvironmentInstEPNS_5ValueES2_PNS_8VariableE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %env, ptr noundef %toPut, ptr noundef %var) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder31createHBCStoreToEnvironmentInstEPNS_5ValueES2_PNS_8VariableE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %env, ptr noundef %toPut, ptr noundef %var) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -5732,7 +5732,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder32createHBCLoadFromEnvironmentInstEPNS_5ValueEPNS_8VariableE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %env, ptr noundef %var) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder32createHBCLoadFromEnvironmentInstEPNS_5ValueEPNS_8VariableE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %env, ptr noundef %var) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -5814,7 +5814,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder19createSwitchImmInstEPNS_5ValueEPNS_10BasicBlockEPNS_13LiteralNumberES6_RKN4llvh11SmallVectorIS6_Lj8EEERKNS8_IS4_Lj8EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %input, ptr noundef %defaultBlock, ptr noundef %minValue, ptr noundef %size, ptr noundef nonnull align 1 %values, ptr noundef nonnull align 8 dereferenceable(80) %blocks) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder19createSwitchImmInstEPNS_5ValueEPNS_10BasicBlockEPNS_13LiteralNumberES6_RKN4llvh11SmallVectorIS6_Lj8EEERKNS8_IS4_Lj8EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %input, ptr noundef %defaultBlock, ptr noundef %minValue, ptr noundef %size, ptr noundef nonnull align 1 %values, ptr noundef nonnull align 8 dereferenceable(80) %blocks) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @_ZN6hermes13SwitchImmInstC1EPNS_5ValueEPNS_10BasicBlockEPNS_13LiteralNumberES6_RKN4llvh11SmallVectorIS6_Lj8EEERKNS8_IS4_Lj8EEE(ptr noundef nonnull align 8 dereferenceable(132) %call, ptr noundef %input, ptr noundef %defaultBlock, ptr noundef %minValue, ptr noundef %size, ptr noundef nonnull align 1 %values, ptr noundef nonnull align 8 dereferenceable(80) %blocks) #15
@@ -5874,7 +5874,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 declare void @_ZN6hermes13SwitchImmInstC1EPNS_5ValueEPNS_10BasicBlockEPNS_13LiteralNumberES6_RKN4llvh11SmallVectorIS6_Lj8EEERKNS8_IS4_Lj8EEE(ptr noundef nonnull align 8 dereferenceable(132), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 1, ptr noundef nonnull align 8 dereferenceable(80)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder20createDirectEvalInstEPNS_5ValueEPNS_11LiteralBoolE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %operand, ptr noundef %isStrict) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder20createDirectEvalInstEPNS_5ValueEPNS_11LiteralBoolE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %operand, ptr noundef %isStrict) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -5954,7 +5954,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createHBCLoadConstInstEPNS_7LiteralE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %value) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createHBCLoadConstInstEPNS_7LiteralE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %value) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -6038,7 +6038,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createHBCLoadParamInstEPNS_13LiteralNumberE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %value) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createHBCLoadParamInstEPNS_13LiteralNumberE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %value) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -6119,7 +6119,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder30createHBCCreateEnvironmentInstEPNS_9ScopeDescE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %scopeDesc) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder30createHBCCreateEnvironmentInstEPNS_9ScopeDescE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %scopeDesc) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -6200,7 +6200,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder35createHBCCreateInnerEnvironmentInstEPNS_17ScopeCreationInstEPNS_9ScopeDescE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %parentScope, ptr noundef %scopeDesc) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder35createHBCCreateInnerEnvironmentInstEPNS_17ScopeCreationInstEPNS_9ScopeDescE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %parentScope, ptr noundef %scopeDesc) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -6285,7 +6285,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createHBCGetThisNSInstEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createHBCGetThisNSInstEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -6365,7 +6365,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder34createHBCGetArgumentsPropByValInstEPNS_5ValueEPNS_14AllocStackInstE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %index, ptr noundef %lazyReg) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder34createHBCGetArgumentsPropByValInstEPNS_5ValueEPNS_14AllocStackInstE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %index, ptr noundef %lazyReg) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -6450,7 +6450,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder31createHBCGetArgumentsLengthInstEPNS_14AllocStackInstE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %lazyReg) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder31createHBCGetArgumentsLengthInstEPNS_14AllocStackInstE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %lazyReg) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %0 = icmp eq ptr %lazyReg, null
@@ -6534,7 +6534,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder27createHBCReifyArgumentsInstEPNS_14AllocStackInstE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %lazyReg) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder27createHBCReifyArgumentsInstEPNS_14AllocStackInstE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %lazyReg) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %0 = icmp eq ptr %lazyReg, null
@@ -6619,7 +6619,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder23createHBCCreateThisInstEPNS_5ValueES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %prototype, ptr noundef %closure) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder23createHBCCreateThisInstEPNS_5ValueES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %prototype, ptr noundef %closure) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -6701,7 +6701,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createHBCConstructInstEPNS_5ValueES2_S2_N4llvh8ArrayRefIS2_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %closure, ptr noundef %newTarget, ptr noundef %thisValue, ptr readonly %arguments.coerce0, i64 %arguments.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createHBCConstructInstEPNS_5ValueES2_S2_N4llvh8ArrayRefIS2_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %closure, ptr noundef %newTarget, ptr noundef %thisValue, ptr readonly %arguments.coerce0, i64 %arguments.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %call, i8 0, i64 16, i1 false)
@@ -6799,7 +6799,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes16HBCC
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder33createHBCGetConstructedObjectInstEPNS_17HBCCreateThisInstEPNS_16HBCConstructInstE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %thisValue, ptr noundef %constructorReturnValue) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder33createHBCGetConstructedObjectInstEPNS_17HBCCreateThisInstEPNS_16HBCConstructInstE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %thisValue, ptr noundef %constructorReturnValue) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -6887,7 +6887,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder25createHBCProfilePointInstEt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i16 noundef zeroext %pointIndex) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder25createHBCProfilePointInstEt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i16 noundef zeroext %pointIndex) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(134) %call, i8 0, i64 16, i1 false)
@@ -6969,7 +6969,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder21createCallBuiltinInstENS_13BuiltinMethod4EnumEN4llvh8ArrayRefIPNS_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i8 noundef zeroext %builtinIndex, ptr readonly %arguments.coerce0, i64 %arguments.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder21createCallBuiltinInstENS_13BuiltinMethod4EnumEN4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i8 noundef zeroext %builtinIndex, ptr readonly %arguments.coerce0, i64 %arguments.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %literalUndefined.i.i = getelementptr inbounds nuw i8, ptr %0, i64 448
@@ -7071,7 +7071,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes15Call
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder27createGetBuiltinClosureInstENS_13BuiltinMethod4EnumE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i8 noundef zeroext %builtinIndex) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder27createGetBuiltinClosureInstENS_13BuiltinMethod4EnumE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i8 noundef zeroext %builtinIndex) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %conv = uitofp i8 %builtinIndex to double
@@ -7156,7 +7156,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder23createHBCCallDirectInstEPNS_13LiteralStringEPNS_8FunctionEPNS_5ValueEN4llvh8ArrayRefIS6_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %textifiedCallee, ptr noundef %callee, ptr noundef %thisValue, ptr readonly %arguments.coerce0, i64 %arguments.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder23createHBCCallDirectInstEPNS_13LiteralStringEPNS_8FunctionEPNS_5ValueEN4llvh8ArrayRefIS6_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %textifiedCallee, ptr noundef %callee, ptr noundef %thisValue, ptr readonly %arguments.coerce0, i64 %arguments.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %literalUndefined.i.i = getelementptr inbounds nuw i8, ptr %0, i64 448
@@ -7259,7 +7259,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes17HBCC
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder27createHBCCreateFunctionInstEPNS_8FunctionEPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %function, ptr noundef %env) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder27createHBCCreateFunctionInstEPNS_8FunctionEPNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %function, ptr noundef %env) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -7342,7 +7342,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder21createHBCSpillMovInstEPNS_11InstructionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %value) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder21createHBCSpillMovInstEPNS_11InstructionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %value) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %0 = icmp eq ptr %value, null
@@ -7426,7 +7426,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder28createHBCCreateGeneratorInstEPNS_8FunctionEPNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %function, ptr noundef %env) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder28createHBCCreateGeneratorInstEPNS_8FunctionEPNS_5ValueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %function, ptr noundef %env) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -7510,7 +7510,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder34createHBCAllocObjectFromBufferInstEN4llvh11SmallVectorISt4pairIPNS_7LiteralES5_ELj4EEEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef readonly %prop_map, i32 noundef %size) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder34createHBCAllocObjectFromBufferInstEN4llvh11SmallVectorISt4pairIPNS_7LiteralES5_ELj4EEEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef readonly captures(none) %prop_map, i32 noundef %size) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %0 = load ptr, ptr %this, align 8
@@ -7614,7 +7614,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %_ZN6hermes28HBCA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder23createCompareBranchInstEPNS_5ValueES2_NS_18BinaryOperatorInst6OpKindEPNS_10BasicBlockES6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %left, ptr noundef %right, i32 noundef %opKind, ptr noundef %trueBlock, ptr noundef %falseBlock) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder23createCompareBranchInstEPNS_5ValueES2_NS_18BinaryOperatorInst6OpKindEPNS_10BasicBlockES6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %left, ptr noundef %right, i32 noundef %opKind, ptr noundef %trueBlock, ptr noundef %falseBlock) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %call, i8 0, i64 16, i1 false)
@@ -7706,7 +7706,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder23createIteratorBeginInstEPNS_14AllocStackInstE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %sourceOrNext) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder23createIteratorBeginInstEPNS_14AllocStackInstE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %sourceOrNext) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -7790,7 +7790,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createIteratorNextInstEPNS_14AllocStackInstES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %iterator, ptr noundef %sourceOrNext) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder22createIteratorNextInstEPNS_14AllocStackInstES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %iterator, ptr noundef %sourceOrNext) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -7878,7 +7878,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder23createIteratorCloseInstEPNS_14AllocStackInstEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %iterator, i1 noundef zeroext %ignoreInnerException) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder23createIteratorCloseInstEPNS_14AllocStackInstEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %iterator, i1 noundef zeroext %ignoreInnerException) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   %0 = load ptr, ptr %this, align 8
@@ -7965,7 +7965,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder21createUnreachableInstEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder21createUnreachableInstEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %call, i8 0, i64 16, i1 false)
@@ -8045,7 +8045,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((8, 24)) %this, ptr noundef %BB) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((8, 24)) %this, ptr noundef %BB) local_unnamed_addr #7 align 2 {
 entry:
   %tobool.not = icmp eq ptr %BB, null
   %InstList.i = getelementptr inbounds nuw i8, ptr %BB, i64 56
@@ -8058,7 +8058,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6hermes9IRBuilder22setInsertionPointAfterEPNS_11InstructionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((8, 24)) %this, ptr noundef %IP) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN6hermes9IRBuilder22setInsertionPointAfterEPNS_11InstructionE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((8, 24)) %this, ptr noundef %IP) local_unnamed_addr #8 align 2 {
 entry:
   %InsertionPoint = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %IP, ptr %InsertionPoint, align 8
@@ -8073,7 +8073,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((8, 24)) %this, ptr noundef %IP) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((8, 24)) %this, ptr noundef %IP) local_unnamed_addr #8 align 2 {
 entry:
   %InsertionPoint = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %IP, ptr %InsertionPoint, align 8
@@ -8085,7 +8085,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN6hermes9IRBuilder21isInsertionPointValidEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes9IRBuilder21isInsertionPointValidEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #5 align 2 {
 entry:
   %InsertionPoint = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %InsertionPoint, align 8
@@ -8094,7 +8094,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6hermes9IRBuilder19resetInsertionPointEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((8, 24)) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6hermes9IRBuilder19resetInsertionPointEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((8, 24)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %InsertionPoint = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %InsertionPoint, i8 0, i64 16, i1 false)
@@ -8102,7 +8102,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes9IRBuilder33transferInstructionToCurrentBlockEPNS_11InstructionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull %inst) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes9IRBuilder33transferInstructionToCurrentBlockEPNS_11InstructionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull %inst) local_unnamed_addr #0 align 2 {
 entry:
   %Parent.i = getelementptr inbounds nuw i8, ptr %inst, i64 56
   %0 = load ptr, ptr %Parent.i, align 8
@@ -8200,7 +8200,7 @@ declare noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull 
 declare void @_ZN6hermes11Instruction10setOperandEPNS_5ValueEj(ptr noundef nonnull align 8 dereferenceable(132), ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder9cloneInstEPKNS_11InstructionEN4llvh8ArrayRefIPNS_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %source, ptr %operands.coerce0, i64 %operands.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN6hermes9IRBuilder9cloneInstEPKNS_11InstructionEN4llvh8ArrayRefIPNS_5ValueEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef %source, ptr %operands.coerce0, i64 %operands.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %source, i64 16
   %0 = load i8, ptr %add.ptr, align 8
@@ -9219,7 +9219,7 @@ declare i64 @_ZN4llvh10hash_valueENS_9StringRefE(ptr, i64) local_unnamed_addr #2
 declare noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E20InsertIntoBucketImplIS2_EEPSA_RKS2_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(16) %Key, ptr noundef nonnull align 8 dereferenceable(16) %Lookup, ptr noundef %TheBucket) local_unnamed_addr #0 comdat align 2 {
@@ -9405,16 +9405,16 @@ declare void @_ZN6hermes11InstructionC2EPKS0_N4llvh8ArrayRefIPNS_5ValueEEE(ptr n
 declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #13

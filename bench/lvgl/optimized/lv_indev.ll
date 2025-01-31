@@ -66,7 +66,7 @@ define nonnull ptr @lv_indev_create() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_display_get_default() local_unnamed_addr #2
 
@@ -75,7 +75,7 @@ declare ptr @lv_ll_ins_head(ptr noundef) local_unnamed_addr #2
 declare ptr @lv_timer_create(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_indev_read_timer_cb(ptr nocapture noundef readonly %0) #0 {
+define void @lv_indev_read_timer_cb(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !26
   tail call void @lv_indev_read(ptr noundef %3)
@@ -83,7 +83,7 @@ define void @lv_indev_read_timer_cb(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_indev_delete(ptr noundef %0) local_unnamed_addr #0 {
@@ -2007,7 +2007,7 @@ define void @lv_indev_stop_processing(ptr noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_indev_reset_long_press(ptr nocapture noundef initializes((28, 36)) %0) local_unnamed_addr #0 {
+define void @lv_indev_reset_long_press(ptr noundef captures(none) initializes((28, 36)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, -2
@@ -2022,7 +2022,7 @@ define void @lv_indev_reset_long_press(ptr nocapture noundef initializes((28, 36
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_indev_set_cursor(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @lv_indev_set_cursor(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8, !tbaa !17
   %.not = icmp eq i32 %3, 1
   br i1 %.not, label %4, label %16
@@ -2101,7 +2101,7 @@ define void @lv_indev_set_button_points(ptr noundef %0, ptr noundef %1) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_indev_get_point(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #4 {
+define void @lv_indev_get_point(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2136,7 +2136,7 @@ define void @lv_indev_get_point(ptr noundef readonly %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 16) i32 @lv_indev_get_gesture_dir(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define range(i32 0, 16) i32 @lv_indev_get_gesture_dir(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %3 = load i16, ptr %2, align 4
   %4 = lshr i16 %3, 4
@@ -2166,7 +2166,7 @@ define i32 @lv_indev_get_key(ptr noundef readonly %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i8 @lv_indev_get_short_click_streak(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define zeroext i8 @lv_indev_get_short_click_streak(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %3 = load i8, ptr %2, align 4, !tbaa !102
   ret i8 %3
@@ -2219,7 +2219,7 @@ define ptr @lv_indev_get_scroll_obj(ptr noundef readonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_indev_get_vect(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #4 {
+define void @lv_indev_get_vect(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #4 {
   store i32 0, ptr %1, align 4, !tbaa !94
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %3, align 4, !tbaa !95
@@ -2358,7 +2358,7 @@ declare void @lv_timer_set_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @lv_timer_resume(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_indev_search_obj(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define ptr @lv_indev_search_obj(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.lv_point_t, align 8
   %4 = alloca %struct.lv_area_t, align 4
   %5 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %0, i32 noundef 1) #11
@@ -2426,7 +2426,7 @@ define ptr @lv_indev_search_obj(ptr noundef %0, ptr nocapture noundef readonly %
 declare zeroext i1 @lv_obj_has_flag(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @lv_obj_transform_point(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -3822,7 +3822,7 @@ declare ptr @lv_obj_get_style_prop(ptr noundef, i32 noundef, i8 noundef zeroext)
 declare i32 @lv_obj_send_event(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pointer_search_obj(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @pointer_search_obj(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call ptr @lv_display_get_layer_sys(ptr noundef %0) #11
   %4 = tail call ptr @lv_indev_search_obj(ptr noundef %3, ptr noundef nonnull %1)
   store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !54
@@ -3913,7 +3913,7 @@ declare void @lv_group_focus_obj(ptr noundef) local_unnamed_addr #2
 declare ptr @lv_obj_get_parent(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @indev_proc_short_click(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @indev_proc_short_click(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %4 = load i8, ptr %3, align 4, !tbaa !102
@@ -4061,7 +4061,7 @@ send_event.exit:                                  ; preds = %indev_reset_check.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare void @lv_point_transform(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 

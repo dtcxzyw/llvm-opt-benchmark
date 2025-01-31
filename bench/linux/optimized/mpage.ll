@@ -53,7 +53,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mpage_writep
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable_mpage_read_folio437, ptr @__UNIQUE_ID___addressable_mpage_readahead436, ptr @__UNIQUE_ID___addressable_mpage_writepages442], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mpage_readahead(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local void @mpage_readahead(ptr noundef captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.mpage_readpage_args, align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #7
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -169,10 +169,10 @@ define dso_local void @mpage_readahead(ptr nocapture noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @do_mpage_readpage(ptr noundef %0) unnamed_addr #0 align 16 {
@@ -700,7 +700,7 @@ define internal fastcc ptr @do_mpage_readpage(ptr noundef %0) unnamed_addr #0 al
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @mpage_read_folio(ptr noundef %0, ptr noundef %1) #0 align 16 {
@@ -767,7 +767,7 @@ declare dso_local void @blk_start_plug(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @write_cache_pages(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @__mpage_writepage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define internal i32 @__mpage_writepage(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = alloca %struct.buffer_head, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1508,7 +1508,7 @@ declare dso_local void @submit_bio(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @blk_status_to_errno(i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @bio_next_folio(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #5 align 16 {
+define internal fastcc void @bio_next_folio(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32

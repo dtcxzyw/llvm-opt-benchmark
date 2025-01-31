@@ -61,7 +61,7 @@ MD5_Update.exit:                                  ; preds = %entry, %if.end45.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @MD5_Init(ptr nocapture noundef writeonly initializes((0, 92)) %md5) local_unnamed_addr #1 {
+define hidden noundef i32 @MD5_Init(ptr noundef writeonly captures(none) initializes((0, 92)) %md5) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %md5, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %0, i8 0, i64 76, i1 false)
@@ -161,7 +161,7 @@ return:                                           ; preds = %if.end45, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @MD5_Final(ptr nocapture noundef writeonly initializes((0, 16)) %md, ptr noundef %c) local_unnamed_addr #0 {
+define hidden noundef i32 @MD5_Final(ptr noundef writeonly captures(none) initializes((0, 16)) %md, ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %num = getelementptr inbounds nuw i8, ptr %c, i64 88
   %0 = load i32, ptr %num, align 4
@@ -291,10 +291,10 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @md5_block_asm_data_order(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 

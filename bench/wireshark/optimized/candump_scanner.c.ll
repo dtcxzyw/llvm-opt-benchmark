@@ -407,14 +407,14 @@ default.unreachable395:                           ; preds = %yy_get_next_buffer.
   store i64 %191, ptr %189, align 8
   %192 = load ptr, ptr %77, align 8
   %193 = getelementptr i8, ptr %192, i64 1
-  %194 = tail call i64 @strtoul(ptr nocapture noundef %193, ptr noundef null, i32 noundef 10) #23
+  %194 = tail call i64 @strtoul(ptr noundef captures(none) %193, ptr noundef null, i32 noundef 10) #23
   %195 = load ptr, ptr %0, align 8
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 144
   store i64 %194, ptr %196, align 8
   %197 = load ptr, ptr %77, align 8
   %198 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %197, i32 noundef 46) #24
   %199 = getelementptr i8, ptr %198, i64 1
-  %200 = tail call i64 @strtoul(ptr nocapture noundef %199, ptr noundef null, i32 noundef 10) #23
+  %200 = tail call i64 @strtoul(ptr noundef captures(none) %199, ptr noundef null, i32 noundef 10) #23
   %201 = load ptr, ptr %0, align 8
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 152
   store i64 %200, ptr %202, align 8
@@ -430,7 +430,7 @@ default.unreachable395:                           ; preds = %yy_get_next_buffer.
   store i64 %209, ptr %207, align 8
   %210 = load ptr, ptr %77, align 8
   %211 = getelementptr i8, ptr %210, i64 1
-  %212 = tail call i64 @strtoul(ptr nocapture noundef %211, ptr noundef null, i32 noundef 10) #23
+  %212 = tail call i64 @strtoul(ptr noundef captures(none) %211, ptr noundef null, i32 noundef 10) #23
   %213 = load ptr, ptr %0, align 8
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 144
   store i64 %212, ptr %214, align 8
@@ -458,7 +458,7 @@ default.unreachable395:                           ; preds = %yy_get_next_buffer.
   %230 = add i64 %229, %226
   store i64 %230, ptr %228, align 8
   %231 = load ptr, ptr %77, align 8
-  %232 = tail call i64 @strtoul(ptr nocapture noundef %231, ptr noundef null, i32 noundef 16) #23
+  %232 = tail call i64 @strtoul(ptr noundef captures(none) %231, ptr noundef null, i32 noundef 16) #23
   %233 = load ptr, ptr %0, align 8
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 144
   store i64 %232, ptr %234, align 8
@@ -473,7 +473,7 @@ default.unreachable395:                           ; preds = %yy_get_next_buffer.
   %241 = add i64 %240, %237
   store i64 %241, ptr %239, align 8
   %242 = load ptr, ptr %77, align 8
-  %243 = tail call i64 @strtoul(ptr nocapture noundef %242, ptr noundef null, i32 noundef 16) #23
+  %243 = tail call i64 @strtoul(ptr noundef captures(none) %242, ptr noundef null, i32 noundef 16) #23
   %244 = load ptr, ptr %0, align 8
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 144
   store i64 %243, ptr %245, align 8
@@ -488,7 +488,7 @@ default.unreachable395:                           ; preds = %yy_get_next_buffer.
   %252 = add i64 %251, %248
   store i64 %252, ptr %250, align 8
   %253 = load ptr, ptr %77, align 8
-  %254 = tail call i64 @strtoul(ptr nocapture noundef %253, ptr noundef null, i32 noundef 16) #23
+  %254 = tail call i64 @strtoul(ptr noundef captures(none) %253, ptr noundef null, i32 noundef 16) #23
   %255 = load ptr, ptr %0, align 8
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 144
   store i64 %254, ptr %256, align 8
@@ -504,7 +504,7 @@ default.unreachable395:                           ; preds = %yy_get_next_buffer.
   store i64 %263, ptr %261, align 8
   %264 = load ptr, ptr %77, align 8
   %265 = getelementptr i8, ptr %264, i64 1
-  %266 = tail call i64 @strtoul(ptr nocapture noundef %265, ptr noundef null, i32 noundef 16) #23
+  %266 = tail call i64 @strtoul(ptr noundef captures(none) %265, ptr noundef null, i32 noundef 16) #23
   %267 = load ptr, ptr %0, align 8
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 144
   store i64 %266, ptr %268, align 8
@@ -1223,7 +1223,7 @@ yy_get_next_buffer.exit.thread225:                ; preds = %410, %yy_get_next_b
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden nonnull ptr @candump__create_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define hidden nonnull ptr @candump__create_buffer(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
   %4 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #20
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
@@ -1329,7 +1329,7 @@ candump__init_buffer.exit:                        ; preds = %45, %.thread.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -1343,7 +1343,7 @@ define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @candump_restart(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden void @candump_restart(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1535,7 +1535,7 @@ candump__init_buffer.exit:                        ; preds = %80, %.thread.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @candump__switch_to_buffer(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden void @candump__switch_to_buffer(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -1664,7 +1664,7 @@ define hidden void @candump__switch_to_buffer(ptr noundef %0, ptr nocapture noun
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @candump__delete_buffer(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define hidden void @candump__delete_buffer(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %3
 
@@ -1707,10 +1707,10 @@ define hidden void @candump__delete_buffer(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @candump__flush_buffer(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #8 {
+define hidden void @candump__flush_buffer(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %3
 
@@ -1769,7 +1769,7 @@ define hidden void @candump__flush_buffer(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @candump_push_buffer_state(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden void @candump_push_buffer_state(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %73, label %4
 
@@ -1904,7 +1904,7 @@ candump_ensure_buffer_stack.exit:                 ; preds = %10, %13, %24
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @candump_pop_buffer_state(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define hidden void @candump_pop_buffer_state(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1986,13 +1986,13 @@ candump__delete_buffer.exit:                      ; preds = %.thread.i, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @candump_get_extra(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden ptr @candump_get_extra(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @candump_get_lineno(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define hidden i32 @candump_get_lineno(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2017,7 +2017,7 @@ define hidden i32 @candump_get_lineno(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @candump_get_column(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define hidden i32 @candump_get_column(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2042,41 +2042,41 @@ define hidden i32 @candump_get_column(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @candump_get_in(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden ptr @candump_get_in(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @candump_get_out(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden ptr @candump_get_out(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @candump_get_leng(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden i32 @candump_get_leng(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @candump_get_text(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden ptr @candump_get_text(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @candump_set_extra(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #11 {
+define hidden void @candump_set_extra(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #11 {
   store ptr %0, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @candump_set_lineno(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define hidden void @candump_set_lineno(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2101,7 +2101,7 @@ define hidden void @candump_set_lineno(i32 noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @candump_set_column(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define hidden void @candump_set_column(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2126,28 +2126,28 @@ define hidden void @candump_set_column(i32 noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @candump_set_in(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) local_unnamed_addr #11 {
+define hidden void @candump_set_in(ptr noundef %0, ptr noundef writeonly captures(none) initializes((8, 16)) %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @candump_set_out(ptr noundef %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #11 {
+define hidden void @candump_set_out(ptr noundef %0, ptr noundef writeonly captures(none) initializes((16, 24)) %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @candump_get_debug(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden i32 @candump_get_debug(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @candump_set_debug(i32 noundef %0, ptr nocapture noundef writeonly initializes((124, 128)) %1) local_unnamed_addr #11 {
+define hidden void @candump_set_debug(i32 noundef %0, ptr noundef writeonly captures(none) initializes((124, 128)) %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 124
   store i32 %0, ptr %3, align 4
   ret void
@@ -2179,7 +2179,7 @@ define hidden range(i32 0, 2) i32 @candump_lex_init(ptr noundef writeonly %0) lo
 declare ptr @__errno_location() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
 define hidden range(i32 0, 2) i32 @candump_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #12 {
@@ -2212,7 +2212,7 @@ define hidden range(i32 0, 2) i32 @candump_lex_init_extra(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @candump_lex_destroy(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden noundef i32 @candump_lex_destroy(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -2341,14 +2341,14 @@ candump_pop_buffer_state.exit:                    ; preds = %26, %44, %47
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #15
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #15
 
 declare i32 @file_getc(ptr noundef) local_unnamed_addr #16
 
 declare i32 @file_error(ptr noundef, ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #17
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #17
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #18

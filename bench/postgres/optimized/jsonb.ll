@@ -97,7 +97,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.59 = private unnamed_addr constant [23 x i8] c"unknown jsonb type: %d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_in(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @jsonb_in(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.JsonLexContext, align 8
   %3 = alloca %struct.JsonbInState, align 8
   %4 = alloca %struct.JsonSemAction, align 8
@@ -115,7 +115,7 @@ define dso_local i64 @jsonb_in(ptr nocapture noundef readonly %0) local_unnamed_
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 24, i1 false)
   %13 = tail call i32 @GetDatabaseEncoding() #11
-  %14 = call ptr @makeJsonLexContextCstringLen(ptr noundef nonnull %2, ptr noundef %7, i32 noundef %9, i32 noundef %13, i1 noundef zeroext true) #11
+  %14 = call ptr @makeJsonLexContextCstringLen(ptr noundef nonnull %2, ptr noundef nonnull %7, i32 noundef %9, i32 noundef %13, i1 noundef zeroext true) #11
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -152,10 +152,10 @@ jsonb_from_cstring.exit:                          ; preds = %1, %24
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_recv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @jsonb_recv(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.JsonLexContext, align 8
   %3 = alloca %struct.JsonbInState, align 8
   %4 = alloca %struct.JsonSemAction, align 8
@@ -237,7 +237,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_out(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @jsonb_out(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -257,7 +257,7 @@ define dso_local ptr @JsonbToCString(ptr noundef %0, ptr noundef %1, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_send(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @jsonb_send(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -388,7 +388,7 @@ jsonb_from_cstring.exit:                          ; preds = %27, %44
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @JsonbTypeName(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local nonnull ptr @JsonbTypeName(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.JsonbValue, align 8
   %4 = alloca %struct.JsonbValue, align 8
@@ -512,7 +512,7 @@ JsonbContainerTypeName.exit:                      ; preds = %11, %18, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_typeof(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @jsonb_typeof(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.JsonbValue, align 8
   %4 = alloca %struct.JsonbValue, align 8
@@ -1056,7 +1056,7 @@ declare void @json_categorize_type(i32 noundef, i1 noundef zeroext, ptr noundef,
 declare signext i8 @func_volatile(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @to_jsonb(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @to_jsonb(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.JsonbInState, align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -1109,7 +1109,7 @@ define dso_local i64 @datum_to_jsonb(i64 noundef %0, i32 noundef %1, i32 noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @datum_to_jsonb_internal(i64 noundef %0, i1 noundef zeroext %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
@@ -1511,7 +1511,7 @@ composite_to_jsonb.exit:                          ; preds = %._crit_edge, %170
   %195 = tail call ptr @pg_detoast_datum(ptr noundef %194) #11
   %196 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %195, ptr %196, align 8
-  tail call void @pfree(ptr noundef %187) #11
+  tail call void @pfree(ptr noundef nonnull %187) #11
   br label %.thread99.thread
 
 .critedge:                                        ; preds = %186, %189
@@ -1706,7 +1706,7 @@ checkStringLen.exit:                              ; preds = %247, %254, %256
 declare ptr @JsonbValueToJsonb(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_build_object_worker(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define dso_local i64 @jsonb_build_object_worker(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca %struct.JsonbInState, align 8
@@ -1964,7 +1964,7 @@ define dso_local i64 @jsonb_build_object(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @extract_variadic_args(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_build_object_noargs(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @jsonb_build_object_noargs(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.JsonbInState, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %3 = call ptr @pushJsonbValue(ptr noundef nonnull %2, i32 noundef 6, ptr noundef null) #11
@@ -1977,7 +1977,7 @@ define dso_local i64 @jsonb_build_object_noargs(ptr nocapture noundef readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_build_array_worker(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local i64 @jsonb_build_array_worker(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %struct.JsonbInState, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %7 = call ptr @pushJsonbValue(ptr noundef nonnull %6, i32 noundef 4, ptr noundef null) #11
@@ -2091,7 +2091,7 @@ jsonb_build_array_worker.exit:                    ; preds = %.lr.ph.split.i, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_build_array_noargs(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @jsonb_build_array_noargs(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.JsonbInState, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %3 = call ptr @pushJsonbValue(ptr noundef nonnull %2, i32 noundef 4, ptr noundef null) #11
@@ -2104,7 +2104,7 @@ define dso_local i64 @jsonb_build_array_noargs(ptr nocapture noundef readnone %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_object(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @jsonb_object(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -2253,7 +2253,7 @@ declare void @deconstruct_array_builtin(ptr noundef, i32 noundef, ptr noundef, p
 declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_object_two_arg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @jsonb_object_two_arg(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -2603,7 +2603,7 @@ define dso_local i64 @jsonb_agg_strict_transfn(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_agg_finalfn(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @jsonb_agg_finalfn(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.JsonbInState, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i8, ptr %3, align 8
@@ -3078,7 +3078,7 @@ define dso_local i64 @jsonb_object_agg_unique_strict_transfn(ptr noundef %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_object_agg_finalfn(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @jsonb_object_agg_finalfn(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.JsonbInState, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i8, ptr %3, align 8
@@ -3204,7 +3204,7 @@ declare ptr @JsonbIteratorInit(ptr noundef) local_unnamed_addr #2
 declare i32 @JsonbIteratorNext(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @jsonb_bool(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @jsonb_bool(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.JsonbValue, align 8
   %4 = alloca %struct.JsonbValue, align 8
@@ -3300,7 +3300,7 @@ define internal fastcc void @cannotCastJsonbValue(i32 noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_numeric(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @jsonb_numeric(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.JsonbValue, align 8
   %4 = alloca %struct.JsonbValue, align 8
@@ -3362,7 +3362,7 @@ JsonbExtractScalar.exit:                          ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_int2(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @jsonb_int2(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.JsonbValue, align 8
   %4 = alloca %struct.JsonbValue, align 8
@@ -3428,7 +3428,7 @@ declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) loca
 declare i64 @numeric_int2(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_int4(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @jsonb_int4(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.JsonbValue, align 8
   %4 = alloca %struct.JsonbValue, align 8
@@ -3492,7 +3492,7 @@ JsonbExtractScalar.exit:                          ; preds = %1
 declare i64 @numeric_int4(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_int8(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @jsonb_int8(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.JsonbValue, align 8
   %4 = alloca %struct.JsonbValue, align 8
@@ -3556,7 +3556,7 @@ JsonbExtractScalar.exit:                          ; preds = %1
 declare i64 @numeric_int8(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_float4(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @jsonb_float4(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.JsonbValue, align 8
   %4 = alloca %struct.JsonbValue, align 8
@@ -3620,7 +3620,7 @@ JsonbExtractScalar.exit:                          ; preds = %1
 declare i64 @numeric_float4(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_float8(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @jsonb_float8(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.JsonbValue, align 8
   %4 = alloca %struct.JsonbValue, align 8
@@ -3686,7 +3686,7 @@ declare i64 @numeric_float8(ptr noundef) #2
 declare void @enlargeStringInfo(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare ptr @makeJsonLexContextCstringLen(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
@@ -3915,7 +3915,7 @@ declare void @appendBinaryStringInfo(ptr noundef, ptr noundef, i32 noundef) loca
 declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @jsonb_put_escaped_value(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @jsonb_put_escaped_value(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 8
   switch i32 %3, label %24 [
     i32 0, label %4
@@ -4008,7 +4008,7 @@ declare void @get_typlenbyvalalign(i32 noundef, ptr noundef, ptr noundef, ptr no
 declare void @deconstruct_array(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i8 noundef signext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @array_dim_to_jsonb(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef nonnull %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc void @array_dim_to_jsonb(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef nonnull captures(none) %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
   %10 = tail call ptr @pushJsonbValue(ptr noundef nonnull %0, i32 noundef 4, ptr noundef null) #11
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %11, align 8
@@ -4083,10 +4083,10 @@ declare ptr @pg_detoast_datum_copy(ptr noundef) local_unnamed_addr #2
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9

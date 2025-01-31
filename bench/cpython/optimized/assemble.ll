@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_PyOpcode_Caches = external local_unnamed_addr constant [256 x i8], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyAssemble_MakeCodeObject(ptr nocapture noundef readonly %umd, ptr noundef %const_cache, ptr noundef %consts, i32 noundef %maxdepth, ptr nocapture noundef readonly %instrs, i32 noundef %nlocalsplus, i32 noundef %code_flags, ptr noundef %filename) local_unnamed_addr #0 {
+define hidden ptr @_PyAssemble_MakeCodeObject(ptr noundef readonly captures(none) %umd, ptr noundef %const_cache, ptr noundef %consts, i32 noundef %maxdepth, ptr noundef readonly captures(none) %instrs, i32 noundef %nlocalsplus, i32 noundef %code_flags, ptr noundef %filename) local_unnamed_addr #0 {
 entry:
   %k.i20.i = alloca ptr, align 8
   %v.i21.i = alloca ptr, align 8
@@ -763,7 +763,7 @@ if.end.i.i.i.i30:                                 ; preds = %if.end8.i.i
 _Py_NewRef.exit.i.i:                              ; preds = %if.end.i.i.i.i30, %if.end8.i.i
   %arrayidx.i.i.i31 = getelementptr [1 x ptr], ptr %ob_item.i.i.i, i64 0, i64 %call3.i.i
   store ptr %83, ptr %arrayidx.i.i.i31, align 8
-  %call2.i.i32 = call i32 @PyDict_Next(ptr noundef %78, ptr noundef nonnull %pos.i.i, ptr noundef nonnull %k.i.i, ptr noundef nonnull %v.i.i) #5
+  %call2.i.i32 = call i32 @PyDict_Next(ptr noundef nonnull %78, ptr noundef nonnull %pos.i.i, ptr noundef nonnull %k.i.i, ptr noundef nonnull %v.i.i) #5
   %tobool.not.i.i = icmp eq i32 %call2.i.i32, 0
   br i1 %tobool.not.i.i, label %if.end.i, label %while.body.i.i, !llvm.loop !15
 
@@ -1194,7 +1194,7 @@ declare i32 @_PyBytes_Resize(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @_PyCompile_ConstCacheMergeOne(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1960,10 +1960,10 @@ declare void @_Py_set_localsplus_info(i32 noundef, ptr noundef, i8 noundef zeroe
 declare void @llvm.assume(i1 noundef) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

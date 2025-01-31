@@ -37,7 +37,7 @@ $_ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeE7reserveEi = comdat any
 @_ZN14b3QuantizedBvhC1ERS_b = dso_local unnamed_addr alias void (ptr, ptr, i1), ptr @_ZN14b3QuantizedBvhC2ERS_b
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN14b3QuantizedBvhC2Ev(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(252) initializes((0, 8), (16, 48), (64, 68), (72, 73), (84, 92), (96, 105), (116, 124), (128, 137), (148, 156), (160, 169), (180, 188), (192, 201), (208, 212), (220, 228), (232, 241), (248, 252)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14b3QuantizedBvhC2Ev(ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(252) initializes((0, 8), (16, 48), (64, 68), (72, 73), (84, 92), (96, 105), (116, 124), (128, 137), (148, 156), (160, 169), (180, 188), (192, 201), (208, 212), (220, 228), (232, 241), (248, 252)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont7:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14b3QuantizedBvh, i64 16), ptr %this, align 16
   %m_bulletVersion = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -262,7 +262,7 @@ _ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeE5clearEv.exit: ; preds = %_ZN20b3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN14b3QuantizedBvh9buildTreeEii(ptr noundef nonnull align 16 dereferenceable(252) %this, i32 noundef %startIndex, i32 noundef %endIndex) local_unnamed_addr #3 align 2 {
@@ -561,7 +561,7 @@ return:                                           ; preds = %if.else.i92, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN14b3QuantizedBvh21setQuantizationValuesERK9b3Vector3S2_f(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(252) initializes((16, 64), (72, 73)) %this, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %bvhAabbMin, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %bvhAabbMax, float noundef %quantizationMargin) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN14b3QuantizedBvh21setQuantizationValuesERK9b3Vector3S2_f(ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(252) initializes((16, 64), (72, 73)) %this, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %bvhAabbMin, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %bvhAabbMax, float noundef %quantizationMargin) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load float, ptr %bvhAabbMin, align 16
   %sub.i = fsub float %0, %quantizationMargin
@@ -612,10 +612,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN14b3QuantizedBvhD2Ev(ptr nocapture noundef nonnull align 16 dereferenceable(252) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14b3QuantizedBvhD2Ev(ptr noundef nonnull align 16 captures(none) dereferenceable(252) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14b3QuantizedBvh, i64 16), ptr %this, align 16
   %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
@@ -790,7 +790,7 @@ _ZN14b3QuantizedBvhdlEPv.exit:                    ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN14b3QuantizedBvh30assignInternalNodeFromLeafNodeEii(ptr nocapture noundef nonnull readonly align 16 dereferenceable(252) %this, i32 noundef %internalNode, i32 noundef %leafNodeIndex) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN14b3QuantizedBvh30assignInternalNodeFromLeafNodeEii(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %this, i32 noundef %internalNode, i32 noundef %leafNodeIndex) local_unnamed_addr #7 align 2 {
 entry:
   %m_useQuantization = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load i8, ptr %m_useQuantization, align 8
@@ -824,7 +824,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 0, 3) i32 @_ZN14b3QuantizedBvh17calcSplittingAxisEii(ptr nocapture noundef nonnull readonly align 16 dereferenceable(252) %this, i32 noundef %startIndex, i32 noundef %endIndex) local_unnamed_addr #8 align 2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN14b3QuantizedBvh17calcSplittingAxisEii(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %this, i32 noundef %startIndex, i32 noundef %endIndex) local_unnamed_addr #8 align 2 {
 entry:
   %sub = sub nsw i32 %endIndex, %startIndex
   %cmp254 = icmp slt i32 %startIndex, %endIndex
@@ -1101,7 +1101,7 @@ for.end54:                                        ; preds = %for.body26, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN14b3QuantizedBvh25sortAndCalcSplittingIndexEiii(ptr nocapture noundef nonnull readonly align 16 dereferenceable(252) %this, i32 noundef %startIndex, i32 noundef %endIndex, i32 noundef %splitAxis) local_unnamed_addr #9 align 2 {
+define dso_local noundef i32 @_ZN14b3QuantizedBvh25sortAndCalcSplittingIndexEiii(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %this, i32 noundef %startIndex, i32 noundef %endIndex, i32 noundef %splitAxis) local_unnamed_addr #9 align 2 {
 entry:
   %tmp.sroa.0.i = alloca %struct.b3QuantizedBvhNodeData, align 16
   %tmp8.i = alloca %struct.b3OptimizedBvhNode, align 16
@@ -1743,7 +1743,7 @@ if.end22:                                         ; preds = %_ZN20b3AlignedObjec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN14b3QuantizedBvh13swapLeafNodesEii(ptr nocapture noundef nonnull readonly align 16 dereferenceable(252) %this, i32 noundef %i, i32 noundef %splitIndex) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN14b3QuantizedBvh13swapLeafNodesEii(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %this, i32 noundef %i, i32 noundef %splitIndex) local_unnamed_addr #7 align 2 {
 entry:
   %tmp.sroa.0 = alloca %struct.b3QuantizedBvhNodeData, align 16
   %tmp8 = alloca %struct.b3OptimizedBvhNode, align 16
@@ -1783,7 +1783,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK14b3QuantizedBvh26reportAabbOverlappingNodexEP21b3NodeOverlapCallbackRK9b3Vector3S4_(ptr nocapture noundef nonnull readonly align 16 dereferenceable(252) %this, ptr noundef %nodeCallback, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %aabbMin, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %aabbMax) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK14b3QuantizedBvh26reportAabbOverlappingNodexEP21b3NodeOverlapCallbackRK9b3Vector3S4_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %this, ptr noundef %nodeCallback, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %aabbMin, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %aabbMax) local_unnamed_addr #3 align 2 {
 entry:
   %quantizedQueryAabbMin = alloca [3 x i16], align 2
   %quantizedQueryAabbMax = alloca [3 x i16], align 2
@@ -2122,7 +2122,7 @@ if.end:                                           ; preds = %if.then12.i, %while
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK14b3QuantizedBvh26walkStacklessQuantizedTreeEP21b3NodeOverlapCallbackPtS2_ii(ptr nocapture noundef nonnull readonly align 16 dereferenceable(252) %this, ptr noundef %nodeCallback, ptr nocapture noundef readonly %quantizedQueryAabbMin, ptr nocapture noundef readonly %quantizedQueryAabbMax, i32 noundef %startNodeIndex, i32 noundef %endNodeIndex) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK14b3QuantizedBvh26walkStacklessQuantizedTreeEP21b3NodeOverlapCallbackPtS2_ii(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %this, ptr noundef %nodeCallback, ptr noundef readonly captures(none) %quantizedQueryAabbMin, ptr noundef readonly captures(none) %quantizedQueryAabbMax, i32 noundef %startNodeIndex, i32 noundef %endNodeIndex) local_unnamed_addr #1 align 2 {
 entry:
   %cmp23 = icmp slt i32 %startNodeIndex, %endNodeIndex
   br i1 %cmp23, label %while.body.lr.ph, label %while.end
@@ -2223,7 +2223,7 @@ if.end16:                                         ; preds = %if.then15, %while.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK14b3QuantizedBvh39walkStacklessQuantizedTreeCacheFriendlyEP21b3NodeOverlapCallbackPtS2_(ptr nocapture noundef nonnull readonly align 16 dereferenceable(252) %this, ptr noundef %nodeCallback, ptr nocapture noundef readonly %quantizedQueryAabbMin, ptr nocapture noundef readonly %quantizedQueryAabbMax) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK14b3QuantizedBvh39walkStacklessQuantizedTreeCacheFriendlyEP21b3NodeOverlapCallbackPtS2_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %this, ptr noundef %nodeCallback, ptr noundef readonly captures(none) %quantizedQueryAabbMin, ptr noundef readonly captures(none) %quantizedQueryAabbMax) local_unnamed_addr #1 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 220
   %0 = load i32, ptr %m_size.i, align 4
@@ -2380,7 +2380,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK14b3QuantizedBvh42walkRecursiveQuantizedTreeAgainstQueryAabbEPK18b3QuantizedBvhNodeP21b3NodeOverlapCallbackPtS5_(ptr nocapture noundef nonnull readnone align 16 dereferenceable(252) %this, ptr nocapture noundef readonly %currentNode, ptr noundef %nodeCallback, ptr nocapture noundef readonly %quantizedQueryAabbMin, ptr nocapture noundef readonly %quantizedQueryAabbMax) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK14b3QuantizedBvh42walkRecursiveQuantizedTreeAgainstQueryAabbEPK18b3QuantizedBvhNodeP21b3NodeOverlapCallbackPtS5_(ptr noundef nonnull readnone align 16 captures(none) dereferenceable(252) %this, ptr noundef readonly captures(none) %currentNode, ptr noundef %nodeCallback, ptr noundef readonly captures(none) %quantizedQueryAabbMin, ptr noundef readonly captures(none) %quantizedQueryAabbMax) local_unnamed_addr #1 align 2 {
 entry:
   %arrayidx10.i = getelementptr inbounds nuw i8, ptr %quantizedQueryAabbMin, i64 4
   %arrayidx17.i = getelementptr inbounds nuw i8, ptr %quantizedQueryAabbMax, i64 4
@@ -2453,7 +2453,7 @@ if.end11:                                         ; preds = %tailrecurse, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK14b3QuantizedBvh17walkStacklessTreeEP21b3NodeOverlapCallbackRK9b3Vector3S4_(ptr nocapture noundef nonnull readonly align 16 dereferenceable(252) %this, ptr noundef %nodeCallback, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %aabbMin, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %aabbMax) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK14b3QuantizedBvh17walkStacklessTreeEP21b3NodeOverlapCallbackRK9b3Vector3S4_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %this, ptr noundef %nodeCallback, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %aabbMin, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %aabbMax) local_unnamed_addr #1 align 2 {
 entry:
   %m_curNodeIndex = getelementptr inbounds nuw i8, ptr %this, i64 68
   %0 = load i32, ptr %m_curNodeIndex, align 4
@@ -2587,7 +2587,7 @@ if.end13:                                         ; preds = %if.then12, %while.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK14b3QuantizedBvh27walkStacklessTreeAgainstRayEP21b3NodeOverlapCallbackRK9b3Vector3S4_S4_S4_ii(ptr nocapture noundef nonnull readonly align 16 dereferenceable(252) %this, ptr noundef %nodeCallback, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %raySource, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %rayTarget, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %aabbMin, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %aabbMax, i32 %startNodeIndex, i32 %endNodeIndex) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK14b3QuantizedBvh27walkStacklessTreeAgainstRayEP21b3NodeOverlapCallbackRK9b3Vector3S4_S4_S4_ii(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %this, ptr noundef %nodeCallback, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %raySource, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %rayTarget, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %aabbMin, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %aabbMax, i32 %startNodeIndex, i32 %endNodeIndex) local_unnamed_addr #3 align 2 {
 entry:
   %bounds = alloca [2 x %class.b3Vector3], align 16
   %rayAabbMin.sroa.0.0.copyload = load float, ptr %raySource, align 16
@@ -2867,7 +2867,7 @@ if.end84:                                         ; preds = %if.then83, %while.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK14b3QuantizedBvh36walkStacklessQuantizedTreeAgainstRayEP21b3NodeOverlapCallbackRK9b3Vector3S4_S4_S4_ii(ptr nocapture noundef nonnull readonly align 16 dereferenceable(252) %this, ptr noundef %nodeCallback, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %raySource, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %rayTarget, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %aabbMin, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %aabbMax, i32 noundef %startNodeIndex, i32 noundef %endNodeIndex) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK14b3QuantizedBvh36walkStacklessQuantizedTreeAgainstRayEP21b3NodeOverlapCallbackRK9b3Vector3S4_S4_S4_ii(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %this, ptr noundef %nodeCallback, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %raySource, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %rayTarget, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %aabbMin, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %aabbMax, i32 noundef %startNodeIndex, i32 noundef %endNodeIndex) local_unnamed_addr #3 align 2 {
 entry:
   %bounds = alloca [2 x %class.b3Vector3], align 16
   %0 = load float, ptr %rayTarget, align 16
@@ -3214,7 +3214,7 @@ if.end99:                                         ; preds = %if.then98, %while.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK14b3QuantizedBvh25reportRayOverlappingNodexEP21b3NodeOverlapCallbackRK9b3Vector3S4_(ptr nocapture noundef nonnull readonly align 16 dereferenceable(252) %this, ptr noundef %nodeCallback, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %raySource, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %rayTarget) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK14b3QuantizedBvh25reportRayOverlappingNodexEP21b3NodeOverlapCallbackRK9b3Vector3S4_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %this, ptr noundef %nodeCallback, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %raySource, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %rayTarget) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %class.b3Vector3, align 16
   %ref.tmp3 = alloca %class.b3Vector3, align 16
@@ -3240,7 +3240,7 @@ _ZNK14b3QuantizedBvh29reportBoxCastOverlappingNodexEP21b3NodeOverlapCallbackRK9b
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK14b3QuantizedBvh29reportBoxCastOverlappingNodexEP21b3NodeOverlapCallbackRK9b3Vector3S4_S4_S4_(ptr nocapture noundef nonnull readonly align 16 dereferenceable(252) %this, ptr noundef %nodeCallback, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %raySource, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %rayTarget, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %aabbMin, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %aabbMax) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK14b3QuantizedBvh29reportBoxCastOverlappingNodexEP21b3NodeOverlapCallbackRK9b3Vector3S4_S4_S4_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %this, ptr noundef %nodeCallback, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %raySource, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %rayTarget, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %aabbMin, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %aabbMax) local_unnamed_addr #1 align 2 {
 entry:
   %m_useQuantization = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load i8, ptr %m_useQuantization, align 8
@@ -3268,7 +3268,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK14b3QuantizedBvh28calculateSerializeBufferSizeEv(ptr nocapture noundef nonnull readonly align 16 dereferenceable(252) %this) local_unnamed_addr #11 align 2 {
+define dso_local noundef i32 @_ZNK14b3QuantizedBvh28calculateSerializeBufferSizeEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %this) local_unnamed_addr #11 align 2 {
 entry:
   %m_subtreeHeaderCount = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load i32, ptr %m_subtreeHeaderCount, align 8
@@ -3286,7 +3286,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK14b3QuantizedBvh9serializeEPvjb(ptr nocapture noundef nonnull align 16 dereferenceable(252) initializes((248, 252)) %this, ptr noundef initializes((0, 8), (16, 48), (64, 73), (84, 92), (96, 105), (116, 124), (128, 137), (148, 156), (160, 169), (180, 188), (192, 201), (208, 212), (220, 228), (232, 241), (248, 252)) %o_alignedDataBuffer, i32 %0, i1 noundef zeroext %i_swapEndian) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK14b3QuantizedBvh9serializeEPvjb(ptr noundef nonnull align 16 captures(none) dereferenceable(252) initializes((248, 252)) %this, ptr noundef initializes((0, 8), (16, 48), (64, 73), (84, 92), (96, 105), (116, 124), (128, 137), (148, 156), (160, 169), (180, 188), (192, 201), (208, 212), (220, 228), (232, 241), (248, 252)) %o_alignedDataBuffer, i32 %0, i1 noundef zeroext %i_swapEndian) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 220
   %1 = load i32, ptr %m_size.i, align 4
@@ -4450,7 +4450,7 @@ return:                                           ; preds = %for.body124, %for.c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN14b3QuantizedBvhC2ERS_b(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(252) initializes((0, 8), (16, 68), (84, 92), (96, 105), (116, 124), (128, 137), (148, 156), (160, 169), (180, 188), (192, 201), (220, 228), (232, 241)) %this, ptr nocapture noundef nonnull readonly align 16 dereferenceable(252) %self, i1 zeroext %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14b3QuantizedBvhC2ERS_b(ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(252) initializes((0, 8), (16, 68), (84, 92), (96, 105), (116, 124), (128, 137), (148, 156), (160, 169), (180, 188), (192, 201), (220, 228), (232, 241)) %this, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %self, i1 zeroext %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont10:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14b3QuantizedBvh, i64 16), ptr %this, align 16
   %m_bvhAabbMin = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -4508,7 +4508,7 @@ invoke.cont10:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14b3QuantizedBvh16deSerializeFloatER23b3QuantizedBvhFloatData(ptr noundef nonnull align 16 dereferenceable(252) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %quantizedBvhFloatData) unnamed_addr #1 align 2 {
+define dso_local void @_ZN14b3QuantizedBvh16deSerializeFloatER23b3QuantizedBvhFloatData(ptr noundef nonnull align 16 dereferenceable(252) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %quantizedBvhFloatData) unnamed_addr #1 align 2 {
 entry:
   %m_bvhAabbMax = getelementptr inbounds nuw i8, ptr %this, i64 32
   %m_bvhAabbMax2 = getelementptr inbounds nuw i8, ptr %quantizedBvhFloatData, i64 16
@@ -4814,7 +4814,7 @@ if.end128:                                        ; preds = %for.body81, %_ZN20b
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14b3QuantizedBvh17deSerializeDoubleER24b3QuantizedBvhDoubleData(ptr noundef nonnull align 16 dereferenceable(252) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %quantizedBvhDoubleData) unnamed_addr #1 align 2 {
+define dso_local void @_ZN14b3QuantizedBvh17deSerializeDoubleER24b3QuantizedBvhDoubleData(ptr noundef nonnull align 16 dereferenceable(252) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %quantizedBvhDoubleData) unnamed_addr #1 align 2 {
 entry:
   %m_bvhAabbMax = getelementptr inbounds nuw i8, ptr %this, i64 32
   %m_bvhAabbMax2 = getelementptr inbounds nuw i8, ptr %quantizedBvhDoubleData, i64 32
@@ -5125,7 +5125,7 @@ if.end128:                                        ; preds = %for.body81, %_ZN20b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noalias noundef ptr @_ZNK14b3QuantizedBvh9serializeEPvP12b3Serializer(ptr nocapture nonnull readnone align 16 %this, ptr nocapture readnone %dataBuffer, ptr nocapture readnone %serializer) unnamed_addr #10 align 2 {
+define dso_local noalias noundef ptr @_ZNK14b3QuantizedBvh9serializeEPvP12b3Serializer(ptr nonnull readnone align 16 captures(none) %this, ptr readnone captures(none) %dataBuffer, ptr readnone captures(none) %serializer) unnamed_addr #10 align 2 {
 entry:
   ret ptr null
 }
@@ -5392,10 +5392,10 @@ declare i16 @llvm.bswap.i16(i16) #17
 declare i32 @llvm.bswap.i32(i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #17

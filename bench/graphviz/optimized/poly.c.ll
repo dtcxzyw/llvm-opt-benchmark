@@ -35,10 +35,10 @@ define void @polyFree() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @breakPoly(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @breakPoly(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #15
@@ -46,7 +46,7 @@ define void @breakPoly(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @makeAddPoly(ptr nocapture noundef writeonly %0, ptr noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @makeAddPoly(ptr noundef writeonly captures(none) %0, ptr noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #2 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -475,7 +475,7 @@ declare i32 @shapeOf(ptr noundef) local_unnamed_addr #3
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @genRound(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, float noundef %2, float noundef %3) unnamed_addr #2 {
+define internal fastcc noalias noundef ptr @genRound(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, float noundef %2, float noundef %3) unnamed_addr #2 {
   %5 = tail call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.6) #15
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.thread28, label %6
@@ -544,7 +544,7 @@ gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit
 declare i32 @agerr(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @makePoly(ptr nocapture noundef writeonly %0, ptr noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @makePoly(ptr noundef writeonly captures(none) %0, ptr noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #2 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -936,7 +936,7 @@ bbox.exit:                                        ; preds = %.lr.ph.i92, %inflat
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @polyOverlap(double %0, double %1, ptr nocapture noundef readonly %2, double %3, double %4, ptr nocapture noundef readonly %5) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @polyOverlap(double %0, double %1, ptr noundef readonly captures(none) %2, double %3, double %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #2 {
   %7 = alloca %struct.pointf_s, align 8
   %8 = alloca %struct.pointf_s, align 8
   %9 = alloca %struct.pointf_s, align 8
@@ -1345,7 +1345,7 @@ edgesIntersect.exit:                              ; preds = %135
 declare void @addpt(ptr noundef, double, double, double, double) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @inPoly(ptr nocapture noundef readonly %0, i32 noundef %1, double %2, double %3) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @inPoly(ptr noundef readonly captures(none) %0, i32 noundef %1, double %2, double %3) unnamed_addr #5 {
   %5 = load ptr, ptr @tp3, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %20
@@ -1499,7 +1499,7 @@ gv_calloc.exit:                                   ; preds = %12
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #7 {
@@ -1514,12 +1514,12 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @exit(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 declare ptr @agget(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @cos(double noundef) local_unnamed_addr #12
@@ -1545,10 +1545,10 @@ declare i32 @intersection(double, double, double, double, double, double, double
 declare double @llvm.sqrt.f64(double) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

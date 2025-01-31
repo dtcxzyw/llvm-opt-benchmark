@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @MOZ_Z_inflate_table.dext = internal unnamed_addr constant [32 x i16] [i16 16, i16 16, i16 16, i16 16, i16 17, i16 17, i16 18, i16 18, i16 19, i16 19, i16 20, i16 20, i16 21, i16 21, i16 22, i16 22, i16 23, i16 23, i16 24, i16 24, i16 25, i16 25, i16 26, i16 26, i16 27, i16 27, i16 28, i16 28, i16 29, i16 29, i16 64, i16 64], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, 2) i32 @MOZ_Z_inflate_table(i32 noundef %type, ptr nocapture noundef readonly %lens, i32 noundef %codes, ptr nocapture noundef %table, ptr nocapture noundef %bits, ptr nocapture noundef %work) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @MOZ_Z_inflate_table(i32 noundef %type, ptr noundef readonly captures(none) %lens, i32 noundef %codes, ptr noundef captures(none) %table, ptr noundef captures(none) %bits, ptr noundef captures(none) %work) local_unnamed_addr #0 {
 entry:
   %count = alloca [16 x i16], align 16
   %offs = alloca [16 x i16], align 16
@@ -421,7 +421,7 @@ declare i32 @llvm.umin.i32(i32, i32) #1
 declare i32 @llvm.umax.i32(i32, i32) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

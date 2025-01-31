@@ -38,7 +38,7 @@ $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_r
 @_ZN8facebook5velox11StreamArenaC1EPNS0_6memory10MemoryPoolE = unnamed_addr alias void (ptr, ptr), ptr @_ZN8facebook5velox11StreamArenaC2EPNS0_6memory10MemoryPoolE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook5velox11StreamArenaC2EPNS0_6memory10MemoryPoolE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((0, 84), (88, 152)) %this, ptr noundef %pool) unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox11StreamArenaC2EPNS0_6memory10MemoryPoolE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(152) initializes((0, 84), (88, 152)) %this, ptr noundef %pool) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox11StreamArenaE, i64 16), ptr %this, align 8
   %pool_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -53,7 +53,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox11StreamArena8newRangeEiPNS0_9ByteRangeES3_(ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %bytes, ptr nocapture readnone %0, ptr nocapture noundef writeonly %range) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox11StreamArena8newRangeEiPNS0_9ByteRangeES3_(ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %bytes, ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %range) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %largeAllocation = alloca %"class.facebook::velox::memory::ContiguousAllocation", align 8
   %ref.tmp = alloca %"class.std::unique_ptr", align 8
@@ -422,7 +422,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox11StreamArena12newTinyRangeEiPNS0_9ByteRangeES3_(ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %bytes, ptr nocapture readnone %0, ptr nocapture noundef writeonly %range) unnamed_addr #1 align 2 {
+define void @_ZN8facebook5velox11StreamArena12newTinyRangeEiPNS0_9ByteRangeES3_(ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %bytes, ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %range) unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp slt i32 %bytes, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -926,7 +926,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12

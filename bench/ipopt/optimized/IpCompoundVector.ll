@@ -530,7 +530,7 @@ _ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit:  ; preds = %109, %103
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK5Ipopt19CompoundVectorSpace12GetCompSpaceEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
+define void @_ZNK5Ipopt19CompoundVectorSpace12GetCompSpaceEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.Ipopt::SmartPtr") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = sext i32 %2 to i64
   %6 = load ptr, ptr %4, align 8
@@ -552,7 +552,7 @@ _ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEEC2ERKS3_.exit: ; preds = %9, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN5Ipopt14CompoundVector12VectorsValidEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN5Ipopt14CompoundVector12VectorsValidEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -996,7 +996,7 @@ _ZN5Ipopt14CompoundVector12VectorsValidEv.exit:   ; preds = %51, %55, %_ZN5Ipopt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt14CompoundVector8CopyImplERKNS_6VectorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(205) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt14CompoundVector8CopyImplERKNS_6VectorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(205) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1214,7 +1214,7 @@ define linkonce_odr void @_ZN5Ipopt6Vector4CopyERKS0_(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt14CompoundVector8ScalImplEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0, double noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN5Ipopt14CompoundVector8ScalImplEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0, double noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1247,7 +1247,7 @@ define void @_ZN5Ipopt14CompoundVector8ScalImplEd(ptr nocapture noundef nonnull 
 declare void @_ZN5Ipopt6Vector4ScalEd(ptr noundef nonnull align 8 dereferenceable(205), double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt14CompoundVector8AxpyImplEdRKNS_6VectorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0, double noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(205) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt14CompoundVector8AxpyImplEdRKNS_6VectorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0, double noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(205) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1341,7 +1341,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit12:      ; preds = %40, %45
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK5Ipopt14CompoundVector7DotImplERKNS_6VectorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(205) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK5Ipopt14CompoundVector7DotImplERKNS_6VectorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(205) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca double, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = load ptr, ptr %4, align 8
@@ -1518,7 +1518,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit18:      ; preds = %70, %72, %77
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK5Ipopt14CompoundVector8Nrm2ImplEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0) unnamed_addr #0 align 2 {
+define noundef double @_ZNK5Ipopt14CompoundVector8Nrm2ImplEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1597,7 +1597,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #5
 declare double @sqrt(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK5Ipopt14CompoundVector8AsumImplEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0) unnamed_addr #0 align 2 {
+define noundef double @_ZNK5Ipopt14CompoundVector8AsumImplEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1669,7 +1669,7 @@ _ZNK5Ipopt6Vector4AsumEv.exit:                    ; preds = %._crit_edge.i, %22
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK5Ipopt14CompoundVector8AmaxImplEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0) unnamed_addr #0 align 2 {
+define noundef double @_ZNK5Ipopt14CompoundVector8AmaxImplEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1742,7 +1742,7 @@ _ZNK5Ipopt6Vector4AmaxEv.exit:                    ; preds = %._crit_edge.i, %22
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt14CompoundVector7SetImplEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0, double noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN5Ipopt14CompoundVector7SetImplEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0, double noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1777,7 +1777,7 @@ define void @_ZN5Ipopt14CompoundVector7SetImplEd(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt14CompoundVector21ElementWiseDivideImplERKNS_6VectorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(205) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt14CompoundVector21ElementWiseDivideImplERKNS_6VectorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(205) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1871,7 +1871,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit11:      ; preds = %39, %44
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt14CompoundVector23ElementWiseMultiplyImplERKNS_6VectorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(205) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt14CompoundVector23ElementWiseMultiplyImplERKNS_6VectorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(205) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1965,7 +1965,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit11:      ; preds = %39, %44
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt14CompoundVector21ElementWiseSelectImplERKNS_6VectorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(205) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt14CompoundVector21ElementWiseSelectImplERKNS_6VectorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(205) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2059,7 +2059,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit11:      ; preds = %39, %44
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt14CompoundVector18ElementWiseMaxImplERKNS_6VectorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(205) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt14CompoundVector18ElementWiseMaxImplERKNS_6VectorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(205) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2153,7 +2153,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit11:      ; preds = %39, %44
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt14CompoundVector18ElementWiseMinImplERKNS_6VectorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(205) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt14CompoundVector18ElementWiseMinImplERKNS_6VectorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(205) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2247,7 +2247,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit11:      ; preds = %39, %44
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt14CompoundVector25ElementWiseReciprocalImplEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0) unnamed_addr #0 align 2 {
+define void @_ZN5Ipopt14CompoundVector25ElementWiseReciprocalImplEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2282,7 +2282,7 @@ define void @_ZN5Ipopt14CompoundVector25ElementWiseReciprocalImplEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt14CompoundVector18ElementWiseAbsImplEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0) unnamed_addr #0 align 2 {
+define void @_ZN5Ipopt14CompoundVector18ElementWiseAbsImplEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2317,7 +2317,7 @@ define void @_ZN5Ipopt14CompoundVector18ElementWiseAbsImplEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt14CompoundVector19ElementWiseSqrtImplEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0) unnamed_addr #0 align 2 {
+define void @_ZN5Ipopt14CompoundVector19ElementWiseSqrtImplEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2352,7 +2352,7 @@ define void @_ZN5Ipopt14CompoundVector19ElementWiseSqrtImplEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt14CompoundVector13AddScalarImplEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0, double noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN5Ipopt14CompoundVector13AddScalarImplEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0, double noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2387,7 +2387,7 @@ define void @_ZN5Ipopt14CompoundVector13AddScalarImplEd(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK5Ipopt14CompoundVector7MaxImplEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0) unnamed_addr #0 align 2 {
+define noundef double @_ZNK5Ipopt14CompoundVector7MaxImplEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2480,7 +2480,7 @@ _ZNK5Ipopt6Vector3MaxEv.exit:                     ; preds = %._crit_edge.i, %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK5Ipopt14CompoundVector7MinImplEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0) unnamed_addr #0 align 2 {
+define noundef double @_ZNK5Ipopt14CompoundVector7MinImplEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2573,7 +2573,7 @@ _ZNK5Ipopt6Vector3MinEv.exit:                     ; preds = %._crit_edge.i, %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK5Ipopt14CompoundVector7SumImplEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0) unnamed_addr #0 align 2 {
+define noundef double @_ZNK5Ipopt14CompoundVector7SumImplEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2645,7 +2645,7 @@ _ZNK5Ipopt6Vector3SumEv.exit:                     ; preds = %._crit_edge.i, %22
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK5Ipopt14CompoundVector11SumLogsImplEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0) unnamed_addr #0 align 2 {
+define noundef double @_ZNK5Ipopt14CompoundVector11SumLogsImplEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2717,7 +2717,7 @@ _ZNK5Ipopt6Vector7SumLogsEv.exit:                 ; preds = %._crit_edge.i, %22
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt14CompoundVector18ElementWiseSgnImplEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0) unnamed_addr #0 align 2 {
+define void @_ZN5Ipopt14CompoundVector18ElementWiseSgnImplEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2752,7 +2752,7 @@ define void @_ZN5Ipopt14CompoundVector18ElementWiseSgnImplEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt14CompoundVector17AddTwoVectorsImplEdRKNS_6VectorEdS3_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0, double noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(205) %2, double noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(205) %4, double noundef %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt14CompoundVector17AddTwoVectorsImplEdRKNS_6VectorEdS3_d(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0, double noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(205) %2, double noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(205) %4, double noundef %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -2818,11 +2818,11 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i18: ; preds = %_ZNK5Ipopt14C
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 192
   %41 = load ptr, ptr %40, align 8
   invoke void %41(ptr noundef nonnull align 8 dereferenceable(205) %20, double noundef %1, ptr noundef nonnull align 8 dereferenceable(205) %.0.i4.i, double noundef %3, ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i19, double noundef %5)
-          to label %.noexc unwind label %63
+          to label %.noexc unwind label %62
 
 .noexc:                                           ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i18
   invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %20)
-          to label %_ZN5Ipopt6Vector13AddTwoVectorsEdRKS0_dS2_d.exit unwind label %63
+          to label %_ZN5Ipopt6Vector13AddTwoVectorsEdRKS0_dS2_d.exit unwind label %62
 
 _ZN5Ipopt6Vector13AddTwoVectorsEdRKS0_dS2_d.exit: ; preds = %.noexc
   %42 = load i32, ptr %36, align 8
@@ -2838,78 +2838,74 @@ _ZN5Ipopt6Vector13AddTwoVectorsEdRKS0_dS2_d.exit: ; preds = %.noexc
   tail call void %48(ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i19) #21
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit
 
-_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit:        ; preds = %_ZN5Ipopt6Vector13AddTwoVectorsEdRKS0_dS2_d.exit, %45
-  %.not.i.i26 = icmp eq ptr %.0.i4.i, null
-  br i1 %.not.i.i26, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit27, label %49
+_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit:        ; preds = %45, %_ZN5Ipopt6Vector13AddTwoVectorsEdRKS0_dS2_d.exit
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i4.i, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = add nsw i32 %50, -1
+  store i32 %51, ptr %49, align 8
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit27
 
-49:                                               ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i4.i, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = add nsw i32 %51, -1
-  store i32 %52, ptr %50, align 8
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit27
-
-54:                                               ; preds = %49
-  %55 = load ptr, ptr %.0.i4.i, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %57 = load ptr, ptr %56, align 8
-  tail call void %57(ptr noundef nonnull align 8 dereferenceable(205) %.0.i4.i) #21
+53:                                               ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit
+  %54 = load ptr, ptr %.0.i4.i, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %56 = load ptr, ptr %55, align 8
+  tail call void %56(ptr noundef nonnull align 8 dereferenceable(205) %.0.i4.i) #21
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit27
 
-_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit27:      ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit, %49, %54
+_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit27:      ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit, %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %58 = load ptr, ptr %7, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %60 = load i32, ptr %59, align 8
-  %61 = sext i32 %60 to i64
-  %62 = icmp slt i64 %indvars.iv.next, %61
-  br i1 %62, label %17, label %._crit_edge, !llvm.loop !67
+  %57 = load ptr, ptr %7, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  %59 = load i32, ptr %58, align 8
+  %60 = sext i32 %59 to i64
+  %61 = icmp slt i64 %indvars.iv.next, %60
+  br i1 %61, label %17, label %._crit_edge, !llvm.loop !67
 
-63:                                               ; preds = %.noexc, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i18
-  %64 = landingpad { ptr, i32 }
+62:                                               ; preds = %.noexc, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i18
+  %63 = landingpad { ptr, i32 }
           cleanup
-  %65 = load i32, ptr %36, align 8
-  %66 = add nsw i32 %65, -1
-  store i32 %66, ptr %36, align 8
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit29
+  %64 = load i32, ptr %36, align 8
+  %65 = add nsw i32 %64, -1
+  store i32 %65, ptr %36, align 8
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %67, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit29
 
-68:                                               ; preds = %63
-  %69 = load ptr, ptr %.0.i3.i19, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %71 = load ptr, ptr %70, align 8
-  tail call void %71(ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i19) #21
+67:                                               ; preds = %62
+  %68 = load ptr, ptr %.0.i3.i19, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %70 = load ptr, ptr %69, align 8
+  tail call void %70(ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i19) #21
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit29
 
-_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit29:      ; preds = %68, %63
+_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit29:      ; preds = %67, %62
   %.not.i.i30 = icmp eq ptr %.0.i4.i, null
-  br i1 %.not.i.i30, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit31, label %72
+  br i1 %.not.i.i30, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit31, label %71
 
-72:                                               ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit29
-  %73 = getelementptr inbounds nuw i8, ptr %.0.i4.i, i64 8
-  %74 = load i32, ptr %73, align 8
-  %75 = add nsw i32 %74, -1
-  store i32 %75, ptr %73, align 8
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit31
+71:                                               ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit29
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i4.i, i64 8
+  %73 = load i32, ptr %72, align 8
+  %74 = add nsw i32 %73, -1
+  store i32 %74, ptr %72, align 8
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %76, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit31
 
-77:                                               ; preds = %72
-  %78 = load ptr, ptr %.0.i4.i, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %80 = load ptr, ptr %79, align 8
-  tail call void %80(ptr noundef nonnull align 8 dereferenceable(205) %.0.i4.i) #21
+76:                                               ; preds = %71
+  %77 = load ptr, ptr %.0.i4.i, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %79 = load ptr, ptr %78, align 8
+  tail call void %79(ptr noundef nonnull align 8 dereferenceable(205) %.0.i4.i) #21
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit31
 
-_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit31:      ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit29, %72, %77
-  resume { ptr, i32 } %64
+_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit31:      ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit29, %71, %76
+  resume { ptr, i32 } %63
 
 ._crit_edge:                                      ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit27, %6
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK5Ipopt14CompoundVector15FracToBoundImplERKNS_6VectorEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(205) %1, double noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK5Ipopt14CompoundVector15FracToBoundImplERKNS_6VectorEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(205) %1, double noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3015,7 +3011,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit14:      ; preds = %48, %53
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt14CompoundVector21AddVectorQuotientImplEdRKNS_6VectorES3_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0, double noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(205) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(205) %3, double noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt14CompoundVector21AddVectorQuotientImplEdRKNS_6VectorES3_d(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0, double noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(205) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(205) %3, double noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -3081,11 +3077,11 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i17: ; preds = %_ZNK5Ipopt14C
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 208
   %40 = load ptr, ptr %39, align 8
   invoke void %40(ptr noundef nonnull align 8 dereferenceable(205) %19, double noundef %1, ptr noundef nonnull align 8 dereferenceable(205) %.0.i4.i, ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i18, double noundef %4)
-          to label %.noexc unwind label %62
+          to label %.noexc unwind label %61
 
 .noexc:                                           ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i17
   invoke void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %19)
-          to label %_ZN5Ipopt6Vector17AddVectorQuotientEdRKS0_S2_d.exit unwind label %62
+          to label %_ZN5Ipopt6Vector17AddVectorQuotientEdRKS0_S2_d.exit unwind label %61
 
 _ZN5Ipopt6Vector17AddVectorQuotientEdRKS0_S2_d.exit: ; preds = %.noexc
   %41 = load i32, ptr %35, align 8
@@ -3101,78 +3097,74 @@ _ZN5Ipopt6Vector17AddVectorQuotientEdRKS0_S2_d.exit: ; preds = %.noexc
   tail call void %47(ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i18) #21
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit
 
-_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit:        ; preds = %_ZN5Ipopt6Vector17AddVectorQuotientEdRKS0_S2_d.exit, %44
-  %.not.i.i25 = icmp eq ptr %.0.i4.i, null
-  br i1 %.not.i.i25, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit26, label %48
+_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit:        ; preds = %44, %_ZN5Ipopt6Vector17AddVectorQuotientEdRKS0_S2_d.exit
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i4.i, i64 8
+  %49 = load i32, ptr %48, align 8
+  %50 = add nsw i32 %49, -1
+  store i32 %50, ptr %48, align 8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %52, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit26
 
-48:                                               ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit
-  %49 = getelementptr inbounds nuw i8, ptr %.0.i4.i, i64 8
-  %50 = load i32, ptr %49, align 8
-  %51 = add nsw i32 %50, -1
-  store i32 %51, ptr %49, align 8
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit26
-
-53:                                               ; preds = %48
-  %54 = load ptr, ptr %.0.i4.i, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %56 = load ptr, ptr %55, align 8
-  tail call void %56(ptr noundef nonnull align 8 dereferenceable(205) %.0.i4.i) #21
+52:                                               ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit
+  %53 = load ptr, ptr %.0.i4.i, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %55 = load ptr, ptr %54, align 8
+  tail call void %55(ptr noundef nonnull align 8 dereferenceable(205) %.0.i4.i) #21
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit26
 
-_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit26:      ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit, %48, %53
+_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit26:      ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit, %52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %57 = load ptr, ptr %6, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = sext i32 %59 to i64
-  %61 = icmp slt i64 %indvars.iv.next, %60
-  br i1 %61, label %16, label %._crit_edge, !llvm.loop !78
+  %56 = load ptr, ptr %6, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %58 = load i32, ptr %57, align 8
+  %59 = sext i32 %58 to i64
+  %60 = icmp slt i64 %indvars.iv.next, %59
+  br i1 %60, label %16, label %._crit_edge, !llvm.loop !78
 
-62:                                               ; preds = %.noexc, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i17
-  %63 = landingpad { ptr, i32 }
+61:                                               ; preds = %.noexc, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i17
+  %62 = landingpad { ptr, i32 }
           cleanup
-  %64 = load i32, ptr %35, align 8
-  %65 = add nsw i32 %64, -1
-  store i32 %65, ptr %35, align 8
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit28
+  %63 = load i32, ptr %35, align 8
+  %64 = add nsw i32 %63, -1
+  store i32 %64, ptr %35, align 8
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit28
 
-67:                                               ; preds = %62
-  %68 = load ptr, ptr %.0.i3.i18, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %70 = load ptr, ptr %69, align 8
-  tail call void %70(ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i18) #21
+66:                                               ; preds = %61
+  %67 = load ptr, ptr %.0.i3.i18, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %69 = load ptr, ptr %68, align 8
+  tail call void %69(ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i18) #21
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit28
 
-_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit28:      ; preds = %67, %62
+_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit28:      ; preds = %66, %61
   %.not.i.i29 = icmp eq ptr %.0.i4.i, null
-  br i1 %.not.i.i29, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit30, label %71
+  br i1 %.not.i.i29, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit30, label %70
 
-71:                                               ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit28
-  %72 = getelementptr inbounds nuw i8, ptr %.0.i4.i, i64 8
-  %73 = load i32, ptr %72, align 8
-  %74 = add nsw i32 %73, -1
-  store i32 %74, ptr %72, align 8
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit30
+70:                                               ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit28
+  %71 = getelementptr inbounds nuw i8, ptr %.0.i4.i, i64 8
+  %72 = load i32, ptr %71, align 8
+  %73 = add nsw i32 %72, -1
+  store i32 %73, ptr %71, align 8
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %75, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit30
 
-76:                                               ; preds = %71
-  %77 = load ptr, ptr %.0.i4.i, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %79 = load ptr, ptr %78, align 8
-  tail call void %79(ptr noundef nonnull align 8 dereferenceable(205) %.0.i4.i) #21
+75:                                               ; preds = %70
+  %76 = load ptr, ptr %.0.i4.i, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %78 = load ptr, ptr %77, align 8
+  tail call void %78(ptr noundef nonnull align 8 dereferenceable(205) %.0.i4.i) #21
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit30
 
-_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit30:      ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit28, %71, %76
-  resume { ptr, i32 } %63
+_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit30:      ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit28, %70, %75
+  resume { ptr, i32 } %62
 
 ._crit_edge:                                      ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit26, %5
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK5Ipopt14CompoundVector19HasValidNumbersImplEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK5Ipopt14CompoundVector19HasValidNumbersImplEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3246,7 +3238,7 @@ _ZNK5Ipopt6Vector15HasValidNumbersEv.exit._crit_edge: ; preds = %_ZNK5Ipopt6Vect
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Ipopt14CompoundVector9PrintImplERKNS_10JournalistENS_13EJournalLevelENS_16EJournalCategoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSD_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(265) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %6) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Ipopt14CompoundVector9PrintImplERKNS_10JournalistENS_13EJournalLevelENS_16EJournalCategoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSD_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(265) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %6) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca [256 x i8], align 16
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator.22", align 1
@@ -3452,7 +3444,7 @@ declare void @_ZNK5Ipopt6Vector5PrintENS_8SmartPtrIKNS_10JournalistEEENS_13EJour
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt19CompoundVectorSpaceC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 20)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt19CompoundVectorSpaceC2Eii(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 20)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -3510,7 +3502,7 @@ _ZNSt12_Vector_baseIN5Ipopt8SmartPtrIKNS0_11VectorSpaceEEESaIS4_EEC2EmRKS5_.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt19CompoundVectorSpace12SetCompSpaceEiRKNS_11VectorSpaceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
+define void @_ZN5Ipopt19CompoundVectorSpace12SetCompSpaceEiRKNS_11VectorSpaceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8
@@ -4056,7 +4048,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt13CachedResultsIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5492,7 +5484,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #4
 
@@ -5534,16 +5526,16 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20

@@ -112,7 +112,7 @@ declare void @_ZN13ExceptionMarkC1Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17DependencyContext23mark_dependent_nmethodsEP19DeoptimizationScopeR9DepChange(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17DependencyContext23mark_dependent_nmethodsEP19DeoptimizationScopeR9DepChange(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.LogStream, align 8
   %5 = tail call noundef ptr @_ZN17DependencyContext26dependencies_not_unloadingEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %.not20 = icmp eq ptr %5, null
@@ -210,7 +210,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %37, %35, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN17DependencyContext26dependencies_not_unloadingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN17DependencyContext26dependencies_not_unloadingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load volatile ptr, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
@@ -394,7 +394,7 @@ define hidden noundef ptr @_ZN13nmethodBucket18next_not_unloadingEv(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17DependencyContext21add_dependent_nmethodEP7nmethod(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17DependencyContext21add_dependent_nmethodEP7nmethod(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZN17DependencyContext26dependencies_not_unloadingEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %.not13 = icmp eq ptr %3, null
   br i1 %.not13, label %._crit_edge, label %.lr.ph
@@ -569,7 +569,7 @@ define hidden noundef ptr @_ZN13nmethodBucket15purge_list_nextEv(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17DependencyContext26clean_unloading_dependentsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17DependencyContext26clean_unloading_dependentsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = load volatile i64, ptr @_ZN17DependencyContext15_cleaning_epochE, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -598,7 +598,7 @@ _ZN17DependencyContext13claim_cleanupEv.exit.thread: ; preds = %.lr.ph, %8, %1, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN17DependencyContext13claim_cleanupEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN17DependencyContext13claim_cleanupEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = load volatile i64, ptr @_ZN17DependencyContext15_cleaning_epochE, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -669,7 +669,7 @@ _ZN17DependencyContext7releaseEP13nmethodBucket.exit: ; preds = %6, %13, %.sink.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17DependencyContext21remove_all_dependentsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17DependencyContext21remove_all_dependentsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load volatile ptr, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
@@ -734,14 +734,14 @@ define hidden noundef ptr @_ZN13nmethodBucket4nextEv(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define hidden void @_ZN17DependencyContext16set_dependenciesEP13nmethodBucket(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN17DependencyContext16set_dependenciesEP13nmethodBucket(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = load ptr, ptr %0, align 8
   store volatile ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17DependencyContext49remove_and_mark_for_deoptimization_all_dependentsEP19DeoptimizationScope(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17DependencyContext49remove_and_mark_for_deoptimization_all_dependentsEP19DeoptimizationScope(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZN17DependencyContext26dependencies_not_unloadingEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %4 = load ptr, ptr %0, align 8
   store volatile ptr null, ptr %4, align 8
@@ -807,7 +807,7 @@ _ZN17DependencyContext34release_and_get_next_not_unloadingEP13nmethodBucket.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN17DependencyContext20is_dependent_nmethodEP7nmethod(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN17DependencyContext20is_dependent_nmethodEP7nmethod(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZN17DependencyContext26dependencies_not_unloadingEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %.not7.not = icmp eq ptr %3, null
   br i1 %.not7.not, label %._crit_edge, label %.lr.ph
@@ -831,7 +831,7 @@ define hidden noundef zeroext i1 @_ZN17DependencyContext20is_dependent_nmethodEP
 declare noundef zeroext i1 @_ZN7nmethod12is_unloadingEv(ptr noundef nonnull align 8 dereferenceable(214)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden noundef ptr @_ZN17DependencyContext12dependenciesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #7 align 2 {
+define hidden noundef ptr @_ZN17DependencyContext12dependenciesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #7 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load volatile ptr, ptr %2, align 8
   ret ptr %3

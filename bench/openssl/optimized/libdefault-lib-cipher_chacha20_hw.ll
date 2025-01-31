@@ -15,7 +15,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @chacha20_initkey(ptr nocapture noundef writeonly %bctx, ptr noundef readonly %key, i64 %keylen) #1 {
+define internal noundef i32 @chacha20_initkey(ptr noundef writeonly captures(none) %bctx, ptr noundef readonly %key, i64 %keylen) #1 {
 entry:
   %cmp.not = icmp eq ptr %key, null
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
@@ -198,7 +198,7 @@ return:                                           ; preds = %while.end61, %for.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @chacha20_initiv(ptr nocapture noundef %bctx) #1 {
+define internal noundef i32 @chacha20_initiv(ptr noundef captures(none) %bctx) #1 {
 entry:
   %iv_set = getelementptr inbounds nuw i8, ptr %bctx, i64 108
   %bf.load = load i8, ptr %iv_set, align 4
@@ -230,7 +230,7 @@ if.end:                                           ; preds = %for.body, %entry
 declare void @ChaCha20_ctr32(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5

@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.quic_txpim_chunk_st = type { i64, i64, i64, i8 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @ossl_quic_fifd_init(ptr nocapture noundef writeonly %fifd, ptr noundef %cfq, ptr noundef %ackm, ptr noundef %txpim, ptr noundef %get_sstream_by_id, ptr noundef %get_sstream_by_id_arg, ptr noundef %regen_frame, ptr noundef %regen_frame_arg, ptr noundef %confirm_frame, ptr noundef %confirm_frame_arg, ptr noundef %sstream_updated, ptr noundef %sstream_updated_arg) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_fifd_init(ptr noundef writeonly captures(none) %fifd, ptr noundef %cfq, ptr noundef %ackm, ptr noundef %txpim, ptr noundef %get_sstream_by_id, ptr noundef %get_sstream_by_id_arg, ptr noundef %regen_frame, ptr noundef %regen_frame_arg, ptr noundef %confirm_frame, ptr noundef %confirm_frame_arg, ptr noundef %sstream_updated, ptr noundef %sstream_updated_arg) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %cfq, null
   %cmp1 = icmp eq ptr %ackm, null
@@ -49,7 +49,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @ossl_quic_fifd_cleanup(ptr nocapture noundef readnone %fifd) local_unnamed_addr #1 {
+define void @ossl_quic_fifd_cleanup(ptr noundef readnone captures(none) %fifd) local_unnamed_addr #1 {
 entry:
   ret void
 }
@@ -566,7 +566,7 @@ declare i32 @ossl_quic_sstream_is_totally_acked(ptr noundef) local_unnamed_addr 
 declare void @ossl_quic_cfq_release(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

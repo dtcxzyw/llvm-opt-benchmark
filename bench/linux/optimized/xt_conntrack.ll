@@ -48,7 +48,7 @@ define internal i32 @conntrack_mt_init() #0 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal zeroext i1 @conntrack_mt_v1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal zeroext i1 @conntrack_mt_v1(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 150
@@ -64,7 +64,7 @@ define internal zeroext i1 @conntrack_mt_v1(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @conntrack_mt_check(ptr nocapture noundef readonly %0) #3 align 16 {
+define internal i32 @conntrack_mt_check(ptr noundef readonly captures(none) %0) #3 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i8, ptr %3, align 4
@@ -88,7 +88,7 @@ define internal i32 @conntrack_mt_check(ptr nocapture noundef readonly %0) #3 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @conntrack_mt_destroy(ptr nocapture noundef readonly %0) #3 align 16 {
+define internal void @conntrack_mt_destroy(ptr noundef readonly captures(none) %0) #3 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
@@ -97,7 +97,7 @@ define internal void @conntrack_mt_destroy(ptr nocapture noundef readonly %0) #3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal zeroext i1 @conntrack_mt_v2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal zeroext i1 @conntrack_mt_v2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 150
@@ -111,7 +111,7 @@ define internal zeroext i1 @conntrack_mt_v2(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal zeroext i1 @conntrack_mt_v3(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal zeroext i1 @conntrack_mt_v3(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 150
@@ -125,7 +125,7 @@ define internal zeroext i1 @conntrack_mt_v3(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i16 noundef zeroext %2) unnamed_addr #2 align 16 {
+define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i16 noundef zeroext %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = trunc i64 %.104.val to i32

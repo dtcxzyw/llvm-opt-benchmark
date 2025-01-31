@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [37 x i8] c"%s:%d %s: pthread_mutex_unlock(): %m\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @rpc_mgr(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @rpc_mgr(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.sockaddr_storage, align 8
   %3 = tail call i64 @pthread_self() #6
   store i64 %3, ptr @master_thread_id, align 8
@@ -320,7 +320,7 @@ declare void @slurm_persist_conn_recv_server_fini() local_unnamed_addr #2
 declare void @slurm_persist_conn_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @clusteracct_storage_g_fini_ctld(ptr noundef, ptr noundef) local_unnamed_addr #2
 

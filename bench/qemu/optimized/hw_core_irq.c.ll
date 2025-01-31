@@ -200,7 +200,7 @@ qemu_irq_raise.exit:                              ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qemu_notirq(ptr nocapture noundef readonly %opaque, i32 %line, i32 noundef %level) #0 {
+define internal void @qemu_notirq(ptr noundef readonly captures(none) %opaque, i32 %line, i32 noundef %level) #0 {
 entry:
   %handler = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %0 = load ptr, ptr %handler, align 8
@@ -215,7 +215,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_irq_intercept_in(ptr nocapture noundef readonly %gpio_in, ptr noundef %handler, i32 noundef %n) local_unnamed_addr #0 {
+define dso_local void @qemu_irq_intercept_in(ptr noundef readonly captures(none) %gpio_in, ptr noundef %handler, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %conv2.i.i = sext i32 %n to i64
   %call3.i.i = tail call noalias ptr @g_malloc_n(i64 noundef %conv2.i.i, i64 noundef 8) #6
@@ -267,7 +267,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_irq_register_types() #0 {
@@ -290,7 +290,7 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

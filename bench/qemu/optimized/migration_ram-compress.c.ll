@@ -456,7 +456,7 @@ declare zeroext i1 @qemu_file_buffer_empty(ptr noundef) local_unnamed_addr #1
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @compress_page_with_multi_thread(ptr noundef %block, i64 noundef %offset, ptr nocapture noundef readonly %send_queued_data) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @compress_page_with_multi_thread(ptr noundef %block, i64 noundef %offset, ptr noundef readonly captures(none) %send_queued_data) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @migrate_compress_wait_thread() #8
   %call.fr = freeze i32 %call
@@ -787,7 +787,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @inflateInit_(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -963,7 +963,7 @@ glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.body.us
 declare i64 @qemu_get_buffer(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @populate_compress(ptr nocapture noundef writeonly %info) local_unnamed_addr #0 {
+define dso_local void @populate_compress(ptr noundef writeonly captures(none) %info) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @migrate_compress() #8
   br i1 %call, label %if.end, label %return
@@ -1000,7 +1000,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @update_compress_thread_counts(ptr nocapture noundef readonly %param, i32 noundef %bytes_xmit) local_unnamed_addr #0 {
+define dso_local void @update_compress_thread_counts(ptr noundef readonly captures(none) %param, i32 noundef %bytes_xmit) local_unnamed_addr #0 {
 entry:
   %conv = sext i32 %bytes_xmit to i64
   tail call void @ram_transferred_add(i64 noundef %conv) #8
@@ -1076,7 +1076,7 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 declare zeroext i1 @buffer_is_zero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare i64 @qemu_put_compression_data(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 

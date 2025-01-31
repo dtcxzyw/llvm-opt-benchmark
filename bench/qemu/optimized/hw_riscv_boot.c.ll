@@ -49,7 +49,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.29 = private unnamed_addr constant [17 x i8] c"linux,initrd-end\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @riscv_is_32bit(ptr nocapture noundef readonly %harts) local_unnamed_addr #0 {
+define dso_local zeroext i1 @riscv_is_32bit(ptr noundef readonly captures(none) %harts) local_unnamed_addr #0 {
 entry:
   %harts1 = getelementptr inbounds nuw i8, ptr %harts, i64 840
   %0 = load ptr, ptr %harts1, align 8
@@ -109,7 +109,7 @@ declare ptr @qemu_get_cpu(i32 noundef) local_unnamed_addr #3
 declare noalias ptr @g_strjoinv(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i64 0, -2097151) i64 @riscv_calc_kernel_start_addr(ptr nocapture noundef readonly %harts, i64 noundef %firmware_end_addr) local_unnamed_addr #0 {
+define dso_local range(i64 0, -2097151) i64 @riscv_calc_kernel_start_addr(ptr noundef readonly captures(none) %harts, i64 noundef %firmware_end_addr) local_unnamed_addr #0 {
 entry:
   %harts1.i = getelementptr inbounds nuw i8, ptr %harts, i64 840
   %0 = load ptr, ptr %harts1.i, align 8
@@ -125,7 +125,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local nonnull ptr @riscv_default_firmware_name(ptr nocapture noundef readonly %harts) local_unnamed_addr #0 {
+define dso_local nonnull ptr @riscv_default_firmware_name(ptr noundef readonly captures(none) %harts) local_unnamed_addr #0 {
 entry:
   %harts1.i = getelementptr inbounds nuw i8, ptr %harts, i64 840
   %0 = load ptr, ptr %harts1.i, align 8
@@ -188,10 +188,10 @@ if.end7:                                          ; preds = %if.then.i6, %if.the
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @riscv_find_and_load_firmware(ptr nocapture noundef readonly %machine, ptr noundef %default_machine_firmware, i64 noundef %firmware_load_addr, ptr noundef %sym_cb) local_unnamed_addr #1 {
+define dso_local i64 @riscv_find_and_load_firmware(ptr noundef readonly captures(none) %machine, ptr noundef %default_machine_firmware, i64 noundef %firmware_load_addr, ptr noundef %sym_cb) local_unnamed_addr #1 {
 entry:
   %firmware_entry.i = alloca i64, align 8
   %firmware_end.i = alloca i64, align 8
@@ -299,7 +299,7 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #3
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @riscv_load_kernel(ptr nocapture noundef readonly %machine, ptr nocapture noundef readonly %harts, i64 noundef %kernel_start_addr, i1 noundef zeroext %load_initrd, ptr noundef %sym_cb) local_unnamed_addr #1 {
+define dso_local i64 @riscv_load_kernel(ptr noundef readonly captures(none) %machine, ptr noundef readonly captures(none) %harts, i64 noundef %kernel_start_addr, i1 noundef zeroext %load_initrd, ptr noundef %sym_cb) local_unnamed_addr #1 {
 entry:
   %kernel_load_base = alloca i64, align 8
   %kernel_entry = alloca i64, align 8
@@ -434,7 +434,7 @@ declare i64 @load_uimage_as(ptr noundef, ptr noundef, ptr noundef, ptr noundef, 
 declare i32 @qemu_fdt_setprop_string(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 0, -2097151) i64 @riscv_compute_fdt_addr(i64 noundef %dram_base, i64 noundef %dram_size, ptr nocapture noundef readonly %ms) local_unnamed_addr #1 {
+define dso_local range(i64 0, -2097151) i64 @riscv_compute_fdt_addr(i64 noundef %dram_base, i64 noundef %dram_size, ptr noundef readonly captures(none) %ms) local_unnamed_addr #1 {
 entry:
   %fdt = getelementptr inbounds nuw i8, ptr %ms, i64 40
   %0 = load ptr, ptr %fdt, align 8
@@ -532,7 +532,7 @@ declare void @qemu_fdt_randomize_seeds(ptr noundef) #3
 declare ptr @rom_ptr_for_as(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @riscv_rom_copy_firmware_info(ptr nocapture noundef readnone %machine, i64 noundef %rom_base, i64 noundef %rom_size, i32 noundef %reset_vec_size, i64 noundef %kernel_entry) local_unnamed_addr #1 {
+define dso_local void @riscv_rom_copy_firmware_info(ptr noundef readnone captures(none) %machine, i64 noundef %rom_base, i64 noundef %rom_size, i32 noundef %reset_vec_size, i64 noundef %kernel_entry) local_unnamed_addr #1 {
 entry:
   %dinfo = alloca %struct.fw_dynamic_info, align 8
   store i64 1229083471, ptr %dinfo, align 8
@@ -561,7 +561,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @riscv_setup_rom_reset_vec(ptr nocapture noundef readnone %machine, ptr nocapture noundef readonly %harts, i64 noundef %start_addr, i64 noundef %rom_base, i64 noundef %rom_size, i64 noundef %kernel_entry, i64 noundef %fdt_load_addr) local_unnamed_addr #1 {
+define dso_local void @riscv_setup_rom_reset_vec(ptr noundef readnone captures(none) %machine, ptr noundef readonly captures(none) %harts, i64 noundef %start_addr, i64 noundef %rom_base, i64 noundef %rom_size, i64 noundef %kernel_entry, i64 noundef %fdt_load_addr) local_unnamed_addr #1 {
 entry:
   %dinfo.i = alloca %struct.fw_dynamic_info, align 8
   %reset_vec = alloca [10 x i32], align 16
@@ -663,7 +663,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @riscv_setup_firmware_boot(ptr nocapture noundef readonly %machine) local_unnamed_addr #1 {
+define dso_local void @riscv_setup_firmware_boot(ptr noundef readonly captures(none) %machine) local_unnamed_addr #1 {
 entry:
   %kernel_filename = getelementptr inbounds nuw i8, ptr %machine, i64 240
   %0 = load ptr, ptr %kernel_filename, align 8
@@ -713,7 +713,7 @@ declare void @load_image_to_fw_cfg(ptr noundef, i16 noundef zeroext, i16 noundef
 declare void @fw_cfg_add_i32(ptr noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @fw_cfg_add_string(ptr noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
@@ -731,13 +731,13 @@ declare i32 @qemu_fdt_setprop_cell(ptr noundef, ptr noundef, ptr noundef, i32 no
 declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

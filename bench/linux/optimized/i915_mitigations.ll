@@ -34,7 +34,7 @@ define dso_local zeroext i1 @i915_mitigate_clear_residuals() local_unnamed_addr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -22, 1) i32 @mitigations_set(ptr noundef %0, ptr nocapture readnone %1) #1 align 16 {
+define internal range(i32 -22, 1) i32 @mitigations_set(ptr noundef %0, ptr readnone captures(none) %1) #1 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
   %4 = tail call noalias ptr @kstrdup(ptr noundef %0, i32 noundef 3264) #6
@@ -144,7 +144,7 @@ sub_0:                                            ; preds = %18, %.lr.ph
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @mitigations_get(ptr noundef %0, ptr nocapture readnone %1) #1 align 16 {
+define internal i32 @mitigations_get(ptr noundef %0, ptr readnone captures(none) %1) #1 align 16 {
   %3 = load volatile i64, ptr @mitigations, align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %7
@@ -192,7 +192,7 @@ define internal i32 @mitigations_get(ptr noundef %0, ptr nocapture readnone %1) 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local noalias ptr @kstrdup(ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -204,13 +204,13 @@ declare dso_local ptr @strsep(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare dso_local ptr @strim(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3

@@ -292,7 +292,7 @@ return:                                           ; preds = %if.end21.thread, %i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @gz_comp(ptr noundef nonnull %state, i32 noundef range(i32 0, 5) %flush) unnamed_addr #0 {
@@ -713,7 +713,7 @@ define dso_local range(i32 -1, -2147483648) i32 @MOZ_Z_gzputs(ptr noundef %file,
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #16
   %conv = trunc i64 %call to i32
-  %call1 = tail call i32 @MOZ_Z_gzwrite(ptr noundef %file, ptr noundef %str, i32 noundef %conv)
+  %call1 = tail call i32 @MOZ_Z_gzwrite(ptr noundef %file, ptr noundef nonnull %str, i32 noundef %conv)
   %cmp = icmp eq i32 %call1, 0
   %cmp3 = icmp ne i32 %conv, 0
   %or.cond = and i1 %cmp, %cmp3
@@ -722,10 +722,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2147483647) i32 @MOZ_Z_gzvprintf(ptr noundef %file, ptr nocapture noundef readonly %format, ptr noundef %va) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2147483647) i32 @MOZ_Z_gzvprintf(ptr noundef %file, ptr noundef readonly captures(none) %format, ptr noundef %va) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %file, null
   br i1 %cmp, label %return, label %if.end
@@ -869,10 +869,10 @@ return:                                           ; preds = %if.end10.i, %land.l
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2147483647) i32 @MOZ_Z_gzprintf(ptr noundef %file, ptr nocapture noundef readonly %format, ...) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2147483647) i32 @MOZ_Z_gzprintf(ptr noundef %file, ptr noundef readonly captures(none) %format, ...) local_unnamed_addr #0 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)
@@ -1256,7 +1256,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @MOZ_Z_deflateEnd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
@@ -1266,10 +1266,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 declare i32 @MOZ_Z_deflateInit2_(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #9

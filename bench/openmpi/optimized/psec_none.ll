@@ -79,13 +79,13 @@ define internal void @none_finalize() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @create_cred(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal noundef i32 @create_cred(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   tail call void @PMIx_Byte_object_construct(ptr noundef %5) #3
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -47, 1) i32 @validate_cred(ptr nocapture readnone %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #0 {
+define internal range(i32 -47, 1) i32 @validate_cred(ptr readnone captures(none) %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 392), align 8
   %or.cond31 = icmp ult i32 %7, 64
   br i1 %or.cond31, label %8, label %14
@@ -175,12 +175,12 @@ declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @PMIx_Byte_object_construct(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare ptr @PMIx_Argv_split(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #1
 

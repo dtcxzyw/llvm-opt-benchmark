@@ -125,14 +125,14 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.tng_frame_gen_data_write = private unnamed_addr constant [3 x i64] [i64 8, i64 4, i64 8], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_atom_residue_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define noundef i32 @tng_atom_residue_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %2, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_atom_name_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_atom_name_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = add nsw i32 %3, -1
@@ -149,13 +149,13 @@ define range(i32 0, 2) i32 @tng_atom_name_get(ptr nocapture noundef readnone %0,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #2
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_atom_name_set(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_atom_name_set(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #25
   %5 = add i64 %4, 1
   %6 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %5, i64 1024)
@@ -186,7 +186,7 @@ define range(i32 0, 3) i32 @tng_atom_name_set(ptr nocapture noundef readnone %0,
 
 17:                                               ; preds = %9, %.thread
   %18 = phi ptr [ %13, %.thread ], [ %8, %9 ]
-  %19 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef %2, i64 noundef %6) #24
+  %19 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef nonnull %2, i64 noundef %6) #24
   br label %20
 
 20:                                               ; preds = %17, %14
@@ -195,16 +195,16 @@ define range(i32 0, 3) i32 @tng_atom_name_set(ptr nocapture noundef readnone %0,
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_atom_type_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_atom_type_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = add nsw i32 %3, -1
@@ -221,7 +221,7 @@ define range(i32 0, 2) i32 @tng_atom_type_get(ptr nocapture noundef readnone %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_atom_type_set(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_atom_type_set(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #25
   %5 = add i64 %4, 1
   %6 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %5, i64 1024)
@@ -252,7 +252,7 @@ define range(i32 0, 3) i32 @tng_atom_type_set(ptr nocapture noundef readnone %0,
 
 17:                                               ; preds = %9, %.thread
   %18 = phi ptr [ %13, %.thread ], [ %8, %9 ]
-  %19 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef %2, i64 noundef %6) #24
+  %19 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef nonnull %2, i64 noundef %6) #24
   br label %20
 
 20:                                               ; preds = %17, %14
@@ -261,35 +261,35 @@ define range(i32 0, 3) i32 @tng_atom_type_set(ptr nocapture noundef readnone %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @tng_version_major(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #8 {
+define noundef i32 @tng_version_major(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #8 {
   store i32 1, ptr %1, align 4
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @tng_version_minor(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #8 {
+define noundef i32 @tng_version_minor(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #8 {
   store i32 8, ptr %1, align 4
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @tng_version_patchlevel(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #8 {
+define noundef i32 @tng_version_patchlevel(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #8 {
   store i32 4, ptr %1, align 4
   ret i32 0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @tng_version(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #9 {
+define noundef i32 @tng_version(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = sext i32 %2 to i64
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %4, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #24
   ret i32 0
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_molecule_add(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_molecule_add(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
@@ -311,7 +311,7 @@ define range(i32 0, 3) i32 @tng_molecule_add(ptr nocapture noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_molecule_w_id_add(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_molecule_w_id_add(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -374,7 +374,7 @@ define range(i32 0, 3) i32 @tng_molecule_w_id_add(ptr nocapture noundef %0, ptr 
   br label %tng_molecule_name_set.exit
 
 39:                                               ; preds = %.thread.i
-  %40 = tail call ptr @strncpy(ptr noundef nonnull %35, ptr noundef readonly %1, i64 noundef %33) #24
+  %40 = tail call ptr @strncpy(ptr noundef nonnull %35, ptr noundef nonnull readonly %1, i64 noundef %33) #24
   br label %tng_molecule_name_set.exit
 
 tng_molecule_name_set.exit:                       ; preds = %36, %39
@@ -395,10 +395,10 @@ tng_molecule_name_set.exit:                       ; preds = %36, %39
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @tng_molecule_init(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((8, 88)) %1) local_unnamed_addr #8 {
+define noundef i32 @tng_molecule_init(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((8, 88)) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -407,7 +407,7 @@ define noundef i32 @tng_molecule_init(ptr nocapture noundef readnone %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_molecule_name_set(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_molecule_name_set(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #25
   %5 = add i64 %4, 1
   %6 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %5, i64 1024)
@@ -438,7 +438,7 @@ define range(i32 0, 3) i32 @tng_molecule_name_set(ptr nocapture noundef readnone
 
 17:                                               ; preds = %9, %.thread
   %18 = phi ptr [ %13, %.thread ], [ %8, %9 ]
-  %19 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef %2, i64 noundef %6) #24
+  %19 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef nonnull %2, i64 noundef %6) #24
   br label %20
 
 20:                                               ; preds = %17, %14
@@ -447,7 +447,7 @@ define range(i32 0, 3) i32 @tng_molecule_name_set(ptr nocapture noundef readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_molecule_existing_add(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_molecule_existing_add(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
@@ -524,10 +524,10 @@ define range(i32 0, 3) i32 @tng_molecule_existing_add(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_molecule_name_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_molecule_name_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = add nsw i32 %3, -1
@@ -544,7 +544,7 @@ define range(i32 0, 2) i32 @tng_molecule_name_get(ptr nocapture noundef readnone
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_molecule_cnt_get(ptr nocapture noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @tng_molecule_cnt_get(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #12 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load i64, ptr %4, align 8
   %6 = icmp sgt i64 %5, 0
@@ -580,7 +580,7 @@ define range(i32 0, 2) i32 @tng_molecule_cnt_get(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @tng_molecule_cnt_set(ptr nocapture noundef %0, ptr noundef readnone %1, i64 noundef %2) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @tng_molecule_cnt_set(ptr noundef captures(none) %0, ptr noundef readnone %1, i64 noundef %2) local_unnamed_addr #9 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load i64, ptr %4, align 8
   %6 = icmp sgt i64 %5, 0
@@ -653,7 +653,7 @@ define range(i32 0, 2) i32 @tng_molecule_cnt_set(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_molecule_find(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @tng_molecule_find(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #13 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %6 = load i64, ptr %5, align 8
   %7 = icmp sgt i64 %6, 0
@@ -722,10 +722,10 @@ define range(i32 0, 2) i32 @tng_molecule_find(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @tng_molecule_of_index_get(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tng_molecule_of_index_get(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load i64, ptr %4, align 8
   %.not = icmp slt i64 %1, %5
@@ -745,7 +745,7 @@ define range(i32 0, 2) i32 @tng_molecule_of_index_get(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_molecule_system_copy(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_molecule_system_copy(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -864,7 +864,7 @@ define range(i32 0, 3) i32 @tng_molecule_system_copy(ptr nocapture noundef reado
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %73 = load i64, ptr %72, align 8
-  %74 = call i32 @tng_molecule_chain_w_id_add(ptr poison, ptr noundef %60, ptr noundef %71, i64 noundef %73, ptr noundef nonnull %4)
+  %74 = call i32 @tng_molecule_chain_w_id_add(ptr nonnull poison, ptr noundef %60, ptr noundef %71, i64 noundef %73, ptr noundef nonnull %4)
   %.not97 = icmp eq i32 %74, 0
   br i1 %.not97, label %.preheader102, label %80
 
@@ -892,7 +892,7 @@ define range(i32 0, 3) i32 @tng_molecule_system_copy(ptr nocapture noundef reado
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %89 = load i64, ptr %88, align 8
-  %90 = call i32 @tng_chain_residue_w_id_add(ptr poison, ptr noundef %79, ptr noundef %87, i64 noundef %89, ptr noundef nonnull %5)
+  %90 = call i32 @tng_chain_residue_w_id_add(ptr nonnull poison, ptr noundef %79, ptr noundef %87, i64 noundef %89, ptr noundef nonnull %5)
   %.not98 = icmp eq i32 %90, 0
   br i1 %.not98, label %.preheader, label %96
 
@@ -930,7 +930,7 @@ define range(i32 0, 3) i32 @tng_molecule_system_copy(ptr nocapture noundef reado
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %113 = load i64, ptr %112, align 8
-  %114 = call i32 @tng_residue_atom_w_id_add(ptr poison, ptr noundef %95, ptr noundef %109, ptr noundef %111, i64 noundef %113, ptr noundef nonnull %6)
+  %114 = call i32 @tng_residue_atom_w_id_add(ptr nonnull poison, ptr noundef %95, ptr noundef %109, ptr noundef %111, i64 noundef %113, ptr noundef nonnull %6)
   %.not99 = icmp eq i32 %114, 0
   br i1 %.not99, label %99, label %115
 
@@ -1075,7 +1075,7 @@ define range(i32 0, 3) i32 @tng_molecule_system_copy(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tng_molecule_destroy(ptr nocapture readnone %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
+define noundef i32 @tng_molecule_destroy(ptr readnone captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1253,7 +1253,7 @@ tng_atom_destroy.exit:                            ; preds = %55, %58
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_molecule_chain_w_id_add(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_molecule_chain_w_id_add(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1293,7 +1293,7 @@ define range(i32 0, 3) i32 @tng_molecule_chain_w_id_add(ptr nocapture readnone %
   br label %tng_chain_name_set.exit
 
 27:                                               ; preds = %.thread.i
-  %28 = tail call ptr @strncpy(ptr noundef nonnull %23, ptr noundef readonly %2, i64 noundef %22) #24
+  %28 = tail call ptr @strncpy(ptr noundef nonnull %23, ptr noundef nonnull readonly %2, i64 noundef %22) #24
   br label %tng_chain_name_set.exit
 
 tng_chain_name_set.exit:                          ; preds = %24, %27
@@ -1316,7 +1316,7 @@ tng_chain_name_set.exit:                          ; preds = %24, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_chain_residue_w_id_add(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_chain_residue_w_id_add(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #4 {
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
@@ -1505,7 +1505,7 @@ tng_molecule_atoms_residue_pointers_update.exit:  ; preds = %._crit_edge.i, %tng
 
 104:                                              ; preds = %.thread.i, %96
   %105 = phi ptr [ %100, %.thread.i ], [ %95, %96 ]
-  %106 = tail call ptr @strncpy(ptr noundef nonnull %105, ptr noundef readonly %2, i64 noundef %93) #24
+  %106 = tail call ptr @strncpy(ptr noundef nonnull %105, ptr noundef nonnull readonly %2, i64 noundef %93) #24
   br label %tng_residue_name_set.exit
 
 tng_residue_name_set.exit:                        ; preds = %101, %104
@@ -1534,7 +1534,7 @@ tng_residue_name_set.exit:                        ; preds = %101, %104
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_residue_atom_w_id_add(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i64 noundef %4, ptr nocapture noundef %5) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_residue_atom_w_id_add(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #4 {
   %7 = load ptr, ptr %1, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1592,7 +1592,7 @@ define range(i32 0, 3) i32 @tng_residue_atom_w_id_add(ptr nocapture readnone %0,
   br label %tng_atom_name_set.exit
 
 36:                                               ; preds = %.thread.i
-  %37 = tail call ptr @strncpy(ptr noundef nonnull %32, ptr noundef readonly %2, i64 noundef %30) #24
+  %37 = tail call ptr @strncpy(ptr noundef nonnull %32, ptr noundef nonnull readonly %2, i64 noundef %30) #24
   br label %tng_atom_name_set.exit
 
 tng_atom_name_set.exit:                           ; preds = %33, %36
@@ -1627,7 +1627,7 @@ tng_atom_name_set.exit:                           ; preds = %33, %36
 
 52:                                               ; preds = %.thread.i32, %44
   %53 = phi ptr [ %48, %.thread.i32 ], [ %38, %44 ]
-  %54 = tail call ptr @strncpy(ptr noundef nonnull %53, ptr noundef readonly %3, i64 noundef %42) #24
+  %54 = tail call ptr @strncpy(ptr noundef nonnull %53, ptr noundef nonnull readonly %3, i64 noundef %42) #24
   br label %tng_atom_type_set.exit
 
 tng_atom_type_set.exit:                           ; preds = %49, %52
@@ -1650,7 +1650,7 @@ tng_atom_type_set.exit:                           ; preds = %49, %52
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_molecule_num_chains_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define noundef i32 @tng_molecule_num_chains_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %2, align 8
@@ -1658,7 +1658,7 @@ define noundef i32 @tng_molecule_num_chains_get(ptr nocapture noundef readnone %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @tng_molecule_chain_of_index_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tng_molecule_chain_of_index_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
   %.not = icmp slt i64 %2, %6
@@ -1678,7 +1678,7 @@ define range(i32 0, 2) i32 @tng_molecule_chain_of_index_get(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_molecule_num_residues_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define noundef i32 @tng_molecule_num_residues_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %2, align 8
@@ -1686,7 +1686,7 @@ define noundef i32 @tng_molecule_num_residues_get(ptr nocapture noundef readnone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @tng_molecule_residue_of_index_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tng_molecule_residue_of_index_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8
   %.not = icmp slt i64 %2, %6
@@ -1706,7 +1706,7 @@ define range(i32 0, 2) i32 @tng_molecule_residue_of_index_get(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_molecule_num_atoms_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define noundef i32 @tng_molecule_num_atoms_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %2, align 8
@@ -1714,7 +1714,7 @@ define noundef i32 @tng_molecule_num_atoms_get(ptr nocapture noundef readnone %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @tng_molecule_atom_of_index_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tng_molecule_atom_of_index_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load i64, ptr %5, align 8
   %.not = icmp slt i64 %2, %6
@@ -1734,7 +1734,7 @@ define range(i32 0, 2) i32 @tng_molecule_atom_of_index_get(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_molecule_chain_find(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @tng_molecule_chain_find(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4) local_unnamed_addr #13 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = icmp sgt i64 %7, 0
@@ -1804,7 +1804,7 @@ define range(i32 0, 2) i32 @tng_molecule_chain_find(ptr nocapture noundef readno
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_molecule_chain_add(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_molecule_chain_add(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, 0
@@ -1826,7 +1826,7 @@ define range(i32 0, 3) i32 @tng_molecule_chain_add(ptr nocapture noundef readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_chain_name_set(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_chain_name_set(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #25
   %5 = add i64 %4, 1
   %6 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %5, i64 1024)
@@ -1857,7 +1857,7 @@ define range(i32 0, 3) i32 @tng_chain_name_set(ptr nocapture noundef readnone %0
 
 17:                                               ; preds = %9, %.thread
   %18 = phi ptr [ %13, %.thread ], [ %8, %9 ]
-  %19 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef %2, i64 noundef %6) #24
+  %19 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef nonnull %2, i64 noundef %6) #24
   br label %20
 
 20:                                               ; preds = %17, %14
@@ -1866,7 +1866,7 @@ define range(i32 0, 3) i32 @tng_chain_name_set(ptr nocapture noundef readnone %0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_molecule_bond_add(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_molecule_bond_add(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4) local_unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1905,7 +1905,7 @@ define range(i32 0, 3) i32 @tng_molecule_bond_add(ptr nocapture noundef readnone
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_molecule_atom_find(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @tng_molecule_atom_find(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4) local_unnamed_addr #13 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = icmp sgt i64 %7, 0
@@ -1975,7 +1975,7 @@ define range(i32 0, 2) i32 @tng_molecule_atom_find(ptr nocapture noundef readnon
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_chain_name_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_chain_name_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = add nsw i32 %3, -1
@@ -1992,7 +1992,7 @@ define range(i32 0, 2) i32 @tng_chain_name_get(ptr nocapture noundef readnone %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_chain_num_residues_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define noundef i32 @tng_chain_num_residues_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %2, align 8
@@ -2000,7 +2000,7 @@ define noundef i32 @tng_chain_num_residues_get(ptr nocapture noundef readnone %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @tng_chain_residue_of_index_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tng_chain_residue_of_index_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8
   %.not = icmp slt i64 %2, %6
@@ -2020,7 +2020,7 @@ define range(i32 0, 2) i32 @tng_chain_residue_of_index_get(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_chain_residue_find(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @tng_chain_residue_find(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4) local_unnamed_addr #13 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = icmp sgt i64 %7, 0
@@ -2090,7 +2090,7 @@ define range(i32 0, 2) i32 @tng_chain_residue_find(ptr nocapture noundef readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_chain_residue_add(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_chain_residue_add(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, 0
@@ -2112,10 +2112,10 @@ define range(i32 0, 3) i32 @tng_chain_residue_add(ptr nocapture noundef readnone
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_residue_name_set(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_residue_name_set(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #25
   %5 = add i64 %4, 1
   %6 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %5, i64 1024)
@@ -2146,7 +2146,7 @@ define range(i32 0, 3) i32 @tng_residue_name_set(ptr nocapture noundef readnone 
 
 17:                                               ; preds = %9, %.thread
   %18 = phi ptr [ %13, %.thread ], [ %8, %9 ]
-  %19 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef %2, i64 noundef %6) #24
+  %19 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef nonnull %2, i64 noundef %6) #24
   br label %20
 
 20:                                               ; preds = %17, %14
@@ -2155,7 +2155,7 @@ define range(i32 0, 3) i32 @tng_residue_name_set(ptr nocapture noundef readnone 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_residue_name_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_residue_name_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = add nsw i32 %3, -1
@@ -2172,7 +2172,7 @@ define range(i32 0, 2) i32 @tng_residue_name_get(ptr nocapture noundef readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_residue_num_atoms_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define noundef i32 @tng_residue_num_atoms_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %2, align 8
@@ -2180,7 +2180,7 @@ define noundef i32 @tng_residue_num_atoms_get(ptr nocapture noundef readnone %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_residue_atom_of_index_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #14 {
+define range(i32 0, 2) i32 @tng_residue_atom_of_index_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #14 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8
   %.not = icmp slt i64 %2, %6
@@ -2211,7 +2211,7 @@ define range(i32 0, 2) i32 @tng_residue_atom_of_index_get(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_residue_atom_add(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_residue_atom_add(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #4 {
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -2235,7 +2235,7 @@ define range(i32 0, 3) i32 @tng_residue_atom_add(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 3) i32 @tng_molecule_alloc(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #9 {
+define range(i32 0, 3) i32 @tng_molecule_alloc(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #9 {
   %3 = tail call noalias dereferenceable_or_null(88) ptr @malloc(i64 noundef 88) #26
   store ptr %3, ptr %1, align 8
   %.not = icmp eq ptr %3, null
@@ -2259,7 +2259,7 @@ define range(i32 0, 3) i32 @tng_molecule_alloc(ptr nocapture noundef readnone %0
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tng_molecule_free(ptr nocapture noundef readnone %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
+define noundef i32 @tng_molecule_free(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
@@ -2276,7 +2276,7 @@ define noundef i32 @tng_molecule_free(ptr nocapture noundef readnone %0, ptr noc
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_molecule_name_of_particle_nr_get(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #15 {
+define range(i32 0, 2) i32 @tng_molecule_name_of_particle_nr_get(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #15 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load i8, ptr %5, align 8
   %.not.i = icmp eq i8 %6, 0
@@ -2336,7 +2336,7 @@ define range(i32 0, 2) i32 @tng_molecule_name_of_particle_nr_get(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @tng_molecule_cnt_list_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tng_molecule_cnt_list_get(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load i8, ptr %3, align 8
   %.not = icmp eq i8 %4, 0
@@ -2350,7 +2350,7 @@ define range(i32 0, 2) i32 @tng_molecule_cnt_list_get(ptr nocapture noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_molecule_id_of_particle_nr_get(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @tng_molecule_id_of_particle_nr_get(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #12 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load i8, ptr %4, align 8
   %.not.i = icmp eq i8 %5, 0
@@ -2400,7 +2400,7 @@ define range(i32 0, 2) i32 @tng_molecule_id_of_particle_nr_get(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_molsystem_bonds_get(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_molsystem_bonds_get(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load i8, ptr %5, align 8
   %.not.i = icmp eq i8 %6, 0
@@ -2561,7 +2561,7 @@ define range(i32 0, 3) i32 @tng_molsystem_bonds_get(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_chain_name_of_particle_nr_get(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #15 {
+define range(i32 0, 2) i32 @tng_chain_name_of_particle_nr_get(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #15 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load i8, ptr %5, align 8
   %.not.i = icmp eq i8 %6, 0
@@ -2638,7 +2638,7 @@ define range(i32 0, 2) i32 @tng_chain_name_of_particle_nr_get(ptr nocapture noun
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_residue_name_of_particle_nr_get(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #15 {
+define range(i32 0, 2) i32 @tng_residue_name_of_particle_nr_get(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #15 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load i8, ptr %5, align 8
   %.not.i = icmp eq i8 %6, 0
@@ -2709,7 +2709,7 @@ define range(i32 0, 2) i32 @tng_residue_name_of_particle_nr_get(ptr nocapture no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_residue_id_of_particle_nr_get(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @tng_residue_id_of_particle_nr_get(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #12 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load i8, ptr %4, align 8
   %.not.i = icmp eq i8 %5, 0
@@ -2769,7 +2769,7 @@ define range(i32 0, 2) i32 @tng_residue_id_of_particle_nr_get(ptr nocapture noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_global_residue_id_of_particle_nr_get(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @tng_global_residue_id_of_particle_nr_get(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #12 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load i8, ptr %4, align 8
   %.not.i = icmp eq i8 %5, 0
@@ -2841,7 +2841,7 @@ define range(i32 0, 2) i32 @tng_global_residue_id_of_particle_nr_get(ptr nocaptu
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_atom_name_of_particle_nr_get(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #15 {
+define range(i32 0, 2) i32 @tng_atom_name_of_particle_nr_get(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #15 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load i8, ptr %5, align 8
   %.not.i = icmp eq i8 %6, 0
@@ -2904,7 +2904,7 @@ define range(i32 0, 2) i32 @tng_atom_name_of_particle_nr_get(ptr nocapture nound
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_atom_type_of_particle_nr_get(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #15 {
+define range(i32 0, 2) i32 @tng_atom_type_of_particle_nr_get(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #15 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load i8, ptr %5, align 8
   %.not.i = icmp eq i8 %6, 0
@@ -2967,7 +2967,7 @@ define range(i32 0, 2) i32 @tng_atom_type_of_particle_nr_get(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_particle_mapping_add(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_particle_mapping_add(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %6 = load i64, ptr %5, align 8
   %7 = icmp sgt i64 %6, 0
@@ -3106,7 +3106,7 @@ define range(i32 0, 3) i32 @tng_particle_mapping_add(ptr nocapture noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tng_frame_set_particle_mapping_free(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define noundef i32 @tng_frame_set_particle_mapping_free(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
@@ -3158,7 +3158,7 @@ define noundef i32 @tng_frame_set_particle_mapping_free(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_trajectory_init(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_trajectory_init(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #4 {
   %2 = tail call noalias dereferenceable_or_null(504) ptr @malloc(i64 noundef 504) #26
   store ptr %2, ptr %0, align 8
   %.not = icmp eq ptr %2, null
@@ -3257,7 +3257,7 @@ define range(i32 0, 3) i32 @tng_trajectory_init(ptr nocapture noundef writeonly 
 declare i64 @time(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tng_trajectory_destroy(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define noundef i32 @tng_trajectory_destroy(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %542, label %3
@@ -4602,10 +4602,10 @@ tng_block_destroy.exit:                           ; preds = %78, %65, %59, %44, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 3) i32 @tng_trajectory_init_from_src(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #9 {
+define range(i32 0, 3) i32 @tng_trajectory_init_from_src(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #9 {
   %3 = tail call noalias dereferenceable_or_null(504) ptr @malloc(i64 noundef 504) #26
   store ptr %3, ptr %1, align 8
   %.not = icmp eq ptr %3, null
@@ -4800,10 +4800,10 @@ define range(i32 0, 3) i32 @tng_trajectory_init_from_src(ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #2
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_input_file_get(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_input_file_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8
   %5 = add nsw i32 %2, -1
   %6 = sext i32 %5 to i64
@@ -4819,7 +4819,7 @@ define range(i32 0, 2) i32 @tng_input_file_get(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_input_file_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_input_file_set(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
@@ -4859,7 +4859,7 @@ define range(i32 0, 3) i32 @tng_input_file_set(ptr nocapture noundef %0, ptr noc
 
 22:                                               ; preds = %12
   store ptr %17, ptr %0, align 8
-  %23 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %16) #24
+  %23 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef nonnull %1, i64 noundef %16) #24
   %24 = tail call fastcc i32 @tng_input_file_init(ptr noundef nonnull %0)
   br label %25
 
@@ -4869,7 +4869,7 @@ define range(i32 0, 3) i32 @tng_input_file_set(ptr nocapture noundef %0, ptr noc
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @tng_input_file_init(ptr nocapture noundef %0) unnamed_addr #9 {
+define internal fastcc range(i32 0, 3) i32 @tng_input_file_init(ptr noundef captures(none) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -4921,7 +4921,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_input_file_init(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_output_file_get(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_output_file_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = add nsw i32 %2, -1
@@ -4938,7 +4938,7 @@ define range(i32 0, 2) i32 @tng_output_file_get(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_output_file_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_output_file_set(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -4979,7 +4979,7 @@ define range(i32 0, 3) i32 @tng_output_file_set(ptr nocapture noundef %0, ptr no
 
 23:                                               ; preds = %13
   store ptr %18, ptr %3, align 8
-  %24 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef %1, i64 noundef %17) #24
+  %24 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef nonnull %1, i64 noundef %17) #24
   %25 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %26, label %tng_output_file_init.exit
@@ -5002,7 +5002,7 @@ tng_output_file_init.exit:                        ; preds = %28, %26, %23, %5, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_output_append_file_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_output_append_file_set(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -5043,7 +5043,7 @@ define range(i32 0, 3) i32 @tng_output_append_file_set(ptr nocapture noundef %0,
 
 23:                                               ; preds = %13
   store ptr %18, ptr %3, align 8
-  %24 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef %1, i64 noundef %17) #24
+  %24 = tail call ptr @strncpy(ptr noundef nonnull %18, ptr noundef nonnull %1, i64 noundef %17) #24
   %25 = tail call noalias ptr @fopen64(ptr noundef nonnull %18, ptr noundef nonnull @.str.12)
   store ptr %25, ptr %9, align 8
   %.not28 = icmp eq ptr %25, null
@@ -5066,10 +5066,10 @@ define range(i32 0, 3) i32 @tng_output_append_file_set(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @tng_output_file_endianness_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tng_output_file_endianness_get(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -5127,7 +5127,7 @@ define range(i32 0, 2) i32 @tng_output_file_endianness_get(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @tng_swap_byte_order_big_endian_32(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 0, 2) i32 @tng_swap_byte_order_big_endian_32(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i8, ptr %3, align 8
   switch i8 %4, label %11 [
@@ -5157,7 +5157,7 @@ define internal range(i32 0, 2) i32 @tng_swap_byte_order_big_endian_32(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @tng_swap_byte_order_little_endian_32(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 0, 2) i32 @tng_swap_byte_order_little_endian_32(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i8, ptr %3, align 8
   switch i8 %4, label %15 [
@@ -5191,7 +5191,7 @@ define internal range(i32 0, 2) i32 @tng_swap_byte_order_little_endian_32(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @tng_swap_byte_order_big_endian_64(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 0, 2) i32 @tng_swap_byte_order_big_endian_64(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %4 = load i8, ptr %3, align 1
   switch i8 %4, label %25 [
@@ -5243,7 +5243,7 @@ define internal range(i32 0, 2) i32 @tng_swap_byte_order_big_endian_64(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @tng_swap_byte_order_little_endian_64(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 0, 2) i32 @tng_swap_byte_order_little_endian_64(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %4 = load i8, ptr %3, align 1
   switch i8 %4, label %45 [
@@ -5315,7 +5315,7 @@ define internal range(i32 0, 2) i32 @tng_swap_byte_order_little_endian_64(ptr no
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @tng_output_file_endianness_set(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @tng_output_file_endianness_set(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @ftello64(ptr noundef %4)
@@ -5355,10 +5355,10 @@ define range(i32 0, 2) i32 @tng_output_file_endianness_set(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftello64(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @ftello64(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_first_program_name_get(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_first_program_name_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = add nsw i32 %2, -1
@@ -5375,7 +5375,7 @@ define range(i32 0, 2) i32 @tng_first_program_name_get(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_first_program_name_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_first_program_name_set(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
   %5 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %4, i64 1024)
@@ -5406,7 +5406,7 @@ define range(i32 0, 3) i32 @tng_first_program_name_set(ptr nocapture noundef %0,
 
 16:                                               ; preds = %8, %.thread
   %17 = phi ptr [ %12, %.thread ], [ %7, %8 ]
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #24
+  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef nonnull %1, i64 noundef %5) #24
   br label %19
 
 19:                                               ; preds = %16, %13
@@ -5415,7 +5415,7 @@ define range(i32 0, 3) i32 @tng_first_program_name_set(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_last_program_name_get(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_last_program_name_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = add nsw i32 %2, -1
@@ -5432,7 +5432,7 @@ define range(i32 0, 2) i32 @tng_last_program_name_get(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_last_program_name_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_last_program_name_set(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
   %5 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %4, i64 1024)
@@ -5463,7 +5463,7 @@ define range(i32 0, 3) i32 @tng_last_program_name_set(ptr nocapture noundef %0, 
 
 16:                                               ; preds = %8, %.thread
   %17 = phi ptr [ %12, %.thread ], [ %7, %8 ]
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #24
+  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef nonnull %1, i64 noundef %5) #24
   br label %19
 
 19:                                               ; preds = %16, %13
@@ -5472,7 +5472,7 @@ define range(i32 0, 3) i32 @tng_last_program_name_set(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_first_user_name_get(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_first_user_name_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = add nsw i32 %2, -1
@@ -5489,7 +5489,7 @@ define range(i32 0, 2) i32 @tng_first_user_name_get(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_first_user_name_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_first_user_name_set(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
   %5 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %4, i64 1024)
@@ -5520,7 +5520,7 @@ define range(i32 0, 3) i32 @tng_first_user_name_set(ptr nocapture noundef %0, pt
 
 16:                                               ; preds = %8, %.thread
   %17 = phi ptr [ %12, %.thread ], [ %7, %8 ]
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #24
+  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef nonnull %1, i64 noundef %5) #24
   br label %19
 
 19:                                               ; preds = %16, %13
@@ -5529,7 +5529,7 @@ define range(i32 0, 3) i32 @tng_first_user_name_set(ptr nocapture noundef %0, pt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_last_user_name_get(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_last_user_name_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %6 = add nsw i32 %2, -1
@@ -5546,7 +5546,7 @@ define range(i32 0, 2) i32 @tng_last_user_name_get(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_last_user_name_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_last_user_name_set(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
   %5 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %4, i64 1024)
@@ -5577,7 +5577,7 @@ define range(i32 0, 3) i32 @tng_last_user_name_set(ptr nocapture noundef %0, ptr
 
 16:                                               ; preds = %8, %.thread
   %17 = phi ptr [ %12, %.thread ], [ %7, %8 ]
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #24
+  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef nonnull %1, i64 noundef %5) #24
   br label %19
 
 19:                                               ; preds = %16, %13
@@ -5586,7 +5586,7 @@ define range(i32 0, 3) i32 @tng_last_user_name_set(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_first_computer_name_get(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_first_computer_name_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = add nsw i32 %2, -1
@@ -5603,7 +5603,7 @@ define range(i32 0, 2) i32 @tng_first_computer_name_get(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_first_computer_name_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_first_computer_name_set(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
   %5 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %4, i64 1024)
@@ -5634,7 +5634,7 @@ define range(i32 0, 3) i32 @tng_first_computer_name_set(ptr nocapture noundef %0
 
 16:                                               ; preds = %8, %.thread
   %17 = phi ptr [ %12, %.thread ], [ %7, %8 ]
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #24
+  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef nonnull %1, i64 noundef %5) #24
   br label %19
 
 19:                                               ; preds = %16, %13
@@ -5643,7 +5643,7 @@ define range(i32 0, 3) i32 @tng_first_computer_name_set(ptr nocapture noundef %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_last_computer_name_get(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_last_computer_name_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8
   %6 = add nsw i32 %2, -1
@@ -5660,7 +5660,7 @@ define range(i32 0, 2) i32 @tng_last_computer_name_get(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_last_computer_name_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_last_computer_name_set(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
   %5 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %4, i64 1024)
@@ -5691,7 +5691,7 @@ define range(i32 0, 3) i32 @tng_last_computer_name_set(ptr nocapture noundef %0,
 
 16:                                               ; preds = %8, %.thread
   %17 = phi ptr [ %12, %.thread ], [ %7, %8 ]
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #24
+  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef nonnull %1, i64 noundef %5) #24
   br label %19
 
 19:                                               ; preds = %16, %13
@@ -5700,7 +5700,7 @@ define range(i32 0, 3) i32 @tng_last_computer_name_set(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_first_signature_get(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_first_signature_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = add nsw i32 %2, -1
@@ -5717,7 +5717,7 @@ define range(i32 0, 2) i32 @tng_first_signature_get(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_first_signature_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_first_signature_set(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
   %5 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %4, i64 1024)
@@ -5748,7 +5748,7 @@ define range(i32 0, 3) i32 @tng_first_signature_set(ptr nocapture noundef %0, pt
 
 16:                                               ; preds = %8, %.thread
   %17 = phi ptr [ %12, %.thread ], [ %7, %8 ]
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #24
+  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef nonnull %1, i64 noundef %5) #24
   br label %19
 
 19:                                               ; preds = %16, %13
@@ -5757,7 +5757,7 @@ define range(i32 0, 3) i32 @tng_first_signature_set(ptr nocapture noundef %0, pt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_last_signature_get(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_last_signature_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
   %6 = add nsw i32 %2, -1
@@ -5774,7 +5774,7 @@ define range(i32 0, 2) i32 @tng_last_signature_get(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_last_signature_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_last_signature_set(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
   %5 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %4, i64 1024)
@@ -5805,7 +5805,7 @@ define range(i32 0, 3) i32 @tng_last_signature_set(ptr nocapture noundef %0, ptr
 
 16:                                               ; preds = %8, %.thread
   %17 = phi ptr [ %12, %.thread ], [ %7, %8 ]
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #24
+  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef nonnull %1, i64 noundef %5) #24
   br label %19
 
 19:                                               ; preds = %16, %13
@@ -5814,7 +5814,7 @@ define range(i32 0, 3) i32 @tng_last_signature_set(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_forcefield_name_get(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_forcefield_name_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = add nsw i32 %2, -1
@@ -5831,7 +5831,7 @@ define range(i32 0, 2) i32 @tng_forcefield_name_get(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_forcefield_name_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_forcefield_name_set(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
   %5 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %4, i64 1024)
@@ -5862,7 +5862,7 @@ define range(i32 0, 3) i32 @tng_forcefield_name_set(ptr nocapture noundef %0, pt
 
 16:                                               ; preds = %8, %.thread
   %17 = phi ptr [ %12, %.thread ], [ %7, %8 ]
-  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef %1, i64 noundef %5) #24
+  %18 = tail call ptr @strncpy(ptr noundef nonnull %17, ptr noundef nonnull %1, i64 noundef %5) #24
   br label %19
 
 19:                                               ; preds = %16, %13
@@ -5871,7 +5871,7 @@ define range(i32 0, 3) i32 @tng_forcefield_name_set(ptr nocapture noundef %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_medium_stride_length_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define noundef i32 @tng_medium_stride_length_get(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -5879,7 +5879,7 @@ define noundef i32 @tng_medium_stride_length_get(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @tng_medium_stride_length_set(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tng_medium_stride_length_set(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load i64, ptr %3, align 8
   %.not = icmp slt i64 %1, %4
@@ -5896,7 +5896,7 @@ define range(i32 0, 2) i32 @tng_medium_stride_length_set(ptr nocapture noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_long_stride_length_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define noundef i32 @tng_long_stride_length_get(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -5904,7 +5904,7 @@ define noundef i32 @tng_long_stride_length_get(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @tng_long_stride_length_set(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tng_long_stride_length_set(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load i64, ptr %3, align 8
   %.not = icmp sgt i64 %1, %4
@@ -5921,7 +5921,7 @@ define range(i32 0, 2) i32 @tng_long_stride_length_set(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_time_per_frame_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define noundef i32 @tng_time_per_frame_get(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load double, ptr %3, align 8
   store double %4, ptr %1, align 8
@@ -6633,7 +6633,7 @@ tng_frame_set_block_write.exit:                   ; preds = %265
   %303 = getelementptr inbounds nuw %struct.tng_data, ptr %302, i64 %indvars.iv
   %304 = load i64, ptr %303, align 8
   store i64 %304, ptr %73, align 8
-  %305 = call fastcc i32 @tng_data_block_write(ptr noundef nonnull %0, ptr noundef %36, i64 noundef %indvars.iv, i32 noundef 0, ptr noundef null, i8 noundef signext %1)
+  %305 = call fastcc i32 @tng_data_block_write(ptr noundef nonnull %0, ptr noundef nonnull %36, i64 noundef %indvars.iv, i32 noundef 0, ptr noundef null, i8 noundef signext %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %306 = load i32, ptr %283, align 8
   %307 = sext i32 %306 to i64
@@ -6990,7 +6990,7 @@ tng_trajectory_mapping_block_write.exit:          ; preds = %330, %335, %346, %3
   store i64 %465, ptr %73, align 8
   %466 = load ptr, ptr %311, align 8
   %467 = getelementptr inbounds nuw %struct.tng_particle_mapping, ptr %466, i64 %indvars.iv138
-  %468 = call fastcc i32 @tng_data_block_write(ptr noundef nonnull %0, ptr noundef %36, i64 noundef %indvars.iv135, i32 noundef 1, ptr noundef %467, i8 noundef signext %1)
+  %468 = call fastcc i32 @tng_data_block_write(ptr noundef nonnull %0, ptr noundef nonnull %36, i64 noundef %indvars.iv135, i32 noundef 1, ptr noundef %467, i8 noundef signext %1)
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %469 = load i32, ptr %314, align 8
   %470 = sext i32 %469 to i64
@@ -7009,7 +7009,7 @@ tng_trajectory_mapping_block_write.exit:          ; preds = %330, %335, %346, %3
   %476 = getelementptr inbounds nuw %struct.tng_data, ptr %475, i64 %indvars.iv141
   %477 = load i64, ptr %476, align 8
   store i64 %477, ptr %73, align 8
-  %478 = call fastcc i32 @tng_data_block_write(ptr noundef nonnull %0, ptr noundef %36, i64 noundef %indvars.iv141, i32 noundef 1, ptr noundef null, i8 noundef signext %1)
+  %478 = call fastcc i32 @tng_data_block_write(ptr noundef nonnull %0, ptr noundef nonnull %36, i64 noundef %indvars.iv141, i32 noundef 1, ptr noundef null, i8 noundef signext %1)
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %479 = load i32, ptr %316, align 8
   %480 = sext i32 %479 to i64
@@ -7077,7 +7077,7 @@ tng_block_destroy.exit:                           ; preds = %300, %287, %23, %2,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_input_file_len_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define noundef i32 @tng_input_file_len_get(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -7085,7 +7085,7 @@ define noundef i32 @tng_input_file_len_get(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_num_frames_get(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_num_frames_get(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7278,7 +7278,7 @@ tng_block_destroy.exit:                           ; preds = %tng_file_input_nume
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @tng_block_init(ptr nocapture noundef nonnull writeonly initializes((0, 8)) %0) unnamed_addr #9 {
+define internal fastcc void @tng_block_init(ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %0) unnamed_addr #9 {
   %2 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
   store ptr %2, ptr %0, align 8
   %.not = icmp eq ptr %2, null
@@ -7306,7 +7306,7 @@ define internal fastcc void @tng_block_init(ptr nocapture noundef nonnull writeo
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseeko64(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #7
+declare noundef i32 @fseeko64(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 3) i32 @tng_block_header_read(ptr noundef %0, ptr noundef %1) unnamed_addr #4 {
@@ -7520,7 +7520,7 @@ tng_file_input_numerical.exit55.thread:           ; preds = %101, %99, %tng_file
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @tng_block_destroy(ptr nocapture noundef nonnull %0) unnamed_addr #18 {
+define internal fastcc void @tng_block_destroy(ptr noundef nonnull captures(none) %0) unnamed_addr #18 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %17, label %3
@@ -7626,7 +7626,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_file_input_numerical(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_compression_precision_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define noundef i32 @tng_compression_precision_get(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %4 = load double, ptr %3, align 8
   store double %4, ptr %1, align 8
@@ -7634,14 +7634,14 @@ define noundef i32 @tng_compression_precision_get(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @tng_compression_precision_set(ptr nocapture noundef writeonly initializes((496, 504)) %0, double noundef %1) local_unnamed_addr #8 {
+define noundef i32 @tng_compression_precision_set(ptr noundef writeonly captures(none) initializes((496, 504)) %0, double noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   store double %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_implicit_num_particles_set(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_implicit_num_particles_set(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -7937,7 +7937,7 @@ tng_molecule_cnt_set.exit:                        ; preds = %.thread, %156, %144
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_num_particles_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define noundef i32 @tng_num_particles_get(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load i8, ptr %3, align 8
   %5 = icmp eq i8 %4, 0
@@ -7949,7 +7949,7 @@ define noundef i32 @tng_num_particles_get(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_num_particles_variable_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #0 {
+define noundef i32 @tng_num_particles_variable_get(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load i8, ptr %3, align 8
   store i8 %4, ptr %1, align 1
@@ -7957,7 +7957,7 @@ define noundef i32 @tng_num_particles_variable_get(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_num_molecule_types_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define noundef i32 @tng_num_molecule_types_get(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -7965,7 +7965,7 @@ define noundef i32 @tng_num_molecule_types_get(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_num_molecules_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @tng_num_molecules_get(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load i8, ptr %3, align 8
   %.not.i = icmp eq i8 %4, 0
@@ -8002,7 +8002,7 @@ define range(i32 0, 2) i32 @tng_num_molecules_get(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_distance_unit_exponential_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define noundef i32 @tng_distance_unit_exponential_get(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -8010,14 +8010,14 @@ define noundef i32 @tng_distance_unit_exponential_get(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @tng_distance_unit_exponential_set(ptr nocapture noundef writeonly initializes((160, 168)) %0, i64 noundef %1) local_unnamed_addr #8 {
+define noundef i32 @tng_distance_unit_exponential_set(ptr noundef writeonly captures(none) initializes((160, 168)) %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i64 %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_num_frames_per_frame_set_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define noundef i32 @tng_num_frames_per_frame_set_get(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -8025,7 +8025,7 @@ define noundef i32 @tng_num_frames_per_frame_set_get(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @tng_num_frames_per_frame_set_set(ptr nocapture noundef writeonly initializes((176, 184), (296, 304)) %0, i64 noundef %1) local_unnamed_addr #8 {
+define noundef i32 @tng_num_frames_per_frame_set_set(ptr noundef writeonly captures(none) initializes((176, 184), (296, 304)) %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -8034,7 +8034,7 @@ define noundef i32 @tng_num_frames_per_frame_set_set(ptr nocapture noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_num_frame_sets_get(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_num_frame_sets_get(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
   %3 = alloca %struct.tng_trajectory_frame_set, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -8442,7 +8442,7 @@ tng_block_destroy.exit:                           ; preds = %48, %33, %tng_block
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_block_read_next(ptr noundef %0, ptr nocapture noundef readonly %1, i8 noundef signext %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_block_read_next(ptr noundef %0, ptr noundef readonly captures(none) %1, i8 noundef signext %2) local_unnamed_addr #4 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca [1024 x i8], align 16
   %6 = alloca i64, align 8
@@ -9835,7 +9835,7 @@ tng_chain_data_read.exit.i:                       ; preds = %624, %tng_file_inpu
   store ptr %.1202416.i, ptr %.3199408.i, align 8
   %635 = getelementptr inbounds nuw i8, ptr %.3199408.i, i64 16
   store ptr null, ptr %635, align 8
-  call fastcc void @tng_residue_data_read(ptr noundef %0, ptr noundef nonnull %.3199408.i, i8 noundef signext %2, ptr noundef %23)
+  call fastcc void @tng_residue_data_read(ptr noundef nonnull %0, ptr noundef nonnull %.3199408.i, i8 noundef signext %2, ptr noundef %23)
   %636 = load ptr, ptr %583, align 8
   %637 = ptrtoint ptr %.1409.i to i64
   %638 = ptrtoint ptr %636 to i64
@@ -10035,7 +10035,7 @@ tng_atom_data_read.exit.i:                        ; preds = %tng_freadstr.exit.i
   store ptr null, ptr %.4200398.i, align 8
   %723 = getelementptr inbounds nuw i8, ptr %.4200398.i, i64 16
   store ptr null, ptr %723, align 8
-  call fastcc void @tng_residue_data_read(ptr noundef %0, ptr noundef nonnull %.4200398.i, i8 noundef signext %2, ptr noundef %23)
+  call fastcc void @tng_residue_data_read(ptr noundef nonnull %0, ptr noundef nonnull %.4200398.i, i8 noundef signext %2, ptr noundef %23)
   %724 = load ptr, ptr %583, align 8
   %725 = ptrtoint ptr %.3399.i to i64
   %726 = ptrtoint ptr %724 to i64
@@ -10217,7 +10217,7 @@ tng_atom_data_read.exit:                          ; preds = %tng_file_input_nume
   store ptr null, ptr %.5390.i, align 8
   %805 = getelementptr inbounds nuw i8, ptr %.5390.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %805, i8 0, i64 16, i1 false)
-  call fastcc void @tng_atom_data_read(ptr noundef %0, ptr noundef %.5390.i, i8 noundef signext %2, ptr noundef %23)
+  call fastcc void @tng_atom_data_read(ptr noundef nonnull %0, ptr noundef %.5390.i, i8 noundef signext %2, ptr noundef %23)
   %806 = getelementptr inbounds nuw i8, ptr %.5390.i, i64 32
   %807 = add nuw nsw i64 %.2206389.i, 1
   %808 = load i64, ptr %536, align 8
@@ -11080,7 +11080,7 @@ tng_uncompress.exit.i.i:                          ; preds = %tng_gzip_uncompress
   br i1 %.not219.us.us.us.i.i, label %.split.us.i.i, label %1188
 
 1188:                                             ; preds = %1186
-  %1189 = call ptr @strncpy(ptr noundef nonnull %1187, ptr noundef %1179, i64 noundef %1182) #24
+  %1189 = call ptr @strncpy(ptr noundef nonnull %1187, ptr noundef nonnull %1179, i64 noundef %1182) #24
   %1190 = add nsw i64 %1182, %.2179326.us.us.us.i.i
   %1191 = add nuw nsw i64 %.0181325.us.us.us.i.i, 1
   %exitcond378.not.i.i = icmp eq i64 %1191, %927
@@ -11148,7 +11148,7 @@ tng_uncompress.exit.i.i:                          ; preds = %tng_gzip_uncompress
   br i1 %.not215.us.i.i, label %.split.us347.i.i, label %1219
 
 1219:                                             ; preds = %1209
-  %1220 = call ptr @strncpy(ptr noundef nonnull %1218, ptr noundef %1198, i64 noundef %1201) #24
+  %1220 = call ptr @strncpy(ptr noundef nonnull %1218, ptr noundef nonnull %1198, i64 noundef %1201) #24
   %1221 = add nsw i64 %1201, %.4341.us.i.i
   %1222 = add nuw nsw i64 %.1173342.us.i.i, 1
   %exitcond380.not.i.i = icmp eq i64 %1222, %927
@@ -11316,7 +11316,7 @@ tng_data_block_contents_read.exit:                ; preds = %899, %910, %1266, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @tng_current_frame_set_get(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #8 {
+define noundef i32 @tng_current_frame_set_get(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %3, ptr %1, align 8
   ret i32 0
@@ -11467,7 +11467,7 @@ tng_block_destroy.exit:                           ; preds = %49, %52
 65:                                               ; preds = %62
   %66 = load ptr, ptr %27, align 8
   %67 = tail call i32 @fseeko64(ptr noundef %66, i64 noundef %63, i32 noundef 0)
-  %68 = tail call fastcc i32 @tng_block_header_read(ptr noundef nonnull %0, ptr noundef %18)
+  %68 = tail call fastcc i32 @tng_block_header_read(ptr noundef nonnull %0, ptr noundef nonnull %18)
   %69 = icmp eq i32 %68, 2
   br i1 %69, label %72, label %70
 
@@ -11517,7 +11517,7 @@ tng_block_destroy.exit:                           ; preds = %49, %52
 87:                                               ; preds = %84
   %88 = load ptr, ptr %27, align 8
   %89 = tail call i32 @fseeko64(ptr noundef %88, i64 noundef %85, i32 noundef 0)
-  %90 = tail call fastcc i32 @tng_block_header_read(ptr noundef nonnull %0, ptr noundef %18)
+  %90 = tail call fastcc i32 @tng_block_header_read(ptr noundef nonnull %0, ptr noundef nonnull %18)
   %91 = icmp eq i32 %90, 2
   br i1 %91, label %94, label %92
 
@@ -11625,7 +11625,7 @@ tng_block_destroy.exit:                           ; preds = %49, %52
 133:                                              ; preds = %130
   %134 = load ptr, ptr %27, align 8
   %135 = tail call i32 @fseeko64(ptr noundef %134, i64 noundef %131, i32 noundef 0)
-  %136 = tail call fastcc i32 @tng_block_header_read(ptr noundef nonnull %0, ptr noundef %18)
+  %136 = tail call fastcc i32 @tng_block_header_read(ptr noundef nonnull %0, ptr noundef nonnull %18)
   %137 = icmp eq i32 %136, 2
   br i1 %137, label %140, label %138
 
@@ -11675,7 +11675,7 @@ tng_block_destroy.exit:                           ; preds = %49, %52
 155:                                              ; preds = %152
   %156 = load ptr, ptr %27, align 8
   %157 = tail call i32 @fseeko64(ptr noundef %156, i64 noundef %153, i32 noundef 0)
-  %158 = tail call fastcc i32 @tng_block_header_read(ptr noundef nonnull %0, ptr noundef %18)
+  %158 = tail call fastcc i32 @tng_block_header_read(ptr noundef nonnull %0, ptr noundef nonnull %18)
   %159 = icmp eq i32 %158, 2
   br i1 %159, label %162, label %160
 
@@ -12778,7 +12778,7 @@ tng_block_destroy.exit:                           ; preds = %185, %172, %134, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_first_frame_nr_of_next_frame_set_get(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_first_frame_nr_of_next_frame_set_get(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @ftello64(ptr noundef %4)
@@ -12886,7 +12886,7 @@ tng_block_destroy.exit:                           ; preds = %38, %41
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_frame_set_next_frame_set_file_pos_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define noundef i32 @tng_frame_set_next_frame_set_file_pos_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %2, align 8
@@ -12894,7 +12894,7 @@ define noundef i32 @tng_frame_set_next_frame_set_file_pos_get(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_frame_set_prev_frame_set_file_pos_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define noundef i32 @tng_frame_set_prev_frame_set_file_pos_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %2, align 8
@@ -12902,7 +12902,7 @@ define noundef i32 @tng_frame_set_prev_frame_set_file_pos_get(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @tng_frame_set_frame_range_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
+define noundef i32 @tng_frame_set_frame_range_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
   store i64 %6, ptr %2, align 8
@@ -12961,7 +12961,7 @@ tng_block_init.exit:                              ; preds = %10, %13
   br i1 %.not1335, label %.critedge, label %.lr.ph39
 
 23:                                               ; preds = %25
-  %24 = tail call fastcc i32 @tng_block_header_read(ptr noundef nonnull %0, ptr noundef %9)
+  %24 = tail call fastcc i32 @tng_block_header_read(ptr noundef nonnull %0, ptr noundef nonnull %9)
   %.not13 = icmp eq i32 %24, 2
   %.pre.pre28 = load i64, ptr %21, align 8
   br i1 %.not13, label %.critedge, label %.lr.ph39, !llvm.loop !99
@@ -14373,7 +14373,7 @@ tng_migrate_data_in_file.exit:                    ; preds = %tng_file_pos_of_sub
   br label %795
 
 600:                                              ; preds = %.thread, %594, %585
-  %.0271 = phi i64 [ %587, %594 ], [ %587, %585 ], [ -1, %.thread ]
+  %.0272 = phi i64 [ %587, %594 ], [ %587, %585 ], [ -1, %.thread ]
   %601 = phi ptr [ %595, %594 ], [ %.pre268, %585 ], [ %38, %.thread ]
   %602 = tail call i32 @fseeko64(ptr noundef nonnull %601, i64 noundef 0, i32 noundef 0)
   %603 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
@@ -14516,7 +14516,7 @@ tng_block_destroy.exit85.i:                       ; preds = %643, %640
   %657 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %656) #25
   %658 = add i64 %657, 1
   %659 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %658, i64 1024)
-  %660 = call i64 @fwrite(ptr noundef %656, i64 noundef %659, i64 noundef 1, ptr noundef %.val.i)
+  %660 = call i64 @fwrite(ptr noundef nonnull %656, i64 noundef %659, i64 noundef 1, ptr noundef %.val.i)
   %.not.i86.i = icmp eq i64 %660, 1
   br i1 %.not.i86.i, label %661, label %tng_fwritestr.exit.i
 
@@ -14525,7 +14525,7 @@ tng_block_destroy.exit85.i:                       ; preds = %643, %640
 
 662:                                              ; preds = %661
   %663 = trunc nuw nsw i64 %659 to i32
-  call void @md5_append(ptr noundef nonnull %18, ptr noundef %656, i32 noundef %663) #24
+  call void @md5_append(ptr noundef nonnull %18, ptr noundef nonnull %656, i32 noundef %663) #24
   br label %666
 
 tng_fwritestr.exit.i:                             ; preds = %654
@@ -14540,7 +14540,7 @@ tng_fwritestr.exit.i:                             ; preds = %654
   %669 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %668) #25
   %670 = add i64 %669, 1
   %671 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %670, i64 1024)
-  %672 = call i64 @fwrite(ptr noundef %668, i64 noundef %671, i64 noundef 1, ptr noundef %.val70.i)
+  %672 = call i64 @fwrite(ptr noundef nonnull %668, i64 noundef %671, i64 noundef 1, ptr noundef %.val70.i)
   %.not.i88.i = icmp eq i64 %672, 1
   br i1 %.not.i88.i, label %673, label %tng_fwritestr.exit90.i
 
@@ -14549,7 +14549,7 @@ tng_fwritestr.exit.i:                             ; preds = %654
 
 674:                                              ; preds = %673
   %675 = trunc nuw nsw i64 %671 to i32
-  call void @md5_append(ptr noundef nonnull %18, ptr noundef %668, i32 noundef %675) #24
+  call void @md5_append(ptr noundef nonnull %18, ptr noundef nonnull %668, i32 noundef %675) #24
   br label %678
 
 tng_fwritestr.exit90.i:                           ; preds = %666
@@ -14564,7 +14564,7 @@ tng_fwritestr.exit90.i:                           ; preds = %666
   %681 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %680) #25
   %682 = add i64 %681, 1
   %683 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %682, i64 1024)
-  %684 = call i64 @fwrite(ptr noundef %680, i64 noundef %683, i64 noundef 1, ptr noundef %.val71.i)
+  %684 = call i64 @fwrite(ptr noundef nonnull %680, i64 noundef %683, i64 noundef 1, ptr noundef %.val71.i)
   %.not.i91.i = icmp eq i64 %684, 1
   br i1 %.not.i91.i, label %685, label %tng_fwritestr.exit93.i
 
@@ -14573,7 +14573,7 @@ tng_fwritestr.exit90.i:                           ; preds = %666
 
 686:                                              ; preds = %685
   %687 = trunc nuw nsw i64 %683 to i32
-  call void @md5_append(ptr noundef nonnull %18, ptr noundef %680, i32 noundef %687) #24
+  call void @md5_append(ptr noundef nonnull %18, ptr noundef nonnull %680, i32 noundef %687) #24
   br label %690
 
 tng_fwritestr.exit93.i:                           ; preds = %678
@@ -14588,7 +14588,7 @@ tng_fwritestr.exit93.i:                           ; preds = %678
   %693 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %692) #25
   %694 = add i64 %693, 1
   %695 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %694, i64 1024)
-  %696 = call i64 @fwrite(ptr noundef %692, i64 noundef %695, i64 noundef 1, ptr noundef %.val72.i)
+  %696 = call i64 @fwrite(ptr noundef nonnull %692, i64 noundef %695, i64 noundef 1, ptr noundef %.val72.i)
   %.not.i94.i = icmp eq i64 %696, 1
   br i1 %.not.i94.i, label %697, label %tng_fwritestr.exit96.i
 
@@ -14597,7 +14597,7 @@ tng_fwritestr.exit93.i:                           ; preds = %678
 
 698:                                              ; preds = %697
   %699 = trunc nuw nsw i64 %695 to i32
-  call void @md5_append(ptr noundef nonnull %18, ptr noundef %692, i32 noundef %699) #24
+  call void @md5_append(ptr noundef nonnull %18, ptr noundef nonnull %692, i32 noundef %699) #24
   br label %702
 
 tng_fwritestr.exit96.i:                           ; preds = %690
@@ -14612,7 +14612,7 @@ tng_fwritestr.exit96.i:                           ; preds = %690
   %705 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %704) #25
   %706 = add i64 %705, 1
   %707 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %706, i64 1024)
-  %708 = call i64 @fwrite(ptr noundef %704, i64 noundef %707, i64 noundef 1, ptr noundef %.val73.i)
+  %708 = call i64 @fwrite(ptr noundef nonnull %704, i64 noundef %707, i64 noundef 1, ptr noundef %.val73.i)
   %.not.i152 = icmp eq i64 %708, 1
   br i1 %.not.i152, label %709, label %tng_fwritestr.exit154
 
@@ -14621,7 +14621,7 @@ tng_fwritestr.exit96.i:                           ; preds = %690
 
 710:                                              ; preds = %709
   %711 = trunc nuw nsw i64 %707 to i32
-  call void @md5_append(ptr noundef nonnull %18, ptr noundef %704, i32 noundef %711) #24
+  call void @md5_append(ptr noundef nonnull %18, ptr noundef nonnull %704, i32 noundef %711) #24
   br label %714
 
 tng_fwritestr.exit154:                            ; preds = %702
@@ -14636,7 +14636,7 @@ tng_fwritestr.exit154:                            ; preds = %702
   %717 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %716) #25
   %718 = add i64 %717, 1
   %719 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %718, i64 1024)
-  %720 = call i64 @fwrite(ptr noundef %716, i64 noundef %719, i64 noundef 1, ptr noundef %.val74.i)
+  %720 = call i64 @fwrite(ptr noundef nonnull %716, i64 noundef %719, i64 noundef 1, ptr noundef %.val74.i)
   %.not.i149 = icmp eq i64 %720, 1
   br i1 %.not.i149, label %721, label %tng_fwritestr.exit151
 
@@ -14645,7 +14645,7 @@ tng_fwritestr.exit154:                            ; preds = %702
 
 722:                                              ; preds = %721
   %723 = trunc nuw nsw i64 %719 to i32
-  call void @md5_append(ptr noundef nonnull %18, ptr noundef %716, i32 noundef %723) #24
+  call void @md5_append(ptr noundef nonnull %18, ptr noundef nonnull %716, i32 noundef %723) #24
   br label %726
 
 tng_fwritestr.exit151:                            ; preds = %714
@@ -14660,7 +14660,7 @@ tng_fwritestr.exit151:                            ; preds = %714
   %729 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %728) #25
   %730 = add i64 %729, 1
   %731 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %730, i64 1024)
-  %732 = call i64 @fwrite(ptr noundef %728, i64 noundef %731, i64 noundef 1, ptr noundef %.val75.i)
+  %732 = call i64 @fwrite(ptr noundef nonnull %728, i64 noundef %731, i64 noundef 1, ptr noundef %.val75.i)
   %.not.i147 = icmp eq i64 %732, 1
   br i1 %.not.i147, label %733, label %tng_fwritestr.exit
 
@@ -14669,7 +14669,7 @@ tng_fwritestr.exit151:                            ; preds = %714
 
 734:                                              ; preds = %733
   %735 = trunc nuw nsw i64 %731 to i32
-  call void @md5_append(ptr noundef nonnull %18, ptr noundef %728, i32 noundef %735) #24
+  call void @md5_append(ptr noundef nonnull %18, ptr noundef nonnull %728, i32 noundef %735) #24
   br label %738
 
 tng_fwritestr.exit:                               ; preds = %726
@@ -14793,7 +14793,7 @@ tng_fwritestr.exit:                               ; preds = %726
 804:                                              ; preds = %801
   %805 = load ptr, ptr @stderr, align 8
   %806 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %805, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1, i32 noundef 910) #27
-  br label %1191
+  br label %1189
 
 807:                                              ; preds = %801
   %808 = call noalias ptr @fopen64(ptr noundef nonnull %803, ptr noundef nonnull @.str.57)
@@ -14805,7 +14805,7 @@ tng_fwritestr.exit:                               ; preds = %726
   %810 = load ptr, ptr @stderr, align 8
   %811 = load ptr, ptr %802, align 8
   %812 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %810, ptr noundef nonnull @.str.13, ptr noundef %811, ptr noundef nonnull @.str.1, i32 noundef 919) #27
-  br label %1191
+  br label %1189
 
 813:                                              ; preds = %807, %799
   %814 = call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
@@ -14872,7 +14872,7 @@ tng_block_init.exit.i124:                         ; preds = %818, %815
 
 tng_block_destroy.exit.i136:                      ; preds = %837, %834
   call void @free(ptr noundef nonnull %814) #24
-  br label %1191
+  br label %1189
 
 838:                                              ; preds = %tng_block_init.exit.i124
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %823, ptr noundef nonnull align 1 dereferenceable(10) @.str.24, i64 10, i1 false) #24
@@ -14918,7 +14918,7 @@ tng_block_destroy.exit.i136:                      ; preds = %837, %834
 
 tng_block_destroy.exit137.i:                      ; preds = %854, %851
   call void @free(ptr noundef nonnull %814) #24
-  br label %1191
+  br label %1189
 
 855:                                              ; preds = %838
   %856 = load ptr, ptr %23, align 8
@@ -14933,7 +14933,7 @@ tng_block_destroy.exit137.i:                      ; preds = %854, %851
   %862 = load ptr, ptr %861, align 8
   %863 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %860, ptr noundef nonnull @.str.63, ptr noundef %862, ptr noundef nonnull @.str.1, i32 noundef 3184) #27
   call fastcc void @tng_block_destroy(ptr noundef %15)
-  br label %1191
+  br label %1189
 
 864:                                              ; preds = %855
   br i1 %652, label %865, label %866
@@ -14972,7 +14972,7 @@ tng_file_output_numerical.exit.thread.i:          ; preds = %876
   %879 = load ptr, ptr @stderr, align 8
   %880 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %879, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3195) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  br label %1191
+  br label %1189
 
 881:                                              ; preds = %876
   br i1 %652, label %882, label %tng_file_output_numerical.exit.i
@@ -15030,7 +15030,7 @@ tng_file_output_numerical.exit143.i:              ; preds = %897
   %902 = load ptr, ptr @stderr, align 8
   %903 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %902, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3206) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  br label %1191
+  br label %1189
 
 904:                                              ; preds = %901, %900
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
@@ -15040,7 +15040,7 @@ tng_file_output_numerical.exit143.i:              ; preds = %897
   %907 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %906) #25
   %908 = add i64 %907, 1
   %909 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %908, i64 1024)
-  %910 = call i64 @fwrite(ptr noundef %906, i64 noundef %909, i64 noundef 1, ptr noundef %.val.i126)
+  %910 = call i64 @fwrite(ptr noundef nonnull %906, i64 noundef %909, i64 noundef 1, ptr noundef %.val.i126)
   %.not.i144.i = icmp eq i64 %910, 1
   br i1 %.not.i144.i, label %911, label %tng_fwritestr.exit.i127
 
@@ -15049,13 +15049,13 @@ tng_file_output_numerical.exit143.i:              ; preds = %897
 
 912:                                              ; preds = %911
   %913 = trunc nuw nsw i64 %909 to i32
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef %906, i32 noundef %913) #24
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %906, i32 noundef %913) #24
   br label %916
 
 tng_fwritestr.exit.i127:                          ; preds = %904
   %914 = load ptr, ptr @stderr, align 8
   %915 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %914, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 3212) #27
-  br label %1191
+  br label %1189
 
 916:                                              ; preds = %912, %911
   %917 = getelementptr inbounds nuw i8, ptr %889, i64 8
@@ -15093,7 +15093,7 @@ tng_file_output_numerical.exit150.i:              ; preds = %925
   %930 = load ptr, ptr @stderr, align 8
   %931 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %930, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3218) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  br label %1191
+  br label %1189
 
 932:                                              ; preds = %929, %928
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
@@ -15142,7 +15142,7 @@ tng_file_output_numerical.exit155.i:              ; preds = %944
   %949 = load ptr, ptr @stderr, align 8
   %950 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %949, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3227) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  br label %1191
+  br label %1189
 
 951:                                              ; preds = %tng_file_output_numerical.exit155.thread.i, %932
   %952 = getelementptr inbounds nuw i8, ptr %889, i64 16
@@ -15180,7 +15180,7 @@ tng_file_output_numerical.exit160.i:              ; preds = %960
   %965 = load ptr, ptr @stderr, align 8
   %966 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %965, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3235) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br label %1191
+  br label %1189
 
 967:                                              ; preds = %964, %963
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
@@ -15219,7 +15219,7 @@ tng_file_output_numerical.exit165.i:              ; preds = %976
   %981 = load ptr, ptr @stderr, align 8
   %982 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %981, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3242) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  br label %1191
+  br label %1189
 
 983:                                              ; preds = %980, %979
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -15258,7 +15258,7 @@ tng_file_output_numerical.exit170.i:              ; preds = %992
   %997 = load ptr, ptr @stderr, align 8
   %998 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %997, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3249) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  br label %1191
+  br label %1189
 
 999:                                              ; preds = %996, %995
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -15320,7 +15320,7 @@ tng_file_output_numerical.exit.i.i:               ; preds = %1014
   %1024 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1023) #25
   %1025 = add i64 %1024, 1
   %1026 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %1025, i64 1024)
-  %1027 = call i64 @fwrite(ptr noundef %1023, i64 noundef %1026, i64 noundef 1, ptr noundef %.val.i.i)
+  %1027 = call i64 @fwrite(ptr noundef nonnull %1023, i64 noundef %1026, i64 noundef 1, ptr noundef %.val.i.i)
   %.not.i.i.i132 = icmp eq i64 %1027, 1
   br i1 %.not.i.i.i132, label %1028, label %tng_fwritestr.exit.i.i
 
@@ -15329,7 +15329,7 @@ tng_file_output_numerical.exit.i.i:               ; preds = %1014
 
 1029:                                             ; preds = %1028
   %1030 = trunc nuw nsw i64 %1026 to i32
-  call void @md5_append(ptr noundef nonnull %16, ptr noundef %1023, i32 noundef %1030) #24
+  call void @md5_append(ptr noundef nonnull %16, ptr noundef nonnull %1023, i32 noundef %1030) #24
   br label %1033
 
 tng_fwritestr.exit.i.i:                           ; preds = %1021
@@ -15530,7 +15530,7 @@ tng_file_output_numerical.exit176.i:              ; preds = %1113
   %1118 = load ptr, ptr @stderr, align 8
   %1119 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1118, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3311) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %1191
+  br label %1189
 
 1120:                                             ; preds = %1117, %1116
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -15580,7 +15580,7 @@ tng_file_output_numerical.exit181.i:              ; preds = %1132
   %1137 = load ptr, ptr @stderr, align 8
   %1138 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1137, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3321) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %1191
+  br label %1189
 
 1139:                                             ; preds = %1136, %1135
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -15619,7 +15619,7 @@ tng_file_output_numerical.exit186.i:              ; preds = %1148
   %1153 = load ptr, ptr @stderr, align 8
   %1154 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1153, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 3328) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %1191
+  br label %1189
 
 1155:                                             ; preds = %1152, %1151
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -15654,188 +15654,182 @@ tng_file_output_numerical.exit186.i:              ; preds = %1148
 1172:                                             ; preds = %1163
   %1173 = load ptr, ptr @stderr, align 8
   %1174 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1173, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.1, i32 noundef 3344) #27
-  br label %1191
+  br label %1189
 
 1175:                                             ; preds = %1163
   %1176 = load ptr, ptr %23, align 8
   %1177 = call i32 @fseeko64(ptr noundef %1176, i64 noundef %1166, i32 noundef 0)
   br label %1178
 
-1178:                                             ; preds = %1175, %._crit_edge231.i
-  br i1 %.not.i130.i, label %1195, label %1179
+1178:                                             ; preds = %._crit_edge231.i, %1175
+  %1179 = load ptr, ptr %824, align 8
+  %.not16.i156 = icmp eq ptr %1179, null
+  br i1 %.not16.i156, label %1181, label %1180
 
-1179:                                             ; preds = %1178
-  %1180 = load ptr, ptr %824, align 8
-  %.not16.i156 = icmp eq ptr %1180, null
-  br i1 %.not16.i156, label %1182, label %1181
-
-1181:                                             ; preds = %1179
-  call void @free(ptr noundef nonnull %1180) #24
+1180:                                             ; preds = %1178
+  call void @free(ptr noundef nonnull %1179) #24
   store ptr null, ptr %824, align 8
-  br label %1182
+  br label %1181
 
-1182:                                             ; preds = %1181, %1179
-  %1183 = getelementptr inbounds nuw i8, ptr %814, i64 104
-  %1184 = load ptr, ptr %1183, align 8
-  %.not17.i157 = icmp eq ptr %1184, null
-  br i1 %.not17.i157, label %1186, label %1185
+1181:                                             ; preds = %1180, %1178
+  %1182 = getelementptr inbounds nuw i8, ptr %814, i64 104
+  %1183 = load ptr, ptr %1182, align 8
+  %.not17.i157 = icmp eq ptr %1183, null
+  br i1 %.not17.i157, label %1185, label %1184
 
-1185:                                             ; preds = %1182
-  call void @free(ptr noundef nonnull %1184) #24
-  store ptr null, ptr %1183, align 8
-  br label %1186
+1184:                                             ; preds = %1181
+  call void @free(ptr noundef nonnull %1183) #24
+  store ptr null, ptr %1182, align 8
+  br label %1185
 
-1186:                                             ; preds = %1185, %1182
-  %1187 = getelementptr inbounds nuw i8, ptr %814, i64 112
-  %1188 = load ptr, ptr %1187, align 8
-  %.not18.i158 = icmp eq ptr %1188, null
-  br i1 %.not18.i158, label %1190, label %1189
+1185:                                             ; preds = %1184, %1181
+  %1186 = getelementptr inbounds nuw i8, ptr %814, i64 112
+  %1187 = load ptr, ptr %1186, align 8
+  %.not18.i158 = icmp eq ptr %1187, null
+  br i1 %.not18.i158, label %1193, label %1188
 
-1189:                                             ; preds = %1186
-  call void @free(ptr noundef nonnull %1188) #24
-  br label %1190
+1188:                                             ; preds = %1185
+  call void @free(ptr noundef nonnull %1187) #24
+  br label %1193
 
-1190:                                             ; preds = %1189, %1186
-  call void @free(ptr noundef nonnull %814) #24
-  br label %1195
-
-1191:                                             ; preds = %tng_block_destroy.exit137.i, %859, %1172, %tng_block_destroy.exit.i136, %tng_file_output_numerical.exit143.i, %tng_fwritestr.exit.i127, %tng_file_output_numerical.exit150.i, %tng_file_output_numerical.exit155.i, %tng_file_output_numerical.exit160.i, %tng_file_output_numerical.exit165.i, %tng_file_output_numerical.exit170.i, %tng_file_output_numerical.exit176.i, %tng_file_output_numerical.exit181.i, %tng_file_output_numerical.exit186.i, %804, %809, %tng_file_output_numerical.exit.thread.i
+1189:                                             ; preds = %tng_block_destroy.exit137.i, %859, %1172, %tng_block_destroy.exit.i136, %tng_file_output_numerical.exit143.i, %tng_fwritestr.exit.i127, %tng_file_output_numerical.exit150.i, %tng_file_output_numerical.exit155.i, %tng_file_output_numerical.exit160.i, %tng_file_output_numerical.exit165.i, %tng_file_output_numerical.exit170.i, %tng_file_output_numerical.exit176.i, %tng_file_output_numerical.exit181.i, %tng_file_output_numerical.exit186.i, %804, %809, %tng_file_output_numerical.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %16)
-  %1192 = load ptr, ptr @stderr, align 8
-  %1193 = load ptr, ptr %0, align 8
-  %1194 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1192, ptr noundef nonnull @.str.27, ptr noundef %1193, ptr noundef nonnull @.str.1, i32 noundef 11056) #27
+  %1190 = load ptr, ptr @stderr, align 8
+  %1191 = load ptr, ptr %0, align 8
+  %1192 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1190, ptr noundef nonnull @.str.27, ptr noundef %1191, ptr noundef nonnull @.str.1, i32 noundef 11056) #27
   br label %tng_output_file_init.exit
 
-1195:                                             ; preds = %1178, %1190
+1193:                                             ; preds = %1185, %1188
+  call void @free(ptr noundef nonnull %814) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %16)
-  %1196 = call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
-  %.not.i139 = icmp eq ptr %1196, null
-  br i1 %.not.i139, label %1197, label %1200
+  %1194 = call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
+  %.not.i139 = icmp eq ptr %1194, null
+  br i1 %.not.i139, label %1195, label %1198
 
-1197:                                             ; preds = %1195
-  %1198 = load ptr, ptr @stderr, align 8
-  %1199 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1198, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
+1195:                                             ; preds = %1193
+  %1196 = load ptr, ptr @stderr, align 8
+  %1197 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1196, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 940) #27
   br label %tng_block_init.exit141
 
-1200:                                             ; preds = %1195
-  %1201 = getelementptr inbounds nuw i8, ptr %1196, i64 16
-  store i64 -1, ptr %1201, align 8
-  %1202 = getelementptr inbounds nuw i8, ptr %1196, i64 24
-  %1203 = getelementptr inbounds nuw i8, ptr %1196, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1202, i8 0, i64 24, i1 false)
-  store i64 8, ptr %1203, align 8
-  %1204 = getelementptr inbounds nuw i8, ptr %1196, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1196, i8 0, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1204, i8 0, i64 16, i1 false)
+1198:                                             ; preds = %1193
+  %1199 = getelementptr inbounds nuw i8, ptr %1194, i64 16
+  store i64 -1, ptr %1199, align 8
+  %1200 = getelementptr inbounds nuw i8, ptr %1194, i64 24
+  %1201 = getelementptr inbounds nuw i8, ptr %1194, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1200, i8 0, i64 24, i1 false)
+  store i64 8, ptr %1201, align 8
+  %1202 = getelementptr inbounds nuw i8, ptr %1194, i64 104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1194, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1202, i8 0, i64 16, i1 false)
   br label %tng_block_init.exit141
 
-tng_block_init.exit141:                           ; preds = %1197, %1200
-  %1205 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %1206 = load i32, ptr %1205, align 8
-  %1207 = icmp sgt i32 %1206, 0
-  br i1 %1207, label %.lr.ph227, label %.preheader
+tng_block_init.exit141:                           ; preds = %1195, %1198
+  %1203 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %1204 = load i32, ptr %1203, align 8
+  %1205 = icmp sgt i32 %1204, 0
+  br i1 %1205, label %.lr.ph227, label %.preheader
 
 .lr.ph227:                                        ; preds = %tng_block_init.exit141
-  %1208 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %1209 = getelementptr inbounds nuw i8, ptr %1196, i64 16
-  br label %1215
+  %1206 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %1207 = getelementptr inbounds nuw i8, ptr %1194, i64 16
+  br label %1213
 
-.preheader:                                       ; preds = %1215, %tng_block_init.exit141
-  %1210 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %1211 = load i32, ptr %1210, align 8
-  %1212 = icmp sgt i32 %1211, 0
-  br i1 %1212, label %.lr.ph229, label %._crit_edge230
+.preheader:                                       ; preds = %1213, %tng_block_init.exit141
+  %1208 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %1209 = load i32, ptr %1208, align 8
+  %1210 = icmp sgt i32 %1209, 0
+  br i1 %1210, label %.lr.ph229, label %._crit_edge230
 
 .lr.ph229:                                        ; preds = %.preheader
-  %1213 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %1214 = getelementptr inbounds nuw i8, ptr %1196, i64 16
-  br label %1223
+  %1211 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %1212 = getelementptr inbounds nuw i8, ptr %1194, i64 16
+  br label %1221
 
-1215:                                             ; preds = %.lr.ph227, %1215
-  %indvars.iv260 = phi i64 [ 0, %.lr.ph227 ], [ %indvars.iv.next261, %1215 ]
-  %1216 = load ptr, ptr %1208, align 8
-  %1217 = getelementptr inbounds nuw %struct.tng_data, ptr %1216, i64 %indvars.iv260
-  %1218 = load i64, ptr %1217, align 8
-  store i64 %1218, ptr %1209, align 8
-  %1219 = call fastcc i32 @tng_data_block_write(ptr noundef nonnull %0, ptr noundef %1196, i64 noundef %indvars.iv260, i32 noundef 0, ptr noundef null, i8 noundef signext %1)
+1213:                                             ; preds = %.lr.ph227, %1213
+  %indvars.iv260 = phi i64 [ 0, %.lr.ph227 ], [ %indvars.iv.next261, %1213 ]
+  %1214 = load ptr, ptr %1206, align 8
+  %1215 = getelementptr inbounds nuw %struct.tng_data, ptr %1214, i64 %indvars.iv260
+  %1216 = load i64, ptr %1215, align 8
+  store i64 %1216, ptr %1207, align 8
+  %1217 = call fastcc i32 @tng_data_block_write(ptr noundef nonnull %0, ptr noundef %1194, i64 noundef %indvars.iv260, i32 noundef 0, ptr noundef null, i8 noundef signext %1)
   %indvars.iv.next261 = add nuw nsw i64 %indvars.iv260, 1
-  %1220 = load i32, ptr %1205, align 8
-  %1221 = sext i32 %1220 to i64
-  %1222 = icmp slt i64 %indvars.iv.next261, %1221
-  br i1 %1222, label %1215, label %.preheader, !llvm.loop !117
+  %1218 = load i32, ptr %1203, align 8
+  %1219 = sext i32 %1218 to i64
+  %1220 = icmp slt i64 %indvars.iv.next261, %1219
+  br i1 %1220, label %1213, label %.preheader, !llvm.loop !117
 
-1223:                                             ; preds = %.lr.ph229, %1223
-  %indvars.iv263 = phi i64 [ 0, %.lr.ph229 ], [ %indvars.iv.next264, %1223 ]
-  %1224 = load ptr, ptr %1213, align 8
-  %1225 = getelementptr inbounds nuw %struct.tng_data, ptr %1224, i64 %indvars.iv263
-  %1226 = load i64, ptr %1225, align 8
-  store i64 %1226, ptr %1214, align 8
-  %1227 = call fastcc i32 @tng_data_block_write(ptr noundef nonnull %0, ptr noundef %1196, i64 noundef %indvars.iv263, i32 noundef 1, ptr noundef null, i8 noundef signext %1)
+1221:                                             ; preds = %.lr.ph229, %1221
+  %indvars.iv263 = phi i64 [ 0, %.lr.ph229 ], [ %indvars.iv.next264, %1221 ]
+  %1222 = load ptr, ptr %1211, align 8
+  %1223 = getelementptr inbounds nuw %struct.tng_data, ptr %1222, i64 %indvars.iv263
+  %1224 = load i64, ptr %1223, align 8
+  store i64 %1224, ptr %1212, align 8
+  %1225 = call fastcc i32 @tng_data_block_write(ptr noundef nonnull %0, ptr noundef %1194, i64 noundef %indvars.iv263, i32 noundef 1, ptr noundef null, i8 noundef signext %1)
   %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
-  %1228 = load i32, ptr %1210, align 8
-  %1229 = sext i32 %1228 to i64
-  %1230 = icmp slt i64 %indvars.iv.next264, %1229
-  br i1 %1230, label %1223, label %._crit_edge230.thread, !llvm.loop !118
+  %1226 = load i32, ptr %1208, align 8
+  %1227 = sext i32 %1226 to i64
+  %1228 = icmp slt i64 %indvars.iv.next264, %1227
+  br i1 %1228, label %1221, label %._crit_edge230.thread, !llvm.loop !118
 
 ._crit_edge230:                                   ; preds = %.preheader
   br i1 %.not.i139, label %tng_block_destroy.exit146, label %._crit_edge230.thread
 
-._crit_edge230.thread:                            ; preds = %1223, %._crit_edge230
-  %1231 = getelementptr inbounds nuw i8, ptr %1196, i64 40
-  %1232 = load ptr, ptr %1231, align 8
-  %.not16.i143 = icmp eq ptr %1232, null
-  br i1 %.not16.i143, label %1234, label %1233
+._crit_edge230.thread:                            ; preds = %1221, %._crit_edge230
+  %1229 = getelementptr inbounds nuw i8, ptr %1194, i64 40
+  %1230 = load ptr, ptr %1229, align 8
+  %.not16.i143 = icmp eq ptr %1230, null
+  br i1 %.not16.i143, label %1232, label %1231
 
-1233:                                             ; preds = %._crit_edge230.thread
-  call void @free(ptr noundef nonnull %1232) #24
-  store ptr null, ptr %1231, align 8
-  br label %1234
+1231:                                             ; preds = %._crit_edge230.thread
+  call void @free(ptr noundef nonnull %1230) #24
+  store ptr null, ptr %1229, align 8
+  br label %1232
 
-1234:                                             ; preds = %1233, %._crit_edge230.thread
-  %1235 = getelementptr inbounds nuw i8, ptr %1196, i64 104
-  %1236 = load ptr, ptr %1235, align 8
-  %.not17.i144 = icmp eq ptr %1236, null
-  br i1 %.not17.i144, label %1238, label %1237
+1232:                                             ; preds = %1231, %._crit_edge230.thread
+  %1233 = getelementptr inbounds nuw i8, ptr %1194, i64 104
+  %1234 = load ptr, ptr %1233, align 8
+  %.not17.i144 = icmp eq ptr %1234, null
+  br i1 %.not17.i144, label %1236, label %1235
 
-1237:                                             ; preds = %1234
-  call void @free(ptr noundef nonnull %1236) #24
-  store ptr null, ptr %1235, align 8
-  br label %1238
+1235:                                             ; preds = %1232
+  call void @free(ptr noundef nonnull %1234) #24
+  store ptr null, ptr %1233, align 8
+  br label %1236
 
-1238:                                             ; preds = %1237, %1234
-  %1239 = getelementptr inbounds nuw i8, ptr %1196, i64 112
-  %1240 = load ptr, ptr %1239, align 8
-  %.not18.i145 = icmp eq ptr %1240, null
-  br i1 %.not18.i145, label %1242, label %1241
+1236:                                             ; preds = %1235, %1232
+  %1237 = getelementptr inbounds nuw i8, ptr %1194, i64 112
+  %1238 = load ptr, ptr %1237, align 8
+  %.not18.i145 = icmp eq ptr %1238, null
+  br i1 %.not18.i145, label %1240, label %1239
 
-1241:                                             ; preds = %1238
-  call void @free(ptr noundef nonnull %1240) #24
-  br label %1242
+1239:                                             ; preds = %1236
+  call void @free(ptr noundef nonnull %1238) #24
+  br label %1240
 
-1242:                                             ; preds = %1241, %1238
-  call void @free(ptr noundef nonnull %1196) #24
+1240:                                             ; preds = %1239, %1236
+  call void @free(ptr noundef nonnull %1194) #24
   br label %tng_block_destroy.exit146
 
-tng_block_destroy.exit146:                        ; preds = %._crit_edge230, %1242
-  %1243 = load ptr, ptr %23, align 8
-  %1244 = call i32 @fseeko64(ptr noundef %1243, i64 noundef 0, i32 noundef 2)
-  %1245 = icmp sgt i64 %.0271, 0
-  br i1 %1245, label %1246, label %tng_output_file_init.exit
+tng_block_destroy.exit146:                        ; preds = %._crit_edge230, %1240
+  %1241 = load ptr, ptr %23, align 8
+  %1242 = call i32 @fseeko64(ptr noundef %1241, i64 noundef 0, i32 noundef 2)
+  %1243 = icmp sgt i64 %.0272, 0
+  br i1 %1243, label %1244, label %tng_output_file_init.exit
 
-1246:                                             ; preds = %tng_block_destroy.exit146
-  %1247 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  store i64 %.0271, ptr %1247, align 8
+1244:                                             ; preds = %tng_block_destroy.exit146
+  %1245 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  store i64 %.0272, ptr %1245, align 8
   br label %tng_output_file_init.exit
 
-tng_output_file_init.exit:                        ; preds = %42, %33, %28, %tng_block_destroy.exit146, %1246, %1191, %795, %582, %106
-  %.076 = phi i32 [ 2, %582 ], [ 2, %795 ], [ 2, %1191 ], [ 2, %106 ], [ 0, %1246 ], [ 0, %tng_block_destroy.exit146 ], [ 2, %28 ], [ 2, %33 ], [ 2, %42 ]
+tng_output_file_init.exit:                        ; preds = %42, %33, %28, %tng_block_destroy.exit146, %1244, %1189, %795, %582, %106
+  %.076 = phi i32 [ 2, %582 ], [ 2, %795 ], [ 2, %1189 ], [ 2, %106 ], [ 0, %1244 ], [ 0, %tng_block_destroy.exit146 ], [ 2, %28 ], [ 2, %33 ], [ 2, %42 ]
   ret i32 %.076
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @tng_general_info_block_len_calculate(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #9 {
+define internal fastcc range(i32 0, 3) i32 @tng_general_info_block_len_calculate(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -16079,7 +16073,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_general_info_block_len_calculate
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @tng_molecules_block_len_calculate(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 8)) %1) unnamed_addr #9 {
+define internal fastcc range(i32 0, 3) i32 @tng_molecules_block_len_calculate(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 8)) %1) unnamed_addr #9 {
   store i64 0, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = load i64, ptr %3, align 8
@@ -16361,7 +16355,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_molecules_block_len_calculate(pt
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @tng_data_block_len_calculate(ptr noundef readonly %0, i32 noundef range(i32 0, 2) %1, i64 noundef %2, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef %8) unnamed_addr #13 {
+define internal fastcc void @tng_data_block_len_calculate(ptr noundef readonly %0, i32 noundef range(i32 0, 2) %1, i64 noundef %2, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef nonnull writeonly captures(none) %7, ptr noundef captures(none) %8) unnamed_addr #13 {
   %10 = icmp eq ptr %0, null
   br i1 %10, label %.loopexit, label %11
 
@@ -17794,7 +17788,7 @@ tng_output_file_init.exit:                        ; preds = %.lr.ph366, %.lr.ph3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @tng_trajectory_mapping_block_read(ptr noundef %0, ptr nocapture noundef readonly %1, i8 noundef signext %2) unnamed_addr #4 {
+define internal fastcc range(i32 0, 3) i32 @tng_trajectory_mapping_block_read(ptr noundef %0, ptr noundef readonly captures(none) %1, i8 noundef signext %2) unnamed_addr #4 {
   %4 = alloca [16 x i8], align 16
   %5 = alloca %struct.md5_state_s, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -18447,7 +18441,7 @@ tng_block_init.exit:                              ; preds = %20, %23
 .sink.split:                                      ; preds = %82, %77
   %.245.ph = phi i64 [ %79, %77 ], [ %86, %82 ]
   %.2.ph = phi i32 [ 1, %77 ], [ %.177, %82 ]
-  %91 = tail call fastcc i32 @tng_block_header_read(ptr noundef nonnull %0, ptr noundef %19)
+  %91 = tail call fastcc i32 @tng_block_header_read(ptr noundef nonnull %0, ptr noundef nonnull %19)
   br label %92
 
 92:                                               ; preds = %.sink.split, %82, %77
@@ -19788,7 +19782,7 @@ tng_block_destroy.exit:                           ; preds = %350, %336, %284, %1
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tng_frame_set_premature_write(ptr noundef %0, i8 noundef signext %1) local_unnamed_addr #4 {
@@ -20109,7 +20103,7 @@ tng_block_destroy.exit:                           ; preds = %86, %89
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tng_frame_set_with_time_new(ptr noundef %0, i64 noundef %1, i64 noundef %2, double noundef %3) local_unnamed_addr #4 {
@@ -20127,20 +20121,20 @@ define range(i32 0, 3) i32 @tng_frame_set_with_time_new(ptr noundef %0, i64 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @tng_frame_set_first_frame_time_set(ptr nocapture noundef writeonly initializes((384, 392)) %0, double noundef %1) local_unnamed_addr #8 {
+define noundef i32 @tng_frame_set_first_frame_time_set(ptr noundef writeonly captures(none) initializes((384, 392)) %0, double noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store double %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_data_block_add(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i8 noundef signext %3, i8 noundef signext %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, ptr noundef %9) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_data_block_add(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i8 noundef signext %3, i8 noundef signext %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, ptr noundef %9) local_unnamed_addr #4 {
   %11 = tail call fastcc i32 @tng_gen_data_block_add(ptr noundef %0, i64 noundef %1, i32 noundef 0, ptr noundef %2, i8 noundef signext %3, i8 noundef signext %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef 0, i64 noundef 0, i64 noundef %8, ptr noundef %9)
   ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr nocapture noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef readonly %3, i8 noundef signext %4, i8 noundef signext %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10, i64 noundef %11, ptr noundef readonly %12) unnamed_addr #4 {
+define internal fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef readonly captures(none) %3, i8 noundef signext %4, i8 noundef signext %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10, i64 noundef %11, ptr noundef readonly %12) unnamed_addr #4 {
   %spec.store.select = tail call i64 @llvm.smax.i64(i64 %8, i64 1)
   %.not = icmp eq i32 %2, 0
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 424
@@ -20342,7 +20336,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr nocapture
   br label %.loopexit
 
 106:                                              ; preds = %90
-  %107 = tail call ptr @strncpy(ptr noundef nonnull %101, ptr noundef %3, i64 noundef %100) #24
+  %107 = tail call ptr @strncpy(ptr noundef nonnull %101, ptr noundef nonnull %3, i64 noundef %100) #24
   %108 = getelementptr i8, ptr %96, i64 -16
   %109 = getelementptr i8, ptr %96, i64 -32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %108, i8 0, i64 16, i1 false)
@@ -20535,7 +20529,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   br i1 %.not168.us.us.us, label %.split.us, label %185
 
 185:                                              ; preds = %183
-  %186 = tail call ptr @strncpy(ptr noundef nonnull %184, ptr noundef %.2135232.us.us.us, i64 noundef %179) #24
+  %186 = tail call ptr @strncpy(ptr noundef nonnull %184, ptr noundef nonnull %.2135232.us.us.us, i64 noundef %179) #24
   %187 = getelementptr inbounds nuw i8, ptr %.2135232.us.us.us, i64 %179
   %188 = add nuw nsw i64 %.0140231.us.us.us, 1
   %exitcond281.not = icmp eq i64 %188, %7
@@ -20590,7 +20584,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   br i1 %.not164.us, label %.split.us252, label %206
 
 206:                                              ; preds = %204
-  %207 = tail call ptr @strncpy(ptr noundef nonnull %205, ptr noundef %.4246.us, i64 noundef %200) #24
+  %207 = tail call ptr @strncpy(ptr noundef nonnull %205, ptr noundef nonnull %.4246.us, i64 noundef %200) #24
   %208 = getelementptr inbounds nuw i8, ptr %.4246.us, i64 %200
   %209 = add nuw nsw i64 %.1142245.us, 1
   %exitcond286.not = icmp eq i64 %209, %7
@@ -20639,7 +20633,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_particle_data_block_add(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i8 noundef signext %3, i8 noundef signext %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10, ptr noundef %11) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_particle_data_block_add(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i8 noundef signext %3, i8 noundef signext %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10, ptr noundef %11) local_unnamed_addr #4 {
   %13 = tail call fastcc i32 @tng_gen_data_block_add(ptr noundef %0, i64 noundef %1, i32 noundef 1, ptr noundef %2, i8 noundef signext %3, i8 noundef signext %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10, ptr noundef %11)
   ret i32 %13
 }
@@ -21029,7 +21023,7 @@ tng_data_find.exit84.thread:                      ; preds = %.critedge.i75, %.cr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @tng_particle_data_find(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #12 {
+define internal fastcc range(i32 0, 2) i32 @tng_particle_data_find(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #12 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %5 = load i64, ptr %4, align 8
   %6 = icmp sgt i64 %5, 0
@@ -21093,7 +21087,7 @@ define internal fastcc range(i32 0, 2) i32 @tng_particle_data_find(ptr nocapture
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @tng_data_find(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #12 {
+define internal fastcc range(i32 0, 2) i32 @tng_data_find(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #12 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %5 = load i64, ptr %4, align 8
   %6 = icmp sgt i64 %5, 0
@@ -21183,7 +21177,7 @@ define internal fastcc range(i32 0, 2) i32 @tng_data_find(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_data_block_dependency_get(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_data_block_dependency_get(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
@@ -21513,7 +21507,7 @@ tng_data_find.exit58.thread:                      ; preds = %.critedge.i49, %.cr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_data_block_num_values_per_frame_get(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_data_block_num_values_per_frame_get(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
@@ -21845,7 +21839,7 @@ tng_data_find.exit58.thread:                      ; preds = %.critedge.i49, %.cr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_frame_set_n_frames_of_data_block_get(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_frame_set_n_frames_of_data_block_get(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
@@ -22081,7 +22075,7 @@ tng_block_destroy.exit:                           ; preds = %46, %33, %tng_block
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @tng_data_block_meta_information_read(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr nocapture noundef nonnull writeonly %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, i8 noundef signext %12, ptr noundef nonnull %13) unnamed_addr #4 {
+define internal fastcc range(i32 0, 3) i32 @tng_data_block_meta_information_read(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull writeonly captures(none) %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, i8 noundef signext %12, ptr noundef nonnull %13) unnamed_addr #4 {
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i64 @fread(ptr noundef nonnull %1, i64 noundef 1, i64 noundef 1, ptr noundef %16)
@@ -22337,13 +22331,13 @@ tng_file_input_numerical.exit86.thread:           ; preds = %83, %81, %tng_file_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_frame_data_write(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3, i8 noundef signext %4) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_frame_data_write(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3, i8 noundef signext %4) local_unnamed_addr #4 {
   %6 = tail call fastcc i32 @tng_frame_gen_data_write(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef 0, i64 noundef 0, i64 noundef 0, ptr noundef %3, i8 noundef signext %4)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @tng_frame_gen_data_write(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3, i64 noundef %4, i64 noundef %5, ptr nocapture noundef %6, i8 noundef signext %7) unnamed_addr #4 {
+define internal fastcc range(i32 0, 3) i32 @tng_frame_gen_data_write(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3, i64 noundef %4, i64 noundef %5, ptr noundef captures(none) %6, i8 noundef signext %7) unnamed_addr #4 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca ptr, align 8
@@ -23344,13 +23338,13 @@ switch.lookup:                                    ; preds = %366
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_frame_particle_data_write(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef %5, i8 noundef signext %6) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_frame_particle_data_write(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef captures(none) %5, i8 noundef signext %6) local_unnamed_addr #4 {
   %8 = tail call fastcc i32 @tng_frame_gen_data_write(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef 1, i64 noundef %3, i64 noundef %4, ptr noundef %5, i8 noundef signext %6)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tng_data_values_free(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4) local_unnamed_addr #4 {
+define noundef i32 @tng_data_values_free(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %31, label %.preheader28
 
@@ -23447,7 +23441,7 @@ define noundef i32 @tng_data_values_free(ptr nocapture readnone %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tng_particle_data_values_free(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef signext %5) local_unnamed_addr #4 {
+define noundef i32 @tng_particle_data_values_free(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef signext %5) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %61, label %.preheader42
 
@@ -23613,7 +23607,7 @@ define noundef i32 @tng_particle_data_values_free(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_data_get(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_data_get(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) local_unnamed_addr #4 {
   %7 = alloca ptr, align 8
   store ptr %2, ptr %7, align 8
   %8 = call fastcc i32 @tng_gen_data_get(ptr noundef %0, i64 noundef %1, i32 noundef 0, ptr noundef nonnull %7, ptr noundef %3, ptr noundef null, ptr noundef %4, ptr noundef %5)
@@ -23621,7 +23615,7 @@ define range(i32 0, 3) i32 @tng_data_get(ptr noundef %0, i64 noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @tng_gen_data_get(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7) unnamed_addr #4 {
+define internal fastcc range(i32 0, 3) i32 @tng_gen_data_get(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7) unnamed_addr #4 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %.not = icmp eq i32 %2, 0
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 424
@@ -24709,13 +24703,13 @@ thread-pre-split326:                              ; preds = %430
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_data_vector_get(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_data_vector_get(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef captures(none) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #4 {
   %8 = tail call fastcc i32 @tng_gen_data_vector_get(ptr noundef %0, i64 noundef %1, i32 noundef 0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, ptr noundef %5, ptr noundef %6)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @tng_gen_data_vector_get(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef writeonly %8) unnamed_addr #4 {
+define internal fastcc range(i32 0, 3) i32 @tng_gen_data_vector_get(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef writeonly captures(none) %8) unnamed_addr #4 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %.not = icmp eq i32 %2, 0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 424
@@ -25211,7 +25205,7 @@ tng_particle_mapping_get_real_particle.exit:      ; preds = %215, %197, %209
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_data_interval_get(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, ptr noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_data_interval_get(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, ptr noundef %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7) local_unnamed_addr #4 {
   %9 = alloca ptr, align 8
   store ptr %5, ptr %9, align 8
   %10 = call fastcc i32 @tng_gen_data_interval_get(ptr noundef %0, i64 noundef %1, i32 noundef 0, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, ptr noundef nonnull %9, ptr noundef null, ptr noundef %6, ptr noundef %7)
@@ -25219,7 +25213,7 @@ define range(i32 0, 3) i32 @tng_data_interval_get(ptr noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @tng_gen_data_interval_get(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, i64 noundef %3, i64 noundef %4, i8 noundef signext %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9) unnamed_addr #4 {
+define internal fastcc range(i32 0, 3) i32 @tng_gen_data_interval_get(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, i64 noundef %3, i64 noundef %4, i8 noundef signext %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef captures(none) %9) unnamed_addr #4 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %13 = load i64, ptr %12, align 8
@@ -26258,13 +26252,13 @@ tng_frame_set_read_next.exit.thread:              ; preds = %387, %392, %382, %t
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_data_vector_interval_get(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_data_vector_interval_get(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8) local_unnamed_addr #4 {
   %10 = tail call fastcc i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64 noundef %1, i32 noundef 0, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, ptr noundef %5, ptr noundef null, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, i64 noundef %3, i64 noundef %4, i8 noundef signext %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9, ptr nocapture noundef %10) unnamed_addr #4 {
+define internal fastcc range(i32 0, 3) i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, i64 noundef %3, i64 noundef %4, i8 noundef signext %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef captures(none) %9, ptr noundef captures(none) %10) unnamed_addr #4 {
   %12 = alloca i64, align 8
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
@@ -27204,31 +27198,31 @@ tng_particle_data_find.exit232.thread:            ; preds = %.critedge.i229, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_particle_data_get(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_particle_data_get(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6) local_unnamed_addr #4 {
   %8 = tail call fastcc i32 @tng_gen_data_get(ptr noundef %0, i64 noundef %1, i32 noundef 1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_particle_data_vector_get(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_particle_data_vector_get(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #4 {
   %9 = tail call fastcc i32 @tng_gen_data_vector_get(ptr noundef %0, i64 noundef %1, i32 noundef 1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_particle_data_interval_get(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_particle_data_interval_get(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8) local_unnamed_addr #4 {
   %10 = tail call fastcc i32 @tng_gen_data_interval_get(ptr noundef %0, i64 noundef %1, i32 noundef 1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_particle_data_vector_interval_get(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_particle_data_vector_interval_get(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef captures(none) %9) local_unnamed_addr #4 {
   %11 = tail call fastcc i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64 noundef %1, i32 noundef 1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_data_get_stride_length(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_data_get_stride_length(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %6 = load i64, ptr %5, align 8
   %.inv = icmp sgt i64 %6, 0
@@ -27577,7 +27571,7 @@ thread-pre-split:                                 ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tng_time_get_str(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @tng_time_get_str(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load i64, ptr %4, align 8
@@ -27606,7 +27600,7 @@ define range(i32 0, 2) i32 @tng_time_get_str(ptr nocapture noundef readonly %0, 
 declare ptr @localtime(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_util_trajectory_open(ptr nocapture noundef readonly %0, i8 noundef signext %1, ptr nocapture noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_trajectory_open(ptr noundef readonly captures(none) %0, i8 noundef signext %1, ptr noundef captures(none) %2) local_unnamed_addr #4 {
   switch i8 %1, label %86 [
     i8 119, label %4
     i8 114, label %4
@@ -27787,7 +27781,7 @@ define range(i32 0, 2) i32 @tng_util_trajectory_close(ptr noundef %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_util_time_of_frame_get(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_time_of_frame_get(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
   %4 = tail call i32 @tng_frame_set_of_frame_find(ptr noundef %0, i64 noundef %1)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %8, label %5
@@ -27823,7 +27817,7 @@ define range(i32 0, 3) i32 @tng_util_time_of_frame_get(ptr noundef %0, i64 nound
 declare double @llvm.fmuladd.f64(double, double, double) #17
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @tng_util_molecule_particles_get(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 8)) %2, ptr nocapture noundef initializes((0, 8)) %3, ptr nocapture noundef initializes((0, 8)) %4, ptr nocapture noundef initializes((0, 8)) %5, ptr nocapture noundef initializes((0, 8)) %6, ptr nocapture noundef initializes((0, 8)) %7, ptr nocapture noundef initializes((0, 8)) %8) local_unnamed_addr #9 {
+define noundef i32 @tng_util_molecule_particles_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 8)) %2, ptr noundef captures(none) initializes((0, 8)) %3, ptr noundef captures(none) initializes((0, 8)) %4, ptr noundef captures(none) initializes((0, 8)) %5, ptr noundef captures(none) initializes((0, 8)) %6, ptr noundef captures(none) initializes((0, 8)) %7, ptr noundef captures(none) initializes((0, 8)) %8) local_unnamed_addr #9 {
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load i64, ptr %10, align 8
   store i64 %11, ptr %2, align 8
@@ -27932,7 +27926,7 @@ define noundef i32 @tng_util_molecule_particles_get(ptr nocapture noundef readno
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_util_molecule_particles_set(ptr nocapture noundef readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_molecule_particles_set(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #4 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
@@ -28202,7 +28196,7 @@ tng_residue_atom_add.exit:                        ; preds = %tng_chain_residue_f
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_util_pos_read(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_pos_read(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #4 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -28228,7 +28222,7 @@ define range(i32 0, 3) i32 @tng_util_pos_read(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_util_vel_read(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_vel_read(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #4 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -28254,7 +28248,7 @@ define range(i32 0, 3) i32 @tng_util_vel_read(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_util_force_read(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_force_read(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #4 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -28280,7 +28274,7 @@ define range(i32 0, 3) i32 @tng_util_force_read(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_util_box_shape_read(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_box_shape_read(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #4 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i8, align 1
@@ -28305,7 +28299,7 @@ define range(i32 0, 3) i32 @tng_util_box_shape_read(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_util_particle_data_next_frame_read(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_particle_data_next_frame_read(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #4 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load i64, ptr %7, align 8
   %9 = icmp sgt i64 %8, 0
@@ -28641,7 +28635,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_util_non_particle_data_next_frame_read(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_non_particle_data_next_frame_read(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #4 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load i64, ptr %7, align 8
   %9 = icmp sgt i64 %8, 0
@@ -29018,7 +29012,7 @@ tng_data_find.exit:                               ; preds = %.lr.ph.i, %34, %.lr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_util_pos_read_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_pos_read_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #4 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i8, align 1
@@ -29032,7 +29026,7 @@ define range(i32 0, 3) i32 @tng_util_pos_read_range(ptr noundef %0, i64 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_util_vel_read_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_vel_read_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #4 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i8, align 1
@@ -29046,7 +29040,7 @@ define range(i32 0, 3) i32 @tng_util_vel_read_range(ptr noundef %0, i64 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_util_force_read_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_force_read_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #4 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i8, align 1
@@ -29060,7 +29054,7 @@ define range(i32 0, 3) i32 @tng_util_force_read_range(ptr noundef %0, i64 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_util_box_shape_read_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_box_shape_read_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #4 {
   %6 = alloca i64, align 8
   %7 = alloca i8, align 1
   %8 = call fastcc range(i32 0, 3) i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64 noundef 268435456, i32 noundef 0, i64 noundef %1, i64 noundef %2, i8 noundef signext 1, ptr noundef %3, ptr noundef null, ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7)
@@ -29362,7 +29356,7 @@ tng_data_find.exit:                               ; preds = %.lr.ph.i89, %115, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #4 {
+define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #4 {
   %6 = icmp eq i64 %3, 0
   %7 = icmp eq i64 %4, 0
   %or.cond = or i1 %6, %7
@@ -29644,7 +29638,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_particle_data_mem(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @tng_allocate_data_mem(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 {
+define internal fastcc range(i32 0, 3) i32 @tng_allocate_data_mem(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 {
   %5 = icmp eq i64 %3, 0
   br i1 %5, label %.loopexit, label %6
 
@@ -31485,7 +31479,7 @@ tng_util_generic_with_time_double_write.exit:     ; preds = %4, %6, %.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_util_frame_current_compression_get(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_frame_current_compression_get(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %6 = load i64, ptr %5, align 8
   %7 = icmp sgt i64 %6, 0
@@ -31827,7 +31821,7 @@ tng_data_find.exit73.thread:                      ; preds = %.critedge.i64, %.cr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_util_trajectory_next_frame_present_data_blocks_find(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5, ptr nocapture noundef %6) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_trajectory_next_frame_present_data_blocks_find(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6) local_unnamed_addr #4 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %17, label %8
 
@@ -32363,7 +32357,7 @@ define range(i32 0, 3) i32 @tng_util_prepare_append_after_frame(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_util_num_frames_with_data_of_block_id_get(ptr noundef %0, i64 noundef %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_num_frames_with_data_of_block_id_get(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) initializes((0, 8)) %2) local_unnamed_addr #4 {
   %4 = alloca i64, align 8
   store i64 0, ptr %2, align 8
   %5 = tail call fastcc i32 @tng_input_file_init(ptr noundef %0)
@@ -32422,10 +32416,10 @@ define range(i32 0, 3) i32 @tng_util_num_frames_with_data_of_block_id_get(ptr no
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tng_md5_hash_update(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 {
+define internal fastcc void @tng_md5_hash_update(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 {
   %5 = alloca %struct.md5_state_s, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %7 = load ptr, ptr %6, align 8
@@ -32493,10 +32487,10 @@ declare void @md5_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_ad
 declare void @md5_finish(ptr noundef, ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tng_freadstr(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i8 noundef signext %2, ptr noundef %3, i32 noundef range(i32 1110, 2857) %4) unnamed_addr #4 {
+define internal fastcc void @tng_freadstr(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i8 noundef signext %2, ptr noundef %3, i32 noundef range(i32 1110, 2857) %4) unnamed_addr #4 {
   %6 = alloca [1024 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %8
@@ -32555,13 +32549,13 @@ define internal fastcc void @tng_freadstr(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fgetc(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare void @clearerr(ptr nocapture noundef) local_unnamed_addr #7
+declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @tng_block_header_write(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #4 {
+define internal fastcc range(i32 0, 3) i32 @tng_block_header_write(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #4 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -32741,7 +32735,7 @@ tng_file_output_numerical.exit31.thread:          ; preds = %75
   %89 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %88) #25
   %90 = add i64 %89, 1
   %91 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %90, i64 1024)
-  %92 = call i64 @fwrite(ptr noundef %88, i64 noundef %91, i64 noundef 1, ptr noundef %.val)
+  %92 = call i64 @fwrite(ptr noundef nonnull %88, i64 noundef %91, i64 noundef 1, ptr noundef %.val)
   %.not.i32 = icmp eq i64 %92, 1
   br i1 %.not.i32, label %tng_fwritestr.exit, label %tng_fwritestr.exit.thread
 
@@ -32791,11 +32785,11 @@ tng_file_output_numerical.exit38:                 ; preds = %103
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @tng_fwritestr(ptr nocapture %.32.val, ptr noundef %0, i8 noundef signext %1, ptr noundef %2, i32 noundef %3) unnamed_addr #4 {
+define internal fastcc range(i32 0, 3) i32 @tng_fwritestr(ptr captures(none) %.32.val, ptr noundef %0, i8 noundef signext %1, ptr noundef %2, i32 noundef %3) unnamed_addr #4 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #25
   %6 = add i64 %5, 1
   %7 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %6, i64 1024)
-  %8 = tail call i64 @fwrite(ptr noundef %0, i64 noundef %7, i64 noundef 1, ptr noundef %.32.val)
+  %8 = tail call i64 @fwrite(ptr noundef nonnull %0, i64 noundef %7, i64 noundef 1, ptr noundef %.32.val)
   %.not = icmp eq i64 %8, 1
   br i1 %.not, label %12, label %9
 
@@ -32810,7 +32804,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_fwritestr(ptr nocapture %.32.val
 
 14:                                               ; preds = %12
   %15 = trunc nuw nsw i64 %7 to i32
-  tail call void @md5_append(ptr noundef %2, ptr noundef %0, i32 noundef %15) #24
+  tail call void @md5_append(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %15) #24
   br label %16
 
 16:                                               ; preds = %12, %14, %9
@@ -32930,7 +32924,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_file_output_numerical(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tng_residue_data_write(ptr noundef %0, ptr nocapture noundef readonly %1, i8 noundef signext %2, ptr noundef nonnull %3) unnamed_addr #4 {
+define internal fastcc void @tng_residue_data_write(ptr noundef %0, ptr noundef readonly captures(none) %1, i8 noundef signext %2, ptr noundef nonnull %3) unnamed_addr #4 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -32981,7 +32975,7 @@ tng_file_output_numerical.exit:                   ; preds = %16
   %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #25
   %29 = add i64 %28, 1
   %30 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %29, i64 1024)
-  %31 = call i64 @fwrite(ptr noundef %27, i64 noundef %30, i64 noundef 1, ptr noundef %.val)
+  %31 = call i64 @fwrite(ptr noundef nonnull %27, i64 noundef %30, i64 noundef 1, ptr noundef %.val)
   %.not.i = icmp eq i64 %31, 1
   br i1 %.not.i, label %32, label %tng_fwritestr.exit
 
@@ -32990,7 +32984,7 @@ tng_file_output_numerical.exit:                   ; preds = %16
 
 33:                                               ; preds = %32
   %34 = trunc nuw nsw i64 %30 to i32
-  call void @md5_append(ptr noundef nonnull %3, ptr noundef %27, i32 noundef %34) #24
+  call void @md5_append(ptr noundef nonnull %3, ptr noundef nonnull %27, i32 noundef %34) #24
   br label %37
 
 tng_fwritestr.exit:                               ; preds = %25
@@ -33045,7 +33039,7 @@ tng_file_output_numerical.exit17.thread:          ; preds = %49, %50
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tng_atom_data_write(ptr noundef %0, ptr nocapture noundef readonly %1, i8 noundef signext %2, ptr noundef nonnull %3) unnamed_addr #4 {
+define internal fastcc void @tng_atom_data_write(ptr noundef %0, ptr noundef readonly captures(none) %1, i8 noundef signext %2, ptr noundef nonnull %3) unnamed_addr #4 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -33095,7 +33089,7 @@ tng_file_output_numerical.exit:                   ; preds = %15
   %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #25
   %28 = add i64 %27, 1
   %29 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %28, i64 1024)
-  %30 = call i64 @fwrite(ptr noundef %26, i64 noundef %29, i64 noundef 1, ptr noundef %.val12)
+  %30 = call i64 @fwrite(ptr noundef nonnull %26, i64 noundef %29, i64 noundef 1, ptr noundef %.val12)
   %.not.i = icmp eq i64 %30, 1
   br i1 %.not.i, label %31, label %tng_fwritestr.exit
 
@@ -33104,7 +33098,7 @@ tng_file_output_numerical.exit:                   ; preds = %15
 
 32:                                               ; preds = %31
   %33 = trunc nuw nsw i64 %29 to i32
-  call void @md5_append(ptr noundef nonnull %3, ptr noundef %26, i32 noundef %33) #24
+  call void @md5_append(ptr noundef nonnull %3, ptr noundef nonnull %26, i32 noundef %33) #24
   br label %36
 
 tng_fwritestr.exit:                               ; preds = %24
@@ -33119,7 +33113,7 @@ tng_fwritestr.exit:                               ; preds = %24
   %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #25
   %40 = add i64 %39, 1
   %41 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %40, i64 1024)
-  %42 = call i64 @fwrite(ptr noundef %38, i64 noundef %41, i64 noundef 1, ptr noundef %.val)
+  %42 = call i64 @fwrite(ptr noundef nonnull %38, i64 noundef %41, i64 noundef 1, ptr noundef %.val)
   %.not.i14 = icmp eq i64 %42, 1
   br i1 %.not.i14, label %43, label %46
 
@@ -33128,7 +33122,7 @@ tng_fwritestr.exit:                               ; preds = %24
 
 44:                                               ; preds = %43
   %45 = trunc nuw nsw i64 %41 to i32
-  call void @md5_append(ptr noundef nonnull %3, ptr noundef %38, i32 noundef %45) #24
+  call void @md5_append(ptr noundef nonnull %3, ptr noundef nonnull %38, i32 noundef %45) #24
   br label %tng_fwritestr.exit16.thread
 
 46:                                               ; preds = %36
@@ -33141,7 +33135,7 @@ tng_fwritestr.exit16.thread:                      ; preds = %43, %44, %46, %tng_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %0, i64 %.16.val, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %1, i64 noundef %2, i8 noundef signext %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr noundef captures(none) %0, i64 %.16.val, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %1, i64 noundef %2, i8 noundef signext %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #4 {
   %7 = alloca i32, align 4
   %.off = add i64 %.16.val, -268435457
   %switch = icmp ult i64 %.off, 2
@@ -33521,7 +33515,7 @@ define internal fastcc range(i32 0, 2) i32 @tng_compress(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @tng_gzip_compress(ptr nocapture noundef nonnull %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #4 {
+define internal fastcc range(i32 0, 3) i32 @tng_gzip_compress(ptr noundef nonnull captures(none) %0, i64 noundef %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #4 {
   %4 = alloca i64, align 8
   %5 = tail call i64 @compressBound(i64 noundef %1) #24
   store i64 %5, ptr %4, align 8
@@ -33590,7 +33584,7 @@ declare i64 @compressBound(i64 noundef) local_unnamed_addr #20
 declare i32 @compress(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tng_md5_remaining_append(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #4 {
+define internal fastcc void @tng_md5_remaining_append(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @ftello64(ptr noundef %6)
@@ -33637,7 +33631,7 @@ define internal fastcc void @tng_md5_remaining_append(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @tng_residue_data_read(ptr noundef %0, ptr noundef %1, i8 noundef signext %2, ptr noundef nonnull %3) unnamed_addr #4 {
@@ -33767,7 +33761,7 @@ tng_file_input_numerical.exit.thread:             ; preds = %18, %15, %tng_file_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @tng_particle_data_block_create(ptr nocapture noundef %0, i8 noundef signext %1) unnamed_addr #4 {
+define internal fastcc range(i32 0, 3) i32 @tng_particle_data_block_create(ptr noundef captures(none) %0, i8 noundef signext %1) unnamed_addr #4 {
   %3 = icmp eq i8 %1, 1
   br i1 %3, label %4, label %18
 
@@ -33827,7 +33821,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_particle_data_block_create(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @tng_data_block_create(ptr nocapture noundef %0, i8 noundef signext %1) unnamed_addr #4 {
+define internal fastcc range(i32 0, 3) i32 @tng_data_block_create(ptr noundef captures(none) %0, i8 noundef signext %1) unnamed_addr #4 {
   %3 = icmp eq i8 %1, 1
   br i1 %3, label %4, label %18
 
@@ -33893,7 +33887,7 @@ declare i32 @tng_compress_uncompress(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @uncompress(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @tng_particle_data_values_alloc(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef signext %5) unnamed_addr #4 {
+define internal fastcc range(i32 0, 3) i32 @tng_particle_data_values_alloc(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef signext %5) unnamed_addr #4 {
   %7 = icmp eq i64 %3, 0
   %8 = icmp eq i64 %4, 0
   %or.cond = or i1 %7, %8
@@ -34005,7 +33999,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_particle_data_values_alloc(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @tng_data_values_alloc(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4) unnamed_addr #4 {
+define internal fastcc range(i32 0, 3) i32 @tng_data_values_alloc(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4) unnamed_addr #4 {
   %6 = icmp slt i64 %2, 1
   %7 = icmp slt i64 %3, 1
   %or.cond = or i1 %6, %7
@@ -34086,10 +34080,10 @@ declare i64 @llvm.smax.i64(i64, i64) #22
 declare i64 @llvm.smin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

@@ -60,13 +60,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: noreturn
 declare void @die(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hold_lock_file_for_update_timeout_mode(ptr nocapture noundef %lk, ptr noundef %path, i32 noundef %flags, i64 noundef %timeout_ms, i32 noundef %mode) local_unnamed_addr #0 {
+define dso_local i32 @hold_lock_file_for_update_timeout_mode(ptr noundef captures(none) %lk, ptr noundef %path, i32 noundef %flags, i64 noundef %timeout_ms, i32 noundef %mode) local_unnamed_addr #0 {
 entry:
   %buf = alloca %struct.strbuf, align 8
   %cmp.i = icmp eq i64 %timeout_ms, 0
@@ -186,14 +186,14 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_locked_file_path(ptr nocapture noundef readonly %lk) local_unnamed_addr #0 {
+define dso_local ptr @get_locked_file_path(ptr noundef readonly captures(none) %lk) local_unnamed_addr #0 {
 entry:
   %ret = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ret, ptr noundef nonnull align 8 dereferenceable(24) @__const.lock_file.filename, i64 24, i1 false)
   %0 = load ptr, ptr %lk, align 8
   %call = tail call ptr @get_tempfile_path(ptr noundef %0) #10
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #14
-  call void @strbuf_add(ptr noundef nonnull %ret, ptr noundef %call, i64 noundef %call.i) #10
+  call void @strbuf_add(ptr noundef nonnull %ret, ptr noundef nonnull %call, i64 noundef %call.i) #10
   %len = getelementptr inbounds nuw i8, ptr %ret, i64 8
   %1 = load i64, ptr %len, align 8
   %cmp = icmp ult i64 %1, 6
@@ -241,7 +241,7 @@ strbuf_setlen.exit:                               ; preds = %if.end.i, %if.then4
 declare ptr @get_tempfile_path(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: noreturn
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
@@ -273,18 +273,18 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare ptr @gettext(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @lock_file(ptr nocapture noundef %lk, ptr noundef %path, i32 noundef %flags, i32 noundef %mode) unnamed_addr #0 {
+define internal fastcc i32 @lock_file(ptr noundef captures(none) %lk, ptr noundef %path, i32 noundef %flags, i32 noundef %mode) unnamed_addr #0 {
 entry:
   %filename = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %filename, ptr noundef nonnull align 8 dereferenceable(24) @__const.lock_file.filename, i64 24, i1 false)
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #14
-  call void @strbuf_add(ptr noundef nonnull %filename, ptr noundef %path, i64 noundef %call.i) #10
+  call void @strbuf_add(ptr noundef nonnull %filename, ptr noundef nonnull %path, i64 noundef %call.i) #10
   %and = and i32 %flags, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -445,7 +445,7 @@ declare void @strbuf_addbuf(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @rename_tempfile(ptr noundef, ptr noundef) local_unnamed_addr #1
 

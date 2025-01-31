@@ -30,7 +30,7 @@ declare i32 @php_hash_serialize(ptr noundef, ptr noundef, ptr noundef) #0
 declare i32 @php_hash_unserialize(ptr noundef, i64 noundef, ptr noundef) #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_MD4InitArgs(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture readnone %1) #1 {
+define void @PHP_MD4InitArgs(ptr noundef writeonly captures(none) initializes((0, 24)) %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %4, align 4
@@ -46,7 +46,7 @@ define void @PHP_MD4InitArgs(ptr nocapture noundef writeonly initializes((0, 24)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @PHP_MD4Update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #2 {
+define void @PHP_MD4Update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
 ._crit_edge:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 4
@@ -84,7 +84,7 @@ define void @PHP_MD4Update(ptr nocapture noundef %0, ptr nocapture noundef reado
 .lr.ph:                                           ; preds = %21, %.lr.ph
   %.031 = phi i64 [ %28, %.lr.ph ], [ %20, %21 ]
   %27 = getelementptr inbounds i8, ptr %1, i64 %.031
-  tail call fastcc void @MD4Transform(ptr noundef %0, ptr noundef %27)
+  tail call fastcc void @MD4Transform(ptr noundef nonnull %0, ptr noundef nonnull %27)
   %28 = add i64 %.031, 64
   %29 = add i64 %.031, 127
   %30 = icmp ult i64 %29, %2
@@ -106,7 +106,7 @@ define void @PHP_MD4Update(ptr nocapture noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_MD4Final(ptr nocapture noundef writeonly %0, ptr noundef %1) #3 {
+define void @PHP_MD4Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #3 {
   %3 = alloca [8 x i8], align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %5
@@ -176,7 +176,7 @@ Encode.exit:                                      ; preds = %5
 .lr.ph.i:                                         ; preds = %38, %.lr.ph.i
   %.031.i = phi i64 [ %46, %.lr.ph.i ], [ %39, %38 ]
   %45 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.031.i
-  tail call fastcc void @MD4Transform(ptr noundef %1, ptr noundef nonnull readonly %45)
+  tail call fastcc void @MD4Transform(ptr noundef nonnull %1, ptr noundef nonnull readonly %45)
   %46 = add nuw nsw i64 %.031.i, 64
   %47 = add nuw nsw i64 %.031.i, 127
   %48 = icmp samesign ult i64 %47, %27
@@ -266,13 +266,13 @@ Encode.exit21:                                    ; preds = %73
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_MD2InitArgs(ptr nocapture noundef writeonly initializes((0, 81)) %0, ptr nocapture readnone %1) #1 {
+define void @PHP_MD2InitArgs(ptr noundef writeonly captures(none) initializes((0, 81)) %0, ptr readnone captures(none) %1) #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(81) %0, i8 0, i64 81, i1 false)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @PHP_MD2Update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #2 {
+define void @PHP_MD2Update(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i8, ptr %5, align 1
@@ -484,7 +484,7 @@ MD2_Transform.exit53._crit_edge:                  ; preds = %MD2_Transform.exit5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @PHP_MD2Final(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #2 {
+define void @PHP_MD2Final(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %5 = load i8, ptr %4, align 1
@@ -657,10 +657,10 @@ define internal i32 @php_md2_unserialize(ptr noundef %0, i64 noundef %1, ptr nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @MD4Transform(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
+define internal fastcc void @MD4Transform(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 {
   %3 = alloca [16 x i32], align 16
   %4 = load i32, ptr %0, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1068,7 +1068,7 @@ Decode.exit:                                      ; preds = %11
 declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @php_hash_unserialize_spec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 

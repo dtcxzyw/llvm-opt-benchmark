@@ -7270,16 +7270,16 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_woww(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_woww(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i64, align 8
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
   %7 = icmp ult i32 %6, 4
-  br i1 %7, label %.loopexit61, label %8
+  br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %4
   %9 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %.loopexit61, label %11
+  br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7336,8 +7336,8 @@ define internal i32 @dissect_woww(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %49
 
 49:                                               ; preds = %add_header_to_tree.exit, %29
-  %.047 = phi i32 [ 0, %29 ], [ %222, %add_header_to_tree.exit ]
-  %.045 = phi i8 [ 0, %29 ], [ %224, %add_header_to_tree.exit ]
+  %.047 = phi i32 [ 0, %29 ], [ %216, %add_header_to_tree.exit ]
+  %.045 = phi i8 [ 0, %29 ], [ %218, %add_header_to_tree.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %50 = zext i8 %.045 to i64
   %51 = shl nuw nsw i64 %50, 32
@@ -7545,16 +7545,7 @@ session_key_is_fully_deduced.exit92.i:            ; preds = %84
   store i8 %168, ptr %.073.i, align 1
   %indvars.iv.next.i95.i = add nuw nsw i64 %indvars.iv.i94.i, 1
   %exitcond.not.i96.i = icmp eq i64 %indvars.iv.next.i95.i, %wide.trip.count.i
-  br i1 %exitcond.not.i96.i, label %get_decrypted_header.exit.i, label %154, !llvm.loop !7
-
-get_decrypted_header.exit.i:                      ; preds = %154
-  %169 = call ptr @wmem_file_scope() #4
-  %170 = call noalias ptr @wmem_alloc0(ptr noundef %169, i64 noundef 8) #4
-  %171 = load i64, ptr %5, align 8
-  store i64 %171, ptr %170, align 8
-  %172 = load ptr, ptr %41, align 8
-  %173 = call ptr @wmem_map_insert(ptr noundef %172, ptr noundef nonnull %170, ptr noundef nonnull %153) #4
-  br label %handle_packet_header.exit.thread57
+  br i1 %exitcond.not.i96.i, label %handle_packet_header.exit.thread57.sink.split, label %154, !llvm.loop !7
 
 handle_packet_header.exit.thread.sink.split:      ; preds = %104, %136
   %.sink = phi i8 [ %145, %136 ], [ %125, %104 ]
@@ -7563,107 +7554,105 @@ handle_packet_header.exit.thread.sink.split:      ; preds = %104, %136
 
 handle_packet_header.exit.thread:                 ; preds = %57, %session_key_is_fully_deduced.exit.i, %handle_packet_header.exit.thread.sink.split
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %.loopexit61.sink.split
-
-handle_packet_header.exit.thread57:               ; preds = %get_decrypted_header.exit.i, %49
-  %.0.i.ph = phi ptr [ %56, %49 ], [ %153, %get_decrypted_header.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %181
+  br label %.loopexit.sink.split
 
 handle_packet_header.exit:                        ; preds = %68
   store i32 1, ptr %44, align 4
-  %174 = call ptr @wmem_file_scope() #4
-  %175 = call noalias ptr @wmem_alloc0(ptr noundef %174, i64 noundef 8) #4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %175, ptr noundef nonnull align 1 dereferenceable(1) %62, i64 %wide.trip.count.i, i1 false)
-  %176 = call ptr @wmem_file_scope() #4
-  %177 = call noalias ptr @wmem_alloc0(ptr noundef %176, i64 noundef 8) #4
-  %178 = load i64, ptr %5, align 8
-  store i64 %178, ptr %177, align 8
-  %179 = load ptr, ptr %41, align 8
-  %180 = call ptr @wmem_map_insert(ptr noundef %179, ptr noundef nonnull %177, ptr noundef %175) #4
+  %169 = call ptr @wmem_file_scope() #4
+  %170 = call noalias ptr @wmem_alloc0(ptr noundef %169, i64 noundef 8) #4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %170, ptr noundef nonnull align 1 dereferenceable(1) %62, i64 %wide.trip.count.i, i1 false)
+  br label %handle_packet_header.exit.thread57.sink.split
+
+handle_packet_header.exit.thread57.sink.split:    ; preds = %154, %handle_packet_header.exit
+  %.sink78 = phi ptr [ %170, %handle_packet_header.exit ], [ %153, %154 ]
+  %171 = call ptr @wmem_file_scope() #4
+  %172 = call noalias ptr @wmem_alloc0(ptr noundef %171, i64 noundef 8) #4
+  %173 = load i64, ptr %5, align 8
+  store i64 %173, ptr %172, align 8
+  %174 = load ptr, ptr %41, align 8
+  %175 = call ptr @wmem_map_insert(ptr noundef %174, ptr noundef nonnull %172, ptr noundef nonnull %.sink78) #4
+  br label %handle_packet_header.exit.thread57
+
+handle_packet_header.exit.thread57:               ; preds = %handle_packet_header.exit.thread57.sink.split, %49
+  %.0.i60 = phi ptr [ %56, %49 ], [ %.sink78, %handle_packet_header.exit.thread57.sink.split ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %.not = icmp eq ptr %175, null
-  br i1 %.not, label %.loopexit61.sink.split, label %181
+  %176 = load i8, ptr %.0.i60, align 1
+  %177 = zext i8 %176 to i32
+  %178 = shl nuw nsw i32 %177, 8
+  %179 = getelementptr i8, ptr %.0.i60, i64 1
+  %180 = load i8, ptr %179, align 1
+  %181 = zext i8 %180 to i32
+  %182 = or disjoint i32 %178, %181
+  %183 = add nuw nsw i32 %182, 2
+  %184 = add i32 %183, %.047
+  %185 = icmp sgt i32 %184, %39
+  br i1 %185, label %.loopexit, label %186
 
-181:                                              ; preds = %handle_packet_header.exit.thread57, %handle_packet_header.exit
-  %.0.i60 = phi ptr [ %.0.i.ph, %handle_packet_header.exit.thread57 ], [ %175, %handle_packet_header.exit ]
-  %182 = load i8, ptr %.0.i60, align 1
-  %183 = zext i8 %182 to i32
-  %184 = shl nuw nsw i32 %183, 8
-  %185 = getelementptr i8, ptr %.0.i60, i64 1
-  %186 = load i8, ptr %185, align 1
-  %187 = zext i8 %186 to i32
-  %188 = or disjoint i32 %184, %187
-  %189 = add nuw nsw i32 %188, 2
-  %190 = add i32 %189, %.047
-  %191 = icmp sgt i32 %190, %39
-  br i1 %191, label %.loopexit61, label %192
+186:                                              ; preds = %handle_packet_header.exit.thread57
+  %187 = load i32, ptr @proto_woww, align 4
+  %188 = and i32 %183, 65535
+  %189 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %187, ptr noundef %0, i32 noundef %.047, i32 noundef %188, i32 noundef 0) #4
+  %190 = load i32, ptr @ett_message, align 4
+  %191 = call ptr @proto_item_add_subtree(ptr noundef %189, i32 noundef %190) #4
+  %192 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %.0.i60, i32 noundef %48, i32 noundef %48) #4
+  call void @add_new_data_source(ptr noundef %1, ptr noundef %192, ptr noundef nonnull @.str.6228) #4
+  %193 = load i32, ptr @hf_woww_size, align 4
+  %194 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %193, ptr noundef %192, i32 noundef 0, i32 noundef 2, i32 noundef 0) #4
+  %195 = load i32, ptr %30, align 4
+  %196 = load i32, ptr %32, align 8
+  %197 = icmp ult i32 %195, %196
+  br i1 %197, label %198, label %201
 
-192:                                              ; preds = %181
-  %193 = load i32, ptr @proto_woww, align 4
-  %194 = and i32 %189, 65535
-  %195 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %193, ptr noundef %0, i32 noundef %.047, i32 noundef %194, i32 noundef 0) #4
-  %196 = load i32, ptr @ett_message, align 4
-  %197 = call ptr @proto_item_add_subtree(ptr noundef %195, i32 noundef %196) #4
-  %198 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %.0.i60, i32 noundef %48, i32 noundef %48) #4
-  call void @add_new_data_source(ptr noundef %1, ptr noundef %198, ptr noundef nonnull @.str.6228) #4
-  %199 = load i32, ptr @hf_woww_size, align 4
-  %200 = call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %199, ptr noundef %198, i32 noundef 0, i32 noundef 2, i32 noundef 0) #4
-  %201 = load i32, ptr %30, align 4
-  %202 = load i32, ptr %32, align 8
-  %203 = icmp ult i32 %201, %202
-  br i1 %203, label %204, label %207
+198:                                              ; preds = %186
+  %199 = call zeroext i16 @tvb_get_guint16(ptr noundef %192, i32 noundef 2, i32 noundef -2147483648) #4
+  %200 = zext i16 %199 to i32
+  br label %205
 
-204:                                              ; preds = %192
-  %205 = call zeroext i16 @tvb_get_guint16(ptr noundef %198, i32 noundef 2, i32 noundef -2147483648) #4
-  %206 = zext i16 %205 to i32
-  br label %211
+201:                                              ; preds = %186
+  %202 = icmp ugt i32 %195, %196
+  br i1 %202, label %203, label %205
 
-207:                                              ; preds = %192
-  %208 = icmp ugt i32 %201, %202
-  br i1 %208, label %209, label %211
+203:                                              ; preds = %201
+  %204 = call i32 @tvb_get_guint32(ptr noundef %192, i32 noundef 2, i32 noundef -2147483648) #4
+  br label %205
 
-209:                                              ; preds = %207
-  %210 = call i32 @tvb_get_guint32(ptr noundef %198, i32 noundef 2, i32 noundef -2147483648) #4
-  br label %211
+205:                                              ; preds = %203, %201, %198
+  %.048.i = phi i32 [ 2, %198 ], [ 4, %203 ], [ 2, %201 ]
+  %.0.i53 = phi i32 [ %200, %198 ], [ %204, %203 ], [ 0, %201 ]
+  %206 = load i32, ptr @hf_woww_opcode, align 4
+  %207 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %206, ptr noundef %192, i32 noundef 2, i32 noundef %.048.i, i32 noundef -2147483648) #4
+  %208 = icmp eq i32 %.047, 0
+  %209 = load ptr, ptr %12, align 8
+  br i1 %208, label %210, label %212
 
-211:                                              ; preds = %209, %207, %204
-  %.048.i = phi i32 [ 2, %204 ], [ 4, %209 ], [ 2, %207 ]
-  %.0.i53 = phi i32 [ %206, %204 ], [ %210, %209 ], [ 0, %207 ]
-  %212 = load i32, ptr @hf_woww_opcode, align 4
-  %213 = call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %212, ptr noundef %198, i32 noundef 2, i32 noundef %.048.i, i32 noundef -2147483648) #4
-  %214 = icmp eq i32 %.047, 0
-  %215 = load ptr, ptr %12, align 8
-  br i1 %214, label %216, label %218
-
-216:                                              ; preds = %211
-  %217 = call ptr @val_to_str_const(i32 noundef %.0.i53, ptr noundef nonnull @world_packet_strings, ptr noundef nonnull @.str.6229) #4
-  call void @col_set_str(ptr noundef %215, i32 noundef 25, ptr noundef %217) #4
+210:                                              ; preds = %205
+  %211 = call ptr @val_to_str_const(i32 noundef %.0.i53, ptr noundef nonnull @world_packet_strings, ptr noundef nonnull @.str.6229) #4
+  call void @col_set_str(ptr noundef %209, i32 noundef 25, ptr noundef %211) #4
   br label %add_header_to_tree.exit
 
-218:                                              ; preds = %211
-  call void @col_append_str(ptr noundef %215, i32 noundef 25, ptr noundef nonnull @.str.6230) #4
-  %219 = load ptr, ptr %12, align 8
-  %220 = call ptr @val_to_str_const(i32 noundef %.0.i53, ptr noundef nonnull @world_packet_strings, ptr noundef nonnull @.str.6229) #4
-  call void @col_append_str(ptr noundef %219, i32 noundef 25, ptr noundef %220) #4
+212:                                              ; preds = %205
+  call void @col_append_str(ptr noundef %209, i32 noundef 25, ptr noundef nonnull @.str.6230) #4
+  %213 = load ptr, ptr %12, align 8
+  %214 = call ptr @val_to_str_const(i32 noundef %.0.i53, ptr noundef nonnull @world_packet_strings, ptr noundef nonnull @.str.6229) #4
+  call void @col_append_str(ptr noundef %213, i32 noundef 25, ptr noundef %214) #4
   br label %add_header_to_tree.exit
 
-add_header_to_tree.exit:                          ; preds = %216, %218
-  %221 = call ptr @val_to_str_const(i32 noundef %.0.i53, ptr noundef nonnull @world_packet_strings, ptr noundef nonnull @.str.6229) #4
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %197, ptr noundef nonnull @.str.6231, ptr noundef %221) #4
-  %222 = add i32 %194, %.047
-  %223 = add i32 %.047, %48
-  call fastcc void @add_body_fields(i32 noundef %.0.i53, ptr noundef %197, ptr noundef %0, i32 noundef %223, i32 noundef %222, ptr noundef nonnull %1)
-  %224 = add i8 %.045, 1
-  %225 = icmp slt i32 %222, %39
-  br i1 %225, label %49, label %.loopexit61.sink.split, !llvm.loop !8
+add_header_to_tree.exit:                          ; preds = %210, %212
+  %215 = call ptr @val_to_str_const(i32 noundef %.0.i53, ptr noundef nonnull @world_packet_strings, ptr noundef nonnull @.str.6229) #4
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %191, ptr noundef nonnull @.str.6231, ptr noundef %215) #4
+  %216 = add i32 %188, %.047
+  %217 = add i32 %.047, %48
+  call fastcc void @add_body_fields(i32 noundef %.0.i53, ptr noundef %191, ptr noundef %0, i32 noundef %217, i32 noundef %216, ptr noundef nonnull %1)
+  %218 = add i8 %.045, 1
+  %219 = icmp slt i32 %216, %39
+  br i1 %219, label %49, label %.loopexit.sink.split, !llvm.loop !8
 
-.loopexit61.sink.split:                           ; preds = %add_header_to_tree.exit, %handle_packet_header.exit, %handle_packet_header.exit.thread
-  %226 = call i32 @tvb_captured_length(ptr noundef %0) #4
-  br label %.loopexit61
+.loopexit.sink.split:                             ; preds = %add_header_to_tree.exit, %handle_packet_header.exit.thread
+  %220 = call i32 @tvb_captured_length(ptr noundef %0) #4
+  br label %.loopexit
 
-.loopexit61:                                      ; preds = %181, %.loopexit61.sink.split, %8, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ %226, %.loopexit61.sink.split ], [ %.047, %181 ]
+.loopexit:                                        ; preds = %handle_packet_header.exit.thread57, %.loopexit.sink.split, %8, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ %220, %.loopexit.sink.split ], [ %.047, %handle_packet_header.exit.thread57 ]
   ret i32 %.0
 }
 
@@ -7715,7 +7704,7 @@ declare ptr @wmem_packet_scope() local_unnamed_addr #1
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -23148,7 +23137,7 @@ declare ptr @ptvcursor_add(ptr noundef, i32 noundef, i32 noundef, i32 noundef) l
 declare ptr @ptvcursor_add_ret_uint(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_cstring(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @add_cstring(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #4
   %4 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #4
   br label %5
@@ -23185,7 +23174,7 @@ declare void @ptvcursor_pop_subtree(ptr noundef) local_unnamed_addr #1
 declare void @ptvcursor_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_sized_cstring(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @add_sized_cstring(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_woww_string_length, align 4
   %4 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648) #4
   %5 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #4
@@ -23456,10 +23445,10 @@ declare void @ptvcursor_advance(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

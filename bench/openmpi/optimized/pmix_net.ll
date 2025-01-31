@@ -41,7 +41,7 @@ define noundef zeroext i1 @pmix_net_isaddr(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare i32 @getaddrinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -168,7 +168,7 @@ declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare i32 @pmix_show_help(ptr noundef, ptr noundef, i32 noundef, ...) local_unnamed_addr #2
 
@@ -199,7 +199,7 @@ define noundef i32 @pmix_net_finalize() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
 define i32 @pmix_net_prefix2netmask(i32 noundef %0) local_unnamed_addr #10 {
@@ -212,7 +212,7 @@ define i32 @pmix_net_prefix2netmask(i32 noundef %0) local_unnamed_addr #10 {
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @pmix_net_islocalhost(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define zeroext i1 @pmix_net_islocalhost(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i16, ptr %0, align 2
   switch i16 %2, label %26 [
     i16 2, label %3
@@ -266,7 +266,7 @@ define zeroext i1 @pmix_net_islocalhost(ptr nocapture noundef readonly %0) local
 declare i32 @ntohl(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @pmix_net_samenetwork(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define zeroext i1 @pmix_net_samenetwork(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %.sroa.010.0.copyload = load i16, ptr %0, align 8
   %.sroa.08.0.copyload = load i16, ptr %1, align 8
   %4 = zext i16 %.sroa.010.0.copyload to i32
@@ -323,7 +323,7 @@ define zeroext i1 @pmix_net_samenetwork(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @pmix_net_addr_isipv6linklocal(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef zeroext i1 @pmix_net_addr_isipv6linklocal(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i16, ptr %0, align 2
   %cond = icmp eq i16 %2, 2
   br i1 %cond, label %5, label %3
@@ -338,7 +338,7 @@ define noundef zeroext i1 @pmix_net_addr_isipv6linklocal(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @pmix_net_addr_isipv4public(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef zeroext i1 @pmix_net_addr_isipv4public(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i16, ptr %0, align 2
   switch i16 %2, label %21 [
     i16 10, label %.loopexit
@@ -465,7 +465,7 @@ declare ptr @gai_strerror(i32 noundef) local_unnamed_addr #3
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1, 65536) i32 @pmix_net_get_port(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define range(i32 -1, 65536) i32 @pmix_net_get_port(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load i16, ptr %0, align 2
   switch i16 %2, label %7 [
     i16 2, label %.sink.split

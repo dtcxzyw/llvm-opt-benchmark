@@ -1475,7 +1475,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #4
 
@@ -3443,7 +3443,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx25BinaryInformationSettingsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 4), (8, 24)) %0) unnamed_addr #12 align 2 {
+define void @_ZN3gmx25BinaryInformationSettingsC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 4), (8, 24)) %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %0, align 8
   store ptr @.str.86, ptr %2, align 8
@@ -3478,7 +3478,7 @@ define void @_ZN3gmx22printBinaryInformationEP8_IO_FILERKNS_15IProgramContextE(p
 declare void @_ZN3gmx10TextWriterC1EP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx22printBinaryInformationEPNS_10TextWriterERKNS_15IProgramContextERKNS_25BinaryInformationSettingsE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx22printBinaryInformationEPNS_10TextWriterERKNS_15IProgramContextERKNS_25BinaryInformationSettingsE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct._Guard, align 8
   %5 = alloca %struct._Guard, align 8
   %6 = alloca %"class.std::allocator.0", align 1
@@ -3574,7 +3574,7 @@ define void @_ZN3gmx22printBinaryInformationEPNS_10TextWriterERKNS_15IProgramCon
   %82 = lshr i32 %.sroa.speculated.i, 1
   %83 = add nuw nsw i32 %82, 1
   %84 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %42) #17
-  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %43, ptr noundef nonnull @.str.89, ptr noundef %58, i32 noundef %83, i32 noundef 32, ptr noundef %84, ptr noundef %60)
+  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %43, ptr noundef nonnull @.str.89, ptr noundef nonnull %58, i32 noundef %83, i32 noundef 32, ptr noundef %84, ptr noundef nonnull %60)
           to label %85 unwind label %176
 
 85:                                               ; preds = %72
@@ -3583,7 +3583,7 @@ define void @_ZN3gmx22printBinaryInformationEPNS_10TextWriterERKNS_15IProgramCon
 
 86:                                               ; preds = %85
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #17
-  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %44, ptr noundef nonnull @.str.90, ptr noundef %58, ptr noundef %60)
+  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %44, ptr noundef nonnull @.str.90, ptr noundef nonnull %58, ptr noundef nonnull %60)
           to label %87 unwind label %176
 
 87:                                               ; preds = %86
@@ -3729,7 +3729,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30.i: 
   %118 = sub nsw i32 80, %117
   %.sroa.speculated.i.i.i.i = call i32 @llvm.smax.i32(i32 %118, i32 0)
   %119 = lshr i32 %.sroa.speculated.i.i.i.i, 1
-  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %32, ptr noundef nonnull @.str.109, i32 noundef %119, ptr noundef nonnull @.str.86, ptr noundef %115)
+  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %32, ptr noundef nonnull @.str.109, i32 noundef %119, ptr noundef nonnull @.str.86, ptr noundef nonnull %115)
           to label %.noexc31.i unwind label %168
 
 .noexc31.i:                                       ; preds = %114
@@ -3814,7 +3814,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30.i: 
   %151 = sub nsw i32 80, %150
   %.sroa.speculated.i.i23.i.i = call i32 @llvm.smax.i32(i32 %151, i32 0)
   %152 = lshr i32 %.sroa.speculated.i.i23.i.i, 1
-  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %34, ptr noundef nonnull @.str.109, i32 noundef %152, ptr noundef nonnull @.str.86, ptr noundef %148)
+  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %34, ptr noundef nonnull @.str.109, i32 noundef %152, ptr noundef nonnull @.str.86, ptr noundef nonnull %148)
           to label %_ZN12_GLOBAL__N_114formatCenteredB5cxx11EiPKc.exit.i.i unwind label %.loopexit.split-lp.i.i
 
 _ZN12_GLOBAL__N_114formatCenteredB5cxx11EiPKc.exit.i.i: ; preds = %._crit_edge.i.i
@@ -3968,7 +3968,7 @@ _ZN12_GLOBAL__N_114formatCenteredB5cxx11EiPKc.exit.i.i: ; preds = %._crit_edge.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #17
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %31)
   %196 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %48) #17
-  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %47, ptr noundef nonnull @.str.92, ptr noundef %58, ptr noundef %196, ptr noundef %60)
+  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %47, ptr noundef nonnull @.str.92, ptr noundef nonnull %58, ptr noundef %196, ptr noundef nonnull %60)
           to label %197 unwind label %201
 
 197:                                              ; preds = %195
@@ -4034,7 +4034,7 @@ _ZN12_GLOBAL__N_114formatCenteredB5cxx11EiPKc.exit.i.i: ; preds = %._crit_edge.i
   %220 = load i8, ptr %219, align 8
   %221 = trunc i8 %220 to i1
   %222 = select i1 %221, ptr @.str.94, ptr @.str.86
-  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %50, ptr noundef nonnull @.str.93, ptr noundef %58, ptr noundef %218, ptr noundef nonnull %222, ptr noundef %60)
+  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %50, ptr noundef nonnull @.str.93, ptr noundef nonnull %58, ptr noundef %218, ptr noundef nonnull %222, ptr noundef nonnull %60)
           to label %223 unwind label %227
 
 223:                                              ; preds = %217
@@ -4093,7 +4093,7 @@ _ZN12_GLOBAL__N_114formatCenteredB5cxx11EiPKc.exit.i.i: ; preds = %._crit_edge.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #17
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %29)
   %241 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %54) #17
-  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %53, ptr noundef nonnull @.str.95, ptr noundef %58, ptr noundef %241, ptr noundef %60)
+  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %53, ptr noundef nonnull @.str.95, ptr noundef nonnull %58, ptr noundef %241, ptr noundef nonnull %60)
           to label %242 unwind label %246
 
 242:                                              ; preds = %240
@@ -4137,7 +4137,7 @@ _ZN12_GLOBAL__N_114formatCenteredB5cxx11EiPKc.exit.i.i: ; preds = %._crit_edge.i
           to label %257 unwind label %244
 
 257:                                              ; preds = %255
-  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %55, ptr noundef nonnull @.str.96, ptr noundef %58, i32 noundef %256, ptr noundef %60)
+  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %55, ptr noundef nonnull @.str.96, ptr noundef nonnull %58, i32 noundef %256, ptr noundef nonnull %60)
           to label %258 unwind label %244
 
 258:                                              ; preds = %257
@@ -4171,7 +4171,7 @@ _ZN3gmxL13isNullOrEmptyEPKc.exit:                 ; preds = %267
   br i1 %270, label %_ZN3gmxL13isNullOrEmptyEPKc.exit.thread, label %271
 
 271:                                              ; preds = %_ZN3gmxL13isNullOrEmptyEPKc.exit
-  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %56, ptr noundef nonnull @.str.97, ptr noundef %58, ptr noundef %60, ptr noundef %58, ptr noundef nonnull %266, ptr noundef %60)
+  invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %56, ptr noundef nonnull @.str.97, ptr noundef nonnull %58, ptr noundef nonnull %60, ptr noundef nonnull %58, ptr noundef nonnull %266, ptr noundef nonnull %60)
           to label %272 unwind label %244
 
 272:                                              ; preds = %271
@@ -4806,7 +4806,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit120:       ; preds = %_ZN3gmx22Installati
 declare void @_ZN3gmx10TextWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx22printBinaryInformationEP8_IO_FILERKNS_15IProgramContextERKNS_25BinaryInformationSettingsE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx22printBinaryInformationEP8_IO_FILERKNS_15IProgramContextERKNS_25BinaryInformationSettingsE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.gmx::TextWriter", align 8
   invoke void @_ZN3gmx10TextWriterC1EP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %0)
           to label %5 unwind label %7
@@ -4926,7 +4926,7 @@ declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr nou
 declare void @_ZN3gmx10TextWriter9writeLineEPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120writeVectorAsColumnsEPN3gmx10TextWriterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS8_SaIS8_EEm(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120writeVectorAsColumnsEPN3gmx10TextWriterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS8_SaIS8_EEm(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4945,7 +4945,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120writeVectorAsColumnsEPN3gmx10Tex
   %17 = sub nsw i32 80, %16
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %17, i32 0)
   %18 = lshr i32 %.sroa.speculated.i.i, 1
-  call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.109, i32 noundef %18, ptr noundef nonnull @.str.86, ptr noundef %14)
+  call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.109, i32 noundef %18, ptr noundef nonnull @.str.86, ptr noundef nonnull %14)
   invoke void @_ZN3gmx10TextWriter9writeLineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %19 unwind label %47
 
@@ -5128,7 +5128,7 @@ declare void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_Impl
 declare i32 @llvm.eh.typeid.for.p0(ptr) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #15
@@ -5137,10 +5137,10 @@ declare i32 @llvm.smax.i32(i32, i32) #15
 declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

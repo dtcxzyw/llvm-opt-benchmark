@@ -66,7 +66,7 @@ define noalias noundef ptr @wmem_map_new_autoreset(ptr noundef %0, ptr noundef %
 declare i32 @wmem_register_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @wmem_map_destroy_cb(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2) #0 {
+define internal noundef zeroext i1 @wmem_map_destroy_cb(ptr readnone captures(none) %0, i32 %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 44
@@ -76,7 +76,7 @@ define internal noundef zeroext i1 @wmem_map_destroy_cb(ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @wmem_map_reset_cb(ptr nocapture readnone %0, i32 noundef %1, ptr noundef initializes((0, 4), (16, 24)) %2) #0 {
+define internal noundef zeroext i1 @wmem_map_reset_cb(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef initializes((0, 4), (16, 24)) %2) #0 {
   store i32 0, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr null, ptr %4, align 8
@@ -98,7 +98,7 @@ define internal noundef zeroext i1 @wmem_map_reset_cb(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @wmem_map_insert(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @wmem_map_insert(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -542,7 +542,7 @@ define noundef zeroext i1 @wmem_map_steal(ptr noundef %0, ptr noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @wmem_map_get_keys(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define ptr @wmem_map_get_keys(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call noalias ptr @wmem_list_new(ptr noundef %0) #7
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -586,7 +586,7 @@ declare noalias ptr @wmem_list_new(ptr noundef) local_unnamed_addr #1
 declare void @wmem_list_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @wmem_map_foreach(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @wmem_map_foreach(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %5
 
@@ -633,7 +633,7 @@ define void @wmem_map_foreach(ptr noundef readonly %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wmem_map_foreach_remove(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @wmem_map_foreach_remove(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %5
 
@@ -704,7 +704,7 @@ define i32 @wmem_map_foreach_remove(ptr noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @wmem_map_size(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @wmem_map_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load i32, ptr %0, align 8
   ret i32 %2
 }
@@ -827,7 +827,7 @@ wmem_strong_hash.exit:                            ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @wmem_int64_hash(ptr noundef readonly %0) local_unnamed_addr #3 {

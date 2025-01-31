@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [1 x i32] zeroinitializer, align 4
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z15ExtractHardlinkP11CommandDataPwS1_m(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define noundef zeroext i1 @_Z15ExtractHardlinkP11CommandDataPwS1_m(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %class.uiMsgStore, align 8
   %6 = alloca %class.uiMsgStore, align 8
   %7 = alloca %class.uiMsgStore, align 8
@@ -126,7 +126,7 @@ declare i32 @link(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @_ZN12ErrorHandler9SysErrMsgEv(ptr noundef nonnull align 4 dereferenceable(14)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z17GetStreamNameNTFSR7ArchivePwm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57108) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @_Z17GetStreamNameNTFSR7ArchivePwm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57108) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [8192 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 39456
   %6 = load ptr, ptr %5, align 8
@@ -161,7 +161,7 @@ define void @_Z17GetStreamNameNTFSR7ArchivePwm(ptr nocapture noundef nonnull rea
 declare noundef ptr @_Z9RawToWidePKhPwm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare noundef zeroext i1 @_Z9UtfToWidePKcPwm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -310,13 +310,13 @@ _Z5uiMsgIJRA2048_wRPKwEEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %55
 declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @getpwnam(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef ptr @getpwnam(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 declare noundef ptr @_Z7GetWidePKc(ptr noundef) local_unnamed_addr #1
 
@@ -325,7 +325,7 @@ declare ptr @getgrnam(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @_Z11GetFileAttrPKw(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lchown(ptr nocapture noundef readonly, i32 noundef, i32 noundef) local_unnamed_addr #6
+declare noundef i32 @lchown(ptr noundef readonly captures(none), i32 noundef, i32 noundef) local_unnamed_addr #6
 
 declare noundef zeroext i1 @_Z11SetFileAttrPKwj(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -485,12 +485,12 @@ _Z5uiMsgIJRA2048_wRPKwEEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %60
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_Z14SetExtraInfo20P11CommandDataR7ArchivePw(ptr nocapture noundef readnone %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(57108) %1, ptr nocapture noundef readnone %2) local_unnamed_addr #7 {
+define void @_Z14SetExtraInfo20P11CommandDataR7ArchivePw(ptr noundef readnone captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(57108) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #7 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z12SetExtraInfoP11CommandDataR7ArchivePw(ptr nocapture noundef readonly %0, ptr noundef nonnull align 8 dereferenceable(57108) %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @_Z12SetExtraInfoP11CommandDataR7ArchivePw(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 dereferenceable(57108) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 58617
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
@@ -521,7 +521,7 @@ define void @_Z12SetExtraInfoP11CommandDataR7ArchivePw(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z18SetFileHeaderExtraP11CommandDataR7ArchivePw(ptr nocapture noundef readonly %0, ptr noundef nonnull align 8 dereferenceable(57108) %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @_Z18SetFileHeaderExtraP11CommandDataR7ArchivePw(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 dereferenceable(57108) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 57488
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -708,7 +708,7 @@ declare noundef zeroext i1 @_Z14IsFullRootPathPKw(ptr noundef) local_unnamed_add
 declare noundef zeroext i1 @_Z9IsPathDivi(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZL16CalcAllowedDepthPKw(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZL16CalcAllowedDepthPKw(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4
   %.not26 = icmp eq i32 %2, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph
@@ -801,13 +801,13 @@ define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZL16CalcAllowedDe
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @wcsncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z14ExtractSymlinkP11CommandDataR11ComprDataIOR7ArchivePKwRb(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(266) %1, ptr noundef nonnull align 8 dereferenceable(57108) %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %4) local_unnamed_addr #0 {
+define noundef zeroext i1 @_Z14ExtractSymlinkP11CommandDataR11ComprDataIOR7ArchivePKwRb(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(266) %1, ptr noundef nonnull align 8 dereferenceable(57108) %2, ptr noundef %3, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %4) local_unnamed_addr #0 {
   %6 = alloca [2048 x i8], align 16
   %7 = alloca [2048 x i32], align 16
   %8 = alloca [2048 x i8], align 16
@@ -1098,7 +1098,7 @@ declare noundef zeroext i1 @_ZN8DataHash3CmpEP9HashValuePh(ptr noundef nonnull a
 declare noundef zeroext i1 @_Z10IsFullPathPKw(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZL11UnixSymlinkP11CommandDataPKcPKwP7RarTimeS6_(i8 %.57431.val, ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #0 {
@@ -1230,7 +1230,7 @@ declare i32 @utimensat(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local
 declare void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare void @_Z14DosSlashToUnixPKcPcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1241,10 +1241,10 @@ declare i64 @llvm.umin.i64(i64, i64) #11
 declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

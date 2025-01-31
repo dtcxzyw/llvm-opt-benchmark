@@ -252,7 +252,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -489,7 +489,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, -2147483648) i32 @_ZN6icu_7511ICU_Utility12parseIntegerERKNS_13UnicodeStringERii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %rule, ptr nocapture noundef nonnull align 4 dereferenceable(4) %pos, i32 noundef %limit) local_unnamed_addr #1 align 2 {
+define noundef range(i32 0, -2147483648) i32 @_ZN6icu_7511ICU_Utility12parseIntegerERKNS_13UnicodeStringERii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %rule, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %pos, i32 noundef %limit) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %pos, align 4
   %cmp = icmp slt i32 %0, %limit
@@ -620,7 +620,7 @@ return:                                           ; preds = %if.end22, %while.en
 declare i32 @u_digit_75(i32 noundef, i8 noundef signext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7511ICU_Utility12parsePatternERKNS_13UnicodeStringEiiS3_Pi(ptr noundef nonnull align 8 dereferenceable(64) %rule, i32 noundef %pos, i32 noundef %limit, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %pattern, ptr nocapture noundef writeonly %parsedInts) local_unnamed_addr #1 align 2 {
+define noundef i32 @_ZN6icu_7511ICU_Utility12parsePatternERKNS_13UnicodeStringEiiS3_Pi(ptr noundef nonnull align 8 dereferenceable(64) %rule, i32 noundef %pos, i32 noundef %limit, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %pattern, ptr noundef writeonly captures(none) %parsedInts) local_unnamed_addr #1 align 2 {
 entry:
   %pos.addr = alloca i32, align 4
   %p = alloca i32, align 4
@@ -785,7 +785,7 @@ declare noundef i32 @_ZN6icu_7511ICU_Utility14skipWhitespaceERKNS_13UnicodeStrin
 declare i32 @u_tolower_75(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7511ICU_Utility22parseUnicodeIdentifierERKNS_13UnicodeStringERi(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %str, ptr nocapture noundef nonnull align 4 dereferenceable(4) %pos) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7511ICU_Utility22parseUnicodeIdentifierERKNS_13UnicodeStringERi(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %pos) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -914,7 +914,7 @@ declare signext i8 @u_isIDPart_75(i32 noundef) local_unnamed_addr #6
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, -2147483648) i32 @_ZN6icu_7511ICU_Utility11parseNumberERKNS_13UnicodeStringERia(ptr noundef nonnull align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 4 dereferenceable(4) %pos, i8 noundef signext %radix) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -1, -2147483648) i32 @_ZN6icu_7511ICU_Utility11parseNumberERKNS_13UnicodeStringERia(ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %pos, i8 noundef signext %radix) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %pos, align 4
   %fUnion.i.i = getelementptr inbounds nuw i8, ptr %text, i64 8

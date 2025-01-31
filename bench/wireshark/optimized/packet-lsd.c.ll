@@ -77,7 +77,7 @@ define hidden void @proto_reg_handoff_lsd() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_lsd_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_lsd_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %.thread [
@@ -264,7 +264,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_string_field(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull initializes((0, 4)) %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_string_field(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr noundef nonnull captures(none) initializes((0, 4)) %6) unnamed_addr #0 {
   %8 = tail call ptr @proto_registrar_get_nth(i32 noundef %1) #3
   %9 = tail call i32 @tvb_find_line_end(ptr noundef %3, i32 noundef %4, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 0) #3
   store i32 %9, ptr %6, align 4
@@ -277,7 +277,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_string_field(ptr noundef %0, i
   %14 = tail call ptr @tvb_get_string_enc(ptr noundef %13, ptr noundef %3, i32 noundef %4, i32 noundef %9, i32 noundef 0) #3
   %15 = load ptr, ptr %8, align 8
   %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #4
-  %17 = tail call i32 @g_ascii_strncasecmp(ptr noundef %14, ptr noundef %15, i64 noundef %16) #3
+  %17 = tail call i32 @g_ascii_strncasecmp(ptr noundef %14, ptr noundef nonnull %15, i64 noundef %16) #3
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %35
 
@@ -342,7 +342,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 declare ptr @proto_registrar_get_nth(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 

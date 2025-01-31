@@ -306,7 +306,7 @@ return:                                           ; preds = %sw.default2, %if.en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr13CIrrDeviceSDL27resetReceiveTextInputEventsEv(ptr nocapture noundef nonnull align 8 dereferenceable(452) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN3irr13CIrrDeviceSDL27resetReceiveTextInputEventsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(452) %this) local_unnamed_addr #1 align 2 {
 entry:
   %rect = alloca %struct.SDL_Rect, align 4
   %GUIEnvironment = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -392,19 +392,19 @@ if.end14:                                         ; preds = %if.else, %if.then9,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @SDL_IsTextInputActive() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @SDL_SetTextInputRect(ptr noundef) local_unnamed_addr #3
 
 declare void @SDL_StartTextInput() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @SDL_StopTextInput() local_unnamed_addr #3
 
@@ -13552,7 +13552,7 @@ _ZN3irr4core5arrayINS_13CIrrDeviceSDL7SKeyMapEE4sortEv.exit: ; preds = %if.then.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr13CIrrDeviceSDL12createWindowEv(ptr nocapture noundef nonnull align 8 dereferenceable(452) %this) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN3irr13CIrrDeviceSDL12createWindowEv(ptr noundef nonnull align 8 captures(none) dereferenceable(452) %this) local_unnamed_addr #1 align 2 {
 entry:
   %Fullscreen = getelementptr inbounds nuw i8, ptr %this, i64 146
   %0 = load i8, ptr %Fullscreen, align 2, !tbaa !818, !range !819, !noundef !820
@@ -14355,7 +14355,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr13CIrrDeviceSDL13logAttributesEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(452) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN3irr13CIrrDeviceSDL13logAttributesEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(452) %this) local_unnamed_addr #1 align 2 {
 entry:
   %sdl_attr = alloca %"class.irr::core::string", align 8
   %value = alloca i32, align 4
@@ -16486,7 +16486,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1) #21
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %source) #21, !noalias !901
   %add.ptr.i = getelementptr inbounds i8, ptr %source, i64 %call.i.i
-  call void @_ZNSt7__cxx1115wstring_convertISt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EEwSaIwESaIcEE10from_bytesEPKcS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string.19") align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(90) %conv, ptr noundef %source, ptr noundef %add.ptr.i)
+  call void @_ZNSt7__cxx1115wstring_convertISt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EEwSaIwESaIcEE10from_bytesEPKcS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string.19") align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(90) %conv, ptr noundef nonnull %source, ptr noundef nonnull %add.ptr.i)
   %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr %2, ptr %ref.tmp, align 8, !tbaa !875
   %3 = load ptr, ptr %ref.tmp1, align 8, !tbaa !881
@@ -17132,10 +17132,10 @@ declare ptr @SDL_JoystickOpen(i32 noundef) local_unnamed_addr #3
 declare ptr @SDL_JoystickName(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef float @_ZNK3irr13CIrrDeviceSDL17getDisplayDensityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(452) %this) unnamed_addr #1 align 2 {
+define noundef float @_ZNK3irr13CIrrDeviceSDL17getDisplayDensityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(452) %this) unnamed_addr #1 align 2 {
 entry:
   %window_w = alloca i32, align 4
   %window_h = alloca i32, align 4
@@ -17186,7 +17186,7 @@ declare void @SDL_GetWindowSize(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @SDL_GL_GetDrawableSize(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr13CIrrDeviceSDL10SwapWindowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(452) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN3irr13CIrrDeviceSDL10SwapWindowEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(452) %this) local_unnamed_addr #1 align 2 {
 entry:
   %Window = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load ptr, ptr %Window, align 8, !tbaa !35
@@ -17197,7 +17197,7 @@ entry:
 declare void @SDL_GL_SwapWindow(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr13CIrrDeviceSDL5yieldEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZN3irr13CIrrDeviceSDL5yieldEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @SDL_Delay(i32 noundef 0) #21
   ret void
@@ -17206,7 +17206,7 @@ entry:
 declare void @SDL_Delay(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr13CIrrDeviceSDL5sleepEjb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(452) %this, i32 noundef %timeMs, i1 noundef zeroext %pauseTimer) unnamed_addr #1 align 2 {
+define void @_ZN3irr13CIrrDeviceSDL5sleepEjb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(452) %this, i32 noundef %timeMs, i1 noundef zeroext %pauseTimer) unnamed_addr #1 align 2 {
 entry:
   %Timer = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %Timer, align 8, !tbaa !927
@@ -17245,7 +17245,7 @@ if.end16:                                         ; preds = %if.then12, %if.end.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr13CIrrDeviceSDL16setWindowCaptionEPKw(ptr nocapture noundef nonnull readonly align 8 dereferenceable(452) %this, ptr noundef %text) unnamed_addr #1 align 2 {
+define void @_ZN3irr13CIrrDeviceSDL16setWindowCaptionEPKw(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(452) %this, ptr noundef %text) unnamed_addr #1 align 2 {
 entry:
   %textc = alloca %"class.irr::core::string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %textc) #21
@@ -17447,7 +17447,7 @@ _ZNSt7__cxx1115wstring_convertISt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EEw
 declare void @SDL_SetWindowTitle(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr13CIrrDeviceSDL13setWindowIconEPKNS_5video6IImageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(452) %this, ptr noundef %img) unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN3irr13CIrrDeviceSDL13setWindowIconEPKNS_5video6IImageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(452) %this, ptr noundef %img) unnamed_addr #1 align 2 {
 entry:
   %Window = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load ptr, ptr %Window, align 8, !tbaa !35
@@ -17507,7 +17507,7 @@ declare void @SDL_FreeSurface(ptr noundef) local_unnamed_addr #3
 declare void @SDL_SetWindowIcon(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr13CIrrDeviceSDL11closeDeviceEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(452) initializes((232, 233)) %this) unnamed_addr #11 align 2 {
+define void @_ZN3irr13CIrrDeviceSDL11closeDeviceEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(452) initializes((232, 233)) %this) unnamed_addr #11 align 2 {
 entry:
   %Close = getelementptr inbounds nuw i8, ptr %this, i64 232
   store i8 1, ptr %Close, align 8, !tbaa !58
@@ -17515,7 +17515,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr13CIrrDeviceSDL12setResizableEb(ptr nocapture noundef nonnull align 8 dereferenceable(452) %this, i1 noundef zeroext %resize) unnamed_addr #1 align 2 {
+define void @_ZN3irr13CIrrDeviceSDL12setResizableEb(ptr noundef nonnull align 8 captures(none) dereferenceable(452) %this, i1 noundef zeroext %resize) unnamed_addr #1 align 2 {
 entry:
   %frombool = zext i1 %resize to i8
   %conv = zext i1 %resize to i32
@@ -17551,7 +17551,7 @@ if.end16:                                         ; preds = %if.end12, %entry
 declare void @SDL_SetWindowResizable(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr13CIrrDeviceSDL14minimizeWindowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(452) %this) unnamed_addr #1 align 2 {
+define void @_ZN3irr13CIrrDeviceSDL14minimizeWindowEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(452) %this) unnamed_addr #1 align 2 {
 entry:
   %Window = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load ptr, ptr %Window, align 8, !tbaa !35
@@ -17569,7 +17569,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @SDL_MinimizeWindow(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr13CIrrDeviceSDL14maximizeWindowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(452) %this) unnamed_addr #1 align 2 {
+define void @_ZN3irr13CIrrDeviceSDL14maximizeWindowEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(452) %this) unnamed_addr #1 align 2 {
 entry:
   %Window = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load ptr, ptr %Window, align 8, !tbaa !35
@@ -17587,13 +17587,13 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @SDL_MaximizeWindow(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN3irr13CIrrDeviceSDL17getWindowPositionEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define noundef i64 @_ZN3irr13CIrrDeviceSDL17getWindowPositionEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret i64 -1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr13CIrrDeviceSDL13restoreWindowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(452) %this) unnamed_addr #1 align 2 {
+define void @_ZN3irr13CIrrDeviceSDL13restoreWindowEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(452) %this) unnamed_addr #1 align 2 {
 entry:
   %Window = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load ptr, ptr %Window, align 8, !tbaa !35
@@ -17611,7 +17611,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @SDL_RestoreWindow(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK3irr13CIrrDeviceSDL17isWindowMaximizedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(452) %this) unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK3irr13CIrrDeviceSDL17isWindowMaximizedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(452) %this) unnamed_addr #1 align 2 {
 entry:
   %Window = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load ptr, ptr %Window, align 8, !tbaa !35
@@ -17641,7 +17641,7 @@ entry:
 declare noundef zeroext i1 @_ZNK3irr14CIrrDeviceStub12isFullscreenEv(ptr noundef nonnull align 8 dereferenceable(233)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK3irr13CIrrDeviceSDL14isWindowActiveEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(452) %this) unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK3irr13CIrrDeviceSDL14isWindowActiveEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(452) %this) unnamed_addr #1 align 2 {
 entry:
   %Window = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load ptr, ptr %Window, align 8, !tbaa !35
@@ -17652,7 +17652,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK3irr13CIrrDeviceSDL15isWindowFocusedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(452) %this) unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK3irr13CIrrDeviceSDL15isWindowFocusedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(452) %this) unnamed_addr #1 align 2 {
 entry:
   %Window = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load ptr, ptr %Window, align 8, !tbaa !35
@@ -17671,7 +17671,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK3irr13CIrrDeviceSDL17isWindowMinimizedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(452) %this) unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK3irr13CIrrDeviceSDL17isWindowMinimizedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(452) %this) unnamed_addr #1 align 2 {
 entry:
   %Window = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load ptr, ptr %Window, align 8, !tbaa !35
@@ -20207,7 +20207,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nounwind
 declare void @_ZNSt19__codecvt_utf8_baseIwED2Ev(ptr noundef nonnull align 8 dereferenceable(36)) unnamed_addr #6
@@ -20542,7 +20542,7 @@ declare ptr @wmemcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
@@ -20842,7 +20842,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(pt
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #17
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
@@ -20956,7 +20956,7 @@ if.end41:                                         ; preds = %_ZNSt12_Vector_base
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIN3irr13SJoystickInfoESaIS1_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #1 comdat align 2 {

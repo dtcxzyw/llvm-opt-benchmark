@@ -27,7 +27,7 @@ define dso_local ptr @makeStringInfo() local_unnamed_addr #0 {
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @initStringInfo(ptr nocapture noundef writeonly initializes((0, 20)) %0) local_unnamed_addr #0 {
+define dso_local void @initStringInfo(ptr noundef writeonly captures(none) initializes((0, 20)) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @palloc(i64 noundef 1024) #10
   store ptr %2, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -41,7 +41,7 @@ define dso_local void @initStringInfo(ptr nocapture noundef writeonly initialize
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @resetStringInfo(ptr nocapture noundef initializes((8, 12), (16, 20)) %0) local_unnamed_addr #2 {
+define dso_local void @resetStringInfo(ptr noundef captures(none) initializes((8, 12), (16, 20)) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   store i8 0, ptr %2, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -52,7 +52,7 @@ define dso_local void @resetStringInfo(ptr nocapture noundef initializes((8, 12)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @appendStringInfo(ptr nocapture noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
+define dso_local void @appendStringInfo(ptr noundef captures(none) %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = tail call ptr @__errno_location() #11
   %5 = load i32, ptr %4, align 4
@@ -113,7 +113,7 @@ appendStringInfoVA.exit:                          ; preds = %13
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @appendStringInfoVA(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @appendStringInfoVA(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -152,7 +152,7 @@ define dso_local i32 @appendStringInfoVA(ptr nocapture noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @enlargeStringInfo(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @enlargeStringInfo(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %4, label %7
 
@@ -207,7 +207,7 @@ define dso_local void @enlargeStringInfo(ptr nocapture noundef %0, i32 noundef %
 declare i64 @pvsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @appendStringInfoString(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @appendStringInfoString(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %4 = trunc i64 %3 to i32
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef %4)
@@ -218,7 +218,7 @@ define dso_local void @appendStringInfoString(ptr nocapture noundef %0, ptr noca
   %9 = getelementptr i8, ptr %5, i64 %8
   %sext = shl i64 %3, 32
   %10 = ashr exact i64 %sext, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr readonly align 1 %1, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr nonnull readonly align 1 %1, i64 %10, i1 false)
   %11 = load i32, ptr %6, align 8
   %12 = add i32 %11, %4
   store i32 %12, ptr %6, align 8
@@ -230,7 +230,7 @@ define dso_local void @appendStringInfoString(ptr nocapture noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @appendBinaryStringInfo(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @appendBinaryStringInfo(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef %2)
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -250,10 +250,10 @@ define dso_local void @appendBinaryStringInfo(ptr nocapture noundef %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @appendStringInfoChar(ptr nocapture noundef %0, i8 noundef signext %1) local_unnamed_addr #0 {
+define dso_local void @appendStringInfoChar(ptr noundef captures(none) %0, i8 noundef signext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, 1
@@ -311,7 +311,7 @@ enlargeStringInfo.exit:                           ; preds = %16, %13, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @appendStringInfoSpaces(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @appendStringInfoSpaces(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %4, label %16
 
@@ -338,13 +338,13 @@ define dso_local void @appendStringInfoSpaces(ptr nocapture noundef %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @appendBinaryStringInfoNT(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @appendBinaryStringInfoNT(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef %2)
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8

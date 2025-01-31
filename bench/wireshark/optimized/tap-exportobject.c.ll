@@ -30,7 +30,7 @@ define hidden void @eo_list_object_types() local_unnamed_addr #0 {
 declare void @eo_iterate_tables(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal noundef zeroext i1 @list_exportobject_protocol(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 {
+define internal noundef zeroext i1 @list_exportobject_protocol(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 {
   %4 = load ptr, ptr @stderr, align 8
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.4, ptr noundef %0) #8
   ret i1 false
@@ -112,7 +112,7 @@ declare ptr @g_strsplit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_add
 declare ptr @get_eo_by_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -141,7 +141,7 @@ define hidden void @start_exportobjects() local_unnamed_addr #0 {
 declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @exportobject_handler(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @exportobject_handler(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call ptr @get_eo_by_name(ptr noundef %0) #7
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
@@ -182,7 +182,7 @@ define internal void @exportobject_handler(ptr noundef %0, ptr nocapture readnon
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @object_list_add_entry(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal void @object_list_add_entry(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @g_slist_append(ptr noundef %3, ptr noundef %1) #7
   store ptr %4, ptr %0, align 8
@@ -190,7 +190,7 @@ define internal void @object_list_add_entry(ptr nocapture noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @object_list_get_entry(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
+define internal ptr @object_list_get_entry(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @g_slist_nth_data(ptr noundef %3, i32 noundef %1) #7
   ret ptr %4
@@ -203,7 +203,7 @@ declare ptr @get_eo_tap_listener_name(ptr noundef) local_unnamed_addr #1
 declare ptr @get_eo_packet_func(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @eo_draw(ptr nocapture noundef readonly %0) #0 {
+define internal void @eo_draw(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca [256 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -317,14 +317,14 @@ declare ptr @eo_massage_str(ptr noundef, i64 noundef, i32 noundef) local_unnamed
 declare ptr @eo_ct2ext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare noalias ptr @g_build_filename(ptr noundef, ...) local_unnamed_addr #1
 
 declare zeroext i1 @write_file_binary_mode(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

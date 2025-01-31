@@ -349,7 +349,7 @@ select.unfold:                                    ; preds = %118, %102
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 9) i32 @FileInStream_fmap_Read(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) #0 {
+define internal range(i32 0, 9) i32 @FileInStream_fmap_Read(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2) #0 {
   %4 = load i64, ptr %2, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %24, label %6
@@ -405,7 +405,7 @@ fmap_readn.exit:                                  ; preds = %.fmap_readn.exit_cr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @FileInStream_fmap_Seek(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) #1 {
+define internal range(i32 0, 2) i32 @FileInStream_fmap_Seek(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #1 {
   switch i32 %2, label %20 [
     i32 0, label %4
     i32 1, label %7
@@ -461,7 +461,7 @@ declare i32 @cli_checklimits(ptr noundef, ptr noundef, i64 noundef, i64 noundef,
 declare i64 @SzArEx_GetFileNameUtf16(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #2
 
@@ -482,7 +482,7 @@ declare i32 @cli_unlink(ptr noundef) local_unnamed_addr #2
 declare void @SzArEx_Free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @__lzma_wrap_alloc(ptr noundef, i64 noundef) #2
 

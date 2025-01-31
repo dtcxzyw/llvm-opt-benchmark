@@ -254,7 +254,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8proxygen2hq11getGreaseIdEm(ptr noalias nocapture writeonly sret(%"class.folly::Optional") align 8 initializes((0, 1), (8, 9)) %agg.result, i64 noundef %n) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq11getGreaseIdEm(ptr noalias writeonly sret(%"class.folly::Optional") align 8 captures(none) initializes((0, 1), (8, 9)) %agg.result, i64 noundef %n) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp ugt i64 %n, 148764065110560899
   br i1 %cmp, label %if.then, label %if.end
@@ -278,7 +278,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen2hq9parseDataERN5folly2io6CursorERKNS0_11FrameHeaderERSt10unique_ptrINS1_5IOBufESt14default_deleteIS9_EE(ptr noalias nocapture writeonly sret(%"class.folly::Optional.2") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %header, ptr nocapture noundef nonnull align 8 dereferenceable(8) %outBuf) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq9parseDataERN5folly2io6CursorERKNS0_11FrameHeaderERSt10unique_ptrINS1_5IOBufESt14default_deleteIS9_EE(ptr noalias writeonly sret(%"class.folly::Optional.2") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %header, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %outBuf) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %length18 = getelementptr inbounds nuw i8, ptr %header, i64 8
   %0 = load i64, ptr %length18, align 8
@@ -355,7 +355,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6s
 declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen2hq12parseHeadersERN5folly2io6CursorERKNS0_11FrameHeaderERSt10unique_ptrINS1_5IOBufESt14default_deleteIS9_EE(ptr noalias nocapture writeonly sret(%"class.folly::Optional.2") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %header, ptr nocapture noundef nonnull align 8 dereferenceable(8) %outBuf) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq12parseHeadersERN5folly2io6CursorERKNS0_11FrameHeaderERSt10unique_ptrINS1_5IOBufESt14default_deleteIS9_EE(ptr noalias writeonly sret(%"class.folly::Optional.2") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %header, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %outBuf) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %length18 = getelementptr inbounds nuw i8, ptr %header, i64 8
   %0 = load i64, ptr %length18, align 8
@@ -411,7 +411,7 @@ terminate.lpad:                                   ; preds = %if.then.i, %_ZN5fol
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen2hq15parseCancelPushERN5folly2io6CursorERKNS0_11FrameHeaderERm(ptr noalias nocapture writeonly sret(%"class.folly::Optional.2") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %header, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outPushId) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq15parseCancelPushERN5folly2io6CursorERKNS0_11FrameHeaderERm(ptr noalias writeonly sret(%"class.folly::Optional.2") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %header, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %outPushId) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %id.i = alloca %"class.folly::Optional.7", align 8
   %0 = getelementptr inbounds nuw i8, ptr %header, i64 8
@@ -466,7 +466,7 @@ _ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen2hq18decodeSettingValueERN5folly2io6CursorERmNS0_9SettingIdE(ptr noalias nocapture writeonly sret(%"class.folly::Expected") align 8 initializes((0, 1), (16, 17)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull align 8 dereferenceable(8) %frameLength, i64 noundef %settingId) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq18decodeSettingValueERN5folly2io6CursorERmNS0_9SettingIdE(ptr noalias writeonly sret(%"class.folly::Expected") align 8 captures(none) initializes((0, 1), (16, 17)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %frameLength, i64 noundef %settingId) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %settingValue = alloca %"class.folly::Optional.7", align 8
   %0 = load i64, ptr %frameLength, align 8
@@ -521,7 +521,7 @@ return:                                           ; preds = %sw.epilog, %sw.bb, 
 declare void @_ZN4quic17decodeQuicIntegerERN5folly2io6CursorEm(ptr sret(%"class.folly::Optional.7") align 8, ptr noundef nonnull align 8 dereferenceable(56), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen2hq13parseSettingsERN5folly2io6CursorERKNS0_11FrameHeaderERSt5dequeISt4pairINS0_9SettingIdEmESaISB_EE(ptr noalias nocapture writeonly sret(%"class.folly::Optional.2") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %header, ptr noundef nonnull align 8 dereferenceable(80) %settings) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq13parseSettingsERN5folly2io6CursorERKNS0_11FrameHeaderERSt5dequeISt4pairINS0_9SettingIdEmESaISB_EE(ptr noalias writeonly sret(%"class.folly::Optional.2") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %header, ptr noundef nonnull align 8 dereferenceable(80) %settings) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %settingValue.i = alloca %"class.folly::Optional.7", align 8
   %buf = alloca %"class.folly::IOBuf", align 8
@@ -663,7 +663,7 @@ declare void @_ZN5folly5IOBufC1Ev(ptr noundef nonnull align 8 dereferenceable(56
 declare void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen2hq16parsePushPromiseERN5folly2io6CursorERKNS0_11FrameHeaderERmRSt10unique_ptrINS1_5IOBufESt14default_deleteISA_EE(ptr noalias nocapture writeonly sret(%"class.folly::Optional.2") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %header, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outPushId, ptr nocapture noundef nonnull align 8 dereferenceable(8) %outBuf) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq16parsePushPromiseERN5folly2io6CursorERKNS0_11FrameHeaderERmRSt10unique_ptrINS1_5IOBufESt14default_deleteISA_EE(ptr noalias writeonly sret(%"class.folly::Optional.2") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %header, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %outPushId, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %outBuf) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %buf = alloca %"class.folly::IOBuf", align 8
   %pushId = alloca %"class.folly::Optional.7", align 8
@@ -747,7 +747,7 @@ terminate.lpad:                                   ; preds = %if.then.i, %_ZN5fol
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen2hq11parseGoawayERN5folly2io6CursorERKNS0_11FrameHeaderERm(ptr noalias nocapture writeonly sret(%"class.folly::Optional.2") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %header, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outStreamId) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq11parseGoawayERN5folly2io6CursorERKNS0_11FrameHeaderERm(ptr noalias writeonly sret(%"class.folly::Optional.2") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %header, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %outStreamId) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %id.i = alloca %"class.folly::Optional.7", align 8
   %0 = getelementptr inbounds nuw i8, ptr %header, i64 8
@@ -802,7 +802,7 @@ _ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen2hq14parseMaxPushIdERN5folly2io6CursorERKNS0_11FrameHeaderERm(ptr noalias nocapture writeonly sret(%"class.folly::Optional.2") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %header, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outPushId) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq14parseMaxPushIdERN5folly2io6CursorERKNS0_11FrameHeaderERm(ptr noalias writeonly sret(%"class.folly::Optional.2") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %header, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %outPushId) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %id.i = alloca %"class.folly::Optional.7", align 8
   %0 = getelementptr inbounds nuw i8, ptr %header, i64 8
@@ -857,7 +857,7 @@ _ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen2hq19parsePriorityUpdateERN5folly2io6CursorERKNS0_11FrameHeaderERmRNS_12HTTPPriorityE(ptr noalias nocapture writeonly sret(%"class.folly::Optional.2") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %header, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outId, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %priorityUpdate) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq19parsePriorityUpdateERN5folly2io6CursorERKNS0_11FrameHeaderERmRNS_12HTTPPriorityE(ptr noalias writeonly sret(%"class.folly::Optional.2") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %header, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %outId, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %priorityUpdate) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %id = alloca %"class.folly::Optional.7", align 8
   %buf = alloca %"class.std::unique_ptr", align 8
@@ -1007,7 +1007,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEm(ptr noalias nocapture writeonly sret(%"class.folly::Expected.14") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %queue, i64 noundef %type, i64 noundef %length) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS0_9FrameTypeEm(ptr noalias writeonly sret(%"class.folly::Expected.14") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %queue, i64 noundef %type, i64 noundef %length) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %appender = alloca %"class.folly::io::QueueAppender", align 8
   %appenderOp = alloca %class.anon, align 8
@@ -1369,7 +1369,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i.i48.invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN4quic17encodeQuicIntegerIZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS2_9FrameTypeEmE3$_0EENS3_8ExpectedImNS_18TransportErrorCodeEEEmT_"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, i64 noundef %value, ptr nocapture noundef nonnull %bufop) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN4quic17encodeQuicIntegerIZN8proxygen2hq16writeFrameHeaderERN5folly10IOBufQueueENS2_9FrameTypeEmE3$_0EENS3_8ExpectedImNS_18TransportErrorCodeEEEmT_"(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, i64 noundef %value, ptr noundef nonnull captures(none) %bufop) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %class.anon, align 8
   %agg.tmp4 = alloca %class.anon, align 8
@@ -2136,7 +2136,7 @@ _ZN5folly2io13QueueAppenderD2Ev.exit:             ; preds = %entry, %_ZNK5folly1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly2io13QueueAppenderD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2205,7 +2205,7 @@ _ZN5folly10IOBufQueue18WritableRangeCacheD2Ev.exit: ; preds = %entry, %_ZNK5foll
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE(ptr noalias nocapture writeonly sret(%"class.folly::Expected.14") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %queue, i64 noundef %type, ptr noundef %data) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq16writeSimpleFrameERN5folly10IOBufQueueENS0_9FrameTypeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE(ptr noalias writeonly sret(%"class.folly::Expected.14") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %queue, i64 noundef %type, ptr noundef %data) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %headerSize = alloca %"class.folly::Expected.14", align 8
   %0 = load ptr, ptr %data, align 8
@@ -2266,7 +2266,7 @@ declare noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonn
 declare void @_ZN5folly10IOBufQueue6appendEOSt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEbb(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen2hq9writeDataERN5folly10IOBufQueueESt10unique_ptrINS1_5IOBufESt14default_deleteIS5_EE(ptr noalias nocapture writeonly sret(%"class.folly::Expected.14") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %queue, ptr nocapture noundef %data) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq9writeDataERN5folly10IOBufQueueESt10unique_ptrINS1_5IOBufESt14default_deleteIS5_EE(ptr noalias writeonly sret(%"class.folly::Expected.14") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %queue, ptr noundef captures(none) %data) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %headerSize.i = alloca %"class.folly::Expected.14", align 8
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
@@ -2339,7 +2339,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen2hq12writeHeadersERN5folly10IOBufQueueESt10unique_ptrINS1_5IOBufESt14default_deleteIS5_EE(ptr noalias nocapture writeonly sret(%"class.folly::Expected.14") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %queue, ptr nocapture noundef %data) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq12writeHeadersERN5folly10IOBufQueueESt10unique_ptrINS1_5IOBufESt14default_deleteIS5_EE(ptr noalias writeonly sret(%"class.folly::Expected.14") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %queue, ptr noundef captures(none) %data) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %headerSize.i = alloca %"class.folly::Expected.14", align 8
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
@@ -2412,7 +2412,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEm(ptr noalias nocapture writeonly sret(%"class.folly::Expected.14") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %pushId) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq15writeCancelPushERN5folly10IOBufQueueEm(ptr noalias writeonly sret(%"class.folly::Expected.14") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %pushId) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %headerSize.i = alloca %"class.folly::Expected.14", align 8
   %agg.tmp.i = alloca %class.anon.18, align 8
@@ -3466,7 +3466,7 @@ _ZN5folly2io13QueueAppenderD2Ev.exit:             ; preds = %entry, %_ZNK5folly1
 declare void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EE(ptr noalias sret(%"class.folly::Expected.14") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %queue, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %settings) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS0_9SettingIdEmESaIS7_EE(ptr noalias sret(%"class.folly::Expected.14") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %queue, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %settings) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %idSize = alloca %"class.folly::Expected.14", align 8
   %headerSize = alloca %"class.folly::Expected.14", align 8
@@ -3980,7 +3980,7 @@ return:                                           ; preds = %if.end, %if.then.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN4quic17encodeQuicIntegerIZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS2_9SettingIdEmESaIS9_EEE3$_0EENS3_8ExpectedImNS_18TransportErrorCodeEEEmT_"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, i64 noundef %value, ptr nocapture noundef nonnull %bufop) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN4quic17encodeQuicIntegerIZN8proxygen2hq13writeSettingsERN5folly10IOBufQueueERKSt5dequeISt4pairINS2_9SettingIdEmESaIS9_EEE3$_0EENS3_8ExpectedImNS_18TransportErrorCodeEEEmT_"(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, i64 noundef %value, ptr noundef nonnull captures(none) %bufop) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %class.anon.20, align 8
   %agg.tmp4 = alloca %class.anon.20, align 8
@@ -4747,7 +4747,7 @@ _ZN5folly2io13QueueAppenderD2Ev.exit:             ; preds = %entry, %_ZNK5folly1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen2hq16writePushPromiseERN5folly10IOBufQueueEmSt10unique_ptrINS1_5IOBufESt14default_deleteIS5_EE(ptr noalias nocapture writeonly sret(%"class.folly::Expected.14") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %queue, i64 noundef %pushId, ptr nocapture noundef %data) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq16writePushPromiseERN5folly10IOBufQueueEmSt10unique_ptrINS1_5IOBufESt14default_deleteIS5_EE(ptr noalias writeonly sret(%"class.folly::Expected.14") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %queue, i64 noundef %pushId, ptr noundef captures(none) %data) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %pushIdSize = alloca %"class.folly::Expected.14", align 8
   %headerSize = alloca %"class.folly::Expected.14", align 8
@@ -5248,7 +5248,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i.i18.invo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEm(ptr noalias nocapture writeonly sret(%"class.folly::Expected.14") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %lastStreamId) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq11writeGoawayERN5folly10IOBufQueueEm(ptr noalias writeonly sret(%"class.folly::Expected.14") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %lastStreamId) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %headerSize.i = alloca %"class.folly::Expected.14", align 8
   %agg.tmp.i = alloca %class.anon.22, align 8
@@ -6295,7 +6295,7 @@ _ZN5folly2io13QueueAppenderD2Ev.exit:             ; preds = %entry, %_ZNK5folly1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEm(ptr noalias nocapture writeonly sret(%"class.folly::Expected.14") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %maxPushId) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq14writeMaxPushIdERN5folly10IOBufQueueEm(ptr noalias writeonly sret(%"class.folly::Expected.14") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %maxPushId) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %headerSize.i = alloca %"class.folly::Expected.14", align 8
   %agg.tmp.i = alloca %class.anon.23, align 8
@@ -7342,7 +7342,7 @@ _ZN5folly2io13QueueAppenderD2Ev.exit:             ; preds = %entry, %_ZNK5folly1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen2hq19writePriorityUpdateERN5folly10IOBufQueueEmNS1_5RangeIPKcEE(ptr noalias nocapture writeonly sret(%"class.folly::Expected.14") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %streamId, ptr %priorityUpdate.coerce0, ptr %priorityUpdate.coerce1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq19writePriorityUpdateERN5folly10IOBufQueueEmNS1_5RangeIPKcEE(ptr noalias writeonly sret(%"class.folly::Expected.14") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %streamId, ptr %priorityUpdate.coerce0, ptr %priorityUpdate.coerce1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %headerSize.i = alloca %"class.folly::Expected.14", align 8
   %streamIdSize = alloca %"class.folly::Expected.14", align 8
@@ -7991,7 +7991,7 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen2hq23writePushPriorityUpdateERN5folly10IOBufQueueEmNS1_5RangeIPKcEE(ptr noalias nocapture writeonly sret(%"class.folly::Expected.14") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %pushId, ptr %priorityUpdate.coerce0, ptr %priorityUpdate.coerce1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq23writePushPriorityUpdateERN5folly10IOBufQueueEmNS1_5RangeIPKcEE(ptr noalias writeonly sret(%"class.folly::Expected.14") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %pushId, ptr %priorityUpdate.coerce0, ptr %priorityUpdate.coerce1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %headerSize.i = alloca %"class.folly::Expected.14", align 8
   %streamIdSize = alloca %"class.folly::Expected.14", align 8
@@ -8640,7 +8640,7 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen2hq18writeStreamPrefaceERN5folly10IOBufQueueEm(ptr noalias nocapture writeonly sret(%"class.folly::Expected.14") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %streamPreface) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq18writeStreamPrefaceERN5folly10IOBufQueueEm(ptr noalias writeonly sret(%"class.folly::Expected.14") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %streamPreface) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %streamPrefaceSize = alloca %"class.folly::Expected.14", align 8
   %appender = alloca %"class.folly::io::QueueAppender", align 8
@@ -9222,7 +9222,7 @@ _ZN8proxygen2hq18getFrameTypeStringENS0_9FrameTypeE.exit: ; preds = %entry, %sw.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen2hq16writeGreaseFrameERN5folly10IOBufQueueE(ptr noalias nocapture writeonly sret(%"class.folly::Expected.14") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq16writeGreaseFrameERN5folly10IOBufQueueE(ptr noalias writeonly sret(%"class.folly::Expected.14") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.folly::ThreadLocalPRNG", align 1
   %frameTypeSize = alloca %"class.folly::Expected.14", align 8
@@ -9264,7 +9264,7 @@ terminate.lpad:                                   ; preds = %entry, %call.i.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen2hq20writeWTStreamPrefaceERN5folly10IOBufQueueENS0_22WebTransportStreamTypeEm(ptr noalias nocapture writeonly sret(%"class.folly::Expected.14") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i8 noundef zeroext %streamType, i64 noundef %wtSessionId) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq20writeWTStreamPrefaceERN5folly10IOBufQueueENS0_22WebTransportStreamTypeEm(ptr noalias writeonly sret(%"class.folly::Expected.14") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i8 noundef zeroext %streamType, i64 noundef %wtSessionId) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %_result = alloca %"struct.google::CheckOpString", align 8
   %ref.tmp = alloca i8, align 1
@@ -10160,10 +10160,10 @@ declare void @_ZN5folly5IOBufdlEPv(ptr noundef) local_unnamed_addr #1
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE11cloneAtMostERS4_m(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(56) %buf, i64 noundef %len) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -10579,7 +10579,7 @@ declare noundef ptr @_ZN5folly5IOBufnwEm(i64 noundef) local_unnamed_addr #0
 declare void @_ZNK5folly5IOBuf8cloneOneEv(ptr sret(%"class.std::unique_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 declare void @_ZNK5folly5IOBuf15cloneOneAsValueEv(ptr sret(%"class.folly::IOBuf") align 8, ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
 
@@ -10883,7 +10883,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: noreturn
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #17
@@ -11221,10 +11221,10 @@ __cxx_global_var_init.2.exit:                     ; preds = %__cxx_global_var_in
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23

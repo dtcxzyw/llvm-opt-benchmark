@@ -11,10 +11,10 @@ target triple = "x86_64-pc-linux-gnu"
 declare noalias noundef ptr @malloc(i64 noundef) #0
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) #1
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) #2
+declare void @free(ptr allocptr noundef captures(none)) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define double @SuiteSparse_hypot(double noundef %0, double noundef %1) #3 {
@@ -52,7 +52,7 @@ define double @SuiteSparse_hypot(double noundef %0, double noundef %1) #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @SuiteSparse_divcomplex(double noundef %0, double noundef %1, double noundef %2, double noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #4 {
+define range(i32 0, 2) i32 @SuiteSparse_divcomplex(double noundef %0, double noundef %1, double noundef %2, double noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) #4 {
   %7 = tail call double @llvm.fabs.f64(double %2)
   %8 = tail call double @llvm.fabs.f64(double %3)
   %9 = fcmp ult double %7, %8
@@ -111,7 +111,7 @@ define ptr @SuiteSparse_malloc(i64 noundef %0, i64 noundef %1) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @SuiteSparse_realloc(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) local_unnamed_addr #5 {
+define ptr @SuiteSparse_realloc(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) local_unnamed_addr #5 {
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %1, i64 1)
   %spec.store.select2 = tail call i64 @llvm.umax.i64(i64 %0, i64 1)
   %spec.store.select1 = tail call i64 @llvm.umax.i64(i64 %2, i64 1)
@@ -168,13 +168,13 @@ define noundef ptr @SuiteSparse_free(ptr noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SuiteSparse_tic(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #4 {
+define void @SuiteSparse_tic(ptr noundef writeonly captures(none) initializes((0, 16)) %0) local_unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define double @SuiteSparse_toc(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define double @SuiteSparse_toc(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load double, ptr %0, align 8
   %3 = fsub double 0.000000e+00, %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -219,7 +219,7 @@ declare i64 @llvm.umax.i64(i64, i64) #8
 declare double @llvm.sqrt.f64(double) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

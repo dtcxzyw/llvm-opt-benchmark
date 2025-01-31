@@ -44,7 +44,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ethnl_cable_
 @llvm.compiler.used = appending global [8 x ptr] [ptr @__UNIQUE_ID___addressable_ethnl_cable_test_alloc676, ptr @__UNIQUE_ID___addressable_ethnl_cable_test_amplitude681, ptr @__UNIQUE_ID___addressable_ethnl_cable_test_fault_length680, ptr @__UNIQUE_ID___addressable_ethnl_cable_test_finished678, ptr @__UNIQUE_ID___addressable_ethnl_cable_test_free677, ptr @__UNIQUE_ID___addressable_ethnl_cable_test_pulse682, ptr @__UNIQUE_ID___addressable_ethnl_cable_test_result679, ptr @__UNIQUE_ID___addressable_ethnl_cable_test_step683], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ethnl_act_cable_test(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @ethnl_act_cable_test(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.ethnl_req_info, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -123,10 +123,10 @@ define dso_local i32 @ethnl_act_cable_test(ptr nocapture noundef readnone %0, pt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @ethnl_parse_header_dev_get(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
@@ -200,10 +200,10 @@ define internal fastcc void @ethnl_cable_test_started(ptr noundef %0, i8 noundef
 declare dso_local void @rtnl_unlock() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ethnl_cable_test_alloc(ptr nocapture noundef initializes((1200, 1208)) %0, i8 noundef zeroext %1) #0 align 16 {
+define dso_local i32 @ethnl_cable_test_alloc(ptr noundef captures(none) initializes((1200, 1208)) %0, i8 noundef zeroext %1) #0 align 16 {
   %3 = alloca i8, align 1
   %4 = tail call ptr @__alloc_skb(i32 noundef 16404, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1200
@@ -274,7 +274,7 @@ declare dso_local ptr @ethnl_bcastmsg_put(ptr noundef, i8 noundef zeroext) local
 declare dso_local i32 @ethnl_fill_reply_header(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ethnl_cable_test_free(ptr nocapture noundef %0) #0 align 16 {
+define dso_local void @ethnl_cable_test_free(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   %3 = load ptr, ptr %2, align 8
   tail call void @kfree_skb_reason(ptr noundef %3, i32 noundef 2) #5
@@ -283,7 +283,7 @@ define dso_local void @ethnl_cable_test_free(ptr nocapture noundef %0) #0 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ethnl_cable_test_finished(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @ethnl_cable_test_finished(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1216
@@ -325,7 +325,7 @@ define dso_local void @ethnl_cable_test_finished(ptr nocapture noundef readonly 
 declare dso_local i32 @ethnl_multicast(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_result(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i8 noundef zeroext %2) #0 align 16 {
+define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_result(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, i8 noundef zeroext %2) #0 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1200
@@ -404,7 +404,7 @@ define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_result(ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_fault_length(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_fault_length(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, i32 noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1200
@@ -483,7 +483,7 @@ define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_fault_length(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ethnl_act_cable_test_tdr(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @ethnl_act_cable_test_tdr(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [5 x ptr], align 16
   %4 = alloca %struct.ethnl_req_info, align 8
   %5 = alloca %struct.phy_tdr_config, align 4
@@ -779,7 +779,7 @@ thread-pre-split:                                 ; preds = %145, %.thread23
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_amplitude(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i16 noundef signext %2) #0 align 16 {
+define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_amplitude(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, i16 noundef signext %2) #0 align 16 {
   %4 = alloca i16, align 2
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1200
@@ -858,7 +858,7 @@ define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_amplitude(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_pulse(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) #0 align 16 {
+define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_pulse(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1) #0 align 16 {
   %3 = alloca i16, align 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   %5 = load ptr, ptr %4, align 8
@@ -926,7 +926,7 @@ define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_pulse(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_step(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -90, 1) i32 @ethnl_cable_test_step(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

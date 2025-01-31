@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN8BitInputD1Ev = unnamed_addr alias void (ptr), ptr @_ZN8BitInputD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8BitInputC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 9), (16, 24)) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
+define void @_ZN8BitInputC2Eb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((8, 9), (16, 24)) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %3, align 8
   br i1 %1, label %4, label %6
@@ -28,10 +28,10 @@ define void @_ZN8BitInputC2Eb(ptr nocapture noundef nonnull writeonly align 8 de
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8BitInputD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 {
+define void @_ZN8BitInputD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -55,7 +55,7 @@ define void @_ZN8BitInputD2Ev(ptr nocapture noundef nonnull readonly align 8 der
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8BitInput8faddbitsEj(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define void @_ZN8BitInput8faddbitsEj(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, %1
@@ -69,7 +69,7 @@ define void @_ZN8BitInput8faddbitsEj(ptr nocapture noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 65536) i32 @_ZN8BitInput8fgetbitsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #6 align 2 {
+define noundef range(i32 0, 65536) i32 @_ZN8BitInput8fgetbitsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %0, align 8
@@ -86,7 +86,7 @@ define noundef range(i32 0, 65536) i32 @_ZN8BitInput8fgetbitsEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8BitInput17SetExternalBufferEPh(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN8BitInput17SetExternalBufferEPh(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null

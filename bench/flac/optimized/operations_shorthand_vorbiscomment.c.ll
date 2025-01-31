@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.23 = private unnamed_addr constant [42 x i8] c"%s: ERROR: can't open export file %s: %s\0A\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @do_shorthand_operation__vorbis_comment(ptr noundef %filename, i32 noundef %prefix_with_filename, ptr noundef %chain, ptr nocapture noundef readonly %operation, ptr nocapture noundef writeonly %needs_write, i32 noundef %raw) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @do_shorthand_operation__vorbis_comment(ptr noundef %filename, i32 noundef %prefix_with_filename, ptr noundef %chain, ptr noundef readonly captures(none) %operation, ptr noundef writeonly captures(none) %needs_write, i32 noundef %raw) local_unnamed_addr #0 {
 entry:
   %line.i = alloca [65536 x i8], align 16
   %violation.i = alloca ptr, align 8
@@ -245,7 +245,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %cond
   %21 = load i32, ptr %arrayidx39.i, align 8
   %22 = getelementptr inbounds nuw i8, ptr %arrayidx39.i, i64 8
   %23 = load ptr, ptr %22, align 8
-  %call42.i = tail call i32 @FLAC__metadata_object_vorbiscomment_entry_matches(i32 %21, ptr %23, ptr noundef %19, i32 noundef %cond.i) #10
+  %call42.i = tail call i32 @FLAC__metadata_object_vorbiscomment_entry_matches(i32 %21, ptr %23, ptr noundef nonnull %19, i32 noundef %cond.i) #10
   %tobool.not.i53 = icmp eq i32 %call42.i, 0
   br i1 %tobool.not.i53, label %for.cond20.i, label %if.else.i
 
@@ -556,7 +556,7 @@ declare void @write_vc_field(ptr noundef, ptr noundef, i32 noundef, ptr noundef)
 declare void @write_vc_fields(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @set_vc_field(ptr noundef %filename, ptr noundef %block, ptr nocapture noundef readonly %field, ptr nocapture noundef writeonly %needs_write, i32 noundef %raw) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @set_vc_field(ptr noundef %filename, ptr noundef %block, ptr noundef readonly captures(none) %field, ptr noundef writeonly captures(none) %needs_write, i32 noundef %raw) unnamed_addr #0 {
 entry:
   %entry1 = alloca %struct.FLAC__StreamMetadata_VorbisComment_Entry, align 8
   %converted = alloca ptr, align 8
@@ -725,7 +725,7 @@ if.end79:                                         ; preds = %if.else69.if.end79_
   %31 = phi ptr [ %28, %if.else62 ], [ %storemerge.pre, %if.else69.if.end79_crit_edge ]
   %call81 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #12
   %conv = trunc i64 %call81 to i32
-  %call84 = call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef %31, i32 noundef %conv) #10
+  %call84 = call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef nonnull %31, i32 noundef %conv) #10
   %tobool85.not = icmp eq i32 %call84, 0
   br i1 %tobool85.not, label %if.then86, label %if.end92
 
@@ -745,7 +745,7 @@ if.end89:                                         ; preds = %if.then88, %if.then
   br label %return
 
 if.end92:                                         ; preds = %if.end79
-  %call93 = call i32 @FLAC__metadata_object_vorbiscomment_append_comment(ptr noundef %block, i32 %conv, ptr %31, i32 noundef 1) #10
+  %call93 = call i32 @FLAC__metadata_object_vorbiscomment_append_comment(ptr noundef %block, i32 %conv, ptr nonnull %31, i32 noundef 1) #10
   %tobool94.not = icmp eq i32 %call93, 0
   br i1 %tobool94.not, label %if.then95, label %if.end100
 
@@ -791,10 +791,10 @@ return:                                           ; preds = %return.critedge, %i
 declare i32 @FLAC__metadata_object_vorbiscomment_resize_comments(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -813,10 +813,10 @@ declare i64 @grabbag__file_get_filesize(ptr noundef) local_unnamed_addr #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #5
@@ -825,10 +825,10 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #5
 declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @utf8_encode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -839,21 +839,21 @@ declare i32 @FLAC__metadata_object_vorbiscomment_append_comment(ptr noundef, i32
 declare i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare i32 @parse_vorbis_comment_field(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

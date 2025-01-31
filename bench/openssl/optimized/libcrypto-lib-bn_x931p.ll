@@ -99,7 +99,7 @@ if.end54:                                         ; preds = %if.end50
 
 for.cond:                                         ; preds = %if.end54, %if.end82
   %call59 = tail call i32 @BN_GENCB_call(ptr noundef %cb, i32 noundef 0, i32 noundef 1) #2
-  %call60 = tail call ptr @BN_copy(ptr noundef nonnull %call10, ptr noundef %p) #2
+  %call60 = tail call ptr @BN_copy(ptr noundef nonnull %call10, ptr noundef nonnull %p) #2
   %tobool61.not = icmp eq ptr %call60, null
   br i1 %tobool61.not, label %err, label %if.end63
 
@@ -119,7 +119,7 @@ if.end71:                                         ; preds = %if.end67
   br i1 %tobool73.not, label %if.end82, label %if.then74
 
 if.then74:                                        ; preds = %if.end71
-  %call75 = tail call i32 @BN_check_prime(ptr noundef %p, ptr noundef %ctx, ptr noundef %cb) #2
+  %call75 = tail call i32 @BN_check_prime(ptr noundef nonnull %p, ptr noundef %ctx, ptr noundef %cb) #2
   %cmp76 = icmp slt i32 %call75, 0
   br i1 %cmp76, label %err, label %if.end78
 
@@ -128,7 +128,7 @@ if.end78:                                         ; preds = %if.then74
   br i1 %tobool79.not, label %if.end82, label %for.end
 
 if.end82:                                         ; preds = %if.end78, %if.end71
-  %call83 = tail call i32 @BN_add(ptr noundef %p, ptr noundef %p, ptr noundef %call9) #2
+  %call83 = tail call i32 @BN_add(ptr noundef nonnull %p, ptr noundef nonnull %p, ptr noundef %call9) #2
   %tobool84.not = icmp eq i32 %call83, 0
   br i1 %tobool84.not, label %err, label %for.cond
 

@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [63 x i8] c"backend with PID %d did not terminate within %lld milliseconds\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_cancel_backend(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_cancel_backend(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -140,7 +140,7 @@ declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_terminate_backend(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_terminate_backend(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -249,7 +249,7 @@ pg_wait_until_termination.exit:                   ; preds = %25, %52, %50, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_reload_conf(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_reload_conf(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @PostmasterPid, align 4
   %3 = tail call i32 @kill(i32 noundef %2, i32 noundef 1) #8
   %.not = icmp eq i32 %3, 0
@@ -273,7 +273,7 @@ define dso_local range(i64 0, 2) i64 @pg_reload_conf(ptr nocapture noundef readn
 declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_rotate_logfile(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_rotate_logfile(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @superuser() #8
   br i1 %2, label %8, label %3
 
@@ -316,7 +316,7 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
 declare void @SendPostmasterSignal(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @pg_rotate_logfile_v2(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @pg_rotate_logfile_v2(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @Logging_collector, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %8, label %4

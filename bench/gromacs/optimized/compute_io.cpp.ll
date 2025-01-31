@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef double @_Z10compute_ioPK10t_inputreciRK16SimulationGroupsii(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(504) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define noundef double @_Z10compute_ioPK10t_inputreciRK16SimulationGroupsii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(504) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32

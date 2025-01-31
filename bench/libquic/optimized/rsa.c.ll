@@ -105,7 +105,7 @@ declare void @CRYPTO_MUTEX_cleanup(ptr noundef) local_unnamed_addr #2
 declare void @METHOD_unref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @RSA_additional_prime_free(ptr noundef %ap) #0 {
@@ -629,7 +629,7 @@ declare i32 @RSA_verify_raw(ptr noundef, ptr noundef, ptr noundef, i64 noundef, 
 declare i64 @rsa_default_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @RSA_is_opaque(ptr nocapture noundef readonly %rsa) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @RSA_is_opaque(ptr noundef readonly captures(none) %rsa) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %rsa, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -669,7 +669,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @RSA_get_ex_new_index(i64 noundef %argl, ptr noundef %argp, ptr nocapture noundef readnone %unused, ptr noundef %dup_func, ptr noundef %free_func) local_unnamed_addr #0 {
+define hidden i32 @RSA_get_ex_new_index(i64 noundef %argl, ptr noundef %argp, ptr noundef readnone captures(none) %unused, ptr noundef %dup_func, ptr noundef %free_func) local_unnamed_addr #0 {
 entry:
   %index = alloca i32, align 4
   %call = call i32 @CRYPTO_get_ex_new_index(ptr noundef nonnull @g_ex_data_class, ptr noundef nonnull %index, i64 noundef %argl, ptr noundef %argp, ptr noundef %dup_func, ptr noundef %free_func) #9
@@ -702,7 +702,7 @@ entry:
 declare ptr @CRYPTO_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @RSA_add_pkcs1_prefix(ptr nocapture noundef writeonly %out_msg, ptr nocapture noundef writeonly %out_msg_len, ptr nocapture noundef writeonly %is_alloced, i32 noundef %hash_nid, ptr noundef %msg, i64 noundef %msg_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @RSA_add_pkcs1_prefix(ptr noundef writeonly captures(none) %out_msg, ptr noundef writeonly captures(none) %out_msg_len, ptr noundef writeonly captures(none) %is_alloced, i32 noundef %hash_nid, ptr noundef %msg, i64 noundef %msg_len) local_unnamed_addr #0 {
 entry:
   switch i32 %hash_nid, label %for.cond [
     i32 114, label %if.then
@@ -780,7 +780,7 @@ return:                                           ; preds = %for.end, %if.end19,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @RSA_sign(i32 noundef %hash_nid, ptr noundef %in, i32 noundef %in_len, ptr noundef %out, ptr noundef %out_len, ptr noundef %rsa) local_unnamed_addr #0 {
@@ -986,7 +986,7 @@ return:                                           ; preds = %out, %if.then28, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @RSA_check_key(ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @RSA_check_key(ptr noundef readonly captures(none) %key) local_unnamed_addr #0 {
 entry:
   %n = alloca %struct.bignum_st, align 8
   %pm1 = alloca %struct.bignum_st, align 8
@@ -1305,7 +1305,7 @@ declare void @BN_free(ptr noundef) local_unnamed_addr #2
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @RSA_recover_crt_params(ptr nocapture noundef %rsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @RSA_recover_crt_params(ptr noundef captures(none) %rsa) local_unnamed_addr #0 {
 entry:
   %n = getelementptr inbounds nuw i8, ptr %rsa, i64 8
   %0 = load ptr, ptr %n, align 8
@@ -1670,13 +1670,13 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @rsa_default_private_transform(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @RSA_blinding_on(ptr nocapture noundef readnone %rsa, ptr nocapture noundef readnone %ctx) local_unnamed_addr #6 {
+define hidden noundef i32 @RSA_blinding_on(ptr noundef readnone captures(none) %rsa, ptr noundef readnone captures(none) %ctx) local_unnamed_addr #6 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8

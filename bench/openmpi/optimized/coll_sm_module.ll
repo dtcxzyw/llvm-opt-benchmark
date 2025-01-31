@@ -51,7 +51,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_mpi_byte = external global %struct.ompi_predefined_datatype_t, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @mca_coll_sm_module_construct(ptr nocapture noundef writeonly initializes((568, 576), (592, 593), (600, 624)) %0) #0 {
+define internal void @mca_coll_sm_module_construct(ptr noundef writeonly captures(none) initializes((568, 576), (592, 593), (600, 624)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 592
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 600
@@ -62,7 +62,7 @@ define internal void @mca_coll_sm_module_construct(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_coll_sm_module_destruct(ptr nocapture noundef %0) #1 {
+define internal void @mca_coll_sm_module_destruct(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -218,7 +218,7 @@ declare zeroext i1 @opal_output_check_verbosity(i32 noundef, i32 noundef) local_
 declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @mca_coll_sm_comm_query(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define noundef ptr @mca_coll_sm_comm_query(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -332,7 +332,7 @@ declare zeroext i1 @ompi_group_have_remote_peers(ptr noundef) local_unnamed_addr
 declare ptr @ompi_comm_print_cid(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @sm_module_enable(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal range(i32 -1, 1) i32 @sm_module_enable(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
@@ -373,7 +373,7 @@ declare i32 @mca_coll_sm_bcast_intra(ptr noundef, i32 noundef, ptr noundef, i32 
 declare i32 @mca_coll_sm_reduce_intra(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -3, 1) i32 @ompi_coll_sm_lazy_enable(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 -3, 1) i32 @ompi_coll_sm_lazy_enable(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.opal_shmem_ds_t, align 8
   %5 = getelementptr i8, ptr %1, i64 220
@@ -1081,7 +1081,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %360, %362
 
 406:                                              ; preds = %401
   %407 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_base_framework, i64 76), align 4
-  %408 = call ptr @ompi_comm_print_cid(ptr noundef %1) #8
+  %408 = call ptr @ompi_comm_print_cid(ptr noundef nonnull %1) #8
   %409 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %410 = load ptr, ptr %409, align 8
   %411 = load ptr, ptr %35, align 8
@@ -1096,7 +1096,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %360, %362
 
 416:                                              ; preds = %413
   %417 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_base_framework, i64 76), align 4
-  %418 = call ptr @ompi_comm_print_cid(ptr noundef %1) #8
+  %418 = call ptr @ompi_comm_print_cid(ptr noundef nonnull %1) #8
   %419 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %420 = load ptr, ptr %419, align 8
   call void (i32, ptr, ...) @opal_output(i32 noundef %417, ptr noundef nonnull @.str.9, ptr noundef %418, ptr noundef %420) #8
@@ -1111,20 +1111,20 @@ opal_thread_add_fetch_32.exit:                    ; preds = %360, %362
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @opal_hwloc_base_memory_set(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @opal_progress() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_coll_sm_module_disable(ptr nocapture noundef %0, ptr nocapture readnone %1) #1 {
+define internal noundef i32 @mca_coll_sm_module_disable(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1209,10 +1209,10 @@ declare ptr @mca_common_sm_module_attach(ptr noundef, i64 noundef, i64 noundef) 
 declare ptr @ompi_proc_for_name(i64) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -2124,7 +2124,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_Z31parse_smt2_commands_with_parserRPN4smt26parserER11cmd_contextRSibRK10params_refPKc(ptr nocapture noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull align 8 dereferenceable(16) %is, i1 noundef zeroext %interactive, ptr noundef nonnull align 8 dereferenceable(8) %ps, ptr noundef %filename) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_Z31parse_smt2_commands_with_parserRPN4smt26parserER11cmd_contextRSibRK10params_refPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %p, ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull align 8 dereferenceable(16) %is, i1 noundef zeroext %interactive, ptr noundef nonnull align 8 dereferenceable(8) %ps, ptr noundef %filename) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %p, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -3157,7 +3157,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 declare void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
@@ -3949,7 +3949,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -5047,7 +5047,7 @@ if.end:                                           ; preds = %entry, %_ZN4smt26pa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN4smt26parser12parse_assertEv(ptr noundef nonnull align 8 dereferenceable(2168) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5810,7 +5810,7 @@ call3.i.noexc:                                    ; preds = %call2.i85.noexc
 invoke.cont26:                                    ; preds = %call3.i.noexc
   %.pre = load i32, ptr %m_curr.i, align 8
   switch i32 %.pre, label %sw.epilog.i.i95 [
-    i32 9, label %invoke.cont27
+    i32 9, label %if.then.i.i.i109
     i32 1, label %sw.epilog.sink.split.i.i91
     i32 2, label %sw.bb2.i.i90
   ]
@@ -5843,12 +5843,9 @@ _ZN4smt26parser4scanEv.exit.i100:                 ; preds = %if.end.i.i.i.i.i98,
 
 call3.i.i.i104.noexc:                             ; preds = %_ZN4smt26parser4scanEv.exit.i100
   store i32 %call3.i.i.i104106, ptr %m_curr.i, align 8
-  br label %invoke.cont27
+  br label %if.then.i.i.i109
 
-invoke.cont27:                                    ; preds = %call3.i.i.i104.noexc, %invoke.cont26
-  br i1 %tobool.not.i, label %_ZN7obj_refI9func_decl11ast_managerED2Ev.exit, label %if.then.i.i.i109
-
-if.then.i.i.i109:                                 ; preds = %invoke.cont27
+if.then.i.i.i109:                                 ; preds = %invoke.cont26, %call3.i.i.i104.noexc
   %m_ref_count.i.i.i.i111 = getelementptr inbounds nuw i8, ptr %call.i49, i64 8
   %62 = load i32, ptr %m_ref_count.i.i.i.i111, align 4
   %dec.i.i.i.i112 = add i32 %62, -1
@@ -5867,7 +5864,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i115
   call void @__clang_call_terminate(ptr %64) #23
   unreachable
 
-_ZN7obj_refI9func_decl11ast_managerED2Ev.exit:    ; preds = %invoke.cont27, %if.then.i.i.i109, %if.then2.i.i.i115
+_ZN7obj_refI9func_decl11ast_managerED2Ev.exit:    ; preds = %if.then.i.i.i109, %if.then2.i.i.i115
   ret void
 
 lpad.loopexit:                                    ; preds = %if.then2.i.i.i.i.i
@@ -6189,7 +6186,7 @@ call3.i.noexc:                                    ; preds = %call2.i.noexc58
 invoke.cont19:                                    ; preds = %call3.i.noexc
   %.pre = load i32, ptr %m_curr.i, align 8
   switch i32 %.pre, label %sw.epilog.i.i68 [
-    i32 9, label %invoke.cont20
+    i32 9, label %if.then.i.i.i81
     i32 1, label %sw.epilog.sink.split.i.i64
     i32 2, label %sw.bb2.i.i63
   ]
@@ -6223,12 +6220,9 @@ _ZN4smt26parser4scanEv.exit.i73:                  ; preds = %if.end.i.i.i.i.i71,
 
 call3.i.i.i77.noexc:                              ; preds = %_ZN4smt26parser4scanEv.exit.i73
   store i32 %call3.i.i.i7779, ptr %m_curr.i, align 8
-  br label %invoke.cont20
+  br label %if.then.i.i.i81
 
-invoke.cont20:                                    ; preds = %call3.i.i.i77.noexc, %invoke.cont19
-  br i1 %tobool.not.i, label %_ZN7obj_refI9func_decl11ast_managerED2Ev.exit, label %if.then.i.i.i81
-
-if.then.i.i.i81:                                  ; preds = %invoke.cont20
+if.then.i.i.i81:                                  ; preds = %invoke.cont19, %call3.i.i.i77.noexc
   %m_ref_count.i.i.i.i83 = getelementptr inbounds nuw i8, ptr %call.i.i22, i64 8
   %50 = load i32, ptr %m_ref_count.i.i.i.i83, align 4
   %dec.i.i.i.i84 = add i32 %50, -1
@@ -6247,7 +6241,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i87
   call void @__clang_call_terminate(ptr %52) #23
   unreachable
 
-_ZN7obj_refI9func_decl11ast_managerED2Ev.exit:    ; preds = %invoke.cont20, %if.then.i.i.i81, %if.then2.i.i.i87
+_ZN7obj_refI9func_decl11ast_managerED2Ev.exit:    ; preds = %if.then.i.i.i81, %if.then2.i.i.i87
   ret void
 
 lpad:                                             ; preds = %_ZN4smt26parser4scanEv.exit.i73, %call3.i.noexc, %call2.i.noexc58, %if.then.i57, %invoke.cont.i53, %invoke.cont14, %if.then2.i.i.i.i, %if.then.i.i33, %call2.i.noexc34, %if.then.i29, %invoke.cont6, %if.then.i.i, %call2.i.noexc, %if.then.i19, %_ZN4smt26parser4nextEv.exit17
@@ -39804,7 +39798,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
@@ -44443,10 +44437,10 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #16
 declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19

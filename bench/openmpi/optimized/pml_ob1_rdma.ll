@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_leave_pinned = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -2147483648, 2147483648) i64 @mca_pml_ob1_rdma_btls(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i64 -2147483648, 2147483648) i64 @mca_pml_ob1_rdma_btls(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 184
   %.val = load i64, ptr %5, align 8
   %6 = trunc i64 %.val to i32
@@ -250,7 +250,7 @@ mca_pml_ob1_calc_weighted_length.exit:            ; preds = %79, %._crit_edge.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define range(i64 0, 2147483648) i64 @mca_pml_ob1_rdma_pipeline_btls_count(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define range(i64 0, 2147483648) i64 @mca_pml_ob1_rdma_pipeline_btls_count(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 184
   %.val21 = load i64, ptr %2, align 8
   %3 = trunc i64 %.val21 to i32
@@ -405,7 +405,7 @@ mca_bml_base_btl_array_get_index.exit._crit_edge: ; preds = %50, %mca_bml_base_b
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i64 -2147483648, 2147483648) i64 @mca_pml_ob1_rdma_pipeline_btls(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i64 -2147483648, 2147483648) i64 @mca_pml_ob1_rdma_pipeline_btls(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr i8, ptr %0, i64 184
   %.val33 = load i64, ptr %4, align 8
   %5 = trunc i64 %.val33 to i32
@@ -634,7 +634,7 @@ mca_pml_ob1_calc_weighted_length.exit:            ; preds = %77, %._crit_edge.i
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @mca_pml_ob1_com_btl_comp(ptr noundef, ptr noundef) #4
 

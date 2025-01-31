@@ -250,12 +250,12 @@ list_length.exit:                                 ; preds = %3, %8
 
 122:                                              ; preds = %._crit_edge122, %121, %96
   %.0 = phi ptr [ %100, %96 ], [ %107, %121 ], [ %107, %._crit_edge122 ]
-  call void @ExecInitScanTupleSlot(ptr noundef %1, ptr noundef %12, ptr noundef %.0, ptr noundef nonnull @TTSOpsMinimalTuple) #5
-  call void @ExecInitResultTypeTL(ptr noundef %12) #5
-  call void @ExecAssignScanProjectionInfo(ptr noundef %12) #5
+  call void @ExecInitScanTupleSlot(ptr noundef %1, ptr noundef nonnull %12, ptr noundef %.0, ptr noundef nonnull @TTSOpsMinimalTuple) #5
+  call void @ExecInitResultTypeTL(ptr noundef nonnull %12) #5
+  call void @ExecAssignScanProjectionInfo(ptr noundef nonnull %12) #5
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %124 = load ptr, ptr %123, align 8
-  %125 = call ptr @ExecInitQual(ptr noundef %124, ptr noundef %12) #5
+  %125 = call ptr @ExecInitQual(ptr noundef %124, ptr noundef nonnull %12) #5
   %126 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store ptr %125, ptr %126, align 8
   %127 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -315,7 +315,7 @@ declare ptr @ExecInitQual(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecEndFunctionScan(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExecEndFunctionScan(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -511,7 +511,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 declare ptr @ExecScan(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @FunctionNext(ptr nocapture noundef %0) #0 {
+define internal ptr @FunctionNext(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -773,7 +773,7 @@ slot_getallattrs.exit:                            ; preds = %111, %119
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @FunctionRecheck(ptr nocapture readnone %0, ptr nocapture readnone %1) #3 {
+define internal noundef zeroext i1 @FunctionRecheck(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #3 {
   ret i1 true
 }
 

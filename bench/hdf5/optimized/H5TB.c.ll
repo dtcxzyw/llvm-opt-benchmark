@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [4 x i8] c"new\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5TBmake_table(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef readonly %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, i64 noundef %9, ptr noundef %10, i32 noundef %11, ptr noundef %12) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5TBmake_table(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef readonly %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8, i64 noundef %9, ptr noundef %10, i32 noundef %11, ptr noundef %12) local_unnamed_addr #0 {
   %14 = alloca [1 x i64], align 8
   %15 = alloca [1 x i64], align 8
   %16 = alloca [1 x i64], align 8
@@ -299,7 +299,7 @@ declare i32 @H5LTset_attribute_string(i64 noundef, ptr noundef, ptr noundef, ptr
 declare ptr @H5Tget_member_name(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare i32 @H5free_memory(ptr noundef) local_unnamed_addr #1
 
@@ -316,7 +316,7 @@ declare i32 @H5Aclose(i64 noundef) local_unnamed_addr #1
 declare i32 @H5Tclose(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5TBappend_records(i64 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5TBappend_records(i64 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = icmp eq ptr %1, null
@@ -477,7 +477,7 @@ define range(i32 -1, 1) i32 @H5TBget_table_info(i64 noundef %0, ptr noundef %1, 
 declare i64 @H5Dget_type(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5TB_create_type(i64 noundef %0, ptr noundef nonnull %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i64 noundef range(i64 0, -9223372036854775808) %5) unnamed_addr #0 {
+define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5TB_create_type(i64 noundef %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i64 noundef range(i64 0, -9223372036854775808) %5) unnamed_addr #0 {
   %7 = tail call i64 @H5Dopen2(i64 noundef %0, ptr noundef nonnull %1, i64 noundef 0) #11
   %8 = icmp slt i64 %7, 0
   br i1 %8, label %.thread105, label %9
@@ -741,7 +741,7 @@ define range(i32 -1, 1) i32 @H5TB_common_append_records(i64 noundef %0, i64 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5TBwrite_records(i64 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr noundef %7) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5TBwrite_records(i64 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca [1 x i64], align 8
   %10 = alloca [1 x i64], align 8
   %11 = alloca [1 x i64], align 8
@@ -862,7 +862,7 @@ declare i32 @H5Sget_simple_extent_dims(i64 noundef, ptr noundef, ptr noundef) lo
 declare i32 @H5Sselect_hyperslab(i64 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5TBwrite_fields_name(i64 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef readonly %6, ptr nocapture noundef readonly %7, ptr noundef %8) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5TBwrite_fields_name(i64 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef readonly %6, ptr noundef readonly captures(none) %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca i64, align 8
   %11 = alloca [1 x i64], align 8
   %12 = alloca [1 x i64], align 8
@@ -1146,7 +1146,7 @@ declare i32 @H5Pset_preserve(i64 noundef, i1 noundef zeroext) local_unnamed_addr
 declare i32 @H5Tget_nmembers(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @H5TB_find_field(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull %1) unnamed_addr #3 {
+define internal fastcc zeroext i1 @H5TB_find_field(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #3 {
   %strchr20 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 44)
   %.not21 = icmp eq ptr %strchr20, null
   br i1 %.not21, label %._crit_edge, label %.lr.ph
@@ -1193,7 +1193,7 @@ declare i64 @H5Tget_size(i64 noundef) local_unnamed_addr #1
 declare i32 @H5Tset_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5TBwrite_fields_index(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef readonly %7, ptr nocapture noundef readonly %8, ptr noundef %9) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5TBwrite_fields_index(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef readonly %7, ptr noundef readonly captures(none) %8, ptr noundef %9) local_unnamed_addr #0 {
   %11 = alloca i64, align 8
   %12 = alloca [1 x i64], align 8
   %13 = alloca [1 x i64], align 8
@@ -1487,7 +1487,7 @@ define range(i32 -1, 1) i32 @H5TBwrite_fields_index(i64 noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5TBread_table(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5TBread_table(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca [1 x i64], align 8
   %8 = icmp eq ptr %1, null
   br i1 %8, label %.thread.thread.thread.thread, label %9
@@ -1570,7 +1570,7 @@ define range(i32 -1, 1) i32 @H5TBread_table(i64 noundef %0, ptr noundef %1, i64 
 declare i32 @H5Dread(i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5TBread_records(i64 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr noundef %7) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5TBread_records(i64 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = icmp eq ptr %1, null
@@ -1692,7 +1692,7 @@ define range(i32 -1, 1) i32 @H5TB_common_read_records(i64 noundef %0, i64 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5TBread_fields_name(i64 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef readonly %6, ptr nocapture noundef readonly %7, ptr noundef %8) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5TBread_fields_name(i64 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef readonly %6, ptr noundef readonly captures(none) %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca [1 x i64], align 8
   %11 = alloca [1 x i64], align 8
   %12 = alloca [1 x i64], align 8
@@ -1981,7 +1981,7 @@ define range(i32 -1, 1) i32 @H5TBread_fields_name(i64 noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5TBread_fields_index(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef readonly %7, ptr nocapture noundef readonly %8, ptr noundef %9) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5TBread_fields_index(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef readonly %7, ptr noundef readonly captures(none) %8, ptr noundef %9) local_unnamed_addr #0 {
   %11 = alloca [1 x i64], align 8
   %12 = alloca [1 x i64], align 8
   %13 = alloca [1 x i64], align 8
@@ -2766,10 +2766,10 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare i32 @H5Dset_extent(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5TBinsert_record(i64 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr noundef %7) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5TBinsert_record(i64 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca [1 x i64], align 8
@@ -3935,22 +3935,22 @@ define range(i32 -1, 1) i32 @H5TBinsert_field(i64 noundef %0, ptr noundef %1, pt
 
 142:                                              ; preds = %139, %135
   %.1169 = phi i64 [ %137, %139 ], [ -1, %135 ]
-  %143 = call i32 @H5Ldelete(i64 noundef %0, ptr noundef %1, i64 noundef 0) #11
+  %143 = call i32 @H5Ldelete(i64 noundef %0, ptr noundef nonnull %1, i64 noundef 0) #11
   %144 = icmp slt i32 %143, 0
   br i1 %144, label %.thread316.thread405, label %145
 
 145:                                              ; preds = %142
-  %146 = call i32 @H5Lmove(i64 noundef %0, ptr noundef nonnull @.str.8, i64 noundef 0, ptr noundef %1, i64 noundef 0, i64 noundef 0) #11
+  %146 = call i32 @H5Lmove(i64 noundef %0, ptr noundef nonnull @.str.8, i64 noundef 0, ptr noundef nonnull %1, i64 noundef 0, i64 noundef 0) #11
   %147 = icmp slt i32 %146, 0
   br i1 %147, label %.thread316.thread405, label %148
 
 148:                                              ; preds = %145
-  %149 = call i32 @H5TBget_table_info(i64 noundef %0, ptr noundef %1, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %149 = call i32 @H5TBget_table_info(i64 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %150 = icmp slt i32 %149, 0
   br i1 %150, label %.thread316.thread405, label %151
 
 151:                                              ; preds = %148
-  %152 = call i64 @H5Dopen2(i64 noundef %0, ptr noundef %1, i64 noundef 0) #11
+  %152 = call i64 @H5Dopen2(i64 noundef %0, ptr noundef nonnull %1, i64 noundef 0) #11
   %153 = icmp slt i64 %152, 0
   br i1 %153, label %.thread316.thread405, label %154
 
@@ -4575,22 +4575,22 @@ define range(i32 -1, 1) i32 @H5TBdelete_field(i64 noundef %0, ptr noundef %1, pt
   br i1 %174, label %.lr.ph718, label %._crit_edge719
 
 ._crit_edge719:                                   ; preds = %170, %.preheader696
-  %175 = call i32 @H5Ldelete(i64 noundef %0, ptr noundef %1, i64 noundef 0) #11
+  %175 = call i32 @H5Ldelete(i64 noundef %0, ptr noundef nonnull %1, i64 noundef 0) #11
   %176 = icmp slt i32 %175, 0
   br i1 %176, label %.thread279, label %177
 
 177:                                              ; preds = %._crit_edge719
-  %178 = call i32 @H5Lmove(i64 noundef %0, ptr noundef nonnull @.str.8, i64 noundef 0, ptr noundef %1, i64 noundef 0, i64 noundef 0) #11
+  %178 = call i32 @H5Lmove(i64 noundef %0, ptr noundef nonnull @.str.8, i64 noundef 0, ptr noundef nonnull %1, i64 noundef 0, i64 noundef 0) #11
   %179 = icmp slt i32 %178, 0
   br i1 %179, label %.thread279, label %180
 
 180:                                              ; preds = %177
-  %181 = call i32 @H5TBget_table_info(i64 noundef %0, ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %181 = call i32 @H5TBget_table_info(i64 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %182 = icmp slt i32 %181, 0
   br i1 %182, label %.thread279, label %183
 
 183:                                              ; preds = %180
-  %184 = call i64 @H5Dopen2(i64 noundef %0, ptr noundef %1, i64 noundef 0) #11
+  %184 = call i64 @H5Dopen2(i64 noundef %0, ptr noundef nonnull %1, i64 noundef 0) #11
   %185 = icmp slt i64 %184, 0
   br i1 %185, label %.thread279, label %186
 
@@ -4930,13 +4930,13 @@ declare i32 @H5Aexists(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @H5LT_get_attribute_disk(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr, i32) local_unnamed_addr #9

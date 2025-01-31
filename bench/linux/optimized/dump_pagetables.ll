@@ -224,10 +224,10 @@ define dso_local void @ptdump_walk_pgd_level_debugfs(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ptdump_walk_user_pgd_level_checkwx() local_unnamed_addr #0 align 16 {
@@ -377,10 +377,10 @@ define internal noundef i32 @pt_dump_init() #4 section ".init.text" align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef %3) #0 align 16 {
+define internal void @note_page(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2, i64 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load ptr, ptr %5, align 8
   %7 = and i64 %3, -4503599627366401
@@ -974,7 +974,7 @@ define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @effective_prot(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2) #6 align 16 {
+define internal void @effective_prot(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2) #6 align 16 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %5, label %16
 

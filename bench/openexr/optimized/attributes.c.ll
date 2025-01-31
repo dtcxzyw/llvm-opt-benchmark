@@ -61,7 +61,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.50 = private unnamed_addr constant [47 x i8] c"Invalid / unimplemented type (%s) in attr_init\00", align 1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @internal_exr_is_standard_type(ptr nocapture noundef readonly %typen) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @internal_exr_is_standard_type(ptr noundef readonly captures(none) %typen) local_unnamed_addr #0 {
 entry:
   br label %for.body
 
@@ -84,7 +84,7 @@ return:                                           ; preds = %for.cond, %for.body
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @exr_attr_list_destroy(ptr noundef %ctxt, ptr noundef %list) local_unnamed_addr #2 {
@@ -145,7 +145,7 @@ return:                                           ; preds = %if.end, %if.end10, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @attr_destroy(ptr noundef nonnull %ctxt, ptr noundef %attr) unnamed_addr #2 {
@@ -206,7 +206,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb9, %sw
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @exr_attr_list_compute_size(ptr noundef %ctxt, ptr noundef readonly %list, ptr noundef writeonly %out) local_unnamed_addr #2 {
@@ -684,7 +684,7 @@ if.then26:                                        ; preds = %if.end20
   %print_error27 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %7 = load ptr, ptr %print_error27, align 8
   %conv28 = trunc i64 %call21 to i32
-  %call29 = tail call i32 (ptr, i32, ptr, ...) %7(ptr noundef nonnull %ctxt, i32 noundef 12, ptr noundef nonnull @.str.8, ptr noundef %name, i32 noundef %conv28, i32 noundef %conv22) #8
+  %call29 = tail call i32 (ptr, i32, ptr, ...) %7(ptr noundef nonnull %ctxt, i32 noundef 12, ptr noundef nonnull @.str.8, ptr noundef nonnull %name, i32 noundef %conv28, i32 noundef %conv22) #8
   br label %return
 
 if.end30:                                         ; preds = %if.end20
@@ -720,7 +720,7 @@ for.body:                                         ; preds = %if.end40, %for.cond
 if.then54:                                        ; preds = %for.body
   %exp_size = getelementptr inbounds nuw i8, ptr %arrayidx44, i64 16
   %10 = load i64, ptr %exp_size, align 8
-  %call55 = call fastcc i32 @create_attr_block(ptr noundef %ctxt, ptr noundef %nattr, i64 noundef %10, i32 noundef %data_len, ptr noundef %data_ptr, ptr noundef %name, i32 noundef %conv31, ptr noundef null, i32 noundef 0)
+  %call55 = call fastcc i32 @create_attr_block(ptr noundef %ctxt, ptr noundef %nattr, i64 noundef %10, i32 noundef %data_len, ptr noundef %data_ptr, ptr noundef nonnull %name, i32 noundef %conv31, ptr noundef null, i32 noundef 0)
   %cmp56 = icmp eq i32 %call55, 0
   br i1 %cmp56, label %if.then58, label %if.else80
 
@@ -738,7 +738,7 @@ if.then58:                                        ; preds = %if.then54
   br label %if.end76
 
 if.else:                                          ; preds = %for.cond
-  %call65 = call fastcc i32 @create_attr_block(ptr noundef %ctxt, ptr noundef %nattr, i64 noundef 56, i32 noundef %data_len, ptr noundef %data_ptr, ptr noundef %name, i32 noundef %conv31, ptr noundef nonnull %type, i32 noundef %conv41)
+  %call65 = call fastcc i32 @create_attr_block(ptr noundef %ctxt, ptr noundef %nattr, i64 noundef 56, i32 noundef %data_len, ptr noundef %data_ptr, ptr noundef nonnull %name, i32 noundef %conv31, ptr noundef nonnull %type, i32 noundef %conv41)
   %cmp66 = icmp eq i32 %call65, 0
   br i1 %cmp66, label %if.then68, label %if.else80
 
@@ -912,10 +912,10 @@ return:                                           ; preds = %if.end15.i, %land.l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @create_attr_block(ptr noundef nonnull %pctxt, ptr nocapture noundef nonnull writeonly %attr, i64 noundef %dblocksize, i32 noundef %data_len, ptr noundef writeonly %data_ptr, ptr nocapture noundef readonly %name, i32 noundef range(i32 0, 256) %nlen, ptr nocapture noundef readonly %type, i32 noundef range(i32 0, 256) %tlen) unnamed_addr #2 {
+define internal fastcc i32 @create_attr_block(ptr noundef nonnull %pctxt, ptr noundef nonnull writeonly captures(none) %attr, i64 noundef %dblocksize, i32 noundef %data_len, ptr noundef writeonly %data_ptr, ptr noundef readonly captures(none) %name, i32 noundef range(i32 0, 256) %nlen, ptr noundef readonly captures(none) %type, i32 noundef range(i32 0, 256) %tlen) unnamed_addr #2 {
 entry:
   %cmp.not = icmp eq i32 %nlen, 0
   %narrow = add nuw nsw i32 %nlen, 33
@@ -1034,7 +1034,7 @@ return:                                           ; preds = %if.end61, %if.else6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_to_list(ptr noundef nonnull %ctxt, ptr nocapture noundef %list, ptr noundef %nattr) unnamed_addr #2 {
+define internal fastcc i32 @add_to_list(ptr noundef nonnull %ctxt, ptr noundef captures(none) %list, ptr noundef %nattr) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %list, align 8
   %add = add nsw i32 %0, 1
@@ -1432,7 +1432,7 @@ return:                                           ; preds = %sw.bb.i, %sw.bb1.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_attr_handler(ptr noundef nonnull %pctxt, ptr nocapture noundef readonly %attr) unnamed_addr #2 {
+define internal fastcc void @check_attr_handler(ptr noundef nonnull %pctxt, ptr noundef readonly captures(none) %attr) unnamed_addr #2 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %attr, i64 20
   %0 = load i32, ptr %type, align 4
@@ -1576,7 +1576,7 @@ if.then15:                                        ; preds = %if.end10
   %print_error16 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %5 = load ptr, ptr %print_error16, align 8
   %conv17 = trunc i64 %call11 to i32
-  %call18 = tail call i32 (ptr, i32, ptr, ...) %5(ptr noundef nonnull %ctxt, i32 noundef 12, ptr noundef nonnull @.str.8, ptr noundef %name, i32 noundef %conv17, i32 noundef %conv) #8
+  %call18 = tail call i32 (ptr, i32, ptr, ...) %5(ptr noundef nonnull %ctxt, i32 noundef 12, ptr noundef nonnull @.str.8, ptr noundef nonnull %name, i32 noundef %conv17, i32 noundef %conv) #8
   br label %return
 
 if.end19:                                         ; preds = %if.end10
@@ -1591,11 +1591,11 @@ if.then25:                                        ; preds = %if.end19
   br i1 %cmp26, label %if.then28, label %if.end31
 
 if.then28:                                        ; preds = %if.then25
-  %call30 = tail call i32 (ptr, i32, ptr, ...) %7(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.11, ptr noundef %name) #8
+  %call30 = tail call i32 (ptr, i32, ptr, ...) %7(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.11, ptr noundef nonnull %name) #8
   br label %return
 
 if.end31:                                         ; preds = %if.then25
-  %call33 = tail call i32 (ptr, i32, ptr, ...) %7(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.12, ptr noundef %name, i32 noundef %type) #8
+  %call33 = tail call i32 (ptr, i32, ptr, ...) %7(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.12, ptr noundef nonnull %name, i32 noundef %type) #8
   br label %return
 
 if.end34:                                         ; preds = %if.end19
@@ -1768,7 +1768,7 @@ if.then15:                                        ; preds = %if.end10
   %print_error16 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %5 = load ptr, ptr %print_error16, align 8
   %conv17 = trunc i64 %call11 to i32
-  %call18 = tail call i32 (ptr, i32, ptr, ...) %5(ptr noundef nonnull %ctxt, i32 noundef 12, ptr noundef nonnull @.str.8, ptr noundef %name, i32 noundef %conv17, i32 noundef %conv) #8
+  %call18 = tail call i32 (ptr, i32, ptr, ...) %5(ptr noundef nonnull %ctxt, i32 noundef 12, ptr noundef nonnull @.str.8, ptr noundef nonnull %name, i32 noundef %conv17, i32 noundef %conv) #8
   br label %return
 
 if.end19:                                         ; preds = %if.end10
@@ -1783,11 +1783,11 @@ if.then25:                                        ; preds = %if.end19
   br i1 %cmp26, label %if.then28, label %if.end31
 
 if.then28:                                        ; preds = %if.then25
-  %call30 = tail call i32 (ptr, i32, ptr, ...) %7(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.11, ptr noundef %name) #8
+  %call30 = tail call i32 (ptr, i32, ptr, ...) %7(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.11, ptr noundef nonnull %name) #8
   br label %return
 
 if.end31:                                         ; preds = %if.then25
-  %call33 = tail call i32 (ptr, i32, ptr, ...) %7(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.12, ptr noundef %name, i32 noundef %type) #8
+  %call33 = tail call i32 (ptr, i32, ptr, ...) %7(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.12, ptr noundef nonnull %name, i32 noundef %type) #8
   br label %return
 
 if.end34:                                         ; preds = %if.end19

@@ -87,7 +87,7 @@ declare ptr @hb_unicode_funcs_create(ptr noundef) local_unnamed_addr #1
 declare void @hb_unicode_funcs_set_combining_class_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 0, 256) i32 @_ZL22hb_ucd_combining_classP18hb_unicode_funcs_tjPv(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture readnone %2) #2 {
+define internal noundef range(i32 0, 256) i32 @_ZL22hb_ucd_combining_classP18hb_unicode_funcs_tjPv(ptr readnone captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2) #2 {
   %4 = icmp ult i32 %1, 125259
   br i1 %4, label %5, label %_ZL11_hb_ucd_cccj.exit
 
@@ -143,7 +143,7 @@ _ZL11_hb_ucd_cccj.exit:                           ; preds = %3, %5
 declare void @hb_unicode_funcs_set_general_category_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 0, 256) i32 @_ZL23hb_ucd_general_categoryP18hb_unicode_funcs_tjPv(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture readnone %2) #2 {
+define internal noundef range(i32 0, 256) i32 @_ZL23hb_ucd_general_categoryP18hb_unicode_funcs_tjPv(ptr readnone captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2) #2 {
   %4 = icmp ult i32 %1, 1114110
   br i1 %4, label %5, label %_ZL10_hb_ucd_gcj.exit
 
@@ -197,7 +197,7 @@ _ZL10_hb_ucd_gcj.exit:                            ; preds = %3, %5
 declare void @hb_unicode_funcs_set_mirroring_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL16hb_ucd_mirroringP18hb_unicode_funcs_tjPv(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture readnone %2) #2 {
+define internal noundef i32 @_ZL16hb_ucd_mirroringP18hb_unicode_funcs_tjPv(ptr readnone captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2) #2 {
   %4 = icmp ult i32 %1, 65380
   br i1 %4, label %5, label %_ZL11_hb_ucd_bmgj.exit
 
@@ -247,7 +247,7 @@ _ZL11_hb_ucd_bmgj.exit:                           ; preds = %3, %5
 declare void @hb_unicode_funcs_set_script_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL13hb_ucd_scriptP18hb_unicode_funcs_tjPv(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture readnone %2) #2 {
+define internal noundef i32 @_ZL13hb_ucd_scriptP18hb_unicode_funcs_tjPv(ptr readnone captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2) #2 {
   %4 = icmp ult i32 %1, 918000
   br i1 %4, label %5, label %_ZL10_hb_ucd_scj.exit
 
@@ -296,7 +296,7 @@ _ZL10_hb_ucd_scj.exit:                            ; preds = %3, %5
 declare void @hb_unicode_funcs_set_compose_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL14hb_ucd_composeP18hb_unicode_funcs_tjjPjPv(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4) #3 {
+define internal noundef range(i32 0, 2) i32 @_ZL14hb_ucd_composeP18hb_unicode_funcs_tjjPjPv(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr readnone captures(none) %4) #3 {
   %6 = add i32 %1, -44032
   %or.cond.i = icmp ult i32 %6, 11172
   %7 = add i32 %2, -4520
@@ -441,7 +441,7 @@ _ZL10hb_bsearchIKjjEPT_RKT0_S2_mmPFiPKvS7_E.exit.thread: ; preds = %46, %67, %_Z
 declare void @hb_unicode_funcs_set_decompose_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL16hb_ucd_decomposeP18hb_unicode_funcs_tjPjS1_Pv(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4) #4 {
+define internal noundef range(i32 0, 2) i32 @_ZL16hb_ucd_decomposeP18hb_unicode_funcs_tjPjS1_Pv(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr readnone captures(none) %4) #4 {
   %6 = add i32 %1, -44032
   %7 = icmp ult i32 %6, 11172
   br i1 %7, label %8, label %_ZL24_hb_ucd_decompose_hanguljPjS_.exit

@@ -534,18 +534,18 @@ declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unname
 declare i32 @test_size_t_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @test_random() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @qsort_size_t_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
+define internal range(i32 -1, 2) i32 @qsort_size_t_compare(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #5 {
 entry:
   %0 = load i64, ptr %a, align 8
   %1 = load i64, ptr %b, align 8
@@ -554,7 +554,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @qsort_size_t_compare_rev(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
+define internal range(i32 -1, 2) i32 @qsort_size_t_compare_rev(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #5 {
 entry:
   %0 = load i64, ptr %b, align 8
   %1 = load i64, ptr %a, align 8
@@ -565,7 +565,7 @@ entry:
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @size_t_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
+define internal range(i32 -1, 2) i32 @size_t_compare(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #5 {
 entry:
   %0 = load i64, ptr %a, align 8
   %1 = load i64, ptr %b, align 8
@@ -580,7 +580,7 @@ declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local
 declare i32 @test_ptr_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @free_checker(ptr nocapture readnone %p) #6 {
+define internal void @free_checker(ptr readnone captures(none) %p) #6 {
 entry:
   %0 = load i64, ptr @num_rec_freed, align 8
   %inc = add i64 %0, 1
@@ -607,7 +607,7 @@ declare void @ossl_pqueue_pop_free(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @ossl_pqueue_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
+define internal range(i32 -1, 2) i32 @cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #5 {
 entry:
   %0 = load i64, ptr %a, align 8
   %1 = load i64, ptr %b, align 8

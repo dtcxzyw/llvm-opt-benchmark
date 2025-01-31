@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.14 = private unnamed_addr constant [29 x i8] c"tag value is not valid UTF-8\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @flac__vorbiscomment_add(ptr noundef %block, ptr nocapture noundef readonly %comment, i32 noundef %value_from_file, i32 noundef %raw, ptr nocapture noundef writeonly %violation) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @flac__vorbiscomment_add(ptr noundef %block, ptr noundef readonly captures(none) %comment, i32 noundef %value_from_file, i32 noundef %raw, ptr noundef writeonly captures(none) %violation) local_unnamed_addr #0 {
 entry:
   %entry1.i = alloca %struct.FLAC__StreamMetadata_VorbisComment_Entry, align 8
   %converted.i = alloca ptr, align 8
@@ -217,7 +217,7 @@ if.end55.i:                                       ; preds = %if.then51.i, %if.el
   %9 = phi ptr [ %8, %if.then51.i ], [ %call.i.i, %if.else42.i ]
   %call57.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #11
   %conv.i = trunc i64 %call57.i to i32
-  %call60.i = call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef %9, i32 noundef %conv.i) #10
+  %call60.i = call i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef nonnull %9, i32 noundef %conv.i) #10
   %tobool61.not.i = icmp eq i32 %call60.i, 0
   br i1 %tobool61.not.i, label %if.then62.i, label %if.end66.i
 
@@ -230,7 +230,7 @@ if.then64.i:                                      ; preds = %if.then62.i
   br label %free_field.exit23
 
 if.end66.i:                                       ; preds = %if.end55.i
-  %call67.i = call i32 @FLAC__metadata_object_vorbiscomment_append_comment(ptr noundef %block, i32 %conv.i, ptr %9, i32 noundef 1) #10
+  %call67.i = call i32 @FLAC__metadata_object_vorbiscomment_append_comment(ptr noundef %block, i32 %conv.i, ptr nonnull %9, i32 noundef 1) #10
   %tobool68.not.i = icmp eq i32 %call67.i, 0
   br i1 %tobool68.not.i, label %if.then69.i, label %if.end73.i
 
@@ -280,13 +280,13 @@ return:                                           ; preds = %free_field.exit35, 
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind sspstrong uwtable
 define internal fastcc void @die(ptr noundef %message) unnamed_addr #4 {
@@ -298,7 +298,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #6
@@ -309,13 +309,13 @@ declare i64 @grabbag__file_get_filesize(ptr noundef) local_unnamed_addr #7
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @utf8_encode(ptr noundef, ptr noundef) local_unnamed_addr #7
 
@@ -326,10 +326,10 @@ declare i32 @FLAC__metadata_object_vorbiscomment_append_comment(ptr noundef, i32
 declare i32 @FLAC__format_vorbiscomment_entry_is_legal(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

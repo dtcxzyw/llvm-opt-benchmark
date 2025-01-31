@@ -14276,7 +14276,7 @@ $_ZTVN5clang7targets16DarwinTargetInfoINS0_19AArch64leTargetInfoEEE = comdat any
 @_ZN5clang7targets24RenderScript64TargetInfoC1ERKN4llvm6TripleERKNS_13TargetOptionsE = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN5clang7targets24RenderScript64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5clang7targets17AArch64TargetInfo15setArchFeaturesEv(ptr nocapture noundef nonnull align 8 dereferenceable(600) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5clang7targets17AArch64TargetInfo15setArchFeaturesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(600) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %3 = load ptr, ptr %2, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -14518,7 +14518,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %2, %5, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5clang7targets17AArch64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(536) %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN5clang7targets17AArch64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(536) %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.std::allocator", align 1
   tail call void @_ZN5clang10TargetInfoC2ERKN4llvm6TripleE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) #23
   store ptr getelementptr inbounds nuw inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets17AArch64TargetInfoE, i64 16), ptr %0, align 8
@@ -14943,7 +14943,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %100, %106, %48, %54
 declare { ptr, i64 } @_ZNK4llvm6Triple18getEnvironmentNameEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo30validateGlobalRegisterVariableEN4llvm9StringRefEjRb(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readonly %1, i64 %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %4) unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo30validateGlobalRegisterVariableEN4llvm9StringRefEjRb(ptr nonnull readnone align 8 captures(none) %0, ptr readonly captures(none) %1, i64 %2, i32 noundef %3, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %4) unnamed_addr #5 align 2 {
   switch i64 %2, label %_ZNK4llvm9StringRef11starts_withES0_.exit [
     i64 2, label %_ZN4llvmeqENS_9StringRefES0_.exit
     i64 0, label %_ZNK4llvm9StringRef11starts_withES0_.exit8.thread20
@@ -14977,10 +14977,10 @@ _ZNK4llvm9StringRef11starts_withES0_.exit8.thread20: ; preds = %_ZNK4llvm9String
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo24validateBranchProtectionEN4llvm9StringRefES3_RNS_10TargetInfo20BranchProtectionInfoERS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(600) %0, ptr %1, i64 %2, ptr nocapture readnone %3, i64 %4, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(11) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo24validateBranchProtectionEN4llvm9StringRefES3_RNS_10TargetInfo20BranchProtectionInfoERS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(600) %0, ptr %1, i64 %2, ptr readnone captures(none) %3, i64 %4, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(11) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) unnamed_addr #1 align 2 {
   %8 = alloca %"struct.llvm::ARM::ParsedBranchProtection", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(35) %8, i8 0, i64 32, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 552
@@ -15061,7 +15061,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 declare noundef zeroext i1 @_ZN4llvm3ARM21parseBranchProtectionENS_9StringRefERNS0_22ParsedBranchProtectionERS1_b(ptr, i64, ptr noundef nonnull align 8 dereferenceable(35), ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo14isValidCPUNameEN4llvm9StringRefE(ptr nocapture nonnull readnone align 8 %0, ptr %1, i64 %2) unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo14isValidCPUNameEN4llvm9StringRefE(ptr nonnull readnone align 8 captures(none) %0, ptr %1, i64 %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.std::optional.42", align 8
   call void @_ZN4llvm7AArch648parseCpuENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.42") align 8 %4, ptr %1, i64 %2) #23
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -15084,7 +15084,7 @@ define hidden noundef zeroext i1 @_ZN5clang7targets17AArch64TargetInfo6setCPUERK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5clang7targets17AArch64TargetInfo16fillValidCPUListERN4llvm15SmallVectorImplINS2_9StringRefEEE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 {
+define hidden void @_ZNK5clang7targets17AArch64TargetInfo16fillValidCPUListERN4llvm15SmallVectorImplINS2_9StringRefEEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 {
   tail call void @_ZN4llvm7AArch6420fillValidCPUArchListERNS_15SmallVectorImplINS_9StringRefEEE(ptr noundef nonnull align 8 dereferenceable(16) %1) #23
   ret void
 }
@@ -15092,7 +15092,7 @@ define hidden void @_ZNK5clang7targets17AArch64TargetInfo16fillValidCPUListERN4l
 declare void @_ZN4llvm7AArch6420fillValidCPUArchListERNS_15SmallVectorImplINS_9StringRefEEE(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV81AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(600) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV81AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(600) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -15178,7 +15178,7 @@ _ZN4llvm11raw_ostreamlsEc.exit5:                  ; preds = %30, %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV82AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(600) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV82AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(600) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
@@ -15200,7 +15200,7 @@ define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV83AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(600) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV83AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(600) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -15248,7 +15248,7 @@ define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV84AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(600) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV84AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(600) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -15304,7 +15304,7 @@ define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV85AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(600) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV85AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(600) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -15373,80 +15373,7 @@ define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV86AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
-  %4 = alloca %"class.llvm::Twine", align 8
-  %5 = alloca %"class.llvm::Twine", align 8
-  %6 = alloca %"class.llvm::Twine", align 8
-  %7 = alloca %"class.llvm::Twine", align 8
-  %8 = alloca %"class.llvm::Twine", align 8
-  %9 = alloca %"class.llvm::Twine", align 8
-  %10 = alloca %"class.llvm::Twine", align 8
-  %11 = alloca %"class.llvm::Twine", align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 33
-  store i8 1, ptr %13, align 1
-  store ptr @.str.17, ptr %10, align 8
-  store i8 3, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 33
-  store i8 1, ptr %15, align 1
-  store ptr @.str.14, ptr %11, align 8
-  store i8 3, ptr %14, align 8
-  call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(34) %10, ptr noundef nonnull align 8 dereferenceable(34) %11)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  store i8 1, ptr %17, align 1
-  store ptr @.str.15, ptr %6, align 8
-  store i8 3, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 1, ptr %19, align 1
-  store ptr @.str.14, ptr %7, align 8
-  store i8 3, ptr %18, align 8
-  call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(34) %6, ptr noundef nonnull align 8 dereferenceable(34) %7)
-  %20 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %21 = getelementptr inbounds nuw i8, ptr %8, i64 33
-  store i8 1, ptr %21, align 1
-  store ptr @.str.16, ptr %8, align 8
-  store i8 3, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %23 = getelementptr inbounds nuw i8, ptr %9, i64 33
-  store i8 1, ptr %23, align 1
-  store ptr @.str.14, ptr %9, align 8
-  store i8 3, ptr %22, align 8
-  call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(34) %8, ptr noundef nonnull align 8 dereferenceable(34) %9)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  store i8 1, ptr %25, align 1
-  store ptr @.str.13, ptr %4, align 8
-  store i8 3, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 33
-  store i8 1, ptr %27, align 1
-  store ptr @.str.14, ptr %5, align 8
-  store i8 3, ptr %26, align 8
-  call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef nonnull align 8 dereferenceable(34) %5)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV87AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV86AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -15519,7 +15446,7 @@ define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV88AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV87AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -15592,7 +15519,7 @@ define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV89AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV88AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -15665,7 +15592,7 @@ define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5clang7targets17AArch64TargetInfo22getTargetDefinesARMV9AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV89AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -15738,7 +15665,7 @@ define hidden void @_ZNK5clang7targets17AArch64TargetInfo22getTargetDefinesARMV9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV91AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK5clang7targets17AArch64TargetInfo22getTargetDefinesARMV9AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -15811,7 +15738,7 @@ define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV92AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV91AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -15884,7 +15811,7 @@ define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV93AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV92AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -15957,7 +15884,7 @@ define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV94AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV93AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -16030,7 +15957,7 @@ define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV95AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV94AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -16103,7 +16030,80 @@ define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5clang7targets17AArch64TargetInfo16getTargetDefinesERKNS_11LangOptionsERNS_12MacroBuilderE(ptr noundef nonnull readonly align 8 dereferenceable(600) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #1 align 2 {
+define hidden void @_ZNK5clang7targets17AArch64TargetInfo23getTargetDefinesARMV95AERKNS_11LangOptionsERNS_12MacroBuilderE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
+  %4 = alloca %"class.llvm::Twine", align 8
+  %5 = alloca %"class.llvm::Twine", align 8
+  %6 = alloca %"class.llvm::Twine", align 8
+  %7 = alloca %"class.llvm::Twine", align 8
+  %8 = alloca %"class.llvm::Twine", align 8
+  %9 = alloca %"class.llvm::Twine", align 8
+  %10 = alloca %"class.llvm::Twine", align 8
+  %11 = alloca %"class.llvm::Twine", align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 33
+  store i8 1, ptr %13, align 1
+  store ptr @.str.17, ptr %10, align 8
+  store i8 3, ptr %12, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 33
+  store i8 1, ptr %15, align 1
+  store ptr @.str.14, ptr %11, align 8
+  store i8 3, ptr %14, align 8
+  call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(34) %10, ptr noundef nonnull align 8 dereferenceable(34) %11)
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 33
+  store i8 1, ptr %17, align 1
+  store ptr @.str.15, ptr %6, align 8
+  store i8 3, ptr %16, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 33
+  store i8 1, ptr %19, align 1
+  store ptr @.str.14, ptr %7, align 8
+  store i8 3, ptr %18, align 8
+  call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(34) %6, ptr noundef nonnull align 8 dereferenceable(34) %7)
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 33
+  store i8 1, ptr %21, align 1
+  store ptr @.str.16, ptr %8, align 8
+  store i8 3, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 33
+  store i8 1, ptr %23, align 1
+  store ptr @.str.14, ptr %9, align 8
+  store i8 3, ptr %22, align 8
+  call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(34) %8, ptr noundef nonnull align 8 dereferenceable(34) %9)
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 33
+  store i8 1, ptr %25, align 1
+  store ptr @.str.13, ptr %4, align 8
+  store i8 3, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 33
+  store i8 1, ptr %27, align 1
+  store ptr @.str.14, ptr %5, align 8
+  store i8 3, ptr %26, align 8
+  call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef nonnull align 8 dereferenceable(34) %5)
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZNK5clang7targets17AArch64TargetInfo16getTargetDefinesERKNS_11LangOptionsERNS_12MacroBuilderE(ptr noundef nonnull readonly align 8 dereferenceable(600) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -18496,12 +18496,12 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %45, %55
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden { ptr, i64 } @_ZNK5clang7targets17AArch64TargetInfo17getTargetBuiltinsEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define hidden { ptr, i64 } @_ZNK5clang7targets17AArch64TargetInfo17getTargetBuiltinsEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret { ptr, i64 } { ptr @_ZL11BuiltinInfo, i64 9925 }
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i64, i8 } @_ZNK5clang7targets17AArch64TargetInfo14getVScaleRangeERKNS_11LangOptionsE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(841) %1) unnamed_addr #1 align 2 {
+define hidden { i64, i8 } @_ZNK5clang7targets17AArch64TargetInfo14getVScaleRangeERKNS_11LangOptionsE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(841) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %4 = load i64, ptr %3, align 8
   %.not = icmp ult i64 %4, 4294967296
@@ -18534,7 +18534,7 @@ define hidden { i64, i8 } @_ZNK5clang7targets17AArch64TargetInfo14getVScaleRange
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK5clang7targets17AArch64TargetInfo24multiVersionSortPriorityEN4llvm9StringRefE(ptr nocapture nonnull readnone align 8 %0, ptr %1, i64 %2) unnamed_addr #1 align 2 {
+define hidden noundef i32 @_ZNK5clang7targets17AArch64TargetInfo24multiVersionSortPriorityEN4llvm9StringRefE(ptr nonnull readnone align 8 captures(none) %0, ptr %1, i64 %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.std::optional.80", align 8
   %.not.i = icmp eq i64 %2, 7
   br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread6
@@ -18564,12 +18564,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 declare void @_ZN4llvm7AArch6417parseFMVExtensionENS_9StringRefE(ptr dead_on_unwind writable sret(%"class.std::optional.80") align 8, ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK5clang7targets17AArch64TargetInfo23multiVersionFeatureCostEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define hidden noundef i32 @_ZNK5clang7targets17AArch64TargetInfo23multiVersionFeatureCostEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret i32 1000
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo24doesFeatureAffectCodeGenEN4llvm9StringRefE(ptr nocapture nonnull readnone align 8 %0, ptr %1, i64 %2) unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo24doesFeatureAffectCodeGenEN4llvm9StringRefE(ptr nonnull readnone align 8 captures(none) %0, ptr %1, i64 %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.std::optional.80", align 8
   call void @_ZN4llvm7AArch6417parseFMVExtensionENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.80") align 8 %4, ptr %1, i64 %2) #23
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -18583,7 +18583,7 @@ define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo24doesFea
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo19validateCpuSupportsEN4llvm9StringRefE(ptr nocapture nonnull readnone align 8 %0, ptr %1, i64 %2) unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo19validateCpuSupportsEN4llvm9StringRefE(ptr nonnull readnone align 8 captures(none) %0, ptr %1, i64 %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca %"class.llvm::SmallVector.88", align 8
@@ -18652,7 +18652,7 @@ _ZN4llvm11SmallVectorINS_9StringRefELj8EED2Ev.exit: ; preds = %._crit_edge, %33
 declare void @_ZNK4llvm9StringRef5splitERNS_15SmallVectorImplIS0_EES0_ib(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr, i64, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo10hasFeatureEN4llvm9StringRefE(ptr noundef nonnull readonly align 8 dereferenceable(600) %0, ptr nocapture readonly %1, i64 %2) unnamed_addr #9 align 2 {
+define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo10hasFeatureEN4llvm9StringRefE(ptr noundef nonnull readonly align 8 dereferenceable(600) %0, ptr readonly captures(none) %1, i64 %2) unnamed_addr #9 align 2 {
   switch i64 %2, label %12 [
     i64 7, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
     i64 5, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
@@ -19304,7 +19304,7 @@ _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit570: ; preds = %176, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5clang7targets17AArch64TargetInfo17setFeatureEnabledERN4llvm9StringMapIbNS2_15MallocAllocatorEEENS2_9StringRefEb(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %2, i64 %3, i1 noundef zeroext %4) unnamed_addr #1 align 2 {
+define hidden void @_ZNK5clang7targets17AArch64TargetInfo17setFeatureEnabledERN4llvm9StringMapIbNS2_15MallocAllocatorEEENS2_9StringRefEb(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %2, i64 %3, i1 noundef zeroext %4) unnamed_addr #1 align 2 {
   %6 = alloca %"class.std::optional.97", align 8
   %7 = alloca %"class.std::vector.106", align 8
   %8 = zext i1 %4 to i8
@@ -19483,7 +19483,7 @@ declare void @_ZN4llvm7AArch648ArchInfo13findBySubArchENS_9StringRefE(ptr dead_o
 declare noundef zeroext i1 @_ZN4llvm7AArch6420getExtensionFeaturesERKNS_6BitsetILj112EEERSt6vectorINS_9StringRefESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN5clang7targets17AArch64TargetInfo20handleTargetFeaturesERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERNS_17DiagnosticsEngineE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN5clang7targets17AArch64TargetInfo20handleTargetFeaturesERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERNS_17DiagnosticsEngineE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #1 align 2 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -20621,7 +20621,7 @@ _ZN4llvmltERKNS_12VersionTupleES2_.exit100:       ; preds = %433, %437, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5clang7targets17AArch64TargetInfo15parseTargetAttrEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"struct.clang::ParsedTargetAttr") align 8 initializes((0, 88)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(600) %1, ptr %2, i64 %3) unnamed_addr #1 align 2 {
+define hidden void @_ZNK5clang7targets17AArch64TargetInfo15parseTargetAttrEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"struct.clang::ParsedTargetAttr") align 8 initializes((0, 88)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(600) %1, ptr %2, i64 %3) unnamed_addr #1 align 2 {
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.llvm::StringRef", align 8
@@ -21494,12 +21494,12 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo15hasBFloat16TypeEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo15hasBFloat16TypeEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZNK5clang7targets17AArch64TargetInfo22checkCallingConventionENS_11CallingConvE(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) unnamed_addr #8 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZNK5clang7targets17AArch64TargetInfo22checkCallingConventionENS_11CallingConvE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #8 align 2 {
   %3 = icmp ult i32 %1, 23
   br i1 %3, label %switch.lookup, label %5
 
@@ -21515,22 +21515,22 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo17isCLZForZeroUndefEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo17isCLZForZeroUndefEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK5clang7targets17AArch64TargetInfo20getBuiltinVaListKindEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define hidden noundef i32 @_ZNK5clang7targets17AArch64TargetInfo20getBuiltinVaListKindEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden { ptr, i64 } @_ZNK5clang7targets17AArch64TargetInfo14getGCCRegNamesEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define hidden { ptr, i64 } @_ZNK5clang7targets17AArch64TargetInfo14getGCCRegNamesEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret { ptr, i64 } { ptr @_ZN5clang7targets17AArch64TargetInfo11GCCRegNamesE, i64 226 }
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden { ptr, i64 } @_ZNK5clang7targets17AArch64TargetInfo16getGCCRegAliasesEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define hidden { ptr, i64 } @_ZNK5clang7targets17AArch64TargetInfo16getGCCRegAliasesEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret { ptr, i64 } { ptr @_ZN5clang7targets17AArch64TargetInfo13GCCRegAliasesE, i64 33 }
 }
 
@@ -21779,7 +21779,7 @@ define linkonce_odr hidden void @_ZNK5clang10TargetInfo17convertConstraintB5cxx1
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo21validateAsmConstraintERPKcRNS_10TargetInfo14ConstraintInfoE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 8 dereferenceable(168) %2) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo21validateAsmConstraintERPKcRNS_10TargetInfo14ConstraintInfoE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(168) %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %1, align 8
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %.thread [
@@ -21903,7 +21903,7 @@ define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo21validat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo26validateConstraintModifierEN4llvm9StringRefEcjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(600) %0, ptr %1, i64 %2, i8 noundef signext %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo26validateConstraintModifierEN4llvm9StringRefEcjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(600) %0, ptr %1, i64 %2, i8 noundef signext %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #1 align 2 {
   %7 = alloca %"class.llvm::StringRef", align 8
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -21949,12 +21949,12 @@ define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo26validat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden { i64, ptr } @_ZNK5clang7targets17AArch64TargetInfo11getClobbersEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define hidden { i64, ptr } @_ZNK5clang7targets17AArch64TargetInfo11getClobbersEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret { i64, ptr } { i64 0, ptr @.str.537 }
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 -1, 2) i32 @_ZNK5clang7targets17AArch64TargetInfo23getEHDataRegisterNumberEj(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) unnamed_addr #8 align 2 {
+define hidden noundef range(i32 -1, 2) i32 @_ZNK5clang7targets17AArch64TargetInfo23getEHDataRegisterNumberEj(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #8 align 2 {
   %switch.selectcmp = icmp eq i32 %1, 1
   %switch.select = select i1 %switch.selectcmp, i32 1, i32 -1
   %switch.selectcmp4 = icmp eq i32 %1, 0
@@ -21963,7 +21963,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZNK5clang7targets17AArch64TargetInf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo22validatePointerAuthKeyERKN4llvm6APSIntE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(13) %1) unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo22validatePointerAuthKeyERKN4llvm6APSIntE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(13) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = alloca %"class.llvm::APSInt", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -22023,12 +22023,12 @@ _ZNK4llvm6APSIntleEl.exit:                        ; preds = %15, %21, %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo13hasInt128TypeEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK5clang7targets17AArch64TargetInfo13hasInt128TypeEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5clang7targets19AArch64leTargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(536) %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN5clang7targets19AArch64leTargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(536) %2) unnamed_addr #1 align 2 {
   tail call void @_ZN5clang7targets17AArch64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2)
   store ptr getelementptr inbounds nuw inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets19AArch64leTargetInfoE, i64 16), ptr %0, align 8
   ret void
@@ -22067,7 +22067,7 @@ declare noundef zeroext i1 @_ZNK4llvm6Triple11isArch32BitEv(ptr noundef nonnull 
 declare void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489), ptr, i64, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5clang7targets19AArch64leTargetInfo16getTargetDefinesERKNS_11LangOptionsERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #1 align 2 {
+define hidden void @_ZNK5clang7targets19AArch64leTargetInfo16getTargetDefinesERKNS_11LangOptionsERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -22086,14 +22086,14 @@ define hidden void @_ZNK5clang7targets19AArch64leTargetInfo16getTargetDefinesERK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5clang7targets19AArch64beTargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(536) %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN5clang7targets19AArch64beTargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(536) %2) unnamed_addr #1 align 2 {
   tail call void @_ZN5clang7targets17AArch64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(536) %2)
   store ptr getelementptr inbounds nuw inrange(-16, 976) (i8, ptr @_ZTVN5clang7targets19AArch64beTargetInfoE, i64 16), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5clang7targets19AArch64beTargetInfo16getTargetDefinesERKNS_11LangOptionsERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #1 align 2 {
+define hidden void @_ZNK5clang7targets19AArch64beTargetInfo16getTargetDefinesERKNS_11LangOptionsERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -22144,7 +22144,7 @@ define hidden void @_ZN5clang7targets19AArch64beTargetInfo13setDataLayoutEv(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5clang7targets22WindowsARM64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(656) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(536) %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN5clang7targets22WindowsARM64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(656) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(536) %2) unnamed_addr #1 align 2 {
   tail call void @_ZN5clang7targets17AArch64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull readonly align 8 dereferenceable(536) %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 4, ptr %4, align 8
@@ -22204,12 +22204,12 @@ define hidden void @_ZN5clang7targets22WindowsARM64TargetInfo13setDataLayoutEv(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK5clang7targets22WindowsARM64TargetInfo20getBuiltinVaListKindEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define hidden noundef i32 @_ZNK5clang7targets22WindowsARM64TargetInfo20getBuiltinVaListKindEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 0, 3) i32 @_ZNK5clang7targets22WindowsARM64TargetInfo22checkCallingConventionENS_11CallingConvE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(656) %0, i32 noundef %1) unnamed_addr #10 align 2 {
+define hidden noundef range(i32 0, 3) i32 @_ZNK5clang7targets22WindowsARM64TargetInfo22checkCallingConventionENS_11CallingConvE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(656) %0, i32 noundef %1) unnamed_addr #10 align 2 {
   switch i32 %1, label %12 [
     i32 4, label %3
     i32 1, label %13
@@ -22248,7 +22248,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZNK5clang7targets22WindowsARM64Targe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5clang7targets24MicrosoftARM64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(656) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(536) %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN5clang7targets24MicrosoftARM64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(656) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(536) %2) unnamed_addr #1 align 2 {
   tail call void @_ZN5clang7targets17AArch64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(656) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull readonly align 8 dereferenceable(536) %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 4, ptr %4, align 8
@@ -22420,12 +22420,12 @@ define linkonce_odr hidden void @_ZNK5clang7targets12OSTargetInfoINS0_19AArch64l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK5clang7targets24MicrosoftARM64TargetInfo18getCallingConvKindEb(ptr nocapture nonnull readnone align 8 %0, i1 zeroext %1) unnamed_addr #8 align 2 {
+define hidden noundef i32 @_ZNK5clang7targets24MicrosoftARM64TargetInfo18getCallingConvKindEb(ptr nonnull readnone align 8 captures(none) %0, i1 zeroext %1) unnamed_addr #8 align 2 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 0, 256) i32 @_ZNK5clang7targets24MicrosoftARM64TargetInfo17getMinGlobalAlignEmb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(656) %0, i64 noundef %1, i1 zeroext %2) unnamed_addr #10 align 2 {
+define hidden noundef range(i32 0, 256) i32 @_ZNK5clang7targets24MicrosoftARM64TargetInfo17getMinGlobalAlignEmb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(656) %0, i64 noundef %1, i1 zeroext %2) unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 61
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
@@ -22466,7 +22466,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5clang10TargetInfo17getMinGlobalAlig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5clang7targets20MinGWARM64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(656) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(536) %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN5clang7targets20MinGWARM64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(656) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(536) %2) unnamed_addr #1 align 2 {
   tail call void @_ZN5clang7targets17AArch64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(656) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull readonly align 8 dereferenceable(536) %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 4, ptr %4, align 8
@@ -22785,12 +22785,12 @@ define hidden void @_ZNK5clang7targets23DarwinAArch64TargetInfo12getOSDefinesERK
 declare void @_ZN5clang7targets16getDarwinDefinesERNS_12MacroBuilderERKNS_11LangOptionsERKN4llvm6TripleERNS6_9StringRefERNS6_12VersionTupleE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(841), ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK5clang7targets23DarwinAArch64TargetInfo20getBuiltinVaListKindEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define hidden noundef i32 @_ZNK5clang7targets23DarwinAArch64TargetInfo20getBuiltinVaListKindEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #8 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5clang7targets24RenderScript64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(536) %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN5clang7targets24RenderScript64TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(536) %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Triple", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -22850,7 +22850,7 @@ declare { ptr, i64 } @_ZNK4llvm6Triple9getOSNameEv(ptr noundef nonnull align 8 d
 declare void @_ZN4llvm6TripleC1ERKNS_5TwineES3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(34), ptr noundef nonnull align 8 dereferenceable(34), ptr noundef nonnull align 8 dereferenceable(34), ptr noundef nonnull align 8 dereferenceable(34)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5clang7targets24RenderScript64TargetInfo16getTargetDefinesERKNS_11LangOptionsERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #1 align 2 {
+define hidden void @_ZNK5clang7targets24RenderScript64TargetInfo16getTargetDefinesERKNS_11LangOptionsERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -24015,10 +24015,10 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
@@ -24088,7 +24088,7 @@ _ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit: ; preds = %_ZN4ll
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #14
 
 declare void @_ZNK4llvm5Twine5printERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(34), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
@@ -24738,7 +24738,7 @@ declare { i64, i64 } @_ZNK4llvm6Triple12getOSVersionEv(ptr noundef nonnull align
 declare void @_ZN5clang7targets17addWindowsDefinesERKN4llvm6TripleERKNS_11LangOptionsERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(841), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #19
@@ -24747,10 +24747,10 @@ declare i64 @llvm.ctpop.i64(i64) #19
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #19

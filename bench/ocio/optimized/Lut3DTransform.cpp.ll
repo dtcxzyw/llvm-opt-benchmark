@@ -128,7 +128,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev14Lut3DTransform6CreateEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev14Lut3DTransform6CreateEv(ptr noalias writeonly sret(%"class.std::shared_ptr") align 8 captures(none) %agg.result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #19
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18Lut3DTransformImplE, i64 16), ptr %call, align 8
@@ -221,7 +221,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev14Lut3DTransform6CreateEm(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, i64 noundef %gridSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev14Lut3DTransform6CreateEm(ptr noalias writeonly sret(%"class.std::shared_ptr") align 8 captures(none) %agg.result, i64 noundef %gridSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #19
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18Lut3DTransformImplE, i64 16), ptr %call, align 8
@@ -309,7 +309,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev18Lut3DTransformImpl18createEditableCopyEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.13") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev18Lut3DTransformImpl18createEditableCopyEv(ptr noalias writeonly sret(%"class.std::shared_ptr.13") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %transform = alloca %"class.std::shared_ptr", align 8
   call void @_ZN19OpenColorIO_v2_4dev14Lut3DTransform6CreateEv(ptr nonnull sret(%"class.std::shared_ptr") align 8 %transform)
@@ -436,7 +436,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev14Lut3DTransformELN9__gnu_cxx12_Lock_p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev18Lut3DTransformImpl12getDirectionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev18Lut3DTransformImpl12getDirectionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(240) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_direction.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i32, ptr %m_direction.i, align 8
@@ -456,7 +456,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev18Lut3DTransformImpl12setDirectionENS_18TransformDirectionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(240) initializes((232, 236)) %this, i32 noundef %dir) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev18Lut3DTransformImpl12setDirectionENS_18TransformDirectionE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(240) initializes((232, 236)) %this, i32 noundef %dir) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_direction.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   store i32 %dir, ptr %m_direction.i, align 8
@@ -591,7 +591,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev18Lut3DTransformImpl21getFileOutputBitDepthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev18Lut3DTransformImpl21getFileOutputBitDepthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(240) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_fileOutBitDepth.i = getelementptr inbounds nuw i8, ptr %this, i64 236
   %0 = load i32, ptr %m_fileOutBitDepth.i, align 4
@@ -599,7 +599,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev18Lut3DTransformImpl21setFileOutputBitDepthENS_8BitDepthE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(240) initializes((236, 240)) %this, i32 noundef %bitDepth) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev18Lut3DTransformImpl21setFileOutputBitDepthENS_8BitDepthE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(240) initializes((236, 240)) %this, i32 noundef %bitDepth) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_fileOutBitDepth.i = getelementptr inbounds nuw i8, ptr %this, i64 236
   store i32 %bitDepth, ptr %m_fileOutBitDepth.i, align 4
@@ -816,7 +816,7 @@ unreachable:                                      ; preds = %invoke.cont21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev18Lut3DTransformImpl8getValueEmmmRfS1_S1_(ptr noundef nonnull align 8 dereferenceable(240) %this, i64 noundef %indexR, i64 noundef %indexG, i64 noundef %indexB, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %r, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %g, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %b) unnamed_addr #3 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev18Lut3DTransformImpl8getValueEmmmRfS1_S1_(ptr noundef nonnull align 8 dereferenceable(240) %this, i64 noundef %indexR, i64 noundef %indexG, i64 noundef %indexB, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %r, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %g, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %b) unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 96
@@ -859,7 +859,7 @@ entry:
 declare void @_ZN19OpenColorIO_v2_4dev11Lut3DOpData16setInterpolationENS_13InterpolationE(ptr noundef nonnull align 8 dereferenceable(232), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev18Lut3DTransformImpl16getInterpolationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) unnamed_addr #8 align 2 {
+define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev18Lut3DTransformImpl16getInterpolationEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(240) %this) unnamed_addr #8 align 2 {
 entry:
   %m_interpolation.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load i32, ptr %m_interpolation.i, align 8
@@ -1024,7 +1024,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIfSaIfEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %__x) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1143,7 +1143,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
 
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #0
 
@@ -1224,7 +1224,7 @@ cond.end:                                         ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_Lut3DTransform.cpp() #17 section ".text.startup" {

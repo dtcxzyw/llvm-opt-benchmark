@@ -41,7 +41,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull align 8 dereferenceable(120) %tile, ptr nocapture noundef readonly %vertices, i32 noundef %numVertices, ptr nocapture noundef readonly %indices, i32 noundef %numIndices) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtj(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull align 8 dereferenceable(120) %tile, ptr noundef readonly captures(none) %vertices, i32 noundef %numVertices, ptr noundef readonly captures(none) %indices, i32 noundef %numIndices) local_unnamed_addr #3 align 2 {
 entry:
   %texture_id = getelementptr inbounds nuw i8, ptr %tile, i64 36
   %0 = load i32, ptr %texture_id, align 4, !tbaa !4
@@ -73,10 +73,10 @@ cleanup.1:                                        ; preds = %if.end.1, %cleanup
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13MeshCollector6appendERK9TileLayerPKN3irr5video9S3DVertexEjPKtjhb(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull align 8 dereferenceable(53) %layer, ptr nocapture noundef readonly %vertices, i32 noundef %numVertices, ptr nocapture noundef readonly %indices, i32 noundef %numIndices, i8 noundef zeroext %layernum, i1 noundef zeroext %use_scale) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13MeshCollector6appendERK9TileLayerPKN3irr5video9S3DVertexEjPKtjhb(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull align 8 dereferenceable(53) %layer, ptr noundef readonly captures(none) %vertices, i32 noundef %numVertices, ptr noundef readonly captures(none) %indices, i32 noundef %numIndices, i8 noundef zeroext %layernum, i1 noundef zeroext %use_scale) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(104) ptr @_ZN13MeshCollector10findBufferERK9TileLayerhj(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull align 8 dereferenceable(53) %layer, i8 noundef zeroext %layernum, i32 noundef %numVertices)
   %vertices4 = getelementptr inbounds nuw i8, ptr %call, i64 80
@@ -320,7 +320,7 @@ _ZNSt6vectorItSaItEE9push_backEOt.exit:           ; preds = %_ZNSt6vectorItSaItE
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(104) ptr @_ZN13MeshCollector10findBufferERK9TileLayerhj(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull align 8 dereferenceable(53) %layer, i8 noundef zeroext %layernum, i32 noundef %numVertices) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -454,10 +454,10 @@ cleanup21:                                        ; preds = %land.lhs.true, %_ZN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtjNS3_4core8vector3dIfEENS4_6SColorEh(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull align 8 dereferenceable(120) %tile, ptr noundef %vertices, i32 noundef %numVertices, ptr nocapture noundef readonly %indices, i32 noundef %numIndices, <2 x float> %pos.coerce0, float %pos.coerce1, i32 %c.coerce, i8 noundef zeroext %light_source) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN13MeshCollector6appendERK8TileSpecPKN3irr5video9S3DVertexEjPKtjNS3_4core8vector3dIfEENS4_6SColorEh(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull align 8 dereferenceable(120) %tile, ptr noundef %vertices, i32 noundef %numVertices, ptr noundef readonly captures(none) %indices, i32 noundef %numIndices, <2 x float> %pos.coerce0, float %pos.coerce1, i32 %c.coerce, i8 noundef zeroext %light_source) local_unnamed_addr #5 align 2 {
 entry:
   %texture_id = getelementptr inbounds nuw i8, ptr %tile, i64 36
   %0 = load i32, ptr %texture_id, align 4, !tbaa !4
@@ -489,7 +489,7 @@ cleanup.1:                                        ; preds = %if.end.1, %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13MeshCollector6appendERK9TileLayerPKN3irr5video9S3DVertexEjPKtjNS3_4core8vector3dIfEENS4_6SColorEhhb(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull align 8 dereferenceable(53) %layer, ptr noundef %vertices, i32 noundef %numVertices, ptr nocapture noundef readonly %indices, i32 noundef %numIndices, <2 x float> %pos.coerce0, float %pos.coerce1, i32 %c.coerce, i8 noundef zeroext %light_source, i8 noundef zeroext %layernum, i1 noundef zeroext %use_scale) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13MeshCollector6appendERK9TileLayerPKN3irr5video9S3DVertexEjPKtjNS3_4core8vector3dIfEENS4_6SColorEhhb(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull align 8 dereferenceable(53) %layer, ptr noundef %vertices, i32 noundef %numVertices, ptr noundef readonly captures(none) %indices, i32 noundef %numIndices, <2 x float> %pos.coerce0, float %pos.coerce1, i32 %c.coerce, i8 noundef zeroext %light_source, i8 noundef zeroext %layernum, i1 noundef zeroext %use_scale) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %color = alloca %"class.irr::video::SColor", align 4
   %call = tail call noundef nonnull align 8 dereferenceable(104) ptr @_ZN13MeshCollector10findBufferERK9TileLayerhj(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull align 8 dereferenceable(53) %layer, i8 noundef zeroext %layernum, i32 noundef %numVertices)
@@ -775,7 +775,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 declare float @llvm.fmuladd.f32(float, float, float) #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorI13PreMeshBufferSaIS0_EE17_M_realloc_insertIJRK9TileLayerEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(53) %__args) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -904,7 +904,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11

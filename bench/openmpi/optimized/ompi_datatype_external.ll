@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_mpi_external32_convertor = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 16) i32 @ompi_datatype_pack_external(ptr nocapture noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr nocapture noundef %6) local_unnamed_addr #0 {
+define range(i32 0, 16) i32 @ompi_datatype_pack_external(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca %struct.opal_convertor_t, align 8
   %9 = alloca %struct.iovec, align 8
   %10 = alloca i32, align 4
@@ -158,7 +158,7 @@ declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #1
 declare i32 @opal_convertor_pack(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 16) i32 @ompi_datatype_unpack_external(ptr nocapture noundef readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 0, 16) i32 @ompi_datatype_unpack_external(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.opal_convertor_t, align 8
   %9 = alloca %struct.iovec, align 8
   %10 = alloca i32, align 4
@@ -300,7 +300,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i11, %53, %o
 declare i32 @opal_convertor_unpack(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_datatype_pack_external_size(ptr nocapture noundef readnone %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define noundef i32 @ompi_datatype_pack_external_size(ptr noundef readnone captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.opal_convertor_t, align 8
   %6 = load i32, ptr @opal_class_init_epoch, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_convertor_t_class, i64 32), align 8

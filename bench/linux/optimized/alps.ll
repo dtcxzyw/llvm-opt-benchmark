@@ -272,7 +272,7 @@ define dso_local i32 @alps_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @input_allocate_device() local_unnamed_addr #2
@@ -281,7 +281,7 @@ declare dso_local ptr @input_allocate_device() local_unnamed_addr #2
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @input_set_capability(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -296,10 +296,10 @@ declare dso_local i32 @input_register_device(ptr noundef) local_unnamed_addr #2
 declare dso_local void @input_free_device(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @alps_register_bare_ps2_mouse(ptr noundef %0) #0 align 16 {
@@ -1249,7 +1249,7 @@ declare dso_local i32 @mod_timer(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare dso_local i32 @timer_delete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @ps2_command(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -1267,7 +1267,7 @@ declare dso_local void @input_unregister_device(ptr noundef) local_unnamed_addr 
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @alps_set_protocol(ptr noundef initializes((0, 8)) %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @alps_set_protocol(ptr noundef initializes((0, 8)) %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 align 16 {
   %4 = alloca [4 x i8], align 4
   %5 = alloca [4 x i8], align 4
   %6 = alloca [4 x i8], align 4
@@ -1968,7 +1968,7 @@ alps_command_mode_read_reg.exit6.thread:          ; preds = %.preheader.i5, %213
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @alps_flush_packet(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @alps_flush_packet(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -328
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2194,7 +2194,7 @@ alps_passthrough_mode_v2.exit.thread:             ; preds = %75, %78, %81, %84, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @alps_process_packet_v1_v2(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @alps_process_packet_v1_v2(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2467,7 +2467,7 @@ define internal void @alps_process_packet_v1_v2(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @alps_set_abs_params_st(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal void @alps_set_abs_params_st(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %4 = load i32, ptr %3, align 4
   tail call void @input_set_abs_params(ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef %4, i32 noundef 0, i32 noundef 0) #14
@@ -3027,7 +3027,7 @@ define internal void @alps_process_packet_v3(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @alps_set_abs_params_semi_mt(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal void @alps_set_abs_params_semi_mt(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   tail call fastcc void @alps_set_abs_params_mt_common(ptr noundef %0, ptr noundef %1)
   tail call void @input_set_abs_params(ptr noundef %1, i32 noundef 24, i32 noundef 0, i32 noundef 127, i32 noundef 0, i32 noundef 0) #14
   %3 = tail call i32 @input_mt_init_slots(ptr noundef %1, i32 noundef 4, i32 noundef 21) #14
@@ -3035,7 +3035,7 @@ define internal void @alps_set_abs_params_semi_mt(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @alps_decode_pinnacle(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #7 align 16 {
+define internal noundef i32 @alps_decode_pinnacle(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #7 align 16 {
   %4 = getelementptr i8, ptr %1, i64 4
   %5 = load i8, ptr %4, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -3509,7 +3509,7 @@ alps_command_mode_read_reg.exit.thread:           ; preds = %.preheader.i, %.pre
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @alps_decode_rushmore(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #7 align 16 {
+define internal noundef i32 @alps_decode_rushmore(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #7 align 16 {
   %4 = getelementptr i8, ptr %1, i64 4
   %5 = load i8, ptr %4, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -3873,7 +3873,7 @@ alps_command_mode_read_reg.exit.thread:           ; preds = %.preheader.i, %10, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @alps_process_packet_v4(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @alps_process_packet_v4(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 284
@@ -4178,7 +4178,7 @@ define internal void @alps_process_touchpad_packet_v3_v5(ptr noundef %0) #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @alps_decode_dolphin(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #8 align 16 {
+define internal noundef i32 @alps_decode_dolphin(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #8 align 16 {
   %4 = load ptr, ptr %2, align 8
   %5 = load i8, ptr %1, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -4548,7 +4548,7 @@ alps_passthrough_mode_v2.exit.thread:             ; preds = %17, %21, %24, %27, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @alps_process_packet_v6(ptr nocapture noundef %0) #0 align 16 {
+define internal void @alps_process_packet_v6(ptr noundef captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -5142,7 +5142,7 @@ define internal void @alps_process_packet_v7(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef range(i32 -1, 2) i32 @alps_decode_packet_v7(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #9 align 16 {
+define internal noundef range(i32 -1, 2) i32 @alps_decode_packet_v7(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #9 align 16 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr i8, ptr %1, i64 4
   %6 = load i8, ptr %5, align 1
@@ -5376,7 +5376,7 @@ define internal noundef range(i32 -1, 2) i32 @alps_decode_packet_v7(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @alps_set_abs_params_v7(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal void @alps_set_abs_params_v7(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   tail call fastcc void @alps_set_abs_params_mt_common(ptr noundef %0, ptr noundef %1)
   %3 = getelementptr i8, ptr %1, i64 89
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %3, i32 1, ptr elementtype(i8) %3) #14, !srcloc !6
@@ -5595,7 +5595,7 @@ define internal void @alps_process_packet_ss4_v2(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @alps_decode_ss4_v2(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #8 align 16 {
+define internal noundef i32 @alps_decode_ss4_v2(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #8 align 16 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr i8, ptr %1, i64 3
   %6 = load i8, ptr %5, align 1
@@ -6215,7 +6215,7 @@ default.unreachable6:                             ; preds = %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @alps_set_abs_params_ss4_v2(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal void @alps_set_abs_params_ss4_v2(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   tail call fastcc void @alps_set_abs_params_mt_common(ptr noundef %0, ptr noundef %1)
   tail call void @input_set_abs_params(ptr noundef %1, i32 noundef 24, i32 noundef 0, i32 noundef 127, i32 noundef 0, i32 noundef 0) #14
   %3 = getelementptr i8, ptr %1, i64 89
@@ -6848,7 +6848,7 @@ define internal fastcc range(i32 -1, 1) i32 @alps_trackstick_enter_extended_mode
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @alps_set_abs_params_mt_common(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @alps_set_abs_params_mt_common(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %4 = load i32, ptr %3, align 4
   tail call void @input_set_abs_params(ptr noundef %1, i32 noundef 53, i32 noundef 0, i32 noundef %4, i32 noundef 0, i32 noundef 0) #14
@@ -6895,7 +6895,7 @@ declare dso_local i32 @input_mt_init_slots(ptr noundef, i32 noundef, i32 noundef
 declare dso_local void @input_alloc_absinfo(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal fastcc i32 @alps_process_bitmap(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #10 align 16 {
+define internal fastcc i32 @alps_process_bitmap(ptr noundef captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #10 align 16 {
   %3 = alloca %struct.alps_bitmap_point, align 8
   %4 = alloca %struct.alps_bitmap_point, align 8
   %5 = alloca %struct.alps_bitmap_point, align 8
@@ -7231,7 +7231,7 @@ define internal fastcc i32 @alps_process_bitmap(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @alps_report_semi_mt_data(ptr nocapture %.0.val, ptr %.8.val, i32 noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @alps_report_semi_mt_data(ptr captures(none) %.0.val, ptr %.8.val, i32 noundef %0) unnamed_addr #0 align 16 {
   %2 = icmp slt i32 %0, 2
   br i1 %2, label %3, label %..thread_crit_edge
 
@@ -7368,7 +7368,7 @@ declare dso_local i32 @input_mt_assign_slots(ptr noundef, ptr noundef, ptr nound
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #13

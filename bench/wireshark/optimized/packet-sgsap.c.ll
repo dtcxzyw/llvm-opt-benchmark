@@ -203,7 +203,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.136 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i16 @de_sgsap_ecgi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #0 {
+define hidden noundef zeroext i16 @de_sgsap_ecgi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #0 {
   %8 = tail call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef %3, i32 noundef 5, i32 noundef 1) #6
   %9 = add i32 %3, 3
   %10 = load i32, ptr @hf_sgsap_eci, align 4
@@ -218,7 +218,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_sgsap_vlr_name(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #0 {
+define internal noundef zeroext i16 @de_sgsap_vlr_name(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #0 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %19, label %8
 
@@ -245,7 +245,7 @@ define internal noundef zeroext i16 @de_sgsap_vlr_name(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_sgsap_sgs_cause(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr noundef writeonly %5, i32 noundef %6) #0 {
+define internal noundef zeroext i16 @de_sgsap_sgs_cause(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr noundef writeonly %5, i32 noundef %6) #0 {
   %8 = load i32, ptr @hf_sgsap_sgs_cause, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
   %.not = icmp eq ptr %5, null
@@ -264,7 +264,7 @@ define internal noundef zeroext i16 @de_sgsap_sgs_cause(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_sgsap_mme_name(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #0 {
+define internal noundef zeroext i16 @de_sgsap_mme_name(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) #0 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %19, label %8
 
@@ -291,7 +291,7 @@ define internal noundef zeroext i16 @de_sgsap_mme_name(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_sgsap_eps_loc_upd_type(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr noundef writeonly %5, i32 noundef %6) #0 {
+define internal noundef zeroext i16 @de_sgsap_eps_loc_upd_type(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr noundef writeonly %5, i32 noundef %6) #0 {
   %8 = load i32, ptr @hf_sgsap_eps_location_update_type, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
   %.not = icmp eq ptr %5, null
@@ -310,7 +310,7 @@ define internal noundef zeroext i16 @de_sgsap_eps_loc_upd_type(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_sgsap_g_cn_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #0 {
+define internal noundef zeroext i16 @de_sgsap_g_cn_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #0 {
   %8 = tail call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef %3, i32 noundef 0, i32 noundef 1) #6
   %9 = add i32 %3, 3
   %10 = load i32, ptr @hf_sgsap_cn_id, align 4
@@ -319,21 +319,21 @@ define internal noundef zeroext i16 @de_sgsap_g_cn_id(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_sgsap_imsi_det_eps(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #0 {
+define internal noundef zeroext i16 @de_sgsap_imsi_det_eps(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #0 {
   %8 = load i32, ptr @hf_sgsap_imsi_det_eps, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
   ret i16 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_sgsap_imsi_det_non_eps(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #0 {
+define internal noundef zeroext i16 @de_sgsap_imsi_det_non_eps(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #0 {
   %8 = load i32, ptr @hf_sgsap_imsi_det_non_eps, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
   ret i16 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_sgsap_imeisv(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 %6) #0 {
+define internal noundef zeroext i16 @de_sgsap_imeisv(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 %6) #0 {
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @hf_sgsap_imeisv, align 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 408
@@ -356,7 +356,7 @@ define internal noundef zeroext i16 @de_sgsap_imeisv(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_sgsap_nas_msg_container(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #0 {
+define internal noundef zeroext i16 @de_sgsap_nas_msg_container(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #0 {
   %8 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %3, i32 noundef %4) #6
   %9 = load ptr, ptr @gsm_a_dtap_handle, align 8
   %.not = icmp eq ptr %9, null
@@ -372,7 +372,7 @@ define internal noundef zeroext i16 @de_sgsap_nas_msg_container(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_sgsap_mm_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #0 {
+define internal noundef zeroext i16 @de_sgsap_mm_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #0 {
   tail call void @dtap_mm_mm_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #6
   %8 = trunc i32 %4 to i16
   ret i16 %8
@@ -548,14 +548,14 @@ get_sgsap_msg_params.exit:                        ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_sgsap_lcs_indic(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #0 {
+define internal noundef zeroext i16 @de_sgsap_lcs_indic(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #0 {
   %8 = load i32, ptr @hf_sgsap_lcs_indic, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
   ret i16 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_sgsap_serv_indic(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr noundef writeonly %5, i32 noundef %6) #0 {
+define internal noundef zeroext i16 @de_sgsap_serv_indic(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr noundef writeonly %5, i32 noundef %6) #0 {
   %8 = load i32, ptr @hf_sgsap_service_indicator_value, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
   %.not = icmp eq ptr %5, null
@@ -574,14 +574,14 @@ define internal noundef zeroext i16 @de_sgsap_serv_indic(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_sgsap_ue_emm_mode(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #0 {
+define internal noundef zeroext i16 @de_sgsap_ue_emm_mode(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #0 {
   %8 = load i32, ptr @hf_sgsap_ue_emm_mode, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
   ret i16 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_sgsap_add_paging_ind(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #0 {
+define internal noundef zeroext i16 @de_sgsap_add_paging_ind(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #0 {
   %8 = load i32, ptr @hf_sgsap_csri, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
   %10 = trunc i32 %4 to i16
@@ -589,7 +589,7 @@ define internal noundef zeroext i16 @de_sgsap_add_paging_ind(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_sgsap_selected_cs_dmn_op(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #0 {
+define internal noundef zeroext i16 @de_sgsap_selected_cs_dmn_op(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #0 {
   %8 = load i32, ptr @hf_sgsap_sel_cs_dmn_op, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #6
   %10 = load i32, ptr @ett_sgsap_sel_cs_dmn_op, align 4
@@ -656,7 +656,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_sgsap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_sgsap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -732,7 +732,7 @@ declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2322,10 +2322,10 @@ declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

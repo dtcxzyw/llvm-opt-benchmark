@@ -73,7 +73,7 @@ define hidden zeroext range(i8 0, 2) i8 @verifyClassname(ptr noundef %0, i8 noun
   br i1 %exitcond.i, label %skip_over_field_signature.exit, label %11, !llvm.loop !6
 
 31:                                               ; preds = %5, %2
-  %32 = tail call fastcc ptr @skip_over_fieldname(ptr noundef %0, i32 noundef %4)
+  %32 = tail call fastcc ptr @skip_over_fieldname(ptr noundef nonnull %0, i32 noundef %4)
   br label %skip_over_field_signature.exit
 
 skip_over_field_signature.exit:                   ; preds = %27, %11, %23, %15, %13, %31
@@ -94,7 +94,7 @@ skip_over_field_signature.exit:                   ; preds = %27, %11, %23, %15, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal fastcc ptr @skip_over_fieldname(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #2 {
@@ -247,7 +247,7 @@ next_utf2unicode.exit:                            ; preds = %15, %15, %15, %15, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden zeroext range(i8 0, 2) i8 @verifyFixClassname(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define hidden zeroext range(i8 0, 2) i8 @verifyFixClassname(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   br label %2
 
 2:                                                ; preds = %1, %24
@@ -329,7 +329,7 @@ next_utf2unicode.exit:                            ; preds = %19, %11, %8, %8, %8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @fixClassname(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define hidden void @fixClassname(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   br label %2
 
 2:                                                ; preds = %1, %22

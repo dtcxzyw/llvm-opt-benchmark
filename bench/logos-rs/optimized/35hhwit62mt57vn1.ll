@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.f17d0525dcc917e2b6a4b91fe838c9e7.5 = private unnamed_addr constant <{ [13 x i8] }> <{ [13 x i8] c"compile_error" }>, align 1
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13logos_codegen5error6Errors6render17he0dd74f8ab851cceE(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN13logos_codegen5error6Errors6render17he0dd74f8ab851cceE(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
@@ -124,7 +124,7 @@ define hidden void @_ZN13logos_codegen5error6Errors6render17he0dd74f8ab851cceE(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN13logos_codegen5error5Error4span17h5479e1ec8596d306E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 20)) %0, ptr %1, i64 %2, i32 %3) unnamed_addr #1 {
+define void @_ZN13logos_codegen5error5Error4span17h5479e1ec8596d306E(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 20)) %0, ptr %1, i64 %2, i32 %3) unnamed_addr #1 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %5, align 8
@@ -134,7 +134,7 @@ define void @_ZN13logos_codegen5error5Error4span17h5479e1ec8596d306E(ptr nocaptu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN66_$LT$logos_codegen..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h97c3524d2950e676E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN66_$LT$logos_codegen..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h97c3524d2950e676E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
@@ -144,7 +144,7 @@ define zeroext i1 @"_ZN66_$LT$logos_codegen..error..Error$u20$as$u20$core..fmt..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN64_$LT$logos_codegen..error..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h791426befcfa15e2E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN64_$LT$logos_codegen..error..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h791426befcfa15e2E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
@@ -209,7 +209,7 @@ define { ptr, i64 } @"_ZN82_$LT$logos_codegen..error..Error$u20$as$u20$core..con
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { ptr, i64 } @"_ZN96_$LT$logos_codegen..error..Error$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17h217b330d4b71ae5eE"(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define { ptr, i64 } @"_ZN96_$LT$logos_codegen..error..Error$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17h217b330d4b71ae5eE"(ptr readonly align 8 captures(none) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8
   %3 = icmp ult i64 %2, 4294967296
   br i1 %3, label %4, label %14
@@ -232,7 +232,7 @@ define { ptr, i64 } @"_ZN96_$LT$logos_codegen..error..Error$u20$as$u20$core..con
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN81_$LT$logos_codegen..error..SpannedError$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd908b9c367c3ee45E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN81_$LT$logos_codegen..error..SpannedError$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd908b9c367c3ee45E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
@@ -320,7 +320,7 @@ define void @"_ZN81_$LT$logos_codegen..error..SpannedError$u20$as$u20$quote..to_
 declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nonlazybind uwtable
 declare void @_ZN11proc_macro211TokenStream3new17hd34098e6360de226E(ptr sret([32 x i8]) align 8) unnamed_addr #0

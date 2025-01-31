@@ -775,7 +775,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_wccp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_wccp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.wccp_address_table, align 8
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #7
@@ -1549,10 +1549,10 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_wccp2_security_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr noundef %4, ptr nocapture readnone %5) unnamed_addr #0 {
+define internal noundef i32 @dissect_wccp2_security_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef %4, ptr readnone captures(none) %5) unnamed_addr #0 {
   %7 = icmp slt i32 %2, 4
   br i1 %7, label %18, label %8
 
@@ -1577,7 +1577,7 @@ define internal noundef i32 @dissect_wccp2_security_info(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_wccp2_service_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5) unnamed_addr #0 {
+define internal noundef i32 @dissect_wccp2_service_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr readnone captures(none) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = add i32 %2, %1
   %.not = icmp eq i32 %2, 24
@@ -1724,7 +1724,7 @@ define internal noundef i32 @dissect_wccp2_service_info(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_wccp2_router_identity_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal i32 @dissect_wccp2_router_identity_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 {
   %7 = icmp slt i32 %2, 8
   br i1 %7, label %8, label %10
 
@@ -1818,7 +1818,7 @@ dissect_wccp2_router_identity_element.exit:       ; preds = %10, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_wccp2_wc_identity_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal i32 @dissect_wccp2_wc_identity_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_wc_identity_ip_address_index, align 4
   %8 = load i32, ptr @hf_wc_identity_ip_address_ipv4, align 4
   %9 = load i32, ptr @hf_wc_identity_ip_address_ipv6, align 4
@@ -1830,7 +1830,7 @@ define internal i32 @dissect_wccp2_wc_identity_info(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_wccp2_router_view_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal i32 @dissect_wccp2_router_view_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 {
   %7 = icmp slt i32 %2, 20
   br i1 %7, label %8, label %dissect_wccp2_assignment_key_element.exit
 
@@ -1954,7 +1954,7 @@ dissect_wccp2_assignment_key_element.exit:        ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_wccp2_web_cache_view_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal i32 @dissect_wccp2_web_cache_view_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 {
   %7 = icmp slt i32 %2, 12
   br i1 %7, label %8, label %10
 
@@ -2079,7 +2079,7 @@ dissect_wccp2_router_identity_element.exit:       ; preds = %22, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_wccp2_assignment_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal i32 @dissect_wccp2_assignment_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = icmp slt i32 %2, 16
   br i1 %8, label %9, label %11
@@ -2269,7 +2269,7 @@ dissect_wccp2_hash_buckets_assignment_element.exit: ; preds = %assignment_bucket
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_wccp2_router_query_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal noundef i32 @dissect_wccp2_router_query_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 {
   %7 = icmp slt i32 %2, 16
   br i1 %7, label %30, label %8
 
@@ -2308,7 +2308,7 @@ dissect_wccp2_router_identity_element.exit:       ; preds = %8, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_wccp2_capability_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5) unnamed_addr #0 {
+define internal i32 @dissect_wccp2_capability_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr readnone captures(none) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   br label %8
 
@@ -2490,7 +2490,7 @@ dissect_wccp2_capability_element.exit:            ; preds = %27, %dissect_transm
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_wccp2_alternate_assignment_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal i32 @dissect_wccp2_alternate_assignment_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 {
   %7 = icmp slt i32 %2, 8
   br i1 %7, label %8, label %10
 
@@ -2604,7 +2604,7 @@ dissect_wccp2_assignment_key_element.exit.thread: ; preds = %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_wccp2r1_alt_assignment_map_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal i32 @dissect_wccp2r1_alt_assignment_map_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 {
   %7 = icmp slt i32 %2, 4
   br i1 %7, label %8, label %10
 
@@ -2668,7 +2668,7 @@ define internal i32 @dissect_wccp2r1_alt_assignment_map_info(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(none) %5) unnamed_addr #0 {
   %7 = icmp slt i32 %2, 8
   br i1 %7, label %8, label %10
 
@@ -2886,7 +2886,7 @@ define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_wccp2_assignment_map(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal i32 @dissect_wccp2_assignment_map(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 {
   %7 = tail call fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %4, ptr noundef %5)
   %8 = icmp slt i32 %7, 0
   %9 = sub i32 %2, %7
@@ -2898,7 +2898,7 @@ define internal i32 @dissect_wccp2_assignment_map(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 2147483644, 2147483643) i32 @dissect_wccp2_command_extension(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal range(i32 2147483644, 2147483643) i32 @dissect_wccp2_command_extension(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = icmp eq i32 %2, 0
   br i1 %8, label %.loopexit, label %.lr.ph
@@ -2985,7 +2985,7 @@ declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #3
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @wccp_add_ipaddress_item(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
+define internal fastcc ptr @wccp_add_ipaddress_item(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) unnamed_addr #0 {
   %8 = alloca %struct.e_in6_addr, align 1
   %9 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %9, 0
@@ -3096,7 +3096,7 @@ define internal fastcc ptr @wccp_add_ipaddress_item(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -3105,7 +3105,7 @@ declare ptr @proto_tree_add_ipv4(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_tree_add_ipv6(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = icmp slt i32 %2, 8
   br i1 %8, label %9, label %11
@@ -3368,7 +3368,7 @@ dissect_wccp2_assignment_weight_and_status_element.exit: ; preds = %32, %30, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2147483644) i32 @dissect_wccp2_mask_assignment_data_element(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2147483640) %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147483644) i32 @dissect_wccp2_mask_assignment_data_element(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2147483640) %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @ett_mask_assignment_data_element, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.418) #7
@@ -3420,7 +3420,7 @@ dissect_wccp2_assignment_weight_and_status_element.exit.thread: ; preds = %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = icmp slt i32 %2, 4
@@ -3664,7 +3664,7 @@ define internal fastcc i32 @dissect_wccp2_mask_element(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @decode_wccp_encoded_address(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc ptr @decode_wccp_encoded_address(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %5, 0
@@ -3805,7 +3805,7 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 declare void @ip6_to_str_buf(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = icmp slt i32 %2, 4
   br i1 %7, label %8, label %10
@@ -3985,7 +3985,7 @@ dissect_wccp2_alternate_mask_value_set_element.exit: ; preds = %74, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_wccp2_router_assignment_element(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @dissect_wccp2_router_assignment_element(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_router_identity_ip_index, align 4
   %7 = load i32, ptr @hf_router_identity_ipv4, align 4
   %8 = load i32, ptr @hf_router_identity_ipv6, align 4
@@ -4011,7 +4011,7 @@ dissect_wccp2_router_identity_element.exit:       ; preds = %5, %15
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_32_bit_capability_flags(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc void @dissect_32_bit_capability_flags(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
   %.not = icmp eq i16 %2, 4
   br i1 %.not, label %13, label %10
 
@@ -4092,7 +4092,7 @@ define internal fastcc void @dissect_32_bit_capability_flags(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_wccp2_hash_assignment_info(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 -4, 2147483644) %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_wccp2_hash_assignment_info(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 -4, 2147483644) %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = icmp slt i32 %2, 260
   br i1 %7, label %8, label %10
@@ -4216,10 +4216,10 @@ declare ptr @proto_tree_add_string_format_value(ptr noundef, i32 noundef, ptr no
 declare i32 @llvm.umin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5

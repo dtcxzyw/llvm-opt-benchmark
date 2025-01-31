@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_PyOpcode_opcode_metadata = external local_unnamed_addr constant [512 x %struct.opcode_metadata], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @_Py_uop_analyze_and_optimize(ptr nocapture noundef readnone %co, ptr nocapture noundef %buffer, i32 noundef %buffer_size, i32 noundef %curr_stacklen) local_unnamed_addr #0 {
+define hidden noundef i32 @_Py_uop_analyze_and_optimize(ptr noundef readnone captures(none) %co, ptr noundef captures(none) %buffer, i32 noundef %buffer_size, i32 noundef %curr_stacklen) local_unnamed_addr #0 {
 entry:
   %cmp28.i = icmp sgt i32 %buffer_size, 0
   br i1 %cmp28.i, label %for.body.preheader.i, label %remove_unneeded_uops.exit

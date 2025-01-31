@@ -71,13 +71,13 @@ define dso_local noundef zeroext i1 @e1000_check_phy_82574(ptr noundef %0) local
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local noundef zeroext i1 @e1000e_get_laa_state_82571(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local noundef zeroext i1 @e1000e_get_laa_state_82571(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -1790,7 +1790,7 @@ declare dso_local i32 @e1000e_check_reset_block_generic(ptr noundef) #3
 declare dso_local i32 @e1000e_phy_force_speed_duplex_igp(ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -9, 1) i32 @e1000_get_cfg_done_82571(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef range(i32 -9, 1) i32 @e1000_get_cfg_done_82571(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %3
 

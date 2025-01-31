@@ -17,7 +17,7 @@ entry:
 declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zipmapSet(ptr noundef %zm, ptr noundef readonly %key, i32 noundef %klen, ptr nocapture noundef readonly %val, i32 noundef %vlen, ptr noundef writeonly %update) local_unnamed_addr #0 {
+define dso_local ptr @zipmapSet(ptr noundef %zm, ptr noundef readonly %key, i32 noundef %klen, ptr noundef readonly captures(none) %val, i32 noundef %vlen, ptr noundef writeonly %update) local_unnamed_addr #0 {
 entry:
   %add.i = add i32 %vlen, %klen
   %cmp.i = icmp ugt i32 %klen, 253
@@ -364,10 +364,10 @@ zipmapEncodeLength.exit88:                        ; preds = %if.then4.i84, %if.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @zipmapDel(ptr noundef %zm, ptr noundef readonly %key, i32 noundef %klen, ptr noundef writeonly %deleted) local_unnamed_addr #0 {
@@ -555,7 +555,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local ptr @zipmapNext(ptr noundef %zm, ptr noundef %key, ptr nocapture noundef writeonly %klen, ptr noundef %value, ptr nocapture noundef writeonly %vlen) local_unnamed_addr #4 {
+define dso_local ptr @zipmapNext(ptr noundef %zm, ptr noundef %key, ptr noundef writeonly captures(none) %klen, ptr noundef %value, ptr noundef writeonly captures(none) %vlen) local_unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %zm, align 1
   %cmp = icmp eq i8 %0, -1
@@ -675,7 +675,7 @@ return:                                           ; preds = %entry, %zipmapRawVa
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @zipmapGet(ptr noundef %zm, ptr noundef readonly %key, i32 noundef %klen, ptr nocapture noundef writeonly %value, ptr nocapture noundef writeonly %vlen) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @zipmapGet(ptr noundef %zm, ptr noundef readonly %key, i32 noundef %klen, ptr noundef writeonly captures(none) %value, ptr noundef writeonly captures(none) %vlen) local_unnamed_addr #5 {
 entry:
   %cmp3.not.i = icmp eq ptr %key, null
   br i1 %cmp3.not.i, label %return, label %entry.split.i
@@ -795,7 +795,7 @@ return:                                           ; preds = %while.cond.us40.i, 
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @zipmapExists(ptr nocapture noundef readonly %zm, ptr noundef readonly %key, i32 noundef %klen) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @zipmapExists(ptr noundef readonly captures(none) %zm, ptr noundef readonly %key, i32 noundef %klen) local_unnamed_addr #6 {
 entry:
   %cmp3.not.i = icmp eq ptr %key, null
   br i1 %cmp3.not.i, label %zipmapLookupRaw.exit, label %entry.split.i
@@ -872,7 +872,7 @@ zipmapLookupRaw.exit:                             ; preds = %while.cond.us40.i, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local i32 @zipmapLen(ptr nocapture noundef %zm) local_unnamed_addr #7 {
+define dso_local i32 @zipmapLen(ptr noundef captures(none) %zm) local_unnamed_addr #7 {
 entry:
   %0 = load i8, ptr %zm, align 1
   %cmp = icmp ult i8 %0, -2
@@ -1130,7 +1130,7 @@ return:                                           ; preds = %zipmapDecodeLength.
 declare ptr @zrealloc(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

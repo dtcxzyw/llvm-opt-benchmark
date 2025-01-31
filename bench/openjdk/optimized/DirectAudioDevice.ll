@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [29 x i8] c"(Ljava/util/Vector;IIIFIZZ)V\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @handleSignEndianConversion(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden void @handleSignEndianConversion(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   switch i32 %3, label %.loopexit [
     i32 1, label %.preheader
     i32 2, label %12
@@ -123,7 +123,7 @@ define hidden void @handleSignEndianConversion(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @handleGainAndConversion(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef writeonly %2, i32 noundef %3, float noundef %4, float noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden void @handleGainAndConversion(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef writeonly %2, i32 noundef %3, float noundef %4, float noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -2059,7 +2059,7 @@ define hidden noundef float @ABS_VALUE(float noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @DAUDIO_AddAudioFormat(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #2 {
+define hidden void @DAUDIO_AddAudioFormat(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #2 {
   %9 = icmp slt i32 %2, 1
   br i1 %9, label %10, label %16
 
@@ -2119,7 +2119,7 @@ define void @Java_com_sun_media_sound_DirectAudioDevice_nGetFormats(ptr noundef 
 declare void @DAUDIO_GetFormats(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @Java_com_sun_media_sound_DirectAudioDevice_nOpen(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, i32 noundef %5, float noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i8 noundef zeroext %10, i8 noundef zeroext %11, i32 noundef %12) local_unnamed_addr #2 {
+define noundef i64 @Java_com_sun_media_sound_DirectAudioDevice_nOpen(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, i32 noundef %5, float noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i8 noundef zeroext %10, i8 noundef zeroext %11, i32 noundef %12) local_unnamed_addr #2 {
   %14 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %36, label %16
@@ -2172,10 +2172,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare ptr @DAUDIO_Open(i32 noundef, i32 noundef, i32 noundef, i32 noundef, float noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_media_sound_DirectAudioDevice_nStart(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #2 {
+define void @Java_com_sun_media_sound_DirectAudioDevice_nStart(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #2 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %11, label %5
 
@@ -2197,7 +2197,7 @@ define void @Java_com_sun_media_sound_DirectAudioDevice_nStart(ptr nocapture nou
 declare i32 @DAUDIO_Start(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_media_sound_DirectAudioDevice_nStop(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #2 {
+define void @Java_com_sun_media_sound_DirectAudioDevice_nStop(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #2 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %11, label %5
 
@@ -2219,7 +2219,7 @@ define void @Java_com_sun_media_sound_DirectAudioDevice_nStop(ptr nocapture noun
 declare i32 @DAUDIO_Stop(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_media_sound_DirectAudioDevice_nClose(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #2 {
+define void @Java_com_sun_media_sound_DirectAudioDevice_nClose(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #2 {
   %5 = inttoptr i64 %2 to ptr
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %14, label %6
@@ -2252,7 +2252,7 @@ define void @Java_com_sun_media_sound_DirectAudioDevice_nClose(ptr nocapture nou
 declare void @DAUDIO_Close(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_com_sun_media_sound_DirectAudioDevice_nWrite(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7, float noundef %8) local_unnamed_addr #2 {
+define i32 @Java_com_sun_media_sound_DirectAudioDevice_nWrite(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7, float noundef %8) local_unnamed_addr #2 {
   %10 = alloca i8, align 1
   %11 = inttoptr i64 %2 to ptr
   %12 = or i32 %5, %4
@@ -2502,7 +2502,7 @@ handleSignEndianConversion.exit:                  ; preds = %.lr.ph.i, %.lr.ph69
 declare i32 @DAUDIO_Write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_com_sun_media_sound_DirectAudioDevice_nRead(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
+define i32 @Java_com_sun_media_sound_DirectAudioDevice_nRead(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
   %8 = inttoptr i64 %2 to ptr
   %9 = or i32 %5, %4
   %or.cond.not = icmp slt i32 %9, 0
@@ -2638,7 +2638,7 @@ handleSignEndianConversion.exit:                  ; preds = %.lr.ph.i, %.lr.ph69
 declare i32 @DAUDIO_Read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_com_sun_media_sound_DirectAudioDevice_nGetBufferSize(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #2 {
+define i32 @Java_com_sun_media_sound_DirectAudioDevice_nGetBufferSize(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #2 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %11, label %5
 
@@ -2661,7 +2661,7 @@ define i32 @Java_com_sun_media_sound_DirectAudioDevice_nGetBufferSize(ptr nocapt
 declare i32 @DAUDIO_GetBufferSize(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_com_sun_media_sound_DirectAudioDevice_nIsStillDraining(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #2 {
+define zeroext range(i8 0, 2) i8 @Java_com_sun_media_sound_DirectAudioDevice_nIsStillDraining(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #2 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %12, label %5
 
@@ -2686,7 +2686,7 @@ define zeroext range(i8 0, 2) i8 @Java_com_sun_media_sound_DirectAudioDevice_nIs
 declare i32 @DAUDIO_StillDraining(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_media_sound_DirectAudioDevice_nFlush(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #2 {
+define void @Java_com_sun_media_sound_DirectAudioDevice_nFlush(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #2 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %11, label %5
 
@@ -2708,7 +2708,7 @@ define void @Java_com_sun_media_sound_DirectAudioDevice_nFlush(ptr nocapture nou
 declare i32 @DAUDIO_Flush(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_com_sun_media_sound_DirectAudioDevice_nAvailable(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #2 {
+define i32 @Java_com_sun_media_sound_DirectAudioDevice_nAvailable(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #2 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %11, label %5
 
@@ -2731,7 +2731,7 @@ define i32 @Java_com_sun_media_sound_DirectAudioDevice_nAvailable(ptr nocapture 
 declare i32 @DAUDIO_GetAvailable(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_com_sun_media_sound_DirectAudioDevice_nGetBytePosition(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i8 noundef zeroext %3, i64 noundef %4) local_unnamed_addr #2 {
+define i64 @Java_com_sun_media_sound_DirectAudioDevice_nGetBytePosition(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i8 noundef zeroext %3, i64 noundef %4) local_unnamed_addr #2 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %12, label %6
 
@@ -2754,7 +2754,7 @@ define i64 @Java_com_sun_media_sound_DirectAudioDevice_nGetBytePosition(ptr noca
 declare i64 @DAUDIO_GetBytePosition(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_media_sound_DirectAudioDevice_nSetBytePosition(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i8 noundef zeroext %3, i64 noundef %4) local_unnamed_addr #2 {
+define void @Java_com_sun_media_sound_DirectAudioDevice_nSetBytePosition(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i8 noundef zeroext %3, i64 noundef %4) local_unnamed_addr #2 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %11, label %6
 
@@ -2776,7 +2776,7 @@ define void @Java_com_sun_media_sound_DirectAudioDevice_nSetBytePosition(ptr noc
 declare void @DAUDIO_SetBytePosition(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @Java_com_sun_media_sound_DirectAudioDevice_nRequiresServicing(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #2 {
+define zeroext i8 @Java_com_sun_media_sound_DirectAudioDevice_nRequiresServicing(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #2 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %12, label %5
 
@@ -2800,7 +2800,7 @@ define zeroext i8 @Java_com_sun_media_sound_DirectAudioDevice_nRequiresServicing
 declare i32 @DAUDIO_RequiresServicing(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_media_sound_DirectAudioDevice_nService(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #2 {
+define void @Java_com_sun_media_sound_DirectAudioDevice_nService(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #2 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %10, label %5
 

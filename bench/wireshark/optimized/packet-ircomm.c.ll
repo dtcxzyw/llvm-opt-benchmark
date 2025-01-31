@@ -55,7 +55,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.32 = private unnamed_addr constant [8 x i8] c"Clen=%d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_ircomm_parameters(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %5, i8 zeroext %6) #0 {
+define internal noundef i32 @dissect_ircomm_parameters(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %5, i8 zeroext %6) #0 {
   %8 = alloca [256 x i8], align 16
   %9 = tail call i32 @check_iap_octet_result(ptr noundef %0, ptr noundef %3, i32 noundef %1, ptr noundef nonnull @.str, i8 noundef zeroext %5) #3
   %.not = icmp eq i32 %9, 0
@@ -274,7 +274,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_raw_ircomm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_raw_ircomm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %17, label %7
@@ -299,7 +299,7 @@ define internal i32 @dissect_raw_ircomm(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_cooked_ircomm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_cooked_ircomm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %34, label %7
@@ -367,7 +367,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare i64 @g_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @tvb_format_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 

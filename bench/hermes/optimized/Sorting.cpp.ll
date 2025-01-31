@@ -11,13 +11,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6hermes2vm9SortModelD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6hermes2vm9SortModelD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN6hermes2vm9SortModelD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm9SortModelD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define hidden void @_ZN6hermes2vm9SortModelD0Ev(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this) unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes2vm9SortModelD0Ev(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @llvm.trap() #8
   unreachable
@@ -847,7 +847,7 @@ return:                                           ; preds = %if.then83, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN6hermes2vm12_GLOBAL__N_111heapFixDownEPNS0_9SortModelERSt6vectorIjSaIjEEjjj(ptr noundef %sm, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %index, i32 noundef %base, i32 noundef %begin, i32 noundef %end) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN6hermes2vm12_GLOBAL__N_111heapFixDownEPNS0_9SortModelERSt6vectorIjSaIjEEjjj(ptr noundef %sm, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %index, i32 noundef %base, i32 noundef %begin, i32 noundef %end) unnamed_addr #3 {
 entry:
   %sub = sub i32 %end, %begin
   %cmp = icmp ult i32 %sub, 2
@@ -975,7 +975,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

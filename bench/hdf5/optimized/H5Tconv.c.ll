@@ -61,7 +61,7 @@ declare i32 @H5CX_get_vlen_alloc_info(ptr noundef) local_unnamed_addr #1
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5T_reclaim_cb(ptr noundef %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define range(i32 -1, 1) i32 @H5T_reclaim_cb(ptr noundef %0, ptr noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -103,7 +103,7 @@ declare i32 @H5T__ref_reclaim(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @H5T__vlen_reclaim(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @H5T_get_force_conv(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define zeroext i1 @H5T_get_force_conv(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -113,7 +113,7 @@ define zeroext i1 @H5T_get_force_conv(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @H5T__reverse_order(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define noundef i32 @H5T__reverse_order(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %.not42 = icmp eq i64 %2, 0
   switch i32 %3, label %.preheader [
     i32 2, label %.preheader32
@@ -177,7 +177,7 @@ define noundef i32 @H5T__reverse_order(ptr nocapture noundef writeonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5T__conv_noop(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef %2, ptr nocapture noundef readnone %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr nocapture noundef readnone %7, ptr nocapture noundef readnone %8) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5T__conv_noop(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef captures(none) %2, ptr noundef readnone captures(none) %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef readnone captures(none) %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 {
   %10 = load i32, ptr %2, align 8
   switch i32 %10, label %13 [
     i32 0, label %11
@@ -202,7 +202,7 @@ define range(i32 -1, 1) i32 @H5T__conv_noop(ptr nocapture noundef readnone %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5T__conv_order(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef readnone %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr nocapture noundef %7, ptr nocapture noundef readnone %8) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5T__conv_order(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef captures(none) %2, ptr noundef readnone captures(none) %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef captures(none) %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 {
   %10 = load i32, ptr %2, align 8
   switch i32 %10, label %129 [
     i32 0, label %11
@@ -429,7 +429,7 @@ define range(i32 -1, 1) i32 @H5T__conv_order(ptr noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5T__conv_order_opt(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef readnone %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7, ptr nocapture noundef readnone %8) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5T__conv_order_opt(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef captures(none) %2, ptr noundef readnone captures(none) %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 {
   %10 = load i32, ptr %2, align 8
   switch i32 %10, label %972 [
     i32 0, label %11

@@ -108,7 +108,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @sifive_e_machine_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @sifive_e_machine_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_CLASS) #3
   %desc = getelementptr inbounds nuw i8, ptr %call.i, i64 120
@@ -189,7 +189,7 @@ if.end30:                                         ; preds = %if.then25, %if.end
 declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @sifive_e_machine_get_revb(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @sifive_e_machine_get_revb(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 126, ptr noundef nonnull @__func__.sifive_e_machine_get_revb) #3
   %revb = getelementptr inbounds nuw i8, ptr %call, i64 4736
@@ -199,7 +199,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @sifive_e_machine_set_revb(ptr noundef %obj, i1 noundef zeroext %value, ptr nocapture readnone %errp) #0 {
+define internal void @sifive_e_machine_set_revb(ptr noundef %obj, i1 noundef zeroext %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %frombool = zext i1 %value to i8
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 133, ptr noundef nonnull @__func__.sifive_e_machine_set_revb) #3
@@ -256,7 +256,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @sifive_e_soc_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @sifive_e_soc_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #3
   %realize = getelementptr inbounds nuw i8, ptr %call.i, i64 144

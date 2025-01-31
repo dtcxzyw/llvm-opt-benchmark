@@ -382,7 +382,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_aprs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_aprs(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.185) #6
@@ -668,7 +668,7 @@ aprs_status.exit:                                 ; preds = %43, %46, %49
 aprs_item.exit:                                   ; preds = %147, %151
   %.0.i252 = phi i32 [ %156, %151 ], [ 10, %147 ]
   %157 = load i32, ptr @hf_aprs_item, align 4
-  %158 = tail call ptr @proto_tree_add_string(ptr noundef %35, i32 noundef %157, ptr noundef %0, i32 noundef 1, i32 noundef %.0.i252, ptr noundef %149) #6
+  %158 = tail call ptr @proto_tree_add_string(ptr noundef %35, i32 noundef %157, ptr noundef %0, i32 noundef 1, i32 noundef %.0.i252, ptr noundef nonnull %149) #6
   %159 = add i32 %.0.i252, 1
   %160 = tail call fastcc i32 @aprs_position(ptr noundef nonnull %1, ptr noundef %35, ptr noundef %0, i32 noundef %159, i32 noundef 1)
   %161 = load i32, ptr @hf_aprs_comment, align 4
@@ -945,7 +945,7 @@ define internal fastcc noundef i32 @dissect_aprs_weather(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_mic_e(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_mic_e(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca [8 x i8], align 8
   store i64 17802391394926399, ptr %5, align 8
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1) #6
@@ -1205,17 +1205,17 @@ dst_code_lookup.exit175:                          ; preds = %84, %85
   %145 = load ptr, ptr %144, align 8
   call void @col_set_str(ptr noundef %145, i32 noundef 25, ptr noundef nonnull @.str.226) #6
   %146 = load ptr, ptr %144, align 8
-  call void @col_append_str(ptr noundef %146, i32 noundef 25, ptr noundef %10) #6
+  call void @col_append_str(ptr noundef %146, i32 noundef 25, ptr noundef nonnull %10) #6
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %174, label %147
 
 147:                                              ; preds = %101
-  %148 = call ptr @proto_tree_add_string(ptr noundef nonnull %2, i32 noundef %3, ptr noundef %0, i32 noundef 1, i32 noundef %6, ptr noundef %10) #6
+  %148 = call ptr @proto_tree_add_string(ptr noundef nonnull %2, i32 noundef %3, ptr noundef %0, i32 noundef 1, i32 noundef %6, ptr noundef nonnull %10) #6
   %149 = load i32, ptr @ett_aprs_mic_e, align 4
   %150 = call ptr @proto_item_add_subtree(ptr noundef %148, i32 noundef %149) #6
   %151 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 100, ptr noundef nonnull @.str.227, ptr noundef nonnull %5, i32 noundef %.0, i32 noundef %.0123, i32 noundef %.0130, i32 noundef %.0129, i32 noundef %.0128, i32 noundef %.0127, i32 noundef %.0124) #6
   %152 = load i32, ptr @hf_aprs_mic_e_dst, align 4
-  %153 = call ptr @proto_tree_add_string(ptr noundef %150, i32 noundef %152, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %10) #6
+  %153 = call ptr @proto_tree_add_string(ptr noundef %150, i32 noundef %152, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %10) #6
   %154 = load i32, ptr @hf_aprs_mic_e_long_d, align 4
   %155 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %154, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #6
   %156 = load i32, ptr @hf_aprs_mic_e_long_m, align 4
@@ -1251,7 +1251,7 @@ dst_code_lookup.exit175:                          ; preds = %84, %85
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @aprs_position(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc i32 @aprs_position(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = load ptr, ptr @g_ascii_table, align 8
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #6
   %8 = zext i8 %7 to i64
@@ -1439,7 +1439,7 @@ aprs_latitude_compressed.exit.thread:             ; preds = %102
   %132 = fsub double 9.000000e+01, %131
   %133 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %111, i64 noundef 100, ptr noundef nonnull @.str.243, double noundef %132) #6
   %134 = load i32, ptr @hf_aprs_lat, align 4
-  %135 = tail call ptr @proto_tree_add_string(ptr noundef nonnull %1, i32 noundef %134, ptr noundef %2, i32 noundef %109, i32 noundef 4, ptr noundef %111) #6
+  %135 = tail call ptr @proto_tree_add_string(ptr noundef nonnull %1, i32 noundef %134, ptr noundef %2, i32 noundef %109, i32 noundef 4, ptr noundef nonnull %111) #6
   %136 = add i32 %3, 5
   %137 = load ptr, ptr %106, align 8
   %138 = tail call noalias ptr @wmem_alloc(ptr noundef %137, i64 noundef 100) #6
@@ -1466,7 +1466,7 @@ aprs_latitude_compressed.exit.thread:             ; preds = %102
   %159 = fadd double %158, -1.800000e+02
   %160 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %138, i64 noundef 100, ptr noundef nonnull @.str.244, double noundef %159) #6
   %161 = load i32, ptr @hf_aprs_long, align 4
-  %162 = tail call ptr @proto_tree_add_string(ptr noundef nonnull %1, i32 noundef %161, ptr noundef %2, i32 noundef %136, i32 noundef 4, ptr noundef %138) #6
+  %162 = tail call ptr @proto_tree_add_string(ptr noundef nonnull %1, i32 noundef %161, ptr noundef %2, i32 noundef %136, i32 noundef 4, ptr noundef nonnull %138) #6
   br label %aprs_longitude_compressed.exit
 
 aprs_longitude_compressed.exit:                   ; preds = %aprs_latitude_compressed.exit.thread, %108
@@ -1620,7 +1620,7 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 

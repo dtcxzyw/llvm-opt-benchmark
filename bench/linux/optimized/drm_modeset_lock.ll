@@ -462,7 +462,7 @@ define dso_local i32 @drm_modeset_backoff(ptr noundef initializes((32, 36)) %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @drm_modeset_acquire_fini(ptr nocapture readnone %0) #2 align 16 {
+define dso_local void @drm_modeset_acquire_fini(ptr readnone captures(none) %0) #2 align 16 {
   ret void
 }
 
@@ -628,7 +628,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 declare dso_local zeroext i1 @mutex_is_locked(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_modeset_unlock(ptr noundef %0) #0 align 16 {

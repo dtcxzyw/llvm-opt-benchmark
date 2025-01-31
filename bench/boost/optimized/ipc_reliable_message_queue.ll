@@ -528,7 +528,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -584,7 +584,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @__cxx_global_var_init() #5 section ".text.startup" comdat($_ZN5boost12interprocess13mapped_region16page_size_holderILi0EE8PageSizeE) {
@@ -604,10 +604,10 @@ define internal void @__cxx_global_var_init() #5 section ".text.startup" comdat(
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #3
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue6createERKNS2_11object_nameEjjNS3_15overflow_policyERKNS1_11permissionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue6createERKNS2_11object_nameEjjNS3_15overflow_policyERKNS1_11permissionsE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::invalid_argument", align 8
   %8 = alloca %"struct.boost::source_location", align 8
   %9 = alloca %"struct.boost::exception_detail::error_info_injector", align 8
@@ -1337,7 +1337,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 declare void @__cxa_rethrow() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue14open_or_createERKNS2_11object_nameEjjNS3_15overflow_policyERKNS1_11permissionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue14open_or_createERKNS2_11object_nameEjjNS3_15overflow_policyERKNS1_11permissionsE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::invalid_argument", align 8
   %8 = alloca %"struct.boost::source_location", align 8
   %9 = alloca %"struct.boost::exception_detail::error_info_injector", align 8
@@ -2027,7 +2027,7 @@ _ZN5boost3log11v2_mt_posix3ipc11object_nameD2Ev.exit: ; preds = %_ZNKSt7__cxx111
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue4openERKNS2_11object_nameENS3_15overflow_policyERKNS1_11permissionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue4openERKNS2_11object_nameENS3_15overflow_policyERKNS1_11permissionsE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.boost::exception_detail::error_info_injector", align 8
   %6 = alloca %"class.boost::log::v2_mt_posix::system_error", align 8
   %7 = alloca %"class.boost::system::error_code", align 8
@@ -2555,7 +2555,7 @@ _ZN5boost3log11v2_mt_posix3ipc11object_nameD2Ev.exit: ; preds = %_ZNKSt7__cxx111
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue5clearEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue5clearEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.boost::error_info", align 8
   %3 = load ptr, ptr %0, align 8, !tbaa !20
   invoke void @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue14implementation5clearEv(ptr noundef nonnull align 8 dereferenceable(104) %3)
@@ -2715,14 +2715,14 @@ _ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue14implementation11clear_qu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5boost3log11v2_mt_posix3ipc22reliable_message_queue4nameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5boost3log11v2_mt_posix3ipc22reliable_message_queue4nameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #13 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK5boost3log11v2_mt_posix3ipc22reliable_message_queue8capacityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #14 align 2 {
+define noundef i32 @_ZNK5boost3log11v2_mt_posix3ipc22reliable_message_queue8capacityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #14 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !77
@@ -2732,7 +2732,7 @@ define noundef i32 @_ZNK5boost3log11v2_mt_posix3ipc22reliable_message_queue8capa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK5boost3log11v2_mt_posix3ipc22reliable_message_queue10block_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #14 align 2 {
+define noundef i32 @_ZNK5boost3log11v2_mt_posix3ipc22reliable_message_queue10block_sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #14 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !77
@@ -2742,7 +2742,7 @@ define noundef i32 @_ZNK5boost3log11v2_mt_posix3ipc22reliable_message_queue10blo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue10stop_localEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue10stop_localEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.boost::error_info", align 8
   %3 = load ptr, ptr %0, align 8, !tbaa !20
   invoke void @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue14implementation10stop_localEv(ptr noundef nonnull align 8 dereferenceable(104) %3)
@@ -2913,7 +2913,7 @@ _ZN5boost3log11v2_mt_posix3ipc3aux31interprocess_condition_variable10notify_allE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define void @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue11reset_localEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue11reset_localEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store atomic volatile i8 0, ptr %3 monotonic, align 1
@@ -2921,7 +2921,7 @@ define void @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue11reset_local
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue8do_closeEv(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #12 align 2 {
+define void @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue8do_closeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !20
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4
@@ -3021,7 +3021,7 @@ _ZN5boost12interprocess20shared_memory_objectD2Ev.exit: ; preds = %_ZN5boost12in
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue4sendEPKvj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue4sendEPKvj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::error_info", align 8
   %5 = load ptr, ptr %0, align 8, !tbaa !20
   %6 = invoke noundef i32 @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue14implementation4sendEPKvj(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef %1, i32 noundef %2)
@@ -3309,7 +3309,7 @@ _ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue14implementation10lock_que
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue8try_sendEPKvj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue8try_sendEPKvj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::error_info", align 8
   %5 = load ptr, ptr %0, align 8, !tbaa !20
   %6 = invoke noundef zeroext i1 @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue14implementation8try_sendEPKvj(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef %1, i32 noundef %2)
@@ -3549,7 +3549,7 @@ _ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue14implementation15enqueue_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue10do_receiveEPFvPvPKvjES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue10do_receiveEPFvPvPKvjES4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::error_info", align 8
   %5 = load ptr, ptr %0, align 8, !tbaa !20
   %6 = invoke noundef i32 @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue14implementation7receiveEPFvPvPKvjES5_(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef %1, ptr noundef %2)
@@ -3799,7 +3799,7 @@ _ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue14implementation15dequeue_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue14do_try_receiveEPFvPvPKvjES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue14do_try_receiveEPFvPvPKvjES4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::error_info", align 8
   %5 = load ptr, ptr %0, align 8, !tbaa !20
   %6 = invoke noundef zeroext i1 @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue14implementation11try_receiveEPFvPvPKvjES5_(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef %1, ptr noundef %2)
@@ -4017,7 +4017,7 @@ _ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue14implementation15dequeue_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue28fixed_buffer_receive_handlerEPvPKvj(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue28fixed_buffer_receive_handlerEPvPKvj(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::log::v2_mt_posix::bad_alloc", align 8
   %5 = alloca %"struct.boost::source_location", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4086,10 +4086,10 @@ declare void @_ZN5boost3log11v2_mt_posix9bad_allocC1EPKc(ptr noundef nonnull ali
 declare void @_ZN5boost3log11v2_mt_posix9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue6removeERKNS2_11object_nameE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #4 align 2 {
+define void @_ZN5boost3log11v2_mt_posix3ipc22reliable_message_queue6removeERKNS2_11object_nameE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !10
   %3 = tail call noundef zeroext i1 @_ZN5boost12interprocess20shared_memory_object6removeEPKc(ptr noundef %2)
   ret void
@@ -4403,7 +4403,7 @@ _ZN5boost6system6detail29system_error_category_messageEiPcm.exit: ; preds = %6, 
 declare ptr @strerror_r(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost12interprocess20shared_memory_objectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5073,7 +5073,7 @@ _ZN5boost12interprocess19fill_system_messageEiRNSt7__cxx1112basic_stringIcSt11ch
   %19 = phi i64 [ 0, %17 ], [ %.ph, %.invoke.sink.split ]
   %20 = phi ptr [ @.str.8, %17 ], [ %.sink, %.invoke.sink.split ]
   %21 = phi i64 [ 44, %17 ], [ %18, %.invoke.sink.split ]
-  %22 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0, i64 noundef %19, ptr noundef %20, i64 noundef %21)
+  %22 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0, i64 noundef %19, ptr noundef nonnull %20, i64 noundef %21)
           to label %_ZN5boost12interprocess19fill_system_messageEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %13
 
 23:                                               ; preds = %13
@@ -5143,7 +5143,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #21
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #22
@@ -5199,7 +5199,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #7
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #23
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #23
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #10
@@ -5584,7 +5584,7 @@ declare i32 @posix_fallocate(i32 noundef, i64 noundef, i64 noundef) local_unname
 declare i32 @ftruncate(i32 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #24
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: nounwind
 declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
@@ -7528,7 +7528,7 @@ _ZN5boost4core21scoped_demangled_nameC2EPKc.exit: ; preds = %2
 declare ptr @__cxa_demangle(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #27
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #27
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #4 align 2
@@ -8630,7 +8630,7 @@ _ZN5boost10shared_ptrINS_16exception_detail15error_info_baseEED2Ev.exit: ; preds
 declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #28
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #21
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIN5boost16exception_detail10type_info_ENS0_10shared_ptrINS1_15error_info_baseEEESt4lessIS2_ESaISt4pairIKS2_S5_EEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {

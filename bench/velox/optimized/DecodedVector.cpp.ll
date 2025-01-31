@@ -672,7 +672,7 @@ sw.epilog:                                        ; preds = %sw.bb11.i25, %sw.bb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8facebook5velox13DecodedVector5resetEi(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((0, 4), (16, 32), (48, 60), (64, 68)) %this, i32 noundef %size) local_unnamed_addr #3 align 2 {
+define void @_ZN8facebook5velox13DecodedVector5resetEi(ptr noundef nonnull align 8 captures(none) dereferenceable(120) initializes((0, 4), (16, 32), (48, 60), (64, 68)) %this, i32 noundef %size) local_unnamed_addr #3 align 2 {
 entry:
   %copiedIndices_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %copiedIndices_.i, align 8
@@ -2518,10 +2518,10 @@ if.end:                                           ; preds = %lor.lhs.false.i, %_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox13DecodedVector12setFlatNullsERKNS0_10BaseVectorEPKNS0_17SelectivityVectorE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(99) %vector, ptr noundef %rows) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox13DecodedVector12setFlatNullsERKNS0_10BaseVectorEPKNS0_17SelectivityVectorE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(99) %vector, ptr noundef %rows) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hasExtraNulls_ = getelementptr inbounds nuw i8, ptr %this, i64 57
   %0 = load i8, ptr %hasExtraNulls_, align 1
@@ -3693,7 +3693,7 @@ if.end28:                                         ; preds = %if.then22, %if.end1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox13DecodedVector18dictionaryWrappingERKNS0_10BaseVectorEi(ptr noalias nocapture writeonly sret(%"struct.facebook::velox::DecodedVector::DictionaryWrapping") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(99) %wrapper, i32 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox13DecodedVector18dictionaryWrappingERKNS0_10BaseVectorEi(ptr noalias writeonly sret(%"struct.facebook::velox::DecodedVector::DictionaryWrapping") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(99) %wrapper, i32 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %indices = alloca %"class.boost::intrusive_ptr", align 8
   %nulls = alloca %"class.boost::intrusive_ptr", align 8
@@ -3924,7 +3924,7 @@ lpad:                                             ; preds = %call3.i.i.i.noexc, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox13DecodedVector4wrapESt10shared_ptrINS0_10BaseVectorEERKS3_i(ptr noalias sret(%"class.std::shared_ptr.15") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, ptr nocapture noundef %data, ptr nocapture noundef nonnull readonly align 8 dereferenceable(99) %wrapper, i32 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox13DecodedVector4wrapESt10shared_ptrINS0_10BaseVectorEERKS3_i(ptr noalias sret(%"class.std::shared_ptr.15") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this, ptr noundef captures(none) %data, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(99) %wrapper, i32 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.15", align 8
   %wrapping = alloca %"struct.facebook::velox::DecodedVector::DictionaryWrapping", align 8
@@ -4929,7 +4929,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #10
 declare noundef i64 @_ZN8facebook5velox10BaseVector8byteSizeIbEEmi(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr void @_ZSt27__throw_bad_optional_accessv() local_unnamed_addr #12 comdat {
@@ -5148,7 +5148,7 @@ if.end94:                                         ; preds = %for.body.i.i.i58, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15

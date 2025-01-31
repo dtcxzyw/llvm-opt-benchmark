@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN7Imf_3_28TimeCodeC1ERKS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN7Imf_3_28TimeCodeC2ERKS0_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7Imf_3_28TimeCodeC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN7Imf_3_28TimeCodeC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store i32 0, ptr %this, align 4
   %_user = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -25,7 +25,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_28TimeCodeC2Eiiiibbbbbbiiiiiiii(ptr nocapture noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %hours, i32 noundef %minutes, i32 noundef %seconds, i32 noundef %frame, i1 noundef zeroext %dropFrame, i1 noundef zeroext %colorFrame, i1 noundef zeroext %fieldPhase, i1 noundef zeroext %bgf0, i1 noundef zeroext %bgf1, i1 noundef zeroext %bgf2, i32 noundef %binaryGroup1, i32 noundef %binaryGroup2, i32 noundef %binaryGroup3, i32 noundef %binaryGroup4, i32 noundef %binaryGroup5, i32 noundef %binaryGroup6, i32 noundef %binaryGroup7, i32 noundef %binaryGroup8) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_28TimeCodeC2Eiiiibbbbbbiiiiiiii(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %this, i32 noundef %hours, i32 noundef %minutes, i32 noundef %seconds, i32 noundef %frame, i1 noundef zeroext %dropFrame, i1 noundef zeroext %colorFrame, i1 noundef zeroext %fieldPhase, i1 noundef zeroext %bgf0, i1 noundef zeroext %bgf1, i1 noundef zeroext %bgf2, i32 noundef %binaryGroup1, i32 noundef %binaryGroup2, i32 noundef %binaryGroup3, i32 noundef %binaryGroup4, i32 noundef %binaryGroup5, i32 noundef %binaryGroup6, i32 noundef %binaryGroup7, i32 noundef %binaryGroup8) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %or.cond.i = icmp ugt i32 %hours, 23
   br i1 %or.cond.i, label %if.then.i, label %_ZN7Imf_3_28TimeCode8setHoursEi.exit
@@ -180,7 +180,7 @@ _ZN7Imf_3_28TimeCode8setFrameEi.exit:             ; preds = %_ZN7Imf_3_28TimeCod
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_28TimeCode8setHoursEi(ptr nocapture noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %value) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_28TimeCode8setHoursEi(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %this, i32 noundef %value) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %or.cond = icmp ugt i32 %value, 23
   br i1 %or.cond, label %if.then, label %if.end
@@ -215,7 +215,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_28TimeCode10setMinutesEi(ptr nocapture noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %value) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_28TimeCode10setMinutesEi(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %this, i32 noundef %value) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %or.cond = icmp ugt i32 %value, 59
   br i1 %or.cond, label %if.then, label %if.end
@@ -250,7 +250,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_28TimeCode10setSecondsEi(ptr nocapture noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %value) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_28TimeCode10setSecondsEi(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %this, i32 noundef %value) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %or.cond = icmp ugt i32 %value, 59
   br i1 %or.cond, label %if.then, label %if.end
@@ -285,7 +285,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_28TimeCode8setFrameEi(ptr nocapture noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %value) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_28TimeCode8setFrameEi(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %this, i32 noundef %value) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %or.cond = icmp ugt i32 %value, 29
   br i1 %or.cond, label %if.then, label %if.end
@@ -319,7 +319,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7Imf_3_28TimeCode12setDropFrameEb(ptr nocapture noundef nonnull align 4 dereferenceable(8) %this, i1 noundef zeroext %value) local_unnamed_addr #2 align 2 {
+define void @_ZN7Imf_3_28TimeCode12setDropFrameEb(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %this, i1 noundef zeroext %value) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %and.i = and i32 %0, -65
@@ -330,7 +330,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7Imf_3_28TimeCode13setColorFrameEb(ptr nocapture noundef nonnull align 4 dereferenceable(8) %this, i1 noundef zeroext %value) local_unnamed_addr #2 align 2 {
+define void @_ZN7Imf_3_28TimeCode13setColorFrameEb(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %this, i1 noundef zeroext %value) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %and.i = and i32 %0, -129
@@ -341,7 +341,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7Imf_3_28TimeCode13setFieldPhaseEb(ptr nocapture noundef nonnull align 4 dereferenceable(8) %this, i1 noundef zeroext %value) local_unnamed_addr #2 align 2 {
+define void @_ZN7Imf_3_28TimeCode13setFieldPhaseEb(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %this, i1 noundef zeroext %value) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %and.i = and i32 %0, -32769
@@ -352,7 +352,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7Imf_3_28TimeCode7setBgf0Eb(ptr nocapture noundef nonnull align 4 dereferenceable(8) %this, i1 noundef zeroext %value) local_unnamed_addr #2 align 2 {
+define void @_ZN7Imf_3_28TimeCode7setBgf0Eb(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %this, i1 noundef zeroext %value) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %and.i = and i32 %0, -8388609
@@ -363,7 +363,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7Imf_3_28TimeCode7setBgf1Eb(ptr nocapture noundef nonnull align 4 dereferenceable(8) %this, i1 noundef zeroext %value) local_unnamed_addr #2 align 2 {
+define void @_ZN7Imf_3_28TimeCode7setBgf1Eb(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %this, i1 noundef zeroext %value) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %and.i = and i32 %0, -1073741825
@@ -374,7 +374,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7Imf_3_28TimeCode7setBgf2Eb(ptr nocapture noundef nonnull align 4 dereferenceable(8) %this, i1 noundef zeroext %value) local_unnamed_addr #2 align 2 {
+define void @_ZN7Imf_3_28TimeCode7setBgf2Eb(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %this, i1 noundef zeroext %value) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %and.i = and i32 %0, 2147483647
@@ -385,7 +385,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_28TimeCode14setBinaryGroupEii(ptr nocapture noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %group, i32 noundef %value) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_28TimeCode14setBinaryGroupEii(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %this, i32 noundef %group, i32 noundef %value) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = add i32 %group, -9
   %or.cond = icmp ult i32 %0, -8
@@ -422,7 +422,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7Imf_3_28TimeCodeC2EjjNS0_7PackingE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %this, i32 noundef %timeAndFlags, i32 noundef %userData, i32 noundef %packing) unnamed_addr #0 align 2 {
+define void @_ZN7Imf_3_28TimeCodeC2EjjNS0_7PackingE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %this, i32 noundef %timeAndFlags, i32 noundef %userData, i32 noundef %packing) unnamed_addr #0 align 2 {
 entry:
   switch i32 %packing, label %if.end23.sink.split.i [
     i32 1, label %if.then.i
@@ -458,7 +458,7 @@ _ZN7Imf_3_28TimeCode15setTimeAndFlagsEjNS0_7PackingE.exit: ; preds = %if.then.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7Imf_3_28TimeCode15setTimeAndFlagsEjNS0_7PackingE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 4)) %this, i32 noundef %value, i32 noundef %packing) local_unnamed_addr #0 align 2 {
+define void @_ZN7Imf_3_28TimeCode15setTimeAndFlagsEjNS0_7PackingE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) initializes((0, 4)) %this, i32 noundef %value, i32 noundef %packing) local_unnamed_addr #0 align 2 {
 entry:
   switch i32 %packing, label %if.end23.sink.split [
     i32 1, label %if.then
@@ -497,7 +497,7 @@ if.end23:                                         ; preds = %if.end23.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7Imf_3_28TimeCode11setUserDataEj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((4, 8)) %this, i32 noundef %value) local_unnamed_addr #0 align 2 {
+define void @_ZN7Imf_3_28TimeCode11setUserDataEj(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) initializes((4, 8)) %this, i32 noundef %value) local_unnamed_addr #0 align 2 {
 entry:
   %_user = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 %value, ptr %_user, align 4
@@ -505,7 +505,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7Imf_3_28TimeCodeC2ERKS0_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %other) unnamed_addr #2 align 2 {
+define void @_ZN7Imf_3_28TimeCodeC2ERKS0_(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %other) unnamed_addr #2 align 2 {
 entry:
   %0 = load i32, ptr %other, align 4
   store i32 %0, ptr %this, align 4
@@ -536,7 +536,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK7Imf_3_28TimeCodeeqERKS0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %c) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK7Imf_3_28TimeCodeeqERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %c) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %1 = load i32, ptr %c, align 4
@@ -551,7 +551,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK7Imf_3_28TimeCodeneERKS0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %c) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK7Imf_3_28TimeCodeneERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %c) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %1 = load i32, ptr %c, align 4
@@ -566,7 +566,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 46) i32 @_ZNK7Imf_3_28TimeCode5hoursEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
+define noundef range(i32 0, 46) i32 @_ZNK7Imf_3_28TimeCode5hoursEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %and.i = lshr i32 %0, 24
@@ -593,7 +593,7 @@ declare void @_ZN7Iex_3_26ArgExcD1Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 86) i32 @_ZNK7Imf_3_28TimeCode7minutesEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
+define noundef range(i32 0, 86) i32 @_ZNK7Imf_3_28TimeCode7minutesEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %and.i = lshr i32 %0, 16
@@ -606,7 +606,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 86) i32 @_ZNK7Imf_3_28TimeCode7secondsEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
+define noundef range(i32 0, 86) i32 @_ZNK7Imf_3_28TimeCode7secondsEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %and.i = lshr i32 %0, 8
@@ -619,7 +619,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 46) i32 @_ZNK7Imf_3_28TimeCode5frameEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
+define noundef range(i32 0, 46) i32 @_ZNK7Imf_3_28TimeCode5frameEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %and.i1 = and i32 %0, 15
@@ -631,7 +631,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK7Imf_3_28TimeCode9dropFrameEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK7Imf_3_28TimeCode9dropFrameEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %1 = and i32 %0, 64
@@ -640,7 +640,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK7Imf_3_28TimeCode10colorFrameEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK7Imf_3_28TimeCode10colorFrameEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %1 = and i32 %0, 128
@@ -649,7 +649,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK7Imf_3_28TimeCode10fieldPhaseEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK7Imf_3_28TimeCode10fieldPhaseEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %1 = and i32 %0, 32768
@@ -658,7 +658,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK7Imf_3_28TimeCode4bgf0Ev(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK7Imf_3_28TimeCode4bgf0Ev(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %1 = and i32 %0, 8388608
@@ -667,7 +667,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK7Imf_3_28TimeCode4bgf1Ev(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK7Imf_3_28TimeCode4bgf1Ev(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %1 = and i32 %0, 1073741824
@@ -676,7 +676,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK7Imf_3_28TimeCode4bgf2Ev(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK7Imf_3_28TimeCode4bgf2Ev(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %tobool = icmp slt i32 %0, 0
@@ -684,7 +684,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 16) i32 @_ZNK7Imf_3_28TimeCode11binaryGroupEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this, i32 noundef %group) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 16) i32 @_ZNK7Imf_3_28TimeCode11binaryGroupEi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this, i32 noundef %group) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = add i32 %group, -9
   %or.cond = icmp ult i32 %0, -8
@@ -716,7 +716,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK7Imf_3_28TimeCode12timeAndFlagsENS0_7PackingE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this, i32 noundef %packing) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_28TimeCode12timeAndFlagsENS0_7PackingE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this, i32 noundef %packing) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   switch i32 %packing, label %return [
@@ -744,7 +744,7 @@ return:                                           ; preds = %entry, %if.then15, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK7Imf_3_28TimeCode8userDataEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK7Imf_3_28TimeCode8userDataEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_user = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %_user, align 4

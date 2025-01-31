@@ -29,7 +29,7 @@ define internal noundef i32 @init_query(i1 zeroext %0, i1 zeroext %1) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @mca_topo_treematch_query(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #0 {
+define internal noundef ptr @mca_topo_treematch_query(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #0 {
   %.not = icmp eq i32 %3, 1024
   br i1 %.not, label %5, label %opal_obj_new.exit.thread
 

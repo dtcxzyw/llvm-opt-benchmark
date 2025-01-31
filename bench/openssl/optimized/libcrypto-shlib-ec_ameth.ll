@@ -88,7 +88,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @eckey_pub_encode(ptr noundef %pk, ptr nocapture noundef readonly %pkey) #0 {
+define internal range(i32 0, 2) i32 @eckey_pub_encode(ptr noundef %pk, ptr noundef readonly captures(none) %pkey) #0 {
 entry:
   %pval = alloca ptr, align 8
   %ptype = alloca i32, align 4
@@ -157,7 +157,7 @@ return:                                           ; preds = %if.end14, %if.end23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 2) i32 @eckey_pub_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal range(i32 -2, 2) i32 @eckey_pub_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %pkey = getelementptr inbounds nuw i8, ptr %b, i64 32
   %0 = load ptr, ptr %pkey, align 8
@@ -188,7 +188,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @eckey_pub_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
+define internal range(i32 0, 2) i32 @eckey_pub_print(ptr noundef %bp, ptr noundef readonly captures(none) %pkey, i32 noundef %indent, ptr readnone captures(none) %ctx) #0 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -197,7 +197,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @eckey_priv_encode(ptr noundef %p8, ptr nocapture noundef readonly %pkey) #0 {
+define internal range(i32 0, 2) i32 @eckey_priv_encode(ptr noundef %p8, ptr noundef readonly captures(none) %pkey) #0 {
 entry:
   %ec_key = alloca %struct.ec_key_st, align 8
   %ep = alloca ptr, align 8
@@ -266,7 +266,7 @@ return:                                           ; preds = %err, %if.then13, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @eckey_priv_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
+define internal range(i32 0, 2) i32 @eckey_priv_print(ptr noundef %bp, ptr noundef readonly captures(none) %pkey, i32 noundef %indent, ptr readnone captures(none) %ctx) #0 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -275,7 +275,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @int_ec_size(ptr nocapture noundef readonly %pkey) #0 {
+define internal i32 @int_ec_size(ptr noundef readonly captures(none) %pkey) #0 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -284,7 +284,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ec_bits(ptr nocapture noundef readonly %pkey) #0 {
+define internal i32 @ec_bits(ptr noundef readonly captures(none) %pkey) #0 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -294,7 +294,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1073741824, 257) i32 @ec_security_bits(ptr nocapture noundef readonly %pkey) #0 {
+define internal range(i32 -1073741824, 257) i32 @ec_security_bits(ptr noundef readonly captures(none) %pkey) #0 {
 entry:
   %pkey1.i = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1.i, align 8
@@ -346,7 +346,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @eckey_param_encode(ptr nocapture noundef readonly %pkey, ptr noundef %pder) #0 {
+define internal i32 @eckey_param_encode(ptr noundef readonly captures(none) %pkey, ptr noundef %pder) #0 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -355,7 +355,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ec_missing_parameters(ptr nocapture noundef readonly %pkey) #0 {
+define internal range(i32 0, 2) i32 @ec_missing_parameters(ptr noundef readonly captures(none) %pkey) #0 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -374,7 +374,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ec_copy_parameters(ptr nocapture noundef %to, ptr nocapture noundef readonly %from) #0 {
+define internal range(i32 0, 2) i32 @ec_copy_parameters(ptr noundef captures(none) %to, ptr noundef readonly captures(none) %from) #0 {
 entry:
   %pkey = getelementptr inbounds nuw i8, ptr %from, i64 32
   %0 = load ptr, ptr %pkey, align 8
@@ -415,7 +415,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 2) i32 @ec_cmp_parameters(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal range(i32 -2, 2) i32 @ec_cmp_parameters(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %pkey = getelementptr inbounds nuw i8, ptr %a, i64 32
   %0 = load ptr, ptr %pkey, align 8
@@ -440,7 +440,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @eckey_param_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
+define internal range(i32 0, 2) i32 @eckey_param_print(ptr noundef %bp, ptr noundef readonly captures(none) %pkey, i32 noundef %indent, ptr readnone captures(none) %ctx) #0 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -449,7 +449,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @int_ec_free(ptr nocapture noundef readonly %pkey) #0 {
+define internal void @int_ec_free(ptr noundef readonly captures(none) %pkey) #0 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -524,7 +524,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @old_ec_priv_encode(ptr nocapture noundef readonly %pkey, ptr noundef %pder) #0 {
+define internal i32 @old_ec_priv_encode(ptr noundef readonly captures(none) %pkey, ptr noundef %pder) #0 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -533,7 +533,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ec_pkey_check(ptr nocapture noundef readonly %pkey) #0 {
+define internal i32 @ec_pkey_check(ptr noundef readonly captures(none) %pkey) #0 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -558,7 +558,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ec_pkey_public_check(ptr nocapture noundef readonly %pkey) #0 {
+define internal i32 @ec_pkey_public_check(ptr noundef readonly captures(none) %pkey) #0 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -567,7 +567,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ec_pkey_param_check(ptr nocapture noundef readonly %pkey) #0 {
+define internal i32 @ec_pkey_param_check(ptr noundef readonly captures(none) %pkey) #0 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -592,7 +592,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @ec_pkey_dirty_cnt(ptr nocapture noundef readonly %pkey) #1 {
+define internal i64 @ec_pkey_dirty_cnt(ptr noundef readonly captures(none) %pkey) #1 {
 entry:
   %pkey1 = getelementptr inbounds nuw i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -602,7 +602,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ec_pkey_export_to(ptr noundef readonly %from, ptr noundef %to_keydata, ptr nocapture noundef readonly %importer, ptr noundef %libctx, ptr noundef %propq) #0 {
+define internal i32 @ec_pkey_export_to(ptr noundef readonly %from, ptr noundef %to_keydata, ptr noundef readonly captures(none) %importer, ptr noundef %libctx, ptr noundef %propq) #0 {
 entry:
   %pub_key_buf = alloca ptr, align 8
   %gen_buf = alloca ptr, align 8
@@ -758,7 +758,7 @@ return:                                           ; preds = %lor.lhs.false8, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ec_pkey_copy(ptr noundef %to, ptr nocapture noundef readonly %from) #0 {
+define internal i32 @ec_pkey_copy(ptr noundef %to, ptr noundef readonly captures(none) %from) #0 {
 entry:
   %pkey = getelementptr inbounds nuw i8, ptr %from, i64 32
   %0 = load ptr, ptr %pkey, align 8
@@ -972,7 +972,7 @@ declare i32 @EVP_PKEY_assign(ptr noundef, i32 noundef, ptr noundef) local_unname
 declare void @EC_KEY_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @eckey_param2type(ptr nocapture noundef nonnull writeonly %pptype, ptr nocapture noundef nonnull writeonly %ppval, ptr noundef %ec_key) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @eckey_param2type(ptr noundef nonnull writeonly captures(none) %pptype, ptr noundef nonnull writeonly captures(none) %ppval, ptr noundef %ec_key) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ec_key, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -1074,7 +1074,7 @@ declare ptr @EC_KEY_get0_public_key(ptr noundef) local_unnamed_addr #2
 declare i32 @EC_POINT_cmp(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @EC_KEY_get_enc_flags(ptr noundef) local_unnamed_addr #2
 

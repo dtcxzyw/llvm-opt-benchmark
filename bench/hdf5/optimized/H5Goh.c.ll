@@ -113,7 +113,7 @@ define internal range(i32 -1, 2) i32 @H5O__group_isa(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @H5O__group_open(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 {
+define internal ptr @H5O__group_open(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #0 {
   store i32 2, ptr %1, align 4
   %3 = tail call ptr @H5G_open(ptr noundef %0) #2
   %4 = icmp eq ptr %3, null
@@ -130,7 +130,7 @@ define internal ptr @H5O__group_open(ptr noundef %0, ptr nocapture noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @H5O__group_create(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
+define internal ptr @H5O__group_create(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = tail call ptr @H5G__create(ptr noundef %0, ptr noundef %1) #2
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %10
@@ -211,7 +211,7 @@ define internal ptr @H5O__group_get_oloc(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5O__group_bh_info(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5O__group_bh_info(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.H5O_linfo_t, align 8
   %5 = alloca %struct.H5O_stab_t, align 8
   %6 = tail call i32 @H5O_msg_exists_oh(ptr noundef %1, i32 noundef 2) #2

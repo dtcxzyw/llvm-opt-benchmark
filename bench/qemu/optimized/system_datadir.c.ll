@@ -145,7 +145,7 @@ return:                                           ; preds = %if.end8, %sw.epilog
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #1
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #1
 
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
@@ -187,7 +187,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp7, label %if.then9, label %for.cond
 
 if.then9:                                         ; preds = %for.body
-  tail call void @g_free(ptr noundef %path) #8
+  tail call void @g_free(ptr noundef nonnull %path) #8
   br label %return
 
 for.end:                                          ; preds = %for.cond, %for.cond.preheader
@@ -203,7 +203,7 @@ return:                                           ; preds = %entry, %for.end, %i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_add_default_firmwarepath() local_unnamed_addr #0 {
@@ -237,7 +237,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   br i1 %cmp7.i, label %if.then9.i, label %for.cond.i
 
 if.then9.i:                                       ; preds = %for.body.i
-  tail call void @g_free(ptr noundef %call) #8
+  tail call void @g_free(ptr noundef nonnull %call) #8
   br label %qemu_add_data_dir.exit
 
 for.end.i:                                        ; preds = %for.cond.i, %for.cond.preheader.i
@@ -278,7 +278,7 @@ for.body.i14:                                     ; preds = %for.cond.i19, %for.
   br i1 %cmp7.i18, label %if.then9.i22, label %for.cond.i19
 
 if.then9.i22:                                     ; preds = %for.body.i14
-  tail call void @g_free(ptr noundef %call2) #8
+  tail call void @g_free(ptr noundef nonnull %call2) #8
   br label %qemu_add_data_dir.exit23
 
 for.end.i8:                                       ; preds = %for.cond.i19, %for.cond.preheader.i6
@@ -318,20 +318,20 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

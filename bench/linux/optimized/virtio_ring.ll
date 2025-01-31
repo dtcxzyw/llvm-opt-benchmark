@@ -125,7 +125,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_virtqueue_dm
 @llvm.compiler.used = appending global [45 x ptr] [ptr @__UNIQUE_ID___addressable___virtio_unbreak_device422, ptr @__UNIQUE_ID___addressable___virtqueue_break414, ptr @__UNIQUE_ID___addressable___virtqueue_unbreak416, ptr @__UNIQUE_ID___addressable_virtio_break_device420, ptr @__UNIQUE_ID___addressable_virtio_max_dma_size359, ptr @__UNIQUE_ID___addressable_virtqueue_add_inbuf388, ptr @__UNIQUE_ID___addressable_virtqueue_add_inbuf_ctx389, ptr @__UNIQUE_ID___addressable_virtqueue_add_outbuf387, ptr @__UNIQUE_ID___addressable_virtqueue_add_sgs386, ptr @__UNIQUE_ID___addressable_virtqueue_detach_unused_buf401, ptr @__UNIQUE_ID___addressable_virtqueue_disable_cb396, ptr @__UNIQUE_ID___addressable_virtqueue_dma_dev390, ptr @__UNIQUE_ID___addressable_virtqueue_dma_map_single_attrs430, ptr @__UNIQUE_ID___addressable_virtqueue_dma_mapping_error432, ptr @__UNIQUE_ID___addressable_virtqueue_dma_need_sync433, ptr @__UNIQUE_ID___addressable_virtqueue_dma_sync_single_range_for_cpu434, ptr @__UNIQUE_ID___addressable_virtqueue_dma_sync_single_range_for_device435, ptr @__UNIQUE_ID___addressable_virtqueue_dma_unmap_single_attrs431, ptr @__UNIQUE_ID___addressable_virtqueue_enable_cb399, ptr @__UNIQUE_ID___addressable_virtqueue_enable_cb_delayed400, ptr @__UNIQUE_ID___addressable_virtqueue_enable_cb_prepare397, ptr @__UNIQUE_ID___addressable_virtqueue_get_avail_addr426, ptr @__UNIQUE_ID___addressable_virtqueue_get_buf395, ptr @__UNIQUE_ID___addressable_virtqueue_get_buf_ctx394, ptr @__UNIQUE_ID___addressable_virtqueue_get_desc_addr424, ptr @__UNIQUE_ID___addressable_virtqueue_get_used_addr428, ptr @__UNIQUE_ID___addressable_virtqueue_get_vring429, ptr @__UNIQUE_ID___addressable_virtqueue_get_vring_size412, ptr @__UNIQUE_ID___addressable_virtqueue_is_broken418, ptr @__UNIQUE_ID___addressable_virtqueue_kick393, ptr @__UNIQUE_ID___addressable_virtqueue_kick_prepare391, ptr @__UNIQUE_ID___addressable_virtqueue_notify392, ptr @__UNIQUE_ID___addressable_virtqueue_poll398, ptr @__UNIQUE_ID___addressable_virtqueue_reset407, ptr @__UNIQUE_ID___addressable_virtqueue_resize405, ptr @__UNIQUE_ID___addressable_virtqueue_set_dma_premapped406, ptr @__UNIQUE_ID___addressable_vring_create_virtqueue403, ptr @__UNIQUE_ID___addressable_vring_create_virtqueue_dma404, ptr @__UNIQUE_ID___addressable_vring_del_virtqueue409, ptr @__UNIQUE_ID___addressable_vring_interrupt402, ptr @__UNIQUE_ID___addressable_vring_new_virtqueue408, ptr @__UNIQUE_ID___addressable_vring_notification_data410, ptr @__UNIQUE_ID___addressable_vring_transport_features411, ptr @__UNIQUE_ID_file436, ptr @__UNIQUE_ID_license437], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @virtio_max_dma_size(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local i64 @virtio_max_dma_size(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 8589934592
@@ -144,16 +144,16 @@ define dso_local i64 @virtio_max_dma_size(ptr nocapture noundef readonly %0) #0 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @dma_max_mapping_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -28, 1) i32 @virtqueue_add_sgs(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) #0 align 16 {
+define dso_local range(i32 -28, 1) i32 @virtqueue_add_sgs(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) #0 align 16 {
   %7 = add i32 %3, %2
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit3, label %9
@@ -194,7 +194,7 @@ define dso_local range(i32 -28, 1) i32 @virtqueue_add_sgs(ptr noundef %0, ptr no
 declare dso_local ptr @sg_next(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7) unnamed_addr #3 align 16 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i8, ptr %9, align 8, !range !9, !noundef !10
   %11 = icmp eq i8 %10, 0
@@ -1602,7 +1602,7 @@ define dso_local range(i32 -28, 1) i32 @virtqueue_add_inbuf_ctx(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local ptr @virtqueue_dma_dev(ptr nocapture noundef readonly %0) #4 align 16 {
+define dso_local ptr @virtqueue_dma_dev(ptr noundef readonly captures(none) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %3 = load i8, ptr %2, align 1, !range !9, !noundef !10
   %4 = icmp eq i8 %3, 0
@@ -1619,7 +1619,7 @@ define dso_local ptr @virtqueue_dma_dev(ptr nocapture noundef readonly %0) #4 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @virtqueue_kick_prepare(ptr nocapture noundef %0) #0 align 16 {
+define dso_local zeroext i1 @virtqueue_kick_prepare(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i8, ptr %2, align 8, !range !9, !noundef !10
   %4 = icmp eq i8 %3, 0
@@ -1886,7 +1886,7 @@ define dso_local noundef zeroext i1 @virtqueue_kick(ptr noundef %0) #0 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #0 align 16 {
+define dso_local ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i8, ptr %4, align 8, !range !9, !noundef !10
   %6 = icmp eq i8 %5, 0
@@ -2110,13 +2110,13 @@ define dso_local ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @virtqueue_get_buf(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local ptr @virtqueue_get_buf(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = tail call ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr noundef %1, ptr noundef null)
   ret ptr %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @virtqueue_disable_cb(ptr nocapture noundef %0) #5 align 16 {
+define dso_local void @virtqueue_disable_cb(ptr noundef captures(none) %0) #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i8, ptr %2, align 8, !range !9, !noundef !10
   %4 = icmp eq i8 %3, 0
@@ -2183,7 +2183,7 @@ define dso_local void @virtqueue_disable_cb(ptr nocapture noundef %0) #5 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 65536) i32 @virtqueue_enable_cb_prepare(ptr nocapture noundef %0) #0 align 16 {
+define dso_local range(i32 0, 65536) i32 @virtqueue_enable_cb_prepare(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 82
   %3 = load i8, ptr %2, align 2, !range !9, !noundef !10
   %4 = icmp eq i8 %3, 0
@@ -2277,7 +2277,7 @@ define dso_local range(i32 0, 65536) i32 @virtqueue_enable_cb_prepare(ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @virtqueue_poll(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local zeroext i1 @virtqueue_poll(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 67
   %4 = load i8, ptr %3, align 1, !range !9, !noundef !10
   %5 = icmp eq i8 %4, 0
@@ -2335,7 +2335,7 @@ define dso_local zeroext i1 @virtqueue_poll(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @virtqueue_enable_cb(ptr nocapture noundef %0) #0 align 16 {
+define dso_local zeroext i1 @virtqueue_enable_cb(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 82
   %3 = load i8, ptr %2, align 2, !range !9, !noundef !10
   %4 = icmp eq i8 %3, 0
@@ -2656,7 +2656,7 @@ define dso_local zeroext i1 @virtqueue_enable_cb_delayed(ptr noundef %0) #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @virtqueue_detach_unused_buf(ptr nocapture noundef %0) #0 align 16 {
+define dso_local ptr @virtqueue_detach_unused_buf(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i8, ptr %2, align 8, !range !9, !noundef !10
   %4 = icmp eq i8 %3, 0
@@ -3095,7 +3095,7 @@ define dso_local noundef ptr @vring_create_virtqueue_dma(i32 noundef %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @virtqueue_resize(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define dso_local i32 @virtqueue_resize(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = alloca %struct.vring_virtqueue_split, align 8
   %5 = alloca %struct.vring_virtqueue_packed, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3512,7 +3512,7 @@ define dso_local i32 @virtqueue_resize(ptr noundef %0, i32 noundef %1, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef range(i32 -22, 1) i32 @virtqueue_set_dma_premapped(ptr nocapture noundef %0) #6 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @virtqueue_set_dma_premapped(ptr noundef captures(none) %0) #6 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -3539,7 +3539,7 @@ define dso_local noundef range(i32 -22, 1) i32 @virtqueue_set_dma_premapped(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @virtqueue_reset(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local i32 @virtqueue_reset(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load i8, ptr %3, align 8, !range !9, !noundef !10
   %5 = icmp eq i8 %4, 0
@@ -3749,10 +3749,10 @@ define dso_local noundef ptr @vring_new_virtqueue(i32 noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @__vring_new_virtqueue(i32 noundef %0, ptr nocapture noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 align 16 {
+define internal fastcc noundef ptr @__vring_new_virtqueue(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 align 16 {
   %10 = zext i1 %3 to i8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 784
   %12 = load i64, ptr %11, align 8
@@ -3943,7 +3943,7 @@ define dso_local void @vring_del_virtqueue(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @vring_free(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @vring_free(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load i8, ptr %2, align 8, !range !9, !noundef !10
   %4 = icmp eq i8 %3, 0
@@ -4086,7 +4086,7 @@ define internal fastcc void @vring_free(ptr nocapture noundef readonly %0) unnam
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @vring_notification_data(ptr nocapture noundef readonly %0) #4 align 16 {
+define dso_local i32 @vring_notification_data(ptr noundef readonly captures(none) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i8, ptr %2, align 8, !range !9, !noundef !10
   %4 = icmp eq i8 %3, 0
@@ -4119,7 +4119,7 @@ define dso_local i32 @vring_notification_data(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @vring_transport_features(ptr nocapture noundef %0) #8 align 16 {
+define dso_local void @vring_transport_features(ptr noundef captures(none) %0) #8 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 784
   br label %3
 
@@ -4154,7 +4154,7 @@ define dso_local void @vring_transport_features(ptr nocapture noundef %0) #8 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @virtqueue_get_vring_size(ptr nocapture noundef readonly %0) #4 align 16 {
+define dso_local i32 @virtqueue_get_vring_size(ptr noundef readonly captures(none) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   ret i32 %3
@@ -4227,7 +4227,7 @@ define dso_local void @__virtio_unbreak_device(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @virtqueue_get_desc_addr(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local i64 @virtqueue_get_desc_addr(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load i8, ptr %2, align 8, !range !9, !noundef !10
   %4 = icmp eq i8 %3, 0
@@ -4245,7 +4245,7 @@ define dso_local i64 @virtqueue_get_desc_addr(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @virtqueue_get_avail_addr(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local i64 @virtqueue_get_avail_addr(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load i8, ptr %2, align 8, !range !9, !noundef !10
   %4 = icmp eq i8 %3, 0
@@ -4286,7 +4286,7 @@ define dso_local i64 @virtqueue_get_avail_addr(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @virtqueue_get_used_addr(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local i64 @virtqueue_get_used_addr(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load i8, ptr %2, align 8, !range !9, !noundef !10
   %4 = icmp eq i8 %3, 0
@@ -4333,7 +4333,7 @@ define dso_local nonnull ptr @virtqueue_get_vring(ptr noundef readnone %0) #11 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @virtqueue_dma_map_single_attrs(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local i64 @virtqueue_dma_map_single_attrs(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %7 = load i8, ptr %6, align 1, !range !9, !noundef !10
   %8 = icmp eq i8 %7, 0
@@ -4407,7 +4407,7 @@ define dso_local i64 @virtqueue_dma_map_single_attrs(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @virtqueue_dma_unmap_single_attrs(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local void @virtqueue_dma_unmap_single_attrs(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %7 = load i8, ptr %6, align 1, !range !9, !noundef !10
   %8 = icmp eq i8 %7, 0
@@ -4424,7 +4424,7 @@ define dso_local void @virtqueue_dma_unmap_single_attrs(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local noundef range(i32 -12, 1) i32 @virtqueue_dma_mapping_error(ptr nocapture noundef readonly %0, i64 noundef %1) #4 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @virtqueue_dma_mapping_error(ptr noundef readonly captures(none) %0, i64 noundef %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %4 = load i8, ptr %3, align 1, !range !9, !noundef !10
   %5 = icmp eq i8 %4, 0
@@ -4435,7 +4435,7 @@ define dso_local noundef range(i32 -12, 1) i32 @virtqueue_dma_mapping_error(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @virtqueue_dma_need_sync(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
+define dso_local zeroext i1 @virtqueue_dma_need_sync(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %4 = load i8, ptr %3, align 1, !range !9, !noundef !10
   %5 = icmp eq i8 %4, 0
@@ -4456,7 +4456,7 @@ define dso_local zeroext i1 @virtqueue_dma_need_sync(ptr nocapture noundef reado
 declare dso_local zeroext i1 @dma_need_sync(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @virtqueue_dma_sync_single_range_for_cpu(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local void @virtqueue_dma_sync_single_range_for_cpu(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %7 = load i8, ptr %6, align 1, !range !9, !noundef !10
   %8 = icmp eq i8 %7, 0
@@ -4474,7 +4474,7 @@ define dso_local void @virtqueue_dma_sync_single_range_for_cpu(ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @virtqueue_dma_sync_single_range_for_device(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local void @virtqueue_dma_sync_single_range_for_device(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %7 = load i8, ptr %6, align 1, !range !9, !noundef !10
   %8 = icmp eq i8 %7, 0
@@ -4492,7 +4492,7 @@ define dso_local void @virtqueue_dma_sync_single_range_for_device(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @vring_unmap_extra_packed(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @vring_unmap_extra_packed(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i16, ptr %3, align 4
   %5 = zext i16 %4 to i32
@@ -4530,7 +4530,7 @@ define internal fastcc void @vring_unmap_extra_packed(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @vring_map_single(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef range(i64 16, 68719476721) %2) unnamed_addr #0 align 16 {
+define internal fastcc i64 @vring_map_single(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef range(i64 16, 68719476721) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %5 = load i8, ptr %4, align 1, !range !9, !noundef !10
   %6 = icmp eq i8 %5, 0
@@ -4619,7 +4619,7 @@ declare dso_local i64 @dma_map_page_attrs(ptr noundef, ptr noundef, i64 noundef,
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #14
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @detach_buf_packed(ptr nocapture noundef %0, i32 noundef %1, ptr noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc void @detach_buf_packed(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
@@ -4750,7 +4750,7 @@ define internal fastcc void @detach_buf_packed(ptr nocapture noundef %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @detach_buf_split(ptr nocapture noundef %0, i32 noundef %1, ptr noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc void @detach_buf_split(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
@@ -4980,7 +4980,7 @@ define internal fastcc void @detach_buf_split(ptr nocapture noundef %0, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @vring_alloc_queue_packed(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @vring_alloc_queue_packed(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -5128,7 +5128,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vring_alloc_queue_packed(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @vring_free_packed(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @vring_free_packed(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -5229,13 +5229,13 @@ declare dso_local void @free_pages_exact(ptr noundef, i64 noundef) local_unnamed
 declare dso_local ptr @dma_alloc_attrs(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @dma_free_attrs(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @vring_alloc_queue_split(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @vring_alloc_queue_split(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 align 16 {
   %7 = alloca i64, align 8
   %8 = zext i1 %4 to i8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17

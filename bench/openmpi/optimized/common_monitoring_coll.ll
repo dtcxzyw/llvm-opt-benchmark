@@ -59,7 +59,7 @@ define i32 @mca_common_monitoring_coll_cache_name(ptr noundef %0) local_unnamed_
 declare i32 @opal_hash_table_get_value_uint64(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @mca_common_monitoring_coll_new(ptr noundef %0) local_unnamed_addr #0 {
@@ -163,7 +163,7 @@ declare i32 @opal_hash_table_init(ptr noundef, i64 noundef) local_unnamed_addr #
 declare i32 @opal_hash_table_set_value_uint64(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mca_common_monitoring_coll_cache(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @mca_common_monitoring_coll_cache(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -411,7 +411,7 @@ mca_common_monitoring_get_world_rank.exit38:      ; preds = %112
 }
 
 ; Function Attrs: nounwind uwtable
-define void @mca_common_monitoring_coll_release(ptr nocapture noundef initializes((36, 40)) %0) local_unnamed_addr #0 {
+define void @mca_common_monitoring_coll_release(ptr noundef captures(none) initializes((36, 40)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 1, ptr %2, align 4
   tail call fastcc void @mca_common_monitoring_coll_cache(ptr noundef %0)
@@ -483,10 +483,10 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 declare i32 @opal_hash_table_remove_all(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define void @mca_common_monitoring_coll_flush(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @mca_common_monitoring_coll_flush(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -526,10 +526,10 @@ define void @mca_common_monitoring_coll_flush(ptr nocapture noundef %0, ptr noun
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @mca_common_monitoring_coll_flush_all(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @mca_common_monitoring_coll_flush_all(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -719,7 +719,7 @@ define void @mca_common_monitoring_coll_reset() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define range(i32 -1, 1) i32 @mca_common_monitoring_coll_messages_notify(ptr nocapture noundef readnone %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #6 {
+define range(i32 -1, 1) i32 @mca_common_monitoring_coll_messages_notify(ptr noundef readnone captures(none) %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #6 {
   switch i32 %1, label %9 [
     i32 0, label %5
     i32 3, label %10
@@ -766,7 +766,7 @@ define void @mca_common_monitoring_coll_o2a(i64 noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_common_monitoring_coll_get_o2a_count(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @mca_common_monitoring_coll_get_o2a_count(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr @comm_data, align 8
   %6 = ptrtoint ptr %2 to i64
@@ -786,7 +786,7 @@ define i32 @mca_common_monitoring_coll_get_o2a_count(ptr nocapture noundef readn
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_common_monitoring_coll_get_o2a_size(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @mca_common_monitoring_coll_get_o2a_size(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr @comm_data, align 8
   %6 = ptrtoint ptr %2 to i64
@@ -823,7 +823,7 @@ define void @mca_common_monitoring_coll_a2o(i64 noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_common_monitoring_coll_get_a2o_count(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @mca_common_monitoring_coll_get_a2o_count(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr @comm_data, align 8
   %6 = ptrtoint ptr %2 to i64
@@ -843,7 +843,7 @@ define i32 @mca_common_monitoring_coll_get_a2o_count(ptr nocapture noundef readn
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_common_monitoring_coll_get_a2o_size(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @mca_common_monitoring_coll_get_a2o_size(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr @comm_data, align 8
   %6 = ptrtoint ptr %2 to i64
@@ -880,7 +880,7 @@ define void @mca_common_monitoring_coll_a2a(i64 noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_common_monitoring_coll_get_a2a_count(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @mca_common_monitoring_coll_get_a2a_count(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr @comm_data, align 8
   %6 = ptrtoint ptr %2 to i64
@@ -900,7 +900,7 @@ define i32 @mca_common_monitoring_coll_get_a2a_count(ptr nocapture noundef readn
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_common_monitoring_coll_get_a2a_size(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @mca_common_monitoring_coll_get_a2a_size(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr @comm_data, align 8
   %6 = ptrtoint ptr %2 to i64
@@ -945,7 +945,7 @@ define internal void @mca_monitoring_coll_construct(ptr noundef initializes((16,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @mca_monitoring_coll_destruct(ptr nocapture readnone %0) #9 {
+define internal void @mca_monitoring_coll_destruct(ptr readnone captures(none) %0) #9 {
   ret void
 }
 
@@ -955,26 +955,26 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 declare ptr @ompi_proc_for_name(i64) local_unnamed_addr #1
 
 declare i32 @opal_hash_table_remove_value_uint64(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

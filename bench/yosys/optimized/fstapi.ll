@@ -434,7 +434,7 @@ _ZL21fstWriterEmitHdrBytesP16fstWriterContext.exit: ; preds = %140
   call void @llvm.lifetime.end.p0(i64 119, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  %147 = call double @strtod(ptr nocapture noundef nonnull @.str.2, ptr noundef null) #37
+  %147 = call double @strtod(ptr noundef nonnull captures(none) @.str.2, ptr noundef null) #37
   %148 = getelementptr inbounds nuw i8, ptr %17, i64 192
   store double %147, ptr %148, align 8
   br label %190
@@ -556,31 +556,31 @@ _ZL13tmpfile_closePP8_IO_FILEPPc.exit82:          ; preds = %184, %186
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #5
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #8
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @fstWriterFlushContext(ptr noundef %0) local_unnamed_addr #10 {
@@ -1372,7 +1372,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit381: ; preds = %_ZL15fst
   %418 = call i32 @fflush(ptr noundef %417)
   %419 = load ptr, ptr %276, align 8
   %420 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %280, ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef %419) #37
-  %421 = call i32 @unlink(ptr noundef %280) #37
+  %421 = call i32 @unlink(ptr noundef nonnull %280) #37
   call void @free(ptr noundef %280) #37
   br label %422
 
@@ -1657,7 +1657,7 @@ _ZL13tmpfile_closePP8_IO_FILEPPc.exit426:         ; preds = %523, %525
   %545 = ashr exact i64 %541, 32
   %546 = getelementptr inbounds i8, ptr %543, i64 %545
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %546, ptr noundef nonnull align 1 dereferenceable(5) @.str.8, i64 5, i1 false) #37
-  %547 = call noalias ptr @fopen(ptr noundef %543, ptr noundef nonnull @.str.9)
+  %547 = call noalias ptr @fopen(ptr noundef nonnull %543, ptr noundef nonnull @.str.9)
   %.not322 = icmp eq ptr %547, null
   br i1 %.not322, label %615, label %548
 
@@ -1794,7 +1794,7 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit445:          ; preds = %603
   %611 = load ptr, ptr %538, align 8
   %612 = call i32 @unlink(ptr noundef %611) #37
   %613 = load ptr, ptr %538, align 8
-  %614 = call i32 @rename(ptr noundef %543, ptr noundef %613) #37
+  %614 = call i32 @rename(ptr noundef nonnull %543, ptr noundef %613) #37
   br label %620
 
 615:                                              ; preds = %537
@@ -1858,7 +1858,7 @@ _Z11JenkinsFreePvj.exit:                          ; preds = %._crit_edge.i
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define void @fstWriterEmitTimeChange(ptr noundef %0, i64 noundef %1) local_unnamed_addr #11 {
@@ -2051,7 +2051,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit53:           ; preds = %.lr.ph.i46, %76
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @fstWriterEmitValueChange(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define void @fstWriterEmitValueChange(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %4
 
@@ -3793,10 +3793,10 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit626: ; preds = %_ZL15fst
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftello(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @ftello(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #12
@@ -3826,13 +3826,13 @@ declare i64 @compressBound(i64 noundef) local_unnamed_addr #15
 declare i32 @compress2(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL15fstWriterVarintP8_IO_FILEm(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #13 {
+define internal fastcc void @_ZL15fstWriterVarintP8_IO_FILEm(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #13 {
   %3 = alloca [10 x i8], align 1
   %.not11 = icmp ult i64 %1, 128
   br i1 %.not11, label %._crit_edge, label %.lr.ph
@@ -3879,13 +3879,13 @@ declare i32 @LZ4_compressBound(i32 noundef) local_unnamed_addr #15
 declare i32 @LZ4_compress(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_Z11JenkinsFreePvj(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -3928,7 +3928,7 @@ define void @_Z11JenkinsFreePvj(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @fstWriterSetDate(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #13 {
+define void @fstWriterSetDate(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #13 {
   %3 = alloca [119 x i8], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit13, label %4
@@ -3954,7 +3954,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit: ; preds = %4, %12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(119) %3, i8 0, i64 119, i1 false)
   %16 = tail call i32 @llvm.smin.i32(i32 %8, i32 119)
   %17 = sext i32 %16 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %1, i64 %17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %1, i64 %17, i1 false)
   %18 = load ptr, ptr %0, align 8
   %19 = call noundef i64 @fwrite(ptr noundef nonnull %3, i64 noundef 119, i64 noundef 1, ptr noundef %18)
   %20 = load ptr, ptr %0, align 8
@@ -3976,7 +3976,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit13: ; preds = %25, %_ZL1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @fstWriterSetVersion(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #13 {
@@ -4460,7 +4460,7 @@ fstWriterSetTimescale.exit:                       ; preds = %35, %_ZL15fstWriter
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #17
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @fstWriterSetTimezero(ptr noundef %0, i64 noundef %1) local_unnamed_addr #13 {
@@ -4592,7 +4592,7 @@ define void @fstWriterSetParallelMode(ptr noundef %0, i32 noundef %1) local_unna
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #18
@@ -5020,7 +5020,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit114:          ; preds = %.lr.ph.i107
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #21
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @fstWriterSetScope(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #13 {
@@ -5252,7 +5252,7 @@ define i32 @fstWriterCreateEnumTable(ptr noundef %0, ptr noundef readonly %1, i3
   %23 = trunc i64 %22 to i32
   %24 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
   store i32 %23, ptr %24, align 4
-  %25 = tail call i32 @fstUtilityBinToEscConvertedLen(ptr noundef %21, i32 noundef %23)
+  %25 = tail call i32 @fstUtilityBinToEscConvertedLen(ptr noundef nonnull %21, i32 noundef %23)
   %26 = add nsw i32 %25, %.0117132
   %27 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
@@ -5260,7 +5260,7 @@ define i32 @fstWriterCreateEnumTable(ptr noundef %0, ptr noundef readonly %1, i3
   %30 = trunc i64 %29 to i32
   %31 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
   store i32 %30, ptr %31, align 4
-  %32 = tail call i32 @fstUtilityBinToEscConvertedLen(ptr noundef %28, i32 noundef %30)
+  %32 = tail call i32 @fstUtilityBinToEscConvertedLen(ptr noundef nonnull %28, i32 noundef %30)
   %33 = add nsw i32 %32, %.0118131
   %34 = tail call i32 @llvm.usub.sat.i32(i32 %3, i32 %30)
   %.1119 = add i32 %33, %34
@@ -5391,7 +5391,7 @@ define i32 @fstWriterCreateEnumTable(ptr noundef %0, ptr noundef readonly %1, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -2147483647, -2147483648) i32 @fstUtilityBinToEscConvertedLen(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #20 {
+define range(i32 -2147483647, -2147483648) i32 @fstUtilityBinToEscConvertedLen(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #20 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
@@ -5437,7 +5437,7 @@ define range(i32 -2147483647, -2147483648) i32 @fstUtilityBinToEscConvertedLen(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @fstUtilityBinToEsc(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #22 {
+define i32 @fstUtilityBinToEsc(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #22 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -5600,7 +5600,7 @@ define void @fstWriterEmitEnumTableRef(ptr noundef %0, i32 noundef %1) local_unn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20fstWriterCreateMmapsP16fstWriterContext(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @_ZL20fstWriterCreateMmapsP16fstWriterContext(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = alloca [8 x i8], align 1
   %3 = alloca [8 x i8], align 1
   %4 = alloca [8 x i8], align 1
@@ -5902,7 +5902,7 @@ define void @fstWriterEmitValueChange64(ptr noundef %0, i32 noundef %1, i32 noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @fstWriterEmitValueChangeVec32(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define void @fstWriterEmitValueChangeVec32(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [32 x i8], align 16
   %6 = icmp ult i32 %2, 33
   br i1 %6, label %7, label %17
@@ -6054,7 +6054,7 @@ fstWriterEmitValueChange32.exit:                  ; preds = %.lr.ph.i, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @fstWriterEmitValueChangeVec64(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define void @fstWriterEmitValueChangeVec64(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [64 x i8], align 16
   %6 = icmp ult i32 %2, 65
   br i1 %6, label %7, label %18
@@ -6214,7 +6214,7 @@ fstWriterEmitValueChange64.exit:                  ; preds = %.lr.ph.i, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @fstWriterEmitVariableLengthValueChange(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @fstWriterEmitVariableLengthValueChange(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %5
 
@@ -6366,7 +6366,7 @@ _ZL36fstWriterUint32WithVarint32AndLengthP16fstWriterContextPjjPKvj.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL26fstWriterEmitSectionHeaderPv(ptr nocapture noundef nonnull initializes((176, 184)) %0) unnamed_addr #11 {
+define internal fastcc void @_ZL26fstWriterEmitSectionHeaderPv(ptr noundef nonnull captures(none) initializes((176, 184)) %0) unnamed_addr #11 {
 _ZL15fstWriterUint64P8_IO_FILEm.exit:
   %1 = alloca [10 x i8], align 1
   %2 = alloca [10 x i8], align 1
@@ -6668,7 +6668,7 @@ define void @fstWriterEmitDumpActive(ptr noundef %0, i32 noundef %1) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i32 @_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #13 {
+define noundef i32 @_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #13 {
   %5 = tail call i32 @fseeko(ptr noundef %1, i64 noundef %2, i32 noundef %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %11
@@ -6685,7 +6685,7 @@ define noundef i32 @_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli(ptr nocap
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseeko(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #9
+declare noundef i32 @fseeko(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @fstReaderGetCurrentFlatScope(ptr noundef readonly %0) local_unnamed_addr #20 {
@@ -6844,7 +6844,7 @@ define void @fstReaderResetScope(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define ptr @fstReaderPushScope(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #25 {
+define ptr @fstReaderPushScope(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #25 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %46, label %4
 
@@ -7509,7 +7509,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL25fstReaderRecreateHierFi
 23:                                               ; preds = %8, %.fold.split, %20
   %.0128 = phi i32 [ %22, %20 ], [ 4, %8 ], [ 255, %.fold.split ]
   %24 = tail call i32 @getpid() #37
-  %25 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) @.str.59, ptr noundef %12, i32 noundef %24, ptr noundef nonnull %0) #37
+  %25 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) @.str.59, ptr noundef nonnull %12, i32 noundef %24, ptr noundef nonnull %0) #37
   %26 = load ptr, ptr %0, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %28 = load i64, ptr %27, align 8
@@ -7669,7 +7669,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit165:           ; preds = %96
   %.0127 = phi ptr [ %71, %_ZL15fstReaderUint64P8_IO_FILE.exit154 ], [ null, %_ZL15fstReaderUint64P8_IO_FILE.exit165 ], [ null, %74 ]
   %.0126 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit154 ], [ %102, %_ZL15fstReaderUint64P8_IO_FILE.exit165 ], [ 0, %74 ]
   %.0125 = phi i64 [ %62, %_ZL15fstReaderUint64P8_IO_FILE.exit154 ], [ %101, %_ZL15fstReaderUint64P8_IO_FILE.exit165 ], [ %42, %74 ]
-  %106 = tail call noalias ptr @fopen(ptr noundef %15, ptr noundef nonnull @.str)
+  %106 = tail call noalias ptr @fopen(ptr noundef nonnull %15, ptr noundef nonnull @.str)
   store ptr %106, ptr %6, align 8
   %.not138 = icmp eq ptr %106, null
   br i1 %.not138, label %107, label %110
@@ -7688,166 +7688,162 @@ _ZL13tmpfile_closePP8_IO_FILEPPc.exit:            ; preds = %107
   br label %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit166
 
 110:                                              ; preds = %105
-  %.not140 = icmp eq ptr %15, null
-  br i1 %.not140, label %.thread, label %111
-
-111:                                              ; preds = %110
-  %112 = tail call i32 @unlink(ptr noundef nonnull %15) #37
+  %111 = tail call i32 @unlink(ptr noundef nonnull %15) #37
   br label %.thread
 
-.thread:                                          ; preds = %107, %111, %110
-  %.0123169 = phi ptr [ %15, %111 ], [ null, %110 ], [ null, %107 ]
-  br i1 %45, label %.preheader, label %126
+.thread:                                          ; preds = %107, %110
+  %.0123169 = phi ptr [ %15, %110 ], [ null, %107 ]
+  br i1 %45, label %.preheader, label %125
 
 .preheader:                                       ; preds = %.thread
-  %113 = icmp sgt i64 %.0125, 0
-  br i1 %113, label %.lr.ph, label %._crit_edge
+  %112 = icmp sgt i64 %.0125, 0
+  br i1 %112, label %.lr.ph, label %._crit_edge
 
-114:                                              ; preds = %122
-  %115 = add nuw nsw i64 %.0124174, 32768
-  %116 = icmp slt i64 %115, %.0125
-  br i1 %116, label %.lr.ph, label %._crit_edge, !llvm.loop !51
+113:                                              ; preds = %121
+  %114 = add nuw nsw i64 %.0124174, 32768
+  %115 = icmp slt i64 %114, %.0125
+  br i1 %115, label %.lr.ph, label %._crit_edge, !llvm.loop !51
 
-.lr.ph:                                           ; preds = %.preheader, %114
-  %.0124174 = phi i64 [ %115, %114 ], [ 0, %.preheader ]
-  %117 = sub nsw i64 %.0125, %.0124174
-  %118 = tail call i64 @llvm.smin.i64(i64 %117, i64 32768)
-  %119 = trunc i64 %118 to i32
-  %120 = tail call i32 @gzread(ptr noundef %.0127, ptr noundef %16, i32 noundef %119)
-  %121 = sext i32 %120 to i64
-  %.not144 = icmp eq i64 %118, %121
-  br i1 %.not144, label %122, label %._crit_edge
+.lr.ph:                                           ; preds = %.preheader, %113
+  %.0124174 = phi i64 [ %114, %113 ], [ 0, %.preheader ]
+  %116 = sub nsw i64 %.0125, %.0124174
+  %117 = tail call i64 @llvm.smin.i64(i64 %116, i64 32768)
+  %118 = trunc i64 %117 to i32
+  %119 = tail call i32 @gzread(ptr noundef %.0127, ptr noundef %16, i32 noundef %118)
+  %120 = sext i32 %119 to i64
+  %.not144 = icmp eq i64 %117, %120
+  br i1 %.not144, label %121, label %._crit_edge
 
-122:                                              ; preds = %.lr.ph
-  %123 = load ptr, ptr %6, align 8
-  %124 = tail call noundef i64 @fwrite(ptr noundef %16, i64 noundef %118, i64 noundef 1, ptr noundef %123)
-  %.not145 = icmp eq i64 %124, 1
-  br i1 %.not145, label %114, label %._crit_edge
+121:                                              ; preds = %.lr.ph
+  %122 = load ptr, ptr %6, align 8
+  %123 = tail call noundef i64 @fwrite(ptr noundef %16, i64 noundef %117, i64 noundef 1, ptr noundef %122)
+  %.not145 = icmp eq i64 %123, 1
+  br i1 %.not145, label %113, label %._crit_edge
 
-._crit_edge:                                      ; preds = %114, %.lr.ph, %122, %.preheader
-  %.1 = phi i32 [ 1, %.preheader ], [ 0, %122 ], [ 0, %.lr.ph ], [ 1, %114 ]
-  %125 = tail call i32 @gzclose(ptr noundef %.0127)
-  br label %183
+._crit_edge:                                      ; preds = %113, %.lr.ph, %121, %.preheader
+  %.1 = phi i32 [ 1, %.preheader ], [ 0, %121 ], [ 0, %.lr.ph ], [ 1, %113 ]
+  %124 = tail call i32 @gzclose(ptr noundef %.0127)
+  br label %182
 
-126:                                              ; preds = %.thread
+125:                                              ; preds = %.thread
   %trunc = trunc nuw i32 %.0128 to i8
-  switch i8 %trunc, label %179 [
-    i8 7, label %127
-    i8 6, label %167
+  switch i8 %trunc, label %178 [
+    i8 7, label %126
+    i8 6, label %166
   ]
 
-127:                                              ; preds = %126
-  %128 = tail call noalias ptr @malloc(i64 noundef %.0126) #39
-  %129 = tail call noalias ptr @malloc(i64 noundef %.0125) #39
-  %130 = load ptr, ptr %0, align 8
-  %131 = tail call noundef i64 @fread(ptr noundef %128, i64 noundef %.0126, i64 noundef 1, ptr noundef %130)
-  br label %132
+126:                                              ; preds = %125
+  %127 = tail call noalias ptr @malloc(i64 noundef %.0126) #39
+  %128 = tail call noalias ptr @malloc(i64 noundef %.0125) #39
+  %129 = load ptr, ptr %0, align 8
+  %130 = tail call noundef i64 @fread(ptr noundef %127, i64 noundef %.0126, i64 noundef 1, ptr noundef %129)
+  br label %131
 
-132:                                              ; preds = %132, %127
-  %.012.i = phi ptr [ %128, %127 ], [ %134, %132 ]
-  %133 = load i8, ptr %.012.i, align 1
-  %.not.i = icmp sgt i8 %133, -1
-  %134 = getelementptr inbounds nuw i8, ptr %.012.i, i64 1
-  br i1 %.not.i, label %135, label %132, !llvm.loop !52
+131:                                              ; preds = %131, %126
+  %.012.i = phi ptr [ %127, %126 ], [ %133, %131 ]
+  %132 = load i8, ptr %.012.i, align 1
+  %.not.i = icmp sgt i8 %132, -1
+  %133 = getelementptr inbounds nuw i8, ptr %.012.i, i64 1
+  br i1 %.not.i, label %134, label %131, !llvm.loop !52
 
-135:                                              ; preds = %132
-  %136 = ptrtoint ptr %.012.i to i64
-  %137 = ptrtoint ptr %128 to i64
-  %138 = sub i64 %136, %137
-  %139 = trunc i64 %138 to i32
-  br label %140
+134:                                              ; preds = %131
+  %135 = ptrtoint ptr %.012.i to i64
+  %136 = ptrtoint ptr %127 to i64
+  %137 = sub i64 %135, %136
+  %138 = trunc i64 %137 to i32
+  br label %139
 
-140:                                              ; preds = %140, %135
-  %.1.i = phi ptr [ %.012.i, %135 ], [ %147, %140 ]
-  %.0.i = phi i64 [ 0, %135 ], [ %145, %140 ]
-  %141 = shl i64 %.0.i, 7
-  %142 = load i8, ptr %.1.i, align 1
-  %143 = and i8 %142, 127
-  %144 = zext nneg i8 %143 to i64
-  %145 = or disjoint i64 %141, %144
-  %146 = icmp eq ptr %.1.i, %128
-  %147 = getelementptr inbounds i8, ptr %.1.i, i64 -1
-  br i1 %146, label %_ZL14fstGetVarint64PhPi.exit, label %140, !llvm.loop !53
+139:                                              ; preds = %139, %134
+  %.1.i = phi ptr [ %.012.i, %134 ], [ %146, %139 ]
+  %.0.i = phi i64 [ 0, %134 ], [ %144, %139 ]
+  %140 = shl i64 %.0.i, 7
+  %141 = load i8, ptr %.1.i, align 1
+  %142 = and i8 %141, 127
+  %143 = zext nneg i8 %142 to i64
+  %144 = or disjoint i64 %140, %143
+  %145 = icmp eq ptr %.1.i, %127
+  %146 = getelementptr inbounds i8, ptr %.1.i, i64 -1
+  br i1 %145, label %_ZL14fstGetVarint64PhPi.exit, label %139, !llvm.loop !53
 
-_ZL14fstGetVarint64PhPi.exit:                     ; preds = %140
-  %148 = add i32 %139, 1
-  %149 = tail call noalias ptr @malloc(i64 noundef %145) #39
-  %150 = sext i32 %148 to i64
-  %151 = getelementptr inbounds i8, ptr %128, i64 %150
-  %152 = trunc i64 %.0126 to i32
-  %153 = sub i32 %152, %148
-  %154 = trunc i64 %145 to i32
-  %155 = tail call i32 @LZ4_decompress_safe_partial(ptr noundef %151, ptr noundef %149, i32 noundef %153, i32 noundef %154, i32 noundef %154)
-  %156 = sext i32 %155 to i64
-  %157 = icmp eq i64 %145, %156
-  br i1 %157, label %158, label %166
+_ZL14fstGetVarint64PhPi.exit:                     ; preds = %139
+  %147 = add i32 %138, 1
+  %148 = tail call noalias ptr @malloc(i64 noundef %144) #39
+  %149 = sext i32 %147 to i64
+  %150 = getelementptr inbounds i8, ptr %127, i64 %149
+  %151 = trunc i64 %.0126 to i32
+  %152 = sub i32 %151, %147
+  %153 = trunc i64 %144 to i32
+  %154 = tail call i32 @LZ4_decompress_safe_partial(ptr noundef %150, ptr noundef %148, i32 noundef %152, i32 noundef %153, i32 noundef %153)
+  %155 = sext i32 %154 to i64
+  %156 = icmp eq i64 %144, %155
+  br i1 %156, label %157, label %165
 
-158:                                              ; preds = %_ZL14fstGetVarint64PhPi.exit
-  %159 = trunc i64 %.0125 to i32
-  %160 = tail call i32 @LZ4_decompress_safe_partial(ptr noundef %149, ptr noundef %129, i32 noundef %154, i32 noundef %159, i32 noundef %159)
-  %161 = sext i32 %160 to i64
-  %162 = icmp eq i64 %.0125, %161
-  %163 = load ptr, ptr %6, align 8
-  %164 = tail call noundef i64 @fwrite(ptr noundef %129, i64 noundef %.0125, i64 noundef 1, ptr noundef %163)
-  %.not143 = icmp eq i64 %164, 1
-  %spec.select = select i1 %.not143, i1 %162, i1 false
-  %165 = zext i1 %spec.select to i32
-  br label %166
+157:                                              ; preds = %_ZL14fstGetVarint64PhPi.exit
+  %158 = trunc i64 %.0125 to i32
+  %159 = tail call i32 @LZ4_decompress_safe_partial(ptr noundef %148, ptr noundef %128, i32 noundef %153, i32 noundef %158, i32 noundef %158)
+  %160 = sext i32 %159 to i64
+  %161 = icmp eq i64 %.0125, %160
+  %162 = load ptr, ptr %6, align 8
+  %163 = tail call noundef i64 @fwrite(ptr noundef %128, i64 noundef %.0125, i64 noundef 1, ptr noundef %162)
+  %.not143 = icmp eq i64 %163, 1
+  %spec.select = select i1 %.not143, i1 %161, i1 false
+  %164 = zext i1 %spec.select to i32
+  br label %165
 
-166:                                              ; preds = %158, %_ZL14fstGetVarint64PhPi.exit
-  %.3.shrunk = phi i32 [ 0, %_ZL14fstGetVarint64PhPi.exit ], [ %165, %158 ]
-  tail call void @free(ptr noundef %149) #37
-  tail call void @free(ptr noundef %129) #37
+165:                                              ; preds = %157, %_ZL14fstGetVarint64PhPi.exit
+  %.3.shrunk = phi i32 [ 0, %_ZL14fstGetVarint64PhPi.exit ], [ %164, %157 ]
+  tail call void @free(ptr noundef %148) #37
   tail call void @free(ptr noundef %128) #37
-  br label %183
+  tail call void @free(ptr noundef %127) #37
+  br label %182
 
-167:                                              ; preds = %126
-  %168 = tail call noalias ptr @malloc(i64 noundef %.0126) #39
-  %169 = tail call noalias ptr @malloc(i64 noundef %.0125) #39
-  %170 = load ptr, ptr %0, align 8
-  %171 = tail call noundef i64 @fread(ptr noundef %168, i64 noundef %.0126, i64 noundef 1, ptr noundef %170)
-  %172 = trunc i64 %.0126 to i32
-  %173 = trunc i64 %.0125 to i32
-  %174 = tail call i32 @LZ4_decompress_safe_partial(ptr noundef %168, ptr noundef %169, i32 noundef %172, i32 noundef %173, i32 noundef %173)
-  %175 = sext i32 %174 to i64
-  %176 = icmp eq i64 %.0125, %175
-  %177 = load ptr, ptr %6, align 8
-  %178 = tail call noundef i64 @fwrite(ptr noundef %169, i64 noundef %.0125, i64 noundef 1, ptr noundef %177)
-  %.not142 = icmp eq i64 %178, 1
-  %narrow = select i1 %.not142, i1 %176, i1 false
+166:                                              ; preds = %125
+  %167 = tail call noalias ptr @malloc(i64 noundef %.0126) #39
+  %168 = tail call noalias ptr @malloc(i64 noundef %.0125) #39
+  %169 = load ptr, ptr %0, align 8
+  %170 = tail call noundef i64 @fread(ptr noundef %167, i64 noundef %.0126, i64 noundef 1, ptr noundef %169)
+  %171 = trunc i64 %.0126 to i32
+  %172 = trunc i64 %.0125 to i32
+  %173 = tail call i32 @LZ4_decompress_safe_partial(ptr noundef %167, ptr noundef %168, i32 noundef %171, i32 noundef %172, i32 noundef %172)
+  %174 = sext i32 %173 to i64
+  %175 = icmp eq i64 %.0125, %174
+  %176 = load ptr, ptr %6, align 8
+  %177 = tail call noundef i64 @fwrite(ptr noundef %168, i64 noundef %.0125, i64 noundef 1, ptr noundef %176)
+  %.not142 = icmp eq i64 %177, 1
+  %narrow = select i1 %.not142, i1 %175, i1 false
   %spec.select148 = zext i1 %narrow to i32
-  tail call void @free(ptr noundef %169) #37
   tail call void @free(ptr noundef %168) #37
-  br label %183
+  tail call void @free(ptr noundef %167) #37
+  br label %182
 
-179:                                              ; preds = %126
-  %180 = load ptr, ptr %6, align 8
-  %.not141 = icmp eq ptr %180, null
-  br i1 %.not141, label %183, label %181
+178:                                              ; preds = %125
+  %179 = load ptr, ptr %6, align 8
+  %.not141 = icmp eq ptr %179, null
+  br i1 %.not141, label %182, label %180
 
-181:                                              ; preds = %179
-  %182 = tail call i32 @fclose(ptr noundef nonnull %180)
+180:                                              ; preds = %178
+  %181 = tail call i32 @fclose(ptr noundef nonnull %179)
   store ptr null, ptr %6, align 8
-  br label %183
+  br label %182
 
-183:                                              ; preds = %166, %179, %181, %167, %._crit_edge
-  %.2 = phi i32 [ %.1, %._crit_edge ], [ %.3.shrunk, %166 ], [ %spec.select148, %167 ], [ 0, %181 ], [ 0, %179 ]
+182:                                              ; preds = %165, %178, %180, %166, %._crit_edge
+  %.2 = phi i32 [ %.1, %._crit_edge ], [ %.3.shrunk, %165 ], [ %spec.select148, %166 ], [ 0, %180 ], [ 0, %178 ]
   tail call void @free(ptr noundef %16) #37
   tail call void @free(ptr noundef %.0123169) #37
-  %184 = load ptr, ptr %0, align 8
-  %185 = tail call i32 @fseeko(ptr noundef %184, i64 noundef %10, i32 noundef 0)
-  %186 = icmp slt i32 %185, 0
-  br i1 %186, label %187, label %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit166
+  %183 = load ptr, ptr %0, align 8
+  %184 = tail call i32 @fseeko(ptr noundef %183, i64 noundef %10, i32 noundef 0)
+  %185 = icmp slt i32 %184, 0
+  br i1 %185, label %186, label %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit166
 
-187:                                              ; preds = %183
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 1687
-  %189 = load i8, ptr %188, align 1
-  %190 = or i8 %189, 1
-  store i8 %190, ptr %188, align 1
+186:                                              ; preds = %182
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 1687
+  %188 = load i8, ptr %187, align 1
+  %189 = or i8 %188, 1
+  store i8 %189, ptr %187, align 1
   br label %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit166
 
-_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit166: ; preds = %187, %183, %1, %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, %72
-  %.0 = phi i32 [ 0, %_ZL13tmpfile_closePP8_IO_FILEPPc.exit ], [ 0, %72 ], [ 1, %1 ], [ %.2, %183 ], [ %.2, %187 ]
+_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit166: ; preds = %186, %182, %1, %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, %72
+  %.0 = phi i32 [ 0, %_ZL13tmpfile_closePP8_IO_FILEPPc.exit ], [ 0, %72 ], [ 1, %1 ], [ %.2, %182 ], [ %.2, %186 ]
   ret i32 %.0
 }
 
@@ -8258,16 +8254,16 @@ _ZL17fstReaderVarint32P8_IO_FILE.exit119:         ; preds = %.preheader.i116
 }
 
 ; Function Attrs: nofree nounwind
-declare void @clearerr(ptr nocapture noundef) local_unnamed_addr #9
+declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fgetc(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef i64 @_ZL17fstReaderVarint64P8_IO_FILE(ptr nocapture noundef %0) unnamed_addr #13 {
+define internal fastcc noundef i64 @_ZL17fstReaderVarint64P8_IO_FILE(ptr noundef captures(none) %0) unnamed_addr #13 {
   %2 = alloca [16 x i8], align 16
   br label %3
 
@@ -9031,7 +9027,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit281:           ; preds = %39
   %49 = load ptr, ptr %27, align 8
   %50 = tail call i32 @getpid() #37
   %51 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef %49, i32 noundef %50, ptr noundef nonnull %0) #37
-  %52 = tail call noalias ptr @fopen(ptr noundef %48, ptr noundef nonnull @.str)
+  %52 = tail call noalias ptr @fopen(ptr noundef nonnull %48, ptr noundef nonnull @.str)
   %.not254 = icmp eq ptr %52, null
   br i1 %.not254, label %53, label %56
 
@@ -9044,85 +9040,81 @@ _ZL15fstReaderUint64P8_IO_FILE.exit281:           ; preds = %39
   br i1 %.not255, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, label %.thread
 
 56:                                               ; preds = %45
-  %.not256 = icmp eq ptr %48, null
-  br i1 %.not256, label %.thread, label %57
-
-57:                                               ; preds = %56
-  %58 = tail call i32 @unlink(ptr noundef nonnull %48) #37
+  %57 = tail call i32 @unlink(ptr noundef nonnull %48) #37
   tail call void @free(ptr noundef nonnull %48) #37
   br label %.thread
 
-.thread:                                          ; preds = %53, %57, %56
-  %.0364368 = phi ptr [ %52, %57 ], [ %52, %56 ], [ %55, %53 ]
-  %59 = load ptr, ptr %0, align 8
-  %60 = tail call i32 @fseeko(ptr noundef %59, i64 noundef 17, i32 noundef 0)
-  %61 = icmp slt i32 %60, 0
-  br i1 %61, label %62, label %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit
+.thread:                                          ; preds = %53, %56
+  %.0364368 = phi ptr [ %52, %56 ], [ %55, %53 ]
+  %58 = load ptr, ptr %0, align 8
+  %59 = tail call i32 @fseeko(ptr noundef %58, i64 noundef 17, i32 noundef 0)
+  %60 = icmp slt i32 %59, 0
+  br i1 %60, label %61, label %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit
 
-62:                                               ; preds = %.thread
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 1687
-  %64 = load i8, ptr %63, align 1
-  %65 = or i8 %64, 1
-  store i8 %65, ptr %63, align 1
+61:                                               ; preds = %.thread
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 1687
+  %63 = load i8, ptr %62, align 1
+  %64 = or i8 %63, 1
+  store i8 %64, ptr %62, align 1
   br label %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit
 
-_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit: ; preds = %.thread, %62
-  %66 = load ptr, ptr %0, align 8
-  %67 = tail call i32 @fflush(ptr noundef %66)
-  %68 = load ptr, ptr %0, align 8
-  %69 = tail call i32 @fileno(ptr noundef %68) #37
-  %70 = tail call i32 @dup(i32 noundef %69) #37
-  %71 = load ptr, ptr %0, align 8
-  %72 = tail call i64 @ftell(ptr noundef %71)
-  %73 = tail call i64 @lseek(i32 noundef %70, i64 noundef %72, i32 noundef 0) #37
-  %74 = tail call ptr @gzdopen(i32 noundef %70, ptr noundef nonnull @.str.34)
-  %.not257 = icmp eq ptr %74, null
+_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit: ; preds = %.thread, %61
+  %65 = load ptr, ptr %0, align 8
+  %66 = tail call i32 @fflush(ptr noundef %65)
+  %67 = load ptr, ptr %0, align 8
+  %68 = tail call i32 @fileno(ptr noundef %67) #37
+  %69 = tail call i32 @dup(i32 noundef %68) #37
+  %70 = load ptr, ptr %0, align 8
+  %71 = tail call i64 @ftell(ptr noundef %70)
+  %72 = tail call i64 @lseek(i32 noundef %69, i64 noundef %71, i32 noundef 0) #37
+  %73 = tail call ptr @gzdopen(i32 noundef %69, ptr noundef nonnull @.str.34)
+  %.not257 = icmp eq ptr %73, null
   br i1 %.not257, label %.critedge275, label %.preheader376
 
 .preheader376:                                    ; preds = %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit
-  %75 = icmp sgt i64 %44, 0
-  br i1 %75, label %.lr.ph, label %.critedge.critedge
+  %74 = icmp sgt i64 %44, 0
+  br i1 %74, label %.lr.ph, label %.critedge.critedge
 
-76:                                               ; preds = %84
-  %77 = add nuw nsw i64 %.0241400, 32768
-  %78 = icmp slt i64 %77, %44
-  br i1 %78, label %.lr.ph, label %.critedge.critedge, !llvm.loop !68
+75:                                               ; preds = %83
+  %76 = add nuw nsw i64 %.0241400, 32768
+  %77 = icmp slt i64 %76, %44
+  br i1 %77, label %.lr.ph, label %.critedge.critedge, !llvm.loop !68
 
-.lr.ph:                                           ; preds = %.preheader376, %76
-  %.0241400 = phi i64 [ %77, %76 ], [ 0, %.preheader376 ]
-  %79 = sub nsw i64 %44, %.0241400
-  %80 = call i64 @llvm.smin.i64(i64 %79, i64 32768)
-  %81 = trunc i64 %80 to i32
-  %82 = call i32 @gzread(ptr noundef nonnull %74, ptr noundef nonnull %19, i32 noundef %81)
-  %83 = sext i32 %82 to i64
-  %.not258 = icmp eq i64 %80, %83
-  br i1 %.not258, label %84, label %86
+.lr.ph:                                           ; preds = %.preheader376, %75
+  %.0241400 = phi i64 [ %76, %75 ], [ 0, %.preheader376 ]
+  %78 = sub nsw i64 %44, %.0241400
+  %79 = call i64 @llvm.smin.i64(i64 %78, i64 32768)
+  %80 = trunc i64 %79 to i32
+  %81 = call i32 @gzread(ptr noundef nonnull %73, ptr noundef nonnull %19, i32 noundef %80)
+  %82 = sext i32 %81 to i64
+  %.not258 = icmp eq i64 %79, %82
+  br i1 %.not258, label %83, label %85
 
-84:                                               ; preds = %.lr.ph
-  %85 = call noundef i64 @fwrite(ptr noundef nonnull %19, i64 noundef %80, i64 noundef 1, ptr noundef nonnull %.0364368)
-  %.not259 = icmp eq i64 %85, 1
-  br i1 %.not259, label %76, label %86
+83:                                               ; preds = %.lr.ph
+  %84 = call noundef i64 @fwrite(ptr noundef nonnull %19, i64 noundef %79, i64 noundef 1, ptr noundef nonnull %.0364368)
+  %.not259 = icmp eq i64 %84, 1
+  br i1 %.not259, label %75, label %85
 
-86:                                               ; preds = %84, %.lr.ph
-  %87 = call i32 @gzclose(ptr noundef nonnull %74)
-  %88 = call i32 @fflush(ptr noundef nonnull %.0364368)
-  %89 = load ptr, ptr %0, align 8
-  %90 = call i32 @fclose(ptr noundef %89)
+85:                                               ; preds = %83, %.lr.ph
+  %86 = call i32 @gzclose(ptr noundef nonnull %73)
+  %87 = call i32 @fflush(ptr noundef nonnull %.0364368)
+  %88 = load ptr, ptr %0, align 8
+  %89 = call i32 @fclose(ptr noundef %88)
   store ptr %.0364368, ptr %0, align 8
   br label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit
 
 .critedge275:                                     ; preds = %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit
-  %91 = tail call i32 @close(i32 noundef %70)
-  %92 = tail call i32 @fflush(ptr noundef nonnull %.0364368)
-  %93 = load ptr, ptr %0, align 8
-  %94 = tail call i32 @fclose(ptr noundef %93)
+  %90 = tail call i32 @close(i32 noundef %69)
+  %91 = tail call i32 @fflush(ptr noundef nonnull %.0364368)
+  %92 = load ptr, ptr %0, align 8
+  %93 = tail call i32 @fclose(ptr noundef %92)
   br label %.critedge.sink.split
 
-.critedge.critedge:                               ; preds = %76, %.preheader376
-  %95 = call i32 @gzclose(ptr noundef nonnull %74)
-  %96 = call i32 @fflush(ptr noundef nonnull %.0364368)
-  %97 = load ptr, ptr %0, align 8
-  %98 = call i32 @fclose(ptr noundef %97)
+.critedge.critedge:                               ; preds = %75, %.preheader376
+  %94 = call i32 @gzclose(ptr noundef nonnull %73)
+  %95 = call i32 @fflush(ptr noundef nonnull %.0364368)
+  %96 = load ptr, ptr %0, align 8
+  %97 = call i32 @fclose(ptr noundef %96)
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %.critedge275, %.critedge.critedge
@@ -9130,735 +9122,735 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit: ; preds = %.thread, %62
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %1
-  %99 = phi ptr [ %.pre, %1 ], [ %.0364368, %.critedge.sink.split ]
-  %100 = call i32 @fseeko(ptr noundef %99, i64 noundef 0, i32 noundef 2)
-  %101 = icmp slt i32 %100, 0
-  br i1 %101, label %102, label %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit282
+  %98 = phi ptr [ %.pre, %1 ], [ %.0364368, %.critedge.sink.split ]
+  %99 = call i32 @fseeko(ptr noundef %98, i64 noundef 0, i32 noundef 2)
+  %100 = icmp slt i32 %99, 0
+  br i1 %100, label %101, label %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit282
 
-102:                                              ; preds = %.critedge
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 1687
-  %104 = load i8, ptr %103, align 1
-  %105 = or i8 %104, 1
-  store i8 %105, ptr %103, align 1
+101:                                              ; preds = %.critedge
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 1687
+  %103 = load i8, ptr %102, align 1
+  %104 = or i8 %103, 1
+  store i8 %104, ptr %102, align 1
   br label %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit282
 
-_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit282: ; preds = %.critedge, %102
-  %106 = load ptr, ptr %0, align 8
-  %107 = call i64 @ftello(ptr noundef %106)
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 1687
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 122
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 123
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 251
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 371
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 121
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  br label %134
+_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit282: ; preds = %.critedge, %101
+  %105 = load ptr, ptr %0, align 8
+  %106 = call i64 @ftello(ptr noundef %105)
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 1687
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 122
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 123
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 251
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 252
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 371
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 121
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  br label %133
 
-134:                                              ; preds = %.loopexit, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit282
-  %135 = phi i1 [ true, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit282 ], [ false, %.loopexit ]
+133:                                              ; preds = %.loopexit, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit282
+  %134 = phi i1 [ true, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit282 ], [ false, %.loopexit ]
   %.1236 = phi i32 [ 0, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit282 ], [ 1, %.loopexit ]
   %.0233 = phi i32 [ 0, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit282 ], [ %.1234, %.loopexit ]
   %.0230 = phi i64 [ 0, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit282 ], [ %.2, %.loopexit ]
-  %.0229 = phi i64 [ 0, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit282 ], [ %438, %.loopexit ]
-  %136 = icmp slt i64 %.0229, %107
-  br i1 %136, label %137, label %439
+  %.0229 = phi i64 [ 0, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit282 ], [ %437, %.loopexit ]
+  %135 = icmp slt i64 %.0229, %106
+  br i1 %135, label %136, label %438
 
-137:                                              ; preds = %134
-  %138 = load ptr, ptr %0, align 8
-  %139 = call i32 @fseeko(ptr noundef %138, i64 noundef %.0229, i32 noundef 0)
-  %140 = icmp slt i32 %139, 0
-  br i1 %140, label %141, label %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit283
+136:                                              ; preds = %133
+  %137 = load ptr, ptr %0, align 8
+  %138 = call i32 @fseeko(ptr noundef %137, i64 noundef %.0229, i32 noundef 0)
+  %139 = icmp slt i32 %138, 0
+  br i1 %139, label %140, label %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit283
 
-141:                                              ; preds = %137
-  %142 = load i8, ptr %108, align 1
-  %143 = or i8 %142, 1
-  store i8 %143, ptr %108, align 1
+140:                                              ; preds = %136
+  %141 = load i8, ptr %107, align 1
+  %142 = or i8 %141, 1
+  store i8 %142, ptr %107, align 1
   br label %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit283
 
-_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit283: ; preds = %137, %141
-  %144 = load ptr, ptr %0, align 8
-  %145 = call i32 @fgetc(ptr noundef %144)
-  %146 = load ptr, ptr %0, align 8
+_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit283: ; preds = %136, %140
+  %143 = load ptr, ptr %0, align 8
+  %144 = call i32 @fgetc(ptr noundef %143)
+  %145 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
-  %147 = call noundef i64 @fread(ptr noundef nonnull %16, i64 noundef 8, i64 noundef 1, ptr noundef %146)
-  br label %148
+  %146 = call noundef i64 @fread(ptr noundef nonnull %16, i64 noundef 8, i64 noundef 1, ptr noundef %145)
+  br label %147
 
-148:                                              ; preds = %148, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit283
-  %indvars.iv.i284 = phi i64 [ 0, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit283 ], [ %indvars.iv.next.i286, %148 ]
-  %.068.i285 = phi i64 [ 0, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit283 ], [ %153, %148 ]
-  %149 = shl i64 %.068.i285, 8
-  %150 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 0, i64 %indvars.iv.i284
-  %151 = load i8, ptr %150, align 1
-  %152 = zext i8 %151 to i64
-  %153 = or disjoint i64 %149, %152
+147:                                              ; preds = %147, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit283
+  %indvars.iv.i284 = phi i64 [ 0, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit283 ], [ %indvars.iv.next.i286, %147 ]
+  %.068.i285 = phi i64 [ 0, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit283 ], [ %152, %147 ]
+  %148 = shl i64 %.068.i285, 8
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 0, i64 %indvars.iv.i284
+  %150 = load i8, ptr %149, align 1
+  %151 = zext i8 %150 to i64
+  %152 = or disjoint i64 %148, %151
   %indvars.iv.next.i286 = add nuw nsw i64 %indvars.iv.i284, 1
   %exitcond.not.i287 = icmp eq i64 %indvars.iv.next.i286, 8
-  br i1 %exitcond.not.i287, label %_ZL15fstReaderUint64P8_IO_FILE.exit288, label %148, !llvm.loop !50
+  br i1 %exitcond.not.i287, label %_ZL15fstReaderUint64P8_IO_FILE.exit288, label %147, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit288:           ; preds = %148
+_ZL15fstReaderUint64P8_IO_FILE.exit288:           ; preds = %147
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  %154 = icmp eq i32 %145, -1
-  br i1 %154, label %439, label %155
+  %153 = icmp eq i32 %144, -1
+  br i1 %153, label %438, label %154
 
-155:                                              ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit288
-  %156 = icmp eq i32 %.0233, 0
-  %157 = icmp ne i64 %153, 0
-  %or.cond = or i1 %156, %157
-  br i1 %or.cond, label %158, label %439
+154:                                              ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit288
+  %155 = icmp eq i32 %.0233, 0
+  %156 = icmp ne i64 %152, 0
+  %or.cond = or i1 %155, %156
+  br i1 %or.cond, label %157, label %438
 
-158:                                              ; preds = %155
-  %159 = icmp ne i32 %145, 0
-  %or.cond3 = and i1 %135, %159
-  br i1 %or.cond3, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, label %160
+157:                                              ; preds = %154
+  %158 = icmp ne i32 %144, 0
+  %or.cond3 = and i1 %134, %158
+  br i1 %or.cond3, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, label %159
 
-160:                                              ; preds = %158
-  %161 = add nsw i64 %.0229, 1
-  switch i32 %145, label %.loopexit [
-    i32 0, label %162
-    i32 8, label %262
-    i32 5, label %262
-    i32 1, label %262
-    i32 3, label %283
-    i32 4, label %376
-    i32 7, label %381
-    i32 6, label %386
-    i32 2, label %391
+159:                                              ; preds = %157
+  %160 = add nsw i64 %.0229, 1
+  switch i32 %144, label %.loopexit [
+    i32 0, label %161
+    i32 8, label %261
+    i32 5, label %261
+    i32 1, label %261
+    i32 3, label %282
+    i32 4, label %375
+    i32 7, label %380
+    i32 6, label %385
+    i32 2, label %390
   ]
 
-162:                                              ; preds = %160
-  br i1 %135, label %163, label %.loopexit
+161:                                              ; preds = %159
+  br i1 %134, label %162, label %.loopexit
 
-163:                                              ; preds = %162
-  %164 = load ptr, ptr %0, align 8
+162:                                              ; preds = %161
+  %163 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  %165 = call noundef i64 @fread(ptr noundef nonnull %15, i64 noundef 8, i64 noundef 1, ptr noundef %164)
-  br label %166
+  %164 = call noundef i64 @fread(ptr noundef nonnull %15, i64 noundef 8, i64 noundef 1, ptr noundef %163)
+  br label %165
 
-166:                                              ; preds = %166, %163
-  %indvars.iv.i289 = phi i64 [ 0, %163 ], [ %indvars.iv.next.i291, %166 ]
-  %.068.i290 = phi i64 [ 0, %163 ], [ %171, %166 ]
-  %167 = shl i64 %.068.i290, 8
-  %168 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 0, i64 %indvars.iv.i289
-  %169 = load i8, ptr %168, align 1
-  %170 = zext i8 %169 to i64
-  %171 = or disjoint i64 %167, %170
+165:                                              ; preds = %165, %162
+  %indvars.iv.i289 = phi i64 [ 0, %162 ], [ %indvars.iv.next.i291, %165 ]
+  %.068.i290 = phi i64 [ 0, %162 ], [ %170, %165 ]
+  %166 = shl i64 %.068.i290, 8
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 0, i64 %indvars.iv.i289
+  %168 = load i8, ptr %167, align 1
+  %169 = zext i8 %168 to i64
+  %170 = or disjoint i64 %166, %169
   %indvars.iv.next.i291 = add nuw nsw i64 %indvars.iv.i289, 1
   %exitcond.not.i292 = icmp eq i64 %indvars.iv.next.i291, 8
-  br i1 %exitcond.not.i292, label %_ZL15fstReaderUint64P8_IO_FILE.exit293, label %166, !llvm.loop !50
+  br i1 %exitcond.not.i292, label %_ZL15fstReaderUint64P8_IO_FILE.exit293, label %165, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit293:           ; preds = %166
+_ZL15fstReaderUint64P8_IO_FILE.exit293:           ; preds = %165
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  store i64 %171, ptr %121, align 8
-  %172 = load ptr, ptr %0, align 8
+  store i64 %170, ptr %120, align 8
+  %171 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
-  %173 = call noundef i64 @fread(ptr noundef nonnull %14, i64 noundef 8, i64 noundef 1, ptr noundef %172)
-  br label %174
+  %172 = call noundef i64 @fread(ptr noundef nonnull %14, i64 noundef 8, i64 noundef 1, ptr noundef %171)
+  br label %173
 
-174:                                              ; preds = %174, %_ZL15fstReaderUint64P8_IO_FILE.exit293
-  %indvars.iv.i294 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit293 ], [ %indvars.iv.next.i296, %174 ]
-  %.068.i295 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit293 ], [ %179, %174 ]
-  %175 = shl i64 %.068.i295, 8
-  %176 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 0, i64 %indvars.iv.i294
-  %177 = load i8, ptr %176, align 1
-  %178 = zext i8 %177 to i64
-  %179 = or disjoint i64 %175, %178
+173:                                              ; preds = %173, %_ZL15fstReaderUint64P8_IO_FILE.exit293
+  %indvars.iv.i294 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit293 ], [ %indvars.iv.next.i296, %173 ]
+  %.068.i295 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit293 ], [ %178, %173 ]
+  %174 = shl i64 %.068.i295, 8
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 0, i64 %indvars.iv.i294
+  %176 = load i8, ptr %175, align 1
+  %177 = zext i8 %176 to i64
+  %178 = or disjoint i64 %174, %177
   %indvars.iv.next.i296 = add nuw nsw i64 %indvars.iv.i294, 1
   %exitcond.not.i297 = icmp eq i64 %indvars.iv.next.i296, 8
-  br i1 %exitcond.not.i297, label %_ZL15fstReaderUint64P8_IO_FILE.exit298, label %174, !llvm.loop !50
+  br i1 %exitcond.not.i297, label %_ZL15fstReaderUint64P8_IO_FILE.exit298, label %173, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit298:           ; preds = %174
+_ZL15fstReaderUint64P8_IO_FILE.exit298:           ; preds = %173
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  store i64 %179, ptr %120, align 8
-  %180 = load i64, ptr %121, align 8
-  %181 = icmp eq i64 %180, 0
-  %182 = icmp eq i64 %179, 0
-  %narrow374 = select i1 %181, i1 %182, i1 false
-  %183 = zext i1 %narrow374 to i32
-  %184 = load ptr, ptr %0, align 8
-  %185 = call noundef i64 @fread(ptr noundef nonnull %20, i64 noundef 8, i64 noundef 1, ptr noundef %184)
-  %186 = load double, ptr %20, align 8
-  %187 = fcmp une double %186, 0x4005BF0A8B145769
-  %188 = load i8, ptr %112, align 2
-  %189 = select i1 %187, i8 0, i8 2
-  %190 = and i8 %188, -3
-  %191 = or disjoint i8 %190, %189
-  store i8 %191, ptr %112, align 2
-  br i1 %187, label %.preheader375, label %199
+  store i64 %178, ptr %119, align 8
+  %179 = load i64, ptr %120, align 8
+  %180 = icmp eq i64 %179, 0
+  %181 = icmp eq i64 %178, 0
+  %narrow374 = select i1 %180, i1 %181, i1 false
+  %182 = zext i1 %narrow374 to i32
+  %183 = load ptr, ptr %0, align 8
+  %184 = call noundef i64 @fread(ptr noundef nonnull %20, i64 noundef 8, i64 noundef 1, ptr noundef %183)
+  %185 = load double, ptr %20, align 8
+  %186 = fcmp une double %185, 0x4005BF0A8B145769
+  %187 = load i8, ptr %111, align 2
+  %188 = select i1 %186, i8 0, i8 2
+  %189 = and i8 %187, -3
+  %190 = or disjoint i8 %189, %188
+  store i8 %190, ptr %111, align 2
+  br i1 %186, label %.preheader375, label %198
 
 .preheader375:                                    ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit298, %.preheader375
   %indvars.iv436 = phi i64 [ %indvars.iv.next437, %.preheader375 ], [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit298 ]
-  %192 = sub nuw nsw i64 7, %indvars.iv436
-  %193 = getelementptr inbounds nuw i8, ptr %20, i64 %192
-  %194 = load i8, ptr %193, align 1
-  %195 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 0, i64 %indvars.iv436
-  store i8 %194, ptr %195, align 1
+  %191 = sub nuw nsw i64 7, %indvars.iv436
+  %192 = getelementptr inbounds nuw i8, ptr %20, i64 %191
+  %193 = load i8, ptr %192, align 1
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 0, i64 %indvars.iv436
+  store i8 %193, ptr %194, align 1
   %indvars.iv.next437 = add nuw nsw i64 %indvars.iv436, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next437, 8
-  br i1 %exitcond.not, label %196, label %.preheader375, !llvm.loop !69
+  br i1 %exitcond.not, label %195, label %.preheader375, !llvm.loop !69
 
-196:                                              ; preds = %.preheader375
-  %197 = load double, ptr %21, align 8
-  %198 = fcmp une double %197, 0x4005BF0A8B145769
-  br i1 %198, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, label %199
+195:                                              ; preds = %.preheader375
+  %196 = load double, ptr %21, align 8
+  %197 = fcmp une double %196, 0x4005BF0A8B145769
+  br i1 %197, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, label %198
 
-199:                                              ; preds = %196, %_ZL15fstReaderUint64P8_IO_FILE.exit298
-  %200 = load ptr, ptr %0, align 8
+198:                                              ; preds = %195, %_ZL15fstReaderUint64P8_IO_FILE.exit298
+  %199 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  %201 = call noundef i64 @fread(ptr noundef nonnull %13, i64 noundef 8, i64 noundef 1, ptr noundef %200)
-  br label %202
+  %200 = call noundef i64 @fread(ptr noundef nonnull %13, i64 noundef 8, i64 noundef 1, ptr noundef %199)
+  br label %201
 
-202:                                              ; preds = %202, %199
-  %indvars.iv.i299 = phi i64 [ 0, %199 ], [ %indvars.iv.next.i301, %202 ]
-  %.068.i300 = phi i64 [ 0, %199 ], [ %207, %202 ]
-  %203 = shl i64 %.068.i300, 8
-  %204 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 0, i64 %indvars.iv.i299
-  %205 = load i8, ptr %204, align 1
-  %206 = zext i8 %205 to i64
-  %207 = or disjoint i64 %203, %206
+201:                                              ; preds = %201, %198
+  %indvars.iv.i299 = phi i64 [ 0, %198 ], [ %indvars.iv.next.i301, %201 ]
+  %.068.i300 = phi i64 [ 0, %198 ], [ %206, %201 ]
+  %202 = shl i64 %.068.i300, 8
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 0, i64 %indvars.iv.i299
+  %204 = load i8, ptr %203, align 1
+  %205 = zext i8 %204 to i64
+  %206 = or disjoint i64 %202, %205
   %indvars.iv.next.i301 = add nuw nsw i64 %indvars.iv.i299, 1
   %exitcond.not.i302 = icmp eq i64 %indvars.iv.next.i301, 8
-  br i1 %exitcond.not.i302, label %_ZL15fstReaderUint64P8_IO_FILE.exit303, label %202, !llvm.loop !50
+  br i1 %exitcond.not.i302, label %_ZL15fstReaderUint64P8_IO_FILE.exit303, label %201, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit303:           ; preds = %202
+_ZL15fstReaderUint64P8_IO_FILE.exit303:           ; preds = %201
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  store i64 %207, ptr %122, align 8
-  %208 = load ptr, ptr %0, align 8
+  store i64 %206, ptr %121, align 8
+  %207 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  %209 = call noundef i64 @fread(ptr noundef nonnull %12, i64 noundef 8, i64 noundef 1, ptr noundef %208)
-  br label %210
+  %208 = call noundef i64 @fread(ptr noundef nonnull %12, i64 noundef 8, i64 noundef 1, ptr noundef %207)
+  br label %209
 
-210:                                              ; preds = %210, %_ZL15fstReaderUint64P8_IO_FILE.exit303
-  %indvars.iv.i304 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit303 ], [ %indvars.iv.next.i306, %210 ]
-  %.068.i305 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit303 ], [ %215, %210 ]
-  %211 = shl i64 %.068.i305, 8
-  %212 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 0, i64 %indvars.iv.i304
-  %213 = load i8, ptr %212, align 1
-  %214 = zext i8 %213 to i64
-  %215 = or disjoint i64 %211, %214
+209:                                              ; preds = %209, %_ZL15fstReaderUint64P8_IO_FILE.exit303
+  %indvars.iv.i304 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit303 ], [ %indvars.iv.next.i306, %209 ]
+  %.068.i305 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit303 ], [ %214, %209 ]
+  %210 = shl i64 %.068.i305, 8
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 0, i64 %indvars.iv.i304
+  %212 = load i8, ptr %211, align 1
+  %213 = zext i8 %212 to i64
+  %214 = or disjoint i64 %210, %213
   %indvars.iv.next.i306 = add nuw nsw i64 %indvars.iv.i304, 1
   %exitcond.not.i307 = icmp eq i64 %indvars.iv.next.i306, 8
-  br i1 %exitcond.not.i307, label %_ZL15fstReaderUint64P8_IO_FILE.exit308, label %210, !llvm.loop !50
+  br i1 %exitcond.not.i307, label %_ZL15fstReaderUint64P8_IO_FILE.exit308, label %209, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit308:           ; preds = %210
+_ZL15fstReaderUint64P8_IO_FILE.exit308:           ; preds = %209
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  store i64 %215, ptr %123, align 8
-  %216 = load ptr, ptr %0, align 8
+  store i64 %214, ptr %122, align 8
+  %215 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %217 = call noundef i64 @fread(ptr noundef nonnull %11, i64 noundef 8, i64 noundef 1, ptr noundef %216)
-  br label %218
+  %216 = call noundef i64 @fread(ptr noundef nonnull %11, i64 noundef 8, i64 noundef 1, ptr noundef %215)
+  br label %217
 
-218:                                              ; preds = %218, %_ZL15fstReaderUint64P8_IO_FILE.exit308
-  %indvars.iv.i309 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit308 ], [ %indvars.iv.next.i311, %218 ]
-  %.068.i310 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit308 ], [ %223, %218 ]
-  %219 = shl i64 %.068.i310, 8
-  %220 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 0, i64 %indvars.iv.i309
-  %221 = load i8, ptr %220, align 1
-  %222 = zext i8 %221 to i64
-  %223 = or disjoint i64 %219, %222
+217:                                              ; preds = %217, %_ZL15fstReaderUint64P8_IO_FILE.exit308
+  %indvars.iv.i309 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit308 ], [ %indvars.iv.next.i311, %217 ]
+  %.068.i310 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit308 ], [ %222, %217 ]
+  %218 = shl i64 %.068.i310, 8
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 0, i64 %indvars.iv.i309
+  %220 = load i8, ptr %219, align 1
+  %221 = zext i8 %220 to i64
+  %222 = or disjoint i64 %218, %221
   %indvars.iv.next.i311 = add nuw nsw i64 %indvars.iv.i309, 1
   %exitcond.not.i312 = icmp eq i64 %indvars.iv.next.i311, 8
-  br i1 %exitcond.not.i312, label %_ZL15fstReaderUint64P8_IO_FILE.exit313, label %218, !llvm.loop !50
+  br i1 %exitcond.not.i312, label %_ZL15fstReaderUint64P8_IO_FILE.exit313, label %217, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit313:           ; preds = %218
+_ZL15fstReaderUint64P8_IO_FILE.exit313:           ; preds = %217
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  store i64 %223, ptr %124, align 8
-  %224 = load ptr, ptr %0, align 8
+  store i64 %222, ptr %123, align 8
+  %223 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %225 = call noundef i64 @fread(ptr noundef nonnull %10, i64 noundef 8, i64 noundef 1, ptr noundef %224)
-  br label %226
+  %224 = call noundef i64 @fread(ptr noundef nonnull %10, i64 noundef 8, i64 noundef 1, ptr noundef %223)
+  br label %225
 
-226:                                              ; preds = %226, %_ZL15fstReaderUint64P8_IO_FILE.exit313
-  %indvars.iv.i314 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit313 ], [ %indvars.iv.next.i316, %226 ]
-  %.068.i315 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit313 ], [ %231, %226 ]
-  %227 = shl i64 %.068.i315, 8
-  %228 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 0, i64 %indvars.iv.i314
-  %229 = load i8, ptr %228, align 1
-  %230 = zext i8 %229 to i64
-  %231 = or disjoint i64 %227, %230
+225:                                              ; preds = %225, %_ZL15fstReaderUint64P8_IO_FILE.exit313
+  %indvars.iv.i314 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit313 ], [ %indvars.iv.next.i316, %225 ]
+  %.068.i315 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit313 ], [ %230, %225 ]
+  %226 = shl i64 %.068.i315, 8
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 0, i64 %indvars.iv.i314
+  %228 = load i8, ptr %227, align 1
+  %229 = zext i8 %228 to i64
+  %230 = or disjoint i64 %226, %229
   %indvars.iv.next.i316 = add nuw nsw i64 %indvars.iv.i314, 1
   %exitcond.not.i317 = icmp eq i64 %indvars.iv.next.i316, 8
-  br i1 %exitcond.not.i317, label %_ZL15fstReaderUint64P8_IO_FILE.exit318, label %226, !llvm.loop !50
+  br i1 %exitcond.not.i317, label %_ZL15fstReaderUint64P8_IO_FILE.exit318, label %225, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit318:           ; preds = %226
+_ZL15fstReaderUint64P8_IO_FILE.exit318:           ; preds = %225
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %232 = trunc i64 %231 to i32
-  store i32 %232, ptr %114, align 8
-  %233 = load i64, ptr %124, align 8
-  %234 = and i64 %231, 4294967295
-  %235 = sub i64 %233, %234
-  store i64 %235, ptr %125, align 8
-  %236 = load ptr, ptr %0, align 8
+  %231 = trunc i64 %230 to i32
+  store i32 %231, ptr %113, align 8
+  %232 = load i64, ptr %123, align 8
+  %233 = and i64 %230, 4294967295
+  %234 = sub i64 %232, %233
+  store i64 %234, ptr %124, align 8
+  %235 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %237 = call noundef i64 @fread(ptr noundef nonnull %9, i64 noundef 8, i64 noundef 1, ptr noundef %236)
-  br label %238
+  %236 = call noundef i64 @fread(ptr noundef nonnull %9, i64 noundef 8, i64 noundef 1, ptr noundef %235)
+  br label %237
 
-238:                                              ; preds = %238, %_ZL15fstReaderUint64P8_IO_FILE.exit318
-  %indvars.iv.i319 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit318 ], [ %indvars.iv.next.i321, %238 ]
-  %.068.i320 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit318 ], [ %243, %238 ]
-  %239 = shl i64 %.068.i320, 8
-  %240 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 0, i64 %indvars.iv.i319
-  %241 = load i8, ptr %240, align 1
-  %242 = zext i8 %241 to i64
-  %243 = or disjoint i64 %239, %242
+237:                                              ; preds = %237, %_ZL15fstReaderUint64P8_IO_FILE.exit318
+  %indvars.iv.i319 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit318 ], [ %indvars.iv.next.i321, %237 ]
+  %.068.i320 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit318 ], [ %242, %237 ]
+  %238 = shl i64 %.068.i320, 8
+  %239 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 0, i64 %indvars.iv.i319
+  %240 = load i8, ptr %239, align 1
+  %241 = zext i8 %240 to i64
+  %242 = or disjoint i64 %238, %241
   %indvars.iv.next.i321 = add nuw nsw i64 %indvars.iv.i319, 1
   %exitcond.not.i322 = icmp eq i64 %indvars.iv.next.i321, 8
-  br i1 %exitcond.not.i322, label %_ZL15fstReaderUint64P8_IO_FILE.exit323, label %238, !llvm.loop !50
+  br i1 %exitcond.not.i322, label %_ZL15fstReaderUint64P8_IO_FILE.exit323, label %237, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit323:           ; preds = %238
+_ZL15fstReaderUint64P8_IO_FILE.exit323:           ; preds = %237
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  store i64 %243, ptr %126, align 8
-  %244 = load ptr, ptr %0, align 8
-  %245 = call i32 @fgetc(ptr noundef %244)
-  %246 = trunc i32 %245 to i8
-  store i8 %246, ptr %127, align 8
-  %247 = load ptr, ptr %0, align 8
-  %248 = call noundef i64 @fread(ptr noundef nonnull %128, i64 noundef 128, i64 noundef 1, ptr noundef %247)
-  store i8 0, ptr %129, align 1
-  %249 = load ptr, ptr %0, align 8
-  %250 = call noundef i64 @fread(ptr noundef nonnull %130, i64 noundef 119, i64 noundef 1, ptr noundef %249)
-  store i8 0, ptr %131, align 1
-  %251 = load ptr, ptr %0, align 8
-  %252 = call i32 @fgetc(ptr noundef %251)
-  %253 = trunc i32 %252 to i8
-  store i8 %253, ptr %132, align 1
-  %254 = load ptr, ptr %0, align 8
+  store i64 %242, ptr %125, align 8
+  %243 = load ptr, ptr %0, align 8
+  %244 = call i32 @fgetc(ptr noundef %243)
+  %245 = trunc i32 %244 to i8
+  store i8 %245, ptr %126, align 8
+  %246 = load ptr, ptr %0, align 8
+  %247 = call noundef i64 @fread(ptr noundef nonnull %127, i64 noundef 128, i64 noundef 1, ptr noundef %246)
+  store i8 0, ptr %128, align 1
+  %248 = load ptr, ptr %0, align 8
+  %249 = call noundef i64 @fread(ptr noundef nonnull %129, i64 noundef 119, i64 noundef 1, ptr noundef %248)
+  store i8 0, ptr %130, align 1
+  %250 = load ptr, ptr %0, align 8
+  %251 = call i32 @fgetc(ptr noundef %250)
+  %252 = trunc i32 %251 to i8
+  store i8 %252, ptr %131, align 1
+  %253 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %255 = call noundef i64 @fread(ptr noundef nonnull %8, i64 noundef 8, i64 noundef 1, ptr noundef %254)
-  br label %256
+  %254 = call noundef i64 @fread(ptr noundef nonnull %8, i64 noundef 8, i64 noundef 1, ptr noundef %253)
+  br label %255
 
-256:                                              ; preds = %256, %_ZL15fstReaderUint64P8_IO_FILE.exit323
-  %indvars.iv.i324 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit323 ], [ %indvars.iv.next.i326, %256 ]
-  %.068.i325 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit323 ], [ %261, %256 ]
-  %257 = shl i64 %.068.i325, 8
-  %258 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 0, i64 %indvars.iv.i324
-  %259 = load i8, ptr %258, align 1
-  %260 = zext i8 %259 to i64
-  %261 = or disjoint i64 %257, %260
+255:                                              ; preds = %255, %_ZL15fstReaderUint64P8_IO_FILE.exit323
+  %indvars.iv.i324 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit323 ], [ %indvars.iv.next.i326, %255 ]
+  %.068.i325 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit323 ], [ %260, %255 ]
+  %256 = shl i64 %.068.i325, 8
+  %257 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 0, i64 %indvars.iv.i324
+  %258 = load i8, ptr %257, align 1
+  %259 = zext i8 %258 to i64
+  %260 = or disjoint i64 %256, %259
   %indvars.iv.next.i326 = add nuw nsw i64 %indvars.iv.i324, 1
   %exitcond.not.i327 = icmp eq i64 %indvars.iv.next.i326, 8
-  br i1 %exitcond.not.i327, label %_ZL15fstReaderUint64P8_IO_FILE.exit328, label %256, !llvm.loop !50
+  br i1 %exitcond.not.i327, label %_ZL15fstReaderUint64P8_IO_FILE.exit328, label %255, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit328:           ; preds = %256
+_ZL15fstReaderUint64P8_IO_FILE.exit328:           ; preds = %255
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  store i64 %261, ptr %133, align 8
+  store i64 %260, ptr %132, align 8
   br label %.loopexit
 
-262:                                              ; preds = %160, %160, %160
-  br i1 %156, label %281, label %263
+261:                                              ; preds = %159, %159, %159
+  br i1 %155, label %280, label %262
 
-263:                                              ; preds = %262
-  %264 = load ptr, ptr %0, align 8
+262:                                              ; preds = %261
+  %263 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %265 = call noundef i64 @fread(ptr noundef nonnull %7, i64 noundef 8, i64 noundef 1, ptr noundef %264)
-  br label %266
+  %264 = call noundef i64 @fread(ptr noundef nonnull %7, i64 noundef 8, i64 noundef 1, ptr noundef %263)
+  br label %265
 
-266:                                              ; preds = %266, %263
-  %indvars.iv.i329 = phi i64 [ 0, %263 ], [ %indvars.iv.next.i331, %266 ]
-  %.068.i330 = phi i64 [ 0, %263 ], [ %271, %266 ]
-  %267 = shl i64 %.068.i330, 8
-  %268 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 0, i64 %indvars.iv.i329
-  %269 = load i8, ptr %268, align 1
-  %270 = zext i8 %269 to i64
-  %271 = or disjoint i64 %267, %270
+265:                                              ; preds = %265, %262
+  %indvars.iv.i329 = phi i64 [ 0, %262 ], [ %indvars.iv.next.i331, %265 ]
+  %.068.i330 = phi i64 [ 0, %262 ], [ %270, %265 ]
+  %266 = shl i64 %.068.i330, 8
+  %267 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 0, i64 %indvars.iv.i329
+  %268 = load i8, ptr %267, align 1
+  %269 = zext i8 %268 to i64
+  %270 = or disjoint i64 %266, %269
   %indvars.iv.next.i331 = add nuw nsw i64 %indvars.iv.i329, 1
   %exitcond.not.i332 = icmp eq i64 %indvars.iv.next.i331, 8
-  br i1 %exitcond.not.i332, label %_ZL15fstReaderUint64P8_IO_FILE.exit333, label %266, !llvm.loop !50
+  br i1 %exitcond.not.i332, label %_ZL15fstReaderUint64P8_IO_FILE.exit333, label %265, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit333:           ; preds = %266
+_ZL15fstReaderUint64P8_IO_FILE.exit333:           ; preds = %265
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %272 = load ptr, ptr %0, align 8
+  %271 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %273 = call noundef i64 @fread(ptr noundef nonnull %6, i64 noundef 8, i64 noundef 1, ptr noundef %272)
-  br label %274
+  %272 = call noundef i64 @fread(ptr noundef nonnull %6, i64 noundef 8, i64 noundef 1, ptr noundef %271)
+  br label %273
 
-274:                                              ; preds = %274, %_ZL15fstReaderUint64P8_IO_FILE.exit333
-  %indvars.iv.i334 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit333 ], [ %indvars.iv.next.i336, %274 ]
-  %.068.i335 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit333 ], [ %279, %274 ]
-  %275 = shl i64 %.068.i335, 8
-  %276 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 0, i64 %indvars.iv.i334
-  %277 = load i8, ptr %276, align 1
-  %278 = zext i8 %277 to i64
-  %279 = or disjoint i64 %275, %278
+273:                                              ; preds = %273, %_ZL15fstReaderUint64P8_IO_FILE.exit333
+  %indvars.iv.i334 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit333 ], [ %indvars.iv.next.i336, %273 ]
+  %.068.i335 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit333 ], [ %278, %273 ]
+  %274 = shl i64 %.068.i335, 8
+  %275 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 0, i64 %indvars.iv.i334
+  %276 = load i8, ptr %275, align 1
+  %277 = zext i8 %276 to i64
+  %278 = or disjoint i64 %274, %277
   %indvars.iv.next.i336 = add nuw nsw i64 %indvars.iv.i334, 1
   %exitcond.not.i337 = icmp eq i64 %indvars.iv.next.i336, 8
-  br i1 %exitcond.not.i337, label %_ZL15fstReaderUint64P8_IO_FILE.exit338, label %274, !llvm.loop !50
+  br i1 %exitcond.not.i337, label %_ZL15fstReaderUint64P8_IO_FILE.exit338, label %273, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit338:           ; preds = %274
+_ZL15fstReaderUint64P8_IO_FILE.exit338:           ; preds = %273
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  store i64 %279, ptr %120, align 8
+  store i64 %278, ptr %119, align 8
   %.not267 = icmp eq i64 %.0230, 0
-  br i1 %.not267, label %280, label %281
+  br i1 %.not267, label %279, label %280
 
-280:                                              ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit338
-  store i64 %271, ptr %121, align 8
-  br label %281
+279:                                              ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit338
+  store i64 %270, ptr %120, align 8
+  br label %280
 
-281:                                              ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit338, %280, %262
-  %282 = add i64 %.0230, 1
+280:                                              ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit338, %279, %261
+  %281 = add i64 %.0230, 1
   br label %.loopexit
 
-283:                                              ; preds = %160
-  br i1 %156, label %284, label %.loopexit
+282:                                              ; preds = %159
+  br i1 %155, label %283, label %.loopexit
 
-284:                                              ; preds = %283
-  %285 = load ptr, ptr %0, align 8
+283:                                              ; preds = %282
+  %284 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %286 = call noundef i64 @fread(ptr noundef nonnull %5, i64 noundef 8, i64 noundef 1, ptr noundef %285)
-  br label %287
+  %285 = call noundef i64 @fread(ptr noundef nonnull %5, i64 noundef 8, i64 noundef 1, ptr noundef %284)
+  br label %286
 
-287:                                              ; preds = %287, %284
-  %indvars.iv.i339 = phi i64 [ 0, %284 ], [ %indvars.iv.next.i341, %287 ]
-  %.068.i340 = phi i64 [ 0, %284 ], [ %292, %287 ]
-  %288 = shl i64 %.068.i340, 8
-  %289 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %indvars.iv.i339
-  %290 = load i8, ptr %289, align 1
-  %291 = zext i8 %290 to i64
-  %292 = or disjoint i64 %288, %291
+286:                                              ; preds = %286, %283
+  %indvars.iv.i339 = phi i64 [ 0, %283 ], [ %indvars.iv.next.i341, %286 ]
+  %.068.i340 = phi i64 [ 0, %283 ], [ %291, %286 ]
+  %287 = shl i64 %.068.i340, 8
+  %288 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %indvars.iv.i339
+  %289 = load i8, ptr %288, align 1
+  %290 = zext i8 %289 to i64
+  %291 = or disjoint i64 %287, %290
   %indvars.iv.next.i341 = add nuw nsw i64 %indvars.iv.i339, 1
   %exitcond.not.i342 = icmp eq i64 %indvars.iv.next.i341, 8
-  br i1 %exitcond.not.i342, label %_ZL15fstReaderUint64P8_IO_FILE.exit343, label %287, !llvm.loop !50
+  br i1 %exitcond.not.i342, label %_ZL15fstReaderUint64P8_IO_FILE.exit343, label %286, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit343:           ; preds = %287
+_ZL15fstReaderUint64P8_IO_FILE.exit343:           ; preds = %286
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %293 = call noalias ptr @malloc(i64 noundef %292) #39
-  %294 = load i8, ptr %112, align 2
-  %295 = or i8 %294, 8
-  store i8 %295, ptr %112, align 2
-  %296 = load ptr, ptr %0, align 8
+  %292 = call noalias ptr @malloc(i64 noundef %291) #39
+  %293 = load i8, ptr %111, align 2
+  %294 = or i8 %293, 8
+  store i8 %294, ptr %111, align 2
+  %295 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %297 = call noundef i64 @fread(ptr noundef nonnull %4, i64 noundef 8, i64 noundef 1, ptr noundef %296)
-  br label %298
+  %296 = call noundef i64 @fread(ptr noundef nonnull %4, i64 noundef 8, i64 noundef 1, ptr noundef %295)
+  br label %297
 
-298:                                              ; preds = %298, %_ZL15fstReaderUint64P8_IO_FILE.exit343
-  %indvars.iv.i344 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit343 ], [ %indvars.iv.next.i346, %298 ]
-  %.068.i345 = phi i32 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit343 ], [ %303, %298 ]
-  %299 = shl i32 %.068.i345, 8
-  %300 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %indvars.iv.i344
-  %301 = load i8, ptr %300, align 1
-  %302 = zext i8 %301 to i32
-  %303 = or disjoint i32 %299, %302
+297:                                              ; preds = %297, %_ZL15fstReaderUint64P8_IO_FILE.exit343
+  %indvars.iv.i344 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit343 ], [ %indvars.iv.next.i346, %297 ]
+  %.068.i345 = phi i32 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit343 ], [ %302, %297 ]
+  %298 = shl i32 %.068.i345, 8
+  %299 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %indvars.iv.i344
+  %300 = load i8, ptr %299, align 1
+  %301 = zext i8 %300 to i32
+  %302 = or disjoint i32 %298, %301
   %indvars.iv.next.i346 = add nuw nsw i64 %indvars.iv.i344, 1
   %exitcond.not.i347 = icmp eq i64 %indvars.iv.next.i346, 8
-  br i1 %exitcond.not.i347, label %_ZL15fstReaderUint64P8_IO_FILE.exit348, label %298, !llvm.loop !50
+  br i1 %exitcond.not.i347, label %_ZL15fstReaderUint64P8_IO_FILE.exit348, label %297, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit348:           ; preds = %298
-  %304 = add i64 %153, -24
+_ZL15fstReaderUint64P8_IO_FILE.exit348:           ; preds = %297
+  %303 = add i64 %152, -24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  store i32 %303, ptr %114, align 8
-  store i32 32, ptr %115, align 8
-  %305 = load ptr, ptr %116, align 8
-  call void @free(ptr noundef %305) #37
-  %306 = load i32, ptr %114, align 8
-  %307 = add i32 %306, 7
-  %308 = lshr i32 %307, 3
-  %309 = zext nneg i32 %308 to i64
-  %310 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %309) #36
-  store ptr %310, ptr %116, align 8
-  %.not262 = icmp eq i64 %304, %292
-  br i1 %.not262, label %320, label %311
+  store i32 %302, ptr %113, align 8
+  store i32 32, ptr %114, align 8
+  %304 = load ptr, ptr %115, align 8
+  call void @free(ptr noundef %304) #37
+  %305 = load i32, ptr %113, align 8
+  %306 = add i32 %305, 7
+  %307 = lshr i32 %306, 3
+  %308 = zext nneg i32 %307 to i64
+  %309 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %308) #36
+  store ptr %309, ptr %115, align 8
+  %.not262 = icmp eq i64 %303, %291
+  br i1 %.not262, label %319, label %310
 
-311:                                              ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit348
-  %312 = call noalias ptr @malloc(i64 noundef %304) #39
-  store i64 %292, ptr %22, align 8
-  %313 = load ptr, ptr %0, align 8
-  %314 = call noundef i64 @fread(ptr noundef %312, i64 noundef %304, i64 noundef 1, ptr noundef %313)
-  %315 = call i32 @uncompress(ptr noundef %293, ptr noundef nonnull %22, ptr noundef %312, i64 noundef %304)
-  %.not263 = icmp eq i32 %315, 0
-  br i1 %.not263, label %319, label %316
+310:                                              ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit348
+  %311 = call noalias ptr @malloc(i64 noundef %303) #39
+  store i64 %291, ptr %22, align 8
+  %312 = load ptr, ptr %0, align 8
+  %313 = call noundef i64 @fread(ptr noundef %311, i64 noundef %303, i64 noundef 1, ptr noundef %312)
+  %314 = call i32 @uncompress(ptr noundef %292, ptr noundef nonnull %22, ptr noundef %311, i64 noundef %303)
+  %.not263 = icmp eq i32 %314, 0
+  br i1 %.not263, label %318, label %315
 
-316:                                              ; preds = %311
-  %317 = load ptr, ptr @stderr, align 8
-  %318 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %317, ptr noundef nonnull @.str.35, i32 noundef %315) #41
+315:                                              ; preds = %310
+  %316 = load ptr, ptr @stderr, align 8
+  %317 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %316, ptr noundef nonnull @.str.35, i32 noundef %314) #41
   call void @exit(i32 noundef 255) #44
   unreachable
 
-319:                                              ; preds = %311
-  call void @free(ptr noundef %312) #37
-  br label %323
+318:                                              ; preds = %310
+  call void @free(ptr noundef %311) #37
+  br label %322
 
-320:                                              ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit348
-  %321 = load ptr, ptr %0, align 8
-  %322 = call noundef i64 @fread(ptr noundef %293, i64 noundef %292, i64 noundef 1, ptr noundef %321)
-  br label %323
+319:                                              ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit348
+  %320 = load ptr, ptr %0, align 8
+  %321 = call noundef i64 @fread(ptr noundef %292, i64 noundef %291, i64 noundef 1, ptr noundef %320)
+  br label %322
 
-323:                                              ; preds = %320, %319
-  %324 = load ptr, ptr %117, align 8
-  call void @free(ptr noundef %324) #37
-  %325 = load i32, ptr %114, align 8
-  %326 = zext i32 %325 to i64
-  %327 = shl nuw nsw i64 %326, 2
-  %328 = call noalias ptr @malloc(i64 noundef %327) #39
-  store ptr %328, ptr %117, align 8
-  %329 = load ptr, ptr %118, align 8
-  call void @free(ptr noundef %329) #37
-  %330 = load i32, ptr %114, align 8
-  %331 = zext i32 %330 to i64
-  %332 = call noalias ptr @malloc(i64 noundef %331) #39
-  store ptr %332, ptr %118, align 8
-  %.not408 = icmp eq i32 %330, 0
+322:                                              ; preds = %319, %318
+  %323 = load ptr, ptr %116, align 8
+  call void @free(ptr noundef %323) #37
+  %324 = load i32, ptr %113, align 8
+  %325 = zext i32 %324 to i64
+  %326 = shl nuw nsw i64 %325, 2
+  %327 = call noalias ptr @malloc(i64 noundef %326) #39
+  store ptr %327, ptr %116, align 8
+  %328 = load ptr, ptr %117, align 8
+  call void @free(ptr noundef %328) #37
+  %329 = load i32, ptr %113, align 8
+  %330 = zext i32 %329 to i64
+  %331 = call noalias ptr @malloc(i64 noundef %330) #39
+  store ptr %331, ptr %117, align 8
+  %.not408 = icmp eq i32 %329, 0
   br i1 %.not408, label %._crit_edge, label %.preheader
 
-.preheader:                                       ; preds = %323, %367
-  %indvars.iv433 = phi i64 [ %indvars.iv.next434, %367 ], [ 0, %323 ]
-  %.0232404 = phi ptr [ %350, %367 ], [ %293, %323 ]
-  br label %333
+.preheader:                                       ; preds = %322, %366
+  %indvars.iv433 = phi i64 [ %indvars.iv.next434, %366 ], [ 0, %322 ]
+  %.0232404 = phi ptr [ %349, %366 ], [ %292, %322 ]
+  br label %332
 
-333:                                              ; preds = %.preheader, %333
-  %.012.i = phi ptr [ %335, %333 ], [ %.0232404, %.preheader ]
-  %334 = load i8, ptr %.012.i, align 1
-  %.not.i = icmp sgt i8 %334, -1
-  %335 = getelementptr inbounds nuw i8, ptr %.012.i, i64 1
-  br i1 %.not.i, label %336, label %333, !llvm.loop !19
+332:                                              ; preds = %.preheader, %332
+  %.012.i = phi ptr [ %334, %332 ], [ %.0232404, %.preheader ]
+  %333 = load i8, ptr %.012.i, align 1
+  %.not.i = icmp sgt i8 %333, -1
+  %334 = getelementptr inbounds nuw i8, ptr %.012.i, i64 1
+  br i1 %.not.i, label %335, label %332, !llvm.loop !19
 
-336:                                              ; preds = %333
-  %337 = ptrtoint ptr %.0232404 to i64
-  br label %338
+335:                                              ; preds = %332
+  %336 = ptrtoint ptr %.0232404 to i64
+  br label %337
 
-338:                                              ; preds = %338, %336
-  %.1.i = phi ptr [ %.012.i, %336 ], [ %345, %338 ]
-  %.0.i = phi i32 [ 0, %336 ], [ %343, %338 ]
-  %339 = shl i32 %.0.i, 7
-  %340 = load i8, ptr %.1.i, align 1
-  %341 = and i8 %340, 127
-  %342 = zext nneg i8 %341 to i32
-  %343 = or disjoint i32 %339, %342
-  %344 = icmp eq ptr %.1.i, %.0232404
-  %345 = getelementptr inbounds i8, ptr %.1.i, i64 -1
-  br i1 %344, label %_ZL14fstGetVarint32PhPi.exit, label %338, !llvm.loop !20
+337:                                              ; preds = %337, %335
+  %.1.i = phi ptr [ %.012.i, %335 ], [ %344, %337 ]
+  %.0.i = phi i32 [ 0, %335 ], [ %342, %337 ]
+  %338 = shl i32 %.0.i, 7
+  %339 = load i8, ptr %.1.i, align 1
+  %340 = and i8 %339, 127
+  %341 = zext nneg i8 %340 to i32
+  %342 = or disjoint i32 %338, %341
+  %343 = icmp eq ptr %.1.i, %.0232404
+  %344 = getelementptr inbounds i8, ptr %.1.i, i64 -1
+  br i1 %343, label %_ZL14fstGetVarint32PhPi.exit, label %337, !llvm.loop !20
 
-_ZL14fstGetVarint32PhPi.exit:                     ; preds = %338
-  %346 = ptrtoint ptr %.012.i to i64
-  %347 = sub i64 %346, %337
-  %348 = shl i64 %347, 32
-  %sext373 = add i64 %348, 4294967296
-  %349 = ashr exact i64 %sext373, 32
-  %350 = getelementptr inbounds i8, ptr %.0232404, i64 %349
-  %.not264 = icmp eq i32 %343, 0
-  br i1 %.not264, label %362, label %351
+_ZL14fstGetVarint32PhPi.exit:                     ; preds = %337
+  %345 = ptrtoint ptr %.012.i to i64
+  %346 = sub i64 %345, %336
+  %347 = shl i64 %346, 32
+  %sext373 = add i64 %347, 4294967296
+  %348 = ashr exact i64 %sext373, 32
+  %349 = getelementptr inbounds i8, ptr %.0232404, i64 %348
+  %.not264 = icmp eq i32 %342, 0
+  br i1 %.not264, label %361, label %350
 
-351:                                              ; preds = %_ZL14fstGetVarint32PhPi.exit
-  %.not265 = icmp eq i32 %343, -1
-  %narrow = select i1 %.not265, i32 0, i32 %343
-  %352 = load ptr, ptr %117, align 8
-  %353 = getelementptr inbounds nuw i32, ptr %352, i64 %indvars.iv433
-  store i32 %narrow, ptr %353, align 4
-  %354 = load ptr, ptr %118, align 8
-  %355 = getelementptr inbounds nuw i8, ptr %354, i64 %indvars.iv433
-  store i8 16, ptr %355, align 1
-  %356 = load ptr, ptr %117, align 8
-  %357 = getelementptr inbounds nuw i32, ptr %356, i64 %indvars.iv433
-  %358 = load i32, ptr %357, align 4
-  %359 = load i32, ptr %115, align 8
-  %360 = icmp ugt i32 %358, %359
-  br i1 %360, label %361, label %367
+350:                                              ; preds = %_ZL14fstGetVarint32PhPi.exit
+  %.not265 = icmp eq i32 %342, -1
+  %narrow = select i1 %.not265, i32 0, i32 %342
+  %351 = load ptr, ptr %116, align 8
+  %352 = getelementptr inbounds nuw i32, ptr %351, i64 %indvars.iv433
+  store i32 %narrow, ptr %352, align 4
+  %353 = load ptr, ptr %117, align 8
+  %354 = getelementptr inbounds nuw i8, ptr %353, i64 %indvars.iv433
+  store i8 16, ptr %354, align 1
+  %355 = load ptr, ptr %116, align 8
+  %356 = getelementptr inbounds nuw i32, ptr %355, i64 %indvars.iv433
+  %357 = load i32, ptr %356, align 4
+  %358 = load i32, ptr %114, align 8
+  %359 = icmp ugt i32 %357, %358
+  br i1 %359, label %360, label %366
 
-361:                                              ; preds = %351
-  store i32 %358, ptr %115, align 8
-  br label %367
+360:                                              ; preds = %350
+  store i32 %357, ptr %114, align 8
+  br label %366
 
-362:                                              ; preds = %_ZL14fstGetVarint32PhPi.exit
-  %363 = load ptr, ptr %117, align 8
-  %364 = getelementptr inbounds nuw i32, ptr %363, i64 %indvars.iv433
-  store i32 8, ptr %364, align 4
-  %365 = load ptr, ptr %118, align 8
-  %366 = getelementptr inbounds nuw i8, ptr %365, i64 %indvars.iv433
-  store i8 3, ptr %366, align 1
-  br label %367
+361:                                              ; preds = %_ZL14fstGetVarint32PhPi.exit
+  %362 = load ptr, ptr %116, align 8
+  %363 = getelementptr inbounds nuw i32, ptr %362, i64 %indvars.iv433
+  store i32 8, ptr %363, align 4
+  %364 = load ptr, ptr %117, align 8
+  %365 = getelementptr inbounds nuw i8, ptr %364, i64 %indvars.iv433
+  store i8 3, ptr %365, align 1
+  br label %366
 
-367:                                              ; preds = %362, %361, %351
+366:                                              ; preds = %361, %360, %350
   %indvars.iv.next434 = add nuw nsw i64 %indvars.iv433, 1
-  %368 = load i32, ptr %114, align 8
-  %369 = zext i32 %368 to i64
-  %370 = icmp samesign ult i64 %indvars.iv.next434, %369
-  br i1 %370, label %.preheader, label %._crit_edge, !llvm.loop !70
+  %367 = load i32, ptr %113, align 8
+  %368 = zext i32 %367 to i64
+  %369 = icmp samesign ult i64 %indvars.iv.next434, %368
+  br i1 %369, label %.preheader, label %._crit_edge, !llvm.loop !70
 
-._crit_edge:                                      ; preds = %367, %323
-  %371 = load ptr, ptr %119, align 8
-  call void @free(ptr noundef %371) #37
-  %372 = load i32, ptr %115, align 8
-  %373 = add i32 %372, 1
-  %374 = zext i32 %373 to i64
-  %375 = call noalias ptr @malloc(i64 noundef %374) #39
-  store ptr %375, ptr %119, align 8
-  call void @free(ptr noundef %293) #37
+._crit_edge:                                      ; preds = %366, %322
+  %370 = load ptr, ptr %118, align 8
+  call void @free(ptr noundef %370) #37
+  %371 = load i32, ptr %114, align 8
+  %372 = add i32 %371, 1
+  %373 = zext i32 %372 to i64
+  %374 = call noalias ptr @malloc(i64 noundef %373) #39
+  store ptr %374, ptr %118, align 8
+  call void @free(ptr noundef %292) #37
   br label %.loopexit
 
-376:                                              ; preds = %160
-  %377 = load i8, ptr %112, align 2
-  %378 = or i8 %377, 16
-  store i8 %378, ptr %112, align 2
-  %379 = load ptr, ptr %0, align 8
-  %380 = call i64 @ftello(ptr noundef %379)
-  store i64 %380, ptr %113, align 8
+375:                                              ; preds = %159
+  %376 = load i8, ptr %111, align 2
+  %377 = or i8 %376, 16
+  store i8 %377, ptr %111, align 2
+  %378 = load ptr, ptr %0, align 8
+  %379 = call i64 @ftello(ptr noundef %378)
+  store i64 %379, ptr %112, align 8
   br label %.loopexit
 
-381:                                              ; preds = %160
-  %382 = load i8, ptr %112, align 2
-  %383 = or i8 %382, 96
-  store i8 %383, ptr %112, align 2
-  %384 = load ptr, ptr %0, align 8
-  %385 = call i64 @ftello(ptr noundef %384)
-  store i64 %385, ptr %113, align 8
+380:                                              ; preds = %159
+  %381 = load i8, ptr %111, align 2
+  %382 = or i8 %381, 96
+  store i8 %382, ptr %111, align 2
+  %383 = load ptr, ptr %0, align 8
+  %384 = call i64 @ftello(ptr noundef %383)
+  store i64 %384, ptr %112, align 8
   br label %.loopexit
 
-386:                                              ; preds = %160
-  %387 = load i8, ptr %112, align 2
-  %388 = or i8 %387, 64
-  store i8 %388, ptr %112, align 2
-  %389 = load ptr, ptr %0, align 8
-  %390 = call i64 @ftello(ptr noundef %389)
-  store i64 %390, ptr %113, align 8
+385:                                              ; preds = %159
+  %386 = load i8, ptr %111, align 2
+  %387 = or i8 %386, 64
+  store i8 %387, ptr %111, align 2
+  %388 = load ptr, ptr %0, align 8
+  %389 = call i64 @ftello(ptr noundef %388)
+  store i64 %389, ptr %112, align 8
   br label %.loopexit
 
-391:                                              ; preds = %160
-  %392 = load ptr, ptr %0, align 8
+390:                                              ; preds = %159
+  %391 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %3)
-  br label %393
+  br label %392
 
-393:                                              ; preds = %393, %391
-  %.0.i349 = phi ptr [ %3, %391 ], [ %396, %393 ]
-  %394 = call i32 @fgetc(ptr noundef %392)
-  %395 = trunc i32 %394 to i8
-  %396 = getelementptr inbounds nuw i8, ptr %.0.i349, i64 1
-  store i8 %395, ptr %.0.i349, align 1
-  %397 = and i32 %394, 128
-  %.not.i350 = icmp eq i32 %397, 0
-  br i1 %.not.i350, label %.preheader.i, label %393, !llvm.loop !58
+392:                                              ; preds = %392, %390
+  %.0.i349 = phi ptr [ %3, %390 ], [ %395, %392 ]
+  %393 = call i32 @fgetc(ptr noundef %391)
+  %394 = trunc i32 %393 to i8
+  %395 = getelementptr inbounds nuw i8, ptr %.0.i349, i64 1
+  store i8 %394, ptr %.0.i349, align 1
+  %396 = and i32 %393, 128
+  %.not.i350 = icmp eq i32 %396, 0
+  br i1 %.not.i350, label %.preheader.i, label %392, !llvm.loop !58
 
-.preheader.i:                                     ; preds = %393, %.preheader.i
-  %.010.i = phi i32 [ %402, %.preheader.i ], [ 0, %393 ]
-  %.1.i351 = phi ptr [ %404, %.preheader.i ], [ %.0.i349, %393 ]
-  %398 = shl i32 %.010.i, 7
-  %399 = load i8, ptr %.1.i351, align 1
-  %400 = and i8 %399, 127
-  %401 = zext nneg i8 %400 to i32
-  %402 = or disjoint i32 %398, %401
-  %403 = icmp eq ptr %.1.i351, %3
-  %404 = getelementptr inbounds i8, ptr %.1.i351, i64 -1
-  br i1 %403, label %_ZL17fstReaderVarint32P8_IO_FILE.exit, label %.preheader.i, !llvm.loop !59
+.preheader.i:                                     ; preds = %392, %.preheader.i
+  %.010.i = phi i32 [ %401, %.preheader.i ], [ 0, %392 ]
+  %.1.i351 = phi ptr [ %403, %.preheader.i ], [ %.0.i349, %392 ]
+  %397 = shl i32 %.010.i, 7
+  %398 = load i8, ptr %.1.i351, align 1
+  %399 = and i8 %398, 127
+  %400 = zext nneg i8 %399 to i32
+  %401 = or disjoint i32 %397, %400
+  %402 = icmp eq ptr %.1.i351, %3
+  %403 = getelementptr inbounds i8, ptr %.1.i351, i64 -1
+  br i1 %402, label %_ZL17fstReaderVarint32P8_IO_FILE.exit, label %.preheader.i, !llvm.loop !59
 
 _ZL17fstReaderVarint32P8_IO_FILE.exit:            ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %3)
-  store i32 %402, ptr %109, align 8
-  %405 = load ptr, ptr %110, align 8
-  call void @free(ptr noundef %405) #37
-  %406 = load i32, ptr %109, align 8
-  %407 = zext i32 %406 to i64
-  %408 = call noalias ptr @calloc(i64 noundef %407, i64 noundef 8) #36
-  store ptr %408, ptr %110, align 8
-  %409 = load ptr, ptr %111, align 8
-  call void @free(ptr noundef %409) #37
-  %410 = load i32, ptr %109, align 8
-  %411 = zext i32 %410 to i64
-  %412 = call noalias ptr @calloc(i64 noundef %411, i64 noundef 1) #36
-  store ptr %412, ptr %111, align 8
-  %.not407 = icmp eq i32 %410, 0
+  store i32 %401, ptr %108, align 8
+  %404 = load ptr, ptr %109, align 8
+  call void @free(ptr noundef %404) #37
+  %405 = load i32, ptr %108, align 8
+  %406 = zext i32 %405 to i64
+  %407 = call noalias ptr @calloc(i64 noundef %406, i64 noundef 8) #36
+  store ptr %407, ptr %109, align 8
+  %408 = load ptr, ptr %110, align 8
+  call void @free(ptr noundef %408) #37
+  %409 = load i32, ptr %108, align 8
+  %410 = zext i32 %409 to i64
+  %411 = call noalias ptr @calloc(i64 noundef %410, i64 noundef 1) #36
+  store ptr %411, ptr %110, align 8
+  %.not407 = icmp eq i32 %409, 0
   br i1 %.not407, label %.loopexit, label %.lr.ph403
 
 .lr.ph403:                                        ; preds = %_ZL17fstReaderVarint32P8_IO_FILE.exit, %_ZL17fstReaderVarint64P8_IO_FILE.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZL17fstReaderVarint64P8_IO_FILE.exit ], [ 0, %_ZL17fstReaderVarint32P8_IO_FILE.exit ]
-  %.0227402 = phi i64 [ %432, %_ZL17fstReaderVarint64P8_IO_FILE.exit ], [ 0, %_ZL17fstReaderVarint32P8_IO_FILE.exit ]
-  %413 = load ptr, ptr %0, align 8
-  %414 = call i32 @fgetc(ptr noundef %413)
-  %415 = icmp ne i32 %414, 0
-  %416 = zext i1 %415 to i8
-  %417 = load ptr, ptr %111, align 8
-  %418 = getelementptr inbounds nuw i8, ptr %417, i64 %indvars.iv
-  store i8 %416, ptr %418, align 1
-  %419 = load ptr, ptr %0, align 8
+  %.0227402 = phi i64 [ %431, %_ZL17fstReaderVarint64P8_IO_FILE.exit ], [ 0, %_ZL17fstReaderVarint32P8_IO_FILE.exit ]
+  %412 = load ptr, ptr %0, align 8
+  %413 = call i32 @fgetc(ptr noundef %412)
+  %414 = icmp ne i32 %413, 0
+  %415 = zext i1 %414 to i8
+  %416 = load ptr, ptr %110, align 8
+  %417 = getelementptr inbounds nuw i8, ptr %416, i64 %indvars.iv
+  store i8 %415, ptr %417, align 1
+  %418 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  br label %420
+  br label %419
 
-420:                                              ; preds = %420, %.lr.ph403
-  %.0.i352 = phi ptr [ %2, %.lr.ph403 ], [ %423, %420 ]
-  %421 = call i32 @fgetc(ptr noundef %419)
-  %422 = trunc i32 %421 to i8
-  %423 = getelementptr inbounds nuw i8, ptr %.0.i352, i64 1
-  store i8 %422, ptr %.0.i352, align 1
-  %424 = and i32 %421, 128
-  %.not.i353 = icmp eq i32 %424, 0
-  br i1 %.not.i353, label %.preheader.i354, label %420, !llvm.loop !60
+419:                                              ; preds = %419, %.lr.ph403
+  %.0.i352 = phi ptr [ %2, %.lr.ph403 ], [ %422, %419 ]
+  %420 = call i32 @fgetc(ptr noundef %418)
+  %421 = trunc i32 %420 to i8
+  %422 = getelementptr inbounds nuw i8, ptr %.0.i352, i64 1
+  store i8 %421, ptr %.0.i352, align 1
+  %423 = and i32 %420, 128
+  %.not.i353 = icmp eq i32 %423, 0
+  br i1 %.not.i353, label %.preheader.i354, label %419, !llvm.loop !60
 
-.preheader.i354:                                  ; preds = %420, %.preheader.i354
-  %.010.i355 = phi i64 [ %429, %.preheader.i354 ], [ 0, %420 ]
-  %.1.i356 = phi ptr [ %431, %.preheader.i354 ], [ %.0.i352, %420 ]
-  %425 = shl i64 %.010.i355, 7
-  %426 = load i8, ptr %.1.i356, align 1
-  %427 = and i8 %426, 127
-  %428 = zext nneg i8 %427 to i64
-  %429 = or disjoint i64 %425, %428
-  %430 = icmp eq ptr %.1.i356, %2
-  %431 = getelementptr inbounds i8, ptr %.1.i356, i64 -1
-  br i1 %430, label %_ZL17fstReaderVarint64P8_IO_FILE.exit, label %.preheader.i354, !llvm.loop !61
+.preheader.i354:                                  ; preds = %419, %.preheader.i354
+  %.010.i355 = phi i64 [ %428, %.preheader.i354 ], [ 0, %419 ]
+  %.1.i356 = phi ptr [ %430, %.preheader.i354 ], [ %.0.i352, %419 ]
+  %424 = shl i64 %.010.i355, 7
+  %425 = load i8, ptr %.1.i356, align 1
+  %426 = and i8 %425, 127
+  %427 = zext nneg i8 %426 to i64
+  %428 = or disjoint i64 %424, %427
+  %429 = icmp eq ptr %.1.i356, %2
+  %430 = getelementptr inbounds i8, ptr %.1.i356, i64 -1
+  br i1 %429, label %_ZL17fstReaderVarint64P8_IO_FILE.exit, label %.preheader.i354, !llvm.loop !61
 
 _ZL17fstReaderVarint64P8_IO_FILE.exit:            ; preds = %.preheader.i354
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %432 = add i64 %429, %.0227402
-  %433 = load ptr, ptr %110, align 8
-  %434 = getelementptr inbounds nuw i64, ptr %433, i64 %indvars.iv
-  store i64 %432, ptr %434, align 8
+  %431 = add i64 %428, %.0227402
+  %432 = load ptr, ptr %109, align 8
+  %433 = getelementptr inbounds nuw i64, ptr %432, i64 %indvars.iv
+  store i64 %431, ptr %433, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %435 = load i32, ptr %109, align 8
-  %436 = zext i32 %435 to i64
-  %437 = icmp samesign ult i64 %indvars.iv.next, %436
-  br i1 %437, label %.lr.ph403, label %.loopexit, !llvm.loop !71
+  %434 = load i32, ptr %108, align 8
+  %435 = zext i32 %434 to i64
+  %436 = icmp samesign ult i64 %indvars.iv.next, %435
+  br i1 %436, label %.lr.ph403, label %.loopexit, !llvm.loop !71
 
-.loopexit:                                        ; preds = %_ZL17fstReaderVarint64P8_IO_FILE.exit, %_ZL17fstReaderVarint32P8_IO_FILE.exit, %160, %281, %376, %386, %381, %283, %._crit_edge, %162, %_ZL15fstReaderUint64P8_IO_FILE.exit328
-  %.3 = phi i32 [ 1, %162 ], [ 1, %_ZL15fstReaderUint64P8_IO_FILE.exit328 ], [ %.1236, %281 ], [ %.1236, %283 ], [ %.1236, %._crit_edge ], [ %.1236, %376 ], [ %.1236, %381 ], [ %.1236, %386 ], [ %.1236, %160 ], [ %.1236, %_ZL17fstReaderVarint32P8_IO_FILE.exit ], [ %.1236, %_ZL17fstReaderVarint64P8_IO_FILE.exit ]
-  %.1234 = phi i32 [ %.0233, %162 ], [ %183, %_ZL15fstReaderUint64P8_IO_FILE.exit328 ], [ %.0233, %281 ], [ 1, %283 ], [ 0, %._crit_edge ], [ %.0233, %376 ], [ %.0233, %381 ], [ %.0233, %386 ], [ %.0233, %160 ], [ %.0233, %_ZL17fstReaderVarint32P8_IO_FILE.exit ], [ %.0233, %_ZL17fstReaderVarint64P8_IO_FILE.exit ]
-  %.2 = phi i64 [ %.0230, %162 ], [ %.0230, %_ZL15fstReaderUint64P8_IO_FILE.exit328 ], [ %282, %281 ], [ %.0230, %283 ], [ %.0230, %._crit_edge ], [ %.0230, %376 ], [ %.0230, %381 ], [ %.0230, %386 ], [ %.0230, %160 ], [ %.0230, %_ZL17fstReaderVarint32P8_IO_FILE.exit ], [ %.0230, %_ZL17fstReaderVarint64P8_IO_FILE.exit ]
-  %438 = add i64 %161, %153
+.loopexit:                                        ; preds = %_ZL17fstReaderVarint64P8_IO_FILE.exit, %_ZL17fstReaderVarint32P8_IO_FILE.exit, %159, %280, %375, %385, %380, %282, %._crit_edge, %161, %_ZL15fstReaderUint64P8_IO_FILE.exit328
+  %.3 = phi i32 [ 1, %161 ], [ 1, %_ZL15fstReaderUint64P8_IO_FILE.exit328 ], [ %.1236, %280 ], [ %.1236, %282 ], [ %.1236, %._crit_edge ], [ %.1236, %375 ], [ %.1236, %380 ], [ %.1236, %385 ], [ %.1236, %159 ], [ %.1236, %_ZL17fstReaderVarint32P8_IO_FILE.exit ], [ %.1236, %_ZL17fstReaderVarint64P8_IO_FILE.exit ]
+  %.1234 = phi i32 [ %.0233, %161 ], [ %182, %_ZL15fstReaderUint64P8_IO_FILE.exit328 ], [ %.0233, %280 ], [ 1, %282 ], [ 0, %._crit_edge ], [ %.0233, %375 ], [ %.0233, %380 ], [ %.0233, %385 ], [ %.0233, %159 ], [ %.0233, %_ZL17fstReaderVarint32P8_IO_FILE.exit ], [ %.0233, %_ZL17fstReaderVarint64P8_IO_FILE.exit ]
+  %.2 = phi i64 [ %.0230, %161 ], [ %.0230, %_ZL15fstReaderUint64P8_IO_FILE.exit328 ], [ %281, %280 ], [ %.0230, %282 ], [ %.0230, %._crit_edge ], [ %.0230, %375 ], [ %.0230, %380 ], [ %.0230, %385 ], [ %.0230, %159 ], [ %.0230, %_ZL17fstReaderVarint32P8_IO_FILE.exit ], [ %.0230, %_ZL17fstReaderVarint64P8_IO_FILE.exit ]
+  %437 = add i64 %160, %152
   %.not270 = icmp eq i32 %.3, 0
-  br i1 %.not270, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, label %134, !llvm.loop !72
+  br i1 %.not270, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, label %133, !llvm.loop !72
 
-439:                                              ; preds = %155, %_ZL15fstReaderUint64P8_IO_FILE.exit288, %134
-  br i1 %135, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, label %440
+438:                                              ; preds = %154, %_ZL15fstReaderUint64P8_IO_FILE.exit288, %133
+  br i1 %134, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, label %439
 
-440:                                              ; preds = %439
-  %441 = load i64, ptr %126, align 8
-  %.not272 = icmp eq i64 %441, %.0230
-  br i1 %.not272, label %443, label %442
+439:                                              ; preds = %438
+  %440 = load i64, ptr %125, align 8
+  %.not272 = icmp eq i64 %440, %.0230
+  br i1 %.not272, label %442, label %441
 
-442:                                              ; preds = %440
-  store i64 %.0230, ptr %126, align 8
-  br label %443
+441:                                              ; preds = %439
+  store i64 %.0230, ptr %125, align 8
+  br label %442
 
-443:                                              ; preds = %442, %440
-  %444 = load i8, ptr %112, align 2
-  %445 = and i8 %444, 8
-  %.not273 = icmp eq i8 %445, 0
-  br i1 %.not273, label %446, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit
+442:                                              ; preds = %441, %439
+  %443 = load i8, ptr %111, align 2
+  %444 = and i8 %443, 8
+  %.not273 = icmp eq i8 %444, 0
+  br i1 %.not273, label %445, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit
 
-446:                                              ; preds = %443
-  %447 = call i32 @fstReaderProcessHier(ptr noundef nonnull %0, ptr noundef null)
+445:                                              ; preds = %442
+  %446 = call i32 @fstReaderProcessHier(ptr noundef nonnull %0, ptr noundef null)
   br label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit
 
-_ZL13tmpfile_closePP8_IO_FILEPPc.exit:            ; preds = %196, %.loopexit, %158, %53, %86, %443, %446, %439, %_ZL15fstReaderUint64P8_IO_FILE.exit281
-  %.0 = phi i32 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit281 ], [ 1, %443 ], [ 1, %446 ], [ 0, %439 ], [ 0, %86 ], [ 0, %53 ], [ 0, %158 ], [ 0, %.loopexit ], [ 0, %196 ]
+_ZL13tmpfile_closePP8_IO_FILEPPc.exit:            ; preds = %195, %.loopexit, %157, %53, %85, %442, %445, %438, %_ZL15fstReaderUint64P8_IO_FILE.exit281
+  %.0 = phi i32 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit281 ], [ 1, %442 ], [ 1, %445 ], [ 0, %438 ], [ 0, %85 ], [ 0, %53 ], [ 0, %157 ], [ 0, %.loopexit ], [ 0, %195 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef i64 @_ZL15fstReaderUint64P8_IO_FILE(ptr nocapture noundef %0) unnamed_addr #13 {
+define internal fastcc noundef i64 @_ZL15fstReaderUint64P8_IO_FILE(ptr noundef captures(none) %0) unnamed_addr #13 {
   %2 = alloca [8 x i8], align 1
   %3 = call noundef i64 @fread(ptr noundef nonnull %2, i64 noundef 8, i64 noundef 1, ptr noundef %0)
   br label %4
@@ -9886,7 +9878,7 @@ declare i32 @getpid() local_unnamed_addr #14
 declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare i32 @gzread(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #15
 
@@ -12790,10 +12782,10 @@ _ZL9fstWritexP16fstReaderContextPvi.exit1187:     ; preds = %1272, %1270, %1269,
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @setvbuf(ptr nocapture noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #9
+declare noundef i32 @setvbuf(ptr noundef captures(none), ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #30 {
+define internal fastcc void @_ZL9fstWritexP16fstReaderContextPvi(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #30 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %35, label %4
 
@@ -12869,7 +12861,7 @@ _ZL9fstWritexP16fstReaderContextPvi.exit23:       ; preds = %24, %25
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef i32 @_ZL25fstReaderVarint32WithSkipP8_IO_FILEPj(ptr nocapture noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #13 {
+define internal fastcc noundef i32 @_ZL25fstReaderVarint32WithSkipP8_IO_FILEPj(ptr noundef captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #13 {
   %3 = alloca [5 x i8], align 1
   br label %4
 
@@ -14470,7 +14462,7 @@ _ZL14fstGetVarint32PhPi.exit700._crit_edge.thread: ; preds = %.preheader722, %_Z
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef ptr @_ZL27fstExtractRvatDataFromFrameP16fstReaderContextjPc(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, -1) %1, ptr noundef nonnull writeonly %2) unnamed_addr #13 {
+define internal fastcc noundef ptr @_ZL27fstExtractRvatDataFromFrameP16fstReaderContextjPc(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 0, -1) %1, ptr noundef nonnull writeonly %2) unnamed_addr #13 {
   %4 = alloca double, align 8
   %5 = zext i32 %1 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -14558,7 +14550,7 @@ define internal fastcc noundef ptr @_ZL27fstExtractRvatDataFromFrameP16fstReader
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef nonnull ptr @_Z10JenkinsInsPvPKhjj(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #13 {
+define noundef nonnull ptr @_Z10JenkinsInsPvPKhjj(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #13 {
   %5 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %11
@@ -15122,13 +15114,13 @@ define void @fstUtilityFreeEnumTable(ptr noundef %0) local_unnamed_addr #25 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @atol(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @atol(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
 declare noalias noundef ptr @tmpfile() local_unnamed_addr #9
@@ -15148,19 +15140,19 @@ declare i32 @ftruncate(i32 noundef, i64 noundef) local_unnamed_addr #14
 declare i32 @fastlz_compress(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @realpath(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #9
+declare noundef ptr @realpath(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #32
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #33
@@ -15175,13 +15167,13 @@ declare i32 @llvm.smin.i32(i32, i32) #33
 declare i64 @llvm.umax.i64(i64, i64) #33
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #34
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #34
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #35
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #35
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #33

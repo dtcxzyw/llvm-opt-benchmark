@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [28 x i8] c" MAX-EXCH AVG-EXCH MIN-EXCH\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define noundef range(i32 -2, 1) i32 @mca_common_ompio_initialize_print_queue(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #0 {
+define noundef range(i32 -2, 1) i32 @mca_common_ompio_initialize_print_queue(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(65584) ptr @malloc(i64 noundef 65584) #11
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 65568
   store i32 0, ptr %3, align 8
@@ -32,7 +32,7 @@ define noundef range(i32 -2, 1) i32 @mca_common_ompio_initialize_print_queue(ptr
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -1, 1) i32 @mca_common_ompio_register_print_entry(ptr nocapture noundef %0, ptr nocapture noundef readonly byval(%struct.mca_common_ompio_print_entry) align 8 %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @mca_common_ompio_register_print_entry(ptr noundef captures(none) %0, ptr noundef readonly byval(%struct.mca_common_ompio_print_entry) align 8 captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 65576
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 2047
@@ -57,10 +57,10 @@ define range(i32 -1, 1) i32 @mca_common_ompio_register_print_entry(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -1, 1) i32 @mca_common_ompio_unregister_print_entry(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @mca_common_ompio_unregister_print_entry(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 65576
   %4 = load i32, ptr %3, align 8
   %5 = icmp slt i32 %4, 1
@@ -87,7 +87,7 @@ define range(i32 -1, 1) i32 @mca_common_ompio_unregister_print_entry(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @mca_common_ompio_empty_print_queue(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @mca_common_ompio_empty_print_queue(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 65576
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -96,7 +96,7 @@ define range(i32 0, 2) i32 @mca_common_ompio_empty_print_queue(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @mca_common_ompio_full_print_queue(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @mca_common_ompio_full_print_queue(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 65576
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 2047
@@ -105,7 +105,7 @@ define range(i32 0, 2) i32 @mca_common_ompio_full_print_queue(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_common_ompio_print_time_info(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
+define i32 @mca_common_ompio_print_time_info(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 4, i64 noundef 8) #12
@@ -418,16 +418,16 @@ define i32 @mca_common_ompio_print_time_info(ptr nocapture noundef readonly %0, 
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

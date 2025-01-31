@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__const.Dec_GraphDeriveTruth.uTruths = private unnamed_addr constant [5 x i32] [i32 -1431655766, i32 -858993460, i32 -252645136, i32 -16711936, i32 -65536], align 16
 
 ; Function Attrs: nounwind uwtable
-define ptr @Dec_GraphDeriveBdd(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define ptr @Dec_GraphDeriveBdd(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.val = load i32, ptr %1, align 8
   %.not = icmp eq i32 %.val, 0
   %3 = getelementptr i8, ptr %1, i64 24
@@ -159,7 +159,7 @@ declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @Cudd_Deref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Dec_GraphDeriveTruth(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @Dec_GraphDeriveTruth(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %.val = load i32, ptr %0, align 8
   %.not = icmp eq i32 %.val, 0
   br i1 %.not, label %5, label %2

@@ -99,7 +99,7 @@ define internal range(i32 -1, 1) i32 @H5Z__set_local_shuffle(i64 noundef %0, i64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @H5Z__filter_shuffle(i32 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5) #0 {
+define internal noundef i64 @H5Z__filter_shuffle(i32 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef captures(none) %5) #0 {
   %.not = icmp eq i64 %1, 1
   br i1 %.not, label %7, label %10
 
@@ -415,7 +415,7 @@ declare i32 @H5P_modify_filter(ptr noundef, i32 noundef, i32 noundef, i64 nounde
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #1
 

@@ -68,7 +68,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.37 = private unnamed_addr constant [90 x i8] c"phar error: cannot rename \22%s\22 to \22%s\22 from extracted phar archive, source does not exist\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @phar_stream_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal noundef i64 @phar_stream_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -137,7 +137,7 @@ define internal noundef i64 @phar_stream_write(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @phar_stream_read(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal i64 @phar_stream_read(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -204,7 +204,7 @@ define internal i64 @phar_stream_read(ptr nocapture noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @phar_stream_close(ptr nocapture noundef readonly %0, i32 %1) #0 {
+define internal noundef i32 @phar_stream_close(ptr noundef readonly captures(none) %0, i32 %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -245,7 +245,7 @@ phar_stream_flush.exit:                           ; preds = %2, %11, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @phar_stream_flush(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @phar_stream_flush(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -283,7 +283,7 @@ define internal i32 @phar_stream_flush(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @phar_stream_seek(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
+define internal i32 @phar_stream_seek(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -365,7 +365,7 @@ define internal i32 @phar_stream_seek(ptr nocapture noundef readonly %0, i64 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 1) i32 @phar_stream_stat(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) #1 {
+define internal range(i32 -1, 1) i32 @phar_stream_stat(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %42, label %3
 
@@ -518,7 +518,7 @@ define internal ptr @phar_wrapper_open_url(ptr noundef %0, ptr noundef %1, ptr n
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = and i64 %32, 4294967295
   %48 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #15
-  %49 = call ptr @phar_get_or_create_entry_data(ptr noundef nonnull %46, i64 noundef %47, ptr noundef %38, i64 noundef %48, ptr noundef nonnull %2, i8 noundef signext 0, ptr noundef nonnull %9, i32 noundef 1) #14
+  %49 = call ptr @phar_get_or_create_entry_data(ptr noundef nonnull %46, i64 noundef %47, ptr noundef nonnull %38, i64 noundef %48, ptr noundef nonnull %2, i8 noundef signext 0, ptr noundef nonnull %9, i32 noundef 1) #14
   store ptr %49, ptr %8, align 8
   %50 = icmp eq ptr %49, null
   %51 = load ptr, ptr %9, align 8
@@ -537,11 +537,11 @@ define internal ptr @phar_wrapper_open_url(ptr noundef %0, ptr noundef %1, ptr n
 55:                                               ; preds = %52
   %56 = load ptr, ptr %15, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.11, ptr noundef %38, ptr noundef nonnull %57) #14
+  call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.11, ptr noundef nonnull %38, ptr noundef nonnull %57) #14
   br label %58
 
 58:                                               ; preds = %55, %53
-  call void @_efree(ptr noundef %38) #14
+  call void @_efree(ptr noundef nonnull %38) #14
   call void @php_url_free(ptr noundef nonnull %10) #14
   br label %348
 
@@ -557,7 +557,7 @@ define internal ptr @phar_wrapper_open_url(ptr noundef %0, ptr noundef %1, ptr n
   %62 = phi ptr [ %.pre, %60 ], [ %49, %59 ]
   %63 = call ptr @_php_stream_alloc(ptr noundef nonnull @phar_ops, ptr noundef %62, ptr noundef null, ptr noundef nonnull %2) #14
   call void @php_url_free(ptr noundef nonnull %10) #14
-  call void @_efree(ptr noundef %38) #14
+  call void @_efree(ptr noundef nonnull %38) #14
   %.not193 = icmp eq ptr %5, null
   br i1 %.not193, label %167, label %64
 
@@ -1035,7 +1035,7 @@ phar_get_pharfp.exit209:                          ; preds = %229, %231
   %330 = trunc i64 %329 to i32
   store i32 %330, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 416), align 8
   %331 = and i64 %329, 4294967295
-  %332 = call noalias ptr @_estrndup(ptr noundef %309, i64 noundef %331) #14
+  %332 = call noalias ptr @_estrndup(ptr noundef nonnull %309, i64 noundef %331) #14
   store ptr %332, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 408), align 8
   br label %334
 
@@ -1075,7 +1075,7 @@ phar_get_pharfp.exit209:                          ; preds = %229, %231
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @phar_wrapper_stat(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 -1, 1) i32 @phar_wrapper_stat(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1392,7 +1392,7 @@ phar_dostat.exit121:                              ; preds = %87, %101
 declare ptr @phar_wrapper_open_dir(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @phar_wrapper_unlink(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @phar_wrapper_unlink(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = tail call ptr @phar_parse_url(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.23, i32 noundef %2)
@@ -1560,7 +1560,7 @@ define internal range(i32 0, 2) i32 @phar_wrapper_unlink(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @phar_wrapper_rename(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 2) i32 @phar_wrapper_rename(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1920,7 +1920,7 @@ define internal range(i32 0, 2) i32 @phar_wrapper_rename(ptr noundef %0, ptr nou
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 72
   %178 = load ptr, ptr %170, align 8
   %179 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %178) #15
-  %180 = call i32 @zend_hash_str_del(ptr noundef nonnull %177, ptr noundef %178, i64 noundef %179) #14
+  %180 = call i32 @zend_hash_str_del(ptr noundef nonnull %177, ptr noundef nonnull %178, i64 noundef %179) #14
   br label %433
 
 181:                                              ; preds = %122
@@ -2395,7 +2395,7 @@ declare i32 @phar_wrapper_mkdir(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare i32 @phar_wrapper_rmdir(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @phar_parse_url(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden noundef ptr @phar_parse_url(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2409,7 +2409,7 @@ define hidden noundef ptr @phar_parse_url(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %12, label %144, label %13
 
 13:                                               ; preds = %4
-  %14 = tail call i32 @strncasecmp(ptr noundef %1, ptr noundef nonnull @.str.2, i64 noundef 7) #15
+  %14 = tail call i32 @strncasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.2, i64 noundef 7) #15
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %144
 
@@ -2430,7 +2430,7 @@ define hidden noundef ptr @phar_parse_url(ptr noundef %0, ptr noundef %1, ptr no
 21:                                               ; preds = %15
   %22 = icmp eq i8 %16, 119
   %23 = select i1 %22, i32 2, i32 0
-  %24 = call i32 @phar_split_fname(ptr noundef %1, i64 noundef %11, ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %9, i32 noundef 2, i32 noundef %23) #14
+  %24 = call i32 @phar_split_fname(ptr noundef nonnull %1, i64 noundef %11, ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %9, i32 noundef 2, i32 noundef %23) #14
   %25 = icmp eq i32 %24, -1
   br i1 %25, label %26, label %35
 
@@ -2448,11 +2448,11 @@ define hidden noundef ptr @phar_parse_url(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %or.cond, label %34, label %33
 
 33:                                               ; preds = %28
-  call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.4, ptr noundef %1, ptr noundef nonnull %29) #14
+  call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.4, ptr noundef nonnull %1, ptr noundef nonnull %29) #14
   br label %144
 
 34:                                               ; preds = %28
-  call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.5, ptr noundef %1) #14
+  call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.5, ptr noundef nonnull %1) #14
   br label %144
 
 35:                                               ; preds = %21
@@ -2685,10 +2685,10 @@ define hidden noundef ptr @phar_parse_url(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare void @php_stream_wrapper_log_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -2710,7 +2710,7 @@ declare i64 @zend_spprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unn
 declare i32 @phar_open_from_filename(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @phar_dostat(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 144)) %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
+define hidden void @phar_dostat(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 144)) %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 144, i1 false)
   br i1 %3, label %.critedge, label %5
 
@@ -2809,10 +2809,10 @@ define hidden void @phar_dostat(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #8
@@ -2856,7 +2856,7 @@ declare i32 @phar_postprocess_file(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare i32 @phar_entry_delref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -2897,13 +2897,13 @@ declare ptr @zend_hash_str_add(ptr noundef, ptr noundef, i64 noundef, ptr nounde
 declare i64 @zend_string_hash_func(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13

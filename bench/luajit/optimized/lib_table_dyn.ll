@@ -176,7 +176,7 @@ cond.true:                                        ; preds = %for.body
   br label %cond.end
 
 cond.false:                                       ; preds = %for.body
-  %call13 = tail call ptr @lj_tab_setinth(ptr noundef %L, ptr noundef nonnull %call, i32 noundef %5) #4
+  %call13 = tail call ptr @lj_tab_setinth(ptr noundef nonnull %L, ptr noundef nonnull %call, i32 noundef %5) #4
   %.pre = load i32, ptr %asize, align 8
   br label %cond.end
 

@@ -407,7 +407,7 @@ define dso_local void @intel_dsi_vbt_exec_sequence(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_dsi_log_params(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_dsi_log_params(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.thread1, label %13
@@ -685,13 +685,13 @@ define dso_local void @intel_dsi_log_params(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @intel_dsi_vbt_init(ptr noundef initializes((560, 562), (564, 568), (572, 586), (592, 596), (604, 608), (610, 618), (624, 626), (628, 632)) %0, i16 noundef zeroext %1) local_unnamed_addr #0 align 16 {
@@ -989,7 +989,7 @@ declare dso_local zeroext i1 @intel_fuzzy_clock_check(i32 noundef, i32 noundef) 
 declare dso_local i32 @mipi_dsi_attach(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_dsi_vbt_gpio_init(ptr nocapture noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_dsi_vbt_gpio_init(ptr noundef captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %5 = load ptr, ptr %4, align 8
@@ -1279,7 +1279,7 @@ define internal ptr @mipi_exec_send_packet(ptr noundef %0, ptr noundef %1) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @mipi_exec_delay(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #0 align 16 {
+define internal noundef ptr @mipi_exec_delay(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq ptr %3, null
@@ -1302,7 +1302,7 @@ define internal noundef ptr @mipi_exec_delay(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #0 align 16 {
+define internal noundef ptr @mipi_exec_gpio(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %5 = load ptr, ptr %4, align 8
@@ -2004,7 +2004,7 @@ define internal ptr @mipi_exec_i2c(ptr noundef %0, ptr noundef %1) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @mipi_exec_spi(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #0 align 16 {
+define internal ptr @mipi_exec_spi(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5
@@ -2026,7 +2026,7 @@ define internal ptr @mipi_exec_spi(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @mipi_exec_pmic(ptr nocapture noundef readonly %0, ptr noundef readnone %1) #0 align 16 {
+define internal noundef ptr @mipi_exec_pmic(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5
@@ -2062,7 +2062,7 @@ declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #2 se
 declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
@@ -2074,7 +2074,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @i2c_get_adapter(i32 noundef) local_unnamed_addr #2
@@ -2092,7 +2092,7 @@ declare dso_local zeroext i1 @is_acpi_device_node(ptr noundef) local_unnamed_add
 declare dso_local i32 @acpi_dev_get_resources(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i2c_adapter_lookup(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef i32 @i2c_adapter_lookup(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8

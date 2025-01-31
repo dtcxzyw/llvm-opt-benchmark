@@ -21,7 +21,7 @@ define void @ws_cleanup_sockets() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @ws_socket_ptoa(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @ws_socket_ptoa(ptr noundef writeonly captures(none) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = alloca %union.anon, align 4
   %5 = alloca ptr, align 8
   %6 = tail call noalias ptr @g_strdup(ptr noundef %1) #10
@@ -60,11 +60,11 @@ define range(i32 -1, 1) i32 @ws_socket_ptoa(ptr nocapture noundef writeonly %0, 
 
 22:                                               ; preds = %15, %18
   %.045 = phi ptr [ %19, %18 ], [ null, %15 ]
-  %23 = call zeroext i1 @ws_inet_pton6(ptr noundef %10, ptr noundef nonnull %4) #10
+  %23 = call zeroext i1 @ws_inet_pton6(ptr noundef nonnull %10, ptr noundef nonnull %4) #10
   br i1 %23, label %36, label %24
 
 24:                                               ; preds = %22
-  %25 = call zeroext i1 @ws_inet_pton4(ptr noundef %10, ptr noundef nonnull %4) #10
+  %25 = call zeroext i1 @ws_inet_pton4(ptr noundef nonnull %10, ptr noundef nonnull %4) #10
   br i1 %25, label %36, label %26
 
 26:                                               ; preds = %24
@@ -185,13 +185,13 @@ declare zeroext i1 @ws_inet_pton6(ptr noundef, ptr noundef) local_unnamed_addr #
 declare zeroext i1 @ws_inet_pton4(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: noreturn
 declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #8

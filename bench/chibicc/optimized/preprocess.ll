@@ -657,7 +657,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @file_macro(ptr nocapture noundef readonly %tmpl) #0 {
+define internal ptr @file_macro(ptr noundef readonly captures(none) %tmpl) #0 {
 entry:
   br label %while.cond
 
@@ -741,7 +741,7 @@ new_str_token.exit:                               ; preds = %for.cond13.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @line_macro(ptr nocapture noundef readonly %tmpl) #0 {
+define internal ptr @line_macro(ptr noundef readonly captures(none) %tmpl) #0 {
 entry:
   br label %while.cond
 
@@ -771,7 +771,7 @@ while.end:                                        ; preds = %while.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @counter_macro(ptr nocapture noundef readonly %tmpl) #0 {
+define internal ptr @counter_macro(ptr noundef readonly captures(none) %tmpl) #0 {
 entry:
   %0 = load i32, ptr @counter_macro.i, align 4
   %inc = add nsw i32 %0, 1
@@ -788,7 +788,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @timestamp_macro(ptr nocapture noundef readonly %tmpl) #0 {
+define internal ptr @timestamp_macro(ptr noundef readonly captures(none) %tmpl) #0 {
 entry:
   %st = alloca %struct.stat, align 8
   %buf = alloca [30 x i8], align 16
@@ -938,7 +938,7 @@ return:                                           ; preds = %new_str_token.exit3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @base_file_macro(ptr nocapture noundef readonly %tmpl) #0 {
+define internal ptr @base_file_macro(ptr noundef readonly captures(none) %tmpl) #0 {
 entry:
   %0 = load ptr, ptr @base_file, align 8
   br label %for.cond.i.i
@@ -1421,7 +1421,7 @@ for.body.i298:                                    ; preds = %for.inc.i302, %for.
   br i1 %cmp.i301, label %land.lhs.true.i303, label %for.inc.i302
 
 land.lhs.true.i303:                               ; preds = %for.body.i298
-  %call4.i = call i32 @strncmp(ptr noundef %6, ptr noundef readonly %4, i64 noundef %conv.i297) #17
+  %call4.i = call i32 @strncmp(ptr noundef nonnull %6, ptr noundef readonly %4, i64 noundef %conv.i297) #17
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %if.end, label %for.inc.i302
 
@@ -1738,7 +1738,7 @@ for.body.i.i194:                                  ; preds = %for.inc.i.i198, %fo
   br i1 %cmp.i.i197, label %land.lhs.true.i.i204, label %for.inc.i.i198
 
 land.lhs.true.i.i204:                             ; preds = %for.body.i.i194
-  %call4.i.i205 = call i32 @strncmp(ptr noundef %44, ptr noundef readonly %43, i64 noundef %conv.i.i193) #17
+  %call4.i.i205 = call i32 @strncmp(ptr noundef nonnull %44, ptr noundef nonnull readonly %43, i64 noundef %conv.i.i193) #17
   %tobool5.not.i.i = icmp eq i32 %call4.i.i205, 0
   br i1 %tobool5.not.i.i, label %if.then.i206, label %for.inc.i.i198
 
@@ -1836,7 +1836,7 @@ for.body.i.i174:                                  ; preds = %for.inc.i.i, %for.b
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i174
   %56 = load ptr, ptr %loc.i.i171, align 16
-  %call5.i.i = call i32 @strncmp(ptr noundef %56, ptr noundef %55, i64 noundef %conv.i.i173) #17
+  %call5.i.i = call i32 @strncmp(ptr noundef %56, ptr noundef nonnull %55, i64 noundef %conv.i.i173) #17
   %tobool6.not.i.i = icmp eq i32 %call5.i.i, 0
   br i1 %tobool6.not.i.i, label %if.end.i179, label %for.inc.i.i
 
@@ -1968,7 +1968,7 @@ for.body.i56.i:                                   ; preds = %for.inc.i61.i, %for
 
 land.lhs.true.i64.i:                              ; preds = %for.body.i56.i
   %74 = load ptr, ptr %loc.i51.i, align 16
-  %call5.i65.i = call i32 @strncmp(ptr noundef %74, ptr noundef %73, i64 noundef %conv.i55.i) #17
+  %call5.i65.i = call i32 @strncmp(ptr noundef %74, ptr noundef nonnull %73, i64 noundef %conv.i55.i) #17
   %tobool6.not.i66.i = icmp eq i32 %call5.i65.i, 0
   br i1 %tobool6.not.i66.i, label %land.lhs.true19.i, label %for.inc.i61.i
 
@@ -2056,7 +2056,7 @@ for.body.i74.i:                                   ; preds = %for.inc.i79.i, %for
 
 land.lhs.true.i82.i:                              ; preds = %for.body.i74.i
   %82 = load ptr, ptr %loc.i69.i, align 16
-  %call5.i83.i = call i32 @strncmp(ptr noundef %82, ptr noundef %81, i64 noundef %conv.i73.i) #17
+  %call5.i83.i = call i32 @strncmp(ptr noundef %82, ptr noundef nonnull %81, i64 noundef %conv.i73.i) #17
   %tobool6.not.i84.i = icmp eq i32 %call5.i83.i, 0
   br i1 %tobool6.not.i84.i, label %if.then50.i, label %for.inc.i79.i
 
@@ -2181,7 +2181,7 @@ for.body.i109.i:                                  ; preds = %for.inc.i114.i, %fo
 
 land.lhs.true.i117.i:                             ; preds = %for.body.i109.i
   %111 = load ptr, ptr %loc.i104.i, align 16
-  %call5.i118.i = call i32 @strncmp(ptr noundef %111, ptr noundef %110, i64 noundef %conv.i108.i) #17
+  %call5.i118.i = call i32 @strncmp(ptr noundef %111, ptr noundef nonnull %110, i64 noundef %conv.i108.i) #17
   %tobool6.not.i119.i = icmp eq i32 %call5.i118.i, 0
   br i1 %tobool6.not.i119.i, label %land.lhs.true76.i, label %for.inc.i114.i
 
@@ -2223,7 +2223,7 @@ for.body.i126.i:                                  ; preds = %for.inc.i131.i, %if
 
 land.lhs.true.i134.i:                             ; preds = %for.body.i126.i
   %120 = load ptr, ptr %loc.i121.i, align 16
-  %call5.i135.i = call i32 @strncmp(ptr noundef %120, ptr noundef %119, i64 noundef %conv.i125.i) #17
+  %call5.i135.i = call i32 @strncmp(ptr noundef %120, ptr noundef nonnull %119, i64 noundef %conv.i125.i) #17
   %tobool6.not.i136.i = icmp eq i32 %call5.i135.i, 0
   br i1 %tobool6.not.i136.i, label %if.then88.i, label %for.inc.i131.i
 
@@ -3376,18 +3376,18 @@ declare void @convert_pp_tokens(ptr noundef) local_unnamed_addr #1
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare ptr @ctime_r(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @read_include_filename(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok, ptr nocapture noundef nonnull writeonly %is_dquote) unnamed_addr #0 {
+define internal fastcc ptr @read_include_filename(ptr noundef nonnull writeonly captures(none) %rest, ptr noundef %tok, ptr noundef nonnull writeonly captures(none) %is_dquote) unnamed_addr #0 {
 entry:
   %head.i = alloca %struct.Token, align 16
   %tok2 = alloca ptr, align 8
@@ -3557,7 +3557,7 @@ return:                                           ; preds = %copy_line.exit, %sk
 declare ptr @dirname(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @include_file(ptr noundef %tok, ptr noundef %path, ptr noundef %filename_tok) unnamed_addr #0 {
@@ -3757,10 +3757,10 @@ return:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strndup(ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
+declare noalias ptr @strndup(ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @eval_const_expr(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc i64 @eval_const_expr(ptr noundef nonnull writeonly captures(none) %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %head.i.i = alloca %struct.Token, align 16
   %tok.addr.i = alloca ptr, align 8
@@ -4033,7 +4033,7 @@ while.end:                                        ; preds = %while.cond.backedge
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_line_marker(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
+define internal fastcc void @read_line_marker(ptr noundef nonnull writeonly captures(none) %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
   %head.i = alloca %struct.Token, align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %head.i)
@@ -4127,18 +4127,18 @@ return:                                           ; preds = %if.end, %if.end14
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare ptr @skip(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @read_macro_arg_one(ptr nocapture noundef nonnull writeonly %rest, ptr noundef %tok, i1 noundef zeroext %read_rest) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @read_macro_arg_one(ptr noundef nonnull writeonly captures(none) %rest, ptr noundef %tok, i1 noundef zeroext %read_rest) unnamed_addr #0 {
 entry:
   %head = alloca %struct.Token, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %head, i8 0, i64 128, i1 false)
@@ -4350,10 +4350,10 @@ for.end30:                                        ; preds = %for.end.thread, %fo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #11
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @tokenize_file(ptr noundef) local_unnamed_addr #1
 
@@ -4458,10 +4458,10 @@ declare ptr @array_of(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @error(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

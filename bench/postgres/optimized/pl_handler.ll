@@ -111,7 +111,7 @@ declare void @DefineCustomBoolVariable(ptr noundef, ptr noundef, ptr noundef, pt
 declare void @DefineCustomStringVariable(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @plpgsql_extra_checks_check_hook(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 %2) #1 {
+define internal noundef zeroext i1 @plpgsql_extra_checks_check_hook(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 %2) #1 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = tail call i32 @pg_strcasecmp(ptr noundef %5, ptr noundef nonnull @.str.25) #10
@@ -238,14 +238,14 @@ define internal noundef zeroext i1 @plpgsql_extra_checks_check_hook(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define internal void @plpgsql_extra_warnings_assign_hook(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @plpgsql_extra_warnings_assign_hook(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i32, ptr %1, align 4
   store i32 %3, ptr @plpgsql_extra_warnings, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define internal void @plpgsql_extra_errors_assign_hook(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @plpgsql_extra_errors_assign_hook(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i32, ptr %1, align 4
   store i32 %3, ptr @plpgsql_extra_errors, align 4
   ret void
@@ -445,7 +445,7 @@ define noundef nonnull ptr @pg_finfo_plpgsql_inline_handler() local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @plpgsql_inline_handler(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i64 @plpgsql_inline_handler(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca %union.anon, align 8
   %3 = alloca %struct.FmgrInfo, align 8
   %4 = alloca [1 x %struct.__jmp_buf_tag], align 16
@@ -540,7 +540,7 @@ define i64 @plpgsql_inline_handler(ptr nocapture noundef readonly %0) local_unna
 declare ptr @plpgsql_compile_inline(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare ptr @CreateExecutorState() local_unnamed_addr #2
 
@@ -556,7 +556,7 @@ define noundef nonnull ptr @pg_finfo_plpgsql_validator() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @plpgsql_validator(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define noundef i64 @plpgsql_validator(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8

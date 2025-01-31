@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [50 x i8] c"can't close v2 B-tree for tracking 'huge' objects\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5HF_stat_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 72)) %1) local_unnamed_addr #0 {
+define noundef i32 @H5HF_stat_info(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 72)) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 504
   %5 = load i64, ptr %4, align 8
@@ -65,7 +65,7 @@ define noundef i32 @H5HF_stat_info(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF_size(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @H5HF_size(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   store i64 0, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8

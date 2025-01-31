@@ -93,7 +93,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define ptr @name(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef 5) #15
   ret ptr %2
 }
@@ -102,22 +102,22 @@ define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
 declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @views(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @views(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @container(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @container(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @expandable(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @expandable(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @position(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 800
 }
 
@@ -401,7 +401,7 @@ define void @gui_init(ptr noundef initializes((280, 288)) %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
@@ -409,7 +409,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare i32 @dt_conf_get_bool(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_update_picker_output(ptr nocapture noundef readonly %0) #1 {
+define internal void @_update_picker_output(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -431,7 +431,7 @@ define internal void @_update_picker_output(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_update_samples_output(ptr nocapture noundef readonly %0) #1 {
+define internal void @_update_samples_output(ptr noundef readonly captures(none) %0) #1 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !18
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !40
@@ -457,7 +457,7 @@ define internal void @_update_samples_output(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_set_sample_box_area(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_set_sample_box_area(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -496,7 +496,7 @@ define internal void @_set_sample_box_area(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_set_sample_point(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_set_sample_point(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = load float, ptr %1, align 4, !tbaa !57
@@ -526,7 +526,7 @@ define internal void @_set_sample_point(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_setup_sample(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #6 {
+define internal void @_setup_sample(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 92
@@ -541,7 +541,7 @@ declare ptr @dt_conf_get_string_const(ptr noundef) local_unnamed_addr #5
 declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare ptr @gtk_box_new(i32 noundef, i32 noundef) local_unnamed_addr #5
 
@@ -563,7 +563,7 @@ declare void @gtk_widget_set_events(ptr noundef, i32 noundef) local_unnamed_addr
 declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_sample_draw_callback(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #1 {
+define internal noundef i32 @_sample_draw_callback(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca %struct._GdkRGBA, align 8
   %5 = tail call i32 @gtk_widget_get_allocated_width(ptr noundef %0) #15
   %6 = tail call i32 @gtk_widget_get_allocated_height(ptr noundef %0) #15
@@ -614,7 +614,7 @@ define internal noundef i32 @_sample_draw_callback(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_large_patch_toggle(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #1 {
+define internal noundef i32 @_large_patch_toggle(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.21) #15
   %5 = icmp eq i32 %4, 0
   %6 = zext i1 %5 to i32
@@ -627,7 +627,7 @@ define internal noundef i32 @_large_patch_toggle(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_sample_enter_callback(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #1 {
+define internal noundef i32 @_sample_enter_callback(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #1 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !18
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %2, ptr %5, align 8, !tbaa !68
@@ -647,7 +647,7 @@ define internal noundef i32 @_sample_enter_callback(ptr nocapture readnone %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_sample_leave_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 {
+define internal noundef i32 @_sample_leave_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %5 = load i32, ptr %4, align 4, !tbaa !70
   %6 = icmp eq i32 %5, 2
@@ -692,7 +692,7 @@ declare void @gtk_widget_set_no_show_all(ptr noundef, i32 noundef) local_unnamed
 declare ptr @dt_bauhaus_combobox_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_statistic_changed(ptr noundef %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_statistic_changed(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #15
@@ -764,7 +764,7 @@ declare ptr @dt_bauhaus_widget_set_label(ptr noundef, ptr noundef, ptr noundef) 
 declare void @gtk_widget_set_valign(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_color_mode_changed(ptr noundef %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_color_mode_changed(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #15
@@ -812,7 +812,7 @@ define internal void @_color_mode_changed(ptr noundef %0, ptr nocapture noundef 
 declare ptr @dt_color_picker_new(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_picker_button_toggled(ptr noundef %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_picker_button_toggled(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 16, !tbaa !50
   %5 = tail call i64 @gtk_widget_get_type() #17
@@ -847,7 +847,7 @@ declare void @gtk_label_set_selectable(ptr noundef, i32 noundef) local_unnamed_a
 declare void @gtk_widget_set_has_tooltip(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_sample_tooltip_callback(ptr nocapture readnone %0, i32 %1, i32 %2, i32 %3, ptr noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef i32 @_sample_tooltip_callback(ptr readnone captures(none) %0, i32 %1, i32 %2, i32 %3, ptr noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = alloca [4 x float], align 16
   %8 = alloca %struct._GtkTextIter, align 8
   %9 = tail call noalias dereferenceable_or_null(112) ptr @g_malloc0_n(i64 noundef 14, i64 noundef 8) #16
@@ -1206,7 +1206,7 @@ define internal noundef i32 @_sample_tooltip_callback(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_label_size_allocate_callback(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #1 {
+define internal void @_label_size_allocate_callback(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #1 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
   %5 = tail call i64 @gtk_label_get_type() #17
@@ -1248,7 +1248,7 @@ declare void @dtgtk_cairo_paint_square_plus(ptr noundef, i32 noundef, i32 nounde
 declare void @gtk_widget_set_sensitive(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_add_sample(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @_add_sample(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !54
@@ -1268,10 +1268,10 @@ define internal void @_add_sample(ptr nocapture readnone %0, ptr nocapture nound
   store ptr %13, ptr %14, align 16, !tbaa !75
   tail call void @gtk_widget_add_events(ptr noundef %13, i32 noundef 12288) #15
   %15 = tail call ptr @g_type_check_instance_cast(ptr noundef %13, i64 noundef 80) #15
-  %16 = tail call i64 @g_signal_connect_data(ptr noundef %15, ptr noundef nonnull @.str.19, ptr noundef nonnull @_sample_enter_callback, ptr noundef %10, ptr noundef null, i32 noundef 0) #15
+  %16 = tail call i64 @g_signal_connect_data(ptr noundef %15, ptr noundef nonnull @.str.19, ptr noundef nonnull @_sample_enter_callback, ptr noundef nonnull %10, ptr noundef null, i32 noundef 0) #15
   %17 = load ptr, ptr %14, align 16, !tbaa !75
   %18 = tail call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef 80) #15
-  %19 = tail call i64 @g_signal_connect_data(ptr noundef %18, ptr noundef nonnull @.str.20, ptr noundef nonnull @_sample_leave_callback, ptr noundef %10, ptr noundef null, i32 noundef 0) #15
+  %19 = tail call i64 @g_signal_connect_data(ptr noundef %18, ptr noundef nonnull @.str.20, ptr noundef nonnull @_sample_leave_callback, ptr noundef nonnull %10, ptr noundef null, i32 noundef 0) #15
   %20 = tail call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #15
   %21 = load ptr, ptr %14, align 16, !tbaa !75
   %22 = tail call i64 @gtk_container_get_type() #17
@@ -1286,10 +1286,10 @@ define internal void @_add_sample(ptr nocapture readnone %0, ptr nocapture nound
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %26, ptr noundef %27) #15
   %28 = load ptr, ptr %25, align 8, !tbaa !76
   %29 = tail call ptr @g_type_check_instance_cast(ptr noundef %28, i64 noundef 80) #15
-  %30 = tail call i64 @g_signal_connect_data(ptr noundef %29, ptr noundef nonnull @.str.18, ptr noundef nonnull @_live_sample_button, ptr noundef %10, ptr noundef null, i32 noundef 0) #15
+  %30 = tail call i64 @g_signal_connect_data(ptr noundef %29, ptr noundef nonnull @.str.18, ptr noundef nonnull @_live_sample_button, ptr noundef nonnull %10, ptr noundef null, i32 noundef 0) #15
   %31 = load ptr, ptr %25, align 8, !tbaa !76
   %32 = tail call ptr @g_type_check_instance_cast(ptr noundef %31, i64 noundef 80) #15
-  %33 = tail call i64 @g_signal_connect_data(ptr noundef %32, ptr noundef nonnull @.str.17, ptr noundef nonnull @_sample_draw_callback, ptr noundef %10, ptr noundef null, i32 noundef 0) #15
+  %33 = tail call i64 @g_signal_connect_data(ptr noundef %32, ptr noundef nonnull @.str.17, ptr noundef nonnull @_sample_draw_callback, ptr noundef nonnull %10, ptr noundef null, i32 noundef 0) #15
   %34 = tail call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #15
   tail call void @gtk_widget_set_name(ptr noundef %34, ptr noundef nonnull @.str.30) #15
   %35 = tail call i64 @gtk_box_get_type() #17
@@ -1313,16 +1313,16 @@ define internal void @_add_sample(ptr nocapture readnone %0, ptr nocapture nound
   tail call void @gtk_widget_set_has_tooltip(ptr noundef %46, i32 noundef 1) #15
   %47 = load ptr, ptr %40, align 16, !tbaa !77
   %48 = tail call ptr @g_type_check_instance_cast(ptr noundef %47, i64 noundef 80) #15
-  %49 = tail call i64 @g_signal_connect_data(ptr noundef %48, ptr noundef nonnull @.str.33, ptr noundef nonnull @_sample_tooltip_callback, ptr noundef %10, ptr noundef null, i32 noundef 0) #15
+  %49 = tail call i64 @g_signal_connect_data(ptr noundef %48, ptr noundef nonnull @.str.33, ptr noundef nonnull @_sample_tooltip_callback, ptr noundef nonnull %10, ptr noundef null, i32 noundef 0) #15
   %50 = load ptr, ptr %40, align 16, !tbaa !77
   %51 = tail call ptr @g_type_check_instance_cast(ptr noundef %50, i64 noundef 80) #15
-  %52 = tail call i64 @g_signal_connect_data(ptr noundef %51, ptr noundef nonnull @.str.34, ptr noundef nonnull @_label_size_allocate_callback, ptr noundef %10, ptr noundef null, i32 noundef 0) #15
+  %52 = tail call i64 @g_signal_connect_data(ptr noundef %51, ptr noundef nonnull @.str.34, ptr noundef nonnull @_label_size_allocate_callback, ptr noundef nonnull %10, ptr noundef null, i32 noundef 0) #15
   %53 = tail call ptr @g_type_check_instance_cast(ptr noundef %20, i64 noundef %35) #15
   %54 = load ptr, ptr %40, align 16, !tbaa !77
   tail call void @gtk_box_pack_start(ptr noundef %53, ptr noundef %54, i32 noundef 1, i32 noundef 1, i32 noundef 0) #15
   %55 = tail call ptr @dtgtk_togglebutton_new(ptr noundef nonnull @dtgtk_cairo_paint_remove, i32 noundef 0, ptr noundef null) #15
   %56 = tail call ptr @g_type_check_instance_cast(ptr noundef %55, i64 noundef 80) #15
-  %57 = tail call i64 @g_signal_connect_data(ptr noundef %56, ptr noundef nonnull @.str.35, ptr noundef nonnull @_remove_sample_cb, ptr noundef %10, ptr noundef null, i32 noundef 0) #15
+  %57 = tail call i64 @g_signal_connect_data(ptr noundef %56, ptr noundef nonnull @.str.35, ptr noundef nonnull @_remove_sample_cb, ptr noundef nonnull %10, ptr noundef null, i32 noundef 0) #15
   %58 = tail call ptr @g_type_check_instance_cast(ptr noundef %20, i64 noundef %35) #15
   tail call void @gtk_box_pack_start(ptr noundef %58, ptr noundef %55, i32 noundef 0, i32 noundef 0, i32 noundef 0) #15
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -1335,7 +1335,7 @@ define internal void @_add_sample(ptr nocapture readnone %0, ptr nocapture nound
   %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !18
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %66 = load ptr, ptr %65, align 8, !tbaa !78
-  %67 = tail call ptr @g_slist_append(ptr noundef %66, ptr noundef %10) #15
+  %67 = tail call ptr @g_slist_append(ptr noundef %66, ptr noundef nonnull %10) #15
   %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !18
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   store ptr %67, ptr %69, align 8, !tbaa !78
@@ -1397,7 +1397,7 @@ declare void @gtk_toggle_button_set_active(ptr noundef, i32 noundef) local_unnam
 declare i64 @gtk_toggle_button_get_type() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal void @_display_samples_changed(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal void @_display_samples_changed(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %0) #15
   tail call void @dt_conf_set_bool(ptr noundef nonnull @.str.11, i32 noundef %3) #15
   %4 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %0) #15
@@ -1411,7 +1411,7 @@ define internal void @_display_samples_changed(ptr noundef %0, ptr nocapture rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_restrict_histogram_changed(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal void @_restrict_histogram_changed(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %0) #15
   tail call void @dt_conf_set_bool(ptr noundef nonnull @.str.41, i32 noundef %3) #15
   %4 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %0) #15
@@ -1425,7 +1425,7 @@ define internal void @_restrict_histogram_changed(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_cleanup(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define void @gui_cleanup(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   tail call void @dt_iop_color_picker_reset(ptr noundef null, i32 noundef 0) #15
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !18
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1468,10 +1468,10 @@ define void @gui_cleanup(ptr nocapture noundef %0) local_unnamed_addr #1 {
 declare void @dt_iop_color_picker_reset(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @gui_reset(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define void @gui_reset(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !18
@@ -1613,7 +1613,7 @@ declare i32 @gtk_toggle_button_get_active(ptr noundef) local_unnamed_addr #5
 declare void @dt_control_queue_redraw_center(...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_update_sample_label(ptr nocapture readonly %0, ptr nocapture noundef %1) unnamed_addr #1 {
+define internal fastcc void @_update_sample_label(ptr readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #1 {
   %3 = alloca [128 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !44
@@ -1900,10 +1900,10 @@ declare void @gtk_widget_queue_draw(ptr noundef) local_unnamed_addr #5
 declare float @llvm.round.f32(float) #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 declare ptr @gtk_label_get_text(ptr noundef) local_unnamed_addr #5
 
@@ -2002,10 +2002,10 @@ declare void @pango_attr_list_unref(ptr noundef) local_unnamed_addr #5
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_live_sample_button(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #1 {
+define internal noundef i32 @_live_sample_button(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4, !tbaa !81
   switch i32 %5, label %71 [
@@ -2125,7 +2125,7 @@ declare ptr @dtgtk_togglebutton_new(ptr noundef, i32 noundef, ptr noundef) local
 declare void @dtgtk_cairo_paint_remove(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_remove_sample_cb(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @_remove_sample_cb(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %4 = load ptr, ptr %3, align 16, !tbaa !75
   tail call void @gtk_widget_destroy(ptr noundef %4) #15

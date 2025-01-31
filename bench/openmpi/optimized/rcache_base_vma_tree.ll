@@ -110,7 +110,7 @@ define i32 @mca_rcache_base_vma_tree_find_all(ptr noundef %0, ptr noundef %1, pt
 declare i32 @opal_interval_tree_traverse(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i32 @mca_rcache_base_vma_tree_find_all_helper(i64 %0, i64 %1, ptr noundef %2, ptr nocapture noundef %3) #2 {
+define internal i32 @mca_rcache_base_vma_tree_find_all_helper(i64 %0, i64 %1, ptr noundef %2, ptr noundef captures(none) %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -146,7 +146,7 @@ define i32 @mca_rcache_base_vma_tree_iterate(ptr noundef %0, ptr noundef %1, i64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mca_rcache_base_vma_tree_iterate_helper(i64 %0, i64 %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @mca_rcache_base_vma_tree_iterate_helper(i64 %0, i64 %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -215,7 +215,7 @@ declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i64 @opal_interval_tree_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_rcache_base_tree_dump_range_helper(i64 %0, i64 %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @mca_rcache_base_tree_dump_range_helper(i64 %0, i64 %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 72

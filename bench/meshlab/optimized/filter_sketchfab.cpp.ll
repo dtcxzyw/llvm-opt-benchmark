@@ -489,7 +489,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -1011,13 +1011,13 @@ define range(i64 0, 4294967296) i64 @mz_crc32(i64 noundef %0, ptr noundef readon
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @mz_free(ptr nocapture noundef %0) local_unnamed_addr #14 {
+define void @mz_free(ptr noundef captures(none) %0) local_unnamed_addr #14 {
   tail call void @free(ptr noundef %0) #43
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #15
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @mz_version() local_unnamed_addr #16 {
@@ -1265,14 +1265,14 @@ define i32 @tdefl_create_comp_flags_from_zip_params(i32 noundef %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define internal noalias noundef ptr @_ZL14def_alloc_funcPvmm(ptr nocapture readnone %0, i64 noundef %1, i64 noundef %2) #17 {
+define internal noalias noundef ptr @_ZL14def_alloc_funcPvmm(ptr readnone captures(none) %0, i64 noundef %1, i64 noundef %2) #17 {
   %4 = mul i64 %2, %1
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #48
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZL13def_free_funcPvS_(ptr nocapture readnone %0, ptr nocapture noundef %1) #14 {
+define internal void @_ZL13def_free_funcPvS_(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #14 {
   tail call void @free(ptr noundef %1) #43
   ret void
 }
@@ -1945,14 +1945,14 @@ _ZL25tdefl_flush_output_bufferP16tdefl_compressor.exit: ; preds = %86, %89
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @tdefl_get_adler32(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define i32 @tdefl_get_adler32(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i64 128, 0) i64 @mz_deflateBound(ptr nocapture noundef readnone %0, i64 noundef %1) local_unnamed_addr #16 {
+define range(i64 128, 0) i64 @mz_deflateBound(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #16 {
   %3 = mul i64 %1, 110
   %4 = udiv i64 %3, 100
   %5 = add nuw nsw i64 %4, 128
@@ -1965,7 +1965,7 @@ define range(i64 128, 0) i64 @mz_deflateBound(ptr nocapture noundef readnone %0,
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -10000, 1) i32 @mz_compress2(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #10 {
+define range(i32 -10000, 1) i32 @mz_compress2(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #10 {
   %6 = alloca %struct.mz_stream_s, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, i8 0, i64 104, i1 false)
@@ -2035,10 +2035,10 @@ mz_deflateEnd.exit17:                             ; preds = %35, %30, %11, %5, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -10000, 1) i32 @mz_compress(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #10 {
+define range(i32 -10000, 1) i32 @mz_compress(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #10 {
   %5 = alloca %struct.mz_stream_s, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2590,7 +2590,7 @@ define range(i32 -5, 2) i32 @mz_inflate(ptr noundef %0, i32 noundef %1) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5, i32 noundef %6) local_unnamed_addr #22 {
+define i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(none) %5, i32 noundef %6) local_unnamed_addr #22 {
   %8 = alloca [17 x i32], align 16
   %9 = alloca [16 x i32], align 16
   %10 = load i64, ptr %2, align 8
@@ -5428,7 +5428,7 @@ define range(i32 -2, 1) i32 @mz_inflateEnd(ptr noundef %0) local_unnamed_addr #1
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -10000, 1) i32 @mz_uncompress(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #10 {
+define range(i32 -10000, 1) i32 @mz_uncompress(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #10 {
   %5 = alloca %struct.mz_stream_s, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6, i8 0, i64 88, i1 false)
@@ -5543,7 +5543,7 @@ define ptr @mz_error(i32 noundef %0) local_unnamed_addr #16 {
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @tinfl_decompress_mem_to_heap(ptr noundef %0, i64 noundef %1, ptr nocapture noundef initializes((0, 8)) %2, i32 noundef %3) local_unnamed_addr #4 {
+define noundef ptr @tinfl_decompress_mem_to_heap(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) initializes((0, 8)) %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = alloca %struct.tinfl_decompressor_tag, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -5610,7 +5610,7 @@ define noundef ptr @tinfl_decompress_mem_to_heap(ptr noundef %0, i64 noundef %1,
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #23
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i64 @tinfl_decompress_mem_to_mem(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #22 {
@@ -5630,7 +5630,7 @@ define i64 @tinfl_decompress_mem_to_mem(ptr noundef %0, i64 noundef %1, ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 2) i32 @tinfl_decompress_mem_to_callback(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #10 {
+define range(i32 -1, 2) i32 @tinfl_decompress_mem_to_callback(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #10 {
   %6 = alloca %struct.tinfl_decompressor_tag, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -5692,7 +5692,7 @@ define range(i32 -1, 2) i32 @tinfl_decompress_mem_to_callback(ptr noundef %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL25tdefl_flush_output_bufferP16tdefl_compressor(ptr nocapture noundef nonnull %0) unnamed_addr #20 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL25tdefl_flush_output_bufferP16tdefl_compressor(ptr noundef nonnull captures(none) %0) unnamed_addr #20 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -9430,7 +9430,7 @@ _ZL23tdefl_compress_lz_codesP16tdefl_compressor.exit: ; preds = %671, %._crit_ed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL28tdefl_optimize_huffman_tableP16tdefl_compressoriiii(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 3) %1, i32 noundef range(i32 19, 289) %2, i32 noundef range(i32 7, 16) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #22 {
+define internal fastcc void @_ZL28tdefl_optimize_huffman_tableP16tdefl_compressoriiii(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 3) %1, i32 noundef range(i32 19, 289) %2, i32 noundef range(i32 7, 16) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #22 {
   %6 = alloca [512 x i32], align 16
   %7 = alloca [256 x i32], align 16
   %8 = alloca [33 x i32], align 16
@@ -10052,7 +10052,7 @@ define i32 @tdefl_compress_buffer(ptr noundef %0, ptr noundef %1, i64 noundef %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @tdefl_get_prev_return_status(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define i32 @tdefl_get_prev_return_status(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %3 = load i32, ptr %2, align 4
   ret i32 %3
@@ -10190,7 +10190,7 @@ define ptr @tdefl_compress_mem_to_heap(ptr noundef %0, i64 noundef %1, ptr nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL26tdefl_output_buffer_putterPKviPv(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) #4 {
+define internal noundef range(i32 0, 2) i32 @_ZL26tdefl_output_buffer_putterPKviPv(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) #4 {
   %4 = load i64, ptr %2, align 8
   %5 = sext i32 %1 to i64
   %6 = add i64 %4, %5
@@ -10267,7 +10267,7 @@ define i64 @tdefl_compress_mem_to_mem(ptr noundef %0, i64 noundef %1, ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @tdefl_write_image_to_png_file_in_memory_ex(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef initializes((0, 8)) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #10 {
+define ptr @tdefl_write_image_to_png_file_in_memory_ex(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) initializes((0, 8)) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #10 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
@@ -10629,7 +10629,7 @@ mz_crc32.exit:                                    ; preds = %.lr.ph.i
   br i1 %196, label %.preheader.i71, label %197, !llvm.loop !169
 
 197:                                              ; preds = %.preheader.i71
-  %198 = call ptr @realloc(ptr noundef %188, i64 noundef %195) #49
+  %198 = call ptr @realloc(ptr noundef nonnull %188, i64 noundef %195) #49
   %.not29.i73 = icmp eq ptr %198, null
   br i1 %.not29.i73, label %._crit_edge107, label %199
 
@@ -10730,7 +10730,7 @@ mz_crc32.exit84:                                  ; preds = %mz_crc32.exit84.pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @tdefl_write_image_to_png_file_in_memory(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef initializes((0, 8)) %4) local_unnamed_addr #10 {
+define ptr @tdefl_write_image_to_png_file_in_memory(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) initializes((0, 8)) %4) local_unnamed_addr #10 {
   %6 = tail call ptr @tdefl_write_image_to_png_file_in_memory_ex(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef 6, i32 noundef 0)
   ret ptr %6
 }
@@ -10876,7 +10876,7 @@ mz_zip_reader_end.exit:                           ; preds = %26, %7, %10, %62, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL30mz_zip_reader_read_central_dirP18mz_zip_archive_tagj(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #10 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL30mz_zip_reader_read_central_dirP18mz_zip_archive_tagj(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = alloca [1024 x i32], align 16
   %4 = and i32 %1, 2048
   %5 = icmp eq i32 %4, 0
@@ -11301,14 +11301,14 @@ define range(i32 0, 2) i32 @mz_zip_reader_end(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noalias noundef ptr @_ZL16def_realloc_funcPvS_mm(ptr nocapture readnone %0, ptr nocapture noundef %1, i64 noundef %2, i64 noundef %3) #14 {
+define internal noalias noundef ptr @_ZL16def_realloc_funcPvS_mm(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3) #14 {
   %5 = mul i64 %3, %2
   %6 = tail call ptr @realloc(ptr noundef %1, i64 noundef %5) #49
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL50mz_zip_reader_sort_central_dir_offsets_by_filenameP18mz_zip_archive_tag(i32 %.16.val, ptr nocapture readonly %.88.val) unnamed_addr #22 {
+define internal fastcc void @_ZL50mz_zip_reader_sort_central_dir_offsets_by_filenameP18mz_zip_archive_tag(i32 %.16.val, ptr readonly captures(none) %.88.val) unnamed_addr #22 {
   %1 = getelementptr inbounds nuw i8, ptr %.88.val, i64 32
   %2 = getelementptr inbounds nuw i8, ptr %.88.val, i64 64
   %3 = load ptr, ptr %2, align 8
@@ -11662,7 +11662,7 @@ define internal fastcc void @_ZL50mz_zip_reader_sort_central_dir_offsets_by_file
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #10 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #10 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
   %.not = icmp ult i64 %6, %2
@@ -11851,7 +11851,7 @@ mz_zip_reader_end.exit:                           ; preds = %24, %4, %5, %8, %66
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i64 @_ZL20mz_zip_mem_read_funcPvyS_m(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) #20 {
+define internal noundef i64 @_ZL20mz_zip_mem_read_funcPvyS_m(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) #20 {
   %5 = load i64, ptr %0, align 8
   %.not = icmp ult i64 %1, %5
   %6 = sub nuw i64 %5, %1
@@ -11867,7 +11867,7 @@ define internal noundef i64 @_ZL20mz_zip_mem_read_funcPvyS_m(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @mz_zip_reader_init_file(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @mz_zip_reader_init_file(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #10 {
   %4 = tail call noalias ptr @fopen64(ptr noundef %1, ptr noundef nonnull @.str.21)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %mz_zip_reader_end.exit, label %5
@@ -12027,19 +12027,19 @@ mz_zip_reader_end.exit:                           ; preds = %72, %55, %53, %51, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #24
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseeko64(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #24
+declare noundef i32 @fseeko64(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #24
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #24
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftello64(ptr nocapture noundef) local_unnamed_addr #24
+declare noundef i64 @ftello64(ptr noundef captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef i64 @_ZL21mz_zip_file_read_funcPvyS_m(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, i64 noundef %3) #25 {
+define internal noundef i64 @_ZL21mz_zip_file_read_funcPvyS_m(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, i64 noundef %3) #25 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
@@ -12073,7 +12073,7 @@ define internal noundef i64 @_ZL21mz_zip_file_read_funcPvyS_m(ptr nocapture noun
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #24
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @mz_zip_reader_get_num_files(ptr noundef readonly %0) local_unnamed_addr #13 {
@@ -12361,10 +12361,10 @@ define range(i32 0, 2) i32 @mz_zip_reader_file_stat(ptr noundef readonly %0, i32
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #28
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #28
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 65537) i32 @mz_zip_reader_get_filename(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #20 {
+define range(i32 0, 65537) i32 @mz_zip_reader_get_filename(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %5
 
@@ -12947,7 +12947,7 @@ define i32 @mz_zip_reader_locate_file(ptr noundef readonly %0, ptr noundef reado
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #30
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #30
 
 ; Function Attrs: mustprogress uwtable
 define range(i32 0, 2) i32 @mz_zip_reader_extract_to_mem_no_alloc(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #10 {
@@ -13467,7 +13467,7 @@ mz_zip_reader_extract_to_heap.exit:               ; preds = %51, %50, %46, %31, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @mz_zip_reader_extract_to_callback(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @mz_zip_reader_extract_to_callback(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #10 {
   %6 = alloca %struct.mz_zip_archive_file_stat, align 8
   %7 = alloca [8 x i32], align 16
   %8 = alloca %struct.tinfl_decompressor_tag, align 8
@@ -13846,7 +13846,7 @@ mz_zip_reader_is_file_a_directory.exit.thread182: ; preds = %37, %191, %192, %87
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_callback(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_callback(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #10 {
   %6 = tail call i32 @mz_zip_reader_locate_file(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef %4)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %10, label %8
@@ -13861,7 +13861,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_callback(ptr noundef %
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @mz_zip_reader_extract_to_file(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @mz_zip_reader_extract_to_file(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #10 {
   %5 = alloca %struct.utimbuf, align 8
   %6 = alloca %struct.mz_zip_archive_file_stat, align 8
   %7 = call i32 @mz_zip_reader_file_stat(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %6)
@@ -13898,19 +13898,19 @@ define range(i32 0, 2) i32 @mz_zip_reader_extract_to_file(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef i64 @_ZL26mz_zip_file_write_callbackPvyPKvm(ptr nocapture noundef %0, i64 %1, ptr nocapture noundef %2, i64 noundef %3) #25 {
+define internal noundef i64 @_ZL26mz_zip_file_write_callbackPvyPKvm(ptr noundef captures(none) %0, i64 %1, ptr noundef captures(none) %2, i64 noundef %3) #25 {
   %5 = tail call i64 @fwrite(ptr noundef %2, i64 noundef 1, i64 noundef %3, ptr noundef %0)
   ret i64 %5
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #24
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @utime(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #24
+declare noundef i32 @utime(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_file(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @mz_zip_reader_extract_file_to_file(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #10 {
   %5 = alloca %struct.utimbuf, align 8
   %6 = alloca %struct.mz_zip_archive_file_stat, align 8
   %7 = tail call i32 @mz_zip_reader_locate_file(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef %3)
@@ -14160,7 +14160,7 @@ mz_zip_writer_init.exit.thread:                   ; preds = %28, %11, %3, %8, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZL22mz_zip_heap_write_funcPvyPKvm(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) #10 {
+define internal noundef i64 @_ZL22mz_zip_heap_write_funcPvyPKvm(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #10 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = add i64 %3, %1
@@ -14310,7 +14310,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_end(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @mz_zip_writer_init_file(ptr noundef initializes((72, 80)) %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @mz_zip_writer_init_file(ptr noundef initializes((72, 80)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #10 {
   %4 = alloca [4096 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr @_ZL22mz_zip_file_write_funcPvyPKvm, ptr %5, align 8
@@ -14435,7 +14435,7 @@ mz_zip_writer_init.exit.thread:                   ; preds = %58, %29, %12, %3, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef i64 @_ZL22mz_zip_file_write_funcPvyPKvm(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, i64 noundef %3) #25 {
+define internal noundef i64 @_ZL22mz_zip_file_write_funcPvyPKvm(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, i64 noundef %3) #25 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
@@ -14989,7 +14989,7 @@ _ZL35mz_zip_writer_validate_archive_namePKc.exit.thread: ; preds = %.preheader.i
 declare i64 @time(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23mz_zip_time_to_dos_timelPtS_(i64 noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 2)) %1, ptr nocapture noundef nonnull writeonly initializes((0, 2)) %2) unnamed_addr #4 {
+define internal fastcc void @_ZL23mz_zip_time_to_dos_timelPtS_(i64 noundef %0, ptr noundef nonnull writeonly captures(none) initializes((0, 2)) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 2)) %2) unnamed_addr #4 {
   %4 = alloca i64, align 8
   store i64 %0, ptr %4, align 8
   %5 = call ptr @localtime(ptr noundef nonnull %4) #43
@@ -15022,7 +15022,7 @@ define internal fastcc void @_ZL23mz_zip_time_to_dos_timelPtS_(i64 noundef %0, p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL25mz_zip_writer_write_zerosP18mz_zip_archive_tagyj(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) unnamed_addr #10 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL25mz_zip_writer_write_zerosP18mz_zip_archive_tagyj(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #10 {
   %4 = alloca [4096 x i8], align 16
   %5 = tail call i32 @llvm.umin.i32(i32 %2, i32 4096)
   %6 = zext nneg i32 %5 to i64
@@ -15058,7 +15058,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL25mz_zip_writer_write_zer
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL34mz_zip_writer_add_put_buf_callbackPKviPv(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) #10 {
+define internal noundef range(i32 0, 2) i32 @_ZL34mz_zip_writer_add_put_buf_callbackPKviPv(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) #10 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8
@@ -15088,7 +15088,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL34mz_zip_writer_add_put_buf_call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL32mz_zip_writer_add_to_central_dirP18mz_zip_archive_tagPKctPKvtS4_tyyjttttyj(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, i16 noundef zeroext %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4, i64 noundef range(i64 0, 4294967296) %5, i64 noundef range(i64 0, 4294967296) %6, i32 noundef %7, i16 noundef zeroext range(i16 0, 9) %8, i16 noundef zeroext %9, i16 noundef zeroext %10, i64 noundef %11, i32 noundef range(i32 0, 17) %12) unnamed_addr #10 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL32mz_zip_writer_add_to_central_dirP18mz_zip_archive_tagPKctPKvtS4_tyyjttttyj(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i16 noundef zeroext %2, ptr noundef readonly captures(none) %3, i16 noundef zeroext %4, i64 noundef range(i64 0, 4294967296) %5, i64 noundef range(i64 0, 4294967296) %6, i32 noundef %7, i16 noundef zeroext range(i16 0, 9) %8, i16 noundef zeroext %9, i16 noundef zeroext %10, i64 noundef %11, i32 noundef range(i32 0, 17) %12) unnamed_addr #10 {
   %14 = alloca i32, align 4
   %15 = alloca [46 x i8], align 16
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -15479,7 +15479,7 @@ _ZL28mz_zip_array_ensure_capacityP18mz_zip_archive_tagP12mz_zip_arraymj.exit229.
 declare ptr @localtime(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @mz_zip_writer_add_file(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, i16 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @mz_zip_writer_add_file(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i16 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #10 {
   %7 = alloca i64, align 8
   %8 = alloca i16, align 2
   %9 = alloca i16, align 2
@@ -15881,7 +15881,7 @@ _ZL35mz_zip_writer_validate_archive_namePKc.exit.thread: ; preds = %.preheader.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL29mz_zip_get_file_modified_timePKcPtS1_(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #4 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL29mz_zip_get_file_modified_timePKcPtS1_(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #4 {
   %4 = alloca i64, align 8
   %5 = alloca %struct.stat64, align 8
   %6 = call i32 @stat64(ptr noundef %0, ptr noundef nonnull %5) #43
@@ -15928,7 +15928,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL29mz_zip_get_file_modifie
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #24
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress uwtable
 define range(i32 0, 2) i32 @mz_zip_writer_add_from_zip_reader(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #10 {
@@ -16470,7 +16470,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_finalize_archive(ptr noundef %0) local
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #24
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress uwtable
 define range(i32 0, 2) i32 @mz_zip_writer_finalize_heap_archive(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #10 {
@@ -16692,7 +16692,7 @@ _ZL35mz_zip_writer_validate_archive_namePKc.exit.thread: ; preds = %.preheader.i
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @remove(ptr nocapture noundef readonly) local_unnamed_addr #24
+declare noundef i32 @remove(ptr noundef readonly captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @mz_zip_extract_archive_file_to_heap(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #10 {
@@ -17547,14 +17547,14 @@ define linkonce_odr void @_ZNK13MeshLabPlugin6vendorEv(ptr dead_on_unwind noalia
 declare void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK21FilterSketchFabPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %1) unnamed_addr #10 align 2 {
+define void @_ZNK21FilterSketchFabPlugin10pluginNameEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %1) unnamed_addr #10 align 2 {
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.26, i32 noundef 15)
   store ptr %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n40_NK21FilterSketchFabPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #31 align 2 {
+define void @_ZTv0_n40_NK21FilterSketchFabPlugin10pluginNameEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #31 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !200)
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.26, i32 noundef 15), !noalias !200
   store ptr %3, ptr %0, align 8, !alias.scope !200
@@ -17562,7 +17562,7 @@ define void @_ZTv0_n40_NK21FilterSketchFabPlugin10pluginNameEv(ptr dead_on_unwin
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK21FilterSketchFabPlugin10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK21FilterSketchFabPlugin10filterNameEi(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   %cond = icmp eq i32 %2, 0
   br i1 %cond, label %4, label %6
 
@@ -17577,7 +17577,7 @@ define void @_ZNK21FilterSketchFabPlugin10filterNameEi(ptr dead_on_unwind noalia
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK21FilterSketchFabPlugin10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #31 align 2 {
+define void @_ZThn16_NK21FilterSketchFabPlugin10filterNameEi(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) unnamed_addr #31 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !203)
   %cond.i = icmp eq i32 %2, 0
   br i1 %cond.i, label %4, label %_ZNK21FilterSketchFabPlugin10filterNameEi.exit
@@ -17593,7 +17593,7 @@ _ZNK21FilterSketchFabPlugin10filterNameEi.exit:   ; preds = %3, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK21FilterSketchFabPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK21FilterSketchFabPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   %cond = icmp eq i32 %2, 0
   br i1 %cond, label %4, label %6
 
@@ -17608,7 +17608,7 @@ define void @_ZNK21FilterSketchFabPlugin16pythonFilterNameEi(ptr dead_on_unwind 
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK21FilterSketchFabPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #31 align 2 {
+define void @_ZThn16_NK21FilterSketchFabPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) unnamed_addr #31 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !206)
   %cond.i = icmp eq i32 %2, 0
   br i1 %cond.i, label %4, label %_ZNK21FilterSketchFabPlugin16pythonFilterNameEi.exit
@@ -17624,7 +17624,7 @@ _ZNK21FilterSketchFabPlugin16pythonFilterNameEi.exit: ; preds = %3, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK21FilterSketchFabPlugin10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK21FilterSketchFabPlugin10filterInfoEi(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   %cond = icmp eq i32 %2, 0
   br i1 %cond, label %4, label %6
 
@@ -17643,7 +17643,7 @@ define void @_ZNK21FilterSketchFabPlugin10filterInfoEi(ptr dead_on_unwind noalia
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK21FilterSketchFabPlugin10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #31 align 2 {
+define void @_ZThn16_NK21FilterSketchFabPlugin10filterInfoEi(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) initializes((0, 8)) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) unnamed_addr #31 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !209)
   %cond.i = icmp eq i32 %2, 0
   br i1 %cond.i, label %4, label %6
@@ -17709,27 +17709,27 @@ define noundef range(i32 0, 2) i32 @_ZThn16_NK21FilterSketchFabPlugin11filterAri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK21FilterSketchFabPlugin16getPreConditionsEPK7QAction(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1) unnamed_addr #16 align 2 {
+define noundef i32 @_ZNK21FilterSketchFabPlugin16getPreConditionsEPK7QAction(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0, ptr noundef readnone captures(none) %1) unnamed_addr #16 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZThn16_NK21FilterSketchFabPlugin16getPreConditionsEPK7QAction(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) unnamed_addr #16 align 2 {
+define noundef i32 @_ZThn16_NK21FilterSketchFabPlugin16getPreConditionsEPK7QAction(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) unnamed_addr #16 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK21FilterSketchFabPlugin13postConditionEPK7QAction(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1) unnamed_addr #16 align 2 {
+define noundef i32 @_ZNK21FilterSketchFabPlugin13postConditionEPK7QAction(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0, ptr noundef readnone captures(none) %1) unnamed_addr #16 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZThn16_NK21FilterSketchFabPlugin13postConditionEPK7QAction(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) unnamed_addr #16 align 2 {
+define noundef i32 @_ZThn16_NK21FilterSketchFabPlugin13postConditionEPK7QAction(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) unnamed_addr #16 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21FilterSketchFabPlugin17initParameterListEPK7QActionRK9MeshModel(ptr dead_on_unwind noalias nonnull writable sret(%class.RichParameterList) align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN21FilterSketchFabPlugin17initParameterListEPK7QActionRK9MeshModel(ptr dead_on_unwind noalias nonnull writable sret(%class.RichParameterList) align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QSettings, align 8
   %6 = alloca %class.QVariant, align 8
   %7 = alloca %class.QString, align 8
@@ -19296,7 +19296,7 @@ declare void @_ZN9QSettingsD1Ev(ptr noundef nonnull align 8 dereferenceable(16))
 declare void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N21FilterSketchFabPlugin17initParameterListEPK7QActionRK9MeshModel(ptr dead_on_unwind noalias writable sret(%class.RichParameterList) align 8 %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1288) %3) unnamed_addr #31 align 2 {
+define void @_ZThn16_N21FilterSketchFabPlugin17initParameterListEPK7QActionRK9MeshModel(ptr dead_on_unwind noalias writable sret(%class.RichParameterList) align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1288) %3) unnamed_addr #31 align 2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 -16
   tail call void @_ZN21FilterSketchFabPlugin17initParameterListEPK7QActionRK9MeshModel(ptr dead_on_unwind writable sret(%class.RichParameterList) align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef %2, ptr nonnull align 8 poison)
   ret void
@@ -19308,7 +19308,7 @@ declare noundef zeroext i1 @_ZNK8QVariant3cmpERKS_(ptr noundef nonnull align 8 d
 declare noundef zeroext i1 @_ZeqRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21FilterSketchFabPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::map.38") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr nocapture nonnull readnone align 4 %5, ptr noundef %6) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN21FilterSketchFabPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::map.38") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr nonnull readnone align 4 captures(none) %5, ptr noundef %6) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %class.QString, align 8
@@ -21212,7 +21212,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_8
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N21FilterSketchFabPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::map.38") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %5, ptr noundef %6) unnamed_addr #31 align 2 {
+define void @_ZThn16_N21FilterSketchFabPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::map.38") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %5, ptr noundef %6) unnamed_addr #31 align 2 {
   %8 = getelementptr inbounds i8, ptr %1, i64 -16
   tail call void @_ZN21FilterSketchFabPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE(ptr dead_on_unwind writable sret(%"class.std::map.38") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %8, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr nonnull align 4 poison, ptr noundef %6)
   ret void
@@ -22030,7 +22030,7 @@ _ZN3vcgmlIfEENS_6Point3IT_EERKNS_8Matrix44IS2_EERKS3_.exit: ; preds = %28, %68
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN21FilterSketchFabPlugin11saveMeshZipERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #10 align 2 {
+define noundef range(i32 0, 2) i32 @_ZN21FilterSketchFabPlugin11saveMeshZipERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #10 align 2 {
   %5 = alloca %class.QMessageLogger, align 8
   %6 = alloca %struct.mz_zip_archive_tag, align 8
   %7 = alloca %class.QMessageLogger, align 8
@@ -22242,7 +22242,7 @@ mz_zip_writer_end.exit:                           ; preds = %105, %75, %72, %63,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN21FilterSketchFabPlugin6uploadERK7QStringS2_S2_S2_S2_S2_S2_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN21FilterSketchFabPlugin6uploadERK7QStringS2_S2_S2_S2_S2_S2_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %class.QHttpPart, align 8
   %11 = alloca %class.QString, align 8
   %12 = alloca %class.QString, align 8
@@ -28697,10 +28697,10 @@ _ZNSt6vectorIN3vcg3ply14PropDescriptorESaIS2_EED2Ev.exit24: ; preds = %_ZSt8_Des
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #24
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #24
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #24
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -29625,7 +29625,7 @@ _ZNKSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pre
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #36
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #36
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
@@ -29765,7 +29765,7 @@ _ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit: ; preds = %21
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #24
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #24
 
 declare void @_ZN11GLLogStream3logEiPKc(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -29774,7 +29774,7 @@ declare void @_ZN14QHttpMultiPartC1ENS_11ContentTypeEP7QObject(ptr noundef nonnu
 declare void @_ZN14QHttpMultiPart6appendERK9QHttpPart(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21FilterSketchFabPlugin14part_parameterE7QStringS0_(ptr dead_on_unwind noalias nonnull writable sret(%class.QHttpPart) align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN21FilterSketchFabPlugin14part_parameterE7QStringS0_(ptr dead_on_unwind noalias nonnull writable sret(%class.QHttpPart) align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QVariant, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
@@ -30427,7 +30427,7 @@ declare void @_ZN9QHttpPart7setBodyERK10QByteArray(ptr noundef nonnull align 8 d
 declare void @_ZN7QString15toLatin1_helperERKS_(ptr dead_on_unwind writable sret(%class.QByteArray) align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21FilterSketchFabPlugin14uploadProgressExx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #10 align 2 {
+define void @_ZN21FilterSketchFabPlugin14uploadProgressExx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #10 align 2 {
   %4 = alloca %class.QMessageLogger, align 8
   %5 = alloca [1024 x i8], align 16
   store i32 2, ptr %4, align 8
@@ -30455,10 +30455,10 @@ define void @_ZN21FilterSketchFabPlugin14uploadProgressExx(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #24
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21FilterSketchFabPlugin8finishedEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((80, 81)) %0) local_unnamed_addr #10 align 2 {
+define void @_ZN21FilterSketchFabPlugin8finishedEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) initializes((80, 81)) %0) local_unnamed_addr #10 align 2 {
   %2 = alloca %class.QMessageLogger, align 8
   store i32 2, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -32036,16 +32036,16 @@ declare i64 @llvm.umin.i64(i64, i64) #38
 declare i32 @llvm.ctpop.i32(i32) #38
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #39
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #39
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #39
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #39
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #38
@@ -32054,7 +32054,7 @@ declare i32 @llvm.umax.i32(i32, i32) #38
 declare i64 @llvm.smax.i64(i64, i64) #38
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #40
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #40
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #41

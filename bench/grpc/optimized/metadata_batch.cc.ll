@@ -168,7 +168,7 @@ declare void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11c
 declare void @_ZN4absl12lts_202308027CEscapeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.std::__cxx11::basic_string") align 8, i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -176,7 +176,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core15metadata_detail10UnknownMap6AppendESt17basic_string_viewIcSt11char_traitsIcEENS_5SliceE(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 %key.coerce0, ptr %key.coerce1, ptr nocapture noundef readonly %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core15metadata_detail10UnknownMap6AppendESt17basic_string_viewIcSt11char_traitsIcEENS_5SliceE(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 %key.coerce0, ptr %key.coerce1, ptr noundef readonly captures(none) %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i1.i.i.i.i = alloca %struct.grpc_slice, align 8
   %ref.tmp.i.i.i.i.i = alloca %struct.grpc_slice, align 8
@@ -246,7 +246,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core15metadata_detail10UnknownMap6RemoveESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 %key.coerce0, ptr nocapture readonly %key.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core15metadata_detail10UnknownMap6RemoveESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 %key.coerce0, ptr readonly captures(none) %key.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i.i.i2.i.i.i = alloca %struct.grpc_slice, align 8
   %__tmp.i.i.i.i.i.i = alloca %struct.grpc_slice, align 8
@@ -636,7 +636,7 @@ while.end:                                        ; preds = %for.end15, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core15metadata_detail10UnknownMap14GetStringValueESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS4_SaIcEEE(ptr noalias nocapture sret(%"class.std::optional") align 8 initializes((16, 17)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 %key.coerce0, ptr nocapture readonly %key.coerce1, ptr noundef %backing) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core15metadata_detail10UnknownMap14GetStringValueESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS4_SaIcEEE(ptr noalias sret(%"class.std::optional") align 8 captures(none) initializes((16, 17)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i64 %key.coerce0, ptr readonly captures(none) %key.coerce1, ptr noundef %backing) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp12 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp13 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
@@ -781,7 +781,7 @@ declare void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr sr
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 3) i8 @_ZN9grpc_core19ContentTypeMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS1_EEE(ptr noundef %value, i1 noundef zeroext %0, ptr %on_error.coerce0, ptr nocapture readonly %on_error.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 3) i8 @_ZN9grpc_core19ContentTypeMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS1_EEE(ptr noundef %value, i1 noundef zeroext %0, ptr %on_error.coerce0, ptr readonly captures(none) %on_error.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr %value, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
@@ -829,7 +829,7 @@ if.end19:                                         ; preds = %_ZNSt11char_traitsI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core19ContentTypeMetadata6EncodeENS0_9ValueTypeE(ptr noalias nocapture writeonly sret(%"class.grpc_core::StaticSlice") align 8 %agg.result, i8 noundef zeroext %x) local_unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core19ContentTypeMetadata6EncodeENS0_9ValueTypeE(ptr noalias writeonly sret(%"class.grpc_core::StaticSlice") align 8 captures(none) %agg.result, i8 noundef zeroext %x) local_unnamed_addr #3 align 2 {
 entry:
   %0 = icmp ult i8 %x, 3
   br i1 %0, label %switch.lookup, label %do.body
@@ -867,7 +867,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZN9grpc_core19GrpcTimeoutMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS1_EEE(ptr noundef nonnull %value, i1 noundef zeroext %0, ptr %on_error.coerce0, ptr nocapture readonly %on_error.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define i64 @_ZN9grpc_core19GrpcTimeoutMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS1_EEE(ptr noundef nonnull %value, i1 noundef zeroext %0, ptr %on_error.coerce0, ptr readonly captures(none) %on_error.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call { i64, i8 } @_ZN9grpc_core12ParseTimeoutERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(32) %value)
   %1 = extractvalue { i64, i8 } %call, 0
@@ -998,7 +998,7 @@ declare i32 @_ZN9grpc_core7Timeout12FromDurationENS_8DurationE(i64) local_unname
 declare void @_ZNK9grpc_core7Timeout6EncodeEv(ptr sret(%"class.grpc_core::Slice") align 8, ptr noundef nonnull align 2 dereferenceable(3)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 2) i8 @_ZN9grpc_core10TeMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS1_EEE(ptr noundef %value, i1 noundef zeroext %0, ptr %on_error.coerce0, ptr nocapture readonly %on_error.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 2) i8 @_ZN9grpc_core10TeMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS1_EEE(ptr noundef %value, i1 noundef zeroext %0, ptr %on_error.coerce0, ptr readonly captures(none) %on_error.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr %value, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
@@ -1036,7 +1036,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 3) i8 @_ZN9grpc_core18HttpSchemeMetadata5ParseESt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_2023080211FunctionRefIFvS4_RKNS_5SliceEEEE(i64 %value.coerce0, ptr %value.coerce1, ptr %on_error.coerce0, ptr nocapture readonly %on_error.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 3) i8 @_ZN9grpc_core18HttpSchemeMetadata5ParseESt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_2023080211FunctionRefIFvS4_RKNS_5SliceEEEE(i64 %value.coerce0, ptr %value.coerce1, ptr %on_error.coerce0, ptr readonly captures(none) %on_error.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::Slice", align 8
   switch i64 %value.coerce0, label %if.end6 [
@@ -1094,7 +1094,7 @@ return:                                           ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN9grpc_core18HttpSchemeMetadata6EncodeENS0_9ValueTypeE(ptr noalias nocapture writeonly sret(%"class.grpc_core::StaticSlice") align 8 %agg.result, i8 noundef zeroext %x) local_unnamed_addr #9 align 2 {
+define void @_ZN9grpc_core18HttpSchemeMetadata6EncodeENS0_9ValueTypeE(ptr noalias writeonly sret(%"class.grpc_core::StaticSlice") align 8 captures(none) %agg.result, i8 noundef zeroext %x) local_unnamed_addr #9 align 2 {
 entry:
   switch i8 %x, label %sw.default [
     i8 0, label %return
@@ -1143,7 +1143,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 4) i8 @_ZN9grpc_core18HttpMethodMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS1_EEE(ptr noundef %value, i1 noundef zeroext %0, ptr %on_error.coerce0, ptr nocapture readonly %on_error.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 4) i8 @_ZN9grpc_core18HttpMethodMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS1_EEE(ptr noundef %value, i1 noundef zeroext %0, ptr %on_error.coerce0, ptr readonly captures(none) %on_error.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr %value, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
@@ -1185,7 +1185,7 @@ if.end15:                                         ; preds = %_ZNSt11char_traitsI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9grpc_core18HttpMethodMetadata6EncodeENS0_9ValueTypeE(ptr noalias nocapture writeonly sret(%"class.grpc_core::StaticSlice") align 8 initializes((0, 24)) %agg.result, i8 noundef zeroext %x) local_unnamed_addr #11 align 2 {
+define void @_ZN9grpc_core18HttpMethodMetadata6EncodeENS0_9ValueTypeE(ptr noalias writeonly sret(%"class.grpc_core::StaticSlice") align 8 captures(none) initializes((0, 24)) %agg.result, i8 noundef zeroext %x) local_unnamed_addr #11 align 2 {
 entry:
   store ptr inttoptr (i64 1 to ptr), ptr %agg.result, align 8
   %0 = icmp ult i8 %x, 3
@@ -1228,7 +1228,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN9grpc_core33CompressionAlgorithmBasedMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS1_EEE(ptr noundef %value, i1 noundef zeroext %0, ptr %on_error.coerce0, ptr nocapture readonly %on_error.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN9grpc_core33CompressionAlgorithmBasedMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS1_EEE(ptr noundef %value, i1 noundef zeroext %0, ptr %on_error.coerce0, ptr readonly captures(none) %on_error.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr %value, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
@@ -1258,7 +1258,7 @@ return:                                           ; preds = %entry, %if.then
 declare i64 @_ZN9grpc_core25ParseCompressionAlgorithmESt17basic_string_viewIcSt11char_traitsIcEE(i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZN9grpc_core27GrpcRetryPushbackMsMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS1_EEE(ptr noundef %value, i1 noundef zeroext %0, ptr %on_error.coerce0, ptr nocapture readonly %on_error.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define i64 @_ZN9grpc_core27GrpcRetryPushbackMsMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS1_EEE(ptr noundef %value, i1 noundef zeroext %0, ptr %on_error.coerce0, ptr readonly captures(none) %on_error.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %val.i.i = alloca i64, align 8
   %1 = load ptr, ptr %value, align 8
@@ -1287,7 +1287,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core17LbCostBinMetadata6EncodeERKNS0_9ValueTypeE(ptr noalias nocapture writeonly sret(%"class.grpc_core::Slice") align 8 initializes((0, 32)) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %x) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core17LbCostBinMetadata6EncodeERKNS0_9ValueTypeE(ptr noalias writeonly sret(%"class.grpc_core::Slice") align 8 captures(none) initializes((0, 32)) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %x) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont8:
   %ref.tmp.i8 = alloca %struct.grpc_slice, align 8
   %slice = alloca %"class.grpc_core::MutableSlice", align 8
@@ -1350,7 +1350,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core17LbCostBinMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS1_EEE(ptr noalias sret(%"struct.grpc_core::LbCostBinMetadata::ValueType") align 8 %agg.result, ptr noundef %value, i1 noundef zeroext %0, ptr %on_error.coerce0, ptr nocapture readonly %on_error.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core17LbCostBinMetadata12ParseMementoENS_5SliceEbN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEERKS1_EEE(ptr noalias sret(%"struct.grpc_core::LbCostBinMetadata::ValueType") align 8 %agg.result, ptr noundef %value, i1 noundef zeroext %0, ptr %on_error.coerce0, ptr readonly captures(none) %on_error.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1633,7 +1633,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #14
 declare void @grpc_slice_malloc(ptr sret(%struct.grpc_slice) align 8, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 declare noundef i64 @_ZN4absl12lts_2023080216numbers_internal17SixDigitsToBufferEdPc(double noundef, ptr noundef) local_unnamed_addr #0
 
@@ -1870,13 +1870,13 @@ declare extern_weak void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E(
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #17
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

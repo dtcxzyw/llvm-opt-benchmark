@@ -204,13 +204,13 @@ define dso_local void @svc_sock_update_bufs(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @svc_addsock(ptr noundef %0, ptr noundef readnone %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i64 noundef %4, ptr noundef %5) #0 align 16 {
+define dso_local i32 @svc_addsock(ptr noundef %0, ptr noundef readnone %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i64 noundef %4, ptr noundef %5) #0 align 16 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.__kernel_sockaddr_storage, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #16
@@ -328,7 +328,7 @@ define dso_local i32 @svc_addsock(ptr noundef %0, ptr noundef readnone %1, i32 n
 declare dso_local ptr @sockfd_lookup(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @try_module_get(ptr noundef) local_unnamed_addr #1
@@ -590,7 +590,7 @@ declare dso_local i32 @kernel_getsockname(ptr noundef, ptr noundef) local_unname
 declare dso_local void @svc_add_new_perm_xprt(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -2147483648, 2147483647) i32 @svc_one_sock_name(ptr %.528.val, ptr nocapture noundef writeonly %0, i32 noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc noundef range(i32 -2147483648, 2147483647) i32 @svc_one_sock_name(ptr %.528.val, ptr noundef writeonly captures(none) %0, i32 noundef %1) unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %.528.val, i64 516
   %4 = load i16, ptr %3, align 4
   %5 = icmp eq i16 %4, 17
@@ -1815,12 +1815,12 @@ define internal range(i32 -107, -2147483648) i32 @svc_tcp_sendto(ptr noundef ini
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @svc_sock_result_payload(ptr nocapture readnone %0, i32 %1, i32 %2) #6 align 16 {
+define internal noundef i32 @svc_sock_result_payload(ptr readnone captures(none) %0, i32 %1, i32 %2) #6 align 16 {
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @svc_tcp_release_ctxt(ptr nocapture readnone %0, ptr nocapture readnone %1) #6 align 16 {
+define internal void @svc_tcp_release_ctxt(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #6 align 16 {
   ret void
 }
 
@@ -2084,7 +2084,7 @@ define internal void @svc_sock_free(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @svc_tcp_kill_temp_xprt(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @svc_tcp_kill_temp_xprt(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -2492,10 +2492,10 @@ declare void @llvm.assume(i1 noundef) #10
 declare dso_local i32 @__SCT__tp_func_svcsock_getpeername_err(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__rcu_read_lock() local_unnamed_addr #1
@@ -2525,7 +2525,7 @@ declare dso_local i32 @net_ratelimit() local_unnamed_addr #1
 declare dso_local i32 @sock_recvmsg(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @svc_tcp_sock_process_cmsg(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @svc_tcp_sock_process_cmsg(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2636,7 +2636,7 @@ declare dso_local i32 @__SCT__tp_func_svcsock_tcp_send(ptr noundef, ptr noundef,
 declare dso_local void @tls_handshake_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @svc_sock_detach(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @svc_sock_detach(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %3 = load ptr, ptr %2, align 8
   tail call void @lock_sock_nested(ptr noundef %3, i32 noundef 0) #16
@@ -2737,7 +2737,7 @@ define internal ptr @svc_udp_create(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern noreturn nounwind null_pointer_is_valid
-define internal noundef ptr @svc_udp_accept(ptr nocapture readnone %0) #14 align 16 {
+define internal noundef ptr @svc_udp_accept(ptr readnone captures(none) %0) #14 align 16 {
   tail call void asm sideeffect "2926: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2926b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2926) #16, !srcloc !89
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 759, i32 0, i64 12) #16, !srcloc !90
   unreachable
@@ -3400,7 +3400,7 @@ define internal i32 @svc_udp_sendto(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @svc_udp_release_ctxt(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal void @svc_udp_release_ctxt(ptr readnone captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %5, label %4
 
@@ -3413,7 +3413,7 @@ define internal void @svc_udp_release_ctxt(ptr nocapture readnone %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @svc_udp_kill_temp_xprt(ptr nocapture readnone %0) #6 align 16 {
+define internal void @svc_udp_kill_temp_xprt(ptr readnone captures(none) %0) #6 align 16 {
   ret void
 }
 

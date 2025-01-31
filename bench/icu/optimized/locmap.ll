@@ -870,7 +870,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -1107,7 +1107,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @uprv_convertToPosix_75(i32 noundef %hostid, ptr nocapture noundef writeonly %posixID, i32 noundef %posixIDCapacity, ptr nocapture noundef %status) local_unnamed_addr #7 {
+define i32 @uprv_convertToPosix_75(i32 noundef %hostid, ptr noundef writeonly captures(none) %posixID, i32 noundef %posixIDCapacity, ptr noundef captures(none) %status) local_unnamed_addr #7 {
 entry:
   %conv = and i32 %hostid, 1023
   br label %for.body
@@ -1189,16 +1189,16 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @uprv_convertToLCIDPlatform_75(ptr nocapture noundef readnone %localeID, ptr nocapture noundef readonly %status) local_unnamed_addr #9 {
+define noundef i32 @uprv_convertToLCIDPlatform_75(ptr noundef readnone captures(none) %localeID, ptr noundef readonly captures(none) %status) local_unnamed_addr #9 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @uprv_convertToLCID_75(ptr noundef readonly %langID, ptr noundef readonly %posixID, ptr nocapture noundef writeonly %status) local_unnamed_addr #10 {
+define i32 @uprv_convertToLCID_75(ptr noundef readonly %langID, ptr noundef readonly %posixID, ptr noundef writeonly captures(none) %status) local_unnamed_addr #10 {
 entry:
   %tobool = icmp ne ptr %langID, null
   %tobool1 = icmp ne ptr %posixID, null
@@ -1481,7 +1481,7 @@ return:                                           ; preds = %_ZL9getHostIDPK13IL
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11

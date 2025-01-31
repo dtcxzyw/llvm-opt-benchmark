@@ -440,7 +440,7 @@ next_node_bitmap.exit.thread:                     ; preds = %next_node_bitmap.ex
 declare ptr @hostlist_create(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @next_node_bitmap(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define ptr @next_node_bitmap(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @node_record_table_ptr, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.loopexit, label %4
@@ -543,7 +543,7 @@ declare i32 @slurm_conf_frontend_array(ptr noundef) local_unnamed_addr #1
 declare void @fatal(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @config_record_from_conf_node(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef ptr @config_record_from_conf_node(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 128, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.20, i32 noundef 733, ptr noundef nonnull @__func__.create_config_record) #15
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1067061779, ptr %4, align 8
@@ -693,7 +693,7 @@ declare ptr @gres_name_filter(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @slurm_conf_nodename_array(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @expand_nodeline_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define i32 @expand_nodeline_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1288), align 8
@@ -1035,7 +1035,7 @@ define i32 @expand_nodeline_info(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2170) i32 @_check_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr noundef %7) #0 {
+define internal range(i32 0, 2170) i32 @_check_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i32 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef %7) #0 {
   %9 = tail call fastcc ptr @_find_node_record(ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false)
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %11, label %10
@@ -1115,7 +1115,7 @@ declare ptr @list_iterator_create(ptr noundef) local_unnamed_addr #1
 declare ptr @list_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 23) i32 @node_name2bitmap(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define range(i32 0, 23) i32 @node_name2bitmap(ptr noundef %0, i1 noundef zeroext %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @node_record_count, align 4
   %5 = sext i32 %4 to i64
   %6 = tail call ptr @bit_alloc(i64 noundef %5) #15
@@ -1392,10 +1392,10 @@ declare i32 @hostlist_count(ptr noundef) local_unnamed_addr #1
 declare ptr @hostlist_shift(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #1
 
@@ -1499,7 +1499,7 @@ rehash_node.exit:                                 ; preds = %.lr.ph.i, %32, %21,
 declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2170) i32 @create_node_record(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define range(i32 0, 2170) i32 @create_node_record(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @node_record_count, align 4
   %5 = load i32, ptr @node_record_table_size, align 4
   %.not = icmp slt i32 %4, %5
@@ -1856,7 +1856,7 @@ _init_node_record.exit:                           ; preds = %89, %_convert_cpu_s
 declare ptr @xhash_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2170) i32 @add_node_record(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
+define range(i32 0, 2170) i32 @add_node_record(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @_find_node_record(ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false)
   store ptr %4, ptr %2, align 8
   %.not = icmp eq ptr %4, null
@@ -2338,7 +2338,7 @@ define ptr @find_node_record_no_alias(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @next_node(ptr nocapture noundef %0) local_unnamed_addr #8 {
+define ptr @next_node(ptr noundef captures(none) %0) local_unnamed_addr #8 {
   %2 = load ptr, ptr @node_record_table_ptr, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %3
@@ -2525,7 +2525,7 @@ declare i32 @select_g_select_nodeinfo_free(ptr noundef) local_unnamed_addr #1
 declare ptr @xhash_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_node_record_hash_identity(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #9 {
+define internal void @_node_record_hash_identity(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #9 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %1, align 8
@@ -2545,7 +2545,7 @@ declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_a
 declare ptr @__errno_location() local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define void @cr_init_global_core_data(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @cr_init_global_core_data(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @slurm_xfree(ptr noundef nonnull @cr_node_num_cores) #15
   tail call void @slurm_xfree(ptr noundef nonnull @cr_node_cores_offset) #15
   %3 = sext i32 %1 to i64
@@ -2835,7 +2835,7 @@ next_node.exit:                                   ; preds = %.preheader.i
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @node_conf_nodestr_tokenize(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #12 {
+define noundef ptr @node_conf_nodestr_tokenize(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #12 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -2895,7 +2895,7 @@ define noundef ptr @node_conf_nodestr_tokenize(ptr noundef %0, ptr nocapture nou
 declare ptr @__ctype_b_loc() local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define void @node_conf_create_cluster_core_bitmap(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @node_conf_create_cluster_core_bitmap(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %cr_get_coremap_offset.exit, label %8
@@ -2938,16 +2938,16 @@ declare i32 @list_flush(ptr noundef) local_unnamed_addr #1
 declare i32 @list_delete_ptr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13

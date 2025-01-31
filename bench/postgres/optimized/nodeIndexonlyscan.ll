@@ -74,7 +74,7 @@ declare void @index_rescan(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i
 declare void @ExecScanReScan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecEndIndexOnlyScan(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ExecEndIndexOnlyScan(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -116,7 +116,7 @@ declare void @index_endscan(ptr noundef) local_unnamed_addr #1
 declare void @index_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecIndexOnlyMarkPos(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExecIndexOnlyMarkPos(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 240
@@ -181,7 +181,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare void @index_markpos(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecIndexOnlyRestrPos(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExecIndexOnlyRestrPos(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 240
@@ -385,7 +385,7 @@ declare ptr @index_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare void @ExecIndexBuildScanKeys(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecIndexOnlyScanEstimate(ptr nocapture noundef initializes((320, 328)) %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @ExecIndexOnlyScanEstimate(ptr noundef captures(none) initializes((320, 328)) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -413,7 +413,7 @@ declare i64 @index_parallelscan_estimate(ptr noundef, ptr noundef) local_unnamed
 declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecIndexOnlyScanInitializeDSM(ptr nocapture noundef initializes((296, 304), (312, 316)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExecIndexOnlyScanInitializeDSM(ptr noundef captures(none) initializes((296, 304), (312, 316)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -483,7 +483,7 @@ declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unname
 declare ptr @index_beginscan_parallel(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecIndexOnlyScanReInitializeDSM(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define dso_local void @ExecIndexOnlyScanReInitializeDSM(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %4 = load ptr, ptr %3, align 8
   tail call void @index_parallelrescan(ptr noundef %4) #6
@@ -493,7 +493,7 @@ define dso_local void @ExecIndexOnlyScanReInitializeDSM(ptr nocapture noundef re
 declare void @index_parallelrescan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecIndexOnlyScanInitializeWorker(ptr nocapture noundef initializes((296, 304)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExecIndexOnlyScanInitializeWorker(ptr noundef captures(none) initializes((296, 304)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -822,7 +822,7 @@ ExecQualAndReset.exit:                            ; preds = %115
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal noundef zeroext i1 @IndexOnlyRecheck(ptr nocapture readnone %0, ptr nocapture readnone %1) #3 {
+define internal noundef zeroext i1 @IndexOnlyRecheck(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #3 {
   %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %3)
   %4 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #6
@@ -856,10 +856,10 @@ declare ptr @ExecStoreVirtualTuple(ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

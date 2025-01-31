@@ -264,13 +264,13 @@ define dso_local i64 @xhci_trb_virt_to_dma(ptr noundef readonly %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @inc_deq(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local void @inc_deq(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 6
@@ -423,7 +423,7 @@ define dso_local void @inc_deq(ptr nocapture noundef readonly %0, ptr noundef %1
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xhci_ring_cmd_db(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local void @xhci_ring_cmd_db(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 1
@@ -483,7 +483,7 @@ define dso_local void @xhci_ring_cmd_db(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xhci_ring_ep_doorbell(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 16 {
+define dso_local void @xhci_ring_ep_doorbell(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %1 to i64
@@ -554,13 +554,13 @@ define dso_local void @xhci_ring_ep_doorbell(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xhci_ring_doorbell_for_active_rings(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
+define dso_local void @xhci_ring_doorbell_for_active_rings(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
   tail call fastcc void @ring_doorbell_for_active_rings(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ring_doorbell_for_active_rings(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc void @ring_doorbell_for_active_rings(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %5 = zext i32 %1 to i64
   %6 = getelementptr [256 x ptr], ptr %4, i64 0, i64 %5
@@ -745,7 +745,7 @@ define internal fastcc void @ring_doorbell_for_active_rings(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @xhci_triad_to_transfer_ring(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 16 {
+define dso_local ptr @xhci_triad_to_transfer_ring(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 16 {
   %5 = add i32 %1, -256
   %6 = icmp ult i32 %5, -255
   br i1 %6, label %7, label %10
@@ -838,7 +838,7 @@ define dso_local ptr @xhci_triad_to_transfer_ring(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @xhci_get_virt_ep(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 256) %1, i32 noundef range(i32 -1, 31) %2) unnamed_addr #2 align 16 {
+define internal fastcc ptr @xhci_get_virt_ep(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 256) %1, i32 noundef range(i32 -1, 31) %2) unnamed_addr #2 align 16 {
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %5, label %8
 
@@ -1861,7 +1861,7 @@ define dso_local void @xhci_handle_command_timeout(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #4 section ".spinlock.text"
@@ -2003,7 +2003,7 @@ define internal fastcc void @xhci_handle_stopped_cmd_ring(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @trb_in_td(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #2 align 16 {
+define dso_local noundef ptr @trb_in_td(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #2 align 16 {
   %7 = icmp ne ptr %1, null
   %8 = icmp ne ptr %2, null
   %9 = and i1 %7, %8
@@ -2309,7 +2309,7 @@ define dso_local noundef ptr @trb_in_td(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef range(i32 0, 2) i32 @xhci_is_vendor_info_code(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #6 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @xhci_is_vendor_info_code(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #6 align 16 {
   %3 = and i32 %1, -32
   %4 = icmp eq i32 %3, 224
   %5 = zext i1 %4 to i32
@@ -5016,7 +5016,7 @@ giveback_first_trb.exit:                          ; preds = %487, %443, %.loopex
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @prepare_transfer(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #2 align 16 {
+define internal fastcc i32 @prepare_transfer(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #2 align 16 {
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @xhci_get_ep_ctx(ptr noundef %0, ptr noundef %10, i32 noundef %2) #14
@@ -5083,10 +5083,10 @@ define internal fastcc i32 @prepare_transfer(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @queue_trb(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #2 align 16 {
+define internal fastcc void @queue_trb(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #2 align 16 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   store i32 %3, ptr %9, align 4
@@ -6849,7 +6849,7 @@ define internal void @trace_xhci_dbg_cancel_urb(ptr noundef %0) #11 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @xhci_giveback_urb_in_irq(ptr nocapture noundef readonly %0, ptr %.40.val, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @xhci_giveback_urb_in_irq(ptr noundef readonly captures(none) %0, ptr %.40.val, i32 noundef %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %.40.val, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %.40.val, i64 64
@@ -6983,7 +6983,7 @@ declare dso_local i32 @usb_hcd_is_primary_hcd(ptr noundef) local_unnamed_addr #4
 declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #4 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @handle_cmd_completion(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #2 align 16 {
+define internal fastcc void @handle_cmd_completion(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = lshr i32 %4, 24
@@ -9283,7 +9283,7 @@ declare dso_local i32 @__SCT__tp_func_xhci_handle_cmd_stop_ep(ptr noundef, ptr n
 declare dso_local void @xhci_free_command(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @xhci_td_cleanup(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc void @xhci_td_cleanup(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) unnamed_addr #2 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %1, i64 80

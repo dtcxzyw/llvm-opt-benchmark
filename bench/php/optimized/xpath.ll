@@ -86,7 +86,7 @@ define hidden ptr @dom_xpath_get_gc(ptr noundef %0, ptr noundef %1, ptr noundef 
 declare ptr @php_dom_xpath_callbacks_get_gc_for_whole_object(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMXPath___construct(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMXPath___construct(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
   store i8 1, ptr %4, align 1
@@ -274,7 +274,7 @@ define hidden noundef i32 @dom_xpath_document_read(ptr noundef %0, ptr noundef %
 declare zeroext i1 @php_dom_create_object(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @dom_xpath_register_node_ns_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #3 {
+define hidden noundef i32 @dom_xpath_register_node_ns_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((8, 12)) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -8
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -285,7 +285,7 @@ define hidden noundef i32 @dom_xpath_register_node_ns_read(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_xpath_register_node_ns_write(ptr nocapture noundef writeonly initializes((-8, -4)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef i32 @dom_xpath_register_node_ns_write(ptr noundef writeonly captures(none) initializes((-8, -4)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @zend_is_true(ptr noundef %1) #11
   %4 = getelementptr inbounds i8, ptr %0, i64 -8
   store i32 %3, ptr %4, align 8
@@ -295,7 +295,7 @@ define hidden noundef i32 @dom_xpath_register_node_ns_write(ptr nocapture nounde
 declare i32 @zend_is_true(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMXPath_registerNamespace(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMXPath_registerNamespace(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -350,7 +350,7 @@ define hidden void @zim_DOMXPath_registerNamespace(ptr nocapture noundef readonl
 declare i32 @xmlXPathRegisterNs(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMXPath_query(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMXPath_query(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 44
@@ -626,7 +626,7 @@ define internal fastcc void @php_xpath_eval(ptr %.32.val, i32 %.44.val, ptr noun
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 16
   store i64 %124, ptr %130, align 8
   %131 = getelementptr inbounds nuw i8, ptr %127, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %131, ptr align 1 %123, i64 %124, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %131, ptr nonnull align 1 %123, i64 %124, i1 false)
   %132 = getelementptr inbounds [1 x i8], ptr %131, i64 0, i64 %124
   store i8 0, ptr %132, align 1
   store ptr %127, ptr %0, align 8
@@ -648,7 +648,7 @@ define internal fastcc void @php_xpath_eval(ptr %.32.val, i32 %.44.val, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMXPath_evaluate(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMXPath_evaluate(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 44
@@ -658,7 +658,7 @@ define hidden void @zim_DOMXPath_evaluate(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMXPath_registerPhpFunctions(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMXPath_registerPhpFunctions(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -732,7 +732,7 @@ declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, 
 declare i32 @php_dom_xpath_callbacks_update_method_handler(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMXPath_registerPhpFunctionNS(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMXPath_registerPhpFunctionNS(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct._zend_fcall_info, align 8
@@ -883,7 +883,7 @@ define internal void @dom_xpath_register_func_in_ctx(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMXPath_quote(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMXPath_quote(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.smart_str, align 8
@@ -1219,17 +1219,17 @@ define hidden void @zim_DOMXPath_quote(ptr nocapture noundef readonly %0, ptr no
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @php_dom_xpath_callbacks_clean_argument_stack(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @php_dom_xpath_callbacks_call_php_ns(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dom_xpath_proxy_factory(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal void @dom_xpath_proxy_factory(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp ne i32 %6, 18
@@ -1261,7 +1261,7 @@ declare ptr @php_dom_create_fake_namespace_decl(ptr noundef, ptr noundef, ptr no
 declare void @php_dom_create_iterator(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @xmlXPathFreeObject(ptr noundef) local_unnamed_addr #1
 
@@ -1316,7 +1316,7 @@ declare void @smart_str_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10

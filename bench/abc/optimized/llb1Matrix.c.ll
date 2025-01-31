@@ -19,24 +19,24 @@ target triple = "x86_64-pc-linux-gnu"
 @stdout = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Llb_MtrVerifyRowsAll(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Llb_MtrVerifyRowsAll(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
 ._crit_edge:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Llb_MtrVerifyColumnsAll(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Llb_MtrVerifyColumnsAll(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
 ._crit_edge:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Llb_MtrVerifyMatrix(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define void @Llb_MtrVerifyMatrix(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define noalias noundef ptr @Llb_MtrFindVarOrder(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define noalias noundef ptr @Llb_MtrFindVarOrder(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
@@ -148,10 +148,10 @@ define noalias noundef ptr @Llb_MtrFindVarOrder(ptr nocapture noundef readonly %
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @Llb_MtrVarName(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define noundef nonnull ptr @Llb_MtrVarName(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp slt i32 %1, %3
   br i1 %4, label %5, label %6
@@ -191,7 +191,7 @@ define noundef nonnull ptr @Llb_MtrVarName(ptr nocapture noundef readonly %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Llb_MtrPrint(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @Llb_MtrPrint(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %5, label %3
 
@@ -307,10 +307,10 @@ Llb_MtrVarName.exit:                              ; preds = %28, %33, %37, %38
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @Llb_MtrPrintMatrixStats(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define void @Llb_MtrPrintMatrixStats(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
@@ -499,7 +499,7 @@ define void @Llb_MtrPrintMatrixStats(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Abc_Print(i32 %0, ptr nocapture readnone %1, ...) unnamed_addr #5 {
+define internal void @Abc_Print(i32 %0, ptr readnone captures(none) %1, ...) unnamed_addr #5 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = load i32, ptr @enable_dbg_outs, align 4
   %.not = icmp eq i32 %4, 0
@@ -530,7 +530,7 @@ define internal void @Abc_Print(i32 %0, ptr nocapture readnone %1, ...) unnamed_
   %16 = load ptr, ptr @stdout, align 8
   %17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #18
   %18 = trunc i64 %17 to i32
-  %19 = call i32 @Gia_ManToBridgeText(ptr noundef %16, i32 noundef %18, ptr noundef %15) #17
+  %19 = call i32 @Gia_ManToBridgeText(ptr noundef %16, i32 noundef %18, ptr noundef nonnull %15) #17
   call void @free(ptr noundef %15) #17
   br label %22
 
@@ -597,7 +597,7 @@ define noalias noundef ptr @Llb_MtrAlloc(i32 noundef %0, i32 noundef %1, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Llb_MtrFree(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define void @Llb_MtrFree(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -702,7 +702,7 @@ define void @Llb_MtrFree(ptr nocapture noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Llb_MtrAddColumn(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #8 {
+define void @Llb_MtrAddColumn(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #8 {
   %3 = load i32, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -825,7 +825,7 @@ define void @Llb_MtrAddColumn(ptr nocapture noundef readonly %0, ptr noundef %1)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Llb_MtrRemoveSingletonRows(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define void @Llb_MtrRemoveSingletonRows(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -892,7 +892,7 @@ define void @Llb_MtrRemoveSingletonRows(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Llb_MtrCreate(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define noalias noundef ptr @Llb_MtrCreate(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 108
@@ -1058,10 +1058,10 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #12
@@ -1070,7 +1070,7 @@ declare void @llvm.va_start.p0(ptr) #12
 declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #14

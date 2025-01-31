@@ -256,10 +256,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare ptr @Extra_SupportArray(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @Cudd_Ref(ptr noundef) local_unnamed_addr #2
 
@@ -2019,7 +2019,7 @@ define ptr @extraBddSpaceFromMatrixNeg(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Extra_zddLitCountComb(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #5 {
+define i32 @Extra_zddLitCountComb(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
@@ -2121,7 +2121,7 @@ Extra_zddLitCountComb.exit:                       ; preds = %.lr.ph.i
   br label %38
 
 Extra_zddLitCountComb.exit.thread:                ; preds = %18, %._crit_edge, %Extra_zddLitCountComb.exit
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef %0, ptr noundef %19) #10
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %19) #10
   %.pre = load ptr, ptr %15, align 8
   br label %38
 
@@ -2167,7 +2167,7 @@ declare ptr @cuddZddGetNode(ptr noundef, i32 noundef, ptr noundef, ptr noundef) 
 declare ptr @cuddZddIntersect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN3gmx10PointState9samplePmfEd(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN3gmx10PointState9samplePmfEd(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load double, ptr %3, align 8
   %5 = fcmp ogt double %4, 0.000000e+00
@@ -43,7 +43,7 @@ declare double @exp(double noundef) local_unnamed_addr #1
 declare double @llvm.fabs.f64(double) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN3gmx10PointState18updatePmfUnvisitedEd(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN3gmx10PointState18updatePmfUnvisitedEd(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load double, ptr %3, align 8
   %5 = fcmp ogt double %4, 0.000000e+00

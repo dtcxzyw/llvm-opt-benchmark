@@ -485,7 +485,7 @@ declare hidden ptr @lj_err_str(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare hidden void @lj_err_throw(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_lex_cleanup(ptr nocapture noundef readonly %L, ptr nocapture noundef readonly %ls) local_unnamed_addr #0 {
+define hidden void @lj_lex_cleanup(ptr noundef readonly captures(none) %L, ptr noundef readonly captures(none) %ls) local_unnamed_addr #0 {
 entry:
   %glref = getelementptr inbounds nuw i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
@@ -3215,7 +3215,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_lex_token2str(ptr nocapture noundef readonly %ls, i32 noundef %tok) local_unnamed_addr #0 {
+define hidden ptr @lj_lex_token2str(ptr noundef readonly captures(none) %ls, i32 noundef %tok) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %tok, 256
   br i1 %cmp, label %if.then, label %if.else
@@ -3344,7 +3344,7 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx = getelementptr inbounds nuw [34 x ptr], ptr @tokennames, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
-  %call3 = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef %0, i64 noundef %call) #9
+  %call3 = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull %0, i64 noundef %call) #9
   %marked = getelementptr inbounds nuw i8, ptr %call3, i64 8
   %1 = load i8, ptr %marked, align 8
   %2 = or i8 %1, 32
@@ -3363,10 +3363,10 @@ for.end:                                          ; preds = %for.body
 declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 256) i32 @lex_more(ptr nocapture noundef %ls) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 256) i32 @lex_more(ptr noundef captures(none) %ls) unnamed_addr #0 {
 entry:
   %sz = alloca i64, align 8
   %rfunc = getelementptr inbounds nuw i8, ptr %ls, i64 96
@@ -4398,13 +4398,13 @@ declare void @llvm.va_start.p0(ptr) #5
 declare i64 @llvm.umax.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

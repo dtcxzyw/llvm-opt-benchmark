@@ -513,7 +513,7 @@ if.end177.sink.split:                             ; preds = %for.end123, %for.en
 
 if.end177:                                        ; preds = %land.lhs.true170, %if.else167, %if.end177.sink.split
   %i.2 = phi i32 [ %i.2.ph, %if.end177.sink.split ], [ %add57, %if.else167 ], [ %add57, %land.lhs.true170 ]
-  %call178 = call i32 @BIO_test_flags(ptr noundef %b, i32 noundef 256) #10
+  %call178 = call i32 @BIO_test_flags(ptr noundef nonnull %b, i32 noundef 256) #10
   %tobool179.not = icmp eq i32 %call178, 0
   br i1 %tobool179.not, label %if.else229, label %if.then180
 
@@ -601,7 +601,7 @@ if.end265:                                        ; preds = %if.then262, %if.end
 while.end:                                        ; preds = %if.end265, %while.body.lr.ph, %if.then43, %if.then46, %while.cond.backedge, %if.end28, %if.then243
   %ret.1.ph177 = phi i32 [ %ret.1.ph205, %if.then243 ], [ %ret.0, %if.end28 ], [ %ret.1.ph205, %while.cond.backedge ], [ %ret.1.ph205, %if.then46 ], [ %ret.1.ph205, %if.then43 ], [ %add256, %if.end265 ], [ %ret.1.ph205, %while.body.lr.ph ]
   %ret_code.1 = phi i32 [ 0, %if.then243 ], [ 0, %if.end28 ], [ %call, %if.then43 ], [ %call, %if.then46 ], [ %ret_code.2, %while.cond.backedge ], [ %ret_code.2, %if.end265 ], [ %ret_code.0.ph208, %while.body.lr.ph ]
-  call void @BIO_copy_next_retry(ptr noundef %b) #10
+  call void @BIO_copy_next_retry(ptr noundef nonnull %b) #10
   %cmp269 = icmp eq i32 %ret.1.ph177, 0
   %cond = select i1 %cmp269, i32 %ret_code.1, i32 %ret.1.ph177
   br label %return
@@ -616,7 +616,7 @@ define internal i32 @b64_puts(ptr noundef %b, ptr noundef %str) #1 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #11
   %conv = trunc i64 %call to i32
-  %call1 = tail call i32 @b64_write(ptr noundef %b, ptr noundef %str, i32 noundef %conv)
+  %call1 = tail call i32 @b64_write(ptr noundef %b, ptr noundef nonnull %str, i32 noundef %conv)
   ret i32 %call1
 }
 
@@ -849,7 +849,7 @@ return:                                           ; preds = %sw.bb, %if.end77, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @b64_new(ptr nocapture noundef writeonly %bio) #2 {
+define internal range(i32 0, 2) i32 @b64_new(ptr noundef writeonly captures(none) %bio) #2 {
 entry:
   %calloc = tail call dereferenceable_or_null(2652) ptr @calloc(i64 1, i64 2652)
   %cmp = icmp eq ptr %calloc, null
@@ -894,7 +894,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @b64_callback_ctrl(ptr nocapture noundef readonly %b, i32 noundef %cmd, ptr noundef %fp) #1 {
+define internal i64 @b64_callback_ctrl(ptr noundef readonly captures(none) %b, i32 noundef %cmd, ptr noundef %fp) #1 {
 entry:
   %next_bio = getelementptr inbounds nuw i8, ptr %b, i64 56
   %0 = load ptr, ptr %next_bio, align 8
@@ -921,7 +921,7 @@ declare void @BIO_copy_next_retry(ptr noundef) local_unnamed_addr #4
 declare i32 @BIO_test_flags(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i64 @EVP_EncodeBlock(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
@@ -938,17 +938,17 @@ declare i32 @EVP_DecodeUpdate(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 declare i32 @EVP_DecodeBlock(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 declare void @EVP_EncodeFinal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare i64 @BIO_callback_ctrl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 

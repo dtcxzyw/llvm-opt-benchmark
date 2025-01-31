@@ -975,7 +975,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyFaulthandler_Init(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, i32 noundef %enable) local_unnamed_addr #0 {
+define hidden void @_PyFaulthandler_Init(ptr noalias writeonly sret(%struct.PyStatus) align 8 captures(none) initializes((0, 4), (8, 28)) %agg.result, i32 noundef %enable) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3256), i8 0, i64 24, i1 false)
   %call = tail call i64 @sysconf(i32 noundef 250) #16
@@ -1057,7 +1057,7 @@ return:                                           ; preds = %if.end8, %if.then6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #3
@@ -1290,7 +1290,7 @@ declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 declare i32 @sigaltstack(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @faulthandler_traverse(ptr nocapture readnone %module, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @faulthandler_traverse(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3168), align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1345,7 +1345,7 @@ return:                                           ; preds = %if.then8, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @faulthandler_py_enable(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal noundef ptr @faulthandler_py_enable(ptr readnone captures(none) %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %action.i = alloca %struct.sigaction, align 8
   %file = alloca ptr, align 8
@@ -1495,7 +1495,7 @@ return:                                           ; preds = %17, %faulthandler_e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @faulthandler_disable_py(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @faulthandler_disable_py(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3136), align 8
   %tobool.not = icmp eq i32 %0, 0
@@ -1553,7 +1553,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @faulthandler_is_enabled(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @faulthandler_is_enabled(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3136), align 8
   %conv = sext i32 %0 to i64
@@ -1562,7 +1562,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @faulthandler_dump_traceback_py(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal ptr @faulthandler_dump_traceback_py(ptr readnone captures(none) %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %file = alloca ptr, align 8
   %all_threads = alloca i32, align 4
@@ -1619,7 +1619,7 @@ return:                                           ; preds = %get_thread_state.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @faulthandler_dump_traceback_later(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal ptr @faulthandler_dump_traceback_later(ptr readnone captures(none) %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %buffer.i = alloca [100 x i8], align 16
   %timeout_obj = alloca ptr, align 8
@@ -1839,14 +1839,14 @@ return:                                           ; preds = %get_thread_state.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @faulthandler_cancel_dump_traceback_later_py(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @faulthandler_cancel_dump_traceback_later_py(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   tail call fastcc void @cancel_dump_traceback_later()
   ret ptr @_Py_NoneStruct
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @faulthandler_register_py(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal ptr @faulthandler_register_py(ptr readnone captures(none) %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %action.i = alloca %struct.sigaction, align 8
   %signum = alloca i32, align 4
@@ -2052,7 +2052,7 @@ return:                                           ; preds = %if.then6.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @faulthandler_unregister_py(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal ptr @faulthandler_unregister_py(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %signum = alloca i32, align 4
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.62, ptr noundef nonnull %signum) #16
@@ -2144,7 +2144,7 @@ return:                                           ; preds = %if.then5.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @faulthandler_read_null(ptr nocapture readnone %self, ptr nocapture readnone %args) #0 {
+define internal ptr @faulthandler_read_null(ptr readnone captures(none) %self, ptr readnone captures(none) %args) #0 {
 entry:
   %rl.i = alloca %struct.rlimit, align 8
   %y = alloca i32, align 4
@@ -2169,7 +2169,7 @@ faulthandler_suppress_crash_report.exit:          ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @faulthandler_sigsegv(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal noundef ptr @faulthandler_sigsegv(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %rl.i.i1 = alloca %struct.rlimit, align 8
   %rl.i.i = alloca %struct.rlimit, align 8
@@ -2224,7 +2224,7 @@ return:                                           ; preds = %faulthandler_raise_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @faulthandler_fatal_error_c_thread(ptr nocapture readnone %self, ptr nocapture readnone %args) #0 {
+define internal ptr @faulthandler_fatal_error_c_thread(ptr readnone captures(none) %self, ptr readnone captures(none) %args) #0 {
 entry:
   %rl.i = alloca %struct.rlimit, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rl.i)
@@ -2271,7 +2271,7 @@ return:                                           ; preds = %if.end6, %if.then5,
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal noalias noundef nonnull ptr @faulthandler_sigabrt(ptr nocapture readnone %self, ptr nocapture readnone %args) #4 {
+define internal noalias noundef nonnull ptr @faulthandler_sigabrt(ptr readnone captures(none) %self, ptr readnone captures(none) %args) #4 {
 entry:
   tail call fastcc void @faulthandler_suppress_crash_report()
   tail call void @abort() #18
@@ -2279,7 +2279,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @faulthandler_sigfpe(ptr nocapture readnone %self, ptr nocapture readnone %args) #0 {
+define internal ptr @faulthandler_sigfpe(ptr readnone captures(none) %self, ptr readnone captures(none) %args) #0 {
 entry:
   %rl.i = alloca %struct.rlimit, align 8
   %x = alloca i32, align 4
@@ -2311,7 +2311,7 @@ faulthandler_suppress_crash_report.exit:          ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @faulthandler_stack_overflow(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noalias noundef ptr @faulthandler_stack_overflow(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %rl.i = alloca %struct.rlimit, align 8
   %depth = alloca i64, align 8
@@ -2349,7 +2349,7 @@ faulthandler_suppress_crash_report.exit:          ; preds = %entry, %if.then.i
 declare i32 @PyArg_ParseTupleAndKeywords(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @faulthandler_get_fileno(ptr nocapture noundef nonnull %file_ptr) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @faulthandler_get_fileno(ptr noundef nonnull captures(none) %file_ptr) unnamed_addr #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
   %0 = load ptr, ptr %file_ptr, align 8
@@ -2548,7 +2548,7 @@ if.then9:                                         ; preds = %faulthandler_disabl
   %name = getelementptr inbounds nuw i8, ptr %arrayidx.lcssa, i64 8
   %6 = load ptr, ptr %name, align 8
   %call12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #17
-  %call13 = tail call i64 @_Py_write_noraise(i32 noundef %0, ptr noundef %6, i64 noundef %call12) #16
+  %call13 = tail call i64 @_Py_write_noraise(i32 noundef %0, ptr noundef nonnull %6, i64 noundef %call12) #16
   %call14 = tail call i64 @_Py_write_noraise(i32 noundef %0, ptr noundef nonnull @.str.44, i64 noundef 2) #16
   br label %if.end22
 
@@ -2618,10 +2618,10 @@ declare ptr @__errno_location() local_unnamed_addr #6
 declare i64 @_Py_write_noraise(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 declare void @_Py_DumpExtensionModules(i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2649,7 +2649,7 @@ declare i32 @PyThread_acquire_lock(ptr noundef, i32 noundef) local_unnamed_addr 
 declare i64 @PyThread_start_new_thread(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @faulthandler_thread(ptr nocapture readnone %unused) #0 {
+define internal void @faulthandler_thread(ptr readnone captures(none) %unused) #0 {
 entry:
   %set = alloca %struct.__sigset_t, align 8
   %call = call i32 @sigfillset(ptr noundef nonnull %set) #16
@@ -2717,7 +2717,7 @@ declare void @_exit(i32 noundef) local_unnamed_addr #9
 declare ptr @PyMem_Calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -2827,7 +2827,7 @@ declare ptr @PyEval_SaveThread() local_unnamed_addr #1
 declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal void @faulthandler_fatal_error_thread(ptr nocapture readnone %plock) #11 {
+define internal void @faulthandler_fatal_error_thread(ptr readnone captures(none) %plock) #11 {
 entry:
   tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__.faulthandler_fatal_error_thread, ptr noundef nonnull @.str.65) #18
   unreachable
@@ -2840,7 +2840,7 @@ declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #9
 declare void @abort() local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc i64 @stack_overflow(i64 noundef range(i64 0, -104857600) %min_sp, i64 noundef range(i64 104857600, 0) %max_sp, ptr nocapture noundef nonnull %depth) unnamed_addr #13 {
+define internal fastcc i64 @stack_overflow(i64 noundef range(i64 0, -104857600) %min_sp, i64 noundef range(i64 104857600, 0) %max_sp, ptr noundef nonnull captures(none) %depth) unnamed_addr #13 {
 entry:
   %buffer = alloca [4096 x i8], align 16
   %0 = ptrtoint ptr %buffer to i64
@@ -2865,7 +2865,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @PyExec_faulthandler(ptr nocapture readnone %module) #14 {
+define internal noundef i32 @PyExec_faulthandler(ptr readnone captures(none) %module) #14 {
 entry:
   ret i32 0
 }
@@ -2875,10 +2875,10 @@ declare ptr @_PyImport_GetModuleAttrString(ptr noundef, ptr noundef) local_unnam
 declare ptr @PyObject_CallNoArgs(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

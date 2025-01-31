@@ -346,7 +346,7 @@ define internal fastcc ptr @biovec_slab(i16 noundef zeroext %0) unnamed_addr #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @bvec_alloc(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local ptr @bvec_alloc(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load i16, ptr %1, align 2
   %5 = tail call fastcc ptr @biovec_slab(i16 noundef zeroext %4)
   %6 = icmp eq ptr %5, null
@@ -394,10 +394,10 @@ define dso_local ptr @bvec_alloc(ptr noundef %0, ptr nocapture noundef %1, i32 n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local noalias ptr @kmem_cache_alloc(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -406,7 +406,7 @@ declare dso_local noalias ptr @kmem_cache_alloc(ptr noundef, i32 noundef) local_
 declare dso_local noalias ptr @mempool_alloc(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bio_uninit(ptr nocapture noundef %0) #0 align 16 {
+define dso_local void @bio_uninit(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -557,10 +557,10 @@ define dso_local void @bio_reset(ptr noundef initializes((0, 72), (80, 98)) %0, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bio_chain(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local void @bio_chain(ptr noundef captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1288,7 +1288,7 @@ define dso_local noalias ptr @bio_kmalloc(i16 noundef zeroext %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @zero_fill_bio_iter(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly byval(%struct.bvec_iter) align 8 %1) #4 align 16 {
+define dso_local void @zero_fill_bio_iter(ptr noundef readonly captures(none) %0, ptr noundef readonly byval(%struct.bvec_iter) align 8 captures(none) %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -1366,10 +1366,10 @@ define dso_local void @zero_fill_bio_iter(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @guard_bio_eod(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @guard_bio_eod(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1403,7 +1403,7 @@ define dso_local void @guard_bio_eod(ptr nocapture noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @bio_truncate(ptr nocapture noundef %0, i32 noundef range(i32 0, -1023) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @bio_truncate(ptr noundef captures(none) %0, i32 noundef range(i32 0, -1023) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp ugt i32 %4, %1
@@ -1990,7 +1990,7 @@ define dso_local noundef i32 @bio_init_clone(ptr noundef %0, ptr noundef initial
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef zeroext i1 @bvec_try_merge_hw_page(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #6 align 16 {
+define dso_local noundef zeroext i1 @bvec_try_merge_hw_page(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #6 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load i64, ptr %7, align 8
   %9 = load ptr, ptr %1, align 8
@@ -2060,7 +2060,7 @@ define dso_local noundef zeroext i1 @bvec_try_merge_hw_page(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, -511) i32 @bio_add_hw_page(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, -511) i32 @bio_add_hw_page(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 align 16 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %9 = load i16, ptr %8, align 4
   %10 = and i16 %9, 2
@@ -2222,7 +2222,7 @@ define dso_local range(i32 0, -511) i32 @bio_add_hw_page(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, -511) i32 @bio_add_pc_page(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local range(i32 0, -511) i32 @bio_add_pc_page(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #17
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -2233,7 +2233,7 @@ define dso_local range(i32 0, -511) i32 @bio_add_pc_page(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @bio_add_zone_append_page(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 %2, i32 %3) #0 align 16 {
+define dso_local noundef i32 @bio_add_zone_append_page(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 255
@@ -2257,7 +2257,7 @@ define dso_local noundef i32 @bio_add_zone_append_page(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__bio_add_page(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local void @__bio_add_page(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i16, ptr %5, align 4
   %7 = and i16 %6, 2
@@ -2314,7 +2314,7 @@ define dso_local void @__bio_add_page(ptr nocapture noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @bio_add_page(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local noundef i32 @bio_add_page(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i16, ptr %5, align 4
   %7 = and i16 %6, 2
@@ -2419,7 +2419,7 @@ define dso_local noundef i32 @bio_add_page(ptr nocapture noundef %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bio_add_folio_nofail(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local void @bio_add_folio_nofail(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = icmp ugt i64 %2, 4294967295
   br i1 %5, label %6, label %7, !prof !6
 
@@ -2498,7 +2498,7 @@ define dso_local void @bio_add_folio_nofail(ptr nocapture noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @bio_add_folio(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 align 16 {
+define dso_local noundef zeroext i1 @bio_add_folio(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 align 16 {
   %5 = or i64 %3, %2
   %6 = icmp ult i64 %5, 4294967296
   br i1 %6, label %7, label %12
@@ -2516,7 +2516,7 @@ define dso_local noundef zeroext i1 @bio_add_folio(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__bio_release_pages(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 align 16 {
+define dso_local void @__bio_release_pages(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) #0 align 16 {
   %3 = alloca %struct.folio_iter, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2738,7 +2738,7 @@ declare dso_local zeroext i1 @folio_mark_dirty(ptr noundef) local_unnamed_addr #
 declare dso_local void @folio_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @bio_next_folio(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #7 align 16 {
+define internal fastcc void @bio_next_folio(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2922,7 +2922,7 @@ define internal fastcc void @bio_next_folio(ptr nocapture noundef initializes((0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bio_iov_bvec_set(ptr nocapture noundef initializes((40, 44), (48, 52), (96, 98), (104, 112)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @bio_iov_bvec_set(ptr noundef captures(none) initializes((40, 44), (48, 52), (96, 98), (104, 112)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 98
@@ -2985,7 +2985,7 @@ define dso_local void @bio_iov_bvec_set(ptr nocapture noundef initializes((40, 4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @bio_iov_iter_get_pages(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local i32 @bio_iov_iter_get_pages(ptr noundef captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -3470,7 +3470,7 @@ define dso_local i32 @submit_bio_wait(ptr noundef initializes((56, 72)) %0) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @submit_bio_wait_endio(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @submit_bio_wait_endio(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   tail call void @complete(ptr noundef %3) #17
@@ -3484,7 +3484,7 @@ declare dso_local void @wait_for_completion_io(ptr noundef) local_unnamed_addr #
 declare dso_local i32 @blk_status_to_errno(i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__bio_advance(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local void @__bio_advance(ptr noundef captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = lshr i32 %1, 9
   %5 = zext nneg i32 %4 to i64
@@ -3573,7 +3573,7 @@ define dso_local void @__bio_advance(ptr nocapture noundef %0, i32 noundef %1) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @bio_copy_data_iter(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) #4 align 16 {
+define dso_local void @bio_copy_data_iter(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) #4 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i32, ptr %6, align 1
@@ -3739,7 +3739,7 @@ define dso_local void @bio_copy_data_iter(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @bio_copy_data(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 align 16 {
+define dso_local void @bio_copy_data(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 align 16 {
   %3 = alloca %struct.bvec_iter, align 1
   %4 = alloca %struct.bvec_iter, align 1
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #17
@@ -3755,7 +3755,7 @@ define dso_local void @bio_copy_data(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bio_free_pages(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @bio_free_pages(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load i16, ptr %2, align 8
@@ -3813,7 +3813,7 @@ define dso_local void @bio_free_pages(ptr nocapture noundef readonly %0) #0 alig
 declare dso_local void @__free_pages(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bio_set_pages_dirty(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @bio_set_pages_dirty(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = alloca %struct.folio_iter, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #17
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -4459,7 +4459,7 @@ define dso_local ptr @bio_split(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bio_trim(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
+define dso_local void @bio_trim(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = or i64 %2, %1
   %5 = icmp ult i64 %4, 8388608
   br i1 %5, label %6, label %13
@@ -4933,7 +4933,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #1
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @bio_dirty_fn(ptr nocapture readnone %0) #0 align 16 {
+define internal void @bio_dirty_fn(ptr readnone captures(none) %0) #0 align 16 {
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @bio_dirty_lock) #17
   %2 = load ptr, ptr @bio_dirty_list, align 8
   store ptr null, ptr @bio_dirty_list, align 8
@@ -5092,7 +5092,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 declare dso_local void @submit_bio_noacct(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @kmem_cache_create(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

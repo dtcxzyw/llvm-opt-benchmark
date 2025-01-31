@@ -99,7 +99,7 @@ declare void @CRYPTO_secure_clear_free(ptr noundef, i64 noundef, ptr noundef, i3
 declare void @ossl_prov_cipher_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_mac_key_up_ref(ptr nocapture noundef %mackey) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_mac_key_up_ref(ptr noundef captures(none) %mackey) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #6
   %tobool.not = icmp eq i32 %call, 0
@@ -187,7 +187,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @mac_gettable_params(ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @mac_gettable_params(ptr readnone captures(none) %provctx) #2 {
 entry:
   ret ptr @mac_gettable_params.gettable_params
 }
@@ -213,7 +213,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @mac_settable_params(ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @mac_settable_params(ptr readnone captures(none) %provctx) #2 {
 entry:
   ret ptr @mac_settable_params.settable_params
 }
@@ -245,7 +245,7 @@ if.end4:                                          ; preds = %if.then, %if.then2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @mac_match(ptr nocapture noundef readonly %keydata1, ptr nocapture noundef readonly %keydata2, i32 noundef %selection) #0 {
+define internal range(i32 0, 2) i32 @mac_match(ptr noundef readonly captures(none) %keydata1, ptr noundef readonly captures(none) %keydata2, i32 noundef %selection) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #6
   %tobool.not = icmp eq i32 %call, 0
@@ -368,7 +368,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mac_export(ptr noundef %keydata, i32 noundef %selection, ptr nocapture noundef readonly %param_cb, ptr noundef %cbarg) #0 {
+define internal i32 @mac_export(ptr noundef %keydata, i32 noundef %selection, ptr noundef readonly captures(none) %param_cb, ptr noundef %cbarg) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #6
   %tobool = icmp eq i32 %call, 0
@@ -516,13 +516,13 @@ return:                                           ; preds = %if.end, %if.end10, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @mac_gen_settable_params(ptr nocapture readnone %genctx, ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @mac_gen_settable_params(ptr readnone captures(none) %genctx, ptr readnone captures(none) %provctx) #2 {
 entry:
   ret ptr @mac_gen_settable_params.settable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @mac_gen(ptr noundef %genctx, ptr nocapture readnone %cb, ptr nocapture readnone %cbarg) #0 {
+define internal ptr @mac_gen(ptr noundef %genctx, ptr readnone captures(none) %cb, ptr readnone captures(none) %cbarg) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #6
   %tobool = icmp eq i32 %call, 0
@@ -692,7 +692,7 @@ ossl_mac_key_new.exit:                            ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @cmac_gettable_params(ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @cmac_gettable_params(ptr readnone captures(none) %provctx) #2 {
 entry:
   ret ptr @cmac_gettable_params.gettable_params
 }
@@ -798,7 +798,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @cmac_gen_settable_params(ptr nocapture readnone %genctx, ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @cmac_gen_settable_params(ptr readnone captures(none) %genctx, ptr readnone captures(none) %provctx) #2 {
 entry:
   ret ptr @cmac_gen_settable_params.settable
 }
@@ -975,7 +975,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare noalias ptr @CRYPTO_secure_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -996,7 +996,7 @@ declare void @OSSL_PARAM_BLD_free(ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_prov_cipher_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #5

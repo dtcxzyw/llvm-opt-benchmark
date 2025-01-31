@@ -52,7 +52,7 @@ define dso_local ptr @ResourceOwnerCreate(ptr noundef %0, ptr noundef %1) local_
 declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ResourceOwnerEnlarge(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ResourceOwnerEnlarge(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -251,7 +251,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ResourceOwnerRemember(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @ResourceOwnerRemember(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 35
   %5 = load i8, ptr %4, align 1
   %6 = icmp ugt i8 %5, 31
@@ -277,7 +277,7 @@ define dso_local void @ResourceOwnerRemember(ptr nocapture noundef %0, i64 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ResourceOwnerForget(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @ResourceOwnerForget(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -409,7 +409,7 @@ define dso_local void @ResourceOwnerForget(ptr nocapture noundef %0, i64 noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ResourceOwnerRelease(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
@@ -621,7 +621,7 @@ ResourceOwnerSort.exit:                           ; preds = %22, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ResourceOwnerReleaseAllOfKind(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ResourceOwnerReleaseAllOfKind(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -857,7 +857,7 @@ define dso_local void @ResourceOwnerNewParent(ptr noundef %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @ResourceOwnerGetParent(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local ptr @ResourceOwnerGetParent(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
@@ -963,7 +963,7 @@ define dso_local void @ReleaseAuxProcessResources(i1 noundef zeroext %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @ResourceOwnerRememberLock(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #6 {
+define dso_local void @ResourceOwnerRememberLock(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
   %5 = icmp ugt i8 %4, 15
@@ -990,7 +990,7 @@ define dso_local void @ResourceOwnerRememberLock(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ResourceOwnerForgetLock(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @ResourceOwnerForgetLock(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
   %5 = icmp ugt i8 %4, 15
@@ -1037,7 +1037,7 @@ define dso_local void @ResourceOwnerForgetLock(ptr nocapture noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ResourceOwnerReleaseAll(ptr nocapture noundef %0, i32 noundef range(i32 1, 4) %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @ResourceOwnerReleaseAll(ptr noundef captures(none) %0, i32 noundef range(i32 1, 4) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
@@ -1170,7 +1170,7 @@ declare void @LockReleaseCurrentOwner(ptr noundef, i32 noundef) local_unnamed_ad
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @resource_priority_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 -1, 2) i32 @resource_priority_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8

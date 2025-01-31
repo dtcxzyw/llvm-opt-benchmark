@@ -229,7 +229,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit6:                   ; preds = %_ZNSt6vectorIdSaIdE
 declare void @_ZN19OpenColorIO_v2_4dev6OpDataC2Ev(ptr noundef nonnull align 8 dereferenceable(168)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev9LogOpData13setParametersERA3_KdS3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(252) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %logSlope, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %logOffset, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %linSlope, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %linOffset) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev9LogOpData13setParametersERA3_KdS3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(252) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %logSlope, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %logOffset, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %linSlope, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %linOffset) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_redParams = getelementptr inbounds nuw i8, ptr %this, i64 168
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
@@ -380,7 +380,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit30:             ; preds = %if.then.i28, %if.el
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev9LogOpDataC2EdRA3_KdS3_S3_S3_NS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(252) %this, double noundef %base, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %logSlope, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %logOffset, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %linSlope, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %linOffset, i32 noundef %direction) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev9LogOpDataC2EdRA3_KdS3_S3_S3_NS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(252) %this, double noundef %base, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %logSlope, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %logOffset, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %linSlope, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %linOffset, i32 noundef %direction) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev6OpDataC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev9LogOpDataE, i64 16), ptr %this, align 8
@@ -435,7 +435,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit6:                   ; preds = %_ZNSt6vectorIdSaIdE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev9LogOpDataC2EdRKSt6vectorIdSaIdEES5_S5_NS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(252) %this, double noundef %base, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %redParams, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %greenParams, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %blueParams, i32 noundef %dir) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev9LogOpDataC2EdRKSt6vectorIdSaIdEES5_S5_NS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(252) %this, double noundef %base, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %redParams, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %greenParams, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %blueParams, i32 noundef %dir) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev6OpDataC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev9LogOpDataE, i64 16), ptr %this, align 8
@@ -713,7 +713,7 @@ declare void @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev(ptr noundef nonnull align 8
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev9LogOpData7setBaseEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(252) initializes((240, 248)) %this, double noundef %base) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev9LogOpData7setBaseEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(252) initializes((240, 248)) %this, double noundef %base) local_unnamed_addr #5 align 2 {
 entry:
   %m_base = getelementptr inbounds nuw i8, ptr %this, i64 240
   store double %base, ptr %m_base, align 8
@@ -721,7 +721,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef double @_ZNK19OpenColorIO_v2_4dev9LogOpData7getBaseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(252) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef double @_ZNK19OpenColorIO_v2_4dev9LogOpData7getBaseEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(252) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_base = getelementptr inbounds nuw i8, ptr %this, i64 240
   %0 = load double, ptr %m_base, align 8
@@ -729,7 +729,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev9LogOpData8setValueENS_18LogAffineParameterERA3_Kd(ptr noundef nonnull align 8 dereferenceable(252) %this, i32 noundef %val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %values) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev9LogOpData8setValueENS_18LogAffineParameterERA3_Kd(ptr noundef nonnull align 8 dereferenceable(252) %this, i32 noundef %val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %values) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %val, label %if.end20 [
     i32 4, label %if.then
@@ -1009,7 +1009,7 @@ if.end:                                           ; preds = %invoke.cont.i.i27, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev9LogOpData8getValueENS_18LogAffineParameterERA3_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(252) %this, i32 noundef %val, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %values) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev9LogOpData8getValueENS_18LogAffineParameterERA3_d(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(252) %this, i32 noundef %val, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %values) local_unnamed_addr #7 align 2 {
 entry:
   %conv = zext i32 %val to i64
   %m_redParams = getelementptr inbounds nuw i8, ptr %this, i64 168
@@ -1046,7 +1046,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev9LogOpData13getParametersERA3_dS2_S2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(252) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %logSlope, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %logOffset, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %linSlope, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %linOffset) local_unnamed_addr #7 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev9LogOpData13getParametersERA3_dS2_S2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(252) %this, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %logSlope, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %logOffset, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %linSlope, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %linOffset) local_unnamed_addr #7 align 2 {
 entry:
   %m_redParams.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
@@ -1236,7 +1236,7 @@ _ZN19OpenColorIO_v2_4dev9LogOpDataD2Ev.exit:      ; preds = %_ZNSt6vectorIdSaIdE
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev9LogOpData8validateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(252) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev9LogOpData8validateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(252) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1430,7 +1430,7 @@ unreachable:                                      ; preds = %invoke.cont47, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ValidateParamsERKSt6vectorIdSaIdEENS_18TransformDirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %params) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ValidateParamsERKSt6vectorIdSaIdEENS_18TransformDirectionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %params) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1644,13 +1644,13 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev9LogOpData10isIdentityEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev9LogOpData10isIdentityEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev9LogOpData22getIdentityReplacementEv(ptr noalias sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(252) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev9LogOpData22getIdentityReplacementEv(ptr noalias sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(252) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   %m_redParams.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
@@ -1986,7 +1986,7 @@ nrvo.skipdtor:                                    ; preds = %nrvo.skipdtor.sink.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev9LogOpData6isLog2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(252) %this) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev9LogOpData6isLog2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(252) %this) local_unnamed_addr #11 align 2 {
 entry:
   %m_redParams.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %m_greenParams.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -2086,7 +2086,7 @@ _ZNK19OpenColorIO_v2_4dev9LogOpData9isLogBaseEd.exit: ; preds = %land.lhs.true14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev9LogOpData7isLog10Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(252) %this) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev9LogOpData7isLog10Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(252) %this) local_unnamed_addr #11 align 2 {
 entry:
   %m_redParams.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %m_greenParams.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -2188,7 +2188,7 @@ _ZNK19OpenColorIO_v2_4dev9LogOpData9isLogBaseEd.exit: ; preds = %land.lhs.true14
 declare noundef double @_ZN19OpenColorIO_v2_4dev11RangeOpData10EmptyValueEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev9LogOpData8isCameraEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(252) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev9LogOpData8isCameraEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(252) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_redParams = getelementptr inbounds nuw i8, ptr %this, i64 168
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 176
@@ -2282,7 +2282,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev6OpDataELN9__gnu_cxx12_Lock_policyE2EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev9LogOpData6isNoOpEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev9LogOpData6isNoOpEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 {
 entry:
   ret i1 false
 }
@@ -2583,7 +2583,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsI
 declare noundef ptr @_ZN19OpenColorIO_v2_4dev26TransformDirectionToStringENS_18TransformDirectionE(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev9LogOpData13getBaseStringB5cxx11El(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(252) %this, i64 noundef %precision) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev9LogOpData13getBaseStringB5cxx11El(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(252) %this, i64 noundef %precision) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %o = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %o)
@@ -2999,7 +2999,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont
 declare noundef i32 @_ZN19OpenColorIO_v2_4dev28GetInverseTransformDirectionENS_18TransformDirectionE(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev9LogOpData9isInverseERSt10shared_ptrIKS0_E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(252) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %log) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev9LogOpData9isInverseERSt10shared_ptrIKS0_E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(252) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %log) local_unnamed_addr #3 align 2 {
 entry:
   %m_direction = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load i32, ptr %m_direction, align 8
@@ -3194,7 +3194,7 @@ return:                                           ; preds = %land.lhs.true13, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(252) %this) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev9LogOpData18allComponentsEqualEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(252) %this) local_unnamed_addr #11 align 2 {
 entry:
   %m_redParams = getelementptr inbounds nuw i8, ptr %this, i64 168
   %m_greenParams = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -4189,7 +4189,7 @@ unreachable:                                      ; preds = %invoke.cont27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev9LogOpData11isSimpleLogEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(252) %this) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev9LogOpData11isSimpleLogEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(252) %this) local_unnamed_addr #11 align 2 {
 entry:
   %m_redParams.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %m_greenParams.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -4285,7 +4285,7 @@ return:                                           ; preds = %land.lhs.true14, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev9LogOpData9isLogBaseEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(252) %this, double noundef %base) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev9LogOpData9isLogBaseEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(252) %this, double noundef %base) local_unnamed_addr #11 align 2 {
 entry:
   %m_redParams.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %m_greenParams.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -4420,7 +4420,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #12
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4589,7 +4589,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 declare void @_ZN19OpenColorIO_v2_4dev11RangeOpDataC1Edddd(ptr noundef nonnull align 8 dereferenceable(228), double noundef, double noundef, double noundef, double noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #8 comdat align 2 {
@@ -4738,7 +4738,7 @@ entry:
 declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19
@@ -4750,10 +4750,10 @@ declare i64 @llvm.umin.i64(i64, i64) #19
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

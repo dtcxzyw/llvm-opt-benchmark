@@ -137,7 +137,7 @@ $_ZTIN8QuantLib10ObservableE = comdat any
 @_ZN8QuantLib14MfStateProcessC1EdRKNS_5ArrayES3_ = unnamed_addr alias void (ptr, double, ptr, ptr), ptr @_ZN8QuantLib14MfStateProcessC2EdRKNS_5ArrayES3_
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -222,7 +222,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -1064,19 +1064,19 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef double @_ZNK8QuantLib14MfStateProcess2x0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define noundef double @_ZNK8QuantLib14MfStateProcess2x0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 {
 entry:
   ret double 0.000000e+00
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef double @_ZNK8QuantLib14MfStateProcess5driftEdd(ptr nocapture nonnull readnone align 8 %this, double %0, double %1) unnamed_addr #10 align 2 {
+define noundef double @_ZNK8QuantLib14MfStateProcess5driftEdd(ptr nonnull readnone align 8 captures(none) %this, double %0, double %1) unnamed_addr #10 align 2 {
 entry:
   ret double 0.000000e+00
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef double @_ZNK8QuantLib14MfStateProcess9diffusionEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, double noundef %t, double %0) unnamed_addr #11 align 2 {
+define noundef double @_ZNK8QuantLib14MfStateProcess9diffusionEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, double noundef %t, double %0) unnamed_addr #11 align 2 {
 entry:
   %times_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %1 = load ptr, ptr %times_, align 8, !tbaa !54
@@ -1115,7 +1115,7 @@ _ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit:        ; preds = %while.body.i.i, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef double @_ZNK8QuantLib14MfStateProcess11expectationEddd(ptr nocapture nonnull readnone align 8 %this, double %0, double noundef returned %x0, double %dt) unnamed_addr #10 align 2 {
+define noundef double @_ZNK8QuantLib14MfStateProcess11expectationEddd(ptr nonnull readnone align 8 captures(none) %this, double %0, double noundef returned %x0, double %dt) unnamed_addr #10 align 2 {
 entry:
   ret double %x0
 }
@@ -1135,7 +1135,7 @@ entry:
 declare double @sqrt(double noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define noundef double @_ZNK8QuantLib14MfStateProcess8varianceEddd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, double noundef %t, double %0, double noundef %dt) unnamed_addr #13 align 2 {
+define noundef double @_ZNK8QuantLib14MfStateProcess8varianceEddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, double noundef %t, double %0, double noundef %dt) unnamed_addr #13 align 2 {
 entry:
   %cmp = fcmp olt double %dt, 0x3CB0000000000000
   br i1 %cmp, label %return, label %if.end
@@ -1980,7 +1980,7 @@ _ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #18
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #18
 
 ; Function Attrs: nounwind
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #19
@@ -2218,7 +2218,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #21
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #23
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #23
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #7
 
@@ -2234,7 +2234,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_
 declare void @llvm.assume(i1 noundef) #24
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #25
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #26

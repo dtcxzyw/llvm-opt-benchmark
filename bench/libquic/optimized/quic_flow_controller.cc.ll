@@ -39,7 +39,7 @@ $__clang_call_terminate = comdat any
 @_ZN3net18QuicFlowControllerC1EPNS_14QuicConnectionEjNS_11PerspectiveEmmb = dso_local unnamed_addr alias void (ptr, ptr, i32, i32, i64, i64, i1), ptr @_ZN3net18QuicFlowControllerC2EPNS_14QuicConnectionEjNS_11PerspectiveEmmb
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net18QuicFlowControllerC2EPNS_14QuicConnectionEjNS_11PerspectiveEmmb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 73), (80, 96)) %this, ptr noundef %connection, i32 noundef %id, i32 noundef %perspective, i64 noundef %send_window_offset, i64 noundef %receive_window_offset, i1 noundef zeroext %should_auto_tune_receive_window) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net18QuicFlowControllerC2EPNS_14QuicConnectionEjNS_11PerspectiveEmmb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((0, 73), (80, 96)) %this, ptr noundef %connection, i32 noundef %id, i32 noundef %perspective, i64 noundef %send_window_offset, i64 noundef %receive_window_offset, i1 noundef zeroext %should_auto_tune_receive_window) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %should_auto_tune_receive_window to i8
   store ptr %connection, ptr %this, align 8
@@ -69,7 +69,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net18QuicFlowController16AddBytesConsumedEm(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %bytes_consumed) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net18QuicFlowController16AddBytesConsumedEm(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this, i64 noundef %bytes_consumed) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bytes_consumed_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %bytes_consumed_, align 8
@@ -152,7 +152,7 @@ _ZN3net18QuicFlowController21MaybeSendWindowUpdateEv.exit: ; preds = %entry, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net18QuicFlowController21MaybeSendWindowUpdateEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net18QuicFlowController21MaybeSendWindowUpdateEv(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %receive_window_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load i64, ptr %receive_window_offset_, align 8
@@ -233,7 +233,7 @@ return:                                           ; preds = %if.end, %_ZN3net18Q
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN3net18QuicFlowController27UpdateHighestReceivedOffsetEm(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %new_offset) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN3net18QuicFlowController27UpdateHighestReceivedOffsetEm(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this, i64 noundef %new_offset) local_unnamed_addr #2 align 2 {
 entry:
   %highest_received_byte_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %highest_received_byte_offset_, align 8
@@ -249,7 +249,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net18QuicFlowController12AddBytesSentEm(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %bytes_sent) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net18QuicFlowController12AddBytesSentEm(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this, i64 noundef %bytes_sent) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp34 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -433,7 +433,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN3net18QuicFlowController20FlowControlViolationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZN3net18QuicFlowController20FlowControlViolationEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this) local_unnamed_addr #5 align 2 {
 entry:
   %highest_received_byte_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %highest_received_byte_offset_, align 8
@@ -444,7 +444,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %clock_.i = getelementptr inbounds nuw i8, ptr %0, i64 480
@@ -499,7 +499,7 @@ if.end33:                                         ; preds = %if.end26, %if.end15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i64 0, -9223372036854775808) i64 @_ZN3net18QuicFlowController21WindowUpdateThresholdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #5 align 2 {
+define dso_local noundef range(i64 0, -9223372036854775808) i64 @_ZN3net18QuicFlowController21WindowUpdateThresholdEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this) local_unnamed_addr #5 align 2 {
 entry:
   %receive_window_size_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i64, ptr %receive_window_size_, align 8
@@ -508,7 +508,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net18QuicFlowController16MaybeSendBlockedEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN3net18QuicFlowController16MaybeSendBlockedEv(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this) local_unnamed_addr #1 align 2 {
 entry:
   %bytes_sent_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %bytes_sent_.i, align 8
@@ -540,7 +540,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK3net18QuicFlowController14SendWindowSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #5 align 2 {
+define dso_local noundef i64 @_ZNK3net18QuicFlowController14SendWindowSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this) local_unnamed_addr #5 align 2 {
 entry:
   %bytes_sent_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %bytes_sent_, align 8
@@ -551,7 +551,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN3net18QuicFlowController22UpdateSendWindowOffsetEm(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %new_send_window_offset) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN3net18QuicFlowController22UpdateSendWindowOffsetEm(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this, i64 noundef %new_send_window_offset) local_unnamed_addr #2 align 2 {
 entry:
   %send_window_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %send_window_offset_, align 8
@@ -571,7 +571,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK3net18QuicFlowController9IsBlockedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3net18QuicFlowController9IsBlockedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this) local_unnamed_addr #5 align 2 {
 entry:
   %bytes_sent_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %bytes_sent_.i, align 8
@@ -582,7 +582,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net18QuicFlowController23UpdateReceiveWindowSizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %size) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net18QuicFlowController23UpdateReceiveWindowSizeEm(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this, i64 noundef %size) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.logging::LogMessage", align 8
   %receive_window_size_ = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -695,7 +695,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #3
 
@@ -750,7 +750,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12

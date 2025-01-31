@@ -137,7 +137,7 @@ $_ZTV32ShenandoahReferenceProcessorTask = comdat any
 @_ZN28ShenandoahReferenceProcessorC1Ej = hidden unnamed_addr alias void (ptr, i32), ptr @_ZN28ShenandoahReferenceProcessorC2Ej
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN28ShenandoahRefProcThreadLocalC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 8), (16, 136)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN28ShenandoahRefProcThreadLocalC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(136) initializes((0, 8), (16, 136)) %0) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 120, i1 false)
@@ -145,22 +145,22 @@ define hidden void @_ZN28ShenandoahRefProcThreadLocalC2Ev(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN28ShenandoahRefProcThreadLocal5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 136)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN28ShenandoahRefProcThreadLocal5resetEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(136) initializes((0, 136)) %0) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, i8 0, i64 136, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK28ShenandoahRefProcThreadLocal20discovered_list_headIP7oopDescEES2_v(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK28ShenandoahRefProcThreadLocal20discovered_list_headIP7oopDescEES2_v(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK28ShenandoahRefProcThreadLocal20discovered_list_headI9narrowOopEEP7oopDescv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK28ShenandoahRefProcThreadLocal20discovered_list_headI9narrowOopEEP7oopDescv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0) local_unnamed_addr #3 align 2 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 0
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
@@ -176,7 +176,7 @@ define hidden noundef ptr @_ZNK28ShenandoahRefProcThreadLocal20discovered_list_h
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN28ShenandoahRefProcThreadLocal24set_discovered_list_headI9narrowOopEEvP7oopDesc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 4)) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN28ShenandoahRefProcThreadLocal24set_discovered_list_headI9narrowOopEEvP7oopDesc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(136) initializes((0, 4)) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
   %3 = icmp eq ptr %1, null
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %5 = ptrtoint ptr %1 to i64
@@ -192,7 +192,7 @@ define hidden void @_ZN28ShenandoahRefProcThreadLocal24set_discovered_list_headI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN28ShenandoahRefProcThreadLocal24set_discovered_list_headIP7oopDescEEvS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN28ShenandoahRefProcThreadLocal24set_discovered_list_headIP7oopDescEEvS2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(136) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }
@@ -234,7 +234,7 @@ define hidden void @_ZN28ShenandoahReferenceProcessorC2Ej(ptr noundef nonnull al
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28ShenandoahReferenceProcessor19reset_thread_localsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN28ShenandoahReferenceProcessor19reset_thread_localsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #5 align 2 {
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %3 = tail call noundef i32 @_ZN14ShenandoahHeap11max_workersEv(ptr noundef nonnull align 8 dereferenceable(2657) %2) #14
   %.not = icmp eq i32 %3, 0
@@ -261,7 +261,7 @@ define hidden void @_ZN28ShenandoahReferenceProcessor19reset_thread_localsEv(ptr
 declare noundef i32 @_ZN14ShenandoahHeap11max_workersEv(ptr noundef nonnull align 8 dereferenceable(2657)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN28ShenandoahReferenceProcessor16set_mark_closureEjP30ShenandoahMarkRefsSuperClosure(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN28ShenandoahReferenceProcessor16set_mark_closureEjP30ShenandoahMarkRefsSuperClosure(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #7 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
@@ -271,7 +271,7 @@ define hidden void @_ZN28ShenandoahReferenceProcessor16set_mark_closureEjP30Shen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28ShenandoahReferenceProcessor25set_soft_reference_policyEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((8, 16)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN28ShenandoahReferenceProcessor25set_soft_reference_policyEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((8, 16)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = load atomic i8, ptr @_ZGVZN28ShenandoahReferenceProcessor25set_soft_reference_policyEbE19lru_max_heap_policy acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %8, !prof !9
@@ -327,7 +327,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_126ELS1_0ELS1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK28ShenandoahReferenceProcessor16is_strongly_liveEP7oopDesc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK28ShenandoahReferenceProcessor16is_strongly_liveEP7oopDesc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2248
   %5 = load ptr, ptr %4, align 8
@@ -368,7 +368,7 @@ _ZNK24ShenandoahMarkingContext16is_marked_strongEP7oopDesc.exit: ; preds = %2, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZNK28ShenandoahReferenceProcessor14is_softly_liveEP7oopDesc13ReferenceType(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
   %.not = icmp eq i32 %2, 1
   br i1 %.not, label %4, label %12
 
@@ -1849,7 +1849,7 @@ define hidden void @_ZN28ShenandoahReferenceProcessor18process_referencesEN22She
 declare void @_ZN13WorkerThreads8run_taskEP10WorkerTask(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28ShenandoahReferenceProcessor18collect_statisticsEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN28ShenandoahReferenceProcessor18collect_statisticsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #5 align 2 {
   %2 = alloca [5 x i64], align 16
   %3 = alloca [5 x i64], align 16
   %4 = alloca [5 x i64], align 16
@@ -2067,7 +2067,7 @@ _ZN28ShenandoahReferenceProcessor25enqueue_references_lockedEv.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28ShenandoahReferenceProcessor25enqueue_references_lockedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN28ShenandoahReferenceProcessor25enqueue_references_lockedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #5 align 2 {
   %2 = load i8, ptr @UseCompressedOops, align 1
   %3 = trunc i8 %2 to i1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24

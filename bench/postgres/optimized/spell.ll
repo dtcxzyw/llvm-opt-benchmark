@@ -68,7 +68,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.46 = private unnamed_addr constant [5 x i8] c"%s%s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @NIStartBuild(ptr nocapture noundef writeonly initializes((96, 104)) %0) local_unnamed_addr #0 {
+define dso_local void @NIStartBuild(ptr noundef writeonly captures(none) initializes((96, 104)) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @CurTransactionContext, align 8
   %3 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %2, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #15
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -79,7 +79,7 @@ define dso_local void @NIStartBuild(ptr nocapture noundef writeonly initializes(
 declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @NIFinishBuild(ptr nocapture noundef initializes((80, 88), (104, 112), (120, 128)) %0) local_unnamed_addr #0 {
+define dso_local void @NIFinishBuild(ptr noundef captures(none) initializes((80, 88), (104, 112), (120, 128)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   tail call void @MemoryContextDelete(ptr noundef %3) #15
@@ -94,7 +94,7 @@ define dso_local void @NIFinishBuild(ptr nocapture noundef initializes((80, 88),
 declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @NIImportDictionary(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @NIImportDictionary(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.tsearch_readline_state, align 8
   %4 = call zeroext i1 @tsearch_readline_begin(ptr noundef nonnull %3, ptr noundef %1) #15
   br i1 %4, label %.preheader36, label %11
@@ -302,7 +302,7 @@ NIAddSpell.exit:                                  ; preds = %56, %cpstrdup.exit.
   %98 = load i32, ptr %7, align 8
   %99 = add i32 %98, 1
   store i32 %99, ptr %7, align 8
-  call void @pfree(ptr noundef %43) #15
+  call void @pfree(ptr noundef nonnull %43) #15
   call void @pfree(ptr noundef nonnull %15) #15
   %100 = call ptr @tsearch_readline(ptr noundef nonnull %3) #15
   %.not = icmp eq ptr %100, null
@@ -337,7 +337,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 declare void @tsearch_readline_end(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @NIImportAffixes(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @NIImportAffixes(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.CompoundAffixFlag, align 8
   %4 = alloca [8192 x i8], align 16
   %5 = alloca ptr, align 8
@@ -1533,8 +1533,8 @@ getCompoundAffixFlagValue.exit.i:                 ; preds = %getCompoundAffixFla
 501:                                              ; preds = %500, %497
   %502 = or i8 %.0.i94, %.0116194.i
   %503 = zext nneg i8 %.0122191.i to i32
-  call fastcc void @NIAddAffix(ptr noundef nonnull %0, ptr noundef %9, i8 noundef signext %502, ptr noundef %493, ptr noundef %492, ptr noundef %487, i32 noundef %503)
-  call void @pfree(ptr noundef %487) #15
+  call fastcc void @NIAddAffix(ptr noundef nonnull %0, ptr noundef %9, i8 noundef signext %502, ptr noundef %493, ptr noundef %492, ptr noundef nonnull %487, i32 noundef %503)
+  call void @pfree(ptr noundef nonnull %487) #15
   call void @pfree(ptr noundef %492) #15
   call void @pfree(ptr noundef %493) #15
   br label %.tail164.thread.i
@@ -1575,10 +1575,10 @@ NIImportOOAffixes.exit:                           ; preds = %._crit_edge197.thre
 declare ptr @lowerstr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @addCompoundAffixFlagValue(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 1, 33) %2) unnamed_addr #0 {
+define internal fastcc void @addCompoundAffixFlagValue(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef range(i32 1, 33) %2) unnamed_addr #0 {
   %4 = alloca [8192 x i8], align 16
   %5 = load i8, ptr %1, align 1
   %.not48 = icmp eq i8 %5, 0
@@ -1689,10 +1689,10 @@ define internal fastcc void @addCompoundAffixFlagValue(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @NIAddAffix(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1, i8 noundef signext %2, ptr noundef %3, ptr noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
+define internal fastcc void @NIAddAffix(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i8 noundef signext %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef readonly captures(none) %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = alloca [100 x i8], align 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
@@ -1786,7 +1786,7 @@ sub_0:                                            ; preds = %.sub_0_crit_edge, %
   %sext = add i64 %55, 4294967296
   %56 = ashr exact i64 %sext, 30
   %57 = tail call ptr @MemoryContextAlloc(ptr noundef %54, i64 noundef %56) #15
-  %58 = tail call i32 @pg_mb2wchar_with_len(ptr noundef %50, ptr noundef %57, i32 noundef %53) #15
+  %58 = tail call i32 @pg_mb2wchar_with_len(ptr noundef nonnull %50, ptr noundef %57, i32 noundef %53) #15
   %59 = tail call ptr @palloc(i64 noundef 64) #15
   %60 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr %59, ptr %60, align 8
@@ -2280,7 +2280,7 @@ cpstrdup.exit:                                    ; preds = %123, %132
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #6
@@ -2288,12 +2288,12 @@ declare ptr @__errno_location() local_unnamed_addr #6
 declare i32 @t_isdigit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @cmpspellaffix(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal i32 @cmpspellaffix(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -2303,12 +2303,12 @@ define internal i32 @cmpspellaffix(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @cmpspell(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal i32 @cmpspell(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %1, align 8
@@ -2919,7 +2919,7 @@ isAffixInUse.exit.thread:                         ; preds = %50, %.critedge.i, %
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @cmpaffix(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define internal i32 @cmpaffix(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -3373,7 +3373,7 @@ compact_palloc0.exit142:                          ; preds = %179, %187
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mkVoidAffix(ptr nocapture noundef %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mkVoidAffix(ptr noundef captures(none) %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 {
   %4 = select i1 %1, i32 %2, i32 0
   br i1 %1, label %5, label %8
 
@@ -3574,7 +3574,7 @@ addNorm.exit:                                     ; preds = %._crit_edge.i, %14
 26:                                               ; preds = %22
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %28 = trunc i64 %27 to i32
-  %29 = tail call fastcc ptr @SplitToVariants(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef %1, i32 noundef %28, i32 noundef 0, i32 noundef -1)
+  %29 = tail call fastcc ptr @SplitToVariants(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, i32 noundef %28, i32 noundef 0, i32 noundef -1)
   %.not63137 = icmp eq ptr %29, null
   br i1 %.not63137, label %.loopexit, label %.lr.ph143
 
@@ -3594,7 +3594,7 @@ addNorm.exit:                                     ; preds = %._crit_edge.i, %14
   %36 = getelementptr ptr, ptr %34, i64 %35
   %37 = getelementptr i8, ptr %36, i64 -8
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call fastcc ptr @NormalizeSubWord(ptr noundef %0, ptr noundef %38, i32 noundef 8)
+  %39 = tail call fastcc ptr @NormalizeSubWord(ptr noundef nonnull %0, ptr noundef %38, i32 noundef 8)
   %.not64 = icmp eq ptr %39, null
   br i1 %.not64, label %thread-pre-split, label %.preheader107
 
@@ -3806,7 +3806,7 @@ thread-pre-split:                                 ; preds = %._crit_edge129, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @NormalizeSubWord(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 0, 9) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @NormalizeSubWord(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 9) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca [8192 x i8], align 16
   %6 = alloca ptr, align 8
@@ -3828,12 +3828,12 @@ define internal fastcc noundef ptr @NormalizeSubWord(ptr nocapture noundef reado
 18:                                               ; preds = %3
   %19 = tail call ptr @palloc(i64 noundef 8192) #15
   store ptr null, ptr %19, align 8
-  %20 = tail call fastcc i32 @FindWord(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.3, i32 noundef %2)
+  %20 = tail call fastcc i32 @FindWord(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.3, i32 noundef %2)
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = tail call ptr @pstrdup(ptr noundef %1) #15
+  %22 = tail call ptr @pstrdup(ptr noundef nonnull %1) #15
   store ptr %22, ptr %19, align 8
   %23 = getelementptr i8, ptr %19, i64 8
   store ptr null, ptr %23, align 8
@@ -3953,7 +3953,7 @@ FindAffixes.exit.loopexit:                        ; preds = %62
   %72 = load ptr, ptr %70, align 8
   %73 = getelementptr ptr, ptr %72, i64 %indvars.iv
   %74 = load ptr, ptr %73, align 8
-  %75 = call fastcc ptr @CheckAffix(ptr noundef %1, i64 noundef %26, ptr noundef %74, i32 noundef %2, ptr noundef %10, ptr noundef null)
+  %75 = call fastcc ptr @CheckAffix(ptr noundef nonnull %1, i64 noundef %26, ptr noundef %74, i32 noundef %2, ptr noundef %10, ptr noundef null)
   %.not109 = icmp eq ptr %75, null
   br i1 %.not109, label %FindWord.exit.thread, label %76
 
@@ -4044,7 +4044,7 @@ FindAffixes.exit.loopexit:                        ; preds = %62
   br i1 %.not.not.i.i, label %IsAffixFlagInUse.exit.i, label %123
 
 123:                                              ; preds = %120
-  call fastcc void @getNextFlagFromString(ptr noundef readonly %0, ptr noundef %8, ptr noundef %9)
+  call fastcc void @getNextFlagFromString(ptr noundef nonnull readonly %0, ptr noundef %8, ptr noundef %9)
   %124 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %80) #17
   %125 = icmp eq i32 %124, 0
   br i1 %125, label %.loopexit232, label %120, !llvm.loop !28
@@ -4231,7 +4231,7 @@ FindAffixes.exit129.loopexit:                     ; preds = %189
   %200 = load ptr, ptr %198, align 8
   %201 = getelementptr ptr, ptr %200, i64 %indvars.iv363
   %202 = load ptr, ptr %201, align 8
-  %203 = call fastcc ptr @CheckAffix(ptr noundef %1, i64 noundef %151, ptr noundef %202, i32 noundef %2, ptr noundef %10, ptr noundef nonnull %12)
+  %203 = call fastcc ptr @CheckAffix(ptr noundef nonnull %1, i64 noundef %151, ptr noundef %202, i32 noundef %2, ptr noundef %10, ptr noundef nonnull %12)
   %.not100 = icmp eq ptr %203, null
   br i1 %.not100, label %FindAffixes.exit173.thread, label %204
 
@@ -4322,7 +4322,7 @@ FindAffixes.exit129.loopexit:                     ; preds = %189
   br i1 %.not.not.i.i143, label %IsAffixFlagInUse.exit.i145, label %251
 
 251:                                              ; preds = %248
-  call fastcc void @getNextFlagFromString(ptr noundef readonly %0, ptr noundef %6, ptr noundef %7)
+  call fastcc void @getNextFlagFromString(ptr noundef nonnull readonly %0, ptr noundef %6, ptr noundef %7)
   %252 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %208) #17
   %253 = icmp eq i32 %252, 0
   br i1 %253, label %.loopexit226, label %248, !llvm.loop !28
@@ -4596,7 +4596,7 @@ FindAffixes.exit173.loopexit:                     ; preds = %308
   br i1 %.not.not.i.i187, label %IsAffixFlagInUse.exit.i189, label %381
 
 381:                                              ; preds = %378
-  call fastcc void @getNextFlagFromString(ptr noundef readonly %0, ptr noundef %4, ptr noundef %5)
+  call fastcc void @getNextFlagFromString(ptr noundef nonnull readonly %0, ptr noundef %4, ptr noundef %5)
   %382 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %338) #17
   %383 = icmp eq i32 %382, 0
   br i1 %383, label %.loopexit, label %378, !llvm.loop !28
@@ -5214,10 +5214,10 @@ declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #9
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setCompoundAffixFlagValue(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef nonnull %2, i32 noundef range(i32 0, 33) %3) unnamed_addr #0 {
+define internal fastcc void @setCompoundAffixFlagValue(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef nonnull %2, i32 noundef range(i32 0, 33) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %7 = load i32, ptr %6, align 4
@@ -5330,7 +5330,7 @@ declare i32 @pg_regcomp(ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 
 declare i64 @pg_regerror(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @cmpcmdflag(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal i32 @cmpcmdflag(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 2
@@ -5359,13 +5359,13 @@ define internal i32 @cmpcmdflag(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @get_nextfield(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @get_nextfield(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i8, ptr %3, align 1
   %.not45 = icmp eq i8 %4, 0
@@ -5444,7 +5444,7 @@ define internal fastcc noundef zeroext i1 @get_nextfield(ptr nocapture noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @getNextFlagFromString(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @getNextFlagFromString(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -5637,7 +5637,7 @@ define internal fastcc void @getNextFlagFromString(ptr nocapture noundef readonl
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 16) i32 @makeCompoundFlags(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 16) i32 @makeCompoundFlags(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.CompoundAffixFlag, align 8
   %4 = alloca [8192 x i8], align 16
   %5 = alloca ptr, align 8
@@ -5701,10 +5701,10 @@ getCompoundAffixFlagValue.exit:                   ; preds = %getCompoundAffixFla
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @FindWord(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 9) %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @FindWord(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 9) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [8192 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5830,7 +5830,7 @@ IsAffixFlagInUse.exit:                            ; preds = %50
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @CheckAffix(ptr nocapture noundef readonly %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr noundef %2, i32 noundef range(i32 0, 9) %3, ptr noundef nonnull %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @CheckAffix(ptr noundef readonly captures(none) %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr noundef %2, i32 noundef range(i32 0, 9) %3, ptr noundef nonnull %4, ptr noundef %5) unnamed_addr #0 {
   %7 = icmp eq i32 %3, 0
   br i1 %7, label %8, label %12
 
@@ -5987,7 +5987,7 @@ define internal fastcc noundef ptr @CheckAffix(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #9
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 declare zeroext i1 @RS_execute(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -5998,16 +5998,16 @@ declare void @check_stack_depth() local_unnamed_addr #1
 declare ptr @pnstrdup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14

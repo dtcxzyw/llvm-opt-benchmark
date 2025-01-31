@@ -52,7 +52,7 @@ return:                                           ; preds = %if.end, %land.lhs.t
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @X509_LOOKUP_free(ptr noundef %ctx) local_unnamed_addr #0 {
@@ -327,14 +327,14 @@ return:                                           ; preds = %entry, %if.end32, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @CRYPTO_MUTEX_init(ptr noundef) local_unnamed_addr #4
 
 declare ptr @sk_new(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x509_object_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal i32 @x509_object_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load i32, ptr %0, align 8
@@ -594,7 +594,7 @@ return:                                           ; preds = %for.body, %return.s
 declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 2) i32 @X509_STORE_get_by_subject(ptr nocapture noundef %vs, i32 noundef %type, ptr noundef %name, ptr nocapture noundef writeonly %ret) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @X509_STORE_get_by_subject(ptr noundef captures(none) %vs, i32 noundef %type, ptr noundef %name, ptr noundef writeonly captures(none) %ret) local_unnamed_addr #0 {
 entry:
   %stmp.i.i.i = alloca %struct.x509_object_st, align 8
   %x509_s.i.i.i = alloca %struct.x509_st, align 8
@@ -846,7 +846,7 @@ return:                                           ; preds = %X509_OBJECT_idx_by_
 declare void @CRYPTO_MUTEX_unlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @X509_OBJECT_up_ref_count(ptr nocapture noundef readonly %a) local_unnamed_addr #0 {
+define hidden void @X509_OBJECT_up_ref_count(ptr noundef readonly captures(none) %a) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %a, align 8
   switch i32 %0, label %sw.epilog [
@@ -1037,7 +1037,7 @@ return:                                           ; preds = %x509_object_cmp.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @X509_OBJECT_free_contents(ptr nocapture noundef readonly %a) local_unnamed_addr #0 {
+define hidden void @X509_OBJECT_free_contents(ptr noundef readonly captures(none) %a) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %a, align 8
   switch i32 %0, label %sw.epilog [
@@ -1302,7 +1302,7 @@ return:                                           ; preds = %sw.epilog, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_STORE_get1_certs(ptr nocapture noundef %ctx, ptr noundef %nm) local_unnamed_addr #0 {
+define hidden ptr @X509_STORE_get1_certs(ptr noundef captures(none) %ctx, ptr noundef %nm) local_unnamed_addr #0 {
 entry:
   %cnt = alloca i32, align 4
   %xobj = alloca %struct.x509_object_st, align 8
@@ -1421,7 +1421,7 @@ return:                                           ; preds = %entry, %for.end, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_STORE_get1_crls(ptr nocapture noundef %ctx, ptr noundef %nm) local_unnamed_addr #0 {
+define hidden ptr @X509_STORE_get1_crls(ptr noundef captures(none) %ctx, ptr noundef %nm) local_unnamed_addr #0 {
 entry:
   %cnt = alloca i32, align 4
   %xobj = alloca %struct.x509_object_st, align 8
@@ -1531,7 +1531,7 @@ declare i32 @X509_cmp(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @X509_CRL_match(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @X509_STORE_CTX_get1_issuer(ptr nocapture noundef writeonly %issuer, ptr noundef %ctx, ptr noundef %x) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @X509_STORE_CTX_get1_issuer(ptr noundef writeonly captures(none) %issuer, ptr noundef %ctx, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %stmp.i.i = alloca %struct.x509_object_st, align 8
   %x509_s.i.i = alloca %struct.x509_st, align 8
@@ -1723,7 +1723,7 @@ declare i32 @X509_NAME_cmp(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_STORE_set_flags(ptr nocapture noundef readonly %ctx, i64 noundef %flags) local_unnamed_addr #0 {
+define hidden i32 @X509_STORE_set_flags(ptr noundef readonly captures(none) %ctx, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
   %param = getelementptr inbounds nuw i8, ptr %ctx, i64 80
   %0 = load ptr, ptr %param, align 8
@@ -1734,7 +1734,7 @@ entry:
 declare i32 @X509_VERIFY_PARAM_set_flags(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_STORE_set_depth(ptr nocapture noundef readonly %ctx, i32 noundef %depth) local_unnamed_addr #0 {
+define hidden noundef i32 @X509_STORE_set_depth(ptr noundef readonly captures(none) %ctx, i32 noundef %depth) local_unnamed_addr #0 {
 entry:
   %param = getelementptr inbounds nuw i8, ptr %ctx, i64 80
   %0 = load ptr, ptr %param, align 8
@@ -1745,7 +1745,7 @@ entry:
 declare void @X509_VERIFY_PARAM_set_depth(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_STORE_set_purpose(ptr nocapture noundef readonly %ctx, i32 noundef %purpose) local_unnamed_addr #0 {
+define hidden i32 @X509_STORE_set_purpose(ptr noundef readonly captures(none) %ctx, i32 noundef %purpose) local_unnamed_addr #0 {
 entry:
   %param = getelementptr inbounds nuw i8, ptr %ctx, i64 80
   %0 = load ptr, ptr %param, align 8
@@ -1756,7 +1756,7 @@ entry:
 declare i32 @X509_VERIFY_PARAM_set_purpose(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_STORE_set_trust(ptr nocapture noundef readonly %ctx, i32 noundef %trust) local_unnamed_addr #0 {
+define hidden i32 @X509_STORE_set_trust(ptr noundef readonly captures(none) %ctx, i32 noundef %trust) local_unnamed_addr #0 {
 entry:
   %param = getelementptr inbounds nuw i8, ptr %ctx, i64 80
   %0 = load ptr, ptr %param, align 8
@@ -1767,7 +1767,7 @@ entry:
 declare i32 @X509_VERIFY_PARAM_set_trust(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_STORE_set1_param(ptr nocapture noundef readonly %ctx, ptr noundef %param) local_unnamed_addr #0 {
+define hidden i32 @X509_STORE_set1_param(ptr noundef readonly captures(none) %ctx, ptr noundef %param) local_unnamed_addr #0 {
 entry:
   %param1 = getelementptr inbounds nuw i8, ptr %ctx, i64 80
   %0 = load ptr, ptr %param1, align 8
@@ -1778,7 +1778,7 @@ entry:
 declare i32 @X509_VERIFY_PARAM_set1(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @X509_STORE_set_verify_cb(ptr nocapture noundef writeonly initializes((96, 104)) %ctx, ptr noundef %verify_cb) local_unnamed_addr #5 {
+define hidden void @X509_STORE_set_verify_cb(ptr noundef writeonly captures(none) initializes((96, 104)) %ctx, ptr noundef %verify_cb) local_unnamed_addr #5 {
 entry:
   %verify_cb1 = getelementptr inbounds nuw i8, ptr %ctx, i64 96
   store ptr %verify_cb, ptr %verify_cb1, align 8
@@ -1786,7 +1786,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @X509_STORE_set_lookup_crls_cb(ptr nocapture noundef writeonly initializes((160, 168)) %ctx, ptr noundef %cb) local_unnamed_addr #5 {
+define hidden void @X509_STORE_set_lookup_crls_cb(ptr noundef writeonly captures(none) initializes((160, 168)) %ctx, ptr noundef %cb) local_unnamed_addr #5 {
 entry:
   %lookup_crls = getelementptr inbounds nuw i8, ptr %ctx, i64 160
   store ptr %cb, ptr %lookup_crls, align 8
@@ -1794,7 +1794,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @X509_STORE_CTX_get0_store(ptr nocapture noundef readonly %ctx) local_unnamed_addr #6 {
+define hidden ptr @X509_STORE_CTX_get0_store(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   ret ptr %0
@@ -1808,10 +1808,10 @@ declare i32 @X509_CRL_cmp(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

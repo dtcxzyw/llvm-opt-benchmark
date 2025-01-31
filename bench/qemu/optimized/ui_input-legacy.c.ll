@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @legacy_mouse_event.bmap = internal unnamed_addr constant [10 x i32] [i32 1, i32 4, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0], align 16
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @index_from_key(ptr nocapture noundef readonly %key, i64 noundef %key_length) local_unnamed_addr #0 {
+define dso_local noundef i32 @index_from_key(ptr noundef readonly captures(none) %key, i64 noundef %key_length) local_unnamed_addr #0 {
 entry:
   br label %for.body
 
@@ -44,12 +44,12 @@ for.end:                                          ; preds = %land.lhs.true, %for
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 declare ptr @qapi_enum_lookup(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_send_key(ptr noundef readonly %keys, i1 noundef zeroext %has_hold_time, i64 noundef %hold_time, ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local void @qmp_send_key(ptr noundef readonly %keys, i1 noundef zeroext %has_hold_time, i64 noundef %hold_time, ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %spec.select = select i1 %has_hold_time, i64 %hold_time, i64 0
   %cmp.not20 = icmp eq ptr %keys, null
@@ -191,7 +191,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @legacy_mouse_event(ptr nocapture noundef %dev, ptr nocapture readnone %src, ptr nocapture noundef readonly %evt) #0 {
+define internal void @legacy_mouse_event(ptr noundef captures(none) %dev, ptr readnone captures(none) %src, ptr noundef readonly captures(none) %evt) #0 {
 entry:
   %0 = load i32, ptr %evt, align 8
   switch i32 %0, label %sw.epilog [
@@ -354,7 +354,7 @@ sw.epilog:                                        ; preds = %entry, %if.end41, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @legacy_mouse_sync(ptr nocapture noundef %dev) #0 {
+define internal void @legacy_mouse_sync(ptr noundef captures(none) %dev) #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
   %qemu_put_mouse_event_opaque = getelementptr inbounds nuw i8, ptr %dev, i64 8
@@ -381,7 +381,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_activate_mouse_event_handler(ptr nocapture noundef readonly %entry1) local_unnamed_addr #0 {
+define dso_local void @qemu_activate_mouse_event_handler(ptr noundef readonly captures(none) %entry1) local_unnamed_addr #0 {
 entry:
   %s = getelementptr inbounds nuw i8, ptr %entry1, i64 56
   %0 = load ptr, ptr %s, align 8
@@ -479,12 +479,12 @@ for.end:                                          ; preds = %for.body, %entry
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @qemu_input_key_number_to_qcode(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @legacy_kbd_event(ptr noundef readonly %dev, ptr nocapture readnone %src, ptr nocapture noundef readonly %evt) #0 {
+define internal void @legacy_kbd_event(ptr noundef readonly %dev, ptr readnone captures(none) %src, ptr noundef readonly captures(none) %evt) #0 {
 entry:
   %scancodes = alloca [3 x i32], align 4
   %u = getelementptr inbounds nuw i8, ptr %evt, i64 8
@@ -529,7 +529,7 @@ for.end:                                          ; preds = %for.body, %if.end, 
 declare i32 @qemu_input_key_value_to_scancode(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

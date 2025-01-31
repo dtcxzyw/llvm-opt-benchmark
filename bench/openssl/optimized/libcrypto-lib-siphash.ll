@@ -10,7 +10,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 0, 4294967296) i64 @SipHash_hash_size(ptr nocapture noundef readonly %ctx) local_unnamed_addr #1 {
+define range(i64 0, 4294967296) i64 @SipHash_hash_size(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #1 {
 entry:
   %hash_size = getelementptr inbounds nuw i8, ptr %ctx, i64 44
   %0 = load i32, ptr %hash_size, align 4
@@ -19,7 +19,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @SipHash_set_hash_size(ptr nocapture noundef %ctx, i64 noundef %hash_size) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @SipHash_set_hash_size(ptr noundef captures(none) %ctx, i64 noundef %hash_size) local_unnamed_addr #2 {
 entry:
   %cmp.i = icmp eq i64 %hash_size, 0
   %spec.store.select.i = select i1 %cmp.i, i64 16, i64 %hash_size
@@ -53,7 +53,7 @@ return:                                           ; preds = %if.end, %if.then10,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @SipHash_Init(ptr nocapture noundef initializes((0, 44), (48, 56)) %ctx, ptr nocapture noundef readonly %k, i32 noundef %crounds, i32 noundef %drounds) local_unnamed_addr #2 {
+define noundef i32 @SipHash_Init(ptr noundef captures(none) initializes((0, 44), (48, 56)) %ctx, ptr noundef readonly captures(none) %k, i32 noundef %crounds, i32 noundef %drounds) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %k, align 1
   %1 = zext i32 %0 to i64
@@ -141,7 +141,7 @@ if.end83:                                         ; preds = %if.then80, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @SipHash_Update(ptr nocapture noundef %ctx, ptr noundef readonly %in, i64 noundef %inlen) local_unnamed_addr #3 {
+define void @SipHash_Update(ptr noundef captures(none) %ctx, ptr noundef readonly %in, i64 noundef %inlen) local_unnamed_addr #3 {
 entry:
   %v01 = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load i64, ptr %v01, align 8
@@ -380,10 +380,10 @@ return:                                           ; preds = %if.end165, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @SipHash_Final(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out, i64 noundef %outlen) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @SipHash_Final(ptr noundef readonly captures(none) %ctx, ptr noundef writeonly captures(none) %out, i64 noundef %outlen) local_unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %ctx, align 8
   %shl = shl i64 %0, 56

@@ -270,7 +270,7 @@ define range(i32 -1, 1) i32 @H5PLappend(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @H5PL__append_path(ptr noundef) local_unnamed_addr #1
 
@@ -755,7 +755,7 @@ define i64 @H5PLget(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_unname
 declare ptr @H5PL__get_path(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #3
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5PLsize(ptr noundef writeonly %0) local_unnamed_addr #0 {

@@ -110,7 +110,7 @@ define internal void @_ZL22CATCH2_INTERNAL_TEST_0v() #3 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind
 declare void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
@@ -159,7 +159,7 @@ define dso_local void @_ZN17BM_FlatArray_Push4BodyEv() local_unnamed_addr #3 ali
 declare noundef ptr @_Z7rcAllocm11rcAllocHint(i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @_Z6rcFreePv(ptr noundef) local_unnamed_addr #2
 
@@ -198,8 +198,8 @@ define internal void @_ZL22CATCH2_INTERNAL_TEST_4v() #3 {
 define dso_local void @_ZN19BM_FlatArray_Memset4BodyEv() local_unnamed_addr #3 align 2 {
   %1 = tail call noundef ptr @_Z7rcAllocm11rcAllocHint(i64 noundef 400000, i32 noundef 1)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(400000) %1, i8 0, i64 400000, i1 false)
-  %2 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %1) #16, !srcloc !7
-  tail call void @_Z6rcFreePv(ptr noundef %1)
+  %2 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1) #16, !srcloc !7
+  tail call void @_Z6rcFreePv(ptr noundef nonnull %1)
   ret void
 }
 
@@ -1161,7 +1161,7 @@ _ZN17BM_FlatArray_Push4BodyEv.exit:               ; preds = %18
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17BM_FlatArray_Fill3RunEv() local_unnamed_addr #3 comdat align 2 {
@@ -1228,8 +1228,8 @@ define linkonce_odr dso_local void @_ZN19BM_FlatArray_Memset3RunEv() local_unnam
   %.07 = phi i32 [ 0, %0 ], [ %10, %7 ]
   %8 = call noundef ptr @_Z7rcAllocm11rcAllocHint(i64 noundef 400000, i32 noundef 1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(400000) %8, i8 0, i64 400000, i1 false)
-  %9 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %8) #16, !srcloc !7
-  call void @_Z6rcFreePv(ptr noundef %8)
+  %9 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %8) #16, !srcloc !7
+  call void @_Z6rcFreePv(ptr noundef nonnull %8)
   %10 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %10, 100
   br i1 %exitcond.not, label %11, label %7, !llvm.loop !24
@@ -1719,7 +1719,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2436,10 +2436,10 @@ declare i64 @llvm.umax.i64(i64, i64) #14
 declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

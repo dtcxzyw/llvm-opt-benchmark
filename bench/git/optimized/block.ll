@@ -60,7 +60,7 @@ return:                                           ; preds = %entry, %sw.bb1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @block_writer_init(ptr nocapture noundef writeonly initializes((0, 28), (40, 44), (56, 64), (72, 76)) %bw, i8 noundef zeroext %typ, ptr noundef %buf, i32 noundef %block_size, i32 noundef %header_off, i32 noundef %hash_size) local_unnamed_addr #2 {
+define dso_local void @block_writer_init(ptr noundef writeonly captures(none) initializes((0, 28), (40, 44), (56, 64), (72, 76)) %bw, i8 noundef zeroext %typ, ptr noundef %buf, i32 noundef %block_size, i32 noundef %header_off, i32 noundef %hash_size) local_unnamed_addr #2 {
 entry:
   store ptr %buf, ptr %bw, align 8
   %hash_size2 = getelementptr inbounds nuw i8, ptr %bw, i64 20
@@ -87,7 +87,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i8 @block_writer_type(ptr nocapture noundef readonly %bw) local_unnamed_addr #3 {
+define dso_local zeroext i8 @block_writer_type(ptr noundef readonly captures(none) %bw) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %bw, align 8
   %header_off = getelementptr inbounds nuw i8, ptr %bw, i64 12
@@ -242,7 +242,7 @@ done:                                             ; preds = %strbuf_setlen.exit.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @reftable_record_key(ptr noundef, ptr noundef) local_unnamed_addr #6
 
@@ -257,7 +257,7 @@ declare i32 @reftable_record_encode(ptr noundef, ptr, i64, i32 noundef) local_un
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @block_writer_finish(ptr nocapture noundef %w) local_unnamed_addr #4 {
+define dso_local i32 @block_writer_finish(ptr noundef captures(none) %w) local_unnamed_addr #4 {
 entry:
   %out_dest_len = alloca i64, align 8
   %restart_len = getelementptr inbounds nuw i8, ptr %w, i64 40
@@ -400,7 +400,7 @@ declare ptr @reftable_realloc(ptr noundef, i64 noundef) local_unnamed_addr #6
 declare void @reftable_free(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i8 @block_reader_type(ptr nocapture noundef readonly %r) local_unnamed_addr #3 {
+define dso_local zeroext i8 @block_reader_type(ptr noundef readonly captures(none) %r) local_unnamed_addr #3 {
 entry:
   %block = getelementptr inbounds nuw i8, ptr %r, i64 8
   %0 = load ptr, ptr %block, align 8
@@ -412,7 +412,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -7, 1) i32 @block_reader_init(ptr nocapture noundef writeonly %br, ptr noundef %block, i32 noundef %header_off, i32 noundef %table_block_size, i32 noundef %hash_size) local_unnamed_addr #4 {
+define dso_local range(i32 -7, 1) i32 @block_reader_init(ptr noundef writeonly captures(none) %br, ptr noundef %block, i32 noundef %header_off, i32 noundef %table_block_size, i32 noundef %hash_size) local_unnamed_addr #4 {
 entry:
   %dst_len = alloca i64, align 8
   %src_len = alloca i64, align 8
@@ -587,7 +587,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare { ptr, ptr } @malloc_block_source() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @block_reader_start(ptr noundef %br, ptr nocapture noundef initializes((0, 4), (8, 16), (24, 32)) %it) local_unnamed_addr #8 {
+define dso_local void @block_reader_start(ptr noundef %br, ptr noundef captures(none) initializes((0, 4), (8, 16), (24, 32)) %it) local_unnamed_addr #8 {
 entry:
   %br1 = getelementptr inbounds nuw i8, ptr %it, i64 8
   store ptr %br, ptr %br1, align 8
@@ -719,7 +719,7 @@ declare i32 @reftable_decode_key(ptr noundef, ptr noundef, ptr noundef byval(%st
 declare i32 @reftable_record_decode(ptr noundef, ptr noundef byval(%struct.strbuf) align 8, i8 noundef zeroext, ptr, i64, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483648, 1) i32 @block_reader_first_key(ptr nocapture noundef readonly %br, ptr noundef %key) local_unnamed_addr #4 {
+define dso_local range(i32 -2147483648, 1) i32 @block_reader_first_key(ptr noundef readonly captures(none) %br, ptr noundef %key) local_unnamed_addr #4 {
 entry:
   %extra = alloca i8, align 1
   %0 = load i32, ptr %br, align 8
@@ -845,7 +845,7 @@ if.end13:                                         ; preds = %block_iter_copy_fro
   br i1 %cmp15.not, label %lor.lhs.false, label %done
 
 lor.lhs.false:                                    ; preds = %if.end13
-  %call18 = call i32 @strbuf_cmp(ptr noundef nonnull %key14, ptr noundef %want) #12
+  %call18 = call i32 @strbuf_cmp(ptr noundef nonnull %key14, ptr noundef nonnull %want) #12
   %cmp19 = icmp sgt i32 %call18, -1
   br i1 %cmp19, label %done, label %if.end22
 
@@ -951,10 +951,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

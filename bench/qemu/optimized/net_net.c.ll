@@ -213,7 +213,7 @@ return:                                           ; preds = %if.end25, %if.then2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #2
@@ -226,7 +226,7 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare ptr @gethostbyname(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @qemu_strtol(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
@@ -270,7 +270,7 @@ declare ptr @g_strsplit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_add
 declare void @g_strfreev(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias ptr @qemu_mac_strdup_printf(ptr nocapture noundef readonly %macaddr) local_unnamed_addr #0 {
+define dso_local noalias ptr @qemu_mac_strdup_printf(ptr noundef readonly captures(none) %macaddr) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %macaddr, align 1
   %conv = zext i8 %0 to i32
@@ -296,7 +296,7 @@ entry:
 declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local void @qemu_set_info_str(ptr nocapture noundef %nc, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #6 {
+define dso_local void @qemu_set_info_str(ptr noundef captures(none) %nc, ptr noundef readonly captures(none) %fmt, ...) local_unnamed_addr #6 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -307,10 +307,10 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local void @qemu_format_nic_info_str(ptr nocapture noundef %nc, ptr nocapture noundef readonly %macaddr) local_unnamed_addr #6 {
+define dso_local void @qemu_format_nic_info_str(ptr noundef captures(none) %nc, ptr noundef readonly captures(none) %macaddr) local_unnamed_addr #6 {
 entry:
   %model = getelementptr inbounds nuw i8, ptr %nc, i64 48
   %0 = load ptr, ptr %model, align 8
@@ -336,7 +336,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @qemu_macaddr_default_if_unset(ptr nocapture noundef %macaddr) local_unnamed_addr #8 {
+define dso_local void @qemu_macaddr_default_if_unset(ptr noundef captures(none) %macaddr) local_unnamed_addr #8 {
 entry:
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %macaddr, ptr noundef nonnull dereferenceable(6) @qemu_macaddr_default_if_unset.zero, i64 6)
   %cmp.not = icmp eq i32 %bcmp, 0
@@ -628,7 +628,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @qemu_get_subqueue(ptr nocapture noundef readonly %nic, i32 noundef %queue_index) local_unnamed_addr #11 {
+define dso_local ptr @qemu_get_subqueue(ptr noundef readonly captures(none) %nic, i32 noundef %queue_index) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %nic, align 8
   %idx.ext = sext i32 %queue_index to i64
@@ -637,7 +637,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @qemu_get_queue(ptr nocapture noundef readonly %nic) local_unnamed_addr #11 {
+define dso_local ptr @qemu_get_queue(ptr noundef readonly captures(none) %nic) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %nic, align 8
   ret ptr %0
@@ -660,7 +660,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @qemu_get_nic_opaque(ptr nocapture noundef readonly %nc) local_unnamed_addr #12 {
+define dso_local ptr @qemu_get_nic_opaque(ptr noundef readonly captures(none) %nc) local_unnamed_addr #12 {
 entry:
   %queue_index.i = getelementptr inbounds nuw i8, ptr %nc, i64 336
   %0 = load i32, ptr %queue_index.i, align 8
@@ -695,7 +695,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_del_net_client(ptr nocapture noundef readonly %nc) local_unnamed_addr #0 {
+define dso_local void @qemu_del_net_client(ptr noundef readonly captures(none) %nc) local_unnamed_addr #0 {
 entry:
   %ncs = alloca [1024 x ptr], align 16
   %0 = load ptr, ptr %nc, align 8
@@ -1003,7 +1003,7 @@ for.end51:                                        ; preds = %qemu_cleanup_net_cl
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @qemu_find_net_clients_except(ptr noundef readonly %id, ptr nocapture noundef writeonly %ncs, i32 noundef %type, i32 noundef %max) local_unnamed_addr #13 {
+define dso_local i32 @qemu_find_net_clients_except(ptr noundef readonly %id, ptr noundef writeonly captures(none) %ncs, i32 noundef %type, i32 noundef %max) local_unnamed_addr #13 {
 entry:
   %nc.09 = load ptr, ptr @net_clients, align 8
   %tobool.not10 = icmp eq ptr %nc.09, null
@@ -1295,7 +1295,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @g_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_foreach_nic(ptr nocapture noundef readonly %func, ptr noundef %opaque) local_unnamed_addr #0 {
+define dso_local void @qemu_foreach_nic(ptr noundef readonly captures(none) %func, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %nc.05 = load ptr, ptr @net_clients, align 8
   %tobool.not6 = icmp eq ptr %nc.05, null
@@ -1531,7 +1531,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i32 @qemu_set_vnet_le(ptr nocapture noundef readnone %nc, i1 noundef zeroext %is_le) local_unnamed_addr #14 {
+define dso_local noundef i32 @qemu_set_vnet_le(ptr noundef readnone captures(none) %nc, i1 noundef zeroext %is_le) local_unnamed_addr #14 {
 entry:
   ret i32 0
 }
@@ -1587,7 +1587,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @qemu_can_send_packet(ptr nocapture noundef readonly %sender) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @qemu_can_send_packet(ptr noundef readonly captures(none) %sender) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @runstate_is_running() #27
   br i1 %call, label %if.end, label %return
@@ -1629,7 +1629,7 @@ declare zeroext i1 @runstate_is_running() local_unnamed_addr #4
 declare void @qemu_net_queue_purge(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_flush_or_purge_queued_packets(ptr nocapture noundef %nc, i1 noundef zeroext %purge) local_unnamed_addr #0 {
+define dso_local void @qemu_flush_or_purge_queued_packets(ptr noundef captures(none) %nc, i1 noundef zeroext %purge) local_unnamed_addr #0 {
 entry:
   %receive_disabled = getelementptr inbounds nuw i8, ptr %nc, i64 320
   %bf.load = load i8, ptr %receive_disabled, align 8
@@ -1684,7 +1684,7 @@ declare void @qemu_notify_event() local_unnamed_addr #4
 declare zeroext i1 @qemu_net_queue_flush(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_flush_queued_packets(ptr nocapture noundef %nc) local_unnamed_addr #0 {
+define dso_local void @qemu_flush_queued_packets(ptr noundef captures(none) %nc) local_unnamed_addr #0 {
 entry:
   %receive_disabled.i = getelementptr inbounds nuw i8, ptr %nc, i64 320
   %bf.load.i = load i8, ptr %receive_disabled.i, align 8
@@ -2031,7 +2031,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @qemu_find_netdev(ptr nocapture noundef readonly %id) local_unnamed_addr #15 {
+define dso_local noundef ptr @qemu_find_netdev(ptr noundef readonly captures(none) %id) local_unnamed_addr #15 {
 entry:
   %nc.05 = load ptr, ptr @net_clients, align 8
   %tobool.not6 = icmp eq ptr %nc.05, null
@@ -2063,7 +2063,7 @@ return:                                           ; preds = %if.end, %for.inc, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qemu_get_nic_models(ptr noundef %device_type) local_unnamed_addr #0 {
@@ -2136,7 +2136,7 @@ declare void @object_unref(ptr noundef) local_unnamed_addr #4
 declare void @g_slist_free_1(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @qemu_show_nic_models(ptr noundef readonly %arg, ptr nocapture noundef readonly %models) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @qemu_show_nic_models(ptr noundef readonly %arg, ptr noundef readonly captures(none) %models) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq ptr %arg, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -2180,7 +2180,7 @@ return:                                           ; preds = %for.body, %if.end, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_check_nic_model(ptr nocapture noundef %nd, ptr noundef %model) local_unnamed_addr #0 {
+define dso_local void @qemu_check_nic_model(ptr noundef captures(none) %nd, ptr noundef %model) local_unnamed_addr #0 {
 entry:
   %models = alloca [2 x ptr], align 16
   store ptr %model, ptr %models, align 16
@@ -2272,7 +2272,7 @@ if.end6:                                          ; preds = %qemu_find_nic_model
 declare void @exit(i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qemu_find_nic_model(ptr nocapture noundef %nd, ptr nocapture noundef readonly %models, ptr noundef %default_model) local_unnamed_addr #0 {
+define dso_local i32 @qemu_find_nic_model(ptr noundef captures(none) %nd, ptr noundef readonly captures(none) %models, ptr noundef %default_model) local_unnamed_addr #0 {
 entry:
   %model = getelementptr inbounds nuw i8, ptr %nd, i64 8
   %0 = load ptr, ptr %model, align 8
@@ -2540,7 +2540,7 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
   br i1 %tobool.not.i, label %if.end36, label %for.body.i, !llvm.loop !21
 
 if.then34:                                        ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1170, ptr noundef nonnull @__func__.net_client_init1, ptr noundef nonnull @.str.66, ptr noundef %6) #27
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1170, ptr noundef nonnull @__func__.net_client_init1, ptr noundef nonnull @.str.66, ptr noundef nonnull %6) #27
   br label %return
 
 if.end36:                                         ; preds = %for.inc.i, %if.end31
@@ -2629,13 +2629,13 @@ if.end:                                           ; preds = %if.end.i
   br i1 %tobool1, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1321, ptr noundef nonnull @__func__.qmp_netdev_del, ptr noundef nonnull @.str.33, ptr noundef %id) #27
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1321, ptr noundef nonnull @__func__.qmp_netdev_del, ptr noundef nonnull @.str.33, ptr noundef nonnull %id) #27
   br label %if.end8
 
 if.end3:                                          ; preds = %if.end
   tail call void @qemu_del_net_client(ptr noundef nonnull %nc.07.i)
   %call4 = tail call ptr @qemu_find_opts(ptr noundef nonnull @.str.15) #27
-  %call5 = tail call ptr @qemu_opts_find(ptr noundef %call4, ptr noundef %id) #27
+  %call5 = tail call ptr @qemu_opts_find(ptr noundef %call4, ptr noundef nonnull %id) #27
   %tobool6.not = icmp eq ptr %call5, null
   br i1 %tobool6.not, label %if.end8, label %if.then7
 
@@ -3236,7 +3236,7 @@ netdev_init_modern.exit:                          ; preds = %if.end.i, %entry
 declare ptr @qemu_add_vm_change_state_handler(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @net_vm_change_state_handler(ptr nocapture readnone %opaque, i1 noundef zeroext %running, i32 %state) #0 {
+define internal void @net_vm_change_state_handler(ptr readnone captures(none) %opaque, i1 noundef zeroext %running, i32 %state) #0 {
 entry:
   %0 = load ptr, ptr @net_clients, align 8
   %tobool.not16 = icmp eq ptr %0, null
@@ -3374,7 +3374,7 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
 declare i32 @qemu_opts_foreach(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @net_init_netdev(ptr nocapture readnone %dummy, ptr noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @net_init_netdev(ptr readnone captures(none) %dummy, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
   %call = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.47) #27
   %tobool.not = icmp eq ptr %call, null
@@ -3407,7 +3407,7 @@ if.end:                                           ; preds = %is_help_option.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @net_param_nic(ptr nocapture readnone %dummy, ptr noundef %opts, ptr noundef %errp) #0 {
+define internal i32 @net_param_nic(ptr readnone captures(none) %dummy, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
   %call = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.47) #27
   %tobool.not = icmp eq ptr %call, null
@@ -3500,7 +3500,7 @@ if.end26:                                         ; preds = %if.then24, %if.end1
   br i1 %tobool28.not, label %if.end41, label %if.then29
 
 if.then29:                                        ; preds = %if.end26
-  %call30 = tail call i32 @net_parse_macaddr(ptr noundef %arrayidx, ptr noundef nonnull %call27) #27
+  %call30 = tail call i32 @net_parse_macaddr(ptr noundef nonnull %arrayidx, ptr noundef nonnull %call27) #27
   tail call void @g_free(ptr noundef nonnull %call27) #27
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %if.end33, label %if.then32
@@ -3656,7 +3656,7 @@ return:                                           ; preds = %if.then, %out, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @net_init_client(ptr nocapture readnone %dummy, ptr noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @net_init_client(ptr readnone captures(none) %dummy, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
   %call = tail call fastcc i32 @net_client_init(ptr noundef %opts, i1 noundef zeroext false, ptr noundef %errp)
   ret i32 %call
@@ -3749,7 +3749,7 @@ if.end:                                           ; preds = %entry
 declare ptr @qemu_opts_parse_noisily(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local i32 @net_crc32(ptr nocapture noundef readonly %p, i32 noundef %len) local_unnamed_addr #19 {
+define dso_local i32 @net_crc32(ptr noundef readonly captures(none) %p, i32 noundef %len) local_unnamed_addr #19 {
 entry:
   %cmp11 = icmp sgt i32 %len, 0
   br i1 %cmp11, label %for.body, label %for.end12
@@ -3789,7 +3789,7 @@ for.end12:                                        ; preds = %for.inc10, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local i32 @net_crc32_le(ptr nocapture noundef readonly %p, i32 noundef %len) local_unnamed_addr #19 {
+define dso_local i32 @net_crc32_le(ptr noundef readonly captures(none) %p, i32 noundef %len) local_unnamed_addr #19 {
 entry:
   %cmp11 = icmp sgt i32 %len, 0
   br i1 %cmp11, label %for.body, label %for.end11
@@ -3829,7 +3829,7 @@ for.end11:                                        ; preds = %for.inc9, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @net_socket_rs_init(ptr nocapture noundef writeonly initializes((0, 5), (8, 69652), (69656, 69664)) %rs, ptr noundef %finalize, i1 noundef zeroext %vnet_hdr) local_unnamed_addr #20 {
+define dso_local void @net_socket_rs_init(ptr noundef writeonly captures(none) initializes((0, 5), (8, 69652), (69656, 69664)) %rs, ptr noundef %finalize, i1 noundef zeroext %vnet_hdr) local_unnamed_addr #20 {
 entry:
   %frombool = zext i1 %vnet_hdr to i8
   store i32 0, ptr %rs, align 8
@@ -3843,7 +3843,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @net_fill_rstate(ptr noundef %rs, ptr nocapture noundef readonly %buf, i32 noundef %size) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @net_fill_rstate(ptr noundef %rs, ptr noundef readonly captures(none) %buf, i32 noundef %size) local_unnamed_addr #0 {
 entry:
   %cmp72 = icmp sgt i32 %size, 0
   br i1 %cmp72, label %while.body.lr.ph, label %while.end
@@ -3996,7 +3996,7 @@ declare i32 @ntohl(i32 noundef) local_unnamed_addr #2
 declare ptr @qemu_new_net_queue(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @qemu_deliver_packet_iov(ptr nocapture readnone %sender, i32 noundef %flags, ptr noundef %iov, i32 noundef %iovcnt, ptr noundef %opaque) #0 {
+define internal i64 @qemu_deliver_packet_iov(ptr readnone captures(none) %sender, i32 noundef %flags, ptr noundef %iov, i32 noundef %iovcnt, ptr noundef %opaque) #0 {
 entry:
   %link_down = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %0 = load i32, ptr %link_down, align 8
@@ -4162,7 +4162,7 @@ declare void @qapi_free_Netdev(ptr noundef) local_unnamed_addr #4
 declare ptr @net_hub_add_port(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @net_init_nic(ptr nocapture noundef readonly %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) #0 {
+define internal i32 @net_init_nic(ptr noundef readonly captures(none) %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) #0 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %netdev, i64 8
   %0 = load i32, ptr %type, align 8
@@ -4283,7 +4283,7 @@ if.end34:                                         ; preds = %if.then31, %if.end2
   br i1 %tobool35.not, label %if.end51, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end34
-  %call38 = tail call i32 @net_parse_macaddr(ptr noundef %arrayidx, ptr noundef nonnull %11) #27
+  %call38 = tail call i32 @net_parse_macaddr(ptr noundef nonnull %arrayidx, ptr noundef nonnull %11) #27
   %cmp39 = icmp slt i32 %call38, 0
   br i1 %cmp39, label %if.then40, label %if.end41
 
@@ -4472,25 +4472,25 @@ declare void @llvm.va_start.p0(ptr) #21
 declare void @llvm.va_end.p0(ptr) #21
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #23
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #24
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #24
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #24
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #23

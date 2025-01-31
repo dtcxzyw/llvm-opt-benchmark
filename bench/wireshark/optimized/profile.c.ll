@@ -94,7 +94,7 @@ define hidden ptr @get_profile_parent(ptr noundef readonly %0) local_unnamed_add
 declare i32 @g_list_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noalias ptr @apply_profile_changes() local_unnamed_addr #0 {
@@ -251,7 +251,7 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   br i1 %79, label %81, label %.thread
 
 81:                                               ; preds = %80
-  %82 = call i32 @create_persconffile_profile(ptr noundef %77, ptr noundef nonnull %1) #5
+  %82 = call i32 @create_persconffile_profile(ptr noundef nonnull %77, ptr noundef nonnull %1) #5
   %83 = icmp eq i32 %82, -1
   br i1 %83, label %84, label %91
 
@@ -299,7 +299,7 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   br i1 %.not81, label %120, label %107
 
 107:                                              ; preds = %102
-  %108 = call i32 @rename_persconffile_profile(ptr noundef %104, ptr noundef %105, ptr noundef nonnull %1, ptr noundef nonnull %2) #5
+  %108 = call i32 @rename_persconffile_profile(ptr noundef nonnull %104, ptr noundef nonnull %105, ptr noundef nonnull %1, ptr noundef nonnull %2) #5
   %109 = icmp eq i32 %108, -1
   br i1 %109, label %110, label %119
 
@@ -364,7 +364,7 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   br i1 %140, label %141, label %144
 
 141:                                              ; preds = %136
-  call void @g_free(ptr noundef %138) #5
+  call void @g_free(ptr noundef nonnull %138) #5
   %142 = load ptr, ptr %128, align 8
   %143 = call noalias ptr @g_strdup(ptr noundef %142) #5
   store ptr %143, ptr %137, align 8
@@ -827,7 +827,7 @@ define hidden range(i32 0, 2) i32 @delete_current_profile() local_unnamed_addr #
   br i1 %.not, label %16, label %6
 
 6:                                                ; preds = %4
-  %7 = call i32 @delete_persconffile_profile(ptr noundef %2, ptr noundef nonnull %1) #5
+  %7 = call i32 @delete_persconffile_profile(ptr noundef nonnull %2, ptr noundef nonnull %1) #5
   %8 = icmp eq i32 %7, -1
   br i1 %8, label %9, label %16
 

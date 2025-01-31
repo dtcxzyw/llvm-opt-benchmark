@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [11 x i8] c"acpi_index\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i16 @smbios_attr_is_visible(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 %2) #0 align 16 {
+define internal zeroext i16 @smbios_attr_is_visible(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %5 = load ptr, ptr %4, align 8
   %6 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %5) #3
@@ -107,7 +107,7 @@ define internal zeroext i16 @smbios_attr_is_visible(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i16 @acpi_attr_is_visible(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 %2) #0 align 16 {
+define internal zeroext i16 @acpi_attr_is_visible(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %5 = load ptr, ptr %4, align 8
   %6 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %5) #3
@@ -149,10 +149,10 @@ declare dso_local ptr @dmi_find_device(i32 noundef, ptr noundef, ptr noundef) lo
 declare dso_local i32 @sysfs_emit(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @smbios_label_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal i64 @smbios_label_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -168
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 -128
@@ -218,7 +218,7 @@ find_smbios_instance_string.exit:                 ; preds = %36, %3, %31, %34
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @index_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal i64 @index_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -168
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 -128
@@ -286,7 +286,7 @@ find_smbios_instance_string.exit:                 ; preds = %38, %3, %29, %34
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -1, 2147483648) i64 @label_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -1, 2147483648) i64 @label_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 632
   %.val = load ptr, ptr %4, align 8
   %5 = tail call fastcc i32 @dsm_get_label(ptr %.val, ptr noundef %2, i32 noundef 0)
@@ -395,7 +395,7 @@ declare dso_local i32 @utf16s_to_utf8s(ptr noundef, i32 noundef, i32 noundef, pt
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -1, 2147483648) i64 @acpi_index_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -1, 2147483648) i64 @acpi_index_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 632
   %.val = load ptr, ptr %4, align 8
   %5 = tail call fastcc i32 @dsm_get_label(ptr %.val, ptr noundef %2, i32 noundef 1)

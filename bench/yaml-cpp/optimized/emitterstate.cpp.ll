@@ -127,7 +127,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4YAML14SettingChangesD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -513,7 +513,7 @@ return:                                           ; preds = %entry, %sw.bb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4YAML12EmitterState9SetAnchorEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((208, 209)) %this) local_unnamed_addr #4 align 2 {
+define void @_ZN4YAML12EmitterState9SetAnchorEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((208, 209)) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_hasAnchor = getelementptr inbounds nuw i8, ptr %this, i64 208
   store i8 1, ptr %m_hasAnchor, align 8
@@ -521,7 +521,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4YAML12EmitterState8SetAliasEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((209, 210)) %this) local_unnamed_addr #4 align 2 {
+define void @_ZN4YAML12EmitterState8SetAliasEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((209, 210)) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_hasAlias = getelementptr inbounds nuw i8, ptr %this, i64 209
   store i8 1, ptr %m_hasAlias, align 1
@@ -529,7 +529,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4YAML12EmitterState6SetTagEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((210, 211)) %this) local_unnamed_addr #4 align 2 {
+define void @_ZN4YAML12EmitterState6SetTagEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((210, 211)) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_hasTag = getelementptr inbounds nuw i8, ptr %this, i64 210
   store i8 1, ptr %m_hasTag, align 2
@@ -537,7 +537,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4YAML12EmitterState13SetNonContentEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((211, 212)) %this) local_unnamed_addr #4 align 2 {
+define void @_ZN4YAML12EmitterState13SetNonContentEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((211, 212)) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_hasNonContent = getelementptr inbounds nuw i8, ptr %this, i64 211
   store i8 1, ptr %m_hasNonContent, align 1
@@ -545,7 +545,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4YAML12EmitterState10SetLongKeyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #5 align 2 {
+define void @_ZN4YAML12EmitterState10SetLongKeyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this) local_unnamed_addr #5 align 2 {
 entry:
   %m_groups = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %m_groups, align 8
@@ -566,7 +566,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4YAML12EmitterState9ForceFlowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #5 align 2 {
+define void @_ZN4YAML12EmitterState9ForceFlowEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this) local_unnamed_addr #5 align 2 {
 entry:
   %m_groups = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %m_groups, align 8
@@ -587,7 +587,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4YAML12EmitterState11StartedNodeEv(ptr nocapture noundef nonnull align 8 dereferenceable(224) initializes((208, 212)) %this) local_unnamed_addr #5 align 2 {
+define void @_ZN4YAML12EmitterState11StartedNodeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(224) initializes((208, 212)) %this) local_unnamed_addr #5 align 2 {
 entry:
   %m_groups = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %m_groups, align 8
@@ -631,7 +631,7 @@ if.end14:                                         ; preds = %if.else, %if.then10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 3, 7) i32 @_ZNK4YAML12EmitterState13NextGroupTypeENS_9GroupType5valueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, i32 noundef %type) local_unnamed_addr #6 align 2 {
+define noundef range(i32 3, 7) i32 @_ZNK4YAML12EmitterState13NextGroupTypeENS_9GroupType5valueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this, i32 noundef %type) local_unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp eq i32 %type, 1
   %m_groups.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
@@ -685,7 +685,7 @@ return:                                           ; preds = %_ZNK4YAML12EmitterS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4YAML12EmitterState11GetFlowTypeENS_9GroupType5valueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, i32 noundef %groupType) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK4YAML12EmitterState11GetFlowTypeENS_9GroupType5valueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this, i32 noundef %groupType) local_unnamed_addr #6 align 2 {
 entry:
   %m_groups.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %m_groups.i, align 8
@@ -722,7 +722,7 @@ return:                                           ; preds = %cond.true, %cond.fa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4YAML12EmitterState10StartedDocEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((208, 209), (210, 212)) %this) local_unnamed_addr #4 align 2 {
+define void @_ZN4YAML12EmitterState10StartedDocEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((208, 209), (210, 212)) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_hasAnchor = getelementptr inbounds nuw i8, ptr %this, i64 208
   store i8 0, ptr %m_hasAnchor, align 8
@@ -734,7 +734,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4YAML12EmitterState8EndedDocEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((208, 209), (210, 212)) %this) local_unnamed_addr #4 align 2 {
+define void @_ZN4YAML12EmitterState8EndedDocEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((208, 209), (210, 212)) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_hasAnchor = getelementptr inbounds nuw i8, ptr %this, i64 208
   store i8 0, ptr %m_hasAnchor, align 8
@@ -746,7 +746,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML12EmitterState13StartedScalarEv(ptr nocapture noundef nonnull align 8 dereferenceable(224) initializes((208, 212)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML12EmitterState13StartedScalarEv(ptr noundef nonnull align 8 captures(none) dereferenceable(224) initializes((208, 212)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_groups.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %m_groups.i, align 8
@@ -848,7 +848,7 @@ _ZN4YAML12EmitterState21ClearModifiedSettingsEv.exit: ; preds = %_ZN4YAML12Emitt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4YAML12EmitterState21ClearModifiedSettingsEv(ptr nocapture noundef nonnull align 8 dereferenceable(224) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML12EmitterState21ClearModifiedSettingsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(224) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_modifiedSettings = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %m_modifiedSettings, align 8
@@ -1497,7 +1497,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(p
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 7) i32 @_ZNK4YAML12EmitterState16CurGroupNodeTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #6 align 2 {
+define noundef range(i32 0, 7) i32 @_ZNK4YAML12EmitterState16CurGroupNodeTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_groups = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %m_groups, align 8
@@ -1525,7 +1525,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4YAML12EmitterState12CurGroupTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK4YAML12EmitterState12CurGroupTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_groups = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %m_groups, align 8
@@ -1546,7 +1546,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4YAML12EmitterState16CurGroupFlowTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK4YAML12EmitterState16CurGroupFlowTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_groups = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %m_groups, align 8
@@ -1568,7 +1568,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK4YAML12EmitterState14CurGroupIndentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #6 align 2 {
+define noundef i64 @_ZNK4YAML12EmitterState14CurGroupIndentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_groups = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %m_groups, align 8
@@ -1590,7 +1590,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #6 align 2 {
+define noundef i64 @_ZNK4YAML12EmitterState18CurGroupChildCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_groups = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %m_groups, align 8
@@ -1616,7 +1616,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK4YAML12EmitterState15CurGroupLongKeyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK4YAML12EmitterState15CurGroupLongKeyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_groups = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %m_groups, align 8
@@ -1639,7 +1639,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK4YAML12EmitterState10LastIndentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #6 align 2 {
+define noundef i64 @_ZNK4YAML12EmitterState10LastIndentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_groups = getelementptr inbounds nuw i8, ptr %this, i64 176
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -1668,7 +1668,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4YAML12EmitterState29RestoreGlobalModifiedSettingsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML12EmitterState29RestoreGlobalModifiedSettingsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_globalModifiedSettings = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %m_globalModifiedSettings, align 8

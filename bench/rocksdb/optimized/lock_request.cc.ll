@@ -80,7 +80,7 @@ $_ZN4toku3omtIPNS_12lock_requestES2_Lb0EE15delete_internalEPNS_12omt_internal17s
 @.str.1 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku12lock_request6createESt10shared_ptrIN7rocksdb25TransactionDBMutexFactoryEE(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 40)) %this, ptr nocapture noundef readonly %mutex_factory) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4toku12lock_request6createESt10shared_ptrIN7rocksdb25TransactionDBMutexFactoryEE(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 40)) %this, ptr noundef readonly captures(none) %mutex_factory) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::shared_ptr.0", align 8
   %agg.tmp = alloca %"class.std::shared_ptr", align 8
@@ -621,7 +621,7 @@ declare noundef zeroext i1 @_Z20toku_dbt_is_infinitePK10__toku_dbt(ptr noundef) 
 declare noundef ptr @_Z14toku_clone_dbtP10__toku_dbtRKS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku12lock_request13get_conflictsEPNS_9txnid_setE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr noundef %conflicts) local_unnamed_addr #0 align 2 {
+define void @_ZN4toku12lock_request13get_conflictsEPNS_9txnid_setE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this, ptr noundef %conflicts) local_unnamed_addr #0 align 2 {
 entry:
   %m_type = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load i32, ptr %m_type, align 8
@@ -640,7 +640,7 @@ entry:
 declare void @_ZN4toku8locktree13get_conflictsEbmPK10__toku_dbtS3_PNS_9txnid_setE(ptr noundef nonnull align 8 dereferenceable(400), i1 noundef zeroext, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku12lock_request16build_wait_graphEPNS_3wfgERKNS_9txnid_setE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr noundef %wait_graph, ptr noundef nonnull align 8 dereferenceable(24) %conflicts) local_unnamed_addr #0 align 2 {
+define void @_ZN4toku12lock_request16build_wait_graphEPNS_3wfgERKNS_9txnid_setE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this, ptr noundef %wait_graph, ptr noundef nonnull align 8 dereferenceable(24) %conflicts) local_unnamed_addr #0 align 2 {
 entry:
   %tmp_index.i.i = alloca i32, align 4
   %request.i = alloca ptr, align 8
@@ -770,7 +770,7 @@ declare noundef i32 @_ZNK4toku9txnid_set4sizeEv(ptr noundef nonnull align 8 dere
 declare noundef i64 @_ZNK4toku9txnid_set3getEj(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN4toku12lock_request17find_lock_requestERKm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(8) %txnid) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN4toku12lock_request17find_lock_requestERKm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(8) %txnid) local_unnamed_addr #0 align 2 {
 entry:
   %tmp_index.i = alloca i32, align 4
   %request = alloca ptr, align 8
@@ -1381,7 +1381,7 @@ if.end:                                           ; preds = %if.then, %_ZNK4toku
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4toku12lock_request8completeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((120, 128)) %this, i32 noundef %complete_r) local_unnamed_addr #3 align 2 {
+define void @_ZN4toku12lock_request8completeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((120, 128)) %this, i32 noundef %complete_r) local_unnamed_addr #3 align 2 {
 entry:
   %m_complete_r = getelementptr inbounds nuw i8, ptr %this, i64 120
   store i32 %complete_r, ptr %m_complete_r, align 8
@@ -1924,7 +1924,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK4toku12lock_request12get_left_keyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #4 align 2 {
+define noundef ptr @_ZNK4toku12lock_request12get_left_keyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_left_key = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_left_key, align 8
@@ -1932,7 +1932,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK4toku12lock_request13get_right_keyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #4 align 2 {
+define noundef ptr @_ZNK4toku12lock_request13get_right_keyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_right_key = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_right_key, align 8
@@ -1940,14 +1940,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK4toku12lock_request9get_txnidEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #4 align 2 {
+define noundef i64 @_ZNK4toku12lock_request9get_txnidEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   ret i64 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK4toku12lock_request14get_start_timeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #4 align 2 {
+define noundef i64 @_ZNK4toku12lock_request14get_start_timeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_start_time = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %m_start_time, align 8
@@ -1955,7 +1955,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK4toku12lock_request21get_conflicting_txnidEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #4 align 2 {
+define noundef i64 @_ZNK4toku12lock_request21get_conflicting_txnidEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_conflicting_txnid = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %m_conflicting_txnid, align 8
@@ -1963,7 +1963,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku12lock_request22add_conflicts_to_waitsEPNS_9txnid_setEPSt6vectorINS_14lock_wait_infoESaIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr noundef %conflicts, ptr noundef %wait_conflicts) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4toku12lock_request22add_conflicts_to_waitsEPNS_9txnid_setEPSt6vectorINS_14lock_wait_infoESaIS4_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this, ptr noundef %conflicts, ptr noundef %wait_conflicts) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.toku::lock_wait_info", align 8
   %m_lt = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -2167,7 +2167,7 @@ return:                                           ; preds = %entry, %if.end18
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku12lock_request28retry_all_lock_requests_infoEPNS_20lt_lock_request_infoEPFvPvPSt6vectorINS_14lock_wait_infoESaIS5_EEES3_(ptr nocapture noundef %info, ptr noundef readonly %lock_wait_callback, ptr noundef %callback_arg) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4toku12lock_request28retry_all_lock_requests_infoEPNS_20lt_lock_request_infoEPFvPvPSt6vectorINS_14lock_wait_infoESaIS5_EEES3_(ptr noundef captures(none) %info, ptr noundef readonly %lock_wait_callback, ptr noundef %callback_arg) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured.i = alloca %"class.rocksdb::Status", align 8
   %conflicts_collector = alloca %"class.std::vector", align 8
@@ -2387,10 +2387,10 @@ _ZNSt6vectorIN4toku14lock_wait_infoESaIS1_EED2Ev.exit: ; preds = %invoke.cont.i,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK4toku12lock_request9get_extraEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #4 align 2 {
+define noundef ptr @_ZNK4toku12lock_request9get_extraEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_extra = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load ptr, ptr %m_extra, align 8
@@ -2805,7 +2805,7 @@ return:                                           ; preds = %if.else.i, %_ZNK4to
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -1, 2) i32 @_ZN4toku12lock_request13find_by_txnidERKPS0_RKm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %request, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %txnid) local_unnamed_addr #6 align 2 {
+define noundef range(i32 -1, 2) i32 @_ZN4toku12lock_request13find_by_txnidERKPS0_RKm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %request, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %txnid) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %request, align 8
   %1 = load i64, ptr %0, align 8
@@ -2815,7 +2815,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4toku12lock_request23set_start_test_callbackEPFvvE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((168, 176)) %this, ptr noundef %f) local_unnamed_addr #3 align 2 {
+define void @_ZN4toku12lock_request23set_start_test_callbackEPFvvE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((168, 176)) %this, ptr noundef %f) local_unnamed_addr #3 align 2 {
 entry:
   %m_start_test_callback = getelementptr inbounds nuw i8, ptr %this, i64 168
   store ptr %f, ptr %m_start_test_callback, align 8
@@ -2823,7 +2823,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4toku12lock_request38set_start_before_pending_test_callbackEPFvvE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((176, 184)) %this, ptr noundef %f) local_unnamed_addr #3 align 2 {
+define void @_ZN4toku12lock_request38set_start_before_pending_test_callbackEPFvvE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((176, 184)) %this, ptr noundef %f) local_unnamed_addr #3 align 2 {
 entry:
   %m_start_before_pending_test_callback = getelementptr inbounds nuw i8, ptr %this, i64 176
   store ptr %f, ptr %m_start_before_pending_test_callback, align 8
@@ -2831,7 +2831,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4toku12lock_request23set_retry_test_callbackEPFvvE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((184, 192)) %this, ptr noundef %f) local_unnamed_addr #3 align 2 {
+define void @_ZN4toku12lock_request23set_retry_test_callbackEPFvvE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((184, 192)) %this, ptr noundef %f) local_unnamed_addr #3 align 2 {
 entry:
   %m_retry_test_callback = getelementptr inbounds nuw i8, ptr %this, i64 184
   store ptr %f, ptr %m_retry_test_callback, align 8
@@ -2851,7 +2851,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #10
@@ -2951,7 +2951,7 @@ declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvmEZN4toku12lock_request15deadlock_existsERKNS1_9txnid_setEE3$_0E9_M_invokeERKSt9_Any_dataOm"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvmEZN4toku12lock_request15deadlock_existsERKNS1_9txnid_setEE3$_0E9_M_invokeERKSt9_Any_dataOm"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args) #0 align 2 {
 entry:
   %__args.addr.i.i.i.i = alloca i64, align 8
   %__args.addr2.i.i.i.i = alloca i8, align 1
@@ -3082,7 +3082,7 @@ _ZNKSt8functionIFvmbPK10__toku_dbtS2_EEclEmbS2_S2_.exit.i.i.i: ; preds = %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvmEZN4toku12lock_request15deadlock_existsERKNS1_9txnid_setEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvmEZN4toku12lock_request15deadlock_existsERKNS1_9txnid_setEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 1, label %sw.bb
@@ -3108,7 +3108,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: noreturn
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #14
@@ -3239,7 +3239,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZNK4toku3omtIPNS_12lock_requestES2_Lb0EE18find_internal_zeroImTnPFiRKS2_RKT_EXadL_ZNS1_13find_by_txnidES6_RKmEEEEiRKNS_12omt_internal17subtree_templatedILb0EEES9_PS2_Pj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %st, ptr noundef nonnull align 8 dereferenceable(8) %extra, ptr noundef %value, ptr noundef %idxp) local_unnamed_addr #0 comdat align 2 {
@@ -4209,10 +4209,10 @@ if.end51:                                         ; preds = %if.end51.sink.split
 declare i32 @llvm.umax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i64(i64, i64) #16

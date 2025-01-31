@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_win_class = constant { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, [5 x i8] } { ptr @lv_obj_class, ptr @lv_win_constructor, ptr null, ptr null, ptr null, ptr @.str, i32 536871012, i32 536871012, i8 0, i8 4, i8 0, [5 x i8] zeroinitializer }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_win_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_win_constructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call ptr @lv_obj_get_parent(ptr noundef %1) #2
   %4 = tail call i32 @lv_obj_get_width(ptr noundef %3) #2
   %5 = tail call i32 @lv_obj_get_height(ptr noundef %3) #2

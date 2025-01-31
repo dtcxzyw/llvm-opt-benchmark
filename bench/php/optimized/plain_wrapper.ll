@@ -43,7 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.php_stdiop_set_option.1 = private unnamed_addr constant [4 x i32] [i32 2, i32 2, i32 1, i32 1], align 4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -1, 1) i32 @php_stream_parse_fopen_modes(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @php_stream_parse_fopen_modes(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr %0, align 1
   switch i8 %3, label %16 [
     i8 114, label %8
@@ -398,7 +398,7 @@ detect_is_seekable.exit:                          ; preds = %9, %do_fstat.exit.i
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define ptr @_php_stream_fopen_from_pipe(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
@@ -426,15 +426,15 @@ define ptr @_php_stream_fopen_from_pipe(ptr noundef %0, ptr noundef %1) local_un
 declare noalias ptr @_emalloc_192() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @_php_stream_alloc(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @php_stdiop_write(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #2 {
+define internal noundef i64 @php_stdiop_write(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -481,7 +481,7 @@ define internal noundef i64 @php_stdiop_write(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @php_stdiop_read(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2) #2 {
+define internal noundef i64 @php_stdiop_read(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -584,7 +584,7 @@ define internal noundef i64 @php_stdiop_read(ptr nocapture noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_stdiop_close(ptr nocapture noundef readonly %0, i32 noundef %1) #2 {
+define internal i32 @php_stdiop_close(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -707,7 +707,7 @@ define internal i32 @php_stdiop_close(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @php_stdiop_flush(ptr nocapture noundef readonly %0) #8 {
+define internal noundef i32 @php_stdiop_flush(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -724,7 +724,7 @@ define internal noundef i32 @php_stdiop_flush(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_stdiop_seek(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #2 {
+define internal noundef i32 @php_stdiop_seek(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -870,7 +870,7 @@ define internal range(i32 -1, 1) i32 @php_stdiop_cast(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @php_stdiop_stat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #8 {
+define internal noundef i32 @php_stdiop_stat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -1559,12 +1559,12 @@ declare i64 @zend_spprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unn
 declare i32 @php_stream_from_persistent_id(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @_efree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #9
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #9
 
 declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -1814,7 +1814,7 @@ declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #3
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare i32 @ap_php_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
@@ -1824,53 +1824,53 @@ declare i32 @php_check_open_basedir_ex(ptr noundef, i32 noundef) local_unnamed_a
 declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @pclose(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @pclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #6
 
 declare void @php_stream_mode_sanitize_fdopen_fopencookie(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fdopen(i32 noundef, ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias noundef ptr @fdopen(i32 noundef, ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @setvbuf(ptr nocapture noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
+declare noundef i32 @setvbuf(ptr noundef captures(none), ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare i32 @flock(i32 noundef, i32 noundef) local_unnamed_addr #4
@@ -1890,13 +1890,13 @@ declare i32 @fsync(i32 noundef) local_unnamed_addr #3
 declare void @add_assoc_bool_ex(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @php_plain_files_stream_opener(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture readnone %5) #2 {
+define internal ptr @php_plain_files_stream_opener(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr readnone captures(none) %5) #2 {
   %7 = and i32 %3, 1024
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %11
@@ -1916,7 +1916,7 @@ define internal ptr @php_plain_files_stream_opener(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_plain_files_url_stater(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture readnone %4) #2 {
+define internal noundef i32 @php_plain_files_url_stater(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr readnone captures(none) %4) #2 {
   %6 = and i32 %2, 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %13
@@ -1953,7 +1953,7 @@ define internal noundef i32 @php_plain_files_url_stater(ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @php_plain_files_dir_opener(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) #2 {
+define internal ptr @php_plain_files_dir_opener(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) #2 {
   %7 = and i32 %3, 4096
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %13, label %8
@@ -1995,7 +1995,7 @@ define internal ptr @php_plain_files_dir_opener(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @php_plain_files_unlink(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #2 {
+define internal range(i32 0, 2) i32 @php_plain_files_unlink(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #2 {
   %5 = tail call i32 @strncasecmp(ptr noundef %1, ptr noundef nonnull @.str.15, i64 noundef 7) #17
   %6 = icmp eq i32 %5, 0
   %spec.select.idx = select i1 %6, i64 7, i64 0
@@ -2031,7 +2031,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_unlink(ptr nocapture readno
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @php_plain_files_rename(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 %3, ptr nocapture readnone %4) #2 {
+define internal range(i32 0, 2) i32 @php_plain_files_rename(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 %3, ptr readnone captures(none) %4) #2 {
   %6 = alloca %struct.stat, align 8
   %7 = icmp ne ptr %1, null
   %8 = icmp ne ptr %2, null
@@ -2146,7 +2146,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_rename(ptr nocapture readno
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture readnone %4) #2 {
+define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr readnone captures(none) %4) #2 {
   %6 = alloca [4096 x i8], align 16
   %7 = ptrtoint ptr %6 to i64
   %8 = alloca %struct.stat, align 8
@@ -2368,7 +2368,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @php_plain_files_rmdir(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3) #2 {
+define internal range(i32 0, 2) i32 @php_plain_files_rmdir(ptr readnone captures(none) %0, ptr noundef %1, i32 %2, ptr readnone captures(none) %3) #2 {
   %5 = tail call i32 @strncasecmp(ptr noundef %1, ptr noundef nonnull @.str.15, i64 noundef 7) #17
   %6 = icmp eq i32 %5, 0
   %spec.select.idx = select i1 %6, i64 7, i64 0
@@ -2399,7 +2399,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_rmdir(ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @php_plain_files_metadata(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture readnone %4) #2 {
+define internal range(i32 0, 2) i32 @php_plain_files_metadata(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #2 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = tail call i32 @strncasecmp(ptr noundef %1, ptr noundef nonnull @.str.15, i64 noundef 7) #17
@@ -2525,22 +2525,22 @@ define internal range(i32 0, 2) i32 @php_plain_files_metadata(ptr nocapture read
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #14
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lstat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @lstat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -1, 258) i64 @php_plain_files_dirstream_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #2 {
+define internal range(i64 -1, 258) i64 @php_plain_files_dirstream_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #2 {
   %.not = icmp eq i64 %2, 257
   br i1 %.not, label %4, label %15
 
@@ -2570,7 +2570,7 @@ define internal range(i64 -1, 258) i64 @php_plain_files_dirstream_read(ptr nocap
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @php_plain_files_dirstream_close(ptr nocapture noundef readonly %0, i32 %1) #8 {
+define internal noundef i32 @php_plain_files_dirstream_close(ptr noundef readonly captures(none) %0, i32 %1) #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @closedir(ptr noundef %4)
@@ -2578,7 +2578,7 @@ define internal noundef i32 @php_plain_files_dirstream_close(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_plain_files_dirstream_rewind(ptr nocapture noundef readonly %0, i64 %1, i32 %2, ptr nocapture readnone %3) #2 {
+define internal noundef i32 @php_plain_files_dirstream_rewind(ptr noundef readonly captures(none) %0, i64 %1, i32 %2, ptr readnone captures(none) %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @rewinddir(ptr noundef %6) #18
@@ -2595,7 +2595,7 @@ declare void @php_error_docref1(ptr noundef, ptr noundef, i32 noundef, ptr nound
 declare void @php_clear_stat_cache(i1 noundef zeroext, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare i32 @umask(i32 noundef) local_unnamed_addr #4
@@ -2603,12 +2603,12 @@ declare i32 @umask(i32 noundef) local_unnamed_addr #4
 declare i32 @php_copy_file(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chown(ptr nocapture noundef readonly, i32 noundef, i32 noundef) local_unnamed_addr #6
+declare noundef i32 @chown(ptr noundef readonly captures(none), i32 noundef, i32 noundef) local_unnamed_addr #6
 
 declare void @php_error_docref2(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #6
+declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #6
 
 declare i32 @php_mkdir(ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -2621,19 +2621,19 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #6
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rmdir(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @rmdir(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #6
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @utime(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @utime(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 declare i32 @php_get_uid_by_name(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -2642,10 +2642,10 @@ declare i32 @php_get_gid_by_name(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @zend_value_error(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16

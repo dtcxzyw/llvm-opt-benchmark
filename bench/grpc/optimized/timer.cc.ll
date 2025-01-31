@@ -380,7 +380,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN17grpc_event_engine12experimental9TimerList25SwapAdjacentShardsInQueueEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %first_shard_queue_index) local_unnamed_addr #8 align 2 {
+define void @_ZN17grpc_event_engine12experimental9TimerList25SwapAdjacentShardsInQueueEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, i32 noundef %first_shard_queue_index) local_unnamed_addr #8 align 2 {
 entry:
   %shard_queue_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %conv = zext i32 %first_shard_queue_index to i64
@@ -409,7 +409,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN17grpc_event_engine12experimental9TimerList18NoteDeadlineChangeEPNS1_5ShardE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %shard) local_unnamed_addr #9 align 2 {
+define void @_ZN17grpc_event_engine12experimental9TimerList18NoteDeadlineChangeEPNS1_5ShardE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef readonly captures(none) %shard) local_unnamed_addr #9 align 2 {
 entry:
   %min_deadline = getelementptr inbounds nuw i8, ptr %shard, i64 72
   %shard_queue_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -789,7 +789,7 @@ declare void @_ZN9grpc_core17TimeAveragedStats9AddSampleEd(ptr noundef nonnull a
 declare noundef zeroext i1 @_ZN17grpc_event_engine12experimental9TimerHeap3AddEPNS0_5TimerE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN17grpc_event_engine12experimental9TimerList11TimerCancelEPNS0_5TimerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef %timer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN17grpc_event_engine12experimental9TimerList11TimerCancelEPNS0_5TimerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef %timer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %shards_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %num_shards_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -999,7 +999,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 declare void @_ZN17grpc_event_engine12experimental9TimerHeap3PopEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental9TimerList5Shard9PopTimersEN9grpc_core9TimestampEPS4_PSt6vectorIPNS0_11EventEngine7ClosureESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(176) %this, i64 %now.coerce, ptr nocapture noundef writeonly %new_min_deadline, ptr nocapture noundef %out) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental9TimerList5Shard9PopTimersEN9grpc_core9TimestampEPS4_PSt6vectorIPNS0_11EventEngine7ClosureESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(176) %this, i64 %now.coerce, ptr noundef writeonly captures(none) %new_min_deadline, ptr noundef captures(none) %out) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %heap.i = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -1181,7 +1181,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit16:      ; preds = %invoke.cont4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental9TimerList17FindExpiredTimersEN9grpc_core9TimestampEPS3_(ptr noalias nocapture sret(%"class.std::vector.12") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, i64 %now.coerce, ptr noundef %next) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental9TimerList17FindExpiredTimersEN9grpc_core9TimestampEPS3_(ptr noalias sret(%"class.std::vector.12") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, i64 %now.coerce, ptr noundef %next) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %new_min_deadline = alloca %"class.grpc_core::Timestamp", align 8
   %min_timer_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1386,7 +1386,7 @@ _ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EED2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental9TimerList10TimerCheckEPN9grpc_core9TimestampE(ptr noalias nocapture writeonly sret(%"class.std::optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %next) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental9TimerList10TimerCheckEPN9grpc_core9TimestampE(ptr noalias writeonly sret(%"class.std::optional") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %next) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %run = alloca %"class.std::vector.12", align 8
   %0 = load ptr, ptr %this, align 8
@@ -1463,7 +1463,7 @@ return:                                           ; preds = %invoke.cont, %if.th
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare noundef zeroext i1 @_ZN4absl12lts_202308025Mutex7TryLockEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
@@ -1493,7 +1493,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_timer.cc() #15 section ".text.startup" {

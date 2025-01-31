@@ -72,7 +72,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_add_rtc_cmos435, ptr @__UNIQUE_ID___addressable_rtc_cmos_read432, ptr @__UNIQUE_ID___addressable_rtc_cmos_write433, ptr @__UNIQUE_ID___addressable_rtc_lock431], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mach_set_cmos_time(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @mach_set_cmos_time(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.rtc_time, align 4
   %3 = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %2) #6
@@ -102,10 +102,10 @@ define dso_local i32 @mach_set_cmos_time(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @rtc_time64_to_tm(i64 noundef, ptr noundef) local_unnamed_addr #3
@@ -120,10 +120,10 @@ declare dso_local i32 @mc146818_set_time(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mach_get_cmos_time(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @mach_get_cmos_time(ptr noundef writeonly captures(none) initializes((0, 16)) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.rtc_time, align 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %2) #6
   %3 = load i8, ptr @pm_trace_rtc_abused, align 1, !range !6, !noundef !7

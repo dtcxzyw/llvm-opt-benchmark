@@ -206,7 +206,7 @@ return:                                           ; preds = %if.else67, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @_mpd_init_w3table(ptr nocapture noundef writeonly initializes((0, 16)) %w3table, i32 noundef %sign, i32 noundef %modnum) local_unnamed_addr #4 {
+define hidden void @_mpd_init_w3table(ptr noundef writeonly captures(none) initializes((0, 16)) %w3table, i32 noundef %sign, i32 noundef %modnum) local_unnamed_addr #4 {
 entry:
   %idxprom.i = sext i32 %modnum to i64
   %arrayidx.i = getelementptr [0 x i64], ptr @mpd_moduli, i64 0, i64 %idxprom.i

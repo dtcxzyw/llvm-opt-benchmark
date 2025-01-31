@@ -86,7 +86,7 @@ define linkonce_odr hidden void @_ZN12FormatBufferILm256EE5printEPKcz(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17BarrierSetNMethod10deoptimizeEP7nmethodPPh(ptr nocapture noundef nonnull readnone align 8 dereferenceable(12) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17BarrierSetNMethod10deoptimizeEP7nmethodPPh(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(12) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
@@ -309,7 +309,7 @@ _ZL22native_nmethod_barrierP7nmethod.exit:        ; preds = %14, %36
 declare noundef i32 @_ZNK17BarrierSetNMethod20disarmed_guard_valueEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN17BarrierSetNMethod14verify_barrierEP7nmethodR12FormatBufferILm256EE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(12) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(264) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN17BarrierSetNMethod14verify_barrierEP7nmethodR12FormatBufferILm256EE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(12) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(264) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 209
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 3
